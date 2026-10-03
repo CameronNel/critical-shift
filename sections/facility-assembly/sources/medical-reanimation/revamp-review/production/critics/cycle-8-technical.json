@@ -1,0 +1,430 @@
+{
+  "cycle": 8,
+  "discipline": "Blender technical quality",
+  "category": "Technical cleanliness / reproducibility",
+  "score": 7.8,
+  "available": 10,
+  "minimum": 8.5,
+  "status": "FAIL",
+  "source": "sections/facility-assembly/sources/medical-reanimation/module_overhaul_R2.blend",
+  "source_sha256": "045d77ded3329a43c2fed0fb3d3bc39f370548a8ca8c4b9d468de65d7b86b714",
+  "source_unchanged_during_review": true,
+  "independent_review": true,
+  "review_method": "Read actual builder, specialist extensions, validator and renderer; fresh Blender 5.2.2 LTS full-file cold open; independent geometry/UV/dependency probe; existing numerical validator rerun with only its output path redirected to /tmp; expanded sewn-edge surface-contact audit. No source save or art mutation.",
+  "critical_failures": [
+    {
+      "id": "T8-01",
+      "category": "support-contact",
+      "severity": "blocking",
+      "objects": [
+        "MED_R2 | Tailored cover construction Contoured head pad",
+        "MED_R2 | Tailored cover construction Recovery pillow",
+        "MED_R2 | Tailored cover construction Cart segmented mattress",
+        "MED_R2 | Tailored cover construction Cart segmented mattress.001",
+        "MED_R2 | Tailored cover construction Cart segmented mattress.002"
+      ],
+      "finding": "New tailored welts detach from the authored pillow/cart-mattress surface beyond the prescribed 5 mm gap tolerance. The registry selects one nearest vertex for a joined multi-part group, so nearby stitch geometry can pass while substantial welt sections float.",
+      "evidence": [
+        {
+          "object": "MED_R2 | Tailored cover construction Contoured head pad",
+          "target": "Contoured head pad",
+          "n": 828,
+          "min_distance": 6.951036084501538e-07,
+          "max_distance": 0.01047948282212019,
+          "max_point": [
+            -1.829229474067688,
+            5.6665496826171875,
+            1.0758792161941528
+          ],
+          "min_signed_distance": -3.020411134002643e-05,
+          "max_signed_distance": 0.010316103813238442,
+          "over5mm": 444
+        },
+        {
+          "object": "MED_R2 | Tailored cover construction Recovery pillow",
+          "target": "Recovery pillow",
+          "n": 828,
+          "min_distance": 4.373864067019895e-05,
+          "max_distance": 0.013606208376586437,
+          "max_point": [
+            3.5568482875823975,
+            5.214016437530518,
+            0.8232927918434143
+          ],
+          "min_signed_distance": -7.710653738968176e-05,
+          "max_signed_distance": 0.013296855730004609,
+          "over5mm": 347
+        },
+        {
+          "object": "MED_R2 | Tailored cover construction Cart segmented mattress",
+          "target": "Cart segmented mattress",
+          "n": 828,
+          "min_distance": 2.9454346076818183e-05,
+          "max_distance": 0.012122255750000477,
+          "max_point": [
+            -2.7980847358703613,
+            0.32239341735839844,
+            0.8984990119934082
+          ],
+          "min_signed_distance": 2.9453765819198452e-05,
+          "max_signed_distance": 0.008695535128936172,
+          "over5mm": 444
+        },
+        {
+          "object": "MED_R2 | Tailored cover construction Cart segmented mattress.001",
+          "target": "Cart segmented mattress.001",
+          "n": 828,
+          "min_distance": 2.9449520297930576e-05,
+          "max_distance": 0.012122252024710178,
+          "max_point": [
+            -2.7980847358703613,
+            1.0123934745788574,
+            0.8984990119934082
+          ],
+          "min_signed_distance": 2.944940034677046e-05,
+          "max_signed_distance": 0.008695493219420314,
+          "over5mm": 444
+        },
+        {
+          "object": "MED_R2 | Tailored cover construction Cart segmented mattress.002",
+          "target": "Cart segmented mattress.002",
+          "n": 828,
+          "min_distance": 2.9371243726927787e-05,
+          "max_distance": 0.012122259475290775,
+          "max_point": [
+            -2.7980847358703613,
+            1.7023932933807373,
+            0.8984990119934082
+          ],
+          "min_signed_distance": 2.9370698763742098e-05,
+          "max_signed_distance": 0.008695491822436452,
+          "over5mm": 444
+        }
+      ],
+      "interpretation": "Welts have 1.5 mm radius (3 mm diameter). Even subtracting the full tube diameter from the maximum measured surface distance leaves more than 5 mm of separation on these five groups. This is a geometry/contact defect, not just a missing test.",
+      "repair_target": "Fit welt centre lines to the actual final mesh or remove/rebuild floating welt runs. Register explicit witnesses on each welt run and at the worst end/corner locations instead of the globally nearest group vertex. Repeat the support checks and affected views."
+    }
+  ],
+  "remaining_defects": [
+    {
+      "id": "T8-02",
+      "severity": "medium",
+      "finding": "Pre-revision OCRU pillow, recovery pillow and berth-pad seams remain alongside new tailored seams; portions are embedded roughly 7.8\u20139.9 mm into the final reshaped upholstery. This is obsolete duplicate construction requiring review after the shape replacement.",
+      "evidence": [
+        {
+          "object": "MED_R2 | Recovery pillow wrapped seam",
+          "target": "Recovery pillow",
+          "n": 294,
+          "min_distance": 9.9744775070576e-06,
+          "max_distance": 0.010855511762201786,
+          "max_point": [
+            2.918677568435669,
+            5.226882457733154,
+            0.8100000023841858
+          ],
+          "min_signed_distance": -0.009930726431775838,
+          "max_signed_distance": 0.004606752032032091,
+          "over5mm": 63
+        },
+        {
+          "object": "MED_R2 | Recovery foam cushion wrapped seam",
+          "target": "Recovery foam cushion",
+          "n": 294,
+          "min_distance": 0.0004011478740721941,
+          "max_distance": 0.0015001920983195305,
+          "max_point": [
+            2.720731496810913,
+            4.2070698738098145,
+            0.7300000190734863
+          ],
+          "min_signed_distance": -0.0015001300969407771,
+          "max_signed_distance": 0.0015001502449791815,
+          "over5mm": 0
+        },
+        {
+          "object": "MED_R2 | OCRU upholstered seam construction",
+          "target": "Contoured head pad",
+          "n": 294,
+          "min_distance": 1.0414280950499233e-05,
+          "max_distance": 0.008384517394006252,
+          "max_point": [
+            -1.8432023525238037,
+            5.362686634063721,
+            1.065000057220459
+          ],
+          "min_signed_distance": -0.00776401290204376,
+          "max_signed_distance": 0.004553898721425753,
+          "over5mm": 40
+        },
+        {
+          "object": "MED_R2 | Segmented adult berth cushion bound seam",
+          "target": "Segmented adult berth cushion",
+          "n": 294,
+          "min_distance": 0.0,
+          "max_distance": 0.009624696336686611,
+          "max_point": [
+            -1.6896872520446777,
+            3.525237560272217,
+            1.0037009716033936
+          ],
+          "min_signed_distance": -0.009564792499077157,
+          "max_signed_distance": 0.00336354604862521,
+          "over5mm": 42
+        },
+        {
+          "object": "MED_R2 | Segmented adult berth cushion.001 bound seam",
+          "target": "Segmented adult berth cushion.001",
+          "n": 294,
+          "min_distance": 0.0,
+          "max_distance": 0.009624583646655083,
+          "max_point": [
+            -1.6896872520446777,
+            4.305237293243408,
+            1.0037009716033936
+          ],
+          "min_signed_distance": -0.009564895683070063,
+          "max_signed_distance": 0.0033635458169953836,
+          "over5mm": 42
+        },
+        {
+          "object": "MED_R2 | Segmented adult berth cushion.002 bound seam",
+          "target": "Segmented adult berth cushion.002",
+          "n": 294,
+          "min_distance": 0.0,
+          "max_distance": 0.009624583646655083,
+          "max_point": [
+            -1.6896872520446777,
+            5.0852370262146,
+            1.0037009716033936
+          ],
+          "min_signed_distance": -0.009564895495714154,
+          "max_signed_distance": 0.003363436795233099,
+          "over5mm": 42
+        }
+      ],
+      "repair_target": "Remove or fit superseded seam runs; retain one deliberate sewn construction per edge."
+    },
+    {
+      "id": "T8-03",
+      "severity": "minor",
+      "finding": "Dated OCRU maintenance card contains eight degenerate mesh faces and eight zero-area MED_Physical_1m UV faces. The UV contract records the failure but asserts only finite coordinates; the numerical verifier does not fail zero-area geometry or UVs.",
+      "repair_target": "Remove/rebuild the collapsed faces introduced by skin projection and fail unintentional zero-area faces in verification."
+    }
+  ],
+  "verified_passes": {
+    "full_file_cold_open": {
+      "linked_map": true,
+      "missing_libraries": [],
+      "editable_room_local": true
+    },
+    "supplied_objective_report_reproduced": "PASS",
+    "registered_anchor_checks": {
+      "registered": 107,
+      "passed": 107,
+      "unregistered": [],
+      "anchors_checked": 116
+    },
+    "winding": {
+      "authored_meshes": 159,
+      "inconsistent_edges": 0,
+      "nonmanifold_internal_edges": 0,
+      "negative_world_scale_objects": 0,
+      "negative_closed_components": 0
+    },
+    "protected_files": [
+      {
+        "path": "blender/facility_environment.blend",
+        "sha256": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+        "expected": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+        "unchanged": true
+      },
+      {
+        "path": "sources/medical-reanimation/module.blend",
+        "sha256": "6c1a7600656050f717e0c94d26c038f3474fc974c7e0e0101ea7d598fe985523",
+        "expected": "6c1a7600656050f717e0c94d26c038f3474fc974c7e0e0101ea7d598fe985523",
+        "unchanged": true
+      }
+    ],
+    "approved_spawn_sha256": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+    "approved_spawn_unchanged": true,
+    "inherited_layout_objects_verified": 1203,
+    "layout_caveat": "Inherited equipment, room planes and bounds retain baseline matrices/dimensions except the declared small dressing/access poses; existing interface source/provenance files were not mutated. Objective clearance test covers the reserved lane, not every object-pair collision.",
+    "library_dependencies": {
+      "count": 25,
+      "missing": [],
+      "editable_scene_local": true,
+      "linked_map_scenes": [
+        "Critical Shift | Mountain Watershed"
+      ]
+    },
+    "packed_texture_portability": {
+      "local_file_images": 5,
+      "all_local_file_images_packed": true,
+      "missing_unpacked_images": [],
+      "notes": "Packed plaster maps load despite unavailable recorded disk paths. Complete overhaul file also requires its 25 linked libraries; portability here means the existing repository/dependency layout, not a single standalone file."
+    },
+    "map_semantics": {
+      "poster": "sRGB clinical-propaganda image feeds Base Color and uses Printed artwork, which remains the render UV despite MED_Physical_1m being the editing-active layer.",
+      "bottle_labels": "sRGB clinical-labels image feeds Base Color through explicit Clinical_Label UV; other non-label faces in that joined group may have zero label-UV area intentionally.",
+      "numeric_maps": "Packed plaster roughness and height maps use Non-Color; height remains Bump, not tangent-normal input.",
+      "physical_named_uv": "MED_Physical_1m exists on all 159 targeted meshes, with finite coordinates; the maintenance-card exception has eight zero-area faces."
+    },
+    "cabinet_cart_inheritance": {
+      "fabricated_glazing_faces_follow_each_sliding_pane": true,
+      "cart_guards_tailored_mattresses_and_load_plate_follow_Cart_Lift_Deck": true,
+      "reserve_cover_follows_service_door": true
+    },
+    "new_shape_checks": {
+      "wheels_contact_floor": [
+        {
+          "wheel": "Caster rubber tyre",
+          "bottom_z": -5.114232926040074e-10,
+          "parent": "BODY_CART"
+        },
+        {
+          "wheel": "Caster rubber tyre.001",
+          "bottom_z": -5.114232926040074e-10,
+          "parent": "BODY_CART"
+        },
+        {
+          "wheel": "Caster rubber tyre.002",
+          "bottom_z": -5.114232926040074e-10,
+          "parent": "BODY_CART"
+        },
+        {
+          "wheel": "Caster rubber tyre.003",
+          "bottom_z": -5.114232926040074e-10,
+          "parent": "BODY_CART"
+        }
+      ],
+      "pillows_and_cart_pad_nearest_contact": [
+        {
+          "object": "Contoured head pad",
+          "target": "Segmented adult berth cushion.002",
+          "nearest_vertex_distance_m": 1.1920928955078125e-07,
+          "nearest_point": [
+            -2.2209722995758057,
+            5.447778224945068,
+            1.0200001001358032
+          ],
+          "object_bottom_z": 1.0200001001358032
+        },
+        {
+          "object": "Recovery pillow",
+          "target": "Recovery foam cushion",
+          "nearest_vertex_distance_m": 5.245208740234375e-06,
+          "nearest_point": [
+            3.4905378818511963,
+            5.564279556274414,
+            0.7549999952316284
+          ],
+          "object_bottom_z": 0.7549999952316284
+        },
+        {
+          "object": "Cart segmented mattress",
+          "target": "Cart deck",
+          "nearest_vertex_distance_m": 0.0024999380111694336,
+          "nearest_point": [
+            -3.4499998092651367,
+            0.5167708992958069,
+            0.8600000143051147
+          ],
+          "object_bottom_z": 0.8600000143051147
+        },
+        {
+          "object": "Cart segmented mattress.001",
+          "target": "Cart deck",
+          "nearest_vertex_distance_m": 0.0024999380111694336,
+          "nearest_point": [
+            -3.4499998092651367,
+            1.206770896911621,
+            0.8600000143051147
+          ],
+          "object_bottom_z": 0.8600000143051147
+        },
+        {
+          "object": "Cart segmented mattress.002",
+          "target": "Cart deck",
+          "nearest_vertex_distance_m": 0.0024999380111694336,
+          "nearest_point": [
+            -3.4499998092651367,
+            1.8967708349227905,
+            0.8600000143051147
+          ],
+          "object_bottom_z": 0.8600000143051147
+        }
+      ],
+      "load_columns": "Both reshaped lift casings overlap their retained bolt flanges and retain their baseline bounds; no floating foot was established. Their nearest-distance check to chamber pan alone is not the correct support test."
+    },
+    "lighting_count_and_actual_energies": [
+      {
+        "name": "Wall grazed work zone.001",
+        "type": "AREA",
+        "energy": 34.0,
+        "color": [
+          1.0,
+          0.6700000166893005,
+          0.3799999952316284
+        ],
+        "hide_render": false
+      },
+      {
+        "name": "MED | ONE red OCRU source",
+        "type": "AREA",
+        "energy": 45.0,
+        "color": [
+          1.0,
+          0.054999999701976776,
+          0.02500000037252903
+        ],
+        "hide_render": false
+      },
+      {
+        "name": "MED | Machine accent",
+        "type": "SPOT",
+        "energy": 35.0,
+        "color": [
+          0.8500000238418579,
+          0.8700000047683716,
+          0.9100000262260437
+        ],
+        "hide_render": false
+      },
+      {
+        "name": "MED | Rear service accent",
+        "type": "SPOT",
+        "energy": 240.0,
+        "color": [
+          0.8500000238418579,
+          0.8700000047683716,
+          0.9100000262260437
+        ],
+        "hide_render": false
+      }
+    ],
+    "body_bag_note": "Closed folded bag retained beneath berth; four explicit note corners are included in the reproduced support report. No anatomy or open body-bag mesh was introduced by the reviewed code."
+  },
+  "performance_context": {
+    "local_evaluated_triangles": 429308,
+    "baseline_evaluated_triangles": 133888,
+    "ratio": 3.206,
+    "notes": "Approximately 3.2 times the baseline, largely upholstery/wall subdivision and dressing. No per-room numeric budget or measured engine draw-call/performance result was established in this critique."
+  },
+  "limitations": [
+    "No new authored build/rebuild was executed because the review is read-only; reproducible cold open and the existing validator were independently exercised.",
+    "No exhaustive all-pairs intersection audit, engine export or Unity behavior test was run.",
+    "Current full render batch was still in progress; this grade is technical and does not claim visual approval, checker coverage of every side or a cold/hot pixel comparison for this SHA.",
+    "The two spot energies are 35 W and 240 W. Exact count is verified; whether both read as dim requires the lighting/pixel critic.",
+    "Interface preservation is supported by baseline matrix/dimension checks, protected source hashes and unchanged contract files; no assembled-map promotion is authorized or performed."
+  ],
+  "commands": [
+    "/workspace/tools/blender-5.2.2-linux-x64/blender -b --factory-startup --disable-autoexec --threads 1 --python-exit-code 1 --python /tmp/medical_cycle8_technical_probe.py",
+    "/workspace/tools/blender-5.2.2-linux-x64/blender -b --factory-startup --disable-autoexec --threads 1 --python-exit-code 1 --python /tmp/medical_cycle8_verify_readonly.py",
+    "/workspace/tools/blender-5.2.2-linux-x64/blender -b --factory-startup --disable-autoexec --threads 1 --python-exit-code 1 --python /tmp/medical_cycle8_contact_probe.py"
+  ],
+  "scratch_evidence": [
+    "/tmp/medical_cycle8_technical_probe.json",
+    "/tmp/medical_cycle8_independent_objective.json",
+    "/tmp/medical_cycle8_contact_probe.json"
+  ]
+}

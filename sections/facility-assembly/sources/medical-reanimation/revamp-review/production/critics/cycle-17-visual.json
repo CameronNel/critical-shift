@@ -1,0 +1,549 @@
+{
+  "review": "Medical/reanimation cycle 17 independent visual review",
+  "reviewer": "medical_skill_visual17",
+  "created_utc": "2026-10-01T11:59:20.262244+00:00",
+  "status": "PASS within visual scope",
+  "source_sha256": "39007192eef36f87c5299933e3a2a4f3462791871144c349a580ba2d9d322487",
+  "renderer_sha256": "d58c877b8b970c5ee48ba1e0a9a4812fe23d3129239977f634bb66ecd8fa52eb",
+  "manifest_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/manifest.json",
+  "manifest_complete": true,
+  "manifest_cold_open": true,
+  "evidence_gate": {
+    "named_camera_count": 24,
+    "real_png_count": 24,
+    "actual_resolution": [
+      1067,
+      600
+    ],
+    "all_images_decoded": true,
+    "all_24_individually_opened_at_original_resolution": true,
+    "all_four_spawn_reference_pngs_individually_opened": true,
+    "scoring_began_only_after_complete_true_and_all_24_real_images": true,
+    "montages_used_as_substitutes": false
+  },
+  "authorities": [
+    "/workspace/critical-shift/AGENTS.md",
+    "/workspace/critical-shift/design/ART_DIRECTION.md",
+    "/workspace/critical-shift/design/ART_REFERENCE_INDEX.md",
+    "/workspace/critical-shift/design/AUTONOMOUS_SECTION_BUILD_PROTOCOL.md",
+    "/workspace/critical-shift/.agents/skills/blender-headless/SKILL.md",
+    "/workspace/critical-shift/.agents/skills/blender-headless/references/visual-review.md",
+    "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/RUBRIC.md",
+    "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/CAMERAS.md"
+  ],
+  "spawn_reference_evidence": [
+    "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/spawn-reference/VALIDATE_Material_A.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/spawn-reference/VALIDATE_LockerDoor.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/spawn-reference/VALIDATE_Spawn.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/spawn-reference/BRIEFING_INDIRECT.png"
+  ],
+  "independence": {
+    "prior_scores_read": false,
+    "other_critic_reports_read": false,
+    "author_effort_narratives_read": false,
+    "scene_or_renderer_code_used_for_visual_score": false,
+    "native_scene_mutations": false,
+    "private_renders": false
+  },
+  "categories": [
+    {
+      "id": "layout",
+      "name": "Layout and route readability",
+      "available": 20,
+      "minimum": 17,
+      "score": 19.0,
+      "reason": "ENTRY, REVERSE and PINCH preserve clear visual circulation between functionally separate equipment clusters; all four cutaways show useful central negative space. Exact dimensions and boundary preservation remain objective checks.",
+      "pass": true,
+      "percent": 95.0
+    },
+    {
+      "id": "art",
+      "name": "Grounded stylized art and silhouettes",
+      "available": 20,
+      "minimum": 17,
+      "score": 18.2,
+      "reason": "Manufactured frames, rails, scissor mechanisms, guarded controls, recessed cabinet doors and credible cot proportions carry the scene. The clinic adapts the approved spawn palette and material/shape discipline to a bleaker setting without generic primitive or photoreal-noise dominance.",
+      "pass": true,
+      "percent": 91.0
+    },
+    {
+      "id": "hero",
+      "name": "OCRU hero function and focal clarity",
+      "available": 15,
+      "minimum": 12.75,
+      "score": 13.8,
+      "reason": "The red mechanized bed bay is the dominant landmark. Insert/release hardware, suit connection, lift bases and the restart/cartridge sequence support worker reanimation; the opposite draped cot reads as recovery. Fine operational copy is secondary to the spatial and object cues.",
+      "pass": true,
+      "percent": 92.0
+    },
+    {
+      "id": "materials",
+      "name": "Materials and anti-plastic quality",
+      "available": 15,
+      "minimum": 12.75,
+      "score": 13.5,
+      "reason": "The actual detail views distinguish cloth/coated upholstery, painted metal, subdued bare metal, rubber hoses, paper, molded bottle/dispenser parts and tinted cabinet glass. Wear and broad variation stay localized. Red cast and deep secondary shadows reduce some fine material discrimination.",
+      "pass": true,
+      "percent": 90.0
+    },
+    {
+      "id": "lighting",
+      "name": "Dark lighting and atmosphere",
+      "available": 10,
+      "minimum": 8.5,
+      "score": 8.8,
+      "reason": "Normal cameras establish a red OCRU practical, a warm supply pool, dim secondary illumination, dark ceiling volume and readable routes with contact shadows. Decon, reserve and cabinet interiors have limited small-part contrast, but function remains legible. HIDDEN_BAG inspection fill is excluded.",
+      "pass": true,
+      "percent": 88.0
+    },
+    {
+      "id": "dressing",
+      "name": "Purposeful dressing and neglected workplace story",
+      "available": 10,
+      "minimum": 8.5,
+      "score": 9.1,
+      "reason": "Clinical tools, sealed sharps, inventory, missing cartridge position, shift log, floor marks, wall patches and worn corporate productivity imagery provide a coherent workplace. RELEASE DENIED and recommission/return messaging support manipulation; the closed under-bed bag and tiny pale note supply covert detail.",
+      "pass": true,
+      "percent": 91.0
+    }
+  ],
+  "visual_total": 82.4,
+  "visual_available": 90,
+  "visual_percent": 91.56,
+  "every_visual_category_at_least_85_percent": true,
+  "all_24_camera_gates_pass": true,
+  "visual_veto_triggered": false,
+  "critical_findings": [],
+  "normal_atmosphere_camera_count": 23,
+  "atmosphere_excluded_cameras": [
+    "HIDDEN_BAG"
+  ],
+  "per_camera": [
+    {
+      "camera": "ENTRY",
+      "label": "19 | ENTRY / PLAYER HEIGHT",
+      "evidence_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/ENTRY.png",
+      "actual_resolution": [
+        1067,
+        600
+      ],
+      "inspected_individually": true,
+      "gate": "PASS",
+      "normal_atmosphere_evidence": true,
+      "judgment": "Open central floor and transfer outline lead past the red OCRU bay toward the restart/cartridge/decon cluster; the opposite cot stays distinct. Blue cabinets, cream frame members and muted walls retain the approved institutional palette."
+    },
+    {
+      "camera": "REVERSE",
+      "label": "20 | REVERSE / PLAYER HEIGHT",
+      "evidence_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/REVERSE.png",
+      "actual_resolution": [
+        1067,
+        600
+      ],
+      "inspected_individually": true,
+      "gate": "PASS",
+      "normal_atmosphere_evidence": true,
+      "judgment": "The open entrance is recognizable between manufactured blue door leaves, with an unobstructed return route. The warm supplies pool and red OCRU bay provide separate practical zones beneath a dark ceiling."
+    },
+    {
+      "camera": "PINCH",
+      "label": "21 | RESCUE ROUTE / PLAYER HEIGHT",
+      "evidence_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/PINCH.png",
+      "actual_resolution": [
+        1067,
+        600
+      ],
+      "inspected_individually": true,
+      "gate": "PASS",
+      "normal_atmosphere_evidence": true,
+      "judgment": "The rescue route is visibly open between the restart/cartridge cluster and recovery cot. Guarded controls, drawer faces, cartridge shelving and the decon recess stay legible without filling the circulation area."
+    },
+    {
+      "camera": "DETAIL_OCRU",
+      "label": "22 | OCRU CARRIAGE / DETAIL",
+      "evidence_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/DETAIL_OCRU.png",
+      "actual_resolution": [
+        1067,
+        600
+      ],
+      "inspected_individually": true,
+      "gate": "PASS",
+      "normal_atmosphere_evidence": true,
+      "judgment": "Segmented upholstery, restrained stitching, rail clamps, telescoping rails, twin lift supports and bolted pedestal feet give the bed specific construction. The closed bag and zipper are tucked below the carriage. The red cast limits subtle upholstery colour discrimination."
+    },
+    {
+      "camera": "DETAIL_SUPPLIES",
+      "label": "23 | CLINICAL WORK / DETAIL",
+      "evidence_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/DETAIL_SUPPLIES.png",
+      "actual_resolution": [
+        1067,
+        600
+      ],
+      "inspected_individually": true,
+      "gate": "PASS",
+      "normal_atmosphere_evidence": true,
+      "judgment": "Rolled bandages, folded gloves, bottles with molded caps, paper/log sheets and metal instruments have distinct silhouettes and responses. The repeated offline entries and RELEASE DENIED line communicate coercive medical procedure without room-wide text clutter."
+    },
+    {
+      "camera": "CORNER_SW",
+      "label": "01 | FRONT LEFT / CUTAWAY",
+      "evidence_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/CORNER_SW.png",
+      "actual_resolution": [
+        1067,
+        600
+      ],
+      "inspected_individually": true,
+      "gate": "PASS",
+      "normal_atmosphere_evidence": true,
+      "judgment": "The entire footprint and open transfer area are visible in the cutaway. OCRU, recovery, supplies and restart/decon zones remain separated, with the warm and red pools localized."
+    },
+    {
+      "camera": "CORNER_SE",
+      "label": "02 | FRONT RIGHT / CUTAWAY",
+      "evidence_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/CORNER_SE.png",
+      "actual_resolution": [
+        1067,
+        600
+      ],
+      "inspected_individually": true,
+      "gate": "PASS",
+      "normal_atmosphere_evidence": true,
+      "judgment": "The cutaway shows the OCRU machine on one side and recovery/supplies on the other, connected by clear central floor. The transfer cart is parked against the machine-side perimeter rather than in the main route."
+    },
+    {
+      "camera": "CORNER_NW",
+      "label": "03 | REAR LEFT / CUTAWAY",
+      "evidence_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/CORNER_NW.png",
+      "actual_resolution": [
+        1067,
+        600
+      ],
+      "inspected_individually": true,
+      "gate": "PASS",
+      "normal_atmosphere_evidence": true,
+      "judgment": "The full-footprint cutaway shows the entrance, recovery and supply work surface, plus the OCRU and restart cluster. Dark overhead infrastructure is subordinate to the readable occupied floor."
+    },
+    {
+      "camera": "CORNER_NE",
+      "label": "04 | REAR RIGHT / CUTAWAY",
+      "evidence_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/CORNER_NE.png",
+      "actual_resolution": [
+        1067,
+        600
+      ],
+      "inspected_individually": true,
+      "gate": "PASS",
+      "normal_atmosphere_evidence": true,
+      "judgment": "The full-footprint cutaway exposes the entrance, OCRU, transfer cart and recovery-side equipment together. Equipment clusters respect open negative space and the decon alcove remains a distinct recess."
+    },
+    {
+      "camera": "WALL_SOUTH",
+      "label": "05 | ENTRY WALL",
+      "evidence_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/WALL_SOUTH.png",
+      "actual_resolution": [
+        1067,
+        600
+      ],
+      "inspected_individually": true,
+      "gate": "PASS",
+      "normal_atmosphere_evidence": true,
+      "judgment": "The entrance wall keeps a clear opening and credible blue door construction. The supplies pool and OCRU edge frame the return route without concealing it."
+    },
+    {
+      "camera": "WALL_WEST",
+      "label": "06 | OCRU WALL",
+      "evidence_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/WALL_WEST.png",
+      "actual_resolution": [
+        1067,
+        600
+      ],
+      "inspected_individually": true,
+      "gate": "PASS",
+      "normal_atmosphere_evidence": true,
+      "judgment": "The OCRU frame, side service panels, bed, lift bases and insert/suit controls form a coherent manufactured assembly. A single visible red practical defines the bed zone; the bag remains below the bed."
+    },
+    {
+      "camera": "WALL_NORTH",
+      "label": "07 | RESTART / DECON WALL",
+      "evidence_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/WALL_NORTH.png",
+      "actual_resolution": [
+        1067,
+        600
+      ],
+      "inspected_individually": true,
+      "gate": "PASS",
+      "normal_atmosphere_evidence": true,
+      "judgment": "The restart console, cartridges and decon recess form a practical operating sequence. Utility runs and subdued wall patches add construction and use without becoming decorative pipe clutter."
+    },
+    {
+      "camera": "WALL_EAST",
+      "label": "08 | RECOVERY / SUPPLIES WALL",
+      "evidence_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/WALL_EAST.png",
+      "actual_resolution": [
+        1067,
+        600
+      ],
+      "inspected_individually": true,
+      "gate": "PASS",
+      "normal_atmosphere_evidence": true,
+      "judgment": "The recovery cot, wash point and supplies bench are clearly separated. Broad cloth drape, the worn corporate CONTINUITY / PRODUCTIVITY poster and the localized warm pool establish an institutional clinic with neglect and coercion."
+    },
+    {
+      "camera": "HERO_OCRU",
+      "label": "09 | OCRU REANIMATION UNIT",
+      "evidence_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/HERO_OCRU.png",
+      "actual_resolution": [
+        1067,
+        600
+      ],
+      "inspected_individually": true,
+      "gate": "PASS",
+      "normal_atmosphere_evidence": true,
+      "judgment": "The padded mechanized bed, twin lift bases, rail hardware, insert/release control and suit connector read as a specialized worker reanimation unit. ORGANIC CONTINUITY and the adjacent restart context distinguish it from the simpler recovery cot."
+    },
+    {
+      "camera": "HERO_RESTART",
+      "label": "10 | RESTART CONSOLE",
+      "evidence_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/HERO_RESTART.png",
+      "actual_resolution": [
+        1067,
+        600
+      ],
+      "inspected_individually": true,
+      "gate": "PASS",
+      "normal_atmosphere_evidence": true,
+      "judgment": "Two physically housed screens, three guarded controls, metal work surface, drawers and lower service cabinet make a grounded operating console. OCRU state text and AWAITING TRANSFER are readable at this camera."
+    },
+    {
+      "camera": "HERO_CARTRIDGES",
+      "label": "11 | MEDICAL CARTRIDGE BANK",
+      "evidence_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/HERO_CARTRIDGES.png",
+      "actual_resolution": [
+        1067,
+        600
+      ],
+      "inspected_individually": true,
+      "gate": "PASS",
+      "normal_atmosphere_evidence": true,
+      "judgment": "The narrow rack uses folded shelves, a supported frame and a deliberate numbered-vial inventory with one empty position. It remains secondary to the bed/console and adjacent decon workflow."
+    },
+    {
+      "camera": "HERO_RESERVE",
+      "label": "12 | RESERVE POWER",
+      "evidence_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/HERO_RESERVE.png",
+      "actual_resolution": [
+        1067,
+        600
+      ],
+      "inspected_individually": true,
+      "gate": "PASS",
+      "normal_atmosphere_evidence": true,
+      "judgment": "Two handled reserve units sit within an open blue/orange cabinet; handles, panel seams and retained fasteners give construction specificity. The dark recess reduces small-part contrast, while the units and their support shelves remain readable."
+    },
+    {
+      "camera": "HERO_DECON",
+      "label": "13 | DECONTAMINATION ALCOVE",
+      "evidence_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/HERO_DECON.png",
+      "actual_resolution": [
+        1067,
+        600
+      ],
+      "inspected_individually": true,
+      "gate": "PASS",
+      "normal_atmosphere_evidence": true,
+      "judgment": "The frame, back-wall service panel, looping hose, pipe, floor grate and used-PPE bin establish decontamination function. The upper fitting is very subdued, but the primary alcove and working hardware remain readable."
+    },
+    {
+      "camera": "HERO_RECOVERY",
+      "label": "14 | RECOVERY BERTH",
+      "evidence_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/HERO_RECOVERY.png",
+      "actual_resolution": [
+        1067,
+        600
+      ],
+      "inspected_individually": true,
+      "gate": "PASS",
+      "normal_atmosphere_evidence": true,
+      "judgment": "A simple framed cot with four supported legs, broad sheet drape and folded blue blanket reads as the recovery berth, separate from the mechanized red OCRU. The return-to-work poster and sign-before-leaving context support the coercive clinic story."
+    },
+    {
+      "camera": "HERO_CART",
+      "label": "15 | TRANSFER CART",
+      "evidence_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/HERO_CART.png",
+      "actual_resolution": [
+        1067,
+        600
+      ],
+      "inspected_individually": true,
+      "gate": "PASS",
+      "normal_atmosphere_evidence": true,
+      "judgment": "Three padded sections, a scissor lift, pivot, wheeled base and yellow brake accents create a recognizable transfer gurney. Local light and floor shadow give grounding; it is parked in a perimeter zone."
+    },
+    {
+      "camera": "HERO_SUPPLIES",
+      "label": "16 | SUPPLY WORKBENCH",
+      "evidence_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/HERO_SUPPLIES.png",
+      "actual_resolution": [
+        1067,
+        600
+      ],
+      "inspected_individually": true,
+      "gate": "PASS",
+      "normal_atmosphere_evidence": true,
+      "judgment": "A blue manufactured bench with drawers and lower inventory boxes supports the clinical tools, sealed sharps container and log. Broad wall repair patches and controlled countertop detail match the neglected institutional adaptation."
+    },
+    {
+      "camera": "HERO_WASH",
+      "label": "17 | HANDWASH STATION",
+      "evidence_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/HERO_WASH.png",
+      "actual_resolution": [
+        1067,
+        600
+      ],
+      "inspected_individually": true,
+      "gate": "PASS",
+      "normal_atmosphere_evidence": true,
+      "judgment": "The recessed basin, faucet, dispenser and adjacent sealed sharps bin form a readable wash station. Metal, molded dispenser casing, wall surface and paper labels have controlled distinct responses; ghosted wall patches remain low-frequency."
+    },
+    {
+      "camera": "HERO_CABINET",
+      "label": "18 | MEDICAL SUPPLIES CABINET",
+      "evidence_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/HERO_CABINET.png",
+      "actual_resolution": [
+        1067,
+        600
+      ],
+      "inspected_individually": true,
+      "gate": "PASS",
+      "normal_atmosphere_evidence": true,
+      "judgment": "Inset dark glass, paired handles, hinges, fasteners, shelf contents and a bottom latch/strip distinguish the wall cabinet from a plain block. The glass contents are subdued but visible; the blue painted shell stays clearly readable."
+    },
+    {
+      "camera": "HIDDEN_BAG",
+      "label": "24 | BAG / INSPECTION FILL",
+      "evidence_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-17/HIDDEN_BAG.png",
+      "actual_resolution": [
+        1067,
+        600
+      ],
+      "inspected_individually": true,
+      "gate": "PASS",
+      "normal_atmosphere_evidence": false,
+      "judgment": "The inspection view visibly shows a closed zipper, fabric seams, carrying loops and a tiny pale note on the bag. No exposed body or open seam is visible. This labelled temporary 2 W fill is used only for the concealed-prop gate and is excluded from normal atmosphere scoring."
+    }
+  ],
+  "visual_veto_checks": [
+    {
+      "id": "generic_low_poly",
+      "triggered": false,
+      "judgment": "Not dominant: object-specific primary and secondary forms are visible in the OCRU, cot, cart, console and cabinets."
+    },
+    {
+      "id": "repeated_box_bevel",
+      "triggered": false,
+      "judgment": "Not dominant: rail/lift/control/frame construction varies by function; storage boxes are subordinate inventory."
+    },
+    {
+      "id": "uniform_plastic",
+      "triggered": false,
+      "judgment": "Not present as a dominant response: material details and recovery/cabinet views show distinct material families."
+    },
+    {
+      "id": "primitive_scifi_panels",
+      "triggered": false,
+      "judgment": "Not present: guarded physical controls and restrained housed displays support a grounded industrial interface."
+    },
+    {
+      "id": "excessive_signage_screens",
+      "triggered": false,
+      "judgment": "Not dominant: signs identify functional zones and the selected poster/log support the clinic story."
+    },
+    {
+      "id": "flat_even_lighting",
+      "triggered": false,
+      "judgment": "Not present: localized red/warm pools, dark ceiling and secondary recesses maintain depth."
+    },
+    {
+      "id": "toy_like_ppe",
+      "triggered": false,
+      "judgment": "No toy-like PPE dominates the shown scene; worker suits or characters are not depicted in this evidence set."
+    },
+    {
+      "id": "random_decorative_clutter",
+      "triggered": false,
+      "judgment": "Not present: dressing is clinical, maintenance/inventory or coercive workplace evidence."
+    },
+    {
+      "id": "procedural_cleanliness",
+      "triggered": false,
+      "judgment": "Not dominant: localized floor marks, wall patches, worn poster and supplies/log break a pristine procedural read."
+    },
+    {
+      "id": "photoreal_texture_noise",
+      "triggered": false,
+      "judgment": "Not present: broad restrained surface variation remains stylized."
+    },
+    {
+      "id": "aaa_fidelity_drift",
+      "triggered": false,
+      "judgment": "Not present: detail and surface response remain simplified and controlled."
+    },
+    {
+      "id": "generic_web_demo",
+      "triggered": false,
+      "judgment": "Not present: specific manufactured assemblies, tactile material separation and atmosphere carry the room."
+    },
+    {
+      "id": "floating_unsupported_props",
+      "triggered": false,
+      "judgment": "No confirmed visible floating or unsupported prop in the inspected pixels. This does not certify geometric support contact."
+    },
+    {
+      "id": "unreadable_major_silhouettes",
+      "triggered": false,
+      "judgment": "Not present: principal functions remain identifiable from gameplay cameras; small details in dark secondary interiors are limited."
+    }
+  ],
+  "nonblocking_limitations": [
+    {
+      "severity": "nonblocking",
+      "evidence": [
+        "HERO_DECON",
+        "HERO_RESERVE",
+        "HERO_CABINET"
+      ],
+      "finding": "Small interior details are low contrast in the darkest secondary equipment views. The primary frames, working hardware and cabinet contents remain identifiable."
+    },
+    {
+      "severity": "nonblocking",
+      "evidence": [
+        "DETAIL_OCRU"
+      ],
+      "finding": "The strong red practical compresses subtle mattress/upholstery colour and material variation in the close-up. Rail, lift and bedding construction still separate clearly."
+    },
+    {
+      "severity": "nonblocking",
+      "evidence": [
+        "HIDDEN_BAG",
+        "HERO_OCRU",
+        "DETAIL_OCRU"
+      ],
+      "finding": "The tiny pale note is visible in inspection and almost disappears in normal bed views. Its text is not readable at 600p, consistent with a barely visible easter egg; no wording is certified."
+    },
+    {
+      "severity": "scope_limit",
+      "evidence": [
+        "manifest.json"
+      ],
+      "finding": "This independent critic scores current pixels only. Exact boundary preservation, clearances, every support contact, authored light counts, source integrity, cold-process provenance and hot/cold stability require the separate technical/objective review."
+    }
+  ],
+  "technical_category": {
+    "name": "Technical cleanliness and reproducibility",
+    "available": 10,
+    "minimum": 8.5,
+    "score": null,
+    "status": "UNSCORED \u2014 separate technical review required"
+  },
+  "acceptance_scope": "This report passes the six visual categories and the 24 current camera gates. It does not declare overall 100-point completion, cycle stability, technical acceptance, owner promotion, merge or runtime integration."
+}

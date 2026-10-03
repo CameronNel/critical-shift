@@ -1,0 +1,20 @@
+RENDER_SHOT HERO_CARTRIDGES
+08:19.771  render           | Saved: '/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-15/HERO_CARTRIDGES.png'
+RENDER_SHOT HERO_RESERVE
+09:01.543  render           | Saved: '/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-15/HERO_RESERVE.png'
+RENDER_SHOT HERO_DECON
+09:45.566  render           | Saved: '/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-15/HERO_DECON.png'
+RENDER_SHOT HERO_RECOVERY
+10:22.077  render           | Saved: '/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-15/HERO_RECOVERY.png'
+RENDER_SHOT HERO_CART
+Traceback (most recent call last):
+  File "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/render_overhaul.py", line 218, in <module>
+    raise RuntimeError('Render cancelled or failed: '+item['id'])
+RuntimeError: Render cancelled or failed: HERO_CART
+
+Error: script failed, file: 'sections/facility-assembly/sources/medical-reanimation/render_overhaul.py', exiting.
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)
+
+Sent an internal break event. Press ^C again to kill Blender
+
+Blender quit

@@ -1,0 +1,847 @@
+{
+  "source_sha256": "39007192eef36f87c5299933e3a2a4f3462791871144c349a580ba2d9d322487",
+  "method": "Independently specified intended support pairs; evaluated polygon BVH, face/vertex/edge samples and real edge intersections. Fixed bearing/mount directions; ambiguous misses require mechanism review rather than automatic blocker.",
+  "reports": [
+    {
+      "object": "Cartridge bank formed upright",
+      "target": "Floor",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "cartridge rack upright floor bearing",
+      "samples": 227,
+      "oriented_hits": 106,
+      "passing_actual_surface_witnesses": 106,
+      "best": {
+        "signed_gap_m": -6.705522526129215e-10,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          0.7175000309944153,
+          8.989999771118164,
+          0.0
+        ],
+        "target_surface": [
+          0.7175000309944153,
+          8.989999771118164,
+          0.0
+        ],
+        "target_face_index": 12703,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Chamber roof load beam",
+      "target": "Chamber structural upright",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "OCRU roof beam supported at structural ends",
+      "samples": 236,
+      "oriented_hits": 62,
+      "passing_actual_surface_witnesses": 7,
+      "best": {
+        "signed_gap_m": -2.674758434184632e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -1.4997498989105225,
+          2.490000009536743,
+          2.7100000381469727
+        ],
+        "target_surface": [
+          -1.4997498989105225,
+          2.490000009536743,
+          2.7100000381469727
+        ],
+        "target_face_index": 51,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Chassis longitudinal channel",
+      "target": "Fabricated chamber foot",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "OCRU chassis floor foot bearing",
+      "samples": 254,
+      "oriented_hits": 1,
+      "passing_actual_surface_witnesses": 1,
+      "best": {
+        "signed_gap_m": -6.705522526129215e-10,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -1.678749918937683,
+          2.696000099182129,
+          0.21000000834465027
+        ],
+        "target_surface": [
+          -1.678749918937683,
+          2.696000099182129,
+          0.21000000834465027
+        ],
+        "target_face_index": 51,
+        "source_witness_distance_m": 3.816559512870299e-07
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Cartridge bank formed upright.001",
+      "target": "Floor",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "cartridge rack upright floor bearing",
+      "samples": 233,
+      "oriented_hits": 112,
+      "passing_actual_surface_witnesses": 112,
+      "best": {
+        "signed_gap_m": -6.705522526129215e-10,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          1.2825000286102295,
+          8.989999771118164,
+          0.0
+        ],
+        "target_surface": [
+          1.2825000286102295,
+          8.989999771118164,
+          0.0
+        ],
+        "target_face_index": 12709,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Chamber roof load beam",
+      "target": "Chamber structural upright.001",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "OCRU roof beam supported at structural ends",
+      "samples": 236,
+      "oriented_hits": 62,
+      "passing_actual_surface_witnesses": 7,
+      "best": {
+        "signed_gap_m": -2.674758434184632e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -3.917750120162964,
+          6.769999980926514,
+          2.7100000381469727
+        ],
+        "target_surface": [
+          -3.917750120162964,
+          6.769999980926514,
+          2.7100000381469727
+        ],
+        "target_face_index": 51,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Chassis longitudinal channel.001",
+      "target": "Fabricated chamber foot.001",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "OCRU chassis floor foot bearing",
+      "samples": 254,
+      "oriented_hits": 1,
+      "passing_actual_surface_witnesses": 1,
+      "best": {
+        "signed_gap_m": 1.1920928966180355e-09,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -3.7387497425079346,
+          2.696000099182129,
+          0.21000000834465027
+        ],
+        "target_surface": [
+          -3.7387497425079346,
+          2.696000099182129,
+          0.21000000834465027
+        ],
+        "target_face_index": 51,
+        "source_witness_distance_m": 2.5463114639023843e-07
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Folded storage shelf",
+      "target": "Cartridge bank formed upright",
+      "approach_world": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "mechanism": "folded rack shelf fixed to structural upright",
+      "samples": 230,
+      "oriented_hits": 133,
+      "passing_actual_surface_witnesses": 12,
+      "best": {
+        "signed_gap_m": -2.674758434184632e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          0.7225000262260437,
+          8.331171035766602,
+          0.09632842242717743
+        ],
+        "target_surface": [
+          0.7225000262260437,
+          8.331171035766602,
+          0.09632842242717743
+        ],
+        "target_face_index": 53,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Folded storage shelf",
+      "target": "Cartridge bank formed upright.001",
+      "approach_world": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "mechanism": "folded rack shelf fixed to structural upright",
+      "samples": 230,
+      "oriented_hits": 133,
+      "passing_actual_surface_witnesses": 12,
+      "best": {
+        "signed_gap_m": -2.4884939192615363e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          1.277500033378601,
+          8.333999633789062,
+          0.0625
+        ],
+        "target_surface": [
+          1.277500033378601,
+          8.333999633789062,
+          0.0625
+        ],
+        "target_face_index": 49,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Folded storage shelf.001",
+      "target": "Cartridge bank formed upright",
+      "approach_world": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "mechanism": "folded rack shelf fixed to structural upright",
+      "samples": 230,
+      "oriented_hits": 133,
+      "passing_actual_surface_witnesses": 12,
+      "best": {
+        "signed_gap_m": -2.674758434184632e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          0.7225000262260437,
+          8.329999923706055,
+          0.4334999918937683
+        ],
+        "target_surface": [
+          0.7225000262260437,
+          8.329999923706055,
+          0.4334999918937683
+        ],
+        "target_face_index": 53,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Folded storage shelf.001",
+      "target": "Cartridge bank formed upright.001",
+      "approach_world": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "mechanism": "folded rack shelf fixed to structural upright",
+      "samples": 230,
+      "oriented_hits": 133,
+      "passing_actual_surface_witnesses": 12,
+      "best": {
+        "signed_gap_m": -2.8610229491077277e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          1.277500033378601,
+          8.955999374389648,
+          0.4375
+        ],
+        "target_surface": [
+          1.277500033378601,
+          8.955999374389648,
+          0.4375
+        ],
+        "target_face_index": 49,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Folded storage shelf.002",
+      "target": "Cartridge bank formed upright",
+      "approach_world": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "mechanism": "folded rack shelf fixed to structural upright",
+      "samples": 230,
+      "oriented_hits": 133,
+      "passing_actual_surface_witnesses": 12,
+      "best": {
+        "signed_gap_m": -2.674758434184632e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          0.7225000262260437,
+          8.95882797241211,
+          0.8036715388298035
+        ],
+        "target_surface": [
+          0.7225000262260437,
+          8.95882797241211,
+          0.8036715388298035
+        ],
+        "target_face_index": 53,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Folded storage shelf.002",
+      "target": "Cartridge bank formed upright.001",
+      "approach_world": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "mechanism": "folded rack shelf fixed to structural upright",
+      "samples": 230,
+      "oriented_hits": 133,
+      "passing_actual_surface_witnesses": 12,
+      "best": {
+        "signed_gap_m": -2.674758434184632e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          1.277500033378601,
+          8.95882797241211,
+          0.8036715388298035
+        ],
+        "target_surface": [
+          1.277500033378601,
+          8.95882797241211,
+          0.8036715388298035
+        ],
+        "target_face_index": 49,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Folded storage shelf.003",
+      "target": "Cartridge bank formed upright",
+      "approach_world": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "mechanism": "folded rack shelf fixed to structural upright",
+      "samples": 230,
+      "oriented_hits": 133,
+      "passing_actual_surface_witnesses": 12,
+      "best": {
+        "signed_gap_m": 2.913177013508239e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          0.7225000858306885,
+          8.955999374389648,
+          1.2024999856948853
+        ],
+        "target_surface": [
+          0.7225000262260437,
+          8.955999374389648,
+          1.2024999856948853
+        ],
+        "target_face_index": 53,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Folded storage shelf.003",
+      "target": "Cartridge bank formed upright.001",
+      "approach_world": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "mechanism": "folded rack shelf fixed to structural upright",
+      "samples": 230,
+      "oriented_hits": 133,
+      "passing_actual_surface_witnesses": 12,
+      "best": {
+        "signed_gap_m": -3.0472874640308234e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          1.277500033378601,
+          8.955999374389648,
+          1.2024999856948853
+        ],
+        "target_surface": [
+          1.277500033378601,
+          8.955999374389648,
+          1.2024999856948853
+        ],
+        "target_face_index": 49,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Folded storage shelf.004",
+      "target": "Cartridge bank formed upright",
+      "approach_world": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "mechanism": "folded rack shelf fixed to structural upright",
+      "samples": 230,
+      "oriented_hits": 133,
+      "passing_actual_surface_witnesses": 12,
+      "best": {
+        "signed_gap_m": -2.674758434184632e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          0.7225000262260437,
+          8.955999374389648,
+          1.6375000476837158
+        ],
+        "target_surface": [
+          0.7225000262260437,
+          8.955999374389648,
+          1.6375000476837158
+        ],
+        "target_face_index": 53,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Folded storage shelf.004",
+      "target": "Cartridge bank formed upright.001",
+      "approach_world": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "mechanism": "folded rack shelf fixed to structural upright",
+      "samples": 230,
+      "oriented_hits": 133,
+      "passing_actual_surface_witnesses": 12,
+      "best": {
+        "signed_gap_m": -2.674758434184632e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          1.277500033378601,
+          8.955999374389648,
+          1.6375000476837158
+        ],
+        "target_surface": [
+          1.277500033378601,
+          8.955999374389648,
+          1.6375000476837158
+        ],
+        "target_face_index": 49,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Folded storage shelf.005",
+      "target": "Cartridge bank formed upright",
+      "approach_world": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "mechanism": "folded rack shelf fixed to structural upright",
+      "samples": 230,
+      "oriented_hits": 133,
+      "passing_actual_surface_witnesses": 12,
+      "best": {
+        "signed_gap_m": -2.674758434184632e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          0.7225000262260437,
+          8.95882797241211,
+          2.0363283157348633
+        ],
+        "target_surface": [
+          0.7225000262260437,
+          8.95882797241211,
+          2.0363283157348633
+        ],
+        "target_face_index": 53,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Folded storage shelf.005",
+      "target": "Cartridge bank formed upright.001",
+      "approach_world": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "mechanism": "folded rack shelf fixed to structural upright",
+      "samples": 230,
+      "oriented_hits": 133,
+      "passing_actual_surface_witnesses": 12,
+      "best": {
+        "signed_gap_m": -2.674758434184632e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          1.277500033378601,
+          8.95882797241211,
+          2.0363283157348633
+        ],
+        "target_surface": [
+          1.277500033378601,
+          8.95882797241211,
+          2.0363283157348633
+        ],
+        "target_face_index": 49,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Folded storage shelf.006",
+      "target": "Cartridge bank formed upright",
+      "approach_world": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "mechanism": "folded rack shelf fixed to structural upright",
+      "samples": 230,
+      "oriented_hits": 133,
+      "passing_actual_surface_witnesses": 12,
+      "best": {
+        "signed_gap_m": -2.4884939192615363e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          0.7225000262260437,
+          8.331171035766602,
+          2.183671712875366
+        ],
+        "target_surface": [
+          0.7225000262260437,
+          8.331171035766602,
+          2.183671712875366
+        ],
+        "target_face_index": 53,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Folded storage shelf.006",
+      "target": "Cartridge bank formed upright.001",
+      "approach_world": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "mechanism": "folded rack shelf fixed to structural upright",
+      "samples": 230,
+      "oriented_hits": 133,
+      "passing_actual_surface_witnesses": 12,
+      "best": {
+        "signed_gap_m": -2.4884939192615363e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          1.277500033378601,
+          8.95882797241211,
+          2.183671712875366
+        ],
+        "target_surface": [
+          1.277500033378601,
+          8.95882797241211,
+          2.183671712875366
+        ],
+        "target_face_index": 49,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Inner removable liner",
+      "target": "Rear machine skin",
+      "approach_world": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "mechanism": "treatment liner mounted to retained rear skin",
+      "samples": 138,
+      "oriented_hits": 138,
+      "passing_actual_surface_witnesses": 16,
+      "best": {
+        "signed_gap_m": 1.795589923969665e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -3.891249895095825,
+          3.3499999046325684,
+          2.3949999809265137
+        ],
+        "target_surface": [
+          -3.891249895095825,
+          3.3499999046325684,
+          2.3949999809265137
+        ],
+        "target_face_index": 50,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Inner removable liner.001",
+      "target": "Rear machine skin",
+      "approach_world": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "mechanism": "treatment liner mounted to retained rear skin",
+      "samples": 104,
+      "oriented_hits": 104,
+      "passing_actual_surface_witnesses": 12,
+      "best": {
+        "signed_gap_m": 6.824731826893249e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -3.891249895095825,
+          4.210000038146973,
+          0.5450000166893005
+        ],
+        "target_surface": [
+          -3.891249895095825,
+          4.210000038146973,
+          0.5450000166893005
+        ],
+        "target_face_index": 50,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Inner removable liner.002",
+      "target": "Rear machine skin",
+      "approach_world": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "mechanism": "treatment liner mounted to retained rear skin",
+      "samples": 138,
+      "oriented_hits": 138,
+      "passing_actual_surface_witnesses": 16,
+      "best": {
+        "signed_gap_m": -7.51763582218512e-08,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -3.8912501335144043,
+          5.910000324249268,
+          0.5450000166893005
+        ],
+        "target_surface": [
+          -3.8912501335144043,
+          5.910000324249268,
+          0.5450000166893005
+        ],
+        "target_face_index": 50,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Stool glide",
+      "target": "Floor",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "operator stool glide floor bearing",
+      "samples": 721,
+      "oriented_hits": 721,
+      "passing_actual_surface_witnesses": 336,
+      "best": {
+        "signed_gap_m": -6.705522526129215e-10,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          0.33431801199913025,
+          8.496826171875,
+          0.0
+        ],
+        "target_surface": [
+          0.33431801199913025,
+          8.496826171875,
+          0.0
+        ],
+        "target_face_index": 819,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Stool glide.001",
+      "target": "Floor",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "operator stool glide floor bearing",
+      "samples": 729,
+      "oriented_hits": 729,
+      "passing_actual_surface_witnesses": 344,
+      "best": {
+        "signed_gap_m": -6.705522526129215e-10,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          0.16180339455604553,
+          8.715201377868652,
+          0.0
+        ],
+        "target_surface": [
+          0.16180339455604553,
+          8.715201377868652,
+          0.0
+        ],
+        "target_face_index": 861,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Stool glide.002",
+      "target": "Floor",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "operator stool glide floor bearing",
+      "samples": 726,
+      "oriented_hits": 726,
+      "passing_actual_surface_witnesses": 341,
+      "best": {
+        "signed_gap_m": -6.705522526129215e-10,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -0.06180339306592941,
+          8.642547607421875,
+          0.0
+        ],
+        "target_surface": [
+          -0.06180339306592941,
+          8.642547607421875,
+          0.0
+        ],
+        "target_face_index": 904,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Stool glide.003",
+      "target": "Floor",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "operator stool glide floor bearing",
+      "samples": 722,
+      "oriented_hits": 722,
+      "passing_actual_surface_witnesses": 337,
+      "best": {
+        "signed_gap_m": -6.705522526129215e-10,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          -0.05497712641954422,
+          8.406760215759277,
+          0.0
+        ],
+        "target_surface": [
+          -0.05497712641954422,
+          8.406760215759277,
+          0.0
+        ],
+        "target_face_index": 905,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    },
+    {
+      "object": "Stool glide.004",
+      "target": "Floor",
+      "approach_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "mechanism": "operator stool glide floor bearing",
+      "samples": 725,
+      "oriented_hits": 725,
+      "passing_actual_surface_witnesses": 340,
+      "best": {
+        "signed_gap_m": 1.1920928966180355e-09,
+        "normal_angle_degrees": 0.0,
+        "object_point": [
+          0.18654528260231018,
+          8.324530601501465,
+          0.0
+        ],
+        "target_surface": [
+          0.18654528260231018,
+          8.324530601501465,
+          -1.862645149230957e-09
+        ],
+        "target_face_index": 863,
+        "source_witness_distance_m": 0.0
+      },
+      "status": "CONTACT"
+    }
+  ],
+  "source_sha256_after": "39007192eef36f87c5299933e3a2a4f3462791871144c349a580ba2d9d322487"
+}

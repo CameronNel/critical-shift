@@ -1,0 +1,209 @@
+{
+  "review_type": "bounded_visual_observations",
+  "status": "INCOMPLETE_UNSCORED",
+  "cycle": 15,
+  "source_sha256": "3918b4eadb4c334a79e6c57b930571d40d4fbf00083100574363fd11a6f67484",
+  "source_hash_provenance": "Supplied task SHA and cycle-15 render manifest; native source was not opened or independently hashed.",
+  "render_manifest_complete": false,
+  "expected_camera_count": 24,
+  "actual_render_count_at_report": 19,
+  "actual_opened_current_image_count": 19,
+  "image_inspection_detail": "original",
+  "category_scores": null,
+  "visual_total_out_of_90": null,
+  "technical_score_out_of_10": null,
+  "camera_gates": null,
+  "reason_unscored": "Parent stopped the incomplete render batch and requested a bounded unscored record. Five required images are absent. No full-room scoring, camera-gate decision, or acceptance conclusion is made.",
+  "scope": "Rendered visual appearance only, for the 19 current PNGs individually opened. All four approved spawn reference PNGs were individually opened at original detail.",
+  "limits": [
+    "No native scene, author code, physical support contact, exact layout/boundary preservation, source light count, or technical reproducibility checks.",
+    "No cold-open or cross-cycle stability conclusion.",
+    "No owner art approval, complete-room acceptance, or overall /100 score.",
+    "No inference about missing HERO_SUPPLIES, HERO_WASH, HERO_CABINET, HERO_CART, or HIDDEN_BAG images.",
+    "CAMERAS.md was read to interpret current camera intent. Its historical paragraphs were not used as visual evidence; no prior critic reports or scores were read."
+  ],
+  "critical_visual_defects_confirmed_in_inspected_subset": [],
+  "critical_visual_defect_scope_note": "No critical visual blocker was confirmed in the inspected subset. This is not a zero-critical-defects certification for the incomplete full set.",
+  "category_observations": [
+    {
+      "category": "Layout and route readability",
+      "observation": "ENTRY, REVERSE and PINCH show an open central floor and separated OCRU/restart/decon/recovery working zones. This is image readability evidence, not numerical route or unchanged-layout verification."
+    },
+    {
+      "category": "Grounded stylized art and silhouettes",
+      "observation": "The OCRU frame, carriage, guarded restart buttons, framed cabinets and berth have object-specific secondary construction. The angular simplification and muted lavender/navy/orange family relate coherently to the approved spawn references."
+    },
+    {
+      "category": "OCRU hero function and focal clarity",
+      "observation": "The red OCRU bed and cavity dominate ENTRY, WALL_WEST and HERO_OCRU. The surrounding controls and support structure remain visible. The underbed bag remains low-contrast and subordinate in the inspected OCRU views."
+    },
+    {
+      "category": "Materials and anti-plastic quality",
+      "observation": "DETAIL_OCRU, DETAIL_SUPPLIES and HERO_RECOVERY distinguish restrained metal, soft bedding, bottles, paper and painted surfaces without pervasive shiny plastic or photographic noise. Some small furnishings are visually pristine and orderly."
+    },
+    {
+      "category": "Dark lighting and atmosphere",
+      "observation": "The dark ceiling and secondary stations frame a localized red OCRU focus and warm supply workbench zone. HERO_RESERVE and HERO_DECON are especially dim but their main functional shapes remain identifiable in their actual images."
+    },
+    {
+      "category": "Purposeful dressing and neglected workplace story",
+      "observation": "The authoritarian continuity/productivity poster, denied shift log, empty cartridge slot, sparse floor remnants and closed underbed bag support the clinic story. Tool and bottle placement remains very orderly, so age and neglect are more understated than the harsh lighting and institutional narrative."
+    }
+  ],
+  "noncritical_findings": [
+    {
+      "id": "V15-N1",
+      "severity": "minor",
+      "views": [
+        "DETAIL_SUPPLIES",
+        "HERO_RECOVERY",
+        "WALL_EAST"
+      ],
+      "finding": "Several clinical props remain neatly aligned and surfaces are relatively pristine. The bleak mood reads more strongly than everyday neglect.",
+      "suggested_correction": "On a future complete source, judge whether a small localized handling mark or one interrupted task would improve neglect without adding random debris or blanket grime.",
+      "blocking": false
+    },
+    {
+      "id": "V15-N2",
+      "severity": "minor",
+      "views": [
+        "HERO_RESERVE",
+        "HERO_DECON"
+      ],
+      "finding": "The darkest secondary stations lose some peripheral edge and surface information. Their central contents are still identifiable in these inspected views.",
+      "suggested_correction": "Recheck the corrected source at the same cameras before changing exposure or lighting; preserve the OCRU hierarchy.",
+      "blocking": false
+    }
+  ],
+  "per_view_observations": [
+    {
+      "id": "ENTRY",
+      "observation": "Red OCRU at left, blue cabinet and restart/decon group at rear, recovery berth at right; central working floor readable.",
+      "gate_status": "not_scored_in_incomplete_batch"
+    },
+    {
+      "id": "REVERSE",
+      "observation": "Entrance silhouette and warm workbench visible; red OCRU remains separated at right.",
+      "gate_status": "not_scored_in_incomplete_batch"
+    },
+    {
+      "id": "PINCH",
+      "observation": "Restart/cartridge/decon group reads against an open floor zone beside the berth.",
+      "gate_status": "not_scored_in_incomplete_batch"
+    },
+    {
+      "id": "DETAIL_OCRU",
+      "observation": "Carriage, cushion seam, rails and supports visible; closed dark bag with zipper-like line and tiny yellow note remains below the bed.",
+      "gate_status": "not_scored_in_incomplete_batch"
+    },
+    {
+      "id": "DETAIL_SUPPLIES",
+      "observation": "Distinct scissors, tray, gloves, bottles, paper and denied shift log; deliberate clinical cluster with relatively neat placement.",
+      "gate_status": "not_scored_in_incomplete_batch"
+    },
+    {
+      "id": "CORNER_SW",
+      "observation": "Full-footprint cutaway shows equipment clustering, open central floor, red OCRU and warmer supply side.",
+      "gate_status": "not_scored_in_incomplete_batch"
+    },
+    {
+      "id": "CORNER_SE",
+      "observation": "Opposing cutaway shows OCRU opening, restart/decon group and separated workbench/berth.",
+      "gate_status": "not_scored_in_incomplete_batch"
+    },
+    {
+      "id": "CORNER_NW",
+      "observation": "Reverse cutaway reveals entrance, recovery/supplies wall and OCRU volume; ceiling remnants are understood as cutaway evidence.",
+      "gate_status": "not_scored_in_incomplete_batch"
+    },
+    {
+      "id": "CORNER_NE",
+      "observation": "Fourth cutaway exposes rear working zones and coherent room palette; no full source support/contact conclusion.",
+      "gate_status": "not_scored_in_incomplete_batch"
+    },
+    {
+      "id": "WALL_SOUTH",
+      "observation": "Entrance remains a dark central opening, with a lit workbench on one side and OCRU on the other.",
+      "gate_status": "not_scored_in_incomplete_batch"
+    },
+    {
+      "id": "WALL_WEST",
+      "observation": "OCRU is the dominant framed machine; bed and controls remain readable under the red focus.",
+      "gate_status": "not_scored_in_incomplete_batch"
+    },
+    {
+      "id": "WALL_NORTH",
+      "observation": "Restart/cartridge/decon silhouettes and blue wall cabinet remain readable in a darker secondary zone.",
+      "gate_status": "not_scored_in_incomplete_batch"
+    },
+    {
+      "id": "WALL_EAST",
+      "observation": "Recovery berth, authoritarian poster, cabinet and localized warm workbench visible with quiet wall areas.",
+      "gate_status": "not_scored_in_incomplete_batch"
+    },
+    {
+      "id": "HERO_OCRU",
+      "observation": "Bed, controls, carriage and frame show functional hierarchy; underbed bag remains subdued and closed in appearance.",
+      "gate_status": "not_scored_in_incomplete_batch"
+    },
+    {
+      "id": "HERO_RESTART",
+      "observation": "Older industrial display language and physical guarded controls are legible; drawers and lower enclosure add construction.",
+      "gate_status": "not_scored_in_incomplete_batch"
+    },
+    {
+      "id": "HERO_CARTRIDGES",
+      "observation": "Indexed cartridge shelving and one empty stock position read; surrounding restart/decon context visible.",
+      "gate_status": "not_scored_in_incomplete_batch"
+    },
+    {
+      "id": "HERO_RESERVE",
+      "observation": "Two reserve modules with handles are identifiable in a dark open cabinet; peripheral edges are subdued.",
+      "gate_status": "not_scored_in_incomplete_batch"
+    },
+    {
+      "id": "HERO_DECON",
+      "observation": "Hose, control plate, used-PPE bin and floor grate distinguish the alcove despite deep overhead darkness.",
+      "gate_status": "not_scored_in_incomplete_batch"
+    },
+    {
+      "id": "HERO_RECOVERY",
+      "observation": "Sagging blanket edge, pillow, folded blue bedding and metal rails provide material and silhouette separation.",
+      "gate_status": "not_scored_in_incomplete_batch"
+    }
+  ],
+  "actual_opened_current_images": [
+    "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-15/ENTRY.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-15/REVERSE.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-15/PINCH.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-15/DETAIL_OCRU.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-15/DETAIL_SUPPLIES.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-15/CORNER_SW.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-15/CORNER_SE.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-15/CORNER_NW.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-15/CORNER_NE.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-15/WALL_SOUTH.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-15/WALL_WEST.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-15/WALL_NORTH.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-15/WALL_EAST.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-15/HERO_OCRU.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-15/HERO_RESTART.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-15/HERO_CARTRIDGES.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-15/HERO_RESERVE.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-15/HERO_DECON.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-15/HERO_RECOVERY.png"
+  ],
+  "actual_opened_spawn_references": [
+    "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/spawn-reference/VALIDATE_Spawn.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/spawn-reference/VALIDATE_LockerDoor.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/spawn-reference/VALIDATE_Material_A.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/spawn-reference/BRIEFING_INDIRECT.png"
+  ],
+  "missing_required_images": [
+    "HERO_SUPPLIES.png",
+    "HERO_WASH.png",
+    "HERO_CABINET.png",
+    "HERO_CART.png",
+    "HIDDEN_BAG.png"
+  ]
+}

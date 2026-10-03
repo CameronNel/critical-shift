@@ -1,0 +1,422 @@
+{
+  "source_sha256": "799482dd3624b28813cd220708212eb04e960bea37cadc0d5a25f8a66ff297a0",
+  "engine": "CYCLES",
+  "resolution": [
+    1280,
+    720
+  ],
+  "samples": 24,
+  "lighting": "Authored overhaul lights and physical Cycles bounce; no temporary hero fills",
+  "label_method": "Camera-attached emission text; source scene never saved",
+  "shots": [
+    {
+      "id": "ENTRY",
+      "label": "19 | ENTRY / PLAYER HEIGHT",
+      "group": "mandatory",
+      "position": null,
+      "target": null,
+      "lens": 24,
+      "inherited": "CAM_ENTRY",
+      "temporary_hidden_geometry": [],
+      "camera_matrix_world": [
+        [
+          0.999793529510498,
+          0.001154372119344771,
+          -0.020288197323679924,
+          0.0
+        ],
+        [
+          -0.020321011543273926,
+          0.056795187294483185,
+          -0.998179018497467,
+          0.47999998927116394
+        ],
+        [
+          1.9309223109331697e-09,
+          0.9983851909637451,
+          0.05680691823363304,
+          1.6799999475479126
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 22.0
+    },
+    {
+      "id": "REVERSE",
+      "label": "20 | REVERSE / PLAYER HEIGHT",
+      "group": "mandatory",
+      "position": null,
+      "target": null,
+      "lens": 24,
+      "inherited": "CAM_REVERSE"
+    },
+    {
+      "id": "PINCH",
+      "label": "21 | RESCUE ROUTE / PLAYER HEIGHT",
+      "group": "mandatory",
+      "position": null,
+      "target": null,
+      "lens": 24,
+      "inherited": "CAM_PINCH"
+    },
+    {
+      "id": "CORNER_SW",
+      "label": "01 | FRONT LEFT / CUTAWAY",
+      "group": "corners",
+      "position": [
+        -7,
+        -3.5,
+        8.5
+      ],
+      "target": [
+        0,
+        4.9,
+        1.1
+      ],
+      "lens": 21,
+      "inherited": null
+    },
+    {
+      "id": "CORNER_SE",
+      "label": "02 | FRONT RIGHT / CUTAWAY",
+      "group": "corners",
+      "position": [
+        7,
+        -3.5,
+        8.5
+      ],
+      "target": [
+        0,
+        4.9,
+        1.1
+      ],
+      "lens": 21,
+      "inherited": null
+    },
+    {
+      "id": "CORNER_NW",
+      "label": "03 | REAR LEFT / CUTAWAY",
+      "group": "corners",
+      "position": [
+        -7,
+        12.5,
+        8.5
+      ],
+      "target": [
+        0,
+        4.9,
+        1.1
+      ],
+      "lens": 21,
+      "inherited": null
+    },
+    {
+      "id": "CORNER_NE",
+      "label": "04 | REAR RIGHT / CUTAWAY",
+      "group": "corners",
+      "position": [
+        7,
+        12.5,
+        8.5
+      ],
+      "target": [
+        0,
+        4.9,
+        1.1
+      ],
+      "lens": 21,
+      "inherited": null
+    },
+    {
+      "id": "WALL_SOUTH",
+      "label": "05 | ENTRY WALL",
+      "group": "walls",
+      "position": [
+        0,
+        7.4,
+        1.9
+      ],
+      "target": [
+        0,
+        0,
+        1.8
+      ],
+      "lens": 22,
+      "inherited": null
+    },
+    {
+      "id": "WALL_WEST",
+      "label": "06 | OCRU WALL",
+      "group": "walls",
+      "position": [
+        2.3,
+        4.5,
+        1.9
+      ],
+      "target": [
+        -4,
+        4.5,
+        1.8
+      ],
+      "lens": 19,
+      "inherited": null
+    },
+    {
+      "id": "WALL_NORTH",
+      "label": "07 | RESTART / DECON WALL",
+      "group": "walls",
+      "position": [
+        0,
+        1.5,
+        1.9
+      ],
+      "target": [
+        0,
+        9,
+        1.8
+      ],
+      "lens": 22,
+      "inherited": null
+    },
+    {
+      "id": "WALL_EAST",
+      "label": "08 | RECOVERY / SUPPLIES WALL",
+      "group": "walls",
+      "position": [
+        -1.1,
+        4.5,
+        1.9
+      ],
+      "target": [
+        4,
+        4.5,
+        1.8
+      ],
+      "lens": 16,
+      "inherited": null
+    },
+    {
+      "id": "HERO_OCRU",
+      "label": "09 | OCRU REANIMATION UNIT",
+      "group": "assets",
+      "position": null,
+      "target": null,
+      "lens": 24,
+      "inherited": "CAM_HERO",
+      "temporary_hidden_geometry": [],
+      "camera_matrix_world": [
+        [
+          0.044074513018131256,
+          -0.11085856705904007,
+          0.9928584098815918,
+          1.350000023841858
+        ],
+        [
+          0.9990282654762268,
+          0.004890726413577795,
+          -0.043802324682474136,
+          4.550000190734863
+        ],
+        [
+          6.407558572618655e-08,
+          0.9938241839408875,
+          0.11096639931201935,
+          1.6799999475479126
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 24.0
+    },
+    {
+      "id": "HERO_RESTART",
+      "label": "10 | RESTART CONSOLE",
+      "group": "assets",
+      "position": [
+        0.1,
+        6.2,
+        1.65
+      ],
+      "target": [
+        -0.4,
+        8.55,
+        1.05
+      ],
+      "lens": 24,
+      "inherited": null
+    },
+    {
+      "id": "HERO_CARTRIDGES",
+      "label": "11 | MEDICAL CARTRIDGE BANK",
+      "group": "assets",
+      "position": [
+        0.9,
+        5.8,
+        1.55
+      ],
+      "target": [
+        1,
+        8.6,
+        1.3
+      ],
+      "lens": 22,
+      "inherited": null
+    },
+    {
+      "id": "HERO_RESERVE",
+      "label": "12 | RESERVE POWER",
+      "group": "assets",
+      "position": [
+        -0.65,
+        7.3,
+        1.5
+      ],
+      "target": [
+        -2.15,
+        8.7,
+        0.85
+      ],
+      "lens": 26,
+      "inherited": null
+    },
+    {
+      "id": "HERO_DECON",
+      "label": "13 | DECONTAMINATION ALCOVE",
+      "group": "assets",
+      "position": [
+        1.95,
+        7.3,
+        1.65
+      ],
+      "target": [
+        2.33,
+        10.7,
+        1.3
+      ],
+      "lens": 24,
+      "inherited": null
+    },
+    {
+      "id": "HERO_RECOVERY",
+      "label": "14 | RECOVERY BERTH",
+      "group": "assets",
+      "position": [
+        0.7,
+        2.8,
+        1.8
+      ],
+      "target": [
+        3.3,
+        4.7,
+        0.85
+      ],
+      "lens": 28,
+      "inherited": null
+    },
+    {
+      "id": "HERO_CART",
+      "label": "15 | TRANSFER CART",
+      "group": "assets",
+      "position": [
+        -1.6,
+        0.9,
+        1.65
+      ],
+      "target": [
+        -3.1,
+        1.3,
+        0.7
+      ],
+      "lens": 18,
+      "inherited": null
+    },
+    {
+      "id": "HERO_SUPPLIES",
+      "label": "16 | SUPPLY WORKBENCH",
+      "group": "assets",
+      "position": [
+        1,
+        3.4,
+        1.65
+      ],
+      "target": [
+        3.55,
+        1.5,
+        0.9
+      ],
+      "lens": 28,
+      "inherited": null,
+      "temporary_hidden_geometry": [],
+      "camera_matrix_world": [
+        [
+          -0.5974814891815186,
+          0.18407215178012848,
+          -0.7804698944091797,
+          1.0
+        ],
+        [
+          -0.8018826842308044,
+          -0.1371518075466156,
+          0.5815268754959106,
+          3.4000000953674316
+        ],
+        [
+          4.7835982286414946e-08,
+          0.9732968807220459,
+          0.22954994440078735,
+          1.649999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 28.0
+    },
+    {
+      "id": "HERO_WASH",
+      "label": "17 | HANDWASH STATION",
+      "group": "assets",
+      "position": [
+        1.8,
+        3,
+        1.6
+      ],
+      "target": [
+        3.7,
+        3,
+        1.15
+      ],
+      "lens": 38,
+      "inherited": null
+    },
+    {
+      "id": "HERO_CABINET",
+      "label": "18 | MEDICAL SUPPLIES CABINET",
+      "group": "assets",
+      "position": [
+        1.2,
+        6.3,
+        1.7
+      ],
+      "target": [
+        3.6,
+        7.4,
+        1.65
+      ],
+      "lens": 25,
+      "inherited": null
+    }
+  ]
+}

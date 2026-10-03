@@ -1,0 +1,1544 @@
+{
+  "source_sha256": "39007192eef36f87c5299933e3a2a4f3462791871144c349a580ba2d9d322487",
+  "renderer_sha256": "d58c877b8b970c5ee48ba1e0a9a4812fe23d3129239977f634bb66ecd8fa52eb",
+  "engine": "CYCLES",
+  "complete": true,
+  "diagnostic": null,
+  "resolution": [
+    1067,
+    600
+  ],
+  "samples": 24,
+  "cold_open": true,
+  "lighting": "Authored overhaul lights and physical Cycles bounce; only the explicitly labelled concealed-bag inspection uses a temporary 2 W fill",
+  "label_method": "Camera-attached emission text; source scene never saved",
+  "shots": [
+    {
+      "id": "ENTRY",
+      "label": "19 | ENTRY / PLAYER HEIGHT",
+      "group": "mandatory",
+      "position": null,
+      "target": null,
+      "lens": 24,
+      "inherited": "CAM_ENTRY",
+      "temporary_hidden_geometry": [],
+      "camera_matrix_world": [
+        [
+          0.999793529510498,
+          0.001154372119344771,
+          -0.020288197323679924,
+          0.0
+        ],
+        [
+          -0.020321011543273926,
+          0.056795187294483185,
+          -0.998179018497467,
+          0.47999998927116394
+        ],
+        [
+          1.9309223109331697e-09,
+          0.9983851909637451,
+          0.05680691823363304,
+          1.6799999475479126
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 22.0,
+      "projection": "PERSP"
+    },
+    {
+      "id": "REVERSE",
+      "label": "20 | REVERSE / PLAYER HEIGHT",
+      "group": "mandatory",
+      "position": null,
+      "target": null,
+      "lens": 24,
+      "inherited": "CAM_REVERSE",
+      "temporary_hidden_geometry": [],
+      "camera_matrix_world": [
+        [
+          -0.9997338056564331,
+          -0.0011695100693032146,
+          0.02304116263985634,
+          0.20000000298023224
+        ],
+        [
+          0.023070823401212692,
+          -0.05067695677280426,
+          0.9984486103057861,
+          7.699999809265137
+        ],
+        [
+          -3.9640188020939604e-08,
+          0.9987143874168396,
+          0.05069044977426529,
+          1.6799999475479126
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 22.0,
+      "projection": "PERSP"
+    },
+    {
+      "id": "PINCH",
+      "label": "21 | RESCUE ROUTE / PLAYER HEIGHT",
+      "group": "mandatory",
+      "position": null,
+      "target": null,
+      "lens": 24,
+      "inherited": "MED_ROUTE",
+      "temporary_hidden_geometry": [],
+      "camera_matrix_world": [
+        [
+          0.8811602592468262,
+          0.06541559845209122,
+          -0.46827059984207153,
+          -1.100000023841858
+        ],
+        [
+          -0.47281768918037415,
+          0.1219109371304512,
+          -0.8726862072944641,
+          3.299999952316284
+        ],
+        [
+          1.7822054942939758e-08,
+          0.9903830289840698,
+          0.13835273683071136,
+          1.649999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 23.0,
+      "projection": "PERSP"
+    },
+    {
+      "id": "DETAIL_OCRU",
+      "label": "22 | OCRU CARRIAGE / DETAIL",
+      "group": "details",
+      "position": null,
+      "target": null,
+      "lens": 24,
+      "inherited": "MED_DETAIL_OCRU",
+      "temporary_hidden_geometry": [],
+      "camera_matrix_world": [
+        [
+          0.5624637603759766,
+          -0.24029186367988586,
+          0.7911348342895508,
+          -0.550000011920929
+        ],
+        [
+          0.8268219232559204,
+          0.1634637713432312,
+          -0.5381868481636047,
+          3.700000047683716
+        ],
+        [
+          2.809643717682775e-08,
+          0.9568382501602173,
+          0.2906210422515869,
+          1.3799999952316284
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 42.0,
+      "projection": "PERSP"
+    },
+    {
+      "id": "DETAIL_SUPPLIES",
+      "label": "23 | CLINICAL WORK / DETAIL",
+      "group": "details",
+      "position": null,
+      "target": null,
+      "lens": 24,
+      "inherited": "MED_DETAIL_SUPPLIES",
+      "temporary_hidden_geometry": [],
+      "camera_matrix_world": [
+        [
+          0.7155742049217224,
+          0.22023886442184448,
+          -0.6629090905189514,
+          2.6600000858306885
+        ],
+        [
+          -0.69853675365448,
+          0.22561043500900269,
+          -0.6790775656700134,
+          0.6499999761581421
+        ],
+        [
+          -6.71831514864607e-08,
+          0.9489967226982117,
+          0.31528592109680176,
+          1.3899999856948853
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 46.0,
+      "projection": "PERSP"
+    },
+    {
+      "id": "CORNER_SW",
+      "label": "01 | FRONT LEFT / CUTAWAY",
+      "group": "corners",
+      "position": [
+        -7,
+        -3.5,
+        8.5
+      ],
+      "target": [
+        0,
+        4.9,
+        1.1
+      ],
+      "lens": 21,
+      "inherited": null,
+      "temporary_hidden_geometry": [
+        "West wall",
+        "Entry wall",
+        "Entry wall.001",
+        "Entry lintel",
+        "Ceiling",
+        "Decon ceiling",
+        "Ceiling cross member",
+        "Ceiling cross member.001",
+        "Ceiling cross member.002",
+        "Ceiling cross member.003",
+        "Impact wall lining",
+        "Impact cap",
+        "Impact wall lining.001",
+        "Impact cap.001",
+        "Impact wall lining.002",
+        "Impact cap.002",
+        "Wall panel joint",
+        "Wall panel joint.001",
+        "Entry capture housing",
+        "Pressure door lower panel",
+        "Pressure door upper panel",
+        "Door window side panel",
+        "Door window side panel.001",
+        "Door safety glazing",
+        "Glazing frame",
+        "Glazing frame.001",
+        "Door toe protector",
+        "Door edge seal",
+        "Entry capture housing.001",
+        "Pressure door lower panel.001",
+        "Pressure door upper panel.001",
+        "Door window side panel.002",
+        "Door window side panel.003",
+        "Door safety glazing.001",
+        "Glazing frame.002",
+        "Glazing frame.003",
+        "Door toe protector.001",
+        "Door edge seal.001",
+        "Door guide header",
+        "Entry threshold",
+        "Entry jamb",
+        "Entry jamb.001",
+        "Engraved backing MEDICAL  /  OCRU",
+        "Wall structural post cover",
+        "Wall structural post cover.002",
+        "Beam seat backing",
+        "Beam seat bolts",
+        "Screwdriver slot.026",
+        "Beam seat bolts.001",
+        "Screwdriver slot.027",
+        "Beam seat bolts.002",
+        "Screwdriver slot.028",
+        "Beam seat bolts.003",
+        "Screwdriver slot.029",
+        "Beam seat backing.002",
+        "Beam seat bolts.008",
+        "Screwdriver slot.034",
+        "Beam seat bolts.009",
+        "Screwdriver slot.035",
+        "Beam seat bolts.010",
+        "Screwdriver slot.036",
+        "Beam seat bolts.011",
+        "Screwdriver slot.037",
+        "Beam seat backing.004",
+        "Beam seat bolts.016",
+        "Screwdriver slot.042",
+        "Beam seat bolts.017",
+        "Screwdriver slot.043",
+        "Beam seat bolts.018",
+        "Screwdriver slot.044",
+        "Beam seat bolts.019",
+        "Screwdriver slot.045",
+        "Beam seat backing.006",
+        "Beam seat bolts.024",
+        "Screwdriver slot.050",
+        "Beam seat bolts.025",
+        "Screwdriver slot.051",
+        "Beam seat bolts.026",
+        "Screwdriver slot.052",
+        "Beam seat bolts.027",
+        "Screwdriver slot.053",
+        "Entry identity wall standoff",
+        "Rear machine skin",
+        "Inner removable liner",
+        "Inner liner screw",
+        "Screwdriver slot.058",
+        "Inner liner screw.001",
+        "Screwdriver slot.059",
+        "Inner liner screw.002",
+        "Screwdriver slot.060",
+        "Inner liner screw.003",
+        "Screwdriver slot.061",
+        "Inner removable liner.001",
+        "Inner liner screw.004",
+        "Screwdriver slot.062",
+        "Inner liner screw.005",
+        "Screwdriver slot.063",
+        "Inner liner screw.006",
+        "Screwdriver slot.064",
+        "Inner liner screw.007",
+        "Screwdriver slot.065",
+        "Inner removable liner.002",
+        "Inner liner screw.008",
+        "Screwdriver slot.066",
+        "Inner liner screw.009",
+        "Screwdriver slot.067",
+        "Inner liner screw.010",
+        "Screwdriver slot.068",
+        "Inner liner screw.011",
+        "Screwdriver slot.069",
+        "Decon ceiling lamp",
+        "MED_R2 | Pressure leaf layered inset ",
+        "MED_R2 | Pressure leaf layered inset .001",
+        "MED_R2 | Decon fixture ceiling mounting return"
+      ],
+      "camera_matrix_world": [
+        [
+          0.7682213187217712,
+          0.3588089346885681,
+          -0.5301812291145325,
+          -7.0
+        ],
+        [
+          -0.6401843428611755,
+          0.43057069182395935,
+          -0.6362176537513733,
+          -3.5
+        ],
+        [
+          -5.20679748206021e-08,
+          0.8281697034835815,
+          0.5604774355888367,
+          8.5
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 21.0,
+      "projection": "ORTHO",
+      "ortho_scale_m": 21.3917293548584
+    },
+    {
+      "id": "CORNER_SE",
+      "label": "02 | FRONT RIGHT / CUTAWAY",
+      "group": "corners",
+      "position": [
+        7,
+        -3.5,
+        8.5
+      ],
+      "target": [
+        0,
+        4.9,
+        1.1
+      ],
+      "lens": 21,
+      "inherited": null,
+      "temporary_hidden_geometry": [
+        "East wall",
+        "Entry wall",
+        "Entry wall.001",
+        "Entry lintel",
+        "Ceiling",
+        "Decon ceiling",
+        "Ceiling cross member",
+        "Ceiling cross member.001",
+        "Ceiling cross member.002",
+        "Ceiling cross member.003",
+        "Impact wall lining.003",
+        "Impact cap.003",
+        "Impact wall lining.004",
+        "Impact cap.004",
+        "Impact wall lining.005",
+        "Impact cap.005",
+        "Wall panel joint.002",
+        "Wall panel joint.003",
+        "Entry capture housing",
+        "Pressure door lower panel",
+        "Pressure door upper panel",
+        "Door window side panel",
+        "Door window side panel.001",
+        "Door safety glazing",
+        "Glazing frame",
+        "Glazing frame.001",
+        "Door toe protector",
+        "Door edge seal",
+        "Entry capture housing.001",
+        "Pressure door lower panel.001",
+        "Pressure door upper panel.001",
+        "Door window side panel.002",
+        "Door window side panel.003",
+        "Door safety glazing.001",
+        "Glazing frame.002",
+        "Glazing frame.003",
+        "Door toe protector.001",
+        "Door edge seal.001",
+        "Door guide header",
+        "Entry threshold",
+        "Entry jamb",
+        "Entry jamb.001",
+        "Engraved backing MEDICAL  /  OCRU",
+        "Wall structural post cover.001",
+        "Wall structural post cover.003",
+        "Beam seat backing.001",
+        "Beam seat bolts.004",
+        "Screwdriver slot.030",
+        "Beam seat bolts.005",
+        "Screwdriver slot.031",
+        "Beam seat bolts.006",
+        "Screwdriver slot.032",
+        "Beam seat bolts.007",
+        "Screwdriver slot.033",
+        "Beam seat backing.003",
+        "Beam seat bolts.012",
+        "Screwdriver slot.038",
+        "Beam seat bolts.013",
+        "Screwdriver slot.039",
+        "Beam seat bolts.014",
+        "Screwdriver slot.040",
+        "Beam seat bolts.015",
+        "Screwdriver slot.041",
+        "Beam seat backing.005",
+        "Beam seat bolts.020",
+        "Screwdriver slot.046",
+        "Beam seat bolts.021",
+        "Screwdriver slot.047",
+        "Beam seat bolts.022",
+        "Screwdriver slot.048",
+        "Beam seat bolts.023",
+        "Screwdriver slot.049",
+        "Beam seat backing.007",
+        "Beam seat bolts.028",
+        "Screwdriver slot.054",
+        "Beam seat bolts.029",
+        "Screwdriver slot.055",
+        "Beam seat bolts.030",
+        "Screwdriver slot.056",
+        "Beam seat bolts.031",
+        "Screwdriver slot.057",
+        "Identity wall spacer",
+        "Engraved backing RECOVERY.001",
+        "Identity wall spacer.001",
+        "Engraved backing SUPPLIES",
+        "Entry identity wall standoff",
+        "Cabinet wall spacer",
+        "Cabinet wall spacer.001",
+        "Cabinet wall spacer.002",
+        "Cabinet wall spacer.003",
+        "Supply cabinet back",
+        "Sink wall bracket",
+        "Basin folded rim.001",
+        "Handwash soap dispenser",
+        "Sink load-bearing wall packer",
+        "Notice wall mounting pad",
+        "Task fixture wall bracket.001",
+        "Task fixture wall bracket.002",
+        "Sink service valve",
+        "Sink isolator handwheel",
+        "Notice backing",
+        "Notice paper",
+        "Decon ceiling lamp",
+        "Recovery light wall base",
+        "Recovery shielded light",
+        "MED_R2 | Wash-zone localized repair and water maps",
+        "MED_R2 | Corporate continuity clinical wall art",
+        "MED_R2 | Molded clinical soap dispenser",
+        "MED_R2 | Tap base localized mineral residue",
+        "MED_R2 | Handwash wall fitted repair patch",
+        "MED_R2 | Pressure leaf layered inset ",
+        "MED_R2 | Pressure leaf layered inset .001",
+        "MED_R2 | Wall plaque mounting return Engraved backing RECOVERY.001",
+        "MED_R2 | Wall plaque mounting return Engraved backing SUPPLIES",
+        "MED_R2 | Decon fixture ceiling mounting return"
+      ],
+      "camera_matrix_world": [
+        [
+          0.7682213187217712,
+          -0.3588089346885681,
+          0.5301812291145325,
+          7.0
+        ],
+        [
+          0.6401843428611755,
+          0.43057069182395935,
+          -0.6362176537513733,
+          -3.5
+        ],
+        [
+          5.20679748206021e-08,
+          0.8281697034835815,
+          0.5604774355888367,
+          8.5
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 21.0,
+      "projection": "ORTHO",
+      "ortho_scale_m": 21.3917293548584
+    },
+    {
+      "id": "CORNER_NW",
+      "label": "03 | REAR LEFT / CUTAWAY",
+      "group": "corners",
+      "position": [
+        -7,
+        12.5,
+        8.5
+      ],
+      "target": [
+        0,
+        4.9,
+        1.1
+      ],
+      "lens": 21,
+      "inherited": null,
+      "temporary_hidden_geometry": [
+        "West wall",
+        "Rear west wall",
+        "Rear east wall",
+        "Decon doorway lintel",
+        "Ceiling",
+        "Decon ceiling",
+        "Ceiling cross member",
+        "Ceiling cross member.001",
+        "Ceiling cross member.002",
+        "Ceiling cross member.003",
+        "Impact wall lining",
+        "Impact cap",
+        "Impact wall lining.001",
+        "Impact cap.001",
+        "Impact wall lining.002",
+        "Impact cap.002",
+        "Wall panel joint",
+        "Wall panel joint.001",
+        "Decon jamb",
+        "Decon jamb.001",
+        "Decon header",
+        "Engraved backing DECON",
+        "Wall structural post cover",
+        "Wall structural post cover.002",
+        "Rear upper panel joint",
+        "Rear upper panel joint.001",
+        "Rear upper panel joint.002",
+        "Rear horizontal panel joint",
+        "Beam seat backing",
+        "Beam seat bolts",
+        "Screwdriver slot.026",
+        "Beam seat bolts.001",
+        "Screwdriver slot.027",
+        "Beam seat bolts.002",
+        "Screwdriver slot.028",
+        "Beam seat bolts.003",
+        "Screwdriver slot.029",
+        "Beam seat backing.002",
+        "Beam seat bolts.008",
+        "Screwdriver slot.034",
+        "Beam seat bolts.009",
+        "Screwdriver slot.035",
+        "Beam seat bolts.010",
+        "Screwdriver slot.036",
+        "Beam seat bolts.011",
+        "Screwdriver slot.037",
+        "Beam seat backing.004",
+        "Beam seat bolts.016",
+        "Screwdriver slot.042",
+        "Beam seat bolts.017",
+        "Screwdriver slot.043",
+        "Beam seat bolts.018",
+        "Screwdriver slot.044",
+        "Beam seat bolts.019",
+        "Screwdriver slot.045",
+        "Beam seat backing.006",
+        "Beam seat bolts.024",
+        "Screwdriver slot.050",
+        "Beam seat bolts.025",
+        "Screwdriver slot.051",
+        "Beam seat bolts.026",
+        "Screwdriver slot.052",
+        "Beam seat bolts.027",
+        "Screwdriver slot.053",
+        "Decon identity wall standoff",
+        "Rear machine skin",
+        "Inner removable liner",
+        "Inner liner screw",
+        "Screwdriver slot.058",
+        "Inner liner screw.001",
+        "Screwdriver slot.059",
+        "Inner liner screw.002",
+        "Screwdriver slot.060",
+        "Inner liner screw.003",
+        "Screwdriver slot.061",
+        "Inner removable liner.001",
+        "Inner liner screw.004",
+        "Screwdriver slot.062",
+        "Inner liner screw.005",
+        "Screwdriver slot.063",
+        "Inner liner screw.006",
+        "Screwdriver slot.064",
+        "Inner liner screw.007",
+        "Screwdriver slot.065",
+        "Inner removable liner.002",
+        "Inner liner screw.008",
+        "Screwdriver slot.066",
+        "Inner liner screw.009",
+        "Screwdriver slot.067",
+        "Inner liner screw.010",
+        "Screwdriver slot.068",
+        "Inner liner screw.011",
+        "Screwdriver slot.069",
+        "Cartridge rack rear",
+        "Cabinet louver",
+        "Cabinet louver.001",
+        "Cabinet louver.002",
+        "Reserve folded back",
+        "Flush drain cross edge",
+        "Rear cable wall clamp",
+        "Rear cable wall clamp.001",
+        "Telemetry clip",
+        "Telemetry clip.001",
+        "MED_POWER termination",
+        "MED_DATA termination",
+        "Task fixture wall bracket",
+        "Isolation feed wall clip",
+        "Isolation feed wall clip.001",
+        "Isolation feed wall clip.002",
+        "Decon ceiling lamp",
+        "MED_R2 | Decon low pressure threshold",
+        "MED_R2 | Restart rear service loom",
+        "MED_R2 | Neglected rear utility leak",
+        "MED_R2 | Reserve drawer rear mounting return ",
+        "MED_R2 | Reserve drawer rear mounting return .001",
+        "MED_R2 | Decon fixture ceiling mounting return"
+      ],
+      "camera_matrix_world": [
+        [
+          -0.7355451583862305,
+          0.3944682776927948,
+          -0.5507886409759521,
+          -7.0
+        ],
+        [
+          -0.6774756908416748,
+          -0.4282801151275635,
+          0.5979990363121033,
+          12.5
+        ],
+        [
+          -1.7656682871347584e-07,
+          0.8130011558532715,
+          0.5822620391845703,
+          8.5
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 21.0,
+      "projection": "ORTHO",
+      "ortho_scale_m": 23.146162033081055
+    },
+    {
+      "id": "CORNER_NE",
+      "label": "04 | REAR RIGHT / CUTAWAY",
+      "group": "corners",
+      "position": [
+        7,
+        12.5,
+        8.5
+      ],
+      "target": [
+        0,
+        4.9,
+        1.1
+      ],
+      "lens": 21,
+      "inherited": null,
+      "temporary_hidden_geometry": [
+        "East wall",
+        "Rear west wall",
+        "Rear east wall",
+        "Decon doorway lintel",
+        "Ceiling",
+        "Decon ceiling",
+        "Ceiling cross member",
+        "Ceiling cross member.001",
+        "Ceiling cross member.002",
+        "Ceiling cross member.003",
+        "Impact wall lining.003",
+        "Impact cap.003",
+        "Impact wall lining.004",
+        "Impact cap.004",
+        "Impact wall lining.005",
+        "Impact cap.005",
+        "Wall panel joint.002",
+        "Wall panel joint.003",
+        "Decon jamb",
+        "Decon jamb.001",
+        "Decon header",
+        "Engraved backing DECON",
+        "Wall structural post cover.001",
+        "Wall structural post cover.003",
+        "Rear upper panel joint",
+        "Rear upper panel joint.001",
+        "Rear upper panel joint.002",
+        "Rear horizontal panel joint",
+        "Beam seat backing.001",
+        "Beam seat bolts.004",
+        "Screwdriver slot.030",
+        "Beam seat bolts.005",
+        "Screwdriver slot.031",
+        "Beam seat bolts.006",
+        "Screwdriver slot.032",
+        "Beam seat bolts.007",
+        "Screwdriver slot.033",
+        "Beam seat backing.003",
+        "Beam seat bolts.012",
+        "Screwdriver slot.038",
+        "Beam seat bolts.013",
+        "Screwdriver slot.039",
+        "Beam seat bolts.014",
+        "Screwdriver slot.040",
+        "Beam seat bolts.015",
+        "Screwdriver slot.041",
+        "Beam seat backing.005",
+        "Beam seat bolts.020",
+        "Screwdriver slot.046",
+        "Beam seat bolts.021",
+        "Screwdriver slot.047",
+        "Beam seat bolts.022",
+        "Screwdriver slot.048",
+        "Beam seat bolts.023",
+        "Screwdriver slot.049",
+        "Beam seat backing.007",
+        "Beam seat bolts.028",
+        "Screwdriver slot.054",
+        "Beam seat bolts.029",
+        "Screwdriver slot.055",
+        "Beam seat bolts.030",
+        "Screwdriver slot.056",
+        "Beam seat bolts.031",
+        "Screwdriver slot.057",
+        "Identity wall spacer",
+        "Engraved backing RECOVERY.001",
+        "Identity wall spacer.001",
+        "Engraved backing SUPPLIES",
+        "Decon identity wall standoff",
+        "Cartridge rack rear",
+        "Cabinet louver",
+        "Cabinet louver.001",
+        "Cabinet louver.002",
+        "Cabinet wall spacer",
+        "Cabinet wall spacer.001",
+        "Cabinet wall spacer.002",
+        "Cabinet wall spacer.003",
+        "Supply cabinet back",
+        "Reserve folded back",
+        "Flush drain cross edge",
+        "Sink wall bracket",
+        "Basin folded rim.001",
+        "Handwash soap dispenser",
+        "Rear cable wall clamp",
+        "Rear cable wall clamp.001",
+        "Telemetry clip",
+        "Telemetry clip.001",
+        "MED_POWER termination",
+        "MED_DATA termination",
+        "Sink load-bearing wall packer",
+        "Notice wall mounting pad",
+        "Task fixture wall bracket",
+        "Task fixture wall bracket.001",
+        "Task fixture wall bracket.002",
+        "Isolation feed wall clip",
+        "Isolation feed wall clip.001",
+        "Isolation feed wall clip.002",
+        "Sink service valve",
+        "Sink isolator handwheel",
+        "Notice backing",
+        "Notice paper",
+        "Decon ceiling lamp",
+        "Recovery light wall base",
+        "Recovery shielded light",
+        "MED_R2 | Decon low pressure threshold",
+        "MED_R2 | Wash-zone localized repair and water maps",
+        "MED_R2 | Restart rear service loom",
+        "MED_R2 | Corporate continuity clinical wall art",
+        "MED_R2 | Molded clinical soap dispenser",
+        "MED_R2 | Tap base localized mineral residue",
+        "MED_R2 | Neglected rear utility leak",
+        "MED_R2 | Handwash wall fitted repair patch",
+        "MED_R2 | Reserve drawer rear mounting return ",
+        "MED_R2 | Reserve drawer rear mounting return .001",
+        "MED_R2 | Wall plaque mounting return Engraved backing RECOVERY.001",
+        "MED_R2 | Wall plaque mounting return Engraved backing SUPPLIES",
+        "MED_R2 | Decon fixture ceiling mounting return"
+      ],
+      "camera_matrix_world": [
+        [
+          -0.7355451583862305,
+          -0.3944682776927948,
+          0.5507886409759521,
+          7.0
+        ],
+        [
+          0.6774756908416748,
+          -0.4282801151275635,
+          0.5979990363121033,
+          12.5
+        ],
+        [
+          1.7656682871347584e-07,
+          0.8130011558532715,
+          0.5822620391845703,
+          8.5
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 21.0,
+      "projection": "ORTHO",
+      "ortho_scale_m": 23.146162033081055
+    },
+    {
+      "id": "WALL_SOUTH",
+      "label": "05 | ENTRY WALL",
+      "group": "walls",
+      "position": [
+        0,
+        7.4,
+        1.9
+      ],
+      "target": [
+        0,
+        0,
+        1.8
+      ],
+      "lens": 22,
+      "inherited": null,
+      "temporary_hidden_geometry": [],
+      "camera_matrix_world": [
+        [
+          -1.0,
+          -8.622555469628423e-08,
+          -8.859596078991672e-08,
+          0.0
+        ],
+        [
+          -8.742277657347586e-08,
+          -0.013512156903743744,
+          0.9999086856842041,
+          7.400000095367432
+        ],
+        [
+          -8.741480428398063e-08,
+          0.9999086856842041,
+          0.013512156903743744,
+          1.899999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 22.0,
+      "projection": "PERSP"
+    },
+    {
+      "id": "WALL_WEST",
+      "label": "06 | OCRU WALL",
+      "group": "walls",
+      "position": [
+        2.3,
+        4.5,
+        1.9
+      ],
+      "target": [
+        -4,
+        4.5,
+        1.8
+      ],
+      "lens": 19,
+      "inherited": null,
+      "temporary_hidden_geometry": [],
+      "camera_matrix_world": [
+        [
+          7.549790126404332e-08,
+          -0.01587105356156826,
+          0.9998740553855896,
+          2.299999952316284
+        ],
+        [
+          1.0,
+          -2.8835874132937533e-08,
+          -7.596512574536973e-08,
+          4.5
+        ],
+        [
+          3.003788862088186e-08,
+          0.9998740553855896,
+          0.01587105356156826,
+          1.899999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 19.0,
+      "projection": "PERSP"
+    },
+    {
+      "id": "WALL_NORTH",
+      "label": "07 | RESTART / DECON WALL",
+      "group": "walls",
+      "position": [
+        0,
+        1.5,
+        1.9
+      ],
+      "target": [
+        0,
+        9,
+        1.8
+      ],
+      "lens": 22,
+      "inherited": null,
+      "temporary_hidden_geometry": [],
+      "camera_matrix_world": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.013332166709005833,
+          -0.9999111294746399,
+          1.5
+        ],
+        [
+          0.0,
+          0.9999111294746399,
+          0.013332166709005833,
+          1.899999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 22.0,
+      "projection": "PERSP"
+    },
+    {
+      "id": "WALL_EAST",
+      "label": "08 | RECOVERY / SUPPLIES WALL",
+      "group": "walls",
+      "position": [
+        -1.1,
+        4.5,
+        1.9
+      ],
+      "target": [
+        4,
+        4.5,
+        1.8
+      ],
+      "lens": 16,
+      "inherited": null,
+      "temporary_hidden_geometry": [],
+      "camera_matrix_world": [
+        [
+          -1.6292068494294654e-07,
+          0.019603978842496872,
+          -0.9998078346252441,
+          -1.100000023841858
+        ],
+        [
+          -1.0,
+          -3.193893594044539e-09,
+          1.6288936421915423e-07,
+          4.5
+        ],
+        [
+          0.0,
+          0.9998078346252441,
+          0.019603978842496872,
+          1.899999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 16.0,
+      "projection": "PERSP"
+    },
+    {
+      "id": "HERO_OCRU",
+      "label": "09 | OCRU REANIMATION UNIT",
+      "group": "assets",
+      "position": null,
+      "target": null,
+      "lens": 24,
+      "inherited": "CAM_HERO",
+      "temporary_hidden_geometry": [],
+      "camera_matrix_world": [
+        [
+          0.044074513018131256,
+          -0.11085856705904007,
+          0.9928584098815918,
+          1.350000023841858
+        ],
+        [
+          0.9990282654762268,
+          0.004890726413577795,
+          -0.043802324682474136,
+          4.550000190734863
+        ],
+        [
+          6.407558572618655e-08,
+          0.9938241839408875,
+          0.11096639931201935,
+          1.6799999475479126
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 24.0,
+      "projection": "PERSP"
+    },
+    {
+      "id": "HERO_RESTART",
+      "label": "10 | RESTART CONSOLE",
+      "group": "assets",
+      "position": [
+        0.1,
+        6.2,
+        1.65
+      ],
+      "target": [
+        -0.4,
+        8.55,
+        1.05
+      ],
+      "lens": 24,
+      "inherited": null,
+      "temporary_hidden_geometry": [],
+      "camera_matrix_world": [
+        [
+          0.9781059622764587,
+          -0.0504220612347126,
+          0.20190687477588654,
+          0.10000000149011612
+        ],
+        [
+          0.208107590675354,
+          0.23698364198207855,
+          -0.9489625692367554,
+          6.199999809265137
+        ],
+        [
+          2.591465531054382e-08,
+          0.9702042937278748,
+          0.24228832125663757,
+          1.649999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 24.0,
+      "projection": "PERSP"
+    },
+    {
+      "id": "HERO_CARTRIDGES",
+      "label": "11 | MEDICAL CARTRIDGE BANK",
+      "group": "assets",
+      "position": [
+        0.9,
+        5.8,
+        1.55
+      ],
+      "target": [
+        1,
+        8.6,
+        1.3
+      ],
+      "lens": 22,
+      "inherited": null,
+      "temporary_hidden_geometry": [],
+      "camera_matrix_world": [
+        [
+          0.9993628263473511,
+          0.0031721133273094893,
+          -0.03555029630661011,
+          0.8999999761581421
+        ],
+        [
+          -0.03569154068827629,
+          0.08881910145282745,
+          -0.9954081177711487,
+          5.800000190734863
+        ],
+        [
+          -1.92327997972086e-09,
+          0.9960427284240723,
+          0.08887572586536407,
+          1.5499999523162842
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 22.0,
+      "projection": "PERSP"
+    },
+    {
+      "id": "HERO_RESERVE",
+      "label": "12 | RESERVE POWER",
+      "group": "assets",
+      "position": [
+        -0.65,
+        7.3,
+        1.5
+      ],
+      "target": [
+        -2.15,
+        8.7,
+        0.85
+      ],
+      "lens": 26,
+      "inherited": null,
+      "temporary_hidden_geometry": [],
+      "camera_matrix_world": [
+        [
+          0.6823181509971619,
+          -0.22077800333499908,
+          0.6969211101531982,
+          -0.6499999761581421
+        ],
+        [
+          0.7310553789138794,
+          0.20605939626693726,
+          -0.6504594683647156,
+          7.300000190734863
+        ],
+        [
+          -6.592319579112882e-09,
+          0.9533082246780396,
+          0.3019990026950836,
+          1.5
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 26.0,
+      "projection": "PERSP"
+    },
+    {
+      "id": "HERO_DECON",
+      "label": "13 | DECONTAMINATION ALCOVE",
+      "group": "assets",
+      "position": [
+        1.95,
+        7.3,
+        1.65
+      ],
+      "target": [
+        2.33,
+        10.7,
+        1.3
+      ],
+      "lens": 24,
+      "inherited": null,
+      "temporary_hidden_geometry": [],
+      "camera_matrix_world": [
+        [
+          0.9938122630119324,
+          0.011304235085844994,
+          -0.11049637198448181,
+          1.9500000476837158
+        ],
+        [
+          -0.11107310652732849,
+          0.10114327073097229,
+          -0.9886519908905029,
+          7.300000190734863
+        ],
+        [
+          9.466245565192821e-09,
+          0.9948076605796814,
+          0.10177301615476608,
+          1.649999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 24.0,
+      "projection": "PERSP"
+    },
+    {
+      "id": "HERO_RECOVERY",
+      "label": "14 | RECOVERY BERTH",
+      "group": "assets",
+      "position": [
+        0.7,
+        2.8,
+        1.8
+      ],
+      "target": [
+        3.3,
+        4.7,
+        0.85
+      ],
+      "lens": 28,
+      "inherited": null,
+      "temporary_hidden_geometry": [],
+      "camera_matrix_world": [
+        [
+          0.5900164842605591,
+          0.2284531593322754,
+          -0.7743963599205017,
+          0.699999988079071
+        ],
+        [
+          -0.8073911666870117,
+          0.16694654524326324,
+          -0.5659048557281494,
+          2.799999952316284
+        ],
+        [
+          3.3546303512821396e-08,
+          0.9591339826583862,
+          0.28295227885246277,
+          1.7999999523162842
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 28.0,
+      "projection": "PERSP"
+    },
+    {
+      "id": "HERO_CART",
+      "label": "15 | TRANSFER CART",
+      "group": "assets",
+      "position": [
+        -1.6,
+        0.9,
+        1.65
+      ],
+      "target": [
+        -3.1,
+        1.3,
+        0.7
+      ],
+      "lens": 18,
+      "inherited": null,
+      "temporary_hidden_geometry": [],
+      "camera_matrix_world": [
+        [
+          0.2576628029346466,
+          -0.5043458938598633,
+          0.8241632580757141,
+          -1.600000023841858
+        ],
+        [
+          0.9662349224090576,
+          0.13449235260486603,
+          -0.21977700293064117,
+          0.8999999761581421
+        ],
+        [
+          -2.9289777714325282e-08,
+          0.8529636859893799,
+          0.521970272064209,
+          1.649999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 18.0,
+      "projection": "PERSP"
+    },
+    {
+      "id": "HERO_SUPPLIES",
+      "label": "16 | SUPPLY WORKBENCH",
+      "group": "assets",
+      "position": [
+        1,
+        3.4,
+        1.65
+      ],
+      "target": [
+        3.55,
+        1.5,
+        0.9
+      ],
+      "lens": 28,
+      "inherited": null,
+      "temporary_hidden_geometry": [],
+      "camera_matrix_world": [
+        [
+          -0.5974814891815186,
+          0.18407215178012848,
+          -0.7804698944091797,
+          1.0
+        ],
+        [
+          -0.8018826842308044,
+          -0.1371518075466156,
+          0.5815268754959106,
+          3.4000000953674316
+        ],
+        [
+          4.7835982286414946e-08,
+          0.9732968807220459,
+          0.22954994440078735,
+          1.649999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 28.0,
+      "projection": "PERSP"
+    },
+    {
+      "id": "HERO_WASH",
+      "label": "17 | HANDWASH STATION",
+      "group": "assets",
+      "position": [
+        1.8,
+        3,
+        1.6
+      ],
+      "target": [
+        3.7,
+        3,
+        1.15
+      ],
+      "lens": 38,
+      "inherited": null,
+      "temporary_hidden_geometry": [],
+      "camera_matrix_world": [
+        [
+          -2.821299744937278e-07,
+          0.2304661124944687,
+          -0.9730803370475769,
+          1.7999999523162842
+        ],
+        [
+          -1.0,
+          -1.1590086756996243e-07,
+          2.624847468268854e-07,
+          3.0
+        ],
+        [
+          -5.228702093518223e-08,
+          0.9730803370475769,
+          0.2304661124944687,
+          1.600000023841858
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 38.0,
+      "projection": "PERSP"
+    },
+    {
+      "id": "HERO_CABINET",
+      "label": "18 | MEDICAL SUPPLIES CABINET",
+      "group": "assets",
+      "position": [
+        1.2,
+        6.3,
+        1.7
+      ],
+      "target": [
+        3.6,
+        7.4,
+        1.65
+      ],
+      "lens": 25,
+      "inherited": null,
+      "temporary_hidden_geometry": [],
+      "camera_matrix_world": [
+        [
+          0.41665464639663696,
+          0.017213590443134308,
+          -0.9089018702507019,
+          1.2000000476837158
+        ],
+        [
+          -0.9090648293495178,
+          0.007889480330049992,
+          -0.416579931974411,
+          6.300000190734863
+        ],
+        [
+          -7.297688853213913e-08,
+          0.9998207092285156,
+          0.01893545873463154,
+          1.7000000476837158
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 25.0,
+      "projection": "PERSP"
+    },
+    {
+      "id": "HIDDEN_BAG",
+      "label": "24 | BAG / INSPECTION FILL",
+      "group": "inspection",
+      "position": [
+        -1.35,
+        4.63,
+        0.72
+      ],
+      "target": [
+        -2.1,
+        4.63,
+        0.492
+      ],
+      "lens": 35,
+      "inherited": null,
+      "temporary_hidden_geometry": [],
+      "temporary_inspection_fill_watts": 2,
+      "camera_matrix_world": [
+        [
+          1.9470718370939721e-07,
+          -0.2908570170402527,
+          0.9567665457725525,
+          -1.350000023841858
+        ],
+        [
+          1.0,
+          5.5489920214313315e-08,
+          -1.8663649825612083e-07,
+          4.630000114440918
+        ],
+        [
+          1.1936371890897135e-09,
+          0.9567665457725525,
+          0.2908570170402527,
+          0.7200000286102295
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 35.0,
+      "projection": "PERSP"
+    }
+  ]
+}

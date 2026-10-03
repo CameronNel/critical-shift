@@ -1,0 +1,7 @@
+# Cycle 13 to 16: intended construction changes
+
+The numerical art comparison is retained with its actual FAIL result under strict pixel-identity tolerances. It measures intentionally different geometry, not final cold stability. All 24 camera transforms, projections and focal lengths remain unchanged. The corner hidden-object lists add new descendants of the same cutaway hosts; they do not indicate reframing.
+
+Root opened all 24 current cycle 16 PNGs individually, then the prior failed cycle 13 DETAIL_SUPPLIES, HERO_RECOVERY and HERO_RESERVE images for direct comparison. The largest measured difference is the newly continuous pressed tool-tray sidewall in DETAIL_SUPPLIES (RGB MAE 1.01573/255; 2.10028% of pixels differ by over three levels). The recovery chart now has its own pressed holder rather than hovering over the cover. Fixed reserve crosschannels and actual battery bearings replace unsupported retained interfaces. These measured repair targets improve construction; room composition, lighting hierarchy and route remain visually stable.
+
+Other new standoffs and captive bearings are primarily supported by independent evaluated-geometry witnesses rather than claimed close-up pixel proof. Current cycle 16 visual review reports all camera gates clear. Only the full unchanged-source, unchanged-renderer 16 HOT / 17 COLD comparison can establish final cold stability; it remains pending.

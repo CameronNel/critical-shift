@@ -1,0 +1,922 @@
+"""Rebuild the additive, layout-preserving medical art scene from the R1 baseline.
+
+Blender -b --factory-startup --disable-autoexec --python overhaul_room.py -- --stage slice
+Use --stage full after the gameplay-height style slice passes pixel review.
+Original module, interface, and assembled map are read-only inputs.
+"""
+import bpy, bmesh, math, json, hashlib, sys, random
+from pathlib import Path
+from mathutils import Vector
+from mathutils.bvhtree import BVHTree
+ROOT=Path(__file__).resolve().parent
+OUT=ROOT/'module_overhaul_R2.blend'
+PROD=ROOT/'revamp-review/production'
+PROD.mkdir(parents=True,exist_ok=True)
+args=sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else []
+stage=args[args.index('--stage')+1] if '--stage' in args else 'slice'
+random.seed(731)
+baseline=json.loads((ROOT/'revamp-review/baseline.json').read_text())
+with bpy.data.libraries.load(str(ROOT/'module_overhaul_R1.blend'),link=False) as (a,b):
+    b.scenes=['REANIMATION_EDIT_LOCAL']
+s=bpy.data.scenes['REANIMATION_EDIT_LOCAL']; bpy.context.window.scene=s
+original={o.name for o in s.objects}
+module=bpy.data.collections['MODULE_medical-reanimation']
+art=bpy.data.collections.new('MED_R2 | Authored art and dressing'); module.children.link(art)
+supports=[]
+pose_updates=[]
+def rgb(hex):
+    v=[int(hex[i:i+2],16)/255 for i in (0,2,4)]
+    return tuple(n/12.92 if n<=.04045 else ((n+.055)/1.055)**2.4 for n in v)
+def material(name,color,rough=.7,metal=0,broad=0,emission=0):
+    m=bpy.data.materials.get(name) or bpy.data.materials.new(name)
+    m.diffuse_color=(*rgb(color),1); m.use_nodes=True
+    n=m.node_tree.nodes; n.clear(); p=n.new('ShaderNodeBsdfPrincipled'); out=n.new('ShaderNodeOutputMaterial')
+    p.inputs['Base Color'].default_value=m.diffuse_color
+    p.inputs['Roughness'].default_value=rough; p.inputs['Metallic'].default_value=metal
+    p.inputs['Emission Color'].default_value=m.diffuse_color; p.inputs['Emission Strength'].default_value=emission
+    m.node_tree.links.new(p.outputs[0],out.inputs['Surface'])
+    if broad:
+        tex=n.new('ShaderNodeTexNoise'); tex.inputs['Scale'].default_value=3.5
+        tex.inputs['Detail'].default_value=1; tex.inputs['Roughness'].default_value=.4
+        ramp=n.new('ShaderNodeValToRGB')
+        ramp.color_ramp.elements[0].position=.15; ramp.color_ramp.elements[1].position=.85
+        for e,k in zip(ramp.color_ramp.elements,(1-broad,1+broad)):
+            e.color=(*[min(1,c*k) for c in rgb(color)],1)
+        m.node_tree.links.new(tex.outputs['Fac'],ramp.inputs[0]); m.node_tree.links.new(ramp.outputs[0],p.inputs['Base Color'])
+    return m
+M={
+ 'mauve':material('MED | Mauve mineral plaster','8E7F92',.94,broad=.08),
+ 'navy':material('MED | Navy impact enamel','2B3350',.73,.12,.05),
+ 'blue':material('MED | Institutional blue enamel','56709F',.64,.15,.06),
+ 'oxide':material('MED | Terracotta equipment enamel','B55B4B',.67,.12,.08),
+ 'cream':material('MED | Warm ivory porcelain','C8C3B3',.62,.10,.03),
+ 'steel':material('MED | Machined zinc steel','82868D',.54,.35,.035),
+ 'rubber':material('MED | Charcoal elastomer','23272C',.89,0,.025),
+ 'paper':material('MED | Aged clinical paper','D6CCAB',.97,0,.035),
+ 'linen':material('MED | Warm woven cotton','BEB8A7',.97,0,.055),
+ 'cloth':material('MED | Woven slate fabric','424E69',.98,0,.055),
+ 'ochre':material('MED | Ochre safety enamel','C58C39',.67,.08,.02),
+ 'ink':material('MED | Charcoal print','1C2330',.93),
+ 'rust':material('MED | Local oxide corrosion','66503D',.94),
+ 'blood':material('MED | Old maroon trace','392027',.91),
+ 'floor':material('MED | Matte plum-grey sealed floor','625F6A',.87,0,.045),
+ 'red':material('MED | Single OCRU red lens','FF260D',.4,0,0,2),
+ 'amber':material('MED | Single supply warm lens','FFC78B',.4,0,0,2),
+ 'dimlens':material('MED | Unpowered frosted lens','7B8090',.84),
+ 'sticky':material('MED | Faded ochre paper','A58C57',.98),
+ 'plastic':material('MED | Molded bottle polymer','C2C6BA',.48),
+ 'ceramic':material('MED | Glazed staff ceramic','B5C0CA',.29),
+ 'watermark':material('MED | Old wash water map','807784',.98),
+ 'vinyl':material('MED | Bonded medical upholstery','343B45',.77,0,.035),
+ 'seam':material('MED | Bound cotton seam','9B978D',.99),
+}
+# Append owned copies of the approved spawn's material graphs. Its originals,
+# source images and the assembled map remain read-only. Retain its texture,
+# roughness and micro-normal networks rather than replacing them with flat RGB.
+spawn_path=ROOT.parent/'spawn-room/module.blend'
+spawn_hash=hashlib.sha256(spawn_path.read_bytes()).hexdigest()
+material_sources={'mauve':'V13_HALL_wall','navy':'V_graphite','blue':'V_locker_steel','oxide':'V_locker_steel','cream':'V_locker_steel','steel':'V_brushed','paper':'V_paper','floor':'CS_hall_floor'}
+with bpy.data.libraries.load(str(spawn_path),link=False) as (a,b):b.materials=sorted(set(material_sources.values()))
+approved={m.name:m for m in b.materials}
+for key,source in material_sources.items():
+    previous=M[key];m=approved[source].copy();m.name=previous.name+' / approved spawn graph'
+    m['reference_source']=str(spawn_path.relative_to(ROOT.parents[1]));m['reference_material']=source
+    nt=m.node_tree;p=next(n for n in nt.nodes if n.type=='BSDF_PRINCIPLED')
+    target=previous.diffuse_color[:];m.diffuse_color=target
+    if key not in ('mauve','steel'):
+        base=p.inputs['Base Color']
+        # Preserve existing source luminance while applying the medical palette.
+        if base.is_linked:
+            src=base.links[0].from_socket
+            bw=nt.nodes.new('ShaderNodeRGBToBW');rng=nt.nodes.new('ShaderNodeMapRange')
+            rng.clamp=True;rng.inputs['From Max'].default_value=.6;rng.inputs['To Min'].default_value=.82;rng.inputs['To Max'].default_value=1.16
+            tint=nt.nodes.new('ShaderNodeMixRGB');tint.blend_type='MULTIPLY';tint.inputs[0].default_value=1;tint.inputs[1].default_value=target
+            nt.links.new(src,bw.inputs[0]);nt.links.new(bw.outputs[0],rng.inputs[0]);nt.links.new(rng.outputs[0],tint.inputs[2]);nt.links.new(tint.outputs[0],base)
+        else:base.default_value=target
+    p.inputs['Roughness'].default_value={'mauve':.91,'floor':.87,'paper':.97,'steel':.54}.get(key,.78)
+    if key in ('navy','blue','oxide','cream'):p.inputs['Metallic'].default_value=.22
+    for n in nt.nodes:
+        if n.type=='TEX_IMAGE' and n.image and not n.image.packed_file:n.image.pack()
+    M[key]=m
+glass=material('MED | Dusty clinical safety glazing','D5DDD1',.22)
+gp=next(n for n in glass.node_tree.nodes if n.type=='BSDF_PRINCIPLED');gp.inputs['Transmission Weight'].default_value=.94;gp.inputs['IOR'].default_value=1.45
+M['glass']=glass
+for key in ('navy','blue','oxide','cream'):
+    mat=M[key];nt=mat.node_tree;p=next(n for n in nt.nodes if n.type=='BSDF_PRINCIPLED')
+    noise=nt.nodes.new('ShaderNodeTexNoise');noise.inputs['Scale'].default_value=1.8;noise.inputs['Detail'].default_value=0
+    value=nt.nodes.new('ShaderNodeMapRange');value.inputs['To Min'].default_value=.83;value.inputs['To Max'].default_value=1.025
+    color=p.inputs['Base Color'];src=color.links[0].from_socket
+    mul=nt.nodes.new('ShaderNodeMixRGB');mul.blend_type='MULTIPLY';mul.inputs[0].default_value=1
+    nt.links.new(noise.outputs['Fac'],value.inputs[0]);nt.links.new(src,mul.inputs[1]);nt.links.new(value.outputs[0],mul.inputs[2]);nt.links.new(mul.outputs[0],color)
+    rough=p.inputs['Roughness'];rough_src=rough.links[0].from_socket if rough.is_linked else None
+    variation=nt.nodes.new('ShaderNodeMapRange');variation.inputs['To Min'].default_value=.70;variation.inputs['To Max'].default_value=.94;nt.links.new(noise.outputs['Fac'],variation.inputs[0])
+    mix=nt.nodes.new('ShaderNodeMixRGB');mix.inputs[0].default_value=.3
+    if rough_src:nt.links.new(rough_src,mix.inputs[1])
+    else:mix.inputs[1].default_value=(.78,.78,.78,1)
+    nt.links.new(variation.outputs[0],mix.inputs[2]);nt.links.new(mix.outputs[0],rough)
+for key in ('linen','cloth'):
+    mat=M[key];nodes=mat.node_tree.nodes;links=mat.node_tree.links
+    wave=nodes.new('ShaderNodeTexWave');wave.wave_type='BANDS';wave.bands_direction='X';wave.inputs['Scale'].default_value=65;wave.inputs['Distortion'].default_value=.25
+    bump=nodes.new('ShaderNodeBump');bump.inputs['Strength'].default_value=.065;bump.inputs['Distance'].default_value=.001
+    links.new(wave.outputs['Fac'],bump.inputs['Height']);links.new(bump.outputs['Normal'],next(n for n in nodes if n.type=='BSDF_PRINCIPLED').inputs['Normal'])
+# Restyle inherited assets without changing any inherited object transform.
+remap={'Warm precast concrete':M['mauve'],'Dry ground concrete':M['floor'],
+ 'Galvanized bus casing':M['navy'],'Warm grey enamel':M['cream'],
+ 'Standby ochre enamel':M['ochre'],'Ochre safety enamel':M['ochre'],
+ 'Woven recovery linen':M['linen'],'Woven charcoal recovery blanket':M['cloth'],
+ 'Brushed galvanized steel':M['steel'],'Insulating rubber':M['rubber'],
+ 'Work order paper':M['paper'],'Neutral OCRU task diffuser':M['dimlens']}
+for o in s.objects:
+    if o.type=='LIGHT':o.data.energy=0
+    if o.type not in {'MESH','FONT','CURVE'}:continue
+    for slot in o.material_slots:
+        if slot.material and slot.material.name in remap:slot.material=remap[slot.material.name]
+    name=o.name.lower()
+    if o.type=='MESH' and any(t in name for t in ['jamb folded cover','formed end service panel','chamber top folded fascia','cartridge retaining drawer','console drawer front','reserve removable door']):
+        o.data.materials.clear();o.data.materials.append(M['oxide'])
+    if o.type=='MESH' and any(t in name for t in ['cabinet formed edge','clear cabinet sliding pane','inner removable liner','pressure door lower panel','door window side panel','cartridge bank formed upright']):
+        o.data.materials.clear();o.data.materials.append(M['blue'])
+    if o.type=='MESH' and 'ceiling' in name and 'light' not in name:
+        o.data.materials.clear();o.data.materials.append(M['navy'])
+for m in bpy.data.materials:
+    if m.name.startswith('MED |'):continue
+    if m.use_nodes:
+        for n in m.node_tree.nodes:
+            if n.type=='BSDF_PRINCIPLED' and 'Emission Strength' in n.inputs:
+                n.inputs['Emission Strength'].default_value=.12 if m.name=='Amber grey phosphor' else 0
+
+def mesh(name,verts,faces,mat,parent=None,pos=(0,0,0)):
+    d=bpy.data.meshes.new('MED_R2 | '+name);d.from_pydata(verts,[],faces);d.update()
+    o=bpy.data.objects.new('MED_R2 | '+name,d);art.objects.link(o);d.materials.append(mat)
+    o.parent=parent;o.location=pos;o['art_stage']=stage
+    return o
+def box(name,pos,size,mat,parent=None,bevel=0):
+    x,y,z=[d/2 for d in size]
+    o=mesh(name,[(-x,-y,-z),(x,-y,-z),(x,y,-z),(-x,y,-z),(-x,-y,z),(x,-y,z),(x,y,z),(-x,y,z)],[(0,3,2,1),(0,1,5,4),(1,2,6,5),(2,3,7,6),(3,0,4,7),(4,5,6,7)],mat,parent,pos)
+    if bevel:
+        b=o.modifiers.new('Manufacturing edge radius','BEVEL');b.width=bevel;b.segments=2
+        o.modifiers.new('Weighted face normals','WEIGHTED_NORMAL')
+    return o
+def plate(name,pos,w,h,depth,mat,parent=None,cut=.03):
+    # Folded manufactured plate: chamfered XZ profile, extruded along Y.
+    c=min(cut,w/5,h/5)
+    p=[(-w/2+c,-h/2),(w/2-c,-h/2),(w/2,-h/2+c),(w/2,h/2-c),(w/2-c,h/2),(-w/2+c,h/2),(-w/2,h/2-c),(-w/2,-h/2+c)]
+    v=[(x,y,z) for y in (-depth/2,depth/2) for x,z in p]
+    f=[tuple(range(8)),tuple(range(15,7,-1))]+[(i+8,(i+1)%8+8,(i+1)%8,i) for i in range(8)]
+    return mesh(name,v,f,mat,parent,pos)
+def cylinder(name,pos,r,depth,mat,parent=None,axis='Z',vertices=16):
+    v=[]
+    for z in (-depth/2,depth/2):
+        for i in range(vertices):
+            a=2*math.pi*i/vertices;p=(r*math.cos(a),r*math.sin(a),z)
+            if axis=='Y':p=(p[0],p[2],p[1])
+            if axis=='X':p=(p[2],p[0],p[1])
+            v.append(p)
+    faces=[tuple(range(vertices-1,-1,-1)),tuple(range(vertices,2*vertices))]+[(i,(i+1)%vertices,(i+1)%vertices+vertices,i+vertices) for i in range(vertices)]
+    if axis=='Y':faces=[tuple(reversed(f)) for f in faces]
+    return mesh(name,v,faces,mat,parent,pos)
+def profile(name,outline,depth,mat,parent,axis='X'):
+    """Purpose-built cast/pressed cross-section, extruded on the declared axis."""
+    v=[];n=len(outline)
+    for end in (-depth/2,depth/2):
+        for a,b in outline:v.append((end,a,b) if axis=='X' else (a,end,b))
+    f=[tuple(range(n-1,-1,-1)),tuple(range(n,n*2))]+[(i,(i+1)%n,(i+1)%n+n,i+n) for i in range(n)]
+    return mesh(name,v,f,mat,parent)
+def line(name,points,r,mat,parent=None):
+    d=bpy.data.curves.new('MED_R2 | '+name,'CURVE');d.dimensions='3D';d.bevel_depth=r;d.bevel_resolution=1;d.resolution_u=6
+    sp=d.splines.new('POLY');sp.points.add(len(points)-1)
+    for p,v in zip(sp.points,points):p.co=(*v,1)
+    o=bpy.data.objects.new('MED_R2 | '+name,d);art.objects.link(o);o.parent=parent;d.materials.append(mat)
+    return o
+def text(name,body,pos,size,mat,parent=None,rot=(math.pi/2,0,0)):
+    d=bpy.data.curves.new('MED_R2 | '+name,'FONT');d.body=body;d.size=size;d.extrude=0;d.space_line=1.12
+    o=bpy.data.objects.new('MED_R2 | '+name,d);art.objects.link(o);o.parent=parent;o.location=pos;o.rotation_euler=rot;d.materials.append(mat)
+    return o
+def group(name,creator,support):
+    before={o.name for o in art.objects};creator()
+    objects=[o for o in art.objects if o.name not in before]
+    bpy.ops.object.select_all(action='DESELECT')
+    for o in objects:o.select_set(True)
+    bpy.context.view_layer.objects.active=objects[0]
+    bpy.ops.object.convert(target='MESH');bpy.ops.object.join()
+    obj=bpy.context.object;obj.name='MED_R2 | '+name
+    bm=bmesh.new();bm.from_mesh(obj.data)
+    bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces));bm.to_mesh(obj.data);bm.free();obj.data.update()
+    obj['support_target']=support;supports.append({'object':obj.name,'target':support,'max_gap_m':.005,'max_penetration_m':.002})
+    return obj
+O=s.objects['OCRU'];bed=s.objects['OCRU_BERTH'];bench=s.objects['SUPPLY_BENCH']
+def upholstery(o,mat,fold=False):
+    """Authored soft surface and wrapped sides, inside the inherited envelope."""
+    co=[v.co for v in o.data.vertices];lo=[min(v[i] for v in co) for i in range(3)];hi=[max(v[i] for v in co) for i in range(3)]
+    n=12;verts=[];faces=[]
+    def vertex(x,y,z):return tuple(lo[i]+(hi[i]-lo[i])*(q+1)/2 for i,q in enumerate((x,y,z)))
+    for bottom in (False,True):
+        for i in range(n+1):
+            x=-1+2*i/n
+            for j in range(n+1):
+                y=-1+2*j/n
+                xx=x*(1-.07*abs(y)**4);yy=y*(1-.07*abs(x)**4)
+                shape=max(0,(1-x*x)*(1-y*y))**.32
+                z=-.1-.9*shape if bottom else .1+.9*shape
+                if fold and not bottom:z=max(.1,z-.28*math.sin(2*math.pi*x+y)**2*(1-x*x)*(1-y*y))
+                verts.append(vertex(xx,yy,z))
+    size=(n+1)**2
+    for b in range(2):
+        for i in range(n):
+            for j in range(n):
+                q=b*size+i*(n+1)+j;face=(q,q+1,q+n+2,q+n+1)
+                faces.append(tuple(reversed(face)) if b==0 else face)
+    edge=list(range(n+1))+[i*(n+1)+n for i in range(1,n+1)]+[n*(n+1)+j for j in range(n-1,-1,-1)]+[i*(n+1) for i in range(n-1,0,-1)]
+    for a,b in zip(edge,edge[1:]+edge[:1]):faces.append((a,b,b+size,a+size))
+    md=bpy.data.meshes.new('MED_R2 | Upholstery '+o.name);md.from_pydata(verts,[],faces);md.update();md.materials.append(mat)
+    for p in md.polygons:p.use_smooth=True
+    o.data=md
+    for mod in list(o.modifiers):
+        if mod.type in {'BEVEL','WEIGHTED_NORMAL'}:o.modifiers.remove(mod)
+def wrapped_seam(o,name,mat):
+    n=12
+    edge=list(range(n+1))+[i*(n+1)+n for i in range(1,n+1)]+[n*(n+1)+j for j in range(n-1,-1,-1)]+[i*(n+1) for i in range(n-1,0,-1)]
+    z=(min(v.co.z for v in o.data.vertices)+max(v.co.z for v in o.data.vertices))/2
+    points=[o.matrix_local@Vector((o.data.vertices[i].co.x,o.data.vertices[i].co.y,z)) for i in edge]
+    return line(name,points+[points[0]],.0015,mat,o.parent)
+def folded_textile(o):
+    """Three compressed fabric folds, rather than a rigid slab or a pillow."""
+    co=[v.co for v in o.data.vertices];lo=[min(v[i] for v in co) for i in range(3)];hi=[max(v[i] for v in co) for i in range(3)]
+    n=12;verts=[];faces=[]
+    edge=list(range(n+1))+[i*(n+1)+n for i in range(1,n+1)]+[n*(n+1)+j for j in range(n-1,-1,-1)]+[i*(n+1) for i in range(n-1,0,-1)]
+    for layer in range(3):
+        start=len(verts);height=(hi[2]-lo[2])/3;base=lo[2]+layer*height
+        for bottom in (False,True):
+            for i in range(n+1):
+                x=-1+2*i/n
+                for j in range(n+1):
+                    y=-1+2*j/n;shape=max(0,(1-x*x)*(1-y*y))
+                    xx=x*(1-.015*abs(y)**4);yy=y*(1-.015*abs(x)**4)
+                    z=base+.0008*shape if bottom else base+height-.002*(1-shape)-.004*math.sin(2*math.pi*x+.4*y)**2*shape
+                    verts.append((lo[0]+(hi[0]-lo[0])*(xx+1)/2,lo[1]+(hi[1]-lo[1])*(yy+1)/2,z))
+        size=(n+1)**2
+        for b in range(2):
+            for i in range(n):
+                for j in range(n):
+                    q=start+b*size+i*(n+1)+j;face=(q,q+1,q+n+2,q+n+1)
+                    faces.append(tuple(reversed(face)) if b==0 else face)
+        for a,b in zip(edge,edge[1:]+edge[:1]):faces.append((start+a,start+b,start+b+size,start+a+size))
+    md=bpy.data.meshes.new('MED_R2 | Folded woven cleaning cloth');md.from_pydata(verts,[],faces);md.update();md.materials.append(M['linen']);o.data=md
+    for p in md.polygons:p.use_smooth=True
+upholstery(s.objects['Contoured head pad'],M['linen'],True)
+folded_textile(s.objects['Folded cleaning cloth'])
+for o in list(s.objects):
+    if o.name.startswith('Segmented adult berth cushion'):upholstery(o,M['vinyl'],True)
+    if o.name.startswith('Folded work glove palm') or o.name.startswith('Folded work glove finger'):upholstery(o,M['cloth'],True)
+for palm in [o for o in s.objects if o.name.startswith('Folded work glove palm')]:
+    def glove(palm=palm):
+        x,y,z=palm.location;parent=palm.parent
+        thumb=line('Folded glove thumb',[(x-.045,y-.008,z+.006),(x-.073,y-.031,z+.002),(x-.071,y-.054,z+.002)],.009,M['cloth'],parent)
+        thumb.data.bevel_resolution=2
+        # A flattened rolled cuff with an actual dark opening, rather than a slab.
+        vv=[];nn=24
+        for yy in (y-.073,y-.048):
+            for r in (1,.72):
+                for i in range(nn):a=2*math.pi*i/nn;vv.append((x+.051*r*math.cos(a),yy,z+.011*r*math.sin(a)))
+        ff=[]
+        for k,l in [(0,1),(0,2),(1,3),(2,3)]:
+            for i in range(nn):ff.append((k*nn+i,k*nn+(i+1)%nn,l*nn+(i+1)%nn,l*nn+i))
+        mesh('Folded glove cuff',vv,ff,M['cloth'],parent)
+        for xx in (x-.02,x+.02):line('Glove cuff seam',[(xx,y-.073,z+.011),(xx,y-.05,z+.011)],.001,M['seam'],parent)
+    group('Glove cuff and thumb '+palm.name,glove,palm.name)
+# Faceted pressed end skins and a stepped pressure-beam fascia, all inside
+# inherited end-skin envelopes. Break the plain booth mass into manufactured
+# equipment with visible pressure/service construction.
+for suffix in ('','.001'):
+    panel=s.objects['Formed end service panel'+suffix]
+    temp=profile('Temporary pressed OCRU end',[(-1.15,-1.12),(.95,-1.12),(1.15,-.92),(1.15,.90),(.93,1.12),(-.91,1.12),(-1.15,.88)],.13,M['oxide'],O)
+    md=temp.data.copy();panel.data=md;bpy.data.objects.remove(temp,do_unlink=True)
+    bm=bmesh.new();bm.from_mesh(md);bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces));bm.to_mesh(md);bm.free();md.update()
+for side in (-1,1):
+    def exterior_service(side=side):
+        o=profile('Cast pressure service cassette',[(-.38,.70),(.36,.70),(.36,2.12),(.19,2.31),(-.20,2.31),(-.38,2.13)],.032,M['navy'],O);o.location.x=side*2.174
+        for y in (-.285,.275):
+            box('Cast cassette return',(side*2.197,y,1.51),(.014,.024,1.37),M['steel'],O)
+            for z in (.80,2.12):cylinder('Cassette captive mounting',(side*2.21,y,z),.018,.012,M['steel'],O,'X',12)
+        for z in (1.05,1.16,1.27,1.38,1.49):box('Pressure cassette heat exchanger fin',(side*2.204,.01,z),(.027,.48,.025),M['steel'],O)
+        for y in (-.13,.13):
+            cylinder('Pressure diagnostic port',(side*2.218,y,1.82),.054,.035,M['steel'],O,'X',16)
+            cylinder('Sealed diagnostic plug',(side*2.239,y,1.82),.035,.010,M['rubber'],O,'X',12)
+        line('Cassette retained conduit',[(side*2.206,.26,.77),(side*2.23,.42,.69),(side*2.20,.48,.51)],.025,M['rubber'],O)
+    group('OCRU external pressure service '+str(side),exterior_service,'Formed end service panel'+('' if side<0 else '.001'))
+def pressure_beam():
+    o=profile('Stepped pressure fascia',[(-2.08,2.63),(-1.80,2.57),(1.80,2.57),(2.08,2.63),(2.08,2.77),(1.92,2.89),(-1.92,2.89),(-2.08,2.77)],.028,M['steel'],O,axis='Y');o.location.y=-1.269
+    for x in (-1.92,-1.46,-.73,.73,1.46,1.92):
+        box('Pressure beam bearing recess',(x,-1.287,2.76),(.080,.010,.082),M['navy'],O)
+        cylinder('Pressure beam captive stud',(x,-1.297,2.76),.018,.016,M['steel'],O,'Y',12)
+    for x in (-.55,.55):box('Pressure beam clearance marker',(x,-1.287,2.63),(.085,.010,.018),M['ochre'],O)
+group('OCRU stepped cast pressure beam',pressure_beam,'Chamber top folded fascia')
+# Specific mechanical construction on the treatment unit. Same clear opening.
+for side in (-1,1):
+    def cheek(side=side):
+        plate('Folded jamb cheek', (side*1.965,-1.266,1.02),.23,.58,.018,M['blue'],O,.045)
+        plate('Recessed actuator inspection',(side*1.965,-1.278,1.02),.14,.31,.010,M['navy'],O,.015)
+        for z in (.81,1.23):cylinder('Captive service fastener',(side*1.965,-1.288,z),.014,.014,M['steel'],O,'Y',12)
+        for z in (.92,.985,1.05):box('Angled actuator vent',(side*1.965,-1.29,z),(.10,.013,.012),M['steel'],O)
+    group('Jamb service cassette '+str(side),cheek,'Jamb folded cover'+('' if side<0 else '.001'))
+def red_fixture():
+    box('Red lamp structural back',(0,-.2,2.62),(1.16,.26,.05),M['navy'],O,.008)
+    box('Red lens recessed frame',(0,-.2,2.582),(1.08,.25,.025),M['steel'],O)
+    box('Single red diffuser',(0,-.2,2.567),(.96,.19,.012),M['red'],O)
+group('Single red OCRU practical housing',red_fixture,'Chamber roof load beam')
+light=bpy.data.lights.new('MED | ONE red OCRU source','AREA');light.energy=65;light.color=(1,.11,.065);light.shape='RECTANGLE';light.size=.96;light.size_y=.19;light.spread=math.radians(75)
+lo=bpy.data.objects.new(light.name,light);art.objects.link(lo);lo.parent=O;lo.location=(0,-.2,2.548)
+warm=s.objects['Wall grazed work zone.001'];warm.data.energy=65;warm.data.color=(1,.67,.38)
+s.objects['Wall task lens.001'].data.materials.clear();s.objects['Wall task lens.001'].data.materials.append(M['amber'])
+warm.rotation_euler=(Vector((3.35,2.3,.95))-warm.location).to_track_quat('-Z','Y').to_euler();warm.data.energy=45
+for name,pos,target,watts in [('Machine accent',(0,.5,2.8),(-.7,2.8,.60),220),('Rear service accent',(.85,6,2.55),(.95,8.2,1.18),240)]:
+    d=bpy.data.lights.new('MED | '+name,'SPOT');d.energy=watts;d.color=(.85,.87,.91);d.spot_size=math.radians(145);d.spot_blend=.40;d.shadow_soft_size=.28
+    o=bpy.data.objects.new(d.name,d);art.objects.link(o);o.location=pos;o.rotation_euler=(Vector(target)-o.location).to_track_quat('-Z','Y').to_euler()
+
+# A closed body bag folded and stowed between the loading plinths.
+# Broad flat folds, bound edges, closure teeth and webbing distinguish it from
+# a domed pouch. No anatomy; its note is only visible from a deliberate crouch.
+def bag_surface(x,y,layer=2):
+    xx=x/.39;yy=y/.20;shape=max(0,(1-xx*xx)*(1-yy*yy))
+    return .402+layer*.027+.018+.010*shape-.004*math.sin(2.8*math.pi*xx+.7*yy)**2*shape
+def bag():
+    n,m=20,12;v=[];f=[];size=(n+1)*(m+1)
+    perimeter=list(range(m+1))+[i*(m+1)+m for i in range(1,n+1)]+[n*(m+1)+j for j in range(m-1,-1,-1)]+[i*(m+1) for i in range(n-1,0,-1)]
+    for layer in range(3):
+        start=len(v)
+        for bottom in (False,True):
+            for i in range(n+1):
+                x=-.39+.78*i/n
+                for j in range(m+1):
+                    y=-.20+.40*j/m;z=.402+layer*.027 if bottom else bag_surface(x,y,layer)
+                    v.append((x,y,z))
+        for bottom in range(2):
+            for i in range(n):
+                for j in range(m):
+                    q=start+bottom*size+i*(m+1)+j;face=(q,q+1,q+m+2,q+m+1)
+                    f.append(face if bottom else tuple(reversed(face)))
+        for a,b in zip(perimeter,perimeter[1:]+perimeter[:1]):f.append((start+a,start+b,start+b+size,start+a+size))
+        line('Body bag bound folded edge',[(x,-.20,bag_surface(x,-.20,layer)-.006) for x in [-.38+i*.038 for i in range(21)]],.002,M['cloth'],bed)
+    mesh('Flat folded containment fabric',v,f,M['rubber'],bed)
+    line('Body bag closure tape',[(x,-.07,bag_surface(x,-.07)+.0015) for x in [-.34+i*.034 for i in range(21)]],.005,M['cloth'],bed)
+    for i in range(47):
+        x=-.33+i*.014
+        box('Body bag closure tooth',(x,-.07,bag_surface(x,-.07)+.004),(.007,.011,.0025),M['steel'],bed)
+    box('Body bag zipper slider',(.322,-.07,bag_surface(.322,-.07)+.006),(.024,.016,.006),M['steel'],bed,.002)
+    line('Body bag zipper pull',[(.33,-.07,bag_surface(.33,-.07)+.008),(.355,-.06,bag_surface(.355,-.06)+.009),(.355,-.045,bag_surface(.355,-.045)+.008),(.335,-.045,bag_surface(.335,-.045)+.008)],.002,M['steel'],bed)
+    for x in (-.24,.24):
+        line('Stowed body bag webbing',[(x,-.20,.438),(x,-.23,.448),(x+.07,-.24,.449),(x+.09,-.20,.438)],.006,M['rubber'],bed)
+        line('Folded containment cross strap',[(x,y,bag_surface(x,y)+.002) for y in [-.195+i*.039 for i in range(11)]],.004,M['cloth'],bed)
+group('Concealed closed body bag',bag,'Sealed chamber pan')
+def rear_shield():
+    plate('Bed rear service shield',(0,.385,.735),1.50,.26,.016,M['navy'],bed,.025)
+    for x in (-.65,.65):cylinder('Shield captive fixing',(x,.374,.853),.009,.012,M['steel'],bed,'Y',12)
+group('Bed rear service shield',rear_shield,'Rail support crosshead')
+def carriage_guard():
+    plate('Front rail folded guard',(0,-.384,.89),1.76,.10,.010,M['blue'],bed,.02)
+    box('Carriage recessed tracking groove',(0,-.391,.897),(1.49,.006,.023),M['navy'],bed)
+    for x in (-.78,-.26,.26,.78):
+        cylinder('Rail attachment screw',(x,-.395,.889),.009,.009,M['steel'],bed,'Y',12)
+    for x in (-.84,.84):plate('Rail protective end cheek',(x,-.40,.86),.09,.14,.020,M['steel'],bed,.021)
+group('Bed manufactured rail carriage',carriage_guard,'Captive transfer rail')
+for side in (-1,1):
+    def lift(side=side):
+        plate('Telescopic ram protective shoe',(side*.75,-.169,.66),.23,.24,.014,M['blue'],bed,.022)
+        for z in (.595,.63,.665):box('Ram shoe vent',(side*.75,-.179,z),(.135,.009,.012),M['navy'],bed)
+        for x in (-.078,.078):cylinder('Ram shoe screw',(side*.75+x,-.18,.743),.008,.007,M['steel'],bed,'Y',12)
+    group('Lift service shoe '+str(side),lift,'Telescopic lift outer'+('' if side<0 else '.001'))
+    def ram(side=side):
+        x=side*.75
+        # Exposed hydraulic stem, sealing collar and the actual pressure line.
+        cylinder('Lift polished ram stem',(x,-.147,.823),.032,.105,M['steel'],bed,vertices=24)
+        cylinder('Lift wiper seal',(x,-.162,.790),.047,.018,M['rubber'],bed,vertices=20)
+        cylinder('Lift gland machined cap',(x,-.170,.775),.053,.016,M['steel'],bed,vertices=20)
+        cylinder('Pressure line union',(x+.075,-.18,.68),.016,.035,M['steel'],bed,'Y',12)
+        line('Lift pressure return',[(x+.075,-.18,.68),(x+.09,-.215,.65),(x+.08,-.225,.53),(x+.04,-.17,.50)],.009,M['rubber'],bed)
+        for z in (.79,.81,.83):cylinder('Ram service dust ring',(x,-.152,z),.036,.004,M['rubber'],bed,vertices=20)
+    group('Hydraulic loading actuator '+str(side),ram,'Telescopic lift inner'+('' if side<0 else '.001'))
+for side in (-1,1):
+    def liner(side=side):
+        x=side*.86
+        for xx in (x-.35,x+.35):box('Liner edge return',(xx,1.142,1.47),(.024,.014,1.72),M['blue'],O)
+        for zz in (.60,2.34):box('Liner rail return',(x,1.142,zz),(.724,.014,.027),M['blue'],O)
+        for xx in (x-.22,x+.22):
+            for zz in (.88,1.12):box('Service cover standoff',(xx,1.146,zz),(.055,.010,.036),M['steel'],O)
+        plate('Liner filter access cover',(x,1.134,1.0),.55,.33,.014,M['navy'],O,.04)
+        for zz in (.92,.97,1.02):box('Filter access louver',(x,1.119,zz),(.37,.014,.014),M['steel'],O)
+        for xx in (x-.22,x+.22):cylinder('Liner cover fastener',(xx,1.122,1.12),.012,.012,M['steel'],O,'Y',12)
+    group('Segmented inner service liner '+str(side),liner,'Inner removable liner'+('' if side<0 else '.002'))
+note_points=[]
+def note():
+    # A small paper note on the closed folded bag, entirely beneath the berth.
+    bpy.context.view_layer.update();bag=s.objects['MED_R2 | Concealed closed body bag']
+    tree=BVHTree.FromPolygons([bag.matrix_world@v.co for v in bag.data.vertices],[tuple(f.vertices) for f in bag.data.polygons])
+    def on_bag(x,y,lift):
+        hit=tree.ray_cast(bed.matrix_world@Vector((x,y,.8)),Vector((0,0,-1)),.6)[0]
+        assert hit is not None,'Missing body-bag surface for note'
+        p=bed.matrix_world.inverted()@hit;p.z+=lift;return p
+    note_points.extend([tuple(on_bag(x,y,.0005)) for x,y in [(-.018,.012),(.017,.012),(.017,.047),(-.018,.047)]])
+    mesh('Tiny continuity note',note_points,[(0,1,2,3)],M['sticky'],bed)
+    normal=(Vector(note_points[1])-Vector(note_points[0])).cross(Vector(note_points[3])-Vector(note_points[0])).normalized()
+    ink=text('Easter egg microprint','EARLY\nCLOCK-OUT\nDENIED',tuple(on_bag(-.014,.039,.001)),.0038,M['ink'],bed,(0,0,0))
+    ink.rotation_euler=Vector((0,0,1)).rotation_difference(normal).to_euler()
+group('Barely visible continuity note',note,'MED_R2 | Concealed closed body bag')
+
+# A clinical working cluster for the style slice: constructed objects, not boxes.
+def clinical_cluster():
+    # World-local bench X runs along its length. Surface height .945.
+    for x,y,h in [(-.13,.33,.19),(.02,.33,.13)]:
+        cylinder('Dispensing bottle body',(x,y,.945+h/2),.035,h,M['plastic'],bench,vertices=20)
+        cylinder('Bottle shoulder',(x,y,.945+h),.029,.022,M['plastic'],bench,vertices=16)
+        cylinder('Knurled bottle cap',(x,y,.968+h),.026,.023,M['blue'],bench,vertices=16)
+        box('Bottle paper label',(x,y-.035,.98+h/2),(.045,.001,.055),M['paper'],bench)
+        for k in range(3):box('Bottle label print',(x,y-.036,1.00+h/2-k*.009),(.031,.001,.002),M['ink'],bench)
+    for x,y in [(-.23,-.02),(-.35,-.275)]:
+        roll=cylinder('Gauze roll',(x,y,.984),.038,.075,M['linen'],bench,vertices=48)
+        for face in roll.data.polygons:
+            face.use_smooth=len(face.vertices)==4
+        cylinder('Gauze core',(x,y,1.023),.009,.001,M['ink'],bench,vertices=16)
+        for radius in (.017,.027,.034):
+            line('Wound gauze edge',[(x+radius*math.cos(i*math.pi/12),y+radius*math.sin(i*math.pi/12),1.022) for i in range(25)],.0008,M['paper'],bench)
+    # Compact crimped bandage pouch, nonrectangular torn corners.
+    v=[(-.42,-.23,.945),(-.24,-.235,.945),(-.228,-.1,.945),(-.26,-.06,.945),(-.415,-.075,.945),(-.4,-.2,.959),(-.26,-.2,.958),(-.27,-.08,.952),(-.40,-.10,.954)]
+    mesh('Crimped sterile wrap',v,[(0,1,6,5),(1,2,3,7,6),(3,4,8,7),(4,0,5,8),(5,6,7,8)],M['paper'],bench,(.13,-.15,0))
+    mesh('Partly peeled sterile seal',[(-.412,-.224,.95),(-.245,-.228,.95),(-.238,-.214,.997),(-.38,-.209,.986),(-.414,-.213,.975)],[(0,1,2,3,4)],M['paper'],bench,(.13,-.15,0))
+    cylinder('Used vial body',(.15,.20,.957),.012,.11,M['plastic'],bench,'X',16)
+    cylinder('Used vial cap',(.213,.20,.957),.013,.016,M['blue'],bench,'X',16)
+    cylinder('Bottle pump stem',(-.13,.33,1.18),.012,.022,M['blue'],bench,vertices=16)
+    box('Molded pump nozzle',(-.105,.33,1.198),(.08,.017,.014),M['plastic'],bench,.002)
+    for i in range(8):line('Crimped heat seal',[(-.283+i*.022,-.375,.947),(-.273+i*.022,-.363,.949)],.001,M['oxide'],bench)
+    text('Bandage pack print','STERILE',(-.255,-.315,.959),.017,M['ink'],bench,(0,0,0))
+group('Clinical consumables working cluster',clinical_cluster,'Supply bench top')
+def cloth_seams():
+    cloth=s.objects['Folded cleaning cloth'];lo=min(v.co.z for v in cloth.data.vertices);hi=max(v.co.z for v in cloth.data.vertices)
+    for layer in range(3):
+        points=[]
+        for i in range(13):
+            x=-1+2*i/12;points.append(tuple(cloth.location+Vector((x*.195*.985,-.17*(1-.015*abs(x)**4),lo+(hi-lo)*(layer+.45)/3))))
+        line('Folded cloth stitched fold edge',points,.0013,M['cloth'],bench)
+group('Folded cleaning cloth seam construction',cloth_seams,'Folded cleaning cloth')
+
+def drawer_assembly():
+    for x,w,h,z,paint in [(-.56,.60,.24,.73,M['oxide']),(.14,.62,.18,.76,M['blue'])]:
+        box('Folded underbench drawer carcass',(x,.05,z),(w,.52,h),M['navy'],bench)
+        plate('Replaceable drawer face',(x,-.216,z),w-.018,h-.02,.015,paint,bench,.025)
+        box('Drawer label window',(x+.14,-.228,z+.03),(.12,.008,.04),M['steel'],bench)
+        box('Drawer label paper',(x+.14,-.233,z+.03),(.103,.001,.027),M['paper'],bench)
+        line('Pressed steel drawer pull',[(x-.17,-.235,z),(x-.17,-.269,z),(x+.03,-.269,z),(x+.03,-.235,z)],.011,M['steel'],bench)
+        for xx in (x-w/2+.045,x+w/2-.045):cylinder('Drawer corner fixing',(xx,-.232,z+.045),.008,.006,M['steel'],bench,'Y',12)
+group('Manufactured underbench drawers',drawer_assembly,'Bench rear apron')
+def mug_and_instruments():
+    # Hollow ceramic cup with a thick lip and a separate worn loop handle.
+    cx,cy=.45,.235;n=24;v=[]
+    for r,z in [(.043,.945),(.049,1.058),(.042,1.058),(.038,.955)]:
+        for i in range(n):a=2*math.pi*i/n;v.append((cx+r*math.cos(a),cy+r*math.sin(a),z))
+    f=[]
+    for ring in range(3):
+        for i in range(n):f.append((ring*n+i,ring*n+(i+1)%n,(ring+1)*n+(i+1)%n,(ring+1)*n+i))
+    f.append(tuple(range(3*n,4*n)))
+    mesh('Hollow chipped staff cup',v,f,M['ceramic'],bench)
+    line('Ceramic loop handle',[(cx+.048,cy,1.04),(cx+.082,cy,1.033),(cx+.086,cy,1.0),(cx+.072,cy,.98),(cx+.045,cy,.985)],.009,M['ceramic'],bench)
+    cylinder('Cold residue inside cup',(cx,cy,.969),.039,.002,M['rust'],bench,vertices=24)
+    line('Old staff-cup ring',[(cx+.053*math.cos(i*math.pi/16),cy+.053*math.sin(i*math.pi/16),.9458) for i in range(33)],.0008,M['rust'],bench)
+    for yy in (-.16,-.115):
+        line('Scissor finger loop',[(.02+.020*math.cos(i*math.pi/10),yy+.024*math.sin(i*math.pi/10),.954) for i in range(21)],.004,M['steel'],bench)
+        line('Scissor forged shank',[(.035,yy,.954),(.085,-.137,.956)],.0035,M['steel'],bench)
+        tip=.188 if yy<-.14 else .181
+        o=mesh('Clinical scissor tapered blade',[(.085,-.137,.953),(.105,yy,.953),(tip,yy-.006,.953),(tip-.010,yy+.002,.953),(.105,-.132,.953),(.085,-.137,.958),(.105,yy,.958),(tip,yy-.006,.954),(tip-.010,yy+.002,.954),(.105,-.132,.958)],[(0,4,3,2,1),(5,6,7,8,9),(0,1,6,5),(1,2,7,6),(2,3,8,7),(3,4,9,8),(4,0,5,9)],M['steel'],bench)
+    cylinder('Scissor rivet',(.095,-.137,.955),.008,.006,M['oxide'],bench)
+group('Staff cup and clinical instruments',mug_and_instruments,'Supply bench top')
+def clinical_disposal():
+    # Flared, pressed clinical container with an actual disposal throat and
+    # captive lid. Distinct from bottles, drawers and bandage cartons.
+    cx,cy=-.81,.292
+    outline=[(-.09,.945),(.09,.945),(.106,1.195),(.092,1.213),(-.092,1.213),(-.106,1.195)]
+    o=profile('Sharps containment formed body',outline,.18,M['oxide'],bench,axis='Y');o.location.x=cx;o.location.y=cy
+    box('Sharps lid captive rim',(cx,cy,1.211),(.222,.195,.021),M['ochre'],bench,.003)
+    box('Sharps recessed throat',(cx,cy,1.224),(.117,.058,.006),M['rubber'],bench)
+    for x in (cx-.067,cx+.067):box('Containment closure latch',(x,cy-.095,1.191),(.026,.016,.030),M['steel'],bench,.003)
+    box('Clinical disposal identification',(cx,cy-.092,1.11),(.136,.002,.113),M['paper'],bench)
+    text('Disposal warning print','SHARPS\nSEALED', (cx-.056,cy-.094,1.128),.020,M['ink'],bench)
+    for dx,dy in [(-.068,-.02),(.069,.039)]:
+        mesh('Old dried handling trace',[(cx+dx,cy+dy,1.223),(cx+dx+.014,cy+dy-.004,1.223),(cx+dx+.018,cy+dy+.008,1.223),(cx+dx+.004,cy+dy+.012,1.223)],[(0,1,2,3)],M['blood'],bench)
+group('Sealed clinical sharps disposal',clinical_disposal,'Supply bench top')
+def used_swab():
+    # Interrupted clinical use: a discarded swab beside the opened sterile wrap.
+    line('Discarded clinical swab stem',[(.04,-.285,.948),(.19,-.267,.948)],.002,M['paper'],bench)
+    line('Used swab cotton tip',[(.19,-.267,.948),(.212,-.264,.948)],.005,M['blood'],bench)
+group('Discarded clinical swab',used_swab,'Supply bench top')
+def old_trace():
+    mesh('Old loading rail trace',[(.35,-1.12,.401),(.62,-1.155,.401),(1.14,-1.11,.401),(.96,-1.065,.401),(.56,-1.038,.401)],[(0,1,2,3,4)],M['blood'],O)
+group('Restrained old loading trace',old_trace,'Sealed chamber pan')
+
+# Small dressing poses may change; all room/equipment/interaction anchors stay fixed.
+clip=bpy.data.objects.new('MED_R2 | Displaced inventory cluster',None);art.objects.link(clip);clip.parent=bench;clip.location=(.38,-.07,0)
+bpy.context.view_layer.update()
+for o in list(s.objects):
+    if o.parent==bench and any(o.name.startswith(n) for n in ['Inventory clipboard','Inventory paper','Clipboard title','Inventory ruled line']):
+        world=o.matrix_world.copy();o.parent=clip;o.matrix_world=world;pose_updates.append(o.name)
+        if o.name.startswith('Clipboard title') or o.name.startswith('Inventory ruled line'):
+            o.location.z-=.0022
+            if hasattr(o,'visible_shadow'):o.visible_shadow=False
+clip.rotation_euler.z=math.radians(12);clip.location.x-=.04;clip.location.y+=.02
+def interrupted_log():
+    for y,body in [(.077,'07:13  014 / NO PULSE'),(.027,'07:41  009 / REPEAT'),(-.023,'08:06  014 / REPEAT')]:
+        o=text('Hand-entered continuity log',body,(-.105,y,.9746),.0128,M['ink'],clip,(0,0,0));o.rotation_euler.z=math.radians(-1.8)
+    text('Denied release annotation','RELEASE DENIED',(-.098,-.077,.9746),.017,M['blood'],clip,(0,0,0))
+    line('Log operator strike-through',[(-.05,-.081,.9748),(.105,-.073,.9748)],.0007,M['ink'],clip)
+group('Interrupted continuity shift log',interrupted_log,'Inventory paper')
+for x,target in [(1.5,'Decon jamb'),(2.8,'Decon jamb.001')]:
+    def jamb(x=x):
+        plate('Layered decon jamb',(x,8.901,1.08),.074,2.04,.016,M['blue'],None,.012)
+        box('Decon jamb inset seal',(x,8.887,1.08),(.028,.012,1.96),M['rubber'])
+        for z in (.2,.9,1.6,2.0):cylinder('Decon frame fixing',(x,8.88,z),.008,.010,M['steel'],None,'Y',12)
+    group('Decon pressure-jamb construction '+str(x),jamb,target)
+def header():
+    plate('Decon header pressure cover',(2.15,8.883,2.23),1.30,.10,.012,M['blue'],None,.018)
+    for x in (1.60,2.7):cylinder('Header end fixing',(x,8.87,2.23),.011,.012,M['steel'],None,'Y',12)
+group('Decon layered header',header,'Decon header')
+def threshold():
+    box('Decon threshold backplate',(2.15,9.05,.003),(1.16,.21,.006),M['navy'])
+    for x in [1.61+i*.077 for i in range(15)]:box('Machined threshold ribs',(x,9.05,.007),(.017,.18,.006),M['steel'])
+group('Decon low pressure threshold',threshold,'Floor')
+def wash_marks():
+    for y,z,w,h in [(2.77,1.35,.17,.21),(3.04,1.42,.10,.30),(1.0,1.21,.23,.08)]:
+        mesh('Localized old water map',[(3.999,y-w/2,z-h/2),(3.999,y+w/2,z-h/2+.04),(3.999,y+w*.4,z+h*.3),(3.999,y+w*.2,z+h/2),(3.999,y-w*.35,z+h*.34)],[(0,1,2,3,4)],M['watermark'])
+group('Wash-zone localized repair and water maps',wash_marks,'East wall')
+def contact_wear():
+    for x,z in [(-2.06,.62),(-1.93,1.58)]:
+        mesh('Localized gantry paint chip',[(x,-1.256,z),(x+.055,-1.256,z+.016),(x+.068,-1.256,z+.025),(x+.014,-1.256,z+.020)],[(0,1,2,3)],M['steel'],O)
+group('Handled gantry paint chips',contact_wear,'Jamb folded cover')
+
+if stage=='full':
+    console=s.objects['RESTART_CONSOLE'];rack=s.objects['CARTRIDGE_BANK'];reserve=s.objects['RESERVE_POWER']
+    recovery=s.objects['RECOVERY_BERTH'];cart=s.objects['BODY_CART'];cabinet=s.objects['SUPPLY_CABINET'];wash=s.objects['HANDWASH']
+    # Manufacturing profiles and finish transitions on the restart station.
+    for suffix in ('','.001'):
+        bezel=s.objects['Monitor bezel'+suffix];x=bezel.location.x
+        def monitor(x=x):
+            for xx in (x-.349,x+.349):box('Folded display side bezel',(xx,.110,1.38),(.024,.018,.375),M['blue'],console)
+            for zz in (1.191,1.569):box('Display bezel upper return',(x,.109,zz),(.69,.016,.022),M['blue'],console)
+            for xx in (x-.33,x+.33):
+                for zz in (1.218,1.54):cylinder('Display recess fixing',(xx,.094,zz),.006,.004,M['steel'],console,'Y',12)
+        group('Manufactured display surround '+suffix,monitor,bezel.name)
+        def cast_hood(x=x,suffix=suffix):
+            for xx in (x-.365,x+.365):
+                o=profile('Cast display glare cheek',[(.11,1.187),(-.012,1.205),(-.030,1.545),(.040,1.611),(.185,1.591),(.185,1.187)],.028,M['cream'] if not suffix else M['steel'],console);o.location.x=xx
+            # Sloped brow and lower ledge: a monitor has depth and a service cavity.
+            o=profile('Folded display brow',[(.185,1.579),(.04,1.600),(-.035,1.57),(-.035,1.592),(.04,1.624),(.185,1.603)],.75,M['navy'],console);o.location.x=x
+            box('Display lower cast return',(x,.05,1.181),(.75,.13,.025),M['cream'],console,.003)
+            for xx in [x-.28+i*.05 for i in range(12)]:box('Display vent slot',(xx,.174,1.609),(.022,.008,.005),M['rubber'],console)
+            cylinder('Display recessed service socket',(x+.31,.022,1.18),.012,.010,M['rubber'],console,'Y',16)
+        group('Cast diagnostic monitor hood '+suffix,cast_hood,bezel.name)
+    def console_edge():
+        plate('Folded console operator fascia',(0,-.456,.927),1.78,.046,.010,M['blue'],console,.01)
+        for x in (-.78,-.3,.3,.78):cylinder('Worktop fascia fixing',(x,-.464,.922),.007,.007,M['steel'],console,'Y',12)
+        for x in (-.62,.60):mesh('Handled worktop chip',[(x,-.453,.955),(x+.037,-.453,.955),(x+.046,-.447,.962),(x+.013,-.447,.962)],[(0,1,2,3)],M['steel'],console)
+    group('Restart station folded worktop edge',console_edge,'Console working surface')
+    for suffix in ('','.001','.002'):
+        drawer=s.objects['Console drawer front'+suffix];x,y,z=drawer.location
+        def drawer_detail(x=x,y=y,z=z):
+            box('Drawer folded grip',(x,y-.025,z+.012),(.23,.016,.024),M['steel'],console,.004)
+            box('Drawer pull recessed shadow',(x,y-.016,z),(.25,.008,.045),M['navy'],console)
+            for xx in (x-.21,x+.21):cylinder('Drawer retained screw',(xx,y-.017,z+.04),.006,.006,M['steel'],console,'Y',12)
+        group('Console drawer fabrication '+suffix,drawer_detail,drawer.name)
+    def service_wiring():
+        for x in (-.57,-.1,.51):
+            line('Loom support clip',[(x,.37,.82),(x,.39,.79),(x,.39,.72)],.012,M['steel'],console)
+        for off in (0,.018,.036):line('Clipped service loom',[(-.72,.382,.82-off),(-.3,.382,.82-off),(.35,.384,.78-off),(.65,.38,.63-off)],.006,M['rubber'],console)
+    group('Restart rear service loom',service_wiring,'Console cable apron')
+    # Cartridge collars, crimped construction and captive shelf stops.
+    for body in [o for o in s.objects if o.name.startswith('Cartridge steel body')]:
+        x,y,z=body.location
+        def cartridge(x=x,y=y,z=z):
+            for zz in (z-.086,z+.087):cylinder('Cartridge rolled crimp',(x,y,zz),.046,.010,M['steel'],rack,vertices=20)
+            cylinder('Keyed cartridge neck collar',(x,y,z+.109),.040,.016,M['blue'],rack,vertices=16)
+            for dx in (-.028,.028):box('Captive socket guide',(x+dx,y-.043,z-.095),(.011,.012,.023),M['navy'],rack)
+            for i in range(5):box('Batch machine print',(x-.021+i*.008,y-.0456,z+.003),(.002+(i%2)*.001,.001,.029),M['ink'],rack)
+        group('Crimped medical cartridge '+body.name,cartridge,body.name)
+    # A used/depleted socket amid otherwise established, organized storage.
+    # Keep every original object and interface address; this is a visible art pose.
+    spent=[]
+    for o in s.objects:
+        if o.parent==rack and o.name.startswith(('Cartridge steel body','Keyed consumable cap','Cartridge bottom seal','Consumable paper ID','Cartridge serial')) and abs(o.location.x)<.061 and 1.21<o.location.z<1.51:
+            o.hide_render=True;o.hide_set(True);spent.append(o.name)
+    s.objects['MED_R2 | Crimped medical cartridge Cartridge steel body.007'].hide_render=True
+    s.objects['MED_R2 | Crimped medical cartridge Cartridge steel body.007'].hide_set(True)
+    s['spent_cartridge_art_pose']=json.dumps(spent)
+    def rack_edges():
+        for x in (-.315,.315):
+            box('Rack folded front return',(x,-.351,1.12),(.044,.012,2.18),M['navy'],rack)
+            for zz in (.15,.9,1.7,2.17):cylinder('Rack captive mounting screw',(x,-.362,zz),.009,.012,M['steel'],rack,'Y',12)
+    group('Cartridge rack folded returns',rack_edges,'Cartridge bank formed upright')
+    # Reserve panel details follow the articulated service door.
+    doorroot=s.objects['RESERVE_SERVICE_DOOR']
+    def reserve_cover():
+        plate('Reserve inset service panel',(.375,-.029,.01),.65,1.06,.008,M['blue'],doorroot,.055)
+        plate('Reserve louver depression',(.375,-.036,.15),.44,.19,.006,M['navy'],doorroot,.012)
+        for z in (.11,.15,.19):box('Reserve pressed louver',(.375,-.041,z),(.36,.009,.014),M['steel'],doorroot)
+        for x in (.08,.67):
+            for z in (-.45,.45):cylinder('Reserve panel captive rivet',(x,-.038,z),.009,.006,M['steel'],doorroot,'Y',12)
+    group('Reserve power manufactured cover',reserve_cover,'Reserve removable door')
+    # The original hinge is retained; show a neglected access pose without moving
+    # the unit, its terminals, or its map/interface anchors.
+    descendants=[doorroot]+list(doorroot.children_recursive)
+    pose_updates.extend(o.name for o in descendants if o.name in original)
+    doorroot.rotation_euler.z=math.radians(-52)
+    def battery_service():
+        for z in (.46,.87):
+            box('Battery front retaining strap',(0,-.201,z),(.46,.012,.035),M['steel'],reserve)
+            for x in (-.26,.26):
+                box('Battery cradle folded shoe',(x,-.199,z-.09),(.040,.026,.12),M['oxide'],reserve)
+                cylinder('Battery cradle captive fixing',(x,-.217,z-.07),.008,.012,M['steel'],reserve,'Y',12)
+            for x in (-.22,.22):
+                line('Battery insulated bus return',[(x,.10,z+.14),(x,-.08,z+.14),(x,-.22,z+.13),(x,-.225,z+.01)],.013,M['rubber'],reserve)
+            box('Battery service identification',(0,-.204,z+.061),(.21,.002,.050),M['paper'],reserve)
+            text('Battery pack service print','CONTINUITY / 24V',(-.094,-.207,z+.054),.014,M['ink'],reserve)
+        line('Displaced reserve inspection lead',[(.31,-.12,1.22),(.34,-.20,1.05),(.32,-.22,.67),(.21,-.20,.61)],.009,M['ochre'],reserve)
+    group('Exposed reserve battery service construction',battery_service,'Reserve battery module')
+    # Cot and cart soft goods retain the original envelopes and layout.
+    for name,mat in [('Recovery foam cushion',M['linen']),('Recovery pillow',M['linen'])]:upholstery(s.objects[name],mat,True)
+    for o in list(s.objects):
+        if o.name.startswith('Cart segmented mattress'):upholstery(o,M['vinyl'],True)
+    def cot_edge():
+        for x in (-.554,.554):
+            box('Recovery folded bedpan edge',(x,0,.666),(.014,2.15,.063),M['blue'],recovery)
+            for y in (-.86,.86):cylinder('Recovery edge fixing',(x,y,.67),.008,.020,M['steel'],recovery,'X',12)
+    group('Recovery cot fabrication and textile seams',cot_edge,'Recovery bed pan')
+    for name in ['Recovery pillow','Recovery foam cushion']:
+        group(name+' wrapped seam',lambda name=name:wrapped_seam(s.objects[name],name+' bound hem',M['seam']),name)
+    deckroot=s.objects['Cart deck'].parent
+    def cart_edge():
+        for x in (-.37,.37):
+            # XZ plate rotated to become a long YZ folded side guard.
+            o=plate('Cart folded rail cover',(x,0,.82),1.94,.065,.012,M['blue'],deckroot,.012);o.rotation_euler.z=math.pi/2
+        for y in (-.90,.90):
+            box('Cart end steel bumper',(0,y,.847),(.67,.03,.032),M['steel'],deckroot)
+    group('Transfer cart folded guards and pivot',cart_edge,'Cart deck')
+    def cart_pivot():
+        cylinder('Scissor pivot captive hub',(.238,0,.55),.054,.018,M['steel'],cart,'X',20)
+        cylinder('Scissor pivot locking core',(.249,0,.55),.023,.008,M['oxide'],cart,'X',12)
+    group('Transfer cart scissor pivot hardware',cart_pivot,'Cart lift scissor.002')
+    # Real glazed clinical cabinet doors, retaining each pane's original envelope.
+    for suffix in ('','.001'):
+        pane=s.objects['Clear cabinet sliding pane'+suffix];x=pane.location.x
+        vv=[];ff=[]
+        for bx,bz,w,h in [(-.41,0,.08,1.1),(.41,0,.08,1.1),(0,-.5,.74,.10),(0,.5,.74,.10)]:
+            start=len(vv);xx=w/2;yy=.011;zz=h/2
+            vv.extend([(bx+a,b,bz+c) for a,b,c in [(-xx,-yy,-zz),(xx,-yy,-zz),(xx,yy,-zz),(-xx,yy,-zz),(-xx,-yy,zz),(xx,-yy,zz),(xx,yy,zz),(-xx,yy,zz)]])
+            ff.extend(tuple(start+i for i in f) for f in [(0,3,2,1),(0,1,5,4),(1,2,6,5),(2,3,7,6),(3,0,4,7),(4,5,6,7)])
+        md=bpy.data.meshes.new('MED_R2 | Open steel clinical window frame');md.from_pydata(vv,[],ff);md.update();md.materials.append(M['blue']);pane.data=md
+        def cabinet_face(x=x):
+            box('Clinical safety glass',(x,-.359,1.89),(.73,.008,.89),M['glass'],cabinet)
+            for xx in (x-.375,x+.375):box('Clinical window gasket',(xx,-.370,1.89),(.012,.008,.93),M['rubber'],cabinet)
+            for zz in (1.424,2.355):box('Clinical window bound gasket',(x,-.370,zz),(.755,.008,.012),M['rubber'],cabinet)
+            for xx in (x-.412,x+.412):
+                for zz in (1.5,2.28):cylinder('Cabinet panel fixing',(xx,-.389,zz),.008,.008,M['steel'],cabinet,'Y',12)
+            box('Cabinet file label holder',(x,-.375,2.391),(.20,.008,.058),M['steel'],cabinet)
+            box('Cabinet aged label',(x,-.380,2.391),(.176,.002,.043),M['paper'],cabinet)
+            text('Cabinet inventory label','STERILE' if x<0 else 'LINEN',(x-.077,-.382,2.382),.018,M['ink'],cabinet)
+            for z in (1.40,2.38):line('Glazing hand wear',[(x-.25,-.373,z),(x-.23,-.373,z+.005),(x-.14,-.373,z+.004)],.001,M['paper'],cabinet)
+        face=group('Medical cabinet fabricated face '+suffix,cabinet_face,pane.name)
+        world=face.matrix_world.copy();face.parent=pane;face.matrix_world=world
+    def cabinet_tape():
+        # Follow the stepped skin, then bridge only the actual sliding-door gap.
+        vv=[]
+        for x,y in [(-.24,-.373),(-.11,-.373),(-.09,-.372),(.09,-.372),(.11,-.373),(.24,-.373)]:
+            vv.extend([(x,y,1.357+x*.045),(x,y,1.381+x*.045)])
+        mesh('Old cabinet restraint tape',vv,[(i,i+2,i+3,i+1) for i in range(0,10,2)],M['paper'],cabinet)
+        mesh('Cabinet tape lifted corner',[(.24,-.373,1.368),(.258,-.389,1.37),(.258,-.389,1.394),(.24,-.373,1.392)],[(0,1,2,3)],M['paper'],cabinet)
+    group('Neglected cabinet restraint seal',cabinet_tape,'Clear cabinet sliding pane')
+    for i,case in enumerate([o for o in s.objects if o.name.startswith('Sealed supply case')]):
+        x,y,z=case.location
+        def clinical_stock(x=x,y=y,z=z,i=i):
+            box('Case lid folded return',(x,y-.230,z+.115),(.295,.006,.012),M['cream'],cabinet)
+            for xx in (x-.15,x+.15):box('Case reinforced binding',(xx,y-.231,z),(.011,.006,.21),M['cloth'],cabinet)
+            text('Clinical package identification',('DRESSINGS','AIRWAY','SUTURE','LINEN')[i%4],(x-.112,y-.238,z+.052),.019,M['ink'],cabinet)
+            text('Clinical stock expiry','EXPIRED / 07', (x-.111,y-.238,z-.055),.013,M['oxide'],cabinet)
+            for j in range(8):box('Clinical stock barcode',(x-.07+j*.018,y-.239,z-.004),(.005+(j%2)*.002,.001,.034),M['ink'],cabinet)
+        group('Clinical cabinet stock '+str(i),clinical_stock,case.name)
+    def clinical_poster():
+        image=bpy.data.images.load(str(ROOT/'revamp-review/concepts/clinical-propaganda.png'));image.pack()
+        mat=material('MED | Corporate continuity printed art','C8C3B3',.97)
+        node=mat.node_tree.nodes.new('ShaderNodeTexImage');node.image=image
+        mat.node_tree.links.new(node.outputs['Color'],next(n for n in mat.node_tree.nodes if n.type=='BSDF_PRINCIPLED').inputs['Base Color'])
+        v=[];uv=[]
+        for row in range(3):
+            for col in range(5):
+                u=col/4;vv=row/2;x=3.998-.002*math.sin(math.pi*u)
+                if col==4 and row==2:x=3.982
+                v.append((x,4.32-.72*u,1.56+1.08*vv));uv.append((u,vv))
+        faces=[(row*5+col,row*5+col+1,(row+1)*5+col+1,(row+1)*5+col) for row in range(2) for col in range(4)]
+        o=mesh('Creased corporate clinical propaganda',v,faces,mat)
+        layer=o.data.uv_layers.new(name='Printed artwork')
+        for poly in o.data.polygons:
+            for li in poly.loop_indices:layer.data[li].uv=uv[o.data.loops[li].vertex_index]
+        for y,z in [(4.30,1.58),(3.62,1.58),(4.30,2.62)]:cylinder('Clinical poster wall fastener',(3.991,y,z),.007,.014,M['steel'],axis='X',vertices=12)
+    group('Corporate continuity clinical wall art',clinical_poster,'East wall')
+    # Wash utility: recognisable slotted drain, folded splash plate and molded soap control.
+    def basin_drain():
+        cylinder('Handwash stainless drain surround',(0,-.015,.802),.042,.004,M['steel'],wash,vertices=24)
+        cylinder('Handwash recessed drain',(0,-.015,.805),.033,.002,M['navy'],wash,vertices=24)
+        for x in (-.021,-.007,.007,.021):box('Drain strainer slot',(x,-.015,.807),(.004,.043,.002),M['steel'],wash)
+    group('Handwash slotted drain',basin_drain,'Basin bottom')
+    def soap_control():
+        plate('Soap dispenser cast face',(-.18,.151,1.2),.118,.17,.012,M['blue'],wash,.024)
+        box('Soap dispenser push plate',(-.18,.14,1.165),(.067,.014,.055),M['cream'],wash,.006)
+        box('Soap level window',(-.18,.14,1.245),(.02,.006,.046),M['navy'],wash)
+        cylinder('Soap underside nozzle',(-.18,.175,1.087),.012,.012,M['steel'],wash,vertices=16)
+    group('Molded clinical soap dispenser',soap_control,'Handwash soap dispenser')
+    def sink_wear():
+        # Mineral marks belong at plumbing contact, not across every surface.
+        for a in (0,.5,1.0):line('Tap base mineral crescent',[(.12+(.052+a*.005)*math.cos(t),.15+(.052+a*.005)*math.sin(t),.932) for t in [2.4+i*.07 for i in range(16)]],.001,M['rust'],wash)
+    group('Tap base localized mineral residue',sink_wear,'Tap rear rim mounting plate')
+    decon=s.objects['DECON_WASH']
+    def decon_plate():
+        plate('Wash control protective skin',(.45,.936,1.4),.365,.39,.008,M['blue'],decon,.03)
+        for x in (.31,.59):
+            for z in (1.25,1.55):cylinder('Wash skin retaining screw',(x,.929,z),.008,.009,M['steel'],decon,'Y',12)
+        text('Water service marker','FLOW',(.35,.928,1.47),.023,M['paper'],decon)
+    group('Decon wash manufactured control skin',decon_plate,'Rear wash control backing')
+    def compromised_care_sheet():
+        # A care sheet left pulled over the cot edge. Broad weight-bearing folds
+        # and a bound hanging hem give the linen a readable cloth silhouette.
+        bpy.context.view_layer.update();deps=bpy.context.evaluated_depsgraph_get()
+        trees=[]
+        for name in ('Recovery foam cushion','Mattress bound piping','Mattress bound piping.001'):
+            support=s.objects[name];ev=support.evaluated_get(deps);md=ev.to_mesh()
+            trees.append(BVHTree.FromPolygons([support.matrix_world@v.co for v in md.vertices],[tuple(f.vertices) for f in md.polygons]))
+            ev.to_mesh_clear()
+        # Sample the broad foam and the narrow existing piping. The cloth must
+        # bridge both edge welts instead of cutting through their crowns.
+        xs=sorted(set(round(x,6) for x in ([-.66,-.61,-.58]+[-.50+i*.010 for i in range(99)]+[c-.010+i*.002 for c in (-.48,.48) for i in range(11)]) if x<=.480001))
+        ys=[-.36+i*.010 for i in range(81)];ny=len(ys)
+        vv=[];faces=[]
+        for x in xs:
+            for y in ys:
+                if x<-.50:
+                    z={-.66:.36,-.61:.47,-.58:.73}[x]+.014*math.sin(15*y+.4)
+                    xx=x+.008*math.sin(15*y)
+                else:
+                    origin=recovery.matrix_world@Vector((x,y,1.0))
+                    hits=[tree.ray_cast(origin,Vector((0,0,-1)),.4)[0] for tree in trees]
+                    hit=max((p for p in hits if p is not None),key=lambda p:p.z)
+                    p=recovery.matrix_world.inverted()@hit
+                    # Bridge each narrow welt crown before descending to the
+                    # foam. This keeps triangle interiors and the underside
+                    # clear of its steep side faces, as real cloth would lie.
+                    if min(abs(x+.48),abs(x-.48))<=.012001:p.z=max(p.z,.7575)
+                    z=p.z+.0014+.015*(.5+.5*math.sin(15*y+5*x))**2;xx=x
+                vv.append((xx,y,z))
+        for i in range(len(xs)-1):
+            for j in range(ny-1):q=i*ny+j;faces.append((q,q+ny,q+ny+1,q+1))
+        o=mesh('Pulled recovery care sheet',vv,faces,M['linen'],recovery)
+        for face in o.data.polygons:face.use_smooth=True
+        solid=o.modifiers.new('Woven sheet thickness','SOLIDIFY');solid.thickness=.001
+        line('Recovery care-sheet bound hanging hem',vv[:ny],.0018,M['cloth'],recovery)
+        for j in (0,ny-1):line('Recovery sheet bound side hem',[vv[i*ny+j] for i in range(len(xs))],.0014,M['seam'],recovery)
+    group('Interrupted recovery care sheet',compromised_care_sheet,'Recovery foam cushion')
+    def compromised_loading_trace():
+        # Dry residue from a past retrieval at the OCRU loading edge. Localized,
+        # matte and non-graphic; the rescue route remains flat and unobstructed.
+        patches=[ [(-1.61,5.30),(-1.34,5.20),(-1.18,5.30),(-1.09,5.47),(-1.31,5.64),(-1.51,5.58)], [(-1.36,4.98),(-1.23,4.96),(-1.20,5.05),(-1.34,5.09)] ]
+        for points in patches:mesh('Old retrieval residue',[(x,y,.001) for x,y in points],[tuple(range(len(points)))],M['blood'])
+        for x,y in [(-1.20,5.73),(-1.33,5.88),(-1.48,5.04)]:
+            mesh('Dry retrieval trace fragment',[(x-.012,y,.001),(x+.018,y-.01,.001),(x+.016,y+.016,.001),(x-.01,y+.017,.001)],[(0,1,2,3)],M['blood'])
+    group('Old retrieval residue below loading edge',compromised_loading_trace,'Floor')
+    def neglected_traffic():
+        # Flat dry residue from repeated stretcher retrievals, no raised clutter.
+        for off in (-.21,.21):
+            path=[(-2.6,1.8),(-2.15,2.10),(-1.65,2.4),(-1.41,3.1),(-1.45,3.8)]
+            for i,((x,y),(xx,yy)) in enumerate(zip(path,path[1:])):
+                dx,dy=xx-x,yy-y;length=math.hypot(dx,dy);nx,ny=-dy/length,dx/length
+                width=.015 if i%2 else .022
+                v=[(x+nx*(off-width),y+ny*(off-width),.001),(x+nx*(off+width),y+ny*(off+width),.001),(xx+nx*(off+width*.65),yy+ny*(off+width*.65),.001),(xx+nx*(off-width*.8),yy+ny*(off-width*.8),.001)]
+                mesh('Old retrieval caster scuff',v,[(0,1,2,3)],M['rubber'])
+        for x,y in [(-.72,2.55),(-.51,3.28),(-.78,4.02),(.1,6.4),(.68,7.86)]:
+            mesh('Interrupted floor handling scuff',[(x-.042,y-.10,.001),(x+.03,y-.081,.001),(x+.054,y+.035,.001),(x+.007,y+.081,.001),(x-.038,y+.026,.001)],[(0,1,2,3,4)],M['watermark'])
+    group('Neglected retrieval traffic at loading approach',neglected_traffic,'Floor')
+    def old_utility_leak():
+        # A failed plumbing/utility joint stains the wall and its floor junction.
+        patch=material('MED | Old utility damp plaster','6D636B',.99,broad=.04)
+        mesh('Old service joint damp map',[(-3.22,8.998,2.9),(-2.62,8.998,2.92),(-2.52,8.998,2.62),(-2.74,8.998,2.54),(-2.79,8.998,2.23),(-2.9,8.998,2.38),(-3.06,8.998,2.55),(-3.25,8.998,2.66)],[(0,1,2,3,4,5,6,7)],patch)
+        for x,height in [(-3.07,.46),(-2.81,.81),(-2.66,.31)]:
+            mesh('Old dried joint run',[(x,8.997,2.69),(x+.027,8.997,2.71),(x+.016,8.997,2.69-height),(x+.003,8.997,2.64-height)],[(0,1,2,3)],patch)
+    group('Neglected rear utility leak',old_utility_leak,'Rear west wall')
+    def recovery_trace():
+        # Small dry biological trace at a handled linen edge, no exposed remains.
+        foam=s.objects['Recovery foam cushion'];bpy.context.view_layer.update()
+        tree=BVHTree.FromPolygons([foam.matrix_world@v.co for v in foam.data.vertices],[tuple(f.vertices) for f in foam.data.polygons])
+        points=[]
+        for x,y in [(-.36,-.70),(-.17,-.74),(-.08,-.63),(-.26,-.57),(-.33,-.60)]:
+            origin=recovery.matrix_world@Vector((x,y,1.0));hit=tree.ray_cast(origin,Vector((0,0,-1)),.4)[0]
+            assert hit is not None
+            pt=recovery.matrix_world.inverted()@hit;pt.z+=.0006;points.append(tuple(pt))
+        mesh('Old recovery linen handling trace',points,[(0,1,2,3,4)],M['blood'],recovery)
+    group('Old recovery linen handling trace',recovery_trace,'Recovery foam cushion')
+    # Purposeful architecture: replaceable wall plates and repaired seal joints.
+    def east_patch():
+        # Plane is parallel to the east wall with an actual narrow adhesive gap.
+        mesh('Old fitted wall repair',[(3.998,3.37,1.35),(3.998,3.72,1.35),(3.998,3.76,1.79),(3.998,3.34,1.78)],[(0,1,2,3)],M['mauve'])
+        for y in (3.35,3.74):line('Repair plate seal',[(3.996,y,1.39),(3.996,y,1.76)],.002,M['watermark'])
+    group('Handwash wall fitted repair patch',east_patch,'East wall')
+    def interrupted_paper():
+        mesh('Creased restart incident docket',[(-.77,-.10,.963),(-.51,-.1,.963),(-.51,.20,.963),(-.76,.20,.963),(-.64,-.1,.971),(-.635,.20,.972)],[(0,4,5,3),(4,1,2,5)],M['paper'],console)
+        text('Docket clipped print','CONTINUITY\nREPEAT FAILURE',(-.744,.07,.970),.020,M['ink'],console,(0,0,0))
+        box('Docket metal keeper',(-.64,.176,.977),(.058,.017,.012),M['steel'],console)
+    group('Interrupted restart incident docket',interrupted_paper,'Console working surface')
+    def floor_trace():
+        mesh('Reserve local old leak',[(-2.48,8.26,.001),(-2.05,8.21,.001),(-1.84,8.31,.001),(-2.19,8.39,.001),(-2.55,8.34,.001)],[(0,1,2,3,4)],M['watermark'])
+    group('Reserve localized old floor leak',floor_trace,'Floor')
+    def bed_seams():
+        wrapped_seam(s.objects['Contoured head pad'],'OCRU pillow bound hem',M['seam'])
+    group('OCRU upholstered seam construction',bed_seams,'Contoured head pad')
+    for pad in [o for o in s.objects if o.name.startswith('Segmented adult berth cushion')]:
+        group(pad.name+' bound seam',lambda pad=pad:wrapped_seam(pad,'Berth pad sewn edge',M['rubber']),pad.name)
+
+# Layered entry door leaves maintain their inherited articulated parents.
+for suffix in ('','.001'):
+    target=s.objects['Pressure door lower panel'+suffix];leaf=target.parent
+    def door(leaf=leaf):
+        plate('Inset pressure-leaf panel',(0,.039,.66),.83,.82,.008,M['navy'],leaf,.07)
+        plate('Door replaceable impact inset',(0,.046,.66),.66,.61,.008,M['blue'],leaf,.045)
+        for x in (-.32,.32):
+            for z in (.37,.95):cylinder('Leaf captive fastener',(x,.054,z),.011,.006,M['steel'],leaf,'Y',12)
+    group('Pressure leaf layered inset '+suffix,door,target.name)
+
+# A hanging service card rests against its manufactured jamb face.
+def service_card():
+    box('Overdue service card',(-1.965,-1.257,1.94),(.11,.002,.14),M['paper'],O)
+    text('Service card title','SERVICE\nOVERDUE',(-2.010,-1.258,1.979),.014,M['ink'],O)
+    box('Service card adhesive',(-1.965,-1.260,2.005),(.065,.002,.022),M['ochre'],O)
+group('Dated OCRU maintenance card',service_card,'Jamb folded cover')
+
+# Owner-requested skill-guided revision. This extends the existing authoring
+# pipeline; it does not author another room or touch the linked map.
+exec(compile((ROOT/'skill_redo.py').read_text(),str(ROOT/'skill_redo.py'),'exec'))
+
+s.render.engine='CYCLES';s.cycles.samples=24;s.cycles.use_denoising=True
+s.cycles.max_bounces=6;s.cycles.diffuse_bounces=4;s.cycles.glossy_bounces=3
+s.render.resolution_x=1067;s.render.resolution_y=600;s.render.resolution_percentage=100
+s.render.image_settings.file_format='PNG';s.view_settings.view_transform='AgX';s.view_settings.look='AgX - Medium High Contrast';s.view_settings.exposure=.4
+s.world.use_nodes=True
+wn=s.world.node_tree.nodes;wl=s.world.node_tree.links;bg=wn.get('Background');bg.inputs[0].default_value=(.25,.31,.43,1);bg.inputs[1].default_value=.35
+camera_bg=wn.new('ShaderNodeBackground');camera_bg.inputs[0].default_value=(.006,.008,.012,1);camera_bg.inputs[1].default_value=.15
+lp=wn.new('ShaderNodeLightPath');mix=wn.new('ShaderNodeMixShader')
+wl.new(lp.outputs['Is Camera Ray'],mix.inputs[0]);wl.new(bg.outputs[0],mix.inputs[1]);wl.new(camera_bg.outputs[0],mix.inputs[2]);wl.new(mix.outputs[0],wn.get('World Output').inputs['Surface'])
+s['revamp_status']='Art overhaul R2 / '+stage;s['main_map_unchanged']=True
+s['hidden_easter_egg']='Closed folded body bag beneath berth, between lift supports; tiny 35mm continuity note; no graphic remains.'
+s['lighting_contract']='One red OCRU area, one warm supply practical, two dim directional spot accents; inherited practicals off.'
+# Establish evidence cameras before review. They retain inherited transforms.
+for name,pos,target,lens in [('MED_DETAIL_OCRU',(-.55,3.7,1.38),(-2.02,4.70,.84),42),('MED_DETAIL_SUPPLIES',(2.66,.65,1.39),(3.48,1.49,1.0),46),('MED_ROUTE',(-1.10,3.30,1.65),(1.10,7.40,1.00),23)]:
+    d=bpy.data.cameras.new(name);d.lens=lens
+    o=bpy.data.objects.new(name,d);bpy.data.collections['Cameras'].objects.link(o);o.location=pos;o.rotation_euler=(Vector(target)-o.location).to_track_quat('-Z','Y').to_euler()
+for name in ['CAM_ENTRY','CAM_REVERSE','CAM_HERO','CAM_DECON','W03_SUPPLIES','CAM_RECOVERY','CAM_MATERIALS']:
+    s.objects[name]['mandatory_art_review']=True
+# Repair inverted inherited cast shells in this isolated copy; no source mutation.
+for name in ['Receiver cast housing','Suit service enclosure']:
+    md=s.objects[name].data;bm=bmesh.new();bm.from_mesh(md)
+    bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces));bm.to_mesh(md);bm.free();md.update()
+assert hashlib.sha256(spawn_path.read_bytes()).hexdigest()==spawn_hash,'Changed approved spawn source'
+for path,expected in baseline['protected_sha256'].items():
+    assert hashlib.sha256((ROOT.parents[1]/path).read_bytes()).hexdigest()==expected,path
+# Freeze physical attachment witnesses in object-local coordinates. The validator
+# must raycast every one in its declared direction; a later moved part cannot pass
+# merely because some other vertex is closer to the named support.
+bpy.context.view_layer.update();deps=bpy.context.evaluated_depsgraph_get()
+clinical_witnesses={
+ 'MED_R2 | Clinical consumables working cluster':[(bench,(-.23,-.02,.9465)),(bench,(-.35,-.275,.9465)),(bench,(-.29,-.38,.945)),(bench,(.15,.20,.945))],
+ 'MED_R2 | Constructed clinical dispensing bottles and tray':[(bench,(-.13,.33,.945)),(bench,(.02,.33,.945)),(bench,(.07,-.16,.946))],
+ 'MED_R2 | Staff cup and clinical instruments':[(bench,(.45,.278,.945)),(bench,(.04,-.16,.950))],
+ 'MED_R2 | Barely visible continuity note':[(bed,p) for p in note_points],
+}
+for rec in supports:
+    obj=s.objects[rec['object']];target=s.objects[rec['target']]
+    ev=target.evaluated_get(deps);md=ev.to_mesh()
+    tree=BVHTree.FromPolygons([target.matrix_world@v.co for v in md.vertices],[tuple(p.vertices) for p in md.polygons])
+    if obj.name in clinical_witnesses:
+        points=[root.matrix_world@Vector(p) for root,p in clinical_witnesses[obj.name]]
+    else:
+        om=obj.evaluated_get(deps).to_mesh()
+        candidates=[obj.matrix_world@v.co for v in om.vertices]
+        points=[min(candidates,key=lambda p:tree.find_nearest(p)[3])]
+        obj.evaluated_get(deps).to_mesh_clear()
+    rec['anchors']=[]
+    for point in points:
+        found=tree.find_nearest(point);normal=found[1].normalized()
+        rec['anchors'].append({'local_point':list(obj.matrix_world.inverted()@point),'approach_world':list(-normal),'expected_surface_normal_world':list(normal)})
+    rec['max_angle_degrees']=12
+    ev.to_mesh_clear()
+map_path=ROOT.parents[1]/'blender/facility_environment.blend'
+# Remove factory-startup scaffolding before linking the read-only map reference.
+for other in list(bpy.data.scenes):
+    if other!=s and not other.library:bpy.data.scenes.remove(other)
+for obj in list(bpy.data.objects):
+    if obj.name not in s.objects and not obj.library:bpy.data.objects.remove(obj,do_unlink=True)
+with bpy.data.libraries.load(str(map_path),link=True) as (a,b):b.scenes=list(a.scenes)
+for lib in bpy.data.libraries:
+    if lib.parent is None:lib.filepath=bpy.path.relpath(bpy.path.abspath(lib.filepath),start=str(ROOT))
+bpy.context.window.scene=s;bpy.ops.wm.save_as_mainfile(filepath=str(OUT),compress=True)
+(PROD/'support-registry.json').write_text(json.dumps(supports,indent=2))
+(PROD/'build-state.json').write_text(json.dumps({'stage':stage,'source':str(OUT.relative_to(ROOT)),'original_objects':len(original),'added_objects':len(s.objects)-len(original),'intentional_prop_pose_updates':pose_updates,'materials':len(M),'approved_spawn_source_sha256':spawn_hash,'approved_material_graphs':material_sources,'lights':[{ 'name':o.name,'type':o.data.type,'energy':o.data.energy} for o in s.objects if o.type=='LIGHT' and o.data.energy>0]},indent=2))
+print('MEDICAL_OVERHAUL_SAVED',stage,OUT,len(s.objects),flush=True)

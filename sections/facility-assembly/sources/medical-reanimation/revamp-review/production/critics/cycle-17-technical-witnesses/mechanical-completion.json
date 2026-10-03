@@ -1,0 +1,139 @@
+{
+  "source_sha256": "39007192eef36f87c5299933e3a2a4f3462791871144c349a580ba2d9d322487",
+  "source_unchanged": true,
+  "pairs": [
+    {
+      "object": "Lower captive scissor track",
+      "intended_target": "Cart lift load crossmember",
+      "minimum_sampled_surface_distance_m": 2.9802322387695312e-08,
+      "own_surface_point_world": [
+        -3.2774999141693115,
+        0.6525000333786011,
+        0.29750001430511475
+      ],
+      "target_surface_point_world": [
+        -3.2774999141693115,
+        0.6525000333786011,
+        0.29749998450279236
+      ],
+      "target_normal_world": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "own_surface_witness_m": 0.0,
+      "signed_surface_offset_m": 0.0
+    },
+    {
+      "object": "Cart lift load crossmember",
+      "intended_target": "Cart lower frame rail",
+      "minimum_sampled_surface_distance_m": 0.0,
+      "own_surface_point_world": [
+        -3.440999984741211,
+        0.6533492803573608,
+        0.3010501563549042
+      ],
+      "target_surface_point_world": [
+        -3.440999984741211,
+        0.6533492803573608,
+        0.3010501563549042
+      ],
+      "target_normal_world": [
+        -0.3826744258403778,
+        0.0,
+        0.9238832592964172
+      ],
+      "own_surface_witness_m": 0.0,
+      "signed_surface_offset_m": 0.0
+    },
+    {
+      "object": "Pressed caster fork",
+      "intended_target": "Wheel hub",
+      "minimum_sampled_surface_distance_m": 0.0009996891021728516,
+      "own_surface_point_world": [
+        -3.420999765396118,
+        0.5000000596046448,
+        0.06599999964237213
+      ],
+      "target_surface_point_world": [
+        -3.4200000762939453,
+        0.5000000596046448,
+        0.06599999964237213
+      ],
+      "target_normal_world": [
+        -1.0,
+        -7.845228537917137e-07,
+        0.0
+      ],
+      "own_surface_witness_m": 0.0,
+      "signed_surface_offset_m": 0.0009996891021728516
+    },
+    {
+      "object": "Wheel hub",
+      "intended_target": "Caster rubber tyre",
+      "minimum_sampled_surface_distance_m": 0.0,
+      "own_surface_point_world": [
+        -3.4099998474121094,
+        0.5000000596046448,
+        0.05119999870657921
+      ],
+      "target_surface_point_world": [
+        -3.4099998474121094,
+        0.5000000596046448,
+        0.05119999870657921
+      ],
+      "target_normal_world": [
+        0.0,
+        -0.049067504703998566,
+        0.9987953901290894
+      ],
+      "own_surface_witness_m": 0.0,
+      "signed_surface_offset_m": 0.0
+    },
+    {
+      "object": "Reserve folded cap",
+      "intended_target": "Battery plinth",
+      "minimum_sampled_surface_distance_m": 0.0,
+      "own_surface_point_world": [
+        -2.558828592300415,
+        8.456171989440918,
+        0.14000000059604645
+      ],
+      "target_surface_point_world": [
+        -2.558828592300415,
+        8.456171989440918,
+        0.14000000059604645
+      ],
+      "target_normal_world": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "own_surface_witness_m": 0.0,
+      "signed_surface_offset_m": 0.0
+    },
+    {
+      "object": "Battery plinth",
+      "intended_target": "Floor",
+      "minimum_sampled_surface_distance_m": 0.0,
+      "own_surface_point_world": [
+        -2.575000047683716,
+        8.445000648498535,
+        0.0
+      ],
+      "target_surface_point_world": [
+        -2.575000047683716,
+        8.445000648498535,
+        0.0
+      ],
+      "target_normal_world": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "own_surface_witness_m": 0.0,
+      "signed_surface_offset_m": 0.0
+    }
+  ],
+  "no_source_save": true
+}

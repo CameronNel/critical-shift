@@ -1,0 +1,355 @@
+{
+  "cycle": 8,
+  "review_type": "fresh_independent_full_room_visual",
+  "verdict": "FAIL",
+  "summary": "The visual language is broadly on target and the room achieves bleak hierarchy, but mandatory reverse navigation and several hero camera gates fail from excessive darkness; the cart frame is unusable as visual evidence.",
+  "evidence": {
+    "render_directory": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-8",
+    "manifest_complete": true,
+    "expected_images": 24,
+    "actual_images_inspected": 24,
+    "image_resolution": [
+      1067,
+      600
+    ],
+    "spawn_reference_images": [
+      "VALIDATE_Spawn.png",
+      "VALIDATE_Material_A.png",
+      "BRIEFING_INDIRECT.png",
+      "VALIDATE_LockerDoor.png"
+    ],
+    "authority_files": [
+      "design/ART_DIRECTION.md",
+      "design/ART_REFERENCE_INDEX.md",
+      "design/AUTONOMOUS_SECTION_BUILD_PROTOCOL.md",
+      ".agents/skills/blender-headless/SKILL.md",
+      ".agents/skills/blender-headless/references/visual-review.md"
+    ],
+    "previous_reports_read": false,
+    "implementation_read": false,
+    "source_edits": false
+  },
+  "visual_score": {
+    "awarded": 76.9,
+    "maximum": 90,
+    "percent": 85.44,
+    "every_category_at_least_85_percent": false,
+    "categories": [
+      {
+        "name": "Layout / route readability",
+        "score": 18.2,
+        "max": 20,
+        "min": 17,
+        "pass": true,
+        "reason": "The preserved compact room reads as a central circulation strip between the OCRU bay and recovery/workbench wall. Entry and rescue-route views preserve functional grouping and open floor; the dark entry door limits reverse navigation clarity, without evidence of a changed room boundary.",
+        "percent": 91
+      },
+      {
+        "name": "Art direction / silhouettes",
+        "score": 17.6,
+        "max": 20,
+        "min": 17,
+        "pass": true,
+        "reason": "Authored bed rail, lift, layered monitor housing, guarded switch, cartridge dock, folded basin and clinical-prop forms meet the grounded stylized direction in the views where they are visible. No dominant repeated-bevel-box, low-poly toy, decorative sci-fi or texture-noise veto is present. The bag remains overly flat and rigid in its inspection view.",
+        "percent": 88
+      },
+      {
+        "name": "Hero objects / focal clarity",
+        "score": 12.1,
+        "max": 15,
+        "min": 12.75,
+        "pass": false,
+        "reason": "The red berth is the clear room focal point and the restart station is readable. The cart cannot be assessed from its nearly black required frame; OCRU side interfaces, reserve-power assembly and the right cabinet leaf lose sufficient form and material detail to block their hero gates.",
+        "percent": 80.67
+      },
+      {
+        "name": "Materials / anti-plastic",
+        "score": 13.2,
+        "max": 15,
+        "min": 12.75,
+        "pass": true,
+        "reason": "Visible clinical linen, dark gloves, paper, painted blue/red housings, steel rails, tiles and glass have distinct broad responses. Most major assets avoid generic gloss. Shadow suppresses separation in several functional assemblies; the hidden bag top and straight edge bands read rigid despite the visible zipper and handles.",
+        "percent": 88
+      },
+      {
+        "name": "Lighting / atmosphere",
+        "score": 7,
+        "max": 10,
+        "min": 8.5,
+        "pass": false,
+        "reason": "Single red bed practical, warm workbench light and restrained cool working-zone emphasis establish bleak hierarchy. Several required focal views exceed useful darkness: entry construction and side interfaces vanish, reserve power is displaced by adjacent brightness, and the transfer-cart frame is essentially unreadable. Darkness/possible occlusion is not evidence of acceptable asset fidelity.",
+        "percent": 70
+      },
+      {
+        "name": "Dressing / worldbuilding",
+        "score": 8.8,
+        "max": 10,
+        "min": 8.5,
+        "pass": true,
+        "reason": "The denied-release shift log, continuity graphic, sparse procedure signage, clinical working props and localized wash-area decline support institutional hopelessness without random clutter. The tiny note stays unobtrusive and a closed zipper/handles are confirmed under inspection fill. Bag fabric refinement would strengthen the concealed story object.",
+        "percent": 88
+      }
+    ]
+  },
+  "technical_score": {
+    "evaluated": false,
+    "awarded": null,
+    "maximum": 10,
+    "reason": "Visual critic only. No technical cleanliness, measured clearance, support-contact, cold-start, reproducibility or runtime result is inferred."
+  },
+  "mandatory_camera_gate": {
+    "pass": false,
+    "ENTRY": "PASS",
+    "REVERSE": "FAIL",
+    "PINCH": "PASS"
+  },
+  "all_camera_gate": {
+    "pass": false,
+    "passed": 17,
+    "failed": 7
+  },
+  "hard_style_veto": {
+    "dominant_generic_primitives": false,
+    "dominant_repeated_bevel_boxes": false,
+    "dominant_uniform_plastic": false,
+    "dominant_texture_noise": false,
+    "dominant_flat_even_lighting": false,
+    "dominant_web_demo_presentation": false,
+    "critical_readability_failure": true,
+    "comment": "No dominant style veto is claimed. Unreadable required evidence and functional hero silhouettes still block visual acceptance."
+  },
+  "defects": [
+    {
+      "id": "V8-01",
+      "priority": "critical",
+      "views": [
+        "HERO_CART"
+      ],
+      "region": "Entire image above the label",
+      "finding": "The required transfer-cart subject is essentially unavailable in the black render.",
+      "repair": "Diagnose fixed-camera occlusion versus light reach in a disposable process; restore a minimal readable cart silhouette and material/construction read while preserving the established mood. Rerender the same fixed view.",
+      "limit": "No visual judgment of cart fidelity or support is possible from this frame; this does not establish the technical cause."
+    },
+    {
+      "id": "V8-02",
+      "priority": "blocking",
+      "views": [
+        "REVERSE",
+        "WALL_SOUTH"
+      ],
+      "region": "Centre entry door/header; REVERSE x335–637/y178–414; WALL_SOUTH x325–638/y195–464",
+      "finding": "Door leaves, frame relationship and institutional identification disappear into black.",
+      "repair": "Use restrained reflected/edge fill on the entry leaf and frame so destination and construction read; retain the red and warm practical hierarchy, without a global exposure increase.",
+      "limit": "Rendered clarity is assessed; no route width or collision clearance is certified."
+    },
+    {
+      "id": "V8-03",
+      "priority": "blocking",
+      "views": [
+        "HERO_OCRU",
+        "WALL_WEST",
+        "HERO_RESERVE",
+        "HERO_CABINET"
+      ],
+      "region": "OCRU side interfaces; reserve assembly x212–727/y118–555; right cabinet leaf x468–780/y56–377",
+      "finding": "Functional hero construction and material families fall below a useful readable value.",
+      "repair": "Control existing local spill/reflection to reveal each housing/shelf/glass edge and its working silhouette. Preserve black negative space around these objects and keep the bed the brightest red focal cue.",
+      "limit": "The visible problem is readability. Construction hidden by darkness cannot be scored as either well-built or primitive."
+    },
+    {
+      "id": "V8-04",
+      "priority": "refinement",
+      "views": [
+        "HIDDEN_BAG"
+      ],
+      "region": "Bag top and edge bands, approximately x41–1027/y253–486",
+      "finding": "The zip and handles prove a closed bag, but the broad flat surface and straight bands resemble a rigid carrier pad/tray.",
+      "repair": "Add restrained broad fabric slack/tension, softened corners and irregular thickness appropriate to a folded closed bag; keep it concealed and avoid a noisy grunge treatment.",
+      "limit": "No corpse or filled-body silhouette is required by this review; the defect concerns bag material/construction read."
+    }
+  ],
+  "per_camera": [
+    {
+      "id": "CORNER_SW",
+      "label": "01 | FRONT LEFT / CUTAWAY",
+      "gate": "PASS",
+      "observation": "Overall route, OCRU mass and clinical wall are organized with useful negative space. Cutaway presentation does not prove player-camera detail or physical support.",
+      "actual_pixels_opened": true
+    },
+    {
+      "id": "CORNER_SE",
+      "label": "02 | FRONT RIGHT / CUTAWAY",
+      "gate": "PASS",
+      "observation": "Bed bay, recovery berth, console, cartridge bank and decon are functionally grouped. Unlit skin regions remain an issue in closer designated views.",
+      "actual_pixels_opened": true
+    },
+    {
+      "id": "CORNER_NW",
+      "label": "03 | REAR LEFT / CUTAWAY",
+      "gate": "PASS",
+      "observation": "The fixed layout and central movement strip are visually coherent. Dark entrance detail is separately failed in the entry-wall and reverse views.",
+      "actual_pixels_opened": true
+    },
+    {
+      "id": "CORNER_NE",
+      "label": "04 | REAR RIGHT / CUTAWAY",
+      "gate": "PASS",
+      "observation": "Opposing overview preserves functional grouping and floor route. Small asset/support details cannot be validated at this framing.",
+      "actual_pixels_opened": true
+    },
+    {
+      "id": "WALL_SOUTH",
+      "label": "05 | ENTRY WALL",
+      "gate": "FAIL",
+      "observation": "Centre entry leaf and header, approximately x325–638/y195–464, are near black; sign, seal/leaf construction and useful material identity cannot be read.",
+      "actual_pixels_opened": true
+    },
+    {
+      "id": "WALL_WEST",
+      "label": "06 | OCRU WALL",
+      "gate": "FAIL",
+      "observation": "Red berth and mechanical lifts read, but both side interaction housings and much of the structural frame lose secondary form into black.",
+      "actual_pixels_opened": true
+    },
+    {
+      "id": "WALL_NORTH",
+      "label": "07 | RESTART / DECON WALL",
+      "gate": "PASS",
+      "observation": "Restart, cartridge rack and decon grouping remain readable with differentiated construction. Recovery edge stays subordinate.",
+      "actual_pixels_opened": true
+    },
+    {
+      "id": "WALL_EAST",
+      "label": "08 | RECOVERY / SUPPLIES WALL",
+      "gate": "PASS",
+      "observation": "Recovery, wash and warm supply worktop remain distinct overall functions. Cabinet and underbench detail are dark; cabinet has its own failed hero gate.",
+      "actual_pixels_opened": true
+    },
+    {
+      "id": "HERO_OCRU",
+      "label": "09 | OCRU REANIMATION UNIT",
+      "gate": "FAIL",
+      "observation": "Bed seams, rails and lifts are specific; INSERT/RELEASE left x45–202/y205–465 and SUIT right x844–988/y267–491 are near-black masses, impairing interaction and material read.",
+      "actual_pixels_opened": true
+    },
+    {
+      "id": "HERO_RESTART",
+      "label": "10 | RESTART CONSOLE",
+      "gate": "PASS",
+      "observation": "Layered monitor bezels, guarded controls, drawer hardware, folded shelf trim and restrained color hierarchy are readable; interface is functional rather than emissive filler.",
+      "actual_pixels_opened": true
+    },
+    {
+      "id": "HERO_CARTRIDGES",
+      "label": "11 | MEDICAL CARTRIDGE BANK",
+      "gate": "PASS",
+      "observation": "Docked cartridges, shelf divisions, frame fasteners and labels support purposeful manufacturing. Functional repetition does not become generic unrelated-box repetition.",
+      "actual_pixels_opened": true
+    },
+    {
+      "id": "HERO_RESERVE",
+      "label": "12 | RESERVE POWER",
+      "gate": "FAIL",
+      "observation": "Hero region x212–727/y118–555 is mostly black while adjacent console is bright; battery casing, connections and shelf depth cannot be confidently read.",
+      "actual_pixels_opened": true
+    },
+    {
+      "id": "HERO_DECON",
+      "label": "13 | DECONTAMINATION ALCOVE",
+      "gate": "PASS",
+      "observation": "Reel, sagging hose, wall-service termination, bin/pedal and slatted floor read as a practical narrow service alcove.",
+      "actual_pixels_opened": true
+    },
+    {
+      "id": "HERO_RECOVERY",
+      "label": "14 | RECOVERY BERTH",
+      "gate": "PASS",
+      "observation": "Broad linen folds/thickness separate from tubular rails and frame; tiny note at foot stays barely visible. Dark lower structure limits microdetail but does not erase the berth.",
+      "actual_pixels_opened": true
+    },
+    {
+      "id": "HERO_CART",
+      "label": "15 | TRANSFER CART",
+      "gate": "FAIL",
+      "observation": "Entire scene region above the review label is essentially black. Cart silhouette, construction, support and material response are unavailable from the actual pixels. Cause may be illumination or camera occlusion; this review does not infer it.",
+      "actual_pixels_opened": true
+    },
+    {
+      "id": "HERO_SUPPLIES",
+      "label": "16 | SUPPLY WORKBENCH",
+      "gate": "PASS",
+      "observation": "Warm working surface and restrained prop cluster communicate clinical function. Lower storage/legs lose detail, a secondary concern rather than a missing whole focal subject.",
+      "actual_pixels_opened": true
+    },
+    {
+      "id": "HERO_WASH",
+      "label": "17 | HANDWASH STATION",
+      "gate": "PASS",
+      "observation": "Folded basin/rim, tap, molded dispenser and local wall deterioration remain distinct from the bright adjacent worktop. Hidden waste/support geometry is not certified.",
+      "actual_pixels_opened": true
+    },
+    {
+      "id": "HERO_CABINET",
+      "label": "18 | MEDICAL SUPPLIES CABINET",
+      "gate": "FAIL",
+      "observation": "Left glazing and supplies retain a partial read; right leaf/interior around x468–780/y56–377 falls into black, preventing a full cabinet material/construction assessment.",
+      "actual_pixels_opened": true
+    },
+    {
+      "id": "ENTRY",
+      "label": "19 | ENTRY / PLAYER HEIGHT",
+      "gate": "PASS",
+      "observation": "Red OCRU, rear working station and right recovery silhouette establish the room at player height; central route remains readable. Local detail failures are real but do not erase the entry composition.",
+      "actual_pixels_opened": true
+    },
+    {
+      "id": "REVERSE",
+      "label": "20 | REVERSE / PLAYER HEIGHT",
+      "gate": "FAIL",
+      "observation": "Entry door centre, approximately x335–637/y178–414, loses opening/leaf construction and material cues into black. Warm left and red right focal pools leave the destination too weak.",
+      "actual_pixels_opened": true
+    },
+    {
+      "id": "PINCH",
+      "label": "21 | RESCUE ROUTE / PLAYER HEIGHT",
+      "gate": "PASS",
+      "observation": "Rear console, cartridges and decon entry retain clear hierarchy and usable negative floor space. Geometric clearance remains a separate numerical check.",
+      "actual_pixels_opened": true
+    },
+    {
+      "id": "DETAIL_OCRU",
+      "label": "22 | OCRU CARRIAGE / DETAIL",
+      "gate": "PASS",
+      "observation": "Upholstery seams, shaped pillow, telescoped rail/sleeves, lift blocks, restrained bolts and chassis layers demonstrate authored construction and material separation.",
+      "actual_pixels_opened": true
+    },
+    {
+      "id": "DETAIL_SUPPLIES",
+      "label": "23 | CLINICAL WORK / DETAIL",
+      "gate": "PASS",
+      "observation": "Specific tools, folded linen, bandages, gloves, bottle construction and denied-release log support tactile clinical work without noise or random clutter.",
+      "actual_pixels_opened": true
+    },
+    {
+      "id": "HIDDEN_BAG",
+      "label": "24 | BAG / INSPECTION FILL",
+      "gate": "PASS",
+      "observation": "Closed zipper, teeth/pull and handles are visibly confirmed. The broad flat top, straight blue edge bands and crossing strips need softer bag-specific slack/tension; inspection fill is not gameplay lighting evidence.",
+      "actual_pixels_opened": true
+    }
+  ],
+  "practical_limits": [
+    "Only current cycle-8 pixels and approved spawn calibration were reviewed; no historical critic scores or implementation were read.",
+    "Cutaways intentionally expose interiors and cannot establish physical support, room boundary measurements or player clearances.",
+    "HIDDEN_BAG uses labelled inspection fill, so its material/shape evidence does not certify bag visibility under gameplay lighting.",
+    "No calibrated luminance threshold was imposed; regions and coordinates describe qualitative visual failures in the supplied render.",
+    "Final-two-cycle stability, cold-start, engine import and owner acceptance remain unreviewed."
+  ],
+  "repair_order": [
+    "V8-01: recover the required transfer-cart image.",
+    "V8-02: reveal destination construction in REVERSE and WALL_SOUTH.",
+    "V8-03: restore minimal form/material cues on OCRU side interfaces, reserve power and cabinet right leaf.",
+    "V8-04: refine bag fabric, preserving concealment."
+  ],
+  "completion_statement": "Visual acceptance is blocked. Re-evaluate the same 24 fixed views after repairs; no technical or overall 100-point pass is awarded."
+}

@@ -1,0 +1,1363 @@
+{
+  "schema_version": 2,
+  "cycle": 7,
+  "reviewer": "medical_technical_cycle6_final_cold",
+  "generated_at_utc": "2026-09-30T23:51:03.505594+00:00",
+  "score": 9.2,
+  "available": 10,
+  "acceptance_threshold": 8.5,
+  "provisional": false,
+  "verdict": "PASS; unchanged independently validated source plus exact 24-view cold reproducibility",
+  "technical_acceptance": true,
+  "source_sha256": "8c353ae9f06b9bcf0aeb47c07a8db863fda2575f9c40d1d34f884d2eaa48096b",
+  "renderer_sha256": "69d7bc48374da4b06f63df7551dcd37c721d7796ec8924f641f1c5578b1918db",
+  "critical_technical_defects": [],
+  "technical_cleanup_findings": [],
+  "review_scope": "Final cold-repeat review. The geometry/support/hierarchy/dependency checks are reused only from the independently validated cycle-6 source at the same exact SHA. New independent checks compare all 24 actual hot/cold PNG RGB arrays, all camera/render metadata, and the extracted portable source/dependency bytes. No new Blender or broad geometry run is claimed.",
+  "score_rationale": "Saved-source contact, support, hierarchy, winding, dependency and reproducibility checks pass. Final full-file cold renders exactly reproduce all 24 hot RGB arrays and camera/render metadata. Minor inherited degenerate tag faces and limits of attachment-witness coverage keep the technical score at 9.2/10.",
+  "inherited_source6_technical_evidence": {
+    "report": "revamp-review/production/critics/cycle-6-technical.json",
+    "report_sha256": "421839990e6511ee62464e6e3406335155eef61380e4f0cec59ef452e4d09323",
+    "source_sha256": "8c353ae9f06b9bcf0aeb47c07a8db863fda2575f9c40d1d34f884d2eaa48096b",
+    "same_exact_source": true,
+    "objective_result": "PASS",
+    "support_groups": 96,
+    "support_anchors": 105,
+    "sheet_contact": "PASS; max foam penetration 0.374785 mm; zero sampled original piping penetration",
+    "hierarchy": "PASS",
+    "winding": "PASS",
+    "rebuild": "PASS with independently normalized internal mesh ordering",
+    "protected_hash_checks": [
+      {
+        "relative_to_facility_assembly": "blender/facility_environment.blend",
+        "expected_sha256": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+        "actual_sha256": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+        "pass": true
+      },
+      {
+        "relative_to_facility_assembly": "sources/medical-reanimation/module.blend",
+        "expected_sha256": "6c1a7600656050f717e0c94d26c038f3474fc974c7e0e0101ea7d598fe985523",
+        "actual_sha256": "6c1a7600656050f717e0c94d26c038f3474fc974c7e0e0101ea7d598fe985523",
+        "pass": true
+      },
+      {
+        "relative_to_facility_assembly": "sources/spawn-room/module.blend",
+        "expected_sha256": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+        "actual_sha256": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+        "pass": true
+      },
+      {
+        "relative_to_facility_assembly": "sources/medical-reanimation/contracts/interface.json",
+        "expected_sha256": "9bc10bf2d28292062c8cf1a3cb26bf3df6e17d43fb3b97a6a54403efefd8bd25",
+        "actual_sha256": "9bc10bf2d28292062c8cf1a3cb26bf3df6e17d43fb3b97a6a54403efefd8bd25",
+        "pass": true
+      }
+    ]
+  },
+  "independent_cold_render_comparison": {
+    "schema_version": 1,
+    "reviewer": "medical_technical_cycle6",
+    "generated_at_utc": "2026-09-30T23:48:39.973917+00:00",
+    "status": "PASS",
+    "source_sha256": "8c353ae9f06b9bcf0aeb47c07a8db863fda2575f9c40d1d34f884d2eaa48096b",
+    "renderer_sha256": "69d7bc48374da4b06f63df7551dcd37c721d7796ec8924f641f1c5578b1918db",
+    "hot_cycle": 6,
+    "cold_cycle": 7,
+    "hot_manifest_sha256": "4093c6cf4ef67ad566c9444312890d5ab01b59e3b67b56383f9b3f8c211e970f",
+    "cold_manifest_sha256": "c7cd94f09a497d778baaf663c35aa3baab8bd15e4f4bf20cbaeeed7fca3483b8",
+    "source_and_renderer_unchanged": true,
+    "scope": "Independent system-Python comparison of all 24 actual PNG files and complete camera/render metadata; no root comparison script or Blender execution is used.",
+    "global_checks": {
+      "cycle_6_complete_manifest": true,
+      "cycle_6_render_complete_marker": true,
+      "cycle_7_complete_manifest": true,
+      "cycle_7_render_complete_marker": true,
+      "source_sha256_equal": true,
+      "renderer_sha256_equal": true,
+      "engine_equal": true,
+      "samples_equal": true,
+      "resolution_equal": true,
+      "label_method_equal": true,
+      "lighting_equal": true,
+      "source_sha256_matches_current": true,
+      "renderer_sha256_matches_current": true
+    },
+    "errors": [],
+    "views": [
+      {
+        "id": "CORNER_NE",
+        "pass": true,
+        "camera_errors": [],
+        "maximum_camera_matrix_delta": 0.0,
+        "full_shot_metadata_equal": true,
+        "hot_lens_mm": 21.0,
+        "cold_lens_mm": 21.0,
+        "projection": "ORTHO",
+        "ortho_scale_m": 23.146162033081055,
+        "temporary_hidden_geometry_count": 112,
+        "temporary_inspection_fill_watts": null,
+        "image_size": [
+          1067,
+          600
+        ],
+        "hot_mode": "RGBA",
+        "cold_mode": "RGBA",
+        "hot_png_sha256": "56872f52633859ffc550f02cdce4fa8684ff77df7453936ad40e5569b0327047",
+        "cold_png_sha256": "21abbbb2758431e67fa8cef3190581546d11fc5eb4abe427999042839eac18fc",
+        "hot_rgb_sha256": "8867494f704a4f89fa4cc2e60f77948bc315dd133d4cdae7631bd7359a146e94",
+        "cold_rgb_sha256": "8867494f704a4f89fa4cc2e60f77948bc315dd133d4cdae7631bd7359a146e94",
+        "byte_identical_png": false,
+        "decoded_RGB_identical": true,
+        "mean_absolute_RGB_difference_255": 0.0,
+        "rms_RGB_difference_255": 0.0,
+        "maximum_RGB_difference_255": 0,
+        "changed_pixels": 0,
+        "pixels_above_3_RGB_levels": 0,
+        "pixels_above_3_RGB_levels_percent": 0.0,
+        "pixel_count": 640200
+      },
+      {
+        "id": "CORNER_NW",
+        "pass": true,
+        "camera_errors": [],
+        "maximum_camera_matrix_delta": 0.0,
+        "full_shot_metadata_equal": true,
+        "hot_lens_mm": 21.0,
+        "cold_lens_mm": 21.0,
+        "projection": "ORTHO",
+        "ortho_scale_m": 23.146162033081055,
+        "temporary_hidden_geometry_count": 113,
+        "temporary_inspection_fill_watts": null,
+        "image_size": [
+          1067,
+          600
+        ],
+        "hot_mode": "RGBA",
+        "cold_mode": "RGBA",
+        "hot_png_sha256": "2c0bc6491b79772796a191d5d426d7a97c768541c92b7a3e7c4b431f4b6a0f20",
+        "cold_png_sha256": "9189b1b00f61a68c8d66abf37ce5147aabf5108b2d640ba3d27431ab42a9287f",
+        "hot_rgb_sha256": "9f6db4aa9f6597f1eed5a377509effa889cd635e4dd9c47c398b39e7d875efac",
+        "cold_rgb_sha256": "9f6db4aa9f6597f1eed5a377509effa889cd635e4dd9c47c398b39e7d875efac",
+        "byte_identical_png": false,
+        "decoded_RGB_identical": true,
+        "mean_absolute_RGB_difference_255": 0.0,
+        "rms_RGB_difference_255": 0.0,
+        "maximum_RGB_difference_255": 0,
+        "changed_pixels": 0,
+        "pixels_above_3_RGB_levels": 0,
+        "pixels_above_3_RGB_levels_percent": 0.0,
+        "pixel_count": 640200
+      },
+      {
+        "id": "CORNER_SE",
+        "pass": true,
+        "camera_errors": [],
+        "maximum_camera_matrix_delta": 0.0,
+        "full_shot_metadata_equal": true,
+        "hot_lens_mm": 21.0,
+        "cold_lens_mm": 21.0,
+        "projection": "ORTHO",
+        "ortho_scale_m": 21.3917293548584,
+        "temporary_hidden_geometry_count": 112,
+        "temporary_inspection_fill_watts": null,
+        "image_size": [
+          1067,
+          600
+        ],
+        "hot_mode": "RGBA",
+        "cold_mode": "RGBA",
+        "hot_png_sha256": "ed443989a7ca778eca3da7f01b342fd848c826ae47aac877f1446e90b1347c17",
+        "cold_png_sha256": "54289acfaf12486b10d7e5594f5c30e6932b5119a7b94cc8dc1aa4dc394b8f7d",
+        "hot_rgb_sha256": "22cd03a530cce96a5d009cdfadd18bf4bfd1c861746464a81ad299fcb25c3cac",
+        "cold_rgb_sha256": "22cd03a530cce96a5d009cdfadd18bf4bfd1c861746464a81ad299fcb25c3cac",
+        "byte_identical_png": false,
+        "decoded_RGB_identical": true,
+        "mean_absolute_RGB_difference_255": 0.0,
+        "rms_RGB_difference_255": 0.0,
+        "maximum_RGB_difference_255": 0,
+        "changed_pixels": 0,
+        "pixels_above_3_RGB_levels": 0,
+        "pixels_above_3_RGB_levels_percent": 0.0,
+        "pixel_count": 640200
+      },
+      {
+        "id": "CORNER_SW",
+        "pass": true,
+        "camera_errors": [],
+        "maximum_camera_matrix_delta": 0.0,
+        "full_shot_metadata_equal": true,
+        "hot_lens_mm": 21.0,
+        "cold_lens_mm": 21.0,
+        "projection": "ORTHO",
+        "ortho_scale_m": 21.3917293548584,
+        "temporary_hidden_geometry_count": 113,
+        "temporary_inspection_fill_watts": null,
+        "image_size": [
+          1067,
+          600
+        ],
+        "hot_mode": "RGBA",
+        "cold_mode": "RGBA",
+        "hot_png_sha256": "419af1f37ba88890333d66d9e9407d9f9e63ecc4e2035124f59989101a3e91e0",
+        "cold_png_sha256": "230c1860de9f25adbbad3b96cddfbd42fbc506c5898dc72214cc9773df5ea91c",
+        "hot_rgb_sha256": "440a68d4f7f56ddaf334d4e09111510666759f60b7fc4b305a27de0496689c76",
+        "cold_rgb_sha256": "440a68d4f7f56ddaf334d4e09111510666759f60b7fc4b305a27de0496689c76",
+        "byte_identical_png": false,
+        "decoded_RGB_identical": true,
+        "mean_absolute_RGB_difference_255": 0.0,
+        "rms_RGB_difference_255": 0.0,
+        "maximum_RGB_difference_255": 0,
+        "changed_pixels": 0,
+        "pixels_above_3_RGB_levels": 0,
+        "pixels_above_3_RGB_levels_percent": 0.0,
+        "pixel_count": 640200
+      },
+      {
+        "id": "DETAIL_OCRU",
+        "pass": true,
+        "camera_errors": [],
+        "maximum_camera_matrix_delta": 0.0,
+        "full_shot_metadata_equal": true,
+        "hot_lens_mm": 42.0,
+        "cold_lens_mm": 42.0,
+        "projection": "PERSP",
+        "ortho_scale_m": null,
+        "temporary_hidden_geometry_count": 0,
+        "temporary_inspection_fill_watts": null,
+        "image_size": [
+          1067,
+          600
+        ],
+        "hot_mode": "RGBA",
+        "cold_mode": "RGBA",
+        "hot_png_sha256": "ca17a9d3e3233e96b8dd8546b7555b608bca3e705c534fc1e005b18038612a4d",
+        "cold_png_sha256": "042796a5e76962a8652f52c6da56ef278d46732dfee6a6e8f3927b4bc5721f9e",
+        "hot_rgb_sha256": "b09bcc2155188f2bfc3c8e8b40cf8495c1214007ec73ce9f296e2bd4a4c57377",
+        "cold_rgb_sha256": "b09bcc2155188f2bfc3c8e8b40cf8495c1214007ec73ce9f296e2bd4a4c57377",
+        "byte_identical_png": false,
+        "decoded_RGB_identical": true,
+        "mean_absolute_RGB_difference_255": 0.0,
+        "rms_RGB_difference_255": 0.0,
+        "maximum_RGB_difference_255": 0,
+        "changed_pixels": 0,
+        "pixels_above_3_RGB_levels": 0,
+        "pixels_above_3_RGB_levels_percent": 0.0,
+        "pixel_count": 640200
+      },
+      {
+        "id": "DETAIL_SUPPLIES",
+        "pass": true,
+        "camera_errors": [],
+        "maximum_camera_matrix_delta": 0.0,
+        "full_shot_metadata_equal": true,
+        "hot_lens_mm": 46.0,
+        "cold_lens_mm": 46.0,
+        "projection": "PERSP",
+        "ortho_scale_m": null,
+        "temporary_hidden_geometry_count": 0,
+        "temporary_inspection_fill_watts": null,
+        "image_size": [
+          1067,
+          600
+        ],
+        "hot_mode": "RGBA",
+        "cold_mode": "RGBA",
+        "hot_png_sha256": "1e40f938f1577fbf27066d61db4cb73a5ec21b2e40aa682c6bccf488ffa5cf5b",
+        "cold_png_sha256": "ca969c01b343cc88835cdb0e0490b9220c5ed69999ba630eb4fe852ff14a790d",
+        "hot_rgb_sha256": "12557c233c1a45ebfa9ba2cae348a49633116d747a09d017afb92370d2ceb440",
+        "cold_rgb_sha256": "12557c233c1a45ebfa9ba2cae348a49633116d747a09d017afb92370d2ceb440",
+        "byte_identical_png": false,
+        "decoded_RGB_identical": true,
+        "mean_absolute_RGB_difference_255": 0.0,
+        "rms_RGB_difference_255": 0.0,
+        "maximum_RGB_difference_255": 0,
+        "changed_pixels": 0,
+        "pixels_above_3_RGB_levels": 0,
+        "pixels_above_3_RGB_levels_percent": 0.0,
+        "pixel_count": 640200
+      },
+      {
+        "id": "ENTRY",
+        "pass": true,
+        "camera_errors": [],
+        "maximum_camera_matrix_delta": 0.0,
+        "full_shot_metadata_equal": true,
+        "hot_lens_mm": 22.0,
+        "cold_lens_mm": 22.0,
+        "projection": "PERSP",
+        "ortho_scale_m": null,
+        "temporary_hidden_geometry_count": 0,
+        "temporary_inspection_fill_watts": null,
+        "image_size": [
+          1067,
+          600
+        ],
+        "hot_mode": "RGBA",
+        "cold_mode": "RGBA",
+        "hot_png_sha256": "e980eb34b2d27cfbce2a509a0ccdc8a087b5659156314ab246b086808544ee53",
+        "cold_png_sha256": "ab46a7d6ea9ad0d9bc1070633e1f46ece7e071f1b63226d9c529364ef8f7ce79",
+        "hot_rgb_sha256": "7426c3e2992bdc1c1dbb79eea0d35dfdeb95b5d3aed7ba01dfdd386588d8ec8d",
+        "cold_rgb_sha256": "7426c3e2992bdc1c1dbb79eea0d35dfdeb95b5d3aed7ba01dfdd386588d8ec8d",
+        "byte_identical_png": false,
+        "decoded_RGB_identical": true,
+        "mean_absolute_RGB_difference_255": 0.0,
+        "rms_RGB_difference_255": 0.0,
+        "maximum_RGB_difference_255": 0,
+        "changed_pixels": 0,
+        "pixels_above_3_RGB_levels": 0,
+        "pixels_above_3_RGB_levels_percent": 0.0,
+        "pixel_count": 640200
+      },
+      {
+        "id": "HERO_CABINET",
+        "pass": true,
+        "camera_errors": [],
+        "maximum_camera_matrix_delta": 0.0,
+        "full_shot_metadata_equal": true,
+        "hot_lens_mm": 25.0,
+        "cold_lens_mm": 25.0,
+        "projection": "PERSP",
+        "ortho_scale_m": null,
+        "temporary_hidden_geometry_count": 0,
+        "temporary_inspection_fill_watts": null,
+        "image_size": [
+          1067,
+          600
+        ],
+        "hot_mode": "RGBA",
+        "cold_mode": "RGBA",
+        "hot_png_sha256": "8c0c7146a36bd15dafde0ff0a1de07ae636a7d28e6c25dc83df267277db6401d",
+        "cold_png_sha256": "09dec97d9df58761105afc7fd254b877f5936f8844e08e292705cbcacc4ce91e",
+        "hot_rgb_sha256": "3ea2f639e7e29c84eb98ae579b5772b13c0dc6812b1cbee00666f0c4dd190e7d",
+        "cold_rgb_sha256": "3ea2f639e7e29c84eb98ae579b5772b13c0dc6812b1cbee00666f0c4dd190e7d",
+        "byte_identical_png": false,
+        "decoded_RGB_identical": true,
+        "mean_absolute_RGB_difference_255": 0.0,
+        "rms_RGB_difference_255": 0.0,
+        "maximum_RGB_difference_255": 0,
+        "changed_pixels": 0,
+        "pixels_above_3_RGB_levels": 0,
+        "pixels_above_3_RGB_levels_percent": 0.0,
+        "pixel_count": 640200
+      },
+      {
+        "id": "HERO_CART",
+        "pass": true,
+        "camera_errors": [],
+        "maximum_camera_matrix_delta": 0.0,
+        "full_shot_metadata_equal": true,
+        "hot_lens_mm": 18.0,
+        "cold_lens_mm": 18.0,
+        "projection": "PERSP",
+        "ortho_scale_m": null,
+        "temporary_hidden_geometry_count": 0,
+        "temporary_inspection_fill_watts": null,
+        "image_size": [
+          1067,
+          600
+        ],
+        "hot_mode": "RGBA",
+        "cold_mode": "RGBA",
+        "hot_png_sha256": "449974070e3c2b34cc3b8861609f6b6098a105301a35e437af099c382e478e20",
+        "cold_png_sha256": "8afbb1f1c92e806dd971bb604ef5f03587fd338c71c17e5f3a3329e7b0c45c6b",
+        "hot_rgb_sha256": "9b7f46e4513f797540e324f8359fd37222c73d20193c291b4b6d5e1d7a83b4d1",
+        "cold_rgb_sha256": "9b7f46e4513f797540e324f8359fd37222c73d20193c291b4b6d5e1d7a83b4d1",
+        "byte_identical_png": false,
+        "decoded_RGB_identical": true,
+        "mean_absolute_RGB_difference_255": 0.0,
+        "rms_RGB_difference_255": 0.0,
+        "maximum_RGB_difference_255": 0,
+        "changed_pixels": 0,
+        "pixels_above_3_RGB_levels": 0,
+        "pixels_above_3_RGB_levels_percent": 0.0,
+        "pixel_count": 640200
+      },
+      {
+        "id": "HERO_CARTRIDGES",
+        "pass": true,
+        "camera_errors": [],
+        "maximum_camera_matrix_delta": 0.0,
+        "full_shot_metadata_equal": true,
+        "hot_lens_mm": 22.0,
+        "cold_lens_mm": 22.0,
+        "projection": "PERSP",
+        "ortho_scale_m": null,
+        "temporary_hidden_geometry_count": 0,
+        "temporary_inspection_fill_watts": null,
+        "image_size": [
+          1067,
+          600
+        ],
+        "hot_mode": "RGBA",
+        "cold_mode": "RGBA",
+        "hot_png_sha256": "f0fd518f32912da88fc152803d3702bab9a0beda1bd1a4f134f657923b9d9c30",
+        "cold_png_sha256": "b50bbae41d4a0517af77d044df196d5f24b07f70f9510e3c89d79063dd49d4ad",
+        "hot_rgb_sha256": "8f2810379ad2ce389f260752c2f4aa5073de0782bb4629c79f9c4e56384ca2f9",
+        "cold_rgb_sha256": "8f2810379ad2ce389f260752c2f4aa5073de0782bb4629c79f9c4e56384ca2f9",
+        "byte_identical_png": false,
+        "decoded_RGB_identical": true,
+        "mean_absolute_RGB_difference_255": 0.0,
+        "rms_RGB_difference_255": 0.0,
+        "maximum_RGB_difference_255": 0,
+        "changed_pixels": 0,
+        "pixels_above_3_RGB_levels": 0,
+        "pixels_above_3_RGB_levels_percent": 0.0,
+        "pixel_count": 640200
+      },
+      {
+        "id": "HERO_DECON",
+        "pass": true,
+        "camera_errors": [],
+        "maximum_camera_matrix_delta": 0.0,
+        "full_shot_metadata_equal": true,
+        "hot_lens_mm": 24.0,
+        "cold_lens_mm": 24.0,
+        "projection": "PERSP",
+        "ortho_scale_m": null,
+        "temporary_hidden_geometry_count": 0,
+        "temporary_inspection_fill_watts": null,
+        "image_size": [
+          1067,
+          600
+        ],
+        "hot_mode": "RGBA",
+        "cold_mode": "RGBA",
+        "hot_png_sha256": "561fe5616ba8bcb29f2c95ca02962e00403c8506ef101ca3ee2c711c9c00cbaf",
+        "cold_png_sha256": "a862b2fd17e9e90d53c6e966694914c9335d16237f62d81f993a5780f09dd823",
+        "hot_rgb_sha256": "3803a45e28831c3e83f7fd003a8d868983da9e77e5865ddbc9132717244d60aa",
+        "cold_rgb_sha256": "3803a45e28831c3e83f7fd003a8d868983da9e77e5865ddbc9132717244d60aa",
+        "byte_identical_png": false,
+        "decoded_RGB_identical": true,
+        "mean_absolute_RGB_difference_255": 0.0,
+        "rms_RGB_difference_255": 0.0,
+        "maximum_RGB_difference_255": 0,
+        "changed_pixels": 0,
+        "pixels_above_3_RGB_levels": 0,
+        "pixels_above_3_RGB_levels_percent": 0.0,
+        "pixel_count": 640200
+      },
+      {
+        "id": "HERO_OCRU",
+        "pass": true,
+        "camera_errors": [],
+        "maximum_camera_matrix_delta": 0.0,
+        "full_shot_metadata_equal": true,
+        "hot_lens_mm": 24.0,
+        "cold_lens_mm": 24.0,
+        "projection": "PERSP",
+        "ortho_scale_m": null,
+        "temporary_hidden_geometry_count": 0,
+        "temporary_inspection_fill_watts": null,
+        "image_size": [
+          1067,
+          600
+        ],
+        "hot_mode": "RGBA",
+        "cold_mode": "RGBA",
+        "hot_png_sha256": "e9601113b6d691e219eeb65063a316ba8d8d3b9b114d8e37967fef043886567c",
+        "cold_png_sha256": "77b96704de13ad4210e9de5a85dce6f381308d0b4284b322b81c0b6342bc7e79",
+        "hot_rgb_sha256": "1fe27e881fe313b0abe2f15399dc555ad2e1e321d4e213d2ab181534e6401ef2",
+        "cold_rgb_sha256": "1fe27e881fe313b0abe2f15399dc555ad2e1e321d4e213d2ab181534e6401ef2",
+        "byte_identical_png": false,
+        "decoded_RGB_identical": true,
+        "mean_absolute_RGB_difference_255": 0.0,
+        "rms_RGB_difference_255": 0.0,
+        "maximum_RGB_difference_255": 0,
+        "changed_pixels": 0,
+        "pixels_above_3_RGB_levels": 0,
+        "pixels_above_3_RGB_levels_percent": 0.0,
+        "pixel_count": 640200
+      },
+      {
+        "id": "HERO_RECOVERY",
+        "pass": true,
+        "camera_errors": [],
+        "maximum_camera_matrix_delta": 0.0,
+        "full_shot_metadata_equal": true,
+        "hot_lens_mm": 28.0,
+        "cold_lens_mm": 28.0,
+        "projection": "PERSP",
+        "ortho_scale_m": null,
+        "temporary_hidden_geometry_count": 0,
+        "temporary_inspection_fill_watts": null,
+        "image_size": [
+          1067,
+          600
+        ],
+        "hot_mode": "RGBA",
+        "cold_mode": "RGBA",
+        "hot_png_sha256": "45da16641dff9da0d89fc6fceeb4dd3b66b77656e15a50f3444a703325e5b1e7",
+        "cold_png_sha256": "ba457477b2ad97c1d67c07dc1f8da9295c6ab4eefffd9908a42b39c3ef02dd47",
+        "hot_rgb_sha256": "45ed6fea4e38da1aad5dde32169a1bbbeb29b52e09cb4c6d58b90941b161044a",
+        "cold_rgb_sha256": "45ed6fea4e38da1aad5dde32169a1bbbeb29b52e09cb4c6d58b90941b161044a",
+        "byte_identical_png": false,
+        "decoded_RGB_identical": true,
+        "mean_absolute_RGB_difference_255": 0.0,
+        "rms_RGB_difference_255": 0.0,
+        "maximum_RGB_difference_255": 0,
+        "changed_pixels": 0,
+        "pixels_above_3_RGB_levels": 0,
+        "pixels_above_3_RGB_levels_percent": 0.0,
+        "pixel_count": 640200
+      },
+      {
+        "id": "HERO_RESERVE",
+        "pass": true,
+        "camera_errors": [],
+        "maximum_camera_matrix_delta": 0.0,
+        "full_shot_metadata_equal": true,
+        "hot_lens_mm": 26.0,
+        "cold_lens_mm": 26.0,
+        "projection": "PERSP",
+        "ortho_scale_m": null,
+        "temporary_hidden_geometry_count": 0,
+        "temporary_inspection_fill_watts": null,
+        "image_size": [
+          1067,
+          600
+        ],
+        "hot_mode": "RGBA",
+        "cold_mode": "RGBA",
+        "hot_png_sha256": "a68c7824d49d2c2243ab34a947cb061a18da16bebc8c2bef824acf5a073feb30",
+        "cold_png_sha256": "a20f445e212a841a3e8b454b28f567f5ca04d6978f32d01359e60076a0be7973",
+        "hot_rgb_sha256": "ab08c45ed3b29c6bb19c07562de2e30a613c8b869f094763297353af29f80358",
+        "cold_rgb_sha256": "ab08c45ed3b29c6bb19c07562de2e30a613c8b869f094763297353af29f80358",
+        "byte_identical_png": false,
+        "decoded_RGB_identical": true,
+        "mean_absolute_RGB_difference_255": 0.0,
+        "rms_RGB_difference_255": 0.0,
+        "maximum_RGB_difference_255": 0,
+        "changed_pixels": 0,
+        "pixels_above_3_RGB_levels": 0,
+        "pixels_above_3_RGB_levels_percent": 0.0,
+        "pixel_count": 640200
+      },
+      {
+        "id": "HERO_RESTART",
+        "pass": true,
+        "camera_errors": [],
+        "maximum_camera_matrix_delta": 0.0,
+        "full_shot_metadata_equal": true,
+        "hot_lens_mm": 24.0,
+        "cold_lens_mm": 24.0,
+        "projection": "PERSP",
+        "ortho_scale_m": null,
+        "temporary_hidden_geometry_count": 0,
+        "temporary_inspection_fill_watts": null,
+        "image_size": [
+          1067,
+          600
+        ],
+        "hot_mode": "RGBA",
+        "cold_mode": "RGBA",
+        "hot_png_sha256": "81dd01a66308a5618e018629cadbb861ced1940ecdc5a0df7852c591c1af02f9",
+        "cold_png_sha256": "e5140e51593aff4759497cce754da21b049c9c0e423a7d4ac83706aeb76ab775",
+        "hot_rgb_sha256": "5d88d56721237b348176b744dc787dafb28ed96f554b3bd662c25a455c634e6f",
+        "cold_rgb_sha256": "5d88d56721237b348176b744dc787dafb28ed96f554b3bd662c25a455c634e6f",
+        "byte_identical_png": false,
+        "decoded_RGB_identical": true,
+        "mean_absolute_RGB_difference_255": 0.0,
+        "rms_RGB_difference_255": 0.0,
+        "maximum_RGB_difference_255": 0,
+        "changed_pixels": 0,
+        "pixels_above_3_RGB_levels": 0,
+        "pixels_above_3_RGB_levels_percent": 0.0,
+        "pixel_count": 640200
+      },
+      {
+        "id": "HERO_SUPPLIES",
+        "pass": true,
+        "camera_errors": [],
+        "maximum_camera_matrix_delta": 0.0,
+        "full_shot_metadata_equal": true,
+        "hot_lens_mm": 28.0,
+        "cold_lens_mm": 28.0,
+        "projection": "PERSP",
+        "ortho_scale_m": null,
+        "temporary_hidden_geometry_count": 0,
+        "temporary_inspection_fill_watts": null,
+        "image_size": [
+          1067,
+          600
+        ],
+        "hot_mode": "RGBA",
+        "cold_mode": "RGBA",
+        "hot_png_sha256": "4c19e021932d9865be927af3621f005438e70761208a7dcfe3ce013b1c7f332a",
+        "cold_png_sha256": "c7dda475ba1fcc143c54b158b8b377814c7473a5832e29cdaa31e77aa28875da",
+        "hot_rgb_sha256": "b3408d09e8e23ae9decf0a1fa40e650e7f6276d3a12cbe340534d4ecf1bab002",
+        "cold_rgb_sha256": "b3408d09e8e23ae9decf0a1fa40e650e7f6276d3a12cbe340534d4ecf1bab002",
+        "byte_identical_png": false,
+        "decoded_RGB_identical": true,
+        "mean_absolute_RGB_difference_255": 0.0,
+        "rms_RGB_difference_255": 0.0,
+        "maximum_RGB_difference_255": 0,
+        "changed_pixels": 0,
+        "pixels_above_3_RGB_levels": 0,
+        "pixels_above_3_RGB_levels_percent": 0.0,
+        "pixel_count": 640200
+      },
+      {
+        "id": "HERO_WASH",
+        "pass": true,
+        "camera_errors": [],
+        "maximum_camera_matrix_delta": 0.0,
+        "full_shot_metadata_equal": true,
+        "hot_lens_mm": 38.0,
+        "cold_lens_mm": 38.0,
+        "projection": "PERSP",
+        "ortho_scale_m": null,
+        "temporary_hidden_geometry_count": 0,
+        "temporary_inspection_fill_watts": null,
+        "image_size": [
+          1067,
+          600
+        ],
+        "hot_mode": "RGBA",
+        "cold_mode": "RGBA",
+        "hot_png_sha256": "532f62aeae50896a08be54e7fb92e77d7a379600a708b3f3e86989eb5dd3f8d2",
+        "cold_png_sha256": "4d7c8bc816b18960bbe8d6e5a473c859878451ffe5a334cc759b2405588aa14f",
+        "hot_rgb_sha256": "45db1cfcbc53f16bf6a74566ea0830ca985c50eeed04a713416a424ee4b73b72",
+        "cold_rgb_sha256": "45db1cfcbc53f16bf6a74566ea0830ca985c50eeed04a713416a424ee4b73b72",
+        "byte_identical_png": false,
+        "decoded_RGB_identical": true,
+        "mean_absolute_RGB_difference_255": 0.0,
+        "rms_RGB_difference_255": 0.0,
+        "maximum_RGB_difference_255": 0,
+        "changed_pixels": 0,
+        "pixels_above_3_RGB_levels": 0,
+        "pixels_above_3_RGB_levels_percent": 0.0,
+        "pixel_count": 640200
+      },
+      {
+        "id": "HIDDEN_BAG",
+        "pass": true,
+        "camera_errors": [],
+        "maximum_camera_matrix_delta": 0.0,
+        "full_shot_metadata_equal": true,
+        "hot_lens_mm": 35.0,
+        "cold_lens_mm": 35.0,
+        "projection": "PERSP",
+        "ortho_scale_m": null,
+        "temporary_hidden_geometry_count": 0,
+        "temporary_inspection_fill_watts": 2,
+        "image_size": [
+          1067,
+          600
+        ],
+        "hot_mode": "RGBA",
+        "cold_mode": "RGBA",
+        "hot_png_sha256": "71a9ca3354df773e636320d039ada0899801cf7cbf85977e4d86ce2e4f04b6d0",
+        "cold_png_sha256": "ffc72fc9526fb945f687b54a0db6173b48a6add01d52b0d338482005967257ef",
+        "hot_rgb_sha256": "2a3a13b465e4126147f14d2ff404146c9621e72646a2e41881c0f60266e7ecc0",
+        "cold_rgb_sha256": "2a3a13b465e4126147f14d2ff404146c9621e72646a2e41881c0f60266e7ecc0",
+        "byte_identical_png": false,
+        "decoded_RGB_identical": true,
+        "mean_absolute_RGB_difference_255": 0.0,
+        "rms_RGB_difference_255": 0.0,
+        "maximum_RGB_difference_255": 0,
+        "changed_pixels": 0,
+        "pixels_above_3_RGB_levels": 0,
+        "pixels_above_3_RGB_levels_percent": 0.0,
+        "pixel_count": 640200
+      },
+      {
+        "id": "PINCH",
+        "pass": true,
+        "camera_errors": [],
+        "maximum_camera_matrix_delta": 0.0,
+        "full_shot_metadata_equal": true,
+        "hot_lens_mm": 23.0,
+        "cold_lens_mm": 23.0,
+        "projection": "PERSP",
+        "ortho_scale_m": null,
+        "temporary_hidden_geometry_count": 0,
+        "temporary_inspection_fill_watts": null,
+        "image_size": [
+          1067,
+          600
+        ],
+        "hot_mode": "RGBA",
+        "cold_mode": "RGBA",
+        "hot_png_sha256": "4a9b9f62caae572c0795a893a548038375854fec93d8cfa416b647d734096a84",
+        "cold_png_sha256": "ed38e618dd10fe1c76012e375c9b252467c2198d57b277f30eef56e05ca745c6",
+        "hot_rgb_sha256": "c9719acaa1775d4e048d03ca66b1786afb29305bcc116d875cedb21c25c96139",
+        "cold_rgb_sha256": "c9719acaa1775d4e048d03ca66b1786afb29305bcc116d875cedb21c25c96139",
+        "byte_identical_png": false,
+        "decoded_RGB_identical": true,
+        "mean_absolute_RGB_difference_255": 0.0,
+        "rms_RGB_difference_255": 0.0,
+        "maximum_RGB_difference_255": 0,
+        "changed_pixels": 0,
+        "pixels_above_3_RGB_levels": 0,
+        "pixels_above_3_RGB_levels_percent": 0.0,
+        "pixel_count": 640200
+      },
+      {
+        "id": "REVERSE",
+        "pass": true,
+        "camera_errors": [],
+        "maximum_camera_matrix_delta": 0.0,
+        "full_shot_metadata_equal": true,
+        "hot_lens_mm": 22.0,
+        "cold_lens_mm": 22.0,
+        "projection": "PERSP",
+        "ortho_scale_m": null,
+        "temporary_hidden_geometry_count": 0,
+        "temporary_inspection_fill_watts": null,
+        "image_size": [
+          1067,
+          600
+        ],
+        "hot_mode": "RGBA",
+        "cold_mode": "RGBA",
+        "hot_png_sha256": "e7ba3f3e5a7442b4f0963c1839f2ec7491f259bc0372353d8a0e107e67787729",
+        "cold_png_sha256": "2acb49ea58cccada0582cac8655858ae54fbf52b062379a2c27bf77c1c054b54",
+        "hot_rgb_sha256": "d7b8059b67fc9f9204aa44c03f4ff532a3204ab162e7de113c39f4c40fc098e9",
+        "cold_rgb_sha256": "d7b8059b67fc9f9204aa44c03f4ff532a3204ab162e7de113c39f4c40fc098e9",
+        "byte_identical_png": false,
+        "decoded_RGB_identical": true,
+        "mean_absolute_RGB_difference_255": 0.0,
+        "rms_RGB_difference_255": 0.0,
+        "maximum_RGB_difference_255": 0,
+        "changed_pixels": 0,
+        "pixels_above_3_RGB_levels": 0,
+        "pixels_above_3_RGB_levels_percent": 0.0,
+        "pixel_count": 640200
+      },
+      {
+        "id": "WALL_EAST",
+        "pass": true,
+        "camera_errors": [],
+        "maximum_camera_matrix_delta": 0.0,
+        "full_shot_metadata_equal": true,
+        "hot_lens_mm": 16.0,
+        "cold_lens_mm": 16.0,
+        "projection": "PERSP",
+        "ortho_scale_m": null,
+        "temporary_hidden_geometry_count": 0,
+        "temporary_inspection_fill_watts": null,
+        "image_size": [
+          1067,
+          600
+        ],
+        "hot_mode": "RGBA",
+        "cold_mode": "RGBA",
+        "hot_png_sha256": "e97bfe8877e6c6e8383ab1fa06a492f8565257f5ce3086eb9bf4a6b223827a58",
+        "cold_png_sha256": "c8d09c4827e8a08dd02b797b30ff8b30fb0b10aee344e52e269b5b1108a2cff7",
+        "hot_rgb_sha256": "8200f6c47230038dca40f9d1b263bbbf1f79f6e17f54c1879dde7d6bf1a30515",
+        "cold_rgb_sha256": "8200f6c47230038dca40f9d1b263bbbf1f79f6e17f54c1879dde7d6bf1a30515",
+        "byte_identical_png": false,
+        "decoded_RGB_identical": true,
+        "mean_absolute_RGB_difference_255": 0.0,
+        "rms_RGB_difference_255": 0.0,
+        "maximum_RGB_difference_255": 0,
+        "changed_pixels": 0,
+        "pixels_above_3_RGB_levels": 0,
+        "pixels_above_3_RGB_levels_percent": 0.0,
+        "pixel_count": 640200
+      },
+      {
+        "id": "WALL_NORTH",
+        "pass": true,
+        "camera_errors": [],
+        "maximum_camera_matrix_delta": 0.0,
+        "full_shot_metadata_equal": true,
+        "hot_lens_mm": 22.0,
+        "cold_lens_mm": 22.0,
+        "projection": "PERSP",
+        "ortho_scale_m": null,
+        "temporary_hidden_geometry_count": 0,
+        "temporary_inspection_fill_watts": null,
+        "image_size": [
+          1067,
+          600
+        ],
+        "hot_mode": "RGBA",
+        "cold_mode": "RGBA",
+        "hot_png_sha256": "74759c585698313d6ada4020b79503528b9337eb6f1a171302b6a2ebc0f0839a",
+        "cold_png_sha256": "8508225b5cef13c6690c52eada268742bd6401ba24c8f8e44a98c94747a28f82",
+        "hot_rgb_sha256": "c2bb418e0017fcf49196b07e1a05aa794aef89e1d79cc3c8b57b1dc990d64ee7",
+        "cold_rgb_sha256": "c2bb418e0017fcf49196b07e1a05aa794aef89e1d79cc3c8b57b1dc990d64ee7",
+        "byte_identical_png": false,
+        "decoded_RGB_identical": true,
+        "mean_absolute_RGB_difference_255": 0.0,
+        "rms_RGB_difference_255": 0.0,
+        "maximum_RGB_difference_255": 0,
+        "changed_pixels": 0,
+        "pixels_above_3_RGB_levels": 0,
+        "pixels_above_3_RGB_levels_percent": 0.0,
+        "pixel_count": 640200
+      },
+      {
+        "id": "WALL_SOUTH",
+        "pass": true,
+        "camera_errors": [],
+        "maximum_camera_matrix_delta": 0.0,
+        "full_shot_metadata_equal": true,
+        "hot_lens_mm": 22.0,
+        "cold_lens_mm": 22.0,
+        "projection": "PERSP",
+        "ortho_scale_m": null,
+        "temporary_hidden_geometry_count": 0,
+        "temporary_inspection_fill_watts": null,
+        "image_size": [
+          1067,
+          600
+        ],
+        "hot_mode": "RGBA",
+        "cold_mode": "RGBA",
+        "hot_png_sha256": "92bb37fc4006e752146b5ed08fda9f9fa135ca5237cd2dc3452fd97751270199",
+        "cold_png_sha256": "2b9f4ddc90728b691bddafcccd3f19eaad8b4c1b87a930af2358a7ddb37418bc",
+        "hot_rgb_sha256": "15bfb34fb33b95739699ccc55f8971d23fb85b5cd65cff678d5c56b55bd0d2ab",
+        "cold_rgb_sha256": "15bfb34fb33b95739699ccc55f8971d23fb85b5cd65cff678d5c56b55bd0d2ab",
+        "byte_identical_png": false,
+        "decoded_RGB_identical": true,
+        "mean_absolute_RGB_difference_255": 0.0,
+        "rms_RGB_difference_255": 0.0,
+        "maximum_RGB_difference_255": 0,
+        "changed_pixels": 0,
+        "pixels_above_3_RGB_levels": 0,
+        "pixels_above_3_RGB_levels_percent": 0.0,
+        "pixel_count": 640200
+      },
+      {
+        "id": "WALL_WEST",
+        "pass": true,
+        "camera_errors": [],
+        "maximum_camera_matrix_delta": 0.0,
+        "full_shot_metadata_equal": true,
+        "hot_lens_mm": 19.0,
+        "cold_lens_mm": 19.0,
+        "projection": "PERSP",
+        "ortho_scale_m": null,
+        "temporary_hidden_geometry_count": 0,
+        "temporary_inspection_fill_watts": null,
+        "image_size": [
+          1067,
+          600
+        ],
+        "hot_mode": "RGBA",
+        "cold_mode": "RGBA",
+        "hot_png_sha256": "f6dacc9a806503fac61c4d961227a37ae7447e8d790a15a993b1edacc97f38eb",
+        "cold_png_sha256": "61807736127f80faa1220f5796d28e35fe50cf11a079905ebeddafffdbbe2d4b",
+        "hot_rgb_sha256": "5926433e428455128989a9832d1aca74689e80c20adbb8e0ecb5c032411f02eb",
+        "cold_rgb_sha256": "5926433e428455128989a9832d1aca74689e80c20adbb8e0ecb5c032411f02eb",
+        "byte_identical_png": false,
+        "decoded_RGB_identical": true,
+        "mean_absolute_RGB_difference_255": 0.0,
+        "rms_RGB_difference_255": 0.0,
+        "maximum_RGB_difference_255": 0,
+        "changed_pixels": 0,
+        "pixels_above_3_RGB_levels": 0,
+        "pixels_above_3_RGB_levels_percent": 0.0,
+        "pixel_count": 640200
+      }
+    ],
+    "summary": {
+      "views_compared": 24,
+      "passed_views": 24,
+      "decoded_RGB_identical_views": 24,
+      "byte_identical_PNG_views": 0,
+      "camera_metadata_equal_views": 24,
+      "maximum_RGB_difference_255": 0,
+      "maximum_camera_matrix_delta": 0.0,
+      "total_pixels_compared": 15364800,
+      "total_changed_pixels": 0
+    },
+    "png_metadata_differences": [
+      {
+        "id": "CORNER_NE",
+        "differing_metadata_keys": [
+          "Date",
+          "File",
+          "RenderTime",
+          "cycles.ViewLayer.render_time",
+          "cycles.ViewLayer.synchronization_time",
+          "cycles.ViewLayer.total_time"
+        ]
+      },
+      {
+        "id": "CORNER_NW",
+        "differing_metadata_keys": [
+          "Date",
+          "File",
+          "RenderTime",
+          "cycles.ViewLayer.render_time",
+          "cycles.ViewLayer.synchronization_time",
+          "cycles.ViewLayer.total_time"
+        ]
+      },
+      {
+        "id": "CORNER_SE",
+        "differing_metadata_keys": [
+          "Date",
+          "File",
+          "RenderTime",
+          "cycles.ViewLayer.render_time",
+          "cycles.ViewLayer.synchronization_time",
+          "cycles.ViewLayer.total_time"
+        ]
+      },
+      {
+        "id": "CORNER_SW",
+        "differing_metadata_keys": [
+          "Date",
+          "File",
+          "RenderTime",
+          "cycles.ViewLayer.render_time",
+          "cycles.ViewLayer.synchronization_time",
+          "cycles.ViewLayer.total_time"
+        ]
+      },
+      {
+        "id": "DETAIL_OCRU",
+        "differing_metadata_keys": [
+          "Date",
+          "File",
+          "RenderTime",
+          "cycles.ViewLayer.render_time",
+          "cycles.ViewLayer.total_time"
+        ]
+      },
+      {
+        "id": "DETAIL_SUPPLIES",
+        "differing_metadata_keys": [
+          "Date",
+          "File",
+          "RenderTime",
+          "cycles.ViewLayer.render_time",
+          "cycles.ViewLayer.synchronization_time",
+          "cycles.ViewLayer.total_time"
+        ]
+      },
+      {
+        "id": "ENTRY",
+        "differing_metadata_keys": [
+          "Date",
+          "File",
+          "RenderTime",
+          "cycles.ViewLayer.render_time",
+          "cycles.ViewLayer.total_time"
+        ]
+      },
+      {
+        "id": "HERO_CABINET",
+        "differing_metadata_keys": [
+          "Date",
+          "File",
+          "RenderTime",
+          "cycles.ViewLayer.render_time",
+          "cycles.ViewLayer.synchronization_time",
+          "cycles.ViewLayer.total_time"
+        ]
+      },
+      {
+        "id": "HERO_CART",
+        "differing_metadata_keys": [
+          "Date",
+          "File",
+          "RenderTime",
+          "cycles.ViewLayer.render_time",
+          "cycles.ViewLayer.synchronization_time",
+          "cycles.ViewLayer.total_time"
+        ]
+      },
+      {
+        "id": "HERO_CARTRIDGES",
+        "differing_metadata_keys": [
+          "Date",
+          "File",
+          "RenderTime",
+          "cycles.ViewLayer.render_time",
+          "cycles.ViewLayer.total_time"
+        ]
+      },
+      {
+        "id": "HERO_DECON",
+        "differing_metadata_keys": [
+          "Date",
+          "File",
+          "RenderTime",
+          "cycles.ViewLayer.render_time",
+          "cycles.ViewLayer.total_time"
+        ]
+      },
+      {
+        "id": "HERO_OCRU",
+        "differing_metadata_keys": [
+          "Date",
+          "File",
+          "RenderTime",
+          "cycles.ViewLayer.render_time",
+          "cycles.ViewLayer.synchronization_time",
+          "cycles.ViewLayer.total_time"
+        ]
+      },
+      {
+        "id": "HERO_RECOVERY",
+        "differing_metadata_keys": [
+          "Date",
+          "File",
+          "RenderTime",
+          "cycles.ViewLayer.render_time",
+          "cycles.ViewLayer.synchronization_time",
+          "cycles.ViewLayer.total_time"
+        ]
+      },
+      {
+        "id": "HERO_RESERVE",
+        "differing_metadata_keys": [
+          "Date",
+          "File",
+          "RenderTime",
+          "cycles.ViewLayer.render_time",
+          "cycles.ViewLayer.synchronization_time",
+          "cycles.ViewLayer.total_time"
+        ]
+      },
+      {
+        "id": "HERO_RESTART",
+        "differing_metadata_keys": [
+          "Date",
+          "File",
+          "RenderTime",
+          "cycles.ViewLayer.render_time",
+          "cycles.ViewLayer.total_time"
+        ]
+      },
+      {
+        "id": "HERO_SUPPLIES",
+        "differing_metadata_keys": [
+          "Date",
+          "File",
+          "RenderTime",
+          "cycles.ViewLayer.render_time",
+          "cycles.ViewLayer.synchronization_time",
+          "cycles.ViewLayer.total_time"
+        ]
+      },
+      {
+        "id": "HERO_WASH",
+        "differing_metadata_keys": [
+          "Date",
+          "File",
+          "RenderTime",
+          "cycles.ViewLayer.render_time",
+          "cycles.ViewLayer.synchronization_time",
+          "cycles.ViewLayer.total_time"
+        ]
+      },
+      {
+        "id": "HIDDEN_BAG",
+        "differing_metadata_keys": [
+          "Date",
+          "File",
+          "RenderTime",
+          "cycles.ViewLayer.render_time",
+          "cycles.ViewLayer.synchronization_time",
+          "cycles.ViewLayer.total_time"
+        ]
+      },
+      {
+        "id": "PINCH",
+        "differing_metadata_keys": [
+          "Date",
+          "File",
+          "RenderTime",
+          "cycles.ViewLayer.render_time",
+          "cycles.ViewLayer.synchronization_time",
+          "cycles.ViewLayer.total_time"
+        ]
+      },
+      {
+        "id": "REVERSE",
+        "differing_metadata_keys": [
+          "Date",
+          "File",
+          "RenderTime",
+          "cycles.ViewLayer.render_time",
+          "cycles.ViewLayer.synchronization_time",
+          "cycles.ViewLayer.total_time"
+        ]
+      },
+      {
+        "id": "WALL_EAST",
+        "differing_metadata_keys": [
+          "Date",
+          "File",
+          "RenderTime",
+          "cycles.ViewLayer.render_time",
+          "cycles.ViewLayer.synchronization_time",
+          "cycles.ViewLayer.total_time"
+        ]
+      },
+      {
+        "id": "WALL_NORTH",
+        "differing_metadata_keys": [
+          "Date",
+          "File",
+          "RenderTime",
+          "cycles.ViewLayer.render_time",
+          "cycles.ViewLayer.synchronization_time",
+          "cycles.ViewLayer.total_time"
+        ]
+      },
+      {
+        "id": "WALL_SOUTH",
+        "differing_metadata_keys": [
+          "Date",
+          "File",
+          "RenderTime",
+          "cycles.ViewLayer.render_time",
+          "cycles.ViewLayer.synchronization_time",
+          "cycles.ViewLayer.total_time"
+        ]
+      },
+      {
+        "id": "WALL_WEST",
+        "differing_metadata_keys": [
+          "Date",
+          "File",
+          "RenderTime",
+          "cycles.ViewLayer.render_time",
+          "cycles.ViewLayer.synchronization_time",
+          "cycles.ViewLayer.total_time"
+        ]
+      }
+    ]
+  },
+  "portable_delivery_evidence": {
+    "source_sha256": "8c353ae9f06b9bcf0aeb47c07a8db863fda2575f9c40d1d34f884d2eaa48096b",
+    "source_matches": true,
+    "libraries": [
+      {
+        "relative_path": "sections/facility-assembly/exteriors/refinery/exterior-R01.blend",
+        "package_file_exists": true,
+        "expected_sha256": "91dc6d076ef5b0a74f9b4931b253e14692081c1d9ec605dfa6ea0d0fd452710c",
+        "package_sha256": "91dc6d076ef5b0a74f9b4931b253e14692081c1d9ec605dfa6ea0d0fd452710c",
+        "pass": true
+      },
+      {
+        "relative_path": "sections/facility-assembly/exteriors/waste-storage/exterior-R01.blend",
+        "package_file_exists": true,
+        "expected_sha256": "c3cacb97088899afbf8202e1d44da0ec3d79d39b1c71408cbb629e8cf4ad2db8",
+        "package_sha256": "c3cacb97088899afbf8202e1d44da0ec3d79d39b1c71408cbb629e8cf4ad2db8",
+        "pass": true
+      },
+      {
+        "relative_path": "sections/facility-assembly/exteriors/condenser-bay/exterior-R02.blend",
+        "package_file_exists": true,
+        "expected_sha256": "48abbe1061e038749aab76e1fb1217a329abdd40592da7fba21d578842c75ade",
+        "package_sha256": "48abbe1061e038749aab76e1fb1217a329abdd40592da7fba21d578842c75ade",
+        "pass": true
+      },
+      {
+        "relative_path": "sections/facility-assembly/exteriors/fuel-corridor/exterior-R02.blend",
+        "package_file_exists": true,
+        "expected_sha256": "2ecbdb89cf46e6b8b745f7b54d24714e77731fbb5544470ea2102ccbb74f1b29",
+        "package_sha256": "2ecbdb89cf46e6b8b745f7b54d24714e77731fbb5544470ea2102ccbb74f1b29",
+        "pass": true
+      },
+      {
+        "relative_path": "sections/facility-assembly/exteriors/cooling-plant/exterior-R03.blend",
+        "package_file_exists": true,
+        "expected_sha256": "29241944814b0eb02bd87c627448c2a9a05bfb4832efb786294e1752c722a92e",
+        "package_sha256": "29241944814b0eb02bd87c627448c2a9a05bfb4832efb786294e1752c722a92e",
+        "pass": true
+      },
+      {
+        "relative_path": "sections/facility-assembly/exteriors/electrical-room/exterior-R03.blend",
+        "package_file_exists": true,
+        "expected_sha256": "cf7ed65234a618ae957f4d5254dd0b008761da7a7d3e77cb85da095467b03551",
+        "package_sha256": "cf7ed65234a618ae957f4d5254dd0b008761da7a7d3e77cb85da095467b03551",
+        "pass": true
+      },
+      {
+        "relative_path": "sections/facility-assembly/exteriors/medical-reanimation/exterior-R04.blend",
+        "package_file_exists": true,
+        "expected_sha256": "a123a72256b3f920e28bcdeaf942d3277bd2513fb14267c5686f9a7d9a8a9787",
+        "package_sha256": "a123a72256b3f920e28bcdeaf942d3277bd2513fb14267c5686f9a7d9a8a9787",
+        "pass": true
+      },
+      {
+        "relative_path": "sections/facility-assembly/exteriors/turbine-room/exterior-R04.blend",
+        "package_file_exists": true,
+        "expected_sha256": "7483c0eebaacfb479a7a1c65e1da7430079c4332eb5dab836b5ad9259563e40d",
+        "package_sha256": "7483c0eebaacfb479a7a1c65e1da7430079c4332eb5dab836b5ad9259563e40d",
+        "pass": true
+      },
+      {
+        "relative_path": "sections/facility-assembly/exteriors/reactor-room/exterior-R05.blend",
+        "package_file_exists": true,
+        "expected_sha256": "19e2808ff7edfd0415be7f66322568d992a0e67bd02a9e4f7907dfb6ac7a6385",
+        "package_sha256": "19e2808ff7edfd0415be7f66322568d992a0e67bd02a9e4f7907dfb6ac7a6385",
+        "pass": true
+      },
+      {
+        "relative_path": "sections/facility-assembly/exteriors/spawn-room/exterior-R05.blend",
+        "package_file_exists": true,
+        "expected_sha256": "5c236b25f3fef0243c5d086f71eb33d006a77cedfe05bfd91848d1ff1a245b5a",
+        "package_sha256": "5c236b25f3fef0243c5d086f71eb33d006a77cedfe05bfd91848d1ff1a245b5a",
+        "pass": true
+      },
+      {
+        "relative_path": "sections/facility-assembly/exteriors/compliance-dock/exterior-R08.blend",
+        "package_file_exists": true,
+        "expected_sha256": "a2a2a57c6531cd6a4bf6a6d5b92d07b81d1630a4b5ab553ff762771127bb2ccb",
+        "package_sha256": "a2a2a57c6531cd6a4bf6a6d5b92d07b81d1630a4b5ab553ff762771127bb2ccb",
+        "pass": true
+      },
+      {
+        "relative_path": "sections/facility-assembly/blender/facility_environment.blend",
+        "package_file_exists": true,
+        "expected_sha256": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+        "package_sha256": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+        "pass": true
+      },
+      {
+        "relative_path": "sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend",
+        "package_file_exists": true,
+        "expected_sha256": "4d5d160d5c9d25b0a447fda933974790260cdde7aced2db1da1c908afdcdc937",
+        "package_sha256": "4d5d160d5c9d25b0a447fda933974790260cdde7aced2db1da1c908afdcdc937",
+        "pass": true
+      },
+      {
+        "relative_path": "sections/facility-assembly/sources/condenser-bay/module.blend",
+        "package_file_exists": true,
+        "expected_sha256": "7a58204e39fd0a4f7a3dde05632caa6f001a30611ad8d00b7fc29e1452a7a2d0",
+        "package_sha256": "7a58204e39fd0a4f7a3dde05632caa6f001a30611ad8d00b7fc29e1452a7a2d0",
+        "pass": true
+      },
+      {
+        "relative_path": "sections/facility-assembly/sources/mine/module.blend",
+        "package_file_exists": true,
+        "expected_sha256": "10f50d0593bf4924f945d90e0fd2a7c512efe66ff8e5306aeaae20dd81c26445",
+        "package_sha256": "10f50d0593bf4924f945d90e0fd2a7c512efe66ff8e5306aeaae20dd81c26445",
+        "pass": true
+      },
+      {
+        "relative_path": "sections/facility-assembly/sources/spawn-room/module.blend",
+        "package_file_exists": true,
+        "expected_sha256": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+        "package_sha256": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+        "pass": true
+      },
+      {
+        "relative_path": "sections/facility-assembly/sources/compliance-dock/module.blend",
+        "package_file_exists": true,
+        "expected_sha256": "0cdae8b3d302459d75569cb6bf3a463f24b30ea373c2bcdf430360033d7b0947",
+        "package_sha256": "0cdae8b3d302459d75569cb6bf3a463f24b30ea373c2bcdf430360033d7b0947",
+        "pass": true
+      },
+      {
+        "relative_path": "sections/facility-assembly/sources/cooling-plant/module.blend",
+        "package_file_exists": true,
+        "expected_sha256": "253d60c86c70a239637d39193c2a8a888ddcddb1246eef1450332d76a5b56bcb",
+        "package_sha256": "253d60c86c70a239637d39193c2a8a888ddcddb1246eef1450332d76a5b56bcb",
+        "pass": true
+      },
+      {
+        "relative_path": "sections/facility-assembly/sources/electrical-room/module.blend",
+        "package_file_exists": true,
+        "expected_sha256": "10b37b1ca5c5abee8a3f781205327edcc8fb1ff23e9d41632e3c5579b0f08476",
+        "package_sha256": "10b37b1ca5c5abee8a3f781205327edcc8fb1ff23e9d41632e3c5579b0f08476",
+        "pass": true
+      },
+      {
+        "relative_path": "sections/facility-assembly/sources/fuel-corridor/module.blend",
+        "package_file_exists": true,
+        "expected_sha256": "f01b8647c4a87c88be859fce0659df8c9aaf41a91743f0c83705b8b8cfc0945c",
+        "package_sha256": "f01b8647c4a87c88be859fce0659df8c9aaf41a91743f0c83705b8b8cfc0945c",
+        "pass": true
+      },
+      {
+        "relative_path": "sections/facility-assembly/sources/medical-reanimation/module.blend",
+        "package_file_exists": true,
+        "expected_sha256": "6c1a7600656050f717e0c94d26c038f3474fc974c7e0e0101ea7d598fe985523",
+        "package_sha256": "6c1a7600656050f717e0c94d26c038f3474fc974c7e0e0101ea7d598fe985523",
+        "pass": true
+      },
+      {
+        "relative_path": "sections/facility-assembly/sources/reactor-room/module.blend",
+        "package_file_exists": true,
+        "expected_sha256": "27100e235b26b874a5206671bdb8934c3726a22bd3d7c75514606b2e8f686278",
+        "package_sha256": "27100e235b26b874a5206671bdb8934c3726a22bd3d7c75514606b2e8f686278",
+        "pass": true
+      },
+      {
+        "relative_path": "sections/facility-assembly/sources/refinery/module.blend",
+        "package_file_exists": true,
+        "expected_sha256": "de064242c534a12e69e7aac3c46c7118a285024626fdd423bb20eef339079ff8",
+        "package_sha256": "de064242c534a12e69e7aac3c46c7118a285024626fdd423bb20eef339079ff8",
+        "pass": true
+      },
+      {
+        "relative_path": "sections/facility-assembly/sources/turbine-room/module.blend",
+        "package_file_exists": true,
+        "expected_sha256": "841646bdecd9699c26ff463afcb7eee231d17b64f9e7cc379c3a05137ecd6110",
+        "package_sha256": "841646bdecd9699c26ff463afcb7eee231d17b64f9e7cc379c3a05137ecd6110",
+        "pass": true
+      },
+      {
+        "relative_path": "sections/facility-assembly/sources/waste-storage/module.blend",
+        "package_file_exists": true,
+        "expected_sha256": "8912b5c3b3d2525abb64e838d1fe83a1ea90aa12fea0c9b5a730d4449caecedf",
+        "package_sha256": "8912b5c3b3d2525abb64e838d1fe83a1ea90aa12fea0c9b5a730d4449caecedf",
+        "pass": true
+      }
+    ],
+    "portable_report_sha256": "ba6e22cedf0093ea8d05841ac69ef6f00d1f5cccee747fe19392664c0ebe8f2e",
+    "root_report_status": "PASS",
+    "root_report_editable_objects": 1306,
+    "root_report_image_count": 123,
+    "root_report_packed_images": 123,
+    "status": "PASS",
+    "scope": "Independent file-SHA checks against the extracted portable package and inspection of the primary-author cold-open report; Blender was not rerun by this critic."
+  },
+  "cold_start": {
+    "fresh_full_open": "PASS",
+    "dependency_resolution": "PASS",
+    "objective_anchor_checker": "PASS",
+    "expanded_sheet_contact": "PASS",
+    "read_only_rebuild_fingerprints": "PASS",
+    "final_repeated_mandatory_renders": "PASS; all 24 fixed views complete",
+    "approved_image_comparison": "PASS; actual decoded RGB arrays exactly match for all 24 views",
+    "status": "PASS"
+  },
+  "outstanding_acceptance_gates": [],
+  "minor_findings": [
+    {
+      "id": "INHERITED_DEGENERATE_TAG",
+      "finding": "Five near-zero-area faces remain in inherited Blanket institutional tag; no winding error is detected."
+    },
+    {
+      "id": "RENDER_CHECKPOINT_EDGE_CASES",
+      "finding": "Per-frame progress writes are atomic; the final manifest write is direct. Checkpoint initialization can retain a camera record after its PNG disappears, though final merge filters file existence. PNG content hashes are not recorded. The current fresh full batch does not rely on these cache edge cases."
+    },
+    {
+      "id": "REMOTE_LFS_REFRESH_UNAVAILABLE",
+      "finding": "Primary-author session evidence records unavailable GitHub/LFS credentials. All exact local libraries and packed images passed fresh full-file cold open."
+    }
+  ],
+  "limits": [
+    "No exhaustive scene-wide volumetric intersection or complete support audit of every disconnected group member was performed. Most support groups prove an attachment witness; the sheet receives a denser separate audit.",
+    "Sheet penetration is sampled on evaluated vertices, centers and edge midpoints using nearest oriented surfaces and an exit-facing first ray. It is not a volumetric Boolean or runtime collision check.",
+    "Closed-component volume verifies outward winding of closed local surfaces. Open surfaces have winding-consistency checks without a volume-defined outward side.",
+    "Hierarchy probes verify rigid translation and parenting, not full animation or game interaction. Unity import, runtime collision, navigation and frame time were not tested.",
+    "Cycle-7 geometry checks reuse this critic's independently checked cycle-6 source because the source SHA is unchanged. The new cycle-7 checks are actual PNG/metadata comparison and extracted dependency-byte verification; no new Blender or broad geometry run is claimed."
+  ],
+  "review_execution": {
+    "blender_rerun": false,
+    "geometry_rerun": false,
+    "actual_RGB_arrays_compared": 24,
+    "metadata_compared": 24,
+    "root_comparison_script_used": false,
+    "independent_script": "/workspace/scratch/medical_cycle7_pixel_compare.py",
+    "cpu_affinity": [
+      4
+    ],
+    "source_and_renderer_unchanged": true,
+    "portable_bytes_checked": true
+  },
+  "acceptance_scope": "Technical category only; overall score, visual category minima and stable final visual cycles are assessed by the primary author from the separate reviews."
+}

@@ -1,0 +1,130 @@
+{
+  "source_before": "30f9168b72851a25bc085ac2ce06e456da65b7cd48ab24da92806f548a411f6d",
+  "source_after": "8c353ae9f06b9bcf0aeb47c07a8db863fda2575f9c40d1d34f884d2eaa48096b",
+  "correction": "Sheet conforms to foam and both piping crowns; dense evaluated contact audit now passes.",
+  "status": "IMPROVED: sheet contact cleared; all24currentvisualcamera gatesPASS; final6/7repeat has exactRGB/camera equality.",
+  "views": [
+    {
+      "id": "CORNER_NE",
+      "mean_absolute_RGB_difference_255": 0.008675414137542248,
+      "note": "Source change confined to care-sheet contact construction; camera/light/material recipe preserved."
+    },
+    {
+      "id": "CORNER_NW",
+      "mean_absolute_RGB_difference_255": 0.0105227530002594,
+      "note": "Source change confined to care-sheet contact construction; camera/light/material recipe preserved."
+    },
+    {
+      "id": "CORNER_SE",
+      "mean_absolute_RGB_difference_255": 0.009436113759875298,
+      "note": "Source change confined to care-sheet contact construction; camera/light/material recipe preserved."
+    },
+    {
+      "id": "CORNER_SW",
+      "mean_absolute_RGB_difference_255": 0.01235082745552063,
+      "note": "Source change confined to care-sheet contact construction; camera/light/material recipe preserved."
+    },
+    {
+      "id": "DETAIL_OCRU",
+      "mean_absolute_RGB_difference_255": 0.004124232102185488,
+      "note": "Source change confined to care-sheet contact construction; camera/light/material recipe preserved."
+    },
+    {
+      "id": "DETAIL_SUPPLIES",
+      "mean_absolute_RGB_difference_255": 0.0015677392948418856,
+      "note": "Source change confined to care-sheet contact construction; camera/light/material recipe preserved."
+    },
+    {
+      "id": "ENTRY",
+      "mean_absolute_RGB_difference_255": 0.048953451216220856,
+      "note": "Source change confined to care-sheet contact construction; camera/light/material recipe preserved."
+    },
+    {
+      "id": "HERO_CABINET",
+      "mean_absolute_RGB_difference_255": 0.008567114360630512,
+      "note": "Source change confined to care-sheet contact construction; camera/light/material recipe preserved."
+    },
+    {
+      "id": "HERO_CART",
+      "mean_absolute_RGB_difference_255": 0.0019910444971174,
+      "note": "Source change confined to care-sheet contact construction; camera/light/material recipe preserved."
+    },
+    {
+      "id": "HERO_CARTRIDGES",
+      "mean_absolute_RGB_difference_255": 0.0036707278341054916,
+      "note": "Source change confined to care-sheet contact construction; camera/light/material recipe preserved."
+    },
+    {
+      "id": "HERO_DECON",
+      "mean_absolute_RGB_difference_255": 0.003418723354116082,
+      "note": "Source change confined to care-sheet contact construction; camera/light/material recipe preserved."
+    },
+    {
+      "id": "HERO_OCRU",
+      "mean_absolute_RGB_difference_255": 0.00684785982593894,
+      "note": "Source change confined to care-sheet contact construction; camera/light/material recipe preserved."
+    },
+    {
+      "id": "HERO_RECOVERY",
+      "mean_absolute_RGB_difference_255": 0.22382327914237976,
+      "note": "Source change confined to care-sheet contact construction; camera/light/material recipe preserved."
+    },
+    {
+      "id": "HERO_RESERVE",
+      "mean_absolute_RGB_difference_255": 0.002947516506537795,
+      "note": "Source change confined to care-sheet contact construction; camera/light/material recipe preserved."
+    },
+    {
+      "id": "HERO_RESTART",
+      "mean_absolute_RGB_difference_255": 0.0031615120824426413,
+      "note": "Source change confined to care-sheet contact construction; camera/light/material recipe preserved."
+    },
+    {
+      "id": "HERO_SUPPLIES",
+      "mean_absolute_RGB_difference_255": 0.004150265362113714,
+      "note": "Source change confined to care-sheet contact construction; camera/light/material recipe preserved."
+    },
+    {
+      "id": "HERO_WASH",
+      "mean_absolute_RGB_difference_255": 0.011391752399504185,
+      "note": "Source change confined to care-sheet contact construction; camera/light/material recipe preserved."
+    },
+    {
+      "id": "HIDDEN_BAG",
+      "mean_absolute_RGB_difference_255": 0.0011923357378691435,
+      "note": "Source change confined to care-sheet contact construction; camera/light/material recipe preserved."
+    },
+    {
+      "id": "PINCH",
+      "mean_absolute_RGB_difference_255": 0.04028220474720001,
+      "note": "Source change confined to care-sheet contact construction; camera/light/material recipe preserved."
+    },
+    {
+      "id": "REVERSE",
+      "mean_absolute_RGB_difference_255": 0.02958606742322445,
+      "note": "Source change confined to care-sheet contact construction; camera/light/material recipe preserved."
+    },
+    {
+      "id": "WALL_EAST",
+      "mean_absolute_RGB_difference_255": 0.05271165445446968,
+      "note": "Source change confined to care-sheet contact construction; camera/light/material recipe preserved."
+    },
+    {
+      "id": "WALL_NORTH",
+      "mean_absolute_RGB_difference_255": 0.028798813000321388,
+      "note": "Source change confined to care-sheet contact construction; camera/light/material recipe preserved."
+    },
+    {
+      "id": "WALL_SOUTH",
+      "mean_absolute_RGB_difference_255": 0.005148911848664284,
+      "note": "Source change confined to care-sheet contact construction; camera/light/material recipe preserved."
+    },
+    {
+      "id": "WALL_WEST",
+      "mean_absolute_RGB_difference_255": 0.006479225121438503,
+      "note": "Source change confined to care-sheet contact construction; camera/light/material recipe preserved."
+    }
+  ],
+  "visual_evidence": "critics/cycle-6-visual.json",
+  "repeat_evidence": "cold-render-comparison.json"
+}

@@ -1,0 +1,296 @@
+{
+  "review_type": "fresh_independent_pixel_critic",
+  "cycle": 5,
+  "source_sha256": "30f9168b72851a25bc085ac2ce06e456da65b7cd48ab24da92806f548a411f6d",
+  "render_directory": "production/renders/cycle-5",
+  "resolution": [
+    1067,
+    600
+  ],
+  "render_complete_verified": true,
+  "completion_evidence": {
+    "manifest_complete": true,
+    "manifest_shot_count": 24,
+    "log": "/workspace/scratch/medical-render-cycle5.log",
+    "marker": "REVIEW_RENDER_COMPLETE"
+  },
+  "evidence_scope": {
+    "individual_current_views_inspected": 24,
+    "approved_references": [
+      "spawn-reference/VALIDATE_Spawn.png",
+      "spawn-reference/VALIDATE_LockerDoor.png",
+      "spawn-reference/VALIDATE_Material_A.png",
+      "spawn-reference/BRIEFING_INDIRECT.png"
+    ],
+    "original_layout_comparisons": [
+      "room-survey/CORNER_SW.png",
+      "room-survey/WALL_WEST.png",
+      "room-survey/WALL_NORTH.png",
+      "room-survey/WALL_EAST.png"
+    ],
+    "scripts_or_builder_rationale_read": false,
+    "previous_critic_reports_read": false,
+    "history_exposure_note": "The required room RUBRIC.md includes an appended historical score paragraph. It was inadvertently exposed during the rubric read and was disregarded; this score is based on current pixels. No previous-cycle renders or critic reports were consulted.",
+    "hidden_bag_fill": "HIDDEN_BAG is explicitly labelled BAG / INSPECTION FILL with temporary 2 W area fill. Its lighting was excluded from production atmosphere scoring."
+  },
+  "outcome": {
+    "visual_gate": "PASS",
+    "visual_score": 81.2,
+    "visual_available": 90,
+    "visual_percent": 90.2222222222,
+    "all_visual_categories_at_least_85_percent": true,
+    "mandatory_camera_count": 15,
+    "mandatory_cameras_pass": true,
+    "critical_failure_count": 0,
+    "global_visual_veto": false,
+    "overall_completion": "NOT DETERMINED BY THIS VISUAL REVIEW",
+    "technical_score": null,
+    "technical_minimum_for_combined_90": 8.8,
+    "stable_final_two_cycles": "Not assessed: this critic was restricted to cycle 5 current pixels.",
+    "cold_start": "Not assessed by visual critic; current manifest cold_open=false."
+  },
+  "scores": {
+    "layout_route_readability": {
+      "score": 19.3,
+      "available": 20,
+      "minimum": 17,
+      "pass": true
+    },
+    "grounded_stylized_art_silhouettes": {
+      "score": 17.8,
+      "available": 20,
+      "minimum": 17,
+      "pass": true
+    },
+    "hero_function_focal_clarity": {
+      "score": 13.5,
+      "available": 15,
+      "minimum": 12.75,
+      "pass": true
+    },
+    "materials_anti_plastic": {
+      "score": 13.1,
+      "available": 15,
+      "minimum": 12.75,
+      "pass": true
+    },
+    "dark_lighting_atmosphere": {
+      "score": 8.8,
+      "available": 10,
+      "minimum": 8.5,
+      "pass": true
+    },
+    "purposeful_dressing_neglected_workplace_story": {
+      "score": 8.7,
+      "available": 10,
+      "minimum": 8.5,
+      "pass": true
+    }
+  },
+  "category_reasoning": {
+    "layout_route_readability": "The visible original room footprint and functional station placements remain intact. Entry, reverse and pinch show a generous, unambiguous transfer area and readable decon passage. No visible route obstruction; exact metric preservation remains a technical question.",
+    "grounded_stylized_art_silhouettes": "Muted lavender upper walls, navy lower surfaces, steel, orange and yellow accents match the approved spawn family. The authored booth frame, guards, panel layering, scissor cart, bed fabric and framed cabinet glass are specific enough to avoid a dominant primitive or web-demo read. A few small fittings remain quite basic.",
+    "hero_function_focal_clarity": "The red OCRU bay is the main landmark, with the restart sequence, cartridges and decon organized beside it. The warm supply station forms a subordinate focal pool. The booth's dark back vents and undercarriage lose some separation, but the bed and primary operating controls remain readable.",
+    "materials_anti_plastic": "Painted metal, dark seals and padding, linen, paper, glass and the tiled floor have distinguishable broad responses. The cabinet's hazy glass and recovery cloth are particularly useful. Cutaway floor highlights are sharper than desirable and some broad machine surfaces remain very uniform, without creating a global satin-plastic failure.",
+    "dark_lighting_atmosphere": "One red bed practical and one warm supply practical dominate. Restrained cool fill preserves route and rear-station readability while the ceiling and secondary areas remain dark. This is bleak and localized rather than evenly exposed. The darkest OCRU back hardware and decon ceiling approach loss of form.",
+    "purposeful_dressing_neglected_workplace_story": "Displaced recovery linen, torn corporate productivity imagery, repaired wall patches, localized machine wear, a missing cartridge slot, the no-pulse/repeat/release-denied log, and dark residue around the OCRU support interrupted care and institutional exploitation. The closed under-bed bag and tiny obscure note provide the requested subtle horror. Main-room overt horror remains restrained, and the supply arrangement is still unusually orderly."
+  },
+  "critical_failures": [],
+  "global_veto_checks": {
+    "generic_low_poly_dominates": false,
+    "repeated_bevelled_boxes_dominate": false,
+    "uniform_satin_plastic_dominates": false,
+    "flat_even_lighting": false,
+    "excessive_labels_or_screens_dominate": false,
+    "random_decorative_clutter": false,
+    "photoreal_texture_noise_dominates": false,
+    "visible_unsupported_props": false,
+    "unreadable_primary_silhouettes": false
+  },
+  "nonblocking_reservations": [
+    {
+      "id": "V5-01",
+      "severity": "minor",
+      "cameras": [
+        "HERO_CART",
+        "WALL_WEST",
+        "CORNER_SE"
+      ],
+      "observation": "Several floor drag marks are long, sharply tapered black strips. They read partly as graphic strokes rather than ingrained wear or material disturbance.",
+      "improvement": "Refine the existing localized marks into a more coherent broad-value scuff or residue trail while preserving the sparse floor and exact route.",
+      "required_for_current_visual_pass": false
+    },
+    {
+      "id": "V5-02",
+      "severity": "minor",
+      "cameras": [
+        "HERO_OCRU",
+        "DETAIL_OCRU",
+        "HERO_DECON"
+      ],
+      "observation": "Dark back panels, vents and lower carriage detail compress into nearly the same value, particularly inside the OCRU and high in decon.",
+      "improvement": "Use modest material/value or existing-light response separation if further polishing, while retaining the prescribed small set of practical lights.",
+      "required_for_current_visual_pass": false
+    },
+    {
+      "id": "V5-03",
+      "severity": "minor",
+      "cameras": [
+        "HERO_SUPPLIES",
+        "DETAIL_SUPPLIES",
+        "ENTRY"
+      ],
+      "observation": "The supply station's neat horizontal staging makes interrupted care less immediate until the log is examined closely. The room's horror is mainly cumulative and restrained.",
+      "improvement": "If the narrative is strengthened further, adjust one existing care item or existing residue cue rather than adding general clutter or prominent text.",
+      "required_for_current_visual_pass": false
+    }
+  ],
+  "camera_verdicts": [
+    {
+      "id": "ENTRY",
+      "mandatory": true,
+      "verdict": "PASS",
+      "notes": "Clear transfer route; red OCRU on left, restart/decon ahead and recovery on right. Matches original visible station layout and approved colour family. Horror is subdued at this distance."
+    },
+    {
+      "id": "REVERSE",
+      "mandatory": true,
+      "verdict": "PASS",
+      "notes": "Exit aperture remains legible despite dark header. Warm supply pool and red booth separate function; open floor stays readable."
+    },
+    {
+      "id": "PINCH",
+      "mandatory": true,
+      "verdict": "PASS",
+      "notes": "Restart, cartridge bank and decon are distinct with a clear approach. No visible pinch obstruction. Rear wall is quiet rather than cluttered."
+    },
+    {
+      "id": "DETAIL_OCRU",
+      "mandatory": true,
+      "verdict": "PASS",
+      "notes": "Layered carriage rails, pads and mechanical bases read as manufactured equipment. Red light is localized. Lower dark assembly loses some fine separation."
+    },
+    {
+      "id": "DETAIL_SUPPLIES",
+      "mandatory": true,
+      "verdict": "PASS",
+      "notes": "Recognizable tools, gloves, dressings, bottles and readable no-pulse/release-denied log. Paper, rubber and metal separate. Staging remains quite tidy."
+    },
+    {
+      "id": "CORNER_SW",
+      "mandatory": false,
+      "verdict": "PASS",
+      "notes": "Whole footprint shows intact station relationship and negative space. Red booth and warm bench maintain hierarchy. Cutaway-hidden supports are evidence presentation, not counted as unsupported props."
+    },
+    {
+      "id": "CORNER_SE",
+      "mandatory": false,
+      "verdict": "PASS",
+      "notes": "Open transfer box and separate stations remain clear. Cart and OCRU floor marks are unusually graphic but nonblocking."
+    },
+    {
+      "id": "CORNER_NW",
+      "mandatory": false,
+      "verdict": "PASS",
+      "notes": "Reverse footprint supports route preservation and coherent practical-light zones. Tile highlights are stronger than in normal gameplay views."
+    },
+    {
+      "id": "CORNER_NE",
+      "mandatory": false,
+      "verdict": "PASS",
+      "notes": "Remaining footprint and decon location remain readable; no concealed dense clutter. Bright grid highlights are a material reservation."
+    },
+    {
+      "id": "WALL_SOUTH",
+      "mandatory": false,
+      "verdict": "PASS",
+      "notes": "Entry/exit construction has depth and protection panels. Header text is dark, while the opening itself reads. Bench and OCRU frame provide side hierarchy."
+    },
+    {
+      "id": "WALL_WEST",
+      "mandatory": false,
+      "verdict": "PASS",
+      "notes": "OCRU reads as the functional hero with an authored frame and red treatment area. Back hardware is very dark; geometric floor streaks remain a minor issue."
+    },
+    {
+      "id": "WALL_NORTH",
+      "mandatory": false,
+      "verdict": "PASS",
+      "notes": "Restart, cartridges and decon are legible and distinctly arranged. Muted wall and navy/blue metal reflect the spawn palette."
+    },
+    {
+      "id": "WALL_EAST",
+      "mandatory": false,
+      "verdict": "PASS",
+      "notes": "Recovery linen, worn corporate poster and warm supply pool make this a specific clinic workplace. No random decorative filler."
+    },
+    {
+      "id": "HERO_OCRU",
+      "mandatory": true,
+      "verdict": "PASS",
+      "notes": "Red treatment surface dominates with readable insert/release and suit sides, manufactured panels and carriage. Dark vents and back corners are close to black but the main function survives."
+    },
+    {
+      "id": "HERO_RESTART",
+      "mandatory": true,
+      "verdict": "PASS",
+      "notes": "Physically guarded three-step controls, framed screens, handles and console layering are purposeful. Blue/orange/cream material grouping matches reference language."
+    },
+    {
+      "id": "HERO_CARTRIDGES",
+      "mandatory": true,
+      "verdict": "PASS",
+      "notes": "Numbered capped vessels, shelf depth and a missing position suggest use. Cartridge bank and adjacent decon stay distinct."
+    },
+    {
+      "id": "HERO_RESERVE",
+      "mandatory": true,
+      "verdict": "PASS",
+      "notes": "Open orange door and two battery modules provide understandable reserve-power construction. Small forms are simple but specific and grounded."
+    },
+    {
+      "id": "HERO_DECON",
+      "mandatory": true,
+      "verdict": "PASS",
+      "notes": "Hose reel, plumbing and foot-operated used-PPE bin are legible in a dark alcove. Ceiling detail nearly disappears, consistent with the dim secondary-zone hierarchy."
+    },
+    {
+      "id": "HERO_RECOVERY",
+      "mandatory": true,
+      "verdict": "PASS",
+      "notes": "Matte, displaced linen has thickness and broad folds. Cabinet, poster damage and wall repair preserve neglected institutional context."
+    },
+    {
+      "id": "HERO_CART",
+      "mandatory": true,
+      "verdict": "PASS",
+      "notes": "Scissor lift, pads, edge rails and castors form a plausible transfer cart. The adjacent long black floor streaks look more graphic than physical."
+    },
+    {
+      "id": "HERO_SUPPLIES",
+      "mandatory": true,
+      "verdict": "PASS",
+      "notes": "Practical light visibly affects the bench and wall; functional care cluster and under-bench stores read clearly. Sparse dressing is purposeful, though orderly."
+    },
+    {
+      "id": "HERO_WASH",
+      "mandatory": true,
+      "verdict": "PASS",
+      "notes": "Folded rim, basin, tap and molded dispenser remain recognizable. Local repair patches convey history; deep basin detail is subdued."
+    },
+    {
+      "id": "HERO_CABINET",
+      "mandatory": true,
+      "verdict": "PASS",
+      "notes": "Door depth, frames, handles, selective paint wear and hazy glazing separate painted metal from glass. Shelved linen remains visible without visual noise."
+    },
+    {
+      "id": "HIDDEN_BAG",
+      "mandatory": false,
+      "verdict": "INSPECTION_PASS",
+      "notes": "Closed dark bag beneath the bed has a continuous closed zipper and carry-handle construction. A tiny obscured note is barely visible as requested. Temporary 2 W inspection fill is excluded from production atmosphere scoring."
+    }
+  ],
+  "mandatory_fixes": [],
+  "completion_caveat": "This is a current-source visual pass, not room acceptance. Combine with the independent technical score and checks, then establish two stable passing complete cycles and cold-start evidence."
+}

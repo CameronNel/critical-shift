@@ -1,0 +1,22 @@
+[
+  {
+    "case": "cancelled",
+    "observed": "RuntimeError: Render cancelled or failed: GUARD_PROBE",
+    "scope": "Actual renderer AST PNG/cancel guard fragment with fake operation result and disposable PNG header; not a full render or decode."
+  },
+  {
+    "case": "finished_missing_png",
+    "observed": "RuntimeError: Render did not write its PNG: GUARD_PROBE",
+    "scope": "Actual renderer AST PNG/cancel guard fragment with fake operation result and disposable PNG header; not a full render or decode."
+  },
+  {
+    "case": "finished_wrong_resolution",
+    "observed": "RuntimeError: Render is not the required 1067 x 600 PNG: GUARD_PROBE",
+    "scope": "Actual renderer AST PNG/cancel guard fragment with fake operation result and disposable PNG header; not a full render or decode."
+  },
+  {
+    "case": "finished_valid_header",
+    "observed": "accepted",
+    "scope": "Actual renderer AST PNG/cancel guard fragment with fake operation result and disposable PNG header; not a full render or decode."
+  }
+]

@@ -1,0 +1,57 @@
+{
+  "phase": "ART ACCEPTANCE PASS91.3; final source/evidence delivery, no promotion or merge",
+  "branch": "codex/reanimation-room-revamp-20260930",
+  "authoring_file": "../module_overhaul_R2.blend",
+  "edit_scene": "REANIMATION_EDIT_LOCAL",
+  "reference_scene": "Critical Shift | Mountain Watershed",
+  "reference_policy": "Linked read-only map scene; current map still uses original module.blend. Local edits are not automatically promoted.",
+  "placement_m": [
+    -18,
+    31,
+    0
+  ],
+  "blender": "5.2.2 LTS",
+  "python": "3.14.7 stable",
+  "blender_executable_in_this_environment": "/workspace/tools/blender-5.2.2-linux-x64/blender",
+  "baseline_views": "18 labelled original room survey renders; four approved spawn benchmarks; generated concept R3",
+  "cold_verification": "production/cold-verification.json",
+  "lfs_check": "Whole-repository fsck reports missing unpulled historical assets; minimal current-map dependencies cold-open successfully.",
+  "next": "Owner may review isolated source and decide promotion separately; remote upload requires Git/LFS credentials.",
+  "merge_status": "Not merged; independent review and owner promotion remain separate.",
+  "render_survey": {
+    "manifest": "room-survey/manifest.json",
+    "gallery": "room-survey/index.html",
+    "images": 18,
+    "corners": 4,
+    "walls": 4,
+    "asset_heroes": 10,
+    "resolution": [
+      1600,
+      900
+    ],
+    "source_scene_sha256": "c11a01341c56a6428c71508fc8341e7d6df4528cdb6e2c121dacf0adf81bf21e",
+    "source_scenes_unchanged": true,
+    "corner_mode": "Elevated inspection cutaway; near wall planes and ceiling temporarily hidden",
+    "cart_hero": "Temporary soft inspection fill; no saved lighting changes"
+  },
+  "authoring_scene": "module_overhaul_R2.blend",
+  "render_resolution": [
+    1067,
+    600
+  ],
+  "revival_function_confirmed": "OCRU reanimates incapacitated or biologically offline workers (GAME_SPEC 4.5, 5.3\u20135.4)",
+  "current_source_sha256": "8c353ae9f06b9bcf0aeb47c07a8db863fda2575f9c40d1d34f884d2eaa48096b",
+  "latest_completed_review": {
+    "cycle": 7,
+    "score": 91.3,
+    "status": "PASS",
+    "visual_gate": "PASS",
+    "technical_gate": "PASS",
+    "stable_final_cycles": [
+      6,
+      7
+    ]
+  },
+  "final_manifest": "production/renders/cycle-7/manifest.json",
+  "acceptance": "production/acceptance.json"
+}

@@ -1,0 +1,1359 @@
+{
+  "cycle": 5,
+  "reviewer": "medical_technical_cycle5",
+  "generated_at_utc": "2026-09-30T23:14:15.814956+00:00",
+  "score": 8.4,
+  "available": 10,
+  "acceptance_threshold": 8.5,
+  "verdict": "FAIL; localized recovery-sheet contact clipping exceeds declared tolerance; final cold-render comparison pending",
+  "available_technical_checks": "PARTIAL PASS; objective anchor checker passes but expanded sheet contact audit fails the 2 mm penetration tolerance",
+  "full_room_acceptance": false,
+  "critical_technical_defects": [],
+  "source_sha256": "30f9168b72851a25bc085ac2ce06e456da65b7cd48ab24da92806f548a411f6d",
+  "source_commit": "5256b9d",
+  "review_scope": "Fresh independent, read-only review of the saved cycle-5 source at this exact SHA. Source scene, author scripts, objective reports and protected map/module/interface files were not changed. Technical evidence does not award visual art quality.",
+  "score_rationale": "Most available technical checks pass and the prior partial-merge provenance defect is corrected. A new sheet clips its cushion and inherited piping beyond the recorded 2 mm tolerance; this requires cleanup before technical acceptance. Final cold-render pixel comparison is still an outstanding acceptance gate.",
+  "verified": [
+    "Fresh Blender 5.2.2 full-file cold open resolves all 25 linked libraries and leaves REANIMATION_EDIT_LOCAL local. The assembled map is a separate linked read-only scene.",
+    "Protected assembled-map, original medical module, approved spawn and medical interface SHA256 values retain their recorded baselines. Interface bytes also match the HEAD Git object.",
+    "All 1203 inherited object dimensions and unexcepted layout transforms pass. All 62 inherited empty transforms remain unchanged outside the declared reserve-service-door pose. Equipment and interaction roots remain present.",
+    "Only seven declared inventory-paper parent changes occur. Original object custom properties are unchanged except seven camera-only mandatory_art_review tags. No resource properties or interface data changed.",
+    "Exactly five original .007 cartridge components have hide_render and hide_set enabled, and the saved scene declares that pose. Their objects, dimensions, transforms and original parents are retained. Its new crimp group is also hidden; no original component is removed or moved.",
+    "All 96 added support groups and 105 frozen local witnesses pass directional ray, signed gap, penetration, surface-angle and actual-object witness checks. No added mesh is unregistered. All 39 separately tested inherited assembly anchors pass.",
+    "The expanded contact audit finds the new sheet outside the reserved rescue lane and clear of cot frame/pan solids. New retrieval residue is a flat open surface at world Z 0.001 m with no detected surface crossing or raised route obstruction.",
+    "All 1120 local evaluated meshes have consistent winding and all 1707 closed components have nonnegative signed volume. No negative/singular world determinant, exact coincident evaluated mesh duplicate or missing face material is found.",
+    "The saved four active lights match the contract: one 65 W red AREA over the OCRU, one 45 W warm supply AREA, and two SPOT accents at 220 W and 240 W. All other inherited light energy is zero.",
+    "Both cabinet fabricated faces remain parented to the corresponding original sliding pane. A 0.15 m local-X pane slide translates each pane and new face together by about -0.15 m world Y.",
+    "A 0.088 m cart lift probe moves the original lift deck and new deck guards together while fixed scissor hardware remains stationary.",
+    "A fresh full-stage in-memory rebuild, with author save and report writes removed, reproduces all 1306 saved object fingerprints, 37 referenced material graph fingerprints, 96 support records, saved render settings and the declared hidden-cartridge pose with zero mismatches. Object fingerprints include render and active-view-layer visibility plus mesh UV coordinates.",
+    "Saved Cycles settings are 1067 x 600 at 100 percent, 24 samples, AgX Medium High Contrast. All inherited and required review cameras exist.",
+    "All 123 file-backed images visible after full cold open are packed and have valid loaded pixel sizes. No unpacked image is required for saved-scene cold open. Rebuild inputs and optional unpacked font are documented in the refreshed dependency manifest.",
+    "Eleven scratch guard probes confirm that --only partial merges and --skip-existing cache reuse reject source, renderer-recipe and cold-mode mismatches, and cached PNGs without camera evidence. Per-frame manifests use a temporary file and replace; no points are granted for code complexity."
+  ],
+  "technical_cleanup_findings": [
+    {
+      "id": "RECOVERY_SHEET_CONTACT_CLIPPING",
+      "severity": "moderate",
+      "object": "MED_R2 | Interrupted recovery care sheet",
+      "finding": "Sheet geometry intersects its cushion and both inherited mattress piping objects beyond the registry 2 mm penetration tolerance. The single attachment witness passes; it does not cover the full drape and hem.",
+      "measured_max_penetration_m": {
+        "Recovery foam cushion": 0.0032416002359241247,
+        "Mattress bound piping": 0.0026399819180369377,
+        "Mattress bound piping.001": 0.006027136463671923
+      },
+      "over_2mm_sample_counts": {
+        "Recovery foam cushion": 50,
+        "Mattress bound piping": 19,
+        "Mattress bound piping.001": 127
+      },
+      "far_piping_deepest_world_point": [
+        3.7100000381469727,
+        4.559999942779541,
+        0.7487451434135437
+      ],
+      "required_fix": "Reform the sheet and bound hems to clear the cushion/piping by the declared tolerance, retain the current cot and room transforms, and rerun expanded contact checks."
+    }
+  ],
+  "objective_summary": {
+    "inherited_layout_objects": 1203,
+    "protected_files_unchanged": true,
+    "approved_spawn_unchanged": true,
+    "lighting": {
+      "active": 4,
+      "red": 1,
+      "warm_practicals": 1,
+      "directional_accents": 2
+    },
+    "support_contact": {
+      "registered": 96,
+      "passed": 96,
+      "unregistered": [],
+      "anchors_checked": 105
+    },
+    "cold_open": {
+      "linked_map": true,
+      "missing_libraries": [],
+      "editable_room_local": true
+    }
+  },
+  "mesh_audit": {
+    "meshes": 1120,
+    "closed_components": 1707,
+    "inconsistent": [],
+    "negative_closed": [],
+    "degenerate": [
+      [
+        "Blanket institutional tag",
+        5
+      ]
+    ],
+    "coincident_evaluated_meshes": [],
+    "missing_face_materials": [],
+    "triangles": 197089
+  },
+  "cabinet_slide_probe": [
+    {
+      "pane": "Clear cabinet sliding pane",
+      "pane_parent": "SUPPLY_CABINET",
+      "face": "MED_R2 | Medical cabinet fabricated face ",
+      "face_parent": "Clear cabinet sliding pane",
+      "pane_translation": [
+        0.0,
+        -0.14999961853027344,
+        0.0
+      ],
+      "face_translation": [
+        0.0,
+        -0.14999961853027344,
+        0.0
+      ],
+      "pane_properties": {
+        "assembly_member": "SUPPLY_CABINET"
+      }
+    },
+    {
+      "pane": "Clear cabinet sliding pane.001",
+      "pane_parent": "SUPPLY_CABINET",
+      "face": "MED_R2 | Medical cabinet fabricated face .001",
+      "face_parent": "Clear cabinet sliding pane.001",
+      "pane_translation": [
+        0.0,
+        -0.15000009536743164,
+        0.0
+      ],
+      "face_translation": [
+        0.0,
+        -0.15000009536743164,
+        0.0
+      ],
+      "pane_properties": {
+        "assembly_member": "SUPPLY_CABINET"
+      }
+    }
+  ],
+  "cart_lift_probe": {
+    "CART_LIFT_DECK": [
+      0.0,
+      0.0,
+      0.08799999952316284
+    ],
+    "MED_R2 | Transfer cart folded guards and pivot": [
+      0.0,
+      0.0,
+      0.08799999952316284
+    ],
+    "MED_R2 | Transfer cart scissor pivot hardware": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "original_hierarchy_summary": {
+    "original_empty_count": 62,
+    "unapproved_parent_changes": [],
+    "major_empty_transform_changes": [],
+    "original_parent_changes": [
+      {
+        "object": "Inventory clipboard",
+        "before": "SUPPLY_BENCH",
+        "after": "MED_R2 | Displaced inventory cluster",
+        "exception": true
+      },
+      {
+        "object": "Inventory paper",
+        "before": "SUPPLY_BENCH",
+        "after": "MED_R2 | Displaced inventory cluster",
+        "exception": true
+      },
+      {
+        "object": "Clipboard title",
+        "before": "SUPPLY_BENCH",
+        "after": "MED_R2 | Displaced inventory cluster",
+        "exception": true
+      },
+      {
+        "object": "Inventory ruled line",
+        "before": "SUPPLY_BENCH",
+        "after": "MED_R2 | Displaced inventory cluster",
+        "exception": true
+      },
+      {
+        "object": "Inventory ruled line.001",
+        "before": "SUPPLY_BENCH",
+        "after": "MED_R2 | Displaced inventory cluster",
+        "exception": true
+      },
+      {
+        "object": "Inventory ruled line.002",
+        "before": "SUPPLY_BENCH",
+        "after": "MED_R2 | Displaced inventory cluster",
+        "exception": true
+      },
+      {
+        "object": "Inventory ruled line.003",
+        "before": "SUPPLY_BENCH",
+        "after": "MED_R2 | Displaced inventory cluster",
+        "exception": true
+      }
+    ],
+    "original_property_changes": [
+      {
+        "object": "CAM_ENTRY",
+        "before": {},
+        "after": {
+          "mandatory_art_review": true
+        }
+      },
+      {
+        "object": "CAM_HERO",
+        "before": {},
+        "after": {
+          "mandatory_art_review": true
+        }
+      },
+      {
+        "object": "CAM_REVERSE",
+        "before": {},
+        "after": {
+          "mandatory_art_review": true
+        }
+      },
+      {
+        "object": "CAM_DECON",
+        "before": {},
+        "after": {
+          "mandatory_art_review": true
+        }
+      },
+      {
+        "object": "CAM_RECOVERY",
+        "before": {},
+        "after": {
+          "mandatory_art_review": true
+        }
+      },
+      {
+        "object": "CAM_MATERIALS",
+        "before": {},
+        "after": {
+          "mandatory_art_review": true
+        }
+      },
+      {
+        "object": "W03_SUPPLIES",
+        "before": {},
+        "after": {
+          "mandatory_art_review": true
+        }
+      }
+    ],
+    "original_visibility_changes": [
+      {
+        "object": "Cartridge steel body.007",
+        "before": {
+          "render": false,
+          "viewport": false
+        },
+        "after": {
+          "render": true,
+          "viewport": true
+        }
+      },
+      {
+        "object": "Keyed consumable cap.007",
+        "before": {
+          "render": false,
+          "viewport": false
+        },
+        "after": {
+          "render": true,
+          "viewport": true
+        }
+      },
+      {
+        "object": "Cartridge bottom seal.007",
+        "before": {
+          "render": false,
+          "viewport": false
+        },
+        "after": {
+          "render": true,
+          "viewport": true
+        }
+      },
+      {
+        "object": "Consumable paper ID.007",
+        "before": {
+          "render": false,
+          "viewport": false
+        },
+        "after": {
+          "render": true,
+          "viewport": true
+        }
+      },
+      {
+        "object": "Cartridge serial.007",
+        "before": {
+          "render": false,
+          "viewport": false
+        },
+        "after": {
+          "render": true,
+          "viewport": true
+        }
+      }
+    ],
+    "spent_cartridge_art_pose": [
+      "Cartridge steel body.007",
+      "Keyed consumable cap.007",
+      "Cartridge bottom seal.007",
+      "Consumable paper ID.007",
+      "Cartridge serial.007"
+    ]
+  },
+  "active_lights": [
+    {
+      "name": "Wall grazed work zone.001",
+      "type": "AREA",
+      "energy": 45.0,
+      "colour": [
+        1.0,
+        0.6700000166893005,
+        0.3799999952316284
+      ]
+    },
+    {
+      "name": "MED | ONE red OCRU source",
+      "type": "AREA",
+      "energy": 65.0,
+      "colour": [
+        1.0,
+        0.10999999940395355,
+        0.06499999761581421
+      ]
+    },
+    {
+      "name": "MED | Machine accent",
+      "type": "SPOT",
+      "energy": 220.0,
+      "colour": [
+        0.8500000238418579,
+        0.8700000047683716,
+        0.9100000262260437
+      ]
+    },
+    {
+      "name": "MED | Rear service accent",
+      "type": "SPOT",
+      "energy": 240.0,
+      "colour": [
+        0.8500000238418579,
+        0.8700000047683716,
+        0.9100000262260437
+      ]
+    }
+  ],
+  "new_sheet_and_residue": {
+    "MED_R2 | Interrupted recovery care sheet": {
+      "world_bounds": [
+        [
+          2.560232162475586,
+          4.338599681854248,
+          0.3444966673851013
+        ],
+        [
+          3.7103559970855713,
+          5.14139986038208,
+          0.7840389609336853
+        ]
+      ],
+      "parent": "RECOVERY_BERTH",
+      "modifier_count": 0,
+      "support_target": "Recovery foam cushion",
+      "bounding_box_candidates": [
+        "Recovery longitudinal support",
+        "Recovery longitudinal support.001",
+        "Recovery bed pan",
+        "Recovery foam cushion",
+        "Mattress bound piping",
+        "Mattress bound piping.001",
+        "MED_R2 | Recovery cot fabrication and textile seams",
+        "MED_R2 | Recovery foam cushion wrapped seam"
+      ],
+      "surface_intersections": [
+        {
+          "object": "Recovery foam cushion",
+          "overlapping_face_pairs": 373
+        },
+        {
+          "object": "Mattress bound piping",
+          "overlapping_face_pairs": 161
+        },
+        {
+          "object": "Mattress bound piping.001",
+          "overlapping_face_pairs": 104
+        }
+      ]
+    },
+    "MED_R2 | Old retrieval residue below loading edge": {
+      "world_bounds": [
+        [
+          -1.6100000143051147,
+          4.960000038146973,
+          0.0010000000474974513
+        ],
+        [
+          -1.090000033378601,
+          5.896999835968018,
+          0.0010000000474974513
+        ]
+      ],
+      "parent": null,
+      "modifier_count": 0,
+      "support_target": "Floor",
+      "bounding_box_candidates": [
+        "MED_R2 | Neglected retrieval traffic at loading approach"
+      ],
+      "surface_intersections": []
+    }
+  },
+  "sheet_penetration_audit": {
+    "source_sha256": "30f9168b72851a25bc085ac2ce06e456da65b7cd48ab24da92806f548a411f6d",
+    "source_checksum_unchanged": true,
+    "tests": {
+      "Recovery foam cushion": {
+        "inside_sample_count": 1034,
+        "sample_count": 12638,
+        "max_penetration_m": 0.0032416002359241247,
+        "over_2mm": 50,
+        "over_5mm": 0,
+        "deepest_samples": [
+          {
+            "type": "triangle_mid_edge",
+            "sample": 6924,
+            "depth_m": 0.0032416002359241247,
+            "point": [
+              2.80367112159729,
+              4.340699672698975,
+              0.7525233030319214
+            ],
+            "nearest_surface": [
+              2.8028595447540283,
+              4.3406805992126465,
+              0.7556616067886353
+            ],
+            "normal": [
+              -0.25297027826309204,
+              -0.004344520159065723,
+              0.9674643278121948
+            ]
+          },
+          {
+            "type": "triangle_mid_edge",
+            "sample": 6934,
+            "depth_m": 0.0032416002359241247,
+            "point": [
+              2.80367112159729,
+              4.340699672698975,
+              0.7525233030319214
+            ],
+            "nearest_surface": [
+              2.8028595447540283,
+              4.3406805992126465,
+              0.7556616067886353
+            ],
+            "normal": [
+              -0.25297027826309204,
+              -0.004344520159065723,
+              0.9674643278121948
+            ]
+          },
+          {
+            "type": "triangle_mid_edge",
+            "sample": 6926,
+            "depth_m": 0.003237612545490265,
+            "point": [
+              2.80367112159729,
+              4.339999675750732,
+              0.7525233030319214
+            ],
+            "nearest_surface": [
+              2.8028602600097656,
+              4.339980602264404,
+              0.7556576728820801
+            ],
+            "normal": [
+              -0.25297027826309204,
+              -0.004344520159065723,
+              0.9674643278121948
+            ]
+          },
+          {
+            "type": "triangle_mid_edge",
+            "sample": 6927,
+            "depth_m": 0.003237612545490265,
+            "point": [
+              2.80367112159729,
+              4.339999675750732,
+              0.7525233030319214
+            ],
+            "nearest_surface": [
+              2.8028602600097656,
+              4.339980602264404,
+              0.7556576728820801
+            ],
+            "normal": [
+              -0.25297027826309204,
+              -0.004344520159065723,
+              0.9674643278121948
+            ]
+          },
+          {
+            "type": "triangle_mid_edge",
+            "sample": 6918,
+            "depth_m": 0.0032334476709365845,
+            "point": [
+              2.80367112159729,
+              4.33929967880249,
+              0.7525233030319214
+            ],
+            "nearest_surface": [
+              2.802861452102661,
+              4.339280605316162,
+              0.7556536793708801
+            ],
+            "normal": [
+              -0.25297027826309204,
+              -0.004344520159065723,
+              0.9674643278121948
+            ]
+          },
+          {
+            "type": "triangle_mid_edge",
+            "sample": 6928,
+            "depth_m": 0.0032334476709365845,
+            "point": [
+              2.80367112159729,
+              4.33929967880249,
+              0.7525233030319214
+            ],
+            "nearest_surface": [
+              2.802861452102661,
+              4.339280605316162,
+              0.7556536793708801
+            ],
+            "normal": [
+              -0.25297027826309204,
+              -0.004344520159065723,
+              0.9674643278121948
+            ]
+          },
+          {
+            "type": "triangle_mid_edge",
+            "sample": 3245,
+            "depth_m": 0.0030275217723101377,
+            "point": [
+              2.80364727973938,
+              4.340020179748535,
+              0.7527341842651367
+            ],
+            "nearest_surface": [
+              2.802889108657837,
+              4.340002536773682,
+              0.7556651830673218
+            ],
+            "normal": [
+              -0.25297027826309204,
+              -0.004344520159065723,
+              0.9674643278121948
+            ]
+          },
+          {
+            "type": "triangle_mid_edge",
+            "sample": 5692,
+            "depth_m": 0.0030275217723101377,
+            "point": [
+              2.80364727973938,
+              4.340020179748535,
+              0.7527341842651367
+            ],
+            "nearest_surface": [
+              2.802889108657837,
+              4.340002536773682,
+              0.7556651830673218
+            ],
+            "normal": [
+              -0.25297027826309204,
+              -0.004344520159065723,
+              0.9674643278121948
+            ]
+          },
+          {
+            "type": "triangle_center",
+            "sample": 2308,
+            "depth_m": 0.002694098511710763,
+            "point": [
+              2.8118133544921875,
+              4.340232849121094,
+              0.7537287473678589
+            ],
+            "nearest_surface": [
+              2.811781644821167,
+              4.340222358703613,
+              0.7564226388931274
+            ],
+            "normal": [
+              -0.010721385478973389,
+              -0.004423339851200581,
+              0.9999327659606934
+            ]
+          },
+          {
+            "type": "triangle_mid_edge",
+            "sample": 3289,
+            "depth_m": 0.002691113157197833,
+            "point": [
+              2.803642511367798,
+              4.699980735778809,
+              0.752934455871582
+            ],
+            "nearest_surface": [
+              2.8029661178588867,
+              4.699980735778809,
+              0.7555391788482666
+            ],
+            "normal": [
+              -0.2532118558883667,
+              0.0010229080216959119,
+              0.9674103260040283
+            ]
+          },
+          {
+            "type": "triangle_mid_edge",
+            "sample": 3299,
+            "depth_m": 0.002691113157197833,
+            "point": [
+              2.803642511367798,
+              4.699980735778809,
+              0.752934455871582
+            ],
+            "nearest_surface": [
+              2.8029661178588867,
+              4.699980735778809,
+              0.7555391788482666
+            ],
+            "normal": [
+              -0.2532118558883667,
+              0.0010229080216959119,
+              0.9674103260040283
+            ]
+          },
+          {
+            "type": "triangle_mid_edge",
+            "sample": 3295,
+            "depth_m": 0.002645095344632864,
+            "point": [
+              2.8036513328552246,
+              4.7400007247924805,
+              0.7528479695320129
+            ],
+            "nearest_surface": [
+              2.8029866218566895,
+              4.740009307861328,
+              0.7554081678390503
+            ],
+            "normal": [
+              -0.24827614426612854,
+              0.001700757653452456,
+              0.9686877727508545
+            ]
+          }
+        ],
+        "modifier_parameters": []
+      },
+      "Mattress bound piping": {
+        "inside_sample_count": 179,
+        "sample_count": 12638,
+        "max_penetration_m": 0.0026399819180369377,
+        "over_2mm": 19,
+        "over_5mm": 0,
+        "deepest_samples": [
+          {
+            "type": "triangle_center",
+            "sample": 1074,
+            "depth_m": 0.0026399819180369377,
+            "point": [
+              2.7465453147888184,
+              5.0465922355651855,
+              0.7469265460968018
+            ],
+            "nearest_surface": [
+              2.74399995803833,
+              5.047292709350586,
+              0.7469268441200256
+            ],
+            "normal": [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "type": "triangle_center",
+            "sample": 1046,
+            "depth_m": 0.0026068787556141615,
+            "point": [
+              2.7465786933898926,
+              4.4867262840271,
+              0.7503358721733093
+            ],
+            "nearest_surface": [
+              2.74399995803833,
+              4.48710823059082,
+              0.7503435015678406
+            ],
+            "normal": [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "type": "triangle_center",
+            "sample": 1068,
+            "depth_m": 0.0026002475060522556,
+            "point": [
+              2.7465875148773193,
+              4.926704406738281,
+              0.7522807121276855
+            ],
+            "nearest_surface": [
+              2.74399995803833,
+              4.9269609451293945,
+              0.7522757053375244
+            ],
+            "normal": [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "type": "triangle_center",
+            "sample": 1072,
+            "depth_m": 0.0025869784876704216,
+            "point": [
+              2.7465715408325195,
+              5.006592750549316,
+              0.7519052028656006
+            ],
+            "nearest_surface": [
+              2.74399995803833,
+              5.0068745613098145,
+              0.7519069910049438
+            ],
+            "normal": [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "type": "triangle_center",
+            "sample": 1052,
+            "depth_m": 0.002574303187429905,
+            "point": [
+              2.746567487716675,
+              4.6065874099731445,
+              0.7502414584159851
+            ],
+            "nearest_surface": [
+              2.74399995803833,
+              4.606588363647461,
+              0.7504280805587769
+            ],
+            "normal": [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "type": "triangle_center",
+            "sample": 1066,
+            "depth_m": 0.002566070295870304,
+            "point": [
+              2.7465567588806152,
+              4.886730194091797,
+              0.7475664019584656
+            ],
+            "nearest_surface": [
+              2.74399995803833,
+              4.886512279510498,
+              0.7475664019584656
+            ],
+            "normal": [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "type": "triangle_center",
+            "sample": 1050,
+            "depth_m": 0.0025288101751357317,
+            "point": [
+              2.7465896606445312,
+              4.566616058349609,
+              0.7541438937187195
+            ],
+            "nearest_surface": [
+              2.744253396987915,
+              4.566616058349609,
+              0.7551117539405823
+            ],
+            "normal": [
+              -0.9238584041595459,
+              0.0,
+              0.38273435831069946
+            ]
+          },
+          {
+            "type": "triangle_center",
+            "sample": 1048,
+            "depth_m": 0.002512826817110181,
+            "point": [
+              2.7465972900390625,
+              4.526679515838623,
+              0.7542036771774292
+            ],
+            "nearest_surface": [
+              2.7442758083343506,
+              4.526679515838623,
+              0.7551654577255249
+            ],
+            "normal": [
+              -0.9238584041595459,
+              0.0,
+              0.38273435831069946
+            ]
+          },
+          {
+            "type": "triangle_center",
+            "sample": 1070,
+            "depth_m": 0.002502464922145009,
+            "point": [
+              2.7465896606445312,
+              4.966643333435059,
+              0.7542130947113037
+            ],
+            "nearest_surface": [
+              2.7442777156829834,
+              4.966643333435059,
+              0.7551708221435547
+            ],
+            "normal": [
+              -0.9238584041595459,
+              0.0,
+              0.38273435831069946
+            ]
+          },
+          {
+            "type": "triangle_center",
+            "sample": 149,
+            "depth_m": 0.002416296163573861,
+            "point": [
+              2.746333599090576,
+              4.926666259765625,
+              0.753246545791626
+            ],
+            "nearest_surface": [
+              2.74399995803833,
+              4.926039695739746,
+              0.7532514929771423
+            ],
+            "normal": [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "type": "triangle_center",
+            "sample": 133,
+            "depth_m": 0.002405635779723525,
+            "point": [
+              2.746333599090576,
+              4.606666564941406,
+              0.7512085437774658
+            ],
+            "nearest_surface": [
+              2.74399995803833,
+              4.606082439422607,
+              0.751208484172821
+            ],
+            "normal": [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "type": "triangle_center",
+            "sample": 125,
+            "depth_m": 0.0023595329839736223,
+            "point": [
+              2.746333599090576,
+              4.446666717529297,
+              0.7462791204452515
+            ],
+            "nearest_surface": [
+              2.74399995803833,
+              4.447015285491943,
+              0.7462751865386963
+            ],
+            "normal": [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "modifier_parameters": [
+          {
+            "name": "Manufactured edge treatment",
+            "type": "BEVEL",
+            "width": 0.003000000026077032,
+            "segments": 2
+          },
+          {
+            "name": "Face weighted normals",
+            "type": "WEIGHTED_NORMAL",
+            "width": null,
+            "segments": null
+          }
+        ]
+      },
+      "Mattress bound piping.001": {
+        "inside_sample_count": 202,
+        "sample_count": 12638,
+        "max_penetration_m": 0.006027136463671923,
+        "over_2mm": 127,
+        "over_5mm": 56,
+        "deepest_samples": [
+          {
+            "type": "triangle_mid_edge",
+            "sample": 2671,
+            "depth_m": 0.006027136463671923,
+            "point": [
+              3.7100000381469727,
+              4.559999942779541,
+              0.7487451434135437
+            ],
+            "nearest_surface": [
+              3.7039999961853027,
+              4.56057071685791,
+              0.7487359046936035
+            ],
+            "normal": [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "type": "triangle_mid_edge",
+            "sample": 5940,
+            "depth_m": 0.006027136463671923,
+            "point": [
+              3.7100000381469727,
+              4.559999942779541,
+              0.7487451434135437
+            ],
+            "nearest_surface": [
+              3.7039999961853027,
+              4.56057071685791,
+              0.7487359046936035
+            ],
+            "normal": [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "type": "vertex",
+            "sample": 1418,
+            "depth_m": 0.006006612442433834,
+            "point": [
+              3.7100000381469727,
+              5.138599872589111,
+              0.7496725916862488
+            ],
+            "nearest_surface": [
+              3.7039999961853027,
+              5.13831901550293,
+              0.7496752738952637
+            ],
+            "normal": [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "type": "vertex",
+            "sample": 503,
+            "depth_m": 0.006002780515700579,
+            "point": [
+              3.7100000381469727,
+              5.139999866485596,
+              0.7496725916862488
+            ],
+            "nearest_surface": [
+              3.7160000801086426,
+              5.1398186683654785,
+              0.7496786713600159
+            ],
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "type": "vertex",
+            "sample": 499,
+            "depth_m": 0.0060013351030647755,
+            "point": [
+              3.7100000381469727,
+              4.980000019073486,
+              0.7489867210388184
+            ],
+            "nearest_surface": [
+              3.7039999961853027,
+              4.979875564575195,
+              0.7489922046661377
+            ],
+            "normal": [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "type": "triangle_mid_edge",
+            "sample": 2695,
+            "depth_m": 0.006000889465212822,
+            "point": [
+              3.7100000381469727,
+              4.71999979019165,
+              0.7501925230026245
+            ],
+            "nearest_surface": [
+              3.7160000801086426,
+              4.720000267028809,
+              0.7500916719436646
+            ],
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "type": "triangle_mid_edge",
+            "sample": 5964,
+            "depth_m": 0.006000889465212822,
+            "point": [
+              3.7100000381469727,
+              4.71999979019165,
+              0.7501925230026245
+            ],
+            "nearest_surface": [
+              3.7160000801086426,
+              4.720000267028809,
+              0.7500916719436646
+            ],
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "type": "vertex",
+            "sample": 1421,
+            "depth_m": 0.00600059237331152,
+            "point": [
+              3.7100000381469727,
+              5.14139986038208,
+              0.7496725916862488
+            ],
+            "nearest_surface": [
+              3.7160000801086426,
+              5.1413187980651855,
+              0.7496786713600159
+            ],
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "type": "vertex",
+            "sample": 489,
+            "depth_m": 0.006000352557748556,
+            "point": [
+              3.7100000381469727,
+              4.579999923706055,
+              0.7514612078666687
+            ],
+            "nearest_surface": [
+              3.7160000801086426,
+              4.580060958862305,
+              0.7514633536338806
+            ],
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "type": "triangle_center",
+            "sample": 2002,
+            "depth_m": 0.005947916768491268,
+            "point": [
+              3.7099273204803467,
+              4.993371486663818,
+              0.7505267858505249
+            ],
+            "nearest_surface": [
+              3.7039999961853027,
+              4.992877006530762,
+              0.7505320310592651
+            ],
+            "normal": [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "type": "triangle_mid_edge",
+            "sample": 5945,
+            "depth_m": 0.005911265965551138,
+            "point": [
+              3.7098958492279053,
+              4.5800628662109375,
+              0.7509762048721313
+            ],
+            "nearest_surface": [
+              3.7039999961853027,
+              4.580060958862305,
+              0.7505496144294739
+            ],
+            "normal": [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "type": "triangle_mid_edge",
+            "sample": 5947,
+            "depth_m": 0.005911265965551138,
+            "point": [
+              3.7098958492279053,
+              4.5800628662109375,
+              0.7509762048721313
+            ],
+            "nearest_surface": [
+              3.7039999961853027,
+              4.580060958862305,
+              0.7505496144294739
+            ],
+            "normal": [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "modifier_parameters": [
+          {
+            "name": "Manufactured edge treatment",
+            "type": "BEVEL",
+            "width": 0.003000000026077032,
+            "segments": 2
+          },
+          {
+            "name": "Face weighted normals",
+            "type": "WEIGHTED_NORMAL",
+            "width": null,
+            "segments": null
+          }
+        ]
+      }
+    },
+    "scope": "Evaluated sheet vertices, triangle centers and triangle edge midpoints against each closed cot contact target. Inside classification uses nearest oriented surface plus exit-facing first ray hit; not a volumetric Boolean."
+  },
+  "rebuild_comparison": {
+    "saved_objects": 1306,
+    "built_objects": 1306,
+    "object_signature_mismatches": [],
+    "referenced_local_materials": 37,
+    "material_signature_mismatches": [],
+    "support_records": 96,
+    "support_record_mismatches": 0,
+    "saved_render_settings_match": true,
+    "saved_blend_written": false,
+    "numeric_rounding_decimals": 6,
+    "signature_limit": "Object fingerprints cover base mesh/UV data, transforms, assignments, face smoothing, modifier names/types, text/camera/light fields and render/active-view-layer visibility. Full modifier RNA, recursive node-group internals and world graphs are not compared."
+  },
+  "renderer_guard_probe": {
+    "renderer_sha256": "ddd9067cdbe0561f73b71592072efe5453537113fd0041301225cee55432c730",
+    "passed": true,
+    "tests": [
+      {
+        "test": "only-source_sha256",
+        "passed": true,
+        "error": "Partial or cached rendering requires an output manifest for this exact source SHA; use a new directory"
+      },
+      {
+        "test": "only-renderer_sha256",
+        "passed": true,
+        "error": "Cached images do not match the current renderer recipe and cold-open mode; use a new directory"
+      },
+      {
+        "test": "only-cold_open",
+        "passed": true,
+        "error": "Cached images do not match the current renderer recipe and cold-open mode; use a new directory"
+      },
+      {
+        "test": "only-matching",
+        "passed": true,
+        "error": null
+      },
+      {
+        "test": "skip-existing-source_sha256",
+        "passed": true,
+        "error": "Partial or cached rendering requires an output manifest for this exact source SHA; use a new directory"
+      },
+      {
+        "test": "skip-existing-renderer_sha256",
+        "passed": true,
+        "error": "Cached images do not match the current renderer recipe and cold-open mode; use a new directory"
+      },
+      {
+        "test": "skip-existing-cold_open",
+        "passed": true,
+        "error": "Cached images do not match the current renderer recipe and cold-open mode; use a new directory"
+      },
+      {
+        "test": "skip-existing-matching",
+        "passed": true,
+        "error": null
+      },
+      {
+        "test": "cache-no-manifest",
+        "passed": true,
+        "error": "Existing PNGs have no matching provenance; use a new output directory"
+      },
+      {
+        "test": "cache-no-camera-evidence",
+        "passed": true,
+        "error": "Cached image lacks completed camera evidence: ENTRY"
+      },
+      {
+        "test": "partial-fresh",
+        "passed": true,
+        "error": null
+      }
+    ],
+    "scope": "Executes source preflight and cache-camera evidence guard in scratch against dummy files; does not load Blender or produce render pixels.",
+    "limits": [
+      "Per-frame provenance has no PNG content hashes.",
+      "Atomic per-frame manifest checkpoints are present; the final manifest write uses write_text directly.",
+      "Progress checkpoint initialization can retain a prior camera record whose PNG is missing; final partial merge filters existence."
+    ]
+  },
+  "observed_hot_render_progress": {
+    "source_sha256": "30f9168b72851a25bc085ac2ce06e456da65b7cd48ab24da92806f548a411f6d",
+    "renderer_sha256": "ddd9067cdbe0561f73b71592072efe5453537113fd0041301225cee55432c730",
+    "cold_open": false,
+    "complete": false,
+    "completed_camera_records_at_review": 21,
+    "note": "Hot cycle-5 batch is concurrently in progress; this is provenance evidence, not a final cold-render comparison."
+  },
+  "cold_start": {
+    "fresh_full_open": "PASS",
+    "dependency_resolution": "PASS",
+    "objective_anchor_checker": "PASS",
+    "expanded_sheet_contact": "FAIL",
+    "read_only_rebuild_fingerprints": "PASS",
+    "final_repeated_mandatory_renders": "PENDING",
+    "approved_image_comparison": "PENDING",
+    "status": "NOT COMPLETE"
+  },
+  "outstanding_acceptance_gates": [
+    "Repair and independently recheck sheet/cushion/piping contact beyond the current single support witness.",
+    "Render final mandatory cameras again from a fresh full-file Blender cold open into fresh source-specific outputs, then compare the actual repeated images against approved preceding images for material/dependency stability."
+  ],
+  "minor_findings": [
+    {
+      "id": "INHERITED_DEGENERATE_TAG",
+      "finding": "Five near-zero-area faces remain in inherited Blanket institutional tag; no winding failure is detected."
+    },
+    {
+      "id": "RENDER_CHECKPOINT_EDGE_CASES",
+      "finding": "Per-frame progress writes are atomic, but final manifest write is direct write_text. Progress initialization can retain a prior completed camera record after its PNG is deleted; final partial merge filters PNG existence. PNG content hashes are not recorded. Current fresh full hot rendering does not rely on these edge cases."
+    },
+    {
+      "id": "LFS_REFRESH_UNAVAILABLE",
+      "finding": "The required git lfs pull attempt failed because GitHub credentials are unavailable. All reviewed local libraries and packed images opened successfully; no remote refresh success is claimed."
+    }
+  ],
+  "protected_sha256": {
+    "blender/facility_environment.blend": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+    "sources/medical-reanimation/module.blend": "6c1a7600656050f717e0c94d26c038f3474fc974c7e0e0101ea7d598fe985523",
+    "sources/spawn-room/module.blend": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40"
+  },
+  "script_sha256": {
+    "overhaul_room.py": "15156ad1a75f98fec04b2e67d944c7c60641ca6e4e771d2d1f5201edacf869e8",
+    "render_overhaul.py": "ddd9067cdbe0561f73b71592072efe5453537113fd0041301225cee55432c730",
+    "verify_overhaul.py": "34417568b399ca3369b116bbc28f8c7d46cb6b085d53146f4cf6b6242e193142"
+  },
+  "dependency_manifest": "revamp-review/production/dependency-manifest.json",
+  "limits": [
+    "No exhaustive scene-wide intersection or full support audit of every disconnected assembly was performed. Most support groups prove one attachment witness; targeted sheet testing demonstrates the limitation.",
+    "Sheet penetration was sampled at evaluated vertices, triangle centers and triangle edge midpoints using nearest oriented surfaces plus an exit-facing first ray; this is geometric evidence, not a volumetric Boolean or runtime collision test.",
+    "Closed-component volume verifies closed local geometry. Open sheets have winding consistency checks without a volume-defined outward side.",
+    "Cabinet/cart probes validate inherited parenting and rigid translation, not complete animation behavior or engine interaction. Runtime collision, navigation, frame time and Unity import were not tested.",
+    "No visual art score was inferred from shader complexity, object count, successful scripts or mesh cleanliness.",
+    "No final repeated cold-render images have been reviewed or accepted."
+  ],
+  "review_execution": {
+    "blender_version": "5.2.2 LTS",
+    "cpu_affinity_count": 1,
+    "blender_threads": 1,
+    "author_files_edited": false,
+    "saved_blend_written": false,
+    "review_source_checksum_unchanged": true,
+    "objective_reports_overwritten": false,
+    "scratch_evidence": [
+      "/workspace/scratch/medical-cycle5-technical-cold.json",
+      "/workspace/scratch/medical-cycle5-technical-rebuild.json",
+      "/workspace/scratch/medical-cycle5-hierarchy.json",
+      "/workspace/scratch/medical-cycle5-sheet-depth.json",
+      "/workspace/scratch/medical-cycle5-renderer-guards.json",
+      "/workspace/scratch/medical-cycle5-dependency-manifest.json",
+      "/workspace/scratch/medical-cycle5-cot-geometry.json"
+    ]
+  },
+  "source_identity_note": "This review applies only to 30f9168b72851a25bc085ac2ce06e456da65b7cd48ab24da92806f548a411f6d. Any subsequent sheet, lighting or other source revision requires source-specific validation and a refreshed dependency manifest.",
+  "cot_geometry_reference": "/workspace/scratch/medical-cycle5-cot-geometry.json"
+}

@@ -1,0 +1,314 @@
+{
+  "cycle": 4,
+  "reviewer": "medical_technical_cycle4",
+  "generated_at_utc": "2026-09-30T22:54:32.236982+00:00",
+  "score": 9.0,
+  "available": 10,
+  "acceptance_threshold": 8.5,
+  "verdict": "PROVISIONAL PASS; final cold-render comparison pending",
+  "available_technical_checks": "PASS",
+  "full_room_acceptance": false,
+  "critical_technical_defects": [],
+  "source_sha256": "505eb8265886fcc13c8b68ec663080aaad2a833b7924fd88a4d88608f7df312f",
+  "source_commit": "5256b9d",
+  "review_scope": "Independent read-only technical review of the saved cycle-4 source at this exact hash. Technical score excludes visual art quality and does not grant full room acceptance.",
+  "verified": [
+    "Fresh Blender 5.2.2 full-file open passes the objective checker with its report-write removed; no source file is saved and author objective files are not overwritten. All 25 linked libraries resolve.",
+    "REANIMATION_EDIT_LOCAL is local. The assembled map is a separate linked read-only scene. Map, original medical module, interface and approved spawn hashes retain their recorded baseline values; the interface Git object matches HEAD.",
+    "All 1203 inherited object dimensions and layout transforms pass, with only the declared inventory-paper and reserve-service-door pose exceptions. All 62 original empty transforms are unchanged outside the declared service-door exception; no unapproved original parent change occurs.",
+    "The only original parent changes are the seven declared inventory-paper objects, now attached to the displaced inventory cluster. All major equipment and interaction hierarchies are retained.",
+    "All 94 added support groups and 103 frozen local witnesses pass directional ray, signed gap, penetration, surface-angle and actual-object witness checks. No added mesh is unregistered. All 39 separately tested original assembly support anchors also pass.",
+    "Expanded audit of 1118 local evaluated meshes finds consistent winding and outward winding on all 1706 closed components. A separate transform probe finds no negative or singular world determinants. No exact coincident evaluated mesh duplicates or missing face materials are detected.",
+    "The four active saved lights match the contract: one red OCRU AREA at 65 W, one warm supply AREA at 45 W, and two SPOT accents at 160 W and 220 W. Other inherited light energy is zero.",
+    "Both cabinet fabricated faces are children of their corresponding original sliding pane. A 0.15 m local-X pane slide moves each pane and face together by approximately -0.15 m in world Y; original pane parents remain SUPPLY_CABINET.",
+    "A 0.088 m upward lift-deck probe moves the original cart deck and new deck guards together. Fixed scissor-pivot hardware remains stationary.",
+    "A fresh full-stage in-memory rebuild, with save/write calls removed, reproduces all 1304 saved object fingerprints, all 37 referenced local material graph fingerprints, all 94 support records and saved render settings with zero mismatches.",
+    "Saved renderer is Cycles at 1067 x 600, 100 percent and 24 samples, with AgX Medium High Contrast. All inherited and mandatory review cameras exist.",
+    "All 123 FILE images visible after full cold open are packed and have valid loaded pixel dimensions. There are no required unpacked image files and no missing linked libraries. Local saved fonts use built-in Bfont; optional review-label DejaVu has a built-in fallback.",
+    "Static review confirms the renderer rejects partial/cached reuse against a different source SHA and cached images with missing completed camera records. Cached skip mode also requires the exact renderer SHA and the same cold-open mode. Per-frame manifests are written atomically, partial manifests list completed evidence, and the observed fresh full cycle-4 render manifest contains 24 complete images at the reviewed source SHA."
+  ],
+  "cabinet_slide_probe": [
+    {
+      "pane": "Clear cabinet sliding pane",
+      "pane_parent": "SUPPLY_CABINET",
+      "face": "MED_R2 | Medical cabinet fabricated face ",
+      "face_parent": "Clear cabinet sliding pane",
+      "pane_translation": [
+        0.0,
+        -0.14999961853027344,
+        0.0
+      ],
+      "face_translation": [
+        0.0,
+        -0.14999961853027344,
+        0.0
+      ],
+      "pane_properties": {
+        "assembly_member": "SUPPLY_CABINET"
+      }
+    },
+    {
+      "pane": "Clear cabinet sliding pane.001",
+      "pane_parent": "SUPPLY_CABINET",
+      "face": "MED_R2 | Medical cabinet fabricated face .001",
+      "face_parent": "Clear cabinet sliding pane.001",
+      "pane_translation": [
+        0.0,
+        -0.15000009536743164,
+        0.0
+      ],
+      "face_translation": [
+        0.0,
+        -0.15000009536743164,
+        0.0
+      ],
+      "pane_properties": {
+        "assembly_member": "SUPPLY_CABINET"
+      }
+    }
+  ],
+  "cart_lift_probe": {
+    "CART_LIFT_DECK": [
+      0.0,
+      0.0,
+      0.08799999952316284
+    ],
+    "MED_R2 | Transfer cart folded guards and pivot": [
+      0.0,
+      0.0,
+      0.08799999952316284
+    ],
+    "MED_R2 | Transfer cart scissor pivot hardware": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "objective_summary": {
+    "inherited_layout_objects": 1203,
+    "protected_files_unchanged": true,
+    "approved_spawn_unchanged": true,
+    "lighting": {
+      "active": 4,
+      "red": 1,
+      "warm_practicals": 1,
+      "directional_accents": 2
+    },
+    "support_contact": {
+      "registered": 94,
+      "passed": 94,
+      "unregistered": [],
+      "anchors_checked": 103
+    },
+    "cold_open": {
+      "linked_map": true,
+      "missing_libraries": [],
+      "editable_room_local": true
+    }
+  },
+  "mesh_audit": {
+    "meshes": 1118,
+    "closed_components": 1706,
+    "inconsistent": [],
+    "negative_closed": [],
+    "degenerate": [
+      [
+        "Blanket institutional tag",
+        5
+      ]
+    ],
+    "coincident_evaluated_meshes": [],
+    "missing_face_materials": [],
+    "triangles": 194273
+  },
+  "original_hierarchy_summary": {
+    "original_empty_count": 62,
+    "unapproved_parent_changes": [],
+    "major_empty_transform_changes": [],
+    "declared_inventory_parent_changes": [
+      {
+        "object": "Inventory clipboard",
+        "before": "SUPPLY_BENCH",
+        "after": "MED_R2 | Displaced inventory cluster",
+        "exception": true
+      },
+      {
+        "object": "Inventory paper",
+        "before": "SUPPLY_BENCH",
+        "after": "MED_R2 | Displaced inventory cluster",
+        "exception": true
+      },
+      {
+        "object": "Clipboard title",
+        "before": "SUPPLY_BENCH",
+        "after": "MED_R2 | Displaced inventory cluster",
+        "exception": true
+      },
+      {
+        "object": "Inventory ruled line",
+        "before": "SUPPLY_BENCH",
+        "after": "MED_R2 | Displaced inventory cluster",
+        "exception": true
+      },
+      {
+        "object": "Inventory ruled line.001",
+        "before": "SUPPLY_BENCH",
+        "after": "MED_R2 | Displaced inventory cluster",
+        "exception": true
+      },
+      {
+        "object": "Inventory ruled line.002",
+        "before": "SUPPLY_BENCH",
+        "after": "MED_R2 | Displaced inventory cluster",
+        "exception": true
+      },
+      {
+        "object": "Inventory ruled line.003",
+        "before": "SUPPLY_BENCH",
+        "after": "MED_R2 | Displaced inventory cluster",
+        "exception": true
+      }
+    ]
+  },
+  "active_lights": [
+    {
+      "name": "Wall grazed work zone.001",
+      "type": "AREA",
+      "energy": 45.0,
+      "colour": [
+        1.0,
+        0.6700000166893005,
+        0.3799999952316284
+      ]
+    },
+    {
+      "name": "MED | ONE red OCRU source",
+      "type": "AREA",
+      "energy": 65.0,
+      "colour": [
+        1.0,
+        0.10999999940395355,
+        0.06499999761581421
+      ]
+    },
+    {
+      "name": "MED | Machine accent",
+      "type": "SPOT",
+      "energy": 160.0,
+      "colour": [
+        0.8500000238418579,
+        0.8700000047683716,
+        0.9100000262260437
+      ]
+    },
+    {
+      "name": "MED | Rear service accent",
+      "type": "SPOT",
+      "energy": 220.0,
+      "colour": [
+        0.8500000238418579,
+        0.8700000047683716,
+        0.9100000262260437
+      ]
+    }
+  ],
+  "rebuild_comparison": {
+    "saved_objects": 1304,
+    "built_objects": 1304,
+    "object_signature_mismatches": 0,
+    "referenced_local_materials": 37,
+    "material_signature_mismatches": 0,
+    "support_records": 94,
+    "support_record_mismatches": 0,
+    "saved_render_settings_match": true,
+    "saved_blend_written": false,
+    "numeric_rounding_decimals": 6,
+    "object_signature_fields": [
+      "name",
+      "type",
+      "parent",
+      "world transform",
+      "material assignments and face indices",
+      "base mesh vertices and faces",
+      "face smoothing",
+      "modifier names and types",
+      "text bodies and font",
+      "camera projection and lens",
+      "light type, energy and colour",
+      "render visibility"
+    ],
+    "material_signature_fields": [
+      "diffuse colour",
+      "top-level node type, name and socket defaults",
+      "image names and packing",
+      "group names",
+      "colour-ramp values",
+      "links"
+    ]
+  },
+  "cold_start": {
+    "fresh_full_open": "PASS",
+    "dependency_resolution": "PASS",
+    "objective_checks": "PASS",
+    "read_only_rebuild_fingerprints": "PASS",
+    "final_repeated_mandatory_renders": "PENDING",
+    "approved_image_comparison": "PENDING",
+    "status": "NOT COMPLETE",
+    "note": "Cycle-4 full render manifest is complete but cold_open is false. Cold-open checks and matching scene fingerprints are separate evidence from repeated rendered images."
+  },
+  "outstanding_acceptance_gates": [
+    "Render the final mandatory cameras again from a fresh full-file Blender cold open into fresh source-specific outputs; compare the actual images against the approved preceding images and record material/dependency stability."
+  ],
+  "minor_findings": [
+    {
+      "id": "INHERITED_DEGENERATE_TAG",
+      "finding": "Five near-zero-area faces remain in inherited Blanket institutional tag. They produce no detected winding failure."
+    },
+    {
+      "id": "PARTIAL_RENDER_REUSE_PROVENANCE",
+      "finding": "The new renderer SHA/cold-mode guard currently applies to --skip-existing only. A --only invocation without --skip-existing can still merge prior shots from a different renderer recipe or cold-open mode and stamp them with current batch metadata. Extend the provenance guard to partial merges or use fresh outputs. Current fresh full cycle-4 evidence is unaffected."
+    },
+    {
+      "id": "FINAL_ACCEPTANCE_NOT_MEASURED",
+      "finding": "The final repeated cold-render comparison has not been supplied or reviewed. This provisional technical score cannot be used as cold-start PASS."
+    }
+  ],
+  "protected_sha256": {
+    "blender/facility_environment.blend": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+    "sources/medical-reanimation/module.blend": "6c1a7600656050f717e0c94d26c038f3474fc974c7e0e0101ea7d598fe985523",
+    "sources/medical-reanimation/contracts/interface.json": "9bc10bf2d28292062c8cf1a3cb26bf3df6e17d43fb3b97a6a54403efefd8bd25",
+    "sources/spawn-room/module.blend": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40"
+  },
+  "script_sha256": {
+    "overhaul_room.py": "a5cd8f75ec1bee27c16d3796bcf4edb6248587ad09e31b14cea8782f231272c4",
+    "render_overhaul.py": "564a2e822353f0aafd29aa454c12c61c8d412b4f02defb9f3ebd29e0c739e2cf",
+    "verify_overhaul.py": "34417568b399ca3369b116bbc28f8c7d46cb6b085d53146f4cf6b6242e193142"
+  },
+  "dependency_manifest": "revamp-review/production/dependency-manifest.json",
+  "limits": [
+    "No exhaustive intersection audit or per-component support audit of every disconnected joined assembly was performed. Most support groups use one attachment witness, which proves group attachment rather than contact for every decorative part.",
+    "Object fingerprints compare modifier names and types, not every modifier parameter or UV coordinate. Material fingerprints compare top-level graphs, not recursively every node-group property. World graph fingerprints were not compared.",
+    "Closed-component signed volume verifies closed local geometry. Open-sheet normals have consistent winding checks but no volume-defined outward side. No negative/singular world transform was found.",
+    "Reserved rescue-lane checks do not validate runtime collision, navigation, frame time or complete animation behavior. Cabinet/cart translation probes validate inherited parenting, not engine interactions.",
+    "No object count, shader complexity or successful scripts were used as proof of visual art quality.",
+    "No final repeated cold-render images were reviewed or accepted."
+  ],
+  "review_execution": {
+    "blender_version": "5.2.2 LTS",
+    "cpu_affinity_count": 1,
+    "blender_threads": 1,
+    "author_files_edited": false,
+    "saved_blend_written": false,
+    "review_source_checksum_unchanged": true,
+    "objective_reports_overwritten": false,
+    "scratch_evidence": [
+      "/workspace/scratch/medical-cycle4-technical-cold.json",
+      "/workspace/scratch/medical-cycle4-technical-rebuild.json",
+      "/workspace/scratch/medical-cycle4-hierarchy.json",
+      "/workspace/scratch/medical-cycle4-transform.json",
+      "/workspace/scratch/medical-cycle4-dependency-manifest.json"
+    ],
+    "note": "Complete cold/rebuild probes recovered after environment transition are at the same source SHA and report successful exit. A fresh full-file hierarchy/dependency probe and a fresh source-append transform/light probe completed after tools restored."
+  },
+  "source_identity_note": "This report applies only to source 505eb8265886fcc13c8b68ec663080aaad2a833b7924fd88a4d88608f7df312f at commit 5256b9d. A subsequent lighting revision requires a new source-specific review and dependency manifest."
+}

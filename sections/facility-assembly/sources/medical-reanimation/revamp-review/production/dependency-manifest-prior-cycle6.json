@@ -1,0 +1,1930 @@
+{
+  "schema_version": 2,
+  "source_sha256": "8c353ae9f06b9bcf0aeb47c07a8db863fda2575f9c40d1d34f884d2eaa48096b",
+  "source_absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/module_overhaul_R2.blend",
+  "blender_version": "5.2.2 LTS",
+  "cold_open": true,
+  "source_saved": false,
+  "source_checksum_unchanged": true,
+  "linked_libraries": [
+    {
+      "stored_path": "//../../exteriors/refinery/exterior-R01.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/exteriors/refinery/exterior-R01.blend",
+      "exists": true,
+      "parent_stored_path": "//../../blender/facility_spawn_material_preview_R17.blend",
+      "sha256": "91dc6d076ef5b0a74f9b4931b253e14692081c1d9ec605dfa6ea0d0fd452710c"
+    },
+    {
+      "stored_path": "//../../exteriors/waste-storage/exterior-R01.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/exteriors/waste-storage/exterior-R01.blend",
+      "exists": true,
+      "parent_stored_path": "//../../blender/facility_spawn_material_preview_R17.blend",
+      "sha256": "c3cacb97088899afbf8202e1d44da0ec3d79d39b1c71408cbb629e8cf4ad2db8"
+    },
+    {
+      "stored_path": "//../../exteriors/condenser-bay/exterior-R02.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/exteriors/condenser-bay/exterior-R02.blend",
+      "exists": true,
+      "parent_stored_path": "//../../blender/facility_spawn_material_preview_R17.blend",
+      "sha256": "48abbe1061e038749aab76e1fb1217a329abdd40592da7fba21d578842c75ade"
+    },
+    {
+      "stored_path": "//../../exteriors/fuel-corridor/exterior-R02.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/exteriors/fuel-corridor/exterior-R02.blend",
+      "exists": true,
+      "parent_stored_path": "//../../blender/facility_spawn_material_preview_R17.blend",
+      "sha256": "2ecbdb89cf46e6b8b745f7b54d24714e77731fbb5544470ea2102ccbb74f1b29"
+    },
+    {
+      "stored_path": "//../../exteriors/cooling-plant/exterior-R03.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/exteriors/cooling-plant/exterior-R03.blend",
+      "exists": true,
+      "parent_stored_path": "//../../blender/facility_spawn_material_preview_R17.blend",
+      "sha256": "29241944814b0eb02bd87c627448c2a9a05bfb4832efb786294e1752c722a92e"
+    },
+    {
+      "stored_path": "//../../exteriors/electrical-room/exterior-R03.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/exteriors/electrical-room/exterior-R03.blend",
+      "exists": true,
+      "parent_stored_path": "//../../blender/facility_spawn_material_preview_R17.blend",
+      "sha256": "cf7ed65234a618ae957f4d5254dd0b008761da7a7d3e77cb85da095467b03551"
+    },
+    {
+      "stored_path": "//../../exteriors/medical-reanimation/exterior-R04.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/exteriors/medical-reanimation/exterior-R04.blend",
+      "exists": true,
+      "parent_stored_path": "//../../blender/facility_spawn_material_preview_R17.blend",
+      "sha256": "a123a72256b3f920e28bcdeaf942d3277bd2513fb14267c5686f9a7d9a8a9787"
+    },
+    {
+      "stored_path": "//../../exteriors/turbine-room/exterior-R04.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/exteriors/turbine-room/exterior-R04.blend",
+      "exists": true,
+      "parent_stored_path": "//../../blender/facility_spawn_material_preview_R17.blend",
+      "sha256": "7483c0eebaacfb479a7a1c65e1da7430079c4332eb5dab836b5ad9259563e40d"
+    },
+    {
+      "stored_path": "//../../exteriors/reactor-room/exterior-R05.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/exteriors/reactor-room/exterior-R05.blend",
+      "exists": true,
+      "parent_stored_path": "//../../blender/facility_spawn_material_preview_R17.blend",
+      "sha256": "19e2808ff7edfd0415be7f66322568d992a0e67bd02a9e4f7907dfb6ac7a6385"
+    },
+    {
+      "stored_path": "//../../exteriors/spawn-room/exterior-R05.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/exteriors/spawn-room/exterior-R05.blend",
+      "exists": true,
+      "parent_stored_path": "//../../blender/facility_spawn_material_preview_R17.blend",
+      "sha256": "5c236b25f3fef0243c5d086f71eb33d006a77cedfe05bfd91848d1ff1a245b5a"
+    },
+    {
+      "stored_path": "//../../exteriors/compliance-dock/exterior-R08.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/exteriors/compliance-dock/exterior-R08.blend",
+      "exists": true,
+      "parent_stored_path": "//../../blender/facility_environment.blend",
+      "sha256": "a2a2a57c6531cd6a4bf6a6d5b92d07b81d1630a4b5ab553ff762771127bb2ccb"
+    },
+    {
+      "stored_path": "//../../blender/facility_environment.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend",
+      "exists": true,
+      "parent_stored_path": null,
+      "sha256": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8"
+    },
+    {
+      "stored_path": "//../../blender/facility_spawn_material_preview_R17.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend",
+      "exists": true,
+      "parent_stored_path": null,
+      "sha256": "4d5d160d5c9d25b0a447fda933974790260cdde7aced2db1da1c908afdcdc937"
+    },
+    {
+      "stored_path": "//../condenser-bay/module.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay/module.blend",
+      "exists": true,
+      "parent_stored_path": "//../../blender/facility_spawn_material_preview_R17.blend",
+      "sha256": "7a58204e39fd0a4f7a3dde05632caa6f001a30611ad8d00b7fc29e1452a7a2d0"
+    },
+    {
+      "stored_path": "//../mine/module.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/mine/module.blend",
+      "exists": true,
+      "parent_stored_path": "//../../blender/facility_environment.blend",
+      "sha256": "10f50d0593bf4924f945d90e0fd2a7c512efe66ff8e5306aeaae20dd81c26445"
+    },
+    {
+      "stored_path": "//../spawn-room/module.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend",
+      "exists": true,
+      "parent_stored_path": "//../../blender/facility_environment.blend",
+      "sha256": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40"
+    },
+    {
+      "stored_path": "//../compliance-dock/module.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/module.blend",
+      "exists": true,
+      "parent_stored_path": "//../../blender/facility_environment.blend",
+      "sha256": "0cdae8b3d302459d75569cb6bf3a463f24b30ea373c2bcdf430360033d7b0947"
+    },
+    {
+      "stored_path": "//../cooling-plant/module.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/cooling-plant/module.blend",
+      "exists": true,
+      "parent_stored_path": "//../../blender/facility_environment.blend",
+      "sha256": "253d60c86c70a239637d39193c2a8a888ddcddb1246eef1450332d76a5b56bcb"
+    },
+    {
+      "stored_path": "//../electrical-room/module.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/electrical-room/module.blend",
+      "exists": true,
+      "parent_stored_path": "//../../blender/facility_environment.blend",
+      "sha256": "10b37b1ca5c5abee8a3f781205327edcc8fb1ff23e9d41632e3c5579b0f08476"
+    },
+    {
+      "stored_path": "//../fuel-corridor/module.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/fuel-corridor/module.blend",
+      "exists": true,
+      "parent_stored_path": "//../../blender/facility_environment.blend",
+      "sha256": "f01b8647c4a87c88be859fce0659df8c9aaf41a91743f0c83705b8b8cfc0945c"
+    },
+    {
+      "stored_path": "//module.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/module.blend",
+      "exists": true,
+      "parent_stored_path": "//../../blender/facility_environment.blend",
+      "sha256": "6c1a7600656050f717e0c94d26c038f3474fc974c7e0e0101ea7d598fe985523"
+    },
+    {
+      "stored_path": "//../reactor-room/module.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/reactor-room/module.blend",
+      "exists": true,
+      "parent_stored_path": "//../../blender/facility_environment.blend",
+      "sha256": "27100e235b26b874a5206671bdb8934c3726a22bd3d7c75514606b2e8f686278"
+    },
+    {
+      "stored_path": "//../refinery/module.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/refinery/module.blend",
+      "exists": true,
+      "parent_stored_path": "//../../blender/facility_environment.blend",
+      "sha256": "de064242c534a12e69e7aac3c46c7118a285024626fdd423bb20eef339079ff8"
+    },
+    {
+      "stored_path": "//../turbine-room/module.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/turbine-room/module.blend",
+      "exists": true,
+      "parent_stored_path": "//../../blender/facility_environment.blend",
+      "sha256": "841646bdecd9699c26ff463afcb7eee231d17b64f9e7cc379c3a05137ecd6110"
+    },
+    {
+      "stored_path": "//../waste-storage/module.blend",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/waste-storage/module.blend",
+      "exists": true,
+      "parent_stored_path": "//../../blender/facility_environment.blend",
+      "sha256": "8912b5c3b3d2525abb64e838d1fe83a1ea90aa12fea0c9b5a730d4449caecedf"
+    }
+  ],
+  "file_images": [
+    {
+      "name": "clinical-propaganda.png",
+      "stored_path": "//revamp-review/concepts/clinical-propaganda.png",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/concepts/clinical-propaganda.png",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1536
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": true
+    },
+    {
+      "name": "painted_plaster_wall_diff_2k.jpg",
+      "stored_path": "//../../assets/textures/cc0/painted_plaster_wall_diff_2k.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/assets/textures/cc0/painted_plaster_wall_diff_2k.jpg",
+      "packed": true,
+      "pixel_size": [
+        2048,
+        2048
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "painted_plaster_wall_disp_2k.jpg",
+      "stored_path": "//../../assets/textures/cc0/painted_plaster_wall_disp_2k.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/assets/textures/cc0/painted_plaster_wall_disp_2k.jpg",
+      "packed": true,
+      "pixel_size": [
+        2048,
+        2048
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "painted_plaster_wall_rough_2k.jpg",
+      "stored_path": "//../../assets/textures/cc0/painted_plaster_wall_rough_2k.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/assets/textures/cc0/painted_plaster_wall_rough_2k.jpg",
+      "packed": true,
+      "pixel_size": [
+        2048,
+        2048
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "BirchTree_Leaves.png",
+      "stored_path": "//../sources/quaternius-stylized-nature/glTF/BirchTree_Leaves.png",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/quaternius-stylized-nature/glTF/BirchTree_Leaves.png",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "boulder_01_diff",
+      "stored_path": "//../sources/polyhaven-cc0/models/boulder_01/textures/boulder_01_diff_1k.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/polyhaven-cc0/models/boulder_01/textures/boulder_01_diff_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "boulder_01_nor_gl",
+      "stored_path": "//../sources/polyhaven-cc0/models/boulder_01/textures/boulder_01_nor_gl_1k.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/polyhaven-cc0/models/boulder_01/textures/boulder_01_nor_gl_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "boulder_02_diff",
+      "stored_path": "//../sources/polyhaven-cc0/models/namaqualand_boulder_02/textures/namaqualand_boulder_02_diff_1k.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/polyhaven-cc0/models/namaqualand_boulder_02/textures/namaqualand_boulder_02_diff_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "boulder_02_nor_gl",
+      "stored_path": "//../sources/polyhaven-cc0/models/namaqualand_boulder_02/textures/namaqualand_boulder_02_nor_gl_1k.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/polyhaven-cc0/models/namaqualand_boulder_02/textures/namaqualand_boulder_02_nor_gl_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "brown_mud_02_diff_1k.jpg",
+      "stored_path": "C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/polyhaven-cc0/textures/brown_mud_02/brown_mud_02_diff_1k.jpg",
+      "absolute_path": "/workspace/C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/polyhaven-cc0/textures/brown_mud_02/brown_mud_02_diff_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "brown_mud_02_nor_gl_1k.jpg",
+      "stored_path": "C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/polyhaven-cc0/textures/brown_mud_02/brown_mud_02_nor_gl_1k.jpg",
+      "absolute_path": "/workspace/C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/polyhaven-cc0/textures/brown_mud_02/brown_mud_02_nor_gl_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "cliff_side_diff_1k.jpg",
+      "stored_path": "C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/polyhaven-cc0/textures/cliff_side/cliff_side_diff_1k.jpg",
+      "absolute_path": "/workspace/C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/polyhaven-cc0/textures/cliff_side/cliff_side_diff_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "cliff_side_nor_gl_1k.jpg",
+      "stored_path": "C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/polyhaven-cc0/textures/cliff_side/cliff_side_nor_gl_1k.jpg",
+      "absolute_path": "/workspace/C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/polyhaven-cc0/textures/cliff_side/cliff_side_nor_gl_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "dark_rock_diff_1k.jpg",
+      "stored_path": "C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/polyhaven-cc0/textures/dark_rock/dark_rock_diff_1k.jpg",
+      "absolute_path": "/workspace/C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/polyhaven-cc0/textures/dark_rock/dark_rock_diff_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "dark_rock_nor_gl_1k.jpg",
+      "stored_path": "C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/polyhaven-cc0/textures/dark_rock/dark_rock_nor_gl_1k.jpg",
+      "absolute_path": "/workspace/C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/polyhaven-cc0/textures/dark_rock/dark_rock_nor_gl_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "GF | Courtyard dimensional slab wear and damp masks",
+      "stored_path": "",
+      "absolute_path": null,
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1152
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "GF | Refinery dimensional slab wear and damp masks",
+      "stored_path": "",
+      "absolute_path": null,
+      "packed": true,
+      "pixel_size": [
+        1024,
+        384
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "muddy_tracks_diff_1k.jpg",
+      "stored_path": "C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/polyhaven-cc0/textures/muddy_tracks/muddy_tracks_diff_1k.jpg",
+      "absolute_path": "/workspace/C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/polyhaven-cc0/textures/muddy_tracks/muddy_tracks_diff_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "muddy_tracks_nor_gl_1k.jpg",
+      "stored_path": "C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/polyhaven-cc0/textures/muddy_tracks/muddy_tracks_nor_gl_1k.jpg",
+      "absolute_path": "/workspace/C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/polyhaven-cc0/textures/muddy_tracks/muddy_tracks_nor_gl_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "namaqualand_boulder_05_diff",
+      "stored_path": "//../sources/polyhaven-cc0/models/namaqualand_boulder_05/textures/namaqualand_boulder_05_diff_1k.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/polyhaven-cc0/models/namaqualand_boulder_05/textures/namaqualand_boulder_05_diff_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "namaqualand_boulder_05_nor_gl",
+      "stored_path": "//../sources/polyhaven-cc0/models/namaqualand_boulder_05/textures/namaqualand_boulder_05_nor_gl_1k.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/polyhaven-cc0/models/namaqualand_boulder_05/textures/namaqualand_boulder_05_nor_gl_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "old_planks_02_diff_1k.jpg",
+      "stored_path": "C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/polyhaven-cc0/textures/old_planks_02/old_planks_02_diff_1k.jpg",
+      "absolute_path": "/workspace/C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/polyhaven-cc0/textures/old_planks_02/old_planks_02_diff_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "old_planks_02_nor_gl_1k.jpg",
+      "stored_path": "C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/polyhaven-cc0/textures/old_planks_02/old_planks_02_nor_gl_1k.jpg",
+      "absolute_path": "/workspace/C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/polyhaven-cc0/textures/old_planks_02/old_planks_02_nor_gl_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "Pickaxe_Wood_Grain",
+      "stored_path": "//../../../../../art/props/hero-shovel/pickaxe_wood.png",
+      "absolute_path": "/art/props/hero-shovel/pickaxe_wood.png",
+      "packed": true,
+      "pixel_size": [
+        256,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "picke_dirty_01_diff",
+      "stored_path": "//../sources/polyhaven-cc0/models/picke_dirty_01/textures/picke_dirty_01_diff_1k.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/polyhaven-cc0/models/picke_dirty_01/textures/picke_dirty_01_diff_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "picke_dirty_01_nor_gl",
+      "stored_path": "//../sources/polyhaven-cc0/models/picke_dirty_01/textures/picke_dirty_01_nor_gl_1k.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/polyhaven-cc0/models/picke_dirty_01/textures/picke_dirty_01_nor_gl_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "PineTree_Bark.jpg",
+      "stored_path": "C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/quaternius-stylized-nature/PineTree_Bark.png",
+      "absolute_path": "/workspace/C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/quaternius-stylized-nature/PineTree_Bark.png",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "PineTree_Bark_Normal.png",
+      "stored_path": "C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/quaternius-stylized-nature/PineTree_Bark_Normal.png",
+      "absolute_path": "/workspace/C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/quaternius-stylized-nature/PineTree_Bark_Normal.png",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "rock_wall_08_diff_1k.jpg",
+      "stored_path": "C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/polyhaven-cc0/textures/rock_wall_08/rock_wall_08_diff_1k.jpg",
+      "absolute_path": "/workspace/C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/polyhaven-cc0/textures/rock_wall_08/rock_wall_08_diff_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "rock_wall_08_nor_gl_1k.jpg",
+      "stored_path": "C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/polyhaven-cc0/textures/rock_wall_08/rock_wall_08_nor_gl_1k.jpg",
+      "absolute_path": "/workspace/C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/polyhaven-cc0/textures/rock_wall_08/rock_wall_08_nor_gl_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "rocky_trail_diff_1k.jpg",
+      "stored_path": "C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/polyhaven-cc0/textures/rocky_trail/rocky_trail_diff_1k.jpg",
+      "absolute_path": "/workspace/C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/polyhaven-cc0/textures/rocky_trail/rocky_trail_diff_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "rough_wood_diff_1k.jpg",
+      "stored_path": "C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/polyhaven-cc0/textures/rough_wood/rough_wood_diff_1k.jpg",
+      "absolute_path": "/workspace/C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/polyhaven-cc0/textures/rough_wood/rough_wood_diff_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "rough_wood_nor_gl_1k.jpg",
+      "stored_path": "C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/polyhaven-cc0/textures/rough_wood/rough_wood_nor_gl_1k.jpg",
+      "absolute_path": "/workspace/C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/polyhaven-cc0/textures/rough_wood/rough_wood_nor_gl_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "rust_coarse_01_diff_1k.jpg",
+      "stored_path": "C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/polyhaven-cc0/textures/rust_coarse_01/rust_coarse_01_diff_1k.jpg",
+      "absolute_path": "/workspace/C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/polyhaven-cc0/textures/rust_coarse_01/rust_coarse_01_diff_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "rusty_corrugated_iron_diff_1k.jpg",
+      "stored_path": "C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/polyhaven-cc0/textures/rusty_corrugated_iron/rusty_corrugated_iron_diff_1k.jpg",
+      "absolute_path": "/workspace/C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/polyhaven-cc0/textures/rusty_corrugated_iron/rusty_corrugated_iron_diff_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "rusty_corrugated_iron_nor_gl_1k.jpg",
+      "stored_path": "C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/polyhaven-cc0/textures/rusty_corrugated_iron/rusty_corrugated_iron_nor_gl_1k.jpg",
+      "absolute_path": "/workspace/C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/polyhaven-cc0/textures/rusty_corrugated_iron/rusty_corrugated_iron_nor_gl_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "rusty_metal_02_diff_1k.jpg",
+      "stored_path": "C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/polyhaven-cc0/textures/rusty_metal_02/rusty_metal_02_diff_1k.jpg",
+      "absolute_path": "/workspace/C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/polyhaven-cc0/textures/rusty_metal_02/rusty_metal_02_diff_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "rusty_metal_02_nor_gl_1k.jpg",
+      "stored_path": "C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/polyhaven-cc0/textures/rusty_metal_02/rusty_metal_02_nor_gl_1k.jpg",
+      "absolute_path": "/workspace/C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/polyhaven-cc0/textures/rusty_metal_02/rusty_metal_02_nor_gl_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "schist-basecolor.png",
+      "stored_path": "//environment-textures/schist-basecolor.png",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/blender/environment-textures/schist-basecolor.png",
+      "packed": true,
+      "pixel_size": [
+        1254,
+        1254
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "sledgehammer_01_diff",
+      "stored_path": "//../sources/polyhaven-cc0/models/sledgehammer_01/textures/sledgehammer_01_diff_1k.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/polyhaven-cc0/models/sledgehammer_01/textures/sledgehammer_01_diff_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "sledgehammer_01_nor_gl",
+      "stored_path": "//../sources/polyhaven-cc0/models/sledgehammer_01/textures/sledgehammer_01_nor_gl_1k.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/polyhaven-cc0/models/sledgehammer_01/textures/sledgehammer_01_nor_gl_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "SY | Courtyard localized wear and moisture",
+      "stored_path": "",
+      "absolute_path": null,
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1152
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "VC Concrete Painted Albedo",
+      "stored_path": "C:/Users/Camer/.codex/worktrees/ef37/critical-shift/runtime/out/vc-concrete-albedo.png",
+      "absolute_path": "/workspace/C:/Users/Camer/.codex/worktrees/ef37/critical-shift/runtime/out/vc-concrete-albedo.png",
+      "packed": true,
+      "pixel_size": [
+        1254,
+        1254
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "VC Limestone Angular Pigment R34",
+      "stored_path": "C:/Users/Camer/.codex/worktrees/ef37/critical-shift/runtime/out/vc-stone-painted-r34.png",
+      "absolute_path": "/workspace/C:/Users/Camer/.codex/worktrees/ef37/critical-shift/runtime/out/vc-stone-painted-r34.png",
+      "packed": true,
+      "pixel_size": [
+        1254,
+        1254
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "VC Meadow Painted Albedo",
+      "stored_path": "C:/Users/Camer/.codex/worktrees/ef37/critical-shift/runtime/out/vc-meadow-albedo.png",
+      "absolute_path": "/workspace/C:/Users/Camer/.codex/worktrees/ef37/critical-shift/runtime/out/vc-meadow-albedo.png",
+      "packed": true,
+      "pixel_size": [
+        1254,
+        1254
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "vintage_oil_lamp_diff",
+      "stored_path": "//../sources/polyhaven-cc0/models/vintage_oil_lamp/textures/vintage_oil_lamp_diff_1k.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/polyhaven-cc0/models/vintage_oil_lamp/textures/vintage_oil_lamp_diff_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "vintage_oil_lamp_nor_gl",
+      "stored_path": "//../sources/polyhaven-cc0/models/vintage_oil_lamp/textures/vintage_oil_lamp_nor_gl_1k.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/polyhaven-cc0/models/vintage_oil_lamp/textures/vintage_oil_lamp_nor_gl_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "weathered_planks_diff_1k.jpg",
+      "stored_path": "C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/polyhaven-cc0/textures/weathered_planks/weathered_planks_diff_1k.jpg",
+      "absolute_path": "/workspace/C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/polyhaven-cc0/textures/weathered_planks/weathered_planks_diff_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "weathered_planks_nor_gl_1k.jpg",
+      "stored_path": "C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/polyhaven-cc0/textures/weathered_planks/weathered_planks_nor_gl_1k.jpg",
+      "absolute_path": "/workspace/C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/polyhaven-cc0/textures/weathered_planks/weathered_planks_nor_gl_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "wine_barrel_01_diff",
+      "stored_path": "//../sources/polyhaven-cc0/models/wine_barrel_01/textures/wine_barrel_01_diff_1k.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/polyhaven-cc0/models/wine_barrel_01/textures/wine_barrel_01_diff_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "wine_barrel_01_nor_gl",
+      "stored_path": "//../sources/polyhaven-cc0/models/wine_barrel_01/textures/wine_barrel_01_nor_gl_1k.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/polyhaven-cc0/models/wine_barrel_01/textures/wine_barrel_01_nor_gl_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "wooden_axe_diff",
+      "stored_path": "//../sources/polyhaven-cc0/models/wooden_axe/textures/wooden_axe_diff_1k.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/polyhaven-cc0/models/wooden_axe/textures/wooden_axe_diff_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "wooden_axe_nor_gl",
+      "stored_path": "//../sources/polyhaven-cc0/models/wooden_axe/textures/wooden_axe_nor_gl_1k.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/polyhaven-cc0/models/wooden_axe/textures/wooden_axe_nor_gl_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "wooden_bucket_01_diff",
+      "stored_path": "//../sources/polyhaven-cc0/models/wooden_bucket_01/textures/wooden_bucket_01_diff_1k.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/polyhaven-cc0/models/wooden_bucket_01/textures/wooden_bucket_01_diff_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "wooden_bucket_01_nor_gl",
+      "stored_path": "//../sources/polyhaven-cc0/models/wooden_bucket_01/textures/wooden_bucket_01_nor_gl_1k.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/polyhaven-cc0/models/wooden_bucket_01/textures/wooden_bucket_01_nor_gl_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "wooden_crate_01_diff",
+      "stored_path": "//../sources/polyhaven-cc0/models/wooden_crate_01/textures/wooden_crate_01_diff_1k.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/polyhaven-cc0/models/wooden_crate_01/textures/wooden_crate_01_diff_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "wooden_crate_01_nor_gl",
+      "stored_path": "//../sources/polyhaven-cc0/models/wooden_crate_01/textures/wooden_crate_01_nor_gl_1k.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/polyhaven-cc0/models/wooden_crate_01/textures/wooden_crate_01_nor_gl_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "wooden_crate_02_diff",
+      "stored_path": "//../sources/polyhaven-cc0/models/wooden_crate_02/textures/wooden_crate_02_diff_1k.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/polyhaven-cc0/models/wooden_crate_02/textures/wooden_crate_02_diff_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "wooden_crate_02_nor_gl",
+      "stored_path": "//../sources/polyhaven-cc0/models/wooden_crate_02/textures/wooden_crate_02_nor_gl_1k.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/polyhaven-cc0/models/wooden_crate_02/textures/wooden_crate_02_nor_gl_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "wooden_ladder_diff",
+      "stored_path": "//../sources/polyhaven-cc0/models/wooden_ladder/textures/wooden_ladder_diff_1k.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/polyhaven-cc0/models/wooden_ladder/textures/wooden_ladder_diff_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "wooden_ladder_nor_gl",
+      "stored_path": "//../sources/polyhaven-cc0/models/wooden_ladder/textures/wooden_ladder_nor_gl_1k.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/polyhaven-cc0/models/wooden_ladder/textures/wooden_ladder_nor_gl_1k.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "YARD Concrete046",
+      "stored_path": "C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/mine/assets/pbr/Concrete046/color.jpg",
+      "absolute_path": "/workspace/C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/mine/assets/pbr/Concrete046/color.jpg",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "spawn_painted_mineral_01.png",
+      "stored_path": "C:/Users/Camer/Games/critical-shift/worktrees/facility-assembly-astra/sections/facility-assembly/blender/textures/spawn_painted_mineral_01.png",
+      "absolute_path": "/workspace/C:/Users/Camer/Games/critical-shift/worktrees/facility-assembly-astra/sections/facility-assembly/blender/textures/spawn_painted_mineral_01.png",
+      "packed": true,
+      "pixel_size": [
+        1254,
+        1254
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "color.jpg.003",
+      "stored_path": "//../../assets/pbr/gravel_ground_01/color.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/assets/pbr/gravel_ground_01/color.jpg",
+      "packed": true,
+      "pixel_size": [
+        2048,
+        2048
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "color.jpg.004",
+      "stored_path": "//../../assets/pbr/Concrete046/color.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/assets/pbr/Concrete046/color.jpg",
+      "packed": true,
+      "pixel_size": [
+        2048,
+        2048
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "color.jpg.005",
+      "stored_path": "//../../assets/pbr/Metal046B/color.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/assets/pbr/Metal046B/color.jpg",
+      "packed": true,
+      "pixel_size": [
+        2048,
+        2048
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "Gullet Damp Slate Albedo",
+      "stored_path": "C:/Users/Camer/Games/critical-shift/worktrees/reactor-valorant/sections/mine/assets/valorant/slate-damp-albedo.png",
+      "absolute_path": "/workspace/C:/Users/Camer/Games/critical-shift/worktrees/reactor-valorant/sections/mine/assets/valorant/slate-damp-albedo.png",
+      "packed": true,
+      "pixel_size": [
+        1254,
+        1254
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "Gullet Fresh Slate Albedo",
+      "stored_path": "C:/Users/Camer/Games/critical-shift/worktrees/reactor-valorant/sections/mine/assets/valorant/slate-fresh-albedo.png",
+      "absolute_path": "/workspace/C:/Users/Camer/Games/critical-shift/worktrees/reactor-valorant/sections/mine/assets/valorant/slate-fresh-albedo.png",
+      "packed": true,
+      "pixel_size": [
+        1254,
+        1254
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "Gullet Slate Painted Albedo",
+      "stored_path": "C:/Users/Camer/Games/critical-shift/worktrees/reactor-valorant/sections/mine/assets/valorant/slate-painted-albedo.png",
+      "absolute_path": "/workspace/C:/Users/Camer/Games/critical-shift/worktrees/reactor-valorant/sections/mine/assets/valorant/slate-painted-albedo.png",
+      "packed": true,
+      "pixel_size": [
+        1254,
+        1254
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "height.jpg.003",
+      "stored_path": "//../../assets/pbr/gravel_ground_01/height.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/assets/pbr/gravel_ground_01/height.jpg",
+      "packed": true,
+      "pixel_size": [
+        2048,
+        2048
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "height.jpg.004",
+      "stored_path": "//../../assets/pbr/Concrete046/height.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/assets/pbr/Concrete046/height.jpg",
+      "packed": true,
+      "pixel_size": [
+        2048,
+        2048
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "height.jpg.005",
+      "stored_path": "//../../assets/pbr/Metal046B/height.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/assets/pbr/Metal046B/height.jpg",
+      "packed": true,
+      "pixel_size": [
+        2048,
+        2048
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "label_cart.png",
+      "stored_path": "//../../blender/gullet/textures/label_cart.png",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/blender/gullet/textures/label_cart.png",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        224
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "label_door.png",
+      "stored_path": "//../../blender/gullet/textures/label_door.png",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/blender/gullet/textures/label_door.png",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        224
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "label_magazine.png",
+      "stored_path": "//../../blender/gullet/textures/label_magazine.png",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/blender/gullet/textures/label_magazine.png",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        224
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "label_portal.png",
+      "stored_path": "//../../blender/gullet/textures/label_portal.png",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/blender/gullet/textures/label_portal.png",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        224
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "label_pump.png",
+      "stored_path": "//../../blender/gullet/textures/label_pump.png",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/blender/gullet/textures/label_pump.png",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        224
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "label_return.png",
+      "stored_path": "//../../blender/gullet/textures/label_return.png",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/blender/gullet/textures/label_return.png",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        224
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "label_sector_a.png",
+      "stored_path": "//../../blender/gullet/textures/label_sector_a.png",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/blender/gullet/textures/label_sector_a.png",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        224
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "label_sector_b.png",
+      "stored_path": "//../../blender/gullet/textures/label_sector_b.png",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/blender/gullet/textures/label_sector_b.png",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        224
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "label_sector_c.png",
+      "stored_path": "//../../blender/gullet/textures/label_sector_c.png",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/blender/gullet/textures/label_sector_c.png",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        224
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "localized_scuff.png",
+      "stored_path": "//../../blender/gullet/textures/localized_scuff.png",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/blender/gullet/textures/localized_scuff.png",
+      "packed": true,
+      "pixel_size": [
+        512,
+        512
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "paper_basecolor.png",
+      "stored_path": "//../../blender/gullet/textures/paper_basecolor.png",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/blender/gullet/textures/paper_basecolor.png",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "paper_normal.png",
+      "stored_path": "//../../blender/gullet/textures/paper_normal.png",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/blender/gullet/textures/paper_normal.png",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "paper_roughness.png",
+      "stored_path": "//../../blender/gullet/textures/paper_roughness.png",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/blender/gullet/textures/paper_roughness.png",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "roughness.jpg",
+      "stored_path": "//../../assets/pbr/rock_face_03/roughness.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/assets/pbr/rock_face_03/roughness.jpg",
+      "packed": true,
+      "pixel_size": [
+        2048,
+        2048
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "roughness.jpg.001",
+      "stored_path": "//../../assets/pbr/rock_surface/roughness.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/assets/pbr/rock_surface/roughness.jpg",
+      "packed": true,
+      "pixel_size": [
+        2048,
+        2048
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "roughness.jpg.002",
+      "stored_path": "//../../assets/pbr/quarry_wall/roughness.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/assets/pbr/quarry_wall/roughness.jpg",
+      "packed": true,
+      "pixel_size": [
+        2048,
+        2048
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "roughness.jpg.003",
+      "stored_path": "//../../assets/pbr/gravel_ground_01/roughness.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/assets/pbr/gravel_ground_01/roughness.jpg",
+      "packed": true,
+      "pixel_size": [
+        2048,
+        2048
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "roughness.jpg.004",
+      "stored_path": "//../../assets/pbr/Concrete046/roughness.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/assets/pbr/Concrete046/roughness.jpg",
+      "packed": true,
+      "pixel_size": [
+        2048,
+        2048
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "roughness.jpg.005",
+      "stored_path": "//../../assets/pbr/Metal046B/roughness.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/assets/pbr/Metal046B/roughness.jpg",
+      "packed": true,
+      "pixel_size": [
+        2048,
+        2048
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "shift_card.png",
+      "stored_path": "//../../blender/gullet/textures/shift_card.png",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/blender/gullet/textures/shift_card.png",
+      "packed": true,
+      "pixel_size": [
+        2048,
+        1536
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "timber_basecolor.png",
+      "stored_path": "//../../blender/gullet/textures/timber_basecolor.png",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/blender/gullet/textures/timber_basecolor.png",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "timber_normal.png",
+      "stored_path": "//../../blender/gullet/textures/timber_normal.png",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/blender/gullet/textures/timber_normal.png",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "timber_roughness.png",
+      "stored_path": "//../../blender/gullet/textures/timber_roughness.png",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/blender/gullet/textures/timber_roughness.png",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "cs_poster_art_landscape",
+      "stored_path": "/tmp/cs_poster_landscape.png",
+      "absolute_path": "/tmp/cs_poster_landscape.png",
+      "packed": true,
+      "pixel_size": [
+        1536,
+        1024
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "cs_poster_art_portrait",
+      "stored_path": "/tmp/cs_poster_portrait.png",
+      "absolute_path": "/tmp/cs_poster_portrait.png",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        1536
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "cs_tv_briefing_slide",
+      "stored_path": "/tmp/cs_tv_briefing_slide.png",
+      "absolute_path": "/tmp/cs_tv_briefing_slide.png",
+      "packed": true,
+      "pixel_size": [
+        1920,
+        1080
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "metal_plate_diff_2k.jpg",
+      "stored_path": "//../../assets/textures/cc0/metal_plate_diff_2k.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/assets/textures/cc0/metal_plate_diff_2k.jpg",
+      "packed": true,
+      "pixel_size": [
+        2048,
+        2048
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "metal_plate_disp_2k.jpg",
+      "stored_path": "//../../assets/textures/cc0/metal_plate_disp_2k.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/assets/textures/cc0/metal_plate_disp_2k.jpg",
+      "packed": true,
+      "pixel_size": [
+        2048,
+        2048
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "metal_plate_rough_2k.jpg",
+      "stored_path": "//../../assets/textures/cc0/metal_plate_rough_2k.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/assets/textures/cc0/metal_plate_rough_2k.jpg",
+      "packed": true,
+      "pixel_size": [
+        2048,
+        2048
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "painted_plaster_wall_diff_2k.jpg",
+      "stored_path": "//../../assets/textures/cc0/painted_plaster_wall_diff_2k.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/assets/textures/cc0/painted_plaster_wall_diff_2k.jpg",
+      "packed": true,
+      "pixel_size": [
+        2048,
+        2048
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "painted_plaster_wall_disp_2k.jpg",
+      "stored_path": "//../../assets/textures/cc0/painted_plaster_wall_disp_2k.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/assets/textures/cc0/painted_plaster_wall_disp_2k.jpg",
+      "packed": true,
+      "pixel_size": [
+        2048,
+        2048
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "painted_plaster_wall_rough_2k.jpg",
+      "stored_path": "//../../assets/textures/cc0/painted_plaster_wall_rough_2k.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/assets/textures/cc0/painted_plaster_wall_rough_2k.jpg",
+      "packed": true,
+      "pixel_size": [
+        2048,
+        2048
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "plastered_wall_diff_2k.jpg",
+      "stored_path": "//../../production/assets/textures/cc0/plastered_wall_diff_2k.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/production/assets/textures/cc0/plastered_wall_diff_2k.jpg",
+      "packed": true,
+      "pixel_size": [
+        2048,
+        2048
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "plastered_wall_disp_2k.jpg",
+      "stored_path": "//../../production/assets/textures/cc0/plastered_wall_disp_2k.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/production/assets/textures/cc0/plastered_wall_disp_2k.jpg",
+      "packed": true,
+      "pixel_size": [
+        2048,
+        2048
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "plastered_wall_rough_2k.jpg",
+      "stored_path": "//../../production/assets/textures/cc0/plastered_wall_rough_2k.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/production/assets/textures/cc0/plastered_wall_rough_2k.jpg",
+      "packed": true,
+      "pixel_size": [
+        2048,
+        2048
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "wood_table_worn_diff_2k.jpg",
+      "stored_path": "//../../assets/textures/cc0/wood_table_worn_diff_2k.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/assets/textures/cc0/wood_table_worn_diff_2k.jpg",
+      "packed": true,
+      "pixel_size": [
+        2048,
+        2048
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "wood_table_worn_disp_2k.jpg",
+      "stored_path": "//../../assets/textures/cc0/wood_table_worn_disp_2k.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/assets/textures/cc0/wood_table_worn_disp_2k.jpg",
+      "packed": true,
+      "pixel_size": [
+        2048,
+        2048
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "wood_table_worn_rough_2k.jpg",
+      "stored_path": "//../../assets/textures/cc0/wood_table_worn_rough_2k.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/assets/textures/cc0/wood_table_worn_rough_2k.jpg",
+      "packed": true,
+      "pixel_size": [
+        2048,
+        2048
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "T01-floor-albedo-r01.png",
+      "stored_path": "//../art/materials/T01-floor-albedo-r01.png",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/art/materials/T01-floor-albedo-r01.png",
+      "packed": true,
+      "pixel_size": [
+        1254,
+        1254
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "T02-wall-albedo-r01.png",
+      "stored_path": "//../art/materials/T02-wall-albedo-r01.png",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/art/materials/T02-wall-albedo-r01.png",
+      "packed": true,
+      "pixel_size": [
+        1254,
+        1254
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "T03-cloth-albedo-r01.png",
+      "stored_path": "//../art/materials/T03-cloth-albedo-r01.png",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/art/materials/T03-cloth-albedo-r01.png",
+      "packed": true,
+      "pixel_size": [
+        1254,
+        1254
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "A04 original painted material atlas",
+      "stored_path": "//../production/revisions/production/revisions/art/materials/a04-painted-material-atlas.png",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/production/revisions/production/revisions/art/materials/a04-painted-material-atlas.png",
+      "packed": true,
+      "pixel_size": [
+        1254,
+        1254
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "A05 main-hall painted material atlas",
+      "stored_path": "//../production/revisions/production/revisions/art/materials/a05-painted-material-atlas.png",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/production/revisions/production/revisions/art/materials/a05-painted-material-atlas.png",
+      "packed": true,
+      "pixel_size": [
+        1254,
+        1254
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "crt_rx_core.png",
+      "stored_path": "C:/Users/Camer/Games/critical-shift/worktrees/reactor-valorant/sections/reactor-room/blender/assets/grok-terminal/textures/crt_rx_core.png",
+      "absolute_path": "/workspace/C:/Users/Camer/Games/critical-shift/worktrees/reactor-valorant/sections/reactor-room/blender/assets/grok-terminal/textures/crt_rx_core.png",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        768
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "crt_trend.png",
+      "stored_path": "C:/Users/Camer/Games/critical-shift/worktrees/reactor-valorant/sections/reactor-room/blender/assets/grok-terminal/textures/crt_trend.png",
+      "absolute_path": "/workspace/C:/Users/Camer/Games/critical-shift/worktrees/reactor-valorant/sections/reactor-room/blender/assets/grok-terminal/textures/crt_trend.png",
+      "packed": true,
+      "pixel_size": [
+        1024,
+        768
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "keycap_atlas.png",
+      "stored_path": "//../production/revisions/production/revisions/control-dressing-03/assets/grok-terminal/textures/keycap_atlas.png",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/production/revisions/production/revisions/control-dressing-03/assets/grok-terminal/textures/keycap_atlas.png",
+      "packed": true,
+      "pixel_size": [
+        2048,
+        768
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "PAINTED floor use map \u2014 original Art09",
+      "stored_path": "",
+      "absolute_path": null,
+      "packed": true,
+      "pixel_size": [
+        2048,
+        2048
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "your-shift-their-tomorrow.png",
+      "stored_path": "//../production/revisions/production/revisions/art/propaganda/your-shift-their-tomorrow.png",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/production/revisions/production/revisions/art/propaganda/your-shift-their-tomorrow.png",
+      "packed": true,
+      "pixel_size": [
+        768,
+        512
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "color.jpg.001",
+      "stored_path": "//../production/assets/textures/concrete/color.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/production/assets/textures/concrete/color.jpg",
+      "packed": true,
+      "pixel_size": [
+        2048,
+        2048
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "height.jpg.001",
+      "stored_path": "//../production/assets/textures/concrete/height.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/production/assets/textures/concrete/height.jpg",
+      "packed": true,
+      "pixel_size": [
+        2048,
+        2048
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    },
+    {
+      "name": "roughness.jpg.001",
+      "stored_path": "//../production/assets/textures/concrete/roughness.jpg",
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/production/assets/textures/concrete/roughness.jpg",
+      "packed": true,
+      "pixel_size": [
+        2048,
+        2048
+      ],
+      "valid_loaded_pixels": true,
+      "external_file_required": false,
+      "external_file_exists": false
+    }
+  ],
+  "unpacked_valid_image_files": [],
+  "missing_libraries": [],
+  "missing_unpacked_images": [],
+  "local_fonts": [
+    {
+      "name": "Bfont Regular",
+      "path": "<builtin>",
+      "packed": false
+    }
+  ],
+  "required_rebuild_inputs": [
+    "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/module_overhaul_R1.blend",
+    "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend",
+    "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/concepts/clinical-propaganda.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/baseline.json",
+    "/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend",
+    "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/overhaul_room.py"
+  ],
+  "portability_notes": [
+    "Preserve the repository sections/facility-assembly hierarchy; saved top-level libraries use repository-relative paths.",
+    "All 123 file-backed images in a fresh full-file cold open are packed and have valid loaded dimensions. Their historical external paths are not required cold-open dependencies.",
+    "The generated evidence renderer prefers the bundled DejaVuSans font; it has the same SHA as the current system font. Its license is included.",
+    "Absolute paths document this workspace; linked stored paths and unpacked-file relative paths describe portable placement.",
+    "Fresh full-file cold-open cycle7 exactly matches all 24 hot cycle6 RGB images and all camera/render metadata. Source and renderer SHA values match current files.",
+    "Extracted portable source and all 25 linked-library bytes independently match this manifest. The separately inspected primary-author portable cold-open report confirms local dependency resolution and packed images."
+  ],
+  "generated_at_utc": "2026-09-30T23:51:03.505594+00:00",
+  "cold_render_comparison": "PASS",
+  "source_cycle": 6,
+  "rebuild_input_identity": [
+    {
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/module_overhaul_R1.blend",
+      "exists": true,
+      "sha256": "c11a01341c56a6428c71508fc8341e7d6df4528cdb6e2c121dacf0adf81bf21e"
+    },
+    {
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend",
+      "exists": true,
+      "sha256": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40"
+    },
+    {
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/concepts/clinical-propaganda.png",
+      "exists": true,
+      "sha256": "141a005e41c5700d30875725f4f90c84a510dfe0518ac2a653f64c02b54db456"
+    },
+    {
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/baseline.json",
+      "exists": true,
+      "sha256": "253d0103c45a6f93ad8a57bbe0741096aa43aba5c8aad60e751a214a1a1a7f35"
+    },
+    {
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend",
+      "exists": true,
+      "sha256": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8"
+    },
+    {
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/overhaul_room.py",
+      "exists": true,
+      "sha256": "17ff7870cee842e8bb551587950df87e5b156adba1635a29154719ef7193fe13"
+    }
+  ],
+  "unpacked_files": [
+    {
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/concepts/clinical-propaganda.png",
+      "relative_path": "revamp-review/concepts/clinical-propaganda.png",
+      "purpose": "Required when rebuilding; the saved-scene image is packed.",
+      "required_for_cold_open": false,
+      "required_for_rebuild": true,
+      "required_for_render": false,
+      "exists": true,
+      "sha256": "141a005e41c5700d30875725f4f90c84a510dfe0518ac2a653f64c02b54db456"
+    },
+    {
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/fonts/DejaVuSans.ttf",
+      "relative_path": "revamp-review/production/fonts/DejaVuSans.ttf",
+      "purpose": "Bundled evidence-label font preferred by the renderer.",
+      "required_for_cold_open": false,
+      "required_for_rebuild": false,
+      "required_for_render": true,
+      "exists": true,
+      "sha256": "57f73e11f51999432bf7ab22ce55b6f945d5eca1bf824404cfa9ec2e3718c84e"
+    },
+    {
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/fonts/DejaVuSans-LICENSE.txt",
+      "relative_path": "revamp-review/production/fonts/DejaVuSans-LICENSE.txt",
+      "purpose": "Bundled font license.",
+      "required_for_cold_open": false,
+      "required_for_rebuild": false,
+      "required_for_render": false,
+      "required_for_delivery": true,
+      "exists": true,
+      "sha256": "63d3ba759d12804c5b31a9d5940d855c1820d1f5999e6b0872eb1c7ff045fbc9"
+    }
+  ],
+  "render_input_identity": [
+    {
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/render_overhaul.py",
+      "sha256": "69d7bc48374da4b06f63df7551dcd37c721d7796ec8924f641f1c5578b1918db"
+    },
+    {
+      "absolute_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/fonts/DejaVuSans.ttf",
+      "sha256": "57f73e11f51999432bf7ab22ce55b6f945d5eca1bf824404cfa9ec2e3718c84e"
+    }
+  ],
+  "required_unpacked_cold_open_files": [],
+  "lfs_refresh": {
+    "status": "UNAVAILABLE IN SESSION",
+    "reason": "The primary author reports the required Git LFS pull is blocked by unavailable GitHub credentials. This independent review validates the exact available local dependency bytes; it does not claim remote refresh."
+  },
+  "cold_render_comparison_evidence": {
+    "reviewer": "medical_technical_cycle6",
+    "source_sha256": "8c353ae9f06b9bcf0aeb47c07a8db863fda2575f9c40d1d34f884d2eaa48096b",
+    "renderer_sha256": "69d7bc48374da4b06f63df7551dcd37c721d7796ec8924f641f1c5578b1918db",
+    "hot_cycle": 6,
+    "cold_cycle": 7,
+    "hot_manifest_sha256": "4093c6cf4ef67ad566c9444312890d5ab01b59e3b67b56383f9b3f8c211e970f",
+    "cold_manifest_sha256": "c7cd94f09a497d778baaf663c35aa3baab8bd15e4f4bf20cbaeeed7fca3483b8",
+    "summary": {
+      "views_compared": 24,
+      "passed_views": 24,
+      "decoded_RGB_identical_views": 24,
+      "byte_identical_PNG_views": 0,
+      "camera_metadata_equal_views": 24,
+      "maximum_RGB_difference_255": 0,
+      "maximum_camera_matrix_delta": 0.0,
+      "total_pixels_compared": 15364800,
+      "total_changed_pixels": 0
+    },
+    "source_and_renderer_unchanged": true,
+    "technical_report": "revamp-review/production/critics/cycle-7-technical.json",
+    "independent_comparison_scratch": "/workspace/scratch/medical-cycle7-independent-pixel-comparison.json"
+  },
+  "portable_delivery_verification": {
+    "status": "PASS",
+    "source_sha256": "8c353ae9f06b9bcf0aeb47c07a8db863fda2575f9c40d1d34f884d2eaa48096b",
+    "independent_library_byte_matches": 25,
+    "source_byte_match": true,
+    "primary_author_cold_open_report": "revamp-review/production/portable-delivery-verification.json",
+    "primary_author_cold_open_report_sha256": "ba6e22cedf0093ea8d05841ac69ef6f00d1f5cccee747fe19392664c0ebe8f2e",
+    "primary_author_cold_open_editable_objects": 1306,
+    "primary_author_cold_open_valid_packed_images": 123,
+    "critic_Blender_rerun": false
+  }
+}

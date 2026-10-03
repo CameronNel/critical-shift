@@ -1,0 +1,422 @@
+{
+  "review_type": "fresh-context independent pixel-only visual critique",
+  "cycle": 4,
+  "verdict": "FAIL",
+  "sourceSHA": "505eb8265886fcc13c8b68ec663080aaad2a833b7924fd88a4d88608f7df312f",
+  "source_sha256": "505eb8265886fcc13c8b68ec663080aaad2a833b7924fd88a4d88608f7df312f",
+  "evidence": {
+    "render_directory": "renders/cycle-4",
+    "manifest_complete": true,
+    "render_complete_marker": "/workspace/scratch/medical-render-cycle4.log:51 REVIEW_RENDER_COMPLETE",
+    "expected_views": 24,
+    "rendered_views": 24,
+    "individually_inspected_views": 24,
+    "resolution": [
+      1067,
+      600
+    ],
+    "samples": 24,
+    "benchmark_images": [
+      "../spawn-reference/VALIDATE_Spawn.png",
+      "../spawn-reference/BRIEFING_INDIRECT.png",
+      "../spawn-reference/VALIDATE_LockerDoor.png",
+      "../spawn-reference/VALIDATE_Material_A.png"
+    ],
+    "benchmark_images_individually_inspected": true,
+    "source_code_inspected": false,
+    "prior_reviews_used": false,
+    "hidden_bag_temporary_inspection_fill_watts": 2,
+    "hidden_bag_excluded_from_gameplay_lighting_score": true
+  },
+  "assessment_basis": "Judge the rendered result against the approved spawn palette, material restraint, believable construction and stylized fidelity. AAA craft means refined stylized authorship here; photographic texture density is not an acceptance target. PASS/FAIL for each view evaluates its local functional and inspection requirements; room-wide score deficiencies remain separate. Exact preservation of geometry and boundaries is not provable from pixels and belongs to the separate technical review.",
+  "score": {
+    "visual_total": 78.3,
+    "visual_available": 90,
+    "maximum_possible_overall_with_perfect_technical": 88.3,
+    "technical_score": null,
+    "technical_status": "NOT_ASSESSED_BY_THIS_PIXEL_CRITIC",
+    "categories": {
+      "layout_and_route_readability": {
+        "score": 18.5,
+        "available": 20,
+        "minimum": 17,
+        "minimum_met": true,
+        "evidence": "The four cutaways and player-height views show a broad continuous route, clear work zones and a readable bed interaction area. Machinery stays at the perimeter; neither the recovery berth nor workbench overwhelms circulation. The cutaway ceiling beams occasionally cross secondary detail but do not hide the footprint."
+      },
+      "grounded_stylized_art_and_silhouettes": {
+        "score": 17.5,
+        "available": 20,
+        "minimum": 17,
+        "minimum_met": true,
+        "evidence": "Lavender/off-white walls, navy frames, restrained orange and mustard accents are coherent with the spawn benchmark. The console's guarded buttons, folded shelf construction, bed carriage, hose reel, caster support and framed portals have specific secondary forms. This does not have a dominant generic low-poly, bevel-box or glossy web-demo read. Upholstery remains unusually smooth and pristine at the dedicated detail distance."
+      },
+      "ocru_hero_function_and_focal_clarity": {
+        "score": 13.5,
+        "available": 15,
+        "minimum": 12.75,
+        "minimum_met": true,
+        "evidence": "The red practical focuses the segmented patient platform and distinguishes OCRU from the recovery berth. The supporting mechanics and physical side controls communicate an industrial reanimation station. The main focal upholstery would benefit from a more specific worn clinical surface and closure edge; added micro-greebles are unnecessary."
+      },
+      "materials_and_anti_plastic_quality": {
+        "score": 13,
+        "available": 15,
+        "minimum": 12.75,
+        "minimum_met": true,
+        "evidence": "Plaster, matte blue/orange painted housings, dark hose/rubber, frosted cabinet glass, warm clinical laminate and metal rails are distinguishable. There is no scene-wide plastic sheen. Vinyl and fabric are less specific at close range; the strong jagged tile reflections in the rear cutaways also suggest an unmotivated wet/glazed floor."
+      },
+      "dark_lighting_and_atmosphere": {
+        "score": 7.8,
+        "available": 10,
+        "minimum": 8.5,
+        "minimum_met": false,
+        "evidence": "The red bed key, localized warm workbench lamp and limited utility light create strong depth and a bleak room. This is not flat even exposure. However HERO_RESERVE is almost completely black, much of HERO_CART disappears into black and the right half of HERO_CABINET is unreadable. Darkness is preventing required asset inspection. The explicitly filled HIDDEN_BAG view is excluded from this score."
+      },
+      "purposeful_dressing_and_neglected_workplace_story": {
+        "score": 8,
+        "available": 10,
+        "minimum": 8.5,
+        "minimum_met": false,
+        "evidence": "The old cot, distressed continuity/productivity poster, wall patches, worn blanket, no-pulse/repeat shift log and hidden zipped carrier establish institutional harm and prior clinical use. Decline is concentrated in those secondary details. From ENTRY and PINCH, the active bay, neatly stocked cartridge rack and orderly cream worktop still read closer to recently installed equipment than a clinic worn down by neglect. The hidden note is barely discernible; its message cannot be verified from these pixels."
+      }
+    }
+  },
+  "acceptance_failures": [
+    "Three mandatory asset hero views fail readability and useful inspection.",
+    "Lighting score 7.8/10 is below the 8.5 minimum.",
+    "Neglected workplace story score 8.0/10 is below the 8.5 minimum.",
+    "Visual total 78.3/90 cannot reach 90/100 even with a perfect technical score."
+  ],
+  "hard_vetoes": {
+    "dominant_scene_veto_triggered": false,
+    "checks": [
+      {
+        "name": "generic low-poly / web-demo presentation",
+        "triggered": false
+      },
+      {
+        "name": "dominant repeated bevelled-box construction",
+        "triggered": false
+      },
+      {
+        "name": "uniform satin/plastic response",
+        "triggered": false
+      },
+      {
+        "name": "flat even lighting",
+        "triggered": false
+      },
+      {
+        "name": "primitive sci-fi controls / decorative greebling",
+        "triggered": false
+      },
+      {
+        "name": "excessive signage or random decorative clutter",
+        "triggered": false
+      },
+      {
+        "name": "photoreal texture-noise drift",
+        "triggered": false
+      },
+      {
+        "name": "dominant procedural cleanliness",
+        "triggered": false,
+        "note": "Localized wear exists, but the user-specific neglect story remains underdeveloped."
+      },
+      {
+        "name": "floating or unsupported props visibly established",
+        "triggered": false,
+        "note": "No conspicuous floating prop is visible. Pixel review does not replace support-contact validation."
+      },
+      {
+        "name": "scene-wide unreadable silhouettes",
+        "triggered": false,
+        "note": "The room and primary function read. Local unreadability in three required asset views is a critical camera failure, recorded below."
+      }
+    ]
+  },
+  "critical_defects": [
+    {
+      "id": "C4-V01",
+      "title": "Required secondary asset heroes are hidden by the authored shadows",
+      "cameras": [
+        "HERO_RESERVE",
+        "HERO_CART",
+        "HERO_CABINET"
+      ],
+      "evidence": "Reserve power occupies the dark left/central field while the cropped restart console is the only clear object. The transfer cart loses most of its left pad and frame. Cabinet lighting exposes the left glass door but leaves its right door, handle and contents nearly black.",
+      "required_repair": "Reshape spill from the permitted dim directional accents or existing practicals so these assets retain a quiet silhouette, construction highlights and local contact shadows. Keep the red bed and warm workbench dominant and the ceiling dark. Do not use the bag's temporary inspection fill for ordinary views.",
+      "verification": "Rerender the same three named cameras and the player-height views. Each target asset must be recognizable and inspectable without reading its view label, with the current room mood intact."
+    }
+  ],
+  "actionable_defects": [
+    {
+      "id": "C4-V02",
+      "severity": "high",
+      "title": "Decline does not yet carry strongly enough into the main clinical equipment",
+      "cameras": [
+        "ENTRY",
+        "PINCH",
+        "HERO_OCRU",
+        "HERO_SUPPLIES",
+        "DETAIL_SUPPLIES"
+      ],
+      "evidence": "The main bed pads, rack inventory, console work surface and cream bench remain very orderly with almost uninterrupted new-looking surfaces. The faded poster, wall patches and old cot do more narrative work than the active focal clusters.",
+      "repair": "Keep all current footprints and circulation. Give two or three focal contact areas specific signs of long use or compromised care: a broad repaired/worn vinyl patch, localized handling wear on a medical surface and one displaced or depleted supply grouping. Carry the neglect through useful shapes and material value, not extra labels, scattered debris or blanket grunge.",
+      "verification": "The ENTRY and PINCH reads should imply the former clinic's decline before close-up text is read."
+    },
+    {
+      "id": "C4-V03",
+      "severity": "medium",
+      "title": "Clinical upholstery has a weak tactile construction read at detail distance",
+      "cameras": [
+        "DETAIL_OCRU",
+        "HERO_OCRU",
+        "HERO_RECOVERY",
+        "DETAIL_SUPPLIES"
+      ],
+      "evidence": "OCRU pads and the pillow present very smooth broad surfaces with minimal visible closure or repaired edge logic. Folded fabric and the recovery blanket have broad forms, but their surfaces remain close to flat slabs compared with the specificity of the metalwork.",
+      "repair": "Refine a small number of broad upholstery features: a sewn/welded perimeter, one compression or fold and a localized worn/repaired area. Preserve the approved spawn's restrained surface frequency and distinguish vinyl from fabric and coated metal through roughness and broad form.",
+      "verification": "At 600p detail distance, the surfaces should read as specific clinical vinyl/fabric without requiring photoreal weave or dense scratches."
+    },
+    {
+      "id": "C4-V04",
+      "severity": "medium",
+      "title": "Rear cutaway tile glare is sharper and wetter than the gameplay floor read",
+      "cameras": [
+        "CORNER_NW",
+        "CORNER_NE"
+      ],
+      "evidence": "A bright broken grid of reflections appears around the route/cabinet area from the rear cutaways, while the corresponding player-height floor reads comparatively matte.",
+      "repair": "Reduce or broaden those tile highlights unless wetness is an intentional, visibly explained local story element. Preserve the floor grid and broad value separation.",
+      "verification": "Repeat the two rear cutaways and PINCH. Floor reflectance should stay coherent across camera angles and avoid becoming a secondary focal point."
+    }
+  ],
+  "camera_reviews": [
+    {
+      "id": "ENTRY",
+      "image": "renders/cycle-4/ENTRY.png",
+      "individually_inspected": true,
+      "verdict": "PASS",
+      "reason": "Route, OCRU bay, utility wall and recovery side remain legible. Palette and structural craft match the spawn family.",
+      "defects": [
+        "C4-V02"
+      ]
+    },
+    {
+      "id": "REVERSE",
+      "image": "renders/cycle-4/REVERSE.png",
+      "individually_inspected": true,
+      "verdict": "PASS",
+      "reason": "Warm workbench/red bay split produces depth and a clear return route. The exit is dark but its frame remains discernible.",
+      "defects": []
+    },
+    {
+      "id": "PINCH",
+      "image": "renders/cycle-4/PINCH.png",
+      "individually_inspected": true,
+      "verdict": "PASS",
+      "reason": "The rescue route is visible and the work zones are distinct; the view is useful for circulation review.",
+      "defects": [
+        "C4-V02"
+      ]
+    },
+    {
+      "id": "DETAIL_OCRU",
+      "image": "renders/cycle-4/DETAIL_OCRU.png",
+      "individually_inspected": true,
+      "verdict": "PASS",
+      "reason": "The pads, straps, rail, carriage and support structure can be inspected. Surface specificity remains a polish defect, rather than a hidden feature.",
+      "defects": [
+        "C4-V03"
+      ]
+    },
+    {
+      "id": "DETAIL_SUPPLIES",
+      "image": "renders/cycle-4/DETAIL_SUPPLIES.png",
+      "individually_inspected": true,
+      "verdict": "PASS",
+      "reason": "Recognizable gloves, dressings, bottles, tools and shift log are individually visible; the clinical cluster is purposeful.",
+      "defects": [
+        "C4-V02",
+        "C4-V03"
+      ]
+    },
+    {
+      "id": "CORNER_SW",
+      "image": "renders/cycle-4/CORNER_SW.png",
+      "individually_inspected": true,
+      "verdict": "PASS",
+      "reason": "Complete footprint, equipment hierarchy and warm/red split are visible; the label is small and useful.",
+      "defects": []
+    },
+    {
+      "id": "CORNER_SE",
+      "image": "renders/cycle-4/CORNER_SE.png",
+      "individually_inspected": true,
+      "verdict": "PASS",
+      "reason": "Complete footprint and the OCRU route relationship are visible.",
+      "defects": []
+    },
+    {
+      "id": "CORNER_NW",
+      "image": "renders/cycle-4/CORNER_NW.png",
+      "individually_inspected": true,
+      "verdict": "PASS",
+      "reason": "Complete footprint, entry, bench/cot side and utility rear are visible. Floor glare needs refinement.",
+      "defects": [
+        "C4-V04"
+      ]
+    },
+    {
+      "id": "CORNER_NE",
+      "image": "renders/cycle-4/CORNER_NE.png",
+      "individually_inspected": true,
+      "verdict": "PASS",
+      "reason": "Complete footprint and the major asset positions are visible. Floor glare needs refinement.",
+      "defects": [
+        "C4-V04"
+      ]
+    },
+    {
+      "id": "WALL_SOUTH",
+      "image": "renders/cycle-4/WALL_SOUTH.png",
+      "individually_inspected": true,
+      "verdict": "PASS",
+      "reason": "The entry wall and framed opening read, with the two opposing work zones establishing the return composition.",
+      "defects": []
+    },
+    {
+      "id": "WALL_WEST",
+      "image": "renders/cycle-4/WALL_WEST.png",
+      "individually_inspected": true,
+      "verdict": "PASS",
+      "reason": "OCRU bed and frame have a clear red focal hierarchy and inspectable silhouette.",
+      "defects": []
+    },
+    {
+      "id": "WALL_NORTH",
+      "image": "renders/cycle-4/WALL_NORTH.png",
+      "individually_inspected": true,
+      "verdict": "PASS",
+      "reason": "Restart, cartridge rack, decon opening and utility routing form a coherent functional wall.",
+      "defects": []
+    },
+    {
+      "id": "WALL_EAST",
+      "image": "renders/cycle-4/WALL_EAST.png",
+      "individually_inspected": true,
+      "verdict": "PASS",
+      "reason": "Recovery cot, institutional poster and workbench read as the old clinical side. Cabinet detail is addressed in its dedicated failed hero.",
+      "defects": []
+    },
+    {
+      "id": "HERO_OCRU",
+      "image": "renders/cycle-4/HERO_OCRU.png",
+      "individually_inspected": true,
+      "verdict": "PASS",
+      "reason": "The reanimation platform and physical controls are clear, with the intended red focal light.",
+      "defects": [
+        "C4-V02",
+        "C4-V03"
+      ]
+    },
+    {
+      "id": "HERO_RESTART",
+      "image": "renders/cycle-4/HERO_RESTART.png",
+      "individually_inspected": true,
+      "verdict": "PASS",
+      "reason": "Guarded physical buttons, drawers, enclosure and dated displays have specific functional construction.",
+      "defects": []
+    },
+    {
+      "id": "HERO_CARTRIDGES",
+      "image": "renders/cycle-4/HERO_CARTRIDGES.png",
+      "individually_inspected": true,
+      "verdict": "PASS",
+      "reason": "The complete stocked shelf can be inspected, with clear shelf supports and contained inventory.",
+      "defects": []
+    },
+    {
+      "id": "HERO_RESERVE",
+      "image": "renders/cycle-4/HERO_RESERVE.png",
+      "individually_inspected": true,
+      "verdict": "FAIL",
+      "reason": "The intended reserve-power asset is almost entirely black; only the neighboring cropped console is clearly inspectable.",
+      "defects": [
+        "C4-V01"
+      ]
+    },
+    {
+      "id": "HERO_DECON",
+      "image": "renders/cycle-4/HERO_DECON.png",
+      "individually_inspected": true,
+      "verdict": "PASS",
+      "reason": "The hose loop, reel, valve area, used-PPE bin, portal framing and drain establish a readable decontamination alcove.",
+      "defects": []
+    },
+    {
+      "id": "HERO_RECOVERY",
+      "image": "renders/cycle-4/HERO_RECOVERY.png",
+      "individually_inspected": true,
+      "verdict": "PASS",
+      "reason": "The older cot, rails, worn blanket and distressed poster are readable. Broad textile refinement remains useful.",
+      "defects": [
+        "C4-V03"
+      ]
+    },
+    {
+      "id": "HERO_CART",
+      "image": "renders/cycle-4/HERO_CART.png",
+      "individually_inspected": true,
+      "verdict": "FAIL",
+      "reason": "Most of the left pad/frame dissolves into black. A caster and part of the scissor support are visible, but the whole asset cannot be judged.",
+      "defects": [
+        "C4-V01"
+      ]
+    },
+    {
+      "id": "HERO_SUPPLIES",
+      "image": "renders/cycle-4/HERO_SUPPLIES.png",
+      "individually_inspected": true,
+      "verdict": "PASS",
+      "reason": "The localized warm lamp reveals a coherent clinical workbench, sink and storage cluster.",
+      "defects": [
+        "C4-V02"
+      ]
+    },
+    {
+      "id": "HERO_WASH",
+      "image": "renders/cycle-4/HERO_WASH.png",
+      "individually_inspected": true,
+      "verdict": "PASS",
+      "reason": "Basin, faucet, dispenser and surrounding clinical surfaces are recognizable and inspectable.",
+      "defects": []
+    },
+    {
+      "id": "HERO_CABINET",
+      "image": "renders/cycle-4/HERO_CABINET.png",
+      "individually_inspected": true,
+      "verdict": "FAIL",
+      "reason": "The left glazed door reads, but the right door and its construction/contents are swallowed by darkness.",
+      "defects": [
+        "C4-V01"
+      ]
+    },
+    {
+      "id": "HIDDEN_BAG",
+      "image": "renders/cycle-4/HIDDEN_BAG.png",
+      "individually_inspected": true,
+      "verdict": "PASS",
+      "reason": "Closed zipper, reinforced perimeter and carry handles are visible beneath the bed. Tiny mustard/yellow note-like flecks remain barely discernible; the note's message is not legible. The labelled temporary 2 W fill is inspection-only.",
+      "defects": []
+    }
+  ],
+  "camera_totals": {
+    "pass": 21,
+    "fail": 3,
+    "total": 24
+  },
+  "regression_status": "NOT_ASSESSED: this fresh-context critic used the final cycle-4 pixels and approved spawn references, not prior-cycle reports or renders.",
+  "technical_scope": "No author source edited or inspected. Exact room-boundary preservation, support contacts, articulation, dependency integrity, cold-start reproducibility and runtime readiness require the separate technical review.",
+  "summary": "A coherent, grounded stylized medical room with spawn-compatible colours, purposeful clinical equipment, good circulation and strong primary lighting. It remains unaccepted because three secondary asset heroes are too dark to inspect, and the visible decline needs to reach the active focal furniture more clearly."
+}

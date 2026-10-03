@@ -1,0 +1,13 @@
+{
+  "source_sha256": "39007192eef36f87c5299933e3a2a4f3462791871144c349a580ba2d9d322487",
+  "diagnostic_recipe_sha256": "5b2dedc25d5f89af217d4d5114d64772189c0e7099c8c383e4e7e97616a0ccf5",
+  "actual_image_inspected": "renders/skill-final-all-active-uv/HERO_SUPPLIES.png",
+  "status": "FOCUSED_CHECKER_INSPECTED",
+  "observations": [
+    "Visible front, side and top carton faces carry coherent checker scale without missing patches",
+    "Bottle bodies, cap/pump surfaces, cloth and small authored props carry checker coverage at this framing"
+  ],
+  "scope": "Disposable existing-renderer copy expands the UV override to all named-layer consumers. This one camera does not visually inspect all 214 meshes. Independent face-area/finite UV and winding checks cover all214. Other source-specific diagnostics remain historical.",
+  "native_source_saved": false,
+  "beauty_renderer_changed": false
+}

@@ -1,0 +1,2866 @@
+{
+  "schema_version": 1,
+  "cycle": 14,
+  "role": "independent Blender technical critic",
+  "review_type": "unscored source preflight; formal camera review aborted by primary author",
+  "source_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/module_overhaul_R2.blend",
+  "source_sha256": "7b18f78e64c96b68dc992710947f780662615ce3ccf7d2d11df167809f19f867",
+  "current_source_matches_reviewed_sha": true,
+  "status": "BLOCKED_BY_CONFIRMED_SUPPORT_OMISSIONS",
+  "technical_rubric": {
+    "available": 10,
+    "minimum": 8.5,
+    "awarded": null,
+    "reason": "Cycle 14 has no complete 24-camera batch; no formal score or acceptance claim issued."
+  },
+  "visual_categories": "Not scored by this technical critic.",
+  "render_gate": {
+    "complete": true,
+    "shot_records": 24,
+    "png_count": 23,
+    "expected_views": 24,
+    "pixel_inspection": "Not performed for this preflight."
+  },
+  "method": {
+    "new_context": true,
+    "prior_critic_reports_or_task_states_read": false,
+    "source_saved": false,
+    "author_edits": false,
+    "source_read_mode": "Fresh factory-startup Blender 5.2.2 process; --disable-autoexec; threads 1; Python exit code configured before Python script.",
+    "broad_support_scan": "Conservative visible evaluated mesh-island AABB union at 5.0001 mm, plus all visible curve/font bounds. A disconnected cluster proves lack of any geometric contact to all outside geometry within that limit. A connected AABB component does not establish actual or intended support.",
+    "broad_nodes": 2953,
+    "strict_unrooted_clusters": 26,
+    "float_tolerance_crosscheck": "Increasing union threshold to 5.001 mm joins the receiver and C01 clusters but still leaves their combined assembly >=14.00018 mm from all outside geometry.",
+    "targeted_surface_scan": "Bidirectional full-vertex-to-evaluated-surface BVH proximity, followed by directed rays from actual source-surface witnesses. These rays measure a concrete gap along the recorded path; vertex-to-surface minima are sampled upper bounds, not an exhaustive triangle-triangle minimum. Conservative AABB separation provides the lower-bound proof.",
+    "architecture_roots": "Actual room Floor/West wall/East wall/Entry walls/Rear walls/Decon walls/Ceiling/Decon floor/Decon ceiling, not all inherited object names."
+  },
+  "existing_verifier_replay": {
+    "status": "PASS",
+    "object_contact": {
+      "registered": 102,
+      "passed": 102,
+      "unregistered": [],
+      "anchors_checked": 111
+    },
+    "assembly_part_contacts": 151,
+    "sewn_checks": 10,
+    "component_checks": 26,
+    "normals_objects": 156,
+    "missing_dependencies": [],
+    "linked_library_count": 25,
+    "file_images": 124,
+    "unpacked_required_images": 0,
+    "errors": [],
+    "limitation": "Assembly support traversal treats a baseline inherited-name match as the room root. That allows new additions to pass while their inherited compound host remains detached from actual structure."
+  },
+  "baseline_comparison": {
+    "source_sha256": "7b18f78e64c96b68dc992710947f780662615ce3ccf7d2d11df167809f19f867",
+    "original_count": 1203,
+    "missing": [],
+    "moved": [
+      {
+        "name": "Reserve removable door",
+        "type": "MESH",
+        "maximum_matrix_delta": 0.7880107164382935
+      },
+      {
+        "name": "Reserve door fastener",
+        "type": "MESH",
+        "maximum_matrix_delta": 0.7880107164382935
+      },
+      {
+        "name": "Screwdriver slot.022",
+        "type": "MESH",
+        "maximum_matrix_delta": 0.7880107164382935
+      },
+      {
+        "name": "Reserve door fastener.001",
+        "type": "MESH",
+        "maximum_matrix_delta": 0.7880107164382935
+      },
+      {
+        "name": "Screwdriver slot.023",
+        "type": "MESH",
+        "maximum_matrix_delta": 0.7880107164382935
+      },
+      {
+        "name": "Reserve door fastener.002",
+        "type": "MESH",
+        "maximum_matrix_delta": 0.7880107164382935
+      },
+      {
+        "name": "Screwdriver slot.024",
+        "type": "MESH",
+        "maximum_matrix_delta": 0.7880107164382935
+      },
+      {
+        "name": "Reserve door fastener.003",
+        "type": "MESH",
+        "maximum_matrix_delta": 0.7880107164382935
+      },
+      {
+        "name": "Screwdriver slot.025",
+        "type": "MESH",
+        "maximum_matrix_delta": 0.7880107164382935
+      },
+      {
+        "name": "Handle mounting boss",
+        "type": "MESH",
+        "maximum_matrix_delta": 0.7880107164382935
+      },
+      {
+        "name": "Handle mounting boss.001",
+        "type": "MESH",
+        "maximum_matrix_delta": 0.7880107164382935
+      },
+      {
+        "name": "Formed pull grip",
+        "type": "MESH",
+        "maximum_matrix_delta": 0.7880107482248064
+      },
+      {
+        "name": "Instrument cast bezel",
+        "type": "MESH",
+        "maximum_matrix_delta": 0.7880107164382935
+      },
+      {
+        "name": "Rolled bezel rim",
+        "type": "MESH",
+        "maximum_matrix_delta": 0.7880107164382935
+      },
+      {
+        "name": "Ivory instrument dial",
+        "type": "MESH",
+        "maximum_matrix_delta": 0.7880107164382935
+      },
+      {
+        "name": "Calibration tick",
+        "type": "MESH",
+        "maximum_matrix_delta": 0.7880107601496817
+      },
+      {
+        "name": "Calibration tick.001",
+        "type": "MESH",
+        "maximum_matrix_delta": 0.7880107601496817
+      },
+      {
+        "name": "Calibration tick.002",
+        "type": "MESH",
+        "maximum_matrix_delta": 0.7880107601496888
+      },
+      {
+        "name": "Calibration tick.003",
+        "type": "MESH",
+        "maximum_matrix_delta": 0.7880107601496888
+      },
+      {
+        "name": "Calibration tick.004",
+        "type": "MESH",
+        "maximum_matrix_delta": 0.7880106886201546
+      },
+      {
+        "name": "Calibration tick.005",
+        "type": "MESH",
+        "maximum_matrix_delta": 0.7880106727269052
+      },
+      {
+        "name": "Calibration tick.006",
+        "type": "MESH",
+        "maximum_matrix_delta": 0.7880106727268981
+      },
+      {
+        "name": "Calibration tick.007",
+        "type": "MESH",
+        "maximum_matrix_delta": 0.7880106727268981
+      },
+      {
+        "name": "Calibration tick.008",
+        "type": "MESH",
+        "maximum_matrix_delta": 0.7880106727269052
+      },
+      {
+        "name": "Meter needle",
+        "type": "MESH",
+        "maximum_matrix_delta": 0.7880107601496888
+      },
+      {
+        "name": "Needle pivot",
+        "type": "MESH",
+        "maximum_matrix_delta": 0.7880107164382935
+      },
+      {
+        "name": "Meter unit",
+        "type": "FONT",
+        "maximum_matrix_delta": 0.7880107164382935
+      },
+      {
+        "name": "Dial fixing pin",
+        "type": "MESH",
+        "maximum_matrix_delta": 0.7880107164382935
+      },
+      {
+        "name": "Dial fixing pin.001",
+        "type": "MESH",
+        "maximum_matrix_delta": 0.7880107164382935
+      },
+      {
+        "name": "Selector escutcheon.001",
+        "type": "MESH",
+        "maximum_matrix_delta": 0.7880107164382935
+      },
+      {
+        "name": "Mechanical selector.001",
+        "type": "MESH",
+        "maximum_matrix_delta": 0.7880107164382935
+      },
+      {
+        "name": "Engraved backing RESERVE",
+        "type": "MESH",
+        "maximum_matrix_delta": 0.7880107164382935
+      },
+      {
+        "name": "Engraved RESERVE",
+        "type": "FONT",
+        "maximum_matrix_delta": 0.7880107164382935
+      },
+      {
+        "name": "Inventory clipboard",
+        "type": "MESH",
+        "maximum_matrix_delta": 0.2079116990182044
+      },
+      {
+        "name": "Inventory paper",
+        "type": "MESH",
+        "maximum_matrix_delta": 0.2079116990182044
+      },
+      {
+        "name": "Clipboard title",
+        "type": "FONT",
+        "maximum_matrix_delta": 0.2079116990182044
+      },
+      {
+        "name": "Inventory ruled line",
+        "type": "MESH",
+        "maximum_matrix_delta": 0.2079116990182044
+      },
+      {
+        "name": "Inventory ruled line.001",
+        "type": "MESH",
+        "maximum_matrix_delta": 0.2079116990182044
+      },
+      {
+        "name": "Inventory ruled line.002",
+        "type": "MESH",
+        "maximum_matrix_delta": 0.2079116990182044
+      },
+      {
+        "name": "Inventory ruled line.003",
+        "type": "MESH",
+        "maximum_matrix_delta": 0.2079116990182044
+      },
+      {
+        "name": "Screwdriver slot.082",
+        "type": "MESH",
+        "maximum_matrix_delta": 0.7880107164382935
+      },
+      {
+        "name": "Screwdriver slot.083",
+        "type": "MESH",
+        "maximum_matrix_delta": 0.7880107164382935
+      },
+      {
+        "name": "Screwdriver slot.084",
+        "type": "MESH",
+        "maximum_matrix_delta": 0.7880107164382935
+      },
+      {
+        "name": "Screwdriver slot.085",
+        "type": "MESH",
+        "maximum_matrix_delta": 0.7880107164382935
+      },
+      {
+        "name": "Engraved backing MAINS / RESERVE",
+        "type": "MESH",
+        "maximum_matrix_delta": 0.7880107164382935
+      },
+      {
+        "name": "Engraved MAINS / RESERVE",
+        "type": "FONT",
+        "maximum_matrix_delta": 0.7880107164382935
+      },
+      {
+        "name": "RESERVE_SERVICE_DOOR",
+        "type": "EMPTY",
+        "maximum_matrix_delta": 0.7880107164382935
+      },
+      {
+        "name": "Reserve service hinge",
+        "type": "MESH",
+        "maximum_matrix_delta": 0.7880107164382935
+      },
+      {
+        "name": "Reserve service hinge.001",
+        "type": "MESH",
+        "maximum_matrix_delta": 0.7880107164382935
+      },
+      {
+        "name": "Wall grazed work zone.001",
+        "type": "LIGHT",
+        "maximum_matrix_delta": 1.5522932410240173
+      }
+    ],
+    "resized": []
+  },
+  "confirmed_support_omissions": [
+    {
+      "id": 1,
+      "classification": "confirmed support-dependent compound or hardware separation",
+      "members": [
+        "Cabinet perimeter screw.007"
+      ],
+      "islands": 1,
+      "all_outside_aabb_gap_lower_bound_m": 0.09465349460260927,
+      "targeted_surface_probes": [
+        {
+          "object": "Cabinet perimeter screw.007",
+          "target": "Reserve folded cap.001",
+          "role": "nearest conservative outside pair",
+          "aabb_gap_lower_bound_m": 0.09465349460260927,
+          "closest_vertex_surface_probe": {
+            "unsigned_distance_m": 0.09624556452035904,
+            "signed_nearest_m": 0.09562722407281399,
+            "first_point": [
+              -1.9000000953674316,
+              8.371999740600586,
+              1.2919999361038208
+            ],
+            "target_surface_point": [
+              -1.9000000953674316,
+              8.456171989440918,
+              1.3386715650558472
+            ],
+            "target_normal": [
+              0.0,
+              -0.923818051815033,
+              -0.3828318119049072
+            ],
+            "reverse": false
+          },
+          "directed_ray": {
+            "source_surface_point_world": [
+              -1.9000000953674316,
+              8.371999740600586,
+              1.2919999361038208
+            ],
+            "target_surface_point_world": [
+              -1.9000000953674316,
+              8.456171989440918,
+              1.3386715650558472
+            ],
+            "approach_world": [
+              0.0,
+              0.8745571374893188,
+              0.4849223792552948
+            ],
+            "target_normal_world": [
+              0.0,
+              -0.3827213943004608,
+              -0.9238637685775757
+            ],
+            "ray_gap_m": 0.09624555164575577,
+            "orientation_degrees": 38.49025723732665,
+            "source_witness_distance_m": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "classification": "confirmed support-dependent compound or hardware separation",
+      "members": [
+        "Cabinet perimeter screw.006"
+      ],
+      "islands": 1,
+      "all_outside_aabb_gap_lower_bound_m": 0.06800079345703125,
+      "targeted_surface_probes": [
+        {
+          "object": "Cabinet perimeter screw.006",
+          "target": "Battery plinth",
+          "role": "nearest conservative outside pair",
+          "aabb_gap_lower_bound_m": 0.06800079345703125,
+          "closest_vertex_surface_probe": {
+            "unsigned_distance_m": 0.06800079345703125,
+            "signed_nearest_m": 0.06800079345703125,
+            "first_point": [
+              -1.891514778137207,
+              8.371999740600586,
+              0.13151471316814423
+            ],
+            "target_surface_point": [
+              -1.8915143013000488,
+              8.440000534057617,
+              0.13151469826698303
+            ],
+            "target_normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "reverse": false
+          },
+          "directed_ray": {
+            "source_surface_point_world": [
+              -1.891514778137207,
+              8.371999740600586,
+              0.13151471316814423
+            ],
+            "target_surface_point_world": [
+              -1.8915143013000488,
+              8.440000534057617,
+              0.13151469826698303
+            ],
+            "approach_world": [
+              7.0122291617735755e-06,
+              1.0,
+              -2.1913216130542423e-07
+            ],
+            "target_normal_world": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "ray_gap_m": 0.0680011978149414,
+            "orientation_degrees": 0.0,
+            "source_witness_distance_m": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "classification": "confirmed support-dependent compound or hardware separation",
+      "members": [
+        "Coupling parking clip",
+        "Engraved 01",
+        "Engraved SUIT",
+        "Engraved backing 01",
+        "Engraved backing SUIT",
+        "Interface label mounting stem",
+        "Parked suit coupling",
+        "Suit collar lock lug",
+        "Suit collar lock lug.001",
+        "Suit collar lock lug.002",
+        "Suit collar lock lug.003",
+        "Suit collar lock lug.004",
+        "Suit collar lock lug.005",
+        "Suit collar lock lug.006",
+        "Suit collar lock lug.007",
+        "Suit coupling lock",
+        "Suit port socket",
+        "Suit service enclosure",
+        "Suit service hose"
+      ],
+      "islands": 19,
+      "all_outside_aabb_gap_lower_bound_m": 0.04900026321411133,
+      "targeted_surface_probes": [
+        {
+          "object": "Suit service enclosure",
+          "target": "Seal guide.001",
+          "role": "nearest conservative outside pair",
+          "aabb_gap_lower_bound_m": 0.04900026321411133,
+          "closest_vertex_surface_probe": {
+            "unsigned_distance_m": 0.04900026321411133,
+            "signed_nearest_m": 0.04900025948882103,
+            "first_point": [
+              -1.5317500829696655,
+              6.400000095367432,
+              1.0320000648498535
+            ],
+            "target_surface_point": [
+              -1.5317500829696655,
+              6.449000358581543,
+              1.031999945640564
+            ],
+            "target_normal": [
+              0.0,
+              -0.9999999403953552,
+              0.0
+            ],
+            "reverse": false
+          },
+          "directed_ray": {
+            "source_surface_point_world": [
+              -1.5317500829696655,
+              6.400000095367432,
+              1.0320000648498535
+            ],
+            "target_surface_point_world": [
+              -1.5317500829696655,
+              6.449000358581543,
+              1.031999945640564
+            ],
+            "approach_world": [
+              0.0,
+              1.0,
+              -2.432829660392599e-06
+            ],
+            "target_normal_world": [
+              0.0,
+              -0.9999999403953552,
+              0.0
+            ],
+            "ray_gap_m": 0.04900018700957298,
+            "orientation_degrees": 0.0,
+            "source_witness_distance_m": 0.0
+          }
+        },
+        {
+          "object": "Suit service enclosure",
+          "target": "Access jamb graphite return.001",
+          "role": "plausible structural mount",
+          "aabb_gap_lower_bound_m": 0.06369972229003906,
+          "closest_vertex_surface_probe": {
+            "unsigned_distance_m": 0.06369972229003906,
+            "signed_nearest_m": 0.06369972229003906,
+            "first_point": [
+              -1.5317500829696655,
+              6.400000095367432,
+              1.0320000648498535
+            ],
+            "target_surface_point": [
+              -1.5317500829696655,
+              6.463699817657471,
+              1.0320000648498535
+            ],
+            "target_normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "reverse": false
+          },
+          "directed_ray": {
+            "source_surface_point_world": [
+              -1.5317500829696655,
+              6.400000095367432,
+              1.0320000648498535
+            ],
+            "target_surface_point_world": [
+              -1.5317500829696655,
+              6.463699817657471,
+              1.0320000648498535
+            ],
+            "approach_world": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "target_normal_world": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "ray_gap_m": 0.06369964981079101,
+            "orientation_degrees": 0.0,
+            "source_witness_distance_m": 0.0
+          }
+        },
+        {
+          "object": "Suit service enclosure",
+          "target": "Jamb folded cover.001",
+          "role": "plausible structural mount",
+          "aabb_gap_lower_bound_m": 0.06960010528564453,
+          "closest_vertex_surface_probe": {
+            "unsigned_distance_m": 0.07005836814641953,
+            "signed_nearest_m": 0.06960010528564453,
+            "first_point": [
+              -1.445750117301941,
+              6.400000095367432,
+              1.0320000648498535
+            ],
+            "target_surface_point": [
+              -1.4537501335144043,
+              6.469600200653076,
+              1.0320000648498535
+            ],
+            "target_normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "reverse": false
+          },
+          "directed_ray": {
+            "source_surface_point_world": [
+              -1.445750117301941,
+              6.400000095367432,
+              1.0320000648498535
+            ],
+            "target_surface_point_world": [
+              -1.4537501335144043,
+              6.469600677490234,
+              1.0320000648498535
+            ],
+            "approach_world": [
+              -0.1141907274723053,
+              0.9934588670730591,
+              0.0
+            ],
+            "target_normal_world": [
+              0.9999999403953552,
+              0.0,
+              0.0
+            ],
+            "ray_gap_m": 0.0700584744811058,
+            "orientation_degrees": 83.44304822202261,
+            "source_witness_distance_m": 0.0
+          }
+        },
+        {
+          "object": "Interface label mounting stem",
+          "target": "Suit service enclosure",
+          "role": "internal label mount",
+          "aabb_gap_lower_bound_m": 0.0,
+          "closest_vertex_surface_probe": {
+            "unsigned_distance_m": 0.009230732917785645,
+            "signed_nearest_m": 0.009230732917785645,
+            "first_point": [
+              -1.4345194101333618,
+              6.197000026702881,
+              1.4550000429153442
+            ],
+            "target_surface_point": [
+              -1.4437501430511475,
+              6.197000026702881,
+              1.4550000429153442
+            ],
+            "target_normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "reverse": false
+          },
+          "directed_ray": {
+            "source_surface_point_world": [
+              -1.4345194101333618,
+              6.197000026702881,
+              1.4550000429153442
+            ],
+            "target_surface_point_world": [
+              -1.4437501430511475,
+              6.197000026702881,
+              1.4550000429153442
+            ],
+            "approach_world": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "target_normal_world": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "ray_gap_m": 0.009230780579149722,
+            "orientation_degrees": 0.0,
+            "source_witness_distance_m": 0.0
+          }
+        },
+        {
+          "object": "Coupling parking clip",
+          "target": "Suit service enclosure",
+          "role": "internal coupling clip",
+          "aabb_gap_lower_bound_m": 0.0,
+          "closest_vertex_surface_probe": {
+            "unsigned_distance_m": 0.004999876022338867,
+            "signed_nearest_m": -0.004999876022338867,
+            "first_point": [
+              -1.5287501811981201,
+              6.290499687194824,
+              1.090499997138977
+            ],
+            "target_surface_point": [
+              -1.533750057220459,
+              6.290499687194824,
+              1.090499997138977
+            ],
+            "target_normal": [
+              -1.0,
+              1.3546997479352285e-07,
+              0.0
+            ],
+            "reverse": false
+          },
+          "directed_ray": {
+            "source_surface_point_world": [
+              -1.5287501811981201,
+              6.290499687194824,
+              1.090499997138977
+            ],
+            "target_surface_point_world": [
+              -1.533750057220459,
+              6.290499687194824,
+              1.090499997138977
+            ],
+            "approach_world": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "target_normal_world": [
+              -1.0,
+              1.3546997479352285e-07,
+              0.0
+            ],
+            "ray_gap_m": 0.004999922752380371,
+            "orientation_degrees": 180.00000500895632,
+            "source_witness_distance_m": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "classification": "confirmed support-dependent compound or hardware separation",
+      "members": [
+        "Screwdriver slot.082"
+      ],
+      "islands": 1,
+      "all_outside_aabb_gap_lower_bound_m": 0.039040014147758484,
+      "targeted_surface_probes": [
+        {
+          "object": "Screwdriver slot.082",
+          "target": "Reserve removable door",
+          "role": "nearest conservative outside pair",
+          "aabb_gap_lower_bound_m": 0.039040014147758484,
+          "closest_vertex_surface_probe": {
+            "unsigned_distance_m": 0.05922238156199455,
+            "signed_nearest_m": 0.054168994538486004,
+            "first_point": [
+              -2.504072904586792,
+              8.295870780944824,
+              0.14087212085723877
+            ],
+            "target_surface_point": [
+              -2.4703104496002197,
+              8.322248458862305,
+              0.181757390499115
+            ],
+            "target_normal": [
+              -0.3015557527542114,
+              -0.23560087382793427,
+              -0.9238811135292053
+            ],
+            "reverse": false
+          },
+          "directed_ray": {
+            "source_surface_point_world": [
+              -2.504072904586792,
+              8.295870780944824,
+              0.14087212085723877
+            ],
+            "target_surface_point_world": [
+              -2.4703102111816406,
+              8.322248458862305,
+              0.18175749480724335
+            ],
+            "approach_world": [
+              0.5700961947441101,
+              0.4454004764556885,
+              0.6903685331344604
+            ],
+            "target_normal_world": [
+              -0.7280007004737854,
+              -0.5687767863273621,
+              -0.38276347517967224
+            ],
+            "ray_gap_m": 0.05922254005074501,
+            "orientation_degrees": 21.154328708674676,
+            "source_witness_distance_m": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "classification": "confirmed support-dependent compound or hardware separation",
+      "members": [
+        "Screwdriver slot.084"
+      ],
+      "islands": 1,
+      "all_outside_aabb_gap_lower_bound_m": 0.039040014147758484,
+      "targeted_surface_probes": [
+        {
+          "object": "Screwdriver slot.084",
+          "target": "Reserve removable door",
+          "role": "nearest conservative outside pair",
+          "aabb_gap_lower_bound_m": 0.039040014147758484,
+          "closest_vertex_surface_probe": {
+            "unsigned_distance_m": 0.059222593903541565,
+            "signed_nearest_m": 0.05416910722851753,
+            "first_point": [
+              -2.196242094039917,
+              7.901865005493164,
+              0.14087212085723877
+            ],
+            "target_surface_point": [
+              -2.1624796390533447,
+              7.928243160247803,
+              0.181757390499115
+            ],
+            "target_normal": [
+              -0.3015557527542114,
+              -0.23560087382793427,
+              -0.9238811135292053
+            ],
+            "reverse": false
+          },
+          "directed_ray": {
+            "source_surface_point_world": [
+              -2.196242094039917,
+              7.901865005493164,
+              0.14087212085723877
+            ],
+            "target_surface_point_world": [
+              -2.1624796390533447,
+              7.928243160247803,
+              0.181757390499115
+            ],
+            "approach_world": [
+              0.570094108581543,
+              0.4454069137573242,
+              0.6903660297393799
+            ],
+            "target_normal_world": [
+              -0.3015557527542114,
+              -0.23560087382793427,
+              -0.9238811135292053
+            ],
+            "ray_gap_m": 0.05922258847951889,
+            "orientation_degrees": 23.84114583569198,
+            "source_witness_distance_m": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "classification": "confirmed support-dependent compound or hardware separation",
+      "members": [
+        "Cabinet perimeter screw.004"
+      ],
+      "islands": 1,
+      "all_outside_aabb_gap_lower_bound_m": 0.028000012040138245,
+      "targeted_surface_probes": [
+        {
+          "object": "Cabinet perimeter screw.004",
+          "target": "Reserve removable door",
+          "role": "nearest conservative outside pair",
+          "aabb_gap_lower_bound_m": 0.028000012040138245,
+          "closest_vertex_surface_probe": {
+            "unsigned_distance_m": 0.04344634339213371,
+            "signed_nearest_m": 0.041431587655097246,
+            "first_point": [
+              -2.4084854125976562,
+              8.36400032043457,
+              0.14848528802394867
+            ],
+            "target_surface_point": [
+              -2.4305012226104736,
+              8.346799850463867,
+              0.181757390499115
+            ],
+            "target_normal": [
+              0.30159294605255127,
+              0.23563158512115479,
+              -0.9238610863685608
+            ],
+            "reverse": false
+          },
+          "directed_ray": {
+            "source_surface_point_world": [
+              -2.4084854125976562,
+              8.36400032043457,
+              0.14848528802394867
+            ],
+            "target_surface_point_world": [
+              -2.4305012226104736,
+              8.346799850463867,
+              0.18175733089447021
+            ],
+            "approach_world": [
+              -0.506735622882843,
+              -0.3959014415740967,
+              0.7658205628395081
+            ],
+            "target_normal_world": [
+              0.30159294605255127,
+              0.23563158512115479,
+              -0.9238610863685608
+            ],
+            "ray_gap_m": 0.04344626718759537,
+            "orientation_degrees": 17.51720004167682,
+            "source_witness_distance_m": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "classification": "confirmed support-dependent compound or hardware separation",
+      "members": [
+        "Battery carry handle",
+        "Battery carry handle.001",
+        "Battery supported drawer rail",
+        "Battery supported drawer rail.001",
+        "Battery terminal",
+        "Battery terminal.001",
+        "Battery terminal.002",
+        "Battery terminal.003",
+        "MED_R2 | Exposed reserve battery service construction",
+        "Reserve battery module",
+        "Reserve battery module.001"
+      ],
+      "islands": 55,
+      "all_outside_aabb_gap_lower_bound_m": 0.025229454040527344,
+      "targeted_surface_probes": [
+        {
+          "object": "Battery carry handle",
+          "target": "Reserve removable door",
+          "role": "nearest conservative outside pair",
+          "aabb_gap_lower_bound_m": 0.025229454040527344,
+          "closest_vertex_surface_probe": {
+            "unsigned_distance_m": 0.16028869152069092,
+            "signed_nearest_m": 0.1602887026965618,
+            "first_point": [
+              -2.326765537261963,
+              8.4772310256958,
+              0.5227941870689392
+            ],
+            "target_surface_point": [
+              -2.4530749320983887,
+              8.378547668457031,
+              0.5227941870689392
+            ],
+            "target_normal": [
+              0.7880108952522278,
+              0.6156613230705261,
+              0.0
+            ],
+            "reverse": false
+          },
+          "directed_ray": {
+            "source_surface_point_world": [
+              -2.326765537261963,
+              8.4772310256958,
+              0.5227941870689392
+            ],
+            "target_surface_point_world": [
+              -2.4530751705169678,
+              8.378547668457031,
+              0.5227941870689392
+            ],
+            "approach_world": [
+              -0.7880118489265442,
+              -0.6156600713729858,
+              0.0
+            ],
+            "target_normal_world": [
+              0.7880108952522278,
+              0.6156613230705261,
+              0.0
+            ],
+            "ray_gap_m": 0.16028893196582794,
+            "orientation_degrees": 0.0,
+            "source_witness_distance_m": 0.0
+          }
+        },
+        {
+          "object": "Reserve battery module",
+          "target": "Battery supported drawer rail",
+          "role": "required load / carcass path",
+          "aabb_gap_lower_bound_m": 0.007499963045120239,
+          "closest_vertex_surface_probe": {
+            "unsigned_distance_m": 0.007499963045120239,
+            "signed_nearest_m": 0.007499962579458952,
+            "first_point": [
+              -2.433500051498413,
+              8.52500057220459,
+              0.32499998807907104
+            ],
+            "target_surface_point": [
+              -2.433500051498413,
+              8.52500057220459,
+              0.3175000250339508
+            ],
+            "target_normal": [
+              0.0,
+              0.0,
+              0.9999999403953552
+            ],
+            "reverse": false
+          },
+          "directed_ray": {
+            "source_surface_point_world": [
+              -2.433500051498413,
+              8.52500057220459,
+              0.32499998807907104
+            ],
+            "target_surface_point_world": [
+              -2.433500051498413,
+              8.52500057220459,
+              0.3175000250339508
+            ],
+            "approach_world": [
+              0.0,
+              0.0,
+              -0.9999999403953552
+            ],
+            "target_normal_world": [
+              0.0,
+              0.0,
+              0.9999999403953552
+            ],
+            "ray_gap_m": 0.007499951101839542,
+            "orientation_degrees": 0.0,
+            "source_witness_distance_m": 0.0
+          }
+        },
+        {
+          "object": "Reserve battery module.001",
+          "target": "Battery supported drawer rail.001",
+          "role": "required load / carcass path",
+          "aabb_gap_lower_bound_m": 0.007500052452087402,
+          "closest_vertex_surface_probe": {
+            "unsigned_distance_m": 0.007500052452087402,
+            "signed_nearest_m": 0.007500051986426115,
+            "first_point": [
+              -2.433500051498413,
+              8.52500057220459,
+              0.7350000143051147
+            ],
+            "target_surface_point": [
+              -2.433500051498413,
+              8.52500057220459,
+              0.7274999618530273
+            ],
+            "target_normal": [
+              0.0,
+              0.0,
+              0.9999999403953552
+            ],
+            "reverse": false
+          },
+          "directed_ray": {
+            "source_surface_point_world": [
+              -2.433500051498413,
+              8.52500057220459,
+              0.7350000143051147
+            ],
+            "target_surface_point_world": [
+              -2.433500051498413,
+              8.52500057220459,
+              0.7274999618530273
+            ],
+            "approach_world": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "target_normal_world": [
+              0.0,
+              0.0,
+              0.9999999403953552
+            ],
+            "ray_gap_m": 0.007500039577484131,
+            "orientation_degrees": 0.0,
+            "source_witness_distance_m": 0.0
+          }
+        },
+        {
+          "object": "Battery supported drawer rail",
+          "target": "Reserve folded back",
+          "role": "required load / carcass path",
+          "aabb_gap_lower_bound_m": 0.027500152587890625,
+          "closest_vertex_surface_probe": {
+            "unsigned_distance_m": 0.027500152587890625,
+            "signed_nearest_m": 0.027500150725245476,
+            "first_point": [
+              -2.497000217437744,
+              8.9350004196167,
+              0.28550001978874207
+            ],
+            "target_surface_point": [
+              -2.497000217437744,
+              8.96250057220459,
+              0.28550004959106445
+            ],
+            "target_normal": [
+              0.0,
+              -0.9999999403953552,
+              0.0
+            ],
+            "reverse": false
+          },
+          "directed_ray": {
+            "source_surface_point_world": [
+              -2.497000217437744,
+              8.9350004196167,
+              0.28550001978874207
+            ],
+            "target_surface_point_world": [
+              -2.497000217437744,
+              8.96250057220459,
+              0.28550004959106445
+            ],
+            "approach_world": [
+              0.0,
+              1.0,
+              1.083714778360445e-06
+            ],
+            "target_normal_world": [
+              0.0,
+              -0.9999999403953552,
+              0.0
+            ],
+            "ray_gap_m": 0.02750055508315563,
+            "orientation_degrees": 0.0,
+            "source_witness_distance_m": 0.0
+          }
+        },
+        {
+          "object": "Battery supported drawer rail.001",
+          "target": "Reserve folded back",
+          "role": "required load / carcass path",
+          "aabb_gap_lower_bound_m": 0.027500152587890625,
+          "closest_vertex_surface_probe": {
+            "unsigned_distance_m": 0.027500152587890625,
+            "signed_nearest_m": 0.027500150725245476,
+            "first_point": [
+              -2.497000217437744,
+              8.9350004196167,
+              0.6954999566078186
+            ],
+            "target_surface_point": [
+              -2.497000217437744,
+              8.96250057220459,
+              0.6954998970031738
+            ],
+            "target_normal": [
+              0.0,
+              -0.9999999403953552,
+              0.0
+            ],
+            "reverse": false
+          },
+          "directed_ray": {
+            "source_surface_point_world": [
+              -2.497000217437744,
+              8.9350004196167,
+              0.6954999566078186
+            ],
+            "target_surface_point_world": [
+              -2.497000217437744,
+              8.96250057220459,
+              0.6954998970031738
+            ],
+            "approach_world": [
+              0.0,
+              1.0,
+              -2.16742955672089e-06
+            ],
+            "target_normal_world": [
+              0.0,
+              -0.9999999403953552,
+              0.0
+            ],
+            "ray_gap_m": 0.02750055880844593,
+            "orientation_degrees": 0.0,
+            "source_witness_distance_m": 0.0
+          }
+        },
+        {
+          "object": "Battery supported drawer rail",
+          "target": "Reserve folded side",
+          "role": "required load / carcass path",
+          "aabb_gap_lower_bound_m": 0.032500267028808594,
+          "closest_vertex_surface_probe": {
+            "unsigned_distance_m": 0.032500267028808594,
+            "signed_nearest_m": 0.032500263303518295,
+            "first_point": [
+              -2.5,
+              8.508000373840332,
+              0.28550001978874207
+            ],
+            "target_surface_point": [
+              -2.5325002670288086,
+              8.508000373840332,
+              0.28550004959106445
+            ],
+            "target_normal": [
+              0.9999999403953552,
+              0.0,
+              0.0
+            ],
+            "reverse": false
+          },
+          "directed_ray": {
+            "source_surface_point_world": [
+              -2.5,
+              8.508000373840332,
+              0.28550001978874207
+            ],
+            "target_surface_point_world": [
+              -2.5325002670288086,
+              8.508000373840332,
+              0.28550004959106445
+            ],
+            "approach_world": [
+              -1.0,
+              0.0,
+              9.169870054392959e-07
+            ],
+            "target_normal_world": [
+              0.9999999403953552,
+              0.0,
+              0.0
+            ],
+            "ray_gap_m": 0.032500194549560546,
+            "orientation_degrees": 0.0,
+            "source_witness_distance_m": 0.0
+          }
+        },
+        {
+          "object": "Battery supported drawer rail.001",
+          "target": "Reserve folded side.001",
+          "role": "required load / carcass path",
+          "aabb_gap_lower_bound_m": 0.03249990940093994,
+          "closest_vertex_surface_probe": {
+            "unsigned_distance_m": 0.03249990940093994,
+            "signed_nearest_m": 0.03249990567564964,
+            "first_point": [
+              -1.8000000715255737,
+              8.508000373840332,
+              0.6954999566078186
+            ],
+            "target_surface_point": [
+              -1.7675001621246338,
+              8.508000373840332,
+              0.6955000162124634
+            ],
+            "target_normal": [
+              -0.9999999403953552,
+              0.0,
+              0.0
+            ],
+            "reverse": false
+          },
+          "directed_ray": {
+            "source_surface_point_world": [
+              -1.8000000715255737,
+              8.508000373840332,
+              0.6954999566078186
+            ],
+            "target_surface_point_world": [
+              -1.7675001621246338,
+              8.508000373840332,
+              0.6955000162124634
+            ],
+            "approach_world": [
+              1.0,
+              0.0,
+              1.8339941334488685e-06
+            ],
+            "target_normal_world": [
+              -0.9999999403953552,
+              0.0,
+              0.0
+            ],
+            "ray_gap_m": 0.032499956130981444,
+            "orientation_degrees": 0.0,
+            "source_witness_distance_m": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "classification": "confirmed support-dependent compound or hardware separation",
+      "members": [
+        "Cabinet perimeter screw.002",
+        "Screwdriver slot.080"
+      ],
+      "islands": 2,
+      "all_outside_aabb_gap_lower_bound_m": 0.015787770110739563,
+      "targeted_surface_probes": [
+        {
+          "object": "Cabinet perimeter screw.002",
+          "target": "Cartridge bank formed upright.001",
+          "role": "nearest conservative outside pair",
+          "aabb_gap_lower_bound_m": 0.015787770110739563,
+          "closest_vertex_surface_probe": {
+            "unsigned_distance_m": 0.01738210767507553,
+            "signed_nearest_m": 0.017382107209414244,
+            "first_point": [
+              1.2619999647140503,
+              8.30199909210205,
+              0.14000000059604645
+            ],
+            "target_surface_point": [
+              1.2780585289001465,
+              8.3086519241333,
+              0.13999998569488525
+            ],
+            "target_normal": [
+              -0.9238752722740173,
+              -0.38269370794296265,
+              0.0
+            ],
+            "reverse": false
+          },
+          "directed_ray": {
+            "source_surface_point_world": [
+              1.2619999647140503,
+              8.30199909210205,
+              0.14000000059604645
+            ],
+            "target_surface_point_world": [
+              1.2780581712722778,
+              8.3086519241333,
+              0.13999998569488525
+            ],
+            "approach_world": [
+              0.9238559603691101,
+              0.38274022936820984,
+              -8.572700949116552e-07
+            ],
+            "target_normal_world": [
+              -0.9238752722740173,
+              -0.38269370794296265,
+              0.0
+            ],
+            "ray_gap_m": 0.017381744623184203,
+            "orientation_degrees": 0.0,
+            "source_witness_distance_m": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "classification": "confirmed support-dependent compound or hardware separation",
+      "members": [
+        "Cabinet perimeter screw",
+        "Screwdriver slot.078"
+      ],
+      "islands": 2,
+      "all_outside_aabb_gap_lower_bound_m": 0.01578765307382403,
+      "targeted_surface_probes": [
+        {
+          "object": "Cabinet perimeter screw",
+          "target": "Cartridge bank formed upright",
+          "role": "nearest conservative outside pair",
+          "aabb_gap_lower_bound_m": 0.01578765307382403,
+          "closest_vertex_surface_probe": {
+            "unsigned_distance_m": 0.017381632700562477,
+            "signed_nearest_m": 0.017381632700562477,
+            "first_point": [
+              0.7379999756813049,
+              8.30199909210205,
+              0.14000000059604645
+            ],
+            "target_surface_point": [
+              0.7219415307044983,
+              8.308650970458984,
+              0.13999998569488525
+            ],
+            "target_normal": [
+              0.923870325088501,
+              -0.3827056586742401,
+              0.0
+            ],
+            "reverse": false
+          },
+          "directed_ray": {
+            "source_surface_point_world": [
+              0.7379999756813049,
+              8.30199909210205,
+              0.14000000059604645
+            ],
+            "target_surface_point_world": [
+              0.7219415307044983,
+              8.308650970458984,
+              0.13999998569488525
+            ],
+            "approach_world": [
+              -0.9238743782043457,
+              0.3826958239078522,
+              -8.572935144002258e-07
+            ],
+            "target_normal_world": [
+              0.923870325088501,
+              -0.3827056586742401,
+              0.0
+            ],
+            "ray_gap_m": 0.017381636589765548,
+            "orientation_degrees": 0.0,
+            "source_witness_distance_m": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "classification": "confirmed support-dependent compound or hardware separation",
+      "members": [
+        "Clear cabinet sliding pane",
+        "Clear cabinet sliding pane.001",
+        "Formed pull grip.001",
+        "Formed pull grip.002",
+        "Handle mounting boss.002",
+        "Handle mounting boss.003",
+        "Handle mounting boss.004",
+        "Handle mounting boss.005",
+        "MED_R2 | Medical cabinet fabricated face ",
+        "MED_R2 | Medical cabinet fabricated face .001",
+        "MED_R2 | Neglected cabinet restraint seal"
+      ],
+      "islands": 54,
+      "all_outside_aabb_gap_lower_bound_m": 0.01399993896484375,
+      "targeted_surface_probes": [
+        {
+          "object": "Clear cabinet sliding pane",
+          "target": "Cabinet formed edge",
+          "role": "nearest conservative outside pair",
+          "aabb_gap_lower_bound_m": 0.01399993896484375,
+          "closest_vertex_surface_probe": {
+            "unsigned_distance_m": 0.01399993896484375,
+            "signed_nearest_m": 0.01399993896484375,
+            "first_point": [
+              3.260999917984009,
+              8.387999534606934,
+              1.3420000076293945
+            ],
+            "target_surface_point": [
+              3.2749998569488525,
+              8.387999534606934,
+              1.3420000076293945
+            ],
+            "target_normal": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "reverse": false
+          },
+          "directed_ray": {
+            "source_surface_point_world": [
+              3.260999917984009,
+              8.387999534606934,
+              1.3420000076293945
+            ],
+            "target_surface_point_world": [
+              3.2749998569488525,
+              8.387999534606934,
+              1.3420000076293945
+            ],
+            "approach_world": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "target_normal_world": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "ray_gap_m": 0.013999866485595702,
+            "orientation_degrees": 0.0,
+            "source_witness_distance_m": 0.0
+          }
+        },
+        {
+          "object": "Clear cabinet sliding pane.001",
+          "target": "Cabinet formed edge.001",
+          "role": "carcass track path",
+          "aabb_gap_lower_bound_m": 0.014000177383422852,
+          "closest_vertex_surface_probe": {
+            "unsigned_distance_m": 0.014000177383422852,
+            "signed_nearest_m": 0.014000177383422852,
+            "first_point": [
+              3.2609996795654297,
+              6.552000045776367,
+              1.3420000076293945
+            ],
+            "target_surface_point": [
+              3.2749998569488525,
+              6.552000045776367,
+              1.3420000076293945
+            ],
+            "target_normal": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "reverse": false
+          },
+          "directed_ray": {
+            "source_surface_point_world": [
+              3.2609996795654297,
+              6.552000045776367,
+              1.3420000076293945
+            ],
+            "target_surface_point_world": [
+              3.2749998569488525,
+              6.552000045776367,
+              1.3420000076293945
+            ],
+            "approach_world": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "target_normal_world": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "ray_gap_m": 0.01400010397285223,
+            "orientation_degrees": 0.0,
+            "source_witness_distance_m": 0.0
+          }
+        },
+        {
+          "object": "Clear cabinet sliding pane",
+          "target": "Supply cabinet shelf.003",
+          "role": "upper rail path",
+          "aabb_gap_lower_bound_m": 0.024413060604526034,
+          "closest_vertex_surface_probe": {
+            "unsigned_distance_m": 0.026864031329751015,
+            "signed_nearest_m": 0.022884134203195572,
+            "first_point": [
+              3.2604141235351562,
+              8.311999320983887,
+              2.4394142627716064
+            ],
+            "target_surface_point": [
+              3.2761714458465576,
+              8.311999320983887,
+              2.4611716270446777
+            ],
+            "target_normal": [
+              -0.9238772988319397,
+              0.0,
+              -0.3826889395713806
+            ],
+            "reverse": false
+          },
+          "directed_ray": {
+            "source_surface_point_world": [
+              3.2604141235351562,
+              8.311999320983887,
+              2.4394142627716064
+            ],
+            "target_surface_point_world": [
+              3.2761714458465576,
+              8.311999320983887,
+              2.4611716270446777
+            ],
+            "approach_world": [
+              0.5865584015846252,
+              0.0,
+              0.8099069595336914
+            ],
+            "target_normal_world": [
+              -0.3826460838317871,
+              4.062598435439213e-08,
+              -0.923895001411438
+            ],
+            "ray_gap_m": 0.026864011004567145,
+            "orientation_degrees": 13.415479346013756,
+            "source_witness_distance_m": 0.0
+          }
+        },
+        {
+          "object": "Clear cabinet sliding pane.001",
+          "target": "Supply cabinet shelf",
+          "role": "lower rail path",
+          "aabb_gap_lower_bound_m": 0.042379262794566726,
+          "closest_vertex_surface_probe": {
+            "unsigned_distance_m": 0.04460883513092995,
+            "signed_nearest_m": 0.04460883513092995,
+            "first_point": [
+              3.260413885116577,
+              6.552000045776367,
+              1.340585708618164
+            ],
+            "target_surface_point": [
+              3.2774856090545654,
+              6.552000045776367,
+              1.2993727922439575
+            ],
+            "target_normal": [
+              -0.38268157839775085,
+              4.062533776050259e-08,
+              0.9238802790641785
+            ],
+            "reverse": false
+          },
+          "directed_ray": {
+            "source_surface_point_world": [
+              3.260413885116577,
+              6.552000045776367,
+              1.340585708618164
+            ],
+            "target_surface_point_world": [
+              3.2774856090545654,
+              6.552000045776367,
+              1.2993727922439575
+            ],
+            "approach_world": [
+              0.38269826769828796,
+              0.0,
+              -0.9238734245300293
+            ],
+            "target_normal_world": [
+              -0.38268157839775085,
+              4.062533776050259e-08,
+              0.9238802790641785
+            ],
+            "ray_gap_m": 0.04460887441039085,
+            "orientation_degrees": 0.0,
+            "source_witness_distance_m": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "classification": "confirmed support-dependent compound or hardware separation",
+      "members": [
+        "Cabinet perimeter screw.001",
+        "Screwdriver slot.079"
+      ],
+      "islands": 2,
+      "all_outside_aabb_gap_lower_bound_m": 0.01200103759765625,
+      "targeted_surface_probes": [
+        {
+          "object": "Cabinet perimeter screw.001",
+          "target": "Shelf retaining lip.002",
+          "role": "nearest conservative outside pair",
+          "aabb_gap_lower_bound_m": 0.01200103759765625,
+          "closest_vertex_surface_probe": {
+            "unsigned_distance_m": 0.01200103759765625,
+            "signed_nearest_m": 0.01200103759765625,
+            "first_point": [
+              0.75,
+              8.30199909210205,
+              1.2919999361038208
+            ],
+            "target_surface_point": [
+              0.7499999403953552,
+              8.314000129699707,
+              1.2919999361038208
+            ],
+            "target_normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "reverse": false
+          },
+          "directed_ray": {
+            "source_surface_point_world": [
+              0.75,
+              8.30199909210205,
+              1.2919999361038208
+            ],
+            "target_surface_point_world": [
+              0.7499999403953552,
+              8.314000129699707,
+              1.2919999361038208
+            ],
+            "approach_world": [
+              -4.966624146618415e-06,
+              1.0,
+              0.0
+            ],
+            "target_normal_world": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "ray_gap_m": 0.012001440092921256,
+            "orientation_degrees": 0.0,
+            "source_witness_distance_m": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "classification": "confirmed support-dependent compound or hardware separation",
+      "members": [
+        "Cabinet perimeter screw.003",
+        "Screwdriver slot.081"
+      ],
+      "islands": 2,
+      "all_outside_aabb_gap_lower_bound_m": 0.01200103759765625,
+      "targeted_surface_probes": [
+        {
+          "object": "Cabinet perimeter screw.003",
+          "target": "Shelf retaining lip.002",
+          "role": "nearest conservative outside pair",
+          "aabb_gap_lower_bound_m": 0.01200103759765625,
+          "closest_vertex_surface_probe": {
+            "unsigned_distance_m": 0.01200103759765625,
+            "signed_nearest_m": 0.01200103759765625,
+            "first_point": [
+              1.25,
+              8.30199909210205,
+              1.2919999361038208
+            ],
+            "target_surface_point": [
+              1.249999761581421,
+              8.314000129699707,
+              1.2919999361038208
+            ],
+            "target_normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "reverse": false
+          },
+          "directed_ray": {
+            "source_surface_point_world": [
+              1.25,
+              8.30199909210205,
+              1.2919999361038208
+            ],
+            "target_surface_point_world": [
+              1.249999761581421,
+              8.314000129699707,
+              1.2919999361038208
+            ],
+            "approach_world": [
+              -1.986649658647366e-05,
+              1.0,
+              0.0
+            ],
+            "target_normal_world": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "ray_gap_m": 0.012001440092921256,
+            "orientation_degrees": 0.0,
+            "source_witness_distance_m": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "classification": "confirmed support-dependent compound or hardware separation",
+      "members": [
+        "Jamb captive fastener",
+        "Screwdriver slot"
+      ],
+      "islands": 2,
+      "all_outside_aabb_gap_lower_bound_m": 0.01100003719329834,
+      "targeted_surface_probes": [
+        {
+          "object": "Jamb captive fastener",
+          "target": "Jamb folded cover",
+          "role": "nearest conservative outside pair",
+          "aabb_gap_lower_bound_m": 0.01100003719329834,
+          "closest_vertex_surface_probe": {
+            "unsigned_distance_m": 0.02240002155303955,
+            "signed_nearest_m": 0.02240002155303955,
+            "first_point": [
+              -1.4427498579025269,
+              2.6654000282287598,
+              0.5630000233650208
+            ],
+            "target_surface_point": [
+              -1.4651498794555664,
+              2.6654000282287598,
+              0.5630000233650208
+            ],
+            "target_normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "reverse": false
+          },
+          "directed_ray": {
+            "source_surface_point_world": [
+              -1.4427498579025269,
+              2.6654000282287598,
+              0.5630000233650208
+            ],
+            "target_surface_point_world": [
+              -1.4651498794555664,
+              2.6654000282287598,
+              0.5630000233650208
+            ],
+            "approach_world": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "target_normal_world": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "ray_gap_m": 0.022400070145726203,
+            "orientation_degrees": 0.0,
+            "source_witness_distance_m": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "classification": "confirmed support-dependent compound or hardware separation",
+      "members": [
+        "Jamb captive fastener.002",
+        "Screwdriver slot.002"
+      ],
+      "islands": 2,
+      "all_outside_aabb_gap_lower_bound_m": 0.01100003719329834,
+      "targeted_surface_probes": [
+        {
+          "object": "Jamb captive fastener.002",
+          "target": "Jamb folded cover",
+          "role": "nearest conservative outside pair",
+          "aabb_gap_lower_bound_m": 0.01100003719329834,
+          "closest_vertex_surface_probe": {
+            "unsigned_distance_m": 0.02240002155303955,
+            "signed_nearest_m": 0.02240002155303955,
+            "first_point": [
+              -1.4427498579025269,
+              2.6654000282287598,
+              2.193000078201294
+            ],
+            "target_surface_point": [
+              -1.4651498794555664,
+              2.6654000282287598,
+              2.193000078201294
+            ],
+            "target_normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "reverse": false
+          },
+          "directed_ray": {
+            "source_surface_point_world": [
+              -1.4427498579025269,
+              2.6654000282287598,
+              2.193000078201294
+            ],
+            "target_surface_point_world": [
+              -1.4651498794555664,
+              2.6654000282287598,
+              2.193000078201294
+            ],
+            "approach_world": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "target_normal_world": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "ray_gap_m": 0.022400068283081054,
+            "orientation_degrees": 0.0,
+            "source_witness_distance_m": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "classification": "confirmed support-dependent compound or hardware separation",
+      "members": [
+        "Jamb captive fastener.003",
+        "Screwdriver slot.003"
+      ],
+      "islands": 2,
+      "all_outside_aabb_gap_lower_bound_m": 0.01100003719329834,
+      "targeted_surface_probes": [
+        {
+          "object": "Jamb captive fastener.003",
+          "target": "Jamb folded cover.001",
+          "role": "nearest conservative outside pair",
+          "aabb_gap_lower_bound_m": 0.01100003719329834,
+          "closest_vertex_surface_probe": {
+            "unsigned_distance_m": 0.02240002155303955,
+            "signed_nearest_m": 0.02240002155303955,
+            "first_point": [
+              -1.442750096321106,
+              6.594600200653076,
+              0.5630000233650208
+            ],
+            "target_surface_point": [
+              -1.4651501178741455,
+              6.594600200653076,
+              0.5630000233650208
+            ],
+            "target_normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "reverse": false
+          },
+          "directed_ray": {
+            "source_surface_point_world": [
+              -1.442750096321106,
+              6.594600200653076,
+              0.5630000233650208
+            ],
+            "target_surface_point_world": [
+              -1.4651501178741455,
+              6.594600200653076,
+              0.5630000233650208
+            ],
+            "approach_world": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "target_normal_world": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "ray_gap_m": 0.022400068283081054,
+            "orientation_degrees": 0.0,
+            "source_witness_distance_m": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "classification": "confirmed support-dependent compound or hardware separation",
+      "members": [
+        "Jamb captive fastener.005",
+        "Screwdriver slot.005"
+      ],
+      "islands": 2,
+      "all_outside_aabb_gap_lower_bound_m": 0.01100003719329834,
+      "targeted_surface_probes": [
+        {
+          "object": "Jamb captive fastener.005",
+          "target": "Jamb folded cover.001",
+          "role": "nearest conservative outside pair",
+          "aabb_gap_lower_bound_m": 0.01100003719329834,
+          "closest_vertex_surface_probe": {
+            "unsigned_distance_m": 0.02240002155303955,
+            "signed_nearest_m": 0.02240002155303955,
+            "first_point": [
+              -1.442750096321106,
+              6.594600200653076,
+              2.193000078201294
+            ],
+            "target_surface_point": [
+              -1.4651501178741455,
+              6.594600200653076,
+              2.193000078201294
+            ],
+            "target_normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "reverse": false
+          },
+          "directed_ray": {
+            "source_surface_point_world": [
+              -1.442750096321106,
+              6.594600200653076,
+              2.193000078201294
+            ],
+            "target_surface_point_world": [
+              -1.4651501178741455,
+              6.594600200653076,
+              2.193000078201294
+            ],
+            "approach_world": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "target_normal_world": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "ray_gap_m": 0.022400068283081054,
+            "orientation_degrees": 0.0,
+            "source_witness_distance_m": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "classification": "confirmed support-dependent compound or hardware separation",
+      "members": [
+        "Decon ceiling lamp",
+        "Decon diffuser"
+      ],
+      "islands": 2,
+      "all_outside_aabb_gap_lower_bound_m": 0.010000228881835938,
+      "targeted_surface_probes": [
+        {
+          "object": "Decon ceiling lamp",
+          "target": "Decon ceiling",
+          "role": "nearest conservative outside pair",
+          "aabb_gap_lower_bound_m": 0.010000228881835938,
+          "closest_vertex_surface_probe": {
+            "unsigned_distance_m": 0.010000228881835938,
+            "signed_nearest_m": 0.010000228881835938,
+            "first_point": [
+              1.9760000705718994,
+              10.015999794006348,
+              2.5399999618530273
+            ],
+            "target_surface_point": [
+              1.976000189781189,
+              10.015999794006348,
+              2.5500001907348633
+            ],
+            "target_normal": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "reverse": false
+          },
+          "directed_ray": {
+            "source_surface_point_world": [
+              1.9760000705718994,
+              10.015999794006348,
+              2.5399999618530273
+            ],
+            "target_surface_point_world": [
+              1.976000189781189,
+              10.015999794006348,
+              2.5500001907348633
+            ],
+            "approach_world": [
+              1.1920656106667593e-05,
+              0.0,
+              1.0
+            ],
+            "target_normal_world": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "ray_gap_m": 0.01000015640258789,
+            "orientation_degrees": 0.0,
+            "source_witness_distance_m": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "classification": "confirmed support-dependent compound or hardware separation",
+      "members": [
+        "Access panel fastener",
+        "Screwdriver slot.014"
+      ],
+      "islands": 2,
+      "all_outside_aabb_gap_lower_bound_m": 0.0070002079010009766,
+      "targeted_surface_probes": [
+        {
+          "object": "Access panel fastener",
+          "target": "Serviceable inner access panel",
+          "role": "nearest conservative outside pair",
+          "aabb_gap_lower_bound_m": 0.0070002079010009766,
+          "closest_vertex_surface_probe": {
+            "unsigned_distance_m": 0.020200252532958984,
+            "signed_nearest_m": 0.020200250670313835,
+            "first_point": [
+              -3.6267497539520264,
+              2.7200002670288086,
+              0.8809999823570251
+            ],
+            "target_surface_point": [
+              -3.6469500064849854,
+              2.7200002670288086,
+              0.8809999823570251
+            ],
+            "target_normal": [
+              0.9999999403953552,
+              0.0,
+              0.0
+            ],
+            "reverse": false
+          },
+          "directed_ray": {
+            "source_surface_point_world": [
+              -3.6267497539520264,
+              2.7200002670288086,
+              0.8809999823570251
+            ],
+            "target_surface_point_world": [
+              -3.6469500064849854,
+              2.7200002670288086,
+              0.8809999823570251
+            ],
+            "approach_world": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "target_normal_world": [
+              0.9999999403953552,
+              0.0,
+              0.0
+            ],
+            "ray_gap_m": 0.020200178191065787,
+            "orientation_degrees": 0.0,
+            "source_witness_distance_m": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "classification": "confirmed support-dependent compound or hardware separation",
+      "members": [
+        "Access panel fastener.002",
+        "Screwdriver slot.016"
+      ],
+      "islands": 2,
+      "all_outside_aabb_gap_lower_bound_m": 0.0070002079010009766,
+      "targeted_surface_probes": [
+        {
+          "object": "Access panel fastener.002",
+          "target": "Serviceable inner access panel",
+          "role": "nearest conservative outside pair",
+          "aabb_gap_lower_bound_m": 0.0070002079010009766,
+          "closest_vertex_surface_probe": {
+            "unsigned_distance_m": 0.020200252532958984,
+            "signed_nearest_m": 0.020200250670313835,
+            "first_point": [
+              -3.6267497539520264,
+              3.140000104904175,
+              0.8809999823570251
+            ],
+            "target_surface_point": [
+              -3.6469500064849854,
+              3.140000104904175,
+              0.8809999823570251
+            ],
+            "target_normal": [
+              0.9999999403953552,
+              0.0,
+              0.0
+            ],
+            "reverse": false
+          },
+          "directed_ray": {
+            "source_surface_point_world": [
+              -3.6267497539520264,
+              3.140000104904175,
+              0.8809999823570251
+            ],
+            "target_surface_point_world": [
+              -3.6469500064849854,
+              3.140000104904175,
+              0.8809999823570251
+            ],
+            "approach_world": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "target_normal_world": [
+              0.9999999403953552,
+              0.0,
+              0.0
+            ],
+            "ray_gap_m": 0.020200181916356086,
+            "orientation_degrees": 0.0,
+            "source_witness_distance_m": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "classification": "confirmed support-dependent compound or hardware separation",
+      "members": [
+        "Access panel fastener.004",
+        "Screwdriver slot.018"
+      ],
+      "islands": 2,
+      "all_outside_aabb_gap_lower_bound_m": 0.006999969482421875,
+      "targeted_surface_probes": [
+        {
+          "object": "Access panel fastener.004",
+          "target": "Serviceable inner access panel.001",
+          "role": "nearest conservative outside pair",
+          "aabb_gap_lower_bound_m": 0.006999969482421875,
+          "closest_vertex_surface_probe": {
+            "unsigned_distance_m": 0.020200014114379883,
+            "signed_nearest_m": 0.020200014114379883,
+            "first_point": [
+              -3.6267499923706055,
+              6.119999885559082,
+              0.8809999823570251
+            ],
+            "target_surface_point": [
+              -3.6469500064849854,
+              6.119999885559082,
+              0.8809999823570251
+            ],
+            "target_normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "reverse": false
+          },
+          "directed_ray": {
+            "source_surface_point_world": [
+              -3.6267499923706055,
+              6.119999885559082,
+              0.8809999823570251
+            ],
+            "target_surface_point_world": [
+              -3.6469500064849854,
+              6.119999885559082,
+              0.8809999823570251
+            ],
+            "approach_world": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "target_normal_world": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "ray_gap_m": 0.020199943497776984,
+            "orientation_degrees": 0.0,
+            "source_witness_distance_m": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "classification": "confirmed support-dependent compound or hardware separation",
+      "members": [
+        "Access panel fastener.006",
+        "Screwdriver slot.020"
+      ],
+      "islands": 2,
+      "all_outside_aabb_gap_lower_bound_m": 0.006999969482421875,
+      "targeted_surface_probes": [
+        {
+          "object": "Access panel fastener.006",
+          "target": "Serviceable inner access panel.001",
+          "role": "nearest conservative outside pair",
+          "aabb_gap_lower_bound_m": 0.006999969482421875,
+          "closest_vertex_surface_probe": {
+            "unsigned_distance_m": 0.020200014114379883,
+            "signed_nearest_m": 0.020200014114379883,
+            "first_point": [
+              -3.6267499923706055,
+              6.539999961853027,
+              0.8809999823570251
+            ],
+            "target_surface_point": [
+              -3.6469500064849854,
+              6.539999961853027,
+              0.8809999823570251
+            ],
+            "target_normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "reverse": false
+          },
+          "directed_ray": {
+            "source_surface_point_world": [
+              -3.6267499923706055,
+              6.539999961853027,
+              0.8809999823570251
+            ],
+            "target_surface_point_world": [
+              -3.6469500064849854,
+              6.539999961853027,
+              0.8809999823570251
+            ],
+            "approach_world": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "target_normal_world": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "ray_gap_m": 0.020199943497776984,
+            "orientation_degrees": 0.0,
+            "source_witness_distance_m": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "classification": "confirmed support-dependent compound or hardware separation",
+      "members": [
+        "Engraved RECOVERY.001",
+        "Engraved backing RECOVERY.001"
+      ],
+      "islands": 2,
+      "all_outside_aabb_gap_lower_bound_m": 0.006000041961669922,
+      "targeted_surface_probes": [
+        {
+          "object": "Engraved backing RECOVERY.001",
+          "target": "Identity wall spacer",
+          "role": "nearest conservative outside pair",
+          "aabb_gap_lower_bound_m": 0.006000041961669922,
+          "closest_vertex_surface_probe": {
+            "unsigned_distance_m": 0.006000041961669922,
+            "signed_nearest_m": 0.006000041961669922,
+            "first_point": [
+              3.9800000190734863,
+              5.047999858856201,
+              1.6619999408721924
+            ],
+            "target_surface_point": [
+              3.9739999771118164,
+              5.047999858856201,
+              1.6619999408721924
+            ],
+            "target_normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "reverse": true
+          },
+          "directed_ray": {
+            "source_surface_point_world": [
+              3.9739999771118164,
+              5.047999858856201,
+              1.6619999408721924
+            ],
+            "target_surface_point_world": [
+              3.9800000190734863,
+              5.047999858856201,
+              1.6619999408721924
+            ],
+            "approach_world": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "target_normal_world": [
+              -0.8880607485771179,
+              0.32510724663734436,
+              -0.3250439167022705
+            ],
+            "ray_gap_m": 0.005999969482421875,
+            "orientation_degrees": 27.36944397600215,
+            "source_witness_distance_m": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "classification": "confirmed support-dependent compound or hardware separation",
+      "members": [
+        "Engraved SUPPLIES",
+        "Engraved backing SUPPLIES"
+      ],
+      "islands": 2,
+      "all_outside_aabb_gap_lower_bound_m": 0.006000041961669922,
+      "targeted_surface_probes": [
+        {
+          "object": "Engraved backing SUPPLIES",
+          "target": "Identity wall spacer.001",
+          "role": "nearest conservative outside pair",
+          "aabb_gap_lower_bound_m": 0.006000041961669922,
+          "closest_vertex_surface_probe": {
+            "unsigned_distance_m": 0.006000041961669922,
+            "signed_nearest_m": 0.006000041961669922,
+            "first_point": [
+              3.9800000190734863,
+              1.818000078201294,
+              1.6619999408721924
+            ],
+            "target_surface_point": [
+              3.9739999771118164,
+              1.8179999589920044,
+              1.6619999408721924
+            ],
+            "target_normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "reverse": true
+          },
+          "directed_ray": {
+            "source_surface_point_world": [
+              3.9739999771118164,
+              1.8179999589920044,
+              1.6619999408721924
+            ],
+            "target_surface_point_world": [
+              3.9800000190734863,
+              1.818000078201294,
+              1.6619999408721924
+            ],
+            "approach_world": [
+              1.0,
+              1.9868075469275936e-05,
+              0.0
+            ],
+            "target_normal_world": [
+              -0.888064980506897,
+              0.3250856101512909,
+              -0.32505396008491516
+            ],
+            "ray_gap_m": 0.005999977398663759,
+            "orientation_degrees": 27.36971889111624,
+            "source_witness_distance_m": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "classification": "raised display element requires substrate contract",
+      "members": [
+        "Telemetry status bar.002"
+      ],
+      "islands": 1,
+      "all_outside_aabb_gap_lower_bound_m": 0.005499839782714844,
+      "targeted_surface_probes": [
+        {
+          "object": "Telemetry status bar.002",
+          "target": "Monitor dark face",
+          "role": "nearest conservative outside pair",
+          "aabb_gap_lower_bound_m": 0.005499839782714844,
+          "closest_vertex_surface_probe": {
+            "unsigned_distance_m": 0.005499839782714844,
+            "signed_nearest_m": 0.0054998393170535564,
+            "first_point": [
+              -0.7990000247955322,
+              8.646500587463379,
+              1.25
+            ],
+            "target_surface_point": [
+              -0.7990000247955322,
+              8.652000427246094,
+              1.25
+            ],
+            "target_normal": [
+              0.0,
+              -0.9999999403953552,
+              0.0
+            ],
+            "reverse": false
+          },
+          "directed_ray": {
+            "source_surface_point_world": [
+              -0.7990000247955322,
+              8.646500587463379,
+              1.25
+            ],
+            "target_surface_point_world": [
+              -0.7990000247955322,
+              8.652000427246094,
+              1.25
+            ],
+            "approach_world": [
+              0.0,
+              0.9999999403953552,
+              0.0
+            ],
+            "target_normal_world": [
+              0.0,
+              -0.9999999403953552,
+              0.0
+            ],
+            "ray_gap_m": 0.005500244140625,
+            "orientation_degrees": 0.0,
+            "source_witness_distance_m": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "classification": "Receiver assembly and C01 plaque require an architectural mount; their mutual 5.00011 mm separation is a numerical tolerance edge, but the combined cluster is separated from all outside geometry by at least 14.00018 mm.",
+      "members": [
+        "Cartridge extraction tab",
+        "Cartridge retaining drawer",
+        "Engraved INSERT",
+        "Engraved RELEASE",
+        "Engraved backing INSERT",
+        "Engraved backing RELEASE",
+        "Interface label mounting stem.001",
+        "Interface label mounting stem.002",
+        "Keyed cartridge throat",
+        "Mechanical selector",
+        "Receiver captive bolt",
+        "Receiver captive bolt.001",
+        "Receiver captive bolt.002",
+        "Receiver captive bolt.003",
+        "Receiver cast housing",
+        "Receiver recessed face",
+        "Screwdriver slot.070",
+        "Screwdriver slot.071",
+        "Screwdriver slot.072",
+        "Screwdriver slot.073",
+        "Selector escutcheon"
+      ],
+      "islands": 21,
+      "all_outside_aabb_gap_lower_bound_m": 0.005000114440917969,
+      "targeted_surface_probes": [
+        {
+          "object": "Cartridge extraction tab",
+          "target": "Engraved backing C01",
+          "role": "nearest conservative outside pair",
+          "aabb_gap_lower_bound_m": 0.005000114440917969,
+          "closest_vertex_surface_probe": {
+            "unsigned_distance_m": 0.005000114440917969,
+            "signed_nearest_m": 0.005000114440917969,
+            "first_point": [
+              -1.1887497901916504,
+              2.9570000171661377,
+              1.3595000505447388
+            ],
+            "target_surface_point": [
+              -1.1937499046325684,
+              2.9570000171661377,
+              1.3595000505447388
+            ],
+            "target_normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "reverse": true
+          },
+          "directed_ray": {
+            "source_surface_point_world": [
+              -1.1937499046325684,
+              2.9570000171661377,
+              1.3595000505447388
+            ],
+            "target_surface_point_world": [
+              -1.1887497901916504,
+              2.9570000171661377,
+              1.3595000505447388
+            ],
+            "approach_world": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "target_normal_world": [
+              -0.9238925576210022,
+              -8.84331143424788e-07,
+              -0.3826518654823303
+            ],
+            "ray_gap_m": 0.005000161170959473,
+            "orientation_degrees": 22.498040361827748,
+            "source_witness_distance_m": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "classification": "Receiver assembly and C01 plaque require an architectural mount; their mutual 5.00011 mm separation is a numerical tolerance edge, but the combined cluster is separated from all outside geometry by at least 14.00018 mm.",
+      "members": [
+        "Engraved C01",
+        "Engraved backing C01"
+      ],
+      "islands": 2,
+      "all_outside_aabb_gap_lower_bound_m": 0.005000114440917969,
+      "targeted_surface_probes": [
+        {
+          "object": "Engraved backing C01",
+          "target": "Cartridge extraction tab",
+          "role": "nearest conservative outside pair",
+          "aabb_gap_lower_bound_m": 0.005000114440917969,
+          "closest_vertex_surface_probe": {
+            "unsigned_distance_m": 0.005000114440917969,
+            "signed_nearest_m": 0.005000114440917969,
+            "first_point": [
+              -1.1887497901916504,
+              2.9570000171661377,
+              1.3595000505447388
+            ],
+            "target_surface_point": [
+              -1.1937499046325684,
+              2.9570000171661377,
+              1.3595000505447388
+            ],
+            "target_normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "reverse": false
+          },
+          "directed_ray": {
+            "source_surface_point_world": [
+              -1.1887497901916504,
+              2.9570000171661377,
+              1.3595000505447388
+            ],
+            "target_surface_point_world": [
+              -1.1937499046325684,
+              2.9570000171661377,
+              1.3595000505447388
+            ],
+            "approach_world": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "target_normal_world": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "ray_gap_m": 0.005000161170959473,
+            "orientation_degrees": 0.0,
+            "source_witness_distance_m": 0.0
+          }
+        }
+      ]
+    }
+  ],
+  "receiver_merged_cluster": {
+    "members": [
+      "Cartridge extraction tab",
+      "Cartridge retaining drawer",
+      "Engraved C01",
+      "Engraved INSERT",
+      "Engraved RELEASE",
+      "Engraved backing C01",
+      "Engraved backing INSERT",
+      "Engraved backing RELEASE",
+      "Interface label mounting stem.001",
+      "Interface label mounting stem.002",
+      "Keyed cartridge throat",
+      "Mechanical selector",
+      "Receiver captive bolt",
+      "Receiver captive bolt.001",
+      "Receiver captive bolt.002",
+      "Receiver captive bolt.003",
+      "Receiver cast housing",
+      "Receiver recessed face",
+      "Screwdriver slot.070",
+      "Screwdriver slot.071",
+      "Screwdriver slot.072",
+      "Screwdriver slot.073",
+      "Selector escutcheon"
+    ],
+    "outside_aabb_gap_lower_bound_m": 0.014000177383422852,
+    "surface_probes": [
+      {
+        "object": "Receiver cast housing",
+        "target": "Seal guide",
+        "aabb_gap_lower_bound_m": 0.014000177383422852,
+        "closest_vertex_surface_probe": {
+          "unsigned_distance_m": 0.014000177383422852,
+          "signed_nearest_m": 0.014000176452100277,
+          "first_point": [
+            -1.5217498540878296,
+            2.825000047683716,
+            1.565999984741211
+          ],
+          "target_surface_point": [
+            -1.5217498540878296,
+            2.810999870300293,
+            1.565999984741211
+          ],
+          "target_normal": [
+            0.0,
+            0.9999999403953552,
+            0.0
+          ],
+          "reverse": false
+        },
+        "source_surface_point_world": [
+          -1.5217498540878296,
+          2.825000047683716,
+          1.565999984741211
+        ],
+        "target_surface_point_world": [
+          -1.5217498540878296,
+          2.810999870300293,
+          1.565999984741211
+        ],
+        "approach_world": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "target_normal_world": [
+          0.0,
+          0.9999999403953552,
+          0.0
+        ],
+        "ray_gap_m": 0.014000104904174804
+      },
+      {
+        "object": "Receiver cast housing",
+        "target": "Access jamb graphite return",
+        "aabb_gap_lower_bound_m": 0.028699874877929688,
+        "closest_vertex_surface_probe": {
+          "unsigned_distance_m": 0.028699874877929688,
+          "signed_nearest_m": 0.028699874877929688,
+          "first_point": [
+            -1.5217498540878296,
+            2.825000047683716,
+            1.565999984741211
+          ],
+          "target_surface_point": [
+            -1.5217498540878296,
+            2.796300172805786,
+            1.565999984741211
+          ],
+          "target_normal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "reverse": false
+        },
+        "source_surface_point_world": [
+          -1.5217498540878296,
+          2.825000047683716,
+          1.565999984741211
+        ],
+        "target_surface_point_world": [
+          -1.5217498540878296,
+          2.796300172805786,
+          1.565999984741211
+        ],
+        "approach_world": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "target_normal_world": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "ray_gap_m": 0.02869980239868164
+      },
+      {
+        "object": "Receiver cast housing",
+        "target": "Jamb folded cover",
+        "aabb_gap_lower_bound_m": 0.034600019454956055,
+        "closest_vertex_surface_probe": {
+          "unsigned_distance_m": 0.03551283851265907,
+          "signed_nearest_m": 0.034600019454956055,
+          "first_point": [
+            -1.5217498540878296,
+            2.825000047683716,
+            1.565999984741211
+          ],
+          "target_surface_point": [
+            -1.5137498378753662,
+            2.7904000282287598,
+            1.565999984741211
+          ],
+          "target_normal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "reverse": false
+        },
+        "source_surface_point_world": [
+          -1.5217498540878296,
+          2.825000047683716,
+          1.565999984741211
+        ],
+        "target_surface_point_world": [
+          -1.5137498378753662,
+          2.7903997898101807,
+          1.565999984741211
+        ],
+        "approach_world": [
+          0.2252711057662964,
+          -0.9742960929870605,
+          0.0
+        ],
+        "target_normal_world": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "ray_gap_m": 0.03551298955082893
+      }
+    ]
+  },
+  "interpretation": {
+    "confirmed_major": "Battery rail/module cluster, cabinet pane/face/handle cluster, suit service enclosure cluster, combined receiver/C01 cluster, decon ceiling fixture and detached mechanical hardware have physical substrate or load-path omissions. Plaque backings also lack their intended spacer contact.",
+    "raised_prints": "The engraved glyphs sit approximately 1.85 mm off their backing plaques, within the recommended 5 mm gap; glyph relief alone is not a separate blocker. The detached plaque backing is the failed substrate.",
+    "raised_display": "Telemetry status bar.002 is a 3 mm thick raised element 5.49984 mm off Monitor dark face. It may be intended display relief, but needs an explicit substrate/contact contract or scoped justification; it is listed separately from major load-bearing omissions.",
+    "hidden_artifacts": "All listed clusters contain render-enabled source geometry. Camera occlusion does not exempt mechanical parts from the support contract. The reserve screwdriver slots are stranded below the rotated door and separated from their original fixed screw heads."
+  },
+  "actionable_repair": "Preserve original layout and matrices. Add authored load-bearing mounting returns, rails, brackets, screw shoulders or thin plaque spacers that connect each exact component to its intended carcass/frame/architecture. A nearest rubber seal, unrelated crossing part, open door or touching bounding box is not by itself an acceptable intended support. Register every new mechanism and validate the host cluster-to-architecture path as well as internal contacts.",
+  "coverage_limits": [
+    "No formal score because complete=true and all24 camera outputs are unavailable.",
+    "No visual /90 assessment or acceptance claim.",
+    "The broad scan is conservative: its connected components may still contain unsupported islands connected only by overlapping boxes; it does not clear the rest of the scene.",
+    "The exact surface probes focus on the 26 proven detached clusters and plausible intended targets.",
+    "UV scale/actual texture consumers, broad duplicate-geometry audit and exhaustive intended part-to-architecture paths are not completed in this bounded preflight.",
+    "Native open proves dependency resolution in this hydrated checkout; no relocation portability or Unity/runtime validation is claimed."
+  ],
+  "evidence_paths": [
+    "/tmp/medical-tech14/inventory.py",
+    "/tmp/medical-tech14/inventory.json",
+    "/tmp/medical-tech14/bbox_clusters.py",
+    "/tmp/medical-tech14/bbox-clusters.json",
+    "/tmp/medical-tech14/targeted.py",
+    "/tmp/medical-tech14/contract-omissions.json",
+    "/tmp/medical-tech14/receiver-contacts.json",
+    "/tmp/medical-tech14/cold-verification.json",
+    "/tmp/medical-tech14/dependency-manifest.json"
+  ],
+  "commands": [
+    "/workspace/tools/blender-5.2.2-linux-x64/blender -b --factory-startup --disable-autoexec -t 1 --python-exit-code 1 --python /tmp/medical-tech14/replay.py -- --cold --dependencies > /tmp/medical-tech14/replay.log 2>&1",
+    "/workspace/tools/blender-5.2.2-linux-x64/blender -b --factory-startup --disable-autoexec -t 1 --python-exit-code 1 --python /tmp/medical-tech14/inventory.py > /tmp/medical-tech14/inventory.log 2>&1",
+    "python3 /tmp/medical-tech14/bbox_clusters.py > /tmp/medical-tech14/bbox-clusters.txt",
+    "/workspace/tools/blender-5.2.2-linux-x64/blender -b --factory-startup --disable-autoexec -t 1 --python-exit-code 1 --python /tmp/medical-tech14/targeted.py > /tmp/medical-tech14/targeted.log 2>&1",
+    "/workspace/tools/blender-5.2.2-linux-x64/blender -b --factory-startup --disable-autoexec -t 1 --python-exit-code 1 --python /tmp/medical-tech14/receiver.py > /tmp/medical-tech14/receiver.log 2>&1"
+  ]
+}

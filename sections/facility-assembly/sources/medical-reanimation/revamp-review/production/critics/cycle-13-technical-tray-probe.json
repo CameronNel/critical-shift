@@ -1,0 +1,67 @@
+{
+  "source_sha256": "4da6305df4b0618012696bf29baa82db2a9a625511e10ede0afc7ef442937ac7",
+  "object": "MED_R2 | Constructed clinical dispensing bottles and tray",
+  "creator": "skill_redo.py:372-377 / consumable_profiles",
+  "tray_support_geometry": "one thin closed pan island72; no rising tray sidewall; two separate open rolled tubes islands73/74",
+  "records": [
+    {
+      "island": 73,
+      "intended_part": "Instrument tray rolled lip",
+      "base_island": 72,
+      "base_top_z_m": 0.9480000138282776,
+      "lip_bottom_z_m": 0.9574019312858582,
+      "lip_to_base_minimum_vertex_surface_distance_m": 0.009401917457580566,
+      "lip_witness_world": [
+        3.252500057220459,
+        1.625,
+        0.9574019312858582
+      ],
+      "base_witness_world": [
+        3.252500057220459,
+        1.625,
+        0.9480000138282776
+      ],
+      "vertical_ray_distance_m": 0.009401917457580566,
+      "base_surface_normal_world": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "signed_gap_m": 0.009401917457580566,
+      "bench_nearest_surface_m": 0.012401878833770752,
+      "max_allowed_gap_m": 0.005,
+      "status": "FAIL"
+    },
+    {
+      "island": 74,
+      "intended_part": "Instrument tray rolled lip",
+      "base_island": 72,
+      "base_top_z_m": 0.9480000138282776,
+      "lip_bottom_z_m": 0.9574019312858582,
+      "lip_to_base_minimum_vertex_surface_distance_m": 0.009401917457580566,
+      "lip_witness_world": [
+        3.4635000228881836,
+        1.625,
+        0.9574019312858582
+      ],
+      "base_witness_world": [
+        3.4635000228881836,
+        1.625,
+        0.9480000138282776
+      ],
+      "vertical_ray_distance_m": 0.009401917457580566,
+      "base_surface_normal_world": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "signed_gap_m": 0.009401917457580566,
+      "bench_nearest_surface_m": 0.012401878833770752,
+      "max_allowed_gap_m": 0.005,
+      "status": "FAIL"
+    }
+  ],
+  "unrelated_inventory_clipboard_is_not_intended_tray_support": true,
+  "source_saved": false,
+  "source_checksum_unchanged": true
+}

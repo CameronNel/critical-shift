@@ -1,0 +1,4350 @@
+{
+  "schema_version": 1,
+  "review_type": "BOUNDED_UNSCORED_REPAIR_PREFLIGHT",
+  "cycle": 16,
+  "discipline": "Blender technical quality",
+  "status": "PASS_BOUNDED",
+  "source_sha256": "39007192eef36f87c5299933e3a2a4f3462791871144c349a580ba2d9d322487",
+  "source_path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/module_overhaul_R2.blend",
+  "scene": "REANIMATION_EDIT_LOCAL",
+  "technical_score": null,
+  "technical_threshold": 8.5,
+  "formal_art_acceptance": false,
+  "owner_approval": false,
+  "runtime_export_certified": false,
+  "confirmed_actionable_blockers": [],
+  "scope": "The seven confirmed repair families from source3918 plus their intended host-to-architecture paths and prior significant original stored-item bearings. No new speculative cosmetic search or formal24-camera score.",
+  "native_probe_phase": {
+    "complete": true,
+    "all_processes_exited": true,
+    "exit_codes": [
+      0,
+      0
+    ],
+    "source_checksum_unchanged": true,
+    "scene_saved": false,
+    "author_native_map_renderer_edits": false,
+    "maximum_threads": 1,
+    "blender_version": "5.2.2 LTS d13f752e3b9c"
+  },
+  "cold_replay": {
+    "status": "PASS",
+    "errors": [],
+    "baseline_records": 1203,
+    "registrations": 217,
+    "anchors": 238,
+    "assembly_part_contracts": 217,
+    "sewn_groups": 10,
+    "printed_components": 27,
+    "authored_revised_normal_objects": 211,
+    "protected_files_unchanged": true,
+    "approved_spawn_unchanged": true,
+    "editable_room_local": true,
+    "linked_map": true,
+    "missing_libraries": [],
+    "missing_unpacked_images": [],
+    "limit": "Declared checks are scoped. This review additionally evaluates both stock-foot components and actual host roots, instead of relying on inherited-name terminals."
+  },
+  "repair_families": [
+    {
+      "family": "Twelve cabinet stock cases",
+      "status": "CLEAR",
+      "objects": [
+        "Sealed supply case",
+        "Sealed supply case.001",
+        "Sealed supply case.002",
+        "Sealed supply case.003",
+        "Sealed supply case.004",
+        "Sealed supply case.005",
+        "Sealed supply case.006",
+        "Sealed supply case.007",
+        "Sealed supply case.008",
+        "Sealed supply case.009",
+        "Sealed supply case.010",
+        "Sealed supply case.011"
+      ],
+      "evidence": [
+        {
+          "case": "Sealed supply case",
+          "foot": "MED_R2 | Sterile stock shelf bearing 0",
+          "proper_shelf": "Supply cabinet shelf",
+          "two_closed_positive_feet": true,
+          "components": [
+            {
+              "normal": {
+                "closed": true,
+                "signed_volume_m3": 7.568845952239957e-05,
+                "vertex_ids": [
+                  16,
+                  17,
+                  18,
+                  19,
+                  20,
+                  21,
+                  22,
+                  23,
+                  24,
+                  25,
+                  26,
+                  27,
+                  28,
+                  29,
+                  30,
+                  31
+                ],
+                "bounds": [
+                  [
+                    3.429999589920044,
+                    7.996399402618408,
+                    1.2994999885559082
+                  ],
+                  [
+                    3.869999647140503,
+                    8.024399757385254,
+                    1.3305000066757202
+                  ]
+                ]
+              },
+              "case_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 0",
+                "b": "Sealed supply case",
+                "sampled_surface_distance_m": 0.0004999637603759766,
+                "point_a": [
+                  3.429999589920044,
+                  7.996399879455566,
+                  1.3305000066757202
+                ],
+                "point_b": [
+                  3.429999589920044,
+                  7.996399879455566,
+                  1.3300000429153442
+                ],
+                "triangle_intersections": 20
+              },
+              "shelf_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 0",
+                "b": "Supply cabinet shelf",
+                "sampled_surface_distance_m": 0.0001666545867919922,
+                "point_a": [
+                  3.429999828338623,
+                  8.014400482177734,
+                  1.3001666069030762
+                ],
+                "point_b": [
+                  3.429999828338623,
+                  8.014400482177734,
+                  1.2999999523162842
+                ],
+                "triangle_intersections": 16
+              }
+            },
+            {
+              "normal": {
+                "closed": true,
+                "signed_volume_m3": 7.567424715186216e-05,
+                "vertex_ids": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15
+                ],
+                "bounds": [
+                  [
+                    3.429999589920044,
+                    8.175599098205566,
+                    1.2994999885559082
+                  ],
+                  [
+                    3.869999647140503,
+                    8.20359992980957,
+                    1.3305000066757202
+                  ]
+                ]
+              },
+              "case_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 0",
+                "b": "Sealed supply case",
+                "sampled_surface_distance_m": 0.0004999637603759766,
+                "point_a": [
+                  3.429999589920044,
+                  8.175599098205566,
+                  1.3305000066757202
+                ],
+                "point_b": [
+                  3.429999589920044,
+                  8.175599098205566,
+                  1.3300000429153442
+                ],
+                "triangle_intersections": 20
+              },
+              "shelf_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 0",
+                "b": "Supply cabinet shelf",
+                "sampled_surface_distance_m": 0.0001666545867919922,
+                "point_a": [
+                  3.429999828338623,
+                  8.193599700927734,
+                  1.3001666069030762
+                ],
+                "point_b": [
+                  3.429999828338623,
+                  8.193599700927734,
+                  1.2999999523162842
+                ],
+                "triangle_intersections": 16
+              }
+            }
+          ],
+          "direct_case_shelf_gap_m": 0.03000009059906006
+        },
+        {
+          "case": "Sealed supply case.001",
+          "foot": "MED_R2 | Sterile stock shelf bearing 1",
+          "proper_shelf": "Supply cabinet shelf.001",
+          "two_closed_positive_feet": true,
+          "components": [
+            {
+              "normal": {
+                "closed": true,
+                "signed_volume_m3": 9.331198331589356e-05,
+                "vertex_ids": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15
+                ],
+                "bounds": [
+                  [
+                    3.429999589920044,
+                    8.175599098205566,
+                    1.7095000743865967
+                  ],
+                  [
+                    3.869999647140503,
+                    8.20359992980957,
+                    1.750499963760376
+                  ]
+                ]
+              },
+              "case_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 1",
+                "b": "Sealed supply case.001",
+                "sampled_surface_distance_m": 0.0004999637603759766,
+                "point_a": [
+                  3.429999589920044,
+                  8.175599098205566,
+                  1.750499963760376
+                ],
+                "point_b": [
+                  3.429999589920044,
+                  8.175599098205566,
+                  1.75
+                ],
+                "triangle_intersections": 20
+              },
+              "shelf_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 1",
+                "b": "Supply cabinet shelf.001",
+                "sampled_surface_distance_m": 0.0001666545867919922,
+                "point_a": [
+                  3.869999647140503,
+                  8.185599327087402,
+                  1.7101666927337646
+                ],
+                "point_b": [
+                  3.869999647140503,
+                  8.185599327087402,
+                  1.7100000381469727
+                ],
+                "triangle_intersections": 16
+              }
+            },
+            {
+              "normal": {
+                "closed": true,
+                "signed_volume_m3": 9.326207994793823e-05,
+                "vertex_ids": [
+                  16,
+                  17,
+                  18,
+                  19,
+                  20,
+                  21,
+                  22,
+                  23,
+                  24,
+                  25,
+                  26,
+                  27,
+                  28,
+                  29,
+                  30,
+                  31
+                ],
+                "bounds": [
+                  [
+                    3.429999589920044,
+                    7.996399402618408,
+                    1.7095000743865967
+                  ],
+                  [
+                    3.869999647140503,
+                    8.024399757385254,
+                    1.750499963760376
+                  ]
+                ]
+              },
+              "case_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 1",
+                "b": "Sealed supply case.001",
+                "sampled_surface_distance_m": 0.0004999637603759766,
+                "point_a": [
+                  3.429999589920044,
+                  7.996399879455566,
+                  1.750499963760376
+                ],
+                "point_b": [
+                  3.429999589920044,
+                  7.996399879455566,
+                  1.75
+                ],
+                "triangle_intersections": 20
+              },
+              "shelf_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 1",
+                "b": "Supply cabinet shelf.001",
+                "sampled_surface_distance_m": 0.00016665476141497493,
+                "point_a": [
+                  3.869999647140503,
+                  8.006400108337402,
+                  1.7101666927337646
+                ],
+                "point_b": [
+                  3.869999885559082,
+                  8.006400108337402,
+                  1.7100000381469727
+                ],
+                "triangle_intersections": 16
+              }
+            }
+          ],
+          "direct_case_shelf_gap_m": 0.039999961853027344
+        },
+        {
+          "case": "Sealed supply case.002",
+          "foot": "MED_R2 | Sterile stock shelf bearing 2",
+          "proper_shelf": "Supply cabinet shelf.002",
+          "two_closed_positive_feet": true,
+          "components": [
+            {
+              "normal": {
+                "closed": true,
+                "signed_volume_m3": 7.566145116773737e-05,
+                "vertex_ids": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15
+                ],
+                "bounds": [
+                  [
+                    3.429999589920044,
+                    8.175599098205566,
+                    2.109499931335449
+                  ],
+                  [
+                    3.869999647140503,
+                    8.20359992980957,
+                    2.140500068664551
+                  ]
+                ]
+              },
+              "case_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 2",
+                "b": "Sealed supply case.002",
+                "sampled_surface_distance_m": 0.0004999637603759766,
+                "point_a": [
+                  3.429999589920044,
+                  8.175599098205566,
+                  2.140500068664551
+                ],
+                "point_b": [
+                  3.429999589920044,
+                  8.175599098205566,
+                  2.140000104904175
+                ],
+                "triangle_intersections": 20
+              },
+              "shelf_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 2",
+                "b": "Supply cabinet shelf.002",
+                "sampled_surface_distance_m": 0.0001666545867919922,
+                "point_a": [
+                  3.429999828338623,
+                  8.193599700927734,
+                  2.110166549682617
+                ],
+                "point_b": [
+                  3.429999828338623,
+                  8.193599700927734,
+                  2.109999895095825
+                ],
+                "triangle_intersections": 16
+              }
+            },
+            {
+              "normal": {
+                "closed": true,
+                "signed_volume_m3": 7.570641658579281e-05,
+                "vertex_ids": [
+                  16,
+                  17,
+                  18,
+                  19,
+                  20,
+                  21,
+                  22,
+                  23,
+                  24,
+                  25,
+                  26,
+                  27,
+                  28,
+                  29,
+                  30,
+                  31
+                ],
+                "bounds": [
+                  [
+                    3.429999589920044,
+                    7.996399402618408,
+                    2.109499931335449
+                  ],
+                  [
+                    3.869999647140503,
+                    8.024399757385254,
+                    2.140500068664551
+                  ]
+                ]
+              },
+              "case_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 2",
+                "b": "Sealed supply case.002",
+                "sampled_surface_distance_m": 0.0004999637603759766,
+                "point_a": [
+                  3.429999589920044,
+                  7.996399879455566,
+                  2.140500068664551
+                ],
+                "point_b": [
+                  3.429999589920044,
+                  7.996399879455566,
+                  2.140000104904175
+                ],
+                "triangle_intersections": 20
+              },
+              "shelf_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 2",
+                "b": "Supply cabinet shelf.002",
+                "sampled_surface_distance_m": 0.0001666545867919922,
+                "point_a": [
+                  3.429999828338623,
+                  8.014400482177734,
+                  2.110166549682617
+                ],
+                "point_b": [
+                  3.429999828338623,
+                  8.014400482177734,
+                  2.109999895095825
+                ],
+                "triangle_intersections": 16
+              }
+            }
+          ],
+          "direct_case_shelf_gap_m": 0.03000020980834961
+        },
+        {
+          "case": "Sealed supply case.003",
+          "foot": "MED_R2 | Sterile stock shelf bearing 3",
+          "proper_shelf": "Supply cabinet shelf",
+          "two_closed_positive_feet": true,
+          "components": [
+            {
+              "normal": {
+                "closed": true,
+                "signed_volume_m3": 7.56796992694332e-05,
+                "vertex_ids": [
+                  16,
+                  17,
+                  18,
+                  19,
+                  20,
+                  21,
+                  22,
+                  23,
+                  24,
+                  25,
+                  26,
+                  27,
+                  28,
+                  29,
+                  30,
+                  31
+                ],
+                "bounds": [
+                  [
+                    3.429999828338623,
+                    7.556400299072266,
+                    1.2994999885559082
+                  ],
+                  [
+                    3.869999885559082,
+                    7.584400177001953,
+                    1.3305000066757202
+                  ]
+                ]
+              },
+              "case_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 3",
+                "b": "Sealed supply case.003",
+                "sampled_surface_distance_m": 0.0004999637603759766,
+                "point_a": [
+                  3.429999828338623,
+                  7.556400299072266,
+                  1.3305000066757202
+                ],
+                "point_b": [
+                  3.429999828338623,
+                  7.556400299072266,
+                  1.3300000429153442
+                ],
+                "triangle_intersections": 20
+              },
+              "shelf_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 3",
+                "b": "Supply cabinet shelf",
+                "sampled_surface_distance_m": 0.0001666545867919922,
+                "point_a": [
+                  3.429999828338623,
+                  7.574400901794434,
+                  1.3001666069030762
+                ],
+                "point_b": [
+                  3.429999828338623,
+                  7.574400901794434,
+                  1.2999999523162842
+                ],
+                "triangle_intersections": 18
+              }
+            },
+            {
+              "normal": {
+                "closed": true,
+                "signed_volume_m3": 7.567074499093026e-05,
+                "vertex_ids": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15
+                ],
+                "bounds": [
+                  [
+                    3.429999828338623,
+                    7.735599994659424,
+                    1.2994999885559082
+                  ],
+                  [
+                    3.869999885559082,
+                    7.763599872589111,
+                    1.3305000066757202
+                  ]
+                ]
+              },
+              "case_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 3",
+                "b": "Sealed supply case.003",
+                "sampled_surface_distance_m": 0.0004999637603759766,
+                "point_a": [
+                  3.429999828338623,
+                  7.735599994659424,
+                  1.3305000066757202
+                ],
+                "point_b": [
+                  3.429999828338623,
+                  7.735599994659424,
+                  1.3300000429153442
+                ],
+                "triangle_intersections": 20
+              },
+              "shelf_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 3",
+                "b": "Supply cabinet shelf",
+                "sampled_surface_distance_m": 0.0001666545867919922,
+                "point_a": [
+                  3.429999828338623,
+                  7.753600120544434,
+                  1.3001666069030762
+                ],
+                "point_b": [
+                  3.429999828338623,
+                  7.753600120544434,
+                  1.2999999523162842
+                ],
+                "triangle_intersections": 18
+              }
+            }
+          ],
+          "direct_case_shelf_gap_m": 0.03000009059906006
+        },
+        {
+          "case": "Sealed supply case.004",
+          "foot": "MED_R2 | Sterile stock shelf bearing 4",
+          "proper_shelf": "Supply cabinet shelf.001",
+          "two_closed_positive_feet": true,
+          "components": [
+            {
+              "normal": {
+                "closed": true,
+                "signed_volume_m3": 9.328292799182063e-05,
+                "vertex_ids": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15
+                ],
+                "bounds": [
+                  [
+                    3.429999828338623,
+                    7.735599994659424,
+                    1.7095000743865967
+                  ],
+                  [
+                    3.869999885559082,
+                    7.763599872589111,
+                    1.750499963760376
+                  ]
+                ]
+              },
+              "case_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 4",
+                "b": "Sealed supply case.004",
+                "sampled_surface_distance_m": 0.0004999637603759766,
+                "point_a": [
+                  3.429999828338623,
+                  7.735599994659424,
+                  1.750499963760376
+                ],
+                "point_b": [
+                  3.429999828338623,
+                  7.735599994659424,
+                  1.75
+                ],
+                "triangle_intersections": 20
+              },
+              "shelf_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 4",
+                "b": "Supply cabinet shelf.001",
+                "sampled_surface_distance_m": 0.0001666545867919922,
+                "point_a": [
+                  3.869999885559082,
+                  7.745599746704102,
+                  1.7101666927337646
+                ],
+                "point_b": [
+                  3.869999885559082,
+                  7.745599746704102,
+                  1.7100000381469727
+                ],
+                "triangle_intersections": 18
+              }
+            },
+            {
+              "normal": {
+                "closed": true,
+                "signed_volume_m3": 9.328497496123188e-05,
+                "vertex_ids": [
+                  16,
+                  17,
+                  18,
+                  19,
+                  20,
+                  21,
+                  22,
+                  23,
+                  24,
+                  25,
+                  26,
+                  27,
+                  28,
+                  29,
+                  30,
+                  31
+                ],
+                "bounds": [
+                  [
+                    3.429999828338623,
+                    7.556400299072266,
+                    1.7095000743865967
+                  ],
+                  [
+                    3.869999885559082,
+                    7.584400177001953,
+                    1.750499963760376
+                  ]
+                ]
+              },
+              "case_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 4",
+                "b": "Sealed supply case.004",
+                "sampled_surface_distance_m": 0.0004999637603759766,
+                "point_a": [
+                  3.429999828338623,
+                  7.556400299072266,
+                  1.750499963760376
+                ],
+                "point_b": [
+                  3.429999828338623,
+                  7.556400299072266,
+                  1.75
+                ],
+                "triangle_intersections": 20
+              },
+              "shelf_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 4",
+                "b": "Supply cabinet shelf.001",
+                "sampled_surface_distance_m": 0.0001666545867919922,
+                "point_a": [
+                  3.869999885559082,
+                  7.566400051116943,
+                  1.7101666927337646
+                ],
+                "point_b": [
+                  3.869999885559082,
+                  7.566400051116943,
+                  1.7100000381469727
+                ],
+                "triangle_intersections": 18
+              }
+            }
+          ],
+          "direct_case_shelf_gap_m": 0.039999961853027344
+        },
+        {
+          "case": "Sealed supply case.005",
+          "foot": "MED_R2 | Sterile stock shelf bearing 5",
+          "proper_shelf": "Supply cabinet shelf.002",
+          "two_closed_positive_feet": true,
+          "components": [
+            {
+              "normal": {
+                "closed": true,
+                "signed_volume_m3": 7.566309068351984e-05,
+                "vertex_ids": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15
+                ],
+                "bounds": [
+                  [
+                    3.429999828338623,
+                    7.735599994659424,
+                    2.109499931335449
+                  ],
+                  [
+                    3.869999885559082,
+                    7.763599872589111,
+                    2.140500068664551
+                  ]
+                ]
+              },
+              "case_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 5",
+                "b": "Sealed supply case.005",
+                "sampled_surface_distance_m": 0.0004999637603759766,
+                "point_a": [
+                  3.429999828338623,
+                  7.735599994659424,
+                  2.140500068664551
+                ],
+                "point_b": [
+                  3.429999828338623,
+                  7.735599994659424,
+                  2.140000104904175
+                ],
+                "triangle_intersections": 20
+              },
+              "shelf_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 5",
+                "b": "Supply cabinet shelf.002",
+                "sampled_surface_distance_m": 0.0001666545867919922,
+                "point_a": [
+                  3.429999828338623,
+                  7.753600120544434,
+                  2.110166549682617
+                ],
+                "point_b": [
+                  3.429999828338623,
+                  7.753600120544434,
+                  2.109999895095825
+                ],
+                "triangle_intersections": 18
+              }
+            },
+            {
+              "normal": {
+                "closed": true,
+                "signed_volume_m3": 7.568086342265093e-05,
+                "vertex_ids": [
+                  16,
+                  17,
+                  18,
+                  19,
+                  20,
+                  21,
+                  22,
+                  23,
+                  24,
+                  25,
+                  26,
+                  27,
+                  28,
+                  29,
+                  30,
+                  31
+                ],
+                "bounds": [
+                  [
+                    3.429999828338623,
+                    7.556400299072266,
+                    2.109499931335449
+                  ],
+                  [
+                    3.869999885559082,
+                    7.584400177001953,
+                    2.140500068664551
+                  ]
+                ]
+              },
+              "case_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 5",
+                "b": "Sealed supply case.005",
+                "sampled_surface_distance_m": 0.0004999637603759766,
+                "point_a": [
+                  3.429999828338623,
+                  7.556400299072266,
+                  2.140500068664551
+                ],
+                "point_b": [
+                  3.429999828338623,
+                  7.556400299072266,
+                  2.140000104904175
+                ],
+                "triangle_intersections": 20
+              },
+              "shelf_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 5",
+                "b": "Supply cabinet shelf.002",
+                "sampled_surface_distance_m": 0.0001666545867919922,
+                "point_a": [
+                  3.429999828338623,
+                  7.574400901794434,
+                  2.110166549682617
+                ],
+                "point_b": [
+                  3.429999828338623,
+                  7.574400901794434,
+                  2.109999895095825
+                ],
+                "triangle_intersections": 18
+              }
+            }
+          ],
+          "direct_case_shelf_gap_m": 0.029999971389770508
+        },
+        {
+          "case": "Sealed supply case.006",
+          "foot": "MED_R2 | Sterile stock shelf bearing 6",
+          "proper_shelf": "Supply cabinet shelf",
+          "two_closed_positive_feet": true,
+          "components": [
+            {
+              "normal": {
+                "closed": true,
+                "signed_volume_m3": 7.567535309741934e-05,
+                "vertex_ids": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15
+                ],
+                "bounds": [
+                  [
+                    3.429999828338623,
+                    7.285600185394287,
+                    1.2994999885559082
+                  ],
+                  [
+                    3.869999885559082,
+                    7.313600063323975,
+                    1.3305000066757202
+                  ]
+                ]
+              },
+              "case_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 6",
+                "b": "Sealed supply case.006",
+                "sampled_surface_distance_m": 0.0004999637603759766,
+                "point_a": [
+                  3.429999828338623,
+                  7.285600185394287,
+                  1.3305000066757202
+                ],
+                "point_b": [
+                  3.429999828338623,
+                  7.285600185394287,
+                  1.3300000429153442
+                ],
+                "triangle_intersections": 20
+              },
+              "shelf_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 6",
+                "b": "Supply cabinet shelf",
+                "sampled_surface_distance_m": 0.0001666545867919922,
+                "point_a": [
+                  3.429999828338623,
+                  7.303600311279297,
+                  1.3001666069030762
+                ],
+                "point_b": [
+                  3.429999828338623,
+                  7.303600311279297,
+                  1.2999999523162842
+                ],
+                "triangle_intersections": 18
+              }
+            },
+            {
+              "normal": {
+                "closed": true,
+                "signed_volume_m3": 7.5694222080831e-05,
+                "vertex_ids": [
+                  16,
+                  17,
+                  18,
+                  19,
+                  20,
+                  21,
+                  22,
+                  23,
+                  24,
+                  25,
+                  26,
+                  27,
+                  28,
+                  29,
+                  30,
+                  31
+                ],
+                "bounds": [
+                  [
+                    3.429999828338623,
+                    7.106400489807129,
+                    1.2994999885559082
+                  ],
+                  [
+                    3.869999885559082,
+                    7.134400367736816,
+                    1.3305000066757202
+                  ]
+                ]
+              },
+              "case_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 6",
+                "b": "Sealed supply case.006",
+                "sampled_surface_distance_m": 0.0004999637603759766,
+                "point_a": [
+                  3.429999828338623,
+                  7.106400489807129,
+                  1.3305000066757202
+                ],
+                "point_b": [
+                  3.429999828338623,
+                  7.106400489807129,
+                  1.3300000429153442
+                ],
+                "triangle_intersections": 20
+              },
+              "shelf_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 6",
+                "b": "Supply cabinet shelf",
+                "sampled_surface_distance_m": 0.0001666545867919922,
+                "point_a": [
+                  3.429999828338623,
+                  7.124400615692139,
+                  1.3001666069030762
+                ],
+                "point_b": [
+                  3.429999828338623,
+                  7.124400615692139,
+                  1.2999999523162842
+                ],
+                "triangle_intersections": 18
+              }
+            }
+          ],
+          "direct_case_shelf_gap_m": 0.03000009059906006
+        },
+        {
+          "case": "Sealed supply case.007",
+          "foot": "MED_R2 | Sterile stock shelf bearing 7",
+          "proper_shelf": "Supply cabinet shelf.001",
+          "two_closed_positive_feet": true,
+          "components": [
+            {
+              "normal": {
+                "closed": true,
+                "signed_volume_m3": 9.32800661151618e-05,
+                "vertex_ids": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15
+                ],
+                "bounds": [
+                  [
+                    3.429999828338623,
+                    7.285600185394287,
+                    1.7095000743865967
+                  ],
+                  [
+                    3.869999885559082,
+                    7.313600063323975,
+                    1.750499963760376
+                  ]
+                ]
+              },
+              "case_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 7",
+                "b": "Sealed supply case.007",
+                "sampled_surface_distance_m": 0.0004999637603759766,
+                "point_a": [
+                  3.429999828338623,
+                  7.285600185394287,
+                  1.750499963760376
+                ],
+                "point_b": [
+                  3.429999828338623,
+                  7.285600185394287,
+                  1.75
+                ],
+                "triangle_intersections": 20
+              },
+              "shelf_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 7",
+                "b": "Supply cabinet shelf.001",
+                "sampled_surface_distance_m": 0.0001666545867919922,
+                "point_a": [
+                  3.869999885559082,
+                  7.295600414276123,
+                  1.7101666927337646
+                ],
+                "point_b": [
+                  3.869999885559082,
+                  7.295600414276123,
+                  1.7100000381469727
+                ],
+                "triangle_intersections": 18
+              }
+            },
+            {
+              "normal": {
+                "closed": true,
+                "signed_volume_m3": 9.330556107063886e-05,
+                "vertex_ids": [
+                  16,
+                  17,
+                  18,
+                  19,
+                  20,
+                  21,
+                  22,
+                  23,
+                  24,
+                  25,
+                  26,
+                  27,
+                  28,
+                  29,
+                  30,
+                  31
+                ],
+                "bounds": [
+                  [
+                    3.429999828338623,
+                    7.106400489807129,
+                    1.7095000743865967
+                  ],
+                  [
+                    3.869999885559082,
+                    7.134400367736816,
+                    1.750499963760376
+                  ]
+                ]
+              },
+              "case_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 7",
+                "b": "Sealed supply case.007",
+                "sampled_surface_distance_m": 0.0004999637603759766,
+                "point_a": [
+                  3.429999828338623,
+                  7.106400489807129,
+                  1.750499963760376
+                ],
+                "point_b": [
+                  3.429999828338623,
+                  7.106400489807129,
+                  1.75
+                ],
+                "triangle_intersections": 20
+              },
+              "shelf_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 7",
+                "b": "Supply cabinet shelf.001",
+                "sampled_surface_distance_m": 0.00016665527073200792,
+                "point_a": [
+                  3.869999885559082,
+                  7.116400718688965,
+                  1.7101666927337646
+                ],
+                "point_b": [
+                  3.869999885559082,
+                  7.116401195526123,
+                  1.7100000381469727
+                ],
+                "triangle_intersections": 18
+              }
+            }
+          ],
+          "direct_case_shelf_gap_m": 0.039999961853027344
+        },
+        {
+          "case": "Sealed supply case.008",
+          "foot": "MED_R2 | Sterile stock shelf bearing 8",
+          "proper_shelf": "Supply cabinet shelf.002",
+          "two_closed_positive_feet": true,
+          "components": [
+            {
+              "normal": {
+                "closed": true,
+                "signed_volume_m3": 7.570078014396001e-05,
+                "vertex_ids": [
+                  16,
+                  17,
+                  18,
+                  19,
+                  20,
+                  21,
+                  22,
+                  23,
+                  24,
+                  25,
+                  26,
+                  27,
+                  28,
+                  29,
+                  30,
+                  31
+                ],
+                "bounds": [
+                  [
+                    3.429999828338623,
+                    7.106400489807129,
+                    2.109499931335449
+                  ],
+                  [
+                    3.869999885559082,
+                    7.134400367736816,
+                    2.140500068664551
+                  ]
+                ]
+              },
+              "case_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 8",
+                "b": "Sealed supply case.008",
+                "sampled_surface_distance_m": 0.0004999637603759766,
+                "point_a": [
+                  3.429999828338623,
+                  7.106400489807129,
+                  2.140500068664551
+                ],
+                "point_b": [
+                  3.429999828338623,
+                  7.106400489807129,
+                  2.140000104904175
+                ],
+                "triangle_intersections": 20
+              },
+              "shelf_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 8",
+                "b": "Supply cabinet shelf.002",
+                "sampled_surface_distance_m": 0.0001666545867919922,
+                "point_a": [
+                  3.429999828338623,
+                  7.124400615692139,
+                  2.110166549682617
+                ],
+                "point_b": [
+                  3.429999828338623,
+                  7.124400615692139,
+                  2.109999895095825
+                ],
+                "triangle_intersections": 18
+              }
+            },
+            {
+              "normal": {
+                "closed": true,
+                "signed_volume_m3": 7.566994948623009e-05,
+                "vertex_ids": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15
+                ],
+                "bounds": [
+                  [
+                    3.429999828338623,
+                    7.285600185394287,
+                    2.109499931335449
+                  ],
+                  [
+                    3.869999885559082,
+                    7.313600063323975,
+                    2.140500068664551
+                  ]
+                ]
+              },
+              "case_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 8",
+                "b": "Sealed supply case.008",
+                "sampled_surface_distance_m": 0.0004999637603759766,
+                "point_a": [
+                  3.429999828338623,
+                  7.285600185394287,
+                  2.140500068664551
+                ],
+                "point_b": [
+                  3.429999828338623,
+                  7.285600185394287,
+                  2.140000104904175
+                ],
+                "triangle_intersections": 20
+              },
+              "shelf_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 8",
+                "b": "Supply cabinet shelf.002",
+                "sampled_surface_distance_m": 0.0001666545867919922,
+                "point_a": [
+                  3.429999828338623,
+                  7.303600311279297,
+                  2.110166549682617
+                ],
+                "point_b": [
+                  3.429999828338623,
+                  7.303600311279297,
+                  2.109999895095825
+                ],
+                "triangle_intersections": 18
+              }
+            }
+          ],
+          "direct_case_shelf_gap_m": 0.029999971389770508
+        },
+        {
+          "case": "Sealed supply case.009",
+          "foot": "MED_R2 | Sterile stock shelf bearing 9",
+          "proper_shelf": "Supply cabinet shelf",
+          "two_closed_positive_feet": true,
+          "components": [
+            {
+              "normal": {
+                "closed": true,
+                "signed_volume_m3": 7.567187033904153e-05,
+                "vertex_ids": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15
+                ],
+                "bounds": [
+                  [
+                    3.429999828338623,
+                    6.865600109100342,
+                    1.2994999885559082
+                  ],
+                  [
+                    3.869999885559082,
+                    6.893599987030029,
+                    1.3305000066757202
+                  ]
+                ]
+              },
+              "case_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 9",
+                "b": "Sealed supply case.009",
+                "sampled_surface_distance_m": 0.0004999637603759766,
+                "point_a": [
+                  3.429999828338623,
+                  6.865600109100342,
+                  1.3305000066757202
+                ],
+                "point_b": [
+                  3.429999828338623,
+                  6.865600109100342,
+                  1.3300000429153442
+                ],
+                "triangle_intersections": 20
+              },
+              "shelf_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 9",
+                "b": "Supply cabinet shelf",
+                "sampled_surface_distance_m": 0.0001666545867919922,
+                "point_a": [
+                  3.429999828338623,
+                  6.883600234985352,
+                  1.3001666069030762
+                ],
+                "point_b": [
+                  3.429999828338623,
+                  6.883600234985352,
+                  1.2999999523162842
+                ],
+                "triangle_intersections": 18
+              }
+            },
+            {
+              "normal": {
+                "closed": true,
+                "signed_volume_m3": 7.566508914654457e-05,
+                "vertex_ids": [
+                  16,
+                  17,
+                  18,
+                  19,
+                  20,
+                  21,
+                  22,
+                  23,
+                  24,
+                  25,
+                  26,
+                  27,
+                  28,
+                  29,
+                  30,
+                  31
+                ],
+                "bounds": [
+                  [
+                    3.429999828338623,
+                    6.686400413513184,
+                    1.2994999885559082
+                  ],
+                  [
+                    3.869999885559082,
+                    6.714400291442871,
+                    1.3305000066757202
+                  ]
+                ]
+              },
+              "case_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 9",
+                "b": "Sealed supply case.009",
+                "sampled_surface_distance_m": 0.0004999637603759766,
+                "point_a": [
+                  3.429999828338623,
+                  6.686400413513184,
+                  1.3305000066757202
+                ],
+                "point_b": [
+                  3.429999828338623,
+                  6.686400413513184,
+                  1.3300000429153442
+                ],
+                "triangle_intersections": 20
+              },
+              "shelf_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 9",
+                "b": "Supply cabinet shelf",
+                "sampled_surface_distance_m": 0.0001666545867919922,
+                "point_a": [
+                  3.429999828338623,
+                  6.704400539398193,
+                  1.3001666069030762
+                ],
+                "point_b": [
+                  3.429999828338623,
+                  6.704400539398193,
+                  1.2999999523162842
+                ],
+                "triangle_intersections": 16
+              }
+            }
+          ],
+          "direct_case_shelf_gap_m": 0.03000009059906006
+        },
+        {
+          "case": "Sealed supply case.010",
+          "foot": "MED_R2 | Sterile stock shelf bearing 10",
+          "proper_shelf": "Supply cabinet shelf.001",
+          "two_closed_positive_feet": true,
+          "components": [
+            {
+              "normal": {
+                "closed": true,
+                "signed_volume_m3": 9.328100713901193e-05,
+                "vertex_ids": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15
+                ],
+                "bounds": [
+                  [
+                    3.429999828338623,
+                    6.865600109100342,
+                    1.7095000743865967
+                  ],
+                  [
+                    3.869999885559082,
+                    6.893599987030029,
+                    1.750499963760376
+                  ]
+                ]
+              },
+              "case_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 10",
+                "b": "Sealed supply case.010",
+                "sampled_surface_distance_m": 0.0004999637603759766,
+                "point_a": [
+                  3.429999828338623,
+                  6.865600109100342,
+                  1.750499963760376
+                ],
+                "point_b": [
+                  3.429999828338623,
+                  6.865600109100342,
+                  1.75
+                ],
+                "triangle_intersections": 20
+              },
+              "shelf_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 10",
+                "b": "Supply cabinet shelf.001",
+                "sampled_surface_distance_m": 0.00016665527073200792,
+                "point_a": [
+                  3.869999885559082,
+                  6.875600337982178,
+                  1.7101666927337646
+                ],
+                "point_b": [
+                  3.869999885559082,
+                  6.875600814819336,
+                  1.7100000381469727
+                ],
+                "triangle_intersections": 18
+              }
+            },
+            {
+              "normal": {
+                "closed": true,
+                "signed_volume_m3": 9.329961418794944e-05,
+                "vertex_ids": [
+                  16,
+                  17,
+                  18,
+                  19,
+                  20,
+                  21,
+                  22,
+                  23,
+                  24,
+                  25,
+                  26,
+                  27,
+                  28,
+                  29,
+                  30,
+                  31
+                ],
+                "bounds": [
+                  [
+                    3.429999828338623,
+                    6.686400413513184,
+                    1.7095000743865967
+                  ],
+                  [
+                    3.869999885559082,
+                    6.714400291442871,
+                    1.750499963760376
+                  ]
+                ]
+              },
+              "case_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 10",
+                "b": "Sealed supply case.010",
+                "sampled_surface_distance_m": 0.0004999637603759766,
+                "point_a": [
+                  3.429999828338623,
+                  6.686400413513184,
+                  1.750499963760376
+                ],
+                "point_b": [
+                  3.429999828338623,
+                  6.686400413513184,
+                  1.75
+                ],
+                "triangle_intersections": 20
+              },
+              "shelf_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 10",
+                "b": "Supply cabinet shelf.001",
+                "sampled_surface_distance_m": 0.0001666545867919922,
+                "point_a": [
+                  3.869999885559082,
+                  6.6964006423950195,
+                  1.7101666927337646
+                ],
+                "point_b": [
+                  3.869999885559082,
+                  6.6964006423950195,
+                  1.7100000381469727
+                ],
+                "triangle_intersections": 16
+              }
+            }
+          ],
+          "direct_case_shelf_gap_m": 0.039999961853027344
+        },
+        {
+          "case": "Sealed supply case.011",
+          "foot": "MED_R2 | Sterile stock shelf bearing 11",
+          "proper_shelf": "Supply cabinet shelf.002",
+          "two_closed_positive_feet": true,
+          "components": [
+            {
+              "normal": {
+                "closed": true,
+                "signed_volume_m3": 7.56771284310771e-05,
+                "vertex_ids": [
+                  16,
+                  17,
+                  18,
+                  19,
+                  20,
+                  21,
+                  22,
+                  23,
+                  24,
+                  25,
+                  26,
+                  27,
+                  28,
+                  29,
+                  30,
+                  31
+                ],
+                "bounds": [
+                  [
+                    3.429999828338623,
+                    6.686400413513184,
+                    2.109499931335449
+                  ],
+                  [
+                    3.869999885559082,
+                    6.714400291442871,
+                    2.140500068664551
+                  ]
+                ]
+              },
+              "case_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 11",
+                "b": "Sealed supply case.011",
+                "sampled_surface_distance_m": 0.0004999637603759766,
+                "point_a": [
+                  3.429999828338623,
+                  6.686400413513184,
+                  2.140500068664551
+                ],
+                "point_b": [
+                  3.429999828338623,
+                  6.686400413513184,
+                  2.140000104904175
+                ],
+                "triangle_intersections": 20
+              },
+              "shelf_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 11",
+                "b": "Supply cabinet shelf.002",
+                "sampled_surface_distance_m": 0.0001666545867919922,
+                "point_a": [
+                  3.429999828338623,
+                  6.704400539398193,
+                  2.110166549682617
+                ],
+                "point_b": [
+                  3.429999828338623,
+                  6.704400539398193,
+                  2.109999895095825
+                ],
+                "triangle_intersections": 16
+              }
+            },
+            {
+              "normal": {
+                "closed": true,
+                "signed_volume_m3": 7.56784187008917e-05,
+                "vertex_ids": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15
+                ],
+                "bounds": [
+                  [
+                    3.429999828338623,
+                    6.865600109100342,
+                    2.109499931335449
+                  ],
+                  [
+                    3.869999885559082,
+                    6.893599987030029,
+                    2.140500068664551
+                  ]
+                ]
+              },
+              "case_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 11",
+                "b": "Sealed supply case.011",
+                "sampled_surface_distance_m": 0.0004999637603759766,
+                "point_a": [
+                  3.429999828338623,
+                  6.865600109100342,
+                  2.140500068664551
+                ],
+                "point_b": [
+                  3.429999828338623,
+                  6.865600109100342,
+                  2.140000104904175
+                ],
+                "triangle_intersections": 20
+              },
+              "shelf_interface": {
+                "a": "MED_R2 | Sterile stock shelf bearing 11",
+                "b": "Supply cabinet shelf.002",
+                "sampled_surface_distance_m": 0.0001666545867919922,
+                "point_a": [
+                  3.429999828338623,
+                  6.883600234985352,
+                  2.110166549682617
+                ],
+                "point_b": [
+                  3.429999828338623,
+                  6.883600234985352,
+                  2.109999895095825
+                ],
+                "triangle_intersections": 18
+              }
+            }
+          ],
+          "direct_case_shelf_gap_m": 0.03000020980834961
+        }
+      ],
+      "interpretation": "Each stock case now bears downward through two separate closed pressed-U feet. All24 components have positive signed volume and consistent winding. Every case-foot interface is0.0004999637603759766m; every foot-to-correct-shelf interface is0.0001666545867919922\u20130.00016665527073200792m. The former30\u201340mm direct gap remains as the intended space occupied by the feet. The cabinet back is not used as case bearing.",
+      "path": "Case\u2192two pressed-U feet\u2192proper shelf\u2192cabinet back\u2192wall spacer\u2192East wall."
+    },
+    {
+      "family": "Organic continuity plaque",
+      "status": "CLEAR",
+      "evidence": [
+        {
+          "a": "MED_R2 | Organic continuity plaque standoff 4.2",
+          "b": "Engraved backing ORGANIC CONTINUITY",
+          "sampled_surface_distance_m": 6.0558319091796875e-05,
+          "point_a": [
+            -3.822810411453247,
+            4.198696136474609,
+            2.160250186920166
+          ],
+          "point_b": [
+            -3.8227498531341553,
+            4.198696136474609,
+            2.160250186920166
+          ],
+          "triangle_intersections": 13
+        },
+        {
+          "a": "MED_R2 | Organic continuity plaque standoff 5.05",
+          "b": "Engraved backing ORGANIC CONTINUITY",
+          "sampled_surface_distance_m": 0.0004999637603759766,
+          "point_a": [
+            -3.8222498893737793,
+            5.077750205993652,
+            2.152250289916992
+          ],
+          "point_b": [
+            -3.8227498531341553,
+            5.077750205993652,
+            2.152250289916992
+          ],
+          "triangle_intersections": 16
+        },
+        {
+          "a": "MED_R2 | Organic continuity plaque standoff 4.2",
+          "b": "Inner removable liner.001",
+          "sampled_surface_distance_m": 7.915640162536874e-05,
+          "point_a": [
+            -3.858689308166504,
+            4.21230411529541,
+            2.160250186920166
+          ],
+          "point_b": [
+            -3.8587684631347656,
+            4.212303638458252,
+            2.160250186920166
+          ],
+          "triangle_intersections": 12
+        },
+        {
+          "a": "MED_R2 | Organic continuity plaque standoff 5.05",
+          "b": "Inner removable liner.001",
+          "sampled_surface_distance_m": 1.2157009905422456e-06,
+          "point_a": [
+            -3.862449884414673,
+            5.050000190734863,
+            2.137500047683716
+          ],
+          "point_b": [
+            -3.8624486923217773,
+            5.050000190734863,
+            2.1374998092651367
+          ],
+          "triangle_intersections": 15
+        }
+      ],
+      "interpretation": "Both actual standoffs meet plaque and liner, with evaluated triangle intersections and sub0.5mm sampled witnesses. They are closed positive components with valid winding.",
+      "path": "Plaque\u2192two standoffs\u2192Inner removable liner.001\u2192Rear machine skin\u2192sealed chamber pan\u2192chassis\u2192fabricated chamber foot\u2192sole shoe\u2192Floor."
+    },
+    {
+      "family": "Recovery release slip",
+      "status": "CLEAR",
+      "evidence": [
+        {
+          "a": "Recovery release slip",
+          "b": "MED_R2 | Recovery foot chart holder",
+          "sampled_surface_distance_m": 0.0004999637603759766,
+          "point_a": [
+            2.821000099182129,
+            3.6409997940063477,
+            0.7699999809265137
+          ],
+          "point_b": [
+            2.821000099182129,
+            3.6409997940063477,
+            0.7695000171661377
+          ],
+          "triangle_intersections": 0
+        },
+        {
+          "a": "Release slip",
+          "b": "Recovery release slip",
+          "sampled_surface_distance_m": 0.0008499622344970703,
+          "point_a": [
+            2.9144480228424072,
+            3.6783158779144287,
+            0.7738499641418457
+          ],
+          "point_b": [
+            2.9144480228424072,
+            3.6783158779144287,
+            0.7730000019073486
+          ],
+          "triangle_intersections": 0
+        },
+        {
+          "a": "MED_R2 | Recovery foot chart holder",
+          "b": "Recovery bed pan",
+          "sampled_surface_distance_m": 5.960464477539063e-08,
+          "point_a": [
+            2.811000108718872,
+            3.5999999046325684,
+            0.699999988079071
+          ],
+          "point_b": [
+            2.811000108718872,
+            3.5999999046325684,
+            0.7000000476837158
+          ],
+          "triangle_intersections": 10
+        }
+      ],
+      "interpretation": "Pressed holder meets bed pan; paper bears at0.0004999637603759766m; lettering bears on paper at0.0008499622344970703m. Holder is a closed positive component.",
+      "path": "Paper/lettering\u2192pressed holder\u2192bed pan\u2192cot supports\u2192legs\u2192non-marking feet\u2192Floor."
+    },
+    {
+      "family": "Four top fascia fixings and slots",
+      "status": "CLEAR",
+      "evidence": [
+        {
+          "a": "Top removable fascia fixing.001",
+          "b": "MED_R2 | Top fascia captive bearing 1",
+          "sampled_surface_distance_m": 0.0004999637603759766,
+          "point_a": [
+            -1.4457498788833618,
+            2.9800000190734863,
+            2.8399999141693115
+          ],
+          "point_b": [
+            -1.4452499151229858,
+            2.9800000190734863,
+            2.8399999141693115
+          ],
+          "triangle_intersections": 18
+        },
+        {
+          "a": "MED_R2 | Top fascia captive bearing 1",
+          "b": "MED_R2 | OCRU stepped cast pressure beam",
+          "sampled_surface_distance_m": 0.0004999637603759766,
+          "point_a": [
+            -1.4542498588562012,
+            2.9890003204345703,
+            2.834239959716797
+          ],
+          "point_b": [
+            -1.4537498950958252,
+            2.9890003204345703,
+            2.834239959716797
+          ],
+          "triangle_intersections": 16
+        },
+        {
+          "a": "Screwdriver slot.007",
+          "b": "Top removable fascia fixing.001",
+          "sampled_surface_distance_m": 1.1920928955078125e-07,
+          "point_a": [
+            -1.4377498626708984,
+            2.9724600315093994,
+            2.8391799926757812
+          ],
+          "point_b": [
+            -1.437749981880188,
+            2.9724600315093994,
+            2.8391799926757812
+          ],
+          "triangle_intersections": 0
+        },
+        {
+          "a": "Top removable fascia fixing.003",
+          "b": "MED_R2 | Top fascia captive bearing 3",
+          "sampled_surface_distance_m": 0.0004991292953491211,
+          "point_a": [
+            -1.4457499980926514,
+            4.039000034332275,
+            2.845759868621826
+          ],
+          "point_b": [
+            -1.4452508687973022,
+            4.039000034332275,
+            2.845759868621826
+          ],
+          "triangle_intersections": 18
+        },
+        {
+          "a": "MED_R2 | Top fascia captive bearing 3",
+          "b": "MED_R2 | OCRU stepped cast pressure beam",
+          "sampled_surface_distance_m": 0.0004993677139282227,
+          "point_a": [
+            -1.4542492628097534,
+            4.020999908447266,
+            2.8342397212982178
+          ],
+          "point_b": [
+            -1.4537498950958252,
+            4.020999908447266,
+            2.8342397212982178
+          ],
+          "triangle_intersections": 16
+        },
+        {
+          "a": "Screwdriver slot.009",
+          "b": "Top removable fascia fixing.003",
+          "sampled_surface_distance_m": 0.0,
+          "point_a": [
+            -1.4377501010894775,
+            4.027486801147461,
+            2.840273380279541
+          ],
+          "point_b": [
+            -1.4377501010894775,
+            4.027486801147461,
+            2.840273380279541
+          ],
+          "triangle_intersections": 0
+        },
+        {
+          "a": "Top removable fascia fixing.005",
+          "b": "MED_R2 | Top fascia captive bearing 5",
+          "sampled_surface_distance_m": 0.0004993677139282227,
+          "point_a": [
+            -1.4457499980926514,
+            5.238999843597412,
+            2.845759868621826
+          ],
+          "point_b": [
+            -1.4452506303787231,
+            5.238999843597412,
+            2.845759868621826
+          ],
+          "triangle_intersections": 18
+        },
+        {
+          "a": "MED_R2 | Top fascia captive bearing 5",
+          "b": "MED_R2 | OCRU stepped cast pressure beam",
+          "sampled_surface_distance_m": 0.0004993677139282227,
+          "point_a": [
+            -1.454249382019043,
+            5.224239349365234,
+            2.8309996128082275
+          ],
+          "point_b": [
+            -1.4537500143051147,
+            5.224239349365234,
+            2.8309996128082275
+          ],
+          "triangle_intersections": 16
+        },
+        {
+          "a": "Screwdriver slot.011",
+          "b": "Top removable fascia fixing.005",
+          "sampled_surface_distance_m": 0.0,
+          "point_a": [
+            -1.4377501010894775,
+            5.227486610412598,
+            2.840273380279541
+          ],
+          "point_b": [
+            -1.4377501010894775,
+            5.227486610412598,
+            2.840273380279541
+          ],
+          "triangle_intersections": 0
+        },
+        {
+          "a": "Top removable fascia fixing.007",
+          "b": "MED_R2 | Top fascia captive bearing 7",
+          "sampled_surface_distance_m": 0.0004992485046386719,
+          "point_a": [
+            -1.445750117301941,
+            6.271000385284424,
+            2.845759868621826
+          ],
+          "point_b": [
+            -1.4452508687973022,
+            6.271000385284424,
+            2.845759868621826
+          ],
+          "triangle_intersections": 18
+        },
+        {
+          "a": "MED_R2 | Top fascia captive bearing 7",
+          "b": "MED_R2 | OCRU stepped cast pressure beam",
+          "sampled_surface_distance_m": 0.0004994869232177734,
+          "point_a": [
+            -1.4542495012283325,
+            6.289000511169434,
+            2.845759868621826
+          ],
+          "point_b": [
+            -1.4537500143051147,
+            6.289000511169434,
+            2.845759868621826
+          ],
+          "triangle_intersections": 16
+        },
+        {
+          "a": "Screwdriver slot.013",
+          "b": "Top removable fascia fixing.007",
+          "sampled_surface_distance_m": 0.0,
+          "point_a": [
+            -1.437750220298767,
+            6.277486801147461,
+            2.840273380279541
+          ],
+          "point_b": [
+            -1.437750220298767,
+            6.277486801147461,
+            2.840273380279541
+          ],
+          "triangle_intersections": 0
+        }
+      ],
+      "interpretation": "All four captive bearing/beam and fastener/bearing interfaces have evaluated intersections and sampled distance\u22480.5mm. Slots still bear on their own fasteners (zero\u20131.1920929e-7m). Bearings are closed positive components.",
+      "path": "Fastener/slot\u2192captive bearing\u2192cast pressure beam\u2192folded fascia/upright\u2192sealed pan/chassis/feet\u2192Floor."
+    },
+    {
+      "family": "Two upper access fixings and slots",
+      "status": "CLEAR",
+      "evidence": [
+        {
+          "a": "Access panel fastener.001",
+          "b": "MED_R2 | Upper access panel bearing 1",
+          "sampled_surface_distance_m": 0.000499725341796875,
+          "point_a": [
+            -3.6267497539520264,
+            2.7138404846191406,
+            2.0876665115356445
+          ],
+          "point_b": [
+            -3.6262500286102295,
+            2.7138404846191406,
+            2.0876665115356445
+          ],
+          "triangle_intersections": 18
+        },
+        {
+          "a": "MED_R2 | Upper access panel bearing 1",
+          "b": "Serviceable inner access panel",
+          "sampled_surface_distance_m": 0.0004999637603759766,
+          "point_a": [
+            -3.6474499702453613,
+            2.7155203819274902,
+            2.0829999446868896
+          ],
+          "point_b": [
+            -3.6469500064849854,
+            2.7155203819274902,
+            2.0829999446868896
+          ],
+          "triangle_intersections": 16
+        },
+        {
+          "a": "Screwdriver slot.015",
+          "b": "Access panel fastener.001",
+          "sampled_surface_distance_m": 0.0,
+          "point_a": [
+            -3.6187498569488525,
+            2.7141401767730713,
+            2.0894198417663574
+          ],
+          "point_b": [
+            -3.6187498569488525,
+            2.7141401767730713,
+            2.0894198417663574
+          ],
+          "triangle_intersections": 16
+        },
+        {
+          "a": "Access panel fastener.007",
+          "b": "MED_R2 | Upper access panel bearing 7",
+          "sampled_surface_distance_m": 0.0004999637603759766,
+          "point_a": [
+            -3.6267499923706055,
+            6.542592525482178,
+            2.092592716217041
+          ],
+          "point_b": [
+            -3.6262500286102295,
+            6.542592525482178,
+            2.092592716217041
+          ],
+          "triangle_intersections": 18
+        },
+        {
+          "a": "MED_R2 | Upper access panel bearing 7",
+          "b": "Serviceable inner access panel.001",
+          "sampled_surface_distance_m": 0.0004999637603759766,
+          "point_a": [
+            -3.6474499702453613,
+            6.535520076751709,
+            2.0830001831054688
+          ],
+          "point_b": [
+            -3.6469500064849854,
+            6.535520076751709,
+            2.0830001831054688
+          ],
+          "triangle_intersections": 16
+        },
+        {
+          "a": "Screwdriver slot.021",
+          "b": "Access panel fastener.007",
+          "sampled_surface_distance_m": 0.0,
+          "point_a": [
+            -3.6187500953674316,
+            6.534140110015869,
+            2.0894198417663574
+          ],
+          "point_b": [
+            -3.6187500953674316,
+            6.534140110015869,
+            2.0894198417663574
+          ],
+          "triangle_intersections": 16
+        }
+      ],
+      "interpretation": "Both bearing/panel and fastener/bearing interfaces have evaluated intersections and \u22480.5mm sampled distances. Slots contact their fasteners. Actual panel/root contact traverses the rear-support geometry, not the exploratory inset-neighbor pair.",
+      "path": "Fastener/slot\u2192upper bearing\u2192serviceable panel\u2192rear support\u2192rear machine skin\u2192chassis/feet\u2192Floor."
+    },
+    {
+      "family": "Latch supports and scuff poses",
+      "status": "CLEAR",
+      "evidence": [
+        {
+          "a": "Orange latch rail.001",
+          "b": "MED_R2 | Service latch fixed bearing 1.52",
+          "sampled_surface_distance_m": 0.0004991292953491211,
+          "point_a": [
+            -1.4592502117156982,
+            6.587560653686523,
+            1.5075005292892456
+          ],
+          "point_b": [
+            -1.4587510824203491,
+            6.587560653686523,
+            1.5075005292892456
+          ],
+          "triangle_intersections": 16
+        },
+        {
+          "a": "Orange latch rail.001",
+          "b": "MED_R2 | Service latch fixed bearing 1.99",
+          "sampled_surface_distance_m": 0.000499725341796875,
+          "point_a": [
+            -1.4592502117156982,
+            6.5849199295043945,
+            1.9858332872390747
+          ],
+          "point_b": [
+            -1.4587504863739014,
+            6.5849199295043945,
+            1.9858334064483643
+          ],
+          "triangle_intersections": 16
+        },
+        {
+          "a": "MED_R2 | Service latch fixed bearing 1.52",
+          "b": "Jamb folded cover.001",
+          "sampled_surface_distance_m": 0.0004993677721358836,
+          "point_a": [
+            -1.4656494855880737,
+            6.587560653686523,
+            1.532500982284546
+          ],
+          "point_b": [
+            -1.4651501178741455,
+            6.587560653686523,
+            1.5325007438659668
+          ],
+          "triangle_intersections": 18
+        },
+        {
+          "a": "MED_R2 | Service latch fixed bearing 1.99",
+          "b": "Jamb folded cover.001",
+          "sampled_surface_distance_m": 0.0005000829696655273,
+          "point_a": [
+            -1.465650200843811,
+            6.605599880218506,
+            1.9814599752426147
+          ],
+          "point_b": [
+            -1.4651501178741455,
+            6.605599880218506,
+            1.9814599752426147
+          ],
+          "triangle_intersections": 16
+        },
+        {
+          "a": "Service jamb narrow edge scuff",
+          "b": "Jamb folded cover",
+          "sampled_surface_distance_m": 0.0003000497817993164,
+          "point_a": [
+            -1.464849829673767,
+            2.62250018119812,
+            0.703000009059906
+          ],
+          "point_b": [
+            -1.4651498794555664,
+            2.62250018119812,
+            0.7029999494552612
+          ],
+          "triangle_intersections": 0
+        },
+        {
+          "a": "Service jamb narrow edge scuff.002",
+          "b": "Jamb folded cover.001",
+          "sampled_surface_distance_m": 0.0002999305725097656,
+          "point_a": [
+            -1.4648501873016357,
+            6.619166851043701,
+            0.6990000009536743
+          ],
+          "point_b": [
+            -1.4651501178741455,
+            6.619166851043701,
+            0.6990000009536743
+          ],
+          "triangle_intersections": 0
+        },
+        {
+          "a": "Service jamb narrow edge scuff.003",
+          "b": "Orange latch rail.001",
+          "sampled_surface_distance_m": 0.006900310516357422,
+          "point_a": [
+            -1.4472501277923584,
+            6.637500286102295,
+            1.9670000076293945
+          ],
+          "point_b": [
+            -1.447250247001648,
+            6.6305999755859375,
+            1.966998815536499
+          ],
+          "triangle_intersections": 8
+        }
+      ],
+      "interpretation": "Both rail-bearing/jamb interfaces have actual intersections and \u22480.5mm sampled distances. Standalone scuffs now bear on actual jamb at0.0003000497817993164m and0.0002999305725097656m. Scuff.003 remains geometrically attached to its now supported rail; its sparse sampled6.9mm value does not override8actual triangle intersections.",
+      "path": "Rail\u2192two retained bearings\u2192folded jamb\u2192chamber upright\u2192chassis/feet\u2192Floor; standalone wear is directly projected to actual jamb."
+    },
+    {
+      "family": "Gauge text and pivot spindle",
+      "status": "CLEAR",
+      "evidence": [
+        {
+          "a": "Meter unit",
+          "b": "Ivory instrument dial",
+          "sampled_surface_distance_m": 0.0002996920666191727,
+          "point_a": [
+            -2.442129135131836,
+            8.16670036315918,
+            1.0721523761749268
+          ],
+          "point_b": [
+            -2.441892623901367,
+            8.166884422302246,
+            1.0721523761749268
+          ],
+          "triangle_intersections": 0
+        },
+        {
+          "a": "Needle pivot",
+          "b": "MED_R2 | Pressure gauge captive spindle",
+          "sampled_surface_distance_m": 0.0004994313349016011,
+          "point_a": [
+            -2.4609928131103516,
+            8.176712989807129,
+            1.100000023841858
+          ],
+          "point_b": [
+            -2.4613866806030273,
+            8.176405906677246,
+            1.100000023841858
+          ],
+          "triangle_intersections": 18
+        },
+        {
+          "a": "MED_R2 | Pressure gauge captive spindle",
+          "b": "Ivory instrument dial",
+          "sampled_surface_distance_m": 0.0004992433241568506,
+          "point_a": [
+            -2.4528415203094482,
+            8.181711196899414,
+            1.1049199104309082
+          ],
+          "point_b": [
+            -2.453235149383545,
+            8.181404113769531,
+            1.1049199104309082
+          ],
+          "triangle_intersections": 16
+        },
+        {
+          "a": "Meter needle",
+          "b": "Needle pivot",
+          "sampled_surface_distance_m": 0.0,
+          "point_a": [
+            -2.4586150646209717,
+            8.167985916137695,
+            1.111769437789917
+          ],
+          "point_b": [
+            -2.4586150646209717,
+            8.167985916137695,
+            1.111769437789917
+          ],
+          "triangle_intersections": 39
+        }
+      ],
+      "interpretation": "Unit text is0.0002996920666191727m from actual dial. Both spindle/pivot and spindle/dial interfaces have actual intersections with sampled\u22480.5mm distances. Needle still contacts pivot; its outer dial clearance remains mechanically valid. Spindle is a closed positive component.",
+      "path": "Text/dial or needle/pivot\u2192captive spindle/dial\u2192bezel\u2192reserve door\u2192actual retained fixed crosschannel interface\u2192cabinet side/cap\u2192plinth\u2192Floor."
+    }
+  ],
+  "new_mount_normals": {
+    "objects_checked": 24,
+    "connected_components_checked": 36,
+    "closed_positive_components": 36,
+    "inconsistent_edges": 0,
+    "raw_reports": {
+      "MED_R2 | Sterile stock shelf bearing 0": {
+        "inconsistent_edges": 0,
+        "components": [
+          {
+            "closed": true,
+            "signed_volume_m3": 7.568845952239957e-05,
+            "vertex_ids": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "bounds": [
+              [
+                3.429999589920044,
+                7.996399402618408,
+                1.2994999885559082
+              ],
+              [
+                3.869999647140503,
+                8.024399757385254,
+                1.3305000066757202
+              ]
+            ]
+          },
+          {
+            "closed": true,
+            "signed_volume_m3": 7.567424715186216e-05,
+            "vertex_ids": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "bounds": [
+              [
+                3.429999589920044,
+                8.175599098205566,
+                1.2994999885559082
+              ],
+              [
+                3.869999647140503,
+                8.20359992980957,
+                1.3305000066757202
+              ]
+            ]
+          }
+        ]
+      },
+      "MED_R2 | Sterile stock shelf bearing 1": {
+        "inconsistent_edges": 0,
+        "components": [
+          {
+            "closed": true,
+            "signed_volume_m3": 9.331198331589356e-05,
+            "vertex_ids": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "bounds": [
+              [
+                3.429999589920044,
+                8.175599098205566,
+                1.7095000743865967
+              ],
+              [
+                3.869999647140503,
+                8.20359992980957,
+                1.750499963760376
+              ]
+            ]
+          },
+          {
+            "closed": true,
+            "signed_volume_m3": 9.326207994793823e-05,
+            "vertex_ids": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "bounds": [
+              [
+                3.429999589920044,
+                7.996399402618408,
+                1.7095000743865967
+              ],
+              [
+                3.869999647140503,
+                8.024399757385254,
+                1.750499963760376
+              ]
+            ]
+          }
+        ]
+      },
+      "MED_R2 | Sterile stock shelf bearing 2": {
+        "inconsistent_edges": 0,
+        "components": [
+          {
+            "closed": true,
+            "signed_volume_m3": 7.566145116773737e-05,
+            "vertex_ids": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "bounds": [
+              [
+                3.429999589920044,
+                8.175599098205566,
+                2.109499931335449
+              ],
+              [
+                3.869999647140503,
+                8.20359992980957,
+                2.140500068664551
+              ]
+            ]
+          },
+          {
+            "closed": true,
+            "signed_volume_m3": 7.570641658579281e-05,
+            "vertex_ids": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "bounds": [
+              [
+                3.429999589920044,
+                7.996399402618408,
+                2.109499931335449
+              ],
+              [
+                3.869999647140503,
+                8.024399757385254,
+                2.140500068664551
+              ]
+            ]
+          }
+        ]
+      },
+      "MED_R2 | Sterile stock shelf bearing 3": {
+        "inconsistent_edges": 0,
+        "components": [
+          {
+            "closed": true,
+            "signed_volume_m3": 7.56796992694332e-05,
+            "vertex_ids": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "bounds": [
+              [
+                3.429999828338623,
+                7.556400299072266,
+                1.2994999885559082
+              ],
+              [
+                3.869999885559082,
+                7.584400177001953,
+                1.3305000066757202
+              ]
+            ]
+          },
+          {
+            "closed": true,
+            "signed_volume_m3": 7.567074499093026e-05,
+            "vertex_ids": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "bounds": [
+              [
+                3.429999828338623,
+                7.735599994659424,
+                1.2994999885559082
+              ],
+              [
+                3.869999885559082,
+                7.763599872589111,
+                1.3305000066757202
+              ]
+            ]
+          }
+        ]
+      },
+      "MED_R2 | Sterile stock shelf bearing 4": {
+        "inconsistent_edges": 0,
+        "components": [
+          {
+            "closed": true,
+            "signed_volume_m3": 9.328292799182063e-05,
+            "vertex_ids": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "bounds": [
+              [
+                3.429999828338623,
+                7.735599994659424,
+                1.7095000743865967
+              ],
+              [
+                3.869999885559082,
+                7.763599872589111,
+                1.750499963760376
+              ]
+            ]
+          },
+          {
+            "closed": true,
+            "signed_volume_m3": 9.328497496123188e-05,
+            "vertex_ids": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "bounds": [
+              [
+                3.429999828338623,
+                7.556400299072266,
+                1.7095000743865967
+              ],
+              [
+                3.869999885559082,
+                7.584400177001953,
+                1.750499963760376
+              ]
+            ]
+          }
+        ]
+      },
+      "MED_R2 | Sterile stock shelf bearing 5": {
+        "inconsistent_edges": 0,
+        "components": [
+          {
+            "closed": true,
+            "signed_volume_m3": 7.566309068351984e-05,
+            "vertex_ids": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "bounds": [
+              [
+                3.429999828338623,
+                7.735599994659424,
+                2.109499931335449
+              ],
+              [
+                3.869999885559082,
+                7.763599872589111,
+                2.140500068664551
+              ]
+            ]
+          },
+          {
+            "closed": true,
+            "signed_volume_m3": 7.568086342265093e-05,
+            "vertex_ids": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "bounds": [
+              [
+                3.429999828338623,
+                7.556400299072266,
+                2.109499931335449
+              ],
+              [
+                3.869999885559082,
+                7.584400177001953,
+                2.140500068664551
+              ]
+            ]
+          }
+        ]
+      },
+      "MED_R2 | Sterile stock shelf bearing 6": {
+        "inconsistent_edges": 0,
+        "components": [
+          {
+            "closed": true,
+            "signed_volume_m3": 7.567535309741934e-05,
+            "vertex_ids": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "bounds": [
+              [
+                3.429999828338623,
+                7.285600185394287,
+                1.2994999885559082
+              ],
+              [
+                3.869999885559082,
+                7.313600063323975,
+                1.3305000066757202
+              ]
+            ]
+          },
+          {
+            "closed": true,
+            "signed_volume_m3": 7.5694222080831e-05,
+            "vertex_ids": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "bounds": [
+              [
+                3.429999828338623,
+                7.106400489807129,
+                1.2994999885559082
+              ],
+              [
+                3.869999885559082,
+                7.134400367736816,
+                1.3305000066757202
+              ]
+            ]
+          }
+        ]
+      },
+      "MED_R2 | Sterile stock shelf bearing 7": {
+        "inconsistent_edges": 0,
+        "components": [
+          {
+            "closed": true,
+            "signed_volume_m3": 9.32800661151618e-05,
+            "vertex_ids": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "bounds": [
+              [
+                3.429999828338623,
+                7.285600185394287,
+                1.7095000743865967
+              ],
+              [
+                3.869999885559082,
+                7.313600063323975,
+                1.750499963760376
+              ]
+            ]
+          },
+          {
+            "closed": true,
+            "signed_volume_m3": 9.330556107063886e-05,
+            "vertex_ids": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "bounds": [
+              [
+                3.429999828338623,
+                7.106400489807129,
+                1.7095000743865967
+              ],
+              [
+                3.869999885559082,
+                7.134400367736816,
+                1.750499963760376
+              ]
+            ]
+          }
+        ]
+      },
+      "MED_R2 | Sterile stock shelf bearing 8": {
+        "inconsistent_edges": 0,
+        "components": [
+          {
+            "closed": true,
+            "signed_volume_m3": 7.570078014396001e-05,
+            "vertex_ids": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "bounds": [
+              [
+                3.429999828338623,
+                7.106400489807129,
+                2.109499931335449
+              ],
+              [
+                3.869999885559082,
+                7.134400367736816,
+                2.140500068664551
+              ]
+            ]
+          },
+          {
+            "closed": true,
+            "signed_volume_m3": 7.566994948623009e-05,
+            "vertex_ids": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "bounds": [
+              [
+                3.429999828338623,
+                7.285600185394287,
+                2.109499931335449
+              ],
+              [
+                3.869999885559082,
+                7.313600063323975,
+                2.140500068664551
+              ]
+            ]
+          }
+        ]
+      },
+      "MED_R2 | Sterile stock shelf bearing 9": {
+        "inconsistent_edges": 0,
+        "components": [
+          {
+            "closed": true,
+            "signed_volume_m3": 7.567187033904153e-05,
+            "vertex_ids": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "bounds": [
+              [
+                3.429999828338623,
+                6.865600109100342,
+                1.2994999885559082
+              ],
+              [
+                3.869999885559082,
+                6.893599987030029,
+                1.3305000066757202
+              ]
+            ]
+          },
+          {
+            "closed": true,
+            "signed_volume_m3": 7.566508914654457e-05,
+            "vertex_ids": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "bounds": [
+              [
+                3.429999828338623,
+                6.686400413513184,
+                1.2994999885559082
+              ],
+              [
+                3.869999885559082,
+                6.714400291442871,
+                1.3305000066757202
+              ]
+            ]
+          }
+        ]
+      },
+      "MED_R2 | Sterile stock shelf bearing 10": {
+        "inconsistent_edges": 0,
+        "components": [
+          {
+            "closed": true,
+            "signed_volume_m3": 9.328100713901193e-05,
+            "vertex_ids": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "bounds": [
+              [
+                3.429999828338623,
+                6.865600109100342,
+                1.7095000743865967
+              ],
+              [
+                3.869999885559082,
+                6.893599987030029,
+                1.750499963760376
+              ]
+            ]
+          },
+          {
+            "closed": true,
+            "signed_volume_m3": 9.329961418794944e-05,
+            "vertex_ids": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "bounds": [
+              [
+                3.429999828338623,
+                6.686400413513184,
+                1.7095000743865967
+              ],
+              [
+                3.869999885559082,
+                6.714400291442871,
+                1.750499963760376
+              ]
+            ]
+          }
+        ]
+      },
+      "MED_R2 | Sterile stock shelf bearing 11": {
+        "inconsistent_edges": 0,
+        "components": [
+          {
+            "closed": true,
+            "signed_volume_m3": 7.56771284310771e-05,
+            "vertex_ids": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ],
+            "bounds": [
+              [
+                3.429999828338623,
+                6.686400413513184,
+                2.109499931335449
+              ],
+              [
+                3.869999885559082,
+                6.714400291442871,
+                2.140500068664551
+              ]
+            ]
+          },
+          {
+            "closed": true,
+            "signed_volume_m3": 7.56784187008917e-05,
+            "vertex_ids": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "bounds": [
+              [
+                3.429999828338623,
+                6.865600109100342,
+                2.109499931335449
+              ],
+              [
+                3.869999885559082,
+                6.893599987030029,
+                2.140500068664551
+              ]
+            ]
+          }
+        ]
+      },
+      "MED_R2 | Organic continuity plaque standoff 4.2": {
+        "inconsistent_edges": 0,
+        "components": [
+          {
+            "closed": true,
+            "signed_volume_m3": 5.564415672173074e-05,
+            "vertex_ids": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "bounds": [
+              [
+                -3.866511344909668,
+                4.171774387359619,
+                2.137500047683716
+              ],
+              [
+                -3.814988374710083,
+                4.239225387573242,
+                2.1625001430511475
+              ]
+            ]
+          }
+        ]
+      },
+      "MED_R2 | Organic continuity plaque standoff 5.05": {
+        "inconsistent_edges": 0,
+        "components": [
+          {
+            "closed": true,
+            "signed_volume_m3": 5.8709372145434365e-05,
+            "vertex_ids": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "bounds": [
+              [
+                -3.862449884414673,
+                5.019999980926514,
+                2.137500047683716
+              ],
+              [
+                -3.8222498893737793,
+                5.080000400543213,
+                2.1625001430511475
+              ]
+            ]
+          }
+        ]
+      },
+      "MED_R2 | Recovery foot chart holder": {
+        "inconsistent_edges": 0,
+        "components": [
+          {
+            "closed": true,
+            "signed_volume_m3": 9.643503290135413e-05,
+            "vertex_ids": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "bounds": [
+              [
+                2.811000108718872,
+                3.5999999046325684,
+                0.6990000009536743
+              ],
+              [
+                3.009000062942505,
+                3.7749998569488525,
+                0.7695000171661377
+              ]
+            ]
+          }
+        ]
+      },
+      "MED_R2 | Top fascia captive bearing 1": {
+        "inconsistent_edges": 0,
+        "components": [
+          {
+            "closed": true,
+            "signed_volume_m3": 3.060325980186476e-06,
+            "vertex_ids": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "bounds": [
+              [
+                -1.4542498588562012,
+                2.9710001945495605,
+                2.8309998512268066
+              ],
+              [
+                -1.4452499151229858,
+                2.9890003204345703,
+                2.8489999771118164
+              ]
+            ]
+          }
+        ]
+      },
+      "MED_R2 | Top fascia captive bearing 3": {
+        "inconsistent_edges": 0,
+        "components": [
+          {
+            "closed": true,
+            "signed_volume_m3": 2.6168480170933143e-06,
+            "vertex_ids": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "bounds": [
+              [
+                -1.454250693321228,
+                4.020999908447266,
+                2.8309996128082275
+              ],
+              [
+                -1.4452494382858276,
+                4.039000034332275,
+                2.8489999771118164
+              ]
+            ]
+          }
+        ]
+      },
+      "MED_R2 | Top fascia captive bearing 5": {
+        "inconsistent_edges": 0,
+        "components": [
+          {
+            "closed": true,
+            "signed_volume_m3": 2.697166190538773e-06,
+            "vertex_ids": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "bounds": [
+              [
+                -1.4542505741119385,
+                5.220999717712402,
+                2.8309996128082275
+              ],
+              [
+                -1.4452494382858276,
+                5.238999843597412,
+                2.8489999771118164
+              ]
+            ]
+          }
+        ]
+      },
+      "MED_R2 | Top fascia captive bearing 7": {
+        "inconsistent_edges": 0,
+        "components": [
+          {
+            "closed": true,
+            "signed_volume_m3": 2.5915472671537434e-06,
+            "vertex_ids": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "bounds": [
+              [
+                -1.454250693321228,
+                6.271000385284424,
+                2.8309998512268066
+              ],
+              [
+                -1.4452496767044067,
+                6.289000511169434,
+                2.8489999771118164
+              ]
+            ]
+          }
+        ]
+      },
+      "MED_R2 | Upper access panel bearing 1": {
+        "inconsistent_edges": 0,
+        "components": [
+          {
+            "closed": true,
+            "signed_volume_m3": 3.832688283485698e-06,
+            "vertex_ids": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "bounds": [
+              [
+                -3.6474499702453613,
+                2.7130002975463867,
+                2.0829999446868896
+              ],
+              [
+                -3.6262497901916504,
+                2.7270002365112305,
+                2.0969998836517334
+              ]
+            ]
+          }
+        ]
+      },
+      "MED_R2 | Upper access panel bearing 7": {
+        "inconsistent_edges": 0,
+        "components": [
+          {
+            "closed": true,
+            "signed_volume_m3": 3.7945261510685533e-06,
+            "vertex_ids": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "bounds": [
+              [
+                -3.6474499702453613,
+                6.5329999923706055,
+                2.0829999446868896
+              ],
+              [
+                -3.6262500286102295,
+                6.546999931335449,
+                2.0970001220703125
+              ]
+            ]
+          }
+        ]
+      },
+      "MED_R2 | Service latch fixed bearing 1.52": {
+        "inconsistent_edges": 0,
+        "components": [
+          {
+            "closed": true,
+            "signed_volume_m3": 3.4437220506333773e-06,
+            "vertex_ids": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "bounds": [
+              [
+                -1.4656509160995483,
+                6.5836005210876465,
+                1.5075005292892456
+              ],
+              [
+                -1.4587496519088745,
+                6.605600833892822,
+                1.532500982284546
+              ]
+            ]
+          }
+        ]
+      },
+      "MED_R2 | Service latch fixed bearing 1.99": {
+        "inconsistent_edges": 0,
+        "components": [
+          {
+            "closed": true,
+            "signed_volume_m3": 3.431974012831532e-06,
+            "vertex_ids": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "bounds": [
+              [
+                -1.465650200843811,
+                6.58359956741333,
+                1.9774999618530273
+              ],
+              [
+                -1.4587503671646118,
+                6.605599880218506,
+                2.002500057220459
+              ]
+            ]
+          }
+        ]
+      },
+      "MED_R2 | Pressure gauge captive spindle": {
+        "inconsistent_edges": 0,
+        "components": [
+          {
+            "closed": true,
+            "signed_volume_m3": 1.346589372156851e-06,
+            "vertex_ids": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "bounds": [
+              [
+                -2.4613866806030273,
+                8.166949272155762,
+                1.0939998626708984
+              ],
+              [
+                -2.4461185932159424,
+                8.182562828063965,
+                1.1060000658035278
+              ]
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "prior_stored_item_recheck": {
+    "status": "CLEAR_IN_REQUESTED_SCOPE",
+    "cartridge_correction": "Discovery found proper crown shelves .001\u2013.004. All twelve bottom seals have evaluated triangle intersections with their proper shelf and sampled distance6.23464584350586e-5\u20136.240606307983398e-5m. The first diagnostic probe used preceding shelf indices; those non-support candidates are explicitly excluded and preserved as exploratory evidence.",
+    "paths": [
+      "All three cartons\u2192bench lower shelf\u2192legs\u2192Floor remain supported.",
+      "Both reserve modules\u2192resilient pads\u2192drawer rails/rear returns\u2192cabinet/plinth\u2192Floor remain supported.",
+      "Clipboard, cloth, gloves, sterile packs\u2192worktop\u2192bench supports\u2192Floor remain supported.",
+      "Both seal-tool shafts\u2192grips\u2192tray\u2192worktop remain supported.",
+      "Recovery blanket/cushion/pillow\u2192pan/supports/legs/feet\u2192Floor remain supported.",
+      "Twelve cases now bear on two pressed-U feet\u2192correct shelves\u2192wall-supported cabinet."
+    ],
+    "actual_architecture_witnesses": [
+      {
+        "a": "Serviceable inner access panel",
+        "b": "Inner service panel rear support",
+        "sampled_surface_distance_m": 0.0070002079010009766,
+        "point_a": [
+          -3.7437500953674316,
+          2.7330002784729004,
+          0.880000114440918
+        ],
+        "point_b": [
+          -3.7367498874664307,
+          2.7330000400543213,
+          0.8799999952316284
+        ],
+        "triangle_intersections": 26
+      },
+      {
+        "a": "Serviceable inner access panel.001",
+        "b": "Inner service panel rear support.001",
+        "sampled_surface_distance_m": 0.0069997310638427734,
+        "point_a": [
+          -3.7437500953674316,
+          6.132999897003174,
+          0.880000114440918
+        ],
+        "point_b": [
+          -3.736750364303589,
+          6.132999897003174,
+          0.8799999952316284
+        ],
+        "triangle_intersections": 26
+      },
+      {
+        "a": "Inner service panel rear support",
+        "b": "Rear machine skin",
+        "sampled_surface_distance_m": 7.700920104980469e-05,
+        "point_a": [
+          -3.891326904296875,
+          2.731715679168701,
+          0.880715548992157
+        ],
+        "point_b": [
+          -3.891249895095825,
+          2.731715679168701,
+          0.880715548992157
+        ],
+        "triangle_intersections": 24
+      },
+      {
+        "a": "Inner service panel rear support.001",
+        "b": "Rear machine skin",
+        "sampled_surface_distance_m": 7.748603820800781e-05,
+        "point_a": [
+          -3.8913276195526123,
+          6.130715847015381,
+          0.8817155361175537
+        ],
+        "point_b": [
+          -3.8912501335144043,
+          6.130715847015381,
+          0.8817155361175537
+        ],
+        "triangle_intersections": 24
+      },
+      {
+        "a": "Chassis longitudinal channel",
+        "b": "Fabricated chamber foot",
+        "sampled_surface_distance_m": 0.0013333261013031006,
+        "point_a": [
+          -1.6199215650558472,
+          2.9668288230895996,
+          0.1599999964237213
+        ],
+        "point_b": [
+          -1.6199215650558472,
+          2.9668288230895996,
+          0.16133332252502441
+        ],
+        "triangle_intersections": 37
+      },
+      {
+        "a": "Fabricated chamber foot",
+        "b": "Chamber sole shoe",
+        "sampled_surface_distance_m": 0.0040000006556510925,
+        "point_a": [
+          -1.618749976158142,
+          2.696000099182129,
+          0.07599999755620956
+        ],
+        "point_b": [
+          -1.618749976158142,
+          2.696000099182129,
+          0.07999999821186066
+        ],
+        "triangle_intersections": 26
+      },
+      {
+        "a": "Chamber sole shoe",
+        "b": "Floor",
+        "sampled_surface_distance_m": 0.0,
+        "point_a": [
+          -1.6007499694824219,
+          2.6720001697540283,
+          0.0
+        ],
+        "point_b": [
+          -1.6007499694824219,
+          2.6720001697540283,
+          0.0
+        ],
+        "triangle_intersections": 16
+      },
+      {
+        "a": "Reserve removable door",
+        "b": "MED_R2 | Reserve fixed front crosschannel 1.28",
+        "sampled_surface_distance_m": 0.00527555588632822,
+        "point_a": [
+          -2.542233467102051,
+          8.414306640625,
+          1.2905000448226929
+        ],
+        "point_b": [
+          -2.5475001335144043,
+          8.414000511169434,
+          1.2905000448226929
+        ],
+        "triangle_intersections": 64
+      },
+      {
+        "a": "MED_R2 | Reserve fixed front crosschannel 1.28",
+        "b": "Reserve folded side",
+        "sampled_surface_distance_m": 0.0010004043579101562,
+        "point_a": [
+          -2.5475001335144043,
+          8.456000328063965,
+          1.2680000066757202
+        ],
+        "point_b": [
+          -2.547499895095825,
+          8.454999923706055,
+          1.2680000066757202
+        ],
+        "triangle_intersections": 22
+      },
+      {
+        "a": "MED_R2 | Reserve fixed front crosschannel 0.14",
+        "b": "Reserve folded side",
+        "sampled_surface_distance_m": 0.0010004043579101562,
+        "point_a": [
+          -2.5475001335144043,
+          8.456000328063965,
+          0.12800000607967377
+        ],
+        "point_b": [
+          -2.5475001335144043,
+          8.454999923706055,
+          0.12800000607967377
+        ],
+        "triangle_intersections": 22
+      },
+      {
+        "a": "Reserve folded side",
+        "b": "Reserve folded cap",
+        "sampled_surface_distance_m": 0.0,
+        "point_a": [
+          -2.5365002155303955,
+          8.454999923706055,
+          0.11900001764297485
+        ],
+        "point_b": [
+          -2.5365002155303955,
+          8.454999923706055,
+          0.11900001764297485
+        ],
+        "triangle_intersections": 51
+      },
+      {
+        "a": "Cartridge bottom seal",
+        "b": "Folded storage shelf.001",
+        "sampled_surface_distance_m": 6.23464584350586e-05,
+        "point_a": [
+          0.8290590047836304,
+          8.64554214477539,
+          0.43756234645843506
+        ],
+        "point_b": [
+          0.8290590047836304,
+          8.64554214477539,
+          0.4375
+        ],
+        "triangle_intersections": 64,
+        "selection": "Nearest actual shelf crown by seal bottom Z; corrected shelf indexing from discovery."
+      },
+      {
+        "a": "Folded storage shelf.001",
+        "b": "Cartridge bank formed upright",
+        "sampled_surface_distance_m": 0.025000572204589844,
+        "point_a": [
+          0.6840000152587891,
+          8.329999923706055,
+          0.406499981880188
+        ],
+        "point_b": [
+          0.6840000152587891,
+          8.304999351501465,
+          0.4064999222755432
+        ],
+        "triangle_intersections": 26
+      },
+      {
+        "a": "Folded storage shelf.001",
+        "b": "Cartridge bank formed upright.001",
+        "sampled_surface_distance_m": 0.025000572204589844,
+        "point_a": [
+          1.315999984741211,
+          8.329999923706055,
+          0.406499981880188
+        ],
+        "point_b": [
+          1.315999984741211,
+          8.304999351501465,
+          0.406499981880188
+        ],
+        "triangle_intersections": 26
+      },
+      {
+        "a": "Cartridge bottom seal.001",
+        "b": "Folded storage shelf.001",
+        "sampled_surface_distance_m": 6.23464584350586e-05,
+        "point_a": [
+          1.0,
+          8.646434783935547,
+          0.43756234645843506
+        ],
+        "point_b": [
+          1.0,
+          8.646434783935547,
+          0.4375
+        ],
+        "triangle_intersections": 66,
+        "selection": "Nearest actual shelf crown by seal bottom Z; corrected shelf indexing from discovery."
+      },
+      {
+        "a": "Cartridge bottom seal.002",
+        "b": "Folded storage shelf.001",
+        "sampled_surface_distance_m": 6.23464584350586e-05,
+        "point_a": [
+          1.1800000667572021,
+          8.646434783935547,
+          0.43756234645843506
+        ],
+        "point_b": [
+          1.1800000667572021,
+          8.646434783935547,
+          0.4375
+        ],
+        "triangle_intersections": 64,
+        "selection": "Nearest actual shelf crown by seal bottom Z; corrected shelf indexing from discovery."
+      },
+      {
+        "a": "Cartridge bottom seal.003",
+        "b": "Folded storage shelf.002",
+        "sampled_surface_distance_m": 6.240606307983398e-05,
+        "point_a": [
+          0.8290590047836304,
+          8.64554214477539,
+          0.8375623822212219
+        ],
+        "point_b": [
+          0.8290590047836304,
+          8.64554214477539,
+          0.8374999761581421
+        ],
+        "triangle_intersections": 64,
+        "selection": "Nearest actual shelf crown by seal bottom Z; corrected shelf indexing from discovery."
+      },
+      {
+        "a": "Folded storage shelf.002",
+        "b": "Cartridge bank formed upright",
+        "sampled_surface_distance_m": 0.025000572204589844,
+        "point_a": [
+          0.6840000152587891,
+          8.329999923706055,
+          0.8065000176429749
+        ],
+        "point_b": [
+          0.6840000152587891,
+          8.304999351501465,
+          0.8064999580383301
+        ],
+        "triangle_intersections": 26
+      },
+      {
+        "a": "Folded storage shelf.002",
+        "b": "Cartridge bank formed upright.001",
+        "sampled_surface_distance_m": 0.025000572204589844,
+        "point_a": [
+          1.315999984741211,
+          8.329999923706055,
+          0.8065000176429749
+        ],
+        "point_b": [
+          1.315999984741211,
+          8.304999351501465,
+          0.8064999580383301
+        ],
+        "triangle_intersections": 26
+      },
+      {
+        "a": "Cartridge bottom seal.004",
+        "b": "Folded storage shelf.002",
+        "sampled_surface_distance_m": 6.240606307983398e-05,
+        "point_a": [
+          1.0,
+          8.646434783935547,
+          0.8375623822212219
+        ],
+        "point_b": [
+          1.0,
+          8.646434783935547,
+          0.8374999761581421
+        ],
+        "triangle_intersections": 66,
+        "selection": "Nearest actual shelf crown by seal bottom Z; corrected shelf indexing from discovery."
+      },
+      {
+        "a": "Cartridge bottom seal.005",
+        "b": "Folded storage shelf.002",
+        "sampled_surface_distance_m": 6.240606307983398e-05,
+        "point_a": [
+          1.1800000667572021,
+          8.646434783935547,
+          0.8375623822212219
+        ],
+        "point_b": [
+          1.1800000667572021,
+          8.646434783935547,
+          0.8374999761581421
+        ],
+        "triangle_intersections": 64,
+        "selection": "Nearest actual shelf crown by seal bottom Z; corrected shelf indexing from discovery."
+      },
+      {
+        "a": "Cartridge bottom seal.006",
+        "b": "Folded storage shelf.003",
+        "sampled_surface_distance_m": 6.23464584350586e-05,
+        "point_a": [
+          0.8290590047836304,
+          8.64554214477539,
+          1.2375624179840088
+        ],
+        "point_b": [
+          0.8290590047836304,
+          8.64554214477539,
+          1.2375000715255737
+        ],
+        "triangle_intersections": 64,
+        "selection": "Nearest actual shelf crown by seal bottom Z; corrected shelf indexing from discovery."
+      },
+      {
+        "a": "Folded storage shelf.003",
+        "b": "Cartridge bank formed upright",
+        "sampled_surface_distance_m": 0.025000574067234993,
+        "point_a": [
+          0.6840000152587891,
+          8.329999923706055,
+          1.2065000534057617
+        ],
+        "point_b": [
+          0.6839998364448547,
+          8.304999351501465,
+          1.2064933776855469
+        ],
+        "triangle_intersections": 26
+      },
+      {
+        "a": "Folded storage shelf.003",
+        "b": "Cartridge bank formed upright.001",
+        "sampled_surface_distance_m": 0.025000574067234993,
+        "point_a": [
+          1.315999984741211,
+          8.329999923706055,
+          1.2065000534057617
+        ],
+        "point_b": [
+          1.3159987926483154,
+          8.304999351501465,
+          1.2064932584762573
+        ],
+        "triangle_intersections": 26
+      },
+      {
+        "a": "Cartridge bottom seal.007",
+        "b": "Folded storage shelf.003",
+        "sampled_surface_distance_m": 6.23464584350586e-05,
+        "point_a": [
+          1.0,
+          8.646434783935547,
+          1.2375624179840088
+        ],
+        "point_b": [
+          1.0,
+          8.646434783935547,
+          1.2375000715255737
+        ],
+        "triangle_intersections": 66,
+        "selection": "Nearest actual shelf crown by seal bottom Z; corrected shelf indexing from discovery."
+      },
+      {
+        "a": "Cartridge bottom seal.008",
+        "b": "Folded storage shelf.003",
+        "sampled_surface_distance_m": 6.23464584350586e-05,
+        "point_a": [
+          1.1800000667572021,
+          8.646434783935547,
+          1.2375624179840088
+        ],
+        "point_b": [
+          1.1800000667572021,
+          8.646434783935547,
+          1.2375000715255737
+        ],
+        "triangle_intersections": 64,
+        "selection": "Nearest actual shelf crown by seal bottom Z; corrected shelf indexing from discovery."
+      },
+      {
+        "a": "Cartridge bottom seal.009",
+        "b": "Folded storage shelf.004",
+        "sampled_surface_distance_m": 6.23464584350586e-05,
+        "point_a": [
+          0.8290590047836304,
+          8.64554214477539,
+          1.6375623941421509
+        ],
+        "point_b": [
+          0.8290590047836304,
+          8.64554214477539,
+          1.6375000476837158
+        ],
+        "triangle_intersections": 64,
+        "selection": "Nearest actual shelf crown by seal bottom Z; corrected shelf indexing from discovery."
+      },
+      {
+        "a": "Folded storage shelf.004",
+        "b": "Cartridge bank formed upright",
+        "sampled_surface_distance_m": 0.025000572204589844,
+        "point_a": [
+          0.6840000152587891,
+          8.329999923706055,
+          1.6065000295639038
+        ],
+        "point_b": [
+          0.6840001940727234,
+          8.304999351501465,
+          1.6065006256103516
+        ],
+        "triangle_intersections": 26
+      },
+      {
+        "a": "Folded storage shelf.004",
+        "b": "Cartridge bank formed upright.001",
+        "sampled_surface_distance_m": 0.025000572204589844,
+        "point_a": [
+          1.315999984741211,
+          8.329999923706055,
+          1.6065000295639038
+        ],
+        "point_b": [
+          1.315999150276184,
+          8.304999351501465,
+          1.6065006256103516
+        ],
+        "triangle_intersections": 26
+      },
+      {
+        "a": "Cartridge bottom seal.010",
+        "b": "Folded storage shelf.004",
+        "sampled_surface_distance_m": 6.23464584350586e-05,
+        "point_a": [
+          1.0,
+          8.646434783935547,
+          1.6375623941421509
+        ],
+        "point_b": [
+          1.0,
+          8.646434783935547,
+          1.6375000476837158
+        ],
+        "triangle_intersections": 66,
+        "selection": "Nearest actual shelf crown by seal bottom Z; corrected shelf indexing from discovery."
+      },
+      {
+        "a": "Cartridge bottom seal.011",
+        "b": "Folded storage shelf.004",
+        "sampled_surface_distance_m": 6.23464584350586e-05,
+        "point_a": [
+          1.1800000667572021,
+          8.646434783935547,
+          1.6375623941421509
+        ],
+        "point_b": [
+          1.1800000667572021,
+          8.646434783935547,
+          1.6375000476837158
+        ],
+        "triangle_intersections": 64,
+        "selection": "Nearest actual shelf crown by seal bottom Z; corrected shelf indexing from discovery."
+      },
+      {
+        "a": "Cartridge bank formed upright",
+        "b": "Floor",
+        "sampled_surface_distance_m": 0.0,
+        "point_a": [
+          0.6524999737739563,
+          8.309999465942383,
+          0.0
+        ],
+        "point_b": [
+          0.6524999737739563,
+          8.309999465942383,
+          0.0
+        ],
+        "triangle_intersections": 16
+      },
+      {
+        "a": "Cartridge bank formed upright.001",
+        "b": "Floor",
+        "sampled_surface_distance_m": 0.0,
+        "point_a": [
+          1.2825000286102295,
+          8.309999465942383,
+          0.0
+        ],
+        "point_b": [
+          1.2825000286102295,
+          8.309999465942383,
+          0.0
+        ],
+        "triangle_intersections": 16
+      }
+    ]
+  },
+  "clearance_and_interface_qualification": "Cold baseline dimension/matrix checks and new-geometry lane checks pass. Source panel/beam/cabinet mechanisms have evaluated triangle intersections at their intended bearings. Sampled outer-surface gaps above5mm on intersecting mechanical parts are not interpreted as detachment; outer vertices need not all contact backing. No AABB neighbor proximity or parent/name membership is used as architectural proof.",
+  "limitations": [
+    "This is an unscored repair preflight, not final visual or technical-category acceptance. Current source needs the full24-camera rendered set and fresh formal reviews.",
+    "The contact probe samples vertices, edge midpoints and triangle centroids in both directions; the exact declared-anchor ray checks independently pass238anchors. BVH intersection witnesses establish actual surface crossing where nearest sampled points miss narrow interfaces.",
+    "No exhaustive self-intersection, all hidden part coverage, animation-state or runtime collision/navigation/export certification. Previously reported partial internal tag coverage is not expanded into a new claim."
+  ],
+  "evidence_directory": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/critics/cycle-16-repair-preflight-witnesses",
+  "next_action": "Proceed with frozen full24-view cycle16 render and source-specific fresh formal critics."
+}

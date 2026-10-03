@@ -1,0 +1,822 @@
+{
+  "schema": 1,
+  "cycle": 16,
+  "category": "Technical cleanliness and reproducibility",
+  "score": 9.1,
+  "available": 10,
+  "minimum": 8.5,
+  "status": "PASS",
+  "critical_failures": 0,
+  "confirmed_blockers": [],
+  "mandatory_repair_batch": [],
+  "source": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/module_overhaul_R2.blend",
+  "source_sha256": "39007192eef36f87c5299933e3a2a4f3462791871144c349a580ba2d9d322487",
+  "scene": "REANIMATION_EDIT_LOCAL",
+  "reviewed_at_utc": "2026-10-01T11:49:37.710092+00:00",
+  "independence": "Fresh critic; did not read previous critic scores or builder effort narratives. Read-only source probes; root remains sole author.",
+  "source_unchanged": true,
+  "protected_files": [
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend",
+      "sha256": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/module.blend",
+      "sha256": "6c1a7600656050f717e0c94d26c038f3474fc974c7e0e0101ea7d598fe985523",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend",
+      "sha256": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+      "unchanged": true
+    }
+  ],
+  "native_probes_ended": true,
+  "geometry": {
+    "local_editable_scene": true,
+    "scene_object_count": 1366,
+    "baseline_inherited_objects_verified": 1203,
+    "evaluated_mesh_triangles": 435130,
+    "room_interior_m": [
+      8,
+      9,
+      3.6
+    ],
+    "decon_interior_m": [
+      1.7,
+      2.12,
+      2.55
+    ],
+    "main_portal_m": [
+      2.2,
+      2.5
+    ],
+    "decon_clear_portal_m": [
+      1.2,
+      2.15
+    ],
+    "baseline_transform_and_dimension_tolerance_m": 1e-06,
+    "reserved_rescue_lane": {
+      "x_m": [
+        -1.35,
+        2.45
+      ],
+      "y_m": [
+        0.18,
+        8.0
+      ],
+      "tested_z_m": [
+        0.05,
+        2.5
+      ],
+      "new_geometry_intrusions": 0
+    },
+    "scope": "Boundary, dimensions, equipment/interface/hook transforms and retained library source protection pass. Declared small dressing/service-door pose exceptions are explicit in verifier. Triangle count is native mesh-only authoring evidence; no runtime budget/performance claim."
+  },
+  "lighting": {
+    "active": 4,
+    "red": 1,
+    "warm_practicals": 1,
+    "directional_accents": 2
+  },
+  "mapping": {
+    "physical_uv_meshes": 214,
+    "evaluated_uv_faces": 100355,
+    "degenerate_or_nonfinite_faces": 0,
+    "active_named_microheight_material_user_meshes": 32,
+    "live_material_output_uv_consumers": [
+      {
+        "material": "MED | Worn warm ivory instrument enamel",
+        "active_uv_maps": [
+          "MED_Physical_1m"
+        ]
+      },
+      {
+        "material": "MED | Blue-grey bonded treatment vinyl",
+        "active_uv_maps": [
+          "MED_Physical_1m"
+        ]
+      },
+      {
+        "material": "MED | Unbleached folded carton",
+        "active_uv_maps": [
+          "MED_Physical_1m"
+        ]
+      },
+      {
+        "material": "MED | Warm woven cotton",
+        "active_uv_maps": [
+          "MED_Physical_1m"
+        ]
+      },
+      {
+        "material": "MED | Printed clinical bottle labels",
+        "active_uv_maps": [
+          "Clinical_Label"
+        ]
+      }
+    ],
+    "printed_components_all_vertex_tests": 27,
+    "printed_component_failures": 0,
+    "sewn_groups_all_vertex_tests": 10,
+    "sewn_group_failures": 0,
+    "qualification": "214 is the authored/revised OR active-user scope, not 214 active microheight consumers. Broad retained variation also uses Generated, Object and Geometry. Printed artwork and Clinical_Label use their intentional UV maps. Finite UV coverage is not an assertion of uniform texel density on every curved face."
+  },
+  "winding": {
+    "independent_meshes_checked": 214,
+    "inconsistent_shared_edges": 0,
+    "negative_closed_islands": 0
+  },
+  "declared_support": {
+    "registrations": 217,
+    "anchors": 238,
+    "passed": 217,
+    "directed_part_contacts": 217,
+    "joined_assembly_objects": 65,
+    "per_object_distinct_part_ids": 309,
+    "part_id_domain": "POINT",
+    "polygons_crossing_part_ids": 0,
+    "uncontracted_part_ids": [
+      {
+        "object": "MED_R2 | Medical cabinet fabricated face ",
+        "uncontracted_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          9,
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      {
+        "object": "MED_R2 | Medical cabinet fabricated face .001",
+        "uncontracted_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          9,
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      {
+        "object": "MED_R2 | Constructed clinical dispensing bottles and tray",
+        "uncontracted_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69,
+          70,
+          71
+        ]
+      }
+    ],
+    "qualification": "217 declared part contacts pass; 92 IDs across three joined objects are not individually declared contact contracts. Those IDs are not counted as validated individual attachments. Existing whole-object registration and print/seam tests do not establish exhaustive every-component contact."
+  },
+  "independent_support": {
+    "first_directional_probe": "Diagnostic-only misses were resolved by intended target selection, target-face projection, fixed bearing direction or actual retained joint geometry; first output is retained for audit.",
+    "directional_contacts_passed": 156,
+    "retained_socket_and_lap_joint_pairs": 9,
+    "retained_joint_intersection_witnesses": 232,
+    "stored_item_witnesses": [
+      {
+        "object": "Reserve battery module",
+        "target": "MED_R2 | Battery resilient bearing pad ",
+        "approach_world": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "mechanism": "battery downward bearing pad",
+        "samples": 132,
+        "oriented_hits": 17,
+        "passing_actual_surface_witnesses": 16,
+        "best": {
+          "signed_gap_m": -0.0004999905079603184,
+          "normal_angle_degrees": 0.0,
+          "object_point": [
+            -2.1500000953674316,
+            8.630000114440918,
+            0.32499998807907104
+          ],
+          "target_surface": [
+            -2.1500000953674316,
+            8.630000114440918,
+            0.3254999816417694
+          ],
+          "target_face_index": 0,
+          "source_witness_distance_m": 0.0
+        },
+        "status": "CONTACT"
+      },
+      {
+        "object": "Reserve battery module.001",
+        "target": "MED_R2 | Battery resilient bearing pad .001",
+        "approach_world": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "mechanism": "battery downward bearing pad",
+        "samples": 132,
+        "oriented_hits": 17,
+        "passing_actual_surface_witnesses": 16,
+        "best": {
+          "signed_gap_m": -0.0005000501126050938,
+          "normal_angle_degrees": 0.0,
+          "object_point": [
+            -2.1500000953674316,
+            8.630000114440918,
+            0.7350000143051147
+          ],
+          "target_surface": [
+            -2.1500000953674316,
+            8.630000114440918,
+            0.7355000376701355
+          ],
+          "target_face_index": 0,
+          "source_witness_distance_m": 0.0
+        },
+        "status": "CONTACT"
+      },
+      {
+        "object": "Sealed supply case",
+        "target": "MED_R2 | Sterile stock shelf bearing 0",
+        "approach_world": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "mechanism": "sterile case downward load to paired pressed feet",
+        "samples": 254,
+        "oriented_hits": 30,
+        "passing_actual_surface_witnesses": 16,
+        "best": {
+          "signed_gap_m": -0.0004999905079603184,
+          "normal_angle_degrees": 0.0,
+          "object_point": [
+            3.6499996185302734,
+            7.996399879455566,
+            1.3300000429153442
+          ],
+          "target_surface": [
+            3.6499996185302734,
+            7.996399879455566,
+            1.3305000066757202
+          ],
+          "target_face_index": 14,
+          "source_witness_distance_m": 0.0
+        },
+        "status": "CONTACT"
+      },
+      {
+        "object": "Sealed supply case.001",
+        "target": "MED_R2 | Sterile stock shelf bearing 1",
+        "approach_world": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "mechanism": "sterile case downward load to paired pressed feet",
+        "samples": 254,
+        "oriented_hits": 30,
+        "passing_actual_surface_witnesses": 16,
+        "best": {
+          "signed_gap_m": -0.0004999905079603184,
+          "normal_angle_degrees": 0.0,
+          "object_point": [
+            3.6499996185302734,
+            7.996399879455566,
+            1.75
+          ],
+          "target_surface": [
+            3.6499996185302734,
+            7.996399879455566,
+            1.750499963760376
+          ],
+          "target_face_index": 14,
+          "source_witness_distance_m": 0.0
+        },
+        "status": "CONTACT"
+      },
+      {
+        "object": "Sealed supply case.002",
+        "target": "MED_R2 | Sterile stock shelf bearing 2",
+        "approach_world": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "mechanism": "sterile case downward load to paired pressed feet",
+        "samples": 254,
+        "oriented_hits": 30,
+        "passing_actual_surface_witnesses": 16,
+        "best": {
+          "signed_gap_m": -0.0004999905079603184,
+          "normal_angle_degrees": 0.0,
+          "object_point": [
+            3.6499996185302734,
+            7.996399879455566,
+            2.140000104904175
+          ],
+          "target_surface": [
+            3.6499996185302734,
+            7.996399879455566,
+            2.140500068664551
+          ],
+          "target_face_index": 14,
+          "source_witness_distance_m": 0.0
+        },
+        "status": "CONTACT"
+      },
+      {
+        "object": "Sealed supply case.003",
+        "target": "MED_R2 | Sterile stock shelf bearing 3",
+        "approach_world": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "mechanism": "sterile case downward load to paired pressed feet",
+        "samples": 254,
+        "oriented_hits": 24,
+        "passing_actual_surface_witnesses": 12,
+        "best": {
+          "signed_gap_m": -0.0004999905079603184,
+          "normal_angle_degrees": 0.0,
+          "object_point": [
+            3.6500000953674316,
+            7.735599994659424,
+            1.3300000429153442
+          ],
+          "target_surface": [
+            3.6500000953674316,
+            7.735599994659424,
+            1.3305000066757202
+          ],
+          "target_face_index": 4,
+          "source_witness_distance_m": 0.0
+        },
+        "status": "CONTACT"
+      },
+      {
+        "object": "Sealed supply case.004",
+        "target": "MED_R2 | Sterile stock shelf bearing 4",
+        "approach_world": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "mechanism": "sterile case downward load to paired pressed feet",
+        "samples": 254,
+        "oriented_hits": 24,
+        "passing_actual_surface_witnesses": 12,
+        "best": {
+          "signed_gap_m": -0.0004999905079603184,
+          "normal_angle_degrees": 0.0,
+          "object_point": [
+            3.6500000953674316,
+            7.735599994659424,
+            1.75
+          ],
+          "target_surface": [
+            3.6500000953674316,
+            7.735599994659424,
+            1.750499963760376
+          ],
+          "target_face_index": 4,
+          "source_witness_distance_m": 0.0
+        },
+        "status": "CONTACT"
+      },
+      {
+        "object": "Sealed supply case.005",
+        "target": "MED_R2 | Sterile stock shelf bearing 5",
+        "approach_world": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "mechanism": "sterile case downward load to paired pressed feet",
+        "samples": 254,
+        "oriented_hits": 24,
+        "passing_actual_surface_witnesses": 12,
+        "best": {
+          "signed_gap_m": -0.0004999905079603184,
+          "normal_angle_degrees": 0.0,
+          "object_point": [
+            3.6500000953674316,
+            7.735599994659424,
+            2.140000104904175
+          ],
+          "target_surface": [
+            3.6500000953674316,
+            7.735599994659424,
+            2.140500068664551
+          ],
+          "target_face_index": 4,
+          "source_witness_distance_m": 0.0
+        },
+        "status": "CONTACT"
+      },
+      {
+        "object": "Sealed supply case.006",
+        "target": "MED_R2 | Sterile stock shelf bearing 6",
+        "approach_world": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "mechanism": "sterile case downward load to paired pressed feet",
+        "samples": 254,
+        "oriented_hits": 24,
+        "passing_actual_surface_witnesses": 12,
+        "best": {
+          "signed_gap_m": -0.0004999905079603184,
+          "normal_angle_degrees": 0.0,
+          "object_point": [
+            3.6500000953674316,
+            7.285600185394287,
+            1.3300000429153442
+          ],
+          "target_surface": [
+            3.6500000953674316,
+            7.285600185394287,
+            1.3305000066757202
+          ],
+          "target_face_index": 4,
+          "source_witness_distance_m": 0.0
+        },
+        "status": "CONTACT"
+      },
+      {
+        "object": "Sealed supply case.007",
+        "target": "MED_R2 | Sterile stock shelf bearing 7",
+        "approach_world": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "mechanism": "sterile case downward load to paired pressed feet",
+        "samples": 254,
+        "oriented_hits": 24,
+        "passing_actual_surface_witnesses": 12,
+        "best": {
+          "signed_gap_m": -0.0004999905079603184,
+          "normal_angle_degrees": 0.0,
+          "object_point": [
+            3.6500000953674316,
+            7.285600185394287,
+            1.75
+          ],
+          "target_surface": [
+            3.6500000953674316,
+            7.285600185394287,
+            1.750499963760376
+          ],
+          "target_face_index": 4,
+          "source_witness_distance_m": 0.0
+        },
+        "status": "CONTACT"
+      },
+      {
+        "object": "Sealed supply case.008",
+        "target": "MED_R2 | Sterile stock shelf bearing 8",
+        "approach_world": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "mechanism": "sterile case downward load to paired pressed feet",
+        "samples": 254,
+        "oriented_hits": 24,
+        "passing_actual_surface_witnesses": 12,
+        "best": {
+          "signed_gap_m": -0.0004999905079603184,
+          "normal_angle_degrees": 0.0,
+          "object_point": [
+            3.6500000953674316,
+            7.285600185394287,
+            2.140000104904175
+          ],
+          "target_surface": [
+            3.6500000953674316,
+            7.285600185394287,
+            2.140500068664551
+          ],
+          "target_face_index": 4,
+          "source_witness_distance_m": 0.0
+        },
+        "status": "CONTACT"
+      },
+      {
+        "object": "Sealed supply case.009",
+        "target": "MED_R2 | Sterile stock shelf bearing 9",
+        "approach_world": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "mechanism": "sterile case downward load to paired pressed feet",
+        "samples": 254,
+        "oriented_hits": 24,
+        "passing_actual_surface_witnesses": 12,
+        "best": {
+          "signed_gap_m": -0.0004999905079603184,
+          "normal_angle_degrees": 0.0,
+          "object_point": [
+            3.6500000953674316,
+            6.865600109100342,
+            1.3300000429153442
+          ],
+          "target_surface": [
+            3.6500000953674316,
+            6.865600109100342,
+            1.3305000066757202
+          ],
+          "target_face_index": 4,
+          "source_witness_distance_m": 0.0
+        },
+        "status": "CONTACT"
+      },
+      {
+        "object": "Sealed supply case.010",
+        "target": "MED_R2 | Sterile stock shelf bearing 10",
+        "approach_world": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "mechanism": "sterile case downward load to paired pressed feet",
+        "samples": 254,
+        "oriented_hits": 24,
+        "passing_actual_surface_witnesses": 12,
+        "best": {
+          "signed_gap_m": -0.0004999905079603184,
+          "normal_angle_degrees": 0.0,
+          "object_point": [
+            3.6500000953674316,
+            6.865600109100342,
+            1.75
+          ],
+          "target_surface": [
+            3.6500000953674316,
+            6.865600109100342,
+            1.750499963760376
+          ],
+          "target_face_index": 4,
+          "source_witness_distance_m": 0.0
+        },
+        "status": "CONTACT"
+      },
+      {
+        "object": "Sealed supply case.011",
+        "target": "MED_R2 | Sterile stock shelf bearing 11",
+        "approach_world": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "mechanism": "sterile case downward load to paired pressed feet",
+        "samples": 254,
+        "oriented_hits": 24,
+        "passing_actual_surface_witnesses": 12,
+        "best": {
+          "signed_gap_m": -0.0004999905079603184,
+          "normal_angle_degrees": 0.0,
+          "object_point": [
+            3.6500000953674316,
+            6.865600109100342,
+            2.140000104904175
+          ],
+          "target_surface": [
+            3.6500000953674316,
+            6.865600109100342,
+            2.140500068664551
+          ],
+          "target_face_index": 4,
+          "source_witness_distance_m": 0.0
+        },
+        "status": "CONTACT"
+      }
+    ],
+    "mechanisms": [
+      {
+        "path": "12 sealed stock cases \u2192 paired pressed bearing feet \u2192 intended cabinet shelves \u2192 cabinet back/formed returns \u2192 wall spacers \u2192 East wall",
+        "measurement": "All 12 case downward contacts approximately -0.500 mm, 0 degree target normal, 12\u201316 evaluated witnesses per case. Shelf feet, shelves, edges, cabinet back and wall spacers also have intended-surface witnesses."
+      },
+      {
+        "path": "2 reserve batteries \u2192 resilient bearing pads \u2192 drawer rails \u2192 rear mounting returns \u2192 folded back/chassis \u2192 plinth \u2192 Floor",
+        "measurement": "Battery contacts -0.500/-0.50005 mm, 0 degree target normal. Each remaining root link is independently probed."
+      },
+      {
+        "path": "12 cartridge bottom seals \u2192 respective shelves .001 through .004 \u2192 both rack uprights \u2192 Floor",
+        "measurement": "Correct shelf elevation and all seven retained shelf roots tested; 28/28 root-extension directions pass including upright floor bearing."
+      },
+      {
+        "path": "Receiver and suit enclosures \u2192 fixed arms \u2192 folded jamb covers \u2192 graphite returns \u2192 structural end uprights \u2192 pan/chassis \u2192 fabricated feet/sole shoes \u2192 Floor",
+        "measurement": "Evaluated mount and jamb-root faces pass; chassis/pan inserted joints have real boundary intersections."
+      },
+      {
+        "path": "OCRU roof beam/liners \u2192 structural ends/rear machine skin \u2192 pan/chassis \u2192 shoes \u2192 Floor",
+        "measurement": "Roof/liner directional roots pass. Rear skin connects at the structural ends; its 21.17 mm direct lower-channel clearance is not an unsupported-floor gap."
+      },
+      {
+        "path": "Glazing \u2192 captive slide guides \u2192 cabinet formed edge \u2192 back \u2192 spacers \u2192 East wall",
+        "measurement": "Small guides are physically reached in the intended lateral direction. Fabricated faces stay parented to the original sliding panes."
+      },
+      {
+        "path": "Basin \u2192 retained bracket \u2192 load-bearing wall packer \u2192 East wall; ceiling lamp \u2192 mounting return \u2192 Decon ceiling; floor feet/tyres/glides \u2192 Floor",
+        "measurement": "Sink is an inserted bracket joint with 19 exact intersection witnesses. Wall/ceiling mounts and intended floor bearing pass."
+      }
+    ],
+    "qualification": "Physical surface evidence supplements the verifier\u2019s qualified inherited terminal rule. It is not AABB support proof, exhaustive penetration/collision testing, or a claim that every retained component was formally registered."
+  },
+  "cold_dependencies": {
+    "fresh_cold_open_status": "PASS",
+    "missing_libraries": [],
+    "linked_libraries": 25,
+    "file_images": 124,
+    "packed_file_images": 124,
+    "unpacked_required_image_files": 0,
+    "missing_unpacked_images": [],
+    "source_fonts": [
+      {
+        "name": "Bfont Regular",
+        "filepath": "<builtin>",
+        "packed": false,
+        "builtin": true
+      }
+    ],
+    "renderer_fonts": "production/fonts/DejaVuSans.ttf exists; fixed-frame review labels also have a documented system fallback. Source authored fonts are built-in.",
+    "reproducibility": "Current source cold-opens from disk with local editable room and relative read-only map libraries; all dependencies resolve. Existing versioned builder/renderer/verifier retained. Critic did not execute a new asset rebuild or a private full render."
+  },
+  "render_provenance": {
+    "manifest_complete": true,
+    "frame_count": 24,
+    "all_individual_pngs_vision_inspected": true,
+    "resolution": [
+      1067,
+      600
+    ],
+    "engine": "CYCLES",
+    "samples": 24,
+    "cold_open": false,
+    "renderer_sha256": "d58c877b8b970c5ee48ba1e0a9a4812fe23d3129239977f634bb66ecd8fa52eb",
+    "manifest": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/critics/cycle-16-technical-witnesses/cycle-16-render-manifest.json",
+    "image_provenance": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/critics/cycle-16-technical-witnesses/inspected-images.json",
+    "source_matches": true,
+    "hidden_bag_fill": "Only HIDDEN_BAG has labelled temporary 2 W fill; closed folded bag visually inspected.",
+    "approved_spawn_reference_count": 4
+  },
+  "score_deductions": [
+    {
+      "points": 0.45,
+      "reason": "Retained support audit is source-specific and sampled. The inherited terminal rule is qualified; it is not exhaustive support/penetration certification."
+    },
+    {
+      "points": 0.3,
+      "reason": "92 joined part IDs across three objects lack individual directed contracts; 217 declarations are the actual verified attachment scope."
+    },
+    {
+      "points": 0.15,
+      "reason": "Cold open and current fixed frames verified; a wholly new deterministic rebuild was not independently executed by this read-only critic."
+    }
+  ],
+  "findings": [
+    {
+      "severity": "info",
+      "id": "coverage-qualification",
+      "finding": "No measured support failure. Preserve the explicit inherited-root and part-contact coverage qualifications in handoff."
+    },
+    {
+      "severity": "info",
+      "id": "probe-artifact",
+      "finding": "The first shelf probe chose shelf IDs one level too low; the initial rear-liner query used the building wall instead of the retained rear machine skin. Refined probes use the actual intended targets. Neither initial miss is a source defect."
+    },
+    {
+      "severity": "info",
+      "id": "retained-mechanical-joints",
+      "finding": "10 mm rigid lap overlaps, inserted telescopic crosshead and sink bracket joints are evaluated physical joins. A flush-only ray test is not their mechanical contact model."
+    }
+  ],
+  "commands": [
+    {
+      "command": "/workspace/tools/blender-5.2.2-linux-x64/blender --background --factory-startup --disable-autoexec --threads 1 --python-exit-code 1 --python /workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/critics/cycle-16-technical-witnesses/run_existing_verifier.py -- --cold --dependencies",
+      "log": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/critics/cycle-16-technical-witnesses/existing-verifier.log",
+      "exit_code": 0,
+      "source_saved": false
+    },
+    {
+      "command": "/workspace/tools/blender-5.2.2-linux-x64/blender --background --factory-startup --disable-autoexec --threads 1 --python-exit-code 1 --python /workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/critics/cycle-16-technical-witnesses/independent_inventory.py",
+      "log": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/critics/cycle-16-technical-witnesses/independent-inventory.log",
+      "exit_code": 0,
+      "source_saved": false
+    },
+    {
+      "command": "/workspace/tools/blender-5.2.2-linux-x64/blender --background --factory-startup --disable-autoexec --threads 1 --python-exit-code 1 --python /workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/critics/cycle-16-technical-witnesses/independent_support.py",
+      "log": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/critics/cycle-16-technical-witnesses/independent-support.log",
+      "exit_code": 0,
+      "source_saved": false
+    },
+    {
+      "command": "/workspace/tools/blender-5.2.2-linux-x64/blender --background --factory-startup --disable-autoexec --threads 1 --python-exit-code 1 --python /workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/critics/cycle-16-technical-witnesses/independent_support_refined.py",
+      "log": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/critics/cycle-16-technical-witnesses/independent-support-refined.log",
+      "exit_code": 0,
+      "source_saved": false
+    },
+    {
+      "command": "/workspace/tools/blender-5.2.2-linux-x64/blender --background --factory-startup --disable-autoexec --threads 1 --python-exit-code 1 --python /workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/critics/cycle-16-technical-witnesses/independent_final_probe.py",
+      "log": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/critics/cycle-16-technical-witnesses/independent-final-probe.log",
+      "exit_code": 0,
+      "source_saved": false
+    },
+    {
+      "command": "/workspace/tools/blender-5.2.2-linux-x64/blender --background --factory-startup --disable-autoexec --threads 1 --python-exit-code 1 --python /workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/critics/cycle-16-technical-witnesses/independent_root_extension.py",
+      "log": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/critics/cycle-16-technical-witnesses/independent-root-extension.log",
+      "exit_code": 0,
+      "source_saved": false
+    }
+  ],
+  "limits": [
+    "Technical pass covers the frozen cycle16 source and supplied current evidence, not whole-map promotion or owner art acceptance.",
+    "No Unity/runtime collision, animation-state, draw-call, navigation or measured performance validation.",
+    "Cold17 full-frame stability is root\u2019s subsequent work; no old scores or future-cycle results used.",
+    "No private diagnostic render, checker render or exhaustive all-pair intersection scan was made; actual scene pixels and independent geometry/UV tests were used."
+  ]
+}

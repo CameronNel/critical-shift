@@ -1,0 +1,118 @@
+{
+  "schema_version": 2,
+  "status": "PROCESS_ACCEPTANCE_PASS",
+  "scope": "Independent Blender art/source readiness; owner approval and main promotion remain separate",
+  "source_sha256": "39007192eef36f87c5299933e3a2a4f3462791871144c349a580ba2d9d322487",
+  "editable_scene": "REANIMATION_EDIT_LOCAL",
+  "branch": "codex/reanimation-room-revamp-20260930",
+  "owner_art_approval": false,
+  "main_promoted": false,
+  "runtime_integration_verified": false,
+  "current_reviewed_cycle": 17,
+  "current_overall_score": 91.7,
+  "current_visual_score": 82.4,
+  "current_technical_score": 9.3,
+  "all_category_minima_pass": true,
+  "critical_defects": 0,
+  "all_24_camera_gates_pass": true,
+  "full_new_cycles_completed": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    16,
+    17
+  ],
+  "incomplete_cycles_excluded": [
+    14,
+    15
+  ],
+  "minimum_four_full_new_cycles_pass": true,
+  "final_stable_cycles": [
+    16,
+    17
+  ],
+  "same_source_same_renderer": true,
+  "strict_cold_comparison": "PASS",
+  "maximum_decoded_RGB_difference": 0.0,
+  "maximum_camera_matrix_difference": 0.0,
+  "hot_objective": "PASS",
+  "cold_objective": "PASS",
+  "independent_repair_preflight": "PASS_BOUNDED",
+  "portable_extracted_source": "PASS",
+  "portable_libraries": 25,
+  "portable_file_images": 124,
+  "blocking_defects": [],
+  "remaining_art_repair_batch": [],
+  "final_delivery_ready": true,
+  "final_archive_proof": "External reanimation-portable-final-check.json and delivery manifest identify the exact final ZIP",
+  "cycle_history": [
+    {
+      "cycle": 8,
+      "complete": true,
+      "status": "FAIL"
+    },
+    {
+      "cycle": 9,
+      "complete": true,
+      "status": "PASS_AT_THEN_CHECKED_SCOPE"
+    },
+    {
+      "cycle": 10,
+      "complete": true,
+      "status": "PASS_AT_THEN_CHECKED_SCOPE"
+    },
+    {
+      "cycle": 11,
+      "complete": true,
+      "status": "FAIL"
+    },
+    {
+      "cycle": 12,
+      "complete": true,
+      "status": "FAIL"
+    },
+    {
+      "cycle": 13,
+      "complete": true,
+      "status": "FAIL"
+    },
+    {
+      "cycle": 14,
+      "complete": false,
+      "status": "ABORTED_INCOMPLETE"
+    },
+    {
+      "cycle": 15,
+      "complete": false,
+      "status": "ABORTED_INCOMPLETE"
+    },
+    {
+      "cycle": 16,
+      "complete": true,
+      "status": "PASS",
+      "visual": 82.0,
+      "technical": 9.1,
+      "overall": 91.1,
+      "source_sha256": "39007192eef36f87c5299933e3a2a4f3462791871144c349a580ba2d9d322487"
+    },
+    {
+      "cycle": 17,
+      "complete": true,
+      "status": "PASS",
+      "visual": 82.4,
+      "technical": 9.3,
+      "overall": 91.7,
+      "source_sha256": "39007192eef36f87c5299933e3a2a4f3462791871144c349a580ba2d9d322487"
+    }
+  ],
+  "qualifications": [
+    "Inherited contact coverage is independently sampled, not exhaustive collision proof",
+    "Some joined internal part IDs lack individual directed contracts; critic limits retained",
+    "Deep secondary shadow limits small-detail visibility",
+    "Runtime revival, animation/collision/network and engine material conversion unverified",
+    "Source-specific historical FAIL art comparisons are not cold stability tests"
+  ]
+}

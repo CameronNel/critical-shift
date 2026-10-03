@@ -1,0 +1,93 @@
+{
+  "source_sha256": "d2ddabaa07cddf05078676e86ec894ed356a613dca7d7a9eb934d78bae2506ab",
+  "renderer_sha256": "9a90c6d124e14e1f09718462d4349d138a79b8919d4da7ed61f9b6982ea6a7fc",
+  "engine": "CYCLES",
+  "complete": false,
+  "diagnostic": "uv",
+  "resolution": [
+    1067,
+    600
+  ],
+  "samples": 24,
+  "cold_open": false,
+  "lighting": "Authored overhaul lights and physical Cycles bounce; only the explicitly labelled concealed-bag inspection uses a temporary 2 W fill",
+  "label_method": "Camera-attached emission text; source scene never saved",
+  "shots": [
+    {
+      "id": "DETAIL_OCRU",
+      "label": "22 | OCRU CARRIAGE / DETAIL",
+      "group": "details",
+      "position": null,
+      "target": null,
+      "lens": 24,
+      "inherited": "MED_DETAIL_OCRU",
+      "temporary_hidden_geometry": [],
+      "camera_matrix_world": [
+        [
+          0.5624637603759766,
+          -0.24029186367988586,
+          0.7911348342895508,
+          -0.550000011920929
+        ],
+        [
+          0.8268219232559204,
+          0.1634637713432312,
+          -0.5381868481636047,
+          3.700000047683716
+        ],
+        [
+          2.809643717682775e-08,
+          0.9568382501602173,
+          0.2906210422515869,
+          1.3799999952316284
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 42.0,
+      "projection": "PERSP"
+    },
+    {
+      "id": "DETAIL_SUPPLIES",
+      "label": "23 | CLINICAL WORK / DETAIL",
+      "group": "details",
+      "position": null,
+      "target": null,
+      "lens": 24,
+      "inherited": "MED_DETAIL_SUPPLIES",
+      "temporary_hidden_geometry": [],
+      "camera_matrix_world": [
+        [
+          0.7155742049217224,
+          0.22023886442184448,
+          -0.6629090905189514,
+          2.6600000858306885
+        ],
+        [
+          -0.69853675365448,
+          0.22561043500900269,
+          -0.6790775656700134,
+          0.6499999761581421
+        ],
+        [
+          -6.71831514864607e-08,
+          0.9489967226982117,
+          0.31528592109680176,
+          1.3899999856948853
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 46.0,
+      "projection": "PERSP"
+    }
+  ]
+}

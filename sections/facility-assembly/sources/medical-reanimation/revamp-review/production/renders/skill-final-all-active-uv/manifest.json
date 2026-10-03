@@ -1,0 +1,63 @@
+{
+  "source_sha256": "39007192eef36f87c5299933e3a2a4f3462791871144c349a580ba2d9d322487",
+  "renderer_sha256": "5b2dedc25d5f89af217d4d5114d64772189c0e7099c8c383e4e7e97616a0ccf5",
+  "engine": "CYCLES",
+  "complete": false,
+  "diagnostic": "uv",
+  "resolution": [
+    1067,
+    600
+  ],
+  "samples": 24,
+  "cold_open": false,
+  "lighting": "Authored overhaul lights and physical Cycles bounce; only the explicitly labelled concealed-bag inspection uses a temporary 2 W fill",
+  "label_method": "Camera-attached emission text; source scene never saved",
+  "shots": [
+    {
+      "id": "HERO_SUPPLIES",
+      "label": "16 | SUPPLY WORKBENCH",
+      "group": "assets",
+      "position": [
+        1,
+        3.4,
+        1.65
+      ],
+      "target": [
+        3.55,
+        1.5,
+        0.9
+      ],
+      "lens": 28,
+      "inherited": null,
+      "temporary_hidden_geometry": [],
+      "camera_matrix_world": [
+        [
+          -0.5974814891815186,
+          0.18407215178012848,
+          -0.7804698944091797,
+          1.0
+        ],
+        [
+          -0.8018826842308044,
+          -0.1371518075466156,
+          0.5815268754959106,
+          3.4000000953674316
+        ],
+        [
+          4.7835982286414946e-08,
+          0.9732968807220459,
+          0.22954994440078735,
+          1.649999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 28.0,
+      "projection": "PERSP"
+    }
+  ]
+}

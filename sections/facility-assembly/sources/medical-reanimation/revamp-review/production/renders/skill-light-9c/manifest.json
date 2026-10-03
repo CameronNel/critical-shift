@@ -1,0 +1,240 @@
+{
+  "source_sha256": "bde7e1bbf52e704769f13d7b0baaec50337f3c7ddea264c81acaddd6474830c3",
+  "renderer_sha256": "9a90c6d124e14e1f09718462d4349d138a79b8919d4da7ed61f9b6982ea6a7fc",
+  "engine": "CYCLES",
+  "complete": false,
+  "diagnostic": null,
+  "resolution": [
+    1067,
+    600
+  ],
+  "samples": 24,
+  "cold_open": false,
+  "lighting": "Authored overhaul lights and physical Cycles bounce; only the explicitly labelled concealed-bag inspection uses a temporary 2 W fill",
+  "label_method": "Camera-attached emission text; source scene never saved",
+  "shots": [
+    {
+      "id": "ENTRY",
+      "label": "19 | ENTRY / PLAYER HEIGHT",
+      "group": "mandatory",
+      "position": null,
+      "target": null,
+      "lens": 24,
+      "inherited": "CAM_ENTRY",
+      "temporary_hidden_geometry": [],
+      "camera_matrix_world": [
+        [
+          0.999793529510498,
+          0.001154372119344771,
+          -0.020288197323679924,
+          0.0
+        ],
+        [
+          -0.020321011543273926,
+          0.056795187294483185,
+          -0.998179018497467,
+          0.47999998927116394
+        ],
+        [
+          1.9309223109331697e-09,
+          0.9983851909637451,
+          0.05680691823363304,
+          1.6799999475479126
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 22.0,
+      "projection": "PERSP"
+    },
+    {
+      "id": "HERO_RESERVE",
+      "label": "12 | RESERVE POWER",
+      "group": "assets",
+      "position": [
+        -0.65,
+        7.3,
+        1.5
+      ],
+      "target": [
+        -2.15,
+        8.7,
+        0.85
+      ],
+      "lens": 26,
+      "inherited": null,
+      "temporary_hidden_geometry": [],
+      "camera_matrix_world": [
+        [
+          0.6823181509971619,
+          -0.22077800333499908,
+          0.6969211101531982,
+          -0.6499999761581421
+        ],
+        [
+          0.7310553789138794,
+          0.20605939626693726,
+          -0.6504594683647156,
+          7.300000190734863
+        ],
+        [
+          -6.592319579112882e-09,
+          0.9533082246780396,
+          0.3019990026950836,
+          1.5
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 26.0,
+      "projection": "PERSP"
+    },
+    {
+      "id": "HERO_CART",
+      "label": "15 | TRANSFER CART",
+      "group": "assets",
+      "position": [
+        -1.6,
+        0.9,
+        1.65
+      ],
+      "target": [
+        -3.1,
+        1.3,
+        0.7
+      ],
+      "lens": 18,
+      "inherited": null,
+      "temporary_hidden_geometry": [],
+      "camera_matrix_world": [
+        [
+          0.2576628029346466,
+          -0.5043458938598633,
+          0.8241632580757141,
+          -1.600000023841858
+        ],
+        [
+          0.9662349224090576,
+          0.13449235260486603,
+          -0.21977700293064117,
+          0.8999999761581421
+        ],
+        [
+          -2.9289777714325282e-08,
+          0.8529636859893799,
+          0.521970272064209,
+          1.649999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 18.0,
+      "projection": "PERSP"
+    },
+    {
+      "id": "HERO_CABINET",
+      "label": "18 | MEDICAL SUPPLIES CABINET",
+      "group": "assets",
+      "position": [
+        1.2,
+        6.3,
+        1.7
+      ],
+      "target": [
+        3.6,
+        7.4,
+        1.65
+      ],
+      "lens": 25,
+      "inherited": null,
+      "temporary_hidden_geometry": [],
+      "camera_matrix_world": [
+        [
+          0.41665464639663696,
+          0.017213590443134308,
+          -0.9089018702507019,
+          1.2000000476837158
+        ],
+        [
+          -0.9090648293495178,
+          0.007889480330049992,
+          -0.416579931974411,
+          6.300000190734863
+        ],
+        [
+          -7.297688853213913e-08,
+          0.9998207092285156,
+          0.01893545873463154,
+          1.7000000476837158
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 25.0,
+      "projection": "PERSP"
+    },
+    {
+      "id": "HIDDEN_BAG",
+      "label": "24 | BAG / INSPECTION FILL",
+      "group": "inspection",
+      "position": [
+        -1.35,
+        4.63,
+        0.72
+      ],
+      "target": [
+        -2.1,
+        4.63,
+        0.492
+      ],
+      "lens": 35,
+      "inherited": null,
+      "temporary_hidden_geometry": [],
+      "temporary_inspection_fill_watts": 2,
+      "camera_matrix_world": [
+        [
+          1.9470718370939721e-07,
+          -0.2908570170402527,
+          0.9567665457725525,
+          -1.350000023841858
+        ],
+        [
+          1.0,
+          5.5489920214313315e-08,
+          -1.8663649825612083e-07,
+          4.630000114440918
+        ],
+        [
+          1.1936371890897135e-09,
+          0.9567665457725525,
+          0.2908570170402527,
+          0.7200000286102295
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 35.0,
+      "projection": "PERSP"
+    }
+  ]
+}

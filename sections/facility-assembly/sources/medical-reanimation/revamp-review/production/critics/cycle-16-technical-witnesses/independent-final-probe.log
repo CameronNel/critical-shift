@@ -1,0 +1,9 @@
+/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/critics/cycle-16-technical-witnesses/independent_inventory_full.py:16: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  active=any(m and m.use_nodes and any(n.type=='UVMAP' and n.uv_map=='MED_Physical_1m' and n.outputs[0].is_linked for n in m.node_tree.nodes) for m in md.materials)
+INVENTORY 1366 435130 214 65
+/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/critics/cycle-16-technical-witnesses/independent_final_probe.py:44: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  for m in {m for o in s.objects if o.type=='MESH' for m in o.data.materials if m and m.use_nodes}:
+FINAL_PROBE 214 214 9 9
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)
+
+Blender quit

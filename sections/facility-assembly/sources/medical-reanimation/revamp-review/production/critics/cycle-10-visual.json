@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "cycle": 10,
+  "review_date": "2026-10-01",
+  "discipline": "independent visual critic",
+  "review_scope": "Current rendered pixels only; six visual categories out of 90. Technical cleanliness and reproducibility out of 10 are unscored.",
+  "independence": {
+    "prior_critic_reports_or_scores_consulted": false,
+    "authoring_code_consulted": false,
+    "builder_artistic_reasoning_consulted": false,
+    "source_or_art_changed": false
+  },
+  "authorities_read": [
+    "/workspace/critical-shift/AGENTS.md",
+    "/workspace/critical-shift/.agents/skills/blender-headless/SKILL.md",
+    "/workspace/critical-shift/.agents/skills/blender-headless/references/visual-review.md",
+    "/workspace/critical-shift/.agents/skills/blender-uv-texturing/SKILL.md",
+    "/workspace/critical-shift/.agents/skills/blender-uv-texturing/references/surfacing.md",
+    "/workspace/critical-shift/design/ART_DIRECTION.md",
+    "/workspace/critical-shift/design/ART_REFERENCE_INDEX.md",
+    "/workspace/critical-shift/design/AUTONOMOUS_SECTION_BUILD_PROTOCOL.md",
+    "production/RUBRIC.md",
+    "production/CAMERAS.md"
+  ],
+  "evidence": {
+    "render_root": "production/renders/cycle-10",
+    "inspection_method": "Every listed PNG was opened individually with view_image at original/native detail. No contact sheet was substituted for individual inspection.",
+    "render_count": 24,
+    "render_resolution": [1067, 600],
+    "approved_reference_root": "spawn-reference",
+    "approved_reference_resolution": [1280, 720],
+    "approved_references_inspected": [
+      "VALIDATE_Spawn.png",
+      "VALIDATE_LockerDoor.png",
+      "VALIDATE_Material_A.png",
+      "BRIEFING_INDIRECT.png"
+    ],
+    "special_view_limits": [
+      "HIDDEN_BAG uses a disclosed temporary inspection fill. It establishes the visible closed-bag construction and tiny note, not their brightness under the saved gameplay lighting.",
+      "The four corner cutaways hide ceiling and near wall planes. Exposed overhead members in these views are not evidence of unsupported production geometry.",
+      "Camera footer labels are review annotations and were not counted as in-world signage."
+    ]
+  },
+  "scores": [
+    {
+      "category": "Layout and route readability",
+      "score": 18.8,
+      "available": 20,
+      "minimum": 17,
+      "minimum_status": "PASS",
+      "evidence": ["ENTRY", "REVERSE", "PINCH", "CORNER_NE", "CORNER_NW", "CORNER_SE", "CORNER_SW"],
+      "rationale": "The central floor area and yellow transfer boundary remain readable between the OCRU enclosure and clinical wall. Equipment stays at the perimeter and the opposite doorway remains a distinct exit silhouette. Pixel evidence does not measure clearance or prove historical boundary preservation."
+    },
+    {
+      "category": "Grounded stylized art and silhouettes",
+      "score": 17.8,
+      "available": 20,
+      "minimum": 17,
+      "minimum_status": "PASS",
+      "evidence": ["WALL_WEST", "HERO_OCRU", "HERO_RESTART", "HERO_CART", "HERO_RECOVERY", "HERO_WASH"],
+      "rationale": "The OCRU has a distinct framed opening, carriage, supports, controls and service housings. The cart has a scissor lift, recovery bed has tube rails and cloth, and the workbench has an institutional steel frame. Off-white, blue, orange and charcoal construction relates to the spawn references. Some secondary cabinets and monitor controls remain more rectangular and diagrammatic than the strongest reference assets, but repeated primitive construction does not dominate."
+    },
+    {
+      "category": "OCRU hero function and focal clarity",
+      "score": 14.1,
+      "available": 15,
+      "minimum": 12.75,
+      "minimum_status": "PASS",
+      "evidence": ["ENTRY", "REVERSE", "HERO_OCRU", "DETAIL_OCRU", "WALL_WEST", "HERO_RESTART", "HERO_CARTRIDGES"],
+      "rationale": "The red practical identifies the treatment bed immediately and the portal frame makes the machine authoritative. Side controls, carriage and adjacent restart/cartridge equipment explain a physical procedure without relying solely on text. The bag stays below the focal plane. Strong red spill reduces some cushion-versus-rail nuance in the close view."
+    },
+    {
+      "category": "Materials and anti-plastic quality",
+      "score": 13.6,
+      "available": 15,
+      "minimum": 12.75,
+      "minimum_status": "PASS",
+      "evidence": ["DETAIL_OCRU", "DETAIL_SUPPLIES", "HERO_RECOVERY", "HERO_CABINET", "HERO_WASH", "HERO_SUPPLIES"],
+      "rationale": "Painted steel, dark seals, cloth/gloves, paper, tinted cabinet glass, metal tray and tiled floor have distinct visible responses. Wall variation is broad and restrained; wear is localized rather than photographic noise. The red key compresses material color separation at the OCRU, and some cream bench items share very clean soft shading, but there is no room-wide satin-plastic failure."
+    },
+    {
+      "category": "Dark lighting and atmosphere",
+      "score": 8.8,
+      "available": 10,
+      "minimum": 8.5,
+      "minimum_status": "PASS",
+      "evidence": ["ENTRY", "REVERSE", "PINCH", "WALL_EAST", "WALL_WEST", "HERO_DECON", "HERO_CABINET"],
+      "rationale": "The red bed dominates, the warm workbench pool remains secondary, and the unlit ceiling/secondary areas retain the bleak clinic mood. Contact shadows and local falloff create depth while the route stays visible. Upper DECON hardware and cabinet contents approach black, limiting secondary shape detail. Beauty pixels establish the resulting hierarchy, not the exact number or type of authored lights."
+    },
+    {
+      "category": "Purposeful dressing and neglected workplace story",
+      "score": 8.9,
+      "available": 10,
+      "minimum": 8.5,
+      "minimum_status": "PASS",
+      "evidence": ["DETAIL_SUPPLIES", "HERO_SUPPLIES", "HERO_RECOVERY", "WALL_WEST", "HIDDEN_BAG", "DETAIL_OCRU"],
+      "rationale": "Gloves, bandages, instruments, sharps container, stock boxes and linens form a credible medical work cluster. Repeated shift-log attempts and RELEASE DENIED, institutional productivity imagery, blood-colored floor staining and the closed concealed bag combine overt and quieter unease. The tiny note is barely visible rather than presented as a readable sign. Neglect is localized, although the bench and cartridges still look relatively orderly."
+    }
+  ],
+  "visual_total": 82.0,
+  "visual_available": 90,
+  "visual_percentage": 91.11,
+  "all_six_category_minima": "PASS",
+  "camera_results": [
+    {"camera": "ENTRY", "file": "ENTRY.png", "status": "PASS", "finding": "Clear central route; red OCRU at left remains the focal landmark; clinical equipment is secondary."},
+    {"camera": "REVERSE", "file": "REVERSE.png", "status": "PASS", "finding": "Opposite doorway and its frame are legible; transfer zone remains open; bench and OCRU form separate light zones."},
+    {"camera": "PINCH", "file": "PINCH.png", "status": "PASS", "finding": "Readable foreground movement area between restart/decon and recovery bed; no visible route-blocking prop."},
+    {"camera": "HERO_OCRU", "file": "HERO_OCRU.png", "status": "PASS", "finding": "Treatment bed, portal, carriage and two side interfaces read as one purposeful machine."},
+    {"camera": "HERO_RESTART", "file": "HERO_RESTART.png", "status": "PASS", "finding": "Guarded physical controls, framed displays and drawer/vent construction support the restart function."},
+    {"camera": "HERO_CARTRIDGES", "file": "HERO_CARTRIDGES.png", "status": "PASS", "finding": "The numbered rack and one missing cartridge give storage function and state without visual clutter."},
+    {"camera": "HERO_DECON", "file": "HERO_DECON.png", "status": "PASS", "finding": "Hose, wall control, used-PPE bin and grated floor remain recognizable; the upper fitting loses detail in shadow."},
+    {"camera": "HERO_CABINET", "file": "HERO_CABINET.png", "status": "PASS", "finding": "Blue frame, hinges, handles and tinted glass read as a wall cupboard; stored contents are subdued."},
+    {"camera": "HERO_SUPPLIES", "file": "HERO_SUPPLIES.png", "status": "PASS", "finding": "Purposeful medical work cluster with clean silhouette and believable under-bench stock."},
+    {"camera": "DETAIL_SUPPLIES", "file": "DETAIL_SUPPLIES.png", "status": "PASS", "finding": "Instruments, gloves, bandages and bottle labels hold up at native detail; log supplies the repeat-procedure horror cue."},
+    {"camera": "HERO_RECOVERY", "file": "HERO_RECOVERY.png", "status": "PASS", "finding": "Tube rails, pillow, draped sheet and folded blanket create a specific recovery-bed silhouette."},
+    {"camera": "HERO_WASH", "file": "HERO_WASH.png", "status": "PASS", "finding": "Inset basin, faucet and dispenser identify a practical handwash station; wall patching is restrained."},
+    {"camera": "HERO_RESERVE", "file": "HERO_RESERVE.png", "status": "PASS", "finding": "Open cabinet and two handled packs remain distinguishable in the subdued light."},
+    {"camera": "HERO_CART", "file": "HERO_CART.png", "status": "PASS", "finding": "Segmented pads, scissor lift and caster structure distinguish the transfer cart from a generic table."},
+    {"camera": "DETAIL_OCRU", "file": "DETAIL_OCRU.png", "status": "PASS", "finding": "Pad seams, rail, carriage and supports retain detail; closed bag stays below the bed, despite saturated red spill."},
+    {"camera": "HIDDEN_BAG", "file": "HIDDEN_BAG.png", "status": "PASS", "finding": "Inspection-only: continuous closed zipper and tiny note are visible; no exposed contents. Temporary fill is not gameplay-lighting approval."},
+    {"camera": "CORNER_NE", "file": "CORNER_NE.png", "status": "PASS", "finding": "Whole-footprint organization and central negative space remain coherent from the rear-right cutaway."},
+    {"camera": "CORNER_NW", "file": "CORNER_NW.png", "status": "PASS", "finding": "Clinical wall, treatment enclosure and doorway form distinct functional masses from the rear-left cutaway."},
+    {"camera": "CORNER_SE", "file": "CORNER_SE.png", "status": "PASS", "finding": "Restart/decon cluster stays at the room edge; the central transfer area remains visually open."},
+    {"camera": "CORNER_SW", "file": "CORNER_SW.png", "status": "PASS", "finding": "No unexplained dense cluster or route obstruction appears from the opposing cutaway."},
+    {"camera": "WALL_NORTH", "file": "WALL_NORTH.png", "status": "PASS", "finding": "Restart, cartridges, decon and supplies cabinet retain a useful hierarchy; darkness is concentrated in secondary equipment."},
+    {"camera": "WALL_EAST", "file": "WALL_EAST.png", "status": "PASS", "finding": "Warm bench practical, quieter recovery bed and dark cabinet read as deliberate lighting and function zones."},
+    {"camera": "WALL_SOUTH", "file": "WALL_SOUTH.png", "status": "PASS", "finding": "Exit silhouette and transfer-floor marking are clear; the OCRU bed remains a peripheral red focal cue."},
+    {"camera": "WALL_WEST", "file": "WALL_WEST.png", "status": "PASS", "finding": "OCRU dominates through broad frame construction, red light and bed silhouette; cart and reserve equipment remain secondary."}
+  ],
+  "all_camera_pixel_gate": "PASS",
+  "critical_visual_blockers": [],
+  "remaining_defects": [
+    {
+      "id": "V10-01",
+      "severity": "nonblocking",
+      "views": ["HERO_DECON", "HERO_CABINET", "PINCH"],
+      "visible_defect": "The upper decon fitting and darkest cabinet contents merge into broad black areas. Their supporting silhouettes survive, but secondary construction detail is reduced.",
+      "suggested_correction": "If polishing further, add only a faint localized grazing response or small value separation to those secondary forms; retain the dim room and red-bed priority.",
+      "numerical_check": "Not assessed; this is a pixel contrast observation."
+    },
+    {
+      "id": "V10-02",
+      "severity": "nonblocking",
+      "views": ["HERO_OCRU", "DETAIL_OCRU"],
+      "visible_defect": "Strong red spill narrows color/material separation between the upper pads and parts of the metal bed frame.",
+      "suggested_correction": "Preserve the red practical, but retain slightly more muted vinyl shading and neutral metal response in the carriage close-up.",
+      "numerical_check": "Not assessed; this is a rendered material/readability observation."
+    },
+    {
+      "id": "V10-03",
+      "severity": "nonblocking",
+      "views": ["HERO_SUPPLIES", "DETAIL_SUPPLIES", "HERO_CARTRIDGES"],
+      "visible_defect": "The bench stock and cartridge rows remain comparatively orderly and clean next to the blood-colored floor staining and bleak story cues.",
+      "suggested_correction": "Optional localized evidence of interrupted use could deepen neglect; retain functional grouping and avoid clutter or blanket grime.",
+      "numerical_check": "Not applicable."
+    }
+  ],
+  "technical_category": {
+    "available": 10,
+    "minimum": 8.5,
+    "score": null,
+    "status": "UNSCORED",
+    "reason": "This independent role inspected pixels and art authorities only. It did not open the blend, inspect UVs/nodes, measure geometry/support or clearances, run a cold start, test portability or validate engine/runtime behavior."
+  },
+  "decision": {
+    "current_pixel_approval": "PASS",
+    "full_100_point_score": null,
+    "formal_section_completion": "NOT DETERMINED BY THIS REVIEW",
+    "final_two_cycle_stability": "NOT ASSESSED",
+    "historical_layout_and_boundary_preservation": "NOT MEASURED",
+    "cold_start_and_reproducibility": "NOT ASSESSED",
+    "runtime_readiness": "NOT ASSESSED",
+    "owner_art_promotion_or_merge": "NOT PERFORMED",
+    "summary": "Current cycle-10 pixels pass the six visual minima and all 24 camera gates, including ENTRY, REVERSE and PINCH. No critical visual blocker was found. This is visual approval of the present evidence, not approval of untested technical, stability, boundary or runtime claims."
+  }
+}

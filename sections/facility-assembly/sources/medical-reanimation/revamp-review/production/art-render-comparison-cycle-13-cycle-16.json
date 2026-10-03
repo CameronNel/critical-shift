@@ -1,0 +1,310 @@
+{
+  "status": "FAIL",
+  "mode": "art-regression",
+  "renderer_hashes": {
+    "hot": "81f7b3d98f333aba57b5e443c97faaf01e8e56a0dcb8a1bf33a55d98b9198df8",
+    "cold": "d58c877b8b970c5ee48ba1e0a9a4812fe23d3129239977f634bb66ecd8fa52eb"
+  },
+  "renderer_change_note": null,
+  "source_sha256": "39007192eef36f87c5299933e3a2a4f3462791871144c349a580ba2d9d322487",
+  "hot_cycle": "cycle-13",
+  "cold_cycle": "cycle-16",
+  "thresholds": {
+    "mean_absolute_RGB_255": 0.25,
+    "rms_RGB_255": 0.5,
+    "pixels_above_3_RGB_levels_percent": 0.1,
+    "camera_matrix_delta": 1e-06
+  },
+  "errors": [
+    "CORNER_NE: camera or pixel comparison failed",
+    "CORNER_NW: camera or pixel comparison failed",
+    "CORNER_SE: camera or pixel comparison failed",
+    "CORNER_SW: camera or pixel comparison failed",
+    "DETAIL_SUPPLIES: camera or pixel comparison failed",
+    "ENTRY: camera or pixel comparison failed",
+    "HERO_OCRU: camera or pixel comparison failed",
+    "HERO_RECOVERY: camera or pixel comparison failed",
+    "HERO_RESERVE: camera or pixel comparison failed",
+    "HERO_RESTART: camera or pixel comparison failed",
+    "HERO_SUPPLIES: camera or pixel comparison failed",
+    "REVERSE: camera or pixel comparison failed",
+    "WALL_EAST: camera or pixel comparison failed",
+    "WALL_NORTH: camera or pixel comparison failed",
+    "WALL_SOUTH: camera or pixel comparison failed",
+    "WALL_WEST: camera or pixel comparison failed"
+  ],
+  "views": [
+    {
+      "id": "CORNER_NE",
+      "pass": false,
+      "camera_errors": [
+        "temporary_hidden_geometry"
+      ],
+      "maximum_camera_matrix_delta": 0.0,
+      "byte_identical": false,
+      "mean_absolute_RGB_difference_255": 0.008189627900719643,
+      "rms_RGB_difference_255": 0.21036234498023987,
+      "maximum_RGB_difference_255": 87.0,
+      "pixels_with_RGB_difference_above_3_percent": 0.029522024367385193
+    },
+    {
+      "id": "CORNER_NW",
+      "pass": false,
+      "camera_errors": [
+        "temporary_hidden_geometry"
+      ],
+      "maximum_camera_matrix_delta": 0.0,
+      "byte_identical": false,
+      "mean_absolute_RGB_difference_255": 0.00641570333391428,
+      "rms_RGB_difference_255": 0.25244611501693726,
+      "maximum_RGB_difference_255": 126.0,
+      "pixels_with_RGB_difference_above_3_percent": 0.01718213058419244
+    },
+    {
+      "id": "CORNER_SE",
+      "pass": false,
+      "camera_errors": [
+        "temporary_hidden_geometry"
+      ],
+      "maximum_camera_matrix_delta": 0.0,
+      "byte_identical": false,
+      "mean_absolute_RGB_difference_255": 0.01782463863492012,
+      "rms_RGB_difference_255": 0.6247549057006836,
+      "maximum_RGB_difference_255": 112.0,
+      "pixels_with_RGB_difference_above_3_percent": 0.08200562324273664
+    },
+    {
+      "id": "CORNER_SW",
+      "pass": false,
+      "camera_errors": [
+        "temporary_hidden_geometry"
+      ],
+      "maximum_camera_matrix_delta": 0.0,
+      "byte_identical": false,
+      "mean_absolute_RGB_difference_255": 0.008880558423697948,
+      "rms_RGB_difference_255": 0.4128267168998718,
+      "maximum_RGB_difference_255": 95.0,
+      "pixels_with_RGB_difference_above_3_percent": 0.03108403623867541
+    },
+    {
+      "id": "DETAIL_OCRU",
+      "pass": true,
+      "camera_errors": [],
+      "maximum_camera_matrix_delta": 0.0,
+      "byte_identical": false,
+      "mean_absolute_RGB_difference_255": 0.004079975187778473,
+      "rms_RGB_difference_255": 0.1591232717037201,
+      "maximum_RGB_difference_255": 34.0,
+      "pixels_with_RGB_difference_above_3_percent": 0.011090284286160575
+    },
+    {
+      "id": "DETAIL_SUPPLIES",
+      "pass": false,
+      "camera_errors": [],
+      "maximum_camera_matrix_delta": 0.0,
+      "byte_identical": false,
+      "mean_absolute_RGB_difference_255": 1.0157294273376465,
+      "rms_RGB_difference_255": 9.212080001831055,
+      "maximum_RGB_difference_255": 198.0,
+      "pixels_with_RGB_difference_above_3_percent": 2.1002811621368322
+    },
+    {
+      "id": "ENTRY",
+      "pass": false,
+      "camera_errors": [],
+      "maximum_camera_matrix_delta": 0.0,
+      "byte_identical": false,
+      "mean_absolute_RGB_difference_255": 0.04544829577207565,
+      "rms_RGB_difference_255": 1.3414502143859863,
+      "maximum_RGB_difference_255": 213.0,
+      "pixels_with_RGB_difference_above_3_percent": 0.13855045298344268
+    },
+    {
+      "id": "HERO_CABINET",
+      "pass": true,
+      "camera_errors": [],
+      "maximum_camera_matrix_delta": 0.0,
+      "byte_identical": false,
+      "mean_absolute_RGB_difference_255": 0.013033427298069,
+      "rms_RGB_difference_255": 0.11667224764823914,
+      "maximum_RGB_difference_255": 5.0,
+      "pixels_with_RGB_difference_above_3_percent": 0.001718213058419244
+    },
+    {
+      "id": "HERO_CART",
+      "pass": true,
+      "camera_errors": [],
+      "maximum_camera_matrix_delta": 0.0,
+      "byte_identical": false,
+      "mean_absolute_RGB_difference_255": 0.00201603677123785,
+      "rms_RGB_difference_255": 0.04490029811859131,
+      "maximum_RGB_difference_255": 1.0,
+      "pixels_with_RGB_difference_above_3_percent": 0.0
+    },
+    {
+      "id": "HERO_CARTRIDGES",
+      "pass": true,
+      "camera_errors": [],
+      "maximum_camera_matrix_delta": 0.0,
+      "byte_identical": false,
+      "mean_absolute_RGB_difference_255": 0.008300530724227428,
+      "rms_RGB_difference_255": 0.2195320427417755,
+      "maximum_RGB_difference_255": 44.0,
+      "pixels_with_RGB_difference_above_3_percent": 0.037019681349578254
+    },
+    {
+      "id": "HERO_DECON",
+      "pass": true,
+      "camera_errors": [],
+      "maximum_camera_matrix_delta": 0.0,
+      "byte_identical": false,
+      "mean_absolute_RGB_difference_255": 0.0006018952699378133,
+      "rms_RGB_difference_255": 0.024533553048968315,
+      "maximum_RGB_difference_255": 1.0,
+      "pixels_with_RGB_difference_above_3_percent": 0.0
+    },
+    {
+      "id": "HERO_OCRU",
+      "pass": false,
+      "camera_errors": [],
+      "maximum_camera_matrix_delta": 0.0,
+      "byte_identical": false,
+      "mean_absolute_RGB_difference_255": 0.03288920223712921,
+      "rms_RGB_difference_255": 0.9243286848068237,
+      "maximum_RGB_difference_255": 113.0,
+      "pixels_with_RGB_difference_above_3_percent": 0.12011871290221805
+    },
+    {
+      "id": "HERO_RECOVERY",
+      "pass": false,
+      "camera_errors": [],
+      "maximum_camera_matrix_delta": 0.0,
+      "byte_identical": false,
+      "mean_absolute_RGB_difference_255": 0.1456284523010254,
+      "rms_RGB_difference_255": 3.0634992122650146,
+      "maximum_RGB_difference_255": 168.0,
+      "pixels_with_RGB_difference_above_3_percent": 0.344736019993752
+    },
+    {
+      "id": "HERO_RESERVE",
+      "pass": false,
+      "camera_errors": [],
+      "maximum_camera_matrix_delta": 0.0,
+      "byte_identical": false,
+      "mean_absolute_RGB_difference_255": 0.18280380964279175,
+      "rms_RGB_difference_255": 1.635562777519226,
+      "maximum_RGB_difference_255": 40.0,
+      "pixels_with_RGB_difference_above_3_percent": 1.7863167760074978
+    },
+    {
+      "id": "HERO_RESTART",
+      "pass": false,
+      "camera_errors": [],
+      "maximum_camera_matrix_delta": 0.0,
+      "byte_identical": false,
+      "mean_absolute_RGB_difference_255": 0.114240862429142,
+      "rms_RGB_difference_255": 1.3331890106201172,
+      "maximum_RGB_difference_255": 42.0,
+      "pixels_with_RGB_difference_above_3_percent": 1.0292096219931273
+    },
+    {
+      "id": "HERO_SUPPLIES",
+      "pass": false,
+      "camera_errors": [],
+      "maximum_camera_matrix_delta": 0.0,
+      "byte_identical": false,
+      "mean_absolute_RGB_difference_255": 0.04777048900723457,
+      "rms_RGB_difference_255": 1.4181687831878662,
+      "maximum_RGB_difference_255": 147.0,
+      "pixels_with_RGB_difference_above_3_percent": 0.08247422680412371
+    },
+    {
+      "id": "HERO_WASH",
+      "pass": true,
+      "camera_errors": [],
+      "maximum_camera_matrix_delta": 0.0,
+      "byte_identical": false,
+      "mean_absolute_RGB_difference_255": 0.019617827609181404,
+      "rms_RGB_difference_255": 0.1408088654279709,
+      "maximum_RGB_difference_255": 6.0,
+      "pixels_with_RGB_difference_above_3_percent": 0.0006248047485160887
+    },
+    {
+      "id": "HIDDEN_BAG",
+      "pass": true,
+      "camera_errors": [],
+      "maximum_camera_matrix_delta": 0.0,
+      "byte_identical": false,
+      "mean_absolute_RGB_difference_255": 0.0008054774370975792,
+      "rms_RGB_difference_255": 0.02838093414902687,
+      "maximum_RGB_difference_255": 1.0,
+      "pixels_with_RGB_difference_above_3_percent": 0.0
+    },
+    {
+      "id": "PINCH",
+      "pass": true,
+      "camera_errors": [],
+      "maximum_camera_matrix_delta": 0.0,
+      "byte_identical": false,
+      "mean_absolute_RGB_difference_255": 0.01399927120655775,
+      "rms_RGB_difference_255": 0.2262560874223709,
+      "maximum_RGB_difference_255": 33.0,
+      "pixels_with_RGB_difference_above_3_percent": 0.03889409559512653
+    },
+    {
+      "id": "REVERSE",
+      "pass": false,
+      "camera_errors": [],
+      "maximum_camera_matrix_delta": 0.0,
+      "byte_identical": false,
+      "mean_absolute_RGB_difference_255": 0.021876497194170952,
+      "rms_RGB_difference_255": 0.5482717156410217,
+      "maximum_RGB_difference_255": 99.0,
+      "pixels_with_RGB_difference_above_3_percent": 0.07731958762886598
+    },
+    {
+      "id": "WALL_EAST",
+      "pass": false,
+      "camera_errors": [],
+      "maximum_camera_matrix_delta": 0.0,
+      "byte_identical": false,
+      "mean_absolute_RGB_difference_255": 0.036767154932022095,
+      "rms_RGB_difference_255": 1.357744574546814,
+      "maximum_RGB_difference_255": 174.0,
+      "pixels_with_RGB_difference_above_3_percent": 0.06419868791002811
+    },
+    {
+      "id": "WALL_NORTH",
+      "pass": false,
+      "camera_errors": [],
+      "maximum_camera_matrix_delta": 0.0,
+      "byte_identical": false,
+      "mean_absolute_RGB_difference_255": 0.04675726220011711,
+      "rms_RGB_difference_255": 1.47640860080719,
+      "maximum_RGB_difference_255": 199.0,
+      "pixels_with_RGB_difference_above_3_percent": 0.15542018119337708
+    },
+    {
+      "id": "WALL_SOUTH",
+      "pass": false,
+      "camera_errors": [],
+      "maximum_camera_matrix_delta": 0.0,
+      "byte_identical": false,
+      "mean_absolute_RGB_difference_255": 0.025761740282177925,
+      "rms_RGB_difference_255": 0.7738932371139526,
+      "maximum_RGB_difference_255": 140.0,
+      "pixels_with_RGB_difference_above_3_percent": 0.0901280849734458
+    },
+    {
+      "id": "WALL_WEST",
+      "pass": false,
+      "camera_errors": [],
+      "maximum_camera_matrix_delta": 0.0,
+      "byte_identical": false,
+      "mean_absolute_RGB_difference_255": 0.038885243237018585,
+      "rms_RGB_difference_255": 0.7407308220863342,
+      "maximum_RGB_difference_255": 64.0,
+      "pixels_with_RGB_difference_above_3_percent": 0.2789753202124336
+    }
+  ]
+}

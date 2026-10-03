@@ -1,0 +1,123 @@
+00:00.540  blend            | Read blend: "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/module_overhaul_R2.blend"
+/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/verify_overhaul.py:156: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  if mat and mat.use_nodes and any(n.type=='UVMAP' and n.uv_map=='MED_Physical_1m' and n.outputs['UV'].is_linked for n in mat.node_tree.nodes) and not o.data.uv_layers.get('MED_Physical_1m'):
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend', '//../../blender/facility_environment.blend', parent '<direct>'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend', '//../../blender/facility_spawn_material_preview_R17.blend', parent '<direct>'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay/module.blend', '//..\sources\condenser-bay\module.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/condenser-bay/exterior-R02.blend', '//../exteriors/condenser-bay/exterior-R02.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/cooling-plant/exterior-R03.blend', '//../exteriors/cooling-plant/exterior-R03.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/electrical-room/exterior-R03.blend', '//../exteriors/electrical-room/exterior-R03.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/fuel-corridor/exterior-R02.blend', '//../exteriors/fuel-corridor/exterior-R02.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/medical-reanimation/exterior-R04.blend', '//../exteriors/medical-reanimation/exterior-R04.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/reactor-room/exterior-R05.blend', '//../exteriors/reactor-room/exterior-R05.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/refinery/exterior-R01.blend', '//../exteriors/refinery/exterior-R01.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/spawn-room/exterior-R05.blend', '//../exteriors/spawn-room/exterior-R05.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/turbine-room/exterior-R04.blend', '//../exteriors/turbine-room/exterior-R04.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/waste-storage/exterior-R01.blend', '//../exteriors/waste-storage/exterior-R01.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/sources/mine/module.blend', '//..\sources\mine\module.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend', '//..\sources\spawn-room\module.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/module.blend', '//..\sources\compliance-dock\module.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/compliance-dock/exterior-R08.blend', '//..\exteriors\compliance-dock\exterior-R08.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/sources/cooling-plant/module.blend', '//..\sources\cooling-plant\module.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/sources/electrical-room/module.blend', '//..\sources\electrical-room\module.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/sources/fuel-corridor/module.blend', '//..\sources\fuel-corridor\module.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/module.blend', '//..\sources\medical-reanimation\module.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/sources/reactor-room/module.blend', '//..\sources\reactor-room\module.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/sources/refinery/module.blend', '//..\sources\refinery\module.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/sources/turbine-room/module.blend', '//..\sources\turbine-room\module.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/sources/waste-storage/module.blend', '//..\sources\waste-storage\module.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend'
+OVERHAUL_VERIFY PASS {'registered': 166, 'passed': 166, 'unregistered': [], 'anchors_checked': 175, 'terminal_rule': 'Explicit retained mounts are traversed before unregistered inherited geometry. Architectural contact for unregistered inherited geometry requires the independent broad physical audit.'} []
+TERMINAL_AUDIT Adult tray pressed pan 26
+TERMINAL_AUDIT Basin bottom 6
+TERMINAL_AUDIT Bench rear apron 4
+TERMINAL_AUDIT Cabinet formed edge 7
+TERMINAL_AUDIT Cabinet formed edge.001 7
+TERMINAL_AUDIT Captive transfer rail 9
+TERMINAL_AUDIT Cart deck 14
+TERMINAL_AUDIT Cart lift scissor.002 8
+TERMINAL_AUDIT Cart segmented mattress 3
+TERMINAL_AUDIT Cart segmented mattress.001 2
+TERMINAL_AUDIT Cart segmented mattress.002 3
+TERMINAL_AUDIT Cartridge bank formed upright 17
+TERMINAL_AUDIT Cartridge bank formed upright.001 17
+TERMINAL_AUDIT Cartridge extraction tab 2
+TERMINAL_AUDIT Cartridge steel body 5
+TERMINAL_AUDIT Cartridge steel body.001 5
+TERMINAL_AUDIT Cartridge steel body.002 5
+TERMINAL_AUDIT Cartridge steel body.003 5
+TERMINAL_AUDIT Cartridge steel body.004 5
+TERMINAL_AUDIT Cartridge steel body.005 5
+TERMINAL_AUDIT Cartridge steel body.006 5
+TERMINAL_AUDIT Cartridge steel body.007 5
+TERMINAL_AUDIT Cartridge steel body.008 5
+TERMINAL_AUDIT Cartridge steel body.009 5
+TERMINAL_AUDIT Cartridge steel body.010 5
+TERMINAL_AUDIT Cartridge steel body.011 5
+TERMINAL_AUDIT Caster mounting plate 4
+TERMINAL_AUDIT Chamber roof load beam 18
+TERMINAL_AUDIT Chamber top folded fascia 12
+TERMINAL_AUDIT Console cable apron 8
+TERMINAL_AUDIT Console drawer front 4
+TERMINAL_AUDIT Console drawer front.001 4
+TERMINAL_AUDIT Console drawer front.002 5
+TERMINAL_AUDIT Console working surface 13
+TERMINAL_AUDIT Contoured head pad 2
+TERMINAL_AUDIT Decon ceiling 12
+TERMINAL_AUDIT Decon header 9
+TERMINAL_AUDIT Decon jamb 7
+TERMINAL_AUDIT Decon jamb.001 5
+TERMINAL_AUDIT East wall 39
+TERMINAL_AUDIT Floor 82
+TERMINAL_AUDIT Folded cleaning cloth 4
+TERMINAL_AUDIT Folded work glove palm 7
+TERMINAL_AUDIT Folded work glove palm.001 6
+TERMINAL_AUDIT Formed end service panel 7
+TERMINAL_AUDIT Formed end service panel.001 7
+TERMINAL_AUDIT Handwash soap dispenser 5
+TERMINAL_AUDIT Identity wall spacer 2
+TERMINAL_AUDIT Identity wall spacer.001 2
+TERMINAL_AUDIT Inner removable liner.001 6
+TERMINAL_AUDIT Inventory paper 6
+TERMINAL_AUDIT Jamb folded cover 15
+TERMINAL_AUDIT Jamb folded cover.001 14
+TERMINAL_AUDIT Monitor bezel 9
+TERMINAL_AUDIT Monitor bezel.001 9
+TERMINAL_AUDIT Monitor dark face 2
+TERMINAL_AUDIT Pressure door lower panel 9
+TERMINAL_AUDIT Pressure door lower panel.001 9
+TERMINAL_AUDIT Rail support crosshead 10
+TERMINAL_AUDIT Rear wash control backing 4
+TERMINAL_AUDIT Rear west wall 32
+TERMINAL_AUDIT Recovery bed pan 9
+TERMINAL_AUDIT Recovery foam cushion 8
+TERMINAL_AUDIT Recovery pillow 2
+TERMINAL_AUDIT Reserve folded back 10
+TERMINAL_AUDIT Reserve folded side 6
+TERMINAL_AUDIT Reserve removable door 12
+TERMINAL_AUDIT Sealed chamber pan 17
+TERMINAL_AUDIT Sealed supply case 3
+TERMINAL_AUDIT Sealed supply case.001 3
+TERMINAL_AUDIT Sealed supply case.002 3
+TERMINAL_AUDIT Sealed supply case.003 3
+TERMINAL_AUDIT Sealed supply case.004 3
+TERMINAL_AUDIT Sealed supply case.005 3
+TERMINAL_AUDIT Sealed supply case.006 3
+TERMINAL_AUDIT Sealed supply case.007 3
+TERMINAL_AUDIT Sealed supply case.008 3
+TERMINAL_AUDIT Sealed supply case.009 3
+TERMINAL_AUDIT Sealed supply case.010 3
+TERMINAL_AUDIT Sealed supply case.011 3
+TERMINAL_AUDIT Segmented adult berth cushion 9
+TERMINAL_AUDIT Segmented adult berth cushion.001 2
+TERMINAL_AUDIT Segmented adult berth cushion.002 10
+TERMINAL_AUDIT Serviceable inner access panel 5
+TERMINAL_AUDIT Serviceable inner access panel.001 5
+TERMINAL_AUDIT Shelf retaining lip.002 6
+TERMINAL_AUDIT Sterile pack.001 7
+TERMINAL_AUDIT Supply bench top 27
+TERMINAL_AUDIT Tap rear rim mounting plate 2
+TERMINAL_AUDIT Telescopic lift outer 9
+INDEPENDENT_AUDIT_COMPLETE 1342 1156 4 90
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)
+
+Blender quit

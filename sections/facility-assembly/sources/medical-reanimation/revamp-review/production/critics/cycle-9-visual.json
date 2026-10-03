@@ -1,0 +1,432 @@
+{
+  "schema_version": 1,
+  "review": "cycle-9-visual",
+  "role": "Independent current-pixel visual critic",
+  "date_utc": "2026-10-01",
+  "scope": "Visual-only assessment of all 24 actual cycle 9 renders against the supplied approved spawn reference pixels and current visual rubric. No scene/source changes or technical/runtime certification.",
+  "render_directory": "/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/revamp-review/production/renders/cycle-9",
+  "source_sha256_as_declared_by_manifest": "55f8e3208d87ef0fa3398654886faecf74055e0a5e79c6d2ac15a6d31caed308",
+  "evidence": {
+    "all_render_pixels_opened": true,
+    "render_count": 24,
+    "resolution": [
+      1067,
+      600
+    ],
+    "manifest_complete": true,
+    "missing_or_extra_pngs": [],
+    "reference_pixels_opened": [
+      "spawn-reference/VALIDATE_Spawn.png",
+      "spawn-reference/VALIDATE_LockerDoor.png",
+      "spawn-reference/VALIDATE_Material_A.png",
+      "spawn-reference/BRIEFING_INDIRECT.png"
+    ],
+    "inspection_method": "Opened each actual PNG with view_image at original detail; no contact-sheet-only or file-existence inference.",
+    "prior_cycle_pixels_compared": false,
+    "prior_critics_opened": false,
+    "implementation_opened": false,
+    "independence_note": "The initially requested RUBRIC.md and CAMERAS.md contained superseded cycle 7 scores/claims. Those incidental historical claims were reported to the parent and disregarded. The parent replaced them with neutral definitions; the neutral current rubric was reread before scoring. No earlier critic, TASK_STATE, implementation or earlier render was opened."
+  },
+  "categories": [
+    {
+      "key": "layout_route_readability",
+      "name": "Layout and route readability",
+      "score": 19,
+      "max": 20,
+      "minimum": 17,
+      "evidence": [
+        "ENTRY, REVERSE and PINCH retain legible central movement space and clear perimeter functions.",
+        "Four corner cutaways show a consistent visible room arrangement with restrained clustering."
+      ],
+      "deductions": [
+        "Only apparent route readability is scored; exact clearance and preservation of historical boundaries require separate objective evidence."
+      ],
+      "percent": 95,
+      "status": "PASS"
+    },
+    {
+      "key": "grounded_stylized_art_silhouettes",
+      "name": "Grounded stylized art and silhouettes",
+      "score": 18,
+      "max": 20,
+      "minimum": 17,
+      "evidence": [
+        "Framed chamber, doorway leaves, scissor cart, guarded console controls and tubular recovery berth are specific constructed forms.",
+        "Blue painted equipment, off-white clinical surfaces, purple-grey walls and charcoal lower zones follow the supplied spawn palette and controlled simplification."
+      ],
+      "deductions": [
+        "Sink and cart cushions remain more primitive than the best authored forms.",
+        "Some repeated square fasteners and slab-like cushions reduce silhouette sophistication."
+      ],
+      "percent": 90,
+      "status": "PASS"
+    },
+    {
+      "key": "hero_function_focal_clarity",
+      "name": "OCRU hero function and focal clarity",
+      "score": 13.6,
+      "max": 15,
+      "minimum": 12.75,
+      "evidence": [
+        "The single red practical bed chamber dominates gameplay and frontal views.",
+        "Side ports, lift, pillow, rails, controls and adjacent restart/cartridge functions communicate reanimation workflow.",
+        "The closed bag remains a subordinate hidden narrative element."
+      ],
+      "deductions": [
+        "Carriage cushions and the rear chamber surfaces are smooth and spare.",
+        "The restart system is clear but visually simple in its repeated display and button housings."
+      ],
+      "percent": 90.67,
+      "status": "PASS"
+    },
+    {
+      "key": "materials_anti_plastic",
+      "name": "Materials and anti-plastic quality",
+      "score": 13.1,
+      "max": 15,
+      "minimum": 12.75,
+      "evidence": [
+        "Painted blue housings, darker rubber-like grips, broad matte bedding/gloves, pale paper, metal rails and dark glass are visibly differentiated.",
+        "No uniform glossy-plastic response or photographic grunge dominates.",
+        "Surface frequency is restrained and reference-compatible."
+      ],
+      "deductions": [
+        "Sink metal reads as largely diffuse grey plate rather than distinctly stainless construction.",
+        "Some cushions and countertops have limited tactile variation.",
+        "Cabinet and decon shadow compress secondary material identities."
+      ],
+      "percent": 87.33,
+      "status": "PASS"
+    },
+    {
+      "key": "dark_lighting_atmosphere",
+      "name": "Dark lighting and atmosphere",
+      "score": 8.7,
+      "max": 10,
+      "minimum": 8.5,
+      "evidence": [
+        "Red bed practical and warm supply practical establish localized focal zones.",
+        "Neutral/cool secondary response preserves the floor route and frame while the ceiling remains dark.",
+        "The room feels subdued and oppressive without losing the mandatory camera silhouettes."
+      ],
+      "deductions": [
+        "Decon hardware, reserve interior and cabinet stock sit close to the lower readability limit.",
+        "The MEDICAL / OCRU entry heading is dim."
+      ],
+      "percent": 87,
+      "status": "PASS"
+    },
+    {
+      "key": "purposeful_dressing_neglected_story",
+      "name": "Purposeful dressing and neglected workplace story",
+      "score": 8.7,
+      "max": 10,
+      "minimum": 8.5,
+      "evidence": [
+        "Clinical instruments, bandages, gloves, labelled stock and used-PPE disposal are purposeful work props.",
+        "The shift log's repeated no-pulse/repeat/release-denied sequence and continuity-productivity poster produce specific institutional horror.",
+        "A closed concealed bag with a tiny note adds a quieter cue.",
+        "Localized patching, poster damage, floor marks and dark red angular stains keep neglect restrained."
+      ],
+      "deductions": [
+        "The strongest neglect is on the poster/paper rather than equipment contact surfaces.",
+        "Some wall repair patches and floor stains read as very flat polygons.",
+        "No additional clutter is needed."
+      ],
+      "percent": 87,
+      "status": "PASS"
+    }
+  ],
+  "visual_total": 81.1,
+  "visual_max": 90,
+  "visual_percent": 90.1111111111,
+  "all_visual_category_minima_pass": true,
+  "technical": {
+    "score": null,
+    "max": 10,
+    "status": "UNSCORED",
+    "reason": "Geometry, measured clearance, exact room-boundary preservation, support contact, dependencies, reproducibility, cold start and runtime were not inspected or inferred."
+  },
+  "overall_total_100": null,
+  "technical_score_required_for_overall_90": 8.9,
+  "decision": {
+    "visual_status": "PASS",
+    "all_24_camera_views_pass": true,
+    "mandatory_gameplay_cameras_pass": true,
+    "critical_visual_failures": 0,
+    "full_section_completion": "NOT ESTABLISHED BY THIS VISUAL REVIEW",
+    "reason": "All six visual categories exceed their 85% minima, all 24 views pass and no dominant visual veto appears. The visual subtotal is 81.1/90. Full 90/100 acceptance still depends on a separately evidenced technical score of at least 8.9/10 plus all protocol gates, including stable final cycles and cold start."
+  },
+  "hard_veto_audit": {
+    "dominant_generic_low_poly": false,
+    "dominant_repeated_bevel_boxes": false,
+    "uniform_satin_plastic": false,
+    "flat_even_lighting": false,
+    "excessive_labels_screens": false,
+    "random_decorative_clutter": false,
+    "toy_ppe": false,
+    "photoreal_noise": false,
+    "unsupported_prop_claim": "No obvious floating prop dominates the inspected pixels; support contact is not certified."
+  },
+  "reference_comparison": {
+    "match": "The medical room carries the spawn references' institutional off-white/blue/charcoal palette, controlled constructed edges, useful signage, localized practical light and clustered human work props. Red clinical machinery and deeper shadows provide the requested bleaker identity.",
+    "difference": "The spawn plates are brighter and warmer in their main work areas. Cycle 9 appropriately lowers overall exposure but gives less material information inside decon and cabinet shadows. The medical sink and pad surfaces are simpler than the stronger spawn door/locker/bench examples.",
+    "not_claimed": "No exact reference geometry, protected asset copying, original layout preservation, or runtime equivalence is inferred."
+  },
+  "camera_reviews": [
+    {
+      "id": "ENTRY",
+      "file": "renders/cycle-9/ENTRY.png",
+      "group": "mandatory",
+      "status": "PASS",
+      "evidence": "The red chamber reads immediately at left; the recovery berth and rear service stations leave a broad, legible central floor route. The unlit ceiling reads as a deliberate secondary mass.",
+      "nonblocking_limitation": "Rear console and cabinet details are subdued, but their silhouettes remain identifiable."
+    },
+    {
+      "id": "REVERSE",
+      "file": "renders/cycle-9/REVERSE.png",
+      "group": "mandatory",
+      "status": "PASS",
+      "evidence": "The blue/off-white entry leaves and dark opening form a clear destination. Warm supplies at left and red chamber at right retain the two practical light zones.",
+      "nonblocking_limitation": "The MEDICAL / OCRU heading is low contrast; this does not obscure the doorway itself."
+    },
+    {
+      "id": "PINCH",
+      "file": "renders/cycle-9/PINCH.png",
+      "group": "mandatory",
+      "status": "PASS",
+      "evidence": "The floor rectangle, console/rack edge, decon threshold and recovery edge are visually separable. The camera shows the route rather than hiding it behind the hero.",
+      "nonblocking_limitation": "Decon internals and cabinet contents are close to the lower readability limit."
+    },
+    {
+      "id": "DETAIL_OCRU",
+      "file": "renders/cycle-9/DETAIL_OCRU.png",
+      "group": "details",
+      "status": "PASS",
+      "evidence": "Layered cushion, rails, clamps, telescoping side tube and stepped lift assembly read as a manufactured clinical carriage. The dark closed bag remains beneath the carriage.",
+      "nonblocking_limitation": "Cushion tops are smooth and shallow; the lift's repeated stepped blocks are simpler than the strongest reference props."
+    },
+    {
+      "id": "DETAIL_SUPPLIES",
+      "file": "renders/cycle-9/DETAIL_SUPPLIES.png",
+      "group": "details",
+      "status": "PASS",
+      "evidence": "Medical bottles, gloves, bandages, tray, scissors and logged repeat/no-pulse/release-denied sequence form a purposeful clinical cluster. Matte paper and gloves separate from metal tools.",
+      "nonblocking_limitation": "The counter wear is a sparse set of straight lines rather than a strongly convincing use pattern."
+    },
+    {
+      "id": "CORNER_SW",
+      "file": "renders/cycle-9/CORNER_SW.png",
+      "group": "corners",
+      "status": "PASS",
+      "evidence": "Whole-room cutaway shows a clear central negative-space zone with the chamber, recovery bed, workbench and rear services grouped around it. Red and warm pools remain localized.",
+      "nonblocking_limitation": "This cutaway cannot establish the visibility or physical support of hidden wall/ceiling geometry."
+    },
+    {
+      "id": "CORNER_SE",
+      "file": "renders/cycle-9/CORNER_SE.png",
+      "group": "corners",
+      "status": "PASS",
+      "evidence": "The opposite cutaway reveals the chamber front and rear service grouping without changing the readable perimeter arrangement.",
+      "nonblocking_limitation": "Retained dark ceiling beams cross the diagnostic view; gameplay views cover the regions they obscure."
+    },
+    {
+      "id": "CORNER_NW",
+      "file": "renders/cycle-9/CORNER_NW.png",
+      "group": "corners",
+      "status": "PASS",
+      "evidence": "Reverse cutaway keeps the entry, workbench, recovery berth and chamber as distinct functional masses, with an obvious central route.",
+      "nonblocking_limitation": "Backs of equipment are quiet and dark, appropriate here but not proof of hidden construction quality."
+    },
+    {
+      "id": "CORNER_NE",
+      "file": "renders/cycle-9/CORNER_NE.png",
+      "group": "corners",
+      "status": "PASS",
+      "evidence": "The final whole-footprint cutaway confirms the same visible hierarchy from the fourth direction; no visual clutter wall competes with the red chamber.",
+      "nonblocking_limitation": "The rear alcove reads as a simple dark volume at this scale."
+    },
+    {
+      "id": "WALL_SOUTH",
+      "file": "renders/cycle-9/WALL_SOUTH.png",
+      "group": "walls",
+      "status": "PASS",
+      "evidence": "Entry framing, opposed blue leaves, cream upper panels and dark passage form a believable institutional threshold. Light pools frame the open floor.",
+      "nonblocking_limitation": "The entry heading is dim and the immediate external space is black."
+    },
+    {
+      "id": "WALL_WEST",
+      "file": "renders/cycle-9/WALL_WEST.png",
+      "group": "walls",
+      "status": "PASS",
+      "evidence": "The large chamber has a specific framed silhouette, red clinical interior, side interface housings and a substantial platform. Its dominance is intentional.",
+      "nonblocking_limitation": "The cart and reserve bank at the edges are dark; the frame's repeated square fasteners are somewhat mechanical in rhythm."
+    },
+    {
+      "id": "WALL_NORTH",
+      "file": "renders/cycle-9/WALL_NORTH.png",
+      "group": "walls",
+      "status": "PASS",
+      "evidence": "Restart console, cartridge rack and decon opening read as three distinct service functions. Surface conduit provides restrained construction logic.",
+      "nonblocking_limitation": "The upper wall and decon remain low contrast; further dimming would damage this view."
+    },
+    {
+      "id": "WALL_EAST",
+      "file": "renders/cycle-9/WALL_EAST.png",
+      "group": "walls",
+      "status": "PASS",
+      "evidence": "Recovery bedding, wash fixture and warm supply bench form a readable secondary composition. Institutional blue/purple/off-white blocking matches the supplied spawn language.",
+      "nonblocking_limitation": "Physical neglect is lighter than the distressed poster; cabinet glass and contents are dark."
+    },
+    {
+      "id": "HERO_OCRU",
+      "file": "renders/cycle-9/HERO_OCRU.png",
+      "group": "assets",
+      "status": "PASS",
+      "evidence": "The red bed is the unequivocal focal point, with carriage, pillow, lift, side ports and rear panels visible. The chamber reads as clinical industrial equipment rather than decorative sci-fi.",
+      "nonblocking_limitation": "Large bed surfaces and rear panels are smooth; wear is modest."
+    },
+    {
+      "id": "HERO_RESTART",
+      "file": "renders/cycle-9/HERO_RESTART.png",
+      "group": "assets",
+      "status": "PASS",
+      "evidence": "Two physically framed status screens, guarded controls, drawer stack and service cabinet create an understandable practical console. Labels serve function.",
+      "nonblocking_limitation": "Repeated rectangular screen/drawer masses are simple, and the lower cabinet is nearly black."
+    },
+    {
+      "id": "HERO_CARTRIDGES",
+      "file": "renders/cycle-9/HERO_CARTRIDGES.png",
+      "group": "assets",
+      "status": "PASS",
+      "evidence": "Bottle silhouettes, cap colors, rack shelves and row indexing communicate a medical cartridge bank; repetition is functionally justified.",
+      "nonblocking_limitation": "Dark rack back and decon suppress material differences."
+    },
+    {
+      "id": "HERO_RESERVE",
+      "file": "renders/cycle-9/HERO_RESERVE.png",
+      "group": "assets",
+      "status": "PASS",
+      "evidence": "Open blue enclosure and two framed handled modules are distinguishable from the neighboring console.",
+      "nonblocking_limitation": "The open door and interior approach black, reducing separation of the enclosure and modules."
+    },
+    {
+      "id": "HERO_DECON",
+      "file": "renders/cycle-9/HERO_DECON.png",
+      "group": "assets",
+      "status": "PASS",
+      "evidence": "Door frame, looped hose, wall service box, yellow used-PPE bin and grated floor establish a believable decontamination niche.",
+      "nonblocking_limitation": "Upper hardware and hose connections are hard to inspect in the heavy shadow; the main function is still readable."
+    },
+    {
+      "id": "HERO_RECOVERY",
+      "file": "renders/cycle-9/HERO_RECOVERY.png",
+      "group": "assets",
+      "status": "PASS",
+      "evidence": "Tubular berth frame, hanging sheet, pillow and folded blue cover provide readable fabric versus metal construction and human scale.",
+      "nonblocking_limitation": "Blanket grooves and cushion forms remain simple; the wall repair patches are visually flat."
+    },
+    {
+      "id": "HERO_CART",
+      "file": "renders/cycle-9/HERO_CART.png",
+      "group": "assets",
+      "status": "PASS",
+      "evidence": "Three pads, scissor lift, wheels and yellow handling accents give the transfer cart a specific manufactured silhouette.",
+      "nonblocking_limitation": "Uniform pad slabs and dark wheel region are the least developed parts of this asset."
+    },
+    {
+      "id": "HERO_SUPPLIES",
+      "file": "renders/cycle-9/HERO_SUPPLIES.png",
+      "group": "assets",
+      "status": "PASS",
+      "evidence": "A warm functional workbench includes sharps disposal, clinical consumables, paperwork and boxed stock, with quiet wall space around it.",
+      "nonblocking_limitation": "The pale counter is very clean outside the sparse scratches, and shelf boxes are strongly repeated."
+    },
+    {
+      "id": "HERO_WASH",
+      "file": "renders/cycle-9/HERO_WASH.png",
+      "group": "assets",
+      "status": "PASS",
+      "evidence": "Folded basin rim, tap, dark bowl and molded soap dispenser identify a handwash station without relying on text.",
+      "nonblocking_limitation": "The basin and tap remain box/tube-like; a convincing drain/bowl construction is weak from these pixels."
+    },
+    {
+      "id": "HERO_CABINET",
+      "file": "renders/cycle-9/HERO_CABINET.png",
+      "group": "assets",
+      "status": "PASS",
+      "evidence": "Blue painted framing, paired glazed doors, handles and internal shelf/box silhouettes identify the clinical supplies cabinet.",
+      "nonblocking_limitation": "The glass interior is near black; material separation and stock identity are weak, but the cabinet silhouette passes."
+    },
+    {
+      "id": "HIDDEN_BAG",
+      "file": "renders/cycle-9/HIDDEN_BAG.png",
+      "group": "inspection",
+      "status": "PASS",
+      "evidence": "The bag is visibly closed along a continuous zipper, with broad soft folds and a tiny muted yellow note. The special inspection fill is explicitly identified in the camera metadata.",
+      "nonblocking_limitation": "This filled inspection camera cannot establish the bag's normal gameplay illumination. In HERO_OCRU it is subordinate and concealed beneath the bed."
+    }
+  ],
+  "critical_blockers": [],
+  "remaining_nonblocking_defects": [
+    {
+      "id": "V9-01",
+      "priority": 1,
+      "views": [
+        "HERO_WASH",
+        "HERO_SUPPLIES"
+      ],
+      "region": "Basin and tap",
+      "defect": "The basin is a shallow grey rectangular box with a tube-like tap; the dark bowl lacks a strong drain/bowl construction cue.",
+      "suggested_correction": "Refine the bowl depth, drain cue and folded-metal transitions while retaining the current placement and footprint.",
+      "numerical_check": "Not applicable to this visual review; any edit must retain the independent boundary/support checks."
+    },
+    {
+      "id": "V9-02",
+      "priority": 2,
+      "views": [
+        "HERO_CART",
+        "DETAIL_OCRU",
+        "HERO_RECOVERY"
+      ],
+      "region": "Cushions and clinical padding",
+      "defect": "Several pads read as uniform smooth slabs; their material and use character is weaker than the surrounding manufactured hardware.",
+      "suggested_correction": "Add a few broad compression/fold and seam cues with localized wear; preserve angular simplification and low texture frequency.",
+      "numerical_check": "Not assessed."
+    },
+    {
+      "id": "V9-03",
+      "priority": 3,
+      "views": [
+        "HERO_DECON",
+        "HERO_CABINET",
+        "HERO_RESERVE",
+        "PINCH"
+      ],
+      "region": "Secondary equipment shadow",
+      "defect": "Dark hose connections, cabinet stock and reserve interior lose separation despite retaining their overall silhouettes.",
+      "suggested_correction": "Protect the present gameplay readability; if refining, adjust a restrained existing accent/bounce or local broad value rather than raising whole-room exposure.",
+      "numerical_check": "Lighting source count/power and render consistency were not technically verified."
+    },
+    {
+      "id": "V9-04",
+      "priority": 4,
+      "views": [
+        "HERO_WASH",
+        "WALL_EAST",
+        "WALL_WEST",
+        "DETAIL_SUPPLIES"
+      ],
+      "region": "Neglect and wear",
+      "defect": "Poster/log storytelling is stronger than physical equipment wear; wall patches and dark red floor marks are very flat, and counter scratches are a small set of straight lines.",
+      "suggested_correction": "Refine a few high-contact repair/wear shapes and stain boundaries with authored low-frequency value changes. Retain quiet wall space and avoid blanket grunge or extra filler props.",
+      "numerical_check": "Not assessed."
+    }
+  ],
+  "limits": [
+    "Only cycle 9 was inspected, so this report does not establish final-two-cycle material stability.",
+    "Cutaways deliberately hide wall/ceiling planes and are supporting composition evidence.",
+    "HIDDEN_BAG uses a declared temporary 2 W inspection fill and is not normal gameplay lighting evidence.",
+    "Image framing and apparent scale do not prove geometry, boundaries, physical support, clearance, or runtime behavior."
+  ]
+}

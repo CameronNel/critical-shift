@@ -1,0 +1,55 @@
+{
+  "source_sha256": "ba2e979a0416787c23fb506ced14f01a593db5fb5a98fe0f9f9526fcec6c7800",
+  "renderer_sha256": "9a90c6d124e14e1f09718462d4349d138a79b8919d4da7ed61f9b6982ea6a7fc",
+  "engine": "CYCLES",
+  "complete": false,
+  "diagnostic": "clay",
+  "resolution": [
+    1067,
+    600
+  ],
+  "samples": 24,
+  "cold_open": false,
+  "lighting": "Authored overhaul lights and physical Cycles bounce; only the explicitly labelled concealed-bag inspection uses a temporary 2 W fill",
+  "label_method": "Camera-attached emission text; source scene never saved",
+  "shots": [
+    {
+      "id": "HERO_OCRU",
+      "label": "09 | OCRU REANIMATION UNIT",
+      "group": "assets",
+      "position": null,
+      "target": null,
+      "lens": 24,
+      "inherited": "CAM_HERO",
+      "temporary_hidden_geometry": [],
+      "camera_matrix_world": [
+        [
+          0.044074513018131256,
+          -0.11085856705904007,
+          0.9928584098815918,
+          1.350000023841858
+        ],
+        [
+          0.9990282654762268,
+          0.004890726413577795,
+          -0.043802324682474136,
+          4.550000190734863
+        ],
+        [
+          6.407558572618655e-08,
+          0.9938241839408875,
+          0.11096639931201935,
+          1.6799999475479126
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 24.0,
+      "projection": "PERSP"
+    }
+  ]
+}

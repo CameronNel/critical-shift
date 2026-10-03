@@ -1,0 +1,1084 @@
+{
+  "source_sha256": "55f8e3208d87ef0fa3398654886faecf74055e0a5e79c6d2ac15a6d31caed308",
+  "source_checksum_unchanged": true,
+  "sheet_evaluated_world_bounds": [
+    [
+      2.5602176189422607,
+      4.338599681854248,
+      0.34441280364990234
+    ],
+    [
+      3.7100584506988525,
+      5.14139986038208,
+      0.7860099673271179
+    ]
+  ],
+  "rescue_lane_x_max_m": 2.45,
+  "sheet_route_margin_m": 0.11021761894226056,
+  "tests": {
+    "Bed non-marking foot": {
+      "evaluated_world_bounds": [
+        [
+          2.7649998664855957,
+          3.7149996757507324,
+          0.0
+        ],
+        [
+          2.8550000190734863,
+          3.804999828338623,
+          0.05000000074505806
+        ]
+      ],
+      "aabb_overlap": false,
+      "inside_sample_count": 0,
+      "sample_count": 182738,
+      "max_penetration_m": 0,
+      "over_2mm": 0,
+      "over_5mm": 0,
+      "deepest_samples": [],
+      "modifier_parameters": [
+        {
+          "name": "Manufactured edge treatment",
+          "type": "BEVEL",
+          "width": 0.0020000000949949026,
+          "segments": 2
+        },
+        {
+          "name": "Face weighted normals",
+          "type": "WEIGHTED_NORMAL",
+          "width": null,
+          "segments": null
+        }
+      ]
+    },
+    "Tubular recovery leg": {
+      "evaluated_world_bounds": [
+        [
+          2.7899999618530273,
+          3.739999771118164,
+          0.050000011920928955
+        ],
+        [
+          2.8299999237060547,
+          3.7799997329711914,
+          0.6600000262260437
+        ]
+      ],
+      "aabb_overlap": false,
+      "inside_sample_count": 0,
+      "sample_count": 182738,
+      "max_penetration_m": 0,
+      "over_2mm": 0,
+      "over_5mm": 0,
+      "deepest_samples": [],
+      "modifier_parameters": [
+        {
+          "name": "Manufactured edge treatment",
+          "type": "BEVEL",
+          "width": 0.003000000026077032,
+          "segments": 2
+        },
+        {
+          "name": "Face weighted normals",
+          "type": "WEIGHTED_NORMAL",
+          "width": null,
+          "segments": null
+        }
+      ]
+    },
+    "Bed non-marking foot.001": {
+      "evaluated_world_bounds": [
+        [
+          2.7649998664855957,
+          5.59499979019165,
+          0.0
+        ],
+        [
+          2.8550000190734863,
+          5.684999942779541,
+          0.05000000074505806
+        ]
+      ],
+      "aabb_overlap": false,
+      "inside_sample_count": 0,
+      "sample_count": 182738,
+      "max_penetration_m": 0,
+      "over_2mm": 0,
+      "over_5mm": 0,
+      "deepest_samples": [],
+      "modifier_parameters": [
+        {
+          "name": "Manufactured edge treatment",
+          "type": "BEVEL",
+          "width": 0.0020000000949949026,
+          "segments": 2
+        },
+        {
+          "name": "Face weighted normals",
+          "type": "WEIGHTED_NORMAL",
+          "width": null,
+          "segments": null
+        }
+      ]
+    },
+    "Tubular recovery leg.001": {
+      "evaluated_world_bounds": [
+        [
+          2.7899999618530273,
+          5.619999885559082,
+          0.050000011920928955
+        ],
+        [
+          2.8299999237060547,
+          5.659999847412109,
+          0.6600000262260437
+        ]
+      ],
+      "aabb_overlap": false,
+      "inside_sample_count": 0,
+      "sample_count": 182738,
+      "max_penetration_m": 0,
+      "over_2mm": 0,
+      "over_5mm": 0,
+      "deepest_samples": [],
+      "modifier_parameters": [
+        {
+          "name": "Manufactured edge treatment",
+          "type": "BEVEL",
+          "width": 0.003000000026077032,
+          "segments": 2
+        },
+        {
+          "name": "Face weighted normals",
+          "type": "WEIGHTED_NORMAL",
+          "width": null,
+          "segments": null
+        }
+      ]
+    },
+    "Recovery longitudinal support": {
+      "evaluated_world_bounds": [
+        [
+          2.7825000286102295,
+          3.5999999046325684,
+          0.5549999475479126
+        ],
+        [
+          2.8374998569488525,
+          5.799999713897705,
+          0.625
+        ]
+      ],
+      "aabb_overlap": true,
+      "inside_sample_count": 0,
+      "sample_count": 182738,
+      "max_penetration_m": 0,
+      "over_2mm": 0,
+      "over_5mm": 0,
+      "deepest_samples": [],
+      "modifier_parameters": [
+        {
+          "name": "Manufactured edge treatment",
+          "type": "BEVEL",
+          "width": 0.004000000189989805,
+          "segments": 2
+        },
+        {
+          "name": "Face weighted normals",
+          "type": "WEIGHTED_NORMAL",
+          "width": null,
+          "segments": null
+        }
+      ]
+    },
+    "Bed non-marking foot.002": {
+      "evaluated_world_bounds": [
+        [
+          3.6050000190734863,
+          3.7149996757507324,
+          0.0
+        ],
+        [
+          3.695000171661377,
+          3.804999828338623,
+          0.05000000074505806
+        ]
+      ],
+      "aabb_overlap": false,
+      "inside_sample_count": 0,
+      "sample_count": 182738,
+      "max_penetration_m": 0,
+      "over_2mm": 0,
+      "over_5mm": 0,
+      "deepest_samples": [],
+      "modifier_parameters": [
+        {
+          "name": "Manufactured edge treatment",
+          "type": "BEVEL",
+          "width": 0.0020000000949949026,
+          "segments": 2
+        },
+        {
+          "name": "Face weighted normals",
+          "type": "WEIGHTED_NORMAL",
+          "width": null,
+          "segments": null
+        }
+      ]
+    },
+    "Tubular recovery leg.002": {
+      "evaluated_world_bounds": [
+        [
+          3.630000114440918,
+          3.739999771118164,
+          0.050000011920928955
+        ],
+        [
+          3.6700000762939453,
+          3.7799997329711914,
+          0.6600000262260437
+        ]
+      ],
+      "aabb_overlap": false,
+      "inside_sample_count": 0,
+      "sample_count": 182738,
+      "max_penetration_m": 0,
+      "over_2mm": 0,
+      "over_5mm": 0,
+      "deepest_samples": [],
+      "modifier_parameters": [
+        {
+          "name": "Manufactured edge treatment",
+          "type": "BEVEL",
+          "width": 0.003000000026077032,
+          "segments": 2
+        },
+        {
+          "name": "Face weighted normals",
+          "type": "WEIGHTED_NORMAL",
+          "width": null,
+          "segments": null
+        }
+      ]
+    },
+    "Bed non-marking foot.003": {
+      "evaluated_world_bounds": [
+        [
+          3.6050000190734863,
+          5.59499979019165,
+          0.0
+        ],
+        [
+          3.695000171661377,
+          5.684999942779541,
+          0.05000000074505806
+        ]
+      ],
+      "aabb_overlap": false,
+      "inside_sample_count": 0,
+      "sample_count": 182738,
+      "max_penetration_m": 0,
+      "over_2mm": 0,
+      "over_5mm": 0,
+      "deepest_samples": [],
+      "modifier_parameters": [
+        {
+          "name": "Manufactured edge treatment",
+          "type": "BEVEL",
+          "width": 0.0020000000949949026,
+          "segments": 2
+        },
+        {
+          "name": "Face weighted normals",
+          "type": "WEIGHTED_NORMAL",
+          "width": null,
+          "segments": null
+        }
+      ]
+    },
+    "Tubular recovery leg.003": {
+      "evaluated_world_bounds": [
+        [
+          3.630000114440918,
+          5.619999885559082,
+          0.050000011920928955
+        ],
+        [
+          3.6700000762939453,
+          5.659999847412109,
+          0.6600000262260437
+        ]
+      ],
+      "aabb_overlap": false,
+      "inside_sample_count": 0,
+      "sample_count": 182738,
+      "max_penetration_m": 0,
+      "over_2mm": 0,
+      "over_5mm": 0,
+      "deepest_samples": [],
+      "modifier_parameters": [
+        {
+          "name": "Manufactured edge treatment",
+          "type": "BEVEL",
+          "width": 0.003000000026077032,
+          "segments": 2
+        },
+        {
+          "name": "Face weighted normals",
+          "type": "WEIGHTED_NORMAL",
+          "width": null,
+          "segments": null
+        }
+      ]
+    },
+    "Recovery longitudinal support.001": {
+      "evaluated_world_bounds": [
+        [
+          3.62250018119812,
+          3.5999999046325684,
+          0.5549999475479126
+        ],
+        [
+          3.677500009536743,
+          5.799999713897705,
+          0.625
+        ]
+      ],
+      "aabb_overlap": true,
+      "inside_sample_count": 0,
+      "sample_count": 182738,
+      "max_penetration_m": 0,
+      "over_2mm": 0,
+      "over_5mm": 0,
+      "deepest_samples": [],
+      "modifier_parameters": [
+        {
+          "name": "Manufactured edge treatment",
+          "type": "BEVEL",
+          "width": 0.004000000189989805,
+          "segments": 2
+        },
+        {
+          "name": "Face weighted normals",
+          "type": "WEIGHTED_NORMAL",
+          "width": null,
+          "segments": null
+        }
+      ]
+    },
+    "Recovery bed pan": {
+      "evaluated_world_bounds": [
+        [
+          2.6649999618530273,
+          3.5699996948242188,
+          0.6200000047683716
+        ],
+        [
+          3.7950000762939453,
+          5.829999923706055,
+          0.7000000476837158
+        ]
+      ],
+      "aabb_overlap": true,
+      "inside_sample_count": 0,
+      "sample_count": 182738,
+      "max_penetration_m": 0,
+      "over_2mm": 0,
+      "over_5mm": 0,
+      "deepest_samples": [],
+      "modifier_parameters": [
+        {
+          "name": "Manufactured edge treatment",
+          "type": "BEVEL",
+          "width": 0.017999999225139618,
+          "segments": 2
+        },
+        {
+          "name": "Face weighted normals",
+          "type": "WEIGHTED_NORMAL",
+          "width": null,
+          "segments": null
+        }
+      ]
+    },
+    "Recovery foam cushion": {
+      "evaluated_world_bounds": [
+        [
+          2.7200000286102295,
+          3.6399998664855957,
+          0.6899999976158142
+        ],
+        [
+          3.740000009536743,
+          5.759999752044678,
+          0.7700000405311584
+        ]
+      ],
+      "aabb_overlap": true,
+      "inside_sample_count": 140,
+      "sample_count": 182738,
+      "max_penetration_m": 0.00037478451849892735,
+      "over_2mm": 0,
+      "over_5mm": 0,
+      "deepest_samples": [
+        {
+          "type": "triangle_mid_edge",
+          "sample": 114348,
+          "depth_m": 0.00037478451849892735,
+          "point": [
+            2.8051702976226807,
+            4.340699672698975,
+            0.7558723092079163
+          ],
+          "nearest_surface": [
+            2.8050763607025146,
+            4.340697288513184,
+            0.7562351226806641
+          ],
+          "normal": [
+            -0.25297027826309204,
+            -0.004344520159065723,
+            0.9674643278121948
+          ]
+        },
+        {
+          "type": "triangle_mid_edge",
+          "sample": 114358,
+          "depth_m": 0.00037478451849892735,
+          "point": [
+            2.8051702976226807,
+            4.340699672698975,
+            0.7558723092079163
+          ],
+          "nearest_surface": [
+            2.8050763607025146,
+            4.340697288513184,
+            0.7562351226806641
+          ],
+          "normal": [
+            -0.25297027826309204,
+            -0.004344520159065723,
+            0.9674643278121948
+          ]
+        },
+        {
+          "type": "triangle_mid_edge",
+          "sample": 114350,
+          "depth_m": 0.000370674766600132,
+          "point": [
+            2.8051702976226807,
+            4.339999675750732,
+            0.7558723092079163
+          ],
+          "nearest_surface": [
+            2.80507755279541,
+            4.3399977684021,
+            0.7562311887741089
+          ],
+          "normal": [
+            -0.25297027826309204,
+            -0.004344520159065723,
+            0.9674643278121948
+          ]
+        },
+        {
+          "type": "triangle_mid_edge",
+          "sample": 114351,
+          "depth_m": 0.000370674766600132,
+          "point": [
+            2.8051702976226807,
+            4.339999675750732,
+            0.7558723092079163
+          ],
+          "nearest_surface": [
+            2.80507755279541,
+            4.3399977684021,
+            0.7562311887741089
+          ],
+          "normal": [
+            -0.25297027826309204,
+            -0.004344520159065723,
+            0.9674643278121948
+          ]
+        },
+        {
+          "type": "triangle_mid_edge",
+          "sample": 114342,
+          "depth_m": 0.0003665697295218706,
+          "point": [
+            2.8051702976226807,
+            4.33929967880249,
+            0.7558723092079163
+          ],
+          "nearest_surface": [
+            2.8050785064697266,
+            4.339297771453857,
+            0.7562271952629089
+          ],
+          "normal": [
+            -0.25297027826309204,
+            -0.004344520159065723,
+            0.9674643278121948
+          ]
+        },
+        {
+          "type": "triangle_mid_edge",
+          "sample": 114352,
+          "depth_m": 0.0003665697295218706,
+          "point": [
+            2.8051702976226807,
+            4.33929967880249,
+            0.7558723092079163
+          ],
+          "nearest_surface": [
+            2.8050785064697266,
+            4.339297771453857,
+            0.7562271952629089
+          ],
+          "normal": [
+            -0.25297027826309204,
+            -0.004344520159065723,
+            0.9674643278121948
+          ]
+        },
+        {
+          "type": "triangle_center",
+          "sample": 38116,
+          "depth_m": 0.0002470796462148428,
+          "point": [
+            2.8068127632141113,
+            4.340232849121094,
+            0.7561171054840088
+          ],
+          "nearest_surface": [
+            2.806809902191162,
+            4.340231895446777,
+            0.7563641667366028
+          ],
+          "normal": [
+            -0.010721385478973389,
+            -0.004423339851200581,
+            0.9999327659606934
+          ]
+        },
+        {
+          "type": "triangle_mid_edge",
+          "sample": 103999,
+          "depth_m": 0.00020299918833188713,
+          "point": [
+            3.6548595428466797,
+            4.87999963760376,
+            0.756232738494873
+          ],
+          "nearest_surface": [
+            3.6548638343811035,
+            4.87999963760376,
+            0.7564356923103333
+          ],
+          "normal": [
+            0.016557643190026283,
+            0.0025626937858760357,
+            0.9998596906661987
+          ]
+        },
+        {
+          "type": "triangle_mid_edge",
+          "sample": 104009,
+          "depth_m": 0.00020299918833188713,
+          "point": [
+            3.6548595428466797,
+            4.87999963760376,
+            0.756232738494873
+          ],
+          "nearest_surface": [
+            3.6548638343811035,
+            4.87999963760376,
+            0.7564356923103333
+          ],
+          "normal": [
+            0.016557643190026283,
+            0.0025626937858760357,
+            0.9998596906661987
+          ]
+        },
+        {
+          "type": "triangle_mid_edge",
+          "sample": 104006,
+          "depth_m": 0.00020246286294423044,
+          "point": [
+            3.6548595428466797,
+            4.885000228881836,
+            0.7562326192855835
+          ],
+          "nearest_surface": [
+            3.6548638343811035,
+            4.885000228881836,
+            0.7564350366592407
+          ],
+          "normal": [
+            0.016557643190026283,
+            0.0025626937858760357,
+            0.9998596906661987
+          ]
+        },
+        {
+          "type": "triangle_mid_edge",
+          "sample": 104007,
+          "depth_m": 0.00020246286294423044,
+          "point": [
+            3.6548595428466797,
+            4.885000228881836,
+            0.7562326192855835
+          ],
+          "nearest_surface": [
+            3.6548638343811035,
+            4.885000228881836,
+            0.7564350366592407
+          ],
+          "normal": [
+            0.016557643190026283,
+            0.0025626937858760357,
+            0.9998596906661987
+          ]
+        },
+        {
+          "type": "triangle_mid_edge",
+          "sample": 104005,
+          "depth_m": 0.00020091349142603576,
+          "point": [
+            3.6548595428466797,
+            4.890000820159912,
+            0.7562334537506104
+          ],
+          "nearest_surface": [
+            3.6548638343811035,
+            4.890000820159912,
+            0.7564343214035034
+          ],
+          "normal": [
+            0.016557643190026283,
+            0.0025626937858760357,
+            0.9998596906661987
+          ]
+        }
+      ],
+      "modifier_parameters": []
+    },
+    "Recovery pillow": {
+      "evaluated_world_bounds": [
+        [
+          2.8949999809265137,
+          5.210000038146973,
+          0.7549999952316284
+        ],
+        [
+          3.565000057220459,
+          5.649999618530273,
+          0.8650000095367432
+        ]
+      ],
+      "aabb_overlap": false,
+      "inside_sample_count": 0,
+      "sample_count": 182738,
+      "max_penetration_m": 0,
+      "over_2mm": 0,
+      "over_5mm": 0,
+      "deepest_samples": [],
+      "modifier_parameters": []
+    },
+    "Engraved backing RECOVERY": {
+      "evaluated_world_bounds": [
+        [
+          2.8949999809265137,
+          3.5259997844696045,
+          0.5299999713897705
+        ],
+        [
+          3.565000057220459,
+          3.5339996814727783,
+          0.6299999952316284
+        ]
+      ],
+      "aabb_overlap": false,
+      "inside_sample_count": 0,
+      "sample_count": 182738,
+      "max_penetration_m": 0,
+      "over_2mm": 0,
+      "over_5mm": 0,
+      "deepest_samples": [],
+      "modifier_parameters": [
+        {
+          "name": "Manufactured edge treatment",
+          "type": "BEVEL",
+          "width": 0.0020000000949949026,
+          "segments": 2
+        },
+        {
+          "name": "Face weighted normals",
+          "type": "WEIGHTED_NORMAL",
+          "width": null,
+          "segments": null
+        }
+      ]
+    },
+    "Blanket stitched fold": {
+      "evaluated_world_bounds": [
+        [
+          2.7950000762939453,
+          3.878499984741211,
+          0.8014999628067017
+        ],
+        [
+          3.6649999618530273,
+          3.881499767303467,
+          0.8025000095367432
+        ]
+      ],
+      "aabb_overlap": false,
+      "inside_sample_count": 0,
+      "sample_count": 182738,
+      "max_penetration_m": 0,
+      "over_2mm": 0,
+      "over_5mm": 0,
+      "deepest_samples": [],
+      "modifier_parameters": []
+    },
+    "Blanket stitched fold.001": {
+      "evaluated_world_bounds": [
+        [
+          2.7950000762939453,
+          3.928499937057495,
+          0.8014999628067017
+        ],
+        [
+          3.6649999618530273,
+          3.931499719619751,
+          0.8025000095367432
+        ]
+      ],
+      "aabb_overlap": false,
+      "inside_sample_count": 0,
+      "sample_count": 182738,
+      "max_penetration_m": 0,
+      "over_2mm": 0,
+      "over_5mm": 0,
+      "deepest_samples": [],
+      "modifier_parameters": []
+    },
+    "Blanket stitched fold.002": {
+      "evaluated_world_bounds": [
+        [
+          2.7950000762939453,
+          3.9784998893737793,
+          0.8014999628067017
+        ],
+        [
+          3.6649999618530273,
+          3.981499671936035,
+          0.8025000095367432
+        ]
+      ],
+      "aabb_overlap": false,
+      "inside_sample_count": 0,
+      "sample_count": 182738,
+      "max_penetration_m": 0,
+      "over_2mm": 0,
+      "over_5mm": 0,
+      "deepest_samples": [],
+      "modifier_parameters": []
+    },
+    "Mattress bound piping": {
+      "evaluated_world_bounds": [
+        [
+          2.74399995803833,
+          3.7149996757507324,
+          0.7425000071525574
+        ],
+        [
+          2.75600004196167,
+          5.684999942779541,
+          0.7574999928474426
+        ]
+      ],
+      "aabb_overlap": true,
+      "inside_sample_count": 0,
+      "sample_count": 182738,
+      "max_penetration_m": 0,
+      "over_2mm": 0,
+      "over_5mm": 0,
+      "deepest_samples": [],
+      "modifier_parameters": [
+        {
+          "name": "Manufactured edge treatment",
+          "type": "BEVEL",
+          "width": 0.003000000026077032,
+          "segments": 2
+        },
+        {
+          "name": "Face weighted normals",
+          "type": "WEIGHTED_NORMAL",
+          "width": null,
+          "segments": null
+        }
+      ]
+    },
+    "Mattress bound piping.001": {
+      "evaluated_world_bounds": [
+        [
+          3.7039999961853027,
+          3.7149996757507324,
+          0.7425000071525574
+        ],
+        [
+          3.7160000801086426,
+          5.684999942779541,
+          0.7574999928474426
+        ]
+      ],
+      "aabb_overlap": true,
+      "inside_sample_count": 0,
+      "sample_count": 182738,
+      "max_penetration_m": 0,
+      "over_2mm": 0,
+      "over_5mm": 0,
+      "deepest_samples": [],
+      "modifier_parameters": [
+        {
+          "name": "Manufactured edge treatment",
+          "type": "BEVEL",
+          "width": 0.003000000026077032,
+          "segments": 2
+        },
+        {
+          "name": "Face weighted normals",
+          "type": "WEIGHTED_NORMAL",
+          "width": null,
+          "segments": null
+        }
+      ]
+    },
+    "Recovery identity bed bracket": {
+      "evaluated_world_bounds": [
+        [
+          3.0299999713897705,
+          3.5309998989105225,
+          0.5649999976158142
+        ],
+        [
+          3.430000066757202,
+          3.5909998416900635,
+          0.6650000214576721
+        ]
+      ],
+      "aabb_overlap": false,
+      "inside_sample_count": 0,
+      "sample_count": 182738,
+      "max_penetration_m": 0,
+      "over_2mm": 0,
+      "over_5mm": 0,
+      "deepest_samples": [],
+      "modifier_parameters": [
+        {
+          "name": "Manufactured edge treatment",
+          "type": "BEVEL",
+          "width": 0.003000000026077032,
+          "segments": 2
+        },
+        {
+          "name": "Face weighted normals",
+          "type": "WEIGHTED_NORMAL",
+          "width": null,
+          "segments": null
+        }
+      ]
+    },
+    "Folded recovery blanket": {
+      "evaluated_world_bounds": [
+        [
+          2.7363932132720947,
+          3.778041124343872,
+          0.762037456035614
+        ],
+        [
+          3.7237184047698975,
+          4.279999732971191,
+          0.8069974184036255
+        ]
+      ],
+      "aabb_overlap": false,
+      "inside_sample_count": 0,
+      "sample_count": 182738,
+      "max_penetration_m": 0,
+      "over_2mm": 0,
+      "over_5mm": 0,
+      "deepest_samples": [],
+      "modifier_parameters": [
+        {
+          "name": "Folded textile thickness",
+          "type": "SOLIDIFY",
+          "width": null,
+          "segments": null
+        }
+      ]
+    },
+    "Blanket institutional tag": {
+      "evaluated_world_bounds": [
+        [
+          3.5500001907348633,
+          3.7639997005462646,
+          0.8090000152587891
+        ],
+        [
+          3.6700000762939453,
+          3.815999746322632,
+          0.8109999895095825
+        ]
+      ],
+      "aabb_overlap": false,
+      "inside_sample_count": 0,
+      "sample_count": 182738,
+      "max_penetration_m": 0,
+      "over_2mm": 0,
+      "over_5mm": 0,
+      "deepest_samples": [],
+      "modifier_parameters": [
+        {
+          "name": "Manufactured edge treatment",
+          "type": "BEVEL",
+          "width": 0.0010000000474974513,
+          "segments": 2
+        },
+        {
+          "name": "Face weighted normals",
+          "type": "WEIGHTED_NORMAL",
+          "width": null,
+          "segments": null
+        }
+      ]
+    },
+    "Recovery release slip": {
+      "evaluated_world_bounds": [
+        [
+          2.820000171661377,
+          3.6399998664855957,
+          0.7699999809265137
+        ],
+        [
+          3.0,
+          3.7599997520446777,
+          0.7730000019073486
+        ]
+      ],
+      "aabb_overlap": false,
+      "inside_sample_count": 0,
+      "sample_count": 182738,
+      "max_penetration_m": 0,
+      "over_2mm": 0,
+      "over_5mm": 0,
+      "deepest_samples": [],
+      "modifier_parameters": [
+        {
+          "name": "Manufactured edge treatment",
+          "type": "BEVEL",
+          "width": 0.0010000000474974513,
+          "segments": 2
+        },
+        {
+          "name": "Face weighted normals",
+          "type": "WEIGHTED_NORMAL",
+          "width": null,
+          "segments": null
+        }
+      ]
+    },
+    "MED_R2 | Recovery cot fabrication and textile seams": {
+      "evaluated_world_bounds": [
+        [
+          2.6660001277923584,
+          3.624999761581421,
+          0.6345000267028809
+        ],
+        [
+          3.7939999103546143,
+          5.774999618530273,
+          0.6974999904632568
+        ]
+      ],
+      "aabb_overlap": true,
+      "inside_sample_count": 0,
+      "sample_count": 182738,
+      "max_penetration_m": 0,
+      "over_2mm": 0,
+      "over_5mm": 0,
+      "deepest_samples": [],
+      "modifier_parameters": []
+    },
+    "MED_R2 | Recovery foam cushion wrapped seam": {
+      "evaluated_world_bounds": [
+        [
+          2.7185001373291016,
+          3.6384997367858887,
+          0.7287009954452515
+        ],
+        [
+          3.741499900817871,
+          5.761499881744385,
+          0.7312990427017212
+        ]
+      ],
+      "aabb_overlap": true,
+      "inside_sample_count": 0,
+      "sample_count": 182738,
+      "max_penetration_m": 0,
+      "over_2mm": 0,
+      "over_5mm": 0,
+      "deepest_samples": [],
+      "modifier_parameters": []
+    },
+    "MED_R2 | Old recovery linen handling trace": {
+      "evaluated_world_bounds": [
+        [
+          2.869999885559082,
+          3.9599997997283936,
+          0.755431056022644
+        ],
+        [
+          3.1500000953674316,
+          4.12999963760376,
+          0.7620208263397217
+        ]
+      ],
+      "aabb_overlap": false,
+      "inside_sample_count": 0,
+      "sample_count": 182738,
+      "max_penetration_m": 0,
+      "over_2mm": 0,
+      "over_5mm": 0,
+      "deepest_samples": [],
+      "modifier_parameters": []
+    },
+    "MED_R2 | Tailored cover construction Recovery pillow": {
+      "evaluated_world_bounds": [
+        [
+          2.893399953842163,
+          5.208399772644043,
+          0.8004257082939148
+        ],
+        [
+          3.5666000843048096,
+          5.651599884033203,
+          0.8452089428901672
+        ]
+      ],
+      "aabb_overlap": false,
+      "inside_sample_count": 0,
+      "sample_count": 182738,
+      "max_penetration_m": 0,
+      "over_2mm": 0,
+      "over_5mm": 0,
+      "deepest_samples": [],
+      "modifier_parameters": []
+    }
+  },
+  "scope": "Evaluated sheet vertices, triangle centers and triangle edge midpoints against each closed cot contact target. Inside classification uses nearest oriented surface plus exit-facing first ray hit; not a volumetric Boolean."
+}

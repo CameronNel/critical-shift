@@ -1,0 +1,89 @@
+{
+  "stage": "full",
+  "source": "module_overhaul_R2.blend",
+  "original_objects": 1203,
+  "added_objects": 139,
+  "intentional_prop_pose_updates": [
+    "Inventory clipboard",
+    "Inventory paper",
+    "Clipboard title",
+    "Inventory ruled line",
+    "Inventory ruled line.001",
+    "Inventory ruled line.002",
+    "Inventory ruled line.003",
+    "RESERVE_SERVICE_DOOR",
+    "Calibration tick",
+    "Calibration tick.001",
+    "Calibration tick.002",
+    "Calibration tick.003",
+    "Calibration tick.004",
+    "Calibration tick.005",
+    "Calibration tick.006",
+    "Calibration tick.007",
+    "Calibration tick.008",
+    "Dial fixing pin",
+    "Dial fixing pin.001",
+    "Engraved backing MAINS / RESERVE",
+    "Engraved backing RESERVE",
+    "Engraved MAINS / RESERVE",
+    "Engraved RESERVE",
+    "Formed pull grip",
+    "Handle mounting boss",
+    "Handle mounting boss.001",
+    "Instrument cast bezel",
+    "Ivory instrument dial",
+    "Mechanical selector.001",
+    "Meter needle",
+    "Meter unit",
+    "Needle pivot",
+    "Reserve door fastener",
+    "Reserve door fastener.001",
+    "Reserve door fastener.002",
+    "Reserve door fastener.003",
+    "Reserve removable door",
+    "Reserve service hinge",
+    "Reserve service hinge.001",
+    "Rolled bezel rim",
+    "Screwdriver slot.022",
+    "Screwdriver slot.023",
+    "Screwdriver slot.024",
+    "Screwdriver slot.025",
+    "Selector escutcheon.001",
+    "Engraved backing C01",
+    "Engraved C01"
+  ],
+  "materials": 32,
+  "approved_spawn_source_sha256": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+  "approved_material_graphs": {
+    "mauve": "V13_HALL_wall",
+    "navy": "V_graphite",
+    "blue": "V_locker_steel",
+    "oxide": "V_locker_steel",
+    "cream": "V_locker_steel",
+    "steel": "V_brushed",
+    "paper": "V_paper",
+    "floor": "CS_hall_floor"
+  },
+  "lights": [
+    {
+      "name": "Wall grazed work zone.001",
+      "type": "AREA",
+      "energy": 34.0
+    },
+    {
+      "name": "MED | ONE red OCRU source",
+      "type": "AREA",
+      "energy": 45.0
+    },
+    {
+      "name": "MED | Machine accent",
+      "type": "SPOT",
+      "energy": 35.0
+    },
+    {
+      "name": "MED | Rear service accent",
+      "type": "SPOT",
+      "energy": 280.0
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+# Review publication: this environment can write Git objects, but GitHub LFS
+# rejects upload authentication. Store only this additive overhaul and its
+# review images directly in Git; frozen module.blend keeps inherited LFS rules.
+module_overhaul_R*.blend -filter -diff -merge -text
+revamp-review/**/*.png -filter -diff -merge -text
+revamp-review/**/*.jpg -filter -diff -merge -text
