@@ -1,0 +1,67 @@
+{
+  "threshold_decoded_bytes": 500000,
+  "deterministic_gzip": true,
+  "ordinary_git_publication": true,
+  "payloads": [
+    {
+      "decoded_path": "attempt-01/contacts.json",
+      "gzip_path": "attempt-01/contacts.json.gz",
+      "decoded_bytes": 4047421,
+      "decoded_sha256": "95a8d0363a6c5964d92731403823e402d23296b8604caa4a301cfa9bcfd501ce",
+      "gzip_bytes": 230472,
+      "gzip_sha256": "beb9329fdeaaf5c247d56060e5792805fe05c626cacdebdb4b461d5cbc8298f0",
+      "decoded_identical": true,
+      "gzip_mtime": 0
+    },
+    {
+      "decoded_path": "attempt-01/inventory.json",
+      "gzip_path": "attempt-01/inventory.json.gz",
+      "decoded_bytes": 4620093,
+      "decoded_sha256": "67060ba26a5633f9e26966d36f694c79fd2dde553e88304737c052adffc50e38",
+      "gzip_bytes": 306823,
+      "gzip_sha256": "3e8197859525f3995dc705354f154ca97c47ceaf7d3f85ececc8c8202bf82061",
+      "decoded_identical": true,
+      "gzip_mtime": 0
+    },
+    {
+      "decoded_path": "contacts.json",
+      "gzip_path": "contacts.json.gz",
+      "decoded_bytes": 4083396,
+      "decoded_sha256": "c99875d4ea7cfa0ca7268a53fdf46626534e7b55b431dcc051d7c44124dabc5f",
+      "gzip_bytes": 230557,
+      "gzip_sha256": "e8fc38364f8491c8cd8e43c009126c13b6657c60845ec3f7546e0337b810807e",
+      "decoded_identical": true,
+      "gzip_mtime": 0
+    },
+    {
+      "decoded_path": "existing-validator.json",
+      "gzip_path": "existing-validator.json.gz",
+      "decoded_bytes": 1388045,
+      "decoded_sha256": "fa1fda3424fd52ead36d1ba1114dd19a766a4bed8fdae110ffb65d5266153379",
+      "gzip_bytes": 60631,
+      "gzip_sha256": "0abfb986d972516694c916add5a913275b1fd5c2e466e85f02f038ac19f97902",
+      "decoded_identical": true,
+      "gzip_mtime": 0
+    },
+    {
+      "decoded_path": "intersections-detail.json",
+      "gzip_path": "intersections-detail.json.gz",
+      "decoded_bytes": 1450143,
+      "decoded_sha256": "30ada7e4826bdf6a79a9df65cc31813008a180c664e09534693bb1932beefd50",
+      "gzip_bytes": 81411,
+      "gzip_sha256": "4d040ff8c6338a9516edc22a040382a473ffaa68ea6434b905b496112a3b2a08",
+      "decoded_identical": true,
+      "gzip_mtime": 0
+    },
+    {
+      "decoded_path": "inventory.json",
+      "gzip_path": "inventory.json.gz",
+      "decoded_bytes": 4607509,
+      "decoded_sha256": "b90b947647cfaa41b4dee776811a865a32ee64772b2e2f7d0b7ccfa801a1db6d",
+      "gzip_bytes": 288321,
+      "gzip_sha256": "c2e122e2bc953c4518ed6788081cb49aa58da3e4ca78dc2c92fc098dead76487",
+      "decoded_identical": true,
+      "gzip_mtime": 0
+    }
+  ]
+}

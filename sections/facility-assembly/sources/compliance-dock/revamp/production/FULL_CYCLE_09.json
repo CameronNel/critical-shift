@@ -1,0 +1,73 @@
+{
+  "cycle": "full-cycle-09",
+  "native_revision": "f17",
+  "source_sha256": "6838d604ac4586da057a652e98e9c694f754a84e9f38ba70b83f1046e9ae6e9a",
+  "complete_rendered_and_reviewed_views": 27,
+  "diagnostic_views": 8,
+  "critics": {
+    "spatial": {
+      "report": "critics/full-c09-spatial.json",
+      "sha256": "478b11bdbee1b45874cb00be880e2157119a4f075f2f6047882ebba4d76340c8"
+    },
+    "materials": {
+      "report": "critics/full-c09-materials.json",
+      "sha256": "250184522caa4532a9dce696e15a5b06323735d270a5dcd1f0568649fdbc1a73"
+    },
+    "lighting": {
+      "report": "critics/full-c09-lighting.json",
+      "sha256": "9cc995468acabcfc44b00964fa935c62e0f2c533b0ad86c4139511d359b6a125"
+    },
+    "story": {
+      "report": "critics/full-c09-story.json",
+      "sha256": "2b0e245610fa1555c8229468c00edc640bd83f11b16d9da9a70269a15dfe5efb"
+    },
+    "technical": {
+      "report": "critics/full-c09-technical.json",
+      "sha256": "edc781949a994e24e650e0bbb32b8672aa6af76b507a54ac98edd11bed074bc8"
+    },
+    "luna": {
+      "report": "critics/full-c09-luna-final.json",
+      "sha256": "c8aff28fabe6f3405cb4955bcda6522369e3e35864d629f2d67c35ba12e93708"
+    }
+  },
+  "luna_visual_lock_sha256": "701485857deef0fccd824edd562f1e4363b28a08835c0b03e56d4f68be2d4384",
+  "category_scores": [
+    91,
+    84,
+    91,
+    88,
+    86,
+    90,
+    87,
+    92
+  ],
+  "exact_aggregate": "709/8",
+  "score": 88.625,
+  "pass": false,
+  "critical": [],
+  "veto": [],
+  "completed_full_cycles": 9,
+  "final_two_materially_stable": false,
+  "cold_final_pixels_verified": false,
+  "runtime_verified": false,
+  "specialist_scores": {
+    "spatial1": 97,
+    "spatial3": 96,
+    "materials4": 95.5,
+    "colours6": 99,
+    "lighting5": 94,
+    "story7": 97.5,
+    "technical8": 92
+  },
+  "independent_differences_retained": true,
+  "all_current35_and_approved4_originals_opened_by_root_and_each_critic": true,
+  "source_and_recipes_frozen_until_explicit_full_release": true,
+  "publication_of_candidate": "2b2a5f2704d6cfc182d0fd008f935a9ea7f47776",
+  "next": "Retain failed candidate and all critics. Repair specific visual and actual duct/fixture/pallet/cloth conflicts only after all readers explicitly release; no ready/merge/promotion.",
+  "all_six_readers_explicitly_released": true,
+  "release_evidence": {
+    "luna": "critics/full-c09-luna-reader-release.json",
+    "technical": "critics/full-c09-technical/final-reader-release.json",
+    "other_four": "Explicit releases in reports and final agent messages; no native processes started"
+  }
+}

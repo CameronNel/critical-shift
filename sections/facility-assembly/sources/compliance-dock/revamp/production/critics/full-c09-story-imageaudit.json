@@ -1,0 +1,675 @@
+{
+  "critic": "dock_c09_story",
+  "category": 7,
+  "all35_ready_signal_received": true,
+  "viewing_method": "Each original opened individually through view_image after ALL35 READY; no contact sheet or hash-only vision substitution.",
+  "direct_original_opens_after_ready": [
+    "spawn-reference/BRIEFING_INDIRECT.png",
+    "spawn-reference/VALIDATE_LockerDoor.png",
+    "spawn-reference/VALIDATE_Material_A.png",
+    "spawn-reference/VALIDATE_Spawn.png",
+    "full-cycle-09/C01_ENTRY.png",
+    "full-cycle-09/C02_HERO_DOCK.png",
+    "full-cycle-09/C03_CHECKIN_COUNTER.png",
+    "full-cycle-09/C04_SCANNER_APPROACH.png",
+    "full-cycle-09/C05_CONVEYOR_LEAD_TUNNEL.png",
+    "full-cycle-09/C06_CART_GATE_G1.png",
+    "full-cycle-09/C07_OFFICE_INTERIOR.png",
+    "full-cycle-09/C08_CONCEALED_SUPPORT_H1.png",
+    "full-cycle-09/C09_ARRIVAL_GATE_P2.png",
+    "full-cycle-09/C10_ROOF_SERVICES.png",
+    "full-cycle-09/CORNER_SW.png",
+    "full-cycle-09/CORNER_SE.png",
+    "full-cycle-09/CORNER_NW.png",
+    "full-cycle-09/CORNER_NE.png",
+    "full-cycle-09/WALL_SOUTH.png",
+    "full-cycle-09/WALL_NORTH.png",
+    "full-cycle-09/WALL_EAST.png",
+    "full-cycle-09/WALL_WEST.png",
+    "full-cycle-09/HERO_SCANNER.png",
+    "full-cycle-09/HERO_CARGO.png",
+    "full-cycle-09/HERO_EVIDENCE.png",
+    "full-cycle-09/HERO_TROLLEY.png",
+    "full-cycle-09/HERO_UTILITIES.png",
+    "full-cycle-09/DETAIL_CHECKIN.png",
+    "full-cycle-09/PLAYER_REVERSE.png",
+    "full-cycle-09/PLAYER_PINCH.png",
+    "full-cycle-09/WALL_OFFICE_FRONT.png",
+    "full-cycle-09-neutral/C05_CONVEYOR_LEAD_TUNNEL.png",
+    "full-cycle-09-neutral/C07_OFFICE_INTERIOR.png",
+    "full-cycle-09-neutral/HERO_TROLLEY.png",
+    "full-cycle-09-neutral/HERO_UTILITIES.png",
+    "full-cycle-09-uv-standard/C05_CONVEYOR_LEAD_TUNNEL.png",
+    "full-cycle-09-uv-standard/C07_OFFICE_INTERIOR.png",
+    "full-cycle-09-uv-standard/HERO_TROLLEY.png",
+    "full-cycle-09-uv-standard/HERO_UTILITIES.png"
+  ],
+  "timestamp_utc": "2026-10-03T08:10:56.821376+00:00",
+  "native_hash_only": {
+    "path": "sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend",
+    "sha256": "6838d604ac4586da057a652e98e9c694f754a84e9f38ba70b83f1046e9ae6e9a",
+    "matches_expected": true
+  },
+  "renderer_hash_only": {
+    "path": "sections/facility-assembly/sources/compliance-dock/render_dock.py",
+    "sha256": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce",
+    "matches_expected": true
+  },
+  "batches": [
+    {
+      "name": "full-cycle-09",
+      "manifest_sha256": "a9240f81d14a1176055a06db8e53db458a74b43df0a4ae7d00629e4568274f2a",
+      "complete": true,
+      "count": 27,
+      "expected_count": 27,
+      "source_sha256": "6838d604ac4586da057a652e98e9c694f754a84e9f38ba70b83f1046e9ae6e9a",
+      "renderer_sha256": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce",
+      "resolution": [
+        1067,
+        600
+      ],
+      "diagnostic": null,
+      "source_saved": false,
+      "ids": [
+        "C01_ENTRY",
+        "C02_HERO_DOCK",
+        "C03_CHECKIN_COUNTER",
+        "C04_SCANNER_APPROACH",
+        "C05_CONVEYOR_LEAD_TUNNEL",
+        "C06_CART_GATE_G1",
+        "C07_OFFICE_INTERIOR",
+        "C08_CONCEALED_SUPPORT_H1",
+        "C09_ARRIVAL_GATE_P2",
+        "C10_ROOF_SERVICES",
+        "CORNER_SW",
+        "CORNER_SE",
+        "CORNER_NW",
+        "CORNER_NE",
+        "WALL_SOUTH",
+        "WALL_NORTH",
+        "WALL_EAST",
+        "WALL_WEST",
+        "HERO_SCANNER",
+        "HERO_CARGO",
+        "HERO_EVIDENCE",
+        "HERO_TROLLEY",
+        "HERO_UTILITIES",
+        "DETAIL_CHECKIN",
+        "PLAYER_REVERSE",
+        "PLAYER_PINCH",
+        "WALL_OFFICE_FRONT"
+      ],
+      "identities_match": true,
+      "png_names_match_manifest": true,
+      "diagnostic_ids_match": null
+    },
+    {
+      "name": "full-cycle-09-neutral",
+      "manifest_sha256": "6d8c723306bf6d118c71f1176b52bbd396db9d801dfab2e3ad598faaac97316c",
+      "complete": true,
+      "count": 4,
+      "expected_count": 4,
+      "source_sha256": "6838d604ac4586da057a652e98e9c694f754a84e9f38ba70b83f1046e9ae6e9a",
+      "renderer_sha256": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce",
+      "resolution": [
+        1067,
+        600
+      ],
+      "diagnostic": "neutral",
+      "source_saved": false,
+      "ids": [
+        "C05_CONVEYOR_LEAD_TUNNEL",
+        "C07_OFFICE_INTERIOR",
+        "HERO_TROLLEY",
+        "HERO_UTILITIES"
+      ],
+      "identities_match": true,
+      "png_names_match_manifest": true,
+      "diagnostic_ids_match": true
+    },
+    {
+      "name": "full-cycle-09-uv-standard",
+      "manifest_sha256": "7ad18aca825c148b423ab6a6d2859661a78a4505937b419f847648b117aac3ff",
+      "complete": true,
+      "count": 4,
+      "expected_count": 4,
+      "source_sha256": "6838d604ac4586da057a652e98e9c694f754a84e9f38ba70b83f1046e9ae6e9a",
+      "renderer_sha256": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce",
+      "resolution": [
+        1067,
+        600
+      ],
+      "diagnostic": "uv",
+      "source_saved": false,
+      "ids": [
+        "C05_CONVEYOR_LEAD_TUNNEL",
+        "C07_OFFICE_INTERIOR",
+        "HERO_TROLLEY",
+        "HERO_UTILITIES"
+      ],
+      "identities_match": true,
+      "png_names_match_manifest": true,
+      "diagnostic_ids_match": true
+    }
+  ],
+  "images": [
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/C01_ENTRY.png",
+      "relative_render_path": "full-cycle-09/C01_ENTRY.png",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "sha256": "3decf8f1ac948c16a6841ad0726b6f4e10a4d864b9419946c3789543e00a4d71",
+      "manifest_sha256": "3decf8f1ac948c16a6841ad0726b6f4e10a4d864b9419946c3789543e00a4d71",
+      "hash_matches_manifest": true,
+      "directly_opened_after_ready": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/C02_HERO_DOCK.png",
+      "relative_render_path": "full-cycle-09/C02_HERO_DOCK.png",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "sha256": "4ec913cdae1fa280458839cde3616722f5d9234ab68e4bcdb000c4b5cf41e44b",
+      "manifest_sha256": "4ec913cdae1fa280458839cde3616722f5d9234ab68e4bcdb000c4b5cf41e44b",
+      "hash_matches_manifest": true,
+      "directly_opened_after_ready": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/C03_CHECKIN_COUNTER.png",
+      "relative_render_path": "full-cycle-09/C03_CHECKIN_COUNTER.png",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "sha256": "f4c2eea44a7a14d9723ba29466f2bfbd0117836d7f4048b6ee52178e247c950d",
+      "manifest_sha256": "f4c2eea44a7a14d9723ba29466f2bfbd0117836d7f4048b6ee52178e247c950d",
+      "hash_matches_manifest": true,
+      "directly_opened_after_ready": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/C04_SCANNER_APPROACH.png",
+      "relative_render_path": "full-cycle-09/C04_SCANNER_APPROACH.png",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "sha256": "107cf2cd355212a821ce312abb03847ae680f8a5414d5e4fb73b3950d76e48f2",
+      "manifest_sha256": "107cf2cd355212a821ce312abb03847ae680f8a5414d5e4fb73b3950d76e48f2",
+      "hash_matches_manifest": true,
+      "directly_opened_after_ready": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/C05_CONVEYOR_LEAD_TUNNEL.png",
+      "relative_render_path": "full-cycle-09/C05_CONVEYOR_LEAD_TUNNEL.png",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "sha256": "a257f91012b40d8b2d4d1c952a5b4f2ac425904b858f394ac4592261e0724737",
+      "manifest_sha256": "a257f91012b40d8b2d4d1c952a5b4f2ac425904b858f394ac4592261e0724737",
+      "hash_matches_manifest": true,
+      "directly_opened_after_ready": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/C06_CART_GATE_G1.png",
+      "relative_render_path": "full-cycle-09/C06_CART_GATE_G1.png",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "sha256": "c1e9c6ce92be1ac919c3644c7e5f875eeb8b2fc0402530b75c30d424407d925c",
+      "manifest_sha256": "c1e9c6ce92be1ac919c3644c7e5f875eeb8b2fc0402530b75c30d424407d925c",
+      "hash_matches_manifest": true,
+      "directly_opened_after_ready": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/C07_OFFICE_INTERIOR.png",
+      "relative_render_path": "full-cycle-09/C07_OFFICE_INTERIOR.png",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "sha256": "b3b4b2b3ac869ff9553a5db4e2e0c8f2ff7c768dab0856f2dd0b35c355dd11a2",
+      "manifest_sha256": "b3b4b2b3ac869ff9553a5db4e2e0c8f2ff7c768dab0856f2dd0b35c355dd11a2",
+      "hash_matches_manifest": true,
+      "directly_opened_after_ready": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/C08_CONCEALED_SUPPORT_H1.png",
+      "relative_render_path": "full-cycle-09/C08_CONCEALED_SUPPORT_H1.png",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "sha256": "abed943429d6488e055f5dea0c0c927c1962963c3b7d609769c13880f005441c",
+      "manifest_sha256": "abed943429d6488e055f5dea0c0c927c1962963c3b7d609769c13880f005441c",
+      "hash_matches_manifest": true,
+      "directly_opened_after_ready": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/C09_ARRIVAL_GATE_P2.png",
+      "relative_render_path": "full-cycle-09/C09_ARRIVAL_GATE_P2.png",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "sha256": "cfc45d9b6b670729716d8d877212fa612d785b6afd51bd63db11bdd52aae5d9b",
+      "manifest_sha256": "cfc45d9b6b670729716d8d877212fa612d785b6afd51bd63db11bdd52aae5d9b",
+      "hash_matches_manifest": true,
+      "directly_opened_after_ready": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/C10_ROOF_SERVICES.png",
+      "relative_render_path": "full-cycle-09/C10_ROOF_SERVICES.png",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "sha256": "d0e00ef622a90dde968d94a5a01746431c14cfef837096f0646787b075e7d520",
+      "manifest_sha256": "d0e00ef622a90dde968d94a5a01746431c14cfef837096f0646787b075e7d520",
+      "hash_matches_manifest": true,
+      "directly_opened_after_ready": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/CORNER_SW.png",
+      "relative_render_path": "full-cycle-09/CORNER_SW.png",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "sha256": "87ec70d4d713d6cd1abc29b5a9f49befaa6cc51dbded3ecb4f2af96be3a563fd",
+      "manifest_sha256": "87ec70d4d713d6cd1abc29b5a9f49befaa6cc51dbded3ecb4f2af96be3a563fd",
+      "hash_matches_manifest": true,
+      "directly_opened_after_ready": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/CORNER_SE.png",
+      "relative_render_path": "full-cycle-09/CORNER_SE.png",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "sha256": "b15170f91ba5239bf86eac8edc2e6c4de05d2141f35962fff36382118680ebaa",
+      "manifest_sha256": "b15170f91ba5239bf86eac8edc2e6c4de05d2141f35962fff36382118680ebaa",
+      "hash_matches_manifest": true,
+      "directly_opened_after_ready": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/CORNER_NW.png",
+      "relative_render_path": "full-cycle-09/CORNER_NW.png",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "sha256": "5f24ceeeb667aa12a15bc103de8190fe802d75d8656a110330519ff11adfabf6",
+      "manifest_sha256": "5f24ceeeb667aa12a15bc103de8190fe802d75d8656a110330519ff11adfabf6",
+      "hash_matches_manifest": true,
+      "directly_opened_after_ready": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/CORNER_NE.png",
+      "relative_render_path": "full-cycle-09/CORNER_NE.png",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "sha256": "193d30aed8730d406d54ce4131e7cb474102b6a905389dd8a0e3fdd59fa731ed",
+      "manifest_sha256": "193d30aed8730d406d54ce4131e7cb474102b6a905389dd8a0e3fdd59fa731ed",
+      "hash_matches_manifest": true,
+      "directly_opened_after_ready": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/WALL_SOUTH.png",
+      "relative_render_path": "full-cycle-09/WALL_SOUTH.png",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "sha256": "09192a8216fbcba367950bcc428d66f46049dfe0fe1ef8d09edfdd57b004d2f0",
+      "manifest_sha256": "09192a8216fbcba367950bcc428d66f46049dfe0fe1ef8d09edfdd57b004d2f0",
+      "hash_matches_manifest": true,
+      "directly_opened_after_ready": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/WALL_NORTH.png",
+      "relative_render_path": "full-cycle-09/WALL_NORTH.png",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "sha256": "e6de3eb7bfcac13f01327e99cbb18fcd68fcc674a9626ddbf441eca2402ffc95",
+      "manifest_sha256": "e6de3eb7bfcac13f01327e99cbb18fcd68fcc674a9626ddbf441eca2402ffc95",
+      "hash_matches_manifest": true,
+      "directly_opened_after_ready": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/WALL_EAST.png",
+      "relative_render_path": "full-cycle-09/WALL_EAST.png",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "sha256": "7d785c6483a1940a7d301ae4c4561c3c5cd0168fa50ca7df873900d28fcd0af0",
+      "manifest_sha256": "7d785c6483a1940a7d301ae4c4561c3c5cd0168fa50ca7df873900d28fcd0af0",
+      "hash_matches_manifest": true,
+      "directly_opened_after_ready": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/WALL_WEST.png",
+      "relative_render_path": "full-cycle-09/WALL_WEST.png",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "sha256": "98f1f35e799a7cb9c3efa8ec659f8e251129b5bb28edb7fa33ef8fc31fb06c5b",
+      "manifest_sha256": "98f1f35e799a7cb9c3efa8ec659f8e251129b5bb28edb7fa33ef8fc31fb06c5b",
+      "hash_matches_manifest": true,
+      "directly_opened_after_ready": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/HERO_SCANNER.png",
+      "relative_render_path": "full-cycle-09/HERO_SCANNER.png",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "sha256": "2c0badb51dbd864a127a6310496e3dfc99f75c71461ec56809909d123e7f8b4b",
+      "manifest_sha256": "2c0badb51dbd864a127a6310496e3dfc99f75c71461ec56809909d123e7f8b4b",
+      "hash_matches_manifest": true,
+      "directly_opened_after_ready": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/HERO_CARGO.png",
+      "relative_render_path": "full-cycle-09/HERO_CARGO.png",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "sha256": "6ce94821cfd20a8fda9fd2edfc29bcb5ff81a261d63167f8ba1db5d22b4b82bc",
+      "manifest_sha256": "6ce94821cfd20a8fda9fd2edfc29bcb5ff81a261d63167f8ba1db5d22b4b82bc",
+      "hash_matches_manifest": true,
+      "directly_opened_after_ready": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/HERO_EVIDENCE.png",
+      "relative_render_path": "full-cycle-09/HERO_EVIDENCE.png",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "sha256": "c687f8bd46eb6bba0f710ad4e5e5eb27ad901d21bd6a22f129c4ca402157d339",
+      "manifest_sha256": "c687f8bd46eb6bba0f710ad4e5e5eb27ad901d21bd6a22f129c4ca402157d339",
+      "hash_matches_manifest": true,
+      "directly_opened_after_ready": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/HERO_TROLLEY.png",
+      "relative_render_path": "full-cycle-09/HERO_TROLLEY.png",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "sha256": "65b92dc4caeb3ea44fd3404224aa04db1b11c726d371e1494566872085c338de",
+      "manifest_sha256": "65b92dc4caeb3ea44fd3404224aa04db1b11c726d371e1494566872085c338de",
+      "hash_matches_manifest": true,
+      "directly_opened_after_ready": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/HERO_UTILITIES.png",
+      "relative_render_path": "full-cycle-09/HERO_UTILITIES.png",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "sha256": "7de52ef5d98f273cbf5cb7a86df7c5aafaade6169fe9337d555cf01b98ab0107",
+      "manifest_sha256": "7de52ef5d98f273cbf5cb7a86df7c5aafaade6169fe9337d555cf01b98ab0107",
+      "hash_matches_manifest": true,
+      "directly_opened_after_ready": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/DETAIL_CHECKIN.png",
+      "relative_render_path": "full-cycle-09/DETAIL_CHECKIN.png",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "sha256": "8639770a198222861504a1832f6074203c29ccf359c026698d9b35c807a1722c",
+      "manifest_sha256": "8639770a198222861504a1832f6074203c29ccf359c026698d9b35c807a1722c",
+      "hash_matches_manifest": true,
+      "directly_opened_after_ready": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/PLAYER_REVERSE.png",
+      "relative_render_path": "full-cycle-09/PLAYER_REVERSE.png",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "sha256": "8f443bd6e518a8f73c2b4cb8db9873c84766eef971beb19677399eb4227834ce",
+      "manifest_sha256": "8f443bd6e518a8f73c2b4cb8db9873c84766eef971beb19677399eb4227834ce",
+      "hash_matches_manifest": true,
+      "directly_opened_after_ready": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/PLAYER_PINCH.png",
+      "relative_render_path": "full-cycle-09/PLAYER_PINCH.png",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "sha256": "ceb44669372f9e276d4debe5b57f9d96fcb794da8d2b8a55bc5d3300bf7d4df2",
+      "manifest_sha256": "ceb44669372f9e276d4debe5b57f9d96fcb794da8d2b8a55bc5d3300bf7d4df2",
+      "hash_matches_manifest": true,
+      "directly_opened_after_ready": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/WALL_OFFICE_FRONT.png",
+      "relative_render_path": "full-cycle-09/WALL_OFFICE_FRONT.png",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "sha256": "bb3cfe3f589005bd35a445e932f0a33d9a4d80826b9b7c0eecf83d9dde1967b2",
+      "manifest_sha256": "bb3cfe3f589005bd35a445e932f0a33d9a4d80826b9b7c0eecf83d9dde1967b2",
+      "hash_matches_manifest": true,
+      "directly_opened_after_ready": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09-neutral/C05_CONVEYOR_LEAD_TUNNEL.png",
+      "relative_render_path": "full-cycle-09-neutral/C05_CONVEYOR_LEAD_TUNNEL.png",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "sha256": "ff21d80b220e165facc126bcdcca294a068d3c27c89091d984885cf55fb35df5",
+      "manifest_sha256": "ff21d80b220e165facc126bcdcca294a068d3c27c89091d984885cf55fb35df5",
+      "hash_matches_manifest": true,
+      "directly_opened_after_ready": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09-neutral/C07_OFFICE_INTERIOR.png",
+      "relative_render_path": "full-cycle-09-neutral/C07_OFFICE_INTERIOR.png",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "sha256": "5e6f4abe9a9a5ebc4e172b87e36ddceb9e100da4298104bab139db4c59acf080",
+      "manifest_sha256": "5e6f4abe9a9a5ebc4e172b87e36ddceb9e100da4298104bab139db4c59acf080",
+      "hash_matches_manifest": true,
+      "directly_opened_after_ready": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09-neutral/HERO_TROLLEY.png",
+      "relative_render_path": "full-cycle-09-neutral/HERO_TROLLEY.png",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "sha256": "2a7c2ff2c2715638229a7719ed3038feb7a59d6d5580cb393ac77a0c6c0cca6d",
+      "manifest_sha256": "2a7c2ff2c2715638229a7719ed3038feb7a59d6d5580cb393ac77a0c6c0cca6d",
+      "hash_matches_manifest": true,
+      "directly_opened_after_ready": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09-neutral/HERO_UTILITIES.png",
+      "relative_render_path": "full-cycle-09-neutral/HERO_UTILITIES.png",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "sha256": "1e1513fb04f9bef1adb6003eec7f17975a02864c1db9a70859882802c2ce1509",
+      "manifest_sha256": "1e1513fb04f9bef1adb6003eec7f17975a02864c1db9a70859882802c2ce1509",
+      "hash_matches_manifest": true,
+      "directly_opened_after_ready": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09-uv-standard/C05_CONVEYOR_LEAD_TUNNEL.png",
+      "relative_render_path": "full-cycle-09-uv-standard/C05_CONVEYOR_LEAD_TUNNEL.png",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "sha256": "036861b49dc4e3c20b100dc85f5dc287ae49b40f1606bff9186255b3c00e4070",
+      "manifest_sha256": "036861b49dc4e3c20b100dc85f5dc287ae49b40f1606bff9186255b3c00e4070",
+      "hash_matches_manifest": true,
+      "directly_opened_after_ready": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09-uv-standard/C07_OFFICE_INTERIOR.png",
+      "relative_render_path": "full-cycle-09-uv-standard/C07_OFFICE_INTERIOR.png",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "sha256": "a23fdb48c9961a662799e9bae51f8565fddbc0b4caaef818c0fba892ff7c7015",
+      "manifest_sha256": "a23fdb48c9961a662799e9bae51f8565fddbc0b4caaef818c0fba892ff7c7015",
+      "hash_matches_manifest": true,
+      "directly_opened_after_ready": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09-uv-standard/HERO_TROLLEY.png",
+      "relative_render_path": "full-cycle-09-uv-standard/HERO_TROLLEY.png",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "sha256": "53975a7edfac9602e6d065d7bd7182eca69194be3368b8d4cf5ac952ab1bca24",
+      "manifest_sha256": "53975a7edfac9602e6d065d7bd7182eca69194be3368b8d4cf5ac952ab1bca24",
+      "hash_matches_manifest": true,
+      "directly_opened_after_ready": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09-uv-standard/HERO_UTILITIES.png",
+      "relative_render_path": "full-cycle-09-uv-standard/HERO_UTILITIES.png",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "sha256": "0fbf414d00c79a33fbdd677f6ebfc384005a9882e3df46b5810a08ab0c2e392c",
+      "manifest_sha256": "0fbf414d00c79a33fbdd677f6ebfc384005a9882e3df46b5810a08ab0c2e392c",
+      "hash_matches_manifest": true,
+      "directly_opened_after_ready": true
+    }
+  ],
+  "reference_provenance": {
+    "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/reference-provenance.json",
+    "sha256": "d04251c153c364e6ad5745caa704caf147f42dc64e181a5744f91de344174a2d",
+    "source_sha256": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+    "reused_validated_reference_renders": true,
+    "native_hash_only": {
+      "path": "sections/facility-assembly/sources/spawn-room/module.blend",
+      "sha256": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+      "matches_provenance": true
+    }
+  },
+  "references": [
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/BRIEFING_INDIRECT.png",
+      "decoded_size": [
+        1280,
+        720
+      ],
+      "format": "PNG",
+      "sha256": "8d03448f84845b16705c6acc3324364a4e0a51f36c34355f4c481e8957aef301",
+      "provenance_sha256": "8d03448f84845b16705c6acc3324364a4e0a51f36c34355f4c481e8957aef301",
+      "hash_matches_provenance": true,
+      "directly_opened_after_ready": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/VALIDATE_LockerDoor.png",
+      "decoded_size": [
+        1280,
+        720
+      ],
+      "format": "PNG",
+      "sha256": "b8fd309f91cc15bfe6d183a253b81ba0f20a0033e08c63214c127e07e19879de",
+      "provenance_sha256": "b8fd309f91cc15bfe6d183a253b81ba0f20a0033e08c63214c127e07e19879de",
+      "hash_matches_provenance": true,
+      "directly_opened_after_ready": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/VALIDATE_Material_A.png",
+      "decoded_size": [
+        1280,
+        720
+      ],
+      "format": "PNG",
+      "sha256": "47d3892f69b4b244bcbff32908a6445556c182b2090aba11b22be1fe274253f6",
+      "provenance_sha256": "47d3892f69b4b244bcbff32908a6445556c182b2090aba11b22be1fe274253f6",
+      "hash_matches_provenance": true,
+      "directly_opened_after_ready": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/VALIDATE_Spawn.png",
+      "decoded_size": [
+        1280,
+        720
+      ],
+      "format": "PNG",
+      "sha256": "c84f368729c7e3ae1e6f1005ff5daae39020749316545bd208c972cee5b4e9ed",
+      "provenance_sha256": "c84f368729c7e3ae1e6f1005ff5daae39020749316545bd208c972cee5b4e9ed",
+      "hash_matches_provenance": true,
+      "directly_opened_after_ready": true
+    }
+  ],
+  "all_checks_pass": true,
+  "reader_release": "No Blender/native/recipe interpreter or render process was started. Hash readers and PNG decoders completed and closed; no held readers or child processes remain."
+}

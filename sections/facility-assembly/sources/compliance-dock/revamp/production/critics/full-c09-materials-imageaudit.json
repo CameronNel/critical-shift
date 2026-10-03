@@ -1,0 +1,760 @@
+{
+  "review_id": "full-c09-materials",
+  "critic_role": "independent materials / approved spawn colour critic",
+  "audited_at_utc": "2026-10-03T08:12:01.817446+00:00",
+  "ready_signal_received": true,
+  "reviewed_current_originals": 35,
+  "reviewed_reference_originals": 4,
+  "contact_sheet_used": false,
+  "vision_method": "tools.view_image, each original individually, all 39 reopened after ALL35 READY",
+  "expected_source_sha256": "6838d604ac4586da057a652e98e9c694f754a84e9f38ba70b83f1046e9ae6e9a",
+  "expected_renderer_sha256": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce",
+  "batches": [
+    {
+      "directory": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09",
+      "manifest_sha256": "a9240f81d14a1176055a06db8e53db458a74b43df0a4ae7d00629e4568274f2a",
+      "complete": true,
+      "expected_count": 27,
+      "actual_count": 27,
+      "exact_ids_match": true,
+      "source_sha256": "6838d604ac4586da057a652e98e9c694f754a84e9f38ba70b83f1046e9ae6e9a",
+      "renderer_sha256": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce",
+      "diagnostic": null,
+      "cold_open": false,
+      "source_saved": false
+    },
+    {
+      "directory": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09-neutral",
+      "manifest_sha256": "6d8c723306bf6d118c71f1176b52bbd396db9d801dfab2e3ad598faaac97316c",
+      "complete": true,
+      "expected_count": 4,
+      "actual_count": 4,
+      "exact_ids_match": true,
+      "source_sha256": "6838d604ac4586da057a652e98e9c694f754a84e9f38ba70b83f1046e9ae6e9a",
+      "renderer_sha256": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce",
+      "diagnostic": "neutral",
+      "cold_open": false,
+      "source_saved": false
+    },
+    {
+      "directory": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09-uv-standard",
+      "manifest_sha256": "7ad18aca825c148b423ab6a6d2859661a78a4505937b419f847648b117aac3ff",
+      "complete": true,
+      "expected_count": 4,
+      "actual_count": 4,
+      "exact_ids_match": true,
+      "source_sha256": "6838d604ac4586da057a652e98e9c694f754a84e9f38ba70b83f1046e9ae6e9a",
+      "renderer_sha256": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce",
+      "diagnostic": "uv",
+      "cold_open": false,
+      "source_saved": false
+    }
+  ],
+  "images": [
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/C01_ENTRY.png",
+      "shot_id": "C01_ENTRY",
+      "batch": "full-cycle-09",
+      "sha256": "3decf8f1ac948c16a6841ad0726b6f4e10a4d864b9419946c3789543e00a4d71",
+      "manifest_sha256_match": true,
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "decode_ok": true,
+      "original_individually_opened_with_view_image": true,
+      "post_all35_ready_open": true,
+      "visual_note": "Muted rose/navy architecture, differentiated glazing and blue steel arch; orange fascia/yellow lane functionally grouped."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/C02_HERO_DOCK.png",
+      "shot_id": "C02_HERO_DOCK",
+      "batch": "full-cycle-09",
+      "sha256": "4ec913cdae1fa280458839cde3616722f5d9234ab68e4bcdb000c4b5cf41e44b",
+      "manifest_sha256_match": true,
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "decode_ok": true,
+      "original_individually_opened_with_view_image": true,
+      "post_all35_ready_open": true,
+      "visual_note": "Warm pale office frontage and dark counter; cream paper, grey hardware, navy equipment and yellow route remain readable."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/C03_CHECKIN_COUNTER.png",
+      "shot_id": "C03_CHECKIN_COUNTER",
+      "batch": "full-cycle-09",
+      "sha256": "f4c2eea44a7a14d9723ba29466f2bfbd0117836d7f4048b6ee52178e247c950d",
+      "manifest_sha256_match": true,
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "decode_ok": true,
+      "original_individually_opened_with_view_image": true,
+      "post_all35_ready_open": true,
+      "visual_note": "Pitted plaster visible near pillar; restrained orange door; hazy glass response is broad and uniform."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/C04_SCANNER_APPROACH.png",
+      "shot_id": "C04_SCANNER_APPROACH",
+      "batch": "full-cycle-09",
+      "sha256": "107cf2cd355212a821ce312abb03847ae680f8a5414d5e4fb73b3950d76e48f2",
+      "manifest_sha256_match": true,
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "decode_ok": true,
+      "original_individually_opened_with_view_image": true,
+      "post_all35_ready_open": true,
+      "visual_note": "Blue painted arch separates from grey bypass; rubber/seal zones dark; floor wear localized at threshold."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/C05_CONVEYOR_LEAD_TUNNEL.png",
+      "shot_id": "C05_CONVEYOR_LEAD_TUNNEL",
+      "batch": "full-cycle-09",
+      "sha256": "a257f91012b40d8b2d4d1c952a5b4f2ac425904b858f394ac4592261e0724737",
+      "manifest_sha256_match": true,
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "decode_ok": true,
+      "original_individually_opened_with_view_image": true,
+      "post_all35_ready_open": true,
+      "visual_note": "Painted chassis, dark flexible curtain, grey rollers and orange case separate; no mirror gloss."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/C06_CART_GATE_G1.png",
+      "shot_id": "C06_CART_GATE_G1",
+      "batch": "full-cycle-09",
+      "sha256": "c1e9c6ce92be1ac919c3644c7e5f875eeb8b2fc0402530b75c30d424407d925c",
+      "manifest_sha256_match": true,
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "decode_ok": true,
+      "original_individually_opened_with_view_image": true,
+      "post_all35_ready_open": true,
+      "visual_note": "Grey gate panels, charcoal controls and orange panels distinct; semimatte sheet-metal presentation."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/C07_OFFICE_INTERIOR.png",
+      "shot_id": "C07_OFFICE_INTERIOR",
+      "batch": "full-cycle-09",
+      "sha256": "b3b4b2b3ac869ff9553a5db4e2e0c8f2ff7c768dab0856f2dd0b35c355dd11a2",
+      "manifest_sha256_match": true,
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "decode_ok": true,
+      "original_individually_opened_with_view_image": true,
+      "post_all35_ready_open": true,
+      "visual_note": "Matte paper and dark desk contrast; glass is uniformly milky; chair surfaces remain simple."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/C08_CONCEALED_SUPPORT_H1.png",
+      "shot_id": "C08_CONCEALED_SUPPORT_H1",
+      "batch": "full-cycle-09",
+      "sha256": "abed943429d6488e055f5dea0c0c927c1962963c3b7d609769c13880f005441c",
+      "manifest_sha256_match": true,
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "decode_ok": true,
+      "original_individually_opened_with_view_image": true,
+      "post_all35_ready_open": true,
+      "visual_note": "Cream cloth matte with broad folds, but fine diagonal weave carries noticeable frequency over lower skirt."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/C09_ARRIVAL_GATE_P2.png",
+      "shot_id": "C09_ARRIVAL_GATE_P2",
+      "batch": "full-cycle-09",
+      "sha256": "cfc45d9b6b670729716d8d877212fa612d785b6afd51bd63db11bdd52aae5d9b",
+      "manifest_sha256_match": true,
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "decode_ok": true,
+      "original_individually_opened_with_view_image": true,
+      "post_all35_ready_open": true,
+      "visual_note": "Off-white/charcoal gate maintains palette; yellow apron and orange header functional."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/C10_ROOF_SERVICES.png",
+      "shot_id": "C10_ROOF_SERVICES",
+      "batch": "full-cycle-09",
+      "sha256": "d0e00ef622a90dde968d94a5a01746431c14cfef837096f0646787b075e7d520",
+      "manifest_sha256_match": true,
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "decode_ok": true,
+      "original_individually_opened_with_view_image": true,
+      "post_all35_ready_open": true,
+      "visual_note": "Steel-grey/charcoal ceiling restrained; no glossy sci-fi strip treatment."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/CORNER_SW.png",
+      "shot_id": "CORNER_SW",
+      "batch": "full-cycle-09",
+      "sha256": "87ec70d4d713d6cd1abc29b5a9f49befaa6cc51dbded3ecb4f2af96be3a563fd",
+      "manifest_sha256_match": true,
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "decode_ok": true,
+      "original_individually_opened_with_view_image": true,
+      "post_all35_ready_open": true,
+      "visual_note": "Muted shell and sparse useful accent groups; steel, paper and cloth clusters separated at overview distance."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/CORNER_SE.png",
+      "shot_id": "CORNER_SE",
+      "batch": "full-cycle-09",
+      "sha256": "b15170f91ba5239bf86eac8edc2e6c4de05d2141f35962fff36382118680ebaa",
+      "manifest_sha256_match": true,
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "decode_ok": true,
+      "original_individually_opened_with_view_image": true,
+      "post_all35_ready_open": true,
+      "visual_note": "No confetti; yellow arrival band is largest saturated floor field."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/CORNER_NW.png",
+      "shot_id": "CORNER_NW",
+      "batch": "full-cycle-09",
+      "sha256": "5f24ceeeb667aa12a15bc103de8190fe802d75d8656a110330519ff11adfabf6",
+      "manifest_sha256_match": true,
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "decode_ok": true,
+      "original_individually_opened_with_view_image": true,
+      "post_all35_ready_open": true,
+      "visual_note": "Negative space preserved; muted shell dominates surface area."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/CORNER_NE.png",
+      "shot_id": "CORNER_NE",
+      "batch": "full-cycle-09",
+      "sha256": "193d30aed8730d406d54ce4131e7cb474102b6a905389dd8a0e3fdd59fa731ed",
+      "manifest_sha256_match": true,
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "decode_ok": true,
+      "original_individually_opened_with_view_image": true,
+      "post_all35_ready_open": true,
+      "visual_note": "Cream trolley contrasts dark cabinets; functional orange and yellow retained."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/WALL_SOUTH.png",
+      "shot_id": "WALL_SOUTH",
+      "batch": "full-cycle-09",
+      "sha256": "09192a8216fbcba367950bcc428d66f46049dfe0fe1ef8d09edfdd57b004d2f0",
+      "manifest_sha256_match": true,
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "decode_ok": true,
+      "original_individually_opened_with_view_image": true,
+      "post_all35_ready_open": true,
+      "visual_note": "Rose/navy wall grouping coherent; poster and entry header sparse accents."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/WALL_NORTH.png",
+      "shot_id": "WALL_NORTH",
+      "batch": "full-cycle-09",
+      "sha256": "e6de3eb7bfcac13f01327e99cbb18fcd68fcc674a9626ddbf441eca2402ffc95",
+      "manifest_sha256_match": true,
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "decode_ok": true,
+      "original_individually_opened_with_view_image": true,
+      "post_all35_ready_open": true,
+      "visual_note": "Navy storage/electrical units frame grey gate; small cream/red/yellow cues."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/WALL_EAST.png",
+      "shot_id": "WALL_EAST",
+      "batch": "full-cycle-09",
+      "sha256": "7d785c6483a1940a7d301ae4c4561c3c5cd0168fa50ca7df873900d28fcd0af0",
+      "manifest_sha256_match": true,
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "decode_ok": true,
+      "original_individually_opened_with_view_image": true,
+      "post_all35_ready_open": true,
+      "visual_note": "Broad quiet wall; pale replacement patch and light electrical housings support material variation."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/WALL_WEST.png",
+      "shot_id": "WALL_WEST",
+      "batch": "full-cycle-09",
+      "sha256": "98f1f35e799a7cb9c3efa8ec659f8e251129b5bb28edb7fa33ef8fc31fb06c5b",
+      "manifest_sha256_match": true,
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "decode_ok": true,
+      "original_individually_opened_with_view_image": true,
+      "post_all35_ready_open": true,
+      "visual_note": "Office surfaces remain muted; dark storage and cream paper form work cluster."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/HERO_SCANNER.png",
+      "shot_id": "HERO_SCANNER",
+      "batch": "full-cycle-09",
+      "sha256": "2c0badb51dbd864a127a6310496e3dfc99f75c71461ec56809909d123e7f8b4b",
+      "manifest_sha256_match": true,
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "decode_ok": true,
+      "original_individually_opened_with_view_image": true,
+      "post_all35_ready_open": true,
+      "visual_note": "Blue paint/grey inserts/dark sensor recesses legible; modest controlled highlights."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/HERO_CARGO.png",
+      "shot_id": "HERO_CARGO",
+      "batch": "full-cycle-09",
+      "sha256": "6ce94821cfd20a8fda9fd2edfc29bcb5ff81a261d63167f8ba1db5d22b4b82bc",
+      "manifest_sha256_match": true,
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "decode_ok": true,
+      "original_individually_opened_with_view_image": true,
+      "post_all35_ready_open": true,
+      "visual_note": "Flexible black curtain differs from matte orange case and painted chassis; metal rollers readable."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/HERO_EVIDENCE.png",
+      "shot_id": "HERO_EVIDENCE",
+      "batch": "full-cycle-09",
+      "sha256": "c687f8bd46eb6bba0f710ad4e5e5eb27ad901d21bd6a22f129c4ca402157d339",
+      "manifest_sha256_match": true,
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "decode_ok": true,
+      "original_individually_opened_with_view_image": true,
+      "post_all35_ready_open": true,
+      "visual_note": "Blue metal storage and paper tag distinct; cloudy handle wear and fine cloth weave visible."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/HERO_TROLLEY.png",
+      "shot_id": "HERO_TROLLEY",
+      "batch": "full-cycle-09",
+      "sha256": "65b92dc4caeb3ea44fd3404224aa04db1b11c726d371e1494566872085c338de",
+      "manifest_sha256_match": true,
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "decode_ok": true,
+      "original_individually_opened_with_view_image": true,
+      "post_all35_ready_open": true,
+      "visual_note": "Matte cloth, dark wheels, grey handle and painted frame separate; broad folds readable."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/HERO_UTILITIES.png",
+      "shot_id": "HERO_UTILITIES",
+      "batch": "full-cycle-09",
+      "sha256": "7de52ef5d98f273cbf5cb7a86df7c5aafaade6169fe9337d555cf01b98ab0107",
+      "manifest_sha256_match": true,
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "decode_ok": true,
+      "original_individually_opened_with_view_image": true,
+      "post_all35_ready_open": true,
+      "visual_note": "Pale electrical boxes and shiny conduit separate from blue cabinets; paired cloudy handle wear nearly repeats."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/DETAIL_CHECKIN.png",
+      "shot_id": "DETAIL_CHECKIN",
+      "batch": "full-cycle-09",
+      "sha256": "8639770a198222861504a1832f6074203c29ccf359c026698d9b35c807a1722c",
+      "manifest_sha256_match": true,
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "decode_ok": true,
+      "original_individually_opened_with_view_image": true,
+      "post_all35_ready_open": true,
+      "visual_note": "Metal, paper, textile stack and plaster distinguish; textile grid is fine at original resolution."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/PLAYER_REVERSE.png",
+      "shot_id": "PLAYER_REVERSE",
+      "batch": "full-cycle-09",
+      "sha256": "8f443bd6e518a8f73c2b4cb8db9873c84766eef971beb19677399eb4227834ce",
+      "manifest_sha256_match": true,
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "decode_ok": true,
+      "original_individually_opened_with_view_image": true,
+      "post_all35_ready_open": true,
+      "visual_note": "Warm/cool material groupings preserved; office glazing retains generalized haze."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/PLAYER_PINCH.png",
+      "shot_id": "PLAYER_PINCH",
+      "batch": "full-cycle-09",
+      "sha256": "ceb44669372f9e276d4debe5b57f9d96fcb794da8d2b8a55bc5d3300bf7d4df2",
+      "manifest_sha256_match": true,
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "decode_ok": true,
+      "original_individually_opened_with_view_image": true,
+      "post_all35_ready_open": true,
+      "visual_note": "Large saturated yellow foreground apron has more visual weight than adjacent work props."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/WALL_OFFICE_FRONT.png",
+      "shot_id": "WALL_OFFICE_FRONT",
+      "batch": "full-cycle-09",
+      "sha256": "bb3cfe3f589005bd35a445e932f0a33d9a4d80826b9b7c0eecf83d9dde1967b2",
+      "manifest_sha256_match": true,
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "decode_ok": true,
+      "original_individually_opened_with_view_image": true,
+      "post_all35_ready_open": true,
+      "visual_note": "Orange door, cream signs, dark counter and rose plaster retain spawn lineage."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09-neutral/C05_CONVEYOR_LEAD_TUNNEL.png",
+      "shot_id": "C05_CONVEYOR_LEAD_TUNNEL",
+      "batch": "full-cycle-09-neutral",
+      "sha256": "ff21d80b220e165facc126bcdcca294a068d3c27c89091d984885cf55fb35df5",
+      "manifest_sha256_match": true,
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "decode_ok": true,
+      "original_individually_opened_with_view_image": true,
+      "post_all35_ready_open": true,
+      "visual_note": "Individually compared with same-view beauty; declared neutral diagnostic supports surface/colour distinction, without certifying its internal shader recipe."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09-neutral/C07_OFFICE_INTERIOR.png",
+      "shot_id": "C07_OFFICE_INTERIOR",
+      "batch": "full-cycle-09-neutral",
+      "sha256": "5e6f4abe9a9a5ebc4e172b87e36ddceb9e100da4298104bab139db4c59acf080",
+      "manifest_sha256_match": true,
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "decode_ok": true,
+      "original_individually_opened_with_view_image": true,
+      "post_all35_ready_open": true,
+      "visual_note": "Individually compared with same-view beauty; declared neutral diagnostic supports surface/colour distinction, without certifying its internal shader recipe."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09-neutral/HERO_TROLLEY.png",
+      "shot_id": "HERO_TROLLEY",
+      "batch": "full-cycle-09-neutral",
+      "sha256": "2a7c2ff2c2715638229a7719ed3038feb7a59d6d5580cb393ac77a0c6c0cca6d",
+      "manifest_sha256_match": true,
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "decode_ok": true,
+      "original_individually_opened_with_view_image": true,
+      "post_all35_ready_open": true,
+      "visual_note": "Individually compared with same-view beauty; declared neutral diagnostic supports surface/colour distinction, without certifying its internal shader recipe."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09-neutral/HERO_UTILITIES.png",
+      "shot_id": "HERO_UTILITIES",
+      "batch": "full-cycle-09-neutral",
+      "sha256": "1e1513fb04f9bef1adb6003eec7f17975a02864c1db9a70859882802c2ce1509",
+      "manifest_sha256_match": true,
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "decode_ok": true,
+      "original_individually_opened_with_view_image": true,
+      "post_all35_ready_open": true,
+      "visual_note": "Individually compared with same-view beauty; declared neutral diagnostic supports surface/colour distinction, without certifying its internal shader recipe."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09-uv-standard/C05_CONVEYOR_LEAD_TUNNEL.png",
+      "shot_id": "C05_CONVEYOR_LEAD_TUNNEL",
+      "batch": "full-cycle-09-uv-standard",
+      "sha256": "036861b49dc4e3c20b100dc85f5dc287ae49b40f1606bff9186255b3c00e4070",
+      "manifest_sha256_match": true,
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "decode_ok": true,
+      "original_individually_opened_with_view_image": true,
+      "post_all35_ready_open": true,
+      "visual_note": "Individually inspected checker on visible front, side, top and curved surfaces; broad coverage visible. Perspective and small cylinders do not establish numerical world texel density."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09-uv-standard/C07_OFFICE_INTERIOR.png",
+      "shot_id": "C07_OFFICE_INTERIOR",
+      "batch": "full-cycle-09-uv-standard",
+      "sha256": "a23fdb48c9961a662799e9bae51f8565fddbc0b4caaef818c0fba892ff7c7015",
+      "manifest_sha256_match": true,
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "decode_ok": true,
+      "original_individually_opened_with_view_image": true,
+      "post_all35_ready_open": true,
+      "visual_note": "Individually inspected checker on visible front, side, top and curved surfaces; broad coverage visible. Perspective and small cylinders do not establish numerical world texel density."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09-uv-standard/HERO_TROLLEY.png",
+      "shot_id": "HERO_TROLLEY",
+      "batch": "full-cycle-09-uv-standard",
+      "sha256": "53975a7edfac9602e6d065d7bd7182eca69194be3368b8d4cf5ac952ab1bca24",
+      "manifest_sha256_match": true,
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "decode_ok": true,
+      "original_individually_opened_with_view_image": true,
+      "post_all35_ready_open": true,
+      "visual_note": "Individually inspected checker on visible front, side, top and curved surfaces; broad coverage visible. Perspective and small cylinders do not establish numerical world texel density."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09-uv-standard/HERO_UTILITIES.png",
+      "shot_id": "HERO_UTILITIES",
+      "batch": "full-cycle-09-uv-standard",
+      "sha256": "0fbf414d00c79a33fbdd677f6ebfc384005a9882e3df46b5810a08ab0c2e392c",
+      "manifest_sha256_match": true,
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "decode_ok": true,
+      "original_individually_opened_with_view_image": true,
+      "post_all35_ready_open": true,
+      "visual_note": "Individually inspected checker on visible front, side, top and curved surfaces; broad coverage visible. Perspective and small cylinders do not establish numerical world texel density."
+    }
+  ],
+  "references": [
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/BRIEFING_INDIRECT.png",
+      "name": "BRIEFING_INDIRECT.png",
+      "sha256": "8d03448f84845b16705c6acc3324364a4e0a51f36c34355f4c481e8957aef301",
+      "provenance_sha256_match": true,
+      "decoded_size": [
+        1280,
+        720
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "decode_ok": true,
+      "original_individually_opened_with_view_image": true,
+      "post_all35_ready_open": true,
+      "provenance_original_path": "/workspace/scratch/reanimation-github-checkout-20261001/sections/facility-assembly/sources/medical-reanimation/revamp-review/spawn-reference/BRIEFING_INDIRECT.png",
+      "original_path_exists": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/VALIDATE_LockerDoor.png",
+      "name": "VALIDATE_LockerDoor.png",
+      "sha256": "b8fd309f91cc15bfe6d183a253b81ba0f20a0033e08c63214c127e07e19879de",
+      "provenance_sha256_match": true,
+      "decoded_size": [
+        1280,
+        720
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "decode_ok": true,
+      "original_individually_opened_with_view_image": true,
+      "post_all35_ready_open": true,
+      "provenance_original_path": "/workspace/scratch/reanimation-github-checkout-20261001/sections/facility-assembly/sources/medical-reanimation/revamp-review/spawn-reference/VALIDATE_LockerDoor.png",
+      "original_path_exists": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/VALIDATE_Material_A.png",
+      "name": "VALIDATE_Material_A.png",
+      "sha256": "47d3892f69b4b244bcbff32908a6445556c182b2090aba11b22be1fe274253f6",
+      "provenance_sha256_match": true,
+      "decoded_size": [
+        1280,
+        720
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "decode_ok": true,
+      "original_individually_opened_with_view_image": true,
+      "post_all35_ready_open": true,
+      "provenance_original_path": "/workspace/scratch/reanimation-github-checkout-20261001/sections/facility-assembly/sources/medical-reanimation/revamp-review/spawn-reference/VALIDATE_Material_A.png",
+      "original_path_exists": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/VALIDATE_Spawn.png",
+      "name": "VALIDATE_Spawn.png",
+      "sha256": "c84f368729c7e3ae1e6f1005ff5daae39020749316545bd208c972cee5b4e9ed",
+      "provenance_sha256_match": true,
+      "decoded_size": [
+        1280,
+        720
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "decode_ok": true,
+      "original_individually_opened_with_view_image": true,
+      "post_all35_ready_open": true,
+      "provenance_original_path": "/workspace/scratch/reanimation-github-checkout-20261001/sections/facility-assembly/sources/medical-reanimation/revamp-review/spawn-reference/VALIDATE_Spawn.png",
+      "original_path_exists": true
+    }
+  ],
+  "reference_provenance_file_sha256": "d04251c153c364e6ad5745caa704caf147f42dc64e181a5744f91de344174a2d",
+  "reference_source_sha256_claim": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+  "reference_provenance_limit": "Approved source identity is provided by the reference-provenance document; copies independently match all four recorded PNG hashes. The original historic render paths are recorded, not a new native capture.",
+  "frozen_files": [
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend",
+      "sha256": "6838d604ac4586da057a652e98e9c694f754a84e9f38ba70b83f1046e9ae6e9a",
+      "inspection": "hash-only; no Blender/native load or recipe content read"
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/overhaul_dock.py",
+      "sha256": "347c84da9e72547935adc50b755c1b95ff3b161ddf5019d689bf0ef86ba7cd6c",
+      "inspection": "hash-only; no Blender/native load or recipe content read"
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/full_detail.py",
+      "sha256": "1521449b1c6eee88689cadb6e43ae911e909f200655b335cd273b9a030a3ef0e",
+      "inspection": "hash-only; no Blender/native load or recipe content read"
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/full_repairs.py",
+      "sha256": "5edc8c94dcc4e6c17ac5af60815136f02b41cdd64afee381f8505d3df16c1657",
+      "inspection": "hash-only; no Blender/native load or recipe content read"
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/render_dock.py",
+      "sha256": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce",
+      "inspection": "hash-only; no Blender/native load or recipe content read"
+    }
+  ],
+  "audit_pass": true,
+  "limitations": [
+    "No native UV-area/world-area calculation or physical texel-density measurement.",
+    "No certification of UV overlaps, topology, support contact, collider/navigation, runtime, or Unity equivalence.",
+    "Four diagnostic cameras do not expose every hidden face.",
+    "This image/provenance audit does not certify cold-open reproducibility or final two-cycle stability."
+  ],
+  "readers_released": true,
+  "processes_started": [],
+  "release_statement": "All PIL files used context managers and are closed. No Blender/native process or persistent file reader was started. Short-lived metadata commands completed normally; no owned reader or render job remains at handoff."
+}

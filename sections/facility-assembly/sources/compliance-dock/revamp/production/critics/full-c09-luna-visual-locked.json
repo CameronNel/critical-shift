@@ -1,0 +1,264 @@
+{
+  "review_id": "full-c09-luna",
+  "reviewer": "GPT-6 Luna independent visual critic",
+  "scope": "seven visual categories only; technical category 8 deferred to fresh independent technical evidence",
+  "status": "visual-lock-complete",
+  "locked": true,
+  "evidence": {
+    "beauty_render_set": "full-cycle-09",
+    "beauty_manifest_complete": true,
+    "beauty_view_count": 27,
+    "neutral_render_set": "full-cycle-09-neutral",
+    "neutral_manifest_complete": true,
+    "neutral_view_count": 4,
+    "uv_render_set": "full-cycle-09-uv-standard",
+    "uv_manifest_complete": true,
+    "uv_view_count": 4,
+    "source_sha256": "6838d604ac4586da057a652e98e9c694f754a84e9f38ba70b83f1046e9ae6e9a",
+    "renderer_sha256": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce",
+    "resolution": [
+      1067,
+      600
+    ],
+    "spawn_reference_set": "spawn-reference",
+    "spawn_source_sha256": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+    "spawn_reference_count": 4,
+    "all_35_current_pngs_and_4_spawn_references_opened_individually": true,
+    "all_png_hashes_manifest_matched": true,
+    "all_images_decoded_at_expected_dimensions": true
+  },
+  "method_note": "Beauty images establish atmosphere and finish. Cutaways are used only to audit construction/layout evidence and do not substitute for enclosed player-view beauty assessment. Shape scoring considers primary and secondary constructed angular forms as rendered; tertiary detail quantity does not raise the score by itself.",
+  "categories": [
+    {
+      "id": 1,
+      "name": "Scale, layout and route readability",
+      "score": 91,
+      "max": 100,
+      "deductions": [
+        {
+          "defect_id": "LUNA-V01",
+          "severity": "moderate",
+          "critical": false,
+          "veto": false,
+          "evidence": [
+            "C02_HERO_DOCK: central yellow route markings lead cleanly through the scanner, but auxiliary branches end at the check-in window and cargo/equipment zones without equally clear route hierarchy.",
+            "C06_CART_GATE_G1: the low sliding bypass panels and broad header dominate the right half of the approach and reduce the legibility of the path behind them."
+          ],
+          "repair": "Differentiate the staff, pedestrian and cart routes with a small number of consistent floor cues; reduce the bypass assembly's visual competition with the walking route."
+        },
+        {
+          "defect_id": "LUNA-V02",
+          "severity": "minor",
+          "critical": false,
+          "veto": false,
+          "evidence": [
+            "PLAYER_PINCH: the camera-height view confirms a narrow-feeling return beside the gate, although the route remains visually passable."
+          ],
+          "repair": "Check the cart gate and adjacent equipment silhouettes against the intended walkable width; preserve a visibly continuous pedestrian clearance."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Grounded stylized shape language and object-specific construction",
+      "score": 84,
+      "max": 100,
+      "deductions": [
+        {
+          "defect_id": "LUNA-V03",
+          "severity": "major",
+          "critical": false,
+          "veto": false,
+          "evidence": [
+            "C02_HERO_DOCK and C04_SCANNER_APPROACH: the scanner is a clear, angular portal with attached control details, but its dominant silhouette remains a squared frame with largely flat uprights and a flat cap.",
+            "C05_CONVEYOR_LEAD_TUNNEL and HERO_CARGO: the cargo inspection tunnel and crate have identifiable functional construction, yet their large masses rely on rectilinear shells and repeated inset rectangular panels.",
+            "HERO_UTILITIES: the three wall units share near-identical box proportions and panel treatment despite representing different electrical/data functions."
+          ],
+          "repair": "Give the scanner uprights and cap a more specific manufactured section; vary the cargo-shell profile and access construction; distinguish the data, alarm and switch enclosures through their primary forms and mounting logic before adding small detail."
+        },
+        {
+          "defect_id": "LUNA-V04",
+          "severity": "moderate",
+          "critical": false,
+          "veto": false,
+          "evidence": [
+            "C03_CHECKIN_COUNTER and DETAIL_CHECKIN: counter, hatch, desk and nearby housings repeat broad rectangular planes with limited depth changes; the check-in assembly is cleanly made but not strongly authored as a unique civic-industrial fixture."
+          ],
+          "repair": "Develop a distinctive counter/hatch cross-section with a readable service lip, document handoff zone and staff-side construction, keeping the current restrained scale."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Inspection/check-in hero hierarchy and functional composition",
+      "score": 91,
+      "max": 100,
+      "deductions": [
+        {
+          "defect_id": "LUNA-V05",
+          "severity": "moderate",
+          "critical": false,
+          "veto": false,
+          "evidence": [
+            "C02_HERO_DOCK: the counter occupies a large left foreground mass while scanner, cargo line and gate compete across the center/right; the main task order is understandable but not immediate at first glance.",
+            "C05_CONVEYOR_LEAD_TUNNEL: the crate hides much of the tunnel's lower mechanism and the key inspection aperture reads as a dark slot."
+          ],
+          "repair": "Strengthen the visual handoff from check-in to personnel scan to cargo inspection with controlled light and clearer functional separation; expose enough of the cargo mechanism to read its operation."
+        },
+        {
+          "defect_id": "LUNA-V06",
+          "severity": "minor",
+          "critical": false,
+          "veto": false,
+          "evidence": [
+            "C03_CHECKIN_COUNTER: the desk props and intercom imply check-in, but the visitor-facing document exchange and staff control zone have similar visual emphasis."
+          ],
+          "repair": "Use placement and value grouping to make the document handoff and staff control point read in a single glance."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Tactile material identity and UV/texture discipline",
+      "score": 88,
+      "max": 100,
+      "deductions": [
+        {
+          "defect_id": "LUNA-V07",
+          "severity": "moderate",
+          "critical": false,
+          "veto": false,
+          "evidence": [
+            "C01_ENTRY and C02_HERO_DOCK: painted wall, dark trim, steel-blue machinery and floor are separated by value and roughness, but many broad painted-metal and structural surfaces still resolve as similarly smooth, uniform shader fields.",
+            "HERO_TROLLEY: the cover reads as fabric through its drape and matte response, while the straps and frame have only modest material separation at this view size."
+          ],
+          "repair": "Add restrained broad roughness/value variation to selected painted metal and flooring; sharpen rubber/metal/fabric response differences on trolley and equipment without adding noisy scratches."
+        },
+        {
+          "defect_id": "LUNA-V08",
+          "severity": "minor",
+          "critical": false,
+          "veto": false,
+          "evidence": [
+            "C05_CONVEYOR_LEAD_TUNNEL and HERO_UTILITIES in UV-standard: checker scale is broadly controlled, but many separate components show similarly sized checker cells, leaving small-object texel density and seams difficult to distinguish visually."
+          ],
+          "repair": "Review a few representative large and small surfaces for consistent texel density and hidden seam placement; avoid treating the checker render as proof of production texture quality."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Localized lighting, depth and bleak atmosphere without hiding geometry",
+      "score": 86,
+      "max": 100,
+      "deductions": [
+        {
+          "defect_id": "LUNA-V09",
+          "severity": "major",
+          "critical": false,
+          "veto": false,
+          "evidence": [
+            "C05_CONVEYOR_LEAD_TUNNEL: the inspection tunnel's interior and lower conveyor mechanism fall into near-black shadow; the cargo detail view loses construction information at the exact functional focal point.",
+            "C08_CONCEALED_SUPPORT_H1 and HERO_TROLLEY: the isolated trolley pool is atmospheric, but its rear support and evidence storage merge into dark wall/furniture values."
+          ],
+          "repair": "Raise local fill or bounce within the cargo tunnel and add restrained separation to the concealed support bay so the geometry stays legible while preserving darker peripheral zones."
+        },
+        {
+          "defect_id": "LUNA-V10",
+          "severity": "moderate",
+          "critical": false,
+          "veto": false,
+          "evidence": [
+            "C02_HERO_DOCK and C10_ROOF_SERVICES: practical lights establish warm pools, but dark ceiling structure occupies a large continuous band and leaves the room's upper volume visually compressed."
+          ],
+          "repair": "Clarify the ceiling depth with selective reflected fill and value separation between beams, services and background; keep fixtures as practical sources rather than bright decoration."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Approved spawn colour coherence and restrained accents",
+      "score": 90,
+      "max": 100,
+      "deductions": [
+        {
+          "defect_id": "LUNA-V11",
+          "severity": "moderate",
+          "critical": false,
+          "veto": false,
+          "evidence": [
+            "C02_HERO_DOCK compared with approved VALIDATE_Spawn and VALIDATE_LockerDoor: the dock carries the same warm wall/cool dark-blue structure/orange accent logic, but its large mauve-pink wall fields shift the dominant warm hue away from the spawn room's burnt orange and cream."
+          ],
+          "repair": "Bring a few major wall or architectural fields closer to the approved warm neutral/orange family while retaining the dock's cooler blue machinery and limited orange safety accents."
+        },
+        {
+          "defect_id": "LUNA-V12",
+          "severity": "minor",
+          "critical": false,
+          "veto": false,
+          "evidence": [
+            "C01_ENTRY and C02_HERO_DOCK: orange floor lanes, scanner header, gate signs and machinery panels repeat across many focal points, slightly flattening the accent hierarchy."
+          ],
+          "repair": "Reserve the strongest orange for safety routes, active inspection points and a few institutional identifiers; reduce it on secondary machine panels."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Purposeful worker traces and coercive institutional storytelling",
+      "score": 87,
+      "max": 100,
+      "deductions": [
+        {
+          "defect_id": "LUNA-V13",
+          "severity": "moderate",
+          "critical": false,
+          "veto": false,
+          "evidence": [
+            "C07_OFFICE_INTERIOR: the 'M. VALE / 14 HOURS / NO RELIEF' board is a specific human trace and the paperwork supports work-in-progress, but much of the surrounding office wall and floor is empty.",
+            "C08_CONCEALED_SUPPORT_H1 and HERO_TROLLEY: the covered trolley and tagged cabinet convey evidence custody and concealment, though the uniformly spaced straps and tidy placement make the bay feel staged rather than under pressure."
+          ],
+          "repair": "Add one or two purposeful signs of recent handling, interrupted work or hurried custody transfer, tied to the existing narrative rather than general clutter."
+        },
+        {
+          "defect_id": "LUNA-V14",
+          "severity": "moderate",
+          "critical": false,
+          "veto": false,
+          "evidence": [
+            "C02_HERO_DOCK and WALL_OFFICE_FRONT: 'WE VALUE YOUR TIME', 'ALL DELAYS ARE YOUR RESPONSIBILITY' and 'YOUR WORK MATTERS' establish coercive corporate language, but remain poster-like statements without a strong visual contradiction in their immediate surroundings."
+          ],
+          "repair": "Pair the reassurance language with a nearby concrete consequence or procedural contradiction, using a small, readable artifact rather than more wall copy."
+        },
+        {
+          "defect_id": "LUNA-V15",
+          "severity": "minor",
+          "critical": false,
+          "veto": false,
+          "evidence": [
+            "C01_ENTRY and C09_ARRIVAL_GATE_P2: signage is legible at its intended distance but several small labels read as generic equipment naming rather than dock-specific operating procedure."
+          ],
+          "repair": "Use a few dock-specific labels that explain custody, delay or conditional release; remove generic labels that do not advance function or story."
+        }
+      ]
+    }
+  ],
+  "visual_score_sum": 617,
+  "visual_category_count": 7,
+  "visual_mean_exact": 88.14285714285714,
+  "visual_critical_defect_ids": [],
+  "visual_veto": false,
+  "pass_status": {
+    "required_overall": 99,
+    "required_per_category_strictly_greater_than": 93,
+    "overall": null,
+    "per_category": null,
+    "status": "FAIL_VISUAL_THRESHOLD_NOT_MET_PENDING_CATEGORY_8"
+  },
+  "honest_limitations": [
+    "This is a pixel-based visual review of the specified image sets and four approved spawn references.",
+    "The UV follow set is a checker diagnostic; it does not prove final texture bake quality or native UV integrity.",
+    "This review does not certify geometry clearances, support contact, normals, dependency portability, cold-start reproducibility, runtime readability or performance.",
+    "No native scene, builder code, earlier reviews, previous scores, or other visual critic result was used for these visual judgements."
+  ]
+}

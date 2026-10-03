@@ -1,0 +1,488 @@
+{
+  "method": "Actual triangle contact graph restricted to same declared assembly and actual geometry of that assembly support_target; loose anchors are not graph nodes. This stricter directional proxy avoids borrowing arbitrary nearby assembly geometry but does not alone establish structural load capacity.",
+  "results": [
+    {
+      "owner": "Arrival Gate P2",
+      "target": "Floor slab",
+      "components": 112,
+      "target_components": 1,
+      "unreachable": [
+        {
+          "id": 267,
+          "object": "P2 beacon base -1.5",
+          "component": 0,
+          "area_m2": 0.09287580218797181
+        },
+        {
+          "id": 268,
+          "object": "P2 beacon amber -1.5",
+          "component": 0,
+          "area_m2": 0.07230570076111562
+        },
+        {
+          "id": 269,
+          "object": "P2 beacon base 1.5",
+          "component": 0,
+          "area_m2": 0.09287580218797181
+        },
+        {
+          "id": 270,
+          "object": "P2 beacon amber 1.5",
+          "component": 0,
+          "area_m2": 0.07230570076111562
+        },
+        {
+          "id": 271,
+          "object": "P2 security console",
+          "component": 0,
+          "area_m2": 0.8641446364614171
+        },
+        {
+          "id": 272,
+          "object": "P2 console screen",
+          "component": 0,
+          "area_m2": 0.10162091633664365
+        },
+        {
+          "id": 273,
+          "object": "P2 emergency wheel",
+          "component": 0,
+          "area_m2": 0.15288496660287873
+        },
+        {
+          "id": 2325,
+          "object": "CD | Joined Arrival Gate P2 / charcoal",
+          "component": 0,
+          "area_m2": 0.030057503020723148
+        },
+        {
+          "id": 2326,
+          "object": "CD | Joined Arrival Gate P2 / charcoal",
+          "component": 1,
+          "area_m2": 0.030057486617058055
+        }
+      ]
+    },
+    {
+      "owner": "D1 Staff Front Door",
+      "target": "Floor slab",
+      "components": 44,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "D2 Staff Rear Door",
+      "target": "Floor slab",
+      "components": 12,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "G1 Cart Bypass Gate",
+      "target": "Floor slab",
+      "components": 123,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "Office Observation Glazing",
+      "target": "Floor slab",
+      "components": 14,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "Checkin Counter Hatch",
+      "target": "Floor slab",
+      "components": 279,
+      "target_components": 1,
+      "unreachable": [
+        {
+          "id": 1543,
+          "object": "CD | Joined Checkin Counter Hatch / ink",
+          "component": 32,
+          "area_m2": 6.362034571351592e-06
+        },
+        {
+          "id": 1544,
+          "object": "CD | Joined Checkin Counter Hatch / ink",
+          "component": 33,
+          "area_m2": 9.103677903522541e-06
+        },
+        {
+          "id": 428,
+          "object": "Authority stamp rubber base",
+          "component": 0,
+          "area_m2": 0.012977484771164421
+        },
+        {
+          "id": 429,
+          "object": "Authority stamp brass collar",
+          "component": 0,
+          "area_m2": 0.008270388408035559
+        },
+        {
+          "id": 430,
+          "object": "Authority stamp ferrule",
+          "component": 0,
+          "area_m2": 0.001921238317251748
+        },
+        {
+          "id": 431,
+          "object": "Authority stamp wood shaft",
+          "component": 0,
+          "area_m2": 0.006169604300200982
+        },
+        {
+          "id": 432,
+          "object": "Authority stamp wood knob",
+          "component": 0,
+          "area_m2": 0.005808595651480808
+        },
+        {
+          "id": 433,
+          "object": "Ink pad tin base",
+          "component": 0,
+          "area_m2": 0.026103102235811085
+        },
+        {
+          "id": 434,
+          "object": "Ink pad felt cushion",
+          "component": 0,
+          "area_m2": 0.013762429638687063
+        },
+        {
+          "id": 435,
+          "object": "Ink pad lid open",
+          "component": 0,
+          "area_m2": 0.01452474018977066
+        },
+        {
+          "id": 1653,
+          "object": "CD | Joined Checkin Counter Hatch / plastic",
+          "component": 0,
+          "area_m2": 0.007732333678898832
+        },
+        {
+          "id": 1654,
+          "object": "CD | Joined Checkin Counter Hatch / plastic",
+          "component": 1,
+          "area_m2": 0.0012733287691829365
+        },
+        {
+          "id": 1655,
+          "object": "CD | Joined Checkin Counter Hatch / plastic",
+          "component": 2,
+          "area_m2": 0.0012733212116971073
+        },
+        {
+          "id": 1628,
+          "object": "CD | Joined Checkin Counter Hatch / ivory",
+          "component": 1,
+          "area_m2": 0.0012879820532600583
+        }
+      ]
+    },
+    {
+      "owner": "Staff Desk Assembly",
+      "target": "Floor slab",
+      "components": 234,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "Ergonomic Swivel Chair",
+      "target": "Floor slab",
+      "components": 35,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "Person Scanner Arch",
+      "target": "Floor slab",
+      "components": 187,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "Cargo Inspection Conveyor",
+      "target": "Floor slab",
+      "components": 514,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "Covered Trolley H1",
+      "target": "Floor slab",
+      "components": 102,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "Evidence Cabinet H2",
+      "target": "Floor slab",
+      "components": 197,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "Parked Hand Cart",
+      "target": "Floor slab",
+      "components": 15,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "Wall Utilities Rack",
+      "target": "East perimeter wall",
+      "components": 107,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "Switchgear Console Unit",
+      "target": "Floor slab",
+      "components": 36,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "Transit Storage Stacks",
+      "target": "Floor slab",
+      "components": 10,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "CD | D1 identity plate",
+      "target": "D1 door leaf",
+      "components": 17,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "CD | D1 wall-mounted reader",
+      "target": "Office front wall mid",
+      "components": 12,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "CD | Stamping rubber pad",
+      "target": "CD | Counter linoleum inset",
+      "components": 13,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "CD | Counter cleaning cloth",
+      "target": "CD | Counter linoleum inset",
+      "components": 5,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "CD | Counter authority plaque",
+      "target": "Office front head lintel",
+      "components": 47,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "CD | Check-in task fixture",
+      "target": "Office front head lintel",
+      "components": 4,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "CD | D1 service junction",
+      "target": "Office front wall mid",
+      "components": 18,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "CD | Office file cabinet 0",
+      "target": "Floor slab",
+      "components": 21,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "CD | Office file cabinet 1",
+      "target": "Floor slab",
+      "components": 21,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "CD | Office coat stand",
+      "target": "Floor slab",
+      "components": 10,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "CD | Office key cabinet",
+      "target": "Office rear wall east",
+      "components": 20,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "CD | Warm Fluorescent SW suspended fixture",
+      "target": "Roof deck ceiling slab",
+      "components": 9,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "CD | Warm Fluorescent S-Mid suspended fixture",
+      "target": "Roof deck ceiling slab",
+      "components": 9,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "CD | Warm Fluorescent SE suspended fixture",
+      "target": "Roof deck ceiling slab",
+      "components": 9,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "CD | Office Task Fluorescent suspended fixture",
+      "target": "Roof deck ceiling slab",
+      "components": 9,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "CD | Office Rear Fluorescent suspended fixture",
+      "target": "Roof deck ceiling slab",
+      "components": 9,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "CD | Scanner Overhead Key suspended fixture",
+      "target": "Roof deck ceiling slab",
+      "components": 9,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "CD | Conveyor Hero Key suspended fixture",
+      "target": "Roof deck ceiling slab",
+      "components": 9,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "CD | Arrival Bay Key suspended fixture",
+      "target": "Roof deck ceiling slab",
+      "components": 9,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "CD | Bay Utility Key suspended fixture",
+      "target": "Roof deck ceiling slab",
+      "components": 9,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "CD | Support Concealed Accent suspended fixture",
+      "target": "Roof deck ceiling slab",
+      "components": 9,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "CD | Main ventilation supply trunk suspension",
+      "target": "Roof deck ceiling slab",
+      "components": 16,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "CD | Return ventilation trunk suspension",
+      "target": "Roof deck ceiling slab",
+      "components": 16,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "CD | Inspection face luminaire",
+      "target": "Roof deck ceiling slab",
+      "components": 8,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "CD | Custody transfer luminaire",
+      "target": "Roof deck ceiling slab",
+      "components": 8,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "CD | Check-in projecting locator",
+      "target": "Office front head lintel",
+      "components": 11,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "CD | Entry reverse locator",
+      "target": "P1 corridor ceiling",
+      "components": 2,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "CD | Faded duty poster",
+      "target": "South wall east",
+      "components": 49,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "CD | Arrival check-in cue",
+      "target": "Office east corner south",
+      "components": 16,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "CD | Unrelieved shift board",
+      "target": "Office rear wall east",
+      "components": 27,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "CD | Longitudinal tray suspended assembly",
+      "target": "Truss bot chord 2.2",
+      "components": 35,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "CD | P1 deep sign suspended assembly",
+      "target": "P1 corridor ceiling",
+      "components": 24,
+      "target_components": 1,
+      "unreachable": []
+    },
+    {
+      "owner": "CD | Removed maintenance chart anchors",
+      "target": "East perimeter wall",
+      "components": 4,
+      "target_components": 1,
+      "unreachable": []
+    }
+  ]
+}

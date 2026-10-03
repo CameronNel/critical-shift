@@ -1,0 +1,185 @@
+{
+  "review": "full-c09-story",
+  "cycle": 9,
+  "critic": "dock_c09_story",
+  "category_number": 7,
+  "category": "Purposeful worker traces and coercive institutional storytelling",
+  "score": 97.5,
+  "maximum": 100,
+  "deductions_total": 2.5,
+  "arithmetic": "100 - 1.5 - 1.0 = 97.5",
+  "category_threshold_strictly_greater_than_93": true,
+  "category_pass": true,
+  "overall_99_gate": "This is one independent category score, not an overall acceptance decision.",
+  "source_sha256": "6838d604ac4586da057a652e98e9c694f754a84e9f38ba70b83f1046e9ae6e9a",
+  "renderer_sha256": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce",
+  "evidence_audit": "full-c09-story-imageaudit.json",
+  "all35_ready_signal_received": true,
+  "originals_individually_opened_after_signal": {
+    "beauty": 27,
+    "neutral": 4,
+    "uv": 4,
+    "approved_spawn": 4
+  },
+  "critical_defects": [],
+  "visual_vetoes": [],
+  "summary": "A clearly controlled, staffed workplace with purposeful bureaucratic tools and a credible concealed medical/custody implication. The principal reassurance/blame contradiction and exhausted clerk are readable. Two secondary messages still rely on fine text the actual evidence does not communicate.",
+  "strengths": [
+    {
+      "views": [
+        "C01_ENTRY",
+        "C04_SCANNER_APPROACH",
+        "C06_CART_GATE_G1",
+        "PLAYER_REVERSE"
+      ],
+      "region": "Central scanner lane, physically closed adjacent bypass, painted route and glazed clerk office.",
+      "read": "Overt institutional sorting and surveillance are conveyed by placement and barriers before reading signs."
+    },
+    {
+      "views": [
+        "C02_HERO_DOCK",
+        "WALL_OFFICE_FRONT"
+      ],
+      "region": "Top of check-in façade.",
+      "read": "WE VALUE YOUR TIME is overt; ALL DELAYS ARE YOUR RESPONSIBILITY is discoverable and legible in the office-front original. The contradiction earns story credit."
+    },
+    {
+      "views": [
+        "C07_OFFICE_INTERIOR",
+        "WALL_OFFICE_FRONT"
+      ],
+      "region": "Named shift board, pulled-back chair and desk.",
+      "read": "M. VALE / 14 HOURS / NO RELIEF directly communicates overwork. The chair, mug, phone, keyboard and uneven paper placement support current human use."
+    },
+    {
+      "views": [
+        "C03_CHECKIN_COUNTER",
+        "DETAIL_CHECKIN"
+      ],
+      "region": "Working counter surface and recessed speaking grille.",
+      "read": "Stamp/pad, chained writing tool, form tray, clipboard and grille form a coherent compliance transaction, without arbitrary clutter. Small form wording is not credited."
+    },
+    {
+      "views": [
+        "C05_CONVEYOR_LEAD_TUNNEL",
+        "HERO_CARGO",
+        "HERO_EVIDENCE"
+      ],
+      "region": "Tagged crate, sealed closure and upper-right locker notice.",
+      "read": "Cargo custody is readable; DO NOT RELEASE on the locker note reinforces retained evidence. The matching custody identifier is a close-view discovery rather than an entry-view message."
+    },
+    {
+      "views": [
+        "C08_CONCEALED_SUPPORT_H1",
+        "HERO_TROLLEY",
+        "CORNER_SW",
+        "CORNER_SE"
+      ],
+      "region": "Screened trolley bay.",
+      "read": "IV pole, long covered stretcher, straps and proximity to locked storage support an unsettling medical/custody reading. No exact identity of the concealed contents is claimed."
+    },
+    {
+      "views": [
+        "HERO_UTILITIES",
+        "PLAYER_PINCH"
+      ],
+      "region": "Wrapped conduit, maintenance tag, worn service cabinet handles and neighbouring drums/cart.",
+      "read": "Specific maintenance and handling evidence supports an active institution under pressure. The repair is visually discoverable; fine maintenance wording is not required."
+    }
+  ],
+  "defects": [
+    {
+      "id": "CD-C09-STORY-01",
+      "severity": "minor",
+      "deduction": 1.5,
+      "title": "Trolley docket does not communicate a specific institutional status",
+      "views": [
+        {
+          "id": "HERO_TROLLEY",
+          "batch": "full-cycle-09",
+          "region_normalized": [
+            0.38,
+            0.67,
+            0.45,
+            0.8
+          ],
+          "description": "Small cream/yellow hanging docket beneath the near trolley end."
+        },
+        {
+          "id": "C08_CONCEALED_SUPPORT_H1",
+          "batch": "full-cycle-09",
+          "region_normalized": [
+            0.46,
+            0.9,
+            0.53,
+            1
+          ],
+          "description": "Docket mostly low in the frame."
+        }
+      ],
+      "observed": "A form and attached seal are visible, but the wording is too small and low to establish transfer conditions, authority or withheld release. The medical/concealment silhouette earns credit; any more specific docket message remains unearned.",
+      "repair": "Keep the existing docket and bay footprint. Lift or face the docket toward the near side rail and give its existing status line fewer, larger, darker words. Retain ambiguity about contents and keep the trolley fully covered; add no new sign cluster.",
+      "acceptance": "The same HERO_TROLLEY beauty should communicate one concrete status from the original 1067x600 image, without zoom, while the broader concealed-medical reading remains."
+    },
+    {
+      "id": "CD-C09-STORY-02",
+      "severity": "minor",
+      "deduction": 1,
+      "title": "South reassurance poster's second meaning is not discoverable in the evidence",
+      "views": [
+        {
+          "id": "PLAYER_REVERSE",
+          "batch": "full-cycle-09",
+          "region_normalized": [
+            0.246,
+            0.35,
+            0.31,
+            0.465
+          ],
+          "description": "Cream YOUR WORK MATTERS poster to the left of the exit."
+        },
+        {
+          "id": "WALL_SOUTH",
+          "batch": "full-cycle-09",
+          "region_normalized": [
+            0.23,
+            0.447,
+            0.292,
+            0.585
+          ],
+          "description": "Full poster in south elevation."
+        },
+        {
+          "id": "C10_ROOF_SERVICES",
+          "batch": "full-cycle-09",
+          "region_normalized": [
+            0.365,
+            0.9,
+            0.43,
+            1
+          ],
+          "description": "Poster near lower image edge."
+        }
+      ],
+      "observed": "The headline and factory pictogram communicate corporate reassurance. The subordinate text is only indistinct small strokes, so it cannot earn a coercive second meaning. This is a local weakness: the check-in façade already communicates the reassurance/blame contradiction successfully.",
+      "repair": "Within the existing poster, reduce subordinate wording and increase its letter height/contrast, or make the existing pictogram itself carry a restrained coercive implication. Preserve current sign count and quiet wall area; do not fill the surrounding negative space.",
+      "acceptance": "One existing fixed original view must reveal the subordinate meaning on close attention at native size, without assuming known wording."
+    }
+  ],
+  "negative_space_assessment": "Broad empty wall fields and circulation areas are deliberate quiet zones; they are not deducted as accidental blank space. Story clusters are concentrated at check-in, clerk desk, custody storage, trolley and repair area. Additional random props or labels would weaken restraint.",
+  "readability_policy": "Overt scanner/check-in/route story, close-view legible contradiction and no-relief board receive credit. Tiny form/docket/poster microtext receives no automatic semantic credit. Diagnostic images clarify physical assemblies, not a substitute narrative lighting pass.",
+  "limits": [
+    "Category 7 only. No aggregate score, runtime functionality, native geometry/support verification, cycle stability or cold-render approval is asserted.",
+    "No native Blender scene, build recipe or renderer code was inspected. Native/renderer/spawn files were read only for SHA256 identity.",
+    "Approved spawn references calibrate purposeful personal and work traces, not a requirement to copy their plants, props or layout.",
+    "Current beauty images alone establish the story judgment; neutral/UV images were each opened and audited but do not establish final beauty readability."
+  ],
+  "readers_released": true,
+  "release": "No Blender, native reader, recipe interpreter or render process was started. All hash readers and image decoders completed and closed. No held native/recipe readers or child processes remain.",
+  "changed_files": [
+    "full-c09-story.json",
+    "full-c09-story.md",
+    "full-c09-story-imageaudit.json"
+  ],
+  "no_source_edits": true
+}

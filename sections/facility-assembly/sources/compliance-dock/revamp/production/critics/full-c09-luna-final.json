@@ -1,0 +1,47 @@
+{
+  "review_id": "full-c09-luna-final-aggregate",
+  "visual_lock_path": "full-c09-luna-visual-locked.json",
+  "visual_lock_sha256": "701485857deef0fccd824edd562f1e4363b28a08835c0b03e56d4f68be2d4384",
+  "technical_evidence_path": "full-c09-technical.json",
+  "technical_category_score": 92.0,
+  "scores_by_category": [
+    91,
+    84,
+    91,
+    88,
+    86,
+    90,
+    87,
+    92.0
+  ],
+  "sum": 709,
+  "category_count": 8,
+  "exact_mean_fraction": "709/8",
+  "exact_mean_decimal": 88.625,
+  "mean_rounding": "none",
+  "critical_defect_union": [],
+  "veto_union": [],
+  "category_threshold": "strictly greater than 93/100 for every category",
+  "overall_threshold": 99,
+  "categories_over_93": 0,
+  "overall_status": "FAIL",
+  "unmet_gates": [
+    "Overall score 88.625 is below 99/100.",
+    "All seven visual categories are below the rubric minimum of strictly greater than 93/100.",
+    "Technical category 8 scores 92.00, below strictly greater than 93/100; destructive duct/truss and suspension/return-duct intersections remain (C09-T01/T02).",
+    "Transit pallet/pilaster overlap remains (C09-T03).",
+    "Full final-cycle cold-render pixel comparison and final-two-cycle stability remain owner gates, not certified by the technical review.",
+    "Factory recipe replay was not executed; reproducibility beyond inspected recipes and fresh native open is not independently established.",
+    "Runtime collision, navigation, gameplay and performance remain unmeasured."
+  ],
+  "visual_lock_unchanged": true,
+  "technical_critical_and_veto_findings": {
+    "critical": [],
+    "veto": []
+  },
+  "honest_limitations": [
+    "This aggregate combines seven independently locked pixel-based visual category scores with the fresh independent category 8 technical score.",
+    "No category score was modified to target the owner threshold.",
+    "Passing geometric support-contact checks do not resolve the destructive construction intersections reported by the technical critic."
+  ]
+}

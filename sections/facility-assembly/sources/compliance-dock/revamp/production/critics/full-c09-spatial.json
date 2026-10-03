@@ -1,0 +1,140 @@
+{
+  "review_id": "full-c09-spatial",
+  "independent": true,
+  "scope": "Categories 1 and 3 only; current pixels/spec, no earlier critic reports, prior scores, build recipes, repair plans or handoff narrative read.",
+  "source_sha256": "6838d604ac4586da057a652e98e9c694f754a84e9f38ba70b83f1046e9ae6e9a",
+  "scores": {
+    "1": {
+      "name": "Scale, layout and route readability",
+      "score": 97,
+      "starting_score": 100,
+      "deductions": [
+        {
+          "defect_id": "C09-SP-01",
+          "points": 2
+        },
+        {
+          "defect_id": "C09-SP-02",
+          "points": 1
+        }
+      ],
+      "per_category_gate_gt93": true
+    },
+    "3": {
+      "name": "Inspection/check-in hero hierarchy and functional composition",
+      "score": 96,
+      "starting_score": 100,
+      "deductions": [
+        {
+          "defect_id": "C09-SP-01",
+          "points": 3
+        },
+        {
+          "defect_id": "C09-SP-02",
+          "points": 1
+        }
+      ],
+      "per_category_gate_gt93": true
+    }
+  },
+  "defects": [
+    {
+      "id": "C09-SP-01",
+      "severity": "minor",
+      "title": "Check-in is readable when faced, but weakly announced from the straight inspection approach",
+      "deductions": {
+        "1": 2,
+        "3": 3
+      },
+      "witnesses": [
+        {
+          "view": "C01_ENTRY",
+          "region": "left 0\u201329% of frame, office glazing and wall; forward scanner center",
+          "observation": "The actual hatch is outside the image; the forward yellow route and scanner are immediately legible, but the office side presents glazing without a readable check-in invitation."
+        },
+        {
+          "view": "C02_HERO_DOCK",
+          "region": "left third, counter and broad reassurance panel above it",
+          "observation": "The hatch becomes clear in this offset wide view; the largest text says WE VALUE YOUR TIME rather than identifying the required check-in function."
+        },
+        {
+          "view": "PLAYER_REVERSE",
+          "region": "right third, office glazing",
+          "observation": "The return lane remains obvious, but the hatch is again absent from the forward view."
+        },
+        {
+          "view": "CORNER_SE",
+          "region": "left/front of cutaway, orange dashed branch toward counter",
+          "observation": "The small check-in floor branch is visible in the overhead audit; it does not provide comparable identification in the enclosed entry view."
+        }
+      ],
+      "impact": "A worker can understand the straight inspection lane faster than the lateral check-in stop. This is a modest wayfinding and co-hero hierarchy weakness, not a claim of a blocked route or a required runtime sequence.",
+      "repair": "Reorient or improve the existing office-side check-in cue so it is readable from the preserved straight approach. Give the current hatch identification a clearer value/shape relationship to the reassurance panel, or replace part of that panel with a concise functional cue. Keep the counter, wall, door, room boundaries and route reservations fixed; do not add a forest of signs."
+    },
+    {
+      "id": "C09-SP-02",
+      "severity": "minor",
+      "title": "Cart bypass depends on the shot label more than an in-world functional identifier",
+      "deductions": {
+        "1": 1,
+        "3": 1
+      },
+      "witnesses": [
+        {
+          "view": "C06_CART_GATE_G1",
+          "region": "center closed gate leaves; lower-left small control marked GATE; right mast dark upper plate",
+          "observation": "Manufactured gate leaves and controller are readable, but no comparably clear cart-only pictogram or function label identifies this adjacent lane at player distance. The bottom-left CART BYPASS text belongs to render evidence."
+        },
+        {
+          "view": "C01_ENTRY",
+          "region": "right half, adjacent closed gate and parallel yellow floor lane",
+          "observation": "The personnel arch has a strong explicit name; the neighboring lane shares yellow route grammar and does not communicate its distinct cart role as immediately."
+        },
+        {
+          "view": "HERO_SCANNER",
+          "region": "right of arch, gate leaves and tall mast",
+          "observation": "Worker inspection is clear, while the adjacent gated function needs inference from width and construction."
+        }
+      ],
+      "impact": "The broad gate is not confused with the scanner aperture, but the intended cart function and lane distinction take longer to read than the strongly named personnel lane.",
+      "repair": "Use a small restrained cart pictogram or concise cart identifier on an existing gate/mast face, paired with its control, keeping all gate geometry, aperture, footprint and lane reservations unchanged. Prefer replacing an existing blank or generic plate to adding new signage."
+    }
+  ],
+  "critical_defects": [],
+  "visual_vetoes_in_spatial_scope": [],
+  "overall_score": null,
+  "overall_99_gate": "Cannot evaluate with two categories. These scores are not an overall acceptance claim.",
+  "strengths": [
+    "The worker arch gives a clear forward landmark in entry, approach and reverse views.",
+    "Inspection lanes and quiet return space remain legible; the cutaways show a coherent separation of office, inspection, service and concealed support areas.",
+    "Human scale is credible from doors, chair, counter and trolley. No obvious spatial scale failure or visually blocked principal route was found.",
+    "The counter is specific and strongly readable in its front/detail views, and the cargo machine remains recognizable in the cargo heroes.",
+    "Wall elevations show quiet surfaces and clear openings rather than distracting secondary prop competition."
+  ],
+  "audit": "full-c09-spatial-imageaudit.json",
+  "evidence": {
+    "current_originals_opened_individually": 35,
+    "approved_references_opened_individually": 4,
+    "complete_manifests_verified": 3,
+    "all_current_decoded_sizes": [
+      1067,
+      600
+    ],
+    "reference_decoded_sizes": [
+      1280,
+      720
+    ],
+    "all_png_hashes_match": true,
+    "native_and_four_code_hashes_match": true,
+    "reference_current_native_hash_match": true,
+    "root_all35_confirmation_received": true
+  },
+  "limitations": [
+    "Pixel review does not measure exact world clearances, hinge sweeps, physical support contact, collision or navigation. Native/technical review owns those checks.",
+    "Covered trolley visually occludes parts of the evidence fronts in HERO_EVIDENCE/HERO_TROLLEY; the pixels alone do not establish an access collision, so no access-critical defect or score deduction is asserted.",
+    "Cutaways and elevation views are used to audit layout and wall construction, not to certify enclosed atmosphere.",
+    "Neutral and UV images were opened and compared for assembly placement and silhouette. Material, UV, lighting and broader art veto judgments remain with their independent specialists.",
+    "No earlier cycle was read, so stability across cycles and cold-render comparison are not certified here."
+  ],
+  "release": "All hash/decode file handles are closed. No Blender process or native/recipe-content reader was started. No native/recipe reader or process is retained. Source and recipes were not edited."
+}

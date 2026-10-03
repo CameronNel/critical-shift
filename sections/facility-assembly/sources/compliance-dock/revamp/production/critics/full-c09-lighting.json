@@ -1,0 +1,98 @@
+{
+  "review": "full-c09-lighting",
+  "role": "Independent category 5 lighting critic",
+  "category": 5,
+  "category_name": "Localized lighting, depth and bleak atmosphere without hiding geometry",
+  "score": 94.0,
+  "score_out_of": 100,
+  "deduction_total": 6.0,
+  "category_threshold": ">93",
+  "category_threshold_pass": true,
+  "critical_defects": 0,
+  "visual_vetoes": [],
+  "owner_99_overall_gate": "This category report cannot certify the eight-category average or owner acceptance. 94/100 is not near-flawless lighting.",
+  "verdict": "Category threshold passes narrowly; three localized lighting defects remain. No global flat-even-lighting or unreadable-silhouette veto.",
+  "source_sha256": "6838d604ac4586da057a652e98e9c694f754a84e9f38ba70b83f1046e9ae6e9a",
+  "renderer_sha256": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce",
+  "evidence_counts": {
+    "beauty_originals": 27,
+    "neutral_originals": 4,
+    "uv_originals": 4,
+    "approved_spawn_originals": 4,
+    "total_individually_opened": 39
+  },
+  "image_audit": "full-c09-lighting-imageaudit.json",
+  "defects": [
+    {
+      "id": "LGT-CARGO-LOWER-READABILITY",
+      "severity": "moderate",
+      "deduction": 2.5,
+      "critical": false,
+      "veto": false,
+      "views": [
+        "C05_CONVEYOR_LEAD_TUNNEL",
+        "HERO_CARGO"
+      ],
+      "region": "Lower right conveyor rails, rollers below crate, black underside framing, and right side of tunnel recess.",
+      "evidence": "The emitted tunnel strip separates the hanging panels, but the lower structural frame and rear recess compress into contiguous very dark values. Individual rails and roller ends are markedly easier to see in the matching neutral original. The crate silhouette remains readable, so this is loss of construction separation, not a hidden-geometry critical failure.",
+      "compatible_repair": "Rebalance the existing cargo practical or add a small physically motivated indirect fill aimed across the lower rollers and front support. Keep the tunnel recess dark and the inspection arch brighter. Preserve camera, machinery footprint, apertures and overall exposure; compare the cargo beauties against their neutral view after the local change."
+    },
+    {
+      "id": "LGT-SECONDARY-WARM-POOL-DOMINANCE",
+      "severity": "moderate",
+      "deduction": 2.5,
+      "critical": false,
+      "veto": false,
+      "views": [
+        "C07_OFFICE_INTERIOR",
+        "C08_CONCEALED_SUPPORT_H1",
+        "HERO_TROLLEY",
+        "HERO_EVIDENCE"
+      ],
+      "region": "Broad beige floor pools, warm wall behind trolley, sheet highlight mass, and dense desk/trolley underside shadow.",
+      "evidence": "The office and concealed-support bays have conspicuous broad warm washes and strong object shadows. In the trolley view the lit sheet and adjacent wall/floor dominate more than the subordinate evidence cabinet; in the office the warm floor mass is visually stronger than the small paperwork and controls. Lighting exposes the geometry but the warm, comfortable wash weakens the bleak atmosphere and is less restrained than the approved spawn recess lighting.",
+      "compatible_repair": "Reduce and constrain the existing office/support practical pools locally, soften their shadow transition by adjusting source area, and bias indirect fill modestly cooler. Retain readable fabric straps, casters, desk legs and evidence hardware. Keep the check-in task light warm so functional hierarchy survives; do not darken the entire room or remove the worker props."
+    },
+    {
+      "id": "LGT-NORTH-PLANE-SEPARATION",
+      "severity": "minor",
+      "deduction": 1.0,
+      "critical": false,
+      "veto": false,
+      "views": [
+        "C09_ARRIVAL_GATE_P2",
+        "PLAYER_PINCH",
+        "C01_ENTRY",
+        "C04_SCANNER_APPROACH"
+      ],
+      "region": "Arrival gate broad leaf faces, neighboring upper wall, and north-return service background.",
+      "evidence": "The north third is deliberately subdued and the scanner remains dominant, but the arrival gate broad faces and upper wall carry relatively diffuse, weakly directional illumination. At player height this creates less local depth than the stronger hatch/inspection zones. Door edges and route markings remain readable; no darkness veto applies.",
+      "compatible_repair": "Refine the existing north practical direction or shielding to introduce a restrained grazing gradient on one gate leaf/reveal while leaving the other face and secondary storage dimmer. Preserve the cooler scanner key and existing circulation contrast. Validate C09 and PLAYER_PINCH with the main entry and reverse views."
+    }
+  ],
+  "earned_strengths": [
+    "Enclosed C02/C03 views clearly localize the check-in practical to the counter and papers rather than evenly exposing the entire facade.",
+    "C01/C04/HERO_SCANNER establish a cooler inspection key; PLAYER_REVERSE retains the warmer distant route and darker ceiling, so depth survives both directions.",
+    "Ceiling fixtures visibly affect adjacent beams and walls in C10; dark roof cavities do not erase the major roof structure.",
+    "Contact shadows ground the gates, chair, trolley and counter. Important geometry remains visible in the actual beauties."
+  ],
+  "view_interpretation": "Lighting judgment comes from enclosed mandatory/player/hero originals. Corner and wall cutaways are coverage evidence with roof/walls temporarily hidden; their exposed machine roofs do not constitute an enclosed-player hierarchy defect. Neutral views replace lighting and UV views replace materials; neither diagnostic mode earns beauty lighting credit. Quiet circulation and walls support sightlines and are intentional negative space, not a reason to add clutter.",
+  "limitations": [
+    "Still-image lighting review only; no animation, runtime exposure, navigation, render performance or Unity lighting validation.",
+    "Native source and renderer were hashed only; no builder code, prior scores, repair plans or handoff narratives were read.",
+    "No physical light measurements or native lighting-node inspection; repairs are pixel-grounded art recommendations.",
+    "Approved copied spawn originals and their actual native source were verified; historical reference capture paths were not reopened.",
+    "No final-two-cycle stability or cold-render certification is provided by this independent current-cycle review."
+  ],
+  "files_written": [
+    "full-c09-lighting.json",
+    "full-c09-lighting.md",
+    "full-c09-lighting-imageaudit.json"
+  ],
+  "release": {
+    "all_readers_closed": true,
+    "no_native_scene_opened_or_saved": true,
+    "no_build_or_render_process_started": true,
+    "all_owned_processes_finished": true
+  }
+}
