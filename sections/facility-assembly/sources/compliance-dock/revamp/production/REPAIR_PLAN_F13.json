@@ -1,6 +1,6 @@
 {
   "revision": "f13",
-  "state": "RETRY RECIPES FROZEN; first build rejected before save; native remains f12",
+  "state": "SAVED f13; static checks pass; all35 current renders complete; fresh C7 review pending",
   "basis": "FULL_CYCLE_06.json, independent strict Luna exact73.875 FAIL; C06-T01/T02/T03 and VCRIT-01/02",
   "primary_author": "root",
   "recipe_sha256": {
@@ -31,18 +31,19 @@
     "proof": "Render prior exact f12 native using frozen f13 renderer; old C6 frames retained, no same-camera C6 regression/stability claim",
     "first_baseline": "renders/full-f12-f13-camera-baseline; complete27/sourcef12, first frozen renderer61ea;23decoded images match C6 exactly; all4rebased frames actually opened. C04 still cropped top, corrected before retry.",
     "preflight_02": "renders/full-f12-f13-camera-preflight-02; complete2 current C02/C04 actual f12 source frames individually opened; no source art improvement claim",
-    "final_baseline": "renders/full-f12-f13-camera-baseline-02; pending complete27 actual f12 renders under retry renderer"
+    "final_baseline": "renders/full-f12-f13-camera-baseline-02; complete27 exact f12 source/current renderer; all hashes verified; same-camera F12-to-F13 comparison PASS inventory, not visual acceptance"
   },
   "preflight": "probes/f13-luna-contact-preflight.json; evaluated f12 target surfaces and analytical proposed parts only, not saved f13 or art acceptance; captive fixing heads added after preflight",
   "validation": {
     "python_syntax": "PASS",
-    "canonical_native_build": "first attempt FAIL before save; retry pending",
-    "actual_finished_supports": "pending",
-    "planning_limits": "pending; rejected before native save if450000tri/1150sub/36families exceeded",
-    "pixels": "pending",
+    "canonical_native_build": "PASS on retry, --python-exit-code1; checkpoints/full-f13.blend exact",
+    "actual_finished_supports": "90 root interface guards PASS; fresh independent exhaustive technical audit pending",
+    "planning_limits": "385180 evaluated triangles /1149 material submeshes /36 local families PASS",
+    "pixels": "27 beauty+4 neutral+4 UV complete, all PNG hashes match; root individually opened all35+4 spawn originals; not art acceptance",
     "independent_full_review": "pending",
     "luna99": "pending",
-    "final_cold_pixels": "pending"
+    "final_cold_pixels": "pending",
+    "static": "7 PASS /0 errors /0 warnings /5 runtime properties unverified; explicit contracts/interface.json"
   },
   "constraints": "Protected map/original module/approved spawn/frozen input/interface;1077 inherited world poses; fixed boundaries/apertures/equipment footprints; root sole author; PR66 remains draft until independently earned gate; no merge/map promotion",
   "published_c6_commit": "6fe4fbec34f68bba672fbfaace2eeb4001dfd77c",
@@ -53,5 +54,7 @@
     "Opposing new central closure skins trim at X0 under original seal, removing prior hidden duplicated front patches.",
     "C02 viewpoint shows clerk and inspection sequence; C04 moves back to include actual header. Other25 view recipes unchanged from first f13 baseline."
   ],
-  "retry_probe": "probes/f13-retry-preflight/result.json and attempts.json; raw first flawed probe retained, corrected second measurements; isolated clones only, no full scene acceptance"
+  "retry_probe": "probes/f13-retry-preflight/result.json and attempts.json; raw first flawed probe retained, corrected second measurements; isolated clones only, no full scene acceptance",
+  "native_sha256": "22176ab474d914156cdf5a083571c19b04c6e6e11cfa50ab8ba681013bc124a6",
+  "failed_validation_invocation": "validation-full-f13-invocation-error.json: default stale interface path; preserved; corrected explicit contracts/interface.json invocation PASS"
 }
