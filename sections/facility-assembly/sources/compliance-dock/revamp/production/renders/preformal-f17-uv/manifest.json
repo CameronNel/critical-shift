@@ -1,0 +1,140 @@
+{
+  "source_sha256": "6838d604ac4586da057a652e98e9c694f754a84e9f38ba70b83f1046e9ae6e9a",
+  "renderer_sha256": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce",
+  "resolution": [
+    1067,
+    600
+  ],
+  "samples": 24,
+  "engine": "CYCLES",
+  "device": "CPU",
+  "seed": 8217,
+  "cold_open": false,
+  "adaptive_threshold": 0.06,
+  "adaptive_min_samples": 4,
+  "max_bounces": 6,
+  "diffuse_bounces": 3,
+  "glossy_bounces": 3,
+  "transmission_bounces": 6,
+  "view_transform": "AgX",
+  "look": "AgX - Medium High Contrast",
+  "exposure": 0.0,
+  "diagnostic": "uv",
+  "source_saved": false,
+  "label_method": "Temporary camera-attached emission geometry",
+  "complete": true,
+  "shots": [
+    {
+      "id": "C07_OFFICE_INTERIOR",
+      "label": "07 | STAFF OFFICE",
+      "group": "mandatory",
+      "inherited": "C07_OFFICE_INTERIOR",
+      "position": null,
+      "target": null,
+      "lens": 24,
+      "diagnostic_lights": [
+        {
+          "location": [
+            -6.0,
+            4.199999809265137,
+            2.299999952316284
+          ],
+          "matrix_world": [
+            [
+              0.8191520571708679,
+              0.22838158905506134,
+              -0.5261480808258057,
+              -6.0
+            ],
+            [
+              -0.5735764503479004,
+              0.32616281509399414,
+              -0.7514172792434692,
+              4.199999809265137
+            ],
+            [
+              7.612113961386058e-08,
+              0.9173111319541931,
+              0.39817124605178833,
+              2.299999952316284
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "watts": 90.0,
+          "size_m": 2.200000047683716
+        },
+        {
+          "location": [
+            -3.866872549057007,
+            6.953754901885986,
+            2.376265287399292
+          ],
+          "matrix_world": [
+            [
+              -0.6139403581619263,
+              -0.7271736264228821,
+              0.307076096534729,
+              -3.866872549057007
+            ],
+            [
+              0.7893524169921875,
+              -0.5655791163444519,
+              0.23883682489395142,
+              6.953754901885986
+            ],
+            [
+              -2.2030910429293726e-08,
+              0.3890228271484375,
+              0.9212281107902527,
+              2.376265287399292
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "watts": 30.0,
+          "size_m": 2.200000047683716
+        }
+      ],
+      "camera_matrix_world": [
+        [
+          0.8191520571708679,
+          0.11925322562456131,
+          -0.5610424280166626,
+          -6.0
+        ],
+        [
+          -0.5735764503479004,
+          0.17031125724315643,
+          -0.8012515902519226,
+          4.199999809265137
+        ],
+        [
+          0.0,
+          0.9781476259231567,
+          0.2079116553068161,
+          1.649999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 28.0,
+      "projection": "PERSP",
+      "image_sha256": "7d4b6921847920194f398e3cfce11d069122af061966e87dedeabb0db3e7f4ca",
+      "temporary_hidden_geometry": []
+    }
+  ],
+  "requested_view_count": 1
+}
