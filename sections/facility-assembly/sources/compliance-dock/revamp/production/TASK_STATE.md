@@ -1,3 +1,9 @@
+# Current checkpoint — full cycle06 completed, repairs pending
+
+F12 native73b85e9a84b577d2059a07371abd366666536800eb45c9e56a7d7788a21b77a3. Luna exact73.875FAIL/3critical union, all35+4images/root/sixfresh critics complete and released. Source-only GitHubcold proofPASS; finalstability/coldpixels/runtime unverified. Six complete cycles. Root must repair measured C06T01notice/C06T02scanner/C06T03guide-shoe defects and dominantmanufacture/readability/finish/work-context. Protected1077poses/layout preserved;PR66DRAFT/no merge/promotion. FULL_CYCLE_06.json authoritative complete review.
+
+## Recorded earlier history
+
 # Current checkpoint — f12 saved, acceptance pending
 
 Native73b85e9a84b577d2059a07371abd366666536800eb45c9e56a7d7788a21b77a3;1327objects/383496tri/1149submesh/36families. Canonical exit0,22actual interface guards, static7PASS/0warnings/5unverified. Fresh technical critic and preformal5views running. Latest independent full review remains C5Luna74FAIL; owner99 and final stability/cold pixels remain unmet. PR66DRAFT, no merge/promotion. Current recipes/native frozen; root sole author.

@@ -1,0 +1,73 @@
+{
+  "cycle": "full-cycle-06",
+  "native_revision": "f12",
+  "source_sha256": "73b85e9a84b577d2059a07371abd366666536800eb45c9e56a7d7788a21b77a3",
+  "complete_rendered_and_reviewed_views": 27,
+  "diagnostic_views": 8,
+  "critics": {
+    "spatial": {
+      "report": "critics/full-c06-spatial.json",
+      "sha256": "3d303bee7d6401b56d7a725881d13ec1e70e1110af6ce894ccb7b351f5661864"
+    },
+    "materials": {
+      "report": "critics/full-c06-materials.json",
+      "sha256": "47a9d2f1c836c9d53d8eaf1ad755678ca7da14221047e6708722ef21f3e30e90"
+    },
+    "lighting": {
+      "report": "critics/full-c06-lighting.json",
+      "sha256": "5c14068d6709729a9a8f015c3e05fe2485444163008debbc807aa3a61aa9cca9"
+    },
+    "story": {
+      "report": "critics/full-c06-story.json",
+      "sha256": "e180ad6df4b4e52a196448806f210ec9040d2b5f777e77da30aeee557aaff232"
+    },
+    "technical": {
+      "report": "critics/full-c06-technical.json",
+      "sha256": "df5937f70f093df8d07f70be3befab9a702fcea64f620cf03bb1afb90ac0644d"
+    },
+    "luna": {
+      "report": "critics/full-c06-luna-visual.json",
+      "sha256": "1d9ed990078f4f8d00d058d8950d3ef5b7e96cdf974f1d7a241aa8c88e76377b"
+    }
+  },
+  "per_category_conservative_scores": {
+    "1": 76,
+    "2": 67,
+    "3": 72,
+    "4": 69,
+    "5": 64,
+    "6": 84,
+    "7": 73,
+    "8": 86
+  },
+  "aggregation": "Minimum discipline and independently locked Luna visual scores; fresh technical8 supplied only after lock. All scores/reports retained.",
+  "luna_overall_score": 73.875,
+  "luna_exact_mean": "591/8",
+  "owner_pass_minimum": 99,
+  "verdict": "FAIL",
+  "critical_defect_count": 3,
+  "critical_union": [
+    "VCRIT-01",
+    "VCRIT-02",
+    "C06-T01"
+  ],
+  "full_room_accepted": false,
+  "completed_full_cycles": 6,
+  "final_two_materially_stable": false,
+  "cold_github_source_open_pass": true,
+  "cold_github_source_open_commit": "3f8d2bdd361466ac1e52d42ee1e44eaf9e95f58e",
+  "cold_render_equivalence_verified": false,
+  "source_consumers_released": true,
+  "root_pixel_inspection": "pixel-inspection-full-c06.json",
+  "regression_comparison": "compare-c05-c06.json FAIL4wall hide-name changes; actual27camera transforms/settings equal, explanation retained",
+  "remaining_defects": [
+    "VCRIT-01 repeated dominant box/bevel language",
+    "VCRIT-02 player-height visual route/sightline obstruction (spatial critic disagrees; both reports preserved)",
+    "C06-T01 unsupported reassurance notice25.079956mm from actual backing",
+    "C06-T02 four detached scanner rear rails8.246mm separation, adjacentseams6.5mm",
+    "C06-T03 four exposed P2 guide-shoe/closure coplanar patches.008188m2each",
+    "Minor material/light/work-context deductions retained in each independent report"
+  ],
+  "runtime_verified": false,
+  "completed_utc": "2026-10-03T03:10:01.804938+00:00"
+}

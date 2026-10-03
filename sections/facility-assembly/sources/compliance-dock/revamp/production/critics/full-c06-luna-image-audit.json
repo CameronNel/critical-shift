@@ -1,0 +1,44 @@
+{
+  "reviewer": "GPT-6 Luna independent visual critic",
+  "cycle": "full-cycle-06",
+  "status": "visual_scores_locked_before_technical_report",
+  "evidence": {
+    "beauty_images": 27,
+    "uv_standard_images": 4,
+    "neutral_images": 4,
+    "spawn_reference_images": 4,
+    "all_cycle_images_opened_individually_at_original_detail": true,
+    "manifests_complete": true,
+    "manifest_shots": {
+      "full-cycle-06": 27,
+      "full-cycle-06-uv-standard": 4,
+      "full-cycle-06-neutral": 4
+    },
+    "png_hashes_match_manifests": true,
+    "source_sha256": "73b85e9a84b577d2059a07371abd366666536800eb45c9e56a7d7788a21b77a3",
+    "source_sha256_match": true,
+    "source_file": "production/checkpoints/full-f12.blend",
+    "renderer_sha256": "9993f999e0eddef5d3c106591728c665647cc49364e44199253780cb9bc89c57",
+    "renderer_sha256_match": true,
+    "spawn_reference_sha256": {
+      "BRIEFING_INDIRECT.png": "8d03448f84845b16705c6acc3324364a4e0a51f36c34355f4c481e8957aef301",
+      "VALIDATE_LockerDoor.png": "b8fd309f91cc15bfe6d183a253b81ba0f20a0033e08c63214c127e07e19879de",
+      "VALIDATE_Material_A.png": "47d3892f69b4b244bcbff32908a6445556c182b2090aba11b22be1fe274253f6",
+      "VALIDATE_Spawn.png": "c84f368729c7e3ae1e6f1005ff5daae39020749316545bd208c972cee5b4e9ed"
+    }
+  },
+  "visual_scores": {
+    "1_scale_layout_route_readability": 76,
+    "2_grounded_stylized_shape_language": 67,
+    "3_inspection_checkin_hero_hierarchy": 72,
+    "4_material_identity_uv_discipline": 69,
+    "5_lighting_depth_atmosphere": 64,
+    "6_spawn_colour_coherence": 84,
+    "7_worker_traces_coercive_storytelling": 73
+  },
+  "visual_subtotal": 505,
+  "visual_mean_exact": "505/7",
+  "visual_mean_decimal": 72.14285714285714,
+  "visual_critical_count": 2,
+  "visual_gate": "FAIL"
+}

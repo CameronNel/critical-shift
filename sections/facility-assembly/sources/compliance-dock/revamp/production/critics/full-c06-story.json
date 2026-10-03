@@ -1,0 +1,99 @@
+{
+  "cycle": "06",
+  "reviewer": "dock_c06_story",
+  "category_number": 7,
+  "category": "Purposeful worker traces and coercive institutional storytelling",
+  "score": 96,
+  "strict_category_threshold": 93,
+  "category_gate_pass": true,
+  "critical_defects": [],
+  "critical_count": 0,
+  "overall_99_gate": "Not evaluated by this single-category critic; category score must not be substituted for room overall score.",
+  "source_sha256": "73b85e9a84b577d2059a07371abd366666536800eb45c9e56a7d7788a21b77a3",
+  "renderer_sha256": "9993f999e0eddef5d3c106591728c665647cc49364e44199253780cb9bc89c57",
+  "evidence": {
+    "beauty_count": 27,
+    "uv_standard_count": 4,
+    "neutral_count": 4,
+    "spawn_reference_count": 4,
+    "all_individually_opened_original": true,
+    "all_manifest_complete": true,
+    "all_current_source_renderer_and_png_hashes_match": true,
+    "spawn_png_provenance_matches": true
+  },
+  "allowed_authorities": [
+    "design/ART_DIRECTION.md",
+    "design/ART_REFERENCE_INDEX.md",
+    "design/AUTONOMOUS_SECTION_BUILD_PROTOCOL.md",
+    "sections/facility-assembly/sources/compliance-dock/revamp/scenery/OVERHAUL_BRIEF.md",
+    "sections/facility-assembly/sources/compliance-dock/revamp/production/RUBRIC.md",
+    "design/GAME_SPEC.md sections 3.5-3.6,14.1-14.3,23"
+  ],
+  "independence": "No authoring code, previous critic reports/scores, HANDOFF, TASK_STATE, repair rationale or generated concepts read. Entry AGENTS.md and required headless visual-QA skill read for repository rules.",
+  "strengths": [
+    {
+      "views": [
+        "C03_CHECKIN_COUNTER",
+        "DETAIL_CHECKIN",
+        "C07_OFFICE_INTERIOR"
+      ],
+      "finding": "The stamp and ink pad, tethered pen, PROCESSED tray, working clipboard, phone, mug, displaced chair and loose desk paperwork create coherent interrupted clerical work. Every object belongs to the station."
+    },
+    {
+      "views": [
+        "WALL_OFFICE_FRONT",
+        "C03_CHECKIN_COUNTER",
+        "C01_ENTRY",
+        "PLAYER_REVERSE"
+      ],
+      "finding": "WE VALUE YOUR TIME / ALL DELAYS ARE YOUR RESPONSIBILITY is explicit, readable contradictory reassurance. STATE YOUR NUMBER, physical grille, glazing, biometric gateway and restricted staff access reinforce the same coercive institution through placement and construction."
+    },
+    {
+      "views": [
+        "C05_CONVEYOR_LEAD_TUNNEL",
+        "HERO_CARGO",
+        "HERO_EVIDENCE",
+        "HERO_TROLLEY"
+      ],
+      "finding": "CUSTODY 731-A cargo and the matching DO NOT RELEASE hold tag connect sealed transport to secured evidence storage. Covered strapped transfer trolley in separated bay implies controlled transfer with restrained ambiguity."
+    },
+    {
+      "views": [
+        "CORNER_SW",
+        "CORNER_SE",
+        "CORNER_NW",
+        "CORNER_NE",
+        "PLAYER_PINCH",
+        "WALL_EAST"
+      ],
+      "finding": "Dressing is clustered around workstations, transfer/storage and services. Quiet walls, clean route clearance and parked flatbed are deliberate functional negative space. No arbitrary filler credit or blank-area penalty."
+    }
+  ],
+  "deductions": [
+    {
+      "points": 2,
+      "views": [
+        "C07_OFFICE_INTERIOR",
+        "DETAIL_CHECKIN"
+      ],
+      "finding": "Worker presence is credible but predominantly anonymous and neatly staged. The paper/phone/mug/chair cluster establishes routine processing more clearly than a particular interrupted decision or individual worker. It lacks the quiet personal specificity of the approved spawn's photograph, clothing and ordinary belongings.",
+      "improvement": "Strengthen one existing desk/form relationship so a specific unfinished task reads from the fixed office view; keep the current restrained density."
+    },
+    {
+      "points": 2,
+      "views": [
+        "HERO_UTILITIES",
+        "WALL_EAST",
+        "WALL_NORTH"
+      ],
+      "finding": "Maintenance exists as a hanging tag, banded conduit and localized handling wear, but the institution deteriorating under pressure is less specific than the custody/check-in story. The tag wording is too small to establish an actual repair status, and most operational equipment remains orderly.",
+      "improvement": "Make one existing maintenance/hold cue convey an intelligible local consequence through placement and readable status, without spreading wear or adding unrelated clutter."
+    }
+  ],
+  "vetoes": "No category-7 visual veto or critical defect observed. Other disciplines retain independent veto authority.",
+  "limitations": [
+    "Covered form is not asserted to contain a body or casualty.",
+    "UV and neutral diagnostics corroborate assemblies; checker density earns no storytelling points.",
+    "Runtime interaction, geometry support checks and final-cycle regression/cold-start acceptance are outside this visual category."
+  ]
+}

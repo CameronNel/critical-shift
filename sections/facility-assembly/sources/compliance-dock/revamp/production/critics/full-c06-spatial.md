@@ -1,0 +1,15 @@
+# Formal cycle 06 — independent spatial/composition review
+
+Category 1, scale/layout/route readability: **96/100**. Category 3, inspection/check-in hierarchy: **95/100**. Both exceed the strict >93 category gate. **Zero critical spatial/composition defects observed.** No scoped visual veto is established. Even if the other six categories scored 100, the eight-category mean would be **98.875**, below the owner's 99/100 gate. The other six categories are outside this review.
+
+All 27 current beauty images, four UV-standard diagnostics, four neutral diagnostics and four approved spawn references were opened individually with `view_image` at original resolution. The three current manifests are complete; all 35 PNGs decode at 1067 × 600 and their actual SHA256 values match the manifests. All four spawn PNG hashes match their provenance. Hash-only verification confirms native `73b85e9a84b577d2059a07371abd366666536800eb45c9e56a7d7788a21b77a3` and renderer `9993f999e0eddef5d3c106591728c665647cc49364e44199253780cb9bc89c57`. Source and renderer code were not opened.
+
+The room has coherent adult-scale relationships, broad open floor, distinct office/support zones and recognizable worker and cargo inspection apparatus. Four corner cutaways show the principal equipment grouped centrally and secondary equipment at the perimeter. PLAYER_REVERSE and PLAYER_PINCH preserve clear movement openings. The counter itself is specific and functionally legible in C03, DETAIL_CHECKIN and WALL_OFFICE_FRONT.
+
+Category 1 deductions: two points because the hatch is poorly exposed from C01/C02, where the visible administrative element is the glazing flank; reaching the service point requires a turn that the fixed entry composition guides weakly. Two points because the check-in spur and through-routes share the same yellow dashed grammar: topology reads clearly in CORNER_SE/CORNER_SW, but operation order and worker/cart distinction are weaker at first approach.
+
+Category 3 deductions: three points because the counter does not visibly co-lead C01/C02/PLAYER_REVERSE despite its strong dedicated views; scanner and office glazing dominate those movement compositions. Two points because the darker cargo housing/supports and adjacent barrier compress into a secondary mass in C02/C05/HERO_CARGO. The custody case and lit curtain opening remain clear, while machine construction separates less immediately at approach distance.
+
+No exact clearance, collision, navigation, support-contact or runtime claims are inferred from pixels. Cabinet/trolley adjacency is close in HERO_TROLLEY/HERO_EVIDENCE, but the images do not establish a critical obstruction. Source/recipe files were untouched. No old reports/scores, builder reasoning, repair plans, HANDOFF or TASK_STATE were read.
+
+The parent completion notification was received before finalizing. Detailed per-image observations and actual hashes are in `full-c06-spatial-image-audit.json`; structured scores and deductions are in `full-c06-spatial.json`. **All handles released; no persistent image, file or process handles remain owned by this critic.**

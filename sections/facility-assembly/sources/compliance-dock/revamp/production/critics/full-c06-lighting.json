@@ -1,0 +1,154 @@
+{
+  "critic": "independent cycle06 lighting critic",
+  "category": 5,
+  "category_name": "Localized lighting, depth and bleak atmosphere without hiding geometry",
+  "cycle": 6,
+  "score": 96,
+  "critical_defects": 0,
+  "visual_vetoes": [],
+  "threshold": {
+    "category_strictly_greater_than": 93,
+    "zero_critical": true
+  },
+  "category_gate_pass": true,
+  "overall_99_gate_assessed": false,
+  "source_sha256": "73b85e9a84b577d2059a07371abd366666536800eb45c9e56a7d7788a21b77a3",
+  "renderer_sha256": "9993f999e0eddef5d3c106591728c665647cc49364e44199253780cb9bc89c57",
+  "evidence_scope": {
+    "beauty": 27,
+    "uv_standard": 4,
+    "neutral": 4,
+    "spawn_references": 4,
+    "each_opened_individually": true,
+    "view_image_detail": "original",
+    "old_reports_or_scores_read": false,
+    "code_or_native_graphs_read": false,
+    "source_renderer_hash_only": true
+  },
+  "strengths": [
+    {
+      "evidence": [
+        "C01_ENTRY",
+        "C02_HERO_DOCK",
+        "HERO_SCANNER",
+        "PLAYER_REVERSE"
+      ],
+      "finding": "The worker arch has a readable cool key zone, grounded floor shadows and a darker terminal gate and ceiling. Forward and reverse geometry remain clear."
+    },
+    {
+      "evidence": [
+        "C03_CHECKIN_COUNTER",
+        "DETAIL_CHECKIN",
+        "WALL_OFFICE_FRONT",
+        "C07_OFFICE_INTERIOR"
+      ],
+      "finding": "Warm localized hatch and office light makes task props readable, while darker apron and underdesk values preserve working-zone depth."
+    },
+    {
+      "evidence": [
+        "C05_CONVEYOR_LEAD_TUNNEL",
+        "HERO_CARGO",
+        "HERO_TROLLEY"
+      ],
+      "finding": "Cargo curtain/rollers respond visibly to their strip; trolley cloth is sculpted by a separate warm pool with rail/wheel contact shadows."
+    },
+    {
+      "evidence": [
+        "C10_ROOF_SERVICES",
+        "CORNER_SW",
+        "CORNER_SE",
+        "CORNER_NW",
+        "CORNER_NE",
+        "WALL_SOUTH",
+        "WALL_NORTH",
+        "WALL_EAST",
+        "WALL_WEST"
+      ],
+      "finding": "The room has readable practical falloff, darker secondary structure and separated pools. Bleak institutional restraint is sustained without dominant flat even exposure or excessive emissive glow."
+    }
+  ],
+  "deductions": [
+    {
+      "id": "L06-01",
+      "points": 2,
+      "severity": "minor",
+      "evidence": [
+        "full-cycle-06/HERO_UTILITIES.png",
+        "full-cycle-06/PLAYER_PINCH.png",
+        "full-cycle-06-neutral/HERO_UTILITIES.png"
+      ],
+      "finding": "Dark vertical conduits and mounts compress against the black backing; the neutral render separates their routing and construction distinctly. Main boxes and upper pipe bends remain readable.",
+      "recommendation": "Introduce restrained local reflected or edge light on the dark conduit runs while retaining the dim service-wall hierarchy."
+    },
+    {
+      "id": "L06-02",
+      "points": 1.5,
+      "severity": "minor",
+      "evidence": [
+        "full-cycle-06/C05_CONVEYOR_LEAD_TUNNEL.png",
+        "full-cycle-06/HERO_CARGO.png",
+        "full-cycle-06-neutral/C05_CONVEYOR_LEAD_TUNNEL.png"
+      ],
+      "finding": "Lower conveyor supports and portions of the front/side frame merge in near-black values. Neutral reveals more construction. The curtain, crate, rollers and primary silhouette remain readable.",
+      "recommendation": "Separate adjacent dark frame/rail planes with a small amount of controlled fill rather than raising whole-room exposure."
+    },
+    {
+      "id": "L06-03",
+      "points": 0.5,
+      "severity": "minor",
+      "evidence": [
+        "full-cycle-06/HERO_EVIDENCE.png",
+        "full-cycle-06/C07_OFFICE_INTERIOR.png",
+        "full-cycle-06/HERO_TROLLEY.png",
+        "full-cycle-06-neutral/HERO_TROLLEY.png"
+      ],
+      "finding": "Cabinet outer surrounds, the small office wall cabinet and far trolley support retain limited tonal separation. The readable doors and main supported forms prevent this from becoming a geometry-hiding veto.",
+      "recommendation": "Preserve low secondary values while adding just enough local plane separation to retain support and reveal detail."
+    }
+  ],
+  "conclusion": "Category 5 earns 96/100 and passes the strict >93 and zero-critical category gates. It does not earn 99: localized shadow compression still suppresses specific construction details. This review does not certify overall acceptance, native technical checks, regression stability or runtime lighting.",
+  "handles_released": true,
+  "provenance": {
+    "batches": [
+      {
+        "directory": "full-cycle-06",
+        "manifest_sha256": "814d2a07b701ce85baa46fc66c3eebf46d7fa3893ec43a5fa20ccd0b88690e01",
+        "complete": true,
+        "expected_count": 27,
+        "actual_count": 27,
+        "all_png_hashes_and_dimensions_match": true,
+        "source_matches": true,
+        "renderer_matches": true,
+        "diagnostic": null
+      },
+      {
+        "directory": "full-cycle-06-uv-standard",
+        "manifest_sha256": "09b3679e78957fcf3d0e9342959d0c0d028f6fb3209230c736140df80266facd",
+        "complete": true,
+        "expected_count": 4,
+        "actual_count": 4,
+        "all_png_hashes_and_dimensions_match": true,
+        "source_matches": true,
+        "renderer_matches": true,
+        "diagnostic": "uv"
+      },
+      {
+        "directory": "full-cycle-06-neutral",
+        "manifest_sha256": "ed1ca29f25f8181ebc024d61552bd407c97fa6fdcac59c8d52957758f6ba3e14",
+        "complete": true,
+        "expected_count": 4,
+        "actual_count": 4,
+        "all_png_hashes_and_dimensions_match": true,
+        "source_matches": true,
+        "renderer_matches": true,
+        "diagnostic": "neutral"
+      }
+    ],
+    "current_source_hash": "73b85e9a84b577d2059a07371abd366666536800eb45c9e56a7d7788a21b77a3",
+    "current_renderer_hash": "9993f999e0eddef5d3c106591728c665647cc49364e44199253780cb9bc89c57",
+    "spawn_provenance_sha256": "d04251c153c364e6ad5745caa704caf147f42dc64e181a5744f91de344174a2d",
+    "all_spawn_png_hashes_match": true,
+    "spawn_source_hash_recorded_in_provenance": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+    "spawn_source_native_independently_hashed": false
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "encoding": "gzip, immutable decoded original JSON bytes",
+  "payloads": [
+    {
+      "original": "evaluated-surfaces.json",
+      "compressed": "evaluated-surfaces.json.gz",
+      "decoded_sha256": "ded7bd75269f43175c1b8a393fae395d40f93423cbea87a615563e8821ef078c",
+      "decoded_bytes": 23481883,
+      "compressed_sha256": "98ddefd0665dfd79f3e06e5f12a360dc889ae6ffff811a9728515133941eefd9"
+    },
+    {
+      "original": "fixings-independent.json",
+      "compressed": "fixings-independent.json.gz",
+      "decoded_sha256": "2c74c55abbb9e46bfc211fd83d4e2a8a97c35086ec6e3eab6b384bb3d2ab742d",
+      "decoded_bytes": 2317629,
+      "compressed_sha256": "3fae1cf9e83bf3c883e2eac535c3e892df821caa607f417662df49f1e75addef"
+    },
+    {
+      "original": "native-independent.json",
+      "compressed": "native-independent.json.gz",
+      "decoded_sha256": "52a480deafe051590e3823e7f28e20adf4cd31dfa1c7d4f4c9b36a01ff937f57",
+      "decoded_bytes": 2830596,
+      "compressed_sha256": "e75f111a87231937351fa72a5fa307bf483695dc7f4cc10e9ef3cbaf4b5e1969"
+    },
+    {
+      "original": "surface-independent.json",
+      "compressed": "surface-independent.json.gz",
+      "decoded_sha256": "efe76cf55d5368a57630d4131629616e6c0715f8c130ceade6ea7907f155812f",
+      "decoded_bytes": 9591461,
+      "compressed_sha256": "66fe42408d6eba943e228dc1be0ab865ddc9bc624cac0f140a65f0d12919c6c3"
+    },
+    {
+      "original": "validator-independent.json",
+      "compressed": "validator-independent.json.gz",
+      "decoded_sha256": "3dab27864eae0d5a033684aa3633c071553ecaffbf65c58a96e98082d0ae48d7",
+      "decoded_bytes": 1378956,
+      "compressed_sha256": "04f2ca85e96011a174f93c5c9f88b64e6b278c7cfa7f40147177bf38ad0193b5"
+    }
+  ]
+}
