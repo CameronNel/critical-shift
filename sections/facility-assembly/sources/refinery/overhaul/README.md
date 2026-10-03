@@ -25,3 +25,5 @@ For the separate original-source rebuild, append `coldstart` to the build argume
 `blender/build_context_preview.py` loads the actual current map and a checkpoint, copies nearby geometry, places the candidate at LAYOUT_A12 and writes a separate review-only wrapper. Its lights are only the candidate's physical fixtures. `blender/validate_context_preview.py` compares visible candidate placements. Earlier R08/R10 wrappers document real connected geometry; they are not the final authoring checkpoint or a promoted map cache.
 
 Original module, registry, assembled map, exterior and frozen provenance remain preserved. Repository review and later promotion are pending; no merge was performed.
+
+Repository delivery: local asset commit `7e57984` is complete. GitHub upload is blocked by the LFS batch service (`Maximum number of login attempts exceeded. Please try again later.`). No remote branch/PR publication, merge or promotion is claimed. The accepted local source and all evidence are available; retry authenticated LFS upload after the service restriction clears.
