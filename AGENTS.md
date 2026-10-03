@@ -46,7 +46,9 @@ It extends the shared headless workflow; static tasks do not need it.
 
 Load only the specialist needed by the current task:
 - [UV and materials](.agents/skills/blender-uv-texturing/SKILL.md) for UVs,
-  atlases, decals, texture maps and baking, alongside the headless skill.
+  atlases, decals, texture maps and final-step baking, alongside the headless skill.
+  Baking lighting (lightmaps, baked shadows/AO) is the last step: author geometry,
+  materials and live lighting first; bake only after they are accepted, in a separate derivative.
 - [Game asset delivery](.agents/skills/game-asset-pipeline/SKILL.md) for scoped
   exports, round-trip checks, colliders, LODs and runtime binding evidence.
 - [Unity validation](.agents/skills/unity-validation/SKILL.md) for runtime

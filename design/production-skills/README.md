@@ -9,7 +9,7 @@ rules remain authoritative. Small tasks retain artistic and implementation auton
 
 | Skill | Purpose | Does not do |
 | --- | --- | --- |
-| [blender-uv-texturing](../../.agents/skills/blender-uv-texturing/SKILL.md) | UVs, atlases, decals, map semantics and baking QA | Replace the art style or install a texture service |
+| [blender-uv-texturing](../../.agents/skills/blender-uv-texturing/SKILL.md) | UVs, atlases, decals, map semantics and final-step baking QA (baking comes last, after geometry, materials and live lighting are accepted) | Replace the art style or install a texture service |
 | [game-asset-pipeline](../../.agents/skills/game-asset-pipeline/SKILL.md) | Scoped export, re-import, binding, collider and LOD checks | Promote the map, invent budgets or install importers |
 | [unity-validation](../../.agents/skills/unity-validation/SKILL.md) | Current offline/native tooling and evidence-based profiling | Create Unity projects, upgrade packages or claim gate completion |
 
