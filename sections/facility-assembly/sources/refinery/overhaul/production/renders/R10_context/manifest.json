@@ -114,6 +114,19 @@
       "seconds": 92.72398244800024
     }
   ],
-  "complete": true,
-  "source_unchanged": true
+  "complete": false,
+  "source_unchanged": true,
+  "required_cameras": [
+    "CAM_ENTRY",
+    "CAM_MAIN_ROUTE",
+    "CAM_PROCESS",
+    "CAM_REVERSE",
+    "CAM_PINCH",
+    "CAM_MATERIAL",
+    "CAM_ASSEMBLY",
+    "CAM_DISPATCH",
+    "CAM_MINE_TO_CRUSHER",
+    "CAM_WORK_NOOK",
+    "CAM_HERO_DETAIL"
+  ]
 }
