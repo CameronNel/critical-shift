@@ -1,6 +1,6 @@
 {
   "revision": "f12",
-  "state": "CANONICAL BUILD IN PROGRESS; current saved native remains f11 until successful save",
+  "state": "NATIVE SAVED; static checks and pixels pending; no acceptance",
   "basis": "FULL_CYCLE_05.json; strict Luna74 FAIL plus actual G1-01 native measurements",
   "primary_author": "root",
   "recipe_sha256": {
@@ -21,9 +21,9 @@
   ],
   "validation": {
     "python_syntax": "PASS",
-    "canonical_native_build": "pending",
-    "static_support_geometry": "pending",
-    "triangles_submesh_families": "pending",
+    "canonical_native_build": "PASS",
+    "static_support_geometry": "PASS7checks/0warnings/5unverified; independent measurement pending",
+    "triangles_submesh_families": "PASS383496/1149/36",
     "actual_pixels": "pending",
     "independent_review": "pending",
     "luna99": "pending",
@@ -39,5 +39,11 @@
     "Service panels reshaped/recessed within clear stiffener bays Y7.05/8.15, avoiding an inherited rib overlap while remaining on existing shield.",
     "New paper queue bears continuously on preceding top; printed fields and title adjust to actual top.",
     "Before save actual finished rib/body contact sampled at5heights for all8ribs; angled fixing rearfaces measured against rib; paper support continuity checked."
-  ]
+  ],
+  "native_sha256": "73b85e9a84b577d2059a07371abd366666536800eb45c9e56a7d7788a21b77a3",
+  "native_counts": {
+    "objects": 1327,
+    "evaluated_triangles": 383496,
+    "authoring_material_submeshes": 1149
+  }
 }

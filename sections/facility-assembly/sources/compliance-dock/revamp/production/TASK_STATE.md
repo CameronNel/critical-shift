@@ -1,3 +1,9 @@
+# Current checkpoint — f12 saved, acceptance pending
+
+Native73b85e9a84b577d2059a07371abd366666536800eb45c9e56a7d7788a21b77a3;1327objects/383496tri/1149submesh/36families. Canonical exit0,22actual interface guards, static7PASS/0warnings/5unverified. Fresh technical critic and preformal5views running. Latest independent full review remains C5Luna74FAIL; owner99 and final stability/cold pixels remain unmet. PR66DRAFT, no merge/promotion. Current recipes/native frozen; root sole author.
+
+## Recorded earlier history
+
 # Compliance dock — current task state
 
 Latest complete review is full-cycle-05:27beauty+8standard diagnostics+4supplemental UV, six fresh read-only critics. Independent GPT-6 Luna scores79/68/75/71/66/69/72/92, exact74/100 FAIL, one critical G1-01 panel overlap. Five complete cycles; owner99 gate remains unmet. All native consumers released. Current f11 SHA-256 cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035;1321objects/381032evaluatedtriangles/1150materialsubmeshes/36families. Static7PASS/0failures/0warnings/5unverified does not override fresh native defect. Exact recipes/native in checkpoints/full-f11*. Actual GitHub source72def14e7e6605784779590c28592b73b6919f93 cold-opened from isolated checkout with25relative exact native libraries,119packed-presentimages and packed licensed font. Final cold-render pixel comparison, final-two stability and runtime remain unverified. PR66 stays DRAFT; no merge/map promotion. Next root-owned pass repairs G1 from its actual measured panel-front plane, broadens manufactured form/material/palette hierarchy and visible pressured-work traces, repairs consumed counter textile UV, restores cabinet light while retaining trolley read. Original1077poses, room boundaries, selected original dock/map/spawn/interface/frozen input remain protected.
