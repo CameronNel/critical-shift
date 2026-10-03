@@ -1,0 +1,51 @@
+{
+  "source_sha256": "e33da737e93a730f62f43b09f8348df7133db657c6f6b9efc53651f26df60e39",
+  "renderer_sha256": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce",
+  "manifest_complete": true,
+  "preformal_only": true,
+  "root_actual_vision_opens": 4,
+  "images": [
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/preformal-f16/C05_CONVEYOR_LEAD_TUNNEL.png",
+      "sha256": "a7ef4581a1268dd7545e6d7b1f4daf1fd1215b8811eda84b6eeee482acf8ec33",
+      "size": [
+        1067,
+        600
+      ],
+      "individually_opened_by_root": true,
+      "note": "A lower front bar becomes visible but picks up an excessively bright cold specular stripe; lower rear frame still dark. Keep comparison and refine local bounce rather than claim the lighting defect resolved."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/preformal-f16/C06_CART_GATE_G1.png",
+      "sha256": "9bfe73aab60a3eecc8ef49be149c637d7b0066ac46325b3828379820a0957b11",
+      "size": [
+        1067,
+        600
+      ],
+      "individually_opened_by_root": true,
+      "note": "Actual upper observation openings visible; staggered native leaf heights make common-world-height cut too near the upper edge on the final leaf. Rebase cut relative to each unchanged original pose, keeping pressed bay contacts. Primary mass still substantially rectangular."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/preformal-f16/C07_OFFICE_INTERIOR.png",
+      "sha256": "b4c6f9d32aab4dd3b054dab394bccd17fb1a09ca38796d58393a9fc39583d3da",
+      "size": [
+        1067,
+        600
+      ],
+      "individually_opened_by_root": true,
+      "note": "Shift board reads; rear practical subtly lifts surroundings, but chair remains pale/hard-looking. In saved source the new cut-chart metadata did not correspond to changed consumed UV data: stale outer RNA layer after unwrap. Local tint patch is visually insufficient."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/preformal-f16/HERO_UTILITIES.png",
+      "sha256": "9da337604239f01d5054cfe5c935531db83fc4261f1ef4fe9d221ab463122bd4",
+      "size": [
+        1067,
+        600
+      ],
+      "individually_opened_by_root": true,
+      "note": "DENIED/DAY19 more readable; salvaged door/tag and repair wrap visible. Cuboid primary enclosures still dominate; no independent art acceptance."
+    }
+  ],
+  "review_score": null,
+  "full_cycle_count_unchanged": 8
+}

@@ -1,3 +1,9 @@
+## F16 saved; preformal repair required — 3 October 2026
+
+NativeF16 e33da737e93a730f62f43b09f8348df7133db657c6f6b9efc53651f26df60e39 saved exit0:1333objects/397010tri/1145submeshes/35families. All140pre-save interfaces and static7PASS. Saved consolidated actual24suspension contacts worstgap2.384185791015625e-7m; physical tray/sign mounts are present. Cloth persistence test FAIL: outer RNA cut-layer reference became stale after unwrap; three consumed chair charts remain their old distortion despite successful isolated prototype. Small trolley sewn edge charts now pass. Four current600p previews independently opened by root expose excessive cargo stripe, common-world-height gate slots on staggered leaves, insufficient chair finish and still-simple utility masses. F16_PREFLIGHT_RESULT.json and exact failed scripts/logs/proofs retained. This is not a complete formal cycle; latest independentC8 exact92.3125FAIL and8complete cycles unchanged. Root preparingF17; PR66draft, no self-merge/promotion or final cold-render/runtime acceptance.
+
+## Prior checkpoint history
+
 ## Completed cycle 8; repair required — 3 October 2026
 
 The fresh independent GPT-6 Luna review locked categories 1–7 at 93, 89, 94, 93, 89, 95 and 94. Fresh technical category 8 is 91.5. The exact mean is 738.5/8 = 92.3125: FAIL. Categories 1, 2, 4, 5 and 8 fail the strict >93 requirement. Critical defects TC08-SUP-01 and TC08-SUP-02, plus technical veto TC08-TECH-SUPPORT-GATE, also prevent acceptance. All six critics inspected all 35 current originals and four approved references, saved reports and released every reader/process. Eight complete full cycles; FULL_CYCLE_08.json is authoritative. All disagreements remain: spatial 96.5/96, materials 98/colour 99, lighting 98, story 96.
