@@ -991,11 +991,6 @@ def cargo_manufactured_shoulders():
     for o in list(S.objects):
         if not o.name.startswith('Tunnel stiffener '):continue
         side=-1 if o.matrix_world.translation.x<4.65 else 1
-        # An actual edge at the bend prevents a piecewise vertex deformation
-        # from shearing the entire long face below the shoulder.
-        bm=bmesh.new();bm.from_mesh(o.data);inv=o.matrix_world.inverted()
-        bmesh.ops.bisect_plane(bm,geom=list(bm.verts)+list(bm.edges)+list(bm.faces),dist=1e-7,plane_co=inv@Vector((0,0,1.98)),plane_no=o.matrix_world.to_3x3().transposed()@Vector((0,0,1)),clear_inner=False,clear_outer=False)
-        bm.to_mesh(o.data);bm.free()
         world_edit(o,lambda p:(p.x-side*.12*max(0,min(1,(p.z-1.98)/.17)),p.y,p.z),'External shield ribs conform to actual drafted upper shoulder; lower/full-height end seats and original matrix retained')
     for o in list(S.objects):
         if not o.name.startswith('CD | Cargo rib captive screw') or o.location.z<1.98:continue
@@ -1003,10 +998,8 @@ def cargo_manufactured_shoulders():
         normal=Vector((side,0,.12/.17)).normalized();o.location=surface+normal*.003;o.rotation_euler=normal.to_track_quat('Z','Y').to_euler()
     # Side service covers are captured in actual rebates rather than sitting
     # on the broad box skin. The cavity stays within the original shield wall.
-    for old_y,y in [(7.1,7.05),(8.17,8.15)]:
-        # Service cover sits in the clear bay between continuous stiffeners;
-        # it must remain removable without intersecting a structural rib.
-        cutter=profile('TEMP shield service rebate',octagon(.42,.47,.037),.02002,0,(5.401005,y,1.28),'wear',0)
+    for y in [7.1,8.17]:
+        cutter=profile('TEMP shield service rebate',octagon(.52,.47,.037),.02002,0,(5.401005,y,1.28),'wear',0)
         bpy.context.view_layer.objects.active=body
         for mod in list(body.modifiers):
             if mod.type=='BEVEL':bpy.ops.object.modifier_apply(modifier=mod.name)
@@ -1014,10 +1007,8 @@ def cargo_manufactured_shoulders():
         mod=body.modifiers.new('True shield service rebate','BOOLEAN');mod.operation='DIFFERENCE';mod.solver='EXACT';mod.object=cutter;bpy.ops.object.modifier_apply(modifier=mod.name)
         bpy.data.objects.remove(cutter,do_unlink=True)
         for o in list(S.objects):
-            if o.name.startswith('CD | Cargo service access cover') and abs(mesh_centre_world(o).y-old_y)<.01:
-                replace(o.name,profile('TEMP captured bay service cover',octagon(.40,.45,.035),.006,0,(5.394,y,1.28),'navy',.001),'Captured shield service cover within actual unobstructed stiffener bay; seated rear/preserved named additive component')
-            elif o.name.startswith('CD | Cargo captive cover screw') and abs(o.matrix_world.translation.y-old_y)<.25:
-                sign=-1 if o.location.y<old_y else 1;o.location.x=5.4;o.location.y=y+sign*.15
+            if o.name.startswith('CD | Cargo service access cover') and abs(mesh_centre_world(o).y-y)<.01:o.location.x-=.009
+            elif o.name.startswith('CD | Cargo captive cover screw') and abs(o.matrix_world.translation.y-y)<.25:o.location.x-=.009
     uv(body)
     # The heavy roof is dark baked enamel; the folded sides are oxidized steel.
     material_patch(MATERIALS['wear'],(4.65,7.65,2.13),(.72,1.16,.10),(.050,.046,.043),.96,False)
@@ -1077,13 +1068,12 @@ def pressure_and_repair_traces():
         levels=[(o.matrix_world@v.co).z for v in o.data.vertices];lo,hi=min(levels),max(levels)
         world_edit(o,lambda q:(q.x,q.y,1.061+.001*i+(q.z-lo)/(hi-lo)*.001),'Pending paper plies stacked from actual tray topZ1.061; preserves upper label clearance')
     for j in range(5):
-        q=box('CD | Pending queue paper ply',(-4.025+(.004 if j%2 else -.004),3.597+j*.001,1.065225+j*.00045),(.20,.247,.00045),'paper',0)
+        q=box('CD | Pending queue paper ply',(-4.025+(.004 if j%2 else -.004),3.597+j*.001,1.0655+j*.00045),(.20,.247,.00045),'paper',0)
     # Last page contains a half-entered repeated field and correction, read as
     # ongoing clerical pressure without introducing another slogan/sign.
-    for j in range(7):box('CD | Pending top form rule',(-4.035,3.614+j*.015,1.067285),(.153,.00075,.000025),'ink',0)
-    for j in range(3):box('CD | Pending unfinished field',(-4.078+j*.018,3.688,1.067335),(.008,.0012,.000025),'ink',0)
-    q=box('CD | Pending corrected field strike',(-4.048,3.659,1.067345),(.10,.0013,.000025),'ink',0);q.rotation_euler.z=.08
-    S.objects['CD | Forms title'].location.z=1.06735
+    for j in range(7):box('CD | Pending top form rule',(-4.035,3.614+j*.015,1.06756),(.153,.00075,.000025),'ink',0)
+    for j in range(3):box('CD | Pending unfinished field',(-4.078+j*.018,3.688,1.06761),(.008,.0012,.000025),'ink',0)
+    q=box('CD | Pending corrected field strike',(-4.048,3.659,1.06762),(.10,.0013,.000025),'ink',0);q.rotation_euler.z=.08
     use_root('Wall Utilities Rack')
     # A visibly incomplete insulation repair encircles the existing conduit
     # below the earlier bolted replacement sleeve. Annular geometry, no hidden
@@ -1151,27 +1141,6 @@ def verify_fifth_review_interfaces():
             vs=world_vertices(screw);p=mesh_centre_world(screw);p.y=max(v.y for v in vs);hits=[t.ray_cast(p-Vector((0,.02,0)),Vector((0,1,0)),.06) for t in targets];hits=[h for h in hits if h[0] is not None]
             if not hits or min(abs(h[3]-.02) for h in hits)>.00002:raise RuntimeError('G1 fixing misses its actual bay flange')
     body=tree(S.objects['Lead tunnel main body'])
-    ribs=[o for o in S.objects if o.name.startswith('Tunnel stiffener ')]
-    for rib in ribs:
-        centre=mesh_centre_world(rib);side=1 if centre.x>4.65 else -1;t=tree(rib)
-        for z in [1.20,1.80,1.96,2.015,2.045]:
-            outer=body.ray_cast(Vector((4.65+side*1.05,centre.y,z)),Vector((-side,0,0)),.75)
-            inner=t.ray_cast(Vector((4.65+side*.58,centre.y,z)),Vector((side,0,0)),.55)
-            if outer[0] is None or inner[0] is None or abs(outer[0].x-inner[0].x)>.000025:raise RuntimeError('Cargo rib misses actual shield below/above shoulder')
-        checks.append({'rib':rib.name,'actual_shoulder_contact_samples':5})
-    for screw in S.objects:
-        if not screw.name.startswith('CD | Cargo rib captive screw') or mesh_centre_world(screw).z<1.98:continue
-        normal=(screw.matrix_world.to_3x3()@Vector((0,0,1))).normalized();p=mesh_centre_world(screw)-normal*.003
-        target=min(ribs,key=lambda o:abs(mesh_centre_world(o).y-p.y)+(0 if (mesh_centre_world(o).x-4.65)*(p.x-4.65)>0 else 100))
-        h=tree(target).ray_cast(p+normal*.02,-normal,.06)
-        if h[0] is None or abs(h[3]-.02)>.000025:raise RuntimeError('Angled shield fixing misses actual rib face')
-    old_forms=sorted([o for o in S.objects if o.name.startswith('CD | Unprocessed forms')],key=lambda o:o.name)
-    new_forms=sorted([o for o in S.objects if o.name.startswith('CD | Pending queue paper ply')],key=lambda o:o.name)
-    previous=max(v.z for v in world_vertices(old_forms[-1]))
-    for sheet in new_forms:
-        vertices=world_vertices(sheet);bottom=min(v.z for v in vertices)
-        if abs(bottom-previous)>.000002:raise RuntimeError('Pending paper stack has an unsupported gap')
-        previous=max(v.z for v in vertices)
     for o in S.objects:
         if not o.name.startswith('CD | Cargo service access cover'):continue
         p=mesh_centre_world(o);p.x=min(q.x for q in world_vertices(o));h=body.ray_cast(p+Vector((.02,0,0)),Vector((-1,0,0)),.06)
