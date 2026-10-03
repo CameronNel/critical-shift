@@ -1,0 +1,67 @@
+{
+  "revision": "Waste storage AAA finish",
+  "floor_material_split": [
+    "Warm architectural concrete (floor)",
+    1
+  ],
+  "materials": {
+    "floor": [
+      "Dry graphite traffic floor",
+      "Warm architectural concrete (floor)"
+    ],
+    "wall": [
+      "Warm architectural concrete",
+      "Replacement concrete",
+      "Replacement cast concrete"
+    ],
+    "paint": [
+      "Ivory industrial enamel",
+      "Oxide painted steel",
+      "Ochre safety enamel",
+      "Standby ochre enamel",
+      "Isolator vermilion",
+      "Exposed ochre primer",
+      "Structural warm graphite",
+      "Switch housing phenolic"
+    ],
+    "metal": [
+      "Brushed galvanized steel",
+      "Galvanized bus casing",
+      "Exposed steel at contact wear",
+      "Insulating rubber"
+    ]
+  },
+  "light_scale": {
+    "Directed practical wash": 0.8,
+    "Directed practical wash.001": 0.8,
+    "Directed practical wash.002": 0.8,
+    "Directed practical wash.003": 0.8,
+    "Directed practical wash.004": 0.8,
+    "Directed practical wash.005": 0.8,
+    "Dispatch practical wall cone": 0.7,
+    "Dispatch practical wall cone.001": 0.7,
+    "Dispatch practical wall cone.002": 0.7,
+    "Practical pool": 0.45,
+    "Practical pool.001": 0.45,
+    "Practical pool.002": 0.45,
+    "Practical pool.003": 0.45,
+    "Practical pool.004": 0.45,
+    "Practical pool.005": 0.45,
+    "Practical pool.006": 0.45,
+    "Practical pool.007": 0.45,
+    "Practical pool.008": 0.45,
+    "Practical pool.009": 0.45
+  },
+  "light_count_unchanged": true,
+  "exposure_now": -0.4000000059604645,
+  "triangles_before": 419776,
+  "triangles_after": 351868,
+  "triangle_budget": 400000,
+  "within_budget": true,
+  "new_cameras": [
+    "AAA01_WIDE_ENTRY",
+    "AAA02_CASKS",
+    "AAA03_ISOLATOR",
+    "AAA04_DRY_QUARANTINE"
+  ]
+}
