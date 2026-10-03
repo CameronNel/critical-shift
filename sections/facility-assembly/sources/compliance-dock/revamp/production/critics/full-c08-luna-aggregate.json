@@ -1,0 +1,167 @@
+{
+  "reviewer": "GPT-6 Luna",
+  "review": "full-cycle-08 aggregate",
+  "source_sha256": "d2514e668ea2b24e8b4ede6bde870e12f10c1afd6d6e1892b12c016266bd7b35",
+  "renderer_sha256": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce",
+  "visual_lock": {
+    "path": "full-c08-luna-visual.json",
+    "sha256": "ae6f6f307fd6f06793152069083bf1edd5e2991b0cd41a5194e00f00944d397e",
+    "locked_categories": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "unchanged": true
+  },
+  "scores": [
+    {
+      "category": 1,
+      "name": "Scale, layout and route readability",
+      "score_100": 93,
+      "locked": true
+    },
+    {
+      "category": 2,
+      "name": "Grounded stylized shape language and object-specific construction",
+      "score_100": 89,
+      "locked": true
+    },
+    {
+      "category": 3,
+      "name": "Inspection/check-in hero hierarchy and functional composition",
+      "score_100": 94,
+      "locked": true
+    },
+    {
+      "category": 4,
+      "name": "Tactile material identity and UV/texture discipline",
+      "score_100": 93,
+      "locked": true
+    },
+    {
+      "category": 5,
+      "name": "Localized lighting, depth and bleak atmosphere without hiding geometry",
+      "score_100": 89,
+      "locked": true
+    },
+    {
+      "category": 6,
+      "name": "Approved spawn colour coherence and restrained accents",
+      "score_100": 95,
+      "locked": true
+    },
+    {
+      "category": 7,
+      "name": "Purposeful worker traces and coercive institutional storytelling",
+      "score_100": 94,
+      "locked": true
+    },
+    {
+      "category": 8,
+      "name": "Technical cleanliness, support contact, reproducibility and dependencies",
+      "score_100": 91.5,
+      "locked": true,
+      "review_source": "full-c08-technical.json"
+    }
+  ],
+  "sum_100": 738.5,
+  "arithmetic_mean_100": 92.3125,
+  "category_8_fresh_independent_score": 91.5,
+  "gate_results": {
+    "overall_mean_at_least_99": {
+      "pass": false,
+      "actual": 92.3125,
+      "threshold": 99
+    },
+    "every_category_strictly_greater_than_93": {
+      "pass": false,
+      "failing_categories": [
+        1,
+        2,
+        4,
+        5,
+        8
+      ],
+      "rule": "score must be >93"
+    },
+    "zero_critical_defects": {
+      "pass": false,
+      "critical_ids": [
+        "TC08-SUP-01",
+        "TC08-SUP-02"
+      ]
+    },
+    "zero_vetoes": {
+      "pass": false,
+      "veto_ids": [
+        "TC08-TECH-SUPPORT-GATE"
+      ]
+    },
+    "fixed_evidence_views_present": {
+      "pass": true,
+      "evidence": "full-cycle-08 manifest complete with 27 declared/current PNGs; all 39 supplied PNGs opened; the manifest set covers 27 beauty views plus neutral and UV diagnostics."
+    },
+    "objective_support_registration_gate": {
+      "pass": false,
+      "critical_ids": [
+        "TC08-SUP-01",
+        "TC08-SUP-02"
+      ],
+      "technical_veto": "TC08-TECH-SUPPORT-GATE"
+    },
+    "minimum_four_full_review_cycles": {
+      "pass": null,
+      "status": "not independently assessed in this pixel/category-8 aggregate; no cycle-history evidence was consulted"
+    },
+    "final_two_cycles_materially_stable": {
+      "pass": null,
+      "status": "not independently assessed in this aggregate"
+    },
+    "cold_open_and_cold_render_comparison": {
+      "pass": false,
+      "status": "not certified; technical report explicitly says cold-pixel status pending root final delivery gate"
+    },
+    "runtime_fps_navigation_collision": {
+      "pass": null,
+      "status": "unverified/outside this art review"
+    }
+  },
+  "critical_defect_ids": [
+    "TC08-SUP-01",
+    "TC08-SUP-02"
+  ],
+  "veto_ids": [
+    "TC08-TECH-SUPPORT-GATE"
+  ],
+  "visual_defect_ids": [
+    "VIS-SHAPE-01",
+    "VIS-LIGHT-01",
+    "VIS-UVSCALE-01",
+    "VIS-STORY-01"
+  ],
+  "overall_acceptance": "FAIL",
+  "failure_reasons": [
+    "Mean 92.3125 is below 99.",
+    "Categories 1, 2, 4, 5 and 8 do not exceed 93.",
+    "Two critical support defects remain: TC08-SUP-01 and TC08-SUP-02.",
+    "Technical support gate veto TC08-TECH-SUPPORT-GATE remains active.",
+    "Cold-open/cold-render comparison is not certified; other production history gates were not independently assessed here."
+  ],
+  "technical_category8_source": "full-c08-technical.json",
+  "category8_critical_ids": [
+    "TC08-SUP-01",
+    "TC08-SUP-02"
+  ],
+  "category8_veto_ids": [
+    "TC08-TECH-SUPPORT-GATE"
+  ],
+  "limitations": [
+    "Category 8 is incorporated as the fresh independent score 91.5; categories 1\u20137 are retained from the locked visual report without change.",
+    "No runtime FPS, navigation or collision claims.",
+    "Review history and material-stability gates are not inferred from the current evidence set."
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "review_id": "full-c08-materials",
+  "independence": "Fresh read-only review. Only ART_DIRECTION.md, OVERHAUL_BRIEF.md, RUBRIC.md, current render manifests/provenance and the 39 individual current/reference original images were inspected. Native source and renderer were byte-hashed only. No history, prior scores, plans, code, native contents or author rationale read.",
+  "scores": {
+    "4": {
+      "name": "Tactile material identity and UV/texture discipline",
+      "score": 98.0,
+      "deductions": [
+        "MAT-01"
+      ],
+      "basis": "Material families visibly separate and wear remains localized. Four UV checker views reveal no definite gross deformation. Chair upholstery is the minor unresolved material cue."
+    },
+    "6": {
+      "name": "Approved spawn colour coherence and restrained accents",
+      "score": 99.0,
+      "deductions": [
+        "COL-01"
+      ],
+      "basis": "Warm pink-grey institutional plaster, charcoal lower wall, matte orange, blue-grey equipment, neutral floors and cream paperwork maintain the reference family under a bleaker dock treatment. Saturation is purposeful; central yellow route repetition is mildly too emphatic."
+    }
+  },
+  "overall_score": null,
+  "categories_not_scored": [
+    1,
+    2,
+    3,
+    5,
+    7,
+    8
+  ],
+  "findings": [
+    {
+      "id": "MAT-01",
+      "category": 4,
+      "severity": "minor",
+      "critical": false,
+      "veto": false,
+      "deduction": 2.0,
+      "assets": [
+        "office chair cushions"
+      ],
+      "views": [
+        "full-cycle-08/C07_OFFICE_INTERIOR.png",
+        "full-cycle-08-neutral/C07_OFFICE_INTERIOR.png"
+      ],
+      "evidence": "Seat and back cushions retain smooth uniform grey hard-surface-looking response in both practical and neutral illumination. Broad padding forms identify a chair, but upholstery is materially less tactile and less distinct than the nearby trolley cloth.",
+      "recommendation": "A subdued upholstered response with broad roughness variation would clarify the soft family without increasing visual noise."
+    },
+    {
+      "id": "COL-01",
+      "category": 6,
+      "severity": "minor",
+      "critical": false,
+      "veto": false,
+      "deduction": 1.0,
+      "assets": [
+        "main inspection route floor markings"
+      ],
+      "views": [
+        "full-cycle-08/C01_ENTRY.png",
+        "full-cycle-08/C02_HERO_DOCK.png",
+        "full-cycle-08/C04_SCANNER_APPROACH.png",
+        "full-cycle-08/CORNER_NW.png"
+      ],
+      "evidence": "Multiple bright yellow solid and dashed route lines collectively become the strongest chroma field across the central floor. They are useful and do not create colour confetti, but slightly compete with the restrained orange/blue-grey inspection grouping compared with the reference corridor muted tile fields.",
+      "recommendation": "A small reduction in the route yellow chroma/value would keep the functional cue while letting equipment colour lead."
+    }
+  ],
+  "critical_ids": [],
+  "veto_ids": [],
+  "anti_plastic_veto": {
+    "id": "V-MATERIAL-PLASTIC-DOMINANCE",
+    "triggered": false,
+    "evidence": [
+      "C05 beauty/neutral: metal rollers versus matte painted housing and softer dark hanging strips.",
+      "HERO_TROLLEY beauty/neutral: cloth cover versus bare tubular rail, painted frame and dark matte wheels.",
+      "HERO_UTILITIES beauty/neutral: controlled steel conduit versus matte cream enclosures and blue painted cabinets.",
+      "DETAIL_CHECKIN: cloth, paper, metal worktop and glazing differ."
+    ],
+    "qualification": "MAT-01 is a local weak upholstery read, not plastic materials across most assets."
+  },
+  "uv_assessment": {
+    "visible_gross_deformation_found": false,
+    "interpretation": "Checker seams, phase changes, bevel faces, cylindrical wrapping, perspective foreshortening and narrow resolved bands were distinguished from deformation. None of the four supplied diagnostic views supports a definite gross visible stretch deduction.",
+    "native_uv_numeric_certification": false
+  },
+  "limitations": [
+    "Pixel review at supplied original resolution, 24-sample renders; not native shader or UV inspection.",
+    "Four checker views do not certify every surface, island overlap, numeric texel density, UV coordinates or all hidden seams.",
+    "Neutral views alter illumination and support qualitative response comparisons; they are not calibrated spectral reflectance measurements.",
+    "Corner and wall cutaways are deliberate; fine material detail in distant orthographic views is below certainty.",
+    "Byte hashes verify evidence identity, not editable/native correctness, runtime performance or completion of other production gates."
+  ],
+  "evidence_audit": "full-c08-materials-imageaudit.json",
+  "provenance": {
+    "expected": {
+      "source_sha256": "d2514e668ea2b24e8b4ede6bde870e12f10c1afd6d6e1892b12c016266bd7b35",
+      "renderer_sha256": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce"
+    },
+    "actual_byte_hashes": {
+      "source_sha256": "d2514e668ea2b24e8b4ede6bde870e12f10c1afd6d6e1892b12c016266bd7b35",
+      "renderer_sha256": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce"
+    },
+    "matches": true,
+    "manifests": [
+      {
+        "group": "full-cycle-08",
+        "complete": true,
+        "expected_png_count": 27,
+        "actual_png_count": 27,
+        "manifest_shot_count": 27,
+        "manifest_sha256": "96b9aa2855691f920793bfbee64e054dd9326716ae5d2096eb34160ad24a46f0",
+        "source_renderer_and_all_image_hashes_match": true
+      },
+      {
+        "group": "full-cycle-08-neutral",
+        "complete": true,
+        "expected_png_count": 4,
+        "actual_png_count": 4,
+        "manifest_shot_count": 4,
+        "manifest_sha256": "7fb29c100179c892693ccfc10c053576201461362148597b3896426e54a4974b",
+        "source_renderer_and_all_image_hashes_match": true
+      },
+      {
+        "group": "full-cycle-08-uv-standard",
+        "complete": true,
+        "expected_png_count": 4,
+        "actual_png_count": 4,
+        "manifest_shot_count": 4,
+        "manifest_sha256": "ed8118a20c82f36b350c5d42dce4b7858d151b1920f4640b029eed7047db9d4b",
+        "source_renderer_and_all_image_hashes_match": true
+      }
+    ],
+    "reference_images_verified": 4
+  },
+  "readers_and_processes_released": true
+}

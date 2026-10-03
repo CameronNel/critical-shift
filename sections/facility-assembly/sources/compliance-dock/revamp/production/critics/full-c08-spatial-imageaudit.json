@@ -1,0 +1,810 @@
+{
+  "review_id": "full-c08-spatial",
+  "reviewer": "independent spatial critic /root/dock_c08_spatial",
+  "scope_categories": [
+    1,
+    3
+  ],
+  "image_count": 39,
+  "current_image_count": 35,
+  "reference_image_count": 4,
+  "all_images_individually_opened_original": true,
+  "all_png_hashes_verified": true,
+  "all_png_decode_and_dimensions_verified": true,
+  "manifests": [
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/manifest.json",
+      "sha256": "96b9aa2855691f920793bfbee64e054dd9326716ae5d2096eb34160ad24a46f0",
+      "complete": true,
+      "requested_count": 27,
+      "shot_count": 27,
+      "png_count": 27,
+      "source_sha256": "d2514e668ea2b24e8b4ede6bde870e12f10c1afd6d6e1892b12c016266bd7b35",
+      "renderer_sha256": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce",
+      "expected_source_match": true,
+      "expected_renderer_match": true,
+      "cold_open": false,
+      "source_saved": false,
+      "diagnostic": null
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08-neutral/manifest.json",
+      "sha256": "7fb29c100179c892693ccfc10c053576201461362148597b3896426e54a4974b",
+      "complete": true,
+      "requested_count": 4,
+      "shot_count": 4,
+      "png_count": 4,
+      "source_sha256": "d2514e668ea2b24e8b4ede6bde870e12f10c1afd6d6e1892b12c016266bd7b35",
+      "renderer_sha256": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce",
+      "expected_source_match": true,
+      "expected_renderer_match": true,
+      "cold_open": false,
+      "source_saved": false,
+      "diagnostic": "neutral"
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08-uv-standard/manifest.json",
+      "sha256": "ed8118a20c82f36b350c5d42dce4b7858d151b1920f4640b029eed7047db9d4b",
+      "complete": true,
+      "requested_count": 4,
+      "shot_count": 4,
+      "png_count": 4,
+      "source_sha256": "d2514e668ea2b24e8b4ede6bde870e12f10c1afd6d6e1892b12c016266bd7b35",
+      "renderer_sha256": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce",
+      "expected_source_match": true,
+      "expected_renderer_match": true,
+      "cold_open": false,
+      "source_saved": false,
+      "diagnostic": "uv"
+    }
+  ],
+  "reference_provenance": {
+    "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/reference-provenance.json",
+    "sha256": "d04251c153c364e6ad5745caa704caf147f42dc64e181a5744f91de344174a2d",
+    "source_sha256": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+    "reused_validated_reference_renders": true,
+    "image_count": 4,
+    "all_hashes_match": true,
+    "original_paths_not_followed": true
+  },
+  "provenance_limit": "Expected source/renderer hashes were checked against current manifests. Native source and renderer files were intentionally not read; their actual file bytes were not independently hashed.",
+  "images": [
+    {
+      "image": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/C01_ENTRY.png",
+      "set": "beauty",
+      "id": "C01_ENTRY",
+      "sha256": "bd63507715720e4c502b87f3557684bcb74328c960d72e9e24d170b49fc2c1b5",
+      "recorded_sha256": "bd63507715720e4c502b87f3557684bcb74328c960d72e9e24d170b49fc2c1b5",
+      "hash_match": true,
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_individually": true,
+      "inspection_tool": "view_image",
+      "inspection_detail": "original",
+      "findings": "The scanner aperture, low ramp and continuous dashed worker lane read immediately. The adjacent shut cart gate is clearly a separate physical passage. Office glazing gives supervision context.",
+      "limitations_or_defects": "No visible worker-lane obstruction. Check-in hatch lies outside this crop; this image alone does not establish a check-in-first sequence.",
+      "deliberate_cutaway": false,
+      "cutaway_object_count": 0
+    },
+    {
+      "image": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/C02_HERO_DOCK.png",
+      "set": "beauty",
+      "id": "C02_HERO_DOCK",
+      "sha256": "e738feaeed2c8dc8e1a676eb3a6629ae47d57b4d31b52d95d0b49f865abed745",
+      "recorded_sha256": "e738feaeed2c8dc8e1a676eb3a6629ae47d57b4d31b52d95d0b49f865abed745",
+      "hash_match": true,
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_individually": true,
+      "inspection_tool": "view_image",
+      "inspection_detail": "original",
+      "findings": "The bright staffed hatch and cool inspection arch form two readable functional anchors with clear floor between them. Cargo conveyor stays to the right as a secondary inspection system.",
+      "limitations_or_defects": "The yellow straight lanes have stronger route emphasis than the short orange/red branch to the hatch (SP-C08-001).",
+      "deliberate_cutaway": false,
+      "cutaway_object_count": 0
+    },
+    {
+      "image": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/C03_CHECKIN_COUNTER.png",
+      "set": "beauty",
+      "id": "C03_CHECKIN_COUNTER",
+      "sha256": "4251ab6a13fb73b411fa1257555cedbc86947036e71bc1b9f3dd9b37403eb657",
+      "recorded_sha256": "4251ab6a13fb73b411fa1257555cedbc86947036e71bc1b9f3dd9b37403eb657",
+      "hash_match": true,
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_individually": true,
+      "inspection_tool": "view_image",
+      "inspection_detail": "original",
+      "findings": "Speaker grille, paper tray, form, bell and stamp identify a physical check-in station. Desk beyond the opening makes staffing plausible.",
+      "limitations_or_defects": "Large saturated staff door occupies nearly half the image and competes with the hatch; the worktop is partially cropped (SP-C08-004).",
+      "deliberate_cutaway": false,
+      "cutaway_object_count": 0
+    },
+    {
+      "image": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/C04_SCANNER_APPROACH.png",
+      "set": "beauty",
+      "id": "C04_SCANNER_APPROACH",
+      "sha256": "531ec788c261c0a44ae1ee9fa0fa078c6ec4d6be6c32a331981bc1bc58644326",
+      "recorded_sha256": "531ec788c261c0a44ae1ee9fa0fa078c6ec4d6be6c32a331981bc1bc58644326",
+      "hash_match": true,
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_individually": true,
+      "inspection_tool": "view_image",
+      "inspection_detail": "original",
+      "findings": "Worker aperture is open, grounded by a low ramp, and aligned to a clear marked approach; controlled cart gate sits alongside. The external gate remains visible through it.",
+      "limitations_or_defects": "Both approach lanes use similar yellow borders and dashed centres; their different purposes rely more strongly on equipment silhouettes than on lane syntax (SP-C08-002).",
+      "deliberate_cutaway": false,
+      "cutaway_object_count": 0
+    },
+    {
+      "image": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/C05_CONVEYOR_LEAD_TUNNEL.png",
+      "set": "beauty",
+      "id": "C05_CONVEYOR_LEAD_TUNNEL",
+      "sha256": "c293902a2c7d9ebb39cccc72ce6fcb5e08108ba1e341246afbe516dc8d1ca167",
+      "recorded_sha256": "c293902a2c7d9ebb39cccc72ce6fcb5e08108ba1e341246afbe516dc8d1ca167",
+      "hash_match": true,
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_individually": true,
+      "inspection_tool": "view_image",
+      "inspection_detail": "original",
+      "findings": "Crate, roller bed, lead curtain and machine mouth establish cargo examination. Crate is carried cargo, not evidence of a worker-route blockage.",
+      "limitations_or_defects": "Foreground gate mast and oblique machine side partially conceal the operator monitor/control station (SP-C08-003). No operator-access width can be measured from this view.",
+      "deliberate_cutaway": false,
+      "cutaway_object_count": 0
+    },
+    {
+      "image": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/C06_CART_GATE_G1.png",
+      "set": "beauty",
+      "id": "C06_CART_GATE_G1",
+      "sha256": "ccb4385c502c64f49dd67c355fc4e5bcb2e44588f9be262322d55cd7bc0f9436",
+      "recorded_sha256": "ccb4385c502c64f49dd67c355fc4e5bcb2e44588f9be262322d55cd7bc0f9436",
+      "hash_match": true,
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_individually": true,
+      "inspection_tool": "view_image",
+      "inspection_detail": "original",
+      "findings": "Shut sliding-panel gate, track and local red/green control explain controlled cart bypass. Adjacent open worker arch distinguishes the two passages.",
+      "limitations_or_defects": "Closed state is visible; travel, opening width and animation remain unverified. Similar floor marking syntax remains a small legibility weakness (SP-C08-002).",
+      "deliberate_cutaway": false,
+      "cutaway_object_count": 0
+    },
+    {
+      "image": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/C07_OFFICE_INTERIOR.png",
+      "set": "beauty",
+      "id": "C07_OFFICE_INTERIOR",
+      "sha256": "98e21190da1ba76563c854bb98429bd5fcca7205435767cda733f3af922ecc07",
+      "recorded_sha256": "98e21190da1ba76563c854bb98429bd5fcca7205435767cda733f3af922ecc07",
+      "hash_match": true,
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_individually": true,
+      "inspection_tool": "view_image",
+      "inspection_detail": "original",
+      "findings": "Desk, adult-proportioned office chair, monitor and staff door form a plausible supervised workspace with open chair-side floor.",
+      "limitations_or_defects": "Close perspective shows local space only; door swing and chair operating envelope are unmeasured.",
+      "deliberate_cutaway": false,
+      "cutaway_object_count": 0
+    },
+    {
+      "image": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/C08_CONCEALED_SUPPORT_H1.png",
+      "set": "beauty",
+      "id": "C08_CONCEALED_SUPPORT_H1",
+      "sha256": "4d24c43d510561fabf22cd74c258e789110e87fc5beaa79791ad038039087793",
+      "recorded_sha256": "4d24c43d510561fabf22cd74c258e789110e87fc5beaa79791ad038039087793",
+      "hash_match": true,
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_individually": true,
+      "inspection_tool": "view_image",
+      "inspection_detail": "original",
+      "findings": "Covered wheeled trolley and IV pole identify a separate support function behind the screen; restrained cluster avoids becoming a main-room hero.",
+      "limitations_or_defects": "Close crop omits the bay entrance and most floor, so this shot cannot demonstrate transfer maneuvering or bay access.",
+      "deliberate_cutaway": false,
+      "cutaway_object_count": 0
+    },
+    {
+      "image": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/C09_ARRIVAL_GATE_P2.png",
+      "set": "beauty",
+      "id": "C09_ARRIVAL_GATE_P2",
+      "sha256": "ba870c5c35708e4aa17647cc0e1d6e57241f7369e74e404ee669813822cc492f",
+      "recorded_sha256": "ba870c5c35708e4aa17647cc0e1d6e57241f7369e74e404ee669813822cc492f",
+      "hash_match": true,
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_individually": true,
+      "inspection_tool": "view_image",
+      "inspection_detail": "original",
+      "findings": "Large framed double arrival gate with seam, controller and threshold reads as a sealed external arrival interface.",
+      "limitations_or_defects": "Closed-state render provides no open-gate clearance or route continuation proof.",
+      "deliberate_cutaway": false,
+      "cutaway_object_count": 0
+    },
+    {
+      "image": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/C10_ROOF_SERVICES.png",
+      "set": "beauty",
+      "id": "C10_ROOF_SERVICES",
+      "sha256": "e3936096b9512dec06ebd585ca26a28eb5d53c81703864ab0f13bac372a8f8cf",
+      "recorded_sha256": "e3936096b9512dec06ebd585ca26a28eb5d53c81703864ab0f13bac372a8f8cf",
+      "hash_match": true,
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_individually": true,
+      "inspection_tool": "view_image",
+      "inspection_detail": "original",
+      "findings": "Ceiling structure and suspended lights establish vertical scale and leave the scanner top visually clear below.",
+      "limitations_or_defects": "Upward diagnostic angle contains little floor information; no route or clearance conclusion taken from it.",
+      "deliberate_cutaway": false,
+      "cutaway_object_count": 0
+    },
+    {
+      "image": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/CORNER_SW.png",
+      "set": "beauty",
+      "id": "CORNER_SW",
+      "sha256": "be7575486d9ee08d28fa7ed4fcf865d30eb782a72884684a95d41fbe242d36e5",
+      "recorded_sha256": "be7575486d9ee08d28fa7ed4fcf865d30eb782a72884684a95d41fbe242d36e5",
+      "hash_match": true,
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_individually": true,
+      "inspection_tool": "view_image",
+      "inspection_detail": "original",
+      "findings": "Deliberate cutaway shows office/hatch, worker arch, cart gate, conveyor, arrival gate and support bay as distinct clusters with broad open staging floor.",
+      "limitations_or_defects": "The short hatch-branch floor cue is low contrast next to long yellow lanes (SP-C08-001). Removed walls/roof are diagnostic and are not scored as missing architecture.",
+      "deliberate_cutaway": true,
+      "cutaway_object_count": 169
+    },
+    {
+      "image": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/CORNER_SE.png",
+      "set": "beauty",
+      "id": "CORNER_SE",
+      "sha256": "2d30423f1bde4cf2fb25ee7c2bf7fae0387bf080949ad724466fd12bf2fd7312",
+      "recorded_sha256": "2d30423f1bde4cf2fb25ee7c2bf7fae0387bf080949ad724466fd12bf2fd7312",
+      "hash_match": true,
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_individually": true,
+      "inspection_tool": "view_image",
+      "inspection_detail": "original",
+      "findings": "Opposite cutaway confirms side-by-side worker/cart inspection, separate cargo machine and large arrival apron; support bay is screened rather than randomly exposed.",
+      "limitations_or_defects": "Common yellow lane syntax does not explain worker/cart purpose on its own (SP-C08-002). Cutaway alone cannot establish live camera visibility.",
+      "deliberate_cutaway": true,
+      "cutaway_object_count": 178
+    },
+    {
+      "image": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/CORNER_NW.png",
+      "set": "beauty",
+      "id": "CORNER_NW",
+      "sha256": "4ac9debf55de5e3631f031f2671a203d99fe813678861306c7dfa7db1988656e",
+      "recorded_sha256": "4ac9debf55de5e3631f031f2671a203d99fe813678861306c7dfa7db1988656e",
+      "hash_match": true,
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_individually": true,
+      "inspection_tool": "view_image",
+      "inspection_detail": "original",
+      "findings": "Return cutaway shows the main entry aperture, office interior, cargo machine and screen-hidden support with ample quiet floor around focal equipment.",
+      "limitations_or_defects": "Check-in branch is visibly weaker than longitudinal lanes (SP-C08-001). Wall/roof omissions are declared cutaways.",
+      "deliberate_cutaway": true,
+      "cutaway_object_count": 176
+    },
+    {
+      "image": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/CORNER_NE.png",
+      "set": "beauty",
+      "id": "CORNER_NE",
+      "sha256": "0d6ba4ac9289c9d8661431b9f858b8d05cf94b9b921d8301bb398f84f58f36a1",
+      "recorded_sha256": "0d6ba4ac9289c9d8661431b9f858b8d05cf94b9b921d8301bb398f84f58f36a1",
+      "hash_match": true,
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_individually": true,
+      "inspection_tool": "view_image",
+      "inspection_detail": "original",
+      "findings": "Return cutaway confirms the entry-to-inspection axis and lateral hatch branch while the support function remains behind its partition.",
+      "limitations_or_defects": "Branch cue fades beside the yellow route bands (SP-C08-001); diagnostic view is not a substitute for runtime navigation.",
+      "deliberate_cutaway": true,
+      "cutaway_object_count": 185
+    },
+    {
+      "image": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/WALL_SOUTH.png",
+      "set": "beauty",
+      "id": "WALL_SOUTH",
+      "sha256": "4fe3192b234888452b6bd04bed373b764ab930e33476e97d49565e53094a2745",
+      "recorded_sha256": "4fe3192b234888452b6bd04bed373b764ab930e33476e97d49565e53094a2745",
+      "hash_match": true,
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_individually": true,
+      "inspection_tool": "view_image",
+      "inspection_detail": "original",
+      "findings": "Entry aperture is the single dominant opening on a quiet wall; modest practical and poster retain believable architectural scale.",
+      "limitations_or_defects": "Elevation cutaway removes interior equipment and provides no circulation-depth evidence. Dark door/corridor backing is not assumed to be an accidental blocked aperture.",
+      "deliberate_cutaway": true,
+      "cutaway_object_count": 474
+    },
+    {
+      "image": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/WALL_NORTH.png",
+      "set": "beauty",
+      "id": "WALL_NORTH",
+      "sha256": "7b803ec8b0b8091621441aac916af90fb2ccc94d7f34c0ca030d5184efa7d0d8",
+      "recorded_sha256": "7b803ec8b0b8091621441aac916af90fb2ccc94d7f34c0ca030d5184efa7d0d8",
+      "hash_match": true,
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_individually": true,
+      "inspection_tool": "view_image",
+      "inspection_detail": "original",
+      "findings": "Arrival portal dominates the wall; adjacent cabinets and evidence storage remain subordinate, preserving clear destination hierarchy.",
+      "limitations_or_defects": "Elevation omits intervening machines and depth; no gate-open clearance conclusion.",
+      "deliberate_cutaway": true,
+      "cutaway_object_count": 476
+    },
+    {
+      "image": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/WALL_EAST.png",
+      "set": "beauty",
+      "id": "WALL_EAST",
+      "sha256": "0250b67783143c2d8357c1c08e0752e5c56213d175150a404bfbc63b90b8c43a",
+      "recorded_sha256": "0250b67783143c2d8357c1c08e0752e5c56213d175150a404bfbc63b90b8c43a",
+      "hash_match": true,
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_individually": true,
+      "inspection_tool": "view_image",
+      "inspection_detail": "original",
+      "findings": "Utilities are concentrated in one working zone while most wall is quiet. No wall clutter competes with the main inspection hierarchy.",
+      "limitations_or_defects": "Declared elevation cutaway cannot prove floor access to service devices.",
+      "deliberate_cutaway": true,
+      "cutaway_object_count": 474
+    },
+    {
+      "image": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/WALL_WEST.png",
+      "set": "beauty",
+      "id": "WALL_WEST",
+      "sha256": "a067a264f9def7e12fc4e89a5b43b6cae6bb0abd7703556900ae17d47953f0c7",
+      "recorded_sha256": "a067a264f9def7e12fc4e89a5b43b6cae6bb0abd7703556900ae17d47953f0c7",
+      "hash_match": true,
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_individually": true,
+      "inspection_tool": "view_image",
+      "inspection_detail": "original",
+      "findings": "Office desk/storage and support screen occupy separate recognizable spans; wall remains quiet outside those working clusters.",
+      "limitations_or_defects": "Removed office/front equipment in this diagnostic must not be interpreted as absent construction; local access widths unavailable.",
+      "deliberate_cutaway": true,
+      "cutaway_object_count": 483
+    },
+    {
+      "image": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/HERO_SCANNER.png",
+      "set": "beauty",
+      "id": "HERO_SCANNER",
+      "sha256": "77b40bbf2e1c5328eacb17bc760aeb33dfd0521645be1e7b41670b0940a0a2c6",
+      "recorded_sha256": "77b40bbf2e1c5328eacb17bc760aeb33dfd0521645be1e7b41670b0940a0a2c6",
+      "hash_match": true,
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_individually": true,
+      "inspection_tool": "view_image",
+      "inspection_detail": "original",
+      "findings": "Oblique hero shows paired posts, side sensor recesses, ramp and open passage; cart gate retains a separate controlled identity beside it.",
+      "limitations_or_defects": "Yellow lane markings remain similar across both functions (SP-C08-002). No implausible adult-scale mismatch is apparent, but no dimension is certified.",
+      "deliberate_cutaway": false,
+      "cutaway_object_count": 0
+    },
+    {
+      "image": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/HERO_CARGO.png",
+      "set": "beauty",
+      "id": "HERO_CARGO",
+      "sha256": "5c4466b6ab4a43b9281774ce32c536fa9d64b2749e9cf768814754bb5cafcf60",
+      "recorded_sha256": "5c4466b6ab4a43b9281774ce32c536fa9d64b2749e9cf768814754bb5cafcf60",
+      "hash_match": true,
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_individually": true,
+      "inspection_tool": "view_image",
+      "inspection_detail": "original",
+      "findings": "Conveyor rails, rollers, crate and curtain mouth make cargo processing clear without treating the machine as a worker path.",
+      "limitations_or_defects": "Gate mast masks much of the operator station and side warning/control area; machine interaction side is less legible than the cargo feed (SP-C08-003).",
+      "deliberate_cutaway": false,
+      "cutaway_object_count": 0
+    },
+    {
+      "image": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/HERO_EVIDENCE.png",
+      "set": "beauty",
+      "id": "HERO_EVIDENCE",
+      "sha256": "161a9da7470df15fe91e4a1c21c404e173d4384ea52fe9f0fb612d0991bb206f",
+      "recorded_sha256": "161a9da7470df15fe91e4a1c21c404e173d4384ea52fe9f0fb612d0991bb206f",
+      "hash_match": true,
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_individually": true,
+      "inspection_tool": "view_image",
+      "inspection_detail": "original",
+      "findings": "Distinct six-compartment secure cabinet with restrained release docket reads as secondary evidence storage.",
+      "limitations_or_defects": "Foreground trolley hides portions of lower compartments; images cannot establish whether trolley movement is required for cabinet operation. This is an access limitation, not a claimed collision.",
+      "deliberate_cutaway": false,
+      "cutaway_object_count": 0
+    },
+    {
+      "image": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/HERO_TROLLEY.png",
+      "set": "beauty",
+      "id": "HERO_TROLLEY",
+      "sha256": "911cf89e81cb9f16eb82295864e21d0a64601497a5268c3f7ed02c8b9d0ef25b",
+      "recorded_sha256": "911cf89e81cb9f16eb82295864e21d0a64601497a5268c3f7ed02c8b9d0ef25b",
+      "hash_match": true,
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_individually": true,
+      "inspection_tool": "view_image",
+      "inspection_detail": "original",
+      "findings": "Full trolley silhouette, handle, caster wheels and IV pole make the screened transfer function clear. Quiet floor in front preserves readable handling space.",
+      "limitations_or_defects": "Rear cabinet lower-door sightlines are partly screened by trolley; swept maneuvering and door-swing envelopes unmeasured.",
+      "deliberate_cutaway": false,
+      "cutaway_object_count": 0
+    },
+    {
+      "image": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/HERO_UTILITIES.png",
+      "set": "beauty",
+      "id": "HERO_UTILITIES",
+      "sha256": "3714834174a4904ee419d8585afce19db0dc074d45b519c5619f5bb9a3ae443c",
+      "recorded_sha256": "3714834174a4904ee419d8585afce19db0dc074d45b519c5619f5bb9a3ae443c",
+      "hash_match": true,
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_individually": true,
+      "inspection_tool": "view_image",
+      "inspection_detail": "original",
+      "findings": "Utility boxes, clipped conduit and cabinet bank remain subordinate to inspection equipment and plausibly positioned at human reach height.",
+      "limitations_or_defects": "Close crop does not show full approach floor; no maintenance clearance claim.",
+      "deliberate_cutaway": false,
+      "cutaway_object_count": 0
+    },
+    {
+      "image": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/DETAIL_CHECKIN.png",
+      "set": "beauty",
+      "id": "DETAIL_CHECKIN",
+      "sha256": "87199f9e40dc7aab8b99e3d02b98b61db66a93b17821cb6c9e727b80c59ea07a",
+      "recorded_sha256": "87199f9e40dc7aab8b99e3d02b98b61db66a93b17821cb6c9e727b80c59ea07a",
+      "hash_match": true,
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_individually": true,
+      "inspection_tool": "view_image",
+      "inspection_detail": "original",
+      "findings": "Tray, bell, speaker, document, stamp and ink pad establish a coherent physical bureaucratic task sequence on a usable work surface.",
+      "limitations_or_defects": "Detail shot confirms local function, not approach-route hierarchy; no new scored defect.",
+      "deliberate_cutaway": false,
+      "cutaway_object_count": 0
+    },
+    {
+      "image": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/PLAYER_REVERSE.png",
+      "set": "beauty",
+      "id": "PLAYER_REVERSE",
+      "sha256": "91de2ece8fd144da8d59e0be6388a15ec695564281dd2707d9e1179dbb09dcc1",
+      "recorded_sha256": "91de2ece8fd144da8d59e0be6388a15ec695564281dd2707d9e1179dbb09dcc1",
+      "hash_match": true,
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_individually": true,
+      "inspection_tool": "view_image",
+      "inspection_detail": "original",
+      "findings": "Open scanner frames the opposite entry; dashed lane and low ramp remain continuous in reverse, with supervision glazing beside the route.",
+      "limitations_or_defects": "Orange/red hatch branch is faint at right relative to yellow inspection markings (SP-C08-001). Actual connected-map travel beyond entry is unverified.",
+      "deliberate_cutaway": false,
+      "cutaway_object_count": 0
+    },
+    {
+      "image": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/PLAYER_PINCH.png",
+      "set": "beauty",
+      "id": "PLAYER_PINCH",
+      "sha256": "1b4efae28f0f900ea1a8ccbf0121c4fdcfa969e5f0940ce2c8d7255237c18eb6",
+      "recorded_sha256": "1b4efae28f0f900ea1a8ccbf0121c4fdcfa969e5f0940ce2c8d7255237c18eb6",
+      "hash_match": true,
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_individually": true,
+      "inspection_tool": "view_image",
+      "inspection_detail": "original",
+      "findings": "Arrival threshold, longitudinal drain and return floor remain distinguishable. Parked cart is visible in the equipment zone rather than on the main threshold band.",
+      "limitations_or_defects": "Perspective and foreground partition limit a width judgement. No measured clearance, collision or navigation claim made.",
+      "deliberate_cutaway": false,
+      "cutaway_object_count": 0
+    },
+    {
+      "image": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/WALL_OFFICE_FRONT.png",
+      "set": "beauty",
+      "id": "WALL_OFFICE_FRONT",
+      "sha256": "2e3bfbf958786b42c46bcd72766db22b6d79a64bf76ee538bf964c7ddd1801a7",
+      "recorded_sha256": "2e3bfbf958786b42c46bcd72766db22b6d79a64bf76ee538bf964c7ddd1801a7",
+      "hash_match": true,
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_individually": true,
+      "inspection_tool": "view_image",
+      "inspection_detail": "original",
+      "findings": "Hatch opening, speaking station, practical light and adjacent staff door explain public/staff separation.",
+      "limitations_or_defects": "Large orange staff door attracts more chromatic attention than the smaller check-in apparatus (SP-C08-004), although the hatch practical supplies a useful focal counterweight.",
+      "deliberate_cutaway": false,
+      "cutaway_object_count": 0
+    },
+    {
+      "image": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08-neutral/C05_CONVEYOR_LEAD_TUNNEL.png",
+      "set": "neutral",
+      "id": "C05_CONVEYOR_LEAD_TUNNEL",
+      "sha256": "e3539092ef0dd5ae66c5df55f2d71423e9247afe180ea1d013ea20df5d701507",
+      "recorded_sha256": "e3539092ef0dd5ae66c5df55f2d71423e9247afe180ea1d013ea20df5d701507",
+      "hash_match": true,
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_individually": true,
+      "inspection_tool": "view_image",
+      "inspection_detail": "original",
+      "findings": "Neutral view preserves distinct conveyor, cargo and curtain silhouettes, supporting the functional reading independent of beauty mood.",
+      "limitations_or_defects": "Gate mast still partly conceals the operator station (SP-C08-003); cargo crate remains conveyor load.",
+      "deliberate_cutaway": false,
+      "cutaway_object_count": 0
+    },
+    {
+      "image": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08-neutral/C07_OFFICE_INTERIOR.png",
+      "set": "neutral",
+      "id": "C07_OFFICE_INTERIOR",
+      "sha256": "03bdf36e9a61b86e2fd0e3ac0d1a418f7ecf3c1596621d44e46aba642da484f3",
+      "recorded_sha256": "03bdf36e9a61b86e2fd0e3ac0d1a418f7ecf3c1596621d44e46aba642da484f3",
+      "hash_match": true,
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_individually": true,
+      "inspection_tool": "view_image",
+      "inspection_detail": "original",
+      "findings": "Neutral view confirms the desk/chair cluster and open local floor without reliance on warm task lighting.",
+      "limitations_or_defects": "No full office circulation or door-swing demonstration.",
+      "deliberate_cutaway": false,
+      "cutaway_object_count": 0
+    },
+    {
+      "image": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08-neutral/HERO_TROLLEY.png",
+      "set": "neutral",
+      "id": "HERO_TROLLEY",
+      "sha256": "dfa1b0e6bd2a9739b1bf1b952deaa6a97a3242b9f54d17bdf64468b0197b49c9",
+      "recorded_sha256": "dfa1b0e6bd2a9739b1bf1b952deaa6a97a3242b9f54d17bdf64468b0197b49c9",
+      "hash_match": true,
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_individually": true,
+      "inspection_tool": "view_image",
+      "inspection_detail": "original",
+      "findings": "Neutral view confirms full caster/handle silhouette and trolley separation from the wall.",
+      "limitations_or_defects": "Trolley visually overlaps lower evidence cabinet compartments; operational clearance unknown.",
+      "deliberate_cutaway": false,
+      "cutaway_object_count": 0
+    },
+    {
+      "image": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08-neutral/HERO_UTILITIES.png",
+      "set": "neutral",
+      "id": "HERO_UTILITIES",
+      "sha256": "0efb1cd0d27ef312292ac742ca5bb14c7a300f62ab4f956773df158b76fb154c",
+      "recorded_sha256": "0efb1cd0d27ef312292ac742ca5bb14c7a300f62ab4f956773df158b76fb154c",
+      "hash_match": true,
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_individually": true,
+      "inspection_tool": "view_image",
+      "inspection_detail": "original",
+      "findings": "Neutral view confirms separate service boxes and conduit routing, with equipment cluster subordinate in scale.",
+      "limitations_or_defects": "Maintenance approach and box-opening clearances unmeasured.",
+      "deliberate_cutaway": false,
+      "cutaway_object_count": 0
+    },
+    {
+      "image": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08-uv-standard/C05_CONVEYOR_LEAD_TUNNEL.png",
+      "set": "uv",
+      "id": "C05_CONVEYOR_LEAD_TUNNEL",
+      "sha256": "69ceec5bf7192f6960a9fc53fe7cce8f0ba7207273efd5e57792eae5ae37521e",
+      "recorded_sha256": "69ceec5bf7192f6960a9fc53fe7cce8f0ba7207273efd5e57792eae5ae37521e",
+      "hash_match": true,
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_individually": true,
+      "inspection_tool": "view_image",
+      "inspection_detail": "original",
+      "findings": "Checker view still exposes the conveyor load, roller support, curtain mouth and side operator housing as separate forms.",
+      "limitations_or_defects": "Checker diagnostic removes production hierarchy cues; no category 4 UV score assigned. Mast occlusion remains visible (SP-C08-003).",
+      "deliberate_cutaway": false,
+      "cutaway_object_count": 0
+    },
+    {
+      "image": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08-uv-standard/C07_OFFICE_INTERIOR.png",
+      "set": "uv",
+      "id": "C07_OFFICE_INTERIOR",
+      "sha256": "e3d74e77e12cf6a561188e8cfc0dbe04787bbeeb73b7ffae779da9c6cddb4a4b",
+      "recorded_sha256": "e3d74e77e12cf6a561188e8cfc0dbe04787bbeeb73b7ffae779da9c6cddb4a4b",
+      "hash_match": true,
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_individually": true,
+      "inspection_tool": "view_image",
+      "inspection_detail": "original",
+      "findings": "Checker view confirms the office furniture arrangement and chair-side floor.",
+      "limitations_or_defects": "No runtime clearance claim; checker sizes are not treated as measured world dimensions.",
+      "deliberate_cutaway": false,
+      "cutaway_object_count": 0
+    },
+    {
+      "image": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08-uv-standard/HERO_TROLLEY.png",
+      "set": "uv",
+      "id": "HERO_TROLLEY",
+      "sha256": "ebc79b60b1665477dfe2fa3d5bb3187caec42da9f0fd455fcbac12eb2431de79",
+      "recorded_sha256": "ebc79b60b1665477dfe2fa3d5bb3187caec42da9f0fd455fcbac12eb2431de79",
+      "hash_match": true,
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_individually": true,
+      "inspection_tool": "view_image",
+      "inspection_detail": "original",
+      "findings": "Checker view exposes the trolley frame, four-caster arrangement and draped load as distinct assemblies.",
+      "limitations_or_defects": "Bay maneuvering and cabinet door operation remain unverified; UV category outside scope.",
+      "deliberate_cutaway": false,
+      "cutaway_object_count": 0
+    },
+    {
+      "image": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08-uv-standard/HERO_UTILITIES.png",
+      "set": "uv",
+      "id": "HERO_UTILITIES",
+      "sha256": "44060e1b28446cbba0dc1101ef33b997a433c41cfccbf77c37b6dafab9712fd8",
+      "recorded_sha256": "44060e1b28446cbba0dc1101ef33b997a433c41cfccbf77c37b6dafab9712fd8",
+      "hash_match": true,
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_individually": true,
+      "inspection_tool": "view_image",
+      "inspection_detail": "original",
+      "findings": "Checker view preserves the utility cluster silhouette and separate conduit/box forms.",
+      "limitations_or_defects": "Checker mode is not scored as production colour or hierarchy; maintenance clearance unavailable.",
+      "deliberate_cutaway": false,
+      "cutaway_object_count": 0
+    },
+    {
+      "image": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/BRIEFING_INDIRECT.png",
+      "set": "approved_spawn_reference",
+      "id": "BRIEFING_INDIRECT",
+      "sha256": "8d03448f84845b16705c6acc3324364a4e0a51f36c34355f4c481e8957aef301",
+      "recorded_sha256": "8d03448f84845b16705c6acc3324364a4e0a51f36c34355f4c481e8957aef301",
+      "hash_match": true,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "opened_individually": true,
+      "inspection_tool": "view_image",
+      "inspection_detail": "original",
+      "findings": "Reference organizes benches toward one clear briefing screen with an open central sightline and quiet lower wall.",
+      "limitations_or_defects": "Reference-only; no compliance-dock layout requirement inferred from its furniture or graphics.",
+      "deliberate_cutaway": false
+    },
+    {
+      "image": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/VALIDATE_LockerDoor.png",
+      "set": "approved_spawn_reference",
+      "id": "VALIDATE_LockerDoor",
+      "sha256": "b8fd309f91cc15bfe6d183a253b81ba0f20a0033e08c63214c127e07e19879de",
+      "recorded_sha256": "b8fd309f91cc15bfe6d183a253b81ba0f20a0033e08c63214c127e07e19879de",
+      "hash_match": true,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "opened_individually": true,
+      "inspection_tool": "view_image",
+      "inspection_detail": "original",
+      "findings": "Reference uses benches/lockers to flank a legible centre route and one end-wall focal apparatus.",
+      "limitations_or_defects": "Reference-only; apparatus construction and layout are not copied or treated as dock clearance proof.",
+      "deliberate_cutaway": false
+    },
+    {
+      "image": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/VALIDATE_Material_A.png",
+      "set": "approved_spawn_reference",
+      "id": "VALIDATE_Material_A",
+      "sha256": "47d3892f69b4b244bcbff32908a6445556c182b2090aba11b22be1fe274253f6",
+      "recorded_sha256": "47d3892f69b4b244bcbff32908a6445556c182b2090aba11b22be1fe274253f6",
+      "hash_match": true,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "opened_individually": true,
+      "inspection_tool": "view_image",
+      "inspection_detail": "original",
+      "findings": "Reference close-up shows believable locker size, hand-scale handles and restrained local belongings.",
+      "limitations_or_defects": "Close-up supplies limited route evidence; no dock score deduction from unrelated reference content.",
+      "deliberate_cutaway": false
+    },
+    {
+      "image": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/VALIDATE_Spawn.png",
+      "set": "approved_spawn_reference",
+      "id": "VALIDATE_Spawn",
+      "sha256": "c84f368729c7e3ae1e6f1005ff5daae39020749316545bd208c972cee5b4e9ed",
+      "recorded_sha256": "c84f368729c7e3ae1e6f1005ff5daae39020749316545bd208c972cee5b4e9ed",
+      "hash_match": true,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "opened_individually": true,
+      "inspection_tool": "view_image",
+      "inspection_detail": "original",
+      "findings": "Reference corridor separates side-room entrances from a clear terminal airlock, using readable silhouettes and quiet circulation floor.",
+      "limitations_or_defects": "Useful hierarchy benchmark; different room layout cannot certify the dock dimensions or runtime flow.",
+      "deliberate_cutaway": false
+    }
+  ]
+}

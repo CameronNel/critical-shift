@@ -1,0 +1,343 @@
+{
+  "schema_version": 1,
+  "review": "independent full-cycle-08 category8 technical",
+  "generated_utc": "2026-10-03T06:23:55.159052+00:00",
+  "category": 8,
+  "score_100": 91.5,
+  "source_sha256": "d2514e668ea2b24e8b4ede6bde870e12f10c1afd6d6e1892b12c016266bd7b35",
+  "frozen_recipes": {
+    "overhaul_dock.py": "58b80133bf0b08779f58319db2f18301c791a1b33991a3f438d9d8de0dd02f32",
+    "full_detail.py": "57e5a98d95e11d5ed186132d6a8de12c0eb539f35d8cf7dacf106c24bae66388",
+    "full_repairs.py": "be8dc32a98d9aee43c64cd98ce60c626baca4baca8121332e77deece54001f36",
+    "render_dock.py": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce"
+  },
+  "critical_ids": [
+    "TC08-SUP-01",
+    "TC08-SUP-02"
+  ],
+  "veto_ids": [
+    "TC08-TECH-SUPPORT-GATE"
+  ],
+  "veto_scope": "Objective technical support/contact and registration gate only; no overall or other-category verdict",
+  "defects": [
+    {
+      "id": "TC08-SUP-01",
+      "severity": "critical",
+      "critical": true,
+      "deduction": 5.0,
+      "objects": [
+        "Cable tray longitudinal -1.5",
+        "Cable bundle -1.5_0",
+        "Cable bundle -1.5_1",
+        "Cable bundle -1.5_2",
+        "Cable bundle -1.5_3"
+      ],
+      "finding": "Unsupported 15.4m tray and cable island with no rooted support path",
+      "external_gap_lower_bound_m": 0.0685875415802002,
+      "actual_nearest_vertex_surface_witness_m": 0.08004951477050781,
+      "actual_upward_truss_gap_m": 0.09000013155698776,
+      "evidence": [
+        "contacts_parts.json",
+        "details.json",
+        "full-cycle-08/C10_ROOF_SERVICES.png"
+      ]
+    },
+    {
+      "id": "TC08-SUP-02",
+      "severity": "critical",
+      "critical": true,
+      "deduction": 3.0,
+      "objects": [
+        "P1 corridor overhead sign",
+        "P1 deep sign text"
+      ],
+      "finding": "Detached sign/text island with no rooted mount; architectural classification bypasses registry",
+      "external_gap_lower_bound_m": 0.12539935177297254,
+      "actual_nearest_vertex_surface_witness_m": 0.12735532224178314,
+      "actual_upward_ceiling_gap_m": 0.15000008178710939,
+      "evidence": [
+        "contacts_parts.json",
+        "details.json",
+        "full-cycle-08/PLAYER_REVERSE.png",
+        "full-cycle-08/WALL_SOUTH.png"
+      ]
+    },
+    {
+      "id": "TC08-UV-01",
+      "severity": "minor",
+      "critical": false,
+      "deduction": 0.5,
+      "finding": "Localized actual consumed fabric chart anisotropy on chair edge bands and small textile details; main tarp chart coherent",
+      "evidence": [
+        "details.json",
+        "inventory.json",
+        "full-cycle-08-uv-standard/C07_OFFICE_INTERIOR.png",
+        "full-cycle-08-uv-standard/HERO_TROLLEY.png"
+      ]
+    }
+  ],
+  "deductions_total": 8.5,
+  "caps": {
+    "triangles": {
+      "actual": 395342,
+      "cap": 450000
+    },
+    "material_submeshes": {
+      "actual": 1143,
+      "cap": 1150
+    },
+    "local_material_families": {
+      "actual": 35,
+      "cap": 36
+    }
+  },
+  "preserved_original_objects": 1077,
+  "matrix_max_numeric_residue": 1.1920928955078125e-07,
+  "contact_graph": {
+    "actual_topological_parts": 2868,
+    "rooted_parts": 2845,
+    "surface_edges": 6195,
+    "unrooted_island_part_counts": [
+      18,
+      5
+    ]
+  },
+  "resource_counts": {
+    "relative_libraries": 25,
+    "all_libraries_resolve": true,
+    "packed_images": 119,
+    "loaded_images": 119,
+    "local_consumed_image_texture_nodes": 0
+  },
+  "cloth_consumed_chart_measurements": [
+    {
+      "object": "Chair seat cushion",
+      "actual_materials": [
+        "CD | fabric"
+      ],
+      "area_m2": 0.5239642022725214,
+      "area_anisotropy_gt_1_1_fraction": 0.25532321745330566,
+      "area_anisotropy_gt_1_25_fraction": 0.21653589021015116,
+      "area_weighted_anisotropy_p50": 1.0055569061160226,
+      "area_weighted_anisotropy_p95": 1.483290859562277,
+      "maximum_anisotropy": 1.574292901138477,
+      "witness_max": [
+        0.0019848843064522725,
+        1.574292901138477,
+        0.8954743500117005,
+        1.409738912375012,
+        407
+      ],
+      "stretch_min": 0.773126507801247,
+      "stretch_max": 1.6981133867317226
+    },
+    {
+      "object": "Chair back lumbar",
+      "actual_materials": [
+        "CD | fabric"
+      ],
+      "area_m2": 0.216877831254949,
+      "area_anisotropy_gt_1_1_fraction": 0.2650623315514845,
+      "area_anisotropy_gt_1_25_fraction": 0.1910931062559117,
+      "area_weighted_anisotropy_p50": 1.010392036907678,
+      "area_weighted_anisotropy_p95": 1.492566467502833,
+      "maximum_anisotropy": 1.5575574217140775,
+      "witness_max": [
+        0.0010818418821827436,
+        1.5575574217140775,
+        0.8747954092294907,
+        1.362544082126797,
+        415
+      ],
+      "stretch_min": 0.7427315293607257,
+      "stretch_max": 1.7084700289580854
+    },
+    {
+      "object": "Chair back upper",
+      "actual_materials": [
+        "CD | fabric"
+      ],
+      "area_m2": 0.17577269016412042,
+      "area_anisotropy_gt_1_1_fraction": 0.29182958635379036,
+      "area_anisotropy_gt_1_25_fraction": 0.24987301355177402,
+      "area_weighted_anisotropy_p50": 1.01501783648689,
+      "area_weighted_anisotropy_p95": 1.5953450139417849,
+      "maximum_anisotropy": 1.6025558904345771,
+      "witness_max": [
+        0.005878399390007902,
+        1.6025558904345771,
+        0.7024740502888857,
+        1.1257539271678891,
+        431
+      ],
+      "stretch_min": 0.7024740502888857,
+      "stretch_max": 1.8141226022742512
+    },
+    {
+      "object": "Covered Trolley Draped Tarp",
+      "actual_materials": [
+        "CD | cotton"
+      ],
+      "area_m2": 6.59318654163691,
+      "area_anisotropy_gt_1_1_fraction": 0.0,
+      "area_anisotropy_gt_1_25_fraction": 0.0,
+      "area_weighted_anisotropy_p50": 1.0082089125040934,
+      "area_weighted_anisotropy_p95": 1.0227627819313814,
+      "maximum_anisotropy": 1.0807601205383097,
+      "witness_max": [
+        0.0010396425134765273,
+        1.0807601205383097,
+        0.850638608100483,
+        0.919336284625218,
+        5469
+      ],
+      "stretch_min": 0.8431769792387864,
+      "stretch_max": 1.084943982335765
+    },
+    {
+      "object": "CD | Joined CD | Counter cleaning cloth / cotton",
+      "actual_materials": [
+        "CD | cotton"
+      ],
+      "area_m2": 0.18265184966926867,
+      "area_anisotropy_gt_1_1_fraction": 0.14996009910270136,
+      "area_anisotropy_gt_1_25_fraction": 0.10004283121219958,
+      "area_weighted_anisotropy_p50": 1.0000000000000002,
+      "area_weighted_anisotropy_p95": 1.3989621438330822,
+      "maximum_anisotropy": 2.363701115375933,
+      "witness_max": [
+        0.00013591530188523704,
+        2.363701115375933,
+        0.4230653332161904,
+        1.0,
+        440
+      ],
+      "stretch_min": 0.4230653332161904,
+      "stretch_max": 1.0000000000000062
+    },
+    {
+      "object": "CD | Chair seat welt",
+      "actual_materials": [
+        "CD | cotton"
+      ],
+      "area_m2": 0.01328949422122824,
+      "area_anisotropy_gt_1_1_fraction": 0.06597301421479357,
+      "area_anisotropy_gt_1_25_fraction": 0.06597301421479357,
+      "area_weighted_anisotropy_p50": 1.082399772777355,
+      "area_weighted_anisotropy_p95": 1.4931063086959429,
+      "maximum_anisotropy": 1.5129722864493944,
+      "witness_max": [
+        2.7372732196803373e-05,
+        1.5129722864493944,
+        0.6609506393185661,
+        1.0,
+        124
+      ],
+      "stretch_min": 0.6609506393185661,
+      "stretch_max": 1.000000000000002
+    },
+    {
+      "object": "CD | Joined Covered Trolley H1 / cotton",
+      "actual_materials": [
+        "CD | cotton"
+      ],
+      "area_m2": 0.03153617974794098,
+      "area_anisotropy_gt_1_1_fraction": 0.6667456265272055,
+      "area_anisotropy_gt_1_25_fraction": 0.6667456265272055,
+      "area_weighted_anisotropy_p50": 1.9991216801887564,
+      "area_weighted_anisotropy_p95": 1.9991216801887564,
+      "maximum_anisotropy": 1.9991216801887564,
+      "witness_max": [
+        4.69346015365913e-05,
+        1.9991216801887564,
+        0.5002196764258894,
+        1.0,
+        0
+      ],
+      "stretch_min": 0.5002196764258894,
+      "stretch_max": 1.0
+    },
+    {
+      "object": "CD | Joined Staff Desk Assembly / fabric",
+      "actual_materials": [
+        "CD | fabric"
+      ],
+      "area_m2": 0.3500502329785942,
+      "area_anisotropy_gt_1_1_fraction": 0.01237420280624633,
+      "area_anisotropy_gt_1_25_fraction": 0.006585860093998385,
+      "area_weighted_anisotropy_p50": 1.0000000000000002,
+      "area_weighted_anisotropy_p95": 1.0636944613696335,
+      "maximum_anisotropy": 2.498724732974719,
+      "witness_max": [
+        6.181951761592459e-07,
+        2.498724732974719,
+        0.40020414686074884,
+        0.9999999999999999,
+        1540
+      ],
+      "stretch_min": 0.40020414686074884,
+      "stretch_max": 1.0000000000000042
+    },
+    {
+      "object": "CD | Glove repaired cuff",
+      "actual_materials": [
+        "CD | cotton"
+      ],
+      "area_m2": 0.003000412667293562,
+      "area_anisotropy_gt_1_1_fraction": 0.000589056206527213,
+      "area_anisotropy_gt_1_25_fraction": 0.0,
+      "area_weighted_anisotropy_p50": 1.0,
+      "area_weighted_anisotropy_p95": 1.0819204889358471,
+      "maximum_anisotropy": 1.128201444481787,
+      "witness_max": [
+        3.681263399171332e-08,
+        1.128201444481787,
+        0.8863665304553184,
+        1.0,
+        0
+      ],
+      "stretch_min": 0.8863665304553184,
+      "stretch_max": 1.0000000000000007
+    }
+  ],
+  "all39_original_images_opened": true,
+  "current_images": 35,
+  "reference_images": 4,
+  "manifest_hashes": [
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/manifest.json",
+      "sha256": "96b9aa2855691f920793bfbee64e054dd9326716ae5d2096eb34160ad24a46f0",
+      "complete": true,
+      "count": 27,
+      "diagnostic": null
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08-neutral/manifest.json",
+      "sha256": "7fb29c100179c892693ccfc10c053576201461362148597b3896426e54a4974b",
+      "complete": true,
+      "count": 4,
+      "diagnostic": "neutral"
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08-uv-standard/manifest.json",
+      "sha256": "ed8118a20c82f36b350c5d42dce4b7858d151b1920f4640b029eed7047db9d4b",
+      "complete": true,
+      "count": 4,
+      "diagnostic": "uv"
+    }
+  ],
+  "per_image_evidence": "full-c08-technical/imageaudit.json",
+  "native_saved_or_modified": false,
+  "builder_executed": false,
+  "runtime_status": "unverified; outside this art review",
+  "cold_pixel_status": "pending root final delivery gate; no independent cold-pixel pass claimed",
+  "limitations": [
+    "5mm surface contact graph is not engineering load/stability proof",
+    "Full contact graph uses bounded nearest-surface samples; failed islands have rigorous external separation bounds and actual surface witnesses",
+    "No exhaustive all-pair boolean intersection volume certification",
+    "No runtime collision/nav/interactions/physics/animation/FPS/engine equivalence verification",
+    "No historical scores/reviews used to earn category8 score",
+    "Root GitHub source-only and cold-pixel/publication gates are separate and not independently certified here"
+  ],
+  "processes_and_readers_released": true
+}

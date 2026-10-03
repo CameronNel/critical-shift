@@ -1,0 +1,131 @@
+{
+  "review_id": "full-c08-spatial",
+  "independent": true,
+  "read_only_native": true,
+  "scored_categories_only": [
+    1,
+    3
+  ],
+  "overall_score": null,
+  "expected_source_sha256": "d2514e668ea2b24e8b4ede6bde870e12f10c1afd6d6e1892b12c016266bd7b35",
+  "expected_renderer_sha256": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce",
+  "evidence_audit": "full-c08-spatial-imageaudit.json",
+  "categories": [
+    {
+      "category": 1,
+      "name": "Scale, layout and route readability",
+      "score": 96.5,
+      "scale": "/100",
+      "deduction_ids": [
+        "SP-C08-001",
+        "SP-C08-002"
+      ],
+      "rationale": "Door, chair, counter, trolley and inspection-aperture proportions are mutually believable. Main worker passage, controlled cart bypass, cargo conveyor and arrival apron form separate readable systems; broad negative space prevents an overcrowded layout. Reverse and corner evidence support visual circulation continuity. Small weaknesses remain in lateral check-in guidance and differentiation of worker/cart lane marks.",
+      "category_threshold_strictly_greater_than_93": true
+    },
+    {
+      "category": 3,
+      "name": "Inspection/check-in hero hierarchy and functional composition",
+      "score": 96.0,
+      "scale": "/100",
+      "deduction_ids": [
+        "SP-C08-003",
+        "SP-C08-004"
+      ],
+      "rationale": "C02 pairs a lit staffed hatch with the cool worker arch; the cargo curtain, roller bed and crate show distinct load processing. DETAIL_CHECKIN demonstrates coherent bureaucracy through physical equipment. Secondary services and concealed support stay subordinate. Cargo operator controls are partly hidden by the mast, and the orange staff door competes with the check-in apparatus in front views.",
+      "category_threshold_strictly_greater_than_93": true
+    }
+  ],
+  "defects": [
+    {
+      "id": "SP-C08-001",
+      "severity": "minor",
+      "critical": false,
+      "visual_veto": false,
+      "categories": [
+        1
+      ],
+      "deduction_points": 2.5,
+      "title": "Check-in branch route cue is weak relative to inspection lanes",
+      "evidence": [
+        "full-cycle-08/C02_HERO_DOCK.png",
+        "full-cycle-08/CORNER_SW.png",
+        "full-cycle-08/CORNER_NW.png",
+        "full-cycle-08/PLAYER_REVERSE.png"
+      ],
+      "finding": "The short orange/red dashed branch to the hatch is much fainter and smaller than the long yellow inspection lanes. The hatch architecture remains recognizable, but floor guidance foregrounds straight inspection movement and weakly expresses the lateral check-in stop. This is a visual sequencing weakness, not a claim that workers must follow an unprovided runtime procedure."
+    },
+    {
+      "id": "SP-C08-002",
+      "severity": "minor",
+      "critical": false,
+      "visual_veto": false,
+      "categories": [
+        1
+      ],
+      "deduction_points": 1.0,
+      "title": "Worker and cart lane marking grammar is only weakly differentiated",
+      "evidence": [
+        "full-cycle-08/C04_SCANNER_APPROACH.png",
+        "full-cycle-08/C06_CART_GATE_G1.png",
+        "full-cycle-08/HERO_SCANNER.png",
+        "full-cycle-08/CORNER_SE.png"
+      ],
+      "finding": "Worker and cart lanes share yellow borders and dashed centres. Open worker arch versus shut panel gate provides the necessary distinction, but approaching lane roles are not as immediately distinct as their equipment. The cargo conveyor is a separate load-processing route and the crate is not scored as a worker obstruction."
+    },
+    {
+      "id": "SP-C08-003",
+      "severity": "minor",
+      "critical": false,
+      "visual_veto": false,
+      "categories": [
+        3
+      ],
+      "deduction_points": 2.5,
+      "title": "Cargo operator side is partially hidden by the cart gate mast",
+      "evidence": [
+        "full-cycle-08/C05_CONVEYOR_LEAD_TUNNEL.png",
+        "full-cycle-08/HERO_CARGO.png",
+        "full-cycle-08-neutral/C05_CONVEYOR_LEAD_TUNNEL.png"
+      ],
+      "finding": "The foreground gate mast hides much of the operator display/control station while the crate and curtain mouth dominate. Cargo feeding is clear, but the machine operating station reads less completely than the worker arch controls or check-in worktop. No inaccessible operator position or collision is claimed."
+    },
+    {
+      "id": "SP-C08-004",
+      "severity": "minor",
+      "critical": false,
+      "visual_veto": false,
+      "categories": [
+        3
+      ],
+      "deduction_points": 1.5,
+      "title": "Staff door competes with the check-in interaction in its front views",
+      "evidence": [
+        "full-cycle-08/C03_CHECKIN_COUNTER.png",
+        "full-cycle-08/WALL_OFFICE_FRONT.png"
+      ],
+      "finding": "The large saturated orange staff leaf competes strongly with the smaller speaker/form/stamp apparatus; C03 also crops the worktop. The hatch remains legible and C02/DETAIL_CHECKIN recover its function, so the deduction is limited to hierarchy consistency, not a failure to identify check-in."
+    }
+  ],
+  "critical_defect_ids": [],
+  "visual_veto_ids": [],
+  "scoped_visual_veto_finding": "No dominant unreadable silhouette or other hard visual veto observed within the assigned spatial/hierarchy categories. Other categories and complete acceptance are not certified.",
+  "limitations": [
+    "This is a pixel-only review of the assigned current evidence; no native, source, renderer implementation, earlier score/history, concept or author rationale was read.",
+    "The manifests identify the expected source/renderer and complete 27/4/4 batches, but no native cold-open or repeat-render was performed. Manifest cold_open is false.",
+    "No numerical scale, engine collision, navigation, gate travel, doorway clearance, cabinet door swing or trolley swept maneuvering envelope was measured. Visible open space is visual evidence only.",
+    "The concealed trolley overlaps lower evidence-compartment sightlines in HERO_EVIDENCE/HERO_TROLLEY. Images cannot establish cabinet operation without moving it; this remains an operational limitation, not a critical defect.",
+    "Eight corner/wall views explicitly hide geometry for diagnosis. Cutaway omissions are deliberate and not treated as missing finished walls, roof or machinery.",
+    "Reference images serve craft/hierarchy comparison; their layout is not imposed on this preserved dock.",
+    "No overall mean or 99-point acceptance decision is issued by this specialist."
+  ],
+  "process_release": {
+    "native_opened": false,
+    "native_saved": false,
+    "native_edited": false,
+    "external_apps_used": false,
+    "persistent_reader_processes_started": false,
+    "all_readers_closed": true,
+    "all_commands_completed": true
+  }
+}

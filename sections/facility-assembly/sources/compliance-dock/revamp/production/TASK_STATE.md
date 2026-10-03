@@ -1,3 +1,13 @@
+## Completed cycle 8; repair required — 3 October 2026
+
+The fresh independent GPT-6 Luna review locked categories 1–7 at 93, 89, 94, 93, 89, 95 and 94. Fresh technical category 8 is 91.5. The exact mean is 738.5/8 = 92.3125: FAIL. Categories 1, 2, 4, 5 and 8 fail the strict >93 requirement. Critical defects TC08-SUP-01 and TC08-SUP-02, plus technical veto TC08-TECH-SUPPORT-GATE, also prevent acceptance. All six critics inspected all 35 current originals and four approved references, saved reports and released every reader/process. Eight complete full cycles; FULL_CYCLE_08.json is authoritative. All disagreements remain: spatial 96.5/96, materials 98/colour 99, lighting 98, story 96.
+
+Actual GitHub commit e44eb6c0ee062123a14c48913dc7f61b36264e77 contains exact F15 source/checkpoint/recipes and all 35 current 600p renders plus root audit and source-only cold proof. F15 native SHA-256 d2514e668ea2b24e8b4ede6bde870e12f10c1afd6d6e1892b12c016266bd7b35; 1323 objects, 395342 triangles, 1143 material submeshes, 35 local families. Static seven checks pass; independent actual geometry reveals an unsupported 15.4m cable tray/bundle cluster, with a 90mm gap to the overhead truss, and detached deep entry sign/text, with a 150mm gap to the corridor ceiling. The registered architectural classification bypasses current support validation. Root must add real rooted supports and registration without moving original poses or altering the room/map interfaces.
+
+The next root repair also targets primary box/slab silhouettes, branch/lane cues, targeted dark form separation, consumed cloth edge charts/softness and readable service consequences. F15 and all prior failures remain immutable checkpoints. All six readers have released, so root may now author the next version. Cold-open from actual GitHub passes with 25 native relative libraries and 119 packed images; final 27 decoded cold pixels and stable final two cycles remain unverified. PR66 stays DRAFT until independently earned 99/100, every category >93, zero critical/veto and final checks. No self-merge or map promotion. Runtime behavior/performance remains unverified.
+
+## Prior checkpoint history
+
 ## F15 complete C8 render evidence and fresh review — 3 October 2026
 
 Actual GitHubfc381a12c53e826b7644eb5d3e521854b6c60452/treee4a2cb393fd5d2fa1a0f562a6fd64f686c63832f contains exactF15 native/checkpoint/recipes/static/preformal proof. Isolated actualGitHub cold-sourcePASS1323objects/25relative libraries/119packedimages, sourceunchangedd2514e668ea2b24e8b4ede6bde870e12f10c1afd6d6e1892b12c016266bd7b35. Finalcold27decodedpixels notrun/acceptancepending.

@@ -1,0 +1,1 @@
+Large raw JSON probes are stored as exact `.json.gz` ordinary Git payloads. `large-probe-payloads.json` records decoded sizes and SHA-256 digests. Decompress each listed payload beside the scripts to recover the original referenced `.json` name. Root retained all original raw files locally unchanged. No acceptance score is affected by packaging.

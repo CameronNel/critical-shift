@@ -1,0 +1,503 @@
+{
+  "reviewer": "GPT-6 Luna (independent visual reviewer)",
+  "scope": "Pixel-only categories 1\u20137; category 8 deferred. No source/native contents, technical report, prior critics, or author rationale reviewed.",
+  "opened_images": 39,
+  "source_digest": {
+    "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/checkpoints/full-f15.blend",
+    "sha256": "d2514e668ea2b24e8b4ede6bde870e12f10c1afd6d6e1892b12c016266bd7b35",
+    "verified_by_checksum_only": true
+  },
+  "renderer_digest": {
+    "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/checkpoints/full-f15-render_dock.py",
+    "sha256": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce",
+    "verified_by_checksum_only": true
+  },
+  "manifests": [
+    {
+      "batch": "full-cycle-08",
+      "complete": true,
+      "requested_view_count": 27,
+      "declared_shots": 27,
+      "png_count": 27,
+      "source_sha256": "d2514e668ea2b24e8b4ede6bde870e12f10c1afd6d6e1892b12c016266bd7b35",
+      "renderer_sha256": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce",
+      "source_digest_matches_named_native": true,
+      "renderer_digest_matches_named_renderer": true,
+      "all_image_hashes_match": true,
+      "resolution": [
+        1067,
+        600
+      ],
+      "exposure": 0.699999988079071,
+      "diagnostic": null
+    },
+    {
+      "batch": "full-cycle-08-neutral",
+      "complete": true,
+      "requested_view_count": 4,
+      "declared_shots": 4,
+      "png_count": 4,
+      "source_sha256": "d2514e668ea2b24e8b4ede6bde870e12f10c1afd6d6e1892b12c016266bd7b35",
+      "renderer_sha256": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce",
+      "source_digest_matches_named_native": true,
+      "renderer_digest_matches_named_renderer": true,
+      "all_image_hashes_match": true,
+      "resolution": [
+        1067,
+        600
+      ],
+      "exposure": 0.0,
+      "diagnostic": "neutral"
+    },
+    {
+      "batch": "full-cycle-08-uv-standard",
+      "complete": true,
+      "requested_view_count": 4,
+      "declared_shots": 4,
+      "png_count": 4,
+      "source_sha256": "d2514e668ea2b24e8b4ede6bde870e12f10c1afd6d6e1892b12c016266bd7b35",
+      "renderer_sha256": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce",
+      "source_digest_matches_named_native": true,
+      "renderer_digest_matches_named_renderer": true,
+      "all_image_hashes_match": true,
+      "resolution": [
+        1067,
+        600
+      ],
+      "exposure": 0.0,
+      "diagnostic": "uv"
+    }
+  ],
+  "image_audit": [
+    {
+      "id": "C01_ENTRY",
+      "batch": "full-cycle-08",
+      "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/C01_ENTRY.png",
+      "opened_individually": true,
+      "view_detail": "original",
+      "sha256": "bd63507715720e4c502b87f3557684bcb74328c960d72e9e24d170b49fc2c1b5",
+      "declared_sha256": "bd63507715720e4c502b87f3557684bcb74328c960d72e9e24d170b49fc2c1b5",
+      "hash_matches": true,
+      "finding": "Entry centers the blue scanner arch and its dashed floor lead; back wall, right-side equipment and much of the ceiling remain near-black, compressing detail."
+    },
+    {
+      "id": "C02_HERO_DOCK",
+      "batch": "full-cycle-08",
+      "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/C02_HERO_DOCK.png",
+      "opened_individually": true,
+      "view_detail": "original",
+      "sha256": "e738feaeed2c8dc8e1a676eb3a6629ae47d57b4d31b52d95d0b49f865abed745",
+      "declared_sha256": "e738feaeed2c8dc8e1a676eb3a6629ae47d57b4d31b52d95d0b49f865abed745",
+      "hash_matches": true,
+      "finding": "Wide view establishes counter at left and scanner route center-right. The inspection lane reads, but deep counter recess and equipment bays are very dark; floor guides converge cleanly."
+    },
+    {
+      "id": "C03_CHECKIN_COUNTER",
+      "batch": "full-cycle-08",
+      "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/C03_CHECKIN_COUNTER.png",
+      "opened_individually": true,
+      "view_detail": "original",
+      "sha256": "4251ab6a13fb73b411fa1257555cedbc86947036e71bc1b9f3dd9b37403eb657",
+      "declared_sha256": "4251ab6a13fb73b411fa1257555cedbc86947036e71bc1b9f3dd9b37403eb657",
+      "hash_matches": true,
+      "finding": "Hatch, papers, stamp and intercom are legible and human-scaled. The crop clips the upper reassurance sign; warm pink wall and near-black lower counter dominate."
+    },
+    {
+      "id": "C04_SCANNER_APPROACH",
+      "batch": "full-cycle-08",
+      "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/C04_SCANNER_APPROACH.png",
+      "opened_individually": true,
+      "view_detail": "original",
+      "sha256": "531ec788c261c0a44ae1ee9fa0fa078c6ec4d6be6c32a331981bc1bc58644326",
+      "declared_sha256": "531ec788c261c0a44ae1ee9fa0fa078c6ec4d6be6c32a331981bc1bc58644326",
+      "hash_matches": true,
+      "finding": "Scanner arch is immediately identifiable, with a distinct side control column and cart lane. Far gate and right-side panels recede into darkness; overhead framework forms a dense black grid."
+    },
+    {
+      "id": "C05_CONVEYOR_LEAD_TUNNEL",
+      "batch": "full-cycle-08",
+      "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/C05_CONVEYOR_LEAD_TUNNEL.png",
+      "opened_individually": true,
+      "view_detail": "original",
+      "sha256": "c293902a2c7d9ebb39cccc72ce6fcb5e08108ba1e341246afbe516dc8d1ca167",
+      "declared_sha256": "c293902a2c7d9ebb39cccc72ce6fcb5e08108ba1e341246afbe516dc8d1ca167",
+      "hash_matches": true,
+      "finding": "Cargo crate reads on rollers under the inspection aperture. Tunnel interior and lower frame are dark; large plain black top housing and rectangular crate faces make the machinery feel block-built."
+    },
+    {
+      "id": "C06_CART_GATE_G1",
+      "batch": "full-cycle-08",
+      "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/C06_CART_GATE_G1.png",
+      "opened_individually": true,
+      "view_detail": "original",
+      "sha256": "ccb4385c502c64f49dd67c355fc4e5bcb2e44588f9be262322d55cd7bc0f9436",
+      "declared_sha256": "ccb4385c502c64f49dd67c355fc4e5bcb2e44588f9be262322d55cd7bc0f9436",
+      "hash_matches": true,
+      "finding": "Three sliding barrier panels and floor track are visible; broad opaque panels fill much of the frame and interrupt sightlines through the adjacent scanner lane. The right support post occludes equipment behind it."
+    },
+    {
+      "id": "C07_OFFICE_INTERIOR",
+      "batch": "full-cycle-08",
+      "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/C07_OFFICE_INTERIOR.png",
+      "opened_individually": true,
+      "view_detail": "original",
+      "sha256": "98e21190da1ba76563c854bb98429bd5fcca7205435767cda733f3af922ecc07",
+      "declared_sha256": "98e21190da1ba76563c854bb98429bd5fcca7205435767cda733f3af922ecc07",
+      "hash_matches": true,
+      "finding": "Desk papers, monitor, chair, mug and the \u201c14 HOURS / NO RELIEF\u201d notice tell a clear story. Window/rear office is very dark and reads as a black void; tabletop/monitor text is tiny at room scale."
+    },
+    {
+      "id": "C08_CONCEALED_SUPPORT_H1",
+      "batch": "full-cycle-08",
+      "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/C08_CONCEALED_SUPPORT_H1.png",
+      "opened_individually": true,
+      "view_detail": "original",
+      "sha256": "4d24c43d510561fabf22cd74c258e789110e87fc5beaa79791ad038039087793",
+      "declared_sha256": "4d24c43d510561fabf22cd74c258e789110e87fc5beaa79791ad038039087793",
+      "hash_matches": true,
+      "finding": "Cutaway view shows the covered trolley, cabinet and support bay. The shrouded load is a strong human trace; blanket silhouette is unusually smooth and dominates the small bay."
+    },
+    {
+      "id": "C09_ARRIVAL_GATE_P2",
+      "batch": "full-cycle-08",
+      "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/C09_ARRIVAL_GATE_P2.png",
+      "opened_individually": true,
+      "view_detail": "original",
+      "sha256": "ba870c5c35708e4aa17647cc0e1d6e57241f7369e74e404ee669813822cc492f",
+      "declared_sha256": "ba870c5c35708e4aa17647cc0e1d6e57241f7369e74e404ee669813822cc492f",
+      "hash_matches": true,
+      "finding": "Large sealed double gate reads clearly with heavy ribs and header. Lower frame and side control are in shadow; central gate panels have little material separation from the surrounding grey structure."
+    },
+    {
+      "id": "C10_ROOF_SERVICES",
+      "batch": "full-cycle-08",
+      "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/C10_ROOF_SERVICES.png",
+      "opened_individually": true,
+      "view_detail": "original",
+      "sha256": "e3936096b9512dec06ebd585ca26a28eb5d53c81703864ab0f13bac372a8f8cf",
+      "declared_sha256": "e3936096b9512dec06ebd585ca26a28eb5d53c81703864ab0f13bac372a8f8cf",
+      "hash_matches": true,
+      "finding": "Ceiling beams, suspended fixtures and duct/service members are readable. View is aimed high and crops most floor context; the brightest fixture is near the upper edge and the ceiling remains visually heavy."
+    },
+    {
+      "id": "CORNER_SW",
+      "batch": "full-cycle-08",
+      "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/CORNER_SW.png",
+      "opened_individually": true,
+      "view_detail": "original",
+      "sha256": "be7575486d9ee08d28fa7ed4fcf865d30eb782a72884684a95d41fbe242d36e5",
+      "declared_sha256": "be7575486d9ee08d28fa7ed4fcf865d30eb782a72884684a95d41fbe242d36e5",
+      "hash_matches": true,
+      "finding": "Cutaway gives a useful whole-room layout. Floor circulation and scanner are clear; office and dock machinery are small and the perimeter form is surrounded by broad empty wall/floor areas."
+    },
+    {
+      "id": "CORNER_SE",
+      "batch": "full-cycle-08",
+      "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/CORNER_SE.png",
+      "opened_individually": true,
+      "view_detail": "original",
+      "sha256": "2d30423f1bde4cf2fb25ee7c2bf7fae0387bf080949ad724466fd12bf2fd7312",
+      "declared_sha256": "2d30423f1bde4cf2fb25ee7c2bf7fae0387bf080949ad724466fd12bf2fd7312",
+      "hash_matches": true,
+      "finding": "Opposite cutaway exposes scanner, cargo equipment and office volume. The room reads as an authored sequence; several black posts bisect equipment and some support/storage masses merge in shade."
+    },
+    {
+      "id": "CORNER_NW",
+      "batch": "full-cycle-08",
+      "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/CORNER_NW.png",
+      "opened_individually": true,
+      "view_detail": "original",
+      "sha256": "4ac9debf55de5e3631f031f2671a203d99fe813678861306c7dfa7db1988656e",
+      "declared_sha256": "4ac9debf55de5e3631f031f2671a203d99fe813678861306c7dfa7db1988656e",
+      "hash_matches": true,
+      "finding": "Cutaway shows entry lane, office partition and trolley bay. Strong negative space helps route reading; office/equipment remain compressed in scale and the far wall is largely bare."
+    },
+    {
+      "id": "CORNER_NE",
+      "batch": "full-cycle-08",
+      "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/CORNER_NE.png",
+      "opened_individually": true,
+      "view_detail": "original",
+      "sha256": "0d6ba4ac9289c9d8661431b9f858b8d05cf94b9b921d8301bb398f84f58f36a1",
+      "declared_sha256": "0d6ba4ac9289c9d8661431b9f858b8d05cf94b9b921d8301bb398f84f58f36a1",
+      "hash_matches": true,
+      "finding": "Cutaway presents the full floor plan and route markings. Bright open floor is clear, but key machinery/office are small and the largely unadorned wall field is broad."
+    },
+    {
+      "id": "WALL_SOUTH",
+      "batch": "full-cycle-08",
+      "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/WALL_SOUTH.png",
+      "opened_individually": true,
+      "view_detail": "original",
+      "sha256": "4fe3192b234888452b6bd04bed373b764ab930e33476e97d49565e53094a2745",
+      "declared_sha256": "4fe3192b234888452b6bd04bed373b764ab930e33476e97d49565e53094a2745",
+      "hash_matches": true,
+      "finding": "Elevation is intentionally sparse: a single door and small \u201cyour work matters\u201d poster on an otherwise broad mauve wall. The door/header and fixture read; poster is small and unsupported by richer wall construction."
+    },
+    {
+      "id": "WALL_NORTH",
+      "batch": "full-cycle-08",
+      "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/WALL_NORTH.png",
+      "opened_individually": true,
+      "view_detail": "original",
+      "sha256": "7b803ec8b0b8091621441aac916af90fb2ccc94d7f34c0ca030d5184efa7d0d8",
+      "declared_sha256": "7b803ec8b0b8091621441aac916af90fb2ccc94d7f34c0ca030d5184efa7d0d8",
+      "hash_matches": true,
+      "finding": "Sealed arrival gate anchors the wall, flanked by storage and cabinets. Repeated dark wall beams and cabinet masses are legible; spacing is broad and surfaces are mostly plain."
+    },
+    {
+      "id": "WALL_EAST",
+      "batch": "full-cycle-08",
+      "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/WALL_EAST.png",
+      "opened_individually": true,
+      "view_detail": "original",
+      "sha256": "0250b67783143c2d8357c1c08e0752e5c56213d175150a404bfbc63b90b8c43a",
+      "declared_sha256": "0250b67783143c2d8357c1c08e0752e5c56213d175150a404bfbc63b90b8c43a",
+      "hash_matches": true,
+      "finding": "Service wall clearly groups pipe, meters and drums to one side, leaving long quiet spans. Wall/trim contrast is clear, while object details are small in the elevation view."
+    },
+    {
+      "id": "WALL_WEST",
+      "batch": "full-cycle-08",
+      "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/WALL_WEST.png",
+      "opened_individually": true,
+      "view_detail": "original",
+      "sha256": "a067a264f9def7e12fc4e89a5b43b6cae6bb0abd7703556900ae17d47953f0c7",
+      "declared_sha256": "a067a264f9def7e12fc4e89a5b43b6cae6bb0abd7703556900ae17d47953f0c7",
+      "hash_matches": true,
+      "finding": "Office desk and filing cabinets sit beside a large blank partition/panel, leaving a visually flat stretch. Signage and beam rhythm are restrained."
+    },
+    {
+      "id": "HERO_SCANNER",
+      "batch": "full-cycle-08",
+      "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/HERO_SCANNER.png",
+      "opened_individually": true,
+      "view_detail": "original",
+      "sha256": "77b40bbf2e1c5328eacb17bc760aeb33dfd0521645be1e7b41670b0940a0a2c6",
+      "declared_sha256": "77b40bbf2e1c5328eacb17bc760aeb33dfd0521645be1e7b41670b0940a0a2c6",
+      "hash_matches": true,
+      "finding": "Close view gives the scanner strong focal priority; panels, controls and paired uprights read as constructed. Housing is still mostly large rectangular members with relatively little secondary shaping."
+    },
+    {
+      "id": "HERO_CARGO",
+      "batch": "full-cycle-08",
+      "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/HERO_CARGO.png",
+      "opened_individually": true,
+      "view_detail": "original",
+      "sha256": "5c4466b6ab4a43b9281774ce32c536fa9d64b2749e9cf768814754bb5cafcf60",
+      "declared_sha256": "5c4466b6ab4a43b9281774ce32c536fa9d64b2749e9cf768814754bb5cafcf60",
+      "hash_matches": true,
+      "finding": "Cargo machine and crate are prominent, with rollers, braces and a caution panel. The crate is nearly cubic and the tunnel casing is a large slab-like box; underside details fall into shadow."
+    },
+    {
+      "id": "HERO_EVIDENCE",
+      "batch": "full-cycle-08",
+      "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/HERO_EVIDENCE.png",
+      "opened_individually": true,
+      "view_detail": "original",
+      "sha256": "161a9da7470df15fe91e4a1c21c404e173d4384ea52fe9f0fb612d0991bb206f",
+      "declared_sha256": "161a9da7470df15fe91e4a1c21c404e173d4384ea52fe9f0fb612d0991bb206f",
+      "hash_matches": true,
+      "finding": "Evidence lockers and tag establish custody. A large untextured black surround and strong shadow hide the edges of lower compartments; subtle mottling is visible on the blue locker."
+    },
+    {
+      "id": "HERO_TROLLEY",
+      "batch": "full-cycle-08",
+      "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/HERO_TROLLEY.png",
+      "opened_individually": true,
+      "view_detail": "original",
+      "sha256": "911cf89e81cb9f16eb82295864e21d0a64601497a5268c3f7ed02c8b9d0ef25b",
+      "declared_sha256": "911cf89e81cb9f16eb82295864e21d0a64601497a5268c3f7ed02c8b9d0ef25b",
+      "hash_matches": true,
+      "finding": "Trolley wheel, rails, supports and tied cover are legible; fabric reads distinct from metal. Cover is very smooth and evenly lit, with limited fold/edge character; surrounding bay is shadowed."
+    },
+    {
+      "id": "HERO_UTILITIES",
+      "batch": "full-cycle-08",
+      "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/HERO_UTILITIES.png",
+      "opened_individually": true,
+      "view_detail": "original",
+      "sha256": "3714834174a4904ee419d8585afce19db0dc074d45b519c5619f5bb9a3ae443c",
+      "declared_sha256": "3714834174a4904ee419d8585afce19db0dc074d45b519c5619f5bb9a3ae443c",
+      "hash_matches": true,
+      "finding": "Three mounted enclosures, conduit and cabinets read as electrical/data equipment. Several cases are simple cuboids and dark base/black backing merge; small printed labels are not readable at normal frame size."
+    },
+    {
+      "id": "DETAIL_CHECKIN",
+      "batch": "full-cycle-08",
+      "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/DETAIL_CHECKIN.png",
+      "opened_individually": true,
+      "view_detail": "original",
+      "sha256": "87199f9e40dc7aab8b99e3d02b98b61db66a93b17821cb6c9e727b80c59ea07a",
+      "declared_sha256": "87199f9e40dc7aab8b99e3d02b98b61db66a93b17821cb6c9e727b80c59ea07a",
+      "hash_matches": true,
+      "finding": "Paper tray, clipboard, stamp and counter hardware provide useful human-scale detail. Small document text is not readable, but objects are distinct and grounded on the hatch."
+    },
+    {
+      "id": "PLAYER_REVERSE",
+      "batch": "full-cycle-08",
+      "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/PLAYER_REVERSE.png",
+      "opened_individually": true,
+      "view_detail": "original",
+      "sha256": "91de2ece8fd144da8d59e0be6388a15ec695564281dd2707d9e1179dbb09dcc1",
+      "declared_sha256": "91de2ece8fd144da8d59e0be6388a15ec695564281dd2707d9e1179dbb09dcc1",
+      "hash_matches": true,
+      "finding": "Reverse view shows the scanner opening framed by cart barrier and office glazing. Route is understandable; high dark arch cross-member visually crowds the top of the frame."
+    },
+    {
+      "id": "PLAYER_PINCH",
+      "batch": "full-cycle-08",
+      "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/PLAYER_PINCH.png",
+      "opened_individually": true,
+      "view_detail": "original",
+      "sha256": "1b4efae28f0f900ea1a8ccbf0121c4fdcfa969e5f0940ce2c8d7255237c18eb6",
+      "declared_sha256": "1b4efae28f0f900ea1a8ccbf0121c4fdcfa969e5f0940ce2c8d7255237c18eb6",
+      "hash_matches": true,
+      "finding": "Player-height pinch view exposes the north route, grated channel and yellow zone. Cart in the route-side bay narrows the visible clear floor area; pillar and gate create substantial foreground occlusion, though no collision width is inferred."
+    },
+    {
+      "id": "WALL_OFFICE_FRONT",
+      "batch": "full-cycle-08",
+      "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/WALL_OFFICE_FRONT.png",
+      "opened_individually": true,
+      "view_detail": "original",
+      "sha256": "2e3bfbf958786b42c46bcd72766db22b6d79a64bf76ee538bf964c7ddd1801a7",
+      "declared_sha256": "2e3bfbf958786b42c46bcd72766db22b6d79a64bf76ee538bf964c7ddd1801a7",
+      "hash_matches": true,
+      "finding": "Office fa\u00e7ade combines staff door and check-in hatch with an ironic reassurance sign. The right hatch is very dark and occupied by a large \u201c14 HOURS / NO RELIEF\u201d board; this is strong coercive storytelling but signage competes with counter detail."
+    },
+    {
+      "id": "C05_CONVEYOR_LEAD_TUNNEL",
+      "batch": "full-cycle-08-neutral",
+      "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08-neutral/C05_CONVEYOR_LEAD_TUNNEL.png",
+      "opened_individually": true,
+      "view_detail": "original",
+      "sha256": "e3539092ef0dd5ae66c5df55f2d71423e9247afe180ea1d013ea20df5d701507",
+      "declared_sha256": "e3539092ef0dd5ae66c5df55f2d71423e9247afe180ea1d013ea20df5d701507",
+      "hash_matches": true,
+      "finding": "Neutral pass lifts casing and crate edges, exposing blocky large housing and a comparatively plain crate; no claim about final lighting."
+    },
+    {
+      "id": "C07_OFFICE_INTERIOR",
+      "batch": "full-cycle-08-neutral",
+      "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08-neutral/C07_OFFICE_INTERIOR.png",
+      "opened_individually": true,
+      "view_detail": "original",
+      "sha256": "03bdf36e9a61b86e2fd0e3ac0d1a418f7ecf3c1596621d44e46aba642da484f3",
+      "declared_sha256": "03bdf36e9a61b86e2fd0e3ac0d1a418f7ecf3c1596621d44e46aba642da484f3",
+      "hash_matches": true,
+      "finding": "Neutral view makes desk items and chair form easier to see, while rear glazing is still near-black; this is a diagnostic exposure."
+    },
+    {
+      "id": "HERO_TROLLEY",
+      "batch": "full-cycle-08-neutral",
+      "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08-neutral/HERO_TROLLEY.png",
+      "opened_individually": true,
+      "view_detail": "original",
+      "sha256": "dfa1b0e6bd2a9739b1bf1b952deaa6a97a3242b9f54d17bdf64468b0197b49c9",
+      "declared_sha256": "dfa1b0e6bd2a9739b1bf1b952deaa6a97a3242b9f54d17bdf64468b0197b49c9",
+      "hash_matches": true,
+      "finding": "Neutral pass clarifies caster contact, lower trolley rails and locker faces. Cover silhouette remains broad and smooth; diagnostic exposure only."
+    },
+    {
+      "id": "HERO_UTILITIES",
+      "batch": "full-cycle-08-neutral",
+      "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08-neutral/HERO_UTILITIES.png",
+      "opened_individually": true,
+      "view_detail": "original",
+      "sha256": "0efb1cd0d27ef312292ac742ca5bb14c7a300f62ab4f956773df158b76fb154c",
+      "declared_sha256": "0efb1cd0d27ef312292ac742ca5bb14c7a300f62ab4f956773df158b76fb154c",
+      "hash_matches": true,
+      "finding": "Neutral exposure clarifies cabinet surfaces, conduit bends and contacts. Neighboring panels have different apparent surface scale; this does not establish native UV correctness."
+    },
+    {
+      "id": "C05_CONVEYOR_LEAD_TUNNEL",
+      "batch": "full-cycle-08-uv-standard",
+      "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08-uv-standard/C05_CONVEYOR_LEAD_TUNNEL.png",
+      "opened_individually": true,
+      "view_detail": "original",
+      "sha256": "69ceec5bf7192f6960a9fc53fe7cce8f0ba7207273efd5e57792eae5ae37521e",
+      "declared_sha256": "69ceec5bf7192f6960a9fc53fe7cce8f0ba7207273efd5e57792eae5ae37521e",
+      "hash_matches": true,
+      "finding": "Checker is visible over housing, rollers and crate; checker scale differs across adjacent parts and follows edges, with no single unmistakable gross smear. Diagnostic alone cannot certify UVs."
+    },
+    {
+      "id": "C07_OFFICE_INTERIOR",
+      "batch": "full-cycle-08-uv-standard",
+      "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08-uv-standard/C07_OFFICE_INTERIOR.png",
+      "opened_individually": true,
+      "view_detail": "original",
+      "sha256": "e3d74e77e12cf6a561188e8cfc0dbe04787bbeeb73b7ffae779da9c6cddb4a4b",
+      "declared_sha256": "e3d74e77e12cf6a561188e8cfc0dbe04787bbeeb73b7ffae779da9c6cddb4a4b",
+      "hash_matches": true,
+      "finding": "Checker is visible across wall, tabletop, chair and small items; scale varies substantially between surfaces. This demonstrates mapping/scale inconsistency in the rendered diagnostic, not a definitive UV defect."
+    },
+    {
+      "id": "HERO_TROLLEY",
+      "batch": "full-cycle-08-uv-standard",
+      "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08-uv-standard/HERO_TROLLEY.png",
+      "opened_individually": true,
+      "view_detail": "original",
+      "sha256": "ebc79b60b1665477dfe2fa3d5bb3187caec42da9f0fd455fcbac12eb2431de79",
+      "declared_sha256": "ebc79b60b1665477dfe2fa3d5bb3187caec42da9f0fd455fcbac12eb2431de79",
+      "hash_matches": true,
+      "finding": "Checker runs over cover, rails, wheels and lockers. Checker scale differs between fabric and surrounding parts; fold-following phase changes are not treated as stretch evidence."
+    },
+    {
+      "id": "HERO_UTILITIES",
+      "batch": "full-cycle-08-uv-standard",
+      "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08-uv-standard/HERO_UTILITIES.png",
+      "opened_individually": true,
+      "view_detail": "original",
+      "sha256": "44060e1b28446cbba0dc1101ef33b997a433c41cfccbf77c37b6dafab9712fd8",
+      "declared_sha256": "44060e1b28446cbba0dc1101ef33b997a433c41cfccbf77c37b6dafab9712fd8",
+      "hash_matches": true,
+      "finding": "Checker sizes vary among conduit, boxes, cabinets and wall. Edges remain readable, but relative texel density is visibly uneven in this diagnostic; native UVs remain unverified."
+    },
+    {
+      "id": "BRIEFING_INDIRECT.png",
+      "batch": "spawn-reference",
+      "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/BRIEFING_INDIRECT.png",
+      "opened_individually": true,
+      "view_detail": "original",
+      "sha256": "8d03448f84845b16705c6acc3324364a4e0a51f36c34355f4c481e8957aef301",
+      "declared_sha256": "8d03448f84845b16705c6acc3324364a4e0a51f36c34355f4c481e8957aef301",
+      "hash_matches": true,
+      "finding": "Spawn reference has orange upper wall, charcoal lower wall, warm wood and restrained everyday props; localized indirect light creates a human briefing corner."
+    },
+    {
+      "id": "VALIDATE_LockerDoor.png",
+      "batch": "spawn-reference",
+      "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/VALIDATE_LockerDoor.png",
+      "opened_individually": true,
+      "view_detail": "original",
+      "sha256": "b8fd309f91cc15bfe6d183a253b81ba0f20a0033e08c63214c127e07e19879de",
+      "declared_sha256": "b8fd309f91cc15bfe6d183a253b81ba0f20a0033e08c63214c127e07e19879de",
+      "hash_matches": true,
+      "finding": "Spawn reference shows cool blue locker surfaces, dark frames and warm orange hardware. Metal response is restrained and construction seams are visible."
+    },
+    {
+      "id": "VALIDATE_Material_A.png",
+      "batch": "spawn-reference",
+      "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/VALIDATE_Material_A.png",
+      "opened_individually": true,
+      "view_detail": "original",
+      "sha256": "47d3892f69b4b244bcbff32908a6445556c182b2090aba11b22be1fe274253f6",
+      "declared_sha256": "47d3892f69b4b244bcbff32908a6445556c182b2090aba11b22be1fe274253f6",
+      "hash_matches": true,
+      "finding": "Spawn reference close-up shows plausible painted locker finish and localized wear, with lower gloss and finer material response than a toy surface."
+    },
+    {
+      "id": "VALIDATE_Spawn.png",
+      "batch": "spawn-reference",
+      "file": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/VALIDATE_Spawn.png",
+      "opened_individually": true,
+      "view_detail": "original",
+      "sha256": "c84f368729c7e3ae1e6f1005ff5daae39020749316545bd208c972cee5b4e9ed",
+      "declared_sha256": "c84f368729c7e3ae1e6f1005ff5daae39020749316545bd208c972cee5b4e9ed",
+      "hash_matches": true,
+      "finding": "Spawn reference uses a pale mauve wall, charcoal wainscot, orange PPE accents, readable doorway hierarchy and restrained bright practical lighting."
+    }
+  ],
+  "note": "All 39 original PNGs were individually opened at original detail: 27 formal cycle renders, 4 neutral diagnostic renders, 4 UV checker diagnostic renders, and 4 approved spawn references. UV-standard images are visual diagnostics only and do not certify native UVs. Corner/wall cutaways are diagnostic views."
+}

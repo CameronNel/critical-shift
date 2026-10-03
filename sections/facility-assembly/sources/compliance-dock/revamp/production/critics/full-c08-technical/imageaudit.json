@@ -1,0 +1,588 @@
+{
+  "source_sha256": "d2514e668ea2b24e8b4ede6bde870e12f10c1afd6d6e1892b12c016266bd7b35",
+  "renderer_sha256": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce",
+  "manifests": [
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/manifest.json",
+      "sha256": "96b9aa2855691f920793bfbee64e054dd9326716ae5d2096eb34160ad24a46f0",
+      "complete": true,
+      "count": 27,
+      "diagnostic": null
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08-neutral/manifest.json",
+      "sha256": "7fb29c100179c892693ccfc10c053576201461362148597b3896426e54a4974b",
+      "complete": true,
+      "count": 4,
+      "diagnostic": "neutral"
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08-uv-standard/manifest.json",
+      "sha256": "ed8118a20c82f36b350c5d42dce4b7858d151b1920f4640b029eed7047db9d4b",
+      "complete": true,
+      "count": 4,
+      "diagnostic": "uv"
+    }
+  ],
+  "images": [
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/C01_ENTRY.png",
+      "id": "C01_ENTRY",
+      "group": "full-cycle-08",
+      "sha256": "bd63507715720e4c502b87f3557684bcb74328c960d72e9e24d170b49fc2c1b5",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "original_opened": true,
+      "finding": "Arch columns meet the threshold ramp and floor; glazing and bypass interfaces are legible. Upper service gap cannot be established from these pixels alone.",
+      "inspection_tool": "view_image",
+      "inspection_detail": "original"
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/C02_HERO_DOCK.png",
+      "id": "C02_HERO_DOCK",
+      "group": "full-cycle-08",
+      "sha256": "e738feaeed2c8dc8e1a676eb3a6629ae47d57b4d31b52d95d0b49f865abed745",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "original_opened": true,
+      "finding": "Counter legs, scanner base and conveyor frame are visible; no new large interpenetration is evident. Roof shadows conceal small support gaps.",
+      "inspection_tool": "view_image",
+      "inspection_detail": "original"
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/C03_CHECKIN_COUNTER.png",
+      "id": "C03_CHECKIN_COUNTER",
+      "group": "full-cycle-08",
+      "sha256": "4251ab6a13fb73b411fa1257555cedbc86947036e71bc1b9f3dd9b37403eb657",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "original_opened": true,
+      "finding": "Door frame, access reader, conduit and counter paperwork show plausible surface contact; no visible wall-sign float in this crop.",
+      "inspection_tool": "view_image",
+      "inspection_detail": "original"
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/C04_SCANNER_APPROACH.png",
+      "id": "C04_SCANNER_APPROACH",
+      "group": "full-cycle-08",
+      "sha256": "531ec788c261c0a44ae1ee9fa0fa078c6ec4d6be6c32a331981bc1bc58644326",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "original_opened": true,
+      "finding": "Scanner feet and ramp edge are visible on the floor; aperture is clear in the image. No gross normal inversion is visible.",
+      "inspection_tool": "view_image",
+      "inspection_detail": "original"
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/C05_CONVEYOR_LEAD_TUNNEL.png",
+      "id": "C05_CONVEYOR_LEAD_TUNNEL",
+      "group": "full-cycle-08",
+      "sha256": "c293902a2c7d9ebb39cccc72ce6fcb5e08108ba1e341246afbe516dc8d1ca167",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "original_opened": true,
+      "finding": "Crate rests over rollers; tunnel framing, curtains and outer feet remain distinct. Actual roller bearing is corroborated by the surface graph.",
+      "inspection_tool": "view_image",
+      "inspection_detail": "original"
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/C06_CART_GATE_G1.png",
+      "id": "C06_CART_GATE_G1",
+      "group": "full-cycle-08",
+      "sha256": "ccb4385c502c64f49dd67c355fc4e5bcb2e44588f9be262322d55cd7bc0f9436",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "original_opened": true,
+      "finding": "Telescoping leaves are depicted closed and seated on tracks. This is a static image, not evidence of a retracted gate or moving-door clearance.",
+      "inspection_tool": "view_image",
+      "inspection_detail": "original"
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/C07_OFFICE_INTERIOR.png",
+      "id": "C07_OFFICE_INTERIOR",
+      "group": "full-cycle-08",
+      "sha256": "98e21190da1ba76563c854bb98429bd5fcca7205435767cda733f3af922ecc07",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "original_opened": true,
+      "finding": "Chair casters and desk feet meet the floor; small desktop props read as supported. Fabric edge-band mapping needs the UV diagnostic.",
+      "inspection_tool": "view_image",
+      "inspection_detail": "original"
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/C08_CONCEALED_SUPPORT_H1.png",
+      "id": "C08_CONCEALED_SUPPORT_H1",
+      "group": "full-cycle-08",
+      "sha256": "4d24c43d510561fabf22cd74c258e789110e87fc5beaa79791ad038039087793",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "original_opened": true,
+      "finding": "Tarp folds and visible weave follow the broad cover; buckles and handles retain readable separation. Lower wheel contacts are partly cropped.",
+      "inspection_tool": "view_image",
+      "inspection_detail": "original"
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/C09_ARRIVAL_GATE_P2.png",
+      "id": "C09_ARRIVAL_GATE_P2",
+      "group": "full-cycle-08",
+      "sha256": "ba870c5c35708e4aa17647cc0e1d6e57241f7369e74e404ee669813822cc492f",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "original_opened": true,
+      "finding": "Sealed leaves and center meeting joint are visible; no apparent z-fighting at the steel mating faces. No opening-motion proof is present.",
+      "inspection_tool": "view_image",
+      "inspection_detail": "original"
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/C10_ROOF_SERVICES.png",
+      "id": "C10_ROOF_SERVICES",
+      "group": "full-cycle-08",
+      "sha256": "e3936096b9512dec06ebd585ca26a28eb5d53c81703864ab0f13bac372a8f8cf",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "original_opened": true,
+      "finding": "West tray is visible among crossing trusses, with no evident suspension connecting its run. Native rays establish its 90mm upward gap; dark pixels alone would be insufficient.",
+      "inspection_tool": "view_image",
+      "inspection_detail": "original"
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/CORNER_SW.png",
+      "id": "CORNER_SW",
+      "group": "full-cycle-08",
+      "sha256": "be7575486d9ee08d28fa7ed4fcf865d30eb782a72884684a95d41fbe242d36e5",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "original_opened": true,
+      "finding": "Cutaway shows equipment footprints, desk/counter and support bay; overhead geometry is deliberately removed, so this view cannot prove tray support.",
+      "inspection_tool": "view_image",
+      "inspection_detail": "original"
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/CORNER_SE.png",
+      "id": "CORNER_SE",
+      "group": "full-cycle-08",
+      "sha256": "2d30423f1bde4cf2fb25ee7c2bf7fae0387bf080949ad724466fd12bf2fd7312",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "original_opened": true,
+      "finding": "Reverse oblique shows scanner/conveyor feet, office and trolley placement; removed roof and exterior walls are review cutaway operations.",
+      "inspection_tool": "view_image",
+      "inspection_detail": "original"
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/CORNER_NW.png",
+      "id": "CORNER_NW",
+      "group": "full-cycle-08",
+      "sha256": "4ac9debf55de5e3631f031f2671a203d99fe813678861306c7dfa7db1988656e",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "original_opened": true,
+      "finding": "Opposite oblique exposes south entry and service wall layout; no new large clipping is evident. Roof support cannot be assessed after cutaway removal.",
+      "inspection_tool": "view_image",
+      "inspection_detail": "original"
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/CORNER_NE.png",
+      "id": "CORNER_NE",
+      "group": "full-cycle-08",
+      "sha256": "0d6ba4ac9289c9d8661431b9f858b8d05cf94b9b921d8301bb398f84f58f36a1",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "original_opened": true,
+      "finding": "Office/screen interfaces and floor routes are exposed; no floor-floating major assembly is evident in this cutaway.",
+      "inspection_tool": "view_image",
+      "inspection_detail": "original"
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/WALL_SOUTH.png",
+      "id": "WALL_SOUTH",
+      "group": "full-cycle-08",
+      "sha256": "4fe3192b234888452b6bd04bed373b764ab930e33476e97d49565e53094a2745",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "original_opened": true,
+      "finding": "Deep entry orange sign is visible above the dark door. Its mount is not visible; native measurements establish the detached sign island.",
+      "inspection_tool": "view_image",
+      "inspection_detail": "original"
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/WALL_NORTH.png",
+      "id": "WALL_NORTH",
+      "group": "full-cycle-08",
+      "sha256": "7b803ec8b0b8091621441aac916af90fb2ccc94d7f34c0ca030d5184efa7d0d8",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "original_opened": true,
+      "finding": "Evidence storage, sealed portal and switchgear sit against coherent wall/floor interfaces. Small service/support detail is too distant for a millimetre claim.",
+      "inspection_tool": "view_image",
+      "inspection_detail": "original"
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/WALL_EAST.png",
+      "id": "WALL_EAST",
+      "group": "full-cycle-08",
+      "sha256": "0250b67783143c2d8357c1c08e0752e5c56213d175150a404bfbc63b90b8c43a",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "original_opened": true,
+      "finding": "Utility conduits, boxes and lower barrels are visible in elevation. The long line across the frame is retained overhead service geometry, not a demonstrated wall mount.",
+      "inspection_tool": "view_image",
+      "inspection_detail": "original"
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/WALL_WEST.png",
+      "id": "WALL_WEST",
+      "group": "full-cycle-08",
+      "sha256": "a067a264f9def7e12fc4e89a5b43b6cae6bb0abd7703556900ae17d47953f0c7",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "original_opened": true,
+      "finding": "Glazing mullions appear isolated because the review cutaway removes their companion glazing/office shell. This process-only appearance is not scored as a native float.",
+      "inspection_tool": "view_image",
+      "inspection_detail": "original"
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/HERO_SCANNER.png",
+      "id": "HERO_SCANNER",
+      "group": "full-cycle-08",
+      "sha256": "77b40bbf2e1c5328eacb17bc760aeb33dfd0521645be1e7b41670b0940a0a2c6",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "original_opened": true,
+      "finding": "Base plates, threshold ramp, inner sensors and column joints are visible without apparent large intersection or normal defects.",
+      "inspection_tool": "view_image",
+      "inspection_detail": "original"
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/HERO_CARGO.png",
+      "id": "HERO_CARGO",
+      "group": "full-cycle-08",
+      "sha256": "5c4466b6ab4a43b9281774ce32c536fa9d64b2749e9cf768814754bb5cafcf60",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "original_opened": true,
+      "finding": "Rollers carry the crate visually; tunnel front geometry and frame braces remain separated. No dominant coplanar flicker appears in the current still.",
+      "inspection_tool": "view_image",
+      "inspection_detail": "original"
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/HERO_EVIDENCE.png",
+      "id": "HERO_EVIDENCE",
+      "group": "full-cycle-08",
+      "sha256": "161a9da7470df15fe91e4a1c21c404e173d4384ea52fe9f0fb612d0991bb206f",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "original_opened": true,
+      "finding": "Vault doors, hinges, printed custody paper and the foreground tarp remain distinct. The lower cabinet bearing is outside this close crop.",
+      "inspection_tool": "view_image",
+      "inspection_detail": "original"
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/HERO_TROLLEY.png",
+      "id": "HERO_TROLLEY",
+      "group": "full-cycle-08",
+      "sha256": "911cf89e81cb9f16eb82295864e21d0a64601497a5268c3f7ed02c8b9d0ef25b",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "original_opened": true,
+      "finding": "Front wheels, frame, handles, tarp and straps show coherent construction and contact. Broad tarp weave is consistent at this distance.",
+      "inspection_tool": "view_image",
+      "inspection_detail": "original"
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/HERO_UTILITIES.png",
+      "id": "HERO_UTILITIES",
+      "group": "full-cycle-08",
+      "sha256": "3714834174a4904ee419d8585afce19db0dc074d45b519c5619f5bb9a3ae443c",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "original_opened": true,
+      "finding": "Wall conduit brackets, utility cases and lockout tag are readable; no visible case-wall detachment is evident.",
+      "inspection_tool": "view_image",
+      "inspection_detail": "original"
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/DETAIL_CHECKIN.png",
+      "id": "DETAIL_CHECKIN",
+      "group": "full-cycle-08",
+      "sha256": "87199f9e40dc7aab8b99e3d02b98b61db66a93b17821cb6c9e727b80c59ea07a",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "original_opened": true,
+      "finding": "Cleaning cloth, tray, clipboard and stamp pad lie on the counter. The folded cloth has denser side texture than its top; small chart distortion is secondary here.",
+      "inspection_tool": "view_image",
+      "inspection_detail": "original"
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/PLAYER_REVERSE.png",
+      "id": "PLAYER_REVERSE",
+      "group": "full-cycle-08",
+      "sha256": "91de2ece8fd144da8d59e0be6388a15ec695564281dd2707d9e1179dbb09dcc1",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "original_opened": true,
+      "finding": "Deep orange entry sign is visible beyond the arch and below the corridor roof. No hanger is shown; native evidence identifies the actual unsupported sign/text island.",
+      "inspection_tool": "view_image",
+      "inspection_detail": "original"
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/PLAYER_PINCH.png",
+      "id": "PLAYER_PINCH",
+      "group": "full-cycle-08",
+      "sha256": "1b4efae28f0f900ea1a8ccbf0121c4fdcfa969e5f0940ce2c8d7255237c18eb6",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "original_opened": true,
+      "finding": "North return floor, drain, trolley wheels and utility wall remain distinct; there is no new visibly floating floor assembly.",
+      "inspection_tool": "view_image",
+      "inspection_detail": "original"
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/WALL_OFFICE_FRONT.png",
+      "id": "WALL_OFFICE_FRONT",
+      "group": "full-cycle-08",
+      "sha256": "2e3bfbf958786b42c46bcd72766db22b6d79a64bf76ee538bf964c7ddd1801a7",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "original_opened": true,
+      "finding": "Door framing, kick plate, wall reader, counter and rear board show coherent interfaces; no newly established native defect in this elevation.",
+      "inspection_tool": "view_image",
+      "inspection_detail": "original"
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08-neutral/C05_CONVEYOR_LEAD_TUNNEL.png",
+      "id": "C05_CONVEYOR_LEAD_TUNNEL",
+      "group": "full-cycle-08-neutral",
+      "sha256": "e3539092ef0dd5ae66c5df55f2d71423e9247afe180ea1d013ea20df5d701507",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "original_opened": true,
+      "finding": "Neutral illumination exposes crate-to-roller contact, tunnel seams and feet without an apparent major clipping defect.",
+      "inspection_tool": "view_image",
+      "inspection_detail": "original"
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08-neutral/C07_OFFICE_INTERIOR.png",
+      "id": "C07_OFFICE_INTERIOR",
+      "group": "full-cycle-08-neutral",
+      "sha256": "03bdf36e9a61b86e2fd0e3ac0d1a418f7ecf3c1596621d44e46aba642da484f3",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "original_opened": true,
+      "finding": "Neutral light reveals chair cushions, supports, casters and desk bearing; no large normal or contact-shadow discontinuity is visible.",
+      "inspection_tool": "view_image",
+      "inspection_detail": "original"
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08-neutral/HERO_TROLLEY.png",
+      "id": "HERO_TROLLEY",
+      "group": "full-cycle-08-neutral",
+      "sha256": "dfa1b0e6bd2a9739b1bf1b952deaa6a97a3242b9f54d17bdf64468b0197b49c9",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "original_opened": true,
+      "finding": "Neutral image preserves tarp thickness, buckle placement and all visible wheel contacts; no broad texture collapse is visible.",
+      "inspection_tool": "view_image",
+      "inspection_detail": "original"
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08-neutral/HERO_UTILITIES.png",
+      "id": "HERO_UTILITIES",
+      "group": "full-cycle-08-neutral",
+      "sha256": "0efb1cd0d27ef312292ac742ca5bb14c7a300f62ab4f956773df158b76fb154c",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "original_opened": true,
+      "finding": "Neutral image exposes conduit brackets and wall plates; the mapped materials are present and no missing-resource pink appears.",
+      "inspection_tool": "view_image",
+      "inspection_detail": "original"
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08-uv-standard/C05_CONVEYOR_LEAD_TUNNEL.png",
+      "id": "C05_CONVEYOR_LEAD_TUNNEL",
+      "group": "full-cycle-08-uv-standard",
+      "sha256": "69ceec5bf7192f6960a9fc53fe7cce8f0ba7207273efd5e57792eae5ae37521e",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "original_opened": true,
+      "finding": "Large flat charts retain similar physical checker scale; curved roller ends and small bevels have intentional face seams. No collapsed large chart appears.",
+      "inspection_tool": "view_image",
+      "inspection_detail": "original"
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08-uv-standard/C07_OFFICE_INTERIOR.png",
+      "id": "C07_OFFICE_INTERIOR",
+      "group": "full-cycle-08-uv-standard",
+      "sha256": "e3d74e77e12cf6a561188e8cfc0dbe04787bbeeb73b7ffae779da9c6cddb4a4b",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "original_opened": true,
+      "finding": "Checker cells on chair cushion edge bands change proportions relative to broad flat faces. This corroborates measured consumed-fabric anisotropy; walls/desk remain metrically regular.",
+      "inspection_tool": "view_image",
+      "inspection_detail": "original"
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08-uv-standard/HERO_TROLLEY.png",
+      "id": "HERO_TROLLEY",
+      "group": "full-cycle-08-uv-standard",
+      "sha256": "ebc79b60b1665477dfe2fa3d5bb3187caec42da9f0fd455fcbac12eb2431de79",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "original_opened": true,
+      "finding": "Tarp checker follows the curved cover continuously with mild curvature variation. Narrow textile straps show compressed chart proportions, corroborating the measured small-detail distortion.",
+      "inspection_tool": "view_image",
+      "inspection_detail": "original"
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08-uv-standard/HERO_UTILITIES.png",
+      "id": "HERO_UTILITIES",
+      "group": "full-cycle-08-uv-standard",
+      "sha256": "44060e1b28446cbba0dc1101ef33b997a433c41cfccbf77c37b6dafab9712fd8",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "original_opened": true,
+      "finding": "Wall/box charts remain regular; cylindrical and bent service geometry uses small face charts with visible seams. No broad collapsed UV area is visible.",
+      "inspection_tool": "view_image",
+      "inspection_detail": "original"
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/BRIEFING_INDIRECT.png",
+      "id": "BRIEFING_INDIRECT",
+      "group": "spawn-reference",
+      "sha256": "8d03448f84845b16705c6acc3324364a4e0a51f36c34355f4c481e8957aef301",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "original_opened": true,
+      "finding": "Approved reference opened at original size: bench legs, wall media and cabinet/props provide construction/contact context. No compliance native acceptance is inferred.",
+      "inspection_tool": "view_image",
+      "inspection_detail": "original"
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/VALIDATE_LockerDoor.png",
+      "id": "VALIDATE_LockerDoor",
+      "group": "spawn-reference",
+      "sha256": "b8fd309f91cc15bfe6d183a253b81ba0f20a0033e08c63214c127e07e19879de",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "original_opened": true,
+      "finding": "Approved reference opened at original size: locker depth, bench feet and chamber framing establish the craft context; it is not evidence about compliance geometry.",
+      "inspection_tool": "view_image",
+      "inspection_detail": "original"
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/VALIDATE_Material_A.png",
+      "id": "VALIDATE_Material_A",
+      "group": "spawn-reference",
+      "sha256": "47d3892f69b4b244bcbff32908a6445556c182b2090aba11b22be1fe274253f6",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "original_opened": true,
+      "finding": "Approved reference opened at original size: cushion thickness, cabinet frame and hangers provide material/construction context; no category other than technical is scored.",
+      "inspection_tool": "view_image",
+      "inspection_detail": "original"
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/VALIDATE_Spawn.png",
+      "id": "VALIDATE_Spawn",
+      "group": "spawn-reference",
+      "sha256": "c84f368729c7e3ae1e6f1005ff5daae39020749316545bd208c972cee5b4e9ed",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "original_opened": true,
+      "finding": "Approved reference opened at original size: door joints, shelving feet and wall mounting provide technical craft context. Source and provenance hashes are independently verified.",
+      "inspection_tool": "view_image",
+      "inspection_detail": "original"
+    }
+  ],
+  "reference_provenance": {
+    "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/reference-provenance.json",
+    "sha256": "d04251c153c364e6ad5745caa704caf147f42dc64e181a5744f91de344174a2d",
+    "source_sha256": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40"
+  },
+  "frozen_recipes": {
+    "overhaul_dock.py": "58b80133bf0b08779f58319db2f18301c791a1b33991a3f438d9d8de0dd02f32",
+    "full_detail.py": "57e5a98d95e11d5ed186132d6a8de12c0eb539f35d8cf7dacf106c24bae66388",
+    "full_repairs.py": "be8dc32a98d9aee43c64cd98ce60c626baca4baca8121332e77deece54001f36",
+    "render_dock.py": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce"
+  },
+  "all_originals_opened": true,
+  "original_open_count": 39
+}
