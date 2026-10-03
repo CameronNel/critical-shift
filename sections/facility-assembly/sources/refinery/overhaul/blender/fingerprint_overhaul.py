@@ -42,6 +42,8 @@ for o in bpy.context.scene.objects:
   item['mesh']=dict(vertices=[value(v.co) for v in o.data.vertices],
                     faces=[dict(vertices=list(p.vertices),smooth=p.use_smooth,material=p.material_index) for p in o.data.polygons],
                     corner_normals=[value(n.vector) for n in o.data.corner_normals],
+                    color_attributes=[dict(name=a.name,domain=a.domain,type=a.data_type,
+                                           colors=[value(d.color) for d in a.data]) for a in o.data.color_attributes],
                     materials=[m.name if m else None for m in o.data.materials])
  elif o.type=='FONT':
   item['font']=dict(body=o.data.body,size=value(o.data.size),extrude=value(o.data.extrude),
@@ -62,6 +64,10 @@ scene=bpy.context.scene
 scene_state=dict(world=nodegraph(scene.world.node_tree),
                  support_registry=scene.get('support_registry'),
                  printed_surface_registry=scene.get('printed_surface_registry'),
+                 light_registry=scene.get('light_registry'),
+                 failed_fixture_registry=scene.get('failed_fixture_registry'),
+                 floor_film_registry=scene.get('floor_film_registry'),
+                 owner_mood_direction=scene.get('owner_mood_direction'),
                  collections={c.name:dict(hidden=c.hide_render,objects=sorted(o.name for o in c.objects),children=sorted(ch.name for ch in c.children)) for c in bpy.data.collections if c.users})
 report=dict(source=str(source),source_sha256=before,objects=objects,materials=materials,
             scene_state_sha256=digest(scene_state),source_unchanged=filehash(source)==before,

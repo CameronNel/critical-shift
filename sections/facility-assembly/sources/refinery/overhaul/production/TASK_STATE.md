@@ -2,7 +2,7 @@
 
 Owner authorized a full refinery interior overhaul on 2026-10-02: Valorant environmental principles, actual Spawn room quality reference, purposeful trinkets, sharper edges, and illumination from physical fixtures only. Branch: `codex/refinery-overhaul-20261002`. Primary author: Codex. Independent critics: GPT-6 Luna.
 
-**Current phase: R15 authoring accepted by the fresh GPT-6 Luna review at 99 in every category and 99.0 weighted, with no veto. The additive review package is ready; repository promotion/merge remains separate.** Style slice v6 passed 8.3/10 before full expansion. Fourteen complete correction cycles follow R01. Both final visual comparisons (R13→R14 andR14→R15) preserve composition without material regression. Accepted checkpoint: `checkpoints/R15.blend`, SHA256 `3741cbdf4c5fe04135bbddaa79565502149111b5a2085917e93922e52ab4cc3a`.
+**Current phase: R24 passed the independent 99 art/technical gate and original-source cold-start checks.** The owner’s run down, dark, gloomy and hopeless direction governs the current source; R15’s cheerful-direction review remains historical. Current immutable checkpoint: `checkpoints/R24.blend`, SHA256 `37896096ba619770afdf2d3dfc4443b2223aadcc71a468b809a833803eb8701b`. The additive editable file is `../module_overhaul_R1.blend`. Repository approval, publication and canonical-module/map promotion remain separate and pending.
 
 | Review | Layout | Art | Hero | Materials | Lighting | Dressing | Technical | Weighted |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
@@ -23,7 +23,14 @@ Owner authorized a full refinery interior overhaul on 2026-10-02: Valorant envir
 | R12 fresh | 98 | 97 | 97 | 96 | 98 | 96 | 95 | 96.85 |
 | R13 comparison | 98 | 97 | 98 | 97 | 98 | 96 | 98 | 97.45 |
 | R14 comparison | 98 | 98 | 98 | 98 | 98 | 96 | 95 | 97.50 |
-| R15 fresh acceptance | 99 | 99 | 99 | 99 | 99 | 99 | 99 | 99.0 |
+| R15 historical acceptance | 99 | 99 | 99 | 99 | 99 | 99 | 99 | 99.0 |
+| R16 new-mood review | 92 | 95 | 94 | 85 | 96 | 84 | 88 | 91.05 |
+| R19 new-mood review | 94 | 95 | 94 | 88 | 96 | 95 | 94 | 93.6 |
+| R21 fresh, corrected arithmetic | 95 | 97 | 98 | 96 | 97 | 95 | 91 | 95.8 |
+| R22 fresh, dedicated nook evidence | 98 | 98 | 99 | 98 | 99 | 99 | 100 | 98.55 |
+| R23 paired comparison | 99 | 98 | 99 | 99 | 99 | 99 | 100 | 98.9 |
+| R23 fresh final assessment | 98 | 99 | 99 | 98 | 98 | 98 | 100 | 98.55 |
+| R24 fresh current acceptance | 99 | 99 | 99 | 99 | 99 | 99 | 100 | 99.10 |
 
 Reports are in `critics/`. Historical automated PASS is bounded evidence, not exhaustive geometry certification. R06 fresh critic disclosed seeing historical scores accidentally before the review and excluded them. R06/R08/R09 audits found defects beyond the validator's declared anchor tolerance; scores were amended where relevant. R08 fresh review predates the completed context renders.
 
@@ -50,7 +57,7 @@ Editable additive candidate: `../module_overhaul_R1.blend`. Checkpoint names, ha
 
 ## Verification
 
-Use Blender 5.2 LTS (`/workspace/scratch/blender-5.2.0-linux-x64/blender` in this environment). Build from the untouched original with `blender/build_overhaul.py -- 15`; validate the candidate with `blender/validate_overhaul.py -- R15`; create a checkpoint only after PASS; render all eleven views with `blender/render_overhaul.py -- R15`.
+Use Blender 5.2 LTS (`/workspace/scratch/blender-5.2.0-linux-x64/blender` in this environment). Build from the untouched original with `blender/build_overhaul.py -- 24`; validate the candidate with `blender/validate_overhaul.py -- R24`; create a checkpoint only after PASS; render all eleven views with `blender/render_overhaul.py -- R24`.
 
 Formal views use CPU Cycles, 24 samples, 960×540, seed73, eight bounces, AgX Medium High Contrast. Cameras remain fixed across cycles. Rendering opens a fresh process and never saves its source. Manifests record camera pose/lens and source/image hashes. Checks cover protected interfaces, world/source constraints, physical lens associations, five-ray apertures, declared and inherited supports, closed-mesh winding, dependencies, route samples and evaluated triangle budget. No exhaustive intersection, Unity import, runtime collision or performance claim.
 
@@ -65,7 +72,7 @@ R14 numerical PASS (420822 evaluated triangles, 201 explicit supports); all elev
 R15 authored: rigid glove/tool placement in actual ray-tested empty worktop shoulders, source sensor screws seated to the new frame front. R14 self-review confirmed that the first placements were occluded; no hidden geometry was awarded visual credit.
 
 
-## Accepted R15 verification and handoff
+## Historical R15 verification and handoff
 
 `validation_R15.json` and `validation_R15_cold.json` PASS with no issues: 29 protected interfaces unchanged; world 0; 21 fixture-bound in-room AREA sources with 105 aperture samples; 201 new and 133 inherited contact checks; 965 positively wound closed-mesh checks; 38 printed-face checks; 420822 evaluated triangles including curves/fonts. The independent `critics/technical_R15.md` verifies the final screw seating, moved prop groups and local clearances. It found no remaining physical placement blocker within the audited scope.
 
@@ -76,3 +83,37 @@ Fresh reviewer `critics/R15_fresh.md` opened both actual Spawn references, all 1
 Next: submit PR1's additive source/evidence for repository review. Per MAP.md, canonical-module replacement and map-owner relinking belong to the later promotion process. No original module, registry, assembled map, exterior or frozen snapshot was modified; no merge was performed. Unity export/import, runtime collision and performance remain outside this authoring task.
 
 Repository delivery: local asset commit `7e57984` is complete. GitHub upload is blocked by the LFS batch service (`Maximum number of login attempts exceeded. Please try again later.`). No remote branch/PR publication, merge or promotion is claimed. The accepted local source and all evidence are available; retry authenticated LFS upload after the service restriction clears.
+
+## Owner mood revision, 2026-10-03
+
+R16 changes the maintained palette to faded brown enamel and cold dirty concrete. Six of the 21 existing practical fixtures are unpowered with zero lens emission; the surviving fixtures have reduced power. Local water marks, service grease and unresolved seal paperwork replace cheerful traces. The numerical check passes, but independent `critics/technical_R16.md` found reversed north-film faces and nonconforming PV corrosion films beyond their claimed microscopic offset. R16 is not accepted.
+
+R17 reverses the north-film faces and projects every PV corrosion-film vertex onto the actual evaluated vessel before a 20 micrometre offset. It adds broad damp floor discoloration, worn traffic paint, hairline concrete fractures, spalled north-wall paint and a damp worker recess. `validation_R17.json` passes with no issues, 29 unchanged interfaces, world zero, six truly dark failed fixtures, a clear sampled route and 418686 evaluated triangles. Full visual review, independent current technical review and original-source rebuild are in progress.
+
+R18 closes the four remaining film winding defects and isolates the indoor floor material from the exterior sills. The independent audit identified crack burial under the irregular swept repair patch; exact slab-edge ray misses were correctly distinguished from true gaps. R19 replaces the large wall masks with tapered service leaks and small paint losses, tips the empty cup after removing its liquid disk, separates actual leather gloves and rotates the seal notice around its original pin. Three existing task lamps gain local power while lens emission is reduced; the ceiling remains dark. R19 numerical checks pass.
+
+R20 conforms crack films by partitioning their footprint against actual evaluated floor face edges, including the six-vertex repaired screed and maintenance seams; every region is seated on its true local face. Numerical checks pass at 418720 triangles. R21 adds per-vertex water-film coverage to feather the leak edges. Current independent contact checks, all-view visual review and original-source rebuild remain in progress.
+
+R22 fixes eight glove-finger root joins and seats the four schematic marks as actual printed ink on the paper. It adds localized indoor residue and breaks three worn route-border segments. Independent `critics/technical_R22.md` verifies positive glove joins, all 108 ink vertices at 20.027 micrometres above the paper, indoor-only material assignment and unchanged camera/light poses. `validation_R22.json` and `_cold.json` pass at 418610 evaluated triangles; all 11 cold views are pixel-identical, with matching object/material/scene fingerprints. R22 visual review is 98.55 and remains unaccepted.
+
+R23 redistributes existing practical power to resolve receiving and press shadow separation: the receiving ceiling fixture is weakly restored, while one wall fixture fails in exchange. Six failed sources and their lenses remain zero; world strength remains zero. Geometry, protected interfaces and all 32 camera/light poses match R22. `validation_R23.json` and `critics/technical_R23.md` pass their bounded scopes. All-view visual comparison, current cold rebuild and connected-context evidence are in progress.
+
+R21 shader clarification: a direct installed-version probe confirmed Attribute Fac reads the point-color gradient. The water-edge change worked but was subtle. R22 uses the explicit Color output for clarity; no shader failure is claimed. R19 and R20 all-view images were pixel-identical despite the floor-contact correction.
+
+R23 all 11 main views, 11 cold views and three actual-map context views are complete and opened. Original-source object/material/scene fingerprints match and all 11 cold images are pixel-identical. Context compares 3029 visible candidate poses with zero errors, 21 sources and world zero; source files remain unchanged. Both independent R23 reviews remain below99. The fresh critic confirms the requested mood but identifies faint surviving route paint and secondary station contours too close to shadow values; deep ceiling shadow is explicitly intentional.
+
+R24 targets those mid-distance separations with higher residual traffic-paint contrast while preserving all missing fragments, modest differences in existing secondary casing finishes, isolated faded PPE contrast, and small power increases in four already working fixtures. It adds no geometry or light sources, changes no camera/fixture poses and retains six failed fixtures. Current original-source build is in progress; current visual/technical/cold acceptance is pending.
+
+R24 numerical and scoped independent technical audit pass. All 2578 raw and evaluated mesh fingerprints, 3043 object matrices and 32 camera/light poses match R23. The isolated PPE material has exactly 14 glove users and zero emission; traffic-paint coverage graphs and missing fragments are unchanged. Four already active source powers changed as intended, with world zero and six completely failed pairs retained. Current original-source build validates, and all object/material/scene fingerprint maps match. Main/cold image batches and independent all-view art assessment remain in progress.
+
+## Current R24 verification and handoff
+
+Fresh independent `critics/R24_fresh_final.md` opened both exact Spawn references, all eleven R22/R23/R24 views and all current technical/cold evidence. It scored six art categories99 each and technical100, weighted99.10, no veto. R22→R23 and R23→R24 both retain composition, palette direction and mood, with localized improvements and no observed regression. This is independent authoring art acceptance, not owner approval or runtime certification.
+
+Both `validation_R24.json` and `validation_R24_cold.json` pass with no issues. Independent `critics/technical_R24.md` confirms 2578 raw/evaluated mesh hashes and all 3043 object matrices identical to R23; source/fixture poses remain fixed, traffic paint retains all existing wear/missing coverage, and only14 glove parts use the isolated non-emissive PPE finish. All29 protected interfaces match the original, world0, 21 unique actual fixture pairs, six failed pairs with source and shader emission0, and a clear sampled route. Triangles418610; no missing used candidate libraries/images. Prior R20 floor-film and R22 glove/printed-mark contact evidence applies to the unchanged geometry. Checks remain bounded, not exhaustive intersections or Unity collision/performance proof.
+
+Original-source cold rebuild passes `coldstart/comparison_R24.json`: all3043 object and77 material maps plus scene-state hashes match. `coldstart/pixel_comparison_R24.json` passes all11 views with identical cameras/settings and maximum pixel delta0. Both render manifests complete/sourceunchanged. Root opened all11 current main images. Active/checkpoint/build hash `37896096ba619770afdf2d3dfc4443b2223aadcc71a468b809a833803eb8701b` agrees. Reproduce with the README’s Blender5.2 commands, followed by `python blender/compare_coldstart.py R24` from the overhaul directory after cold rendering.
+
+The R23 actual-map wrapper is the preceding finish version: 2895 real adjoining objects,21 candidate fixture sources/world0 and3029 visible candidate placements compared without errors. R24 geometry and placement are exact matches, but selected finishes differ; no new R24 context render is claimed. The current map’s unrelated128 missing Spawn IDs remain outside this candidate’s dependency checks. Original module, map, registry, exterior and frozen provenance were preserved.
+
+Current source/evidence are saved locally on `codex/refinery-overhaul-20261002`. The earlier Git LFS batch rejection (`Maximum number of login attempts exceeded. Please try again later.`) prevented remote publication; upload was not retried during this mood pass. No remote branch/PR, merge or canonical promotion is claimed.

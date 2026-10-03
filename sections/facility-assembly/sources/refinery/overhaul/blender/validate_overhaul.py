@@ -44,6 +44,18 @@ for o in s.objects:
   aperture.append(dict(sample=[ax,ay],blocked=blocked and not receiver,task_receiver=receiver,object=object_hit.name if blocked else None,distance_m=(point-origin).length if blocked else None))
  result['aperture_samples']=aperture
  if any(a['blocked'] for a in aperture):issues.append('Practical aperture obstructed '+o.name)
+failed_fixture_checks=[]
+for record in json.loads(s.get('failed_fixture_registry','[]')):
+ light=s.objects.get(record['light']);lens=s.objects.get(record['lens']);strengths=[]
+ if lens:
+  for material in lens.data.materials:
+   if material and material.use_nodes:
+    for node in material.node_tree.nodes:
+     if node.type=='BSDF_PRINCIPLED':strengths.append(node.inputs['Emission Strength'].default_value)
+     elif node.type=='EMISSION':strengths.append(node.inputs['Strength'].default_value)
+ ok=light is not None and lens is not None and light.data.energy==0 and bool(strengths) and all(v==0 for v in strengths)
+ failed_fixture_checks.append(dict(**record,actual_energy=light.data.energy if light else None,actual_shader_strengths=strengths,status='PASS' if ok else 'FAIL'))
+ if not ok:issues.append('Failed fixture still emitting '+record['light'])
 missing_images=[im.filepath for im in bpy.data.images if im.users and im.source=='FILE' and im.filepath and not im.packed_file and not Path(bpy.path.abspath(im.filepath,library=im.library)).exists()]
 missing_libraries=[l.filepath for l in bpy.data.libraries if not Path(bpy.path.abspath(l.filepath)).exists()]
 if missing_images or missing_libraries:issues.append('Missing used dependencies')
@@ -164,6 +176,6 @@ for o in s.objects:
   else:curve_font_tris+=count
   e.to_mesh_clear()
 if tris>1000000:issues.append('One million triangle authoring budget exceeded')
-report=dict(source=str(src),source_sha256=hashlib.sha256(src.read_bytes()).hexdigest(),revision=rev,protected_count=len(base['protected']),protected_changes=changes,world_strength=world_strength,light_checks=lightchecks,missing_images=missing_images,missing_libraries=missing_libraries,hose_fitting_checks=fitting_checks,compression_band_checks=band_checks,reducer_interface_checks=reducer_checks,printed_surface_checks=printed_checks,ear_cup_aspect_checks=ear_checks,new_support_contacts=contacts,legacy_support_screen=legacy,closed_mesh_normals=normal_checks,route_obstructions=route,visible_evaluated_triangles=tris,visible_curve_font_triangles=curve_font_tris,visible_mesh_count=mesh_count,issues=issues,status='PASS' if not issues else 'FAIL',limits='Four fitting axial rays and evaluated hose overlaps, two band sections, short reducer-interface rays, printed mark centers, explicit support anchors, inherited anchor/bounding-face checks and closed-mesh winding are not exhaustive self-intersection, buried-volume, fluid simulation or runtime collision certification. Triangle totals include visible evaluated mesh, curve and font geometry.')
+report=dict(source=str(src),source_sha256=hashlib.sha256(src.read_bytes()).hexdigest(),revision=rev,protected_count=len(base['protected']),protected_changes=changes,world_strength=world_strength,light_checks=lightchecks,failed_fixture_checks=failed_fixture_checks,missing_images=missing_images,missing_libraries=missing_libraries,hose_fitting_checks=fitting_checks,compression_band_checks=band_checks,reducer_interface_checks=reducer_checks,printed_surface_checks=printed_checks,ear_cup_aspect_checks=ear_checks,new_support_contacts=contacts,legacy_support_screen=legacy,closed_mesh_normals=normal_checks,route_obstructions=route,visible_evaluated_triangles=tris,visible_curve_font_triangles=curve_font_tris,visible_mesh_count=mesh_count,issues=issues,status='PASS' if not issues else 'FAIL',limits='Four fitting axial rays and evaluated hose overlaps, two band sections, short reducer-interface rays, printed mark centers, explicit support anchors, inherited anchor/bounding-face checks and closed-mesh winding are not exhaustive self-intersection, buried-volume, fluid simulation or runtime collision certification. Triangle totals include visible evaluated mesh, curve and font geometry.')
 (root/'production'/f'validation_{rev}.json').write_text(json.dumps(report,indent=2));print('VALIDATION',report['status'],'triangles',tris,'issues',issues,flush=True)
 if issues:sys.exit(1)

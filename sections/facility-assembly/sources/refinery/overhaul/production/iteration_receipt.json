@@ -1,7 +1,7 @@
 {
-  "scope": "Rendering and iteration evidence; no scores or visual acceptance inference",
+  "scope": "Render/rebuild receipts; acceptance fields cite independent review and do not derive art scores from counts.",
   "initial_cycle": 1,
-  "correction_cycles_with_all11_completed": 14,
+  "correction_cycles_with_all11_completed": 23,
   "cycles": [
     {
       "revision": 1,
@@ -107,11 +107,87 @@
       "fixed_views_rendered": 11,
       "batch_complete": true,
       "source_unchanged": true
+    },
+    {
+      "revision": 16,
+      "source_sha256": "e763bf27eb0e5d734090475bdefaf4f2a66b0b35ee43ec4a5a51556ec40e9aa7",
+      "fixed_views_rendered": 11,
+      "batch_complete": true,
+      "source_unchanged": true
+    },
+    {
+      "revision": 17,
+      "source_sha256": "83e9cb20eba2cad911e359f7d064a99202f24d244bd2bc0a2662e41cec71d019",
+      "fixed_views_rendered": 11,
+      "batch_complete": true,
+      "source_unchanged": true
+    },
+    {
+      "revision": 18,
+      "source_sha256": "3a6584e744b4dc1628c46ec3abb1f8dfe6a87e4799fa138c70c1eb5ebb3d154e",
+      "fixed_views_rendered": 11,
+      "batch_complete": true,
+      "source_unchanged": true
+    },
+    {
+      "revision": 19,
+      "source_sha256": "c91dcfcf1cbcfca4cdae50c5619d95b097aa0424f6f845889fe8da63589ee9f7",
+      "fixed_views_rendered": 11,
+      "batch_complete": true,
+      "source_unchanged": true
+    },
+    {
+      "revision": 20,
+      "source_sha256": "2e533ace75ea83e27952f1bceda75d2923803a1452627ba583e5aba486ec5e53",
+      "fixed_views_rendered": 11,
+      "batch_complete": true,
+      "source_unchanged": true
+    },
+    {
+      "revision": 21,
+      "source_sha256": "4f318f42370f476e308f89658b9b1b1830952af0d74d931fb329a6ec43b6b28b",
+      "fixed_views_rendered": 11,
+      "batch_complete": true,
+      "source_unchanged": true
+    },
+    {
+      "revision": 22,
+      "source_sha256": "9ffd4ca114f5d1c3d597a38539d3405449487b9efcd4e4149fb0b756647e1bd9",
+      "fixed_views_rendered": 11,
+      "batch_complete": true,
+      "source_unchanged": true
+    },
+    {
+      "revision": 23,
+      "source_sha256": "28c9262e7f0514e61223da26e5d0584021236c563277ee6795c5feab082b8499",
+      "fixed_views_rendered": 11,
+      "batch_complete": true,
+      "source_unchanged": true
+    },
+    {
+      "revision": 24,
+      "source_sha256": "37896096ba619770afdf2d3dfc4443b2223aadcc71a468b809a833803eb8701b",
+      "fixed_views_rendered": 11,
+      "batch_complete": true,
+      "source_unchanged": true
     }
   ],
   "cold_start_R10_preflight": "PASS: independent rebuild fingerprints, validation and11pixel-identical views. Unaccepted checkpoint.",
   "cold_start_R13_preflight": "PASS: authoring fingerprints, validation and all11 pixel-identical fixed views. Unaccepted checkpoint.",
-  "final_two_stable_cycles": "PASS: R13\u2192R14 independent paired review and fresh R14\u2192R15 all11 paired review find no material regression.",
   "cold_start_R15_preflight": "PASS:2989 object/45 material/scene fingerprints, validation and all11 pixel-identical fixed views. Art acceptance separate.",
-  "accepted_authoring_checkpoint": "R15: fresh GPT-6 Luna99each/99.0weighted/no veto; accepted source matches current coldstart PASS evidence."
+  "historical_R15_acceptance": "R15: fresh GPT-6 Luna99 each/99.0weighted/no veto for the previous maintained direction; its checkpoint matches R15 cold proof. Historical only.",
+  "historical_R15_final_two_stable_cycles": "PASS: R13\u2192R14 independent paired review and fresh R14\u2192R15 all11 paired review find no material regression.",
+  "current_owner_direction": "2026-10-03: run down, dark, gloomy and hopeless",
+  "current_acceptance": "R24: independent GPT-6 Luna99 in each art category/100 technical/99.10weighted/no veto, current cold proofPASS. Authoring art gate only; owner/repository promotion not claimed.",
+  "cold_start_R22_preflight": "PASS: original-source object/material/scene fingerprints, numerical validation and all11 pixel-identical fixed views. Art score is separate.",
+  "cold_start_R23_preflight": "PASS: original-source object/material/scene fingerprints, numerical validation and all11 pixel-identical fixed views. Art score is separate.",
+  "cold_start_R24_preflight": "PASS: original-source object/material/scene fingerprints, numerical validation and all11 pixel-identical fixed views. Art score is separate.",
+  "active_source": {
+    "revision": "R24",
+    "editable": "../module_overhaul_R1.blend",
+    "checkpoint": "checkpoints/R24.blend",
+    "sha256": "37896096ba619770afdf2d3dfc4443b2223aadcc71a468b809a833803eb8701b"
+  },
+  "current_final_two_stable_cycles": "PASS: fresh R24 paired review covers all11 R22\u2192R23 and R23\u2192R24 views; no composition/palette/mood regression.",
+  "publication": "Local task branch only; remote publication pending after earlier LFS batch rejection. Not retried during mood revision; no merge/promotion."
 }

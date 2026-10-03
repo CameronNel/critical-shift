@@ -623,6 +623,33 @@ if REV>=14 and not SLICE:
 if REV>=15 and not SLICE:
  exec(compile((ROOT/'blender/revision_R15.py').read_text(),str(ROOT/'blender/revision_R15.py'),'exec'))
 
+if REV>=16 and not SLICE:
+ exec(compile((ROOT/'blender/revision_R16.py').read_text(),str(ROOT/'blender/revision_R16.py'),'exec'))
+
+if REV>=17 and not SLICE:
+ exec(compile((ROOT/'blender/revision_R17.py').read_text(),str(ROOT/'blender/revision_R17.py'),'exec'))
+
+if REV>=18 and not SLICE:
+ exec(compile((ROOT/'blender/revision_R18.py').read_text(),str(ROOT/'blender/revision_R18.py'),'exec'))
+
+if REV>=19 and not SLICE:
+ exec(compile((ROOT/'blender/revision_R19.py').read_text(),str(ROOT/'blender/revision_R19.py'),'exec'))
+
+if REV>=20 and not SLICE:
+ exec(compile((ROOT/'blender/revision_R20.py').read_text(),str(ROOT/'blender/revision_R20.py'),'exec'))
+
+if REV>=21 and not SLICE:
+ exec(compile((ROOT/'blender/revision_R21.py').read_text(),str(ROOT/'blender/revision_R21.py'),'exec'))
+
+if REV>=22 and not SLICE:
+ exec(compile((ROOT/'blender/revision_R22.py').read_text(),str(ROOT/'blender/revision_R22.py'),'exec'))
+
+if REV>=23 and not SLICE:
+ exec(compile((ROOT/'blender/revision_R23.py').read_text(),str(ROOT/'blender/revision_R23.py'),'exec'))
+
+if REV>=24 and not SLICE:
+ exec(compile((ROOT/'blender/revision_R24.py').read_text(),str(ROOT/'blender/revision_R24.py'),'exec'))
+
 # Retire decorative children of replaced source bodies; keep independent functional parts.
 while retired_decor:
  name=retired_decor.pop();o=bpy.data.objects.get(name)
