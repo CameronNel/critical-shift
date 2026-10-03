@@ -9,7 +9,7 @@ When asked to "build on this map" or continue map/environment work, start with [
 
 ## Map area status (as of 2026-10-03)
 
-Three labels, applied to the version that is on `main` today. **Done and dusted** is an owner declaration (2026-10-03): the room is finished and gets no more art passes unless the owner reopens it; it says nothing about review scores or whether the room is promoted into the map yet. **Ready for merge to map** means the room has an overhauled or accepted
+Three labels, applied to the version that is on `main` today. **Done and dusted** is an owner declaration (2026-10-03; medical-reanimation and compliance-dock added the same day on the owner's word): the room is finished and gets no more art passes unless the owner reopens it; it says nothing about review scores or whether the room is promoted into the map yet. **Ready for merge to map** means the room has an overhauled or accepted
 version on `main` that passed independent review at the repository's bar and its own validation, with its interface unchanged, so
 only the promotion step in [MAP.md](MAP.md) ("Overhauling a room", PR 2) remains. **Built but not ready** is everything else: it
 failed or never faced that review, has open defects, is unreviewed, or is an original build with no overhaul. "In map" says whether
@@ -24,8 +24,8 @@ Because the owner plans to retire the current map, "promotion" below means the o
 | fuel-corridor | Launcher only (`open_map.py`); the canonical map file is unchanged | **Ready for merge to map** | F22ci and F23ci reviewed 99. The AAA finish (#77) is on top and **unreviewed**; F23ci is `production/checkpoints/fuel_full_F23ci.blend`. 678,692 triangles, decimation held as modifiers. |
 | turbine-room | No (original `module.blend`) | **Done and dusted** (owner) | Full rebuild merged (#63, `rebuild/turbine_room_v2_geo.blend`), declared done by the owner. `module.blend` is still the original room, and a promotion attempt (draft #82, closed unmerged) was abandoned because the old map is being retired. Its only review is the builder's own agent review (about 79/100, no view above 84, one model's opinion), so it has not met the bar the "ready" rooms met. |
 | reactor-room | No (additive `module_overhaul_R1.blend`) | Built but not ready | Dark "dead shift" R1 merged unpromoted (#49). Control-room redo is open (#53, #54). No independent score found that meets the bar. |
-| medical-reanimation | No | Built but not ready | Additive `module_overhaul_R2.blend` merged to `main` (#65, with my unreviewed finish #78 inside it); not promoted. Its own reviews scored 91.1 and 91.7, below the 99 bar. Its review images and scenes went in as ordinary Git blobs, not LFS (about 1.6M added lines). |
-| compliance-dock | No | Built but not ready | Additive overhaul merged to `main` (#66, with my unreviewed finish #79 inside it) on the owner's instruction although it **failed its recorded gate** (C9 88.625 against 99); not promoted. Cloth chart distortion and the shape-language and storytelling deductions remain. |
+| medical-reanimation | No | **Done and dusted** (owner) | Additive `module_overhaul_R2.blend` merged to `main` (#65, with my unreviewed finish #78 inside it); not promoted. Its own reviews scored 91.1 and 91.7, below the 99 bar. Its review images and scenes went in as ordinary Git blobs, not LFS (about 1.6M added lines). |
+| compliance-dock | No | **Done and dusted** (owner) | Additive overhaul merged to `main` (#66, with my unreviewed finish #79 inside it) on the owner's instruction although it **failed its recorded gate** (C9 88.625 against 99); not promoted. Cloth chart distortion and the shape-language and storytelling deductions remain. |
 | mine | Yes (original) | Built but not ready | Original delivery, Luna 92 to 95. No overhaul; not held to the 99 bar. |
 | cooling-plant | Yes (original) | Built but not ready | Original R10, Luna 91 to 95. No overhaul. |
 | condenser-bay | Yes (original) | Built but not ready | Original R34, Luna 91 to 94. No overhaul. |
@@ -38,7 +38,7 @@ Because the owner plans to retire the current map, "promotion" below means the o
 
 Notes for agents:
 - The finishes for refinery, electrical, fuel, reanimation and dock were merged on the owner's instruction **without independent review**, against the rule above that no agent merges its own work. Treat them as unreviewed until a review says otherwise, and never describe them as accepted.
-- Do not edit a "done and dusted" room's files or start another art pass on it (refinery, electrical, turbine) without the owner reopening it. Do not promote any room into the current map; see the owner plan at the top.
+- Do not edit a "done and dusted" room's files or start another art pass on it (refinery, electrical, turbine, medical-reanimation, compliance-dock) without the owner reopening it. Do not promote any room into the current map; see the owner plan at the top.
 - Triangle counts: the fuel corridor (678,692), turbine rebuild (about 387k) and dock (398,352) are near or above 400k; include text curves when counting, as the room validators do.
 - When a room changes state, update this table in the same PR and cite the review or validation file.
 
