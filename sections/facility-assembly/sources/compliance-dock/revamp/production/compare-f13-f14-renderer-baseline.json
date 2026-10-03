@@ -1,0 +1,186 @@
+{
+  "scope": "ImmutableF13source underF14camera recipe; camera/hash/decode audit only, no visual acceptance/stability claim",
+  "source_sha256": "22176ab474d914156cdf5a083571c19b04c6e6e11cfa50ab8ba681013bc124a6",
+  "renderer_sha256": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce",
+  "complete": true,
+  "changed_cameras_from_c7": [
+    "C02_HERO_DOCK"
+  ],
+  "first_audit_attempt": "Wrong manifest field sha256 causedKeyError before output; rerun uses actual image_sha256. No asset/manifest mutated.",
+  "images": [
+    {
+      "id": "C01_ENTRY",
+      "same_camera_as_c7": true,
+      "decoded": true,
+      "sha256": "18b88a4c6887b83a43847e6d46f9181206a6da972a3e70b98eafb2893ddcc9c8"
+    },
+    {
+      "id": "C02_HERO_DOCK",
+      "same_camera_as_c7": false,
+      "decoded": true,
+      "sha256": "399b5483ee7711feacd45fc121fbefc58fb7be3b4968dee83da5d853b0fc1e8f"
+    },
+    {
+      "id": "C03_CHECKIN_COUNTER",
+      "same_camera_as_c7": true,
+      "decoded": true,
+      "sha256": "f8926aef7006b1cbe7957dd3d1b0173f182784f31243773ba9ebd4e6f1130f27"
+    },
+    {
+      "id": "C04_SCANNER_APPROACH",
+      "same_camera_as_c7": true,
+      "decoded": true,
+      "sha256": "7cd5c5676d49cae35bad79abc72fdc6d699d4b508850c5232db3ee7ef8b70b70"
+    },
+    {
+      "id": "C05_CONVEYOR_LEAD_TUNNEL",
+      "same_camera_as_c7": true,
+      "decoded": true,
+      "sha256": "9e690bfd91ac52bc8e983abc544d948053c3d46d08074c56713755743af2548e"
+    },
+    {
+      "id": "C06_CART_GATE_G1",
+      "same_camera_as_c7": true,
+      "decoded": true,
+      "sha256": "2d076a9535be11e98f34fe250e49d746ae86ee0210bd29f819bb1a6a7ac04a7c"
+    },
+    {
+      "id": "C07_OFFICE_INTERIOR",
+      "same_camera_as_c7": true,
+      "decoded": true,
+      "sha256": "ddff749453f75472e9d160670e98653e7a835e67d8891603402118321437f87d"
+    },
+    {
+      "id": "C08_CONCEALED_SUPPORT_H1",
+      "same_camera_as_c7": true,
+      "decoded": true,
+      "sha256": "ac9a1535fbbe25e1c0e0b57d625be7f4d2630e39b02a74eb5d2952cfdb787f30"
+    },
+    {
+      "id": "C09_ARRIVAL_GATE_P2",
+      "same_camera_as_c7": true,
+      "decoded": true,
+      "sha256": "89ada793e128f00ed84896273b26ef1527e89d89d2bb42f705e8cf8f0f98c314"
+    },
+    {
+      "id": "C10_ROOF_SERVICES",
+      "same_camera_as_c7": true,
+      "decoded": true,
+      "sha256": "e8857d3d8e51a66b557ee3581e03b33e4ff96eeaf0b8bec1a1b478e7a6ee5662"
+    },
+    {
+      "id": "CORNER_SW",
+      "same_camera_as_c7": true,
+      "decoded": true,
+      "sha256": "2809c008bed976b27ac2f1f4a49d12a0e367c56a059a7eb8290b83cd21622fda"
+    },
+    {
+      "id": "CORNER_SE",
+      "same_camera_as_c7": true,
+      "decoded": true,
+      "sha256": "4ad51afafbe754b3956aba17ff1c9cbdd956a4e562a640d24b29797134908c85"
+    },
+    {
+      "id": "CORNER_NW",
+      "same_camera_as_c7": true,
+      "decoded": true,
+      "sha256": "35164da644c3aa090d3620d0e72159c451210fb4a872aae6154a3f1cc57e52b7"
+    },
+    {
+      "id": "CORNER_NE",
+      "same_camera_as_c7": true,
+      "decoded": true,
+      "sha256": "75c50dfc8283694f1f53eccbb860b2aa9d3607198bed4d6d6e782496d206c7e5"
+    },
+    {
+      "id": "WALL_SOUTH",
+      "same_camera_as_c7": true,
+      "decoded": true,
+      "sha256": "6c7714e0f58fc47cb9b0b07ece86bf2ca3649ac8dddb11a32bfa0534a71f9f16"
+    },
+    {
+      "id": "WALL_NORTH",
+      "same_camera_as_c7": true,
+      "decoded": true,
+      "sha256": "54b284fc7401ce4d8d18ce01de3a97a0d820a2180779b74569e3f19ec692ab5a"
+    },
+    {
+      "id": "WALL_EAST",
+      "same_camera_as_c7": true,
+      "decoded": true,
+      "sha256": "a87775631069750a15faf2359a2ad383d3fd245f88df9b986466f7de1098f7dc"
+    },
+    {
+      "id": "WALL_WEST",
+      "same_camera_as_c7": true,
+      "decoded": true,
+      "sha256": "05b842e0b96c985d850365423c71c7236a4b4449bda8ab2d5e5c201be0c93981"
+    },
+    {
+      "id": "HERO_SCANNER",
+      "same_camera_as_c7": true,
+      "decoded": true,
+      "sha256": "9a071c359785314dcece609fd9202467c235c8f1ad3e4e82f0287865213385e0"
+    },
+    {
+      "id": "HERO_CARGO",
+      "same_camera_as_c7": true,
+      "decoded": true,
+      "sha256": "5573e806d900efcb0ad88d2960c8d91b25b757a3d1cddcae51026de37f3356c4"
+    },
+    {
+      "id": "HERO_EVIDENCE",
+      "same_camera_as_c7": true,
+      "decoded": true,
+      "sha256": "21492e653d18026298239f06539cc3bb3e2e2530d57b8730b2bde6f0e9cc7023"
+    },
+    {
+      "id": "HERO_TROLLEY",
+      "same_camera_as_c7": true,
+      "decoded": true,
+      "sha256": "8fd60fe139eea0f2e837bf1eecc39dffbc16661293c8842716153c1e9f23b5fd"
+    },
+    {
+      "id": "HERO_UTILITIES",
+      "same_camera_as_c7": true,
+      "decoded": true,
+      "sha256": "cd9afe73ba540c03cc584ce2d7bd233bc4a1de745deeea06459d3ed8d9e414a2"
+    },
+    {
+      "id": "DETAIL_CHECKIN",
+      "same_camera_as_c7": true,
+      "decoded": true,
+      "sha256": "e3a1942704d25417891a83517772605a9187ff87433e8cf4fbe3a04619f06c09"
+    },
+    {
+      "id": "PLAYER_REVERSE",
+      "same_camera_as_c7": true,
+      "decoded": true,
+      "sha256": "1d9bce11857429ba47fbd0f42e78b3bea8b03b6f2011c8d1ba008e913ec8a3b9"
+    },
+    {
+      "id": "PLAYER_PINCH",
+      "same_camera_as_c7": true,
+      "decoded": true,
+      "sha256": "a59513c98e0981487a8ae23d1067a6d0ae5468fd08ac230c85f078a9174c7054"
+    },
+    {
+      "id": "WALL_OFFICE_FRONT",
+      "same_camera_as_c7": true,
+      "decoded": true,
+      "sha256": "5991530e1cd88b5a627eb9eb69c0accdb229df388fe2093fc6b609d8b8a1d297"
+    }
+  ],
+  "root_individually_opened_originals": [
+    "C02_HERO_DOCK",
+    "C06_CART_GATE_G1",
+    "C07_OFFICE_INTERIOR",
+    "HERO_UTILITIES"
+  ],
+  "root_visual_findings": {
+    "C02_HERO_DOCK": "Unchanged F13 art under newcamera now includes entire check-in hatch with scanner; composition gain is camera rebase, not an asset repair",
+    "C06_CART_GATE_G1": "F13 mast is closed rectangular form with cuboid head; compare new F14 rolled mast/cast gearbox shape and CART label in preformal original",
+    "C07_OFFICE_INTERIOR": "F13 rear wall has no visible worker record; F14 preformal visibly adds M.Vale/14Hours/NoRelief and glove on desk",
+    "HERO_UTILITIES": "F13 lower-right drums visibly overlap and utility doors match; F14 preformal adds separated swaged bodies and distinct salvaged door"
+  }
+}

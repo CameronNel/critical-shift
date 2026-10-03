@@ -1,0 +1,148 @@
+{
+  "source_sha256": "d2514e668ea2b24e8b4ede6bde870e12f10c1afd6d6e1892b12c016266bd7b35",
+  "renderer_sha256": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce",
+  "resolution": [
+    1067,
+    600
+  ],
+  "samples": 24,
+  "engine": "CYCLES",
+  "device": "CPU",
+  "seed": 8217,
+  "cold_open": false,
+  "adaptive_threshold": 0.06,
+  "adaptive_min_samples": 4,
+  "max_bounces": 6,
+  "diffuse_bounces": 3,
+  "glossy_bounces": 3,
+  "transmission_bounces": 6,
+  "view_transform": "AgX",
+  "look": "AgX - Medium High Contrast",
+  "exposure": 0.0,
+  "diagnostic": "uv",
+  "source_saved": false,
+  "label_method": "Temporary camera-attached emission geometry",
+  "complete": true,
+  "shots": [
+    {
+      "id": "C05_CONVEYOR_LEAD_TUNNEL",
+      "label": "05 | CARGO INSPECTION",
+      "group": "mandatory",
+      "inherited": null,
+      "position": [
+        2.95,
+        4.15,
+        1.65
+      ],
+      "target": [
+        4.65,
+        7.4,
+        1.08
+      ],
+      "lens": 25,
+      "diagnostic_lights": [
+        {
+          "location": [
+            2.950000047683716,
+            4.150000095367432,
+            2.299999952316284
+          ],
+          "matrix_world": [
+            [
+              0.8860981464385986,
+              0.14629141986370087,
+              -0.4398055374622345,
+              2.950000047683716
+            ],
+            [
+              -0.46349766850471497,
+              0.2796747088432312,
+              -0.8408043384552002,
+              4.150000095367432
+            ],
+            [
+              1.5179610457494164e-08,
+              0.9488840103149414,
+              0.3156249523162842,
+              2.299999952316284
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "watts": 90.0,
+          "size_m": 2.200000047683716
+        },
+        {
+          "location": [
+            5.099999904632568,
+            7.75,
+            2.430000066757202
+          ],
+          "matrix_world": [
+            [
+              -0.6139407157897949,
+              -0.727173388004303,
+              0.3070758879184723,
+              5.099999904632568
+            ],
+            [
+              0.7893521189689636,
+              -0.5655795335769653,
+              0.2388368844985962,
+              7.75
+            ],
+            [
+              9.695371616658122e-09,
+              0.38902270793914795,
+              0.9212281703948975,
+              2.430000066757202
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "watts": 30.0,
+          "size_m": 2.200000047683716
+        }
+      ],
+      "camera_matrix_world": [
+        [
+          0.8860982060432434,
+          0.07117689400911331,
+          -0.4579998254776001,
+          2.950000047683716
+        ],
+        [
+          -0.4634975790977478,
+          0.13607339560985565,
+          -0.8755878210067749,
+          4.150000095367432
+        ],
+        [
+          -3.344947430150569e-08,
+          0.9881386160850525,
+          0.1535647064447403,
+          1.649999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 25.0,
+      "projection": "PERSP",
+      "image_sha256": "cbe663cf17d7adbb8a4d51f452990cae9d4b6e5536ee9e3eca4a9529917ea12b",
+      "temporary_hidden_geometry": []
+    }
+  ],
+  "requested_view_count": 1
+}

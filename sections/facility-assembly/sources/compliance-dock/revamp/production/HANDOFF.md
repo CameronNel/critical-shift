@@ -1,3 +1,11 @@
+## F15 saved and C8 evidence underway — 3 October 2026
+
+F15 native SHA256d2514e668ea2b24e8b4ede6bde870e12f10c1afd6d6e1892b12c016266bd7b35 saved exit0,116actualinterface guards,1323objects/395342triangles/1143submeshes/35localfamilies. All1077inherited poses/protected map/original/spawn/interface retained. Exact native/state/fourfrozen recipes archived full-f15*. Static7PASS/0errors/0warnings/5unverified. Saved consolidated mesh probe finds actual guide-to-mast heel gaps0m,29roller physicalUV allfaceedge ratios0.998870..1.000944. No nativewrites in probe. Two600ppreformal originals individually opened: gate has no new visible seam/silhouette defect; continuous roller barrel checker is visible. Numerical/author inspection is not independent art acceptance.
+
+Full27C8beauties rendering,4neutral/4UVpending. Fresh read-only technical critic began bounded probes; final image review/score waits all35+4references. Fourcanonicalrecipes/native frozen while readers work. Candidate actualGitHub publication pending. Latest verified GitHub2573921dbfca9c86525022f8e7bd93fa80bed131 contains exactF14 and all4preformal/27oldF13camera baseline/rootdefect/sourcecoldproof. Latest completed independent review remainsC7exact81FAIL/zero-critical union;7complete cycles. Owner99/all8>93/zero-critical/final-two-stability/actualGitHub27decodedcoldpixels gates unmet. PR66DRAFT; no merge/map promotion/runtime acceptance.
+
+## Prior checkpoint history
+
 ## F14 published evidence and F15 preformal repair — 3 October 2026
 
 Actual GitHub commit96544fc8e3689aa48697b8db79372dae75cbf130/tree7f0964099095ec5248f713e7f2957b836abf2dcb contains exact F14 native/checkpoint/frozen recipes and static7PASS. Isolated actual GitHub cold-openPASS:1323objects,25exactrelative libraries,119packedimages; source6e3ee923... unchanged. This is source portability, not final27coldpixel acceptance.
