@@ -27,7 +27,7 @@ Because the owner plans to retire the current map, "promotion" below means the o
 | medical-reanimation | No | **Done and dusted** (owner) | Additive `module_overhaul_R2.blend` merged to `main` (#65, with my unreviewed finish #78 inside it); not promoted. Its own reviews scored 91.1 and 91.7, below the 99 bar. Its review images and scenes went in as ordinary Git blobs, not LFS (about 1.6M added lines). |
 | compliance-dock | No | **Done and dusted** (owner) | Additive overhaul merged to `main` (#66, with my unreviewed finish #79 inside it) on the owner's instruction although it **failed its recorded gate** (C9 88.625 against 99); not promoted. Cloth chart distortion and the shape-language and storytelling deductions remain. |
 | mine | Yes (original) | Built but not ready | Original delivery, Luna 92 to 95. No overhaul; not held to the 99 bar. |
-| cooling-plant | Yes (original) | Built but not ready | Original R10, Luna 91 to 95. No overhaul. |
+| cooling-plant | Yes (original) | Built but not ready | Original R10, Luna 91 to 95. Additive AAA finish `module_aaa_A1.blend` (314,609 triangles) is **unreviewed**, no validator run; the map still shows the original. |
 | condenser-bay | Yes (original) | Built but not ready | Original R34, Luna 91 to 94. No overhaul. |
 | waste-storage | Yes (original) | Built but not ready | Original W22, Luna 91 to 93. No overhaul. |
 | Exterior / terrain | Yes | Built but not ready | `MAP.json`: art acceptance REJECT, exterior categories below 93. |
