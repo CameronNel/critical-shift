@@ -1,0 +1,264 @@
+{
+  "source_sha256": "73b85e9a84b577d2059a07371abd366666536800eb45c9e56a7d7788a21b77a3",
+  "renderer_sha256": "9993f999e0eddef5d3c106591728c665647cc49364e44199253780cb9bc89c57",
+  "resolution": [
+    1067,
+    600
+  ],
+  "samples": 24,
+  "engine": "CYCLES",
+  "device": "CPU",
+  "seed": 8217,
+  "cold_open": false,
+  "adaptive_threshold": 0.06,
+  "adaptive_min_samples": 4,
+  "max_bounces": 6,
+  "diffuse_bounces": 3,
+  "glossy_bounces": 3,
+  "transmission_bounces": 6,
+  "view_transform": "AgX",
+  "look": "AgX - Medium High Contrast",
+  "exposure": 0.699999988079071,
+  "diagnostic": null,
+  "source_saved": false,
+  "label_method": "Temporary camera-attached emission geometry",
+  "complete": true,
+  "shots": [
+    {
+      "id": "C02_HERO_DOCK",
+      "label": "02 | INSPECTION / WIDE",
+      "group": "mandatory",
+      "inherited": null,
+      "position": [
+        0,
+        1.1,
+        2.1
+      ],
+      "target": [
+        1.2,
+        7.9,
+        1.8
+      ],
+      "lens": 20,
+      "camera_matrix_world": [
+        [
+          0.9847835302352905,
+          0.007543210871517658,
+          -0.17362156510353088,
+          0.0
+        ],
+        [
+          -0.17378534376621246,
+          0.042744845151901245,
+          -0.9838554263114929,
+          1.100000023841858
+        ],
+        [
+          -2.395402098898103e-09,
+          0.9990575313568115,
+          0.04340532049536705,
+          2.0999999046325684
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 20.0,
+      "projection": "PERSP",
+      "image_sha256": "4028e23d04c5f1d33f7e9159044ada0cd14908669401b73526524f005111a11d",
+      "temporary_hidden_geometry": []
+    },
+    {
+      "id": "C06_CART_GATE_G1",
+      "label": "06 | CART BYPASS",
+      "group": "mandatory",
+      "inherited": null,
+      "position": [
+        2.3,
+        4.2,
+        1.65
+      ],
+      "target": [
+        1.95,
+        7,
+        1.15
+      ],
+      "lens": 24,
+      "camera_matrix_world": [
+        [
+          0.9922778606414795,
+          -0.021640893071889877,
+          0.12213221192359924,
+          2.299999952316284
+        ],
+        [
+          0.12403468787670135,
+          0.1731272041797638,
+          -0.9770579934120178,
+          4.199999809265137
+        ],
+        [
+          -5.727320839810091e-10,
+          0.9846616983413696,
+          0.17447452247142792,
+          1.649999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 24.0,
+      "projection": "PERSP",
+      "image_sha256": "402224d815a4390c10f8d0dd6769760081b7d69fec7e1c1b9ac5cc5a96b4116d",
+      "temporary_hidden_geometry": []
+    },
+    {
+      "id": "HERO_CARGO",
+      "label": "20 | CARGO EXAMINATION MACHINE",
+      "group": "assets",
+      "inherited": null,
+      "position": [
+        3.2,
+        3.7,
+        1.85
+      ],
+      "target": [
+        4.65,
+        7.4,
+        1.05
+      ],
+      "lens": 25,
+      "camera_matrix_world": [
+        [
+          0.9310569763183594,
+          0.07200799882411957,
+          -0.35769781470298767,
+          3.200000047683716
+        ],
+        [
+          -0.3648737967014313,
+          0.18374453485012054,
+          -0.9127458930015564,
+          3.700000047683716
+        ],
+        [
+          1.0710591524798474e-08,
+          0.9803330302238464,
+          0.19735045731067657,
+          1.850000023841858
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 25.0,
+      "projection": "PERSP",
+      "image_sha256": "ef2079958fd3021b278f68ec86d6af02ec47efa7a411a4d53dc012890956ef59",
+      "temporary_hidden_geometry": []
+    },
+    {
+      "id": "HERO_EVIDENCE",
+      "label": "21 | EVIDENCE STORAGE",
+      "group": "assets",
+      "inherited": null,
+      "position": [
+        -4.5,
+        13,
+        1.65
+      ],
+      "target": [
+        -5.6,
+        15.25,
+        0.9
+      ],
+      "lens": 26,
+      "camera_matrix_world": [
+        [
+          0.8983843326568604,
+          -0.12599816918373108,
+          0.4207494258880615,
+          -4.5
+        ],
+        [
+          0.4392102062702179,
+          0.2577233612537384,
+          -0.8606236577033997,
+          13.0
+        ],
+        [
+          4.1028332731229966e-08,
+          0.9579682350158691,
+          0.28687432408332825,
+          1.649999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 26.0,
+      "projection": "PERSP",
+      "image_sha256": "55d9c90c0ce39b095e2c859bbf1f0e4699b8ab0b987011b0591197abc10d346e",
+      "temporary_hidden_geometry": []
+    },
+    {
+      "id": "DETAIL_CHECKIN",
+      "label": "24 | CHECK-IN WORK / DETAIL",
+      "group": "details",
+      "inherited": null,
+      "position": [
+        -4.6,
+        2.3,
+        1.65
+      ],
+      "target": [
+        -3.55,
+        3.75,
+        1.0
+      ],
+      "lens": 35,
+      "camera_matrix_world": [
+        [
+          0.8099421262741089,
+          0.20016348361968994,
+          -0.5512969493865967,
+          -4.599999904632568
+        ],
+        [
+          -0.5865098237991333,
+          0.27641627192497253,
+          -0.761314868927002,
+          2.299999952316284
+        ],
+        [
+          1.9144906104884285e-08,
+          0.9399620294570923,
+          0.3412790298461914,
+          1.649999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 35.0,
+      "projection": "PERSP",
+      "image_sha256": "32799d1dce202e952c8779d23cf43bea4301160af5e41daf30e52d3d7d90a807",
+      "temporary_hidden_geometry": []
+    }
+  ],
+  "requested_view_count": 5
+}
