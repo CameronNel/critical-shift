@@ -277,6 +277,7 @@ def repair_gate_construction():
         n=f'G1 leaf {j} frame';o=S.objects[n];x,y,z=o.matrix_world.translation
         frame=replace(n,ring('TEMP open telescopic frame',(x,y,z),.65,1.4,.63,1.36,.05,1,'steel'),'Actual welded perimeter frame exposes recessed leaf panel; original leaf pose and bounds retained')
         panel_o=S.objects[f'G1 leaf {j} panel'];assign(panel_o,'blue')
+        panel_front=min((panel_o.matrix_world@v.co).y for v in panel_o.data.vertices)
         for xx in [x-.075,x+.075]:
             carriage_y=S.objects[f'G1 leaf {j} top carriage'].matrix_world.translation.y
             shoe=box('CD | G1 carriage suspension',(xx,(y+carriage_y)/2,(z+.7+1.56)/2),(.025,.027,1.56-z-.7),'steel',.0005)
@@ -290,10 +291,10 @@ def repair_gate_construction():
             cyl('CD | G1 caster axle',(wx,wy,.035),.004,.074,'steel','Y',vertices=8,w=0)
         # Two functional pressed bays, flush backing and visible captive fixing.
         for zz in [z-.36,z+.26]:
-            skin=profile('CD | G1 pressed panel bay',octagon(.49,.46,.035),.005,1,(x,y-.0175,zz),'blue',.0006)
+            skin=profile('CD | G1 pressed panel bay',octagon(.49,.46,.035),.005,1,(x,panel_front-.0025,zz),'blue',.0006)
             reposition_parent(skin,panel_o)
             for xx in [x-.21,x+.21]:
-                screw=cyl('CD | G1 panel captive screw',(xx,y-.022,zz+.18),.004,.004,'steel','Y',vertices=6,w=0)
+                screw=cyl('CD | G1 panel captive screw',(xx,panel_front-.007,zz+.18),.004,.004,'steel','Y',vertices=6,w=0)
                 reposition_parent(screw,panel_o)
     use_root('Person Scanner Arch')
     for x in [-.73,.73]:
@@ -316,7 +317,7 @@ def repair_gate_construction():
 def repair_full_candidate():
     for n in ['Scanner portal column -1','Scanner portal column 1']:
         world_edit(S.objects[n],lambda q:(q.x,q.y,min(q.z,2.65)),'Inspection columns butt into header underside at Z2.65; remove duplicated front skin, same outer arch envelope/clearance')
-    repair_screens();repair_structure();repair_internal_bearing();repair_utilities();repair_tarp();repair_surfaces_story();repair_lighting();repair_gate_construction();repair_second_review();repair_third_review();repair_fourth_review();repair_scanner_pockets()
+    repair_screens();repair_structure();repair_internal_bearing();repair_utilities();repair_tarp();repair_surfaces_story();repair_lighting();repair_gate_construction();repair_second_review();repair_third_review();repair_fourth_review();repair_scanner_pockets();repair_fifth_review()
     S['first_full_cycle_repairs']='Actual internal mount contact, real screen apertures/frame pockets, continuous cloth/cut coordinates, purposeful wear/handover, fitted face keys'
 
 def finish_full_repairs():
@@ -358,6 +359,8 @@ def finish_full_repairs():
             if abs(verified/world_area-1)>1e-5:raise RuntimeError('Consumed fabric area normalization failed')
             o['fabric_uv_normalization']=json.dumps({'world_top_area_m2':world_area,'uv_top_area':verified,'factor':factor})
             o.select_set(False);o['fabric_uv_contract']='Continuous ANGLE_BASED top island; globally normalized one-metre surface area; sewn hem/thickness seams; physical face chart retained for metric audit'
+        if o.name!='Covered Trolley Draped Tarp':
+            continuous_textile_chart(o,cut)
         for m in o.data.materials:
             for node in m.node_tree.nodes:
                 if node.type=='UVMAP':node.uv_map='CD_Fabric_Cut_1m'
@@ -935,3 +938,176 @@ def repair_scanner_pockets():
     # value rear polymer response makes the existing drafted shell/vents read.
     for y in [7.35,7.95]:material_patch(MATERIALS['plastic'],(3.210,y,1.30),(.012,.19,.15),(.090,.100,.105),.72,False)
     S['scanner_pocket_construction']='Inner pocket floor X±.640005, pod rear X±.640; outer service seat X±.834995, cover back X±.835; outer column bounds and all inherited matrices retained'
+
+
+def continuous_textile_chart(o,cut):
+    # Continuous metric planar projections on the broad sewn sheets. The
+    # physical face charts remain the edge-length audit. No atlas/lightmap claim.
+    # These small folded textiles have a supported XY footprint and no acute
+    # hanging return, unlike the separately unwrapped trolley cover.
+    for face in o.data.polygons:
+        normal=o.matrix_world.to_3x3()@face.normal
+        for li in face.loop_indices:
+            q=o.matrix_world@o.data.vertices[o.data.loops[li].vertex_index].co
+            cut.data[li].uv=(q.x,q.y) if abs(normal.z)>.40 else ((q.y,q.z) if abs(normal.x)>abs(normal.y) else (q.x,q.z))
+    o['fabric_uv_contract']='Continuous world-metre broad-sheet XY chart; separate sewn thickness/vertical return charts; physical orthonormal face audit retained'
+
+
+def repaint_family(key,color,rough,variation=.075,metal=None):
+    m=MATERIALS[key];n=m.node_tree.nodes;l=m.node_tree.links;bs=n.get('Principled BSDF')
+    # Replace only the original colour ramp, preserving all actual world-space
+    # handling/repair masks subsequently wired after it.
+    base=next(node for node in n if node.type=='VALTORGB')
+    for e,f in zip(base.color_ramp.elements,[1-variation,1+variation]):e.color=(*(c*f for c in color),1)
+    m.diffuse_color=(*color,1)
+    for node in n:
+        if node.type=='MAP_RANGE' and node.inputs.get('To Min') and node.outputs[0].is_linked:
+            if any(link.to_socket==bs.inputs['Roughness'] for link in node.outputs[0].links):
+                node.inputs['To Min'].default_value=max(.05,rough-.075);node.inputs['To Max'].default_value=min(1,rough+.075)
+    if metal is not None:bs.inputs['Metallic'].default_value=metal
+
+
+def cargo_manufactured_shoulders():
+    use_root('Cargo Inspection Conveyor')
+    # Full-height end collars and side/rib seats survive. Between collars the
+    # heavy roof has drafted shoulders and a depressed centre service channel;
+    # four lifting stems remain on the undisturbed full-height corner rails.
+    vs=[];fs=[]
+    for y,shoulder in [(6.5,0),(6.62,1),(8.68,1),(8.8,0)]:
+        pts=[(-.75,-.70),(-.60,-.70),(-.60,.30),(.60,.30),(.60,-.70),(.75,-.70),(.75,.53),(.75-.12*shoulder,.70),(.53,.70),(.50,.66),(-.50,.66),(-.53,.70),(-.75+.12*shoulder,.70),(-.75,.53)]
+        vs.extend((4.65+x,y,1.45+z) for x,z in pts)
+    count=14;fs=[tuple(range(count-1,-1,-1)),tuple(range(3*count,4*count))]
+    for k in range(3):fs.extend((k*count+j,k*count+(j+1)%count,(k+1)*count+(j+1)%count,(k+1)*count+j) for j in range(count))
+    q=mesh('TEMP drafted shield shoulders',vs,fs,'wear',.001)
+    bm=bmesh.new();bm.from_mesh(q.data);bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces));bm.to_mesh(q.data);bm.free()
+    body=replace('Lead tunnel main body',q,'Manufactured drafted central shield shoulders with full-height original end collars/corner lifting seats; actual open throat, original envelope and matrix retained')
+    for o in list(S.objects):
+        if not o.name.startswith('Tunnel stiffener '):continue
+        side=-1 if o.matrix_world.translation.x<4.65 else 1
+        world_edit(o,lambda p:(p.x-side*.12*max(0,min(1,(p.z-1.98)/.17)),p.y,p.z),'External shield ribs conform to actual drafted upper shoulder; lower/full-height end seats and original matrix retained')
+    for o in list(S.objects):
+        if not o.name.startswith('CD | Cargo rib captive screw') or o.location.z<1.98:continue
+        side=-1 if o.location.x<4.65 else 1;old=o.location.copy();surface=old-Vector((side*.003,0,0));surface.x-=side*.12*max(0,min(1,(surface.z-1.98)/.17))
+        normal=Vector((side,0,.12/.17)).normalized();o.location=surface+normal*.003;o.rotation_euler=normal.to_track_quat('Z','Y').to_euler()
+    # Side service covers are captured in actual rebates rather than sitting
+    # on the broad box skin. The cavity stays within the original shield wall.
+    for y in [7.1,8.17]:
+        cutter=profile('TEMP shield service rebate',octagon(.52,.47,.037),.02002,0,(5.401005,y,1.28),'wear',0)
+        bpy.context.view_layer.objects.active=body
+        for mod in list(body.modifiers):
+            if mod.type=='BEVEL':bpy.ops.object.modifier_apply(modifier=mod.name)
+            elif mod.type=='WEIGHTED_NORMAL':body.modifiers.remove(mod)
+        mod=body.modifiers.new('True shield service rebate','BOOLEAN');mod.operation='DIFFERENCE';mod.solver='EXACT';mod.object=cutter;bpy.ops.object.modifier_apply(modifier=mod.name)
+        bpy.data.objects.remove(cutter,do_unlink=True)
+        for o in list(S.objects):
+            if o.name.startswith('CD | Cargo service access cover') and abs(o.matrix_world.translation.y-y)<.01:o.location.x-=.009
+            elif o.name.startswith('CD | Cargo captive cover screw') and abs(o.matrix_world.translation.y-y)<.25:o.location.x-=.009
+    uv(body)
+    # The heavy roof is dark baked enamel; the folded sides are oxidized steel.
+    material_patch(MATERIALS['wear'],(4.65,7.65,2.13),(.72,1.16,.10),(.050,.046,.043),.96,False)
+    for x in [3.9,5.4]:material_patch(MATERIALS['wear'],(x,7.65,.92),(.015,.94,.15),(.105,.071,.048),.60,True)
+
+
+def machine_construction_hierarchy():
+    use_root('Person Scanner Arch')
+    # Cast bridge cheeks visibly transfer its load onto the original columns.
+    # Keep the sign plane and inner 1.2m opening intact; front bevels are larger
+    # here than on thin sheet service doors.
+    for side in [-1,1]:
+        x=.73*side
+        for o in list(S.objects):
+            if o.name.startswith('CD | Scanner service collar') and abs(o.matrix_world.translation.x-x)<.01:
+                _,y,z=o.matrix_world.translation
+                q=profile('TEMP scanner cast cap',octagon(.18,.105,.018),.018,1,(x,y,z),'steel',.0018)
+                replace(o.name,q,'Cast bolted end-cap, differentiated from thin folded service skin; retained contact and placement')
+        # A seated lower service ventilation bank replaces the plain cap with
+        # individually inclined vanes, within its original front projection.
+        for z in [.34,.369,.398,.427]:
+            vane=profile('CD | Scanner cooling vane',[(-.060,-.003),(.060,-.003),(.055,.003),(-.055,.003)],.003,1,(x,6.815,.0+z),'steel',0)
+    # Pedestal head originally intrudes into the nominal straight reservation.
+    # Repair its left projecting skin within the retained head matrix/outer
+    # maximum: the pedestal's structural column begins at X.57, while a true
+    # supported front plate can taper above it at X.60. No nominal-route claim.
+    o=S.objects['G1 pedestal head']
+    world_edit(o,lambda q:(max(.60,q.x) if q.x<.60 else q.x,q.y,q.z),'Remove60mm inherited lateral head projection from nominal R1 reservation; retained original matrix, supported column and interaction pose')
+    world_edit(S.objects['G1 pedestal column'],lambda q:(max(.60,q.x),q.y,q.z),'Retained supported control pedestal removes30mm column intrusion into nominal straight reservation; original matrix and floor-bearing geometry retained')
+    # Existing gate impact sheets acquire rust enamel, distinguishing a moving
+    # physical safety gate from the scanner measurement arch and shield hood.
+    for o in S.objects:
+        if o.type=='MESH' and o.name.startswith('G1 leaf') and any(m==MATERIALS['yellow'] for m in o.data.materials):assign(o,'coral')
+    for j in [1,2,3]:
+        panel_o=S.objects[f'G1 leaf {j} panel'];x,y,z=panel_o.matrix_world.translation
+        front=min((panel_o.matrix_world@v.co).y for v in panel_o.data.vertices)
+        # Closed thin folded cassette: clipped return walls, a drafted pressed
+        # field and actual rear skin on the panel. Fixings retain seated front.
+        for o in list(S.objects):
+            if not o.name.startswith('CD | G1 pressed panel bay') or o.parent!=panel_o:continue
+            zz=o.matrix_world.translation.z;vs=[]
+            for yy,w,h,cut in [(front,.49,.46,.035),(front-.005,.49,.46,.035),(front-.005,.392,.340,.028),(front-.002,.368,.315,.025)]:
+                vs.extend((x+u,yy,zz+v) for u,v in octagon(w,h,cut))
+            fs=[tuple(range(7,-1,-1)),tuple(range(24,32))]
+            for a,b in [(0,1),(1,2),(2,3)]:fs.extend((a*8+k,a*8+(k+1)%8,b*8+(k+1)%8,b*8+k) for k in range(8))
+            q=mesh('TEMP die drawn gate cassette',vs,fs,'wear',.0004)
+            bm=bmesh.new();bm.from_mesh(q.data);bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces));bm.to_mesh(q.data);bm.free()
+            replace(o.name,q,'Closed die-drawn gate cassette, actual back seats on measured parent front; stamped cavity exposes distinct manufactured return, screw flange preserved')
+
+
+def pressure_and_repair_traces():
+    use_root('Checkin Counter Hatch')
+    # Build an uneven accumulated stack under the existing top title, keeping
+    # its writing plane/pose and the tray bottom contact unchanged.
+    forms=[o for o in S.objects if o.name.startswith('CD | Unprocessed forms')]
+    for i,o in enumerate(sorted(forms,key=lambda q:q.name)):
+        levels=[(o.matrix_world@v.co).z for v in o.data.vertices];lo,hi=min(levels),max(levels)
+        world_edit(o,lambda q:(q.x,q.y,1.061+.001*i+(q.z-lo)/(hi-lo)*.001),'Pending paper plies stacked from actual tray topZ1.061; preserves upper label clearance')
+    for j in range(5):
+        q=box('CD | Pending queue paper ply',(-4.025+(.004 if j%2 else -.004),3.597+j*.001,1.0655+j*.00045),(.20,.247,.00045),'paper',0)
+    # Last page contains a half-entered repeated field and correction, read as
+    # ongoing clerical pressure without introducing another slogan/sign.
+    for j in range(7):box('CD | Pending top form rule',(-4.035,3.614+j*.015,1.06756),(.153,.00075,.000025),'ink',0)
+    for j in range(3):box('CD | Pending unfinished field',(-4.078+j*.018,3.688,1.06761),(.008,.0012,.000025),'ink',0)
+    q=box('CD | Pending corrected field strike',(-4.048,3.659,1.06762),(.10,.0013,.000025),'ink',0);q.rotation_euler.z=.08
+    use_root('Wall Utilities Rack')
+    # A visibly incomplete insulation repair encircles the existing conduit
+    # below the earlier bolted replacement sleeve. Annular geometry, no hidden
+    # duplicated solid pipe. The steel clamp group is already budgeted.
+    annular_bearing('CD | Temporary conduit repair wrap',(6.65,13.1,2.49),.039,.0353,.085,2,'charcoal')
+    annular_bearing('CD | Conduit wrap lower tie',(6.65,13.1,2.445),.040,.0385,.006,2,'steel')
+    annular_bearing('CD | Conduit wrap upper tie',(6.65,13.1,2.535),.040,.0385,.006,2,'steel')
+    # A single bracketed junction seam/scuff connects isolation to the repaired
+    # run; quiet adjacent wall remains intentionally clear.
+    material_patch(MATERIALS['charcoal'],(6.65,13.1,2.49),(.05,.05,.049),(.080,.052,.035),.60,True)
+
+
+def repair_fifth_review():
+    # Broad primary form/palette intervention after all previous repairs.
+    repaint_family('plaster',(.46,.345,.36),.91,.07)
+    repaint_family('blue',(.067,.102,.159),.61,.065,.10)
+    repaint_family('navy',(.041,.050,.069),.70,.045,.18)
+    repaint_family('charcoal',(.053,.057,.060),.55,.06,.30)
+    repaint_family('wear',(.285,.290,.285),.56,.09,.35)
+    repaint_family('plastic',(.039,.045,.049),.43,.03,0)
+    # Warm/rust belongs to human interfaces and moving impact skins. Preserve
+    # legible cream operational type and restrained mustard floor wayfinding.
+    machine_construction_hierarchy();cargo_manufactured_shoulders();pressure_and_repair_traces()
+    floor=S.objects['Floor slab'].data.materials[0];n=floor.node_tree.nodes;l=floor.node_tree.links;bs=n.get('Principled BSDF')
+    g=n.new('ShaderNodeNewGeometry');noise=n.new('ShaderNodeTexNoise');noise.inputs['Scale'].default_value=1.1;noise.inputs['Detail'].default_value=2;noise.inputs['Roughness'].default_value=.55;l.new(g.outputs['Position'],noise.inputs['Vector'])
+    ramp=n.new('ShaderNodeValToRGB');ramp.color_ramp.elements[0].position=.23;ramp.color_ramp.elements[0].color=(.40,.36,.31,1);ramp.color_ramp.elements[1].position=.78;ramp.color_ramp.elements[1].color=(1.16,1.11,1.02,1);l.new(noise.outputs['Fac'],ramp.inputs[0])
+    mix=n.new('ShaderNodeMixRGB');mix.blend_type='MULTIPLY';mix.inputs[0].default_value=.68;l.new(bs.inputs['Base Color'].links[0].from_socket,mix.inputs[1]);l.new(ramp.outputs[0],mix.inputs[2]);l.new(mix.outputs[0],bs.inputs['Base Color'])
+    replace_inherited_support_witnesses()
+    S['fifth_full_review_repairs']='G1 bay seat measured per panel plus die-drawn skin; removed inherited pedestal lateral overhang without moving interaction; drafted cargo shoulders/fitted ribs/true service rebates; distinct machine construction, warm mauve/navy/rust material hierarchy; accumulated correction work and actual conduit wrap; continuous small-textile charts; actual fixed-view verification pending'
+
+
+def replace_inherited_support_witnesses():
+    # Old original seed transforms are immutable. Retain them as declared
+    # legacy seeds, add actual jamb-foot witnesses and consume those in the
+    # current authoring registry. This proves assembly contact as well as floor.
+    for name,prefix in [('Arrival Gate P2','P2'),('D1 Staff Front Door','D1'),('D2 Staff Rear Door','D2')]:
+        root=S.objects[name]
+        for old in root.children:
+            if old.get('contact_anchor'):
+                old['contact_anchor']=False;old['legacy_contact_seed']=True;old['replacement_reason']='Original seed hits floor but misses actual supported assembly foot; transform retained; use measured jamb-foot witness'
+        for side in [-1,1]:
+            jamb=S.objects[f'{prefix} frame jamb {side}'];pts=[jamb.matrix_world@v.co for v in jamb.data.vertices];bottom=min(p.z for p in pts)
+            x=(min(p.x for p in pts)+max(p.x for p in pts))/2;y=(min(p.y for p in pts)+max(p.y for p in pts))/2
+            a=bpy.data.objects.new('CD | '+prefix+' measured jamb foot '+str(side),None);COL.objects.link(a);a.parent=root;a.location=(x,y,bottom);a['contact_anchor']=True;a['assembly_witness']=jamb.name;a['evidence_contract']='Actual world-space jamb-foot centre; native actual-child contact still independently measured; preserved original legacy seed transform'

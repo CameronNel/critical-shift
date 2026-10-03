@@ -318,6 +318,24 @@ def full_lighting():
     box('CD | Desk lamp fitted diffuser',(-3.02,7.46,1.083),(.14,.12,.003),'warm_lamp',0)
     emitter=light('CD | Interrupted shift desk practical',(-3.04,7.46,1.0808),(-3.50,7.12,.765),5,(1,.79,.57),.14,.06)
     reposition_parent(emitter,ASM)
+    # Fifth review broad hierarchy: neutral machinery, warmer institutional
+    # practicals and roof reflectance. Source lamp poses stay byte-identical.
+    for name,power in [('Scanner Overhead Key',48),('Conveyor Hero Key',58),('Arrival Bay Key',58),('Bay Utility Key',38),('Ambient Fill Center',4),('Ceiling Wash 4.0',25),('Ceiling Wash 11.0',24),('Support Concealed Accent',26)]:
+        o=S.objects[name];o.data.energy=power
+        if o.data.type=='AREA':o.data.color=(1,.84,.71) if name.startswith('Ceiling Wash') or name=='Support Concealed Accent' else (.87,.90,1)
+    S.objects['Support Concealed Accent'].data.spread=1.75
+    S.objects['CD | Inspection face practical'].data.energy=54
+    S.objects['CD | Inspection face practical'].data.spread=1.20
+    S.objects['CD | Scanner practical roof bounce'].data.energy=40
+    S.objects['CD | Scanner practical roof bounce'].data.color=(1,.83,.67)
+    S.objects['CD | Check-in practical'].data.energy=65
+    S.objects['CD | Interrupted shift desk practical'].data.energy=7
+    # A second bounce is attached to the existing cargo fluorescent fixture;
+    # it lifts service silhouettes from the black ceiling rather than washing
+    # the walk surface. Light is beyond the physical folded hood top.
+    use_root('CD | Conveyor Hero Key suspended fixture')
+    bounce=light('CD | Cargo practical roof bounce',(4.65,7.70,3.583),(4.65,8.5,4.35),27,(1,.81,.63),1.1,.22)
+    reposition_parent(bounce,ASM)
     S['light_contract']='Inherited practical poses; localized warm clerk pool, cool inspection keys, dim storage; no runtime light-budget claim'
 
 def full_work():
