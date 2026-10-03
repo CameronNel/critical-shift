@@ -1,3 +1,13 @@
+## F15 complete C8 render evidence and fresh review — 3 October 2026
+
+Actual GitHubfc381a12c53e826b7644eb5d3e521854b6c60452/treee4a2cb393fd5d2fa1a0f562a6fd64f686c63832f contains exactF15 native/checkpoint/recipes/static/preformal proof. Isolated actualGitHub cold-sourcePASS1323objects/25relative libraries/119packedimages, sourceunchangedd2514e668ea2b24e8b4ede6bde870e12f10c1afd6d6e1892b12c016266bd7b35. Finalcold27decodedpixels notrun/acceptancepending.
+
+All27beauty+4neutral+4UV1067x600 currentF15 renders complete. Root individually openedall35+4approvedspawn originals, verifiedallcurrent manifests/source/renderer/counts/PNGhashes and4referenceprovenance. Same38d50renderer/newC02camera has complete27exactF13 baseline;4baselineoriginals opened, nofinalstability claim. Sixfreshcritics reviewingfrozenF15. Luna locked93/89/94/93/89/95/94 beforetechnical8; exact7visualsum647. Cat1and4at93failstrict>93;2/5alsofail. Nooverallscore/completecycle8 yet. Independenttechnical surfacegraph confirmedunrooted cabletray/bundles andP1sign/text clusters; actualupwardsupportgap90mm/150mm respectively. Finaldefectseverity/scorepending. Root mustretain completecandidate/review thenrepairafterallreadersrelease.
+
+Latestcompleteacceptedreviewstate remainsC7exact81FAIL/zero-criticalunion,7completecycles. Owner99/all8>93/zero-critical/finaltwo stability/actualGitHubcold27decodedpixels gates unmet. PR66DRAFT; no merge/map promotion/runtime acceptance. All1077originalposes/protected inputs/layout/roomapertures fixed, rootsoleauthor. Currentrecipes/nativecannotchange whilecriticsread.
+
+## Prior checkpoint history
+
 ## F15 saved and C8 evidence underway — 3 October 2026
 
 F15 native SHA256d2514e668ea2b24e8b4ede6bde870e12f10c1afd6d6e1892b12c016266bd7b35 saved exit0,116actualinterface guards,1323objects/395342triangles/1143submeshes/35localfamilies. All1077inherited poses/protected map/original/spawn/interface retained. Exact native/state/fourfrozen recipes archived full-f15*. Static7PASS/0errors/0warnings/5unverified. Saved consolidated mesh probe finds actual guide-to-mast heel gaps0m,29roller physicalUV allfaceedge ratios0.998870..1.000944. No nativewrites in probe. Two600ppreformal originals individually opened: gate has no new visible seam/silhouette defect; continuous roller barrel checker is visible. Numerical/author inspection is not independent art acceptance.
