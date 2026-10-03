@@ -1,0 +1,68 @@
+{
+  "revision": "Compliance dock AAA finish",
+  "geometry_fixes": {
+    "supply_duct_vs_truss": {
+      "cutters": 5,
+      "overlap_pairs_before": 100,
+      "overlap_pairs_after": 0
+    },
+    "return_duct_vs_suspension": {
+      "cutters": 1,
+      "overlap_pairs_before": 96,
+      "overlap_pairs_after": 0
+    },
+    "pallet_vs_pilaster": {
+      "cutters": 2,
+      "overlap_pairs_before": 56,
+      "overlap_pairs_after": 0
+    }
+  },
+  "materials": {
+    "floor": [
+      "CD | Floor traffic polish",
+      "CD | concrete",
+      "CD | Handled linoleum"
+    ],
+    "wall": [
+      "CD | plaster"
+    ],
+    "paint": [
+      "CD | navy",
+      "CD | charcoal",
+      "CD | blue",
+      "CD | ivory",
+      "CD | coral",
+      "CD | yellow",
+      "CD | D1 handled paint",
+      "CD | plastic",
+      "CD | Crate handling polish",
+      "CD | Worktop lip wear",
+      "CD | wood"
+    ],
+    "metal": [
+      "CD | steel",
+      "CD | brass",
+      "CD | rubber"
+    ]
+  },
+  "light_changes": {
+    "reflected_fills_to_30pct": 1,
+    "hero_keys_up": 10,
+    "hazard_spots_up": 3,
+    "ambient_fill_to_30pct": 1,
+    "keys_to_90pct": 9,
+    "ceiling_washes_to_60pct": 2
+  },
+  "light_count_unchanged": true,
+  "exposure_now": 0.5999999642372131,
+  "triangles_before_total_visible": [
+    397690,
+    397690
+  ],
+  "triangles_after_total_visible": [
+    398352,
+    398352
+  ],
+  "triangle_budget": 400000,
+  "within_budget": true
+}
