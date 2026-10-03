@@ -1,0 +1,831 @@
+{
+  "review": "fresh independent full-cycle-05 technical critic",
+  "category": 8,
+  "category_name": "Technical hygiene, reproducibility, performance hygiene, no critical defects",
+  "score": 92,
+  "threshold_strictly_greater_than": 93,
+  "verdict": "FAIL",
+  "critical_defect_count": 1,
+  "reviewed_at_utc": "2026-10-03T01:38:48.017385+00:00",
+  "native": "sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend",
+  "native_sha256": "cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035",
+  "scene": "COMPLIANCE_EDIT_LOCAL",
+  "blender": "5.2.2 LTS",
+  "threads_per_critic_process": 1,
+  "critical_defects": [
+    {
+      "id": "G1-01",
+      "severity": "critical",
+      "description": "Two pressed bays on G1 leaf 1 have exposed front faces exactly coplanar with the 40 mm parent panel; visible black fields persist in beauty and supplemental UV.",
+      "panel_front_y_m": 6.980000019073486,
+      "panel_rear_y_m": 7.019999980926514,
+      "bay_front_y_m": 6.980000019073486,
+      "bay_rear_y_m": 6.985000133514404,
+      "bay_penetration_m": 0.005000114440917969,
+      "coincident_exposed_area_m2": 0.44372050529714,
+      "material": "CD | wear",
+      "witnesses": [
+        {
+          "leaf": 1,
+          "bay_z": 0.4599999897181988,
+          "bay_front_y": 6.980000019073486,
+          "panel_front_y": 6.980000019073486,
+          "bay_back_y": 6.985000133514404,
+          "front_face_area_m2": 0.22186025603226156,
+          "coincident_front": true,
+          "bay_material": "CD | wear",
+          "front_normal": [
+            [
+              0.0,
+              -1.0,
+              0.0
+            ]
+          ],
+          "fixings": [
+            {
+              "centre": [
+                2.3399999141693115,
+                6.978000164031982,
+                0.6399999856948853
+              ],
+              "actual_screw_rear_y": 6.980000019073486,
+              "actual_bay_front_y": 6.980000019073486,
+              "actual_contact_gap_m": 0.0
+            },
+            {
+              "centre": [
+                2.759999990463257,
+                6.978000164031982,
+                0.6399999658266703
+              ],
+              "actual_screw_rear_y": 6.980000019073486,
+              "actual_bay_front_y": 6.980000019073486,
+              "actual_contact_gap_m": 0.0
+            }
+          ]
+        },
+        {
+          "leaf": 1,
+          "bay_z": 1.0799999747957503,
+          "bay_front_y": 6.980000019073486,
+          "panel_front_y": 6.980000019073486,
+          "bay_back_y": 6.985000133514404,
+          "front_face_area_m2": 0.22186024926487846,
+          "coincident_front": true,
+          "bay_material": "CD | wear",
+          "front_normal": [
+            [
+              0.0,
+              -1.0,
+              0.0
+            ]
+          ],
+          "fixings": [
+            {
+              "centre": [
+                2.3399999141693115,
+                6.978000164031982,
+                1.2599999904632568
+              ],
+              "actual_screw_rear_y": 6.980000019073486,
+              "actual_bay_front_y": 6.980000019073486,
+              "actual_contact_gap_m": 0.0
+            },
+            {
+              "centre": [
+                2.759999990463257,
+                6.978000164031982,
+                1.2599999904632568
+              ],
+              "actual_screw_rear_y": 6.980000019073486,
+              "actual_bay_front_y": 6.980000019073486,
+              "actual_contact_gap_m": 0.0
+            }
+          ]
+        }
+      ],
+      "repair": "Seat each bay back on its own measured panel front and carry captive fixings; preserve inherited matrices. Independently remeasure and rerender repaired source."
+    }
+  ],
+  "other_measured_caveats": [
+    {
+      "id": "REG-01",
+      "severity": "major evidence deficiency",
+      "description": "Six inherited support witnesses hit target floor but fail actual assembly geometry within 5 mm: P2 contacts 0/1 and D2 contacts 0/1 have no child hit; D1 contacts 0/1 first reach leaf seal 40.00008 mm above floor. Actual jamb feet do reach floor. Target-only rays cannot establish those six witnesses."
+    },
+    {
+      "id": "ROUTE-01",
+      "severity": "inherited interface discrepancy",
+      "description": "Inherited G1 pedestal head intrudes approximately 60 mm into nominal R1 \u00b10.6 m straight reservation; baseline bounds identical. No unobstructed nominal 1.2 m route or runtime opened-door route certified."
+    },
+    {
+      "id": "UV-01",
+      "severity": "export caveat",
+      "description": "Unused retained UVMap layers have 32202 zero-area faces. Active physical/fabric charts have none. Physical charts intentionally overlap and are not bake/lightmap atlases."
+    },
+    {
+      "id": "MESH-01",
+      "severity": "authoring caveat",
+      "description": "120 meshes retain boundary edges; open tube/curve and planar details were not certified watertight collision solids."
+    }
+  ],
+  "independent_native_results": {
+    "local_objects": 1321,
+    "mesh_objects": 1096,
+    "font_objects": 53,
+    "empty_objects": 137,
+    "light_objects": 23,
+    "camera_objects": 12,
+    "evaluated_triangles_including_fonts": 381032,
+    "material_submeshes": 1150,
+    "local_material_families": 36,
+    "planning_limits": [
+      450000,
+      1150,
+      36
+    ],
+    "planning_targets_met": true,
+    "submesh_and_material_headroom": 0,
+    "relative_libraries_resolved": 25,
+    "packed_present_images": 119,
+    "inherited_objects_retained": 1077,
+    "inherited_matrix_changes_over_1e_6": 0,
+    "support_assemblies": 45,
+    "target_anchor_rays_hit": 92,
+    "reverse_geometry_witnesses_within_5mm": 86,
+    "manifest_glyph_vertices": 4249,
+    "manifest_buried_vertices": 0,
+    "manifest_clearance_m": 0.001000046730041504,
+    "desk_glyph_vertices": 816,
+    "desk_buried_or_occluded_vertices": 0,
+    "desk_top_paper_clearance_m": [
+      9.98377799987793e-05,
+      0.00010007619857788086
+    ],
+    "physical_UV_meshes": 1096,
+    "maximum_relative_metric_edge_error": 0.0064998,
+    "exact_whole_object_geometry_duplicates": 0,
+    "degenerate_faces": 0,
+    "nonfinite_vertices": 0,
+    "inverted_closed_meshes": 0,
+    "protected_inputs_match": true,
+    "recipe_font_license_hashes_match": true
+  },
+  "nested_interface_evidence": [
+    "Scanner 12 pod seats and optic collars plus 18 service-cover samples independently checked.",
+    "Cargo lifting stems, display edge capture/apertures, collar side contacts and recessed roof bridge independently checked.",
+    "Custody emitter 15-sample outgoing grid clear; actual diffuser approximately 3 mm behind.",
+    "Four P2 carriage units actual track/leaf contacts, journal/bore/groove/retaining clip radii and axial engagement checked.",
+    "Key glazing ledges and hook/back-web seats checked.",
+    "All three G1 parent/front/bay/fixing interfaces measured.",
+    "Manifest fonts and handover/incident fonts ray-checked; desk test includes all overlapping papers and every local mesh."
+  ],
+  "reproducibility_scope": "Independent fresh-process native open and resolved resources; current recipes/font/license association hashes verified. Author build was not run. Remote GitHub cold-source evidence was supplied by root and was not independently reproduced by this critic; no cold-render equivalence claimed.",
+  "unverified_runtime": [
+    "FPS",
+    "engine draw calls",
+    "physics and collision bindings",
+    "navigation and opened-door/cart trajectories",
+    "body dragging turn envelopes",
+    "networking",
+    "sound",
+    "Unity material equivalence"
+  ],
+  "limitations": [
+    "No full author recipe rebuild under frozen read-only instruction.",
+    "No independent remote checkout or cold render comparison.",
+    "No historical cycle-count or final-two-cycle stability certification.",
+    "Source planning counters are not runtime budgets.",
+    "Only category 8 assigned a score; no overall score or categories 1\u20137 assigned."
+  ],
+  "actual_images_opened": [
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-05/C01_ENTRY.png",
+      "kind": "beauty",
+      "id": "C01_ENTRY",
+      "sha256": "51812eb1e2d868efe4297f3c863ea3776e3ca26e4e2ebe71d59884a7e23ca0ff",
+      "matches_manifest": true,
+      "source_sha256": "cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_original": true,
+      "observation": "Individually inspected at original resolution; no additional technical pixel defect assigned."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-05/C02_HERO_DOCK.png",
+      "kind": "beauty",
+      "id": "C02_HERO_DOCK",
+      "sha256": "5969f2695138cd1b63156dc89b42f1147de706e1af682d84a49987b53fcaf94b",
+      "matches_manifest": true,
+      "source_sha256": "cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_original": true,
+      "observation": "Individually inspected at original resolution; no additional technical pixel defect assigned."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-05/C03_CHECKIN_COUNTER.png",
+      "kind": "beauty",
+      "id": "C03_CHECKIN_COUNTER",
+      "sha256": "a2a2e43a9546120b209bbad11fc5d88342bf4c9150a651d954f7b035c04e4b6e",
+      "matches_manifest": true,
+      "source_sha256": "cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_original": true,
+      "observation": "Individually inspected at original resolution; no additional technical pixel defect assigned."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-05/C04_SCANNER_APPROACH.png",
+      "kind": "beauty",
+      "id": "C04_SCANNER_APPROACH",
+      "sha256": "b549e9f7968e2a85c79da750f7649d9d0437962517aaf35c73efc30a138e1f1b",
+      "matches_manifest": true,
+      "source_sha256": "cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_original": true,
+      "observation": "Individually inspected at original resolution; no additional technical pixel defect assigned."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-05/C05_CONVEYOR_LEAD_TUNNEL.png",
+      "kind": "beauty",
+      "id": "C05_CONVEYOR_LEAD_TUNNEL",
+      "sha256": "1486b090ec66394f0a6f2c2ea93b496bd4826f681213d2974dab0c0bdf2fab4a",
+      "matches_manifest": true,
+      "source_sha256": "cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_original": true,
+      "observation": "Individually inspected at original resolution; no additional technical pixel defect assigned."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-05/C06_CART_GATE_G1.png",
+      "kind": "beauty",
+      "id": "C06_CART_GATE_G1",
+      "sha256": "eb46d561cf9473dd955ec3fb3fd5464fd5f65a2bedd81afba935eaf291c25a78",
+      "matches_manifest": true,
+      "source_sha256": "cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_original": true,
+      "observation": "G1 leaf 1 black bay fields corroborate native coplanarity where visible; same construction persists in supplemental UV."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-05/C07_OFFICE_INTERIOR.png",
+      "kind": "beauty",
+      "id": "C07_OFFICE_INTERIOR",
+      "sha256": "fdc7216132db9024d7a05586cee86e8a46746df3b3a159383188112854ccad10",
+      "matches_manifest": true,
+      "source_sha256": "cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_original": true,
+      "observation": "Individually inspected at original resolution; no additional technical pixel defect assigned. Desk paper layering visually inspected; ink exposure independently ray-checked against all overlapping paper and all local meshes."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-05/C08_CONCEALED_SUPPORT_H1.png",
+      "kind": "beauty",
+      "id": "C08_CONCEALED_SUPPORT_H1",
+      "sha256": "02a02faef1316463c0db03d5d8cc88bcb437d9b3e641410413b5a761394e0af0",
+      "matches_manifest": true,
+      "source_sha256": "cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_original": true,
+      "observation": "Individually inspected at original resolution; no additional technical pixel defect assigned."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-05/C09_ARRIVAL_GATE_P2.png",
+      "kind": "beauty",
+      "id": "C09_ARRIVAL_GATE_P2",
+      "sha256": "f8c71f907644067aa80c28070953c188395a82ef7e28bb18d632c03b6687a445",
+      "matches_manifest": true,
+      "source_sha256": "cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_original": true,
+      "observation": "Individually inspected at original resolution; no additional technical pixel defect assigned."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-05/C10_ROOF_SERVICES.png",
+      "kind": "beauty",
+      "id": "C10_ROOF_SERVICES",
+      "sha256": "79f4101c7115c4636b68c8b838661ec1c193101f6385865fcbfc6094655614dd",
+      "matches_manifest": true,
+      "source_sha256": "cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_original": true,
+      "observation": "Individually inspected at original resolution; no additional technical pixel defect assigned."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-05/CORNER_SW.png",
+      "kind": "beauty",
+      "id": "CORNER_SW",
+      "sha256": "72582a1e720abb995afbe247e6b8314c110225824321f53cc924b442fe4a921a",
+      "matches_manifest": true,
+      "source_sha256": "cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_original": true,
+      "observation": "Individually inspected at original resolution; no additional technical pixel defect assigned."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-05/CORNER_SE.png",
+      "kind": "beauty",
+      "id": "CORNER_SE",
+      "sha256": "539d8cc4cc261a787fb56e18f7ee26876c5a8a5454e258f953c69b5bdf858070",
+      "matches_manifest": true,
+      "source_sha256": "cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_original": true,
+      "observation": "Individually inspected at original resolution; no additional technical pixel defect assigned."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-05/CORNER_NW.png",
+      "kind": "beauty",
+      "id": "CORNER_NW",
+      "sha256": "5b8ea45a99247b2e6fb55c455142c55064c29dcfa9e077678a6a0dc327670a5d",
+      "matches_manifest": true,
+      "source_sha256": "cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_original": true,
+      "observation": "Individually inspected at original resolution; no additional technical pixel defect assigned."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-05/CORNER_NE.png",
+      "kind": "beauty",
+      "id": "CORNER_NE",
+      "sha256": "7aa48fb0dec9e8d1fd1c48ee54a19d09eccdedf77145dc452b72dfcb8e39941d",
+      "matches_manifest": true,
+      "source_sha256": "cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_original": true,
+      "observation": "Individually inspected at original resolution; no additional technical pixel defect assigned."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-05/WALL_SOUTH.png",
+      "kind": "beauty",
+      "id": "WALL_SOUTH",
+      "sha256": "704dc0bf02d0dc9cff106fb7e5734e5a928dbea6154fcc4399d333596230083d",
+      "matches_manifest": true,
+      "source_sha256": "cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_original": true,
+      "observation": "Individually inspected at original resolution; no additional technical pixel defect assigned."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-05/WALL_NORTH.png",
+      "kind": "beauty",
+      "id": "WALL_NORTH",
+      "sha256": "122a7e037f7da2ed0a1cebbc08f484b008b5e7e2e68479a9081ec64b5642934a",
+      "matches_manifest": true,
+      "source_sha256": "cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_original": true,
+      "observation": "Individually inspected at original resolution; no additional technical pixel defect assigned."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-05/WALL_EAST.png",
+      "kind": "beauty",
+      "id": "WALL_EAST",
+      "sha256": "c69cafe0d5a1a78efe62c6a37c18ae887a075961e2634455261bcd7aed40dc46",
+      "matches_manifest": true,
+      "source_sha256": "cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_original": true,
+      "observation": "Individually inspected at original resolution; no additional technical pixel defect assigned."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-05/WALL_WEST.png",
+      "kind": "beauty",
+      "id": "WALL_WEST",
+      "sha256": "3a23624a1b8c29515f6f7841f64cde14c972ed40926635534741661b2971d535",
+      "matches_manifest": true,
+      "source_sha256": "cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_original": true,
+      "observation": "Individually inspected at original resolution; no additional technical pixel defect assigned."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-05/HERO_SCANNER.png",
+      "kind": "beauty",
+      "id": "HERO_SCANNER",
+      "sha256": "b9636127818b81611db200e7060b13941d8993b7ae7bce09581a9ed3c9dea8d3",
+      "matches_manifest": true,
+      "source_sha256": "cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_original": true,
+      "observation": "G1 leaf 1 black bay fields corroborate native coplanarity where visible; same construction persists in supplemental UV."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-05/HERO_CARGO.png",
+      "kind": "beauty",
+      "id": "HERO_CARGO",
+      "sha256": "c88daa5d0f5dffeb58a7101dab0899e520b715fc4525584d4965cdbe4b80b5f0",
+      "matches_manifest": true,
+      "source_sha256": "cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_original": true,
+      "observation": "G1 leaf 1 black bay fields corroborate native coplanarity where visible; same construction persists in supplemental UV."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-05/HERO_EVIDENCE.png",
+      "kind": "beauty",
+      "id": "HERO_EVIDENCE",
+      "sha256": "a23f746a2108c3d40d960ffebbad9522df25faf6008f43af61c54c4c49322e35",
+      "matches_manifest": true,
+      "source_sha256": "cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_original": true,
+      "observation": "Individually inspected at original resolution; no additional technical pixel defect assigned."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-05/HERO_TROLLEY.png",
+      "kind": "beauty",
+      "id": "HERO_TROLLEY",
+      "sha256": "b8ea41ae7490c6402d603b55ce255289a846e36444c08d75dc12ffc911b41751",
+      "matches_manifest": true,
+      "source_sha256": "cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_original": true,
+      "observation": "Individually inspected at original resolution; no additional technical pixel defect assigned."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-05/HERO_UTILITIES.png",
+      "kind": "beauty",
+      "id": "HERO_UTILITIES",
+      "sha256": "45283c62a0611bafd8daec3ce0c831fc01c2ea67f721deb1a136930f19d25760",
+      "matches_manifest": true,
+      "source_sha256": "cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_original": true,
+      "observation": "Individually inspected at original resolution; no additional technical pixel defect assigned."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-05/DETAIL_CHECKIN.png",
+      "kind": "beauty",
+      "id": "DETAIL_CHECKIN",
+      "sha256": "a3245e1a54eee342768b338c819beb7490298f43d6e046d15118b1c44ef943ad",
+      "matches_manifest": true,
+      "source_sha256": "cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_original": true,
+      "observation": "Individually inspected at original resolution; no additional technical pixel defect assigned."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-05/PLAYER_REVERSE.png",
+      "kind": "beauty",
+      "id": "PLAYER_REVERSE",
+      "sha256": "4c78a7035ef2a2e10abe5c39a82c7ce729572bd0af264794304d4056744322f0",
+      "matches_manifest": true,
+      "source_sha256": "cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_original": true,
+      "observation": "Individually inspected at original resolution; no additional technical pixel defect assigned."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-05/PLAYER_PINCH.png",
+      "kind": "beauty",
+      "id": "PLAYER_PINCH",
+      "sha256": "306256a35366807d0433fae472a36b8e7751c789dfd36f373940b73efa4a9716",
+      "matches_manifest": true,
+      "source_sha256": "cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_original": true,
+      "observation": "Individually inspected at original resolution; no additional technical pixel defect assigned."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-05/WALL_OFFICE_FRONT.png",
+      "kind": "beauty",
+      "id": "WALL_OFFICE_FRONT",
+      "sha256": "a37a87abd894451263cc130b4ca7ef21745ab6cc868d013c8b47f65f5434ca62",
+      "matches_manifest": true,
+      "source_sha256": "cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_original": true,
+      "observation": "Individually inspected at original resolution; no additional technical pixel defect assigned."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-05-uv/HERO_SCANNER.png",
+      "kind": "supplemental UV",
+      "id": "HERO_SCANNER",
+      "sha256": "ffabdcb85e3efc0a44c8db2ef74ab4aa187bb969774b671a5e0142b73c9c4ed8",
+      "matches_manifest": true,
+      "source_sha256": "cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_original": true,
+      "observation": "G1 leaf 1 black bay fields corroborate native coplanarity where visible; same construction persists in supplemental UV."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-05-uv/HERO_CARGO.png",
+      "kind": "supplemental UV",
+      "id": "HERO_CARGO",
+      "sha256": "29a240a6b0b9879d02955c5004efb6c0a74b001feb67f94c28eb6bad55ca5849",
+      "matches_manifest": true,
+      "source_sha256": "cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_original": true,
+      "observation": "G1 leaf 1 black bay fields corroborate native coplanarity where visible; same construction persists in supplemental UV."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-05-uv/HERO_TROLLEY.png",
+      "kind": "supplemental UV",
+      "id": "HERO_TROLLEY",
+      "sha256": "4b32debd38b028770c56b27d509f9e8201dc0c4b941c17694d80c27ef9d6a0f8",
+      "matches_manifest": true,
+      "source_sha256": "cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_original": true,
+      "observation": "Individually inspected at original resolution; no additional technical pixel defect assigned."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-05-uv/DETAIL_CHECKIN.png",
+      "kind": "supplemental UV",
+      "id": "DETAIL_CHECKIN",
+      "sha256": "970f4207174e08a5de081f2ca57615cc2fbf7ffffd11317b65b89c0d4b79d272",
+      "matches_manifest": true,
+      "source_sha256": "cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_original": true,
+      "observation": "Individually inspected at original resolution; no additional technical pixel defect assigned."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-05-uv-standard/C05_CONVEYOR_LEAD_TUNNEL.png",
+      "kind": "standard UV",
+      "id": "C05_CONVEYOR_LEAD_TUNNEL",
+      "sha256": "3ba96126da5d11d00f984a009afa3309bfab212d9b9aac4432026db1f5cfcd67",
+      "matches_manifest": true,
+      "source_sha256": "cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_original": true,
+      "observation": "Original-resolution checker inspected; no additional UV scale defect assigned."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-05-uv-standard/C07_OFFICE_INTERIOR.png",
+      "kind": "standard UV",
+      "id": "C07_OFFICE_INTERIOR",
+      "sha256": "404a88c5ac12d6b0d52a3be94124f749d2181eb4acdc59dcb2e5732faf5a10ca",
+      "matches_manifest": true,
+      "source_sha256": "cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_original": true,
+      "observation": "Original-resolution checker inspected; no additional UV scale defect assigned. Desk paper layering visually inspected; ink exposure independently ray-checked against all overlapping paper and all local meshes."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-05-uv-standard/HERO_TROLLEY.png",
+      "kind": "standard UV",
+      "id": "HERO_TROLLEY",
+      "sha256": "358486b7cccc0588012f2ae9252c03143ac95917d8b7701feb4e91c1f3320364",
+      "matches_manifest": true,
+      "source_sha256": "cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_original": true,
+      "observation": "Original-resolution checker inspected; no additional UV scale defect assigned."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-05-uv-standard/HERO_UTILITIES.png",
+      "kind": "standard UV",
+      "id": "HERO_UTILITIES",
+      "sha256": "786d36ae3aab70de7773e380eb71fb7921cee96764ba9bd64ce4bdd3e895dec3",
+      "matches_manifest": true,
+      "source_sha256": "cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_original": true,
+      "observation": "Original-resolution checker inspected; no additional UV scale defect assigned."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-05-neutral/C05_CONVEYOR_LEAD_TUNNEL.png",
+      "kind": "standard neutral",
+      "id": "C05_CONVEYOR_LEAD_TUNNEL",
+      "sha256": "f65e5a0acc4ff3e4ecd994410377a44c2eb4cf0d93a280f591b8c0bdf87f22b0",
+      "matches_manifest": true,
+      "source_sha256": "cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_original": true,
+      "observation": "Individually inspected at original resolution; no additional technical pixel defect assigned."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-05-neutral/C07_OFFICE_INTERIOR.png",
+      "kind": "standard neutral",
+      "id": "C07_OFFICE_INTERIOR",
+      "sha256": "9659b83244c2d090a61f09bf30fa35f4ece35e61e4e3664ac8c9cec363469b6d",
+      "matches_manifest": true,
+      "source_sha256": "cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_original": true,
+      "observation": "Individually inspected at original resolution; no additional technical pixel defect assigned. Desk paper layering visually inspected; ink exposure independently ray-checked against all overlapping paper and all local meshes."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-05-neutral/HERO_TROLLEY.png",
+      "kind": "standard neutral",
+      "id": "HERO_TROLLEY",
+      "sha256": "14faea85fca63dcded5d4e3929b96efe6fe236c4e493fa08e5e94b160b0aecf9",
+      "matches_manifest": true,
+      "source_sha256": "cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_original": true,
+      "observation": "Individually inspected at original resolution; no additional technical pixel defect assigned."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-05-neutral/HERO_UTILITIES.png",
+      "kind": "standard neutral",
+      "id": "HERO_UTILITIES",
+      "sha256": "6fffe7b1ee793390932b7922f3afc10518506188edbd39951a752874ca1d9f96",
+      "matches_manifest": true,
+      "source_sha256": "cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035",
+      "dimensions": [
+        1067,
+        600
+      ],
+      "opened_original": true,
+      "observation": "Individually inspected at original resolution; no additional technical pixel defect assigned."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/BRIEFING_INDIRECT.png",
+      "kind": "approved spawn reference",
+      "id": "BRIEFING_INDIRECT",
+      "sha256": "8d03448f84845b16705c6acc3324364a4e0a51f36c34355f4c481e8957aef301",
+      "matches_manifest": true,
+      "source_sha256": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "opened_original": true,
+      "observation": "Individually inspected approved spawn reference at original resolution; reference provenance is reused capture, not a new acceptance render."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/VALIDATE_LockerDoor.png",
+      "kind": "approved spawn reference",
+      "id": "VALIDATE_LockerDoor",
+      "sha256": "b8fd309f91cc15bfe6d183a253b81ba0f20a0033e08c63214c127e07e19879de",
+      "matches_manifest": true,
+      "source_sha256": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "opened_original": true,
+      "observation": "Individually inspected approved spawn reference at original resolution; reference provenance is reused capture, not a new acceptance render."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/VALIDATE_Material_A.png",
+      "kind": "approved spawn reference",
+      "id": "VALIDATE_Material_A",
+      "sha256": "47d3892f69b4b244bcbff32908a6445556c182b2090aba11b22be1fe274253f6",
+      "matches_manifest": true,
+      "source_sha256": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "opened_original": true,
+      "observation": "Individually inspected approved spawn reference at original resolution; reference provenance is reused capture, not a new acceptance render."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/VALIDATE_Spawn.png",
+      "kind": "approved spawn reference",
+      "id": "VALIDATE_Spawn",
+      "sha256": "c84f368729c7e3ae1e6f1005ff5daae39020749316545bd208c972cee5b4e9ed",
+      "matches_manifest": true,
+      "source_sha256": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "opened_original": true,
+      "observation": "Individually inspected approved spawn reference at original resolution; reference provenance is reused capture, not a new acceptance render."
+    }
+  ],
+  "image_count": 43,
+  "all_image_hashes_match": true,
+  "raw_evidence_directory": "sections/facility-assembly/sources/compliance-dock/revamp/production/critics/full-c05-technical",
+  "raw_evidence_files": [
+    "native_probe.py",
+    "native-probe.json",
+    "native-probe-full.log",
+    "nested_probe.py",
+    "nested-probe.json",
+    "nested-probe.log",
+    "nested-g1-probe.log",
+    "g1-interface-analysis.json",
+    "p2-journal-analysis.json",
+    "contact_uv_probe.py",
+    "contact-uv-probe.json",
+    "contact-uv-probe.log",
+    "contact-uv-desk-probe.log",
+    "image-audit.json",
+    "protected-hashes-start.json",
+    "protected-hashes-end.json",
+    "recipe-hashes.json",
+    "recipe-hashes-end.json"
+  ],
+  "production_source_changed": false,
+  "all_critic_blender_processes_exited": true,
+  "source_handles_released": true
+}

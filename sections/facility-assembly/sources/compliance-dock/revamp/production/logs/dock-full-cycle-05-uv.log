@@ -1,0 +1,17 @@
+00:02.396  cycles           | WARNING CUEW initialization failed: Error opening the library
+/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/render_dock.py:112: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new('TEMP diagnostic');m.use_nodes=True
+/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/render_dock.py:128: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new(name);m.use_nodes=True;m.node_tree.nodes.clear()
+RENDER_SHOT HERO_SCANNER
+00:28.528  render           | Saved: '/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-05-uv/HERO_SCANNER.png'
+RENDER_SHOT HERO_CARGO
+00:54.605  render           | Saved: '/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-05-uv/HERO_CARGO.png'
+RENDER_SHOT HERO_TROLLEY
+01:19.873  render           | Saved: '/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-05-uv/HERO_TROLLEY.png'
+RENDER_SHOT DETAIL_CHECKIN
+01:48.875  render           | Saved: '/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-05-uv/DETAIL_CHECKIN.png'
+RENDER_BATCH_COMPLETE 4
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)
+
+Blender quit

@@ -1,0 +1,54 @@
+# Full cycle 05 independent technical review
+
+**Category 8: 92/100. FAIL.** The category must exceed 93 and the scene must have zero critical defects. This frozen native has a visible, measured duplicate-surface defect on G1 leaf 1. A successful build, clean whole-object duplicate hash, or passing external anchor ray cannot override that finding. Categories 1–7 are outside this critic's scoring assignment.
+
+Reviewed native: `sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend`, scene `COMPLIANCE_EDIT_LOCAL`, SHA256 `cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035`, opened with Blender 5.2.2 LTS. Every critic Blender process used one thread, exited, and did not save the native or run the author build. Probes and raw geometry remain in `full-c05-technical/`.
+
+The review was fresh. No prior critic reports, prior scores, TASK_STATE, HANDOFF, or author validation passes were used. Implementation source supplied candidate coordinates and names; independent native measurements supplied the conclusions.
+
+## Blocking defect
+
+**G1-01 — critical: two exposed coplanar front skins on the rightmost cart-gate leaf.** `G1 leaf 1 panel` has actual front Y `6.980000019073486` and rear Y `7.019999980926514`: a 40 mm body. The two pressed bays in `CD | Joined G1 leaf 1 panel / wear`, centred at Z approximately `0.46` and `1.08`, also have front Y `6.980000019073486`, exactly the same exposed plane. Their rear Y is `6.985000133514404`, putting 5.000114 mm of bay volume inside the panel. Each coincident face covers approximately 0.22186025 m², totalling 0.44372051 m².
+
+All three parent panels and all six bays use `CD | wear`. The bay components have positive signed volume and outward front normals toward −Y. The other two leaves have 30 mm bodies; their bay backs meet the parent fronts and their fronts stand 5.000114 mm outward. All twelve captive fixing backs meet their actual bay fronts at zero gap, including the malformed leaf 1 surfaces. The problem is the bay seat, rather than floating screws or a rubber assignment.
+
+The black fields are visible in `C06_CART_GATE_G1`, `HERO_SCANNER`, `HERO_CARGO` and other forward beauty views. They persist in the supplemental UV checker while nearby surfaces receive the checker. That observation and the coincident native surfaces identify a construction artifact; the review does not credit it as deliberate material or lighting variation. Full witnesses are retained in `nested-probe.json` and corrected `g1-interface-analysis.json`. The earlier raw fixing offset measured against an expected 5 mm healthy projection; the corrected analysis measures every fixing against its actual bay front.
+
+Repair each bay from the **measured front face of its own panel**, then seat its fixing backs against the corrected bay face. Verify all three leaves from beauty, neutral and UV views. The inherited object matrices can remain unchanged.
+
+## Contact registration and routes
+
+There are 45 registered support assemblies and 92 contact witnesses. All 92 rays toward the named support target hit, with gaps between −0.385 and +0.336 micrometres and maximum normal deviation 0.0198°. All geometry has a support classification and no assembly component names an absent owner.
+
+A separate reverse ray from each witness toward actual assembly geometry is necessary. **Six inherited witnesses do not establish that connection.** The P2 witnesses at X±2.298, Y15.8 and the D2 witnesses at X−5.923/−4.877, Y9.6 pass through no child surface. D1 witnesses at X−5.923/−4.877, Y3.6 first reach a leaf seal at Z0.04000008. They are located just inside the clear apertures. The actual frame jambs reach Z0; the result does not prove floating doors. It establishes a registration deficiency: target-floor contact alone cannot certify those six particular assembly witnesses. Replace or supplement them with witnesses on actual frame feet while preserving protected source transforms. `contact-uv-probe.json` retains exact points and hits.
+
+All 1,077 selected-original names remain, and no inherited world matrix differed by more than 1e−6. The floor slab and east/west perimeter datums match the selected original. The full architectural bounds union also matches the baseline exactly; this includes inherited projections and the corridor, and is not a claim that every solid equals the schematic interface rectangle. Frame measurements preserve D1/D2 clear widths of approximately 1.05 m and heads at Z2.2, the P2 jamb opening of approximately 4.6 m and head at Z3.5, the P1 corridor opening of approximately 2.4 m and ceiling at Z2.6, and scanner column inner faces at X±0.61 with lintel underside Z2.65.
+
+The nominal R1 ±0.6 m straight reservation intersects the inherited G1 control pedestal. Its head reaches X0.53999996 at Y6.64…6.86, a roughly 60 mm intrusion into that reservation. Those bounds match the selected original. This discrepancy must remain explicit; the nominal 1.2 m reservation is not independently certified as unobstructed. Actual authored G1 and P2 leaves close their routes. Conditional opened-door/cart trajectories, turn allowances, body dragging, collision bindings and navigation remain runtime work. Triangle intersection reports retain the authored state and include boundary contacts; they are not silently treated as opened runtime configurations.
+
+## Nested manufactured interfaces
+
+- All twelve scanner pod backs meet actual machined pocket floors at approximately 5.023 micrometres. Eighteen outer service-cover samples meet their seats at the same small clearance. The twelve actual rear sleeve bores measure approximately 35.5 mm radius against 35.0 mm optics, giving approximately 0.4998 mm radial clearance. Axial rays pass through real pod openings before meeting the rear web.
+- Four cargo lifting stems meet the actual shield roof at numerical zero. Forged-eye/stem engagement is approximately 2 mm. Both throat-collar side webs meet the shield end planes within 0.1 micrometre. The central collar roof spans the recessed service channel and has no central support at Z2.15; the measured support is at the sides/corners.
+- Each cargo screen's back is at X3.475, with the front rim at X3.49. Side-edge samples engage the rim; centre rays traverse the hollow cavity to the rear web, and five forward samples per display find no housing blocker over the visible aperture. Captured edge geometry is verified; these measurements do not certify engineered mechanical constructability or an engine collision model.
+- All fifteen samples over the custody area emitter have no fixture blocker along the outgoing light axis. Every reverse sample hits the actual frosted aperture approximately 3.000 mm behind the emitter. The aperture is not a solid shade hiding the emitter.
+- All four P2 roller bottoms meet the anchored track at Z3.52, and all four hanger feet meet their leaf tops at Z3.48, within numerical tolerance. Separate native components yield 8.0 mm journals, 8.5 mm hanger/roller bores, 7.5 mm axle grooves and 7.65 mm retaining-clip bores. The shaft groove and clip share Y15.970…15.972. Raw component vertices, axial rings and radial measurements remain in `nested-probe.json` and `p2-journal-analysis.json`.
+- Four key-glazing rear/ledge rays and three hook/back-web rays contact within 0.46 micrometre. The cabinet has an actual cavity and retaining ledge.
+
+## Printed surfaces, meshes and UVs
+
+All 4,249 evaluated vertices across the four manifest Font fields hit the actual paper. Every glyph has approximately 1.000047 mm clearance, with zero burial and zero missing sheet hits. For the desk handover, all 816 vertices across `CD | Handover issue` and `CD | Handover incident` sit 0.09984…0.10008 mm above the **highest overlapping paper** at that XY. Rays considered every local paper mesh, including joined case-file paper, then every local mesh. No higher mesh occludes those vertices. These are native surface results rather than named-sheet assumptions.
+
+All 1,096 local meshes have a nonzero, finite `CD_Physical_1m` chart. Active physical/fabric charts have no zero-area faces. Independent world-edge comparisons show maximum relative physical-chart error approximately 0.65% on microscopic edges; the checker views supply additional visual evidence. Repeating face charts are intentional seams/overlaps, not a unique bake or lightmap atlas. Retained unused `UVMap` layers have 32,202 zero-area faces; they must not be selected as export/lightmap UVs.
+
+There are no degenerate mesh faces, non-finite mesh vertices, noncontiguous manifold edges, inverted closed meshes, or exact whole-object world-geometry duplicates. The G1 partial coplanarity demonstrates the limit of the whole-object duplicate test. There are 120 meshes with boundary edges, primarily retained open-ended tube/curve geometry and planar detail. They were not certified as watertight collision solids. Their presence and unused UV layers are authoring caveats rather than evidence that the full room is an export-ready runtime package.
+
+## Planning, dependencies and verification limits
+
+The independently evaluated source has 1,321 local objects: 1,096 Mesh, 53 Font, 137 Empty, 23 Light and 12 Camera. Evaluated Mesh/Font geometry totals **381,032 triangles**, **1,150 material submeshes** and **36 local material families**. Against the selected-original counters of 297,672 triangles, 992 material submeshes and 24 materials, the changes are +83,360 triangles, +158 submeshes and +12 families. All three planning targets are met; the submesh/family targets have no remaining allowance. These are authoring estimates, not runtime draw calls or established engine budgets.
+
+Fresh native opens resolve all 25 relative libraries and all 119 packed/present images. The local scene adds no external image dependency. The bold font is packed and its relative file and license are present. All six source/font/license hashes stored in the scene's recipe association match the current files. All five protected input hashes match. The native SHA remains the released f11 SHA.
+
+This critic verified fresh-process opening and measurement, not a full recipe rebuild, a remote checkout cold render, or image equivalence across cold renders. No runtime FPS, draw calls, physics, collisions, navigation, networking, sound or Unity material equivalence was measured. The critic did not certify historical cycle counts or final-two-cycle stability. A later repaired native needs its own scored review and final cold-render evidence.
+
+The final image audit records every actual image opened individually at original resolution, its SHA, manifest/source association and any remaining limits. All Blender/native/source handles are released when this report is finalized. Only this critic's probe and report directory was written; production source, code, materials, cameras, protected inputs and map were unchanged.
