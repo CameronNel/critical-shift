@@ -1,0 +1,148 @@
+{
+  "source_sha256": "dc608cae0a42303e614f2db3dc0cd9d50e4366dc738ac57c35957c6df34e0331",
+  "renderer_sha256": "03180f6e71c9fee2ce4cb0480501c0f34f1d6bdfc31139e6c285465368efb466",
+  "resolution": [
+    1067,
+    600
+  ],
+  "samples": 24,
+  "engine": "CYCLES",
+  "device": "CPU",
+  "seed": 8217,
+  "cold_open": false,
+  "adaptive_threshold": 0.06,
+  "adaptive_min_samples": 4,
+  "max_bounces": 6,
+  "diffuse_bounces": 3,
+  "glossy_bounces": 3,
+  "transmission_bounces": 6,
+  "view_transform": "AgX",
+  "look": "AgX - Medium High Contrast",
+  "exposure": 0.699999988079071,
+  "diagnostic": "uv",
+  "source_saved": false,
+  "label_method": "Temporary camera-attached emission geometry",
+  "complete": true,
+  "shots": [
+    {
+      "id": "HERO_EVIDENCE",
+      "label": "21 | EVIDENCE STORAGE",
+      "group": "assets",
+      "inherited": null,
+      "position": [
+        -4.5,
+        13,
+        1.65
+      ],
+      "target": [
+        -5.6,
+        15.25,
+        0.9
+      ],
+      "lens": 26,
+      "diagnostic_lights": [
+        {
+          "location": [
+            -4.5,
+            13.0,
+            2.299999952316284
+          ],
+          "matrix_world": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "watts": 350.0,
+          "size_m": 2.200000047683716
+        },
+        {
+          "location": [
+            -5.150000095367432,
+            15.600000381469727,
+            2.25
+          ],
+          "matrix_world": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "watts": 140.0,
+          "size_m": 2.200000047683716
+        }
+      ],
+      "camera_matrix_world": [
+        [
+          0.8983843326568604,
+          -0.12599816918373108,
+          0.4207494258880615,
+          -4.5
+        ],
+        [
+          0.4392102062702179,
+          0.2577233612537384,
+          -0.8606236577033997,
+          13.0
+        ],
+        [
+          4.1028332731229966e-08,
+          0.9579682350158691,
+          0.28687432408332825,
+          1.649999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 26.0,
+      "projection": "PERSP",
+      "image_sha256": "4a90ac2e362c2a2efea0f90a8d6f3abc797c2d9a2a61d7ca83ffdfbff1fd6c89",
+      "temporary_hidden_geometry": []
+    }
+  ],
+  "requested_view_count": 1
+}

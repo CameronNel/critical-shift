@@ -1,0 +1,11 @@
+{
+  "base_revision": "f08",
+  "base_sha256": "9c8085bcc8594a6b49fdd96612597388207eafb581e43d25b52f039ca3016659",
+  "geometry_digest_before": "f1cf079398b27a8ec858d30f12f792047031d7a289c6776e8da412e4eccdd0a7",
+  "geometry_digest_after": "f1cf079398b27a8ec858d30f12f792047031d7a289c6776e8da412e4eccdd0a7",
+  "changed_material_graphs": [
+    "CD | coral",
+    "CD | coral | text object metres"
+  ],
+  "recipe": "repair_contact_wear.py calls full_repairs.repair_working_surfaces(crate_only=True)"
+}

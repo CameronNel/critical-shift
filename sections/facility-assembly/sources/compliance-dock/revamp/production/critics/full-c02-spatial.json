@@ -1,0 +1,160 @@
+{
+  "review": "Independent compliance dock full cycle 02 spatial/readability review",
+  "reviewer": "dock_full_c02_spatial",
+  "scope": "Current rendered pixels only; rubric categories 1 and 3. No earlier reviews, source code, production narrative, or earlier scores were consulted.",
+  "date": "2026-10-01",
+  "source_sha256": "8d7588a5513a984a96c086e21fd12d3b38f65a51cf08dbae1464bb3b044934f7",
+  "renderer_sha256": "1c15a22298abfeb4af36a71ed24ccb3a729a05cb56a829bdfa23fa61d6c66597",
+  "manifest_complete": true,
+  "current_view_count": 27,
+  "reference_view_count": 4,
+  "category_scores": {
+    "1": {
+      "name": "Scale, layout and route readability",
+      "score": 92,
+      "threshold": "strictly >93",
+      "pass": false,
+      "rationale": "Believable apparent human scale, clear equipment lanes, generous negative space, coherent envelope and readable partitions are strong. The disconnected check-in route cue and weak reverse personnel-entry destination keep navigational clarity below the required bar."
+    },
+    "3": {
+      "name": "Inspection/check-in hero hierarchy and functional composition",
+      "score": 91,
+      "threshold": "strictly >93",
+      "pass": false,
+      "rationale": "Scanner, cart barrier and cargo machine establish the inspection function convincingly; the hatch is excellent at interaction distance. Check-in is not a reliable arrival landmark and its slogan has more distant hierarchy than its functional locator, so the required combined inspection/check-in composition remains incomplete."
+    }
+  },
+  "verdict": "FAIL_ASSIGNED_CATEGORIES",
+  "verdict_detail": "Both assigned categories independently fail the strict >93 requirement. This is a complete 27-view pixel review of the assigned categories, not an eight-category, native-source, runtime, or production-protocol approval.",
+  "critical_defects": [],
+  "critical_defect_statement": "No pixel-proven critical obstruction, broken room boundary, impossible scale, or dominant visual veto was found in these assigned categories. The observed failures are major/moderate navigational and composition shortcomings; exact preservation and numerical clearances are unverified.",
+  "view_failures": [
+    {
+      "id": "F1",
+      "severity": "major",
+      "categories": [
+        1,
+        3
+      ],
+      "view_ids": [
+        "C01_ENTRY",
+        "C02_HERO_DOCK",
+        "PLAYER_REVERSE",
+        "WALL_OFFICE_FRONT"
+      ],
+      "finding": "Check-in does not hold the arrival attention path. C01 and C02 strongly identify the scanner/cart barrier/cargo machine, while the check-in frontage is outside or at the extreme edge of the useful view. Office glazing reads as staff workspace rather than a public service point. WALL_OFFICE_FRONT confirms that the largest legible header is the reassurance slogan; the small hatch language works at close range but does not locate the function from the approach.",
+      "consequence": "The inspection lane is obvious, but the counter is not an equal functional landmark. The room does not communicate the check-in branch reliably without searching or a dedicated counter camera."
+    },
+    {
+      "id": "F2",
+      "severity": "moderate",
+      "categories": [
+        1
+      ],
+      "view_ids": [
+        "CORNER_SW",
+        "CORNER_SE",
+        "CORNER_NW",
+        "CORNER_NE",
+        "C01_ENTRY",
+        "C02_HERO_DOCK",
+        "HERO_SCANNER",
+        "PLAYER_REVERSE"
+      ],
+      "finding": "The counter has a short isolated amber floor segment, while the long solid-and-dashed amber routes strongly continue through the scanner and cart gate toward the arrival shutter. The counter segment is not visibly joined to the circulation route. Worker and cart lanes are spatially distinct at their barriers but use the same floor grammar and have little directional or stopping information.",
+      "consequence": "The lane system communicates available movement better than it communicates the branch to check-in or distinct procedural destinations."
+    },
+    {
+      "id": "F3",
+      "severity": "moderate",
+      "categories": [
+        1,
+        3
+      ],
+      "view_ids": [
+        "PLAYER_REVERSE",
+        "WALL_SOUTH"
+      ],
+      "finding": "The personnel entry portal and its header are nearly black against a substantially brighter surrounding wall. PLAYER_REVERSE preserves the portal outline behind the scanner, but the dark recess/header provides weak destination confirmation. WALL_SOUTH exposes the same large value deficit.",
+      "consequence": "The return/entry link remains recognizable as an opening but loses the useful navigational hierarchy shown by the approved spawn hallway doors and signs."
+    }
+  ],
+  "positive_observations": [
+    "Inspection machinery is immediately identifiable, with a pedestrian arch, separate cart barrier, roller conveyor, dark curtain tunnel and readable closed arrival shutter.",
+    "Counter/hatch construction, secure speaking panel, ledge, paperwork, tethered pen and stamp form a convincing service point in C03_CHECKIN_COUNTER and DETAIL_CHECKIN.",
+    "The four corner cutaways establish a coherent asymmetric layout: staff office at the entry side, screened support bay toward the rear, equipment island on the cargo side and broad central circulation.",
+    "All four wall elevations plus WALL_OFFICE_FRONT provide coverage; quiet wall bays are deliberate negative space rather than an instruction to add props everywhere.",
+    "Doors, office furniture, trolley, cabinets and machinery appear consistently scaled to one another. No toy-scale relationship dominates.",
+    "The approved spawn's restrained blue/navy, warm institutional wall tones, orange accents and angular manufactured construction are recognizably carried into the dock; higher craft or polish is not treated as a fidelity violation."
+  ],
+  "highest_impact_repairs": [
+    {
+      "priority": 1,
+      "views": [
+        "C01_ENTRY",
+        "C02_HERO_DOCK",
+        "WALL_OFFICE_FRONT",
+        "PLAYER_REVERSE"
+      ],
+      "repair": "Make the existing check-in frontage a visible functional landmark from arrival: add one restrained CHECK-IN locator on an outward-readable face or existing header, and shape the local task-light pool so the hatch/ledge is identifiable across the approach. Keep the reassurance sign as secondary storytelling and retain the current footprint, apertures and source placement."
+    },
+    {
+      "priority": 2,
+      "views": [
+        "CORNER_SW",
+        "CORNER_SE",
+        "C01_ENTRY",
+        "C02_HERO_DOCK",
+        "HERO_SCANNER",
+        "PLAYER_REVERSE"
+      ],
+      "repair": "Join the short counter floor cue to the existing circulation route within the reserved floor area. Refine the current amber lane grammar with a clear branch/stop cue at the counter and small, restrained worker/cart directional cues near the existing barriers. Avoid broad additional signage or changes to lane widths and equipment positions."
+    },
+    {
+      "priority": 3,
+      "views": [
+        "PLAYER_REVERSE",
+        "WALL_SOUTH"
+      ],
+      "repair": "Give the preserved personnel-entry recess/header enough localized light and text contrast to confirm the return destination. Retain the darker corridor mood; improve the opening and header rather than raising the exposure of the whole room."
+    }
+  ],
+  "limitations": [
+    "Pixels cannot establish exact original-matrix, datum, footprint, outer-boundary, aperture or link preservation. The visual layout is coherent; numerical preservation is not certified.",
+    "Cutaways and elevations intentionally hide walls, roofs or foreground assemblies for evidence. Those omissions were not treated as missing gameplay geometry.",
+    "No technical/native scene, support registration, collision, navigation, runtime, performance, reproducibility or cold-open checks were performed or inferred."
+  ],
+  "images_opened": [
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/VALIDATE_Material_A.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/VALIDATE_LockerDoor.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/VALIDATE_Spawn.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/BRIEFING_INDIRECT.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/C01_ENTRY.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/C02_HERO_DOCK.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/C03_CHECKIN_COUNTER.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/C04_SCANNER_APPROACH.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/C05_CONVEYOR_LEAD_TUNNEL.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/C06_CART_GATE_G1.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/C07_OFFICE_INTERIOR.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/C08_CONCEALED_SUPPORT_H1.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/C09_ARRIVAL_GATE_P2.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/C10_ROOF_SERVICES.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/CORNER_SW.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/CORNER_SE.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/CORNER_NW.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/CORNER_NE.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/WALL_SOUTH.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/WALL_NORTH.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/WALL_EAST.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/WALL_WEST.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/HERO_SCANNER.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/HERO_CARGO.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/HERO_EVIDENCE.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/HERO_TROLLEY.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/HERO_UTILITIES.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/DETAIL_CHECKIN.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/PLAYER_REVERSE.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/PLAYER_PINCH.png",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-02/WALL_OFFICE_FRONT.png"
+  ]
+}

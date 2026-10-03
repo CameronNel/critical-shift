@@ -1,0 +1,22 @@
+{
+  "attempt": "f13 first frozen build",
+  "native_written": false,
+  "native_sha256_unchanged": "73b85e9a84b577d2059a07371abd366666536800eb45c9e56a7d7788a21b77a3",
+  "saved_revision_still": "f12",
+  "process_exit_code": 0,
+  "blender_python_exception": "RuntimeError: Planning limits exceeded before save: (385180, 1151, 36)",
+  "note": "Blender default Python exit code returned0; explicit completion marker/state/native must match. Retry uses --python-exit-code1.",
+  "actual_finished_interface_guards": {
+    "fifth": 22,
+    "sixth_contacts": 30,
+    "sixth_visual": 38
+  },
+  "recipe_sha256": {
+    "overhaul_dock.py": "3b770eaf10ad776101ca8b41d047937a1c681ce49f4e610ea0ca2ddea38e7289",
+    "full_detail.py": "229e15095a0edf3a21c1a42284bc6907e9e9300826ad13cf51cfa9249054fe3a",
+    "full_repairs.py": "600b8155cd90d5cf2ca8a54afcf1c8ce2363961906fff5caee5a0c771a43deeb",
+    "render_dock.py": "61ea21ced7e674eac0be44af617422003099553ede92f0e91eb0b938e895f423"
+  },
+  "art_review": "No f13 native/current pixels/art score existed; no full cycle counted",
+  "possible_material_cause": "Boolean cutter used navy whereas original leaf/backing use wear; cutter can introduce a second material slot at cavity faces. Will verify actual rebuilt counters."
+}

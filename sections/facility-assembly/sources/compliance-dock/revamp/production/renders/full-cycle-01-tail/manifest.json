@@ -1,0 +1,170 @@
+{
+  "source_sha256": "dc608cae0a42303e614f2db3dc0cd9d50e4366dc738ac57c35957c6df34e0331",
+  "renderer_sha256": "ea13469f7bfbbc268ea8ad0357ab77b3f9cbc2e7ae2438f3e99a860650613278",
+  "resolution": [
+    1067,
+    600
+  ],
+  "samples": 24,
+  "engine": "CYCLES",
+  "device": "CPU",
+  "seed": 8217,
+  "cold_open": false,
+  "adaptive_threshold": 0.06,
+  "adaptive_min_samples": 4,
+  "max_bounces": 6,
+  "diffuse_bounces": 3,
+  "glossy_bounces": 3,
+  "transmission_bounces": 6,
+  "view_transform": "AgX",
+  "look": "AgX - Medium High Contrast",
+  "exposure": 0.699999988079071,
+  "diagnostic": null,
+  "source_saved": false,
+  "label_method": "Temporary camera-attached emission geometry",
+  "complete": true,
+  "shots": [
+    {
+      "id": "DETAIL_CHECKIN",
+      "label": "24 | CHECK-IN WORK / DETAIL",
+      "group": "details",
+      "inherited": null,
+      "position": [
+        -4.6,
+        2.3,
+        1.65
+      ],
+      "target": [
+        -3.55,
+        3.75,
+        1.0
+      ],
+      "lens": 35,
+      "camera_matrix_world": [
+        [
+          0.8099421262741089,
+          0.20016348361968994,
+          -0.5512969493865967,
+          -4.599999904632568
+        ],
+        [
+          -0.5865098237991333,
+          0.27641627192497253,
+          -0.761314868927002,
+          2.299999952316284
+        ],
+        [
+          1.9144906104884285e-08,
+          0.9399620294570923,
+          0.3412790298461914,
+          1.649999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 35.0,
+      "projection": "PERSP",
+      "image_sha256": "3c5158ccd5be53b7897fbd340b62556acfe4bf45cde38b6e592af09703916309",
+      "temporary_hidden_geometry": []
+    },
+    {
+      "id": "PLAYER_REVERSE",
+      "label": "25 | REVERSE / PLAYER HEIGHT",
+      "group": "mandatory",
+      "inherited": null,
+      "position": [
+        1.95,
+        11.5,
+        1.65
+      ],
+      "target": [
+        0,
+        2.5,
+        1.4
+      ],
+      "lens": 25,
+      "camera_matrix_world": [
+        [
+          -0.9773231744766235,
+          -0.005746425129473209,
+          0.21167528629302979,
+          1.9500000476837158
+        ],
+        [
+          0.21175327897071838,
+          -0.026522336527705193,
+          0.976963222026825,
+          11.5
+        ],
+        [
+          7.748055708134416e-08,
+          0.9996317028999329,
+          0.027137719094753265,
+          1.649999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 25.0,
+      "projection": "PERSP",
+      "image_sha256": "05d1cd54b75c9fa2ae1c17d698494b36f75fa15c2761bad4e8239ec6e3ea30ab",
+      "temporary_hidden_geometry": []
+    },
+    {
+      "id": "PLAYER_PINCH",
+      "label": "26 | NORTH RETURN / PLAYER HEIGHT",
+      "group": "mandatory",
+      "inherited": null,
+      "position": [
+        -3.5,
+        14.8,
+        1.65
+      ],
+      "target": [
+        -0.5,
+        14.8,
+        1.4
+      ],
+      "lens": 25,
+      "camera_matrix_world": [
+        [
+          -4.371138828673793e-08,
+          0.08304541558027267,
+          -0.9965457916259766,
+          -3.5
+        ],
+        [
+          -1.0,
+          -3.4538015114549125e-08,
+          4.0984737381677405e-08,
+          14.800000190734863
+        ],
+        [
+          -3.10151193616548e-08,
+          0.9965457916259766,
+          0.08304541558027267,
+          1.649999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 25.0,
+      "projection": "PERSP",
+      "image_sha256": "7cda29536a1663f2bdf9f70d91d19da211dd490737e66b27fa3637ab9f469d16",
+      "temporary_hidden_geometry": []
+    }
+  ],
+  "requested_view_count": 3
+}

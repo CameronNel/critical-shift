@@ -1,0 +1,431 @@
+{
+  "schema": 1,
+  "review": "full-c03-technical",
+  "critic": "Independent fresh technical critic",
+  "generated_utc": "2026-10-02T22:13:28.177886+00:00",
+  "scope": "Native static Blender authoring only. No runtime acceptance. No prior critic reports, scores or author rationale read.",
+  "native": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend",
+  "native_sha256_before": "1e2507dc6f0c245cc6552d940a03fe6888949f68509bdbaacd7f315c22815b53",
+  "native_sha256_after": "1e2507dc6f0c245cc6552d940a03fe6888949f68509bdbaacd7f315c22815b53",
+  "source_unchanged": true,
+  "all_blender_processes_exited": true,
+  "all_native_handles_released": true,
+  "native_scene_saved_by_critic": false,
+  "category": 8,
+  "category_name": "Technical cleanliness, support contact, reproducibility and dependencies",
+  "score": 90,
+  "required_strictly_greater_than": 93,
+  "decision": "FAIL",
+  "critical_support_failures": 3,
+  "overall_score": null,
+  "score_reason": "Resource integrity, original poses, budget counters, evaluated UVs and the external support registry pass. Independent internal bearing checks reveal three hard support-gate failures that the assembly-anchor validator does not cover; key-box glass is also buried. Those defects prevent a >93 technical score and zero-critical certification.",
+  "failures": [
+    {
+      "id": "P2_SIGN_TEXT_GAP",
+      "severity": "critical_support_gate",
+      "objects": [
+        "P2 gate sign text",
+        "P2 gate sign plate"
+      ],
+      "gap_m": 0.006999015808105469,
+      "limit_m": 0.005,
+      "evidence": "bearing-candidates.json",
+      "witness": [
+        [
+          1.0103399753570557,
+          15.683000564575195,
+          3.184000015258789
+        ],
+        [
+          1.0103391408920288,
+          15.6899995803833,
+          3.1840004920959473
+        ]
+      ],
+      "repair_target": "Provide actual glyph backing contact while preserving original object world matrix."
+    },
+    {
+      "id": "P2_CONSOLE_SCREEN_GAP",
+      "severity": "critical_support_gate",
+      "objects": [
+        "P2 console screen",
+        "P2 security console"
+      ],
+      "gap_m": 0.009999275207519531,
+      "limit_m": 0.005,
+      "evidence": "bearing-candidates.json",
+      "witness": [
+        [
+          2.5320000648498535,
+          15.59000015258789,
+          1.2619999647140503
+        ],
+        [
+          2.5320000648498535,
+          15.59999942779541,
+          1.2619999647140503
+        ]
+      ],
+      "repair_target": "Seat or back the existing screen to its console without moving its original world pose."
+    },
+    {
+      "id": "P2_LEAF_BEARING_ABSENT",
+      "severity": "critical_support_gate",
+      "objects": [
+        "P2 blast leaf west",
+        "P2 blast leaf east",
+        "P2 frame head lintel",
+        "P2 frame jamb -1",
+        "P2 frame jamb 1"
+      ],
+      "head_gap_m": 0.019999980926513672,
+      "jamb_gap_m": 0.010000228881835938,
+      "floor_gap_m": 0.019999980926513672,
+      "evidence": [
+        "islands.json",
+        "focus-extra.json"
+      ],
+      "witness_head": [
+        [
+          -2.2820000648498535,
+          15.881999969482422,
+          3.4800000190734863
+        ],
+        [
+          -2.2820000648498535,
+          15.881999015808105,
+          3.5
+        ]
+      ],
+      "repair_target": "Author a captured roller/hanger/guide bearing connecting the heavy sliding leaf geometry to the anchored frame. Existing assembly ancestry cannot prove this missing path."
+    },
+    {
+      "id": "KEY_GLASS_BURIED",
+      "severity": "major_construction_regression",
+      "objects": [
+        "Office key box cabinet",
+        "Key box glass",
+        "Key box label"
+      ],
+      "cabinet_front_y_m": 9.369999885559082,
+      "glass_y_m": [
+        9.46500015258789,
+        9.475000381469727
+      ],
+      "evidence": [
+        "fabric-key.json",
+        "full-cycle-03/C07_OFFICE_INTERIOR.png",
+        "full-cycle-03-neutral/C07_OFFICE_INTERIOR.png"
+      ],
+      "finding": "Glass center is inside the closed solid cabinet. Six cardinal rays hit enclosing body surfaces; front body hides the original glass and label. This is burial, not detachment.",
+      "repair_target": "Restore a visible glazed front/recess while preserving the cabinet support to the office wall and all original world matrices."
+    }
+  ],
+  "planning": {
+    "evaluated_triangles": 446514,
+    "material_submeshes": 1137,
+    "used_material_datablocks": 36,
+    "used_materials": [
+      "CD | Crate handling polish",
+      "CD | D1 handled paint",
+      "CD | Floor traffic polish",
+      "CD | Handled linoleum",
+      "CD | Worktop lip wear",
+      "CD | amber_lamp",
+      "CD | blue",
+      "CD | brass",
+      "CD | charcoal",
+      "CD | coffee",
+      "CD | concrete",
+      "CD | coral",
+      "CD | coral | text object metres",
+      "CD | cotton",
+      "CD | fabric",
+      "CD | glass",
+      "CD | green_lamp",
+      "CD | ink",
+      "CD | ink | text object metres",
+      "CD | ivory",
+      "CD | ivory | text object metres",
+      "CD | lens",
+      "CD | navy",
+      "CD | paper",
+      "CD | paper | text object metres",
+      "CD | plaster",
+      "CD | plastic",
+      "CD | red_lamp",
+      "CD | rubber",
+      "CD | screen",
+      "CD | steel",
+      "CD | warm_lamp",
+      "CD | wear",
+      "CD | wood",
+      "CD | yellow",
+      "CD | yellow | text object metres"
+    ],
+    "baseline": {
+      "evaluated_triangles": 297672,
+      "material_submeshes": 992,
+      "material_datablocks": 24
+    }
+  },
+  "planning_limits": {
+    "evaluated_triangles": 450000,
+    "material_submeshes": 1150,
+    "used_material_datablocks": 36
+  },
+  "planning_margin": {
+    "evaluated_triangles": 3486,
+    "material_submeshes": 13,
+    "used_material_datablocks": 0
+  },
+  "original_preservation": {
+    "original_objects": 1077,
+    "missing_originals": [],
+    "world_matrix_deltas": [],
+    "mesh_dimension_deltas_over_5mm": 83,
+    "detail": "83 original evaluated dimensions changed through mesh construction edits; original world poses remain identical. These edits are permitted by the overhaul brief and are not certified as unchanged solid volumes. Baseline inventory was independently regenerated from the protected original file and agreed exactly with the recorded baseline."
+  },
+  "geometry_summary": {
+    "object_count": 1302,
+    "geometry_object_count": 1136,
+    "evaluated_triangles": 446514,
+    "unit_system": "METRIC",
+    "metres_per_unit": 1.0
+  },
+  "validator": {
+    "passed": true,
+    "summary": {
+      "failures": 0,
+      "warnings": 1,
+      "unverified_checks": 5,
+      "passed_checks": 7,
+      "failed_checks": 0
+    },
+    "support_assemblies": 43,
+    "support_anchors": 90,
+    "maximum_anchor_gap_m": 2.384185791015625e-07,
+    "maximum_anchor_penetration_m": 2.384185791015625e-07,
+    "routes": [
+      {
+        "id": "R1",
+        "status": "pass"
+      },
+      {
+        "id": "R2",
+        "status": "pass"
+      },
+      {
+        "id": "R3",
+        "status": "pass"
+      }
+    ],
+    "portals": [
+      {
+        "id": "facility_entry",
+        "status": "pass",
+        "minimum_sampled_width_m": 2.3999998569488525
+      },
+      {
+        "id": "sealed_external_access",
+        "status": "unverified",
+        "minimum_sampled_width_m": null
+      },
+      {
+        "id": "staff_front",
+        "status": "pass",
+        "minimum_sampled_width_m": 1.0499992966651917
+      },
+      {
+        "id": "staff_rear",
+        "status": "pass",
+        "minimum_sampled_width_m": 1.0499992966651917
+      },
+      {
+        "id": "cart_gate",
+        "status": "pass",
+        "minimum_sampled_width_m": 1.8599995970726013
+      },
+      {
+        "id": "support_screen_north_return",
+        "status": "pass",
+        "minimum_sampled_width_m": 1.5499987602233887
+      },
+      {
+        "id": "human_scanner",
+        "status": "pass",
+        "minimum_sampled_width_m": 1.2199997901916504
+      }
+    ],
+    "native_cameras": 12,
+    "warning": "Substantial unlabelled architecture was conservatively included in route tests; one disclosed warning.",
+    "limitation": "External assembly anchors and ancestry do not prove every internal component load path."
+  },
+  "dependencies": {
+    "relative_libraries": 25,
+    "resolved_libraries": 25,
+    "all_library_paths_relative": true,
+    "images": 119,
+    "packed_images": 119,
+    "scene_linked_geometry_errors": 0,
+    "protected_inputs": {
+      "sections/facility-assembly/blender/facility_environment.blend": {
+        "expected": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+        "actual": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8"
+      },
+      "sections/facility-assembly/sources/compliance-dock/module.blend": {
+        "expected": "0cdae8b3d302459d75569cb6bf3a463f24b30ea373c2bcdf430360033d7b0947",
+        "actual": "0cdae8b3d302459d75569cb6bf3a463f24b30ea373c2bcdf430360033d7b0947"
+      },
+      "sections/facility-assembly/sources/compliance-dock/accepted.blend": {
+        "expected": "575686f6771bc35c224961b2f9da0224cf6c7acf96631cf75cf55a8af28d3f4c",
+        "actual": "575686f6771bc35c224961b2f9da0224cf6c7acf96631cf75cf55a8af28d3f4c"
+      },
+      "sections/facility-assembly/sources/compliance-dock/contracts/interface.json": {
+        "expected": "bdbdd0389eaa3b36b7d0f174c057034b2abd262245a8d4b52374b5b33e03eb6e",
+        "actual": "bdbdd0389eaa3b36b7d0f174c057034b2abd262245a8d4b52374b5b33e03eb6e"
+      },
+      "sections/facility-assembly/sources/spawn-room/module.blend": {
+        "expected": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+        "actual": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40"
+      }
+    }
+  },
+  "uv": {
+    "consumed_uv_records": 1083,
+    "missing_consumed_uv_layers": 0,
+    "nonfinite_uv_triangles": 0,
+    "collapsed_consumed_uv_triangles": 0,
+    "physical_chart_bad_metric_edges": 0,
+    "woven_chart": {
+      "material": "CD | cotton",
+      "uv": "CD_Fabric_Cut_1m",
+      "shader_output_connectivity_verified": true,
+      "top_triangles": 2688,
+      "world_top_area_m2": 3.290553118258776,
+      "uv_top_area": 3.290553294199754,
+      "area_ratio": 1.0000000534685116,
+      "edge_uv_per_m_range": [
+        0.847979609610765,
+        1.084581861323985
+      ],
+      "seam_vertex_indices": [
+        1375,
+        1401,
+        1399,
+        1423
+      ],
+      "seam_classification": "Four top-chart seam vertices occur on the sewn outer border near corners, not the interior. Solidified thickness uses separate hem/rim charts.",
+      "checker_uses_consumed_fabric_chart": true
+    }
+  },
+  "verified_internal_bearings": {
+    "return_belt": "The belt underside contacts two separate topology roller pieces. Each roller has ~0.500mm radial bearing clearance to a separate axle. Each axle intersects original conveyor legs at x3.98/5.32 and y6.4/8.9 and local bearing blocks; the legs carry to validated floor supports. This conclusion does not use joined material-object ancestry as a substitute for contact.",
+    "return_belt_evidence": "return-bearing-path.json",
+    "scanner_lintel_text": "Actual nearest separation from lintel face is zero.",
+    "scanner_status_lenses": "All four lenses overlap their local charcoal retaining/collar geometry, 46\u201348 triangle contact pairs.",
+    "cargo_scanner_signs": "Both plate backings contact tunnel stiffeners. All four cargo glyphs lie 2mm from their plates, within the 5mm limit.",
+    "borderline_parts": "Chair armrest pads and transit stack gaps are approximately 5mm and accepted within the inclusive stated 5mm + numerical epsilon tolerance. Scanner column insets are contained in their main columns."
+  },
+  "render_evidence": [
+    {
+      "directory": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-03",
+      "complete": true,
+      "source_sha256": "1e2507dc6f0c245cc6552d940a03fe6888949f68509bdbaacd7f315c22815b53",
+      "count": 27,
+      "inspected_images": [
+        "C01_ENTRY.png",
+        "C02_HERO_DOCK.png",
+        "C03_CHECKIN_COUNTER.png",
+        "C04_SCANNER_APPROACH.png",
+        "C05_CONVEYOR_LEAD_TUNNEL.png",
+        "C06_CART_GATE_G1.png",
+        "C07_OFFICE_INTERIOR.png",
+        "C08_CONCEALED_SUPPORT_H1.png",
+        "C09_ARRIVAL_GATE_P2.png",
+        "C10_ROOF_SERVICES.png",
+        "CORNER_SW.png",
+        "CORNER_SE.png",
+        "CORNER_NW.png",
+        "CORNER_NE.png",
+        "WALL_SOUTH.png",
+        "WALL_NORTH.png",
+        "WALL_EAST.png",
+        "WALL_WEST.png",
+        "HERO_SCANNER.png",
+        "HERO_CARGO.png",
+        "HERO_EVIDENCE.png",
+        "HERO_TROLLEY.png",
+        "HERO_UTILITIES.png",
+        "DETAIL_CHECKIN.png",
+        "PLAYER_REVERSE.png",
+        "PLAYER_PINCH.png",
+        "WALL_OFFICE_FRONT.png"
+      ],
+      "resolution": [
+        1067,
+        600
+      ],
+      "hashes_independently_verified": true,
+      "cold_open_manifest_flag": false
+    },
+    {
+      "directory": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-03-uv",
+      "complete": true,
+      "source_sha256": "1e2507dc6f0c245cc6552d940a03fe6888949f68509bdbaacd7f315c22815b53",
+      "count": 4,
+      "inspected_images": [
+        "C05_CONVEYOR_LEAD_TUNNEL.png",
+        "C07_OFFICE_INTERIOR.png",
+        "HERO_TROLLEY.png",
+        "HERO_UTILITIES.png"
+      ],
+      "resolution": [
+        1067,
+        600
+      ],
+      "hashes_independently_verified": true,
+      "cold_open_manifest_flag": false
+    },
+    {
+      "directory": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-03-neutral",
+      "complete": true,
+      "source_sha256": "1e2507dc6f0c245cc6552d940a03fe6888949f68509bdbaacd7f315c22815b53",
+      "count": 4,
+      "inspected_images": [
+        "C05_CONVEYOR_LEAD_TUNNEL.png",
+        "C07_OFFICE_INTERIOR.png",
+        "HERO_TROLLEY.png",
+        "HERO_UTILITIES.png"
+      ],
+      "resolution": [
+        1067,
+        600
+      ],
+      "hashes_independently_verified": true,
+      "cold_open_manifest_flag": false
+    }
+  ],
+  "visual_review_notes": [
+    "All27 fixed beauty images, all4 consumed-UV checker images and all4 neutral-light images were actually opened.",
+    "C07 beauty/neutral views confirm a plain opaque key-box front where the buried glazed face should be visible.",
+    "P2 C09, HERO_SCANNER, WALL_NORTH and PLAYER_PINCH show the sealed assembly but cannot prove geometric contact; the independent bearing probes establish the failures.",
+    "Checker views show usable coverage on important front/cap/side surfaces. Cloth uses its actually consumed continuous textile chart, with intended hem/rim seams.",
+    "No additional definite static geometry blocker was established from the inspected images."
+  ],
+  "cold_start": {
+    "independent_fresh_native_open": true,
+    "independent_native_validation": true,
+    "formal_cold_render_comparison_established": false,
+    "reason": "Current render manifests mark cold_open=false; this cycle does not supply the final formal cold-open/cold-render comparison."
+  },
+  "unverified": [
+    "Unity collision, navigation, interactions, animation, network ownership, physics, runtime draw calls and FPS.",
+    "Moving-door sweeps and curved cart/body turning.",
+    "P2 sealed external access open-aperture proof.",
+    "Structural strength or bearing capacity beyond measured static geometric support.",
+    "Minimum four complete full cycles, final two stable cycles and final cold-render comparison are not established by this cycle-three technical report."
+  ],
+  "evidence_directory": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/critics/full-c03-technical",
+  "authoring_mutation_scope": "Only critic scripts/reports in full-c03-technical and this report pair were written. Native scene, recipes, map and protected input files were unchanged."
+}

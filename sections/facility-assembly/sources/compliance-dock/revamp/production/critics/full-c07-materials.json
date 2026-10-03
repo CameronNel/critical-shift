@@ -1,0 +1,131 @@
+{
+  "review_id": "full-c07-materials",
+  "role": "Independent fresh-context materials / anti-plastic and spawn colour critic",
+  "scope": [
+    4,
+    6
+  ],
+  "cycle": 7,
+  "evidence_source_sha256": "22176ab474d914156cdf5a083571c19b04c6e6e11cfa50ab8ba681013bc124a6",
+  "evidence_renderer_sha256": "9fbae704a9a0db49d5848fd73004c0bdaf6c62455ba8db0043228a6f1b9adce2",
+  "evidence": {
+    "current_originals_opened": 35,
+    "spawn_originals_opened": 4,
+    "all_png_hashes_match": true,
+    "complete_current_manifests": true,
+    "current_manifest_provenance_matches_task": true,
+    "source_renderer_native_hashes_independently_recomputed": false,
+    "source_renderer_native_hash_note": "Supplied IDs agree with all three current manifests. Native/code files were excluded and not read.",
+    "contact_sheets_used": false
+  },
+  "independence": {
+    "prior_reviews_read": false,
+    "author_rationale_or_state_read": false,
+    "native_or_code_read": false,
+    "concepts_read": false,
+    "source_or_native_writes": false
+  },
+  "categories": [
+    {
+      "id": 4,
+      "name": "Tactile material identity and UV/texture discipline",
+      "score": 97,
+      "max_score": 100,
+      "threshold": "strictly >93",
+      "passes_category_threshold": true,
+      "strengths": [
+        "Matte wall plaster and flooring contrast with painted blue-grey and orange metal, reflective office glazing, dark rubber wheels/seals, paper, woven counter cloth and trolley textile.",
+        "DETAIL_CHECKIN makes paper thickness, woven rag, metal grille and laminate edge individually legible without photographic grunge.",
+        "Neutral cargo/utilities views retain paint, metal conduit and dark soft seal distinctions; no shared glossy response across the major surfaces.",
+        "All four standard checker views show broadly consistent cell proportions on visible planar regions; trolley checker follows the broad drape."
+      ],
+      "deductions": [
+        {
+          "id": "C07-MAT-01",
+          "points": 2,
+          "severity": "minor",
+          "critical": false,
+          "frames": [
+            "full-cycle-07/C07_OFFICE_INTERIOR.png",
+            "full-cycle-07-neutral/C07_OFFICE_INTERIOR.png"
+          ],
+          "region": "Office chair seat and back pads, approximately x390–555/y320–450 in the 1067×600 originals.",
+          "finding": "The grey pads retain a hard, smooth satin read close to the rigid surrounding chair components. Upholstery identity is weaker than the distinctly textile trolley covering and counter rag.",
+          "requirement": "Fabric should read as matte clothing/upholstery with broad volume; material families should be distinguishable without labels.",
+          "repair_target": "Strengthen the upholstery's broad matte response and restrained soft fabric/vinyl variation at this fixed camera, without adding noisy weave."
+        },
+        {
+          "id": "C07-MAT-02",
+          "points": 1,
+          "severity": "minor",
+          "critical": false,
+          "frames": [
+            "full-cycle-07/HERO_UTILITIES.png",
+            "full-cycle-07-neutral/HERO_UTILITIES.png"
+          ],
+          "region": "Lower latch-side wear clouds on the two adjacent blue-grey service cabinet doors at the left of the image.",
+          "finding": "Pale cloudy wear near the two latch areas has a similar shape and visual treatment. It reads a little more like repeated material breakup than individually localized contact wear.",
+          "requirement": "Wear must look authored, selective and explained by use, rather than repeated procedural dirt.",
+          "repair_target": "Give the two latch-contact areas distinct small wear patterns while retaining the quiet painted surfaces."
+        }
+      ],
+      "uv_pixel_decision": {
+        "visible_gross_stretch_identified": false,
+        "numerical_uv_certification": false,
+        "observations": [
+          "Cargo front/side/lid and broad office wall/floor/desk checker cells remain coherent under perspective.",
+          "The trolley broad drape shows reasonable checker proportions; its fold and island transitions are not proof of stretching.",
+          "Checker phase resets at cabinet trim/bevels, faceted wheels and conduit sides are visible. Narrow visible strips on cylindrical/faceted geometry can reflect projection, seam layout or tangent foreshortening. These pixels do not establish numerical stretch ratios.",
+          "UV layer naming, coverage, overlap, texel scale, packed-image portability and export equivalence remain unverified."
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "name": "Approved spawn colour coherence and restrained accents",
+      "score": 99,
+      "max_score": 100,
+      "threshold": "strictly >93",
+      "passes_category_threshold": true,
+      "strengths": [
+        "Dusty warm wall fields over charcoal lower zones closely relate to the spawn corridor's warm institutional wall/blue-grey lower zone.",
+        "Burnt orange doors, cargo panel and signs relate to the approved locker/briefing orange; blue-grey machinery and evidence cabinets relate to the spawn's muted blue.",
+        "Yellow is concentrated on safety lanes/arrival threshold and small hand-contact cues. Red/green/amber indicators remain compact and functional; no colour-confetti veto.",
+        "Four corner views retain quiet dominant wall/floor fields. The dark equipment and restrained cool colour blocks suit the required bleaker dock mood."
+      ],
+      "deductions": [
+        {
+          "id": "C07-COL-01",
+          "points": 1,
+          "severity": "minor",
+          "critical": false,
+          "frames": [
+            "full-cycle-07/PLAYER_PINCH.png",
+            "full-cycle-07/C02_HERO_DOCK.png"
+          ],
+          "region": "Broad yellow arrival threshold in the foreground of PLAYER_PINCH (approximately x190–385/y460–599), and long bright yellow lane accents across the right foreground of C02.",
+          "finding": "The broad, clean yellow threshold and lane accents have slightly greater local colour weight than the muted functional equipment. Their safety purpose is clear, but the foreground accents are the least restrained portion of an otherwise coherent palette.",
+          "requirement": "Most surfaces remain restrained; saturation is reserved for useful information with controlled colour blocking.",
+          "repair_target": "Only if pursuing the final point, slightly moderate foreground yellow value/saturation or local uniformity while retaining unmistakable hazard/route visibility."
+        }
+      ]
+    }
+  ],
+  "anti_plastic_veto": {
+    "triggered": false,
+    "decision": "PASS for this visual veto only",
+    "critical_ids": [],
+    "reason": "Walls/floor are matte, painted machinery is restrained, glazing carries reflections, bare conduits/rails receive controlled highlights, trolley/rag textiles are soft and locally textured, and rubber wheels/seals remain dark. A local chair upholstery weakness does not dominate the room or constitute shared glossy plastic across major surfaces."
+  },
+  "critical_defects": [],
+  "category_gate_pass": true,
+  "overall_score": null,
+  "overall_acceptance": "Not assessed. This review cannot approve the room, other rubric categories, stable cycles, native validation, cold start or runtime readiness.",
+  "limitations": [
+    "Read-only original-pixel review; no native scene, builder or renderer inspection.",
+    "Only the current C07 sets and approved spawn originals were inspected; temporal regression and cold-render comparison are not assessed.",
+    "No technical/native verification is inferred from a pixel pass."
+  ],
+  "failed_attempts": [],
+  "resource_release": "No Blender process or persistent image/shell session was started. Each image-tool call returned; all Python file/image handles were scoped with context managers and closed. Critic process retains no native scene handles."
+}

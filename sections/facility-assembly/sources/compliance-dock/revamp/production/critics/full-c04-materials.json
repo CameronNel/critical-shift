@@ -1,0 +1,587 @@
+{
+  "review": "full-cycle-04 materials and approved-spawn colour independent pixel critique",
+  "reviewer": "/root/dock_c04_materials",
+  "date_utc": "2026-10-02",
+  "scope": "Read-only visual specialist review; writes only its two critic reports. No native process, scene/code edit, builder rationale, prior critique or scores used.",
+  "native_source": {
+    "path": "sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend",
+    "sha256": "2820ac1c7a79a28d739d0b953d73b4490f264c119775eeeef37c46bf6792a7c6",
+    "expected_sha256": "2820ac1c7a79a28d739d0b953d73b4490f264c119775eeeef37c46bf6792a7c6",
+    "verified": true
+  },
+  "authorities_read": [
+    "AGENTS.md",
+    ".agents/skills/blender-headless/SKILL.md",
+    ".agents/skills/blender-uv-texturing/SKILL.md",
+    "design/ART_DIRECTION.md",
+    "design/ART_REFERENCE_INDEX.md",
+    "design/AUTONOMOUS_SECTION_BUILD_PROTOCOL.md",
+    "sections/facility-assembly/sources/compliance-dock/revamp/scenery/OVERHAUL_BRIEF.md",
+    "sections/facility-assembly/sources/compliance-dock/revamp/production/RUBRIC.md"
+  ],
+  "image_inspection": {
+    "required": 39,
+    "actually_opened": 39,
+    "beauty": 27,
+    "approved_spawn_references": 4,
+    "uv_checker": 4,
+    "neutral_light": 4,
+    "all_expected_image_hashes_match": true,
+    "images": [
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/C01_ENTRY.png",
+        "actual_opened_with": "tools.view_image",
+        "sha256": "6d7b17d544b4d0ebf6a4c34e15954db5ed38a430ce8e87fcf43d1cfd3d6541d6",
+        "manifest_image_hash_match": true,
+        "resolution": [
+          1067,
+          600
+        ],
+        "pixel_observation": "Cream plaster, navy metal frames and amber glazing form quiet broad groups. Floor is matte; route paint is selectively mottled, while gate sheet and arch fields remain very clean."
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/C02_HERO_DOCK.png",
+        "actual_opened_with": "tools.view_image",
+        "sha256": "0fe05c82c4e14c3712f05fa7cef9b8b837782e0282233b9a168c97ddc1de3182",
+        "manifest_image_hash_match": true,
+        "resolution": [
+          1067,
+          600
+        ],
+        "pixel_observation": "Warm orange, blue and charcoal recur coherently. Rollers and glazed office separate from matte architectural masses; broad machine paint remains a simple smooth field."
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/C03_CHECKIN_COUNTER.png",
+        "actual_opened_with": "tools.view_image",
+        "sha256": "4937a0346bea910039a4cfb1c20d0b7fa505dfea577a1022c4160e15376ce84c",
+        "manifest_image_hash_match": true,
+        "resolution": [
+          1067,
+          600
+        ],
+        "pixel_observation": "Paper, folders, glazed partition, speaker metal and counter finish are visually distinct. Orange door relates to the spawn locker family."
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/C04_SCANNER_APPROACH.png",
+        "actual_opened_with": "tools.view_image",
+        "sha256": "b82b5b357fc28851e3282b93090e6a8b390b0ffc47bff484340b518d6d516896",
+        "manifest_image_hash_match": true,
+        "resolution": [
+          1067,
+          600
+        ],
+        "pixel_observation": "Close arch face and cart gate are satin rather than glossy. Minor edge marks exist; large grey gate faces lack a convincing used sheet-metal response. Black insert loses tactile information."
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/C05_CONVEYOR_LEAD_TUNNEL.png",
+        "actual_opened_with": "tools.view_image",
+        "sha256": "a7822b05471ffb3809cced8ebec4de45317366898d639fc0cdde0d1dce748e9b",
+        "manifest_image_hash_match": true,
+        "resolution": [
+          1067,
+          600
+        ],
+        "pixel_observation": "Metal rollers have controlled highlights; dark curtain separates from light fascia. Cargo crate uses orange/navy and legible cream paperwork. Housing fields are clean and smooth."
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/C06_CART_GATE_G1.png",
+        "actual_opened_with": "tools.view_image",
+        "sha256": "4524265b77befbe89fc0d28f2fbfc3ec523e6dab3a30772e34fbd0112b17db40",
+        "manifest_image_hash_match": true,
+        "resolution": [
+          1067,
+          600
+        ],
+        "pixel_observation": "Gate framing reads as metal, but grey infill and near-black bumper offer limited substrate cues. Yellow is used for a functional hazard band."
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/C07_OFFICE_INTERIOR.png",
+        "actual_opened_with": "tools.view_image",
+        "sha256": "9cb75663563a5f1a7721587816e6f2265c200ec3d5f20fe7c2c490cfb0083656",
+        "manifest_image_hash_match": true,
+        "resolution": [
+          1067,
+          600
+        ],
+        "pixel_observation": "Warm grey and orange office stays coherent with the larger room. Chair pad response is close to hard molded shell; paper and CRT are distinct."
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/C08_CONCEALED_SUPPORT_H1.png",
+        "actual_opened_with": "tools.view_image",
+        "sha256": "c28d26e314071e85bf890011bfdca48770f55fc7e08603ddf3c03807ef0a665c",
+        "manifest_image_hash_match": true,
+        "resolution": [
+          1067,
+          600
+        ],
+        "pixel_observation": "Cover is matte, with broad folds and narrow straps, and the handle carries a metal highlight. Fabric versus soft rubber remains ambiguous in the broad smooth cover fields."
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/C09_ARRIVAL_GATE_P2.png",
+        "actual_opened_with": "tools.view_image",
+        "sha256": "d9f6d597484a5d836d4a2a5c7cea5d17df18393aca0dbf88a402b542a4862c0a",
+        "manifest_image_hash_match": true,
+        "resolution": [
+          1067,
+          600
+        ],
+        "pixel_observation": "Navy door, grey strengthening bands, orange identification and yellow threshold have disciplined value groups. Large door fields are comparatively pristine."
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/C10_ROOF_SERVICES.png",
+        "actual_opened_with": "tools.view_image",
+        "sha256": "00a57e57dadf140245469bda038ad7a376185fbc514e867922344d171649fc1f",
+        "manifest_image_hash_match": true,
+        "resolution": [
+          1067,
+          600
+        ],
+        "pixel_observation": "Metal beam faces catch directional highlights without toy gloss; dark overhead values remain grouped. Light housings are warmer than structural blue."
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/CORNER_SW.png",
+        "actual_opened_with": "tools.view_image",
+        "sha256": "ed4e7eedb8b0772293940c92ce817c295823ddb6fe2e71cfbcfa4adb841ff185",
+        "manifest_image_hash_match": true,
+        "resolution": [
+          1067,
+          600
+        ],
+        "pixel_observation": "Whole-room colour groups remain quiet: cream walls, charcoal/navy framing, blue machinery, orange work accents and yellow route."
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/CORNER_SE.png",
+        "actual_opened_with": "tools.view_image",
+        "sha256": "d8a91f52102e77484c7553144db9ff74674828f1c936a69526f75b12eba0d844",
+        "manifest_image_hash_match": true,
+        "resolution": [
+          1067,
+          600
+        ],
+        "pixel_observation": "The blue cargo roof is a large bright colour accent; room remains predominantly neutral. Broad floor substrate is largely uniform."
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/CORNER_NW.png",
+        "actual_opened_with": "tools.view_image",
+        "sha256": "cf71b82ef7c2af8d5ae51e9bb59e922f05a4e40450cf2bfe36ecea9fc87fa7e5",
+        "manifest_image_hash_match": true,
+        "resolution": [
+          1067,
+          600
+        ],
+        "pixel_observation": "Orange office doors and signage repeat deliberately. Quiet architecture supports machinery; no colour confetti or photoreal material noise."
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/CORNER_NE.png",
+        "actual_opened_with": "tools.view_image",
+        "sha256": "fc43624ba292c9e33e7f1f2ad7a166487580c249b6dddc714ed2587f76930fa2",
+        "manifest_image_hash_match": true,
+        "resolution": [
+          1067,
+          600
+        ],
+        "pixel_observation": "Room-level cream/navy grouping persists across the reverse cutaway. Warm office against cool machine area is coherent; floor use is weak at this distance."
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/WALL_SOUTH.png",
+        "actual_opened_with": "tools.view_image",
+        "sha256": "f381dd37bb321d5d27d7b5252075c390fd7890c60abddcdc27b7962ba6806f84",
+        "manifest_image_hash_match": true,
+        "resolution": [
+          1067,
+          600
+        ],
+        "pixel_observation": "Cream wall, navy dado and orange doorway label are restrained. Large wall has lighting variation more than visible substrate variation."
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/WALL_NORTH.png",
+        "actual_opened_with": "tools.view_image",
+        "sha256": "82fcbe8725e6eb0d65bc91535e0b78de0d02202b423b1edb43af495030a1fbcb",
+        "manifest_image_hash_match": true,
+        "resolution": [
+          1067,
+          600
+        ],
+        "pixel_observation": "Evidence storage and utility cabinets repeat blue, with restrained indicators. Gate and architecture remain navy/cream; broad panels show modest tactile variation."
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/WALL_EAST.png",
+        "actual_opened_with": "tools.view_image",
+        "sha256": "0fe08518e9fe6d82db3279449ca9afdb8b3711cffe07c178377709a2d4c67511",
+        "manifest_image_hash_match": true,
+        "resolution": [
+          1067,
+          600
+        ],
+        "pixel_observation": "Service wall preserves quiet negative space. Orange bin and yellow cylinder are localized accents; off-white electrical boxes contrast with navy backplate."
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/WALL_WEST.png",
+        "actual_opened_with": "tools.view_image",
+        "sha256": "1583d41252f423ba43cb7fe10a4c18da24f69f98b7b3c213b2655711a308005a",
+        "manifest_image_hash_match": true,
+        "resolution": [
+          1067,
+          600
+        ],
+        "pixel_observation": "Warm office wall and navy furniture remain subdued. Broad plaster is visually clean without photographic noise."
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/HERO_SCANNER.png",
+        "actual_opened_with": "tools.view_image",
+        "sha256": "52d10e1030ea3bad25acc1cf1a2cee0a3ca768dedda8f87335547862496f31ec",
+        "manifest_image_hash_match": true,
+        "resolution": [
+          1067,
+          600
+        ],
+        "pixel_observation": "Arch satin paint, silver threshold and glazing have distinct responses. Localized floor scuff under the arch is visible; contact wear on the arch is slight."
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/HERO_CARGO.png",
+        "actual_opened_with": "tools.view_image",
+        "sha256": "b2b703ac584868c81398157879be65bbdea1848a88e9eaf040d9a07ea753e57b",
+        "manifest_image_hash_match": true,
+        "resolution": [
+          1067,
+          600
+        ],
+        "pixel_observation": "Roller response and black curtains separate from painted housing. Grey machine mouth is manufactured, while flat blue housing could gain bounded paint variation."
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/HERO_EVIDENCE.png",
+        "actual_opened_with": "tools.view_image",
+        "sha256": "d6361eb249efcdd67ba8d0b877d5ebabe12ee9e5d7a55d03ce668d2fe36e871a",
+        "manifest_image_hash_match": true,
+        "resolution": [
+          1067,
+          600
+        ],
+        "pixel_observation": "Blue lock doors have restrained metal hinges, grey locks and cream taped paper. Light mottling exists; panel surfaces are close to molded paint fields."
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/HERO_TROLLEY.png",
+        "actual_opened_with": "tools.view_image",
+        "sha256": "d5e21462e2dfd7c5de934c4966e3ea38bbffea4c07a703c89394e853e5182d7a",
+        "manifest_image_hash_match": true,
+        "resolution": [
+          1067,
+          600
+        ],
+        "pixel_observation": "Metal handle and pole differ from matte cloth and black wheels. Broad cover shape is cloth-like, but surface cues are insufficiently distinct from soft rubber."
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/HERO_UTILITIES.png",
+        "actual_opened_with": "tools.view_image",
+        "sha256": "5fde73eed84e76ae693a3b71ec358ef7b2ca069bdb770ed0c6d3612e98d5ea4c",
+        "manifest_image_hash_match": true,
+        "resolution": [
+          1067,
+          600
+        ],
+        "pixel_observation": "Silver conduit differs from cream boxes and blue cabinets. Small status lights are restrained. Cabinets remain very smooth and clean in frequent hand-contact areas."
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/DETAIL_CHECKIN.png",
+        "actual_opened_with": "tools.view_image",
+        "sha256": "85b1f12104f15b8c027325fc1967621bff31add41f55f2eb4a20ab759e006edd",
+        "manifest_image_hash_match": true,
+        "resolution": [
+          1067,
+          600
+        ],
+        "pixel_observation": "Best local material separation: textured plaster at left, paper stack, folder folds, metallic pen tether/speaker, matte work mat, stamp and glass. Counter edge treatment is restrained."
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/PLAYER_REVERSE.png",
+        "actual_opened_with": "tools.view_image",
+        "sha256": "a7ce31f28343c72c86ba989ea04f3ca7345ab852a6051b299d6333a43ec4957e",
+        "manifest_image_hash_match": true,
+        "resolution": [
+          1067,
+          600
+        ],
+        "pixel_observation": "Arch/navy framing, blue-grey gate and off-white walls remain grouped. Floor wear is more readable near scanner than through the broad route."
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/PLAYER_PINCH.png",
+        "actual_opened_with": "tools.view_image",
+        "sha256": "61dee99542ebacc9ddef29196ea90bb4352a10efa24cbed07f142716e0da63b7",
+        "manifest_image_hash_match": true,
+        "resolution": [
+          1067,
+          600
+        ],
+        "pixel_observation": "Navy gate, yellow threshold and cream service boxes are legible. Plain floor and cart platform have little localized traffic variation."
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/WALL_OFFICE_FRONT.png",
+        "actual_opened_with": "tools.view_image",
+        "sha256": "f8efa667311b4071accf8407eb060d49c64af1d0e09dc73c3b82746e4ebc228b",
+        "manifest_image_hash_match": true,
+        "resolution": [
+          1067,
+          600
+        ],
+        "pixel_observation": "Rust-orange door and warm cream hatch repeat the approved family, with subdued navy lower wall. Door kickplate wear is visible and plausibly localized."
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/BRIEFING_INDIRECT.png",
+        "actual_opened_with": "tools.view_image",
+        "sha256": "8d03448f84845b16705c6acc3324364a4e0a51f36c34355f4c481e8957aef301",
+        "manifest_image_hash_match": true,
+        "resolution": [
+          1280,
+          720
+        ],
+        "pixel_observation": "Approved reference shows rich orange upper wall, charcoal lower zone, wood warmth and restrained blue seating; broad graphic colours remain clear."
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/VALIDATE_LockerDoor.png",
+        "actual_opened_with": "tools.view_image",
+        "sha256": "b8fd309f91cc15bfe6d183a253b81ba0f20a0033e08c63214c127e07e19879de",
+        "manifest_image_hash_match": true,
+        "resolution": [
+          1280,
+          720
+        ],
+        "pixel_observation": "Approved reference shows orange painted lockers, muted blue walls and charcoal fixtures, with neutral tiled floor and localized safety accents."
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/VALIDATE_Material_A.png",
+        "actual_opened_with": "tools.view_image",
+        "sha256": "47d3892f69b4b244bcbff32908a6445556c182b2090aba11b22be1fe274253f6",
+        "manifest_image_hash_match": true,
+        "resolution": [
+          1280,
+          720
+        ],
+        "pixel_observation": "Reference orange locker paint is restrained satin, with cream cloth and muted blue equipment; material variation is modest and controlled."
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/VALIDATE_Spawn.png",
+        "actual_opened_with": "tools.view_image",
+        "sha256": "c84f368729c7e3ae1e6f1005ff5daae39020749316545bd208c972cee5b4e9ed",
+        "manifest_image_hash_match": true,
+        "resolution": [
+          1280,
+          720
+        ],
+        "pixel_observation": "Reference circulation combines warm/pinkish off-white, navy lower wall, charcoal steel doors, orange side room and warm/cool floor zoning."
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04-uv/C05_CONVEYOR_LEAD_TUNNEL.png",
+        "actual_opened_with": "tools.view_image",
+        "sha256": "2bfd59e56317c5acc09711238394a43a38411368d18a026269199e736ec52f12",
+        "manifest_image_hash_match": true,
+        "resolution": [
+          1067,
+          600
+        ],
+        "pixel_observation": "Broad housing and crate sides retain rectangular checker cells. Trim and roller cells are narrow/dense, with discontinuities at separate parts; labels and black insert remain outside checker replacement. No catastrophic stretching is visible on broad faces."
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04-uv/C07_OFFICE_INTERIOR.png",
+        "actual_opened_with": "tools.view_image",
+        "sha256": "9c5648bc6f4832f2f5055d4b867db24c18b436aba2d77edc1dd3023846f50a54",
+        "manifest_image_hash_match": true,
+        "resolution": [
+          1067,
+          600
+        ],
+        "pixel_observation": "Floor, wall, door and desktop checker coverage is readable. Small keyboard, chair base and thin shells show dense fragmented cells. This rendered view does not prove all hidden faces or native UV validity."
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04-uv/HERO_TROLLEY.png",
+        "actual_opened_with": "tools.view_image",
+        "sha256": "2b32993b205a0ccc1c95007a927fc9fad4d2136069085875809b17d4a542d1c9",
+        "manifest_image_hash_match": true,
+        "resolution": [
+          1067,
+          600
+        ],
+        "pixel_observation": "Cover checker follows broad draped curvature with diagonal distortion at fold transitions. Visible frame, shelving, floor and cabinet surfaces carry checker. Fine metal pole and wheel parts produce denser cells."
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04-uv/HERO_UTILITIES.png",
+        "actual_opened_with": "tools.view_image",
+        "sha256": "4c7eb4397405519729db9733eeab010d56d1492eba92e76fcee94b4c121b6dd3",
+        "manifest_image_hash_match": true,
+        "resolution": [
+          1067,
+          600
+        ],
+        "pixel_observation": "Broad cabinet, wall and box faces have readable cells. Conduit, vents and trim exhibit narrow cells and seams consistent with thin geometry; cylindrical caps are visible but not every underside."
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04-neutral/C05_CONVEYOR_LEAD_TUNNEL.png",
+        "actual_opened_with": "tools.view_image",
+        "sha256": "2ad79096c93ad25599a941ab7ce17e3839a03f13cadf064af7da5f08fe302979",
+        "manifest_image_hash_match": true,
+        "resolution": [
+          1067,
+          600
+        ],
+        "pixel_observation": "Neutral light retains metal roller highlights and matte curtains; cargo orange reveals localized pale rub beneath latches. Blue housing remains uniformly satin. This supports restrained wear but not full tactile completion."
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04-neutral/C07_OFFICE_INTERIOR.png",
+        "actual_opened_with": "tools.view_image",
+        "sha256": "0e2cf3aba875a45dec3f2d980d9f31462e4993f7a2bd6bfc282faa8da83bd597",
+        "manifest_image_hash_match": true,
+        "resolution": [
+          1067,
+          600
+        ],
+        "pixel_observation": "Grey chair pads remain close to hard shell response; desk folder and paper are differentiated. Glazing becomes dark/reflective with the changed lighting, confirming it is not an opaque painted panel."
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04-neutral/HERO_TROLLEY.png",
+        "actual_opened_with": "tools.view_image",
+        "sha256": "b1f81e61417ec9e92c60011358c25f48d8579cb374d14d448cba3f1848782ae7",
+        "manifest_image_hash_match": true,
+        "resolution": [
+          1067,
+          600
+        ],
+        "pixel_observation": "Handle and pole retain controlled metal highlights and wheels stay dark. Smooth grey cover is ambiguous between fabric and rubber despite broad folds; pads and cloth need stronger family separation."
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04-neutral/HERO_UTILITIES.png",
+        "actual_opened_with": "tools.view_image",
+        "sha256": "e513028d672ac9ae953e6a6532019adeadd7e9c4b75fe5e3831420116074fa2f",
+        "manifest_image_hash_match": true,
+        "resolution": [
+          1067,
+          600
+        ],
+        "pixel_observation": "Silver conduit retains a broad metallic highlight, cream boxes are matte, blue cabinets are smooth satin. Minor variations exist, but frequent-use cabinet handles and face fields remain excessively pristine for the brief."
+      }
+    ],
+    "manifests": [
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04/manifest.json",
+        "sha256": "c13b7fd2aa87e120be32d991ce30ebe65eb1a2167ceed1ddf80a2f4e4eb312f3",
+        "source_sha256": "2820ac1c7a79a28d739d0b953d73b4490f264c119775eeeef37c46bf6792a7c6",
+        "complete": true,
+        "image_count": 27,
+        "all_image_hashes_verified": true,
+        "diagnostic": null,
+        "source_saved": false,
+        "cold_open": false,
+        "renderer_sha256_claim": "9993f999e0eddef5d3c106591728c665647cc49364e44199253780cb9bc89c57"
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/reference-provenance.json",
+        "sha256": "d04251c153c364e6ad5745caa704caf147f42dc64e181a5744f91de344174a2d",
+        "source_sha256": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+        "complete": null,
+        "image_count": 4,
+        "all_image_hashes_verified": true,
+        "diagnostic": null,
+        "source_saved": null,
+        "cold_open": null,
+        "renderer_sha256_claim": null
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04-uv/manifest.json",
+        "sha256": "142eb07e7f300bfe9431adb79fec9fa30dd3850763ca3c99cace39e8a3446e8c",
+        "source_sha256": "2820ac1c7a79a28d739d0b953d73b4490f264c119775eeeef37c46bf6792a7c6",
+        "complete": true,
+        "image_count": 4,
+        "all_image_hashes_verified": true,
+        "diagnostic": "uv",
+        "source_saved": false,
+        "cold_open": false,
+        "renderer_sha256_claim": "9993f999e0eddef5d3c106591728c665647cc49364e44199253780cb9bc89c57"
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-04-neutral/manifest.json",
+        "sha256": "70f87cd3af025db0957ee8c0c4a69f51eee9ab0a7b1c0c612f53ea9799df399c",
+        "source_sha256": "2820ac1c7a79a28d739d0b953d73b4490f264c119775eeeef37c46bf6792a7c6",
+        "complete": true,
+        "image_count": 4,
+        "all_image_hashes_verified": true,
+        "diagnostic": "neutral",
+        "source_saved": false,
+        "cold_open": false,
+        "renderer_sha256_claim": "9993f999e0eddef5d3c106591728c665647cc49364e44199253780cb9bc89c57"
+      }
+    ]
+  },
+  "scores": {
+    "4": {
+      "name": "Tactile material identity and UV/texture discipline",
+      "score": 92.0,
+      "strictly_greater_than_93": false,
+      "verdict": "FAIL category threshold",
+      "rationale": "No dominant plastic sheen or photographic noise. Controlled metal, glass, paper, plaster and matte cloth responses are visible, and broad checker surfaces are readable. However neutral-light chair/cover ambiguity, uniformly satin machine/gate fields and insufficient route-substrate use are visible shortcomings in the exceptionally strict tactile-material requirement. Native UV correctness is not inferred from render coverage."
+    },
+    "6": {
+      "name": "Approved spawn colour coherence and restrained accents",
+      "score": 95.0,
+      "strictly_greater_than_93": true,
+      "verdict": "PASS category threshold",
+      "rationale": "Dock retains the approved orange/navy/charcoal/cream relationship and uses yellow as route/hazard information. Architecture remains quiet and the office is warmer than the inspection equipment. Brighter machinery blue occupies bounded functional masses; it does not become whole-room saturation or confetti. Coherence is strong, but broad blue fields and the pale lit scanner label are slightly less restrained than spawn."
+    }
+  },
+  "overall_verdict": "FAIL: category 4 does not exceed 93. No overall eight-category or owner 99-point pass is certified by this specialist.",
+  "critical_visual_vetoes": [],
+  "veto_reasoning": "No dominant glossy-plastic, photographic-noise, colour-confetti or toy-material failure was visible. The material defects are bounded category failures, not a claim that every surface shares one generic glossy shader.",
+  "bounded_repairs": [
+    {
+      "priority": 1,
+      "category": 4,
+      "defect": "Chair pads and broad trolley-cover fields are insufficiently distinct from hard molded or rubber surfaces under neutral light.",
+      "repair": "Adjust only these local surface families: strengthen matte cloth/pad diffuse response and broad fold-related tonal/roughness variation; retain smooth low-frequency treatment and existing folds. Preserve trolley, straps and chair poses.",
+      "evidence": [
+        "full-cycle-04-neutral/C07_OFFICE_INTERIOR.png",
+        "full-cycle-04-neutral/HERO_TROLLEY.png",
+        "full-cycle-04/HERO_TROLLEY.png"
+      ],
+      "verification": "Rerender these two same-camera neutral views and their beauty counterparts; the cover/pads should read as softer than wheel rubber, metal handle and plastic CRT casing without added texture noise."
+    },
+    {
+      "priority": 2,
+      "category": 4,
+      "defect": "Blue machinery and grey cart gate remain too uniform at the areas that workers and cargo touch.",
+      "repair": "Add restrained broad paint roughness variation and a few authored rubs at cabinet handles, cargo handoff edges and gate contact points. Keep intact large colour blocks and avoid universal exposed-edge wear.",
+      "evidence": [
+        "full-cycle-04/HERO_CARGO.png",
+        "full-cycle-04/C06_CART_GATE_G1.png",
+        "full-cycle-04-neutral/HERO_UTILITIES.png"
+      ],
+      "verification": "In existing hero/gate views, paint should remain matte to semi-matte and read as used manufactured steel, with wear concentrated at actual contact areas."
+    },
+    {
+      "priority": 3,
+      "category": 4,
+      "defect": "Traffic deterioration is mostly carried by mottled yellow markings and one scanner-floor patch; the broad floor substrate still looks freshly uniform.",
+      "repair": "Add a small number of broad, directional substrate scuffs through scanner/cart travel and threshold approach, without changing route geometry, floor datum, lane paint extents or brightness hierarchy.",
+      "evidence": [
+        "full-cycle-04/HERO_SCANNER.png",
+        "full-cycle-04/PLAYER_REVERSE.png",
+        "full-cycle-04/PLAYER_PINCH.png"
+      ],
+      "verification": "The same player-height views should show a used route through substrate response without photographic dirt, busy scratches or reduced hazard readability."
+    },
+    {
+      "priority": 4,
+      "category": 4,
+      "defect": "The near-black rectangular gate insert loses soft material response and reads as a void beside the grey sheet metal.",
+      "repair": "Lift only the insert diffuse value slightly and provide a broad matte rubber highlight/roughness cue while retaining its charcoal grouping and yellow hazard strip.",
+      "evidence": [
+        "full-cycle-04/C06_CART_GATE_G1.png",
+        "full-cycle-04/C04_SCANNER_APPROACH.png"
+      ],
+      "verification": "Insert remains darker and softer than sheet metal, but its surface is visible in both fixed close views."
+    }
+  ],
+  "technical_separation": {
+    "native_uv_graphs_or_material_nodes_inspected": false,
+    "technical_reports_read": false,
+    "technical_score_assigned": false,
+    "limits": "Only supplied four checker views and four neutral views were inspected. Hidden faces, packing, overlaps, density contract, numerical UV coverage, material node semantics and engine conversion remain the technical critic responsibility. Manifest cold_open=false does not establish cold-start acceptance; source_saved=false is manifest metadata, while unchanged native hash is independently checked. Spawn reference image hashes match provenance; its native source hash is a provenance claim and was not independently reopened/hashed."
+  },
+  "tool_exception": "An initial request for a nonexistent UV DETAIL_CHECKIN image failed; the actual manifest-listed HERO_UTILITIES view was then opened. All 39 required images were successfully inspected."
+}

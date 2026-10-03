@@ -1,0 +1,91 @@
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+{
+  "source_sha256": "73b85e9a84b577d2059a07371abd366666536800eb45c9e56a7d7788a21b77a3",
+  "source_unchanged": true,
+  "native_saved": false,
+  "method": "Corrected source/clone dependency-graph updates and exact upholstery names; read-only f12 append; isolated cloned leaf Boolean material test and three upholstery charts using only extracted named root helper functions. No full builder.",
+  "boolean_material_cases": [
+    {
+      "cutter_material": "navy",
+      "slots": [
+        "CD | wear",
+        "CD | navy"
+      ],
+      "used_indices": [
+        0
+      ],
+      "vertices": 112
+    },
+    {
+      "cutter_material": "wear",
+      "slots": [
+        "CD | wear"
+      ],
+      "used_indices": [
+        0
+      ],
+      "vertices": 112
+    }
+  ],
+  "upholstery": {
+    "Chair seat cushion": {
+      "before": {
+        "triangles": 572,
+        "max_anisotropy": 2.4876168595821397,
+        "surface_area_m2": 0.5239642006639336,
+        "zero_uv_area_m2": 0.0,
+        "over_2_area_m2": 0.048900657319025535
+      },
+      "after": {
+        "triangles": 572,
+        "max_anisotropy": 1.5742928933610962,
+        "surface_area_m2": 0.5239642006639336,
+        "zero_uv_area_m2": 0.0,
+        "over_2_area_m2": 0.0
+      }
+    },
+    "Chair back lumbar": {
+      "before": {
+        "triangles": 604,
+        "max_anisotropy": 2.489764307528395,
+        "surface_area_m2": 0.21687783455959816,
+        "zero_uv_area_m2": 0.0,
+        "over_2_area_m2": 0.0007182375183322247
+      },
+      "after": {
+        "triangles": 604,
+        "max_anisotropy": 1.5575574422656322,
+        "surface_area_m2": 0.21687783455959816,
+        "zero_uv_area_m2": 0.0,
+        "over_2_area_m2": 0.0
+      }
+    },
+    "Chair back upper": {
+      "before": {
+        "triangles": 604,
+        "max_anisotropy": 2.490730072042531,
+        "surface_area_m2": 0.1757726925819477,
+        "zero_uv_area_m2": 0.0,
+        "over_2_area_m2": 0.0006367240871007115
+      },
+      "after": {
+        "triangles": 604,
+        "max_anisotropy": 1.602555854278002,
+        "surface_area_m2": 0.1757726925819477,
+        "zero_uv_area_m2": 0.0,
+        "over_2_area_m2": 0.0
+      }
+    }
+  },
+  "recipe_sha256": {
+    "overhaul_dock.py": "3b770eaf10ad776101ca8b41d047937a1c681ce49f4e610ea0ca2ddea38e7289",
+    "full_detail.py": "1b33ce8efb6d166693a8cc724e33522d29e804c61a61766bb97c26b22a49f1b7",
+    "full_repairs.py": "7157ca15b3e86da7c555b48ad700dd9b6a73823255e6609bd3f744fc8d9a7a98",
+    "render_dock.py": "61ea21ced7e674eac0be44af617422003099553ede92f0e91eb0b938e895f423"
+  },
+  "formal_review": false
+}
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)
+
+Blender quit

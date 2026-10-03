@@ -1,0 +1,2129 @@
+{
+  "source_sha256": "8d7588a5513a984a96c086e21fd12d3b38f65a51cf08dbae1464bb3b044934f7",
+  "backing_gap_witnesses": [
+    {
+      "object": "Conveyor return belt",
+      "root": "Cargo Inspection Conveyor",
+      "nearest_connected_surfaces": [
+        {
+          "distance_m": 0.05217752233147621,
+          "source_object": "Conveyor return belt",
+          "source_point": [
+            4.0702672,
+            9.84899902,
+            0.42799997
+          ],
+          "source_normal": [
+            -0.96603757,
+            0.25840181,
+            0.0
+          ],
+          "other_object": "Conveyor leg 3.98_9.9",
+          "other_point": [
+            4.01985979,
+            9.86247444,
+            0.42799997
+          ],
+          "other_normal": [
+            0.96602368,
+            -0.25845352,
+            0.0
+          ],
+          "other_triangle": 139
+        },
+        {
+          "distance_m": 0.05217776820063591,
+          "source_object": "Conveyor return belt",
+          "source_point": [
+            5.22973299,
+            9.84899902,
+            0.412
+          ],
+          "source_normal": [
+            0.96603757,
+            0.25840181,
+            0.0
+          ],
+          "other_object": "Conveyor leg 5.32_9.9",
+          "other_point": [
+            5.2801404,
+            9.8624754,
+            0.41200003
+          ],
+          "other_normal": [
+            -0.96602368,
+            -0.25845352,
+            0.0
+          ],
+          "other_triangle": 91
+        },
+        {
+          "distance_m": 0.052177831530570984,
+          "source_object": "Conveyor return belt",
+          "source_point": [
+            5.22973299,
+            5.45100117,
+            0.412
+          ],
+          "source_normal": [
+            0.69015115,
+            -0.69015115,
+            -0.21767589
+          ],
+          "other_object": "Conveyor leg 5.32_5.4",
+          "other_point": [
+            5.28013945,
+            5.43752098,
+            0.412
+          ],
+          "other_normal": [
+            -0.96602368,
+            0.25845352,
+            0.0
+          ],
+          "other_triangle": 103
+        },
+        {
+          "distance_m": 0.052177976816892624,
+          "source_object": "Conveyor return belt",
+          "source_point": [
+            4.07000017,
+            5.45200014,
+            0.412
+          ],
+          "source_normal": [
+            -0.96603757,
+            -0.25840181,
+            0.0
+          ],
+          "other_object": "Conveyor leg 3.98_5.4",
+          "other_point": [
+            4.01959944,
+            5.43849802,
+            0.41200003
+          ],
+          "other_normal": [
+            0.96602374,
+            0.25845355,
+            0.0
+          ],
+          "other_triangle": 117
+        },
+        {
+          "distance_m": 0.13204219937324524,
+          "source_object": "CD | Joined Cargo Inspection Conveyor / steel",
+          "source_point": [
+            5.34514618,
+            9.01449966,
+            0.49314645
+          ],
+          "source_normal": [
+            -0.38244811,
+            0.0,
+            -0.92397708
+          ],
+          "other_object": "Conveyor return belt",
+          "other_point": [
+            5.22973299,
+            9.01449966,
+            0.42899868
+          ],
+          "other_normal": [
+            0.70712072,
+            0.0,
+            0.70709288
+          ],
+          "other_triangle": 131
+        }
+      ],
+      "closed_surface_containment_screen": [
+        {
+          "object": "Conveyor leg 3.98_6.4",
+          "component_centre_inside_closed_mesh": false,
+          "component_sample_vertices_inside": 0,
+          "tested_vertex_count": 12
+        },
+        {
+          "object": "Conveyor leg 3.98_8.9",
+          "component_centre_inside_closed_mesh": false,
+          "component_sample_vertices_inside": 0,
+          "tested_vertex_count": 12
+        },
+        {
+          "object": "Conveyor leg 5.32_6.4",
+          "component_centre_inside_closed_mesh": false,
+          "component_sample_vertices_inside": 0,
+          "tested_vertex_count": 12
+        },
+        {
+          "object": "Conveyor leg 5.32_8.9",
+          "component_centre_inside_closed_mesh": false,
+          "component_sample_vertices_inside": 0,
+          "tested_vertex_count": 12
+        },
+        {
+          "object": "Conveyor leg 3.98_9.9",
+          "component_centre_inside_closed_mesh": false,
+          "component_sample_vertices_inside": 0,
+          "tested_vertex_count": 12
+        }
+      ],
+      "oriented_ray_direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "ray_from_world": [
+        4.6500001,
+        7.6500001,
+        0.47
+      ],
+      "oriented_ray_hits": []
+    },
+    {
+      "object": "Scanner column inset -1",
+      "root": "Person Scanner Arch",
+      "nearest_connected_surfaces": [
+        {
+          "distance_m": 0.010317954234778881,
+          "source_object": "Scanner column inset -1",
+          "source_point": [
+            -0.82946557,
+            7.13799715,
+            0.15399992
+          ],
+          "source_normal": [
+            -0.69013584,
+            0.69013411,
+            -0.2177785
+          ],
+          "other_object": "Scanner portal column -1",
+          "other_point": [
+            -0.83869421,
+            7.1426115,
+            0.15399994
+          ],
+          "other_normal": [
+            -0.89442682,
+            0.44721434,
+            0.0
+          ],
+          "other_triangle": 182
+        },
+        {
+          "distance_m": 0.039999961853027344,
+          "source_object": "CD | Joined Person Scanner Arch / blue",
+          "source_point": [
+            -0.7872929,
+            6.82000017,
+            0.51550001
+          ],
+          "source_normal": [
+            -0.16220218,
+            0.85280085,
+            -0.49640825
+          ],
+          "other_object": "Scanner column inset -1",
+          "other_point": [
+            -0.7872929,
+            6.86000013,
+            0.51550001
+          ],
+          "other_normal": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "other_triangle": 157
+        },
+        {
+          "distance_m": 0.04050016403198242,
+          "source_object": "CD | Joined Person Scanner Arch / ink",
+          "source_point": [
+            -0.80470002,
+            7.18050003,
+            0.61580002
+          ],
+          "source_normal": [
+            -0.38268176,
+            -0.92388016,
+            0.0
+          ],
+          "other_object": "Scanner column inset -1",
+          "other_point": [
+            -0.8046996,
+            7.13999987,
+            0.61579633
+          ],
+          "other_normal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "other_triangle": 160
+        },
+        {
+          "distance_m": 0.04450035095214844,
+          "source_object": "CD | Joined Person Scanner Arch / steel",
+          "source_point": [
+            -0.79400003,
+            6.81549978,
+            0.55400002
+          ],
+          "source_normal": [
+            0.50000072,
+            -4e-08,
+            0.86602497
+          ],
+          "other_object": "Scanner column inset -1",
+          "other_point": [
+            -0.79400003,
+            6.86000013,
+            0.55400002
+          ],
+          "other_normal": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "other_triangle": 157
+        },
+        {
+          "distance_m": 0.06999999284744263,
+          "source_object": "Sensor emitter -1_0",
+          "source_point": [
+            -0.63999999,
+            6.91200018,
+            0.28200001
+          ],
+          "source_normal": [
+            -0.96602339,
+            0.0,
+            -0.25845471
+          ],
+          "other_object": "Scanner column inset -1",
+          "other_point": [
+            -0.70999998,
+            6.91200066,
+            0.28200001
+          ],
+          "other_normal": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "other_triangle": 163
+        }
+      ],
+      "closed_surface_containment_screen": [
+        {
+          "object": "Scanner portal column -1",
+          "component_centre_inside_closed_mesh": true,
+          "component_sample_vertices_inside": 12,
+          "tested_vertex_count": 12
+        },
+        {
+          "object": "CD | Joined Person Scanner Arch / steel",
+          "component_centre_inside_closed_mesh": false,
+          "component_sample_vertices_inside": 0,
+          "tested_vertex_count": 12
+        },
+        {
+          "object": "CD | Joined Person Scanner Arch / blue",
+          "component_centre_inside_closed_mesh": false,
+          "component_sample_vertices_inside": 0,
+          "tested_vertex_count": 12
+        },
+        {
+          "object": "CD | Joined Person Scanner Arch / ink",
+          "component_centre_inside_closed_mesh": false,
+          "component_sample_vertices_inside": 0,
+          "tested_vertex_count": 12
+        },
+        {
+          "object": "Sensor emitter -1_0",
+          "component_centre_inside_closed_mesh": false,
+          "component_sample_vertices_inside": 0,
+          "tested_vertex_count": 12
+        }
+      ],
+      "oriented_ray_direction": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "ray_from_world": [
+        -0.76999998,
+        6.94999981,
+        1.35000014
+      ],
+      "oriented_ray_hits": [
+        {
+          "object": "Scanner portal column -1",
+          "point": [
+            -0.76999998,
+            7.17999983,
+            1.35000014
+          ],
+          "normal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "signed_distance_from_component_centre_m": 0.17999982833862305
+        }
+      ]
+    },
+    {
+      "object": "Scanner column inset 1",
+      "root": "Person Scanner Arch",
+      "nearest_connected_surfaces": [
+        {
+          "distance_m": 0.010317954234778881,
+          "source_object": "Scanner column inset 1",
+          "source_point": [
+            0.82946557,
+            7.13799715,
+            0.15399992
+          ],
+          "source_normal": [
+            0.69013619,
+            0.69013447,
+            -0.2177763
+          ],
+          "other_object": "Scanner portal column 1",
+          "other_point": [
+            0.83869421,
+            7.1426115,
+            0.15399992
+          ],
+          "other_normal": [
+            0.89442682,
+            0.44721434,
+            0.0
+          ],
+          "other_triangle": 178
+        },
+        {
+          "distance_m": 0.039999961853027344,
+          "source_object": "CD | Joined Person Scanner Arch / blue",
+          "source_point": [
+            0.78729296,
+            6.82000017,
+            0.51550001
+          ],
+          "source_normal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "other_object": "Scanner column inset 1",
+          "other_point": [
+            0.78729296,
+            6.86000013,
+            0.51549995
+          ],
+          "other_normal": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "other_triangle": 157
+        },
+        {
+          "distance_m": 0.04050016403198242,
+          "source_object": "CD | Joined Person Scanner Arch / ink",
+          "source_point": [
+            0.80470002,
+            7.18050003,
+            0.61580002
+          ],
+          "source_normal": [
+            0.28173822,
+            -0.8864547,
+            -0.36718076
+          ],
+          "other_object": "Scanner column inset 1",
+          "other_point": [
+            0.80470002,
+            7.13999987,
+            0.61580002
+          ],
+          "other_normal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "other_triangle": 161
+        },
+        {
+          "distance_m": 0.04450035095214844,
+          "source_object": "CD | Joined Person Scanner Arch / steel",
+          "source_point": [
+            0.79400009,
+            6.81549978,
+            0.55400002
+          ],
+          "source_normal": [
+            0.0,
+            1.0,
+            4e-08
+          ],
+          "other_object": "Scanner column inset 1",
+          "other_point": [
+            0.79400009,
+            6.86000013,
+            0.55400002
+          ],
+          "other_normal": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "other_triangle": 157
+        },
+        {
+          "distance_m": 0.06999999284744263,
+          "source_object": "Sensor emitter 1_0",
+          "source_point": [
+            0.63999999,
+            6.91200018,
+            0.28200001
+          ],
+          "source_normal": [
+            0.93529099,
+            -0.25023061,
+            -0.25023061
+          ],
+          "other_object": "Scanner column inset 1",
+          "other_point": [
+            0.70999998,
+            6.9119997,
+            0.28200001
+          ],
+          "other_normal": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "other_triangle": 155
+        }
+      ],
+      "closed_surface_containment_screen": [
+        {
+          "object": "Scanner portal column 1",
+          "component_centre_inside_closed_mesh": true,
+          "component_sample_vertices_inside": 12,
+          "tested_vertex_count": 12
+        },
+        {
+          "object": "CD | Joined Person Scanner Arch / steel",
+          "component_centre_inside_closed_mesh": false,
+          "component_sample_vertices_inside": 0,
+          "tested_vertex_count": 12
+        },
+        {
+          "object": "CD | Joined Person Scanner Arch / blue",
+          "component_centre_inside_closed_mesh": false,
+          "component_sample_vertices_inside": 0,
+          "tested_vertex_count": 12
+        },
+        {
+          "object": "CD | Joined Person Scanner Arch / ink",
+          "component_centre_inside_closed_mesh": false,
+          "component_sample_vertices_inside": 0,
+          "tested_vertex_count": 12
+        },
+        {
+          "object": "Sensor emitter 1_0",
+          "component_centre_inside_closed_mesh": false,
+          "component_sample_vertices_inside": 0,
+          "tested_vertex_count": 12
+        }
+      ],
+      "oriented_ray_direction": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "ray_from_world": [
+        0.76999998,
+        6.94999981,
+        1.35000014
+      ],
+      "oriented_ray_hits": [
+        {
+          "object": "Scanner portal column 1",
+          "point": [
+            0.76999998,
+            7.17999983,
+            1.35000014
+          ],
+          "normal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "signed_distance_from_component_centre_m": 0.17999982833862305
+        }
+      ]
+    },
+    {
+      "object": "Scanner status light 0",
+      "root": "Person Scanner Arch",
+      "nearest_connected_surfaces": [
+        {
+          "distance_m": 0.005999565124511719,
+          "source_object": "Scanner status light 0",
+          "source_point": [
+            0.77999997,
+            6.81000042,
+            1.81995678
+          ],
+          "source_normal": [
+            0.03378272,
+            0.96592581,
+            0.25660479
+          ],
+          "other_object": "CD | Joined Person Scanner Arch / blue",
+          "other_point": [
+            0.78000021,
+            6.81599998,
+            1.81995618
+          ],
+          "other_normal": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "other_triangle": 779
+        },
+        {
+          "distance_m": 0.009999752044677734,
+          "source_object": "Scanner status light 0",
+          "source_point": [
+            0.77999997,
+            6.81000042,
+            1.81995678
+          ],
+          "source_normal": [
+            0.03378272,
+            0.96592581,
+            0.25660479
+          ],
+          "other_object": "Scanner portal column 1",
+          "other_point": [
+            0.77999997,
+            6.82000017,
+            1.81995678
+          ],
+          "other_normal": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "other_triangle": 174
+        },
+        {
+          "distance_m": 0.15541931986808777,
+          "source_object": "Scanner status light 0",
+          "source_point": [
+            0.75567561,
+            6.80750036,
+            1.79999995
+          ],
+          "source_normal": [
+            -0.95766217,
+            0.25881931,
+            -0.12607864
+          ],
+          "other_object": "Sensor emitter 1_4",
+          "other_point": [
+            0.63973278,
+            6.91100121,
+            1.79999995
+          ],
+          "other_normal": [
+            0.70710725,
+            -0.70710635,
+            4e-08
+          ],
+          "other_triangle": 137
+        },
+        {
+          "distance_m": 0.20372135937213898,
+          "source_object": "Scanner status light 0",
+          "source_point": [
+            0.75828749,
+            6.80933046,
+            1.80581784
+          ],
+          "source_normal": [
+            -0.70105761,
+            0.70710659,
+            0.09229612
+          ],
+          "other_object": "CD | Joined Person Scanner Arch / steel",
+          "other_point": [
+            0.62335366,
+            6.95902634,
+            1.83559036
+          ],
+          "other_normal": [
+            0.38265046,
+            -0.90614086,
+            -0.18024282
+          ],
+          "other_triangle": 4373
+        },
+        {
+          "distance_m": 0.21127468347549438,
+          "source_object": "Scanner status light 0",
+          "source_point": [
+            0.75828749,
+            6.80933046,
+            1.80581784
+          ],
+          "source_normal": [
+            -0.70105761,
+            0.70710659,
+            0.09229612
+          ],
+          "other_object": "Sensor optic 1_4",
+          "other_point": [
+            0.61979496,
+            6.9658165,
+            1.83694553
+          ],
+          "other_normal": [
+            0.382682,
+            -0.90612817,
+            -0.18023992
+          ],
+          "other_triangle": 61
+        }
+      ],
+      "closed_surface_containment_screen": [
+        {
+          "object": "CD | Joined Person Scanner Arch / blue",
+          "component_centre_inside_closed_mesh": false,
+          "component_sample_vertices_inside": 0,
+          "tested_vertex_count": 12
+        },
+        {
+          "object": "CD | Joined Person Scanner Arch / steel",
+          "component_centre_inside_closed_mesh": false,
+          "component_sample_vertices_inside": 0,
+          "tested_vertex_count": 12
+        },
+        {
+          "object": "Scanner portal column 1",
+          "component_centre_inside_closed_mesh": false,
+          "component_sample_vertices_inside": 0,
+          "tested_vertex_count": 12
+        },
+        {
+          "object": "Sensor emitter 1_4",
+          "component_centre_inside_closed_mesh": false,
+          "component_sample_vertices_inside": 0,
+          "tested_vertex_count": 12
+        },
+        {
+          "object": "Sensor optic 1_4",
+          "component_centre_inside_closed_mesh": false,
+          "component_sample_vertices_inside": 0,
+          "tested_vertex_count": 12
+        }
+      ],
+      "oriented_ray_direction": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "ray_from_world": [
+        0.77999997,
+        6.75,
+        1.79999995
+      ],
+      "oriented_ray_hits": [
+        {
+          "object": "CD | Joined Person Scanner Arch / blue",
+          "point": [
+            0.77999997,
+            6.81599998,
+            1.79999995
+          ],
+          "normal": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "signed_distance_from_component_centre_m": 0.015999794006347656
+        },
+        {
+          "object": "Scanner portal column 1",
+          "point": [
+            0.77999997,
+            6.82000017,
+            1.79999995
+          ],
+          "normal": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "signed_distance_from_component_centre_m": 0.019999980926513672
+        }
+      ]
+    },
+    {
+      "object": "Scanner status light 1",
+      "root": "Person Scanner Arch",
+      "nearest_connected_surfaces": [
+        {
+          "distance_m": 0.005999565124511719,
+          "source_object": "Scanner status light 1",
+          "source_point": [
+            0.77999997,
+            6.81000042,
+            1.93995678
+          ],
+          "source_normal": [
+            0.03378272,
+            0.96592581,
+            0.25660479
+          ],
+          "other_object": "CD | Joined Person Scanner Arch / blue",
+          "other_point": [
+            0.78000009,
+            6.81599998,
+            1.93995678
+          ],
+          "other_normal": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "other_triangle": 779
+        },
+        {
+          "distance_m": 0.009999752044677734,
+          "source_object": "Scanner status light 1",
+          "source_point": [
+            0.77999997,
+            6.81000042,
+            1.93995678
+          ],
+          "source_normal": [
+            0.03378272,
+            0.96592581,
+            0.25660479
+          ],
+          "other_object": "Scanner portal column 1",
+          "other_point": [
+            0.77999949,
+            6.82000017,
+            1.93995571
+          ],
+          "other_normal": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "other_triangle": 175
+        },
+        {
+          "distance_m": 0.15541931986808777,
+          "source_object": "Scanner status light 1",
+          "source_point": [
+            0.75567561,
+            6.80750036,
+            1.91999996
+          ],
+          "source_normal": [
+            -0.95766217,
+            0.25881931,
+            -0.12607864
+          ],
+          "other_object": "Sensor emitter 1_4",
+          "other_point": [
+            0.63973278,
+            6.91100121,
+            1.91999996
+          ],
+          "other_normal": [
+            0.70710725,
+            -0.70710635,
+            4e-08
+          ],
+          "other_triangle": 137
+        },
+        {
+          "distance_m": 0.18165719509124756,
+          "source_object": "Scanner status light 1",
+          "source_point": [
+            0.77999997,
+            6.80500031,
+            1.94499993
+          ],
+          "source_normal": [
+            0.12607867,
+            0.25881928,
+            0.95766211
+          ],
+          "other_object": "CD | Joined Person Scanner Arch / steel",
+          "other_point": [
+            0.79400009,
+            6.81150007,
+            2.12600017
+          ],
+          "other_normal": [
+            0.49999508,
+            4e-08,
+            -0.86602831
+          ],
+          "other_triangle": 5817
+        },
+        {
+          "distance_m": 0.21587282419204712,
+          "source_object": "Scanner status light 1",
+          "source_point": [
+            0.76280004,
+            6.80750036,
+            1.93719983
+          ],
+          "source_normal": [
+            -0.58801824,
+            0.25881907,
+            0.76632059
+          ],
+          "other_object": "Sensor emitter 1_5",
+          "other_point": [
+            0.63895643,
+            6.91104364,
+            2.08052683
+          ],
+          "other_normal": [
+            0.57734817,
+            -0.57735133,
+            -0.57735133
+          ],
+          "other_triangle": 49
+        }
+      ],
+      "closed_surface_containment_screen": [
+        {
+          "object": "CD | Joined Person Scanner Arch / blue",
+          "component_centre_inside_closed_mesh": false,
+          "component_sample_vertices_inside": 0,
+          "tested_vertex_count": 12
+        },
+        {
+          "object": "CD | Joined Person Scanner Arch / steel",
+          "component_centre_inside_closed_mesh": false,
+          "component_sample_vertices_inside": 0,
+          "tested_vertex_count": 12
+        },
+        {
+          "object": "Scanner portal column 1",
+          "component_centre_inside_closed_mesh": false,
+          "component_sample_vertices_inside": 0,
+          "tested_vertex_count": 12
+        },
+        {
+          "object": "Sensor emitter 1_4",
+          "component_centre_inside_closed_mesh": false,
+          "component_sample_vertices_inside": 0,
+          "tested_vertex_count": 12
+        },
+        {
+          "object": "Sensor emitter 1_5",
+          "component_centre_inside_closed_mesh": false,
+          "component_sample_vertices_inside": 0,
+          "tested_vertex_count": 12
+        }
+      ],
+      "oriented_ray_direction": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "ray_from_world": [
+        0.77999997,
+        6.75,
+        1.91999996
+      ],
+      "oriented_ray_hits": [
+        {
+          "object": "CD | Joined Person Scanner Arch / blue",
+          "point": [
+            0.77999997,
+            6.81599998,
+            1.91999996
+          ],
+          "normal": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "signed_distance_from_component_centre_m": 0.015999794006347656
+        },
+        {
+          "object": "Scanner portal column 1",
+          "point": [
+            0.77999997,
+            6.82000017,
+            1.91999996
+          ],
+          "normal": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "signed_distance_from_component_centre_m": 0.019999980926513672
+        }
+      ]
+    },
+    {
+      "object": "Scanner status light 2",
+      "root": "Person Scanner Arch",
+      "nearest_connected_surfaces": [
+        {
+          "distance_m": 0.005999565124511719,
+          "source_object": "Scanner status light 2",
+          "source_point": [
+            0.77999997,
+            6.81000042,
+            2.05995679
+          ],
+          "source_normal": [
+            0.03378272,
+            0.96592581,
+            0.25660479
+          ],
+          "other_object": "CD | Joined Person Scanner Arch / blue",
+          "other_point": [
+            0.77999979,
+            6.81599998,
+            2.05995679
+          ],
+          "other_normal": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "other_triangle": 779
+        },
+        {
+          "distance_m": 0.009999752044677734,
+          "source_object": "Scanner status light 2",
+          "source_point": [
+            0.77999997,
+            6.81000042,
+            2.05995679
+          ],
+          "source_normal": [
+            0.03378272,
+            0.96592581,
+            0.25660479
+          ],
+          "other_object": "Scanner portal column 1",
+          "other_point": [
+            0.77999955,
+            6.82000017,
+            2.05995655
+          ],
+          "other_normal": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "other_triangle": 175
+        },
+        {
+          "distance_m": 0.06264374405145645,
+          "source_object": "CD | Joined Person Scanner Arch / steel",
+          "source_point": [
+            0.79400009,
+            6.81150007,
+            2.12600017
+          ],
+          "source_normal": [
+            0.49999508,
+            4e-08,
+            -0.86602831
+          ],
+          "other_object": "Scanner status light 2",
+          "other_point": [
+            0.78586745,
+            6.80500031,
+            2.06422758
+          ],
+          "other_normal": [
+            0.12607865,
+            0.25881934,
+            0.95766217
+          ],
+          "other_triangle": 0
+        },
+        {
+          "distance_m": 0.16007140278816223,
+          "source_object": "Scanner status light 2",
+          "source_point": [
+            0.75650448,
+            6.80750036,
+            2.04629564
+          ],
+          "source_normal": [
+            -0.89239895,
+            0.25881931,
+            0.36964402
+          ],
+          "other_object": "Sensor emitter 1_5",
+          "other_point": [
+            0.63973278,
+            6.91100121,
+            2.08200002
+          ],
+          "other_normal": [
+            0.93529099,
+            -0.25023061,
+            -0.25023061
+          ],
+          "other_triangle": 43
+        },
+        {
+          "distance_m": 0.172443687915802,
+          "source_object": "Scanner status light 2",
+          "source_point": [
+            0.7589345,
+            6.80750036,
+            2.02783775
+          ],
+          "source_normal": [
+            -0.65328157,
+            0.70710671,
+            -0.27059805
+          ],
+          "other_object": "Sensor emitter 1_4",
+          "other_point": [
+            0.63947326,
+            6.91104364,
+            1.95895648
+          ],
+          "other_normal": [
+            0.57734817,
+            -0.57735133,
+            0.57735133
+          ],
+          "other_triangle": 59
+        }
+      ],
+      "closed_surface_containment_screen": [
+        {
+          "object": "CD | Joined Person Scanner Arch / blue",
+          "component_centre_inside_closed_mesh": false,
+          "component_sample_vertices_inside": 0,
+          "tested_vertex_count": 12
+        },
+        {
+          "object": "CD | Joined Person Scanner Arch / steel",
+          "component_centre_inside_closed_mesh": false,
+          "component_sample_vertices_inside": 0,
+          "tested_vertex_count": 12
+        },
+        {
+          "object": "Scanner portal column 1",
+          "component_centre_inside_closed_mesh": false,
+          "component_sample_vertices_inside": 0,
+          "tested_vertex_count": 12
+        },
+        {
+          "object": "Sensor emitter 1_5",
+          "component_centre_inside_closed_mesh": false,
+          "component_sample_vertices_inside": 0,
+          "tested_vertex_count": 12
+        },
+        {
+          "object": "Sensor emitter 1_4",
+          "component_centre_inside_closed_mesh": false,
+          "component_sample_vertices_inside": 0,
+          "tested_vertex_count": 12
+        }
+      ],
+      "oriented_ray_direction": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "ray_from_world": [
+        0.77999997,
+        6.75,
+        2.03999996
+      ],
+      "oriented_ray_hits": [
+        {
+          "object": "CD | Joined Person Scanner Arch / blue",
+          "point": [
+            0.77999997,
+            6.81599998,
+            2.03999996
+          ],
+          "normal": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "signed_distance_from_component_centre_m": 0.015999794006347656
+        },
+        {
+          "object": "Scanner portal column 1",
+          "point": [
+            0.77999997,
+            6.82000017,
+            2.03999996
+          ],
+          "normal": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "signed_distance_from_component_centre_m": 0.019999980926513672
+        }
+      ]
+    },
+    {
+      "object": "Scanner status light 3",
+      "root": "Person Scanner Arch",
+      "nearest_connected_surfaces": [
+        {
+          "distance_m": 0.005999565124511719,
+          "source_object": "Scanner status light 3",
+          "source_point": [
+            0.79728311,
+            6.81000042,
+            2.15002155
+          ],
+          "source_normal": [
+            0.0,
+            1.0,
+            4e-08
+          ],
+          "other_object": "CD | Joined Person Scanner Arch / blue",
+          "other_point": [
+            0.79728311,
+            6.81599998,
+            2.15002155
+          ],
+          "other_normal": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "other_triangle": 776
+        },
+        {
+          "distance_m": 0.006609859876334667,
+          "source_object": "CD | Joined Person Scanner Arch / steel",
+          "source_point": [
+            0.79400009,
+            6.81150007,
+            2.13400006
+          ],
+          "source_normal": [
+            -0.49999508,
+            -4e-08,
+            0.86602831
+          ],
+          "other_object": "Scanner status light 3",
+          "other_point": [
+            0.79198635,
+            6.80750036,
+            2.13886189
+          ],
+          "other_normal": [
+            0.27059808,
+            0.70710671,
+            -0.65328151
+          ],
+          "other_triangle": 122
+        },
+        {
+          "distance_m": 0.009999752044677734,
+          "source_object": "Scanner status light 3",
+          "source_point": [
+            0.77999997,
+            6.81000042,
+            2.17995691
+          ],
+          "source_normal": [
+            0.03378272,
+            0.96592581,
+            0.25660479
+          ],
+          "other_object": "Scanner portal column 1",
+          "other_point": [
+            0.77999949,
+            6.82000017,
+            2.17995667
+          ],
+          "other_normal": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "other_triangle": 175
+        },
+        {
+          "distance_m": 0.15541931986808777,
+          "source_object": "Scanner status light 3",
+          "source_point": [
+            0.75567561,
+            6.80750036,
+            2.16000009
+          ],
+          "source_normal": [
+            -0.95766217,
+            0.25881931,
+            -0.12607864
+          ],
+          "other_object": "Sensor emitter 1_5",
+          "other_point": [
+            0.63973278,
+            6.91100121,
+            2.16000009
+          ],
+          "other_normal": [
+            0.70710725,
+            -0.70710635,
+            4e-08
+          ],
+          "other_triangle": 137
+        },
+        {
+          "distance_m": 0.21127460896968842,
+          "source_object": "Scanner status light 3",
+          "source_point": [
+            0.75828749,
+            6.80933046,
+            2.16581798
+          ],
+          "source_normal": [
+            -0.70105761,
+            0.70710659,
+            0.09229612
+          ],
+          "other_object": "Sensor optic 1_5",
+          "other_point": [
+            0.61979502,
+            6.9658165,
+            2.19694543
+          ],
+          "other_normal": [
+            0.382682,
+            -0.90612817,
+            -0.18023992
+          ],
+          "other_triangle": 61
+        }
+      ],
+      "closed_surface_containment_screen": [
+        {
+          "object": "CD | Joined Person Scanner Arch / blue",
+          "component_centre_inside_closed_mesh": false,
+          "component_sample_vertices_inside": 0,
+          "tested_vertex_count": 12
+        },
+        {
+          "object": "CD | Joined Person Scanner Arch / steel",
+          "component_centre_inside_closed_mesh": false,
+          "component_sample_vertices_inside": 0,
+          "tested_vertex_count": 12
+        },
+        {
+          "object": "Scanner portal column 1",
+          "component_centre_inside_closed_mesh": false,
+          "component_sample_vertices_inside": 0,
+          "tested_vertex_count": 12
+        },
+        {
+          "object": "Sensor emitter 1_5",
+          "component_centre_inside_closed_mesh": false,
+          "component_sample_vertices_inside": 0,
+          "tested_vertex_count": 12
+        },
+        {
+          "object": "Sensor optic 1_5",
+          "component_centre_inside_closed_mesh": false,
+          "component_sample_vertices_inside": 0,
+          "tested_vertex_count": 12
+        }
+      ],
+      "oriented_ray_direction": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "ray_from_world": [
+        0.77999997,
+        6.75,
+        2.16000009
+      ],
+      "oriented_ray_hits": [
+        {
+          "object": "CD | Joined Person Scanner Arch / blue",
+          "point": [
+            0.77999997,
+            6.81599998,
+            2.16000009
+          ],
+          "normal": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "signed_distance_from_component_centre_m": 0.015999794006347656
+        },
+        {
+          "object": "Scanner portal column 1",
+          "point": [
+            0.77999997,
+            6.82000017,
+            2.16000009
+          ],
+          "normal": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "signed_distance_from_component_centre_m": 0.019999980926513672
+        }
+      ]
+    }
+  ],
+  "actual_cotton_shader_nodes": [
+    {
+      "name": "Principled BSDF",
+      "type": "BSDF_PRINCIPLED",
+      "uv_map": null,
+      "inputs": [
+        {
+          "name": "Base Color",
+          "default": [
+            0.0729999989271164,
+            0.0949999988079071,
+            0.11500000208616257,
+            1.0
+          ],
+          "linked_from": [
+            {
+              "node": "Color Ramp",
+              "socket": "Color"
+            }
+          ]
+        },
+        {
+          "name": "Metallic",
+          "default": 0.0,
+          "linked_from": []
+        },
+        {
+          "name": "Roughness",
+          "default": 0.9700000286102295,
+          "linked_from": [
+            {
+              "node": "Map Range",
+              "socket": "Result"
+            }
+          ]
+        },
+        {
+          "name": "IOR",
+          "default": 1.5,
+          "linked_from": []
+        },
+        {
+          "name": "Alpha",
+          "default": 1.0,
+          "linked_from": []
+        },
+        {
+          "name": "Thin Wall",
+          "default": false,
+          "linked_from": []
+        },
+        {
+          "name": "Normal",
+          "default": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "linked_from": [
+            {
+              "node": "Bump.001",
+              "socket": "Normal"
+            }
+          ]
+        },
+        {
+          "name": "Weight",
+          "default": 0.0,
+          "linked_from": []
+        },
+        {
+          "name": "Diffuse Roughness",
+          "default": 0.0,
+          "linked_from": []
+        },
+        {
+          "name": "Subsurface Weight",
+          "default": 0.0,
+          "linked_from": []
+        },
+        {
+          "name": "Subsurface Radius",
+          "default": [
+            1.0,
+            0.20000000298023224,
+            0.10000000149011612
+          ],
+          "linked_from": []
+        },
+        {
+          "name": "Subsurface Scale",
+          "default": 0.004999999888241291,
+          "linked_from": []
+        },
+        {
+          "name": "Subsurface IOR",
+          "default": 1.399999976158142,
+          "linked_from": []
+        },
+        {
+          "name": "Subsurface Anisotropy",
+          "default": 0.0,
+          "linked_from": []
+        },
+        {
+          "name": "Specular IOR Level",
+          "default": 0.30000001192092896,
+          "linked_from": []
+        },
+        {
+          "name": "Specular Tint",
+          "default": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "linked_from": []
+        },
+        {
+          "name": "Anisotropic",
+          "default": 0.0,
+          "linked_from": []
+        },
+        {
+          "name": "Anisotropic Rotation",
+          "default": 0.0,
+          "linked_from": []
+        },
+        {
+          "name": "Tangent",
+          "default": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "linked_from": []
+        },
+        {
+          "name": "Transmission Weight",
+          "default": 0.0,
+          "linked_from": []
+        },
+        {
+          "name": "Coat Weight",
+          "default": 0.0,
+          "linked_from": []
+        },
+        {
+          "name": "Coat Roughness",
+          "default": 0.029999999329447746,
+          "linked_from": []
+        },
+        {
+          "name": "Coat IOR",
+          "default": 1.5,
+          "linked_from": []
+        },
+        {
+          "name": "Coat Tint",
+          "default": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "linked_from": []
+        },
+        {
+          "name": "Coat Normal",
+          "default": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "linked_from": []
+        },
+        {
+          "name": "Sheen Weight",
+          "default": 0.2800000011920929,
+          "linked_from": []
+        },
+        {
+          "name": "Sheen Roughness",
+          "default": 0.5,
+          "linked_from": []
+        },
+        {
+          "name": "Sheen Tint",
+          "default": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "linked_from": []
+        },
+        {
+          "name": "Emission Color",
+          "default": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "linked_from": []
+        },
+        {
+          "name": "Emission Strength",
+          "default": 0.0,
+          "linked_from": []
+        },
+        {
+          "name": "Thin Film Thickness",
+          "default": 0.0,
+          "linked_from": []
+        },
+        {
+          "name": "Thin Film IOR",
+          "default": 1.3300000429153442,
+          "linked_from": []
+        }
+      ]
+    },
+    {
+      "name": "Material Output",
+      "type": "OUTPUT_MATERIAL",
+      "uv_map": null,
+      "inputs": [
+        {
+          "name": "Surface",
+          "default": null,
+          "linked_from": [
+            {
+              "node": "Principled BSDF",
+              "socket": "BSDF"
+            }
+          ]
+        },
+        {
+          "name": "Volume",
+          "default": null,
+          "linked_from": []
+        },
+        {
+          "name": "Displacement",
+          "default": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "linked_from": []
+        },
+        {
+          "name": "Thickness",
+          "default": 0.0,
+          "linked_from": []
+        }
+      ]
+    },
+    {
+      "name": "UV Map",
+      "type": "UVMAP",
+      "uv_map": "CD_Fabric_Cut_1m",
+      "inputs": []
+    },
+    {
+      "name": "Noise Texture",
+      "type": "TEX_NOISE",
+      "uv_map": null,
+      "inputs": [
+        {
+          "name": "Vector",
+          "default": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "linked_from": [
+            {
+              "node": "UV Map",
+              "socket": "UV"
+            }
+          ]
+        },
+        {
+          "name": "W",
+          "default": 0.0,
+          "linked_from": []
+        },
+        {
+          "name": "Scale",
+          "default": 1.7000000476837158,
+          "linked_from": []
+        },
+        {
+          "name": "Detail",
+          "default": 2.0,
+          "linked_from": []
+        },
+        {
+          "name": "Roughness",
+          "default": 0.5,
+          "linked_from": []
+        },
+        {
+          "name": "Lacunarity",
+          "default": 2.0,
+          "linked_from": []
+        },
+        {
+          "name": "Offset",
+          "default": 0.0,
+          "linked_from": []
+        },
+        {
+          "name": "Gain",
+          "default": 1.0,
+          "linked_from": []
+        },
+        {
+          "name": "Distortion",
+          "default": 0.0,
+          "linked_from": []
+        }
+      ]
+    },
+    {
+      "name": "Color Ramp",
+      "type": "VALTORGB",
+      "uv_map": null,
+      "inputs": [
+        {
+          "name": "Factor",
+          "default": 0.5,
+          "linked_from": [
+            {
+              "node": "Noise Texture",
+              "socket": "Factor"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Map Range",
+      "type": "MAP_RANGE",
+      "uv_map": null,
+      "inputs": [
+        {
+          "name": "Value",
+          "default": 1.0,
+          "linked_from": [
+            {
+              "node": "Noise Texture",
+              "socket": "Factor"
+            }
+          ]
+        },
+        {
+          "name": "From Min",
+          "default": 0.0,
+          "linked_from": []
+        },
+        {
+          "name": "From Max",
+          "default": 1.0,
+          "linked_from": []
+        },
+        {
+          "name": "To Min",
+          "default": 0.925000011920929,
+          "linked_from": []
+        },
+        {
+          "name": "To Max",
+          "default": 1.0,
+          "linked_from": []
+        },
+        {
+          "name": "Steps",
+          "default": 4.0,
+          "linked_from": []
+        },
+        {
+          "name": "Vector",
+          "default": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "linked_from": []
+        },
+        {
+          "name": "From Min",
+          "default": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "linked_from": []
+        },
+        {
+          "name": "From Max",
+          "default": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "linked_from": []
+        },
+        {
+          "name": "To Min",
+          "default": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "linked_from": []
+        },
+        {
+          "name": "To Max",
+          "default": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "linked_from": []
+        },
+        {
+          "name": "Steps",
+          "default": [
+            4.0,
+            4.0,
+            4.0
+          ],
+          "linked_from": []
+        }
+      ]
+    },
+    {
+      "name": "Noise Texture.001",
+      "type": "TEX_NOISE",
+      "uv_map": null,
+      "inputs": [
+        {
+          "name": "Vector",
+          "default": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "linked_from": [
+            {
+              "node": "UV Map",
+              "socket": "UV"
+            }
+          ]
+        },
+        {
+          "name": "W",
+          "default": 0.0,
+          "linked_from": []
+        },
+        {
+          "name": "Scale",
+          "default": 180.0,
+          "linked_from": []
+        },
+        {
+          "name": "Detail",
+          "default": 1.0,
+          "linked_from": []
+        },
+        {
+          "name": "Roughness",
+          "default": 0.5,
+          "linked_from": []
+        },
+        {
+          "name": "Lacunarity",
+          "default": 2.0,
+          "linked_from": []
+        },
+        {
+          "name": "Offset",
+          "default": 0.0,
+          "linked_from": []
+        },
+        {
+          "name": "Gain",
+          "default": 1.0,
+          "linked_from": []
+        },
+        {
+          "name": "Distortion",
+          "default": 0.0,
+          "linked_from": []
+        }
+      ]
+    },
+    {
+      "name": "Bump",
+      "type": "BUMP",
+      "uv_map": null,
+      "inputs": [
+        {
+          "name": "Strength",
+          "default": 0.25,
+          "linked_from": []
+        },
+        {
+          "name": "Distance",
+          "default": 0.0007999999797903001,
+          "linked_from": []
+        },
+        {
+          "name": "Filter Width",
+          "default": 0.10000000149011612,
+          "linked_from": []
+        },
+        {
+          "name": "Height",
+          "default": 1.0,
+          "linked_from": [
+            {
+              "node": "Noise Texture.001",
+              "socket": "Factor"
+            }
+          ]
+        },
+        {
+          "name": "Normal",
+          "default": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "linked_from": []
+        }
+      ]
+    },
+    {
+      "name": "UV Map.001",
+      "type": "UVMAP",
+      "uv_map": "CD_Fabric_Cut_1m",
+      "inputs": []
+    },
+    {
+      "name": "Wave Texture",
+      "type": "TEX_WAVE",
+      "uv_map": null,
+      "inputs": [
+        {
+          "name": "Vector",
+          "default": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "linked_from": [
+            {
+              "node": "UV Map.001",
+              "socket": "UV"
+            }
+          ]
+        },
+        {
+          "name": "Scale",
+          "default": 180.0,
+          "linked_from": []
+        },
+        {
+          "name": "Distortion",
+          "default": 0.0,
+          "linked_from": []
+        },
+        {
+          "name": "Detail",
+          "default": 2.0,
+          "linked_from": []
+        },
+        {
+          "name": "Detail Scale",
+          "default": 1.0,
+          "linked_from": []
+        },
+        {
+          "name": "Detail Roughness",
+          "default": 0.5,
+          "linked_from": []
+        },
+        {
+          "name": "Phase Offset",
+          "default": 0.0,
+          "linked_from": []
+        }
+      ]
+    },
+    {
+      "name": "Wave Texture.001",
+      "type": "TEX_WAVE",
+      "uv_map": null,
+      "inputs": [
+        {
+          "name": "Vector",
+          "default": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "linked_from": [
+            {
+              "node": "UV Map.001",
+              "socket": "UV"
+            }
+          ]
+        },
+        {
+          "name": "Scale",
+          "default": 180.0,
+          "linked_from": []
+        },
+        {
+          "name": "Distortion",
+          "default": 0.0,
+          "linked_from": []
+        },
+        {
+          "name": "Detail",
+          "default": 2.0,
+          "linked_from": []
+        },
+        {
+          "name": "Detail Scale",
+          "default": 1.0,
+          "linked_from": []
+        },
+        {
+          "name": "Detail Roughness",
+          "default": 0.5,
+          "linked_from": []
+        },
+        {
+          "name": "Phase Offset",
+          "default": 0.0,
+          "linked_from": []
+        }
+      ]
+    },
+    {
+      "name": "Math",
+      "type": "MATH",
+      "uv_map": null,
+      "inputs": [
+        {
+          "name": "Value",
+          "default": 0.5,
+          "linked_from": [
+            {
+              "node": "Wave Texture",
+              "socket": "Factor"
+            }
+          ]
+        },
+        {
+          "name": "Value",
+          "default": 0.5,
+          "linked_from": [
+            {
+              "node": "Wave Texture.001",
+              "socket": "Factor"
+            }
+          ]
+        },
+        {
+          "name": "Value",
+          "default": 0.5,
+          "linked_from": []
+        }
+      ]
+    },
+    {
+      "name": "Bump.001",
+      "type": "BUMP",
+      "uv_map": null,
+      "inputs": [
+        {
+          "name": "Strength",
+          "default": 0.44999998807907104,
+          "linked_from": []
+        },
+        {
+          "name": "Distance",
+          "default": 0.0012000000569969416,
+          "linked_from": []
+        },
+        {
+          "name": "Filter Width",
+          "default": 0.10000000149011612,
+          "linked_from": []
+        },
+        {
+          "name": "Height",
+          "default": 1.0,
+          "linked_from": [
+            {
+              "node": "Math",
+              "socket": "Value"
+            }
+          ]
+        },
+        {
+          "name": "Normal",
+          "default": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "linked_from": []
+        }
+      ]
+    }
+  ],
+  "saved": false
+}

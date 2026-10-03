@@ -1,0 +1,89 @@
+{
+  "cycle": "full-cycle-08",
+  "native_revision": "f15",
+  "source_sha256": "d2514e668ea2b24e8b4ede6bde870e12f10c1afd6d6e1892b12c016266bd7b35",
+  "complete_rendered_and_reviewed_views": 27,
+  "diagnostic_views": 8,
+  "critics": {
+    "spatial": {
+      "report": "critics/full-c08-spatial.json",
+      "sha256": "bfd62b30a9d1d69be1a03026288b74b35541ba50e977bc291e4953e8735e5bbd"
+    },
+    "materials": {
+      "report": "critics/full-c08-materials.json",
+      "sha256": "f11c5cf0b6bc0565aa0f0765e11e1fc58174a94f35e0ee539afba2eff8f11e07"
+    },
+    "lighting": {
+      "report": "critics/full-c08-lighting.json",
+      "sha256": "6e446fb443feb1cbbfd2f9938dec87469f0aba194a30f2a1fb36c0ee72dcda9d"
+    },
+    "story": {
+      "report": "critics/full-c08-story.json",
+      "sha256": "e59b6c9d26d1be40236c3584d2e84724d283741b9bb228aaf4bb4bf2575e9b35"
+    },
+    "technical": {
+      "report": "critics/full-c08-technical.json",
+      "sha256": "9ff6defd0c4b4ec14909be61deedfedd7cdc5373df41f26841d7ce04cabb8483"
+    },
+    "luna": {
+      "report": "critics/full-c08-luna-visual.json",
+      "sha256": "ae6f6f307fd6f06793152069083bf1edd5e2991b0cd41a5194e00f00944d397e"
+    },
+    "luna_aggregate": {
+      "report": "critics/full-c08-luna-aggregate.json",
+      "sha256": "c85df72a8f3735c9e3b59d5bf7778a96dcf78f6999ae05eb10bdc9cac4c9babd"
+    }
+  },
+  "per_category_conservative_scores": {
+    "1": 93,
+    "2": 89,
+    "3": 94,
+    "4": 93,
+    "5": 89,
+    "6": 95,
+    "7": 94,
+    "8": 91.5
+  },
+  "aggregation": "Minimum discipline and independently locked Luna visual scores; fresh technical8 only supplied after lock; all dissenting assessments retained",
+  "luna_overall_score": 92.3125,
+  "luna_exact_mean": "738.5/8",
+  "owner_pass_minimum": 99,
+  "verdict": "FAIL",
+  "critical_defect_count": 2,
+  "critical_union": [
+    "TC08-SUP-01",
+    "TC08-SUP-02"
+  ],
+  "full_room_accepted": false,
+  "completed_full_cycles": 8,
+  "final_two_materially_stable": false,
+  "cold_github_source_open_pass": true,
+  "cold_github_source_open_commit": "fc381a12c53e826b7644eb5d3e521854b6c60452",
+  "cold_render_equivalence_verified": false,
+  "source_consumers_released": true,
+  "root_pixel_inspection": "full-c08-root-imageaudit.json",
+  "regression_comparison": "Complete27exactF13 baseline under current38d50renderer/newC02camera; compare-f13-f14-renderer-baseline.json validates hashes/cameras/decode and records4actualbaseline opens. Samecamera F13/F15 comparison pending; no finalstability claim.",
+  "remaining_defects": [
+    "TC08-SUP-01 unsupported15.4m cabletray/bundles: actualtrussgap90mm",
+    "TC08-SUP-02 unsupported entrysign/text: actualceilinggap150mm",
+    "TC08-UV-01 localized consumedcloth distortion, chairbands andsmallcottondetails",
+    "Luna categories1/2/4/5: routecue/readability, simpleprimaryequipmentforms, tactile/checkerconsistency andkeydarkseparation",
+    "SpatialSP-C08-001..004: faintcheck-in/sameworker-cartlane syntax/cargo-controlocclusion/staffdoorcompetition",
+    "MAT-01 minorchairtactility; COL-01 yellowroutecompetition",
+    "L-C08-001 lowerconveyorframe/shelf darkness",
+    "C7-REPAIR-CONSEQUENCE-01 utilityrepair consequenceweak; C7-SECONDARY-MESSAGE-02 smallcounter/trolleymessages"
+  ],
+  "runtime_verified": false,
+  "completed_utc": "2026-10-03T06:29:25.346793+00:00",
+  "veto_union": [
+    "TC08-TECH-SUPPORT-GATE"
+  ],
+  "actual_pass": false,
+  "overall_pass": false,
+  "all_six_critics_released": true,
+  "cold_github_final_27_decoded_pixels_complete": false,
+  "current_source_only_github_cold_open": "PASS actualcommitfc381a12c53e826b7644eb5d3e521854b6c60452; sourceunchanged",
+  "current_render_publication_commit": "e44eb6c0ee062123a14c48913dc7f61b36264e77",
+  "root_imageaudit": "full-c08-root-imageaudit.json",
+  "scope": "Complete8thfullreview; staticpass andsourceportabilitydo noterase twoindependentcriticalsupportdefects. Runtimeunverified."
+}

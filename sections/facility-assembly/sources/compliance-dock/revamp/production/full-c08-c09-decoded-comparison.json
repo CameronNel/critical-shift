@@ -1,0 +1,198 @@
+{
+  "purpose": "Same fixed renderer/cameras diagnostic comparison, not cold GitHub proof or independent final-two art stability certification",
+  "source_current_sha256": "6838d604ac4586da057a652e98e9c694f754a84e9f38ba70b83f1046e9ae6e9a",
+  "baseline": "full-cycle-08, F15",
+  "renderer_sha256": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce",
+  "views": [
+    {
+      "id": "C01_ENTRY",
+      "mean_absolute_rgb_difference_255": 1.366040820576903,
+      "pixel_fraction_any_channel_gt_8": 0.008127147766323024,
+      "current_sha256": "3decf8f1ac948c16a6841ad0726b6f4e10a4d864b9419946c3789543e00a4d71",
+      "comparison_sha256": "bd63507715720e4c502b87f3557684bcb74328c960d72e9e24d170b49fc2c1b5"
+    },
+    {
+      "id": "C02_HERO_DOCK",
+      "mean_absolute_rgb_difference_255": 1.3750812246173072,
+      "pixel_fraction_any_channel_gt_8": 0.00858950328022493,
+      "current_sha256": "4ec913cdae1fa280458839cde3616722f5d9234ab68e4bcdb000c4b5cf41e44b",
+      "comparison_sha256": "e738feaeed2c8dc8e1a676eb3a6629ae47d57b4d31b52d95d0b49f865abed745"
+    },
+    {
+      "id": "C03_CHECKIN_COUNTER",
+      "mean_absolute_rgb_difference_255": 1.5158070394668333,
+      "pixel_fraction_any_channel_gt_8": 0.007336769759450172,
+      "current_sha256": "f4c2eea44a7a14d9723ba29466f2bfbd0117836d7f4048b6ee52178e247c950d",
+      "comparison_sha256": "4251ab6a13fb73b411fa1257555cedbc86947036e71bc1b9f3dd9b37403eb657"
+    },
+    {
+      "id": "C04_SCANNER_APPROACH",
+      "mean_absolute_rgb_difference_255": 1.5635462876184525,
+      "pixel_fraction_any_channel_gt_8": 0.007811621368322399,
+      "current_sha256": "107cf2cd355212a821ce312abb03847ae680f8a5414d5e4fb73b3950d76e48f2",
+      "comparison_sha256": "531ec788c261c0a44ae1ee9fa0fa078c6ec4d6be6c32a331981bc1bc58644326"
+    },
+    {
+      "id": "C05_CONVEYOR_LEAD_TUNNEL",
+      "mean_absolute_rgb_difference_255": 1.3861735915859628,
+      "pixel_fraction_any_channel_gt_8": 0.03177132146204311,
+      "current_sha256": "a257f91012b40d8b2d4d1c952a5b4f2ac425904b858f394ac4592261e0724737",
+      "comparison_sha256": "c293902a2c7d9ebb39cccc72ce6fcb5e08108ba1e341246afbe516dc8d1ca167"
+    },
+    {
+      "id": "C06_CART_GATE_G1",
+      "mean_absolute_rgb_difference_255": 1.8525028636884306,
+      "pixel_fraction_any_channel_gt_8": 0.028672289909403313,
+      "current_sha256": "c1e9c6ce92be1ac919c3644c7e5f875eeb8b2fc0402530b75c30d424407d925c",
+      "comparison_sha256": "ccb4385c502c64f49dd67c355fc4e5bcb2e44588f9be262322d55cd7bc0f9436"
+    },
+    {
+      "id": "C07_OFFICE_INTERIOR",
+      "mean_absolute_rgb_difference_255": 4.34877694470478,
+      "pixel_fraction_any_channel_gt_8": 0.1774429865666979,
+      "current_sha256": "b3b4b2b3ac869ff9553a5db4e2e0c8f2ff7c768dab0856f2dd0b35c355dd11a2",
+      "comparison_sha256": "98e21190da1ba76563c854bb98429bd5fcca7205435767cda733f3af922ecc07"
+    },
+    {
+      "id": "C08_CONCEALED_SUPPORT_H1",
+      "mean_absolute_rgb_difference_255": 4.755696136623972,
+      "pixel_fraction_any_channel_gt_8": 0.17611215245235864,
+      "current_sha256": "abed943429d6488e055f5dea0c0c927c1962963c3b7d609769c13880f005441c",
+      "comparison_sha256": "4d24c43d510561fabf22cd74c258e789110e87fc5beaa79791ad038039087793"
+    },
+    {
+      "id": "C09_ARRIVAL_GATE_P2",
+      "mean_absolute_rgb_difference_255": 2.4693465583671768,
+      "pixel_fraction_any_channel_gt_8": 0.019323648859731334,
+      "current_sha256": "cfc45d9b6b670729716d8d877212fa612d785b6afd51bd63db11bdd52aae5d9b",
+      "comparison_sha256": "ba870c5c35708e4aa17647cc0e1d6e57241f7369e74e404ee669813822cc492f"
+    },
+    {
+      "id": "C10_ROOF_SERVICES",
+      "mean_absolute_rgb_difference_255": 0.4251494324690201,
+      "pixel_fraction_any_channel_gt_8": 0.001112152452358638,
+      "current_sha256": "d0e00ef622a90dde968d94a5a01746431c14cfef837096f0646787b075e7d520",
+      "comparison_sha256": "e3936096b9512dec06ebd585ca26a28eb5d53c81703864ab0f13bac372a8f8cf"
+    },
+    {
+      "id": "CORNER_SW",
+      "mean_absolute_rgb_difference_255": 0.6271873372904301,
+      "pixel_fraction_any_channel_gt_8": 0.013655107778819118,
+      "current_sha256": "87ec70d4d713d6cd1abc29b5a9f49befaa6cc51dbded3ecb4f2af96be3a563fd",
+      "comparison_sha256": "be7575486d9ee08d28fa7ed4fcf865d30eb782a72884684a95d41fbe242d36e5"
+    },
+    {
+      "id": "CORNER_SE",
+      "mean_absolute_rgb_difference_255": 0.7686759346037697,
+      "pixel_fraction_any_channel_gt_8": 0.014184629803186504,
+      "current_sha256": "b15170f91ba5239bf86eac8edc2e6c4de05d2141f35962fff36382118680ebaa",
+      "comparison_sha256": "2d30423f1bde4cf2fb25ee7c2bf7fae0387bf080949ad724466fd12bf2fd7312"
+    },
+    {
+      "id": "CORNER_NW",
+      "mean_absolute_rgb_difference_255": 0.40513172966781213,
+      "pixel_fraction_any_channel_gt_8": 0.003569197125898157,
+      "current_sha256": "5f24ceeeb667aa12a15bc103de8190fe802d75d8656a110330519ff11adfabf6",
+      "comparison_sha256": "4ac9debf55de5e3631f031f2671a203d99fe813678861306c7dfa7db1988656e"
+    },
+    {
+      "id": "CORNER_NE",
+      "mean_absolute_rgb_difference_255": 0.6749489742788712,
+      "pixel_fraction_any_channel_gt_8": 0.011490159325210872,
+      "current_sha256": "193d30aed8730d406d54ce4131e7cb474102b6a905389dd8a0e3fdd59fa731ed",
+      "comparison_sha256": "0d6ba4ac9289c9d8661431b9f858b8d05cf94b9b921d8301bb398f84f58f36a1"
+    },
+    {
+      "id": "WALL_SOUTH",
+      "mean_absolute_rgb_difference_255": 0.3373477038425492,
+      "pixel_fraction_any_channel_gt_8": 0.00010153077163386442,
+      "current_sha256": "09192a8216fbcba367950bcc428d66f46049dfe0fe1ef8d09edfdd57b004d2f0",
+      "comparison_sha256": "4fe3192b234888452b6bd04bed373b764ab930e33476e97d49565e53094a2745"
+    },
+    {
+      "id": "WALL_NORTH",
+      "mean_absolute_rgb_difference_255": 1.2943949807351869,
+      "pixel_fraction_any_channel_gt_8": 0.028817557013433304,
+      "current_sha256": "e6de3eb7bfcac13f01327e99cbb18fcd68fcc674a9626ddbf441eca2402ffc95",
+      "comparison_sha256": "7b803ec8b0b8091621441aac916af90fb2ccc94d7f34c0ca030d5184efa7d0d8"
+    },
+    {
+      "id": "WALL_EAST",
+      "mean_absolute_rgb_difference_255": 0.4674388212017078,
+      "pixel_fraction_any_channel_gt_8": 0.004009684473601999,
+      "current_sha256": "7d785c6483a1940a7d301ae4c4561c3c5cd0168fa50ca7df873900d28fcd0af0",
+      "comparison_sha256": "0250b67783143c2d8357c1c08e0752e5c56213d175150a404bfbc63b90b8c43a"
+    },
+    {
+      "id": "WALL_WEST",
+      "mean_absolute_rgb_difference_255": 1.1349656357388316,
+      "pixel_fraction_any_channel_gt_8": 0.02090909090909091,
+      "current_sha256": "98f1f35e799a7cb9c3efa8ec659f8e251129b5bb28edb7fa33ef8fc31fb06c5b",
+      "comparison_sha256": "a067a264f9def7e12fc4e89a5b43b6cae6bb0abd7703556900ae17d47953f0c7"
+    },
+    {
+      "id": "HERO_SCANNER",
+      "mean_absolute_rgb_difference_255": 1.5849828178694159,
+      "pixel_fraction_any_channel_gt_8": 0.010663855045298345,
+      "current_sha256": "2c0badb51dbd864a127a6310496e3dfc99f75c71461ec56809909d123e7f8b4b",
+      "comparison_sha256": "77b40bbf2e1c5328eacb17bc760aeb33dfd0521645be1e7b41670b0940a0a2c6"
+    },
+    {
+      "id": "HERO_CARGO",
+      "mean_absolute_rgb_difference_255": 1.4886212641882746,
+      "pixel_fraction_any_channel_gt_8": 0.030124960949703218,
+      "current_sha256": "6ce94821cfd20a8fda9fd2edfc29bcb5ff81a261d63167f8ba1db5d22b4b82bc",
+      "comparison_sha256": "5c4466b6ab4a43b9281774ce32c536fa9d64b2749e9cf768814754bb5cafcf60"
+    },
+    {
+      "id": "HERO_EVIDENCE",
+      "mean_absolute_rgb_difference_255": 12.693953452046236,
+      "pixel_fraction_any_channel_gt_8": 0.5518712902218057,
+      "current_sha256": "c687f8bd46eb6bba0f710ad4e5e5eb27ad901d21bd6a22f129c4ca402157d339",
+      "comparison_sha256": "161a9da7470df15fe91e4a1c21c404e173d4384ea52fe9f0fb612d0991bb206f"
+    },
+    {
+      "id": "HERO_TROLLEY",
+      "mean_absolute_rgb_difference_255": 6.003838904509007,
+      "pixel_fraction_any_channel_gt_8": 0.25049828178694156,
+      "current_sha256": "65b92dc4caeb3ea44fd3404224aa04db1b11c726d371e1494566872085c338de",
+      "comparison_sha256": "911cf89e81cb9f16eb82295864e21d0a64601497a5268c3f7ed02c8b9d0ef25b"
+    },
+    {
+      "id": "HERO_UTILITIES",
+      "mean_absolute_rgb_difference_255": 0.9889867749661564,
+      "pixel_fraction_any_channel_gt_8": 0.03864885973133396,
+      "current_sha256": "7de52ef5d98f273cbf5cb7a86df7c5aafaade6169fe9337d555cf01b98ab0107",
+      "comparison_sha256": "3714834174a4904ee419d8585afce19db0dc074d45b519c5619f5bb9a3ae443c"
+    },
+    {
+      "id": "DETAIL_CHECKIN",
+      "mean_absolute_rgb_difference_255": 2.8064849526189732,
+      "pixel_fraction_any_channel_gt_8": 0.01859262730396751,
+      "current_sha256": "8639770a198222861504a1832f6074203c29ccf359c026698d9b35c807a1722c",
+      "comparison_sha256": "87199f9e40dc7aab8b99e3d02b98b61db66a93b17821cb6c9e727b80c59ea07a"
+    },
+    {
+      "id": "PLAYER_REVERSE",
+      "mean_absolute_rgb_difference_255": 1.1916755180672707,
+      "pixel_fraction_any_channel_gt_8": 0.006996251171508904,
+      "current_sha256": "8f443bd6e518a8f73c2b4cb8db9873c84766eef971beb19677399eb4227834ce",
+      "comparison_sha256": "91de2ece8fd144da8d59e0be6388a15ec695564281dd2707d9e1179dbb09dcc1"
+    },
+    {
+      "id": "PLAYER_PINCH",
+      "mean_absolute_rgb_difference_255": 2.0829058627512236,
+      "pixel_fraction_any_channel_gt_8": 0.005620118712902218,
+      "current_sha256": "ceb44669372f9e276d4debe5b57f9d96fcb794da8d2b8a55bc5d3300bf7d4df2",
+      "comparison_sha256": "1b4efae28f0f900ea1a8ccbf0121c4fdcfa969e5f0940ce2c8d7255237c18eb6"
+    },
+    {
+      "id": "WALL_OFFICE_FRONT",
+      "mean_absolute_rgb_difference_255": 1.2431729667812141,
+      "pixel_fraction_any_channel_gt_8": 0.0036098094345517026,
+      "current_sha256": "bb3cfe3f589005bd35a445e932f0a33d9a4d80826b9b7c0eecf83d9dde1967b2",
+      "comparison_sha256": "2e3bfbf958786b42c46bcd72766db22b6d79a64bf76ee538bf964c7ddd1801a7"
+    }
+  ],
+  "final_two_materially_stable_certified": false
+}

@@ -1,0 +1,107 @@
+{
+  "review": "slice-s09-independent-visual",
+  "verdict": "LOCAL_PASS",
+  "review_scope": [
+    "front-office wall and architectural transition",
+    "D1 staff door",
+    "check-in primary cluster",
+    "practical light and utility installation",
+    "3-5 purposeful worker traces"
+  ],
+  "excluded_scope": [
+    "full-room art acceptance",
+    "inherited office and scanner assets elsewhere",
+    "native technical cleanliness",
+    "geometric support-contact certification",
+    "runtime validation"
+  ],
+  "judgment_resolution": [1067, 600],
+  "numeric_art_scores": null,
+  "author_code_or_history_inspected": false,
+  "all_required_images_opened": true,
+  "images_opened": [
+    "production/renders/slice-s09/SLICE_ENTRY.png",
+    "production/renders/slice-s09/SLICE_MATERIAL.png",
+    "production/renders/slice-s09/SLICE_DOOR.png",
+    "production/renders/spawn-reference/VALIDATE_Spawn.png",
+    "production/renders/spawn-reference/VALIDATE_Material_A.png",
+    "production/renders/spawn-reference/VALIDATE_LockerDoor.png",
+    "production/renders/spawn-reference/BRIEFING_INDIRECT.png",
+    "production/renders/slice-s09-uv/SLICE_ENTRY.png",
+    "production/renders/slice-s09-uv/SLICE_DOOR.png",
+    "production/renders/slice-s09-neutral/SLICE_MATERIAL.png"
+  ],
+  "requirements": [
+    {
+      "requirement": "believable wall and architectural transition",
+      "result": "PASS",
+      "evidence": "Substantial opening/jamb, matte upper wall, protected lower zone and counter transition read as institutional construction."
+    },
+    {
+      "requirement": "believable manufactured door",
+      "result": "PASS",
+      "evidence": "D1 frame/reveal, pressed relief, hinges, closer, lever and kickplate create a specific manufactured door."
+    },
+    {
+      "requirement": "object-specific primary prop cluster",
+      "result": "PASS",
+      "evidence": "Clear shield, supported intercom grille, counter pass-through, paperwork and stamp station communicate check-in before text."
+    },
+    {
+      "requirement": "practical light and utility element",
+      "result": "PASS",
+      "evidence": "Opening light creates a localized warm pool; junction box, routed cable and reader read as useful infrastructure."
+    },
+    {
+      "requirement": "3-5 purposeful human traces",
+      "result": "PASS",
+      "evidence": "Folded cloth, uneven tray paperwork, tethered pen, clipboard/form and used stamp/inkpad station form five work-related clusters."
+    },
+    {
+      "requirement": "distinct tactile painted metal, plastic, rubber, fabric and concrete",
+      "result": "PASS",
+      "evidence": "Matte granular wall, controlled painted-metal edges, rigid molded housings, matte mats and layered folded cloth remain differentiated in beauty and neutral MATERIAL views."
+    },
+    {
+      "requirement": "localized visible wear",
+      "result": "PASS",
+      "evidence": "Stamp-mat ink/scuff marks and D1 kickplate scratches occur in plausible handling/contact regions."
+    },
+    {
+      "requirement": "restrained spawn colour coherence",
+      "result": "PASS",
+      "evidence": "Off-white, dark navy/charcoal and controlled orange echo supplied spawn references, with limited utility accents."
+    },
+    {
+      "requirement": "bleak practical hierarchy and visible contact shading",
+      "result": "PASS",
+      "evidence": "Lit opening/counter contrast with subdued lower wall/door; layered shade grounds papers and hardware without hiding primary forms."
+    },
+    {
+      "requirement": "restrained signage and coercive institutional story",
+      "result": "PASS",
+      "evidence": "Reassurance/worker-responsibility sign, staff identifier, number instruction, barrier and stamp communicate controlled admission."
+    },
+    {
+      "requirement": "negative space and restrained density",
+      "result": "PASS",
+      "evidence": "Quiet wall and lower-panel space frame a concentrated functional cluster."
+    },
+    {
+      "requirement": "UV and texture discipline in supplied views",
+      "result": "PASS",
+      "evidence": "No obvious stretched/collapsed checker regions on visible broad wall, door, jamb and counter surfaces; this is pixel-only evidence."
+    },
+    {
+      "requirement": "absence of dominant visual veto",
+      "result": "PASS",
+      "evidence": "No dominant generic low-poly, repeated bevel-box, uniform plastic, flat lighting, excess signage, random clutter, toy PPE, sci-fi greeble or photoreal-noise read."
+    }
+  ],
+  "remaining_defects": [],
+  "automatic_visual_vetoes": [],
+  "files_authored": [
+    "production/critics/slice-s09-visual.md",
+    "production/critics/slice-s09-visual.json"
+  ]
+}

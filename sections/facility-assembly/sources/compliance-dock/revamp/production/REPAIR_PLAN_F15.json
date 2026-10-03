@@ -1,0 +1,59 @@
+{
+  "author": "root",
+  "prior_native_sha256": "6e3ee923505d393c48aeb08bdf3e73ac32bd15e3c439487e64ce685cc519a135",
+  "prior_github_commit": "96544fc8e3689aa48697b8db79372dae75cbf130",
+  "scope": "Preformal guide bearing and roller UV repair; no completed cycle8 yet",
+  "defects": [
+    {
+      "id": "ROOT-F14-G1-CLUSTER",
+      "evidence": "probes/f14-guide-cluster-bearing.json",
+      "actual_gap_m": 0.027500152587890625,
+      "repair": "Extend existing shoe heel to actual mast flange and seat existing keeper heads on exposed side; validate two actual surfaces"
+    },
+    {
+      "id": "ROOT-ROLLER-CHART",
+      "evidence": "probes/cylindrical-chart-preflight.json",
+      "repair": "Develop29 actual polygonal barrels by chord lengths in existing physical1m UV layer; retain cap/bevel charts; assess real checker pixels before any improvement claim"
+    }
+  ],
+  "recipe_sha256": {
+    "overhaul_dock.py": "58b80133bf0b08779f58319db2f18301c791a1b33991a3f438d9d8de0dd02f32",
+    "full_detail.py": "57e5a98d95e11d5ed186132d6a8de12c0eb539f35d8cf7dacf106c24bae66388",
+    "full_repairs.py": "be8dc32a98d9aee43c64cd98ce60c626baca4baca8121332e77deece54001f36",
+    "render_dock.py": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce"
+  },
+  "acceptance": false,
+  "latest_independent_luna_score": 81,
+  "build_command": "/workspace/tools/blender-5.2.2-linux-x64/blender -b --factory-startup --disable-autoexec --threads 4 --python-exit-code 1 --python sections/facility-assembly/sources/compliance-dock/overhaul_dock.py -- --stage full --revision f15",
+  "build_command_argv": [
+    "/workspace/tools/blender-5.2.2-linux-x64/blender",
+    "-b",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--threads",
+    "4",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "sections/facility-assembly/sources/compliance-dock/overhaul_dock.py",
+    "--",
+    "--stage",
+    "full",
+    "--revision",
+    "f15"
+  ],
+  "native_build": "PASS exit0;116actualinterface guards before native save",
+  "native_sha256": "d2514e668ea2b24e8b4ede6bde870e12f10c1afd6d6e1892b12c016266bd7b35",
+  "authoring_counts": {
+    "objects": 1323,
+    "evaluated_triangles": 395342,
+    "authoring_material_submeshes": 1143
+  },
+  "local_material_families": 35,
+  "static": "PASS7/0errors/0warnings/5unverified",
+  "pixels": "PASS root individually opened all35current+4approved originals; current/source/renderer/PNGhashes and reference provenance match",
+  "full_cycle_08": "All35complete;6freshindependent reviewers active/finishing; Luna7visualscores locked93/89/94/93/89/95/94, category8pending; nooverallpass",
+  "actual_github_publication": "PASS actualcommitfc381a12c53e826b7644eb5d3e521854b6c60452 / treee4a2cb393fd5d2fa1a0f562a6fd64f686c63832f",
+  "saved_geometry_probe": "PASS real consolidated guide heel gaps0m; all29roller physicaledges within1%",
+  "source_cold_open": "PASS isolatedactualGitHub checkout1323objects/25relative libraries/119packedimages; sourceunchanged; final27decodedcoldpixel gate pending"
+}

@@ -1,0 +1,618 @@
+{
+  "schema_version": 1,
+  "critic": "fresh independent read-only technical C9 specialist",
+  "scope": "Category8 only. No overall score. Root alone authored all geometry/material/source changes. No native file saved and no builder executed by critic.",
+  "generated_utc": "2026-10-03T08:15:32.865884+00:00",
+  "category": 8,
+  "category_name": "Technical cleanliness, support contact, reproducibility and dependencies",
+  "score": 92.0,
+  "score_formula": "100\u22126.00\u22121.25\u22120.50\u22120.25=92.00; independent defect deductions, no threshold-based adjustment",
+  "verdict": "FAIL: destructive construction intersections remain; category8 does not exceed93",
+  "native_sha256": "6838d604ac4586da057a652e98e9c694f754a84e9f38ba70b83f1046e9ae6e9a",
+  "native_scene": "COMPLIANCE_EDIT_LOCAL",
+  "blender": "5.2.2 LTS",
+  "blender_build_hash": "d13f752e3b9c",
+  "source_and_recipe_hashes": {
+    "sections/facility-assembly/blender/facility_environment.blend": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+    "sections/facility-assembly/sources/compliance-dock/module.blend": "0cdae8b3d302459d75569cb6bf3a463f24b30ea373c2bcdf430360033d7b0947",
+    "sections/facility-assembly/sources/compliance-dock/accepted.blend": "575686f6771bc35c224961b2f9da0224cf6c7acf96631cf75cf55a8af28d3f4c",
+    "sections/facility-assembly/sources/compliance-dock/contracts/interface.json": "bdbdd0389eaa3b36b7d0f174c057034b2abd262245a8d4b52374b5b33e03eb6e",
+    "sections/facility-assembly/sources/spawn-room/module.blend": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+    "sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend": "6838d604ac4586da057a652e98e9c694f754a84e9f38ba70b83f1046e9ae6e9a",
+    "sections/facility-assembly/sources/compliance-dock/overhaul_dock.py": "347c84da9e72547935adc50b755c1b95ff3b161ddf5019d689bf0ef86ba7cd6c",
+    "sections/facility-assembly/sources/compliance-dock/full_detail.py": "1521449b1c6eee88689cadb6e43ae911e909f200655b335cd273b9a030a3ef0e",
+    "sections/facility-assembly/sources/compliance-dock/full_repairs.py": "5edc8c94dcc4e6c17ac5af60815136f02b41cdd64afee381f8505d3df16c1657",
+    "sections/facility-assembly/sources/compliance-dock/render_dock.py": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce"
+  },
+  "native_commands_and_status": {
+    "probe": {
+      "command": [
+        "/workspace/tools/blender-5.2.2-linux-x64/blender",
+        "--background",
+        "--disable-autoexec",
+        "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend",
+        "--threads",
+        "1",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/critics/full-c09-technical/probe.py"
+      ],
+      "exit_status": 0,
+      "elapsed_s": 41.8401312828064,
+      "before": {
+        "sections/facility-assembly/blender/facility_environment.blend": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+        "sections/facility-assembly/sources/compliance-dock/module.blend": "0cdae8b3d302459d75569cb6bf3a463f24b30ea373c2bcdf430360033d7b0947",
+        "sections/facility-assembly/sources/compliance-dock/accepted.blend": "575686f6771bc35c224961b2f9da0224cf6c7acf96631cf75cf55a8af28d3f4c",
+        "sections/facility-assembly/sources/compliance-dock/contracts/interface.json": "bdbdd0389eaa3b36b7d0f174c057034b2abd262245a8d4b52374b5b33e03eb6e",
+        "sections/facility-assembly/sources/spawn-room/module.blend": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+        "sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend": "6838d604ac4586da057a652e98e9c694f754a84e9f38ba70b83f1046e9ae6e9a",
+        "sections/facility-assembly/sources/compliance-dock/overhaul_dock.py": "347c84da9e72547935adc50b755c1b95ff3b161ddf5019d689bf0ef86ba7cd6c",
+        "sections/facility-assembly/sources/compliance-dock/full_detail.py": "1521449b1c6eee88689cadb6e43ae911e909f200655b335cd273b9a030a3ef0e",
+        "sections/facility-assembly/sources/compliance-dock/full_repairs.py": "5edc8c94dcc4e6c17ac5af60815136f02b41cdd64afee381f8505d3df16c1657",
+        "sections/facility-assembly/sources/compliance-dock/render_dock.py": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce"
+      },
+      "after": {
+        "sections/facility-assembly/blender/facility_environment.blend": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+        "sections/facility-assembly/sources/compliance-dock/module.blend": "0cdae8b3d302459d75569cb6bf3a463f24b30ea373c2bcdf430360033d7b0947",
+        "sections/facility-assembly/sources/compliance-dock/accepted.blend": "575686f6771bc35c224961b2f9da0224cf6c7acf96631cf75cf55a8af28d3f4c",
+        "sections/facility-assembly/sources/compliance-dock/contracts/interface.json": "bdbdd0389eaa3b36b7d0f174c057034b2abd262245a8d4b52374b5b33e03eb6e",
+        "sections/facility-assembly/sources/spawn-room/module.blend": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+        "sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend": "6838d604ac4586da057a652e98e9c694f754a84e9f38ba70b83f1046e9ae6e9a",
+        "sections/facility-assembly/sources/compliance-dock/overhaul_dock.py": "347c84da9e72547935adc50b755c1b95ff3b161ddf5019d689bf0ef86ba7cd6c",
+        "sections/facility-assembly/sources/compliance-dock/full_detail.py": "1521449b1c6eee88689cadb6e43ae911e909f200655b335cd273b9a030a3ef0e",
+        "sections/facility-assembly/sources/compliance-dock/full_repairs.py": "5edc8c94dcc4e6c17ac5af60815136f02b41cdd64afee381f8505d3df16c1657",
+        "sections/facility-assembly/sources/compliance-dock/render_dock.py": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce"
+      },
+      "expected": {
+        "sections/facility-assembly/blender/facility_environment.blend": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+        "sections/facility-assembly/sources/compliance-dock/module.blend": "0cdae8b3d302459d75569cb6bf3a463f24b30ea373c2bcdf430360033d7b0947",
+        "sections/facility-assembly/sources/compliance-dock/accepted.blend": "575686f6771bc35c224961b2f9da0224cf6c7acf96631cf75cf55a8af28d3f4c",
+        "sections/facility-assembly/sources/compliance-dock/contracts/interface.json": "bdbdd0389eaa3b36b7d0f174c057034b2abd262245a8d4b52374b5b33e03eb6e",
+        "sections/facility-assembly/sources/spawn-room/module.blend": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+        "sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend": "6838d604ac4586da057a652e98e9c694f754a84e9f38ba70b83f1046e9ae6e9a",
+        "sections/facility-assembly/sources/compliance-dock/overhaul_dock.py": "347c84da9e72547935adc50b755c1b95ff3b161ddf5019d689bf0ef86ba7cd6c",
+        "sections/facility-assembly/sources/compliance-dock/full_detail.py": "1521449b1c6eee88689cadb6e43ae911e909f200655b335cd273b9a030a3ef0e",
+        "sections/facility-assembly/sources/compliance-dock/full_repairs.py": "5edc8c94dcc4e6c17ac5af60815136f02b41cdd64afee381f8505d3df16c1657",
+        "sections/facility-assembly/sources/compliance-dock/render_dock.py": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce"
+      },
+      "hash_guard_pass": true
+    },
+    "validator": {
+      "command": [
+        "/workspace/tools/blender-5.2.2-linux-x64/blender",
+        "--background",
+        "--disable-autoexec",
+        "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend",
+        "--threads",
+        "1",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/validate_dock.py",
+        "--",
+        "--output",
+        "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/critics/full-c09-technical/existing-validator.json",
+        "--interface",
+        "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/contracts/interface.json",
+        "--expected-stage",
+        "full"
+      ],
+      "exit_status": 0,
+      "elapsed_s": 29.0528826713562,
+      "before": {
+        "sections/facility-assembly/blender/facility_environment.blend": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+        "sections/facility-assembly/sources/compliance-dock/module.blend": "0cdae8b3d302459d75569cb6bf3a463f24b30ea373c2bcdf430360033d7b0947",
+        "sections/facility-assembly/sources/compliance-dock/accepted.blend": "575686f6771bc35c224961b2f9da0224cf6c7acf96631cf75cf55a8af28d3f4c",
+        "sections/facility-assembly/sources/compliance-dock/contracts/interface.json": "bdbdd0389eaa3b36b7d0f174c057034b2abd262245a8d4b52374b5b33e03eb6e",
+        "sections/facility-assembly/sources/spawn-room/module.blend": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+        "sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend": "6838d604ac4586da057a652e98e9c694f754a84e9f38ba70b83f1046e9ae6e9a",
+        "sections/facility-assembly/sources/compliance-dock/overhaul_dock.py": "347c84da9e72547935adc50b755c1b95ff3b161ddf5019d689bf0ef86ba7cd6c",
+        "sections/facility-assembly/sources/compliance-dock/full_detail.py": "1521449b1c6eee88689cadb6e43ae911e909f200655b335cd273b9a030a3ef0e",
+        "sections/facility-assembly/sources/compliance-dock/full_repairs.py": "5edc8c94dcc4e6c17ac5af60815136f02b41cdd64afee381f8505d3df16c1657",
+        "sections/facility-assembly/sources/compliance-dock/render_dock.py": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce"
+      },
+      "after": {
+        "sections/facility-assembly/blender/facility_environment.blend": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+        "sections/facility-assembly/sources/compliance-dock/module.blend": "0cdae8b3d302459d75569cb6bf3a463f24b30ea373c2bcdf430360033d7b0947",
+        "sections/facility-assembly/sources/compliance-dock/accepted.blend": "575686f6771bc35c224961b2f9da0224cf6c7acf96631cf75cf55a8af28d3f4c",
+        "sections/facility-assembly/sources/compliance-dock/contracts/interface.json": "bdbdd0389eaa3b36b7d0f174c057034b2abd262245a8d4b52374b5b33e03eb6e",
+        "sections/facility-assembly/sources/spawn-room/module.blend": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+        "sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend": "6838d604ac4586da057a652e98e9c694f754a84e9f38ba70b83f1046e9ae6e9a",
+        "sections/facility-assembly/sources/compliance-dock/overhaul_dock.py": "347c84da9e72547935adc50b755c1b95ff3b161ddf5019d689bf0ef86ba7cd6c",
+        "sections/facility-assembly/sources/compliance-dock/full_detail.py": "1521449b1c6eee88689cadb6e43ae911e909f200655b335cd273b9a030a3ef0e",
+        "sections/facility-assembly/sources/compliance-dock/full_repairs.py": "5edc8c94dcc4e6c17ac5af60815136f02b41cdd64afee381f8505d3df16c1657",
+        "sections/facility-assembly/sources/compliance-dock/render_dock.py": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce"
+      },
+      "expected": {
+        "sections/facility-assembly/blender/facility_environment.blend": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+        "sections/facility-assembly/sources/compliance-dock/module.blend": "0cdae8b3d302459d75569cb6bf3a463f24b30ea373c2bcdf430360033d7b0947",
+        "sections/facility-assembly/sources/compliance-dock/accepted.blend": "575686f6771bc35c224961b2f9da0224cf6c7acf96631cf75cf55a8af28d3f4c",
+        "sections/facility-assembly/sources/compliance-dock/contracts/interface.json": "bdbdd0389eaa3b36b7d0f174c057034b2abd262245a8d4b52374b5b33e03eb6e",
+        "sections/facility-assembly/sources/spawn-room/module.blend": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+        "sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend": "6838d604ac4586da057a652e98e9c694f754a84e9f38ba70b83f1046e9ae6e9a",
+        "sections/facility-assembly/sources/compliance-dock/overhaul_dock.py": "347c84da9e72547935adc50b755c1b95ff3b161ddf5019d689bf0ef86ba7cd6c",
+        "sections/facility-assembly/sources/compliance-dock/full_detail.py": "1521449b1c6eee88689cadb6e43ae911e909f200655b335cd273b9a030a3ef0e",
+        "sections/facility-assembly/sources/compliance-dock/full_repairs.py": "5edc8c94dcc4e6c17ac5af60815136f02b41cdd64afee381f8505d3df16c1657",
+        "sections/facility-assembly/sources/compliance-dock/render_dock.py": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce"
+      },
+      "hash_guard_pass": true
+    },
+    "intersections": {
+      "command": [
+        "/workspace/tools/blender-5.2.2-linux-x64/blender",
+        "--background",
+        "--disable-autoexec",
+        "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend",
+        "--threads",
+        "1",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/critics/full-c09-technical/intersections_probe.py"
+      ],
+      "exit_status": 0,
+      "elapsed_s": 29.324419736862183,
+      "before": {
+        "sections/facility-assembly/blender/facility_environment.blend": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+        "sections/facility-assembly/sources/compliance-dock/module.blend": "0cdae8b3d302459d75569cb6bf3a463f24b30ea373c2bcdf430360033d7b0947",
+        "sections/facility-assembly/sources/compliance-dock/accepted.blend": "575686f6771bc35c224961b2f9da0224cf6c7acf96631cf75cf55a8af28d3f4c",
+        "sections/facility-assembly/sources/compliance-dock/contracts/interface.json": "bdbdd0389eaa3b36b7d0f174c057034b2abd262245a8d4b52374b5b33e03eb6e",
+        "sections/facility-assembly/sources/spawn-room/module.blend": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+        "sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend": "6838d604ac4586da057a652e98e9c694f754a84e9f38ba70b83f1046e9ae6e9a",
+        "sections/facility-assembly/sources/compliance-dock/overhaul_dock.py": "347c84da9e72547935adc50b755c1b95ff3b161ddf5019d689bf0ef86ba7cd6c",
+        "sections/facility-assembly/sources/compliance-dock/full_detail.py": "1521449b1c6eee88689cadb6e43ae911e909f200655b335cd273b9a030a3ef0e",
+        "sections/facility-assembly/sources/compliance-dock/full_repairs.py": "5edc8c94dcc4e6c17ac5af60815136f02b41cdd64afee381f8505d3df16c1657",
+        "sections/facility-assembly/sources/compliance-dock/render_dock.py": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce"
+      },
+      "after": {
+        "sections/facility-assembly/blender/facility_environment.blend": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+        "sections/facility-assembly/sources/compliance-dock/module.blend": "0cdae8b3d302459d75569cb6bf3a463f24b30ea373c2bcdf430360033d7b0947",
+        "sections/facility-assembly/sources/compliance-dock/accepted.blend": "575686f6771bc35c224961b2f9da0224cf6c7acf96631cf75cf55a8af28d3f4c",
+        "sections/facility-assembly/sources/compliance-dock/contracts/interface.json": "bdbdd0389eaa3b36b7d0f174c057034b2abd262245a8d4b52374b5b33e03eb6e",
+        "sections/facility-assembly/sources/spawn-room/module.blend": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+        "sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend": "6838d604ac4586da057a652e98e9c694f754a84e9f38ba70b83f1046e9ae6e9a",
+        "sections/facility-assembly/sources/compliance-dock/overhaul_dock.py": "347c84da9e72547935adc50b755c1b95ff3b161ddf5019d689bf0ef86ba7cd6c",
+        "sections/facility-assembly/sources/compliance-dock/full_detail.py": "1521449b1c6eee88689cadb6e43ae911e909f200655b335cd273b9a030a3ef0e",
+        "sections/facility-assembly/sources/compliance-dock/full_repairs.py": "5edc8c94dcc4e6c17ac5af60815136f02b41cdd64afee381f8505d3df16c1657",
+        "sections/facility-assembly/sources/compliance-dock/render_dock.py": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce"
+      },
+      "expected": {
+        "sections/facility-assembly/blender/facility_environment.blend": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+        "sections/facility-assembly/sources/compliance-dock/module.blend": "0cdae8b3d302459d75569cb6bf3a463f24b30ea373c2bcdf430360033d7b0947",
+        "sections/facility-assembly/sources/compliance-dock/accepted.blend": "575686f6771bc35c224961b2f9da0224cf6c7acf96631cf75cf55a8af28d3f4c",
+        "sections/facility-assembly/sources/compliance-dock/contracts/interface.json": "bdbdd0389eaa3b36b7d0f174c057034b2abd262245a8d4b52374b5b33e03eb6e",
+        "sections/facility-assembly/sources/spawn-room/module.blend": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+        "sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend": "6838d604ac4586da057a652e98e9c694f754a84e9f38ba70b83f1046e9ae6e9a",
+        "sections/facility-assembly/sources/compliance-dock/overhaul_dock.py": "347c84da9e72547935adc50b755c1b95ff3b161ddf5019d689bf0ef86ba7cd6c",
+        "sections/facility-assembly/sources/compliance-dock/full_detail.py": "1521449b1c6eee88689cadb6e43ae911e909f200655b335cd273b9a030a3ef0e",
+        "sections/facility-assembly/sources/compliance-dock/full_repairs.py": "5edc8c94dcc4e6c17ac5af60815136f02b41cdd64afee381f8505d3df16c1657",
+        "sections/facility-assembly/sources/compliance-dock/render_dock.py": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce"
+      },
+      "hash_guard_pass": true
+    },
+    "crossing-area": {
+      "command": [
+        "/workspace/tools/blender-5.2.2-linux-x64/blender",
+        "--background",
+        "--disable-autoexec",
+        "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend",
+        "--threads",
+        "1",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/critics/full-c09-technical/crossing_area_probe.py"
+      ],
+      "exit_status": 0,
+      "elapsed_s": 14.615153312683105,
+      "before": {
+        "sections/facility-assembly/blender/facility_environment.blend": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+        "sections/facility-assembly/sources/compliance-dock/module.blend": "0cdae8b3d302459d75569cb6bf3a463f24b30ea373c2bcdf430360033d7b0947",
+        "sections/facility-assembly/sources/compliance-dock/accepted.blend": "575686f6771bc35c224961b2f9da0224cf6c7acf96631cf75cf55a8af28d3f4c",
+        "sections/facility-assembly/sources/compliance-dock/contracts/interface.json": "bdbdd0389eaa3b36b7d0f174c057034b2abd262245a8d4b52374b5b33e03eb6e",
+        "sections/facility-assembly/sources/spawn-room/module.blend": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+        "sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend": "6838d604ac4586da057a652e98e9c694f754a84e9f38ba70b83f1046e9ae6e9a",
+        "sections/facility-assembly/sources/compliance-dock/overhaul_dock.py": "347c84da9e72547935adc50b755c1b95ff3b161ddf5019d689bf0ef86ba7cd6c",
+        "sections/facility-assembly/sources/compliance-dock/full_detail.py": "1521449b1c6eee88689cadb6e43ae911e909f200655b335cd273b9a030a3ef0e",
+        "sections/facility-assembly/sources/compliance-dock/full_repairs.py": "5edc8c94dcc4e6c17ac5af60815136f02b41cdd64afee381f8505d3df16c1657",
+        "sections/facility-assembly/sources/compliance-dock/render_dock.py": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce"
+      },
+      "after": {
+        "sections/facility-assembly/blender/facility_environment.blend": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+        "sections/facility-assembly/sources/compliance-dock/module.blend": "0cdae8b3d302459d75569cb6bf3a463f24b30ea373c2bcdf430360033d7b0947",
+        "sections/facility-assembly/sources/compliance-dock/accepted.blend": "575686f6771bc35c224961b2f9da0224cf6c7acf96631cf75cf55a8af28d3f4c",
+        "sections/facility-assembly/sources/compliance-dock/contracts/interface.json": "bdbdd0389eaa3b36b7d0f174c057034b2abd262245a8d4b52374b5b33e03eb6e",
+        "sections/facility-assembly/sources/spawn-room/module.blend": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+        "sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend": "6838d604ac4586da057a652e98e9c694f754a84e9f38ba70b83f1046e9ae6e9a",
+        "sections/facility-assembly/sources/compliance-dock/overhaul_dock.py": "347c84da9e72547935adc50b755c1b95ff3b161ddf5019d689bf0ef86ba7cd6c",
+        "sections/facility-assembly/sources/compliance-dock/full_detail.py": "1521449b1c6eee88689cadb6e43ae911e909f200655b335cd273b9a030a3ef0e",
+        "sections/facility-assembly/sources/compliance-dock/full_repairs.py": "5edc8c94dcc4e6c17ac5af60815136f02b41cdd64afee381f8505d3df16c1657",
+        "sections/facility-assembly/sources/compliance-dock/render_dock.py": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce"
+      },
+      "expected": {
+        "sections/facility-assembly/blender/facility_environment.blend": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+        "sections/facility-assembly/sources/compliance-dock/module.blend": "0cdae8b3d302459d75569cb6bf3a463f24b30ea373c2bcdf430360033d7b0947",
+        "sections/facility-assembly/sources/compliance-dock/accepted.blend": "575686f6771bc35c224961b2f9da0224cf6c7acf96631cf75cf55a8af28d3f4c",
+        "sections/facility-assembly/sources/compliance-dock/contracts/interface.json": "bdbdd0389eaa3b36b7d0f174c057034b2abd262245a8d4b52374b5b33e03eb6e",
+        "sections/facility-assembly/sources/spawn-room/module.blend": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+        "sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend": "6838d604ac4586da057a652e98e9c694f754a84e9f38ba70b83f1046e9ae6e9a",
+        "sections/facility-assembly/sources/compliance-dock/overhaul_dock.py": "347c84da9e72547935adc50b755c1b95ff3b161ddf5019d689bf0ef86ba7cd6c",
+        "sections/facility-assembly/sources/compliance-dock/full_detail.py": "1521449b1c6eee88689cadb6e43ae911e909f200655b335cd273b9a030a3ef0e",
+        "sections/facility-assembly/sources/compliance-dock/full_repairs.py": "5edc8c94dcc4e6c17ac5af60815136f02b41cdd64afee381f8505d3df16c1657",
+        "sections/facility-assembly/sources/compliance-dock/render_dock.py": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce"
+      },
+      "hash_guard_pass": true
+    }
+  },
+  "imageaudit": "full-c09-technical/imageaudit.json",
+  "image_evidence": {
+    "current_pngs": 35,
+    "actual_current_vision_opens": 35,
+    "approved_spawn_originals": 4,
+    "actual_reference_vision_opens": 4,
+    "current_decoded_resolution": [
+      1067,
+      600
+    ],
+    "reference_original_decoded_resolution": [
+      1280,
+      720
+    ],
+    "complete_manifests": 3,
+    "all_current_image_hashes_and_source_renderer_provenance_verified": true,
+    "all_reference_hashes_and_provenance_verified": true
+  },
+  "defects": [
+    {
+      "defect_id": "C09-T01",
+      "severity": "major",
+      "critical": false,
+      "deduction": 6.0,
+      "title": "Supply duct occupies five solid truss diagonal crossings",
+      "objects": [
+        "Main ventilation supply trunk",
+        "Truss diag B 2.2_0.8",
+        "Truss diag B 5.2_0.8",
+        "Truss diag B 8.2_0.8",
+        "Truss diag B 11.2_0.8",
+        "Truss diag B 13.9_0.8"
+      ],
+      "evidence": [
+        "intersections-detail.json.gz",
+        "crossing-area.json",
+        "../renders/full-cycle-09/C10_ROOF_SERVICES.png"
+      ],
+      "witnesses": [
+        {
+          "from": 1316,
+          "point": [
+            2.9416818618774414,
+            2.202575206756592,
+            4.072262763977051
+          ],
+          "target_point": [
+            2.875,
+            2.202575445175171,
+            4.072262763977051
+          ],
+          "target_triangle": 154
+        },
+        {
+          "from": 1326,
+          "point": [
+            2.9416818618774414,
+            5.202575206756592,
+            4.072262763977051
+          ],
+          "target_point": [
+            2.875,
+            5.20257568359375,
+            4.072262763977051
+          ],
+          "target_triangle": 154
+        },
+        {
+          "from": 1336,
+          "point": [
+            3.4583182334899902,
+            8.20257568359375,
+            3.82773756980896
+          ],
+          "target_point": [
+            3.5250000953674316,
+            8.202686309814453,
+            3.8277361392974854
+          ],
+          "target_triangle": 163
+        },
+        {
+          "from": 1346,
+          "point": [
+            3.4583182334899902,
+            11.20257568359375,
+            3.82773756980896
+          ],
+          "target_point": [
+            3.5250000953674316,
+            11.202726364135742,
+            3.827742338180542
+          ],
+          "target_triangle": 163
+        },
+        {
+          "from": 1356,
+          "point": [
+            2.9416818618774414,
+            13.902575492858887,
+            4.072262763977051
+          ],
+          "target_point": [
+            2.875,
+            13.902589797973633,
+            4.072258949279785
+          ],
+          "target_triangle": 155
+        }
+      ],
+      "maximum_sampled_interior_depth_m": 0.06668203324079514,
+      "actual_embedded_truss_surface_area_m2": 0.5362979373889142,
+      "impact": "Five repeated roof bays have positive-volume duct/steel conflicts, with about0.10726m\u00b2 of actual steel surface inside the closed duct at each bay. No cut opening, sleeve or rerouted clearance is modeled. A truss web passing through an uncut ventilation enclosure is a destructive construction conflict, regardless of partial concealment in the roof beauty. It does not establish a runtime collision or structural-safety finding.",
+      "pixel_assessment": "C10 reveals the dense duct/truss relationship; individual clipping boundaries are partly concealed by dark overhead surfaces. Severity is based on actual native geometry, not invented pixel visibility.",
+      "repair_direction": "Root can edit local duct cross section or provide properly constructed route/opening while retaining original transforms, outer envelope and reservations."
+    },
+    {
+      "defect_id": "C09-T02",
+      "severity": "moderate",
+      "critical": false,
+      "deduction": 1.25,
+      "title": "SW fixture suspension steel passes through uncut return duct",
+      "objects": [
+        "CD | Joined CD | Warm Fluorescent SW suspended fixture / steel",
+        "Return ventilation trunk"
+      ],
+      "evidence": [
+        "intersections-detail.json.gz",
+        "crossing-area.json",
+        "../renders/full-cycle-09/C02_HERO_DOCK.png"
+      ],
+      "witnesses": [
+        {
+          "from": 2196,
+          "point": [
+            -3.99411678314209,
+            1.5398459434509277,
+            4.059833526611328
+          ],
+          "target_point": [
+            -4.050000190734863,
+            1.5398460626602173,
+            4.059834003448486
+          ],
+          "target_triangle": 154
+        },
+        {
+          "from": 2198,
+          "point": [
+            -3.99411678314209,
+            2.459846019744873,
+            4.059833526611328
+          ],
+          "target_point": [
+            -4.050000190734863,
+            2.459846258163452,
+            4.059833526611328
+          ],
+          "target_triangle": 154
+        }
+      ],
+      "maximum_sampled_interior_depth_m": 0.05588340759277344,
+      "actual_embedded_fixture_surface_area_m2": 0.025402971126467538,
+      "impact": "Two suspension pieces cross the closed return duct at X\u2248\u22123.994,Y\u22481.540/2.460,Z\u22484.060. This is not a captive fixing seated on a declared bearing: the steel continues through the enclosure on its way to the roof, without a modeled bore or sealed penetration. The conflict is localized and mostly above the ordinary player field.",
+      "pixel_assessment": "The relevant hanging practical and ceiling routes are present in current wide/roof views, but the penetration itself is small and partially occluded; no claim that both exact crossing polygons are readable at600p.",
+      "repair_direction": "Provide an actual sealed pass-through/offset suspension or local clearance; retain inherited poses and fixtures."
+    },
+    {
+      "defect_id": "C09-T03",
+      "severity": "minor",
+      "critical": false,
+      "deduction": 0.5,
+      "title": "Transit pallet rear corner embeds in fixed pilaster and flange",
+      "objects": [
+        "Transit pallet base 1",
+        "Pilaster east 11.5",
+        "Pilaster east flange 11.5"
+      ],
+      "evidence": [
+        "intersections-detail.json.gz",
+        "inventory.json.gz",
+        "../renders/full-cycle-09/PLAYER_PINCH.png",
+        "../renders/full-cycle-09/WALL_EAST.png"
+      ],
+      "witnesses": [
+        {
+          "from": 1305,
+          "point": [
+            6.7220001220703125,
+            11.377999305725098,
+            0.11999999731779099
+          ],
+          "target_point": [
+            6.7220001220703125,
+            11.359999656677246,
+            0.12000001221895218
+          ],
+          "target_triangle": 157
+        },
+        {
+          "from": 36,
+          "point": [
+            6.61299991607666,
+            11.677000045776367,
+            0.019999999552965164
+          ],
+          "target_point": [
+            6.61299991607666,
+            11.677000045776367,
+            0.0
+          ],
+          "target_triangle": 152
+        }
+      ],
+      "maximum_sampled_interior_depth_m": 0.019999999552965164,
+      "affected_component_area_m2": 1.9966845693160493,
+      "impact": "Actual closed pallet triangles and the fixed pilaster overlap by sampled18mm; its floor flange also occupies the pallet solid through its full20mm thickness. The missing rear-corner notch is localized, largely hidden behind drum placement, and does not block the reviewed north return. Component area is the whole pallet surface, not an invented exact intersection-area measurement.",
+      "repair_direction": "Cut the pallet corner around the preserved pilaster/flange; do not move the original pallet or wall objects."
+    },
+    {
+      "defect_id": "C09-T04",
+      "severity": "minor",
+      "critical": false,
+      "deduction": 0.25,
+      "title": "Localized consumed cloth return-chart distortion persists",
+      "evidence": [
+        "inventory.json.gz",
+        "../renders/full-cycle-09/DETAIL_CHECKIN.png",
+        "../renders/full-cycle-09-uv-standard/C07_OFFICE_INTERIOR.png"
+      ],
+      "measurements": [
+        {
+          "object": "CD | Joined CD | Counter cleaning cloth / cotton",
+          "shader_consumed_layer": "CD_Fabric_Cut_1m",
+          "max_anisotropy": 2.363701031775364,
+          "surface_area_anisotropy_gt2_m2": 0.0007224366231354051,
+          "object_surface_area_m2": 0.18265184979238142,
+          "area_fraction_gt2": 0.003955265845687256,
+          "witness": {
+            "triangle": 440,
+            "centre": [
+              -4.080778122,
+              3.333306074,
+              1.061207175
+            ],
+            "area_m2": 0.00013591530111653347
+          }
+        },
+        {
+          "object": "CD | Joined Staff Desk Assembly / fabric",
+          "shader_consumed_layer": "CD_Fabric_Cut_1m",
+          "max_anisotropy": 2.4987245979115222,
+          "surface_area_anisotropy_gt2_m2": 0.0003621713587569832,
+          "object_surface_area_m2": 0.35005022227353044,
+          "area_fraction_gt2": 0.0010346268498409388,
+          "witness": {
+            "triangle": 1540,
+            "centre": [
+              -3.776040077,
+              6.094651699,
+              0.760857761
+            ],
+            "area_m2": 6.181951964583277e-07
+          }
+        }
+      ],
+      "impact": "Maximum local triangle Jacobian singular-value ratios are2.36370 and2.49872 on narrow textile returns. Areas above2 are0.000722437m\u00b2 and0.000362171m\u00b2:0.3955% and0.1035% of the respective meshes. Broad panels show no comparable measured distortion and the small edges have little600p impact. The deduction is small because of measured affected area, not checker seam phase or perspective density.",
+      "repair_direction": "Develop only the remaining consumed narrow edge charts without re-unwrapping accepted broad panels."
+    }
+  ],
+  "critical": [],
+  "critical_defects": [],
+  "visual_vetoes": [],
+  "vetoes": [],
+  "technical_clearance": false,
+  "hard_gate_failures": [
+    "Destructive service/structure intersections C09-T01 andC09-T02 remain despite passing registered anchors."
+  ],
+  "passes_and_classifications": {
+    "planning_counts": {
+      "objects": 1339,
+      "parts": 2810,
+      "evaluated_triangles": 397690,
+      "material_submeshes": 1146,
+      "local_material_families": 36
+    },
+    "planning_caps": {
+      "evaluated_authoring_triangles": 450000,
+      "material_submeshes": 1150,
+      "local_material_families": 36
+    },
+    "planning_caps_pass": true,
+    "performance_inference": false,
+    "original_module_comparison": {
+      "original_count": 1077,
+      "missing": [],
+      "changed_world_matrices": [
+        {
+          "object": "P1 deep sign text",
+          "max_matrix_difference": 1.1871138828673793e-07
+        },
+        {
+          "object": "Key box label",
+          "max_matrix_difference": 1.1871138828673793e-07
+        }
+      ],
+      "threshold": 1e-07
+    },
+    "original_pose_assessment": "All1077 original objects retained.1075 matrices are identical at measured precision; two text matrices differ only\u22481.19e\u22127 in a matrix element, consistent with floating-point evaluation and far below any geometric interface tolerance. No material world-pose movement detected.",
+    "whole_scene_support": {
+      "components": 2810,
+      "actual_contact_pairs": 5885,
+      "all_components_have_actual_contact_graph_path_to_floor": true,
+      "contact_gap_tolerance_m": 0.005,
+      "floating_point_skin_m": 1e-06,
+      "registered_assemblies": 49,
+      "registered_support_anchors": 101,
+      "authority_anchor_checks": "Existing validator sevenPASS, zeroerrors/zerowarnings; independently rerun.",
+      "proof_scope": "Every component graph node is actual evaluated geometry, including architecture and disconnected cosmetic parts. Triangular contacts/overlaps, not registration or AABB anchors, establish geometric paths. Paths alone do not certify loads; destructive crossings are separately failed.",
+      "supplemental_declared_assembly_graph": "Some components mount via legitimate architecture or separate tabletop backing outside their owning registry root. Universal surface graph resolves those paths; ancestry-only shortcut is not accepted."
+    },
+    "duplicates_and_mesh_quality": {
+      "exact_duplicate_world_triangles": 0,
+      "degenerate_evaluated_triangles": 0,
+      "reversed_closed_component_volumes": 0,
+      "inconsistent_shared_triangle_edge_winding": 0,
+      "welded_nonmanifold_edges": 4,
+      "classification": "Four welded nonmanifold edges occur where separate touching cosmetic D1 reader solids meet; native parts remain intentionally editable, with no duplicate triangle skins. Open curve/cord ends and flat printed glyphs are intentional; not treated as missing closed solids."
+    },
+    "intersection_classification": {
+      "broadphase_candidates": 6541,
+      "actual_crossing_component_pairs": 3251,
+      "pairs_with_sampled_interior_depth_gt2mm": 1168,
+      "intentional_construction_examples": [
+        "Evidence/switchgear carcass and plinth unions",
+        "Captive stems, retaining hardware, lenses and cooling-fin roots seated inside their own housings",
+        "Wall corner/lintel construction volume",
+        "Conduit entry into junction boxes",
+        "Small integrated scanner/G1 control attachment and pressed fixing overlaps, with coherent exterior in current C04/C06/HERO_SCANNER pixels"
+      ],
+      "destructive_conflicts": "C09-T01/T02/T03 quantified individually; numerical overlaps are not globally waived as intentional. Other sampled overlaps are retained in raw proof for review."
+    },
+    "dependencies": {
+      "native_libraries": 25,
+      "all_library_files_exist_and_hashed": true,
+      "packed_file_images": 119,
+      "all119_images_packed": true,
+      "local_material_image_nodes": 0,
+      "fonts": "Packed DejaVu Sans Condensed Bold plus Blender builtins; converted local print geometry and retained recipes/font license are present.",
+      "shared_materials": "36 local families shared across local object users; used-layer/material/output reachability evaluated without changing any shared datablock.",
+      "source_portability": "Root actualGitHub fa38dc38d67588d058c03ec1cc397c31f9ba67d9 source-only cold-open proof independently referenced and hashed; final_pixel_comparison=false. Local fresh process independently opened25 linked libraries with119packed images unchanged.",
+      "factory_rebuild": "Not executed under the explicit read-only critic boundary. Four canonical recipes pass independent AST syntax and hash checks; no replay claim."
+    },
+    "interfaces": "Original selected module and protected interface bytes independently guarded; original object world matrices independently compared against a fresh actualmodule.blend open. Existing native portal/route reservations checked in the sevenPASS validator. Authored contract discrepancies remain documented; no claim of Blueprint equivalence from names or gameplay swept-clearance simulation."
+  },
+  "limitations": [
+    "Triangle-surface contact distances are upper bounds from every component vertex and face centre plus exact BVH overlaps. Unsampled edge-edge near-contacts are not lower-bound clearance proofs.1\u03bcm floating-point skin is explicit.",
+    "Interior-penetration samples use closed solids and two agreed oblique parity rays; they do not measure general overlap volume. Exact convex clipping is used only for the six specified duct conflicts after checking target convexity.",
+    "Source-only cold-open is portable dependency evidence; final-two-cycle stability and actualGitHub complete cold-render pixel comparison remain owner gates, not certified by this critic.",
+    "Factory replay was explicitly prohibited, so reproducibility beyond inspected recipes and fresh native open is not independently established.",
+    "Runtime collision, navigation, cart/body curved-turning, ragdoll/door swept motion, gameplay and performance remain unmeasured.",
+    "The whole scene contact graph does not prove engineering load capacity, fastening design or strength.",
+    "Current beauty/neutral/checker evidence covers the fixed35 views; exact ceiling crossing polygons are partly hidden at600p, so their area/depth assessment is native numerical evidence."
+  ],
+  "retained_failed_attempts": [
+    "attempt-01: strict5mm floating-point boundary contact test temporarily classified51 components unreachable;1\u03bcm skin corrected the numerical boundary without changing source. Initial absolute-origin microscopic signed volumes suffered float cancellation; component-local origins corrected that measurement. Duplicate material UV-node names initially tripled some area totals; consumed-layer set normalization corrected them. Original raw attempts remain.",
+    "image-audit-attempt-01.json: reference-resolution assertion failed because approved originals are1280\u00d7720, not1067\u00d7600; source reference hashes match.",
+    "vision-open-attempt-error.json: guessed DETAIL_OFFICE_DOOR view did not exist; it was not counted as vision evidence; actual manifest views subsequently opened."
+  ],
+  "reader_release": "All owned native/recipe readers released; all owned Blender/probe jobs completed with exit0; final hash guard unchanged; no further native work scheduled."
+}

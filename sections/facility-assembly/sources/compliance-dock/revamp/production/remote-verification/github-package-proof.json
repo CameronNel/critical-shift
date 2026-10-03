@@ -1,0 +1,10 @@
+{
+  "commit": "65a454a",
+  "branch": "codex/compliance-dock-overhaul-20261001",
+  "restored_dependencies": 25,
+  "source_sha256": "92928a64c1a8cdc1c9b4f0f0a9cc0fee9d03fb827c815c5dbd9888d194a5c942",
+  "cold_native_pass": true,
+  "cold_render_comparison": false,
+  "method": "Fetch ordinary Git parts from GitHub; restore 25 exact native dependencies from HEAD LFS pointers; cold open the fetched source using fetched checker",
+  "checkout": "Isolated disposable GitHub checkout"
+}

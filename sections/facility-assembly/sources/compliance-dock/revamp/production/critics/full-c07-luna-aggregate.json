@@ -1,0 +1,76 @@
+{
+  "reviewer": "GPT-6 Luna",
+  "visual_scores_locked": true,
+  "categories": [
+    {
+      "id": 1,
+      "name": "Scale, layout and route readability",
+      "score": 84
+    },
+    {
+      "id": 2,
+      "name": "Grounded stylized shape language and object-specific construction",
+      "score": 78
+    },
+    {
+      "id": 3,
+      "name": "Inspection/check-in hero hierarchy and functional composition",
+      "score": 82
+    },
+    {
+      "id": 4,
+      "name": "Tactile material identity and UV/texture discipline",
+      "score": 75
+    },
+    {
+      "id": 5,
+      "name": "Localized lighting, depth and bleak atmosphere without hiding geometry",
+      "score": 80
+    },
+    {
+      "id": 6,
+      "name": "Approved spawn colour coherence and restrained accents",
+      "score": 87
+    },
+    {
+      "id": 7,
+      "name": "Purposeful worker traces and coercive institutional storytelling",
+      "score": 72
+    },
+    {
+      "id": 8,
+      "name": "Technical cleanliness, support contact, reproducibility and dependencies",
+      "score": 90.0
+    }
+  ],
+  "sum_points": 648,
+  "category_count": 8,
+  "overall_exact": 81.0,
+  "overall_display": "81/100",
+  "critical_visual_ids": [],
+  "critical_technical_ids": [],
+  "critical_union": [],
+  "high_and_medium_technical_findings": [
+    {
+      "id": "T8-01",
+      "severity": "high",
+      "title": "Separate transit drums visibly interpenetrate"
+    },
+    {
+      "id": "T8-02",
+      "severity": "medium",
+      "title": "Exposed P1 reveal/head skins retain co-oriented coplanar duplicates"
+    },
+    {
+      "id": "T8-03",
+      "severity": "medium",
+      "title": "Scanner manufactured crown and bridge do not conform within 2mm"
+    }
+  ],
+  "owner_gate": "FAIL: overall 81/100 is below 99; all eight categories are at or below 93; critical union is empty.",
+  "basis": {
+    "visual_report": "full-c07-luna-visual.json",
+    "technical_report": "full-c07-technical.json"
+  },
+  "runtime_approval": false
+}

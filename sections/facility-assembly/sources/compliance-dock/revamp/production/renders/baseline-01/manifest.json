@@ -1,0 +1,731 @@
+{
+  "source_sha256": "0cdae8b3d302459d75569cb6bf3a463f24b30ea373c2bcdf430360033d7b0947",
+  "renderer_sha256": "602cce6413c7a7f615b65a6948cfebae4abf4459a8468b5de8f3898e070260c2",
+  "resolution": [
+    1067,
+    600
+  ],
+  "samples": 24,
+  "engine": "CYCLES",
+  "device": "CPU",
+  "seed": 8217,
+  "cold_open": false,
+  "view_transform": "AgX",
+  "look": "AgX - Medium High Contrast",
+  "exposure": 0.699999988079071,
+  "diagnostic": null,
+  "source_saved": false,
+  "label_method": "Temporary camera-attached emission geometry",
+  "complete": true,
+  "shots": [
+    {
+      "id": "C01_ENTRY",
+      "label": "01 | FACILITY ENTRY",
+      "group": "mandatory",
+      "inherited": "C01_ENTRY",
+      "position": null,
+      "target": null,
+      "lens": 24,
+      "camera_matrix_world": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.08715580403804779,
+          -0.9961947202682495,
+          0.800000011920929
+        ],
+        [
+          0.0,
+          0.9961947202682495,
+          0.08715580403804779,
+          1.649999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 28.0,
+      "projection": "PERSP",
+      "image_sha256": "03f2f635104fe4d02a8f53fa59b337d9dd5da482be1d4f00dfa39e879cc2bf19",
+      "temporary_hidden_geometry": []
+    },
+    {
+      "id": "C02_HERO_DOCK",
+      "label": "02 | INSPECTION / WIDE",
+      "group": "mandatory",
+      "inherited": "C02_HERO_DOCK",
+      "position": null,
+      "target": null,
+      "lens": 24,
+      "camera_matrix_world": [
+        [
+          0.5735764503479004,
+          0.17031125724315643,
+          -0.8012515902519226,
+          -4.800000190734863
+        ],
+        [
+          -0.8191520571708679,
+          0.11925322562456131,
+          -0.5610424280166626,
+          2.200000047683716
+        ],
+        [
+          0.0,
+          0.9781476259231567,
+          0.2079116553068161,
+          2.0999999046325684
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 24.0,
+      "projection": "PERSP",
+      "image_sha256": "debbc7a9ca7b077ef56e532bb2006d5a2c3f159e4c84ac9961125f9427138d6c",
+      "temporary_hidden_geometry": []
+    },
+    {
+      "id": "C03_CHECKIN_COUNTER",
+      "label": "03 | CHECK-IN HATCH",
+      "group": "mandatory",
+      "inherited": "C03_CHECKIN_COUNTER",
+      "position": null,
+      "target": null,
+      "lens": 24,
+      "camera_matrix_world": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -3.509999990463257
+        ],
+        [
+          0.0,
+          0.08715580403804779,
+          -0.9961947202682495,
+          2.299999952316284
+        ],
+        [
+          0.0,
+          0.9961947202682495,
+          0.08715580403804779,
+          1.25
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 28.0,
+      "projection": "PERSP",
+      "image_sha256": "ce58f14e34bc6cd96177607b37a7d26b9392894879703519859df03051fd534c",
+      "temporary_hidden_geometry": []
+    },
+    {
+      "id": "C04_SCANNER_APPROACH",
+      "label": "04 | WORKER INSPECTION",
+      "group": "mandatory",
+      "inherited": "C04_SCANNER_APPROACH",
+      "position": null,
+      "target": null,
+      "lens": 24,
+      "camera_matrix_world": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.13917310535907745,
+          -0.9902680516242981,
+          4.199999809265137
+        ],
+        [
+          0.0,
+          0.9902680516242981,
+          0.13917310535907745,
+          1.600000023841858
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 28.0,
+      "projection": "PERSP",
+      "image_sha256": "c073d9d8b23c7bef357b18d3098757e0dab8ef6c8cceca9dee15ef7e03e0d997",
+      "temporary_hidden_geometry": []
+    },
+    {
+      "id": "C05_CONVEYOR_LEAD_TUNNEL",
+      "label": "05 | CARGO INSPECTION",
+      "group": "mandatory",
+      "inherited": "C05_CONVEYOR_LEAD_TUNNEL",
+      "position": null,
+      "target": null,
+      "lens": 24,
+      "camera_matrix_world": [
+        [
+          0.6427876353263855,
+          0.1330222487449646,
+          -0.7544065117835999,
+          2.200000047683716
+        ],
+        [
+          -0.7660444378852844,
+          0.11161892116069794,
+          -0.6330221891403198,
+          6.199999809265137
+        ],
+        [
+          0.0,
+          0.9848077297210693,
+          0.17364822328090668,
+          1.649999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 28.0,
+      "projection": "PERSP",
+      "image_sha256": "c4148360440378ffff1cab1ce9e0485dc68bc0abd249bc011fa131cfe25da13f",
+      "temporary_hidden_geometry": []
+    },
+    {
+      "id": "C06_CART_GATE_G1",
+      "label": "06 | CART BYPASS",
+      "group": "mandatory",
+      "inherited": "C06_CART_GATE_G1",
+      "position": null,
+      "target": null,
+      "lens": 24,
+      "camera_matrix_world": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          1.9500000476837158
+        ],
+        [
+          0.0,
+          0.13917310535907745,
+          -0.9902680516242981,
+          4.800000190734863
+        ],
+        [
+          0.0,
+          0.9902680516242981,
+          0.13917310535907745,
+          1.5499999523162842
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 28.0,
+      "projection": "PERSP",
+      "image_sha256": "8a4207d55bd092af558b0b17de994e5b78411a4dad98299c07351c29e4eaf270",
+      "temporary_hidden_geometry": []
+    },
+    {
+      "id": "C07_OFFICE_INTERIOR",
+      "label": "07 | STAFF OFFICE",
+      "group": "mandatory",
+      "inherited": "C07_OFFICE_INTERIOR",
+      "position": null,
+      "target": null,
+      "lens": 24,
+      "camera_matrix_world": [
+        [
+          0.8191520571708679,
+          0.11925322562456131,
+          -0.5610424280166626,
+          -6.0
+        ],
+        [
+          -0.5735764503479004,
+          0.17031125724315643,
+          -0.8012515902519226,
+          4.199999809265137
+        ],
+        [
+          0.0,
+          0.9781476259231567,
+          0.2079116553068161,
+          1.649999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 28.0,
+      "projection": "PERSP",
+      "image_sha256": "b37548979ee63aa0b1c7da4a135c4877f881f4ff4ff02a3f55d29350a97f30dd",
+      "temporary_hidden_geometry": []
+    },
+    {
+      "id": "C08_CONCEALED_SUPPORT_H1",
+      "label": "08 | CONCEALED SUPPORT",
+      "group": "mandatory",
+      "inherited": "C08_CONCEALED_SUPPORT_H1",
+      "position": null,
+      "target": null,
+      "lens": 24,
+      "camera_matrix_world": [
+        [
+          0.3420201539993286,
+          -0.1307799369096756,
+          0.9305475950241089,
+          -3.200000047683716
+        ],
+        [
+          0.9396926164627075,
+          0.04760000482201576,
+          -0.3386916220188141,
+          11.5
+        ],
+        [
+          0.0,
+          0.9902680516242981,
+          0.13917310535907745,
+          1.649999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 28.0,
+      "projection": "PERSP",
+      "image_sha256": "af0de151c6ec3c856ab9bcbaf456e572e246c4919ea57aacf2f2ad5f76bc5268",
+      "temporary_hidden_geometry": []
+    },
+    {
+      "id": "C09_ARRIVAL_GATE_P2",
+      "label": "09 | SEALED ARRIVAL",
+      "group": "mandatory",
+      "inherited": "C09_ARRIVAL_GATE_P2",
+      "position": null,
+      "target": null,
+      "lens": 24,
+      "camera_matrix_world": [
+        [
+          -1.0,
+          9.13816489145347e-09,
+          -8.694387076957355e-08,
+          0.0
+        ],
+        [
+          -8.742277657347586e-08,
+          -0.10452841967344284,
+          0.9945219159126282,
+          12.199999809265137
+        ],
+        [
+          0.0,
+          0.9945219159126282,
+          0.10452841967344284,
+          1.649999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 28.0,
+      "projection": "PERSP",
+      "image_sha256": "cbf43ef5865037b6ec43acdbf168f551ef55faa7c947f4d216eeb0a1888a28a0",
+      "temporary_hidden_geometry": []
+    },
+    {
+      "id": "C10_ROOF_SERVICES",
+      "label": "10 | ROOF SERVICES",
+      "group": "mandatory",
+      "inherited": "C10_ROOF_SERVICES",
+      "position": null,
+      "target": null,
+      "lens": 24,
+      "camera_matrix_world": [
+        [
+          0.6427876353263855,
+          0.4393850564956665,
+          -0.6275068521499634,
+          -4.5
+        ],
+        [
+          -0.7660444378852844,
+          0.36868783831596375,
+          -0.5265407562255859,
+          3.5
+        ],
+        [
+          0.0,
+          0.8191520571708679,
+          0.5735764503479004,
+          2.5999999046325684
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 24.0,
+      "projection": "PERSP",
+      "image_sha256": "68953bbaa96facac8d711d6a0b432e507465ac040a3191d630eb95442a327aed",
+      "temporary_hidden_geometry": []
+    },
+    {
+      "id": "CORNER_SW",
+      "label": "11 | CORNER SW / CUTAWAY",
+      "group": "corners",
+      "inherited": null,
+      "position": [
+        -11,
+        -4,
+        12
+      ],
+      "target": [
+        0,
+        7.9,
+        1.2
+      ],
+      "lens": 26,
+      "camera_matrix_world": [
+        [
+          0.7343301177024841,
+          0.37644192576408386,
+          -0.5648458003997803,
+          -11.0
+        ],
+        [
+          -0.6787925362586975,
+          0.40724173188209534,
+          -0.6110604405403137,
+          -4.0
+        ],
+        [
+          -1.0010088757894664e-08,
+          0.8321331739425659,
+          0.5545758605003357,
+          12.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 26.0,
+      "projection": "ORTHO",
+      "image_sha256": "c7f4f592c9a7f2fc3dcc220928b6633eaaf9d2e73d6631e7080e41c25f9a461c",
+      "temporary_hidden_geometry": [
+        "Skirting south west",
+        "Skirting south east",
+        "Skirting west",
+        "South wall wainscot west",
+        "South wall wainscot east",
+        "Dado rail south W",
+        "Dado rail south E",
+        "Pilaster west flange 11.5_bolt_-0.0684_-0.1368",
+        "Pilaster west flange 11.5_bolt_-0.0684_0.1368",
+        "Pilaster west flange 14.8_bolt_-0.0684_-0.1368",
+        "Pilaster west flange 14.8_bolt_-0.0684_0.1368",
+        "South wall west",
+        "South wall east",
+        "South lintel P1",
+        "West perimeter wall",
+        "P1 corridor ceiling",
+        "P1 corridor floor",
+        "P1 corridor wall W",
+        "P1 corridor wall E",
+        "P1 deep back wall",
+        "P1 deep door leaf",
+        "P1 corridor overhead sign",
+        "Roof deck ceiling slab"
+      ],
+      "ortho_scale_m": 33.80362319946289
+    },
+    {
+      "id": "CORNER_SE",
+      "label": "12 | CORNER SE / CUTAWAY",
+      "group": "corners",
+      "inherited": null,
+      "position": [
+        11,
+        -4,
+        12
+      ],
+      "target": [
+        0,
+        7.9,
+        1.2
+      ],
+      "lens": 26,
+      "camera_matrix_world": [
+        [
+          0.7343301177024841,
+          -0.37644192576408386,
+          0.5648458003997803,
+          11.0
+        ],
+        [
+          0.6787925362586975,
+          0.40724173188209534,
+          -0.6110604405403137,
+          -4.0
+        ],
+        [
+          1.0010088757894664e-08,
+          0.8321331739425659,
+          0.5545758605003357,
+          12.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 26.0,
+      "projection": "ORTHO",
+      "image_sha256": "06e60cc0561eefc45e81fc48312bfcc93c0a67b8895a516adb95a89bc28e6ba4",
+      "temporary_hidden_geometry": [
+        "Skirting south west",
+        "Skirting south east",
+        "Skirting east",
+        "East wall wainscot",
+        "Dado rail east",
+        "South wall wainscot west",
+        "South wall wainscot east",
+        "Dado rail south W",
+        "Dado rail south E",
+        "Pilaster east flange 2.5_bolt_0.0684_-0.1368",
+        "Pilaster east flange 2.5_bolt_0.0684_0.1368",
+        "Pilaster east flange 5.5_bolt_0.0684_-0.1368",
+        "Pilaster east flange 5.5_bolt_0.0684_0.1368",
+        "Pilaster east flange 8.5_bolt_0.0684_-0.1368",
+        "Pilaster east flange 8.5_bolt_0.0684_0.1368",
+        "Pilaster east flange 11.5_bolt_0.0684_-0.1368",
+        "Pilaster east flange 11.5_bolt_0.0684_0.1368",
+        "Pilaster east flange 14.8_bolt_0.0684_-0.1368",
+        "Pilaster east flange 14.8_bolt_0.0684_0.1368",
+        "South wall west",
+        "South wall east",
+        "South lintel P1",
+        "East perimeter wall",
+        "P1 corridor ceiling",
+        "P1 corridor floor",
+        "P1 corridor wall W",
+        "P1 corridor wall E",
+        "P1 deep back wall",
+        "P1 deep door leaf",
+        "P1 corridor overhead sign",
+        "Utility backer panel",
+        "Roof deck ceiling slab"
+      ],
+      "ortho_scale_m": 33.80362319946289
+    },
+    {
+      "id": "CORNER_NW",
+      "label": "13 | CORNER NW / CUTAWAY",
+      "group": "corners",
+      "inherited": null,
+      "position": [
+        -11,
+        20,
+        12
+      ],
+      "target": [
+        0,
+        7.9,
+        1.2
+      ],
+      "lens": 26,
+      "camera_matrix_world": [
+        [
+          -0.7399401068687439,
+          0.37070947885513306,
+          -0.5613048672676086,
+          -11.0
+        ],
+        [
+          -0.6726728081703186,
+          -0.40778031945228577,
+          0.6174354553222656,
+          20.0
+        ],
+        [
+          9.286689106602353e-08,
+          0.834439754486084,
+          0.5510991811752319,
+          12.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 26.0,
+      "projection": "ORTHO",
+      "image_sha256": "40baa9e279abf810459fbb8be76fc45c3654f5ebe7fc468fbad94648768a4d3a",
+      "temporary_hidden_geometry": [
+        "Skirting north west",
+        "Skirting north east",
+        "Skirting west",
+        "North wall wainscot west",
+        "North wall wainscot east",
+        "Dado rail north W",
+        "Dado rail north E",
+        "Pilaster west flange 11.5_bolt_-0.0684_-0.1368",
+        "Pilaster west flange 11.5_bolt_-0.0684_0.1368",
+        "Pilaster west flange 14.8_bolt_-0.0684_-0.1368",
+        "Pilaster west flange 14.8_bolt_-0.0684_0.1368",
+        "North wall west",
+        "North wall east",
+        "North lintel P2",
+        "West perimeter wall",
+        "P2 frame jamb -1",
+        "P2 frame jamb 1",
+        "P2 frame head lintel",
+        "P2 blast leaf west",
+        "P2 blast leaf east",
+        "P2 leaf rib -2.0",
+        "P2 leaf rib -1.2",
+        "P2 leaf rib -0.4",
+        "P2 leaf rib 0.4",
+        "P2 leaf rib 1.2",
+        "P2 leaf rib 2.0",
+        "P2 center seal strip",
+        "P2 gate sign plate",
+        "Roof deck ceiling slab"
+      ],
+      "ortho_scale_m": 33.696144104003906
+    },
+    {
+      "id": "CORNER_NE",
+      "label": "14 | CORNER NE / CUTAWAY",
+      "group": "corners",
+      "inherited": null,
+      "position": [
+        11,
+        20,
+        12
+      ],
+      "target": [
+        0,
+        7.9,
+        1.2
+      ],
+      "lens": 26,
+      "camera_matrix_world": [
+        [
+          -0.7399401068687439,
+          -0.37070947885513306,
+          0.5613048672676086,
+          11.0
+        ],
+        [
+          0.6726728081703186,
+          -0.40778031945228577,
+          0.6174354553222656,
+          20.0
+        ],
+        [
+          -9.286689106602353e-08,
+          0.834439754486084,
+          0.5510991811752319,
+          12.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 26.0,
+      "projection": "ORTHO",
+      "image_sha256": "e1620f5e2ae53c97c719cfb2c7e6f14d88ef67ae9469b3b79b81b58c4cbdd671",
+      "temporary_hidden_geometry": [
+        "Skirting north west",
+        "Skirting north east",
+        "Skirting east",
+        "East wall wainscot",
+        "Dado rail east",
+        "North wall wainscot west",
+        "North wall wainscot east",
+        "Dado rail north W",
+        "Dado rail north E",
+        "Pilaster east flange 2.5_bolt_0.0684_-0.1368",
+        "Pilaster east flange 2.5_bolt_0.0684_0.1368",
+        "Pilaster east flange 5.5_bolt_0.0684_-0.1368",
+        "Pilaster east flange 5.5_bolt_0.0684_0.1368",
+        "Pilaster east flange 8.5_bolt_0.0684_-0.1368",
+        "Pilaster east flange 8.5_bolt_0.0684_0.1368",
+        "Pilaster east flange 11.5_bolt_0.0684_-0.1368",
+        "Pilaster east flange 11.5_bolt_0.0684_0.1368",
+        "Pilaster east flange 14.8_bolt_0.0684_-0.1368",
+        "Pilaster east flange 14.8_bolt_0.0684_0.1368",
+        "North wall west",
+        "North wall east",
+        "North lintel P2",
+        "East perimeter wall",
+        "P2 frame jamb -1",
+        "P2 frame jamb 1",
+        "P2 frame head lintel",
+        "P2 blast leaf west",
+        "P2 blast leaf east",
+        "P2 leaf rib -2.0",
+        "P2 leaf rib -1.2",
+        "P2 leaf rib -0.4",
+        "P2 leaf rib 0.4",
+        "P2 leaf rib 1.2",
+        "P2 leaf rib 2.0",
+        "P2 center seal strip",
+        "P2 gate sign plate",
+        "Utility backer panel",
+        "Roof deck ceiling slab"
+      ],
+      "ortho_scale_m": 33.696144104003906
+    }
+  ],
+  "requested_view_count": 14
+}

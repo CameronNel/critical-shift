@@ -1,0 +1,2354 @@
+{
+  "tolerance_gap_m": 0.005,
+  "tolerance_penetration_m": 0.002,
+  "pair_probes": [
+    {
+      "a": "Drawer pull 0_0",
+      "b": "Drawer face 0_0",
+      "aabb_separation_lower_bound_m": 0.009999752044677734,
+      "vertex_triangle_distance_upper_bound_m": 0.009999752044677734,
+      "nearest_witness": [
+        [
+          -6.0,
+          8.204854011535645,
+          0.2235267162322998
+        ],
+        [
+          -6.009999752044678,
+          8.204854011535645,
+          0.2235267162322998
+        ]
+      ],
+      "triangle_overlap_pairs": 0,
+      "a_vertices_inside_b": [],
+      "b_vertices_inside_a": []
+    },
+    {
+      "a": "Drawer cardholder 0_0",
+      "b": "Drawer face 0_0",
+      "aabb_separation_lower_bound_m": 0.00749969482421875,
+      "vertex_triangle_distance_upper_bound_m": 0.00749969482421875,
+      "nearest_witness": [
+        [
+          -6.002500057220459,
+          8.261000633239746,
+          0.23100000619888306
+        ],
+        [
+          -6.009999752044678,
+          8.261000633239746,
+          0.23100000619888306
+        ]
+      ],
+      "triangle_overlap_pairs": 0,
+      "a_vertices_inside_b": [],
+      "b_vertices_inside_a": []
+    },
+    {
+      "a": "Transformer box 1",
+      "b": "Utility backer panel",
+      "aabb_separation_lower_bound_m": 0.01999950408935547,
+      "vertex_triangle_distance_upper_bound_m": 0.01999950408935547,
+      "nearest_witness": [
+        [
+          6.760000228881836,
+          12.343414306640625,
+          1.3280000686645508
+        ],
+        [
+          6.779999732971191,
+          12.343414306640625,
+          1.3280000686645508
+        ]
+      ],
+      "triangle_overlap_pairs": 0,
+      "a_vertices_inside_b": [],
+      "b_vertices_inside_a": []
+    },
+    {
+      "a": "Transformer box 2",
+      "b": "Utility backer panel",
+      "aabb_separation_lower_bound_m": 0.01999950408935547,
+      "vertex_triangle_distance_upper_bound_m": 0.01999950408935547,
+      "nearest_witness": [
+        [
+          6.760000228881836,
+          12.943414688110352,
+          1.3280000686645508
+        ],
+        [
+          6.779999732971191,
+          12.943414688110352,
+          1.3280000686645508
+        ]
+      ],
+      "triangle_overlap_pairs": 0,
+      "a_vertices_inside_b": [],
+      "b_vertices_inside_a": []
+    },
+    {
+      "a": "Main breaker disconnect",
+      "b": "Utility backer panel",
+      "aabb_separation_lower_bound_m": 0.019999980926513672,
+      "vertex_triangle_distance_upper_bound_m": 0.019999980926513672,
+      "nearest_witness": [
+        [
+          6.759999752044678,
+          13.66616439819336,
+          1.4235000610351562
+        ],
+        [
+          6.779999732971191,
+          13.66616439819336,
+          1.4234999418258667
+        ]
+      ],
+      "triangle_overlap_pairs": 0,
+      "a_vertices_inside_b": [],
+      "b_vertices_inside_a": []
+    },
+    {
+      "a": "P2 blast leaf west",
+      "b": "P2 frame jamb -1",
+      "aabb_separation_lower_bound_m": 0.010000228881835938,
+      "vertex_triangle_distance_upper_bound_m": 0.010000228881835938,
+      "nearest_witness": [
+        [
+          -2.2899999618530273,
+          15.881999969482422,
+          0.02799999713897705
+        ],
+        [
+          -2.3000001907348633,
+          15.881999969482422,
+          0.0279999952763319
+        ]
+      ],
+      "triangle_overlap_pairs": 0,
+      "a_vertices_inside_b": [],
+      "b_vertices_inside_a": []
+    },
+    {
+      "a": "P2 gate sign plate",
+      "b": "P2 blast leaf west",
+      "aabb_separation_lower_bound_m": 0.039999961853027344,
+      "vertex_triangle_distance_upper_bound_m": 0.039999961853027344,
+      "nearest_witness": [
+        [
+          -1.7960000038146973,
+          15.710000038146973,
+          3.1440000534057617
+        ],
+        [
+          -1.7959997653961182,
+          15.75,
+          3.1440000534057617
+        ]
+      ],
+      "triangle_overlap_pairs": 0,
+      "a_vertices_inside_b": [],
+      "b_vertices_inside_a": []
+    },
+    {
+      "a": "P2 beacon base -1.5",
+      "b": "North lintel P2",
+      "aabb_separation_lower_bound_m": 0.029998779296875,
+      "vertex_triangle_distance_upper_bound_m": 0.029998779296875,
+      "nearest_witness": [
+        [
+          -1.5,
+          15.770000457763672,
+          3.865000009536743
+        ],
+        [
+          -1.500000238418579,
+          15.799999237060547,
+          3.865000009536743
+        ]
+      ],
+      "triangle_overlap_pairs": 0,
+      "a_vertices_inside_b": [],
+      "b_vertices_inside_a": []
+    },
+    {
+      "a": "P2 security console",
+      "b": "North wall east",
+      "aabb_separation_lower_bound_m": 0.0,
+      "vertex_triangle_distance_upper_bound_m": 9.5367431640625e-07,
+      "nearest_witness": [
+        [
+          2.4800000190734863,
+          15.800000190734863,
+          1.5199999809265137
+        ],
+        [
+          2.4800000190734863,
+          15.799999237060547,
+          1.5199999809265137
+        ]
+      ],
+      "triangle_overlap_pairs": 12,
+      "a_vertices_inside_b": [
+        [
+          2.4800000190734863,
+          15.800000190734863,
+          0.8800000548362732
+        ],
+        [
+          2.4800000190734863,
+          15.800000190734863,
+          1.5199999809265137
+        ],
+        [
+          2.820000171661377,
+          15.800000190734863,
+          0.8800000548362732
+        ]
+      ],
+      "b_vertices_inside_a": []
+    },
+    {
+      "a": "G1 warning strobe beacon",
+      "b": "G1 side pocket housing",
+      "missing": [
+        "G1 side pocket housing"
+      ]
+    },
+    {
+      "a": "Conveyor roller 0",
+      "b": "Roller bearing cap 0_4.0",
+      "aabb_separation_lower_bound_m": 0.009999752044677734,
+      "vertex_triangle_distance_upper_bound_m": 0.009999752044677734,
+      "nearest_witness": [
+        [
+          4.010000228881836,
+          5.519587993621826,
+          0.800000011920929
+        ],
+        [
+          4.019999980926514,
+          5.519587993621826,
+          0.800000011920929
+        ]
+      ],
+      "triangle_overlap_pairs": 0,
+      "a_vertices_inside_b": [],
+      "b_vertices_inside_a": []
+    },
+    {
+      "a": "Conveyor roller 0",
+      "b": "Roller bearing cap 0_5.3",
+      "aabb_separation_lower_bound_m": 0.009999752044677734,
+      "vertex_triangle_distance_upper_bound_m": 0.009999752044677734,
+      "nearest_witness": [
+        [
+          5.289999961853027,
+          5.519587993621826,
+          0.800000011920929
+        ],
+        [
+          5.28000020980835,
+          5.519587993621826,
+          0.800000011920929
+        ]
+      ],
+      "triangle_overlap_pairs": 0,
+      "a_vertices_inside_b": [],
+      "b_vertices_inside_a": []
+    },
+    {
+      "a": "Lifting eyebolt ring 4.05_6.65",
+      "b": "Lifting eyebolt stem 4.05_6.65",
+      "aabb_separation_lower_bound_m": 0.016440391540527344,
+      "vertex_triangle_distance_upper_bound_m": 0.02366439253091812,
+      "nearest_witness": [
+        [
+          4.054006099700928,
+          6.635048866271973,
+          2.1793301105499268
+        ],
+        [
+          4.056723117828369,
+          6.621387004852295,
+          2.198460578918457
+        ]
+      ],
+      "triangle_overlap_pairs": 0,
+      "a_vertices_inside_b": [],
+      "b_vertices_inside_a": []
+    },
+    {
+      "a": "Cargo crate base",
+      "b": "Conveyor roller 0",
+      "aabb_separation_lower_bound_m": 0.0,
+      "vertex_triangle_distance_upper_bound_m": 0.084320567548275,
+      "nearest_witness": [
+        [
+          5.019000053405762,
+          5.38100004196167,
+          0.8250000476837158
+        ],
+        [
+          5.0189948081970215,
+          5.463700771331787,
+          0.8085517287254333
+        ]
+      ],
+      "triangle_overlap_pairs": 48,
+      "a_vertices_inside_b": [],
+      "b_vertices_inside_a": []
+    },
+    {
+      "a": "Scanner column inset -1",
+      "b": "Scanner portal column -1",
+      "aabb_separation_lower_bound_m": 0.0,
+      "vertex_triangle_distance_upper_bound_m": 0.010318007320165634,
+      "nearest_witness": [
+        [
+          -0.8294655680656433,
+          7.137997150421143,
+          0.153999924659729
+        ],
+        [
+          -0.8386942744255066,
+          7.142611503601074,
+          0.1539999395608902
+        ]
+      ],
+      "triangle_overlap_pairs": 0,
+      "a_vertices_inside_b": [
+        [
+          -0.8259999752044678,
+          6.863999843597412,
+          0.1499999761581421
+        ],
+        [
+          -0.8259999752044678,
+          6.860000133514404,
+          0.153999924659729
+        ],
+        [
+          -0.8299999833106995,
+          6.863999843597412,
+          0.153999924659729
+        ]
+      ],
+      "b_vertices_inside_a": []
+    },
+    {
+      "a": "Key box glass",
+      "b": "Office key box cabinet",
+      "aabb_separation_lower_bound_m": 0.0,
+      "vertex_triangle_distance_upper_bound_m": 0.015000104904174805,
+      "nearest_witness": [
+        [
+          -3.134000062942505,
+          9.4660005569458,
+          1.315000057220459
+        ],
+        [
+          -3.134000062942505,
+          9.4660005569458,
+          1.2999999523162842
+        ]
+      ],
+      "triangle_overlap_pairs": 0,
+      "a_vertices_inside_b": [
+        [
+          -3.134000062942505,
+          9.4660005569458,
+          1.315000057220459
+        ],
+        [
+          -3.134000062942505,
+          9.46500015258789,
+          1.315999984741211
+        ],
+        [
+          -3.134999990463257,
+          9.4660005569458,
+          1.315999984741211
+        ]
+      ],
+      "b_vertices_inside_a": []
+    }
+  ],
+  "surrounding_probes": [
+    {
+      "object": "Transformer box 1",
+      "surrounding_meshes": [
+        {
+          "a": "Transformer box 1",
+          "b": "Utility conduit feed 1",
+          "aabb_separation_lower_bound_m": 0.0,
+          "vertex_triangle_distance_upper_bound_m": 0.005986333359032869,
+          "nearest_witness": [
+            [
+              6.6200432777404785,
+              12.5,
+              1.9000000953674316
+            ],
+            [
+              6.619157314300537,
+              12.5,
+              1.8940796852111816
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "Transformer box 1",
+          "b": "CD | Joined Wall Utilities Rack / steel",
+          "aabb_separation_lower_bound_m": 0.0,
+          "vertex_triangle_distance_upper_bound_m": 0.0,
+          "nearest_witness": [
+            [
+              6.539999961853027,
+              12.360422134399414,
+              1.371999979019165
+            ],
+            [
+              6.539999961853027,
+              12.360422134399414,
+              1.371999979019165
+            ]
+          ],
+          "triangle_overlap_pairs": 96,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "Transformer box 1",
+          "b": "Utility backer panel",
+          "aabb_separation_lower_bound_m": 0.01999950408935547,
+          "vertex_triangle_distance_upper_bound_m": 0.01999950408935547,
+          "nearest_witness": [
+            [
+              6.760000228881836,
+              12.343414306640625,
+              1.3280000686645508
+            ],
+            [
+              6.779999732971191,
+              12.343414306640625,
+              1.3280000686645508
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "Transformer box 1",
+          "b": "East perimeter wall",
+          "aabb_separation_lower_bound_m": 0.039999961853027344,
+          "vertex_triangle_distance_upper_bound_m": 0.039999961853027344,
+          "nearest_witness": [
+            [
+              6.760000228881836,
+              12.343414306640625,
+              1.3280000686645508
+            ],
+            [
+              6.800000190734863,
+              12.343415260314941,
+              1.3280001878738403
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "Transformer box 1",
+          "b": "Transformer box 2",
+          "aabb_separation_lower_bound_m": 0.20000076293945312,
+          "vertex_triangle_distance_upper_bound_m": 0.20000076293945312,
+          "nearest_witness": [
+            [
+              6.540999889373779,
+              12.699999809265137,
+              1.326005220413208
+            ],
+            [
+              6.540999889373779,
+              12.90000057220459,
+              1.326005220413208
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "Transformer box 1",
+          "b": "Dado rail east",
+          "aabb_separation_lower_bound_m": 0.25,
+          "vertex_triangle_distance_upper_bound_m": 0.276852011680603,
+          "nearest_witness": [
+            [
+              6.759011268615723,
+              12.343904495239258,
+              1.3268519639968872
+            ],
+            [
+              6.759011268615723,
+              12.343904495239258,
+              1.0499999523162842
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        }
+      ]
+    },
+    {
+      "object": "Main breaker disconnect",
+      "surrounding_meshes": [
+        {
+          "a": "Main breaker disconnect",
+          "b": "Breaker handle",
+          "aabb_separation_lower_bound_m": 0.0,
+          "vertex_triangle_distance_upper_bound_m": 0.05499982833862305,
+          "nearest_witness": [
+            [
+              6.574999809265137,
+              13.815000534057617,
+              1.649999976158142
+            ],
+            [
+              6.519999980926514,
+              13.815000534057617,
+              1.649999976158142
+            ]
+          ],
+          "triangle_overlap_pairs": 50,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": [
+            [
+              6.579999923706055,
+              13.809957504272461,
+              1.649999976158142
+            ],
+            [
+              6.574999809265137,
+              13.815000534057617,
+              1.649999976158142
+            ],
+            [
+              6.579329967498779,
+              13.812479019165039,
+              1.649999976158142
+            ]
+          ]
+        },
+        {
+          "a": "Main breaker disconnect",
+          "b": "CD | Joined Wall Utilities Rack / steel",
+          "aabb_separation_lower_bound_m": 0.0,
+          "vertex_triangle_distance_upper_bound_m": 4.76837158203125e-07,
+          "nearest_witness": [
+            [
+              6.5199995040893555,
+              13.678422927856445,
+              1.459999918937683
+            ],
+            [
+              6.519999980926514,
+              13.678422927856445,
+              1.459999918937683
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "Main breaker disconnect",
+          "b": "Utility backer panel",
+          "aabb_separation_lower_bound_m": 0.019999980926513672,
+          "vertex_triangle_distance_upper_bound_m": 0.019999980926513672,
+          "nearest_witness": [
+            [
+              6.759999752044678,
+              13.66616439819336,
+              1.4235000610351562
+            ],
+            [
+              6.779999732971191,
+              13.66616439819336,
+              1.4234999418258667
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "Main breaker disconnect",
+          "b": "East perimeter wall",
+          "aabb_separation_lower_bound_m": 0.04000043869018555,
+          "vertex_triangle_distance_upper_bound_m": 0.04000043869018555,
+          "nearest_witness": [
+            [
+              6.759999752044678,
+              13.66616439819336,
+              1.4235000610351562
+            ],
+            [
+              6.800000190734863,
+              13.66616439819336,
+              1.4235001802444458
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        }
+      ]
+    },
+    {
+      "object": "Drawer pull 0_0",
+      "surrounding_meshes": [
+        {
+          "a": "Drawer pull 0_0",
+          "b": "Drawer cardholder 0_0",
+          "aabb_separation_lower_bound_m": 0.004293665289878845,
+          "vertex_triangle_distance_upper_bound_m": 0.015821151435375214,
+          "nearest_witness": [
+            [
+              -5.997633457183838,
+              8.261000633239746,
+              0.23050065338611603
+            ],
+            [
+              -5.983432292938232,
+              8.261000633239746,
+              0.2235267162322998
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "Drawer pull 0_0",
+          "b": "Drawer face 0_0",
+          "aabb_separation_lower_bound_m": 0.009999752044677734,
+          "vertex_triangle_distance_upper_bound_m": 0.009999752044677734,
+          "nearest_witness": [
+            [
+              -6.0,
+              8.204854011535645,
+              0.2235267162322998
+            ],
+            [
+              -6.009999752044678,
+              8.204854011535645,
+              0.2235267162322998
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "Drawer pull 0_0",
+          "b": "Filing cabinet body 0",
+          "aabb_separation_lower_bound_m": 0.02500009536743164,
+          "vertex_triangle_distance_upper_bound_m": 0.02500009536743164,
+          "nearest_witness": [
+            [
+              -6.0,
+              8.204854011535645,
+              0.2235267162322998
+            ],
+            [
+              -6.025000095367432,
+              8.204854011535645,
+              0.2235267162322998
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "Drawer pull 0_0",
+          "b": "Drawer face 0_1",
+          "aabb_separation_lower_bound_m": 0.11971200954336703,
+          "vertex_triangle_distance_upper_bound_m": 0.11999987810850143,
+          "nearest_witness": [
+            [
+              -6.0,
+              8.20185375213623,
+              0.2257063388824463
+            ],
+            [
+              -6.013000011444092,
+              8.20185375213623,
+              0.3449999690055847
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "Drawer pull 0_0",
+          "b": "Floor slab",
+          "aabb_separation_lower_bound_m": 0.21429365873336792,
+          "vertex_triangle_distance_upper_bound_m": 0.21429365873336792,
+          "nearest_witness": [
+            [
+              -6.0,
+              8.198145866394043,
+              0.21429365873336792
+            ],
+            [
+              -6.000000953674316,
+              8.198144912719727,
+              0.0
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "Drawer pull 0_0",
+          "b": "Drawer pull 0_1",
+          "aabb_separation_lower_bound_m": 0.2885873317718506,
+          "vertex_triangle_distance_upper_bound_m": 0.2885873317718506,
+          "nearest_witness": [
+            [
+              -6.0,
+              8.20185375213623,
+              0.2257063388824463
+            ],
+            [
+              -6.0,
+              8.20185375213623,
+              0.5142936706542969
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        }
+      ]
+    },
+    {
+      "object": "Drawer cardholder 0_0",
+      "surrounding_meshes": [
+        {
+          "a": "Drawer cardholder 0_0",
+          "b": "Drawer pull 0_0",
+          "aabb_separation_lower_bound_m": 0.004293665289878845,
+          "vertex_triangle_distance_upper_bound_m": 0.015821151435375214,
+          "nearest_witness": [
+            [
+              -5.997633457183838,
+              8.261000633239746,
+              0.23050065338611603
+            ],
+            [
+              -5.983432292938232,
+              8.261000633239746,
+              0.2235267162322998
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "Drawer cardholder 0_0",
+          "b": "Drawer face 0_0",
+          "aabb_separation_lower_bound_m": 0.00749969482421875,
+          "vertex_triangle_distance_upper_bound_m": 0.00749969482421875,
+          "nearest_witness": [
+            [
+              -6.002500057220459,
+              8.261000633239746,
+              0.23100000619888306
+            ],
+            [
+              -6.009999752044678,
+              8.261000633239746,
+              0.23100000619888306
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "Drawer cardholder 0_0",
+          "b": "Filing cabinet body 0",
+          "aabb_separation_lower_bound_m": 0.022500038146972656,
+          "vertex_triangle_distance_upper_bound_m": 0.022500038146972656,
+          "nearest_witness": [
+            [
+              -6.002500057220459,
+              8.261000633239746,
+              0.23100000619888306
+            ],
+            [
+              -6.025000095367432,
+              8.261000633239746,
+              0.2309999167919159
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "Drawer cardholder 0_0",
+          "b": "Drawer face 0_1",
+          "aabb_separation_lower_bound_m": 0.07537399527668978,
+          "vertex_triangle_distance_upper_bound_m": 0.07587648183107376,
+          "nearest_witness": [
+            [
+              -6.001500129699707,
+              8.261000633239746,
+              0.27000001072883606
+            ],
+            [
+              -6.013000011444092,
+              8.261000633239746,
+              0.3449999690055847
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "Drawer cardholder 0_0",
+          "b": "Floor slab",
+          "aabb_separation_lower_bound_m": 0.23000000417232513,
+          "vertex_triangle_distance_upper_bound_m": 0.23000000417232513,
+          "nearest_witness": [
+            [
+              -6.001500129699707,
+              8.261000633239746,
+              0.23000000417232513
+            ],
+            [
+              -6.001500606536865,
+              8.261000633239746,
+              0.0
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "Drawer cardholder 0_0",
+          "b": "Drawer pull 0_1",
+          "aabb_separation_lower_bound_m": 0.24429365992546082,
+          "vertex_triangle_distance_upper_bound_m": 0.24489764869213104,
+          "nearest_witness": [
+            [
+              -5.998499870300293,
+              8.261000633239746,
+              0.27000001072883606
+            ],
+            [
+              -5.981310844421387,
+              8.261000633239746,
+              0.5142936706542969
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "Drawer cardholder 0_0",
+          "b": "Drawer cardholder 0_1",
+          "aabb_separation_lower_bound_m": 0.2600000202655792,
+          "vertex_triangle_distance_upper_bound_m": 0.2600000202655792,
+          "nearest_witness": [
+            [
+              -6.001500129699707,
+              8.261000633239746,
+              0.27000001072883606
+            ],
+            [
+              -6.001500129699707,
+              8.261000633239746,
+              0.5300000309944153
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        }
+      ]
+    },
+    {
+      "object": "P2 beacon base -1.5",
+      "surrounding_meshes": [
+        {
+          "a": "P2 beacon base -1.5",
+          "b": "P2 beacon amber -1.5",
+          "aabb_separation_lower_bound_m": 0.0,
+          "vertex_triangle_distance_upper_bound_m": 0.005000114440917969,
+          "nearest_witness": [
+            [
+              -1.5,
+              15.75,
+              3.934999942779541
+            ],
+            [
+              -1.4999998807907104,
+              15.75,
+              3.940000057220459
+            ]
+          ],
+          "triangle_overlap_pairs": 54,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": [
+            [
+              -1.5,
+              15.744956970214844,
+              3.930000066757202
+            ],
+            [
+              -1.5,
+              15.75,
+              3.934999942779541
+            ],
+            [
+              -1.5,
+              15.747478485107422,
+              3.9306697845458984
+            ]
+          ]
+        },
+        {
+          "a": "P2 beacon base -1.5",
+          "b": "North lintel P2",
+          "aabb_separation_lower_bound_m": 0.029998779296875,
+          "vertex_triangle_distance_upper_bound_m": 0.029998779296875,
+          "nearest_witness": [
+            [
+              -1.5,
+              15.770000457763672,
+              3.865000009536743
+            ],
+            [
+              -1.500000238418579,
+              15.799999237060547,
+              3.865000009536743
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "P2 beacon base -1.5",
+          "b": "P2 frame head lintel",
+          "aabb_separation_lower_bound_m": 0.16278829969986597,
+          "vertex_triangle_distance_upper_bound_m": 0.16493470966815948,
+          "nearest_witness": [
+            [
+              -1.5,
+              15.764957427978516,
+              3.8600001335144043
+            ],
+            [
+              -1.5,
+              15.804999351501465,
+              3.6999998092651367
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        }
+      ]
+    },
+    {
+      "object": "P2 gate sign plate",
+      "surrounding_meshes": [
+        {
+          "a": "P2 gate sign plate",
+          "b": "P2 center seal strip",
+          "aabb_separation_lower_bound_m": 0.0,
+          "vertex_triangle_distance_upper_bound_m": 0.008761894889175892,
+          "nearest_witness": [
+            [
+              0.03799999877810478,
+              15.710000038146973,
+              3.4679999351501465
+            ],
+            [
+              0.037999946624040604,
+              15.707736015319824,
+              3.459535598754883
+            ]
+          ],
+          "triangle_overlap_pairs": 1,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "P2 gate sign plate",
+          "b": "P2 leaf rib -1.2",
+          "aabb_separation_lower_bound_m": 0.009999275207519531,
+          "vertex_triangle_distance_upper_bound_m": 0.009999275207519531,
+          "nearest_witness": [
+            [
+              -1.2280000448226929,
+              15.719999313354492,
+              3.3980000019073486
+            ],
+            [
+              -1.2280001640319824,
+              15.710000038146973,
+              3.3980000019073486
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "P2 gate sign plate",
+          "b": "P2 leaf rib -0.4",
+          "aabb_separation_lower_bound_m": 0.009999275207519531,
+          "vertex_triangle_distance_upper_bound_m": 0.009999275207519531,
+          "nearest_witness": [
+            [
+              -0.42800000309944153,
+              15.719999313354492,
+              3.3980000019073486
+            ],
+            [
+              -0.4279998540878296,
+              15.710000038146973,
+              3.3980000019073486
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "P2 gate sign plate",
+          "b": "P2 leaf rib 0.4",
+          "aabb_separation_lower_bound_m": 0.009999275207519531,
+          "vertex_triangle_distance_upper_bound_m": 0.009999275207519531,
+          "nearest_witness": [
+            [
+              0.3720000088214874,
+              15.719999313354492,
+              3.3980000019073486
+            ],
+            [
+              0.37199974060058594,
+              15.710000038146973,
+              3.3980000019073486
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "P2 gate sign plate",
+          "b": "P2 leaf rib 1.2",
+          "aabb_separation_lower_bound_m": 0.009999275207519531,
+          "vertex_triangle_distance_upper_bound_m": 0.009999275207519531,
+          "nearest_witness": [
+            [
+              1.1720000505447388,
+              15.719999313354492,
+              3.3980000019073486
+            ],
+            [
+              1.1719996929168701,
+              15.710000038146973,
+              3.3980000019073486
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "P2 gate sign plate",
+          "b": "P2 blast leaf west",
+          "aabb_separation_lower_bound_m": 0.039999961853027344,
+          "vertex_triangle_distance_upper_bound_m": 0.039999961853027344,
+          "nearest_witness": [
+            [
+              -1.7960000038146973,
+              15.710000038146973,
+              3.1440000534057617
+            ],
+            [
+              -1.7959997653961182,
+              15.75,
+              3.1440000534057617
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "P2 gate sign plate",
+          "b": "P2 blast leaf east",
+          "aabb_separation_lower_bound_m": 0.039999961853027344,
+          "vertex_triangle_distance_upper_bound_m": 0.039999961853027344,
+          "nearest_witness": [
+            [
+              1.7960000038146973,
+              15.710000038146973,
+              3.1440000534057617
+            ],
+            [
+              1.7960000038146973,
+              15.75,
+              3.1440000534057617
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "P2 gate sign plate",
+          "b": "Cable tray longitudinal -1.5",
+          "aabb_separation_lower_bound_m": 0.08999919891357422,
+          "vertex_triangle_distance_upper_bound_m": 0.08999919891357422,
+          "nearest_witness": [
+            [
+              -1.6729999780654907,
+              15.600000381469727,
+              3.4519999027252197
+            ],
+            [
+              -1.6730000972747803,
+              15.6899995803833,
+              3.4519999027252197
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "P2 gate sign plate",
+          "b": "Cable tray longitudinal 0.8",
+          "aabb_separation_lower_bound_m": 0.08999919891357422,
+          "vertex_triangle_distance_upper_bound_m": 0.08999919891357422,
+          "nearest_witness": [
+            [
+              0.6270000338554382,
+              15.600000381469727,
+              3.4519999027252197
+            ],
+            [
+              0.6270002126693726,
+              15.6899995803833,
+              3.4519999027252197
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "P2 gate sign plate",
+          "b": "North lintel P2",
+          "aabb_separation_lower_bound_m": 0.09848783048340917,
+          "vertex_triangle_distance_upper_bound_m": 0.10182297974824905,
+          "nearest_witness": [
+            [
+              -1.7960001230239868,
+              15.709465026855469,
+              3.4579973220825195
+            ],
+            [
+              -1.7960000038146973,
+              15.800801277160645,
+              3.5030040740966797
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "P2 gate sign plate",
+          "b": "P2 frame head lintel",
+          "aabb_separation_lower_bound_m": 0.09848783048340917,
+          "vertex_triangle_distance_upper_bound_m": 0.10148255527019501,
+          "nearest_witness": [
+            [
+              -1.7960001230239868,
+              15.709465026855469,
+              3.4579973220825195
+            ],
+            [
+              -1.7960000038146973,
+              15.800667762756348,
+              3.5025031566619873
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "P2 gate sign plate",
+          "b": "Cable bundle -1.5_0",
+          "aabb_separation_lower_bound_m": 0.10227699490629974,
+          "vertex_triangle_distance_upper_bound_m": 0.10371015220880508,
+          "nearest_witness": [
+            [
+              -1.5962917804718018,
+              15.600000381469727,
+              3.50858736038208
+            ],
+            [
+              -1.5962917804718018,
+              15.690534591674805,
+              3.4579973220825195
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "P2 gate sign plate",
+          "b": "Cable bundle -1.5_1",
+          "aabb_separation_lower_bound_m": 0.10227699490629974,
+          "vertex_triangle_distance_upper_bound_m": 0.10371015220880508,
+          "nearest_witness": [
+            [
+              -1.5262917280197144,
+              15.600000381469727,
+              3.50858736038208
+            ],
+            [
+              -1.5262917280197144,
+              15.690534591674805,
+              3.4579973220825195
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "P2 gate sign plate",
+          "b": "Cable bundle -1.5_2",
+          "aabb_separation_lower_bound_m": 0.10227699490629974,
+          "vertex_triangle_distance_upper_bound_m": 0.10371015220880508,
+          "nearest_witness": [
+            [
+              -1.4562917947769165,
+              15.600000381469727,
+              3.50858736038208
+            ],
+            [
+              -1.4562917947769165,
+              15.690534591674805,
+              3.4579973220825195
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "P2 gate sign plate",
+          "b": "Cable bundle -1.5_3",
+          "aabb_separation_lower_bound_m": 0.10227699490629974,
+          "vertex_triangle_distance_upper_bound_m": 0.10371015220880508,
+          "nearest_witness": [
+            [
+              -1.386291742324829,
+              15.600000381469727,
+              3.50858736038208
+            ],
+            [
+              -1.386291742324829,
+              15.690534591674805,
+              3.4579973220825195
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "P2 gate sign plate",
+          "b": "Cable bundle 0.8_0",
+          "aabb_separation_lower_bound_m": 0.10227699490629974,
+          "vertex_triangle_distance_upper_bound_m": 0.10371015220880508,
+          "nearest_witness": [
+            [
+              0.7037081718444824,
+              15.600000381469727,
+              3.50858736038208
+            ],
+            [
+              0.703708291053772,
+              15.690534591674805,
+              3.4579973220825195
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        }
+      ]
+    },
+    {
+      "object": "G1 warning strobe beacon",
+      "surrounding_meshes": [
+        {
+          "a": "G1 warning strobe beacon",
+          "b": "G1 guide tower east",
+          "aabb_separation_lower_bound_m": 0.009999990463256836,
+          "vertex_triangle_distance_upper_bound_m": 0.009999990463256836,
+          "nearest_witness": [
+            [
+              3.0199999809265137,
+              7.059957027435303,
+              2.509999990463257
+            ],
+            [
+              3.0199999809265137,
+              7.059957027435303,
+              2.5
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        }
+      ]
+    },
+    {
+      "object": "Drive motor mounting plate",
+      "surrounding_meshes": [
+        {
+          "a": "Drive motor mounting plate",
+          "b": "Drive motor housing",
+          "aabb_separation_lower_bound_m": 0.0,
+          "vertex_triangle_distance_upper_bound_m": 0.00187605619430542,
+          "nearest_witness": [
+            [
+              5.747478485107422,
+              9.369999885559082,
+              0.5331239104270935
+            ],
+            [
+              5.747478485107422,
+              9.369999885559082,
+              0.5349999666213989
+            ]
+          ],
+          "triangle_overlap_pairs": 42,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": [
+            [
+              5.747478485107422,
+              9.369999885559082,
+              0.5331239104270935
+            ],
+            [
+              5.75,
+              9.364999771118164,
+              0.5287564396858215
+            ],
+            [
+              5.748739242553711,
+              9.369330406188965,
+              0.5309401750564575
+            ]
+          ]
+        },
+        {
+          "a": "Drive motor mounting plate",
+          "b": "Motor cooling fin 0",
+          "aabb_separation_lower_bound_m": 0.0,
+          "vertex_triangle_distance_upper_bound_m": 0.0003848075866699219,
+          "nearest_witness": [
+            [
+              5.746617317199707,
+              9.0845308303833,
+              0.534615159034729
+            ],
+            [
+              5.746617317199707,
+              9.0845308303833,
+              0.5349999666213989
+            ]
+          ],
+          "triangle_overlap_pairs": 40,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": [
+            [
+              5.747499942779541,
+              9.081500053405762,
+              0.5330865383148193
+            ],
+            [
+              5.746617317199707,
+              9.0845308303833,
+              0.534615159034729
+            ],
+            [
+              5.747263431549072,
+              9.083250045776367,
+              0.5334961414337158
+            ]
+          ]
+        },
+        {
+          "a": "Drive motor mounting plate",
+          "b": "Motor cooling fin 1",
+          "aabb_separation_lower_bound_m": 0.0,
+          "vertex_triangle_distance_upper_bound_m": 0.0003848075866699219,
+          "nearest_witness": [
+            [
+              5.746617317199707,
+              9.124530792236328,
+              0.534615159034729
+            ],
+            [
+              5.746617317199707,
+              9.124530792236328,
+              0.5349999666213989
+            ]
+          ],
+          "triangle_overlap_pairs": 40,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": [
+            [
+              5.747499942779541,
+              9.121500015258789,
+              0.5330865383148193
+            ],
+            [
+              5.746617317199707,
+              9.124530792236328,
+              0.534615159034729
+            ],
+            [
+              5.747263431549072,
+              9.123250007629395,
+              0.5334961414337158
+            ]
+          ]
+        },
+        {
+          "a": "Drive motor mounting plate",
+          "b": "Motor cooling fin 2",
+          "aabb_separation_lower_bound_m": 0.0,
+          "vertex_triangle_distance_upper_bound_m": 0.0003848075866699219,
+          "nearest_witness": [
+            [
+              5.746617317199707,
+              9.164530754089355,
+              0.534615159034729
+            ],
+            [
+              5.746617317199707,
+              9.164530754089355,
+              0.5349999666213989
+            ]
+          ],
+          "triangle_overlap_pairs": 40,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": [
+            [
+              5.747499942779541,
+              9.161499977111816,
+              0.5330865383148193
+            ],
+            [
+              5.746617317199707,
+              9.164530754089355,
+              0.534615159034729
+            ],
+            [
+              5.747263431549072,
+              9.163249969482422,
+              0.5334961414337158
+            ]
+          ]
+        },
+        {
+          "a": "Drive motor mounting plate",
+          "b": "Motor cooling fin 3",
+          "aabb_separation_lower_bound_m": 0.0,
+          "vertex_triangle_distance_upper_bound_m": 0.0003848075866699219,
+          "nearest_witness": [
+            [
+              5.746617317199707,
+              9.204530715942383,
+              0.534615159034729
+            ],
+            [
+              5.746617317199707,
+              9.204530715942383,
+              0.5349999666213989
+            ]
+          ],
+          "triangle_overlap_pairs": 40,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": [
+            [
+              5.747499942779541,
+              9.201499938964844,
+              0.5330865383148193
+            ],
+            [
+              5.746617317199707,
+              9.204530715942383,
+              0.534615159034729
+            ],
+            [
+              5.747263431549072,
+              9.20324993133545,
+              0.5334961414337158
+            ]
+          ]
+        },
+        {
+          "a": "Drive motor mounting plate",
+          "b": "Motor cooling fin 4",
+          "aabb_separation_lower_bound_m": 0.0,
+          "vertex_triangle_distance_upper_bound_m": 0.0003848075866699219,
+          "nearest_witness": [
+            [
+              5.746617317199707,
+              9.24453067779541,
+              0.534615159034729
+            ],
+            [
+              5.746617317199707,
+              9.24453067779541,
+              0.5349999666213989
+            ]
+          ],
+          "triangle_overlap_pairs": 42,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": [
+            [
+              5.747499942779541,
+              9.241499900817871,
+              0.5330865383148193
+            ],
+            [
+              5.746617317199707,
+              9.24453067779541,
+              0.534615159034729
+            ],
+            [
+              5.747263431549072,
+              9.243249893188477,
+              0.5334961414337158
+            ]
+          ]
+        },
+        {
+          "a": "Drive motor mounting plate",
+          "b": "Motor cooling fin 5",
+          "aabb_separation_lower_bound_m": 0.0,
+          "vertex_triangle_distance_upper_bound_m": 0.0003848075866699219,
+          "nearest_witness": [
+            [
+              5.746617317199707,
+              9.284530639648438,
+              0.534615159034729
+            ],
+            [
+              5.746617317199707,
+              9.284530639648438,
+              0.5349999666213989
+            ]
+          ],
+          "triangle_overlap_pairs": 42,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": [
+            [
+              5.747499942779541,
+              9.281499862670898,
+              0.5330865383148193
+            ],
+            [
+              5.746617317199707,
+              9.284530639648438,
+              0.534615159034729
+            ],
+            [
+              5.747263431549072,
+              9.283249855041504,
+              0.5334961414337158
+            ]
+          ]
+        },
+        {
+          "a": "Drive motor mounting plate",
+          "b": "Motor cooling fin 6",
+          "aabb_separation_lower_bound_m": 0.0,
+          "vertex_triangle_distance_upper_bound_m": 0.0003848075866699219,
+          "nearest_witness": [
+            [
+              5.746617317199707,
+              9.324530601501465,
+              0.534615159034729
+            ],
+            [
+              5.746617317199707,
+              9.324530601501465,
+              0.5349999666213989
+            ]
+          ],
+          "triangle_overlap_pairs": 42,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": [
+            [
+              5.747499942779541,
+              9.321499824523926,
+              0.5330865383148193
+            ],
+            [
+              5.746617317199707,
+              9.324530601501465,
+              0.534615159034729
+            ],
+            [
+              5.747263431549072,
+              9.323249816894531,
+              0.5334961414337158
+            ]
+          ]
+        },
+        {
+          "a": "Drive motor mounting plate",
+          "b": "Motor shaft coupling shroud",
+          "aabb_separation_lower_bound_m": 0.014999985694885254,
+          "vertex_triangle_distance_upper_bound_m": 0.014999985694885254,
+          "nearest_witness": [
+            [
+              5.4720001220703125,
+              9.121999740600586,
+              0.5499999523162842
+            ],
+            [
+              5.4720001220703125,
+              9.121999740600586,
+              0.5349999666213989
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "Drive motor mounting plate",
+          "b": "CD | Joined Cargo Inspection Conveyor / navy",
+          "aabb_separation_lower_bound_m": 0.02758592298341925,
+          "vertex_triangle_distance_upper_bound_m": 0.08322601020336151,
+          "nearest_witness": [
+            [
+              5.425267219543457,
+              8.97700023651123,
+              0.5339986681938171
+            ],
+            [
+              5.344866752624512,
+              8.97700023651123,
+              0.5555006265640259
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "Drive motor mounting plate",
+          "b": "Conveyor leg 5.32_8.9",
+          "aabb_separation_lower_bound_m": 0.07382367349892661,
+          "vertex_triangle_distance_upper_bound_m": 0.07562229037284851,
+          "nearest_witness": [
+            [
+              5.425267219543457,
+              8.976000785827637,
+              0.5069999694824219
+            ],
+            [
+              5.359599590301514,
+              8.938497543334961,
+              0.5070000290870667
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "Drive motor mounting plate",
+          "b": "Conveyor rail east",
+          "aabb_separation_lower_bound_m": 0.1996243991770324,
+          "vertex_triangle_distance_upper_bound_m": 0.2015111744403839,
+          "nearest_witness": [
+            [
+              5.426001071929932,
+              8.97700023651123,
+              0.5347328186035156
+            ],
+            [
+              5.347997665405273,
+              8.97700023651123,
+              0.7205343842506409
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "Drive motor mounting plate",
+          "b": "Conveyor return belt",
+          "aabb_separation_lower_bound_m": 0.20892554574237154,
+          "vertex_triangle_distance_upper_bound_m": 0.21015003323554993,
+          "nearest_witness": [
+            [
+              5.425267219543457,
+              8.97700023651123,
+              0.5060012936592102
+            ],
+            [
+              5.229732990264893,
+              8.97700023651123,
+              0.4289986789226532
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "Drive motor mounting plate",
+          "b": "Roller bearing cap 24_5.3",
+          "aabb_separation_lower_bound_m": 0.26726609205677454,
+          "vertex_triangle_distance_upper_bound_m": 0.26939481496810913,
+          "nearest_witness": [
+            [
+              5.307376384735107,
+              9.098896026611328,
+              0.776604175567627
+            ],
+            [
+              5.426001071929932,
+              9.098896026611328,
+              0.5347328186035156
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "Drive motor mounting plate",
+          "b": "Roller bearing cap 25_5.3",
+          "aabb_separation_lower_bound_m": 0.26726609205677454,
+          "vertex_triangle_distance_upper_bound_m": 0.26939481496810913,
+          "nearest_witness": [
+            [
+              5.307376384735107,
+              9.248895645141602,
+              0.776604175567627
+            ],
+            [
+              5.426001071929932,
+              9.248895645141602,
+              0.5347328186035156
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "Drive motor mounting plate",
+          "b": "Roller bearing cap 26_5.3",
+          "aabb_separation_lower_bound_m": 0.26726609205677454,
+          "vertex_triangle_distance_upper_bound_m": 0.26939481496810913,
+          "nearest_witness": [
+            [
+              5.307376384735107,
+              9.398895263671875,
+              0.776604175567627
+            ],
+            [
+              5.426001071929932,
+              9.398895263671875,
+              0.5347328186035156
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        }
+      ]
+    },
+    {
+      "object": "Conveyor operator desk arm",
+      "surrounding_meshes": [
+        {
+          "a": "Conveyor operator desk arm",
+          "b": "Conveyor control panel",
+          "aabb_separation_lower_bound_m": 0.0,
+          "vertex_triangle_distance_upper_bound_m": 0.008000016212463379,
+          "nearest_witness": [
+            [
+              3.2970001697540283,
+              7.425000190734863,
+              0.9319999814033508
+            ],
+            [
+              3.2970001697540283,
+              7.4250006675720215,
+              0.9399999976158142
+            ]
+          ],
+          "triangle_overlap_pairs": 34,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": [
+            [
+              3.2970001697540283,
+              7.427000045776367,
+              0.9300000071525574
+            ],
+            [
+              3.2970001697540283,
+              7.425000190734863,
+              0.9319999814033508
+            ],
+            [
+              3.2950000762939453,
+              7.427000045776367,
+              0.9319999814033508
+            ]
+          ]
+        },
+        {
+          "a": "Conveyor operator desk arm",
+          "b": "CD | Joined Cargo Inspection Conveyor / charcoal",
+          "aabb_separation_lower_bound_m": 0.0,
+          "vertex_triangle_distance_upper_bound_m": 5.960464477539063e-08,
+          "nearest_witness": [
+            [
+              3.315499782562256,
+              7.302999973297119,
+              0.9399999380111694
+            ],
+            [
+              3.315499782562256,
+              7.302999973297119,
+              0.9399999976158142
+            ]
+          ],
+          "triangle_overlap_pairs": 24,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": [
+            [
+              3.315499782562256,
+              7.302999973297119,
+              0.9399999380111694
+            ],
+            [
+              3.315499782562256,
+              7.396999835968018,
+              0.9399999380111694
+            ],
+            [
+              3.384500026702881,
+              7.302999973297119,
+              0.9399999380111694
+            ]
+          ]
+        },
+        {
+          "a": "Conveyor operator desk arm",
+          "b": "Conveyor estop palm button",
+          "aabb_separation_lower_bound_m": 0.025000035762786865,
+          "vertex_triangle_distance_upper_bound_m": 0.025000035762786865,
+          "nearest_witness": [
+            [
+              3.4200000762939453,
+              7.784956932067871,
+              0.9650000333786011
+            ],
+            [
+              3.4200000762939453,
+              7.784956932067871,
+              0.9399999976158142
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "Conveyor operator desk arm",
+          "b": "G1 guide tower east",
+          "aabb_separation_lower_bound_m": 0.06041511305674003,
+          "vertex_triangle_distance_upper_bound_m": 0.0638289526104927,
+          "nearest_witness": [
+            [
+              3.1770026683807373,
+              7.225534439086914,
+              0.8639999628067017
+            ],
+            [
+              3.146996021270752,
+              7.169198513031006,
+              0.8639999628067017
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "Conveyor operator desk arm",
+          "b": "Conveyor monitor housing 0",
+          "aabb_separation_lower_bound_m": 0.20999997854232788,
+          "vertex_triangle_distance_upper_bound_m": 0.20999997854232788,
+          "nearest_witness": [
+            [
+              3.2109999656677246,
+              7.5179901123046875,
+              1.149999976158142
+            ],
+            [
+              3.2109999656677246,
+              7.5179901123046875,
+              0.9399999976158142
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "Conveyor operator desk arm",
+          "b": "Conveyor monitor housing 1",
+          "aabb_separation_lower_bound_m": 0.20999997854232788,
+          "vertex_triangle_distance_upper_bound_m": 0.20999997854232788,
+          "nearest_witness": [
+            [
+              3.2109999656677246,
+              7.782010078430176,
+              1.149999976158142
+            ],
+            [
+              3.2109999656677246,
+              7.782010078430176,
+              0.9399999976158142
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "Conveyor operator desk arm",
+          "b": "CD | Joined Cargo Inspection Conveyor / steel",
+          "aabb_separation_lower_bound_m": 0.2349998950958252,
+          "vertex_triangle_distance_upper_bound_m": 0.2349998950958252,
+          "nearest_witness": [
+            [
+              3.859999895095825,
+              7.306422710418701,
+              0.8899999856948853
+            ],
+            [
+              3.625,
+              7.306422233581543,
+              0.8899999856948853
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "Conveyor operator desk arm",
+          "b": "Conveyor monitor screen 0",
+          "aabb_separation_lower_bound_m": 0.23499995470046997,
+          "vertex_triangle_distance_upper_bound_m": 0.23499995470046997,
+          "nearest_witness": [
+            [
+              3.4769999980926514,
+              7.51800012588501,
+              1.1749999523162842
+            ],
+            [
+              3.4769999980926514,
+              7.51800012588501,
+              0.9399999976158142
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "Conveyor operator desk arm",
+          "b": "Conveyor monitor screen 1",
+          "aabb_separation_lower_bound_m": 0.23499995470046997,
+          "vertex_triangle_distance_upper_bound_m": 0.23499995470046997,
+          "nearest_witness": [
+            [
+              3.4769999980926514,
+              7.781999588012695,
+              1.1749999523162842
+            ],
+            [
+              3.4769999980926514,
+              7.781999588012695,
+              0.9399999976158142
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "Conveyor operator desk arm",
+          "b": "CD | Joined Cargo Inspection Conveyor / ink",
+          "aabb_separation_lower_bound_m": 0.23549991846084595,
+          "vertex_triangle_distance_upper_bound_m": 0.23549991846084595,
+          "nearest_witness": [
+            [
+              3.2070000171661377,
+              7.239999771118164,
+              1.1754999160766602
+            ],
+            [
+              3.2070000171661377,
+              7.239999771118164,
+              0.9399999976158142
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "Conveyor operator desk arm",
+          "b": "Tunnel stiffener 3.88_7.3",
+          "aabb_separation_lower_bound_m": 0.24099993705749512,
+          "vertex_triangle_distance_upper_bound_m": 0.24554014205932617,
+          "nearest_witness": [
+            [
+              3.625,
+              7.229000091552734,
+              0.8639999628067017
+            ],
+            [
+              3.865999937057495,
+              7.276000022888184,
+              0.8640000820159912
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "Conveyor operator desk arm",
+          "b": "Tunnel stiffener 3.88_7.9",
+          "aabb_separation_lower_bound_m": 0.24099993705749512,
+          "vertex_triangle_distance_upper_bound_m": 0.25175416469573975,
+          "nearest_witness": [
+            [
+              3.865999937057495,
+              7.875999927520752,
+              0.7910000085830688
+            ],
+            [
+              3.6244657039642334,
+              7.875999927520752,
+              0.8620026111602783
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "Conveyor operator desk arm",
+          "b": "Lead tunnel main body",
+          "aabb_separation_lower_bound_m": 0.27500009536743164,
+          "vertex_triangle_distance_upper_bound_m": 0.27500009536743164,
+          "nearest_witness": [
+            [
+              3.625,
+              7.229000091552734,
+              0.8639999628067017
+            ],
+            [
+              3.9000000953674316,
+              7.229000091552734,
+              0.8639999628067017
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        }
+      ]
+    },
+    {
+      "object": "Lifting eyebolt ring 4.05_6.65",
+      "surrounding_meshes": [
+        {
+          "a": "Lifting eyebolt ring 4.05_6.65",
+          "b": "Lifting eyebolt stem 4.05_6.65",
+          "aabb_separation_lower_bound_m": 0.016440391540527344,
+          "vertex_triangle_distance_upper_bound_m": 0.02366439253091812,
+          "nearest_witness": [
+            [
+              4.054006099700928,
+              6.635048866271973,
+              2.1793301105499268
+            ],
+            [
+              4.056723117828369,
+              6.621387004852295,
+              2.198460578918457
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "Lifting eyebolt ring 4.05_6.65",
+          "b": "Lead tunnel main body",
+          "aabb_separation_lower_bound_m": 0.04644036293029785,
+          "vertex_triangle_distance_upper_bound_m": 0.04644036293029785,
+          "nearest_witness": [
+            [
+              4.082219123840332,
+              6.650000095367432,
+              2.1964404582977295
+            ],
+            [
+              4.082219123840332,
+              6.650000095367432,
+              2.1500000953674316
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "Lifting eyebolt ring 4.05_6.65",
+          "b": "CD | Joined Cargo Inspection Conveyor / steel",
+          "aabb_separation_lower_bound_m": 0.0754404067993164,
+          "vertex_triangle_distance_upper_bound_m": 0.13421939313411713,
+          "nearest_witness": [
+            [
+              4.050000190734863,
+              6.6077189445495605,
+              2.199709892272949
+            ],
+            [
+              4.050000190734863,
+              6.499732971191406,
+              2.1199986934661865
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        },
+        {
+          "a": "Lifting eyebolt ring 4.05_6.65",
+          "b": "Tunnel stiffener 3.88_6.8",
+          "aabb_separation_lower_bound_m": 0.1589619272825821,
+          "vertex_triangle_distance_upper_bound_m": 0.18489967286586761,
+          "nearest_witness": [
+            [
+              4.0201029777526855,
+              6.679897308349609,
+              2.199709892272949
+            ],
+            [
+              3.8997366428375244,
+              6.787408828735352,
+              2.1094818115234375
+            ]
+          ],
+          "triangle_overlap_pairs": 0,
+          "a_vertices_inside_b": [],
+          "b_vertices_inside_a": []
+        }
+      ]
+    }
+  ],
+  "directional_rays": [
+    {
+      "label": "utilities_back",
+      "origin": [
+        6.760001,
+        12.5,
+        1.6
+      ],
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "hit": {
+        "object": "Utility backer panel",
+        "point": [
+          6.779999732971191,
+          12.5,
+          1.600000023841858
+        ],
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "distance_m": 0.019998440518975258
+      }
+    },
+    {
+      "label": "drawer_mount",
+      "origin": [
+        -6.000001,
+        8.194,
+        0.22
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "hit": {
+        "object": "Drawer face 0_0",
+        "point": [
+          -6.009999752044678,
+          8.194000244140625,
+          0.2199999988079071
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "distance_m": 0.009998686611652374
+      }
+    },
+    {
+      "label": "p2_beacon_back",
+      "origin": [
+        -1.5,
+        15.770001,
+        3.9
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "hit": {
+        "object": "North lintel P2",
+        "point": [
+          -1.5,
+          15.799999237060547,
+          3.9000000953674316
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "distance_m": 0.029997754842042923
+      }
+    },
+    {
+      "label": "p2_sign_back",
+      "origin": [
+        -1.5,
+        15.710001,
+        3.3
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "hit": {
+        "object": "P2 blast leaf west",
+        "point": [
+          -1.5,
+          15.75,
+          3.299999952316284
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "distance_m": 0.039998944848775864
+      }
+    },
+    {
+      "label": "cargo_crate_down",
+      "origin": [
+        4.65,
+        5.5,
+        0.824999
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "hit": {
+        "object": "Conveyor roller 0",
+        "point": [
+          4.650000095367432,
+          5.5,
+          0.7620001435279846
+        ],
+        "normal": [
+          -4.2871484140505345e-08,
+          0.19509044289588928,
+          -0.9807852506637573
+        ],
+        "distance_m": 0.06299885362386703
+      }
+    }
+  ],
+  "method_limits": "Surface upper bounds use sampled vertices against exact evaluated triangles. AABB separation is a strict lower bound; triangle overlap and closed-solid containment are engagement witnesses. All candidate solids are read from the native local scene; no root-anchor inference."
+}

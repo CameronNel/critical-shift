@@ -1,0 +1,61 @@
+{
+  "cycle": "full-cycle-01",
+  "native_revision": "f02",
+  "source_sha256": "dc608cae0a42303e614f2db3dc0cd9d50e4366dc738ac57c35957c6df34e0331",
+  "complete_rendered_and_reviewed_views": 26,
+  "critics": {
+    "spatial": {
+      "report": "critics/full-c01-spatial.json",
+      "sha256": "ef7ba01f8be532b531d302495449a622c63f9021f76d8e91d6bf0d69dd72a59f"
+    },
+    "art": {
+      "report": "critics/full-c01-art.json",
+      "sha256": "96747a61b7e73d049f71b0816a010b17d58d0a93feca65d209f4b6bd09027deb"
+    },
+    "materials": {
+      "report": "critics/full-c01-materials.json",
+      "sha256": "bd399e5476b7a5005b5802bc42ff0711e8f90fded664efc80f63f053ad2d1cfd"
+    },
+    "lighting": {
+      "report": "critics/full-c01-lighting.json",
+      "sha256": "9f38b20a4dc466ac3227e08dde50a0a671d7f2b0e6b8c3c19b5cff366b0ed4bb"
+    },
+    "story": {
+      "report": "critics/full-c01-story.json",
+      "sha256": "1323a8903df55930bdcccb49549e01ec2c1b1d7d0f982e389d1d9cb3fd0644be"
+    },
+    "technical": {
+      "report": "critics/full-c01-technical.json",
+      "sha256": "81a060756c2b7ef698b62b62576bd071fc7efbd457e6e3bef5178149670b62d6"
+    }
+  },
+  "per_category_conservative_scores": {
+    "1": 87,
+    "2": 85,
+    "3": 82,
+    "4": 81,
+    "5": 80,
+    "6": 94,
+    "7": 80,
+    "8": 84
+  },
+  "aggregation": "Minimum where more than one independent discipline scores a category; all other categories from the assigned independent report.",
+  "required_each_strictly_above": 93,
+  "verdict": "FAIL",
+  "full_room_accepted": false,
+  "critical_defects": [
+    "HERO_SCANNER wall obstruction",
+    "Detached utilities, beacon and drawer mounts",
+    "Missing roller/lifting-eye bearing",
+    "Exposed coplanar material faces"
+  ],
+  "new_baseline_required": [
+    "C02 wide",
+    "HERO_SCANNER",
+    "Four wall elevations",
+    "Additional OFFICE_FRONT elevation"
+  ],
+  "repair_batch": "f03: real contacts/frame/screen/floor recesses, continuous cloth with textile coordinates, contextual wear/handover, fitted oblique inspection lights",
+  "render_interruption": "Original 23 images retained, original incomplete manifest archived; three final views recovered from fresh matching process with byte-exact provenance.",
+  "diagnostics": "Black original two and over-bright first repair retained. Final uv-valid and neutral-valid replacement manifests pin the same native and saved=false."
+}

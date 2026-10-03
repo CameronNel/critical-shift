@@ -1,0 +1,405 @@
+{
+  "review": "full-c01-spatial",
+  "candidate": "f02 / full-cycle-01",
+  "review_type": "fresh independent spatial/readability critic",
+  "date_utc": "2026-10-01",
+  "decision": "FAIL_CURRENT_THRESHOLD",
+  "final_acceptance": false,
+  "source_sha256": "dc608cae0a42303e614f2db3dc0cd9d50e4366dc738ac57c35957c6df34e0331",
+  "manifest_complete": true,
+  "manifest_path": "production/renders/full-cycle-01/manifest.json",
+  "resolution": [
+    1067,
+    600
+  ],
+  "images_opened": 26,
+  "all_manifest_image_hashes_and_resolutions_verified": true,
+  "manifest_cold_open": false,
+  "manifest_recovery": {
+    "reason": "Worker/session unavailable after 23 saved frames; final 3 rerendered from unchanged source/settings/recipe in fresh process. Original incomplete manifest retained.",
+    "original_manifest": "interrupted-manifest.json",
+    "original_manifest_sha256": "f9bda88e05245fc7aa80c63a7434786c086c77c30326c0dc760d002cd3f74edf",
+    "tail_manifest": "../full-cycle-01-tail/manifest.json",
+    "tail_manifest_sha256": "c0dd548405048f63a8e750286701fae43d8874973688f31f1766a8b56d3cf527"
+  },
+  "category_scores": {
+    "1": 87,
+    "3": 82
+  },
+  "scores": [
+    {
+      "category": 1,
+      "name": "Scale, layout and route readability",
+      "score": 87,
+      "max": 100,
+      "threshold": "strictly greater than 93",
+      "passes_threshold": false,
+      "reason": "Strong lane alignment, open circulation and plausible scale. Check-in discovery is weak; incomplete wall/wide evidence and obscured return regions limit proof. No visible prop blocks a marked route."
+    },
+    {
+      "category": 3,
+      "name": "Inspection/check-in hero hierarchy and functional composition",
+      "score": 82,
+      "max": 100,
+      "threshold": "strictly greater than 93",
+      "passes_threshold": false,
+      "reason": "Cargo rollers/tunnel and detailed hatch communicate function locally. Worker scanner hero is unavailable, its construction under-reads at player height, the cart barrier lacks visible operating logic and the approach composition does not show the heroes together."
+    }
+  ],
+  "critical_defect_count": 1,
+  "critical_defects": [
+    {
+      "id": "SP01",
+      "severity": "critical",
+      "kind": "evidence_coverage",
+      "title": "Worker-scanner hero unavailable",
+      "evidence": [
+        "HERO_SCANNER"
+      ],
+      "detail": "Approximately 59% of the image is the near office wall; neither the full aperture nor the header is visible. Other player views show the front opening but cannot replace the required asset hero."
+    }
+  ],
+  "other_issues": [
+    {
+      "id": "SP02",
+      "severity": "high",
+      "kind": "functional_readability",
+      "title": "Worker scanner and cart gate lack readable secondary construction at player height",
+      "evidence": [
+        "C01_ENTRY",
+        "C04_SCANNER_APPROACH",
+        "C06_CART_GATE_G1",
+        "PLAYER_REVERSE"
+      ],
+      "detail": "Near black structural masses merge in value; small lamps and labels carry identity. The cart leaves show little visible operating/latch logic, especially in reverse."
+    },
+    {
+      "id": "SP03",
+      "severity": "high",
+      "kind": "composition",
+      "title": "Check-in does not share the approach hierarchy",
+      "evidence": [
+        "C01_ENTRY",
+        "C02_HERO_DOCK",
+        "CORNER_SE",
+        "CORNER_NE"
+      ],
+      "detail": "The hatch is understandable in C03/DETAIL, but arrival mainly sees office glazing and the inspection line. The current wide view never establishes check-in, worker passage and cart passage together."
+    },
+    {
+      "id": "SP04",
+      "severity": "high",
+      "kind": "evidence_coverage",
+      "title": "Wide and wall views blocked by foreground equipment",
+      "evidence": [
+        "C02_HERO_DOCK",
+        "WALL_SOUTH",
+        "WALL_NORTH",
+        "WALL_EAST",
+        "WALL_WEST"
+      ],
+      "detail": "Frames, glass, scanner columns and concealment screen obstruct the named targets. Cutaways establish footprint/zoning but cannot show all gameplay-height surfaces."
+    },
+    {
+      "id": "SP05",
+      "severity": "medium",
+      "kind": "secondary_readability",
+      "title": "Dim trolley and storage erase lower construction",
+      "evidence": [
+        "C08_CONCEALED_SUPPORT_H1",
+        "HERO_EVIDENCE",
+        "HERO_TROLLEY",
+        "C10_ROOF_SERVICES"
+      ],
+      "detail": "The subdued bays suit the brief, but trolley wheels/chassis and ceiling attachment/routing often merge into darkness. Their existence or physical support cannot receive visual credit."
+    }
+  ],
+  "positive_evidence": [
+    "Broad open floor and quiet wall fields preserve negative space.",
+    "Two parallel marked lanes and taller worker opening versus lower cargo tunnel are clear at overall scale.",
+    "Cargo box plus rollers communicate examination, separate from pedestrian passage.",
+    "Check-in counter has a coherent purposeful cluster, and staff office reads plausibly.",
+    "Concealed transfer/evidence bay remains subordinate and outside visible through routes."
+  ],
+  "references_opened": [
+    "VALIDATE_Material_A",
+    "VALIDATE_LockerDoor",
+    "VALIDATE_Spawn",
+    "BRIEFING_INDIRECT"
+  ],
+  "reference_comparison": "The subdued off-white/navy/blue fields and orange doors relate to the approved spawn palette. The spawn entry achieves a direct recognizable door silhouette and useful secondary construction at player height; the dock instead relies too heavily on dark rectangular masses and labels. Its counter close-ups achieve much stronger functional specificity than its inspection-line views.",
+  "limitations": [
+    "No author code, scene tree, previous critic reports or prior verdicts were consulted.",
+    "Pixels do not establish measured clearances, boundary/matrix preservation, collision, support contact, dependencies or runtime usability.",
+    "Corner views hide geometry by manifest declaration and are orthographic; they provide zoning evidence, not gameplay-height or full-support acceptance.",
+    "One critical defect is an evidence-coverage failure; no route-blocking prop or impossible clearance was established visually.",
+    "This first full-cycle candidate review cannot establish minimum review cycles, final stability or cold-render acceptance. Manifest cold_open is false."
+  ],
+  "views": [
+    {
+      "id": "C01_ENTRY",
+      "opened": true,
+      "status": "fail",
+      "findings": "The yellow lane boundaries and worker opening are clear. The check-in hatch is outside the useful composition; the left office glazing reads as an enclosure rather than a customer destination. Dark scanner posts, gate leaves and the distant arrival leaf merge in value.",
+      "coverage": "Entry readability covered; check-in discovery and scanner secondary form weak.",
+      "image_sha256": "9743d5375aa304d1b0317921becfe2a2cfde3ef55aa4f15831a039b3d6dd2028"
+    },
+    {
+      "id": "C02_HERO_DOCK",
+      "opened": true,
+      "status": "fail",
+      "findings": "Office glazing/frame occupy most of the left and centre. The scanner is seen through blurred glass and the cart gate is absent or obscured. The counter is clear in the foreground, but the promised wide inspection relationship is not.",
+      "coverage": "Invalid as the sole wide inspection composition evidence.",
+      "image_sha256": "3c43849e61333a29e1fe9f9ddc96df3b0d64c9792146c63640f8d619347030d9"
+    },
+    {
+      "id": "C03_CHECKIN_COUNTER",
+      "opened": true,
+      "status": "pass_with_reservations",
+      "findings": "The intercom, paper tray, clipboard and stamp make the transaction point immediately understandable at close range. The tall central speaker plate dominates; its location relative to the approach lanes cannot be assessed here.",
+      "coverage": "Good local interaction evidence; does not prove entry hierarchy.",
+      "image_sha256": "6491eb8378777799c502259d57757728f2e2eb44ec9cf14da72f682f19bbc615"
+    },
+    {
+      "id": "C04_SCANNER_APPROACH",
+      "opened": true,
+      "status": "fail",
+      "findings": "The clear opening and dashed line guide a pedestrian through. The near black columns show little scanner construction, and the header is cropped. Status dots are much more visible than the sensing surfaces or a physical operating cue.",
+      "coverage": "Good passage evidence; weak machine identity and incomplete full silhouette.",
+      "image_sha256": "fc14d9ca69cb6a7d200a3ae9d9fe9f612c738bde2f11bd8177e5b2a1782d2ed5"
+    },
+    {
+      "id": "C05_CONVEYOR_LEAD_TUNNEL",
+      "opened": true,
+      "status": "pass_with_reservations",
+      "findings": "Rollers, low tunnel and the cargo box distinguish cargo handling from the tall worker opening. The near gate post masks the left/operator side, while the tunnel mouth is nearly black.",
+      "coverage": "Cargo function visible; operator arrangement and aperture interior only partly covered.",
+      "image_sha256": "30b91f6a778b7fecf6b5c29fee5a1166b0f5372bfae398a8abb230ff715094e6"
+    },
+    {
+      "id": "C06_CART_GATE_G1",
+      "opened": true,
+      "status": "fail",
+      "findings": "The closed leaves establish a barrier in the adjacent lane. Their dark faces, thin top bar and orange squares provide little visible opening/latch logic; without the caption the cart-specific function is weak.",
+      "coverage": "Gate position covered; functional distinction and operating mechanism under-read.",
+      "image_sha256": "35fa3c0c9edda03db5dc6146cfcdcddd755c19821f445cdee68bd06554af979f"
+    },
+    {
+      "id": "C07_OFFICE_INTERIOR",
+      "opened": true,
+      "status": "pass",
+      "findings": "Adult-scale desk, chair, CRT, mug and door make a plausible staff office. Floor space around the desk remains legible.",
+      "coverage": "Office function covered; fine clearances require geometry checks.",
+      "image_sha256": "0ecf64f075c3c56be464e617c5bf1d11464e974d2deae1ad06e946caa0c465c5"
+    },
+    {
+      "id": "C08_CONCEALED_SUPPORT_H1",
+      "opened": true,
+      "status": "pass_with_reservations",
+      "findings": "The covered trolley and tall pole identify a concealed care/transfer bay. The chassis, lower wheels and near floor are cut off or very dark.",
+      "coverage": "Upper bay function covered; trolley support and circulation are not proven by this view.",
+      "image_sha256": "5db0b356c31f0d53bdb871841ab14f18ce1e3a498741a5cd4ca79bc1d1e5ad25"
+    },
+    {
+      "id": "C09_ARRIVAL_GATE_P2",
+      "opened": true,
+      "status": "pass_with_reservations",
+      "findings": "The large leaf, ribs and floor warning band clearly terminate the route. The face is very dark and the control panel is clipped at the right edge.",
+      "coverage": "Arrival boundary covered; operating affordance only partly covered.",
+      "image_sha256": "f7fbf6735f35d582734082e4d138f8acf9f34c118d3266186888b4e0f98915a8"
+    },
+    {
+      "id": "C10_ROOF_SERVICES",
+      "opened": true,
+      "status": "pass_with_reservations",
+      "findings": "Fluorescent housings and major beams read as a ceiling system. Dark beam overlap hides most service routing and attachment detail.",
+      "coverage": "Roof presence covered; routing/contact quality cannot be credited from these pixels.",
+      "image_sha256": "5a9f112c5e6933a3e08335b378459c32d45a93577228d852c40174934daf2fb0"
+    },
+    {
+      "id": "CORNER_SW",
+      "opened": true,
+      "status": "pass_with_reservations",
+      "findings": "Clear zoning: office, worker/cart lanes, cargo equipment and secluded bay. The warm counter and cool cargo machine are separated; scanner details are tiny.",
+      "coverage": "Useful layout evidence; orthographic roof/wall cutaway is not player-height proof.",
+      "image_sha256": "8b572f28828604b17a18d5f78fe87a3a9bb77d754f7edce1ca2d2c046df3ae29"
+    },
+    {
+      "id": "CORNER_SE",
+      "opened": true,
+      "status": "pass_with_reservations",
+      "findings": "The open centre and routes around the inspection line are readable. The cargo roof is the strongest bright mass; the check-in hatch is smaller and peripheral.",
+      "coverage": "Useful circulation overview; local inspection mechanism remains too small.",
+      "image_sha256": "e17c585cae3febe88fa29f0d3905e43cc06089b89ea1001a6287e652c3687c41"
+    },
+    {
+      "id": "CORNER_NW",
+      "opened": true,
+      "status": "pass_with_reservations",
+      "findings": "The preserved entry opening and broad approach space are visible. The southern office wall hides the check-in face, and the concealed bay is very dark.",
+      "coverage": "Useful reverse layout evidence; check-in discovery remains unproven.",
+      "image_sha256": "18bcbe47a1db6790f0efbe0339b94bef79ecbc6c8bcd218bf597faa4f55aad57"
+    },
+    {
+      "id": "CORNER_NE",
+      "opened": true,
+      "status": "pass_with_reservations",
+      "findings": "Routes align to the worker opening and cart gate; storage remains outside them. The brightest cargo roof and scanner top do not convey the customer check-in relationship.",
+      "coverage": "Useful overall zoning; fine asset and support evidence unavailable at this scale.",
+      "image_sha256": "9ccbdfb4ae653719896479440e356d95522c1b1c1324c9aa097b6b1eb879c55b"
+    },
+    {
+      "id": "WALL_SOUTH",
+      "opened": true,
+      "status": "fail",
+      "findings": "The worker arch and cart gate occupy the foreground; the customer hatch is behind/through office glazing. The south opening reads, but the complete front-office wall does not.",
+      "coverage": "Foreground equipment compromises the wall evidence.",
+      "image_sha256": "e4b560c926aa4afed625595585101d34966c7ede3f15b889ec41c681c7f1cf27"
+    },
+    {
+      "id": "WALL_NORTH",
+      "opened": true,
+      "status": "fail",
+      "findings": "The worker header and posts dominate the frame. The arrival leaf is visible through the aperture, but substantial wall areas are masked or cropped.",
+      "coverage": "Not complete arrival-wall coverage; C09 and cutaways provide partial compensation.",
+      "image_sha256": "d0b4841027ab1940e56f32a9d301ddfda77db21ef92bc18f50e756bf369b3c86"
+    },
+    {
+      "id": "WALL_EAST",
+      "opened": true,
+      "status": "fail",
+      "findings": "The utility/cargo cluster is visible at left/centre. A foreground scanner column and header hide roughly the right third and crop the cargo relationship.",
+      "coverage": "Service wall partially covered; does not establish the whole wall.",
+      "image_sha256": "2832891f386d408e1669f0b3cf5833be2d5fa59931d9189a17e9d4664f831e94"
+    },
+    {
+      "id": "WALL_WEST",
+      "opened": true,
+      "status": "fail",
+      "findings": "A scanner column blocks a broad vertical region near the centre-left, and the white concealment screen fills the right side. Only fragments of counter, desk and filing are readable.",
+      "coverage": "Invalid as comprehensive office/storage-wall evidence, despite the declared cutaway.",
+      "image_sha256": "1d647db49b075e6c397a74b63dbff00ae4930dad6a1e3558fe59959fb2604964"
+    },
+    {
+      "id": "HERO_SCANNER",
+      "opened": true,
+      "status": "critical_coverage_fail",
+      "findings": "The office wall occupies about 59 percent of the frame. The worker aperture/header is not visible; the residual strip mainly shows the cart gate and cargo equipment.",
+      "coverage": "Worker-scanner asset hero is unavailable. Required significant-asset hero gate fails.",
+      "image_sha256": "ec29c35393f81dfb0f76b06c75e1bd146eb33d8f69e40c3d6584f9ed98ed8903"
+    },
+    {
+      "id": "HERO_CARGO",
+      "opened": true,
+      "status": "pass_with_reservations",
+      "findings": "Cargo machine, roller bed, box and dark lead-curtain mouth read together. The foreground gate post clips the left region and operator hardware.",
+      "coverage": "Cargo hero readable; function stronger than worker-scanner hero.",
+      "image_sha256": "4309cee81efd8e6aacab3c8f2f2e3ead87b7ab5ccbeb512ad8b513127f3eda02"
+    },
+    {
+      "id": "HERO_EVIDENCE",
+      "opened": true,
+      "status": "pass_with_reservations",
+      "findings": "Six separately framed locked doors form a convincing storage bank. A taped hold notice adds a useful distinction. The trolley intrudes at lower left and the doors remain dim.",
+      "coverage": "Evidence storage identity visible; lower corner and support cannot be fully checked.",
+      "image_sha256": "e4109f25ae6ecea636eb46a574cd817d4974be25ddca75a84a3fcb52ce2cff13"
+    },
+    {
+      "id": "HERO_TROLLEY",
+      "opened": true,
+      "status": "pass_with_reservations",
+      "findings": "Covered adult-length load, push handle and pole give a specific transfer silhouette. Chassis and wheels merge into a dark band at the floor.",
+      "coverage": "Story silhouette covered; contact and full lower construction unproven.",
+      "image_sha256": "5ebab25e7cda7bfe4411eb6325bd1f1a32a06a7cedf8be63597ad53fd9807178"
+    },
+    {
+      "id": "HERO_UTILITIES",
+      "opened": true,
+      "status": "pass_with_reservations",
+      "findings": "Cabinets are separated from the movement lane. The three small identical blue boxes and short straight conduits have weak functional differentiation.",
+      "coverage": "Service placement covered; no route obstruction visible.",
+      "image_sha256": "f3a52deb88687f3ce542a07305b6284d242699d38d235159dab7f645b77086f9"
+    },
+    {
+      "id": "DETAIL_CHECKIN",
+      "opened": true,
+      "status": "pass",
+      "findings": "Paper handling, chained writing tool, folder, speaker and stamp create a coherent working cluster without filling the route. The hatch function is strong at close range.",
+      "coverage": "Good customer-side detail evidence; approach hierarchy still needs a wider view.",
+      "image_sha256": "3c5158ccd5be53b7897fbd340b62556acfe4bf45cde38b6e592af09703916309"
+    },
+    {
+      "id": "PLAYER_REVERSE",
+      "opened": true,
+      "status": "fail",
+      "findings": "The worker aperture can be followed back to the south opening. The cart gate is a nearly featureless closed slab from this side, and no strong operating/permission cue distinguishes it from surrounding equipment.",
+      "coverage": "Return path visible; reverse gate state/identity weak.",
+      "image_sha256": "05d1cd54b75c9fa2ae1c17d698494b36f75fa15c2761bad4e8239ec6e3ea30ab"
+    },
+    {
+      "id": "PLAYER_PINCH",
+      "opened": true,
+      "status": "pass_with_reservations",
+      "findings": "The floor strip/drain at the arrival return is unobstructed in the visible region. Utility trolley is parked beside the wall. The screen at right and cabinet ahead conceal portions of the turn.",
+      "coverage": "No visible obstruction; full turn/metric clearance and hidden side not proven.",
+      "image_sha256": "7cda29536a1663f2bdf9f70d91d19da211dd490737e66b27fa3637ab9f469d16"
+    }
+  ],
+  "repairs": [
+    {
+      "priority": 1,
+      "title": "Repair proven invalid evidence cameras and record the new baseline",
+      "targets": [
+        "HERO_SCANNER",
+        "C02_HERO_DOCK",
+        "WALL_WEST",
+        "WALL_EAST",
+        "WALL_SOUTH",
+        "WALL_NORTH"
+      ],
+      "action": "Move only invalid evaluation cameras clear of office walls, glazing and scanner posts; retain a gameplay-height wide view showing hatch, worker opening and cart gate together. Reframe the scanner hero to include both posts, sensing surfaces, complete header and floor threshold. Supplement wall evidence from unobstructed angles. Document why each invalid camera changes and establish fixed baselines before comparisons.",
+      "preserve": "Room bounds, object footprints, external and scanner/cart apertures, route reservations, office glazing and concealment screen remain fixed.",
+      "success_evidence": "Actual labelled renders show the named targets directly, without broad foreground masks."
+    },
+    {
+      "priority": 2,
+      "title": "Expose the worker and cart inspection assemblies at gameplay height",
+      "targets": [
+        "C01_ENTRY",
+        "C04_SCANNER_APPROACH",
+        "C06_CART_GATE_G1",
+        "PLAYER_REVERSE"
+      ],
+      "action": "Use restrained local side/key light and a modest value separation between painted posts, gate leaves and background. Make existing sensing strips, panel recesses, threshold and real construction edges readable. Give the cart gate a believable visible hinge/slide/latch/end-stop mechanism and a physical operating cue on both faces within its retained envelope.",
+      "preserve": "No aperture widening, lane movement, footprint expansion or decorative glowing lines.",
+      "success_evidence": "Opening, scanner surfaces, closed cart barrier and its mechanism are identifiable before reading text; reverse face remains legible."
+    },
+    {
+      "priority": 3,
+      "title": "Make the fixed check-in hatch discoverable on approach",
+      "targets": [
+        "C01_ENTRY",
+        "C02_HERO_DOCK",
+        "C03_CHECKIN_COUNTER",
+        "DETAIL_CHECKIN"
+      ],
+      "action": "Create a visible practical-light/value focal mass at the retained customer hatch and a restrained local floor/queue cue that distinguishes its approach from the through lanes. Retain the coherent counter props. Verify a player-height look from the entrance can locate the customer side with a normal glance/turn; use the repaired wide view to prove its relationship to inspection.",
+      "preserve": "Hatch position and usable aperture, counter footprint, office interfaces and circulation remain unchanged.",
+      "success_evidence": "The check-in interaction is discoverable at entry without relying on close-up text or image captions."
+    },
+    {
+      "priority": 4,
+      "title": "Restore selective detail in subdued secondary bays",
+      "targets": [
+        "C08_CONCEALED_SUPPORT_H1",
+        "HERO_TROLLEY",
+        "HERO_EVIDENCE",
+        "C10_ROOF_SERVICES"
+      ],
+      "action": "Add only enough localized fill/rim and material value separation to expose trolley chassis/wheel silhouettes, storage-door edges and service/support attachments. Keep the secondary bays dim and preserve the large quiet surfaces.",
+      "preserve": "Keep all props out of reserved routes; do not fill open floor or walls with extra clutter.",
+      "success_evidence": "Required secondary silhouettes and support areas can be inspected while the worker/check-in/cargo hierarchy stays dominant."
+    }
+  ],
+  "permitted_changes": "Only production/critics/full-c01-spatial.md and production/critics/full-c01-spatial.json."
+}

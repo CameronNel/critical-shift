@@ -1,0 +1,338 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-10-01T17:18:23.941007+00:00",
+  "critic_role": "fresh independent technical style-slice review",
+  "revision": "s07",
+  "verdict": "LOCAL FAIL",
+  "scope": "Front-office architecture, D1, check-in assembly, new practical and utility; no restroom/full-room/engine acceptance.",
+  "source": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend",
+  "frozen_source_sha256": "269c04fe6b45870873baf1985e21e7ad915dc12a07136378cb639ffc46acc612",
+  "archive": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/checkpoints/slice-s07.blend",
+  "source_unchanged_during_audit": true,
+  "production_scene_or_builder_edits": false,
+  "visual_scores": null,
+  "failures": [
+    {
+      "id": "T01",
+      "severity": "local blocker",
+      "status": "FAIL",
+      "finding": "Three counter-lip wear meshes float in front of their actual support and overlap each other.",
+      "objects": [
+        "CD | Counter lip rubbed spot",
+        "CD | Counter lip rubbed spot.001",
+        "CD | Counter lip rubbed spot.002"
+      ],
+      "measured": {
+        "actual_slab_nearest_surface_distance_m": [
+          0.020024968311190605,
+          0.020024968311190605,
+          0.020024968311190605
+        ],
+        "actual_scar_surface_y": 3.230000019,
+        "actual_worktop_surface_y": 3.25,
+        "exposed_same_facing_overlap_area_per_adjacent_pair_m2": 0.0002871505,
+        "exposed_plane_y": 3.2293999195
+      },
+      "evidence": [
+        "slice-s07-technical-probe.json:counter_lip_scars",
+        "slice-s07-technical-surface-witness.json:coplanar_plane_witnesses"
+      ],
+      "needed": "Remove detached duplicate dressing or author wear directly on the measured manufactured lip."
+    },
+    {
+      "id": "T02",
+      "severity": "local blocker",
+      "status": "FAIL",
+      "finding": "Molded reader housing penetrates an intact wall by 20 mm; its own wall mount is not registered as an independent supported assembly.",
+      "objects": [
+        "D1 keycard reader",
+        "Office front wall mid"
+      ],
+      "measured": {
+        "penetration_m": [
+          0.020000101029872895,
+          0.020000101029872895,
+          0.020000101029872895
+        ],
+        "reader_back_y": 3.5399999619,
+        "wall_front_y": 3.5199999809,
+        "allowed_default_max_penetration_m": 0.002
+      },
+      "evidence": [
+        "slice-s07-technical-surface-witness.json:reader_seating",
+        "slice-s07-technical-validator.json:support_registry"
+      ],
+      "needed": "Provide a geometrically valid wall seat/backplate or documented recess and explicit reader support ownership, retaining inherited object matrix."
+    },
+    {
+      "id": "T03",
+      "severity": "local blocker",
+      "status": "FAIL",
+      "finding": "Twenty actual curve/font shader consumers request CD_Physical_1m but only evaluate a layer named UVMap.",
+      "objects": [
+        "D1 lever handle",
+        "D1 closer arm",
+        "Manifest header",
+        "Manifest line 1",
+        "Manifest line 2",
+        "Manifest line 3",
+        "Counter ballpoint pen",
+        "Security bead chain",
+        "CD | D1 ID",
+        "CD | D1 access caption",
+        "CD | Speak instruction",
+        "CD | Forms title",
+        "CD | Stamp identity",
+        "CD | Wipe hem",
+        "CD | Wipe hem.001",
+        "CD | Docket warning",
+        "CD | Docket secondary",
+        "CD | Plaque headline",
+        "CD | Plaque coercion",
+        "CD | Door armored conduit"
+      ],
+      "measured": {
+        "missing_named_uv_consumer_count": 20,
+        "actual_evaluated_layer": "UVMap",
+        "requested_shader_layer": "CD_Physical_1m"
+      },
+      "evidence": [
+        "slice-s07-technical-probe.json:uv.consumers_missing_named_layer"
+      ],
+      "needed": "Give material consumers valid physical mapping; preserve editable text and retain object-specific seam/scale choices."
+    },
+    {
+      "id": "T04",
+      "severity": "local blocker",
+      "status": "FAIL",
+      "finding": "Retained counter legs and sill wall retain partial exposed same-facing coincident faces.",
+      "objects": [
+        "Hatch counter leg west",
+        "Hatch counter leg east",
+        "Hatch wall sill base"
+      ],
+      "measured": {
+        "west_face_overlap_m2": 0.0714235566,
+        "east_face_overlap_m2": 0.0714240253,
+        "front_plane_y": 3.5199999809,
+        "rear_plane_y": 3.6799998283,
+        "exposed_east_front_point": [
+          -2.7324500084,
+          3.5199999809,
+          0.5121330023
+        ],
+        "exposed_west_rear_point": [
+          -4.2673249245,
+          3.6799998283,
+          0.5181995034
+        ]
+      },
+      "evidence": [
+        "slice-s07-technical-surface-witness.json:coplanar_plane_witnesses"
+      ],
+      "needed": "Repair redundant wall/member construction while preserving combined architectural envelope, object matrices and worktop bearing. Buried top/bottom contact faces are not the exposed issue."
+    },
+    {
+      "id": "T05",
+      "severity": "technical cleanup",
+      "status": "FAIL",
+      "finding": "Applied bevels contain exactly zero-area evaluated triangles on authored local components.",
+      "objects": [
+        "Counter manifest paper",
+        "CD | D1 key cylinder",
+        "CD | Speaking grille slit",
+        "CD | Speaking grille slit.001",
+        "CD | Speaking grille slit.002",
+        "CD | Speaking grille slit.003",
+        "CD | Speaking grille slit.004",
+        "CD | Speaking grille slit.005",
+        "CD | Pad grip rib",
+        "CD | Pad grip rib.001",
+        "CD | Pad grip rib.002",
+        "CD | Pad grip rib.003",
+        "CD | Pad grip rib.004",
+        "CD | Pad grip rib.005",
+        "CD | Pad grip rib.006",
+        "CD | Pad grip rib.007",
+        "CD | Pad grip rib.008",
+        "CD | Pad grip rib.009",
+        "CD | Pad grip rib.010",
+        "CD | Pad grip rib.011",
+        "CD | Ink pad lid inner lip"
+      ],
+      "measured": {
+        "zero_area_evaluated_triangles": 644,
+        "affected_objects": 21,
+        "per_collapsed_bevel_component": 32,
+        "manifest_paper": 4
+      },
+      "evidence": [
+        "slice-s07-technical-surface-witness.json:zero_area_triangles"
+      ],
+      "needed": "Use appropriate edge treatment or scoped removal of collapsed geometry on the affected key cylinder, grille slits, pad ribs, ink-pad lip and paper. This is separate from harmless submicron UV ratio noise."
+    }
+  ],
+  "passed_checks": [
+    {
+      "check": "existing_validator",
+      "status": "PASS",
+      "details": {
+        "failures": 0,
+        "warnings": 0,
+        "unverified_checks": 5,
+        "passed_checks": 5,
+        "failed_checks": 0
+      },
+      "assembly_roots": 21,
+      "anchors": 50,
+      "fixed_camera_inventory": 12,
+      "interface": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/contracts/interface.json",
+      "stage": "slice"
+    },
+    {
+      "check": "source_and_protected_bytes",
+      "status": "PASS",
+      "source_sha256": "269c04fe6b45870873baf1985e21e7ad915dc12a07136378cb639ffc46acc612",
+      "hashes_unchanged": true,
+      "protected_file_count": 5,
+      "evidence": "slice-s07-technical-hashes-post.json"
+    },
+    {
+      "check": "direct_original_matrices",
+      "status": "PASS",
+      "inherited_objects": 1077,
+      "matrix_changes": [],
+      "maximum_delta_against_baseline": 0
+    },
+    {
+      "check": "combined_architectural_envelope",
+      "status": "PASS",
+      "current_bounds": [
+        [
+          -7.099999904632568,
+          -2.0999999046325684,
+          -0.20000000298023224
+        ],
+        [
+          7.208348274230957,
+          16.079999923706055,
+          4.440000057220459
+        ]
+      ],
+      "original_bounds": [
+        [
+          -7.099999904632568,
+          -2.0999999046325684,
+          -0.20000000298023224
+        ],
+        [
+          7.208348274230957,
+          16.079999923706055,
+          4.440000057220459
+        ]
+      ],
+      "details": "Exact measured global union equality; current contract baseline discrepancies remain disclosed, not silently re-certified."
+    },
+    {
+      "check": "combined_D1_and_hatch_landmarks",
+      "status": "PASS",
+      "D1_clear_width_m": 1.0499992371,
+      "D1_clear_height_m": 2.1999998093,
+      "original_D1_width_m": 1.0499997139,
+      "hatch_side_x": [
+        -4.3500003815,
+        -2.6700000763
+      ],
+      "hatch_head_z": 2.3500001431,
+      "hatch_sill_top_delta_m": 0.0002120733,
+      "details": "Combined frames included in rays. A wall-only test would misinterpret the repaired outer jamb pocket as an enlarged door. Other portal/scanner/cart architecture has unchanged evaluated fingerprints in direct original comparison."
+    },
+    {
+      "check": "relative_libraries_and_image_resources",
+      "status": "PASS",
+      "library_count": 25,
+      "relative_and_present": true,
+      "image_count": 119,
+      "details": "Blender-normalized relative paths resolve from active source context. Local authoring geometry uses local data."
+    },
+    {
+      "check": "mesh_UV_metric",
+      "status": "PASS_WITH_SCOPE",
+      "mesh_consumers": 192,
+      "no_nonfinite_or_degenerate_uv_on_nondegenerate_triangles": true,
+      "edge_length_above_100um_ratio_min": 0.9983540764631831,
+      "edge_length_above_100um_ratio_max": 1.0015851328204741,
+      "details": "World-metric triangle edge/area checks include true sloped caps and applied bevels. No >1% errors on edges >0.1 mm. Submicron edge extremes on curled paper are numerical precision; curves/fonts fail separately."
+    },
+    {
+      "check": "scoped_closed_mesh_normals",
+      "status": "PASS_WITH_SCOPE",
+      "closed_meshes": 192,
+      "positive_signed_volume_meshes": 192,
+      "negative_world_determinants": 0,
+      "details": "No net inverted closed scoped mesh. Signed volume is not a complete per-face normal/shading proof. Exactly zero-area triangles remain T05."
+    },
+    {
+      "check": "measured_internal_bearing_paths",
+      "status": "PASS_WITH_SCOPE",
+      "pairs_measured": 45,
+      "details": "Actual evaluated surface witnesses and triangle intersections show glass/clamp/stanchion/foot/worktop/leg chain, pad/base/case/felt/lid pins, cloth lower-ply bearing, conduit/saddle/lid connections, practical bracket/shade/lens and hinge connections. Reader wall seating fails separately. Felt seat and cloth bearing rays differ from their intended surfaces by about 0.00000012 m; D1 strap-to-leaf gap is 0.0009998 m, inside 0.005 m contact tolerance. This does not prove structural strength or complete internal constructability."
+    }
+  ],
+  "images_opened": [
+    "revamp/production/renders/slice-s07/SLICE_ENTRY.png",
+    "revamp/production/renders/slice-s07/SLICE_DOOR.png",
+    "revamp/production/renders/slice-s07/SLICE_MATERIAL.png",
+    "revamp/production/renders/slice-s07-uv/SLICE_ENTRY.png",
+    "revamp/production/renders/slice-s07-uv/SLICE_DOOR.png",
+    "revamp/production/renders/slice-s07-neutral/SLICE_MATERIAL.png",
+    "revamp/production/renders/spawn-reference/VALIDATE_Spawn.png",
+    "revamp/production/renders/spawn-reference/VALIDATE_LockerDoor.png",
+    "revamp/production/renders/spawn-reference/VALIDATE_Material_A.png",
+    "revamp/production/renders/spawn-reference/BRIEFING_INDIRECT.png"
+  ],
+  "current_s07_render_source_and_pixel_hashes_checked": true,
+  "commands": [
+    {
+      "command": "/workspace/tools/blender-5.2.2-linux-x64/blender --background --factory-startup --disable-autoexec --threads 1 module_overhaul_R1.blend --python-exit-code 1 --python validate_dock.py -- --interface /workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/contracts/interface.json --expected-stage slice --output /workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/critics/slice-s07-technical-validator.json",
+      "exit_code": 0,
+      "log": "slice-s07-technical-validator.log"
+    },
+    {
+      "command": "/workspace/tools/blender-5.2.2-linux-x64/blender --background --factory-startup --disable-autoexec --threads 1 module_overhaul_R1.blend --python-exit-code 1 --python revamp/production/critics/slice-s07-technical-probe.py",
+      "exit_code": 0,
+      "log": "slice-s07-technical-probe.log",
+      "note": "Probe also cold-opens protected original module in read-only process for direct comparisons."
+    },
+    {
+      "command": "/workspace/tools/blender-5.2.2-linux-x64/blender --background --factory-startup --disable-autoexec --threads 1 module_overhaul_R1.blend --python-exit-code 1 --python revamp/production/critics/slice-s07-technical-surface-witness.py",
+      "exit_code": 0,
+      "log": "slice-s07-technical-surface-witness.log"
+    }
+  ],
+  "planning_estimates": {
+    "actual_scene_triangles": 330488,
+    "triangle_estimate_ceiling": 450000,
+    "actual_scene_material_submeshes": 1157,
+    "material_submesh_estimate_ceiling": 1150,
+    "actual_used_local_material_families": 44,
+    "material_family_estimate_ceiling": 36,
+    "interpretation": "Triangles within estimate. Submeshes and total retained/overhaul material families exceed planning estimates; report for full production consolidation. These are authoring estimates, not runtime budgets or automatic art scores."
+  },
+  "unverified": [
+    "Every arbitrary internal surface/edge intersection and every hidden component is not exhaustively certified.",
+    "Net positive signed volume does not prove every face normal or corner shading.",
+    "Contacts establish geometric connection, not structural load capacity or moving hinge clearance.",
+    "Full routes, all rooms, restroom, runtime collision/navigation/interactions, draw calls/FPS remain unverified.",
+    "Rebuild/cold-render matching is not performed by this critic; native cold open is verified.",
+    "No full-room art approval, visual category scores, owner approval or merge authorization."
+  ],
+  "dependency_note": "Targeted git lfs pull failed for unavailable Git credentials. Active selected dock, map, spawn and all 25 linked dependency paths opened successfully. Frozen accepted.blend is an unchanged LFS pointer and unused by the active source; it was not opened.",
+  "evidence_files": [
+    "slice-s07-technical-validator.json",
+    "slice-s07-technical-probe.json",
+    "slice-s07-technical-surface-witness.json",
+    "slice-s07-technical-hashes-pre.json",
+    "slice-s07-technical-hashes-post.json"
+  ]
+}

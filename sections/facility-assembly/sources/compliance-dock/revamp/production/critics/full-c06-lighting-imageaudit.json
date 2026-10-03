@@ -1,0 +1,556 @@
+{
+  "critic": "independent category5 lighting",
+  "cycle": 6,
+  "images_opened": 39,
+  "current_images": 35,
+  "spawn_references": 4,
+  "handles_released": true,
+  "images": [
+    {
+      "relative_render_path": "spawn-reference/VALIDATE_Spawn.png",
+      "opened_individually": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "Practical strips create readable floor and door zone; briefing aperture markedly darker; locker doorway reveals a separated cool room. Strong target calibration for falloff and contact.",
+      "sha256": "c84f368729c7e3ae1e6f1005ff5daae39020749316545bd208c972cee5b4e9ed",
+      "manifest_sha256": "c84f368729c7e3ae1e6f1005ff5daae39020749316545bd208c972cee5b4e9ed",
+      "hash_matches": true,
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "relative_render_path": "spawn-reference/VALIDATE_Material_A.png",
+      "opened_individually": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "Locker reveal and shelves maintain matte form cues in dim surroundings; close surfaces respond broadly, no glow drowning geometry.",
+      "sha256": "47d3892f69b4b244bcbff32908a6445556c182b2090aba11b22be1fe274253f6",
+      "manifest_sha256": "47d3892f69b4b244bcbff32908a6445556c182b2090aba11b22be1fe274253f6",
+      "hash_matches": true,
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "relative_render_path": "spawn-reference/VALIDATE_LockerDoor.png",
+      "opened_individually": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "Cool wall pools and warm lockers form restrained separation; dark ceiling and chamber stay dimensional through selected highlights.",
+      "sha256": "b8fd309f91cc15bfe6d183a253b81ba0f20a0033e08c63214c127e07e19879de",
+      "manifest_sha256": "b8fd309f91cc15bfe6d183a253b81ba0f20a0033e08c63214c127e07e19879de",
+      "hash_matches": true,
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "relative_render_path": "spawn-reference/BRIEFING_INDIRECT.png",
+      "opened_individually": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "Pendant and table lamp make distinct warm working pools; human props and bench contacts remain readable in low side values.",
+      "sha256": "8d03448f84845b16705c6acc3324364a4e0a51f36c34355f4c481e8957aef301",
+      "manifest_sha256": "8d03448f84845b16705c6acc3324364a4e0a51f36c34355f4c481e8957aef301",
+      "hash_matches": true,
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "relative_render_path": "full-cycle-06/C01_ENTRY.png",
+      "opened_individually": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "Scanner is bright local key against dark arrival gate and ceiling; foreground route lit enough to navigate; office glass keeps warm secondary light; some monitor housings behind cabinet read as nearly featureless dark rectangles.",
+      "sha256": "835b2a954d5b055eb1c62f245e2ca2e465f191aeb7a86bf7505b8cff7444e64a",
+      "manifest_sha256": "835b2a954d5b055eb1c62f245e2ca2e465f191aeb7a86bf7505b8cff7444e64a",
+      "hash_matches": true,
+      "dimensions": [
+        1067,
+        600
+      ]
+    },
+    {
+      "relative_render_path": "full-cycle-06/C02_HERO_DOCK.png",
+      "opened_individually": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "Bright worker gate, illuminated inspection aperture and dim overhead structure create depth. Cargo tray/crate underside and rail supports are substantially dimmer than scanner but silhouette readable; practical strips visibly affect near surfaces.",
+      "sha256": "f7bb136a23be588eed7e543a50cf196481840bd3ddacc514e37fc9f98ce064d5",
+      "manifest_sha256": "f7bb136a23be588eed7e543a50cf196481840bd3ddacc514e37fc9f98ce064d5",
+      "hash_matches": true,
+      "dimensions": [
+        1067,
+        600
+      ]
+    },
+    {
+      "relative_render_path": "full-cycle-06/C03_CHECKIN_COUNTER.png",
+      "opened_individually": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "Counter paperwork, stamp and hatch are a strong warm working pool; surrounding office and lower counter fall dark. Reader-facing surfaces distinguish form well, with small restrained lamp cue.",
+      "sha256": "ebd562494173f170675a4feced8d5ff0a61b1d347850ca14a43d4d9fd32e31cc",
+      "manifest_sha256": "ebd562494173f170675a4feced8d5ff0a61b1d347850ca14a43d4d9fd32e31cc",
+      "hash_matches": true,
+      "dimensions": [
+        1067,
+        600
+      ]
+    },
+    {
+      "relative_render_path": "full-cycle-06/C04_SCANNER_APPROACH.png",
+      "opened_individually": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "Bright gate uprights and immediate floor contrast with dim terminal door. Aperture remains clear and controls legible; near cabinet face lit broadly while gate feet and floor retain grounding.",
+      "sha256": "064fd0267bc2ab3a4de16f09ce1601939ddda7d0af30f9eb839f1e12174d8ed1",
+      "manifest_sha256": "064fd0267bc2ab3a4de16f09ce1601939ddda7d0af30f9eb839f1e12174d8ed1",
+      "hash_matches": true,
+      "dimensions": [
+        1067,
+        600
+      ]
+    },
+    {
+      "relative_render_path": "full-cycle-06/C05_CONVEYOR_LEAD_TUNNEL.png",
+      "opened_individually": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "Tunnel strip lights curtain faces and conveyor roller highlights locally; crate top/folds and side silhouette readable against dim aperture. Dark frame sides and underside retain their structural outline.",
+      "sha256": "1635a04557d32c4792344e2438df99ef3138e3034f380965b41cb3a7bc38cdc8",
+      "manifest_sha256": "1635a04557d32c4792344e2438df99ef3138e3034f380965b41cb3a7bc38cdc8",
+      "hash_matches": true,
+      "dimensions": [
+        1067,
+        600
+      ]
+    },
+    {
+      "relative_render_path": "full-cycle-06/C06_CART_GATE_G1.png",
+      "opened_individually": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "Left gate is cooler and brighter than right cargo hardware; metal cart panels retain broad form and inset detail while rear entry stays darker. Fine dark frame joints show limited separation at the right.",
+      "sha256": "9bdeb8015fcff17ad7b94c0280dfec86dd95ac323f6035c0c8362fe7c22bc22c",
+      "manifest_sha256": "9bdeb8015fcff17ad7b94c0280dfec86dd95ac323f6035c0c8362fe7c22bc22c",
+      "hash_matches": true,
+      "dimensions": [
+        1067,
+        600
+      ]
+    },
+    {
+      "relative_render_path": "full-cycle-06/C07_OFFICE_INTERIOR.png",
+      "opened_individually": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "Warm floor/desk light pool and strong chair/desk contact shadows ground the office; deep underdesk values remain interpretable. Cool blurred dock through glazing separates spaces; small wall cabinet has weak local separation.",
+      "sha256": "f8770dd35ba592d00acc044f2171f4ff19c6316db58c893b6b97e5948be4f342",
+      "manifest_sha256": "f8770dd35ba592d00acc044f2171f4ff19c6316db58c893b6b97e5948be4f342",
+      "hash_matches": true,
+      "dimensions": [
+        1067,
+        600
+      ]
+    },
+    {
+      "relative_render_path": "full-cycle-06/C08_CONCEALED_SUPPORT_H1.png",
+      "opened_individually": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "Localized warm wall/trolley pool reveals cloth volume, straps and rail construction. Strong lit cloth versus dim right cabinets supports secondary-storage mood; cabinet recesses are weakly separated.",
+      "sha256": "9ce47aa769a4de14b2b18d468af10df24d6aad01a73532824ce950367a5e6809",
+      "manifest_sha256": "9ce47aa769a4de14b2b18d468af10df24d6aad01a73532824ce950367a5e6809",
+      "hash_matches": true,
+      "dimensions": [
+        1067,
+        600
+      ]
+    },
+    {
+      "relative_render_path": "full-cycle-06/C09_ARRIVAL_GATE_P2.png",
+      "opened_individually": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "Arrival gate remains dim with restrained beacon and lit flanking wall; large panel borders and lock/control remain readable. Narrow vertical hardware toward the left jamb approaches silhouette-only readability.",
+      "sha256": "e2205fe8d90a69c335281b29bc49844c694aa98fcaaf946a3357f072f5a25abb",
+      "manifest_sha256": "e2205fe8d90a69c335281b29bc49844c694aa98fcaaf946a3357f072f5a25abb",
+      "hash_matches": true,
+      "dimensions": [
+        1067,
+        600
+      ]
+    },
+    {
+      "relative_render_path": "full-cycle-06/C10_ROOF_SERVICES.png",
+      "opened_individually": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "Practical strips are bright without destroying nearby beam edges; roof panels have distinct local falloff and dark recesses. Deep service cavity is mostly silhouette, appropriate secondary overhead read.",
+      "sha256": "21f80d37b25ec04b4dc8282e52a874688fb85a1b3758e83c5232315dd8933381",
+      "manifest_sha256": "21f80d37b25ec04b4dc8282e52a874688fb85a1b3758e83c5232315dd8933381",
+      "hash_matches": true,
+      "dimensions": [
+        1067,
+        600
+      ]
+    },
+    {
+      "relative_render_path": "full-cycle-06/CORNER_SW.png",
+      "opened_individually": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "Cutaway confirms separate counter/office/trolley pools and darker storage edges; central inspection zone brighter than rear wall. Ambient fill supports overall structural read.",
+      "sha256": "7fead0ff792974763b44084cc60777595403901f1b05dbccdc3943dc083a901d",
+      "manifest_sha256": "7fead0ff792974763b44084cc60777595403901f1b05dbccdc3943dc083a901d",
+      "hash_matches": true,
+      "dimensions": [
+        1067,
+        600
+      ]
+    },
+    {
+      "relative_render_path": "full-cycle-06/CORNER_SE.png",
+      "opened_individually": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "Cutaway preserves localized bright inspection/check-in and subdued utility side. Trolley cloth and hatch stand out; floor lighting reveals circulation geometry.",
+      "sha256": "1e9635e0f730b910578486e57079a7981cbf375a641d267daa4232181da2b80d",
+      "manifest_sha256": "1e9635e0f730b910578486e57079a7981cbf375a641d267daa4232181da2b80d",
+      "hash_matches": true,
+      "dimensions": [
+        1067,
+        600
+      ]
+    },
+    {
+      "relative_render_path": "full-cycle-06/CORNER_NW.png",
+      "opened_individually": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "Counter and trolley pools remain visibly discrete from neutral main floor. Secondary storage masses stay dark; cutaway roof omission limits use for gameplay ceiling judgment.",
+      "sha256": "612bb7930a61e9653647d4cb7b3668d001b83300f44804f870f30cd87cf4c9d9",
+      "manifest_sha256": "612bb7930a61e9653647d4cb7b3668d001b83300f44804f870f30cd87cf4c9d9",
+      "hash_matches": true,
+      "dimensions": [
+        1067,
+        600
+      ]
+    },
+    {
+      "relative_render_path": "full-cycle-06/CORNER_NE.png",
+      "opened_individually": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "Cutaway shows a readable brighter worker gate path, discrete trolley spot and warm office lights. Dim equipment backs retain coarse volume without competing with the route.",
+      "sha256": "1bf31781a555787c240893ac15770b22edcaa8116f63fb62cbeabaed0693243e",
+      "manifest_sha256": "1bf31781a555787c240893ac15770b22edcaa8116f63fb62cbeabaed0693243e",
+      "hash_matches": true,
+      "dimensions": [
+        1067,
+        600
+      ]
+    },
+    {
+      "relative_render_path": "full-cycle-06/WALL_SOUTH.png",
+      "opened_individually": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "Entry wall shows three practical pools with darker upper/lower bands; doorway frame and poster remain clear in reserved negative space.",
+      "sha256": "8cfd49800f8979f300f1d2e23ec21ac9c399097dd5c8cc1ffaff40655c315020",
+      "manifest_sha256": "8cfd49800f8979f300f1d2e23ec21ac9c399097dd5c8cc1ffaff40655c315020",
+      "hash_matches": true,
+      "dimensions": [
+        1067,
+        600
+      ]
+    },
+    {
+      "relative_render_path": "full-cycle-06/WALL_NORTH.png",
+      "opened_individually": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "Gate and flanking cabinet faces stay distinct under subdued pool; restrained orange beacons add no excessive bloom. Thin outer cabinet frame loses detail in left low corner.",
+      "sha256": "a6cfb16246712e1eaab88766cc65ff47ec0850159f2a0dfc89dff2cbdd0c706e",
+      "manifest_sha256": "a6cfb16246712e1eaab88766cc65ff47ec0850159f2a0dfc89dff2cbdd0c706e",
+      "hash_matches": true,
+      "dimensions": [
+        1067,
+        600
+      ]
+    },
+    {
+      "relative_render_path": "full-cycle-06/WALL_EAST.png",
+      "opened_individually": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "Service wall has spatially varied warm/cool pools; utilities are readable and neighboring wall spans quiet; dark beam lines retain wall depth.",
+      "sha256": "d0538e4f0d2d24587724786e7978ce5f6443fa39d0c70bb24233807ae5868dae",
+      "manifest_sha256": "d0538e4f0d2d24587724786e7978ce5f6443fa39d0c70bb24233807ae5868dae",
+      "hash_matches": true,
+      "dimensions": [
+        1067,
+        600
+      ]
+    },
+    {
+      "relative_render_path": "full-cycle-06/WALL_WEST.png",
+      "opened_individually": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "Office elevation shows warm pools with darker drawer files and wall base; partition is broadly brighter than office background, giving depth but little sculpting on its flat face.",
+      "sha256": "2287570df5450d5471f6e23c47e37a2a79d9e1bb282d4597966eff89da15e29f",
+      "manifest_sha256": "2287570df5450d5471f6e23c47e37a2a79d9e1bb282d4597966eff89da15e29f",
+      "hash_matches": true,
+      "dimensions": [
+        1067,
+        600
+      ]
+    },
+    {
+      "relative_render_path": "full-cycle-06/HERO_SCANNER.png",
+      "opened_individually": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "Bright localized gate key preserves inset sensors and contact shadow; near side remains differentiated from face. Broad light upright faces lose some tonal sculpting at upper white caps, but silhouette and aperture intact.",
+      "sha256": "5c4a484aa81d8d00f235832e32cd53cffcf764959a592390d9c27ceeea615cf9",
+      "manifest_sha256": "5c4a484aa81d8d00f235832e32cd53cffcf764959a592390d9c27ceeea615cf9",
+      "hash_matches": true,
+      "dimensions": [
+        1067,
+        600
+      ]
+    },
+    {
+      "relative_render_path": "full-cycle-06/HERO_CARGO.png",
+      "opened_individually": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "Internal strip gives clear curtain gradient and lid/roller highlights; dark front crate face and lower conveyor merge locally with near-black rail structure, reducing detail separation while retaining silhouette.",
+      "sha256": "4d1ffedcf4aa50b2567b9519458d1b74f8d45b8a8347d190e74783608afff7af",
+      "manifest_sha256": "4d1ffedcf4aa50b2567b9519458d1b74f8d45b8a8347d190e74783608afff7af",
+      "hash_matches": true,
+      "dimensions": [
+        1067,
+        600
+      ]
+    },
+    {
+      "relative_render_path": "full-cycle-06/HERO_EVIDENCE.png",
+      "opened_individually": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "Evidence cabinet doors, hinges and padlocks remain identifiable under dim blue-grey fill; trolley cloth is much brighter. Cabinet outer surround and lower recesses merge toward black, limiting construction detail.",
+      "sha256": "91a4058b80f4b246f08a202a5e9bafbd7455e31db3f83c4e07df3b8b5ad05737",
+      "manifest_sha256": "91a4058b80f4b246f08a202a5e9bafbd7455e31db3f83c4e07df3b8b5ad05737",
+      "hash_matches": true,
+      "dimensions": [
+        1067,
+        600
+      ]
+    },
+    {
+      "relative_render_path": "full-cycle-06/HERO_TROLLEY.png",
+      "opened_individually": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "Strong localized warm pool sculpts cloth, straps and handle; wheel contacts and supporting frame cast clear shadows. Far wheel and deep undertray sit near silhouette-only, but assembly reads supported.",
+      "sha256": "ffcffb5ff6cf34ed1fa65872f4826eb26682549bd4d7ee8a2dac5e202c4436d0",
+      "manifest_sha256": "ffcffb5ff6cf34ed1fa65872f4826eb26682549bd4d7ee8a2dac5e202c4436d0",
+      "hash_matches": true,
+      "dimensions": [
+        1067,
+        600
+      ]
+    },
+    {
+      "relative_render_path": "full-cycle-06/HERO_UTILITIES.png",
+      "opened_individually": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "Cream junction boxes and upper metal pipe bends separate from dark backboard with restrained highlights; dark vertical conduit on black backing has weak tonal separation. Cabinet status lights remain limited.",
+      "sha256": "0d8a19edafce9fdf7b4a7cf4c09d234f9fcf03ec428282bd5a390469daacbc19",
+      "manifest_sha256": "0d8a19edafce9fdf7b4a7cf4c09d234f9fcf03ec428282bd5a390469daacbc19",
+      "hash_matches": true,
+      "dimensions": [
+        1067,
+        600
+      ]
+    },
+    {
+      "relative_render_path": "full-cycle-06/DETAIL_CHECKIN.png",
+      "opened_individually": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "Task surface has readable contact shadows, folded cloth, stamp and paper thickness. Foreground hatch surfaces are bright but paper still retains markings; deeper office desk is darker.",
+      "sha256": "546b99701cfc47daa9b35d05778db27be7e0259c7168a9f611d0189e34c4f553",
+      "manifest_sha256": "546b99701cfc47daa9b35d05778db27be7e0259c7168a9f611d0189e34c4f553",
+      "hash_matches": true,
+      "dimensions": [
+        1067,
+        600
+      ]
+    },
+    {
+      "relative_render_path": "full-cycle-06/PLAYER_REVERSE.png",
+      "opened_individually": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "Reverse view retains gate lighting hierarchy and sensor inset cues; rear cart panels receive less key but keep seams. Broad beam shadows and dark roof strengthen coercive industrial feel.",
+      "sha256": "c3cf7cfaa33c0642b3b04a3d34bb4b1907ac785e37898bb26b3cce6f0bbb8fa1",
+      "manifest_sha256": "c3cf7cfaa33c0642b3b04a3d34bb4b1907ac785e37898bb26b3cce6f0bbb8fa1",
+      "hash_matches": true,
+      "dimensions": [
+        1067,
+        600
+      ]
+    },
+    {
+      "relative_render_path": "full-cycle-06/PLAYER_PINCH.png",
+      "opened_individually": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "Dim gate panels beside a readable utility/floor strip maintain route depth; wall boxes remain distinct, and trolley floor contact reads. Black conduit on backing is the most weakly separated local detail.",
+      "sha256": "3aa0e7480fe384b46492a6dff383d177f2f7f183c86225b9ee651ef8498ae7af",
+      "manifest_sha256": "3aa0e7480fe384b46492a6dff383d177f2f7f183c86225b9ee651ef8498ae7af",
+      "hash_matches": true,
+      "dimensions": [
+        1067,
+        600
+      ]
+    },
+    {
+      "relative_render_path": "full-cycle-06/WALL_OFFICE_FRONT.png",
+      "opened_individually": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "Warm hatch light and subdued red staff door create distinct working/closed zones. Contact and reveal shadows retain architectural depth; dark counter apron remains appropriate mass.",
+      "sha256": "df315675e635557897e6fcc5e037329dce87818e918a12dd62c45fe49b498b43",
+      "manifest_sha256": "df315675e635557897e6fcc5e037329dce87818e918a12dd62c45fe49b498b43",
+      "hash_matches": true,
+      "dimensions": [
+        1067,
+        600
+      ]
+    },
+    {
+      "relative_render_path": "full-cycle-06-uv-standard/C05_CONVEYOR_LEAD_TUNNEL.png",
+      "opened_individually": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "Checker diagnostic exposes all cargo frame and support shapes; brightness is diagnostic, not scored as beauty atmosphere.",
+      "sha256": "4ef6ba4e3be778fb3d26f6c90d70bbdfe430001b37b56bb13de11164f78a386f",
+      "manifest_sha256": "4ef6ba4e3be778fb3d26f6c90d70bbdfe430001b37b56bb13de11164f78a386f",
+      "hash_matches": true,
+      "dimensions": [
+        1067,
+        600
+      ]
+    },
+    {
+      "relative_render_path": "full-cycle-06-uv-standard/C07_OFFICE_INTERIOR.png",
+      "opened_individually": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "Checker diagnostic confirms office desktop/chair and undersupport silhouettes without lighting concealment.",
+      "sha256": "b1ee4e936225ca4c4f9892bdcef025c493073d2d343584c07c9de92c1ba89ce8",
+      "manifest_sha256": "b1ee4e936225ca4c4f9892bdcef025c493073d2d343584c07c9de92c1ba89ce8",
+      "hash_matches": true,
+      "dimensions": [
+        1067,
+        600
+      ]
+    },
+    {
+      "relative_render_path": "full-cycle-06-uv-standard/HERO_TROLLEY.png",
+      "opened_individually": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "Checker diagnostic reveals broad cloth form and rail/wheel structure; no direct atmosphere credit.",
+      "sha256": "cfffd152d38b3bc8311868919ae870b291a18ed9bc28786e6db98628617c9008",
+      "manifest_sha256": "cfffd152d38b3bc8311868919ae870b291a18ed9bc28786e6db98628617c9008",
+      "hash_matches": true,
+      "dimensions": [
+        1067,
+        600
+      ]
+    },
+    {
+      "relative_render_path": "full-cycle-06-uv-standard/HERO_UTILITIES.png",
+      "opened_individually": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "Checker diagnostic reveals dark conduit runs and box/backing geometry that receive less tonal separation in beauty.",
+      "sha256": "4371ba4a493d396dd32e7b9a0315086184e2be7367ec69a770ea2f9051c166d7",
+      "manifest_sha256": "4371ba4a493d396dd32e7b9a0315086184e2be7367ec69a770ea2f9051c166d7",
+      "hash_matches": true,
+      "dimensions": [
+        1067,
+        600
+      ]
+    },
+    {
+      "relative_render_path": "full-cycle-06-neutral/C05_CONVEYOR_LEAD_TUNNEL.png",
+      "opened_individually": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "Neutral fill makes front frame and lower conveyor significantly clearer than beauty, confirming modest localized geometry-readability loss in cargo shadows.",
+      "sha256": "098a49f730ceb54ba8bf7da56b3df2dfa4f151e30a6038fb2c6f016477005e49",
+      "manifest_sha256": "098a49f730ceb54ba8bf7da56b3df2dfa4f151e30a6038fb2c6f016477005e49",
+      "hash_matches": true,
+      "dimensions": [
+        1067,
+        600
+      ]
+    },
+    {
+      "relative_render_path": "full-cycle-06-neutral/C07_OFFICE_INTERIOR.png",
+      "opened_individually": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "Neutral makes tabletop props and dark desk support clear; beauty retains functional form despite reduced underdesk detail.",
+      "sha256": "a743a0ea7ba893c661845fd9bf5b485ea5eeef145259b4dde1b9874af6b5c584",
+      "manifest_sha256": "a743a0ea7ba893c661845fd9bf5b485ea5eeef145259b4dde1b9874af6b5c584",
+      "hash_matches": true,
+      "dimensions": [
+        1067,
+        600
+      ]
+    },
+    {
+      "relative_render_path": "full-cycle-06-neutral/HERO_TROLLEY.png",
+      "opened_individually": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "Neutral clarifies undertray and far-wheel construction; beauty keeps main support silhouette while suppressing some small hardware.",
+      "sha256": "f9221cd3f61e2978af82c72708fa883931ce67b65610b34f48e3522fddd5969b",
+      "manifest_sha256": "f9221cd3f61e2978af82c72708fa883931ce67b65610b34f48e3522fddd5969b",
+      "hash_matches": true,
+      "dimensions": [
+        1067,
+        600
+      ]
+    },
+    {
+      "relative_render_path": "full-cycle-06-neutral/HERO_UTILITIES.png",
+      "opened_individually": true,
+      "tool": "view_image",
+      "detail": "original",
+      "observation": "Neutral distinctly separates dark vertical conduits from backing and pipe mounts; beauty compresses these tones though routing stays interpretable.",
+      "sha256": "c75d744a5f0a80c40aa540ed54097d4c5fdc36e5777b47d6973edb7edbddc168",
+      "manifest_sha256": "c75d744a5f0a80c40aa540ed54097d4c5fdc36e5777b47d6973edb7edbddc168",
+      "hash_matches": true,
+      "dimensions": [
+        1067,
+        600
+      ]
+    }
+  ]
+}

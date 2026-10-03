@@ -1,0 +1,412 @@
+{
+  "revision": "s10",
+  "review_role": "fresh independent visual critic",
+  "verdict": "LOCAL PASS",
+  "scope": "Bounded staff-door / check-in style-validation slice only",
+  "full_room_acceptance": false,
+  "full_room_scores": null,
+  "source": {
+    "path": "checkpoints/slice-s10.blend",
+    "expected_sha256": "f817b83c4d0bcf1dec88e6f3b7bf39ddc9100da66e74a1a1c5015ebbe52c5265",
+    "actual_sha256": "f817b83c4d0bcf1dec88e6f3b7bf39ddc9100da66e74a1a1c5015ebbe52c5265",
+    "sha_verified": true
+  },
+  "all_actual_images_opened": true,
+  "actual_images_opened_count": 10,
+  "images": [
+    {
+      "path": "renders/slice-s10/SLICE_ENTRY.png",
+      "view_id": "SLICE_ENTRY",
+      "kind": "scene",
+      "opened": true,
+      "inspection_tool": "view_image",
+      "dimensions_px": [
+        1067,
+        600
+      ],
+      "sha256": "0efe69cd7eb897436a23553b77c3ece0bbc654d3aaff22ead9c14b976ab4beda"
+    },
+    {
+      "path": "renders/slice-s10/SLICE_MATERIAL.png",
+      "view_id": "SLICE_MATERIAL",
+      "kind": "scene",
+      "opened": true,
+      "inspection_tool": "view_image",
+      "dimensions_px": [
+        1067,
+        600
+      ],
+      "sha256": "57d5514baca3d4b5179d9bd9f7a6824dbfa0dfa40fd4824a6becf9e9ee724035"
+    },
+    {
+      "path": "renders/slice-s10/SLICE_DOOR.png",
+      "view_id": "SLICE_DOOR",
+      "kind": "scene",
+      "opened": true,
+      "inspection_tool": "view_image",
+      "dimensions_px": [
+        1067,
+        600
+      ],
+      "sha256": "f917627fd78e811dd2ce39cbd278c72920984b65b1efe9706a04e371e01426a5"
+    },
+    {
+      "path": "renders/slice-s10-uv/SLICE_ENTRY.png",
+      "view_id": "SLICE_ENTRY",
+      "kind": "uv_checker",
+      "opened": true,
+      "inspection_tool": "view_image",
+      "dimensions_px": [
+        1067,
+        600
+      ],
+      "sha256": "e2edd963f707e67864b6d564400c571b36910f1ed81f4efaa7f24aa1b25155de"
+    },
+    {
+      "path": "renders/slice-s10-uv/SLICE_DOOR.png",
+      "view_id": "SLICE_DOOR",
+      "kind": "uv_checker",
+      "opened": true,
+      "inspection_tool": "view_image",
+      "dimensions_px": [
+        1067,
+        600
+      ],
+      "sha256": "01cff1a9319360e4a47ab17f5207d10cf158e86b396556b80841fd5cfe3217ee"
+    },
+    {
+      "path": "renders/slice-s10-neutral/SLICE_MATERIAL.png",
+      "view_id": "SLICE_MATERIAL",
+      "kind": "neutral_material",
+      "opened": true,
+      "inspection_tool": "view_image",
+      "dimensions_px": [
+        1067,
+        600
+      ],
+      "sha256": "e7ce569f8465e6c4daf17ed864fc36b8c49d041788e7b09d88d4bd0bd4549ec0"
+    },
+    {
+      "path": "renders/spawn-reference/VALIDATE_Material_A.png",
+      "view_id": "VALIDATE_Material_A",
+      "kind": "spawn_reference",
+      "opened": true,
+      "inspection_tool": "view_image",
+      "dimensions_px": [
+        1280,
+        720
+      ],
+      "sha256": "47d3892f69b4b244bcbff32908a6445556c182b2090aba11b22be1fe274253f6"
+    },
+    {
+      "path": "renders/spawn-reference/VALIDATE_LockerDoor.png",
+      "view_id": "VALIDATE_LockerDoor",
+      "kind": "spawn_reference",
+      "opened": true,
+      "inspection_tool": "view_image",
+      "dimensions_px": [
+        1280,
+        720
+      ],
+      "sha256": "b8fd309f91cc15bfe6d183a253b81ba0f20a0033e08c63214c127e07e19879de"
+    },
+    {
+      "path": "renders/spawn-reference/VALIDATE_Spawn.png",
+      "view_id": "VALIDATE_Spawn",
+      "kind": "spawn_reference",
+      "opened": true,
+      "inspection_tool": "view_image",
+      "dimensions_px": [
+        1280,
+        720
+      ],
+      "sha256": "c84f368729c7e3ae1e6f1005ff5daae39020749316545bd208c972cee5b4e9ed"
+    },
+    {
+      "path": "renders/spawn-reference/BRIEFING_INDIRECT.png",
+      "view_id": "BRIEFING_INDIRECT",
+      "kind": "spawn_reference",
+      "opened": true,
+      "inspection_tool": "view_image",
+      "dimensions_px": [
+        1280,
+        720
+      ],
+      "sha256": "8d03448f84845b16705c6acc3324364a4e0a51f36c34355f4c481e8957aef301"
+    }
+  ],
+  "render_manifest_complete": {
+    "slice-s10": true,
+    "slice-s10-uv": true,
+    "slice-s10-neutral": true
+  },
+  "slice_image_hashes_match_manifests": true,
+  "camera_identifiers_and_transforms": [
+    {
+      "id": "SLICE_ENTRY",
+      "label": "SLICE | CHECK-IN / PLAYER HEIGHT",
+      "position": [
+        -4.2,
+        0.45,
+        1.65
+      ],
+      "target": [
+        -4.1,
+        3.6,
+        1.56
+      ],
+      "actual_lens_mm": 22.0,
+      "projection": "PERSP",
+      "camera_matrix_world": [
+        [
+          0.9994964599609375,
+          0.0009057520073838532,
+          -0.03171708062291145,
+          -4.199999809265137
+        ],
+        [
+          -0.031730011105537415,
+          0.028531018644571304,
+          -0.9990891814231873,
+          0.44999998807907104
+        ],
+        [
+          -6.378339190149518e-09,
+          0.9995924830436707,
+          0.02854539267718792,
+          1.649999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "id": "SLICE_MATERIAL",
+      "label": "SLICE | COUNTER / MATERIALS",
+      "position": [
+        -2.8,
+        1.9,
+        1.65
+      ],
+      "target": [
+        -3.55,
+        3.65,
+        1.1
+      ],
+      "actual_lens_mm": 32.0,
+      "projection": "PERSP",
+      "camera_matrix_world": [
+        [
+          0.9191450476646423,
+          -0.10932304710149765,
+          0.3784452974796295,
+          -2.799999952316284
+        ],
+        [
+          0.3939192593097687,
+          0.2550871968269348,
+          -0.8830391764640808,
+          1.899999976158142
+        ],
+        [
+          -1.747726408041217e-08,
+          0.9607179760932922,
+          0.2775265872478485,
+          1.649999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "id": "SLICE_DOOR",
+      "label": "SLICE | STAFF DOOR / CONSTRUCTION",
+      "position": [
+        -3.85,
+        1.7,
+        1.65
+      ],
+      "target": [
+        -5.4,
+        3.6,
+        1.15
+      ],
+      "actual_lens_mm": 30.0,
+      "projection": "PERSP",
+      "camera_matrix_world": [
+        [
+          0.774864912033081,
+          -0.12629906833171844,
+          0.6193810701370239,
+          -3.8499999046325684
+        ],
+        [
+          0.6321268677711487,
+          0.1548180878162384,
+          -0.7592410445213318,
+          1.7000000476837158
+        ],
+        [
+          3.72951411975464e-08,
+          0.979836642742157,
+          0.19980014860630035,
+          1.649999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    }
+  ],
+  "diagnostic_camera_matrices_match_scene": true,
+  "author_code_read": false,
+  "prior_verdicts_or_history_read": false,
+  "geometry_or_source_modified": false,
+  "criteria": [
+    {
+      "requirement": "wall / architectural transition",
+      "status": "PASS",
+      "views": [
+        "SLICE_ENTRY",
+        "SLICE_DOOR"
+      ],
+      "evidence": "Warm off-white upper wall, navy lower protection zone, horizontal trim, deep staff-door reveal and thick counter opening form a plausible institutional assembly. Quiet wall area is retained."
+    },
+    {
+      "requirement": "door construction",
+      "status": "PASS",
+      "views": [
+        "SLICE_ENTRY",
+        "SLICE_DOOR"
+      ],
+      "evidence": "Orange painted leaf has two inset panel contours, a deep dark frame, visible hinges, lever and lock plate, kickplate and a closer visible in entry. The door reads through its construction before its label."
+    },
+    {
+      "requirement": "check-in hero and primary prop cluster",
+      "status": "PASS",
+      "views": [
+        "SLICE_ENTRY",
+        "SLICE_MATERIAL"
+      ],
+      "evidence": "A public counter, transparent barrier, upright posts and bolted grille intercom create a specific bureaucratic service point. The office behind it remains subordinate."
+    },
+    {
+      "requirement": "task practical and localized depth",
+      "status": "PASS",
+      "views": [
+        "SLICE_ENTRY",
+        "SLICE_MATERIAL"
+      ],
+      "evidence": "Shielded task strip beneath the corporate sign illuminates the counter opening and papers. Staff-door side, navy lower wall and room beyond are darker; contact shadows and falloff remain visible."
+    },
+    {
+      "requirement": "utility routing",
+      "status": "PASS",
+      "views": [
+        "SLICE_ENTRY",
+        "SLICE_DOOR"
+      ],
+      "evidence": "A blue junction housing, clipped dark conduit and clearance reader form one legible route beside the door. The conduit visibly joins equipment rather than ending as decorative pipework."
+    },
+    {
+      "requirement": "3\u20135 purposeful worker traces",
+      "status": "PASS",
+      "views": [
+        "SLICE_MATERIAL",
+        "SLICE_ENTRY"
+      ],
+      "evidence": "Five small functional groups are visible: a paper queue tray, a folded muted-green cloth, a form/clipboard, a stamp and open ink pad on a worn mat, and a small tethered counter implement. They remain concentrated on the counter."
+    },
+    {
+      "requirement": "paint / plastic / rubber / fabric / concrete or plaster identity",
+      "status": "PASS",
+      "views": [
+        "SLICE_MATERIAL",
+        "SLICE_DOOR",
+        "neutral SLICE_MATERIAL"
+      ],
+      "evidence": "Matte granular wall finish differs from the controlled painted door and metal counter/lever. Reader/intercom casings, dull rubber mat, folded cloth and matte papers remain visually separate; glass carries the strongest controlled reflection. Neutral view does not reveal a uniform satin response across the cluster."
+    },
+    {
+      "requirement": "localized wear",
+      "status": "PASS",
+      "views": [
+        "SLICE_MATERIAL",
+        "SLICE_DOOR"
+      ],
+      "evidence": "Wear is concentrated on the stamp mat and door kickplate/contact areas. Most painted wall and leaf surfaces remain quiet, consistent with an active maintained institution."
+    },
+    {
+      "requirement": "palette and spawn fidelity",
+      "status": "PASS",
+      "views": [
+        "SLICE_ENTRY",
+        "SLICE_MATERIAL",
+        "SLICE_DOOR",
+        "VALIDATE_Material_A",
+        "VALIDATE_LockerDoor",
+        "VALIDATE_Spawn",
+        "BRIEFING_INDIRECT"
+      ],
+      "evidence": "Navy lower zones, warm pale walls, orange painted metal, dark frames and subdued small accents relate directly to the opened spawn images. The restrained geometry and cloth/paper simplification match their fidelity. The dock presents a more severe function through separation and lighting."
+    },
+    {
+      "requirement": "bleak / coercive institutional storytelling",
+      "status": "PASS",
+      "views": [
+        "SLICE_ENTRY",
+        "SLICE_MATERIAL"
+      ],
+      "evidence": "The barrier and speaker grille enforce separation. STATE YOUR NUMBER reduces the visitor to an identifier; WE VALUE YOUR TIME paired with ALL DELAYS ARE YOUR RESPONSIBILITY provides the required reassuring/coercive double reading. Signage is confined to a few functional locations."
+    },
+    {
+      "requirement": "UV checker visible quality",
+      "status": "PASS",
+      "views": [
+        "uv SLICE_ENTRY",
+        "uv SLICE_DOOR"
+      ],
+      "evidence": "Checker cells on the main wall, door leaf, frame, opening and counter remain coherent through the views, with no dominant stretching or missing-face artifact. These images do not certify complete UV coverage or hidden faces."
+    },
+    {
+      "requirement": "negative space and visual-veto gate",
+      "status": "PASS",
+      "views": [
+        "SLICE_ENTRY",
+        "SLICE_MATERIAL",
+        "SLICE_DOOR"
+      ],
+      "evidence": "Broad wall planes and the open approach remain quiet. Distinct architectural, door, grille, conduit and desk forms avoid a dominant repeated-box construction. No local dominant toy/plastic, sci-fi greeble, random clutter, flat-light or photographic-noise read is present."
+    }
+  ],
+  "blocking_local_visual_defects": [],
+  "required_visible_repairs": [],
+  "visual_vetoes_observed": [],
+  "limitations": [
+    "No full-room acceptance or rubric scores.",
+    "Untouched scanner, office, storage and wider route context were not accepted.",
+    "Image review does not establish numerical clearances, true support contact or complete hidden UV coverage.",
+    "Dependencies, native reproducibility, cold-start equivalence and runtime behavior were not independently validated by this visual critic."
+  ],
+  "authority_read": [
+    "AGENTS.md",
+    ".agents/skills/blender-headless/SKILL.md",
+    ".agents/skills/blender-uv-texturing/SKILL.md",
+    "design/ART_DIRECTION.md",
+    "design/ART_REFERENCE_INDEX.md",
+    "design/AUTONOMOUS_SECTION_BUILD_PROTOCOL.md",
+    "revamp/scenery/OVERHAUL_BRIEF.md",
+    "revamp/production/RUBRIC.md"
+  ]
+}

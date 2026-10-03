@@ -1,0 +1,2418 @@
+{
+  "native_saved": false,
+  "source_sha256": "f817b83c4d0bcf1dec88e6f3b7bf39ddc9100da66e74a1a1c5015ebbe52c5265",
+  "coplanar_comparison": "Actual coplanar same-outward-facing triangle polygon intersections; opposed butt joints excluded. Exposure uses a 30mm outward ray from intersection witness.",
+  "coplanar_pairs": [
+    {
+      "objects": [
+        "CD | D1 service mounting back",
+        "CD | Service saddle fixing.001"
+      ],
+      "area_m2": 0.0001959982910193503,
+      "pieces": 2,
+      "exposed_samples": 0,
+      "covered_samples": 2,
+      "witnesses": [
+        {
+          "triangle_a": 161,
+          "triangle_b": 160,
+          "point": [
+            -4.615562438964844,
+            3.5199999809265137,
+            1.9244999885559082
+          ],
+          "normal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "area_m2": 0.00015312393866473428,
+          "exposed_outward_30mm": false,
+          "occluders": [
+            {
+              "object": "Office front wall mid",
+              "inside_closed_volume": true
+            }
+          ]
+        },
+        {
+          "triangle_a": 161,
+          "triangle_b": 161,
+          "point": [
+            -4.602583408355713,
+            3.5199999809265137,
+            1.9233332872390747
+          ],
+          "normal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "area_m2": 4.287435235461601e-05,
+          "exposed_outward_30mm": false,
+          "occluders": [
+            {
+              "object": "Office front wall mid",
+              "inside_closed_volume": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "objects": [
+        "CD | Counter linoleum inset",
+        "Hatch security grille bottom"
+      ],
+      "area_m2": 0.04227980873110937,
+      "pieces": 4,
+      "exposed_samples": 0,
+      "covered_samples": 4,
+      "witnesses": [
+        {
+          "triangle_a": 152,
+          "triangle_b": 8,
+          "point": [
+            -3.141937494277954,
+            3.6038122177124023,
+            1.0399999618530273
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "area_m2": 0.01564741533382641,
+          "exposed_outward_30mm": false,
+          "occluders": [
+            {
+              "object": "Transaction counter slab",
+              "inside_closed_volume": true
+            }
+          ]
+        },
+        {
+          "triangle_a": 152,
+          "triangle_b": 9,
+          "point": [
+            -3.896937370300293,
+            3.610187530517578,
+            1.0399999618530273
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "area_m2": 0.0054924859918328295,
+          "exposed_outward_30mm": false,
+          "occluders": [
+            {
+              "object": "Transaction counter slab",
+              "inside_closed_volume": true
+            }
+          ]
+        },
+        {
+          "triangle_a": 153,
+          "triangle_b": 8,
+          "point": [
+            -3.1230626106262207,
+            3.5898122787475586,
+            1.0399999618530273
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "area_m2": 0.005492489031728276,
+          "exposed_outward_30mm": false,
+          "occluders": [
+            {
+              "object": "Transaction counter slab",
+              "inside_closed_volume": true
+            }
+          ]
+        },
+        {
+          "triangle_a": 153,
+          "triangle_b": 9,
+          "point": [
+            -3.8780624866485596,
+            3.5961875915527344,
+            1.0399999618530273
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "area_m2": 0.015647418373721855,
+          "exposed_outward_30mm": false,
+          "occluders": [
+            {
+              "object": "Transaction counter slab",
+              "inside_closed_volume": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "normal_summary": [
+    {
+      "object": "D1 frame jamb -1",
+      "closed": true,
+      "signed_volume_m3": 0.043937840851716224,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "D1 frame jamb 1",
+      "closed": true,
+      "signed_volume_m3": 0.043937840851716224,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "D1 frame head",
+      "closed": true,
+      "signed_volume_m3": 0.024961418967923994,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "D1 door leaf",
+      "closed": true,
+      "signed_volume_m3": 0.11433274044520658,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "D1 kickplate",
+      "closed": true,
+      "signed_volume_m3": 0.003834621313029557,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "D1 lock backplate",
+      "closed": true,
+      "signed_volume_m3": 0.00039689545235906587,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "D1 lever handle",
+      "closed": false,
+      "signed_volume_m3": 5.35389154355433e-05,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 20
+    },
+    {
+      "object": "D1 closer unit",
+      "closed": true,
+      "signed_volume_m3": 0.0015297057662356413,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "D1 closer arm",
+      "closed": false,
+      "signed_volume_m3": 5.5075426757866815e-05,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 20
+    },
+    {
+      "object": "Office front wall west",
+      "closed": true,
+      "signed_volume_m3": 0.38938374556285993,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "Office front wall mid",
+      "closed": true,
+      "signed_volume_m3": 0.15969443568297947,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "Office front wall east",
+      "closed": true,
+      "signed_volume_m3": 0.10142018415247851,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "Office front head lintel",
+      "closed": true,
+      "signed_volume_m3": 0.3946420741676775,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "Hatch wall sill base",
+      "closed": true,
+      "signed_volume_m3": 0.2431969177462084,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "Office front wainscot west",
+      "closed": true,
+      "signed_volume_m3": 0.01377986767900552,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "Office front dado west",
+      "closed": true,
+      "signed_volume_m3": 0.0016240360367026363,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "Office front wainscot mid",
+      "closed": true,
+      "signed_volume_m3": 0.007553018107423684,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "Office front dado mid",
+      "closed": true,
+      "signed_volume_m3": 0.0008904342197639109,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "Hatch counter leg west",
+      "closed": true,
+      "signed_volume_m3": 0.012780244546888753,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "Hatch counter leg east",
+      "closed": true,
+      "signed_volume_m3": 0.01278024774194364,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "Transaction counter slab",
+      "closed": true,
+      "signed_volume_m3": 0.046693404346405266,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "Counter front chamfer nose",
+      "closed": true,
+      "signed_volume_m3": 0.0013370508440691726,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "Hatch security grille bottom",
+      "closed": true,
+      "signed_volume_m3": 0.0009942970370821296,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "Hatch speaking aperture plate",
+      "closed": true,
+      "signed_volume_m3": 0.0023616642548465925,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "Speaking baffle ring",
+      "closed": true,
+      "signed_volume_m3": 0.0008098790504264356,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "Document pass tray",
+      "closed": true,
+      "signed_volume_m3": 0.0039567301407714695,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "Counter clipboard board",
+      "closed": true,
+      "signed_volume_m3": 0.0008136526805131439,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "Counter clipboard clip",
+      "closed": true,
+      "signed_volume_m3": 5.743000438081699e-05,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "Counter manifest paper",
+      "closed": true,
+      "signed_volume_m3": 0.00011752697282637244,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "Authority stamp rubber base",
+      "closed": true,
+      "signed_volume_m3": 9.085632371506197e-05,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "Authority stamp brass collar",
+      "closed": true,
+      "signed_volume_m3": 3.498002378288812e-05,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "Authority stamp ferrule",
+      "closed": true,
+      "signed_volume_m3": 6.588382478837455e-06,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "Authority stamp wood shaft",
+      "closed": true,
+      "signed_volume_m3": 3.26996854695949e-05,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "Authority stamp wood knob",
+      "closed": true,
+      "signed_volume_m3": 3.595396155375852e-05,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "Ink pad tin base",
+      "closed": true,
+      "signed_volume_m3": 0.00017418961481162806,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "Ink pad felt cushion",
+      "closed": true,
+      "signed_volume_m3": 5.509173058045509e-05,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "Ink pad lid open",
+      "closed": true,
+      "signed_volume_m3": 5.3504812287945756e-05,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "Counter pen holder base",
+      "closed": true,
+      "signed_volume_m3": 6.4408194091925e-05,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "Counter pen swivel ball",
+      "closed": true,
+      "signed_volume_m3": 4.760914470806436e-06,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "Counter ballpoint pen",
+      "closed": false,
+      "signed_volume_m3": 5.113831482124927e-06,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 20
+    },
+    {
+      "object": "Security bead chain",
+      "closed": false,
+      "signed_volume_m3": 1.0262810949586882e-06,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 20
+    },
+    {
+      "object": "CD | D1 die-pressed leaf",
+      "closed": true,
+      "signed_volume_m3": 0.0034574467813392185,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 die-pressed leaf recessed stamping",
+      "closed": true,
+      "signed_volume_m3": 0.0012778785578241674,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 die-pressed leaf.001",
+      "closed": true,
+      "signed_volume_m3": 0.006085857904038132,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 die-pressed leaf recessed stamping.001",
+      "closed": true,
+      "signed_volume_m3": 0.002249348916712246,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 labyrinth seal",
+      "closed": true,
+      "signed_volume_m3": 0.00046628598337831545,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 labyrinth seal.001",
+      "closed": true,
+      "signed_volume_m3": 0.00046628598337831545,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 captive hinge",
+      "closed": true,
+      "signed_volume_m3": 0.00020720380983574316,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 hinge strap",
+      "closed": true,
+      "signed_volume_m3": 6.581516118882765e-05,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 captive hinge.001",
+      "closed": true,
+      "signed_volume_m3": 0.00020720362852300056,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 hinge strap.001",
+      "closed": true,
+      "signed_volume_m3": 6.581512638999716e-05,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 captive hinge.002",
+      "closed": true,
+      "signed_volume_m3": 0.00020720362855645527,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 hinge strap.002",
+      "closed": true,
+      "signed_volume_m3": 6.581512638999716e-05,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 kickplate washer",
+      "closed": true,
+      "signed_volume_m3": 1.3321675365422319e-06,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 kickplate",
+      "closed": true,
+      "signed_volume_m3": 1.6139304061450943e-06,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 kickplate washer.001",
+      "closed": true,
+      "signed_volume_m3": 1.3321676248419696e-06,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 kickplate.001",
+      "closed": true,
+      "signed_volume_m3": 1.6139315036634017e-06,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 kickplate washer.002",
+      "closed": true,
+      "signed_volume_m3": 1.3321675365422319e-06,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 kickplate.002",
+      "closed": true,
+      "signed_volume_m3": 1.6139304061450943e-06,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 kickplate washer.003",
+      "closed": true,
+      "signed_volume_m3": 1.3321676248419696e-06,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 kickplate.003",
+      "closed": true,
+      "signed_volume_m3": 1.6139315036634017e-06,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 foot contact scuff",
+      "closed": true,
+      "signed_volume_m3": 1.8813142813970765e-07,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 foot contact scuff.001",
+      "closed": true,
+      "signed_volume_m3": 1.8813169222475778e-07,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 foot contact scuff.002",
+      "closed": true,
+      "signed_volume_m3": 1.8813169222475778e-07,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 foot contact scuff.003",
+      "closed": true,
+      "signed_volume_m3": 1.8813143006409425e-07,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 foot contact scuff.004",
+      "closed": true,
+      "signed_volume_m3": 1.881314278436482e-07,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 foot contact scuff.005",
+      "closed": true,
+      "signed_volume_m3": 1.8813102187209552e-07,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 foot contact scuff.006",
+      "closed": true,
+      "signed_volume_m3": 1.881310209839171e-07,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 foot contact scuff.007",
+      "closed": true,
+      "signed_volume_m3": 1.8813143006409425e-07,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 foot contact scuff.008",
+      "closed": true,
+      "signed_volume_m3": 1.881310209839171e-07,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 foot contact scuff.009",
+      "closed": true,
+      "signed_volume_m3": 1.8813169274286187e-07,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 paint loss at foot edge",
+      "closed": true,
+      "signed_volume_m3": 1.3916658242694538e-07,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 paint loss at foot edge.001",
+      "closed": true,
+      "signed_volume_m3": 1.3916712004244782e-07,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 paint loss at foot edge.002",
+      "closed": true,
+      "signed_volume_m3": 1.3916869333098955e-07,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 transom closure",
+      "closed": true,
+      "signed_volume_m3": 0.012498536647706615,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 ID enamel",
+      "closed": true,
+      "signed_volume_m3": 0.00022634344838875128,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 ID captive stand-offs",
+      "closed": true,
+      "signed_volume_m3": 2.0085180092536494e-06,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 key cylinder",
+      "closed": true,
+      "signed_volume_m3": 9.955361820542427e-06,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Reader aperture cap",
+      "closed": true,
+      "signed_volume_m3": 3.118152357236189e-05,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Reader aperture cap.001",
+      "closed": true,
+      "signed_volume_m3": 5.43334308981495e-06,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Reader aperture cap.002",
+      "closed": true,
+      "signed_volume_m3": 2.1748700760326756e-06,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Reader aperture cap.003",
+      "closed": true,
+      "signed_volume_m3": 2.1748343404700185e-06,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Counter linoleum inset",
+      "closed": true,
+      "signed_volume_m3": 0.0016912785358726978,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Counter gusset",
+      "closed": true,
+      "signed_volume_m3": 0.0007124466957758221,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Counter underside fixing washer",
+      "closed": true,
+      "signed_volume_m3": 9.742682700042415e-07,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Counter underside fixing",
+      "closed": true,
+      "signed_volume_m3": 1.1785435261035815e-06,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Counter gusset.001",
+      "closed": true,
+      "signed_volume_m3": 0.0007124468051408576,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Counter underside fixing washer.001",
+      "closed": true,
+      "signed_volume_m3": 9.742665727507926e-07,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Counter underside fixing.001",
+      "closed": true,
+      "signed_volume_m3": 1.17855060858633e-06,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Speaking grille isolation pad",
+      "closed": true,
+      "signed_volume_m3": 0.0001574991620145738,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Speaking grille slit",
+      "closed": true,
+      "signed_volume_m3": 1.4616085282486795e-06,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Speaking grille slit.001",
+      "closed": true,
+      "signed_volume_m3": 1.4616085282486795e-06,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Speaking grille slit.002",
+      "closed": true,
+      "signed_volume_m3": 1.4616085282486795e-06,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Speaking grille slit.003",
+      "closed": true,
+      "signed_volume_m3": 1.4616085282486795e-06,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Speaking grille slit.004",
+      "closed": true,
+      "signed_volume_m3": 1.4616085282486795e-06,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Speaking grille slit.005",
+      "closed": true,
+      "signed_volume_m3": 1.4616085282486795e-06,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Speaking grille washer",
+      "closed": true,
+      "signed_volume_m3": 1.3321664557031099e-06,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Speaking grille",
+      "closed": true,
+      "signed_volume_m3": 1.6139494894984452e-06,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Speaking grille washer.001",
+      "closed": true,
+      "signed_volume_m3": 1.3321664557031099e-06,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Speaking grille.001",
+      "closed": true,
+      "signed_volume_m3": 1.6139494894984452e-06,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Speaking grille washer.002",
+      "closed": true,
+      "signed_volume_m3": 1.3321664557031099e-06,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Speaking grille.002",
+      "closed": true,
+      "signed_volume_m3": 1.6139494894984452e-06,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Speaking grille washer.003",
+      "closed": true,
+      "signed_volume_m3": 1.3321664557031099e-06,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Speaking grille.003",
+      "closed": true,
+      "signed_volume_m3": 1.6139494894984452e-06,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Speaking glazing clamp",
+      "closed": true,
+      "signed_volume_m3": 7.333481504693633e-05,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Speaking stanchion foot",
+      "closed": true,
+      "signed_volume_m3": 2.4615755600458183e-05,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Speaking load-bearing stanchion",
+      "closed": true,
+      "signed_volume_m3": 0.00023536119364712485,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Stanchion foot fixing",
+      "closed": true,
+      "signed_volume_m3": 1.6153168084602024e-07,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Stanchion foot fixing.001",
+      "closed": true,
+      "signed_volume_m3": 1.6153168084602024e-07,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Speaking glazing clamp.001",
+      "closed": true,
+      "signed_volume_m3": 7.333481504693633e-05,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Speaking stanchion foot.001",
+      "closed": true,
+      "signed_volume_m3": 2.4615755600458183e-05,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Speaking load-bearing stanchion.001",
+      "closed": true,
+      "signed_volume_m3": 0.00023536119364712485,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Stanchion foot fixing.002",
+      "closed": true,
+      "signed_volume_m3": 1.6153168084602024e-07,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Stanchion foot fixing.003",
+      "closed": true,
+      "signed_volume_m3": 1.6153168084602024e-07,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Speaking instruction decal",
+      "closed": true,
+      "signed_volume_m3": 1.2249139217601623e-05,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Document tray lip",
+      "closed": true,
+      "signed_volume_m3": 6.28984271197804e-05,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Counter docket tray",
+      "closed": true,
+      "signed_volume_m3": 0.0012506127199074513,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Docket folded rail",
+      "closed": true,
+      "signed_volume_m3": 0.00011565877434612422,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Docket folded rail.001",
+      "closed": true,
+      "signed_volume_m3": 0.00011565218201233425,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Unprocessed forms",
+      "closed": true,
+      "signed_volume_m3": 4.99963280162774e-05,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Unprocessed forms.001",
+      "closed": true,
+      "signed_volume_m3": 4.99963280162774e-05,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Unprocessed forms.002",
+      "closed": true,
+      "signed_volume_m3": 4.99963280162774e-05,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Unprocessed forms.003",
+      "closed": true,
+      "signed_volume_m3": 4.99963280162774e-05,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Stamp maker plate",
+      "closed": true,
+      "signed_volume_m3": 1.0399245411463198e-06,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Counter handling scar",
+      "closed": true,
+      "signed_volume_m3": 1.2684548553195129e-08,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Counter handling scar.001",
+      "closed": true,
+      "signed_volume_m3": 2.0445875440327593e-08,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Counter handling scar.002",
+      "closed": true,
+      "signed_volume_m3": 1.5450422627636778e-08,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Counter handling scar.003",
+      "closed": true,
+      "signed_volume_m3": 2.5524433934498436e-08,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Counter handling scar.004",
+      "closed": true,
+      "signed_volume_m3": 1.5806483597696763e-08,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Counter handling scar.005",
+      "closed": true,
+      "signed_volume_m3": 2.310465505809406e-08,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Counter handling scar.006",
+      "closed": true,
+      "signed_volume_m3": 1.907698289529275e-08,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Molded stamping pad",
+      "closed": true,
+      "signed_volume_m3": 0.0003312683554169057,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Pad molded grip ribs",
+      "closed": true,
+      "signed_volume_m3": 5.582191358021368e-07,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Ink pad lid inner lip",
+      "closed": true,
+      "signed_volume_m3": 7.328364849401581e-06,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Ink pad pin hinge",
+      "closed": true,
+      "signed_volume_m3": 3.3747258238274e-06,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Ink pad pin hinge.001",
+      "closed": true,
+      "signed_volume_m3": 3.3747258238274e-06,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Folded wipe lower ply",
+      "closed": true,
+      "signed_volume_m3": 0.00031241487568670995,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Folded wipe middle ply",
+      "closed": true,
+      "signed_volume_m3": 0.0002252106992904901,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Used cotton wipe",
+      "closed": true,
+      "signed_volume_m3": 6.968170819452817e-05,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Wipe rolled hem",
+      "closed": false,
+      "signed_volume_m3": 5.833742110263515e-07,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 16
+    },
+    {
+      "object": "CD | Wipe rolled hem.001",
+      "closed": false,
+      "signed_volume_m3": 5.753140025396006e-07,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 16
+    },
+    {
+      "object": "CD | Faded cup contact",
+      "closed": true,
+      "signed_volume_m3": 4.800672748217494e-09,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Faded cup contact.001",
+      "closed": true,
+      "signed_volume_m3": 4.800672748217494e-09,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Faded cup contact.002",
+      "closed": true,
+      "signed_volume_m3": 4.800672748217494e-09,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Faded cup contact.003",
+      "closed": true,
+      "signed_volume_m3": 4.800672748217494e-09,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Faded cup contact.004",
+      "closed": true,
+      "signed_volume_m3": 4.800672748217494e-09,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Faded cup contact.005",
+      "closed": true,
+      "signed_volume_m3": 4.800672748217494e-09,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Faded cup contact.006",
+      "closed": true,
+      "signed_volume_m3": 4.800672748217494e-09,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Faded cup contact.007",
+      "closed": true,
+      "signed_volume_m3": 4.800672748217494e-09,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Faded cup contact.008",
+      "closed": true,
+      "signed_volume_m3": 4.800672748217494e-09,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Faded cup contact.009",
+      "closed": true,
+      "signed_volume_m3": 4.800672748217494e-09,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Faded cup contact.010",
+      "closed": true,
+      "signed_volume_m3": 4.800672748217494e-09,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Faded cup contact.011",
+      "closed": true,
+      "signed_volume_m3": 4.800672748217494e-09,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Faded cup contact.012",
+      "closed": true,
+      "signed_volume_m3": 4.800672748217494e-09,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Faded cup contact.013",
+      "closed": true,
+      "signed_volume_m3": 4.800672748217494e-09,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Faded cup contact.014",
+      "closed": true,
+      "signed_volume_m3": 4.800672748217494e-09,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Faded cup contact.015",
+      "closed": true,
+      "signed_volume_m3": 4.800672748217494e-09,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Faded cup contact.016",
+      "closed": true,
+      "signed_volume_m3": 4.800672748217494e-09,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Faded cup contact.017",
+      "closed": true,
+      "signed_volume_m3": 4.800672748217494e-09,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Faded cup contact.018",
+      "closed": true,
+      "signed_volume_m3": 4.800672748217494e-09,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Rejected docket",
+      "closed": true,
+      "signed_volume_m3": 2.279833279317245e-05,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Plaque wall back",
+      "closed": true,
+      "signed_volume_m3": 0.010905355656886143,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Plaque enamel inset",
+      "closed": true,
+      "signed_volume_m3": 0.002941484916893463,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Task wall bracket",
+      "closed": true,
+      "signed_volume_m3": 0.00023546262958499634,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Task wall bracket.001",
+      "closed": true,
+      "signed_volume_m3": 0.00023546262958499634,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Task folded shade",
+      "closed": true,
+      "signed_volume_m3": 0.0032087540812210844,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Task frosted lens",
+      "closed": true,
+      "signed_volume_m3": 0.000263367515625242,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 service mounting back",
+      "closed": true,
+      "signed_volume_m3": 0.0005820774128566519,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 service lid",
+      "closed": true,
+      "signed_volume_m3": 0.0002974574118404909,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 service lid recessed stamping",
+      "closed": true,
+      "signed_volume_m3": 0.00010993556471493766,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 service box washer",
+      "closed": true,
+      "signed_volume_m3": 1.3321653303440446e-06,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 service box",
+      "closed": true,
+      "signed_volume_m3": 1.6139255393972836e-06,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 service box washer.001",
+      "closed": true,
+      "signed_volume_m3": 1.3321705069069267e-06,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 service box.001",
+      "closed": true,
+      "signed_volume_m3": 1.6139249453539506e-06,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 service box washer.002",
+      "closed": true,
+      "signed_volume_m3": 1.3321653303440446e-06,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 service box.002",
+      "closed": true,
+      "signed_volume_m3": 1.6139255393972836e-06,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 service box washer.003",
+      "closed": true,
+      "signed_volume_m3": 1.3321705069069267e-06,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | D1 service box.003",
+      "closed": true,
+      "signed_volume_m3": 1.6139249453539506e-06,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Door armored conduit",
+      "closed": false,
+      "signed_volume_m3": 0.00010595234235655226,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 16
+    },
+    {
+      "object": "CD | Service saddle fixing",
+      "closed": true,
+      "signed_volume_m3": 1.6662528871040177e-05,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Saddle captive fixing washer",
+      "closed": true,
+      "signed_volume_m3": 6.722918883631893e-07,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Saddle captive fixing",
+      "closed": true,
+      "signed_volume_m3": 8.107226170580203e-07,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Service saddle fixing.001",
+      "closed": true,
+      "signed_volume_m3": 1.6662528871040177e-05,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Saddle captive fixing washer.001",
+      "closed": true,
+      "signed_volume_m3": 6.722918883631893e-07,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    },
+    {
+      "object": "CD | Saddle captive fixing.001",
+      "closed": true,
+      "signed_volume_m3": 8.107226170580203e-07,
+      "inconsistent_edges": 0,
+      "zero_area": 0,
+      "boundary_edges": 0
+    }
+  ],
+  "primary_shell_surface_rays": [
+    {
+      "x": -6.3,
+      "z": 0.5,
+      "front": {
+        "point": [
+          -6.300000190734863,
+          3.5,
+          0.5
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "triangle": 156,
+        "distance": 0.25,
+        "object": "Office front wainscot west"
+      },
+      "back": {
+        "point": [
+          -6.300000190734863,
+          3.680000066757202,
+          0.5
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "triangle": 232,
+        "distance": 0.26999998092651367,
+        "object": "Office front wall west"
+      },
+      "baseline_front": {
+        "point": [
+          -6.300000190734863,
+          3.5,
+          0.5
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "triangle": 180,
+        "distance": 0.25,
+        "object": "Office front wainscot west"
+      },
+      "baseline_back": {
+        "point": [
+          -6.300000190734863,
+          3.679999828338623,
+          0.5
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "triangle": 185,
+        "distance": 0.2700001895427704,
+        "object": "Office front wall west"
+      }
+    },
+    {
+      "x": -6.3,
+      "z": 1.5,
+      "front": {
+        "point": [
+          -6.300000190734863,
+          3.5199999809265137,
+          1.5
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "triangle": 219,
+        "distance": 0.26999998092651367,
+        "object": "Office front wall west"
+      },
+      "back": {
+        "point": [
+          -6.300000190734863,
+          3.680000066757202,
+          1.5
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "triangle": 234,
+        "distance": 0.26999998092651367,
+        "object": "Office front wall west"
+      },
+      "baseline_front": {
+        "point": [
+          -6.300000190734863,
+          3.5199999809265137,
+          1.5
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "triangle": 180,
+        "distance": 0.2699999511241913,
+        "object": "Office front wall west"
+      },
+      "baseline_back": {
+        "point": [
+          -6.300000190734863,
+          3.679999828338623,
+          1.5
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "triangle": 185,
+        "distance": 0.2700002193450928,
+        "object": "Office front wall west"
+      }
+    },
+    {
+      "x": -6.3,
+      "z": 2.7,
+      "front": {
+        "point": [
+          -6.300000190734863,
+          3.5199999809265137,
+          2.700000047683716
+        ],
+        "normal": [
+          -0.0,
+          -1.0,
+          0.0
+        ],
+        "triangle": 218,
+        "distance": 0.26999998092651367,
+        "object": "Office front wall west"
+      },
+      "back": {
+        "point": [
+          -6.300000190734863,
+          3.680000066757202,
+          2.700000047683716
+        ],
+        "normal": [
+          -0.0,
+          1.0,
+          0.0
+        ],
+        "triangle": 233,
+        "distance": 0.26999998092651367,
+        "object": "Office front wall west"
+      },
+      "baseline_front": {
+        "point": [
+          -6.300000190734863,
+          3.5199999809265137,
+          2.700000047683716
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "triangle": 180,
+        "distance": 0.26999998092651367,
+        "object": "Office front wall west"
+      },
+      "baseline_back": {
+        "point": [
+          -6.300000190734863,
+          3.679999828338623,
+          2.700000047683716
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "triangle": 184,
+        "distance": 0.2700002193450928,
+        "object": "Office front wall west"
+      }
+    },
+    {
+      "x": -4.6,
+      "z": 0.5,
+      "front": {
+        "point": [
+          -4.599999904632568,
+          3.5,
+          0.5
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "triangle": 157,
+        "distance": 0.25,
+        "object": "Office front wainscot mid"
+      },
+      "back": {
+        "point": [
+          -4.599999904632568,
+          3.679999828338623,
+          0.5
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "triangle": 161,
+        "distance": 0.2700002193450928,
+        "object": "Office front wall mid"
+      },
+      "baseline_front": {
+        "point": [
+          -4.599999904632568,
+          3.5,
+          0.5
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "triangle": 181,
+        "distance": 0.25,
+        "object": "Office front wainscot mid"
+      },
+      "baseline_back": {
+        "point": [
+          -4.599999904632568,
+          3.679999828338623,
+          0.5
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "triangle": 185,
+        "distance": 0.2700002193450928,
+        "object": "Office front wall mid"
+      }
+    },
+    {
+      "x": -4.6,
+      "z": 1.5,
+      "front": {
+        "point": [
+          -4.599999904632568,
+          3.5199999809265137,
+          1.5
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "triangle": 156,
+        "distance": 0.26999998092651367,
+        "object": "Office front wall mid"
+      },
+      "back": {
+        "point": [
+          -4.599999904632568,
+          3.679999828338623,
+          1.5
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "triangle": 160,
+        "distance": 0.27000024914741516,
+        "object": "Office front wall mid"
+      },
+      "baseline_front": {
+        "point": [
+          -4.599999904632568,
+          3.5199999809265137,
+          1.5
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "triangle": 180,
+        "distance": 0.26999998092651367,
+        "object": "Office front wall mid"
+      },
+      "baseline_back": {
+        "point": [
+          -4.599999904632568,
+          3.679999828338623,
+          1.5
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "triangle": 185,
+        "distance": 0.2700002193450928,
+        "object": "Office front wall mid"
+      }
+    },
+    {
+      "x": -4.6,
+      "z": 2.7,
+      "front": {
+        "point": [
+          -4.599999904632568,
+          3.5199999809265137,
+          2.700000047683716
+        ],
+        "normal": [
+          0.0,
+          -0.9999999403953552,
+          0.0
+        ],
+        "triangle": 157,
+        "distance": 0.26999998092651367,
+        "object": "Office front head lintel"
+      },
+      "back": {
+        "point": [
+          -4.599999904632568,
+          3.679999828338623,
+          2.700000047683716
+        ],
+        "normal": [
+          0.0,
+          0.9999999403953552,
+          0.0
+        ],
+        "triangle": 160,
+        "distance": 0.27000024914741516,
+        "object": "Office front head lintel"
+      },
+      "baseline_front": {
+        "point": [
+          -4.599999904632568,
+          3.5199999809265137,
+          2.700000047683716
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "triangle": 180,
+        "distance": 0.26999998092651367,
+        "object": "Office front wall mid"
+      },
+      "baseline_back": {
+        "point": [
+          -4.599999904632568,
+          3.679999828338623,
+          2.700000047683716
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "triangle": 184,
+        "distance": 0.2700002193450928,
+        "object": "Office front wall mid"
+      }
+    },
+    {
+      "x": -2.53,
+      "z": 0.5,
+      "front": {
+        "point": [
+          -2.5299999713897705,
+          3.5199999809265137,
+          0.5
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "triangle": 157,
+        "distance": 0.26999998092651367,
+        "object": "Office front wall east"
+      },
+      "back": {
+        "point": [
+          -2.5299999713897705,
+          3.679999828338623,
+          0.5
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "triangle": 161,
+        "distance": 0.2700002193450928,
+        "object": "Office front wall east"
+      },
+      "baseline_front": {
+        "point": [
+          -2.5299999713897705,
+          3.5199999809265137,
+          0.5
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "triangle": 181,
+        "distance": 0.27000001072883606,
+        "object": "Office front wall east"
+      },
+      "baseline_back": {
+        "point": [
+          -2.5299999713897705,
+          3.679999828338623,
+          0.5
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "triangle": 185,
+        "distance": 0.2700002193450928,
+        "object": "Office front wall east"
+      }
+    },
+    {
+      "x": -2.53,
+      "z": 1.5,
+      "front": {
+        "point": [
+          -2.5299999713897705,
+          3.5199999809265137,
+          1.5
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "triangle": 156,
+        "distance": 0.26999998092651367,
+        "object": "Office front wall east"
+      },
+      "back": {
+        "point": [
+          -2.5299999713897705,
+          3.679999828338623,
+          1.5
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "triangle": 160,
+        "distance": 0.2700002193450928,
+        "object": "Office front wall east"
+      },
+      "baseline_front": {
+        "point": [
+          -2.5299999713897705,
+          3.5199999809265137,
+          1.5
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "triangle": 180,
+        "distance": 0.27000001072883606,
+        "object": "Office front wall east"
+      },
+      "baseline_back": {
+        "point": [
+          -2.5299999713897705,
+          3.679999828338623,
+          1.5
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "triangle": 185,
+        "distance": 0.2700002193450928,
+        "object": "Office front wall east"
+      }
+    },
+    {
+      "x": -2.53,
+      "z": 2.7,
+      "front": {
+        "point": [
+          -2.5299999713897705,
+          3.5199999809265137,
+          2.700000047683716
+        ],
+        "normal": [
+          0.0,
+          -0.9999999403953552,
+          0.0
+        ],
+        "triangle": 156,
+        "distance": 0.26999998092651367,
+        "object": "Office front head lintel"
+      },
+      "back": {
+        "point": [
+          -2.5299999713897705,
+          3.679999828338623,
+          2.700000047683716
+        ],
+        "normal": [
+          0.0,
+          0.9999999403953552,
+          0.0
+        ],
+        "triangle": 161,
+        "distance": 0.2700001895427704,
+        "object": "Office front head lintel"
+      },
+      "baseline_front": {
+        "point": [
+          -2.5299999713897705,
+          3.5199999809265137,
+          2.700000047683716
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "triangle": 180,
+        "distance": 0.26999998092651367,
+        "object": "Office front wall east"
+      },
+      "baseline_back": {
+        "point": [
+          -2.5299999713897705,
+          3.679999828338623,
+          2.700000047683716
+        ],
+        "normal": [
+          0.0,
+          0.9999999403953552,
+          0.0
+        ],
+        "triangle": 185,
+        "distance": 0.2700001895427704,
+        "object": "Office front head lintel"
+      }
+    },
+    {
+      "x": -3.5,
+      "z": 0.5,
+      "front": {
+        "point": [
+          -3.5,
+          3.5199999809265137,
+          0.5
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "triangle": 469,
+        "distance": 0.26999998092651367,
+        "object": "Hatch wall sill base"
+      },
+      "back": {
+        "point": [
+          -3.5,
+          3.680000066757202,
+          0.5
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "triangle": 477,
+        "distance": 0.26999998092651367,
+        "object": "Hatch wall sill base"
+      },
+      "baseline_front": {
+        "point": [
+          -3.5,
+          3.5199999809265137,
+          0.5
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "triangle": 180,
+        "distance": 0.26999998092651367,
+        "object": "Hatch wall sill base"
+      },
+      "baseline_back": {
+        "point": [
+          -3.5,
+          3.679999828338623,
+          0.5
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "triangle": 185,
+        "distance": 0.2700001895427704,
+        "object": "Hatch wall sill base"
+      }
+    },
+    {
+      "x": -3.5,
+      "z": 1.5,
+      "front": null,
+      "back": null,
+      "baseline_front": null,
+      "baseline_back": null
+    },
+    {
+      "x": -3.5,
+      "z": 2.7,
+      "front": {
+        "point": [
+          -3.5,
+          3.5199999809265137,
+          2.700000047683716
+        ],
+        "normal": [
+          0.0,
+          -0.9999999403953552,
+          0.0
+        ],
+        "triangle": 156,
+        "distance": 0.26999998092651367,
+        "object": "Office front head lintel"
+      },
+      "back": {
+        "point": [
+          -3.5,
+          3.679999828338623,
+          2.700000047683716
+        ],
+        "normal": [
+          0.0,
+          0.9999999403953552,
+          0.0
+        ],
+        "triangle": 161,
+        "distance": 0.27000024914741516,
+        "object": "Office front head lintel"
+      },
+      "baseline_front": {
+        "point": [
+          -3.5,
+          3.5199999809265137,
+          2.700000047683716
+        ],
+        "normal": [
+          0.0,
+          -0.9999999403953552,
+          0.0
+        ],
+        "triangle": 180,
+        "distance": 0.26999998092651367,
+        "object": "Office front head lintel"
+      },
+      "baseline_back": {
+        "point": [
+          -3.5,
+          3.679999828338623,
+          2.700000047683716
+        ],
+        "normal": [
+          0.0,
+          0.9999999403953552,
+          0.0
+        ],
+        "triangle": 185,
+        "distance": 0.27000024914741516,
+        "object": "Office front head lintel"
+      }
+    },
+    {
+      "x": -5.4,
+      "z": 2.32,
+      "front": {
+        "point": [
+          -5.400000095367432,
+          3.5,
+          2.319999933242798
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "triangle": 157,
+        "distance": 0.25,
+        "object": "CD | D1 transom closure"
+      },
+      "back": {
+        "point": [
+          -5.400000095367432,
+          3.6999998092651367,
+          2.319999933242798
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "triangle": 161,
+        "distance": 0.2500002384185791,
+        "object": "CD | D1 transom closure"
+      },
+      "baseline_front": null,
+      "baseline_back": null
+    }
+  ],
+  "usable_aperture_samples": [
+    {
+      "label": "D1 usable aperture",
+      "samples": 25,
+      "baseline_shell_occupied": 0,
+      "overhaul_shell_occupied": 0,
+      "differences": [],
+      "movable_door_leaf_omitted": true
+    },
+    {
+      "label": "hatch above worktop",
+      "samples": 35,
+      "baseline_shell_occupied": 0,
+      "overhaul_shell_occupied": 0,
+      "differences": [],
+      "movable_door_leaf_omitted": true
+    }
+  ],
+  "unverified": [
+    "Coplanar exposure is sampled; distant external occlusion and arbitrary self-intersections are not an exhaustive proof.",
+    "Edge profile refinements mean exact old evaluated surface identity is not claimed.",
+    "Native source was reopened, never saved."
+  ]
+}

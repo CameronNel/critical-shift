@@ -1,0 +1,167 @@
+{
+  "reviewer_role": "Independent art-direction and shape critic",
+  "cycle": "full-cycle-01",
+  "source_sha256": "dc608cae0a42303e614f2db3dc0cd9d50e4366dc738ac57c35957c6df34e0331",
+  "evidence": {
+    "resolution": [
+      1067,
+      600
+    ],
+    "manifest_complete": true,
+    "full_room_opened_count": 26,
+    "spawn_reference_opened_count": 4,
+    "full_room_images": [
+      "renders/full-cycle-01/C01_ENTRY.png",
+      "renders/full-cycle-01/C02_HERO_DOCK.png",
+      "renders/full-cycle-01/C03_CHECKIN_COUNTER.png",
+      "renders/full-cycle-01/C04_SCANNER_APPROACH.png",
+      "renders/full-cycle-01/C05_CONVEYOR_LEAD_TUNNEL.png",
+      "renders/full-cycle-01/C06_CART_GATE_G1.png",
+      "renders/full-cycle-01/C07_OFFICE_INTERIOR.png",
+      "renders/full-cycle-01/C08_CONCEALED_SUPPORT_H1.png",
+      "renders/full-cycle-01/C09_ARRIVAL_GATE_P2.png",
+      "renders/full-cycle-01/C10_ROOF_SERVICES.png",
+      "renders/full-cycle-01/CORNER_SW.png",
+      "renders/full-cycle-01/CORNER_SE.png",
+      "renders/full-cycle-01/CORNER_NW.png",
+      "renders/full-cycle-01/CORNER_NE.png",
+      "renders/full-cycle-01/WALL_SOUTH.png",
+      "renders/full-cycle-01/WALL_NORTH.png",
+      "renders/full-cycle-01/WALL_EAST.png",
+      "renders/full-cycle-01/WALL_WEST.png",
+      "renders/full-cycle-01/HERO_SCANNER.png",
+      "renders/full-cycle-01/HERO_CARGO.png",
+      "renders/full-cycle-01/HERO_EVIDENCE.png",
+      "renders/full-cycle-01/HERO_TROLLEY.png",
+      "renders/full-cycle-01/HERO_UTILITIES.png",
+      "renders/full-cycle-01/DETAIL_CHECKIN.png",
+      "renders/full-cycle-01/PLAYER_REVERSE.png",
+      "renders/full-cycle-01/PLAYER_PINCH.png"
+    ],
+    "spawn_reference_images": [
+      "renders/spawn-reference/VALIDATE_Material_A.png",
+      "renders/spawn-reference/VALIDATE_LockerDoor.png",
+      "renders/spawn-reference/VALIDATE_Spawn.png",
+      "renders/spawn-reference/BRIEFING_INDIRECT.png"
+    ]
+  },
+  "scope": {
+    "pixel_review_only": true,
+    "author_code_read": false,
+    "history_read": false,
+    "prior_verdicts_read": false,
+    "source_modified": false,
+    "technical_validation_claimed": false
+  },
+  "category_scores": {
+    "2": 85,
+    "3": 86,
+    "6": 94
+  },
+  "category_results": {
+    "2": "FAIL",
+    "3": "FAIL",
+    "6": "PASS"
+  },
+  "bar": {
+    "comparison": "strictly_greater_than",
+    "score": 93
+  },
+  "verdict": "FAIL",
+  "dominant_whole_room_visual_veto": false,
+  "critical_defects": [
+    {
+      "id": "ART-C01-01",
+      "type": "mandatory_view_obstructed",
+      "view": "HERO_SCANNER",
+      "observation": "Near office wall fills approximately left 55\u201360% of the image and obscures most of the arch; named hero cannot be certified."
+    }
+  ],
+  "local_visual_failures": [
+    {
+      "id": "ART-C01-02",
+      "type": "anti_blockout_cloth_shape",
+      "views": [
+        "C08_CONCEALED_SUPPORT_H1",
+        "HERO_TROLLEY",
+        "HERO_EVIDENCE"
+      ],
+      "observation": "Cover consists of repeated angular peaked masses rather than a continuous cloth drape."
+    }
+  ],
+  "repair_targets": [
+    {
+      "priority": 1,
+      "id": "ART-C01-01",
+      "target": "Repair invalid scanner hero camera; document revised baseline and rerender without moving inherited room/machinery.",
+      "views": [
+        "HERO_SCANNER",
+        "C01_ENTRY",
+        "C04_SCANNER_APPROACH",
+        "PLAYER_REVERSE"
+      ]
+    },
+    {
+      "priority": 2,
+      "id": "ART-C01-02",
+      "target": "Replace repeated peaked trolley cover with continuous gravity-led broad folds, slack and plausible hem.",
+      "views": [
+        "C08_CONCEALED_SUPPORT_H1",
+        "HERO_TROLLEY",
+        "HERO_EVIDENCE"
+      ]
+    },
+    {
+      "priority": 3,
+      "id": "ART-C01-03",
+      "target": "Clarify specific manufactured joints, access covers, sensor housings, operating hardware and threshold construction on scanner and gates; expose forms through selective value separation.",
+      "views": [
+        "C01_ENTRY",
+        "C04_SCANNER_APPROACH",
+        "C06_CART_GATE_G1",
+        "C09_ARRIVAL_GATE_P2",
+        "WALL_NORTH",
+        "WALL_SOUTH",
+        "PLAYER_REVERSE"
+      ]
+    },
+    {
+      "priority": 4,
+      "id": "ART-C01-04",
+      "target": "Give utility housings lid/door seams and fastening/opening logic; resolve visible conduit endpoints.",
+      "views": [
+        "HERO_UTILITIES",
+        "WALL_EAST",
+        "PLAYER_PINCH"
+      ]
+    },
+    {
+      "priority": 5,
+      "id": "ART-C01-05",
+      "target": "Make cargo entrance layering, curtain separation and conveyor drive/support forms readable while preserving footprint.",
+      "views": [
+        "C05_CONVEYOR_LEAD_TUNNEL",
+        "HERO_CARGO",
+        "WALL_EAST",
+        "CORNER_SW",
+        "CORNER_SE",
+        "CORNER_NW",
+        "CORNER_NE"
+      ]
+    }
+  ],
+  "positive_findings": [
+    "Authored check-in transaction hardware and stationery give the strongest functional focal composition.",
+    "Office chair, orange doors and evidence-door hardware have recognizable object-specific construction.",
+    "Large quiet route areas and restrained clutter support functional readability.",
+    "Navy/charcoal, warm walls, blue equipment, orange functional surfaces and yellow route accents remain coherent with the approved spawn."
+  ],
+  "not_certified": [
+    "geometry",
+    "boundary/layout identity",
+    "support contact",
+    "technical reproducibility",
+    "runtime readiness",
+    "other rubric categories"
+  ]
+}

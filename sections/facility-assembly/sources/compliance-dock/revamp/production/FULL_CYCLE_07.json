@@ -1,0 +1,75 @@
+{
+  "cycle": "full-cycle-07",
+  "native_revision": "f13",
+  "source_sha256": "22176ab474d914156cdf5a083571c19b04c6e6e11cfa50ab8ba681013bc124a6",
+  "complete_rendered_and_reviewed_views": 27,
+  "diagnostic_views": 8,
+  "critics": {
+    "spatial": {
+      "report": "critics/full-c07-spatial.json",
+      "sha256": "fff08626de63e062866c511d725105068cc1ed461bde9bbd3d18652b8162fd0e"
+    },
+    "materials": {
+      "report": "critics/full-c07-materials.json",
+      "sha256": "2d3be991f1d9231f24e42a134d41203adafc662d03f2d9cb6cfd4c863b17c1ae"
+    },
+    "lighting": {
+      "report": "critics/full-c07-lighting.json",
+      "sha256": "07c0a9ad96010ceac6f759158c78aa1a8e695312290b5d9503f77fb8e90fa30d"
+    },
+    "story": {
+      "report": "critics/full-c07-story.json",
+      "sha256": "fe3fb71a67977481e07080c64d92a7fb9e0bad0a18e1f44830e532f365cf2640"
+    },
+    "technical": {
+      "report": "critics/full-c07-technical.json",
+      "sha256": "159333696f4f035407ca828a7a2c688f1d71b0fba673c4b76b199ac5ca7f459d"
+    },
+    "luna": {
+      "report": "critics/full-c07-luna-visual.json",
+      "sha256": "c50a6011592c0a06766341d7fbe9c3e557723b59663f3057fbd523495556c78d"
+    },
+    "luna_aggregate": {
+      "report": "critics/full-c07-luna-aggregate.json",
+      "sha256": "3fecc480e2c17b58a388dff9d929263e1f316b132a8206600bf0290be319aa2b"
+    }
+  },
+  "per_category_conservative_scores": {
+    "1": 84,
+    "2": 78,
+    "3": 82,
+    "4": 75,
+    "5": 80,
+    "6": 87,
+    "7": 72,
+    "8": 90
+  },
+  "aggregation": "Minimum discipline and independently locked Luna visual scores; fresh technical8 only supplied after lock; all dissenting assessments retained",
+  "luna_overall_score": 81,
+  "luna_exact_mean": "648/8",
+  "owner_pass_minimum": 99,
+  "verdict": "FAIL",
+  "critical_defect_count": 0,
+  "critical_union": [],
+  "full_room_accepted": false,
+  "completed_full_cycles": 7,
+  "final_two_materially_stable": false,
+  "cold_github_source_open_pass": true,
+  "cold_github_source_open_commit": "34979e30006bc9d3a5facabea8372c0d46e3d772",
+  "cold_render_equivalence_verified": false,
+  "source_consumers_released": true,
+  "root_pixel_inspection": "pixel-inspection-full-c07-root.json",
+  "regression_comparison": "compare-f12-f13-same-camera.json PASS27camera/settings/hash inventory, source changed and no identical pixels; not stability or art acceptance",
+  "remaining_defects": [
+    "V01 co-leading check-in hierarchy/camera readability",
+    "V02 repeated dominant rectangular manufacturing forms",
+    "V03 tactile/UV pixel deductions; independent physical and consumed textile results retained, no forced reconciled judgment",
+    "V04 secondary dark values/glazing separation",
+    "V05 insufficient specific worker/interrupted task/repair consequence",
+    "T8-01 actual separate drum interpenetration147.869mm",
+    "T8-02 exposed P1 reveal/head coplanar skins",
+    "T8-03 hidden scanner crown/bridge penetration3.904\u20139.180mm"
+  ],
+  "runtime_verified": false,
+  "completed_utc": "2026-10-03T04:56:44.500514+00:00"
+}

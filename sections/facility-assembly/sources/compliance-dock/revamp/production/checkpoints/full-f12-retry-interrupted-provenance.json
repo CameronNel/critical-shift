@@ -1,0 +1,14 @@
+{
+  "state": "CONTROLLED PRE-SAVE TERMINATION; no formal cycle/acceptance",
+  "current_native_revision": "f11",
+  "source_unchanged_sha256": "cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035",
+  "termination": "SIGTERM owned BlenderPID57592 afterSIGINT did not stop the operation; process exited, no native write",
+  "defect": "Cargo rib profile needs explicit shoulder breakpoint at Z1.98 before piecewise deformation; otherwise interpolation pulls long edges into shield.",
+  "recipes": {
+    "overhaul_dock.py": "43eedde871e912a59f2557a3080420d1517cc9f92f7a183d357da2e3da9010a3",
+    "full_detail.py": "b70fc3776320b1ea9eaa19335a8aeb88f8efc314d5698e5d7fcf54c5e294e0ad",
+    "full_repairs.py": "17c30d76ff4dd92749acf36f87dce6c62384473f00cfa8eac41694f7c8b8691b",
+    "render_dock.py": "9993f999e0eddef5d3c106591728c665647cc49364e44199253780cb9bc89c57"
+  },
+  "pending": "Fresh read-only Luna construction preflight is finishing before recipe edits"
+}

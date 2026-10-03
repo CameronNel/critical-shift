@@ -1,0 +1,2342 @@
+{
+  "f12_sha256": "73b85e9a84b577d2059a07371abd366666536800eb45c9e56a7d7788a21b77a3",
+  "repair_sha256": "fea22308927ae066adb05f9f592300bb0c9d8a212cd66189abd23f4fbf7a333b",
+  "blender": "5.2.2 LTS",
+  "mode": "read-only native surfaces plus analytical proposed bounds; no full source builder/native save",
+  "notice": {
+    "notice_island_bounds_f12_m": [
+      [
+        -3.704999924,
+        3.590500117,
+        1.600000024
+      ],
+      [
+        -3.315000057,
+        3.591500044,
+        1.699999928
+      ]
+    ],
+    "proposed_backing_bounds_m": [
+      [
+        -3.717,
+        3.5915,
+        1.593
+      ],
+      [
+        -3.303,
+        3.5995,
+        1.707
+      ]
+    ],
+    "glass_object_bounds_f12_m": [
+      [
+        -3.734999895095825,
+        3.5924999713897705,
+        1.225000023841858
+      ],
+      [
+        -3.2850000858306885,
+        3.607499837875366,
+        1.5749999284744263
+      ]
+    ],
+    "notice_to_backing_rays": [
+      {
+        "label": "notice back y=3.5915 to proposed backing",
+        "target": "CD | Joined Checkin Counter Hatch / ivory",
+        "origin": [
+          -3.69,
+          3.5715,
+          1.61
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.01900005340576172,
+        "hit_m": [
+          -3.690000057220459,
+          3.5905001163482666,
+          1.6100000143051147
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      },
+      {
+        "label": "notice back y=3.5915 to proposed backing",
+        "target": "CD | Joined Checkin Counter Hatch / ivory",
+        "origin": [
+          -3.69,
+          3.5715,
+          1.69
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.019000055268406868,
+        "hit_m": [
+          -3.690000057220459,
+          3.5905001163482666,
+          1.690000057220459
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      },
+      {
+        "label": "notice back y=3.5915 to proposed backing",
+        "target": "CD | Joined Checkin Counter Hatch / ivory",
+        "origin": [
+          -3.33,
+          3.5715,
+          1.61
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.01900005340576172,
+        "hit_m": [
+          -3.3299999237060547,
+          3.5905001163482666,
+          1.6100000143051147
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      },
+      {
+        "label": "notice back y=3.5915 to proposed backing",
+        "target": "CD | Joined Checkin Counter Hatch / ivory",
+        "origin": [
+          -3.33,
+          3.5715,
+          1.69
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.01900005154311657,
+        "hit_m": [
+          -3.3299999237060547,
+          3.5905001163482666,
+          1.690000057220459
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ]
+      }
+    ],
+    "backing_to_notice_rays": [
+      {
+        "label": "proposed backing y=3.5915 to actual notice",
+        "target": "CD | Joined Checkin Counter Hatch / ivory",
+        "origin": [
+          -3.69,
+          3.6115,
+          1.61
+        ],
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "distance_m": 0.019999980926513672,
+        "hit_m": [
+          -3.690000057220459,
+          3.5915000438690186,
+          1.6100000143051147
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "label": "proposed backing y=3.5915 to actual notice",
+        "target": "CD | Joined Checkin Counter Hatch / ivory",
+        "origin": [
+          -3.69,
+          3.6115,
+          1.69
+        ],
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "distance_m": 0.019999979063868523,
+        "hit_m": [
+          -3.690000057220459,
+          3.5915000438690186,
+          1.690000057220459
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "label": "proposed backing y=3.5915 to actual notice",
+        "target": "CD | Joined Checkin Counter Hatch / ivory",
+        "origin": [
+          -3.33,
+          3.6115,
+          1.61
+        ],
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "distance_m": 0.01999998278915882,
+        "hit_m": [
+          -3.3299999237060547,
+          3.5915000438690186,
+          1.6100000143051147
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "label": "proposed backing y=3.5915 to actual notice",
+        "target": "CD | Joined Checkin Counter Hatch / ivory",
+        "origin": [
+          -3.33,
+          3.6115,
+          1.69
+        ],
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "distance_m": 0.01999998278915882,
+        "hit_m": [
+          -3.3299999237060547,
+          3.5915000438690186,
+          1.690000057220459
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      }
+    ],
+    "clip_to_glass_rays": [
+      {
+        "label": "clip meets glass at y=3.6075",
+        "target": "Hatch speaking aperture plate",
+        "origin": [
+          -3.704,
+          3.6275,
+          1.56
+        ],
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "distance_m": 0.020000221207737923,
+        "hit_m": [
+          -3.7039999961853027,
+          3.607499837875366,
+          1.559999942779541
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "label": "clip meets glass at y=3.6075",
+        "target": "Hatch speaking aperture plate",
+        "origin": [
+          -3.316,
+          3.6275,
+          1.56
+        ],
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "distance_m": 0.020000219345092773,
+        "hit_m": [
+          -3.315999984741211,
+          3.607499837875366,
+          1.559999942779541
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      }
+    ],
+    "backing_to_clip_rays": [
+      {
+        "x": -3.704,
+        "proposed_backing_front_y_m": 3.5995,
+        "clip_face_y_m": 3.5995,
+        "gap_m": 0.0
+      },
+      {
+        "x": -3.316,
+        "proposed_backing_front_y_m": 3.5995,
+        "clip_face_y_m": 3.5995,
+        "gap_m": 0.0
+      }
+    ],
+    "glass_intersection_depth_m": 0.008,
+    "proposed_text_bounds_m": {
+      "CD | Reassurance headline": [
+        [
+          -3.659498929977417,
+          3.5904200077056885,
+          1.6627570390701294
+        ],
+        [
+          -3.3613650798797607,
+          3.5904200077056885,
+          1.6816569566726685
+        ]
+      ],
+      "CD | Reassurance qualification": [
+        [
+          -3.600395917892456,
+          3.5904200077056885,
+          1.6298919916152954
+        ],
+        [
+          -3.41867995262146,
+          3.5904200077056885,
+          1.6382919549942017
+        ]
+      ]
+    }
+  },
+  "scanner": {
+    "proposed_edges": [
+      {
+        "label": "proposed edge back Y7.180 to actual scanner column",
+        "target": "Scanner portal column -1",
+        "origin": [
+          -0.808,
+          7.14,
+          0.21
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.039999961853027344,
+        "hit_m": [
+          -0.8080000281333923,
+          7.179999828338623,
+          0.20999999344348907
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "part_x_center_m": -0.808,
+        "z_sample_m": 0.21
+      },
+      {
+        "label": "proposed edge back Y7.180 to actual scanner column",
+        "target": "Scanner portal column -1",
+        "origin": [
+          -0.808,
+          7.14,
+          0.55
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.03999996557831764,
+        "hit_m": [
+          -0.8080000281333923,
+          7.179999828338623,
+          0.550000011920929
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "part_x_center_m": -0.808,
+        "z_sample_m": 0.55
+      },
+      {
+        "label": "proposed edge back Y7.180 to actual scanner column",
+        "target": "Scanner portal column -1",
+        "origin": [
+          -0.808,
+          7.14,
+          1.35
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.039999961853027344,
+        "hit_m": [
+          -0.8080000281333923,
+          7.179999828338623,
+          1.350000023841858
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "part_x_center_m": -0.808,
+        "z_sample_m": 1.35
+      },
+      {
+        "label": "proposed edge back Y7.180 to actual scanner column",
+        "target": "Scanner portal column -1",
+        "origin": [
+          -0.808,
+          7.14,
+          2.15
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.03999996557831764,
+        "hit_m": [
+          -0.8080000281333923,
+          7.179999828338623,
+          2.1500000953674316
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "part_x_center_m": -0.808,
+        "z_sample_m": 2.15
+      },
+      {
+        "label": "proposed edge back Y7.180 to actual scanner column",
+        "target": "Scanner portal column -1",
+        "origin": [
+          -0.808,
+          7.14,
+          2.49
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.039999961853027344,
+        "hit_m": [
+          -0.8080000281333923,
+          7.179999828338623,
+          2.490000009536743
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "part_x_center_m": -0.808,
+        "z_sample_m": 2.49
+      },
+      {
+        "label": "proposed edge back Y7.180 to actual scanner column",
+        "target": "Scanner portal column -1",
+        "origin": [
+          -0.652,
+          7.14,
+          0.21
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.039999961853027344,
+        "hit_m": [
+          -0.6520000100135803,
+          7.179999828338623,
+          0.20999999344348907
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "part_x_center_m": -0.652,
+        "z_sample_m": 0.21
+      },
+      {
+        "label": "proposed edge back Y7.180 to actual scanner column",
+        "target": "Scanner portal column -1",
+        "origin": [
+          -0.652,
+          7.14,
+          0.55
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.039999961853027344,
+        "hit_m": [
+          -0.6520000100135803,
+          7.179999828338623,
+          0.550000011920929
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "part_x_center_m": -0.652,
+        "z_sample_m": 0.55
+      },
+      {
+        "label": "proposed edge back Y7.180 to actual scanner column",
+        "target": "Scanner portal column -1",
+        "origin": [
+          -0.652,
+          7.14,
+          1.35
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.039999961853027344,
+        "hit_m": [
+          -0.6520000100135803,
+          7.179999828338623,
+          1.350000023841858
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "part_x_center_m": -0.652,
+        "z_sample_m": 1.35
+      },
+      {
+        "label": "proposed edge back Y7.180 to actual scanner column",
+        "target": "Scanner portal column -1",
+        "origin": [
+          -0.652,
+          7.14,
+          2.15
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.039999961853027344,
+        "hit_m": [
+          -0.6520000100135803,
+          7.179999828338623,
+          2.1500000953674316
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "part_x_center_m": -0.652,
+        "z_sample_m": 2.15
+      },
+      {
+        "label": "proposed edge back Y7.180 to actual scanner column",
+        "target": "Scanner portal column -1",
+        "origin": [
+          -0.652,
+          7.14,
+          2.49
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.039999958127737045,
+        "hit_m": [
+          -0.6520000100135803,
+          7.179999828338623,
+          2.490000009536743
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "part_x_center_m": -0.652,
+        "z_sample_m": 2.49
+      },
+      {
+        "label": "proposed edge back Y7.180 to actual scanner column",
+        "target": "Scanner portal column 1",
+        "origin": [
+          0.652,
+          7.14,
+          0.21
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.039999961853027344,
+        "hit_m": [
+          0.6520000100135803,
+          7.179999828338623,
+          0.20999999344348907
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "part_x_center_m": 0.652,
+        "z_sample_m": 0.21
+      },
+      {
+        "label": "proposed edge back Y7.180 to actual scanner column",
+        "target": "Scanner portal column 1",
+        "origin": [
+          0.652,
+          7.14,
+          0.55
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.039999958127737045,
+        "hit_m": [
+          0.6520000100135803,
+          7.179999828338623,
+          0.550000011920929
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "part_x_center_m": 0.652,
+        "z_sample_m": 0.55
+      },
+      {
+        "label": "proposed edge back Y7.180 to actual scanner column",
+        "target": "Scanner portal column 1",
+        "origin": [
+          0.652,
+          7.14,
+          1.35
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.039999961853027344,
+        "hit_m": [
+          0.6520000100135803,
+          7.179999828338623,
+          1.350000023841858
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "part_x_center_m": 0.652,
+        "z_sample_m": 1.35
+      },
+      {
+        "label": "proposed edge back Y7.180 to actual scanner column",
+        "target": "Scanner portal column 1",
+        "origin": [
+          0.652,
+          7.14,
+          2.15
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.039999958127737045,
+        "hit_m": [
+          0.6520000100135803,
+          7.179999828338623,
+          2.1500000953674316
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "part_x_center_m": 0.652,
+        "z_sample_m": 2.15
+      },
+      {
+        "label": "proposed edge back Y7.180 to actual scanner column",
+        "target": "Scanner portal column 1",
+        "origin": [
+          0.652,
+          7.14,
+          2.49
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.039999961853027344,
+        "hit_m": [
+          0.6520000100135803,
+          7.179999828338623,
+          2.490000009536743
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "part_x_center_m": 0.652,
+        "z_sample_m": 2.49
+      },
+      {
+        "label": "proposed edge back Y7.180 to actual scanner column",
+        "target": "Scanner portal column 1",
+        "origin": [
+          0.808,
+          7.14,
+          0.21
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.03999996557831764,
+        "hit_m": [
+          0.8080000281333923,
+          7.179999828338623,
+          0.20999999344348907
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "part_x_center_m": 0.808,
+        "z_sample_m": 0.21
+      },
+      {
+        "label": "proposed edge back Y7.180 to actual scanner column",
+        "target": "Scanner portal column 1",
+        "origin": [
+          0.808,
+          7.14,
+          0.55
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.03999996557831764,
+        "hit_m": [
+          0.8080000281333923,
+          7.179999828338623,
+          0.550000011920929
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "part_x_center_m": 0.808,
+        "z_sample_m": 0.55
+      },
+      {
+        "label": "proposed edge back Y7.180 to actual scanner column",
+        "target": "Scanner portal column 1",
+        "origin": [
+          0.808,
+          7.14,
+          1.35
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.039999961853027344,
+        "hit_m": [
+          0.8080000281333923,
+          7.179999828338623,
+          1.350000023841858
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "part_x_center_m": 0.808,
+        "z_sample_m": 1.35
+      },
+      {
+        "label": "proposed edge back Y7.180 to actual scanner column",
+        "target": "Scanner portal column 1",
+        "origin": [
+          0.808,
+          7.14,
+          2.15
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.03999996557831764,
+        "hit_m": [
+          0.8080000281333923,
+          7.179999828338623,
+          2.1500000953674316
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "part_x_center_m": 0.808,
+        "z_sample_m": 2.15
+      },
+      {
+        "label": "proposed edge back Y7.180 to actual scanner column",
+        "target": "Scanner portal column 1",
+        "origin": [
+          0.808,
+          7.14,
+          2.49
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.039999961853027344,
+        "hit_m": [
+          0.8080000281333923,
+          7.179999828338623,
+          2.490000009536743
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "part_x_center_m": 0.808,
+        "z_sample_m": 2.49
+      }
+    ],
+    "proposed_seams": [
+      {
+        "label": "proposed seam back Y7.180 to actual scanner column",
+        "target": "Scanner portal column -1",
+        "origin": [
+          -0.8049999999999999,
+          7.14,
+          0.56
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.039999961853027344,
+        "hit_m": [
+          -0.8050000071525574,
+          7.179999828338623,
+          0.5600000023841858
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "seam_center_x_m": -0.73,
+        "z_sample_m": 0.56,
+        "offset_x_m": -0.075
+      },
+      {
+        "label": "proposed seam back Y7.180 to actual scanner column",
+        "target": "Scanner portal column -1",
+        "origin": [
+          -0.7675,
+          7.14,
+          0.56
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.039999961853027344,
+        "hit_m": [
+          -0.7674999833106995,
+          7.179999828338623,
+          0.5600000023841858
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "seam_center_x_m": -0.73,
+        "z_sample_m": 0.56,
+        "offset_x_m": -0.0375
+      },
+      {
+        "label": "proposed seam back Y7.180 to actual scanner column",
+        "target": "Scanner portal column -1",
+        "origin": [
+          -0.73,
+          7.14,
+          0.56
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.039999961853027344,
+        "hit_m": [
+          -0.7300000190734863,
+          7.179999828338623,
+          0.5600000023841858
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "seam_center_x_m": -0.73,
+        "z_sample_m": 0.56,
+        "offset_x_m": 0
+      },
+      {
+        "label": "proposed seam back Y7.180 to actual scanner column",
+        "target": "Scanner portal column -1",
+        "origin": [
+          -0.6925,
+          7.14,
+          0.56
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.039999961853027344,
+        "hit_m": [
+          -0.6924999952316284,
+          7.179999828338623,
+          0.5600000023841858
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "seam_center_x_m": -0.73,
+        "z_sample_m": 0.56,
+        "offset_x_m": 0.0375
+      },
+      {
+        "label": "proposed seam back Y7.180 to actual scanner column",
+        "target": "Scanner portal column -1",
+        "origin": [
+          -0.655,
+          7.14,
+          0.56
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.039999961853027344,
+        "hit_m": [
+          -0.6549999713897705,
+          7.179999828338623,
+          0.5600000023841858
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "seam_center_x_m": -0.73,
+        "z_sample_m": 0.56,
+        "offset_x_m": 0.075
+      },
+      {
+        "label": "proposed seam back Y7.180 to actual scanner column",
+        "target": "Scanner portal column -1",
+        "origin": [
+          -0.8049999999999999,
+          7.14,
+          1.22
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.039999961853027344,
+        "hit_m": [
+          -0.8050000071525574,
+          7.179999828338623,
+          1.2200000286102295
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "seam_center_x_m": -0.73,
+        "z_sample_m": 1.22,
+        "offset_x_m": -0.075
+      },
+      {
+        "label": "proposed seam back Y7.180 to actual scanner column",
+        "target": "Scanner portal column -1",
+        "origin": [
+          -0.7675,
+          7.14,
+          1.22
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.039999961853027344,
+        "hit_m": [
+          -0.7674999833106995,
+          7.179999828338623,
+          1.2200000286102295
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "seam_center_x_m": -0.73,
+        "z_sample_m": 1.22,
+        "offset_x_m": -0.0375
+      },
+      {
+        "label": "proposed seam back Y7.180 to actual scanner column",
+        "target": "Scanner portal column -1",
+        "origin": [
+          -0.73,
+          7.14,
+          1.22
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.039999961853027344,
+        "hit_m": [
+          -0.7300000190734863,
+          7.179999828338623,
+          1.2200000286102295
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "seam_center_x_m": -0.73,
+        "z_sample_m": 1.22,
+        "offset_x_m": 0
+      },
+      {
+        "label": "proposed seam back Y7.180 to actual scanner column",
+        "target": "Scanner portal column -1",
+        "origin": [
+          -0.6925,
+          7.14,
+          1.22
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.039999961853027344,
+        "hit_m": [
+          -0.6924999952316284,
+          7.179999828338623,
+          1.2200000286102295
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "seam_center_x_m": -0.73,
+        "z_sample_m": 1.22,
+        "offset_x_m": 0.0375
+      },
+      {
+        "label": "proposed seam back Y7.180 to actual scanner column",
+        "target": "Scanner portal column -1",
+        "origin": [
+          -0.655,
+          7.14,
+          1.22
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.039999961853027344,
+        "hit_m": [
+          -0.6549999713897705,
+          7.179999828338623,
+          1.2200000286102295
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "seam_center_x_m": -0.73,
+        "z_sample_m": 1.22,
+        "offset_x_m": 0.075
+      },
+      {
+        "label": "proposed seam back Y7.180 to actual scanner column",
+        "target": "Scanner portal column -1",
+        "origin": [
+          -0.8049999999999999,
+          7.14,
+          1.88
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.039999961853027344,
+        "hit_m": [
+          -0.8050000071525574,
+          7.179999828338623,
+          1.8799999952316284
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "seam_center_x_m": -0.73,
+        "z_sample_m": 1.88,
+        "offset_x_m": -0.075
+      },
+      {
+        "label": "proposed seam back Y7.180 to actual scanner column",
+        "target": "Scanner portal column -1",
+        "origin": [
+          -0.7675,
+          7.14,
+          1.88
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.039999961853027344,
+        "hit_m": [
+          -0.7674999833106995,
+          7.179999828338623,
+          1.8799999952316284
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "seam_center_x_m": -0.73,
+        "z_sample_m": 1.88,
+        "offset_x_m": -0.0375
+      },
+      {
+        "label": "proposed seam back Y7.180 to actual scanner column",
+        "target": "Scanner portal column -1",
+        "origin": [
+          -0.73,
+          7.14,
+          1.88
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.039999961853027344,
+        "hit_m": [
+          -0.7300000190734863,
+          7.179999828338623,
+          1.8799999952316284
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "seam_center_x_m": -0.73,
+        "z_sample_m": 1.88,
+        "offset_x_m": 0
+      },
+      {
+        "label": "proposed seam back Y7.180 to actual scanner column",
+        "target": "Scanner portal column -1",
+        "origin": [
+          -0.6925,
+          7.14,
+          1.88
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.039999961853027344,
+        "hit_m": [
+          -0.6924999952316284,
+          7.179999828338623,
+          1.8799999952316284
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "seam_center_x_m": -0.73,
+        "z_sample_m": 1.88,
+        "offset_x_m": 0.0375
+      },
+      {
+        "label": "proposed seam back Y7.180 to actual scanner column",
+        "target": "Scanner portal column -1",
+        "origin": [
+          -0.655,
+          7.14,
+          1.88
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.039999961853027344,
+        "hit_m": [
+          -0.6549999713897705,
+          7.179999828338623,
+          1.8799999952316284
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "seam_center_x_m": -0.73,
+        "z_sample_m": 1.88,
+        "offset_x_m": 0.075
+      },
+      {
+        "label": "proposed seam back Y7.180 to actual scanner column",
+        "target": "Scanner portal column 1",
+        "origin": [
+          0.655,
+          7.14,
+          0.56
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.039999961853027344,
+        "hit_m": [
+          0.6549999713897705,
+          7.179999828338623,
+          0.5600000023841858
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "seam_center_x_m": 0.73,
+        "z_sample_m": 0.56,
+        "offset_x_m": -0.075
+      },
+      {
+        "label": "proposed seam back Y7.180 to actual scanner column",
+        "target": "Scanner portal column 1",
+        "origin": [
+          0.6925,
+          7.14,
+          0.56
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.039999961853027344,
+        "hit_m": [
+          0.6924999952316284,
+          7.179999828338623,
+          0.5600000023841858
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "seam_center_x_m": 0.73,
+        "z_sample_m": 0.56,
+        "offset_x_m": -0.0375
+      },
+      {
+        "label": "proposed seam back Y7.180 to actual scanner column",
+        "target": "Scanner portal column 1",
+        "origin": [
+          0.73,
+          7.14,
+          0.56
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.039999958127737045,
+        "hit_m": [
+          0.7300000190734863,
+          7.179999828338623,
+          0.5600000023841858
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "seam_center_x_m": 0.73,
+        "z_sample_m": 0.56,
+        "offset_x_m": 0
+      },
+      {
+        "label": "proposed seam back Y7.180 to actual scanner column",
+        "target": "Scanner portal column 1",
+        "origin": [
+          0.7675,
+          7.14,
+          0.56
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.039999961853027344,
+        "hit_m": [
+          0.7674999833106995,
+          7.179999828338623,
+          0.5600000023841858
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "seam_center_x_m": 0.73,
+        "z_sample_m": 0.56,
+        "offset_x_m": 0.0375
+      },
+      {
+        "label": "proposed seam back Y7.180 to actual scanner column",
+        "target": "Scanner portal column 1",
+        "origin": [
+          0.8049999999999999,
+          7.14,
+          0.56
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.039999961853027344,
+        "hit_m": [
+          0.8050000071525574,
+          7.179999828338623,
+          0.5600000023841858
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "seam_center_x_m": 0.73,
+        "z_sample_m": 0.56,
+        "offset_x_m": 0.075
+      },
+      {
+        "label": "proposed seam back Y7.180 to actual scanner column",
+        "target": "Scanner portal column 1",
+        "origin": [
+          0.655,
+          7.14,
+          1.22
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.039999961853027344,
+        "hit_m": [
+          0.6549999713897705,
+          7.179999828338623,
+          1.2200000286102295
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "seam_center_x_m": 0.73,
+        "z_sample_m": 1.22,
+        "offset_x_m": -0.075
+      },
+      {
+        "label": "proposed seam back Y7.180 to actual scanner column",
+        "target": "Scanner portal column 1",
+        "origin": [
+          0.6925,
+          7.14,
+          1.22
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.039999961853027344,
+        "hit_m": [
+          0.6924999952316284,
+          7.179999828338623,
+          1.2200000286102295
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "seam_center_x_m": 0.73,
+        "z_sample_m": 1.22,
+        "offset_x_m": -0.0375
+      },
+      {
+        "label": "proposed seam back Y7.180 to actual scanner column",
+        "target": "Scanner portal column 1",
+        "origin": [
+          0.73,
+          7.14,
+          1.22
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.039999961853027344,
+        "hit_m": [
+          0.7300000190734863,
+          7.179999828338623,
+          1.2200000286102295
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "seam_center_x_m": 0.73,
+        "z_sample_m": 1.22,
+        "offset_x_m": 0
+      },
+      {
+        "label": "proposed seam back Y7.180 to actual scanner column",
+        "target": "Scanner portal column 1",
+        "origin": [
+          0.7675,
+          7.14,
+          1.22
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.039999961853027344,
+        "hit_m": [
+          0.7674999833106995,
+          7.179999828338623,
+          1.2200000286102295
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "seam_center_x_m": 0.73,
+        "z_sample_m": 1.22,
+        "offset_x_m": 0.0375
+      },
+      {
+        "label": "proposed seam back Y7.180 to actual scanner column",
+        "target": "Scanner portal column 1",
+        "origin": [
+          0.8049999999999999,
+          7.14,
+          1.22
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.039999961853027344,
+        "hit_m": [
+          0.8050000071525574,
+          7.179999828338623,
+          1.2200000286102295
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "seam_center_x_m": 0.73,
+        "z_sample_m": 1.22,
+        "offset_x_m": 0.075
+      },
+      {
+        "label": "proposed seam back Y7.180 to actual scanner column",
+        "target": "Scanner portal column 1",
+        "origin": [
+          0.655,
+          7.14,
+          1.88
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.039999961853027344,
+        "hit_m": [
+          0.6549999713897705,
+          7.179999828338623,
+          1.8799999952316284
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "seam_center_x_m": 0.73,
+        "z_sample_m": 1.88,
+        "offset_x_m": -0.075
+      },
+      {
+        "label": "proposed seam back Y7.180 to actual scanner column",
+        "target": "Scanner portal column 1",
+        "origin": [
+          0.6925,
+          7.14,
+          1.88
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.039999961853027344,
+        "hit_m": [
+          0.6924999952316284,
+          7.179999828338623,
+          1.8799999952316284
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "seam_center_x_m": 0.73,
+        "z_sample_m": 1.88,
+        "offset_x_m": -0.0375
+      },
+      {
+        "label": "proposed seam back Y7.180 to actual scanner column",
+        "target": "Scanner portal column 1",
+        "origin": [
+          0.73,
+          7.14,
+          1.88
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.039999961853027344,
+        "hit_m": [
+          0.7300000190734863,
+          7.179999828338623,
+          1.8799999952316284
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "seam_center_x_m": 0.73,
+        "z_sample_m": 1.88,
+        "offset_x_m": 0
+      },
+      {
+        "label": "proposed seam back Y7.180 to actual scanner column",
+        "target": "Scanner portal column 1",
+        "origin": [
+          0.7675,
+          7.14,
+          1.88
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.039999961853027344,
+        "hit_m": [
+          0.7674999833106995,
+          7.179999828338623,
+          1.8799999952316284
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "seam_center_x_m": 0.73,
+        "z_sample_m": 1.88,
+        "offset_x_m": 0.0375
+      },
+      {
+        "label": "proposed seam back Y7.180 to actual scanner column",
+        "target": "Scanner portal column 1",
+        "origin": [
+          0.8049999999999999,
+          7.14,
+          1.88
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance_m": 0.039999961853027344,
+        "hit_m": [
+          0.8050000071525574,
+          7.179999828338623,
+          1.8799999952316284
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "part_back_y_m": 7.18,
+        "signed_clearance_part_to_surface_m": 1.716613766689079e-07,
+        "seam_center_x_m": 0.73,
+        "z_sample_m": 1.88,
+        "offset_x_m": 0.075
+      }
+    ]
+  },
+  "p2": {
+    "proposed_shoes": [
+      {
+        "shoe_center_x_m": -2.23,
+        "z_center_m": 0.2,
+        "proposed_bounds_m": [
+          [
+            -2.285,
+            15.71,
+            0.11000000000000001
+          ],
+          [
+            -2.175,
+            15.728,
+            0.29000000000000004
+          ]
+        ],
+        "closure_surface_rays": [
+          {
+            "label": "shoe heel Y15.728 to actual steel closure",
+            "target": "CD | Joined P2 blast leaf west / steel",
+            "origin": [
+              -2.275,
+              15.68,
+              0.2
+            ],
+            "direction": [
+              0,
+              1,
+              0
+            ],
+            "distance_m": null,
+            "hit_m": null,
+            "normal": null
+          },
+          {
+            "label": "shoe heel Y15.728 to actual steel closure",
+            "target": "CD | Joined P2 blast leaf west / steel",
+            "origin": [
+              -2.25,
+              15.68,
+              0.2
+            ],
+            "direction": [
+              0,
+              1,
+              0
+            ],
+            "distance_m": 0.04799937829375267,
+            "hit_m": [
+              -2.25,
+              15.727999687194824,
+              0.20000000298023224
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ]
+          },
+          {
+            "label": "shoe heel Y15.728 to actual steel closure",
+            "target": "CD | Joined P2 blast leaf west / steel",
+            "origin": [
+              -2.23,
+              15.68,
+              0.2
+            ],
+            "direction": [
+              0,
+              1,
+              0
+            ],
+            "distance_m": 0.04799938201904297,
+            "hit_m": [
+              -2.2300000190734863,
+              15.727999687194824,
+              0.20000000298023224
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ]
+          },
+          {
+            "label": "shoe heel Y15.728 to actual steel closure",
+            "target": "CD | Joined P2 blast leaf west / steel",
+            "origin": [
+              -2.21,
+              15.68,
+              0.2
+            ],
+            "direction": [
+              0,
+              1,
+              0
+            ],
+            "distance_m": null,
+            "hit_m": null,
+            "normal": null
+          },
+          {
+            "label": "shoe heel Y15.728 to actual steel closure",
+            "target": "CD | Joined P2 blast leaf west / steel",
+            "origin": [
+              -2.185,
+              15.68,
+              0.2
+            ],
+            "direction": [
+              0,
+              1,
+              0
+            ],
+            "distance_m": null,
+            "hit_m": null,
+            "normal": null
+          }
+        ],
+        "aperture_edge_intrusion_m": 0
+      },
+      {
+        "shoe_center_x_m": -2.23,
+        "z_center_m": 3.2,
+        "proposed_bounds_m": [
+          [
+            -2.285,
+            15.71,
+            3.1100000000000003
+          ],
+          [
+            -2.175,
+            15.728,
+            3.29
+          ]
+        ],
+        "closure_surface_rays": [
+          {
+            "label": "shoe heel Y15.728 to actual steel closure",
+            "target": "CD | Joined P2 blast leaf west / steel",
+            "origin": [
+              -2.275,
+              15.68,
+              3.2
+            ],
+            "direction": [
+              0,
+              1,
+              0
+            ],
+            "distance_m": null,
+            "hit_m": null,
+            "normal": null
+          },
+          {
+            "label": "shoe heel Y15.728 to actual steel closure",
+            "target": "CD | Joined P2 blast leaf west / steel",
+            "origin": [
+              -2.25,
+              15.68,
+              3.2
+            ],
+            "direction": [
+              0,
+              1,
+              0
+            ],
+            "distance_m": 0.04799938201904297,
+            "hit_m": [
+              -2.25,
+              15.727999687194824,
+              3.200000047683716
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ]
+          },
+          {
+            "label": "shoe heel Y15.728 to actual steel closure",
+            "target": "CD | Joined P2 blast leaf west / steel",
+            "origin": [
+              -2.23,
+              15.68,
+              3.2
+            ],
+            "direction": [
+              0,
+              1,
+              0
+            ],
+            "distance_m": 0.04799938201904297,
+            "hit_m": [
+              -2.2300000190734863,
+              15.727999687194824,
+              3.200000047683716
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ]
+          },
+          {
+            "label": "shoe heel Y15.728 to actual steel closure",
+            "target": "CD | Joined P2 blast leaf west / steel",
+            "origin": [
+              -2.21,
+              15.68,
+              3.2
+            ],
+            "direction": [
+              0,
+              1,
+              0
+            ],
+            "distance_m": null,
+            "hit_m": null,
+            "normal": null
+          },
+          {
+            "label": "shoe heel Y15.728 to actual steel closure",
+            "target": "CD | Joined P2 blast leaf west / steel",
+            "origin": [
+              -2.185,
+              15.68,
+              3.2
+            ],
+            "direction": [
+              0,
+              1,
+              0
+            ],
+            "distance_m": null,
+            "hit_m": null,
+            "normal": null
+          }
+        ],
+        "aperture_edge_intrusion_m": 0
+      },
+      {
+        "shoe_center_x_m": 2.23,
+        "z_center_m": 0.2,
+        "proposed_bounds_m": [
+          [
+            2.175,
+            15.71,
+            0.11000000000000001
+          ],
+          [
+            2.285,
+            15.728,
+            0.29000000000000004
+          ]
+        ],
+        "closure_surface_rays": [
+          {
+            "label": "shoe heel Y15.728 to actual steel closure",
+            "target": "CD | Joined P2 blast leaf east / steel",
+            "origin": [
+              2.185,
+              15.68,
+              0.2
+            ],
+            "direction": [
+              0,
+              1,
+              0
+            ],
+            "distance_m": null,
+            "hit_m": null,
+            "normal": null
+          },
+          {
+            "label": "shoe heel Y15.728 to actual steel closure",
+            "target": "CD | Joined P2 blast leaf east / steel",
+            "origin": [
+              2.21,
+              15.68,
+              0.2
+            ],
+            "direction": [
+              0,
+              1,
+              0
+            ],
+            "distance_m": null,
+            "hit_m": null,
+            "normal": null
+          },
+          {
+            "label": "shoe heel Y15.728 to actual steel closure",
+            "target": "CD | Joined P2 blast leaf east / steel",
+            "origin": [
+              2.23,
+              15.68,
+              0.2
+            ],
+            "direction": [
+              0,
+              1,
+              0
+            ],
+            "distance_m": 0.04799937829375267,
+            "hit_m": [
+              2.2300000190734863,
+              15.727999687194824,
+              0.20000000298023224
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ]
+          },
+          {
+            "label": "shoe heel Y15.728 to actual steel closure",
+            "target": "CD | Joined P2 blast leaf east / steel",
+            "origin": [
+              2.25,
+              15.68,
+              0.2
+            ],
+            "direction": [
+              0,
+              1,
+              0
+            ],
+            "distance_m": 0.04799937829375267,
+            "hit_m": [
+              2.25,
+              15.727999687194824,
+              0.20000000298023224
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ]
+          },
+          {
+            "label": "shoe heel Y15.728 to actual steel closure",
+            "target": "CD | Joined P2 blast leaf east / steel",
+            "origin": [
+              2.275,
+              15.68,
+              0.2
+            ],
+            "direction": [
+              0,
+              1,
+              0
+            ],
+            "distance_m": null,
+            "hit_m": null,
+            "normal": null
+          }
+        ],
+        "aperture_edge_intrusion_m": 0
+      },
+      {
+        "shoe_center_x_m": 2.23,
+        "z_center_m": 3.2,
+        "proposed_bounds_m": [
+          [
+            2.175,
+            15.71,
+            3.1100000000000003
+          ],
+          [
+            2.285,
+            15.728,
+            3.29
+          ]
+        ],
+        "closure_surface_rays": [
+          {
+            "label": "shoe heel Y15.728 to actual steel closure",
+            "target": "CD | Joined P2 blast leaf east / steel",
+            "origin": [
+              2.185,
+              15.68,
+              3.2
+            ],
+            "direction": [
+              0,
+              1,
+              0
+            ],
+            "distance_m": null,
+            "hit_m": null,
+            "normal": null
+          },
+          {
+            "label": "shoe heel Y15.728 to actual steel closure",
+            "target": "CD | Joined P2 blast leaf east / steel",
+            "origin": [
+              2.21,
+              15.68,
+              3.2
+            ],
+            "direction": [
+              0,
+              1,
+              0
+            ],
+            "distance_m": null,
+            "hit_m": null,
+            "normal": null
+          },
+          {
+            "label": "shoe heel Y15.728 to actual steel closure",
+            "target": "CD | Joined P2 blast leaf east / steel",
+            "origin": [
+              2.23,
+              15.68,
+              3.2
+            ],
+            "direction": [
+              0,
+              1,
+              0
+            ],
+            "distance_m": 0.04799938201904297,
+            "hit_m": [
+              2.2300000190734863,
+              15.727999687194824,
+              3.200000047683716
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ]
+          },
+          {
+            "label": "shoe heel Y15.728 to actual steel closure",
+            "target": "CD | Joined P2 blast leaf east / steel",
+            "origin": [
+              2.25,
+              15.68,
+              3.2
+            ],
+            "direction": [
+              0,
+              1,
+              0
+            ],
+            "distance_m": 0.04799938201904297,
+            "hit_m": [
+              2.25,
+              15.727999687194824,
+              3.200000047683716
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ]
+          },
+          {
+            "label": "shoe heel Y15.728 to actual steel closure",
+            "target": "CD | Joined P2 blast leaf east / steel",
+            "origin": [
+              2.275,
+              15.68,
+              3.2
+            ],
+            "direction": [
+              0,
+              1,
+              0
+            ],
+            "distance_m": null,
+            "hit_m": null,
+            "normal": null
+          }
+        ],
+        "aperture_edge_intrusion_m": 0
+      }
+    ],
+    "retained_aperture": {
+      "clear_opening_x_m": [
+        -2.3,
+        2.3
+      ],
+      "left_jamb_bounds_m": [
+        [
+          -2.4600000381469727,
+          15.799999237060547,
+          0.0
+        ],
+        [
+          -2.3000001907348633,
+          16.079999923706055,
+          3.5
+        ]
+      ],
+      "right_jamb_bounds_m": [
+        [
+          2.3000001907348633,
+          15.799999237060547,
+          0.0
+        ],
+        [
+          2.4600000381469727,
+          16.079999923706055,
+          3.5
+        ]
+      ]
+    }
+  },
+  "f12_native_hash_after_probe": "73b85e9a84b577d2059a07371abd366666536800eb45c9e56a7d7788a21b77a3"
+}

@@ -1,0 +1,37 @@
+[
+  {
+    "file": "sections/facility-assembly/sources/compliance-dock/overhaul_dock.py",
+    "sha256": "347c84da9e72547935adc50b755c1b95ff3b161ddf5019d689bf0ef86ba7cd6c",
+    "syntax_ast_pass": true,
+    "native_save_statements": [
+      {
+        "line": 499,
+        "text": "out=ROOT/'module_overhaul_R1.blend';bpy.ops.wm.save_as_mainfile(filepath=str(out),compress=True)"
+      }
+    ]
+  },
+  {
+    "file": "sections/facility-assembly/sources/compliance-dock/full_detail.py",
+    "sha256": "1521449b1c6eee88689cadb6e43ae911e909f200655b335cd273b9a030a3ef0e",
+    "syntax_ast_pass": true,
+    "native_save_statements": []
+  },
+  {
+    "file": "sections/facility-assembly/sources/compliance-dock/full_repairs.py",
+    "sha256": "5edc8c94dcc4e6c17ac5af60815136f02b41cdd64afee381f8505d3df16c1657",
+    "syntax_ast_pass": true,
+    "native_save_statements": []
+  },
+  {
+    "file": "sections/facility-assembly/sources/compliance-dock/render_dock.py",
+    "sha256": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce",
+    "syntax_ast_pass": true,
+    "native_save_statements": []
+  },
+  {
+    "file": "sections/facility-assembly/sources/compliance-dock/validate_dock.py",
+    "sha256": "c1f1624c4780e8bb36de0a9c83c43e979c7e4c4d0646c4ecfdc61e7b7377e22f",
+    "syntax_ast_pass": true,
+    "native_save_statements": []
+  }
+]

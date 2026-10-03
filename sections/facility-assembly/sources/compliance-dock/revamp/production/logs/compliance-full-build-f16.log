@@ -1,0 +1,22 @@
+00:00.818  blend            | Read blend: "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/module.blend"
+/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/overhaul_dock.py:61: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new('CD | '+key);m.use_nodes=True;bs=m.node_tree.nodes.get('Principled BSDF')
+/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/overhaul_dock.py:405: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  bs=mat.node_tree.nodes.get('Principled BSDF') if mat.use_nodes else None
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+F12_ACTUAL_INTERFACE_GUARDS_PASS 22
+F13_ACTUAL_INTERFACE_GUARDS_PASS 30
+F13_VISUAL_CONSTRUCTION_INTERFACES_PASS 38
+F14_ACTUAL_TWO_SURFACE_INTERFACES_PASS 20
+F15_ACTUAL_GUIDE_BEARING_PASS 6
+F16_ACTUAL_SUSPENSION_BEARING_PASS 24
+NEW_TYPOGRAPHY_BATCHABLE 31
+AUTHORING_LIMITS_PASS 397010 1145 35
+Info: Saved as "module_overhaul_R1.blend"
+DOCK_OVERHAUL_SAVED full f16 1333 397010
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)
+
+Blender quit
+Error: Not freed memory blocks: 4, total unfreed memory 0.022736 MB

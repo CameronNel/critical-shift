@@ -1,0 +1,2585 @@
+{
+  "native_sha256": "2820ac1c7a79a28d739d0b953d73b4490f264c119775eeeef37c46bf6792a7c6",
+  "probe_sha256": "af2ad35487e2a1d0e9d592d01021329bb33a908f44fe9749c03ac71af68d9d62",
+  "islands": [
+    {
+      "object": "P2 frame jamb -1",
+      "index": 0,
+      "bounds": [
+        [
+          -2.4600000381469727,
+          15.799999237060547,
+          0.0
+        ],
+        [
+          -2.3000001907348633,
+          16.079999923706055,
+          3.5
+        ]
+      ],
+      "vertices": 96,
+      "faces": 122,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.15670193838226018
+    },
+    {
+      "object": "P2 frame jamb 1",
+      "index": 1,
+      "bounds": [
+        [
+          2.3000001907348633,
+          15.799999237060547,
+          0.0
+        ],
+        [
+          2.4600000381469727,
+          16.079999923706055,
+          3.5
+        ]
+      ],
+      "vertices": 96,
+      "faces": 122,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.15670194267886473
+    },
+    {
+      "object": "P2 frame head lintel",
+      "index": 2,
+      "bounds": [
+        [
+          -2.4600000381469727,
+          15.800000190734863,
+          3.5
+        ],
+        [
+          2.4600000381469727,
+          16.079999923706055,
+          3.700000047683716
+        ]
+      ],
+      "vertices": 24,
+      "faces": 14,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.08265588940897335
+    },
+    {
+      "object": "P2 blast leaf west",
+      "index": 3,
+      "bounds": [
+        [
+          -2.2899999618530273,
+          15.75,
+          0.019999980926513672
+        ],
+        [
+          -0.009999990463256836,
+          15.889999389648438,
+          3.4800000190734863
+        ]
+      ],
+      "vertices": 96,
+      "faces": 122,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 1.1040518470781535
+    },
+    {
+      "object": "P2 blast leaf east",
+      "index": 4,
+      "bounds": [
+        [
+          0.009999990463256836,
+          15.75,
+          0.019999980926513672
+        ],
+        [
+          2.2899999618530273,
+          15.889999389648438,
+          3.4800000190734863
+        ]
+      ],
+      "vertices": 96,
+      "faces": 122,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 1.1040518673902018
+    },
+    {
+      "object": "P2 leaf rib -2.0",
+      "index": 5,
+      "bounds": [
+        [
+          -2.0299999713897705,
+          15.719999313354492,
+          0.10000002384185791
+        ],
+        [
+          -1.9700000286102295,
+          15.760000228881836,
+          3.4000000953674316
+        ]
+      ],
+      "vertices": 96,
+      "faces": 122,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.007906576283749208
+    },
+    {
+      "object": "P2 leaf rib -1.2",
+      "index": 6,
+      "bounds": [
+        [
+          -1.2300000190734863,
+          15.719999313354492,
+          0.10000002384185791
+        ],
+        [
+          -1.1700000762939453,
+          15.760000228881836,
+          3.4000000953674316
+        ]
+      ],
+      "vertices": 96,
+      "faces": 122,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.007906577309251853
+    },
+    {
+      "object": "P2 leaf rib -0.4",
+      "index": 7,
+      "bounds": [
+        [
+          -0.4300000071525574,
+          15.719999313354492,
+          0.10000002384185791
+        ],
+        [
+          -0.3700000047683716,
+          15.760000228881836,
+          3.4000000953674316
+        ]
+      ],
+      "vertices": 96,
+      "faces": 122,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.007906583983687673
+    },
+    {
+      "object": "P2 leaf rib 0.4",
+      "index": 8,
+      "bounds": [
+        [
+          0.3700000047683716,
+          15.719999313354492,
+          0.10000002384185791
+        ],
+        [
+          0.4300000071525574,
+          15.760000228881836,
+          3.4000000953674316
+        ]
+      ],
+      "vertices": 96,
+      "faces": 122,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.007906583974147452
+    },
+    {
+      "object": "P2 leaf rib 1.2",
+      "index": 9,
+      "bounds": [
+        [
+          1.1700000762939453,
+          15.719999313354492,
+          0.10000002384185791
+        ],
+        [
+          1.2300000190734863,
+          15.760000228881836,
+          3.4000000953674316
+        ]
+      ],
+      "vertices": 96,
+      "faces": 122,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.007906577475916757
+    },
+    {
+      "object": "P2 leaf rib 2.0",
+      "index": 10,
+      "bounds": [
+        [
+          1.9700000286102295,
+          15.719999313354492,
+          0.10000002384185791
+        ],
+        [
+          2.0299999713897705,
+          15.760000228881836,
+          3.4000000953674316
+        ]
+      ],
+      "vertices": 96,
+      "faces": 122,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.007906576305989196
+    },
+    {
+      "object": "P2 center seal strip",
+      "index": 11,
+      "bounds": [
+        [
+          -0.03999999910593033,
+          15.710000038146973,
+          0.029999971389770508
+        ],
+        [
+          0.03999999910593033,
+          15.769999504089355,
+          3.4700000286102295
+        ]
+      ],
+      "vertices": 96,
+      "faces": 122,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.016497548178383187
+    },
+    {
+      "object": "P2 gate sign plate",
+      "index": 12,
+      "bounds": [
+        [
+          -1.7999999523162842,
+          15.680049896240234,
+          3.1399998664855957
+        ],
+        [
+          1.7999999523162842,
+          15.710000038146973,
+          3.4600000381469727
+        ]
+      ],
+      "vertices": 96,
+      "faces": 122,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.0344395001828938
+    },
+    {
+      "object": "P2 beacon base -1.5",
+      "index": 13,
+      "bounds": [
+        [
+          -1.590000033378601,
+          15.59000015258789,
+          3.8600001335144043
+        ],
+        [
+          -1.409999966621399,
+          15.770000457763672,
+          3.940000057220459
+        ]
+      ],
+      "vertices": 192,
+      "faces": 170,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.002005620755478573
+    },
+    {
+      "object": "P2 beacon amber -1.5",
+      "index": 14,
+      "bounds": [
+        [
+          -1.5700000524520874,
+          15.610000610351562,
+          3.930000066757202
+        ],
+        [
+          -1.4299999475479126,
+          15.75,
+          4.03000020980835
+        ]
+      ],
+      "vertices": 192,
+      "faces": 170,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.0015164715313744637
+    },
+    {
+      "object": "P2 beacon base 1.5",
+      "index": 15,
+      "bounds": [
+        [
+          1.409999966621399,
+          15.59000015258789,
+          3.8600001335144043
+        ],
+        [
+          1.590000033378601,
+          15.770000457763672,
+          3.940000057220459
+        ]
+      ],
+      "vertices": 192,
+      "faces": 170,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.002005620742439184
+    },
+    {
+      "object": "P2 beacon amber 1.5",
+      "index": 16,
+      "bounds": [
+        [
+          1.4299999475479126,
+          15.610000610351562,
+          3.930000066757202
+        ],
+        [
+          1.5700000524520874,
+          15.75,
+          4.03000020980835
+        ]
+      ],
+      "vertices": 192,
+      "faces": 170,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.001516471482640706
+    },
+    {
+      "object": "P2 security console",
+      "index": 17,
+      "bounds": [
+        [
+          2.4750001430511475,
+          15.59000015258789,
+          0.8750000596046448
+        ],
+        [
+          2.825000047683716,
+          15.800000190734863,
+          1.5250000953674316
+        ]
+      ],
+      "vertices": 96,
+      "faces": 122,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.04774496498316694
+    },
+    {
+      "object": "P2 console screen",
+      "index": 18,
+      "bounds": [
+        [
+          2.5300002098083496,
+          15.569999694824219,
+          1.2599999904632568
+        ],
+        [
+          2.7699999809265137,
+          15.59000015258789,
+          1.440000057220459
+        ]
+      ],
+      "vertices": 96,
+      "faces": 122,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.0008622732113442074
+    },
+    {
+      "object": "P2 emergency wheel",
+      "index": 19,
+      "bounds": [
+        [
+          2.509999990463257,
+          15.559999465942383,
+          0.7100000381469727
+        ],
+        [
+          2.7900002002716064,
+          15.600000381469727,
+          0.9900000095367432
+        ]
+      ],
+      "vertices": 192,
+      "faces": 170,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.0024241536962663866
+    },
+    {
+      "object": "Office key box cabinet",
+      "index": 20,
+      "bounds": [
+        [
+          -3.1500000953674316,
+          9.369999885559082,
+          1.2999999523162842
+        ],
+        [
+          -2.8499999046325684,
+          9.520000457763672,
+          1.7000000476837158
+        ]
+      ],
+      "vertices": 416,
+      "faces": 642,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.002074125020848842
+    },
+    {
+      "object": "Key box glass",
+      "index": 21,
+      "bounds": [
+        [
+          -3.134999990463257,
+          9.46500015258789,
+          1.315000057220459
+        ],
+        [
+          -2.865000009536743,
+          9.475000381469727,
+          1.684999942779541
+        ]
+      ],
+      "vertices": 96,
+      "faces": 122,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.0009983743418437996
+    },
+    {
+      "object": "Key box label",
+      "index": 22,
+      "bounds": [
+        [
+          -2.9758150577545166,
+          9.369400978088379,
+          1.6596850156784058
+        ],
+        [
+          -2.9623050689697266,
+          9.369400978088379,
+          1.6841849088668823
+        ]
+      ],
+      "vertices": 62,
+      "faces": 60,
+      "nonmanifold_edges": 62,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 1.8635601926626083e-10
+    },
+    {
+      "object": "Key box label",
+      "index": 23,
+      "bounds": [
+        [
+          -2.998354911804199,
+          9.369400978088379,
+          1.659999966621399
+        ],
+        [
+          -2.977215051651001,
+          9.369400978088379,
+          1.6838699579238892
+        ]
+      ],
+      "vertices": 9,
+      "faces": 7,
+      "nonmanifold_edges": 9,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.0
+    },
+    {
+      "object": "Key box label",
+      "index": 24,
+      "bounds": [
+        [
+          -3.013230085372925,
+          9.369400978088379,
+          1.659999966621399
+        ],
+        [
+          -2.9993700981140137,
+          9.369400978088379,
+          1.6838699579238892
+        ]
+      ],
+      "vertices": 12,
+      "faces": 10,
+      "nonmanifold_edges": 12,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.0
+    },
+    {
+      "object": "Key box label",
+      "index": 25,
+      "bounds": [
+        [
+          -3.0361900329589844,
+          9.369400978088379,
+          1.659999966621399
+        ],
+        [
+          -3.015889883041382,
+          9.369400978088379,
+          1.6838699579238892
+        ]
+      ],
+      "vertices": 11,
+      "faces": 9,
+      "nonmanifold_edges": 11,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.0
+    },
+    {
+      "object": "CD | Joined Arrival Gate P2 / charcoal",
+      "index": 26,
+      "bounds": [
+        [
+          -1.5700000524520874,
+          15.769999504089355,
+          3.867500066757202
+        ],
+        [
+          -1.4299999475479126,
+          15.800000190734863,
+          3.932500123977661
+        ]
+      ],
+      "vertices": 56,
+      "faces": 78,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.00027273362677486074
+    },
+    {
+      "object": "CD | Joined Arrival Gate P2 / charcoal",
+      "index": 27,
+      "bounds": [
+        [
+          1.4300000667572021,
+          15.769999504089355,
+          3.867500066757202
+        ],
+        [
+          1.5699999332427979,
+          15.800000190734863,
+          3.932500123977661
+        ]
+      ],
+      "vertices": 56,
+      "faces": 78,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.00027273318381304534
+    },
+    {
+      "object": "CD | Joined Arrival Gate P2 / steel",
+      "index": 28,
+      "bounds": [
+        [
+          -1.4079999923706055,
+          15.709999084472656,
+          3.2920000553131104
+        ],
+        [
+          -1.3919999599456787,
+          15.75,
+          3.307999849319458
+        ]
+      ],
+      "vertices": 16,
+      "faces": 10,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 7.240955895326806e-06
+    },
+    {
+      "object": "CD | Joined Arrival Gate P2 / steel",
+      "index": 29,
+      "bounds": [
+        [
+          1.3920000791549683,
+          15.709999084472656,
+          3.2920000553131104
+        ],
+        [
+          1.407999873161316,
+          15.75,
+          3.308000087738037
+        ]
+      ],
+      "vertices": 16,
+      "faces": 10,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 7.240955857526025e-06
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / wear",
+      "index": 30,
+      "bounds": [
+        [
+          -2.119999885559082,
+          15.741999626159668,
+          0.47999998927116394
+        ],
+        [
+          -0.18000000715255737,
+          15.75,
+          1.5199999809265137
+        ]
+      ],
+      "vertices": 112,
+      "faces": 170,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.016008435571663426
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / wear",
+      "index": 31,
+      "bounds": [
+        [
+          -2.119999885559082,
+          15.741999626159668,
+          1.8300000429153442
+        ],
+        [
+          -0.18000000715255737,
+          15.75,
+          2.869999885559082
+        ]
+      ],
+      "vertices": 112,
+      "faces": 164,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.016008517034421577
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / navy",
+      "index": 32,
+      "bounds": [
+        [
+          -2.0299999713897705,
+          15.73799991607666,
+          0.5699999928474426
+        ],
+        [
+          -0.27000001072883606,
+          15.741999626159668,
+          1.4299999475479126
+        ]
+      ],
+      "vertices": 112,
+      "faces": 168,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.006013270837172217
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / navy",
+      "index": 33,
+      "bounds": [
+        [
+          -2.0299999713897705,
+          15.73799991607666,
+          1.9199999570846558
+        ],
+        [
+          -0.27000001072883606,
+          15.741999626159668,
+          2.7799999713897705
+        ]
+      ],
+      "vertices": 112,
+      "faces": 172,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.006013244390399852
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / steel",
+      "index": 34,
+      "bounds": [
+        [
+          -1.9951961040496826,
+          15.734000205993652,
+          0.6140000224113464
+        ],
+        [
+          -1.9848039150238037,
+          15.73799991607666,
+          0.6259999871253967
+        ]
+      ],
+      "vertices": 12,
+      "faces": 8,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 3.7409183572657546e-07
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / steel",
+      "index": 35,
+      "bounds": [
+        [
+          -1.9951961040496826,
+          15.734000205993652,
+          1.3739999532699585
+        ],
+        [
+          -1.9848039150238037,
+          15.73799991607666,
+          1.3860000371932983
+        ]
+      ],
+      "vertices": 12,
+      "faces": 8,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 3.7409183569810615e-07
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / steel",
+      "index": 36,
+      "bounds": [
+        [
+          -0.31519603729248047,
+          15.734000205993652,
+          0.6140000224113464
+        ],
+        [
+          -0.30480384826660156,
+          15.73799991607666,
+          0.6259999871253967
+        ]
+      ],
+      "vertices": 12,
+      "faces": 8,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 3.7409181293431476e-07
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / steel",
+      "index": 37,
+      "bounds": [
+        [
+          -0.31519603729248047,
+          15.734000205993652,
+          1.3739999532699585
+        ],
+        [
+          -0.30480384826660156,
+          15.73799991607666,
+          1.3860000371932983
+        ]
+      ],
+      "vertices": 12,
+      "faces": 8,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 3.740918022761737e-07
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / steel",
+      "index": 38,
+      "bounds": [
+        [
+          -1.9951961040496826,
+          15.734000205993652,
+          1.9639999866485596
+        ],
+        [
+          -1.9848039150238037,
+          15.73799991607666,
+          1.9760000705718994
+        ]
+      ],
+      "vertices": 12,
+      "faces": 8,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 3.74094317889181e-07
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / steel",
+      "index": 39,
+      "bounds": [
+        [
+          -1.9951961040496826,
+          15.734000205993652,
+          2.7239997386932373
+        ],
+        [
+          -1.9848039150238037,
+          15.73799991607666,
+          2.7360000610351562
+        ]
+      ],
+      "vertices": 12,
+      "faces": 8,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 3.740943054405704e-07
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / steel",
+      "index": 40,
+      "bounds": [
+        [
+          -0.31519603729248047,
+          15.734000205993652,
+          1.9639999866485596
+        ],
+        [
+          -0.30480384826660156,
+          15.73799991607666,
+          1.9760000705718994
+        ]
+      ],
+      "vertices": 12,
+      "faces": 8,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 3.7409428325455946e-07
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / steel",
+      "index": 41,
+      "bounds": [
+        [
+          -0.31519603729248047,
+          15.734000205993652,
+          2.7239997386932373
+        ],
+        [
+          -0.30480384826660156,
+          15.73799991607666,
+          2.7360000610351562
+        ]
+      ],
+      "vertices": 12,
+      "faces": 8,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 3.7409429628117624e-07
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / steel",
+      "index": 42,
+      "bounds": [
+        [
+          -0.03600001335144043,
+          15.727999687194824,
+          0.05000007152557373
+        ],
+        [
+          0.012000083923339844,
+          15.751999855041504,
+          3.3500001430511475
+        ]
+      ],
+      "vertices": 56,
+      "faces": 78,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.003797685254929443
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / steel",
+      "index": 43,
+      "bounds": [
+        [
+          -2.2739999294281006,
+          15.727999687194824,
+          0.05000007152557373
+        ],
+        [
+          -2.2260000705718994,
+          15.751999855041504,
+          3.3500001430511475
+        ]
+      ],
+      "vertices": 56,
+      "faces": 78,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.003797668067079485
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / steel",
+      "index": 44,
+      "bounds": [
+        [
+          -0.6770000457763672,
+          15.847000122070312,
+          3.4800000190734863
+        ],
+        [
+          -0.6230000257492065,
+          15.873000144958496,
+          3.5789999961853027
+        ]
+      ],
+      "vertices": 64,
+      "faces": 64,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 9.047356392508211e-05
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / steel",
+      "index": 45,
+      "bounds": [
+        [
+          -0.6640000343322754,
+          15.842000007629395,
+          3.5460000038146973
+        ],
+        [
+          -0.6359999179840088,
+          15.982999801635742,
+          3.5739998817443848
+        ]
+      ],
+      "vertices": 96,
+      "faces": 86,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 2.9005380001945154e-05
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / steel",
+      "index": 46,
+      "bounds": [
+        [
+          -0.6619999408721924,
+          15.970000267028809,
+          3.547999858856201
+        ],
+        [
+          -0.6380000114440918,
+          15.972000122070312,
+          3.572000026702881
+        ]
+      ],
+      "vertices": 64,
+      "faces": 62,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 4.906285915276604e-07
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / steel",
+      "index": 47,
+      "bounds": [
+        [
+          -1.7769999504089355,
+          15.847000122070312,
+          3.4800000190734863
+        ],
+        [
+          -1.7230000495910645,
+          15.873000144958496,
+          3.5789999961853027
+        ]
+      ],
+      "vertices": 64,
+      "faces": 64,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 9.0473445925398e-05
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / steel",
+      "index": 48,
+      "bounds": [
+        [
+          -1.7640000581741333,
+          15.842000007629395,
+          3.5460000038146973
+        ],
+        [
+          -1.7359999418258667,
+          15.982999801635742,
+          3.5739998817443848
+        ]
+      ],
+      "vertices": 96,
+      "faces": 86,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 2.9005298249252614e-05
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / steel",
+      "index": 49,
+      "bounds": [
+        [
+          -1.7619999647140503,
+          15.970000267028809,
+          3.547999858856201
+        ],
+        [
+          -1.7380000352859497,
+          15.972000122070312,
+          3.572000026702881
+        ]
+      ],
+      "vertices": 64,
+      "faces": 62,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 4.906293631125325e-07
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / wear",
+      "index": 50,
+      "bounds": [
+        [
+          0.18000000715255737,
+          15.741999626159668,
+          0.47999998927116394
+        ],
+        [
+          2.119999885559082,
+          15.75,
+          1.5199999809265137
+        ]
+      ],
+      "vertices": 112,
+      "faces": 172,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.016008399637537234
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / wear",
+      "index": 51,
+      "bounds": [
+        [
+          0.18000000715255737,
+          15.741999626159668,
+          1.8300000429153442
+        ],
+        [
+          2.119999885559082,
+          15.75,
+          2.869999885559082
+        ]
+      ],
+      "vertices": 112,
+      "faces": 162,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.016008505541800427
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / navy",
+      "index": 52,
+      "bounds": [
+        [
+          0.27000001072883606,
+          15.73799991607666,
+          0.5699999928474426
+        ],
+        [
+          2.0299999713897705,
+          15.741999626159668,
+          1.4299999475479126
+        ]
+      ],
+      "vertices": 112,
+      "faces": 170,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.006013253225380886
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / navy",
+      "index": 53,
+      "bounds": [
+        [
+          0.27000001072883606,
+          15.73799991607666,
+          1.9199999570846558
+        ],
+        [
+          2.0299999713897705,
+          15.741999626159668,
+          2.7799999713897705
+        ]
+      ],
+      "vertices": 112,
+      "faces": 170,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.006013235102763599
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / steel",
+      "index": 54,
+      "bounds": [
+        [
+          0.30480384826660156,
+          15.734000205993652,
+          0.6140000224113464
+        ],
+        [
+          0.31519615650177,
+          15.73799991607666,
+          0.6259999871253967
+        ]
+      ],
+      "vertices": 12,
+      "faces": 8,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 3.7409612770507766e-07
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / steel",
+      "index": 55,
+      "bounds": [
+        [
+          0.30480384826660156,
+          15.734000205993652,
+          1.3739999532699585
+        ],
+        [
+          0.31519615650177,
+          15.73799991607666,
+          1.3860000371932983
+        ]
+      ],
+      "vertices": 12,
+      "faces": 8,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 3.740961294814345e-07
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / steel",
+      "index": 56,
+      "bounds": [
+        [
+          1.9848039150238037,
+          15.734000205993652,
+          0.6140000224113464
+        ],
+        [
+          1.9951961040496826,
+          15.73799991607666,
+          0.6259999871253967
+        ]
+      ],
+      "vertices": 12,
+      "faces": 8,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 3.7409182995557514e-07
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / steel",
+      "index": 57,
+      "bounds": [
+        [
+          1.9848039150238037,
+          15.734000205993652,
+          1.3739999532699585
+        ],
+        [
+          1.9951961040496826,
+          15.73799991607666,
+          1.3860000371932983
+        ]
+      ],
+      "vertices": 12,
+      "faces": 8,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 3.74091824020151e-07
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / steel",
+      "index": 58,
+      "bounds": [
+        [
+          0.30480384826660156,
+          15.734000205993652,
+          1.9639999866485596
+        ],
+        [
+          0.31519615650177,
+          15.73799991607666,
+          1.9760000705718994
+        ]
+      ],
+      "vertices": 12,
+      "faces": 8,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 3.7409861874948547e-07
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / steel",
+      "index": 59,
+      "bounds": [
+        [
+          0.30480384826660156,
+          15.734000205993652,
+          2.7239997386932373
+        ],
+        [
+          0.31519615650177,
+          15.73799991607666,
+          2.7360000610351562
+        ]
+      ],
+      "vertices": 12,
+      "faces": 8,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 3.7409859802532236e-07
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / steel",
+      "index": 60,
+      "bounds": [
+        [
+          1.9848039150238037,
+          15.734000205993652,
+          1.9639999866485596
+        ],
+        [
+          1.9951961040496826,
+          15.73799991607666,
+          1.9760000705718994
+        ]
+      ],
+      "vertices": 12,
+      "faces": 8,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 3.7409430146004866e-07
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / steel",
+      "index": 61,
+      "bounds": [
+        [
+          1.9848039150238037,
+          15.734000205993652,
+          2.7239997386932373
+        ],
+        [
+          1.9951961040496826,
+          15.73799991607666,
+          2.7360000610351562
+        ]
+      ],
+      "vertices": 12,
+      "faces": 8,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 3.7409430146007576e-07
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / steel",
+      "index": 62,
+      "bounds": [
+        [
+          -0.012000024318695068,
+          15.727999687194824,
+          0.05000007152557373
+        ],
+        [
+          0.035999953746795654,
+          15.751999855041504,
+          3.3500001430511475
+        ]
+      ],
+      "vertices": 56,
+      "faces": 78,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.0037976765745343735
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / steel",
+      "index": 63,
+      "bounds": [
+        [
+          2.2260000705718994,
+          15.727999687194824,
+          0.05000007152557373
+        ],
+        [
+          2.2740001678466797,
+          15.751999855041504,
+          3.3500001430511475
+        ]
+      ],
+      "vertices": 56,
+      "faces": 78,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.0037976858434187
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / steel",
+      "index": 64,
+      "bounds": [
+        [
+          0.6230000257492065,
+          15.847000122070312,
+          3.4800000190734863
+        ],
+        [
+          0.6769999861717224,
+          15.873000144958496,
+          3.5789999961853027
+        ]
+      ],
+      "vertices": 64,
+      "faces": 64,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 9.04735968368693e-05
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / steel",
+      "index": 65,
+      "bounds": [
+        [
+          0.6359999775886536,
+          15.842000007629395,
+          3.5460000038146973
+        ],
+        [
+          0.6639999747276306,
+          15.982999801635742,
+          3.5739998817443848
+        ]
+      ],
+      "vertices": 96,
+      "faces": 86,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 2.900530328842688e-05
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / steel",
+      "index": 66,
+      "bounds": [
+        [
+          0.6380000114440918,
+          15.970000267028809,
+          3.547999858856201
+        ],
+        [
+          0.6620000004768372,
+          15.972000122070312,
+          3.572000026702881
+        ]
+      ],
+      "vertices": 64,
+      "faces": 62,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 4.906288688155915e-07
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / steel",
+      "index": 67,
+      "bounds": [
+        [
+          1.7230000495910645,
+          15.847000122070312,
+          3.4800000190734863
+        ],
+        [
+          1.7769999504089355,
+          15.873000144958496,
+          3.5789999961853027
+        ]
+      ],
+      "vertices": 64,
+      "faces": 64,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 9.047344660796312e-05
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / steel",
+      "index": 68,
+      "bounds": [
+        [
+          1.7359998226165771,
+          15.842000007629395,
+          3.5460000038146973
+        ],
+        [
+          1.7639999389648438,
+          15.982999801635742,
+          3.5739998817443848
+        ]
+      ],
+      "vertices": 96,
+      "faces": 86,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 2.900529865839e-05
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / steel",
+      "index": 69,
+      "bounds": [
+        [
+          1.7379999160766602,
+          15.970000267028809,
+          3.547999858856201
+        ],
+        [
+          1.7619998455047607,
+          15.972000122070312,
+          3.572000026702881
+        ]
+      ],
+      "vertices": 64,
+      "faces": 62,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 4.906293542056851e-07
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / charcoal",
+      "index": 70,
+      "bounds": [
+        [
+          -2.2850000858306885,
+          15.727999687194824,
+          0.11000004410743713
+        ],
+        [
+          -2.174999952316284,
+          15.76200008392334,
+          0.2900000512599945
+        ]
+      ],
+      "vertices": 56,
+      "faces": 78,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.000672831309870503
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / charcoal",
+      "index": 71,
+      "bounds": [
+        [
+          -2.2850000858306885,
+          15.727999687194824,
+          3.1100001335144043
+        ],
+        [
+          -2.174999952316284,
+          15.76200008392334,
+          3.2899999618530273
+        ]
+      ],
+      "vertices": 56,
+      "faces": 78,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.00067283067906961
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / charcoal",
+      "index": 72,
+      "bounds": [
+        [
+          -0.690000057220459,
+          15.90999984741211,
+          3.5199999809265137
+        ],
+        [
+          -0.6100000143051147,
+          15.970000267028809,
+          3.5999999046325684
+        ]
+      ],
+      "vertices": 64,
+      "faces": 64,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.00028063168815968255
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / charcoal",
+      "index": 73,
+      "bounds": [
+        [
+          -1.7899999618530273,
+          15.90999984741211,
+          3.5199999809265137
+        ],
+        [
+          -1.7100000381469727,
+          15.970000267028809,
+          3.5999999046325684
+        ]
+      ],
+      "vertices": 64,
+      "faces": 64,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.0002806316455423394
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / rubber",
+      "index": 74,
+      "bounds": [
+        [
+          -0.047500040382146835,
+          15.718500137329102,
+          0.05000007152557373
+        ],
+        [
+          -0.02050003781914711,
+          15.731500625610352,
+          3.3499999046325684
+        ]
+      ],
+      "vertices": 56,
+      "faces": 78,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.0011573635391144421
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / rubber",
+      "index": 75,
+      "bounds": [
+        [
+          -2.299499988555908,
+          15.814499855041504,
+          0.15500009059906006
+        ],
+        [
+          -2.2899999618530273,
+          15.85949993133545,
+          0.24500000476837158
+        ]
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 3.847513789878576e-05
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / rubber",
+      "index": 76,
+      "bounds": [
+        [
+          -2.299499988555908,
+          15.814499855041504,
+          3.1550002098083496
+        ],
+        [
+          -2.2899999618530273,
+          15.85949993133545,
+          3.244999885559082
+        ]
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 3.847503482271956e-05
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / charcoal",
+      "index": 77,
+      "bounds": [
+        [
+          2.174999952316284,
+          15.727999687194824,
+          0.11000004410743713
+        ],
+        [
+          2.2850000858306885,
+          15.76200008392334,
+          0.2900000512599945
+        ]
+      ],
+      "vertices": 56,
+      "faces": 78,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.000672831309870503
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / charcoal",
+      "index": 78,
+      "bounds": [
+        [
+          2.174999952316284,
+          15.727999687194824,
+          3.1100001335144043
+        ],
+        [
+          2.2850000858306885,
+          15.76200008392334,
+          3.2899999618530273
+        ]
+      ],
+      "vertices": 56,
+      "faces": 78,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.00067283067906961
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / charcoal",
+      "index": 79,
+      "bounds": [
+        [
+          0.6100000143051147,
+          15.90999984741211,
+          3.5199999809265137
+        ],
+        [
+          0.690000057220459,
+          15.970000267028809,
+          3.5999999046325684
+        ]
+      ],
+      "vertices": 64,
+      "faces": 64,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.0002806316844509253
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / charcoal",
+      "index": 80,
+      "bounds": [
+        [
+          1.7100000381469727,
+          15.90999984741211,
+          3.5199999809265137
+        ],
+        [
+          1.7899999618530273,
+          15.970000267028809,
+          3.5999999046325684
+        ]
+      ],
+      "vertices": 64,
+      "faces": 64,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.0002806316455423394
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / rubber",
+      "index": 81,
+      "bounds": [
+        [
+          0.02050003781914711,
+          15.718500137329102,
+          0.05000007152557373
+        ],
+        [
+          0.047500040382146835,
+          15.731500625610352,
+          3.3499999046325684
+        ]
+      ],
+      "vertices": 56,
+      "faces": 78,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.0011573635391144421
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / rubber",
+      "index": 82,
+      "bounds": [
+        [
+          2.2899999618530273,
+          15.814499855041504,
+          0.15500009059906006
+        ],
+        [
+          2.299499988555908,
+          15.85949993133545,
+          0.24500000476837158
+        ]
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 3.847513789878576e-05
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / rubber",
+      "index": 83,
+      "bounds": [
+        [
+          2.2899999618530273,
+          15.814499855041504,
+          3.1550002098083496
+        ],
+        [
+          2.299499988555908,
+          15.85949993133545,
+          3.244999885559082
+        ]
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 3.847503482271956e-05
+    },
+    {
+      "object": "CD | Joined CD | Office key cabinet / steel",
+      "index": 84,
+      "bounds": [
+        [
+          -3.1440000534057617,
+          9.475000381469727,
+          1.3079999685287476
+        ],
+        [
+          -2.8559999465942383,
+          9.479999542236328,
+          1.6920000314712524
+        ]
+      ],
+      "vertices": 32,
+      "faces": 32,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 0.0001154410314635849
+    },
+    {
+      "object": "CD | Joined CD | Office key cabinet / steel",
+      "index": 85,
+      "bounds": [
+        [
+          -3.078000068664551,
+          9.47599983215332,
+          1.5469999313354492
+        ],
+        [
+          -3.072000026702881,
+          9.513999938964844,
+          1.5529999732971191
+        ]
+      ],
+      "vertices": 16,
+      "faces": 10,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 9.673084768735407e-07
+    },
+    {
+      "object": "CD | Joined CD | Office key cabinet / steel",
+      "index": 86,
+      "bounds": [
+        [
+          -3.003000020980835,
+          9.47599983215332,
+          1.5469999313354492
+        ],
+        [
+          -2.996999979019165,
+          9.513999938964844,
+          1.5529999732971191
+        ]
+      ],
+      "vertices": 16,
+      "faces": 10,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 9.673084768735407e-07
+    },
+    {
+      "object": "CD | Joined CD | Office key cabinet / steel",
+      "index": 87,
+      "bounds": [
+        [
+          -2.927999973297119,
+          9.47599983215332,
+          1.5469999313354492
+        ],
+        [
+          -2.921999931335449,
+          9.513999938964844,
+          1.5529999732971191
+        ]
+      ],
+      "vertices": 16,
+      "faces": 10,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 9.673084768735407e-07
+    },
+    {
+      "object": "CD | Joined CD | Office key cabinet / brass",
+      "index": 88,
+      "bounds": [
+        [
+          -3.0880000591278076,
+          9.477499961853027,
+          1.534000039100647
+        ],
+        [
+          -3.062000036239624,
+          9.480500221252441,
+          1.559999942779541
+        ]
+      ],
+      "vertices": 64,
+      "faces": 64,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 1.2216281003194027e-06
+    },
+    {
+      "object": "CD | Joined CD | Office key cabinet / brass",
+      "index": 89,
+      "bounds": [
+        [
+          -3.0789999961853027,
+          9.477499961853027,
+          1.4935001134872437
+        ],
+        [
+          -3.071000099182129,
+          9.480500221252441,
+          1.534500002861023
+        ]
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 9.840697619741452e-07
+    },
+    {
+      "object": "CD | Joined CD | Office key cabinet / brass",
+      "index": 90,
+      "bounds": [
+        [
+          -3.075000047683716,
+          9.477499961853027,
+          1.4879999160766602
+        ],
+        [
+          -3.067000150680542,
+          9.480500221252441,
+          1.5
+        ]
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 2.880232088386947e-07
+    },
+    {
+      "object": "CD | Joined CD | Office key cabinet / brass",
+      "index": 91,
+      "bounds": [
+        [
+          -3.013000011444092,
+          9.477499961853027,
+          1.534000039100647
+        ],
+        [
+          -2.986999988555908,
+          9.480500221252441,
+          1.559999942779541
+        ]
+      ],
+      "vertices": 64,
+      "faces": 64,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 1.2216252954061278e-06
+    },
+    {
+      "object": "CD | Joined CD | Office key cabinet / brass",
+      "index": 92,
+      "bounds": [
+        [
+          -3.003999948501587,
+          9.477499961853027,
+          1.4935001134872437
+        ],
+        [
+          -2.996000051498413,
+          9.480500221252441,
+          1.534500002861023
+        ]
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 9.84069743026339e-07
+    },
+    {
+      "object": "CD | Joined CD | Office key cabinet / brass",
+      "index": 93,
+      "bounds": [
+        [
+          -3.0,
+          9.477499961853027,
+          1.4879999160766602
+        ],
+        [
+          -2.992000102996826,
+          9.480500221252441,
+          1.5
+        ]
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 2.880232088386947e-07
+    },
+    {
+      "object": "CD | Joined CD | Office key cabinet / brass",
+      "index": 94,
+      "bounds": [
+        [
+          -2.937999963760376,
+          9.477499961853027,
+          1.534000039100647
+        ],
+        [
+          -2.9119999408721924,
+          9.480500221252441,
+          1.559999942779541
+        ]
+      ],
+      "vertices": 64,
+      "faces": 64,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 1.2216281009921864e-06
+    },
+    {
+      "object": "CD | Joined CD | Office key cabinet / brass",
+      "index": 95,
+      "bounds": [
+        [
+          -2.928999900817871,
+          9.477499961853027,
+          1.4935001134872437
+        ],
+        [
+          -2.9210000038146973,
+          9.480500221252441,
+          1.534500002861023
+        ]
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 9.840697619741452e-07
+    },
+    {
+      "object": "CD | Joined CD | Office key cabinet / brass",
+      "index": 96,
+      "bounds": [
+        [
+          -2.924999952316284,
+          9.477499961853027,
+          1.4879999160766602
+        ],
+        [
+          -2.9170000553131104,
+          9.480500221252441,
+          1.5
+        ]
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 2.8802320647021895e-07
+    },
+    {
+      "object": "CD | Key cabinet nameband",
+      "index": 97,
+      "bounds": [
+        [
+          -3.1440000534057617,
+          9.369999885559082,
+          1.656000018119812
+        ],
+        [
+          -2.8559999465942383,
+          9.371999740600586,
+          1.6920000314712524
+        ]
+      ],
+      "vertices": 16,
+      "faces": 10,
+      "nonmanifold_edges": 0,
+      "same_direction_adjacent_faces": 0,
+      "signed_volume_m3": 2.0698514830404708e-05
+    }
+  ],
+  "P2_bearing_witnesses": [
+    {
+      "x_m": -1.75,
+      "selected_islands": {
+        "hanger": {
+          "object": "CD | Joined P2 blast leaf west / steel",
+          "index": 47,
+          "bounds": [
+            [
+              -1.7769999504089355,
+              15.847000122070312,
+              3.4800000190734863
+            ],
+            [
+              -1.7230000495910645,
+              15.873000144958496,
+              3.5789999961853027
+            ]
+          ],
+          "vertices": 64,
+          "faces": 64,
+          "nonmanifold_edges": 0,
+          "same_direction_adjacent_faces": 0,
+          "signed_volume_m3": 9.0473445925398e-05
+        },
+        "axle": {
+          "object": "CD | Joined P2 blast leaf west / steel",
+          "index": 48,
+          "bounds": [
+            [
+              -1.7640000581741333,
+              15.842000007629395,
+              3.5460000038146973
+            ],
+            [
+              -1.7359999418258667,
+              15.982999801635742,
+              3.5739998817443848
+            ]
+          ],
+          "vertices": 96,
+          "faces": 86,
+          "nonmanifold_edges": 0,
+          "same_direction_adjacent_faces": 0,
+          "signed_volume_m3": 2.9005298249252614e-05
+        },
+        "clip": {
+          "object": "CD | Joined P2 blast leaf west / steel",
+          "index": 49,
+          "bounds": [
+            [
+              -1.7619999647140503,
+              15.970000267028809,
+              3.547999858856201
+            ],
+            [
+              -1.7380000352859497,
+              15.972000122070312,
+              3.572000026702881
+            ]
+          ],
+          "vertices": 64,
+          "faces": 62,
+          "nonmanifold_edges": 0,
+          "same_direction_adjacent_faces": 0,
+          "signed_volume_m3": 4.906293631125325e-07
+        },
+        "roller": {
+          "object": "CD | Joined P2 blast leaf west / charcoal",
+          "index": 73,
+          "bounds": [
+            [
+              -1.7899999618530273,
+              15.90999984741211,
+              3.5199999809265137
+            ],
+            [
+              -1.7100000381469727,
+              15.970000267028809,
+              3.5999999046325684
+            ]
+          ],
+          "vertices": 64,
+          "faces": 64,
+          "nonmanifold_edges": 0,
+          "same_direction_adjacent_faces": 0,
+          "signed_volume_m3": 0.0002806316455423394
+        }
+      },
+      "bore_samples": [
+        {
+          "part": "hanger",
+          "y_m": 15.86,
+          "sampled_directions": 192,
+          "missing_directions": 1,
+          "minimum_gap_m": 0.00035451073199510574,
+          "maximum_gap_m": 0.0007728724740445614,
+          "positive_running_clearance": true
+        },
+        {
+          "part": "roller",
+          "y_m": 15.94,
+          "sampled_directions": 192,
+          "missing_directions": 1,
+          "minimum_gap_m": 0.0003544427454471588,
+          "maximum_gap_m": 0.0007728724740445614,
+          "positive_running_clearance": true
+        },
+        {
+          "part": "clip",
+          "y_m": 15.971,
+          "sampled_directions": 192,
+          "missing_directions": 13,
+          "minimum_gap_m": 1.889001578092575e-05,
+          "maximum_gap_m": 0.0004055621102452278,
+          "positive_running_clearance": true
+        }
+      ],
+      "head_to_hanger_front_gap_m": 1.220703129689582e-07,
+      "roller_rear_to_clip_front_gap_m": 0.0
+    },
+    {
+      "x_m": -0.65,
+      "selected_islands": {
+        "hanger": {
+          "object": "CD | Joined P2 blast leaf west / steel",
+          "index": 44,
+          "bounds": [
+            [
+              -0.6770000457763672,
+              15.847000122070312,
+              3.4800000190734863
+            ],
+            [
+              -0.6230000257492065,
+              15.873000144958496,
+              3.5789999961853027
+            ]
+          ],
+          "vertices": 64,
+          "faces": 64,
+          "nonmanifold_edges": 0,
+          "same_direction_adjacent_faces": 0,
+          "signed_volume_m3": 9.047356392508211e-05
+        },
+        "axle": {
+          "object": "CD | Joined P2 blast leaf west / steel",
+          "index": 45,
+          "bounds": [
+            [
+              -0.6640000343322754,
+              15.842000007629395,
+              3.5460000038146973
+            ],
+            [
+              -0.6359999179840088,
+              15.982999801635742,
+              3.5739998817443848
+            ]
+          ],
+          "vertices": 96,
+          "faces": 86,
+          "nonmanifold_edges": 0,
+          "same_direction_adjacent_faces": 0,
+          "signed_volume_m3": 2.9005380001945154e-05
+        },
+        "clip": {
+          "object": "CD | Joined P2 blast leaf west / steel",
+          "index": 46,
+          "bounds": [
+            [
+              -0.6619999408721924,
+              15.970000267028809,
+              3.547999858856201
+            ],
+            [
+              -0.6380000114440918,
+              15.972000122070312,
+              3.572000026702881
+            ]
+          ],
+          "vertices": 64,
+          "faces": 62,
+          "nonmanifold_edges": 0,
+          "same_direction_adjacent_faces": 0,
+          "signed_volume_m3": 4.906285915276604e-07
+        },
+        "roller": {
+          "object": "CD | Joined P2 blast leaf west / charcoal",
+          "index": 72,
+          "bounds": [
+            [
+              -0.690000057220459,
+              15.90999984741211,
+              3.5199999809265137
+            ],
+            [
+              -0.6100000143051147,
+              15.970000267028809,
+              3.5999999046325684
+            ]
+          ],
+          "vertices": 64,
+          "faces": 64,
+          "nonmanifold_edges": 0,
+          "same_direction_adjacent_faces": 0,
+          "signed_volume_m3": 0.00028063168815968255
+        }
+      },
+      "bore_samples": [
+        {
+          "part": "hanger",
+          "y_m": 15.86,
+          "sampled_directions": 192,
+          "missing_directions": 1,
+          "minimum_gap_m": 0.0003544241189956665,
+          "maximum_gap_m": 0.0007728724740445614,
+          "positive_running_clearance": true
+        },
+        {
+          "part": "roller",
+          "y_m": 15.94,
+          "sampled_directions": 192,
+          "missing_directions": 1,
+          "minimum_gap_m": 0.0003543561324477196,
+          "maximum_gap_m": 0.0007728701457381248,
+          "positive_running_clearance": true
+        },
+        {
+          "part": "clip",
+          "y_m": 15.971,
+          "sampled_directions": 192,
+          "missing_directions": 13,
+          "minimum_gap_m": 1.8847640603780746e-05,
+          "maximum_gap_m": 0.0004056044854223728,
+          "positive_running_clearance": true
+        }
+      ],
+      "head_to_hanger_front_gap_m": 1.220703129689582e-07,
+      "roller_rear_to_clip_front_gap_m": 0.0
+    },
+    {
+      "x_m": 0.65,
+      "selected_islands": {
+        "hanger": {
+          "object": "CD | Joined P2 blast leaf east / steel",
+          "index": 64,
+          "bounds": [
+            [
+              0.6230000257492065,
+              15.847000122070312,
+              3.4800000190734863
+            ],
+            [
+              0.6769999861717224,
+              15.873000144958496,
+              3.5789999961853027
+            ]
+          ],
+          "vertices": 64,
+          "faces": 64,
+          "nonmanifold_edges": 0,
+          "same_direction_adjacent_faces": 0,
+          "signed_volume_m3": 9.04735968368693e-05
+        },
+        "axle": {
+          "object": "CD | Joined P2 blast leaf east / steel",
+          "index": 65,
+          "bounds": [
+            [
+              0.6359999775886536,
+              15.842000007629395,
+              3.5460000038146973
+            ],
+            [
+              0.6639999747276306,
+              15.982999801635742,
+              3.5739998817443848
+            ]
+          ],
+          "vertices": 96,
+          "faces": 86,
+          "nonmanifold_edges": 0,
+          "same_direction_adjacent_faces": 0,
+          "signed_volume_m3": 2.900530328842688e-05
+        },
+        "clip": {
+          "object": "CD | Joined P2 blast leaf east / steel",
+          "index": 66,
+          "bounds": [
+            [
+              0.6380000114440918,
+              15.970000267028809,
+              3.547999858856201
+            ],
+            [
+              0.6620000004768372,
+              15.972000122070312,
+              3.572000026702881
+            ]
+          ],
+          "vertices": 64,
+          "faces": 62,
+          "nonmanifold_edges": 0,
+          "same_direction_adjacent_faces": 0,
+          "signed_volume_m3": 4.906288688155915e-07
+        },
+        "roller": {
+          "object": "CD | Joined P2 blast leaf east / charcoal",
+          "index": 79,
+          "bounds": [
+            [
+              0.6100000143051147,
+              15.90999984741211,
+              3.5199999809265137
+            ],
+            [
+              0.690000057220459,
+              15.970000267028809,
+              3.5999999046325684
+            ]
+          ],
+          "vertices": 64,
+          "faces": 64,
+          "nonmanifold_edges": 0,
+          "same_direction_adjacent_faces": 0,
+          "signed_volume_m3": 0.0002806316844509253
+        }
+      },
+      "bore_samples": [
+        {
+          "part": "hanger",
+          "y_m": 15.86,
+          "sampled_directions": 192,
+          "missing_directions": 1,
+          "minimum_gap_m": 0.00035444367676973343,
+          "maximum_gap_m": 0.0007728724740445614,
+          "positive_running_clearance": true
+        },
+        {
+          "part": "roller",
+          "y_m": 15.94,
+          "sampled_directions": 192,
+          "missing_directions": 1,
+          "minimum_gap_m": 0.0003543999046087265,
+          "maximum_gap_m": 0.0007728715427219868,
+          "positive_running_clearance": true
+        },
+        {
+          "part": "clip",
+          "y_m": 15.971,
+          "sampled_directions": 192,
+          "missing_directions": 12,
+          "minimum_gap_m": 1.8858816474676132e-05,
+          "maximum_gap_m": 0.00040558259934186935,
+          "positive_running_clearance": true
+        }
+      ],
+      "head_to_hanger_front_gap_m": 1.220703129689582e-07,
+      "roller_rear_to_clip_front_gap_m": 0.0
+    },
+    {
+      "x_m": 1.75,
+      "selected_islands": {
+        "hanger": {
+          "object": "CD | Joined P2 blast leaf east / steel",
+          "index": 67,
+          "bounds": [
+            [
+              1.7230000495910645,
+              15.847000122070312,
+              3.4800000190734863
+            ],
+            [
+              1.7769999504089355,
+              15.873000144958496,
+              3.5789999961853027
+            ]
+          ],
+          "vertices": 64,
+          "faces": 64,
+          "nonmanifold_edges": 0,
+          "same_direction_adjacent_faces": 0,
+          "signed_volume_m3": 9.047344660796312e-05
+        },
+        "axle": {
+          "object": "CD | Joined P2 blast leaf east / steel",
+          "index": 68,
+          "bounds": [
+            [
+              1.7359998226165771,
+              15.842000007629395,
+              3.5460000038146973
+            ],
+            [
+              1.7639999389648438,
+              15.982999801635742,
+              3.5739998817443848
+            ]
+          ],
+          "vertices": 96,
+          "faces": 86,
+          "nonmanifold_edges": 0,
+          "same_direction_adjacent_faces": 0,
+          "signed_volume_m3": 2.900529865839e-05
+        },
+        "clip": {
+          "object": "CD | Joined P2 blast leaf east / steel",
+          "index": 69,
+          "bounds": [
+            [
+              1.7379999160766602,
+              15.970000267028809,
+              3.547999858856201
+            ],
+            [
+              1.7619998455047607,
+              15.972000122070312,
+              3.572000026702881
+            ]
+          ],
+          "vertices": 64,
+          "faces": 62,
+          "nonmanifold_edges": 0,
+          "same_direction_adjacent_faces": 0,
+          "signed_volume_m3": 4.906293542056851e-07
+        },
+        "roller": {
+          "object": "CD | Joined P2 blast leaf east / charcoal",
+          "index": 80,
+          "bounds": [
+            [
+              1.7100000381469727,
+              15.90999984741211,
+              3.5199999809265137
+            ],
+            [
+              1.7899999618530273,
+              15.970000267028809,
+              3.5999999046325684
+            ]
+          ],
+          "vertices": 64,
+          "faces": 64,
+          "nonmanifold_edges": 0,
+          "same_direction_adjacent_faces": 0,
+          "signed_volume_m3": 0.0002806316455423394
+        }
+      },
+      "bore_samples": [
+        {
+          "part": "hanger",
+          "y_m": 15.86,
+          "sampled_directions": 192,
+          "missing_directions": 1,
+          "minimum_gap_m": 0.00035444367676973343,
+          "maximum_gap_m": 0.0007729730568826199,
+          "positive_running_clearance": true
+        },
+        {
+          "part": "roller",
+          "y_m": 15.94,
+          "sampled_directions": 192,
+          "missing_directions": 1,
+          "minimum_gap_m": 0.0003544427454471588,
+          "maximum_gap_m": 0.0007728724740445614,
+          "positive_running_clearance": true
+        },
+        {
+          "part": "clip",
+          "y_m": 15.971,
+          "sampled_directions": 192,
+          "missing_directions": 13,
+          "minimum_gap_m": 1.8825754523277283e-05,
+          "maximum_gap_m": 0.0004055867902934551,
+          "positive_running_clearance": true
+        }
+      ],
+      "head_to_hanger_front_gap_m": 1.220703129689582e-07,
+      "roller_rear_to_clip_front_gap_m": 0.0
+    }
+  ],
+  "key_glass_separation": [
+    {
+      "island": 88,
+      "glass_rear_to_key_front_gap_m": 0.002499961853027699
+    },
+    {
+      "island": 89,
+      "glass_rear_to_key_front_gap_m": 0.002499961853027699
+    },
+    {
+      "island": 90,
+      "glass_rear_to_key_front_gap_m": 0.002499961853027699
+    },
+    {
+      "island": 91,
+      "glass_rear_to_key_front_gap_m": 0.002499961853027699
+    },
+    {
+      "island": 92,
+      "glass_rear_to_key_front_gap_m": 0.002499961853027699
+    },
+    {
+      "island": 93,
+      "glass_rear_to_key_front_gap_m": 0.002499961853027699
+    },
+    {
+      "island": 94,
+      "glass_rear_to_key_front_gap_m": 0.002499961853027699
+    },
+    {
+      "island": 95,
+      "glass_rear_to_key_front_gap_m": 0.002499961853027699
+    },
+    {
+      "island": 96,
+      "glass_rear_to_key_front_gap_m": 0.002499961853027699
+    }
+  ],
+  "interpretation": "All data comes from current evaluated connected islands. A spring split is intentional; all its cut ends still require closed topology."
+}

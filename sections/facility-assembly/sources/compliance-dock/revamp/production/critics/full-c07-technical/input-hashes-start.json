@@ -1,0 +1,115 @@
+{
+  "protected": [
+    {
+      "path": "sections/facility-assembly/blender/facility_environment.blend",
+      "expected": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+      "actual": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8"
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/module.blend",
+      "expected": "0cdae8b3d302459d75569cb6bf3a463f24b30ea373c2bcdf430360033d7b0947",
+      "actual": "0cdae8b3d302459d75569cb6bf3a463f24b30ea373c2bcdf430360033d7b0947"
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/accepted.blend",
+      "expected": "575686f6771bc35c224961b2f9da0224cf6c7acf96631cf75cf55a8af28d3f4c",
+      "actual": "575686f6771bc35c224961b2f9da0224cf6c7acf96631cf75cf55a8af28d3f4c"
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/contracts/interface.json",
+      "expected": "bdbdd0389eaa3b36b7d0f174c057034b2abd262245a8d4b52374b5b33e03eb6e",
+      "actual": "bdbdd0389eaa3b36b7d0f174c057034b2abd262245a8d4b52374b5b33e03eb6e"
+    },
+    {
+      "path": "sections/facility-assembly/sources/spawn-room/module.blend",
+      "expected": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+      "actual": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40"
+    }
+  ],
+  "source_and_recipes": [
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend",
+      "sha256": "22176ab474d914156cdf5a083571c19b04c6e6e11cfa50ab8ba681013bc124a6"
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/checkpoints/full-f13.blend",
+      "sha256": "22176ab474d914156cdf5a083571c19b04c6e6e11cfa50ab8ba681013bc124a6"
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/check_portability.py",
+      "sha256": "f73a7865e44a6a316108f3550fd0a925939cdb102c3da903e554b0fcd9aa7696"
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/compare_render_batches.py",
+      "sha256": "ccab427d8e260f69fa9a7f67a563ae5ee9eea832c186828e33770c18ff0ce298"
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/full_detail.py",
+      "sha256": "46dc8ef667aaeba4fff51e1a2d2d6aadb74d4b0c8cef443b691103587b0e82eb"
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/full_repairs.py",
+      "sha256": "7157ca15b3e86da7c555b48ad700dd9b6a73823255e6609bd3f744fc8d9a7a98"
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/inspect_dock.py",
+      "sha256": "20d70dbd076a51e90ff85375b4c451a789289e67c62f1f1fa901cf342c8f655d"
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/overhaul_dock.py",
+      "sha256": "3b770eaf10ad776101ca8b41d047937a1c681ce49f4e610ea0ca2ddea38e7289"
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/render_dock.py",
+      "sha256": "9fbae704a9a0db49d5848fd73004c0bdaf6c62455ba8db0043228a6f1b9adce2"
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/repair_contact_wear.py",
+      "sha256": "e671aeaff409fabd5b62af3ec208d2d1d09aac3c3785fdcaa4a2fd047de98fb8"
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/repair_support_metadata.py",
+      "sha256": "76a20e02be1803246bf3e7812173c08f68a9101b421643bcd12ce844b34c3995"
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/restore_dependencies.py",
+      "sha256": "d344ade015b8ea702dc0198810dd41e3c6657f8e39db72ecc2c799feb64a79bd"
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/validate_dock.py",
+      "sha256": "c1f1624c4780e8bb36de0a9c83c43e979c7e4c4d0646c4ecfdc61e7b7377e22f"
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/checkpoints/full-f13-full_detail.py",
+      "sha256": "46dc8ef667aaeba4fff51e1a2d2d6aadb74d4b0c8cef443b691103587b0e82eb"
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/checkpoints/full-f13-full_repairs.py",
+      "sha256": "7157ca15b3e86da7c555b48ad700dd9b6a73823255e6609bd3f744fc8d9a7a98"
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/checkpoints/full-f13-interrupted-full_detail.py",
+      "sha256": "229e15095a0edf3a21c1a42284bc6907e9e9300826ad13cf51cfa9249054fe3a"
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/checkpoints/full-f13-interrupted-full_repairs.py",
+      "sha256": "600b8155cd90d5cf2ca8a54afcf1c8ce2363961906fff5caee5a0c771a43deeb"
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/checkpoints/full-f13-interrupted-overhaul_dock.py",
+      "sha256": "3b770eaf10ad776101ca8b41d047937a1c681ce49f4e610ea0ca2ddea38e7289"
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/checkpoints/full-f13-interrupted-render_dock.py",
+      "sha256": "61ea21ced7e674eac0be44af617422003099553ede92f0e91eb0b938e895f423"
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/checkpoints/full-f13-overhaul_dock.py",
+      "sha256": "3b770eaf10ad776101ca8b41d047937a1c681ce49f4e610ea0ca2ddea38e7289"
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/checkpoints/full-f13-render_dock.py",
+      "sha256": "9fbae704a9a0db49d5848fd73004c0bdaf6c62455ba8db0043228a6f1b9adce2"
+    }
+  ]
+}

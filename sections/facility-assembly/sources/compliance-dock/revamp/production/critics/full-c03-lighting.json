@@ -1,0 +1,36 @@
+{
+  "review": "full-c03-lighting",
+  "discipline": "lighting_atmosphere",
+  "category": 5,
+  "score": 89,
+  "threshold": {"operator": ">", "value": 93},
+  "result": "FAIL",
+  "source_sha256": "1e2507dc6f0c245cc6552d940a03fe6888949f68509bdbaacd7f315c22815b53",
+  "manifest_complete": true,
+  "beauty_count": 27,
+  "beauty_individually_inspected": 27,
+  "manifest_image_hashes_verified": 27,
+  "reference_count": 4,
+  "reference_individually_inspected": 4,
+  "prior_reviews_or_scores_read": false,
+  "builder_code_or_rationale_read": false,
+  "critical_vetoes": [],
+  "critical_defects": [],
+  "failing_views": ["C01_ENTRY", "C02_HERO_DOCK", "C04_SCANNER_APPROACH", "HERO_SCANNER", "C05_CONVEYOR_LEAD_TUNNEL", "HERO_CARGO", "C06_CART_GATE_G1", "PLAYER_REVERSE", "C08_CONCEALED_SUPPORT_H1", "HERO_TROLLEY", "C09_ARRIVAL_GATE_P2"],
+  "findings": [
+    {"views": ["C01_ENTRY", "C02_HERO_DOCK", "C04_SCANNER_APPROACH", "HERO_SCANNER"], "defect": "Broad main-bay floor and wall fill weakens distinct inspection-threshold light; header and indicators guide more strongly than light on functional inner faces."},
+    {"views": ["C05_CONVEYOR_LEAD_TUNNEL", "HERO_CARGO"], "defect": "Cargo front, curtain, rollers and lower frame crowd the dark range; blue side receives clearer definition than the cargo-facing work surface."},
+    {"views": ["C06_CART_GATE_G1", "PLAYER_REVERSE"], "defect": "Gate leaves and supporting posts lack consistent directional separation; overhead structure has stronger accents than functional faces."},
+    {"views": ["C08_CONCEALED_SUPPORT_H1", "HERO_TROLLEY"], "defect": "Warm wall is more illuminated than the trolley construction; lower rail, shelf and casters merge into near-black masses."},
+    {"views": ["C09_ARRIVAL_GATE_P2"], "defect": "Arrival door leaves, centre joint and frame have weak value separation."}
+  ],
+  "fixes": [
+    {"action": "Rebalance and aim existing bay practicals into distinct scanner and cargo pools; reduce spill across approach and interstitial floor without sacrificing route readability.", "verify_views": ["C01_ENTRY", "C02_HERO_DOCK", "C04_SCANNER_APPROACH", "HERO_SCANNER"]},
+    {"action": "Redirect restrained practical or bounced light across cargo curtain, crate latches and roller bed; preserve dark tunnel interior while separating curtain edges and lower frame.", "verify_views": ["C05_CONVEYOR_LEAD_TUNNEL", "HERO_CARGO"]},
+    {"action": "Provide low soft indirect fill from support-bay practicals to reveal trolley lower rail, shelf, caster silhouette and floor contact while retaining a dim secondary space.", "verify_views": ["C08_CONCEALED_SUPPORT_H1", "HERO_TROLLEY", "HERO_EVIDENCE"]},
+    {"action": "Use restrained grazing definition from nearby existing sources on arrival and cart gate joints, frames and leaf edges; keep arrival subordinate to inspection.", "verify_views": ["C06_CART_GATE_G1", "C09_ARRIVAL_GATE_P2", "PLAYER_REVERSE", "PLAYER_PINCH"]}
+  ],
+  "beauty_views_inspected": ["C01_ENTRY", "C02_HERO_DOCK", "C03_CHECKIN_COUNTER", "C04_SCANNER_APPROACH", "C05_CONVEYOR_LEAD_TUNNEL", "C06_CART_GATE_G1", "C07_OFFICE_INTERIOR", "C08_CONCEALED_SUPPORT_H1", "C09_ARRIVAL_GATE_P2", "C10_ROOF_SERVICES", "CORNER_SW", "CORNER_SE", "CORNER_NW", "CORNER_NE", "WALL_SOUTH", "WALL_NORTH", "WALL_EAST", "WALL_WEST", "HERO_SCANNER", "HERO_CARGO", "HERO_EVIDENCE", "HERO_TROLLEY", "HERO_UTILITIES", "DETAIL_CHECKIN", "PLAYER_REVERSE", "PLAYER_PINCH", "WALL_OFFICE_FRONT"],
+  "spawn_references_inspected": ["VALIDATE_Material_A.png", "VALIDATE_LockerDoor.png", "VALIDATE_Spawn.png", "BRIEFING_INDIRECT.png"],
+  "scope_limits": ["Lighting category only; no overall score awarded.", "Technical, runtime and cold-open stability not certified.", "No source or layout edits."]
+}

@@ -1,0 +1,849 @@
+{
+  "schema": 1,
+  "source": "sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend",
+  "source_sha256": "92928a64c1a8cdc1c9b4f0f0a9cc0fee9d03fb827c815c5dbd9888d194a5c942",
+  "source_unchanged_at_release": true,
+  "blender_runtime": "5.2.2 LTS",
+  "scene": "COMPLIANCE_EDIT_LOCAL",
+  "scope": "Independent targeted technical repair diagnosis; no score, acceptance, full-cycle or runtime claim.",
+  "native_read_only": true,
+  "source_released": true,
+  "existing_validator": {
+    "checks": [
+      {
+        "name": "scene_inventory_transforms_material_assignment",
+        "status": "pass"
+      },
+      {
+        "name": "external_resource_integrity",
+        "status": "pass"
+      },
+      {
+        "name": "contact_registry_ancestry_and_measured_support",
+        "status": "pass",
+        "assemblies": 41,
+        "anchors": 85
+      },
+      {
+        "name": "exact_duplicate_geometry",
+        "status": "pass",
+        "comparison": "world matrix + evaluated local bounds + vertices/topology, rounded to 1e-7 m"
+      },
+      {
+        "name": "fixed_camera_inventory",
+        "status": "pass",
+        "total": 12,
+        "full_cameras": 10
+      },
+      {
+        "name": "full_interior_portal_and_route_clearance",
+        "status": "pass",
+        "routes": 3,
+        "portals": 7
+      },
+      {
+        "name": "overhaul_shader_uv_and_noncollapsed_geometry",
+        "status": "pass",
+        "surfaces": 1100,
+        "metric_edge_min_m": 0.0001,
+        "metric_relative_tolerance": 0.01,
+        "interpretation": "Physical repeating face charts permit seams/overlaps; editable text uses declared object-metre mapping. Not a lightmap or runtime shader proof."
+      }
+    ],
+    "summary": {
+      "failures": 0,
+      "passed_checks": 7,
+      "failed_checks": 0
+    },
+    "errors": [],
+    "interface": "sections/facility-assembly/sources/compliance-dock/contracts/interface.json",
+    "validator_sha256": "c1f1624c4780e8bb36de0a9c83c43e979c7e4c4d0646c4ecfdc61e7b7377e22f"
+  },
+  "source_planning_counters": {
+    "evaluated_authoring_triangles": 450226,
+    "triangle_target_max": 450000,
+    "triangle_status": "FAIL",
+    "material_submeshes": 1101,
+    "submesh_target_max": 1150,
+    "used_local_material_datablocks": 36,
+    "material_target_max": 36,
+    "material_families_are_not_runtime_draw_calls": true
+  },
+  "preservation": {
+    "inherited_matrices": {
+      "count": 1077,
+      "missing": [],
+      "changed": [],
+      "max_delta": 1.1920928955078125e-07
+    },
+    "protected_inputs": [
+      {
+        "path": "sections/facility-assembly/blender/facility_environment.blend",
+        "expected": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+        "actual": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+        "unchanged": true
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/module.blend",
+        "expected": "0cdae8b3d302459d75569cb6bf3a463f24b30ea373c2bcdf430360033d7b0947",
+        "actual": "0cdae8b3d302459d75569cb6bf3a463f24b30ea373c2bcdf430360033d7b0947",
+        "unchanged": true
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/accepted.blend",
+        "expected": "575686f6771bc35c224961b2f9da0224cf6c7acf96631cf75cf55a8af28d3f4c",
+        "actual": "575686f6771bc35c224961b2f9da0224cf6c7acf96631cf75cf55a8af28d3f4c",
+        "unchanged": true
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/contracts/interface.json",
+        "expected": "bdbdd0389eaa3b36b7d0f174c057034b2abd262245a8d4b52374b5b33e03eb6e",
+        "actual": "bdbdd0389eaa3b36b7d0f174c057034b2abd262245a8d4b52374b5b33e03eb6e",
+        "unchanged": true
+      },
+      {
+        "path": "sections/facility-assembly/sources/spawn-room/module.blend",
+        "expected": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+        "actual": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+        "unchanged": true
+      }
+    ],
+    "libraries": [
+      {
+        "raw": "//../../exteriors/refinery/exterior-R01.blend",
+        "relative": true,
+        "exists": true,
+        "resolved": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../../exteriors/refinery/exterior-R01.blend",
+        "native_payload": true
+      },
+      {
+        "raw": "//../../exteriors/waste-storage/exterior-R01.blend",
+        "relative": true,
+        "exists": true,
+        "resolved": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../../exteriors/waste-storage/exterior-R01.blend",
+        "native_payload": true
+      },
+      {
+        "raw": "//../../exteriors/condenser-bay/exterior-R02.blend",
+        "relative": true,
+        "exists": true,
+        "resolved": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../../exteriors/condenser-bay/exterior-R02.blend",
+        "native_payload": true
+      },
+      {
+        "raw": "//../../exteriors/fuel-corridor/exterior-R02.blend",
+        "relative": true,
+        "exists": true,
+        "resolved": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../../exteriors/fuel-corridor/exterior-R02.blend",
+        "native_payload": true
+      },
+      {
+        "raw": "//../../exteriors/cooling-plant/exterior-R03.blend",
+        "relative": true,
+        "exists": true,
+        "resolved": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../../exteriors/cooling-plant/exterior-R03.blend",
+        "native_payload": true
+      },
+      {
+        "raw": "//../../exteriors/electrical-room/exterior-R03.blend",
+        "relative": true,
+        "exists": true,
+        "resolved": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../../exteriors/electrical-room/exterior-R03.blend",
+        "native_payload": true
+      },
+      {
+        "raw": "//../../exteriors/medical-reanimation/exterior-R04.blend",
+        "relative": true,
+        "exists": true,
+        "resolved": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../../exteriors/medical-reanimation/exterior-R04.blend",
+        "native_payload": true
+      },
+      {
+        "raw": "//../../exteriors/turbine-room/exterior-R04.blend",
+        "relative": true,
+        "exists": true,
+        "resolved": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../../exteriors/turbine-room/exterior-R04.blend",
+        "native_payload": true
+      },
+      {
+        "raw": "//../../exteriors/reactor-room/exterior-R05.blend",
+        "relative": true,
+        "exists": true,
+        "resolved": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../../exteriors/reactor-room/exterior-R05.blend",
+        "native_payload": true
+      },
+      {
+        "raw": "//../../exteriors/spawn-room/exterior-R05.blend",
+        "relative": true,
+        "exists": true,
+        "resolved": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../../exteriors/spawn-room/exterior-R05.blend",
+        "native_payload": true
+      },
+      {
+        "raw": "//../../exteriors/compliance-dock/exterior-R08.blend",
+        "relative": true,
+        "exists": true,
+        "resolved": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../../exteriors/compliance-dock/exterior-R08.blend",
+        "native_payload": true
+      },
+      {
+        "raw": "//../../blender/facility_environment.blend",
+        "relative": true,
+        "exists": true,
+        "resolved": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../../blender/facility_environment.blend",
+        "native_payload": true
+      },
+      {
+        "raw": "//../../blender/facility_spawn_material_preview_R17.blend",
+        "relative": true,
+        "exists": true,
+        "resolved": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../../blender/facility_spawn_material_preview_R17.blend",
+        "native_payload": true
+      },
+      {
+        "raw": "//../condenser-bay/module.blend",
+        "relative": true,
+        "exists": true,
+        "resolved": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../condenser-bay/module.blend",
+        "native_payload": true
+      },
+      {
+        "raw": "//../mine/module.blend",
+        "relative": true,
+        "exists": true,
+        "resolved": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../mine/module.blend",
+        "native_payload": true
+      },
+      {
+        "raw": "//../spawn-room/module.blend",
+        "relative": true,
+        "exists": true,
+        "resolved": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../spawn-room/module.blend",
+        "native_payload": true
+      },
+      {
+        "raw": "//module.blend",
+        "relative": true,
+        "exists": true,
+        "resolved": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/module.blend",
+        "native_payload": true
+      },
+      {
+        "raw": "//../cooling-plant/module.blend",
+        "relative": true,
+        "exists": true,
+        "resolved": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../cooling-plant/module.blend",
+        "native_payload": true
+      },
+      {
+        "raw": "//../electrical-room/module.blend",
+        "relative": true,
+        "exists": true,
+        "resolved": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../electrical-room/module.blend",
+        "native_payload": true
+      },
+      {
+        "raw": "//../fuel-corridor/module.blend",
+        "relative": true,
+        "exists": true,
+        "resolved": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../fuel-corridor/module.blend",
+        "native_payload": true
+      },
+      {
+        "raw": "//../medical-reanimation/module.blend",
+        "relative": true,
+        "exists": true,
+        "resolved": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../medical-reanimation/module.blend",
+        "native_payload": true
+      },
+      {
+        "raw": "//../reactor-room/module.blend",
+        "relative": true,
+        "exists": true,
+        "resolved": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../reactor-room/module.blend",
+        "native_payload": true
+      },
+      {
+        "raw": "//../refinery/module.blend",
+        "relative": true,
+        "exists": true,
+        "resolved": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../refinery/module.blend",
+        "native_payload": true
+      },
+      {
+        "raw": "//../turbine-room/module.blend",
+        "relative": true,
+        "exists": true,
+        "resolved": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../turbine-room/module.blend",
+        "native_payload": true
+      },
+      {
+        "raw": "//../waste-storage/module.blend",
+        "relative": true,
+        "exists": true,
+        "resolved": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../waste-storage/module.blend",
+        "native_payload": true
+      }
+    ]
+  },
+  "findings": [
+    {
+      "id": "T01",
+      "type": "source_budget",
+      "priority": "required",
+      "status": "FAIL",
+      "summary": "Evaluated authoring triangle target exceeded by 226.",
+      "actual": 450226,
+      "target_max": 450000,
+      "over_by": 226,
+      "repair": "Reduce at least 226 evaluated triangles, then recount the complete editable scene."
+    },
+    {
+      "id": "T02",
+      "type": "exposed_coplanar_geometry",
+      "priority": "required",
+      "status": "FAIL",
+      "summary": "Office rear lintel duplicates exposed front/back patches of both stepped rear-wall pieces.",
+      "witnesses": [
+        {
+          "a": "Office rear wall west",
+          "b": "Office rear lintel",
+          "same_facing_overlap_area_m2": 0.15196201075355553,
+          "witness": {
+            "point": [
+              -5.962661266326904,
+              9.520000457763672,
+              3.0275678634643555
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "a_triangle": 218,
+            "b_triangle": 156,
+            "intersection_area_m2": 0.0022570030341846348
+          }
+        },
+        {
+          "a": "Office rear wall east",
+          "b": "Office rear lintel",
+          "same_facing_overlap_area_m2": 0.15196201075355198,
+          "witness": {
+            "point": [
+              -4.810647964477539,
+              9.520000457763672,
+              3.0074589252471924
+            ],
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "a_triangle": 219,
+            "b_triangle": 156,
+            "intersection_area_m2": 0.00487516079775574
+          }
+        }
+      ],
+      "repair": "Keep inherited matrices. Butt the lintel into the stepped walls; the gap above the D2 frame head is X[-5.925,-4.875], Z[2.30,3.05], rather than the inherited 1.25m-wide lintel span. Preserve the usable opening and combined envelope."
+    },
+    {
+      "id": "T03",
+      "type": "support_penetration",
+      "priority": "required",
+      "status": "outside_default_contact_tolerance",
+      "summary": "Motor barrel enters a flat mounting plate by 24.99998mm.",
+      "witnesses": [
+        {
+          "label": "motor body to mounting plate",
+          "a": "Drive motor housing",
+          "b": "Drive motor mounting plate",
+          "point": [
+            5.68,
+            9.2,
+            0.53
+          ],
+          "direction": [
+            0,
+            0,
+            -1
+          ],
+          "intentional_mechanical_engagement": null,
+          "signed_gap_m": -0.02499997615814209,
+          "angle_error_deg": 7.499989308272709,
+          "a_surface": {
+            "point": [
+              5.679999828338623,
+              9.199999809265137,
+              0.5100001096725464
+            ],
+            "normal": [
+              0.13052617013454437,
+              4.333743319762107e-08,
+              -0.9914448857307434
+            ],
+            "triangle": 357,
+            "signed": 0.01999986171722412
+          },
+          "b_surface": {
+            "point": [
+              5.679999828338623,
+              9.199999809265137,
+              0.5350000858306885
+            ],
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "triangle": 159,
+            "signed": -0.005000114440917969
+          },
+          "status": "outside_default"
+        }
+      ],
+      "repair": "Represent an actual fitted seat or manufactured motor foot. Resolve the 25mm barrel/flat-plate overlap while retaining the inherited world matrix; do not substitute assembly ancestry for the contact."
+    },
+    {
+      "id": "T04",
+      "type": "webbing_contact",
+      "priority": "required",
+      "status": "outside_default_contact_tolerance",
+      "summary": "Straps 2 and 3 have lower-surface gaps exceeding5mm along actual cloth normals.",
+      "witnesses": [
+        {
+          "object": "Trolley strap 2",
+          "max_distance": {
+            "strap_surface": [
+              -5.6895833015441895,
+              13.538000106811523,
+              1.0563654899597168
+            ],
+            "cloth_surface": [
+              -5.692019462585449,
+              13.538233757019043,
+              1.0514509677886963
+            ],
+            "distance_m": 0.005490173120051622,
+            "signed_gap_m": 0.005490172988174891,
+            "cloth_triangle": 4724,
+            "cloth_normal": [
+              0.4437063932418823,
+              -0.04262838140130043,
+              0.8951577544212341
+            ]
+          },
+          "max_signed_gap": {
+            "strap_surface": [
+              -5.6895833015441895,
+              13.538000106811523,
+              1.0563654899597168
+            ],
+            "cloth_surface": [
+              -5.692019462585449,
+              13.538233757019043,
+              1.0514509677886963
+            ],
+            "distance_m": 0.005490173120051622,
+            "signed_gap_m": 0.005490172988174891,
+            "cloth_triangle": 4724,
+            "cloth_normal": [
+              0.4437063932418823,
+              -0.04262838140130043,
+              0.8951577544212341
+            ]
+          },
+          "min_signed_gap": {
+            "strap_surface": [
+              -5.946249961853027,
+              13.562000274658203,
+              1.0592169761657715
+            ],
+            "cloth_surface": [
+              -5.946279048919678,
+              13.561938285827637,
+              1.0598245859146118
+            ],
+            "distance_m": 0.0006114558782428503,
+            "signed_gap_m": -0.0006114557681939914,
+            "cloth_triangle": 4710,
+            "cloth_normal": [
+              -0.047556642442941666,
+              -0.10075635462999344,
+              0.993773877620697
+            ]
+          }
+        },
+        {
+          "object": "Trolley strap 3",
+          "max_distance": {
+            "strap_surface": [
+              -6.010416507720947,
+              14.038000106811523,
+              1.0550432205200195
+            ],
+            "cloth_surface": [
+              -6.009274005889893,
+              14.037487030029297,
+              1.0497891902923584
+            ],
+            "distance_m": 0.005401239730417728,
+            "signed_gap_m": 0.005401239686761983,
+            "cloth_triangle": 5326,
+            "cloth_normal": [
+              -0.21155384182929993,
+              0.09492143988609314,
+              0.9727460741996765
+            ]
+          },
+          "max_signed_gap": {
+            "strap_surface": [
+              -6.010416507720947,
+              14.038000106811523,
+              1.0550432205200195
+            ],
+            "cloth_surface": [
+              -6.009274005889893,
+              14.037487030029297,
+              1.0497891902923584
+            ],
+            "distance_m": 0.005401239730417728,
+            "signed_gap_m": 0.005401239686761983,
+            "cloth_triangle": 5326,
+            "cloth_normal": [
+              -0.21155384182929993,
+              0.09492143988609314,
+              0.9727460741996765
+            ]
+          },
+          "min_signed_gap": {
+            "strap_surface": [
+              -6.074583530426025,
+              14.062000274658203,
+              0.9960014224052429
+            ],
+            "cloth_surface": [
+              -6.074155330657959,
+              14.061970710754395,
+              0.9955480694770813
+            ],
+            "distance_m": 0.0006243059760890901,
+            "signed_gap_m": -0.0006243059330017786,
+            "cloth_triangle": 2397,
+            "cloth_normal": [
+              0.6858270764350891,
+              -0.04685975983738899,
+              -0.726254403591156
+            ]
+          }
+        }
+      ],
+      "repair": "Conform the strap lower surfaces to the final triangulated cloth, allowing their authored 2mm thickness. Recheck actual nearest points and local surface normals."
+    },
+    {
+      "id": "T05",
+      "type": "consumed_textile_uv_distortion",
+      "priority": "repair_target",
+      "status": "measured_distortion_no_invented_threshold",
+      "summary": "Continuous consumed cut chart is finite, but near the right rear hem its maximum principal UV scale is1.94595 with minimum0.727934.",
+      "witness": {
+        "worst_maximum_singular_value": [
+          0.7279338263611441,
+          1.945952147412264,
+          5502,
+          [
+            [
+              -5.434999942779541,
+              14.14946460723877,
+              0.5550000071525574
+            ],
+            [
+              -5.434999942779541,
+              14.188570976257324,
+              0.5550000071525574
+            ],
+            [
+              -5.469583511352539,
+              14.188570976257324,
+              0.8092114329338074
+            ]
+          ],
+          [
+            [
+              1.4927252531051636,
+              2.0660476684570312
+            ],
+            [
+              1.4479646682739258,
+              2.1214427947998047
+            ],
+            [
+              1.1914116144180298,
+              2.1214427947998047
+            ]
+          ]
+        ],
+        "worst_minimum_singular_value": [
+          0.7209577145128423,
+          1.899739582035696,
+          2570,
+          [
+            [
+              -5.538750171661377,
+              14.14946460723877,
+              0.9133371114730835
+            ],
+            [
+              -5.573333263397217,
+              14.188570976257324,
+              0.9484217166900635
+            ],
+            [
+              -5.573333263397217,
+              14.14946460723877,
+              0.9676318764686584
+            ]
+          ],
+          [
+            [
+              1.1109009981155396,
+              2.0660476684570312
+            ],
+            [
+              1.0174589157104492,
+              2.1214427947998047
+            ],
+            [
+              1.0465278625488281,
+              2.0660476684570312
+            ]
+          ]
+        ],
+        "stretch_quantiles": [
+          1.0107653766145988,
+          1.2563092541520335,
+          1.3972041627951879,
+          1.7485523011440371,
+          1.945952147412264
+        ],
+        "compression_quantiles": [
+          0.7209577145128423,
+          0.7580739434700365,
+          0.842350089018287,
+          0.9114553909316834,
+          0.993308930636542
+        ]
+      },
+      "repair": "Reduce shear and local scale changes in CD_Fabric_Cut_1m. Preserve a continuous cut layout, inspect the checker at the rear hem and audit the consumed layer separately from CD_Physical_1m."
+    }
+  ],
+  "raw_contact_queries": {
+    "count": 263,
+    "initial_query_status_counts": {
+      "within_default": 210,
+      "ray_miss": 17,
+      "outside_default": 32,
+      "engagement_measured": 4
+    },
+    "interpretation": "Initial axial ray misses on uncapped pull mouths were resolved using true boundary-loop/stud nearest surfaces; vertical cloth/webbing gaps were refined to normal-distance witnesses. Raw status counts are not final defect counts."
+  },
+  "technical_geometry": {
+    "all_evaluated_finite_and_noncollapsed": true,
+    "overused_edges": 0,
+    "inconsistent_triangle_winding_edges": 0,
+    "boundary_surface_objects": 117,
+    "boundary_edges": 2348,
+    "boundary_interpretation": "Primarily uncapped converted curve tubes and wires, not automatically missing solid faces.",
+    "closed_component_negative_volumes_after_stable_float64_recheck": 0,
+    "first_pass_signed_volume_false_positives": "World-space float32 cancellation on tiny components; superseded by translated float64 arithmetic in supplement.json.",
+    "metric_uv": "Existing validator found zero absent consumed UV layers, zero nonfinite/collapsed geometry, and no CD_Physical_1m edges deviating over1% for evaluated edges above0.1mm.",
+    "consumed_textile_cut": "Finite and continuous on cover; 320 side-thickness triangles collapse in UV by duplicated upper/lower cut coordinates. This is an intentional thickness treatment, not evidence of 1m scale over the drape."
+  },
+  "mechanical_classification": {
+    "roller_journals": "58 actual roller/journal plus58 journal/cap axial surface queries substantiate approximately1mm engagement; deliberately classify separately from flat bearing rules.",
+    "drawer_pulls": "16 uncapped mouth boundaries measured against real stud surfaces; surface clearance0.99945\u20131.36223mm, with mouth centers on stud end planes. The empty centerline ray is not a floating-pull finding.",
+    "beacon_lenses": "Arrival amber covers are seated10mm into bases, a mechanical lens/base engagement rather than an unmounted lens.",
+    "forged_eyes": "Four torus eyes meet stems with2mm engagement. The18.3385degree faceted curved-normal result is a forged joint, not a planar bearing-angle failure.",
+    "fixture_rods": "All20 rod/end-cap joints have3mm insertion with opposed normals; classify as fitted mechanical seats. All20 roof-plate contacts and both new luminaire fork/lamp and roof-stem contacts are substantiated by actual surface hits.",
+    "buried_coplanar_geometry": [
+      {
+        "a": "D2 frame head",
+        "b": "Office rear lintel",
+        "same_facing_overlap_area_m2": 0.011544066101123462,
+        "witness": {
+          "point": [
+            -6.025000095367432,
+            9.528441429138184,
+            2.2820000648498535
+          ],
+          "normal": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "a_triangle": 154,
+          "b_triangle": 154,
+          "intersection_area_m2": 0.0001428359496351561
+        }
+      },
+      {
+        "a": "Support privacy screen wall",
+        "b": "Support screen base curb",
+        "same_facing_overlap_area_m2": 0.7133588060284524,
+        "witness": {
+          "point": [
+            -2.381500244140625,
+            12.750323295593262,
+            -0.0
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "a_triangle": 152,
+          "b_triangle": 152,
+          "intersection_area_m2": 0.30316663311716674
+        }
+      }
+    ]
+  },
+  "cloth_support_limits": {
+    "rim_samples": [
+      {
+        "x": -6.225,
+        "samples": 45,
+        "gap_range": [
+          0.002366364002227783,
+          0.013189196586608887
+        ],
+        "worst_gap": {
+          "cloth_lower": [
+            -6.224999904632568,
+            13.82272720336914,
+            0.8231891989707947
+          ],
+          "deck": [
+            -6.224999904632568,
+            13.82272720336914,
+            0.8100000023841858
+          ],
+          "gap": 0.013189196586608887,
+          "cloth_normal": [
+            0.8997018337249756,
+            -0.001745760440826416,
+            -0.4365015923976898
+          ]
+        },
+        "worst_penetration": {
+          "cloth_lower": [
+            -6.224999904632568,
+            12.199999809265137,
+            0.8123663663864136
+          ],
+          "deck": [
+            -6.224999904632568,
+            12.199999809265137,
+            0.8100000023841858
+          ],
+          "gap": 0.002366364002227783,
+          "cloth_normal": [
+            0.8071275949478149,
+            0.0,
+            -0.5903770923614502
+          ]
+        },
+        "classification": "Flexible cover-over-edge; flat bearing angle rule is inapplicable to a drape"
+      },
+      {
+        "x": -5.475,
+        "samples": 45,
+        "gap_range": [
+          0.00010186433792114258,
+          0.011471092700958252
+        ],
+        "worst_gap": {
+          "cloth_lower": [
+            -5.474999904632568,
+            13.774999618530273,
+            0.8214711546897888
+          ],
+          "deck": [
+            -5.474999904632568,
+            13.774999618530273,
+            0.8100000619888306
+          ],
+          "gap": 0.011471092700958252,
+          "cloth_normal": [
+            -0.8650928735733032,
+            -0.00011468102457001805,
+            -0.5016117691993713
+          ]
+        },
+        "worst_penetration": {
+          "cloth_lower": [
+            -5.474999904632568,
+            12.199999809265137,
+            0.8101019263267517
+          ],
+          "deck": [
+            -5.474999904632568,
+            12.199999809265137,
+            0.8100000619888306
+          ],
+          "gap": 0.00010186433792114258,
+          "cloth_normal": [
+            -0.6884546875953674,
+            0.0,
+            -0.7252793908119202
+          ]
+        },
+        "classification": "Flexible cover-over-edge; flat bearing angle rule is inapplicable to a drape"
+      }
+    ],
+    "interpretation": "Flexible cover near the deck outer edge is not a flat bearing face. Sampled rim lines include0.102mm and2.366mm close stations, but variable gap reaches11.471/13.189mm further along the rim. These samples do not substantiate every internal concealed-load bearing path; no unmodeled load capacity is claimed."
+  },
+  "inspected_pixels": {
+    "actual_previews": [
+      "HERO_SCANNER",
+      "HERO_CARGO",
+      "HERO_TROLLEY",
+      "HERO_UTILITIES",
+      "C07_OFFICE_INTERIOR",
+      "C10_ROOF_SERVICES"
+    ],
+    "actual_dir": "renders/full-f04-previews",
+    "cloth_checker": "renders/full-f04-cloth-uv/HERO_TROLLEY.png",
+    "both_manifest_source_sha256": "92928a64c1a8cdc1c9b4f0f0a9cc0fee9d03fb827c815c5dbd9888d194a5c942",
+    "observation": "Continuous cover checker has no face-island reset across the broad drape. Numerical distortion at the rear side remains a repair target; the six views do not expose every hidden bearing or cover the mandatory full-room set."
+  },
+  "raw_evidence": [
+    "full-f04-technical/validator.json",
+    "full-f04-technical/probe.json",
+    "full-f04-technical/supplement.json",
+    "full-f04-technical/objects.json"
+  ],
+  "execution": {
+    "fresh_cpu_threads": 1,
+    "disable_autoexec": true,
+    "python_exit_code": 1,
+    "successful_scripts": [
+      "full-f04-technical/run_validator.py",
+      "full-f04-technical/probe.py",
+      "full-f04-technical/supplement.py"
+    ],
+    "corrected_probe_failures": [
+      "Initial direct validator call incorrectly supplied unsupported --scene and exited2; corrected wrapper explicitly selected COMPLIANCE_EDIT_LOCAL.",
+      "First supplement completed calculations but JSON serialization rejected numpy.int64; rerun converted numpy scalars."
+    ],
+    "native_saved": false
+  },
+  "unverified": [
+    "Structural engineering/load capacity",
+    "Complete support validation of every internal component",
+    "Mandatory full-camera review cycle",
+    "Cold-render equality and production cold-start gate",
+    "Unity collision/navigation, interactions, draw calls, FPS and runtime"
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "task": "f12 corrected construction recipe technical preflight",
+  "review_type": "read-only diagnostic; not formal art acceptance or score",
+  "status": "BLOCKER FOUND",
+  "authoritative_input": {
+    "path": "sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend",
+    "sha256": "cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035",
+    "revision": "full f11",
+    "verified_against_checkpoint": true
+  },
+  "frozen_recipe_sha256": {
+    "overhaul_dock.py": "43eedde871e912a59f2557a3080420d1517cc9f92f7a183d357da2e3da9010a3",
+    "full_detail.py": "b70fc3776320b1ea9eaa19335a8aeb88f8efc314d5698e5d7fcf54c5e294e0ad",
+    "full_repairs.py": "17c30d76ff4dd92749acf36f87dce6c62384473f00cfa8eac41694f7c8b8691b",
+    "render_dock.py": "9993f999e0eddef5d3c106591728c665647cc49364e44199253780cb9bc89c57"
+  },
+  "tools": {
+    "blender": "/workspace/tools/blender-5.2.2-linux-x64/blender",
+    "version": "5.2.2 LTS",
+    "threads": 1,
+    "method": "read-only f11 native inspection; failed f12 scene appended into disposable factory-startup process for ray probes; no native saved",
+    "processes_released": true
+  },
+  "findings": [
+    {
+      "id": "cargo_rib_piecewise_shear",
+      "severity": "high; construction defect",
+      "confidence": "confirmed on failed unaccepted f12 native and frozen recipe",
+      "recipe_location": "full_repairs.py::cargo_manufactured_shoulders, world_edit at rib vertices; full_detail.py::cargo_detail profile",
+      "evidence": {
+        "f11_body_world_bounds_m": {
+          "min": [3.9, 6.5, 0.75],
+          "max": [5.4, 8.8, 2.15]
+        },
+        "failed_native_rib_vertical_bounds_m": [0.79, 2.11],
+        "rib_profile_z_offsets_m": [-0.66, 0.61, 0.66],
+        "shoulder_break_z_m": 1.98,
+        "east_at_y_6_8_body_vs_rib_outer_x_m": {
+          "z_1_80": [5.4, 5.388342],
+          "z_1_98": [5.399799, 5.380205],
+          "z_2_01": [5.378824, 5.378849],
+          "z_2_03": [5.364706, 5.377945]
+        },
+        "west_at_y_6_8_body_vs_rib_outer_x_m": {
+          "z_1_80": [3.9, 3.911658],
+          "z_1_98": [3.900202, 3.919795],
+          "z_2_01": [3.921176, 3.921151],
+          "z_2_03": [3.935294, 3.922055]
+        }
+      },
+      "interpretation": "Both ribs are buried by about 19.6 mm at the shoulder breakpoint, then become exposed within roughly 30 mm; at z=2.01 m the upper skin happens to align within 0.025 mm. world_edit moves only existing vertices with the clamped piecewise formula, and the long profile edges cross z=1.98 m without a vertex there, so mesh edges interpolate a false shear through the unchanged lower wall. The upper screw is positioned from the intended piecewise plane, so it does not certify the intervening rib contact.",
+      "recommended_repair": "Insert an explicit profile edge at world Z=1.98 m before applying the vertex shift (or author separate lower and drafted upper rib sections). Recheck full rib/body ray distances across both sides and all eight stations, then measure the corresponding upper fixing seats on the corrected mesh."
+    },
+    {
+      "id": "queue_stack_micro_gap",
+      "severity": "low; exact support discontinuity",
+      "confidence": "confirmed from frozen recipe coordinates",
+      "recipe_location": "full_repairs.py::pressure_and_repair_traces; overhaul_dock.py form creation",
+      "evidence": {
+        "fourth_existing_form_top_z_m": 1.065,
+        "first_new_queue_ply_center_z_m": 1.0655,
+        "new_ply_thickness_m": 0.00045,
+        "first_new_queue_ply_bottom_z_m": 1.065275,
+        "gap_m": 0.000275,
+        "later_queue_ply_pitch_m": 0.00045,
+        "later_queue_ply_thickness_m": 0.00045
+      },
+      "interpretation": "The five new sheets touch one another, but the first sheet floats 0.275 mm above the top of the fourth repositioned form. Their XY footprints overlap, so this is a vertical contact gap rather than a missed footprint. The final interface guard does not test form-to-queue contact or glyph clearance/exposure.",
+      "recommended_repair": "Set the first queue sheet bottom to 1.065 m (center Z=1.065225 m at the existing thickness), keep 0.45 mm pitch, and add a numeric continuity check including the retained title and top-page rules."
+    },
+    {
+      "id": "exact_budget_limits",
+      "severity": "watch item; final counter gate required",
+      "confidence": "confirmed from full-f11 build state",
+      "evidence": {
+        "f11_evaluated_triangles": 381032,
+        "triangle_limit": 450000,
+        "triangle_headroom": 68968,
+        "f11_authoring_material_submeshes": 1150,
+        "submesh_limit": 1150,
+        "submesh_headroom": 0,
+        "f11_local_material_families": 36,
+        "family_limit": 36,
+        "family_headroom": 0
+      },
+      "interpretation": "f12 adds and replaces geometry while the prior full native already sits exactly at both submesh and family caps. The recipes reuse the f11 material families and consolidate same-parent cosmetic meshes, so this is a release counter risk rather than a proven overrun. Require actual final evaluated triangle, submesh, and used-family counts after the corrected native save."
+    },
+    {
+      "id": "guarded_interfaces_reviewed",
+      "severity": "no additional defect established in static recipe preflight",
+      "confidence": "recipe inspection; final native measurement remains mandatory",
+      "evidence": {
+        "f11_jamb_world_bounds_m": {
+          "D1_left": [[-6.025, 3.5, 0.0], [-5.925, 3.7, 2.2]],
+          "D1_right": [[-4.875, 3.5, 0.0], [-4.775, 3.7, 2.2]]
+        },
+        "current_guards": [
+          "G1 bay rear/front equality against actual panel front, with bay Z bounds inside panel bounds",
+          "G1 captive-fixing forward ray to bay flange",
+          "cargo cover ray to Boolean rebate floor using generated mesh-centre selection",
+          "P2/D1/D2 new jamb-foot witness ray to the measured jamb-bottom face"
+        ],
+        "uv_layers_on_f11_trolley_tarp": ["CD_Physical_1m", "CD_Fabric_Cut_1m"],
+        "f12_textile_pipeline": "Cotton/fabric consumers receive CD_Fabric_Cut_1m and the non-tarp small textiles are charted continuously before final interface verification."
+      },
+      "interpretation": "The corrected source now measures mesh centres for the cassette/covers; the generated profile origin is not used as a proxy in these selections. The authored gates address the named interfaces, but their final pass evidence must come from the successfully rebuilt native. Existing lifting-eye/collar seats, revised G1 pedestal load transfer, and actual manuscript/table support are not covered by the fifth-review interface guard, so they still need direct native contact measurements."
+    }
+  ],
+  "not_established": [
+    "No visual review, image-based acceptance, rubric score, or 99/100 determination was performed.",
+    "No final corrected f12 native was available for direct inspection; the canonical retry exited before save.",
+    "No Unity runtime, collision, draw-call, FPS, or navigation behavior was measured."
+  ],
+  "raw_diagnostics": [
+    "production/probes/f12-luna-preflight/f11_inventory.json",
+    "production/probes/f12-luna-preflight/failed_rib_geometry.json",
+    "production/probes/f12-luna-preflight/failed_rib_ray_measurements.json"
+  ]
+}

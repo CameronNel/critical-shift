@@ -1,0 +1,77 @@
+{
+  "revision": "f16",
+  "source_sha256": "e33da737e93a730f62f43b09f8348df7133db657c6f6b9efc53651f26df60e39",
+  "static_checks": {
+    "pass": 7,
+    "fail": 0,
+    "warnings": 0,
+    "runtime_unverified": 5
+  },
+  "pre_save_interfaces_passed": 140,
+  "saved_suspension_contacts": 24,
+  "saved_worst_contact_gap_m": 2.384185791015625e-07,
+  "consumed_cloth_gate": "FAIL",
+  "reason": "developed_upholstery_chart unwrap replaces mesh UV storage; sewn_cushion_charts was passed the stale outer cut RNA layer. Prototype uses a fresh saved-mesh layer and succeeds; full-build write did not persist.",
+  "cloth_measurements": [
+    {
+      "object": "Chair seat cushion",
+      "consumed_uv": "CD_Fabric_Cut_1m",
+      "actual_materials": [
+        "CD | fabric"
+      ],
+      "area_m2": 0.5239642006639329,
+      "area_fraction_anisotropy_gt_1_25": 0.21653589183150376,
+      "area_weighted_anisotropy_p95": 1.4832908502807145,
+      "maximum_anisotropy": 1.574292893361097
+    },
+    {
+      "object": "Chair back lumbar",
+      "consumed_uv": "CD_Fabric_Cut_1m",
+      "actual_materials": [
+        "CD | fabric"
+      ],
+      "area_m2": 0.2168778345595981,
+      "area_fraction_anisotropy_gt_1_25": 0.19109310580164904,
+      "area_weighted_anisotropy_p95": 1.4925664654133024,
+      "maximum_anisotropy": 1.5575574422656315
+    },
+    {
+      "object": "Chair back upper",
+      "consumed_uv": "CD_Fabric_Cut_1m",
+      "actual_materials": [
+        "CD | fabric"
+      ],
+      "area_m2": 0.17577269258194764,
+      "area_fraction_anisotropy_gt_1_25": 0.24987301027373401,
+      "area_weighted_anisotropy_p95": 1.5953449778065807,
+      "maximum_anisotropy": 1.6025558542780016
+    },
+    {
+      "object": "CD | Joined Covered Trolley H1 / cotton",
+      "consumed_uv": "CD_Fabric_Cut_1m",
+      "actual_materials": [
+        "CD | cotton"
+      ],
+      "area_m2": 0.031536180388963914,
+      "area_fraction_anisotropy_gt_1_25": 0.0,
+      "area_weighted_anisotropy_p95": 1.0001566810566433,
+      "maximum_anisotropy": 1.0001566810566433
+    }
+  ],
+  "preformal_images_opened": 4,
+  "root_findings": {
+    "C05_CONVEYOR_LEAD_TUNNEL": "A lower front bar becomes visible but picks up an excessively bright cold specular stripe; lower rear frame still dark. Keep comparison and refine local bounce rather than claim the lighting defect resolved.",
+    "C06_CART_GATE_G1": "Actual upper observation openings visible; staggered native leaf heights make common-world-height cut too near the upper edge on the final leaf. Rebase cut relative to each unchanged original pose, keeping pressed bay contacts. Primary mass still substantially rectangular.",
+    "C07_OFFICE_INTERIOR": "Shift board reads; rear practical subtly lifts surroundings, but chair remains pale/hard-looking. In saved source the new cut-chart metadata did not correspond to changed consumed UV data: stale outer RNA layer after unwrap. Local tint patch is visually insufficient.",
+    "HERO_UTILITIES": "DENIED/DAY19 more readable; salvaged door/tag and repair wrap visible. Cuboid primary enclosures still dominate; no independent art acceptance."
+  },
+  "processes_released": true,
+  "f16_acceptance": false,
+  "full_cycle_count_unchanged": 8,
+  "latest_independent_luna_score": 92.3125,
+  "blender_notices": [
+    "Three non-first modifier application notices at gate booleans; no suppression; next repair applies/removes actual geometry-neutral weighted normal ordering before cuts and measures closed topology",
+    "Exit0 build reports four unfreed memory blocks totaling0.022736MB; native static checks pass but no cold acceptance inferred"
+  ],
+  "next": "F17: fresh RNA cut layer, independent chair canvas finish, leaf-relative cuts, lower-energy/warm reflected cargo fill and manufactured transit chest corrugations/pressed lid."
+}

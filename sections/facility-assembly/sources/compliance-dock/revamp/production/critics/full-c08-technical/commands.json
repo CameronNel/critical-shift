@@ -1,0 +1,53 @@
+{
+  "successful_native_commands": [
+    {
+      "script": "probe_inventory.py",
+      "threads": 1,
+      "native_saved": false,
+      "log": "inventory.log"
+    },
+    {
+      "script": "probe_contacts.py",
+      "threads": 1,
+      "native_saved": false,
+      "log": "contacts.log"
+    },
+    {
+      "script": "probe_contacts_parts.py",
+      "threads": 1,
+      "native_saved": false,
+      "log": "contacts_parts.log"
+    },
+    {
+      "script": "probe_details.py",
+      "threads": 1,
+      "native_saved": false,
+      "log": "details.log"
+    },
+    {
+      "script": "probe_validator.py",
+      "threads": 1,
+      "native_saved": false,
+      "log": "existing-validator.log"
+    },
+    {
+      "script": "probe_interfaces.py",
+      "threads": 1,
+      "native_saved": false,
+      "log": "interfaces.log"
+    }
+  ],
+  "exploratory_nonzero_commands": [
+    {
+      "command": "rg --files .../full-cycle-08-neutral .../full-cycle-08-uv-standard",
+      "exit_code": 2,
+      "reason": "UV directory not yet present during pending diagnostic render; not an asset-validation failure"
+    },
+    {
+      "command": "sha256sum four frozen recipes; rg --files .../full-cycle-08-uv-standard",
+      "exit_code": 1,
+      "reason": "All four printed recipe hashes matched; UV directory had no discovered files yet during pending render; not an asset-validation failure"
+    }
+  ],
+  "native_probe_failures": []
+}

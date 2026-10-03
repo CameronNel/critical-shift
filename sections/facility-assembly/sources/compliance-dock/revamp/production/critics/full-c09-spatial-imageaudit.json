@@ -1,0 +1,800 @@
+{
+  "review": "full-c09-spatial",
+  "scope": "Categories 1 and 3 only. All originals opened individually with view_image; no contact sheet substitutes. Final score withheld until root ALL35 READY.",
+  "source": {
+    "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend",
+    "expected": "6838d604ac4586da057a652e98e9c694f754a84e9f38ba70b83f1046e9ae6e9a",
+    "actual": "6838d604ac4586da057a652e98e9c694f754a84e9f38ba70b83f1046e9ae6e9a"
+  },
+  "code_hashes": [
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/overhaul_dock.py",
+      "expected": "347c84da9e72547935adc50b755c1b95ff3b161ddf5019d689bf0ef86ba7cd6c",
+      "actual": "347c84da9e72547935adc50b755c1b95ff3b161ddf5019d689bf0ef86ba7cd6c",
+      "matches": true
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/full_detail.py",
+      "expected": "1521449b1c6eee88689cadb6e43ae911e909f200655b335cd273b9a030a3ef0e",
+      "actual": "1521449b1c6eee88689cadb6e43ae911e909f200655b335cd273b9a030a3ef0e",
+      "matches": true
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/full_repairs.py",
+      "expected": "5edc8c94dcc4e6c17ac5af60815136f02b41cdd64afee381f8505d3df16c1657",
+      "actual": "5edc8c94dcc4e6c17ac5af60815136f02b41cdd64afee381f8505d3df16c1657",
+      "matches": true
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/render_dock.py",
+      "expected": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce",
+      "actual": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce",
+      "matches": true
+    }
+  ],
+  "manifests": [
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/manifest.json",
+      "sha256": "a9240f81d14a1176055a06db8e53db458a74b43df0a4ae7d00629e4568274f2a",
+      "diagnostic": null,
+      "checks": {
+        "complete": true,
+        "shot_count": true,
+        "requested_count": true,
+        "source": true,
+        "renderer": true,
+        "resolution": true,
+        "unsaved": true
+      },
+      "settings": {
+        "engine": "CYCLES",
+        "device": "CPU",
+        "samples": 24,
+        "seed": 8217,
+        "cold_open": false,
+        "adaptive_threshold": 0.06,
+        "adaptive_min_samples": 4,
+        "max_bounces": 6,
+        "diffuse_bounces": 3,
+        "glossy_bounces": 3,
+        "transmission_bounces": 6,
+        "view_transform": "AgX",
+        "look": "AgX - Medium High Contrast",
+        "exposure": 0.699999988079071
+      }
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09-neutral/manifest.json",
+      "sha256": "6d8c723306bf6d118c71f1176b52bbd396db9d801dfab2e3ad598faaac97316c",
+      "diagnostic": "neutral",
+      "checks": {
+        "complete": true,
+        "shot_count": true,
+        "requested_count": true,
+        "source": true,
+        "renderer": true,
+        "resolution": true,
+        "unsaved": true
+      },
+      "settings": {
+        "engine": "CYCLES",
+        "device": "CPU",
+        "samples": 24,
+        "seed": 8217,
+        "cold_open": false,
+        "adaptive_threshold": 0.06,
+        "adaptive_min_samples": 4,
+        "max_bounces": 6,
+        "diffuse_bounces": 3,
+        "glossy_bounces": 3,
+        "transmission_bounces": 6,
+        "view_transform": "AgX",
+        "look": "AgX - Medium High Contrast",
+        "exposure": 0.0
+      }
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09-uv-standard/manifest.json",
+      "sha256": "7ad18aca825c148b423ab6a6d2859661a78a4505937b419f847648b117aac3ff",
+      "diagnostic": "uv",
+      "checks": {
+        "complete": true,
+        "shot_count": true,
+        "requested_count": true,
+        "source": true,
+        "renderer": true,
+        "resolution": true,
+        "unsaved": true
+      },
+      "settings": {
+        "engine": "CYCLES",
+        "device": "CPU",
+        "samples": 24,
+        "seed": 8217,
+        "cold_open": false,
+        "adaptive_threshold": 0.06,
+        "adaptive_min_samples": 4,
+        "max_bounces": 6,
+        "diffuse_bounces": 3,
+        "glossy_bounces": 3,
+        "transmission_bounces": 6,
+        "view_transform": "AgX",
+        "look": "AgX - Medium High Contrast",
+        "exposure": 0.0
+      }
+    }
+  ],
+  "images": [
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/C01_ENTRY.png",
+      "batch": "full-cycle-09",
+      "id": "C01_ENTRY",
+      "individually_opened": true,
+      "visual_observation": "Personnel arch is dominant; counter itself is outside left edge; yellow route runs forward through arch.",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "mode": "RGBA",
+      "sha256": "3decf8f1ac948c16a6841ad0726b6f4e10a4d864b9419946c3789543e00a4d71",
+      "manifest_sha256": "3decf8f1ac948c16a6841ad0726b6f4e10a4d864b9419946c3789543e00a4d71",
+      "hash_matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/C02_HERO_DOCK.png",
+      "batch": "full-cycle-09",
+      "id": "C02_HERO_DOCK",
+      "individually_opened": true,
+      "visual_observation": "Counter and scanner both visible with strong negative space; cargo front mostly at right margin behind gate mast.",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "mode": "RGBA",
+      "sha256": "4ec913cdae1fa280458839cde3616722f5d9234ab68e4bcdb000c4b5cf41e44b",
+      "manifest_sha256": "4ec913cdae1fa280458839cde3616722f5d9234ab68e4bcdb000c4b5cf41e44b",
+      "hash_matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/C03_CHECKIN_COUNTER.png",
+      "batch": "full-cycle-09",
+      "id": "C03_CHECKIN_COUNTER",
+      "individually_opened": true,
+      "visual_observation": "Believable accessible hatch, staff door and work surface; reassurance panel is above hatch.",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "mode": "RGBA",
+      "sha256": "f4c2eea44a7a14d9723ba29466f2bfbd0117836d7f4048b6ee52178e247c950d",
+      "manifest_sha256": "f4c2eea44a7a14d9723ba29466f2bfbd0117836d7f4048b6ee52178e247c950d",
+      "hash_matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/C04_SCANNER_APPROACH.png",
+      "batch": "full-cycle-09",
+      "id": "C04_SCANNER_APPROACH",
+      "individually_opened": true,
+      "visual_observation": "Clear adult-sized worker aperture and forward lane; cart gate adjacent, closed.",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "mode": "RGBA",
+      "sha256": "107cf2cd355212a821ce312abb03847ae680f8a5414d5e4fb73b3950d76e48f2",
+      "manifest_sha256": "107cf2cd355212a821ce312abb03847ae680f8a5414d5e4fb73b3950d76e48f2",
+      "hash_matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/C05_CONVEYOR_LEAD_TUNNEL.png",
+      "batch": "full-cycle-09",
+      "id": "C05_CONVEYOR_LEAD_TUNNEL",
+      "individually_opened": true,
+      "visual_observation": "Cargo crate and tunnel are identifiable; foreground bypass mast occupies left third.",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "mode": "RGBA",
+      "sha256": "a257f91012b40d8b2d4d1c952a5b4f2ac425904b858f394ac4592261e0724737",
+      "manifest_sha256": "a257f91012b40d8b2d4d1c952a5b4f2ac425904b858f394ac4592261e0724737",
+      "hash_matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/C06_CART_GATE_G1.png",
+      "batch": "full-cycle-09",
+      "id": "C06_CART_GATE_G1",
+      "individually_opened": true,
+      "visual_observation": "Closed articulated gate, tracks and controller clear; dedicated cart identifier is weak at this distance.",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "mode": "RGBA",
+      "sha256": "c1e9c6ce92be1ac919c3644c7e5f875eeb8b2fc0402530b75c30d424407d925c",
+      "manifest_sha256": "c1e9c6ce92be1ac919c3644c7e5f875eeb8b2fc0402530b75c30d424407d925c",
+      "hash_matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/C07_OFFICE_INTERIOR.png",
+      "batch": "full-cycle-09",
+      "id": "C07_OFFICE_INTERIOR",
+      "individually_opened": true,
+      "visual_observation": "Human-sized desk, chair and door; readable empty chair working space.",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "mode": "RGBA",
+      "sha256": "b3b4b2b3ac869ff9553a5db4e2e0c8f2ff7c768dab0856f2dd0b35c355dd11a2",
+      "manifest_sha256": "b3b4b2b3ac869ff9553a5db4e2e0c8f2ff7c768dab0856f2dd0b35c355dd11a2",
+      "hash_matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/C08_CONCEALED_SUPPORT_H1.png",
+      "batch": "full-cycle-09",
+      "id": "C08_CONCEALED_SUPPORT_H1",
+      "individually_opened": true,
+      "visual_observation": "Covered trolley contained in quiet support bay; close view cannot prove exit clearances.",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "mode": "RGBA",
+      "sha256": "abed943429d6488e055f5dea0c0c927c1962963c3b7d609769c13880f005441c",
+      "manifest_sha256": "abed943429d6488e055f5dea0c0c927c1962963c3b7d609769c13880f005441c",
+      "hash_matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/C09_ARRIVAL_GATE_P2.png",
+      "batch": "full-cycle-09",
+      "id": "C09_ARRIVAL_GATE_P2",
+      "individually_opened": true,
+      "visual_observation": "Large arrival gate dominates with usable control beside it.",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "mode": "RGBA",
+      "sha256": "cfc45d9b6b670729716d8d877212fa612d785b6afd51bd63db11bdd52aae5d9b",
+      "manifest_sha256": "cfc45d9b6b670729716d8d877212fa612d785b6afd51bd63db11bdd52aae5d9b",
+      "hash_matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/C10_ROOF_SERVICES.png",
+      "batch": "full-cycle-09",
+      "id": "C10_ROOF_SERVICES",
+      "individually_opened": true,
+      "visual_observation": "Enclosed ceiling with heavy structure and suspended lights; not used as floor-route evidence.",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "mode": "RGBA",
+      "sha256": "d0e00ef622a90dde968d94a5a01746431c14cfef837096f0646787b075e7d520",
+      "manifest_sha256": "d0e00ef622a90dde968d94a5a01746431c14cfef837096f0646787b075e7d520",
+      "hash_matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/CORNER_SW.png",
+      "batch": "full-cycle-09",
+      "id": "CORNER_SW",
+      "individually_opened": true,
+      "visual_observation": "Cutaway exposes separate office, support bay and wide inspection lanes.",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "mode": "RGBA",
+      "sha256": "87ec70d4d713d6cd1abc29b5a9f49befaa6cc51dbded3ecb4f2af96be3a563fd",
+      "manifest_sha256": "87ec70d4d713d6cd1abc29b5a9f49befaa6cc51dbded3ecb4f2af96be3a563fd",
+      "hash_matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/CORNER_SE.png",
+      "batch": "full-cycle-09",
+      "id": "CORNER_SE",
+      "individually_opened": true,
+      "visual_observation": "Cutaway makes counter branch and main worker/cart separation visible.",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "mode": "RGBA",
+      "sha256": "b15170f91ba5239bf86eac8edc2e6c4de05d2141f35962fff36382118680ebaa",
+      "manifest_sha256": "b15170f91ba5239bf86eac8edc2e6c4de05d2141f35962fff36382118680ebaa",
+      "hash_matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/CORNER_NW.png",
+      "batch": "full-cycle-09",
+      "id": "CORNER_NW",
+      "individually_opened": true,
+      "visual_observation": "Cutaway exposes office separation and inspection barrier; outer envelope appears orderly.",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "mode": "RGBA",
+      "sha256": "5f24ceeeb667aa12a15bc103de8190fe802d75d8656a110330519ff11adfabf6",
+      "manifest_sha256": "5f24ceeeb667aa12a15bc103de8190fe802d75d8656a110330519ff11adfabf6",
+      "hash_matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/CORNER_NE.png",
+      "batch": "full-cycle-09",
+      "id": "CORNER_NE",
+      "individually_opened": true,
+      "visual_observation": "Cutaway shows quieter west return space and long inspection lanes.",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "mode": "RGBA",
+      "sha256": "193d30aed8730d406d54ce4131e7cb474102b6a905389dd8a0e3fdd59fa731ed",
+      "manifest_sha256": "193d30aed8730d406d54ce4131e7cb474102b6a905389dd8a0e3fdd59fa731ed",
+      "hash_matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/WALL_SOUTH.png",
+      "batch": "full-cycle-09",
+      "id": "WALL_SOUTH",
+      "individually_opened": true,
+      "visual_observation": "Entry aperture has clear reveal and sparse wall dressing.",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "mode": "RGBA",
+      "sha256": "09192a8216fbcba367950bcc428d66f46049dfe0fe1ef8d09edfdd57b004d2f0",
+      "manifest_sha256": "09192a8216fbcba367950bcc428d66f46049dfe0fe1ef8d09edfdd57b004d2f0",
+      "hash_matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/WALL_NORTH.png",
+      "batch": "full-cycle-09",
+      "id": "WALL_NORTH",
+      "individually_opened": true,
+      "visual_observation": "Arrival opening, evidence cupboard and service cabinets fit wall hierarchy.",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "mode": "RGBA",
+      "sha256": "e6de3eb7bfcac13f01327e99cbb18fcd68fcc674a9626ddbf441eca2402ffc95",
+      "manifest_sha256": "e6de3eb7bfcac13f01327e99cbb18fcd68fcc674a9626ddbf441eca2402ffc95",
+      "hash_matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/WALL_EAST.png",
+      "batch": "full-cycle-09",
+      "id": "WALL_EAST",
+      "individually_opened": true,
+      "visual_observation": "Service cluster kept to one side; large quiet wall fields.",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "mode": "RGBA",
+      "sha256": "7d785c6483a1940a7d301ae4c4561c3c5cd0168fa50ca7df873900d28fcd0af0",
+      "manifest_sha256": "7d785c6483a1940a7d301ae4c4561c3c5cd0168fa50ca7df873900d28fcd0af0",
+      "hash_matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/WALL_WEST.png",
+      "batch": "full-cycle-09",
+      "id": "WALL_WEST",
+      "individually_opened": true,
+      "visual_observation": "Office and support partition audit; hidden elements must not be mistaken for enclosed ambiance.",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "mode": "RGBA",
+      "sha256": "98f1f35e799a7cb9c3efa8ec659f8e251129b5bb28edb7fa33ef8fc31fb06c5b",
+      "manifest_sha256": "98f1f35e799a7cb9c3efa8ec659f8e251129b5bb28edb7fa33ef8fc31fb06c5b",
+      "hash_matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/HERO_SCANNER.png",
+      "batch": "full-cycle-09",
+      "id": "HERO_SCANNER",
+      "individually_opened": true,
+      "visual_observation": "Worker arch has readable aperture and local controls.",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "mode": "RGBA",
+      "sha256": "2c0badb51dbd864a127a6310496e3dfc99f75c71461ec56809909d123e7f8b4b",
+      "manifest_sha256": "2c0badb51dbd864a127a6310496e3dfc99f75c71461ec56809909d123e7f8b4b",
+      "hash_matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/HERO_CARGO.png",
+      "batch": "full-cycle-09",
+      "id": "HERO_CARGO",
+      "individually_opened": true,
+      "visual_observation": "Tunnel mouth and roller path recognizable; crate dominates front but does not hide machine identity.",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "mode": "RGBA",
+      "sha256": "6ce94821cfd20a8fda9fd2edfc29bcb5ff81a261d63167f8ba1db5d22b4b82bc",
+      "manifest_sha256": "6ce94821cfd20a8fda9fd2edfc29bcb5ff81a261d63167f8ba1db5d22b4b82bc",
+      "hash_matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/HERO_EVIDENCE.png",
+      "batch": "full-cycle-09",
+      "id": "HERO_EVIDENCE",
+      "individually_opened": true,
+      "visual_observation": "Evidence locker fronts recognizable; trolley occludes lower-left fronts, but physical clearance is not measurable from this view.",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "mode": "RGBA",
+      "sha256": "c687f8bd46eb6bba0f710ad4e5e5eb27ad901d21bd6a22f129c4ca402157d339",
+      "manifest_sha256": "c687f8bd46eb6bba0f710ad4e5e5eb27ad901d21bd6a22f129c4ca402157d339",
+      "hash_matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/HERO_TROLLEY.png",
+      "batch": "full-cycle-09",
+      "id": "HERO_TROLLEY",
+      "individually_opened": true,
+      "visual_observation": "Adult transfer trolley fits secondary bay; locker access needs native verification separately.",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "mode": "RGBA",
+      "sha256": "65b92dc4caeb3ea44fd3404224aa04db1b11c726d371e1494566872085c338de",
+      "manifest_sha256": "65b92dc4caeb3ea44fd3404224aa04db1b11c726d371e1494566872085c338de",
+      "hash_matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/HERO_UTILITIES.png",
+      "batch": "full-cycle-09",
+      "id": "HERO_UTILITIES",
+      "individually_opened": true,
+      "visual_observation": "Service equipment remains a secondary wall cluster.",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "mode": "RGBA",
+      "sha256": "7de52ef5d98f273cbf5cb7a86df7c5aafaade6169fe9337d555cf01b98ab0107",
+      "manifest_sha256": "7de52ef5d98f273cbf5cb7a86df7c5aafaade6169fe9337d555cf01b98ab0107",
+      "hash_matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/DETAIL_CHECKIN.png",
+      "batch": "full-cycle-09",
+      "id": "DETAIL_CHECKIN",
+      "individually_opened": true,
+      "visual_observation": "Work interaction surface has localized paperwork, speaker screen and stamping area.",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "mode": "RGBA",
+      "sha256": "8639770a198222861504a1832f6074203c29ccf359c026698d9b35c807a1722c",
+      "manifest_sha256": "8639770a198222861504a1832f6074203c29ccf359c026698d9b35c807a1722c",
+      "hash_matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/PLAYER_REVERSE.png",
+      "batch": "full-cycle-09",
+      "id": "PLAYER_REVERSE",
+      "individually_opened": true,
+      "visual_observation": "Straight return lane frames entry; check-in counter is not in the forward view.",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "mode": "RGBA",
+      "sha256": "8f443bd6e518a8f73c2b4cb8db9873c84766eef971beb19677399eb4227834ce",
+      "manifest_sha256": "8f443bd6e518a8f73c2b4cb8db9873c84766eef971beb19677399eb4227834ce",
+      "hash_matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/PLAYER_PINCH.png",
+      "batch": "full-cycle-09",
+      "id": "PLAYER_PINCH",
+      "individually_opened": true,
+      "visual_observation": "Return corridor floor is visible; service cart kept beyond principal opening.",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "mode": "RGBA",
+      "sha256": "ceb44669372f9e276d4debe5b57f9d96fcb794da8d2b8a55bc5d3300bf7d4df2",
+      "manifest_sha256": "ceb44669372f9e276d4debe5b57f9d96fcb794da8d2b8a55bc5d3300bf7d4df2",
+      "hash_matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/WALL_OFFICE_FRONT.png",
+      "batch": "full-cycle-09",
+      "id": "WALL_OFFICE_FRONT",
+      "individually_opened": true,
+      "visual_observation": "Hatch and staff door distinct; large reassurance panel stronger than functional check-in cue.",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "mode": "RGBA",
+      "sha256": "bb3cfe3f589005bd35a445e932f0a33d9a4d80826b9b7c0eecf83d9dde1967b2",
+      "manifest_sha256": "bb3cfe3f589005bd35a445e932f0a33d9a4d80826b9b7c0eecf83d9dde1967b2",
+      "hash_matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09-neutral/C05_CONVEYOR_LEAD_TUNNEL.png",
+      "batch": "full-cycle-09-neutral",
+      "id": "C05_CONVEYOR_LEAD_TUNNEL",
+      "individually_opened": true,
+      "visual_observation": "Same fixed C05_CONVEYOR_LEAD_TUNNEL view inspected in neutral mode; assembly placement and silhouette agree with beauty. Material/UV scoring belongs to independent specialists.",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "mode": "RGBA",
+      "sha256": "ff21d80b220e165facc126bcdcca294a068d3c27c89091d984885cf55fb35df5",
+      "manifest_sha256": "ff21d80b220e165facc126bcdcca294a068d3c27c89091d984885cf55fb35df5",
+      "hash_matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09-neutral/C07_OFFICE_INTERIOR.png",
+      "batch": "full-cycle-09-neutral",
+      "id": "C07_OFFICE_INTERIOR",
+      "individually_opened": true,
+      "visual_observation": "Same fixed C07_OFFICE_INTERIOR view inspected in neutral mode; assembly placement and silhouette agree with beauty. Material/UV scoring belongs to independent specialists.",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "mode": "RGBA",
+      "sha256": "5e6f4abe9a9a5ebc4e172b87e36ddceb9e100da4298104bab139db4c59acf080",
+      "manifest_sha256": "5e6f4abe9a9a5ebc4e172b87e36ddceb9e100da4298104bab139db4c59acf080",
+      "hash_matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09-neutral/HERO_TROLLEY.png",
+      "batch": "full-cycle-09-neutral",
+      "id": "HERO_TROLLEY",
+      "individually_opened": true,
+      "visual_observation": "Same fixed HERO_TROLLEY view inspected in neutral mode; assembly placement and silhouette agree with beauty. Material/UV scoring belongs to independent specialists.",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "mode": "RGBA",
+      "sha256": "2a7c2ff2c2715638229a7719ed3038feb7a59d6d5580cb393ac77a0c6c0cca6d",
+      "manifest_sha256": "2a7c2ff2c2715638229a7719ed3038feb7a59d6d5580cb393ac77a0c6c0cca6d",
+      "hash_matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09-neutral/HERO_UTILITIES.png",
+      "batch": "full-cycle-09-neutral",
+      "id": "HERO_UTILITIES",
+      "individually_opened": true,
+      "visual_observation": "Same fixed HERO_UTILITIES view inspected in neutral mode; assembly placement and silhouette agree with beauty. Material/UV scoring belongs to independent specialists.",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "mode": "RGBA",
+      "sha256": "1e1513fb04f9bef1adb6003eec7f17975a02864c1db9a70859882802c2ce1509",
+      "manifest_sha256": "1e1513fb04f9bef1adb6003eec7f17975a02864c1db9a70859882802c2ce1509",
+      "hash_matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09-uv-standard/C05_CONVEYOR_LEAD_TUNNEL.png",
+      "batch": "full-cycle-09-uv-standard",
+      "id": "C05_CONVEYOR_LEAD_TUNNEL",
+      "individually_opened": true,
+      "visual_observation": "Same fixed C05_CONVEYOR_LEAD_TUNNEL view inspected in uv mode; assembly placement and silhouette agree with beauty. Material/UV scoring belongs to independent specialists.",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "mode": "RGBA",
+      "sha256": "036861b49dc4e3c20b100dc85f5dc287ae49b40f1606bff9186255b3c00e4070",
+      "manifest_sha256": "036861b49dc4e3c20b100dc85f5dc287ae49b40f1606bff9186255b3c00e4070",
+      "hash_matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09-uv-standard/C07_OFFICE_INTERIOR.png",
+      "batch": "full-cycle-09-uv-standard",
+      "id": "C07_OFFICE_INTERIOR",
+      "individually_opened": true,
+      "visual_observation": "Same fixed C07_OFFICE_INTERIOR view inspected in uv mode; assembly placement and silhouette agree with beauty. Material/UV scoring belongs to independent specialists.",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "mode": "RGBA",
+      "sha256": "a23fdb48c9961a662799e9bae51f8565fddbc0b4caaef818c0fba892ff7c7015",
+      "manifest_sha256": "a23fdb48c9961a662799e9bae51f8565fddbc0b4caaef818c0fba892ff7c7015",
+      "hash_matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09-uv-standard/HERO_TROLLEY.png",
+      "batch": "full-cycle-09-uv-standard",
+      "id": "HERO_TROLLEY",
+      "individually_opened": true,
+      "visual_observation": "Same fixed HERO_TROLLEY view inspected in uv mode; assembly placement and silhouette agree with beauty. Material/UV scoring belongs to independent specialists.",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "mode": "RGBA",
+      "sha256": "53975a7edfac9602e6d065d7bd7182eca69194be3368b8d4cf5ac952ab1bca24",
+      "manifest_sha256": "53975a7edfac9602e6d065d7bd7182eca69194be3368b8d4cf5ac952ab1bca24",
+      "hash_matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09-uv-standard/HERO_UTILITIES.png",
+      "batch": "full-cycle-09-uv-standard",
+      "id": "HERO_UTILITIES",
+      "individually_opened": true,
+      "visual_observation": "Same fixed HERO_UTILITIES view inspected in uv mode; assembly placement and silhouette agree with beauty. Material/UV scoring belongs to independent specialists.",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "format": "PNG",
+      "mode": "RGBA",
+      "sha256": "0fbf414d00c79a33fbdd677f6ebfc384005a9882e3df46b5810a08ab0c2e392c",
+      "manifest_sha256": "0fbf414d00c79a33fbdd677f6ebfc384005a9882e3df46b5810a08ab0c2e392c",
+      "hash_matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/BRIEFING_INDIRECT.png",
+      "batch": "spawn-reference",
+      "id": "BRIEFING_INDIRECT",
+      "individually_opened": true,
+      "decoded_size": [
+        1280,
+        720
+      ],
+      "mode": "RGBA",
+      "sha256": "8d03448f84845b16705c6acc3324364a4e0a51f36c34355f4c481e8957aef301",
+      "manifest_sha256": "8d03448f84845b16705c6acc3324364a4e0a51f36c34355f4c481e8957aef301",
+      "hash_matches": true,
+      "visual_observation": "Approved spawn reference opened individually to calibrate clear circulation, localized hero composition and human scale."
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/VALIDATE_LockerDoor.png",
+      "batch": "spawn-reference",
+      "id": "VALIDATE_LockerDoor",
+      "individually_opened": true,
+      "decoded_size": [
+        1280,
+        720
+      ],
+      "mode": "RGBA",
+      "sha256": "b8fd309f91cc15bfe6d183a253b81ba0f20a0033e08c63214c127e07e19879de",
+      "manifest_sha256": "b8fd309f91cc15bfe6d183a253b81ba0f20a0033e08c63214c127e07e19879de",
+      "hash_matches": true,
+      "visual_observation": "Approved spawn reference opened individually to calibrate clear circulation, localized hero composition and human scale."
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/VALIDATE_Material_A.png",
+      "batch": "spawn-reference",
+      "id": "VALIDATE_Material_A",
+      "individually_opened": true,
+      "decoded_size": [
+        1280,
+        720
+      ],
+      "mode": "RGBA",
+      "sha256": "47d3892f69b4b244bcbff32908a6445556c182b2090aba11b22be1fe274253f6",
+      "manifest_sha256": "47d3892f69b4b244bcbff32908a6445556c182b2090aba11b22be1fe274253f6",
+      "hash_matches": true,
+      "visual_observation": "Approved spawn reference opened individually to calibrate clear circulation, localized hero composition and human scale."
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/VALIDATE_Spawn.png",
+      "batch": "spawn-reference",
+      "id": "VALIDATE_Spawn",
+      "individually_opened": true,
+      "decoded_size": [
+        1280,
+        720
+      ],
+      "mode": "RGBA",
+      "sha256": "c84f368729c7e3ae1e6f1005ff5daae39020749316545bd208c972cee5b4e9ed",
+      "manifest_sha256": "c84f368729c7e3ae1e6f1005ff5daae39020749316545bd208c972cee5b4e9ed",
+      "hash_matches": true,
+      "visual_observation": "Approved spawn reference opened individually to calibrate clear circulation, localized hero composition and human scale."
+    }
+  ],
+  "native_opened": false,
+  "recipe_contents_read": false,
+  "reference_provenance": {
+    "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/reference-provenance.json",
+    "sha256": "d04251c153c364e6ad5745caa704caf147f42dc64e181a5744f91de344174a2d",
+    "source_path": "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend",
+    "source_expected": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+    "source_actual": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+    "source_matches": true,
+    "reused_validated_reference_renders": true,
+    "note": "Provenance records reuse from approved capture; this audit verifies current approved native hash and four captured image bytes, not a new reference render."
+  },
+  "current_image_count": 35,
+  "reference_image_count": 4,
+  "all_checks_pass": true,
+  "released_readers": "All hash/decode file handles closed. No Blender process, native reader or recipe reader was started; none retained."
+}

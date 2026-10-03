@@ -1,0 +1,84 @@
+{
+  "cycle": "full-cycle-04",
+  "native_revision": "f09",
+  "source_sha256": "2820ac1c7a79a28d739d0b953d73b4490f264c119775eeeef37c46bf6792a7c6",
+  "complete_rendered_and_reviewed_views": 27,
+  "diagnostic_views": 8,
+  "critics": {
+    "spatial": {
+      "report": "critics/full-c04-spatial.json",
+      "sha256": "9b1aa33cce95b3736feac6318daa30c3793b416dc843558ecc926e06b88769a9"
+    },
+    "materials": {
+      "report": "critics/full-c04-materials.json",
+      "sha256": "d2fe646acec8eb62a57a10e9489f37b55ff3a2aa9e06945ec76b648bc0f2b3f1"
+    },
+    "lighting": {
+      "report": "critics/full-c04-lighting.json",
+      "sha256": "d5da0cd3ac10c55e6e2d1ca48139b4deca3dafdd318ed0db1bbb1353000c541d"
+    },
+    "story": {
+      "report": "critics/full-c04-story.json",
+      "sha256": "deb86a3b397d5b7ff4d054d6f2ec45935798ad77b845ad48fe3bb8a08cee492c"
+    },
+    "technical": {
+      "report": "critics/full-c04-technical.json",
+      "sha256": "347cc8c0a044d102c1f766e6a88a11e3d2f307de237a790592f92aa94d81016d"
+    },
+    "luna": {
+      "report": "critics/full-c04-luna.json",
+      "sha256": "49e08bb003eb37895aab53f70cf30509356a04b5d0affc2130e84a15b493e666"
+    }
+  },
+  "per_category_conservative_scores": {
+    "1": 87,
+    "2": 84,
+    "3": 86,
+    "4": 83,
+    "5": 87,
+    "6": 93,
+    "7": 78,
+    "8": 92
+  },
+  "aggregation": "Minimum of assigned specialist and independently scored Luna category, no author scores. Every assigned specialist score is at least the Luna score. All reports retained.",
+  "luna_overall_score": 86.25,
+  "owner_pass_minimum": 99,
+  "verdict": "FAIL",
+  "full_room_accepted": false,
+  "completed_full_cycles": 4,
+  "final_two_materially_stable": false,
+  "cold_github_source_open_pass": true,
+  "cold_github_source_open_commit": "bdf0adf6d14229979a959542eabbbddb775f2720",
+  "cold_render_equivalence_verified": false,
+  "source_consumers_released": true,
+  "root_pixel_inspection": "pixel-inspection-full-c04.json",
+  "regression_comparison": "compare-c03-c04.json",
+  "renderer_change_explanation": "compare-c03-c04-recipe-change.json",
+  "remaining_defects": [
+    {
+      "rank": 1,
+      "defect": "Printed manifest header and first-line glyphs penetrate the curled writing surface in two mandatory check-in views.",
+      "evidence": "Current native sampling finds 225/501 header vertices and 18/772 line-1 vertices buried; header maximum penetration is 1.646 mm. Images: C03_CHECKIN_COUNTER and DETAIL_CHECKIN.",
+      "bounded_target": "Keep the existing counter and paper placement. Either flatten the writing area under the retained glyph planes or conform/place the text above the actual paper surface. Verify every glyph clears the paper, then rerender both fixed views and rerun the contact check."
+    },
+    {
+      "rank": 2,
+      "defect": "The scanner arch and cargo examination housing rely on broad box-like forms with limited construction cues, weakening hero distinction and making the wide inspection view visually crowded.",
+      "evidence": "C02_HERO_DOCK, HERO_SCANNER, HERO_CARGO.",
+      "bounded_target": "Refine joints, service panel breaks, seals and the roller-to-tunnel transition on the existing assemblies. Preserve footprints, apertures, object poses, camera framing, layout and boundaries."
+    },
+    {
+      "rank": 3,
+      "defect": "Most walls, painted equipment, floors and dark structural elements have similar smooth, low-variation material responses.",
+      "evidence": "C01_ENTRY, C05_CONVEYOR_LEAD_TUNNEL, WALL_EAST, HERO_UTILITIES.",
+      "bounded_target": "Adjust existing material response and broad surface variation to separate concrete, painted steel, rubber, glass, paper and canvas at the fixed render scale. Keep wear localized and avoid blanket grime or noise."
+    },
+    {
+      "rank": 4,
+      "defect": "Large wall and secondary-area views give limited evidence of an active, pressured workplace; worker and repair traces are sparse.",
+      "evidence": "CORNER_SW, CORNER_SE, CORNER_NW, CORNER_NE, WALL_SOUTH, WALL_EAST, PLAYER_PINCH.",
+      "bounded_target": "Add or refine a few purposeful shift and maintenance traces at current stations or quiet wall areas. Preserve route clearance, negative space, all equipment poses and room boundaries."
+    }
+  ],
+  "runtime_verified": false
+}

@@ -1,0 +1,253 @@
+{
+  "review_id": "full-c09-materials",
+  "reviewed_at_utc": "2026-10-03T08:14:49.263805+00:00",
+  "role": "Independent fresh read-only category 4 / category 6 critic",
+  "status": "COMPLETE \u2014 scoped category review, not overall acceptance",
+  "independence": "No previous scores/reports, builder explanations, source recipe contents, repair plans or other critic scores were used. Scores assigned only after root ALL35 READY and actual post-signal individual opening of all 35 current originals and all 4 references.",
+  "source_sha256": "6838d604ac4586da057a652e98e9c694f754a84e9f38ba70b83f1046e9ae6e9a",
+  "renderer_sha256": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce",
+  "image_audit": "full-c09-materials-imageaudit.json",
+  "evidence_counts": {
+    "beauty": 27,
+    "neutral": 4,
+    "uv": 4,
+    "approved_spawn_reference": 4,
+    "current_originals": 35,
+    "originals_total": 39
+  },
+  "categories": [
+    {
+      "number": 4,
+      "name": "Tactile material identity and UV/texture discipline",
+      "score": 95.5,
+      "maximum": 100,
+      "deductions": [
+        {
+          "defect_id": "C09-MAT-001",
+          "points": 1.5
+        },
+        {
+          "defect_id": "C09-MAT-002",
+          "points": 2.0
+        },
+        {
+          "defect_id": "C09-MAT-003",
+          "points": 1.0
+        }
+      ],
+      "arithmetic": "100 - 1.5 - 2.0 - 1.0 = 95.5",
+      "strictly_greater_than_93": true,
+      "findings": "Matte plaster, painted metal, grey bare-metal highlights, flexible dark curtain, cream textiles, paper and rubber wheels are visibly separated. Quiet broad surfaces are appropriate; there is no room-wide glossy plastic response. Checker views show broad coverage and no conspicuous gross distortion on the visible trolley/case/major housings. Local textile frequency, office glazing finish and paired wear masks keep the category below near-flawless."
+    },
+    {
+      "number": 6,
+      "name": "Approved spawn colour coherence and restrained accents",
+      "score": 99.0,
+      "maximum": 100,
+      "deductions": [
+        {
+          "defect_id": "C09-COL-001",
+          "points": 1.0
+        }
+      ],
+      "arithmetic": "100 - 1.0 = 99.0",
+      "strictly_greater_than_93": true,
+      "findings": "Rose/off-white plaster above charcoal/navy lower walls, blue-grey equipment, restrained burnt-orange doors/case/signs and cream paper are coherent with VALIDATE_Spawn and the locker/briefing references. Useful yellow route/hazard cues and small green/red indicators remain localized; no decorative cyan bloom or colour confetti. The large northern yellow apron is the sole small colour-balance deduction."
+    }
+  ],
+  "defects": [
+    {
+      "id": "C09-MAT-001",
+      "category": 4,
+      "title": "Textile weave is too fine for the inspection view",
+      "deduction": 1.5,
+      "severity": "minor",
+      "critical": false,
+      "veto": false,
+      "confidence": "high",
+      "views": [
+        "full-cycle-09/C08_CONCEALED_SUPPORT_H1.png",
+        "full-cycle-09/HERO_EVIDENCE.png",
+        "full-cycle-09/HERO_TROLLEY.png",
+        "full-cycle-09/DETAIL_CHECKIN.png"
+      ],
+      "regions": [
+        {
+          "view": "C08_CONCEALED_SUPPORT_H1",
+          "xyxy_pixels": [
+            435,
+            370,
+            1050,
+            586
+          ],
+          "description": "Broad cream hanging skirt under the four dark straps."
+        },
+        {
+          "view": "HERO_EVIDENCE",
+          "xyxy_pixels": [
+            0,
+            343,
+            517,
+            592
+          ],
+          "description": "Near foreground cream cloth."
+        },
+        {
+          "view": "DETAIL_CHECKIN",
+          "xyxy_pixels": [
+            231,
+            480,
+            456,
+            570
+          ],
+          "description": "Folded textile stack in front of the paper tray."
+        }
+      ],
+      "observation": "At original 1067x600 resolution the cream trolley skirt and close folded textile carry a very fine repeating diagonal/grid pattern. In C08 and the foreground of HERO_EVIDENCE the frequency becomes a visible shimmer-like banding pattern over the broad cloth mass. This is a still-image frequency concern; temporal shimmer is not tested. The broad cloth folds and matte response are otherwise convincing.",
+      "authority": "ART_DIRECTION 6.1 Fabric and 6.2 Texture frequency: simplified weave or none at normal gameplay distance; broad variation and restrained frequency.",
+      "recommendation": "Reduce weave contrast and high-frequency bump, or filter the weave so broad folds and seam/hem thickness dominate these same cameras. Preserve the cream cloth colour and matte response.",
+      "native_confirmation": "Not measured; no texture scale, UV area, or shader node diagnosis asserted."
+    },
+    {
+      "id": "C09-MAT-002",
+      "category": 4,
+      "title": "Office glazing has a generalized milky finish",
+      "deduction": 2.0,
+      "severity": "minor",
+      "critical": false,
+      "veto": false,
+      "confidence": "medium",
+      "views": [
+        "full-cycle-09/C03_CHECKIN_COUNTER.png",
+        "full-cycle-09/C07_OFFICE_INTERIOR.png",
+        "full-cycle-09/C01_ENTRY.png",
+        "full-cycle-09/PLAYER_REVERSE.png"
+      ],
+      "regions": [
+        {
+          "view": "C07_OFFICE_INTERIOR",
+          "xyxy_pixels": [
+            561,
+            0,
+            1067,
+            254
+          ],
+          "description": "Office panes over the desktop, especially large central pane."
+        },
+        {
+          "view": "C03_CHECKIN_COUNTER",
+          "xyxy_pixels": [
+            623,
+            174,
+            973,
+            460
+          ],
+          "description": "Receding glazed office side wall."
+        }
+      ],
+      "observation": "The large office panes read as a consistently diffuse, pale veil with broadly blurred forms behind them. It clearly reads as glazing, but the uniformly milky area suppresses the subtle reflective/transmissive variation that would make this conspicuous architectural material feel more deliberately finished. This is a limited craft deduction, not a claim that privacy glass is forbidden. The neutral image changes the balance of reflections/transmission, so no shader roughness value or defect cause is inferred.",
+      "authority": "ART_DIRECTION 6: stylized but believable, distinct material response; 1.1 tactile and professionally art-directed.",
+      "recommendation": "Retain believable privacy if intended, while balancing haze, broad reflection and transmission so the panes show deliberate material variation rather than a uniform blur. Recheck both directions at the fixed beauty camera exposure.",
+      "native_confirmation": "Not measured; thickness, roughness, transmission implementation and physical glass correctness unverified."
+    },
+    {
+      "id": "C09-MAT-003",
+      "category": 4,
+      "title": "Paired cabinet handle wear repeats as cloudy strips",
+      "deduction": 1.0,
+      "severity": "minor",
+      "critical": false,
+      "veto": false,
+      "confidence": "high",
+      "views": [
+        "full-cycle-09/HERO_UTILITIES.png",
+        "full-cycle-09-neutral/HERO_UTILITIES.png",
+        "full-cycle-09/WALL_NORTH.png"
+      ],
+      "regions": [
+        {
+          "view": "HERO_UTILITIES",
+          "xyxy_pixels": [
+            32,
+            365,
+            265,
+            512
+          ],
+          "description": "Two blue cabinet handle regions at left."
+        }
+      ],
+      "observation": "The two blue cabinet doors show nearly matching cloudy vertical wear concentrated around their handles. Localization is appropriate, but the matching placement and similar soft mottling make the pair feel patterned rather than separately used. Bare-metal conduit and pale electrical housings remain clearly differentiated; this is not a blanket anti-plastic defect.",
+      "authority": "ART_DIRECTION 6.1 Painted metal and 9 Wear: localized scratches, restrained wear, imperfection should look authored.",
+      "recommendation": "Keep the same restrained palette and wear area, but vary the two contact masks and combine broad faded paint with one or two clearer local handle scuffs. Avoid adding photographic grunge across the doors.",
+      "native_confirmation": "Visual repetition only; no claim of duplicated UVs or shared texture implementation."
+    },
+    {
+      "id": "C09-COL-001",
+      "category": 6,
+      "title": "North arrival apron is an unusually strong saturated field",
+      "deduction": 1.0,
+      "severity": "minor",
+      "critical": false,
+      "veto": false,
+      "confidence": "high",
+      "views": [
+        "full-cycle-09/PLAYER_PINCH.png",
+        "full-cycle-09/CORNER_SE.png",
+        "full-cycle-09/CORNER_SW.png"
+      ],
+      "regions": [
+        {
+          "view": "PLAYER_PINCH",
+          "xyxy_pixels": [
+            382,
+            444,
+            655,
+            600
+          ],
+          "description": "Large unbroken yellow floor apron surrounding the drain in foreground."
+        }
+      ],
+      "observation": "The safety apron occupies a large, nearly unbroken saturated yellow foreground field in PLAYER_PINCH. Its purpose is legible, yet its colour weight outweighs the nearby muted gate and service props more strongly than the restrained accent balance elsewhere. The defect is slight because the yellow is functional and the room overall remains calm and coherent.",
+      "authority": "ART_DIRECTION 7: most surfaces restrained; saturation reserved for useful information. OVERHAUL_BRIEF: approved spawn colours and deliberate negative space.",
+      "recommendation": "Retain the footprint, hazard role and legibility, but slightly reduce yellow chroma/value or add restrained broad wear variation so this field sits with the existing muted industrial palette. Do not move preserved interfaces or repaint the whole floor.",
+      "native_confirmation": "Pixel-based colour hierarchy judgment, not calibrated reflectance measurement."
+    }
+  ],
+  "critical_defects": [],
+  "visual_veto": false,
+  "visual_veto_scope": "No dominant uniform satin plastic, photoreal texture noise, decorative sci-fi gloss or colour-confetti failure observed within materials/colour remit. Shape, layout, lighting, technical and narrative vetoes belong to their independent reviewers.",
+  "per_category_gt93_gate": true,
+  "overall_score": null,
+  "overall_99_gate": "Not scored by this critic. Category 4 is 95.5; category 6 is 99.0. No average or final completion certificate supplied.",
+  "uv_visual_findings": {
+    "coverage": "Checker visible on broad machine/case sides and tops, trolley drape/front/hem, visible electrical housings, office furniture, visible tubes and wheel surfaces. No obvious missing checker on the surfaces exposed by these four diagnostic views.",
+    "distortion": "Broad drape checks remain legible and track the folds; front/top/side changes are consistent with geometry/perspective in these images. Fine rods/cylinders show bands but this does not prove faulty unwrap or unequal world density.",
+    "numerical_world_density": "UNMEASURED \u2014 no UV/world-area measurement.",
+    "hidden_faces_caps_overlaps": "NOT CERTIFIED \u2014 four diagnostic views cannot establish all hidden cap coverage or intentional overlaps."
+  },
+  "comparison_to_approved_spawn": "Colour/material hierarchy uses the approved render originals as calibration, not the generated plates as copied designs. The dock reasonably uses more industrial grey and less domestic wood than briefing. The darker coercive mood is allowed and is not a deduction by itself.",
+  "limits": [
+    "No native UV-area/world-area calculation or physical texel-density measurement.",
+    "No certification of UV overlaps, topology, support contact, collider/navigation, runtime, or Unity equivalence.",
+    "Four diagnostic cameras do not expose every hidden face.",
+    "This image/provenance audit does not certify cold-open reproducibility or final two-cycle stability.",
+    "No measured shader parameters or calibrated material reflectance. Neutral diagnostic internal recipe was not read; declared mode was corroborated only through current manifests and pixels.",
+    "No temporal aliasing, animation or in-engine visual behavior tested.",
+    "Minor defects are scoped pixel judgments; privacy glass and repeated materials are not prohibited techniques."
+  ],
+  "repair_priority": [
+    "C09-MAT-001: reduce fine textile frequency.",
+    "C09-MAT-002: refine the glass balance with controlled material variation.",
+    "C09-MAT-003: vary localized cabinet wear.",
+    "C09-COL-001: lower the north-apron colour weight slightly."
+  ],
+  "outputs_owned": [
+    "full-c09-materials.json",
+    "full-c09-materials.md",
+    "full-c09-materials-imageaudit.json"
+  ],
+  "native_or_recipe_changes": false,
+  "readers_released": true,
+  "processes_started": [],
+  "release_statement": "All PIL files used context managers and are closed. No Blender/native process or persistent file reader was started. Short-lived metadata commands completed normally; no owned reader or render job remains at handoff."
+}

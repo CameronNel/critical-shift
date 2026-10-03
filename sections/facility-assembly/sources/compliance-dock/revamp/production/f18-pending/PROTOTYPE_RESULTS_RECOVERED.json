@@ -1,0 +1,78 @@
+{
+  "provenance": "Root numerical values recovered from actual tool output in this session after execution transport disconnected. This is a recovery summary, not a claim to preserve complete raw files/logs.",
+  "input_source_sha256": "6838d604ac4586da057a652e98e9c694f754a84e9f38ba70b83f1046e9ae6e9a",
+  "native_written": false,
+  "full_builder_executed": false,
+  "source_unchanged": true,
+  "only_selected_authoring_definitions_in_memory": true,
+  "clearance_prototype": {
+    "process_exit": 0,
+    "main_supply_duct": {
+      "triangles": 756,
+      "closed_consistent_winding": true,
+      "degenerate_triangles": [],
+      "actual_triangle_intersections_each_of_five_trusses": 0,
+      "outside_bound_residual_m": 0,
+      "conservative_clearance_hull_m": 0.008
+    },
+    "notched_pallet": {
+      "triangles": 20,
+      "closed_consistent_winding": true,
+      "degenerate_triangles": [],
+      "actual_triangle_intersections_pilaster_and_flange": 0,
+      "outside_bound_residual_m": 9.5367431640625e-7,
+      "conservative_clearance_m": 0.006
+    },
+    "former_embedded_truss_witnesses_minimum_finished_surface_gap_m": "All greater than0.0079, tested assertion; first measured0.007999658584594727",
+    "pass": true
+  },
+  "consumed_return_uv_prototype": {
+    "process_exit": 0,
+    "all_nine_meshes_area_fraction_anisotropy_gt_1_25": 0,
+    "maximum_by_object": {
+      "Chair seat cushion": 1.043233893809103,
+      "Chair back lumbar": 1.0863013366162102,
+      "Chair back upper": 1.0862532393162854,
+      "Covered Trolley Draped Tarp": 1.0807601159763127,
+      "Joined counter cleaning cloth": 1.110720299328335,
+      "Joined trolley cotton": 1.0001566810566433,
+      "Joined staff desk fabric": 1.1034129763111316,
+      "Glove repaired cuff": 1.082389916220941,
+      "Chair seat sewn perimeter welt": 1.0007528788641205
+    }
+  },
+  "retained_failed_clearance_attempts": [
+    {
+      "attempt": 1,
+      "process_exit": 1,
+      "assertion": "Pallet closed/coherent, zero triangle intersections, outside bounds residual0, but degenerate triangles[147,247]."
+    },
+    {
+      "attempt": 2,
+      "process_exit": 1,
+      "assertion": "Added coplanar/degenerate cleanup; pallet still closed/coherent and nonintersecting, but degenerate triangles[147,246]."
+    },
+    {
+      "attempt": 3,
+      "process_exit": 1,
+      "assertion": "Explicit triangulation plus cleanup; pallet closed/coherent and nonintersecting, but degenerate triangle[305]."
+    },
+    {
+      "repair": "Replaced two sequential filleted booleans with a six-corner closed extruded manufactured notch; subsequent isolated test passed."
+    }
+  ],
+  "not_verified": [
+    "Full F18 native rebuild",
+    "All original support/contact guards after combined repairs",
+    "Added hanger/fixture clearance and contact after save",
+    "Scanner/gate/rail construction after save",
+    "Full F18 counts and material/submesh caps",
+    "Saved consumed UV after rebuild",
+    "Changed fixed-camera pixels",
+    "Fresh C10 full review",
+    "Final stable two cycles",
+    "Actual GitHub final27 cold decoded-pixel comparison",
+    "Runtime behavior/performance"
+  ],
+  "blocked_at": "2026-10-03: environment_status reports offline/running; exec-server transport disconnected, recovery timed out; final additional utility-guard apply_patch failed before reading target. That unexecuted change is not included."
+}

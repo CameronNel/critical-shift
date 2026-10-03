@@ -1,0 +1,3915 @@
+{
+  "native_sha256": "cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035",
+  "objects": [
+    {
+      "name": "Arrival Gate P2",
+      "loc": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bounds": {
+        "min": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "parent": null,
+      "materials": [],
+      "props": {
+        "support_target": "Floor slab",
+        "support_direction": [
+          0,
+          0,
+          -1
+        ],
+        "support_class": "supported_assembly",
+        "max_gap_m": 0.005,
+        "max_penetration_m": 0.002,
+        "angle_tolerance_deg": 12.0
+      }
+    },
+    {
+      "name": "P2 frame jamb -1",
+      "loc": [
+        -2.380000114440918,
+        15.9399995803833,
+        1.75
+      ],
+      "bounds": {
+        "min": [
+          -2.4600000381469727,
+          15.799999237060547,
+          0.0
+        ],
+        "max": [
+          -2.3000001907348633,
+          16.079999923706055,
+          3.5
+        ]
+      },
+      "parent": "Arrival Gate P2",
+      "materials": [
+        "CD | navy"
+      ],
+      "props": {
+        "assembly": "Arrival Gate P2",
+        "support_class": "assembly_component",
+        "circulation_solid": true,
+        "overhaul_surface": true,
+        "uv_contract": "CD_Physical_1m; metric orthonormal face charts; intentional seams/repeats; not a lightmap"
+      }
+    },
+    {
+      "name": "P2 frame jamb 1",
+      "loc": [
+        2.380000114440918,
+        15.9399995803833,
+        1.75
+      ],
+      "bounds": {
+        "min": [
+          2.3000001907348633,
+          15.799999237060547,
+          0.0
+        ],
+        "max": [
+          2.4600000381469727,
+          16.079999923706055,
+          3.5
+        ]
+      },
+      "parent": "Arrival Gate P2",
+      "materials": [
+        "CD | navy"
+      ],
+      "props": {
+        "assembly": "Arrival Gate P2",
+        "support_class": "assembly_component",
+        "circulation_solid": true,
+        "overhaul_surface": true,
+        "uv_contract": "CD_Physical_1m; metric orthonormal face charts; intentional seams/repeats; not a lightmap"
+      }
+    },
+    {
+      "name": "P2 frame head lintel",
+      "loc": [
+        0.0,
+        15.9399995803833,
+        3.5999999046325684
+      ],
+      "bounds": {
+        "min": [
+          -2.4600000381469727,
+          15.800000190734863,
+          3.5
+        ],
+        "max": [
+          2.4600000381469727,
+          16.079999923706055,
+          3.700000047683716
+        ]
+      },
+      "parent": "Arrival Gate P2",
+      "materials": [
+        "CD | steel"
+      ],
+      "props": {
+        "assembly": "Arrival Gate P2",
+        "support_class": "assembly_component",
+        "circulation_solid": true,
+        "overhaul_surface": true,
+        "uv_contract": "CD_Physical_1m; metric orthonormal face charts; intentional seams/repeats; not a lightmap"
+      }
+    },
+    {
+      "name": "D1 Staff Front Door",
+      "loc": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bounds": {
+        "min": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "parent": null,
+      "materials": [],
+      "props": {
+        "support_target": "Floor slab",
+        "support_direction": [
+          0,
+          0,
+          -1
+        ],
+        "support_class": "supported_assembly",
+        "max_gap_m": 0.005,
+        "max_penetration_m": 0.002,
+        "angle_tolerance_deg": 12.0
+      }
+    },
+    {
+      "name": "D1 frame jamb -1",
+      "loc": [
+        -5.974999904632568,
+        3.5999999046325684,
+        1.100000023841858
+      ],
+      "bounds": {
+        "min": [
+          -6.025000095367432,
+          3.5,
+          0.0
+        ],
+        "max": [
+          -5.924999713897705,
+          3.6999998092651367,
+          2.200000047683716
+        ]
+      },
+      "parent": "D1 Staff Front Door",
+      "materials": [
+        "CD | charcoal"
+      ],
+      "props": {
+        "assembly": "D1 Staff Front Door",
+        "support_class": "assembly_component",
+        "circulation_solid": true,
+        "overhaul_surface": true,
+        "uv_contract": "CD_Physical_1m; metric orthonormal face charts; intentional seams/repeats; not a lightmap"
+      }
+    },
+    {
+      "name": "D1 frame jamb 1",
+      "loc": [
+        -4.824999809265137,
+        3.5999999046325684,
+        1.100000023841858
+      ],
+      "bounds": {
+        "min": [
+          -4.875,
+          3.5,
+          0.0
+        ],
+        "max": [
+          -4.774999618530273,
+          3.6999998092651367,
+          2.200000047683716
+        ]
+      },
+      "parent": "D1 Staff Front Door",
+      "materials": [
+        "CD | charcoal"
+      ],
+      "props": {
+        "assembly": "D1 Staff Front Door",
+        "support_class": "assembly_component",
+        "circulation_solid": true,
+        "overhaul_surface": true,
+        "uv_contract": "CD_Physical_1m; metric orthonormal face charts; intentional seams/repeats; not a lightmap"
+      }
+    },
+    {
+      "name": "D1 frame head",
+      "loc": [
+        -5.400000095367432,
+        3.5999999046325684,
+        2.25
+      ],
+      "bounds": {
+        "min": [
+          -6.025000095367432,
+          3.5,
+          2.200000047683716
+        ],
+        "max": [
+          -4.775000095367432,
+          3.6999998092651367,
+          2.299999952316284
+        ]
+      },
+      "parent": "D1 Staff Front Door",
+      "materials": [
+        "CD | charcoal"
+      ],
+      "props": {
+        "assembly": "D1 Staff Front Door",
+        "support_class": "assembly_component",
+        "circulation_solid": true,
+        "overhaul_surface": true,
+        "uv_contract": "CD_Physical_1m; metric orthonormal face charts; intentional seams/repeats; not a lightmap"
+      }
+    },
+    {
+      "name": "D2 Staff Rear Door",
+      "loc": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bounds": {
+        "min": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "parent": null,
+      "materials": [],
+      "props": {
+        "support_target": "Floor slab",
+        "support_direction": [
+          0,
+          0,
+          -1
+        ],
+        "support_class": "supported_assembly",
+        "max_gap_m": 0.005,
+        "max_penetration_m": 0.002,
+        "angle_tolerance_deg": 12.0
+      }
+    },
+    {
+      "name": "D2 frame jamb -1",
+      "loc": [
+        -5.974999904632568,
+        9.600000381469727,
+        1.100000023841858
+      ],
+      "bounds": {
+        "min": [
+          -6.025000095367432,
+          9.5,
+          0.0
+        ],
+        "max": [
+          -5.924999713897705,
+          9.700000762939453,
+          2.200000047683716
+        ]
+      },
+      "parent": "D2 Staff Rear Door",
+      "materials": [
+        "CD | navy"
+      ],
+      "props": {
+        "assembly": "D2 Staff Rear Door",
+        "support_class": "assembly_component",
+        "circulation_solid": true,
+        "overhaul_surface": true,
+        "uv_contract": "CD_Physical_1m; metric orthonormal face charts; intentional seams/repeats; not a lightmap"
+      }
+    },
+    {
+      "name": "D2 frame jamb 1",
+      "loc": [
+        -4.824999809265137,
+        9.600000381469727,
+        1.100000023841858
+      ],
+      "bounds": {
+        "min": [
+          -4.875,
+          9.5,
+          0.0
+        ],
+        "max": [
+          -4.774999618530273,
+          9.700000762939453,
+          2.200000047683716
+        ]
+      },
+      "parent": "D2 Staff Rear Door",
+      "materials": [
+        "CD | navy"
+      ],
+      "props": {
+        "assembly": "D2 Staff Rear Door",
+        "support_class": "assembly_component",
+        "circulation_solid": true,
+        "overhaul_surface": true,
+        "uv_contract": "CD_Physical_1m; metric orthonormal face charts; intentional seams/repeats; not a lightmap"
+      }
+    },
+    {
+      "name": "D2 frame head",
+      "loc": [
+        -5.400000095367432,
+        9.600000381469727,
+        2.25
+      ],
+      "bounds": {
+        "min": [
+          -6.025000095367432,
+          9.5,
+          2.200000047683716
+        ],
+        "max": [
+          -4.775000095367432,
+          9.700000762939453,
+          2.299999952316284
+        ]
+      },
+      "parent": "D2 Staff Rear Door",
+      "materials": [
+        "CD | navy"
+      ],
+      "props": {
+        "assembly": "D2 Staff Rear Door",
+        "support_class": "assembly_component",
+        "circulation_solid": true,
+        "overhaul_surface": true,
+        "uv_contract": "CD_Physical_1m; metric orthonormal face charts; intentional seams/repeats; not a lightmap"
+      }
+    },
+    {
+      "name": "G1 Cart Bypass Gate",
+      "loc": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bounds": {
+        "min": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "parent": null,
+      "materials": [],
+      "props": {
+        "support_target": "Floor slab",
+        "support_direction": [
+          0,
+          0,
+          -1
+        ],
+        "support_class": "supported_assembly",
+        "max_gap_m": 0.005,
+        "max_penetration_m": 0.002,
+        "angle_tolerance_deg": 12.0
+      }
+    },
+    {
+      "name": "G1 leaf 1 panel",
+      "loc": [
+        2.549999952316284,
+        7.0,
+        0.8199999928474426
+      ],
+      "bounds": {
+        "min": [
+          2.234999895095825,
+          6.980000019073486,
+          0.09999996423721313
+        ],
+        "max": [
+          2.865000009536743,
+          7.019999980926514,
+          1.5399999618530273
+        ]
+      },
+      "parent": "G1 Cart Bypass Gate",
+      "materials": [
+        "CD | wear"
+      ],
+      "props": {
+        "assembly": "G1 Cart Bypass Gate",
+        "support_class": "assembly_component",
+        "circulation_solid": false,
+        "overhaul_surface": true,
+        "uv_contract": "CD_Physical_1m; metric orthonormal face charts; intentional seams/repeats; not a lightmap"
+      }
+    },
+    {
+      "name": "G1 pedestal column",
+      "loc": [
+        0.6499999761581421,
+        6.75,
+        0.5
+      ],
+      "bounds": {
+        "min": [
+          0.5699999928474426,
+          6.670000076293945,
+          0.0
+        ],
+        "max": [
+          0.7299999594688416,
+          6.829999923706055,
+          1.0
+        ]
+      },
+      "parent": "G1 Cart Bypass Gate",
+      "materials": [
+        "CD | navy"
+      ],
+      "props": {
+        "assembly": "G1 Cart Bypass Gate",
+        "support_class": "assembly_component",
+        "circulation_solid": false,
+        "overhaul_surface": true,
+        "uv_contract": "CD_Physical_1m; metric orthonormal face charts; intentional seams/repeats; not a lightmap"
+      }
+    },
+    {
+      "name": "G1 pedestal head",
+      "loc": [
+        0.6499999761581421,
+        6.75,
+        1.0800000429153442
+      ],
+      "bounds": {
+        "min": [
+          0.5399999618530273,
+          6.639999866485596,
+          1.0
+        ],
+        "max": [
+          0.7599999904632568,
+          6.860000133514404,
+          1.1600000858306885
+        ]
+      },
+      "parent": "G1 Cart Bypass Gate",
+      "materials": [
+        "CD | charcoal"
+      ],
+      "props": {
+        "assembly": "G1 Cart Bypass Gate",
+        "support_class": "assembly_component",
+        "circulation_solid": false,
+        "overhaul_surface": true,
+        "uv_contract": "CD_Physical_1m; metric orthonormal face charts; intentional seams/repeats; not a lightmap"
+      }
+    },
+    {
+      "name": "Checkin Counter Hatch",
+      "loc": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bounds": {
+        "min": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "parent": null,
+      "materials": [],
+      "props": {
+        "support_target": "Floor slab",
+        "support_direction": [
+          0,
+          0,
+          -1
+        ],
+        "support_class": "supported_assembly",
+        "max_gap_m": 0.005,
+        "max_penetration_m": 0.002,
+        "angle_tolerance_deg": 12.0
+      }
+    },
+    {
+      "name": "Staff Desk Assembly",
+      "loc": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bounds": {
+        "min": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "parent": null,
+      "materials": [],
+      "props": {
+        "support_target": "Floor slab",
+        "support_direction": [
+          0,
+          0,
+          -1
+        ],
+        "support_class": "supported_assembly",
+        "max_gap_m": 0.005,
+        "max_penetration_m": 0.002,
+        "angle_tolerance_deg": 12.0
+      }
+    },
+    {
+      "name": "Person Scanner Arch",
+      "loc": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bounds": {
+        "min": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "parent": null,
+      "materials": [],
+      "props": {
+        "support_target": "Floor slab",
+        "support_direction": [
+          0,
+          0,
+          -1
+        ],
+        "support_class": "supported_assembly",
+        "max_gap_m": 0.005,
+        "max_penetration_m": 0.002,
+        "angle_tolerance_deg": 12.0
+      }
+    },
+    {
+      "name": "Scanner portal lintel",
+      "loc": [
+        0.0,
+        7.0,
+        2.7799999713897705
+      ],
+      "bounds": {
+        "min": [
+          -0.8500000238418579,
+          6.820000171661377,
+          2.6500000953674316
+        ],
+        "max": [
+          0.8500000238418579,
+          7.179999828338623,
+          2.9100000858306885
+        ]
+      },
+      "parent": "Person Scanner Arch",
+      "materials": [
+        "CD | navy"
+      ],
+      "props": {
+        "assembly": "Person Scanner Arch",
+        "support_class": "assembly_component",
+        "circulation_solid": true,
+        "overhaul_surface": true,
+        "uv_contract": "CD_Physical_1m; metric orthonormal face charts; intentional seams/repeats; not a lightmap"
+      }
+    },
+    {
+      "name": "Cargo Inspection Conveyor",
+      "loc": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bounds": {
+        "min": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "parent": null,
+      "materials": [],
+      "props": {
+        "support_target": "Floor slab",
+        "support_direction": [
+          0,
+          0,
+          -1
+        ],
+        "support_class": "supported_assembly",
+        "max_gap_m": 0.005,
+        "max_penetration_m": 0.002,
+        "angle_tolerance_deg": 12.0
+      }
+    },
+    {
+      "name": "Lead tunnel main body",
+      "loc": [
+        4.650000095367432,
+        7.650000095367432,
+        1.4500000476837158
+      ],
+      "bounds": {
+        "min": [
+          3.9000000953674316,
+          6.5,
+          0.75
+        ],
+        "max": [
+          5.400000095367432,
+          8.800000190734863,
+          2.1500000953674316
+        ]
+      },
+      "parent": "Cargo Inspection Conveyor",
+      "materials": [
+        "CD | blue"
+      ],
+      "props": {
+        "assembly": "Cargo Inspection Conveyor",
+        "support_class": "assembly_component",
+        "circulation_solid": true,
+        "overhaul_surface": true,
+        "uv_contract": "CD_Physical_1m; metric orthonormal face charts; intentional seams/repeats; not a lightmap"
+      }
+    },
+    {
+      "name": "Tunnel stiffener 3.88_6.8",
+      "loc": [
+        3.880000114440918,
+        6.800000190734863,
+        1.4500000476837158
+      ],
+      "bounds": {
+        "min": [
+          3.865999937057495,
+          6.775000095367432,
+          0.7900000214576721
+        ],
+        "max": [
+          3.9000000953674316,
+          6.825000286102295,
+          2.1100001335144043
+        ]
+      },
+      "parent": "Cargo Inspection Conveyor",
+      "materials": [
+        "CD | blue"
+      ],
+      "props": {
+        "assembly": "Cargo Inspection Conveyor",
+        "support_class": "assembly_component",
+        "circulation_solid": false,
+        "overhaul_surface": true,
+        "uv_contract": "CD_Physical_1m; metric orthonormal face charts; intentional seams/repeats; not a lightmap"
+      }
+    },
+    {
+      "name": "Tunnel stiffener 3.88_7.3",
+      "loc": [
+        3.880000114440918,
+        7.300000190734863,
+        1.4500000476837158
+      ],
+      "bounds": {
+        "min": [
+          3.865999937057495,
+          7.275000095367432,
+          0.7900000214576721
+        ],
+        "max": [
+          3.9000000953674316,
+          7.325000286102295,
+          2.1100001335144043
+        ]
+      },
+      "parent": "Cargo Inspection Conveyor",
+      "materials": [
+        "CD | blue"
+      ],
+      "props": {
+        "assembly": "Cargo Inspection Conveyor",
+        "support_class": "assembly_component",
+        "circulation_solid": false,
+        "overhaul_surface": true,
+        "uv_contract": "CD_Physical_1m; metric orthonormal face charts; intentional seams/repeats; not a lightmap"
+      }
+    },
+    {
+      "name": "Tunnel stiffener 3.88_7.9",
+      "loc": [
+        3.880000114440918,
+        7.900000095367432,
+        1.4500000476837158
+      ],
+      "bounds": {
+        "min": [
+          3.865999937057495,
+          7.875,
+          0.7900000214576721
+        ],
+        "max": [
+          3.9000000953674316,
+          7.925000190734863,
+          2.1100001335144043
+        ]
+      },
+      "parent": "Cargo Inspection Conveyor",
+      "materials": [
+        "CD | blue"
+      ],
+      "props": {
+        "assembly": "Cargo Inspection Conveyor",
+        "support_class": "assembly_component",
+        "circulation_solid": false,
+        "overhaul_surface": true,
+        "uv_contract": "CD_Physical_1m; metric orthonormal face charts; intentional seams/repeats; not a lightmap"
+      }
+    },
+    {
+      "name": "Tunnel stiffener 3.88_8.4",
+      "loc": [
+        3.880000114440918,
+        8.399999618530273,
+        1.4500000476837158
+      ],
+      "bounds": {
+        "min": [
+          3.865999937057495,
+          8.375,
+          0.7900000214576721
+        ],
+        "max": [
+          3.9000000953674316,
+          8.424999237060547,
+          2.1100001335144043
+        ]
+      },
+      "parent": "Cargo Inspection Conveyor",
+      "materials": [
+        "CD | blue"
+      ],
+      "props": {
+        "assembly": "Cargo Inspection Conveyor",
+        "support_class": "assembly_component",
+        "circulation_solid": false,
+        "overhaul_surface": true,
+        "uv_contract": "CD_Physical_1m; metric orthonormal face charts; intentional seams/repeats; not a lightmap"
+      }
+    },
+    {
+      "name": "Tunnel stiffener 5.42_6.8",
+      "loc": [
+        5.420000076293945,
+        6.800000190734863,
+        1.4500000476837158
+      ],
+      "bounds": {
+        "min": [
+          5.400000095367432,
+          6.775000095367432,
+          0.7900000214576721
+        ],
+        "max": [
+          5.434000015258789,
+          6.825000286102295,
+          2.1100001335144043
+        ]
+      },
+      "parent": "Cargo Inspection Conveyor",
+      "materials": [
+        "CD | blue"
+      ],
+      "props": {
+        "assembly": "Cargo Inspection Conveyor",
+        "support_class": "assembly_component",
+        "circulation_solid": false,
+        "overhaul_surface": true,
+        "uv_contract": "CD_Physical_1m; metric orthonormal face charts; intentional seams/repeats; not a lightmap"
+      }
+    },
+    {
+      "name": "Tunnel stiffener 5.42_7.3",
+      "loc": [
+        5.420000076293945,
+        7.300000190734863,
+        1.4500000476837158
+      ],
+      "bounds": {
+        "min": [
+          5.400000095367432,
+          7.275000095367432,
+          0.7900000214576721
+        ],
+        "max": [
+          5.434000015258789,
+          7.325000286102295,
+          2.1100001335144043
+        ]
+      },
+      "parent": "Cargo Inspection Conveyor",
+      "materials": [
+        "CD | blue"
+      ],
+      "props": {
+        "assembly": "Cargo Inspection Conveyor",
+        "support_class": "assembly_component",
+        "circulation_solid": false,
+        "overhaul_surface": true,
+        "uv_contract": "CD_Physical_1m; metric orthonormal face charts; intentional seams/repeats; not a lightmap"
+      }
+    },
+    {
+      "name": "Tunnel stiffener 5.42_7.9",
+      "loc": [
+        5.420000076293945,
+        7.900000095367432,
+        1.4500000476837158
+      ],
+      "bounds": {
+        "min": [
+          5.400000095367432,
+          7.875,
+          0.7900000214576721
+        ],
+        "max": [
+          5.434000015258789,
+          7.925000190734863,
+          2.1100001335144043
+        ]
+      },
+      "parent": "Cargo Inspection Conveyor",
+      "materials": [
+        "CD | blue"
+      ],
+      "props": {
+        "assembly": "Cargo Inspection Conveyor",
+        "support_class": "assembly_component",
+        "circulation_solid": false,
+        "overhaul_surface": true,
+        "uv_contract": "CD_Physical_1m; metric orthonormal face charts; intentional seams/repeats; not a lightmap"
+      }
+    },
+    {
+      "name": "Tunnel stiffener 5.42_8.4",
+      "loc": [
+        5.420000076293945,
+        8.399999618530273,
+        1.4500000476837158
+      ],
+      "bounds": {
+        "min": [
+          5.400000095367432,
+          8.375,
+          0.7900000214576721
+        ],
+        "max": [
+          5.434000015258789,
+          8.424999237060547,
+          2.1100001335144043
+        ]
+      },
+      "parent": "Cargo Inspection Conveyor",
+      "materials": [
+        "CD | blue"
+      ],
+      "props": {
+        "assembly": "Cargo Inspection Conveyor",
+        "support_class": "assembly_component",
+        "circulation_solid": false,
+        "overhaul_surface": true,
+        "uv_contract": "CD_Physical_1m; metric orthonormal face charts; intentional seams/repeats; not a lightmap"
+      }
+    },
+    {
+      "name": "Wall Utilities Rack",
+      "loc": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bounds": {
+        "min": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "parent": null,
+      "materials": [],
+      "props": {
+        "support_target": "East perimeter wall",
+        "support_direction": [
+          1,
+          0,
+          0
+        ],
+        "support_class": "supported_assembly",
+        "max_gap_m": 0.005,
+        "max_penetration_m": 0.002,
+        "angle_tolerance_deg": 12.0
+      }
+    },
+    {
+      "name": "Truss top chord 2.2",
+      "loc": [
+        0.0,
+        2.200000047683716,
+        4.25
+      ],
+      "bounds": {
+        "min": [
+          -6.800000190734863,
+          2.140000104904175,
+          4.199999809265137
+        ],
+        "max": [
+          6.800000190734863,
+          2.259999990463257,
+          4.300000190734863
+        ]
+      },
+      "parent": null,
+      "materials": [
+        "CD | navy"
+      ],
+      "props": {
+        "support_class": "architectural",
+        "circulation_solid": true,
+        "overhaul_surface": true,
+        "uv_contract": "CD_Physical_1m; metric orthonormal face charts; intentional seams/repeats; not a lightmap",
+        "classification_scope": "Static authoring dimensional obstacle; runtime collider binding unverified"
+      }
+    },
+    {
+      "name": "Truss top chord 5.2",
+      "loc": [
+        0.0,
+        5.199999809265137,
+        4.25
+      ],
+      "bounds": {
+        "min": [
+          -6.800000190734863,
+          5.139999866485596,
+          4.199999809265137
+        ],
+        "max": [
+          6.800000190734863,
+          5.259999752044678,
+          4.300000190734863
+        ]
+      },
+      "parent": null,
+      "materials": [
+        "CD | navy"
+      ],
+      "props": {
+        "support_class": "architectural",
+        "circulation_solid": true,
+        "overhaul_surface": true,
+        "uv_contract": "CD_Physical_1m; metric orthonormal face charts; intentional seams/repeats; not a lightmap",
+        "classification_scope": "Static authoring dimensional obstacle; runtime collider binding unverified"
+      }
+    },
+    {
+      "name": "Truss top chord 8.2",
+      "loc": [
+        0.0,
+        8.199999809265137,
+        4.25
+      ],
+      "bounds": {
+        "min": [
+          -6.800000190734863,
+          8.139999389648438,
+          4.199999809265137
+        ],
+        "max": [
+          6.800000190734863,
+          8.260000228881836,
+          4.300000190734863
+        ]
+      },
+      "parent": null,
+      "materials": [
+        "CD | navy"
+      ],
+      "props": {
+        "support_class": "architectural",
+        "circulation_solid": true,
+        "overhaul_surface": true,
+        "uv_contract": "CD_Physical_1m; metric orthonormal face charts; intentional seams/repeats; not a lightmap",
+        "classification_scope": "Static authoring dimensional obstacle; runtime collider binding unverified"
+      }
+    },
+    {
+      "name": "Truss top chord 11.2",
+      "loc": [
+        0.0,
+        11.199999809265137,
+        4.25
+      ],
+      "bounds": {
+        "min": [
+          -6.800000190734863,
+          11.139999389648438,
+          4.199999809265137
+        ],
+        "max": [
+          6.800000190734863,
+          11.260000228881836,
+          4.300000190734863
+        ]
+      },
+      "parent": null,
+      "materials": [
+        "CD | navy"
+      ],
+      "props": {
+        "support_class": "architectural",
+        "circulation_solid": true,
+        "overhaul_surface": true,
+        "uv_contract": "CD_Physical_1m; metric orthonormal face charts; intentional seams/repeats; not a lightmap",
+        "classification_scope": "Static authoring dimensional obstacle; runtime collider binding unverified"
+      }
+    },
+    {
+      "name": "Truss top chord 13.9",
+      "loc": [
+        0.0,
+        13.899999618530273,
+        4.25
+      ],
+      "bounds": {
+        "min": [
+          -6.800000190734863,
+          13.839999198913574,
+          4.199999809265137
+        ],
+        "max": [
+          6.800000190734863,
+          13.960000038146973,
+          4.300000190734863
+        ]
+      },
+      "parent": null,
+      "materials": [
+        "CD | navy"
+      ],
+      "props": {
+        "support_class": "architectural",
+        "circulation_solid": true,
+        "overhaul_surface": true,
+        "uv_contract": "CD_Physical_1m; metric orthonormal face charts; intentional seams/repeats; not a lightmap",
+        "classification_scope": "Static authoring dimensional obstacle; runtime collider binding unverified"
+      }
+    },
+    {
+      "name": "Warm Fluorescent SW Fixture Housing",
+      "loc": [
+        -4.0,
+        2.0,
+        3.3399999141693115
+      ],
+      "bounds": {
+        "min": [
+          -4.159815788269043,
+          1.375,
+          3.299999952316284
+        ],
+        "max": [
+          -3.840184211730957,
+          2.625,
+          3.379999876022339
+        ]
+      },
+      "parent": "CD | Warm Fluorescent SW suspended fixture",
+      "materials": [
+        "CD | ivory"
+      ],
+      "props": {
+        "support_class": "assembly_component",
+        "circulation_solid": false,
+        "overhaul_surface": true,
+        "uv_contract": "CD_Physical_1m; metric orthonormal face charts; intentional seams/repeats; not a lightmap",
+        "assembly": "CD | Warm Fluorescent SW suspended fixture"
+      }
+    },
+    {
+      "name": "Warm Fluorescent SW",
+      "loc": [
+        -4.0,
+        2.0,
+        3.2799999713897705
+      ],
+      "bounds": {
+        "min": [
+          -4.0,
+          2.0,
+          3.2799999713897705
+        ],
+        "max": [
+          -4.0,
+          2.0,
+          3.2799999713897705
+        ]
+      },
+      "parent": null,
+      "materials": [],
+      "props": {}
+    },
+    {
+      "name": "Warm Fluorescent S-Mid Fixture Housing",
+      "loc": [
+        0.0,
+        2.0,
+        3.3399999141693115
+      ],
+      "bounds": {
+        "min": [
+          -0.159815713763237,
+          1.375,
+          3.299999952316284
+        ],
+        "max": [
+          0.159815713763237,
+          2.625,
+          3.379999876022339
+        ]
+      },
+      "parent": "CD | Warm Fluorescent S-Mid suspended fixture",
+      "materials": [
+        "CD | ivory"
+      ],
+      "props": {
+        "support_class": "assembly_component",
+        "circulation_solid": false,
+        "overhaul_surface": true,
+        "uv_contract": "CD_Physical_1m; metric orthonormal face charts; intentional seams/repeats; not a lightmap",
+        "assembly": "CD | Warm Fluorescent S-Mid suspended fixture"
+      }
+    },
+    {
+      "name": "Warm Fluorescent S-Mid",
+      "loc": [
+        0.0,
+        2.0,
+        3.2799999713897705
+      ],
+      "bounds": {
+        "min": [
+          0.0,
+          2.0,
+          3.2799999713897705
+        ],
+        "max": [
+          0.0,
+          2.0,
+          3.2799999713897705
+        ]
+      },
+      "parent": null,
+      "materials": [],
+      "props": {}
+    },
+    {
+      "name": "Warm Fluorescent SE Fixture Housing",
+      "loc": [
+        4.0,
+        2.0,
+        3.3399999141693115
+      ],
+      "bounds": {
+        "min": [
+          3.840184211730957,
+          1.375,
+          3.299999952316284
+        ],
+        "max": [
+          4.159815788269043,
+          2.625,
+          3.379999876022339
+        ]
+      },
+      "parent": "CD | Warm Fluorescent SE suspended fixture",
+      "materials": [
+        "CD | ivory"
+      ],
+      "props": {
+        "support_class": "assembly_component",
+        "circulation_solid": false,
+        "overhaul_surface": true,
+        "uv_contract": "CD_Physical_1m; metric orthonormal face charts; intentional seams/repeats; not a lightmap",
+        "assembly": "CD | Warm Fluorescent SE suspended fixture"
+      }
+    },
+    {
+      "name": "Warm Fluorescent SE",
+      "loc": [
+        4.0,
+        2.0,
+        3.2799999713897705
+      ],
+      "bounds": {
+        "min": [
+          4.0,
+          2.0,
+          3.2799999713897705
+        ],
+        "max": [
+          4.0,
+          2.0,
+          3.2799999713897705
+        ]
+      },
+      "parent": null,
+      "materials": [],
+      "props": {}
+    },
+    {
+      "name": "Office Task Fluorescent Fixture Housing",
+      "loc": [
+        -4.599999904632568,
+        5.400000095367432,
+        3.0399999618530273
+      ],
+      "bounds": {
+        "min": [
+          -4.759815692901611,
+          4.775000095367432,
+          3.0
+        ],
+        "max": [
+          -4.440184116363525,
+          6.025000095367432,
+          3.0799999237060547
+        ]
+      },
+      "parent": "CD | Office Task Fluorescent suspended fixture",
+      "materials": [
+        "CD | ivory"
+      ],
+      "props": {
+        "support_class": "assembly_component",
+        "circulation_solid": false,
+        "overhaul_surface": true,
+        "uv_contract": "CD_Physical_1m; metric orthonormal face charts; intentional seams/repeats; not a lightmap",
+        "assembly": "CD | Office Task Fluorescent suspended fixture"
+      }
+    },
+    {
+      "name": "Office Task Fluorescent",
+      "loc": [
+        -4.599999904632568,
+        5.400000095367432,
+        2.9800000190734863
+      ],
+      "bounds": {
+        "min": [
+          -4.599999904632568,
+          5.400000095367432,
+          2.9800000190734863
+        ],
+        "max": [
+          -4.599999904632568,
+          5.400000095367432,
+          2.9800000190734863
+        ]
+      },
+      "parent": null,
+      "materials": [],
+      "props": {}
+    },
+    {
+      "name": "Office Rear Fluorescent Fixture Housing",
+      "loc": [
+        -4.599999904632568,
+        7.800000190734863,
+        3.0399999618530273
+      ],
+      "bounds": {
+        "min": [
+          -4.759815692901611,
+          7.175000190734863,
+          3.0
+        ],
+        "max": [
+          -4.440184116363525,
+          8.425000190734863,
+          3.0799999237060547
+        ]
+      },
+      "parent": "CD | Office Rear Fluorescent suspended fixture",
+      "materials": [
+        "CD | ivory"
+      ],
+      "props": {
+        "support_class": "assembly_component",
+        "circulation_solid": false,
+        "overhaul_surface": true,
+        "uv_contract": "CD_Physical_1m; metric orthonormal face charts; intentional seams/repeats; not a lightmap",
+        "assembly": "CD | Office Rear Fluorescent suspended fixture"
+      }
+    },
+    {
+      "name": "Office Rear Fluorescent",
+      "loc": [
+        -4.599999904632568,
+        7.800000190734863,
+        2.9800000190734863
+      ],
+      "bounds": {
+        "min": [
+          -4.599999904632568,
+          7.800000190734863,
+          2.9800000190734863
+        ],
+        "max": [
+          -4.599999904632568,
+          7.800000190734863,
+          2.9800000190734863
+        ]
+      },
+      "parent": null,
+      "materials": [],
+      "props": {}
+    },
+    {
+      "name": "Scanner Overhead Key Fixture Housing",
+      "loc": [
+        0.0,
+        7.0,
+        3.5399999618530273
+      ],
+      "bounds": {
+        "min": [
+          -0.159815713763237,
+          6.375,
+          3.5
+        ],
+        "max": [
+          0.159815713763237,
+          7.625,
+          3.5799999237060547
+        ]
+      },
+      "parent": "CD | Scanner Overhead Key suspended fixture",
+      "materials": [
+        "CD | ivory"
+      ],
+      "props": {
+        "support_class": "assembly_component",
+        "circulation_solid": false,
+        "overhaul_surface": true,
+        "uv_contract": "CD_Physical_1m; metric orthonormal face charts; intentional seams/repeats; not a lightmap",
+        "assembly": "CD | Scanner Overhead Key suspended fixture"
+      }
+    },
+    {
+      "name": "Scanner Overhead Key",
+      "loc": [
+        0.0,
+        7.0,
+        3.4800000190734863
+      ],
+      "bounds": {
+        "min": [
+          0.0,
+          7.0,
+          3.4800000190734863
+        ],
+        "max": [
+          0.0,
+          7.0,
+          3.4800000190734863
+        ]
+      },
+      "parent": null,
+      "materials": [],
+      "props": {}
+    },
+    {
+      "name": "Conveyor Hero Key Fixture Housing",
+      "loc": [
+        4.650000095367432,
+        7.699999809265137,
+        3.5399999618530273
+      ],
+      "bounds": {
+        "min": [
+          4.490184307098389,
+          7.074999809265137,
+          3.5
+        ],
+        "max": [
+          4.809815883636475,
+          8.324999809265137,
+          3.5799999237060547
+        ]
+      },
+      "parent": "CD | Conveyor Hero Key suspended fixture",
+      "materials": [
+        "CD | ivory"
+      ],
+      "props": {
+        "support_class": "assembly_component",
+        "circulation_solid": false,
+        "overhaul_surface": true,
+        "uv_contract": "CD_Physical_1m; metric orthonormal face charts; intentional seams/repeats; not a lightmap",
+        "assembly": "CD | Conveyor Hero Key suspended fixture"
+      }
+    },
+    {
+      "name": "Conveyor Hero Key",
+      "loc": [
+        4.650000095367432,
+        7.699999809265137,
+        3.4800000190734863
+      ],
+      "bounds": {
+        "min": [
+          4.650000095367432,
+          7.699999809265137,
+          3.4800000190734863
+        ],
+        "max": [
+          4.650000095367432,
+          7.699999809265137,
+          3.4800000190734863
+        ]
+      },
+      "parent": null,
+      "materials": [],
+      "props": {}
+    },
+    {
+      "name": "Arrival Bay Key Fixture Housing",
+      "loc": [
+        0.0,
+        12.0,
+        3.5399999618530273
+      ],
+      "bounds": {
+        "min": [
+          -0.159815713763237,
+          11.375,
+          3.5
+        ],
+        "max": [
+          0.159815713763237,
+          12.625,
+          3.5799999237060547
+        ]
+      },
+      "parent": "CD | Arrival Bay Key suspended fixture",
+      "materials": [
+        "CD | ivory"
+      ],
+      "props": {
+        "support_class": "assembly_component",
+        "circulation_solid": false,
+        "overhaul_surface": true,
+        "uv_contract": "CD_Physical_1m; metric orthonormal face charts; intentional seams/repeats; not a lightmap",
+        "assembly": "CD | Arrival Bay Key suspended fixture"
+      }
+    },
+    {
+      "name": "Arrival Bay Key",
+      "loc": [
+        0.0,
+        12.0,
+        3.4800000190734863
+      ],
+      "bounds": {
+        "min": [
+          0.0,
+          12.0,
+          3.4800000190734863
+        ],
+        "max": [
+          0.0,
+          12.0,
+          3.4800000190734863
+        ]
+      },
+      "parent": null,
+      "materials": [],
+      "props": {}
+    },
+    {
+      "name": "Bay Utility Key Fixture Housing",
+      "loc": [
+        4.5,
+        13.0,
+        3.5399999618530273
+      ],
+      "bounds": {
+        "min": [
+          4.340184211730957,
+          12.375,
+          3.5
+        ],
+        "max": [
+          4.659815788269043,
+          13.625,
+          3.5799999237060547
+        ]
+      },
+      "parent": "CD | Bay Utility Key suspended fixture",
+      "materials": [
+        "CD | ivory"
+      ],
+      "props": {
+        "support_class": "assembly_component",
+        "circulation_solid": false,
+        "overhaul_surface": true,
+        "uv_contract": "CD_Physical_1m; metric orthonormal face charts; intentional seams/repeats; not a lightmap",
+        "assembly": "CD | Bay Utility Key suspended fixture"
+      }
+    },
+    {
+      "name": "Bay Utility Key",
+      "loc": [
+        4.5,
+        13.0,
+        3.4800000190734863
+      ],
+      "bounds": {
+        "min": [
+          4.5,
+          13.0,
+          3.4800000190734863
+        ],
+        "max": [
+          4.5,
+          13.0,
+          3.4800000190734863
+        ]
+      },
+      "parent": null,
+      "materials": [],
+      "props": {}
+    },
+    {
+      "name": "Support Concealed Accent Fixture Housing",
+      "loc": [
+        -5.5,
+        13.0,
+        3.440000057220459
+      ],
+      "bounds": {
+        "min": [
+          -5.659815788269043,
+          12.375,
+          3.4000000953674316
+        ],
+        "max": [
+          -5.340184211730957,
+          13.625,
+          3.4800000190734863
+        ]
+      },
+      "parent": "CD | Support Concealed Accent suspended fixture",
+      "materials": [
+        "CD | ivory"
+      ],
+      "props": {
+        "support_class": "assembly_component",
+        "circulation_solid": false,
+        "overhaul_surface": true,
+        "uv_contract": "CD_Physical_1m; metric orthonormal face charts; intentional seams/repeats; not a lightmap",
+        "assembly": "CD | Support Concealed Accent suspended fixture"
+      }
+    },
+    {
+      "name": "Support Concealed Accent",
+      "loc": [
+        -5.5,
+        13.0,
+        3.380000114440918
+      ],
+      "bounds": {
+        "min": [
+          -5.5,
+          13.0,
+          3.380000114440918
+        ],
+        "max": [
+          -5.5,
+          13.0,
+          3.380000114440918
+        ]
+      },
+      "parent": null,
+      "materials": [],
+      "props": {}
+    },
+    {
+      "name": "Ambient Fill Center",
+      "loc": [
+        0.0,
+        7.900000095367432,
+        3.200000047683716
+      ],
+      "bounds": {
+        "min": [
+          0.0,
+          7.900000095367432,
+          3.200000047683716
+        ],
+        "max": [
+          0.0,
+          7.900000095367432,
+          3.200000047683716
+        ]
+      },
+      "parent": null,
+      "materials": [],
+      "props": {}
+    },
+    {
+      "name": "Ceiling Wash 4.0",
+      "loc": [
+        0.0,
+        4.0,
+        3.4000000953674316
+      ],
+      "bounds": {
+        "min": [
+          0.0,
+          4.0,
+          3.4000000953674316
+        ],
+        "max": [
+          0.0,
+          4.0,
+          3.4000000953674316
+        ]
+      },
+      "parent": null,
+      "materials": [],
+      "props": {}
+    },
+    {
+      "name": "Ceiling Wash 11.0",
+      "loc": [
+        0.0,
+        11.0,
+        3.4000000953674316
+      ],
+      "bounds": {
+        "min": [
+          0.0,
+          11.0,
+          3.4000000953674316
+        ],
+        "max": [
+          0.0,
+          11.0,
+          3.4000000953674316
+        ]
+      },
+      "parent": null,
+      "materials": [],
+      "props": {}
+    },
+    {
+      "name": "P2 Gate Amber Spotlight",
+      "loc": [
+        0.0,
+        15.199999809265137,
+        3.5999999046325684
+      ],
+      "bounds": {
+        "min": [
+          0.0,
+          15.199999809265137,
+          3.5999999046325684
+        ],
+        "max": [
+          0.0,
+          15.199999809265137,
+          3.5999999046325684
+        ]
+      },
+      "parent": null,
+      "materials": [],
+      "props": {}
+    },
+    {
+      "name": "Lead Tunnel Hazard Spotlight",
+      "loc": [
+        4.650000095367432,
+        7.650000095367432,
+        2.799999952316284
+      ],
+      "bounds": {
+        "min": [
+          4.650000095367432,
+          7.650000095367432,
+          2.799999952316284
+        ],
+        "max": [
+          4.650000095367432,
+          7.650000095367432,
+          2.799999952316284
+        ]
+      },
+      "parent": null,
+      "materials": [],
+      "props": {}
+    },
+    {
+      "name": "G1 Gate Amber Downlight",
+      "loc": [
+        1.9500000476837158,
+        7.0,
+        2.5999999046325684
+      ],
+      "bounds": {
+        "min": [
+          1.9500000476837158,
+          7.0,
+          2.5999999046325684
+        ],
+        "max": [
+          1.9500000476837158,
+          7.0,
+          2.5999999046325684
+        ]
+      },
+      "parent": null,
+      "materials": [],
+      "props": {}
+    },
+    {
+      "name": "CD | Counter cleaning cloth",
+      "loc": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bounds": {
+        "min": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "parent": null,
+      "materials": [],
+      "props": {
+        "support_target": "CD | Counter linoleum inset",
+        "support_direction": [
+          0,
+          0,
+          -1
+        ],
+        "support_class": "supported_assembly",
+        "max_gap_m": 0.005,
+        "max_penetration_m": 0.002,
+        "angle_tolerance_deg": 12
+      }
+    },
+    {
+      "name": "CD | Counter cleaning cloth__contact_0",
+      "loc": [
+        -4.230000019073486,
+        3.3499999046325684,
+        1.0420000553131104
+      ],
+      "bounds": {
+        "min": [
+          -4.230000019073486,
+          3.3499999046325684,
+          1.0420000553131104
+        ],
+        "max": [
+          -4.230000019073486,
+          3.3499999046325684,
+          1.0420000553131104
+        ]
+      },
+      "parent": "CD | Counter cleaning cloth",
+      "materials": [],
+      "props": {
+        "contact_anchor": true
+      }
+    },
+    {
+      "name": "CD | Counter cleaning cloth__contact_1",
+      "loc": [
+        -4.034999847412109,
+        3.424999952316284,
+        1.0420000553131104
+      ],
+      "bounds": {
+        "min": [
+          -4.034999847412109,
+          3.424999952316284,
+          1.0420000553131104
+        ],
+        "max": [
+          -4.034999847412109,
+          3.424999952316284,
+          1.0420000553131104
+        ]
+      },
+      "parent": "CD | Counter cleaning cloth",
+      "materials": [],
+      "props": {
+        "contact_anchor": true
+      }
+    },
+    {
+      "name": "CD | Joined CD | Counter cleaning cloth / cotton",
+      "loc": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bounds": {
+        "min": [
+          -4.239999771118164,
+          3.330034017562866,
+          1.0420000553131104
+        ],
+        "max": [
+          -3.9781956672668457,
+          3.447963237762451,
+          1.0926899909973145
+        ]
+      },
+      "parent": "CD | Counter cleaning cloth",
+      "materials": [
+        "CD | cotton"
+      ],
+      "props": {
+        "assembly": "CD | Counter cleaning cloth",
+        "support_class": "assembly_component",
+        "circulation_solid": false,
+        "overhaul_surface": true,
+        "uv_contract": "CD_Physical_1m; metric orthonormal face charts; intentional seams/repeats; not a lightmap",
+        "component_names": "[\"CD | Folded wipe lower ply\", \"CD | Folded wipe middle ply\", \"CD | Used cotton wipe\", \"CD | Wipe rolled hem\", \"CD | Wipe rolled hem.001\"]",
+        "consolidation_contract": "Only new cosmetic geometry; original parts/support targets retained; disconnected closed components intentionally editable"
+      }
+    },
+    {
+      "name": "CD | Check-in practical",
+      "loc": [
+        -3.509999990463257,
+        3.380000114440918,
+        2.3989999294281006
+      ],
+      "bounds": {
+        "min": [
+          -3.509999990463257,
+          3.380000114440918,
+          2.3989999294281006
+        ],
+        "max": [
+          -3.509999990463257,
+          3.380000114440918,
+          2.3989999294281006
+        ]
+      },
+      "parent": null,
+      "materials": [],
+      "props": {}
+    },
+    {
+      "name": "CD | Inspection face practical",
+      "loc": [
+        0.2960333526134491,
+        4.434377670288086,
+        3.2262001037597656
+      ],
+      "bounds": {
+        "min": [
+          0.2960333526134491,
+          4.434377670288086,
+          3.2262001037597656
+        ],
+        "max": [
+          0.2960333526134491,
+          4.434377670288086,
+          3.2262001037597656
+        ]
+      },
+      "parent": "CD | Inspection face luminaire",
+      "materials": [],
+      "props": {
+        "assembly": "CD | Inspection face luminaire",
+        "support_class": "assembly_component"
+      }
+    },
+    {
+      "name": "CD | Custody transfer practical",
+      "loc": [
+        -4.809464454650879,
+        11.314053535461426,
+        3.1115691661834717
+      ],
+      "bounds": {
+        "min": [
+          -4.809464454650879,
+          11.314053535461426,
+          3.1115691661834717
+        ],
+        "max": [
+          -4.809464454650879,
+          11.314053535461426,
+          3.1115691661834717
+        ]
+      },
+      "parent": "CD | Custody transfer luminaire",
+      "materials": [],
+      "props": {
+        "assembly": "CD | Custody transfer luminaire",
+        "support_class": "assembly_component"
+      }
+    },
+    {
+      "name": "CD | Scanner practical roof bounce",
+      "loc": [
+        0.0,
+        7.0,
+        3.5999999046325684
+      ],
+      "bounds": {
+        "min": [
+          0.0,
+          7.0,
+          3.5999999046325684
+        ],
+        "max": [
+          0.0,
+          7.0,
+          3.5999999046325684
+        ]
+      },
+      "parent": "CD | Scanner Overhead Key suspended fixture",
+      "materials": [],
+      "props": {
+        "assembly": "CD | Scanner Overhead Key suspended fixture",
+        "support_class": "assembly_component"
+      }
+    },
+    {
+      "name": "CD | Entry reverse practical",
+      "loc": [
+        0.0,
+        -1.0,
+        2.5490000247955322
+      ],
+      "bounds": {
+        "min": [
+          0.0,
+          -1.0,
+          2.5490000247955322
+        ],
+        "max": [
+          0.0,
+          -1.0,
+          2.5490000247955322
+        ]
+      },
+      "parent": "CD | Entry reverse locator",
+      "materials": [],
+      "props": {
+        "assembly": "CD | Entry reverse locator",
+        "support_class": "assembly_component"
+      }
+    },
+    {
+      "name": "CD | Cargo mouth practical",
+      "loc": [
+        4.650000095367432,
+        6.426499843597412,
+        1.7719999551773071
+      ],
+      "bounds": {
+        "min": [
+          4.650000095367432,
+          6.426499843597412,
+          1.7719999551773071
+        ],
+        "max": [
+          4.650000095367432,
+          6.426499843597412,
+          1.7719999551773071
+        ]
+      },
+      "parent": "Cargo Inspection Conveyor",
+      "materials": [],
+      "props": {
+        "assembly": "Cargo Inspection Conveyor",
+        "support_class": "assembly_component"
+      }
+    },
+    {
+      "name": "CD | Interrupted shift desk practical",
+      "loc": [
+        -3.0399999618530273,
+        7.460000038146973,
+        1.0808000564575195
+      ],
+      "bounds": {
+        "min": [
+          -3.0399999618530273,
+          7.460000038146973,
+          1.0808000564575195
+        ],
+        "max": [
+          -3.0399999618530273,
+          7.460000038146973,
+          1.0808000564575195
+        ]
+      },
+      "parent": "Staff Desk Assembly",
+      "materials": [],
+      "props": {
+        "assembly": "Staff Desk Assembly",
+        "support_class": "assembly_component"
+      }
+    }
+  ],
+  "consolidated_groups": [
+    {
+      "name": "CD | Joined D1 Staff Front Door / coral",
+      "parent": "D1 Staff Front Door",
+      "materials": [
+        "CD | coral"
+      ],
+      "components": [
+        "CD | D1 die-pressed leaf",
+        "CD | D1 die-pressed leaf recessed stamping",
+        "CD | D1 die-pressed leaf.001",
+        "CD | D1 die-pressed leaf recessed stamping.001"
+      ]
+    },
+    {
+      "name": "CD | Joined D1 Staff Front Door / rubber",
+      "parent": "D1 Staff Front Door",
+      "materials": [
+        "CD | rubber"
+      ],
+      "components": [
+        "CD | D1 labyrinth seal",
+        "CD | D1 labyrinth seal.001"
+      ]
+    },
+    {
+      "name": "CD | Joined D1 Staff Front Door / steel",
+      "parent": "D1 Staff Front Door",
+      "materials": [
+        "CD | steel"
+      ],
+      "components": [
+        "CD | D1 captive hinge",
+        "CD | D1 hinge strap",
+        "CD | D1 captive hinge.001",
+        "CD | D1 hinge strap.001",
+        "CD | D1 captive hinge.002",
+        "CD | D1 hinge strap.002",
+        "CD | D1 kickplate washer",
+        "CD | D1 kickplate",
+        "CD | D1 kickplate washer.001",
+        "CD | D1 kickplate.001",
+        "CD | D1 kickplate washer.002",
+        "CD | D1 kickplate.002",
+        "CD | D1 kickplate washer.003",
+        "CD | D1 kickplate.003",
+        "CD | D1 paint loss at foot edge",
+        "CD | D1 paint loss at foot edge.001",
+        "CD | D1 paint loss at foot edge.002"
+      ]
+    },
+    {
+      "name": "CD | Joined D1 Staff Front Door / wear",
+      "parent": "D1 Staff Front Door",
+      "materials": [
+        "CD | wear"
+      ],
+      "components": [
+        "CD | D1 foot contact scuff",
+        "CD | D1 foot contact scuff.001",
+        "CD | D1 foot contact scuff.002",
+        "CD | D1 foot contact scuff.003",
+        "CD | D1 foot contact scuff.004",
+        "CD | D1 foot contact scuff.005",
+        "CD | D1 foot contact scuff.006",
+        "CD | D1 foot contact scuff.007",
+        "CD | D1 foot contact scuff.008",
+        "CD | D1 foot contact scuff.009"
+      ]
+    },
+    {
+      "name": "CD | Joined D1 Staff Front Door / charcoal",
+      "parent": "D1 Staff Front Door",
+      "materials": [
+        "CD | charcoal"
+      ],
+      "components": [
+        "CD | D1 transom closure",
+        "CD | D1 key cylinder"
+      ]
+    },
+    {
+      "name": "CD | Joined CD | D1 wall-mounted reader / plastic",
+      "parent": "CD | D1 wall-mounted reader",
+      "materials": [
+        "CD | plastic"
+      ],
+      "components": [
+        "CD | Reader aperture cap",
+        "CD | Reader aperture cap.001",
+        "CD | Reader aperture cap.002",
+        "CD | Reader aperture cap.003"
+      ]
+    },
+    {
+      "name": "CD | Joined Checkin Counter Hatch / charcoal",
+      "parent": "Checkin Counter Hatch",
+      "materials": [
+        "CD | charcoal"
+      ],
+      "components": [
+        "CD | Counter gusset",
+        "CD | Counter gusset.001",
+        "CD | Speaking load-bearing stanchion",
+        "CD | Speaking load-bearing stanchion.001",
+        "CD | Counter docket tray",
+        "CD | Docket folded rail",
+        "CD | Docket folded rail.001"
+      ]
+    },
+    {
+      "name": "CD | Joined Checkin Counter Hatch / steel",
+      "parent": "Checkin Counter Hatch",
+      "materials": [
+        "CD | steel"
+      ],
+      "components": [
+        "CD | Counter underside fixing washer",
+        "CD | Counter underside fixing",
+        "CD | Counter underside fixing washer.001",
+        "CD | Counter underside fixing.001",
+        "CD | Speaking grille washer",
+        "CD | Speaking grille",
+        "CD | Speaking grille washer.001",
+        "CD | Speaking grille.001",
+        "CD | Speaking grille washer.002",
+        "CD | Speaking grille.002",
+        "CD | Speaking grille washer.003",
+        "CD | Speaking grille.003",
+        "CD | Speaking glazing clamp",
+        "CD | Speaking stanchion foot",
+        "CD | Stanchion foot fixing",
+        "CD | Stanchion foot fixing.001",
+        "CD | Speaking glazing clamp.001",
+        "CD | Speaking stanchion foot.001",
+        "CD | Stanchion foot fixing.002",
+        "CD | Stanchion foot fixing.003",
+        "CD | Document tray lip"
+      ]
+    },
+    {
+      "name": "CD | Joined Checkin Counter Hatch / ink",
+      "parent": "Checkin Counter Hatch",
+      "materials": [
+        "CD | ink"
+      ],
+      "components": [
+        "CD | Speaking grille slit",
+        "CD | Speaking grille slit.001",
+        "CD | Speaking grille slit.002",
+        "CD | Speaking grille slit.003",
+        "CD | Speaking grille slit.004",
+        "CD | Speaking grille slit.005",
+        "CD | Manifest printed rule",
+        "CD | Manifest printed rule.001",
+        "CD | Manifest printed rule.002",
+        "CD | Manifest printed rule.003",
+        "CD | Manifest printed rule.004",
+        "CD | Manifest printed side rule",
+        "CD | Manifest printed side rule.001",
+        "CD | Returned field border",
+        "CD | Returned field border.001",
+        "CD | Returned field border.002",
+        "CD | Returned field border.003"
+      ]
+    },
+    {
+      "name": "CD | Joined Checkin Counter Hatch / ivory",
+      "parent": "Checkin Counter Hatch",
+      "materials": [
+        "CD | ivory"
+      ],
+      "components": [
+        "CD | Speaking instruction decal",
+        "CD | Stamp maker plate",
+        "CD | Worker reassurance glass notice"
+      ]
+    },
+    {
+      "name": "CD | Joined Checkin Counter Hatch / paper",
+      "parent": "Checkin Counter Hatch",
+      "materials": [
+        "CD | paper"
+      ],
+      "components": [
+        "CD | Unprocessed forms",
+        "CD | Unprocessed forms.001",
+        "CD | Unprocessed forms.002",
+        "CD | Unprocessed forms.003",
+        "CD | Rejected docket"
+      ]
+    },
+    {
+      "name": "CD | Joined CD | Stamping rubber pad / rubber",
+      "parent": "CD | Stamping rubber pad",
+      "materials": [
+        "CD | rubber"
+      ],
+      "components": [
+        "CD | Molded stamping pad",
+        "CD | Pad molded grip ribs"
+      ]
+    },
+    {
+      "name": "CD | Joined Checkin Counter Hatch / plastic",
+      "parent": "Checkin Counter Hatch",
+      "materials": [
+        "CD | plastic"
+      ],
+      "components": [
+        "CD | Ink pad lid inner lip",
+        "CD | Ink pad pin hinge",
+        "CD | Ink pad pin hinge.001"
+      ]
+    },
+    {
+      "name": "CD | Joined CD | Counter cleaning cloth / cotton",
+      "parent": "CD | Counter cleaning cloth",
+      "materials": [
+        "CD | cotton"
+      ],
+      "components": [
+        "CD | Folded wipe lower ply",
+        "CD | Folded wipe middle ply",
+        "CD | Used cotton wipe",
+        "CD | Wipe rolled hem",
+        "CD | Wipe rolled hem.001"
+      ]
+    },
+    {
+      "name": "CD | Joined Checkin Counter Hatch / coffee",
+      "parent": "Checkin Counter Hatch",
+      "materials": [
+        "CD | coffee"
+      ],
+      "components": [
+        "CD | Faded cup contact",
+        "CD | Faded cup contact.001",
+        "CD | Faded cup contact.002",
+        "CD | Faded cup contact.003",
+        "CD | Faded cup contact.004",
+        "CD | Faded cup contact.005",
+        "CD | Faded cup contact.006",
+        "CD | Faded cup contact.007",
+        "CD | Faded cup contact.008",
+        "CD | Faded cup contact.009",
+        "CD | Faded cup contact.010",
+        "CD | Faded cup contact.011",
+        "CD | Faded cup contact.012",
+        "CD | Faded cup contact.013",
+        "CD | Faded cup contact.014",
+        "CD | Faded cup contact.015",
+        "CD | Faded cup contact.016",
+        "CD | Faded cup contact.017",
+        "CD | Faded cup contact.018"
+      ]
+    },
+    {
+      "name": "CD | Joined CD | Check-in task fixture / charcoal",
+      "parent": "CD | Check-in task fixture",
+      "materials": [
+        "CD | charcoal"
+      ],
+      "components": [
+        "CD | Task wall bracket",
+        "CD | Task wall bracket.001",
+        "CD | Task folded shade"
+      ]
+    },
+    {
+      "name": "CD | Joined CD | D1 service junction / charcoal",
+      "parent": "CD | D1 service junction",
+      "materials": [
+        "CD | charcoal"
+      ],
+      "components": [
+        "CD | D1 service mounting back",
+        "CD | Door armored conduit"
+      ]
+    },
+    {
+      "name": "CD | Joined CD | D1 service junction / blue",
+      "parent": "CD | D1 service junction",
+      "materials": [
+        "CD | blue"
+      ],
+      "components": [
+        "CD | D1 service lid",
+        "CD | D1 service lid recessed stamping"
+      ]
+    },
+    {
+      "name": "CD | Joined CD | D1 service junction / steel",
+      "parent": "CD | D1 service junction",
+      "materials": [
+        "CD | steel"
+      ],
+      "components": [
+        "CD | D1 service box washer",
+        "CD | D1 service box",
+        "CD | D1 service box washer.001",
+        "CD | D1 service box.001",
+        "CD | D1 service box washer.002",
+        "CD | D1 service box.002",
+        "CD | D1 service box washer.003",
+        "CD | D1 service box.003",
+        "CD | Service saddle fixing",
+        "CD | Saddle captive fixing washer",
+        "CD | Saddle captive fixing",
+        "CD | Service saddle fixing.001",
+        "CD | Saddle captive fixing washer.001",
+        "CD | Saddle captive fixing.001"
+      ]
+    },
+    {
+      "name": "CD | Joined Person Scanner Arch / blue",
+      "parent": "Person Scanner Arch",
+      "materials": [
+        "CD | blue"
+      ],
+      "components": [
+        "CD | Scanner service collar",
+        "CD | Scanner service collar.001",
+        "CD | Scanner service collar.002",
+        "CD | Scanner service collar.003"
+      ]
+    },
+    {
+      "name": "CD | Joined Person Scanner Arch / steel",
+      "parent": "Person Scanner Arch",
+      "materials": [
+        "CD | steel"
+      ],
+      "components": [
+        "CD | Scanner collar screw washer",
+        "CD | Scanner collar screw",
+        "CD | Scanner collar screw washer.001",
+        "CD | Scanner collar screw.001",
+        "CD | Scanner collar screw washer.002",
+        "CD | Scanner collar screw.002",
+        "CD | Scanner collar screw washer.003",
+        "CD | Scanner collar screw.003",
+        "CD | Sensor metal lens seat",
+        "CD | Sensor metal lens seat.001",
+        "CD | Sensor metal lens seat.002",
+        "CD | Sensor metal lens seat.003",
+        "CD | Sensor metal lens seat.004",
+        "CD | Sensor metal lens seat.005",
+        "CD | Scanner collar screw washer.004",
+        "CD | Scanner collar screw.004",
+        "CD | Scanner collar screw washer.005",
+        "CD | Scanner collar screw.005",
+        "CD | Scanner collar screw washer.006",
+        "CD | Scanner collar screw.006",
+        "CD | Scanner collar screw washer.007",
+        "CD | Scanner collar screw.007",
+        "CD | Sensor metal lens seat.006",
+        "CD | Sensor metal lens seat.007",
+        "CD | Sensor metal lens seat.008",
+        "CD | Sensor metal lens seat.009",
+        "CD | Sensor metal lens seat.010",
+        "CD | Sensor metal lens seat.011",
+        "CD | Scanner bridge joint",
+        "CD | Scanner bridge joint.001",
+        "CD | Scanner instruction screw washer",
+        "CD | Scanner instruction screw",
+        "CD | Scanner instruction screw washer.001",
+        "CD | Scanner instruction screw.001",
+        "CD | Scanner service captive screw",
+        "CD | Scanner service captive screw.001",
+        "CD | Scanner service captive screw.002",
+        "CD | Scanner service captive screw.003",
+        "CD | Scanner service captive screw.004",
+        "CD | Scanner service captive screw.005",
+        "CD | Scanner service captive screw.006",
+        "CD | Scanner service captive screw.007",
+        "CD | Scanner folded service edge",
+        "CD | Scanner folded service edge.001",
+        "CD | Scanner removable module seam",
+        "CD | Scanner removable module seam.001",
+        "CD | Scanner removable module seam.002",
+        "CD | Scanner folded service edge.002",
+        "CD | Scanner folded service edge.003",
+        "CD | Scanner removable module seam.003",
+        "CD | Scanner removable module seam.004",
+        "CD | Scanner removable module seam.005",
+        "CD | Scanner folded service edge.004",
+        "CD | Scanner folded service edge.005",
+        "CD | Scanner removable module seam.006",
+        "CD | Scanner removable module seam.007",
+        "CD | Scanner removable module seam.008",
+        "CD | Scanner folded service edge.006",
+        "CD | Scanner folded service edge.007",
+        "CD | Scanner removable module seam.009",
+        "CD | Scanner removable module seam.010",
+        "CD | Scanner removable module seam.011",
+        "CD | Optical pod rear mounting sleeve",
+        "CD | Optical pod rear mounting sleeve.001",
+        "CD | Optical pod rear mounting sleeve.002",
+        "CD | Optical pod rear mounting sleeve.003",
+        "CD | Optical pod rear mounting sleeve.004",
+        "CD | Optical pod rear mounting sleeve.005",
+        "CD | Optical pod rear mounting sleeve.006",
+        "CD | Optical pod rear mounting sleeve.007",
+        "CD | Optical pod rear mounting sleeve.008",
+        "CD | Optical pod rear mounting sleeve.009",
+        "CD | Optical pod rear mounting sleeve.010",
+        "CD | Optical pod rear mounting sleeve.011",
+        "CD | Scanner side cover captive fixing",
+        "CD | Scanner side cover captive fixing.001",
+        "CD | Scanner side cover captive fixing.002",
+        "CD | Scanner side cover captive fixing.003",
+        "CD | Scanner side cover captive fixing.004",
+        "CD | Scanner side cover captive fixing.005",
+        "CD | Scanner side cover captive fixing.006",
+        "CD | Scanner side cover captive fixing.007"
+      ]
+    },
+    {
+      "name": "CD | Joined Person Scanner Arch / ink",
+      "parent": "Person Scanner Arch",
+      "materials": [
+        "CD | ink"
+      ],
+      "components": [
+        "CD | Scanner ventilation slit",
+        "CD | Scanner ventilation slit.001",
+        "CD | Scanner ventilation slit.002",
+        "CD | Scanner ventilation slit.003",
+        "CD | Scanner ventilation slit.004",
+        "CD | Scanner ventilation slit.005"
+      ]
+    },
+    {
+      "name": "CD | Joined Cargo Inspection Conveyor / steel",
+      "parent": "Cargo Inspection Conveyor",
+      "materials": [
+        "CD | steel"
+      ],
+      "components": [
+        "CD | Cargo rib captive screw",
+        "CD | Cargo rib captive screw.001",
+        "CD | Cargo rib captive screw.002",
+        "CD | Cargo rib captive screw.003",
+        "CD | Cargo rib captive screw.004",
+        "CD | Cargo rib captive screw.005",
+        "CD | Cargo rib captive screw.006",
+        "CD | Cargo rib captive screw.007",
+        "CD | Cargo rib captive screw.008",
+        "CD | Cargo rib captive screw.009",
+        "CD | Cargo rib captive screw.010",
+        "CD | Cargo rib captive screw.011",
+        "CD | Cargo rib captive screw.012",
+        "CD | Cargo rib captive screw.013",
+        "CD | Cargo rib captive screw.014",
+        "CD | Cargo rib captive screw.015",
+        "CD | Shield mouth hem",
+        "CD | Shield mouth hem.001",
+        "CD | Cargo captive cover screw",
+        "CD | Cargo captive cover screw.001",
+        "CD | Cargo captive cover screw.002",
+        "CD | Cargo captive cover screw.003",
+        "CD | Cargo captive cover screw.004",
+        "CD | Cargo captive cover screw.005",
+        "CD | Cargo captive cover screw.006",
+        "CD | Cargo captive cover screw.007",
+        "CD | Cargo crate band",
+        "CD | Cargo crate band side",
+        "CD | Cargo crate band side.001",
+        "CD | Cargo crate band.001",
+        "CD | Cargo crate band side.002",
+        "CD | Cargo crate band side.003",
+        "CD | Crate corner rivet washer",
+        "CD | Crate corner rivet",
+        "CD | Crate corner rivet washer.001",
+        "CD | Crate corner rivet.001",
+        "CD | Crate corner rivet washer.002",
+        "CD | Crate corner rivet.002",
+        "CD | Crate corner rivet washer.003",
+        "CD | Crate corner rivet.003",
+        "CD | Roller bearing engaged journal",
+        "CD | Roller bearing engaged journal.001",
+        "CD | Roller bearing engaged journal.002",
+        "CD | Roller bearing engaged journal.003",
+        "CD | Roller bearing engaged journal.004",
+        "CD | Roller bearing engaged journal.005",
+        "CD | Roller bearing engaged journal.006",
+        "CD | Roller bearing engaged journal.007",
+        "CD | Roller bearing engaged journal.008",
+        "CD | Roller bearing engaged journal.009",
+        "CD | Roller bearing engaged journal.010",
+        "CD | Roller bearing engaged journal.011",
+        "CD | Roller bearing engaged journal.012",
+        "CD | Roller bearing engaged journal.013",
+        "CD | Roller bearing engaged journal.014",
+        "CD | Roller bearing engaged journal.015",
+        "CD | Roller bearing engaged journal.016",
+        "CD | Roller bearing engaged journal.017",
+        "CD | Roller bearing engaged journal.018",
+        "CD | Roller bearing engaged journal.019",
+        "CD | Roller bearing engaged journal.020",
+        "CD | Roller bearing engaged journal.021",
+        "CD | Roller bearing engaged journal.022",
+        "CD | Roller bearing engaged journal.023",
+        "CD | Roller bearing engaged journal.024",
+        "CD | Roller bearing engaged journal.025",
+        "CD | Roller bearing engaged journal.026",
+        "CD | Roller bearing engaged journal.027",
+        "CD | Roller bearing engaged journal.028",
+        "CD | Roller bearing engaged journal.029",
+        "CD | Roller bearing engaged journal.030",
+        "CD | Roller bearing engaged journal.031",
+        "CD | Roller bearing engaged journal.032",
+        "CD | Roller bearing engaged journal.033",
+        "CD | Roller bearing engaged journal.034",
+        "CD | Roller bearing engaged journal.035",
+        "CD | Roller bearing engaged journal.036",
+        "CD | Roller bearing engaged journal.037",
+        "CD | Roller bearing engaged journal.038",
+        "CD | Roller bearing engaged journal.039",
+        "CD | Roller bearing engaged journal.040",
+        "CD | Roller bearing engaged journal.041",
+        "CD | Roller bearing engaged journal.042",
+        "CD | Roller bearing engaged journal.043",
+        "CD | Roller bearing engaged journal.044",
+        "CD | Roller bearing engaged journal.045",
+        "CD | Roller bearing engaged journal.046",
+        "CD | Roller bearing engaged journal.047",
+        "CD | Roller bearing engaged journal.048",
+        "CD | Roller bearing engaged journal.049",
+        "CD | Roller bearing engaged journal.050",
+        "CD | Roller bearing engaged journal.051",
+        "CD | Roller bearing engaged journal.052",
+        "CD | Roller bearing engaged journal.053",
+        "CD | Roller bearing engaged journal.054",
+        "CD | Roller bearing engaged journal.055",
+        "CD | Roller bearing engaged journal.056",
+        "CD | Roller bearing engaged journal.057",
+        "CD | Cargo forged-eye roof flange",
+        "CD | Cargo forged-eye roof flange.001",
+        "CD | Cargo forged-eye roof flange.002",
+        "CD | Cargo forged-eye roof flange.003",
+        "CD | Cargo motor welded saddle",
+        "CD | Cargo motor welded saddle.001",
+        "CD | Cargo operator cantilever",
+        "CD | Cargo operator cantilever.001",
+        "CD | Conveyor lower return idler",
+        "CD | Conveyor return through shaft",
+        "CD | Conveyor lower return idler.001",
+        "CD | Conveyor return through shaft.001",
+        "CD | Cargo folded throat collar",
+        "CD | Throat captive fastener",
+        "CD | Throat captive fastener.001",
+        "CD | Throat captive fastener.002",
+        "CD | Throat captive fastener.003",
+        "CD | Cargo folded throat collar.001",
+        "CD | Throat captive fastener.004",
+        "CD | Throat captive fastener.005",
+        "CD | Throat captive fastener.006",
+        "CD | Throat captive fastener.007",
+        "CD | Transit crate catch mount",
+        "CD | Transit crate lid keeper",
+        "CD | Crate toggle hinge",
+        "CD | Transit crate catch mount.001",
+        "CD | Transit crate lid keeper.001",
+        "CD | Crate toggle hinge.001"
+      ]
+    },
+    {
+      "name": "CD | Joined Cargo Inspection Conveyor / navy",
+      "parent": "Cargo Inspection Conveyor",
+      "materials": [
+        "CD | navy"
+      ],
+      "components": [
+        "CD | Cargo service access cover",
+        "CD | Cargo service access cover.001",
+        "CD | Cargo chassis lower tie",
+        "CD | Cargo chassis lower tie.001",
+        "CD | Cargo chassis end tie",
+        "CD | Cargo chassis end tie.001"
+      ]
+    },
+    {
+      "name": "CD | Joined Cargo Inspection Conveyor / ink",
+      "parent": "Cargo Inspection Conveyor",
+      "materials": [
+        "CD | ink"
+      ],
+      "components": [
+        "CD | Cargo monitor rear vent",
+        "CD | Cargo monitor rear vent.001",
+        "CD | Cargo monitor rear vent.002",
+        "CD | Cargo monitor rear vent.003",
+        "CD | Cargo monitor rear vent.004",
+        "CD | Cargo monitor rear vent.005"
+      ]
+    },
+    {
+      "name": "CD | Joined Cargo Inspection Conveyor / charcoal",
+      "parent": "Cargo Inspection Conveyor",
+      "materials": [
+        "CD | charcoal"
+      ],
+      "components": [
+        "CD | Cargo monitor pedestal",
+        "CD | Cargo monitor pedestal.001",
+        "CD | Cargo crate front corner",
+        "CD | Cargo crate front corner.001",
+        "CD | Return bearing welded ear",
+        "CD | Return bearing welded ear.001",
+        "CD | Return bearing welded ear.002",
+        "CD | Return bearing welded ear.003",
+        "CD | Shield collar corner cleat",
+        "CD | Shield collar corner cleat.001",
+        "CD | Shield collar corner cleat.002",
+        "CD | Shield collar corner cleat.003",
+        "CD | Transit crate toggle handle",
+        "CD | Transit crate toggle handle.001",
+        "CD | Cargo lip task housing",
+        "CD | Shield roof service seam",
+        "CD | Shield roof service seam.001"
+      ]
+    },
+    {
+      "name": "CD | Joined Staff Desk Assembly / steel",
+      "parent": "Staff Desk Assembly",
+      "materials": [
+        "CD | steel"
+      ],
+      "components": [
+        "CD | CRT rear cover screw",
+        "CD | CRT rear cover screw.001",
+        "CD | CRT rear cover screw.002",
+        "CD | Desk top support shoe",
+        "CD | Desk captive top fixing",
+        "CD | Desk captive top fixing.001",
+        "CD | Desk top support shoe.001",
+        "CD | Desk captive top fixing.002",
+        "CD | Desk captive top fixing.003",
+        "CD | Desk top support shoe.002",
+        "CD | Desk captive top fixing.004",
+        "CD | Desk captive top fixing.005",
+        "CD | Desk top support shoe.003",
+        "CD | Desk captive top fixing.006",
+        "CD | Desk captive top fixing.007"
+      ]
+    },
+    {
+      "name": "CD | Joined Staff Desk Assembly / charcoal",
+      "parent": "Staff Desk Assembly",
+      "materials": [
+        "CD | charcoal"
+      ],
+      "components": [
+        "CD | Desk cable trough",
+        "CD | Handset cradle perch",
+        "CD | Handset cradle perch.001",
+        "CD | Desk lamp weighted foot",
+        "CD | Desk lamp folded upright",
+        "CD | Desk lamp folded hood",
+        "CD | Desk diffuser retaining clip",
+        "CD | Desk diffuser retaining clip.001"
+      ]
+    },
+    {
+      "name": "CD | Joined Staff Desk Assembly / plastic",
+      "parent": "Staff Desk Assembly",
+      "materials": [
+        "CD | plastic"
+      ],
+      "components": [
+        "CD | Handset second receiver",
+        "CD | Handset curved bridge"
+      ]
+    },
+    {
+      "name": "CD | Joined Ergonomic Swivel Chair / charcoal",
+      "parent": "Ergonomic Swivel Chair",
+      "materials": [
+        "CD | charcoal"
+      ],
+      "components": [
+        "CD | Chair caster yoke",
+        "CD | Chair caster yoke.001",
+        "CD | Chair caster yoke.002",
+        "CD | Chair caster yoke.003",
+        "CD | Chair caster yoke.004"
+      ]
+    },
+    {
+      "name": "CD | Joined Ergonomic Swivel Chair / steel",
+      "parent": "Ergonomic Swivel Chair",
+      "materials": [
+        "CD | steel"
+      ],
+      "components": [
+        "CD | Chair caster axle",
+        "CD | Chair caster axle.001",
+        "CD | Chair caster axle.002",
+        "CD | Chair caster axle.003",
+        "CD | Chair caster axle.004"
+      ]
+    },
+    {
+      "name": "CD | Joined D2 Staff Rear Door / coral",
+      "parent": "D2 Staff Rear Door",
+      "materials": [
+        "CD | coral"
+      ],
+      "components": [
+        "CD | D2 pressed skin",
+        "CD | D2 pressed skin recessed stamping",
+        "CD | D2 pressed skin.001",
+        "CD | D2 pressed skin recessed stamping.001"
+      ]
+    },
+    {
+      "name": "CD | Joined D2 Staff Rear Door / steel",
+      "parent": "D2 Staff Rear Door",
+      "materials": [
+        "CD | steel"
+      ],
+      "components": [
+        "CD | D2 hinge barrel",
+        "CD | D2 hinge barrel.001",
+        "CD | D2 hinge barrel.002"
+      ]
+    },
+    {
+      "name": "CD | Joined Covered Trolley H1 / steel",
+      "parent": "Covered Trolley H1",
+      "materials": [
+        "CD | steel"
+      ],
+      "components": [
+        "CD | Trolley wheel hub",
+        "CD | Trolley wheel hub.001",
+        "CD | Trolley wheel hub.002",
+        "CD | Trolley wheel hub.003",
+        "CD | Ratchet buckle folded shell",
+        "CD | Ratchet captive pin",
+        "CD | Ratchet buckle folded shell.001",
+        "CD | Ratchet captive pin.001",
+        "CD | Ratchet buckle folded shell.002",
+        "CD | Ratchet captive pin.002",
+        "CD | Ratchet buckle folded shell.003",
+        "CD | Ratchet captive pin.003",
+        "CD | Trolley welded support gusset",
+        "CD | Trolley welded support gusset.001",
+        "CD | Trolley welded support gusset.002",
+        "CD | Trolley welded support gusset.003",
+        "CD | Trolley top cross tie",
+        "CD | Trolley top cross tie.001"
+      ]
+    },
+    {
+      "name": "CD | Joined Evidence Cabinet H2 / blue",
+      "parent": "Evidence Cabinet H2",
+      "materials": [
+        "CD | blue"
+      ],
+      "components": [
+        "CD | Vault raised pressing",
+        "CD | Vault raised pressing recessed stamping",
+        "CD | Vault raised pressing.001",
+        "CD | Vault raised pressing recessed stamping.001",
+        "CD | Vault raised pressing.002",
+        "CD | Vault raised pressing recessed stamping.002",
+        "CD | Vault raised pressing.003",
+        "CD | Vault raised pressing recessed stamping.003",
+        "CD | Vault raised pressing.004",
+        "CD | Vault raised pressing recessed stamping.004",
+        "CD | Vault raised pressing.005",
+        "CD | Vault raised pressing recessed stamping.005"
+      ]
+    },
+    {
+      "name": "CD | Joined Evidence Cabinet H2 / steel",
+      "parent": "Evidence Cabinet H2",
+      "materials": [
+        "CD | steel"
+      ],
+      "components": [
+        "CD | Vault captive pressing screw washer",
+        "CD | Vault captive pressing screw",
+        "CD | Vault captive pressing screw washer.001",
+        "CD | Vault captive pressing screw.001",
+        "CD | Vault captive pressing screw washer.002",
+        "CD | Vault captive pressing screw.002",
+        "CD | Vault captive pressing screw washer.003",
+        "CD | Vault captive pressing screw.003",
+        "CD | Vault lock escutcheon",
+        "CD | Vault captive pressing screw washer.004",
+        "CD | Vault captive pressing screw.004",
+        "CD | Vault captive pressing screw washer.005",
+        "CD | Vault captive pressing screw.005",
+        "CD | Vault captive pressing screw washer.006",
+        "CD | Vault captive pressing screw.006",
+        "CD | Vault captive pressing screw washer.007",
+        "CD | Vault captive pressing screw.007",
+        "CD | Vault lock escutcheon.001",
+        "CD | Vault captive pressing screw washer.008",
+        "CD | Vault captive pressing screw.008",
+        "CD | Vault captive pressing screw washer.009",
+        "CD | Vault captive pressing screw.009",
+        "CD | Vault captive pressing screw washer.010",
+        "CD | Vault captive pressing screw.010",
+        "CD | Vault captive pressing screw washer.011",
+        "CD | Vault captive pressing screw.011",
+        "CD | Vault lock escutcheon.002",
+        "CD | Vault captive pressing screw washer.012",
+        "CD | Vault captive pressing screw.012",
+        "CD | Vault captive pressing screw washer.013",
+        "CD | Vault captive pressing screw.013",
+        "CD | Vault captive pressing screw washer.014",
+        "CD | Vault captive pressing screw.014",
+        "CD | Vault captive pressing screw washer.015",
+        "CD | Vault captive pressing screw.015",
+        "CD | Vault lock escutcheon.003",
+        "CD | Vault captive pressing screw washer.016",
+        "CD | Vault captive pressing screw.016",
+        "CD | Vault captive pressing screw washer.017",
+        "CD | Vault captive pressing screw.017",
+        "CD | Vault captive pressing screw washer.018",
+        "CD | Vault captive pressing screw.018",
+        "CD | Vault captive pressing screw washer.019",
+        "CD | Vault captive pressing screw.019",
+        "CD | Vault lock escutcheon.004",
+        "CD | Vault captive pressing screw washer.020",
+        "CD | Vault captive pressing screw.020",
+        "CD | Vault captive pressing screw washer.021",
+        "CD | Vault captive pressing screw.021",
+        "CD | Vault captive pressing screw washer.022",
+        "CD | Vault captive pressing screw.022",
+        "CD | Vault captive pressing screw washer.023",
+        "CD | Vault captive pressing screw.023",
+        "CD | Vault lock escutcheon.005",
+        "CD | Evidence folded crown edge",
+        "CD | Vault escutcheon bearing neck",
+        "CD | Vault escutcheon bearing neck.001",
+        "CD | Vault escutcheon bearing neck.002",
+        "CD | Vault escutcheon bearing neck.003",
+        "CD | Vault escutcheon bearing neck.004",
+        "CD | Vault escutcheon bearing neck.005"
+      ]
+    },
+    {
+      "name": "CD | Joined Evidence Cabinet H2 / yellow",
+      "parent": "Evidence Cabinet H2",
+      "materials": [
+        "CD | yellow"
+      ],
+      "components": [
+        "CD | Custody tape",
+        "CD | Custody tape.001"
+      ]
+    },
+    {
+      "name": "CD | Joined Switchgear Console Unit / steel",
+      "parent": "Switchgear Console Unit",
+      "materials": [
+        "CD | steel"
+      ],
+      "components": [
+        "CD | Switchgear folded pull",
+        "CD | Switchgear folded pull.001",
+        "CD | Switchgear lock fitted collar",
+        "CD | Switchgear lock fitted collar.001"
+      ]
+    },
+    {
+      "name": "CD | Joined Switchgear Console Unit / brass",
+      "parent": "Switchgear Console Unit",
+      "materials": [
+        "CD | brass"
+      ],
+      "components": [
+        "CD | Switchgear barrel lock",
+        "CD | Switchgear barrel lock.001"
+      ]
+    },
+    {
+      "name": "CD | Joined CD | Warm Fluorescent SW suspended fixture / steel",
+      "parent": "CD | Warm Fluorescent SW suspended fixture",
+      "materials": [
+        "CD | steel"
+      ],
+      "components": [
+        "CD | Fixture suspension rod",
+        "CD | Fixture roof plate",
+        "CD | Fixture suspension rod.001",
+        "CD | Fixture roof plate.001"
+      ]
+    },
+    {
+      "name": "CD | Joined CD | Warm Fluorescent SW suspended fixture / charcoal",
+      "parent": "CD | Warm Fluorescent SW suspended fixture",
+      "materials": [
+        "CD | charcoal"
+      ],
+      "components": [
+        "CD | Fixture lamp end cap",
+        "CD | Fixture lamp end cap.001"
+      ]
+    },
+    {
+      "name": "CD | Joined CD | Warm Fluorescent S-Mid suspended fixture / steel",
+      "parent": "CD | Warm Fluorescent S-Mid suspended fixture",
+      "materials": [
+        "CD | steel"
+      ],
+      "components": [
+        "CD | Fixture suspension rod.002",
+        "CD | Fixture roof plate.002",
+        "CD | Fixture suspension rod.003",
+        "CD | Fixture roof plate.003"
+      ]
+    },
+    {
+      "name": "CD | Joined CD | Warm Fluorescent S-Mid suspended fixture / charcoal",
+      "parent": "CD | Warm Fluorescent S-Mid suspended fixture",
+      "materials": [
+        "CD | charcoal"
+      ],
+      "components": [
+        "CD | Fixture lamp end cap.002",
+        "CD | Fixture lamp end cap.003"
+      ]
+    },
+    {
+      "name": "CD | Joined CD | Warm Fluorescent SE suspended fixture / steel",
+      "parent": "CD | Warm Fluorescent SE suspended fixture",
+      "materials": [
+        "CD | steel"
+      ],
+      "components": [
+        "CD | Fixture suspension rod.004",
+        "CD | Fixture roof plate.004",
+        "CD | Fixture suspension rod.005",
+        "CD | Fixture roof plate.005"
+      ]
+    },
+    {
+      "name": "CD | Joined CD | Warm Fluorescent SE suspended fixture / charcoal",
+      "parent": "CD | Warm Fluorescent SE suspended fixture",
+      "materials": [
+        "CD | charcoal"
+      ],
+      "components": [
+        "CD | Fixture lamp end cap.004",
+        "CD | Fixture lamp end cap.005"
+      ]
+    },
+    {
+      "name": "CD | Joined CD | Office Task Fluorescent suspended fixture / steel",
+      "parent": "CD | Office Task Fluorescent suspended fixture",
+      "materials": [
+        "CD | steel"
+      ],
+      "components": [
+        "CD | Fixture suspension rod.006",
+        "CD | Fixture roof plate.006",
+        "CD | Fixture suspension rod.007",
+        "CD | Fixture roof plate.007"
+      ]
+    },
+    {
+      "name": "CD | Joined CD | Office Task Fluorescent suspended fixture / charcoal",
+      "parent": "CD | Office Task Fluorescent suspended fixture",
+      "materials": [
+        "CD | charcoal"
+      ],
+      "components": [
+        "CD | Fixture lamp end cap.006",
+        "CD | Fixture lamp end cap.007"
+      ]
+    },
+    {
+      "name": "CD | Joined CD | Office Rear Fluorescent suspended fixture / steel",
+      "parent": "CD | Office Rear Fluorescent suspended fixture",
+      "materials": [
+        "CD | steel"
+      ],
+      "components": [
+        "CD | Fixture suspension rod.008",
+        "CD | Fixture roof plate.008",
+        "CD | Fixture suspension rod.009",
+        "CD | Fixture roof plate.009"
+      ]
+    },
+    {
+      "name": "CD | Joined CD | Office Rear Fluorescent suspended fixture / charcoal",
+      "parent": "CD | Office Rear Fluorescent suspended fixture",
+      "materials": [
+        "CD | charcoal"
+      ],
+      "components": [
+        "CD | Fixture lamp end cap.008",
+        "CD | Fixture lamp end cap.009"
+      ]
+    },
+    {
+      "name": "CD | Joined CD | Scanner Overhead Key suspended fixture / steel",
+      "parent": "CD | Scanner Overhead Key suspended fixture",
+      "materials": [
+        "CD | steel"
+      ],
+      "components": [
+        "CD | Fixture suspension rod.010",
+        "CD | Fixture roof plate.010",
+        "CD | Fixture suspension rod.011",
+        "CD | Fixture roof plate.011"
+      ]
+    },
+    {
+      "name": "CD | Joined CD | Scanner Overhead Key suspended fixture / charcoal",
+      "parent": "CD | Scanner Overhead Key suspended fixture",
+      "materials": [
+        "CD | charcoal"
+      ],
+      "components": [
+        "CD | Fixture lamp end cap.010",
+        "CD | Fixture lamp end cap.011"
+      ]
+    },
+    {
+      "name": "CD | Joined CD | Conveyor Hero Key suspended fixture / steel",
+      "parent": "CD | Conveyor Hero Key suspended fixture",
+      "materials": [
+        "CD | steel"
+      ],
+      "components": [
+        "CD | Fixture suspension rod.012",
+        "CD | Fixture roof plate.012",
+        "CD | Fixture suspension rod.013",
+        "CD | Fixture roof plate.013"
+      ]
+    },
+    {
+      "name": "CD | Joined CD | Conveyor Hero Key suspended fixture / charcoal",
+      "parent": "CD | Conveyor Hero Key suspended fixture",
+      "materials": [
+        "CD | charcoal"
+      ],
+      "components": [
+        "CD | Fixture lamp end cap.012",
+        "CD | Fixture lamp end cap.013"
+      ]
+    },
+    {
+      "name": "CD | Joined CD | Arrival Bay Key suspended fixture / steel",
+      "parent": "CD | Arrival Bay Key suspended fixture",
+      "materials": [
+        "CD | steel"
+      ],
+      "components": [
+        "CD | Fixture suspension rod.014",
+        "CD | Fixture roof plate.014",
+        "CD | Fixture suspension rod.015",
+        "CD | Fixture roof plate.015"
+      ]
+    },
+    {
+      "name": "CD | Joined CD | Arrival Bay Key suspended fixture / charcoal",
+      "parent": "CD | Arrival Bay Key suspended fixture",
+      "materials": [
+        "CD | charcoal"
+      ],
+      "components": [
+        "CD | Fixture lamp end cap.014",
+        "CD | Fixture lamp end cap.015"
+      ]
+    },
+    {
+      "name": "CD | Joined CD | Bay Utility Key suspended fixture / steel",
+      "parent": "CD | Bay Utility Key suspended fixture",
+      "materials": [
+        "CD | steel"
+      ],
+      "components": [
+        "CD | Fixture suspension rod.016",
+        "CD | Fixture roof plate.016",
+        "CD | Fixture suspension rod.017",
+        "CD | Fixture roof plate.017"
+      ]
+    },
+    {
+      "name": "CD | Joined CD | Bay Utility Key suspended fixture / charcoal",
+      "parent": "CD | Bay Utility Key suspended fixture",
+      "materials": [
+        "CD | charcoal"
+      ],
+      "components": [
+        "CD | Fixture lamp end cap.016",
+        "CD | Fixture lamp end cap.017"
+      ]
+    },
+    {
+      "name": "CD | Joined CD | Support Concealed Accent suspended fixture / steel",
+      "parent": "CD | Support Concealed Accent suspended fixture",
+      "materials": [
+        "CD | steel"
+      ],
+      "components": [
+        "CD | Fixture suspension rod.018",
+        "CD | Fixture roof plate.018",
+        "CD | Fixture suspension rod.019",
+        "CD | Fixture roof plate.019"
+      ]
+    },
+    {
+      "name": "CD | Joined CD | Support Concealed Accent suspended fixture / charcoal",
+      "parent": "CD | Support Concealed Accent suspended fixture",
+      "materials": [
+        "CD | charcoal"
+      ],
+      "components": [
+        "CD | Fixture lamp end cap.018",
+        "CD | Fixture lamp end cap.019"
+      ]
+    },
+    {
+      "name": "CD | Joined CD | Main ventilation supply trunk suspension / steel",
+      "parent": "CD | Main ventilation supply trunk suspension",
+      "materials": [
+        "CD | steel"
+      ],
+      "components": [
+        "CD | Duct hanger",
+        "CD | Duct hanger.001",
+        "CD | Duct strap top",
+        "CD | Duct hanger.002",
+        "CD | Duct hanger.003",
+        "CD | Duct strap top.001",
+        "CD | Duct hanger.004",
+        "CD | Duct hanger.005",
+        "CD | Duct strap top.002",
+        "CD | Duct hanger.006",
+        "CD | Duct hanger.007",
+        "CD | Duct strap top.003",
+        "CD | Duct hanger.008",
+        "CD | Duct hanger.009",
+        "CD | Duct strap top.004"
+      ]
+    },
+    {
+      "name": "CD | Joined CD | Return ventilation trunk suspension / steel",
+      "parent": "CD | Return ventilation trunk suspension",
+      "materials": [
+        "CD | steel"
+      ],
+      "components": [
+        "CD | Duct hanger.010",
+        "CD | Duct hanger.011",
+        "CD | Duct strap top.005",
+        "CD | Duct hanger.012",
+        "CD | Duct hanger.013",
+        "CD | Duct strap top.006",
+        "CD | Duct hanger.014",
+        "CD | Duct hanger.015",
+        "CD | Duct strap top.007",
+        "CD | Duct hanger.016",
+        "CD | Duct hanger.017",
+        "CD | Duct strap top.008",
+        "CD | Duct hanger.018",
+        "CD | Duct hanger.019",
+        "CD | Duct strap top.009"
+      ]
+    },
+    {
+      "name": "CD | Joined Staff Desk Assembly / ink",
+      "parent": "Staff Desk Assembly",
+      "materials": [
+        "CD | ink"
+      ],
+      "components": [
+        "CD | CRT drafted-plane vent recess",
+        "CD | CRT drafted-plane vent recess.001",
+        "CD | CRT drafted-plane vent recess.002",
+        "CD | CRT drafted-plane vent recess.003",
+        "CD | CRT drafted-plane vent recess.004",
+        "CD | CRT drafted-plane vent recess.005",
+        "CD | CRT drafted-plane vent recess.006",
+        "CD | CRT drafted-plane vent recess.007",
+        "CD | CRT drafted-plane vent recess.008",
+        "CD | CRT drafted-plane vent recess.009",
+        "CD | Handover ink line",
+        "CD | Handover ink line.001",
+        "CD | Handover ink line.002",
+        "CD | Handover ink line.003",
+        "CD | Unfinished case printed rule",
+        "CD | Unfinished case printed rule.001",
+        "CD | Unfinished case printed rule.002",
+        "CD | Unfinished case printed rule.003",
+        "CD | Unfinished case printed rule.004",
+        "CD | Unfinished case printed rule.005",
+        "CD | Unfinished case printed rule.006",
+        "CD | Unfinished case printed rule.007",
+        "CD | Unfinished case field separator",
+        "CD | Unfinished case field separator.001"
+      ]
+    },
+    {
+      "name": "CD | Joined Arrival Gate P2 / charcoal",
+      "parent": "Arrival Gate P2",
+      "materials": [
+        "CD | charcoal"
+      ],
+      "components": [
+        "CD | Arrival beacon wall bracket",
+        "CD | Arrival beacon wall bracket.001"
+      ]
+    },
+    {
+      "name": "CD | Joined G1 Cart Bypass Gate / steel",
+      "parent": "G1 Cart Bypass Gate",
+      "materials": [
+        "CD | steel"
+      ],
+      "components": [
+        "CD | G1 telescopic guide shoe",
+        "CD | G1 guide keeper",
+        "CD | G1 guide keeper.001",
+        "CD | G1 telescopic guide shoe.001",
+        "CD | G1 guide keeper.002",
+        "CD | G1 guide keeper.003",
+        "CD | G1 caster axle",
+        "CD | G1 caster axle.001",
+        "CD | G1 caster axle.002",
+        "CD | G1 caster axle.003",
+        "CD | G1 caster axle.004",
+        "CD | G1 caster axle.005",
+        "CD | G1 stop cast bracket"
+      ]
+    },
+    {
+      "name": "CD | Joined CD | Office file cabinet 0 / steel",
+      "parent": "CD | Office file cabinet 0",
+      "materials": [
+        "CD | steel"
+      ],
+      "components": [
+        "CD | Drawer pull captive stud",
+        "CD | Drawer pull captive stud.001",
+        "CD | Drawer pull captive stud.002",
+        "CD | Drawer pull captive stud.003",
+        "CD | Drawer pull captive stud.004",
+        "CD | Drawer pull captive stud.005",
+        "CD | Drawer pull captive stud.006",
+        "CD | Drawer pull captive stud.007"
+      ]
+    },
+    {
+      "name": "CD | Joined CD | Office file cabinet 1 / steel",
+      "parent": "CD | Office file cabinet 1",
+      "materials": [
+        "CD | steel"
+      ],
+      "components": [
+        "CD | Drawer pull captive stud.008",
+        "CD | Drawer pull captive stud.009",
+        "CD | Drawer pull captive stud.010",
+        "CD | Drawer pull captive stud.011",
+        "CD | Drawer pull captive stud.012",
+        "CD | Drawer pull captive stud.013",
+        "CD | Drawer pull captive stud.014",
+        "CD | Drawer pull captive stud.015"
+      ]
+    },
+    {
+      "name": "CD | Joined Wall Utilities Rack / steel",
+      "parent": "Wall Utilities Rack",
+      "materials": [
+        "CD | steel"
+      ],
+      "components": [
+        "CD | Utility backboard captive stand-off",
+        "CD | Utility backboard captive stand-off.001",
+        "CD | Utility backboard captive stand-off.002",
+        "CD | Utility backboard captive stand-off.003",
+        "CD | Utility captive lid screw",
+        "CD | Utility captive lid screw.001",
+        "CD | Utility captive lid screw.002",
+        "CD | Utility captive lid screw.003",
+        "CD | Utility hinge leaf",
+        "CD | Utility hinge pin",
+        "CD | Utility hinge leaf.001",
+        "CD | Utility hinge pin.001",
+        "CD | Utility backboard captive stand-off.004",
+        "CD | Utility backboard captive stand-off.005",
+        "CD | Utility backboard captive stand-off.006",
+        "CD | Utility backboard captive stand-off.007",
+        "CD | Utility captive lid screw.004",
+        "CD | Utility captive lid screw.005",
+        "CD | Utility captive lid screw.006",
+        "CD | Utility captive lid screw.007",
+        "CD | Utility hinge leaf.002",
+        "CD | Utility hinge pin.002",
+        "CD | Utility hinge leaf.003",
+        "CD | Utility hinge pin.003",
+        "CD | Utility backboard captive stand-off.008",
+        "CD | Utility backboard captive stand-off.009",
+        "CD | Utility backboard captive stand-off.010",
+        "CD | Utility backboard captive stand-off.011",
+        "CD | Utility captive lid screw.008",
+        "CD | Utility captive lid screw.009",
+        "CD | Utility captive lid screw.010",
+        "CD | Utility captive lid screw.011",
+        "CD | Utility hinge leaf.004",
+        "CD | Utility hinge pin.004",
+        "CD | Utility hinge leaf.005",
+        "CD | Utility hinge pin.005",
+        "CD | Utility continuing conduit",
+        "CD | Utility conduit saddle",
+        "CD | Utility conduit saddle.001",
+        "CD | Utility continuing conduit.001",
+        "CD | Utility conduit saddle.002",
+        "CD | Utility conduit saddle.003",
+        "CD | Sleeve clamp captive stud",
+        "CD | Sleeve clamp captive stud.001"
+      ]
+    },
+    {
+      "name": "CD | Joined Wall Utilities Rack / ivory",
+      "parent": "Wall Utilities Rack",
+      "materials": [
+        "CD | ivory"
+      ],
+      "components": [
+        "CD | Utility fitted door",
+        "CD | Utility rating enamel",
+        "CD | Utility fitted door.001",
+        "CD | Utility rating enamel.001",
+        "CD | Utility fitted door.002",
+        "CD | Utility rating enamel.002",
+        "CD | Utility terminal lid"
+      ]
+    },
+    {
+      "name": "CD | Joined Wall Utilities Rack / charcoal",
+      "parent": "Wall Utilities Rack",
+      "materials": [
+        "CD | charcoal"
+      ],
+      "components": [
+        "CD | Utility conduit top gland",
+        "CD | Utility conduit top gland.001",
+        "CD | Utility conduit top gland.002",
+        "CD | Utility upper terminal"
+      ]
+    },
+    {
+      "name": "CD | Joined Covered Trolley H1 / cotton",
+      "parent": "Covered Trolley H1",
+      "materials": [
+        "CD | cotton"
+      ],
+      "components": [
+        "CD | Trolley gravity-led sewn hem",
+        "CD | Trolley gravity-led sewn hem.001"
+      ]
+    },
+    {
+      "name": "CD | Joined CD | Inspection face luminaire / steel",
+      "parent": "CD | Inspection face luminaire",
+      "materials": [
+        "CD | steel"
+      ],
+      "components": [
+        "CD | Luminaire twin roof stem",
+        "CD | Luminaire roof anchor",
+        "CD | Luminaire twin roof stem.001",
+        "CD | Luminaire roof anchor.001",
+        "CD | Lamp pivot bearing",
+        "CD | Lamp pivot bearing.001"
+      ]
+    },
+    {
+      "name": "CD | Joined CD | Custody transfer luminaire / steel",
+      "parent": "CD | Custody transfer luminaire",
+      "materials": [
+        "CD | steel"
+      ],
+      "components": [
+        "CD | Luminaire twin roof stem.002",
+        "CD | Luminaire roof anchor.002",
+        "CD | Luminaire twin roof stem.003",
+        "CD | Luminaire roof anchor.003",
+        "CD | Lamp pivot bearing.002",
+        "CD | Lamp pivot bearing.003"
+      ]
+    },
+    {
+      "name": "CD | Joined G1 leaf 1 frame / steel",
+      "parent": "G1 leaf 1 frame",
+      "materials": [
+        "CD | steel"
+      ],
+      "components": [
+        "CD | G1 carriage suspension",
+        "CD | G1 carriage suspension.001"
+      ]
+    },
+    {
+      "name": "CD | Joined G1 leaf 1 panel / wear",
+      "parent": "G1 leaf 1 panel",
+      "materials": [
+        "CD | wear"
+      ],
+      "components": [
+        "CD | G1 pressed panel bay",
+        "CD | G1 pressed panel bay.001"
+      ]
+    },
+    {
+      "name": "CD | Joined G1 leaf 1 panel / steel",
+      "parent": "G1 leaf 1 panel",
+      "materials": [
+        "CD | steel"
+      ],
+      "components": [
+        "CD | G1 panel captive screw",
+        "CD | G1 panel captive screw.001",
+        "CD | G1 panel captive screw.002",
+        "CD | G1 panel captive screw.003",
+        "CD | G1 leaf folded side return",
+        "CD | G1 leaf folded side return.001",
+        "CD | G1 reverse rolled rib",
+        "CD | G1 reverse rolled rib.001",
+        "CD | G1 reverse rivet",
+        "CD | G1 reverse rivet.001",
+        "CD | G1 reverse rivet.002",
+        "CD | G1 reverse rivet.003"
+      ]
+    },
+    {
+      "name": "CD | Joined G1 leaf 2 frame / steel",
+      "parent": "G1 leaf 2 frame",
+      "materials": [
+        "CD | steel"
+      ],
+      "components": [
+        "CD | G1 carriage suspension.002",
+        "CD | G1 carriage suspension.003"
+      ]
+    },
+    {
+      "name": "CD | Joined G1 leaf 2 panel / wear",
+      "parent": "G1 leaf 2 panel",
+      "materials": [
+        "CD | wear"
+      ],
+      "components": [
+        "CD | G1 pressed panel bay.002",
+        "CD | G1 pressed panel bay.003"
+      ]
+    },
+    {
+      "name": "CD | Joined G1 leaf 2 panel / steel",
+      "parent": "G1 leaf 2 panel",
+      "materials": [
+        "CD | steel"
+      ],
+      "components": [
+        "CD | G1 panel captive screw.004",
+        "CD | G1 panel captive screw.005",
+        "CD | G1 panel captive screw.006",
+        "CD | G1 panel captive screw.007",
+        "CD | G1 leaf folded side return.002",
+        "CD | G1 leaf folded side return.003",
+        "CD | G1 reverse rolled rib.002",
+        "CD | G1 reverse rolled rib.003",
+        "CD | G1 reverse rivet.004",
+        "CD | G1 reverse rivet.005",
+        "CD | G1 reverse rivet.006",
+        "CD | G1 reverse rivet.007"
+      ]
+    },
+    {
+      "name": "CD | Joined G1 leaf 3 frame / steel",
+      "parent": "G1 leaf 3 frame",
+      "materials": [
+        "CD | steel"
+      ],
+      "components": [
+        "CD | G1 carriage suspension.004",
+        "CD | G1 carriage suspension.005"
+      ]
+    },
+    {
+      "name": "CD | Joined G1 leaf 3 panel / wear",
+      "parent": "G1 leaf 3 panel",
+      "materials": [
+        "CD | wear"
+      ],
+      "components": [
+        "CD | G1 pressed panel bay.004",
+        "CD | G1 pressed panel bay.005"
+      ]
+    },
+    {
+      "name": "CD | Joined G1 leaf 3 panel / steel",
+      "parent": "G1 leaf 3 panel",
+      "materials": [
+        "CD | steel"
+      ],
+      "components": [
+        "CD | G1 panel captive screw.008",
+        "CD | G1 panel captive screw.009",
+        "CD | G1 panel captive screw.010",
+        "CD | G1 panel captive screw.011",
+        "CD | G1 leaf folded side return.004",
+        "CD | G1 leaf folded side return.005",
+        "CD | G1 reverse rolled rib.004",
+        "CD | G1 reverse rolled rib.005",
+        "CD | G1 reverse rivet.008",
+        "CD | G1 reverse rivet.009",
+        "CD | G1 reverse rivet.010",
+        "CD | G1 reverse rivet.011"
+      ]
+    },
+    {
+      "name": "CD | Joined Person Scanner Arch / charcoal",
+      "parent": "Person Scanner Arch",
+      "materials": [
+        "CD | charcoal"
+      ],
+      "components": [
+        "CD | Scanner front service door",
+        "CD | Scanner front service door.001",
+        "CD | Scanner inner bank bezel",
+        "CD | Scanner inner bank bezel.001",
+        "CD | Scanner inner bank bezel.002",
+        "CD | Scanner inner bank bezel.003",
+        "CD | Scanner inner bank bezel.004",
+        "CD | Scanner inner bank bezel.005",
+        "CD | Scanner inner bank bezel.006",
+        "CD | Scanner inner bank bezel.007",
+        "CD | Scanner status seated neck",
+        "CD | Scanner status seated neck.001",
+        "CD | Scanner status seated neck.002",
+        "CD | Scanner status seated neck.003"
+      ]
+    },
+    {
+      "name": "CD | Joined Arrival Gate P2 / steel",
+      "parent": "Arrival Gate P2",
+      "materials": [
+        "CD | steel"
+      ],
+      "components": [
+        "CD | P2 sign fitted stand-off",
+        "CD | P2 sign fitted stand-off.001"
+      ]
+    },
+    {
+      "name": "CD | Joined P2 blast leaf west / wear",
+      "parent": "P2 blast leaf west",
+      "materials": [
+        "CD | wear"
+      ],
+      "components": [
+        "CD | Arrival leaf pressed cassette",
+        "CD | Arrival leaf pressed cassette.001"
+      ]
+    },
+    {
+      "name": "CD | Joined P2 blast leaf west / navy",
+      "parent": "P2 blast leaf west",
+      "materials": [
+        "CD | navy"
+      ],
+      "components": [
+        "CD | Arrival cassette die face",
+        "CD | Arrival cassette die face.001"
+      ]
+    },
+    {
+      "name": "CD | Joined P2 blast leaf west / steel",
+      "parent": "P2 blast leaf west",
+      "materials": [
+        "CD | steel"
+      ],
+      "components": [
+        "CD | Arrival captive panel screw",
+        "CD | Arrival captive panel screw.001",
+        "CD | Arrival captive panel screw.002",
+        "CD | Arrival captive panel screw.003",
+        "CD | Arrival captive panel screw.004",
+        "CD | Arrival captive panel screw.005",
+        "CD | Arrival captive panel screw.006",
+        "CD | Arrival captive panel screw.007",
+        "CD | P2 folded vertical closure",
+        "CD | P2 folded vertical closure.001",
+        "CD | P2 cast leaf hanger",
+        "CD | P2 captive headed journal",
+        "CD | P2 axle retaining spring",
+        "CD | P2 cast leaf hanger.001",
+        "CD | P2 captive headed journal.001",
+        "CD | P2 axle retaining spring.001"
+      ]
+    },
+    {
+      "name": "CD | Joined P2 blast leaf east / wear",
+      "parent": "P2 blast leaf east",
+      "materials": [
+        "CD | wear"
+      ],
+      "components": [
+        "CD | Arrival leaf pressed cassette.002",
+        "CD | Arrival leaf pressed cassette.003"
+      ]
+    },
+    {
+      "name": "CD | Joined P2 blast leaf east / navy",
+      "parent": "P2 blast leaf east",
+      "materials": [
+        "CD | navy"
+      ],
+      "components": [
+        "CD | Arrival cassette die face.002",
+        "CD | Arrival cassette die face.003"
+      ]
+    },
+    {
+      "name": "CD | Joined P2 blast leaf east / steel",
+      "parent": "P2 blast leaf east",
+      "materials": [
+        "CD | steel"
+      ],
+      "components": [
+        "CD | Arrival captive panel screw.008",
+        "CD | Arrival captive panel screw.009",
+        "CD | Arrival captive panel screw.010",
+        "CD | Arrival captive panel screw.011",
+        "CD | Arrival captive panel screw.012",
+        "CD | Arrival captive panel screw.013",
+        "CD | Arrival captive panel screw.014",
+        "CD | Arrival captive panel screw.015",
+        "CD | P2 folded vertical closure.002",
+        "CD | P2 folded vertical closure.003",
+        "CD | P2 cast leaf hanger.002",
+        "CD | P2 captive headed journal.002",
+        "CD | P2 axle retaining spring.002",
+        "CD | P2 cast leaf hanger.003",
+        "CD | P2 captive headed journal.003",
+        "CD | P2 axle retaining spring.003"
+      ]
+    },
+    {
+      "name": "CD | Joined P2 blast leaf west / charcoal",
+      "parent": "P2 blast leaf west",
+      "materials": [
+        "CD | charcoal"
+      ],
+      "components": [
+        "CD | P2 captive guide shoe",
+        "CD | P2 captive guide shoe.001",
+        "CD | P2 captured trolley roller",
+        "CD | P2 captured trolley roller.001"
+      ]
+    },
+    {
+      "name": "CD | Joined P2 blast leaf west / rubber",
+      "parent": "P2 blast leaf west",
+      "materials": [
+        "CD | rubber"
+      ],
+      "components": [
+        "CD | P2 centre compression seal",
+        "CD | P2 lateral guide wear pad",
+        "CD | P2 lateral guide wear pad.001"
+      ]
+    },
+    {
+      "name": "CD | Joined P2 blast leaf east / charcoal",
+      "parent": "P2 blast leaf east",
+      "materials": [
+        "CD | charcoal"
+      ],
+      "components": [
+        "CD | P2 captive guide shoe.002",
+        "CD | P2 captive guide shoe.003",
+        "CD | P2 captured trolley roller.002",
+        "CD | P2 captured trolley roller.003"
+      ]
+    },
+    {
+      "name": "CD | Joined P2 blast leaf east / rubber",
+      "parent": "P2 blast leaf east",
+      "materials": [
+        "CD | rubber"
+      ],
+      "components": [
+        "CD | P2 centre compression seal.001",
+        "CD | P2 lateral guide wear pad.002",
+        "CD | P2 lateral guide wear pad.003"
+      ]
+    },
+    {
+      "name": "CD | Joined Staff Desk Assembly / paper",
+      "parent": "Staff Desk Assembly",
+      "materials": [
+        "CD | paper"
+      ],
+      "components": [
+        "CD | Shift handover form",
+        "CD | Unfinished case pages",
+        "CD | Unfinished case pages.001",
+        "CD | Unfinished case pages.002"
+      ]
+    },
+    {
+      "name": "CD | Joined Checkin Counter Hatch / yellow",
+      "parent": "Checkin Counter Hatch",
+      "materials": [
+        "CD | yellow"
+      ],
+      "components": [
+        "CD | Check-in branch wayfinding",
+        "CD | Check-in branch wayfinding.001",
+        "CD | Check-in branch wayfinding.002",
+        "CD | Check-in branch lane",
+        "CD | Check-in branch lane.001",
+        "CD | Check-in branch lane.002",
+        "CD | Check-in branch lane.003",
+        "CD | Check-in branch lane.004",
+        "CD | Check-in branch lane.005"
+      ]
+    },
+    {
+      "name": "CD | Joined CD | Office key cabinet / steel",
+      "parent": "CD | Office key cabinet",
+      "materials": [
+        "CD | steel"
+      ],
+      "components": [
+        "CD | Key pane retaining ledge",
+        "CD | Key hook wall journal",
+        "CD | Key hook wall journal.001",
+        "CD | Key hook wall journal.002"
+      ]
+    },
+    {
+      "name": "CD | Joined CD | Office key cabinet / brass",
+      "parent": "CD | Office key cabinet",
+      "materials": [
+        "CD | brass"
+      ],
+      "components": [
+        "CD | Key retained bow",
+        "CD | Key blade",
+        "CD | Key tooth",
+        "CD | Key retained bow.001",
+        "CD | Key blade.001",
+        "CD | Key tooth.001",
+        "CD | Key retained bow.002",
+        "CD | Key blade.002",
+        "CD | Key tooth.002"
+      ]
+    },
+    {
+      "name": "CD | Joined Staff Desk Assembly / fabric",
+      "parent": "Staff Desk Assembly",
+      "materials": [
+        "CD | fabric"
+      ],
+      "components": [
+        "CD | Clerk folded work jacket",
+        "CD | Folded jacket collar flap",
+        "CD | Folded jacket collar flap.001",
+        "CD | Folded jacket pocket stitched hem"
+      ]
+    },
+    {
+      "name": "CD | Joined CD | Faded duty poster / paper",
+      "parent": "CD | Faded duty poster",
+      "materials": [
+        "CD | paper"
+      ],
+      "components": [
+        "CD | Duty poster stock",
+        "CD | Poster factory windows",
+        "CD | Poster factory windows.001",
+        "CD | Poster factory windows.002",
+        "CD | Poster factory windows.003",
+        "CD | Poster factory windows.004",
+        "CD | Poster factory windows.005",
+        "CD | Poster factory windows.006"
+      ]
+    }
+  ]
+}

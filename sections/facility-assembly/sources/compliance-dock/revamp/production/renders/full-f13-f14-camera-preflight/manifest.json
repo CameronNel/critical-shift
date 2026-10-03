@@ -1,0 +1,76 @@
+{
+  "source_sha256": "22176ab474d914156cdf5a083571c19b04c6e6e11cfa50ab8ba681013bc124a6",
+  "renderer_sha256": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce",
+  "resolution": [
+    1067,
+    600
+  ],
+  "samples": 24,
+  "engine": "CYCLES",
+  "device": "CPU",
+  "seed": 8217,
+  "cold_open": false,
+  "adaptive_threshold": 0.06,
+  "adaptive_min_samples": 4,
+  "max_bounces": 6,
+  "diffuse_bounces": 3,
+  "glossy_bounces": 3,
+  "transmission_bounces": 6,
+  "view_transform": "AgX",
+  "look": "AgX - Medium High Contrast",
+  "exposure": 0.699999988079071,
+  "diagnostic": null,
+  "source_saved": false,
+  "label_method": "Temporary camera-attached emission geometry",
+  "complete": true,
+  "shots": [
+    {
+      "id": "C02_HERO_DOCK",
+      "label": "02 | INSPECTION / WIDE",
+      "group": "mandatory",
+      "inherited": null,
+      "position": [
+        -1.8,
+        0.1,
+        1.8
+      ],
+      "target": [
+        -1.8,
+        7.0,
+        1.5
+      ],
+      "lens": 18,
+      "camera_matrix_world": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -1.7999999523162842
+        ],
+        [
+          0.0,
+          0.04343723505735397,
+          -0.9990561604499817,
+          0.10000000149011612
+        ],
+        [
+          0.0,
+          0.9990561604499817,
+          0.04343723505735397,
+          1.7999999523162842
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 18.0,
+      "projection": "PERSP",
+      "image_sha256": "30fada90f6a451989783bb6c7e6253e40d5736797d2522be0742c99193ec8aa8",
+      "temporary_hidden_geometry": []
+    }
+  ],
+  "requested_view_count": 1
+}

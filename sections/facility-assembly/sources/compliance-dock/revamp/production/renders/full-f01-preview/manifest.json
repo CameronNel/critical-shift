@@ -1,0 +1,451 @@
+{
+  "source_sha256": "ebc7922b976578d4470053a3c115e2acc753a2d249b14a896763a8fd3cb84253",
+  "renderer_sha256": "ea13469f7bfbbc268ea8ad0357ab77b3f9cbc2e7ae2438f3e99a860650613278",
+  "resolution": [
+    1067,
+    600
+  ],
+  "samples": 24,
+  "engine": "CYCLES",
+  "device": "CPU",
+  "seed": 8217,
+  "cold_open": false,
+  "adaptive_threshold": 0.06,
+  "adaptive_min_samples": 4,
+  "max_bounces": 6,
+  "diffuse_bounces": 3,
+  "glossy_bounces": 3,
+  "transmission_bounces": 6,
+  "view_transform": "AgX",
+  "look": "AgX - Medium High Contrast",
+  "exposure": 0.699999988079071,
+  "diagnostic": null,
+  "source_saved": false,
+  "label_method": "Temporary camera-attached emission geometry",
+  "complete": true,
+  "shots": [
+    {
+      "id": "C01_ENTRY",
+      "label": "01 | FACILITY ENTRY",
+      "group": "mandatory",
+      "inherited": "C01_ENTRY",
+      "position": null,
+      "target": null,
+      "lens": 24,
+      "camera_matrix_world": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.08715580403804779,
+          -0.9961947202682495,
+          0.800000011920929
+        ],
+        [
+          0.0,
+          0.9961947202682495,
+          0.08715580403804779,
+          1.649999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 28.0,
+      "projection": "PERSP",
+      "image_sha256": "1df1d1492c92af61129948a079fcd3dc3049f5feb16858b9e1d2167b117a55d8",
+      "temporary_hidden_geometry": []
+    },
+    {
+      "id": "C05_CONVEYOR_LEAD_TUNNEL",
+      "label": "05 | CARGO INSPECTION",
+      "group": "mandatory",
+      "inherited": null,
+      "position": [
+        2.95,
+        4.15,
+        1.65
+      ],
+      "target": [
+        4.65,
+        7.4,
+        1.08
+      ],
+      "lens": 25,
+      "camera_matrix_world": [
+        [
+          0.8860982060432434,
+          0.07117689400911331,
+          -0.4579998254776001,
+          2.950000047683716
+        ],
+        [
+          -0.4634975790977478,
+          0.13607339560985565,
+          -0.8755878210067749,
+          4.150000095367432
+        ],
+        [
+          -3.344947430150569e-08,
+          0.9881386160850525,
+          0.1535647064447403,
+          1.649999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 25.0,
+      "projection": "PERSP",
+      "image_sha256": "0b5145aa290810c1395d7f39e8135c5470d841a5df975f1bcd4a0102894faadd",
+      "temporary_hidden_geometry": []
+    },
+    {
+      "id": "C07_OFFICE_INTERIOR",
+      "label": "07 | STAFF OFFICE",
+      "group": "mandatory",
+      "inherited": "C07_OFFICE_INTERIOR",
+      "position": null,
+      "target": null,
+      "lens": 24,
+      "camera_matrix_world": [
+        [
+          0.8191520571708679,
+          0.11925322562456131,
+          -0.5610424280166626,
+          -6.0
+        ],
+        [
+          -0.5735764503479004,
+          0.17031125724315643,
+          -0.8012515902519226,
+          4.199999809265137
+        ],
+        [
+          0.0,
+          0.9781476259231567,
+          0.2079116553068161,
+          1.649999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 28.0,
+      "projection": "PERSP",
+      "image_sha256": "bbdbd46de202ef44c7badf2ef9dcedb4c9fc9b73d087b2f5d4d15ac0445d36ef",
+      "temporary_hidden_geometry": []
+    },
+    {
+      "id": "C10_ROOF_SERVICES",
+      "label": "10 | ROOF SERVICES",
+      "group": "mandatory",
+      "inherited": null,
+      "position": [
+        1.4,
+        9.7,
+        2.1
+      ],
+      "target": [
+        1.6,
+        6.5,
+        3.65
+      ],
+      "lens": 20,
+      "camera_matrix_world": [
+        [
+          -0.9980525970458984,
+          -0.027149442583322525,
+          -0.05616011470556259,
+          1.399999976158142
+        ],
+        [
+          -0.06237828731536865,
+          0.4343932569026947,
+          0.8985607624053955,
+          9.699999809265137
+        ],
+        [
+          1.5099580252808664e-07,
+          0.9003140330314636,
+          -0.43524083495140076,
+          2.0999999046325684
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 20.0,
+      "projection": "PERSP",
+      "image_sha256": "18da5d76b204f3542b021db182b05e3fb03a94da4f648a7feb223493b99bdd29",
+      "temporary_hidden_geometry": []
+    },
+    {
+      "id": "CORNER_SW",
+      "label": "11 | CORNER SW / CUTAWAY",
+      "group": "corners",
+      "inherited": null,
+      "position": [
+        -11,
+        -4,
+        12
+      ],
+      "target": [
+        0,
+        7.9,
+        1.2
+      ],
+      "lens": 26,
+      "camera_matrix_world": [
+        [
+          0.7343301177024841,
+          0.37644192576408386,
+          -0.5648458003997803,
+          -11.0
+        ],
+        [
+          -0.6787925362586975,
+          0.40724173188209534,
+          -0.6110604405403137,
+          -4.0
+        ],
+        [
+          -1.0010088757894664e-08,
+          0.8321331739425659,
+          0.5545758605003357,
+          12.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 26.0,
+      "projection": "ORTHO",
+      "image_sha256": "3e9cd32a1e6ffa0b64f4ebff65f4a8789a4015fca8886cdf9ba99d8e5d0e340f",
+      "temporary_hidden_geometry": [
+        "Skirting south west",
+        "Skirting south east",
+        "Skirting west",
+        "South wall wainscot west",
+        "South wall wainscot east",
+        "Dado rail south W",
+        "Dado rail south E",
+        "Pilaster west flange 11.5_bolt_-0.0684_-0.1368",
+        "Pilaster west flange 11.5_bolt_-0.0684_0.1368",
+        "Pilaster west flange 14.8_bolt_-0.0684_-0.1368",
+        "Pilaster west flange 14.8_bolt_-0.0684_0.1368",
+        "North lintel P2",
+        "South wall west",
+        "South wall east",
+        "South lintel P1",
+        "West perimeter wall",
+        "P1 corridor ceiling",
+        "P1 corridor floor",
+        "P1 corridor wall W",
+        "P1 corridor wall E",
+        "P1 deep back wall",
+        "P1 deep door leaf",
+        "P1 corridor overhead sign",
+        "P2 frame head lintel",
+        "P2 gate sign plate",
+        "P2 beacon base -1.5",
+        "P2 beacon amber -1.5",
+        "P2 beacon base 1.5",
+        "P2 beacon amber 1.5",
+        "Scanner ceiling junction box",
+        "Roof deck ceiling slab",
+        "Truss top chord 2.2",
+        "Truss bot chord 2.2",
+        "Truss diag A 2.2_-5.6",
+        "Truss diag B 2.2_-5.6",
+        "Truss diag A 2.2_-2.4",
+        "Truss diag B 2.2_-2.4",
+        "Truss diag A 2.2_0.8",
+        "Truss diag B 2.2_0.8",
+        "Truss diag A 2.2_4.0",
+        "Truss diag B 2.2_4.0",
+        "Truss top chord 5.2",
+        "Truss bot chord 5.2",
+        "Truss diag A 5.2_-5.6",
+        "Truss diag B 5.2_-5.6",
+        "Truss diag A 5.2_-2.4",
+        "Truss diag B 5.2_-2.4",
+        "Truss diag A 5.2_0.8",
+        "Truss diag B 5.2_0.8",
+        "Truss diag A 5.2_4.0",
+        "Truss diag B 5.2_4.0",
+        "Truss top chord 8.2",
+        "Truss bot chord 8.2",
+        "Truss diag A 8.2_-5.6",
+        "Truss diag B 8.2_-5.6",
+        "Truss diag A 8.2_-2.4",
+        "Truss diag B 8.2_-2.4",
+        "Truss diag A 8.2_0.8",
+        "Truss diag B 8.2_0.8",
+        "Truss diag A 8.2_4.0",
+        "Truss diag B 8.2_4.0",
+        "Truss top chord 11.2",
+        "Truss bot chord 11.2",
+        "Truss diag A 11.2_-5.6",
+        "Truss diag B 11.2_-5.6",
+        "Truss diag A 11.2_-2.4",
+        "Truss diag B 11.2_-2.4",
+        "Truss diag A 11.2_0.8",
+        "Truss diag B 11.2_0.8",
+        "Truss diag A 11.2_4.0",
+        "Truss diag B 11.2_4.0",
+        "Truss top chord 13.9",
+        "Truss bot chord 13.9",
+        "Truss diag A 13.9_-5.6",
+        "Truss diag B 13.9_-5.6",
+        "Truss diag A 13.9_-2.4",
+        "Truss diag B 13.9_-2.4",
+        "Truss diag A 13.9_0.8",
+        "Truss diag B 13.9_0.8",
+        "Truss diag A 13.9_4.0",
+        "Truss diag B 13.9_4.0",
+        "Main ventilation supply trunk",
+        "Return ventilation trunk",
+        "Supply diffuser drop 3.0",
+        "Diffuser grille 3.0",
+        "Supply diffuser drop 6.0",
+        "Diffuser grille 6.0",
+        "Supply diffuser drop 9.0",
+        "Diffuser grille 9.0",
+        "Supply diffuser drop 12.0",
+        "Diffuser grille 12.0",
+        "Supply diffuser drop 14.5",
+        "Diffuser grille 14.5",
+        "Cable tray longitudinal -1.5",
+        "Cable bundle -1.5_0",
+        "Cable bundle -1.5_1",
+        "Cable bundle -1.5_2",
+        "Cable bundle -1.5_3",
+        "Cable tray longitudinal 0.8",
+        "Cable bundle 0.8_0",
+        "Cable bundle 0.8_1",
+        "Cable bundle 0.8_2",
+        "Cable bundle 0.8_3",
+        "Cable tray longitudinal 4.8",
+        "Cable bundle 4.8_0",
+        "Cable bundle 4.8_1",
+        "Cable bundle 4.8_2",
+        "Cable bundle 4.8_3",
+        "Warm Fluorescent SW Fixture Housing",
+        "Warm Fluorescent SW Tube 1",
+        "Warm Fluorescent SW Tube 2",
+        "Warm Fluorescent S-Mid Fixture Housing",
+        "Warm Fluorescent S-Mid Tube 1",
+        "Warm Fluorescent S-Mid Tube 2",
+        "Warm Fluorescent SE Fixture Housing",
+        "Warm Fluorescent SE Tube 1",
+        "Warm Fluorescent SE Tube 2",
+        "Office Task Fluorescent Fixture Housing",
+        "Office Rear Fluorescent Fixture Housing",
+        "Scanner Overhead Key Fixture Housing",
+        "Scanner Overhead Key Tube 1",
+        "Scanner Overhead Key Tube 2",
+        "Conveyor Hero Key Fixture Housing",
+        "Conveyor Hero Key Tube 1",
+        "Conveyor Hero Key Tube 2",
+        "Arrival Bay Key Fixture Housing",
+        "Arrival Bay Key Tube 1",
+        "Arrival Bay Key Tube 2",
+        "Bay Utility Key Fixture Housing",
+        "Bay Utility Key Tube 1",
+        "Bay Utility Key Tube 2",
+        "Support Concealed Accent Fixture Housing",
+        "Support Concealed Accent Tube 1",
+        "Support Concealed Accent Tube 2",
+        "CD | Joined CD | Warm Fluorescent SW suspended fixture / steel",
+        "CD | Joined CD | Warm Fluorescent SW suspended fixture / charcoal",
+        "CD | Joined CD | Warm Fluorescent S-Mid suspended fixture / steel",
+        "CD | Joined CD | Warm Fluorescent S-Mid suspended fixture / charcoal",
+        "CD | Joined CD | Warm Fluorescent SE suspended fixture / steel",
+        "CD | Joined CD | Warm Fluorescent SE suspended fixture / charcoal",
+        "CD | Joined CD | Office Task Fluorescent suspended fixture / steel",
+        "CD | Joined CD | Office Rear Fluorescent suspended fixture / steel",
+        "CD | Joined CD | Scanner Overhead Key suspended fixture / steel",
+        "CD | Joined CD | Scanner Overhead Key suspended fixture / charcoal",
+        "CD | Joined CD | Conveyor Hero Key suspended fixture / steel",
+        "CD | Joined CD | Conveyor Hero Key suspended fixture / charcoal",
+        "CD | Joined CD | Arrival Bay Key suspended fixture / steel",
+        "CD | Joined CD | Arrival Bay Key suspended fixture / charcoal",
+        "CD | Joined CD | Bay Utility Key suspended fixture / steel",
+        "CD | Joined CD | Bay Utility Key suspended fixture / charcoal",
+        "CD | Joined CD | Support Concealed Accent suspended fixture / steel",
+        "CD | Joined CD | Support Concealed Accent suspended fixture / charcoal",
+        "CD | Joined CD | Main ventilation supply trunk suspension / steel",
+        "CD | Joined CD | Return ventilation trunk suspension / steel"
+      ],
+      "ortho_scale_m": 33.80362319946289
+    },
+    {
+      "id": "HERO_TROLLEY",
+      "label": "22 | COVERED TRANSFER TROLLEY",
+      "group": "assets",
+      "inherited": null,
+      "position": [
+        -3.4,
+        10.6,
+        1.65
+      ],
+      "target": [
+        -5.8,
+        13.2,
+        0.85
+      ],
+      "lens": 25,
+      "camera_matrix_world": [
+        [
+          0.734803318977356,
+          -0.14957912266254425,
+          0.6615815758705139,
+          -3.4000000953674316
+        ],
+        [
+          0.678280234336853,
+          0.16204394400119781,
+          -0.7167130708694458,
+          10.600000381469727
+        ],
+        [
+          2.5326002628389688e-08,
+          0.9753808975219727,
+          0.22052699327468872,
+          1.649999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 25.0,
+      "projection": "PERSP",
+      "image_sha256": "de74cddd5e8f5000cf6dba4c5b39e17e60cc54a6e296f284f45e5443816e9c12",
+      "temporary_hidden_geometry": []
+    }
+  ],
+  "requested_view_count": 6
+}

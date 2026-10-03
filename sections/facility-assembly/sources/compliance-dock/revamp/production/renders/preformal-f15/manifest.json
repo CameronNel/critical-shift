@@ -1,0 +1,76 @@
+{
+  "source_sha256": "d2514e668ea2b24e8b4ede6bde870e12f10c1afd6d6e1892b12c016266bd7b35",
+  "renderer_sha256": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce",
+  "resolution": [
+    1067,
+    600
+  ],
+  "samples": 24,
+  "engine": "CYCLES",
+  "device": "CPU",
+  "seed": 8217,
+  "cold_open": false,
+  "adaptive_threshold": 0.06,
+  "adaptive_min_samples": 4,
+  "max_bounces": 6,
+  "diffuse_bounces": 3,
+  "glossy_bounces": 3,
+  "transmission_bounces": 6,
+  "view_transform": "AgX",
+  "look": "AgX - Medium High Contrast",
+  "exposure": 0.699999988079071,
+  "diagnostic": null,
+  "source_saved": false,
+  "label_method": "Temporary camera-attached emission geometry",
+  "complete": true,
+  "shots": [
+    {
+      "id": "C06_CART_GATE_G1",
+      "label": "06 | CART BYPASS",
+      "group": "mandatory",
+      "inherited": null,
+      "position": [
+        2.3,
+        4.2,
+        1.65
+      ],
+      "target": [
+        1.95,
+        7,
+        1.15
+      ],
+      "lens": 24,
+      "camera_matrix_world": [
+        [
+          0.9922778606414795,
+          -0.021640893071889877,
+          0.12213221192359924,
+          2.299999952316284
+        ],
+        [
+          0.12403468787670135,
+          0.1731272041797638,
+          -0.9770579934120178,
+          4.199999809265137
+        ],
+        [
+          -5.727320839810091e-10,
+          0.9846616983413696,
+          0.17447452247142792,
+          1.649999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "actual_lens_mm": 24.0,
+      "projection": "PERSP",
+      "image_sha256": "a20905cd247dd29580262a7cfe8ee0c7e0437e5e78842d0f4eabb8ee2f571115",
+      "temporary_hidden_geometry": []
+    }
+  ],
+  "requested_view_count": 1
+}

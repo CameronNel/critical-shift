@@ -1,0 +1,34 @@
+{
+  "scope": "style slice s06 local technical only",
+  "status": "FAIL",
+  "source_sha256": "a78d03bb5822ce0133cac551ee6e81151e8d7643a9b66050c2c1f9940561e34f",
+  "blockers": [
+    {
+      "objects": [
+        "D1 frame jamb -1",
+        "Office front wainscot west"
+      ],
+      "plane_y_m": 3.5,
+      "same_facing_overlap_area_m2": 0.0911882077689084
+    },
+    {
+      "objects": [
+        "D1 frame jamb 1",
+        "Office front wainscot mid"
+      ],
+      "plane_y_m": 3.5,
+      "same_facing_overlap_area_m2": 0.09118820776890862
+    }
+  ],
+  "existing_validator_status": "PASS five applicable checks; full clearance not applicable",
+  "full_room_scores": null,
+  "runtime_performance": null,
+  "report": "slice-s06-technical.md",
+  "witness": "slice-s06-technical-probe.json",
+  "source_unchanged": true,
+  "limits": [
+    "Positive-area overlap witness targets axis-planar local slice surfaces.",
+    "Cloth exact bearing is along boundary edges; no positive-area exact centroid bearing patch.",
+    "Fresh native loads do not prove formal cold-render equivalence or engine readiness."
+  ]
+}

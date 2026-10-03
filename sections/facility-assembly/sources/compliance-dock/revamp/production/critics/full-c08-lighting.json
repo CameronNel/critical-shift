@@ -1,0 +1,153 @@
+{
+  "review_id": "full-c08-lighting",
+  "role": "independent read-only formal lighting critic",
+  "category_number": 5,
+  "category": "Localized lighting, depth and bleak atmosphere without hiding geometry",
+  "score": 98,
+  "score_max": 100,
+  "scoring_basis": "100 minus 2 points for the single evidenced minor lighting defect L-C08-001. No threshold-based rounding or overall score.",
+  "category_gt_93": true,
+  "category_gate_result": "pass",
+  "critical_defect_ids": [],
+  "visual_veto_ids": [],
+  "defects": [
+    {
+      "id": "L-C08-001",
+      "severity": "minor",
+      "critical": false,
+      "visual_veto": false,
+      "deduction_points": 2,
+      "title": "Cargo conveyor lower construction loses tonal separation",
+      "evidence_views": [
+        "full-cycle-08/C05_CONVEYOR_LEAD_TUNNEL",
+        "full-cycle-08/HERO_CARGO",
+        "full-cycle-08-neutral/C05_CONVEYOR_LEAD_TUNNEL"
+      ],
+      "asset": "Cargo inspection conveyor lower front/side frame and shelf",
+      "finding": "In both beauty views, the lower black shelf and nearby front/side frame faces compress into a near-black band below the rollers and crate. Neutral reveals these faces more clearly. The crate, tunnel, rollers, legs against the floor and main machine silhouette remain recognizable, so this is a local secondary-construction readability loss, not hidden hero geometry or a critical defect.",
+      "direction": "Preserve the dark undercarriage, but give its adjacent frame and shelf faces slightly more separated reflected/local fill values."
+    }
+  ],
+  "strengths": [
+    {
+      "evidence": [
+        "C02_HERO_DOCK",
+        "C03_CHECKIN_COUNTER",
+        "DETAIL_CHECKIN"
+      ],
+      "finding": "Warm hatch/task pools expose working forms while shadowed office recesses provide depth and an oppressive institutional mood."
+    },
+    {
+      "evidence": [
+        "C01_ENTRY",
+        "C04_SCANNER_APPROACH",
+        "HERO_SCANNER",
+        "PLAYER_REVERSE"
+      ],
+      "finding": "Cool-lit scanner and platform retain clear silhouette/contact separation through entry, approach and reverse views."
+    },
+    {
+      "evidence": [
+        "C09_ARRIVAL_GATE_P2",
+        "HERO_EVIDENCE",
+        "HERO_TROLLEY",
+        "PLAYER_PINCH"
+      ],
+      "finding": "Purposeful darkness keeps storage, roof and gate subordinate while essential panel, restraint, route and cart forms remain readable."
+    },
+    {
+      "evidence": [
+        "C05_CONVEYOR_LEAD_TUNNEL",
+        "C10_ROOF_SERVICES",
+        "HERO_UTILITIES"
+      ],
+      "finding": "Practical sources show local influence and falloff; amber/status emissions are small functional accents, and contact/cast shadows ground major assemblies."
+    }
+  ],
+  "limitations": [
+    "This is a still-image category-5 review only; no native contents or renderer code were inspected. Byte hashing does not certify native lighting construction or dependencies.",
+    "Four neutral and four UV diagnostics cover selected assets, not every gameplay view. Their altered illumination/materials are comparative evidence, not finished atmosphere.",
+    "Corner and wall views deliberately hide enclosure/roof/other geometry; their pixels cannot independently establish enclosed-room atmosphere, and omissions are not defects.",
+    "Current manifests report 24 samples and cold_open false. No cold-render agreement, temporal behavior, runtime performance, gameplay interactions or engine exposure is certified.",
+    "The approved spawn images benchmark practical-light discipline and readability; their compositions and light levels are not exact dock requirements."
+  ],
+  "verification": {
+    "expected_source_sha256": "d2514e668ea2b24e8b4ede6bde870e12f10c1afd6d6e1892b12c016266bd7b35",
+    "source_path": "sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend",
+    "actual_source_sha256": "d2514e668ea2b24e8b4ede6bde870e12f10c1afd6d6e1892b12c016266bd7b35",
+    "source_matches_expected": true,
+    "expected_renderer_sha256": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce",
+    "renderer_path": "sections/facility-assembly/sources/compliance-dock/render_dock.py",
+    "actual_renderer_sha256": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce",
+    "renderer_matches_expected": true,
+    "manifests": [
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08/manifest.json",
+        "sha256": "96b9aa2855691f920793bfbee64e054dd9326716ae5d2096eb34160ad24a46f0",
+        "expected_count": 27,
+        "actual_count": 27,
+        "checks": {
+          "complete": true,
+          "source_matches_expected": true,
+          "renderer_matches_expected": true,
+          "requested_count_matches": true,
+          "shot_count_matches": true,
+          "unique_ids": true,
+          "png_count_matches": true,
+          "png_names_match_shots": true
+        },
+        "all_checks_pass": true,
+        "cold_open": false,
+        "source_saved": false
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08-neutral/manifest.json",
+        "sha256": "7fb29c100179c892693ccfc10c053576201461362148597b3896426e54a4974b",
+        "expected_count": 4,
+        "actual_count": 4,
+        "checks": {
+          "complete": true,
+          "source_matches_expected": true,
+          "renderer_matches_expected": true,
+          "requested_count_matches": true,
+          "shot_count_matches": true,
+          "unique_ids": true,
+          "png_count_matches": true,
+          "png_names_match_shots": true
+        },
+        "all_checks_pass": true,
+        "cold_open": false,
+        "source_saved": false
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-08-uv-standard/manifest.json",
+        "sha256": "ed8118a20c82f36b350c5d42dce4b7858d151b1920f4640b029eed7047db9d4b",
+        "expected_count": 4,
+        "actual_count": 4,
+        "checks": {
+          "complete": true,
+          "source_matches_expected": true,
+          "renderer_matches_expected": true,
+          "requested_count_matches": true,
+          "shot_count_matches": true,
+          "unique_ids": true,
+          "png_count_matches": true,
+          "png_names_match_shots": true
+        },
+        "all_checks_pass": true,
+        "cold_open": false,
+        "source_saved": false
+      }
+    ],
+    "reference_provenance_path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/reference-provenance.json",
+    "reference_provenance_sha256": "d04251c153c364e6ad5745caa704caf147f42dc64e181a5744f91de344174a2d",
+    "reference_expected_count": 4,
+    "reference_actual_png_count": 4,
+    "image_count": 39,
+    "all_39_png_hashes_match": true,
+    "all_39_individually_opened_original": true
+  },
+  "per_image_audit_file": "full-c08-lighting-imageaudit.json",
+  "scope_statement": "Only the three permitted direction/rubric documents, current manifest/provenance records, actual current/reference pixels and byte-hash provenance were used. No prior scores, reviews, author plans or rationale were read. No source/native/code edit, build, render or save occurred.",
+  "reader_process_release": "All short-lived read/hash/image calls completed. No native reader, Blender process, background process or persistent file handle was started or left open."
+}

@@ -1,0 +1,287 @@
+{
+  "review": "FULL_CYCLE_06",
+  "candidate": "full-f12",
+  "date_utc": "2026-10-03T03:05:26.000835+00:00",
+  "role": "fresh independent read-only technical critic",
+  "category": 8,
+  "category_name": "Technical cleanliness, support contact, reproducibility and dependencies",
+  "score": 86,
+  "pass": false,
+  "critical_defects": 1,
+  "zero_critical_gate": false,
+  "strictly_above_93_gate": false,
+  "overall_visual_score": null,
+  "formal_cycle_confirmed_by_root": true,
+  "source_sha256": "73b85e9a84b577d2059a07371abd366666536800eb45c9e56a7d7788a21b77a3",
+  "renderer_sha256": "9993f999e0eddef5d3c106591728c665647cc49364e44199253780cb9bc89c57",
+  "score_basis": "Strong native preservation, planning, resources, mesh and physical-UV work is offset by a critical unsupported notice, detached rear scanner components and exposed P2 coplanar material patches. The measured hard failure prevents acceptance regardless of the otherwise passing counters.",
+  "scope": {
+    "all_review_images_individually_opened_original": 35,
+    "all_spawn_images_individually_opened_original": 4,
+    "current_pixels_only": true,
+    "prior_critic_reports_read": false,
+    "concept_images_read": false,
+    "author_repair_rationale_read": false,
+    "native_mutated": false,
+    "protected_mutated": false,
+    "recipes_mutated": false
+  },
+  "measured_passes": {
+    "native_cold_open_blender": "5.2.2 LTS",
+    "scene": "COMPLIANCE_EDIT_LOCAL",
+    "scene_objects": 1327,
+    "inherited_objects_and_world_matrices_preserved": 1077,
+    "baseline_triangles": 297672,
+    "baseline_submeshes": 992,
+    "baseline_materials": 24,
+    "final_visible_evaluated_triangles": 383496,
+    "final_material_submeshes": 1149,
+    "final_used_local_materials_conservatively_counted_as_families": 36,
+    "planning_targets_met": true,
+    "registry_assemblies": 45,
+    "registered_contact_anchors": 92,
+    "registered_anchor_surface_contact_failures": 0,
+    "registered_anchor_note": "Representative root-anchor checks do not prove every internal component contact. Detached notice/scanner parts are separately measured above.",
+    "exact_duplicate_world_mesh_groups": 0,
+    "nonmanifold_edges_more_than_two_faces": 0,
+    "missing_mesh_metric_uv_layers": 0,
+    "metric_uv_max_anisotropy": 1.008924174183731,
+    "metric_uv_collapsed_nontext_area_m2": 0,
+    "local_material_families": 36,
+    "relative_native_libraries": 25,
+    "libraries_exist_native_and_exact_portable_manifest_hashes": 25,
+    "file_images_packed_or_present": 119,
+    "font": "Packed DejaVu Sans Condensed Bold with portable TTF and bundled Bitstream-Vera license",
+    "recorded_recipe_hashes_match": true,
+    "protected_map_input_spawn_interface_bytes_unchanged": true,
+    "formal_image_manifest_hashes_verified": 35,
+    "reference_image_provenance_hashes_verified": 4,
+    "validator_fresh_run": {
+      "passed_checks": 7,
+      "warnings": 0,
+      "errors": 0,
+      "unverified": 5,
+      "claim": "Existing validator rerun independently; complements rather than replaces independent surface probes."
+    }
+  },
+  "defects": [
+    {
+      "id": "C06-T01",
+      "severity": "critical",
+      "title": "Worker reassurance notice floats above its glazing",
+      "object": "CD | Joined Checkin Counter Hatch / ivory",
+      "island": 2,
+      "component": "CD | Worker reassurance glass notice",
+      "measurements": {
+        "notice_bounds_world_m": [
+          [
+            -3.7049999237060547,
+            3.5905001163482666,
+            1.600000023841858
+          ],
+          [
+            -3.315000057220459,
+            3.5915000438690186,
+            1.6999999284744263
+          ]
+        ],
+        "nearest_actual_scene_support": "Hatch speaking aperture plate",
+        "distance_m": 0.025079956278204918,
+        "notice_nearest_point_world_m": [
+          -3.7049999237060547,
+          3.5915000438690186,
+          1.600000023841858
+        ],
+        "support_nearest_point_world_m": [
+          -3.7049999237060547,
+          3.5934998989105225,
+          1.5749999284744263
+        ],
+        "maximum_permitted_gap_m": 0.005,
+        "backing_rays_50mm_forward_reverse": "both miss"
+      },
+      "why_blocking": "The thin physical notice has no attached backing, mount or glass. It violates the mandatory actual support-contact requirement in protocol14.1. Main counter floor anchors cannot validate this disconnected dressing component.",
+      "pixel_evidence": [
+        "full-cycle-06/WALL_OFFICE_FRONT.png"
+      ],
+      "native_evidence": [
+        "support-witness-independent.json",
+        "fixings-independent.json"
+      ],
+      "repair_direction": "Seat the new notice and its two reassurance text objects within the actual retained glass extent, or author a real new backing/mount that joins existing supported construction; validate that specific notice contact. Preserve inherited matrices and hatch aperture."
+    },
+    {
+      "id": "C06-T02",
+      "severity": "major",
+      "title": "Four rear scanner folded service edges have no physical connection",
+      "object": "CD | Joined Person Scanner Arch / steel",
+      "islands": [
+        51,
+        52,
+        61,
+        62
+      ],
+      "components": [
+        "CD | Scanner folded service edge.002",
+        "CD | Scanner folded service edge.003",
+        "CD | Scanner folded service edge.006",
+        "CD | Scanner folded service edge.007"
+      ],
+      "measurements": {
+        "all_surface_separation_lower_bound_from_actual_column_m": [
+          0.008246362209320068,
+          0.008246362209320068,
+          0.008246362209320068,
+          0.008246421813964844
+        ],
+        "nearest_adjacent_seam_gap_m": 0.0065000057220458984,
+        "rear_edge_y_range_m": [
+          7.180000305175781,
+          7.196000099182129
+        ],
+        "edge_z_range_m": [
+          0.21000009775161743,
+          2.490000009536743
+        ],
+        "separating_axis_abs_xy": [
+          0.8944271802902222,
+          0.4472135901451111
+        ],
+        "rear_seam_face_center_to_column_gap_m": 0.005000591278076172
+      },
+      "why_blocking": "The rear cosmetic folded-edge strips are detached from the chamfered scanner bodies and from their neighboring seams. This is a local construction failure; the scanner main columns remain floor supported. The four rail gaps exceed the5mm tolerance by a rigorously measured surface separation, rather than merely a bounding-box test. The six neighboring rear horizontal seam strips are also unattached, with backing gap approximately5mm.",
+      "pixel_evidence": [
+        "full-cycle-06/PLAYER_REVERSE.png"
+      ],
+      "native_evidence": [
+        "support-witness-independent.json",
+        "exposure-independent.json",
+        "fixings-independent.json"
+      ],
+      "repair_direction": "Reshape only the new rear service edge/seam geometry to contact the actual chamfered columns, or add seated physical bridges. Recheck actual attachment. Keep inherited scanner matrices, outer footprint and clear passage."
+    },
+    {
+      "id": "C06-T03",
+      "severity": "major",
+      "title": "Four exposed P2 guide shoes share coplanar faces with steel closures",
+      "objects": [
+        "CD | Joined P2 blast leaf west / charcoal",
+        "CD | Joined P2 blast leaf west / steel",
+        "CD | Joined P2 blast leaf east / charcoal",
+        "CD | Joined P2 blast leaf east / steel"
+      ],
+      "components": [
+        "CD | P2 captive guide shoe",
+        "CD | P2 captive guide shoe.001",
+        "CD | P2 captive guide shoe.002",
+        "CD | P2 captive guide shoe.003",
+        "CD | P2 folded vertical closure.001",
+        "CD | P2 folded vertical closure.003"
+      ],
+      "measurements": {
+        "plane_y_m": 15.727999687194824,
+        "overlap_area_each_m2": 0.008188000136136964,
+        "patches": 4,
+        "abs_x_range_m": [
+          2.2269999980926514,
+          2.2730000019073486
+        ],
+        "z_ranges_m": [
+          [
+            0.11100004613399506,
+            0.2890000343322754
+          ],
+          [
+            3.1110000610351562,
+            3.2890000343322754
+          ]
+        ],
+        "ray_origins_world_m": [
+          [
+            -2.25,
+            15.6,
+            0.2
+          ],
+          [
+            -2.25,
+            15.6,
+            3.2
+          ],
+          [
+            2.25,
+            15.6,
+            0.2
+          ],
+          [
+            2.25,
+            15.6,
+            3.2
+          ]
+        ],
+        "first_surface_distance_m": 0.12799930572509766
+      },
+      "why_blocking": "Actual outward charcoal and steel polygons occupy the same exposed planes. All-scene rays hit both as the first surface. This is an ambiguous overlapping material boundary and an export z-fighting risk, although still-image Cycles evidence does not establish temporal flicker.",
+      "pixel_evidence": [
+        "full-cycle-06/C09_ARRIVAL_GATE_P2.png",
+        "full-cycle-06/PLAYER_PINCH.png"
+      ],
+      "native_evidence": [
+        "coplanarity-independent.json",
+        "exposure-independent.json"
+      ],
+      "repair_direction": "Remove the redundant overlapping closure patches, or reshape the new guide shoes/closures into a clean stepped joint with distinct exposed surfaces; preserve inherited P2 leaf matrices and usable aperture."
+    },
+    {
+      "id": "C06-T04",
+      "severity": "minor",
+      "title": "Hidden duplicate P2 center closure and embedded lower paper layers",
+      "measurements": {
+        "center_front_y_m": 15.728,
+        "center_rear_y_m": 15.752,
+        "center_overlap_front_area_m2": 0.07255585431479972,
+        "center_overlap_rear_area_m2": 0.07255584906960166,
+        "paper_blotter_coplanar_z_m": 0.764,
+        "paper_blotter_overlap_m2": 0.060405734445794224
+      },
+      "interpretation": "Center steel overlap is covered by inherited P2 center seal; paper/blotter overlap is covered by the staggered top sheet. These remain redundant/intersecting internal surfaces, but they are not counted as proven exposed visual failures.",
+      "native_evidence": [
+        "coplanarity-independent.json",
+        "exposure-independent.json"
+      ],
+      "repair_direction": "Trim opposing new closure solids into a clean meeting seam and place the whole new dossier stack above the retained blotter top."
+    },
+    {
+      "id": "C06-T05",
+      "severity": "minor",
+      "title": "Continuous fabric UV charts have local edge distortion",
+      "measurements": {
+        "chair_seat_max_anisotropy": 2.4876168595821397,
+        "chair_seat_surface_area_over_2_anisotropy_m2": 0.048900657319025535,
+        "chair_seat_total_surface_area_m2": 0.5239642006639336,
+        "tarp_max_anisotropy": 1.0807601159763145,
+        "fabric_cut_zero_area_m2": 0
+      },
+      "interpretation": "The consumed CD_Fabric_Cut_1m charts are noncollapsed and the tarp checker remains controlled. The upholstered seat has appreciable local distortion around its edge/side mapping; the four provided checker views do not establish the exact visibility of every distorted seat face. This is a secondary UV-quality limitation, not a missing-layer or blanket-stretch failure.",
+      "native_evidence": [
+        "material-uv-consumption.json"
+      ],
+      "repair_direction": "Refine the new continuous upholstery edge charts while retaining readable textile scale and intentional seams."
+    }
+  ],
+  "unverified": [
+    "No independent full factory-empty rebuild was performed; reproducibility here means retained entrypoints/hash-consistent recipes and successful cold native opening.",
+    "A complete final cold-render batch and its pixel comparison are not present in this formal batch; manifests state cold_open=false.",
+    "Fresh GitHub checkout verification was reported by root; this critic independently verified local native/resources and library manifest hashes, and does not substitute that report for own remote-run evidence.",
+    "Final-two-cycle material stability was not independently assessed against prior images in this fresh critique.",
+    "Engine import/material equivalence, collision/navmesh, dynamic mechanisms, ragdolls, load capacity, draw calls, FPS and playtesting remain unverified.",
+    "Bidirectional vertex-to-polygon distances can overestimate edge-to-edge minima; investigation cues were refined with actual rays, all-scene checks and rigorous separating-surface bounds for confirmed defects.",
+    "Coplanar search covers same-oriented planar faces on different objects; it is not exhaustive self-object or arbitrary triangle-intersection acceptance."
+  ],
+  "probe_corrections": {
+    "native_independent_initial_dependency_paths": "Initial parent-relative path inventory is superseded by surface-independent.json, which tests Blender-normalized top-level paths as well. All25 resolve and match exact portable-dependency hashes.",
+    "native_independent_active_uv": "Initial active-layer zero-area observations include unused UVMap layers and editable text. Final UV conclusions use actual named physical/fabric layers and shader consumption from surface-independent.json/material-uv-consumption.json; no missing or collapsed consumed layers are reported."
+  },
+  "evidence_directory": "sections/facility-assembly/sources/compliance-dock/revamp/production/critics/full-c06-technical",
+  "read_handles_released": true,
+  "read_handle_release": "Every read-only Blender CLI probe process exited0. No native file, protected file or recipe was saved or modified. All final hashes equal the opening hashes. No active Blender handle remains."
+}

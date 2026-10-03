@@ -1,0 +1,517 @@
+{
+  "schema_version": 1,
+  "review": "full-c01-technical",
+  "reviewer": "/root/dock_full_c01_technical_recovery",
+  "generated_utc": "2026-10-01T19:32:35.453602+00:00",
+  "candidate": "full-f02 / initial full-room review cycle 01",
+  "source": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend",
+  "source_sha256": "dc608cae0a42303e614f2db3dc0cd9d50e4366dc738ac57c35957c6df34e0331",
+  "native_source_readonly": true,
+  "source_released_to_root_after_probes": true,
+  "category": 8,
+  "category_name": "Technical cleanliness, support contact, reproducibility and dependencies",
+  "score": 84,
+  "score_out_of": 100,
+  "required_score_strictly_greater_than": 93,
+  "verdict": "FAIL",
+  "critical_defects_present": true,
+  "final_acceptance": false,
+  "score_reason": "Native integrity, resource resolution, usable apertures, metric UVs and topology are strong. Repeated unsupported internal mounts and exposed competing coplanar faces fail the technical hard gate. The score does not certify pending final-cycle/cold/runtime requirements.",
+  "tolerances": {
+    "maximum_visible_support_gap_m": 0.005,
+    "maximum_external_support_penetration_m": 0.002,
+    "maximum_support_angle_error_degrees": 12,
+    "validator_numerical_epsilon_m": 1e-06,
+    "clearance_boundary_skin_m": 0.001,
+    "floor_sill_allowance_m": 0.02,
+    "uv_minimum_edge_length_m": 0.0001,
+    "uv_relative_metric_tolerance": 0.01,
+    "coplanar_plane_bucket_m": 1e-05,
+    "exact_world_vertex_rounding_m": 1e-06,
+    "minimum_reported_coplanar_overlap_area_m2": 1e-07,
+    "exposure_ray_probe_m": 0.03
+  },
+  "passed_static_evidence": {
+    "validator_checks": [
+      {
+        "name": "scene_inventory_transforms_material_assignment",
+        "status": "pass"
+      },
+      {
+        "name": "external_resource_integrity",
+        "status": "pass"
+      },
+      {
+        "name": "contact_registry_ancestry_and_measured_support",
+        "status": "pass",
+        "assemblies": 39,
+        "anchors": 83
+      },
+      {
+        "name": "exact_duplicate_geometry",
+        "status": "pass",
+        "comparison": "world matrix + evaluated local bounds + vertices/topology, rounded to 1e-7 m"
+      },
+      {
+        "name": "fixed_camera_inventory",
+        "status": "pass",
+        "total": 12,
+        "full_cameras": 10
+      },
+      {
+        "name": "full_interior_portal_and_route_clearance",
+        "status": "pass",
+        "routes": 3,
+        "portals": 7
+      },
+      {
+        "name": "overhaul_shader_uv_and_noncollapsed_geometry",
+        "status": "pass",
+        "surfaces": 1078,
+        "metric_edge_min_m": 0.0001,
+        "metric_relative_tolerance": 0.01,
+        "interpretation": "Physical repeating face charts permit seams/overlaps; editable text uses declared object-metre mapping. Not a lightmap or runtime shader proof."
+      }
+    ],
+    "root_support_assemblies": 39,
+    "root_support_anchors": 83,
+    "source_planning_counts": {
+      "geometry_objects": 1078,
+      "triangles": 426416,
+      "material_submeshes": 1078
+    },
+    "local_used_material_families": 36,
+    "planning_limits": {
+      "evaluated_triangles": 450000,
+      "material_submeshes": 1150,
+      "local_material_families": 36
+    },
+    "max_inherited_matrix_element_delta": 1.1920928955078125e-07,
+    "missing_inherited": [],
+    "protected_inputs": [
+      {
+        "path": "sections/facility-assembly/blender/facility_environment.blend",
+        "match": true
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/module.blend",
+        "match": true
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/accepted.blend",
+        "match": true
+      },
+      {
+        "path": "sections/facility-assembly/sources/compliance-dock/contracts/interface.json",
+        "match": true
+      },
+      {
+        "path": "sections/facility-assembly/sources/spawn-room/module.blend",
+        "match": true
+      }
+    ],
+    "loaded_linked_libraries_resolve": {
+      "count": 25,
+      "all_exist": true
+    },
+    "local_scene_linked_geometry_objects": 0,
+    "independent_mesh_uv_bad_count": 0,
+    "mapped_triangles": 329752,
+    "metric_uv_edges_measured": 985416,
+    "raw_topology": {
+      "islands": 3674,
+      "closed": 1422,
+      "open": 2252,
+      "nonmanifold_edges": 0,
+      "inconsistent_oriented_edges": 0,
+      "negative_closed_volumes": 0,
+      "zero_closed_volumes": 0
+    }
+  },
+  "aperture_spots": {
+    "P1_width_m": 2.3999998569488525,
+    "P1_height_m": 2.5999999046325684,
+    "D1_width_m": 1.049999713897705,
+    "D2_width_m": 1.049999713897705,
+    "staff_height_m": 2.1999998092651367,
+    "P2_rigid_frame_width_m": 4.600000381469727,
+    "P2_rigid_frame_height_m": 3.5,
+    "P2_state_note": "Sealed leaves; rigid frame measured with leaves excluded. No dynamic opening proof.",
+    "scanner_rigid_column_width_m": 1.2199997901916504,
+    "scanner_rigid_header_z_m": 2.6500000953674316,
+    "scanner_required_reserved_width_m": 1.2,
+    "scanner_required_reserved_height_m": 2.25,
+    "cargo_rigid_liner_width_m": 1.1919994,
+    "cargo_rigid_liner_ceiling_z_m": 1.7459999322891235,
+    "cargo_note": "Exact directed rays at Y6.55,7.65,8.75 prove a real U-shell/liner opening. Flexible curtains and depicted cargo excluded; not a runtime traversal or radiation-sealing proof."
+  },
+  "classifications": {
+    "actual_support_failures": [
+      "wall utilities",
+      "P2/G1 beacons",
+      "office drawer hardware",
+      "roller-to-bearing interfaces",
+      "lifting eyes"
+    ],
+    "not_support_failures": [
+      "Scanner column insets are contained in their closed columns despite >10 mm nearest surface distance.",
+      "Key box glass is contained in its cabinet; not an independently hovering wall prop.",
+      "Cargo crate intersects rollers; it is not a 42 mm hovering crate. The rollers themselves need bearing engagement.",
+      "Authority stamp and ink pad are above a separate registered rubber stamping pad; a same-owner-only graph cannot judge this cross-assembly tabletop support.",
+      "Editable FONT letter islands are graphic overlays, not separately mounted physical props.",
+      "Open cloth hems/tarp and capped/uncapped swept handles/cords are classified by construction and exposed-side needs; open topology alone is not a defect.",
+      "Buried bottom faces, trim backs inside walls and welded rail intersections are not exposed coplanar conflicts."
+    ]
+  },
+  "findings": [
+    {
+      "id": "TC01",
+      "severity": "critical",
+      "title": "Wall-mounted utility and beacon subassemblies lack mounting engagement",
+      "objects": [
+        "Transformer box 1",
+        "Transformer box 2",
+        "Main breaker disconnect",
+        "P2 beacon base -1.5",
+        "P2 beacon base 1.5",
+        "G1 warning strobe beacon"
+      ],
+      "confirmed_gaps_m": {
+        "utility_enclosures_to_backer": 0.01999950408935547,
+        "disconnect_to_backer": 0.019999980926513672,
+        "P2_beacon_to_lintel": 0.029998779296875,
+        "G1_beacon_to_tower": 0.009999990463256836
+      },
+      "evidence": [
+        "full-c01-technical-recovery/contact-witnesses.json",
+        "renders/full-cycle-01/HERO_UTILITIES.png",
+        "renders/full-cycle-01/C09_ARRIVAL_GATE_P2.png"
+      ],
+      "interpretation": "Housing screws and internal lamp engagement do not bridge the air gap to the actual supporting surface. Assembly anchors touch the backer/frame, while the supported payload remains detached. Gap limit 5 mm is exceeded."
+    },
+    {
+      "id": "TC02",
+      "severity": "critical",
+      "title": "Cargo roller and lifting-eye connections are missing",
+      "objects": [
+        "Conveyor roller 0",
+        "Roller bearing cap 0_4.0",
+        "Roller bearing cap 0_5.3",
+        "Lifting eyebolt ring 4.05_6.65",
+        "Lifting eyebolt stem 4.05_6.65"
+      ],
+      "confirmed_gaps_m": {
+        "roller_end_to_bearing_both_sides": 0.009999752044677734,
+        "lifting_eye_to_stem_separation_lower_bound": 0.016440391540527344,
+        "lifting_eye_vertex_triangle_distance_upper_bound": 0.02366439253091812
+      },
+      "world_geometry": {
+        "roller_x_ends": [
+          4.019999980926514,
+          5.28000020980835
+        ],
+        "bearing_x_inner_ends": [
+          4.010000228881836,
+          5.289999961853027
+        ],
+        "eye_z_range": [
+          2.1964404582977295,
+          2.21355938911438
+        ],
+        "stem_z_range": [
+          2.140000104904175,
+          2.180000066757202
+        ]
+      },
+      "evidence": [
+        "full-c01-technical-recovery/contact-witnesses.json",
+        "full-c01-technical/internal-load-paths.json",
+        "renders/full-cycle-01/HERO_CARGO.png",
+        "renders/full-cycle-01-uv/C05_CONVEYOR_LEAD_TUNNEL.png"
+      ],
+      "interpretation": "The roller has no modeled axle crossing either 10 mm end gap. Four lifting eyes share the horizontal world orientation and are separated from their stems; a strict 16.44 mm Z separation proves the gap even without claiming the vertex-to-triangle upper bound is the exact global surface minimum."
+    },
+    {
+      "id": "TC03",
+      "severity": "critical",
+      "title": "Both office filing cabinets have detached drawer hardware",
+      "objects": [
+        "Drawer pull 0_0 through 1_3",
+        "Drawer cardholder 0_0 through 1_3"
+      ],
+      "confirmed_gaps_m": {
+        "eight_drawer_pulls_to_faces": 0.009999752044677734,
+        "eight_cardholders_to_faces": 0.00749969482421875
+      },
+      "world_geometry": {
+        "drawer_face_front_x": -6.009999752044678,
+        "pull_rear_x": -6.0,
+        "cardholder_rear_x": -6.002500057220459
+      },
+      "evidence": [
+        "full-c01-technical-recovery/contact-witnesses.json",
+        "full-c01-technical/internal-load-paths.json",
+        "renders/full-cycle-01/WALL_WEST.png"
+      ],
+      "interpretation": "No return legs, fasteners or other modeled solids bridge these separated hardware parts to the rooted cabinet. Parenting to the floor-supported cabinet does not prove a mount."
+    },
+    {
+      "id": "TC04",
+      "severity": "critical",
+      "title": "Exposed surfaces have competing coplanar material faces",
+      "pairs": [
+        {
+          "objects": [
+            "North lintel P2",
+            "P2 frame head lintel"
+          ],
+          "plane_axis": "Y",
+          "coordinate_m": 15.8,
+          "same_direction_overlap_area_m2": 0.8671314673118777,
+          "materials": [
+            "CD | plaster",
+            "CD | navy"
+          ]
+        },
+        {
+          "objects": [
+            "North wall east",
+            "P2 frame jamb 1"
+          ],
+          "plane_axis": "Y",
+          "coordinate_m": 15.8,
+          "same_direction_overlap_area_m2": 0.5198607304706675,
+          "materials": [
+            "CD | plaster",
+            "CD | navy"
+          ]
+        },
+        {
+          "objects": [
+            "North wall west",
+            "P2 frame jamb -1"
+          ],
+          "plane_axis": "Y",
+          "coordinate_m": 15.8,
+          "same_direction_overlap_area_m2": 0.5198607304706676,
+          "materials": [
+            "CD | plaster",
+            "CD | navy"
+          ]
+        },
+        {
+          "objects": [
+            "North wall east",
+            "P2 frame jamb 1"
+          ],
+          "plane_axis": "X",
+          "coordinate_m": 2.3,
+          "same_direction_overlap_area_m2": 0.9350507336121188,
+          "materials": [
+            "CD | plaster",
+            "CD | navy"
+          ]
+        },
+        {
+          "objects": [
+            "North wall west",
+            "P2 frame jamb -1"
+          ],
+          "plane_axis": "X",
+          "coordinate_m": -2.3,
+          "same_direction_overlap_area_m2": 0.9350507336121121,
+          "materials": [
+            "CD | plaster",
+            "CD | navy"
+          ]
+        },
+        {
+          "objects": [
+            "Terminal monitor housing",
+            "Terminal screen face"
+          ],
+          "plane_axis": "X",
+          "coordinate_m": -3.52,
+          "same_direction_overlap_area_m2": 0.07367607128526288,
+          "materials": [
+            "CD | plastic",
+            "CD | screen"
+          ]
+        },
+        {
+          "objects": [
+            "Floor slab",
+            "P1 corridor floor"
+          ],
+          "plane_axis": "Z",
+          "coordinate_m": 0.0,
+          "same_direction_overlap_area_m2": 0.48172850267602013,
+          "materials": [
+            "CD | Floor traffic polish",
+            "CD | concrete"
+          ]
+        },
+        {
+          "objects": [
+            "Drainage trench recess",
+            "Floor slab"
+          ],
+          "plane_axis": "Z",
+          "coordinate_m": 0.0,
+          "same_direction_overlap_area_m2": 1.8999326656949123,
+          "materials": [
+            "CD | navy",
+            "CD | Floor traffic polish"
+          ],
+          "note": "Overlap total includes covered grate areas; witness at X6.05455,Y14.50125 is exposed."
+        },
+        {
+          "objects": [
+            "D2 frame jamb 1",
+            "Office rear wall east"
+          ],
+          "plane_axis": "X",
+          "coordinate_m": -4.875,
+          "same_direction_overlap_area_m2": 0.32397358906564655,
+          "materials": [
+            "CD | navy",
+            "CD | plaster"
+          ]
+        }
+      ],
+      "evidence": [
+        "full-c01-technical-recovery/coplanar-duplicates.json",
+        "full-c01-technical-recovery/aperture-engagement-exposure.json",
+        "renders/full-cycle-01/C07_OFFICE_INTERIOR.png",
+        "renders/full-cycle-01/C09_ARRIVAL_GATE_P2.png"
+      ],
+      "interpretation": "True same-direction polygon overlap at the same world plane; selected outside-offset witnesses are neither buried in a third closed solid nor occluded within 30 mm. These are exposed competing faces, unlike legitimate buried joins. The object-level exact-duplicate validator cannot detect partial face duplicates."
+    },
+    {
+      "id": "TC05",
+      "severity": "major_followup",
+      "title": "Further internal mounts need component-level repair and recheck",
+      "raw_measurements": {
+        "cargo_motor_plate_to_rooted_leg_m": 0.07562229037284851,
+        "cargo_operator_shelf_to_rooted_rib_m": 0.2349998950958252,
+        "evidence_captive_fastener_rear_to_blue_pressing_m": 0.005499839782714844,
+        "switchgear_brass_lock_rear_to_door_m": 0.02299976348876953
+      },
+      "evidence": [
+        "full-c01-technical/internal-load-paths.json",
+        "full-c01-technical-recovery/contact-witnesses.json"
+      ],
+      "interpretation": "Motor and console islands engage their own subparts, but raw rooted load paths remain absent; independent nearby-solid probes confirm that internal engagement does not reach the rooted chassis. Evidence screws and lock offsets are raw per-island candidates for directed mount checks. Do not promote every raw disconnected label/text island to a defect."
+    },
+    {
+      "id": "TC06",
+      "severity": "evidence_observation",
+      "title": "Replacement far-bay diagnostics are usable; cover checker has fragmented face mapping",
+      "interpretation": "Both replacement images were opened and have useful diagnostic illumination. Cabinet doors/pressings show orderly checker scale with expected seams. The trolley cover in the evidence checker has many small triangular checker fragments and rotated/discontinuous patch directions across the draped surface; valid metric charts alone do not establish coherent fabric mapping. The neutral trolley now exposes its cover, straps, frame and wheels for inspection. This resolves the prior black-frame evidence limitation and adds a visible UV observation; the body geometry FAIL and 84/100 score are unchanged.",
+      "original_invalid_paths": [
+        "renders/full-cycle-01-uv/HERO_EVIDENCE.png",
+        "renders/full-cycle-01-neutral/HERO_TROLLEY.png"
+      ],
+      "replacement_paths": [
+        "renders/full-cycle-01-uv-valid/HERO_EVIDENCE.png",
+        "renders/full-cycle-01-neutral-valid/HERO_TROLLEY.png"
+      ]
+    }
+  ],
+  "render_evidence": {
+    "beauty_manifest_complete": true,
+    "beauty_count": 26,
+    "all_beauty_hashes_match": true,
+    "recovery": {
+      "reason": "Worker/session unavailable after 23 saved frames; final 3 rerendered from unchanged source/settings/recipe in fresh process. Original incomplete manifest retained.",
+      "original_manifest": "interrupted-manifest.json",
+      "original_manifest_sha256": "f9bda88e05245fc7aa80c63a7434786c086c77c30326c0dc760d002cd3f74edf",
+      "tail_manifest": "../full-cycle-01-tail/manifest.json",
+      "tail_manifest_sha256": "c0dd548405048f63a8e750286701fae43d8874973688f31f1766a8b56d3cf527"
+    },
+    "actual_opened_paths": [
+      "renders/full-cycle-01/C09_ARRIVAL_GATE_P2.png",
+      "renders/full-cycle-01/HERO_UTILITIES.png",
+      "renders/full-cycle-01/C07_OFFICE_INTERIOR.png",
+      "renders/full-cycle-01/HERO_CARGO.png",
+      "renders/full-cycle-01/HERO_EVIDENCE.png",
+      "renders/full-cycle-01/C05_CONVEYOR_LEAD_TUNNEL.png",
+      "renders/full-cycle-01/HERO_TROLLEY.png",
+      "renders/full-cycle-01/C06_CART_GATE_G1.png",
+      "renders/full-cycle-01/C04_SCANNER_APPROACH.png",
+      "renders/full-cycle-01/C01_ENTRY.png",
+      "renders/full-cycle-01/WALL_NORTH.png",
+      "renders/full-cycle-01/C10_ROOF_SERVICES.png",
+      "renders/full-cycle-01/CORNER_NE.png",
+      "renders/full-cycle-01/WALL_WEST.png",
+      "renders/full-cycle-01/C08_CONCEALED_SUPPORT_H1.png",
+      "renders/full-cycle-01-tail/DETAIL_CHECKIN.png",
+      "renders/full-cycle-01-tail/PLAYER_PINCH.png",
+      "renders/full-cycle-01-tail/PLAYER_REVERSE.png",
+      "renders/full-cycle-01-uv/C05_CONVEYOR_LEAD_TUNNEL.png",
+      "renders/full-cycle-01-uv/HERO_EVIDENCE.png",
+      "renders/full-cycle-01-neutral/C07_OFFICE_INTERIOR.png",
+      "renders/full-cycle-01-neutral/HERO_TROLLEY.png",
+      "renders/full-cycle-01-uv-valid/HERO_EVIDENCE.png",
+      "renders/full-cycle-01-neutral-valid/HERO_TROLLEY.png"
+    ],
+    "useful_diagnostics": [
+      "renders/full-cycle-01-uv/C05_CONVEYOR_LEAD_TUNNEL.png",
+      "renders/full-cycle-01-neutral/C07_OFFICE_INTERIOR.png",
+      "renders/full-cycle-01-uv-valid/HERO_EVIDENCE.png",
+      "renders/full-cycle-01-neutral-valid/HERO_TROLLEY.png"
+    ],
+    "pending_repaired_diagnostics": [],
+    "replacement_diagnostics": [
+      {
+        "path": "renders/full-cycle-01-uv-valid/HERO_EVIDENCE.png",
+        "source_sha256": "dc608cae0a42303e614f2db3dc0cd9d50e4366dc738ac57c35957c6df34e0331",
+        "image_sha256": "ee1bbf49984d2ef65d95f4005635a11c9258dcf00b30477bcd3ad1d02d95cbd5",
+        "renderer_sha256": "5de4eaa6b2b0bc5eb1c6ac20ee3e6f6f8396d2ec8f54d8947971e1a70b7a218e",
+        "image_matches_manifest": true,
+        "source_saved": false,
+        "fixed_camera_matches_beauty": true,
+        "diagnostic": "uv",
+        "exposure": 0.0
+      },
+      {
+        "path": "renders/full-cycle-01-neutral-valid/HERO_TROLLEY.png",
+        "source_sha256": "dc608cae0a42303e614f2db3dc0cd9d50e4366dc738ac57c35957c6df34e0331",
+        "image_sha256": "2c6cc66e738c010f77826be69308dfd1b4680f775f3c40e7499a221c8002a354",
+        "renderer_sha256": "5de4eaa6b2b0bc5eb1c6ac20ee3e6f6f8396d2ec8f54d8947971e1a70b7a218e",
+        "image_matches_manifest": true,
+        "source_saved": false,
+        "fixed_camera_matches_beauty": true,
+        "diagnostic": "neutral",
+        "exposure": 0.0
+      }
+    ],
+    "diagnostic_observations": {
+      "evidence_cabinet_doors": "Orderly checker size/directions on broad door faces and pressings; expected chart seams at manufacture edges.",
+      "trolley_cover_checker": "Dense triangular checker fragments, abrupt orientation changes and broken repetition on draped top/side; coherent fabric UV continuity is not proven by the per-face metric test.",
+      "neutral_trolley": "Useful illumination shows fabric cover, straps, frame, caster tires and floor contacts; supports visual inspection, not a native geometry recheck."
+    }
+  },
+  "unverified_gates": [
+    "Formal cold-open plus all mandatory cold renders and image comparison. Two fresh-process readonly opens passed; they do not replace the full cold-render gate.",
+    "Fresh rebuild from documented entrypoint; scripts reviewed but not run, because root is sole author and native was frozen.",
+    "Minimum four complete full review cycles and final two materially stable cycles. This is cycle 01 only.",
+    "Complete internal component connectivity after repairs; current spot evidence is enough to fail, not a comprehensive corrected-scene pass.",
+    "All relevant backside/cap UV checker views. Replacement evidence checker confirms orderly cabinet-door mapping and fragmented trolley-cover charts; no comprehensive checker pass is claimed.",
+    "Engine import/material equivalence, draw calls/FPS/memory, colliders/navigation, moving door sweep, cart/body turning/handler space and runtime interactions."
+  ],
+  "commands": [
+    "blender --background --factory-startup --threads 1 --disable-autoexec module_overhaul_R1.blend --python-exit-code 1 --python revamp/production/critics/full-c01-technical-recovery/spot_probe.py",
+    "blender --background --factory-startup --threads 1 --disable-autoexec module_overhaul_R1.blend --python-exit-code 1 --python revamp/production/critics/full-c01-technical-recovery/finish_probe.py"
+  ],
+  "probe_artifacts": [
+    "full-c01-technical-recovery/native-independent.json",
+    "full-c01-technical-recovery/contact-witnesses.json",
+    "full-c01-technical-recovery/coplanar-duplicates.json",
+    "full-c01-technical-recovery/validator-independent.json",
+    "full-c01-technical-recovery/aperture-engagement-exposure.json"
+  ],
+  "review_boundary": "No scene/build/native/code edits. Only critic-owned probes and reports written. No author TASK_STATE, author history or previous verdicts read. Raw unscored measurement artifacts were permitted and independently checked at important witnesses.",
+  "evidence_amended_utc": "2026-10-01T19:35:26.229829+00:00",
+  "evidence_amendment_scope": "Only TC06/render-evidence limitation updated after viewing replacement diagnostics and checking manifests. Native not reopened; body findings, verdict and score unchanged."
+}

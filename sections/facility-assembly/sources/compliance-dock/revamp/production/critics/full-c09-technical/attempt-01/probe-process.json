@@ -1,0 +1,53 @@
+{
+  "command": [
+    "/workspace/tools/blender-5.2.2-linux-x64/blender",
+    "--background",
+    "--disable-autoexec",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend",
+    "--threads",
+    "1",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/critics/full-c09-technical/probe.py"
+  ],
+  "exit_status": 0,
+  "elapsed_s": 42.620370864868164,
+  "before": {
+    "sections/facility-assembly/blender/facility_environment.blend": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+    "sections/facility-assembly/sources/compliance-dock/module.blend": "0cdae8b3d302459d75569cb6bf3a463f24b30ea373c2bcdf430360033d7b0947",
+    "sections/facility-assembly/sources/compliance-dock/accepted.blend": "575686f6771bc35c224961b2f9da0224cf6c7acf96631cf75cf55a8af28d3f4c",
+    "sections/facility-assembly/sources/compliance-dock/contracts/interface.json": "bdbdd0389eaa3b36b7d0f174c057034b2abd262245a8d4b52374b5b33e03eb6e",
+    "sections/facility-assembly/sources/spawn-room/module.blend": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+    "sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend": "6838d604ac4586da057a652e98e9c694f754a84e9f38ba70b83f1046e9ae6e9a",
+    "sections/facility-assembly/sources/compliance-dock/overhaul_dock.py": "347c84da9e72547935adc50b755c1b95ff3b161ddf5019d689bf0ef86ba7cd6c",
+    "sections/facility-assembly/sources/compliance-dock/full_detail.py": "1521449b1c6eee88689cadb6e43ae911e909f200655b335cd273b9a030a3ef0e",
+    "sections/facility-assembly/sources/compliance-dock/full_repairs.py": "5edc8c94dcc4e6c17ac5af60815136f02b41cdd64afee381f8505d3df16c1657",
+    "sections/facility-assembly/sources/compliance-dock/render_dock.py": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce"
+  },
+  "after": {
+    "sections/facility-assembly/blender/facility_environment.blend": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+    "sections/facility-assembly/sources/compliance-dock/module.blend": "0cdae8b3d302459d75569cb6bf3a463f24b30ea373c2bcdf430360033d7b0947",
+    "sections/facility-assembly/sources/compliance-dock/accepted.blend": "575686f6771bc35c224961b2f9da0224cf6c7acf96631cf75cf55a8af28d3f4c",
+    "sections/facility-assembly/sources/compliance-dock/contracts/interface.json": "bdbdd0389eaa3b36b7d0f174c057034b2abd262245a8d4b52374b5b33e03eb6e",
+    "sections/facility-assembly/sources/spawn-room/module.blend": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+    "sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend": "6838d604ac4586da057a652e98e9c694f754a84e9f38ba70b83f1046e9ae6e9a",
+    "sections/facility-assembly/sources/compliance-dock/overhaul_dock.py": "347c84da9e72547935adc50b755c1b95ff3b161ddf5019d689bf0ef86ba7cd6c",
+    "sections/facility-assembly/sources/compliance-dock/full_detail.py": "1521449b1c6eee88689cadb6e43ae911e909f200655b335cd273b9a030a3ef0e",
+    "sections/facility-assembly/sources/compliance-dock/full_repairs.py": "5edc8c94dcc4e6c17ac5af60815136f02b41cdd64afee381f8505d3df16c1657",
+    "sections/facility-assembly/sources/compliance-dock/render_dock.py": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce"
+  },
+  "expected": {
+    "sections/facility-assembly/blender/facility_environment.blend": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+    "sections/facility-assembly/sources/compliance-dock/module.blend": "0cdae8b3d302459d75569cb6bf3a463f24b30ea373c2bcdf430360033d7b0947",
+    "sections/facility-assembly/sources/compliance-dock/accepted.blend": "575686f6771bc35c224961b2f9da0224cf6c7acf96631cf75cf55a8af28d3f4c",
+    "sections/facility-assembly/sources/compliance-dock/contracts/interface.json": "bdbdd0389eaa3b36b7d0f174c057034b2abd262245a8d4b52374b5b33e03eb6e",
+    "sections/facility-assembly/sources/spawn-room/module.blend": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+    "sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend": "6838d604ac4586da057a652e98e9c694f754a84e9f38ba70b83f1046e9ae6e9a",
+    "sections/facility-assembly/sources/compliance-dock/overhaul_dock.py": "347c84da9e72547935adc50b755c1b95ff3b161ddf5019d689bf0ef86ba7cd6c",
+    "sections/facility-assembly/sources/compliance-dock/full_detail.py": "1521449b1c6eee88689cadb6e43ae911e909f200655b335cd273b9a030a3ef0e",
+    "sections/facility-assembly/sources/compliance-dock/full_repairs.py": "5edc8c94dcc4e6c17ac5af60815136f02b41cdd64afee381f8505d3df16c1657",
+    "sections/facility-assembly/sources/compliance-dock/render_dock.py": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce"
+  },
+  "hash_guard_pass": true
+}

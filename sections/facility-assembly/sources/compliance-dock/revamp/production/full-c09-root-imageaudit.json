@@ -1,0 +1,466 @@
+{
+  "cycle": 9,
+  "source_sha256": "6838d604ac4586da057a652e98e9c694f754a84e9f38ba70b83f1046e9ae6e9a",
+  "recipe_sha256": {
+    "overhaul_dock.py": "347c84da9e72547935adc50b755c1b95ff3b161ddf5019d689bf0ef86ba7cd6c",
+    "full_detail.py": "1521449b1c6eee88689cadb6e43ae911e909f200655b335cd273b9a030a3ef0e",
+    "full_repairs.py": "5edc8c94dcc4e6c17ac5af60815136f02b41cdd64afee381f8505d3df16c1657",
+    "render_dock.py": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce"
+  },
+  "root_actual_current_original_opens": 35,
+  "root_actual_reference_original_opens": 4,
+  "manifests": [
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/manifest.json",
+      "sha256": "a9240f81d14a1176055a06db8e53db458a74b43df0a4ae7d00629e4568274f2a",
+      "complete": true,
+      "shots": 27
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09-neutral/manifest.json",
+      "sha256": "6d8c723306bf6d118c71f1176b52bbd396db9d801dfab2e3ad598faaac97316c",
+      "complete": true,
+      "shots": 4
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09-uv-standard/manifest.json",
+      "sha256": "7ad18aca825c148b423ab6a6d2859661a78a4505937b419f847648b117aac3ff",
+      "complete": true,
+      "shots": 4
+    }
+  ],
+  "images": [
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/C01_ENTRY.png",
+      "sha256": "3decf8f1ac948c16a6841ad0726b6f4e10a4d864b9419946c3789543e00a4d71",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "individually_opened_by_root": true,
+      "diagnostic": null,
+      "note": "Scanner centered over yellow route; gate leaves occupy adjacent cart lane; dim rear arrival panels."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/C02_HERO_DOCK.png",
+      "sha256": "4ec913cdae1fa280458839cde3616722f5d9234ab68e4bcdb000c4b5cf41e44b",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "individually_opened_by_root": true,
+      "diagnostic": null,
+      "note": "Counter left and scanner right share hierarchy; yellow route converges rearward; orange staff door remains strong."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/C03_CHECKIN_COUNTER.png",
+      "sha256": "f4c2eea44a7a14d9723ba29466f2bfbd0117836d7f4048b6ee52178e247c950d",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "individually_opened_by_root": true,
+      "diagnostic": null,
+      "note": "Counter props exposed in warm pool; staff door large orange mass; upper sign cropped in this fixed view."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/C04_SCANNER_APPROACH.png",
+      "sha256": "107cf2cd355212a821ce312abb03847ae680f8a5414d5e4fb73b3950d76e48f2",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "individually_opened_by_root": true,
+      "diagnostic": null,
+      "note": "Manufactured scanner sides and indicators readable; rear gate and cart route visible; mast on right partly occludes machinery."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/C05_CONVEYOR_LEAD_TUNNEL.png",
+      "sha256": "a257f91012b40d8b2d4d1c952a5b4f2ac425904b858f394ac4592261e0724737",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "individually_opened_by_root": true,
+      "diagnostic": null,
+      "note": "Chest flutes and lid well restrained; tunnel curtain and reflection visible; lower conveyor frame remains dark."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/C06_CART_GATE_G1.png",
+      "sha256": "c1e9c6ce92be1ac919c3644c7e5f875eeb8b2fc0402530b75c30d424407d925c",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "individually_opened_by_root": true,
+      "diagnostic": null,
+      "note": "Three actual observation apertures retain upper bands; pressed panels visible; gate remains broad opaque mass."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/C07_OFFICE_INTERIOR.png",
+      "sha256": "b3b4b2b3ac869ff9553a5db4e2e0c8f2ff7c768dab0856f2dd0b35c355dd11a2",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "individually_opened_by_root": true,
+      "diagnostic": null,
+      "note": "Grey-blue tensioned chair seat visible; M.VALE/14 HOURS/NO RELIEF readable; desk and rear glass mostly dim."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/C08_CONCEALED_SUPPORT_H1.png",
+      "sha256": "abed943429d6488e055f5dea0c0c927c1962963c3b7d609769c13880f005441c",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "individually_opened_by_root": true,
+      "diagnostic": null,
+      "note": "Woven cover, straps and trolley profile readable; secondary cabinet at right; blank wall remains quiet."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/C09_ARRIVAL_GATE_P2.png",
+      "sha256": "cfc45d9b6b670729716d8d877212fa612d785b6afd51bd63db11bdd52aae5d9b",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "individually_opened_by_root": true,
+      "diagnostic": null,
+      "note": "Dark pressed arrival panels framed by pale doors; yellow release button prominent; lower forms dim."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/C10_ROOF_SERVICES.png",
+      "sha256": "d0e00ef622a90dde968d94a5a01746431c14cfef837096f0646787b075e7d520",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "individually_opened_by_root": true,
+      "diagnostic": null,
+      "note": "Trusses, duct planes and suspended fixture visible; dense intersections require numerical construction audit."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/CORNER_SW.png",
+      "sha256": "87ec70d4d713d6cd1abc29b5a9f49befaa6cc51dbded3ecb4f2af96be3a563fd",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "individually_opened_by_root": true,
+      "diagnostic": null,
+      "note": "Whole room cutaway shows check-in, scanner/cart branches, arrival lane and service cluster."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/CORNER_SE.png",
+      "sha256": "b15170f91ba5239bf86eac8edc2e6c4de05d2141f35962fff36382118680ebaa",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "individually_opened_by_root": true,
+      "diagnostic": null,
+      "note": "Whole room cutaway exposes machinery relationship to office and covered bay; substantial route space retained."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/CORNER_NW.png",
+      "sha256": "5f24ceeeb667aa12a15bc103de8190fe802d75d8656a110330519ff11adfabf6",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "individually_opened_by_root": true,
+      "diagnostic": null,
+      "note": "Whole room cutaway shows entry branch and scanner route; service wall broad negative space."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/CORNER_NE.png",
+      "sha256": "193d30aed8730d406d54ce4131e7cb474102b6a905389dd8a0e3fdd59fa731ed",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "individually_opened_by_root": true,
+      "diagnostic": null,
+      "note": "Whole room cutaway shows scanner/office/trolley arrangement; floor reservations readable."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/WALL_SOUTH.png",
+      "sha256": "09192a8216fbcba367950bcc428d66f46049dfe0fe1ef8d09edfdd57b004d2f0",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "individually_opened_by_root": true,
+      "diagnostic": null,
+      "note": "Entry opening and one propaganda graphic; large plaster spans and suspended fixtures."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/WALL_NORTH.png",
+      "sha256": "e6de3eb7bfcac13f01327e99cbb18fcd68fcc674a9626ddbf441eca2402ffc95",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "individually_opened_by_root": true,
+      "diagnostic": null,
+      "note": "Arrival doors central, blue cases and evidence storage each side; functional clustering readable."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/WALL_EAST.png",
+      "sha256": "7d785c6483a1940a7d301ae4c4561c3c5cd0168fa50ca7df873900d28fcd0af0",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "individually_opened_by_root": true,
+      "diagnostic": null,
+      "note": "Service cluster and former-chart paint ghost localized; long quiet mauve wall spans remain."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/WALL_WEST.png",
+      "sha256": "98f1f35e799a7cb9c3efa8ec659f8e251129b5bb28edb7fa33ef8fc31fb06c5b",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "individually_opened_by_root": true,
+      "diagnostic": null,
+      "note": "Desk/file storage and office partition visible in wall audit; hanging utility bars mostly subdued."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/HERO_SCANNER.png",
+      "sha256": "2c0badb51dbd864a127a6310496e3dfc99f75c71461ec56809909d123e7f8b4b",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "individually_opened_by_root": true,
+      "diagnostic": null,
+      "note": "Scanner sensor wells and fitted surfaces distinguish near side; adjacent gate and machinery still block some route."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/HERO_CARGO.png",
+      "sha256": "6ce94821cfd20a8fda9fd2edfc29bcb5ff81a261d63167f8ba1db5d22b4b82bc",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "individually_opened_by_root": true,
+      "diagnostic": null,
+      "note": "Chest recesses, straps, latch and lid well visible; functional broad hood and curtain readable."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/HERO_EVIDENCE.png",
+      "sha256": "c687f8bd46eb6bba0f710ad4e5e5eb27ad901d21bd6a22f129c4ca402157d339",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "individually_opened_by_root": true,
+      "diagnostic": null,
+      "note": "Blue six-door locker, latches and retained tag visible; covered trolley foreground occludes lower left."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/HERO_TROLLEY.png",
+      "sha256": "65b92dc4caeb3ea44fd3404224aa04db1b11c726d371e1494566872085c338de",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "individually_opened_by_root": true,
+      "diagnostic": null,
+      "note": "Cover weave, straps and caster construction readable; under-shelf dark; secondary custody card barely readable."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/HERO_UTILITIES.png",
+      "sha256": "7de52ef5d98f273cbf5cb7a86df7c5aafaade6169fe9337d555cf01b98ab0107",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "individually_opened_by_root": true,
+      "diagnostic": null,
+      "note": "Cooling slots, salvaged panel, denied/day19 tag and removed-chart trace visible close up; small labels remain subtle."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/DETAIL_CHECKIN.png",
+      "sha256": "8639770a198222861504a1832f6074203c29ccf359c026698d9b35c807a1722c",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "individually_opened_by_root": true,
+      "diagnostic": null,
+      "note": "Paper tray, cleaning cloth, tethered stylus, clipboard and stamp visible; small text restrained."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/PLAYER_REVERSE.png",
+      "sha256": "8f443bd6e518a8f73c2b4cb8db9873c84766eef971beb19677399eb4227834ce",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "individually_opened_by_root": true,
+      "diagnostic": null,
+      "note": "Reverse worker route visible through scanner; upper entry sign suspended; gate blocks cart lane left."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/PLAYER_PINCH.png",
+      "sha256": "ceb44669372f9e276d4debe5b57f9d96fcb794da8d2b8a55bc5d3300bf7d4df2",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "individually_opened_by_root": true,
+      "diagnostic": null,
+      "note": "North return shows release interface, cargo trolley and services; yellow loading threshold readable."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09/WALL_OFFICE_FRONT.png",
+      "sha256": "bb3cfe3f589005bd35a445e932f0a33d9a4d80826b9b7c0eecf83d9dde1967b2",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "individually_opened_by_root": true,
+      "diagnostic": null,
+      "note": "Corporate reassurance over counter and NO RELIEF behind; dark counter base; orange staff door dominant."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09-neutral/C05_CONVEYOR_LEAD_TUNNEL.png",
+      "sha256": "ff21d80b220e165facc126bcdcca294a068d3c27c89091d984885cf55fb35df5",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "individually_opened_by_root": true,
+      "diagnostic": "neutral",
+      "note": "Neutral material audit: Chest corrugations and metal returns stand out more than in beauty; dark curtain and frame remain distinct."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09-neutral/C07_OFFICE_INTERIOR.png",
+      "sha256": "5e6f4abe9a9a5ebc4e172b87e36ddceb9e100da4298104bab139db4c59acf080",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "individually_opened_by_root": true,
+      "diagnostic": "neutral",
+      "note": "Neutral material audit: Blue-grey canvas cushions separate from metal/frame; broad seat continuous, corner facets restrained."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09-neutral/HERO_TROLLEY.png",
+      "sha256": "2a7c2ff2c2715638229a7719ed3038feb7a59d6d5580cb393ac77a0c6c0cca6d",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "individually_opened_by_root": true,
+      "diagnostic": "neutral",
+      "note": "Neutral material audit: Flat diffuse cover/straps and caster/frame construction visible; no claimed atmosphere score."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09-neutral/HERO_UTILITIES.png",
+      "sha256": "1e1513fb04f9bef1adb6003eec7f17975a02864c1db9a70859882802c2ce1509",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "individually_opened_by_root": true,
+      "diagnostic": "neutral",
+      "note": "Neutral material audit: Slots and warm enclosure families visible against dark wall plate; exposure ghost restrained."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09-uv-standard/C05_CONVEYOR_LEAD_TUNNEL.png",
+      "sha256": "036861b49dc4e3c20b100dc85f5dc287ae49b40f1606bff9186255b3c00e4070",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "individually_opened_by_root": true,
+      "diagnostic": "uv",
+      "note": "Actual checker audit: Conveyor cylinders use developed barrel charts; chest and hood checker discontinuities follow facets."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09-uv-standard/C07_OFFICE_INTERIOR.png",
+      "sha256": "a23fdb48c9961a662799e9bae51f8565fddbc0b4caaef818c0fba892ff7c7015",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "individually_opened_by_root": true,
+      "diagnostic": "uv",
+      "note": "Actual checker audit: Broad chair charts continuous; small return and welt checker phase distinct. Perspective alone does not prove physical density."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09-uv-standard/HERO_TROLLEY.png",
+      "sha256": "53975a7edfac9602e6d065d7bd7182eca69194be3368b8d4cf5ac952ab1bca24",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "individually_opened_by_root": true,
+      "diagnostic": "uv",
+      "note": "Actual checker audit: Broad cover checker coherent across angular folds; straps and small trim use separate construction charts."
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-09-uv-standard/HERO_UTILITIES.png",
+      "sha256": "0fbf414d00c79a33fbdd677f6ebfc384005a9882e3df46b5810a08ab0c2e392c",
+      "decoded_size": [
+        1067,
+        600
+      ],
+      "individually_opened_by_root": true,
+      "diagnostic": "uv",
+      "note": "Actual checker audit: Broad wall and housing checker scale consistent visually; curved conduit and edge returns have separate seams."
+    }
+  ],
+  "references": [
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/BRIEFING_INDIRECT.png",
+      "sha256": "8d03448f84845b16705c6acc3324364a4e0a51f36c34355f4c481e8957aef301",
+      "decoded_size": [
+        1280,
+        720
+      ],
+      "individually_opened_by_root": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/VALIDATE_LockerDoor.png",
+      "sha256": "b8fd309f91cc15bfe6d183a253b81ba0f20a0033e08c63214c127e07e19879de",
+      "decoded_size": [
+        1280,
+        720
+      ],
+      "individually_opened_by_root": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/VALIDATE_Material_A.png",
+      "sha256": "47d3892f69b4b244bcbff32908a6445556c182b2090aba11b22be1fe274253f6",
+      "decoded_size": [
+        1280,
+        720
+      ],
+      "individually_opened_by_root": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/revamp/production/renders/spawn-reference/VALIDATE_Spawn.png",
+      "sha256": "c84f368729c7e3ae1e6f1005ff5daae39020749316545bd208c972cee5b4e9ed",
+      "decoded_size": [
+        1280,
+        720
+      ],
+      "individually_opened_by_root": true
+    }
+  ],
+  "all_render_processes_closed_exit_zero": true,
+  "independent_acceptance": false,
+  "final_two_stability_certified": false,
+  "cold_final_pixels_verified": false,
+  "limitations": [
+    "Root vision is not independent acceptance.",
+    "Runtime behavior/performance remain unverified.",
+    "Checker perspective differences require actual consumed UV numerical verification."
+  ]
+}

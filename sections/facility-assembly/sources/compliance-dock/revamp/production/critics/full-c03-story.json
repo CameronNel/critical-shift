@@ -1,0 +1,98 @@
+{
+  "review": "full-c03-story",
+  "role": "Independent environmental storytelling critic",
+  "source_sha256": "1e2507dc6f0c245cc6552d940a03fe6888949f68509bdbaacd7f315c22815b53",
+  "manifest_complete": true,
+  "actual_beauty_pngs_viewed": [
+    "C01_ENTRY",
+    "C02_HERO_DOCK",
+    "C03_CHECKIN_COUNTER",
+    "C04_SCANNER_APPROACH",
+    "C05_CONVEYOR_LEAD_TUNNEL",
+    "C06_CART_GATE_G1",
+    "C07_OFFICE_INTERIOR",
+    "C08_CONCEALED_SUPPORT_H1",
+    "C09_ARRIVAL_GATE_P2",
+    "C10_ROOF_SERVICES",
+    "CORNER_SW",
+    "CORNER_SE",
+    "CORNER_NW",
+    "CORNER_NE",
+    "WALL_SOUTH",
+    "WALL_NORTH",
+    "WALL_EAST",
+    "WALL_WEST",
+    "HERO_SCANNER",
+    "HERO_CARGO",
+    "HERO_EVIDENCE",
+    "HERO_TROLLEY",
+    "HERO_UTILITIES",
+    "DETAIL_CHECKIN",
+    "PLAYER_REVERSE",
+    "PLAYER_PINCH",
+    "WALL_OFFICE_FRONT"
+  ],
+  "actual_beauty_png_count": 27,
+  "actual_spawn_reference_pngs_viewed": [
+    "BRIEFING_INDIRECT",
+    "VALIDATE_LockerDoor",
+    "VALIDATE_Material_A",
+    "VALIDATE_Spawn"
+  ],
+  "category": 7,
+  "category_name": "Purposeful worker traces and coercive institutional storytelling",
+  "score": 91,
+  "threshold": "strictly greater than 93",
+  "passed": false,
+  "critical_vetoes": [],
+  "overall_score_awarded": null,
+  "evidence_limit": "Visual category 7 only; no native, geometry, runtime or overall acceptance certified. All 27 beauty PNGs and four actual spawn reference originals were inspected via view_image. No earlier reviews, scores, builder code or rationale were used.",
+  "strengths": [
+    "The physical hatch, grille, stamped paperwork and STATE YOUR NUMBER cue communicate dehumanizing check-in.",
+    "WALL_OFFICE_FRONT clearly resolves the corporate contradiction: WE VALUE YOUR TIME / ALL DELAYS ARE YOUR RESPONSIBILITY.",
+    "The covered strapped trolley, medical pole, locked evidence cabinet and DO NOT RELEASE tag form an unsettling but restrained secondary narrative.",
+    "All major prop clusters have plausible institutional jobs, and negative space remains disciplined."
+  ],
+  "issues": [
+    {
+      "id": "ST1",
+      "views": [
+        "C01_ENTRY",
+        "C04_SCANNER_APPROACH",
+        "HERO_SCANNER",
+        "PLAYER_REVERSE"
+      ],
+      "finding": "The inspection lane reads as orderly equipment and markings. Human waiting, denied passage, or repeated use is weak at gameplay distance. Small chipped markings do not yet establish the pressure described in the brief.",
+      "fix": "Add one authored wear cluster inside the existing scanner footprint: rubbed threshold metal, shoe scuffs at the actual stop position, and a mismatched screwed replacement plate on one frequently handled control face. Keep the surrounding lane quiet and clear."
+    },
+    {
+      "id": "ST2",
+      "views": [
+        "C07_OFFICE_INTERIOR",
+        "WALL_WEST"
+      ],
+      "finding": "The mug, clipboard and displaced chair establish basic occupation, but the office remains a generic tidy workstation. There is little visible evidence of an overwhelmed clerk or a particular worker.",
+      "fix": "Use the existing desk and filing surface for one interrupted task: a small uneven docket stack, a partly withdrawn case folder, and one restrained personal trace such as a worn coat on the chair back. Give the paper distinct curled/handled edges and support contact rather than adding more labels."
+    },
+    {
+      "id": "ST3",
+      "views": [
+        "HERO_EVIDENCE",
+        "HERO_TROLLEY",
+        "C08_CONCEALED_SUPPORT_H1"
+      ],
+      "finding": "The strapped covered trolley and locked cabinet provide a strong unsettling premise. The sole DO NOT RELEASE paper carries most of the actual evidence story; the six identical closed compartments do not reveal a chain of custody or a disrupted transfer.",
+      "fix": "Within the cabinet footprint, crack one compartment door to reveal a sealed bag or document pouch with a physical seal matching the crate/trolley docket. Show one interrupted transfer through seal ribbon and folded paperwork placement; preserve the covered silhouette and avoid gore or loose debris."
+    },
+    {
+      "id": "ST4",
+      "views": [
+        "HERO_UTILITIES",
+        "WALL_EAST",
+        "PLAYER_PINCH"
+      ],
+      "finding": "The utility lockout tag is purposeful, but repaired use remains too faint to read in the full-room and player views. The services look newly installed rather than maintained under pressure.",
+      "fix": "Make one service repair visible through object construction: a short clamped replacement conduit sleeve, a slightly mismatched access cover, and a localized paint/scuff halo at that repair. Use a single existing utility cluster, with no additional warning panels."
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+00:00.821  blend            | Read blend: "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/module.blend"
+/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/overhaul_dock.py:61: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new('CD | '+key);m.use_nodes=True;bs=m.node_tree.nodes.get('Principled BSDF')
+/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/overhaul_dock.py:405: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  bs=mat.node_tree.nodes.get('Principled BSDF') if mat.use_nodes else None
+F12_ACTUAL_INTERFACE_GUARDS_PASS 22
+F13_ACTUAL_INTERFACE_GUARDS_PASS 30
+F13_VISUAL_CONSTRUCTION_INTERFACES_PASS 38
+Traceback (most recent call last):
+  File "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/overhaul_dock.py", line 491, in <module>
+    raise RuntimeError('Planning limits exceeded before save: '+str((budget_triangles,budget_submeshes,len(budget_families))))
+RuntimeError: Planning limits exceeded before save: (385180, 1151, 36)
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)
+
+Blender quit

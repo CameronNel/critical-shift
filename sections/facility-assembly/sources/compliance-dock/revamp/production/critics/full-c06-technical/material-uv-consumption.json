@@ -1,0 +1,6069 @@
+{
+  "materials": {
+    "CD | coral": {
+      "uv_names": [
+        "CD_Physical_1m"
+      ],
+      "attribute_names": [],
+      "image_nodes": [],
+      "coordinates": [],
+      "mapping": [],
+      "shader_links": [
+        {
+          "from_node": "Principled BSDF",
+          "from_socket": "BSDF",
+          "to_node": "Material Output",
+          "to_socket": "Surface"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Color Ramp",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Map Range",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture.001",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.001",
+          "from_socket": "Factor",
+          "to_node": "Bump",
+          "to_socket": "Height"
+        },
+        {
+          "from_node": "Bump",
+          "from_socket": "Normal",
+          "to_node": "Principled BSDF",
+          "to_socket": "Normal"
+        },
+        {
+          "from_node": "Geometry",
+          "from_socket": "Position",
+          "to_node": "Vector Math",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.001",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.001",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.002",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.002",
+          "from_socket": "Value",
+          "to_node": "Map Range.001",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.002",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.002",
+          "from_socket": "Factor",
+          "to_node": "Map Range.002",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.001",
+          "from_socket": "Result",
+          "to_node": "Math",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.002",
+          "from_socket": "Result",
+          "to_node": "Math",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy)",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Color Ramp",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy)",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Mix (Legacy)",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Base Color"
+        },
+        {
+          "from_node": "Math",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).001",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Map Range",
+          "from_socket": "Result",
+          "to_node": "Mix (Legacy).001",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Mix (Legacy).001",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Roughness"
+        }
+      ]
+    },
+    "CD | blue": {
+      "uv_names": [
+        "CD_Physical_1m"
+      ],
+      "attribute_names": [],
+      "image_nodes": [],
+      "coordinates": [],
+      "mapping": [],
+      "shader_links": [
+        {
+          "from_node": "Principled BSDF",
+          "from_socket": "BSDF",
+          "to_node": "Material Output",
+          "to_socket": "Surface"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Color Ramp",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Map Range",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture.001",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.001",
+          "from_socket": "Factor",
+          "to_node": "Bump",
+          "to_socket": "Height"
+        },
+        {
+          "from_node": "Bump",
+          "from_socket": "Normal",
+          "to_node": "Principled BSDF",
+          "to_socket": "Normal"
+        },
+        {
+          "from_node": "Geometry",
+          "from_socket": "Position",
+          "to_node": "Vector Math",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.001",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.001",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.002",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.002",
+          "from_socket": "Value",
+          "to_node": "Map Range.001",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.002",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.002",
+          "from_socket": "Factor",
+          "to_node": "Map Range.002",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.001",
+          "from_socket": "Result",
+          "to_node": "Math",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.002",
+          "from_socket": "Result",
+          "to_node": "Math",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy)",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Color Ramp",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy)",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Math",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).001",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Map Range",
+          "from_socket": "Result",
+          "to_node": "Mix (Legacy).001",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Geometry.001",
+          "from_socket": "Position",
+          "to_node": "Vector Math.003",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.003",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.004",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.004",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.005",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.005",
+          "from_socket": "Value",
+          "to_node": "Map Range.003",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry.001",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.003",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.003",
+          "from_socket": "Factor",
+          "to_node": "Map Range.004",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.003",
+          "from_socket": "Result",
+          "to_node": "Math.001",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.004",
+          "from_socket": "Result",
+          "to_node": "Math.001",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.001",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).002",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy)",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).002",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Math.001",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).003",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).001",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).003",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Geometry.002",
+          "from_socket": "Position",
+          "to_node": "Vector Math.006",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.006",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.007",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.007",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.008",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.008",
+          "from_socket": "Value",
+          "to_node": "Map Range.005",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry.002",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.004",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.004",
+          "from_socket": "Factor",
+          "to_node": "Map Range.006",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.005",
+          "from_socket": "Result",
+          "to_node": "Math.002",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.006",
+          "from_socket": "Result",
+          "to_node": "Math.002",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.002",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).004",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).002",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).004",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Math.002",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).005",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).003",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).005",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Geometry.003",
+          "from_socket": "Position",
+          "to_node": "Vector Math.009",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.009",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.010",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.010",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.011",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.011",
+          "from_socket": "Value",
+          "to_node": "Map Range.007",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry.003",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.005",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.005",
+          "from_socket": "Factor",
+          "to_node": "Map Range.008",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.007",
+          "from_socket": "Result",
+          "to_node": "Math.003",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.008",
+          "from_socket": "Result",
+          "to_node": "Math.003",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.003",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).006",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).004",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).006",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Math.003",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).007",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).005",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).007",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Geometry.004",
+          "from_socket": "Position",
+          "to_node": "Vector Math.012",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.012",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.013",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.013",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.014",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.014",
+          "from_socket": "Value",
+          "to_node": "Map Range.009",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry.004",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.006",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.006",
+          "from_socket": "Factor",
+          "to_node": "Map Range.010",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.009",
+          "from_socket": "Result",
+          "to_node": "Math.004",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.010",
+          "from_socket": "Result",
+          "to_node": "Math.004",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.004",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).008",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).006",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).008",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Math.004",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).009",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).007",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).009",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Geometry.005",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.007",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.007",
+          "from_socket": "Factor",
+          "to_node": "Map Range.011",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry.006",
+          "from_socket": "Position",
+          "to_node": "Vector Math.015",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.015",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.016",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.016",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.017",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.017",
+          "from_socket": "Value",
+          "to_node": "Map Range.012",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry.006",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.008",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.008",
+          "from_socket": "Factor",
+          "to_node": "Map Range.013",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.012",
+          "from_socket": "Result",
+          "to_node": "Math.005",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.013",
+          "from_socket": "Result",
+          "to_node": "Math.005",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.005",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).010",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).008",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).010",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Math.005",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).011",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Map Range.011",
+          "from_socket": "Result",
+          "to_node": "Mix (Legacy).011",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Geometry.007",
+          "from_socket": "Position",
+          "to_node": "Vector Math.018",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.018",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.019",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.019",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.020",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.020",
+          "from_socket": "Value",
+          "to_node": "Map Range.014",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry.007",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.009",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.009",
+          "from_socket": "Factor",
+          "to_node": "Map Range.015",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.014",
+          "from_socket": "Result",
+          "to_node": "Math.006",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.015",
+          "from_socket": "Result",
+          "to_node": "Math.006",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.006",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).012",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).010",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).012",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Math.006",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).013",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).011",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).013",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Geometry.008",
+          "from_socket": "Position",
+          "to_node": "Vector Math.021",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.021",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.022",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.022",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.023",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.023",
+          "from_socket": "Value",
+          "to_node": "Map Range.016",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry.008",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.010",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.010",
+          "from_socket": "Factor",
+          "to_node": "Map Range.017",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.016",
+          "from_socket": "Result",
+          "to_node": "Math.007",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.017",
+          "from_socket": "Result",
+          "to_node": "Math.007",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.007",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).014",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).012",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).014",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Mix (Legacy).014",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Base Color"
+        },
+        {
+          "from_node": "Math.007",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).015",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).013",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).015",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Mix (Legacy).015",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Roughness"
+        }
+      ]
+    },
+    "CD | steel": {
+      "uv_names": [
+        "CD_Physical_1m"
+      ],
+      "attribute_names": [],
+      "image_nodes": [],
+      "coordinates": [],
+      "mapping": [],
+      "shader_links": [
+        {
+          "from_node": "Principled BSDF",
+          "from_socket": "BSDF",
+          "to_node": "Material Output",
+          "to_socket": "Surface"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Color Ramp",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Color Ramp",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Base Color"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Map Range",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range",
+          "from_socket": "Result",
+          "to_node": "Principled BSDF",
+          "to_socket": "Roughness"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture.001",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.001",
+          "from_socket": "Factor",
+          "to_node": "Bump",
+          "to_socket": "Height"
+        },
+        {
+          "from_node": "Bump",
+          "from_socket": "Normal",
+          "to_node": "Principled BSDF",
+          "to_socket": "Normal"
+        }
+      ]
+    },
+    "CD | yellow": {
+      "uv_names": [
+        "CD_Physical_1m"
+      ],
+      "attribute_names": [],
+      "image_nodes": [],
+      "coordinates": [],
+      "mapping": [],
+      "shader_links": [
+        {
+          "from_node": "Principled BSDF",
+          "from_socket": "BSDF",
+          "to_node": "Material Output",
+          "to_socket": "Surface"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Color Ramp",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Map Range",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture.001",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.001",
+          "from_socket": "Factor",
+          "to_node": "Bump",
+          "to_socket": "Height"
+        },
+        {
+          "from_node": "Bump",
+          "from_socket": "Normal",
+          "to_node": "Principled BSDF",
+          "to_socket": "Normal"
+        },
+        {
+          "from_node": "Geometry",
+          "from_socket": "Position",
+          "to_node": "Vector Math",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.001",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.001",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.002",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.002",
+          "from_socket": "Value",
+          "to_node": "Map Range.001",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.002",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.002",
+          "from_socket": "Factor",
+          "to_node": "Map Range.002",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.001",
+          "from_socket": "Result",
+          "to_node": "Math",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.002",
+          "from_socket": "Result",
+          "to_node": "Math",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy)",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Color Ramp",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy)",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Math",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).001",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Map Range",
+          "from_socket": "Result",
+          "to_node": "Mix (Legacy).001",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Geometry.001",
+          "from_socket": "Position",
+          "to_node": "Vector Math.003",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.003",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.004",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.004",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.005",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.005",
+          "from_socket": "Value",
+          "to_node": "Map Range.003",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry.001",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.003",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.003",
+          "from_socket": "Factor",
+          "to_node": "Map Range.004",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.003",
+          "from_socket": "Result",
+          "to_node": "Math.001",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.004",
+          "from_socket": "Result",
+          "to_node": "Math.001",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.001",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).002",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy)",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).002",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Math.001",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).003",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).001",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).003",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Geometry.002",
+          "from_socket": "Position",
+          "to_node": "Vector Math.006",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.006",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.007",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.007",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.008",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.008",
+          "from_socket": "Value",
+          "to_node": "Map Range.005",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry.002",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.004",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.004",
+          "from_socket": "Factor",
+          "to_node": "Map Range.006",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.005",
+          "from_socket": "Result",
+          "to_node": "Math.002",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.006",
+          "from_socket": "Result",
+          "to_node": "Math.002",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.002",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).004",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).002",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).004",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Math.002",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).005",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).003",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).005",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Geometry.003",
+          "from_socket": "Position",
+          "to_node": "Vector Math.009",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.009",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.010",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.010",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.011",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.011",
+          "from_socket": "Value",
+          "to_node": "Map Range.007",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry.003",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.005",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.005",
+          "from_socket": "Factor",
+          "to_node": "Map Range.008",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.007",
+          "from_socket": "Result",
+          "to_node": "Math.003",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.008",
+          "from_socket": "Result",
+          "to_node": "Math.003",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.003",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).006",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).004",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).006",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Mix (Legacy).006",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Base Color"
+        },
+        {
+          "from_node": "Math.003",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).007",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).005",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).007",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Mix (Legacy).007",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Roughness"
+        }
+      ]
+    },
+    "CD | amber_lamp": {
+      "uv_names": [
+        "CD_Physical_1m"
+      ],
+      "attribute_names": [],
+      "image_nodes": [],
+      "coordinates": [],
+      "mapping": [],
+      "shader_links": [
+        {
+          "from_node": "Principled BSDF",
+          "from_socket": "BSDF",
+          "to_node": "Material Output",
+          "to_socket": "Surface"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Color Ramp",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Color Ramp",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Base Color"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Map Range",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range",
+          "from_socket": "Result",
+          "to_node": "Principled BSDF",
+          "to_socket": "Roughness"
+        }
+      ]
+    },
+    "CD | charcoal": {
+      "uv_names": [
+        "CD_Physical_1m"
+      ],
+      "attribute_names": [],
+      "image_nodes": [],
+      "coordinates": [],
+      "mapping": [],
+      "shader_links": [
+        {
+          "from_node": "Principled BSDF",
+          "from_socket": "BSDF",
+          "to_node": "Material Output",
+          "to_socket": "Surface"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Color Ramp",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Map Range",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture.001",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.001",
+          "from_socket": "Factor",
+          "to_node": "Bump",
+          "to_socket": "Height"
+        },
+        {
+          "from_node": "Bump",
+          "from_socket": "Normal",
+          "to_node": "Principled BSDF",
+          "to_socket": "Normal"
+        },
+        {
+          "from_node": "Geometry",
+          "from_socket": "Position",
+          "to_node": "Vector Math",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.001",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.001",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.002",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.002",
+          "from_socket": "Value",
+          "to_node": "Map Range.001",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.002",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.002",
+          "from_socket": "Factor",
+          "to_node": "Map Range.002",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.001",
+          "from_socket": "Result",
+          "to_node": "Math",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.002",
+          "from_socket": "Result",
+          "to_node": "Math",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy)",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Color Ramp",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy)",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Mix (Legacy)",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Base Color"
+        },
+        {
+          "from_node": "Math",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).001",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Map Range",
+          "from_socket": "Result",
+          "to_node": "Mix (Legacy).001",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Mix (Legacy).001",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Roughness"
+        }
+      ]
+    },
+    "CD | fabric": {
+      "uv_names": [
+        "CD_Fabric_Cut_1m",
+        "CD_Fabric_Cut_1m",
+        "CD_Fabric_Cut_1m"
+      ],
+      "attribute_names": [],
+      "image_nodes": [],
+      "coordinates": [],
+      "mapping": [],
+      "shader_links": [
+        {
+          "from_node": "Principled BSDF",
+          "from_socket": "BSDF",
+          "to_node": "Material Output",
+          "to_socket": "Surface"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Color Ramp",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Map Range",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range",
+          "from_socket": "Result",
+          "to_node": "Principled BSDF",
+          "to_socket": "Roughness"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture.001",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.001",
+          "from_socket": "Factor",
+          "to_node": "Bump",
+          "to_socket": "Height"
+        },
+        {
+          "from_node": "UV Map.001",
+          "from_socket": "UV",
+          "to_node": "Wave Texture",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "UV Map.001",
+          "from_socket": "UV",
+          "to_node": "Wave Texture.001",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Wave Texture",
+          "from_socket": "Factor",
+          "to_node": "Math",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Wave Texture.001",
+          "from_socket": "Factor",
+          "to_node": "Math",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math",
+          "from_socket": "Value",
+          "to_node": "Bump.001",
+          "to_socket": "Height"
+        },
+        {
+          "from_node": "Bump.001",
+          "from_socket": "Normal",
+          "to_node": "Principled BSDF",
+          "to_socket": "Normal"
+        },
+        {
+          "from_node": "UV Map.002",
+          "from_socket": "UV",
+          "to_node": "Noise Texture.002",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.002",
+          "from_socket": "Factor",
+          "to_node": "Color Ramp.001",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Color Ramp",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy)",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Color Ramp.001",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy)",
+          "to_socket": "Color2"
+        },
+        {
+          "from_node": "Mix (Legacy)",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Base Color"
+        }
+      ]
+    },
+    "CD | Handled linoleum": {
+      "uv_names": [
+        "CD_Physical_1m"
+      ],
+      "attribute_names": [],
+      "image_nodes": [],
+      "coordinates": [],
+      "mapping": [],
+      "shader_links": [
+        {
+          "from_node": "Principled BSDF",
+          "from_socket": "BSDF",
+          "to_node": "Material Output",
+          "to_socket": "Surface"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Color Ramp",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Map Range",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture.001",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.001",
+          "from_socket": "Factor",
+          "to_node": "Bump",
+          "to_socket": "Height"
+        },
+        {
+          "from_node": "Bump",
+          "from_socket": "Normal",
+          "to_node": "Principled BSDF",
+          "to_socket": "Normal"
+        },
+        {
+          "from_node": "Geometry",
+          "from_socket": "Position",
+          "to_node": "Vector Math",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.001",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.001",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.002",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Geometry",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.002",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.002",
+          "from_socket": "Factor",
+          "to_node": "Math",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Vector Math.002",
+          "from_socket": "Value",
+          "to_node": "Math.001",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math",
+          "from_socket": "Value",
+          "to_node": "Math.001",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.001",
+          "from_socket": "Value",
+          "to_node": "Map Range.001",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.001",
+          "from_socket": "Result",
+          "to_node": "Mix (Legacy)",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Color Ramp",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy)",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Map Range.001",
+          "from_socket": "Result",
+          "to_node": "Math.002",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range",
+          "from_socket": "Result",
+          "to_node": "Math.003",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.002",
+          "from_socket": "Value",
+          "to_node": "Math.003",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry.001",
+          "from_socket": "Position",
+          "to_node": "Vector Math.003",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.003",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.004",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.004",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.005",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.005",
+          "from_socket": "Value",
+          "to_node": "Map Range.002",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry.001",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.003",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.003",
+          "from_socket": "Factor",
+          "to_node": "Map Range.003",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.002",
+          "from_socket": "Result",
+          "to_node": "Math.004",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.003",
+          "from_socket": "Result",
+          "to_node": "Math.004",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.004",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).001",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy)",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).001",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Mix (Legacy).001",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Base Color"
+        },
+        {
+          "from_node": "Math.004",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).002",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Math.003",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).002",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Mix (Legacy).002",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Roughness"
+        }
+      ]
+    },
+    "CD | red_lamp": {
+      "uv_names": [
+        "CD_Physical_1m"
+      ],
+      "attribute_names": [],
+      "image_nodes": [],
+      "coordinates": [],
+      "mapping": [],
+      "shader_links": [
+        {
+          "from_node": "Principled BSDF",
+          "from_socket": "BSDF",
+          "to_node": "Material Output",
+          "to_socket": "Surface"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Color Ramp",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Color Ramp",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Base Color"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Map Range",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range",
+          "from_socket": "Result",
+          "to_node": "Principled BSDF",
+          "to_socket": "Roughness"
+        }
+      ]
+    },
+    "CD | concrete": {
+      "uv_names": [
+        "CD_Physical_1m"
+      ],
+      "attribute_names": [],
+      "image_nodes": [],
+      "coordinates": [],
+      "mapping": [],
+      "shader_links": [
+        {
+          "from_node": "Principled BSDF",
+          "from_socket": "BSDF",
+          "to_node": "Material Output",
+          "to_socket": "Surface"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Color Ramp",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Color Ramp",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Base Color"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Map Range",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range",
+          "from_socket": "Result",
+          "to_node": "Principled BSDF",
+          "to_socket": "Roughness"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture.001",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.001",
+          "from_socket": "Factor",
+          "to_node": "Bump",
+          "to_socket": "Height"
+        },
+        {
+          "from_node": "Bump",
+          "from_socket": "Normal",
+          "to_node": "Principled BSDF",
+          "to_socket": "Normal"
+        }
+      ]
+    },
+    "CD | paper": {
+      "uv_names": [
+        "CD_Physical_1m"
+      ],
+      "attribute_names": [],
+      "image_nodes": [],
+      "coordinates": [],
+      "mapping": [],
+      "shader_links": [
+        {
+          "from_node": "Principled BSDF",
+          "from_socket": "BSDF",
+          "to_node": "Material Output",
+          "to_socket": "Surface"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Color Ramp",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Color Ramp",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Base Color"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Map Range",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range",
+          "from_socket": "Result",
+          "to_node": "Principled BSDF",
+          "to_socket": "Roughness"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture.001",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.001",
+          "from_socket": "Factor",
+          "to_node": "Bump",
+          "to_socket": "Height"
+        },
+        {
+          "from_node": "Bump",
+          "from_socket": "Normal",
+          "to_node": "Principled BSDF",
+          "to_socket": "Normal"
+        }
+      ]
+    },
+    "CD | coffee": {
+      "uv_names": [
+        "CD_Physical_1m"
+      ],
+      "attribute_names": [],
+      "image_nodes": [],
+      "coordinates": [],
+      "mapping": [],
+      "shader_links": [
+        {
+          "from_node": "Principled BSDF",
+          "from_socket": "BSDF",
+          "to_node": "Material Output",
+          "to_socket": "Surface"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Color Ramp",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Color Ramp",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Base Color"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Map Range",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range",
+          "from_socket": "Result",
+          "to_node": "Principled BSDF",
+          "to_socket": "Roughness"
+        }
+      ]
+    },
+    "CD | yellow | text object metres": {
+      "uv_names": [],
+      "attribute_names": [],
+      "image_nodes": [],
+      "coordinates": [
+        {
+          "node": "Texture Coordinate",
+          "outputs_used": [
+            "Object"
+          ]
+        }
+      ],
+      "mapping": [],
+      "shader_links": [
+        {
+          "from_node": "Principled BSDF",
+          "from_socket": "BSDF",
+          "to_node": "Material Output",
+          "to_socket": "Surface"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Color Ramp",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Map Range",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Noise Texture.001",
+          "from_socket": "Factor",
+          "to_node": "Bump",
+          "to_socket": "Height"
+        },
+        {
+          "from_node": "Bump",
+          "from_socket": "Normal",
+          "to_node": "Principled BSDF",
+          "to_socket": "Normal"
+        },
+        {
+          "from_node": "Geometry",
+          "from_socket": "Position",
+          "to_node": "Vector Math",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.001",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.001",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.002",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.002",
+          "from_socket": "Value",
+          "to_node": "Map Range.001",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.002",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.002",
+          "from_socket": "Factor",
+          "to_node": "Map Range.002",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.001",
+          "from_socket": "Result",
+          "to_node": "Math",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.002",
+          "from_socket": "Result",
+          "to_node": "Math",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy)",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Color Ramp",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy)",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Math",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).001",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Map Range",
+          "from_socket": "Result",
+          "to_node": "Mix (Legacy).001",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Geometry.001",
+          "from_socket": "Position",
+          "to_node": "Vector Math.003",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.003",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.004",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.004",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.005",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.005",
+          "from_socket": "Value",
+          "to_node": "Map Range.003",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry.001",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.003",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.003",
+          "from_socket": "Factor",
+          "to_node": "Map Range.004",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.003",
+          "from_socket": "Result",
+          "to_node": "Math.001",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.004",
+          "from_socket": "Result",
+          "to_node": "Math.001",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.001",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).002",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy)",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).002",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Math.001",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).003",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).001",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).003",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Geometry.002",
+          "from_socket": "Position",
+          "to_node": "Vector Math.006",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.006",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.007",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.007",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.008",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.008",
+          "from_socket": "Value",
+          "to_node": "Map Range.005",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry.002",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.004",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.004",
+          "from_socket": "Factor",
+          "to_node": "Map Range.006",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.005",
+          "from_socket": "Result",
+          "to_node": "Math.002",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.006",
+          "from_socket": "Result",
+          "to_node": "Math.002",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.002",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).004",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).002",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).004",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Math.002",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).005",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).003",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).005",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Geometry.003",
+          "from_socket": "Position",
+          "to_node": "Vector Math.009",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.009",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.010",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.010",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.011",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.011",
+          "from_socket": "Value",
+          "to_node": "Map Range.007",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry.003",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.005",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.005",
+          "from_socket": "Factor",
+          "to_node": "Map Range.008",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.007",
+          "from_socket": "Result",
+          "to_node": "Math.003",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.008",
+          "from_socket": "Result",
+          "to_node": "Math.003",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.003",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).006",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).004",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).006",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Mix (Legacy).006",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Base Color"
+        },
+        {
+          "from_node": "Math.003",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).007",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).005",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).007",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Mix (Legacy).007",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Roughness"
+        },
+        {
+          "from_node": "Texture Coordinate",
+          "from_socket": "Object",
+          "to_node": "Noise Texture",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Texture Coordinate",
+          "from_socket": "Object",
+          "to_node": "Noise Texture.001",
+          "to_socket": "Vector"
+        }
+      ]
+    },
+    "CD | warm_lamp": {
+      "uv_names": [
+        "CD_Physical_1m"
+      ],
+      "attribute_names": [],
+      "image_nodes": [],
+      "coordinates": [],
+      "mapping": [],
+      "shader_links": [
+        {
+          "from_node": "Principled BSDF",
+          "from_socket": "BSDF",
+          "to_node": "Material Output",
+          "to_socket": "Surface"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Color Ramp",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Color Ramp",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Base Color"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Map Range",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range",
+          "from_socket": "Result",
+          "to_node": "Principled BSDF",
+          "to_socket": "Roughness"
+        }
+      ]
+    },
+    "CD | paper | text object metres": {
+      "uv_names": [],
+      "attribute_names": [],
+      "image_nodes": [],
+      "coordinates": [
+        {
+          "node": "Texture Coordinate",
+          "outputs_used": [
+            "Object"
+          ]
+        }
+      ],
+      "mapping": [],
+      "shader_links": [
+        {
+          "from_node": "Principled BSDF",
+          "from_socket": "BSDF",
+          "to_node": "Material Output",
+          "to_socket": "Surface"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Color Ramp",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Color Ramp",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Base Color"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Map Range",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range",
+          "from_socket": "Result",
+          "to_node": "Principled BSDF",
+          "to_socket": "Roughness"
+        },
+        {
+          "from_node": "Noise Texture.001",
+          "from_socket": "Factor",
+          "to_node": "Bump",
+          "to_socket": "Height"
+        },
+        {
+          "from_node": "Bump",
+          "from_socket": "Normal",
+          "to_node": "Principled BSDF",
+          "to_socket": "Normal"
+        },
+        {
+          "from_node": "Texture Coordinate",
+          "from_socket": "Object",
+          "to_node": "Noise Texture",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Texture Coordinate",
+          "from_socket": "Object",
+          "to_node": "Noise Texture.001",
+          "to_socket": "Vector"
+        }
+      ]
+    },
+    "CD | rubber": {
+      "uv_names": [
+        "CD_Physical_1m"
+      ],
+      "attribute_names": [],
+      "image_nodes": [],
+      "coordinates": [],
+      "mapping": [],
+      "shader_links": [
+        {
+          "from_node": "Principled BSDF",
+          "from_socket": "BSDF",
+          "to_node": "Material Output",
+          "to_socket": "Surface"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Color Ramp",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Map Range",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture.001",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.001",
+          "from_socket": "Factor",
+          "to_node": "Bump",
+          "to_socket": "Height"
+        },
+        {
+          "from_node": "Bump",
+          "from_socket": "Normal",
+          "to_node": "Principled BSDF",
+          "to_socket": "Normal"
+        },
+        {
+          "from_node": "Geometry",
+          "from_socket": "Position",
+          "to_node": "Vector Math",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.001",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.001",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.002",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.002",
+          "from_socket": "Value",
+          "to_node": "Map Range.001",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.001",
+          "from_socket": "Result",
+          "to_node": "Mix (Legacy)",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Color Ramp",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy)",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Mix (Legacy)",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Base Color"
+        },
+        {
+          "from_node": "Map Range.001",
+          "from_socket": "Result",
+          "to_node": "Mix (Legacy).001",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Map Range",
+          "from_socket": "Result",
+          "to_node": "Mix (Legacy).001",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Mix (Legacy).001",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Roughness"
+        }
+      ]
+    },
+    "CD | plastic": {
+      "uv_names": [
+        "CD_Physical_1m"
+      ],
+      "attribute_names": [],
+      "image_nodes": [],
+      "coordinates": [],
+      "mapping": [],
+      "shader_links": [
+        {
+          "from_node": "Principled BSDF",
+          "from_socket": "BSDF",
+          "to_node": "Material Output",
+          "to_socket": "Surface"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Color Ramp",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Map Range",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture.001",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.001",
+          "from_socket": "Factor",
+          "to_node": "Bump",
+          "to_socket": "Height"
+        },
+        {
+          "from_node": "Bump",
+          "from_socket": "Normal",
+          "to_node": "Principled BSDF",
+          "to_socket": "Normal"
+        },
+        {
+          "from_node": "Geometry",
+          "from_socket": "Position",
+          "to_node": "Vector Math",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.001",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.001",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.002",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.002",
+          "from_socket": "Value",
+          "to_node": "Map Range.001",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.001",
+          "from_socket": "Result",
+          "to_node": "Mix (Legacy)",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Color Ramp",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy)",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Map Range.001",
+          "from_socket": "Result",
+          "to_node": "Mix (Legacy).001",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Map Range",
+          "from_socket": "Result",
+          "to_node": "Mix (Legacy).001",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Geometry.001",
+          "from_socket": "Position",
+          "to_node": "Vector Math.003",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.003",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.004",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.004",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.005",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.005",
+          "from_socket": "Value",
+          "to_node": "Map Range.002",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.002",
+          "from_socket": "Result",
+          "to_node": "Mix (Legacy).002",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy)",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).002",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Mix (Legacy).002",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Base Color"
+        },
+        {
+          "from_node": "Map Range.002",
+          "from_socket": "Result",
+          "to_node": "Mix (Legacy).003",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).001",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).003",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Mix (Legacy).003",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Roughness"
+        }
+      ]
+    },
+    "CD | coral | text object metres": {
+      "uv_names": [],
+      "attribute_names": [],
+      "image_nodes": [],
+      "coordinates": [
+        {
+          "node": "Texture Coordinate",
+          "outputs_used": [
+            "Object"
+          ]
+        }
+      ],
+      "mapping": [],
+      "shader_links": [
+        {
+          "from_node": "Principled BSDF",
+          "from_socket": "BSDF",
+          "to_node": "Material Output",
+          "to_socket": "Surface"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Color Ramp",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Map Range",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Noise Texture.001",
+          "from_socket": "Factor",
+          "to_node": "Bump",
+          "to_socket": "Height"
+        },
+        {
+          "from_node": "Bump",
+          "from_socket": "Normal",
+          "to_node": "Principled BSDF",
+          "to_socket": "Normal"
+        },
+        {
+          "from_node": "Geometry",
+          "from_socket": "Position",
+          "to_node": "Vector Math",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.001",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.001",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.002",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.002",
+          "from_socket": "Value",
+          "to_node": "Map Range.001",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.002",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.002",
+          "from_socket": "Factor",
+          "to_node": "Map Range.002",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.001",
+          "from_socket": "Result",
+          "to_node": "Math",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.002",
+          "from_socket": "Result",
+          "to_node": "Math",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy)",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Color Ramp",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy)",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Mix (Legacy)",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Base Color"
+        },
+        {
+          "from_node": "Math",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).001",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Map Range",
+          "from_socket": "Result",
+          "to_node": "Mix (Legacy).001",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Mix (Legacy).001",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Roughness"
+        },
+        {
+          "from_node": "Texture Coordinate",
+          "from_socket": "Object",
+          "to_node": "Noise Texture",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Texture Coordinate",
+          "from_socket": "Object",
+          "to_node": "Noise Texture.001",
+          "to_socket": "Vector"
+        }
+      ]
+    },
+    "CD | D1 handled paint": {
+      "uv_names": [
+        "CD_Physical_1m"
+      ],
+      "attribute_names": [],
+      "image_nodes": [],
+      "coordinates": [],
+      "mapping": [],
+      "shader_links": [
+        {
+          "from_node": "Principled BSDF",
+          "from_socket": "BSDF",
+          "to_node": "Material Output",
+          "to_socket": "Surface"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Color Ramp",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Map Range",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture.001",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.001",
+          "from_socket": "Factor",
+          "to_node": "Bump",
+          "to_socket": "Height"
+        },
+        {
+          "from_node": "Bump",
+          "from_socket": "Normal",
+          "to_node": "Principled BSDF",
+          "to_socket": "Normal"
+        },
+        {
+          "from_node": "Geometry",
+          "from_socket": "Position",
+          "to_node": "Vector Math",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.001",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.001",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.002",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Geometry",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.002",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.002",
+          "from_socket": "Factor",
+          "to_node": "Math",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Vector Math.002",
+          "from_socket": "Value",
+          "to_node": "Math.001",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math",
+          "from_socket": "Value",
+          "to_node": "Math.001",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.001",
+          "from_socket": "Value",
+          "to_node": "Map Range.001",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.001",
+          "from_socket": "Result",
+          "to_node": "Mix (Legacy)",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Color Ramp",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy)",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Mix (Legacy)",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Base Color"
+        },
+        {
+          "from_node": "Map Range.001",
+          "from_socket": "Result",
+          "to_node": "Math.002",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range",
+          "from_socket": "Result",
+          "to_node": "Math.003",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.002",
+          "from_socket": "Value",
+          "to_node": "Math.003",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.003",
+          "from_socket": "Value",
+          "to_node": "Principled BSDF",
+          "to_socket": "Roughness"
+        }
+      ]
+    },
+    "CD | brass": {
+      "uv_names": [
+        "CD_Physical_1m"
+      ],
+      "attribute_names": [],
+      "image_nodes": [],
+      "coordinates": [],
+      "mapping": [],
+      "shader_links": [
+        {
+          "from_node": "Principled BSDF",
+          "from_socket": "BSDF",
+          "to_node": "Material Output",
+          "to_socket": "Surface"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Color Ramp",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Color Ramp",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Base Color"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Map Range",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range",
+          "from_socket": "Result",
+          "to_node": "Principled BSDF",
+          "to_socket": "Roughness"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture.001",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.001",
+          "from_socket": "Factor",
+          "to_node": "Bump",
+          "to_socket": "Height"
+        },
+        {
+          "from_node": "Bump",
+          "from_socket": "Normal",
+          "to_node": "Principled BSDF",
+          "to_socket": "Normal"
+        }
+      ]
+    },
+    "CD | Floor traffic polish": {
+      "uv_names": [
+        "CD_Physical_1m"
+      ],
+      "attribute_names": [],
+      "image_nodes": [],
+      "coordinates": [],
+      "mapping": [],
+      "shader_links": [
+        {
+          "from_node": "Principled BSDF",
+          "from_socket": "BSDF",
+          "to_node": "Material Output",
+          "to_socket": "Surface"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Color Ramp",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Map Range",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture.001",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.001",
+          "from_socket": "Factor",
+          "to_node": "Bump",
+          "to_socket": "Height"
+        },
+        {
+          "from_node": "Geometry",
+          "from_socket": "Position",
+          "to_node": "Vector Math",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.001",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.001",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.002",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Geometry",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.002",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.002",
+          "from_socket": "Factor",
+          "to_node": "Math",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Vector Math.002",
+          "from_socket": "Value",
+          "to_node": "Math.001",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math",
+          "from_socket": "Value",
+          "to_node": "Math.001",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.001",
+          "from_socket": "Value",
+          "to_node": "Map Range.001",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.001",
+          "from_socket": "Result",
+          "to_node": "Mix (Legacy)",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Color Ramp",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy)",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Map Range.001",
+          "from_socket": "Result",
+          "to_node": "Math.002",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range",
+          "from_socket": "Result",
+          "to_node": "Math.003",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.002",
+          "from_socket": "Value",
+          "to_node": "Math.003",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry.001",
+          "from_socket": "Position",
+          "to_node": "Vector Math.003",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.003",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.004",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.004",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.005",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.005",
+          "from_socket": "Value",
+          "to_node": "Map Range.002",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry.001",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.003",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.003",
+          "from_socket": "Factor",
+          "to_node": "Map Range.003",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.002",
+          "from_socket": "Result",
+          "to_node": "Math.004",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.003",
+          "from_socket": "Result",
+          "to_node": "Math.004",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.004",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).001",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy)",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).001",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Math.004",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).002",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Math.003",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).002",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Geometry.002",
+          "from_socket": "Position",
+          "to_node": "Vector Math.006",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.006",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.007",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.007",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.008",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.008",
+          "from_socket": "Value",
+          "to_node": "Map Range.004",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry.002",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.004",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.004",
+          "from_socket": "Factor",
+          "to_node": "Map Range.005",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.004",
+          "from_socket": "Result",
+          "to_node": "Math.005",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.005",
+          "from_socket": "Result",
+          "to_node": "Math.005",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.005",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).003",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).001",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).003",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Math.005",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).004",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).002",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).004",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Geometry.003",
+          "from_socket": "Position",
+          "to_node": "Vector Math.009",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.009",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.010",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.010",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.011",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.011",
+          "from_socket": "Value",
+          "to_node": "Map Range.006",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry.003",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.005",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.005",
+          "from_socket": "Factor",
+          "to_node": "Map Range.007",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.006",
+          "from_socket": "Result",
+          "to_node": "Math.006",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.007",
+          "from_socket": "Result",
+          "to_node": "Math.006",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.006",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).005",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).003",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).005",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Math.006",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).006",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).004",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).006",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Geometry.004",
+          "from_socket": "Position",
+          "to_node": "Vector Math.012",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.012",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.013",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.013",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.014",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.014",
+          "from_socket": "Value",
+          "to_node": "Map Range.008",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry.004",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.006",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.006",
+          "from_socket": "Factor",
+          "to_node": "Map Range.009",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.008",
+          "from_socket": "Result",
+          "to_node": "Math.007",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.009",
+          "from_socket": "Result",
+          "to_node": "Math.007",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.007",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).007",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).005",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).007",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Math.007",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).008",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).006",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).008",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Geometry.005",
+          "from_socket": "Position",
+          "to_node": "Vector Math.015",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.015",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.016",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.016",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.017",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.017",
+          "from_socket": "Value",
+          "to_node": "Map Range.010",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry.005",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.007",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.007",
+          "from_socket": "Factor",
+          "to_node": "Map Range.011",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.010",
+          "from_socket": "Result",
+          "to_node": "Math.008",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.011",
+          "from_socket": "Result",
+          "to_node": "Math.008",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.008",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).009",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).007",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).009",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Math.008",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).010",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).008",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).010",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Geometry.006",
+          "from_socket": "Position",
+          "to_node": "Vector Math.018",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.018",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.019",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.019",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.020",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.020",
+          "from_socket": "Value",
+          "to_node": "Map Range.012",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry.006",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.008",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.008",
+          "from_socket": "Factor",
+          "to_node": "Map Range.013",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.012",
+          "from_socket": "Result",
+          "to_node": "Math.009",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.013",
+          "from_socket": "Result",
+          "to_node": "Math.009",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.009",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).011",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).009",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).011",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Math.009",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).012",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).010",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).012",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Geometry.007",
+          "from_socket": "Position",
+          "to_node": "Vector Math.021",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.021",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.022",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.022",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.023",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.023",
+          "from_socket": "Value",
+          "to_node": "Map Range.014",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry.007",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.009",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.009",
+          "from_socket": "Factor",
+          "to_node": "Map Range.015",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.014",
+          "from_socket": "Result",
+          "to_node": "Math.010",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.015",
+          "from_socket": "Result",
+          "to_node": "Math.010",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.010",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).013",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).011",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).013",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Math.010",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).014",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).012",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).014",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Geometry.008",
+          "from_socket": "Position",
+          "to_node": "Separate XYZ",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Separate XYZ",
+          "from_socket": "X",
+          "to_node": "Math.011",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.011",
+          "from_socket": "Value",
+          "to_node": "Math.012",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.012",
+          "from_socket": "Value",
+          "to_node": "Math.013",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.012",
+          "from_socket": "Value",
+          "to_node": "Math.014",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.013",
+          "from_socket": "Value",
+          "to_node": "Math.014",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.014",
+          "from_socket": "Value",
+          "to_node": "Math.015",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Separate XYZ",
+          "from_socket": "Y",
+          "to_node": "Math.016",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.016",
+          "from_socket": "Value",
+          "to_node": "Math.017",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.017",
+          "from_socket": "Value",
+          "to_node": "Math.018",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.017",
+          "from_socket": "Value",
+          "to_node": "Math.019",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.018",
+          "from_socket": "Value",
+          "to_node": "Math.019",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.019",
+          "from_socket": "Value",
+          "to_node": "Math.020",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.015",
+          "from_socket": "Value",
+          "to_node": "Math.021",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.020",
+          "from_socket": "Value",
+          "to_node": "Math.021",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.021",
+          "from_socket": "Value",
+          "to_node": "Math.022",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.022",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).015",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).013",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).015",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Math.021",
+          "from_socket": "Value",
+          "to_node": "Math.023",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.023",
+          "from_socket": "Value",
+          "to_node": "Bump.001",
+          "to_socket": "Height"
+        },
+        {
+          "from_node": "Bump",
+          "from_socket": "Normal",
+          "to_node": "Bump.001",
+          "to_socket": "Normal"
+        },
+        {
+          "from_node": "Bump.001",
+          "from_socket": "Normal",
+          "to_node": "Principled BSDF",
+          "to_socket": "Normal"
+        },
+        {
+          "from_node": "Geometry.009",
+          "from_socket": "Position",
+          "to_node": "Vector Math.024",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.024",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.025",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.025",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.026",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.026",
+          "from_socket": "Value",
+          "to_node": "Map Range.016",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry.009",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.010",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.010",
+          "from_socket": "Factor",
+          "to_node": "Map Range.017",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.016",
+          "from_socket": "Result",
+          "to_node": "Math.024",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.017",
+          "from_socket": "Result",
+          "to_node": "Math.024",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.024",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).016",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).015",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).016",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Math.024",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).017",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).014",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).017",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Geometry.010",
+          "from_socket": "Position",
+          "to_node": "Vector Math.027",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.027",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.028",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.028",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.029",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.029",
+          "from_socket": "Value",
+          "to_node": "Map Range.018",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry.010",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.011",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.011",
+          "from_socket": "Factor",
+          "to_node": "Map Range.019",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.018",
+          "from_socket": "Result",
+          "to_node": "Math.025",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.019",
+          "from_socket": "Result",
+          "to_node": "Math.025",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.025",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).018",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).016",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).018",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Math.025",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).019",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).017",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).019",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Geometry.011",
+          "from_socket": "Position",
+          "to_node": "Vector Math.030",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.030",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.031",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.031",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.032",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.032",
+          "from_socket": "Value",
+          "to_node": "Map Range.020",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry.011",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.012",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.012",
+          "from_socket": "Factor",
+          "to_node": "Map Range.021",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.020",
+          "from_socket": "Result",
+          "to_node": "Math.026",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.021",
+          "from_socket": "Result",
+          "to_node": "Math.026",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.026",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).020",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).018",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).020",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Math.026",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).021",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).019",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).021",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Geometry.012",
+          "from_socket": "Position",
+          "to_node": "Vector Math.033",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.033",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.034",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.034",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.035",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.035",
+          "from_socket": "Value",
+          "to_node": "Map Range.022",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry.012",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.013",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.013",
+          "from_socket": "Factor",
+          "to_node": "Map Range.023",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.022",
+          "from_socket": "Result",
+          "to_node": "Math.027",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.023",
+          "from_socket": "Result",
+          "to_node": "Math.027",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.027",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).022",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).020",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).022",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Math.027",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).023",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).021",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).023",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Geometry.013",
+          "from_socket": "Position",
+          "to_node": "Vector Math.036",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.036",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.037",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.037",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.038",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.038",
+          "from_socket": "Value",
+          "to_node": "Map Range.024",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry.013",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.014",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.014",
+          "from_socket": "Factor",
+          "to_node": "Map Range.025",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.024",
+          "from_socket": "Result",
+          "to_node": "Math.028",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.025",
+          "from_socket": "Result",
+          "to_node": "Math.028",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.028",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).024",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).022",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).024",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Math.028",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).025",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).023",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).025",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Mix (Legacy).025",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Roughness"
+        },
+        {
+          "from_node": "Geometry.014",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.015",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.015",
+          "from_socket": "Factor",
+          "to_node": "Color Ramp.001",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).024",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).026",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Color Ramp.001",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).026",
+          "to_socket": "Color2"
+        },
+        {
+          "from_node": "Mix (Legacy).026",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Base Color"
+        }
+      ]
+    },
+    "CD | green_lamp": {
+      "uv_names": [
+        "CD_Physical_1m"
+      ],
+      "attribute_names": [],
+      "image_nodes": [],
+      "coordinates": [],
+      "mapping": [],
+      "shader_links": [
+        {
+          "from_node": "Principled BSDF",
+          "from_socket": "BSDF",
+          "to_node": "Material Output",
+          "to_socket": "Surface"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Color Ramp",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Color Ramp",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Base Color"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Map Range",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range",
+          "from_socket": "Result",
+          "to_node": "Principled BSDF",
+          "to_socket": "Roughness"
+        }
+      ]
+    },
+    "CD | ink": {
+      "uv_names": [
+        "CD_Physical_1m"
+      ],
+      "attribute_names": [],
+      "image_nodes": [],
+      "coordinates": [],
+      "mapping": [],
+      "shader_links": [
+        {
+          "from_node": "Principled BSDF",
+          "from_socket": "BSDF",
+          "to_node": "Material Output",
+          "to_socket": "Surface"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Color Ramp",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Color Ramp",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Base Color"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Map Range",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range",
+          "from_socket": "Result",
+          "to_node": "Principled BSDF",
+          "to_socket": "Roughness"
+        }
+      ]
+    },
+    "CD | ivory": {
+      "uv_names": [
+        "CD_Physical_1m"
+      ],
+      "attribute_names": [],
+      "image_nodes": [],
+      "coordinates": [],
+      "mapping": [],
+      "shader_links": [
+        {
+          "from_node": "Principled BSDF",
+          "from_socket": "BSDF",
+          "to_node": "Material Output",
+          "to_socket": "Surface"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Color Ramp",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Map Range",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture.001",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.001",
+          "from_socket": "Factor",
+          "to_node": "Bump",
+          "to_socket": "Height"
+        },
+        {
+          "from_node": "Bump",
+          "from_socket": "Normal",
+          "to_node": "Principled BSDF",
+          "to_socket": "Normal"
+        },
+        {
+          "from_node": "Geometry",
+          "from_socket": "Position",
+          "to_node": "Vector Math",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.001",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.001",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.002",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.002",
+          "from_socket": "Value",
+          "to_node": "Map Range.001",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.002",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.002",
+          "from_socket": "Factor",
+          "to_node": "Map Range.002",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.001",
+          "from_socket": "Result",
+          "to_node": "Math",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.002",
+          "from_socket": "Result",
+          "to_node": "Math",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy)",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Color Ramp",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy)",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Mix (Legacy)",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Base Color"
+        },
+        {
+          "from_node": "Math",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).001",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Map Range",
+          "from_socket": "Result",
+          "to_node": "Mix (Legacy).001",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Mix (Legacy).001",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Roughness"
+        }
+      ]
+    },
+    "CD | Worktop lip wear": {
+      "uv_names": [
+        "CD_Physical_1m"
+      ],
+      "attribute_names": [],
+      "image_nodes": [],
+      "coordinates": [],
+      "mapping": [],
+      "shader_links": [
+        {
+          "from_node": "Principled BSDF",
+          "from_socket": "BSDF",
+          "to_node": "Material Output",
+          "to_socket": "Surface"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Color Ramp",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Map Range",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture.001",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.001",
+          "from_socket": "Factor",
+          "to_node": "Bump",
+          "to_socket": "Height"
+        },
+        {
+          "from_node": "Bump",
+          "from_socket": "Normal",
+          "to_node": "Principled BSDF",
+          "to_socket": "Normal"
+        },
+        {
+          "from_node": "Geometry",
+          "from_socket": "Position",
+          "to_node": "Vector Math",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.001",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.001",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.002",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Geometry",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.002",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.002",
+          "from_socket": "Factor",
+          "to_node": "Math",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Vector Math.002",
+          "from_socket": "Value",
+          "to_node": "Math.001",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math",
+          "from_socket": "Value",
+          "to_node": "Math.001",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.001",
+          "from_socket": "Value",
+          "to_node": "Map Range.001",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.001",
+          "from_socket": "Result",
+          "to_node": "Mix (Legacy)",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Color Ramp",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy)",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Mix (Legacy)",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Base Color"
+        },
+        {
+          "from_node": "Map Range.001",
+          "from_socket": "Result",
+          "to_node": "Math.002",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range",
+          "from_socket": "Result",
+          "to_node": "Math.003",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.002",
+          "from_socket": "Value",
+          "to_node": "Math.003",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.003",
+          "from_socket": "Value",
+          "to_node": "Principled BSDF",
+          "to_socket": "Roughness"
+        }
+      ]
+    },
+    "CD | lens": {
+      "uv_names": [
+        "CD_Physical_1m"
+      ],
+      "attribute_names": [],
+      "image_nodes": [],
+      "coordinates": [],
+      "mapping": [],
+      "shader_links": [
+        {
+          "from_node": "Principled BSDF",
+          "from_socket": "BSDF",
+          "to_node": "Material Output",
+          "to_socket": "Surface"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Color Ramp",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Color Ramp",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Base Color"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Map Range",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range",
+          "from_socket": "Result",
+          "to_node": "Principled BSDF",
+          "to_socket": "Roughness"
+        }
+      ]
+    },
+    "CD | plaster": {
+      "uv_names": [
+        "CD_Physical_1m"
+      ],
+      "attribute_names": [],
+      "image_nodes": [],
+      "coordinates": [],
+      "mapping": [],
+      "shader_links": [
+        {
+          "from_node": "Principled BSDF",
+          "from_socket": "BSDF",
+          "to_node": "Material Output",
+          "to_socket": "Surface"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Color Ramp",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Map Range",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture.001",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.001",
+          "from_socket": "Factor",
+          "to_node": "Bump",
+          "to_socket": "Height"
+        },
+        {
+          "from_node": "Bump",
+          "from_socket": "Normal",
+          "to_node": "Principled BSDF",
+          "to_socket": "Normal"
+        },
+        {
+          "from_node": "Geometry",
+          "from_socket": "Position",
+          "to_node": "Vector Math",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.001",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.001",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.002",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.002",
+          "from_socket": "Value",
+          "to_node": "Map Range.001",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.001",
+          "from_socket": "Result",
+          "to_node": "Mix (Legacy)",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Color Ramp",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy)",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Mix (Legacy)",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Base Color"
+        },
+        {
+          "from_node": "Map Range.001",
+          "from_socket": "Result",
+          "to_node": "Mix (Legacy).001",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Map Range",
+          "from_socket": "Result",
+          "to_node": "Mix (Legacy).001",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Mix (Legacy).001",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Roughness"
+        }
+      ]
+    },
+    "CD | navy": {
+      "uv_names": [
+        "CD_Physical_1m"
+      ],
+      "attribute_names": [],
+      "image_nodes": [],
+      "coordinates": [],
+      "mapping": [],
+      "shader_links": [
+        {
+          "from_node": "Principled BSDF",
+          "from_socket": "BSDF",
+          "to_node": "Material Output",
+          "to_socket": "Surface"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Color Ramp",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Map Range",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture.001",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.001",
+          "from_socket": "Factor",
+          "to_node": "Bump",
+          "to_socket": "Height"
+        },
+        {
+          "from_node": "Bump",
+          "from_socket": "Normal",
+          "to_node": "Principled BSDF",
+          "to_socket": "Normal"
+        },
+        {
+          "from_node": "Geometry",
+          "from_socket": "Position",
+          "to_node": "Vector Math",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.001",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.001",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.002",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.002",
+          "from_socket": "Value",
+          "to_node": "Map Range.001",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.002",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.002",
+          "from_socket": "Factor",
+          "to_node": "Map Range.002",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.001",
+          "from_socket": "Result",
+          "to_node": "Math",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.002",
+          "from_socket": "Result",
+          "to_node": "Math",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy)",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Color Ramp",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy)",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Math",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).001",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Map Range",
+          "from_socket": "Result",
+          "to_node": "Mix (Legacy).001",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Geometry.001",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.003",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.003",
+          "from_socket": "Factor",
+          "to_node": "Map Range.003",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry.002",
+          "from_socket": "Position",
+          "to_node": "Vector Math.003",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.003",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.004",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.004",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.005",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.005",
+          "from_socket": "Value",
+          "to_node": "Map Range.004",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry.002",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.004",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.004",
+          "from_socket": "Factor",
+          "to_node": "Map Range.005",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.004",
+          "from_socket": "Result",
+          "to_node": "Math.001",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.005",
+          "from_socket": "Result",
+          "to_node": "Math.001",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.001",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).002",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy)",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).002",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Mix (Legacy).002",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Base Color"
+        },
+        {
+          "from_node": "Math.001",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).003",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Map Range.003",
+          "from_socket": "Result",
+          "to_node": "Mix (Legacy).003",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Mix (Legacy).003",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Roughness"
+        }
+      ]
+    },
+    "CD | ink | text object metres": {
+      "uv_names": [],
+      "attribute_names": [],
+      "image_nodes": [],
+      "coordinates": [
+        {
+          "node": "Texture Coordinate",
+          "outputs_used": [
+            "Object"
+          ]
+        }
+      ],
+      "mapping": [],
+      "shader_links": [
+        {
+          "from_node": "Principled BSDF",
+          "from_socket": "BSDF",
+          "to_node": "Material Output",
+          "to_socket": "Surface"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Color Ramp",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Color Ramp",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Base Color"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Map Range",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range",
+          "from_socket": "Result",
+          "to_node": "Principled BSDF",
+          "to_socket": "Roughness"
+        },
+        {
+          "from_node": "Texture Coordinate",
+          "from_socket": "Object",
+          "to_node": "Noise Texture",
+          "to_socket": "Vector"
+        }
+      ]
+    },
+    "CD | Crate handling polish": {
+      "uv_names": [
+        "CD_Physical_1m"
+      ],
+      "attribute_names": [],
+      "image_nodes": [],
+      "coordinates": [],
+      "mapping": [],
+      "shader_links": [
+        {
+          "from_node": "Principled BSDF",
+          "from_socket": "BSDF",
+          "to_node": "Material Output",
+          "to_socket": "Surface"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Color Ramp",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Map Range",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture.001",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.001",
+          "from_socket": "Factor",
+          "to_node": "Bump",
+          "to_socket": "Height"
+        },
+        {
+          "from_node": "Bump",
+          "from_socket": "Normal",
+          "to_node": "Principled BSDF",
+          "to_socket": "Normal"
+        },
+        {
+          "from_node": "Geometry",
+          "from_socket": "Position",
+          "to_node": "Vector Math",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.001",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.001",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.002",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Geometry",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.002",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.002",
+          "from_socket": "Factor",
+          "to_node": "Math",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Vector Math.002",
+          "from_socket": "Value",
+          "to_node": "Math.001",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math",
+          "from_socket": "Value",
+          "to_node": "Math.001",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.001",
+          "from_socket": "Value",
+          "to_node": "Map Range.001",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.001",
+          "from_socket": "Result",
+          "to_node": "Mix (Legacy)",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Color Ramp",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy)",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Mix (Legacy)",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Base Color"
+        },
+        {
+          "from_node": "Map Range.001",
+          "from_socket": "Result",
+          "to_node": "Math.002",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range",
+          "from_socket": "Result",
+          "to_node": "Math.003",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.002",
+          "from_socket": "Value",
+          "to_node": "Math.003",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.003",
+          "from_socket": "Value",
+          "to_node": "Principled BSDF",
+          "to_socket": "Roughness"
+        }
+      ]
+    },
+    "CD | screen": {
+      "uv_names": [
+        "CD_Physical_1m"
+      ],
+      "attribute_names": [],
+      "image_nodes": [],
+      "coordinates": [],
+      "mapping": [],
+      "shader_links": [
+        {
+          "from_node": "Principled BSDF",
+          "from_socket": "BSDF",
+          "to_node": "Material Output",
+          "to_socket": "Surface"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Color Ramp",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Color Ramp",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Base Color"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Map Range",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range",
+          "from_socket": "Result",
+          "to_node": "Principled BSDF",
+          "to_socket": "Roughness"
+        }
+      ]
+    },
+    "CD | wear": {
+      "uv_names": [
+        "CD_Physical_1m"
+      ],
+      "attribute_names": [],
+      "image_nodes": [],
+      "coordinates": [],
+      "mapping": [],
+      "shader_links": [
+        {
+          "from_node": "Principled BSDF",
+          "from_socket": "BSDF",
+          "to_node": "Material Output",
+          "to_socket": "Surface"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Color Ramp",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Map Range",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry",
+          "from_socket": "Position",
+          "to_node": "Vector Math",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.001",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.001",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.002",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.002",
+          "from_socket": "Value",
+          "to_node": "Map Range.001",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.001",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.001",
+          "from_socket": "Factor",
+          "to_node": "Map Range.002",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.001",
+          "from_socket": "Result",
+          "to_node": "Math",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.002",
+          "from_socket": "Result",
+          "to_node": "Math",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy)",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Color Ramp",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy)",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Math",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).001",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Map Range",
+          "from_socket": "Result",
+          "to_node": "Mix (Legacy).001",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Geometry.001",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.002",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.002",
+          "from_socket": "Factor",
+          "to_node": "Map Range.003",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry.002",
+          "from_socket": "Position",
+          "to_node": "Vector Math.003",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.003",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.004",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.004",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.005",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.005",
+          "from_socket": "Value",
+          "to_node": "Map Range.004",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry.002",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.003",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.003",
+          "from_socket": "Factor",
+          "to_node": "Map Range.005",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.004",
+          "from_socket": "Result",
+          "to_node": "Math.001",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.005",
+          "from_socket": "Result",
+          "to_node": "Math.001",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.001",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).002",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy)",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).002",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Math.001",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).003",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Map Range.003",
+          "from_socket": "Result",
+          "to_node": "Mix (Legacy).003",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Geometry.003",
+          "from_socket": "Position",
+          "to_node": "Vector Math.006",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.006",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.007",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.007",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.008",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.008",
+          "from_socket": "Value",
+          "to_node": "Map Range.006",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.006",
+          "from_socket": "Result",
+          "to_node": "Mix (Legacy).004",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).002",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).004",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Map Range.006",
+          "from_socket": "Result",
+          "to_node": "Mix (Legacy).005",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).003",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).005",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Geometry.004",
+          "from_socket": "Position",
+          "to_node": "Vector Math.009",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.009",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.010",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.010",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.011",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.011",
+          "from_socket": "Value",
+          "to_node": "Map Range.007",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry.004",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.004",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.004",
+          "from_socket": "Factor",
+          "to_node": "Map Range.008",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.007",
+          "from_socket": "Result",
+          "to_node": "Math.002",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.008",
+          "from_socket": "Result",
+          "to_node": "Math.002",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.002",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).006",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).004",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).006",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Math.002",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).007",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).005",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).007",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Geometry.005",
+          "from_socket": "Position",
+          "to_node": "Vector Math.012",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.012",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.013",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.013",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.014",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.014",
+          "from_socket": "Value",
+          "to_node": "Map Range.009",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry.005",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.005",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.005",
+          "from_socket": "Factor",
+          "to_node": "Map Range.010",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.009",
+          "from_socket": "Result",
+          "to_node": "Math.003",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.010",
+          "from_socket": "Result",
+          "to_node": "Math.003",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math.003",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).008",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).006",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).008",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Mix (Legacy).008",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Base Color"
+        },
+        {
+          "from_node": "Math.003",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).009",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Mix (Legacy).007",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy).009",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Mix (Legacy).009",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Roughness"
+        }
+      ]
+    },
+    "CD | ivory | text object metres": {
+      "uv_names": [],
+      "attribute_names": [],
+      "image_nodes": [],
+      "coordinates": [
+        {
+          "node": "Texture Coordinate",
+          "outputs_used": [
+            "Object"
+          ]
+        }
+      ],
+      "mapping": [],
+      "shader_links": [
+        {
+          "from_node": "Principled BSDF",
+          "from_socket": "BSDF",
+          "to_node": "Material Output",
+          "to_socket": "Surface"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Color Ramp",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Map Range",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Noise Texture.001",
+          "from_socket": "Factor",
+          "to_node": "Bump",
+          "to_socket": "Height"
+        },
+        {
+          "from_node": "Bump",
+          "from_socket": "Normal",
+          "to_node": "Principled BSDF",
+          "to_socket": "Normal"
+        },
+        {
+          "from_node": "Geometry",
+          "from_socket": "Position",
+          "to_node": "Vector Math",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.001",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.001",
+          "from_socket": "Vector",
+          "to_node": "Vector Math.002",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Vector Math.002",
+          "from_socket": "Value",
+          "to_node": "Map Range.001",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Geometry",
+          "from_socket": "Position",
+          "to_node": "Noise Texture.002",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.002",
+          "from_socket": "Factor",
+          "to_node": "Map Range.002",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.001",
+          "from_socket": "Result",
+          "to_node": "Math",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range.002",
+          "from_socket": "Result",
+          "to_node": "Math",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy)",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Color Ramp",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy)",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Mix (Legacy)",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Base Color"
+        },
+        {
+          "from_node": "Math",
+          "from_socket": "Value",
+          "to_node": "Mix (Legacy).001",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Map Range",
+          "from_socket": "Result",
+          "to_node": "Mix (Legacy).001",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Mix (Legacy).001",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Roughness"
+        },
+        {
+          "from_node": "Texture Coordinate",
+          "from_socket": "Object",
+          "to_node": "Noise Texture",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Texture Coordinate",
+          "from_socket": "Object",
+          "to_node": "Noise Texture.001",
+          "to_socket": "Vector"
+        }
+      ]
+    },
+    "CD | glass": {
+      "uv_names": [
+        "CD_Physical_1m"
+      ],
+      "attribute_names": [],
+      "image_nodes": [],
+      "coordinates": [],
+      "mapping": [],
+      "shader_links": [
+        {
+          "from_node": "Principled BSDF",
+          "from_socket": "BSDF",
+          "to_node": "Material Output",
+          "to_socket": "Surface"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Color Ramp",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Color Ramp",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Base Color"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Map Range",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range",
+          "from_socket": "Result",
+          "to_node": "Principled BSDF",
+          "to_socket": "Roughness"
+        }
+      ]
+    },
+    "CD | cotton": {
+      "uv_names": [
+        "CD_Fabric_Cut_1m",
+        "CD_Fabric_Cut_1m",
+        "CD_Fabric_Cut_1m"
+      ],
+      "attribute_names": [],
+      "image_nodes": [],
+      "coordinates": [],
+      "mapping": [],
+      "shader_links": [
+        {
+          "from_node": "Principled BSDF",
+          "from_socket": "BSDF",
+          "to_node": "Material Output",
+          "to_socket": "Surface"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Color Ramp",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Map Range",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range",
+          "from_socket": "Result",
+          "to_node": "Principled BSDF",
+          "to_socket": "Roughness"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture.001",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.001",
+          "from_socket": "Factor",
+          "to_node": "Bump",
+          "to_socket": "Height"
+        },
+        {
+          "from_node": "UV Map.001",
+          "from_socket": "UV",
+          "to_node": "Wave Texture",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "UV Map.001",
+          "from_socket": "UV",
+          "to_node": "Wave Texture.001",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Wave Texture",
+          "from_socket": "Factor",
+          "to_node": "Math",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Wave Texture.001",
+          "from_socket": "Factor",
+          "to_node": "Math",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Math",
+          "from_socket": "Value",
+          "to_node": "Bump.001",
+          "to_socket": "Height"
+        },
+        {
+          "from_node": "Bump.001",
+          "from_socket": "Normal",
+          "to_node": "Principled BSDF",
+          "to_socket": "Normal"
+        },
+        {
+          "from_node": "UV Map.002",
+          "from_socket": "UV",
+          "to_node": "Noise Texture.002",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.002",
+          "from_socket": "Factor",
+          "to_node": "Color Ramp.001",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Color Ramp",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy)",
+          "to_socket": "Color1"
+        },
+        {
+          "from_node": "Color Ramp.001",
+          "from_socket": "Color",
+          "to_node": "Mix (Legacy)",
+          "to_socket": "Color2"
+        },
+        {
+          "from_node": "Mix (Legacy)",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Base Color"
+        }
+      ]
+    },
+    "CD | wood": {
+      "uv_names": [
+        "CD_Physical_1m"
+      ],
+      "attribute_names": [],
+      "image_nodes": [],
+      "coordinates": [],
+      "mapping": [],
+      "shader_links": [
+        {
+          "from_node": "Principled BSDF",
+          "from_socket": "BSDF",
+          "to_node": "Material Output",
+          "to_socket": "Surface"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Color Ramp",
+          "to_socket": "Factor"
+        },
+        {
+          "from_node": "Color Ramp",
+          "from_socket": "Color",
+          "to_node": "Principled BSDF",
+          "to_socket": "Base Color"
+        },
+        {
+          "from_node": "Noise Texture",
+          "from_socket": "Factor",
+          "to_node": "Map Range",
+          "to_socket": "Value"
+        },
+        {
+          "from_node": "Map Range",
+          "from_socket": "Result",
+          "to_node": "Principled BSDF",
+          "to_socket": "Roughness"
+        },
+        {
+          "from_node": "UV Map",
+          "from_socket": "UV",
+          "to_node": "Noise Texture.001",
+          "to_socket": "Vector"
+        },
+        {
+          "from_node": "Noise Texture.001",
+          "from_socket": "Factor",
+          "to_node": "Bump",
+          "to_socket": "Height"
+        },
+        {
+          "from_node": "Bump",
+          "from_socket": "Normal",
+          "to_node": "Principled BSDF",
+          "to_socket": "Normal"
+        }
+      ]
+    }
+  },
+  "fabric_cut_layers": {
+    "Chair seat cushion": {
+      "triangles": 572,
+      "surface_area_m2": 0.5239642006639336,
+      "zero_uv_area_m2": 0.0,
+      "max_anisotropy": 2.4876168595821397,
+      "stretch_over_1_25_area_m2": 0.07582450319846043,
+      "stretch_over_2_area_m2": 0.048900657319025535,
+      "material_names": [
+        "CD | fabric"
+      ]
+    },
+    "Chair back lumbar": {
+      "triangles": 604,
+      "surface_area_m2": 0.21687783455959816,
+      "zero_uv_area_m2": 0.0,
+      "max_anisotropy": 2.489764307528395,
+      "stretch_over_1_25_area_m2": 0.027581269602232592,
+      "stretch_over_2_area_m2": 0.0007182375183322247,
+      "material_names": [
+        "CD | fabric"
+      ]
+    },
+    "Chair back upper": {
+      "triangles": 604,
+      "surface_area_m2": 0.1757726925819477,
+      "zero_uv_area_m2": 0.0,
+      "max_anisotropy": 2.490730072042531,
+      "stretch_over_1_25_area_m2": 0.021524582045686313,
+      "stretch_over_2_area_m2": 0.0006367240871007115,
+      "material_names": [
+        "CD | fabric"
+      ]
+    },
+    "Covered Trolley Draped Tarp": {
+      "triangles": 5696,
+      "surface_area_m2": 6.5931865359855095,
+      "zero_uv_area_m2": 0.0,
+      "max_anisotropy": 1.0807601159763145,
+      "stretch_over_1_25_area_m2": 0.0,
+      "stretch_over_2_area_m2": 0.0,
+      "material_names": [
+        "CD | cotton"
+      ]
+    },
+    "CD | Joined CD | Counter cleaning cloth / cotton": {
+      "triangles": 1704,
+      "surface_area_m2": 0.18265184979238142,
+      "zero_uv_area_m2": 0.0,
+      "max_anisotropy": 2.363701031775364,
+      "stretch_over_1_25_area_m2": 0.01827300817306435,
+      "stretch_over_2_area_m2": 0.0007224366231354051,
+      "material_names": [
+        "CD | cotton"
+      ]
+    },
+    "CD | Chair seat welt": {
+      "triangles": 128,
+      "surface_area_m2": 0.013289494089877799,
+      "zero_uv_area_m2": 0.0,
+      "max_anisotropy": 1.512972314994658,
+      "stretch_over_1_25_area_m2": 0.0008767479710118218,
+      "stretch_over_2_area_m2": 0.0,
+      "material_names": [
+        "CD | cotton"
+      ]
+    },
+    "CD | Joined Covered Trolley H1 / cotton": {
+      "triangles": 672,
+      "surface_area_m2": 0.031536180388963955,
+      "zero_uv_area_m2": 0.0,
+      "max_anisotropy": 1.9991217536767618,
+      "stretch_over_1_25_area_m2": 0.021026610351837883,
+      "stretch_over_2_area_m2": 0.0,
+      "material_names": [
+        "CD | cotton"
+      ]
+    },
+    "CD | Joined Staff Desk Assembly / fabric": {
+      "triangles": 1064,
+      "surface_area_m2": 0.2799724179435758,
+      "zero_uv_area_m2": 0.0,
+      "max_anisotropy": 1.1677041245746258,
+      "stretch_over_1_25_area_m2": 0.0,
+      "stretch_over_2_area_m2": 0.0,
+      "material_names": [
+        "CD | fabric"
+      ]
+    }
+  }
+}

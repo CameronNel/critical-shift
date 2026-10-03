@@ -1,0 +1,109 @@
+{
+  "review_id": "full-c01-lighting",
+  "review_date": "2026-10-01",
+  "discipline": "independent lighting and atmosphere critic",
+  "category": 5,
+  "category_name": "Localized lighting, depth and bleak atmosphere without hiding geometry",
+  "score": 80,
+  "maximum_score": 100,
+  "required_score_strictly_greater_than": 93,
+  "verdict": "FAIL",
+  "source_sha256": "dc608cae0a42303e614f2db3dc0cd9d50e4366dc738ac57c35957c6df34e0331",
+  "evidence_directory": "production/renders/full-cycle-01",
+  "reference_directory": "production/renders/spawn-reference",
+  "all_26_actual_frames_opened": true,
+  "all_4_actual_reference_frames_opened": true,
+  "all_candidate_pngs_1067x600": true,
+  "all_candidate_pngs_match_manifest_hashes": true,
+  "all_views_pass": false,
+  "pixel_based_review": true,
+  "code_or_author_history_used": false,
+  "previous_critic_verdicts_used": false,
+  "scope": "Category 5 only; mandatory-view obstruction separately recorded. No other category, technical, runtime, stability or cold-start approval.",
+  "approved_references_inspected": ["VALIDATE_Material_A", "VALIDATE_LockerDoor", "VALIDATE_Spawn", "BRIEFING_INDIRECT"],
+  "strengths": [
+    "Warm check-in and office pool is clearly separated from the cooler dock.",
+    "Counter, intercom, papers, desk and chair remain readable with restrained highlights and contact shadows.",
+    "Small indicators and fluorescent practicals avoid dominant neon bloom.",
+    "Institutional warm off-white, blue/charcoal equipment, orange doors and yellow routes remain coherent with the approved spawn grammar.",
+    "Deep secondary shadows support a bleak coercive atmosphere; exposure is visually consistent across the full set including recovered tail."
+  ],
+  "major_lighting_defects": [
+    {
+      "id": "L01",
+      "issue": "Primary scanner/cart faces are under-readable from worker height.",
+      "evidence": ["C01_ENTRY", "C04_SCANNER_APPROACH", "C06_CART_GATE_G1", "WALL_NORTH", "WALL_SOUTH", "PLAYER_REVERSE"],
+      "visible_failure": "Dark posts, control housings and cart leaves merge. Floor lanes, indicators and yellow patches carry more contrast than important construction."
+    },
+    {
+      "id": "L02",
+      "issue": "Cargo top attracts excessive equipment emphasis while front mechanisms receive insufficient fill.",
+      "evidence": ["CORNER_SW", "CORNER_SE", "CORNER_NW", "CORNER_NE", "C05_CONVEYOR_LEAD_TUNNEL", "HERO_CARGO"],
+      "visible_failure": "Pale roof is the strongest equipment highlight; intake lip/control/lower roller construction is much weaker."
+    },
+    {
+      "id": "L03",
+      "issue": "Support trolley lower forms merge into contact-shadow mass.",
+      "evidence": ["C08_CONCEALED_SUPPORT_H1", "HERO_TROLLEY"],
+      "visible_failure": "Covered top reads faintly, but rail, lower shelf, chassis and wheels are insufficiently separated."
+    },
+    {
+      "id": "L04",
+      "issue": "Overhead routing and arrival gate depth are insufficiently exposed.",
+      "evidence": ["C10_ROOF_SERVICES", "C09_ARRIVAL_GATE_P2"],
+      "visible_failure": "Bright tubes/selected beam edges contrast with nearly missing overhead services; large gate face and ribs remain weakly differentiated."
+    }
+  ],
+  "critical_visual_vetoes": [
+    {
+      "id": "E01",
+      "type": "mandatory_view_obstruction",
+      "view": "HERO_SCANNER",
+      "severity": "critical",
+      "visible_failure": "A close beige foreground wall occupies roughly the left three fifths of the frame and hides most of the worker arch. Remaining inspection geometry is dark.",
+      "gate": "Every fixed view must pass. This hero evidence view is invalid.",
+      "repair": "Document the proven camera obstruction, establish an unobstructed replacement baseline, and rerender alongside unchanged mandatory worker views."
+    }
+  ],
+  "dominant_whole_room_style_veto_asserted": false,
+  "veto_scope_note": "Outer scanner/cart silhouettes remain detectable; no whole-room unreadable-silhouette, flat-even-lighting, excessive-emissive, uniform-plastic or technical veto is asserted by this lighting-only review.",
+  "failed_views": ["C01_ENTRY", "C04_SCANNER_APPROACH", "C06_CART_GATE_G1", "C08_CONCEALED_SUPPORT_H1", "C09_ARRIVAL_GATE_P2", "C10_ROOF_SERVICES", "WALL_SOUTH", "WALL_NORTH", "HERO_SCANNER", "HERO_TROLLEY", "PLAYER_REVERSE"],
+  "view_reviews": [
+    {"view":"C01_ENTRY","opened":true,"result":"FAIL","finding":"Scanner uprights, cart leaves and control housings merge into dark masses; floor lanes and status dots carry the read."},
+    {"view":"C02_HERO_DOCK","opened":true,"result":"PASS","finding":"Warm counter is legible and separated from cool dock; reflected glazing softens rear equipment but does not hide the counter."},
+    {"view":"C03_CHECKIN_COUNTER","opened":true,"result":"PASS","finding":"Intercom, stamps, paper and counter edge have controlled local contrast. Black lower fascia is subordinate; small glazing reflection is not dominant glare."},
+    {"view":"C04_SCANNER_APPROACH","opened":true,"result":"FAIL","finding":"Near-black columns/control housings expose little construction while illuminated route is much clearer."},
+    {"view":"C05_CONVEYOR_LEAD_TUNNEL","opened":true,"result":"PASS","repair_desirable":true,"finding":"Cool housing/ribs and cargo blocks read; intake lip and lower roller mechanics need restrained fill while tunnel stays dark."},
+    {"view":"C06_CART_GATE_G1","opened":true,"result":"FAIL","finding":"Gate leaves, side assemblies and posts merge; orange patches and indicator dots carry functional contrast."},
+    {"view":"C07_OFFICE_INTERIOR","opened":true,"result":"PASS","finding":"Warm pool gives chair/desk grounding and restrained screen focal point; rear dock is cooler."},
+    {"view":"C08_CONCEALED_SUPPORT_H1","opened":true,"result":"FAIL","finding":"Covered top is faintly legible but rail, shelf and lower chassis merge into black."},
+    {"view":"C09_ARRIVAL_GATE_P2","opened":true,"result":"FAIL","finding":"Gate face is too uniformly dark; ribs and header are weakly separated; beacons reveal insufficient construction."},
+    {"view":"C10_ROOF_SERVICES","opened":true,"result":"FAIL","finding":"Tube lights and selected beam edges read while much overhead routing/structure disappears into near-black field."},
+    {"view":"CORNER_SW","opened":true,"result":"PASS","repair_desirable":true,"finding":"Warm office/cool dock separation and contact shadows read; cargo roof dominates inspection arch."},
+    {"view":"CORNER_SE","opened":true,"result":"PASS","repair_desirable":true,"finding":"Functional zones read; bright cargo roof competes with check-in and support forms become dark cluster."},
+    {"view":"CORNER_NW","opened":true,"result":"PASS","repair_desirable":true,"finding":"Warm office/cool cargo pools are visible; cargo top dominates and lower support forms are subdued."},
+    {"view":"CORNER_NE","opened":true,"result":"PASS","repair_desirable":true,"finding":"Spatial depth survives; pale cargo top attracts more attention than arch; support hardware is weak."},
+    {"view":"WALL_SOUTH","opened":true,"result":"FAIL","finding":"Arch outline reads against rear wall but its front construction and cart leaves stay too dark beneath practical."},
+    {"view":"WALL_NORTH","opened":true,"result":"FAIL","finding":"Scanner fronts read mainly as dark posts and bright dots; header and rear gate lack sufficient separation."},
+    {"view":"WALL_EAST","opened":true,"result":"PASS","repair_desirable":true,"finding":"Cargo/service wall has readable cool planes and controlled lights; foreground scanner remains almost black."},
+    {"view":"WALL_WEST","opened":true,"result":"PASS","finding":"Warm office wall, drawers, desk and counter read with soft falloff. Foreground scanner/partition dominate framing but office lighting failure is not established."},
+    {"view":"HERO_SCANNER","opened":true,"result":"FAIL","critical":true,"finding":"Close wall hides most intended subject; remaining inspection pieces are dark. Invalid mandatory hero coverage."},
+    {"view":"HERO_CARGO","opened":true,"result":"PASS","repair_desirable":true,"finding":"Housing ribs, container planes and conveyor silhouette read; intake lip/front face and lower mechanics need oblique fill."},
+    {"view":"HERO_EVIDENCE","opened":true,"result":"PASS","finding":"Dim blue doors, frames, locks and restrained paper remain distinguishable; preserve lower hierarchy."},
+    {"view":"HERO_TROLLEY","opened":true,"result":"FAIL","finding":"Cover and cabinet faces read, but rail, underdeck and wheels disappear into floor/contact-shadow mass."},
+    {"view":"HERO_UTILITIES","opened":true,"result":"PASS","finding":"Cool housings, conduits and cabinet faces remain distinguishable with restrained glow and wall shadows."},
+    {"view":"DETAIL_CHECKIN","opened":true,"result":"PASS","finding":"Counter papers, metal edges, folded item and stamp read without hot highlights; controlled work exposure."},
+    {"view":"PLAYER_REVERSE","opened":true,"result":"FAIL","finding":"Arch/cart construction remains dark; background floor/wall supplies outline but not important face readability."},
+    {"view":"PLAYER_PINCH","opened":true,"result":"PASS","finding":"Gate ribs, floor transition/drain, cart outline and utility cluster read with subdued practical pool."}
+  ],
+  "priority_lighting_repairs": [
+    {"priority":1,"action":"Reveal scanner/cart upright faces, recessed controls, leaf edges, side housings and lower rails with an oblique practical key and restrained bounce.","verify_in":["C01_ENTRY","C04_SCANNER_APPROACH","C06_CART_GATE_G1","WALL_NORTH","WALL_SOUTH","PLAYER_REVERSE"],"preserve":"Charcoal values, dark overhead space and limited indicators. Do not depend on dots/yellow paint for construction readability."},
+    {"priority":2,"action":"Redirect cargo illumination away from pale roof dominance onto intake lip, adjacent control housings and roller edges.","verify_in":["CORNER_SW","CORNER_SE","CORNER_NW","CORNER_NE","C05_CONVEYOR_LEAD_TUNNEL","HERO_CARGO"],"preserve":"Dark examination tunnel; check-in and worker arch remain primary."},
+    {"priority":3,"action":"Add a small motivated side/bounce pool to separate trolley cover, rail, caster boundaries and lower shelf.","verify_in":["C08_CONCEALED_SUPPORT_H1","HERO_TROLLEY"],"preserve":"Dim evidence storage and bleak support bay below the check-in hierarchy."},
+    {"priority":4,"action":"Use faint grazing/bounce from overhead practicals to distinguish beam, service routing and ceiling background.","verify_in":["C10_ROOF_SERVICES"],"preserve":"Predominantly dark ceiling; no decorative glowing service lines."},
+    {"priority":5,"action":"Strengthen localized route falloff and graze arrival gate ribs/reveals enough to show depth.","verify_in":["C09_ARRIVAL_GATE_P2","PLAYER_PINCH","C01_ENTRY","PLAYER_REVERSE"],"preserve":"Current counter/paper exposure. Avoid global exposure increase or floor hotspots displacing scanner focus."}
+  ],
+  "source_edits_performed": false,
+  "camera_edits_performed": false,
+  "authored_outputs": ["production/critics/full-c01-lighting.md", "production/critics/full-c01-lighting.json"]
+}

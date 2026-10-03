@@ -1,0 +1,4272 @@
+{
+  "native": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend",
+  "native_sha256": "2820ac1c7a79a28d739d0b953d73b4490f264c119775eeeef37c46bf6792a7c6",
+  "runtime": "5.2.2 LTS",
+  "scene": "COMPLIANCE_EDIT_LOCAL",
+  "revision": "f09",
+  "probe_sha256": "c186b43bd0705e5c9fc6251eb92391aa6df8a453aa887c4bac95d466f3549408",
+  "baseline": {
+    "sha256": "0cdae8b3d302459d75569cb6bf3a463f24b30ea373c2bcdf430360033d7b0947",
+    "objects": 1077,
+    "triangles": 297672,
+    "material_submeshes": 992,
+    "missing_objects": [],
+    "changed_original_matrices": []
+  },
+  "counters": {
+    "geometry_objects": 1147,
+    "scene_objects": 1316,
+    "evaluated_triangles": 367216,
+    "material_submeshes": 1148,
+    "used_material_count": 36,
+    "used_material_names": [
+      "CD | Crate handling polish",
+      "CD | D1 handled paint",
+      "CD | Floor traffic polish",
+      "CD | Handled linoleum",
+      "CD | Worktop lip wear",
+      "CD | amber_lamp",
+      "CD | blue",
+      "CD | brass",
+      "CD | charcoal",
+      "CD | coffee",
+      "CD | concrete",
+      "CD | coral",
+      "CD | coral | text object metres",
+      "CD | cotton",
+      "CD | fabric",
+      "CD | glass",
+      "CD | green_lamp",
+      "CD | ink",
+      "CD | ink | text object metres",
+      "CD | ivory",
+      "CD | ivory | text object metres",
+      "CD | lens",
+      "CD | navy",
+      "CD | paper",
+      "CD | paper | text object metres",
+      "CD | plaster",
+      "CD | plastic",
+      "CD | red_lamp",
+      "CD | rubber",
+      "CD | screen",
+      "CD | steel",
+      "CD | warm_lamp",
+      "CD | wear",
+      "CD | wood",
+      "CD | yellow",
+      "CD | yellow | text object metres"
+    ],
+    "targets": {
+      "triangles_max": 450000,
+      "material_submeshes_max": 1150,
+      "material_families_max": 36
+    }
+  },
+  "focused_islands": [
+    {
+      "object": "P2 frame jamb -1",
+      "ancestry": [
+        "P2 frame jamb -1",
+        "Arrival Gate P2"
+      ],
+      "island": 0,
+      "world_bounds": [
+        [
+          -2.4600000381469727,
+          15.799999237060547,
+          0.0
+        ],
+        [
+          -2.3000001907348633,
+          16.079999923706055,
+          3.5
+        ]
+      ],
+      "vertices": 96,
+      "faces": 122,
+      "signed_volume_m3": 0.15669150483457386
+    },
+    {
+      "object": "P2 frame jamb 1",
+      "ancestry": [
+        "P2 frame jamb 1",
+        "Arrival Gate P2"
+      ],
+      "island": 1,
+      "world_bounds": [
+        [
+          2.3000001907348633,
+          15.799999237060547,
+          0.0
+        ],
+        [
+          2.4600000381469727,
+          16.079999923706055,
+          3.5
+        ]
+      ],
+      "vertices": 96,
+      "faces": 122,
+      "signed_volume_m3": 0.15670239948697898
+    },
+    {
+      "object": "P2 frame head lintel",
+      "ancestry": [
+        "P2 frame head lintel",
+        "Arrival Gate P2"
+      ],
+      "island": 2,
+      "world_bounds": [
+        [
+          -2.4600000381469727,
+          15.800000190734863,
+          3.5
+        ],
+        [
+          2.4600000381469727,
+          16.079999923706055,
+          3.700000047683716
+        ]
+      ],
+      "vertices": 24,
+      "faces": 14,
+      "signed_volume_m3": 0.08265119045972844
+    },
+    {
+      "object": "P2 blast leaf west",
+      "ancestry": [
+        "P2 blast leaf west",
+        "Arrival Gate P2"
+      ],
+      "island": 3,
+      "world_bounds": [
+        [
+          -2.2899999618530273,
+          15.75,
+          0.019999980926513672
+        ],
+        [
+          -0.009999990463256836,
+          15.889999389648438,
+          3.4800000190734863
+        ]
+      ],
+      "vertices": 96,
+      "faces": 122,
+      "signed_volume_m3": 1.1040547683606772
+    },
+    {
+      "object": "P2 blast leaf east",
+      "ancestry": [
+        "P2 blast leaf east",
+        "Arrival Gate P2"
+      ],
+      "island": 4,
+      "world_bounds": [
+        [
+          0.009999990463256836,
+          15.75,
+          0.019999980926513672
+        ],
+        [
+          2.2899999618530273,
+          15.889999389648438,
+          3.4800000190734863
+        ]
+      ],
+      "vertices": 96,
+      "faces": 122,
+      "signed_volume_m3": 1.1040553070955934
+    },
+    {
+      "object": "P2 leaf rib -2.0",
+      "ancestry": [
+        "P2 leaf rib -2.0",
+        "Arrival Gate P2"
+      ],
+      "island": 5,
+      "world_bounds": [
+        [
+          -2.0299999713897705,
+          15.719999313354492,
+          0.10000002384185791
+        ],
+        [
+          -1.9700000286102295,
+          15.760000228881836,
+          3.4000000953674316
+        ]
+      ],
+      "vertices": 96,
+      "faces": 122,
+      "signed_volume_m3": 0.007909622732919726
+    },
+    {
+      "object": "P2 leaf rib -1.2",
+      "ancestry": [
+        "P2 leaf rib -1.2",
+        "Arrival Gate P2"
+      ],
+      "island": 6,
+      "world_bounds": [
+        [
+          -1.2300000190734863,
+          15.719999313354492,
+          0.10000002384185791
+        ],
+        [
+          -1.1700000762939453,
+          15.760000228881836,
+          3.4000000953674316
+        ]
+      ],
+      "vertices": 96,
+      "faces": 122,
+      "signed_volume_m3": 0.00790506054787937
+    },
+    {
+      "object": "P2 leaf rib -0.4",
+      "ancestry": [
+        "P2 leaf rib -0.4",
+        "Arrival Gate P2"
+      ],
+      "island": 7,
+      "world_bounds": [
+        [
+          -0.4300000071525574,
+          15.719999313354492,
+          0.10000002384185791
+        ],
+        [
+          -0.3700000047683716,
+          15.760000228881836,
+          3.4000000953674316
+        ]
+      ],
+      "vertices": 96,
+      "faces": 122,
+      "signed_volume_m3": 0.007907790578277249
+    },
+    {
+      "object": "P2 leaf rib 0.4",
+      "ancestry": [
+        "P2 leaf rib 0.4",
+        "Arrival Gate P2"
+      ],
+      "island": 8,
+      "world_bounds": [
+        [
+          0.3700000047683716,
+          15.719999313354492,
+          0.10000002384185791
+        ],
+        [
+          0.4300000071525574,
+          15.760000228881836,
+          3.4000000953674316
+        ]
+      ],
+      "vertices": 96,
+      "faces": 122,
+      "signed_volume_m3": 0.007904989294881168
+    },
+    {
+      "object": "P2 leaf rib 1.2",
+      "ancestry": [
+        "P2 leaf rib 1.2",
+        "Arrival Gate P2"
+      ],
+      "island": 9,
+      "world_bounds": [
+        [
+          1.1700000762939453,
+          15.719999313354492,
+          0.10000002384185791
+        ],
+        [
+          1.2300000190734863,
+          15.760000228881836,
+          3.4000000953674316
+        ]
+      ],
+      "vertices": 96,
+      "faces": 122,
+      "signed_volume_m3": 0.007903312337778835
+    },
+    {
+      "object": "P2 leaf rib 2.0",
+      "ancestry": [
+        "P2 leaf rib 2.0",
+        "Arrival Gate P2"
+      ],
+      "island": 10,
+      "world_bounds": [
+        [
+          1.9700000286102295,
+          15.719999313354492,
+          0.10000002384185791
+        ],
+        [
+          2.0299999713897705,
+          15.760000228881836,
+          3.4000000953674316
+        ]
+      ],
+      "vertices": 96,
+      "faces": 122,
+      "signed_volume_m3": 0.007904641345400398
+    },
+    {
+      "object": "P2 center seal strip",
+      "ancestry": [
+        "P2 center seal strip",
+        "Arrival Gate P2"
+      ],
+      "island": 11,
+      "world_bounds": [
+        [
+          -0.03999999910593033,
+          15.710000038146973,
+          0.029999971389770508
+        ],
+        [
+          0.03999999910593033,
+          15.769999504089355,
+          3.4700000286102295
+        ]
+      ],
+      "vertices": 96,
+      "faces": 122,
+      "signed_volume_m3": 0.016497487051609028
+    },
+    {
+      "object": "P2 gate sign plate",
+      "ancestry": [
+        "P2 gate sign plate",
+        "Arrival Gate P2"
+      ],
+      "island": 12,
+      "world_bounds": [
+        [
+          -1.7999999523162842,
+          15.680049896240234,
+          3.1399998664855957
+        ],
+        [
+          1.7999999523162842,
+          15.710000038146973,
+          3.4600000381469727
+        ]
+      ],
+      "vertices": 96,
+      "faces": 122,
+      "signed_volume_m3": 0.03443303041664588
+    },
+    {
+      "object": "P2 gate sign text",
+      "ancestry": [
+        "P2 gate sign text",
+        "Arrival Gate P2"
+      ],
+      "island": 13,
+      "world_bounds": [
+        [
+          0.9616200923919678,
+          15.680000305175781,
+          3.184000015258789
+        ],
+        [
+          1.0103399753570557,
+          15.680000305175781,
+          3.2658400535583496
+        ]
+      ],
+      "vertices": 6,
+      "faces": 4,
+      "signed_volume_m3": -0.007069550454616547
+    },
+    {
+      "object": "P2 gate sign text",
+      "ancestry": [
+        "P2 gate sign text",
+        "Arrival Gate P2"
+      ],
+      "island": 14,
+      "world_bounds": [
+        [
+          0.8726999759674072,
+          15.680000305175781,
+          3.184000015258789
+        ],
+        [
+          0.952739953994751,
+          15.680000305175781,
+          3.266319990158081
+        ]
+      ],
+      "vertices": 11,
+      "faces": 11,
+      "signed_volume_m3": -0.011304800709088644
+    },
+    {
+      "object": "P2 gate sign text",
+      "ancestry": [
+        "P2 gate sign text",
+        "Arrival Gate P2"
+      ],
+      "island": 15,
+      "world_bounds": [
+        [
+          0.8002199530601501,
+          15.680000305175781,
+          3.1832799911499023
+        ],
+        [
+          0.8726999759674072,
+          15.680000305175781,
+          3.2658400535583496
+        ]
+      ],
+      "vertices": 7,
+      "faces": 5,
+      "signed_volume_m3": -0.008783236766854923
+    },
+    {
+      "object": "P2 gate sign text",
+      "ancestry": [
+        "P2 gate sign text",
+        "Arrival Gate P2"
+      ],
+      "island": 16,
+      "world_bounds": [
+        [
+          0.7793400287628174,
+          15.680000305175781,
+          3.184000015258789
+        ],
+        [
+          0.7910999655723572,
+          15.680000305175781,
+          3.2658400535583496
+        ]
+      ],
+      "vertices": 4,
+      "faces": 2,
+      "signed_volume_m3": -0.005030492941538493
+    },
+    {
+      "object": "P2 gate sign text",
+      "ancestry": [
+        "P2 gate sign text",
+        "Arrival Gate P2"
+      ],
+      "island": 17,
+      "world_bounds": [
+        [
+          0.7069799900054932,
+          15.680000305175781,
+          3.184000015258789
+        ],
+        [
+          0.7702199816703796,
+          15.680000305175781,
+          3.2658400535583496
+        ]
+      ],
+      "vertices": 94,
+      "faces": 94,
+      "signed_volume_m3": -0.012287903538284203
+    },
+    {
+      "object": "P2 gate sign text",
+      "ancestry": [
+        "P2 gate sign text",
+        "Arrival Gate P2"
+      ],
+      "island": 18,
+      "world_bounds": [
+        [
+          0.6344999670982361,
+          15.680000305175781,
+          3.184000015258789
+        ],
+        [
+          0.6977399587631226,
+          15.680000305175781,
+          3.2658400535583496
+        ]
+      ],
+      "vertices": 94,
+      "faces": 94,
+      "signed_volume_m3": -0.012290486561444899
+    },
+    {
+      "object": "P2 gate sign text",
+      "ancestry": [
+        "P2 gate sign text",
+        "Arrival Gate P2"
+      ],
+      "island": 19,
+      "world_bounds": [
+        [
+          0.5452199578285217,
+          15.680000305175781,
+          3.184000015258789
+        ],
+        [
+          0.6252599358558655,
+          15.680000305175781,
+          3.266319990158081
+        ]
+      ],
+      "vertices": 11,
+      "faces": 11,
+      "signed_volume_m3": -0.011303799847761791
+    },
+    {
+      "object": "P2 gate sign text",
+      "ancestry": [
+        "P2 gate sign text",
+        "Arrival Gate P2"
+      ],
+      "island": 20,
+      "world_bounds": [
+        [
+          0.4619400203227997,
+          15.680000305175781,
+          3.184000015258789
+        ],
+        [
+          0.5106600522994995,
+          15.680000305175781,
+          3.2658400535583496
+        ]
+      ],
+      "vertices": 6,
+      "faces": 4,
+      "signed_volume_m3": -0.007070660591125488
+    },
+    {
+      "object": "P2 gate sign text",
+      "ancestry": [
+        "P2 gate sign text",
+        "Arrival Gate P2"
+      ],
+      "island": 21,
+      "world_bounds": [
+        [
+          0.3730200529098511,
+          15.680000305175781,
+          3.184000015258789
+        ],
+        [
+          0.4530600607395172,
+          15.680000305175781,
+          3.266319990158081
+        ]
+      ],
+      "vertices": 11,
+      "faces": 11,
+      "signed_volume_m3": -0.011303105702002844
+    },
+    {
+      "object": "P2 gate sign text",
+      "ancestry": [
+        "P2 gate sign text",
+        "Arrival Gate P2"
+      ],
+      "island": 22,
+      "world_bounds": [
+        [
+          0.28818002343177795,
+          15.680000305175781,
+          3.184000015258789
+        ],
+        [
+          0.36402004957199097,
+          15.680000305175781,
+          3.2658400535583496
+        ]
+      ],
+      "vertices": 10,
+      "faces": 8,
+      "signed_volume_m3": -0.014251558730999628
+    },
+    {
+      "object": "P2 gate sign text",
+      "ancestry": [
+        "P2 gate sign text",
+        "Arrival Gate P2"
+      ],
+      "island": 23,
+      "world_bounds": [
+        [
+          0.21606002748012543,
+          15.680000305175781,
+          3.184000015258789
+        ],
+        [
+          0.2793000340461731,
+          15.680000305175781,
+          3.2658400535583496
+        ]
+      ],
+      "vertices": 94,
+      "faces": 94,
+      "signed_volume_m3": -0.012288422013322512
+    },
+    {
+      "object": "P2 gate sign text",
+      "ancestry": [
+        "P2 gate sign text",
+        "Arrival Gate P2"
+      ],
+      "island": 24,
+      "world_bounds": [
+        [
+          0.15582002699375153,
+          15.680000305175781,
+          3.184000015258789
+        ],
+        [
+          0.20334002375602722,
+          15.680000305175781,
+          3.2658400535583496
+        ]
+      ],
+      "vertices": 12,
+      "faces": 10,
+      "signed_volume_m3": -0.010766297889252504
+    },
+    {
+      "object": "P2 gate sign text",
+      "ancestry": [
+        "P2 gate sign text",
+        "Arrival Gate P2"
+      ],
+      "island": 25,
+      "world_bounds": [
+        [
+          0.07638002187013626,
+          15.680000305175781,
+          3.184000015258789
+        ],
+        [
+          0.1447800248861313,
+          15.680000305175781,
+          3.2658400535583496
+        ]
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "signed_volume_m3": -0.00815650417159001
+    },
+    {
+      "object": "P2 gate sign text",
+      "ancestry": [
+        "P2 gate sign text",
+        "Arrival Gate P2"
+      ],
+      "island": 26,
+      "world_bounds": [
+        [
+          -0.010380002669990063,
+          15.680000305175781,
+          3.184000015258789
+        ],
+        [
+          0.07410000264644623,
+          15.680000305175781,
+          3.2658400535583496
+        ]
+      ],
+      "vertices": 12,
+      "faces": 10,
+      "signed_volume_m3": -0.011493343180821588
+    },
+    {
+      "object": "P2 gate sign text",
+      "ancestry": [
+        "P2 gate sign text",
+        "Arrival Gate P2"
+      ],
+      "island": 27,
+      "world_bounds": [
+        [
+          -0.06162000447511673,
+          15.680000305175781,
+          3.184000015258789
+        ],
+        [
+          -0.014100000262260437,
+          15.680000305175781,
+          3.2658400535583496
+        ]
+      ],
+      "vertices": 12,
+      "faces": 10,
+      "signed_volume_m3": -0.010766023731169602
+    },
+    {
+      "object": "P2 gate sign text",
+      "ancestry": [
+        "P2 gate sign text",
+        "Arrival Gate P2"
+      ],
+      "island": 28,
+      "world_bounds": [
+        [
+          -0.13673999905586243,
+          15.680000305175781,
+          3.182919979095459
+        ],
+        [
+          -0.10481999814510345,
+          15.680000305175781,
+          3.2669200897216797
+        ]
+      ],
+      "vertices": 4,
+      "faces": 2,
+      "signed_volume_m3": -0.003687930603822072
+    },
+    {
+      "object": "P2 gate sign text",
+      "ancestry": [
+        "P2 gate sign text",
+        "Arrival Gate P2"
+      ],
+      "island": 29,
+      "world_bounds": [
+        [
+          -0.22697998583316803,
+          15.680000305175781,
+          3.184000015258789
+        ],
+        [
+          -0.17513997852802277,
+          15.680000305175781,
+          3.2669200897216797
+        ]
+      ],
+      "vertices": 89,
+      "faces": 87,
+      "signed_volume_m3": -0.008886405953186719
+    },
+    {
+      "object": "P2 gate sign text",
+      "ancestry": [
+        "P2 gate sign text",
+        "Arrival Gate P2"
+      ],
+      "island": 30,
+      "world_bounds": [
+        [
+          -0.28745999932289124,
+          15.680000305175781,
+          3.182919979095459
+        ],
+        [
+          -0.23465998470783234,
+          15.680000305175781,
+          3.2669200897216797
+        ]
+      ],
+      "vertices": 96,
+      "faces": 96,
+      "signed_volume_m3": -0.010955056680055955
+    },
+    {
+      "object": "P2 gate sign text",
+      "ancestry": [
+        "P2 gate sign text",
+        "Arrival Gate P2"
+      ],
+      "island": 31,
+      "world_bounds": [
+        [
+          -0.3754199743270874,
+          15.680000305175781,
+          3.184000015258789
+        ],
+        [
+          -0.3278999626636505,
+          15.680000305175781,
+          3.2658400535583496
+        ]
+      ],
+      "vertices": 12,
+      "faces": 10,
+      "signed_volume_m3": -0.01076632117231687
+    },
+    {
+      "object": "P2 gate sign text",
+      "ancestry": [
+        "P2 gate sign text",
+        "Arrival Gate P2"
+      ],
+      "island": 32,
+      "world_bounds": [
+        [
+          -0.45485997200012207,
+          15.680000305175781,
+          3.184000015258789
+        ],
+        [
+          -0.38645997643470764,
+          15.680000305175781,
+          3.2658400535583496
+        ]
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "signed_volume_m3": -0.008156601339578629
+    },
+    {
+      "object": "P2 gate sign text",
+      "ancestry": [
+        "P2 gate sign text",
+        "Arrival Gate P2"
+      ],
+      "island": 33,
+      "world_bounds": [
+        [
+          -0.5369400382041931,
+          15.680000305175781,
+          3.184000015258789
+        ],
+        [
+          -0.4569000005722046,
+          15.680000305175781,
+          3.266319990158081
+        ]
+      ],
+      "vertices": 11,
+      "faces": 11,
+      "signed_volume_m3": -0.01130477711558342
+    },
+    {
+      "object": "P2 gate sign text",
+      "ancestry": [
+        "P2 gate sign text",
+        "Arrival Gate P2"
+      ],
+      "island": 34,
+      "world_bounds": [
+        [
+          -0.6197400093078613,
+          15.680000305175781,
+          3.182919979095459
+        ],
+        [
+          -0.5449800491333008,
+          15.680000305175781,
+          3.2669200897216797
+        ]
+      ],
+      "vertices": 102,
+      "faces": 100,
+      "signed_volume_m3": -0.01303840677428525
+    },
+    {
+      "object": "P2 gate sign text",
+      "ancestry": [
+        "P2 gate sign text",
+        "Arrival Gate P2"
+      ],
+      "island": 35,
+      "world_bounds": [
+        [
+          -0.7288200855255127,
+          15.680000305175781,
+          3.184000015258789
+        ],
+        [
+          -0.6592200398445129,
+          15.680000305175781,
+          3.2658400535583496
+        ]
+      ],
+      "vertices": 11,
+      "faces": 9,
+      "signed_volume_m3": -0.011618156917393208
+    },
+    {
+      "object": "P2 gate sign text",
+      "ancestry": [
+        "P2 gate sign text",
+        "Arrival Gate P2"
+      ],
+      "island": 36,
+      "world_bounds": [
+        [
+          -0.817020058631897,
+          15.680000305175781,
+          3.182919979095459
+        ],
+        [
+          -0.7432200312614441,
+          15.680000305175781,
+          3.2669200897216797
+        ]
+      ],
+      "vertices": 98,
+      "faces": 96,
+      "signed_volume_m3": -0.010539114203614494
+    },
+    {
+      "object": "P2 gate sign text",
+      "ancestry": [
+        "P2 gate sign text",
+        "Arrival Gate P2"
+      ],
+      "island": 37,
+      "world_bounds": [
+        [
+          -0.9161400198936462,
+          15.680000305175781,
+          3.182919979095459
+        ],
+        [
+          -0.8281800746917725,
+          15.680000305175781,
+          3.2669200897216797
+        ]
+      ],
+      "vertices": 96,
+      "faces": 96,
+      "signed_volume_m3": -0.014144639833830297
+    },
+    {
+      "object": "P2 gate sign text",
+      "ancestry": [
+        "P2 gate sign text",
+        "Arrival Gate P2"
+      ],
+      "island": 38,
+      "world_bounds": [
+        [
+          -1.0024200677871704,
+          15.680000305175781,
+          3.184000015258789
+        ],
+        [
+          -0.927060067653656,
+          15.680000305175781,
+          3.2658400535583496
+        ]
+      ],
+      "vertices": 54,
+      "faces": 54,
+      "signed_volume_m3": -0.014111906988546252
+    },
+    {
+      "object": "P2 beacon base -1.5",
+      "ancestry": [
+        "P2 beacon base -1.5",
+        "Arrival Gate P2"
+      ],
+      "island": 39,
+      "world_bounds": [
+        [
+          -1.590000033378601,
+          15.59000015258789,
+          3.8600001335144043
+        ],
+        [
+          -1.409999966621399,
+          15.770000457763672,
+          3.940000057220459
+        ]
+      ],
+      "vertices": 192,
+      "faces": 170,
+      "signed_volume_m3": 0.002004830787579218
+    },
+    {
+      "object": "P2 beacon amber -1.5",
+      "ancestry": [
+        "P2 beacon amber -1.5",
+        "Arrival Gate P2"
+      ],
+      "island": 40,
+      "world_bounds": [
+        [
+          -1.5700000524520874,
+          15.610000610351562,
+          3.930000066757202
+        ],
+        [
+          -1.4299999475479126,
+          15.75,
+          4.03000020980835
+        ]
+      ],
+      "vertices": 192,
+      "faces": 170,
+      "signed_volume_m3": 0.0015006076864665365
+    },
+    {
+      "object": "P2 beacon base 1.5",
+      "ancestry": [
+        "P2 beacon base 1.5",
+        "Arrival Gate P2"
+      ],
+      "island": 41,
+      "world_bounds": [
+        [
+          1.409999966621399,
+          15.59000015258789,
+          3.8600001335144043
+        ],
+        [
+          1.590000033378601,
+          15.770000457763672,
+          3.940000057220459
+        ]
+      ],
+      "vertices": 192,
+      "faces": 170,
+      "signed_volume_m3": 0.0020041395910084226
+    },
+    {
+      "object": "P2 beacon amber 1.5",
+      "ancestry": [
+        "P2 beacon amber 1.5",
+        "Arrival Gate P2"
+      ],
+      "island": 42,
+      "world_bounds": [
+        [
+          1.4299999475479126,
+          15.610000610351562,
+          3.930000066757202
+        ],
+        [
+          1.5700000524520874,
+          15.75,
+          4.03000020980835
+        ]
+      ],
+      "vertices": 192,
+      "faces": 170,
+      "signed_volume_m3": 0.001543550262188848
+    },
+    {
+      "object": "P2 security console",
+      "ancestry": [
+        "P2 security console",
+        "Arrival Gate P2"
+      ],
+      "island": 43,
+      "world_bounds": [
+        [
+          2.4750001430511475,
+          15.59000015258789,
+          0.8750000596046448
+        ],
+        [
+          2.825000047683716,
+          15.800000190734863,
+          1.5250000953674316
+        ]
+      ],
+      "vertices": 96,
+      "faces": 122,
+      "signed_volume_m3": 0.04774543905053482
+    },
+    {
+      "object": "P2 console screen",
+      "ancestry": [
+        "P2 console screen",
+        "Arrival Gate P2"
+      ],
+      "island": 44,
+      "world_bounds": [
+        [
+          2.5300002098083496,
+          15.569999694824219,
+          1.2599999904632568
+        ],
+        [
+          2.7699999809265137,
+          15.59000015258789,
+          1.440000057220459
+        ]
+      ],
+      "vertices": 96,
+      "faces": 122,
+      "signed_volume_m3": 0.0008615899685840651
+    },
+    {
+      "object": "P2 emergency wheel",
+      "ancestry": [
+        "P2 emergency wheel",
+        "Arrival Gate P2"
+      ],
+      "island": 45,
+      "world_bounds": [
+        [
+          2.509999990463257,
+          15.559999465942383,
+          0.7100000381469727
+        ],
+        [
+          2.7900002002716064,
+          15.600000381469727,
+          0.9900000095367432
+        ]
+      ],
+      "vertices": 192,
+      "faces": 170,
+      "signed_volume_m3": 0.0024165018810625278
+    },
+    {
+      "object": "Office key box cabinet",
+      "ancestry": [
+        "Office key box cabinet",
+        "CD | Office key cabinet"
+      ],
+      "island": 46,
+      "world_bounds": [
+        [
+          -3.1500000953674316,
+          9.369999885559082,
+          1.2999999523162842
+        ],
+        [
+          -2.8499999046325684,
+          9.520000457763672,
+          1.7000000476837158
+        ]
+      ],
+      "vertices": 416,
+      "faces": 642,
+      "signed_volume_m3": 0.0020738272232847495
+    },
+    {
+      "object": "Key box glass",
+      "ancestry": [
+        "Key box glass",
+        "CD | Office key cabinet"
+      ],
+      "island": 47,
+      "world_bounds": [
+        [
+          -3.134999990463257,
+          9.46500015258789,
+          1.315000057220459
+        ],
+        [
+          -2.865000009536743,
+          9.475000381469727,
+          1.684999942779541
+        ]
+      ],
+      "vertices": 96,
+      "faces": 122,
+      "signed_volume_m3": 0.00099780944098408
+    },
+    {
+      "object": "Key box label",
+      "ancestry": [
+        "Key box label",
+        "CD | Office key cabinet"
+      ],
+      "island": 48,
+      "world_bounds": [
+        [
+          -2.9758150577545166,
+          9.369400978088379,
+          1.6596850156784058
+        ],
+        [
+          -2.9623050689697266,
+          9.369400978088379,
+          1.6841849088668823
+        ]
+      ],
+      "vertices": 62,
+      "faces": 60,
+      "signed_volume_m3": -0.0004540717345662415
+    },
+    {
+      "object": "Key box label",
+      "ancestry": [
+        "Key box label",
+        "CD | Office key cabinet"
+      ],
+      "island": 49,
+      "world_bounds": [
+        [
+          -2.998354911804199,
+          9.369400978088379,
+          1.659999966621399
+        ],
+        [
+          -2.977215051651001,
+          9.369400978088379,
+          1.6838699579238892
+        ]
+      ],
+      "vertices": 9,
+      "faces": 7,
+      "signed_volume_m3": -0.000401519238948822
+    },
+    {
+      "object": "Key box label",
+      "ancestry": [
+        "Key box label",
+        "CD | Office key cabinet"
+      ],
+      "island": 50,
+      "world_bounds": [
+        [
+          -3.013230085372925,
+          9.369400978088379,
+          1.659999966621399
+        ],
+        [
+          -2.9993700981140137,
+          9.369400978088379,
+          1.6838699579238892
+        ]
+      ],
+      "vertices": 12,
+      "faces": 10,
+      "signed_volume_m3": -0.0005454936375220616
+    },
+    {
+      "object": "Key box label",
+      "ancestry": [
+        "Key box label",
+        "CD | Office key cabinet"
+      ],
+      "island": 51,
+      "world_bounds": [
+        [
+          -3.0361900329589844,
+          9.369400978088379,
+          1.659999966621399
+        ],
+        [
+          -3.015889883041382,
+          9.369400978088379,
+          1.6838699579238892
+        ]
+      ],
+      "vertices": 11,
+      "faces": 9,
+      "signed_volume_m3": -0.0005898984769980112
+    },
+    {
+      "object": "CD | Joined Arrival Gate P2 / charcoal",
+      "ancestry": [
+        "CD | Joined Arrival Gate P2 / charcoal",
+        "Arrival Gate P2"
+      ],
+      "island": 52,
+      "world_bounds": [
+        [
+          -1.5700000524520874,
+          15.769999504089355,
+          3.867500066757202
+        ],
+        [
+          -1.4299999475479126,
+          15.800000190734863,
+          3.932500123977661
+        ]
+      ],
+      "vertices": 56,
+      "faces": 78,
+      "signed_volume_m3": 0.0002703317052995176
+    },
+    {
+      "object": "CD | Joined Arrival Gate P2 / charcoal",
+      "ancestry": [
+        "CD | Joined Arrival Gate P2 / charcoal",
+        "Arrival Gate P2"
+      ],
+      "island": 53,
+      "world_bounds": [
+        [
+          1.4300000667572021,
+          15.769999504089355,
+          3.867500066757202
+        ],
+        [
+          1.5699999332427979,
+          15.800000190734863,
+          3.932500123977661
+        ]
+      ],
+      "vertices": 56,
+      "faces": 78,
+      "signed_volume_m3": 0.00027632014340876526
+    },
+    {
+      "object": "CD | Joined Arrival Gate P2 / steel",
+      "ancestry": [
+        "CD | Joined Arrival Gate P2 / steel",
+        "Arrival Gate P2"
+      ],
+      "island": 54,
+      "world_bounds": [
+        [
+          -1.4079999923706055,
+          15.709999084472656,
+          3.2920000553131104
+        ],
+        [
+          -1.3919999599456787,
+          15.75,
+          3.307999849319458
+        ]
+      ],
+      "vertices": 16,
+      "faces": 10,
+      "signed_volume_m3": 6.817902127901745e-06
+    },
+    {
+      "object": "CD | Joined Arrival Gate P2 / steel",
+      "ancestry": [
+        "CD | Joined Arrival Gate P2 / steel",
+        "Arrival Gate P2"
+      ],
+      "island": 55,
+      "world_bounds": [
+        [
+          1.3920000791549683,
+          15.709999084472656,
+          3.2920000553131104
+        ],
+        [
+          1.407999873161316,
+          15.75,
+          3.308000087738037
+        ]
+      ],
+      "vertices": 16,
+      "faces": 10,
+      "signed_volume_m3": 6.1359023675322575e-06
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / wear",
+      "ancestry": [
+        "CD | Joined P2 blast leaf west / wear",
+        "P2 blast leaf west",
+        "Arrival Gate P2"
+      ],
+      "island": 56,
+      "world_bounds": [
+        [
+          -2.119999885559082,
+          15.741999626159668,
+          0.47999998927116394
+        ],
+        [
+          -0.18000000715255737,
+          15.75,
+          1.5199999809265137
+        ]
+      ],
+      "vertices": 112,
+      "faces": 170,
+      "signed_volume_m3": 0.01601268802026289
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / wear",
+      "ancestry": [
+        "CD | Joined P2 blast leaf west / wear",
+        "P2 blast leaf west",
+        "Arrival Gate P2"
+      ],
+      "island": 57,
+      "world_bounds": [
+        [
+          -2.119999885559082,
+          15.741999626159668,
+          1.8300000429153442
+        ],
+        [
+          -0.18000000715255737,
+          15.75,
+          2.869999885559082
+        ]
+      ],
+      "vertices": 112,
+      "faces": 164,
+      "signed_volume_m3": 0.016023015750551994
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / navy",
+      "ancestry": [
+        "CD | Joined P2 blast leaf west / navy",
+        "P2 blast leaf west",
+        "Arrival Gate P2"
+      ],
+      "island": 58,
+      "world_bounds": [
+        [
+          -2.0299999713897705,
+          15.73799991607666,
+          0.5699999928474426
+        ],
+        [
+          -0.27000001072883606,
+          15.741999626159668,
+          1.4299999475479126
+        ]
+      ],
+      "vertices": 112,
+      "faces": 168,
+      "signed_volume_m3": 0.006014960612994169
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / navy",
+      "ancestry": [
+        "CD | Joined P2 blast leaf west / navy",
+        "P2 blast leaf west",
+        "Arrival Gate P2"
+      ],
+      "island": 59,
+      "world_bounds": [
+        [
+          -2.0299999713897705,
+          15.73799991607666,
+          1.9199999570846558
+        ],
+        [
+          -0.27000001072883606,
+          15.741999626159668,
+          2.7799999713897705
+        ]
+      ],
+      "vertices": 112,
+      "faces": 172,
+      "signed_volume_m3": 0.006015004391457533
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / steel",
+      "ancestry": [
+        "CD | Joined P2 blast leaf west / steel",
+        "P2 blast leaf west",
+        "Arrival Gate P2"
+      ],
+      "island": 60,
+      "world_bounds": [
+        [
+          -1.9951961040496826,
+          15.734000205993652,
+          0.6140000224113464
+        ],
+        [
+          -1.9848039150238037,
+          15.73799991607666,
+          0.6259999871253967
+        ]
+      ],
+      "vertices": 12,
+      "faces": 8,
+      "signed_volume_m3": -3.2805837690834847e-07
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / steel",
+      "ancestry": [
+        "CD | Joined P2 blast leaf west / steel",
+        "P2 blast leaf west",
+        "Arrival Gate P2"
+      ],
+      "island": 61,
+      "world_bounds": [
+        [
+          -1.9951961040496826,
+          15.734000205993652,
+          1.3739999532699585
+        ],
+        [
+          -1.9848039150238037,
+          15.73799991607666,
+          1.3860000371932983
+        ]
+      ],
+      "vertices": 12,
+      "faces": 8,
+      "signed_volume_m3": -1.8360800974429874e-06
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / steel",
+      "ancestry": [
+        "CD | Joined P2 blast leaf west / steel",
+        "P2 blast leaf west",
+        "Arrival Gate P2"
+      ],
+      "island": 62,
+      "world_bounds": [
+        [
+          -0.31519603729248047,
+          15.734000205993652,
+          0.6140000224113464
+        ],
+        [
+          -0.30480384826660156,
+          15.73799991607666,
+          0.6259999871253967
+        ]
+      ],
+      "vertices": 12,
+      "faces": 8,
+      "signed_volume_m3": 4.1541837466257503e-07
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / steel",
+      "ancestry": [
+        "CD | Joined P2 blast leaf west / steel",
+        "P2 blast leaf west",
+        "Arrival Gate P2"
+      ],
+      "island": 63,
+      "world_bounds": [
+        [
+          -0.31519603729248047,
+          15.734000205993652,
+          1.3739999532699585
+        ],
+        [
+          -0.30480384826660156,
+          15.73799991607666,
+          1.3860000371932983
+        ]
+      ],
+      "vertices": 12,
+      "faces": 8,
+      "signed_volume_m3": 4.5115097198806154e-07
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / steel",
+      "ancestry": [
+        "CD | Joined P2 blast leaf west / steel",
+        "P2 blast leaf west",
+        "Arrival Gate P2"
+      ],
+      "island": 64,
+      "world_bounds": [
+        [
+          -1.9951961040496826,
+          15.734000205993652,
+          1.9639999866485596
+        ],
+        [
+          -1.9848039150238037,
+          15.73799991607666,
+          1.9760000705718994
+        ]
+      ],
+      "vertices": 12,
+      "faces": 8,
+      "signed_volume_m3": 1.3386209805806683e-06
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / steel",
+      "ancestry": [
+        "CD | Joined P2 blast leaf west / steel",
+        "P2 blast leaf west",
+        "Arrival Gate P2"
+      ],
+      "island": 65,
+      "world_bounds": [
+        [
+          -1.9951961040496826,
+          15.734000205993652,
+          2.7239997386932373
+        ],
+        [
+          -1.9848039150238037,
+          15.73799991607666,
+          2.7360000610351562
+        ]
+      ],
+      "vertices": 12,
+      "faces": 8,
+      "signed_volume_m3": -1.0227684773174854e-06
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / steel",
+      "ancestry": [
+        "CD | Joined P2 blast leaf west / steel",
+        "P2 blast leaf west",
+        "Arrival Gate P2"
+      ],
+      "island": 66,
+      "world_bounds": [
+        [
+          -0.31519603729248047,
+          15.734000205993652,
+          1.9639999866485596
+        ],
+        [
+          -0.30480384826660156,
+          15.73799991607666,
+          1.9760000705718994
+        ]
+      ],
+      "vertices": 12,
+      "faces": 8,
+      "signed_volume_m3": 9.165378287434531e-07
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / steel",
+      "ancestry": [
+        "CD | Joined P2 blast leaf west / steel",
+        "P2 blast leaf west",
+        "Arrival Gate P2"
+      ],
+      "island": 67,
+      "world_bounds": [
+        [
+          -0.31519603729248047,
+          15.734000205993652,
+          2.7239997386932373
+        ],
+        [
+          -0.30480384826660156,
+          15.73799991607666,
+          2.7360000610351562
+        ]
+      ],
+      "vertices": 12,
+      "faces": 8,
+      "signed_volume_m3": 8.060432416338801e-07
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / steel",
+      "ancestry": [
+        "CD | Joined P2 blast leaf west / steel",
+        "P2 blast leaf west",
+        "Arrival Gate P2"
+      ],
+      "island": 68,
+      "world_bounds": [
+        [
+          -0.03600001335144043,
+          15.727999687194824,
+          0.05000007152557373
+        ],
+        [
+          0.012000083923339844,
+          15.751999855041504,
+          3.3500001430511475
+        ]
+      ],
+      "vertices": 56,
+      "faces": 78,
+      "signed_volume_m3": 0.0037977193801689477
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / steel",
+      "ancestry": [
+        "CD | Joined P2 blast leaf west / steel",
+        "P2 blast leaf west",
+        "Arrival Gate P2"
+      ],
+      "island": 69,
+      "world_bounds": [
+        [
+          -2.2739999294281006,
+          15.727999687194824,
+          0.05000007152557373
+        ],
+        [
+          -2.2260000705718994,
+          15.751999855041504,
+          3.3500001430511475
+        ]
+      ],
+      "vertices": 56,
+      "faces": 78,
+      "signed_volume_m3": 0.003795581724565051
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / steel",
+      "ancestry": [
+        "CD | Joined P2 blast leaf west / steel",
+        "P2 blast leaf west",
+        "Arrival Gate P2"
+      ],
+      "island": 70,
+      "world_bounds": [
+        [
+          -0.6770000457763672,
+          15.847000122070312,
+          3.4800000190734863
+        ],
+        [
+          -0.6230000257492065,
+          15.873000144958496,
+          3.5789999961853027
+        ]
+      ],
+      "vertices": 64,
+      "faces": 64,
+      "signed_volume_m3": 9.563278096417466e-05
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / steel",
+      "ancestry": [
+        "CD | Joined P2 blast leaf west / steel",
+        "P2 blast leaf west",
+        "Arrival Gate P2"
+      ],
+      "island": 71,
+      "world_bounds": [
+        [
+          -0.6640000343322754,
+          15.842000007629395,
+          3.5460000038146973
+        ],
+        [
+          -0.6359999179840088,
+          15.982999801635742,
+          3.5739998817443848
+        ]
+      ],
+      "vertices": 96,
+      "faces": 86,
+      "signed_volume_m3": 3.798340912908321e-05
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / steel",
+      "ancestry": [
+        "CD | Joined P2 blast leaf west / steel",
+        "P2 blast leaf west",
+        "Arrival Gate P2"
+      ],
+      "island": 72,
+      "world_bounds": [
+        [
+          -0.6619999408721924,
+          15.970000267028809,
+          3.547999858856201
+        ],
+        [
+          -0.6380000114440918,
+          15.972000122070312,
+          3.572000026702881
+        ]
+      ],
+      "vertices": 64,
+      "faces": 62,
+      "signed_volume_m3": -4.064602156480147e-06
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / steel",
+      "ancestry": [
+        "CD | Joined P2 blast leaf west / steel",
+        "P2 blast leaf west",
+        "Arrival Gate P2"
+      ],
+      "island": 73,
+      "world_bounds": [
+        [
+          -1.7769999504089355,
+          15.847000122070312,
+          3.4800000190734863
+        ],
+        [
+          -1.7230000495910645,
+          15.873000144958496,
+          3.5789999961853027
+        ]
+      ],
+      "vertices": 64,
+      "faces": 64,
+      "signed_volume_m3": 0.00010129188497861204
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / steel",
+      "ancestry": [
+        "CD | Joined P2 blast leaf west / steel",
+        "P2 blast leaf west",
+        "Arrival Gate P2"
+      ],
+      "island": 74,
+      "world_bounds": [
+        [
+          -1.7640000581741333,
+          15.842000007629395,
+          3.5460000038146973
+        ],
+        [
+          -1.7359999418258667,
+          15.982999801635742,
+          3.5739998817443848
+        ]
+      ],
+      "vertices": 96,
+      "faces": 86,
+      "signed_volume_m3": 4.308391362428683e-05
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / steel",
+      "ancestry": [
+        "CD | Joined P2 blast leaf west / steel",
+        "P2 blast leaf west",
+        "Arrival Gate P2"
+      ],
+      "island": 75,
+      "world_bounds": [
+        [
+          -1.7619999647140503,
+          15.970000267028809,
+          3.547999858856201
+        ],
+        [
+          -1.7380000352859497,
+          15.972000122070312,
+          3.572000026702881
+        ]
+      ],
+      "vertices": 64,
+      "faces": 62,
+      "signed_volume_m3": 1.734464118878047e-05
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / wear",
+      "ancestry": [
+        "CD | Joined P2 blast leaf east / wear",
+        "P2 blast leaf east",
+        "Arrival Gate P2"
+      ],
+      "island": 76,
+      "world_bounds": [
+        [
+          0.18000000715255737,
+          15.741999626159668,
+          0.47999998927116394
+        ],
+        [
+          2.119999885559082,
+          15.75,
+          1.5199999809265137
+        ]
+      ],
+      "vertices": 112,
+      "faces": 172,
+      "signed_volume_m3": 0.016002235044751678
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / wear",
+      "ancestry": [
+        "CD | Joined P2 blast leaf east / wear",
+        "P2 blast leaf east",
+        "Arrival Gate P2"
+      ],
+      "island": 77,
+      "world_bounds": [
+        [
+          0.18000000715255737,
+          15.741999626159668,
+          1.8300000429153442
+        ],
+        [
+          2.119999885559082,
+          15.75,
+          2.869999885559082
+        ]
+      ],
+      "vertices": 112,
+      "faces": 162,
+      "signed_volume_m3": 0.016004361030999142
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / navy",
+      "ancestry": [
+        "CD | Joined P2 blast leaf east / navy",
+        "P2 blast leaf east",
+        "Arrival Gate P2"
+      ],
+      "island": 78,
+      "world_bounds": [
+        [
+          0.27000001072883606,
+          15.73799991607666,
+          0.5699999928474426
+        ],
+        [
+          2.0299999713897705,
+          15.741999626159668,
+          1.4299999475479126
+        ]
+      ],
+      "vertices": 112,
+      "faces": 170,
+      "signed_volume_m3": 0.006013973941461101
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / navy",
+      "ancestry": [
+        "CD | Joined P2 blast leaf east / navy",
+        "P2 blast leaf east",
+        "Arrival Gate P2"
+      ],
+      "island": 79,
+      "world_bounds": [
+        [
+          0.27000001072883606,
+          15.73799991607666,
+          1.9199999570846558
+        ],
+        [
+          2.0299999713897705,
+          15.741999626159668,
+          2.7799999713897705
+        ]
+      ],
+      "vertices": 112,
+      "faces": 170,
+      "signed_volume_m3": 0.005999770188358289
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / steel",
+      "ancestry": [
+        "CD | Joined P2 blast leaf east / steel",
+        "P2 blast leaf east",
+        "Arrival Gate P2"
+      ],
+      "island": 80,
+      "world_bounds": [
+        [
+          0.30480384826660156,
+          15.734000205993652,
+          0.6140000224113464
+        ],
+        [
+          0.31519615650177,
+          15.73799991607666,
+          0.6259999871253967
+        ]
+      ],
+      "vertices": 12,
+      "faces": 8,
+      "signed_volume_m3": 4.0774466469882966e-07
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / steel",
+      "ancestry": [
+        "CD | Joined P2 blast leaf east / steel",
+        "P2 blast leaf east",
+        "Arrival Gate P2"
+      ],
+      "island": 81,
+      "world_bounds": [
+        [
+          0.30480384826660156,
+          15.734000205993652,
+          1.3739999532699585
+        ],
+        [
+          0.31519615650177,
+          15.73799991607666,
+          1.3860000371932983
+        ]
+      ],
+      "vertices": 12,
+      "faces": 8,
+      "signed_volume_m3": 4.913460761220845e-07
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / steel",
+      "ancestry": [
+        "CD | Joined P2 blast leaf east / steel",
+        "P2 blast leaf east",
+        "Arrival Gate P2"
+      ],
+      "island": 82,
+      "world_bounds": [
+        [
+          1.9848039150238037,
+          15.734000205993652,
+          0.6140000224113464
+        ],
+        [
+          1.9951961040496826,
+          15.73799991607666,
+          0.6259999871253967
+        ]
+      ],
+      "vertices": 12,
+      "faces": 8,
+      "signed_volume_m3": 5.943390230337703e-07
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / steel",
+      "ancestry": [
+        "CD | Joined P2 blast leaf east / steel",
+        "P2 blast leaf east",
+        "Arrival Gate P2"
+      ],
+      "island": 83,
+      "world_bounds": [
+        [
+          1.9848039150238037,
+          15.734000205993652,
+          1.3739999532699585
+        ],
+        [
+          1.9951961040496826,
+          15.73799991607666,
+          1.3860000371932983
+        ]
+      ],
+      "vertices": 12,
+      "faces": 8,
+      "signed_volume_m3": 8.982382648052347e-07
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / steel",
+      "ancestry": [
+        "CD | Joined P2 blast leaf east / steel",
+        "P2 blast leaf east",
+        "Arrival Gate P2"
+      ],
+      "island": 84,
+      "world_bounds": [
+        [
+          0.30480384826660156,
+          15.734000205993652,
+          1.9639999866485596
+        ],
+        [
+          0.31519615650177,
+          15.73799991607666,
+          1.9760000705718994
+        ]
+      ],
+      "vertices": 12,
+      "faces": 8,
+      "signed_volume_m3": 2.261561652025175e-07
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / steel",
+      "ancestry": [
+        "CD | Joined P2 blast leaf east / steel",
+        "P2 blast leaf east",
+        "Arrival Gate P2"
+      ],
+      "island": 85,
+      "world_bounds": [
+        [
+          0.30480384826660156,
+          15.734000205993652,
+          2.7239997386932373
+        ],
+        [
+          0.31519615650177,
+          15.73799991607666,
+          2.7360000610351562
+        ]
+      ],
+      "vertices": 12,
+      "faces": 8,
+      "signed_volume_m3": 8.038461866512585e-08
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / steel",
+      "ancestry": [
+        "CD | Joined P2 blast leaf east / steel",
+        "P2 blast leaf east",
+        "Arrival Gate P2"
+      ],
+      "island": 86,
+      "world_bounds": [
+        [
+          1.9848039150238037,
+          15.734000205993652,
+          1.9639999866485596
+        ],
+        [
+          1.9951961040496826,
+          15.73799991607666,
+          1.9760000705718994
+        ]
+      ],
+      "vertices": 12,
+      "faces": 8,
+      "signed_volume_m3": 8.917413651943385e-07
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / steel",
+      "ancestry": [
+        "CD | Joined P2 blast leaf east / steel",
+        "P2 blast leaf east",
+        "Arrival Gate P2"
+      ],
+      "island": 87,
+      "world_bounds": [
+        [
+          1.9848039150238037,
+          15.734000205993652,
+          2.7239997386932373
+        ],
+        [
+          1.9951961040496826,
+          15.73799991607666,
+          2.7360000610351562
+        ]
+      ],
+      "vertices": 12,
+      "faces": 8,
+      "signed_volume_m3": 1.7899022471586525e-07
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / steel",
+      "ancestry": [
+        "CD | Joined P2 blast leaf east / steel",
+        "P2 blast leaf east",
+        "Arrival Gate P2"
+      ],
+      "island": 88,
+      "world_bounds": [
+        [
+          -0.012000024318695068,
+          15.727999687194824,
+          0.05000007152557373
+        ],
+        [
+          0.035999953746795654,
+          15.751999855041504,
+          3.3500001430511475
+        ]
+      ],
+      "vertices": 56,
+      "faces": 78,
+      "signed_volume_m3": 0.003797761578667274
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / steel",
+      "ancestry": [
+        "CD | Joined P2 blast leaf east / steel",
+        "P2 blast leaf east",
+        "Arrival Gate P2"
+      ],
+      "island": 89,
+      "world_bounds": [
+        [
+          2.2260000705718994,
+          15.727999687194824,
+          0.05000007152557373
+        ],
+        [
+          2.2740001678466797,
+          15.751999855041504,
+          3.3500001430511475
+        ]
+      ],
+      "vertices": 56,
+      "faces": 78,
+      "signed_volume_m3": 0.003792670969839173
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / steel",
+      "ancestry": [
+        "CD | Joined P2 blast leaf east / steel",
+        "P2 blast leaf east",
+        "Arrival Gate P2"
+      ],
+      "island": 90,
+      "world_bounds": [
+        [
+          0.6230000257492065,
+          15.847000122070312,
+          3.4800000190734863
+        ],
+        [
+          0.6769999861717224,
+          15.873000144958496,
+          3.5789999961853027
+        ]
+      ],
+      "vertices": 64,
+      "faces": 64,
+      "signed_volume_m3": 8.735091735919362e-05
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / steel",
+      "ancestry": [
+        "CD | Joined P2 blast leaf east / steel",
+        "P2 blast leaf east",
+        "Arrival Gate P2"
+      ],
+      "island": 91,
+      "world_bounds": [
+        [
+          0.6359999775886536,
+          15.842000007629395,
+          3.5460000038146973
+        ],
+        [
+          0.6639999747276306,
+          15.982999801635742,
+          3.5739998817443848
+        ]
+      ],
+      "vertices": 96,
+      "faces": 86,
+      "signed_volume_m3": 2.251612022519131e-05
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / steel",
+      "ancestry": [
+        "CD | Joined P2 blast leaf east / steel",
+        "P2 blast leaf east",
+        "Arrival Gate P2"
+      ],
+      "island": 92,
+      "world_bounds": [
+        [
+          0.6380000114440918,
+          15.970000267028809,
+          3.547999858856201
+        ],
+        [
+          0.6620000004768372,
+          15.972000122070312,
+          3.572000026702881
+        ]
+      ],
+      "vertices": 64,
+      "faces": 62,
+      "signed_volume_m3": 4.016483823458348e-06
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / steel",
+      "ancestry": [
+        "CD | Joined P2 blast leaf east / steel",
+        "P2 blast leaf east",
+        "Arrival Gate P2"
+      ],
+      "island": 93,
+      "world_bounds": [
+        [
+          1.7230000495910645,
+          15.847000122070312,
+          3.4800000190734863
+        ],
+        [
+          1.7769999504089355,
+          15.873000144958496,
+          3.5789999961853027
+        ]
+      ],
+      "vertices": 64,
+      "faces": 64,
+      "signed_volume_m3": 8.53852058450378e-05
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / steel",
+      "ancestry": [
+        "CD | Joined P2 blast leaf east / steel",
+        "P2 blast leaf east",
+        "Arrival Gate P2"
+      ],
+      "island": 94,
+      "world_bounds": [
+        [
+          1.7359998226165771,
+          15.842000007629395,
+          3.5460000038146973
+        ],
+        [
+          1.7639999389648438,
+          15.982999801635742,
+          3.5739998817443848
+        ]
+      ],
+      "vertices": 96,
+      "faces": 86,
+      "signed_volume_m3": 1.7957917104164666e-05
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / steel",
+      "ancestry": [
+        "CD | Joined P2 blast leaf east / steel",
+        "P2 blast leaf east",
+        "Arrival Gate P2"
+      ],
+      "island": 95,
+      "world_bounds": [
+        [
+          1.7379999160766602,
+          15.970000267028809,
+          3.547999858856201
+        ],
+        [
+          1.7619998455047607,
+          15.972000122070312,
+          3.572000026702881
+        ]
+      ],
+      "vertices": 64,
+      "faces": 62,
+      "signed_volume_m3": -1.0253085444370915e-05
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / charcoal",
+      "ancestry": [
+        "CD | Joined P2 blast leaf west / charcoal",
+        "P2 blast leaf west",
+        "Arrival Gate P2"
+      ],
+      "island": 96,
+      "world_bounds": [
+        [
+          -2.2850000858306885,
+          15.727999687194824,
+          0.11000004410743713
+        ],
+        [
+          -2.174999952316284,
+          15.76200008392334,
+          0.2900000512599945
+        ]
+      ],
+      "vertices": 56,
+      "faces": 78,
+      "signed_volume_m3": 0.0006734794769727207
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / charcoal",
+      "ancestry": [
+        "CD | Joined P2 blast leaf west / charcoal",
+        "P2 blast leaf west",
+        "Arrival Gate P2"
+      ],
+      "island": 97,
+      "world_bounds": [
+        [
+          -2.2850000858306885,
+          15.727999687194824,
+          3.1100001335144043
+        ],
+        [
+          -2.174999952316284,
+          15.76200008392334,
+          3.2899999618530273
+        ]
+      ],
+      "vertices": 56,
+      "faces": 78,
+      "signed_volume_m3": 0.0006761335098417406
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / charcoal",
+      "ancestry": [
+        "CD | Joined P2 blast leaf west / charcoal",
+        "P2 blast leaf west",
+        "Arrival Gate P2"
+      ],
+      "island": 98,
+      "world_bounds": [
+        [
+          -0.690000057220459,
+          15.90999984741211,
+          3.5199999809265137
+        ],
+        [
+          -0.6100000143051147,
+          15.970000267028809,
+          3.5999999046325684
+        ]
+      ],
+      "vertices": 64,
+      "faces": 64,
+      "signed_volume_m3": 0.0002845025931795436
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / charcoal",
+      "ancestry": [
+        "CD | Joined P2 blast leaf west / charcoal",
+        "P2 blast leaf west",
+        "Arrival Gate P2"
+      ],
+      "island": 99,
+      "world_bounds": [
+        [
+          -1.7899999618530273,
+          15.90999984741211,
+          3.5199999809265137
+        ],
+        [
+          -1.7100000381469727,
+          15.970000267028809,
+          3.5999999046325684
+        ]
+      ],
+      "vertices": 64,
+      "faces": 64,
+      "signed_volume_m3": 0.0002996940165758135
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / rubber",
+      "ancestry": [
+        "CD | Joined P2 blast leaf west / rubber",
+        "P2 blast leaf west",
+        "Arrival Gate P2"
+      ],
+      "island": 100,
+      "world_bounds": [
+        [
+          -0.047500040382146835,
+          15.718500137329102,
+          0.05000007152557373
+        ],
+        [
+          -0.02050003781914711,
+          15.731500625610352,
+          3.3499999046325684
+        ]
+      ],
+      "vertices": 56,
+      "faces": 78,
+      "signed_volume_m3": 0.0011574411443054375
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / rubber",
+      "ancestry": [
+        "CD | Joined P2 blast leaf west / rubber",
+        "P2 blast leaf west",
+        "Arrival Gate P2"
+      ],
+      "island": 101,
+      "world_bounds": [
+        [
+          -2.299499988555908,
+          15.814499855041504,
+          0.15500009059906006
+        ],
+        [
+          -2.2899999618530273,
+          15.85949993133545,
+          0.24500000476837158
+        ]
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "signed_volume_m3": 3.8381976385911166e-05
+    },
+    {
+      "object": "CD | Joined P2 blast leaf west / rubber",
+      "ancestry": [
+        "CD | Joined P2 blast leaf west / rubber",
+        "P2 blast leaf west",
+        "Arrival Gate P2"
+      ],
+      "island": 102,
+      "world_bounds": [
+        [
+          -2.299499988555908,
+          15.814499855041504,
+          3.1550002098083496
+        ],
+        [
+          -2.2899999618530273,
+          15.85949993133545,
+          3.244999885559082
+        ]
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "signed_volume_m3": 3.7228067715963306e-05
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / charcoal",
+      "ancestry": [
+        "CD | Joined P2 blast leaf east / charcoal",
+        "P2 blast leaf east",
+        "Arrival Gate P2"
+      ],
+      "island": 103,
+      "world_bounds": [
+        [
+          2.174999952316284,
+          15.727999687194824,
+          0.11000004410743713
+        ],
+        [
+          2.2850000858306885,
+          15.76200008392334,
+          0.2900000512599945
+        ]
+      ],
+      "vertices": 56,
+      "faces": 78,
+      "signed_volume_m3": 0.0006727738885577636
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / charcoal",
+      "ancestry": [
+        "CD | Joined P2 blast leaf east / charcoal",
+        "P2 blast leaf east",
+        "Arrival Gate P2"
+      ],
+      "island": 104,
+      "world_bounds": [
+        [
+          2.174999952316284,
+          15.727999687194824,
+          3.1100001335144043
+        ],
+        [
+          2.2850000858306885,
+          15.76200008392334,
+          3.2899999618530273
+        ]
+      ],
+      "vertices": 56,
+      "faces": 78,
+      "signed_volume_m3": 0.0006743262783857036
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / charcoal",
+      "ancestry": [
+        "CD | Joined P2 blast leaf east / charcoal",
+        "P2 blast leaf east",
+        "Arrival Gate P2"
+      ],
+      "island": 105,
+      "world_bounds": [
+        [
+          0.6100000143051147,
+          15.90999984741211,
+          3.5199999809265137
+        ],
+        [
+          0.690000057220459,
+          15.970000267028809,
+          3.5999999046325684
+        ]
+      ],
+      "vertices": 64,
+      "faces": 64,
+      "signed_volume_m3": 0.0002663526684045796
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / charcoal",
+      "ancestry": [
+        "CD | Joined P2 blast leaf east / charcoal",
+        "P2 blast leaf east",
+        "Arrival Gate P2"
+      ],
+      "island": 106,
+      "world_bounds": [
+        [
+          1.7100000381469727,
+          15.90999984741211,
+          3.5199999809265137
+        ],
+        [
+          1.7899999618530273,
+          15.970000267028809,
+          3.5999999046325684
+        ]
+      ],
+      "vertices": 64,
+      "faces": 64,
+      "signed_volume_m3": 0.00028153508901596064
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / rubber",
+      "ancestry": [
+        "CD | Joined P2 blast leaf east / rubber",
+        "P2 blast leaf east",
+        "Arrival Gate P2"
+      ],
+      "island": 107,
+      "world_bounds": [
+        [
+          0.02050003781914711,
+          15.718500137329102,
+          0.05000007152557373
+        ],
+        [
+          0.047500040382146835,
+          15.731500625610352,
+          3.3499999046325684
+        ]
+      ],
+      "vertices": 56,
+      "faces": 78,
+      "signed_volume_m3": 0.0011573365020040958
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / rubber",
+      "ancestry": [
+        "CD | Joined P2 blast leaf east / rubber",
+        "P2 blast leaf east",
+        "Arrival Gate P2"
+      ],
+      "island": 108,
+      "world_bounds": [
+        [
+          2.2899999618530273,
+          15.814499855041504,
+          0.15500009059906006
+        ],
+        [
+          2.299499988555908,
+          15.85949993133545,
+          0.24500000476837158
+        ]
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "signed_volume_m3": 3.826245665550217e-05
+    },
+    {
+      "object": "CD | Joined P2 blast leaf east / rubber",
+      "ancestry": [
+        "CD | Joined P2 blast leaf east / rubber",
+        "P2 blast leaf east",
+        "Arrival Gate P2"
+      ],
+      "island": 109,
+      "world_bounds": [
+        [
+          2.2899999618530273,
+          15.814499855041504,
+          3.1550002098083496
+        ],
+        [
+          2.299499988555908,
+          15.85949993133545,
+          3.244999885559082
+        ]
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "signed_volume_m3": 3.216663996378607e-05
+    },
+    {
+      "object": "CD | Joined CD | Office key cabinet / steel",
+      "ancestry": [
+        "CD | Joined CD | Office key cabinet / steel",
+        "CD | Office key cabinet"
+      ],
+      "island": 110,
+      "world_bounds": [
+        [
+          -3.1440000534057617,
+          9.475000381469727,
+          1.3079999685287476
+        ],
+        [
+          -2.8559999465942383,
+          9.479999542236328,
+          1.6920000314712524
+        ]
+      ],
+      "vertices": 32,
+      "faces": 32,
+      "signed_volume_m3": 0.00011342298239469203
+    },
+    {
+      "object": "CD | Joined CD | Office key cabinet / steel",
+      "ancestry": [
+        "CD | Joined CD | Office key cabinet / steel",
+        "CD | Office key cabinet"
+      ],
+      "island": 111,
+      "world_bounds": [
+        [
+          -3.078000068664551,
+          9.47599983215332,
+          1.5469999313354492
+        ],
+        [
+          -3.072000026702881,
+          9.513999938964844,
+          1.5529999732971191
+        ]
+      ],
+      "vertices": 16,
+      "faces": 10,
+      "signed_volume_m3": 1.47304187218351e-07
+    },
+    {
+      "object": "CD | Joined CD | Office key cabinet / steel",
+      "ancestry": [
+        "CD | Joined CD | Office key cabinet / steel",
+        "CD | Office key cabinet"
+      ],
+      "island": 112,
+      "world_bounds": [
+        [
+          -3.003000020980835,
+          9.47599983215332,
+          1.5469999313354492
+        ],
+        [
+          -2.996999979019165,
+          9.513999938964844,
+          1.5529999732971191
+        ]
+      ],
+      "vertices": 16,
+      "faces": 10,
+      "signed_volume_m3": -7.376074790954649e-07
+    },
+    {
+      "object": "CD | Joined CD | Office key cabinet / steel",
+      "ancestry": [
+        "CD | Joined CD | Office key cabinet / steel",
+        "CD | Office key cabinet"
+      ],
+      "island": 113,
+      "world_bounds": [
+        [
+          -2.927999973297119,
+          9.47599983215332,
+          1.5469999313354492
+        ],
+        [
+          -2.921999931335449,
+          9.513999938964844,
+          1.5529999732971191
+        ]
+      ],
+      "vertices": 16,
+      "faces": 10,
+      "signed_volume_m3": -8.865414808193913e-07
+    },
+    {
+      "object": "CD | Joined CD | Office key cabinet / brass",
+      "ancestry": [
+        "CD | Joined CD | Office key cabinet / brass",
+        "CD | Office key cabinet"
+      ],
+      "island": 114,
+      "world_bounds": [
+        [
+          -3.0880000591278076,
+          9.477499961853027,
+          1.534000039100647
+        ],
+        [
+          -3.062000036239624,
+          9.480500221252441,
+          1.559999942779541
+        ]
+      ],
+      "vertices": 64,
+      "faces": 64,
+      "signed_volume_m3": -8.569331839680668e-06
+    },
+    {
+      "object": "CD | Joined CD | Office key cabinet / brass",
+      "ancestry": [
+        "CD | Joined CD | Office key cabinet / brass",
+        "CD | Office key cabinet"
+      ],
+      "island": 115,
+      "world_bounds": [
+        [
+          -3.0789999961853027,
+          9.477499961853027,
+          1.4935001134872437
+        ],
+        [
+          -3.071000099182129,
+          9.480500221252441,
+          1.534500002861023
+        ]
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "signed_volume_m3": -8.869295318921353e-07
+    },
+    {
+      "object": "CD | Joined CD | Office key cabinet / brass",
+      "ancestry": [
+        "CD | Joined CD | Office key cabinet / brass",
+        "CD | Office key cabinet"
+      ],
+      "island": 116,
+      "world_bounds": [
+        [
+          -3.075000047683716,
+          9.477499961853027,
+          1.4879999160766602
+        ],
+        [
+          -3.067000150680542,
+          9.480500221252441,
+          1.5
+        ]
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "signed_volume_m3": 1.1178975303967977e-06
+    },
+    {
+      "object": "CD | Joined CD | Office key cabinet / brass",
+      "ancestry": [
+        "CD | Joined CD | Office key cabinet / brass",
+        "CD | Office key cabinet"
+      ],
+      "island": 117,
+      "world_bounds": [
+        [
+          -3.013000011444092,
+          9.477499961853027,
+          1.534000039100647
+        ],
+        [
+          -2.986999988555908,
+          9.480500221252441,
+          1.559999942779541
+        ]
+      ],
+      "vertices": 64,
+      "faces": 64,
+      "signed_volume_m3": -4.943460226058954e-06
+    },
+    {
+      "object": "CD | Joined CD | Office key cabinet / brass",
+      "ancestry": [
+        "CD | Joined CD | Office key cabinet / brass",
+        "CD | Office key cabinet"
+      ],
+      "island": 118,
+      "world_bounds": [
+        [
+          -3.003999948501587,
+          9.477499961853027,
+          1.4935001134872437
+        ],
+        [
+          -2.996000051498413,
+          9.480500221252441,
+          1.534500002861023
+        ]
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "signed_volume_m3": 1.3172005613645635e-06
+    },
+    {
+      "object": "CD | Joined CD | Office key cabinet / brass",
+      "ancestry": [
+        "CD | Joined CD | Office key cabinet / brass",
+        "CD | Office key cabinet"
+      ],
+      "island": 119,
+      "world_bounds": [
+        [
+          -3.0,
+          9.477499961853027,
+          1.4879999160766602
+        ],
+        [
+          -2.992000102996826,
+          9.480500221252441,
+          1.5
+        ]
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "signed_volume_m3": 2.2730479637781943e-06
+    },
+    {
+      "object": "CD | Joined CD | Office key cabinet / brass",
+      "ancestry": [
+        "CD | Joined CD | Office key cabinet / brass",
+        "CD | Office key cabinet"
+      ],
+      "island": 120,
+      "world_bounds": [
+        [
+          -2.937999963760376,
+          9.477499961853027,
+          1.534000039100647
+        ],
+        [
+          -2.9119999408721924,
+          9.480500221252441,
+          1.559999942779541
+        ]
+      ],
+      "vertices": 64,
+      "faces": 64,
+      "signed_volume_m3": -2.7923379093408517e-06
+    },
+    {
+      "object": "CD | Joined CD | Office key cabinet / brass",
+      "ancestry": [
+        "CD | Joined CD | Office key cabinet / brass",
+        "CD | Office key cabinet"
+      ],
+      "island": 121,
+      "world_bounds": [
+        [
+          -2.928999900817871,
+          9.477499961853027,
+          1.4935001134872437
+        ],
+        [
+          -2.9210000038146973,
+          9.480500221252441,
+          1.534500002861023
+        ]
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "signed_volume_m3": 1.6773119568823997e-06
+    },
+    {
+      "object": "CD | Joined CD | Office key cabinet / brass",
+      "ancestry": [
+        "CD | Joined CD | Office key cabinet / brass",
+        "CD | Office key cabinet"
+      ],
+      "island": 122,
+      "world_bounds": [
+        [
+          -2.924999952316284,
+          9.477499961853027,
+          1.4879999160766602
+        ],
+        [
+          -2.9170000553131104,
+          9.480500221252441,
+          1.5
+        ]
+      ],
+      "vertices": 8,
+      "faces": 6,
+      "signed_volume_m3": 6.938353180885129e-07
+    },
+    {
+      "object": "CD | Key cabinet nameband",
+      "ancestry": [
+        "CD | Key cabinet nameband",
+        "CD | Office key cabinet"
+      ],
+      "island": 123,
+      "world_bounds": [
+        [
+          -3.1440000534057617,
+          9.369999885559082,
+          1.656000018119812
+        ],
+        [
+          -2.8559999465942383,
+          9.371999740600586,
+          1.6920000314712524
+        ]
+      ],
+      "vertices": 16,
+      "faces": 10,
+      "signed_volume_m3": 2.0239812632402373e-05
+    }
+  ],
+  "mesh_defects": [
+    {
+      "object": "D1 lever handle",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "D1 closer arm",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Counter ballpoint pen",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Security bead chain",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Terminal articulated arm",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Desk mouse cord",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Mug handle loop",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Monitor power cable",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Coiled phone cord",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Chair leg 0",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Chair leg 1",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Chair leg 2",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Chair leg 3",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Chair leg 4",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Chair tilt lever",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Chair back spine",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Chair arm upright -1",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Chair arm upright 1",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Drawer pull 0_0",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Drawer pull 0_1",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Drawer pull 0_2",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Drawer pull 0_3",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Drawer pull 1_0",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Drawer pull 1_1",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Drawer pull 1_2",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Drawer pull 1_3",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Coat hook 0",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Coat hook 1",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Coat hook 2",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Coat hook 3",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Key box label",
+      "type": "MESH",
+      "boundary_edges": 94,
+      "nonmanifold_edges": 94,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Guide horn W 5.35",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Guide horn E 5.35",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Guide horn W 9.95",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Guide horn E 9.95",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Trolley handle bar",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Trolley IV hook W",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Trolley IV hook E",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Ratchet lever 0",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Ratchet lever 1",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Ratchet lever 2",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Ratchet lever 3",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Clipboard hanging wire",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Wheel spoke 0_0_0",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Wheel spoke 0_0_1",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Wheel spoke 0_0_2",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Wheel spoke 0_1_0",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Wheel spoke 0_1_1",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Wheel spoke 0_1_2",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Wheel spoke 1_0_0",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Wheel spoke 1_0_1",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Wheel spoke 1_0_2",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Wheel spoke 1_1_0",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Wheel spoke 1_1_1",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Wheel spoke 1_1_2",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Wheel spoke 2_0_0",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Wheel spoke 2_0_1",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Wheel spoke 2_0_2",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Wheel spoke 2_1_0",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Wheel spoke 2_1_1",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Wheel spoke 2_1_2",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Cart handle hoop",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Truss diag A 2.2_-5.6",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Truss diag B 2.2_-5.6",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Truss diag A 2.2_-2.4",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Truss diag B 2.2_-2.4",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Truss diag A 2.2_0.8",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Truss diag B 2.2_0.8",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Truss diag A 2.2_4.0",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Truss diag B 2.2_4.0",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Truss diag A 5.2_-5.6",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Truss diag B 5.2_-5.6",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Truss diag A 5.2_-2.4",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Truss diag B 5.2_-2.4",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Truss diag A 5.2_0.8",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Truss diag B 5.2_0.8",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Truss diag A 5.2_4.0",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Truss diag B 5.2_4.0",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Truss diag A 8.2_-5.6",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Truss diag B 8.2_-5.6",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Truss diag A 8.2_-2.4",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Truss diag B 8.2_-2.4",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Truss diag A 8.2_0.8",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Truss diag B 8.2_0.8",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Truss diag A 8.2_4.0",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Truss diag B 8.2_4.0",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Truss diag A 11.2_-5.6",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Truss diag B 11.2_-5.6",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Truss diag A 11.2_-2.4",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Truss diag B 11.2_-2.4",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Truss diag A 11.2_0.8",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Truss diag B 11.2_0.8",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Truss diag A 11.2_4.0",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Truss diag B 11.2_4.0",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Truss diag A 13.9_-5.6",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Truss diag B 13.9_-5.6",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Truss diag A 13.9_-2.4",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Truss diag B 13.9_-2.4",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Truss diag A 13.9_0.8",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Truss diag B 13.9_0.8",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Truss diag A 13.9_4.0",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Truss diag B 13.9_4.0",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Cable bundle -1.5_0",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Cable bundle -1.5_1",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Cable bundle -1.5_2",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Cable bundle -1.5_3",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Cable bundle 0.8_0",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Cable bundle 0.8_1",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Cable bundle 0.8_2",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Cable bundle 0.8_3",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Cable bundle 4.8_0",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Cable bundle 4.8_1",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Cable bundle 4.8_2",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "Cable bundle 4.8_3",
+      "type": "MESH",
+      "boundary_edges": 20,
+      "nonmanifold_edges": 20,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "CD | Joined CD | Counter cleaning cloth / cotton",
+      "type": "MESH",
+      "boundary_edges": 32,
+      "nonmanifold_edges": 32,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "CD | Joined CD | D1 service junction / charcoal",
+      "type": "MESH",
+      "boundary_edges": 16,
+      "nonmanifold_edges": 16,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "CD | Chair seat welt",
+      "type": "MESH",
+      "boundary_edges": 16,
+      "nonmanifold_edges": 16,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "CD | Joined Wall Utilities Rack / steel",
+      "type": "MESH",
+      "boundary_edges": 32,
+      "nonmanifold_edges": 32,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "CD | Joined Covered Trolley H1 / cotton",
+      "type": "MESH",
+      "boundary_edges": 24,
+      "nonmanifold_edges": 24,
+      "near_zero_faces": 0
+    },
+    {
+      "object": "CD | Lockout tag tie",
+      "type": "MESH",
+      "boundary_edges": 16,
+      "nonmanifold_edges": 16,
+      "near_zero_faces": 0
+    }
+  ],
+  "dependency_defects": [
+    {
+      "type": "library",
+      "name": "exterior-R01.blend",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../../blender/../../exteriors/refinery/exterior-R01.blend"
+    },
+    {
+      "type": "library",
+      "name": "exterior-R01.blend.001",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../../blender/../../exteriors/waste-storage/exterior-R01.blend"
+    },
+    {
+      "type": "library",
+      "name": "exterior-R02.blend",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../../blender/../../exteriors/condenser-bay/exterior-R02.blend"
+    },
+    {
+      "type": "library",
+      "name": "exterior-R02.blend.001",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../../blender/../../exteriors/fuel-corridor/exterior-R02.blend"
+    },
+    {
+      "type": "library",
+      "name": "exterior-R03.blend",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../../blender/../../exteriors/cooling-plant/exterior-R03.blend"
+    },
+    {
+      "type": "library",
+      "name": "exterior-R03.blend.001",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../../blender/../../exteriors/electrical-room/exterior-R03.blend"
+    },
+    {
+      "type": "library",
+      "name": "exterior-R04.blend",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../../blender/../../exteriors/medical-reanimation/exterior-R04.blend"
+    },
+    {
+      "type": "library",
+      "name": "exterior-R04.blend.001",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../../blender/../../exteriors/turbine-room/exterior-R04.blend"
+    },
+    {
+      "type": "library",
+      "name": "exterior-R05.blend",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../../blender/../../exteriors/reactor-room/exterior-R05.blend"
+    },
+    {
+      "type": "library",
+      "name": "exterior-R05.blend.001",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../../blender/../../exteriors/spawn-room/exterior-R05.blend"
+    },
+    {
+      "type": "library",
+      "name": "exterior-R08.blend",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../../blender/../../exteriors/compliance-dock/exterior-R08.blend"
+    },
+    {
+      "type": "library",
+      "name": "module.blend",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../../blender/../condenser-bay/module.blend"
+    },
+    {
+      "type": "library",
+      "name": "module.blend.001",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../../blender/../mine/module.blend"
+    },
+    {
+      "type": "library",
+      "name": "module.blend.002",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../../blender/../spawn-room/module.blend"
+    },
+    {
+      "type": "library",
+      "name": "module.blend.003",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../../blender/module.blend"
+    },
+    {
+      "type": "library",
+      "name": "module.blend.004",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../../blender/../cooling-plant/module.blend"
+    },
+    {
+      "type": "library",
+      "name": "module.blend.005",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../../blender/../electrical-room/module.blend"
+    },
+    {
+      "type": "library",
+      "name": "module.blend.006",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../../blender/../fuel-corridor/module.blend"
+    },
+    {
+      "type": "library",
+      "name": "module.blend.007",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../../blender/../medical-reanimation/module.blend"
+    },
+    {
+      "type": "library",
+      "name": "module.blend.008",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../../blender/../reactor-room/module.blend"
+    },
+    {
+      "type": "library",
+      "name": "module.blend.009",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../../blender/../refinery/module.blend"
+    },
+    {
+      "type": "library",
+      "name": "module.blend.010",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../../blender/../turbine-room/module.blend"
+    },
+    {
+      "type": "library",
+      "name": "module.blend.011",
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/../../blender/../waste-storage/module.blend"
+    }
+  ],
+  "protected_inputs": [
+    {
+      "path": "sections/facility-assembly/blender/facility_environment.blend",
+      "expected": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+      "actual": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+      "pass": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/module.blend",
+      "expected": "0cdae8b3d302459d75569cb6bf3a463f24b30ea373c2bcdf430360033d7b0947",
+      "actual": "0cdae8b3d302459d75569cb6bf3a463f24b30ea373c2bcdf430360033d7b0947",
+      "pass": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/accepted.blend",
+      "expected": "575686f6771bc35c224961b2f9da0224cf6c7acf96631cf75cf55a8af28d3f4c",
+      "actual": "575686f6771bc35c224961b2f9da0224cf6c7acf96631cf75cf55a8af28d3f4c",
+      "pass": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/contracts/interface.json",
+      "expected": "bdbdd0389eaa3b36b7d0f174c057034b2abd262245a8d4b52374b5b33e03eb6e",
+      "actual": "bdbdd0389eaa3b36b7d0f174c057034b2abd262245a8d4b52374b5b33e03eb6e",
+      "pass": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/spawn-room/module.blend",
+      "expected": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+      "actual": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+      "pass": true
+    }
+  ],
+  "recipe_integrity": [
+    {
+      "path": "full_detail.py",
+      "expected": "780cd89543a7a026372a2a6e2cb4eb747395bf728fe874e637bafca7ffa19f09",
+      "actual": "780cd89543a7a026372a2a6e2cb4eb747395bf728fe874e637bafca7ffa19f09",
+      "pass": true
+    },
+    {
+      "path": "full_repairs.py",
+      "expected": "a93b6ddbd64ebcbdda07cd89ec5d15e86aeb61dfee16669b076bcb8fd27b9028",
+      "actual": "a93b6ddbd64ebcbdda07cd89ec5d15e86aeb61dfee16669b076bcb8fd27b9028",
+      "pass": true
+    },
+    {
+      "path": "overhaul_dock.py",
+      "expected": "f0533724e82a2d43de4e707d5eb4943b6b840b390248050403ebb7241012cad9",
+      "actual": "f0533724e82a2d43de4e707d5eb4943b6b840b390248050403ebb7241012cad9",
+      "pass": true
+    },
+    {
+      "path": "render_dock.py",
+      "expected": "9993f999e0eddef5d3c106591728c665647cc49364e44199253780cb9bc89c57",
+      "actual": "9993f999e0eddef5d3c106591728c665647cc49364e44199253780cb9bc89c57",
+      "pass": true
+    },
+    {
+      "path": "repair_contact_wear.py",
+      "expected": "e671aeaff409fabd5b62af3ec208d2d1d09aac3c3785fdcaa4a2fd047de98fb8",
+      "actual": "e671aeaff409fabd5b62af3ec208d2d1d09aac3c3785fdcaa4a2fd047de98fb8",
+      "pass": true
+    }
+  ],
+  "physical_contacts": [
+    {
+      "part": "hanger_foot",
+      "island": 70,
+      "point": [
+        -0.6700000166893005,
+        15.860000610351562,
+        3.4800000190734863
+      ],
+      "leaf_hit": [
+        -0.6700000166893005,
+        15.860000610351562,
+        3.4800000190734863
+      ],
+      "distance_from_foot_m": -9.536743164270667e-09
+    },
+    {
+      "part": "hanger_foot",
+      "island": 70,
+      "point": [
+        -0.6500000357627869,
+        15.860000610351562,
+        3.4800000190734863
+      ],
+      "leaf_hit": [
+        -0.6500000357627869,
+        15.860000610351562,
+        3.4800000190734863
+      ],
+      "distance_from_foot_m": -8.605420589655188e-09
+    },
+    {
+      "part": "hanger_foot",
+      "island": 70,
+      "point": [
+        -0.6300000548362732,
+        15.860000610351562,
+        3.4800000190734863
+      ],
+      "leaf_hit": [
+        -0.6300000548362732,
+        15.860000610351562,
+        3.4800000190734863
+      ],
+      "distance_from_foot_m": -8.605420589655188e-09
+    },
+    {
+      "part": "hanger_vs_actual_rail_lower_flange",
+      "island": 70,
+      "actual_hanger_solid_samples": 2,
+      "actual_rail_intersection_witnesses": [],
+      "minimum_sampled_clearance_m": 0.007100105285644531,
+      "interpretation": "Samples test actual closed connected-island topology and actual track solid; parent ancestry and bounding boxes are not contact evidence."
+    },
+    {
+      "part": "hanger_foot",
+      "island": 73,
+      "point": [
+        -1.7699999809265137,
+        15.860000610351562,
+        3.4800000190734863
+      ],
+      "leaf_hit": [
+        -1.7699999809265137,
+        15.860000610351562,
+        3.4800000190734863
+      ],
+      "distance_from_foot_m": -8.605420589655188e-09
+    },
+    {
+      "part": "hanger_foot",
+      "island": 73,
+      "point": [
+        -1.75,
+        15.860000610351562,
+        3.4800000190734863
+      ],
+      "leaf_hit": [
+        -1.75,
+        15.860000610351562,
+        3.4800000190734863
+      ],
+      "distance_from_foot_m": -8.605420589655188e-09
+    },
+    {
+      "part": "hanger_foot",
+      "island": 73,
+      "point": [
+        -1.7300000190734863,
+        15.860000610351562,
+        3.4800000190734863
+      ],
+      "leaf_hit": [
+        -1.7300000190734863,
+        15.860000610351562,
+        3.4800000190734863
+      ],
+      "distance_from_foot_m": -8.605420589655188e-09
+    },
+    {
+      "part": "hanger_vs_actual_rail_lower_flange",
+      "island": 73,
+      "actual_hanger_solid_samples": 4,
+      "actual_rail_intersection_witnesses": [],
+      "minimum_sampled_clearance_m": 0.007100105285644531,
+      "interpretation": "Samples test actual closed connected-island topology and actual track solid; parent ancestry and bounding boxes are not contact evidence."
+    },
+    {
+      "part": "hanger_foot",
+      "island": 90,
+      "point": [
+        0.6299999952316284,
+        15.860000610351562,
+        3.4800000190734863
+      ],
+      "leaf_hit": [
+        0.6299999952316284,
+        15.860000610351562,
+        3.4800000190734863
+      ],
+      "distance_from_foot_m": -8.605420589655188e-09
+    },
+    {
+      "part": "hanger_foot",
+      "island": 90,
+      "point": [
+        0.6499999761581421,
+        15.860000610351562,
+        3.4800000190734863
+      ],
+      "leaf_hit": [
+        0.6499999761581421,
+        15.860000610351562,
+        3.4800000190734863
+      ],
+      "distance_from_foot_m": -8.605420589655188e-09
+    },
+    {
+      "part": "hanger_foot",
+      "island": 90,
+      "point": [
+        0.6700000166893005,
+        15.860000610351562,
+        3.4800000190734863
+      ],
+      "leaf_hit": [
+        0.6700000166893005,
+        15.860000610351562,
+        3.4800000190734863
+      ],
+      "distance_from_foot_m": -9.536743164270667e-09
+    },
+    {
+      "part": "hanger_vs_actual_rail_lower_flange",
+      "island": 90,
+      "actual_hanger_solid_samples": 2,
+      "actual_rail_intersection_witnesses": [],
+      "minimum_sampled_clearance_m": 0.007100105285644531,
+      "interpretation": "Samples test actual closed connected-island topology and actual track solid; parent ancestry and bounding boxes are not contact evidence."
+    },
+    {
+      "part": "hanger_foot",
+      "island": 93,
+      "point": [
+        1.7300000190734863,
+        15.860000610351562,
+        3.4800000190734863
+      ],
+      "leaf_hit": [
+        1.7300000190734863,
+        15.860000610351562,
+        3.4800000190734863
+      ],
+      "distance_from_foot_m": -8.605420589655188e-09
+    },
+    {
+      "part": "hanger_foot",
+      "island": 93,
+      "point": [
+        1.75,
+        15.860000610351562,
+        3.4800000190734863
+      ],
+      "leaf_hit": [
+        1.75,
+        15.860000610351562,
+        3.4800000190734863
+      ],
+      "distance_from_foot_m": -8.605420589655188e-09
+    },
+    {
+      "part": "hanger_foot",
+      "island": 93,
+      "point": [
+        1.7699999809265137,
+        15.860000610351562,
+        3.4800000190734863
+      ],
+      "leaf_hit": [
+        1.7699999809265137,
+        15.860000610351562,
+        3.4800000190734863
+      ],
+      "distance_from_foot_m": -8.605420589655188e-09
+    },
+    {
+      "part": "hanger_vs_actual_rail_lower_flange",
+      "island": 93,
+      "actual_hanger_solid_samples": 2,
+      "actual_rail_intersection_witnesses": [],
+      "minimum_sampled_clearance_m": 0.007100105285644531,
+      "interpretation": "Samples test actual closed connected-island topology and actual track solid; parent ancestry and bounding boxes are not contact evidence."
+    },
+    {
+      "part": "roller_lower_rail_contact",
+      "island": 98,
+      "point": [
+        -0.6500000357627869,
+        15.940000534057617,
+        3.5199999809265137
+      ],
+      "rail_hit": [
+        -0.6500000357627869,
+        15.940000534057617,
+        3.5199999809265137
+      ],
+      "distance_from_roller_m": -9.536743164270667e-09
+    },
+    {
+      "part": "roller_lower_rail_contact",
+      "island": 99,
+      "point": [
+        -1.75,
+        15.940000534057617,
+        3.5199999809265137
+      ],
+      "rail_hit": [
+        -1.75,
+        15.940000534057617,
+        3.5199999809265137
+      ],
+      "distance_from_roller_m": -7.67409801503971e-09
+    },
+    {
+      "part": "roller_lower_rail_contact",
+      "island": 105,
+      "point": [
+        0.6500000357627869,
+        15.940000534057617,
+        3.5199999809265137
+      ],
+      "rail_hit": [
+        0.6500000357627869,
+        15.940000534057617,
+        3.5199999809265137
+      ],
+      "distance_from_roller_m": -1.0468065738886145e-08
+    },
+    {
+      "part": "roller_lower_rail_contact",
+      "island": 106,
+      "point": [
+        1.75,
+        15.940000534057617,
+        3.5199999809265137
+      ],
+      "rail_hit": [
+        1.75,
+        15.940000534057617,
+        3.5199999809265137
+      ],
+      "distance_from_roller_m": -9.536743164270667e-09
+    }
+  ],
+  "exact_duplicate_triangle_pairs": []
+}

@@ -1,0 +1,278 @@
+{
+  "task": "F13 read-only contact construction preflight",
+  "reviewer": "GPT-6 Luna",
+  "date_utc": "2026-10-03",
+  "verdict": "NO_DEFINITE_NEW_CONTACT_OR_APERTURE_DEFECT_FOUND_IN_BOUNDED_SURFACE_PREFLIGHT",
+  "scope": "Technical geometry/contact/origin/clearance inspection only. No art score, rubric score, overall score, or acceptance decision.",
+  "baseline": {
+    "native": "module_overhaul_R1.blend",
+    "sha256": "73b85e9a84b577d2059a07371abd366666536800eb45c9e56a7d7788a21b77a3",
+    "expected_frozen_f12_sha256": "73b85e9a84b577d2059a07371abd366666536800eb45c9e56a7d7788a21b77a3",
+    "source_after_probe_sha256": "73b85e9a84b577d2059a07371abd366666536800eb45c9e56a7d7788a21b77a3",
+    "protected_inherited_objects": 1077,
+    "independent_native_report_matrix_changes": [],
+    "f12_independent_report_source_sha256": "73b85e9a84b577d2059a07371abd366666536800eb45c9e56a7d7788a21b77a3"
+  },
+  "sources": {
+    "full_repairs_py_sha256": "fea22308927ae066adb05f9f592300bb0c9d8a212cd66189abd23f4fbf7a333b",
+    "c06_report": "critics/full-c06-technical.json",
+    "c06_report_source_sha256": "73b85e9a84b577d2059a07371abd366666536800eb45c9e56a7d7788a21b77a3",
+    "f12_independent_surface_measurements": "critics/full-c06-technical/evaluated-surfaces.json + native-independent.json + support-witness-independent.json + fixings-independent.json"
+  },
+  "method": {
+    "blender": "5.2.2 LTS",
+    "command": "/workspace/tools/blender-5.2.2-linux-x64/blender --background --disable-autoexec --threads 1 --python-exit-code 1 --python revamp/production/probes/f13-luna-preflight/native_surface_probe.py -- revamp/production/probes/f13-luna-preflight/native_surface_measurements.json",
+    "measurement": "Read-only Blender 5.2.2 LTS scene load; evaluated f12 source meshes converted to world-space BVH trees; direct rays tested planned f13 contact planes and bounds. No full authoring builder, no saved native, no image review. Blender process exited and released the f12 read handle.",
+    "raw_probe": "probes/f13-luna-preflight/native_surface_probe.py",
+    "raw_measurements": "probes/f13-luna-preflight/native_surface_measurements.json",
+    "raw_log": "probes/f13-luna-preflight/native-surface-probe.log",
+    "distinction": "f12 evidence consists of evaluated native target surfaces and measured ray-hit locations. Proposed f13 parts are analytical dimensions/origins copied from the repair function; contact is established by comparing their designed face planes with those actual target locations. No f13 mesh was authored or saved."
+  },
+  "repairs": {
+    "notice_backing_and_glass_clips": {
+      "notice_source_bounds_m": [
+        [
+          -3.704999924,
+          3.590500117,
+          1.600000024
+        ],
+        [
+          -3.315000057,
+          3.591500044,
+          1.699999928
+        ]
+      ],
+      "proposed_backing_bounds_m": [
+        [
+          -3.717,
+          3.5915,
+          1.593
+        ],
+        [
+          -3.303,
+          3.5995,
+          1.707
+        ]
+      ],
+      "notice_to_backing_and_backing_to_notice_rays": 4,
+      "all_rays_contact": true,
+      "backing_notice_shared_plane_y_m": 3.5915,
+      "shared_face_gap_m": 0.0,
+      "actual_glass_bounds_m": [
+        [
+          -3.734999895095825,
+          3.5924999713897705,
+          1.225000023841858
+        ],
+        [
+          -3.2850000858306885,
+          3.607499837875366,
+          1.5749999284744263
+        ]
+      ],
+      "clip_to_glass_rays": 2,
+      "actual_glass_hit_y_m": [
+        3.607499837875366,
+        3.607499837875366
+      ],
+      "proposed_clip_contact_y_m": 3.6075,
+      "clip_backing_shared_face_y_m": 3.5995,
+      "proposed_text_bounds_m": {
+        "CD | Reassurance headline": [
+          [
+            -3.659498929977417,
+            3.5904200077056885,
+            1.6627570390701294
+          ],
+          [
+            -3.3613650798797607,
+            3.5904200077056885,
+            1.6816569566726685
+          ]
+        ],
+        "CD | Reassurance qualification": [
+          [
+            -3.600395917892456,
+            3.5904200077056885,
+            1.6298919916152954
+          ],
+          [
+            -3.41867995262146,
+            3.5904200077056885,
+            1.6382919549942017
+          ]
+        ]
+      },
+      "text_and_notice_front_plane_gap_m": 8e-05,
+      "finding": "Backing lies directly behind the actual notice face; two folded clips touch actual glazing front at both tested x positions and touch the backing return. Headline and qualification bounds remain within panel/backing extents.",
+      "notice_face_rays_to_actual_f12_surface": 4,
+      "actual_f12_notice_ray_hit_y_m": [
+        3.590500116,
+        3.590500116,
+        3.590500116,
+        3.590500116
+      ],
+      "backing_to_notice_rays_from_y_m": 3.6115,
+      "backing_min_y_m": 3.5915,
+      "backing_max_y_m": 3.5995,
+      "ray_interpretation": "The read-only rays hit the actual f12 joined notice island. Proposed backing bounds are analytical from box center/dimensions; its min-Y face exactly meets the measured notice max-Y face at 3.5915m."
+    },
+    "scanner_rear_edges_and_seams": {
+      "edge_ray_count": 20,
+      "edge_ray_contacts": 20,
+      "edge_sample_z_m": [
+        0.21,
+        0.55,
+        1.35,
+        2.15,
+        2.49
+      ],
+      "edge_target_surface_y_m_range": [
+        7.179999828338623,
+        7.179999828338623
+      ],
+      "edge_planned_back_y_m": 7.18,
+      "seam_ray_count": 30,
+      "seam_ray_contacts": 30,
+      "seam_sample_offsets_x_m": [
+        -0.075,
+        -0.0375,
+        0,
+        0.0375,
+        0.075
+      ],
+      "seam_sample_z_m": [
+        0.56,
+        1.22,
+        1.88
+      ],
+      "maximum_absolute_contact_offset_m": 1.716613766689079e-07,
+      "finding": "All four rails seat on the actual straight rear skins at Y=7.180m throughout the sampled vertical span. Both three-level seams seat across their full proposed 150mm width at the tested endpoints and quarter points."
+    },
+    "P2_guide_shoes": {
+      "samples": [
+        {
+          "center_x_m": -2.23,
+          "center_z_m": 0.2,
+          "bounds_m": [
+            [
+              -2.285,
+              15.71,
+              0.11000000000000001
+            ],
+            [
+              -2.175,
+              15.728,
+              0.29000000000000004
+            ]
+          ],
+          "aperture_intrusion_m": 0,
+          "actual_closure_ray_hits": 2,
+          "sample_count": 5,
+          "hit_plane_y_m": [
+            15.727999687194824,
+            15.727999687194824
+          ]
+        },
+        {
+          "center_x_m": -2.23,
+          "center_z_m": 3.2,
+          "bounds_m": [
+            [
+              -2.285,
+              15.71,
+              3.1100000000000003
+            ],
+            [
+              -2.175,
+              15.728,
+              3.29
+            ]
+          ],
+          "aperture_intrusion_m": 0,
+          "actual_closure_ray_hits": 2,
+          "sample_count": 5,
+          "hit_plane_y_m": [
+            15.727999687194824,
+            15.727999687194824
+          ]
+        },
+        {
+          "center_x_m": 2.23,
+          "center_z_m": 0.2,
+          "bounds_m": [
+            [
+              2.175,
+              15.71,
+              0.11000000000000001
+            ],
+            [
+              2.285,
+              15.728,
+              0.29000000000000004
+            ]
+          ],
+          "aperture_intrusion_m": 0,
+          "actual_closure_ray_hits": 2,
+          "sample_count": 5,
+          "hit_plane_y_m": [
+            15.727999687194824,
+            15.727999687194824
+          ]
+        },
+        {
+          "center_x_m": 2.23,
+          "center_z_m": 3.2,
+          "bounds_m": [
+            [
+              2.175,
+              15.71,
+              3.1100000000000003
+            ],
+            [
+              2.285,
+              15.728,
+              3.29
+            ]
+          ],
+          "aperture_intrusion_m": 0,
+          "actual_closure_ray_hits": 2,
+          "sample_count": 5,
+          "hit_plane_y_m": [
+            15.727999687194824,
+            15.727999687194824
+          ]
+        }
+      ],
+      "opening_x_bounds_m": [
+        -2.3,
+        2.3
+      ],
+      "maximum_proposed_abs_x_m": 2.285,
+      "minimum_side_clearance_to_opening_m": 0.015,
+      "actual_closure_front_plane_y_m": 15.727999687194824,
+      "proposed_heel_y_m": 15.728,
+      "independent_c06_closure_patch_abs_x_bounds_m": [
+        2.227,
+        2.273
+      ],
+      "closure_support_band_width_m": 0.046,
+      "proposed_shoe_width_m": 0.11,
+      "approximate_fraction_of_heel_width_on_closure": 0.418,
+      "finding": "Each shoe retains 15mm lateral clearance to the protected 4.60m opening. Rays at the supported central band hit the actual steel closure face at Y=15.7279997m; proposed heel is Y=15.728m (sub-micron mesh rounding). The 46mm closure band supports the central part of the 110mm heel; the remaining width overhangs this closure patch."
+    }
+  },
+  "technical_limits": [
+    "Static contact establishes a compression interface at the sampled surfaces, not guide-shoe retention in tension/shear, load rating, mechanism motion or runtime collision behavior.",
+    "No f13 saved native or f13 render was built or reviewed.",
+    "Scanner and P2 measurements use explicit surface rays and source f12 polygon extents; they do not independently execute the full root builder guards."
+  ],
+  "write_boundary": {
+    "native_saved": false,
+    "canonical_recipes_modified_by_reviewer": false,
+    "protected_source_hash_after_probe_matches_f12": true,
+    "read_handles_released": true
+  },
+  "aborted_attempt_note": "A copied full builder was started then stopped early at the primary author's direction. It never reached a save; no native/state file was written. All copied build artifacts were removed. Its result is not evidence.",
+  "full_repairs_sha256_at_audit": "fea22308927ae066adb05f9f592300bb0c9d8a212cd66189abd23f4fbf7a333b"
+}

@@ -1,0 +1,15 @@
+00:03.783  cycles           | WARNING CUEW initialization failed: Error opening the library
+/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/render_dock.py:128: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new(name);m.use_nodes=True;m.node_tree.nodes.clear()
+RENDER_SHOT C05_CONVEYOR_LEAD_TUNNEL
+00:57.220  render           | Saved: '/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-06-neutral/C05_CONVEYOR_LEAD_TUNNEL.png'
+RENDER_SHOT C07_OFFICE_INTERIOR
+01:53.204  render           | Saved: '/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-06-neutral/C07_OFFICE_INTERIOR.png'
+RENDER_SHOT HERO_TROLLEY
+02:56.784  render           | Saved: '/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-06-neutral/HERO_TROLLEY.png'
+RENDER_SHOT HERO_UTILITIES
+03:46.325  render           | Saved: '/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/renders/full-cycle-06-neutral/HERO_UTILITIES.png'
+RENDER_BATCH_COMPLETE 4
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)
+
+Blender quit

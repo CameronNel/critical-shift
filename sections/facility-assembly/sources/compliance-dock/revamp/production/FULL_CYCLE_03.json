@@ -1,0 +1,101 @@
+{
+  "cycle": "full-cycle-03",
+  "native_revision": "f07",
+  "source_sha256": "1e2507dc6f0c245cc6552d940a03fe6888949f68509bdbaacd7f315c22815b53",
+  "complete_rendered_and_reviewed_views": 27,
+  "diagnostic_views": 8,
+  "critics": {
+    "spatial": {
+      "report": "critics/full-c03-spatial.json",
+      "sha256": "8526b40e9e7689474324d33b873399d8450e5d58e95ae0ef2652009ecf93f0b0"
+    },
+    "materials": {
+      "report": "critics/full-c03-materials.json",
+      "sha256": "7d06b74f061707a9183af360bfd45513c193abd50898f3e2fb10217b271b330c"
+    },
+    "lighting": {
+      "report": "critics/full-c03-lighting.json",
+      "sha256": "312b7a8ab8a7270911b038cf0c855c2fa249328220ea9223d851522400e3c88b"
+    },
+    "story": {
+      "report": "critics/full-c03-story.json",
+      "sha256": "d53edbe7339b8c674ea9158a1606724cb9e40141de216e656951268ccd320bfe"
+    },
+    "technical": {
+      "report": "critics/full-c03-technical.json",
+      "sha256": "3107a521f5d1cf674ab53daaf3cbf37b1f385b2b2d0de8f9fd27c88d49165e14"
+    },
+    "luna": {
+      "report": "critics/full-c03-luna.json",
+      "sha256": "fd0cad76bcaaa7b689c8283da5cc6ef8d4e93c8c77da7ec53430ad69f7ad895d"
+    }
+  },
+  "per_category_conservative_scores": {
+    "1": 81,
+    "2": 64,
+    "3": 74,
+    "4": 67,
+    "5": 76,
+    "6": 73,
+    "7": 55,
+    "8": 90
+  },
+  "aggregation": "Minimum of assigned discipline and independently scored Luna categories; no author scores. All reports retained.",
+  "luna_overall_score": 72.5,
+  "owner_pass_minimum": 99,
+  "verdict": "FAIL",
+  "full_room_accepted": false,
+  "critical_defects": [
+    {
+      "defect": "Repeated primitive panel construction dominates key equipment.",
+      "views": [
+        "C02_HERO_DOCK",
+        "C05_CONVEYOR_LEAD_TUNNEL",
+        "C06_CART_GATE_G1",
+        "C09_ARRIVAL_GATE_P2",
+        "HERO_SCANNER",
+        "HERO_CARGO"
+      ]
+    },
+    {
+      "defect": "Operational signage and paper graphics are visibly broken at focal close range.",
+      "views": [
+        "C03_CHECKIN_COUNTER",
+        "C05_CONVEYOR_LEAD_TUNNEL",
+        "HERO_CARGO",
+        "DETAIL_CHECKIN"
+      ]
+    },
+    {
+      "defect": "The covered evidence/trolley station is too dark and visually nonspecific to communicate its function clearly.",
+      "views": [
+        "C08_CONCEALED_SUPPORT_H1",
+        "HERO_TROLLEY"
+      ]
+    },
+    {
+      "id": "P2_SIGN_TEXT_GAP",
+      "severity": "critical_support_gate",
+      "gap_m": 0.006999015808105469,
+      "limit_m": 0.005
+    },
+    {
+      "id": "P2_CONSOLE_SCREEN_GAP",
+      "severity": "critical_support_gate",
+      "gap_m": 0.009999275207519531,
+      "limit_m": 0.005
+    },
+    {
+      "id": "P2_LEAF_BEARING_ABSENT",
+      "severity": "critical_support_gate",
+      "head_gap_m": 0.019999980926513672,
+      "jamb_gap_m": 0.010000228881835938,
+      "floor_gap_m": 0.019999980926513672
+    },
+    {
+      "id": "KEY_GLASS_BURIED",
+      "severity": "major_construction_regression"
+    }
+  ],
+  "next_candidate": "f08"
+}

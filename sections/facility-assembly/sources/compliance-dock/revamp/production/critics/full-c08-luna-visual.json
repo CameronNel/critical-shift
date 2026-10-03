@@ -1,0 +1,124 @@
+{
+  "reviewer": "GPT-6 Luna",
+  "review_type": "independent visual review",
+  "locked": true,
+  "locked_categories": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "category_8": "pending fresh score from root; excluded from visual mean",
+  "scores": [
+    {
+      "category": 1,
+      "name": "Scale, layout and route readability",
+      "score": 93,
+      "deduction": "The main yellow route and inspection sequence read in C01/C02/C04 and the cutaways. C06\u2019s broad opaque panels and C07\u2019s/PLAYER_PINCH\u2019s foreground structures interrupt views into the adjacent lane; corner renders also show several substantial empty wall/floor spans. Pixel evidence supports a visual deduction but cannot certify dimensions or actual navigation clearance."
+    },
+    {
+      "category": 2,
+      "name": "Grounded stylized shape language and object-specific construction",
+      "score": 89,
+      "deduction": "The scanner has controls and panel breaks, and the cargo line has rollers/braces. However C06\u2019s cart barrier is dominated by three large rectangular leaves; HERO_CARGO\u2019s crate and casing use broad cubic/slab masses; HERO_SCANNER\u2019s uprights are oversized box sections; HERO_UTILITIES uses a row of simple cuboid cases. Repetition across the focal equipment weakens the specified object-specific construction and makes the room read more kit-like than fully art-directed."
+    },
+    {
+      "category": 3,
+      "name": "Inspection/check-in hero hierarchy and functional composition",
+      "score": 94,
+      "deduction": "Scanner and cargo inspection are consistently the clearest focal equipment (C02/C04/HERO_SCANNER/HERO_CARGO); check-in reads immediately in C03/DETAIL_CHECKIN. One point-scale deduction reflects C02\u2019s counter recess falling very dark and C03\u2019s cropped top reassurance sign, which weaken complete counter context."
+    },
+    {
+      "category": 4,
+      "name": "Tactile material identity and UV/texture discipline",
+      "score": 93,
+      "deduction": "Fabric, painted steel, paper and flooring are distinguishable in the final and neutral renders; mottled locker wear is localized. The UV-standard diagnostic shows checker squares at conspicuously different apparent densities across adjacent large surfaces and equipment (especially C05, C07 and HERO_UTILITIES). That is visible scale inconsistency in the diagnostic, not proof of native UV stretching or any claim that phase/seams alone are defects."
+    },
+    {
+      "category": 5,
+      "name": "Localized lighting, depth and bleak atmosphere without hiding geometry",
+      "score": 89,
+      "deduction": "Warm pools and dark secondary zones create the intended pressure, and important silhouettes survive. Yet C05\u2019s tunnel underside, C07\u2019s office glazing/rear, C09\u2019s gate sides and HERO_EVIDENCE\u2019s lower locker edges lose construction detail into near-black. The neutral comparisons show the obscured regions contain useful form, so this is a readable-geometry penalty rather than a preference for brighter overall exposure."
+    },
+    {
+      "category": 6,
+      "name": "Approved spawn colour coherence and restrained accents",
+      "score": 95,
+      "deduction": "Mauve/pink wall, charcoal wainscot, muted blue equipment and orange/yellow route/hazard accents visibly align with the approved spawn palette. Deduction is limited to the broad continuous mauve wall spans in WALL_SOUTH/WALL_EAST and the very dark blue-black fields, which make the palette less varied than the reference\u2019s orange/blue/wood grouping."
+    },
+    {
+      "category": 7,
+      "name": "Purposeful worker traces and coercive institutional storytelling",
+      "score": 94,
+      "deduction": "\u201c14 HOURS / NO RELIEF,\u201d paperwork, stamp, mug, tags and covered trolley give specific human and coercive cues (C07, WALL_OFFICE_FRONT, DETAIL_CHECKIN, HERO_TROLLEY). The empty wall elevations and sparse cutaway corners show that this storytelling is localized; beyond the office/custody stations, much of the room remains anonymous and little worker evidence is visible."
+    }
+  ],
+  "visual_mean_7": 92.42857142857143,
+  "visual_gate_status": {
+    "each_category_strictly_greater_than_93": false,
+    "visual_mean_meets_99_gate": false,
+    "overall_gate_pending_category_8": true
+  },
+  "critical_defect_ids": [],
+  "visual_veto_ids": [],
+  "stable_id_defects": [
+    {
+      "id": "VIS-SHAPE-01",
+      "views": [
+        "C06_CART_GATE_G1",
+        "HERO_CARGO",
+        "HERO_SCANNER",
+        "HERO_UTILITIES"
+      ],
+      "severity": "major",
+      "evidence": "Repeated large rectangular gate leaves, cubic cargo crate/casing, box-section scanner uprights and cuboid utility cases dominate the inspection equipment silhouettes.",
+      "impact": "Weakens object-specific construction and pushes the primary equipment toward generic kit-like masses."
+    },
+    {
+      "id": "VIS-LIGHT-01",
+      "views": [
+        "C05_CONVEYOR_LEAD_TUNNEL",
+        "C07_OFFICE_INTERIOR",
+        "C09_ARRIVAL_GATE_P2",
+        "HERO_EVIDENCE"
+      ],
+      "severity": "major",
+      "evidence": "Near-black tunnel underside, office rear glazing, gate side structures and lower evidence-locker edges lose panel and support detail in final beauty exposure; corresponding neutral views reveal additional form.",
+      "impact": "Important architecture and custody equipment become harder to read."
+    },
+    {
+      "id": "VIS-UVSCALE-01",
+      "views": [
+        "C05_CONVEYOR_LEAD_TUNNEL",
+        "C07_OFFICE_INTERIOR",
+        "HERO_TROLLEY",
+        "HERO_UTILITIES"
+      ],
+      "severity": "moderate",
+      "evidence": "Checker apparent density differs visibly among adjacent large surfaces and equipment in the UV-standard renders.",
+      "impact": "Weakens confidence in consistent texture scale. Diagnostic pixels do not prove native UV distortion."
+    },
+    {
+      "id": "VIS-STORY-01",
+      "views": [
+        "WALL_SOUTH",
+        "WALL_EAST",
+        "WALL_WEST",
+        "CORNER_NE",
+        "CORNER_NW"
+      ],
+      "severity": "minor",
+      "evidence": "Several long wall spans remain blank; worker traces and coercive narrative concentrate in the check-in and covered-trolley areas.",
+      "impact": "The room\u2019s human/institutional story does not carry evenly through its full footprint."
+    }
+  ],
+  "limitations": [
+    "Pixel evidence does not certify world dimensions, route clearance, native UVs, support registration, reproducibility or other technical category-8 checks.",
+    "Corner and wall cutaways are diagnostic views; their temporary omissions are not treated as ordinary final gameplay presentation defects.",
+    "No runtime FPS, navigation or collision claim is made."
+  ],
+  "evidence_report": "full-c08-luna-imageaudit.json"
+}

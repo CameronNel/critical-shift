@@ -1,0 +1,397 @@
+{
+  "source_sha256": "22176ab474d914156cdf5a083571c19b04c6e6e11cfa50ab8ba681013bc124a6",
+  "raw_source": "critics/full-c07-technical/island-surface-contacts.json",
+  "interpretation": "Two 3-island shoe/fixing clusters only contact themselves within5mm in raw C7 sampling; no external support edge recorded. This is a late root observation, not a revised independent score or exhaustive graph proof.",
+  "rows": [
+    {
+      "object": "CD | Joined G1 Cart Bypass Gate / steel",
+      "island": 0,
+      "assembly": "G1 Cart Bypass Gate",
+      "support_class": "assembly_component",
+      "vertices": 56,
+      "triangles": 108,
+      "bounds": [
+        [
+          2.9200000762939453,
+          6.757500171661377,
+          0.9300000071525574
+        ],
+        [
+          3.119999885559082,
+          6.802500247955322,
+          1.0700000524520874
+        ]
+      ],
+      "nearby_candidate_count": 2,
+      "nearest_sampled_surface": {
+        "object": "CD | Joined G1 Cart Bypass Gate / steel",
+        "island": 1,
+        "assembly": "G1 Cart Bypass Gate",
+        "distance_m": 0.0005002021789550781,
+        "self_point": [
+          3.0199999809265137,
+          6.757500171661377,
+          0.9599999785423279
+        ],
+        "other_point": [
+          3.0199999809265137,
+          6.758000373840332,
+          0.9599999785423279
+        ],
+        "triangle": 77,
+        "direction": "other_to_self"
+      },
+      "contacts_within_5mm": [
+        {
+          "object": "CD | Joined G1 Cart Bypass Gate / steel",
+          "island": 1,
+          "assembly": "G1 Cart Bypass Gate",
+          "distance_m": 0.0005002021789550781,
+          "self_point": [
+            3.0199999809265137,
+            6.757500171661377,
+            0.9599999785423279
+          ],
+          "other_point": [
+            3.0199999809265137,
+            6.758000373840332,
+            0.9599999785423279
+          ],
+          "triangle": 77,
+          "direction": "other_to_self"
+        },
+        {
+          "object": "CD | Joined G1 Cart Bypass Gate / steel",
+          "island": 2,
+          "assembly": "G1 Cart Bypass Gate",
+          "distance_m": 0.0005002021789550781,
+          "self_point": [
+            3.0199999809265137,
+            6.757500171661377,
+            1.0499999523162842
+          ],
+          "other_point": [
+            3.0199999809265137,
+            6.758000373840332,
+            1.0499999523162842
+          ],
+          "triangle": 76,
+          "direction": "other_to_self"
+        }
+      ]
+    },
+    {
+      "object": "CD | Joined G1 Cart Bypass Gate / steel",
+      "island": 1,
+      "assembly": "G1 Cart Bypass Gate",
+      "support_class": "assembly_component",
+      "vertices": 12,
+      "triangles": 20,
+      "bounds": [
+        [
+          3.015669822692871,
+          6.75,
+          0.949999988079071
+        ],
+        [
+          3.0243301391601562,
+          6.758000373840332,
+          0.9599999785423279
+        ]
+      ],
+      "nearby_candidate_count": 1,
+      "nearest_sampled_surface": {
+        "object": "CD | Joined G1 Cart Bypass Gate / steel",
+        "island": 0,
+        "assembly": "G1 Cart Bypass Gate",
+        "distance_m": 0.0005002021789550781,
+        "self_point": [
+          3.0199999809265137,
+          6.758000373840332,
+          0.9599999785423279
+        ],
+        "other_point": [
+          3.0199999809265137,
+          6.757500171661377,
+          0.9599999785423279
+        ],
+        "triangle": 77,
+        "direction": "self_to_other"
+      },
+      "contacts_within_5mm": [
+        {
+          "object": "CD | Joined G1 Cart Bypass Gate / steel",
+          "island": 0,
+          "assembly": "G1 Cart Bypass Gate",
+          "distance_m": 0.0005002021789550781,
+          "self_point": [
+            3.0199999809265137,
+            6.758000373840332,
+            0.9599999785423279
+          ],
+          "other_point": [
+            3.0199999809265137,
+            6.757500171661377,
+            0.9599999785423279
+          ],
+          "triangle": 77,
+          "direction": "self_to_other"
+        }
+      ]
+    },
+    {
+      "object": "CD | Joined G1 Cart Bypass Gate / steel",
+      "island": 2,
+      "assembly": "G1 Cart Bypass Gate",
+      "support_class": "assembly_component",
+      "vertices": 12,
+      "triangles": 20,
+      "bounds": [
+        [
+          3.015669822692871,
+          6.75,
+          1.0399999618530273
+        ],
+        [
+          3.0243301391601562,
+          6.758000373840332,
+          1.0499999523162842
+        ]
+      ],
+      "nearby_candidate_count": 1,
+      "nearest_sampled_surface": {
+        "object": "CD | Joined G1 Cart Bypass Gate / steel",
+        "island": 0,
+        "assembly": "G1 Cart Bypass Gate",
+        "distance_m": 0.0005002021789550781,
+        "self_point": [
+          3.0199999809265137,
+          6.758000373840332,
+          1.0499999523162842
+        ],
+        "other_point": [
+          3.0199999809265137,
+          6.757500171661377,
+          1.0499999523162842
+        ],
+        "triangle": 76,
+        "direction": "self_to_other"
+      },
+      "contacts_within_5mm": [
+        {
+          "object": "CD | Joined G1 Cart Bypass Gate / steel",
+          "island": 0,
+          "assembly": "G1 Cart Bypass Gate",
+          "distance_m": 0.0005002021789550781,
+          "self_point": [
+            3.0199999809265137,
+            6.758000373840332,
+            1.0499999523162842
+          ],
+          "other_point": [
+            3.0199999809265137,
+            6.757500171661377,
+            1.0499999523162842
+          ],
+          "triangle": 76,
+          "direction": "self_to_other"
+        }
+      ]
+    },
+    {
+      "object": "CD | Joined G1 Cart Bypass Gate / steel",
+      "island": 3,
+      "assembly": "G1 Cart Bypass Gate",
+      "support_class": "assembly_component",
+      "vertices": 56,
+      "triangles": 108,
+      "bounds": [
+        [
+          2.9200000762939453,
+          7.197499752044678,
+          0.9300000071525574
+        ],
+        [
+          3.119999885559082,
+          7.242499828338623,
+          1.0700000524520874
+        ]
+      ],
+      "nearby_candidate_count": 2,
+      "nearest_sampled_surface": {
+        "object": "CD | Joined G1 Cart Bypass Gate / steel",
+        "island": 4,
+        "assembly": "G1 Cart Bypass Gate",
+        "distance_m": 0.0005002021789550781,
+        "self_point": [
+          3.0199999809265137,
+          7.197499752044678,
+          0.9599999785423279
+        ],
+        "other_point": [
+          3.0199999809265137,
+          7.197999954223633,
+          0.9599999785423279
+        ],
+        "triangle": 77,
+        "direction": "other_to_self"
+      },
+      "contacts_within_5mm": [
+        {
+          "object": "CD | Joined G1 Cart Bypass Gate / steel",
+          "island": 4,
+          "assembly": "G1 Cart Bypass Gate",
+          "distance_m": 0.0005002021789550781,
+          "self_point": [
+            3.0199999809265137,
+            7.197499752044678,
+            0.9599999785423279
+          ],
+          "other_point": [
+            3.0199999809265137,
+            7.197999954223633,
+            0.9599999785423279
+          ],
+          "triangle": 77,
+          "direction": "other_to_self"
+        },
+        {
+          "object": "CD | Joined G1 Cart Bypass Gate / steel",
+          "island": 5,
+          "assembly": "G1 Cart Bypass Gate",
+          "distance_m": 0.0005002021789550781,
+          "self_point": [
+            3.0199999809265137,
+            7.197499752044678,
+            1.0499999523162842
+          ],
+          "other_point": [
+            3.0199999809265137,
+            7.197999954223633,
+            1.0499999523162842
+          ],
+          "triangle": 76,
+          "direction": "other_to_self"
+        }
+      ]
+    },
+    {
+      "object": "CD | Joined G1 Cart Bypass Gate / steel",
+      "island": 4,
+      "assembly": "G1 Cart Bypass Gate",
+      "support_class": "assembly_component",
+      "vertices": 12,
+      "triangles": 20,
+      "bounds": [
+        [
+          3.015669822692871,
+          7.189999580383301,
+          0.949999988079071
+        ],
+        [
+          3.0243301391601562,
+          7.197999954223633,
+          0.9599999785423279
+        ]
+      ],
+      "nearby_candidate_count": 2,
+      "nearest_sampled_surface": {
+        "object": "CD | Joined G1 Cart Bypass Gate / steel",
+        "island": 3,
+        "assembly": "G1 Cart Bypass Gate",
+        "distance_m": 0.0005002021789550781,
+        "self_point": [
+          3.0199999809265137,
+          7.197999954223633,
+          0.9599999785423279
+        ],
+        "other_point": [
+          3.0199999809265137,
+          7.197499752044678,
+          0.9599999785423279
+        ],
+        "triangle": 77,
+        "direction": "self_to_other"
+      },
+      "contacts_within_5mm": [
+        {
+          "object": "CD | Joined G1 Cart Bypass Gate / steel",
+          "island": 3,
+          "assembly": "G1 Cart Bypass Gate",
+          "distance_m": 0.0005002021789550781,
+          "self_point": [
+            3.0199999809265137,
+            7.197999954223633,
+            0.9599999785423279
+          ],
+          "other_point": [
+            3.0199999809265137,
+            7.197499752044678,
+            0.9599999785423279
+          ],
+          "triangle": 77,
+          "direction": "self_to_other"
+        }
+      ]
+    },
+    {
+      "object": "CD | Joined G1 Cart Bypass Gate / steel",
+      "island": 5,
+      "assembly": "G1 Cart Bypass Gate",
+      "support_class": "assembly_component",
+      "vertices": 12,
+      "triangles": 20,
+      "bounds": [
+        [
+          3.015669822692871,
+          7.189999580383301,
+          1.0399999618530273
+        ],
+        [
+          3.0243301391601562,
+          7.197999954223633,
+          1.0499999523162842
+        ]
+      ],
+      "nearby_candidate_count": 2,
+      "nearest_sampled_surface": {
+        "object": "CD | Joined G1 Cart Bypass Gate / steel",
+        "island": 3,
+        "assembly": "G1 Cart Bypass Gate",
+        "distance_m": 0.0005002021789550781,
+        "self_point": [
+          3.0199999809265137,
+          7.197999954223633,
+          1.0499999523162842
+        ],
+        "other_point": [
+          3.0199999809265137,
+          7.197499752044678,
+          1.0499999523162842
+        ],
+        "triangle": 76,
+        "direction": "self_to_other"
+      },
+      "contacts_within_5mm": [
+        {
+          "object": "CD | Joined G1 Cart Bypass Gate / steel",
+          "island": 3,
+          "assembly": "G1 Cart Bypass Gate",
+          "distance_m": 0.0005002021789550781,
+          "self_point": [
+            3.0199999809265137,
+            7.197999954223633,
+            1.0499999523162842
+          ],
+          "other_point": [
+            3.0199999809265137,
+            7.197499752044678,
+            1.0499999523162842
+          ],
+          "triangle": 76,
+          "direction": "self_to_other"
+        }
+      ]
+    }
+  ]
+}

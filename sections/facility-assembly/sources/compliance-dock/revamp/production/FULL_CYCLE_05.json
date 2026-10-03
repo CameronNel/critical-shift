@@ -1,0 +1,90 @@
+{
+  "cycle": "full-cycle-05",
+  "native_revision": "f11",
+  "source_sha256": "cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035",
+  "complete_rendered_and_reviewed_views": 27,
+  "diagnostic_views": 12,
+  "standard_diagnostic_views": 8,
+  "supplemental_diagnostic_views": 4,
+  "diagnostic_batch_note": "Initial supplemental UV batch used additional hero cameras; retained honestly. Established four UV and four neutral views then completed separately, with unchanged fixed cameras.",
+  "critics": {
+    "spatial": {
+      "report": "critics/full-c05-spatial.json",
+      "sha256": "e260663fecfa9c086982d235cc7a6e491f877905645db3eb0fb100b8171d0edd"
+    },
+    "materials": {
+      "report": "critics/full-c05-materials.json",
+      "sha256": "3ce11199a50feb58f1355ff08c9ac99e7c1f12642f32daf0a0a857e0669ddc21"
+    },
+    "lighting": {
+      "report": "critics/full-c05-lighting.json",
+      "sha256": "d6a18f70a2608d9ec60b7a00743b8bdf399241181dbde7645edbea55e91a1153"
+    },
+    "story": {
+      "report": "critics/full-c05-story.json",
+      "sha256": "b63174d5b3c496cdeafdd043f5b1ea16a9c2ed9cda8109ccfb3d5128c6b49b34"
+    },
+    "technical": {
+      "report": "critics/full-c05-technical.json",
+      "sha256": "81caae09295aec3aadff6140ae2161bf2a98a1737cb038c2456b464b70b069de"
+    },
+    "luna": {
+      "report": "critics/full-c05-luna.json",
+      "sha256": "2c408c98ab383c228505bb66800a6b29b75b915862aae83166fc9dac411f1cbd"
+    }
+  },
+  "per_category_conservative_scores": {
+    "1": 79,
+    "2": 68,
+    "3": 75,
+    "4": 71,
+    "5": 66,
+    "6": 69,
+    "7": 72,
+    "8": 92
+  },
+  "aggregation": "Minimum assigned discipline and independently scored Luna; every specialist score is at least Luna. All failed reports retained.",
+  "luna_overall_score": 74,
+  "owner_pass_minimum": 99,
+  "verdict": "FAIL",
+  "critical_defect_count": 1,
+  "full_room_accepted": false,
+  "completed_full_cycles": 5,
+  "final_two_materially_stable": false,
+  "cold_github_source_open_pass": true,
+  "cold_github_source_open_commit": "72def14e7e6605784779590c28592b73b6919f93",
+  "cold_render_equivalence_verified": false,
+  "source_consumers_released": true,
+  "root_pixel_inspection": "pixel-inspection-full-c05.json",
+  "regression_comparison": "compare-c04-c05.json",
+  "remaining_defects": [
+    {
+      "id": "G1-01",
+      "severity": "critical",
+      "finding": "Two pressed bays on G1 leaf 1 have exposed front faces coplanar with the parent panel. The 40 mm parent runs from Y=6.980000019 to 7.019999981 m; the bays run from Y=6.980000019 to 6.985000134 m, penetrating approximately 5.000114 mm into the parent. Combined coincident exposed area is 0.443720505 m\u00b2. The black fields are visible in beauty views and persist in supplemental UV.",
+      "bounded_repair": "Seat each bay from the measured front face of its own panel, carry captive fixings to the corrected bay front, preserve inherited matrices, and independently remeasure and rerender the repaired source."
+    },
+    {
+      "id": "REG-01",
+      "severity": "major evidence deficiency",
+      "finding": "Six inherited P2, D2 and D1 support witnesses reach their named target floor but do not establish contact with actual assembly geometry within 5 mm. The report does not interpret this as proof of floating doors; actual jamb feet reach the floor."
+    },
+    {
+      "id": "ROUTE-01",
+      "severity": "inherited interface discrepancy",
+      "finding": "The inherited G1 pedestal intrudes approximately 60 mm into the nominal R1 +/-0.6 m straight-route reservation; this matches the selected-original baseline. No unobstructed nominal 1.2 m or runtime opened-door route is certified."
+    },
+    {
+      "id": "UV-01",
+      "severity": "export caveat",
+      "finding": "Retained unused UVMap layers have 32,202 zero-area faces. Active physical/fabric charts have none; intentional chart overlap means the charts are not unique bake/lightmap atlases."
+    },
+    {
+      "id": "MESH-01",
+      "severity": "authoring caveat",
+      "finding": "120 meshes retain boundary edges, primarily open tube/curve and planar detail; they are not certified watertight collision solids."
+    }
+  ],
+  "next_art_pass": "Repair measured G1 skin seat/fixings; broader manufactured machine forms, warmer spawn palette and differentiated materials, lifted roof/cabinet depth, connected clerical pressure/repair traces; preserve original layout/poses/boundaries.",
+  "runtime_verified": false
+}

@@ -1,0 +1,39 @@
+{
+  "revision": "f17",
+  "author": "root",
+  "created_utc": "2026-10-03T07:17:33.976863+00:00",
+  "baseline_source_sha256": "e33da737e93a730f62f43b09f8348df7133db657c6f6b9efc53651f26df60e39",
+  "baseline_github_commit": "47e38c0ae076bbfa7bb0a0a8c599b251e704b835",
+  "recipes_sha256": {
+    "overhaul_dock.py": "347c84da9e72547935adc50b755c1b95ff3b161ddf5019d689bf0ef86ba7cd6c",
+    "full_detail.py": "1521449b1c6eee88689cadb6e43ae911e909f200655b335cd273b9a030a3ef0e",
+    "full_repairs.py": "5edc8c94dcc4e6c17ac5af60815136f02b41cdd64afee381f8505d3df16c1657",
+    "render_dock.py": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce"
+  },
+  "prototype": "probes/f17-seat-construction-prototype.json",
+  "prototype_pass_scope": "Actual selected seat/chest mesh definitions executed in memory only: unchanged outside bounds, consistent closed winding, no degenerate triangles, seat consumed triangle-edge anisotropy max1.043234. First prototype failed missing bevel helper before completed geometry; retained exact failed script/log. No builder/native save in prototype.",
+  "repairs": [
+    "Re-fetch actual consumed chair UV RNA layer after unwrap; retain exact F16 failure",
+    "Tensioned sewn seat geometry inside unchanged original bounds, physical perimeter welt, scoped low-sheen woven canvas family (planning cap36 unchanged)",
+    "Leaf-relative gate slots with independent normal-modifier ordering; preserve original poses and pressed bay contacts",
+    "Closed die-drawn transit chest flutes and actual pressed lid field between unchanged bands; original load/rib/latch/label interfaces retained",
+    "Actual punched cooling vents in salvaged transformer cover; existing closed isolation box stays differentiated by purpose",
+    "Quieter/wider/warm reflected cargo fill, existing original lamp world poses/exposure unchanged",
+    "Quiet former maintenance-chart paint exposure with four real, registered wall-bearing vacant anchors near denied service cluster"
+  ],
+  "verification_required": [
+    "144 pre-save actual interface witnesses expected: prior116+24suspension+4wall",
+    "Unchanged all1077poses/protected byte hashes/boundaries/apertures/equipment reservations/planning caps",
+    "Static7checks and saved consolidated actual contacts/consumedcloth/topology",
+    "Selected fixed beauty/neutral/UV preflight with all originals actually opened",
+    "All27beauty+4neutral+4UV original final-cycle evidence and matching C8camera comparison",
+    "Six fresh read-only critics incl explicitlygpt-6-luna; truthful strict99/all8>93/zerocritical",
+    "Final2materiallystable and actualGitHubcold27decodedpixels before automatic PR66 ready"
+  ],
+  "acceptance_earned": false,
+  "completed_full_cycles": 8,
+  "latest_independent_overall": 92.3125,
+  "renderer_changed": false,
+  "runtime_unverified": true,
+  "no_self_merge_or_map_promotion": true
+}

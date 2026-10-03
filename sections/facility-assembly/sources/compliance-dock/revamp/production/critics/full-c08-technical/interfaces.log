@@ -1,0 +1,451 @@
+00:00.367  blend            | Read blend: "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend"
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend', '//../../blender/facility_environment.blend', parent '<direct>'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend', '//../../blender/facility_spawn_material_preview_R17.blend', parent '<direct>'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay/module.blend', '//..\sources\condenser-bay\module.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/condenser-bay/exterior-R02.blend', '//../exteriors/condenser-bay/exterior-R02.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/cooling-plant/exterior-R03.blend', '//../exteriors/cooling-plant/exterior-R03.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/electrical-room/exterior-R03.blend', '//../exteriors/electrical-room/exterior-R03.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/fuel-corridor/exterior-R02.blend', '//../exteriors/fuel-corridor/exterior-R02.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/medical-reanimation/exterior-R04.blend', '//../exteriors/medical-reanimation/exterior-R04.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/reactor-room/exterior-R05.blend', '//../exteriors/reactor-room/exterior-R05.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/refinery/exterior-R01.blend', '//../exteriors/refinery/exterior-R01.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/spawn-room/exterior-R05.blend', '//../exteriors/spawn-room/exterior-R05.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/turbine-room/exterior-R04.blend', '//../exteriors/turbine-room/exterior-R04.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/waste-storage/exterior-R01.blend', '//../exteriors/waste-storage/exterior-R01.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/sources/mine/module.blend', '//..\sources\mine\module.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend', '//..\sources\spawn-room\module.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/module.blend', '//..\sources\compliance-dock\module.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/compliance-dock/exterior-R08.blend', '//..\exteriors\compliance-dock\exterior-R08.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/sources/cooling-plant/module.blend', '//..\sources\cooling-plant\module.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/sources/electrical-room/module.blend', '//..\sources\electrical-room\module.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/sources/fuel-corridor/module.blend', '//..\sources\fuel-corridor\module.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/module.blend', '//..\sources\medical-reanimation\module.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/sources/reactor-room/module.blend', '//..\sources\reactor-room\module.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/sources/refinery/module.blend', '//..\sources\refinery\module.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/sources/turbine-room/module.blend', '//..\sources\turbine-room\module.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend'
+Info: Read library: '/workspace/critical-shift/sections/facility-assembly/sources/waste-storage/module.blend', '//..\sources\waste-storage\module.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend'
+{
+  "source_sha256": "d2514e668ea2b24e8b4ede6bde870e12f10c1afd6d6e1892b12c016266bd7b35",
+  "contract_sha256": "bdbdd0389eaa3b36b7d0f174c057034b2abd262245a8d4b52374b5b33e03eb6e",
+  "independent_surface_rays": [
+    {
+      "name": "P1",
+      "contract_width_m": 2.4,
+      "contract_height_m": 2.6,
+      "ray_from_world": [
+        0,
+        -0.12,
+        1.3
+      ],
+      "left": {
+        "object": "South wall west",
+        "surface_point": [
+          -1.2000000476837158,
+          -0.11999999731779099,
+          1.2999999523162842
+        ],
+        "normal": [
+          1.0,
+          -0.0,
+          0.0
+        ],
+        "triangle": 163,
+        "distance_m": 1.2000000476837158
+      },
+      "right": {
+        "object": "South wall east",
+        "surface_point": [
+          1.1999999284744263,
+          -0.11999999731779099,
+          1.2999999523162842
+        ],
+        "normal": [
+          -1.0,
+          -0.0,
+          0.0
+        ],
+        "triangle": 155,
+        "distance_m": 1.1999999284744263
+      },
+      "head": {
+        "object": "South lintel P1",
+        "surface_point": [
+          0.0,
+          -0.11999999731779099,
+          2.5999999046325684
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          -0.9999999403953552
+        ],
+        "triangle": 152,
+        "distance_m": 1.3000000715255737
+      },
+      "floor": {
+        "object": "Floor slab",
+        "surface_point": [
+          0.0,
+          -0.11999999731779099,
+          -0.10000002384185791
+        ],
+        "normal": [
+          0.0,
+          -0.0,
+          1.0
+        ],
+        "triangle": 206,
+        "distance_m": 1.399999976158142
+      },
+      "measured_width_m": 2.399999976158142,
+      "measured_height_m": 2.700000047683716,
+      "interpretation": "Frame surfaces only; sealed/openable leaves and hardware excluded explicitly. This does not prove a runtime opening."
+    },
+    {
+      "name": "P2 sealed frame",
+      "contract_width_m": 4.6,
+      "contract_height_m": 3.5,
+      "ray_from_world": [
+        0,
+        15.9,
+        1.6
+      ],
+      "left": {
+        "object": "P2 frame jamb -1",
+        "surface_point": [
+          -2.3000001907348633,
+          15.899999618530273,
+          1.600000023841858
+        ],
+        "normal": [
+          1.0,
+          -0.0,
+          0.0
+        ],
+        "triangle": 163,
+        "distance_m": 2.3000001907348633
+      },
+      "right": {
+        "object": "P2 frame jamb 1",
+        "surface_point": [
+          2.3000004291534424,
+          15.899999618530273,
+          1.600000023841858
+        ],
+        "normal": [
+          -1.0,
+          -0.0,
+          -0.0
+        ],
+        "triangle": 154,
+        "distance_m": 2.3000004291534424
+      },
+      "head": {
+        "object": "P2 frame head lintel",
+        "surface_point": [
+          0.0,
+          15.899999618530273,
+          3.5
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "triangle": 29,
+        "distance_m": 1.899999976158142
+      },
+      "floor": {
+        "object": "Floor slab",
+        "surface_point": [
+          0.0,
+          15.899999618530273,
+          1.1920928955078125e-07
+        ],
+        "normal": [
+          -0.0,
+          0.0,
+          1.0
+        ],
+        "triangle": 178,
+        "distance_m": 1.5999999046325684
+      },
+      "measured_width_m": 4.600000619888306,
+      "measured_height_m": 3.4999998807907104,
+      "interpretation": "Frame surfaces only; sealed/openable leaves and hardware excluded explicitly. This does not prove a runtime opening."
+    },
+    {
+      "name": "D1 frame",
+      "contract_width_m": 1.05,
+      "contract_height_m": 2.2,
+      "ray_from_world": [
+        -5.4,
+        3.6,
+        1.1
+      ],
+      "left": {
+        "object": "D1 frame jamb -1",
+        "surface_point": [
+          -5.924999713897705,
+          3.5999999046325684,
+          1.100000023841858
+        ],
+        "normal": [
+          1.0,
+          -0.0,
+          0.0
+        ],
+        "triangle": 163,
+        "distance_m": 0.5249996185302734
+      },
+      "right": {
+        "object": "D1 frame jamb 1",
+        "surface_point": [
+          -4.875,
+          3.5999999046325684,
+          1.100000023841858
+        ],
+        "normal": [
+          -1.0,
+          -0.0,
+          0.0
+        ],
+        "triangle": 155,
+        "distance_m": 0.5250000953674316
+      },
+      "head": {
+        "object": "D1 frame head",
+        "surface_point": [
+          -5.400000095367432,
+          3.5999999046325684,
+          2.200000047683716
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          -0.9999999403953552
+        ],
+        "triangle": 152,
+        "distance_m": 1.100000023841858
+      },
+      "floor": {
+        "object": "Floor slab",
+        "surface_point": [
+          -5.400000095367432,
+          3.5999999046325684,
+          0.0
+        ],
+        "normal": [
+          0.0,
+          -0.0,
+          1.0
+        ],
+        "triangle": 169,
+        "distance_m": 1.100000023841858
+      },
+      "measured_width_m": 1.049999713897705,
+      "measured_height_m": 2.200000047683716,
+      "interpretation": "Frame surfaces only; sealed/openable leaves and hardware excluded explicitly. This does not prove a runtime opening."
+    },
+    {
+      "name": "D2 frame",
+      "contract_width_m": 1.05,
+      "contract_height_m": 2.2,
+      "ray_from_world": [
+        -5.4,
+        9.6,
+        1.1
+      ],
+      "left": {
+        "object": "D2 frame jamb -1",
+        "surface_point": [
+          -5.924999713897705,
+          9.600000381469727,
+          1.100000023841858
+        ],
+        "normal": [
+          1.0,
+          -0.0,
+          0.0
+        ],
+        "triangle": 163,
+        "distance_m": 0.5249995589256287
+      },
+      "right": {
+        "object": "D2 frame jamb 1",
+        "surface_point": [
+          -4.875,
+          9.600000381469727,
+          1.100000023841858
+        ],
+        "normal": [
+          -1.0,
+          -0.0,
+          0.0
+        ],
+        "triangle": 155,
+        "distance_m": 0.5250000953674316
+      },
+      "head": {
+        "object": "D2 frame head",
+        "surface_point": [
+          -5.400000095367432,
+          9.600000381469727,
+          2.200000286102295
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "triangle": 152,
+        "distance_m": 1.1000001430511475
+      },
+      "floor": {
+        "object": "Floor slab",
+        "surface_point": [
+          -5.400000095367432,
+          9.600000381469727,
+          0.0
+        ],
+        "normal": [
+          0.0,
+          -0.0,
+          1.0
+        ],
+        "triangle": 169,
+        "distance_m": 1.100000023841858
+      },
+      "measured_width_m": 1.0499996542930603,
+      "measured_height_m": 2.2000001668930054,
+      "interpretation": "Frame surfaces only; sealed/openable leaves and hardware excluded explicitly. This does not prove a runtime opening."
+    },
+    {
+      "name": "worker scanner",
+      "contract_width_m": 1.2,
+      "contract_height_m": 2.25,
+      "ray_from_world": [
+        0,
+        7,
+        1.1
+      ],
+      "left": {
+        "object": "Scanner portal column -1",
+        "surface_point": [
+          -0.6400050520896912,
+          7.0,
+          1.100000023841858
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "triangle": 249,
+        "distance_m": 0.6400050520896912
+      },
+      "right": {
+        "object": "Scanner portal column 1",
+        "surface_point": [
+          0.6400050520896912,
+          7.0,
+          1.100000023841858
+        ],
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "triangle": 251,
+        "distance_m": 0.6400050520896912
+      },
+      "head": {
+        "object": "Scanner portal lintel",
+        "surface_point": [
+          0.0,
+          7.0,
+          2.6500000953674316
+        ],
+        "normal": [
+          -0.0,
+          -0.0,
+          -1.0
+        ],
+        "triangle": 190,
+        "distance_m": 1.5500000715255737
+      },
+      "floor": {
+        "object": "Floor slab",
+        "surface_point": [
+          0.0,
+          7.0,
+          0.0
+        ],
+        "normal": [
+          0.0,
+          -0.0,
+          1.0
+        ],
+        "triangle": 175,
+        "distance_m": 1.100000023841858
+      },
+      "measured_width_m": 1.2800101041793823,
+      "measured_height_m": 2.6500000953674316,
+      "interpretation": "Frame surfaces only; sealed/openable leaves and hardware excluded explicitly. This does not prove a runtime opening."
+    },
+    {
+      "name": "floor datum",
+      "hit": {
+        "object": "Floor slab",
+        "surface_point": [
+          0.0,
+          10.0,
+          0.0
+        ],
+        "normal": [
+          0.0,
+          -0.0,
+          1.0
+        ],
+        "triangle": 175,
+        "distance_m": 1.0
+      }
+    },
+    {
+      "name": "interior side faces",
+      "west": {
+        "object": "West perimeter wall",
+        "surface_point": [
+          -6.8000006675720215,
+          10.0,
+          1.0
+        ],
+        "normal": [
+          1.0,
+          -0.0,
+          0.0
+        ],
+        "triangle": 163,
+        "distance_m": 6.8000006675720215
+      },
+      "east": {
+        "object": "East perimeter wall",
+        "surface_point": [
+          6.800000190734863,
+          10.0,
+          1.0
+        ],
+        "normal": [
+          -1.0,
+          -0.0,
+          0.0
+        ],
+        "triangle": 155,
+        "distance_m": 6.800000190734863
+      }
+    }
+  ]
+}
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)
+
+Blender quit

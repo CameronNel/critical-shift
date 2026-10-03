@@ -1,0 +1,96 @@
+{
+  "reviewer": "GPT-6 Luna",
+  "review_type": "independent visual review with separately evaluated fresh native technical evidence",
+  "cycle": "full-cycle-05",
+  "source_sha256": "cf5b4c12c6567b142a060c2a8878e767ef001d192933d9fa9c08c0e61257d035",
+  "native": "sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend",
+  "visual_lock": "revamp/production/critics/full-c05-luna-visual.json",
+  "technical_evidence": "revamp/production/critics/full-c05-technical.json",
+  "categories": [
+    {"id": 1, "name": "Scale, layout and route readability", "score": 79, "evidence_source": "Locked pixel review; see full-c05-luna-visual.md"},
+    {"id": 2, "name": "Grounded stylized shape language and object-specific construction", "score": 68, "evidence_source": "Locked pixel review; see full-c05-luna-visual.md"},
+    {"id": 3, "name": "Inspection/check-in hero hierarchy and functional composition", "score": 75, "evidence_source": "Locked pixel review; see full-c05-luna-visual.md"},
+    {"id": 4, "name": "Tactile material identity and UV/texture discipline", "score": 71, "evidence_source": "Locked pixel review; see full-c05-luna-visual.md"},
+    {"id": 5, "name": "Localized lighting, depth and bleak atmosphere without hiding geometry", "score": 66, "evidence_source": "Locked pixel review; see full-c05-luna-visual.md"},
+    {"id": 6, "name": "Approved spawn colour coherence and restrained accents", "score": 69, "evidence_source": "Locked pixel review; see full-c05-luna-visual.md"},
+    {"id": 7, "name": "Purposeful worker traces and coercive institutional storytelling", "score": 72, "evidence_source": "Locked pixel review; see full-c05-luna-visual.md"},
+    {"id": 8, "name": "Technical hygiene, reproducibility, performance hygiene, no critical defects", "score": 92, "evidence_source": "Fresh independent native technical review; full-c05-technical.json/.md"}
+  ],
+  "total_points": 592,
+  "category_count": 8,
+  "exact_mean": 74,
+  "owner_gate": {
+    "required_mean_at_least": 99,
+    "required_each_category_strictly_greater_than": 93,
+    "required_critical_defects": 0,
+    "result": "FAIL"
+  },
+  "critical_defects": [
+    {
+      "id": "G1-01",
+      "severity": "critical",
+      "finding": "Two pressed bays on G1 leaf 1 have exposed front faces coplanar with the parent panel. The 40 mm parent runs from Y=6.980000019 to 7.019999981 m; the bays run from Y=6.980000019 to 6.985000134 m, penetrating approximately 5.000114 mm into the parent. Combined coincident exposed area is 0.443720505 m². The black fields are visible in beauty views and persist in supplemental UV.",
+      "bounded_repair": "Seat each bay from the measured front face of its own panel, carry captive fixings to the corrected bay front, preserve inherited matrices, and independently remeasure and rerender the repaired source."
+    }
+  ],
+  "other_technical_findings": [
+    {
+      "id": "REG-01",
+      "severity": "major evidence deficiency",
+      "finding": "Six inherited P2, D2 and D1 support witnesses reach their named target floor but do not establish contact with actual assembly geometry within 5 mm. The report does not interpret this as proof of floating doors; actual jamb feet reach the floor."
+    },
+    {
+      "id": "ROUTE-01",
+      "severity": "inherited interface discrepancy",
+      "finding": "The inherited G1 pedestal intrudes approximately 60 mm into the nominal R1 +/-0.6 m straight-route reservation; this matches the selected-original baseline. No unobstructed nominal 1.2 m or runtime opened-door route is certified."
+    },
+    {
+      "id": "UV-01",
+      "severity": "export caveat",
+      "finding": "Retained unused UVMap layers have 32,202 zero-area faces. Active physical/fabric charts have none; intentional chart overlap means the charts are not unique bake/lightmap atlases."
+    },
+    {
+      "id": "MESH-01",
+      "severity": "authoring caveat",
+      "finding": "120 meshes retain boundary edges, primarily open tube/curve and planar detail; they are not certified watertight collision solids."
+    }
+  ],
+  "technical_positive_evidence": {
+    "native_opened_fresh_process": true,
+    "blender": "5.2.2 LTS",
+    "relative_libraries_resolved": 25,
+    "packed_present_images": 119,
+    "evaluated_triangles_including_fonts": 381032,
+    "material_submeshes": 1150,
+    "local_material_families": 36,
+    "planning_limits_met": true,
+    "submesh_and_material_headroom": 0,
+    "inherited_objects_retained": 1077,
+    "inherited_matrix_changes_over_1e_6": 0,
+    "protected_inputs_match": true,
+    "recipe_font_license_hashes_match": true,
+    "exact_whole_object_geometry_duplicates": 0,
+    "degenerate_faces": 0,
+    "nonfinite_vertices": 0,
+    "inverted_closed_meshes": 0
+  },
+  "limitations": [
+    "The visual scores are based on the 27 opened full-cycle-05 beauty renders and four opened approved-spawn references; hashes match their manifest/provenance and the frozen source SHA.",
+    "The separate technical critic's 43-image audit is recorded in full-c05-technical.json; its cold_open=false authored renders do not establish cold-render equivalence.",
+    "Fresh-process native open and dependency resolution were independently measured, but the author build recipe was not run and remote checkout/cold-render image equivalence was not independently reproduced.",
+    "Historical full-cycle count and final-two-cycle stability were not certified.",
+    "FPS, runtime draw calls, Unity material equivalence, physics/collision bindings, navigation, opened-door/cart trajectories, networking and sound remain unverified.",
+    "Planning counters are source estimates, not runtime budgets."
+  ],
+  "highest_impact_repairs": [
+    "Repair G1-01 by reseating both leaf-1 bays and their fixings against measured parent/bay faces while preserving inherited matrices; rerun native interface measurements and all affected beauty, neutral and UV views.",
+    "Replace or supplement the six P2/D2/D1 support witnesses with verified actual assembly-foot witnesses; preserve protected transforms.",
+    "Keep the R1 pedestal intrusion explicit until a bounded interface decision and route check establish usable clearances.",
+    "Maintain zero-area legacy UVMap layers out of export/lightmap selection and define valid watertight collision geometry only during a scoped runtime handoff."
+  ],
+  "cold_render_status": "NOT VERIFIED",
+  "runtime_status": "NOT VERIFIED",
+  "critical_count": 1,
+  "visual_vetoes": [],
+  "final_verdict": "FAIL"
+}

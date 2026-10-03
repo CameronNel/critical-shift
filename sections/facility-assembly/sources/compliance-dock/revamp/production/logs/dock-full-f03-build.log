@@ -1,0 +1,24 @@
+00:00.811  blend            | Read blend: "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/module.blend"
+/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/overhaul_dock.py:58: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new('CD | '+key);m.use_nodes=True;bs=m.node_tree.nodes.get('Principled BSDF')
+Traceback (most recent call last):
+  File "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/overhaul_dock.py", line 386, in <module>
+    full_work()
+    ~~~~~~~~~^^
+  File "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/full_detail.py", line 304, in full_work
+    repair_full_candidate()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/full_repairs.py", line 247, in repair_full_candidate
+    repair_screens();repair_structure();repair_internal_bearing();repair_utilities();repair_tarp();repair_surfaces_story();repair_lighting()
+                                                                                     ~~~~~~~~~~~^^
+  File "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/full_repairs.py", line 183, in repair_tarp
+    q=replace('Trolley strap '+str(j),mesh('TEMP textile restraint',vs,fs,'rubber',0),'Four closed webbing strips conform to actual continuous cover, inherited matrices retained')
+  File "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/overhaul_dock.py", line 129, in replace
+    old.data=new.data;old.modifiers.clear()
+    ^^^^^^^^
+TypeError: bpy_struct: item.attr = val: Object.data expected a Curve type, not Mesh
+
+Error: script failed, file: 'sections/facility-assembly/sources/compliance-dock/overhaul_dock.py', exiting.
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)
+
+Blender quit

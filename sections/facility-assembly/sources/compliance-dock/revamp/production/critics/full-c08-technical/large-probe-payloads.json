@@ -1,0 +1,33 @@
+{
+  "scope": "Exact raw JSON retained locally; decoded-identicalgzip ordinaryGit payloads; no evidence altered",
+  "payloads": [
+    {
+      "raw_name": "contacts.json",
+      "compressed_name": "contacts.json.gz",
+      "decoded_bytes": 760963,
+      "decoded_sha256": "6473a815f342e8107895a32764a8634c3e30d24e6de077d937a115f2cb9beefe",
+      "compressed_sha256": "5d257f6fd1954e3e9e25cc384fe3dd4a8b56276cf3ace6d56b602af4b8f4e808"
+    },
+    {
+      "raw_name": "contacts_parts.json",
+      "compressed_name": "contacts_parts.json.gz",
+      "decoded_bytes": 2689373,
+      "decoded_sha256": "b02bde362423d59ff8cdce21189686d2228f26fa0527d0a11351cb1de6a72afe",
+      "compressed_sha256": "6e5e6630b26777e3cbb7adf67051e2bdf0228451ac88aea55c29c26ab0649ec4"
+    },
+    {
+      "raw_name": "existing-validator.json",
+      "compressed_name": "existing-validator.json.gz",
+      "decoded_bytes": 1375056,
+      "decoded_sha256": "9eb5e2d93c582e2e6ffe1573b50bcd12cd6a0e12faada29dd1405413ccc9275e",
+      "compressed_sha256": "f9639019dbf1ee9b2360e3f85f892fbc09c979e11ca2a177caf19f48ba59ee9d"
+    },
+    {
+      "raw_name": "inventory.json",
+      "compressed_name": "inventory.json.gz",
+      "decoded_bytes": 2463577,
+      "decoded_sha256": "e99507f77520a0db1d9a9413d959a6af83f740a5c3d52f2b81d86e4bff9e21bb",
+      "compressed_sha256": "b122f3c52f0ddd3aae532cc34bd5af904a46bac2695c63db5a223bfaeb92db7e"
+    }
+  ]
+}

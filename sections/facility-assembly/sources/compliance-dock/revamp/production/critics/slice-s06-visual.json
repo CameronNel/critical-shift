@@ -1,0 +1,115 @@
+{
+  "review_id": "slice-s06-visual",
+  "review_date": "2026-10-01",
+  "critic_role": "fresh independent local visual critic",
+  "verdict": "LOCAL FAIL",
+  "expansion_blocked": true,
+  "scope": [
+    "front-office wall and transition",
+    "D1 staff door",
+    "check-in counter cluster",
+    "task practical",
+    "junction and conduit",
+    "forms, tethered pen, stamp, tray, cloth and contact traces"
+  ],
+  "excluded": ["inherited room context", "full-room score", "full-room acceptance"],
+  "technical_status": "UNASSESSED",
+  "technical_properties_not_certified": [
+    "envelope and opening preservation",
+    "measured scale and clearances",
+    "support contact",
+    "UV packing and texel density",
+    "dependencies and reproducibility"
+  ],
+  "inspected_images": [
+    "renders/slice-s06/SLICE_ENTRY.png",
+    "renders/slice-s06/SLICE_MATERIAL.png",
+    "renders/slice-s06/SLICE_DOOR.png",
+    "renders/spawn-reference/VALIDATE_Spawn.png",
+    "renders/spawn-reference/VALIDATE_LockerDoor.png",
+    "renders/spawn-reference/VALIDATE_Material_A.png",
+    "renders/spawn-reference/BRIEFING_INDIRECT.png",
+    "renders/slice-s06-uv/SLICE_ENTRY.png",
+    "renders/slice-s06-uv/SLICE_DOOR.png",
+    "renders/slice-s06-neutral/SLICE_MATERIAL.png"
+  ],
+  "unavailable_diagnostics_at_inspection": [
+    "renders/slice-s06-uv/SLICE_MATERIAL.png",
+    "renders/slice-s06-neutral/SLICE_ENTRY.png",
+    "renders/slice-s06-neutral/SLICE_DOOR.png"
+  ],
+  "dominant_visual_veto": null,
+  "scores": null,
+  "strengths": [
+    "Clear check-in function and service-opening hierarchy",
+    "Readable framed door with angular inset panels and useful hardware",
+    "Restrained off-white, navy and orange colour blocking",
+    "Warm practical against cooler office and dark facility context",
+    "Sparse procedural signage with a coercive second meaning",
+    "Purposeful worker-prop cluster with negative space"
+  ],
+  "defects": [
+    {
+      "id": "S06V-01",
+      "priority": "P1",
+      "blocks_expansion": true,
+      "cameras": ["SLICE_MATERIAL", "SLICE_ENTRY"],
+      "region": "tan cloth below and left of paper tray",
+      "observation": "Reads as a thin flat sheet or envelope. Broad folds, folded thickness and soft textile edge response are absent at the fixed image scale; neutral material view confirms the read.",
+      "requirement": "readable fabric and object-specific prop geometry",
+      "correction": "Add visible folded thickness, a broad asymmetric crease or turned corner and a soft matte response without high-frequency weave.",
+      "closure_evidence": "Cloth is identifiable at the unchanged 1067 x 600 beauty frame scale."
+    },
+    {
+      "id": "S06V-02",
+      "priority": "P1",
+      "blocks_expansion": true,
+      "cameras": ["SLICE_MATERIAL", "SLICE_DOOR"],
+      "region": "counter mat, stamp-pad housing and dark door reveal",
+      "observation": "Mat is a flat green-grey rectangle, pad housing is a group of clean sharp boxes, and dark reveal does not clearly demonstrate rubber. Rubber and molded plastic cannot be confidently distinguished from coated metal.",
+      "requirement": "distinct plastic and rubber material families",
+      "correction": "Give mat a soft or tapered visible edge and differentiated matte response; give selected plastic housing a molded lip or seam and restrained distinct response; make any seal evidence visible within the unchanged reveal.",
+      "closure_evidence": "Beauty and same-view neutral images clearly distinguish rubber, plastic and coated metal."
+    },
+    {
+      "id": "S06V-03",
+      "priority": "P1",
+      "blocks_expansion": true,
+      "cameras": ["SLICE_DOOR", "SLICE_MATERIAL", "SLICE_ENTRY"],
+      "region": "lever/latch, kickplate, counter lip, tray edge and work mat",
+      "observation": "A few thin kickplate marks are visible, but most selected handling surfaces remain pristine. The sparse faint marks do not adequately demonstrate everyday use.",
+      "requirement": "localized plausible handling wear and active institutional use",
+      "correction": "Author a small set of visible causal traces at handle/latch, kick zone, counter lip and writing/sorting zone while retaining quiet broad surfaces.",
+      "closure_evidence": "Localized wear is visible and plausible in the unchanged beauty frames without a magnified crop or blanket grunge."
+    },
+    {
+      "id": "S06V-04",
+      "priority": "P2",
+      "blocks_expansion": false,
+      "cameras": ["SLICE_ENTRY", "SLICE_DOOR"],
+      "region": "junction and stepped conduit beside staff door",
+      "observation": "Utility route reads as a crisp stepped dark line with limited visible bend, termination or fastening specificity.",
+      "requirement": "grounded utility construction",
+      "correction": "Clarify one fastening or termination and intentional conduit/trunking bend treatment without adding decorative service clutter.",
+      "closure_evidence": "Fixed beauty frames communicate manufactured utility construction; support remains a separate numerical check."
+    }
+  ],
+  "local_requirements": {
+    "architectural_transition_door_primary_cluster": "VISUALLY ESTABLISHED; technical dimensions unverified",
+    "object_specific_geometry": "PARTIAL; cloth, mat and plastic housing under-authored",
+    "distinct_material_families": "FAIL",
+    "localized_wear": "FAIL",
+    "colour_blocking_spawn_coherence": "VISUALLY ESTABLISHED",
+    "localized_lighting_depth_bleak_mood": "VISUALLY ESTABLISHED",
+    "human_use_signage_negative_space": "FUNCTION ESTABLISHED; tactile traces incomplete",
+    "toy_ppe_generic_scifi_avoidance": "VISUALLY ESTABLISHED locally"
+  },
+  "evidence_limits": [
+    "Pixels do not prove support contact, envelope preservation or numerical clearances.",
+    "Door foot and floor threshold are largely cropped.",
+    "Checker diagnostics cannot certify UV packing, texel density or geometry validity.",
+    "Glass reflections are not clear enough to count as unmistakable human fingerprints.",
+    "No previous review or builder history was used, so no regression comparison is claimed."
+  ],
+  "next_review": "Repair all P1 findings, rerender the same three beauty views and obtain another independent local slice review before expansion."
+}

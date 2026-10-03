@@ -1,0 +1,153 @@
+{
+  "review_id": "full-c08-story",
+  "review_type": "fresh independent read-only formal environmental storytelling review",
+  "scope": {
+    "category": 7,
+    "name": "Purposeful worker traces and coercive institutional storytelling",
+    "other_categories_scored": false,
+    "overall_score": null
+  },
+  "evidence": {
+    "source_sha256": "d2514e668ea2b24e8b4ede6bde870e12f10c1afd6d6e1892b12c016266bd7b35",
+    "renderer_sha256": "38d50f5ec2f64755c9f1f2fe35d4e46e98f74dc71c3df327c9d32a18012e28ce",
+    "actual_source_hash_verified": true,
+    "actual_renderer_hash_verified": true,
+    "manifest_batches": [
+      {
+        "name": "full-cycle-08",
+        "complete": true,
+        "count": 27
+      },
+      {
+        "name": "full-cycle-08-neutral",
+        "complete": true,
+        "count": 4
+      },
+      {
+        "name": "full-cycle-08-uv-standard",
+        "complete": true,
+        "count": 4
+      }
+    ],
+    "approved_spawn_reference_count": 4,
+    "total_png_count": 39,
+    "all_39_png_hashes_verified": true,
+    "all_39_originals_individually_opened": true,
+    "contact_sheet_used": false,
+    "documents_read": [
+      "design/ART_DIRECTION.md",
+      "sections/facility-assembly/sources/compliance-dock/revamp/scenery/OVERHAUL_BRIEF.md",
+      "sections/facility-assembly/sources/compliance-dock/revamp/production/RUBRIC.md"
+    ],
+    "source_native_content_read": false,
+    "renderer_code_read": false,
+    "prior_reviews_read": false,
+    "author_rationale_read": false
+  },
+  "score": 96,
+  "score_basis": "Strong and spatially grounded coercion, specific administrative hand-work, named human cost, linked custody/evidence details and unsettling concealed support. Four points withheld for the minor visible limitations below; no effort or intended-backstory credit.",
+  "category_gate": {
+    "required": "strictly greater than 93",
+    "passes": true,
+    "overall_99_gate_assessed": false
+  },
+  "strengths": [
+    {
+      "evidence": [
+        "full-cycle-08/C02_HERO_DOCK.png",
+        "full-cycle-08/WALL_OFFICE_FRONT.png"
+      ],
+      "finding": "WE VALUE YOUR TIME / ALL DELAYS ARE YOUR RESPONSIBILITY delivers corporate reassurance with an immediately coercive reversal over the actual check-in point."
+    },
+    {
+      "evidence": [
+        "full-cycle-08/C07_OFFICE_INTERIOR.png",
+        "full-cycle-08/WALL_OFFICE_FRONT.png",
+        "full-cycle-08/DETAIL_CHECKIN.png"
+      ],
+      "finding": "M. VALE / 14 HOURS / NO RELIEF gives a specific person's cost. Mug, angled chair, forms, loose pen, wiping cloth, telephone, clipboard, bell and stamp make the office and hatch places of repeated human labor rather than decorated boxes."
+    },
+    {
+      "evidence": [
+        "full-cycle-08/C01_ENTRY.png",
+        "full-cycle-08/C04_SCANNER_APPROACH.png",
+        "full-cycle-08/C06_CART_GATE_G1.png",
+        "full-cycle-08/PLAYER_REVERSE.png"
+      ],
+      "finding": "Marked routes, biometric sensors, closed bypass barrier, sealed arrival door and controlled staff access communicate constrained behavior before text is read."
+    },
+    {
+      "evidence": [
+        "full-cycle-08/C05_CONVEYOR_LEAD_TUNNEL.png",
+        "full-cycle-08/HERO_EVIDENCE.png"
+      ],
+      "finding": "SECTOR 04 / CUSTODY 731-A on sealed cargo and DO NOT RELEASE / 731-A on locked storage connect processing to withholding evidence."
+    },
+    {
+      "evidence": [
+        "full-cycle-08/C08_CONCEALED_SUPPORT_H1.png",
+        "full-cycle-08/HERO_TROLLEY.png",
+        "full-cycle-08/CORNER_NE.png"
+      ],
+      "finding": "A buckled covered trolley and hook pole tucked behind the office beside locked evidence create an unsettling institutional implication through objects and separation. No unsupported claim about a body, patient or incident is made."
+    },
+    {
+      "evidence": [
+        "spawn-reference/BRIEFING_INDIRECT.png",
+        "spawn-reference/VALIDATE_Material_A.png",
+        "spawn-reference/VALIDATE_LockerDoor.png",
+        "full-cycle-08/CORNER_SW.png"
+      ],
+      "finding": "Spawn's jacket, personal photograph, PPE preparation and comfortable briefing furnishings make human care visible. Dock replaces that emphasis with numbered processing, guarded movement and concealed transfer while retaining plausible working props; the bleak contrast is earned."
+    }
+  ],
+  "defects": [
+    {
+      "id": "C7-REPAIR-CONSEQUENCE-01",
+      "severity": "minor",
+      "critical": false,
+      "veto": false,
+      "points_deducted": 3,
+      "title": "Service repair reads as a patch without a legible consequence",
+      "evidence": [
+        "full-cycle-08/HERO_UTILITIES.png",
+        "full-cycle-08-neutral/HERO_UTILITIES.png",
+        "full-cycle-08/PLAYER_PINCH.png"
+      ],
+      "finding": "The black wrapped conduit, yellow band and hanging panel tag communicate intervention. At the closest supplied original beauty and neutral views, the small tag does not clearly explain the unresolved condition or its consequence. Local cabinet handle wear proves use, but the service cluster's story stops at generic maintenance rather than specifically showing institutional deterioration under pressure.",
+      "limitation": "This is a readability/specificity deduction, not a claim that no repair or tag exists. No additional clutter is needed in reserved routes."
+    },
+    {
+      "id": "C7-SECONDARY-MESSAGE-02",
+      "severity": "minor",
+      "critical": false,
+      "veto": false,
+      "points_deducted": 1,
+      "title": "Some subordinate institutional messages remain faint at close evidence views",
+      "evidence": [
+        "full-cycle-08/C03_CHECKIN_COUNTER.png",
+        "full-cycle-08/DETAIL_CHECKIN.png",
+        "full-cycle-08/HERO_TROLLEY.png",
+        "full-cycle-08-uv-standard/HERO_TROLLEY.png"
+      ],
+      "finding": "The small copy below A BETTER SHIFT AWAITS is faint in C03; DETAIL_CHECKIN crops the upper sign while fine clipboard copy remains low contrast. The trolley's HOLD FOR REVIEW label is clearest in the checker diagnostic, much less legible in the original beauty hero. These supporting details earn less narrative-specific credit. The large blame-shifting sign, STATE YOUR NUMBER, named NO RELIEF board and custody note remain strong and legible.",
+      "limitation": "Incidental fine print need not all be readable. Deduction is small because the central coercive story already works through placement, mechanisms and readable primary messages."
+    }
+  ],
+  "critical_defect_ids": [],
+  "visual_veto_ids": [],
+  "limitations": [
+    "Current static image evidence only; no runtime behavior, hidden contents, native assembly, collision or interaction claims.",
+    "Cutaways/elevations establish distribution, while close originals establish text and worker traces. Occlusion in any single view is not treated as absence.",
+    "Neutral and checker views are diagnostic evidence, not substitutes for beauty mood or message legibility.",
+    "This category pass does not certify the overall gate or any other category."
+  ],
+  "process_release": {
+    "all_image_readers_released": true,
+    "all_processes_released": true,
+    "source_edited": false,
+    "renderer_edited": false,
+    "external_communications": false
+  }
+}
+
