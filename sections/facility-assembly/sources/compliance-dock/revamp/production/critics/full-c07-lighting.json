@@ -1,0 +1,134 @@
+{
+  "review": "full-c07-lighting",
+  "cycle": 7,
+  "category": 5,
+  "category_name": "Localized lighting, depth and bleak atmosphere without hiding geometry",
+  "score": 97,
+  "maximum": 100,
+  "threshold": {
+    "strictly_greater_than": 93
+  },
+  "category_gate": "PASS",
+  "scope": "Independent fresh-context category 5 pixel review only. No overall score or other-category acceptance.",
+  "source_sha256_expected": "22176ab474d914156cdf5a083571c19b04c6e6e11cfa50ab8ba681013bc124a6",
+  "renderer_sha256_expected": "9fbae704a9a0db49d5848fd73004c0bdaf6c62455ba8db0043228a6f1b9adce2",
+  "evidence_verification": {
+    "current_manifests_complete": true,
+    "current_counts": {
+      "beauty": 27,
+      "neutral": 4,
+      "uv": 4
+    },
+    "current_image_hashes_verified": 35,
+    "approved_spawn_hashes_verified": 4,
+    "individual_originals_opened": 39,
+    "source_renderer_manifest_identity_match": true,
+    "native_or_renderer_hash_recomputed": false,
+    "limitation": "Source and renderer identities are checked against the complete manifests. Native/source and renderer files were not opened in this pixel-only critic scope."
+  },
+  "deductions": [
+    {
+      "id": "L5-01",
+      "severity": "minor",
+      "critical": false,
+      "points": 1.5,
+      "frame_regions": [
+        {
+          "set": "full-cycle-07",
+          "frame": "C05_CONVEYOR_LEAD_TUNNEL",
+          "region_pixels": [
+            495,
+            430,
+            1066,
+            599
+          ],
+          "description": "Front/lower conveyor frame and dark crate underside"
+        },
+        {
+          "set": "full-cycle-07",
+          "frame": "HERO_CARGO",
+          "region_pixels": [
+            472,
+            419,
+            1021,
+            599
+          ],
+          "description": "Lower conveyor front apron, supports and crate underside"
+        }
+      ],
+      "finding": "The black conveyor apron, support rail and crate underside compress into similar dark values. The tunnel practical defines the curtain and crate top but gives little separation to the load-supporting structure beneath. The object remains identifiable; the lost relief is a small local readability deficit.",
+      "diagnostic_evidence": "C05_CONVEYOR_LEAD_TUNNEL neutral and UV originals expose the relief more clearly; diagnostic illumination is not scored as beauty lighting."
+    },
+    {
+      "id": "L5-02",
+      "severity": "minor",
+      "critical": false,
+      "points": 1,
+      "frame_regions": [
+        {
+          "set": "full-cycle-07",
+          "frame": "C09_ARRIVAL_GATE_P2",
+          "region_pixels": [
+            281,
+            161,
+            907,
+            550
+          ],
+          "description": "Four dark inset reinforcement panels"
+        },
+        {
+          "set": "full-cycle-07",
+          "frame": "WALL_NORTH",
+          "region_pixels": [
+            400,
+            257,
+            666,
+            425
+          ],
+          "description": "Arrival-door dark recesses"
+        }
+      ],
+      "finding": "The recessed reinforcement panels retain their outlines but their inner faces, beveled borders and near-vertical sides have weak value separation. The sealed door reads clearly; its construction depth is less legible than the approved spawn operational door."
+    },
+    {
+      "id": "L5-03",
+      "severity": "minor",
+      "critical": false,
+      "points": 0.5,
+      "frame_regions": [
+        {
+          "set": "full-cycle-07",
+          "frame": "PLAYER_REVERSE",
+          "region_pixels": [
+            383,
+            60,
+            661,
+            138
+          ],
+          "description": "Reverse scanner head and dark ceiling immediately behind"
+        }
+      ],
+      "finding": "The reverse-facing scanner head's lower face and surrounding dark ceiling sit at closely matched values, reducing the head's depth relative to the well-lit threshold and uprights. Its silhouette remains readable."
+    }
+  ],
+  "critical_ids": [],
+  "visual_veto_ids": [],
+  "earned_qualities": [
+    "Localized practical pools distinguish warm check-in/office work from cooler inspection and subdued storage.",
+    "Major routes and functional machinery remain visible; no dominant flat even lighting or geometry-hiding darkness.",
+    "Ceiling fixtures visibly affect nearby structure, and contact shadows ground desk, chair, trolley, scanner and conveyor.",
+    "Small status lights and amber beacons remain restrained; bright paper, cloth and practical fixtures do not bloom across the composition.",
+    "Subdued exposure, dark overhead structure and dim storage establish an active coercive institutional mood with controlled depth."
+  ],
+  "approved_spawn_calibration": "Compared all four approved originals. Dock retains practical-light hierarchy, subdued ceiling and route readability while supporting a bleaker room objective.",
+  "no_coaching": true,
+  "no_previous_critics_read": true,
+  "no_author_rationale_or_native_read": true,
+  "process_release": "All review commands completed. No Blender, builder, renderer, background session or retained file handle was created; all image/file reads returned and closed.",
+  "outputs": [
+    "full-c07-lighting.json",
+    "full-c07-lighting.md",
+    "full-c07-lighting-imageaudit.json"
+  ]
+}
+

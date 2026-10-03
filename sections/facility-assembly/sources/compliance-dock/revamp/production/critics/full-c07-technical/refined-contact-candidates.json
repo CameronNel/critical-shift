@@ -1,0 +1,3263 @@
+{
+  "method": "All evaluated vertices to opposite BVH in both directions; BVH triangle intersection distinguishes legitimate interlocked seats from sparse-sample false negatives. Fully contained solids may have no intersection; nearest-distance alone is not a penetration test.",
+  "results": [
+    {
+      "object": "P2 beacon amber -1.5",
+      "island": 0,
+      "matches": [
+        {
+          "object": "P2 beacon base -1.5",
+          "island": 0,
+          "surface_intersection_pairs": 54,
+          "first_intersection_pairs": [
+            [
+              343,
+              334
+            ],
+            [
+              342,
+              334
+            ],
+            [
+              345,
+              334
+            ],
+            [
+              344,
+              334
+            ]
+          ],
+          "vertex_surface_min_m": 0.005000114440917969,
+          "witness": [
+            [
+              -1.5,
+              15.75,
+              3.934999942779541
+            ],
+            [
+              -1.4999998807907104,
+              15.75,
+              3.940000057220459
+            ],
+            332
+          ]
+        },
+        {
+          "object": "CD | Joined Arrival Gate P2 / charcoal",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.020303407683968544,
+          "witness": [
+            [
+              -1.5,
+              15.75,
+              3.934999942779541
+            ],
+            [
+              -1.5,
+              15.769999504089355,
+              3.931500196456909
+            ],
+            76
+          ]
+        }
+      ]
+    },
+    {
+      "object": "P2 beacon amber 1.5",
+      "island": 0,
+      "matches": [
+        {
+          "object": "P2 beacon base 1.5",
+          "island": 0,
+          "surface_intersection_pairs": 54,
+          "first_intersection_pairs": [
+            [
+              343,
+              334
+            ],
+            [
+              342,
+              334
+            ],
+            [
+              345,
+              334
+            ],
+            [
+              344,
+              334
+            ]
+          ],
+          "vertex_surface_min_m": 0.005000114440917969,
+          "witness": [
+            [
+              1.5,
+              15.75,
+              3.934999942779541
+            ],
+            [
+              1.5000001192092896,
+              15.75,
+              3.940000057220459
+            ],
+            332
+          ]
+        },
+        {
+          "object": "CD | Joined Arrival Gate P2 / charcoal",
+          "island": 1,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.020303407683968544,
+          "witness": [
+            [
+              1.5,
+              15.75,
+              3.934999942779541
+            ],
+            [
+              1.5,
+              15.769999504089355,
+              3.931500196456909
+            ],
+            76
+          ]
+        }
+      ]
+    },
+    {
+      "object": "P2 emergency wheel",
+      "island": 0,
+      "matches": [
+        {
+          "object": "P2 security console",
+          "island": 0,
+          "surface_intersection_pairs": 54,
+          "first_intersection_pairs": [
+            [
+              306,
+              153
+            ],
+            [
+              309,
+              153
+            ],
+            [
+              343,
+              157
+            ],
+            [
+              342,
+              157
+            ]
+          ],
+          "vertex_surface_min_m": 0.005000114440917969,
+          "witness": [
+            [
+              2.6500000953674316,
+              15.595000267028809,
+              0.9900000095367432
+            ],
+            [
+              2.6500000953674316,
+              15.59000015258789,
+              0.9900000095367432
+            ],
+            157
+          ]
+        }
+      ]
+    },
+    {
+      "object": "D2 panic bar",
+      "island": 0,
+      "matches": [
+        {
+          "object": "D2 door leaf",
+          "island": 0,
+          "surface_intersection_pairs": 34,
+          "first_intersection_pairs": [
+            [
+              133,
+              156
+            ],
+            [
+              132,
+              156
+            ],
+            [
+              163,
+              156
+            ],
+            [
+              162,
+              156
+            ]
+          ],
+          "vertex_surface_min_m": 0.006999969482421875,
+          "witness": [
+            [
+              -5.822000026702881,
+              9.557000160217285,
+              1.0099999904632568
+            ],
+            [
+              -5.822000026702881,
+              9.550000190734863,
+              1.0099999904632568
+            ],
+            157
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Observation glass pane 0",
+      "island": 0,
+      "matches": [
+        {
+          "object": "Window mullion 4.0",
+          "island": 0,
+          "surface_intersection_pairs": 34,
+          "first_intersection_pairs": [
+            [
+              133,
+              160
+            ],
+            [
+              132,
+              160
+            ],
+            [
+              162,
+              160
+            ],
+            [
+              153,
+              161
+            ]
+          ],
+          "vertex_surface_min_m": 0.015000104904174805,
+          "witness": [
+            [
+              -2.4090001583099365,
+              4.015999794006348,
+              1.065000057220459
+            ],
+            [
+              -2.4090001583099365,
+              4.015999794006348,
+              1.0499999523162842
+            ],
+            152
+          ]
+        },
+        {
+          "object": "Window mullion 5.63",
+          "island": 0,
+          "surface_intersection_pairs": 34,
+          "first_intersection_pairs": [
+            [
+              133,
+              156
+            ],
+            [
+              132,
+              156
+            ],
+            [
+              162,
+              156
+            ],
+            [
+              162,
+              157
+            ]
+          ],
+          "vertex_surface_min_m": 0.015000104904174805,
+          "witness": [
+            [
+              -2.4090001583099365,
+              5.61400032043457,
+              1.065000057220459
+            ],
+            [
+              -2.4090001583099365,
+              5.61400032043457,
+              1.0499999523162842
+            ],
+            153
+          ]
+        },
+        {
+          "object": "Office east corner south",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.014999866485595703,
+          "witness": [
+            [
+              -2.4090001583099365,
+              4.014999866485596,
+              1.065999984741211
+            ],
+            [
+              -2.4090001583099365,
+              4.0,
+              1.0660001039505005
+            ],
+            161
+          ]
+        },
+        {
+          "object": "Office east sill wall",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.015000104904174805,
+          "witness": [
+            [
+              -2.4090001583099365,
+              4.015999794006348,
+              1.065000057220459
+            ],
+            [
+              -2.4090001583099365,
+              4.0159993171691895,
+              1.0499999523162842
+            ],
+            159
+          ]
+        },
+        {
+          "object": "Office east head wall",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.015000104904174805,
+          "witness": [
+            [
+              -2.4090001583099365,
+              4.015999794006348,
+              2.484999895095825
+            ],
+            [
+              -2.4090001583099365,
+              4.015999794006348,
+              2.5
+            ],
+            153
+          ]
+        },
+        {
+          "object": "Observation glass pane 1",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.029999732971191406,
+          "witness": [
+            [
+              -2.4090001583099365,
+              5.615000247955322,
+              1.065999984741211
+            ],
+            [
+              -2.4090001583099365,
+              5.644999980926514,
+              1.065999984741211
+            ],
+            145
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Observation glass pane 1",
+      "island": 0,
+      "matches": [
+        {
+          "object": "Window mullion 5.63",
+          "island": 0,
+          "surface_intersection_pairs": 34,
+          "first_intersection_pairs": [
+            [
+              133,
+              160
+            ],
+            [
+              132,
+              160
+            ],
+            [
+              162,
+              160
+            ],
+            [
+              153,
+              161
+            ]
+          ],
+          "vertex_surface_min_m": 0.015000104904174805,
+          "witness": [
+            [
+              -2.4090001583099365,
+              5.645999908447266,
+              1.065000057220459
+            ],
+            [
+              -2.4090001583099365,
+              5.645999908447266,
+              1.0499999523162842
+            ],
+            152
+          ]
+        },
+        {
+          "object": "Window mullion 7.26",
+          "island": 0,
+          "surface_intersection_pairs": 34,
+          "first_intersection_pairs": [
+            [
+              133,
+              156
+            ],
+            [
+              132,
+              156
+            ],
+            [
+              162,
+              156
+            ],
+            [
+              162,
+              157
+            ]
+          ],
+          "vertex_surface_min_m": 0.015000104904174805,
+          "witness": [
+            [
+              -2.4090001583099365,
+              7.244000434875488,
+              1.065000057220459
+            ],
+            [
+              -2.4090001583099365,
+              7.244000434875488,
+              1.0499999523162842
+            ],
+            153
+          ]
+        },
+        {
+          "object": "Office east sill wall",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.015000104904174805,
+          "witness": [
+            [
+              -2.4090001583099365,
+              7.244000434875488,
+              1.065000057220459
+            ],
+            [
+              -2.4090001583099365,
+              7.244000434875488,
+              1.0499999523162842
+            ],
+            158
+          ]
+        },
+        {
+          "object": "Office east head wall",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.015000104904174805,
+          "witness": [
+            [
+              -2.4090001583099365,
+              5.645999908447266,
+              2.484999895095825
+            ],
+            [
+              -2.409001350402832,
+              5.645998001098633,
+              2.5
+            ],
+            153
+          ]
+        },
+        {
+          "object": "Observation glass pane 2",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.029999256134033203,
+          "witness": [
+            [
+              -2.4090001583099365,
+              7.24500036239624,
+              1.065999984741211
+            ],
+            [
+              -2.4090001583099365,
+              7.274999618530273,
+              1.065999984741211
+            ],
+            145
+          ]
+        },
+        {
+          "object": "Observation glass pane 0",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.029999732971191406,
+          "witness": [
+            [
+              -2.4090001583099365,
+              5.644999980926514,
+              1.065999984741211
+            ],
+            [
+              -2.4090001583099365,
+              5.615000247955322,
+              1.065999984741211
+            ],
+            26
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Observation glass pane 2",
+      "island": 0,
+      "matches": [
+        {
+          "object": "Window mullion 7.26",
+          "island": 0,
+          "surface_intersection_pairs": 34,
+          "first_intersection_pairs": [
+            [
+              133,
+              160
+            ],
+            [
+              132,
+              160
+            ],
+            [
+              162,
+              160
+            ],
+            [
+              153,
+              161
+            ]
+          ],
+          "vertex_surface_min_m": 0.015000104904174805,
+          "witness": [
+            [
+              -2.4090001583099365,
+              7.276000022888184,
+              1.065000057220459
+            ],
+            [
+              -2.4090001583099365,
+              7.276000022888184,
+              1.0499999523162842
+            ],
+            152
+          ]
+        },
+        {
+          "object": "Window mullion 8.9",
+          "island": 0,
+          "surface_intersection_pairs": 34,
+          "first_intersection_pairs": [
+            [
+              133,
+              156
+            ],
+            [
+              132,
+              156
+            ],
+            [
+              162,
+              156
+            ],
+            [
+              162,
+              157
+            ]
+          ],
+          "vertex_surface_min_m": 0.01399993896484375,
+          "witness": [
+            [
+              -2.4090001583099365,
+              8.87399959564209,
+              1.065000057220459
+            ],
+            [
+              -2.4090001583099365,
+              8.859999656677246,
+              1.065000057220459
+            ],
+            157
+          ]
+        },
+        {
+          "object": "Office east sill wall",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.015000104904174805,
+          "witness": [
+            [
+              -2.4090001583099365,
+              7.276000022888184,
+              1.065000057220459
+            ],
+            [
+              -2.4090001583099365,
+              7.276000022888184,
+              1.0499999523162842
+            ],
+            158
+          ]
+        },
+        {
+          "object": "Office east head wall",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.015000104904174805,
+          "witness": [
+            [
+              -2.4090001583099365,
+              7.276000022888184,
+              2.484999895095825
+            ],
+            [
+              -2.4090001583099365,
+              7.276000022888184,
+              2.5
+            ],
+            152
+          ]
+        },
+        {
+          "object": "Office east corner north",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.024999618530273438,
+          "witness": [
+            [
+              -2.4090001583099365,
+              8.875,
+              1.065999984741211
+            ],
+            [
+              -2.4090001583099365,
+              8.899999618530273,
+              1.0660001039505005
+            ],
+            157
+          ]
+        },
+        {
+          "object": "Observation glass pane 1",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.029999256134033203,
+          "witness": [
+            [
+              -2.4090001583099365,
+              7.274999618530273,
+              1.065999984741211
+            ],
+            [
+              -2.4090001583099365,
+              7.24500036239624,
+              1.065999984741211
+            ],
+            26
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Chair caster hub",
+      "island": 0,
+      "matches": [
+        {
+          "object": "Chair leg 0",
+          "island": 0,
+          "surface_intersection_pairs": 30,
+          "first_intersection_pairs": [
+            [
+              345,
+              2
+            ],
+            [
+              345,
+              5
+            ],
+            [
+              345,
+              15
+            ],
+            [
+              345,
+              14
+            ]
+          ],
+          "vertex_surface_min_m": 0.014262109994888306,
+          "witness": [
+            [
+              -4.399999618530273,
+              6.800000190734863,
+              0.02499999850988388
+            ],
+            [
+              -4.39823055267334,
+              6.800000190734863,
+              0.03915196657180786
+            ],
+            15
+          ]
+        },
+        {
+          "object": "Chair leg 1",
+          "island": 0,
+          "surface_intersection_pairs": 28,
+          "first_intersection_pairs": [
+            [
+              337,
+              7
+            ],
+            [
+              337,
+              12
+            ],
+            [
+              337,
+              15
+            ],
+            [
+              337,
+              13
+            ]
+          ],
+          "vertex_surface_min_m": 0.01427061390131712,
+          "witness": [
+            [
+              -4.437058925628662,
+              6.848296642303467,
+              0.02499999850988388
+            ],
+            [
+              -4.436511516571045,
+              6.849981307983398,
+              0.03916024789214134
+            ],
+            14
+          ]
+        },
+        {
+          "object": "Chair leg 2",
+          "island": 0,
+          "surface_intersection_pairs": 30,
+          "first_intersection_pairs": [
+            [
+              377,
+              9
+            ],
+            [
+              377,
+              11
+            ],
+            [
+              377,
+              8
+            ],
+            [
+              377,
+              10
+            ]
+          ],
+          "vertex_surface_min_m": 0.014308396726846695,
+          "witness": [
+            [
+              -4.493300914764404,
+              6.825000286102295,
+              0.02499999850988388
+            ],
+            [
+              -4.494388103485107,
+              6.826520919799805,
+              0.03918576240539551
+            ],
+            17
+          ]
+        },
+        {
+          "object": "Chair leg 3",
+          "island": 0,
+          "surface_intersection_pairs": 28,
+          "first_intersection_pairs": [
+            [
+              363,
+              1
+            ],
+            [
+              363,
+              18
+            ],
+            [
+              363,
+              19
+            ],
+            [
+              363,
+              16
+            ]
+          ],
+          "vertex_surface_min_m": 0.014308400452136993,
+          "witness": [
+            [
+              -4.493300914764404,
+              6.775000095367432,
+              0.02499999850988388
+            ],
+            [
+              -4.494388103485107,
+              6.773479461669922,
+              0.039185766130685806
+            ],
+            12
+          ]
+        },
+        {
+          "object": "Chair leg 4",
+          "island": 0,
+          "surface_intersection_pairs": 28,
+          "first_intersection_pairs": [
+            [
+              353,
+              19
+            ],
+            [
+              353,
+              17
+            ],
+            [
+              353,
+              16
+            ],
+            [
+              353,
+              1
+            ]
+          ],
+          "vertex_surface_min_m": 0.014270633459091187,
+          "witness": [
+            [
+              -4.437058925628662,
+              6.75170373916626,
+              0.02499999850988388
+            ],
+            [
+              -4.436511516571045,
+              6.750020503997803,
+              0.039160437881946564
+            ],
+            15
+          ]
+        },
+        {
+          "object": "Chair gas lift cylinder",
+          "island": 0,
+          "surface_intersection_pairs": 54,
+          "first_intersection_pairs": [
+            [
+              334,
+              343
+            ],
+            [
+              334,
+              344
+            ],
+            [
+              334,
+              349
+            ],
+            [
+              334,
+              353
+            ]
+          ],
+          "vertex_surface_min_m": 0.004999995231628418,
+          "witness": [
+            [
+              -4.449999809265137,
+              6.832000255584717,
+              0.09999999403953552
+            ],
+            [
+              -4.449999809265137,
+              6.832000255584717,
+              0.0949999988079071
+            ],
+            332
+          ]
+        },
+        {
+          "object": "Floor slab",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.019999999552965164,
+          "witness": [
+            [
+              -4.449999809265137,
+              6.844956874847412,
+              0.019999999552965164
+            ],
+            [
+              -4.450000762939453,
+              6.8449578285217285,
+              0.0
+            ],
+            169
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Scanner ceiling junction box",
+      "island": 0,
+      "matches": [
+        {
+          "object": "Scanner overhead conduit west",
+          "island": 0,
+          "surface_intersection_pairs": 48,
+          "first_intersection_pairs": [
+            [
+              153,
+              310
+            ],
+            [
+              153,
+              356
+            ],
+            [
+              153,
+              354
+            ],
+            [
+              153,
+              355
+            ]
+          ],
+          "vertex_surface_min_m": 0.029999971389770508,
+          "witness": [
+            [
+              -0.800000011920929,
+              7.0,
+              3.8949999809265137
+            ],
+            [
+              -0.7700000405311584,
+              7.0,
+              3.8949999809265137
+            ],
+            155
+          ]
+        },
+        {
+          "object": "Scanner overhead conduit east",
+          "island": 0,
+          "surface_intersection_pairs": 48,
+          "first_intersection_pairs": [
+            [
+              152,
+              310
+            ],
+            [
+              152,
+              356
+            ],
+            [
+              152,
+              354
+            ],
+            [
+              152,
+              355
+            ]
+          ],
+          "vertex_surface_min_m": 0.029999971389770508,
+          "witness": [
+            [
+              0.800000011920929,
+              7.0,
+              3.8949999809265137
+            ],
+            [
+              0.7700000405311584,
+              7.0,
+              3.8949999809265137
+            ],
+            163
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Lead curtain strip 6.48_1",
+      "island": 0,
+      "matches": [
+        {
+          "object": "Curtain clamp bar 6.48",
+          "island": 0,
+          "surface_intersection_pairs": 33,
+          "first_intersection_pairs": [
+            [
+              178,
+              153
+            ],
+            [
+              225,
+              153
+            ],
+            [
+              235,
+              153
+            ],
+            [
+              234,
+              153
+            ]
+          ],
+          "vertex_surface_min_m": 0.008999824523925781,
+          "witness": [
+            [
+              4.304999828338623,
+              6.473499774932861,
+              1.7589998245239258
+            ],
+            [
+              4.304999828338623,
+              6.473499774932861,
+              1.75
+            ],
+            153
+          ]
+        },
+        {
+          "object": "Lead tunnel inner chamber",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.009340603835880756,
+          "witness": [
+            [
+              4.303999900817871,
+              6.487500190734863,
+              1.7589999437332153
+            ],
+            [
+              4.303999900817871,
+              6.489999771118164,
+              1.75
+            ],
+            0
+          ]
+        },
+        {
+          "object": "Lead curtain strip 6.48_2",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.009999752044677734,
+          "witness": [
+            [
+              4.304999828338623,
+              6.473499774932861,
+              0.8149998784065247
+            ],
+            [
+              4.314999580383301,
+              6.473499774932861,
+              0.8149998784065247
+            ],
+            101
+          ]
+        },
+        {
+          "object": "Lead curtain strip 6.48_0",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.010000228881835938,
+          "witness": [
+            [
+              4.174999713897705,
+              6.473499774932861,
+              1.7589998245239258
+            ],
+            [
+              4.164999485015869,
+              6.473499774932861,
+              1.7589998245239258
+            ],
+            184
+          ]
+        },
+        {
+          "object": "Lead tunnel main body",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.012499809265136719,
+          "witness": [
+            [
+              4.303999900817871,
+              6.487500190734863,
+              1.7589999437332153
+            ],
+            [
+              4.303999900817871,
+              6.5,
+              1.7589999437332153
+            ],
+            578
+          ]
+        },
+        {
+          "object": "CD | Joined Cargo Inspection Conveyor / charcoal",
+          "island": 14,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.012539749965071678,
+          "witness": [
+            [
+              4.303999900817871,
+              6.472499847412109,
+              1.7589999437332153
+            ],
+            [
+              4.303999900817871,
+              6.460000038146973,
+              1.7599999904632568
+            ],
+            43
+          ]
+        },
+        {
+          "object": "Conveyor roller 7",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.02452028915286064,
+          "witness": [
+            [
+              4.175999641418457,
+              6.487500190734863,
+              0.8009999394416809
+            ],
+            [
+              4.175999641418457,
+              6.51200008392334,
+              0.800000011920929
+            ],
+            237
+          ]
+        },
+        {
+          "object": "Conveyor roller 6",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.034514132887125015,
+          "witness": [
+            [
+              4.175999641418457,
+              6.472499847412109,
+              0.8009998798370361
+            ],
+            [
+              4.175999641418457,
+              6.438000202178955,
+              0.800000011920929
+            ],
+            209
+          ]
+        },
+        {
+          "object": "CD | Joined Cargo Inspection Conveyor / steel",
+          "island": 110,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.13499975204467773,
+          "witness": [
+            [
+              4.174999713897705,
+              6.486500263214111,
+              0.8009999394416809
+            ],
+            [
+              4.039999961853027,
+              6.486500263214111,
+              0.8009999394416809
+            ],
+            185
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Lead curtain strip 6.48_2",
+      "island": 0,
+      "matches": [
+        {
+          "object": "Curtain clamp bar 6.48",
+          "island": 0,
+          "surface_intersection_pairs": 35,
+          "first_intersection_pairs": [
+            [
+              178,
+              153
+            ],
+            [
+              225,
+              153
+            ],
+            [
+              235,
+              152
+            ],
+            [
+              234,
+              152
+            ]
+          ],
+          "vertex_surface_min_m": 0.008999824523925781,
+          "witness": [
+            [
+              4.444999694824219,
+              6.473499774932861,
+              1.7589998245239258
+            ],
+            [
+              4.444999694824219,
+              6.473499774932861,
+              1.75
+            ],
+            153
+          ]
+        },
+        {
+          "object": "Lead tunnel inner chamber",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.009340603835880756,
+          "witness": [
+            [
+              4.443999767303467,
+              6.487500190734863,
+              1.7589999437332153
+            ],
+            [
+              4.443999767303467,
+              6.489999771118164,
+              1.75
+            ],
+            0
+          ]
+        },
+        {
+          "object": "Lead curtain strip 6.48_1",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.009999752044677734,
+          "witness": [
+            [
+              4.314999580383301,
+              6.473499774932861,
+              1.7589998245239258
+            ],
+            [
+              4.304999828338623,
+              6.473499774932861,
+              1.7589998245239258
+            ],
+            184
+          ]
+        },
+        {
+          "object": "Lead curtain strip 6.48_3",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.009999752044677734,
+          "witness": [
+            [
+              4.444999694824219,
+              6.473499774932861,
+              0.8149998784065247
+            ],
+            [
+              4.4549994468688965,
+              6.473499774932861,
+              0.8149998784065247
+            ],
+            101
+          ]
+        },
+        {
+          "object": "Lead tunnel main body",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.012499809265136719,
+          "witness": [
+            [
+              4.443999767303467,
+              6.487500190734863,
+              1.7589999437332153
+            ],
+            [
+              4.443999767303467,
+              6.5,
+              1.7589999437332153
+            ],
+            578
+          ]
+        },
+        {
+          "object": "CD | Joined Cargo Inspection Conveyor / charcoal",
+          "island": 14,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.012539749965071678,
+          "witness": [
+            [
+              4.443999767303467,
+              6.472499847412109,
+              1.7589999437332153
+            ],
+            [
+              4.443999767303467,
+              6.460000038146973,
+              1.7599999904632568
+            ],
+            43
+          ]
+        },
+        {
+          "object": "Conveyor roller 7",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.02452028915286064,
+          "witness": [
+            [
+              4.315999507904053,
+              6.487500190734863,
+              0.8009999394416809
+            ],
+            [
+              4.315999507904053,
+              6.51200008392334,
+              0.800000011920929
+            ],
+            237
+          ]
+        },
+        {
+          "object": "Conveyor roller 6",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.034514132887125015,
+          "witness": [
+            [
+              4.315999507904053,
+              6.472499847412109,
+              0.8009998798370361
+            ],
+            [
+              4.315999507904053,
+              6.438000202178955,
+              0.800000011920929
+            ],
+            209
+          ]
+        },
+        {
+          "object": "CD | Joined Cargo Inspection Conveyor / steel",
+          "island": 110,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.21999990940093994,
+          "witness": [
+            [
+              4.443999767303467,
+              6.486500263214111,
+              1.7599999904632568
+            ],
+            [
+              4.44399881362915,
+              6.486500263214111,
+              1.9799998998641968
+            ],
+            188
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Lead curtain strip 6.48_4",
+      "island": 0,
+      "matches": [
+        {
+          "object": "Curtain clamp bar 6.48",
+          "island": 0,
+          "surface_intersection_pairs": 35,
+          "first_intersection_pairs": [
+            [
+              178,
+              153
+            ],
+            [
+              225,
+              153
+            ],
+            [
+              235,
+              152
+            ],
+            [
+              234,
+              152
+            ]
+          ],
+          "vertex_surface_min_m": 0.008999824523925781,
+          "witness": [
+            [
+              4.724999904632568,
+              6.473499774932861,
+              1.7589998245239258
+            ],
+            [
+              4.724999904632568,
+              6.473499774932861,
+              1.75
+            ],
+            153
+          ]
+        },
+        {
+          "object": "Lead tunnel inner chamber",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.009340603835880756,
+          "witness": [
+            [
+              4.723999977111816,
+              6.487500190734863,
+              1.7589999437332153
+            ],
+            [
+              4.723999977111816,
+              6.489999771118164,
+              1.75
+            ],
+            0
+          ]
+        },
+        {
+          "object": "Lead curtain strip 6.48_3",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.010000228881835938,
+          "witness": [
+            [
+              4.59499979019165,
+              6.473499774932861,
+              1.7589998245239258
+            ],
+            [
+              4.5849995613098145,
+              6.473499774932861,
+              1.7589998245239258
+            ],
+            184
+          ]
+        },
+        {
+          "object": "Lead curtain strip 6.48_5",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.010000228881835938,
+          "witness": [
+            [
+              4.724999904632568,
+              6.473499774932861,
+              0.8149998784065247
+            ],
+            [
+              4.735000133514404,
+              6.473499774932861,
+              0.8149998784065247
+            ],
+            101
+          ]
+        },
+        {
+          "object": "Lead tunnel main body",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.012499809265136719,
+          "witness": [
+            [
+              4.723999977111816,
+              6.487500190734863,
+              1.7589999437332153
+            ],
+            [
+              4.723999977111816,
+              6.5,
+              1.7589999437332153
+            ],
+            578
+          ]
+        },
+        {
+          "object": "CD | Joined Cargo Inspection Conveyor / charcoal",
+          "island": 14,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.012539749965071678,
+          "witness": [
+            [
+              4.723999977111816,
+              6.472499847412109,
+              1.7589999437332153
+            ],
+            [
+              4.723999977111816,
+              6.460000038146973,
+              1.7599999904632568
+            ],
+            43
+          ]
+        },
+        {
+          "object": "Conveyor roller 7",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.02452028915286064,
+          "witness": [
+            [
+              4.595999717712402,
+              6.487500190734863,
+              0.8009999394416809
+            ],
+            [
+              4.595999717712402,
+              6.51200008392334,
+              0.800000011920929
+            ],
+            237
+          ]
+        },
+        {
+          "object": "Conveyor roller 6",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.034514132887125015,
+          "witness": [
+            [
+              4.595999717712402,
+              6.472499847412109,
+              0.8009998798370361
+            ],
+            [
+              4.595999717712402,
+              6.438000202178955,
+              0.800000011920929
+            ],
+            209
+          ]
+        },
+        {
+          "object": "CD | Joined Cargo Inspection Conveyor / steel",
+          "island": 110,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.21999990940093994,
+          "witness": [
+            [
+              4.723999977111816,
+              6.486500263214111,
+              1.7599999904632568
+            ],
+            [
+              4.723997116088867,
+              6.486500263214111,
+              1.9799998998641968
+            ],
+            188
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Lead curtain strip 6.48_6",
+      "island": 0,
+      "matches": [
+        {
+          "object": "Curtain clamp bar 6.48",
+          "island": 0,
+          "surface_intersection_pairs": 35,
+          "first_intersection_pairs": [
+            [
+              178,
+              152
+            ],
+            [
+              225,
+              152
+            ],
+            [
+              235,
+              152
+            ],
+            [
+              234,
+              152
+            ]
+          ],
+          "vertex_surface_min_m": 0.008999824523925781,
+          "witness": [
+            [
+              5.00499963760376,
+              6.473499774932861,
+              1.7589998245239258
+            ],
+            [
+              5.004997730255127,
+              6.473499774932861,
+              1.75
+            ],
+            152
+          ]
+        },
+        {
+          "object": "Lead tunnel inner chamber",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.009340603835880756,
+          "witness": [
+            [
+              5.003999710083008,
+              6.487500190734863,
+              1.7589999437332153
+            ],
+            [
+              5.003999710083008,
+              6.489999771118164,
+              1.75
+            ],
+            0
+          ]
+        },
+        {
+          "object": "Lead curtain strip 6.48_5",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.009999275207519531,
+          "witness": [
+            [
+              4.874999523162842,
+              6.473499774932861,
+              1.7589998245239258
+            ],
+            [
+              4.865000247955322,
+              6.473499774932861,
+              1.7589998245239258
+            ],
+            184
+          ]
+        },
+        {
+          "object": "Lead curtain strip 6.48_7",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.010000228881835938,
+          "witness": [
+            [
+              5.00499963760376,
+              6.473499774932861,
+              0.8149998784065247
+            ],
+            [
+              5.014999866485596,
+              6.473499774932861,
+              0.8149998784065247
+            ],
+            101
+          ]
+        },
+        {
+          "object": "Lead tunnel main body",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.012499809265136719,
+          "witness": [
+            [
+              5.003999710083008,
+              6.487500190734863,
+              1.7589999437332153
+            ],
+            [
+              5.003999710083008,
+              6.5,
+              1.7589999437332153
+            ],
+            578
+          ]
+        },
+        {
+          "object": "CD | Joined Cargo Inspection Conveyor / charcoal",
+          "island": 14,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.012539749965071678,
+          "witness": [
+            [
+              5.003999710083008,
+              6.472499847412109,
+              1.7589999437332153
+            ],
+            [
+              5.003999710083008,
+              6.460000038146973,
+              1.7599999904632568
+            ],
+            43
+          ]
+        },
+        {
+          "object": "Conveyor roller 7",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.02452028915286064,
+          "witness": [
+            [
+              4.875999450683594,
+              6.487500190734863,
+              0.8009999394416809
+            ],
+            [
+              4.875999450683594,
+              6.51200008392334,
+              0.800000011920929
+            ],
+            237
+          ]
+        },
+        {
+          "object": "Conveyor roller 6",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.034514132887125015,
+          "witness": [
+            [
+              4.875999450683594,
+              6.472499847412109,
+              0.8009998798370361
+            ],
+            [
+              4.875999450683594,
+              6.438000202178955,
+              0.800000011920929
+            ],
+            209
+          ]
+        },
+        {
+          "object": "CD | Joined Cargo Inspection Conveyor / steel",
+          "island": 110,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.21999990940093994,
+          "witness": [
+            [
+              4.875999450683594,
+              6.486500263214111,
+              1.7599999904632568
+            ],
+            [
+              4.875999927520752,
+              6.486500263214111,
+              1.9799998998641968
+            ],
+            188
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Lead curtain strip 6.48_7",
+      "island": 0,
+      "matches": [
+        {
+          "object": "Curtain clamp bar 6.48",
+          "island": 0,
+          "surface_intersection_pairs": 33,
+          "first_intersection_pairs": [
+            [
+              178,
+              152
+            ],
+            [
+              225,
+              152
+            ],
+            [
+              235,
+              152
+            ],
+            [
+              234,
+              152
+            ]
+          ],
+          "vertex_surface_min_m": 0.008999824523925781,
+          "witness": [
+            [
+              5.144999980926514,
+              6.473499774932861,
+              1.7589998245239258
+            ],
+            [
+              5.1449995040893555,
+              6.473499774932861,
+              1.75
+            ],
+            152
+          ]
+        },
+        {
+          "object": "Lead tunnel inner chamber",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.009340603835880756,
+          "witness": [
+            [
+              5.144000053405762,
+              6.487500190734863,
+              1.7589999437332153
+            ],
+            [
+              5.144000053405762,
+              6.489999771118164,
+              1.75
+            ],
+            0
+          ]
+        },
+        {
+          "object": "Lead curtain strip 6.48_6",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.010000228881835938,
+          "witness": [
+            [
+              5.014999866485596,
+              6.473499774932861,
+              1.7589998245239258
+            ],
+            [
+              5.00499963760376,
+              6.473499774932861,
+              1.7589998245239258
+            ],
+            184
+          ]
+        },
+        {
+          "object": "Lead tunnel main body",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.012499809265136719,
+          "witness": [
+            [
+              5.144000053405762,
+              6.487500190734863,
+              1.7589999437332153
+            ],
+            [
+              5.144000053405762,
+              6.5,
+              1.7589999437332153
+            ],
+            578
+          ]
+        },
+        {
+          "object": "CD | Joined Cargo Inspection Conveyor / charcoal",
+          "island": 14,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.012539749965071678,
+          "witness": [
+            [
+              5.015999794006348,
+              6.472499847412109,
+              1.7589999437332153
+            ],
+            [
+              5.015999794006348,
+              6.460000038146973,
+              1.7599999904632568
+            ],
+            43
+          ]
+        },
+        {
+          "object": "Conveyor roller 7",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.02452028915286064,
+          "witness": [
+            [
+              5.015999794006348,
+              6.487500190734863,
+              0.8009999394416809
+            ],
+            [
+              5.015999794006348,
+              6.51200008392334,
+              0.800000011920929
+            ],
+            237
+          ]
+        },
+        {
+          "object": "Conveyor roller 6",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.034514132887125015,
+          "witness": [
+            [
+              5.015999794006348,
+              6.472499847412109,
+              0.8009998798370361
+            ],
+            [
+              5.015999794006348,
+              6.438000202178955,
+              0.800000011920929
+            ],
+            209
+          ]
+        },
+        {
+          "object": "CD | Joined Cargo Inspection Conveyor / steel",
+          "island": 110,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.11500024795532227,
+          "witness": [
+            [
+              5.144999980926514,
+              6.486500263214111,
+              0.8149998784065247
+            ],
+            [
+              5.260000228881836,
+              6.486500263214111,
+              0.8149998188018799
+            ],
+            190
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Lead curtain strip 8.82_1",
+      "island": 0,
+      "matches": [
+        {
+          "object": "Curtain clamp bar 8.82",
+          "island": 0,
+          "surface_intersection_pairs": 33,
+          "first_intersection_pairs": [
+            [
+              121,
+              153
+            ],
+            [
+              135,
+              153
+            ],
+            [
+              188,
+              153
+            ],
+            [
+              183,
+              153
+            ]
+          ],
+          "vertex_surface_min_m": 0.008999943733215332,
+          "witness": [
+            [
+              4.303999900817871,
+              8.8125,
+              1.7589999437332153
+            ],
+            [
+              4.303999900817871,
+              8.8125,
+              1.75
+            ],
+            153
+          ]
+        },
+        {
+          "object": "Conveyor roller 22",
+          "island": 0,
+          "surface_intersection_pairs": 39,
+          "first_intersection_pairs": [
+            [
+              121,
+              250
+            ],
+            [
+              121,
+              249
+            ],
+            [
+              135,
+              250
+            ],
+            [
+              188,
+              250
+            ]
+          ],
+          "vertex_surface_min_m": 0.006409540772438049,
+          "witness": [
+            [
+              4.303999900817871,
+              8.827498435974121,
+              0.8143925666809082
+            ],
+            [
+              4.303999900817871,
+              8.8328275680542,
+              0.8179538249969482
+            ],
+            251
+          ]
+        },
+        {
+          "object": "Lead tunnel inner chamber",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.009340603835880756,
+          "witness": [
+            [
+              4.303999900817871,
+              8.8125,
+              1.7589999437332153
+            ],
+            [
+              4.303999900817871,
+              8.8100004196167,
+              1.75
+            ],
+            14
+          ]
+        },
+        {
+          "object": "Lead curtain strip 8.82_2",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.009999752044677734,
+          "witness": [
+            [
+              4.304999828338623,
+              8.813499450683594,
+              0.8149998188018799
+            ],
+            [
+              4.314999580383301,
+              8.813499450683594,
+              0.8149998188018799
+            ],
+            101
+          ]
+        },
+        {
+          "object": "Lead curtain strip 8.82_0",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.010000228881835938,
+          "witness": [
+            [
+              4.174999713897705,
+              8.813499450683594,
+              1.7589999437332153
+            ],
+            [
+              4.164999485015869,
+              8.813499450683594,
+              1.7589999437332153
+            ],
+            224
+          ]
+        },
+        {
+          "object": "Lead tunnel main body",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.012499809265136719,
+          "witness": [
+            [
+              4.303999900817871,
+              8.8125,
+              1.7589999437332153
+            ],
+            [
+              4.303999900817871,
+              8.800000190734863,
+              1.7589999437332153
+            ],
+            694
+          ]
+        },
+        {
+          "object": "CD | Joined Cargo Inspection Conveyor / steel",
+          "island": 115,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.13499975204467773,
+          "witness": [
+            [
+              4.174999713897705,
+              8.813499450683594,
+              0.8009998202323914
+            ],
+            [
+              4.039999961853027,
+              8.813499450683594,
+              0.8009998202323914
+            ],
+            177
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Lead curtain strip 8.82_2",
+      "island": 0,
+      "matches": [
+        {
+          "object": "Curtain clamp bar 8.82",
+          "island": 0,
+          "surface_intersection_pairs": 35,
+          "first_intersection_pairs": [
+            [
+              121,
+              153
+            ],
+            [
+              135,
+              152
+            ],
+            [
+              188,
+              152
+            ],
+            [
+              188,
+              153
+            ]
+          ],
+          "vertex_surface_min_m": 0.008999943733215332,
+          "witness": [
+            [
+              4.443999767303467,
+              8.8125,
+              1.7589999437332153
+            ],
+            [
+              4.443999767303467,
+              8.8125,
+              1.75
+            ],
+            153
+          ]
+        },
+        {
+          "object": "Conveyor roller 22",
+          "island": 0,
+          "surface_intersection_pairs": 39,
+          "first_intersection_pairs": [
+            [
+              121,
+              250
+            ],
+            [
+              121,
+              249
+            ],
+            [
+              135,
+              250
+            ],
+            [
+              188,
+              250
+            ]
+          ],
+          "vertex_surface_min_m": 0.006410333327949047,
+          "witness": [
+            [
+              4.443999767303467,
+              8.827498435974121,
+              0.8143925666809082
+            ],
+            [
+              4.443999767303467,
+              8.832828521728516,
+              0.8179538249969482
+            ],
+            251
+          ]
+        },
+        {
+          "object": "Lead tunnel inner chamber",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.009340603835880756,
+          "witness": [
+            [
+              4.443999767303467,
+              8.8125,
+              1.7589999437332153
+            ],
+            [
+              4.443999767303467,
+              8.8100004196167,
+              1.75
+            ],
+            14
+          ]
+        },
+        {
+          "object": "Lead curtain strip 8.82_1",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.009999752044677734,
+          "witness": [
+            [
+              4.314999580383301,
+              8.813499450683594,
+              1.7589999437332153
+            ],
+            [
+              4.304999828338623,
+              8.813499450683594,
+              1.7589999437332153
+            ],
+            224
+          ]
+        },
+        {
+          "object": "Lead curtain strip 8.82_3",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.009999752044677734,
+          "witness": [
+            [
+              4.444999694824219,
+              8.813499450683594,
+              0.8149998188018799
+            ],
+            [
+              4.4549994468688965,
+              8.813499450683594,
+              0.8149998188018799
+            ],
+            101
+          ]
+        },
+        {
+          "object": "Lead tunnel main body",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.012499809265136719,
+          "witness": [
+            [
+              4.443999767303467,
+              8.8125,
+              1.7589999437332153
+            ],
+            [
+              4.443999767303467,
+              8.800000190734863,
+              1.7589999437332153
+            ],
+            694
+          ]
+        },
+        {
+          "object": "CD | Joined Cargo Inspection Conveyor / steel",
+          "island": 115,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.21999990940093994,
+          "witness": [
+            [
+              4.443999767303467,
+              8.813499450683594,
+              1.7599999904632568
+            ],
+            [
+              4.443999767303467,
+              8.813499450683594,
+              1.9799998998641968
+            ],
+            179
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Lead curtain strip 8.82_4",
+      "island": 0,
+      "matches": [
+        {
+          "object": "Curtain clamp bar 8.82",
+          "island": 0,
+          "surface_intersection_pairs": 35,
+          "first_intersection_pairs": [
+            [
+              121,
+              152
+            ],
+            [
+              135,
+              152
+            ],
+            [
+              188,
+              152
+            ],
+            [
+              183,
+              152
+            ]
+          ],
+          "vertex_surface_min_m": 0.008999943733215332,
+          "witness": [
+            [
+              4.723999977111816,
+              8.8125,
+              1.7589999437332153
+            ],
+            [
+              4.723999977111816,
+              8.8125,
+              1.75
+            ],
+            153
+          ]
+        },
+        {
+          "object": "Conveyor roller 22",
+          "island": 0,
+          "surface_intersection_pairs": 39,
+          "first_intersection_pairs": [
+            [
+              121,
+              250
+            ],
+            [
+              121,
+              249
+            ],
+            [
+              135,
+              250
+            ],
+            [
+              188,
+              250
+            ]
+          ],
+          "vertex_surface_min_m": 0.006409540772438049,
+          "witness": [
+            [
+              4.723999977111816,
+              8.827498435974121,
+              0.8143925666809082
+            ],
+            [
+              4.723999977111816,
+              8.8328275680542,
+              0.8179538249969482
+            ],
+            251
+          ]
+        },
+        {
+          "object": "Lead tunnel inner chamber",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.009340603835880756,
+          "witness": [
+            [
+              4.723999977111816,
+              8.8125,
+              1.7589999437332153
+            ],
+            [
+              4.723999977111816,
+              8.8100004196167,
+              1.75
+            ],
+            14
+          ]
+        },
+        {
+          "object": "Lead curtain strip 8.82_3",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.010000228881835938,
+          "witness": [
+            [
+              4.59499979019165,
+              8.813499450683594,
+              1.7589999437332153
+            ],
+            [
+              4.5849995613098145,
+              8.813499450683594,
+              1.7589999437332153
+            ],
+            224
+          ]
+        },
+        {
+          "object": "Lead curtain strip 8.82_5",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.010000228881835938,
+          "witness": [
+            [
+              4.724999904632568,
+              8.813499450683594,
+              0.8149998188018799
+            ],
+            [
+              4.735000133514404,
+              8.813499450683594,
+              0.8149998188018799
+            ],
+            101
+          ]
+        },
+        {
+          "object": "Lead tunnel main body",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.012499809265136719,
+          "witness": [
+            [
+              4.723999977111816,
+              8.8125,
+              1.7589999437332153
+            ],
+            [
+              4.723999977111816,
+              8.800000190734863,
+              1.7589999437332153
+            ],
+            694
+          ]
+        },
+        {
+          "object": "CD | Joined Cargo Inspection Conveyor / steel",
+          "island": 115,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.21999990940093994,
+          "witness": [
+            [
+              4.595999717712402,
+              8.813499450683594,
+              1.7599999904632568
+            ],
+            [
+              4.595999717712402,
+              8.813499450683594,
+              1.9799998998641968
+            ],
+            179
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Lead curtain strip 8.82_5",
+      "island": 0,
+      "matches": [
+        {
+          "object": "Curtain clamp bar 8.82",
+          "island": 0,
+          "surface_intersection_pairs": 35,
+          "first_intersection_pairs": [
+            [
+              121,
+              152
+            ],
+            [
+              135,
+              152
+            ],
+            [
+              188,
+              152
+            ],
+            [
+              183,
+              152
+            ]
+          ],
+          "vertex_surface_min_m": 0.008999943733215332,
+          "witness": [
+            [
+              4.86400032043457,
+              8.8125,
+              1.7589999437332153
+            ],
+            [
+              4.86400032043457,
+              8.8125,
+              1.75
+            ],
+            153
+          ]
+        },
+        {
+          "object": "Conveyor roller 22",
+          "island": 0,
+          "surface_intersection_pairs": 39,
+          "first_intersection_pairs": [
+            [
+              121,
+              250
+            ],
+            [
+              121,
+              249
+            ],
+            [
+              135,
+              250
+            ],
+            [
+              188,
+              250
+            ]
+          ],
+          "vertex_surface_min_m": 0.006409573368728161,
+          "witness": [
+            [
+              4.86400032043457,
+              8.827498435974121,
+              0.8143925666809082
+            ],
+            [
+              4.86400032043457,
+              8.8328275680542,
+              0.817953884601593
+            ],
+            251
+          ]
+        },
+        {
+          "object": "Lead tunnel inner chamber",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.009340603835880756,
+          "witness": [
+            [
+              4.86400032043457,
+              8.8125,
+              1.7589999437332153
+            ],
+            [
+              4.86400032043457,
+              8.8100004196167,
+              1.75
+            ],
+            14
+          ]
+        },
+        {
+          "object": "Lead curtain strip 8.82_6",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.009999275207519531,
+          "witness": [
+            [
+              4.865000247955322,
+              8.813499450683594,
+              0.8149998188018799
+            ],
+            [
+              4.874999523162842,
+              8.813499450683594,
+              0.8149998188018799
+            ],
+            101
+          ]
+        },
+        {
+          "object": "Lead curtain strip 8.82_4",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.010000228881835938,
+          "witness": [
+            [
+              4.735000133514404,
+              8.813499450683594,
+              1.7589999437332153
+            ],
+            [
+              4.724999904632568,
+              8.813499450683594,
+              1.7589999437332153
+            ],
+            224
+          ]
+        },
+        {
+          "object": "Lead tunnel main body",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.012499809265136719,
+          "witness": [
+            [
+              4.86400032043457,
+              8.8125,
+              1.7589999437332153
+            ],
+            [
+              4.86400032043457,
+              8.800000190734863,
+              1.7589999437332153
+            ],
+            694
+          ]
+        },
+        {
+          "object": "CD | Joined Cargo Inspection Conveyor / steel",
+          "island": 115,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.2200000286102295,
+          "witness": [
+            [
+              4.86400032043457,
+              8.813499450683594,
+              1.7599999904632568
+            ],
+            [
+              4.86400032043457,
+              8.813499450683594,
+              1.9800000190734863
+            ],
+            179
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Lead curtain strip 8.82_6",
+      "island": 0,
+      "matches": [
+        {
+          "object": "Curtain clamp bar 8.82",
+          "island": 0,
+          "surface_intersection_pairs": 35,
+          "first_intersection_pairs": [
+            [
+              121,
+              152
+            ],
+            [
+              135,
+              152
+            ],
+            [
+              188,
+              152
+            ],
+            [
+              183,
+              152
+            ]
+          ],
+          "vertex_surface_min_m": 0.008999943733215332,
+          "witness": [
+            [
+              5.00499963760376,
+              8.813499450683594,
+              1.7589999437332153
+            ],
+            [
+              5.005002021789551,
+              8.813499450683594,
+              1.75
+            ],
+            152
+          ]
+        },
+        {
+          "object": "Conveyor roller 22",
+          "island": 0,
+          "surface_intersection_pairs": 39,
+          "first_intersection_pairs": [
+            [
+              121,
+              250
+            ],
+            [
+              121,
+              249
+            ],
+            [
+              135,
+              250
+            ],
+            [
+              188,
+              250
+            ]
+          ],
+          "vertex_surface_min_m": 0.006409481167793274,
+          "witness": [
+            [
+              5.003999710083008,
+              8.827498435974121,
+              0.8143925666809082
+            ],
+            [
+              5.003992080688477,
+              8.832826614379883,
+              0.8179551362991333
+            ],
+            250
+          ]
+        },
+        {
+          "object": "Lead tunnel inner chamber",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.009340603835880756,
+          "witness": [
+            [
+              5.003999710083008,
+              8.8125,
+              1.7589999437332153
+            ],
+            [
+              5.003999710083008,
+              8.8100004196167,
+              1.75
+            ],
+            14
+          ]
+        },
+        {
+          "object": "Lead curtain strip 8.82_5",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.009999275207519531,
+          "witness": [
+            [
+              4.874999523162842,
+              8.813499450683594,
+              1.7589999437332153
+            ],
+            [
+              4.865000247955322,
+              8.813499450683594,
+              1.7589999437332153
+            ],
+            224
+          ]
+        },
+        {
+          "object": "Lead curtain strip 8.82_7",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.010000228881835938,
+          "witness": [
+            [
+              5.00499963760376,
+              8.813499450683594,
+              0.8149998188018799
+            ],
+            [
+              5.014999866485596,
+              8.813499450683594,
+              0.8149998188018799
+            ],
+            101
+          ]
+        },
+        {
+          "object": "Lead tunnel main body",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.012499809265136719,
+          "witness": [
+            [
+              5.003999710083008,
+              8.8125,
+              1.7589999437332153
+            ],
+            [
+              5.003999710083008,
+              8.800000190734863,
+              1.7589999437332153
+            ],
+            694
+          ]
+        },
+        {
+          "object": "CD | Joined Cargo Inspection Conveyor / steel",
+          "island": 115,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.2200000286102295,
+          "witness": [
+            [
+              5.003999710083008,
+              8.813499450683594,
+              1.7599999904632568
+            ],
+            [
+              5.004001617431641,
+              8.813499450683594,
+              1.9800000190734863
+            ],
+            180
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Lead curtain strip 8.82_7",
+      "island": 0,
+      "matches": [
+        {
+          "object": "Curtain clamp bar 8.82",
+          "island": 0,
+          "surface_intersection_pairs": 33,
+          "first_intersection_pairs": [
+            [
+              121,
+              152
+            ],
+            [
+              135,
+              152
+            ],
+            [
+              188,
+              152
+            ],
+            [
+              183,
+              152
+            ]
+          ],
+          "vertex_surface_min_m": 0.008999943733215332,
+          "witness": [
+            [
+              5.144000053405762,
+              8.8125,
+              1.7589999437332153
+            ],
+            [
+              5.144000053405762,
+              8.8125,
+              1.75
+            ],
+            152
+          ]
+        },
+        {
+          "object": "Conveyor roller 22",
+          "island": 0,
+          "surface_intersection_pairs": 41,
+          "first_intersection_pairs": [
+            [
+              121,
+              250
+            ],
+            [
+              121,
+              249
+            ],
+            [
+              135,
+              250
+            ],
+            [
+              188,
+              250
+            ]
+          ],
+          "vertex_surface_min_m": 0.00640984158962965,
+          "witness": [
+            [
+              5.144000053405762,
+              8.827498435974121,
+              0.8143925666809082
+            ],
+            [
+              5.143993854522705,
+              8.8328275680542,
+              0.8179543614387512
+            ],
+            250
+          ]
+        },
+        {
+          "object": "Lead tunnel inner chamber",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.009340603835880756,
+          "witness": [
+            [
+              5.144000053405762,
+              8.8125,
+              1.7589999437332153
+            ],
+            [
+              5.144000053405762,
+              8.8100004196167,
+              1.75
+            ],
+            14
+          ]
+        },
+        {
+          "object": "Lead curtain strip 8.82_6",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.010000228881835938,
+          "witness": [
+            [
+              5.014999866485596,
+              8.813499450683594,
+              1.7589999437332153
+            ],
+            [
+              5.00499963760376,
+              8.813499450683594,
+              1.7589999437332153
+            ],
+            224
+          ]
+        },
+        {
+          "object": "Lead tunnel main body",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.012499809265136719,
+          "witness": [
+            [
+              5.144000053405762,
+              8.8125,
+              1.7589999437332153
+            ],
+            [
+              5.144000053405762,
+              8.800000190734863,
+              1.7589999437332153
+            ],
+            694
+          ]
+        },
+        {
+          "object": "CD | Joined Cargo Inspection Conveyor / steel",
+          "island": 115,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.11500024795532227,
+          "witness": [
+            [
+              5.144999980926514,
+              8.813499450683594,
+              0.8149998188018799
+            ],
+            [
+              5.260000228881836,
+              8.813499450683594,
+              0.8149997591972351
+            ],
+            182
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Cart handle hoop",
+      "island": 0,
+      "matches": [
+        {
+          "object": "Cart bed flatbed",
+          "island": 0,
+          "surface_intersection_pairs": 40,
+          "first_intersection_pairs": [
+            [
+              44,
+              158
+            ],
+            [
+              43,
+              158
+            ],
+            [
+              51,
+              158
+            ],
+            [
+              32,
+              158
+            ]
+          ],
+          "vertex_surface_min_m": 0.023700222373008728,
+          "witness": [
+            [
+              4.693819522857666,
+              13.681023597717285,
+              0.22129978239536285
+            ],
+            [
+              4.693819522857666,
+              13.681023597717285,
+              0.24500000476837158
+            ],
+            158
+          ]
+        },
+        {
+          "object": "Cart perimeter bumper",
+          "island": 0,
+          "surface_intersection_pairs": 40,
+          "first_intersection_pairs": [
+            [
+              44,
+              299
+            ],
+            [
+              43,
+              299
+            ],
+            [
+              51,
+              299
+            ],
+            [
+              32,
+              299
+            ]
+          ],
+          "vertex_surface_min_m": 0.018700212240219116,
+          "witness": [
+            [
+              4.693819522857666,
+              13.681023597717285,
+              0.22129978239536285
+            ],
+            [
+              4.693819522857666,
+              13.681023597717285,
+              0.23999999463558197
+            ],
+            299
+          ]
+        },
+        {
+          "object": "Hand cart swivel 4.15_13.65",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.020524613559246063,
+          "witness": [
+            [
+              4.150000095367432,
+              13.681023597717285,
+              0.22129976749420166
+            ],
+            [
+              4.150000095367432,
+              13.669478416442871,
+              0.20433013141155243
+            ],
+            3
+          ]
+        },
+        {
+          "object": "Hand cart swivel 4.7_13.65",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.020524613559246063,
+          "witness": [
+            [
+              4.699999809265137,
+              13.681023597717285,
+              0.22129976749420166
+            ],
+            [
+              4.699999809265137,
+              13.669478416442871,
+              0.20433013141155243
+            ],
+            34
+          ]
+        }
+      ]
+    },
+    {
+      "object": "CD | Joined Wall Utilities Rack / steel",
+      "island": 38,
+      "matches": [
+        {
+          "object": "CD | Joined Wall Utilities Rack / steel",
+          "island": 36,
+          "surface_intersection_pairs": 48,
+          "first_intersection_pairs": [
+            [
+              79,
+              42
+            ],
+            [
+              79,
+              43
+            ],
+            [
+              79,
+              2
+            ],
+            [
+              73,
+              41
+            ]
+          ],
+          "vertex_surface_min_m": 0.01802114211022854,
+          "witness": [
+            [
+              6.634999752044678,
+              12.45300006866455,
+              2.740000009536743
+            ],
+            [
+              6.64145565032959,
+              12.46982479095459,
+              2.73989200592041
+            ],
+            41
+          ]
+        },
+        {
+          "object": "East perimeter wall",
+          "island": 0,
+          "surface_intersection_pairs": 0,
+          "first_intersection_pairs": [],
+          "vertex_surface_min_m": 0.02050018310546875,
+          "witness": [
+            [
+              6.7795000076293945,
+              12.45300006866455,
+              2.740499973297119
+            ],
+            [
+              6.800000190734863,
+              12.453001022338867,
+              2.7405006885528564
+            ],
+            155
+          ]
+        }
+      ]
+    }
+  ]
+}

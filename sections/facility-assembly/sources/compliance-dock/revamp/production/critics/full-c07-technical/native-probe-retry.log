@@ -1,0 +1,1208 @@
+00:00.374  blend            | Read blend: "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend"
+00:00.482  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend', '//../../blender/facility_environment.blend', parent '<direct>'
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)
+00:00.868  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend', '//../../blender/facility_spawn_material_preview_R17.blend', parent '<direct>'
+00:01.415  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay/module.blend', '//..\sources\condenser-bay\module.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend'
+00:01.476  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/condenser-bay/exterior-R02.blend', '//../exteriors/condenser-bay/exterior-R02.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend'
+00:01.481  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/cooling-plant/exterior-R03.blend', '//../exteriors/cooling-plant/exterior-R03.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend'
+00:01.487  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/electrical-room/exterior-R03.blend', '//../exteriors/electrical-room/exterior-R03.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend'
+00:01.493  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/fuel-corridor/exterior-R02.blend', '//../exteriors/fuel-corridor/exterior-R02.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend'
+00:01.501  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/medical-reanimation/exterior-R04.blend', '//../exteriors/medical-reanimation/exterior-R04.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend'
+00:01.507  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/reactor-room/exterior-R05.blend', '//../exteriors/reactor-room/exterior-R05.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend'
+00:01.520  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/refinery/exterior-R01.blend', '//../exteriors/refinery/exterior-R01.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend'
+00:01.526  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/spawn-room/exterior-R05.blend', '//../exteriors/spawn-room/exterior-R05.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend'
+00:01.553  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/turbine-room/exterior-R04.blend', '//../exteriors/turbine-room/exterior-R04.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend'
+00:01.561  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/waste-storage/exterior-R01.blend', '//../exteriors/waste-storage/exterior-R01.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_spawn_material_preview_R17.blend'
+00:09.801  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/mine/module.blend', '//..\sources\mine\module.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend'
+00:10.075  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend', '//..\sources\spawn-room\module.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend'
+00:12.154  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/module.blend', '//..\sources\compliance-dock\module.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend'
+00:12.176  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/compliance-dock/exterior-R08.blend', '//..\exteriors\compliance-dock\exterior-R08.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend'
+00:12.182  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/cooling-plant/module.blend', '//..\sources\cooling-plant\module.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend'
+00:12.210  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/electrical-room/module.blend', '//..\sources\electrical-room\module.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend'
+00:12.264  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/fuel-corridor/module.blend', '//..\sources\fuel-corridor\module.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend'
+00:12.424  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/module.blend', '//..\sources\medical-reanimation\module.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend'
+00:12.472  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/reactor-room/module.blend', '//..\sources\reactor-room\module.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend'
+00:12.780  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/refinery/module.blend', '//..\sources\refinery\module.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend'
+00:12.852  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/turbine-room/module.blend', '//..\sources\turbine-room\module.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend'
+00:12.881  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/waste-storage/module.blend', '//..\sources\waste-storage\module.blend', parent '/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend'
+/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/critics/full-c07-technical/native_probe.py:60: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  if mat and mat.use_nodes:
+mesh Floor slab 232 1
+mesh Skirting north west 188 1
+mesh Skirting north east 188 1
+mesh Skirting south west 188 1
+mesh Skirting south east 188 1
+mesh Skirting east 188 1
+mesh Skirting west 188 1
+mesh East wall wainscot 188 1
+mesh Dado rail east 188 1
+mesh North wall wainscot west 188 1
+mesh North wall wainscot east 188 1
+mesh Dado rail north W 188 1
+mesh Dado rail north E 188 1
+mesh South wall wainscot west 188 1
+mesh South wall wainscot east 188 1
+mesh Dado rail south W 188 1
+mesh Dado rail south E 188 1
+mesh Pilaster east 2.5 188 1
+mesh Pilaster east flange 2.5 188 1
+mesh Pilaster east flange 2.5_bolt_-0.0684_-0.1368 284 1
+mesh Pilaster east flange 2.5_bolt_-0.0684_0.1368 284 1
+mesh Pilaster east flange 2.5_bolt_0.0684_-0.1368 284 1
+mesh Pilaster east flange 2.5_bolt_0.0684_0.1368 284 1
+mesh Pilaster east 5.5 188 1
+mesh Pilaster east flange 5.5 188 1
+mesh Pilaster east flange 5.5_bolt_-0.0684_-0.1368 284 1
+mesh Pilaster east flange 5.5_bolt_-0.0684_0.1368 284 1
+mesh Pilaster east flange 5.5_bolt_0.0684_-0.1368 284 1
+mesh Pilaster east flange 5.5_bolt_0.0684_0.1368 284 1
+mesh Pilaster east 8.5 188 1
+mesh Pilaster east flange 8.5 188 1
+mesh Pilaster east flange 8.5_bolt_-0.0684_-0.1368 284 1
+mesh Pilaster east flange 8.5_bolt_-0.0684_0.1368 284 1
+mesh Pilaster east flange 8.5_bolt_0.0684_-0.1368 284 1
+mesh Pilaster east flange 8.5_bolt_0.0684_0.1368 284 1
+mesh Pilaster east 11.5 188 1
+mesh Pilaster east flange 11.5 188 1
+mesh Pilaster east flange 11.5_bolt_-0.0684_-0.1368 284 1
+mesh Pilaster east flange 11.5_bolt_-0.0684_0.1368 284 1
+mesh Pilaster east flange 11.5_bolt_0.0684_-0.1368 284 1
+mesh Pilaster east flange 11.5_bolt_0.0684_0.1368 284 1
+mesh Pilaster east 14.8 188 1
+mesh Pilaster east flange 14.8 188 1
+mesh Pilaster east flange 14.8_bolt_-0.0684_-0.1368 284 1
+mesh Pilaster east flange 14.8_bolt_-0.0684_0.1368 284 1
+mesh Pilaster east flange 14.8_bolt_0.0684_-0.1368 284 1
+mesh Pilaster east flange 14.8_bolt_0.0684_0.1368 284 1
+mesh Pilaster west 11.5 188 1
+mesh Pilaster west flange 11.5 188 1
+mesh Pilaster west flange 11.5_bolt_-0.0684_-0.1368 284 1
+mesh Pilaster west flange 11.5_bolt_-0.0684_0.1368 284 1
+mesh Pilaster west flange 11.5_bolt_0.0684_-0.1368 284 1
+mesh Pilaster west flange 11.5_bolt_0.0684_0.1368 284 1
+mesh Pilaster west 14.8 188 1
+mesh Pilaster west flange 14.8 188 1
+mesh Pilaster west flange 14.8_bolt_-0.0684_-0.1368 284 1
+mesh Pilaster west flange 14.8_bolt_-0.0684_0.1368 284 1
+mesh Pilaster west flange 14.8_bolt_0.0684_-0.1368 284 1
+mesh Pilaster west flange 14.8_bolt_0.0684_0.1368 284 1
+mesh North wall west 284 1
+mesh North wall east 284 1
+mesh North lintel P2 188 1
+mesh South wall west 188 1
+mesh South wall east 188 1
+mesh South lintel P1 188 1
+mesh East perimeter wall 188 1
+mesh West perimeter wall 188 1
+mesh P1 corridor ceiling 188 1
+mesh P1 corridor floor 188 1
+mesh P1 corridor wall W 188 1
+mesh P1 corridor wall E 188 1
+mesh P1 deep back wall 188 1
+mesh P1 deep door leaf 188 1
+mesh P1 corridor overhead sign 188 1
+mesh P1 deep sign text 969 17
+mesh Drainage trench recess 188 1
+mesh Drain grate panel 0 188 1
+mesh Grate slot 0_0 188 1
+mesh Grate slot 0_1 188 1
+mesh Grate slot 0_2 188 1
+mesh Grate slot 0_3 188 1
+mesh Grate slot 0_4 188 1
+mesh Drain grate panel 1 188 1
+mesh Grate slot 1_0 188 1
+mesh Grate slot 1_1 188 1
+mesh Grate slot 1_2 188 1
+mesh Grate slot 1_3 188 1
+mesh Grate slot 1_4 188 1
+mesh Drain grate panel 2 188 1
+mesh Grate slot 2_0 188 1
+mesh Grate slot 2_1 188 1
+mesh Grate slot 2_2 188 1
+mesh Grate slot 2_3 188 1
+mesh Grate slot 2_4 188 1
+mesh Drain grate panel 3 188 1
+mesh Grate slot 3_0 188 1
+mesh Grate slot 3_1 188 1
+mesh Grate slot 3_2 188 1
+mesh Grate slot 3_3 188 1
+mesh Grate slot 3_4 188 1
+mesh Drain grate panel 4 188 1
+mesh Grate slot 4_0 188 1
+mesh Grate slot 4_1 188 1
+mesh Grate slot 4_2 188 1
+mesh Grate slot 4_3 188 1
+mesh Grate slot 4_4 188 1
+mesh Drain grate panel 5 188 1
+mesh Grate slot 5_0 188 1
+mesh Grate slot 5_1 188 1
+mesh Grate slot 5_2 188 1
+mesh Grate slot 5_3 188 1
+mesh Grate slot 5_4 188 1
+mesh Drain grate panel 6 188 1
+mesh Grate slot 6_0 188 1
+mesh Grate slot 6_1 188 1
+mesh Grate slot 6_2 188 1
+mesh Grate slot 6_3 188 1
+mesh Grate slot 6_4 188 1
+mesh Drain grate panel 7 188 1
+mesh Grate slot 7_0 188 1
+mesh Grate slot 7_1 188 1
+mesh Grate slot 7_2 188 1
+mesh Grate slot 7_3 188 1
+mesh Grate slot 7_4 188 1
+mesh Drain grate panel 8 188 1
+mesh Grate slot 8_0 188 1
+mesh Grate slot 8_1 188 1
+mesh Grate slot 8_2 188 1
+mesh Grate slot 8_3 188 1
+mesh Grate slot 8_4 188 1
+mesh Drain grate panel 9 188 1
+mesh Grate slot 9_0 188 1
+mesh Grate slot 9_1 188 1
+mesh Grate slot 9_2 188 1
+mesh Grate slot 9_3 188 1
+mesh Grate slot 9_4 188 1
+mesh Drain grate panel 10 188 1
+mesh Grate slot 10_0 188 1
+mesh Grate slot 10_1 188 1
+mesh Grate slot 10_2 188 1
+mesh Grate slot 10_3 188 1
+mesh Grate slot 10_4 188 1
+mesh Drain grate panel 11 188 1
+mesh Grate slot 11_0 188 1
+mesh Grate slot 11_1 188 1
+mesh Grate slot 11_2 188 1
+mesh Grate slot 11_3 188 1
+mesh Grate slot 11_4 188 1
+mesh Drain grate panel 12 188 1
+mesh Grate slot 12_0 188 1
+mesh Grate slot 12_1 188 1
+mesh Grate slot 12_2 188 1
+mesh Grate slot 12_3 188 1
+mesh Grate slot 12_4 188 1
+mesh Drain grate panel 13 188 1
+mesh Grate slot 13_0 188 1
+mesh Grate slot 13_1 188 1
+mesh Grate slot 13_2 188 1
+mesh Grate slot 13_3 188 1
+mesh Grate slot 13_4 188 1
+mesh Drain grate panel 14 188 1
+mesh Grate slot 14_0 188 1
+mesh Grate slot 14_1 188 1
+mesh Grate slot 14_2 188 1
+mesh Grate slot 14_3 188 1
+mesh Grate slot 14_4 188 1
+mesh Drain grate panel 15 188 1
+mesh Grate slot 15_0 188 1
+mesh Grate slot 15_1 188 1
+mesh Grate slot 15_2 188 1
+mesh Grate slot 15_3 188 1
+mesh Grate slot 15_4 188 1
+mesh Drain grate panel 16 188 1
+mesh Grate slot 16_0 188 1
+mesh Grate slot 16_1 188 1
+mesh Grate slot 16_2 188 1
+mesh Grate slot 16_3 188 1
+mesh Grate slot 16_4 188 1
+mesh Drain grate panel 17 188 1
+mesh Grate slot 17_0 188 1
+mesh Grate slot 17_1 188 1
+mesh Grate slot 17_2 188 1
+mesh Grate slot 17_3 188 1
+mesh Grate slot 17_4 188 1
+mesh R1 person stripe 0 188 1
+mesh R1 person stripe 1 188 1
+mesh R1 person stripe 2 188 1
+mesh R1 person stripe 3 188 1
+mesh R1 person stripe 4 188 1
+mesh R1 person stripe 5 188 1
+mesh R1 person stripe 6 188 1
+mesh R1 person stripe 7 188 1
+mesh R1 person stripe 8 188 1
+mesh R1 person stripe 9 188 1
+mesh R1 person stripe 10 188 1
+mesh R1 person stripe 11 188 1
+mesh R1 bound west 188 1
+mesh R1 bound east 188 1
+mesh R2 cart stripe 0 188 1
+mesh R2 cart stripe 1 188 1
+mesh R2 cart stripe 2 188 1
+mesh R2 cart stripe 3 188 1
+mesh R2 cart stripe 4 188 1
+mesh R2 cart stripe 5 188 1
+mesh R2 cart stripe 6 188 1
+mesh R2 cart stripe 7 188 1
+mesh R2 cart stripe 8 188 1
+mesh R2 cart stripe 9 188 1
+mesh R2 bound west 188 1
+mesh R2 bound east 188 1
+mesh Arrival warning hatch zone 188 1
+mesh Hatch boundary border 188 1
+mesh P2 frame jamb -1 188 1
+mesh P2 frame jamb 1 188 1
+mesh P2 frame head lintel 44 1
+mesh P2 blast leaf west 252 1
+mesh P2 blast leaf east 252 1
+mesh P2 leaf rib -2.0 188 1
+mesh P2 leaf rib -1.2 188 1
+mesh P2 leaf rib -0.4 188 1
+mesh P2 leaf rib 0.4 188 1
+mesh P2 leaf rib 1.2 188 1
+mesh P2 leaf rib 2.0 188 1
+mesh P2 center seal strip 188 1
+mesh P2 gate sign plate 188 1
+mesh P2 gate sign text 941 26
+mesh P2 beacon base -1.5 380 1
+mesh P2 beacon amber -1.5 380 1
+mesh P2 beacon base 1.5 380 1
+mesh P2 beacon amber 1.5 380 1
+mesh P2 security console 188 1
+mesh P2 console screen 188 1
+mesh P2 emergency wheel 380 1
+mesh D1 frame jamb -1 188 1
+mesh D1 frame jamb 1 188 1
+mesh D1 frame head 188 1
+mesh D1 door leaf 188 1
+mesh D1 kickplate 188 1
+mesh D1 lock backplate 188 1
+mesh D1 lever handle 40 1
+mesh D1 closer unit 188 1
+mesh D1 closer arm 40 1
+mesh D1 keycard reader 380 1
+mesh D1 keycard light green 188 1
+mesh D2 frame jamb -1 188 1
+mesh D2 frame jamb 1 188 1
+mesh D2 frame head 188 1
+mesh D2 door leaf 188 1
+mesh D2 panic bar 188 1
+mesh G1 floor track plate 188 1
+mesh G1 floor guide rail 1 188 1
+mesh G1 floor guide rail 2 188 1
+mesh G1 latch post west 188 1
+mesh G1 latch flange W 188 1
+mesh G1 latch flange W_bolt_-0.0988_-0.1216 284 1
+mesh G1 latch flange W_bolt_-0.0988_0.1216 284 1
+mesh G1 latch flange W_bolt_0.0988_-0.1216 284 1
+mesh G1 latch flange W_bolt_0.0988_0.1216 284 1
+mesh G1 optical sensor west 380 1
+mesh G1 electro-magnetic keeper 188 1
+mesh G1 guide tower east 188 1
+mesh G1 tower flange E 188 1
+mesh G1 tower flange E_bolt_-0.1292_-0.1596 284 1
+mesh G1 tower flange E_bolt_-0.1292_0.1596 284 1
+mesh G1 tower flange E_bolt_0.1292_-0.1596 284 1
+mesh G1 tower flange E_bolt_0.1292_0.1596 284 1
+mesh G1 motor drive housing 188 1
+mesh G1 warning strobe beacon 380 1
+mesh G1 overhead slide beam 188 1
+mesh G1 slide rail linear track 188 1
+mesh G1 leaf 1 frame 32 1
+mesh G1 leaf 1 panel 188 1
+mesh G1 leaf 1 chevron 188 1
+mesh G1 leaf 1 top carriage 188 1
+mesh G1 leaf 1 wheel box 2.3 380 1
+mesh G1 leaf 1 wheel 2.3 380 1
+mesh G1 leaf 1 wheel box 2.8 380 1
+mesh G1 leaf 1 wheel 2.8 380 1
+mesh G1 leaf 2 frame 32 1
+mesh G1 leaf 2 panel 188 1
+mesh G1 leaf 2 chevron 188 1
+mesh G1 leaf 2 top carriage 188 1
+mesh G1 leaf 2 wheel box 1.8 380 1
+mesh G1 leaf 2 wheel 1.8 380 1
+mesh G1 leaf 2 wheel box 2.3 380 1
+mesh G1 leaf 2 wheel 2.3 380 1
+mesh G1 leaf 3 frame 32 1
+mesh G1 leaf 3 panel 188 1
+mesh G1 leaf 3 bumper 188 1
+mesh G1 leaf 3 top carriage 188 1
+mesh G1 leaf 3 wheel box 1.3 380 1
+mesh G1 leaf 3 wheel 1.3 380 1
+mesh G1 leaf 3 wheel box 1.8 380 1
+mesh G1 leaf 3 wheel 1.8 380 1
+mesh G1 interleaf bracket 1_2 188 1
+mesh G1 interleaf bracket 2_3 188 1
+mesh G1 pedestal column 188 1
+mesh G1 pedestal head 188 1
+mesh G1 open button 380 1
+mesh G1 estop button 380 1
+mesh Office front wall west 284 1
+mesh Office front wall mid 188 1
+mesh Office front wall east 188 1
+mesh Office front head lintel 188 1
+mesh Hatch wall sill base 564 3
+mesh Office front wainscot west 188 1
+mesh Office front dado west 188 1
+mesh Office front wainscot mid 188 1
+mesh Office front dado mid 188 1
+mesh Office east sill wall 188 1
+mesh Office east head wall 188 1
+mesh Office east corner south 188 1
+mesh Office east corner north 188 1
+mesh Observation glass pane 0 188 1
+mesh Observation glass pane 1 188 1
+mesh Observation glass pane 2 188 1
+mesh Window mullion 4.0 188 1
+mesh Window mullion 5.63 188 1
+mesh Window mullion 7.26 188 1
+mesh Window mullion 8.9 188 1
+mesh Office rear wall west 284 1
+mesh Office rear wall east 284 1
+mesh Office rear lintel 188 1
+mesh Hatch counter leg west 188 1
+mesh Hatch counter leg east 188 1
+mesh Transaction counter slab 236 1
+mesh Counter front chamfer nose 188 1
+mesh Hatch security grille bottom 188 1
+mesh Hatch speaking aperture plate 188 1
+mesh Speaking baffle ring 380 1
+mesh Document pass tray 188 1
+mesh Counter clipboard board 188 1
+mesh Counter clipboard clip 188 1
+mesh Counter manifest paper 2548 1
+mesh Manifest header 856 13
+mesh Manifest line 1 1396 16
+mesh Manifest line 2 1255 12
+mesh Manifest line 3 676 10
+mesh Authority stamp rubber base 188 1
+mesh Authority stamp brass collar 188 1
+mesh Authority stamp ferrule 380 1
+mesh Authority stamp wood shaft 380 1
+mesh Authority stamp wood knob 380 1
+mesh Ink pad tin base 764 1
+mesh Ink pad felt cushion 188 1
+mesh Ink pad lid open 380 1
+mesh Counter pen holder base 380 1
+mesh Counter pen swivel ball 380 1
+mesh Counter ballpoint pen 20 1
+mesh Security bead chain 40 1
+mesh Desk leg -4.05_6.05 188 1
+mesh Desk leg flange -4.05_6.05 188 1
+mesh Desk leg flange -4.05_6.05_bolt_-0.038000000000000006_-0.038000000000000006 284 1
+mesh Desk leg flange -4.05_6.05_bolt_-0.038000000000000006_0.038000000000000006 284 1
+mesh Desk leg flange -4.05_6.05_bolt_0.038000000000000006_-0.038000000000000006 284 1
+mesh Desk leg flange -4.05_6.05_bolt_0.038000000000000006_0.038000000000000006 284 1
+mesh Desk leg -2.95_6.05 188 1
+mesh Desk leg flange -2.95_6.05 188 1
+mesh Desk leg flange -2.95_6.05_bolt_-0.038000000000000006_-0.038000000000000006 284 1
+mesh Desk leg flange -2.95_6.05_bolt_-0.038000000000000006_0.038000000000000006 284 1
+mesh Desk leg flange -2.95_6.05_bolt_0.038000000000000006_-0.038000000000000006 284 1
+mesh Desk leg flange -2.95_6.05_bolt_0.038000000000000006_0.038000000000000006 284 1
+mesh Desk leg -4.05_7.55 188 1
+mesh Desk leg flange -4.05_7.55 188 1
+mesh Desk leg flange -4.05_7.55_bolt_-0.038000000000000006_-0.038000000000000006 284 1
+mesh Desk leg flange -4.05_7.55_bolt_-0.038000000000000006_0.038000000000000006 284 1
+mesh Desk leg flange -4.05_7.55_bolt_0.038000000000000006_-0.038000000000000006 284 1
+mesh Desk leg flange -4.05_7.55_bolt_0.038000000000000006_0.038000000000000006 284 1
+mesh Desk leg -2.95_7.55 188 1
+mesh Desk leg flange -2.95_7.55 188 1
+mesh Desk leg flange -2.95_7.55_bolt_-0.038000000000000006_-0.038000000000000006 284 1
+mesh Desk leg flange -2.95_7.55_bolt_-0.038000000000000006_0.038000000000000006 284 1
+mesh Desk leg flange -2.95_7.55_bolt_0.038000000000000006_-0.038000000000000006 284 1
+mesh Desk leg flange -2.95_7.55_bolt_0.038000000000000006_0.038000000000000006 284 1
+mesh Desk stretcher Y 188 1
+mesh Desk modesty panel 188 1
+mesh Desk top work surface 188 1
+mesh Desk blotter mat 188 1
+mesh Terminal desk mount clamp 188 1
+mesh Terminal articulated arm 40 1
+mesh Terminal monitor housing 828 1
+mesh Terminal CRT screen bezel 32 1
+mesh Terminal screen face 188 1
+mesh Screen line 1 608 12
+mesh Screen line 2 391 15
+mesh Screen line 3 336 10
+mesh Terminal keyboard body 188 1
+mesh Keyboard keyrow 0 2256 12
+mesh Keyboard keyrow 1 2256 12
+mesh Keyboard keyrow 2 2256 12
+mesh Keyboard keyrow 3 2256 12
+mesh Keyboard keyrow 4 2256 12
+mesh Desk mouse body 188 1
+mesh Desk mouse cord 40 1
+mesh Officer coffee mug body 380 1
+mesh Mug interior liquid 380 1
+mesh Mug handle loop 40 1
+mesh Desk shift folder 188 1
+mesh Desk shift paper 188 1
+mesh Monitor power cable 40 1
+mesh Intercom cradle base 188 1
+mesh Handset earpiece 444 1
+mesh Coiled phone cord 40 1
+mesh Chair caster hub 380 1
+mesh Chair leg 0 20 1
+mesh Chair wheel 0 188 1
+mesh Chair leg 1 20 1
+mesh Chair wheel 1 188 1
+mesh Chair leg 2 20 1
+mesh Chair wheel 2 188 1
+mesh Chair leg 3 20 1
+mesh Chair wheel 3 188 1
+mesh Chair leg 4 20 1
+mesh Chair wheel 4 188 1
+mesh Chair gas lift cylinder 380 1
+mesh Chair lift collar 380 1
+mesh Chair underseat mech 188 1
+mesh Chair tilt lever 20 1
+mesh Tilt knob 380 1
+mesh Chair seat cushion 572 1
+mesh Chair back spine 40 1
+mesh Chair back lumbar 604 1
+mesh Chair back upper 604 1
+mesh Chair arm upright -1 20 1
+mesh Chair armrest pad -1 380 1
+mesh Chair arm upright 1 20 1
+mesh Chair armrest pad 1 380 1
+mesh Filing cabinet body 0 188 1
+mesh Drawer face 0_0 188 1
+mesh Drawer pull 0_0 60 1
+mesh Drawer cardholder 0_0 188 1
+mesh Drawer face 0_1 188 1
+mesh Drawer pull 0_1 60 1
+mesh Drawer cardholder 0_1 188 1
+mesh Drawer face 0_2 188 1
+mesh Drawer pull 0_2 60 1
+mesh Drawer cardholder 0_2 188 1
+mesh Drawer face 0_3 188 1
+mesh Drawer pull 0_3 60 1
+mesh Drawer cardholder 0_3 188 1
+mesh Filing cabinet body 1 188 1
+mesh Drawer face 1_0 188 1
+mesh Drawer pull 1_0 60 1
+mesh Drawer cardholder 1_0 188 1
+mesh Drawer face 1_1 188 1
+mesh Drawer pull 1_1 60 1
+mesh Drawer cardholder 1_1 188 1
+mesh Drawer face 1_2 188 1
+mesh Drawer pull 1_2 60 1
+mesh Drawer cardholder 1_2 188 1
+mesh Drawer face 1_3 188 1
+mesh Drawer pull 1_3 60 1
+mesh Drawer cardholder 1_3 188 1
+mesh Office coat rack post 188 1
+mesh Office coat rack base 188 1
+mesh Office coat rack base_bolt_-0.13299999999999998_-0.13299999999999998 284 1
+mesh Office coat rack base_bolt_-0.13299999999999998_0.13299999999999998 284 1
+mesh Office coat rack base_bolt_0.13299999999999998_-0.13299999999999998 284 1
+mesh Office coat rack base_bolt_0.13299999999999998_0.13299999999999998 284 1
+mesh Coat hook 0 40 1
+mesh Coat hook 1 40 1
+mesh Coat hook 2 40 1
+mesh Coat hook 3 40 1
+mesh Office key box cabinet 828 1
+mesh Key box glass 188 1
+mesh Key box label 86 4
+mesh Scanner floor ramp threshold 188 1
+mesh Scanner portal column -1 352 1
+mesh Scanner column inset -1 380 1
+mesh Scanner base flange -1 188 1
+mesh Scanner base flange -1_bolt_-0.10640000000000001_-0.16720000000000002 284 1
+mesh Scanner base flange -1_bolt_-0.10640000000000001_0.16720000000000002 284 1
+mesh Scanner base flange -1_bolt_0.10640000000000001_-0.16720000000000002 284 1
+mesh Scanner base flange -1_bolt_0.10640000000000001_0.16720000000000002 284 1
+mesh Sensor emitter -1_0 572 1
+mesh Sensor optic -1_0 188 1
+mesh Sensor emitter -1_1 572 1
+mesh Sensor optic -1_1 188 1
+mesh Sensor emitter -1_2 572 1
+mesh Sensor optic -1_2 188 1
+mesh Sensor emitter -1_3 572 1
+mesh Sensor optic -1_3 188 1
+mesh Sensor emitter -1_4 572 1
+mesh Sensor optic -1_4 188 1
+mesh Sensor emitter -1_5 572 1
+mesh Sensor optic -1_5 188 1
+mesh Scanner portal column 1 352 1
+mesh Scanner column inset 1 380 1
+mesh Scanner base flange 1 188 1
+mesh Scanner base flange 1_bolt_-0.10640000000000001_-0.16720000000000002 284 1
+mesh Scanner base flange 1_bolt_-0.10640000000000001_0.16720000000000002 284 1
+mesh Scanner base flange 1_bolt_0.10640000000000001_-0.16720000000000002 284 1
+mesh Scanner base flange 1_bolt_0.10640000000000001_0.16720000000000002 284 1
+mesh Sensor emitter 1_0 572 1
+mesh Sensor optic 1_0 188 1
+mesh Sensor emitter 1_1 572 1
+mesh Sensor optic 1_1 188 1
+mesh Sensor emitter 1_2 572 1
+mesh Sensor optic 1_2 188 1
+mesh Sensor emitter 1_3 572 1
+mesh Sensor optic 1_3 188 1
+mesh Sensor emitter 1_4 572 1
+mesh Sensor optic 1_4 188 1
+mesh Sensor emitter 1_5 572 1
+mesh Sensor optic 1_5 188 1
+mesh Scanner portal lintel 252 1
+mesh Scanner lintel face 188 1
+mesh Scanner lintel txt 1180 25
+mesh Scanner overhead conduit west 380 1
+mesh Scanner overhead conduit east 380 1
+mesh Scanner ceiling junction box 188 1
+mesh Scanner status light 0 380 1
+mesh Scanner status light 1 380 1
+mesh Scanner status light 2 380 1
+mesh Scanner status light 3 380 1
+mesh Lead tunnel main body 956 1
+mesh Lead tunnel inner chamber 28 1
+mesh Tunnel stiffener 3.88_6.8 316 1
+mesh Tunnel stiffener 3.88_7.3 316 1
+mesh Tunnel stiffener 3.88_7.9 316 1
+mesh Tunnel stiffener 3.88_8.4 316 1
+mesh Tunnel stiffener 5.42_6.8 316 1
+mesh Tunnel stiffener 5.42_7.3 316 1
+mesh Tunnel stiffener 5.42_7.9 316 1
+mesh Tunnel stiffener 5.42_8.4 316 1
+mesh Lifting eyebolt ring 4.05_6.65 960 1
+mesh Lifting eyebolt stem 4.05_6.65 380 1
+mesh Lifting eyebolt ring 4.05_8.65 960 1
+mesh Lifting eyebolt stem 4.05_8.65 380 1
+mesh Lifting eyebolt ring 5.25_6.65 960 1
+mesh Lifting eyebolt stem 5.25_6.65 380 1
+mesh Lifting eyebolt ring 5.25_8.65 960 1
+mesh Lifting eyebolt stem 5.25_8.65 380 1
+mesh Scanner plate west backing 188 1
+mesh Scanner plate west 188 1
+mesh Scanner txt west 1 777 22
+mesh Scanner txt west 2 1152 27
+mesh Scanner plate east backing 188 1
+mesh Scanner plate east 188 1
+mesh Scanner txt east 1 777 22
+mesh Scanner txt east 2 1152 27
+mesh Lead curtain strip 6.48_0 236 1
+mesh Lead curtain strip 6.48_1 236 1
+mesh Lead curtain strip 6.48_2 236 1
+mesh Lead curtain strip 6.48_3 236 1
+mesh Lead curtain strip 6.48_4 236 1
+mesh Lead curtain strip 6.48_5 236 1
+mesh Lead curtain strip 6.48_6 236 1
+mesh Lead curtain strip 6.48_7 236 1
+mesh Curtain clamp bar 6.48 188 1
+mesh Lead curtain strip 8.82_0 236 1
+mesh Lead curtain strip 8.82_1 236 1
+mesh Lead curtain strip 8.82_2 236 1
+mesh Lead curtain strip 8.82_3 236 1
+mesh Lead curtain strip 8.82_4 236 1
+mesh Lead curtain strip 8.82_5 236 1
+mesh Lead curtain strip 8.82_6 236 1
+mesh Lead curtain strip 8.82_7 236 1
+mesh Curtain clamp bar 8.82 188 1
+mesh Conveyor rail west 188 1
+mesh Conveyor rail east 188 1
+mesh Conveyor return belt 188 1
+mesh Guide horn W 5.35 20 1
+mesh Guide horn E 5.35 20 1
+mesh Guide horn W 9.95 20 1
+mesh Guide horn E 9.95 20 1
+mesh Conveyor roller 0 252 1
+mesh Roller bearing cap 0_4.0 380 1
+mesh Roller bearing cap 0_5.3 380 1
+mesh Conveyor roller 1 252 1
+mesh Roller bearing cap 1_4.0 380 1
+mesh Roller bearing cap 1_5.3 380 1
+mesh Conveyor roller 2 252 1
+mesh Roller bearing cap 2_4.0 380 1
+mesh Roller bearing cap 2_5.3 380 1
+mesh Conveyor roller 3 252 1
+mesh Roller bearing cap 3_4.0 380 1
+mesh Roller bearing cap 3_5.3 380 1
+mesh Conveyor roller 4 252 1
+mesh Roller bearing cap 4_4.0 380 1
+mesh Roller bearing cap 4_5.3 380 1
+mesh Conveyor roller 5 252 1
+mesh Roller bearing cap 5_4.0 380 1
+mesh Roller bearing cap 5_5.3 380 1
+mesh Conveyor roller 6 252 1
+mesh Roller bearing cap 6_4.0 380 1
+mesh Roller bearing cap 6_5.3 380 1
+mesh Conveyor roller 7 252 1
+mesh Roller bearing cap 7_4.0 380 1
+mesh Roller bearing cap 7_5.3 380 1
+mesh Conveyor roller 8 252 1
+mesh Roller bearing cap 8_4.0 380 1
+mesh Roller bearing cap 8_5.3 380 1
+mesh Conveyor roller 9 252 1
+mesh Roller bearing cap 9_4.0 380 1
+mesh Roller bearing cap 9_5.3 380 1
+mesh Conveyor roller 10 252 1
+mesh Roller bearing cap 10_4.0 380 1
+mesh Roller bearing cap 10_5.3 380 1
+mesh Conveyor roller 11 252 1
+mesh Roller bearing cap 11_4.0 380 1
+mesh Roller bearing cap 11_5.3 380 1
+mesh Conveyor roller 12 252 1
+mesh Roller bearing cap 12_4.0 380 1
+mesh Roller bearing cap 12_5.3 380 1
+mesh Conveyor roller 13 252 1
+mesh Roller bearing cap 13_4.0 380 1
+mesh Roller bearing cap 13_5.3 380 1
+mesh Conveyor roller 14 252 1
+mesh Roller bearing cap 14_4.0 380 1
+mesh Roller bearing cap 14_5.3 380 1
+mesh Conveyor roller 15 252 1
+mesh Roller bearing cap 15_4.0 380 1
+mesh Roller bearing cap 15_5.3 380 1
+mesh Conveyor roller 16 252 1
+mesh Roller bearing cap 16_4.0 380 1
+mesh Roller bearing cap 16_5.3 380 1
+mesh Conveyor roller 17 252 1
+mesh Roller bearing cap 17_4.0 380 1
+mesh Roller bearing cap 17_5.3 380 1
+mesh Conveyor roller 18 252 1
+mesh Roller bearing cap 18_4.0 380 1
+mesh Roller bearing cap 18_5.3 380 1
+mesh Conveyor roller 19 252 1
+mesh Roller bearing cap 19_4.0 380 1
+mesh Roller bearing cap 19_5.3 380 1
+mesh Conveyor roller 20 252 1
+mesh Roller bearing cap 20_4.0 380 1
+mesh Roller bearing cap 20_5.3 380 1
+mesh Conveyor roller 21 252 1
+mesh Roller bearing cap 21_4.0 380 1
+mesh Roller bearing cap 21_5.3 380 1
+mesh Conveyor roller 22 252 1
+mesh Roller bearing cap 22_4.0 380 1
+mesh Roller bearing cap 22_5.3 380 1
+mesh Conveyor roller 23 252 1
+mesh Roller bearing cap 23_4.0 380 1
+mesh Roller bearing cap 23_5.3 380 1
+mesh Conveyor roller 24 252 1
+mesh Roller bearing cap 24_4.0 380 1
+mesh Roller bearing cap 24_5.3 380 1
+mesh Conveyor roller 25 252 1
+mesh Roller bearing cap 25_4.0 380 1
+mesh Roller bearing cap 25_5.3 380 1
+mesh Conveyor roller 26 252 1
+mesh Roller bearing cap 26_4.0 380 1
+mesh Roller bearing cap 26_5.3 380 1
+mesh Conveyor roller 27 252 1
+mesh Roller bearing cap 27_4.0 380 1
+mesh Roller bearing cap 27_5.3 380 1
+mesh Conveyor roller 28 252 1
+mesh Roller bearing cap 28_4.0 380 1
+mesh Roller bearing cap 28_5.3 380 1
+mesh Conveyor leg 3.98_5.4 188 1
+mesh Conveyor leg flange 3.98_5.4 188 1
+mesh Conveyor leg flange 3.98_5.4_bolt_-0.0684_-0.0684 284 1
+mesh Conveyor leg flange 3.98_5.4_bolt_-0.0684_0.0684 284 1
+mesh Conveyor leg flange 3.98_5.4_bolt_0.0684_-0.0684 284 1
+mesh Conveyor leg flange 3.98_5.4_bolt_0.0684_0.0684 284 1
+mesh Leveling foot stem 3.98_5.4 380 1
+mesh Conveyor leg 3.98_6.4 188 1
+mesh Conveyor leg flange 3.98_6.4 188 1
+mesh Conveyor leg flange 3.98_6.4_bolt_-0.0684_-0.0684 284 1
+mesh Conveyor leg flange 3.98_6.4_bolt_-0.0684_0.0684 284 1
+mesh Conveyor leg flange 3.98_6.4_bolt_0.0684_-0.0684 284 1
+mesh Conveyor leg flange 3.98_6.4_bolt_0.0684_0.0684 284 1
+mesh Leveling foot stem 3.98_6.4 380 1
+mesh Conveyor leg 3.98_8.9 188 1
+mesh Conveyor leg flange 3.98_8.9 188 1
+mesh Conveyor leg flange 3.98_8.9_bolt_-0.0684_-0.0684 284 1
+mesh Conveyor leg flange 3.98_8.9_bolt_-0.0684_0.0684 284 1
+mesh Conveyor leg flange 3.98_8.9_bolt_0.0684_-0.0684 284 1
+mesh Conveyor leg flange 3.98_8.9_bolt_0.0684_0.0684 284 1
+mesh Leveling foot stem 3.98_8.9 380 1
+mesh Conveyor leg 3.98_9.9 188 1
+mesh Conveyor leg flange 3.98_9.9 188 1
+mesh Conveyor leg flange 3.98_9.9_bolt_-0.0684_-0.0684 284 1
+mesh Conveyor leg flange 3.98_9.9_bolt_-0.0684_0.0684 284 1
+mesh Conveyor leg flange 3.98_9.9_bolt_0.0684_-0.0684 284 1
+mesh Conveyor leg flange 3.98_9.9_bolt_0.0684_0.0684 284 1
+mesh Leveling foot stem 3.98_9.9 380 1
+mesh Conveyor leg 5.32_5.4 188 1
+mesh Conveyor leg flange 5.32_5.4 188 1
+mesh Conveyor leg flange 5.32_5.4_bolt_-0.0684_-0.0684 284 1
+mesh Conveyor leg flange 5.32_5.4_bolt_-0.0684_0.0684 284 1
+mesh Conveyor leg flange 5.32_5.4_bolt_0.0684_-0.0684 284 1
+mesh Conveyor leg flange 5.32_5.4_bolt_0.0684_0.0684 284 1
+mesh Leveling foot stem 5.32_5.4 380 1
+mesh Conveyor leg 5.32_6.4 188 1
+mesh Conveyor leg flange 5.32_6.4 188 1
+mesh Conveyor leg flange 5.32_6.4_bolt_-0.0684_-0.0684 284 1
+mesh Conveyor leg flange 5.32_6.4_bolt_-0.0684_0.0684 284 1
+mesh Conveyor leg flange 5.32_6.4_bolt_0.0684_-0.0684 284 1
+mesh Conveyor leg flange 5.32_6.4_bolt_0.0684_0.0684 284 1
+mesh Leveling foot stem 5.32_6.4 380 1
+mesh Conveyor leg 5.32_8.9 188 1
+mesh Conveyor leg flange 5.32_8.9 188 1
+mesh Conveyor leg flange 5.32_8.9_bolt_-0.0684_-0.0684 284 1
+mesh Conveyor leg flange 5.32_8.9_bolt_-0.0684_0.0684 284 1
+mesh Conveyor leg flange 5.32_8.9_bolt_0.0684_-0.0684 284 1
+mesh Conveyor leg flange 5.32_8.9_bolt_0.0684_0.0684 284 1
+mesh Leveling foot stem 5.32_8.9 380 1
+mesh Conveyor leg 5.32_9.9 188 1
+mesh Conveyor leg flange 5.32_9.9 188 1
+mesh Conveyor leg flange 5.32_9.9_bolt_-0.0684_-0.0684 284 1
+mesh Conveyor leg flange 5.32_9.9_bolt_-0.0684_0.0684 284 1
+mesh Conveyor leg flange 5.32_9.9_bolt_0.0684_-0.0684 284 1
+mesh Conveyor leg flange 5.32_9.9_bolt_0.0684_0.0684 284 1
+mesh Leveling foot stem 5.32_9.9 380 1
+mesh Cargo crate base 188 1
+mesh Cargo crate lid 188 1
+mesh Cargo crate rib W 188 1
+mesh Cargo crate rib E 188 1
+mesh Cargo crate sign placard 188 1
+mesh Cargo crate text 1 533 8
+mesh Cargo crate text 2 619 12
+mesh Drive motor mounting plate 188 1
+mesh Drive motor housing 380 1
+mesh Motor cooling fin 0 380 1
+mesh Motor cooling fin 1 380 1
+mesh Motor cooling fin 2 380 1
+mesh Motor cooling fin 3 380 1
+mesh Motor cooling fin 4 380 1
+mesh Motor cooling fin 5 380 1
+mesh Motor cooling fin 6 380 1
+mesh Motor shaft coupling shroud 188 1
+mesh Conveyor operator desk arm 188 1
+mesh Conveyor monitor housing 0 828 1
+mesh Conveyor monitor screen 0 188 1
+mesh Conveyor monitor txt 0 262 13
+mesh Conveyor monitor housing 1 828 1
+mesh Conveyor monitor screen 1 188 1
+mesh Conveyor monitor txt 1 347 13
+mesh Conveyor control panel 188 1
+mesh Conveyor estop palm button 380 1
+mesh Support privacy screen wall 188 1
+mesh Support screen base curb 188 1
+mesh Support screen top cap 188 1
+mesh Trolley wheel -6.2_12.2 284 1
+mesh Trolley caster swivel -6.2_12.2 380 1
+mesh Trolley caster fork -6.2_12.2 188 1
+mesh Trolley wheel -5.5_12.2 284 1
+mesh Trolley caster swivel -5.5_12.2 380 1
+mesh Trolley caster fork -5.5_12.2 188 1
+mesh Trolley wheel -6.2_14.3 284 1
+mesh Trolley caster swivel -6.2_14.3 380 1
+mesh Trolley caster fork -6.2_14.3 188 1
+mesh Trolley wheel -5.5_14.3 284 1
+mesh Trolley caster swivel -5.5_14.3 380 1
+mesh Trolley caster fork -5.5_14.3 188 1
+mesh Trolley lower rail -6.2 188 1
+mesh Trolley lower rail -5.5 188 1
+mesh Trolley cross rail 12.2 188 1
+mesh Trolley cross rail 14.3 188 1
+mesh Trolley lower shelf 188 1
+mesh Trolley upright -6.2_12.2 380 1
+mesh Trolley upright -5.5_12.2 380 1
+mesh Trolley upright -6.2_14.3 380 1
+mesh Trolley upright -5.5_14.3 380 1
+mesh Trolley bed perimeter 188 1
+mesh Trolley handle bar 60 1
+mesh Trolley IV pole clamp 380 1
+mesh Trolley IV pole upright 380 1
+mesh Trolley IV hook W 40 1
+mesh Trolley IV hook E 40 1
+mesh Covered Trolley Draped Tarp 5696 1
+mesh Trolley strap 0 180 1
+mesh Ratchet buckle body 0 188 1
+mesh Ratchet lever 0 20 1
+mesh Trolley strap 1 180 1
+mesh Ratchet buckle body 1 188 1
+mesh Ratchet lever 1 20 1
+mesh Trolley strap 2 180 1
+mesh Ratchet buckle body 2 188 1
+mesh Ratchet lever 2 20 1
+mesh Trolley strap 3 180 1
+mesh Ratchet buckle body 3 188 1
+mesh Ratchet lever 3 20 1
+mesh Clipboard hanging wire 20 1
+mesh Specimen clipboard body 188 1
+mesh Specimen clip clamp 188 1
+mesh Specimen paper sheet 188 1
+mesh Specimen tag text 1 676 10
+mesh Specimen tag text 2 806 15
+mesh Specimen tag text 3 397 13
+mesh Evidence cabinet vault carcass 188 1
+mesh Evidence cabinet base plinth 188 1
+mesh Evidence cabinet top crown 188 1
+mesh Locker door 0_0 380 1
+mesh Vault hinge 0_0_-0.26 380 1
+mesh Vault hinge 0_0_0.26 380 1
+mesh Vault wheel hub 0_0 380 1
+mesh Wheel spoke 0_0_0 20 1
+mesh Wheel spoke 0_0_1 20 1
+mesh Wheel spoke 0_0_2 20 1
+mesh Locker placard 0_0 188 1
+mesh Locker id 0_0 328 7
+mesh Locker door 0_1 380 1
+mesh Vault hinge 0_1_-0.26 380 1
+mesh Vault hinge 0_1_0.26 380 1
+mesh Vault wheel hub 0_1 380 1
+mesh Wheel spoke 0_1_0 20 1
+mesh Wheel spoke 0_1_1 20 1
+mesh Wheel spoke 0_1_2 20 1
+mesh Locker placard 0_1 188 1
+mesh Locker id 0_1 413 7
+mesh Locker door 1_0 380 1
+mesh Vault hinge 1_0_-0.26 380 1
+mesh Vault hinge 1_0_0.26 380 1
+mesh Vault wheel hub 1_0 380 1
+mesh Wheel spoke 1_0_0 20 1
+mesh Wheel spoke 1_0_1 20 1
+mesh Wheel spoke 1_0_2 20 1
+mesh Locker placard 1_0 188 1
+mesh Locker id 1_0 413 7
+mesh Locker door 1_1 380 1
+mesh Vault hinge 1_1_-0.26 380 1
+mesh Vault hinge 1_1_0.26 380 1
+mesh Vault wheel hub 1_1 380 1
+mesh Wheel spoke 1_1_0 20 1
+mesh Wheel spoke 1_1_1 20 1
+mesh Wheel spoke 1_1_2 20 1
+mesh Locker placard 1_1 188 1
+mesh Locker id 1_1 498 7
+mesh Locker door 2_0 380 1
+mesh Vault hinge 2_0_-0.26 380 1
+mesh Vault hinge 2_0_0.26 380 1
+mesh Vault wheel hub 2_0 380 1
+mesh Wheel spoke 2_0_0 20 1
+mesh Wheel spoke 2_0_1 20 1
+mesh Wheel spoke 2_0_2 20 1
+mesh Locker placard 2_0 188 1
+mesh Locker id 2_0 471 7
+mesh Locker door 2_1 380 1
+mesh Vault hinge 2_1_-0.26 380 1
+mesh Vault hinge 2_1_0.26 380 1
+mesh Vault wheel hub 2_1 380 1
+mesh Wheel spoke 2_1_0 20 1
+mesh Wheel spoke 2_1_1 20 1
+mesh Wheel spoke 2_1_2 20 1
+mesh Locker placard 2_1 188 1
+mesh Locker id 2_1 556 7
+mesh Hand cart wheel 4.15_11.75 236 1
+mesh Hand cart swivel 4.15_11.75 380 1
+mesh Hand cart fork 4.15_11.75 188 1
+mesh Hand cart wheel 4.7_11.75 236 1
+mesh Hand cart swivel 4.7_11.75 380 1
+mesh Hand cart fork 4.7_11.75 188 1
+mesh Hand cart wheel 4.15_13.65 236 1
+mesh Hand cart swivel 4.15_13.65 380 1
+mesh Hand cart fork 4.15_13.65 188 1
+mesh Hand cart wheel 4.7_13.65 236 1
+mesh Hand cart swivel 4.7_13.65 380 1
+mesh Hand cart fork 4.7_13.65 188 1
+mesh Cart bed flatbed 188 1
+mesh Cart perimeter bumper 380 1
+mesh Cart handle hoop 60 1
+mesh Utility backer panel 188 1
+mesh Transformer box 1 828 1
+mesh Transformer box 2 828 1
+mesh Utility conduit feed 1 380 1
+mesh Utility conduit feed 2 380 1
+mesh Main breaker disconnect 828 1
+mesh Breaker handle 380 1
+mesh Switchgear unit 0 188 1
+mesh Switchgear plinth 0 188 1
+mesh Switchgear door 0 380 1
+mesh Louver bank 0 1692 9
+mesh Status indicator red 0 380 1
+mesh Status indicator amber 0 380 1
+mesh Status indicator green 0 380 1
+mesh Switchgear unit 1 188 1
+mesh Switchgear plinth 1 188 1
+mesh Switchgear door 1 380 1
+mesh Louver bank 1 1692 9
+mesh Status indicator red 1 380 1
+mesh Status indicator amber 1 380 1
+mesh Status indicator green 1 380 1
+mesh Transit pallet base 0 188 1
+mesh Transit container 0 188 1
+mesh Transit container 1 188 1
+mesh Transit pallet base 1 188 1
+mesh Transit drum A 380 1
+mesh Transit drum B 380 1
+mesh Roof deck ceiling slab 188 1
+mesh Truss top chord 2.2 572 1
+mesh Truss bot chord 2.2 572 1
+mesh Truss diag A 2.2_-5.6 20 1
+mesh Truss diag B 2.2_-5.6 20 1
+mesh Truss diag A 2.2_-2.4 20 1
+mesh Truss diag B 2.2_-2.4 20 1
+mesh Truss diag A 2.2_0.8 20 1
+mesh Truss diag B 2.2_0.8 20 1
+mesh Truss diag A 2.2_4.0 20 1
+mesh Truss diag B 2.2_4.0 20 1
+mesh Truss top chord 5.2 572 1
+mesh Truss bot chord 5.2 572 1
+mesh Truss diag A 5.2_-5.6 20 1
+mesh Truss diag B 5.2_-5.6 20 1
+mesh Truss diag A 5.2_-2.4 20 1
+mesh Truss diag B 5.2_-2.4 20 1
+mesh Truss diag A 5.2_0.8 20 1
+mesh Truss diag B 5.2_0.8 20 1
+mesh Truss diag A 5.2_4.0 20 1
+mesh Truss diag B 5.2_4.0 20 1
+mesh Truss top chord 8.2 572 1
+mesh Truss bot chord 8.2 572 1
+mesh Truss diag A 8.2_-5.6 20 1
+mesh Truss diag B 8.2_-5.6 20 1
+mesh Truss diag A 8.2_-2.4 20 1
+mesh Truss diag B 8.2_-2.4 20 1
+mesh Truss diag A 8.2_0.8 20 1
+mesh Truss diag B 8.2_0.8 20 1
+mesh Truss diag A 8.2_4.0 20 1
+mesh Truss diag B 8.2_4.0 20 1
+mesh Truss top chord 11.2 572 1
+mesh Truss bot chord 11.2 572 1
+mesh Truss diag A 11.2_-5.6 20 1
+mesh Truss diag B 11.2_-5.6 20 1
+mesh Truss diag A 11.2_-2.4 20 1
+mesh Truss diag B 11.2_-2.4 20 1
+mesh Truss diag A 11.2_0.8 20 1
+mesh Truss diag B 11.2_0.8 20 1
+mesh Truss diag A 11.2_4.0 20 1
+mesh Truss diag B 11.2_4.0 20 1
+mesh Truss top chord 13.9 572 1
+mesh Truss bot chord 13.9 572 1
+mesh Truss diag A 13.9_-5.6 20 1
+mesh Truss diag B 13.9_-5.6 20 1
+mesh Truss diag A 13.9_-2.4 20 1
+mesh Truss diag B 13.9_-2.4 20 1
+mesh Truss diag A 13.9_0.8 20 1
+mesh Truss diag B 13.9_0.8 20 1
+mesh Truss diag A 13.9_4.0 20 1
+mesh Truss diag B 13.9_4.0 20 1
+mesh Main ventilation supply trunk 188 1
+mesh Return ventilation trunk 188 1
+mesh Supply diffuser drop 3.0 188 1
+mesh Diffuser grille 3.0 188 1
+mesh Supply diffuser drop 6.0 188 1
+mesh Diffuser grille 6.0 188 1
+mesh Supply diffuser drop 9.0 188 1
+mesh Diffuser grille 9.0 188 1
+mesh Supply diffuser drop 12.0 188 1
+mesh Diffuser grille 12.0 188 1
+mesh Supply diffuser drop 14.5 188 1
+mesh Diffuser grille 14.5 188 1
+mesh Cable tray longitudinal -1.5 188 1
+mesh Cable bundle -1.5_0 20 1
+mesh Cable bundle -1.5_1 20 1
+mesh Cable bundle -1.5_2 20 1
+mesh Cable bundle -1.5_3 20 1
+mesh Cable tray longitudinal 0.8 188 1
+mesh Cable bundle 0.8_0 20 1
+mesh Cable bundle 0.8_1 20 1
+mesh Cable bundle 0.8_2 20 1
+mesh Cable bundle 0.8_3 20 1
+mesh Cable tray longitudinal 4.8 188 1
+mesh Cable bundle 4.8_0 20 1
+mesh Cable bundle 4.8_1 20 1
+mesh Cable bundle 4.8_2 20 1
+mesh Cable bundle 4.8_3 20 1
+mesh Warm Fluorescent SW Fixture Housing 380 1
+mesh Warm Fluorescent SW Tube 1 188 1
+mesh Warm Fluorescent SW Tube 2 188 1
+mesh Warm Fluorescent S-Mid Fixture Housing 380 1
+mesh Warm Fluorescent S-Mid Tube 1 188 1
+mesh Warm Fluorescent S-Mid Tube 2 188 1
+mesh Warm Fluorescent SE Fixture Housing 380 1
+mesh Warm Fluorescent SE Tube 1 188 1
+mesh Warm Fluorescent SE Tube 2 188 1
+mesh Office Task Fluorescent Fixture Housing 380 1
+mesh Office Task Fluorescent Tube 1 188 1
+mesh Office Task Fluorescent Tube 2 188 1
+mesh Office Rear Fluorescent Fixture Housing 380 1
+mesh Office Rear Fluorescent Tube 1 188 1
+mesh Office Rear Fluorescent Tube 2 188 1
+mesh Scanner Overhead Key Fixture Housing 380 1
+mesh Scanner Overhead Key Tube 1 188 1
+mesh Scanner Overhead Key Tube 2 188 1
+mesh Conveyor Hero Key Fixture Housing 380 1
+mesh Conveyor Hero Key Tube 1 188 1
+mesh Conveyor Hero Key Tube 2 188 1
+mesh Arrival Bay Key Fixture Housing 380 1
+mesh Arrival Bay Key Tube 1 188 1
+mesh Arrival Bay Key Tube 2 188 1
+mesh Bay Utility Key Fixture Housing 380 1
+mesh Bay Utility Key Tube 1 188 1
+mesh Bay Utility Key Tube 2 188 1
+mesh Support Concealed Accent Fixture Housing 380 1
+mesh Support Concealed Accent Tube 1 188 1
+mesh Support Concealed Accent Tube 2 188 1
+mesh CD | Joined D1 Staff Front Door / coral 880 4
+mesh CD | Joined D1 Staff Front Door / rubber 376 2
+mesh CD | Joined D1 Staff Front Door / steel 3016 17
+mesh CD | Joined D1 Staff Front Door / wear 120 10
+mesh CD | Joined D1 Staff Front Door / charcoal 296 2
+mesh CD | D1 ID enamel 108 1
+mesh CD | D1 ID 109 8
+mesh CD | D1 ID captive stand-offs 1312 8
+mesh CD | Joined CD | D1 wall-mounted reader / plastic 64 4
+mesh CD | D1 access caption 205 10
+mesh CD | Counter linoleum inset 12 1
+mesh CD | Joined Checkin Counter Hatch / charcoal 900 7
+mesh CD | Joined Checkin Counter Hatch / steel 4032 24
+mesh CD | Speaking grille isolation pad 12 1
+mesh CD | Joined Checkin Counter Hatch / ink 912 28
+mesh CD | Joined Checkin Counter Hatch / ivory 36 3
+mesh CD | Speak instruction 319 15
+mesh CD | Joined Checkin Counter Hatch / paper 120 10
+mesh CD | Forms title 284 11
+mesh CD | Stamp identity 36 2
+mesh CD | Joined CD | Stamping rubber pad / rubber 1516 13
+mesh CD | Joined Checkin Counter Hatch / plastic 388 3
+mesh CD | Joined CD | Counter cleaning cloth / cotton 1704 5
+mesh CD | Joined Checkin Counter Hatch / coffee 228 19
+mesh CD | Docket warning 229 12
+mesh CD | Docket secondary 227 19
+mesh CD | Plaque wall back 188 1
+mesh CD | Plaque enamel inset 188 1
+mesh CD | Plaque headline 215 15
+mesh CD | Plaque coercion 536 30
+mesh CD | Joined CD | Check-in task fixture / charcoal 564 3
+mesh CD | Task frosted lens 108 1
+mesh CD | Joined CD | D1 service junction / charcoal 236 2
+mesh CD | Joined CD | D1 service junction / blue 440 2
+mesh CD | Joined CD | D1 service junction / steel 2904 14
+mesh CD | Joined Person Scanner Arch / steel 10664 94
+mesh CD | Joined Person Scanner Arch / ink 648 6
+mesh CD | Joined Cargo Inspection Conveyor / steel 10616 126
+mesh CD | Joined Cargo Inspection Conveyor / navy 872 6
+mesh CD | Joined Cargo Inspection Conveyor / ink 72 6
+mesh CD | Joined Cargo Inspection Conveyor / charcoal 1804 17
+mesh CD | Joined Staff Desk Assembly / steel 2236 15
+mesh CD | Joined Staff Desk Assembly / charcoal 1352 8
+mesh CD | Desk modesty lower hem 108 1
+mesh CD | Joined Staff Desk Assembly / plastic 408 2
+mesh CD | Joined Ergonomic Swivel Chair / charcoal 820 5
+mesh CD | Joined Ergonomic Swivel Chair / steel 1100 5
+mesh CD | Chair seat welt 128 1
+mesh CD | Joined D2 Staff Rear Door / coral 880 4
+mesh CD | Joined D2 Staff Rear Door / steel 420 3
+mesh CD | Joined Covered Trolley H1 / steel 2600 18
+mesh CD | Joined Evidence Cabinet H2 / blue 2640 12
+mesh CD | Joined Evidence Cabinet H2 / steel 8796 61
+mesh CD | Custody docket taped sheet 12 1
+mesh CD | Joined Evidence Cabinet H2 / yellow 24 2
+mesh CD | Custody disposition 223 12
+mesh CD | Custody file 167 11
+mesh CD | Joined Switchgear Console Unit / steel 656 4
+mesh CD | Joined Switchgear Console Unit / brass 280 2
+mesh CD | Joined CD | Warm Fluorescent SW suspended fixture / steel 656 4
+mesh CD | Joined CD | Warm Fluorescent SW suspended fixture / charcoal 376 2
+mesh CD | Joined CD | Warm Fluorescent S-Mid suspended fixture / steel 656 4
+mesh CD | Joined CD | Warm Fluorescent S-Mid suspended fixture / charcoal 376 2
+mesh CD | Joined CD | Warm Fluorescent SE suspended fixture / steel 656 4
+mesh CD | Joined CD | Warm Fluorescent SE suspended fixture / charcoal 376 2
+mesh CD | Joined CD | Office Task Fluorescent suspended fixture / steel 656 4
+mesh CD | Joined CD | Office Task Fluorescent suspended fixture / charcoal 376 2
+mesh CD | Joined CD | Office Rear Fluorescent suspended fixture / steel 656 4
+mesh CD | Joined CD | Office Rear Fluorescent suspended fixture / charcoal 376 2
+mesh CD | Joined CD | Scanner Overhead Key suspended fixture / steel 656 4
+mesh CD | Joined CD | Scanner Overhead Key suspended fixture / charcoal 376 2
+mesh CD | Joined CD | Conveyor Hero Key suspended fixture / steel 656 4
+mesh CD | Joined CD | Conveyor Hero Key suspended fixture / charcoal 376 2
+mesh CD | Joined CD | Arrival Bay Key suspended fixture / steel 656 4
+mesh CD | Joined CD | Arrival Bay Key suspended fixture / charcoal 376 2
+mesh CD | Joined CD | Bay Utility Key suspended fixture / steel 656 4
+mesh CD | Joined CD | Bay Utility Key suspended fixture / charcoal 376 2
+mesh CD | Joined CD | Support Concealed Accent suspended fixture / steel 656 4
+mesh CD | Joined CD | Support Concealed Accent suspended fixture / charcoal 376 2
+mesh CD | Joined CD | Main ventilation supply trunk suspension / steel 2740 15
+mesh CD | Joined CD | Return ventilation trunk suspension / steel 2740 15
+mesh CD | Joined Staff Desk Assembly / ink 288 24
+mesh CD | Joined Arrival Gate P2 / charcoal 216 2
+mesh CD | G1 beacon captive seat 44 1
+mesh CD | Joined G1 Cart Bypass Gate / steel 572 13
+mesh CD | Joined CD | Office file cabinet 0 / steel 224 8
+mesh CD | Joined CD | Office file cabinet 1 / steel 224 8
+mesh CD | Joined Wall Utilities Rack / steel 2216 46
+mesh CD | Joined Wall Utilities Rack / ivory 852 7
+mesh CD | Joined Wall Utilities Rack / charcoal 728 5
+mesh CD | Utility stamped rating 81 5
+mesh CD | Utility stamped rating.001 81 5
+mesh CD | Utility stamped rating.002 105 7
+mesh CD | Joined Covered Trolley H1 / cotton 672 2
+mesh CD | Reassurance headline 272 18
+mesh CD | Reassurance qualification 351 23
+mesh CD | Transfer docket seal 12 1
+mesh CD | Open inspection luminaire 32 1
+mesh CD | Inspection frosted aperture 12 1
+mesh CD | Joined CD | Inspection face luminaire / steel 712 6
+mesh CD | Open inspection luminaire.001 32 1
+mesh CD | Inspection frosted aperture.001 12 1
+mesh CD | Joined CD | Custody transfer luminaire / steel 712 6
+mesh CD | Joined G1 leaf 1 frame / steel 216 2
+mesh CD | Joined G1 leaf 1 panel / wear 504 2
+mesh CD | Joined G1 leaf 1 panel / steel 592 12
+mesh CD | Joined G1 leaf 2 frame / steel 216 2
+mesh CD | Joined G1 leaf 2 panel / wear 504 2
+mesh CD | Joined G1 leaf 2 panel / steel 592 12
+mesh CD | Joined G1 leaf 3 frame / steel 216 2
+mesh CD | Joined G1 leaf 3 panel / wear 504 2
+mesh CD | Joined G1 leaf 3 panel / steel 592 12
+mesh CD | Joined Person Scanner Arch / charcoal 2184 14
+mesh CD | Joined Arrival Gate P2 / steel 56 2
+mesh CD | Joined P2 blast leaf west / wear 832 2
+mesh CD | Joined P2 blast leaf west / navy 568 2
+mesh CD | Joined P2 blast leaf west / steel 1336 20
+mesh CD | Joined P2 blast leaf east / wear 832 2
+mesh CD | Joined P2 blast leaf east / navy 568 2
+mesh CD | Joined P2 blast leaf east / steel 1336 20
+mesh CD | Transit seal ribbon 12 1
+mesh CD | Transit seal ID 68 5
+mesh CD | G1 stop resilient insert 108 1
+mesh CD | Joined P2 blast leaf west / charcoal 696 4
+mesh CD | Joined P2 blast leaf west / rubber 132 3
+mesh CD | Joined P2 blast leaf east / charcoal 696 4
+mesh CD | Joined P2 blast leaf east / rubber 132 3
+mesh CD | Lockout tag 12 1
+mesh CD | Lockout task 504 12
+mesh CD | Lockout overdue 87 5
+mesh CD | Lockout tag tie 32 1
+mesh CD | Joined Staff Desk Assembly / paper 48 4
+mesh CD | Handover issue 210 15
+mesh CD | Handover incident 450 15
+mesh CD | Vault matched seal 68 5
+mesh CD | Locator wall bracket 108 1
+mesh CD | Locator sign edge 108 1
+mesh CD | Locator sign enamel 108 1
+mesh CD | Locator heading 105 8
+mesh CD | Joined Checkin Counter Hatch / coral 108 9
+mesh CD | Entry locator housing 108 1
+mesh CD | Entry locator diffuser 108 1
+mesh CD | Joined CD | Office key cabinet / steel 148 4
+mesh CD | Joined CD | Office key cabinet / brass 456 9
+mesh CD | Key cabinet nameband 28 1
+mesh CD | Open case folder cover 12 1
+mesh CD | Joined Staff Desk Assembly / fabric 1064 4
+mesh CD | Joined CD | Faded duty poster / paper 96 8
+mesh CD | Poster factory silhouette 28 1
+mesh CD | Poster reassurance 319 15
+mesh CD | Poster coercive line 488 25
+mesh CD | Replacement conduit sleeve 128 1
+mesh CD | Cargo lip task diffuser 12 1
+mesh CD | Arrival check-in cue plate 188 1
+mesh CD | Arrival check-in cue text 422 15
+mesh CD | Desk lamp fitted diffuser 12 1
+contact 0 / 2732
+contact 100 / 2732
+contact 200 / 2732
+contact 300 / 2732
+contact 400 / 2732
+contact 500 / 2732
+contact 600 / 2732
+contact 700 / 2732
+contact 800 / 2732
+contact 900 / 2732
+contact 1000 / 2732
+contact 1100 / 2732
+contact 1200 / 2732
+contact 1300 / 2732
+contact 1400 / 2732
+contact 1500 / 2732
+contact 1600 / 2732
+contact 1700 / 2732
+contact 1800 / 2732
+contact 1900 / 2732
+contact 2000 / 2732
+contact 2100 / 2732
+contact 2200 / 2732
+contact 2300 / 2732
+contact 2400 / 2732
+contact 2500 / 2732
+contact 2600 / 2732
+contact 2700 / 2732
+DONE 385180 1149 36 2732
+
+Blender quit

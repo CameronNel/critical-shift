@@ -1,0 +1,256 @@
+{
+  "schema_version": 1,
+  "review": "fresh independent read-only formal category8 technical review",
+  "generated_utc": "2026-10-03T04:54:13.346723+00:00",
+  "category": 8,
+  "category_name": "Technical cleanliness, support contact, reproducibility and dependencies",
+  "score": 90.0,
+  "score_max": 100,
+  "verdict": "FAIL \u2014 category8 does not satisfy strictly greater than93",
+  "overall_visual_score": null,
+  "critical_count": 0,
+  "severity_counts": {
+    "critical": 0,
+    "high": 1,
+    "medium": 2,
+    "low": 0
+  },
+  "source": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend",
+  "scene": "COMPLIANCE_EDIT_LOCAL",
+  "source_sha256": "22176ab474d914156cdf5a083571c19b04c6e6e11cfa50ab8ba681013bc124a6",
+  "source_unchanged_end": true,
+  "checkpoint_identical": true,
+  "blender": "5.2.2 LTS d13f752e3b9c",
+  "threads": 1,
+  "formal_evidence": {
+    "beauty": 27,
+    "neutral": 4,
+    "uv": 4,
+    "all_manifests_complete": true,
+    "all_image_hashes_match": true,
+    "approved_reference_images": 4,
+    "all39_images_opened_individually_original_resolution": true
+  },
+  "counts": {
+    "objects": 1327,
+    "evaluated_triangles": 385180,
+    "material_submeshes": 1149,
+    "local_material_families": 36
+  },
+  "baseline_counts": {
+    "objects": 1077,
+    "evaluated_triangles": 297672,
+    "material_submeshes": 992,
+    "materials": 24
+  },
+  "planning_caps": {
+    "triangles": 450000,
+    "material_submeshes": 1150,
+    "local_material_families": 36,
+    "pass": true
+  },
+  "native_geometry": {
+    "inherited_objects_verified": 1077,
+    "max_world_matrix_delta": 1.1920928955078125e-07,
+    "connected_islands": 2732,
+    "closed_islands": 1903,
+    "open_islands": 829,
+    "negative_closed_volumes": 0,
+    "inconsistent_oriented_edges": 0,
+    "nonmanifold_edges": 0,
+    "zero_area_triangles": 0,
+    "physical_uv_bad_edges": 0
+  },
+  "registered_support": {
+    "assemblies": 45,
+    "anchors": 92,
+    "max_anchor_gap_m": 2.384185791015625e-07,
+    "max_anchor_penetration_m": 2.384185791015625e-07,
+    "max_normal_error_deg": 0
+  },
+  "validator_summary": {
+    "failures": 0,
+    "warnings": 0,
+    "unverified_checks": 5,
+    "passed_checks": 7,
+    "failed_checks": 0
+  },
+  "dependencies": {
+    "relative_native_libraries": 25,
+    "all_resolved_and_hashed": true,
+    "packed_file_images": 119,
+    "local_material_image_nodes": 0,
+    "font_packed_and_licensed": true,
+    "all_native_recorded_recipes_match_current": true
+  },
+  "findings": [
+    {
+      "id": "T8-01",
+      "severity": "high",
+      "critical": false,
+      "title": "Separate transit drums visibly interpenetrate",
+      "objects": [
+        "Transit drum A",
+        "Transit drum B"
+      ],
+      "evidence": {
+        "horizontal_center_distance_m": 0.3280244514267408,
+        "measured_solid_overlap_length_m": 0.1478690728545189,
+        "cross_section_heights_m": [
+          0.15,
+          0.3,
+          0.5,
+          0.7,
+          0.85
+        ],
+        "top_coplanar_overlap_m2": 0.031928504248982,
+        "views": [
+          {
+            "id": "HERO_UTILITIES",
+            "pixel": [
+              827,
+              498
+            ]
+          },
+          {
+            "id": "PLAYER_PINCH",
+            "pixel": [
+              754,
+              296
+            ]
+          }
+        ]
+      },
+      "raw": [
+        "drum-actual-interpenetration.json",
+        "drum-probe.log",
+        "named-view-coplanar-visibility.json"
+      ],
+      "assessment": "147.869mm actual solid overlap, rather than contact or a bounding-box near miss. Blue/yellow separate drum bodies cannot share this volume. Classified high localized prop clipping, not catastrophic room/interface/dependency loss."
+    },
+    {
+      "id": "T8-02",
+      "severity": "medium",
+      "critical": false,
+      "title": "Exposed P1 reveal/head skins retain co-oriented coplanar duplicates",
+      "objects": [
+        "P1 corridor wall E",
+        "South wall east",
+        "P1 corridor wall W",
+        "South wall west",
+        "P1 corridor ceiling",
+        "South lintel P1"
+      ],
+      "evidence": {
+        "representative_east_triangle_overlap_m2": 0.48043544228952095,
+        "representative_bottom_head_triangle_overlap_m2": 0.31999201078534184,
+        "head_surface_z_m": 2.5999999,
+        "materials": [
+          "CD | plaster",
+          "CD | charcoal"
+        ],
+        "views": [
+          "PLAYER_REVERSE",
+          "C10_ROOF_SERVICES"
+        ]
+      },
+      "raw": [
+        "coplanar-overlap.json",
+        "named-view-coplanar-visibility.json"
+      ],
+      "assessment": "Same outward normals, positive triangle-area overlap, and camera-first-hit witnesses establish exposed skins. These are different from opposed hidden contact faces. Exact whole-object duplicate checks cannot detect them. Not every broad probe candidate is scored as a defect: buried carcass/plinth contacts and corner caps are legitimate."
+    },
+    {
+      "id": "T8-03",
+      "severity": "medium",
+      "critical": false,
+      "title": "Scanner manufactured crown and bridge do not conform within 2mm",
+      "objects": [
+        "Scanner portal column -1",
+        "Scanner portal column 1",
+        "Scanner portal lintel"
+      ],
+      "evidence": {
+        "y_m": 7,
+        "absolute_x_m": [
+          0.66,
+          0.76,
+          0.81
+        ],
+        "measured_penetration_m": [
+          0.005886554718017578,
+          0.009180307388305664,
+          0.0039043426513671875
+        ],
+        "at_x_076_column_top_z_m": 2.6684112548828125,
+        "at_x_076_bridge_bottom_z_m": 2.659230947494507,
+        "views": [
+          "C04_SCANNER_APPROACH",
+          "HERO_SCANNER"
+        ]
+      },
+      "raw": [
+        "actual-bearing-surfaces.json",
+        "bearing-probe.log"
+      ],
+      "assessment": "Bidirectional rays independently measure both evaluated surfaces. Both crowns have the same3.9\u20139.2mm mismatch. This is hidden engaged geometry, not floating or a visible hero failure; it exceeds the recommended2mm penetration allowance for a clean bearing. A guard ray to the bridge from an expected mathematical crown point does not measure the actual column crown."
+    }
+  ],
+  "limits_and_unverified": [
+    "No full builder or native save was run. Rebuild determinism from factory-empty source is therefore unverified; static current/checkpoint recipe hashes match native-recorded hashes and all recipes are retained.",
+    "This review cold-opened the native source repeatedly with pinned Blender, but did not cold-render all35 views itself or test a separately relocated checkout. The supplied35 images were hash-verified and individually inspected.",
+    "Static validator uses labelled bulky obstacles plus inferred architecture and declared open poses; this is not engine physics, collision ownership, navigation, import, runtime FPS/draw calls, animation, or moving-door sweep proof. P2 open aperture/operation remains explicitly unverified.",
+    "All2732 evaluated connected islands have actual sampled surfaces/intersection evidence; finite nearest-point sampling cannot certify every buried penetration or continuous structural load path.22 sparse-contact candidates were refined with all vertices and BVH triangle intersections and all proved engaged.",
+    "All92 registered anchors were measured against target surfaces and independently recomputed component seats. The40 cargo rib seat samples and6 scanner crown/bridge pairs use both actual surfaces. Internal fixing-sized disconnected parts are included in island probes; individual fastener strength, torque and every full fixing-seat penetration were not exhaustively certified.",
+    "Same-facing coplanar candidate counts are not a defect count. Of2520 positive pair overlaps, many are buried or legitimate corner/seat contacts. Decisive findings use visible perspective-view rays and actual object construction. The recorded orthographic camera rays use an explicitly documented perspective approximation; those results are excluded from decisive findings.",
+    "The local36 material families consume no images. All119 packed file images belong to linked read-only map context. Packed payloads and dependency hashes were verified, but a new full third-party licensing audit of the immutable assembled map was not performed. The local delivered font is packed, resolves relatively, and has a matching retained DejaVu license.",
+    "Physical charts are finite and preserve every tested evaluated edge over0.1mm within1%; actual textile shaders use CD_Fabric_Cut_1m. Their continuous area-normalized/projected charts intentionally have local distortion: tarp edge ratios0.848\u20131.085, cushion maxima1.668\u20131.779, tiny seam/return charts down to0.445. Global area normalization is not local isometry or a unique/lightmap atlas claim.",
+    "Native envelope follows the measured preserved source, including floor X bounds\u00b17.1m, versus contract exterior wall allowance\u00b17.08m. Blueprint labels are not presented as newly verified whole envelope dimensions."
+  ],
+  "protected_inputs_end": [
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/blender/facility_environment.blend",
+      "expected": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+      "actual": "7d263a04e42b357f30c38df1ff012a4b7e80fc9bab3f4869e4782318e9fa88c8",
+      "match": true
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/module.blend",
+      "expected": "0cdae8b3d302459d75569cb6bf3a463f24b30ea373c2bcdf430360033d7b0947",
+      "actual": "0cdae8b3d302459d75569cb6bf3a463f24b30ea373c2bcdf430360033d7b0947",
+      "match": true
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/accepted.blend",
+      "expected": "575686f6771bc35c224961b2f9da0224cf6c7acf96631cf75cf55a8af28d3f4c",
+      "actual": "575686f6771bc35c224961b2f9da0224cf6c7acf96631cf75cf55a8af28d3f4c",
+      "match": true
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/contracts/interface.json",
+      "expected": "bdbdd0389eaa3b36b7d0f174c057034b2abd262245a8d4b52374b5b33e03eb6e",
+      "actual": "bdbdd0389eaa3b36b7d0f174c057034b2abd262245a8d4b52374b5b33e03eb6e",
+      "match": true
+    },
+    {
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend",
+      "expected": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+      "actual": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+      "match": true
+    }
+  ],
+  "processes_and_read_handles_released": true,
+  "failed_attempts_preserved": [
+    {
+      "script": "native_probe.py",
+      "log": "native-probe.log",
+      "failure": "Literal requested executable suffix blender5.2.2LTS did not exist; no Blender process ran; retry used verified blender executable."
+    },
+    {
+      "script": "refine_probe.py",
+      "log": "refine-probe.log",
+      "failure": "Missing closing parenthesis caused Python parse error; original retained, corrected separate retry script/log succeeded."
+    }
+  ],
+  "raw_evidence_directory": "/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/revamp/production/critics/full-c07-technical"
+}

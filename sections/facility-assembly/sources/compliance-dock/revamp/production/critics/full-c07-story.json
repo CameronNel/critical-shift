@@ -1,0 +1,204 @@
+{
+  "review_id": "full-c07-story",
+  "category": 7,
+  "category_name": "Purposeful worker traces and coercive institutional storytelling",
+  "score": 92.5,
+  "max_score": 100,
+  "threshold": "strictly greater than 93",
+  "category_pass": false,
+  "critical_ids": [],
+  "visual_veto_ids": [],
+  "scope": "Independent category 7 pixel review only; no overall score or native-source certification.",
+  "source_sha256": "22176ab474d914156cdf5a083571c19b04c6e6e11cfa50ab8ba681013bc124a6",
+  "renderer_sha256": "9fbae704a9a0db49d5848fd73004c0bdaf6c62455ba8db0043228a6f1b9adce2",
+  "evidence": {
+    "current_originals_opened": 35,
+    "spawn_originals_opened": 4,
+    "opened_individually": true,
+    "view_tool": "view_image, detail original",
+    "manifest_png_hash_verification": "39/39 match",
+    "source_renderer_manifest_verification": "All three current manifests complete; 27+4+4 counts and supplied source/renderer digests match. Native source and renderer files were not opened or hashed because they are outside this critic's evidence scope.",
+    "imageaudit": "full-c07-story-imageaudit.json",
+    "author_rationale_prior_critics_code_native_read": false
+  },
+  "summary": "The dock convincingly communicates bureaucratic control through inspection lanes, the speaking grille, tethered pen, stamp and paperwork, restricted storage and the covered trolley. The principal reassurance sign has a directly legible coercive reversal. The remaining shortfall is how specifically the workers and institutional strain are expressed: the desk reads as a tidy generic clerical station, pressure is only weakly established by wear/repair, and several supplementary narrative messages cannot be read at 600p.",
+  "credits": [
+    {
+      "id": "S7-P01",
+      "frames": [
+        "C02_HERO_DOCK",
+        "WALL_OFFICE_FRONT"
+      ],
+      "direct_visible": "WE VALUE YOUR TIME / ALL DELAYS ARE YOUR RESPONSIBILITY",
+      "interpretation": "A clear reassurance/blame reversal, legible in the supplied original views."
+    },
+    {
+      "id": "S7-P02",
+      "frames": [
+        "C03_CHECKIN_COUNTER",
+        "DETAIL_CHECKIN",
+        "C07_OFFICE_INTERIOR"
+      ],
+      "direct_visible": "Speaking grille, physical stamp/ink pad, pen on tether, paper tray, clipboard, folded cloth, desk mug, keyboard and pulled-out chair.",
+      "interpretation": "Purposeful daily clerical work and controlled exchange; the layout and devices communicate procedure before text."
+    },
+    {
+      "id": "S7-P03",
+      "frames": [
+        "C05_CONVEYOR_LEAD_TUNNEL",
+        "HERO_EVIDENCE"
+      ],
+      "direct_visible": "SECTOR 04 / CUSTODY 731-A on cargo; DO NOT RELEASE and 731-A on the taped storage note.",
+      "interpretation": "Visual custody association supports restricted handling. Smaller intervening note text is not transcribed."
+    },
+    {
+      "id": "S7-P04",
+      "frames": [
+        "C08_CONCEALED_SUPPORT_H1",
+        "HERO_TROLLEY"
+      ],
+      "direct_visible": "Covered wheeled trolley, transverse straps/clamps, tall hook pole and adjacent lockable compartments.",
+      "interpretation": "Concealed handling and a medical/transfer implication. No occupant, corpse, abuse event or exact concealed contents can be established."
+    },
+    {
+      "id": "S7-P05",
+      "frames": [
+        "HERO_UTILITIES",
+        "HERO_SCANNER",
+        "PLAYER_REVERSE"
+      ],
+      "direct_visible": "Localized handle wear, wrapped conduit section, tagged control and floor-route scuffs.",
+      "interpretation": "Evidence of use/maintenance, kept localized. No random-clutter veto observed in this category."
+    }
+  ],
+  "deductions": [
+    {
+      "id": "S7-01",
+      "severity": "medium",
+      "points": 3,
+      "title": "Worker presence remains mostly a generic tidy clerical arrangement",
+      "evidence": [
+        {
+          "frame": "full-cycle-07/C07_OFFICE_INTERIOR.png",
+          "region_px": [
+            390,
+            235,
+            930,
+            470
+          ]
+        },
+        {
+          "frame": "full-cycle-07/DETAIL_CHECKIN.png",
+          "region_px": [
+            180,
+            275,
+            1020,
+            480
+          ]
+        }
+      ],
+      "visible_defect": "The mug, paper piles, clipboard, keyboard and chair establish occupation, while the counter adds useful procedure. At the supplied resolution the desk offers little readable evidence of a particular worker, interrupted task or meaningful shift history; paperwork mainly reads as arranged work accessories.",
+      "scope_note": "Deduction concerns specificity of human storytelling, not amount of clutter or geometry. The functional counter props retain full credit for their purpose."
+    },
+    {
+      "id": "S7-02",
+      "severity": "medium",
+      "points": 2.5,
+      "title": "Deterioration under institutional pressure is weaker than operational-control storytelling",
+      "evidence": [
+        {
+          "frame": "full-cycle-07/HERO_UTILITIES.png",
+          "region_px": [
+            70,
+            70,
+            715,
+            495
+          ]
+        },
+        {
+          "frame": "full-cycle-07/HERO_EVIDENCE.png",
+          "region_px": [
+            240,
+            120,
+            805,
+            600
+          ]
+        },
+        {
+          "frame": "full-cycle-07/CORNER_SW.png",
+          "region_px": [
+            180,
+            215,
+            885,
+            540
+          ]
+        }
+      ],
+      "visible_defect": "Wear near utility handles, a wrapped conduit and one marked evidence compartment suggest maintenance and use. Across the larger work clusters these do not establish much specific accumulation, repair consequence or stressed workflow; the prevailing narrative is orderly functioning machinery.",
+      "scope_note": "Active maintenance is credited. Escalation or institutional decline beyond those visible signs is not inferred from the brief or asset labels."
+    },
+    {
+      "id": "S7-03",
+      "severity": "minor",
+      "points": 2,
+      "title": "Supplementary coercive messages do not survive the current 600p views",
+      "evidence": [
+        {
+          "frame": "full-cycle-07/WALL_SOUTH.png",
+          "region_px": [
+            245,
+            265,
+            312,
+            354
+          ]
+        },
+        {
+          "frame": "full-cycle-07/PLAYER_REVERSE.png",
+          "region_px": [
+            260,
+            207,
+            328,
+            278
+          ]
+        },
+        {
+          "frame": "full-cycle-07/DETAIL_CHECKIN.png",
+          "region_px": [
+            630,
+            300,
+            865,
+            435
+          ]
+        },
+        {
+          "frame": "full-cycle-07/C07_OFFICE_INTERIOR.png",
+          "region_px": [
+            620,
+            225,
+            715,
+            320
+          ]
+        }
+      ],
+      "visible_defect": "YOUR WORK MATTERS and the factory icon are readable, but its lower copy is not reliable at this size. Clipboard copy and terminal lines are also too small/soft to support precise claims about contradictory rules or coerced procedure. This reduces the supplementary narrative depth beyond the successful main sign.",
+      "scope_note": "No requirement that every form be readable; the deduction is limited to narrative meaning unavailable in the evidence. The main WE VALUE YOUR TIME reversal is directly visible and fully credited."
+    }
+  ],
+  "deduction_total": 7.5,
+  "score_arithmetic": "100 - 3.0 - 2.5 - 2.0 = 92.5",
+  "critical_statement": "No category 7 critical defect identified. The numeric category gate nevertheless fails.",
+  "limitations": [
+    "All category conclusions are based on the 35 current and 4 approved-reference originals.",
+    "UV/neutral views were opened, but cannot establish intended final narrative tone or unseen text.",
+    "No assertions about runtime, technical support-contact, native-source fidelity, other category scores, prior-cycle stability or overall acceptance."
+  ],
+  "failed_attempts": [
+    "Two aggregate documentation/read outputs were truncated by the execution output limit; authoritative art-direction/reference/protocol content was subsequently exposed in repeated separate/shorter reads. No image-open or hash-verification failure occurred."
+  ],
+  "cleanup": {
+    "owned_background_processes": 0,
+    "owned_blender_processes": 0,
+    "open_native_scene_handles": 0,
+    "status": "All synchronous command and image-read handles released; no persistent process/session created."
+  }
+}

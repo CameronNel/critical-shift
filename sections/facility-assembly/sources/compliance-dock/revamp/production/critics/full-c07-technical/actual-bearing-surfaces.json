@@ -1,0 +1,2997 @@
+{
+  "manufactured_interfaces": [
+    {
+      "interface": "scanner actual crown and bridge",
+      "x": -0.66,
+      "a": {
+        "object": "Scanner portal column -1",
+        "point": [
+          -0.6600000262260437,
+          7.0,
+          2.655886650085449
+        ],
+        "normal": [
+          0.12427524477243423,
+          0.0,
+          0.9922477602958679
+        ],
+        "triangle": 351,
+        "distance_m": 0.04411337897181511
+      },
+      "b": {
+        "object": "Scanner portal lintel",
+        "point": [
+          -0.6600000262260437,
+          7.0,
+          2.6500000953674316
+        ],
+        "normal": [
+          -0.0,
+          -0.0,
+          -1.0
+        ],
+        "triangle": 190,
+        "distance_m": 0.05000018700957298
+      },
+      "gap_m": -0.005886554718017578
+    },
+    {
+      "interface": "scanner actual crown and bridge",
+      "x": -0.76,
+      "a": {
+        "object": "Scanner portal column -1",
+        "point": [
+          -0.7599999904632568,
+          7.0,
+          2.6684112548828125
+        ],
+        "normal": [
+          0.12427524477243423,
+          -0.0,
+          0.9922477602958679
+        ],
+        "triangle": 350,
+        "distance_m": 0.040819380432367325
+      },
+      "b": {
+        "object": "Scanner portal lintel",
+        "point": [
+          -0.7599999904632568,
+          7.0,
+          2.659230947494507
+        ],
+        "normal": [
+          -0.2248595803976059,
+          0.0,
+          -0.9743911623954773
+        ],
+        "triangle": 189,
+        "distance_m": 0.05000010132789612
+      },
+      "gap_m": -0.009180307388305664
+    },
+    {
+      "interface": "scanner actual crown and bridge",
+      "x": -0.81,
+      "a": {
+        "object": "Scanner portal column -1",
+        "point": [
+          -0.8100000023841858,
+          7.0,
+          2.674673557281494
+        ],
+        "normal": [
+          0.12427524477243423,
+          -0.0,
+          0.9922477602958679
+        ],
+        "triangle": 350,
+        "distance_m": 0.046095579862594604
+      },
+      "b": {
+        "object": "Scanner portal lintel",
+        "point": [
+          -0.8100000023841858,
+          7.0,
+          2.670769214630127
+        ],
+        "normal": [
+          -0.2248595803976059,
+          -0.0,
+          -0.9743911623954773
+        ],
+        "triangle": 188,
+        "distance_m": 0.05000006780028343
+      },
+      "gap_m": -0.0039043426513671875
+    },
+    {
+      "interface": "scanner actual crown and bridge",
+      "x": 0.66,
+      "a": {
+        "object": "Scanner portal column 1",
+        "point": [
+          0.6600000262260437,
+          7.0,
+          2.655886650085449
+        ],
+        "normal": [
+          -0.12427524477243423,
+          0.0,
+          0.9922477602958679
+        ],
+        "triangle": 350,
+        "distance_m": 0.04411337897181511
+      },
+      "b": {
+        "object": "Scanner portal lintel",
+        "point": [
+          0.6600000262260437,
+          7.0,
+          2.6500000953674316
+        ],
+        "normal": [
+          -0.0,
+          0.0,
+          -1.0
+        ],
+        "triangle": 191,
+        "distance_m": 0.05000018700957298
+      },
+      "gap_m": -0.005886554718017578
+    },
+    {
+      "interface": "scanner actual crown and bridge",
+      "x": 0.76,
+      "a": {
+        "object": "Scanner portal column 1",
+        "point": [
+          0.7599999904632568,
+          7.0,
+          2.6684112548828125
+        ],
+        "normal": [
+          -0.12427524477243423,
+          0.0,
+          0.9922477602958679
+        ],
+        "triangle": 351,
+        "distance_m": 0.04081938415765762
+      },
+      "b": {
+        "object": "Scanner portal lintel",
+        "point": [
+          0.7599999904632568,
+          7.0,
+          2.659230947494507
+        ],
+        "normal": [
+          0.2248595803976059,
+          0.0,
+          -0.9743911623954773
+        ],
+        "triangle": 192,
+        "distance_m": 0.05000009760260582
+      },
+      "gap_m": -0.009180307388305664
+    },
+    {
+      "interface": "scanner actual crown and bridge",
+      "x": 0.81,
+      "a": {
+        "object": "Scanner portal column 1",
+        "point": [
+          0.8100000023841858,
+          7.0,
+          2.674673557281494
+        ],
+        "normal": [
+          -0.12427524477243423,
+          0.0,
+          0.9922477602958679
+        ],
+        "triangle": 351,
+        "distance_m": 0.04609557241201401
+      },
+      "b": {
+        "object": "Scanner portal lintel",
+        "point": [
+          0.8100000023841858,
+          7.0,
+          2.670769214630127
+        ],
+        "normal": [
+          0.2248595803976059,
+          0.0,
+          -0.9743911623954773
+        ],
+        "triangle": 193,
+        "distance_m": 0.05000005662441254
+      },
+      "gap_m": -0.0039043426513671875
+    },
+    {
+      "interface": "cargo rib inward face and shield outer face",
+      "z": 1.2,
+      "a": {
+        "object": "Lead tunnel main body",
+        "point": [
+          3.9000000953674316,
+          6.799998760223389,
+          1.2000000476837158
+        ],
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "triangle": 611,
+        "distance_m": 0.3000001907348633
+      },
+      "b": {
+        "object": "Tunnel stiffener 3.88_6.8",
+        "point": [
+          3.9000000953674316,
+          6.799998760223389,
+          1.2000000476837158
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "triangle": 215,
+        "distance_m": 0.1700000762939453
+      },
+      "gap_m": -0.0
+    },
+    {
+      "interface": "cargo rib inward face and shield outer face",
+      "z": 1.8,
+      "a": {
+        "object": "Lead tunnel main body",
+        "point": [
+          3.9000000953674316,
+          6.799998760223389,
+          1.7999999523162842
+        ],
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "triangle": 611,
+        "distance_m": 0.30000022053718567
+      },
+      "b": {
+        "object": "Tunnel stiffener 3.88_6.8",
+        "point": [
+          3.9000000953674316,
+          6.799998760223389,
+          1.7999999523162842
+        ],
+        "normal": [
+          1.0,
+          -0.0,
+          0.0
+        ],
+        "triangle": 216,
+        "distance_m": 0.1700000911951065
+      },
+      "gap_m": -0.0
+    },
+    {
+      "interface": "cargo rib inward face and shield outer face",
+      "z": 1.96,
+      "a": {
+        "object": "Lead tunnel main body",
+        "point": [
+          3.9000000953674316,
+          6.799998760223389,
+          1.9600000381469727
+        ],
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "triangle": 610,
+        "distance_m": 0.3000001907348633
+      },
+      "b": {
+        "object": "Tunnel stiffener 3.88_6.8",
+        "point": [
+          3.9000000953674316,
+          6.799998760223389,
+          1.9600000381469727
+        ],
+        "normal": [
+          1.0,
+          -0.0,
+          0.0
+        ],
+        "triangle": 216,
+        "distance_m": 0.1700000911951065
+      },
+      "gap_m": -0.0
+    },
+    {
+      "interface": "cargo rib inward face and shield outer face",
+      "z": 2.015,
+      "a": {
+        "object": "Lead tunnel main body",
+        "point": [
+          3.924705982208252,
+          6.799998760223389,
+          2.015000104904175
+        ],
+        "normal": [
+          -0.816968560218811,
+          0.0,
+          0.5766821503639221
+        ],
+        "triangle": 657,
+        "distance_m": 0.32470613718032837
+      },
+      "b": {
+        "object": "Tunnel stiffener 3.88_6.8",
+        "point": [
+          3.924706220626831,
+          6.799998760223389,
+          2.015000104904175
+        ],
+        "normal": [
+          0.8169676065444946,
+          0.0,
+          -0.5766834616661072
+        ],
+        "triangle": 217,
+        "distance_m": 0.14529405534267426
+      },
+      "gap_m": -2.384185791015625e-07
+    },
+    {
+      "interface": "cargo rib inward face and shield outer face",
+      "z": 2.045,
+      "a": {
+        "object": "Lead tunnel main body",
+        "point": [
+          3.9458823204040527,
+          6.799998760223389,
+          2.0450000762939453
+        ],
+        "normal": [
+          -0.816968560218811,
+          0.0,
+          0.5766821503639221
+        ],
+        "triangle": 657,
+        "distance_m": 0.34588250517845154
+      },
+      "b": {
+        "object": "Tunnel stiffener 3.88_6.8",
+        "point": [
+          3.945882558822632,
+          6.799998760223389,
+          2.0450000762939453
+        ],
+        "normal": [
+          0.816969096660614,
+          4.804181571671506e-06,
+          -0.5766816139221191
+        ],
+        "triangle": 220,
+        "distance_m": 0.12411767989397049
+      },
+      "gap_m": -2.384185791015625e-07
+    },
+    {
+      "interface": "cargo rib inward face and shield outer face",
+      "z": 1.2,
+      "a": {
+        "object": "Lead tunnel main body",
+        "point": [
+          3.9000000953674316,
+          7.299996852874756,
+          1.2000000476837158
+        ],
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "triangle": 611,
+        "distance_m": 0.3000001907348633
+      },
+      "b": {
+        "object": "Tunnel stiffener 3.88_7.3",
+        "point": [
+          3.9000000953674316,
+          7.299996852874756,
+          1.2000000476837158
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "triangle": 215,
+        "distance_m": 0.1700000762939453
+      },
+      "gap_m": -0.0
+    },
+    {
+      "interface": "cargo rib inward face and shield outer face",
+      "z": 1.8,
+      "a": {
+        "object": "Lead tunnel main body",
+        "point": [
+          3.9000000953674316,
+          7.299996852874756,
+          1.7999999523162842
+        ],
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "triangle": 610,
+        "distance_m": 0.3000001907348633
+      },
+      "b": {
+        "object": "Tunnel stiffener 3.88_7.3",
+        "point": [
+          3.9000000953674316,
+          7.299996852874756,
+          1.7999999523162842
+        ],
+        "normal": [
+          1.0,
+          -0.0,
+          0.0
+        ],
+        "triangle": 216,
+        "distance_m": 0.1700000911951065
+      },
+      "gap_m": -0.0
+    },
+    {
+      "interface": "cargo rib inward face and shield outer face",
+      "z": 1.96,
+      "a": {
+        "object": "Lead tunnel main body",
+        "point": [
+          3.9000000953674316,
+          7.299996852874756,
+          1.9600000381469727
+        ],
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "triangle": 610,
+        "distance_m": 0.3000001907348633
+      },
+      "b": {
+        "object": "Tunnel stiffener 3.88_7.3",
+        "point": [
+          3.9000000953674316,
+          7.299996852874756,
+          1.9600000381469727
+        ],
+        "normal": [
+          1.0,
+          -0.0,
+          0.0
+        ],
+        "triangle": 216,
+        "distance_m": 0.1700000762939453
+      },
+      "gap_m": -0.0
+    },
+    {
+      "interface": "cargo rib inward face and shield outer face",
+      "z": 2.015,
+      "a": {
+        "object": "Lead tunnel main body",
+        "point": [
+          3.924705982208252,
+          7.299996852874756,
+          2.015000104904175
+        ],
+        "normal": [
+          -0.816968560218811,
+          0.0,
+          0.5766821503639221
+        ],
+        "triangle": 657,
+        "distance_m": 0.32470616698265076
+      },
+      "b": {
+        "object": "Tunnel stiffener 3.88_7.3",
+        "point": [
+          3.924706220626831,
+          7.299996852874756,
+          2.015000104904175
+        ],
+        "normal": [
+          0.8169676065444946,
+          0.0,
+          -0.5766834616661072
+        ],
+        "triangle": 217,
+        "distance_m": 0.14529405534267426
+      },
+      "gap_m": -2.384185791015625e-07
+    },
+    {
+      "interface": "cargo rib inward face and shield outer face",
+      "z": 2.045,
+      "a": {
+        "object": "Lead tunnel main body",
+        "point": [
+          3.9458823204040527,
+          7.299996852874756,
+          2.0450000762939453
+        ],
+        "normal": [
+          -0.816968560218811,
+          0.0,
+          0.5766821503639221
+        ],
+        "triangle": 657,
+        "distance_m": 0.3458825349807739
+      },
+      "b": {
+        "object": "Tunnel stiffener 3.88_7.3",
+        "point": [
+          3.945882558822632,
+          7.299996852874756,
+          2.0450000762939453
+        ],
+        "normal": [
+          0.816969096660614,
+          4.804181571671506e-06,
+          -0.5766816139221191
+        ],
+        "triangle": 220,
+        "distance_m": 0.12411767244338989
+      },
+      "gap_m": -2.384185791015625e-07
+    },
+    {
+      "interface": "cargo rib inward face and shield outer face",
+      "z": 1.2,
+      "a": {
+        "object": "Lead tunnel main body",
+        "point": [
+          3.9000000953674316,
+          7.899991035461426,
+          1.2000000476837158
+        ],
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "triangle": 611,
+        "distance_m": 0.3000001907348633
+      },
+      "b": {
+        "object": "Tunnel stiffener 3.88_7.9",
+        "point": [
+          3.9000000953674316,
+          7.899991035461426,
+          1.2000000476837158
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "triangle": 215,
+        "distance_m": 0.1700000762939453
+      },
+      "gap_m": -0.0
+    },
+    {
+      "interface": "cargo rib inward face and shield outer face",
+      "z": 1.8,
+      "a": {
+        "object": "Lead tunnel main body",
+        "point": [
+          3.9000000953674316,
+          7.899991035461426,
+          1.7999999523162842
+        ],
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "triangle": 610,
+        "distance_m": 0.3000001609325409
+      },
+      "b": {
+        "object": "Tunnel stiffener 3.88_7.9",
+        "point": [
+          3.9000000953674316,
+          7.899991035461426,
+          1.7999999523162842
+        ],
+        "normal": [
+          1.0,
+          -0.0,
+          0.0
+        ],
+        "triangle": 216,
+        "distance_m": 0.1700000762939453
+      },
+      "gap_m": -0.0
+    },
+    {
+      "interface": "cargo rib inward face and shield outer face",
+      "z": 1.96,
+      "a": {
+        "object": "Lead tunnel main body",
+        "point": [
+          3.9000000953674316,
+          7.899991035461426,
+          1.9600000381469727
+        ],
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "triangle": 610,
+        "distance_m": 0.3000001907348633
+      },
+      "b": {
+        "object": "Tunnel stiffener 3.88_7.9",
+        "point": [
+          3.9000000953674316,
+          7.899991035461426,
+          1.9600000381469727
+        ],
+        "normal": [
+          1.0,
+          -0.0,
+          0.0
+        ],
+        "triangle": 216,
+        "distance_m": 0.1700000762939453
+      },
+      "gap_m": -0.0
+    },
+    {
+      "interface": "cargo rib inward face and shield outer face",
+      "z": 2.015,
+      "a": {
+        "object": "Lead tunnel main body",
+        "point": [
+          3.924705982208252,
+          7.899991035461426,
+          2.015000104904175
+        ],
+        "normal": [
+          -0.816968560218811,
+          0.0,
+          0.5766821503639221
+        ],
+        "triangle": 657,
+        "distance_m": 0.32470616698265076
+      },
+      "b": {
+        "object": "Tunnel stiffener 3.88_7.9",
+        "point": [
+          3.924706220626831,
+          7.899991035461426,
+          2.015000104904175
+        ],
+        "normal": [
+          0.8169676065444946,
+          0.0,
+          -0.5766834616661072
+        ],
+        "triangle": 217,
+        "distance_m": 0.14529405534267426
+      },
+      "gap_m": -2.384185791015625e-07
+    },
+    {
+      "interface": "cargo rib inward face and shield outer face",
+      "z": 2.045,
+      "a": {
+        "object": "Lead tunnel main body",
+        "point": [
+          3.9458823204040527,
+          7.899991035461426,
+          2.0450000762939453
+        ],
+        "normal": [
+          -0.816968560218811,
+          0.0,
+          0.5766821503639221
+        ],
+        "triangle": 656,
+        "distance_m": 0.34588247537612915
+      },
+      "b": {
+        "object": "Tunnel stiffener 3.88_7.9",
+        "point": [
+          3.945882558822632,
+          7.899991035461426,
+          2.0450000762939453
+        ],
+        "normal": [
+          0.816969096660614,
+          4.804181571671506e-06,
+          -0.5766816139221191
+        ],
+        "triangle": 220,
+        "distance_m": 0.12411767244338989
+      },
+      "gap_m": -2.384185791015625e-07
+    },
+    {
+      "interface": "cargo rib inward face and shield outer face",
+      "z": 1.2,
+      "a": {
+        "object": "Lead tunnel main body",
+        "point": [
+          3.9000000953674316,
+          8.39999008178711,
+          1.2000000476837158
+        ],
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "triangle": 610,
+        "distance_m": 0.3000001907348633
+      },
+      "b": {
+        "object": "Tunnel stiffener 3.88_8.4",
+        "point": [
+          3.9000000953674316,
+          8.39999008178711,
+          1.2000000476837158
+        ],
+        "normal": [
+          0.9999999403953552,
+          0.0,
+          0.0
+        ],
+        "triangle": 215,
+        "distance_m": 0.1700000762939453
+      },
+      "gap_m": -0.0
+    },
+    {
+      "interface": "cargo rib inward face and shield outer face",
+      "z": 1.8,
+      "a": {
+        "object": "Lead tunnel main body",
+        "point": [
+          3.9000000953674316,
+          8.39999008178711,
+          1.7999999523162842
+        ],
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "triangle": 610,
+        "distance_m": 0.30000022053718567
+      },
+      "b": {
+        "object": "Tunnel stiffener 3.88_8.4",
+        "point": [
+          3.9000000953674316,
+          8.39999008178711,
+          1.7999999523162842
+        ],
+        "normal": [
+          0.9999999403953552,
+          -0.0,
+          0.0
+        ],
+        "triangle": 216,
+        "distance_m": 0.1700000762939453
+      },
+      "gap_m": -0.0
+    },
+    {
+      "interface": "cargo rib inward face and shield outer face",
+      "z": 1.96,
+      "a": {
+        "object": "Lead tunnel main body",
+        "point": [
+          3.9000000953674316,
+          8.39999008178711,
+          1.9600000381469727
+        ],
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "triangle": 610,
+        "distance_m": 0.3000001907348633
+      },
+      "b": {
+        "object": "Tunnel stiffener 3.88_8.4",
+        "point": [
+          3.9000000953674316,
+          8.39999008178711,
+          1.9600000381469727
+        ],
+        "normal": [
+          0.9999999403953552,
+          -0.0,
+          0.0
+        ],
+        "triangle": 216,
+        "distance_m": 0.1700000762939453
+      },
+      "gap_m": -0.0
+    },
+    {
+      "interface": "cargo rib inward face and shield outer face",
+      "z": 2.015,
+      "a": {
+        "object": "Lead tunnel main body",
+        "point": [
+          3.924705982208252,
+          8.39999008178711,
+          2.015000104904175
+        ],
+        "normal": [
+          -0.816968560218811,
+          0.0,
+          0.5766821503639221
+        ],
+        "triangle": 656,
+        "distance_m": 0.32470613718032837
+      },
+      "b": {
+        "object": "Tunnel stiffener 3.88_8.4",
+        "point": [
+          3.924706220626831,
+          8.39999008178711,
+          2.015000104904175
+        ],
+        "normal": [
+          0.8169676661491394,
+          0.0,
+          -0.576683521270752
+        ],
+        "triangle": 217,
+        "distance_m": 0.14529404044151306
+      },
+      "gap_m": -2.384185791015625e-07
+    },
+    {
+      "interface": "cargo rib inward face and shield outer face",
+      "z": 2.045,
+      "a": {
+        "object": "Lead tunnel main body",
+        "point": [
+          3.9458823204040527,
+          8.39999008178711,
+          2.0450000762939453
+        ],
+        "normal": [
+          -0.816968560218811,
+          0.0,
+          0.5766821503639221
+        ],
+        "triangle": 656,
+        "distance_m": 0.34588250517845154
+      },
+      "b": {
+        "object": "Tunnel stiffener 3.88_8.4",
+        "point": [
+          3.945882558822632,
+          8.39999008178711,
+          2.0450000762939453
+        ],
+        "normal": [
+          0.816969096660614,
+          4.804371201316826e-06,
+          -0.5766815543174744
+        ],
+        "triangle": 220,
+        "distance_m": 0.1241176649928093
+      },
+      "gap_m": -2.384185791015625e-07
+    },
+    {
+      "interface": "cargo rib inward face and shield outer face",
+      "z": 1.2,
+      "a": {
+        "object": "Lead tunnel main body",
+        "point": [
+          5.400000095367432,
+          6.800000190734863,
+          1.2000000476837158
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          -0.0
+        ],
+        "triangle": 625,
+        "distance_m": 0.29999974370002747
+      },
+      "b": {
+        "object": "Tunnel stiffener 5.42_6.8",
+        "point": [
+          5.400000095367432,
+          6.800000190734863,
+          1.2000000476837158
+        ],
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "triangle": 198,
+        "distance_m": 0.1700000762939453
+      },
+      "gap_m": 0.0
+    },
+    {
+      "interface": "cargo rib inward face and shield outer face",
+      "z": 1.8,
+      "a": {
+        "object": "Lead tunnel main body",
+        "point": [
+          5.400000095367432,
+          6.800000190734863,
+          1.7999999523162842
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "triangle": 634,
+        "distance_m": 0.2999996840953827
+      },
+      "b": {
+        "object": "Tunnel stiffener 5.42_6.8",
+        "point": [
+          5.400000095367432,
+          6.800000190734863,
+          1.7999999523162842
+        ],
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "triangle": 197,
+        "distance_m": 0.1700000762939453
+      },
+      "gap_m": 0.0
+    },
+    {
+      "interface": "cargo rib inward face and shield outer face",
+      "z": 1.96,
+      "a": {
+        "object": "Lead tunnel main body",
+        "point": [
+          5.400000095367432,
+          6.800000190734863,
+          1.9600000381469727
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          -0.0
+        ],
+        "triangle": 637,
+        "distance_m": 0.29999974370002747
+      },
+      "b": {
+        "object": "Tunnel stiffener 5.42_6.8",
+        "point": [
+          5.400000095367432,
+          6.800000190734863,
+          1.9600000381469727
+        ],
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "triangle": 197,
+        "distance_m": 0.1700000911951065
+      },
+      "gap_m": 0.0
+    },
+    {
+      "interface": "cargo rib inward face and shield outer face",
+      "z": 2.015,
+      "a": {
+        "object": "Lead tunnel main body",
+        "point": [
+          5.375294208526611,
+          6.800000190734863,
+          2.015000104904175
+        ],
+        "normal": [
+          0.8169680237770081,
+          -0.0,
+          0.5766829252243042
+        ],
+        "triangle": 645,
+        "distance_m": 0.32470545172691345
+      },
+      "b": {
+        "object": "Tunnel stiffener 5.42_6.8",
+        "point": [
+          5.375294208526611,
+          6.800000190734863,
+          2.015000104904175
+        ],
+        "normal": [
+          -0.8169664740562439,
+          0.0,
+          -0.5766850709915161
+        ],
+        "triangle": 203,
+        "distance_m": 0.145294189453125
+      },
+      "gap_m": 0.0
+    },
+    {
+      "interface": "cargo rib inward face and shield outer face",
+      "z": 2.045,
+      "a": {
+        "object": "Lead tunnel main body",
+        "point": [
+          5.3541178703308105,
+          6.800000190734863,
+          2.0450000762939453
+        ],
+        "normal": [
+          0.8169680237770081,
+          -0.0,
+          0.5766829252243042
+        ],
+        "triangle": 645,
+        "distance_m": 0.3458819091320038
+      },
+      "b": {
+        "object": "Tunnel stiffener 5.42_6.8",
+        "point": [
+          5.3541178703308105,
+          6.800000190734863,
+          2.0450000762939453
+        ],
+        "normal": [
+          -0.8169667720794678,
+          -7.642993296030909e-07,
+          -0.576684832572937
+        ],
+        "triangle": 204,
+        "distance_m": 0.12411763519048691
+      },
+      "gap_m": 0.0
+    },
+    {
+      "interface": "cargo rib inward face and shield outer face",
+      "z": 1.2,
+      "a": {
+        "object": "Lead tunnel main body",
+        "point": [
+          5.400000095367432,
+          7.299999237060547,
+          1.2000000476837158
+        ],
+        "normal": [
+          0.9999999403953552,
+          0.0,
+          -0.0
+        ],
+        "triangle": 632,
+        "distance_m": 0.2999997138977051
+      },
+      "b": {
+        "object": "Tunnel stiffener 5.42_7.3",
+        "point": [
+          5.400000095367432,
+          7.299999237060547,
+          1.2000000476837158
+        ],
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "triangle": 198,
+        "distance_m": 0.1700000762939453
+      },
+      "gap_m": 0.0
+    },
+    {
+      "interface": "cargo rib inward face and shield outer face",
+      "z": 1.8,
+      "a": {
+        "object": "Lead tunnel main body",
+        "point": [
+          5.400000095367432,
+          7.299999237060547,
+          1.7999999523162842
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          -0.0
+        ],
+        "triangle": 637,
+        "distance_m": 0.2999997138977051
+      },
+      "b": {
+        "object": "Tunnel stiffener 5.42_7.3",
+        "point": [
+          5.400000095367432,
+          7.299999237060547,
+          1.7999999523162842
+        ],
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "triangle": 197,
+        "distance_m": 0.1700000762939453
+      },
+      "gap_m": 0.0
+    },
+    {
+      "interface": "cargo rib inward face and shield outer face",
+      "z": 1.96,
+      "a": {
+        "object": "Lead tunnel main body",
+        "point": [
+          5.400000095367432,
+          7.299999237060547,
+          1.9600000381469727
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          -0.0
+        ],
+        "triangle": 637,
+        "distance_m": 0.2999997138977051
+      },
+      "b": {
+        "object": "Tunnel stiffener 5.42_7.3",
+        "point": [
+          5.400000095367432,
+          7.299999237060547,
+          1.9600000381469727
+        ],
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "triangle": 197,
+        "distance_m": 0.1700000911951065
+      },
+      "gap_m": 0.0
+    },
+    {
+      "interface": "cargo rib inward face and shield outer face",
+      "z": 2.015,
+      "a": {
+        "object": "Lead tunnel main body",
+        "point": [
+          5.375294208526611,
+          7.299999237060547,
+          2.015000104904175
+        ],
+        "normal": [
+          0.8169680237770081,
+          0.0,
+          0.5766829252243042
+        ],
+        "triangle": 644,
+        "distance_m": 0.32470545172691345
+      },
+      "b": {
+        "object": "Tunnel stiffener 5.42_7.3",
+        "point": [
+          5.375294208526611,
+          7.299999237060547,
+          2.015000104904175
+        ],
+        "normal": [
+          -0.8169664740562439,
+          0.0,
+          -0.5766850709915161
+        ],
+        "triangle": 203,
+        "distance_m": 0.145294189453125
+      },
+      "gap_m": 0.0
+    },
+    {
+      "interface": "cargo rib inward face and shield outer face",
+      "z": 2.045,
+      "a": {
+        "object": "Lead tunnel main body",
+        "point": [
+          5.3541178703308105,
+          7.299999237060547,
+          2.0450000762939453
+        ],
+        "normal": [
+          0.8169680237770081,
+          -0.0,
+          0.5766829252243042
+        ],
+        "triangle": 645,
+        "distance_m": 0.3458819091320038
+      },
+      "b": {
+        "object": "Tunnel stiffener 5.42_7.3",
+        "point": [
+          5.3541178703308105,
+          7.299999237060547,
+          2.0450000762939453
+        ],
+        "normal": [
+          -0.8169667720794678,
+          -7.642993296030909e-07,
+          -0.576684832572937
+        ],
+        "triangle": 204,
+        "distance_m": 0.12411763519048691
+      },
+      "gap_m": 0.0
+    },
+    {
+      "interface": "cargo rib inward face and shield outer face",
+      "z": 1.2,
+      "a": {
+        "object": "Lead tunnel main body",
+        "point": [
+          5.400000095367432,
+          7.899993419647217,
+          1.2000000476837158
+        ],
+        "normal": [
+          0.9999999403953552,
+          0.0,
+          0.0
+        ],
+        "triangle": 636,
+        "distance_m": 0.2999996840953827
+      },
+      "b": {
+        "object": "Tunnel stiffener 5.42_7.9",
+        "point": [
+          5.400000095367432,
+          7.899993419647217,
+          1.2000000476837158
+        ],
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "triangle": 198,
+        "distance_m": 0.1700000762939453
+      },
+      "gap_m": 0.0
+    },
+    {
+      "interface": "cargo rib inward face and shield outer face",
+      "z": 1.8,
+      "a": {
+        "object": "Lead tunnel main body",
+        "point": [
+          5.400000095367432,
+          7.899993419647217,
+          1.7999999523162842
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          -0.0
+        ],
+        "triangle": 637,
+        "distance_m": 0.29999974370002747
+      },
+      "b": {
+        "object": "Tunnel stiffener 5.42_7.9",
+        "point": [
+          5.400000095367432,
+          7.899993419647217,
+          1.7999999523162842
+        ],
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "triangle": 197,
+        "distance_m": 0.1700000762939453
+      },
+      "gap_m": 0.0
+    },
+    {
+      "interface": "cargo rib inward face and shield outer face",
+      "z": 1.96,
+      "a": {
+        "object": "Lead tunnel main body",
+        "point": [
+          5.400000095367432,
+          7.899993419647217,
+          1.9600000381469727
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          -0.0
+        ],
+        "triangle": 637,
+        "distance_m": 0.29999974370002747
+      },
+      "b": {
+        "object": "Tunnel stiffener 5.42_7.9",
+        "point": [
+          5.400000095367432,
+          7.899993419647217,
+          1.9600000381469727
+        ],
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "triangle": 197,
+        "distance_m": 0.1700000762939453
+      },
+      "gap_m": 0.0
+    },
+    {
+      "interface": "cargo rib inward face and shield outer face",
+      "z": 2.015,
+      "a": {
+        "object": "Lead tunnel main body",
+        "point": [
+          5.375294208526611,
+          7.899993419647217,
+          2.015000104904175
+        ],
+        "normal": [
+          0.8169680237770081,
+          0.0,
+          0.5766829252243042
+        ],
+        "triangle": 644,
+        "distance_m": 0.32470548152923584
+      },
+      "b": {
+        "object": "Tunnel stiffener 5.42_7.9",
+        "point": [
+          5.375294208526611,
+          7.899993419647217,
+          2.015000104904175
+        ],
+        "normal": [
+          -0.8169664740562439,
+          0.0,
+          -0.5766850709915161
+        ],
+        "triangle": 203,
+        "distance_m": 0.145294189453125
+      },
+      "gap_m": 0.0
+    },
+    {
+      "interface": "cargo rib inward face and shield outer face",
+      "z": 2.045,
+      "a": {
+        "object": "Lead tunnel main body",
+        "point": [
+          5.3541178703308105,
+          7.899993419647217,
+          2.0450000762939453
+        ],
+        "normal": [
+          0.8169680237770081,
+          0.0,
+          0.5766829252243042
+        ],
+        "triangle": 644,
+        "distance_m": 0.3458819091320038
+      },
+      "b": {
+        "object": "Tunnel stiffener 5.42_7.9",
+        "point": [
+          5.3541178703308105,
+          7.899993419647217,
+          2.0450000762939453
+        ],
+        "normal": [
+          -0.8169667720794678,
+          -7.642993296030909e-07,
+          -0.576684832572937
+        ],
+        "triangle": 204,
+        "distance_m": 0.12411763519048691
+      },
+      "gap_m": 0.0
+    },
+    {
+      "interface": "cargo rib inward face and shield outer face",
+      "z": 1.2,
+      "a": {
+        "object": "Lead tunnel main body",
+        "point": [
+          5.400000095367432,
+          8.399991989135742,
+          1.2000000476837158
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          -0.0
+        ],
+        "triangle": 641,
+        "distance_m": 0.2999997138977051
+      },
+      "b": {
+        "object": "Tunnel stiffener 5.42_8.4",
+        "point": [
+          5.400000095367432,
+          8.399991989135742,
+          1.2000000476837158
+        ],
+        "normal": [
+          -0.9999999403953552,
+          0.0,
+          0.0
+        ],
+        "triangle": 198,
+        "distance_m": 0.1700000762939453
+      },
+      "gap_m": 0.0
+    },
+    {
+      "interface": "cargo rib inward face and shield outer face",
+      "z": 1.8,
+      "a": {
+        "object": "Lead tunnel main body",
+        "point": [
+          5.400000095367432,
+          8.399991989135742,
+          1.7999999523162842
+        ],
+        "normal": [
+          0.9999999403953552,
+          -0.0,
+          0.0
+        ],
+        "triangle": 640,
+        "distance_m": 0.2999996840953827
+      },
+      "b": {
+        "object": "Tunnel stiffener 5.42_8.4",
+        "point": [
+          5.400000095367432,
+          8.399991989135742,
+          1.7999999523162842
+        ],
+        "normal": [
+          -0.9999999403953552,
+          0.0,
+          0.0
+        ],
+        "triangle": 197,
+        "distance_m": 0.1700000762939453
+      },
+      "gap_m": 0.0
+    },
+    {
+      "interface": "cargo rib inward face and shield outer face",
+      "z": 1.96,
+      "a": {
+        "object": "Lead tunnel main body",
+        "point": [
+          5.400000095367432,
+          8.399991989135742,
+          1.9600000381469727
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          -0.0
+        ],
+        "triangle": 637,
+        "distance_m": 0.2999997138977051
+      },
+      "b": {
+        "object": "Tunnel stiffener 5.42_8.4",
+        "point": [
+          5.400000095367432,
+          8.399991989135742,
+          1.9600000381469727
+        ],
+        "normal": [
+          -0.9999999403953552,
+          0.0,
+          0.0
+        ],
+        "triangle": 197,
+        "distance_m": 0.1700000762939453
+      },
+      "gap_m": 0.0
+    },
+    {
+      "interface": "cargo rib inward face and shield outer face",
+      "z": 2.015,
+      "a": {
+        "object": "Lead tunnel main body",
+        "point": [
+          5.375294208526611,
+          8.399991989135742,
+          2.015000104904175
+        ],
+        "normal": [
+          0.8169680237770081,
+          0.0,
+          0.5766829252243042
+        ],
+        "triangle": 644,
+        "distance_m": 0.32470545172691345
+      },
+      "b": {
+        "object": "Tunnel stiffener 5.42_8.4",
+        "point": [
+          5.375294208526611,
+          8.399991989135742,
+          2.015000104904175
+        ],
+        "normal": [
+          -0.8169664740562439,
+          0.0,
+          -0.5766851305961609
+        ],
+        "triangle": 203,
+        "distance_m": 0.1452942043542862
+      },
+      "gap_m": 0.0
+    },
+    {
+      "interface": "cargo rib inward face and shield outer face",
+      "z": 2.045,
+      "a": {
+        "object": "Lead tunnel main body",
+        "point": [
+          5.3541178703308105,
+          8.399991989135742,
+          2.0450000762939453
+        ],
+        "normal": [
+          0.8169680237770081,
+          0.0,
+          0.5766829252243042
+        ],
+        "triangle": 644,
+        "distance_m": 0.3458819091320038
+      },
+      "b": {
+        "object": "Tunnel stiffener 5.42_8.4",
+        "point": [
+          5.3541178703308105,
+          8.399991989135742,
+          2.0450000762939453
+        ],
+        "normal": [
+          -0.8169666528701782,
+          -7.643295703019248e-07,
+          -0.5766847729682922
+        ],
+        "triangle": 204,
+        "distance_m": 0.1241176426410675
+      },
+      "gap_m": 0.0
+    }
+  ],
+  "registered_bearing_seats": [
+    {
+      "assembly": "Arrival Gate P2",
+      "anchor": "CD | P2 measured jamb foot -1",
+      "actual_component": "P2 frame jamb -1",
+      "point": [
+        -2.380000114440918,
+        15.9399995803833,
+        0.0
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 152,
+      "target": "Floor slab",
+      "target_gap_m": -1.043081283569336e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "Arrival Gate P2",
+      "anchor": "CD | P2 measured jamb foot 1",
+      "actual_component": "P2 frame jamb 1",
+      "point": [
+        2.380000114440918,
+        15.9399995803833,
+        0.0
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 152,
+      "target": "Floor slab",
+      "target_gap_m": -1.043081283569336e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "D1 Staff Front Door",
+      "anchor": "CD | D1 measured jamb foot -1",
+      "actual_component": "D1 frame jamb -1",
+      "point": [
+        -5.974999904632568,
+        3.5999999046325684,
+        0.0
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 152,
+      "target": "Floor slab",
+      "target_gap_m": -1.043081283569336e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "D1 Staff Front Door",
+      "anchor": "CD | D1 measured jamb foot 1",
+      "actual_component": "D1 frame jamb 1",
+      "point": [
+        -4.824999809265137,
+        3.5999999046325684,
+        0.0
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 152,
+      "target": "Floor slab",
+      "target_gap_m": -1.043081283569336e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "D2 Staff Rear Door",
+      "anchor": "CD | D2 measured jamb foot -1",
+      "actual_component": "D2 frame jamb -1",
+      "point": [
+        -5.974999904632568,
+        9.600000381469727,
+        0.0
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 152,
+      "target": "Floor slab",
+      "target_gap_m": -1.043081283569336e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "D2 Staff Rear Door",
+      "anchor": "CD | D2 measured jamb foot 1",
+      "actual_component": "D2 frame jamb 1",
+      "point": [
+        -4.824999809265137,
+        9.600000381469727,
+        0.0
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 152,
+      "target": "Floor slab",
+      "target_gap_m": -1.043081283569336e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "G1 Cart Bypass Gate",
+      "anchor": "G1 Cart Bypass Gate__contact_0",
+      "actual_component": "G1 floor track plate",
+      "point": [
+        0.949999988079071,
+        7.0,
+        0.0
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 153,
+      "target": "Floor slab",
+      "target_gap_m": -1.043081283569336e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "G1 Cart Bypass Gate",
+      "anchor": "G1 Cart Bypass Gate__contact_1",
+      "actual_component": "G1 floor track plate",
+      "point": [
+        3.0199999809265137,
+        7.0,
+        0.0
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 152,
+      "target": "Floor slab",
+      "target_gap_m": -1.043081283569336e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "Office Observation Glazing",
+      "anchor": "Office Observation Glazing__contact_0",
+      "actual_component": "Office east sill wall",
+      "point": [
+        -2.4000000953674316,
+        4.050000190734863,
+        0.0
+      ],
+      "component_distance_m": 4.76837158203125e-07,
+      "component_triangle": 153,
+      "target": "Floor slab",
+      "target_gap_m": -1.043081283569336e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "Office Observation Glazing",
+      "anchor": "Office Observation Glazing__contact_1",
+      "actual_component": "Office east sill wall",
+      "point": [
+        -2.4000000953674316,
+        8.850000381469727,
+        0.0
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 152,
+      "target": "Floor slab",
+      "target_gap_m": -1.043081283569336e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "Checkin Counter Hatch",
+      "anchor": "Checkin Counter Hatch__contact_0",
+      "actual_component": "Hatch counter leg west",
+      "point": [
+        -4.25,
+        3.5999999046325684,
+        0.0
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 152,
+      "target": "Floor slab",
+      "target_gap_m": -1.043081283569336e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "Checkin Counter Hatch",
+      "anchor": "Checkin Counter Hatch__contact_1",
+      "actual_component": "Hatch counter leg east",
+      "point": [
+        -2.75,
+        3.5999999046325684,
+        0.0
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 152,
+      "target": "Floor slab",
+      "target_gap_m": -1.043081283569336e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "Staff Desk Assembly",
+      "anchor": "Staff Desk Assembly__contact_0",
+      "actual_component": "Desk leg -4.05_6.05",
+      "point": [
+        -4.050000190734863,
+        6.050000190734863,
+        0.0
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 152,
+      "target": "Floor slab",
+      "target_gap_m": -1.043081283569336e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "Staff Desk Assembly",
+      "anchor": "Staff Desk Assembly__contact_1",
+      "actual_component": "Desk leg -2.95_6.05",
+      "point": [
+        -2.950000047683716,
+        6.050000190734863,
+        0.0
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 153,
+      "target": "Floor slab",
+      "target_gap_m": -1.043081283569336e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "Staff Desk Assembly",
+      "anchor": "Staff Desk Assembly__contact_2",
+      "actual_component": "Desk leg -4.05_7.55",
+      "point": [
+        -4.050000190734863,
+        7.550000190734863,
+        0.0
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 152,
+      "target": "Floor slab",
+      "target_gap_m": -1.043081283569336e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "Staff Desk Assembly",
+      "anchor": "Staff Desk Assembly__contact_3",
+      "actual_component": "Desk leg -2.95_7.55",
+      "point": [
+        -2.950000047683716,
+        7.550000190734863,
+        0.0
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 153,
+      "target": "Floor slab",
+      "target_gap_m": -1.043081283569336e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "Ergonomic Swivel Chair",
+      "anchor": "Ergonomic Swivel Chair__contact_0",
+      "actual_component": "Chair wheel 0",
+      "point": [
+        -4.210000038146973,
+        6.800000190734863,
+        0.0
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 173,
+      "target": "Floor slab",
+      "target_gap_m": -1.043081283569336e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "Person Scanner Arch",
+      "anchor": "Person Scanner Arch__contact_0",
+      "actual_component": "Scanner portal column -1",
+      "point": [
+        -0.7300000190734863,
+        7.0,
+        0.0
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 172,
+      "target": "Floor slab",
+      "target_gap_m": -1.043081283569336e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "Person Scanner Arch",
+      "anchor": "Person Scanner Arch__contact_1",
+      "actual_component": "Scanner portal column 1",
+      "point": [
+        0.7300000190734863,
+        7.0,
+        0.0
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 200,
+      "target": "Floor slab",
+      "target_gap_m": -1.043081283569336e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "Cargo Inspection Conveyor",
+      "anchor": "Cargo Inspection Conveyor__contact_0",
+      "actual_component": "Conveyor leg 3.98_5.4",
+      "point": [
+        3.9800000190734863,
+        5.400000095367432,
+        0.0
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 152,
+      "target": "Floor slab",
+      "target_gap_m": -1.043081283569336e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "Cargo Inspection Conveyor",
+      "anchor": "Cargo Inspection Conveyor__contact_1",
+      "actual_component": "Conveyor leg 5.32_5.4",
+      "point": [
+        5.320000171661377,
+        5.400000095367432,
+        0.0
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 152,
+      "target": "Floor slab",
+      "target_gap_m": -1.043081283569336e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "Cargo Inspection Conveyor",
+      "anchor": "Cargo Inspection Conveyor__contact_2",
+      "actual_component": "Conveyor leg 3.98_9.9",
+      "point": [
+        3.9800000190734863,
+        9.899999618530273,
+        0.0
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 152,
+      "target": "Floor slab",
+      "target_gap_m": -1.043081283569336e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "Cargo Inspection Conveyor",
+      "anchor": "Cargo Inspection Conveyor__contact_3",
+      "actual_component": "Conveyor leg 5.32_9.9",
+      "point": [
+        5.320000171661377,
+        9.899999618530273,
+        0.0
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 152,
+      "target": "Floor slab",
+      "target_gap_m": -1.043081283569336e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "Covered Trolley H1",
+      "anchor": "Covered Trolley H1__contact_0",
+      "actual_component": "Trolley wheel -6.2_12.2",
+      "point": [
+        -6.199999809265137,
+        12.199999809265137,
+        0.0
+      ],
+      "component_distance_m": 1.6653345369377348e-16,
+      "component_triangle": 250,
+      "target": "Floor slab",
+      "target_gap_m": -1.043081283569336e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "Covered Trolley H1",
+      "anchor": "Covered Trolley H1__contact_1",
+      "actual_component": "Trolley wheel -5.5_12.2",
+      "point": [
+        -5.5,
+        12.199999809265137,
+        0.0
+      ],
+      "component_distance_m": 1.6653345369377348e-16,
+      "component_triangle": 250,
+      "target": "Floor slab",
+      "target_gap_m": -1.043081283569336e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "Covered Trolley H1",
+      "anchor": "Covered Trolley H1__contact_2",
+      "actual_component": "Trolley wheel -6.2_14.3",
+      "point": [
+        -6.199999809265137,
+        14.300000190734863,
+        0.0
+      ],
+      "component_distance_m": 1.6653345369377348e-16,
+      "component_triangle": 250,
+      "target": "Floor slab",
+      "target_gap_m": -1.043081283569336e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "Covered Trolley H1",
+      "anchor": "Covered Trolley H1__contact_3",
+      "actual_component": "Trolley wheel -5.5_14.3",
+      "point": [
+        -5.5,
+        14.300000190734863,
+        0.0
+      ],
+      "component_distance_m": 1.6653345369377348e-16,
+      "component_triangle": 250,
+      "target": "Floor slab",
+      "target_gap_m": -1.043081283569336e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "Evidence Cabinet H2",
+      "anchor": "Evidence Cabinet H2__contact_0",
+      "actual_component": "Evidence cabinet vault carcass",
+      "point": [
+        -6.349999904632568,
+        14.850000381469727,
+        0.0
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 153,
+      "target": "Floor slab",
+      "target_gap_m": -1.043081283569336e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "Evidence Cabinet H2",
+      "anchor": "Evidence Cabinet H2__contact_1",
+      "actual_component": "Evidence cabinet vault carcass",
+      "point": [
+        -4.800000190734863,
+        14.850000381469727,
+        0.0
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 152,
+      "target": "Floor slab",
+      "target_gap_m": -1.043081283569336e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "Evidence Cabinet H2",
+      "anchor": "Evidence Cabinet H2__contact_2",
+      "actual_component": "Evidence cabinet vault carcass",
+      "point": [
+        -6.349999904632568,
+        15.5,
+        0.0
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 153,
+      "target": "Floor slab",
+      "target_gap_m": -1.043081283569336e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "Evidence Cabinet H2",
+      "anchor": "Evidence Cabinet H2__contact_3",
+      "actual_component": "Evidence cabinet vault carcass",
+      "point": [
+        -4.800000190734863,
+        15.5,
+        0.0
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 152,
+      "target": "Floor slab",
+      "target_gap_m": -1.043081283569336e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "Parked Hand Cart",
+      "anchor": "Parked Hand Cart__contact_0",
+      "actual_component": "Hand cart wheel 4.15_11.75",
+      "point": [
+        4.150000095367432,
+        11.75,
+        0.0
+      ],
+      "component_distance_m": 1.6653345369377348e-16,
+      "component_triangle": 207,
+      "target": "Floor slab",
+      "target_gap_m": -1.043081283569336e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "Parked Hand Cart",
+      "anchor": "Parked Hand Cart__contact_1",
+      "actual_component": "Hand cart wheel 4.7_11.75",
+      "point": [
+        4.699999809265137,
+        11.75,
+        0.0
+      ],
+      "component_distance_m": 1.6653345369377348e-16,
+      "component_triangle": 207,
+      "target": "Floor slab",
+      "target_gap_m": -1.043081283569336e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "Parked Hand Cart",
+      "anchor": "Parked Hand Cart__contact_2",
+      "actual_component": "Hand cart wheel 4.15_13.65",
+      "point": [
+        4.150000095367432,
+        13.649999618530273,
+        0.0
+      ],
+      "component_distance_m": 1.6653345369377348e-16,
+      "component_triangle": 207,
+      "target": "Floor slab",
+      "target_gap_m": -1.043081283569336e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "Parked Hand Cart",
+      "anchor": "Parked Hand Cart__contact_3",
+      "actual_component": "Hand cart wheel 4.7_13.65",
+      "point": [
+        4.699999809265137,
+        13.649999618530273,
+        0.0
+      ],
+      "component_distance_m": 1.6653345369377348e-16,
+      "component_triangle": 207,
+      "target": "Floor slab",
+      "target_gap_m": -1.043081283569336e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "Wall Utilities Rack",
+      "anchor": "Wall Utilities Rack__contact_0",
+      "actual_component": "Utility backer panel",
+      "point": [
+        6.800000190734863,
+        12.199999809265137,
+        1.2000000476837158
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 163,
+      "target": "East perimeter wall",
+      "target_gap_m": 0.0,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "Wall Utilities Rack",
+      "anchor": "Wall Utilities Rack__contact_1",
+      "actual_component": "Utility backer panel",
+      "point": [
+        6.800000190734863,
+        14.0,
+        1.2000000476837158
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 162,
+      "target": "East perimeter wall",
+      "target_gap_m": 0.0,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "Switchgear Console Unit",
+      "anchor": "Switchgear Console Unit__contact_0",
+      "actual_component": "Switchgear unit 0",
+      "point": [
+        4.099999904632568,
+        14.75,
+        0.0
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 153,
+      "target": "Floor slab",
+      "target_gap_m": -1.043081283569336e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "Switchgear Console Unit",
+      "anchor": "Switchgear Console Unit__contact_1",
+      "actual_component": "Switchgear unit 1",
+      "point": [
+        5.800000190734863,
+        14.75,
+        0.0
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 153,
+      "target": "Floor slab",
+      "target_gap_m": -1.043081283569336e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "Transit Storage Stacks",
+      "anchor": "Transit Storage Stacks__contact_0",
+      "actual_component": "Transit pallet base 0",
+      "point": [
+        6.099999904632568,
+        10.5,
+        0.0
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 153,
+      "target": "Floor slab",
+      "target_gap_m": -1.043081283569336e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "Transit Storage Stacks",
+      "anchor": "Transit Storage Stacks__contact_1",
+      "actual_component": "Transit pallet base 0",
+      "point": [
+        6.599999904632568,
+        10.5,
+        0.0
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 152,
+      "target": "Floor slab",
+      "target_gap_m": -1.043081283569336e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | D1 identity plate",
+      "anchor": "CD | D1 identity plate__contact_0",
+      "actual_component": "CD | D1 ID captive stand-offs",
+      "point": [
+        -5.545000076293945,
+        3.5999999046325684,
+        1.9500000476837158
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 923,
+      "target": "D1 door leaf",
+      "target_gap_m": 0.0,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | D1 identity plate",
+      "anchor": "CD | D1 identity plate__contact_1",
+      "actual_component": "CD | D1 ID captive stand-offs",
+      "point": [
+        -5.255000114440918,
+        3.5999999046325684,
+        1.9500000476837158
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 1003,
+      "target": "D1 door leaf",
+      "target_gap_m": 0.0,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | D1 wall-mounted reader",
+      "anchor": "CD | D1 wall-mounted reader__contact_0",
+      "actual_component": "D1 keycard reader",
+      "point": [
+        -4.699999809265137,
+        3.5199999809265137,
+        1.2300000190734863
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 294,
+      "target": "Office front wall mid",
+      "target_gap_m": 0.0,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Stamping rubber pad",
+      "anchor": "CD | Stamping rubber pad__contact_0",
+      "actual_component": "CD | Joined CD | Stamping rubber pad / rubber",
+      "point": [
+        -3.0450000762939453,
+        3.380000114440918,
+        1.0420000553131104
+      ],
+      "component_distance_m": 2.384185791015625e-07,
+      "component_triangle": 142,
+      "target": "CD | Counter linoleum inset",
+      "target_gap_m": -1.1920928955078125e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Stamping rubber pad",
+      "anchor": "CD | Stamping rubber pad__contact_1",
+      "actual_component": "CD | Joined CD | Stamping rubber pad / rubber",
+      "point": [
+        -2.799999952316284,
+        3.4800000190734863,
+        1.0420000553131104
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 143,
+      "target": "CD | Counter linoleum inset",
+      "target_gap_m": -1.1920928955078125e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Counter cleaning cloth",
+      "anchor": "CD | Counter cleaning cloth__contact_0",
+      "actual_component": "CD | Joined CD | Counter cleaning cloth / cotton",
+      "point": [
+        -4.230000019073486,
+        3.3499999046325684,
+        1.0420000553131104
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 201,
+      "target": "CD | Counter linoleum inset",
+      "target_gap_m": -1.1920928955078125e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Counter cleaning cloth",
+      "anchor": "CD | Counter cleaning cloth__contact_1",
+      "actual_component": "CD | Joined CD | Counter cleaning cloth / cotton",
+      "point": [
+        -4.034999847412109,
+        3.424999952316284,
+        1.0420000553131104
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 199,
+      "target": "CD | Counter linoleum inset",
+      "target_gap_m": -1.1920928955078125e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Counter authority plaque",
+      "anchor": "CD | Counter authority plaque__contact_0",
+      "actual_component": "CD | Plaque wall back",
+      "point": [
+        -3.75,
+        3.5199999809265137,
+        2.680000066757202
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 160,
+      "target": "Office front head lintel",
+      "target_gap_m": 0.0,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Counter authority plaque",
+      "anchor": "CD | Counter authority plaque__contact_1",
+      "actual_component": "CD | Plaque wall back",
+      "point": [
+        -3.2699999809265137,
+        3.5199999809265137,
+        2.680000066757202
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 161,
+      "target": "Office front head lintel",
+      "target_gap_m": 0.0,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Check-in task fixture",
+      "anchor": "CD | Check-in task fixture__contact_0",
+      "actual_component": "CD | Joined CD | Check-in task fixture / charcoal",
+      "point": [
+        -3.7200000286102295,
+        3.5199999809265137,
+        2.430000066757202
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 160,
+      "target": "Office front head lintel",
+      "target_gap_m": 0.0,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Check-in task fixture",
+      "anchor": "CD | Check-in task fixture__contact_1",
+      "actual_component": "CD | Joined CD | Check-in task fixture / charcoal",
+      "point": [
+        -3.299999952316284,
+        3.5199999809265137,
+        2.430000066757202
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 349,
+      "target": "Office front head lintel",
+      "target_gap_m": 0.0,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | D1 service junction",
+      "anchor": "CD | D1 service junction__contact_0",
+      "actual_component": "CD | Joined CD | D1 service junction / charcoal",
+      "point": [
+        -4.612500190734863,
+        3.5199999809265137,
+        2.0
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 81,
+      "target": "Office front wall mid",
+      "target_gap_m": 0.0,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Office file cabinet 0",
+      "anchor": "CD | Office file cabinet 0__contact_0",
+      "actual_component": "Filing cabinet body 0",
+      "point": [
+        -6.5,
+        8.079999923706055,
+        0.0
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 153,
+      "target": "Floor slab",
+      "target_gap_m": -1.043081283569336e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Office file cabinet 0",
+      "anchor": "CD | Office file cabinet 0__contact_1",
+      "actual_component": "Filing cabinet body 0",
+      "point": [
+        -6.179999828338623,
+        8.520000457763672,
+        0.0
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 152,
+      "target": "Floor slab",
+      "target_gap_m": -1.043081283569336e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Office file cabinet 1",
+      "anchor": "CD | Office file cabinet 1__contact_0",
+      "actual_component": "Filing cabinet body 1",
+      "point": [
+        -6.5,
+        8.880000114440918,
+        0.0
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 153,
+      "target": "Floor slab",
+      "target_gap_m": -1.043081283569336e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Office file cabinet 1",
+      "anchor": "CD | Office file cabinet 1__contact_1",
+      "actual_component": "Filing cabinet body 1",
+      "point": [
+        -6.179999828338623,
+        9.319999694824219,
+        0.0
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 152,
+      "target": "Floor slab",
+      "target_gap_m": -1.043081283569336e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Office coat stand",
+      "anchor": "CD | Office coat stand__contact_0",
+      "actual_component": "Office coat rack post",
+      "point": [
+        -6.5,
+        4.199999809265137,
+        0.0
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 152,
+      "target": "Floor slab",
+      "target_gap_m": -1.043081283569336e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Office key cabinet",
+      "anchor": "CD | Office key cabinet__contact_0",
+      "actual_component": "Office key box cabinet",
+      "point": [
+        -3.0,
+        9.520000457763672,
+        1.5
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 589,
+      "target": "Office rear wall east",
+      "target_gap_m": 0.0,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Warm Fluorescent SW suspended fixture",
+      "anchor": "CD | Warm Fluorescent SW suspended fixture__contact_0",
+      "actual_component": "CD | Joined CD | Warm Fluorescent SW suspended fixture / steel",
+      "point": [
+        -4.0,
+        1.5399999618530273,
+        4.400000095367432
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 127,
+      "target": "Roof deck ceiling slab",
+      "target_gap_m": 0.0,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Warm Fluorescent SW suspended fixture",
+      "anchor": "CD | Warm Fluorescent SW suspended fixture__contact_1",
+      "actual_component": "CD | Joined CD | Warm Fluorescent SW suspended fixture / steel",
+      "point": [
+        -4.0,
+        2.4600000381469727,
+        4.400000095367432
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 627,
+      "target": "Roof deck ceiling slab",
+      "target_gap_m": 0.0,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Warm Fluorescent S-Mid suspended fixture",
+      "anchor": "CD | Warm Fluorescent S-Mid suspended fixture__contact_0",
+      "actual_component": "CD | Joined CD | Warm Fluorescent S-Mid suspended fixture / steel",
+      "point": [
+        0.0,
+        1.5399999618530273,
+        4.400000095367432
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 127,
+      "target": "Roof deck ceiling slab",
+      "target_gap_m": 0.0,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Warm Fluorescent S-Mid suspended fixture",
+      "anchor": "CD | Warm Fluorescent S-Mid suspended fixture__contact_1",
+      "actual_component": "CD | Joined CD | Warm Fluorescent S-Mid suspended fixture / steel",
+      "point": [
+        0.0,
+        2.4600000381469727,
+        4.400000095367432
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 627,
+      "target": "Roof deck ceiling slab",
+      "target_gap_m": 0.0,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Warm Fluorescent SE suspended fixture",
+      "anchor": "CD | Warm Fluorescent SE suspended fixture__contact_0",
+      "actual_component": "CD | Joined CD | Warm Fluorescent SE suspended fixture / steel",
+      "point": [
+        4.0,
+        1.5399999618530273,
+        4.400000095367432
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 127,
+      "target": "Roof deck ceiling slab",
+      "target_gap_m": 0.0,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Warm Fluorescent SE suspended fixture",
+      "anchor": "CD | Warm Fluorescent SE suspended fixture__contact_1",
+      "actual_component": "CD | Joined CD | Warm Fluorescent SE suspended fixture / steel",
+      "point": [
+        4.0,
+        2.4600000381469727,
+        4.400000095367432
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 627,
+      "target": "Roof deck ceiling slab",
+      "target_gap_m": 0.0,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Office Task Fluorescent suspended fixture",
+      "anchor": "CD | Office Task Fluorescent suspended fixture__contact_0",
+      "actual_component": "CD | Joined CD | Office Task Fluorescent suspended fixture / steel",
+      "point": [
+        -4.599999904632568,
+        4.940000057220459,
+        4.400000095367432
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 159,
+      "target": "Roof deck ceiling slab",
+      "target_gap_m": 0.0,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Office Task Fluorescent suspended fixture",
+      "anchor": "CD | Office Task Fluorescent suspended fixture__contact_1",
+      "actual_component": "CD | Joined CD | Office Task Fluorescent suspended fixture / steel",
+      "point": [
+        -4.599999904632568,
+        5.860000133514404,
+        4.400000095367432
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 627,
+      "target": "Roof deck ceiling slab",
+      "target_gap_m": 0.0,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Office Rear Fluorescent suspended fixture",
+      "anchor": "CD | Office Rear Fluorescent suspended fixture__contact_0",
+      "actual_component": "CD | Joined CD | Office Rear Fluorescent suspended fixture / steel",
+      "point": [
+        -4.599999904632568,
+        7.340000152587891,
+        4.400000095367432
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 159,
+      "target": "Roof deck ceiling slab",
+      "target_gap_m": 0.0,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Office Rear Fluorescent suspended fixture",
+      "anchor": "CD | Office Rear Fluorescent suspended fixture__contact_1",
+      "actual_component": "CD | Joined CD | Office Rear Fluorescent suspended fixture / steel",
+      "point": [
+        -4.599999904632568,
+        8.260000228881836,
+        4.400000095367432
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 627,
+      "target": "Roof deck ceiling slab",
+      "target_gap_m": 0.0,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Scanner Overhead Key suspended fixture",
+      "anchor": "CD | Scanner Overhead Key suspended fixture__contact_0",
+      "actual_component": "CD | Joined CD | Scanner Overhead Key suspended fixture / steel",
+      "point": [
+        0.0,
+        6.539999961853027,
+        4.400000095367432
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 140,
+      "target": "Roof deck ceiling slab",
+      "target_gap_m": 0.0,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Scanner Overhead Key suspended fixture",
+      "anchor": "CD | Scanner Overhead Key suspended fixture__contact_1",
+      "actual_component": "CD | Joined CD | Scanner Overhead Key suspended fixture / steel",
+      "point": [
+        0.0,
+        7.460000038146973,
+        4.400000095367432
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 627,
+      "target": "Roof deck ceiling slab",
+      "target_gap_m": 0.0,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Conveyor Hero Key suspended fixture",
+      "anchor": "CD | Conveyor Hero Key suspended fixture__contact_0",
+      "actual_component": "CD | Joined CD | Conveyor Hero Key suspended fixture / steel",
+      "point": [
+        4.650000095367432,
+        7.239999771118164,
+        4.400000095367432
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 140,
+      "target": "Roof deck ceiling slab",
+      "target_gap_m": 0.0,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Conveyor Hero Key suspended fixture",
+      "anchor": "CD | Conveyor Hero Key suspended fixture__contact_1",
+      "actual_component": "CD | Joined CD | Conveyor Hero Key suspended fixture / steel",
+      "point": [
+        4.650000095367432,
+        8.15999984741211,
+        4.400000095367432
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 627,
+      "target": "Roof deck ceiling slab",
+      "target_gap_m": 0.0,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Arrival Bay Key suspended fixture",
+      "anchor": "CD | Arrival Bay Key suspended fixture__contact_0",
+      "actual_component": "CD | Joined CD | Arrival Bay Key suspended fixture / steel",
+      "point": [
+        0.0,
+        11.539999961853027,
+        4.400000095367432
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 140,
+      "target": "Roof deck ceiling slab",
+      "target_gap_m": 0.0,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Arrival Bay Key suspended fixture",
+      "anchor": "CD | Arrival Bay Key suspended fixture__contact_1",
+      "actual_component": "CD | Joined CD | Arrival Bay Key suspended fixture / steel",
+      "point": [
+        0.0,
+        12.460000038146973,
+        4.400000095367432
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 627,
+      "target": "Roof deck ceiling slab",
+      "target_gap_m": 0.0,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Bay Utility Key suspended fixture",
+      "anchor": "CD | Bay Utility Key suspended fixture__contact_0",
+      "actual_component": "CD | Joined CD | Bay Utility Key suspended fixture / steel",
+      "point": [
+        4.5,
+        12.539999961853027,
+        4.400000095367432
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 140,
+      "target": "Roof deck ceiling slab",
+      "target_gap_m": 0.0,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Bay Utility Key suspended fixture",
+      "anchor": "CD | Bay Utility Key suspended fixture__contact_1",
+      "actual_component": "CD | Joined CD | Bay Utility Key suspended fixture / steel",
+      "point": [
+        4.5,
+        13.460000038146973,
+        4.400000095367432
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 627,
+      "target": "Roof deck ceiling slab",
+      "target_gap_m": 0.0,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Support Concealed Accent suspended fixture",
+      "anchor": "CD | Support Concealed Accent suspended fixture__contact_0",
+      "actual_component": "CD | Joined CD | Support Concealed Accent suspended fixture / steel",
+      "point": [
+        -5.5,
+        12.539999961853027,
+        4.400000095367432
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 140,
+      "target": "Roof deck ceiling slab",
+      "target_gap_m": 0.0,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Support Concealed Accent suspended fixture",
+      "anchor": "CD | Support Concealed Accent suspended fixture__contact_1",
+      "actual_component": "CD | Joined CD | Support Concealed Accent suspended fixture / steel",
+      "point": [
+        -5.5,
+        13.460000038146973,
+        4.400000095367432
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 627,
+      "target": "Roof deck ceiling slab",
+      "target_gap_m": 0.0,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Main ventilation supply trunk suspension",
+      "anchor": "CD | Main ventilation supply trunk suspension__contact_0",
+      "actual_component": "CD | Joined CD | Main ventilation supply trunk suspension / steel",
+      "point": [
+        2.9205000400543213,
+        1.0,
+        4.400000095367432
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 159,
+      "target": "Roof deck ceiling slab",
+      "target_gap_m": 0.0,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Main ventilation supply trunk suspension",
+      "anchor": "CD | Main ventilation supply trunk suspension__contact_1",
+      "actual_component": "CD | Joined CD | Main ventilation supply trunk suspension / steel",
+      "point": [
+        3.4795000553131104,
+        14.800000190734863,
+        4.400000095367432
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 2570,
+      "target": "Roof deck ceiling slab",
+      "target_gap_m": 0.0,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Return ventilation trunk suspension",
+      "anchor": "CD | Return ventilation trunk suspension__contact_0",
+      "actual_component": "CD | Joined CD | Return ventilation trunk suspension / steel",
+      "point": [
+        -4.014999866485596,
+        1.0,
+        4.400000095367432
+      ],
+      "component_distance_m": 4.76837158203125e-07,
+      "component_triangle": 159,
+      "target": "Roof deck ceiling slab",
+      "target_gap_m": 0.0,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Return ventilation trunk suspension",
+      "anchor": "CD | Return ventilation trunk suspension__contact_1",
+      "actual_component": "CD | Joined CD | Return ventilation trunk suspension / steel",
+      "point": [
+        -3.5850000381469727,
+        14.800000190734863,
+        4.400000095367432
+      ],
+      "component_distance_m": 4.76837158203125e-07,
+      "component_triangle": 2570,
+      "target": "Roof deck ceiling slab",
+      "target_gap_m": 0.0,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Inspection face luminaire",
+      "anchor": "CD | Inspection face luminaire__contact_0",
+      "actual_component": "CD | Joined CD | Inspection face luminaire / steel",
+      "point": [
+        0.12118641287088394,
+        4.379367828369141,
+        4.400000095367432
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 158,
+      "target": "Roof deck ceiling slab",
+      "target_gap_m": 0.0,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Inspection face luminaire",
+      "anchor": "CD | Inspection face luminaire__contact_1",
+      "actual_component": "CD | Joined CD | Inspection face luminaire / steel",
+      "point": [
+        0.47881361842155457,
+        4.420632362365723,
+        4.400000095367432
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 627,
+      "target": "Roof deck ceiling slab",
+      "target_gap_m": 0.0,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Custody transfer luminaire",
+      "anchor": "CD | Custody transfer luminaire__contact_0",
+      "actual_component": "CD | Joined CD | Custody transfer luminaire / steel",
+      "point": [
+        -4.949298858642578,
+        11.19945240020752,
+        4.400000095367432
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 158,
+      "target": "Roof deck ceiling slab",
+      "target_gap_m": 0.0,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Custody transfer luminaire",
+      "anchor": "CD | Custody transfer luminaire__contact_1",
+      "actual_component": "CD | Joined CD | Custody transfer luminaire / steel",
+      "point": [
+        -4.650701522827148,
+        11.400547981262207,
+        4.400000095367432
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 627,
+      "target": "Roof deck ceiling slab",
+      "target_gap_m": 0.0,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Check-in projecting locator",
+      "anchor": "CD | Check-in projecting locator__contact_0",
+      "actual_component": "CD | Locator wall bracket",
+      "point": [
+        -2.4000000953674316,
+        3.5799999237060547,
+        2.6600000858306885
+      ],
+      "component_distance_m": 2.384185791015625e-07,
+      "component_triangle": 74,
+      "target": "Office front head lintel",
+      "target_gap_m": -2.384185791015625e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Entry reverse locator",
+      "anchor": "CD | Entry reverse locator__contact_0",
+      "actual_component": "CD | Entry locator housing",
+      "point": [
+        -0.5,
+        -1.0,
+        2.5999999046325684
+      ],
+      "component_distance_m": 2.9802322387695312e-08,
+      "component_triangle": 78,
+      "target": "P1 corridor ceiling",
+      "target_gap_m": 2.384185791015625e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Entry reverse locator",
+      "anchor": "CD | Entry reverse locator__contact_1",
+      "actual_component": "CD | Entry locator housing",
+      "point": [
+        0.5,
+        -1.0,
+        2.5999999046325684
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 79,
+      "target": "P1 corridor ceiling",
+      "target_gap_m": 2.384185791015625e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Faded duty poster",
+      "anchor": "CD | Faded duty poster__contact_0",
+      "actual_component": "CD | Joined CD | Faded duty poster / paper",
+      "point": [
+        3.700000047683716,
+        0.0,
+        2.049999952316284
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 7,
+      "target": "South wall east",
+      "target_gap_m": -1.043081283569336e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    },
+    {
+      "assembly": "CD | Arrival check-in cue",
+      "anchor": "CD | Arrival check-in cue__contact_0",
+      "actual_component": "CD | Arrival check-in cue plate",
+      "point": [
+        -2.319999933242798,
+        3.799999952316284,
+        2.6700000762939453
+      ],
+      "component_distance_m": 0.0,
+      "component_triangle": 155,
+      "target": "Office east corner south",
+      "target_gap_m": 2.384185791015625e-07,
+      "note": "Validator target ray plus independently recomputed nearest evaluated assembly geometry; not a proof of all internal loads"
+    }
+  ],
+  "fixing_island_contact_evidence": "island-surface-contacts.json reports every fixing-sized disconnected closed component; refined-contact-candidates.json resolves all sparse sample ambiguities with actual triangle intersections. Individual fixing torques/strength are outside authoring scope."
+}

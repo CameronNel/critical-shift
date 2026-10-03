@@ -1,3 +1,11 @@
+## Completed C7 and next repair — 3 October 2026
+
+Fresh independent GPT-6 Luna locked84/78/82/75/80/87/72, then received fresh technical90: exact648/8=81FAIL, no critical IDs. All six fresh critics individually inspected35current originals+4approved-spawn references and released all handles/processes. Seven complete full cycles; `FULL_CYCLE_07.json` is authoritative. Other disciplines spatial98/96, materials97/colour99, lighting97, story92.5; all disagreements retained. Static7PASS does not erase measured drum overlap147.869mm, exposed P1 reveal/head coplanarity or scanner crown/bridge3.904–9.180mm penetration. Root next repairs those actual meshes and substantial object-specific construction/material/work-context deductions.
+
+Actual GitHub34979e30006bc9d3a5facabea8372c0d46e3d772 contains exact F13 source/checkpoint/recipes and35current600p renders. Isolated actual GitHub checkout cold-openPASS:1327objects/25exact relative native libraries/119packedimages/packedfont, source unchanged. Source-only proof is in remote-verification/dock-github-f13*. Final-two stability and27decodedcoldpixels remain unmet. PR66DRAFT, owner99/all8>93/zero-critical gate unmet; no merge/map promotion or runtime acceptance. F13 remains saved authoritative native until a later successful checked root build.
+
+## Recorded earlier checkpoint history
+
 ## Current F13 checkpoint — 3 October 2026
 
 F13 saved successfully: native SHA-256 `22176ab474d914156cdf5a083571c19b04c6e6e11cfa50ab8ba681013bc124a6`, 1327objects /385180evaluated triangles /1149material submeshes /36local families. Exact native, state and four recipes are in `checkpoints/full-f13*`; retry log records all90 actual interface guards and prewrite limits passing. Static validation with explicit `contracts/interface.json`:7PASS/0errors/0warnings/5runtime properties unverified. The failed default-path invocation is retained separately. Current source/recipes are frozen for six fresh read-only C7 critics, including independent GPT-6 Luna.

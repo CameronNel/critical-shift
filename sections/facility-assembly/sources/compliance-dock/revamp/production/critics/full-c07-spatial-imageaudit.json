@@ -1,0 +1,503 @@
+{
+  "review_id": "full-c07-spatial",
+  "scope_categories": [
+    1,
+    3
+  ],
+  "manifests": [
+    {
+      "path": "renders/full-cycle-07/manifest.json",
+      "sha256": "3c7425389701d58756a9f01821cf71a1efdc94b0ef86e1c05824344e8047b812",
+      "declared_complete": true,
+      "image_count": 27,
+      "png_count": 27,
+      "complete_inventory": true,
+      "source_sha256": "22176ab474d914156cdf5a083571c19b04c6e6e11cfa50ab8ba681013bc124a6",
+      "renderer_sha256": "9fbae704a9a0db49d5848fd73004c0bdaf6c62455ba8db0043228a6f1b9adce2",
+      "expected_current_source_match": true,
+      "expected_current_renderer_match": true
+    },
+    {
+      "path": "renders/full-cycle-07-neutral/manifest.json",
+      "sha256": "d27d631dd20158008990e615b7cb3c29790d2b3eeb3003c2ec7c64b9378d8e05",
+      "declared_complete": true,
+      "image_count": 4,
+      "png_count": 4,
+      "complete_inventory": true,
+      "source_sha256": "22176ab474d914156cdf5a083571c19b04c6e6e11cfa50ab8ba681013bc124a6",
+      "renderer_sha256": "9fbae704a9a0db49d5848fd73004c0bdaf6c62455ba8db0043228a6f1b9adce2",
+      "expected_current_source_match": true,
+      "expected_current_renderer_match": true
+    },
+    {
+      "path": "renders/full-cycle-07-uv-standard/manifest.json",
+      "sha256": "985487b0916eedf591ffecc27d2b3b89dcba240d4e3c2e7904cbfe61b480ff89",
+      "declared_complete": true,
+      "image_count": 4,
+      "png_count": 4,
+      "complete_inventory": true,
+      "source_sha256": "22176ab474d914156cdf5a083571c19b04c6e6e11cfa50ab8ba681013bc124a6",
+      "renderer_sha256": "9fbae704a9a0db49d5848fd73004c0bdaf6c62455ba8db0043228a6f1b9adce2",
+      "expected_current_source_match": true,
+      "expected_current_renderer_match": true
+    },
+    {
+      "path": "renders/spawn-reference/reference-provenance.json",
+      "sha256": "d04251c153c364e6ad5745caa704caf147f42dc64e181a5744f91de344174a2d",
+      "declared_complete": null,
+      "image_count": 4,
+      "png_count": 4,
+      "complete_inventory": true,
+      "source_sha256": "9635f41aec585768285317399af9d6a3943411a66e20e2e3d96b05ad86dcfa40",
+      "renderer_sha256": null,
+      "expected_current_source_match": null,
+      "expected_current_renderer_match": null
+    }
+  ],
+  "current_originals_opened": 35,
+  "approved_spawn_originals_opened": 4,
+  "image_records": [
+    {
+      "path": "renders/full-cycle-07/C01_ENTRY.png",
+      "sha256": "3d9bd65dcde5ead1ddd3ca217dc691142b7d1cb47209ea71cdb6c615895bfffd",
+      "manifest_sha256": "3d9bd65dcde5ead1ddd3ca217dc691142b7d1cb47209ea71cdb6c615895bfffd",
+      "hash_matches": true,
+      "actually_opened": true,
+      "tool": "view_image",
+      "detail": "original",
+      "vision_inspected": true,
+      "notes": "Worker scanner is the dominant frontal landmark and the marked lane stays visible through the arch to the arrival door. Check-in counter is outside the frame; this is presentation/first-view hierarchy, not proof of blocked circulation."
+    },
+    {
+      "path": "renders/full-cycle-07/C02_HERO_DOCK.png",
+      "sha256": "809cbec9b4c2edbea4fd0aae21803e588bb17500a1dafa2d7a026c5b5e3d144e",
+      "manifest_sha256": "809cbec9b4c2edbea4fd0aae21803e588bb17500a1dafa2d7a026c5b5e3d144e",
+      "hash_matches": true,
+      "actually_opened": true,
+      "tool": "view_image",
+      "detail": "original",
+      "vision_inspected": true,
+      "notes": "Wide view pairs the warm check-in hatch at left with the cool scanner at center. Counter is strongly peripheral and partly cut at left; floor lane remains broad and free. Cargo machine is distinct at right."
+    },
+    {
+      "path": "renders/full-cycle-07/C03_CHECKIN_COUNTER.png",
+      "sha256": "c40c38ca6f4017fb99f93181b059721c1d361453865d4d0a02065e2752631ba1",
+      "manifest_sha256": "c40c38ca6f4017fb99f93181b059721c1d361453865d4d0a02065e2752631ba1",
+      "hash_matches": true,
+      "actually_opened": true,
+      "tool": "view_image",
+      "detail": "original",
+      "vision_inspected": true,
+      "notes": "Hatch, intercom, paperwork and stamp read as check-in. Adjacent staff door has credible human proportions. Customer edge is unobstructed; no route pinch is established."
+    },
+    {
+      "path": "renders/full-cycle-07/C04_SCANNER_APPROACH.png",
+      "sha256": "b109e37b64c94c425bc497f7d170036f152c2343e65a3f2a5790056bcbc8ac85",
+      "manifest_sha256": "b109e37b64c94c425bc497f7d170036f152c2343e65a3f2a5790056bcbc8ac85",
+      "hash_matches": true,
+      "actually_opened": true,
+      "tool": "view_image",
+      "detail": "original",
+      "vision_inspected": true,
+      "notes": "Open personnel aperture, low threshold and continuous lane are readable. Gate is visibly a neighboring separate assembly. Counter branch is absent from this close approach."
+    },
+    {
+      "path": "renders/full-cycle-07/C05_CONVEYOR_LEAD_TUNNEL.png",
+      "sha256": "0cc0c1fefcef0cf9c3c83b72a3099a60e7686b024c83c2d397d7f1acc6ea1b05",
+      "manifest_sha256": "0cc0c1fefcef0cf9c3c83b72a3099a60e7686b024c83c2d397d7f1acc6ea1b05",
+      "hash_matches": true,
+      "actually_opened": true,
+      "tool": "view_image",
+      "detail": "original",
+      "vision_inspected": true,
+      "notes": "Roller conveyor, curtained tunnel and control station identify cargo inspection. Large foreground crate takes most attention and partly masks the inspection mouth; process remains identifiable."
+    },
+    {
+      "path": "renders/full-cycle-07/C06_CART_GATE_G1.png",
+      "sha256": "e9ee72171c6ab23aa1800f4241e036540836e4f4d9bf73e2bce837c8b1bd7c44",
+      "manifest_sha256": "e9ee72171c6ab23aa1800f4241e036540836e4f4d9bf73e2bce837c8b1bd7c44",
+      "hash_matches": true,
+      "actually_opened": true,
+      "tool": "view_image",
+      "detail": "original",
+      "vision_inspected": true,
+      "notes": "Closed sliding gate separates the adjacent cart lane from open personnel arch. Rail and panel overlap convey closure. Controls/indicators are at the scanner edge; cart-specific operational state beyond closed is visually weak."
+    },
+    {
+      "path": "renders/full-cycle-07/C07_OFFICE_INTERIOR.png",
+      "sha256": "c6eb2336be5fd7dcf594168306869524777eafeed07b364a802305663913503c",
+      "manifest_sha256": "c6eb2336be5fd7dcf594168306869524777eafeed07b364a802305663913503c",
+      "hash_matches": true,
+      "actually_opened": true,
+      "tool": "view_image",
+      "detail": "original",
+      "vision_inspected": true,
+      "notes": "Desk, chair and staff door give believable scale cues; desk has visible leg space and floor around chair. Scanner visible through office glazing links oversight to inspection."
+    },
+    {
+      "path": "renders/full-cycle-07/C08_CONCEALED_SUPPORT_H1.png",
+      "sha256": "ae4313d52465d3b9f6bcea769bfc9c7680e16d53b20ce47a553102b9e56b05c8",
+      "manifest_sha256": "ae4313d52465d3b9f6bcea769bfc9c7680e16d53b20ce47a553102b9e56b05c8",
+      "hash_matches": true,
+      "actually_opened": true,
+      "tool": "view_image",
+      "detail": "original",
+      "vision_inspected": true,
+      "notes": "Covered trolley and IV pole identify support/concealment function within the separated bay. Tight framing cuts lower equipment and does not prove a circulation failure."
+    },
+    {
+      "path": "renders/full-cycle-07/C09_ARRIVAL_GATE_P2.png",
+      "sha256": "19ba806a73e91bd1821f9df568324b7b9735ca2ba752de9c40bd3250f264fb56",
+      "manifest_sha256": "19ba806a73e91bd1821f9df568324b7b9735ca2ba752de9c40bd3250f264fb56",
+      "hash_matches": true,
+      "actually_opened": true,
+      "tool": "view_image",
+      "detail": "original",
+      "vision_inspected": true,
+      "notes": "Large sealed arrival door, frame and side button read clearly. Apparent doorway scale is plausible in context; no numeric aperture certification from pixels."
+    },
+    {
+      "path": "renders/full-cycle-07/C10_ROOF_SERVICES.png",
+      "sha256": "56aa9644ce44de75260d528c46ed6ba91373fe84d613bee47ba430277f4a44e3",
+      "manifest_sha256": "56aa9644ce44de75260d528c46ed6ba91373fe84d613bee47ba430277f4a44e3",
+      "hash_matches": true,
+      "actually_opened": true,
+      "tool": "view_image",
+      "detail": "original",
+      "vision_inspected": true,
+      "notes": "Ceiling beams, bracing, service runs and practical fixtures have believable relation to scanner height. Upward crop is intentional evidence of services rather than route evidence."
+    },
+    {
+      "path": "renders/full-cycle-07/CORNER_SW.png",
+      "sha256": "4dfc64c388bbdf4d481bd223f9ed39a6a567c5cc29af069d8d6cd83bc0b8c337",
+      "manifest_sha256": "4dfc64c388bbdf4d481bd223f9ed39a6a567c5cc29af069d8d6cd83bc0b8c337",
+      "hash_matches": true,
+      "actually_opened": true,
+      "tool": "view_image",
+      "detail": "original",
+      "vision_inspected": true,
+      "notes": "Cutaway establishes open approach, counter side branch, distinct personnel/cart lanes and cargo footprint. No loose clutter in lane reservations."
+    },
+    {
+      "path": "renders/full-cycle-07/CORNER_SE.png",
+      "sha256": "d0e45a6eb6796a3e5967af167e8e4b56ddbc659c97c9d1bccc539767601bd630",
+      "manifest_sha256": "d0e45a6eb6796a3e5967af167e8e4b56ddbc659c97c9d1bccc539767601bd630",
+      "hash_matches": true,
+      "actually_opened": true,
+      "tool": "view_image",
+      "detail": "original",
+      "vision_inspected": true,
+      "notes": "Reverse cutaway establishes separated concealed bay and clear landing behind scanners; check-in is near facility entry. Preserved equipment footprints are accepted constraints."
+    },
+    {
+      "path": "renders/full-cycle-07/CORNER_NW.png",
+      "sha256": "436aa75aaa1bc1f7e61b914d468b134399d89af0da33a0fc8f4f55680a31bd14",
+      "manifest_sha256": "436aa75aaa1bc1f7e61b914d468b134399d89af0da33a0fc8f4f55680a31bd14",
+      "hash_matches": true,
+      "actually_opened": true,
+      "tool": "view_image",
+      "detail": "original",
+      "vision_inspected": true,
+      "notes": "Opposing cutaway shows facility aperture directly connected to marked lanes; counter floor branch has muted orange/red dashes, without direction or procedural order at the fork."
+    },
+    {
+      "path": "renders/full-cycle-07/CORNER_NE.png",
+      "sha256": "dbecb8389346e8a729842b37cbff73b11612167eeba8b549c17107ed5826517f",
+      "manifest_sha256": "dbecb8389346e8a729842b37cbff73b11612167eeba8b549c17107ed5826517f",
+      "hash_matches": true,
+      "actually_opened": true,
+      "tool": "view_image",
+      "detail": "original",
+      "vision_inspected": true,
+      "notes": "Opposing cutaway confirms entry aperture, lane space and quiet floor. Warm counter remains distinct from scanner. No physical obstruction inferred."
+    },
+    {
+      "path": "renders/full-cycle-07/WALL_SOUTH.png",
+      "sha256": "e18a88f150199208dc587ba94f456255d9e40bde97940944979ef76ad34460f5",
+      "manifest_sha256": "e18a88f150199208dc587ba94f456255d9e40bde97940944979ef76ad34460f5",
+      "hash_matches": true,
+      "actually_opened": true,
+      "tool": "view_image",
+      "detail": "original",
+      "vision_inspected": true,
+      "notes": "Entry wall has one central recognizable doorway and large quiet wall fields. Orthographic cutaway is not itself a gameplay clearance measurement."
+    },
+    {
+      "path": "renders/full-cycle-07/WALL_NORTH.png",
+      "sha256": "2866fba09947d995f3c01c5a593abd62cf1f00c9466dee3a85d0c27ffcdc25f2",
+      "manifest_sha256": "2866fba09947d995f3c01c5a593abd62cf1f00c9466dee3a85d0c27ffcdc25f2",
+      "hash_matches": true,
+      "actually_opened": true,
+      "tool": "view_image",
+      "detail": "original",
+      "vision_inspected": true,
+      "notes": "Arrival gate, storage at left and plant cabinets at right remain distinct with an open central landing. Scale relationship is coherent."
+    },
+    {
+      "path": "renders/full-cycle-07/WALL_EAST.png",
+      "sha256": "b81f9c662a5c2224fe029841e2d450c7624859d0709a1313e49150bb26e82cc9",
+      "manifest_sha256": "b81f9c662a5c2224fe029841e2d450c7624859d0709a1313e49150bb26e82cc9",
+      "hash_matches": true,
+      "actually_opened": true,
+      "tool": "view_image",
+      "detail": "original",
+      "vision_inspected": true,
+      "notes": "Service wall has clustered utilities and substantial quiet surface; no decorative item occupies the route."
+    },
+    {
+      "path": "renders/full-cycle-07/WALL_WEST.png",
+      "sha256": "b4d4032ba421cfd0539e5b8c30323cb7b549b619bc75423ccc0f4e5865d7b7cd",
+      "manifest_sha256": "b4d4032ba421cfd0539e5b8c30323cb7b549b619bc75423ccc0f4e5865d7b7cd",
+      "hash_matches": true,
+      "actually_opened": true,
+      "tool": "view_image",
+      "detail": "original",
+      "vision_inspected": true,
+      "notes": "Office cutaway reveals desk and file cabinets separated from main inspection circulation; bay partition establishes concealment. Elevation omissions are cutaway evidence, not missing geometry claims."
+    },
+    {
+      "path": "renders/full-cycle-07/HERO_SCANNER.png",
+      "sha256": "f0333dcd53532d0ce70b348e0bcc298eb94a53f47fa9362e645f48d02a7e995b",
+      "manifest_sha256": "f0333dcd53532d0ce70b348e0bcc298eb94a53f47fa9362e645f48d02a7e995b",
+      "hash_matches": true,
+      "actually_opened": true,
+      "tool": "view_image",
+      "detail": "original",
+      "vision_inspected": true,
+      "notes": "Three-quarter inspection arch has a clear aperture and industrial scale; threshold does not visually read as a major trip obstacle. Indicators and inner sensor recesses reinforce function."
+    },
+    {
+      "path": "renders/full-cycle-07/HERO_CARGO.png",
+      "sha256": "92a6db0d2a225139aaec6e2b84e2f390a3f956c8ec37ac7d86a29265dc0f0b4e",
+      "manifest_sha256": "92a6db0d2a225139aaec6e2b84e2f390a3f956c8ec37ac7d86a29265dc0f0b4e",
+      "hash_matches": true,
+      "actually_opened": true,
+      "tool": "view_image",
+      "detail": "original",
+      "vision_inspected": true,
+      "notes": "Tunnel and rollers identify inspection, but foreground crate masks lower mouth and is a stronger visual mass than the functional aperture. Cargo process still reads."
+    },
+    {
+      "path": "renders/full-cycle-07/HERO_EVIDENCE.png",
+      "sha256": "1d41296efceb096b5cad213626de9568a147e827656cb4c2ae4ef66467c018ba",
+      "manifest_sha256": "1d41296efceb096b5cad213626de9568a147e827656cb4c2ae4ef66467c018ba",
+      "hash_matches": true,
+      "actually_opened": true,
+      "tool": "view_image",
+      "detail": "original",
+      "vision_inspected": true,
+      "notes": "Storage is legible as six locked compartments, kept secondary. Trolley overlaps lower-left units in this framing, not established inaccessible storage."
+    },
+    {
+      "path": "renders/full-cycle-07/HERO_TROLLEY.png",
+      "sha256": "293481b4453726d83638ecefc752e1059530874723c7d477babd9c0da6856ca5",
+      "manifest_sha256": "293481b4453726d83638ecefc752e1059530874723c7d477babd9c0da6856ca5",
+      "hash_matches": true,
+      "actually_opened": true,
+      "tool": "view_image",
+      "detail": "original",
+      "vision_inspected": true,
+      "notes": "Trolley silhouette, casters, handles and cover are readable; supportive bay remains a separate secondary cluster. No lane intrusion."
+    },
+    {
+      "path": "renders/full-cycle-07/HERO_UTILITIES.png",
+      "sha256": "d6183ad03ad8f3acc711276ab4f7be52dfe6fbaec39fdceb42fa16cea3a7b925",
+      "manifest_sha256": "d6183ad03ad8f3acc711276ab4f7be52dfe6fbaec39fdceb42fa16cea3a7b925",
+      "hash_matches": true,
+      "actually_opened": true,
+      "tool": "view_image",
+      "detail": "original",
+      "vision_inspected": true,
+      "notes": "Utility cabinets/conduits are secondary to inspection and do not compete for a main hero role. Scale against cabinets and bins is plausible."
+    },
+    {
+      "path": "renders/full-cycle-07/DETAIL_CHECKIN.png",
+      "sha256": "9ea9c3802f8b34d95aa90c419ecc56acc8b36d143f5547597c48a4d5ceb04721",
+      "manifest_sha256": "9ea9c3802f8b34d95aa90c419ecc56acc8b36d143f5547597c48a4d5ceb04721",
+      "hash_matches": true,
+      "actually_opened": true,
+      "tool": "view_image",
+      "detail": "original",
+      "vision_inspected": true,
+      "notes": "Document trays, tethered writing tool, intercom and stamp clearly express check-in process; clustered paperwork leaves visible counter surface."
+    },
+    {
+      "path": "renders/full-cycle-07/PLAYER_REVERSE.png",
+      "sha256": "4f0fed52118672a3868a6ca903075d71b7f49976e68d32016dd603b97df15f44",
+      "manifest_sha256": "4f0fed52118672a3868a6ca903075d71b7f49976e68d32016dd603b97df15f44",
+      "hash_matches": true,
+      "actually_opened": true,
+      "tool": "view_image",
+      "detail": "original",
+      "vision_inspected": true,
+      "notes": "Through-arch reverse sightline leads clearly to facility exit. Check-in branch dashes appear off to right but no explicit order cue is apparent from the lane."
+    },
+    {
+      "path": "renders/full-cycle-07/PLAYER_PINCH.png",
+      "sha256": "a3b3ae803c0224a6b6ec0205934d59f49403bf60f5312fa7c392363c7b762e0a",
+      "manifest_sha256": "a3b3ae803c0224a6b6ec0205934d59f49403bf60f5312fa7c392363c7b762e0a",
+      "hash_matches": true,
+      "actually_opened": true,
+      "tool": "view_image",
+      "detail": "original",
+      "vision_inspected": true,
+      "notes": "North return floor and door landing remain readable. Foreground partition at right crops the view; it does not demonstrate a blocked walk route. Utility cart sits beyond the landing."
+    },
+    {
+      "path": "renders/full-cycle-07/WALL_OFFICE_FRONT.png",
+      "sha256": "efc19b621cbff8f3d9e40a171ab91e6d12ec99298e786c53f0199855d72d908c",
+      "manifest_sha256": "efc19b621cbff8f3d9e40a171ab91e6d12ec99298e786c53f0199855d72d908c",
+      "hash_matches": true,
+      "actually_opened": true,
+      "tool": "view_image",
+      "detail": "original",
+      "vision_inspected": true,
+      "notes": "Counter is brightly identifiable as a service hatch with speech grille, paperwork and staff access beside it. Reassurance sign is visually stronger than procedural identification."
+    },
+    {
+      "path": "renders/full-cycle-07-neutral/C05_CONVEYOR_LEAD_TUNNEL.png",
+      "sha256": "c0ed69d5c137a864bf0bf4eaf99b78b14d4464c073120ba45cf494c05dbcfa0b",
+      "manifest_sha256": "c0ed69d5c137a864bf0bf4eaf99b78b14d4464c073120ba45cf494c05dbcfa0b",
+      "hash_matches": true,
+      "actually_opened": true,
+      "tool": "view_image",
+      "detail": "original",
+      "vision_inspected": true,
+      "notes": "Neutral original individually inspected. Roller conveyor, curtained tunnel and control station identify cargo inspection. Large foreground crate takes most attention and partly masks the inspection mouth; process remains identifiable. Geometry/function corroboration only; diagnostic illumination is not beauty hierarchy evidence."
+    },
+    {
+      "path": "renders/full-cycle-07-neutral/C07_OFFICE_INTERIOR.png",
+      "sha256": "7e3c9eda479678e056e132640247b59ee1dfa0a4a9f5bd35fbaf628a010c8c8b",
+      "manifest_sha256": "7e3c9eda479678e056e132640247b59ee1dfa0a4a9f5bd35fbaf628a010c8c8b",
+      "hash_matches": true,
+      "actually_opened": true,
+      "tool": "view_image",
+      "detail": "original",
+      "vision_inspected": true,
+      "notes": "Neutral original individually inspected. Desk, chair and staff door give believable scale cues; desk has visible leg space and floor around chair. Scanner visible through office glazing links oversight to inspection. Geometry/function corroboration only; diagnostic illumination is not beauty hierarchy evidence."
+    },
+    {
+      "path": "renders/full-cycle-07-neutral/HERO_TROLLEY.png",
+      "sha256": "b3280077a817a19181d6ec1afbf9921a85835d6479e28bf568064072ba914265",
+      "manifest_sha256": "b3280077a817a19181d6ec1afbf9921a85835d6479e28bf568064072ba914265",
+      "hash_matches": true,
+      "actually_opened": true,
+      "tool": "view_image",
+      "detail": "original",
+      "vision_inspected": true,
+      "notes": "Neutral original individually inspected. Trolley silhouette, casters, handles and cover are readable; supportive bay remains a separate secondary cluster. No lane intrusion. Geometry/function corroboration only; diagnostic illumination is not beauty hierarchy evidence."
+    },
+    {
+      "path": "renders/full-cycle-07-neutral/HERO_UTILITIES.png",
+      "sha256": "04cfbe10d5fbc9ff48c5e51d7b06cfbba20ccca003e568f9a170373b100d5582",
+      "manifest_sha256": "04cfbe10d5fbc9ff48c5e51d7b06cfbba20ccca003e568f9a170373b100d5582",
+      "hash_matches": true,
+      "actually_opened": true,
+      "tool": "view_image",
+      "detail": "original",
+      "vision_inspected": true,
+      "notes": "Neutral original individually inspected. Utility cabinets/conduits are secondary to inspection and do not compete for a main hero role. Scale against cabinets and bins is plausible. Geometry/function corroboration only; diagnostic illumination is not beauty hierarchy evidence."
+    },
+    {
+      "path": "renders/full-cycle-07-uv-standard/C05_CONVEYOR_LEAD_TUNNEL.png",
+      "sha256": "f6077ddbe1472ae4ce2cd049352087cd2a079e432d338403911b4c9399394dba",
+      "manifest_sha256": "f6077ddbe1472ae4ce2cd049352087cd2a079e432d338403911b4c9399394dba",
+      "hash_matches": true,
+      "actually_opened": true,
+      "tool": "view_image",
+      "detail": "original",
+      "vision_inspected": true,
+      "notes": "UV-standard original individually inspected. Roller conveyor, curtained tunnel and control station identify cargo inspection. Large foreground crate takes most attention and partly masks the inspection mouth; process remains identifiable. Checker replacement removes production color cues; no material/UV category score is assigned in this review."
+    },
+    {
+      "path": "renders/full-cycle-07-uv-standard/C07_OFFICE_INTERIOR.png",
+      "sha256": "b54f038e479d2e4f486adc38932ba2e226015b45cfff9eca8a56010f4809a5a0",
+      "manifest_sha256": "b54f038e479d2e4f486adc38932ba2e226015b45cfff9eca8a56010f4809a5a0",
+      "hash_matches": true,
+      "actually_opened": true,
+      "tool": "view_image",
+      "detail": "original",
+      "vision_inspected": true,
+      "notes": "UV-standard original individually inspected. Desk, chair and staff door give believable scale cues; desk has visible leg space and floor around chair. Scanner visible through office glazing links oversight to inspection. Checker replacement removes production color cues; no material/UV category score is assigned in this review."
+    },
+    {
+      "path": "renders/full-cycle-07-uv-standard/HERO_TROLLEY.png",
+      "sha256": "b996aa856cca428c6f22bd5244342e60a36b9db29876219ea5c4bdca380bde87",
+      "manifest_sha256": "b996aa856cca428c6f22bd5244342e60a36b9db29876219ea5c4bdca380bde87",
+      "hash_matches": true,
+      "actually_opened": true,
+      "tool": "view_image",
+      "detail": "original",
+      "vision_inspected": true,
+      "notes": "UV-standard original individually inspected. Trolley silhouette, casters, handles and cover are readable; supportive bay remains a separate secondary cluster. No lane intrusion. Checker replacement removes production color cues; no material/UV category score is assigned in this review."
+    },
+    {
+      "path": "renders/full-cycle-07-uv-standard/HERO_UTILITIES.png",
+      "sha256": "ea67b24cc3f9f9dac305ca3d6a63817539cbb813b8e0ab3274b2f0b7984f087d",
+      "manifest_sha256": "ea67b24cc3f9f9dac305ca3d6a63817539cbb813b8e0ab3274b2f0b7984f087d",
+      "hash_matches": true,
+      "actually_opened": true,
+      "tool": "view_image",
+      "detail": "original",
+      "vision_inspected": true,
+      "notes": "UV-standard original individually inspected. Utility cabinets/conduits are secondary to inspection and do not compete for a main hero role. Scale against cabinets and bins is plausible. Checker replacement removes production color cues; no material/UV category score is assigned in this review."
+    },
+    {
+      "path": "renders/spawn-reference/BRIEFING_INDIRECT.png",
+      "sha256": "8d03448f84845b16705c6acc3324364a4e0a51f36c34355f4c481e8957aef301",
+      "manifest_sha256": "8d03448f84845b16705c6acc3324364a4e0a51f36c34355f4c481e8957aef301",
+      "hash_matches": true,
+      "actually_opened": true,
+      "tool": "view_image",
+      "detail": "original",
+      "vision_inspected": true,
+      "notes": "Approved spawn reference has a clear central briefing focal point with large simplified furniture and secondary human props; used only for craft/readability calibration."
+    },
+    {
+      "path": "renders/spawn-reference/VALIDATE_LockerDoor.png",
+      "sha256": "b8fd309f91cc15bfe6d183a253b81ba0f20a0033e08c63214c127e07e19879de",
+      "manifest_sha256": "b8fd309f91cc15bfe6d183a253b81ba0f20a0033e08c63214c127e07e19879de",
+      "hash_matches": true,
+      "actually_opened": true,
+      "tool": "view_image",
+      "detail": "original",
+      "vision_inspected": true,
+      "notes": "Approved spawn reference has a strong central functional chamber and clear aisle between benches; believable human equipment context."
+    },
+    {
+      "path": "renders/spawn-reference/VALIDATE_Material_A.png",
+      "sha256": "47d3892f69b4b244bcbff32908a6445556c182b2090aba11b22be1fe274253f6",
+      "manifest_sha256": "47d3892f69b4b244bcbff32908a6445556c182b2090aba11b22be1fe274253f6",
+      "hash_matches": true,
+      "actually_opened": true,
+      "tool": "view_image",
+      "detail": "original",
+      "vision_inspected": true,
+      "notes": "Approved spawn close view establishes specific locker construction and restrained contents at believable scale; no dock-layout blueprint inference."
+    },
+    {
+      "path": "renders/spawn-reference/VALIDATE_Spawn.png",
+      "sha256": "c84f368729c7e3ae1e6f1005ff5daae39020749316545bd208c972cee5b4e9ed",
+      "manifest_sha256": "c84f368729c7e3ae1e6f1005ff5daae39020749316545bd208c972cee5b4e9ed",
+      "hash_matches": true,
+      "actually_opened": true,
+      "tool": "view_image",
+      "detail": "original",
+      "vision_inspected": true,
+      "notes": "Approved spawn corridor has a strong central door, clear side destinations and uninterrupted floor route; procedural labels reinforce already legible architecture."
+    }
+  ],
+  "failed_attempts": [
+    {
+      "operation": "Initial read-only rg discovery included /workspace/.agents",
+      "exit_code": 2,
+      "reason": "Directory absent; valid repository paths were returned. Subsequently read /workspace/critical-shift/.agents/skills/blender-headless/SKILL.md successfully."
+    }
+  ],
+  "resource_release": {
+    "blender_started": false,
+    "background_processes_started": false,
+    "persistent_handles_retained": false,
+    "all_tool_commands_completed": true
+  }
+}
