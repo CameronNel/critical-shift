@@ -4,7 +4,7 @@
     "file": "/home/user/critical-shift/sections/facility-assembly/sources/compliance-dock/validate_dock.py",
     "sha256": "c1f1624c4780e8bb36de0a9c83c43e979c7e4c4d0646c4ecfdc61e7b7377e22f"
   },
-  "generated_utc": "2026-10-03T18:33:20.243297+00:00",
+  "generated_utc": "2026-10-03T18:31:46.441834+00:00",
   "scope": "read-only static evaluated Blender geometry; CPU calculations; no renders",
   "checks": [
     {
@@ -28413,14 +28413,13 @@
           0.12
         ]
       ],
-      "source_polygons": 256,
-      "evaluated_polygons": 256,
-      "evaluated_triangles": 256,
-      "evaluated_vertices": 130,
+      "source_polygons": 122,
+      "evaluated_polygons": 122,
+      "evaluated_triangles": 188,
+      "evaluated_vertices": 96,
       "closed_triangle_manifold": true,
       "materials": [
-        "CD | wood",
-        "CD | navy"
+        "CD | wood"
       ]
     },
     {
@@ -29872,14 +29871,13 @@
           4.17500019
         ]
       ],
-      "source_polygons": 572,
-      "evaluated_polygons": 572,
-      "evaluated_triangles": 572,
-      "evaluated_vertices": 278,
+      "source_polygons": 122,
+      "evaluated_polygons": 122,
+      "evaluated_triangles": 188,
+      "evaluated_vertices": 96,
       "closed_triangle_manifold": true,
       "materials": [
-        "CD | steel",
-        "CD | navy"
+        "CD | steel"
       ]
     },
     {
@@ -29900,10 +29898,10 @@
           4.125
         ]
       ],
-      "source_polygons": 398,
-      "evaluated_polygons": 398,
-      "evaluated_triangles": 398,
-      "evaluated_vertices": 197,
+      "source_polygons": 122,
+      "evaluated_polygons": 122,
+      "evaluated_triangles": 188,
+      "evaluated_vertices": 96,
       "closed_triangle_manifold": true,
       "materials": [
         "CD | steel"
@@ -37554,10 +37552,10 @@
     "floor_sill_allowance_m": 0.02
   },
   "scene": {
-    "file": "/tmp/claude-0/-home-user-critical-shift/6eced6ee-c0df-5b26-9934-302e45113320/scratchpad/c_b11.blend",
+    "file": "/tmp/claude-0/-home-user-critical-shift/6eced6ee-c0df-5b26-9934-302e45113320/scratchpad/c_orig.blend",
     "name": "COMPLIANCE_EDIT_LOCAL",
-    "sha256": "fcb01f2f9db3a281a1c0603e4da08d86b228aab097a353a3e89057d49d330227",
-    "bytes": 5430825,
+    "sha256": "6838d604ac4586da057a652e98e9c694f754a84e9f38ba70b83f1046e9ae6e9a",
+    "bytes": 5506982,
     "blender_runtime_version": "5.2.2 LTS",
     "blend_file_version": [
       5,
@@ -37567,7 +37565,7 @@
     "stage": "full",
     "revision": "f17",
     "object_count": 1339,
-    "material_count": 36,
+    "material_count": 37,
     "unit_system": "METRIC",
     "metres_per_unit": 1.0,
     "geometry_world_bounds": [
@@ -37582,9 +37580,9 @@
         4.44000006
       ]
     ],
-    "evaluated_polygons": 262181,
-    "evaluated_triangles": 398352,
-    "source_polygons": 243396,
+    "evaluated_polygons": 261321,
+    "evaluated_triangles": 397690,
+    "source_polygons": 242536,
     "geometry_object_count": 1145
   },
   "resources": {
@@ -49216,7 +49214,7 @@
     {
       "object": "Transit pallet base 1",
       "type": "MESH",
-      "triangles": 256,
+      "triangles": 188,
       "consumed_uv_layers": [
         "CD_Physical_1m"
       ],
@@ -49918,7 +49916,7 @@
     {
       "object": "Main ventilation supply trunk",
       "type": "MESH",
-      "triangles": 572,
+      "triangles": 188,
       "consumed_uv_layers": [
         "CD_Physical_1m"
       ],
@@ -49931,7 +49929,7 @@
     {
       "object": "Return ventilation trunk",
       "type": "MESH",
-      "triangles": 398,
+      "triangles": 188,
       "consumed_uv_layers": [
         "CD_Physical_1m"
       ],

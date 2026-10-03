@@ -22,6 +22,7 @@ WALL = ['CD | plaster']
 PAINT = ['CD | navy', 'CD | charcoal', 'CD | blue', 'CD | ivory', 'CD | coral', 'CD | yellow', 'CD | D1 handled paint',
          'CD | plastic', 'CD | Crate handling polish', 'CD | Worktop lip wear', 'CD | wood']
 METAL = ['CD | steel', 'CD | brass', 'CD | rubber']
+RUSTY = ('CD | navy', 'CD | charcoal', 'CD | blue', 'CD | yellow')
 FILLS = ('Ambient Fill', 'Ceiling Wash', 'reflected fill', 'low bounce')
 
 
@@ -140,9 +141,9 @@ def M(name):
     return bpy.data.materials[name]
 
 
-def floor_screed(name):
+def floor_screed(name, dark=1.0, wet_lo=.56, wet_hi=.64):
     g = G(M(name))
-    base = g.base()
+    base = g.mix('floor darken', 1., g.base(), (dark, dark, dark * 1.02), 'MULTIPLY')
     fleck = g.n('ShaderNodeTexVoronoi', 'aggregate', voronoi_dimensions='3D', feature='F1')
     fleck.inputs['Scale'].default_value = 120
     g.L(g.pos(), fleck.inputs['Vector'])
@@ -156,8 +157,8 @@ def floor_screed(name):
     c = g.mix('cracks', g.m('crack strength', 'MULTIPLY', crack, .95), c, (.006, .007, .007))
     # world-space puddles, about a fifth of the slab, with noisy edges and a dark pooled rim
     pool = g.noise('puddle field', .42, 4, .55)
-    wet = g.rng('puddle mask', pool, .56, .64)
-    rim = g.m('puddle rim', 'MULTIPLY', g.rng('rim band', pool, .53, .6), g.rng('rim fade', pool, .66, .6, 0., 1.))
+    wet = g.rng('puddle mask', pool, wet_lo, wet_hi)
+    rim = g.m('puddle rim', 'MULTIPLY', g.rng('rim band', pool, wet_lo - .03, wet_lo + .04), g.rng('rim fade', pool, wet_hi + .02, wet_lo + .04, 0., 1.))
     c = g.mix('wet darkening', g.m('wet dark', 'MULTIPLY', wet, .8), c, (.16, .19, .18), 'MULTIPLY')
     c = g.mix('wet rim grime', g.m('rim amount', 'MULTIPLY', rim, .6), c, (.02, .024, .022), 'MULTIPLY')
     g.L(c, g.bs.inputs['Base Color'])
@@ -175,7 +176,7 @@ def wall_plaster(name):
     g = G(M(name))
     base = g.base()
     blot = g.rng('blotch range', g.noise('blotches', 1.7, 4, .62), .35, .65, 0, .55)
-    base = g.mix('lift plaster', 1., base, (.62, .68, .70), 'MULTIPLY')
+    base = g.mix('lift plaster', 1., base, (.92, .94, .94), 'MULTIPLY')
     tone = g.mix('blotch tone', blot, base, (.20, .21, .20), 'MULTIPLY')
     vor = g.n('ShaderNodeTexVoronoi', 'chip cells', voronoi_dimensions='3D', feature='F1')
     vor.inputs['Scale'].default_value = 3.0
@@ -209,13 +210,22 @@ def wall_plaster(name):
     g.L(g.m('rough grit', 'ADD', rough, g.rng('grit rough', peel, .3, .7, -.05, .05), clamp=True), g.bs.inputs['Roughness'])
 
 
-def machine_detail(name, edge, edge_amount=.8, grime=.55):
+def machine_detail(name, edge, edge_amount=1.0, grime=.7, rust=0.0):
     g = G(M(name))
     c = g.base()
+    geo = g.n('ShaderNodeNewGeometry', 'dirt height')
+    sep = g.n('ShaderNodeSeparateXYZ', 'dirt height split')
+    g.L(geo.outputs['Position'], sep.inputs[0])
+    low = g.rng('low dirt', sep.outputs['Z'], .0, 1.2, 1., 0.)
+    breakup = g.rng('dirt breakup', g.noise('dirt noise', 6., 4, .6), .35, .65)
+    c = g.mix('floor-level grime', g.m('grime gradient', 'MULTIPLY', low, g.m('grime breakup', 'MULTIPLY', breakup, .85)), c, (.30, .28, .25), 'MULTIPLY')
+    if rust:
+        rs = g.m('rust gradient', 'MULTIPLY', g.m('rust low', 'MULTIPLY', low, g.rng('rust pick', g.noise('rust bloom', 9., 4, .65), .5, .66)), rust)
+        c = g.mix('rust bloom', rs, c, (.30, .11, .035))
     c = g.mix('mottle', g.rng('mottle range', g.noise('mottle', 14, 3, .6), .35, .65, 0, .35), c, (.5, .5, .5), 'MULTIPLY')
     c = g.mix('cavity grime', g.m('grime', 'MULTIPLY', g.cavity(.045), grime), c, (.22, .21, .2), 'MULTIPLY')
     if edge is not None:
-        wear = g.m('edge wear', 'MULTIPLY', g.edges(.012), edge_amount)
+        wear = g.m('edge wear', 'MULTIPLY', g.edges(.015), edge_amount)
         broken = g.rng('wear breakup', g.noise('edge breakup', 30, 3, .65), .32, .62)
         c = g.mix('edge highlight', g.m('edge broken', 'MULTIPLY', wear, broken), c, edge)
     g.L(c, g.bs.inputs['Base Color'])
@@ -223,39 +233,176 @@ def machine_detail(name, edge, edge_amount=.8, grime=.55):
     t.inputs['Scale'].default_value = (14, 56, 14)
     g.L(g.pos(), t.inputs['Vector'])
     sc = g.noise('scratch', 1., 2, .5, vec=t.outputs['Vector'])
-    delta = g.rng('scratch delta', sc, .35, .65, -.1, .1, clamp=False)
+    delta = g.rng('scratch delta', sc, .3, .7, -.2, .2, clamp=False)
     g.L(g.m('scratch rough', 'ADD', g.rough(), delta, clamp=True), g.bs.inputs['Roughness'])
 
 
 def mood(scene):
-    cut = {'fills_to_30pct': 0, 'keys_to_80pct': 0}
+    cut = {'reflected_fills_to_30pct': 0, 'hero_keys_up': 0, 'hazard_spots_up': 0}
+    heroes = {'Conveyor Hero Key': 1.5, 'Arrival Bay Key': 1.2, 'Bay Utility Key': 1.1, 'CD | Check-in practical': 1.6,
+              'CD | Inspection face practical': 3.0, 'CD | Scanner practical roof bounce': 1.8, 'CD | Cargo practical roof bounce': 3.0,
+              'CD | Cargo mouth practical': 4.0, 'CD | Custody transfer practical': 1.6, 'CD | Interrupted shift desk practi': 1.6}
     for o in bpy.data.objects:
         if o.type != 'LIGHT' or o.data.energy <= 0:
             continue
-        if any(k in o.name for k in FILLS):
+        if o.name.startswith('Ceiling Wash'):
+            o.data.energy *= .6   # ceiling-mounted washes light the tunnel/cargo areas; cutting them left C05 near-black
+            cut['ceiling_washes_to_60pct'] = cut.get('ceiling_washes_to_60pct', 0) + 1
+        elif o.name.startswith('Ambient Fill'):
             o.data.energy *= .3
-            cut['fills_to_30pct'] += 1
+            cut['ambient_fill_to_30pct'] = 1
+        elif 'reflected fill' in o.name:
+            o.data.energy *= .3
+            cut['reflected_fills_to_30pct'] += 1
+        elif 'low bounce' in o.name:
+            o.data.energy *= 6          # lights the cargo-inspection / lead-tunnel interior the reviewers found near-black
+            cut['hero_keys_up'] += 1
+        elif o.data.type == 'SPOT':
+            o.data.energy *= 20 if 'Lead Tunnel' in o.name else 5
+            o.data.spot_size = min(o.data.spot_size, math.radians(55))
+            o.data.spot_blend = .35
+            cut['hazard_spots_up'] += 1
+        elif o.name in heroes:
+            o.data.energy *= heroes[o.name]
+            cut['hero_keys_up'] += 1
         else:
-            o.data.energy *= .8
-            cut['keys_to_80pct'] += 1
+            o.data.energy *= .9
+            cut['keys_to_90pct'] = cut.get('keys_to_90pct', 0) + 1
         r, g, b = o.data.color
         o.data.color = (r * .9, min(1, g * 1.0), b * .97)
         if o.data.type == 'AREA':
-            o.data.spread = math.radians(min(math.degrees(o.data.spread), 130))
-    scene.view_settings.exposure -= .9
+            o.data.spread = math.radians(min(math.degrees(o.data.spread), 110))
+    scene.view_settings.exposure -= .1
     bg = next(n for n in scene.world.node_tree.nodes if n.type == 'BACKGROUND')
-    bg.inputs['Strength'].default_value = .05
+    bg.inputs['Strength'].default_value = .12   # bounce for enclosed areas (lead tunnel) that the fixtures alone leave black
     nt = scene.world.node_tree
     out = next(n for n in nt.nodes if n.type == 'OUTPUT_WORLD')
     vol = nt.nodes.new('ShaderNodeVolumeScatter')
     vol.label = 'R25 | cold haze'
-    vol.inputs['Density'].default_value = .004
-    vol.inputs['Anisotropy'].default_value = .45
+    vol.inputs['Density'].default_value = .008
+    vol.inputs['Anisotropy'].default_value = .5
     vol.inputs['Color'].default_value = (.62, .78, .70, 1)
     nt.links.new(vol.outputs['Volume'], out.inputs['Volume'])
     scene.cycles.volume_bounces = 1
     scene.cycles.volume_max_steps = 64
     return cut
+
+
+def _bvh(o):
+    from mathutils.bvhtree import BVHTree
+    dg = bpy.context.evaluated_depsgraph_get()
+    ev = o.evaluated_get(dg)
+    m = ev.to_mesh()
+    t = BVHTree.FromPolygons([ev.matrix_world @ v.co for v in m.vertices], [tuple(p.vertices) for p in m.polygons])
+    ev.to_mesh_clear()
+    return t
+
+
+def _overlaps(a, b):
+    return len(_bvh(a).overlap(_bvh(b)))
+
+
+def _clear_cut(target, cutters, grow=.03):
+    """Cut clearance openings through `target` where `cutters` pass through it. Cutters are copies grown by `grow` metres
+    along their normals; the originals are never edited. The target's evaluated result replaces its mesh."""
+    temp = []
+    for c in cutters:
+        d = c.copy()
+        d.data = c.data.copy()
+        d.modifiers.clear()
+        bpy.context.scene.collection.objects.link(d)
+        md = d.modifiers.new('grow', 'DISPLACE')
+        md.direction = 'NORMAL'
+        md.mid_level = 0.0
+        md.strength = grow
+        temp.append(d)
+    for d in temp:
+        bm = target.modifiers.new('clear cut', 'BOOLEAN')
+        bm.operation = 'DIFFERENCE'
+        bm.solver = 'EXACT'
+        bm.object = d
+    bpy.context.view_layer.update()
+    dg = bpy.context.evaluated_depsgraph_get()
+    mesh = bpy.data.meshes.new_from_object(target.evaluated_get(dg))
+    old = target.data
+    target.modifiers.clear()
+    target.data = mesh
+    for d in temp:
+        bpy.data.objects.remove(d, do_unlink=True)
+    _tidy_cut_mesh(target)
+    bpy.context.view_layer.update()
+    return old
+
+
+def _tidy_cut_mesh(obj):
+    """Boolean results carry stretched UVs on the new cut faces and can leave zero-area triangles. Weld, dissolve
+    degenerates, then rebuild isometric metric (1 UV unit per metre) UVs, one plane per triangle, on the cut mesh."""
+    import bmesh
+    bm = bmesh.new()
+    bm.from_mesh(obj.data)
+    bmesh.ops.remove_doubles(bm, verts=bm.verts, dist=1e-5)
+    bmesh.ops.dissolve_degenerate(bm, dist=1e-5, edges=bm.edges)
+    bmesh.ops.triangulate(bm, faces=bm.faces[:])
+    layers = list(bm.loops.layers.uv.values()) or [bm.loops.layers.uv.new('CD_Physical_1m')]
+    if 'CD_Physical_1m' not in bm.loops.layers.uv:
+        layers.append(bm.loops.layers.uv.new('CD_Physical_1m'))
+    world = obj.matrix_world
+    for f in bm.faces:
+        p0, p1, p2 = [world @ v.co for v in f.verts]
+        e1 = p1 - p0
+        if e1.length < 1e-9:
+            continue
+        u_axis = e1.normalized()
+        n = e1.cross(p2 - p0)
+        if n.length < 1e-12:
+            continue
+        v_axis = n.normalized().cross(u_axis)
+        for loop in f.loops:
+            d = world @ loop.vert.co - p0
+            for layer in layers:
+                loop[layer].uv = (d.dot(u_axis), d.dot(v_axis))   # isometric: every edge keeps its true length in metres
+    bm.to_mesh(obj.data)
+    bm.free()
+    obj.data.update()
+
+
+def geometry_fixes():
+    """Repair the reviewed technical intersections (C9: duct/truss, suspension/return duct, pallet/pilaster)."""
+    report = {}
+    obj = bpy.data.objects
+    duct = obj['Main ventilation supply trunk']
+    trusses = [o for o in obj if o.name.startswith('Truss diag B ') and _overlaps(duct, o)]
+    before = sum(_overlaps(duct, t) for t in trusses)
+    _clear_cut(duct, trusses, grow=.06)
+    for _ in range(3):   # a combined exact boolean can skip a cutter; retry any that still overlap, one at a time
+        left = [t for t in trusses if _overlaps(duct, t)]
+        if not left:
+            break
+        for t in left:
+            _clear_cut(duct, [t], grow=.08)
+    report['supply_duct_vs_truss'] = {'cutters': len(trusses), 'overlap_pairs_before': before,
+                                      'overlap_pairs_after': sum(_overlaps(duct, t) for t in trusses)}
+    ret = obj['Return ventilation trunk']
+    susp = [o for o in obj if 'Warm Fluorescent SW suspended' in o.name and o.type == 'MESH' and _overlaps(ret, o)]
+    before = sum(_overlaps(ret, o) for o in susp)
+    _clear_cut(ret, susp)
+    report['return_duct_vs_suspension'] = {'cutters': len(susp), 'overlap_pairs_before': before,
+                                           'overlap_pairs_after': sum(_overlaps(ret, o) for o in susp)}
+    pallet = obj['Transit pallet base 1']
+    walls = [obj['Pilaster east 11.5'], obj['Pilaster east flange 11.5']]
+    walls = [w for w in walls if _overlaps(pallet, w)]
+    before = sum(_overlaps(pallet, w) for w in walls)
+    if walls:
+        _clear_cut(pallet, walls, grow=.012)
+    report['pallet_vs_pilaster'] = {'cutters': len(walls), 'overlap_pairs_before': before,
+                                    'overlap_pairs_after': sum(_overlaps(pallet, w) for w in walls)}
+    return report
+
+
+def _desaturate_coral():
+    """Orange was spread across many secondary machine/route elements; knock it back so hazards own the accent."""
+    g = G(M('CD | coral'))
+    g.L(g.mix('coral knock-back', 1., g.base(), (.72, .58, .52), 'MULTIPLY'), g.bs.inputs['Base Color'])
 
 
 def triangles():
@@ -279,25 +426,28 @@ def apply():
     assert not s.get('dock_aaa_revision'), 'Dock AAA finish already applied'
     before = triangles()
     count = len([o for o in bpy.data.objects if o.type == 'LIGHT'])
+    geometry = geometry_fixes()
     done = {'floor': [], 'wall': [], 'paint': [], 'metal': []}
     for n in FLOOR:
         if n in bpy.data.materials:
-            floor_screed(n); done['floor'].append(n)
+            floor_screed(n, dark=.5, wet_lo=.47, wet_hi=.55); done['floor'].append(n)
     for n in WALL:
         if n in bpy.data.materials:
             wall_plaster(n); done['wall'].append(n)
     for n in PAINT:
         if n in bpy.data.materials:
-            machine_detail(n, (.55, .58, .56), .8, .6); done['paint'].append(n)
+            machine_detail(n, (.55, .58, .56), 1.0, .7, rust=.35 if n in RUSTY else 0.0); done['paint'].append(n)
     for n in METAL:
         if n in bpy.data.materials:
-            machine_detail(n, (.62, .64, .62), .7, .5); done['metal'].append(n)
+            machine_detail(n, (.62, .64, .62), .9, .6, rust=.5 if n == 'CD | steel' else 0.0); done['metal'].append(n)
     cut = mood(s)
+    if 'CD | coral' in bpy.data.materials:
+        _desaturate_coral()
     assert count == len([o for o in bpy.data.objects if o.type == 'LIGHT'])
     after = triangles()
     s['dock_aaa_revision'] = REV
     bpy.context.view_layer.update()
-    return {'revision': REV, 'materials': done, 'light_changes': cut, 'light_count_unchanged': True,
+    return {'revision': REV, 'geometry_fixes': geometry, 'materials': done, 'light_changes': cut, 'light_count_unchanged': True,
             'exposure_now': s.view_settings.exposure, 'triangles_before_total_visible': before,
             'triangles_after_total_visible': after, 'triangle_budget': 400000, 'within_budget': after[1] <= 400000}
 
