@@ -1,0 +1,119 @@
+{
+  "source": "/workspace/critical-shift/sections/facility-assembly/sources/refinery/overhaul/production/context/refinery_context_R10.blend",
+  "source_sha256": "0c4193613c8f55a2fa2b2257e667771b7f0e04dcd174e5631aa69b196ba00c2a",
+  "blender": "5.2.0 LTS",
+  "settings": {
+    "engine": "CYCLES",
+    "device": "CPU",
+    "samples": 24,
+    "resolution": [
+      960,
+      540
+    ],
+    "seed": 73,
+    "world_strength": 0
+  },
+  "views": [
+    {
+      "camera": "CAM_REVERSE",
+      "matrix": [
+        [
+          -0.8493589162826538,
+          0.021117622032761574,
+          -0.527393102645874,
+          -6.4342827796936035
+        ],
+        [
+          -0.5278157591819763,
+          -0.033982161432504654,
+          0.8486788272857666,
+          -13.206664085388184
+        ],
+        [
+          1.2116716163745878e-07,
+          0.9991993308067322,
+          0.0400092639029026,
+          1.6799999475479126
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 22.0,
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/refinery/overhaul/production/renders/R10_context/CAM_REVERSE.png",
+      "sha256": "18040093f4ed8555de20576bdbcc7747cf961996d7a261eaefe89cc1f080a9e8",
+      "seconds": 130.28422547100126
+    },
+    {
+      "camera": "CAM_DISPATCH",
+      "matrix": [
+        [
+          0.8917492032051086,
+          0.07484496384859085,
+          -0.4462975263595581,
+          -1.484283208847046
+        ],
+        [
+          -0.45252978801727295,
+          0.1474885642528534,
+          -0.8794679641723633,
+          -14.106664657592773
+        ],
+        [
+          3.3850668046397914e-08,
+          0.9862277507781982,
+          0.1653924137353897,
+          1.6799999475479126
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 24.0,
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/refinery/overhaul/production/renders/R10_context/CAM_DISPATCH.png",
+      "sha256": "431a459edaab1885f8796c396ea0f7511858c37305864e11632ce31dc82effe2",
+      "seconds": 90.92524426699856
+    },
+    {
+      "camera": "CAM_ASSEMBLY",
+      "matrix": [
+        [
+          0.5269398093223572,
+          -0.03320184350013733,
+          0.84925377368927,
+          1.515716791152954
+        ],
+        [
+          0.8499025106430054,
+          0.02058522216975689,
+          -0.5265376567840576,
+          -13.906664848327637
+        ],
+        [
+          -5.772064071152272e-08,
+          0.9992366433143616,
+          0.03906550630927086,
+          1.6799999475479126
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 22.0,
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/refinery/overhaul/production/renders/R10_context/CAM_ASSEMBLY.png",
+      "sha256": "71cbaecf72a02c93e434ab2f6774126eedc7b2ec633c7f0af169954ba3ddda64",
+      "seconds": 92.72398244800024
+    }
+  ],
+  "complete": true,
+  "source_unchanged": true
+}

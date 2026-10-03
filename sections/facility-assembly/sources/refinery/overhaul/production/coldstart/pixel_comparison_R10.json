@@ -1,0 +1,119 @@
+{
+  "status": "PASS",
+  "checkpoint": "d301651079db9dfde0e707d07efe3cc88b7b6437d678714e58dde9f927e9f7fb",
+  "cold_rebuild": "122b9a2434546454e87aecf94198eb267d4dd75149e9670a82c9a925667a2463",
+  "cameras": [
+    {
+      "camera": "CAM_ENTRY",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "CAM_MAIN_ROUTE",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "CAM_PROCESS",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "CAM_REVERSE",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "CAM_PINCH",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "CAM_MATERIAL",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "CAM_ASSEMBLY",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "CAM_DISPATCH",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "CAM_MINE_TO_CRUSHER",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "CAM_WORK_NOOK",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "CAM_HERO_DETAIL",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "settings_equal": true,
+  "scope": "Cold-start reproducibility comparison against the unaccepted R10 checkpoint; this is not final visual acceptance."
+}

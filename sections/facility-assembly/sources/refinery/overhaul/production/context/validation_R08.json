@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "source_sha256": "28d63ef3196dbebe967b0752a838c2aa75872214a640aedad691bdc50f05eab9",
+  "transform_errors": [],
+  "visible_candidate_comparison_count": 2920,
+  "skipped_hidden_state_objects": [
+    "STATE_Wet_spill",
+    "STATE_Wet_ore_pile",
+    "STATE_Seal_leak",
+    "STATE_Misaligned_fuel",
+    "STATE_Emergency_lamp.003",
+    "STATE_Emergency_lamp.002",
+    "STATE_Emergency_lamp.001",
+    "STATE_Emergency_lamp",
+    "STATE_Crusher_mouth_jam",
+    "STATE_Crusher_jam_wedge",
+    "Feeder_access_note"
+  ],
+  "light_count": 21,
+  "world_strength": 0.0,
+  "source_unchanged": true,
+  "limitations": "Visible candidate poses and practical count only. Hidden fault-state poses, exhaustive intersections and whole-map dependency health are not certified."
+}

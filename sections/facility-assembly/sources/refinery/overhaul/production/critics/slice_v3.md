@@ -1,0 +1,21 @@
+# Independent style-slice review — v3
+
+**Scope:** Initial refinery style-validation slice only. Reviewed the latest `slice_v2/CAM_ENTRY.png` and the v3 `CAM_WORK_NOOK.png` and `CAM_HERO_DETAIL.png`. The v2 work-nook view is excluded because it was occluded by the conveyor and was an invalid inspection angle. The corrected work-nook position is accepted as valid evidence for this review, before formal full-room fixed-camera review. Deferred machinery elsewhere in the room is not scored as completed slice work.
+
+**Decision: FAIL — 7.7/10 average, below the required 8/10.** There is no hard art-direction veto in the scoped processor and architecture. The corrected view now shows the worker nook, but its composition still does not clearly demonstrate a usable, human-centered work station: much of the equipment crowds the view, the work-surface props are cropped at the bottom, the task fixture itself is not visible, and the board reads mostly as blank paper. This required category pulls the slice below threshold.
+
+| Slice category | Score / 10 | Pixel-based finding |
+|---|---:|---|
+| Recast processor: silhouette and focal clarity | 8.5 | `CAM_HERO_DETAIL` shows a strong process-specific vessel: shaped shoulders, rolled seam, bolted access plate, multiple gauges, steel piping, and a brass isolation wheel. Painted oxide and bare steel are distinct. `CAM_ENTRY` retains a clean focal read at room scale, though the vessel’s shape and fittings naturally lose definition at that distance. The close view is useful for construction but crops most of the vessel’s full silhouette. |
+| Architecture and surface treatment | 8.2 | Warm concrete bays, deep green dado, protective rail, ceiling structure, and ochre pipework now form a coherent industrial system with sharper, cleaner edge definition. Broad surfaces still feel newly installed and lightly used rather than worked-in; wear remains sparse. |
+| Material identity | 8.2 | The hero detail separates matte oxide paint, metal fittings, dark housings, and concrete convincingly. The restrained grain supports the stylized finish. The close view does not establish a broad variety of material families, and a few machine controls remain simple planar assemblies. |
+| Practical lighting and atmosphere | 8.1 | The entry and hero detail have warmer local illumination, clear contact shadows, and more depth than the baseline. The work-nook view has a warm pool on the board/wall but leaves the station crowded by dark machinery. Source lighting evidence remains positive: `build_slice.json` records world strength 0 and 13 registered lights paired with fixture lenses; `build_overhaul.py` removes original LIGHT objects before adding physical fixture lights. |
+| Work nook and human storytelling | 5.5 | The corrected camera finally reveals the notice board, mug, and radio, establishing a plausible worker corner. The conveyor and machine structure consume much of the view; the mug is cut off by the frame, board contents are mostly blank at this scale, and neither the worktop cluster nor the nook lamp is fully shown. Gloves and the other small authored props do not read clearly. The space feels like a tight leftover gap beside equipment rather than a deliberately composed work nook. |
+
+## Required fixes before the slice gate
+
+1. Recompose the nook evidence so the complete worktop and its human props are visible together, with the task fixture in frame and visibly lighting the surface. Clear or reduce the foreground machine/conveyor occlusion; retain a believable route width.
+2. Give the board at least one legible piece of shift information or a recognizable diagram, and ensure the mug, radio, gloves, or another maintenance item form a clear purposeful cluster at review distance.
+3. Add restrained localized use to the broad architectural surfaces. Keep the improved processor construction and visible material separation; the hero detail is the strongest part of this slice.
+
+The v2 work-nook camera error has been corrected for this review; this is an evidence correction, not a formal full-room camera lock. The prior practical-only source check is confirmed, but source correctness does not raise the nook’s visible composition score. This is not a full-room acceptance decision.

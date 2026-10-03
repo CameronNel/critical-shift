@@ -1,0 +1,2035 @@
+{
+  "revision": 6,
+  "slice": false,
+  "output": "/workspace/critical-shift/sections/facility-assembly/sources/refinery/module_overhaul_R1.blend",
+  "sha256": "2694e8dbc851ee46fbaf17334a7fbd6ad2b4f21826d6f8b2c68f99f6bb20cd2a",
+  "baseline_sha256": "de064242c534a12e69e7aac3c46c7118a285024626fdd423bb20eef339079ff8",
+  "protected_interfaces": 29,
+  "new_objects": 962,
+  "object_count": 2949,
+  "lights": [
+    {
+      "name": "RF1 LIGHT | PV hood 0",
+      "lens": "RF1 | PV task actual lens",
+      "energy": 95.0,
+      "location": [
+        0.2517189681529999,
+        5.877411365509033,
+        3.5380828380584717
+      ],
+      "matrix": [
+        [
+          -0.8330501914024353,
+          0.43339821696281433,
+          -0.34379255771636963,
+          0.2517189681529999
+        ],
+        [
+          -0.5531973838806152,
+          -0.6526467800140381,
+          0.5177111625671387,
+          5.877411365509033
+        ],
+        [
+          -3.9343117208545664e-08,
+          0.6214645504951477,
+          0.7834423184394836,
+          3.5380828380584717
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RF1 LIGHT | PV hood 1",
+      "lens": "RF1 | PV task actual lens.001",
+      "energy": 95.0,
+      "location": [
+        2.2477807998657227,
+        5.877530097961426,
+        3.538261890411377
+      ],
+      "matrix": [
+        [
+          -0.743871808052063,
+          -0.4996448755264282,
+          0.44385775923728943,
+          2.2477807998657227
+        ],
+        [
+          0.6683223247528076,
+          -0.5561264753341675,
+          0.4940330386161804,
+          5.877530097961426
+        ],
+        [
+          -1.1249365883259088e-08,
+          0.6641373038291931,
+          0.7476106286048889,
+          3.538261890411377
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RF1 LIGHT | Ceiling pendant 0",
+      "lens": "Pendant_diffuser",
+      "energy": 155.0,
+      "location": [
+        -4.849999904632568,
+        -2.5,
+        4.40500020980835
+      ],
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -4.849999904632568
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -2.5
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          4.40500020980835
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RF1 LIGHT | Ceiling pendant 1",
+      "lens": "Pendant_diffuser.001",
+      "energy": 380.0,
+      "location": [
+        -4.400000095367432,
+        3.25,
+        4.40500020980835
+      ],
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -4.400000095367432
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          3.25
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          4.40500020980835
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RF1 LIGHT | Ceiling pendant 2",
+      "lens": "Pendant_diffuser.002",
+      "energy": 460.0,
+      "location": [
+        0.0,
+        3.0999999046325684,
+        4.40500020980835
+      ],
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          3.0999999046325684
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          4.40500020980835
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RF1 LIGHT | Ceiling pendant 3",
+      "lens": "Pendant_diffuser.003",
+      "energy": 230.0,
+      "location": [
+        4.800000190734863,
+        2.299999952316284,
+        4.40500020980835
+      ],
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          4.800000190734863
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          2.299999952316284
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          4.40500020980835
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RF1 LIGHT | Ceiling pendant 4",
+      "lens": "Pendant_diffuser.004",
+      "energy": 230.0,
+      "location": [
+        4.800000190734863,
+        -2.0,
+        4.40500020980835
+      ],
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          4.800000190734863
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -2.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          4.40500020980835
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RF1 LIGHT | Ceiling pendant 5",
+      "lens": "Pendant_diffuser.005",
+      "energy": 91.0,
+      "location": [
+        -1.5,
+        -3.299999952316284,
+        4.40500020980835
+      ],
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -1.5
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -3.299999952316284
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          4.40500020980835
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RF1 LIGHT | Wall service lamp 0",
+      "lens": "ART_Wall_fixture_diffuser",
+      "energy": 25.0,
+      "location": [
+        -5.75,
+        6.257999897003174,
+        2.8459999561309814
+      ],
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -5.75
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          6.257999897003174
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          2.8459999561309814
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RF1 LIGHT | Wall service lamp 1",
+      "lens": "ART_Wall_fixture_diffuser.001",
+      "energy": 25.0,
+      "location": [
+        -1.75,
+        6.257999897003174,
+        2.8459999561309814
+      ],
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -1.75
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          6.257999897003174
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          2.8459999561309814
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RF1 LIGHT | Wall service lamp 2",
+      "lens": "ART_Wall_fixture_diffuser.002",
+      "energy": 25.0,
+      "location": [
+        2.75,
+        6.257999897003174,
+        2.8459999561309814
+      ],
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          2.75
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          6.257999897003174
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          2.8459999561309814
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RF1 LIGHT | Wall service lamp 3",
+      "lens": "ART_Wall_fixture_diffuser.003",
+      "energy": 25.0,
+      "location": [
+        6.75,
+        6.257999897003174,
+        2.8459999561309814
+      ],
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          6.75
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          6.257999897003174
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          2.8459999561309814
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RF1 LIGHT | Work nook lamp",
+      "lens": "RF1 | Nook light lens",
+      "energy": 60.0,
+      "location": [
+        1.019999623298645,
+        -5.887619972229004,
+        2.450000047683716
+      ],
+      "matrix": [
+        [
+          0.9240167737007141,
+          -0.374142050743103,
+          0.0788077861070633,
+          1.019999623298645
+        ],
+        [
+          0.382351815700531,
+          0.9041765332221985,
+          -0.19045165181159973,
+          -5.887619972229004
+        ],
+        [
+          -1.8301564352896094e-07,
+          0.2061128318309784,
+          0.9785282611846924,
+          2.450000047683716
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RF1 LIGHT | Press task bar",
+      "lens": "RF1 | Press actual lens",
+      "energy": 35.0,
+      "location": [
+        5.809999942779541,
+        1.149999976158142,
+        2.2734999656677246
+      ],
+      "matrix": [
+        [
+          -4.371138828673793e-08,
+          0.9986199140548706,
+          -0.05251958593726158,
+          5.809999942779541
+        ],
+        [
+          -1.0,
+          -6.328940571620478e-08,
+          -3.711124065830518e-07,
+          1.149999976158142
+        ],
+        [
+          -3.7392416629700165e-07,
+          0.05251958593726158,
+          0.9986199140548706,
+          2.2734999656677246
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RF1 LIGHT | Eyewash service practical",
+      "lens": "RF1 | Eyewash fixture lens",
+      "energy": 45.0,
+      "location": [
+        -6.400000095367432,
+        -6.045000076293945,
+        2.4779999256134033
+      ],
+      "matrix": [
+        [
+          -1.0,
+          -1.510016574002293e-07,
+          1.409858452205981e-09,
+          -6.400000095367432
+        ],
+        [
+          1.5099580252808664e-07,
+          -0.9997541904449463,
+          0.02217235043644905,
+          -6.045000076293945
+        ],
+        [
+          -1.9385499872015544e-09,
+          0.02217235043644905,
+          0.9997541904449463,
+          2.4779999256134033
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RF1 LIGHT | Mine threshold practical",
+      "lens": "RF1 | Mine fixture lens",
+      "energy": 90.0,
+      "location": [
+        -7.159999847412109,
+        -4.084000110626221,
+        3.183000087738037
+      ],
+      "matrix": [
+        [
+          -4.371138828673793e-08,
+          -0.9949175119400024,
+          0.10069356858730316,
+          -7.159999847412109
+        ],
+        [
+          1.0,
+          -6.74328362038068e-08,
+          -2.321769159152609e-07,
+          -4.084000110626221
+        ],
+        [
+          2.3778692082032649e-07,
+          0.10069356858730316,
+          0.9949175119400024,
+          3.183000087738037
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RF1 LIGHT | Fuel transfer threshold practical",
+      "lens": "RF1 | Fuel transfer fixture lens",
+      "energy": 90.0,
+      "location": [
+        7.159999847412109,
+        -4.084000110626221,
+        3.183000087738037
+      ],
+      "matrix": [
+        [
+          -4.371138828673793e-08,
+          0.9949175119400024,
+          -0.10069356858730316,
+          7.159999847412109
+        ],
+        [
+          -1.0,
+          -6.74328362038068e-08,
+          -2.321769159152609e-07,
+          -4.084000110626221
+        ],
+        [
+          -2.3778692082032649e-07,
+          0.10069356858730316,
+          0.9949175119400024,
+          3.183000087738037
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RF1 LIGHT | Personnel threshold practical",
+      "lens": "RF1 | Personnel fixture lens",
+      "energy": 65.0,
+      "location": [
+        -1.7999999523162842,
+        -6.159999847412109,
+        2.7929999828338623
+      ],
+      "matrix": [
+        [
+          -1.0,
+          -1.5101934991434973e-07,
+          2.834007917229542e-09,
+          -1.7999999523162842
+        ],
+        [
+          1.5099580252808664e-07,
+          -0.9990086555480957,
+          0.04451683908700943,
+          -6.159999847412109
+        ],
+        [
+          -3.8917056244258674e-09,
+          0.04451683908700943,
+          0.9990086555480957,
+          2.7929999828338623
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RF1 LIGHT | Inspection sample practical",
+      "lens": "RF1 | Inspection task actual lens",
+      "energy": 22.0,
+      "location": [
+        5.84852409362793,
+        -2.0203540325164795,
+        1.6287989616394043
+      ],
+      "matrix": [
+        [
+          -0.23337258398532867,
+          -0.8996886014938354,
+          0.3689141571521759,
+          5.84852409362793
+        ],
+        [
+          0.9723873734474182,
+          -0.2159249186515808,
+          0.08853921294212341,
+          -2.0203540325164795
+        ],
+        [
+          4.422843957740952e-08,
+          0.37939009070396423,
+          0.9252368211746216,
+          1.6287989616394043
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RF1 LIGHT | Mine transfer wall bulkhead",
+      "lens": "RF1 | Mine transfer bulkhead frosted lens",
+      "energy": 48.0,
+      "location": [
+        -7.416928768157959,
+        -5.663601875305176,
+        1.9118633270263672
+      ],
+      "matrix": [
+        [
+          0.7253931164741516,
+          0.46672916412353516,
+          -0.5059334635734558,
+          -7.416928768157959
+        ],
+        [
+          -0.6883348226547241,
+          0.49185678362846375,
+          -0.5331717133522034,
+          -5.663601875305176
+        ],
+        [
+          2.13906403701003e-09,
+          0.7350107431411743,
+          0.678055465221405,
+          1.9118633270263672
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "RF1 LIGHT | Fuel transfer wall bulkhead",
+      "lens": "RF1 | Fuel transfer bulkhead frosted lens",
+      "energy": 48.0,
+      "location": [
+        7.416928768157959,
+        -5.663601875305176,
+        1.9118633270263672
+      ],
+      "matrix": [
+        [
+          0.7253931164741516,
+          -0.46672916412353516,
+          0.5059334635734558,
+          7.416928768157959
+        ],
+        [
+          0.6883348226547241,
+          0.49185678362846375,
+          -0.5331717133522034,
+          -5.663601875305176
+        ],
+        [
+          -2.13906403701003e-09,
+          0.7350107431411743,
+          0.678055465221405,
+          1.9118633270263672
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    }
+  ],
+  "supports": [
+    {
+      "group": "RF1 | North acoustic concrete bay 0",
+      "anchor": [
+        -6.0,
+        6.432,
+        2.72
+      ],
+      "target": "North_wall",
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | North acoustic concrete bay 1",
+      "anchor": [
+        -3.0,
+        6.432,
+        2.72
+      ],
+      "target": "North_wall",
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | North acoustic concrete bay 2",
+      "anchor": [
+        0,
+        6.432,
+        2.72
+      ],
+      "target": "North_wall",
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | North acoustic concrete bay 3",
+      "anchor": [
+        3.0,
+        6.432,
+        2.72
+      ],
+      "target": "North_wall",
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | North acoustic concrete bay 4",
+      "anchor": [
+        6.0,
+        6.432,
+        2.72
+      ],
+      "target": "North_wall",
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Side flush panel",
+      "anchor": [
+        -7.504,
+        -0.7,
+        2.79
+      ],
+      "target": "West_main",
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Side flush panel.001",
+      "anchor": [
+        -7.504,
+        2.4,
+        2.79
+      ],
+      "target": "West_main",
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Side flush panel.002",
+      "anchor": [
+        -7.504,
+        5.4,
+        2.79
+      ],
+      "target": "West_main",
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Side flush panel.003",
+      "anchor": [
+        7.504,
+        -0.7,
+        2.79
+      ],
+      "target": "East_main",
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Side flush panel.004",
+      "anchor": [
+        7.504,
+        2.4,
+        2.79
+      ],
+      "target": "East_main",
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Side flush panel.005",
+      "anchor": [
+        7.504,
+        5.4,
+        2.79
+      ],
+      "target": "East_main",
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "PV05",
+      "anchor": [
+        0.44,
+        4.984,
+        0
+      ],
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "PV05",
+      "anchor": [
+        1.65,
+        4.984,
+        0
+      ],
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | PV task wall anchor",
+      "anchor": [
+        0.25,
+        6.43,
+        3.88
+      ],
+      "target": "North_wall",
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | PV task wall anchor.001",
+      "anchor": [
+        2.25,
+        6.43,
+        3.88
+      ],
+      "target": "North_wall",
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Workbench base foot",
+      "anchor": [
+        1.1399996280670166,
+        -6.017620086669922,
+        0.0
+      ],
+      "target": "Floor",
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Workbench base foot.001",
+      "anchor": [
+        0.6599995493888855,
+        -6.017620086669922,
+        0.0
+      ],
+      "target": "Floor",
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Workbench base foot.002",
+      "anchor": [
+        1.1399996280670166,
+        -5.157619953155518,
+        0.0
+      ],
+      "target": "Floor",
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Workbench base foot.003",
+      "anchor": [
+        0.6599996089935303,
+        -5.157619953155518,
+        0.0
+      ],
+      "target": "Floor",
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Shift notice cork backing",
+      "anchor": [
+        0.8999994993209839,
+        -6.433619976043701,
+        2.0399999618530273
+      ],
+      "target": "South_right",
+      "direction": [
+        -7.549790126404332e-08,
+        -1.0,
+        0.0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "Enamel mug",
+      "anchor": [
+        0.829999566078186,
+        -5.577620029449463,
+        0.9800000190734863
+      ],
+      "target": "RF1 | Workbench timber top",
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Nook lamp wall base",
+      "anchor": [
+        1.0199995040893555,
+        -6.433619976043701,
+        2.6500000953674316
+      ],
+      "target": "South_right",
+      "direction": [
+        -7.549790126404332e-08,
+        -1.0,
+        0.0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Fabrication control pedestal",
+      "anchor": [
+        5.24,
+        2.55,
+        0
+      ],
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Parts cabinet cast facade",
+      "anchor": [
+        -7.03,
+        4.0,
+        0
+      ],
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "MaintenanceCart",
+      "anchor": [
+        -6.650000095367432,
+        2.0199997425079346,
+        0.0
+      ],
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "MaintenanceCart",
+      "anchor": [
+        -7.110000133514404,
+        2.0199997425079346,
+        0.0
+      ],
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "MaintenanceCart",
+      "anchor": [
+        -6.650000095367432,
+        2.619999885559082,
+        0.0
+      ],
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "MaintenanceCart",
+      "anchor": [
+        -7.110000133514404,
+        2.619999885559082,
+        0.0
+      ],
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "Contained ore load",
+      "anchor": [
+        -5.66,
+        -4.05,
+        0.731
+      ],
+      "target": "CSM_Welded_hopper_shell",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Cleanup wall mounting rail",
+      "anchor": [
+        -5.67,
+        -6.4315,
+        1.84
+      ],
+      "target": "South_left",
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Broom bristle block",
+      "anchor": [
+        -5.91,
+        -6.17,
+        0
+      ],
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Eyewash lamp mount",
+      "anchor": [
+        -6.4,
+        -6.434,
+        2.59
+      ],
+      "target": "South_left",
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Mine lintel mount",
+      "anchor": [
+        -7.505,
+        -4.084,
+        3.34
+      ],
+      "target": "West_header",
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Fuel transfer lintel mount",
+      "anchor": [
+        7.505,
+        -4.084,
+        3.34
+      ],
+      "target": "East_header",
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Personnel lintel fixture mount",
+      "anchor": [
+        -1.8,
+        -6.431,
+        2.98
+      ],
+      "target": "South_header",
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "Process ledger shelf",
+      "anchor": [
+        -0.45,
+        4.504283,
+        1.23
+      ],
+      "target": "Sorter_sideframe.001",
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Crusher cast yoke sole",
+      "anchor": [
+        -6.65,
+        4.884,
+        0
+      ],
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Crusher cast yoke sole.001",
+      "anchor": [
+        -4.42,
+        4.884,
+        0
+      ],
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | PV return wall union",
+      "anchor": [
+        2.26,
+        6.4335,
+        0.8
+      ],
+      "target": "North_wall",
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Return floor pipe saddle",
+      "anchor": [
+        2.26,
+        4.9,
+        0
+      ],
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Return floor pipe saddle.001",
+      "anchor": [
+        2.26,
+        5.65,
+        0
+      ],
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "Hung work apron",
+      "anchor": [
+        -4.08,
+        -6.433,
+        2.08
+      ],
+      "target": "South_left",
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Inspection wall sample rack",
+      "anchor": [
+        7.5065,
+        -2.27,
+        1.91
+      ],
+      "target": "East_main",
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Inspection cabinet toe plinth",
+      "anchor": [
+        6.115,
+        -2.4,
+        0
+      ],
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "Operator stool",
+      "anchor": [
+        6.11,
+        -0.83,
+        0
+      ],
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "Operator stool",
+      "anchor": [
+        5.916524758424985,
+        -0.563704175437357,
+        0
+      ],
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "Operator stool",
+      "anchor": [
+        5.603475241575015,
+        -0.6654201293581075,
+        0
+      ],
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "Operator stool",
+      "anchor": [
+        5.603475241575015,
+        -0.9945798706418925,
+        0
+      ],
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "Operator stool",
+      "anchor": [
+        5.916524758424985,
+        -1.096295824562643,
+        0
+      ],
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Mine transfer shutter guide",
+      "anchor": [
+        -7.505,
+        -5.58,
+        1.58
+      ],
+      "target": "West_front_pier",
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Mine transfer shutter guide.001",
+      "anchor": [
+        -7.505,
+        -2.539,
+        1.58
+      ],
+      "target": "West_main",
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Mine transfer folded shutter head",
+      "anchor": [
+        -7.5065,
+        -4.084,
+        3.87
+      ],
+      "target": "West_header",
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Mine transfer bulkhead wall base",
+      "anchor": [
+        -7.5055,
+        -5.67,
+        1.92
+      ],
+      "target": "West_front_pier",
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Fuel transfer shutter guide",
+      "anchor": [
+        7.505,
+        -5.58,
+        1.58
+      ],
+      "target": "East_front_pier",
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Fuel transfer shutter guide.001",
+      "anchor": [
+        7.505,
+        -2.539,
+        1.58
+      ],
+      "target": "East_main",
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Fuel transfer folded shutter head",
+      "anchor": [
+        7.5065,
+        -4.084,
+        3.87
+      ],
+      "target": "East_header",
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Fuel transfer bulkhead wall base",
+      "anchor": [
+        7.5055,
+        -5.67,
+        1.92
+      ],
+      "target": "East_front_pier",
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | PV ready indicator mounting bezel",
+      "anchor": [
+        1.043,
+        4.3225,
+        2.3
+      ],
+      "target": "RF1 | PV05 cast pressure vessel",
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "Pressure gauge",
+      "anchor": [
+        0.529,
+        4.569990338276991,
+        2.345
+      ],
+      "target": "RF1 | PV05 cast pressure vessel",
+      "direction": [
+        0.5139999999999999,
+        0.4140096617230089,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "Temperature gauge",
+      "anchor": [
+        0.113,
+        4.774283,
+        2.325
+      ],
+      "target": "Processor_screw_head_gearbox",
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Sorter optical foot bracket",
+      "anchor": [
+        -3.24,
+        4.55,
+        1.315
+      ],
+      "target": "Sorter_sideframe.001",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Sorter optical foot bracket.001",
+      "anchor": [
+        -3.24,
+        5.33,
+        1.315
+      ],
+      "target": "Sorter_sideframe",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Sorter optical foot bracket.002",
+      "anchor": [
+        -2.26,
+        4.55,
+        1.315
+      ],
+      "target": "Sorter_sideframe.001",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Sorter optical foot bracket.003",
+      "anchor": [
+        -2.26,
+        5.33,
+        1.315
+      ],
+      "target": "Sorter_sideframe",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Sorter cable wall clip",
+      "anchor": [
+        -3.28,
+        6.4335,
+        3.16
+      ],
+      "target": "North_wall",
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Dryer filter service tray",
+      "anchor": [
+        3.37,
+        3.974,
+        0.91
+      ],
+      "target": "Dryer_filter_service_ledge_top",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Inspection scanner bolted foot pad",
+      "anchor": [
+        5.978,
+        -2.32,
+        1.0425
+      ],
+      "target": "Inspection_work_surface",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Inspection tapered scanner cheek",
+      "anchor": [
+        5.978,
+        -2.32,
+        1.065
+      ],
+      "target": "RF1 | Inspection scanner bolted foot pad",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Inspection scanner bolted foot pad.001",
+      "anchor": [
+        5.978,
+        -1.72,
+        1.0425
+      ],
+      "target": "Inspection_work_surface",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Inspection tapered scanner cheek.001",
+      "anchor": [
+        5.978,
+        -1.72,
+        1.065
+      ],
+      "target": "RF1 | Inspection scanner bolted foot pad.001",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Inspection sample locating plinth",
+      "anchor": [
+        5.727,
+        -2.02,
+        1.0425
+      ],
+      "target": "Inspection_work_surface",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "Press task fixture",
+      "anchor": [
+        5.81,
+        1.15,
+        2.335
+      ],
+      "target": "RF1 | Press stepped crown",
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "Inspection task strip",
+      "anchor": [
+        5.925,
+        -2.02,
+        1.669
+      ],
+      "target": "RF1 | Inspection folded optics bridge",
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Ceiling girder wall bearing",
+      "anchor": [
+        -7.505,
+        -5.15,
+        4.59
+      ],
+      "target": "West_header",
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Ceiling girder wall bearing.001",
+      "anchor": [
+        7.505,
+        -5.15,
+        4.59
+      ],
+      "target": "East_header",
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Ceiling girder wall bearing.002",
+      "anchor": [
+        -7.505,
+        -0.64,
+        4.59
+      ],
+      "target": "West_main",
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Ceiling girder wall bearing.003",
+      "anchor": [
+        7.505,
+        -0.64,
+        4.59
+      ],
+      "target": "East_main",
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Ceiling girder wall bearing.004",
+      "anchor": [
+        -7.505,
+        3.86,
+        4.59
+      ],
+      "target": "West_main",
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    },
+    {
+      "group": "RF1 | Ceiling girder wall bearing.005",
+      "anchor": [
+        7.505,
+        3.86,
+        4.59
+      ],
+      "target": "East_main",
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002
+    }
+  ],
+  "world_strength": 0
+}
