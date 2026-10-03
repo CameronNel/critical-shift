@@ -1,0 +1,57 @@
+{
+  "revision": "Cooling plant AAA finish",
+  "bevel_segments_cut_on_small_objects": 1180,
+  "materials": {
+    "floor": [
+      "floor",
+      "patch"
+    ],
+    "wall": [
+      "mineral"
+    ],
+    "paint": [
+      "cream",
+      "yellow",
+      "oxide paint",
+      "oxide paint light",
+      "orange",
+      "red",
+      "dark",
+      "neutral service steel"
+    ],
+    "metal": [
+      "steel",
+      "edge",
+      "rubber"
+    ]
+  },
+  "light_scale": {
+    "alcove practical": 0.8,
+    "bench shelf practical": 0.8,
+    "bench warm pool": 0.8,
+    "broad neutral ceiling fill": 0.2,
+    "entry batten actual light": 0.8,
+    "entry borrowed corridor light": 0.5,
+    "exchanger practical actual light": 0.8,
+    "exchanger side wall shaping": 0.6,
+    "lead pump practical actual light": 0.8,
+    "pump task light actual light": 0.8,
+    "rear circulation practical actual light": 0.8,
+    "rear wall warm practical": 0.8,
+    "soft motor return": 0.25,
+    "west wall rake": 0.5,
+    "workshop lower service fill": 0.4
+  },
+  "light_count_unchanged": true,
+  "exposure_now": -0.4000000059604645,
+  "triangles_before": 513357,
+  "triangles_after": 314609,
+  "triangle_budget": 400000,
+  "within_budget": true,
+  "new_cameras": [
+    "AAA01_WIDE_REAR",
+    "AAA02_EXCHANGER_LOW",
+    "AAA03_PUMP_ROW",
+    "AAA04_WORKSHOP"
+  ]
+}

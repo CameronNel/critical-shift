@@ -899,5 +899,38 @@
     "Reactor owner/integrator must resolve its static closed cooling door.",
     "Connect remote primary/secondary water, reserve power and drainage systems; coordinates below describe local sockets.",
     "Fuel Corridor S01_PLANT final destination and global facility placement remain unresolved."
-  ]
+  ],
+  "relocated_pump_isolation_valves": {
+    "note": "The pump isolation valves were relocated by the AAA finish (module_aaa_A1.blend) so a player can turn them. In the original module.blend they sat at 2.45 m behind the pump skids. Each return branch now drops from the wall header into the open operator lane, runs along the floor to the pump suction, and carries the valve with its 0.44 m wheel at 1.35 m facing +X into the lane. The wheel and bonnet stand about 0.23 m inside the keep-clear lane (lane 3.85 m wide, minimum 1.3-1.4 m).",
+    "valves": [
+      {
+        "interaction_id": "CP-PUMP-A.isolate",
+        "riser_xy": [
+          -5.2,
+          6.1
+        ],
+        "wheel_centre": [
+          -4.72,
+          6.1,
+          1.35
+        ],
+        "wheel_object": "P01 isolation hub",
+        "lane": "KC-PUMP-B"
+      },
+      {
+        "interaction_id": "CP-PUMP-B.isolate",
+        "riser_xy": [
+          -5.2,
+          8.7
+        ],
+        "wheel_centre": [
+          -4.72,
+          8.7,
+          1.35
+        ],
+        "wheel_object": "return isolation wheel hub",
+        "lane": "KC-ALCOVE-APPROACH"
+      }
+    ]
+  }
 }
