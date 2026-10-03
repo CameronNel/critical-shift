@@ -246,7 +246,7 @@ def repair_surfaces_story():
 def repair_lighting():
     # Two fitted inspection luminaires make the faces legible without washing
     # the whole room. Every visible bracket is genuinely roof supported.
-    for name,pos,target,power in [('Inspection face', (.3,4.4,3.25),(0,7,1.45),105),('Custody transfer',(-4.8,11.3,3.15),(-5.7,13.6,.75),24)]:
+    for name,pos,target,power in [('Inspection face', (.3,4.4,3.25),(0,7,1.45),105),('Custody transfer',(-4.8,11.3,3.15),(-5.46,12.28,.47),32)]:
         q=(Vector(target)-Vector(pos)).to_track_quat('-Z','Y')
         pivots=[Vector(pos)+q@Vector((dx,0,0)) for dx in [-.18,.18]]
         root=asset_root(name+' luminaire','Roof deck ceiling slab',[(v.x,v.y,4.4) for v in pivots],(0,0,1))
@@ -316,10 +316,11 @@ def repair_gate_construction():
 def repair_full_candidate():
     for n in ['Scanner portal column -1','Scanner portal column 1']:
         world_edit(S.objects[n],lambda q:(q.x,q.y,min(q.z,2.65)),'Inspection columns butt into header underside at Z2.65; remove duplicated front skin, same outer arch envelope/clearance')
-    repair_screens();repair_structure();repair_internal_bearing();repair_utilities();repair_tarp();repair_surfaces_story();repair_lighting();repair_gate_construction();repair_second_review();repair_third_review();repair_fourth_review()
+    repair_screens();repair_structure();repair_internal_bearing();repair_utilities();repair_tarp();repair_surfaces_story();repair_lighting();repair_gate_construction();repair_second_review();repair_third_review();repair_fourth_review();repair_scanner_pockets()
     S['first_full_cycle_repairs']='Actual internal mount contact, real screen apertures/frame pockets, continuous cloth/cut coordinates, purposeful wear/handover, fitted face keys'
 
 def finish_full_repairs():
+    reconcile_architectural_labels()
     # Shader UVs survive final bevel/triangulation, independent of the audit
     # chart. Cloth uses one continuous, angle-preserving top island. Closed
     # sewn-thickness edges are deliberate seams, never fragmented face islands.
@@ -767,7 +768,7 @@ def repair_surface_character():
         m=MATERIALS[key];n=m.node_tree.nodes;l=m.node_tree.links;bs=n.get('Principled BSDF')
         g=n.new('ShaderNodeNewGeometry');noise=n.new('ShaderNodeTexNoise');noise.inputs['Scale'].default_value=3.4;noise.inputs['Detail'].default_value=1;l.new(g.outputs['Position'],noise.inputs['Vector'])
         rough=n.new('ShaderNodeMapRange');rough.inputs['To Min'].default_value=.58 if key=='blue' else .65;rough.inputs['To Max'].default_value=.84;l.new(noise.outputs['Fac'],rough.inputs['Value']);l.new(rough.outputs[0],bs.inputs['Roughness'])
-    for key,p,r,col in [('blue',(5.78,14.678,1.18),(.11,.014,.29),(.24,.245,.235)),('blue',(4.05,14.678,1.18),(.11,.014,.29),(.22,.225,.21)),('blue',(3.90,6.68,1.15),(.024,.32,.18),(.28,.28,.255)),('wear',(1.14,6.83,.25),(.16,.05,.15),(.12,.125,.12)),('navy',(.73,6.82,.22),(.12,.04,.18),(.24,.23,.21))]:material_patch(MATERIALS[key],p,r,col,.72,True)
+    for key,p,r,col in [('blue',(5.78,14.678,1.18),(.11,.014,.29),(.24,.245,.235)),('blue',(4.77,14.678,1.18),(.11,.014,.29),(.22,.225,.21)),('blue',(3.90,6.68,1.15),(.024,.32,.18),(.28,.28,.255)),('wear',(1.14,6.83,.25),(.16,.05,.15),(.12,.125,.12)),('navy',(.73,6.82,.22),(.12,.04,.18),(.24,.23,.21))]:material_patch(MATERIALS[key],p,r,col,.72,True)
     # Lift the existing rubber impact insert, not all rubber curtain/wheel parts.
     material_patch(MATERIALS['rubber'],(1.4,6.80,.86),(.35,.04,.64),(.042,.045,.046),.74,False)
     material_patch(MATERIALS['Handled linoleum'],(-3.35,3.29,1.042),(.26,.12,.007),(.105,.092,.070),.66,True)
@@ -889,8 +890,9 @@ def repair_checkin_discoverability():
     box('CD | Arrival check-in cue plate',(-2.313,3.80,2.67),(.014,.70,.30),'charcoal',.002)
     o=txt('CD | Arrival check-in cue text','CHECK IN\n← COUNTER',(-2.3058,3.80,2.705),.065,'ivory',rot=(pi/2,0,pi/2),align='CENTER')
     o.data.font=S.objects['Manifest header'].data.font;o.data.extrude=0;o.data.bevel_depth=0
-    # Static label reconciliation matches the validator's already-conservative
-    # architecture selection; these are not game collider assignments.
+def reconcile_architectural_labels():
+    # Run after final CURVE conversion, using the same local evaluated bounds
+    # as static obstacle selection. No geometry or runtime collider changes.
     for o in S.objects:
         if o.get('support_class')!='architectural' or o.type!='MESH':continue
         b=[Vector(v) for v in o.bound_box];d=[max(v[k] for v in b)-min(v[k] for v in b) for k in range(3)]
@@ -901,3 +903,35 @@ def repair_checkin_discoverability():
 def repair_fourth_review():
     repair_surface_character();repair_manifest_writing_surface();repair_specific_machine_construction();repair_interrupted_worker_trace();repair_checkin_discoverability()
     S['fourth_full_review_repairs']='Planar written paper and packed bold operational ink; cast optical pods/real mounting sleeves, pressed shield roof service channel; consumed pour-joint/traffic/paint/canvas response; recognizable supported folded work garment and interrupted case; compact arrival-side check-in cue; source poses/boundaries retained'
+
+
+def repair_scanner_pockets():
+    # The original columns are solid. Real pockets expose the actual optical
+    # pods; attaching hidden detail inside the solid is not construction.
+    use_root('Person Scanner Arch')
+    for side in [-1,1]:
+        column=S.objects['Scanner portal column '+str(side)]
+        for selected in list(bpy.context.selected_objects):selected.select_set(False)
+        column.select_set(True);bpy.context.view_layer.objects.active=column
+        for mod in list(column.modifiers):
+            if mod.type=='BEVEL':bpy.ops.object.modifier_apply(modifier=mod.name)
+            elif mod.type=='WEIGHTED_NORMAL':column.modifiers.remove(mod)
+        cuts=[]
+        for j in range(6):
+            cuts.append(box('TEMP scanner optical pocket',(.6210025*side,7,.4+.36*j),(.038005,.204,.264),'wear',0))
+        cuts.append(profile('TEMP scanner outer service pocket',octagon(.28,2.40,.021),.024005,0,(.8469975*side,7,1.35),'wear',0))
+        for cutter in cuts:
+            mod=column.modifiers.new('Actual machined sensor/service pocket','BOOLEAN');mod.operation='DIFFERENCE';mod.solver='EXACT';mod.object=cutter
+            bpy.context.view_layer.objects.active=column;bpy.ops.object.modifier_apply(modifier=mod.name)
+            bpy.data.objects.remove(cutter,do_unlink=True)
+        bm=bmesh.new();bm.from_mesh(column.data);bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces));bm.to_mesh(column.data);bm.free();uv(column)
+        wn=column.modifiers.new('Manufactured face normals','WEIGHTED_NORMAL');wn.keep_sharp=True;wn.weight=40
+        EXCEPTIONS[column.name]='Six actual inner optical pockets and outer service rebate expose retained pods; column outer bounds, floor bearing and scanner aperture unchanged'
+        replace('Scanner column inset '+str(side),profile('TEMP folded side access cover',octagon(.26,2.36,.020),.012,0,(.841*side,7,1.35),'charcoal',.0005),'Recessed folded access cover inside actual outer service pocket, back bears at X±.835; original name/matrix retained')
+        for y in [6.894,7.106]:
+            for z in [.22,2.48]:cyl('CD | Scanner side cover captive fixing',(.8485*side,y,z),.005,.003,'steel','X',vertices=6,w=0)
+        column.select_set(False)
+    # The fixed east-facing screens keep their original pose. A quieter mid-
+    # value rear polymer response makes the existing drafted shell/vents read.
+    for y in [7.35,7.95]:material_patch(MATERIALS['plastic'],(3.210,y,1.30),(.012,.19,.15),(.090,.100,.105),.72,False)
+    S['scanner_pocket_construction']='Inner pocket floor X±.640005, pod rear X±.640; outer service seat X±.834995, cover back X±.835; outer column bounds and all inherited matrices retained'

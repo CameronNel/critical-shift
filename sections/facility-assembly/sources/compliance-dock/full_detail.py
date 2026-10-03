@@ -306,8 +306,9 @@ def full_lighting():
     # New practicals may be retargeted; original lamp world matrices stay exact.
     S.objects['CD | Inspection face practical'].data.energy=70
     S.objects['CD | Scanner practical roof bounce'].data.energy=22
-    S.objects['CD | Custody transfer practical'].data.energy=26
-    S.objects['CD | Custody transfer practical'].rotation_euler=(Vector((-5.72,13.5,.47))-S.objects['CD | Custody transfer practical'].location).to_track_quat('-Z','Y').to_euler()
+    S.objects['CD | Custody transfer practical'].data.energy=32
+    S.objects['CD | Custody transfer practical'].data.spread=1.10
+    S.objects['CD | Custody transfer practical'].rotation_euler=(Vector((-5.46,12.28,.47))-S.objects['CD | Custody transfer practical'].location).to_track_quat('-Z','Y').to_euler()
     use_root('Staff Desk Assembly')
     # An actual desk lamp directs a warm local pool over the interrupted shift.
     box('CD | Desk lamp weighted foot',(-3.02,7.38,.769),(.10,.14,.018),'charcoal',.002)
