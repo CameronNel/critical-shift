@@ -1,0 +1,100 @@
+{
+  "review": "PR #75 automated review of c88da20",
+  "scope": "Replay scripts and context manifest path metadata only; no scene, accepted render, material, light, camera or geometry changes.",
+  "relocated_context_check": {
+    "blender": "5.2.0 LTS",
+    "revision": "R23",
+    "status": "PASS",
+    "visible_candidate_comparison_count": 3029,
+    "light_count": 21,
+    "world_strength": 0.0,
+    "source_unchanged": true
+  },
+  "actual_single_camera_check": {
+    "revision": "R24",
+    "camera": "CAM_ENTRY",
+    "complete": false,
+    "views": 1,
+    "source_unchanged": true,
+    "pixels_identical_to_accepted": true,
+    "maximum_channel_delta": 0,
+    "candidate_sha256": "37896096ba619770afdf2d3dfc4443b2223aadcc71a468b809a833803eb8701b"
+  },
+  "metadata_regression_cases": [
+    {
+      "case": "single",
+      "complete": false,
+      "views": 1
+    },
+    {
+      "case": "ten",
+      "complete": false,
+      "views": 10
+    },
+    {
+      "case": "full",
+      "complete": true,
+      "views": 11
+    },
+    {
+      "case": "default",
+      "complete": true,
+      "views": 11
+    },
+    {
+      "case": "targeted_refresh_preserves_ten",
+      "complete": true,
+      "views": 11
+    },
+    {
+      "case": "stale_record_excluded",
+      "complete": false,
+      "views": 10
+    },
+    {
+      "case": "missing_view_restored",
+      "complete": true,
+      "views": 11
+    },
+    {
+      "case": "incompatible_settings_preserved",
+      "status": "PASS"
+    },
+    {
+      "case": "incompatible_source_preserved",
+      "status": "PASS"
+    }
+  ],
+  "metadata_regression_method": "Execute the renderer with a stub render operation to check partial/full batches, preservation of compatible records, exclusion of stale image records, restoration of missing views and refusal to overwrite batches from a different source or settings. Real Blender partial and targeted refresh checks are recorded separately.",
+  "script_syntax": "PASS",
+  "historical_context_paths_updated": [
+    "R08",
+    "R10",
+    "R23"
+  ],
+  "original_R24_evidence": "The accepted eleven-camera batch and its cold-start evidence retain their original bytes; the real single-camera smoke render was written only to a separate checkout.",
+  "second_automated_review": "PR #75 automated review of fe31eb6: preserve compatible targeted-render records and correct historical partial completion flags.",
+  "actual_targeted_refresh_check": {
+    "blender": "5.2.0 LTS",
+    "status": "PASS",
+    "views": 11,
+    "complete": true,
+    "unchanged_prior_records": 10,
+    "maximum_entry_pixel_delta": 0,
+    "source_unchanged": true
+  },
+  "historical_partial_manifests_corrected": [
+    "R08_context",
+    "R10_context",
+    "R16_preview",
+    "R17_preview",
+    "R23_context",
+    "slice",
+    "slice_v2",
+    "slice_v3",
+    "slice_v4",
+    "slice_v5",
+    "slice_v6"
+  ],
+  "manifest_completeness_audit": "PASS across every committed render batch."
+}

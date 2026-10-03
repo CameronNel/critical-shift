@@ -1,0 +1,99 @@
+{
+  "source": "/workspace/critical-shift/sections/facility-assembly/sources/refinery/module_overhaul_slice_R0.blend",
+  "source_sha256": "233ddd1e75f9f567328fe6eed179ae9a3a95ffae67af0363bdde6e7b9eab7112",
+  "blender": "5.2.0 LTS",
+  "settings": {
+    "engine": "CYCLES",
+    "device": "CPU",
+    "samples": 24,
+    "resolution": [
+      960,
+      540
+    ],
+    "seed": 73,
+    "world_strength": 0
+  },
+  "views": [
+    {
+      "camera": "CAM_WORK_NOOK",
+      "matrix": [
+        [
+          -0.8759476542472839,
+          0.027513684704899788,
+          -0.4816208779811859,
+          -0.6000000238418579
+        ],
+        [
+          -0.4824061393737793,
+          -0.0499587245285511,
+          0.8745218515396118,
+          -3.1500000953674316
+        ],
+        [
+          1.5352406990132295e-07,
+          0.9983722567558289,
+          0.057034000754356384,
+          1.6799999475479126
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 31.0,
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/refinery/overhaul/production/renders/slice_v4/CAM_WORK_NOOK.png",
+      "sha256": "53a869c947159e5d4d3ea7d92f7860e0653da291b74e526d056e99960c29305a",
+      "seconds": 32.12723522600004
+    },
+    {
+      "camera": "CAM_HERO_DETAIL",
+      "matrix": [
+        [
+          0.8722805380821228,
+          -0.03545229509472847,
+          -0.48771896958351135,
+          -0.30000001192092896
+        ],
+        [
+          -0.48900580406188965,
+          -0.06323922425508499,
+          -0.8699851632118225,
+          2.1500000953674316
+        ],
+        [
+          2.4538184817401998e-09,
+          0.9973685145378113,
+          -0.07249872386455536,
+          1.6799999475479126
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 34.0,
+      "path": "/workspace/critical-shift/sections/facility-assembly/sources/refinery/overhaul/production/renders/slice_v4/CAM_HERO_DETAIL.png",
+      "sha256": "fee1a2374bcebac93f97f8c41c9050d5e37fd91a47378cf149f14c398965e022",
+      "seconds": 35.04501101999995
+    }
+  ],
+  "complete": false,
+  "source_unchanged": true,
+  "required_cameras": [
+    "CAM_ENTRY",
+    "CAM_MAIN_ROUTE",
+    "CAM_PROCESS",
+    "CAM_REVERSE",
+    "CAM_PINCH",
+    "CAM_MATERIAL",
+    "CAM_ASSEMBLY",
+    "CAM_DISPATCH",
+    "CAM_MINE_TO_CRUSHER",
+    "CAM_WORK_NOOK",
+    "CAM_HERO_DETAIL"
+  ]
+}

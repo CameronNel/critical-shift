@@ -1,0 +1,1614 @@
+{
+  "source": "/workspace/critical-shift/sections/facility-assembly/sources/refinery/module_overhaul_R1.blend",
+  "source_sha256": "972fe1c1adb9706ee88e97a8ac1aa8245d763d084eceaaa67d9cad089ec55a91",
+  "revision": "R02",
+  "protected_count": 29,
+  "protected_changes": [],
+  "world_strength": 0.0,
+  "light_checks": [
+    {
+      "name": "RF1 LIGHT | PV hood 0",
+      "lens": "RF1 | PV task actual lens",
+      "distance_m": 0.002000093460083008,
+      "energy": 95.0,
+      "light_type": "AREA",
+      "inside_room": true
+    },
+    {
+      "name": "RF1 LIGHT | PV hood 1",
+      "lens": "RF1 | PV task actual lens.001",
+      "distance_m": 0.002000093460083008,
+      "energy": 95.0,
+      "light_type": "AREA",
+      "inside_room": true
+    },
+    {
+      "name": "RF1 LIGHT | Ceiling pendant 0",
+      "lens": "Pendant_diffuser",
+      "distance_m": 0.0034995079040527344,
+      "energy": 105.0,
+      "light_type": "AREA",
+      "inside_room": true
+    },
+    {
+      "name": "RF1 LIGHT | Ceiling pendant 1",
+      "lens": "Pendant_diffuser.001",
+      "distance_m": 0.0034995079040527344,
+      "energy": 380.0,
+      "light_type": "AREA",
+      "inside_room": true
+    },
+    {
+      "name": "RF1 LIGHT | Ceiling pendant 2",
+      "lens": "Pendant_diffuser.002",
+      "distance_m": 0.0034995079040527344,
+      "energy": 460.0,
+      "light_type": "AREA",
+      "inside_room": true
+    },
+    {
+      "name": "RF1 LIGHT | Ceiling pendant 3",
+      "lens": "Pendant_diffuser.003",
+      "distance_m": 0.0034995079040527344,
+      "energy": 230.0,
+      "light_type": "AREA",
+      "inside_room": true
+    },
+    {
+      "name": "RF1 LIGHT | Ceiling pendant 4",
+      "lens": "Pendant_diffuser.004",
+      "distance_m": 0.0034995079040527344,
+      "energy": 230.0,
+      "light_type": "AREA",
+      "inside_room": true
+    },
+    {
+      "name": "RF1 LIGHT | Ceiling pendant 5",
+      "lens": "Pendant_diffuser.005",
+      "distance_m": 0.0034995079040527344,
+      "energy": 140.0,
+      "light_type": "AREA",
+      "inside_room": true
+    },
+    {
+      "name": "RF1 LIGHT | Wall service lamp 0",
+      "lens": "ART_Wall_fixture_diffuser",
+      "distance_m": 0.004999876022338867,
+      "energy": 25.0,
+      "light_type": "AREA",
+      "inside_room": true
+    },
+    {
+      "name": "RF1 LIGHT | Wall service lamp 1",
+      "lens": "ART_Wall_fixture_diffuser.001",
+      "distance_m": 0.004999876022338867,
+      "energy": 25.0,
+      "light_type": "AREA",
+      "inside_room": true
+    },
+    {
+      "name": "RF1 LIGHT | Wall service lamp 2",
+      "lens": "ART_Wall_fixture_diffuser.002",
+      "distance_m": 0.004999876022338867,
+      "energy": 25.0,
+      "light_type": "AREA",
+      "inside_room": true
+    },
+    {
+      "name": "RF1 LIGHT | Wall service lamp 3",
+      "lens": "ART_Wall_fixture_diffuser.003",
+      "distance_m": 0.004999876022338867,
+      "energy": 25.0,
+      "light_type": "AREA",
+      "inside_room": true
+    },
+    {
+      "name": "RF1 LIGHT | Work nook lamp",
+      "lens": "RF1 | Nook light lens",
+      "distance_m": 0.0014998912811279297,
+      "energy": 60.0,
+      "light_type": "AREA",
+      "inside_room": true
+    },
+    {
+      "name": "RF1 LIGHT | Press task bar",
+      "lens": "RF1 | Press actual lens",
+      "distance_m": 0.0019998550415039062,
+      "energy": 35.0,
+      "light_type": "AREA",
+      "inside_room": true
+    }
+  ],
+  "missing_images": [],
+  "missing_libraries": [],
+  "new_support_contacts": [
+    {
+      "group": "RF1 | North acoustic concrete bay 0",
+      "anchor": [
+        -6.0,
+        6.432,
+        2.72
+      ],
+      "target": "North_wall",
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002,
+      "gap_m": 0.0022830316424369834,
+      "status": "PASS"
+    },
+    {
+      "group": "RF1 | North acoustic concrete bay 1",
+      "anchor": [
+        -3.0,
+        6.432,
+        2.72
+      ],
+      "target": "North_wall",
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002,
+      "gap_m": 0.002283035367727282,
+      "status": "PASS"
+    },
+    {
+      "group": "RF1 | North acoustic concrete bay 2",
+      "anchor": [
+        0,
+        6.432,
+        2.72
+      ],
+      "target": "North_wall",
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002,
+      "gap_m": 0.002283035367727282,
+      "status": "PASS"
+    },
+    {
+      "group": "RF1 | North acoustic concrete bay 3",
+      "anchor": [
+        3.0,
+        6.432,
+        2.72
+      ],
+      "target": "North_wall",
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002,
+      "gap_m": 0.002283035367727282,
+      "status": "PASS"
+    },
+    {
+      "group": "RF1 | North acoustic concrete bay 4",
+      "anchor": [
+        6.0,
+        6.432,
+        2.72
+      ],
+      "target": "North_wall",
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002,
+      "gap_m": 0.002283035367727282,
+      "status": "PASS"
+    },
+    {
+      "group": "RF1 | Side flush panel",
+      "anchor": [
+        -7.504,
+        -0.7,
+        2.79
+      ],
+      "target": "West_main",
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002,
+      "gap_m": 0.002663555145263674,
+      "status": "PASS"
+    },
+    {
+      "group": "RF1 | Side flush panel.001",
+      "anchor": [
+        -7.504,
+        2.4,
+        2.79
+      ],
+      "target": "West_main",
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002,
+      "gap_m": 0.002663562595844271,
+      "status": "PASS"
+    },
+    {
+      "group": "RF1 | Side flush panel.002",
+      "anchor": [
+        -7.504,
+        5.4,
+        2.79
+      ],
+      "target": "West_main",
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002,
+      "gap_m": 0.002663562595844271,
+      "status": "PASS"
+    },
+    {
+      "group": "RF1 | Side flush panel.003",
+      "anchor": [
+        7.504,
+        -0.7,
+        2.79
+      ],
+      "target": "East_main",
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002,
+      "gap_m": 0.002663555145263674,
+      "status": "PASS"
+    },
+    {
+      "group": "RF1 | Side flush panel.004",
+      "anchor": [
+        7.504,
+        2.4,
+        2.79
+      ],
+      "target": "East_main",
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002,
+      "gap_m": 0.002663562595844271,
+      "status": "PASS"
+    },
+    {
+      "group": "RF1 | Side flush panel.005",
+      "anchor": [
+        7.504,
+        5.4,
+        2.79
+      ],
+      "target": "East_main",
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002,
+      "gap_m": 0.002663547694683077,
+      "status": "PASS"
+    },
+    {
+      "group": "PV05",
+      "anchor": [
+        0.44,
+        4.984,
+        0
+      ],
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002,
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "group": "PV05",
+      "anchor": [
+        1.65,
+        4.984,
+        0
+      ],
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002,
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "group": "RF1 | PV task wall anchor",
+      "anchor": [
+        0.25,
+        6.43,
+        3.88
+      ],
+      "target": "North_wall",
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002,
+      "gap_m": 0.004283363521099093,
+      "status": "PASS"
+    },
+    {
+      "group": "RF1 | PV task wall anchor.001",
+      "anchor": [
+        2.25,
+        6.43,
+        3.88
+      ],
+      "target": "North_wall",
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002,
+      "gap_m": 0.004283363521099093,
+      "status": "PASS"
+    },
+    {
+      "group": "RF1 | Workbench base foot",
+      "anchor": [
+        1.1399996280670166,
+        -6.017620086669922,
+        0.0
+      ],
+      "target": "Floor",
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002,
+      "gap_m": -8.791685102149671e-09,
+      "status": "PASS"
+    },
+    {
+      "group": "RF1 | Workbench base foot.001",
+      "anchor": [
+        0.6599995493888855,
+        -6.017620086669922,
+        0.0
+      ],
+      "target": "Floor",
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002,
+      "gap_m": -5.066394803687757e-09,
+      "status": "PASS"
+    },
+    {
+      "group": "RF1 | Workbench base foot.002",
+      "anchor": [
+        1.1399996280670166,
+        -5.157619953155518,
+        0.0
+      ],
+      "target": "Floor",
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002,
+      "gap_m": -5.066394803687757e-09,
+      "status": "PASS"
+    },
+    {
+      "group": "RF1 | Workbench base foot.003",
+      "anchor": [
+        0.6599996089935303,
+        -5.157619953155518,
+        0.0
+      ],
+      "target": "Floor",
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002,
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "group": "RF1 | Shift notice cork backing",
+      "anchor": [
+        0.8999994993209839,
+        -6.433619976043701,
+        2.0399999618530273
+      ],
+      "target": "South_right",
+      "direction": [
+        -7.549790126404332e-08,
+        -1.0,
+        0.0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002,
+      "gap_m": 0.0006632269918918632,
+      "status": "PASS"
+    },
+    {
+      "group": "Enamel mug",
+      "anchor": [
+        0.829999566078186,
+        -5.577620029449463,
+        0.9800000190734863
+      ],
+      "target": "RF1 | Workbench timber top",
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002,
+      "gap_m": -5.349516868369264e-08,
+      "status": "PASS"
+    },
+    {
+      "group": "RF1 | Nook lamp wall base",
+      "anchor": [
+        1.0199995040893555,
+        -6.433619976043701,
+        2.6500000953674316
+      ],
+      "target": "South_right",
+      "direction": [
+        -7.549790126404332e-08,
+        -1.0,
+        0.0
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002,
+      "gap_m": 0.0006632269918918632,
+      "status": "PASS"
+    },
+    {
+      "group": "RF1 | Fabrication control pedestal",
+      "anchor": [
+        5.24,
+        2.55,
+        0
+      ],
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002,
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "group": "RF1 | Parts cabinet cast facade",
+      "anchor": [
+        -7.03,
+        4.0,
+        0
+      ],
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002,
+      "gap_m": -5.066394803687757e-09,
+      "status": "PASS"
+    },
+    {
+      "group": "MaintenanceCart",
+      "anchor": [
+        -3.6999999999999997,
+        2.44,
+        0
+      ],
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002,
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "group": "MaintenanceCart",
+      "anchor": [
+        -3.6999999999999997,
+        2.9,
+        0
+      ],
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002,
+      "gap_m": -5.066394803687757e-09,
+      "status": "PASS"
+    },
+    {
+      "group": "MaintenanceCart",
+      "anchor": [
+        -3.1,
+        2.44,
+        0
+      ],
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002,
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "group": "MaintenanceCart",
+      "anchor": [
+        -3.1,
+        2.9,
+        0
+      ],
+      "target": "Floor",
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "max_gap": 0.005,
+      "max_penetration": 0.002,
+      "gap_m": -5.066394803687757e-09,
+      "status": "PASS"
+    }
+  ],
+  "legacy_support_screen": [
+    {
+      "name": "Concrete_replacement_patch",
+      "target": "Floor",
+      "gap_m": 0.0010000006854534171,
+      "status": "PASS"
+    },
+    {
+      "name": "Receiving_control_foot",
+      "target": "Floor",
+      "gap_m": -5.066394803687757e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "CRUSHER_foot",
+      "target": "Floor",
+      "gap_m": -5.066394803687757e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "CRUSHER_foot.001",
+      "target": "Floor",
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "CRUSHER_foot.002",
+      "target": "Floor",
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "CRUSHER_foot.003",
+      "target": "Floor",
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Crusher_dust_bin",
+      "target": "Floor",
+      "gap_m": -5.066394803687757e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Crusher_control_foot",
+      "target": "Floor",
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Sorter_bin_foot",
+      "target": "Floor",
+      "gap_m": -8.791685102149671e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Sorter_bin_foot.001",
+      "target": "Floor",
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Sorter_bin_foot.002",
+      "target": "Floor",
+      "gap_m": -8.791685102149671e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Sorter_bin_foot.003",
+      "target": "Floor",
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Sorter_rejected_inclusion",
+      "target": "Sorter_reject_bin_base",
+      "gap_m": -1.2516975400611585e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Sorter_rejected_inclusion.001",
+      "target": "Sorter_reject_bin_base",
+      "gap_m": -1.2516975400611585e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Sorter_rejected_inclusion.002",
+      "target": "Sorter_reject_bin_base",
+      "gap_m": -1.2516975400611585e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Sorter_calibration_ledge_foot",
+      "target": "Floor",
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Sorter_calibration_ledge_foot.001",
+      "target": "Floor",
+      "gap_m": -5.066394803687757e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Sorter_calibration_ledge_foot.002",
+      "target": "Floor",
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Sorter_calibration_ledge_foot.003",
+      "target": "Floor",
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Sorter_calibration_clipboard_board",
+      "target": "Sorter_calibration_ledge_top",
+      "gap_m": -6.094574928061647e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Sorter_calibration_reference",
+      "target": "Sorter_calibration_ledge_top",
+      "gap_m": 6.19888305686267e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Sorter_support_foot",
+      "target": "Floor",
+      "gap_m": -5.066394803687757e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Sorter_support_foot.001",
+      "target": "Floor",
+      "gap_m": -5.066394803687757e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Sorter_support_foot.002",
+      "target": "Floor",
+      "gap_m": -5.066394803687757e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Sorter_support_foot.003",
+      "target": "Floor",
+      "gap_m": -5.066394803687757e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Sorter_support_foot.004",
+      "target": "Floor",
+      "gap_m": -5.066394803687757e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Sorter_support_foot.005",
+      "target": "Floor",
+      "gap_m": -5.066394803687757e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "PROCESSOR_foot",
+      "target": "Floor",
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "PROCESSOR_foot.001",
+      "target": "Floor",
+      "gap_m": -8.791685102149671e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "PROCESSOR_foot.002",
+      "target": "Floor",
+      "gap_m": -5.066394803687757e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "PROCESSOR_foot.003",
+      "target": "Floor",
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Processor_service_ledge_foot",
+      "target": "Floor",
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Processor_service_ledge_foot.001",
+      "target": "Floor",
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Processor_service_ledge_foot.002",
+      "target": "Floor",
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Processor_service_ledge_foot.003",
+      "target": "Floor",
+      "gap_m": -8.791685102149671e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Processor_replacement_gasket",
+      "target": "Processor_service_ledge_top",
+      "gap_m": 0.0006362819671630882,
+      "status": "PASS"
+    },
+    {
+      "name": "Processor_seal_wrench_handle",
+      "target": "Processor_service_ledge_top",
+      "gap_m": -1.341104505225843e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Processor_seal_lubricant",
+      "target": "Processor_service_ledge_top",
+      "gap_m": 9.8347663901599e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "DRYER_foot",
+      "target": "Floor",
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "DRYER_foot.001",
+      "target": "Floor",
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "DRYER_foot.002",
+      "target": "Floor",
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "DRYER_foot.003",
+      "target": "Floor",
+      "gap_m": -1.341104505225843e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Dryer_output_stand_foot",
+      "target": "Floor",
+      "gap_m": -5.066394803687757e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Dryer_output_stand_foot.001",
+      "target": "Floor",
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Dryer_output_stand_foot.002",
+      "target": "Floor",
+      "gap_m": -5.066394803687757e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Dryer_output_stand_foot.003",
+      "target": "Floor",
+      "gap_m": -5.066394803687757e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Dryer_dried_material_batch",
+      "target": "Dryer_dried_output_tray_base",
+      "gap_m": 6.571412086708861e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Dryer_dried_material_batch.001",
+      "target": "Dryer_dried_output_tray_base",
+      "gap_m": 6.19888305686267e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Dryer_dried_material_batch.002",
+      "target": "Dryer_dried_output_tray_base",
+      "gap_m": 6.19888305686267e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Dryer_filter_service_ledge_foot",
+      "target": "Floor",
+      "gap_m": 6.109476091697985e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Dryer_filter_service_ledge_foot.001",
+      "target": "Floor",
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Dryer_filter_service_ledge_foot.002",
+      "target": "Floor",
+      "gap_m": -5.066394803687757e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Dryer_filter_service_ledge_foot.003",
+      "target": "Floor",
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Dryer_Spare_filter_frame",
+      "target": "Dryer_filter_service_ledge_top",
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Dryer_Removed_dirty_filter_frame",
+      "target": "Dryer_filter_service_ledge_top",
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Dryer_heat_glove_palm",
+      "target": "Dryer_filter_service_ledge_top",
+      "gap_m": -1.341104505225843e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Dryer_transfer_support_foot",
+      "target": "Floor",
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Dryer_transfer_support_foot.001",
+      "target": "Floor",
+      "gap_m": 6.109476091697985e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Dryer_transfer_support_foot.002",
+      "target": "Floor",
+      "gap_m": -5.066394803687757e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Dryer_transfer_support_foot.003",
+      "target": "Floor",
+      "gap_m": -5.066394803687757e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Dryer_transfer_support_foot.004",
+      "target": "Floor",
+      "gap_m": -5.066394803687757e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Dryer_transfer_support_foot.005",
+      "target": "Floor",
+      "gap_m": -5.066394803687757e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "ASSEMBLY_foot",
+      "target": "Floor",
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "ASSEMBLY_foot.001",
+      "target": "Floor",
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "ASSEMBLY_foot.002",
+      "target": "Floor",
+      "gap_m": -5.066394803687757e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "ASSEMBLY_foot.003",
+      "target": "Floor",
+      "gap_m": -5.066394803687757e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Assembly_empty_casing_bottom",
+      "target": "Assembly_casing_rack",
+      "gap_m": 6.19888305686267e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Assembly_empty_casing_bottom.001",
+      "target": "Assembly_casing_rack",
+      "gap_m": 6.19888305686267e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Assembly_empty_casing_bottom.002",
+      "target": "Assembly_casing_rack",
+      "gap_m": 6.19888305686267e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Assembly_fuel_component",
+      "target": "Assembly_component_tray_base",
+      "gap_m": 0.0024998807907104514,
+      "status": "PASS"
+    },
+    {
+      "name": "Assembly_fuel_component.001",
+      "target": "Assembly_component_tray_base",
+      "gap_m": 0.0024998807907104514,
+      "status": "PASS"
+    },
+    {
+      "name": "Assembly_fuel_component.002",
+      "target": "Assembly_component_tray_base",
+      "gap_m": 0.0024998807907104514,
+      "status": "PASS"
+    },
+    {
+      "name": "Assembly_completed_fuel_casing",
+      "target": "Assembly_completed_cradle_base",
+      "gap_m": 0.0024998807907104514,
+      "status": "PASS"
+    },
+    {
+      "name": "Assembly_work_glove_palm",
+      "target": "Assembly_worktop",
+      "gap_m": -5.7220458982154554e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Assembly_alignment_tool",
+      "target": "Assembly_worktop",
+      "gap_m": -4.9769878385230726e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "INSPECTION_foot",
+      "target": "Floor",
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "INSPECTION_foot.001",
+      "target": "Floor",
+      "gap_m": -5.066394803687757e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "INSPECTION_foot.002",
+      "target": "Floor",
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "INSPECTION_foot.003",
+      "target": "Floor",
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Inspection_sample_fuel_casing",
+      "target": "Inspection_fuel_cradle_base",
+      "gap_m": 0.002499877065420153,
+      "status": "PASS"
+    },
+    {
+      "name": "Inspection_batch_record_board",
+      "target": "Inspection_work_surface",
+      "gap_m": -1.727044582344739e-07,
+      "status": "PASS"
+    },
+    {
+      "name": "Inspection_comparison_sample",
+      "target": "Inspection_work_surface",
+      "gap_m": -5.7220458982154554e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Dispatch_rubber_wheel",
+      "target": "Floor",
+      "gap_m": -8.791685102149671e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Dispatch_rubber_wheel.001",
+      "target": "Floor",
+      "gap_m": -1.2516975400611585e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Dispatch_rubber_wheel.002",
+      "target": "Floor",
+      "gap_m": -8.791685102149671e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Dispatch_rubber_wheel.003",
+      "target": "Floor",
+      "gap_m": -1.2516975400611585e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Dispatch_loaded_fuel_casing",
+      "target": "Dispatch_fuel_rack",
+      "gap_m": -6.094574928061647e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Dispatch_loaded_fuel_casing.001",
+      "target": "Dispatch_fuel_rack",
+      "gap_m": -5.7220458982154554e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Dispatch_loaded_fuel_casing.002",
+      "target": "Dispatch_fuel_rack",
+      "gap_m": -5.7220458982154554e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Dispatch_loaded_fuel_casing.003",
+      "target": "Dispatch_fuel_rack",
+      "gap_m": -5.7220458982154554e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Dispatch_loaded_fuel_casing.004",
+      "target": "Dispatch_fuel_rack",
+      "gap_m": -5.7220458982154554e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Dispatch_loaded_fuel_casing.005",
+      "target": "Dispatch_fuel_rack",
+      "gap_m": -5.7220458982154554e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "FEEDER_support_foot",
+      "target": "Floor",
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "FEEDER_support_foot.001",
+      "target": "Floor",
+      "gap_m": -5.066394803687757e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "FEEDER_support_foot.002",
+      "target": "Floor",
+      "gap_m": -5.066394803687757e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "FEEDER_support_foot.003",
+      "target": "Floor",
+      "gap_m": -5.066394803687757e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "FEEDER_support_foot.004",
+      "target": "Floor",
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "FEEDER_support_foot.005",
+      "target": "Floor",
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Utility_wall_standoff",
+      "target": "North_wall",
+      "gap_m": -6.094574928061647e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Utility_wall_standoff.001",
+      "target": "North_wall",
+      "gap_m": -6.094574928061647e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Utility_wall_standoff.002",
+      "target": "North_wall",
+      "gap_m": -6.094574928061647e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Utility_wall_standoff.003",
+      "target": "North_wall",
+      "gap_m": -6.094574928061647e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Utility_wall_standoff.004",
+      "target": "North_wall",
+      "gap_m": -6.094574928061647e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Utility_wall_standoff.005",
+      "target": "North_wall",
+      "gap_m": -6.094574928061647e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Utility_wall_standoff.006",
+      "target": "North_wall",
+      "gap_m": -6.094574928061647e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Utility_wall_standoff.007",
+      "target": "North_wall",
+      "gap_m": -6.094574928061647e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Utility_cabinet",
+      "target": "South_right",
+      "gap_m": -5.7220458982154554e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Drain_recess",
+      "target": "Floor",
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Drain_recess.001",
+      "target": "Floor",
+      "gap_m": -5.066394803687757e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Drain_recess.002",
+      "target": "Floor",
+      "gap_m": -5.066394803687757e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Drain_recess.003",
+      "target": "Floor",
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Eyewash_support_foot",
+      "target": "Floor",
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Eyewash_support_foot.001",
+      "target": "Floor",
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Extinguisher",
+      "target": "Extinguisher_support_shelf",
+      "gap_m": 1.7285346987083727e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Extinguisher_support_shelf",
+      "target": "South_left",
+      "gap_m": -5.349516868369264e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Extinguisher_bracket",
+      "target": "South_left",
+      "gap_m": -5.349516868369264e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Spill_kit",
+      "target": "Floor",
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Tool_trolley_foot",
+      "target": "Floor",
+      "gap_m": -5.066394803687757e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Tool_trolley_foot.001",
+      "target": "Floor",
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Tool_trolley_foot.002",
+      "target": "Floor",
+      "gap_m": -5.066394803687757e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Tool_trolley_foot.003",
+      "target": "Floor",
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Service_wrench_handle",
+      "target": "Tool_trolley_top",
+      "gap_m": 5.826354027016478e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Batch_clipboard",
+      "target": "Tool_trolley_top",
+      "gap_m": 5.826354027016478e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Service_crate_0",
+      "target": "Floor",
+      "gap_m": -8.791685102149671e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Service_crate_1",
+      "target": "Floor",
+      "gap_m": -8.791685102149671e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Service_crate_2",
+      "target": "Floor",
+      "gap_m": -5.066394803687757e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Crusher_tool_rack",
+      "target": "West_main",
+      "gap_m": -5.7220458982154554e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Crusher_spares_shelf",
+      "target": "West_main",
+      "gap_m": -4.9769878385230726e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Maintenance_rag",
+      "target": "Crusher_spares_shelf",
+      "gap_m": 6.571412086708861e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Pendant_ceiling_anchor",
+      "target": "Ceiling",
+      "gap_m": -5.349516868369264e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Pendant_ceiling_anchor.001",
+      "target": "Ceiling",
+      "gap_m": -5.7220458982154554e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Pendant_ceiling_anchor.002",
+      "target": "Ceiling",
+      "gap_m": -5.349516868369264e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Pendant_ceiling_anchor.003",
+      "target": "Ceiling",
+      "gap_m": -5.7220458982154554e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Pendant_ceiling_anchor.004",
+      "target": "Ceiling",
+      "gap_m": -5.7220458982154554e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Pendant_ceiling_anchor.005",
+      "target": "Ceiling",
+      "gap_m": -5.7220458982154554e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Pendant_ceiling_anchor.006",
+      "target": "Ceiling",
+      "gap_m": -5.349516868369264e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Pendant_ceiling_anchor.007",
+      "target": "Ceiling",
+      "gap_m": -5.7220458982154554e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Pendant_ceiling_anchor.008",
+      "target": "Ceiling",
+      "gap_m": -5.7220458982154554e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Pendant_ceiling_anchor.009",
+      "target": "Ceiling",
+      "gap_m": -5.7220458982154554e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Pendant_ceiling_anchor.010",
+      "target": "Ceiling",
+      "gap_m": -5.7220458982154554e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "Pendant_ceiling_anchor.011",
+      "target": "Ceiling",
+      "gap_m": -5.349516868369264e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "CSM_Cart_wheel",
+      "status": "UNRESOLVED"
+    },
+    {
+      "name": "CSM_Cart_wheel.002",
+      "status": "UNRESOLVED"
+    },
+    {
+      "name": "CSM_Cart_wheel.003",
+      "status": "UNRESOLVED"
+    },
+    {
+      "name": "CSM_Cart_wheel.004",
+      "status": "UNRESOLVED"
+    },
+    {
+      "name": "Tipper_trunnion_support",
+      "target": "Tipper_floor_base",
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "Tipper_trunnion_support.001",
+      "target": "Tipper_floor_base.001",
+      "gap_m": 2.384185793236071e-09,
+      "status": "PASS"
+    },
+    {
+      "name": "ART_North_panel_frame",
+      "target": "North_wall",
+      "gap_m": -6.094574928061647e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "ART_North_panel_frame.001",
+      "target": "North_wall",
+      "gap_m": -6.094574928061647e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "ART_North_panel_frame.002",
+      "target": "North_wall",
+      "gap_m": -6.094574928061647e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "ART_North_panel_frame.003",
+      "target": "North_wall",
+      "gap_m": -6.094574928061647e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "ART_North_panel_frame.004",
+      "target": "North_wall",
+      "gap_m": -6.094574928061647e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "ART_North_vent_frame",
+      "target": "North_wall",
+      "gap_m": -6.094574928061647e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "ART_North_vent_frame.001",
+      "target": "North_wall",
+      "gap_m": -6.094574928061647e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "ART_North_vent_frame.002",
+      "target": "North_wall",
+      "gap_m": -6.094574928061647e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "ART_North_vent_frame.003",
+      "target": "North_wall",
+      "gap_m": -6.094574928061647e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "ART_Wall_fixture",
+      "target": "North_wall",
+      "gap_m": 4.1961669922097045e-07,
+      "status": "PASS"
+    },
+    {
+      "name": "ART_Wall_fixture.001",
+      "target": "North_wall",
+      "gap_m": 4.1961669922097045e-07,
+      "status": "PASS"
+    },
+    {
+      "name": "ART_Wall_fixture.002",
+      "target": "North_wall",
+      "gap_m": 4.1961669922097045e-07,
+      "status": "PASS"
+    },
+    {
+      "name": "ART_Wall_fixture.003",
+      "target": "North_wall",
+      "gap_m": 4.1961669922097045e-07,
+      "status": "PASS"
+    },
+    {
+      "name": "ART_Side_vent_frame",
+      "target": "West_main",
+      "gap_m": 4.1961669922097045e-07,
+      "status": "PASS"
+    },
+    {
+      "name": "ART_Side_vent_frame.001",
+      "target": "West_main",
+      "gap_m": 4.1589140892250853e-07,
+      "status": "PASS"
+    },
+    {
+      "name": "ART_Side_vent_frame.002",
+      "target": "East_main",
+      "gap_m": 4.1961669922097045e-07,
+      "status": "PASS"
+    },
+    {
+      "name": "ART_Side_vent_frame.003",
+      "target": "East_main",
+      "gap_m": 4.2334198951943236e-07,
+      "status": "PASS"
+    }
+  ],
+  "route_obstructions": [],
+  "visible_evaluated_triangles": 238986,
+  "visible_mesh_count": 2209,
+  "issues": [],
+  "status": "PASS",
+  "limits": "Explicit support anchors and original support-contract bounding-face screens are not exhaustive self-intersection, buried-volume or runtime collision certification."
+}
