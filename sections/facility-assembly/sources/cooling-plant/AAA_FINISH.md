@@ -13,6 +13,14 @@ module, interface contract and geometry layout are unchanged; the old map is not
   segments 2 -> 1 on 1,180 objects under 1 m (about -108k). Larger objects keep two segments. Counts include text curves.
 - Four new cameras: `AAA01_WIDE_REAR`, `AAA02_EXCHANGER_LOW`, `AAA03_PUMP_ROW`, `AAA04_WORKSHOP`. Existing cameras kept.
 
+## Remote pump valve wheels
+The pump isolation wheels sit at 2.45 m behind each pump skid and a player (assumed 1.75 m tall, shoulder 1.45 m, reach 0.7 m;
+the repo sets no real size) could not reach them. `cooling_remote_wheels.py` adds a drive rod, bevel box and a remote 0.4 m
+handwheel at 1.4 m in the open lane for each pump (A front lane y 2.95, B rear lane y 8.85), recorded in `interface.json` as
+`remote_valve_operators`. Checked in the saved scene: no overlap with existing meshes, no keep-clear or pump-envelope hit, and the
+wheel rim is within 0.41 m of floor space connected to the entry. Camera `AAA05_REMOTE_WHEEL_A`; receipt `remote-wheels.json`.
+Geometric reach only: no engine interaction exists yet, and the mine-water valve and reserve lever were already reachable.
+
 ## Evidence
 `aaa-build.json` (triangle counts, light scales), `renders-AAA1/` (800x450, 24-sample Cycles previews, one per new camera).
 

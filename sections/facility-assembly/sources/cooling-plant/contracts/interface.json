@@ -899,5 +899,42 @@
     "Reactor owner/integrator must resolve its static closed cooling door.",
     "Connect remote primary/secondary water, reserve power and drainage systems; coordinates below describe local sockets.",
     "Fuel Corridor S01_PLANT final destination and global facility placement remain unresolved."
-  ]
+  ],
+  "remote_valve_operators": {
+    "note": "Pump isolation valves sit at 2.45 m behind the pump skids, out of player reach. A remote handwheel at 1.4 m in the open operator lane drives each valve; the remote wheel is the interaction point. Added by the AAA finish (module_aaa_A1.blend); not present in the original module.blend.",
+    "operators": [
+      {
+        "interaction_id": "CP-PUMP-A.isolate",
+        "valve_stem_end": [
+          -4.51,
+          4.15,
+          2.45
+        ],
+        "remote_wheel_centre": [
+          -5.0,
+          2.95,
+          1.4
+        ],
+        "wheel_object": "CP-A remote isolation wheel",
+        "lane": "KC-PUMP-A",
+        "wheel_diameter": 0.4
+      },
+      {
+        "interaction_id": "CP-PUMP-B.isolate",
+        "valve_stem_end": [
+          -4.51,
+          7.6,
+          2.45
+        ],
+        "remote_wheel_centre": [
+          -5.0,
+          8.85,
+          1.4
+        ],
+        "wheel_object": "CP-B remote isolation wheel",
+        "lane": "KC-ALCOVE-APPROACH",
+        "wheel_diameter": 0.4
+      }
+    ]
+  }
 }
