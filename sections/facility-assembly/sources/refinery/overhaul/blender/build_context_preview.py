@@ -64,6 +64,6 @@ for other in list(bpy.data.scenes):
  if other!=review:bpy.data.scenes.remove(other)
 bpy.ops.wm.save_as_mainfile(filepath=str(out),check_existing=False,compress=True)
 assert hashfile(map_path)==original_hash and hashfile(candidate)==candidate_hash
-report=dict(output=str(out),sha256=hashfile(out),context_source=str(map_path),context_sha256=original_hash,candidate=str(candidate),candidate_sha256=candidate_hash,transform=[list(r) for r in transform],objects=records,new_external_lights=0,light_count=21,world_strength=0,source_files_unchanged=True,review_only=True,limitations='Context geometry is copied from the current map; all map light objects are omitted. Only candidate practicals light the preview. This is not promotion or a refreshed whole-map cache.')
+report=dict(output=out.relative_to(repo).as_posix(),sha256=hashfile(out),context_source=map_path.relative_to(repo).as_posix(),context_sha256=original_hash,candidate=candidate.relative_to(repo).as_posix(),candidate_sha256=candidate_hash,transform=[list(r) for r in transform],objects=records,new_external_lights=0,light_count=21,world_strength=0,source_files_unchanged=True,review_only=True,limitations='Context geometry is copied from the current map; all map light objects are omitted. Only candidate practicals light the preview. This is not promotion or a refreshed whole-map cache.')
 (root/'production/context'/f'manifest_{revision}.json').write_text(json.dumps(report,indent=2))
 print('CONTEXT_PREVIEW_WRITTEN',len(records),out,flush=True)

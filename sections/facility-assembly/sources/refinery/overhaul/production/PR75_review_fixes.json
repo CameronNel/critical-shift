@@ -1,0 +1,53 @@
+{
+  "review": "PR #75 automated review of c88da20",
+  "scope": "Replay scripts and context manifest path metadata only; no scene, accepted render, material, light, camera or geometry changes.",
+  "relocated_context_check": {
+    "blender": "5.2.0 LTS",
+    "revision": "R23",
+    "status": "PASS",
+    "visible_candidate_comparison_count": 3029,
+    "light_count": 21,
+    "world_strength": 0.0,
+    "source_unchanged": true
+  },
+  "actual_single_camera_check": {
+    "revision": "R24",
+    "camera": "CAM_ENTRY",
+    "complete": false,
+    "views": 1,
+    "source_unchanged": true,
+    "pixels_identical_to_accepted": true,
+    "maximum_channel_delta": 0,
+    "candidate_sha256": "37896096ba619770afdf2d3dfc4443b2223aadcc71a468b809a833803eb8701b"
+  },
+  "metadata_regression_cases": [
+    {
+      "case": "single",
+      "complete": false,
+      "views": 1
+    },
+    {
+      "case": "ten",
+      "complete": false,
+      "views": 10
+    },
+    {
+      "case": "full",
+      "complete": true,
+      "views": 11
+    },
+    {
+      "case": "default",
+      "complete": true,
+      "views": 11
+    }
+  ],
+  "metadata_regression_method": "Execute the renderer with a stub Blender render operation to verify manifest behavior for one, ten, all eleven and default cameras. These cases do not rerender the full image batch.",
+  "script_syntax": "PASS",
+  "historical_context_paths_updated": [
+    "R08",
+    "R10",
+    "R23"
+  ],
+  "original_R24_evidence": "The accepted eleven-camera batch and its cold-start evidence retain their original bytes; the real single-camera smoke render was written only to a separate checkout."
+}

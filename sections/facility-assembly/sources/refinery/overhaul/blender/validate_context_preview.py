@@ -4,18 +4,21 @@ from pathlib import Path
 from mathutils import Matrix
 
 root = Path(__file__).resolve().parents[1]
+repo = root.parents[4]
 revision = sys.argv[sys.argv.index('--') + 1]
 manifest = json.loads((root / 'production/context' / f'manifest_{revision}.json').read_text())
+candidate = repo / manifest['candidate']
+context_source = repo / manifest['context_source']
 context = bpy.context.scene
 path = Path(bpy.data.filepath)
 sha = lambda p: hashlib.sha256(Path(p).read_bytes()).hexdigest()
 before = sha(path)
 assert before == manifest['sha256']
-assert sha(manifest['candidate']) == manifest['candidate_sha256']
-assert sha(manifest['context_source']) == manifest['context_sha256']
+assert sha(candidate) == manifest['candidate_sha256']
+assert sha(context_source) == manifest['context_sha256']
 transform = Matrix(manifest['transform'])
 original_world = {o.name: o.matrix_world.copy() for o in context.objects}
-with bpy.data.libraries.load(manifest['candidate'], link=False) as (source, destination):
+with bpy.data.libraries.load(str(candidate), link=False) as (source, destination):
     names = list(source.objects)
     destination.objects = list(names)
 # Evaluate source parent transforms in a temporary, unsaved scene.
