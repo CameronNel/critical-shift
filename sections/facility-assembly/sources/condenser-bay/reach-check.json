@@ -1,0 +1,20 @@
+{
+  "model": "Player assumed 1.75 m tall, shoulder 1.45 m (lowered toward the target for items under 1 m), arm reach 0.7 m; the repo sets no real size. Standing spots are floor and stair-tread cells 0.15 m apart with a 0.22 m clear body radius and 1.7 m headroom, connected to the entry (stairs and gallery included). Run on the original module.blend; the finish does not move anything. Geometric reach only, no engine interaction exists.",
+  "contract_hooks": {
+    "reachable": {
+      "INTERACT_D01": 0.42, "INTERACT_CEP-A": 0.34, "INTERACT_CEP-B": 0.33, "INTERACT_CSB_CEP": "0.68 (marginal)",
+      "INTERACT_CSB_VACUUM": 0.48, "INTERACT_EJ": 0.54, "INTERACT_HOIST": 0.27
+    },
+    "not_reachable": {
+      "INTERACT_CW_ISOL_R": {"anchor": [8.55, 4.9, 3.55], "note": "overhead cooling-water main hung from the ceiling; no standing spot within reach"},
+      "INTERACT_CW_ISOL_S": {"anchor": [8.55, 3.2, 3.55], "note": "same"},
+      "INTERACT_CD_ISOLATE": {"anchor": [0.8, 4.05, 3.17], "note": "on the condenser at 3.17 m, not reachable from floor or the small gallery landing"},
+      "INTERACT_CSB_TRIP": {"anchor": [-1.28, 4.05, 1.12], "note": "operator station trip control at 1.12 m, between two reachable controls; likely blocked by the panel, needs a closer look"}
+    }
+  },
+  "other_parts": {
+    "reachable": ["CEP-A terminal lid (0.6 m)", "CEP-B terminal lid (0.5 m)", "SE MCC handle (0.22 m)", "cabinet handle (0.73 m, marginal)", "WB east vent wheel (0.70 m from the gallery, marginal)"],
+    "not_reachable": ["CW isolation handwheel hubs (3.4 m)", "WB east and west manway lids (3.27 m)", "WB west vent wheel (4.64 m)", "hoist hook (4.7 m, overhead, moved by the hoist)"]
+  },
+  "status": "Nothing was moved. The overhead cooling-water valves and condenser isolate hook need a design choice (chain wheel, lowered stem, or a reachable platform)."
+}
