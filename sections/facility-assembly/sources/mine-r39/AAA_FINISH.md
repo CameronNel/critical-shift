@@ -24,4 +24,5 @@ map file is not touched. **Not independently reviewed.** The concrete "Gullet Mi
 - No room validator, collision sweep or reach check was run. No reach check was asked for.
 - No full-resolution renders and no independent review.
 - The mine's own interfaces (rail link to the refinery, doors) were not examined; the extraction keeps only the mine collections.
+- `R39_04_SHED_FRONT` is almost black (the shed face is unlit at this camera); it should be re-aimed or lit. The other three views read well.
 - The module has the sky but no ground beyond what the mine collections carry; the surrounding map terrain is not included.
