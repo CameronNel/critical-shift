@@ -62,5 +62,6 @@ The cafeteria, hall, yard and lobby have no source sizes (34 x 20, 44 x 12, 38 x
 - Whether the refinery counts as a fault room, and what the hall's middle and right exits finally do, were left to the owner.
 
 ## Files
+- `front-end-area/`: design package for the cafeteria, hall and yard as one connected module (plan, 800k triangle budget, greybox views). Supersedes plan v7's positions for that front end.
 - `plan_v7.svg` / `plan_v7.png`: the plan. `generate_plan.py` redraws the SVG.
 - `MEASURED_ROOM_SIZES.md`: measurements. `measure_rooms.py` is the Blender script that produced them.
