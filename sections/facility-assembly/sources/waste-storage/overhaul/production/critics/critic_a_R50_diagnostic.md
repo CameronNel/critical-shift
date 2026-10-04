@@ -1,0 +1,5 @@
+# R50 targeted shell-finish diagnostic
+
+I opened actual R49 and R50 C02_Casks and W04_CellService images and compared the wear against the actual refinery R24 material/hero close-ups and Spawn polish references. R50's expanded paint losses are visible at normal crop size and break up the broad smooth cask faces that remained in R49. In C02, SC01's upper/side and lower contact zones show irregular coating loss; SC02 has a smaller exposed area. W04 shows the same handling-side wear at closer scale.
+
+The patches have ragged chipped silhouettes and mottled undercoat, with no outlining primer border. They read as coating breakdown around handling/contact zones, not a crisp decal. I see no soft cloud field, repeated camouflage pattern, or new process cue. The marks are stronger and more contrasty than the refinery hero close-up, but remain plausible at this scene's dark room scale and preserve the manufactured cask read. These two actual images are fit for full-cycle continuation. This is a targeted diagnosis only; it does not transfer a score or establish cycle acceptance.

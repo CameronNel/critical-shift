@@ -1,0 +1,96 @@
+{
+  "source": "sections/facility-assembly/sources/waste-storage/overhaul/production/checkpoints/R31.blend",
+  "source_sha256": "8c07de31f611bc0811a1c42a2e5e3e08de3aa75778e2828a0e47d9e34e10a853",
+  "blender": "5.2.0 LTS",
+  "settings": {
+    "engine": "CYCLES",
+    "device": "CPU",
+    "samples": 24,
+    "resolution": [
+      960,
+      540
+    ],
+    "seed": 73,
+    "denoising": true,
+    "max_bounces": 8,
+    "threads": 8,
+    "exposure": 0.0,
+    "look": "AgX - Medium High Contrast",
+    "world_strength": 0.0
+  },
+  "required_cameras": [
+    "D02_CaptureService",
+    "D03_ExtractionRun"
+  ],
+  "views": [
+    {
+      "camera": "D02_CaptureService",
+      "matrix": [
+        [
+          -0.38885942101478577,
+          0.21441112458705902,
+          0.8960001468658447,
+          -2.4000000953674316
+        ],
+        [
+          0.9212971329689026,
+          0.09049827605485916,
+          0.3781821131706238,
+          12.800000190734863
+        ],
+        [
+          -1.9626050118404237e-08,
+          0.9725419878959656,
+          -0.23272745311260223,
+          2.5
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 30.0,
+      "path": "sections/facility-assembly/sources/waste-storage/overhaul/production/details/R31/D02_CaptureService.png",
+      "sha256": "42367b9ad3ac591f2186b6ede02e88815156af429eab04b6f439d98128054aac",
+      "seconds": 42.9864470110042
+    },
+    {
+      "camera": "D03_ExtractionRun",
+      "matrix": [
+        [
+          0.2470034509897232,
+          0.10433590412139893,
+          0.9633811712265015,
+          0.0
+        ],
+        [
+          0.969014585018158,
+          -0.02659556455910206,
+          -0.2455674558877945,
+          12.199999809265137
+        ],
+        [
+          1.633686110835697e-07,
+          0.9941864609718323,
+          -0.10767221450805664,
+          1.6799999475479126
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 18.0,
+      "path": "sections/facility-assembly/sources/waste-storage/overhaul/production/details/R31/D03_ExtractionRun.png",
+      "sha256": "d1cd5962e6d523ad362c1058d67ac8ed888c08591fc834339e00871a82029b8a",
+      "seconds": 43.915426563995425
+    }
+  ],
+  "complete": true,
+  "source_unchanged": true,
+  "scope": "Supplemental process details; the mandatory 21 fixed views remain independent."
+}

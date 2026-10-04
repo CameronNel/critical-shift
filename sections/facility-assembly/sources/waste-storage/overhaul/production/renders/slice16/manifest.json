@@ -1,0 +1,109 @@
+{
+  "source": "sections/facility-assembly/sources/waste-storage/overhaul/production/checkpoints/slice16.blend",
+  "source_sha256": "fd137554a6b359f5fffb1cac8f2c9562a7335038c18272c6c4927e8132c8ac96",
+  "blender": "5.2.0 LTS",
+  "settings": {
+    "engine": "CYCLES",
+    "device": "CPU",
+    "samples": 24,
+    "resolution": [
+      960,
+      540
+    ],
+    "seed": 73,
+    "world_strength": 0.0
+  },
+  "required_cameras": [
+    "C01_Entry",
+    "C02_Casks",
+    "C03_Reverse",
+    "C04_Route",
+    "C05_Transfer",
+    "C06_Dry",
+    "C07_Quarantine",
+    "C08_Extraction",
+    "C09_Inventory",
+    "C10_Workbench",
+    "W01_Personnel",
+    "W02_ReceivingReturn",
+    "W03_Dispatch",
+    "W04_CellService",
+    "W05_ReceivingExterior",
+    "W06_PersonnelExterior",
+    "W07_DispatchExterior",
+    "W08_BoothDoor",
+    "W09_DrySouth",
+    "W10_ResidueService",
+    "D01_SealRepair"
+  ],
+  "views": [
+    {
+      "camera": "C10_Workbench",
+      "matrix": [
+        [
+          0.4544702470302582,
+          0.15313811600208282,
+          -0.8774995803833008,
+          2.0999999046325684
+        ],
+        [
+          -0.8907619118690491,
+          0.07813159376382828,
+          -0.4477037489414215,
+          15.5
+        ],
+        [
+          -7.076832986285808e-08,
+          0.9851112365722656,
+          0.1719180941581726,
+          1.6799999475479126
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 30.0,
+      "path": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/slice16/C10_Workbench.png",
+      "sha256": "adb587d313ba6003b50669c6e2a6765a9caba23a85723011bb10993548c95789",
+      "seconds": 36.91222146600194
+    },
+    {
+      "camera": "D01_SealRepair",
+      "matrix": [
+        [
+          0.7976594567298889,
+          0.2551603317260742,
+          -0.5464729070663452,
+          4.139999866485596
+        ],
+        [
+          -0.6031081676483154,
+          0.33747029304504395,
+          -0.722754716873169,
+          15.880000114440918
+        ],
+        [
+          2.479668737009888e-08,
+          0.9060943722724915,
+          0.4230756461620331,
+          1.5
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 44.0,
+      "path": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/slice16/D01_SealRepair.png",
+      "sha256": "b675895d0aba63bb0b00f2aa9307e37c892d5eaca2726561e363c0d68bc8652c",
+      "seconds": 36.036129797998
+    }
+  ],
+  "complete": false,
+  "source_unchanged": true
+}

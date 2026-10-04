@@ -1,0 +1,138 @@
+{
+  "previous": "R02b",
+  "current": "R03",
+  "complete": true,
+  "accepted": false,
+  "evidence": [
+    "critics/critic_a_R03.md",
+    "critics/critic_b_R03.md"
+  ],
+  "comparisons": [
+    {
+      "camera": "C06_Dry",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "9868cdfb8e05814d97ff3121d4722e45f759f63e95588dfff2a4263e6ac0d61a",
+      "current_image_sha256": "e152aa9b4c06aa8197ac52cf08305aa35a85eec99554a74d825b127902f403fb"
+    },
+    {
+      "camera": "C02_Casks",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "091cbb3b245d3fb9bc42fa1b934e4e12b35689dbff0e08a976efdb53ace9fecb",
+      "current_image_sha256": "abb86bed97ce446fe500992f1be0e08d0c65c210cef1ef8cad5641e8f0e5d050"
+    },
+    {
+      "camera": "C07_Quarantine",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "da4358c235926c3eb1324210af2cd263015d5efd71e5c4c08151f2f126ea9827",
+      "current_image_sha256": "09f801d806d2616cd512448fb84f3fae06bbb0d60dc55dfe2b9354905727e2da"
+    },
+    {
+      "camera": "D01_SealRepair",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "fde21cbb97228424ecd830bfd3925b9548873e71c6055164c6c0ba5bf2a230b0",
+      "current_image_sha256": "547c8986c9f15cd50472d1ecdd1633ff084387bfb5d3d89074e185311e740938"
+    },
+    {
+      "camera": "C01_Entry",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "f889d66c8ab866008ab00d3e97ec183f8727f98f8d63977688678848bc96d7f0",
+      "current_image_sha256": "7df4757bea638902805d6a42cd8e373a7365807f2b9fa7f3bd621ceba783057b"
+    },
+    {
+      "camera": "C03_Reverse",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "d761ed7c0c62a464653a5c8481f587e94a88ab1182ff6e0d14b261c7c891c844",
+      "current_image_sha256": "deb1642f4d03f190e76ec91882af1712f8f78f0ef7eb406fdbb91341ea80fe43"
+    },
+    {
+      "camera": "C04_Route",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "67390ce9394abaf6a81b07c7eeaa01a0b3f88b9b7ea719c9e6e1fb41de6d1f43",
+      "current_image_sha256": "57045d099f9ad467cb3f9bbfe2e7c7707597034a5adfbd1b0a34a6cb7a928781"
+    },
+    {
+      "camera": "C05_Transfer",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "1741061600959cc29cd087e99c23de93b7dcc19f98a30cc5a295d97dd4d46453",
+      "current_image_sha256": "d04db6a6b07b0878fce2ac973374aa234224ae2e61c20e270d36f4410e9d847f"
+    },
+    {
+      "camera": "C08_Extraction",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "cd0c1e8d27614d80a69484ed8cbc00b7da623048201d60832e38906e37d560ff",
+      "current_image_sha256": "54400fb521608dbb8bbe03cc830c705c72c4aeab003cfcce4625aa8bda5e5bee"
+    },
+    {
+      "camera": "C09_Inventory",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "c65eb38a4b2c0d61558a405000d0eb6a1d703f0ff742816671ed17053b0280f4",
+      "current_image_sha256": "bc368267873b54e823d5fd618e053e2831386034b2c37774af8be1d941a9ad80"
+    },
+    {
+      "camera": "C10_Workbench",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "ec5ea17a50e67def6e0e21a3d126e6a6dad2c7e10e5775a545c634ad694277f7",
+      "current_image_sha256": "24ff4d32bb08d81b728c8f93f1b0e84875d8c2d0ff8ed71dee8914f6a32a45c9"
+    },
+    {
+      "camera": "W01_Personnel",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "b5c406f30d931b07d922ab6b1b4d4d41080699efe0d07bb60700391297d4c06c",
+      "current_image_sha256": "0b162a8ddd80096ebdba6f034eeca5d22bfeba090cbdfb876f3685bf57abf0c1"
+    },
+    {
+      "camera": "W02_ReceivingReturn",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "0b623a75aa47d1581882dd6c38081f8e931558f03205efdc76fa137a6d58244f",
+      "current_image_sha256": "cb0b5b7a73c93d241cd005996d827219ba6c5d9dff690d49f55159d66eeb4944"
+    },
+    {
+      "camera": "W03_Dispatch",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "c48be04f98101f5ce972a94ad50c780df4f85b1697c6c19c0ff7acb3f65c6973",
+      "current_image_sha256": "15acb70b6cf7ec60769fbd4d0c56016d0cde88475562e0471a149ae2bad303d0"
+    },
+    {
+      "camera": "W04_CellService",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "b0010bfc68a04bea1e4a1466c56233f90988ec7fc1025a49cf83543a2f55de13",
+      "current_image_sha256": "0040afcbc07decd0a5f42c851a66d56105be8265cd90c3baaaf6d8c8ff4c3113"
+    },
+    {
+      "camera": "W05_ReceivingExterior",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "82efcc19262213cac90d4337bdae4aba68debf0eb8d6f1c0398ec5cdfb8b58d6",
+      "current_image_sha256": "e196dd55367f3fb731f71dcc7370e400d63f1f97fdc738c1007fb05ab9d19c0b"
+    },
+    {
+      "camera": "W06_PersonnelExterior",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "acf04cf1b0990f01d1cabd83a07ced2a04c290b27b5407c200e60b743a172bdb",
+      "current_image_sha256": "d6fcb9b374c9e7e4eb401f31b2a48fa01517a342e4508498bc2d1651b3ba2d26"
+    },
+    {
+      "camera": "W07_DispatchExterior",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "38cf8bb30dfc2fea1b1937629440daa20bf74b17c92e0de2e30f91223bddf672",
+      "current_image_sha256": "1f459bf857b9e2bcd322273254f6c317d3cf6ba65a792b79fa083c70c24fbb92"
+    },
+    {
+      "camera": "W08_BoothDoor",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "013300fb4e8c67c7f059d9f3df454f3d35a07f2b40c8352a0c0cfd5ab8914a71",
+      "current_image_sha256": "a888667db4e52422d377c63b7c00cc3a87bcf3ef943b97897365be2ffcd16cce"
+    },
+    {
+      "camera": "W09_DrySouth",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "bdd561961ff570fddc681293b3cb37ab8ac12f393e7d778be876a7b5ce99211c",
+      "current_image_sha256": "bf6820b75e896a44184165f93f2ad0ba99f96990f44eaaab4dd143de681069f4"
+    },
+    {
+      "camera": "W10_ResidueService",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "41819b4f1321575259571d0e3b2111437a850f0dffc384725f4c8cb3532e24b1",
+      "current_image_sha256": "451c3ac160f04dfe0dbd663b626b27b175413491d98ffef95518ff7d61f5b7b4"
+    }
+  ]
+}

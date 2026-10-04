@@ -1,0 +1,139 @@
+{
+  "previous": "R13",
+  "current": "R20",
+  "complete": true,
+  "accepted": false,
+  "review_status": "Both independent reviews complete, FAIL",
+  "evidence": [
+    "critics/critic_a_R20.md",
+    "critics/critic_b_R20.md"
+  ],
+  "comparisons": [
+    {
+      "camera": "C09_Inventory",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "a2761930fefee03d01c9aeeb8822fe4416875606f2c0acc45843a67d579acd73",
+      "current_image_sha256": "693018d5e9a8449c487433ac20e254c5b3d79753dcf60da73a3cb7a0b18900a9"
+    },
+    {
+      "camera": "C02_Casks",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "4f3cecb5d1cb559fcb87579fb64556b73a08aa9c4d132ca0efbb7374974e7670",
+      "current_image_sha256": "b8a16426ac2c52871e436063db44a207b49053e78c3744b2a46680374a74faaa"
+    },
+    {
+      "camera": "C01_Entry",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "de5688293299ad54906088aa35f433e3e0f7b8470dcb47eb439d4e07c95c66f4",
+      "current_image_sha256": "877b9b687f185ec365058b656fecc6b602dfb682e74248b79edaeac4f40b9e84"
+    },
+    {
+      "camera": "D01_SealRepair",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "6ca27a6178dbc1f22f6915f69a2026112056aa37746de17e8315ed8b9a05af03",
+      "current_image_sha256": "66230dbcfabd034627b302efff3f31d8bc4ea3026827605a59cbcb141258e6f6"
+    },
+    {
+      "camera": "C05_Transfer",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "90a11cf49fd45ba6c362f51bf30be9e5efff4dd8a8c817e2ccdbb11535772450",
+      "current_image_sha256": "7c53aafd3bb77e37aad24211025c60defdcbbe5d55214ecbf0b4ba3b964abee9"
+    },
+    {
+      "camera": "C03_Reverse",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "b8ebc82eaacf5d036085b0bcb8cd176a1d3c3697689b3f92d33628e1bffcca03",
+      "current_image_sha256": "81d5de74ba886e67283dfa752633c68b504fdc8a8c7602fe114e2ee3b8d5f707"
+    },
+    {
+      "camera": "C04_Route",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "b79db5a8f2970e2bdd33e0b969fe01bbcf5afe380a895bc5466e37fe12a1091e",
+      "current_image_sha256": "ef5c1ef42cc1f49ea53bbf8f61e99a7b5b2853eb9f13b1d2650bd94f0e7775c6"
+    },
+    {
+      "camera": "C06_Dry",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "40bc2a6062d44aec9b36bb6592a4b5f41298ef0a43e81816d5e26d3902c58814",
+      "current_image_sha256": "006e6c1310defea14ee8cd6ba30e853d1909d0d00c97ca9dc56af34da3e50d06"
+    },
+    {
+      "camera": "C07_Quarantine",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "1e9275a875341dd3cf30b95ce3f4eeac08756da12d07b6b193ae8b01163b65ab",
+      "current_image_sha256": "5ed5135737fe25721326b75dd2bb4162cea6eb613fe85c93f56cf225caf2be92"
+    },
+    {
+      "camera": "C08_Extraction",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "c5d704581149ae9ebffd1beaa38fffc5779e3febbaeaf6beb5606429cd414e27",
+      "current_image_sha256": "7b001e13a52e997fbd464aebdb3acec75c8c9b2923a9ea968b1cd09f9cd3eccd"
+    },
+    {
+      "camera": "C10_Workbench",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "06b4b2d4462208d9a19ffef616fdc254a2e6339ccb5b149e68c200e5c524cf35",
+      "current_image_sha256": "eca7ca734968b12ef2238c22c8a3071e17182990c2f5f048549f6a4a43558dc5"
+    },
+    {
+      "camera": "W01_Personnel",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "1b5a0c54436fdff88fad9622666bcbbe32ce62a017db08244c56d73cc6de47c6",
+      "current_image_sha256": "01ade81c863cdabee7df8dd31e10c2551885bdc989396913d7d625df491fec7e"
+    },
+    {
+      "camera": "W02_ReceivingReturn",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "5c44964b0384f839fce75fe513e265f70b41fb38e430faa2e43772745b5ab30a",
+      "current_image_sha256": "8329c8ff13aa0722c0167f482117c281804d9c52bb6dbddde70df19a336804e6"
+    },
+    {
+      "camera": "W03_Dispatch",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "1352d68b8109442eeef2aeefddde54cc3533540ba4b774f33bc08ae51c1717fc",
+      "current_image_sha256": "f26cfa6130dfa382e6c931a26e6873c8e0714497a47e87ef57aced918287d970"
+    },
+    {
+      "camera": "W04_CellService",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "fa13ae2b7d67508c5b64d69ca071f4133921a25dfdb3d5f4d0f8b24c2b9a507d",
+      "current_image_sha256": "72856f5b789049e21478148a7f29dbc2eb67e6285c741dbb4b3266d70155ca07"
+    },
+    {
+      "camera": "W05_ReceivingExterior",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "a897143581ddf8e29ed721654bb429c59c3f0b4620757871dc4045192ba5c7e4",
+      "current_image_sha256": "c887c33caca34b7a19c5a0088b69d823fd1a0f0f8218ee86554dd8daf1a38c3a"
+    },
+    {
+      "camera": "W06_PersonnelExterior",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "9b22862db75a7d3cda9e1ef99edbd23288b553c7cdfaf0bbda3aa4af510122d0",
+      "current_image_sha256": "eab23fcd1506f74c75eafc5289f230d7b670146d333b3b10ab9ffcf3f356a175"
+    },
+    {
+      "camera": "W07_DispatchExterior",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "4cb91dd8d7c367a43283d8f2feba3ee102b273b1bf39424fd944a75c416d4dd3",
+      "current_image_sha256": "5700133d7dbd67a3d8d1fc6811b1ec4b38732132d5f038a8c2272385eb69dd3b"
+    },
+    {
+      "camera": "W08_BoothDoor",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "f381a62ab03aade4d04cbacf9d99ca4939479bb85ed87e5c935b06739226f134",
+      "current_image_sha256": "6a2f6d817f89c13d500d6d69b053417e1790cdbc41c4f37c4ca14a5a642f0d41"
+    },
+    {
+      "camera": "W09_DrySouth",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "0e8fff21767c1f2d67ea566e71aad98cc0b9ffe99c1176540662b4935e034719",
+      "current_image_sha256": "15ba3ac88adcc575835d1f0db6c9f2f860cf7ff21290c78bb6084336a74183d4"
+    },
+    {
+      "camera": "W10_ResidueService",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "c49889cca01cfa52521b2ab3f9796cd136e3d29bc557d2e33e15bd2bdc45f4cf",
+      "current_image_sha256": "353812e8772a81eda525b72e2bc916bee3f99c72015993f9fa7b9cc2c44af8b1"
+    }
+  ]
+}

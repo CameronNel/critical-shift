@@ -1,0 +1,114 @@
+{
+  "source": "sections/facility-assembly/sources/waste-storage/overhaul/production/checkpoints/R33.blend",
+  "source_sha256": "bff9bcd2f8655d764c8587350ffc73fc6b7ca5459d8a55b9bd3cce0f34306fa1",
+  "blender": "5.2.0 LTS",
+  "settings": {
+    "engine": "CYCLES",
+    "device": "CPU",
+    "samples": 24,
+    "resolution": [
+      960,
+      540
+    ],
+    "seed": 73,
+    "denoising": true,
+    "max_bounces": 8,
+    "threads": 8,
+    "exposure": 0.0,
+    "look": "AgX - Medium High Contrast",
+    "world_strength": 0.0
+  },
+  "required_cameras": [
+    "C01_Entry",
+    "C02_Casks",
+    "C03_Reverse",
+    "C04_Route",
+    "C05_Transfer",
+    "C06_Dry",
+    "C07_Quarantine",
+    "C08_Extraction",
+    "C09_Inventory",
+    "C10_Workbench",
+    "W01_Personnel",
+    "W02_ReceivingReturn",
+    "W03_Dispatch",
+    "W04_CellService",
+    "W05_ReceivingExterior",
+    "W06_PersonnelExterior",
+    "W07_DispatchExterior",
+    "W08_BoothDoor",
+    "W09_DrySouth",
+    "W10_ResidueService",
+    "D01_SealRepair"
+  ],
+  "views": [
+    {
+      "camera": "C08_Extraction",
+      "matrix": [
+        [
+          0.5611581206321716,
+          0.016253575682640076,
+          0.8275490403175354,
+          -1.399999976158142
+        ],
+        [
+          0.8277086019515991,
+          -0.011019386351108551,
+          -0.5610499382019043,
+          14.050000190734863
+        ],
+        [
+          1.4807234549607529e-08,
+          0.9998071789741516,
+          -0.019636843353509903,
+          1.6799999475479126
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 21.0,
+      "path": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R33/C08_Extraction.png",
+      "sha256": "5adc21f180e1f92ca3b2e7f845347f98b52dce66a12d05e950bca7fb56f80e70",
+      "seconds": 43.53441494899744
+    },
+    {
+      "camera": "D01_SealRepair",
+      "matrix": [
+        [
+          0.8240418434143066,
+          0.3374772071838379,
+          -0.45504307746887207,
+          4.300000190734863
+        ],
+        [
+          -0.5665289759635925,
+          0.49087586998939514,
+          -0.6618804931640625,
+          15.850000381469727
+        ],
+        [
+          7.801251911132567e-08,
+          0.8032122850418091,
+          0.5956928730010986,
+          1.6799999475479126
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 40.0,
+      "path": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R33/D01_SealRepair.png",
+      "sha256": "97f0a09d1bb2e7706ca6e18c99c1faa37d365df3d5c8a738b7389f7f1704159c",
+      "seconds": 39.07067579901195
+    }
+  ],
+  "complete": false,
+  "source_unchanged": true
+}

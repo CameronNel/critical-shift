@@ -1,0 +1,219 @@
+{
+  "status": "PASS",
+  "checkpoint": "ecc4ae92fdcefbeaf7028ddd3661b7e31d56c0836f10d29e6c7546108d97f57e",
+  "cold_rebuild": "bc2904a9651fd24206b6fb33d32dd18de7634998e9df495e5cbc87b53a06c2b2",
+  "cameras": [
+    {
+      "camera": "C09_Inventory",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "C02_Casks",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "C01_Entry",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "D01_SealRepair",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "C05_Transfer",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "C03_Reverse",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "C04_Route",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "C06_Dry",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "C07_Quarantine",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "C08_Extraction",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "C10_Workbench",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "W01_Personnel",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "W02_ReceivingReturn",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "W03_Dispatch",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "W04_CellService",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "W05_ReceivingExterior",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "W06_PersonnelExterior",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "W07_DispatchExterior",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "W08_BoothDoor",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "W09_DrySouth",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "W10_ResidueService",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "settings_equal": true,
+  "scope": "Cold-start reproducibility; no visual acceptance inference."
+}

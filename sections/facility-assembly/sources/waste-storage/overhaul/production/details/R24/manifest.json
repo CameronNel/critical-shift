@@ -1,0 +1,62 @@
+{
+  "source": "sections/facility-assembly/sources/waste-storage/overhaul/production/checkpoints/R24.blend",
+  "source_sha256": "cbbbd18e70d923a62ae3dafd278cc1d1cd10922d77fbbefc5fce51d0a04c88b4",
+  "blender": "5.2.0 LTS",
+  "settings": {
+    "engine": "CYCLES",
+    "device": "CPU",
+    "samples": 24,
+    "resolution": [
+      960,
+      540
+    ],
+    "seed": 73,
+    "denoising": true,
+    "max_bounces": 8,
+    "threads": 8,
+    "exposure": 0.0,
+    "look": "AgX - Medium High Contrast",
+    "world_strength": 0.0
+  },
+  "required_cameras": [
+    "D02_CaptureService"
+  ],
+  "views": [
+    {
+      "camera": "D02_CaptureService",
+      "matrix": [
+        [
+          -0.38885942101478577,
+          0.21441112458705902,
+          0.8960001468658447,
+          -2.4000000953674316
+        ],
+        [
+          0.9212971329689026,
+          0.09049827605485916,
+          0.3781821131706238,
+          12.800000190734863
+        ],
+        [
+          -1.9626050118404237e-08,
+          0.9725419878959656,
+          -0.23272745311260223,
+          2.5
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 30.0,
+      "path": "sections/facility-assembly/sources/waste-storage/overhaul/production/details/R24/D02_CaptureService.png",
+      "sha256": "04aba06b23d93e0566f2a61d42c5e18cfeaf5f58ddcd074856f59a9c029d98c4",
+      "seconds": 41.655738968009246
+    }
+  ],
+  "complete": true,
+  "source_unchanged": true,
+  "scope": "Supplemental process details; the mandatory 21 fixed views remain independent."
+}

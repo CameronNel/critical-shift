@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "original_sha256": "8912b5c3b3d2525abb64e838d1fe83a1ea90aa12fea0c9b5a730d4449caecedf",
+  "original_unchanged": true,
+  "checks": [
+    {
+      "check": "path-traversal",
+      "status": "PASS",
+      "expected_rejection": "paths are forbidden",
+      "original_unchanged": true
+    },
+    {
+      "check": "archived-revision",
+      "status": "PASS",
+      "expected_rejection": "Revision already archived",
+      "original_unchanged": true
+    },
+    {
+      "check": "linked-source-output",
+      "status": "PASS",
+      "expected_rejection": "Output must not be a symlink",
+      "original_unchanged": true
+    },
+    {
+      "check": "missing-detail-render",
+      "status": "PASS",
+      "expected_rejection": "Both fixed detail cameras are mandatory",
+      "original_unchanged": true
+    },
+    {
+      "check": "complete-23-view-comparison-control",
+      "status": "PASS",
+      "scope": "Copied historical R37 evidence; no proof transfer to R46"
+    },
+    {
+      "check": "missing-detail-comparison",
+      "status": "PASS",
+      "both_fingerprints_and_manifests_omit_D03": true,
+      "expected_rejection": "Both fixed detail cameras are mandatory"
+    }
+  ],
+  "scope": "Rejection checks for concrete independently found input and detail completeness defects; not an art or R46 cold proof."
+}

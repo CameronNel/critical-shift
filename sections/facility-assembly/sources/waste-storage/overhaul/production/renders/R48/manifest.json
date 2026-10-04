@@ -1,0 +1,114 @@
+{
+  "source": "sections/facility-assembly/sources/waste-storage/overhaul/production/checkpoints/R48.blend",
+  "source_sha256": "842e2ea51383084f275245bec41750429b3a57089c613d2163bcc6ba1a9b689e",
+  "blender": "5.2.0 LTS",
+  "settings": {
+    "engine": "CYCLES",
+    "device": "CPU",
+    "samples": 24,
+    "resolution": [
+      960,
+      540
+    ],
+    "seed": 73,
+    "denoising": true,
+    "max_bounces": 8,
+    "threads": 8,
+    "exposure": 0.0,
+    "look": "AgX - Medium High Contrast",
+    "world_strength": 0.0
+  },
+  "required_cameras": [
+    "C01_Entry",
+    "C02_Casks",
+    "C03_Reverse",
+    "C04_Route",
+    "C05_Transfer",
+    "C06_Dry",
+    "C07_Quarantine",
+    "C08_Extraction",
+    "C09_Inventory",
+    "C10_Workbench",
+    "W01_Personnel",
+    "W02_ReceivingReturn",
+    "W03_Dispatch",
+    "W04_CellService",
+    "W05_ReceivingExterior",
+    "W06_PersonnelExterior",
+    "W07_DispatchExterior",
+    "W08_BoothDoor",
+    "W09_DrySouth",
+    "W10_ResidueService",
+    "D01_SealRepair"
+  ],
+  "views": [
+    {
+      "camera": "C02_Casks",
+      "matrix": [
+        [
+          0.2900072932243347,
+          -0.06369348615407944,
+          0.9549025893211365,
+          -1.0
+        ],
+        [
+          0.9570244550704956,
+          0.01930105872452259,
+          -0.2893643081188202,
+          10.600000381469727
+        ],
+        [
+          -7.663316203831982e-09,
+          0.997782826423645,
+          0.06655367463827133,
+          1.6799999475479126
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 24.0,
+      "path": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R48/C02_Casks.png",
+      "sha256": "c27fd92fd58201011c132adfbda34c8fbf2438d7269c46b05bacac6db6cf3351",
+      "seconds": 43.159231519995956
+    },
+    {
+      "camera": "W04_CellService",
+      "matrix": [
+        [
+          -0.6305923461914062,
+          -0.14068876206874847,
+          0.7632561326026917,
+          -2.9000000953674316
+        ],
+        [
+          0.7761142253875732,
+          -0.11430947482585907,
+          0.6201452016830444,
+          12.899999618530273
+        ],
+        [
+          -4.8184119805227965e-08,
+          0.9834327697753906,
+          0.1812732219696045,
+          1.6799999475479126
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 24.0,
+      "path": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R48/W04_CellService.png",
+      "sha256": "9c84057b87837516da80422ec573bfe6fea83d214721ae1356e756893b8e42c7",
+      "seconds": 43.40458747401135
+    }
+  ],
+  "complete": false,
+  "source_unchanged": true
+}

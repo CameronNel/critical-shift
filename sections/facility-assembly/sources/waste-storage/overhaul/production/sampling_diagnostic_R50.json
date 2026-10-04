@@ -1,0 +1,31 @@
+{
+  "source": "sections/facility-assembly/sources/waste-storage/overhaul/production/checkpoints/R50.blend",
+  "source_sha256": "267bcf58ca796d9a09503088207cd3820419476b5301b388ecb64029095e8264",
+  "camera": "W02_ReceivingReturn",
+  "changed_setting": {
+    "use_light_tree": false
+  },
+  "original_setting": {
+    "use_light_tree": true
+  },
+  "other_settings": {
+    "engine": "CYCLES",
+    "device": "CPU",
+    "samples": 24,
+    "resolution": [
+      960,
+      540
+    ],
+    "seed": 73,
+    "denoising": true,
+    "max_bounces": 8,
+    "threads": 8,
+    "exposure": 0.0,
+    "look": "AgX - Medium High Contrast",
+    "world_strength": 0.0
+  },
+  "image": "sections/facility-assembly/sources/waste-storage/overhaul/production/diagnostics/R50_W02_no_lighttree.png",
+  "image_sha256": "d1a62827d535c4e2fdd790bd8ad42cac041a916077266c2fd3fd31c6185ef3de",
+  "source_unchanged": true,
+  "scope": "Actual scratch diagnostic unsaved scene: sampling method alone changed at24samples. Both critics and primary observed restored modeled portal pool/jamb separation. No new fixture/power or material-only matched-settings causality claim."
+}

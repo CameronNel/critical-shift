@@ -1,0 +1,138 @@
+{
+  "previous": "R08",
+  "current": "R13",
+  "complete": true,
+  "accepted": false,
+  "evidence": [
+    "critics/critic_a_R13.md",
+    "critics/critic_b_R13.md"
+  ],
+  "comparisons": [
+    {
+      "camera": "C02_Casks",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "a6f8b684847229385730238fef5d86b8cc7e703a439b7bfb7f52c0a21567734b",
+      "current_image_sha256": "4f3cecb5d1cb559fcb87579fb64556b73a08aa9c4d132ca0efbb7374974e7670"
+    },
+    {
+      "camera": "C01_Entry",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "cde70f659ca5433057a8b698748a1e2d92162d97cc3b10f0c05e1f543d95eb31",
+      "current_image_sha256": "de5688293299ad54906088aa35f433e3e0f7b8470dcb47eb439d4e07c95c66f4"
+    },
+    {
+      "camera": "C05_Transfer",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "a616a9dd9bc493217e2d31988c7a06df3b67a648f0c122d40a32e179428645db",
+      "current_image_sha256": "90a11cf49fd45ba6c362f51bf30be9e5efff4dd8a8c817e2ccdbb11535772450"
+    },
+    {
+      "camera": "C09_Inventory",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "be883b5877d2133b0c79e53ab7d99a7fe9e7eb5c29492946601410b775875f9b",
+      "current_image_sha256": "a2761930fefee03d01c9aeeb8822fe4416875606f2c0acc45843a67d579acd73"
+    },
+    {
+      "camera": "D01_SealRepair",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "703288614b0193f1e4e7339e721de79ad8393ca5f7d0f13e0a4b420f059b91a3",
+      "current_image_sha256": "6ca27a6178dbc1f22f6915f69a2026112056aa37746de17e8315ed8b9a05af03"
+    },
+    {
+      "camera": "C03_Reverse",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "5c1b698cd67322302b199c221645f74bbdb130c2aad6bb41490853033f9903a7",
+      "current_image_sha256": "b8ebc82eaacf5d036085b0bcb8cd176a1d3c3697689b3f92d33628e1bffcca03"
+    },
+    {
+      "camera": "C04_Route",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "8b59749b96c17f62a75846b5f46058419154b46e0e4a553afec312099789814c",
+      "current_image_sha256": "b79db5a8f2970e2bdd33e0b969fe01bbcf5afe380a895bc5466e37fe12a1091e"
+    },
+    {
+      "camera": "C06_Dry",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "59ece36abeb9142b7552dc3e774e7962cba31c7cd15c871ec706495dcea1ac80",
+      "current_image_sha256": "40bc2a6062d44aec9b36bb6592a4b5f41298ef0a43e81816d5e26d3902c58814"
+    },
+    {
+      "camera": "C07_Quarantine",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "b4f30e2265f14bef5c77b5a23751638a4c6bdaadc5fd0db9b094fa3edde913fa",
+      "current_image_sha256": "1e9275a875341dd3cf30b95ce3f4eeac08756da12d07b6b193ae8b01163b65ab"
+    },
+    {
+      "camera": "C08_Extraction",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "f1ecb9587c6ccd90703368e23b11e45b3028386b03d4275c166a5b90b2e9ed3e",
+      "current_image_sha256": "c5d704581149ae9ebffd1beaa38fffc5779e3febbaeaf6beb5606429cd414e27"
+    },
+    {
+      "camera": "C10_Workbench",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "88cc7ae7e69a98aad09450af980f69830ec88b2707f40d7d7ff2220488ce63db",
+      "current_image_sha256": "06b4b2d4462208d9a19ffef616fdc254a2e6339ccb5b149e68c200e5c524cf35"
+    },
+    {
+      "camera": "W01_Personnel",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "dbd50190d73ab7977b20e0b9949b911f46c454e095b57211b21a5996c51fdd56",
+      "current_image_sha256": "1b5a0c54436fdff88fad9622666bcbbe32ce62a017db08244c56d73cc6de47c6"
+    },
+    {
+      "camera": "W02_ReceivingReturn",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "ac4c0a128e3394090045dc93a972a7b02b23c82ab341e2811645108f8491e886",
+      "current_image_sha256": "5c44964b0384f839fce75fe513e265f70b41fb38e430faa2e43772745b5ab30a"
+    },
+    {
+      "camera": "W03_Dispatch",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "9d21411998b4d9d064903319c89f5b409cbf7271cc32c7b72311e32105bf7c05",
+      "current_image_sha256": "1352d68b8109442eeef2aeefddde54cc3533540ba4b774f33bc08ae51c1717fc"
+    },
+    {
+      "camera": "W04_CellService",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "263ec660591b7ab3e1e0854e3fd4c98d645c8aae5027b1ea221aca168bac55d9",
+      "current_image_sha256": "fa13ae2b7d67508c5b64d69ca071f4133921a25dfdb3d5f4d0f8b24c2b9a507d"
+    },
+    {
+      "camera": "W05_ReceivingExterior",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "6b3f721393d2afb1b39644c5c2e0861f1f2ab13c83072716f75d2b7ae13f80cf",
+      "current_image_sha256": "a897143581ddf8e29ed721654bb429c59c3f0b4620757871dc4045192ba5c7e4"
+    },
+    {
+      "camera": "W06_PersonnelExterior",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "a99f8af3fa0cac0c86cf12ed764fe0533db073e821c328e444be41cd35d4795b",
+      "current_image_sha256": "9b22862db75a7d3cda9e1ef99edbd23288b553c7cdfaf0bbda3aa4af510122d0"
+    },
+    {
+      "camera": "W07_DispatchExterior",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "beffac88305d07f9c5cbc9971aa9cfb5909839802d63319371a5f05bbd317f92",
+      "current_image_sha256": "4cb91dd8d7c367a43283d8f2feba3ee102b273b1bf39424fd944a75c416d4dd3"
+    },
+    {
+      "camera": "W08_BoothDoor",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "a342b702a046d77004bcc50ac3eab1f7fffe8cf29d963e7952f2af4a7e0f9adc",
+      "current_image_sha256": "f381a62ab03aade4d04cbacf9d99ca4939479bb85ed87e5c935b06739226f134"
+    },
+    {
+      "camera": "W09_DrySouth",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "3fc1557f1e6849359c81b1afaf3b6061617b25c380030ca0dd5afbe990f94cec",
+      "current_image_sha256": "0e8fff21767c1f2d67ea566e71aad98cc0b9ffe99c1176540662b4935e034719"
+    },
+    {
+      "camera": "W10_ResidueService",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "2334eba42c7c2e577ffa9749139067c7b05be10fbda445a5bb51d63a1dc32648",
+      "current_image_sha256": "c49889cca01cfa52521b2ab3f9796cd136e3d29bc557d2e33e15bd2bdc45f4cf"
+    }
+  ]
+}

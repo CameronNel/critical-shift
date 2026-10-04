@@ -1,0 +1,27 @@
+# Critic A — style slice 02
+
+## Scope and evidence
+
+Independent pixel review of the repair corner only. Inspected `renders/slice02/C10_Workbench.png` and `C03_Reverse.png`, compared the workbench view with `renders/baseline/C10_Workbench.png`, and used Spawn `VALIDATE_Hero_A.png` plus refinery R24 `CAM_MATERIAL.png` as finish and mood references. The reverse view is used only to judge how the repair corner's lighting and palette sit in the room. No technical checks or scores were supplied; technical/whole-room categories remain unscored. This is a slice repair review, not a room acceptance review.
+
+## Finding
+
+Slice 02 is a clear mood improvement over the baseline: the orange board and warm wall have shifted to subdued, dirty green-grey values, and the corner now belongs to the requested gloomy facility. The bench and mounted tools still read as a tidy, lightly used setup rather than a repair station worn down by a neglected waste operation. The current pass has changed the palette more than the surface history or focal construction. It is not ready to establish the finish language for expansion.
+
+In `C10_Workbench`, the broad bench top is nearly pristine and uniformly brown. The pegboard, vice, loose pieces, and wall panels also have little visible evidence of repeated handling, repair, leakage, or replacement. The vice and board are built from broad simple forms; their edges and fittings do not yet give them the authored construction character visible in the Spawn locker/booth assembly. The handful of hanging tools has a repeated, orderly presentation, and the empty shelf below reinforces a display-clean impression. Darkening alone has made the previous baseline less cheerful but has not made the work corner feel run down.
+
+The comparison references give useful boundaries. Spawn's hero view has stronger object-specific construction and clearly separated cloth, painted metal, glass, and hard surface responses; the room remains legible because its practical sources create local pools of light. Refinery R24 material view provides the requested low-key grime and tired equipment mood, but much of its lower-value detail is close to disappearing. Waste should take its localized use marks and subdued palette without inheriting unreadable shadows or blanket staining.
+
+In `C03_Reverse`, the surrounding room gives the slice a convincing dark context, but the central opening collapses to almost featureless black and the distant floor and equipment have weak value separation. This is a room-context warning, not a request to detail the rest of the room in this gate. Preserve the dark interval while keeping a small amount of edge, floor, and equipment separation so the route remains legible. This image does not establish the location or contribution of a light at the workbench, so actual-fixture illumination cannot be accepted from these pixels alone.
+
+## Highest-impact repairs
+
+1. **Author localized use on the work surface.** Add restrained, broad handling wear to the bench edge, vice jaws/handle, pegboard contact points, and the locations where tools or parts repeatedly rest. Use a few purposeful chips, rubbed paint, oil-darkened patches or residue marks with distinct placement and scale. Keep large areas quiet; do not apply uniform scratch or grunge noise.
+2. **Give the corner a specific repair history.** Replace the empty, clean shelf and showroom-straight tool display with a small, coherent work cluster: a used seal/packing item, a stained rag or glove, a marked work card, a spare part, or repair material. Make each item visibly supported and show why it belongs at a seal-service station. Preserve uncluttered working space.
+3. **Strengthen the bench and tool silhouettes.** Give the vice, mounting plate, pegboard and fasteners more construction logic: readable cast/folded parts, a few differentiated hardware shapes, visible contact at the bench, and selective edge treatment. The current forms are legible, but several read as simple blocks with generic metal add-ons. Do not solve this with extra bevels or tiny screws alone.
+4. **Separate material response in the close view.** The bench, backboard and wall are currently broad, subdued surfaces with limited visible roughness/value separation. Make painted steel, bare tool metal, rubber grip, and stained worktop distinguishable in `C10_Workbench`, using broad response and tonal changes rather than high-frequency texture. Keep the pessimistic palette.
+5. **Tune the local practical light and preserve readable darkness.** Show a plausible fixture/light influence on the bench tools and nearby wall, with a clear falloff into the room. In `C03_Reverse`, lift only enough of the far opening and route boundary to preserve depth and circulation cues. This is a pixel target; fixture provenance and zero-world/no-fill compliance need measured evidence separately.
+
+## Gate status
+
+**Visual slice: revise.** Most consequential visible defect: the repair station looks clean and arranged, with too little localized contact wear or personal/work residue to sell prolonged neglect. The palette is on target; the surface story, material distinction, and authored workbench construction need another pass. I assign no numeric scores at this style-gate stage. Technical cleanliness, supports, lighting provenance, route dimensions, and reproducibility remain unverified and cannot receive acceptance from these renders.

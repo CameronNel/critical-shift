@@ -1,0 +1,138 @@
+{
+  "previous": "R05",
+  "current": "R08",
+  "complete": true,
+  "accepted": false,
+  "evidence": [
+    "critics/critic_a_R08.md",
+    "critics/critic_b_R08.md"
+  ],
+  "comparisons": [
+    {
+      "camera": "C07_Quarantine",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "fc8beb3dc4ff215015679735500f2f8e1c2ff3cd3cb2bdbbbc54a44881429191",
+      "current_image_sha256": "b4f30e2265f14bef5c77b5a23751638a4c6bdaadc5fd0db9b094fa3edde913fa"
+    },
+    {
+      "camera": "C08_Extraction",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "5586fd29e3860b08b8a56f5a2133b22f6ba3543a11a98d6589c0eb748443bef8",
+      "current_image_sha256": "f1ecb9587c6ccd90703368e23b11e45b3028386b03d4275c166a5b90b2e9ed3e"
+    },
+    {
+      "camera": "C05_Transfer",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "a1786db7740572da62aacfec9624caaf5e88ef69017d59f9d631205876e06a9e",
+      "current_image_sha256": "a616a9dd9bc493217e2d31988c7a06df3b67a648f0c122d40a32e179428645db"
+    },
+    {
+      "camera": "W10_ResidueService",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "4fe63473264ca76c8ab15952558f957178ab4c88eadfdf6e9e5df35c5dfb4ba6",
+      "current_image_sha256": "2334eba42c7c2e577ffa9749139067c7b05be10fbda445a5bb51d63a1dc32648"
+    },
+    {
+      "camera": "C02_Casks",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "33afe82d1fb9074fdc6f1602b12aadaa6aa736748e1440c3772ef248aac0a30c",
+      "current_image_sha256": "a6f8b684847229385730238fef5d86b8cc7e703a439b7bfb7f52c0a21567734b"
+    },
+    {
+      "camera": "C01_Entry",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "05f27407fb7cc221f638abe43f9ee8f0eeb58759bcebc217cff3311c09186083",
+      "current_image_sha256": "cde70f659ca5433057a8b698748a1e2d92162d97cc3b10f0c05e1f543d95eb31"
+    },
+    {
+      "camera": "C03_Reverse",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "a8b9e0244e53781cf03ff35fc8db328c1de24fa59d6f56b19c6b717b5c8bda69",
+      "current_image_sha256": "5c1b698cd67322302b199c221645f74bbdb130c2aad6bb41490853033f9903a7"
+    },
+    {
+      "camera": "C04_Route",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "30e923871712ac8fc2ae6ed7d5e5206b055c10be57e5cc3266c220a1f4b18307",
+      "current_image_sha256": "8b59749b96c17f62a75846b5f46058419154b46e0e4a553afec312099789814c"
+    },
+    {
+      "camera": "C06_Dry",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "fab02aeee5de01ebd02cbe5100d457ee5d1775719dd73cec112801e0345a02d4",
+      "current_image_sha256": "59ece36abeb9142b7552dc3e774e7962cba31c7cd15c871ec706495dcea1ac80"
+    },
+    {
+      "camera": "C09_Inventory",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "ce814e22de8e83b0b590c9a1d73caaa72a66f73ff3890d837d92831889f21ea1",
+      "current_image_sha256": "be883b5877d2133b0c79e53ab7d99a7fe9e7eb5c29492946601410b775875f9b"
+    },
+    {
+      "camera": "C10_Workbench",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "52008a21b01cf95582d7c5e7b25b7e5c0aa044f764b50699a87b2b78e78d5e16",
+      "current_image_sha256": "88cc7ae7e69a98aad09450af980f69830ec88b2707f40d7d7ff2220488ce63db"
+    },
+    {
+      "camera": "W01_Personnel",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "016a07621a108e0f0d164f6ea3118c302ab6ee93fc4011ea81956f2599b82f5b",
+      "current_image_sha256": "dbd50190d73ab7977b20e0b9949b911f46c454e095b57211b21a5996c51fdd56"
+    },
+    {
+      "camera": "W02_ReceivingReturn",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "c05c59d06b087af9fb93e502e87c63c25675352d78f6c04646fb78ec0a1a6a11",
+      "current_image_sha256": "ac4c0a128e3394090045dc93a972a7b02b23c82ab341e2811645108f8491e886"
+    },
+    {
+      "camera": "W03_Dispatch",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "2e3fa0f7e72425b8e06640a532ff206eb106e288f9dc9cc82596ead952ea2a70",
+      "current_image_sha256": "9d21411998b4d9d064903319c89f5b409cbf7271cc32c7b72311e32105bf7c05"
+    },
+    {
+      "camera": "W04_CellService",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "9f0dadd38acec2ab76af992718fbbf621f3f6a7b2be9f4bcb5529e497b00a2c1",
+      "current_image_sha256": "263ec660591b7ab3e1e0854e3fd4c98d645c8aae5027b1ea221aca168bac55d9"
+    },
+    {
+      "camera": "W05_ReceivingExterior",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "7be1042378f115c3eb80b52a8fa6c3f37ecdd07eab81caa56d2be7b71727dd7e",
+      "current_image_sha256": "6b3f721393d2afb1b39644c5c2e0861f1f2ab13c83072716f75d2b7ae13f80cf"
+    },
+    {
+      "camera": "W06_PersonnelExterior",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "93f0f61163f596551a7bc5ed2a4bfdffc5a082168eb81ddeb8266cbfb3c0890e",
+      "current_image_sha256": "a99f8af3fa0cac0c86cf12ed764fe0533db073e821c328e444be41cd35d4795b"
+    },
+    {
+      "camera": "W07_DispatchExterior",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "5eeedb31f55afa30bb91d68cabd9e4b87ec31c799d3ae29ccbbbfff6202ea9be",
+      "current_image_sha256": "beffac88305d07f9c5cbc9971aa9cfb5909839802d63319371a5f05bbd317f92"
+    },
+    {
+      "camera": "W08_BoothDoor",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "3ed74dd09cc8aec3eab46b2f458b5e571c47e2189949e91de7a7ebe835cad642",
+      "current_image_sha256": "a342b702a046d77004bcc50ac3eab1f7fffe8cf29d963e7952f2af4a7e0f9adc"
+    },
+    {
+      "camera": "W09_DrySouth",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "8ddcdfe140c88f3817c31a2b9a04a8e11bc4e111678b843264f28d2306f206bc",
+      "current_image_sha256": "3fc1557f1e6849359c81b1afaf3b6061617b25c380030ca0dd5afbe990f94cec"
+    },
+    {
+      "camera": "D01_SealRepair",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "dfaf50449041601229e4b241742caf8c69e92761b4196f5c5b32b53c66bbb53f",
+      "current_image_sha256": "703288614b0193f1e4e7339e721de79ad8393ca5f7d0f13e0a4b420f059b91a3"
+    }
+  ]
+}

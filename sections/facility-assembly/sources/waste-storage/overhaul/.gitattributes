@@ -1,0 +1,7 @@
+# Generated scene inventories retain exact bytes in LFS; review prose and source stay readable.
+production/baseline_inventory.json filter=lfs diff=lfs merge=lfs -text
+production/validation_*.json filter=lfs diff=lfs merge=lfs -text
+production/material_contract_*.json filter=lfs diff=lfs merge=lfs -text
+production/coldstart/fingerprint_*.json filter=lfs diff=lfs merge=lfs -text
+production/checkpoints/*_build.json filter=lfs diff=lfs merge=lfs -text
+production/coldstart/*/*_build.json filter=lfs diff=lfs merge=lfs -text

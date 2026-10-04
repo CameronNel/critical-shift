@@ -1,0 +1,114 @@
+{
+  "source": "sections/facility-assembly/sources/waste-storage/overhaul/production/checkpoints/R30.blend",
+  "source_sha256": "81c52443a1edfba4e72c5c19bf7cba1cc5f163584f41488c884e88011bc795ab",
+  "blender": "5.2.0 LTS",
+  "settings": {
+    "engine": "CYCLES",
+    "device": "CPU",
+    "samples": 24,
+    "resolution": [
+      960,
+      540
+    ],
+    "seed": 73,
+    "denoising": true,
+    "max_bounces": 8,
+    "threads": 8,
+    "exposure": 0.0,
+    "look": "AgX - Medium High Contrast",
+    "world_strength": 0.0
+  },
+  "required_cameras": [
+    "C01_Entry",
+    "C02_Casks",
+    "C03_Reverse",
+    "C04_Route",
+    "C05_Transfer",
+    "C06_Dry",
+    "C07_Quarantine",
+    "C08_Extraction",
+    "C09_Inventory",
+    "C10_Workbench",
+    "W01_Personnel",
+    "W02_ReceivingReturn",
+    "W03_Dispatch",
+    "W04_CellService",
+    "W05_ReceivingExterior",
+    "W06_PersonnelExterior",
+    "W07_DispatchExterior",
+    "W08_BoothDoor",
+    "W09_DrySouth",
+    "W10_ResidueService",
+    "D01_SealRepair"
+  ],
+  "views": [
+    {
+      "camera": "C02_Casks",
+      "matrix": [
+        [
+          0.2900072932243347,
+          -0.06369348615407944,
+          0.9549025893211365,
+          -1.0
+        ],
+        [
+          0.9570244550704956,
+          0.01930105872452259,
+          -0.2893643081188202,
+          10.600000381469727
+        ],
+        [
+          -7.663316203831982e-09,
+          0.997782826423645,
+          0.06655367463827133,
+          1.6799999475479126
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 24.0,
+      "path": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R30/C02_Casks.png",
+      "sha256": "210c41b5d9944ce2cc582ffbb266a41f92a2be38e95ba1d191ae13b1da78b453",
+      "seconds": 43.002023824999924
+    },
+    {
+      "camera": "W10_ResidueService",
+      "matrix": [
+        [
+          0.12797138094902039,
+          -0.39569222927093506,
+          0.9094234704971313,
+          -3.0
+        ],
+        [
+          0.9917778372764587,
+          0.05105718597769737,
+          -0.11734495311975479,
+          6.599999904632568
+        ],
+        [
+          -1.1710484670857113e-07,
+          0.9169628024101257,
+          0.39897263050079346,
+          1.6799999475479126
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 20.0,
+      "path": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R30/W10_ResidueService.png",
+      "sha256": "c4478880c76e3e32a93c9c2a275dedbce38a5ede48199165852746211da40096",
+      "seconds": 43.90678849098913
+    }
+  ],
+  "complete": false,
+  "source_unchanged": true
+}

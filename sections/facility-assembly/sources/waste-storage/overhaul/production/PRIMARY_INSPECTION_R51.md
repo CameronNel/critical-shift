@@ -1,0 +1,35 @@
+# Primary actual pixel inspection — R51
+
+Source SHA `4165b2ce869cc581e247c6110a91b8f7f4c6a97b5370f6744fb0f372fd5c669f`; editable alias matches frozen checkpoint exactly. Expanded validation PASS:589943 evaluated triangles,335 new and57 inherited supports,247 protected poses/optics preserved, zero disabled material links or issues. Native Cycles light-tree sampling is disabled; no geometry/material/fixturepower changed from R50. R49→R51 pairs explicitly record one sampling-method change, with every other fixed quality setting and camera pose retained. Own original-source state/validation/all23 RGB pixels PASS; both critics finalized all seven categories at99 or higher (A99.00/B99.10), PASS/no veto.
+
+| View | Individually opened actual pixel observation |
+|---|---|
+| W02_ReceivingReturn | Modeled receiving-side pool and inner-jamb separation are restored. Dark absent-neighbor aperture, complete coaming and floor approach remain clear, without an invented source. |
+| C07_Quarantine | Full QUARANTINE header legibility restored, with formed reinforced raised cover, worn coating and contained spent filter behind the sealed modeled inspection pane. No obstruction or manufactured-function regression. |
+| C02_Casks | Broader ragged undercoat exposure interrupts SC01 shoulders/carrier and SC02 old jacket handling face without a primer border or cloudy field. Cask crowns remain closed; filled separated lifting ends, gauges and structural gussets remain clear. |
+| W04_CellService | Larger ragged upper/lower handling losses break the lit shell while quiet original coating remains between them. Foreground SC02's elongated jacket scar has no graphic border. Filled lifting ends and service separation retain the repaired functional read. |
+| D02_CaptureService | Open room-air capture inlets, hollow header transition, retained fan/filter connection and actual support remain clear above closed cask crowns. No glare, process or material regression. |
+| D03_ExtractionRun | Separate room-air extraction and closed casks remain distinct in one standing view; larger local coating loss is readable at room scale and stays subordinate to the functional air path and real practical pools. |
+| C01_Entry | Dark long freight spine and four distinct manufactured cell fronts remain legible. Modeled local task pools and doorway separations retain hierarchy; enlarged cask wear stays subordinate. No broad flood, ceiling glare or lane clutter. |
+| C03_Reverse | Receiving return, folded cells and separate crane/cask silhouettes retain gloom and clear route. Restored real fixture contrast preserves the threshold while the absent neighboring space stays black. |
+| C04_Route | Open freight/dispatch approach retains cell/crane separation, actual extraction/bench pools and sharp bay construction. No new material, source-face or route regression. |
+| C05_Transfer | Saddle-seated overpack remains captured by modeled web restraints and visible tensioners. Cart deck, wheels and load stay grounded; receiving approach remains clear. |
+| C06_Dry | Bowed pressed lid, retainers, latch and broad worn coating remain distinct. Local handling losses avoid outlines and keep a used manufactured dry-storage read; service approach unchanged. |
+| C08_Extraction | Actual inclined filter inlet, sealed inspection panes, hollow plenum/fan connection and supported header remain legible. The real local inspection source separates the service face without a wall flood or process ambiguity. |
+| C09_Inventory | Supported clipped slip, dose and inventory controls, worn keyboard and shift-log station remain specific traces of abandoned work. Real task source retains monitor/worktop separation; no clutter or fabricated glow. |
+| C10_Workbench | Lifted split seal, retained replacement, collected fasteners, gloves, pick, chipped cup and note remain grounded on worn wood in the modeled task pool. Quiet wall streaking has no detached patch border. |
+| W01_Personnel | Outward-open leaf and actual threshold/jamb retain visible separation and a clear personnel approach. Neighboring space remains absent/black; no additional environmental light. |
+| W03_Dispatch | Modeled dispatch-side wall pool, coaming and inner-frame separation restored; dark absent-neighbor portal and route remain clear. No lighting or functional regression. |
+| W05_ReceivingExterior | Dark room through receiving coaming retains distinct manufactured zones and clear freight route; practical portal and booth-side pools provide separation without invented neighboring fill. |
+| W06_PersonnelExterior | Actual threshold frames separated cart/residue/booth and an open approach. Left partition values are somewhat different from R49 under explicit sampling change, but no new occlusion or loss of route/function; practical separation is restored versus R50. |
+| W07_DispatchExterior | Long reverse freight view retains receiving coaming, booth, crane and cask silhouettes; central route remains empty and local pools stay subordinate. |
+| W08_BoothDoor | Glazing, booth threshold, supported note, controls and shift-log station remain specific and readable in the real task pool. No floating dressing or blocked access. |
+| W09_DrySouth | Pressed formed dry-store lid and panels, latch/retainers and worn coating remain readable through clear service frontage. No stamp, primitive replacement or material regression. |
+| W10_ResidueService | Closed residue heads, separate solid lifting spindles and filled end faces avoid an open process-pipe read. Actual collars, controls and handling wear retain function without a stamped or cloudy finish; approach stays clear. |
+| D01_SealRepair | Split lifted rejected seal and pick, intact replacement, collected fasteners, gloves, chipped cup and overdue note remain supported on the worn bench. Distinct rubber/cloth/paper/metal/wood response and restrained real task pool retain interrupted maintenance. |
+
+All21main and both supplemental images individually opened by primary. No route, process, fixture-only-lighting, contact or material veto found. R49→R51 is a declared sampling-method change, with every other fixed quality setting and all camera poses/optics retained; actual complete paired judgment belongs to both independent critics. Native source frozen; original-source state/expanded validation PASS, own all23 RGB pixels nowPASS with zero channel delta; both independent Technical99 sign-offs finalized.
+
+Own selected R51 original-source cold replay COMPLETE PASS:3065objects/290materials/scene fingerprints exact; hot/cold expandedvalidation589943triPASS; all21main+D02/D03 RGB identical, maximumchannel delta0. Main/detail warm/cold manifests are complete/sourceunchanged and settings/poses/optics exactlymatch, including native light-treeFalse. Serialized nativeblend hashes differ; no byte-identical-blend claim. This proof belongs only to selectedR51.
+
+Final independent full PASS: A99.00/B99.10 weighted, everycategory≥99, no veto or material regression; selected source remains unchanged.
