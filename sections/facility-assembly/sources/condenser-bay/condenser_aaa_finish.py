@@ -1,14 +1,13 @@
-"""Condenser bay restrained finish: art-direction-friendly materials and lighting, trimmed to the 400k triangle budget.
+"""Condenser bay AAA finish: dark, grimy, accent-lit mood, trimmed to the 400k triangle budget.
 
 Run once against `module.blend` (the original R34 room) to produce an additive module:
-    blender -b module.blend --python condenser_restrained_finish.py -- --output module_restrained_A1.blend --receipt restrained-build.json
+    blender -b module.blend --python condenser_aaa_finish.py -- --output module_aaa_A1.blend --receipt aaa-build.json
 
-Follows design/ART_DIRECTION.md: broad tonal variation, localized wear, a few puddles, no blanket grime, no scratch noise or
-rust everywhere. Layout, interfaces, existing cameras and light placement are unchanged; no light is added or removed. Four new
-review cameras are added. Changes: (1) calm slab floor with sparse cracks and a few puddles; (2) plaster and concrete with
-broad staining and low wall scuffs only; (3) paint and steel with floor-level grime, cavity dirt and light edge wear at
-contact materials; (4) practicals trimmed slightly, world fill lowered; (5) faint cool haze; (6) text, curve and small-object
-bevel resolution lowered to fit 400,000 triangles.
+Layout, interfaces, existing cameras and light placement are unchanged; no light is added or removed. Four new review cameras
+are added. Changes: (1) wet cracked stained floor; (2) rough chipped rusted plaster and concrete; (3) grime, scratches, rust and
+edge wear on paint and steel; (4) ceiling battens cut hard so the local task and wash lights read as accent pools in the dark;
+(5) exposure and world fill lowered; (6) faint cold haze; (7) text, curve and small-object bevel resolution lowered to fit
+400,000 triangles. This is the owner-requested dark look; it is heavier than design/ART_DIRECTION.md asks for.
 """
 import json
 import math
@@ -17,14 +16,14 @@ import sys
 import bpy
 from mathutils import Vector
 
-REV = 'Condenser bay restrained finish'
+REV = 'Condenser bay AAA finish'
 BUDGET = 400000
 FLOOR = ['Basement coated concrete', 'Replacement floor patch']
 WALL = ['Warm mineral plaster', 'Dense cast concrete']
 PAINT = ['Astra ivory painted steel', 'Service ochre enamel', 'Structural painted steel', 'Oxide orange enamel',
          'Light oxide enamel', 'Safety burgundy', 'Charcoal impact dado']
+RUSTY = ('Astra ivory painted steel', 'Service ochre enamel', 'Structural painted steel', 'Oxide orange enamel')
 METAL = ['Astra brushed fastener steel', 'Oiled iron', 'Machined cast iron', 'Service brass', 'Matte vulcanized rubber']
-CONTACT_EDGE = ('Service brass', 'Machined cast iron', 'Service ochre enamel', 'Astra brushed fastener steel')
 
 
 def opts():
@@ -146,72 +145,100 @@ def M(name):
     return bpy.data.materials[name]
 
 
-
-
-def floor_calm(name):
+def floor_screed(name, dark=1.0, wet_lo=.56, wet_hi=.64):
     g = G(M(name))
-    base = g.mix('floor darken', 1., g.base(), (.86, .86, .88), 'MULTIPLY')
-    tone = g.mix('broad tone', g.rng('tone range', g.noise('tone noise', .9, 3, .5), .35, .65, 0, .3), base, (.55, .56, .56), 'MULTIPLY')
+    base = g.mix('floor darken', 1., g.base(), (dark, dark, dark * 1.02), 'MULTIPLY')
+    fleck = g.n('ShaderNodeTexVoronoi', 'aggregate', voronoi_dimensions='3D', feature='F1')
+    fleck.inputs['Scale'].default_value = 120
+    g.L(g.pos(), fleck.inputs['Vector'])
+    c = g.mix('light aggregate', g.rng('aggregate range', fleck.outputs['Distance'], .16, .05, 0, .5), base, (.30, .32, .30))
+    c = g.mix('pits', g.rng('pit range', g.noise('pit noise', 190, 2, .7), .6, .72, 0, .6), c, (.01, .012, .012))
     cells = g.n('ShaderNodeTexVoronoi', 'crack cells', voronoi_dimensions='3D', feature='DISTANCE_TO_EDGE')
-    cells.inputs['Scale'].default_value = .45
+    cells.inputs['Scale'].default_value = .5
     g.L(g.pos(), cells.inputs['Vector'])
-    line = g.rng('crack line', cells.outputs['Distance'], 0., .012, 1., 0.)
-    crack = g.m('crack broken', 'MULTIPLY', line, g.rng('crack gaps', g.noise('crack gap noise', 1.0, 2, .5), .52, .6))
-    c = g.mix('sparse cracks', g.m('crack strength', 'MULTIPLY', crack, .5), tone, (.05, .05, .055))
-    pool = g.noise('puddle field', .3, 4, .55)
-    wet = g.rng('puddle mask', pool, .67, .71)
-    c = g.mix('wet darkening', g.m('wet dark', 'MULTIPLY', wet, .55), c, (.4, .42, .42), 'MULTIPLY')
+    line = g.rng('crack line', cells.outputs['Distance'], 0., .014, 1., 0.)
+    crack = g.m('crack broken', 'MULTIPLY', line, g.rng('crack gaps', g.noise('crack gap noise', 1.1, 2, .5), .46, .58))
+    c = g.mix('cracks', g.m('crack strength', 'MULTIPLY', crack, .95), c, (.006, .007, .007))
+    # world-space puddles, about a fifth of the slab, with noisy edges and a dark pooled rim
+    pool = g.noise('puddle field', .42, 4, .55)
+    wet = g.rng('puddle mask', pool, wet_lo, wet_hi)
+    rim = g.m('puddle rim', 'MULTIPLY', g.rng('rim band', pool, wet_lo - .03, wet_lo + .04), g.rng('rim fade', pool, wet_hi + .02, wet_lo + .04, 0., 1.))
+    c = g.mix('wet darkening', g.m('wet dark', 'MULTIPLY', wet, .8), c, (.16, .19, .18), 'MULTIPLY')
+    c = g.mix('wet rim grime', g.m('rim amount', 'MULTIPLY', rim, .6), c, (.02, .024, .022), 'MULTIPLY')
     g.L(c, g.bs.inputs['Base Color'])
-    r = g.mix('wet roughness', wet, g.rough() if not isinstance(g.rough(), float) else (g.rough(),) * 3, (.08,) * 3)
-    g.L(g.m('rough floor', 'MAXIMUM', r, .06), g.bs.inputs['Roughness'])
-    g.L(g.m('wet coat', 'MULTIPLY', wet, .6), g.bs.inputs['Coat Weight'])
-    g.bs.inputs['Coat Roughness'].default_value = .05
-    h = g.m('slab relief', 'ADD', g.m('swirl', 'MULTIPLY', g.noise('swirl', 3.5, 3, .5), .4), g.m('grain', 'MULTIPLY', g.noise('grain', 160, 3, .7), .3))
-    g.bump('slab relief', h, .35, .003)
+    r = g.mix('wet roughness', wet, g.rough() if not isinstance(g.rough(), float) else (g.rough(),) * 3, (.06,) * 3)
+    g.L(g.m('rough floor', 'MAXIMUM', r, .05), g.bs.inputs['Roughness'])
+    g.L(g.m('wet coat', 'MULTIPLY', wet, .7), g.bs.inputs['Coat Weight'])
+    g.bs.inputs['Coat Roughness'].default_value = .04
+    h = g.m('slab relief', 'ADD', g.m('swirl', 'MULTIPLY', g.noise('swirl', 4., 3, .5), .5), g.m('grain', 'MULTIPLY', g.noise('grain', 240, 3, .75), .7))
+    h = g.m('relief with cracks', 'SUBTRACT', h, g.m('crack depth', 'MULTIPLY', crack, 1.4))
+    h = g.m('wet fills relief', 'MULTIPLY', h, g.m('relief factor', 'SUBTRACT', 1., g.m('wet85', 'MULTIPLY', wet, .85)))
+    g.bump('slab relief', h, .6, .004)
 
 
-def wall_calm(name):
+def wall_plaster(name):
     g = G(M(name))
     base = g.base()
-    blot = g.rng('blotch range', g.noise('blotches', 1.4, 4, .6), .35, .65, 0, .35)
-    tone = g.mix('blotch tone', blot, base, (.45, .45, .44), 'MULTIPLY')
+    blot = g.rng('blotch range', g.noise('blotches', 1.7, 4, .62), .35, .65, 0, .55)
+    base = g.mix('lift plaster', 1., base, (.92, .94, .94), 'MULTIPLY')
+    tone = g.mix('blotch tone', blot, base, (.20, .21, .20), 'MULTIPLY')
+    vor = g.n('ShaderNodeTexVoronoi', 'chip cells', voronoi_dimensions='3D', feature='F1')
+    vor.inputs['Scale'].default_value = 3.0
+    g.L(g.pos(), vor.inputs['Vector'])
+    grit = g.noise('chip grit', 36, 4, .7)
+    field = g.m('chip field', 'MULTIPLY', g.rng('chip cells range', vor.outputs['Distance'], .25, .75), g.rng('grit range', grit, .35, .8))
     geo = g.n('ShaderNodeNewGeometry', 'wall height')
     sep = g.n('ShaderNodeSeparateXYZ', 'wall height split')
     g.L(geo.outputs['Position'], sep.inputs[0])
-    low = g.rng('low wall wear', sep.outputs['Z'], .05, .9, 1., 0.)
-    scuff = g.m('scuff amount', 'MULTIPLY', low, g.rng('scuff breakup', g.noise('scuff noise', 5., 4, .6), .4, .62))
-    c = g.mix('low scuffs', g.m('scuff strength', 'MULTIPLY', scuff, .45), tone, (.3, .3, .29), 'MULTIPLY')
-    vor = g.n('ShaderNodeTexVoronoi', 'chip cells', voronoi_dimensions='3D', feature='F1')
-    vor.inputs['Scale'].default_value = 2.2
-    g.L(g.pos(), vor.inputs['Vector'])
-    chip = g.rng('chip threshold', g.m('chip field', 'MULTIPLY', g.m('chip low', 'MULTIPLY', low, g.rng('chip cells range', vor.outputs['Distance'], .3, .75)), g.rng('chip grit', g.noise('chip grit', 30, 4, .7), .35, .8)), .22, .26)
-    c = g.mix('few chips show primer', chip, c, (.2, .19, .18))
-    c = g.mix('cavity grime', g.m('grime amount', 'MULTIPLY', g.cavity(.08), .3), c, (.45, .45, .43), 'MULTIPLY')
+    cav = g.cavity(.08)
+    low = g.rng('low wall wear', sep.outputs['Z'], .1, 2.0, 1., 0.)
+    wear = g.m('chip likelihood', 'ADD', g.m('chip base', 'MULTIPLY', g.rng('chip pick', field, .45, .75), .7), g.m('chip low', 'MULTIPLY', low, .5), clamp=True)
+    wear = g.m('chip with cavities', 'ADD', wear, g.m('cavity chips', 'MULTIPLY', cav, .3), clamp=True)
+    chip = g.rng('chip threshold', wear, .40, .47)
+    rust = g.m('rust in chips', 'MULTIPLY', chip, g.rng('rust pick', g.noise('rust spots', 7, 3, .6), .46, .6))
+    c = g.mix('chips show primer', chip, tone, (.05, .056, .052))
+    c = g.mix('rust', rust, c, (.20, .075, .028))
+    stretch = g.n('ShaderNodeMapping', 'streak stretch')
+    stretch.inputs['Scale'].default_value = (11, 11, .5)
+    g.L(g.pos(), stretch.inputs['Vector'])
+    sn = g.noise('streak noise', 1., 3, .5, vec=stretch.outputs['Vector'])
+    c = g.mix('drip streaks', g.rng('streaks', sn, .48, .72, 0, .6), c, (.07, .06, .05), 'MULTIPLY')
+    c = g.mix('cavity grime', g.m('grime amount', 'MULTIPLY', cav, .65), c, (.26, .26, .24), 'MULTIPLY')
     g.L(c, g.bs.inputs['Base Color'])
-    h = g.m('relief', 'ADD', g.m('peel relief', 'MULTIPLY', g.noise('orange peel', 80, 3, .6), .35), g.m('wave relief', 'MULTIPLY', g.noise('trowel', 3., 2, .5), .5))
-    g.bump('plaster relief', h, .4, .004)
-    g.L(g.m('plaster rough', 'ADD', .86, g.m('chip rough', 'MULTIPLY', chip, .08), clamp=True), g.bs.inputs['Roughness'])
+    peel = g.noise('orange peel', 95, 3, .7)
+    wave = g.noise('trowel', 3.2, 2, .55)
+    h = g.m('relief', 'ADD', g.m('peel relief', 'MULTIPLY', peel, .7), g.m('wave relief', 'MULTIPLY', wave, .9))
+    h = g.m('relief chips', 'SUBTRACT', h, g.m('chip depth', 'MULTIPLY', chip, .35))
+    g.bump('rough plaster relief', h, .85, .006)
+    rough = g.m('paint roughness', 'ADD', .86, g.m('chip rough', 'MULTIPLY', chip, .12), clamp=True)
+    g.L(g.m('rough grit', 'ADD', rough, g.rng('grit rough', peel, .3, .7, -.05, .05), clamp=True), g.bs.inputs['Roughness'])
 
 
-def machine_calm(name, edge=None, edge_amount=.4, grime=.35, rust=0.):
+def machine_detail(name, edge, edge_amount=1.0, grime=.7, rust=0.0):
     g = G(M(name))
     c = g.base()
     geo = g.n('ShaderNodeNewGeometry', 'dirt height')
     sep = g.n('ShaderNodeSeparateXYZ', 'dirt height split')
     g.L(geo.outputs['Position'], sep.inputs[0])
-    low = g.rng('low dirt', sep.outputs['Z'], .0, .6, 1., 0.)
-    breakup = g.rng('dirt breakup', g.noise('dirt noise', 5., 4, .6), .35, .65)
-    c = g.mix('floor-level grime', g.m('grime gradient', 'MULTIPLY', low, g.m('grime breakup', 'MULTIPLY', breakup, .5)), c, (.5, .48, .45), 'MULTIPLY')
+    low = g.rng('low dirt', sep.outputs['Z'], .0, 1.2, 1., 0.)
+    breakup = g.rng('dirt breakup', g.noise('dirt noise', 6., 4, .6), .35, .65)
+    c = g.mix('floor-level grime', g.m('grime gradient', 'MULTIPLY', low, g.m('grime breakup', 'MULTIPLY', breakup, .85)), c, (.30, .28, .25), 'MULTIPLY')
     if rust:
-        rs = g.m('rust patch', 'MULTIPLY', g.m('rust low', 'MULTIPLY', low, g.rng('rust pick', g.noise('rust bloom', 8., 4, .65), .6, .68)), rust)
-        c = g.mix('rust patch', rs, c, (.3, .11, .035))
-    c = g.mix('mottle', g.rng('mottle range', g.noise('mottle', 10, 3, .6), .35, .65, 0, .2), c, (.7, .7, .7), 'MULTIPLY')
-    c = g.mix('cavity grime', g.m('grime', 'MULTIPLY', g.cavity(.045), grime), c, (.45, .44, .42), 'MULTIPLY')
+        rs = g.m('rust gradient', 'MULTIPLY', g.m('rust low', 'MULTIPLY', low, g.rng('rust pick', g.noise('rust bloom', 9., 4, .65), .5, .66)), rust)
+        c = g.mix('rust bloom', rs, c, (.30, .11, .035))
+    c = g.mix('mottle', g.rng('mottle range', g.noise('mottle', 14, 3, .6), .35, .65, 0, .35), c, (.5, .5, .5), 'MULTIPLY')
+    c = g.mix('cavity grime', g.m('grime', 'MULTIPLY', g.cavity(.045), grime), c, (.22, .21, .2), 'MULTIPLY')
     if edge is not None:
-        wear = g.m('edge wear', 'MULTIPLY', g.edges(.012), edge_amount)
-        broken = g.rng('wear breakup', g.noise('edge breakup', 18, 3, .6), .42, .66)
+        wear = g.m('edge wear', 'MULTIPLY', g.edges(.015), edge_amount)
+        broken = g.rng('wear breakup', g.noise('edge breakup', 30, 3, .65), .32, .62)
         c = g.mix('edge highlight', g.m('edge broken', 'MULTIPLY', wear, broken), c, edge)
     g.L(c, g.bs.inputs['Base Color'])
+    t = g.n('ShaderNodeMapping', 'scratch stretch')
+    t.inputs['Scale'].default_value = (14, 56, 14)
+    g.L(g.pos(), t.inputs['Vector'])
+    sc = g.noise('scratch', 1., 2, .5, vec=t.outputs['Vector'])
+    delta = g.rng('scratch delta', sc, .3, .7, -.2, .2, clamp=False)
+    g.L(g.m('scratch rough', 'ADD', g.rough(), delta, clamp=True), g.bs.inputs['Roughness'])
 
 
 
@@ -220,22 +247,29 @@ def mood(scene):
     for o in bpy.data.objects:
         if o.type != 'LIGHT' or o.data.energy <= 0:
             continue
-        f = .85 if o.name.startswith('batten') else .9
+        if o.name.startswith('batten'):
+            f = .3            # general ceiling light cut hard
+        elif o.name.startswith(('task ', 'Astra practical task', 'gallery', 'CW support', 'cw wall wash')):
+            f = 1.0           # local accent pools stay
+        else:
+            f = .5
         o.data.energy *= f
         cut[o.name] = f
         r, g, b = o.data.color
-        o.data.color = (r * .97, g, min(1., b * 1.04))
-    scene.view_settings.exposure -= .15
+        o.data.color = (r * .95, g * .95, min(1., b * 1.08))
+        if o.data.type == 'AREA':
+            o.data.spread = math.radians(min(math.degrees(o.data.spread), 100))
+    scene.view_settings.exposure -= .4
     nt = scene.world.node_tree
     for n in nt.nodes:
         if n.type == 'BACKGROUND':
-            n.inputs['Strength'].default_value = .08
+            n.inputs['Strength'].default_value = .03
     out = next(n for n in nt.nodes if n.type == 'OUTPUT_WORLD')
     vol = nt.nodes.new('ShaderNodeVolumeScatter')
-    vol.label = 'AAA | cool haze'
-    vol.inputs['Density'].default_value = .003
+    vol.label = 'AAA | cold haze'
+    vol.inputs['Density'].default_value = .006
     vol.inputs['Anisotropy'].default_value = .5
-    vol.inputs['Color'].default_value = (.7, .8, .86, 1)
+    vol.inputs['Color'].default_value = (.66, .78, .84, 1)
     nt.links.new(vol.outputs['Volume'], out.inputs['Volume'])
     scene.cycles.volume_bounces = 1
     scene.cycles.volume_max_steps = 64
@@ -297,24 +331,24 @@ def add_cameras():
 
 def apply():
     s = bpy.context.scene
-    assert not s.get('condenser_restrained_revision'), 'Condenser restrained finish already applied'
+    assert not s.get('condenser_aaa_revision'), 'Condenser AAA finish already applied'
     before = triangles()
     lights = len([o for o in bpy.data.objects if o.type == 'LIGHT'])
     bevels_cut, limit = trim_geometry()
     done = {'floor': [], 'wall': [], 'paint': [], 'metal': []}
     for n in FLOOR:
-        floor_calm(n); done['floor'].append(n)
+        floor_screed(n, dark=.55, wet_lo=.47, wet_hi=.55); done['floor'].append(n)
     for n in WALL:
-        wall_calm(n); done['wall'].append(n)
+        wall_plaster(n); done['wall'].append(n)
     for n in PAINT:
-        machine_calm(n, (.6, .6, .57) if n in CONTACT_EDGE else None, .45, .35); done['paint'].append(n)
+        machine_detail(n, (.58, .6, .58), 1.0, .7, rust=.4 if n in RUSTY else 0.0); done['paint'].append(n)
     for n in METAL:
-        machine_calm(n, (.62, .64, .62) if n in CONTACT_EDGE else None, .4, .3, rust=.2 if n == 'Oiled iron' else 0.0); done['metal'].append(n)
+        machine_detail(n, (.62, .64, .62), .9, .6, rust=.4 if n == 'Oiled iron' else 0.0); done['metal'].append(n)
     cut = mood(s)
     add_cameras()
     assert lights == len([o for o in bpy.data.objects if o.type == 'LIGHT'])
     after = triangles()
-    s['condenser_restrained_revision'] = REV
+    s['condenser_aaa_revision'] = REV
     bpy.context.view_layer.update()
     return {'revision': REV, 'bevel_segments_cut': bevels_cut, 'bevel_cut_size_limit_m': limit, 'materials': done, 'light_scale': cut,
             'light_count_unchanged': True, 'exposure_now': s.view_settings.exposure, 'triangles_before': before,
