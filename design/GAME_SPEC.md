@@ -3022,7 +3022,7 @@ The human is not expected to manually author most code.
 ## 32.6 Agent Rules
 
 - One task, one branch, one primary agent.
-- No agent merges its own work.
+- No agent merges its own work without explicit owner instructions. Publication, readiness and owner-requested merges follow the owner publication and fast merge rules in `AGENTS.md`.
 - No direct main edits.
 - Every task has acceptance criteria.
 - Every multiplayer feature has a multiplayer test.

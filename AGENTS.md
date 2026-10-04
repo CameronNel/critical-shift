@@ -1,5 +1,13 @@
 # Critical Shift Agent Entry Rules
 
+## Owner publication and fast merge rules (2026-10-04)
+
+1. Fix Git authentication first. Configure an authorized write token through a credential helper for both Git and Git LFS; do not commit tokens or print them. Run `git lfs push --dry-run origin HEAD` and report its exact exit code and output. A dry run does not prove an actual upload. If a login-limit error occurs, stop authentication/upload attempts and report the exact blocker; do not retry.
+2. Open a draft PR as soon as the task branch is published with its first change (GitHub requires a difference from the base). Push commits and new LFS objects throughout the work, rather than deferring publication until a merge request.
+3. Finish all review fixes, clean-checkout tests and applicable required checks before telling the owner a PR is ready. Record the full reviewed head SHA and links/results for review, tests, required checks and any LFS delivery evidence in the PR description. Every later commit invalidates that ready declaration until affected evidence and review are updated for the new head.
+4. On an explicit owner instruction to merge, do only: confirm the current head equals the recorded reviewed SHA, confirm required checks are green and there is no conflict, then call merge with that expected SHA. Target under two minutes. Do not start uploads, review fixes, tests, renders, conflict resolution, rebases, new workflows or unrelated preview waits during this merge phase. Do not bypass required checks or use an administrator override.
+5. If anything prevents the fast merge, stop and report the exact blocker instead of starting new work. Preparation and repair belong before the PR-ready declaration or in a separately authorized task. Without explicit owner merge instructions, an agent does not merge its own work.
+
 ## Existing assembled map
 
 **Owner plan (2026-10-03): the current assembled map (`facility_environment.blend`) will be retired.** Do not start new work to promote rooms into it, relink it, or extend it. The room modules and overhaul files on `main` are the source of truth for whatever replaces it. Nothing here deletes the map yet, and the instructions below still describe how it works.
@@ -46,7 +54,7 @@ Notes for agents:
 
 Respect the current task's scope. A planning-only task changes documentation, not runtime/test code, Unity projects, packages, workflows, scenes/assets or repository settings. Proposed file paths and test names in a plan are not permission to implement them.
 
-The repository's [GAME_SPEC](design/GAME_SPEC.md), section 32.6, requires **one task branch, one primary author, no direct main edits and no agent merging its own work**. Submit bounded changes for independent review. Do not claim that written policy means branch protection is already configured.
+The repository's [GAME_SPEC](design/GAME_SPEC.md), section 32.6, requires **one task branch, one primary author, no direct main edits and no agent merging its own work without explicit owner instructions**. Submit bounded changes for independent review and follow the owner publication and fast merge rules above. Do not claim that written policy means branch protection is already configured.
 
 ## Runtime, Unity, C#, packages and architecture
 
