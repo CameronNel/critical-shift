@@ -18,6 +18,14 @@ for destination in planned_outputs:
  if destination.is_symlink() or destination.resolve()==(ROOT.parent/'module.blend').resolve():
   raise ValueError('Output must not be a symlink or resolve to the immutable source')
 BUILDER_BYTES=Path(__file__).read_bytes()
+history=ROOT/'blender/history';snapshot=history/(REV+'_build.py');fullsnapshot=history/(REV+'_full_room.py')
+fullpath=Path(__file__).with_name(REV+'_full_room.py') if Path(__file__).parent.name=='history' else ROOT/'blender/full_room.py'
+FULL_BYTES=None if SLICE else fullpath.read_bytes()
+if COLD:
+ if not snapshot.is_file() or snapshot.read_bytes()!=BUILDER_BYTES:
+  raise ValueError('Cold replay requires the matching archived builder; invoke history/'+REV+'_build.py')
+ if FULL_BYTES is not None and (not fullsnapshot.is_file() or fullsnapshot.read_bytes()!=FULL_BYTES):
+  raise ValueError('Cold replay requires the matching archived full-room module')
 source=ROOT.parent/'module.blend';source_hash=hashlib.sha256(source.read_bytes()).hexdigest()
 assert Path(bpy.data.filepath).resolve()==source.resolve()
 assert source_hash=='8912b5c3b3d2525abb64e838d1fe83a1ea90aa12fea0c9b5a730d4449caecedf'
@@ -352,10 +360,8 @@ for mat in [water,oil]:
  for obj in list(added.objects):
   if obj.type=='MESH' and mat in list(obj.data.materials):soften_stain(obj,mat)
 # Full expansion is deliberately blocked until slice reviews pass.
-FULL_BYTES=None
 if not SLICE:
- fullpath=Path(__file__).with_name(REV+'_full_room.py') if Path(__file__).parent.name=='history' else ROOT/'blender/full_room.py'
- FULL_BYTES=fullpath.read_bytes();exec(compile(FULL_BYTES,str(fullpath),'exec'),globals())
+ exec(compile(FULL_BYTES,str(fullpath),'exec'),globals())
 for o in s.objects:
  if o.type=='MESH' and o.get('overhaul_modified') and not o.hide_render:
   assert len(o.data.vertices)>=3 and len(o.data.polygons)>=1,'Empty modified visible mesh: '+o.name
@@ -368,7 +374,10 @@ output=outdir/(REV+'.blend');bpy.ops.wm.save_as_mainfile(filepath=str(output),ch
 if not COLD:
  active=ROOT.parent/('module_overhaul_slice_R0.blend' if SLICE else 'module_overhaul_R1.blend');active.write_bytes(output.read_bytes())
 record={'revision':REV,'source':source.relative_to(REPO).as_posix(),'source_sha256':source_hash,'output':output.relative_to(REPO).as_posix(),'sha256':hashlib.sha256(output.read_bytes()).hexdigest(),'object_count':len(s.objects),'new_objects':sorted(set(bpy.data.objects.keys())-original_names),'fixture_pairs':fixture_pairs,'supports':supports,'coldstart':COLD,'world_strength':0,'slice':SLICE}
-record['builder_sha256']=hashlib.sha256(BUILDER_BYTES).hexdigest();history=ROOT/'blender/history';history.mkdir(exist_ok=True);snapshot=history/(REV+'_build.py');snapshot.write_bytes(BUILDER_BYTES);record['builder_snapshot']=snapshot.relative_to(REPO).as_posix()
+record['builder_sha256']=hashlib.sha256(BUILDER_BYTES).hexdigest();record['builder_snapshot']=snapshot.relative_to(REPO).as_posix()
+if not COLD:
+ history.mkdir(exist_ok=True);snapshot.write_bytes(BUILDER_BYTES)
 if FULL_BYTES is not None:
- fullsnapshot=history/(REV+'_full_room.py');fullsnapshot.write_bytes(FULL_BYTES);record['full_room_snapshot']=fullsnapshot.relative_to(REPO).as_posix();record['full_room_sha256']=hashlib.sha256(FULL_BYTES).hexdigest()
+ if not COLD:fullsnapshot.write_bytes(FULL_BYTES)
+ record['full_room_snapshot']=fullsnapshot.relative_to(REPO).as_posix();record['full_room_sha256']=hashlib.sha256(FULL_BYTES).hexdigest()
 report=outdir/(REV+'_build.json');report.write_text(json.dumps(record,indent=2)+'\n');print('WASTE_OVERHAUL_SAVED',REV,len(s.objects),'supports',len(supports),flush=True)

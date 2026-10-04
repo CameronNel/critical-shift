@@ -8,6 +8,8 @@ Untouched module SHA-256: `8912b5c3b3d2525abb64e838d1fe83a1ea90aa12fea0c9b5a730d
 
 ## Current phase
 
+2026-10-04 PR #87 workflow follow-up: all928 remote LFS bodies independently download/SHA verified and the reviewed scene commit published. Automated review's archive replay and live-fixture validation findings were fixed in code only, with nine isolated archive guards, eleven actual fixture fault injections and both actual R51 hot/cold validations passing. Source/checkpoint/alias and immutable historical builders remain byte-identical. See `pr_workflow_checks_R51.json`; subsequent exact PR HEAD and check status are recorded in the PR body.
+
 Sixteen complete scored cycles are recorded through R51. Final selected R51 PASS: independent Luna A99.00 and B99.10 weighted, all seven categories at least99, no critical veto or material regression. Both independently finalized Technical99 after inspecting this revision's own original-source state/validation/all23 pixel proof. All3065 object/290 material/scene records match; hot/cold expanded validationPASS589943tri; every21main+D02/D03 RGB image exact with zerochannel delta. SourceSHA4165b2ce869cc581e247c6110a91b8f7f4c6a97b5370f6744fb0f372fd5c669f, editable alias exact. Final two completed comparisons R45→R49 and R49→R51 are materially stable; the latter transparently records samplingTrue→False, all other settings and all23 poses/optics/hashes verified. R50 remains rejected incomplete20/21 diagnostic. Editable package and portable replay are complete. Publication and independent PR review occur after this frozen scene commit and are recorded in its exact-HEAD delivery run/PR body. No merge or retired-map promotion authorized or performed.
 
 

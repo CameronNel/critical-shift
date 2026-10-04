@@ -30,16 +30,38 @@ source=ROOT.parent/'module.blend';source_hash=hashlib.sha256(source.read_bytes()
 if source_hash!='8912b5c3b3d2525abb64e838d1fe83a1ea90aa12fea0c9b5a730d4449caecedf':issues.append('Original source changed')
 world=s.world.node_tree.nodes['Background'].inputs['Strength'].default_value
 if world!=0:issues.append('World illumination nonzero')
+def fixture_material_emission(m):
+ # Practical lenses use a direct surface shader with constant strength. The
+ # dirty-glass RGB ramps have bounded colors; unknown fields fail closed.
+ if not m or not m.use_nodes:return None
+ outputs=[n for n in m.node_tree.nodes if n.type=='OUTPUT_MATERIAL' and n.is_active_output and n.target in {'ALL','CYCLES'}]
+ outputs=sorted(outputs,key=lambda n:n.target!='CYCLES')
+ if not outputs or not outputs[0].inputs['Surface'].is_linked:return None
+ link=outputs[0].inputs['Surface'].links[0];node=link.from_node
+ if not link.is_valid or not link.from_socket.enabled or node.mute:return None
+ if node.type=='BSDF_TRANSPARENT':return dict(minimum=0,maximum=0)
+ if node.type not in {'BSDF_PRINCIPLED','EMISSION'}:return None
+ strength=node.inputs['Emission Strength' if node.type=='BSDF_PRINCIPLED' else 'Strength']
+ color=node.inputs['Emission Color' if node.type=='BSDF_PRINCIPLED' else 'Color']
+ if strength.is_linked:return None
+ colors=[tuple(color.default_value[:3])]
+ if color.is_linked:
+  color_link=color.links[0];ramp_node=color_link.from_node
+  if not color_link.is_valid or not color_link.from_socket.enabled or ramp_node.mute or ramp_node.type!='VALTORGB' or color_link.from_socket.name!='Color':return None
+  ramp=ramp_node.color_ramp
+  if ramp.color_mode!='RGB' or ramp.interpolation not in {'LINEAR','EASE','CONSTANT'}:return None
+  colors=[tuple(e.color[:3]) for e in ramp.elements]
+ values=[strength.default_value,*[v for c in colors for v in c]]
+ if not all(math.isfinite(v) and v>=0 for v in values):return None
+ return dict(minimum=strength.default_value*max(min(c[i] for c in colors) for i in range(3)),maximum=strength.default_value*max(max(c[i] for c in colors) for i in range(3)))
 fixtures=[]
 for o in s.objects:
  if o.type!='LIGHT':continue
  lens=s.objects.get(o.get('physical_lens',''));energies=[];distance=angle=None;aperture=[]
  if lens:
   hit,n,ix,distance=tree(lens).find_nearest(o.matrix_world.translation);axis=(o.matrix_world.to_3x3()@Vector((0,0,-1))).normalized();angle=math.degrees(math.acos(max(-1,min(1,n.dot(axis)))))
-  for m in lens.data.materials:
-   if m and m.use_nodes:
-    for node in m.node_tree.nodes:
-     if node.type=='BSDF_PRINCIPLED':energies.append(node.inputs['Emission Strength'].default_value)
+  for index in sorted({p.material_index for p in lens.data.polygons}):
+   energies.append(fixture_material_emission(lens.data.materials[index] if index<len(lens.data.materials) else None))
  inside=-6<o.matrix_world.translation.x<6 and 0<o.matrix_world.translation.y<18 and 0<o.matrix_world.translation.z<4.8
  dead=bool(o.get('failed_fixture'))
  if lens:
@@ -50,7 +72,8 @@ for o in s.objects:
    origin=o.matrix_world.translation+o.matrix_world.to_3x3()@Vector((x*width,y*height,0))+axis*.001
    blocked,point,normal,index,obj,matrix=s.ray_cast(dg,origin,axis,distance=.15)
    aperture.append(dict(sample=[x,y],blocked=blocked,object=obj.name if blocked else None,distance_m=(point-origin).length if blocked else None))
- ok=lens is not None and o.data.type!='SUN' and inside and distance is not None and distance<.0051 and angle<=12 and not any(a['blocked'] for a in aperture) and (not dead or (o.data.energy==0 and energies and all(e==0 for e in energies)))
+ output_ok=bool(energies) and all(e is not None for e in energies) and (o.data.energy==0 and all(e['maximum']==0 for e in energies) if dead else o.data.energy>0 and any(e['minimum']>0 for e in energies))
+ ok=lens is not None and o.data.type!='SUN' and inside and distance is not None and distance<.0051 and angle<=12 and not any(a['blocked'] for a in aperture) and output_ok
  fixtures.append(dict(source=o.name,lens=lens.name if lens else None,nearest_lens_distance_m=distance,normal_angle_deg=angle,aperture_samples=aperture,energy=o.data.energy,lens_emission=energies,inside=inside,failed=dead,status='PASS' if ok else 'FAIL'))
  if not ok:issues.append('Invalid practical fixture '+o.name)
 # Exhaustive visible emissive-material audit: every luminous surface belongs to a real fixture.

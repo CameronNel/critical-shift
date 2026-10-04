@@ -16,6 +16,8 @@ The final two completed comparisons, R45→R49 and R49→R51, have no material r
 
 The fixed render settings are Cycles CPU, 24 samples, seed 73, 960×540, denoising, eight bounces, light-tree sampling disabled, exposure zero and AgX Medium High Contrast. `CAMERAS.md` defines every required view. Own cold evidence is in `coldstart/{comparison,pixel_comparison,detail_comparison}_R51.json`, `validation_R51_cold.json`, `renders/R51_cold` and `details/R51_cold`. Current evidence lives in `renders/R51`, `details/R51`, `validation_R51.json`, `material_contract_R51.json`, `PRIMARY_INSPECTION_R51.md` and `critics`.
 
+PR workflow follow-up: automated review identified an archive-overwrite replay gap and a missing live-fixture output check. The canonical builder now verifies both archived source files before cold replay and never rewrites archives during it. The validator checks face-used lens materials and connected active output, with constant strength and conservative constant/RGB-ramp emission bounds. Both actual R51 builds pass the stronger validator; nine isolated archive guards and eleven actual Blender fixture fault injections pass. See `pr_workflow_checks_R51.json` and the independent `critics/pr_workflow_review_R51.md`. The selected scene, archived builders and prior art evidence retain their exact bytes.
+
 ## Exact selected replay
 
 From the repository root, set `WASTE_BLENDER` to the Blender executable and `WASTE_ROOT=sections/facility-assembly/sources/waste-storage/overhaul`. Use the archived selected builder, not a later canonical builder, for this exact revision:
@@ -32,4 +34,4 @@ python "$WASTE_ROOT/blender/compare_coldstart.py" R51
 
 Pillow is required for the last comparison. Replay writes cold derivatives and evidence under the overhaul package; it does not overwrite the editable alias or original source. Native serialized file hashes may differ even when all authoring fingerprints and rendered pixels match.
 
-Registered support/aperture/route probes are bounded samples. Unity export, collision/navmesh, procedural-material conversion, lighting bake and runtime performance were not evaluated. This is an additive scene candidate. Publication and independent PR review are recorded externally in the exact-HEAD delivery run and PR body. This handoff freezes before publication; owner merge remains a separate action. the retired map is not promoted or relinked.
+Registered support/aperture/route probes are bounded samples. Unity export, collision/navmesh, procedural-material conversion, lighting bake and runtime performance were not evaluated. This is an additive scene candidate. Publication and independent PR review are recorded externally in the delivery run and PR body. The reviewed scene froze before publication; the workflow follow-up changes only code and documentation. Owner merge remains a separate action. The retired map is not promoted or relinked.
