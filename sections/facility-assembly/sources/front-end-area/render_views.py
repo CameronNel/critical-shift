@@ -10,9 +10,9 @@ sc.cycles.denoiser = 'OPENIMAGEDENOISE'; sc.cycles.denoising_input_passes = 'RGB
 if hasattr(sc.cycles, 'use_light_tree'): sc.cycles.use_light_tree = True
 sc.cycles.sample_clamp_indirect = 8.0
 sc.render.resolution_x, sc.render.resolution_y = res; sc.render.resolution_percentage = 100
-sc.view_settings.view_transform = 'AgX'; sc.view_settings.exposure = 0.1
+sc.view_settings.view_transform = 'AgX'; sc.view_settings.exposure = -0.5
 try:
-    sc.view_settings.look = 'Medium High Contrast'
+    sc.view_settings.look = 'AgX - Medium High Contrast'
 except Exception: pass
 os.makedirs(outdir, exist_ok=True)
 for n in names:

@@ -37,7 +37,7 @@ def _node(nt, kind, **kw):
     return n
 
 def make_mat(name, base=(0.5, 0.5, 0.5), rough=0.6, metallic=0.0, var=0.12, var_scale=0.6, wear=None, bump=0.0,
-             attr=False, emission=0.0, glass=False, tile=None, grain=None, strata=None, sheen=0.0, spec=0.5, pointy=False, grime=0.0, dirt=(0.20, 0.17, 0.12)):
+             attr=False, emission=0.0, glass=False, tile=None, grain=None, strata=None, sheen=0.0, spec=0.5, pointy=False, grime=0.0, dirt=(0.52, 0.47, 0.42)):
     if name in _mats: return _mats[name]
     m = bpy.data.materials.new(name); m.use_nodes = True
     nt = m.node_tree; nt.nodes.clear()
@@ -125,8 +125,8 @@ def make_mat(name, base=(0.5, 0.5, 0.5), rough=0.6, metallic=0.0, var=0.12, var_
         sx = _node(nt, 'ShaderNodeSeparateXYZ'); nt.links.new(tc.outputs['Object'], sx.inputs[0])
         low = mr(sx.outputs['Z'], 0.0, 1.7, 1.0, 0.0)
         big = mr(nb.outputs['Fac'], 0.42, 0.68); stk = mr(ns.outputs['Fac'], 0.45, 0.70)
-        tot = mth('ADD', mth('MULTIPLY', big, None, 0.6), mth('MULTIPLY', stk, None, 0.5))
-        tot = mth('ADD', tot, mth('MULTIPLY', low, None, 0.45))
+        tot = mth('ADD', mth('MULTIPLY', big, None, 0.3), mth('MULTIPLY', stk, None, 0.25))
+        tot = mth('ADD', tot, mth('MULTIPLY', low, None, 0.5))
         dirt_f = mth('MULTIPLY', tot, None, grime)
         dm = _node(nt, 'ShaderNodeMix', data_type='RGBA', blend_type='MULTIPLY'); nt.links.new(dirt_f, dm.inputs['Factor'])
         dc = _node(nt, 'ShaderNodeRGB'); dc.outputs[0].default_value = (*dirt, 1)
@@ -154,26 +154,32 @@ def make_mat(name, base=(0.5, 0.5, 0.5), rough=0.6, metallic=0.0, var=0.12, var_
     return m
 
 def families():
-    """The 18 shared material families (see design/facility-layout/front-end-area/DESIGN.md)."""
+    """Shared material families. Palette follows the spawn room: dusty-lilac plaster over a navy dado, terracotta tile, rust-red,
+    mustard and graphite accents, warm concrete outside. Wear is light: two years of use, not twenty."""
     F = {}
-    F['concrete_slab'] = make_mat('concrete_slab', (0.38, 0.365, 0.33), 0.84, var=0.28, var_scale=0.35, grime=1.0, wear={'color': (0.72, 0.70, 0.66), 'r': 0.02}, bump=0.1)
-    F['plaster'] = make_mat('plaster', (0.52, 0.47, 0.38), 0.9, var=0.3, grime=1.15, dirt=(0.16, 0.15, 0.10), var_scale=0.3, bump=0.05)
-    F['steel_charcoal'] = make_mat('steel_charcoal', (0.085, 0.09, 0.10), 0.55, 0.15, var=0.15, grime=0.7, wear={'color': (0.30, 0.20, 0.14), 'r': 0.01})
-    F['steel_accent'] = make_mat('steel_accent', (0.66, 0.34, 0.06), 0.6, 0.1, var=0.2, grime=0.9, wear={'color': (0.35, 0.18, 0.08), 'r': 0.01})
-    F['steel_rust'] = make_mat('steel_rust', (0.27, 0.13, 0.065), 0.85, 0.3, var=0.5, var_scale=1.2, grime=0.6, bump=0.25)
-    F['corrugated'] = make_mat('corrugated', (0.40, 0.40, 0.39), 0.6, 0.55, var=0.35, var_scale=0.5, grime=1.0, dirt=(0.22, 0.16, 0.10))
-    F['cafe_tile'] = make_mat('cafe_tile', tile={'a': (0.64, 0.50, 0.36), 'b': (0.59, 0.46, 0.33), 'grout': (0.20, 0.18, 0.16), 'w': 0.6, 'h': 0.6, 'mortar': 0.01}, rough=0.6, var=0.2, grime=0.7)
-    F['rubber'] = make_mat('rubber', (0.045, 0.045, 0.05), 0.92, var=0.08, bump=0.08)
-    F['timber'] = make_mat('timber', (0.34, 0.20, 0.09), 0.75, var=0.3, grime=0.8, grain=14, wear={'color': (0.55, 0.38, 0.2), 'r': 0.008}, bump=0.1)
-    F['laminate'] = make_mat('laminate', (0.58, 0.54, 0.46), 0.5, var=0.12, grime=1.0, wear={'color': (0.82, 0.78, 0.70), 'r': 0.006})
+    F['concrete_slab'] = make_mat('concrete_slab', (0.40, 0.375, 0.34), 0.82, var=0.2, var_scale=0.35, grime=0.55, wear={'color': (0.66, 0.63, 0.58), 'r': 0.02}, bump=0.08)
+    F['plaster'] = make_mat('plaster', (0.47, 0.35, 0.43), 0.88, var=0.12, var_scale=0.3, grime=0.45, bump=0.05)
+    F['dado'] = make_mat('dado', (0.028, 0.034, 0.095), 0.5, var=0.1, grime=0.5, wear={'color': (0.12, 0.13, 0.2), 'r': 0.006})
+    F['ceiling'] = make_mat('ceiling', (0.66, 0.63, 0.60), 0.9, var=0.06, grime=0.3)
+    F['trim'] = make_mat('trim', (0.62, 0.60, 0.55), 0.55, var=0.06, grime=0.4)
+    F['steel_charcoal'] = make_mat('steel_charcoal', (0.085, 0.09, 0.105), 0.5, 0.2, var=0.12, grime=0.35, wear={'color': (0.30, 0.22, 0.17), 'r': 0.01})
+    F['steel_accent'] = make_mat('steel_accent', (0.72, 0.36, 0.06), 0.5, 0.1, var=0.15, grime=0.4, wear={'color': (0.35, 0.18, 0.08), 'r': 0.01})
+    F['steel_rust'] = make_mat('steel_rust', (0.40, 0.19, 0.09), 0.82, 0.3, var=0.5, var_scale=1.2, grime=0.3, bump=0.25)
+    F['corrugated'] = make_mat('corrugated', (0.52, 0.52, 0.50), 0.55, 0.55, var=0.25, var_scale=0.5, grime=0.5, dirt=(0.45, 0.40, 0.34))
+    F['cafe_tile'] = make_mat('cafe_tile', tile={'a': (0.46, 0.27, 0.19), 'b': (0.40, 0.24, 0.17), 'grout': (0.30, 0.26, 0.23), 'w': 0.5, 'h': 0.5, 'mortar': 0.01}, rough=0.5, var=0.12, grime=0.5)
+    F['tile_blue'] = make_mat('tile_blue', tile={'a': (0.05, 0.07, 0.21), 'b': (0.045, 0.06, 0.19), 'grout': (0.30, 0.26, 0.23), 'w': 0.6, 'h': 0.6, 'mortar': 0.012}, rough=0.5, var=0.1, grime=0.5)
+    F['rubber'] = make_mat('rubber', (0.04, 0.04, 0.045), 0.9, var=0.08, bump=0.08, grime=0.3)
+    F['timber'] = make_mat('timber', (0.42, 0.25, 0.115), 0.65, var=0.25, grain=14, wear={'color': (0.55, 0.38, 0.2), 'r': 0.008}, bump=0.1, grime=0.3)
+    F['laminate'] = make_mat('laminate', (0.70, 0.64, 0.54), 0.4, var=0.08, grime=0.45, wear={'color': (0.80, 0.76, 0.68), 'r': 0.006})
     F['glass'] = make_mat('glass', (0.82, 0.92, 0.95), glass=True)
-    F['fabric'] = make_mat('fabric', (0.36, 0.14, 0.09), 0.97, var=0.35, var_scale=4, grime=1.0, sheen=0.4, bump=0.2)
-    F['plastic'] = make_mat('plastic', (0.2, 0.22, 0.24), 0.55, var=0.12, attr=True, grime=0.8, wear={'color': (0.5, 0.5, 0.5), 'r': 0.006})
-    F['signage'] = make_mat('signage', (0.9, 0.9, 0.9), 0.55, attr=True, var=0.1, grime=0.9)
-    F['foliage'] = make_mat('foliage', (0.12, 0.30, 0.08), 0.8, attr=True, var=0.3, var_scale=3)
-    F['rock'] = make_mat('rock', (0.22, 0.17, 0.12), 0.95, var=0.9, var_scale=0.6, strata=0.5, bump=0.9, pointy=True, grime=0.5)
-    F['props'] = make_mat('props', (0.5, 0.4, 0.3), 0.8, attr=True, var=0.3, grime=0.7, var_scale=1.5, wear={'color': (0.7, 0.6, 0.45), 'r': 0.01}, bump=0.15)
+    F['fabric'] = make_mat('fabric', (0.45, 0.17, 0.11), 0.96, var=0.2, var_scale=4, sheen=0.4, bump=0.2, attr=True, grime=0.4)
+    F['plastic'] = make_mat('plastic', (0.2, 0.22, 0.24), 0.45, var=0.08, attr=True, grime=0.4, wear={'color': (0.5, 0.5, 0.5), 'r': 0.006})
+    F['signage'] = make_mat('signage', (0.9, 0.9, 0.9), 0.5, attr=True, var=0.05, grime=0.35)
+    F['foliage'] = make_mat('foliage', (0.12, 0.30, 0.08), 0.75, attr=True, var=0.3, var_scale=3)
+    F['rock'] = make_mat('rock', (0.42, 0.31, 0.21), 0.9, var=0.7, var_scale=0.45, strata=0.15, bump=1.6, pointy=True, grime=0.4, dirt=(0.5, 0.45, 0.4))
+    F['props'] = make_mat('props', (0.5, 0.4, 0.3), 0.75, attr=True, var=0.22, var_scale=1.5, grime=0.4, wear={'color': (0.7, 0.6, 0.45), 'r': 0.01}, bump=0.12)
     F['emissive'] = make_mat('emissive', (1, 1, 1), 0.4, attr=True, var=0.0, emission=7.0)
+    F['screen'] = make_mat('screen', (1, 1, 1), 0.2, attr=True, var=0.0, emission=1.6)
     return F
 
 # --------------------------------------------------------------------------- geometry

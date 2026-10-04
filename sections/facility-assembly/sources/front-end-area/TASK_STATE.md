@@ -1,6 +1,6 @@
 # Front-end area (cafeteria, hall, yard): production state
 
-**Status: first build, unreviewed. Not independently reviewed, not accepted, not promoted anywhere.** Built 2026-10-04 from the
+**Status: second build, unreviewed. Not independently reviewed, not accepted, not promoted anywhere.** Built 2026-10-04 from the
 design in `design/facility-layout/front-end-area/DESIGN.md` and revised with the owner's review notes the same day.
 Art label: owner's brief is "run-down, half-abandoned, horror-adjacent". Warm concrete, machine grey, charcoal steel, rust,
 ochre; no teal.
@@ -20,32 +20,33 @@ Seven `IF_PORTAL_*` empties with clear width, height and outward normal: spawn a
 cafeteria-to-hall opening 6.0 m, hall west door 2.4 m, hall east door 2.4 m, spine blast door 3.6 m. All sit at the planned
 plan positions; none were moved.
 
-## What was built (against the owner's review notes)
-- Cafeteria: dining area smaller and on the east side with a kiosk / serving area; small living room on the west (couches,
-  armchair, coffee table, TV showing static); recreation corner (foosball, air hockey, arcade basketball, dartboard).
-- Grime: dirt, streak and mould layer in all shared materials; floor cracks, stains, puddles, wall streaks, fallen ceiling tiles,
-  litter, dead plants, dead lights, overturned furniture. No gore.
-- Yard: the rail starts at the centre of the mine entrance (y = -70). Only the open front portal of the R39 mine is reused (cut from
-  `module_r39_aaa.blend`; the rest of that mine is not copied). Ragged ground (sunk, tilted, cracked, missing slabs, potholes,
-  rubble). Heavy scrapyard junk: containers, vehicle hulks, skips, crushed cubes, pipes, tyre stacks, scrap heaps, crates.
-- Hall: two cave-ins with rubble, fallen slabs and beams, jersey-barrier chicanes, sandbags, crate walls, toppled shelving,
-  hanging cables. Free width is cut by obstacles; the hall footprint itself is unchanged (36 x 12 m).
+## Revision 2 (2026-10-04, overnight): look matched to the spawn room
+The owner found v1 read as a PS2 horror game and its props low-effort. v2 replaces the look and the assets:
+- Look: the spawn room's idiom. Dusty-lilac plaster over a navy dado with a white rail, terracotta tile with a blue border, white trim,
+  rust-red and mustard accents, warm bright lighting from working fixtures, daylight outside with a blue sky and a warm sun. Wear is
+  light (about two years of use): faint dust and scuffs near the floor, a few tilted or cracked slabs, wet patches. No dead lights,
+  mould, stains, litter or horror dressing remain.
+- Assets: every prop was rebuilt with rounded forms, turned legs, subdivided upholstery, real leaf geometry, wheels with hubs and lug
+  nuts, corrugated container profiles, welded-mesh fences, rail with sleepers, fishplates and ballast. Source: `fe_kit.py` (geometry
+  kit), `fe_assets_int.py`, `fe_assets_yard.py`, `fe_assets_site.py`, `fe_wallart.py`.
+- Cafeteria: east dining area (four tables, booth) facing a kiosk / serving area (counter with hot wells and sneeze guard, kitchen
+  behind a hatch, ordering kiosk, queue stanchions, vending); west living room (two sofas, armchair, coffee table, rug, TV, lamp,
+  plants); north-west recreation corner (foosball, air hockey, arcade basketball, dartboard with oche); planter dividers; posters,
+  bulletin boards, extinguishers, first-aid boxes, clocks and exit signs in the spawn room's style.
+- Yard: blocky layered cliff with ledge planting and the R39 portal front, timbered tunnel mouth, rail curving from the portal to the
+  refinery gate, tidy salvage yard (stacked containers, pickup, van, skips, steel stock, pipe stacks, bales, crates, pallets, drums,
+  tyre stacks, tanks, generator), mesh fences, ragged but sound ground, trees and shrubs.
+- Hall: mid-refit rather than collapsed: scaffold tower, plasterboard and cement stock, ladder, wheelbarrow, racking, jersey-barrier
+  chicanes and sandbags, and one small cordoned ceiling collapse with rubble. Footprint unchanged; clear lanes kept.
 
 ## Numbers (from `validation.json`, final scene)
-- Triangles (evaluated, instances and text counted): yard 299,876; cafeteria 58,608; hall 72,192; shared 4,316; **total 434,992**
-  against the 800,000 budget. About 365k is unspent; detail was added only where renders showed a need.
-- Support contact: interior floors, 108 floor-supported props checked at 5 mm gap / 2 mm penetration: 0 failures.
-  Yard, 134 props checked at 0.12 m because the yard floor is deliberately ragged: 0 failures. Exempt from the floor test
-  (not measured): heap, broken-floor, debris, hanging, stacked, table and wall-mounted items.
-- Clear lanes (no prop above 0.25 m): reactor axis x 6.8 to 9.2 (cafeteria and hall), hall door line y -55.3 to -52.7,
-  cafeteria west and east door lanes, mine lane y -71.3 to -68.7: no violations.
-- Bounds: three zones stay inside their declared footprints except rail and tunnel mouth (west of the cliff line, intended),
-  shared wall pieces and rubble, which was clipped back inside the hall.
-
-## Commands that ran
-- Build (above): succeeded, 434,992 triangles.
-- `blender -b front_end_area.blend -P validate_front_end.py -- validation.json`: succeeded, results above.
-- `render_views.py` for all nine cameras at 1280 x 720, 40 samples, Cycles CPU with OIDN: succeeded.
+- Triangles (evaluated, instances and text counted): yard 433,632; cafeteria 158,952; hall 133,384; shared 2,996; **total 728,964**
+  against the 800,000 budget.
+- Support contact: 101 interior floor-supported props at 5 mm gap / 2 mm penetration: 0 failures. Yard, 113 props at 0.12 m because
+  the yard floor is deliberately uneven: 0 failures. Heap, broken-floor, debris, hanging, stacked, table and wall-mounted items are
+  exempt, not measured.
+- Clear lanes (no prop above 0.25 m): reactor axis x 6.8 to 9.2 (cafeteria and hall), hall door line y -55.3 to -52.7, cafeteria west
+  and east door lanes, mine lane y -71.3 to -68.7: no violations.
 
 ## Not run, not claimed
 - No independent review and no score. No room validator from the repo's section tooling was run (this module has none yet).
@@ -56,9 +57,11 @@ plan positions; none were moved.
   module was not edited.
 
 ## Known defects
-- Hard-edged flat rectangle of the mountain mass is visible behind the cliff in FE_02. Cliff face is a heightfield without strata detail.
-- Behind the portal frame the tunnel mouth ends in a flat grey wall instead of a black void (FE_09); not yet diagnosed.
-- Spawn airlock opening shows an empty bright sky because the spawn room is not part of this module.
-- Sandbags read brick-red, the kitchen hatch light reads white, and the TV static is hard to see from the lane cameras.
-- Scrap heaps are made of box-like scrap prototypes and read as piles of boxes up close. Foliage is blobby.
-- The cafeteria middle is still open floor between the 2.4 m lanes; only chairs, tiles and litter fill it.
+- Cliff face is a smoothed block heightfield: believable at yard distance, noisy and smooth up close; the rock shader shows speckle.
+- Vehicles, containers and tanks are stylised, not photoreal; interior props follow the spawn room's rounded stylisation.
+- Behind the portal frame the tunnel mouth ends in a flat black void; there is no tunnel.
+- The spawn airlock opening shows an empty bright sky because the spawn room is not part of this module.
+- The cafeteria still has a large open floor between the 2.4 m lanes; furniture sits in three zones around it.
+- Concrete slabs read slightly blue under the sky light.
+- Only FE_03, FE_07, FE_02 and FE_06 were re-rendered after the last small fixes (floor drains, bale colours); the other five images
+  are from the build just before that change and match it except for those two items.

@@ -29,18 +29,19 @@ From the spawn door the player sees the whole decision:
 Both axes keep a 2.4 m clear lane. Furniture, junk and planting stay off them.
 
 ## 3. Zone briefs (revised after the owner's review notes, build v1)
-The whole area reads as a **run-down, half-abandoned, horror-adjacent** place: dim and mostly dead lights, grime and mould
-streaks, cracked floors, litter, dead plants, broken furniture. No gore. Everything stays readable and navigable.
+The whole area follows the **spawn room's look** (dusty-lilac walls over a navy dado, terracotta tile, warm bright light, daylight
+outside) and is **lightly run-down, about two years of use, not abandoned**: faint dust and scuffs, a few uneven slabs, nothing broken
+for effect. Props are built at the spawn room's level of detail.
 
 ### Yard (open air, scrapyard)
-- Ground is ragged: slabs tilted and sunk by up to 0.10 m, some cracked in three pieces at different heights, six missing with
-  broken shards and puddles over displaced earth, potholes, crack seams, litter and rubble piles at the fence and cliff foot.
+- Ground is uneven but sound: slabs tilted or sunk by up to 0.07 m, two cracked in three pieces, two missing with broken shards
+  over displaced earth, a few hairline cracks and wet patches.
 - The rail starts at the **centre of the mine entrance (y = -70)**, runs east along the mine axis to x = -22.2 and turns north
   to the refinery freight gate. Only the **front panel of the existing R39 mine** (its open timber portal, cut from
   `sources/mine-r39/module_r39_aaa.blend`, 1.9k triangles) is reused; the rest of that mine is reference only.
   A short timbered tunnel mouth and a dark void sit behind it.
-- Much more junk: stacked shipping containers, five car and truck hulks, skips, crushed car cubes, pipe bundles, tyre stacks,
-  five mixed scrap heaps, crates, barrels, pallets and drums, all instanced. Keep-clear: the mine lane, the refinery rail,
+- A tidy salvage yard: stacked shipping containers, a pickup and a van, skips, steel stock, pipe stacks, scrap bales, tyre stacks,
+  crates, barrels, pallets and cable drums, all instanced. Keep-clear: the mine lane, the refinery rail,
   the evacuation-gate path and the north-west service-door path.
 - Porch canopy at the cafeteria door, loading canopy over the refinery gate, dead planting, pole lights.
 
@@ -52,16 +53,16 @@ streaks, cracked floors, litter, dead plants, broken furniture. No gore. Everyth
 - **Recreation corner** in the north-west: foosball table, air hockey table, arcade basketball hoops and a dartboard with an
   oche line. A few knocked-over chairs and a toppled table sit in the open middle of the room.
 - Aisle: a 2.4 m lane on x = 8 from the spawn door to the hall opening, and 2.4 m lanes to the yard and medical doors.
-- Light: only about half the ceiling fixtures still work, most pendants are dead, some sconces are out.
+- Light: working ceiling strips and pendants, daylight through the skylights.
 
-### Hall (narrowed with clutter)
-- The hall is not made narrower, but its free width is. Two **cave-ins** (south-west and south-east) with rubble heaps, fallen
-  ceiling slabs, torn ducts and rebar, jersey-barrier chicanes at the cafeteria opening and along the door line, sandbag
-  walls, crate walls, toppled shelving and lockers, and hanging cables.
+### Hall (narrowed by a refit)
+- The hall footprint is unchanged, but its free width is cut by a refit in progress: scaffold tower, plasterboard and cement stock,
+  racking, jersey-barrier chicanes at the cafeteria opening and along the door line, sandbags, and one small cordoned ceiling
+  collapse with rubble.
 - The route is a clear 2.4 m on the reactor axis (x = 6.8 to 9.2) and on the west door to east door line (y = -55.3 to -52.7).
 - Heavy blast door on the spine (3.6 x 3.2 m), plain 2.4 m doors at both ends, gantry landing 4.2 m up over the spine door,
   shift desk, safety station, PPE rack, status board.
-- Light: a few cold strips still work, an emergency red lamp over the spine door.
+- Light: cool-white strips, a clerestory, amber beacons at the spine door.
 
 ## 4. Doors and openings
 | Opening | Size (clear) | Notes |

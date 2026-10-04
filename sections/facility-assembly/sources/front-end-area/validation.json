@@ -1,10 +1,10 @@
 {
  "triangles": {
-  "YARD": 299876,
-  "CAFETERIA": 58608,
-  "HALL": 72192,
-  "SHARED": 4316,
-  "TOTAL": 434992,
+  "YARD": 433632,
+  "CAFETERIA": 158952,
+  "HALL": 133384,
+  "SHARED": 2996,
+  "TOTAL": 728964,
   "within_budget": true
  },
  "budget_m": 800000,
@@ -17,12 +17,12 @@
     -60
    ],
    "actual_min_xy_plan": [
-    -53.0,
-    -84.33
+    -53.01,
+    -84.15
    ],
    "actual_max_xy_plan": [
     -7.0,
-    -59.59
+    -59.0
    ]
   },
   "CAFETERIA": {
@@ -33,12 +33,12 @@
     -60
    ],
    "actual_min_xy_plan": [
-    -8.21,
+    -8.48,
     -80.4
    ],
    "actual_max_xy_plan": [
-    26.37,
-    -59.88
+    26.22,
+    -58.98
    ]
   },
   "HALL": {
@@ -50,11 +50,11 @@
    ],
    "actual_min_xy_plan": [
     -8.0,
-    -60.21
+    -60.22
    ],
    "actual_max_xy_plan": [
-    32.21,
-    -47.63
+    32.22,
+    -47.78
    ]
   }
  },
@@ -125,25 +125,25 @@
  ],
  "support_contact": {
   "interior": {
-   "checked": 108,
+   "checked": 101,
    "gap_fail": [],
    "pen_fail": []
   },
   "yard": {
-   "checked": 134,
+   "checked": 113,
    "gap_fail": [],
    "pen_fail": [],
    "note": "yard slabs are deliberately sunk/tilted up to 0.10 m, so yard contact uses 0.12 m"
   }
  },
  "support_exempt_by_kind": {
-  "table": 11,
-  "wall": 29,
-  "heap": 479,
-  "hanging": 3,
-  "stack": 15,
-  "floor_debris": 113,
-  "floor_broken": 88
+  "table": 14,
+  "wall": 71,
+  "stack": 10,
+  "lean": 1,
+  "heap": 93,
+  "floor_broken": 79,
+  "floor_debris": 28
  },
  "lane_violations": {
   "reactor_axis_hall_x6.8-9.2": [],

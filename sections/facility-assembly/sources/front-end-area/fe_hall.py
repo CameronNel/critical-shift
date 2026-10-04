@@ -158,7 +158,8 @@ def ceiling_services(F, C):
         o = mm.finish(f'hall_light_fixture_{i}', hall); o.location = (LX(x + 0.0), LY(-54.0), 5.55)
     # floor drains
     for i, (x, y) in enumerate(((2.0, -55.0), (14.0, -55.0), (26.0, -55.0))):
-        box(f'hall_drain_{i}', x - 0.35, x + 0.35, y - 0.35, y + 0.35, -0.01, 0.0, F['steel_charcoal'], hall, bev=0.004)
+        box(f'hall_drain_{i}', x - 0.35, x + 0.35, y - 0.35, y + 0.35, -0.01, 0.003, F['corrugated'], hall, bev=0.004)
+        for k in range(8): box(f'hall_drain_slot_{i}_{k}', x - 0.3, x + 0.3, y - 0.3 + k * 0.08, y - 0.3 + k * 0.08 + 0.03, 0.003, 0.005, F['rubber'], hall)
     for k in range(5): pass
     # clerestory glass on the north wall
     n = 6
@@ -176,7 +177,7 @@ def build_hall(F, C):
     end_door(F, C, 'hall_E_door', 32.0, -54.0, 1, 'DOCK  /  WASTE  >>')
     gantry_landing(F, C); desk_and_safety(F, C); ceiling_services(F, C)
     bench = proto_bench(F, P)
-    inst(bench, 'hall_bench_0', 28.4, -58.9 + 0.0, hall, rz=0.0) if False else None
+    pass
 
 def build_connectors(F, C):
     sh = C['SHARED']
