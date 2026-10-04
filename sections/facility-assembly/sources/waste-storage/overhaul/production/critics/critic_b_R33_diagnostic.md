@@ -1,0 +1,8 @@
+# Critic B — R33 focused diagnostic (C08, D01)
+
+Scope: direct R31→R33 pixel comparison of C08_Extraction and D01_SealRepair only. No cycle scores.
+
+- **C08_Extraction:** The two fixed views are effectively indistinguishable at this camera scale. The lower extraction neck remains a dark, partly hidden transition immediately behind/right of the inspection hood/service box, at the seam between the brown vertical duct and the round dark blower/filter assembly. The small flange/fastener changes do not resolve the connection visually; the viewer still reads a duct ending in the hood silhouette and an adjacent round machine, rather than a legible neck entering the service body. Moving the neck east/forward has not produced a readable pixel-level improvement in this crop. A short brighter edge or exposed flange segment at the actual neck/body junction would be the smallest useful next change, provided it remains lit by the existing practicals.
+- **D01_SealRepair:** The R33 ring is visibly smoother and more matte than the R31 ring: its inner/outer edge has a rounded, continuous profile and the broad, restrained highlight separates it from the harder-edged tray fasteners and steel bench hardware. It now reads as elastomer at a glance, without a conspicuous plastic shine. The improvement is clear. Remaining weakness: the ring is an unusually uniform, nearly perfect dark torus; its even cross-section and pristine surface still feel like a clean manufactured sample. A restrained compression/handling flat and slight localized wear would add service history, but avoid adding bright specular highlights or coarse noise.
+
+These are visual findings only; no scores or whole-cycle readiness claim.

@@ -29,7 +29,7 @@ Because the owner plans to retire the current map, "promotion" below means the o
 | mine | Yes (original) | Built but not ready | Original delivery, Luna 92 to 95. No overhaul; not held to the 99 bar. |
 | cooling-plant | Yes (original) | Built but not ready | Original R10, Luna 91 to 95. Additive AAA finish `module_aaa_A1.blend` (314,609 triangles) is **unreviewed**, no validator run; the map still shows the original. |
 | condenser-bay | Yes (original) | Built but not ready | Original R34, Luna 91 to 94. No overhaul. |
-| waste-storage | Yes (original) | Built but not ready | Original W22, Luna 91 to 93. No overhaul. |
+| waste-storage | Yes (original) | **Ready for merge to map** | Additive R51 reviewed 99.00/99.10, every category >=99, own original-source state/validation/all23 pixels PASS; not promoted. See `sections/facility-assembly/sources/waste-storage/overhaul/production/HANDOFF.md`. |
 | Exterior / terrain | Yes | Built but not ready | `MAP.json`: art acceptance REJECT, exterior categories below 93. |
 | Connections | Yes | Built but not ready | Built and walk-checked (A06) but not independently accepted; whole-map R17 review was lighting 90, materials 88, professional finish 82. |
 | Vertical access | Yes | Built but not ready | Same as Connections (A08 handoff); no separate acceptance record. |

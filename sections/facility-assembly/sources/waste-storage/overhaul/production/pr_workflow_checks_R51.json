@@ -1,0 +1,145 @@
+{
+  "status": "PASS",
+  "date_utc": "2026-10-04",
+  "reviewed_scene_sha256": "4165b2ce869cc581e247c6110a91b8f7f4c6a97b5370f6744fb0f372fd5c669f",
+  "original_sha256": "8912b5c3b3d2525abb64e838d1fe83a1ea90aa12fea0c9b5a730d4449caecedf",
+  "scene_files_saved": false,
+  "guard_checks": {
+    "status": "PASS",
+    "canonical_builder_sha256": "fa88a683c931ac754a48624bc294a1873b7e1fe96bcce96a3f5d2898d49f6233",
+    "checks": [
+      {
+        "check": "unused_revision",
+        "status": "PASS",
+        "files_unchanged": true
+      },
+      {
+        "check": "missing_archive_cold_rejected",
+        "status": "PASS",
+        "files_unchanged": true
+      },
+      {
+        "check": "different_builder_cold_rejected",
+        "status": "PASS",
+        "files_unchanged": true
+      },
+      {
+        "check": "different_full_room_cold_rejected",
+        "status": "PASS",
+        "files_unchanged": true
+      },
+      {
+        "check": "missing_full_archive_cold_rejected",
+        "status": "PASS",
+        "files_unchanged": true
+      },
+      {
+        "check": "exact_archive_cold_allowed",
+        "status": "PASS",
+        "files_unchanged": true
+      },
+      {
+        "check": "cold_footer_preserves_archive_bytes_and_mtimes",
+        "status": "PASS"
+      },
+      {
+        "check": "existing_revision_hot_rejected",
+        "status": "PASS",
+        "files_unchanged": true
+      },
+      {
+        "check": "path_traversal_rejected",
+        "status": "PASS",
+        "files_unchanged": true
+      }
+    ],
+    "scope": "Actual canonical prelude and archive footer executed against isolated files; cold byte matching and no archive writes checked. No isolated Blender build claim."
+  },
+  "actual_blender_checks": {
+    "status": "PASS",
+    "validator_sha256": "121b85ffb8418c23bef84e8c153d01100948973da85d42c6e9a02bac790f1b36",
+    "checks": [
+      {
+        "check": "R51_hot_pr_guards",
+        "status": "PASS",
+        "issues": [],
+        "fixtures": 26,
+        "live": 23,
+        "failed": 3,
+        "triangles": 589943,
+        "blend_sha256": "4165b2ce869cc581e247c6110a91b8f7f4c6a97b5370f6744fb0f372fd5c669f"
+      },
+      {
+        "check": "active_zero_source_energy_rejected",
+        "status": "PASS",
+        "detected_source": "Directed practical wash"
+      },
+      {
+        "check": "active_zero_lens_emission_rejected",
+        "status": "PASS",
+        "detected_source": "Directed practical wash"
+      },
+      {
+        "check": "active_missing_lens_material_rejected",
+        "status": "PASS",
+        "detected_source": "Directed practical wash"
+      },
+      {
+        "check": "failed_positive_source_energy_rejected",
+        "status": "PASS",
+        "detected_source": "Practical pool.007"
+      },
+      {
+        "check": "failed_positive_lens_emission_rejected",
+        "status": "PASS",
+        "detected_source": "Practical pool.007"
+      },
+      {
+        "check": "active_disconnected_positive_principled_rejected",
+        "status": "PASS",
+        "detected_source": "Directed practical wash"
+      },
+      {
+        "check": "failed_connected_emission_with_unused_zero_principled_rejected",
+        "status": "PASS",
+        "detected_source": "Practical pool.007"
+      },
+      {
+        "check": "active_linked_zero_strength_with_positive_default_rejected",
+        "status": "PASS",
+        "detected_source": "Directed practical wash"
+      },
+      {
+        "check": "active_black_emission_color_rejected",
+        "status": "PASS",
+        "detected_source": "Directed practical wash"
+      },
+      {
+        "check": "active_ramp_zero_minimum_positive_maximum_rejected",
+        "status": "PASS",
+        "detected_source": "Practical pool"
+      },
+      {
+        "check": "active_unused_positive_slot_cannot_replace_dark_used_surface",
+        "status": "PASS",
+        "detected_source": "Directed practical wash"
+      },
+      {
+        "check": "R51_cold_pr_guards",
+        "status": "PASS",
+        "issues": [],
+        "fixtures": 26,
+        "live": 23,
+        "failed": 3,
+        "triangles": 589943,
+        "blend_sha256": "9b3cb30addac5f32e57b939dd6f2b3f0013fc454fdf60e699b2294f56010e7c9"
+      }
+    ],
+    "scope": "Updated validator executed on actual hot and original-source cold R51 files; its actual fixture loop executed on the live Blender scene with temporary faults. Neither scene saved or changed."
+  },
+  "test_harness_sha256": {
+    "guard_checks.py": "0d168448cac3c73241a066e64767a714269d6a0f6d5a4b6ec8a05da5460a3871",
+    "blender_checks.py": "829ca107aed0d552f1b0fc42958f24219616186a178a380cd08e93bf1aa481e9"
+  },
+  "limits": "Workflow-only verification; existing scene and historical archive bytes remain frozen. Actual validator reports were written to scratch to preserve earlier revision evidence; no new render or art-cycle claim."
+}

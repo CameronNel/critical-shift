@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "original_sha256": "8912b5c3b3d2525abb64e838d1fe83a1ea90aa12fea0c9b5a730d4449caecedf",
+  "original_unchanged": true,
+  "checks": [
+    {
+      "check": "unused_letter_suffix_revision",
+      "status": "PASS"
+    },
+    {
+      "check": "revision_path_rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "orphan_R50a.blend",
+      "status": "PASS"
+    },
+    {
+      "check": "orphan_R50a_build.json",
+      "status": "PASS"
+    },
+    {
+      "check": "orphan_R50a_build.py",
+      "status": "PASS"
+    },
+    {
+      "check": "orphan_R50a_full_room.py",
+      "status": "PASS"
+    },
+    {
+      "check": "linked_candidate_alias_rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "letter_suffix_complete_23_pixel_positive_control",
+      "status": "PASS",
+      "stdout": "R49a authoring PASS pixels PASS views 21"
+    },
+    {
+      "check": "comparison_path_rejected",
+      "status": "PASS"
+    }
+  ],
+  "scope": "Actual canonical build guard prelude executed against isolated orphan/symlink fixtures; actual updated comparator executed against isolated links to the complete historical R49 23-pixel evidence renamed with a supported letter suffix. No Blender build or historical guard rerun claim; R50 archived scene builder remains frozen."
+}

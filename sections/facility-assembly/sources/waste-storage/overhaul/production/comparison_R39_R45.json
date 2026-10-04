@@ -1,0 +1,272 @@
+{
+  "previous": "R39",
+  "current": "R45",
+  "complete": true,
+  "accepted": false,
+  "review_status": "FAIL",
+  "evidence": [
+    "critics/critic_a_R45.md",
+    "critics/critic_b_R45.md"
+  ],
+  "comparisons": [
+    {
+      "camera": "C02_Casks",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "cd9b45882acdfab69abd7725196a9e10e80a2fc01e5a042c9cee62448c06866a",
+      "current_image_sha256": "4c8fbd4658a122955f1348b2646175f3c396c98723a899d4846b2be6ffc28df9",
+      "pixels_identical": false,
+      "mean_channel_delta": [
+        1.0825405092592593,
+        0.879633487654321,
+        0.6583699845679012
+      ]
+    },
+    {
+      "camera": "W04_CellService",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "e150caaed0db144764bab48f6b7c35e39c3aedbbfc0c7a7559733449bfe48861",
+      "current_image_sha256": "7863765ee4000161960c3553ff2ad3fd45a70e456b43e991186144156dfdf023",
+      "pixels_identical": false,
+      "mean_channel_delta": [
+        1.5827276234567902,
+        1.138142361111111,
+        0.7882368827160494
+      ]
+    },
+    {
+      "camera": "C09_Inventory",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "de9d3d760715181b4659305042a5547136c4c2809700c69f996ef68e2c93b444",
+      "current_image_sha256": "b72c1f5271d36ad700a9f0c8d7ae7c95ddb34e2e16492f7f4f2ae556c7c9e0a4",
+      "pixels_identical": false,
+      "mean_channel_delta": [
+        0.021811342592592594,
+        0.025613425925925925,
+        0.0227391975308642
+      ]
+    },
+    {
+      "camera": "W03_Dispatch",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "be9148eb92372d1ddd719005ac01975efafb91df40e13158c7b95dce170729cb",
+      "current_image_sha256": "fb97d135f6abc75f6fbf669be0b153bf426bdbdbbce554cf7aab5981005abc67",
+      "pixels_identical": false,
+      "mean_channel_delta": [
+        0.013655478395061729,
+        0.017741126543209876,
+        0.017106481481481483
+      ]
+    },
+    {
+      "camera": "C01_Entry",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "c4cf72c47da8f780d5e9b00d38a4d43e90162efc28e98792037740451aecc36d",
+      "current_image_sha256": "a1d62ca15d0788052ec72c52f96026e93eea52b5ff96c8410b772fe2ef59ac23",
+      "pixels_identical": false,
+      "mean_channel_delta": [
+        0.3782658179012346,
+        0.3987712191358025,
+        0.37547067901234565
+      ]
+    },
+    {
+      "camera": "C03_Reverse",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "2d5da7ac78615802bda5b067a3c577d4c1115ce87af9e02c7f2eb89f704bde2d",
+      "current_image_sha256": "c71aac01044bad7c8999f944a662269486c87b5cdb3fa8cb89c1bb43ee2d2288",
+      "pixels_identical": false,
+      "mean_channel_delta": [
+        0.5162075617283951,
+        0.5371431327160494,
+        0.512079475308642
+      ]
+    },
+    {
+      "camera": "C04_Route",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "8221f2c52b018eaab2e1f9ac6cce761424e1f4963f28844cc54ad82825393e26",
+      "current_image_sha256": "ec1bac81950c400ef06ba7d13861e555ab91d5c476cda2fdd6b548cef1cf7ec7",
+      "pixels_identical": false,
+      "mean_channel_delta": [
+        0.4137615740740741,
+        0.4403858024691358,
+        0.44819444444444445
+      ]
+    },
+    {
+      "camera": "C05_Transfer",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "2ff88c483ddc2529ff515cd8b4bbb32507d9f6d25860c5ea5bfd9b1e469a0074",
+      "current_image_sha256": "71701cdcea9973fb0b79d2437a510c8987b3008af9df5ba7bd0e91b486047b80",
+      "pixels_identical": false,
+      "mean_channel_delta": [
+        0.12113811728395062,
+        0.10030864197530864,
+        0.07342978395061728
+      ]
+    },
+    {
+      "camera": "C06_Dry",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "b217749db4b14a891bba34782fc2d2d0b91b0de7e53e0384a4e82634be09baae",
+      "current_image_sha256": "c971721754d8a778ee30c240febff251dd15bcca01c4d6de1a55108871eddeff",
+      "pixels_identical": false,
+      "mean_channel_delta": [
+        1.354976851851852,
+        1.2710378086419754,
+        1.206033950617284
+      ]
+    },
+    {
+      "camera": "C07_Quarantine",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "b12e2dab275eacc71fc0ff24c00a6c8c0de6ba9c28a723ad4a67ee2791c1075f",
+      "current_image_sha256": "f6bbfe3fa7744f4d4e9406492160711f2f4f8929e124914b9c818280b67b66d1",
+      "pixels_identical": false,
+      "mean_channel_delta": [
+        0.3404783950617284,
+        0.36029706790123456,
+        0.2891743827160494
+      ]
+    },
+    {
+      "camera": "C08_Extraction",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "f2c4ab7915f6f6774491e555972e1658a8e993c067e46767b83127a343bafb91",
+      "current_image_sha256": "3eab49a020422ad587a6ad404135d3331bac4629c1609434be5779a7b1a3f8f6",
+      "pixels_identical": false,
+      "mean_channel_delta": [
+        0.015630787037037037,
+        0.019384645061728396,
+        0.017770061728395063
+      ]
+    },
+    {
+      "camera": "C10_Workbench",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "4f1651cbd0dccd2752ebf7ab1ede9080fc56a8e34bad9d0555bf0edeb01064de",
+      "current_image_sha256": "52d2ef50d2c3a0c7cf0ba03e7f49682abefa3f1b9c977ddb138c486afa8695b3",
+      "pixels_identical": false,
+      "mean_channel_delta": [
+        0.012544367283950617,
+        0.016107253086419752,
+        0.016275077160493825
+      ]
+    },
+    {
+      "camera": "W01_Personnel",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "175f33680d5c369120b2092908bec63d4cd9b0e7539918417213e682a5b759ed",
+      "current_image_sha256": "07693471375905c13f42672df1627ff62c22a4ca6d69aa7b4c89ead3d0dc84bc",
+      "pixels_identical": false,
+      "mean_channel_delta": [
+        0.01769675925925926,
+        0.021375385802469136,
+        0.020057870370370372
+      ]
+    },
+    {
+      "camera": "W02_ReceivingReturn",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "da8aa3a3e3e0217442581b1f5fe5e54309b56ca74dfd1806ecbd5c3961ba49a1",
+      "current_image_sha256": "fbdb21c8c0d88924758dd7504b06ddf2fbf42d16a95c94407d557009b3c513d8",
+      "pixels_identical": false,
+      "mean_channel_delta": [
+        0.01761766975308642,
+        0.02193672839506173,
+        0.02021604938271605
+      ]
+    },
+    {
+      "camera": "W05_ReceivingExterior",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "c79a63cf98a97683b06973c81cf51b0af1856871f567d4cfeb2e0a7483e2c1d5",
+      "current_image_sha256": "5d36bbea1cb71511010f13e743f30a9da7bfd86c7899903f6dda11aeadf8c0f1",
+      "pixels_identical": false,
+      "mean_channel_delta": [
+        0.2599864969135802,
+        0.2755787037037037,
+        0.2568634259259259
+      ]
+    },
+    {
+      "camera": "W06_PersonnelExterior",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "8b4c3be4e8681607035fe025955c8d86370eec28239f981bf497edb6d8b959d9",
+      "current_image_sha256": "1921857ae11633a3f6d440e9c0a49103f6fa28a378182b6ea42249a88434fede",
+      "pixels_identical": false,
+      "mean_channel_delta": [
+        0.11271990740740741,
+        0.12371527777777777,
+        0.11474151234567902
+      ]
+    },
+    {
+      "camera": "W07_DispatchExterior",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "0fe17e7727f01066ce5a6813730470f1b75647600f21914ccd04d67fc28030f5",
+      "current_image_sha256": "8e7fdc406adea352e54895b8e26156c34a95ede440a666780e39ad1c07f168ff",
+      "pixels_identical": false,
+      "mean_channel_delta": [
+        0.27121334876543207,
+        0.2858159722222222,
+        0.274116512345679
+      ]
+    },
+    {
+      "camera": "W08_BoothDoor",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "0201ffb7817c5eb62267b8adc322227ba30f8192b336e6d57db47b734653758e",
+      "current_image_sha256": "0851c4384de780fab2096fdf69bd71af1f1ba10f21a5e971b4eeb8fba4a35a8d",
+      "pixels_identical": false,
+      "mean_channel_delta": [
+        0.0214429012345679,
+        0.025650077160493827,
+        0.022683256172839505
+      ]
+    },
+    {
+      "camera": "W09_DrySouth",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "9358539d9b7a06277e382b6d27cc130226e173c3b7308677e0d2ee23f105a8d5",
+      "current_image_sha256": "5730bb47de4210fa9446d56438e2c2617f8978b918bfa6e2a50483afc4e47cd3",
+      "pixels_identical": false,
+      "mean_channel_delta": [
+        0.43171489197530866,
+        0.41435378086419755,
+        0.4288503086419753
+      ]
+    },
+    {
+      "camera": "W10_ResidueService",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "7e6ce0890a2b70a331f43576f383aa516b49f89511fa7e791e43b38de755d219",
+      "current_image_sha256": "e92e46e75465bb08c60a351612af98f4718dabbd82d4a3d26638924a5e41be63",
+      "pixels_identical": false,
+      "mean_channel_delta": [
+        1.19234375,
+        1.3128472222222223,
+        1.2177835648148148
+      ]
+    },
+    {
+      "camera": "D01_SealRepair",
+      "same_pose_and_optics": true,
+      "previous_image_sha256": "d95b5694bc1228cb2fdf25d124de1230159b2a1a8d5765fd1647bc9f0d4df132",
+      "current_image_sha256": "a449419e3d2b73e25b9096b5f234333a6f113c688e4c0a9abdf46627df6bc230",
+      "pixels_identical": false,
+      "mean_channel_delta": [
+        0.004749228395061728,
+        0.005864197530864198,
+        0.00585841049382716
+      ]
+    }
+  ],
+  "scope": "Full fixed-view comparison metadata; pixel differences alone are not visual acceptance.",
+  "material_regression": false,
+  "critic_reports": [
+    "critics/critic_a_R45.md",
+    "critics/critic_b_R45.md"
+  ],
+  "reason": "B materials98.5 below stricter working per-category99; no veto or material regression. Technical remains provisional after canceled incomplete cold pixels."
+}

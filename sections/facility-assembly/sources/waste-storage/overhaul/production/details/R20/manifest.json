@@ -1,0 +1,59 @@
+{
+  "source": "sections/facility-assembly/sources/waste-storage/overhaul/production/checkpoints/R20.blend",
+  "source_sha256": "ecc4ae92fdcefbeaf7028ddd3661b7e31d56c0836f10d29e6c7546108d97f57e",
+  "blender": "5.2.0 LTS",
+  "settings": {
+    "engine": "CYCLES",
+    "device": "CPU",
+    "samples": 24,
+    "resolution": [
+      960,
+      540
+    ],
+    "seed": 73,
+    "denoising": true,
+    "max_bounces": 8,
+    "threads": 8,
+    "exposure": 0.0,
+    "look": "AgX - Medium High Contrast",
+    "world_strength": 0.0
+  },
+  "views": [
+    {
+      "camera": "D02_CaptureService",
+      "matrix": [
+        [
+          -0.38885942101478577,
+          0.21441112458705902,
+          0.8960001468658447,
+          -2.4000000953674316
+        ],
+        [
+          0.9212971329689026,
+          0.09049827605485916,
+          0.3781821131706238,
+          12.800000190734863
+        ],
+        [
+          -1.9626050118404237e-08,
+          0.9725419878959656,
+          -0.23272745311260223,
+          2.5
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 30.0,
+      "path": "sections/facility-assembly/sources/waste-storage/overhaul/production/details/R20/D02_CaptureService.png",
+      "sha256": "96a5027f5aa9b5fce60082fe31a0158d39ad1a3fb5b37c177d63deb7b4bec6fc",
+      "seconds": 91.10541493499477
+    }
+  ],
+  "complete": true,
+  "source_unchanged": true,
+  "scope": "Supplemental service detail; does not replace the mandatory 21 fixed views."
+}

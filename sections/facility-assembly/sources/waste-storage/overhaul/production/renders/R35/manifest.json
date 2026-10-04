@@ -1,0 +1,180 @@
+{
+  "source": "sections/facility-assembly/sources/waste-storage/overhaul/production/checkpoints/R35.blend",
+  "source_sha256": "adec2eb8955d95419c289f47264006040f31fc259ef1356ef10cf9c2d7f17479",
+  "blender": "5.2.0 LTS",
+  "settings": {
+    "engine": "CYCLES",
+    "device": "CPU",
+    "samples": 24,
+    "resolution": [
+      960,
+      540
+    ],
+    "seed": 73,
+    "denoising": true,
+    "max_bounces": 8,
+    "threads": 8,
+    "exposure": 0.0,
+    "look": "AgX - Medium High Contrast",
+    "world_strength": 0.0
+  },
+  "required_cameras": [
+    "C01_Entry",
+    "C02_Casks",
+    "C03_Reverse",
+    "C04_Route",
+    "C05_Transfer",
+    "C06_Dry",
+    "C07_Quarantine",
+    "C08_Extraction",
+    "C09_Inventory",
+    "C10_Workbench",
+    "W01_Personnel",
+    "W02_ReceivingReturn",
+    "W03_Dispatch",
+    "W04_CellService",
+    "W05_ReceivingExterior",
+    "W06_PersonnelExterior",
+    "W07_DispatchExterior",
+    "W08_BoothDoor",
+    "W09_DrySouth",
+    "W10_ResidueService",
+    "D01_SealRepair"
+  ],
+  "views": [
+    {
+      "camera": "C08_Extraction",
+      "matrix": [
+        [
+          0.5611581206321716,
+          0.016253575682640076,
+          0.8275490403175354,
+          -1.399999976158142
+        ],
+        [
+          0.8277086019515991,
+          -0.011019386351108551,
+          -0.5610499382019043,
+          14.050000190734863
+        ],
+        [
+          1.4807234549607529e-08,
+          0.9998071789741516,
+          -0.019636843353509903,
+          1.6799999475479126
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 21.0,
+      "path": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R35/C08_Extraction.png",
+      "sha256": "436e1656ccae87d853e923cd1f6b091e2179e4eb6b66bbc1204d43a8e8e27700",
+      "seconds": 43.825916623012745
+    },
+    {
+      "camera": "D01_SealRepair",
+      "matrix": [
+        [
+          0.8240418434143066,
+          0.3374772071838379,
+          -0.45504307746887207,
+          4.300000190734863
+        ],
+        [
+          -0.5665289759635925,
+          0.49087586998939514,
+          -0.6618804931640625,
+          15.850000381469727
+        ],
+        [
+          7.801251911132567e-08,
+          0.8032122850418091,
+          0.5956928730010986,
+          1.6799999475479126
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 40.0,
+      "path": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R35/D01_SealRepair.png",
+      "sha256": "af7d3f0b2249e2553b7f1fd78604c7a918a771940c3c028f8e166d195ce3352d",
+      "seconds": 39.629143502999796
+    },
+    {
+      "camera": "C01_Entry",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.006698363460600376,
+          -0.9999775886535645,
+          0.550000011920929
+        ],
+        [
+          0.0,
+          0.9999775886535645,
+          -0.006698363460600376,
+          1.6799999475479126
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 20.0,
+      "path": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R35/C01_Entry.png",
+      "sha256": "f00b96462f12c3d20c789ed0a9751b87079e725ca33e8e61a764b291f7b21858",
+      "seconds": 39.71163804200478
+    },
+    {
+      "camera": "W07_DispatchExterior",
+      "matrix": [
+        [
+          -1.0,
+          -8.704650156232674e-08,
+          -8.779663573932339e-08,
+          0.0
+        ],
+        [
+          -8.742277657347586e-08,
+          -0.004285636357963085,
+          0.9999908208847046,
+          19.0
+        ],
+        [
+          -8.742196655475709e-08,
+          0.9999908208847046,
+          0.004285636357963085,
+          1.6799999475479126
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 22.0,
+      "path": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R35/W07_DispatchExterior.png",
+      "sha256": "3e4a701ccefccb37819633cf1d0d4cc94f8d1aa973f3d34960ce1d23f9c5d637",
+      "seconds": 39.363246626991895
+    }
+  ],
+  "complete": false,
+  "source_unchanged": true
+}

@@ -1,0 +1,9 @@
+# Independent critic B — R28 portal diagnostic
+
+**Scope:** One view only, W03 Dispatch paired against R27b. No category score, full-cycle judgment or acceptance claim.
+
+The R28 pixels are a substantial construction improvement over R27b's solid warm-brown surround. The head now reads as a deep open rectangular channel with a dark recessed cavity, and both jambs have long inset openings that visibly suggest formed hollow sections rather than flat cladding. Cool gray steel sits more naturally against the room's wall/track. Bolted L plates at the upper corners make the head-to-jamb connection explicit. The former uninterrupted fascia is gone, so the portal has more credible fabricated depth while keeping the black void beyond the opening unchanged and expected.
+
+At this camera distance the channels are clear as voids but still quite dark; their inner returns and rear skins merge into shadow, so the exact section thickness is inferred from silhouette rather than well lit. The top angle plates are readable, while bolts and the lower foot plates remain too small to contribute much. The coaming is now a visually coherent steel frame, though the broad side rails still carry substantial mass and the new cutouts are very regular. The slight brighter wall practical to the right creates an uneven highlight boundary; the portal structure itself remains mostly unlit.
+
+A bounded next refinement for this portal would be to expose a narrow cool edge highlight along one channel return and add restrained contact wear at lower jamb/threshold corners, using the existing supported fixture and material response. Keep the hollow section dark enough to retain depth. This view cannot establish the updated assembly's quality in other cameras, and the reported cask wear-face validation issue is outside this portal crop. R28's ordinary geometry/aperture PASS is not a full-cycle or final acceptance result.

@@ -1,0 +1,219 @@
+{
+  "status": "PASS",
+  "checkpoint": "4165b2ce869cc581e247c6110a91b8f7f4c6a97b5370f6744fb0f372fd5c669f",
+  "cold_rebuild": "9b3cb30addac5f32e57b939dd6f2b3f0013fc454fdf60e699b2294f56010e7c9",
+  "cameras": [
+    {
+      "camera": "W02_ReceivingReturn",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "C07_Quarantine",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "C02_Casks",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "W04_CellService",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "C01_Entry",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "C03_Reverse",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "C04_Route",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "C05_Transfer",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "C06_Dry",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "C08_Extraction",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "C09_Inventory",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "C10_Workbench",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "W01_Personnel",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "W03_Dispatch",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "W05_ReceivingExterior",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "W06_PersonnelExterior",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "W07_DispatchExterior",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "W08_BoothDoor",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "W09_DrySouth",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "W10_ResidueService",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "camera": "D01_SealRepair",
+      "pixels_identical": true,
+      "max_channel_delta": 0,
+      "mean_channel_delta": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "settings_equal": true,
+  "scope": "Cold-start reproducibility; no visual acceptance inference."
+}

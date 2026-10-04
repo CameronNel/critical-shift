@@ -1,0 +1,218 @@
+{
+  "reviewer": "primary builder; actual individual images opened",
+  "complete_pair": true,
+  "status": "NOT ACCEPTED",
+  "target_summary": "Lighting repairs improve readability; blanket corrosion is a material regression and must be repaired. No final 99 acceptance.",
+  "views": [
+    {
+      "camera": "C05_Transfer",
+      "before": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R01a/C05_Transfer.png",
+      "after": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R02b/C05_Transfer.png",
+      "before_sha256": "6f934d4e73581d427e2809909751e2c6699238d4a6b4dd4327bd712cb62a7a77",
+      "after_sha256": "1741061600959cc29cd087e99c23de93b7dcc19f98a30cc5a295d97dd4d46453",
+      "fixture_readability": "improved",
+      "material_target": "unchanged or minor incidental difference",
+      "dressing": "unchanged"
+    },
+    {
+      "camera": "C06_Dry",
+      "before": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R01a/C06_Dry.png",
+      "after": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R02b/C06_Dry.png",
+      "before_sha256": "7fe402d21df1c38579d514ce5eb709060adccdb644aa08d12f618a6d7a9609e0",
+      "after_sha256": "9868cdfb8e05814d97ff3121d4722e45f759f63e95588dfff2a4263e6ac0d61a",
+      "fixture_readability": "improved",
+      "material_target": "regressed: broad speckled corrosion",
+      "dressing": "unchanged"
+    },
+    {
+      "camera": "C02_Casks",
+      "before": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R01a/C02_Casks.png",
+      "after": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R02b/C02_Casks.png",
+      "before_sha256": "3a334c5cff85bf63b507b865349564ee403215f3129cdcbe0bc16c86fa24aca4",
+      "after_sha256": "091cbb3b245d3fb9bc42fa1b934e4e12b35689dbff0e08a976efdb53ace9fecb",
+      "fixture_readability": "improved",
+      "material_target": "regressed: broad speckled corrosion",
+      "dressing": "unchanged"
+    },
+    {
+      "camera": "W01_Personnel",
+      "before": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R01a/W01_Personnel.png",
+      "after": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R02b/W01_Personnel.png",
+      "before_sha256": "29d03c7f7518a229111bd1ae480151eb19c524594fcd6efd52ce07b340ea1258",
+      "after_sha256": "b5c406f30d931b07d922ab6b1b4d4d41080699efe0d07bb60700391297d4c06c",
+      "fixture_readability": "improved",
+      "material_target": "unchanged or minor incidental difference",
+      "dressing": "unchanged"
+    },
+    {
+      "camera": "W02_ReceivingReturn",
+      "before": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R01a/W02_ReceivingReturn.png",
+      "after": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R02b/W02_ReceivingReturn.png",
+      "before_sha256": "bd86d6c4c39d480c3b8048f4c44ae481fb2ddd694187590940c52159041f8a3d",
+      "after_sha256": "0b623a75aa47d1581882dd6c38081f8e931558f03205efdc76fa137a6d58244f",
+      "fixture_readability": "improved",
+      "material_target": "unchanged or minor incidental difference",
+      "dressing": "unchanged"
+    },
+    {
+      "camera": "W03_Dispatch",
+      "before": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R01a/W03_Dispatch.png",
+      "after": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R02b/W03_Dispatch.png",
+      "before_sha256": "844a2a760ed1a84a860892f7b9a44716abf25fa1253f34802a24eda9d07a0bf2",
+      "after_sha256": "c48be04f98101f5ce972a94ad50c780df4f85b1697c6c19c0ff7acb3f65c6973",
+      "fixture_readability": "improved",
+      "material_target": "unchanged or minor incidental difference",
+      "dressing": "unchanged"
+    },
+    {
+      "camera": "C01_Entry",
+      "before": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R01a/C01_Entry.png",
+      "after": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R02b/C01_Entry.png",
+      "before_sha256": "59168bced19ae834bd18ab7138e481f8941f427c3b8f0cf8b8f85f76e7af66eb",
+      "after_sha256": "f889d66c8ab866008ab00d3e97ec183f8727f98f8d63977688678848bc96d7f0",
+      "fixture_readability": "improved",
+      "material_target": "unchanged or minor incidental difference",
+      "dressing": "unchanged"
+    },
+    {
+      "camera": "C03_Reverse",
+      "before": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R01a/C03_Reverse.png",
+      "after": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R02b/C03_Reverse.png",
+      "before_sha256": "1b4311b235731be6c33caacdf711ac4a7e3b09bd544b3a23b9e10e1580897819",
+      "after_sha256": "d761ed7c0c62a464653a5c8481f587e94a88ab1182ff6e0d14b261c7c891c844",
+      "fixture_readability": "improved",
+      "material_target": "unchanged or minor incidental difference",
+      "dressing": "unchanged"
+    },
+    {
+      "camera": "C04_Route",
+      "before": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R01a/C04_Route.png",
+      "after": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R02b/C04_Route.png",
+      "before_sha256": "035fb3121a7f749bf2590ad67391f7e3ec506f0dc5881e16381bf4a87611d99f",
+      "after_sha256": "67390ce9394abaf6a81b07c7eeaa01a0b3f88b9b7ea719c9e6e1fb41de6d1f43",
+      "fixture_readability": "improved",
+      "material_target": "unchanged or minor incidental difference",
+      "dressing": "unchanged"
+    },
+    {
+      "camera": "C07_Quarantine",
+      "before": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R01a/C07_Quarantine.png",
+      "after": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R02b/C07_Quarantine.png",
+      "before_sha256": "3f6c0180a21b7a7fc9e7d4a84921801a072d043cdb1f92c5ce974703515caa71",
+      "after_sha256": "da4358c235926c3eb1324210af2cd263015d5efd71e5c4c08151f2f126ea9827",
+      "fixture_readability": "improved",
+      "material_target": "regressed: broad speckled corrosion",
+      "dressing": "unchanged"
+    },
+    {
+      "camera": "C08_Extraction",
+      "before": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R01a/C08_Extraction.png",
+      "after": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R02b/C08_Extraction.png",
+      "before_sha256": "8d361047badd64dcd07086d21cfaf748d33e6f105fd8ee7f3630f81a28624244",
+      "after_sha256": "cd0c1e8d27614d80a69484ed8cbc00b7da623048201d60832e38906e37d560ff",
+      "fixture_readability": "improved",
+      "material_target": "unchanged or minor incidental difference",
+      "dressing": "unchanged"
+    },
+    {
+      "camera": "C09_Inventory",
+      "before": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R01a/C09_Inventory.png",
+      "after": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R02b/C09_Inventory.png",
+      "before_sha256": "284c6987487551df67a7ae0d8f95248a4110c31d26bc1766a75f0e266a4fdfdf",
+      "after_sha256": "c65eb38a4b2c0d61558a405000d0eb6a1d703f0ff742816671ed17053b0280f4",
+      "fixture_readability": "improved",
+      "material_target": "unchanged or minor incidental difference",
+      "dressing": "improved: missing keyboard keys"
+    },
+    {
+      "camera": "C10_Workbench",
+      "before": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R01a/C10_Workbench.png",
+      "after": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R02b/C10_Workbench.png",
+      "before_sha256": "6003142604fab4938d84ac044663287ea8cdaa75ea4c0788148d2486349accdd",
+      "after_sha256": "ec5ea17a50e67def6e0e21a3d126e6a6dad2c7e10e5775a545c634ad694277f7",
+      "fixture_readability": "unchanged",
+      "material_target": "unchanged or minor incidental difference",
+      "dressing": "unchanged"
+    },
+    {
+      "camera": "W04_CellService",
+      "before": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R01a/W04_CellService.png",
+      "after": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R02b/W04_CellService.png",
+      "before_sha256": "cda8d92197707e436a1c26daba18a39eddbe3cbdb81681bdd4923a88840ca09b",
+      "after_sha256": "b0010bfc68a04bea1e4a1466c56233f90988ec7fc1025a49cf83543a2f55de13",
+      "fixture_readability": "improved",
+      "material_target": "regressed: broad speckled corrosion",
+      "dressing": "unchanged"
+    },
+    {
+      "camera": "W05_ReceivingExterior",
+      "before": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R01a/W05_ReceivingExterior.png",
+      "after": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R02b/W05_ReceivingExterior.png",
+      "before_sha256": "9e63e876e36093bb2e6fc847666b68f26ec3b3e9de5eb83f3753d888df95e965",
+      "after_sha256": "82efcc19262213cac90d4337bdae4aba68debf0eb8d6f1c0398ec5cdfb8b58d6",
+      "fixture_readability": "improved",
+      "material_target": "unchanged or minor incidental difference",
+      "dressing": "unchanged"
+    },
+    {
+      "camera": "W06_PersonnelExterior",
+      "before": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R01a/W06_PersonnelExterior.png",
+      "after": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R02b/W06_PersonnelExterior.png",
+      "before_sha256": "b39fe87b1ecd4795f655df674fc40d5ba4a7b53d6d84b7499740416a7cbf50ae",
+      "after_sha256": "acf04cf1b0990f01d1cabd83a07ced2a04c290b27b5407c200e60b743a172bdb",
+      "fixture_readability": "improved",
+      "material_target": "unchanged or minor incidental difference",
+      "dressing": "unchanged"
+    },
+    {
+      "camera": "W07_DispatchExterior",
+      "before": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R01a/W07_DispatchExterior.png",
+      "after": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R02b/W07_DispatchExterior.png",
+      "before_sha256": "4c6715dffab892148d40561b38d27abe7c0cff4f38a5d373a3a6c5b3c0ccc3f6",
+      "after_sha256": "38cf8bb30dfc2fea1b1937629440daa20bf74b17c92e0de2e30f91223bddf672",
+      "fixture_readability": "improved",
+      "material_target": "unchanged or minor incidental difference",
+      "dressing": "unchanged"
+    },
+    {
+      "camera": "W08_BoothDoor",
+      "before": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R01a/W08_BoothDoor.png",
+      "after": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R02b/W08_BoothDoor.png",
+      "before_sha256": "da5471d903b14b4b52eb1d565ce5adba54584803f3edb1802c8a2439b734a40d",
+      "after_sha256": "013300fb4e8c67c7f059d9f3df454f3d35a07f2b40c8352a0c0cfd5ab8914a71",
+      "fixture_readability": "improved",
+      "material_target": "unchanged or minor incidental difference",
+      "dressing": "improved: missing keyboard keys"
+    },
+    {
+      "camera": "W09_DrySouth",
+      "before": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R01a/W09_DrySouth.png",
+      "after": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R02b/W09_DrySouth.png",
+      "before_sha256": "d02f5a7c7f806ff1caaac8a96fead5c64ca3b404f9e95e86ecd5ea9285f88a72",
+      "after_sha256": "bdd561961ff570fddc681293b3cb37ab8ac12f393e7d778be876a7b5ce99211c",
+      "fixture_readability": "improved",
+      "material_target": "regressed: broad speckled corrosion",
+      "dressing": "unchanged"
+    },
+    {
+      "camera": "W10_ResidueService",
+      "before": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R01a/W10_ResidueService.png",
+      "after": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R02b/W10_ResidueService.png",
+      "before_sha256": "000ac9ff22b5d92b86a293f4dc11b5bdfff1e97d9d29db6fb5dc47503e23948e",
+      "after_sha256": "41819b4f1321575259571d0e3b2111437a850f0dffc384725f4c8cb3532e24b1",
+      "fixture_readability": "improved",
+      "material_target": "regressed: broad speckled corrosion",
+      "dressing": "unchanged"
+    },
+    {
+      "camera": "D01_SealRepair",
+      "before": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R01a/D01_SealRepair.png",
+      "after": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R02b/D01_SealRepair.png",
+      "before_sha256": "edf27c42fdd3b81cc4ac9612ee6d4b884f7e7a4fb170698092c37bf1822010cb",
+      "after_sha256": "fde21cbb97228424ecd830bfd3925b9548873e71c6055164c6c0ba5bf2a230b0",
+      "fixture_readability": "unchanged",
+      "material_target": "unchanged or minor incidental difference",
+      "dressing": "unchanged"
+    }
+  ]
+}

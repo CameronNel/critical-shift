@@ -1,0 +1,742 @@
+{
+  "source": "sections/facility-assembly/sources/waste-storage/overhaul/production/coldstart/R51/R51.blend",
+  "source_sha256": "9b3cb30addac5f32e57b939dd6f2b3f0013fc454fdf60e699b2294f56010e7c9",
+  "blender": "5.2.0 LTS",
+  "settings": {
+    "engine": "CYCLES",
+    "device": "CPU",
+    "samples": 24,
+    "resolution": [
+      960,
+      540
+    ],
+    "seed": 73,
+    "denoising": true,
+    "max_bounces": 8,
+    "use_light_tree": false,
+    "threads": 8,
+    "exposure": 0.0,
+    "look": "AgX - Medium High Contrast",
+    "world_strength": 0.0
+  },
+  "required_cameras": [
+    "C01_Entry",
+    "C02_Casks",
+    "C03_Reverse",
+    "C04_Route",
+    "C05_Transfer",
+    "C06_Dry",
+    "C07_Quarantine",
+    "C08_Extraction",
+    "C09_Inventory",
+    "C10_Workbench",
+    "W01_Personnel",
+    "W02_ReceivingReturn",
+    "W03_Dispatch",
+    "W04_CellService",
+    "W05_ReceivingExterior",
+    "W06_PersonnelExterior",
+    "W07_DispatchExterior",
+    "W08_BoothDoor",
+    "W09_DrySouth",
+    "W10_ResidueService",
+    "D01_SealRepair"
+  ],
+  "views": [
+    {
+      "camera": "C01_Entry",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.006698363460600376,
+          -0.9999775886535645,
+          0.550000011920929
+        ],
+        [
+          0.0,
+          0.9999775886535645,
+          -0.006698363460600376,
+          1.6799999475479126
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 20.0,
+      "path": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R51_cold/C01_Entry.png",
+      "sha256": "da47016f89460a41d5a9990660bb817f557f3a8e620dda22db72b99ceafc7af0",
+      "seconds": 27.377054374999716
+    },
+    {
+      "camera": "C02_Casks",
+      "matrix": [
+        [
+          0.2900072932243347,
+          -0.06369348615407944,
+          0.9549025893211365,
+          -1.0
+        ],
+        [
+          0.9570244550704956,
+          0.01930105872452259,
+          -0.2893643081188202,
+          10.600000381469727
+        ],
+        [
+          -7.663316203831982e-09,
+          0.997782826423645,
+          0.06655367463827133,
+          1.6799999475479126
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 24.0,
+      "path": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R51_cold/C02_Casks.png",
+      "sha256": "5fc53d8d6c28eb9c1832a27b65c3a1915181cd260bbb4195600ea03b0f8ce462",
+      "seconds": 32.30981267298921
+    },
+    {
+      "camera": "C03_Reverse",
+      "matrix": [
+        [
+          -1.0,
+          -1.5099581673894136e-07,
+          8.862431621903255e-11,
+          0.0
+        ],
+        [
+          -1.2184432629513964e-10,
+          0.0013938701013103127,
+          0.9999990463256836,
+          17.350000381469727
+        ],
+        [
+          -1.5099580252808664e-07,
+          0.9999990463256836,
+          -0.0013938701013103127,
+          1.6799999475479126
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 24.0,
+      "path": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R51_cold/C03_Reverse.png",
+      "sha256": "3c6e6ec602a796e077945eebbd75ffb2da5f551c8abd4fc67408cda09d99aed3",
+      "seconds": 28.207485827995697
+    },
+    {
+      "camera": "C04_Route",
+      "matrix": [
+        [
+          0.9996234178543091,
+          -0.0006022464367561042,
+          0.027434037998318672,
+          0.44999998807907104
+        ],
+        [
+          0.027440648525953293,
+          0.021938862279057503,
+          -0.9993826746940613,
+          4.150000095367432
+        ],
+        [
+          3.0258755501222367e-09,
+          0.9997591376304626,
+          0.02194712683558464,
+          1.6799999475479126
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 25.0,
+      "path": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R51_cold/C04_Route.png",
+      "sha256": "a0f32ba3bbdf6952b125c518d64b12156f3b4087fcf6161cde858670648a30fd",
+      "seconds": 27.671493543995894
+    },
+    {
+      "camera": "C05_Transfer",
+      "matrix": [
+        [
+          0.6797645092010498,
+          0.23155102133750916,
+          -0.6959197521209717,
+          1.399999976158142
+        ],
+        [
+          -0.7334303855895996,
+          0.21460814774036407,
+          -0.6449986100196838,
+          1.5
+        ],
+        [
+          -2.788715391943697e-08,
+          0.9488558769226074,
+          0.31570956110954285,
+          1.6799999475479126
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 30.0,
+      "path": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R51_cold/C05_Transfer.png",
+      "sha256": "3ffe08ad256f25ab0e6d7aab0cc674f77127780e20dc4a9c4ec801d53d661003",
+      "seconds": 27.81644780600618
+    },
+    {
+      "camera": "C06_Dry",
+      "matrix": [
+        [
+          -0.49026113748550415,
+          0.302746057510376,
+          -0.817305862903595,
+          2.6500000953674316
+        ],
+        [
+          -0.8715755939483643,
+          -0.1702946424484253,
+          0.45973441004753113,
+          8.25
+        ],
+        [
+          -2.0982602322305866e-08,
+          0.9377337098121643,
+          0.347354918718338,
+          1.6799999475479126
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 24.0,
+      "path": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R51_cold/C06_Dry.png",
+      "sha256": "a88c3157da5aa0f66395cd69677bf0aafa5e9e392b2f57aeceed11d47f576899",
+      "seconds": 32.94155966199469
+    },
+    {
+      "camera": "C07_Quarantine",
+      "matrix": [
+        [
+          0.1689637303352356,
+          0.1853707730770111,
+          -0.9680335521697998,
+          1.0
+        ],
+        [
+          -0.9856222867965698,
+          0.031777869910001755,
+          -0.1659485101699829,
+          11.199999809265137
+        ],
+        [
+          3.8718695805073367e-08,
+          0.9821546673774719,
+          0.18807487189769745,
+          1.6799999475479126
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 26.0,
+      "path": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R51_cold/C07_Quarantine.png",
+      "sha256": "8b16b51678375ccdb5d19f481a478be2b87742c853bd743baa568a4753a37bd7",
+      "seconds": 31.13948807900306
+    },
+    {
+      "camera": "C08_Extraction",
+      "matrix": [
+        [
+          0.5611581206321716,
+          0.016253575682640076,
+          0.8275490403175354,
+          -1.399999976158142
+        ],
+        [
+          0.8277086019515991,
+          -0.011019386351108551,
+          -0.5610499382019043,
+          14.050000190734863
+        ],
+        [
+          1.4807234549607529e-08,
+          0.9998071789741516,
+          -0.019636843353509903,
+          1.6799999475479126
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 21.0,
+      "path": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R51_cold/C08_Extraction.png",
+      "sha256": "5e3d0fb91ff9e7f0c960e5412210fae7b0832d0a1168125c6704a6dc3f29a6aa",
+      "seconds": 31.745841739990283
+    },
+    {
+      "camera": "C09_Inventory",
+      "matrix": [
+        [
+          -0.344254732131958,
+          -0.21724963188171387,
+          0.9133954644203186,
+          -2.5999999046325684
+        ],
+        [
+          0.9388762712478638,
+          -0.0796583816409111,
+          0.3349117338657379,
+          2.200000047683716
+        ],
+        [
+          1.534570941430502e-07,
+          0.9728602766990662,
+          0.23139330744743347,
+          1.6799999475479126
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 25.0,
+      "path": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R51_cold/C09_Inventory.png",
+      "sha256": "fecd0e8a74623fa0d2676d1ab9f197543d8cbe0bbc98d578ee13be9bee83eaaa",
+      "seconds": 31.497745358996326
+    },
+    {
+      "camera": "C10_Workbench",
+      "matrix": [
+        [
+          0.4544702470302582,
+          0.15313811600208282,
+          -0.8774995803833008,
+          2.0999999046325684
+        ],
+        [
+          -0.8907619118690491,
+          0.07813159376382828,
+          -0.4477037489414215,
+          15.5
+        ],
+        [
+          -7.076832986285808e-08,
+          0.9851112365722656,
+          0.1719180941581726,
+          1.6799999475479126
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 30.0,
+      "path": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R51_cold/C10_Workbench.png",
+      "sha256": "3e8de540ac78fb2557ee3e1f018a8df1f52b67ef01a268b2fcba9843ec323bca",
+      "seconds": 32.767229368007975
+    },
+    {
+      "camera": "W01_Personnel",
+      "matrix": [
+        [
+          7.549790126404332e-08,
+          -0.006666654720902443,
+          -0.9999777674674988,
+          3.0
+        ],
+        [
+          -1.0,
+          -3.0006798823478675e-08,
+          -7.529952483764646e-08,
+          2.4000000953674316
+        ],
+        [
+          -2.950413602320623e-08,
+          0.9999777674674988,
+          -0.006666654720902443,
+          1.6799999475479126
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 20.0,
+      "path": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R51_cold/W01_Personnel.png",
+      "sha256": "21da72bcfbbd0e334f0eee2b24727fc4c6afa01b9d7f2bed7a193c826919b0eb",
+      "seconds": 28.072498726003687
+    },
+    {
+      "camera": "W02_ReceivingReturn",
+      "matrix": [
+        [
+          -1.0,
+          -1.5100265216005937e-07,
+          1.5258979635390801e-09,
+          0.0
+        ],
+        [
+          -2.0975381431753704e-09,
+          0.023992933332920074,
+          0.9997121095657349,
+          5.0
+        ],
+        [
+          -1.5099580252808664e-07,
+          0.9997121095657349,
+          -0.023992933332920074,
+          1.6799999475479126
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 22.0,
+      "path": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R51_cold/W02_ReceivingReturn.png",
+      "sha256": "ccf7b28c8bb49ee9f6e7dbeca5ea4f87e4e559691de0b017800a1f8eb336537a",
+      "seconds": 22.42068681199453
+    },
+    {
+      "camera": "W03_Dispatch",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -0.029986340552568436,
+          -0.9995502829551697,
+          14.0
+        ],
+        [
+          0.0,
+          0.9995502829551697,
+          -0.029986340552568436,
+          1.6799999475479126
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 22.0,
+      "path": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R51_cold/W03_Dispatch.png",
+      "sha256": "9e891a957b72ad0fa54023998510d7c7ebfebf5bdbf9765e35f12162859e6802",
+      "seconds": 22.362467707003816
+    },
+    {
+      "camera": "W04_CellService",
+      "matrix": [
+        [
+          -0.6305923461914062,
+          -0.14068876206874847,
+          0.7632561326026917,
+          -2.9000000953674316
+        ],
+        [
+          0.7761142253875732,
+          -0.11430947482585907,
+          0.6201452016830444,
+          12.899999618530273
+        ],
+        [
+          -4.8184119805227965e-08,
+          0.9834327697753906,
+          0.1812732219696045,
+          1.6799999475479126
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 24.0,
+      "path": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R51_cold/W04_CellService.png",
+      "sha256": "3c5c288eb6149873745cfc434352224c362670c26d7eb83b0d56f5ce967f9039",
+      "seconds": 33.121818554005586
+    },
+    {
+      "camera": "W05_ReceivingExterior",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.004838642664253712,
+          -0.999988317489624,
+          -1.2000000476837158
+        ],
+        [
+          0.0,
+          0.999988317489624,
+          0.004838642664253712,
+          1.6799999475479126
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 22.0,
+      "path": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R51_cold/W05_ReceivingExterior.png",
+      "sha256": "95ec06f8881ba1984134eb593286100e99321a12ab7ceddfe1dac881ecacc497",
+      "seconds": 27.096726376999868
+    },
+    {
+      "camera": "W06_PersonnelExterior",
+      "matrix": [
+        [
+          0.044400472193956375,
+          -0.006653207819908857,
+          0.9989916682243347,
+          7.0
+        ],
+        [
+          0.9990138411521912,
+          0.0002956271346192807,
+          -0.04439948871731758,
+          2.200000047683716
+        ],
+        [
+          6.997399992769715e-08,
+          0.9999778270721436,
+          0.0066597722470760345,
+          1.6799999475479126
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 20.0,
+      "path": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R51_cold/W06_PersonnelExterior.png",
+      "sha256": "cee5b5fb999a123876aa8ad402e7a01b39a1b415a6185e4bdf01c33fd646f6b9",
+      "seconds": 25.434241900002235
+    },
+    {
+      "camera": "W07_DispatchExterior",
+      "matrix": [
+        [
+          -1.0,
+          -8.704650156232674e-08,
+          -8.779663573932339e-08,
+          0.0
+        ],
+        [
+          -8.742277657347586e-08,
+          -0.004285636357963085,
+          0.9999908208847046,
+          19.0
+        ],
+        [
+          -8.742196655475709e-08,
+          0.9999908208847046,
+          0.004285636357963085,
+          1.6799999475479126
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 22.0,
+      "path": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R51_cold/W07_DispatchExterior.png",
+      "sha256": "5b7849a88a38308f64ab13905a6f2297325061d9434eccf5103b11b689f5a81a",
+      "seconds": 28.94607199598977
+    },
+    {
+      "camera": "W08_BoothDoor",
+      "matrix": [
+        [
+          0.02173391357064247,
+          -0.0779854878783226,
+          0.9967175722122192,
+          -1.2000000476837158
+        ],
+        [
+          0.9997637867927551,
+          0.001695411978289485,
+          -0.021667685359716415,
+          2.1500000953674316
+        ],
+        [
+          -8.202036383408995e-08,
+          0.9969530701637268,
+          0.0780039131641388,
+          1.6799999475479126
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 24.0,
+      "path": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R51_cold/W08_BoothDoor.png",
+      "sha256": "6b3d9387f02ea8c342aeabdb27bf69254172f9d3c91591f5d120bdddb350ce4f",
+      "seconds": 32.79284271800134
+    },
+    {
+      "camera": "W09_DrySouth",
+      "matrix": [
+        [
+          0.49026137590408325,
+          0.34083592891693115,
+          -0.8021687269210815,
+          2.6500000953674316
+        ],
+        [
+          -0.8715754747390747,
+          0.19172029197216034,
+          -0.4512200653553009,
+          5.349999904632568
+        ],
+        [
+          1.4843806184217101e-08,
+          0.9203663468360901,
+          0.3910572826862335,
+          1.6799999475479126
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 24.0,
+      "path": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R51_cold/W09_DrySouth.png",
+      "sha256": "453dde8cbd740255e7004fa9153b92fbb91b18fc80c739aac129692accecef27",
+      "seconds": 33.482148830997176
+    },
+    {
+      "camera": "W10_ResidueService",
+      "matrix": [
+        [
+          0.12797138094902039,
+          -0.39569222927093506,
+          0.9094234704971313,
+          -3.0
+        ],
+        [
+          0.9917778372764587,
+          0.05105718597769737,
+          -0.11734495311975479,
+          6.599999904632568
+        ],
+        [
+          -1.1710484670857113e-07,
+          0.9169628024101257,
+          0.39897263050079346,
+          1.6799999475479126
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 20.0,
+      "path": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R51_cold/W10_ResidueService.png",
+      "sha256": "bc6d2e7121f6cdbe6b9edb3d05486ce120e47a2a44c26f5f246532edf14a24b9",
+      "seconds": 32.0443501569971
+    },
+    {
+      "camera": "D01_SealRepair",
+      "matrix": [
+        [
+          0.8240418434143066,
+          0.3374772071838379,
+          -0.45504307746887207,
+          4.300000190734863
+        ],
+        [
+          -0.5665289759635925,
+          0.49087586998939514,
+          -0.6618804931640625,
+          15.850000381469727
+        ],
+        [
+          7.801251911132567e-08,
+          0.8032122850418091,
+          0.5956928730010986,
+          1.6799999475479126
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "lens": 40.0,
+      "path": "sections/facility-assembly/sources/waste-storage/overhaul/production/renders/R51_cold/D01_SealRepair.png",
+      "sha256": "ed5322b2a4fc576694d85f8ffe79d74f6304569c84bbe404bae205aae91126bf",
+      "seconds": 29.24473217999912
+    }
+  ],
+  "complete": true,
+  "source_unchanged": true
+}
