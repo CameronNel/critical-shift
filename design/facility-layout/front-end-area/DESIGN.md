@@ -1,6 +1,6 @@
 # Cafeteria, hall and yard: design package
 
-**Status: proposal.** Drafted with the owner on 2026-10-04. Not reviewed, not accepted, nothing built. Sizes of the three
+**Status: proposal, first build exists (unreviewed).** Drafted with the owner on 2026-10-04 and revised after the owner's review notes (section 3). The first build is in `sections/facility-assembly/sources/front-end-area/`; it is not reviewed or accepted. The concept views and plan below predate the review notes. Sizes of the three
 zones are proposals (the repo gives none); the spawn room, medical and every neighbouring room are at their measured sizes.
 Numbers marked "estimate" are design targets, not measurements.
 
@@ -28,34 +28,40 @@ From the spawn door the player sees the whole decision:
 
 Both axes keep a 2.4 m clear lane. Furniture, junk and planting stay off them.
 
-## 3. Zone briefs
-### Yard (open air)
-- Floor: 66 concrete slabs on a 4 m grid with recessed joints and two shallow puddles. No painted-on joints.
-- West edge is the cliff and the mine portal. A cart track runs from the portal along y = -72 and turns north to the
-  refinery freight gate. Two ore carts sit on it.
-- Junk is built in four clusters (north-west corner, south-west, mid-south, south-east with generator, fuel and water tanks).
-  Crate stacks, pallets, barrels, cable drums, scrap steel, tarp piles, tyres. Six prop families, instanced.
-- Porch canopy and smoking shelter at the cafeteria door; loading canopy over the refinery gate; planters and four trees.
-- Perimeter: fence and a 6 m vehicle gate on the south edge (the evacuation route), a 2.4 m service door at the north-west
-  corner onto the passage to the cooling plant, and the mine-water riser along the cliff.
-- Light: sun and sky, with the cliff shading the western third in the morning. Warm concrete, machine grey, charcoal steel,
-  rust and ochre. No teal (the spawn-yard concept notes ask for none).
+## 3. Zone briefs (revised after the owner's review notes, build v1)
+The whole area reads as a **run-down, half-abandoned, horror-adjacent** place: dim and mostly dead lights, grime and mould
+streaks, cracked floors, litter, dead plants, broken furniture. No gore. Everything stays readable and navigable.
+
+### Yard (open air, scrapyard)
+- Ground is ragged: slabs tilted and sunk by up to 0.10 m, some cracked in three pieces at different heights, six missing with
+  broken shards and puddles over displaced earth, potholes, crack seams, litter and rubble piles at the fence and cliff foot.
+- The rail starts at the **centre of the mine entrance (y = -70)**, runs east along the mine axis to x = -22.2 and turns north
+  to the refinery freight gate. Only the **front panel of the existing R39 mine** (its open timber portal, cut from
+  `sources/mine-r39/module_r39_aaa.blend`, 1.9k triangles) is reused; the rest of that mine is reference only.
+  A short timbered tunnel mouth and a dark void sit behind it.
+- Much more junk: stacked shipping containers, five car and truck hulks, skips, crushed car cubes, pipe bundles, tyre stacks,
+  five mixed scrap heaps, crates, barrels, pallets and drums, all instanced. Keep-clear: the mine lane, the refinery rail,
+  the evacuation-gate path and the north-west service-door path.
+- Porch canopy at the cafeteria door, loading canopy over the refinery gate, dead planting, pole lights.
 
 ### Cafeteria / chill room
-- Aisle: a 2.4 m lane on x = 8 from the spawn door to the hall opening.
-- West half: six four-seat tables, three booths on the south wall, three vending machines beside the yard door, a notice board.
-- East half: serving counter and kitchen block in the north-east corner, coffee machine, water cooler and fridge, and a lounge
-  in the south-east (two rust-red couches, a coffee table, a wall TV) kept clear of the 2.2 m medical door.
-- High windows on the yard side show the cliff and the mine portal from inside. Skylights over the dining area.
-- Light: warm strips and pendants, daylight through the high windows. No mechanics are assumed. The spec does not mention a
-  cafeteria, so furniture is static scenery in the first pass; physics props are a separate decision.
+- **East side: a small dining area** (four tables, one overturned, a booth) facing a **kiosk / serving area** in the north-east:
+  serving counter, ordering kiosk, queue stanchions, kitchen block, two vending machines.
+- **West side: a small living room** in the south-west: two couches, an armchair, a coffee table, a rug and a TV on the south
+  wall showing static.
+- **Recreation corner** in the north-west: foosball table, air hockey table, arcade basketball hoops and a dartboard with an
+  oche line. A few knocked-over chairs and a toppled table sit in the open middle of the room.
+- Aisle: a 2.4 m lane on x = 8 from the spawn door to the hall opening, and 2.4 m lanes to the yard and medical doors.
+- Light: only about half the ceiling fixtures still work, most pendants are dead, some sconces are out.
 
-### Hall
-- Floor: a 4 m clear route with yellow route lines, the reactor door's lane widest.
-- Heavy blast door on the spine (3.6 x 3.2 m) with status lights; plain 2.4 m doors at the west end and the east end.
-- Gantry landing 4.2 m up over the spine door, reached by a stair at its west end, as the start of the overhead gantry.
-- Shift desk with monitors, benches, eyewash, first-aid and fire cabinets, a PPE return, a status board over the doors.
-- Light: cool strips and a clerestory, red status lights at the doors.
+### Hall (narrowed with clutter)
+- The hall is not made narrower, but its free width is. Two **cave-ins** (south-west and south-east) with rubble heaps, fallen
+  ceiling slabs, torn ducts and rebar, jersey-barrier chicanes at the cafeteria opening and along the door line, sandbag
+  walls, crate walls, toppled shelving and lockers, and hanging cables.
+- The route is a clear 2.4 m on the reactor axis (x = 6.8 to 9.2) and on the west door to east door line (y = -55.3 to -52.7).
+- Heavy blast door on the spine (3.6 x 3.2 m), plain 2.4 m doors at both ends, gantry landing 4.2 m up over the spine door,
+  shift desk, safety station, PPE rack, status board.
+- Light: a few cold strips still work, an emergency red lamp over the spine door.
 
 ## 4. Doors and openings
 | Opening | Size (clear) | Notes |

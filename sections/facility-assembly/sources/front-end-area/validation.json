@@ -1,0 +1,157 @@
+{
+ "triangles": {
+  "YARD": 299876,
+  "CAFETERIA": 58608,
+  "HALL": 72192,
+  "SHARED": 4316,
+  "TOTAL": 434992,
+  "within_budget": true
+ },
+ "budget_m": 800000,
+ "bounds": {
+  "YARD": {
+   "declared": [
+    -48,
+    -8,
+    -84,
+    -60
+   ],
+   "actual_min_xy_plan": [
+    -53.0,
+    -84.33
+   ],
+   "actual_max_xy_plan": [
+    -7.0,
+    -59.59
+   ]
+  },
+  "CAFETERIA": {
+   "declared": [
+    -8,
+    26,
+    -80,
+    -60
+   ],
+   "actual_min_xy_plan": [
+    -8.21,
+    -80.4
+   ],
+   "actual_max_xy_plan": [
+    26.37,
+    -59.88
+   ]
+  },
+  "HALL": {
+   "declared": [
+    -4,
+    32,
+    -60,
+    -48
+   ],
+   "actual_min_xy_plan": [
+    -8.0,
+    -60.21
+   ],
+   "actual_max_xy_plan": [
+    32.21,
+    -47.63
+   ]
+  }
+ },
+ "interfaces": [
+  {
+   "name": "IF_PORTAL_CAF_E_MEDICAL",
+   "plan_xy": [
+    26.0,
+    -70.0
+   ],
+   "clear_w": 2.2,
+   "clear_h": 2.5
+  },
+  {
+   "name": "IF_PORTAL_CAF_N_HALL_OPENING",
+   "plan_xy": [
+    8.0,
+    -60.0
+   ],
+   "clear_w": 6.0,
+   "clear_h": 3.6
+  },
+  {
+   "name": "IF_PORTAL_CAF_S_SPAWN_AIRLOCK",
+   "plan_xy": [
+    8.0,
+    -80.0
+   ],
+   "clear_w": 2.6,
+   "clear_h": 2.7
+  },
+  {
+   "name": "IF_PORTAL_CAF_W_YARD",
+   "plan_xy": [
+    -8.0,
+    -70.0
+   ],
+   "clear_w": 3.0,
+   "clear_h": 2.7
+  },
+  {
+   "name": "IF_PORTAL_HALL_E_TRUNK",
+   "plan_xy": [
+    32.0,
+    -54.0
+   ],
+   "clear_w": 2.4,
+   "clear_h": 2.7
+  },
+  {
+   "name": "IF_PORTAL_HALL_N_SPINE_REACTOR",
+   "plan_xy": [
+    8.0,
+    -48.0
+   ],
+   "clear_w": 3.6,
+   "clear_h": 3.2
+  },
+  {
+   "name": "IF_PORTAL_HALL_W_REFINERY",
+   "plan_xy": [
+    -4.0,
+    -54.0
+   ],
+   "clear_w": 2.4,
+   "clear_h": 2.7
+  }
+ ],
+ "support_contact": {
+  "interior": {
+   "checked": 108,
+   "gap_fail": [],
+   "pen_fail": []
+  },
+  "yard": {
+   "checked": 134,
+   "gap_fail": [],
+   "pen_fail": [],
+   "note": "yard slabs are deliberately sunk/tilted up to 0.10 m, so yard contact uses 0.12 m"
+  }
+ },
+ "support_exempt_by_kind": {
+  "table": 11,
+  "wall": 29,
+  "heap": 479,
+  "hanging": 3,
+  "stack": 15,
+  "floor_debris": 113,
+  "floor_broken": 88
+ },
+ "lane_violations": {
+  "reactor_axis_hall_x6.8-9.2": [],
+  "reactor_axis_cafe_x6.8-9.2": [],
+  "hall_door_line_y-55.3--52.7": [],
+  "cafe_west_door_lane_y-71.2--68.8": [],
+  "cafe_east_door_lane": [],
+  "mine_axis_lane_y-71.3--68.7": []
+ },
+ "lane_pass": true
+}
