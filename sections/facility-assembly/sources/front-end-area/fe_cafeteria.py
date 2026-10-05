@@ -2,6 +2,7 @@
 from fe_kit import *
 from fe_assets_int import *
 from fe_yard import inst
+from fe_assets_caf2 import *
 
 CAF = (-8.0, 26.0, -80.0, -60.0)
 
@@ -94,6 +95,19 @@ def totem(F, P):
 
 def pc(chairs, i): return chairs[i % len(chairs)]
 
+def rug_object(F, coll, name, x0, x1, y0, y1, img, t=0.016):
+    """Rug: a thin slab whose top face carries a baked pattern texture (UV 0..1 across the top)."""
+    from fe_assets_caf2 import rug_texture
+    rug_texture(img.replace('.png', ''), 'game' if 'game' in img else 'lounge', (1024, 1024) if (x1 - x0) / (y1 - y0) < 1.15 else (1200, 1024))
+    mat = make_img_mat(name + '_mat', img, 0.0, 0.95, 0.3)
+    me = bpy.data.meshes.new(name); X0, X1, Y0, Y1 = LX(x0), LX(x1), LY(y0), LY(y1)
+    verts = [(X0, Y0, 0), (X1, Y0, 0), (X1, Y1, 0), (X0, Y1, 0), (X0, Y0, t), (X1, Y0, t), (X1, Y1, t), (X0, Y1, t)]
+    me.from_pydata(verts, [], [(4, 5, 6, 7), (0, 3, 2, 1), (0, 1, 5, 4), (1, 2, 6, 5), (2, 3, 7, 6), (3, 0, 4, 7)]); me.update()
+    uv = me.uv_layers.new(name='UVMap')
+    for pi, p in enumerate(me.polygons):
+        for li, (u, v) in zip(range(p.loop_start, p.loop_start + 4), ((0, 0), (1, 0), (1, 1), (0, 1)) if pi == 0 else ((0.5, 0.5),) * 4): uv.data[li].uv = (u, v)
+    me.materials.append(mat); o = bpy.data.objects.new(name, me); coll.objects.link(o); o['support'] = 'rug'; return o
+
 def build_cafeteria(F, C):
     caf = C['CAFETERIA']; P = collection('PROTOTYPES'); rng = random.Random(5)
     chairs = [chair(F, P, c, f'chair_{i}') for i, c in enumerate(((0.55, 0.16, 0.09, 1), (0.12, 0.17, 0.35, 1), (0.74, 0.46, 0.1, 1), (0.14, 0.34, 0.28, 1)))]
@@ -101,7 +115,7 @@ def build_cafeteria(F, C):
     cof = coffee_table(F, P); sof = sofa(F, P); arm = armchair(F, P)
     plants = [plant_leafy(F, P, 1, 1.5), plant_leafy(F, P, 2, 1.2), plant_spiky(F, P, 3, 1.15)]
     pend = pendant(F, P); mg = mug(F, P); tr = tray(F, P); bt = bottle(F, P); lamp = floor_lamp(F, P); bn = bin_(F, P)
-    foos = foosball(F, P); hoopm = hoops(F, P); dart = dartboard(F, P); ksk = kiosk(F, P); stan = stanchion(F, P); tvp = tv(F, P)
+    foos = foosball(F, P); hoopm = hoops(F, P); dart = dartboard(F, P); ksk = kiosk_v2(F, P); stan = stanchion(F, P); tvp = tv(F, P)
     strip = ceiling_strip(F, P); ts = table_set(F, P); wc = water_cooler(F, P); fr = fridge_display(F, P); bc = bookcase(F, P); mw = microwave_bench(F, P)
     cr = coat_rack(F, P); wfs = wet_floor_sign(F, P); mpb = mop_bucket(F, P); wsh = [wall_shelf(F, P, s) for s in range(2)]
     # ---------------- DINING HALL: the main cafeteria. Twelve four-seat tables in blocks, a booth bank on the south wall
@@ -120,8 +134,8 @@ def build_cafeteria(F, C):
         if i % 3 == 0: inst(bt, f'caf_bottle_{i}', tx + 0.3, ty - 0.2, caf, z=0.77, support='table')
     # booth bank along the south wall
     inst(bth, 'caf_booth_0', 12.0, -79.5, caf, rz=0.0); inst(bth, 'caf_booth_1', 4.4, -79.5, caf, rz=0.0)
-    for k, dx in enumerate((-0.6, 0.6)): inst(pc(chairs, k + 2), f'caf_booth_chair_w{k}', 4.4 + dx, -77.6, caf, rz=math.pi)
-    for k, dx in enumerate((-0.6, 0.6)): inst(pc(chairs, k), f'caf_booth_chair_{k}', 12.0 + dx, -77.6, caf, rz=math.pi)
+    for k, dx in enumerate((-0.6, 0.6)): inst(pc(chairs, k + 2), f'caf_booth_chair_w{k}', 4.4 + dx, -77.15, caf, rz=math.pi)
+    for k, dx in enumerate((-0.6, 0.6)): inst(pc(chairs, k), f'caf_booth_chair_{k}', 12.0 + dx, -77.15, caf, rz=math.pi)
     # ---------------- SERVING AREA (north-east): counter, kitchen, kiosk, queue, drinks, cutlery
     inst(ksk, 'order_kiosk', 13.1, -66.8, caf, rz=-math.pi / 2)
     for i in range(4): inst(stan, f'queue_stanchion_{i}', 14.6 + i * 1.0, -67.9, caf, rz=0.0)
@@ -143,15 +157,14 @@ def build_cafeteria(F, C):
     inst(lamp, 'lounge_floor_lamp_0', -6.9, -74.7, caf); inst(lamp, 'lounge_floor_lamp_1', -0.9, -79.3, caf)
     inst(plants[1], 'lounge_plant_0', -1.0, -73.2, caf); inst(plants[2], 'lounge_plant_1', -7.2, -79.3, caf); inst(plants[0], 'lounge_plant_2', -7.2, -72.9, caf)
     inst(bc, 'lounge_bookcase', -7.65, -80.0 + 6.0 - 0.0, caf, rz=-math.pi / 2) if False else None
-    box('lounge_rug', -7.4, -0.8, -79.7, -74.0, 0.0, 0.014, F['fabric'], caf, rgba=(0.5, 0.2, 0.13, 1), bev=0.004)
-    box('lounge_rug_inner', -6.5, -1.7, -79.1, -74.8, 0.014, 0.02, F['fabric'], caf, rgba=(0.82, 0.74, 0.58, 1), bev=0.002)
+    rug_object(F, caf, 'lounge_rug', -7.4, -0.8, -79.7, -74.0, 'rug_lounge.png')
     for k in range(11): box(f'tv_slat_{k}', -7.0 + k * 0.5, -6.55 + k * 0.5, -79.97, -79.84, 0.0, 3.3, F['timber'], caf, bev=0.008)
-    t = inst(tvp, 'lounge_tv', -4.2, -79.8, caf, z=1.0, rz=math.pi, support=None, scale=(1.25, 1.25, 1.25)); wall_item(t, 'y', -79.85, +1)
+    t = inst(tvp, 'lounge_tv', -4.2, -79.82, caf, z=1.0, rz=0.0, support=None, scale=(1.25, 1.25, 1.25)); wall_item(t, 'y', -79.85, +1)
     inst(bc, 'lounge_bookcase', -7.55, -73.3, caf, rz=-math.pi / 2)
     # ---------------- GAME CORNER (north-west, small): foosball, arcade basketball, darts
-    box('rec_rug', -7.6, -0.6, -66.2, -60.4, 0.0, 0.014, F['fabric'], caf, rgba=(0.08, 0.1, 0.26, 1), bev=0.004)
+    rug_object(F, caf, 'game_rug', -7.6, -0.6, -66.2, -60.4, 'rug_game.png')
     inst(foos, 'rec_foosball', -3.4, -62.4, caf, rz=0.0)
-    inst(hoopm, 'rec_basketball', -6.4, -64.6, caf, rz=math.pi, z=-0.01)
+    inst(arcade_basketball(F, P), 'rec_basketball', -6.4, -64.6, caf, rz=math.pi)
     dd = inst(dart, 'rec_dartboard', -1.0, -60.17, caf, z=1.73, support=None); wall_item(dd, 'y', -60.15, -1)
     box('rec_oche', -1.6, -0.4, -62.57, -62.52, 0.0, 0.006, F['signage'], caf, rgba=(0.9, 0.88, 0.8, 1))
     # ---------------- ceiling and dividers
@@ -165,6 +178,27 @@ def build_cafeteria(F, C):
     for i in range(2): inst(pl, f'divider_dining_{i}', 13.4, -76.0 - i * 1.95, caf, rz=math.pi / 2) if False else None
     inst(tt, 'directory_totem', 10.8, -66.5, caf, rz=0.0)
     for i, x in enumerate((-5.5, -3.2)): inst(wsh[i % 2], f'game_wall_shelf_{i}', x, -60.17, caf, z=2.3, support=None, rz=math.pi)
+    # ---- food service dressing on the counter and around the queue
+    ts_, ps_, cs_, bb_, cb_ = tray_stack(F, P), plate_stack(F, P), cup_stack(F, P), bread_basket(F, P), cutlery_bin(F, P)
+    inst(ts_, 'counter_trays_0', 15.4, -65.95, caf, z=0.96, support='table'); inst(ts_, 'counter_trays_1', 15.95, -65.95, caf, z=0.96, support='table', rz=0.1)
+    for i in range(3): inst(ps_, f'counter_plates_{i}', 16.7 + i * 0.32, -65.95, caf, z=0.96, support='table')
+    for i in range(4): inst(cs_, f'counter_cups_{i}', 18.0 + i * 0.1, -65.95, caf, z=0.96, support='table')
+    for i in range(2): inst(bb_, f'counter_bread_{i}', 21.2 + i * 0.5, -65.9, caf, z=0.96, support='table')
+    for i in range(2): inst(cb_, f'counter_cutlery_{i}', 24.0 + i * 0.4, -65.95, caf, z=0.96, support='table')
+    inst(sanitiser_station(F, P), 'queue_sanitiser', 13.7, -68.4, caf)
+    inst(recycling_bins(F, P), 'recycling_bins', 25.4, -77.6, caf, rz=math.pi / 2); inst(tray_trolley(F, P), 'tray_trolley', 24.7, -79.0, caf, rz=0.0)
+    # ---- lounge softs
+    st_, bg_, sd_, cu_, tl_ = stool(F, P), bean_bag(F, P), side_table(F, P), throw_cushion(F, P), table_lamp(F, P)
+    inst(sd_, 'lounge_side_table_0', -6.2, -74.6, caf); inst(tl_, 'lounge_table_lamp_0', -6.2, -74.6, caf, z=0.48, support='table')
+    inst(sd_, 'lounge_side_table_1', -2.6, -73.9, caf) if False else None
+    for i, (x, y, z, rz, col) in enumerate(((-5.0, -75.5, 0.45, 0.2, (0.82, 0.62, 0.2, 1)), (-3.4, -75.5, 0.45, -0.3, (0.14, 0.2, 0.38, 1)), (-6.6, -77.0, 0.45, 1.6, (0.82, 0.62, 0.2, 1)))):
+        o = inst(cu_, f'lounge_cushion_{i}', x, y, caf, z=z, rz=rz, support='soft'); o.rotation_euler = (0.2, 0, rz)
+    # ---- game corner softs
+    inst(bg_, 'game_beanbag_0', -6.9, -61.3, caf, rz=0.4); inst(bg_, 'game_beanbag_1', -5.8, -61.0, caf, rz=-0.5, z=0.0)
+    inst(st_, 'game_stool_0', -1.8, -64.2, caf); inst(st_, 'game_stool_1', -0.9, -64.6, caf, rz=0.7); inst(sd_, 'game_side_table', -0.4, -65.4, caf)
+    pend2 = pendant(F, P)
+    for j, (x, y) in enumerate(((-4.2, -76.2), (-2.0, -74.4), (-3.6, -64.0), (-1.0, -62.6))): inst(pend2, f'caf_pendant_L{j}', x, y, caf, z=3.4, support=None)
+    for i, (x, y) in enumerate(((-7.55, -75.3), (-7.55, -78.7))): inst(wsh[i % 2], f'lounge_wall_shelf_{i}', x, y, caf, z=2.1, support=None, rz=-math.pi / 2)
     build_walls_and_hatch(F, C)
 
 _pc = {}
@@ -184,9 +218,5 @@ def build_walls_and_hatch(F, C):
     box('kitchen_front_L', 14.0, 15.0, y - 0.08, y + 0.08, 1.0, 2.4, F['plaster'], caf); box('kitchen_front_R', 25.0, 25.9, y - 0.08, y + 0.08, 1.0, 2.4, F['plaster'], caf)
     box('hatch_frame_sill', 15.0, 25.0, y - 0.2, y + 0.2, 0.98, 1.03, F['steel_charcoal'], caf, bev=0.006)
     box('hatch_frame_head', 15.0, 25.0, y - 0.1, y + 0.1, 2.33, 2.4, F['steel_charcoal'], caf, bev=0.006)
-    for k in range(8): box(f'hatch_shutter_{k}', 15.0, 25.0, y - 0.04, y + 0.04, 2.0 + k * 0.04, 2.032 + k * 0.04, F['steel_charcoal'], caf, rgba=None)
-    box('kitchen_side_W', 13.9, 14.05, -64.0, -60.15, 0.0, 3.3, F['plaster'], caf)
-    mbd = box('menu_board', 15.2, 24.8, -64.19, -64.15, 2.45, 3.1, F['screen'], caf, rgba=(0.05, 0.06, 0.08, 1), bev=0.01); wall_item(mbd, 'y', -64.15, -1)
-    for k in range(3):
-        box(f'menu_col_{k}', 15.6 + k * 3.0, 17.9 + k * 3.0, -64.2, -64.19, 2.55, 3.0, F['screen'], caf, rgba=(0.9, 0.78, 0.5, 1))
-        for r in range(5): box(f'menu_line_{k}_{r}', 15.8 + k * 3.0, 17.4 - (r % 2) * 0.5 + k * 3.0, -64.205, -64.2, 2.62 + r * 0.08, 2.66 + r * 0.08, F['screen'], caf, rgba=(0.12, 0.1, 0.07, 1))
+    box('hatch_shutter_housing', 14.9, 25.1, y - 0.14, y + 0.1, 2.28, 2.4, F['steel_charcoal'], caf, bev=0.01)
+    for k in range(5): box(f'hatch_shutter_{k}', 15.0, 25.0, y - 0.03, y + 0.03, 2.2 - k * 0.04, 2.235 - k * 0.04, F['steel_charcoal'], caf, bev=0.003)

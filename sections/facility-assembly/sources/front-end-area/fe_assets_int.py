@@ -338,17 +338,23 @@ def water_cooler(F, P):
     return m.finish('proto_water_cooler', P)
 
 def fridge_display(F, P, rgba=(0.88, 0.88, 0.86, 1)):
-    m = mb(F); rnd = random.Random(6)
-    m.rbox(0, 0, 0.95, 0.9, 0.7, 1.9, 0.03, mi=I['plastic'], rgba=rgba)
-    m.rbox(0, 0.33, 1.0, 0.76, 0.05, 1.5, 0.01, mi=I['steel_charcoal'], rgba=(0.06, 0.06, 0.07, 1))
+    """Glass-fronted drinks fridge built around a real cavity so the shelves and bottles are visible."""
+    m = mb(F); rnd = random.Random(6); W, D, H = 0.9, 0.7, 1.9; cw = 0.74
+    m.rbox(0, -D / 2 + 0.1, H / 2, W, 0.2, H, 0.03, mi=I['plastic'], rgba=rgba)                       # back block
+    for sx in (-1, 1): m.rbox(sx * (cw / 2 + 0.04), 0, H / 2, 0.08, D, H, 0.02, mi=I['plastic'], rgba=rgba)
+    m.rbox(0, 0, H - 0.1, W, D, 0.2, 0.03, mi=I['plastic'], rgba=rgba); m.rbox(0, 0, 0.12, W, D, 0.24, 0.03, mi=I['plastic'], rgba=rgba)
+    m.rbox(0, -D / 2 + 0.205, H / 2, cw, 0.01, H - 0.44, 0.003, mi=I['steel_charcoal'], rgba=(0.92, 0.92, 0.94, 1))
+    m.rbox(0, -0.05, H - 0.26, cw - 0.04, 0.4, 0.012, 0.004, mi=I['emissive'], rgba=(0.88, 0.95, 1.0, 1))
     for r in range(4):
-        z = 0.5 + r * 0.38; m.rbox(0, 0.15, z, 0.74, 0.5, 0.012, 0.004, mi=I['steel_charcoal'], rgba=(0.6, 0.6, 0.62, 1))
+        z = 0.42 + r * 0.33; m.rbox(0, 0.0, z, cw - 0.02, 0.4, 0.012, 0.004, mi=I['steel_charcoal'], rgba=(0.7, 0.72, 0.74, 1))
         for c in range(7):
             col = rnd.choice([(0.8, 0.1, 0.08, 1), (0.1, 0.4, 0.8, 1), (0.9, 0.7, 0.1, 1), (0.15, 0.55, 0.3, 1), (0.9, 0.9, 0.88, 1)])
-            m.cylz(-0.3 + c * 0.1, 0.28, z + 0.006, z + 0.2, 0.032, seg=10, mi=I['plastic'], rgba=col)
-    m.rbox(0, 0.36, 1.0, 0.8, 0.008, 1.5, 0.002, mi=I['glass'])
-    m.rbox(0, 0.352, 1.85, 0.78, 0.03, 0.14, 0.01, mi=I['emissive'], rgba=(0.85, 0.95, 1.0, 1))
-    m.rbox(0.36, 0.38, 1.0, 0.03, 0.03, 0.4, 0.01, mi=I['steel_charcoal'], rgba=(0.6, 0.62, 0.64, 1))
+            m.lathe([(0.0, 0.0), (0.03, 0.0), (0.032, 0.02), (0.032, 0.17), (0.022, 0.21), (0.012, 0.23), (0.0, 0.23)], loc=(-0.3 + c * 0.1, 0.12, z + 0.006), seg=12, mi=I['plastic'], rgba=col)
+            m.lathe([(0.0, 0.0), (0.03, 0.0), (0.032, 0.02), (0.032, 0.17), (0.022, 0.21), (0.012, 0.23), (0.0, 0.23)], loc=(-0.3 + c * 0.1, -0.05, z + 0.006), seg=12, mi=I['plastic'], rgba=col)
+    m.rbox(0, D / 2 - 0.01, 1.0, cw, 0.012, 1.46, 0.003, mi=I['glass'])
+    for sx in (-1, 1): m.rbox(sx * (cw / 2), D / 2 - 0.01, 1.0, 0.03, 0.03, 1.5, 0.008, mi=I['steel_charcoal'], rgba=(0.7, 0.72, 0.74, 1))
+    m.rbox(0.0, D / 2 - 0.01, 1.76, cw, 0.03, 0.03, 0.008, mi=I['steel_charcoal'], rgba=(0.7, 0.72, 0.74, 1)); m.rbox(0.0, D / 2 - 0.01, 0.27, cw, 0.03, 0.03, 0.008, mi=I['steel_charcoal'], rgba=(0.7, 0.72, 0.74, 1))
+    m.rbox(cw / 2 - 0.04, D / 2 + 0.03, 1.0, 0.025, 0.05, 0.45, 0.01, mi=I['steel_charcoal'], rgba=(0.75, 0.77, 0.8, 1))
     for sx in (-1, 1): m.cylz(sx * 0.38, -0.28, 0.0, 0.04, 0.03, seg=8, mi=I['rubber'], rgba=(0.03, 0.03, 0.03, 1))
     return m.finish('proto_fridge_display', P)
 

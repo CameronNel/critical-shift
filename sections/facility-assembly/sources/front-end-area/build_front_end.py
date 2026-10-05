@@ -5,7 +5,7 @@ import fe_common, fe_shell, fe_lighting, fe_props, fe_yard, fe_cafeteria, fe_hal
 from fe_common import *
 from fe_shell import *
 from fe_lighting import build_lighting, build_cameras
-import fe_yard, fe_cafeteria, fe_hall, fe_dress, fe_minefront, fe_yard2
+import fe_yard, fe_cafeteria, fe_hall, fe_dress, fe_minefront, fe_yard2, fe_cafdoors, fe_signs
 
 args = sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else []
 out = args[args.index('--output') + 1] if '--output' in args else None
@@ -34,8 +34,13 @@ if 'cafeteria' in stages:
 if 'hall' in stages:
     fe_hall.build_hall(F, C); fe_hall.build_connectors(F, C)
     fe_hallsite.build_hall_site(F, C, collection('PROTOTYPES'))
+if 'cafdress' in stages:
+    fe_dress.build_dressing(F, C, parts=('caf',))
+if 'cafdoors' in stages or 'dress' in stages:
+    fe_cafdoors.build_cafe_doors_and_signs(F, C)
 if 'dress' in stages:
     fe_dress.build_dressing(F, C)
+fe_signs.finalize_signs(F)
 build_lighting(F, C); build_cameras(C)
 _lc = bpy.context.view_layer.layer_collection.children.get('PROTOTYPES')
 if _lc: _lc.exclude = True

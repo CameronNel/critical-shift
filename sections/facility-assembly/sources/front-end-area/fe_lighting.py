@@ -2,6 +2,14 @@
 from fe_common import *
 
 CAMERAS = [
+ ('CAF_01_ENTRY_NORTH', (8.0, -79.2, 1.65), (8.0, -60.0, 2.3), 20),
+ ('CAF_02_DINING', (9.5, -78.8, 1.7), (21.5, -72.5, 1.0), 22),
+ ('CAF_03_SERVING', (9.6, -70.9, 1.7), (20.5, -64.5, 1.4), 24),
+ ('CAF_04_LOUNGE', (3.4, -71.2, 1.65), (-5.0, -77.0, 1.0), 20),
+ ('CAF_05_GAME_CORNER', (3.0, -67.0, 1.65), (-5.0, -62.5, 1.2), 20),
+ ('CAF_X1_AIRLOCK_DOOR', (8.0, -71.5, 1.65), (8.0, -80.0, 1.7), 20),
+ ('CAF_X2_YARD_DOOR', (1.5, -70.0, 1.65), (-8.0, -70.0, 1.7), 20),
+ ('CAF_X3_MEDICAL_DOOR', (18.5, -70.0, 1.65), (26.0, -70.0, 1.7), 20),
  # name, eye (plan x, y, z), target (plan x, y, z), lens
  ('FE_01_SPAWN_EXIT_NORTH', (8.0, -80.4, 1.65), (8.0, -30.0, 2.4), 20),
  ('FE_02_CAFE_DOOR_WEST_YARD', (-7.5, -70.0, 1.65), (-48.0, -70.4, 2.2), 22),
@@ -29,6 +37,7 @@ def build_lighting(F, C):
     sky.sky_type = 'MULTIPLE_SCATTERING'; sky.sun_elevation = math.radians(38); sky.sun_rotation = math.radians(142); sky.air_density = 1.0; sky.sun_disc = False
     bg.inputs['Strength'].default_value = 0.65
     nt.links.new(sky.outputs[0], bg.inputs['Color']); nt.links.new(bg.outputs[0], out.inputs['Surface'])
+    area('KITCHEN_LIGHT_0', (17.0, -61.9, 2.9), 1.6, 220, (1.0, 0.95, 0.85), lc, sy=0.5); area('KITCHEN_LIGHT_1', (22.5, -61.9, 2.9), 1.6, 220, (1.0, 0.95, 0.85), lc, sy=0.5)
     # warm cafeteria fill under every ceiling fixture row, cool-white hall strips
     for i, x in enumerate((-2, 6, 14, 22)):
         for j, y in enumerate((-64.5, -70, -75.5)):

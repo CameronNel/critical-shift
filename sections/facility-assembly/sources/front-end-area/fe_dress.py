@@ -8,18 +8,17 @@ RAIL_X = -22.2
 TEXT_ROT = {'S': (math.pi / 2, 0, 0), 'N': (math.pi / 2, 0, math.pi), 'E': (math.pi / 2, 0, math.pi / 2), 'W': (math.pi / 2, 0, -math.pi / 2)}
 NORMAL = {'S': (0, -1), 'N': (0, 1), 'E': (1, 0), 'W': (-1, 0)}
 
-def wall_sign(F, coll, name, text, x, y, z, facing, w=1.4, h=0.4, plate=(0.08, 0.08, 0.09, 1), ink='emissive', size=None, wall_plane=None, register=True, ink_rgba=None):
-    nx, ny = NORMAL[facing]
-    t = 0.025
-    if facing in ('E', 'W'): pl = box(name + '_plate', x - t / 2, x + t / 2, y - w / 2, y + w / 2, z, z + h, F['signage'], coll, rgba=plate, bev=0.005)
-    else: pl = box(name + '_plate', x - w / 2, x + w / 2, y - t / 2, y + t / 2, z, z + h, F['signage'], coll, rgba=plate, bev=0.005)
-    cu = bpy.data.curves.new(name + '_text', 'FONT'); cu.body = text; cu.size = size or h * 0.5; cu.extrude = 0.003; cu.align_x = 'CENTER'; cu.align_y = 'CENTER'
-    o = bpy.data.objects.new(name + '_text', cu); o.data.materials.append(F['emissive' if ink == 'emissive' else 'signage']); coll.objects.link(o)
-    o.rotation_euler = TEXT_ROT[facing]; o.location = (LX(x) + nx * (t / 2 + 0.003), LY(y) + ny * (t / 2 + 0.003), z + h / 2)
-    if register and wall_plane is not None:
-        wall_item(pl, 'x' if facing in ('E', 'W') else 'y', wall_plane, -1 if (nx + ny) > 0 else +1)
-    return pl
+import fe_signs
+def _style_for(plate):
+    r, g, bl = plate[0], plate[1], plate[2]
+    if r > 0.85 and g > 0.6 and bl < 0.2: return 'hazard'
+    if r > 0.7 and g < 0.2: return 'staff'
+    if g > r and g > bl and g > 0.4: return 'green'
+    return 'nav'
 
+def wall_sign(F, coll, name, text, x, y, z, facing, w=1.4, h=0.4, plate=(0.08, 0.08, 0.09, 1), ink='emissive', size=None, wall_plane=None, register=True, ink_rgba=None, sub=None, icon=None, style=None):
+    """Baked-texture sign (lettering is painted into the sign atlas; no text objects)."""
+    return fe_signs.sign(coll, name, text, x, y, z, facing, w, h, sub=sub, style=style or _style_for(plate), icon=icon)
 
 def put_item(proto, name, coll, facing, c, z, face_off=0.0):
     """Instance a wall prop on the interior face of a wall. facing = direction the prop faces; c = plan coordinate along the wall."""
@@ -43,21 +42,21 @@ def hang(P_items, coll, key, items):
         o = inst(proto, f'{key}_{proto.name[6:]}_{k}', x, y, coll, rz=ROT[facing], z=z, support=None)
         wall_item(o, 'y' if axis == 'x' else 'x', face, +1 if facing in ('N', 'E') else -1)
 
-def build_dressing(F, C):
+def build_dressing(F, C, parts=('caf', 'hall', 'yard')):
     caf, hall, yard, sh = C['CAFETERIA'], C['HALL'], C['YARD'], C['SHARED']; P = collection('PROTOTYPES')
     posters = [poster(F, P, v, 0.8, 1.2) for v in range(6)]; posters_l = [poster(F, P, 10 + v, 1.2, 0.8, 'poster_l') for v in range(3)]
-    bul = bulletin(F, P); ext = extinguisher(F, P); aid = first_aid(F, P); clk = wall_clock(F, P); sock = socket(F, P); exsign = exit_sign(F, P)
+    bul = bulletin(F, P); ext = extinguisher(F, P); aid = first_aid(F, P); clk = wall_clock(F, P); sock = socket(F, P)
     # ---------------- cafeteria, interior faces
     hang(P, caf, 'caf_S', [(posters[0], 3.6, 1.4), (posters[1], 4.9, 1.4), (posters_l[0], 10.5, 1.5), (posters_l[1], 13.0, 1.5), (clk, 17.5, 3.55), (aid, 15.2, 1.5), (posters[2], 19.2, 1.5), (posters[3], 21.0, 1.5),
-                         (posters_l[2], 23.2, 1.5), (ext, 24.9, 0.75), (exsign, 8.0, 3.15), (sock, 1.4, 0.4), (sock, 5.8, 0.4), (sock, 10.3, 0.4)])
-    hang(P, caf, 'caf_W', [(bul, -74.6, 1.25), (posters[4], -72.9, 1.5), (posters[5], -64.1, 1.6), (clk, -62.0, 3.4), (ext, -67.5 - 0.0, 0.75), (sock, -75.6, 0.4), (exsign, -70.0, 3.0)])
-    hang(P, caf, 'caf_N', [(posters[1], -5.2, 1.6), (posters[2], 3.2, 1.6), (aid, 24.0, 1.5), (exsign, 8.0, 3.85), (sock, -2.0, 0.4), (sock, 4.4, 0.4)])
-    hang(P, caf, 'caf_E', [(bul, -66.2, 1.3), (posters[3], -75.6, 1.5), (posters[0], -78.0 + 0.4, 1.5), (posters_l[0], -73.0, 1.5), (ext, -63.0, 0.75), (exsign, -70.0, 2.95), (sock, -77.0, 0.4)])
+                         (posters_l[2], 23.2, 1.5), (ext, 24.9, 0.75), (sock, 1.4, 0.4), (sock, 5.8, 0.4), (sock, 10.3, 0.4)])
+    hang(P, caf, 'caf_W', [(bul, -74.6, 1.25), (posters[4], -72.9, 1.5), (posters[5], -61.9, 1.6), (posters_l[1], -67.2, 1.6), (clk, -62.9, 3.4), (ext, -67.5 - 0.0, 0.75), (sock, -75.6, 0.4), ])
+    hang(P, caf, 'caf_N', [(posters[1], -5.2, 1.6), (posters[2], 3.2, 1.6), (aid, 24.0, 1.5), (sock, -2.0, 0.4), (sock, 4.4, 0.4)])
+    hang(P, caf, 'caf_E', [(bul, -66.2, 1.3), (posters[3], -75.2, 1.7), (posters[0], -78.6, 1.7), (ext, -63.0, 0.75), (sock, -77.0, 0.4)])
     # ---------------- hall, interior faces
-    hang(P, hall, 'hall_S', [(posters[4], -1.6, 1.6), (posters[5], -0.2, 1.6), (bul, 2.0, 1.3), (ext, 13.3, 0.75), (aid, 14.6, 1.5), (posters_l[1], 20.0, 1.6), (clk, 17.0, 3.8), (posters[1], 28.6, 1.6), (posters[2], 30.0, 1.6)])
-    hang(P, hall, 'hall_N', [(posters[0], -2.6, 1.6), (ext, 1.0 + 0.0, 0.75), (posters[3], 27.0, 1.6), (posters_l[2], 29.2, 1.6), (bul, 4.2 - 0.0, 1.3)]) if False else None
-    hang(P, hall, 'hall_W', [(posters[0], -57.0, 1.6), (posters[3], -50.4, 1.6), (clk, -58.0, 3.9), (ext, -56.3, 0.75)])
-    hang(P, hall, 'hall_E', [(posters[5], -57.0, 1.6), (posters[4], -50.4, 1.6), (ext, -56.3, 0.75), (exsign, -54.0, 3.0)])
+    if 'hall' in parts: hang(P, hall, 'hall_S', [(posters[4], -1.6, 1.6), (posters[5], -0.2, 1.6), (bul, 2.0, 1.3), (ext, 13.3, 0.75), (aid, 14.6, 1.5), (posters_l[1], 20.0, 1.6), (clk, 17.0, 3.8), (posters[1], 28.6, 1.6), (posters[2], 30.0, 1.6)])
+    if 'hall' in parts: hang(P, hall, 'hall_N', [(posters[0], -2.6, 1.6), (ext, 1.0 + 0.0, 0.75), (posters[3], 27.0, 1.6), (posters_l[2], 29.2, 1.6), (bul, 4.2 - 0.0, 1.3)]) if False else None
+    if 'hall' in parts: hang(P, hall, 'hall_W', [(posters[0], -57.0, 1.6), (posters[3], -50.4, 1.6), (clk, -58.0, 3.9), (ext, -56.3, 0.75)])
+    if 'hall' in parts: hang(P, hall, 'hall_E', [(posters[5], -57.0, 1.6), (posters[4], -50.4, 1.6), (ext, -56.3, 0.75), ])
     # ---------------- exterior: control joints, downpipes, cabinets, lamps on the yard-facing wall of the cafeteria
     for y in range(-78, -61, 3):
         if -72.2 < y < -67.8: continue
@@ -76,22 +75,18 @@ def build_dressing(F, C):
         box(f'yard_wall_lamp_hood{i}', -8.56, -8.15, y - 0.24, y + 0.24, 3.4, 3.46, F['steel_charcoal'], yard, bev=0.01)
     # ---------------- signs
     S = lambda *a, **k: wall_sign(F, *a, **k)
-    S(yard, 'sign_cafeteria', 'CAFETERIA  /  STAFF ARRIVAL', -8.2, -70.0, 3.2, 'W', w=3.4, h=0.55, plate=(0.8, 0.4, 0.07, 1), ink='signage', size=0.24, wall_plane=-8.15)
-    S(yard, 'sign_mine', 'MINE ENTRANCE', -47.7, -70.0, 4.6, 'E', w=3.0, h=0.5, plate=(0.95, 0.75, 0.05, 1), ink='signage', size=0.22, wall_plane=None, register=False)
-    S(yard, 'sign_refinery_gate', 'REFINERY  FREIGHT', -22.2, -60.28, 3.05, 'S', w=2.6, h=0.35, plate=(0.08, 0.08, 0.09, 1), size=0.16, wall_plane=-60.265)
-    S(yard, 'sign_evac', 'EVACUATION  GATE', -28.0, -83.78, 2.6, 'N', w=2.4, h=0.35, plate=(0.1, 0.55, 0.25, 1), ink='signage', size=0.15, wall_plane=-83.8)
-    S(yard, 'sign_cooling', 'COOLING PLANT >>', -46.0, -59.7, 2.8, 'S', w=1.9, h=0.32, plate=(0.08, 0.08, 0.09, 1), size=0.13, wall_plane=-59.7, register=False)
-    S(caf, 'sign_wash', 'WASH HANDS', 6.0, -79.82, 2.6, 'N', w=1.1, h=0.3, plate=(0.12, 0.35, 0.55, 1), ink='signage', size=0.11, wall_plane=-79.85) if False else None
-    S(caf, 'sign_medical', 'MEDICAL >>', 25.82, -68.6, 3.3, 'W', w=1.5, h=0.38, plate=(0.8, 0.1, 0.1, 1), ink='signage', size=0.15, wall_plane=25.85)
-    S(caf, 'sign_hall', 'HALL / ROUTES  ^', 8.0, -60.18, 3.55, 'S', w=3.0, h=0.4, plate=(0.08, 0.08, 0.09, 1), size=0.17, wall_plane=-60.15)
-    S(caf, 'sign_kiosk', 'ORDER HERE', 13.1, -66.2, 2.2, 'S', w=0.6, h=0.2, plate=(0.08, 0.08, 0.09, 1), size=0.07, register=False) if False else None
-    S(hall, 'sign_hall_refinery', 'REFINERY  <<', 0.0, -59.82, 3.4, 'N', w=1.9, h=0.36, plate=(0.08, 0.08, 0.09, 1), size=0.15, wall_plane=-59.85)
-    S(hall, 'sign_hall_dock', 'DOCK  >>', 28.0, -59.82, 3.4, 'N', w=1.6, h=0.36, plate=(0.08, 0.08, 0.09, 1), size=0.15, wall_plane=-59.85)
-    S(hall, 'sign_hard_hats', 'HARD HATS BEYOND THIS POINT', 13.5, -48.18, 3.9, 'S', w=3.4, h=0.34, plate=(0.95, 0.75, 0.05, 1), ink='signage', size=0.14, wall_plane=-48.15)
-    S(hall, 'sign_no_running', 'NO RUNNING', 31.82, -57.6, 2.2, 'W', w=1.1, h=0.3, plate=(0.8, 0.12, 0.1, 1), ink='signage', size=0.11, wall_plane=31.85)
-    S(hall, 'sign_route_a', 'ROUTE A', -3.82, -57.6, 2.2, 'E', w=1.0, h=0.3, plate=(0.1, 0.55, 0.25, 1), ink='signage', size=0.12, wall_plane=-3.85)
+    if 'yard' in parts: S(yard, 'sign_mine', 'MINE ENTRANCE', -47.7, -70.0, 4.6, 'E', w=3.0, h=0.5, plate=(0.95, 0.75, 0.05, 1), ink='signage', size=0.22, wall_plane=None, register=False)
+    if 'yard' in parts: S(yard, 'sign_refinery_gate', 'REFINERY  FREIGHT', -22.2, -60.28, 3.05, 'S', w=2.6, h=0.35, plate=(0.08, 0.08, 0.09, 1), size=0.16, wall_plane=-60.265)
+    if 'yard' in parts: S(yard, 'sign_evac', 'EVACUATION  GATE', -28.0, -83.78, 2.6, 'N', w=2.4, h=0.35, plate=(0.1, 0.55, 0.25, 1), ink='signage', size=0.15, wall_plane=-83.8)
+    if 'yard' in parts: S(yard, 'sign_cooling', 'COOLING PLANT >>', -46.0, -59.7, 2.8, 'S', w=1.9, h=0.32, plate=(0.08, 0.08, 0.09, 1), size=0.13, wall_plane=-59.7, register=False)
+    if 'hall' in parts: S(hall, 'sign_hall_refinery', 'REFINERY  <<', 0.0, -59.82, 3.4, 'N', w=1.9, h=0.36, plate=(0.08, 0.08, 0.09, 1), size=0.15, wall_plane=-59.85)
+    if 'hall' in parts: S(hall, 'sign_hall_dock', 'DOCK  >>', 28.0, -59.82, 3.4, 'N', w=1.6, h=0.36, plate=(0.08, 0.08, 0.09, 1), size=0.15, wall_plane=-59.85)
+    if 'hall' in parts: S(hall, 'sign_hard_hats', 'HARD HATS BEYOND THIS POINT', 13.5, -48.18, 3.9, 'S', w=3.4, h=0.34, plate=(0.95, 0.75, 0.05, 1), ink='signage', size=0.14, wall_plane=-48.15)
+    if 'hall' in parts: S(hall, 'sign_no_running', 'NO RUNNING', 31.82, -57.6, 2.2, 'W', w=1.1, h=0.3, plate=(0.8, 0.12, 0.1, 1), ink='signage', size=0.11, wall_plane=31.85)
+    if 'hall' in parts: S(hall, 'sign_route_a', 'ROUTE A', -3.82, -57.6, 2.2, 'E', w=1.0, h=0.3, plate=(0.1, 0.55, 0.25, 1), ink='signage', size=0.12, wall_plane=-3.85)
     # ---------------- floor markings: hall joints, painted lane edges along the mine axis, rail crossing hatching
     rng = random.Random(13)
+    if 'yard' not in parts: return
     for k in range(20):
         for yy in (-71.25, -68.75): box(f'lane_{k}_{yy}', -46.0 + k * 2.0, -45.0 + k * 2.0, yy - 0.06, yy + 0.06, 0.0, 0.004, F['signage'], yard, rgba=(0.9, 0.7, 0.06, 1))
     for k in range(10): box(f'rail_crossing_{k}', -23.4 + k * 0.25, -23.4 + k * 0.25 + 0.12, -71.0, -66.0, 0.0, 0.004, F['signage'], yard, rgba=(0.9, 0.7, 0.06, 1) if k % 2 == 0 else (0.08, 0.08, 0.08, 1))

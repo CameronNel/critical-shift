@@ -123,7 +123,7 @@ class MB2(MB):
         uvl = self.bm.loops.layers.uv.verify()
         vs = [self.bm.verts.new(Vector((cx + sx * w / 2, cy, cz + sz * h / 2))) for sx, sz in ((-1, -1), (1, -1), (1, 1), (-1, 1))]
         f = self.bm.faces.new(vs); f.material_index = mi
-        for l, (u, v) in zip(f.loops, ((0, 0), (1, 0), (1, 1), (0, 1))): l[uvl].uv = (u, v)
+        for l, (u, v) in zip(f.loops, ((1, 0), (0, 0), (0, 1), (1, 1))): l[uvl].uv = (u, v)   # viewer at +y sees +x on the left
         for l in f.loops: l[self.layer] = (1, 1, 1, 1)
         f.normal_update()
         if f.normal.y < 0: f.normal_flip()

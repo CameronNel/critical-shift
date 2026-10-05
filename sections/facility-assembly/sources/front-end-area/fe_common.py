@@ -174,13 +174,15 @@ def make_mat(name, base=(0.5, 0.5, 0.5), rough=0.6, metallic=0.0, var=0.12, var_
     _mats[name] = m
     return m
 
-def make_img_mat(name, fn, emission=0.0):
+def make_img_mat(name, fn, emission=0.0, rough=0.6, bump=0.0):
     """Flat image material (posters, TV slide) mapped from the object's UVs."""
     if name in _mats: return _mats[name]
     m = bpy.data.materials.new(name); m.use_nodes = True; nt = m.node_tree; nt.nodes.clear()
     out = _node(nt, 'ShaderNodeOutputMaterial'); b = _node(nt, 'ShaderNodeBsdfPrincipled'); t = _node(nt, 'ShaderNodeTexImage')
     t.image = bpy.data.images.load(os.path.join(TEXDIR, fn), check_existing=True); t.image.colorspace_settings.name = 'sRGB'
-    nt.links.new(t.outputs['Color'], b.inputs['Base Color']); b.inputs['Roughness'].default_value = 0.6
+    nt.links.new(t.outputs['Color'], b.inputs['Base Color']); b.inputs['Roughness'].default_value = rough
+    if bump:
+        bp = _node(nt, 'ShaderNodeBump'); bp.inputs['Strength'].default_value = bump; bp.inputs['Distance'].default_value = 0.004; nt.links.new(t.outputs['Color'], bp.inputs['Height']); nt.links.new(bp.outputs[0], b.inputs['Normal'])
     if emission:
         b.inputs['Emission Color'].default_value = (1, 1, 1, 1); nt.links.new(t.outputs['Color'], b.inputs['Emission Color']); b.inputs['Emission Strength'].default_value = emission
     nt.links.new(b.outputs[0], out.inputs['Surface']); _mats[name] = m; return m
