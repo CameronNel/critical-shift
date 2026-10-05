@@ -1,7 +1,7 @@
 import bpy, sys, os, json, math
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import importlib
-import fe_common, fe_shell, fe_lighting, fe_props, fe_yard, fe_cafeteria, fe_hall, fe_dress, fe_yard3, fe_depot, fe_hallops, fe_yardprops
+import fe_common, fe_shell, fe_lighting, fe_props, fe_yard, fe_cafeteria, fe_hall, fe_dress, fe_yard3, fe_depot, fe_hallops, fe_yardprops, fe_yardstory
 from fe_common import *
 from fe_shell import *
 from fe_lighting import build_lighting, build_cameras
@@ -21,7 +21,7 @@ if 'shell' in stages:
     build_shell(F, C); build_roofs(F, C)
 if 'yard' in stages:
     fe_yard3.build_ground(F, C); fe_yard3.build_drains(F, C); fe_yard3.build_cliff(F, C); fe_yard3.build_portal(F, C)
-    fe_yard3.build_rails(F, C); fe_yard3.build_fences(F, C); fe_yard3.build_canopies(F, C); fe_depot.build_depot(F, C); fe_yardprops.build_yard_props(F, C)
+    fe_yard3.build_rails(F, C); fe_yard3.build_fences(F, C); fe_yard3.build_canopies(F, C); fe_depot.build_depot(F, C); fe_yardprops.build_yard_props(F, C); fe_yardstory.build_yard_story(F, C)
 if 'cafeteria' in stages:
     fe_cafeteria.build_cafeteria(F, C)
 if 'hall' in stages:

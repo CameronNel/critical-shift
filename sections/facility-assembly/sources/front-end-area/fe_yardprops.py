@@ -25,8 +25,8 @@ def _boxes():
 def build_yard_props(F, C):
     yard = C['YARD']; P = collection('PROTOTYPES'); rnd = random.Random(2026)
     boxes = _boxes()
-    pr = {'drum_blue': barrel(F, P, (0.10, 0.26, 0.42, 1), 'drum_blue'), 'drum_red': barrel(F, P, (0.45, 0.07, 0.05, 1), 'drum_red'), 'drum_yel': barrel(F, P, (0.72, 0.55, 0.06, 1), 'drum_yel'),
-          'drum_rust': barrel(F, P, (0.30, 0.15, 0.08, 1), 'drum_rust'), 'tyre3': tyre(F, P, 3, 'tyre3'), 'tyre2': tyre(F, P, 2, 'tyre2'), 'cone': cone(F, P), 'pallet': pallet(F, P),
+    pr = {'drum_blue': barrel(F, P, (0.07, 0.09, 0.20, 1), 'drum_blue'), 'drum_red': barrel(F, P, (0.52, 0.23, 0.14, 1), 'drum_red'), 'drum_yel': barrel(F, P, (0.85, 0.62, 0.12, 1), 'drum_yel'),
+          'drum_rust': barrel(F, P, (0.14, 0.14, 0.16, 1), 'drum_rust'), 'tyre3': tyre(F, P, 3, 'tyre3'), 'tyre2': tyre(F, P, 2, 'tyre2'), 'cone': cone(F, P), 'pallet': pallet(F, P),
           'crate0': crate(F, P, 0), 'crate1': crate(F, P, 1), 'jersey': jersey(F, P), 'sand0': sandbags(F, P, 0), 'sand1': sandbags(F, P, 1), 'bucket': bucket(F, P), 'barrow': wheelbarrow(F, P),
           'toolbox': toolbox(F, P), 'drum_cable': cable_drum(F, P)}
     # fire barrel: rust drum with a ragged emissive flame (the lighting stage adds the flickering warm light at 'fire_barrel')
@@ -62,7 +62,7 @@ def build_yard_props(F, C):
     put('pallet', (-39.0, -30.0, -76.0, -72.8), 2, 'pallet_m', stack_crate=True, mud_only=True)
     for k, nm in enumerate(('drum_blue', 'drum_red', 'drum_yel', 'drum_rust')): put(nm, (-47.0, -30.0, -83.0, -73.0), 2, f'drum_{k}')
     put('jersey', (-32.5, -29.6, -84.0, -72.0), 3, 'jersey_s', rz=math.pi / 2)
-    put('jersey', (-47.0, -13.0, -82.5, -72.5), 3, 'jersey_x')
+    put('jersey', (-47.0, -13.0, -83.4, -82.4), 3, 'jersey_x')
     put('sand0', (-30.0, -13.0, -77.0, -72.5), 1, 'sandbags_a', mud_only=True); put('sand1', (-47.0, -30.0, -67.8, -64.0), 1, 'sandbags_b', mud_only=True)
     put('cone', (-40.0, -29.0, -78.8, -76.0), 8, 'cone', tries=500)
     put('crate0', (-25.0, -9.0, -83.0, -72.5), 3, 'crate_a'); put('crate1', (-25.0, -9.0, -83.0, -72.5), 3, 'crate_b')

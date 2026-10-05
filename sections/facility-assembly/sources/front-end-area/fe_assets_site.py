@@ -139,9 +139,9 @@ def wheelbarrow(F, P):
     weather(m, 14, dirt=0.5, dirt_h=0.18, streak=0.2, blotch=0.2, angle=30.0)
     return m.finish('proto_wheelbarrow', P)
 
-def toolbox(F, P):
+def toolbox(F, P, rgba=(0.62, 0.08, 0.05, 1), name='toolbox'):
     """Red steel toolbox 0.55 x 0.25: pressed body with swage ribs, separate lid with seam, front latches, carry handle on brackets, rear hinges, corner caps and a stencil label."""
-    m = mb(F); RD = (0.62, 0.08, 0.05, 1); DK = (0.07, 0.07, 0.08, 1)
+    m = mb(F); RD = rgba; DK = (0.07, 0.07, 0.08, 1)
     m.rbox(0, 0, 0.115, 0.55, 0.25, 0.23, 0.02, seg=1, mi=I['paint'], rgba=RD)                                                      # body
     m.rbox(0, 0, 0.255, 0.56, 0.26, 0.06, 0.02, seg=1, mi=I['paint'], rgba=tuple(k * 0.92 for k in RD[:3]) + (1,))                  # lid
     m.rbox(0, 0, 0.226, 0.565, 0.265, 0.012, 0.003, seg=1, mi=I['steel_charcoal'], rgba=DK)                                           # seam
@@ -159,7 +159,7 @@ def toolbox(F, P):
     m.rbox(0, 0.1292, 0.12, 0.17, 0.004, 0.09, 0.0, mi=I['signage'], rgba=(0.85, 0.82, 0.72, 1)); m.rbox(0, 0.1315, 0.14, 0.12, 0.003, 0.02, 0.0, mi=I['signage'], rgba=(0.07, 0.07, 0.07, 1)); m.rbox(0, 0.1315, 0.1, 0.09, 0.003, 0.014, 0.0, mi=I['signage'], rgba=(0.07, 0.07, 0.07, 1))
     studs(m, [(sx * 0.24, 0.131, z) for sx in (-1, 1) for z in (0.06, 0.18)], '+y', r=0.008, h=0.006, seg=4, mi=I['steel_brushed'], rgba=(0.8, 0.8, 0.8, 1))
     weather(m, 6, dirt=0.4, dirt_h=0.1, streak=0.1, blotch=0.15, top=0.2, angle=30.0)
-    return m.finish('proto_toolbox', P)
+    return m.finish('proto_' + name, P)
 
 def rubble_chunk(F, P, seed=0, size=0.35):
     """Angular broken-concrete chunk with an exposed face and a rebar stub."""

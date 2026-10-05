@@ -133,7 +133,7 @@ def build_cliff(F, C):
         inst(rocks[i % 6], f'boulder_{i}', -49.0 + rb.uniform(-0.9, 0.1), yy, yard, rz=rb.uniform(0, 6.28), z=-0.05, scale=(rb.uniform(1.0, 2.0),) * 3, support='floor_broken')
     from fe_assets_yard import shrub
     shs = [shrub(F, P, 30 + s, 0.38, 36) for s in range(3)]; vr = random.Random(9)
-    for i in range(16):
+    for i in range(0):
         yy = vr.uniform(-90, -56)
         if -78 < yy < -62: continue
         zz = vr.choice((3.4, 6.8, 10.2)) - 0.05
@@ -219,6 +219,17 @@ def build_rails(F, C):
     y = RAIL_Y + R
     while y < -59.4: y += step; pts.append((RAIL_X, y))
     rail_path(F, yard, 'rail', pts)
+    bb = bmesh.new(); rbl = random.Random(3); prev = None
+    for i, (x, y) in enumerate(pts):
+        j = min(i + 1, len(pts) - 1); k = max(i - 1, 0); ang = math.atan2(pts[j][1] - pts[k][1], pts[j][0] - pts[k][0]); nx, ny = -math.sin(ang), math.cos(ang)
+        row = []
+        for off, h in ((-1.55, -0.02), (-1.15, 0.045), (-0.55, 0.075), (0.0, 0.082), (0.55, 0.075), (1.15, 0.045), (1.55, -0.02)):
+            n = 0.012 * mnoise.noise(Vector((x * 3.1 + off * 5, y * 3.1, 2.7)))
+            row.append(bb.verts.new(Vector((LX(x + nx * off), LY(y + ny * off), h + n))))
+        if prev:
+            for a in range(len(row) - 1): bb.faces.new((prev[a], prev[a + 1], row[a + 1], row[a]))
+        prev = row
+    mesh_obj('rail_ballast', bb, F['gravel'], yard, smooth=True)
     P = collection('PROTOTYPES'); rb = random.Random(5)
     from fe_assets_site import rubble_chunk
     st = [rubble_chunk(F, P, 40 + s, 0.07) for s in range(4)]

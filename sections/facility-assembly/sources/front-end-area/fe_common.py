@@ -147,7 +147,7 @@ def make_mat(name, base=(0.5, 0.5, 0.5), rough=0.6, metallic=0.0, var=0.12, var_
         nt.links.new(col, dm.inputs[6]); nt.links.new(dc.outputs[0], dm.inputs[7]); col = dm.outputs[2]
     nt.links.new(col, bsdf.inputs['Base Color'])
     # roughness variation
-    rv = _node(nt, 'ShaderNodeMapRange'); rv.inputs['To Min'].default_value = max(rough - 0.12, 0.05); rv.inputs['To Max'].default_value = min(rough + 0.12, 1.0)
+    rv = _node(nt, 'ShaderNodeMapRange'); rv.inputs['To Min'].default_value = max(rough - 0.22, 0.05); rv.inputs['To Max'].default_value = min(rough + 0.22, 1.0)
     nt.links.new(nz.outputs['Fac'], rv.inputs['Value'])
     if tex and tex_rough is not None:
         rm_ = _node(nt, 'ShaderNodeMath', operation='MULTIPLY'); rm_.inputs[1].default_value = tex.get('rough_mul', 1.0); nt.links.new(tex_rough.outputs['Color'], rm_.inputs[0]); rv = rm_
@@ -195,7 +195,7 @@ def families():
     mustard and graphite accents, warm concrete outside. Wear is light: two years of use, not twenty."""
     F = {}
     F['concrete_slab'] = make_mat('concrete_slab', (0.40, 0.375, 0.34), 0.82, var=0.15, var_scale=0.35, grime=0.45, wear={'color': (0.66, 0.63, 0.58), 'r': 0.02}, tex={'color': 'concrete', 'scale': 0.5, 'tint': (0.66, 0.61, 0.66), 'normal': True, 'nstrength': 0.7})
-    F['apron'] = make_mat('apron', (0.30, 0.285, 0.265), 0.86, var=0.22, var_scale=0.5, grime=0.7, dirt=(0.4, 0.37, 0.33), wear={'color': (0.5, 0.48, 0.44), 'r': 0.02}, tex={'color': 'concrete', 'scale': 0.5, 'tint': (0.5, 0.47, 0.45), 'normal': True, 'nstrength': 0.8})
+    F['apron'] = make_mat('apron', (0.30, 0.285, 0.265), 0.86, var=0.22, var_scale=0.5, grime=0.7, dirt=(0.4, 0.37, 0.33), wear={'color': (0.5, 0.48, 0.44), 'r': 0.02}, tex={'color': 'concrete', 'scale': 0.5, 'tint': (0.48, 0.44, 0.52), 'normal': True, 'nstrength': 0.8})
     F['plaster'] = make_mat('plaster', (0.47, 0.35, 0.43), 0.88, var=0.1, var_scale=0.3, grime=0.4, tex={'color': 'plaster5', 'scale': 0.5, 'tint': (1.46, 1.04, 1.30), 'normal': True, 'nstrength': 0.55})
     F['dado'] = make_mat('dado', (0.028, 0.034, 0.095), 0.5, var=0.1, grime=0.5, wear={'color': (0.12, 0.13, 0.2), 'r': 0.006})
     F['ceiling'] = make_mat('ceiling', (0.66, 0.63, 0.60), 0.9, var=0.06, grime=0.3, tex={'color': 'plaster5', 'scale': 0.6, 'tint': (1.5, 1.45, 1.4), 'normal': True, 'nstrength': 0.3})
@@ -219,8 +219,8 @@ def families():
     F['plastic'] = make_mat('plastic', (0.2, 0.22, 0.24), 0.45, var=0.08, attr=True, grime=0.4, wear={'color': (0.5, 0.5, 0.5), 'r': 0.006})
     F['signage'] = make_mat('signage', (0.9, 0.9, 0.9), 0.5, attr=True, var=0.05, grime=0.35)
     F['foliage'] = make_mat('foliage', (0.12, 0.30, 0.08), 0.75, attr=True, var=0.3, var_scale=3)
-    F['rock'] = make_mat('rock', (0.42, 0.31, 0.21), 0.9, var=0.35, var_scale=0.3, pointy=True, grime=0.3, dirt=(0.55, 0.5, 0.45), tex={'color': 'rock', 'scale': 0.35, 'tint': (0.62, 0.60, 0.68), 'normal': True, 'nstrength': 1.0, 'blend': 0.3})
-    F['props'] = make_mat('props', (0.5, 0.4, 0.3), 0.75, attr=True, var=0.22, var_scale=1.5, grime=0.4, wear={'color': (0.7, 0.6, 0.45), 'r': 0.01}, bump=0.12)
+    F['rock'] = make_mat('rock', (0.42, 0.31, 0.21), 0.9, var=0.35, var_scale=0.3, pointy=True, grime=0.3, dirt=(0.55, 0.5, 0.45), strata=14, tex={'color': 'rock', 'scale': 0.35, 'tint': (0.55, 0.55, 0.72), 'normal': True, 'nstrength': 1.7, 'blend': 0.3})
+    F['props'] = make_mat('props', (0.5, 0.4, 0.3), 0.75, attr=True, var=0.3, var_scale=1.5, grime=0.75, wear={'color': (0.7, 0.6, 0.45), 'r': 0.01}, bump=0.12)
     F['emissive'] = make_mat('emissive', (1, 1, 1), 0.4, attr=True, var=0.0, emission=7.0)
     F['screen'] = make_mat('screen', (1, 1, 1), 0.2, attr=True, var=0.0, emission=1.6)
     F['poster_land'] = make_img_mat('poster_land', 'poster_art_landscape.jpg', 0.0)

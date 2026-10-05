@@ -65,7 +65,7 @@ def altaz_vec(ra_h, dec_deg):
     az = math.atan2(-math.cos(dec) * math.sin(ha), math.sin(dec) * math.cos(LAT) - math.cos(dec) * math.sin(LAT) * math.cos(ha))
     return np.array([math.sin(az) * math.cos(alt), math.cos(az) * math.cos(alt), math.sin(alt)])
 
-MOON_AZ, MOON_ALT = 305.0, 42.0
+MOON_AZ, MOON_ALT = 288.0, 33.0
 def moon_dir():
     a, e = math.radians(MOON_AZ), math.radians(MOON_ALT)
     return np.array([math.sin(a) * math.cos(e), math.cos(a) * math.cos(e), math.sin(e)])
@@ -149,7 +149,7 @@ def generate(path=OUT):
     md = moon_dir(); mx, my = to_uv(md); R = 19.0; yy, xx = np.mgrid[int(my - 140):int(my + 141), int(mx - 140):int(mx + 141)]
     dx = (xx - mx) / R; dy = (yy - my) / R; rr2 = dx * dx + dy * dy
     dpx = np.sqrt(rr2) * R; fade = np.clip((140.0 - dpx) / 60.0, 0, 1)
-    glow = (0.020 * np.exp(-dpx / 14.0) + 0.004 * np.exp(-dpx / 45.0)) * fade
+    glow = (0.010 * np.exp(-dpx / 8.0) + 0.0015 * np.exp(-dpx / 40.0)) * fade
     nz = np.asarray(Image.fromarray(rng.random((12, 12)).astype(np.float32), mode='F').resize((282, 282), Image.BICUBIC))[:rr2.shape[0], :rr2.shape[1]]
     disc = rr2 <= 1.0; nzv = np.sqrt(np.clip(1 - rr2, 0, 1)); light = np.array([-0.55, -0.25, 0.8]); light /= np.linalg.norm(light)
     lam = np.clip(dx * light[0] + dy * light[1] + nzv * light[2], 0, 1)

@@ -29,8 +29,8 @@ CAMERAS = [
  ('YRD_08_NIGHT_SKY', (-22.0, -70.5, 1.7), (-27.8, -103.1, 24.1), 18),
  ('YRD_09_GROUND_CLOSE', (-33.0, -74.4, 0.9), (-30.0, -70.8, 0.1), 24),
  ('YRD_10_ASSET_CLOSE', (-31.2, -77.8, 1.25), (-35.8, -80.8, 0.95), 28),
- ('REV_01_PORCH_HERO', (-16.0, -70.0, 1.65), (-64.0, -76.7, 13.8), 22),
- ('REV_02_VEHICLES', (-26.5, -75.0, 1.5), (-35.5, -80.6, 1.1), 24),
+ ('REV_01_PORCH_HERO', (-16.0, -70.0, 1.65), (-61.0, -76.6, 17.0), 22),
+ ('REV_02_VEHICLES', (-25.6, -74.6, 1.55), (-36.0, -80.9, 1.2), 25),
  ('REV_03_RAIL_DOCK', (-22.2, -68.5, 1.7), (-22.2, -60.5, 2.0), 22),
  ('REV_04_PORTAL', (-31.0, -70.6, 1.7), (-49.0, -70.0, 2.3), 24),
  ('REV_05_POWER_AND_STORE', (-16.4, -75.4, 1.6), (-13.0, -81.5, 1.8), 22),
@@ -87,8 +87,7 @@ def fog_boxes(lc):
             nt.links.new(nz.outputs['Fac'], mr.inputs['Value']); nt.links.new(mr.outputs[0], vs.inputs['Density'])
         else: vs.inputs['Density'].default_value = density
         nt.links.new(vs.outputs[0], out.inputs['Volume']); o.data.materials.append(m)
-    box_fog('FOG_HAZE', -49.5, -7.0, -85.0, -59.0, 0.0, 7.0, 0.0013, 0.5)
-    box_fog('FOG_MIST', -49.5, -7.0, -85.0, -59.0, 0.0, 1.3, 0.05, 0.2, noise_scale=0.35, tint=(0.8, 0.82, 0.9))
+    box_fog('FOG_HAZE', -49.5, -7.0, -85.0, -59.0, 0.0, 6.0, 0.00055, 0.55)
 
 def point(name, loc, energy, color, coll, radius=0.08, plan=False):
     l = bpy.data.lights.new(name, 'POINT'); l.energy = energy; l.color = color; l.shadow_soft_size = radius
@@ -126,7 +125,7 @@ def yard_night_lights(lc):
     point('LIGHT_portal_red', (LX(-47.0), LY(-70.0), 3.4), 260, (1.0, 0.18, 0.05), lc, radius=0.15)
     point('LIGHT_fuel_teal', (LX(-44.7), LY(-79.0), 3.2), 130, (0.35, 1.0, 0.55), lc, radius=0.15)
     point('LIGHT_muster_green', (LX(-17.4), LY(-73.0), 2.9), 55, (0.2, 1.0, 0.3), lc, radius=0.15)
-    point('LIGHT_generator_amber', (LX(-12.4), LY(-80.9), 3.0), 180, (1.0, 0.5, 0.05), lc, radius=0.15)
+    point('LIGHT_generator_amber', (LX(-12.4), LY(-80.9), 3.0), 70, (1.0, 0.5, 0.05), lc, radius=0.15)
     point('LIGHT_dock_blue', (LX(-22.2), LY(-62.2), 3.4), 120, (0.55, 0.95, 0.8), lc, radius=0.15)
     point('LIGHT_porch_door', (LX(-8.6), LY(-70.0), 3.0), 220, (1.0, 0.9, 0.72), lc, radius=0.1)
 

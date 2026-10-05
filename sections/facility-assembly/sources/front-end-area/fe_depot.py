@@ -36,8 +36,8 @@ def build_depot(F, C):
     cabin = site_cabin(F, P); scale = track_scale(F, P); spost = scale_post(F, P); loader = skid_loader(F, P); fuel = fuel_station(F, P)
     bays = bay_walls(F, P, 4.4, 3.4, 1.8); pole = led_pole(F, P); wstop = wheel_stop(F, P); dock = dock_platform(F, P, 5.4, 2.6, 0.95); fan = vent_fan(F, P)
     green_c = (0.2, 0.3, 0.26, 1)
-    cont = [container(F, P, green_c, f'container_{i}') for i in range(3)]
-    fk = forklift(F, P, (0.85, 0.5, 0.06, 1)); gas = gas_rack(F, P); ht = hand_truck(F, P); brl = [barrel(F, P, c, f'barrel_{i}') for i, c in enumerate(((0.12, 0.3, 0.45, 1), (0.55, 0.14, 0.1, 1), (0.3, 0.34, 0.3, 1)))]
+    cont = [container(F, P, c, f'container_{i}') for i, c in enumerate(((0.07, 0.09, 0.20, 1), (0.52, 0.23, 0.14, 1), (0.07, 0.09, 0.20, 1)))]
+    fk = forklift(F, P, (0.85, 0.5, 0.06, 1)); gas = gas_rack(F, P); ht = hand_truck(F, P); brl = [barrel(F, P, c, f'barrel_{i}') for i, c in enumerate(((0.07, 0.09, 0.20, 1), (0.52, 0.23, 0.14, 1), (0.16, 0.16, 0.18, 1)))]
     gen = generator(F, P); tank = tank_vertical(F, P, 2.6, 1.05, (0.5, 0.56, 0.6, 1), 'tank_a'); skp = skip_bin(F, P); bn = bench(F, P); plt = planter(F, P); shr = shrub(F, P, 3, 0.5)
     rec = recycling_bins(F, P); pk = [parcel_stack(F, P, s, 2) for s in range(2)]; fp = fence_panel(F, P); bol = bollard(F, P); hr = hose_reel(F, P)
     cabs = [cabin]

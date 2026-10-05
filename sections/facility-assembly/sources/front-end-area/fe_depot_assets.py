@@ -342,7 +342,7 @@ def ore_pile(F, P, seed=0, r=1.4, h=1.1):
 
 def site_cabin(F, P):
     """Portable site cabin 6.0 x 2.6 x 2.7: pressed-steel body, plinth, roof overhang with gutter, two barred windows, glazed door with canopy, three steps and rails, AC unit, roof vent, lifting eyes, conduit. Front (door side) toward +y."""
-    m = mb(F); L, D, H = 6.0, 2.6, 2.7; body = (0.5, 0.55, 0.58, 1)
+    m = mb(F); L, D, H = 6.0, 2.6, 2.7; body = (0.44, 0.35, 0.43, 1)
     m.rbox(0, 0, 0.12, L, D, 0.24, 0.02, mi=I['steel_charcoal'], rgba=DARK)
     m.rbox(0, 0, 1.45, L - 0.1, D - 0.1, 2.5, 0.05, mi=I['paint'], rgba=body)
     for k in range(int(L / 0.6)):                                                                                       # pressed ribs

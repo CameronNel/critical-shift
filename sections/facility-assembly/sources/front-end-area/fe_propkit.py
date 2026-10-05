@@ -163,3 +163,18 @@ def p_bag(L, W, T, rnd, jit=0.06):
         v.co = Vector((x * 1.04, y * f * k, max(z * f * k, -T * 0.32)))
     for f_ in pb.faces: f_.smooth = True
     return pb
+
+def p_sweep(pts, r, seg=5, caps=True):
+    """Tube of radius r swept along a polyline (hoses, cables, coils); seg sides, 2*seg tris per step."""
+    pb = bmesh.new(); P = [Vector(p) for p in pts]; n = len(P); rings = []
+    for i, p in enumerate(P):
+        t = (P[min(i + 1, n - 1)] - P[max(i - 1, 0)]).normalized()
+        up = Vector((0, 0, 1)) if abs(t.z) < 0.9 else Vector((1, 0, 0))
+        nr = t.cross(up).normalized(); b = t.cross(nr).normalized()
+        rings.append([pb.verts.new(p + (nr * math.cos(2 * math.pi * j / seg) + b * math.sin(2 * math.pi * j / seg)) * r) for j in range(seg)])
+    for i in range(n - 1):
+        for j in range(seg): pb.faces.new((rings[i][j], rings[i][(j + 1) % seg], rings[i + 1][(j + 1) % seg], rings[i + 1][j]))
+    if caps:
+        pb.faces.new(rings[0][::-1]); pb.faces.new(rings[-1])
+    bmesh.ops.recalc_face_normals(pb, faces=pb.faces[:])
+    return pb
