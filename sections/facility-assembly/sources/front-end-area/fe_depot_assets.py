@@ -2,6 +2,7 @@
 Lettering is never modelled: names and numbers come from the baked atlas (fe_signs) on instances."""
 import math, random
 from fe_kit import *
+from fe_propkit import *
 from fe_assets_int import STD, I, mb
 from fe_assets_yard import wheel, lowpoly_boxes, panel, panel_yz, arc_pts, tube, bezier, hazard_band, p_panel_xz
 
@@ -259,41 +260,84 @@ def crew_van(F, P, paint=WHITE):
         for x in (-X1, X1): wheel(m, x, sy * 0.88, 0.4, r=0.42, w=0.3, flip=sy, rim=(0.55, 0.56, 0.58, 1))
     return m.finish('proto_crew_van', P)
 
+def _ore_heap(m, rnd, cx, cy, cz, ax, ay, hh, n_med=60, n_big=8, base_col=(0.06, 0.055, 0.05, 1), sc=1.0):
+    """Ore heap: an angular displaced core plus a dense cover of dark broken lumps, with a few copper-green and rusty chunks."""
+    pb = bmesh.new(); res = bmesh.ops.create_icosphere(pb, subdivisions=2, radius=1.0)
+    for v in res['verts']:
+        k = 1.0 + 0.14 * math.sin(v.co.x * 6 + cx) * math.cos(v.co.y * 5) + rnd.uniform(-0.1, 0.1)
+        v.co = Vector((v.co.x * ax * 0.97 * k, v.co.y * ay * 0.97 * k, max(v.co.z, -0.1) * hh * 0.9 * k))
+    bmesh.ops.delete(pb, geom=[f for f in pb.faces if sum(v.co.z for v in f.verts) / 3 < -0.04], context='FACES')
+    add_var(m, pb, (cx, cy, cz), mi=I['props'], rgba=base_col, var=0.3, rnd=rnd)
+    dark = [(0.055, 0.052, 0.05, 1), (0.09, 0.085, 0.08, 1), (0.04, 0.042, 0.05, 1), (0.14, 0.125, 0.11, 1), (0.07, 0.065, 0.075, 1)]
+    rust = [(0.30, 0.12, 0.05, 1), (0.38, 0.17, 0.06, 1)]; green = [(0.08, 0.27, 0.20, 1), (0.12, 0.34, 0.24, 1)]
+    def hz(x, y): return cz + hh * math.sqrt(max(0.0, 1 - (x / ax) ** 2 - (y / ay) ** 2))
+    for i in range(n_med + n_big):
+        big = i >= n_med
+        a = rnd.uniform(0, 6.283); d = rnd.uniform(0.0, 1.0) ** 0.6 * 0.98; x = math.cos(a) * ax * d; y = math.sin(a) * ay * d
+        s = (rnd.uniform(0.11, 0.17) if big else rnd.uniform(0.07, 0.125)) * sc
+        j = i % 13
+        col = rnd.choice(green) if j == 3 else rnd.choice(rust) if j in (6, 10) else rnd.choice(dark)
+        add_var(m, p_rock(rnd, s, 0.72, 0.32, 1 if big else 0), (cx + x, cy + y, hz(x, y) - s * 0.2), (rnd.uniform(-.4, .4), rnd.uniform(-.4, .4), rnd.uniform(0, 6.28)), mi=I['paint'], rgba=col, var=0.3, rnd=rnd)
+
 def ore_car(F, P):
-    """Mine tipper car 2.4 m on rail (gauge 1.56 m): riveted tub with stiffening ribs, drop-sides, two axles with spoked wheels, buffers and couplings, heaped with ore."""
-    m = mb(F); rnd = random.Random(4); body = (0.28, 0.2, 0.15, 1); rib = (0.2, 0.15, 0.12, 1)
-    m.rbox(0, 0, 0.62, 2.3, 1.2, 0.08, 0.02, mi=I['paint'], rgba=rib)                                                  # floor frame
+    """Mine tipper car 2.4 m on rail (gauge 1.56 m): rust-red riveted tub with rolled rim, angle ribs, stencil band and number plate (the baked car number sits flush on it),
+    channel underframe, hung axle boxes, spoked iron wheels, sprung buffers and a hook coupling, brake lever, heaped with dark ore with copper-green and rusty chunks."""
+    m = mb(F); rnd = random.Random(4); RED = (0.40, 0.125, 0.065, 1); RED2 = (0.30, 0.095, 0.055, 1); BAND = (0.74, 0.52, 0.09, 1); GR = (0.07, 0.07, 0.08, 1); BR = (0.55, 0.53, 0.5, 1)
+    m.add(p_frustum(2.0, 1.28, 2.34, 1.56, 0.68, 0.025), (0, 0, 0.62), mi=I['paint'], rgba=RED)                 # tub body
+    m.rbox(0, 0, 1.24, 2.26, 1.48, 0.04, 0.0, mi=I['props'], rgba=(0.06, 0.055, 0.05, 1))                       # ore bed
     for sy in (-1, 1):
-        m.rbox(0, sy * 0.58, 0.98, 2.4, 0.06, 0.72, 0.02, rot=(sy * -0.1, 0, 0), mi=I['paint'], rgba=body)           # flared sides
-        m.rbox(0, sy * 0.64, 1.36, 2.46, 0.09, 0.08, 0.025, mi=I['paint'], rgba=rib)                                  # top rim
-        for k in range(5): m.rbox(-1.0 + k * 0.5, sy * 0.63, 0.98, 0.07, 0.04, 0.72, 0.01, rot=(sy * -0.1, 0, 0), mi=I['paint'], rgba=rib)
-        for sx in (-0.8, 0.8):
-            m.rbox(sx, sy * 0.78, 0.4, 0.14, 0.07, 0.3, 0.015, mi=I['steel_charcoal'], rgba=DARK)                      # axle boxes
-            m.add(p_lathe([(0.0, 0.0), (0.2, 0.0), (0.21, 0.02), (0.21, 0.06), (0.0, 0.06)], 22), (sx, sy * 0.76, 0.26), (math.pi / 2, 0, 0), mi=I['steel_charcoal'], rgba=DARK)
-            m.add(p_cyl(0.09, 0.04, 12), (sx, sy * 0.8, 0.26), (math.pi / 2, 0, 0), mi=I['steel_brushed'], rgba=STEEL)
+        m.rbox(0, sy * 0.775, 1.31, 2.42, 0.1, 0.08, 0.018, seg=1, mi=I['paint'], rgba=RED2)                    # rolled rim
+        m.rbox(0, sy * 0.68, 0.62, 2.1, 0.06, 0.05, 0.01, seg=1, mi=I['steel_charcoal'])                         # bottom angle
+        for x in (-0.9, -0.45, 0.45, 0.9):
+            m.rbox(x, sy * 0.725, 0.97, 0.06, 0.035, 0.66, 0.007, rot=(-sy * 0.203, 0, 0), seg=1, mi=I['paint'], rgba=RED2)   # angle rib
+            studs(m, [(x, sy * 0.75, z) for z in (0.7, 1.22)], '+y' if sy > 0 else '-y', r=0.016, h=0.014, mi=I['steel_charcoal'])
+        m.rbox(0, sy * 0.727, 1.0, 2.1, 0.014, 0.11, 0.003, rot=(-sy * 0.203, 0, 0), seg=1, mi=I['paint'], rgba=BAND)       # stencil band
+        m.rbox(0, sy * 0.674, 0.72, 0.62, 0.014, 0.28, 0.004, seg=1, mi=I['steel_charcoal'])                      # number plate backing
+        studs(m, [(sx * 0.27, sy * 0.683, 0.72 + sz * 0.11) for sx in (-1, 1) for sz in (-1, 1)], '+y' if sy > 0 else '-y', r=0.012, h=0.01, seg=5, mi=I['steel_brushed'])
+        for k in range(8):                                                                                       # seam rivets, lower seam
+            x = -1.0 + k * 0.285 + (0.0 if k % 2 else 0.0)
+            if abs(x) < 0.4 and False: continue
+            studs(m, [(x, sy * 0.687, 0.84)], '+y' if sy > 0 else '-y', r=0.012, h=0.01, mi=I['steel_charcoal'])
     for sx in (-1, 1):
-        m.rbox(sx * 1.18, 0, 1.0, 0.06, 1.14, 0.7, 0.02, rot=(0, sx * 0.1, 0), mi=I['paint'], rgba=body)
-        m.between((sx * 1.4, 0.0, 0.55), (sx * 1.12, 0.0, 0.55), 0.04, seg=8, mi=I['steel_charcoal'], rgba=DARK)        # coupling
-        m.cylz(sx * 1.2, 0.35, 0.5, 0.64, 0.04, seg=8, mi=I['steel_charcoal'], rgba=DARK); m.cylz(sx * 1.2, -0.35, 0.5, 0.64, 0.04, seg=8, mi=I['steel_charcoal'], rgba=DARK)
-    for sx in (-0.8, 0.8): m.between((sx, -0.78, 0.26), (sx, 0.78, 0.26), 0.03, seg=8, mi=I['steel_charcoal'], rgba=DARK)  # axles
-    for k in range(26):                                                                                                 # ore heap
-        x = rnd.uniform(-1.0, 1.0); y = rnd.uniform(-0.45, 0.45); hh = 1.28 + 0.2 * (1 - (abs(x) / 1.1) ** 2) * (1 - (abs(y) / 0.5) ** 2) + rnd.uniform(0, 0.08)
-        r = rnd.uniform(0.11, 0.2); m.sphere(x, y, hh, r * 1.1, r, r * 0.8, rings=4, seg=6, mi=I['props'], rgba=[(0.24, 0.22, 0.2, 1), (0.34, 0.3, 0.25, 1), (0.16, 0.15, 0.14, 1), (0.45, 0.33, 0.2, 1)][k % 4])
+        m.rbox(sx * 1.165, 0, 1.31, 0.1, 1.56, 0.08, 0.018, seg=1, mi=I['paint'], rgba=RED2)
+        for y in (-0.5, 0.0, 0.5): m.rbox(sx * 1.14, y, 0.97, 0.035, 0.07, 0.62, 0.007, rot=(0, sx * 0.1, 0), seg=1, mi=I['paint'], rgba=RED2)
+        studs(m, [(sx * 1.095, y, z) for y in (-0.5, 0.0, 0.5) for z in (0.7, 1.2)], '+x' if sx > 0 else '-x', r=0.015, h=0.012, mi=I['steel_charcoal'])
+        for sy in (-1, 1): m.rbox(sx * 1.165, sy * 0.775, 1.31, 0.14, 0.14, 0.1, 0.02, seg=1, mi=I['paint'], rgba=RED2)      # rim corner caps
+        # headstock, buffers, drawbar and coupling
+        m.rbox(sx * 1.1, 0, 0.56, 0.1, 1.2, 0.14, 0.012, seg=1, mi=I['steel_charcoal'])
+        for sy in (-1, 1):
+            m.add(p_cyl(0.04, 0.2, 8), (sx * 1.22, sy * 0.4, 0.56), (0, math.pi / 2, 0), mi=I['steel_charcoal'])
+            m.add(p_cyl(0.09, 0.035, 12), (sx * 1.335, sy * 0.4, 0.56), (0, math.pi / 2, 0), mi=I['steel_brushed'], rgba=BR)
+        m.between((sx * 1.05, 0, 0.56), (sx * 1.34, 0, 0.56), 0.03, seg=6, mi=I['steel_charcoal'])
+    m.add(p_torus(0.07, 0.016, 12, 5), (1.36, 0, 0.56), (math.pi / 2, 0, 0), mi=I['steel_charcoal'])           # coupling link
+    m.rbox(-1.34, 0, 0.56, 0.1, 0.06, 0.1, 0.01, seg=1, mi=I['steel_charcoal']); m.between((-1.34, -0.04, 0.6), (-1.34, -0.04, 0.46), 0.012, seg=5, mi=I['steel_brushed'], rgba=BR)   # hook and pin
+    for sy in (-1, 1):
+        m.rbox(0, sy * 0.46, 0.52, 2.2, 0.1, 0.12, 0.012, seg=1, mi=I['steel_charcoal'])                         # underframe channels
+    for x in (-0.8, 0.0, 0.8): m.rbox(x, 0, 0.55, 0.08, 1.0, 0.1, 0.01, seg=1, mi=I['steel_charcoal'])
+    for sx in (-0.8, 0.8):
+        m.between((sx, -0.84, 0.26), (sx, 0.84, 0.26), 0.026, seg=6, mi=I['steel_charcoal'])                    # axle
+        for sy in (-1, 1):
+            m.add(p_wheel_spoked(0.21, 0.05, 5, 16), (sx, sy * 0.77, 0.26), (math.pi / 2, 0, 0), mi=I['steel_charcoal'], rgba=GR)
+            m.rbox(sx, sy * 0.66, 0.30, 0.15, 0.1, 0.17, 0.014, seg=1, mi=I['steel_charcoal'])                  # axle box
+            m.rbox(sx, sy * 0.66, 0.40, 0.12, 0.085, 0.03, 0.006, seg=1, mi=I['steel_brushed'], rgba=BR)        # box lid
+            m.rbox(sx, sy * 0.66, 0.46, 0.05, 0.05, 0.16, 0.008, seg=1, mi=I['steel_charcoal'])                 # hanger
+            m.add(p_cyl(0.035, 0.03, 6), (sx, sy * 0.81, 0.26), (math.pi / 2, 0, 0), mi=I['steel_brushed'], rgba=BR)   # axle end cap
+    m.between((0.95, 0.70, 0.58), (0.95, 0.88, 1.02), 0.012, seg=5, mi=I['steel_charcoal'])                     # brake lever with ball handle
+    m.sphere(0.95, 0.885, 1.04, 0.032, rings=4, seg=6, mi=I['plastic'], rgba=(0.1, 0.1, 0.11, 1))
+    m.rbox(0.95, 0.69, 0.58, 0.05, 0.05, 0.06, 0.008, seg=1, mi=I['steel_charcoal'])
+    _ore_heap(m, rnd, 0.0, 0.0, 1.25, 1.1, 0.72, 0.34, n_med=52, n_big=6, sc=0.85)
+    weather(m, 4, dirt=0.4, dirt_h=0.3, streak=0.22, blotch=0.2)
     return m.finish('proto_ore_car', P)
 
 def ore_pile(F, P, seed=0, r=1.4, h=1.1):
-    """Heap of broken ore: a displaced low-poly mound plus loose lumps; colour by grade via the instance material slot (dark = waste, brown = ore)."""
+    """Heap of broken ore: angular displaced mound plus loose dark lumps with rusty and copper-green chunks, spilling around the foot."""
     rnd = random.Random(seed); m = mb(F)
-    pb = bmesh.new(); res = bmesh.ops.create_icosphere(pb, subdivisions=3, radius=1.0)
-    for v in res['verts']:
-        z = max(v.co.z, 0.0); k = 1.0 + 0.16 * math.sin(v.co.x * 5 + seed) * math.cos(v.co.y * 4 - seed) + rnd.uniform(-0.05, 0.05)
-        v.co = Vector((v.co.x * r * k, v.co.y * r * 0.86 * k, z * h * k - 0.02 if z > 0 else -0.05))
-    for f in pb.faces: f.smooth = False
-    col = [(0.22, 0.2, 0.18, 1), (0.34, 0.27, 0.19, 1), (0.14, 0.14, 0.15, 1)][seed % 3]
-    m.add(pb, mi=I['props'], rgba=col)
-    for k in range(22):
-        a = rnd.uniform(0, 6.28); d = rnd.uniform(0.2, 1.0) * r; z = max(0.0, h * (1 - (d / r) ** 2) * 0.8)
-        s = rnd.uniform(0.08, 0.2); m.sphere(math.cos(a) * d, math.sin(a) * d * 0.86, z + s * 0.5, s * 1.1, s, s * 0.8, rings=4, seg=6, mi=I['props'], rgba=tuple(c * rnd.uniform(0.7, 1.3) for c in col[:3]) + (1,))
+    base = [(0.06, 0.055, 0.05, 1), (0.07, 0.05, 0.035, 1), (0.04, 0.04, 0.045, 1)][seed % 3]
+    _ore_heap(m, rnd, 0.0, 0.0, 0.0, r, r * 0.86, h, n_med=95, n_big=12, base_col=base, sc=1.45)
+    for k in range(22):                                                                          # spill at the foot
+        a = rnd.uniform(0, 6.283); d = rnd.uniform(0.9, 1.25) * r; x = math.cos(a) * d; y = math.sin(a) * d * 0.86; s = rnd.uniform(0.03, 0.08)
+        add_var(m, p_rock(rnd, s, 0.7, 0.3, 0), (x, y, s * 0.2), (0, 0, rnd.uniform(0, 6.28)), mi=I['paint'], rgba=rnd.choice([(0.07, 0.065, 0.06, 1), (0.12, 0.10, 0.09, 1), (0.28, 0.13, 0.06, 1), (0.10, 0.28, 0.2, 1)]), var=0.3, rnd=rnd)
+    weather(m, seed, dirt=0.5, dirt_h=0.18, streak=0.0, blotch=0.25)
     return m.finish(f'proto_ore_pile_{seed}', P)
 
 def site_cabin(F, P):

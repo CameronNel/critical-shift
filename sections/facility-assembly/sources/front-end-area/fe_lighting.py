@@ -29,7 +29,7 @@ CAMERAS = [
  ('YRD_08_NIGHT_SKY', (-22.0, -70.5, 1.7), (-27.8, -103.1, 24.1), 18),
  ('YRD_09_GROUND_CLOSE', (-33.0, -74.4, 0.9), (-30.0, -70.8, 0.1), 24),
  ('YRD_10_ASSET_CLOSE', (-31.2, -77.8, 1.25), (-35.8, -80.8, 0.95), 28),
- ('REV_01_PORCH_HERO', (-16.0, -70.0, 1.65), (-61.3, -76.4, 22.0), 22),
+ ('REV_01_PORCH_HERO', (-16.0, -70.0, 1.65), (-64.0, -76.7, 13.8), 22),
  ('REV_02_VEHICLES', (-26.5, -75.0, 1.5), (-35.5, -80.6, 1.1), 24),
  ('REV_03_RAIL_DOCK', (-22.2, -68.5, 1.7), (-22.2, -60.5, 2.0), 22),
  ('REV_04_PORTAL', (-31.0, -70.6, 1.7), (-49.0, -70.0, 2.3), 24),
@@ -68,9 +68,27 @@ def night_world(sc):
     gain = N('ShaderNodeMix', data_type='RGBA', blend_type='MULTIPLY'); gain.inputs['Factor'].default_value = 1.0; gain.inputs[7].default_value = (fe_sky.GAIN,) * 3 + (1,)
     Lk(env.outputs['Color'], gain.inputs[6]); add = gain
     Lk(add.outputs[2], bg.inputs['Color']); Lk(N('ShaderNodeLightPath').outputs['Is Camera Ray'], bg.inputs['Strength']); Lk(bg.outputs[0], out.inputs['Surface'])   # the sky is seen but lights nothing
-    vol = N('ShaderNodeVolumeScatter'); vol.inputs['Density'].default_value = 0.0009; vol.inputs['Anisotropy'].default_value = 0.35; vol.inputs['Color'].default_value = (0.95, 0.85, 0.75, 1)
-    Lk(vol.outputs[0], out.inputs['Volume'])
     return w
+
+def fog_boxes(lc):
+    """Bounded fog: a thin haze over the yard so floodlight cones read, and low ground mist. The sky is outside both, so the stars stay clean."""
+    def box_fog(name, x0, x1, y0, y1, z0, z1, density, aniso, noise_scale=None, tint=(1.0, 0.86, 0.72)):
+        bm = bmesh.new(); bmesh.ops.create_cube(bm, size=1.0)
+        for v in bm.verts:
+            v.co.x = LX((x0 + x1) / 2) + v.co.x * (x1 - x0); v.co.y = LY((y0 + y1) / 2) + v.co.y * (y1 - y0); v.co.z = (z0 + z1) / 2 + v.co.z * (z1 - z0)
+        me = bpy.data.meshes.new(name); bm.to_mesh(me); bm.free()
+        o = bpy.data.objects.new(name, me); lc.objects.link(o); o.visible_shadow = False
+        m = bpy.data.materials.new(name); m.use_nodes = True; nt = m.node_tree; nt.nodes.clear()
+        out = nt.nodes.new('ShaderNodeOutputMaterial'); vs = nt.nodes.new('ShaderNodeVolumeScatter'); vs.inputs['Anisotropy'].default_value = aniso; vs.inputs['Color'].default_value = (*tint, 1)
+        if noise_scale:
+            tc = nt.nodes.new('ShaderNodeTexCoord'); nz = nt.nodes.new('ShaderNodeTexNoise'); nz.inputs['Scale'].default_value = noise_scale; nz.inputs['Detail'].default_value = 3
+            mp = nt.nodes.new('ShaderNodeMapping'); mp.inputs['Scale'].default_value = (1, 1, 2.2); nt.links.new(tc.outputs['Object'], mp.inputs['Vector']); nt.links.new(mp.outputs[0], nz.inputs['Vector'])
+            mr = nt.nodes.new('ShaderNodeMapRange'); mr.inputs['From Min'].default_value = 0.35; mr.inputs['From Max'].default_value = 0.7; mr.inputs['To Max'].default_value = density
+            nt.links.new(nz.outputs['Fac'], mr.inputs['Value']); nt.links.new(mr.outputs[0], vs.inputs['Density'])
+        else: vs.inputs['Density'].default_value = density
+        nt.links.new(vs.outputs[0], out.inputs['Volume']); o.data.materials.append(m)
+    box_fog('FOG_HAZE', -49.5, -7.0, -85.0, -59.0, 0.0, 7.0, 0.0013, 0.5)
+    box_fog('FOG_MIST', -49.5, -7.0, -85.0, -59.0, 0.0, 1.3, 0.05, 0.2, noise_scale=0.35, tint=(0.8, 0.82, 0.9))
 
 def point(name, loc, energy, color, coll, radius=0.08, plan=False):
     l = bpy.data.lights.new(name, 'POINT'); l.energy = energy; l.color = color; l.shadow_soft_size = radius
@@ -120,7 +138,7 @@ def build_lighting(F, C):
     md = Vector(tuple(fe_sky.moon_dir()))                                  # world direction toward the moon
     moon = bpy.data.lights.new('FE_MOON', 'SUN'); moon.energy = 0.11; moon.angle = math.radians(1.2); moon.color = (0.50, 0.62, 1.0)
     mo = bpy.data.objects.new('FE_MOON', moon); mo.rotation_euler = md.to_track_quat('Z', 'Y').to_euler(); lc.objects.link(mo)
-    yard_night_lights(lc)
+    yard_night_lights(lc); fog_boxes(lc)
     area('KITCHEN_LIGHT_0', (17.0, -61.9, 2.9), 1.6, 220, (1.0, 0.95, 0.85), lc, sy=0.5); area('KITCHEN_LIGHT_1', (22.5, -61.9, 2.9), 1.6, 220, (1.0, 0.95, 0.85), lc, sy=0.5)
     # warm cafeteria fill under every ceiling fixture row, cool-white hall strips
     for i, x in enumerate((-2, 6, 14, 22)):

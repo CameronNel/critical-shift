@@ -1,28 +1,70 @@
 """Yard assets at spawn-room quality: crates, pallets, drums, tyres, cones, bollards, benches, planters, poles, rail kit."""
 from fe_kit import *
+from fe_propkit import *
 from fe_assets_int import STD, I, mb
 
 def crate(F, P, variant=0):
-    cols = [(0.50, 0.36, 0.20, 1), (0.28, 0.36, 0.30, 1), (0.62, 0.50, 0.28, 1), (0.22, 0.28, 0.36, 1)]; c = cols[variant % 4]
-    m = mb(F); rnd = random.Random(variant)
-    S = 0.96
+    """Shipping crate 0.96 x 0.96 x 1.0. v0: planked pine with corner posts, diagonal braces, nailed lid cleats, steel strapping and a stencil panel;
+    v1 (and odd variants): olive-painted planked box with corner caps, hasp and padlock, side handles and a yellow-black stencil panel."""
+    m = mb(F); rnd = random.Random(variant * 7 + 3); painted = variant % 2 == 1
+    BODY = I['paint'] if painted else I['timber']
+    pal = [(0.2, 0.26, 0.17, 1), (0.16, 0.22, 0.30, 1), (0.30, 0.25, 0.14, 1)][(variant // 2) % 3] if painted else (0.7, 0.55, 0.35, 1)
+    DARKW = (0.05, 0.035, 0.025, 1); H = 0.45
+    for sx in (-1, 1): m.rbox(sx * 0.33, 0, 0.045, 0.1, 0.96, 0.09, 0.01, seg=1, mi=I['timber'])                                   # skids
+    m.rbox(0, 0, 0.5, 0.88, 0.88, 0.8, 0.0, mi=I['timber'], rgba=DARKW)                                                          # core shadow
+    nb = 6; bh = 0.8 / nb
+    for i in range(nb):
+        z = 0.1 + (i + 0.5) * bh
+        for sx in (-1, 1): m.rbox(sx * H, 0, z, 0.03, 0.9, bh - 0.012, 0.0, mi=BODY, rgba=tuple(c * rnd.uniform(0.85, 1.12) for c in pal[:3]) + (1,))
+        for sy in (-1, 1): m.rbox(0, sy * H, z, 0.84, 0.03, bh - 0.012, 0.0, mi=BODY, rgba=tuple(c * rnd.uniform(0.85, 1.12) for c in pal[:3]) + (1,))
     for sx in (-1, 1):
-        for sy in (-1, 1): m.rbox(sx * 0.45, sy * 0.45, 0.5, 0.09, 0.09, 1.0, 0.008, mi=I['timber'], rgba=tuple(x * 0.85 for x in c[:3]) + (1,))
-    for z in (0.04, 0.5, 0.96):
-        m.rbox(0, 0.45, z, 0.9, 0.09, 0.08, 0.006, mi=I['timber'], rgba=tuple(x * 0.85 for x in c[:3]) + (1,)); m.rbox(0, -0.45, z, 0.9, 0.09, 0.08, 0.006, mi=I['timber'], rgba=tuple(x * 0.85 for x in c[:3]) + (1,))
-        m.rbox(0.45, 0, z, 0.09, 0.9, 0.08, 0.006, mi=I['timber'], rgba=tuple(x * 0.85 for x in c[:3]) + (1,)); m.rbox(-0.45, 0, z, 0.09, 0.9, 0.08, 0.006, mi=I['timber'], rgba=tuple(x * 0.85 for x in c[:3]) + (1,))
-    n = 6
-    for i in range(n):
-        z = 0.1 + i * 0.145
-        for sx in (-1, 1): m.rbox(sx * 0.452, 0, z + 0.06, 0.03, 0.82, 0.13, 0.004, mi=I['timber'], rgba=tuple(x * (0.92 + 0.08 * rnd.random()) for x in c[:3]) + (1,))
-        for sy in (-1, 1): m.rbox(0, sy * 0.452, z + 0.06, 0.82, 0.03, 0.13, 0.004, mi=I['timber'], rgba=tuple(x * (0.92 + 0.08 * rnd.random()) for x in c[:3]) + (1,))
-    m.rbox(0, 0, 0.5, 0.88, 0.88, 0.88, 0.0, mi=I['timber'], rgba=(0.1, 0.07, 0.04, 1))
-    m.rbox(0, 0, 0.995, 0.96, 0.96, 0.024, 0.006, mi=I['timber'], rgba=c)
-    for sx in (-1, 1):
-        for sy in (-1, 1):
-            for z in (0.12, 0.88): m.cylz(sx * 0.462, sy * 0.462, z - 0.005, z + 0.005, 0.012, seg=8, mi=I['steel_charcoal'], rgba=(0.5, 0.5, 0.5, 1)) if False else None
-    m.rbox(0, 0.485, 0.62, 0.34, 0.012, 0.2, 0.004, mi=I['signage'], rgba=(0.88, 0.86, 0.8, 1))
-    m.rbox(0, 0.492, 0.62, 0.22, 0.006, 0.03, 0.002, mi=I['signage'], rgba=(0.1, 0.1, 0.1, 1))
+        for sy in (-1, 1): m.rbox(sx * H, sy * H, 0.5, 0.095, 0.095, 0.86, 0.012, seg=1, mi=BODY, rgba=tuple(c * 0.82 for c in pal[:3]) + (1,))
+    for z in (0.14, 0.9):
+        for sy in (-1, 1): m.rbox(0, sy * H, z, 0.84, 0.095, 0.07, 0.01, seg=1, mi=BODY, rgba=tuple(c * 0.82 for c in pal[:3]) + (1,))
+        for sx in (-1, 1): m.rbox(sx * H, 0, z, 0.095, 0.84, 0.07, 0.01, seg=1, mi=BODY, rgba=tuple(c * 0.82 for c in pal[:3]) + (1,))
+    # lid: boards across, slightly askew
+    lid = rnd.uniform(-0.03, 0.03)
+    for i in range(6): m.rbox(0, -0.4 + i * 0.16, 0.975, 0.98, 0.15, 0.03, 0.004, rot=(0, 0, lid), seg=1, mi=BODY, rgba=tuple(c * rnd.uniform(0.9, 1.1) for c in pal[:3]) + (1,))
+    for sx in (-1, 1): m.rbox(sx * 0.32, 0, 1.0, 0.09, 0.98, 0.025, 0.006, rot=(0, 0, lid), seg=1, mi=BODY, rgba=tuple(c * 0.85 for c in pal[:3]) + (1,))
+    nails = [(sx * 0.32, -0.4 + i * 0.16, 1.014) for sx in (-1, 1) for i in range(6)]
+    studs(m, nails, '+z', r=0.01, h=0.007, seg=4, mi=I['steel_charcoal'])
+    for sy in (-1, 1):                                                                                               # nails along posts
+        f = '+y' if sy > 0 else '-y'
+        studs(m, [(sx * 0.4, sy * 0.499, z) for sx in (-1, 1) for z in (0.2, 0.5, 0.82)], f, r=0.01, h=0.007, seg=4, mi=I['steel_charcoal'])
+    # diagonal braces on the x faces
+    for sx in (-1, 1): m.rbox(sx * 0.472, 0, 0.52, 0.025, 0.12 if False else 0.07, 1.05, 0.006, rot=(0.0, 0, 0), mi=BODY, rgba=tuple(c * 0.9 for c in pal[:3]) + (1,)) if False else None
+    for sx in (-1, 1): m.rbox(sx * 0.472, 0, 0.52, 0.026, 1.0, 0.07, 0.006, rot=(0.0 * 0 + (0.72 if sx > 0 else -0.72), 0, 0), seg=1, mi=BODY, rgba=tuple(c * 0.9 for c in pal[:3]) + (1,))
+    # stencil panels on the y faces
+    for sy in (-1, 1):
+        f = '+y' if sy > 0 else '-y'; y = sy * 0.469
+        if not painted:
+            m.rbox(0, y, 0.53, 0.40, 0.006, 0.22, 0.002, mi=I['signage'], rgba=(0.78, 0.76, 0.68, 1))
+            m.rbox(0, y + sy * 0.004, 0.62, 0.30, 0.004, 0.025, 0.0, mi=I['signage'], rgba=(0.08, 0.08, 0.08, 1)); m.rbox(0, y + sy * 0.004, 0.55, 0.22, 0.004, 0.02, 0.0, mi=I['signage'], rgba=(0.08, 0.08, 0.08, 1))
+            m.rbox(-0.1, y + sy * 0.004, 0.46, 0.012, 0.004, 0.09, 0.0, mi=I['signage'], rgba=(0.08, 0.08, 0.08, 1))
+            for a in (-0.6, 0.6): m.rbox(-0.1 + math.sin(a) * -0.025, y + sy * 0.004, 0.50 - abs(a) * 0.0, 0.012, 0.004, 0.06, 0.0, rot=(0, a, 0), mi=I['signage'], rgba=(0.08, 0.08, 0.08, 1))
+            for sx in (-1, 1):                                                                                      # steel strap down the face
+                m.rbox(sx * 0.28, y + sy * 0.001, 0.5, 0.03, 0.008, 0.86, 0.0, mi=I['steel_charcoal'])
+            m.rbox(0.28 * rnd.choice((-1, 1)), y + sy * 0.006, 0.45, 0.05, 0.01, 0.04, 0.003, seg=1, mi=I['steel_brushed'], rgba=(0.8, 0.8, 0.8, 1))
+        else:
+            m.rbox(0, y, 0.55, 0.42, 0.006, 0.26, 0.002, mi=I['signage'], rgba=(0.82, 0.62, 0.08, 1))
+            for k in range(5): m.rbox(-0.16 + k * 0.08, y + sy * 0.004, 0.55, 0.035, 0.004, 0.19, 0.0, rot=(0, 0.5, 0), mi=I['signage'], rgba=(0.06, 0.06, 0.06, 1)) if k % 2 == 0 else None
+            m.rbox(0, y + sy * 0.005, 0.55, 0.24, 0.004, 0.1, 0.0, mi=I['signage'], rgba=(0.88, 0.86, 0.78, 1))
+    if not painted:
+        for sx in (-1, 1): m.rbox(sx * 0.28, 0, 1.02, 0.03, 0.96, 0.008, 0.0, mi=I['steel_charcoal'])
+        for sx in (-1, 1):
+            for sy in (-1, 1): m.rbox(sx * 0.46, sy * 0.46, 0.96, 0.17, 0.17, 0.02, 0.004, rot=(0, 0, math.pi / 4 * 0), seg=1, mi=I['steel_charcoal'])
+    else:
+        for sx in (-1, 1):
+            for sy in (-1, 1):
+                m.rbox(sx * 0.475, sy * 0.475, 0.96, 0.11, 0.11, 0.1, 0.012, seg=1, mi=I['steel_charcoal'])
+                m.rbox(sx * 0.475, sy * 0.475, 0.08, 0.11, 0.11, 0.1, 0.012, seg=1, mi=I['steel_charcoal'])
+        for sx in (-1, 1):
+            m.add(p_torus(0.065, 0.011, 10, 5), (sx * 0.495, 0, 0.72), (0, math.pi / 2, 0), mi=I['steel_charcoal'])
+            m.rbox(sx * 0.49, 0.0, 0.72, 0.03, 0.2, 0.05, 0.006, seg=1, mi=I['steel_charcoal'])
+        m.rbox(0, 0.485, 0.9, 0.1, 0.012, 0.09, 0.004, seg=1, mi=I['steel_brushed'], rgba=(0.8, 0.8, 0.8, 1))            # hasp and padlock
+        m.rbox(0, 0.488, 0.8, 0.06, 0.02, 0.07, 0.006, seg=1, mi=I['steel_charcoal'])
+        m.add(p_cyl(0.025, 0.03, 8), (0, 0.5, 0.78), (math.pi / 2, 0, 0), mi=I['steel_brushed'], rgba=(0.8, 0.8, 0.8, 1))
+    weather(m, variant, dirt=0.55, dirt_h=0.22, streak=0.2, blotch=0.18, top=0.25)
     return m.finish(f'proto_crate_{variant}', P)
 
 def pallet(F, P):
@@ -36,24 +78,51 @@ def pallet(F, P):
     return m.finish('proto_pallet', P)
 
 def barrel(F, P, rgba=(0.12, 0.3, 0.45, 1), name='barrel'):
-    m = mb(F)
-    prof = [(0.0, 0.0), (0.27, 0.0), (0.285, 0.015), (0.29, 0.05), (0.285, 0.08), (0.292, 0.09), (0.292, 0.12), (0.285, 0.13), (0.29, 0.28), (0.29, 0.45), (0.292, 0.46), (0.292, 0.49), (0.285, 0.5),
-            (0.29, 0.64), (0.285, 0.8), (0.292, 0.81), (0.292, 0.84), (0.285, 0.85), (0.29, 0.88), (0.288, 0.9), (0.27, 0.905), (0.265, 0.9), (0.26, 0.89), (0.0, 0.89)]
-    m.lathe(prof, seg=32, mi=I['props'], rgba=rgba)
-    m.cylz(0.12, 0.1, 0.9, 0.925, 0.03, seg=14, mi=I['steel_charcoal'], rgba=(0.5, 0.5, 0.52, 1)); m.cylz(-0.12, -0.08, 0.9, 0.915, 0.022, seg=14, mi=I['steel_charcoal'], rgba=(0.5, 0.5, 0.52, 1))
-    m.add(p_torus(0.275, 0.007, 36, 6), (0, 0, 0.885), (0, 0, 0), mi=I['steel_charcoal'], rgba=(0.45, 0.45, 0.47, 1))
+    """Steel drum 0.9 m: rolled chimes, three rolling hoops, dented body, recessed lid with ring-lock clamp, flanged bung and vent plug, and a stencil label panel."""
+    m = mb(F); rnd = random.Random(int(sum(rgba[:3]) * 1000) + 7)
+    prof = [(0.0, 0.0), (0.262, 0.0), (0.284, 0.018), (0.294, 0.05), (0.284, 0.088), (0.287, 0.115), (0.298, 0.13), (0.298, 0.165), (0.287, 0.18), (0.288, 0.26), (0.289, 0.34), (0.289, 0.43),
+            (0.298, 0.445), (0.298, 0.485), (0.287, 0.50), (0.289, 0.58), (0.289, 0.66), (0.287, 0.70), (0.298, 0.715), (0.298, 0.75), (0.287, 0.765), (0.288, 0.83), (0.296, 0.875), (0.296, 0.9), (0.282, 0.915), (0.262, 0.9), (0.256, 0.885), (0.0, 0.885)]
+    pb = p_lathe(prof, 24)
+    for _ in range(3): dent(pb, rnd.uniform(0, 6.28), rnd.uniform(0.25, 0.65), rnd.uniform(0.008, 0.016), rnd.uniform(0.05, 0.09), 0.29)
+    add_var(m, pb, mi=I['props'], rgba=rgba, var=0.0, rnd=rnd, flat=False)
+    m.add(p_torus(0.268, 0.011, 24, 5), (0, 0, 0.9), mi=I['steel_charcoal'])                                       # ring-lock band
+    a = rnd.uniform(0, 6.28); ca, sa = math.cos(a), math.sin(a)
+    m.rbox(ca * 0.272, sa * 0.272, 0.915, 0.05, 0.05, 0.035, 0.008, rot=(0, 0, a), seg=1, mi=I['steel_charcoal'])
+    m.between((ca * 0.28, sa * 0.28, 0.935), (ca * 0.2, sa * 0.2, 0.95), 0.007, seg=5, mi=I['steel_brushed'], rgba=(0.8, 0.8, 0.8, 1))
+    m.add(p_cyl(0.045, 0.012, 12), (0.12, 0.1, 0.892), mi=I['steel_charcoal']); m.add(p_cyl(0.028, 0.026, 6), (0.12, 0.1, 0.9), mi=I['steel_brushed'], rgba=(0.8, 0.8, 0.8, 1))   # bung
+    m.add(p_cyl(0.026, 0.01, 10), (-0.12, -0.08, 0.89), mi=I['steel_charcoal']); m.add(p_cyl(0.015, 0.02, 6), (-0.12, -0.08, 0.895), mi=I['steel_brushed'], rgba=(0.8, 0.8, 0.8, 1))    # vent plug
+    la = rnd.uniform(0, 6.28); lc = rnd.choice([(0.88, 0.85, 0.76, 1), (0.85, 0.7, 0.12, 1), (0.8, 0.8, 0.78, 1)])
+    m.add(p_arc_band(0.289, 0.52, 0.69, la, la + 1.5, 10, 0.005), mi=I['signage'], rgba=lc)                      # label panel
+    m.add(p_arc_band(0.289, 0.58, 0.60, la + 0.1, la + 1.4, 8, 0.008), mi=I['signage'], rgba=(0.07, 0.07, 0.07, 1))
+    m.add(p_arc_band(0.289, 0.62, 0.64, la + 0.1, la + 1.0, 8, 0.008), mi=I['signage'], rgba=(0.07, 0.07, 0.07, 1))
+    m.add(p_arc_band(0.289, 0.54, 0.56, la + 0.1, la + 0.6, 6, 0.008), mi=I['signage'], rgba=(0.07, 0.07, 0.07, 1))
+    weather(m, int(rgba[0] * 100), dirt=0.45, dirt_h=0.15, streak=0.3, blotch=0.22, top=0.3, angle=26.0)
     return m.finish('proto_' + name, P)
 
 def cable_drum(F, P):
-    m = mb(F)
-    for z in (0.0, 0.62): m.cylz(0, 0, z, z + 0.05, 0.5, seg=40, bevel=0.01, mi=I['timber'], rgba=(0.5, 0.34, 0.18, 1))
-    m.cylz(0, 0, 0.05, 0.62, 0.12, seg=24, mi=I['timber'], rgba=(0.4, 0.27, 0.14, 1))
-    for r in range(8):
-        m.add(p_torus(0.27, 0.03, 24, 6), (0, 0, 0.09 + r * 0.063), (0, 0, 0), mi=I['plastic'], rgba=(0.06, 0.06, 0.07, 1))
-    for k in range(6):
-        a = k * math.pi / 3
-        for z in (0.052, 0.62): m.cylz(math.cos(a) * 0.38, math.sin(a) * 0.38, z - 0.002, z + 0.008, 0.02, seg=10, mi=I['steel_charcoal'], rgba=(0.5, 0.5, 0.5, 1)) if False else None
-    m.rbox(0, 0, 0.0, 0.0, 0.0, 0.0, 0.0) if False else None
+    """Timber cable drum 1.0 dia x 0.67: banded flanges with cross battens and rim through-bolts, steel hub plates, wound cable layers and a loose cable tail."""
+    m = mb(F); rnd = random.Random(11); W = (0.5, 0.34, 0.18, 1); CAB = (0.045, 0.045, 0.05, 1)
+    for z, s in ((0.0, 1), (0.62, -1)):
+        m.cylz(0, 0, z, z + 0.05, 0.5, seg=28, bevel=0.012, mi=I['timber'])
+        face = z + 0.05 if s > 0 else z                                  # outer face of this flange is the one away from the barrel
+        zo = z if s > 0 else z + 0.05
+        for y in (-0.24, 0.0, 0.24):
+            L = 2 * math.sqrt(0.5 ** 2 - y * y) - 0.06
+            m.rbox(0, y, zo - s * 0.012, L, 0.11, 0.02, 0.004, seg=1, mi=I['timber'], rgba=W)
+        m.add(p_cyl(0.13, 0.014, 14), (0, 0, zo - s * 0.024), mi=I['steel_charcoal'])
+        hex_bolt(m, (0, 0, zo - s * 0.034), '+z' if s < 0 else '-z', 0.035, 0.02, mi=I['steel_brushed'], rgba=(0.8, 0.8, 0.8, 1))
+        for k in range(8):
+            a = k * math.pi / 4 + 0.2; x, y = math.cos(a) * 0.43, math.sin(a) * 0.43
+            hex_bolt(m, (x, y, zo - s * 0.018), '+z' if s < 0 else '-z', 0.016, 0.012, mi=I['steel_charcoal'])
+        m.add(p_torus(0.5, 0.008, 28, 4), (0, 0, z + 0.025), mi=I['steel_charcoal'])                              # rim band
+    m.cylz(0, 0, 0.05, 0.62, 0.12, seg=14, mi=I['timber'], rgba=W)
+    prof = [(0.27, 0.05)]
+    for k in range(8): z0 = 0.05 + k * 0.0713; prof += [(0.275, z0 + 0.01), (0.305, z0 + 0.0357), (0.275, z0 + 0.0713 - 0.01)]
+    prof += [(0.27, 0.62)]
+    m.lathe(prof, seg=24, mi=I['rubber'])                                                              # wound cable layers
+    cable(m, bez((0.29, 0.0, 0.5), (0.62, 0.05, 0.56), (0.63, 0.12, 0.05), 6), 0.016, 6, mi=I['rubber'])    # loose tail
+    m.rbox(0.62, 0.14, 0.02, 0.07, 0.06, 0.04, 0.006, seg=1, mi=I['rubber'])
+    weather(m, 11, dirt=0.4, dirt_h=0.2, streak=0.2, blotch=0.2, top=0.2)
     return m.finish('proto_cable_drum', P)
 
 def tyre(F, P, stack=1, name='tyre'):
@@ -64,11 +133,17 @@ def tyre(F, P, stack=1, name='tyre'):
     return m.finish('proto_' + name, P)
 
 def cone(F, P):
+    """Traffic cone 0.7 m: chamfered square rubber base with slots, tall orange body with moulded neck, two retro-reflective bands, handle ring."""
     m = mb(F)
-    m.rbox(0, 0, 0.012, 0.42, 0.42, 0.024, 0.01, mi=I['rubber'], rgba=(0.06, 0.06, 0.06, 1))
-    m.lathe([(0.15, 0.024), (0.12, 0.2), (0.09, 0.4), (0.04, 0.68), (0.032, 0.7), (0.0, 0.7)], seg=28, mi=I['plastic'], rgba=(0.9, 0.35, 0.08, 1))
-    m.lathe([(0.108, 0.24), (0.1, 0.32), (0.083, 0.32), (0.091, 0.24)], seg=28, mi=I['plastic'], rgba=(0.92, 0.92, 0.9, 1))
-    m.lathe([(0.075, 0.43), (0.07, 0.5), (0.057, 0.5), (0.061, 0.43)], seg=28, mi=I['plastic'], rgba=(0.92, 0.92, 0.9, 1))
+    m.rbox(0, 0, 0.016, 0.42, 0.42, 0.032, 0.012, seg=2, mi=I['rubber'])
+    m.rbox(0, 0, 0.03, 0.34, 0.34, 0.014, 0.006, seg=1, mi=I['rubber'])
+    for sx in (-1, 1):
+        for sy in (-1, 1): m.rbox(sx * 0.17, sy * 0.17, 0.034, 0.05, 0.05, 0.004, 0.0, mi=I['rubber'], rgba=(0.01, 0.01, 0.01, 1))
+    m.lathe([(0.152, 0.03), (0.15, 0.06), (0.118, 0.2), (0.088, 0.4), (0.062, 0.58), (0.045, 0.66), (0.036, 0.69), (0.03, 0.7), (0.0, 0.7)], seg=20, mi=I['plastic'], rgba=(0.92, 0.34, 0.05, 1))
+    m.add(p_torus(0.04, 0.008, 12, 4), (0, 0, 0.67), mi=I['plastic'], rgba=(0.86, 0.3, 0.05, 1))
+    m.lathe([(0.108, 0.24), (0.1, 0.33), (0.0905, 0.33), (0.1005, 0.24)], seg=20, mi=I['signage'], rgba=(0.9, 0.9, 0.86, 1))
+    m.lathe([(0.0795, 0.43), (0.0735, 0.5), (0.0645, 0.5), (0.0705, 0.43)], seg=20, mi=I['signage'], rgba=(0.9, 0.9, 0.86, 1))
+    weather(m, 3, dirt=0.4, dirt_h=0.12, streak=0.1, blotch=0.12, top=0.1)
     return m.finish('proto_cone', P)
 
 def bollard(F, P):
@@ -203,30 +278,171 @@ def bale(F, P, seed=0):
     return m.finish(f'proto_bale_{seed}', P)
 
 def generator(F, P):
-    m = mb(F); body = (0.7, 0.35, 0.06, 1)
-    m.rbox(0, 0, 0.86, 2.6, 1.3, 1.3, 0.05, mi=I['props'], rgba=body)
-    m.rbox(0, 0, 0.12, 2.8, 1.5, 0.16, 0.03, mi=I['steel_charcoal'], rgba=(0.1, 0.1, 0.11, 1))
-    for k in range(14): m.rbox(-0.9 + k * 0.14, 0.655, 0.9, 0.06, 0.02, 0.8, 0.004, mi=I['steel_charcoal'], rgba=(0.06, 0.06, 0.07, 1))
-    m.rbox(-0.9 + 0.98 + 0.0, 0.66, 0.9, 1.96, 0.012, 0.86, 0.004, mi=I['steel_charcoal'], rgba=(0.03, 0.03, 0.03, 1))
-    m.rbox(1.0, 0.66, 1.1, 0.4, 0.04, 0.38, 0.01, mi=I['steel_charcoal'], rgba=(0.1, 0.1, 0.11, 1)); m.rbox(1.0, 0.685, 1.15, 0.3, 0.01, 0.16, 0.004, mi=I['screen'], rgba=(0.3, 0.8, 0.45, 1))
-    for k in range(3): m.cylz(0.9 + k * 0.1, 0.69, 0.0, 0.0, 0.0) if False else m.add(p_cyl(0.025, 0.03, 12), (0.9 + k * 0.1, 0.695, 0.95), (math.pi / 2, 0, 0), mi=I['plastic'], rgba=[(0.1, 0.7, 0.2, 1), (0.9, 0.7, 0.1, 1), (0.85, 0.15, 0.1, 1)][k])
-    m.cylz(1.05, -0.4, 1.5, 2.5, 0.08, seg=18, mi=I['steel_charcoal'], rgba=(0.12, 0.12, 0.13, 1)); m.cylz(1.05, -0.4, 2.5, 2.54, 0.14, seg=18, bevel=0.01, mi=I['steel_charcoal'], rgba=(0.1, 0.1, 0.11, 1))
-    m.rbox(-1.0, -0.2, 1.55, 0.3, 0.3, 0.05, 0.01, mi=I['steel_charcoal'], rgba=(0.5, 0.5, 0.52, 1))
-    for sx in (-1, 1): m.cylz(sx * 1.2, 0.5, 0.0, 0.0, 0.0) if False else m.add(p_cyl(0.18, 0.1, 20), (sx * 1.0, 0.62, 0.18), (math.pi / 2, 0, 0), mi=I['rubber'], rgba=(0.03, 0.03, 0.03, 1))
+    """Diesel generator set 3.0 x 1.3 x 2.5 in a sound-proof canopy (front toward +y): channel skid with integral fuel tank, filler cap, drain valve and level gauge, louvred hinged doors with
+    handles, a recessed control compartment (LCD, dials, lamps, e-stop, switches), roof lifting eye, silencer with exhaust stack and hinged rain cap, cable gland box with cable runs, lifting eyes."""
+    m = mb(F); rnd = random.Random(31); OR = (0.74, 0.37, 0.06, 1); OR2 = (0.62, 0.30, 0.05, 1); DK = (0.07, 0.07, 0.08, 1); BR = (0.8, 0.8, 0.8, 1)
+    for sy in (-1, 1): m.rbox(0, sy * 0.58, 0.09, 3.0, 0.14, 0.18, 0.012, seg=1, mi=I['steel_charcoal'])              # skid runners
+    for x in (-1.35, -0.45, 0.45, 1.35): m.rbox(x, 0, 0.09, 0.1, 1.1, 0.14, 0.01, seg=1, mi=I['steel_charcoal'])
+    m.rbox(0, 0, 0.31, 2.72, 1.06, 0.24, 0.025, seg=2, mi=I['paint'], rgba=(0.12, 0.12, 0.13, 1))                    # integral fuel tank
+    for sx in (-1, 1):
+        for sy in (-1, 1):
+            m.rbox(sx * 1.46, sy * 0.58, 0.1, 0.07, 0.05, 0.2, 0.006, seg=1, mi=I['steel_charcoal'])                  # lifting eye plate + ring
+            m.add(p_torus(0.06, 0.013, 10, 5), (sx * 1.5, sy * 0.58, 0.14), (0, math.pi / 2, 0), mi=I['steel_charcoal'])
+    m.rbox(0, 0, 0.88, 2.66, 1.16, 1.12, 0.05, seg=2, mi=I['paint'], rgba=OR)                                       # canopy
+    m.rbox(0, 0, 1.46, 2.7, 1.2, 0.06, 0.03, seg=2, mi=I['paint'], rgba=OR2)                                         # roof cap
+    for sx in (-1, 1): m.rbox(sx * 1.2, 0, 0.5, 0.18, 1.2, 0.04, 0.01, seg=1, mi=I['steel_charcoal']) if False else None
+    m.rbox(0, 0, 0.45, 2.72, 1.2, 0.04, 0.01, seg=1, mi=I['steel_charcoal'])                                          # plinth rail
+    # --- front doors with louvres
+    for (x, w, c) in ((-0.72, 1.1, OR), (0.36, 0.88, OR)):
+        m.rbox(x, 0.592, 0.9, w, 0.026, 0.98, 0.008, seg=1, mi=I['paint'], rgba=tuple(k * 0.94 for k in c[:3]) + (1,))
+        m.rbox(x, 0.606, 0.84, w - 0.22, 0.012, 0.7, 0.0, mi=I['steel_charcoal'], rgba=DK)
+        for i in range(7): m.rbox(x, 0.62, 0.55 + i * 0.1, w - 0.2, 0.034, 0.032, 0.0, rot=(-0.55, 0, 0), mi=I['paint'], rgba=tuple(k * 0.8 for k in c[:3]) + (1,))
+        for z in (0.55, 0.9, 1.3): m.add(p_cyl(0.013, 0.07, 6), (x - w / 2 + 0.01, 0.6, z), mi=I['steel_brushed'], rgba=BR)   # hinge barrels
+        m.rbox(x + w / 2 - 0.1, 0.612, 0.92, 0.035, 0.03, 0.14, 0.008, seg=1, mi=I['steel_charcoal'])                  # lever handle
+        m.add(p_cyl(0.022, 0.014, 8), (x + w / 2 - 0.1, 0.62, 1.02), (math.pi / 2, 0, 0), mi=I['steel_brushed'], rgba=BR)
+        stud_row(m, (x - w / 2 + 0.05, 0.606, 1.34), (x + w / 2 - 0.05, 0.606, 1.34), 6, '+y', r=0.011, h=0.009, mi=I['steel_charcoal'])
+    m.rbox(-0.72, 0.612, 1.3, 0.2, 0.004, 0.1, 0.0, mi=I['signage'], rgba=(0.9, 0.7, 0.06, 1)); m.rbox(-0.72, 0.616, 1.3, 0.16, 0.004, 0.012, 0.0, mi=I['signage'], rgba=(0.06, 0.06, 0.06, 1)); m.rbox(-0.72, 0.616, 1.26, 0.1, 0.004, 0.012, 0.0, mi=I['signage'], rgba=(0.06, 0.06, 0.06, 1))
+    # --- control compartment
+    cx = 1.0
+    m.rbox(cx, 0.585, 0.95, 0.46, 0.03, 0.74, 0.01, seg=1, mi=I['steel_charcoal'])
+    m.rbox(cx, 0.605, 1.1, 0.24, 0.012, 0.13, 0.004, seg=1, mi=I['steel_charcoal'], rgba=DK); m.rbox(cx, 0.613, 1.1, 0.2, 0.004, 0.1, 0.0, mi=I['screen'], rgba=(0.35, 0.85, 0.5, 1))
+    for k, dx in enumerate((-0.1, 0.1)):
+        m.add(p_cyl(0.052, 0.014, 12), (cx + dx, 0.608, 0.92), (-math.pi / 2, 0, 0), mi=I['steel_brushed'], rgba=BR)
+        m.add(p_cyl(0.042, 0.006, 12), (cx + dx, 0.617, 0.92), (-math.pi / 2, 0, 0), mi=I['signage'], rgba=(0.9, 0.88, 0.8, 1))
+        m.rbox(cx + dx + 0.012 * (1 if k else -1), 0.621, 0.93, 0.004, 0.003, 0.034, 0.0, rot=(0, 0.6 * (1 if k else -1), 0), mi=I['signage'], rgba=(0.05, 0.05, 0.05, 1))
+    for k, c in enumerate(((0.1, 0.9, 0.2, 1), (1.0, 0.65, 0.1, 1), (0.9, 0.12, 0.08, 1))): m.add(p_cyl(0.018, 0.014, 8), (cx - 0.12 + k * 0.12, 0.612, 0.8), (-math.pi / 2, 0, 0), mi=I['emissive'], rgba=c)
+    m.add(p_cyl(0.05, 0.01, 12), (cx - 0.1, 0.608, 0.67), (-math.pi / 2, 0, 0), mi=I['paint'], rgba=(0.9, 0.7, 0.05, 1)); m.add(p_cyl(0.034, 0.03, 10), (cx - 0.1, 0.62, 0.67), (-math.pi / 2, 0, 0), mi=I['paint'], rgba=(0.85, 0.08, 0.06, 1))   # e-stop
+    m.add(p_cyl(0.022, 0.012, 8), (cx + 0.08, 0.608, 0.67), (-math.pi / 2, 0, 0), mi=I['steel_brushed'], rgba=BR); m.rbox(cx + 0.08, 0.62, 0.67, 0.006, 0.01, 0.03, 0.0, mi=I['steel_charcoal'])   # key switch
+    for dx in (0.15, 0.19): m.rbox(dx + cx, 0.612, 0.66, 0.012, 0.012, 0.02, 0.0, mi=I['steel_charcoal'])
+    m.rbox(cx, 0.6, 0.6, 0.4, 0.008, 0.03, 0.0, mi=I['signage'], rgba=(0.88, 0.7, 0.08, 1))
+    for z in (0.58, 1.3): m.add(p_cyl(0.013, 0.06, 6), (cx - 0.2, 0.595, z), mi=I['steel_brushed'], rgba=BR)
+    # --- back grille and end details
+    m.rbox(-0.3, -0.595, 0.9, 1.5, 0.014, 0.8, 0.006, seg=1, mi=I['steel_charcoal'], rgba=DK)
+    for i in range(8): m.rbox(-0.3, -0.606, 0.58 + i * 0.09, 1.4, 0.012, 0.025, 0.0, mi=I['steel_charcoal'])
+    for i in range(7): m.rbox(-1.335, 0.0, 0.62 + i * 0.1, 0.014, 0.8, 0.04, 0.0, rot=(0, 0, 0), mi=I['paint'], rgba=OR2) if False else None
+    m.rbox(1.345, -0.05, 0.9, 0.04, 0.5, 0.5, 0.01, seg=1, mi=I['steel_charcoal'])                                     # cable gland box
+    for k in range(3): m.add(p_cyl(0.026, 0.05, 8), (1.38, -0.2 + k * 0.15, 0.7), (0, math.pi / 2, 0) if False else (0, 0, 0), mi=I['steel_brushed'], rgba=BR) if False else None
+    for k in range(3):
+        gx = 1.38; gy = -0.2 + k * 0.15
+        m.add(p_cyl(0.026, 0.06, 8), (gx, gy, 0.68), (0, 0, 0), mi=I['steel_brushed'], rgba=BR) if False else m.add(p_cyl(0.026, 0.05, 8), (gx, gy, 0.67), (0, math.pi / 2, 0) if False else (0, 0, 0))
+    studs(m, [(1.368, y, z) for y in (-0.25, 0.15) for z in (1.12, 0.7)], '+x', r=0.012, h=0.01, mi=I['steel_charcoal'])
+    cable(m, bez((1.4, -0.2, 0.62), (1.62, -0.2, 0.3), (1.58, -0.35, 0.025), 5), 0.022, 6, mi=I['rubber'])
+    cable(m, bez((1.4, -0.05, 0.62), (1.7, -0.05, 0.35), (1.72, 0.15, 0.025), 5), 0.022, 6, mi=I['rubber'])
+    cable(m, bez((1.4, 0.1, 0.62), (1.55, 0.2, 0.3), (1.45, 0.5, 0.025), 5), 0.022, 6, mi=I['rubber'])
+    # --- fuel filler, drain valve, gauge
+    m.add(p_cyl(0.05, 0.06, 10), (1.1, -0.2, 0.44), mi=I['steel_charcoal']); m.add(p_cyl(0.058, 0.02, 10), (1.1, -0.2, 0.47), mi=I['paint'], rgba=(0.85, 0.7, 0.06, 1))
+    m.add(p_cyl(0.025, 0.06, 8), (-1.1, 0.5, 0.2), (math.pi / 2, 0, 0), mi=I['steel_brushed'], rgba=BR); m.rbox(-1.1, 0.545, 0.2, 0.1, 0.012, 0.012, 0.0, mi=I['paint'], rgba=(0.8, 0.1, 0.06, 1))
+    m.add(p_cyl(0.045, 0.018, 12), (-0.5, 0.53, 0.3), (-math.pi / 2, 0, 0), mi=I['steel_brushed'], rgba=BR); m.add(p_cyl(0.036, 0.006, 12), (-0.5, 0.541, 0.3), (-math.pi / 2, 0, 0), mi=I['signage'], rgba=(0.9, 0.88, 0.8, 1))
+    # --- roof: lifting eye, silencer, stack with rain cap
+    m.rbox(0, 0, 1.5, 0.22, 0.22, 0.02, 0.004, seg=1, mi=I['steel_charcoal']); m.add(p_torus(0.075, 0.016, 12, 5), (0, 0, 1.58), (math.pi / 2, 0, 0), mi=I['steel_charcoal'])
+    m.rbox(0.55, 0.12, 1.56, 0.62, 0.46, 0.1, 0.02, seg=1, mi=I['paint'], rgba=OR2)                                  # intake hood
+    for i in range(4): m.rbox(0.55, 0.35, 1.53 + i * 0.03, 0.5, 0.012, 0.015, 0.0, mi=I['steel_charcoal'])
+    for x in (-0.95, 0.0, 1.0): m.rbox(x, 0, 1.495, 0.03, 1.1, 0.01, 0.0, mi=I['paint'], rgba=tuple(k * 0.75 for k in OR2[:3]) + (1,))   # roof seams
+    stud_row(m, (-1.2, 0.5, 1.5), (1.2, 0.5, 1.5), 10, '+z', r=0.012, h=0.01, mi=I['steel_charcoal'])
+    m.add(p_cyl(0.125, 0.75, 16), (-0.55, -0.22, 1.66), (0, math.pi / 2, 0), mi=I['steel_charcoal'], rgba=(0.16, 0.14, 0.12, 1))
+    for dx in (-0.9, -0.2): m.add(p_cyl(0.14, 0.03, 16), (dx, -0.22, 1.66), (0, math.pi / 2, 0), mi=I['steel_brushed'], rgba=(0.55, 0.52, 0.5, 1))
+    for dx in (-0.8, -0.3): m.rbox(dx, -0.22, 1.52, 0.05, 0.22, 0.06, 0.006, seg=1, mi=I['steel_charcoal'])
+    m.cylz(-0.3, -0.22, 1.72, 2.42, 0.048, seg=10, mi=I['steel_charcoal'], rgba=(0.14, 0.12, 0.1, 1))
+    for z in (1.78, 2.3): m.add(p_torus(0.055, 0.009, 10, 4), (-0.3, -0.22, z), mi=I['steel_brushed'], rgba=(0.55, 0.52, 0.5, 1))
+    m.add(p_cyl(0.085, 0.012, 12), (-0.3, -0.22, 2.55), (0.42, 0, 0), mi=I['steel_charcoal'], rgba=(0.16, 0.14, 0.12, 1))        # rain cap flap
+    for a in (0.0, 2.1, 4.2): m.between((-0.3 + math.cos(a) * 0.04, -0.22 + math.sin(a) * 0.04, 2.42), (-0.3 + math.cos(a) * 0.05, -0.22 + math.sin(a) * 0.05, 2.52), 0.005, seg=4, mi=I['steel_charcoal'])
+    weather(m, 31, dirt=0.35, dirt_h=0.3, streak=0.28, blotch=0.2, top=0.2, angle=32.0)
     return m.finish('proto_generator', P)
 
 def tank_vertical(F, P, h=2.6, r=1.05, rgba=(0.5, 0.52, 0.5, 1), name='tank'):
-    m = mb(F)
-    m.lathe([(0.0, 0.3), (r * 0.95, 0.3), (r, 0.36), (r, h), (r * 0.95, h + 0.08), (r * 0.6, h + 0.18), (r * 0.5, h + 0.2), (0.0, h + 0.2)], seg=48, mi=I['props'], rgba=rgba)
+    """Welded plate water tank: four plate courses with ring and vertical weld seams and bolted lap flanges, stiffened legs on a concrete plinth, blue band, conical roof with hatch, hinged lid and
+    handrail, ladder with safety cage (toward the yard), level gauge with isolating valves, flanged outlet pipe with gate valve and drain, vertical inlet pipe with clips, manway with bolted cover."""
+    m = mb(F); rnd = random.Random(21); ST = I['steel_charcoal']; BR = (0.8, 0.8, 0.8, 1); n = 4; ch = (h - 0.3) / n
+    def Pt(rr, t=0.0, z=0.0, th=0.0): return (rr * math.cos(th) - t * math.sin(th), rr * math.sin(th) + t * math.cos(th), z)
+    m.lathe([(0, 0), (r + 0.14, 0), (r + 0.14, 0.07), (r + 0.1, 0.09), (0, 0.09)], seg=28, mi=I['concrete_slab'], rgba=(0.55, 0.53, 0.5, 1))   # plinth
     for k in range(6):
         a = k * math.pi / 3 + 0.2
-        m.rbox(math.cos(a) * r * 0.82, math.sin(a) * r * 0.82, 0.15, 0.14, 0.14, 0.3, 0.01, mi=I['steel_charcoal'], rgba=(0.12, 0.12, 0.13, 1))
-    for z in (0.7, 1.5, 2.2):
-        if z < h: m.add(p_torus(r + 0.006, 0.02, 48, 6), (0, 0, z), (0, 0, 0), mi=I['steel_charcoal'], rgba=(0.14, 0.14, 0.15, 1))
-    for k in range(int((h - 0.4) / 0.3)): m.rbox(r + 0.07, 0.0, 0.5 + k * 0.3, 0.05, 0.42, 0.035, 0.008, mi=I['steel_charcoal'], rgba=(0.14, 0.14, 0.15, 1))
-    for sy in (-0.22, 0.22): m.rbox(r + 0.07, sy, h / 2 + 0.2, 0.05, 0.03, h - 0.3, 0.008, mi=I['steel_charcoal'], rgba=(0.14, 0.14, 0.15, 1))
-    m.cylz(0.0, 0.0, h + 0.2, h + 0.5, 0.06, seg=14, mi=I['steel_charcoal'], rgba=(0.12, 0.12, 0.13, 1))
-    m.between((r * 0.5, 0, 0.6), (r + 0.4, 0, 0.6), 0.06, seg=14, mi=I['steel_charcoal'], rgba=(0.55, 0.56, 0.58, 1))
+        m.rbox(math.cos(a) * r * 0.86, math.sin(a) * r * 0.86, 0.19, 0.12, 0.12, 0.22, 0.012, rot=(0, 0, a), seg=1, mi=ST)           # legs
+        m.rbox(math.cos(a) * r * 0.86, math.sin(a) * r * 0.86, 0.1, 0.22, 0.22, 0.02, 0.006, rot=(0, 0, a), seg=1, mi=ST)           # foot plates
+        studs(m, [Pt(r * 0.86, t, 0.115, a) for t in (-0.07, 0.07)], '+z', r=0.014, h=0.012, mi=I['steel_brushed'], rgba=BR)
+        b = a + math.pi / 6
+        m.between(Pt(r * 0.86, 0, 0.12, a), Pt(r * 0.86, 0, 0.12, a + math.pi / 3), 0.014, seg=5, mi=ST) if False else None
+    m.add(p_torus(r * 0.93, 0.03, 28, 4), (0, 0, 0.3), mi=ST)                                                                         # base ring
+    z0 = 0.3
+    for c in range(n):                                                                                                                # courses
+        col = tuple(k * rnd.uniform(0.94, 1.06) for k in rgba[:3]) + (1,); rc = r + (0.0 if c % 2 == 0 else 0.012)
+        pb = p_lathe([(rc, z0), (rc, z0 + ch)], 28); pb2 = None
+        m.lathe([(rc, z0 + 0.004), (rc + 0.002, z0 + ch / 2), (rc, z0 + ch - 0.004)], seg=28, mi=I['paint'], rgba=col)
+        pb.free()
+        if c: m.add(p_torus(r + 0.016, 0.014, 28, 4), (0, 0, z0), mi=I['paint'], rgba=tuple(k * 0.8 for k in col[:3]) + (1,))        # horizontal weld seam
+        for k in range(5):
+            a = k * 2 * math.pi / 5 + (0.5 if c % 2 else 0.0)
+            m.rbox(*Pt(rc + 0.006, 0, z0 + ch / 2, a), 0.012, 0.035, ch - 0.02, 0.0, rot=(0, 0, a), mi=I['paint'], rgba=tuple(k_ * 0.75 for k_ in col[:3]) + (1,))   # vertical weld
+        z0 += ch
+    studs(m, [Pt(r + 0.026, 0, 0.58, 2 * math.pi * i / 24) for i in range(24)], '+x', r=0.014, h=0.012, mi=I['steel_brushed'], rgba=BR) if False else None
+    for zz in (0.3 + ch, 0.3 + 2 * ch, 0.3 + 3 * ch):
+        for i in range(22):
+            a = 2 * math.pi * i / 22; m.add(p_stud(0.014, 0.012, 5), Pt(r + 0.027, 0, zz + 0.04, a), (0, math.pi / 2, a), mi=ST) if False else m.add(p_stud(0.014, 0.012, 5), Pt(r + 0.025, 0, zz + 0.045, a), (0, math.pi / 2, 0) if False else (0, math.pi / 2, 0), mi=ST) if False else None
+    m.lathe([(r + 0.006, 1.95), (r + 0.01, 1.96), (r + 0.01, 2.2), (r + 0.006, 2.21)], seg=28, mi=I['paint'], rgba=(0.12, 0.28, 0.5, 1))   # blue band
+    m.lathe([(r, h), (r + 0.05, h + 0.012), (r * 0.62, h + 0.17), (r * 0.5, h + 0.2), (0.0, h + 0.2)], seg=28, mi=I['paint'], rgba=tuple(k * 0.86 for k in rgba[:3]) + (1,))   # roof
+    m.add(p_torus(r + 0.03, 0.02, 28, 4), (0, 0, h + 0.005), mi=ST)                                                                   # roof angle ring
+    # --- roof hatch, handrail
+    hx, hy = -0.2, -0.15
+    m.rbox(hx, hy, h + 0.28, 0.58, 0.58, 0.08, 0.02, seg=1, mi=ST, rgba=(0.08, 0.08, 0.09, 1)); m.rbox(hx, hy, h + 0.33, 0.52, 0.52, 0.03, 0.012, rot=(0, 0.07, 0.0), seg=1, mi=I['paint'], rgba=(0.55, 0.58, 0.6, 1))
+    m.add(p_cyl(0.012, 0.3, 6), (hx - 0.3, hy, h + 0.32), (0, math.pi / 2, math.pi / 2) if False else (math.pi / 2, 0, 0), mi=I['steel_brushed'], rgba=BR); m.rbox(hx + 0.2, hy, h + 0.36, 0.1, 0.05, 0.03, 0.008, seg=1, mi=ST)
+    stud_row(m, (hx - 0.24, hy + 0.27, h + 0.325), (hx + 0.24, hy + 0.27, h + 0.325), 5, '+y', r=0.012, h=0.01, mi=ST)
+    m.cylz(0.5, 0.6, h + 0.19, h + 0.5, 0.06, seg=10, mi=ST); m.add(p_cyl(0.09, 0.02, 12), (0.5, 0.6, h + 0.5), (0.2, 0.0, 0.0), mi=ST)    # vent pipe with cap
+    nrail = 14; gate = (0.0, 0.9)
+    for i in range(nrail):
+        a = 2 * math.pi * i / nrail + 0.1
+        if abs(math.atan2(math.sin(a - 0.35), math.cos(a - 0.35))) < 0.3: continue
+        px, py = math.cos(a) * (r * 0.97), math.sin(a) * (r * 0.97)
+        m.cylz(px, py, h + 0.02, h + 0.62, 0.015, seg=5, mi=ST)
+    for zz in (h + 0.34, h + 0.62): m.add(p_torus(r * 0.97, 0.013, 28, 4), (0, 0, zz), mi=ST)
+    m.add(p_torus(r * 0.97, 0.01, 28, 4), (0, 0, h + 0.07), mi=ST)
+    # --- ladder with safety cage (faces the yard, angle th)
+    th = 0.35; lr = r + 0.13
+    for t in (-0.19, 0.19):
+        m.rbox(*Pt(lr, t, (0.3 + h + 0.55) / 2, th), 0.035, 0.03, h + 0.25, 0.006, rot=(0, 0, th), seg=1, mi=ST)
+    for k in range(int((h - 0.4) / 0.28)):
+        z = 0.5 + k * 0.28; m.between(Pt(lr, -0.19, z, th), Pt(lr, 0.19, z, th), 0.014, seg=5, mi=I['steel_brushed'], rgba=BR)
+    for z in (0.6, 1.5, 2.4):
+        for t in (-0.19, 0.19): m.rbox(*Pt((lr + r + 0.02) / 2, t, z, th), 0.14, 0.03, 0.05, 0.005, rot=(0, 0, th), seg=1, mi=ST)      # standoff brackets
+    for zc in (1.75, 2.05, 2.35, 2.65):
+        pts = [Pt(lr + 0.04 + 0.34 * math.sin(math.pi * j / 6), 0.34 * math.cos(math.pi * j / 6) * 1.0, zc, th) for j in range(7)]
+        for a_, b_ in zip(pts[:-1], pts[1:]): m.between(a_, b_, 0.009, seg=4, mi=ST)
+    for j in (0, 2, 3, 4, 6):
+        a_ = math.pi * j / 6; m.between(Pt(lr + 0.04 + 0.34 * math.sin(a_), 0.34 * math.cos(a_), 1.75, th), Pt(lr + 0.04 + 0.34 * math.sin(a_), 0.34 * math.cos(a_), 2.65, th), 0.008, seg=4, mi=ST)
+    # --- level gauge
+    ga = 1.05
+    m.between(Pt(r + 0.12, 0, 0.6, ga), Pt(r + 0.12, 0, 2.3, ga), 0.022, seg=8, mi=I['glass'])
+    for zz in (0.6, 2.3):
+        m.rbox(*Pt(r + 0.1, 0, zz, ga), 0.1, 0.06, 0.07, 0.01, rot=(0, 0, ga), seg=1, mi=ST); m.add(p_cyl(0.026, 0.03, 8), Pt(r + 0.1, 0.0, zz + 0.07, ga), (0, 0, 0), mi=I['paint'], rgba=(0.85, 0.12, 0.08, 1))
+    for k in range(9): m.rbox(*Pt(r + 0.12, 0.05, 0.7 + k * 0.18, ga), 0.01, 0.05 if k % 2 == 0 else 0.03, 0.01, 0.0, rot=(0, 0, ga), mi=I['signage'], rgba=(0.9, 0.9, 0.85, 1))
+    m.rbox(*Pt(r + 0.12, 0, 1.55, ga), 0.04, 0.045, 0.03, 0.006, rot=(0, 0, ga), seg=1, mi=I['paint'], rgba=(0.9, 0.5, 0.06, 1))        # float
+    for t in (-0.04, 0.04): m.between(Pt(r + 0.045, t, 0.6, ga), Pt(r + 0.045, t, 2.3, ga), 0.008, seg=4, mi=ST)
+    # --- outlet pipe with gate valve and drain (angle oa)
+    oa = 2.55
+    m.between(Pt(r - 0.02, 0, 0.65, oa), Pt(r + 0.42, 0, 0.65, oa), 0.06, seg=10, mi=I['steel_brushed'], rgba=(0.6, 0.62, 0.64, 1))
+    m.add(p_cyl(0.1, 0.03, 12), Pt(r + 0.05, 0, 0.65, oa), (0, math.pi / 2, oa), mi=ST) if False else m.add(p_cyl(0.1, 0.03, 12), Pt(r + 0.05, 0, 0.65, oa), (0, math.pi / 2, 0), mi=ST, rot=None) if False else None
+    for dd in (0.04, 0.3):
+        pb = p_cyl(0.095, 0.03, 12); xf(pb, Pt(r + dd, 0, 0.65, oa), (0, math.pi / 2, 0)); xf(pb, (0, 0, 0), (0, 0, 0)); m.add(pb, mi=ST)
+    m.rbox(*Pt(r + 0.18, 0, 0.7, oa), 0.14, 0.12, 0.16, 0.02, rot=(0, 0, oa), seg=1, mi=I['paint'], rgba=(0.14, 0.28, 0.5, 1))           # valve body
+    m.between(Pt(r + 0.18, 0, 0.78, oa), Pt(r + 0.18, 0, 1.0, oa), 0.014, seg=6, mi=I['steel_brushed'], rgba=BR)
+    m.add(p_torus(0.075, 0.011, 12, 4), Pt(r + 0.18, 0, 1.0, oa), (0, 0, 0), mi=I['paint'], rgba=(0.85, 0.1, 0.07, 1))                    # hand wheel
+    m.between(Pt(r + 0.42, 0, 0.65, oa), Pt(r + 0.42, 0, 0.2, oa), 0.055, seg=10, mi=I['steel_brushed'], rgba=(0.6, 0.62, 0.64, 1))
+    m.add(p_cyl(0.075, 0.03, 12), Pt(r + 0.42, 0, 0.2, oa), (0, 0, 0), mi=ST); m.rbox(*Pt(r + 0.42, 0, 0.12, oa), 0.14, 0.14, 0.12, 0.02, seg=1, mi=ST)
+    # --- inlet pipe up the shell with clips
+    ia = 0.75 + 2.2
+    m.between(Pt(r + 0.09, 0, 0.5, ia), Pt(r + 0.09, 0, h + 0.05, ia), 0.045, seg=8, mi=I['steel_brushed'], rgba=(0.6, 0.62, 0.64, 1))
+    for z in (0.8, 1.5, 2.2): m.rbox(*Pt(r + 0.05, 0, z, ia), 0.09, 0.07, 0.04, 0.006, rot=(0, 0, ia), seg=1, mi=ST)
+    m.between(Pt(r + 0.09, 0, h + 0.05, ia), Pt(r * 0.7, 0, h + 0.12, ia), 0.045, seg=8, mi=I['steel_brushed'], rgba=(0.6, 0.62, 0.64, 1))
+    # --- manway
+    ma = 3.8
+    pb = p_cyl(0.28, 0.04, 16); xf(pb, Pt(r + 0.02, 0, 1.1, ma), (0, math.pi / 2, 0)); m.add(pb, mi=ST)
+    pb = p_cyl(0.23, 0.05, 16); xf(pb, Pt(r + 0.06, 0, 1.1, ma), (0, math.pi / 2, 0)); m.add(pb, mi=I['paint'], rgba=tuple(k * 0.85 for k in rgba[:3]) + (1,))
+    for i in range(10):
+        a_ = i * math.pi / 5; pp = Pt(r + 0.06, 0.255 * math.cos(a_), 1.1 + 0.255 * math.sin(a_), ma)
+        m.add(p_cyl(0.017, 0.022, 6), (pp[0] * 1.0, pp[1] * 1.0, pp[2]), (0, 0, 0), mi=I['steel_brushed'], rgba=BR) if False else None
+    for i in range(10):
+        a_ = i * math.pi / 5; pp = Pt(r + 0.075, 0.255 * math.cos(a_), 1.1 + 0.255 * math.sin(a_), ma); hex_bolt(m, pp, '+x', 0.017, 0.02, mi=I['steel_brushed'], rgba=BR) if False else m.add(p_cyl(0.017, 0.02, 6), pp, (0, math.pi / 2, 0), mi=I['steel_brushed'], rgba=BR)
+    m.rbox(*Pt(r + 0.1, 0, 1.1, ma), 0.03, 0.1, 0.03, 0.006, rot=(0, 0, ma), seg=1, mi=ST)
+    weather(m, 21, dirt=0.4, dirt_h=0.4, streak=0.3, blotch=0.2, top=0.2, angle=32.0)
     return m.finish('proto_' + name, P)
 
 # ---------------------------------------------------------------- vehicle kit (shared by fe_depot_assets)
