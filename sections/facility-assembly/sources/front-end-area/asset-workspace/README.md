@@ -1,0 +1,17 @@
+# Asset workspace (front-end area)
+
+Separate review space for every prop and door leaf built for the cafeteria and hall. The builders (`../fe_assets_*.py`, `../fe_cafeteria.py`, `../fe_wallart.py`, `../fe_doors.py`) stay the source of truth; this folder collects their output so assets can be reviewed and budgeted one by one without opening the whole scene.
+
+## Run
+```
+blender -b <built scene>.blend -P make_library.py -- <outdir> [samples]
+```
+Writes `asset_library.blend` (objects in per-group collections `LIB_dining`, `LIB_serving`, `LIB_lounge`, `LIB_game`, `LIB_doors`, each tagged with `tri_count`, `tri_cap`, `group`), `asset_report.json`, and one labelled contact sheet per group (`sheet_*.png`, one auto-framed 3/4 tile per asset, label shows triangles against the cap).
+
+## Triangle caps (agreed with the owner)
+Hero props (counter, kitchen block, fridge, vending, arcade, foosball, sofa, booth, bookcase, kiosk) up to 15,000; furniture and doors up to 4,000; small props about 2,000 (recycling station 2,500, notice board 3,000). Wall quality comes from textures and normal maps, not geometry.
+
+## Latest result
+See `asset_report.json` and `sheet_*.png`. Every asset is inside its cap; the 61 collected assets total 135,326 triangles of the cafeteria's roughly 258k.
+
+Status: unreviewed by anyone other than the author.

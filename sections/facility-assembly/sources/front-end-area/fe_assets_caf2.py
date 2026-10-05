@@ -92,25 +92,40 @@ def bread_basket(F, P):
     return m.finish('proto_bread_basket', P)
 
 def cutlery_bin(F, P):
+    """Self-service cutlery station: stainless tray with lip and three tubs holding knives, forks and spoons."""
     m = mb(F)
-    m.rbox(0, 0, 0.1, 0.34, 0.2, 0.2, 0.012, mi=I['steel_charcoal'], rgba=(0.7, 0.72, 0.74, 1))
-    for k in range(3): m.rbox(-0.11 + k * 0.11, 0, 0.225, 0.08, 0.14, 0.12, 0.008, mi=I['steel_charcoal'], rgba=(0.82, 0.84, 0.86, 1))
+    m.rbox(0, 0, 0.05, 0.38, 0.24, 0.1, 0.012, mi=I['steel_brushed'], rgba=(0.8, 0.8, 0.82, 1))
+    m.rbox(0, 0, 0.105, 0.34, 0.2, 0.012, 0.004, mi=I['steel_charcoal'], rgba=(0.05, 0.05, 0.06, 1))
+    rnd = random.Random(8)
+    for k in range(3):
+        x = -0.115 + k * 0.115
+        m.rbox(x, 0, 0.19, 0.09, 0.15, 0.16, 0.008, mi=I['steel_brushed'], rgba=(0.85, 0.86, 0.88, 1))
+        for q in range(5): m.between((x + rnd.uniform(-0.03, 0.03), rnd.uniform(-0.05, 0.05), 0.2), (x + rnd.uniform(-0.04, 0.04), rnd.uniform(-0.06, 0.06), 0.3), 0.005, seg=5, mi=I['steel_brushed'], rgba=(0.9, 0.9, 0.92, 1))
     return m.finish('proto_cutlery_bin', P)
 
 def sanitiser_station(F, P):
     m = mb(F)
     m.lathe([(0.0, 0.0), (0.16, 0.0), (0.17, 0.02), (0.1, 0.04), (0.04, 0.06)], seg=20, mi=I['steel_charcoal'], rgba=(0.12, 0.12, 0.13, 1))
-    m.cylz(0, 0, 0.05, 1.05, 0.03, seg=10, mi=I['steel_charcoal'], rgba=(0.72, 0.74, 0.76, 1))
+    m.cylz(0, 0, 0.05, 1.05, 0.03, seg=10, mi=I['steel_brushed'], rgba=(0.72, 0.74, 0.76, 1))
     m.rbox(0, 0.05, 1.12, 0.12, 0.1, 0.22, 0.02, mi=I['plastic'], rgba=(0.88, 0.88, 0.86, 1)); m.rbox(0, 0.1, 1.2, 0.05, 0.05, 0.03, 0.01, mi=I['plastic'], rgba=(0.2, 0.5, 0.8, 1))
     return m.finish('proto_sanitiser', P)
 
 def recycling_bins(F, P):
+    """Three-stream recycling station: moulded bins with lids, differently shaped apertures, front stripe plates and pictogram strips, rear wheels."""
     m = mb(F)
-    for k, c in enumerate(((0.15, 0.4, 0.2, 1), (0.15, 0.25, 0.55, 1), (0.1, 0.1, 0.1, 1))):
-        x = (k - 1) * 0.56
-        m.rbox(x, 0, 0.45, 0.5, 0.45, 0.9, 0.03, mi=I['plastic'], rgba=c)
-        m.rbox(x, 0.23, 0.78, 0.3, 0.012, 0.12, 0.006, mi=I['plastic'], rgba=(0.03, 0.03, 0.03, 1))
-        m.rbox(x, 0.23, 0.55, 0.26, 0.012, 0.18, 0.004, mi=I['signage'], rgba=(0.9, 0.9, 0.88, 1))
+    cols = ((0.15, 0.4, 0.2, 1), (0.15, 0.25, 0.55, 1), (0.12, 0.12, 0.12, 1))
+    for k, c in enumerate(cols):
+        x = (k - 1) * 0.58
+        m.rbox(x, 0, 0.42, 0.52, 0.46, 0.84, 0.035, mi=I['plastic'], rgba=c)
+        m.rbox(x, 0, 0.87, 0.56, 0.5, 0.06, 0.02, mi=I['plastic'], rgba=tuple(v * 1.15 for v in c[:3]) + (1,))   # lid
+        if k == 0: m.rbox(x, 0.26, 0.86, 0.34, 0.02, 0.07, 0.008, mi=I['rubber'], rgba=(0.02, 0.02, 0.02, 1))      # slot
+        elif k == 1: m.rbox(x, 0.27, 0.8, 0.26, 0.04, 0.12, 0.012, mi=I['rubber'], rgba=(0.02, 0.02, 0.02, 1))    # flap
+        else: m.cylz(x, 0.0, 0.9, 0.93, 0.12, seg=18, mi=I['rubber'], rgba=(0.02, 0.02, 0.02, 1))                  # round hole
+        m.rbox(x, 0.24, 0.55, 0.3, 0.012, 0.2, 0.004, mi=I['signage'], rgba=(0.92, 0.92, 0.9, 1))
+        m.rbox(x, 0.248, 0.64, 0.24, 0.004, 0.025, 0.001, mi=I['signage'], rgba=c)
+        for q in range(3): m.rbox(x - 0.07 + q * 0.07, 0.25, 0.54, 0.035, 0.004, 0.06, 0.001, mi=I['signage'], rgba=c)
+        m.cylz(x, -0.2, 0.0, 0.06, 0.04, seg=10, mi=I['rubber'], rgba=(0.03, 0.03, 0.03, 1))
+        m.rbox(x, 0.0, 0.03, 0.4, 0.38, 0.06, 0.01, mi=I['rubber'], rgba=(0.03, 0.03, 0.03, 1))
     return m.finish('proto_recycling', P)
 
 def tray_trolley(F, P):
@@ -131,8 +146,8 @@ def bean_bag(F, P, rgba=(0.8, 0.35, 0.1, 1)):
 def stool(F, P, rgba=(0.12, 0.17, 0.35, 1)):
     m = mb(F)
     m.cylz(0, 0, 0.62, 0.68, 0.18, seg=20, bevel=0.02, mi=I['fabric'], rgba=rgba)
-    for k in range(4): a = k * math.pi / 2 + 0.4; m.between((math.cos(a) * 0.1, math.sin(a) * 0.1, 0.62), (math.cos(a) * 0.2, math.sin(a) * 0.2, 0.002), 0.014, seg=8, mi=I['steel_charcoal'], rgba=(0.72, 0.74, 0.76, 1))
-    m.add(p_torus(0.17, 0.01, 20, 5), (0, 0, 0.25), (0, 0, 0), mi=I['steel_charcoal'], rgba=(0.72, 0.74, 0.76, 1))
+    for k in range(4): a = k * math.pi / 2 + 0.4; m.between((math.cos(a) * 0.1, math.sin(a) * 0.1, 0.62), (math.cos(a) * 0.2, math.sin(a) * 0.2, 0.002), 0.014, seg=8, mi=I['steel_brushed'], rgba=(0.72, 0.74, 0.76, 1))
+    m.add(p_torus(0.17, 0.01, 20, 5), (0, 0, 0.25), (0, 0, 0), mi=I['steel_brushed'], rgba=(0.72, 0.74, 0.76, 1))
     return m.finish('proto_stool', P)
 
 def side_table(F, P):

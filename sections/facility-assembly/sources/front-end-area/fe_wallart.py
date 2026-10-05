@@ -24,15 +24,16 @@ def poster(F, P, variant=0, w=0.8, h=1.1, name='poster'):
     return m.finish(f'proto_{name}_{variant}', P)
 
 def bulletin(F, P, w=1.5, h=1.0):
+    """Cork notice board in a timber frame with pinned notices."""
     m = mb(F); rnd = random.Random(4)
     m.rbox(0, 0.025, h / 2, w, 0.05, h, 0.01, mi=I['timber'], rgba=(0.2, 0.12, 0.06, 1))
-    m.rbox(0, 0.055, h / 2, w - 0.08, 0.01, h - 0.08, 0.003, mi=I['signage'], rgba=(0.06, 0.07, 0.08, 1))
-    for k in range(7):
-        x = -w / 2 + 0.2 + (k % 4) * 0.34; z = h * 0.34 + (k // 4) * 0.34 + rnd.uniform(-0.02, 0.02)
+    m.rbox(0, 0.055, h / 2, w - 0.08, 0.012, h - 0.08, 0.003, mi=I['cork'], rgba=(0.5, 0.36, 0.22, 1))
+    for k in range(8):
+        x = -w / 2 + 0.2 + (k % 4) * 0.34 + rnd.uniform(-0.03, 0.03); z = h * 0.32 + (k // 4) * 0.36 + rnd.uniform(-0.02, 0.02)
         pw, ph = rnd.uniform(0.2, 0.28), rnd.uniform(0.25, 0.32)
-        m.rbox(x, 0.063, z, pw, 0.003, ph, 0.001, rot=(0, rnd.uniform(-0.05, 0.05), 0), mi=I['signage'], rgba=rnd.choice([(0.82, 0.8, 0.72, 1), (0.8, 0.7, 0.4, 1), (0.7, 0.75, 0.78, 1), (0.72, 0.42, 0.34, 1)]))
-        m.add(p_sphere(0.008, rings=4, seg=6), (x, 0.068, z + ph / 2 - 0.02), mi=I['plastic'], rgba=(0.8, 0.12, 0.1, 1))
-        for ln in range(4): m.rbox(x, 0.066, z + ph / 2 - 0.06 - ln * 0.05, pw - 0.06, 0.002, 0.008, 0.0005, mi=I['signage'], rgba=(0.12, 0.12, 0.12, 1))
+        m.rbox(x, 0.064, z, pw, 0.003, ph, 0.001, rot=(0, rnd.uniform(-0.07, 0.07), 0), mi=I['signage'], rgba=rnd.choice([(0.86, 0.84, 0.76, 1), (0.85, 0.74, 0.42, 1), (0.74, 0.78, 0.82, 1), (0.78, 0.46, 0.38, 1)]))
+        m.add(p_sphere(0.009, rings=4, seg=6), (x, 0.069, z + ph / 2 - 0.02), mi=I['plastic'], rgba=rnd.choice([(0.8, 0.12, 0.1, 1), (0.1, 0.3, 0.8, 1), (0.9, 0.8, 0.1, 1)]))
+        for ln in range(5): m.rbox(x, 0.067, z + ph / 2 - 0.055 - ln * 0.045, pw - rnd.uniform(0.05, 0.12), 0.002, 0.008, 0.0005, mi=I['signage'], rgba=(0.14, 0.14, 0.14, 1))
     return m.finish('proto_bulletin', P)
 
 def extinguisher(F, P):
@@ -76,5 +77,5 @@ def door_leaf(F, P, w=1.0, h=2.1, rgba=(0.2, 0.2, 0.22, 1), glazed=True):
     m = mb(F)
     m.rbox(0, 0.0, h / 2, w, 0.045, h, 0.008, mi=I['plastic'], rgba=rgba)
     if glazed: m.rbox(0, 0.024, h * 0.7, w * 0.4, 0.006, h * 0.32, 0.004, mi=I['glass'])
-    m.rbox(w * 0.38, 0.05, 1.0, 0.04, 0.04, 0.18, 0.012, mi=I['steel_charcoal'], rgba=(0.62, 0.64, 0.66, 1))
+    m.rbox(w * 0.38, 0.05, 1.0, 0.04, 0.04, 0.18, 0.012, mi=I['steel_brushed'], rgba=(0.62, 0.64, 0.66, 1))
     return m.finish('proto_door_leaf', P)

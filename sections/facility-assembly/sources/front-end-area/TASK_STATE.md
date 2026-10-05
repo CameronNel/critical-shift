@@ -20,6 +20,17 @@ Seven `IF_PORTAL_*` empties with clear width, height and outward normal: spawn a
 cafeteria-to-hall opening 6.0 m, hall west door 2.4 m, hall east door 2.4 m, spine blast door 3.6 m. All sit at the planned
 plan positions; none were moved.
 
+## Revision 5 (2026-10-05): textures, panelling, wear, asset workspace (final pass)
+The owner said the walls read as "90s doom graphics", some assets needed overhauls, and everything should look a bit worn. Only the cafeteria and the shared hall shell were touched.
+- Textures (new `fe_textures.py`, numpy + Pillow, build time, tileable, deterministic): `plaster5` (painted lime plaster with orange-peel stipple, trowel swirls, roller streaks, hairline cracks, pits), `wood5` (sealed timber veneer), `metal5` (brushed steel), `cork5` and `wear_atlas.png`. They replace the blotchy CC0 plaster, wood and metal sets on the walls, ceiling, timber and charcoal steel; the old files stay in `textures/` for the yard. A new `steel_brushed` material (light stainless) replaces the dark charcoal on every light-coloured steel part.
+- Wall panelling (real geometry, in `fe_shell.py`): wainscot stiles and top, middle and base rails over the navy dado, two-step cornice with a cove, pilaster bases and capitals. About 20k triangles.
+- Wear (`fe_wear.py`): 107 single-quad decals sampled from `wear_atlas.png`: floor traffic paths along the airlock-to-hall, yard-to-medical and queue lines, skids at the doors, scuffs, blotches, dado scuffs, skirting dust, water streaks under the rail and the high windows, handprint smudges beside door frames, corner grime. They are named `stain_*` or `streak_*` and cast no shadow.
+- Asset overhauls: booth (kick plinth, channel-quilted vinyl back with buttons, piping, edge-banded table), water cooler (tap recess, drip tray, cup tube, full bottle), microwave bench (cabinet doors, real microwave, kettle, toaster, splashback), cutlery station (tubs with cutlery), recycling station (lids, apertures, label strips, wheels), cork notice board, brushed-steel serving-counter doors with handles.
+- Asset workspace: `asset-workspace/` (see its README) collects every prop into `asset_library.blend` and renders labelled contact sheets with triangle counts against caps.
+- Numbers (`validation.json`): total 711,598 triangles (yard 327,180, cafeteria 258,424, hall 122,998, shared 2,996), within the 800k budget. 154 interior and 130 yard objects: 0 gap and 0 penetration failures. Clear lanes pass.
+- Not done: yard and hall art are unchanged. Sofas, armchairs and the arcade machine were not remodelled. The earlier nine whole-area renders are stale.
+- Status: unreviewed, no independent review, not accepted.
+
 ## Revision 4 (2026-10-05): cafeteria-only refinement pass, doors with baked signs
 Per the owner's instruction to stop one-shotting every room, only the cafeteria (dining, serving/kitchen, lounge plus small game corner) was
 refined this pass. Hall and yard art were not refined; their text now uses the baked sign pipeline but the layouts are unchanged from v3.

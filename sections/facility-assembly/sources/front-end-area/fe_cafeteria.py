@@ -14,29 +14,31 @@ def serving_counter(F, P, L=10.8):
     m = mb(F)
     m.rbox(0, 0, 0.45, L, 1.1, 0.9, 0.02, mi=I['steel_charcoal'], rgba=(0.1, 0.11, 0.13, 1))
     for k in range(int(L / 1.2)):
-        m.rbox(-L / 2 + 0.6 + k * 1.2, -0.555, 0.5, 1.12, 0.03, 0.78, 0.012, mi=I['steel_charcoal'], rgba=(0.14, 0.17, 0.3, 1))
+        xd = -L / 2 + 0.6 + k * 1.2
+        m.rbox(xd, -0.555, 0.5, 1.12, 0.03, 0.78, 0.012, mi=I['steel_brushed'], rgba=(0.8, 0.82, 0.85, 1))
+        m.rbox(xd + 0.46, -0.585, 0.62, 0.025, 0.025, 0.3, 0.008, mi=I['steel_charcoal'], rgba=(0.06, 0.06, 0.07, 1))
     m.rbox(0, 0.02, 0.93, L + 0.1, 1.3, 0.05, 0.02, mi=I['laminate'], rgba=(0.72, 0.64, 0.52, 1))
     m.rbox(0, -0.08, 0.1, L - 0.1, 0.9, 0.2, 0.02, mi=I['steel_charcoal'], rgba=(0.05, 0.05, 0.06, 1))
     # tray rail
-    m.between((-L / 2 - 0.2, -0.88, 0.82), (L / 2 + 0.2, -0.88, 0.82), 0.02, seg=10, mi=I['steel_charcoal'], rgba=(0.6, 0.62, 0.64, 1))
-    for k in range(int(L / 2.4) + 1): m.between((-L / 2 + k * 2.4, -0.88, 0.82), (-L / 2 + k * 2.4, -0.64, 0.92), 0.012, seg=6, mi=I['steel_charcoal'], rgba=(0.6, 0.62, 0.64, 1))
+    m.between((-L / 2 - 0.2, -0.88, 0.82), (L / 2 + 0.2, -0.88, 0.82), 0.02, seg=10, mi=I['steel_brushed'], rgba=(0.6, 0.62, 0.64, 1))
+    for k in range(int(L / 2.4) + 1): m.between((-L / 2 + k * 2.4, -0.88, 0.82), (-L / 2 + k * 2.4, -0.64, 0.92), 0.012, seg=6, mi=I['steel_brushed'], rgba=(0.6, 0.62, 0.64, 1))
     # sneeze guard and heat lamps
-    for k in range(int(L / 2.4) + 1): m.rbox(-L / 2 + k * 2.4, -0.3, 1.2, 0.03, 0.03, 0.55, 0.008, mi=I['steel_charcoal'], rgba=(0.6, 0.62, 0.64, 1))
+    for k in range(int(L / 2.4) + 1): m.rbox(-L / 2 + k * 2.4, -0.3, 1.2, 0.03, 0.03, 0.55, 0.008, mi=I['steel_brushed'], rgba=(0.6, 0.62, 0.64, 1))
     m.rbox(0, -0.3, 1.3, L - 0.1, 0.012, 0.4, 0.004, rot=(-0.25, 0, 0), mi=I['glass'])
-    m.rbox(0, -0.3, 1.52, L - 0.1, 0.1, 0.04, 0.015, mi=I['steel_charcoal'], rgba=(0.6, 0.62, 0.64, 1))
+    m.rbox(0, -0.3, 1.52, L - 0.1, 0.1, 0.04, 0.015, mi=I['steel_brushed'], rgba=(0.6, 0.62, 0.64, 1))
     for k in range(int(L / 1.2)): m.rbox(-L / 2 + 0.6 + k * 1.2, -0.3, 1.5, 0.9, 0.02, 0.012, 0.004, mi=I['emissive'], rgba=(1.0, 0.7, 0.4, 1))
     # hot wells with pans of food
     foods = [(0.65, 0.4, 0.18, 1), (0.8, 0.65, 0.2, 1), (0.35, 0.5, 0.15, 1), (0.7, 0.2, 0.12, 1), (0.85, 0.8, 0.6, 1)]
     for k in range(int((L - 3.2) / 1.1)):
         x = -L / 2 + 0.9 + k * 1.1
-        m.rbox(x, 0.1, 0.975, 0.95, 0.52, 0.06, 0.012, mi=I['steel_charcoal'], rgba=(0.7, 0.72, 0.74, 1))
+        m.rbox(x, 0.1, 0.975, 0.95, 0.52, 0.06, 0.012, mi=I['steel_brushed'], rgba=(0.7, 0.72, 0.74, 1))
         m.rbox(x, 0.1, 0.99, 0.86, 0.44, 0.05, 0.01, mi=I['props'], rgba=(0.5, 0.5, 0.52, 1))
         m.sphere(x, 0.1, 1.02, 0.4, 0.2, 0.07, rings=8, seg=14, mi=I['props'], rgba=foods[k % 5])
-        m.between((x + 0.18, 0.2, 1.1), (x + 0.3, 0.32, 1.0), 0.008, seg=6, mi=I['steel_charcoal'], rgba=(0.8, 0.82, 0.84, 1))
+        m.between((x + 0.18, 0.2, 1.1), (x + 0.3, 0.32, 1.0), 0.008, seg=6, mi=I['steel_brushed'], rgba=(0.8, 0.82, 0.84, 1))
     # coffee machine, till, bread basket
     xm = L / 2 - 0.7
     m.rbox(xm, 0.05, 1.18, 0.6, 0.5, 0.5, 0.04, mi=I['steel_charcoal'], rgba=(0.12, 0.13, 0.15, 1)); m.rbox(xm, -0.21, 1.2, 0.5, 0.02, 0.3, 0.01, mi=I['screen'], rgba=(0.9, 0.6, 0.2, 1))
-    for sx in (-0.15, 0.15): m.cylz(xm + sx, -0.18, 0.97, 1.07, 0.03, seg=12, mi=I['steel_charcoal'], rgba=(0.6, 0.62, 0.64, 1))
+    for sx in (-0.15, 0.15): m.cylz(xm + sx, -0.18, 0.97, 1.07, 0.03, seg=12, mi=I['steel_brushed'], rgba=(0.6, 0.62, 0.64, 1))
     m.rbox(-L / 2 + 0.6, 0.15, 1.04, 0.4, 0.3, 0.14, 0.03, mi=I['plastic'], rgba=(0.12, 0.13, 0.15, 1)); m.rbox(-L / 2 + 0.6, 0.02, 1.15, 0.28, 0.01, 0.2, 0.004, mi=I['screen'], rgba=(0.3, 0.7, 0.4, 1), rot=(-0.4, 0, 0))
     return m.finish('proto_serving_counter', P)
 
@@ -49,14 +51,14 @@ def kitchen_block(F, P):
         m.rbox(x, 1.0, 0.45, 2.4, 0.9, 0.9, 0.02, mi=I['steel_charcoal'], rgba=steel)
         for b in range(4):
             m.cylz(x - 0.75 + b * 0.5, 1.0, 0.9, 0.93, 0.13, seg=20, mi=I['steel_charcoal'], rgba=(0.05, 0.05, 0.06, 1))
-        m.rbox(x, 1.0, 0.45, 2.0, 0.02, 0.6, 0.006, rot=(0, 0, 0), mi=I['steel_charcoal'], rgba=(0.9, 0.9, 0.92, 1)) if False else None
+        m.rbox(x, 1.0, 0.45, 2.0, 0.02, 0.6, 0.006, rot=(0, 0, 0), mi=I['steel_brushed'], rgba=(0.9, 0.9, 0.92, 1)) if False else None
         for kn in range(4): m.add(p_cyl(0.025, 0.03, 10), (x - 0.75 + kn * 0.5, 0.54, 0.7), (math.pi / 2, 0, 0), mi=I['plastic'], rgba=(0.1, 0.1, 0.11, 1))
     m.lathe([(0.0, 0.0), (1.2, 0.0), (1.1, 0.5), (0.35, 0.8), (0.3, 1.0), (0.0, 1.0)], loc=(-2.8, 1.0, 2.1), seg=4, mi=I['steel_charcoal'], rgba=steel, rot=(0, 0, math.pi / 4), scale=(2.5, 0.9, 1.0))
     m.rbox(-2.8, 1.0, 3.0, 0.5, 0.5, 0.3, 0.03, mi=I['steel_charcoal'], rgba=steel)
     for x in (2.2, 4.4):
         m.rbox(x, -1.4, 0.45, 1.9, 0.8, 0.9, 0.02, mi=I['steel_charcoal'], rgba=steel)
-        m.rbox(x, -1.4, 0.92, 1.9, 0.8, 0.04, 0.012, mi=I['steel_charcoal'], rgba=(0.7, 0.72, 0.75, 1))
-    m.rbox(5.2, 1.0, 0.95, 0.9, 0.9, 1.9, 0.03, mi=I['steel_charcoal'], rgba=(0.85, 0.86, 0.88, 1))
+        m.rbox(x, -1.4, 0.92, 1.9, 0.8, 0.04, 0.012, mi=I['steel_brushed'], rgba=(0.7, 0.72, 0.75, 1))
+    m.rbox(5.2, 1.0, 0.95, 0.9, 0.9, 1.9, 0.03, mi=I['steel_brushed'], rgba=(0.85, 0.86, 0.88, 1))
     m.rbox(5.2, 0.54, 1.3, 0.04, 0.03, 0.7, 0.008, mi=I['steel_charcoal'], rgba=dark)
     for k in range(3): m.rbox(0, 1.8, 1.0 + k * 0.5, 9.0, 0.35, 0.03, 0.006, mi=I['steel_charcoal'], rgba=steel)
     rnd = random.Random(8)

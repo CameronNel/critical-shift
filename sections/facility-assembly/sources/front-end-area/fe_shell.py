@@ -57,6 +57,16 @@ def wall(name, axis, pos, a0, a1, h, openings, F, coll, dado=True, pilasters=0.0
                 sb(s0, s1, 1.1, 1.17, sd, T / 2, T / 2 + 0.06, F['trim'], 0.006, f'{name}_rail{i}')
                 sb(s0, s1, 0.0, 0.12, sd, T / 2 + 0.045, T / 2 + 0.06, F['rubber'], 0.004, f'{name}_skirt{i}')
                 sb(s0, s1, h - 0.14, h, sd, T / 2, T / 2 + 0.07, F['trim'], 0.01, f'{name}_cornice{i}')
+                # wainscot panelling: mid rail and stiles over the navy dado, stepped cornice with a cove
+                sb(s0, s1, 0.54, 0.6, sd, T / 2 + 0.045, T / 2 + 0.07, F['dado'], 0.005, f'{name}_midrail{i}')
+                sb(s0, s1, 0.12, 0.17, sd, T / 2 + 0.045, T / 2 + 0.07, F['dado'], 0.005, f'{name}_baserail{i}')
+                sb(s0, s1, 1.04, 1.1, sd, T / 2 + 0.045, T / 2 + 0.07, F['dado'], 0.005, f'{name}_toprail{i}')
+                nst = int((s1 - s0) / 1.15)
+                for q in range(nst + 1):
+                    sx = s0 + 0.08 + q * ((s1 - s0 - 0.16) / max(nst, 1))
+                    sb(sx - 0.035, sx + 0.035, 0.17, 1.04, sd, T / 2 + 0.045, T / 2 + 0.07, F['dado'], 0.005, f'{name}_stile{i}_{q}')
+                sb(s0, s1, h - 0.24, h - 0.14, sd, T / 2, T / 2 + 0.035, F['trim'], 0.006, f'{name}_cornice2_{i}')
+                sb(s0, s1, h - 0.34, h - 0.24, sd, T / 2, T / 2 + 0.012, F['trim'], 0.004, f'{name}_cove{i}')
             for sd in ext:
                 sb(s0, s1, 0.0, 0.5, sd, T / 2, T / 2 + 0.03, F['concrete_slab'], 0.01, f'{name}_plinth{i}')
                 sb(s0, s1, 1.1, 1.22, sd, T / 2, T / 2 + 0.05, F['steel_accent'], 0.006, f'{name}_stripe{i}')
@@ -75,6 +85,10 @@ def wall(name, axis, pos, a0, a1, h, openings, F, coll, dado=True, pilasters=0.0
             lo, hi = sorted((pos + sd * T / 2, pos + sd * (T / 2 + 0.2)))
             if axis == 'x': box(f'{name}_pilaster{k}', p - 0.16, p + 0.16, lo, hi, 0, h - 0.14, F['plaster'], coll, bev=0.015)
             else: box(f'{name}_pilaster{k}', lo, hi, p - 0.16, p + 0.16, 0, h - 0.14, F['plaster'], coll, bev=0.015)
+            lo2, hi2 = sorted((pos + sd * T / 2, pos + sd * (T / 2 + 0.24)))
+            for zz0, zz1, tag in ((0.0, 0.22, 'base'), (h - 0.42, h - 0.14, 'cap')):
+                if axis == 'x': box(f'{name}_pil_{tag}{k}', p - 0.2, p + 0.2, lo2, hi2, zz0, zz1, F['trim'], coll, bev=0.01)
+                else: box(f'{name}_pil_{tag}{k}', lo2, hi2, p - 0.2, p + 0.2, zz0, zz1, F['trim'], coll, bev=0.01)
 
 def windows_strip(name, x, y0, y1, z0, z1, F, coll, face=+1):
     """High window band on a wall running along y at plan x: frame, mullions and glass."""
