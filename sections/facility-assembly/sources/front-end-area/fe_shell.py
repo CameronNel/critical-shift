@@ -131,12 +131,12 @@ def build_roofs(F, C):
         # beams across x every 4 m
         k = 0; y = y0 + 2.0
         while y < y1:
-            box(f'{name}_beam{k}', x0, x1, y - 0.12, y + 0.12, h - 0.55, h - 0.05, F['steel_charcoal'], coll, bev=0.015)
+            box(f'{name}_beam{k}', x0, x1, y - 0.12, y + 0.12, h - 0.55, h - 0.05, F['steel_painted'], coll, bev=0.015)
             k += 1; y += 4.0
         # purlins along y every 3 m
         x = x0 + 1.5; k = 0
         while x < x1:
-            box(f'{name}_purlin{k}', x - 0.06, x + 0.06, y0, y1, h - 0.12, h, F['steel_charcoal'], coll)
+            box(f'{name}_purlin{k}', x - 0.06, x + 0.06, y0, y1, h - 0.12, h, F['steel_painted'], coll)
             k += 1; x += 3.0
         # deck as strips along x with skylight slots
         slots = sorted(skylights); cur = x0

@@ -32,8 +32,8 @@ def build_cafe_doors_and_signs(F, C):
     sign(caf, 'sign_yard_in', 'YARD', -7.83, -70.0, 3.0, 'E', 2.2, 0.42, sub='Salvage yard  -  mine entrance', icon='arrow_l', style='nav')
     sign(caf, 'sign_exit_yard', 'EXIT', -7.83, -70.0, 3.5, 'E', 0.9, 0.3, icon='arrow_l', style='exit', lit=True)
     sign(yard, 'sign_cafeteria_out', 'CAFETERIA', -8.16, -70.0, 3.0, 'W', 3.0, 0.55, sub='Staff arrival  -  canteen  -  lounge', icon='cutlery', style='nav')
-    sign(caf, 'sign_medical_in', 'MEDICAL', 25.83, -70.0, 2.62, 'W', 1.8, 0.42, sub='Reanimation ward', icon='cross', style='med')
-    sign(caf, 'sign_hall_in', 'HALL', 8.0, -60.17, 3.68, 'S', 3.6, 0.5, sub='Refinery  -  reactor  -  dock', icon='arrow_u', style='nav')
+    sign(caf, 'sign_medical_in', 'MEDICAL', 25.83, -70.0, 2.62, 'W', 2.2, 0.55, sub='Reanimation ward', icon='cross', style='med')
+    sign(caf, 'sign_hall_in', 'HALL', 8.0, -60.17, 3.68, 'S', 4.6, 0.7, sub='Refinery  -  reactor  -  dock', icon='arrow_u', style='nav')
     sign(hall, 'sign_hall_in_n', 'CAFETERIA', 8.0, -59.83, 3.82, 'N', 2.8, 0.42, sub='Dining  -  lounge  -  medical', icon='cutlery', style='nav')
     sign(caf, 'sign_staff_only', 'STAFF ONLY', 13.9, -62.45, 2.2, 'W', 0.9, 0.22, style='staff')
     # hanging zone signs (double-sided), readable from the airlock lane
@@ -41,7 +41,7 @@ def build_cafe_doors_and_signs(F, C):
     hanging_sign(caf, 'zone_lounge', 'LOUNGE', -4.2, -73.4, 3.35, 'S', 2.0, 0.48, sub='Quiet seating', icon='sofa', style='green', F=F)
     hanging_sign(caf, 'zone_game', 'GAME ROOM', -3.6, -67.6, 3.35, 'S', 2.2, 0.48, sub='Foosball  -  basketball  -  darts', icon='game', style='nav', F=F)
     hanging_sign(caf, 'zone_serving', 'SERVING', 20.2, -67.6, 3.1, 'S', 2.2, 0.5, sub='Order at the kiosk or the counter', icon='cutlery', style='nav', F=F)
-    hanging_sign(caf, 'zone_order', 'ORDER HERE', 13.1, -68.6, 2.5, 'S', 1.2, 0.34, icon='arrow_d', style='board', F=F)
+    hanging_sign(caf, 'zone_order', 'ORDER HERE', 13.1, -68.6, 1.95, 'S', 1.2, 0.34, icon='arrow_d', style='board', F=F)
     sign(caf, 'sign_drinks', 'DRINKS', 25.83, -72.9, 2.35, 'W', 0.9, 0.28, icon='cup', style='info')
     sign(caf, 'sign_tray_return', 'TRAYS', 25.83, -75.6, 2.1, 'W', 0.8, 0.24, style='info')
     # menu boards over the serving hatch (baked menu text)
@@ -55,3 +55,10 @@ def build_cafe_doors_and_signs(F, C):
     sign(caf, 'banner_recycle', 'RECYCLING', 25.83, -77.6, 1.5, 'W', 1.6, 0.34, icon='arrow_d', style='green')
     sign(caf, 'rules_game', 'GAME ROOM RULES', -7.2, -60.17, 2.55, 'S', 1.7, 1.0, style='board', lines=['Wipe tables after use  ', 'Return the balls  ', 'Quiet after 22:00  ', 'Be kind  '])
     sign(caf, 'sign_lounge_wall', 'LOUNGE', -7.83, -78.2, 2.9, 'E', 1.3, 0.36, icon='sofa', style='green')
+    sign(caf, 'neon_game', 'GAME ROOM', -3.6, -60.17, 3.25, 'S', 2.6, 0.55, sub='Foosball  -  basketball  -  darts', icon='game', style='nav', lit=True)
+    sign(caf, 'board_allergen', 'ALLERGEN INFORMATION', 13.9, -61.15, 1.45, 'W', 1.7, 1.15, style='board', lines=['Ask staff before ordering  ', 'Nuts  -  see counter  ', 'Dairy  -  see counter  ', 'Gluten  -  see counter  '])
+    sign(caf, 'sign_wash_hands', 'WASH YOUR HANDS', 13.9, -63.55, 1.35, 'W', 0.95, 0.26, style='med')
+    # branded wall band along every cafeteria wall
+    from fe_assets_caf2 import wall_band
+    wall_band(F, caf, 'band_S', 'x', -79.83, -7.4, 25.4, 3.3, 'N', excl=[(6.5, 9.5)]); wall_band(F, caf, 'band_N', 'x', -60.17, -7.4, 25.4, 3.3, 'S', excl=[(4.5, 11.5)])
+    wall_band(F, caf, 'band_W', 'y', -7.83, -79.6, -60.4, 3.3, 'E', excl=[(-71.7, -68.3)]); wall_band(F, caf, 'band_E', 'y', 25.83, -79.6, -60.4, 3.3, 'W', excl=[(-71.4, -68.6)])

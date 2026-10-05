@@ -184,3 +184,36 @@ def rug_texture(name, kind, size=(1024, 768)):
     for _ in range(W * H // 6):
         x = rnd.randrange(W); y = rnd.randrange(H); r, g, bl = px[x, y]; k = rnd.randint(-14, 14); px[x, y] = (max(0, min(255, r + k)), max(0, min(255, g + k)), max(0, min(255, bl + k)))
     path = os.path.join(TEXDIR, name + '.png'); im.save(path); return path
+
+def band_texture(name='wall_band'):
+    from PIL import Image, ImageDraw
+    from fe_common import TEXDIR
+    W, H = 1024, 256; im = Image.new('RGB', (W, H), (22, 26, 44)); d = ImageDraw.Draw(im)
+    d.rectangle([0, 0, W, 14], fill=(222, 108, 22)); d.rectangle([0, H - 14, W, H], fill=(222, 108, 22))
+    step = 128
+    for i in range(0, W, step):
+        d.polygon([(i, H * 0.2), (i + step * 0.5, H * 0.5), (i, H * 0.8), (i + step * 0.25, H * 0.5)], fill=(236, 230, 214))
+        d.polygon([(i + step * 0.5, H * 0.2), (i + step, H * 0.5), (i + step * 0.5, H * 0.8), (i + step * 0.75, H * 0.5)], fill=(222, 108, 22))
+    path = os.path.join(TEXDIR, name + '.png'); im.save(path); return path
+
+def wall_band(F, coll, name, axis, face, a0, a1, z, facing, excl=(), h=0.3, rep=1.7):
+    """Branded decorative band (baked repeating texture) on an interior wall face, split around door openings."""
+    from fe_common import make_img_mat
+    band_texture('wall_band'); mat = make_img_mat('wall_band_mat', 'wall_band.png', 0.0, 0.5)
+    cuts = [a0]
+    for e0, e1 in sorted(excl): cuts += [e0 - 0.1, e1 + 0.1]
+    cuts.append(a1); k = 0
+    for i in range(0, len(cuts), 2):
+        s0, s1 = cuts[i], cuts[i + 1]
+        if s1 - s0 < 0.3: continue
+        me = bpy.data.meshes.new(f'{name}_{k}'); t = 0.02
+        if axis == 'x': X0, X1, Y0, Y1 = LX(s0), LX(s1), LY(face), LY(face) + (t if facing == 'N' else -t)
+        else: X0, X1, Y0, Y1 = LX(face), LX(face) + (t if facing == 'E' else -t), LY(s0), LY(s1)
+        verts = [(X0, Y0, z), (X1, Y0, z), (X1, Y1, z), (X0, Y1, z), (X0, Y0, z + h), (X1, Y0, z + h), (X1, Y1, z + h), (X0, Y1, z + h)]
+        me.from_pydata(verts, [], [(0, 1, 5, 4), (1, 2, 6, 5), (2, 3, 7, 6), (3, 0, 4, 7), (4, 5, 6, 7), (3, 2, 1, 0)]); me.update()
+        uv = me.uv_layers.new(name='UVMap'); L = s1 - s0; rr = L / rep
+        # the visible face is the one furthest from the wall plane
+        vis = {('x', 'N'): 2, ('x', 'S'): 0, ('y', 'E'): 1, ('y', 'W'): 3}[(axis, facing)]
+        for pi, p in enumerate(me.polygons):
+            for li, (u, v) in zip(range(p.loop_start, p.loop_start + 4), ((0, 0), (rr, 0), (rr, 1), (0, 1)) if pi == vis else ((0.5, 0.5),) * 4): uv.data[li].uv = (u, v)
+        me.materials.append(mat); o = bpy.data.objects.new(f'{name}_{k}', me); coll.objects.link(o); o['support'] = 'wall'; k += 1

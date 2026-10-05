@@ -29,9 +29,10 @@ def serving_counter(F, P, L=10.8):
     foods = [(0.65, 0.4, 0.18, 1), (0.8, 0.65, 0.2, 1), (0.35, 0.5, 0.15, 1), (0.7, 0.2, 0.12, 1), (0.85, 0.8, 0.6, 1)]
     for k in range(int((L - 3.2) / 1.1)):
         x = -L / 2 + 0.9 + k * 1.1
-        m.rbox(x, 0.1, 0.96, 0.95, 0.52, 0.04, 0.012, mi=I['steel_charcoal'], rgba=(0.7, 0.72, 0.74, 1))
-        m.cylz(x, 0.1, 0.96, 0.975, 0.0, seg=3) if False else None
-        m.rbox(x, 0.1, 0.995, 0.86, 0.44, 0.02, 0.01, mi=I['props'], rgba=foods[k % 5])
+        m.rbox(x, 0.1, 0.975, 0.95, 0.52, 0.06, 0.012, mi=I['steel_charcoal'], rgba=(0.7, 0.72, 0.74, 1))
+        m.rbox(x, 0.1, 0.99, 0.86, 0.44, 0.05, 0.01, mi=I['props'], rgba=(0.5, 0.5, 0.52, 1))
+        m.sphere(x, 0.1, 1.02, 0.4, 0.2, 0.07, rings=8, seg=14, mi=I['props'], rgba=foods[k % 5])
+        m.between((x + 0.18, 0.2, 1.1), (x + 0.3, 0.32, 1.0), 0.008, seg=6, mi=I['steel_charcoal'], rgba=(0.8, 0.82, 0.84, 1))
     # coffee machine, till, bread basket
     xm = L / 2 - 0.7
     m.rbox(xm, 0.05, 1.18, 0.6, 0.5, 0.5, 0.04, mi=I['steel_charcoal'], rgba=(0.12, 0.13, 0.15, 1)); m.rbox(xm, -0.21, 1.2, 0.5, 0.02, 0.3, 0.01, mi=I['screen'], rgba=(0.9, 0.6, 0.2, 1))
@@ -159,7 +160,7 @@ def build_cafeteria(F, C):
     inst(bc, 'lounge_bookcase', -7.65, -80.0 + 6.0 - 0.0, caf, rz=-math.pi / 2) if False else None
     rug_object(F, caf, 'lounge_rug', -7.4, -0.8, -79.7, -74.0, 'rug_lounge.png')
     for k in range(11): box(f'tv_slat_{k}', -7.0 + k * 0.5, -6.55 + k * 0.5, -79.97, -79.84, 0.0, 3.3, F['timber'], caf, bev=0.008)
-    t = inst(tvp, 'lounge_tv', -4.2, -79.82, caf, z=1.0, rz=0.0, support=None, scale=(1.25, 1.25, 1.25)); wall_item(t, 'y', -79.85, +1)
+    t = inst(tvp, 'lounge_tv', -4.2, -79.82, caf, z=1.0, rz=0.0, support=None, scale=(1.7, 1.7, 1.7)); wall_item(t, 'y', -79.85, +1)
     inst(bc, 'lounge_bookcase', -7.55, -73.3, caf, rz=-math.pi / 2)
     # ---------------- GAME CORNER (north-west, small): foosball, arcade basketball, darts
     rug_object(F, caf, 'game_rug', -7.6, -0.6, -66.2, -60.4, 'rug_game.png')

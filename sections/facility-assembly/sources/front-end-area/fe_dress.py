@@ -47,7 +47,7 @@ def build_dressing(F, C, parts=('caf', 'hall', 'yard')):
     posters = [poster(F, P, v, 0.8, 1.2) for v in range(6)]; posters_l = [poster(F, P, 10 + v, 1.2, 0.8, 'poster_l') for v in range(3)]
     bul = bulletin(F, P); ext = extinguisher(F, P); aid = first_aid(F, P); clk = wall_clock(F, P); sock = socket(F, P)
     # ---------------- cafeteria, interior faces
-    hang(P, caf, 'caf_S', [(posters[0], 3.6, 1.4), (posters[1], 4.9, 1.4), (posters_l[0], 10.5, 1.5), (posters_l[1], 13.0, 1.5), (clk, 17.5, 3.55), (aid, 15.2, 1.5), (posters[2], 19.2, 1.5), (posters[3], 21.0, 1.5),
+    hang(P, caf, 'caf_S', [(posters_l[2], -6.5, 1.5), (posters_l[1], -1.5, 1.5), (posters[0], 3.6, 1.4), (posters[1], 4.9, 1.4), (posters_l[0], 10.5, 1.5), (posters_l[1], 13.0, 1.5), (clk, 17.5, 3.55), (aid, 15.2, 1.5), (posters[2], 19.2, 1.5), (posters[3], 21.0, 1.5),
                          (posters_l[2], 23.2, 1.5), (ext, 24.9, 0.75), (sock, 1.4, 0.4), (sock, 5.8, 0.4), (sock, 10.3, 0.4)])
     hang(P, caf, 'caf_W', [(bul, -74.6, 1.25), (posters[4], -72.9, 1.5), (posters[5], -61.9, 1.6), (posters_l[1], -67.2, 1.6), (clk, -62.9, 3.4), (ext, -67.5 - 0.0, 0.75), (sock, -75.6, 0.4), ])
     hang(P, caf, 'caf_N', [(posters[1], -5.2, 1.6), (posters[2], 3.2, 1.6), (aid, 24.0, 1.5), (sock, -2.0, 0.4), (sock, 4.4, 0.4)])
