@@ -52,7 +52,6 @@ def build_depot(F, C):
         sign(yard, f'sign_car_{i}', f'CAR {7 + i:02d}', x, RAIL_Y - 0.68, 0.72, 'S', 0.5, 0.2, style='info')
     inst(scale, 'floor_track_scale', -32.0, RAIL_Y, yard, support='floor_broken')
     inst(spost, 'scale_post', -30.0, -72.6, yard, rz=0.0)
-    floor_sign(yard, 'floor_weigh', 'WEIGH', -34.7, RAIL_Y, 1.0, 0.34, 'E', style='hazard')
 
     # ---------------------------------------------------------------- ORE BAYS (north-west) and gas store
     for i, (cx, nm, sub, pile) in enumerate(((-41.9, 'ORE  GRADE A', 'High grade', 1), (-37.4, 'ORE  GRADE B', 'Mixed', 1), (-32.9, 'WASTE  ROCK', 'To spoil', 2))):
@@ -135,7 +134,5 @@ def build_depot(F, C):
     for i, (x, y, rz) in enumerate(((-46.5, -66.4, -math.pi / 2), (-34.0, -66.8, -math.pi / 2), (-17.0, -66.8, -math.pi / 2),
                                     (-46.8, -72.6, math.pi / 2), (-31.2, -73.0, math.pi / 2), (-17.0, -72.8, math.pi / 2), (-33.5, -77.2, math.pi / 2), (-12.2, -77.2, math.pi / 2))):
         inst(pole, f'pole_{i}', x, y, yard, rz=rz)
-    for i in range(20):
-        for yy in (-71.25, -68.75): strip(yard, f'floor_lane_{i}_{yy}', -46.0 + i * 2.0, -45.0 + i * 2.0, yy - 0.06, yy + 0.06, YELLOW, F)
     strip(yard, 'floor_walk_a', -46.0, -9.0, -70.0 - 0.0, -70.0 + 0.0, YELLOW, F) if False else None
     return True

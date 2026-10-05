@@ -17,43 +17,51 @@ def smooth(a, b, x):
     t = min(max((x - a) / (b - a), 0.0), 1.0); return t * t * (3 - 2 * t)
 
 # ----------------------------------------------------------------------------------------------------- ground
+# Hardstanding where the work is: plan rectangles (x0, x1, y0, y1). Everything else is wet mud, with a gravel haul road along the mine lane and to the evacuation gate.
+PADS = [(-47.8, -29.9, -83.8, -76.4),    # fuel and vehicle bays
+        (-47.0, -39.0, -76.4, -72.6),    # lamp room cabin
+        (-46.0, -29.0, -63.9, -60.0),    # ore bays
+        (-27.5, -16.8, -67.4, -60.0),    # rail dock and loading canopy
+        (-25.0, -17.0, -83.8, -72.0),    # stores and muster
+        (-16.8, -9.5, -83.8, -77.6),     # generator and water
+        (-13.0, -8.0, -77.6, -60.0),     # porch forecourt
+        (-17.0, -13.0, -65.0, -60.0)]    # skips
+RUTS = [([(-34.8, -72.0), (-35.2, -74.5), (-35.0, -76.6)], 0.78), ([(-38.4, -72.0), (-38.0, -74.0), (-37.2, -76.6)], 0.75), ([(-31.6, -72.0), (-31.2, -74.4), (-31.8, -76.6)], 0.8),
+        ([(-40.0, -68.0), (-38.6, -66.0), (-37.2, -64.2)], 0.78), ([(-34.0, -68.0), (-33.2, -66.0), (-32.6, -64.2)], 0.78), ([(-31.0, -68.0), (-29.2, -66.8), (-27.6, -66.0)], 0.7),
+        ([(-44.5, -71.8), (-44.8, -73.0), (-46.0, -74.5)], 0.7), ([(-16.0, -71.8), (-15.4, -74.5), (-15.2, -77.2)], 0.75), ([(-16.0, -68.0), (-15.6, -66.0)], 0.7)]
+POOLS = [(-34.4, -74.4, 1.5, 0.05), (-37.4, -74.4, 0.9, 0.04), (-31.4, -75.6, 1.0, 0.04), (-40.6, -66.6, 1.1, 0.045), (-33.2, -66.6, 1.0, 0.04), (-15.0, -75.5, 1.1, 0.045),
+         (-15.2, -66.6, 0.9, 0.04), (-47.2, -66.0, 0.9, 0.04), (-28.2, -74.2, 0.7, 0.03)]
+GRAVEL = [(-49.5, -13.0, -71.9, -68.1, 0.5), (-29.7, -26.3, -84.0, -71.0, 0.4)]
+
+def on_pad(x, y, m=0.0):
+    return any(a - m <= x <= b + m and c - m <= y <= d + m for a, b, c, d in PADS)
+
 def build_ground(F, C):
+    import copy
+    from fe_mud import build_terrain
     yard = C['YARD']; rnd = random.Random(77)
-    ground = box('context_ground', -170, 90, -200, 60, -0.9, -0.15, F['props'], C['SHARED'], rgba=(0.34, 0.31, 0.26, 1)); ground['note'] = 'context only, outside the module footprint'
-    box('yard_base', *YARD[:2], *YARD[2:], -0.45, -0.3, F['props'], yard, rgba=(0.14, 0.12, 0.1, 1))
-    bm = bmesh.new(); NX, NY = 80, 48; dx = 40.0 / NX; dy = 24.0 / NY; g = []
-    for i in range(NX + 1):
-        row = []
-        for j in range(NY + 1):
-            x = YARD[0] + i * dx; y = YARD[2] + j * dy
-            z = -0.16 + 0.03 * mnoise.noise(Vector((x * 0.5, y * 0.5, 1.3))) + 0.012 * mnoise.noise(Vector((x * 2.4, y * 2.4, 4.1)))
-            row.append(bm.verts.new(Vector((LX(x), LY(y), z))))
-        g.append(row)
-    for i in range(NX):
-        for j in range(NY): bm.faces.new((g[i][j], g[i + 1][j], g[i + 1][j + 1], g[i][j + 1]))
-    mesh_obj('yard_earth', bm, F['gravel'], yard, smooth=True)
-    sunk = {(1, 4): -0.025, (5, 2): -0.03, (8, 5): -0.02, (3, 1): -0.035}
-    cracked = {(2, 3), (7, 4)}
-    for ix in range(10):
-        for iy in range(6):
-            x0 = YARD[0] + ix * 4 + 0.02; y0 = YARD[2] + iy * 4 + 0.02
-            if (ix, iy) in cracked:
-                cuts = [0.0, rnd.uniform(1.2, 1.8), rnd.uniform(2.3, 2.9), 3.96]
-                for k in range(3):
-                    w = cuts[k + 1] - cuts[k] - 0.03
-                    o = box(f'yard_slab_{ix}_{iy}_{k}', 0, w, 0, 3.96, -0.15, 0.0, F['apron'], yard, bev=0.01, plan=False)
-                    o.location = (LX(x0 + cuts[k]), LY(y0), rnd.choice((0.0, -0.012, -0.02))); o.rotation_euler = (rnd.uniform(-0.004, 0.004), rnd.uniform(-0.004, 0.004), 0); o['support'] = 'floor_broken'
-            else:
-                o = box(f'yard_slab_{ix}_{iy}', 0, 3.96, 0, 3.96, -0.15, 0.0, F['apron'], yard, bev=0.01, plan=False)
-                o.location = (LX(x0), LY(y0), sunk.get((ix, iy), 0.0)); o.rotation_euler = (rnd.uniform(-0.003, 0.003), rnd.uniform(-0.003, 0.003), 0); o['support'] = 'floor_broken'
+    ground = box('context_ground', -170, 90, -200, 60, -0.9, -0.15, F['props'], C['SHARED'], rgba=(0.06, 0.05, 0.04, 1)); ground['note'] = 'context only, outside the module footprint'
+    box('yard_base', *YARD[:2], *YARD[2:], -0.45, -0.3, F['props'], yard, rgba=(0.06, 0.05, 0.04, 1))
+    build_terrain(F, C, YARD, RUTS, POOLS, PADS, GRAVEL)
+    wet = F['apron'].copy(); wet.name = 'apron_wet'
+    for n in wet.node_tree.nodes:
+        if n.type == 'BSDF_PRINCIPLED' and 'Coat Weight' in n.inputs: n.inputs['Coat Weight'].default_value = 0.45; n.inputs['Coat Roughness'].default_value = 0.08
+    sunk = {}
+    for pi, (a, b, c, d) in enumerate(PADS):
+        nx = max(int(round((b - a) / 4.0)), 1); ny = max(int(round((d - c) / 4.0)), 1); sw = (b - a) / nx; sh = (d - c) / ny
+        for ix in range(nx):
+            for iy in range(ny):
+                x0 = a + ix * sw + 0.015; y0 = c + iy * sh + 0.015
+                o = box(f'pad_{pi}_{ix}_{iy}', 0, sw - 0.03, 0, sh - 0.03, -0.15, 0.0, wet, yard, bev=0.012, plan=False)
+                o.location = (LX(x0), LY(y0), rnd.choice((0.0, 0.0, -0.004, -0.008))); o.rotation_euler = (rnd.uniform(-0.002, 0.002), rnd.uniform(-0.002, 0.002), 0); o['support'] = 'floor_broken'
     bmm = bmesh.new()
     for i in range(14):
-        x = rnd.uniform(-47, -9); y = rnd.uniform(-83.5, -60.5); a = rnd.uniform(0, 6.28)
+        a, b, c, d = rnd.choice(PADS); x = rnd.uniform(a + 0.5, b - 0.5); y = rnd.uniform(c + 0.5, d - 0.5); ang = rnd.uniform(0, 6.28)
         for k in range(rnd.randint(3, 5)):
-            if not (-47.5 < x < -8.5 and -83.5 < y < -60.5): break
-            L = rnd.uniform(0.4, 0.9); bm_box(bmm, LX(x), LY(y), 0.003, L, 0.014, 0.004, rz=a)
-            x += math.cos(a) * L * 0.9; y += math.sin(a) * L * 0.9; a += rnd.uniform(-0.7, 0.7)
-    mesh_obj('ground_cracks', bmm, F['props'], yard, rgba=(0.08, 0.075, 0.07, 1))
+            if not on_pad(x, y): break
+            L = rnd.uniform(0.4, 0.9); bm_box(bmm, LX(x), LY(y), 0.003, L, 0.014, 0.004, rz=ang)
+            x += math.cos(ang) * L * 0.9; y += math.sin(ang) * L * 0.9; ang += rnd.uniform(-0.7, 0.7)
+    mesh_obj('ground_cracks', bmm, F['props'], yard, rgba=(0.03, 0.028, 0.026, 1))
 
 def build_drains(F, C):
     """Three trench drains: across the loading apron, in front of the fuel bay and on the porch approach. Gratings are bars, not text."""
