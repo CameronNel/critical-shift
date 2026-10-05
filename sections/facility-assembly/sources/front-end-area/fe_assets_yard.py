@@ -8,7 +8,7 @@ def crate(F, P, variant=0):
     v1 (and odd variants): olive-painted planked box with corner caps, hasp and padlock, side handles and a yellow-black stencil panel."""
     m = mb(F); rnd = random.Random(variant * 7 + 3); painted = variant % 2 == 1
     BODY = I['paint'] if painted else I['timber']
-    pal = [(0.2, 0.26, 0.17, 1), (0.16, 0.22, 0.30, 1), (0.30, 0.25, 0.14, 1)][(variant // 2) % 3] if painted else (0.7, 0.55, 0.35, 1)
+    pal = [(0.07, 0.09, 0.20, 1), (0.42, 0.34, 0.40, 1), (0.62, 0.27, 0.16, 1)][(variant // 2) % 3] if painted else (0.7, 0.55, 0.35, 1)
     DARKW = (0.05, 0.035, 0.025, 1); H = 0.45
     for sx in (-1, 1): m.rbox(sx * 0.33, 0, 0.045, 0.1, 0.96, 0.09, 0.01, seg=1, mi=I['timber'])                                   # skids
     m.rbox(0, 0, 0.5, 0.88, 0.88, 0.8, 0.0, mi=I['timber'], rgba=DARKW)                                                          # core shadow
@@ -45,7 +45,7 @@ def crate(F, P, variant=0):
                 m.rbox(sx * 0.28, y + sy * 0.001, 0.5, 0.03, 0.008, 0.86, 0.0, mi=I['steel_charcoal'])
             m.rbox(0.28 * rnd.choice((-1, 1)), y + sy * 0.006, 0.45, 0.05, 0.01, 0.04, 0.003, seg=1, mi=I['steel_brushed'], rgba=(0.8, 0.8, 0.8, 1))
         else:
-            m.rbox(0, y, 0.55, 0.42, 0.006, 0.26, 0.002, mi=I['signage'], rgba=(0.82, 0.62, 0.08, 1))
+            m.rbox(0, y, 0.55, 0.42, 0.006, 0.26, 0.002, mi=I['signage'], rgba=(0.85, 0.62, 0.12, 1))
             for k in range(5): m.rbox(-0.16 + k * 0.08, y + sy * 0.004, 0.55, 0.035, 0.004, 0.19, 0.0, rot=(0, 0.5, 0), mi=I['signage'], rgba=(0.06, 0.06, 0.06, 1)) if k % 2 == 0 else None
             m.rbox(0, y + sy * 0.005, 0.55, 0.24, 0.004, 0.1, 0.0, mi=I['signage'], rgba=(0.88, 0.86, 0.78, 1))
     if not painted:
@@ -78,7 +78,9 @@ def pallet(F, P):
 
 def barrel(F, P, rgba=(0.12, 0.3, 0.45, 1), name='barrel'):
     """Steel drum 0.9 m: rolled chimes, three rolling hoops, dented body, recessed lid with ring-lock clamp, flanged bung and vent plug, and a stencil label panel."""
+    PAL = [(0.07, 0.09, 0.20, 1), (0.62, 0.27, 0.16, 1), (0.42, 0.34, 0.40, 1), (0.85, 0.62, 0.12, 1)]
     m = mb(F); rnd = random.Random(int(sum(rgba[:3]) * 1000) + 7)
+    rgba = min(PAL, key=lambda c: sum((a - b) ** 2 for a, b in zip(c[:3], rgba[:3])))   # painted props use the studio palette only
     prof = [(0.0, 0.0), (0.262, 0.0), (0.284, 0.018), (0.294, 0.05), (0.284, 0.088), (0.287, 0.115), (0.298, 0.13), (0.298, 0.165), (0.287, 0.18), (0.288, 0.26), (0.289, 0.34), (0.289, 0.43),
             (0.298, 0.445), (0.298, 0.485), (0.287, 0.50), (0.289, 0.58), (0.289, 0.66), (0.287, 0.70), (0.298, 0.715), (0.298, 0.75), (0.287, 0.765), (0.288, 0.83), (0.296, 0.875), (0.296, 0.9), (0.282, 0.915), (0.262, 0.9), (0.256, 0.885), (0.0, 0.885)]
     pb = p_lathe(prof, 24)
@@ -280,7 +282,7 @@ def bale(F, P, seed=0):
 def generator(F, P):
     """Diesel generator set 3.0 x 1.3 x 2.5 in a sound-proof canopy (front toward +y): channel skid with integral fuel tank, filler cap, drain valve and level gauge, louvred hinged doors with
     handles, a recessed control compartment (LCD, dials, lamps, e-stop, switches), roof lifting eye, silencer with exhaust stack and hinged rain cap, cable gland box with cable runs, lifting eyes."""
-    m = mb(F); rnd = random.Random(31); OR = (0.74, 0.37, 0.06, 1); OR2 = (0.62, 0.30, 0.05, 1); DK = (0.07, 0.07, 0.08, 1); BR = (0.8, 0.8, 0.8, 1)
+    m = mb(F); rnd = random.Random(31); OR = (0.62, 0.27, 0.16, 1); OR2 = (0.50, 0.21, 0.13, 1); DK = (0.07, 0.07, 0.08, 1); BR = (0.8, 0.8, 0.8, 1)
     for sy in (-1, 1): m.rbox(0, sy * 0.58, 0.09, 3.0, 0.14, 0.18, 0.012, seg=1, mi=I['steel_charcoal'])              # skid runners
     for x in (-1.35, -0.45, 0.45, 1.35): m.rbox(x, 0, 0.09, 0.1, 1.1, 0.14, 0.01, seg=1, mi=I['steel_charcoal'])
     m.rbox(0, 0, 0.31, 2.72, 1.06, 0.24, 0.025, seg=2, mi=I['paint'], rgba=(0.12, 0.12, 0.13, 1))                    # integral fuel tank
@@ -352,6 +354,7 @@ def generator(F, P):
 def tank_vertical(F, P, h=2.6, r=1.05, rgba=(0.5, 0.52, 0.5, 1), name='tank'):
     """Welded plate water tank: four plate courses with ring and vertical weld seams and bolted lap flanges, stiffened legs on a concrete plinth, blue band, conical roof with hatch, hinged lid and
     handrail, ladder with safety cage (toward the yard), level gauge with isolating valves, flanged outlet pipe with gate valve and drain, vertical inlet pipe with clips, manway with bolted cover."""
+    rgba = (0.42, 0.34, 0.40, 1)   # mauve-grey painted plate
     m = mb(F); rnd = random.Random(21); ST = I['steel_charcoal']; BR = (0.8, 0.8, 0.8, 1); n = 4; ch = (h - 0.3) / n
     def Pt(rr, t=0.0, z=0.0, th=0.0): return (rr * math.cos(th) - t * math.sin(th), rr * math.sin(th) + t * math.cos(th), z)
     m.lathe([(0, 0), (r + 0.14, 0), (r + 0.14, 0.07), (r + 0.1, 0.09), (0, 0.09)], seg=28, mi=I['concrete_slab'], rgba=(0.55, 0.53, 0.5, 1))   # plinth
@@ -373,7 +376,7 @@ def tank_vertical(F, P, h=2.6, r=1.05, rgba=(0.5, 0.52, 0.5, 1), name='tank'):
     for zz in (0.3 + ch, 0.3 + 2 * ch, 0.3 + 3 * ch):                                                                                  # bolt rows at the lap joints
         for i in range(22):
             a = 2 * math.pi * i / 22; m.add(p_stud(0.014, 0.012, 5), Pt(r + 0.03, 0, zz + 0.05, a), (0, math.pi / 2, a), mi=ST)
-    m.lathe([(r + 0.006, 1.95), (r + 0.01, 1.96), (r + 0.01, 2.2), (r + 0.006, 2.21)], seg=28, mi=I['paint'], rgba=(0.12, 0.28, 0.5, 1))   # blue band
+    m.lathe([(r + 0.006, 1.95), (r + 0.01, 1.96), (r + 0.01, 2.2), (r + 0.006, 2.21)], seg=28, mi=I['paint'], rgba=(0.07, 0.09, 0.20, 1))   # navy band
     m.lathe([(r, h), (r + 0.05, h + 0.012), (r * 0.62, h + 0.17), (r * 0.5, h + 0.2), (0.0, h + 0.2)], seg=28, mi=I['paint'], rgba=tuple(k * 0.86 for k in rgba[:3]) + (1,))   # roof
     m.add(p_torus(r + 0.03, 0.02, 28, 4), (0, 0, h + 0.005), mi=ST)                                                                   # roof angle ring
     # --- roof hatch, handrail
@@ -416,7 +419,7 @@ def tank_vertical(F, P, h=2.6, r=1.05, rgba=(0.5, 0.52, 0.5, 1), name='tank'):
     m.between(Pt(r - 0.02, 0, 0.65, oa), Pt(r + 0.42, 0, 0.65, oa), 0.06, seg=10, mi=I['steel_brushed'], rgba=(0.6, 0.62, 0.64, 1))
     for dd in (0.04, 0.3):
         m.add(p_cyl(0.095, 0.03, 12), Pt(r + dd, 0, 0.65, oa), (0, math.pi / 2, oa), mi=ST)
-    m.rbox(*Pt(r + 0.18, 0, 0.7, oa), 0.14, 0.12, 0.16, 0.02, rot=(0, 0, oa), seg=1, mi=I['paint'], rgba=(0.14, 0.28, 0.5, 1))           # valve body
+    m.rbox(*Pt(r + 0.18, 0, 0.7, oa), 0.14, 0.12, 0.16, 0.02, rot=(0, 0, oa), seg=1, mi=I['paint'], rgba=(0.07, 0.09, 0.20, 1))           # valve body
     m.between(Pt(r + 0.18, 0, 0.78, oa), Pt(r + 0.18, 0, 1.0, oa), 0.014, seg=6, mi=I['steel_brushed'], rgba=BR)
     m.add(p_torus(0.075, 0.011, 12, 4), Pt(r + 0.18, 0, 1.0, oa), (0, 0, 0), mi=I['paint'], rgba=(0.85, 0.1, 0.07, 1))                    # hand wheel
     m.between(Pt(r + 0.42, 0, 0.65, oa), Pt(r + 0.42, 0, 0.2, oa), 0.055, seg=10, mi=I['steel_brushed'], rgba=(0.6, 0.62, 0.64, 1))

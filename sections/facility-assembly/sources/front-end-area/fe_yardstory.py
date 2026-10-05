@@ -255,7 +255,7 @@ def build_yard_story(F, C):
           'jacket_y': proto_jacket(F, P, (0.78, 0.88, 0.04, 1), 'jacket_lime'), 'hat_w': proto_hardhat(F, P, (0.9, 0.9, 0.86, 1), 'hardhat_white'), 'lantern': proto_lantern(F, P),
           'ext': proto_extinguisher_post(F, P), 'aid': proto_first_aid(F, P), 'radio': proto_radio_shelf(F, P), 'board': proto_notice_board(F, P), 'hose': proto_hose_coil(F, P),
           'spill0': proto_ore_spill(F, P, 0), 'spill1': proto_ore_spill(F, P, 1), 'shovel': proto_shovel(F, P),
-          'tb_red': toolbox(F, P), 'tb_blue': toolbox(F, P, (0.1, 0.22, 0.46, 1), 'toolbox_blue')}
+          'tb_red': toolbox(F, P), 'tb_blue': toolbox(F, P, (0.07, 0.09, 0.20, 1), 'toolbox_blue')}
     boxes = _scene_boxes()
     def place(key, name, x, y, rz=0.0, z=0.0, support='floor', r=0.3, wall=False, **kw):
         """Instance if the footprint is clear of scene objects and lanes (wall items only test the lanes and neighbours, not the cabin they hang on)."""

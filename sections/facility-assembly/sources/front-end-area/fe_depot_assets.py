@@ -282,7 +282,7 @@ def _ore_heap(m, rnd, cx, cy, cz, ax, ay, hh, n_med=60, n_big=8, base_col=(0.06,
 def ore_car(F, P):
     """Mine tipper car 2.4 m on rail (gauge 1.56 m): rust-red riveted tub with rolled rim, angle ribs, stencil band and number plate (the baked car number sits flush on it),
     channel underframe, hung axle boxes, spoked iron wheels, sprung buffers and a hook coupling, brake lever, heaped with dark ore with copper-green and rusty chunks."""
-    m = mb(F); rnd = random.Random(4); RED = (0.40, 0.125, 0.065, 1); RED2 = (0.30, 0.095, 0.055, 1); BAND = (0.74, 0.52, 0.09, 1); GR = (0.07, 0.07, 0.08, 1); BR = (0.55, 0.53, 0.5, 1)
+    m = mb(F); rnd = random.Random(4); RED = (0.62, 0.27, 0.16, 1); RED2 = (0.48, 0.20, 0.12, 1); BAND = (0.85, 0.62, 0.12, 1); GR = (0.07, 0.07, 0.08, 1); BR = (0.55, 0.53, 0.5, 1)
     m.add(p_frustum(2.0, 1.28, 2.34, 1.56, 0.68, 0.025), (0, 0, 0.62), mi=I['paint'], rgba=RED)                 # tub body
     m.rbox(0, 0, 1.24, 2.26, 1.48, 0.04, 0.0, mi=I['props'], rgba=(0.06, 0.055, 0.05, 1))                       # ore bed
     for sy in (-1, 1):

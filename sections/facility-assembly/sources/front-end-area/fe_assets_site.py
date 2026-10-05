@@ -88,7 +88,7 @@ def ladder(F, P, h=2.4):
     for sx in (-1, 1): m.rbox(sx * 0.22, 0.0, 0.02, 0.07, 0.07, 0.04, 0.01, mi=I['rubber'], rgba=(0.03, 0.03, 0.03, 1))
     return m.finish('proto_ladder', P)
 
-def bucket(F, P, rgba=(0.85, 0.8, 0.1, 1)):
+def bucket(F, P, rgba=(0.85, 0.62, 0.12, 1)):
     """Plastic bucket: tapered body with moulded ribs, rolled rim and foot ring, wire handle with grip on lug ears, a label panel and a dirty fill."""
     m = mb(F)
     m.lathe([(0.0, 0.0), (0.118, 0.0), (0.126, 0.012), (0.132, 0.03), (0.15, 0.14), (0.152, 0.145), (0.158, 0.17), (0.16, 0.2), (0.168, 0.28), (0.172, 0.3), (0.18, 0.31), (0.182, 0.322), (0.172, 0.325), (0.166, 0.31),
@@ -113,7 +113,7 @@ def cement_bags(F, P, seed=0):
 
 def wheelbarrow(F, P):
     """Builder's wheelbarrow: pressed yellow tub with rolled rim and ribs, dirty rubble fill, pneumatic tyre on a spoked rim with fork, tubular chassis and handles with rubber grips, brace feet."""
-    m = mb(F); rnd = random.Random(14); Y = (0.82, 0.62, 0.08, 1); TUBE = (0.1, 0.1, 0.11, 1)
+    m = mb(F); rnd = random.Random(14); Y = (0.85, 0.62, 0.12, 1); TUBE = (0.1, 0.1, 0.11, 1)
     pb = p_frustum(0.62, 0.34, 1.0, 0.68, 0.3, 0.05, 2, shift=(0.1, 0.0)); fs = [f for f in pb.faces if f.normal.z > 0.99]; bmesh.ops.delete(pb, geom=fs, context='FACES_ONLY')
     add_var(m, pb, (0.0, 0.0, 0.42), (0, -0.08, 0), mi=I['paint'], rgba=Y, var=0.0, rnd=rnd, flat=False)
     m.rbox(0.05, 0, 0.67, 0.86, 0.5, 0.02, 0.0, rot=(0, -0.08, 0), mi=I['props'], rgba=(0.12, 0.09, 0.06, 1))                    # fill
@@ -139,7 +139,7 @@ def wheelbarrow(F, P):
     weather(m, 14, dirt=0.5, dirt_h=0.18, streak=0.2, blotch=0.2, angle=30.0)
     return m.finish('proto_wheelbarrow', P)
 
-def toolbox(F, P, rgba=(0.62, 0.08, 0.05, 1), name='toolbox'):
+def toolbox(F, P, rgba=(0.62, 0.27, 0.16, 1), name='toolbox'):
     """Red steel toolbox 0.55 x 0.25: pressed body with swage ribs, separate lid with seam, front latches, carry handle on brackets, rear hinges, corner caps and a stencil label."""
     m = mb(F); RD = rgba; DK = (0.07, 0.07, 0.08, 1)
     m.rbox(0, 0, 0.115, 0.55, 0.25, 0.23, 0.02, seg=1, mi=I['paint'], rgba=RD)                                                      # body
