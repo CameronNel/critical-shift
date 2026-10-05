@@ -20,20 +20,19 @@ def crate(F, P, variant=0):
     for sx in (-1, 1):
         for sy in (-1, 1): m.rbox(sx * H, sy * H, 0.5, 0.095, 0.095, 0.86, 0.012, seg=1, mi=BODY, rgba=tuple(c * 0.82 for c in pal[:3]) + (1,))
     for z in (0.14, 0.9):
-        for sy in (-1, 1): m.rbox(0, sy * H, z, 0.84, 0.095, 0.07, 0.01, seg=1, mi=BODY, rgba=tuple(c * 0.82 for c in pal[:3]) + (1,))
-        for sx in (-1, 1): m.rbox(sx * H, 0, z, 0.095, 0.84, 0.07, 0.01, seg=1, mi=BODY, rgba=tuple(c * 0.82 for c in pal[:3]) + (1,))
+        for sy in (-1, 1): m.rbox(0, sy * H, z, 0.84, 0.095, 0.07, 0.0, mi=BODY, rgba=tuple(c * 0.82 for c in pal[:3]) + (1,))
+        for sx in (-1, 1): m.rbox(sx * H, 0, z, 0.095, 0.84, 0.07, 0.0, mi=BODY, rgba=tuple(c * 0.82 for c in pal[:3]) + (1,))
     # lid: boards across, slightly askew
     lid = rnd.uniform(-0.03, 0.03)
-    for i in range(6): m.rbox(0, -0.4 + i * 0.16, 0.975, 0.98, 0.15, 0.03, 0.004, rot=(0, 0, lid), seg=1, mi=BODY, rgba=tuple(c * rnd.uniform(0.9, 1.1) for c in pal[:3]) + (1,))
-    for sx in (-1, 1): m.rbox(sx * 0.32, 0, 1.0, 0.09, 0.98, 0.025, 0.006, rot=(0, 0, lid), seg=1, mi=BODY, rgba=tuple(c * 0.85 for c in pal[:3]) + (1,))
+    for i in range(6): m.rbox(0, -0.4 + i * 0.16, 0.975, 0.98, 0.15, 0.03, 0.0, rot=(0, 0, lid), mi=BODY, rgba=tuple(c * rnd.uniform(0.9, 1.1) for c in pal[:3]) + (1,))
+    for sx in (-1, 1): m.rbox(sx * 0.32, 0, 1.0, 0.09, 0.98, 0.025, 0.0, rot=(0, 0, lid), mi=BODY, rgba=tuple(c * 0.85 for c in pal[:3]) + (1,))
     nails = [(sx * 0.32, -0.4 + i * 0.16, 1.014) for sx in (-1, 1) for i in range(6)]
     studs(m, nails, '+z', r=0.01, h=0.007, seg=4, mi=I['steel_charcoal'])
     for sy in (-1, 1):                                                                                               # nails along posts
         f = '+y' if sy > 0 else '-y'
         studs(m, [(sx * 0.4, sy * 0.499, z) for sx in (-1, 1) for z in (0.2, 0.5, 0.82)], f, r=0.01, h=0.007, seg=4, mi=I['steel_charcoal'])
     # diagonal braces on the x faces
-    for sx in (-1, 1): m.rbox(sx * 0.472, 0, 0.52, 0.025, 0.12 if False else 0.07, 1.05, 0.006, rot=(0.0, 0, 0), mi=BODY, rgba=tuple(c * 0.9 for c in pal[:3]) + (1,)) if False else None
-    for sx in (-1, 1): m.rbox(sx * 0.472, 0, 0.52, 0.026, 1.0, 0.07, 0.006, rot=(0.0 * 0 + (0.72 if sx > 0 else -0.72), 0, 0), seg=1, mi=BODY, rgba=tuple(c * 0.9 for c in pal[:3]) + (1,))
+    for sx in (-1, 1): m.rbox(sx * 0.472, 0, 0.52, 0.026, 1.0, 0.07, 0.0, rot=(0.72 if sx > 0 else -0.72, 0, 0), mi=BODY, rgba=tuple(c * 0.9 for c in pal[:3]) + (1,))
     # stencil panels on the y faces
     for sy in (-1, 1):
         f = '+y' if sy > 0 else '-y'; y = sy * 0.469
@@ -216,6 +215,7 @@ def container(F, P, rgba=(0.45, 0.12, 0.08, 1), name='container', L=6.0):
             m.rbox(x + sx * 0.08, sy * 0.1, 1.15, 0.03, 0.04, 0.18, 0.01, mi=I['steel_charcoal'], rgba=(0.55, 0.56, 0.58, 1))
         m.rbox(x + sx * 0.03, 0.0, H / 2, 0.02, 0.012, H - 0.28, 0.003, mi=I['steel_charcoal'], rgba=(0.02, 0.02, 0.02, 1))
         m.rbox(x + sx * 0.04, 0.0, H - 0.16, 0.05, W - 0.3, 0.08, 0.01, mi=I['steel_charcoal'], rgba=steel)
+    weather(m, 9, dirt=0.35, dirt_h=0.6, streak=0.35, blotch=0.25, top=0.1, angle=32.0)
     return m.finish('proto_' + name, P)
 
 def skip_bin(F, P, rgba=(0.62, 0.32, 0.06, 1)):
@@ -360,34 +360,29 @@ def tank_vertical(F, P, h=2.6, r=1.05, rgba=(0.5, 0.52, 0.5, 1), name='tank'):
         m.rbox(math.cos(a) * r * 0.86, math.sin(a) * r * 0.86, 0.19, 0.12, 0.12, 0.22, 0.012, rot=(0, 0, a), seg=1, mi=ST)           # legs
         m.rbox(math.cos(a) * r * 0.86, math.sin(a) * r * 0.86, 0.1, 0.22, 0.22, 0.02, 0.006, rot=(0, 0, a), seg=1, mi=ST)           # foot plates
         studs(m, [Pt(r * 0.86, t, 0.115, a) for t in (-0.07, 0.07)], '+z', r=0.014, h=0.012, mi=I['steel_brushed'], rgba=BR)
-        b = a + math.pi / 6
-        m.between(Pt(r * 0.86, 0, 0.12, a), Pt(r * 0.86, 0, 0.12, a + math.pi / 3), 0.014, seg=5, mi=ST) if False else None
     m.add(p_torus(r * 0.93, 0.03, 28, 4), (0, 0, 0.3), mi=ST)                                                                         # base ring
     z0 = 0.3
     for c in range(n):                                                                                                                # courses
         col = tuple(k * rnd.uniform(0.94, 1.06) for k in rgba[:3]) + (1,); rc = r + (0.0 if c % 2 == 0 else 0.012)
-        pb = p_lathe([(rc, z0), (rc, z0 + ch)], 28); pb2 = None
         m.lathe([(rc, z0 + 0.004), (rc + 0.002, z0 + ch / 2), (rc, z0 + ch - 0.004)], seg=28, mi=I['paint'], rgba=col)
-        pb.free()
         if c: m.add(p_torus(r + 0.016, 0.014, 28, 4), (0, 0, z0), mi=I['paint'], rgba=tuple(k * 0.8 for k in col[:3]) + (1,))        # horizontal weld seam
         for k in range(5):
             a = k * 2 * math.pi / 5 + (0.5 if c % 2 else 0.0)
             m.rbox(*Pt(rc + 0.006, 0, z0 + ch / 2, a), 0.012, 0.035, ch - 0.02, 0.0, rot=(0, 0, a), mi=I['paint'], rgba=tuple(k_ * 0.75 for k_ in col[:3]) + (1,))   # vertical weld
         z0 += ch
-    studs(m, [Pt(r + 0.026, 0, 0.58, 2 * math.pi * i / 24) for i in range(24)], '+x', r=0.014, h=0.012, mi=I['steel_brushed'], rgba=BR) if False else None
-    for zz in (0.3 + ch, 0.3 + 2 * ch, 0.3 + 3 * ch):
+    for zz in (0.3 + ch, 0.3 + 2 * ch, 0.3 + 3 * ch):                                                                                  # bolt rows at the lap joints
         for i in range(22):
-            a = 2 * math.pi * i / 22; m.add(p_stud(0.014, 0.012, 5), Pt(r + 0.027, 0, zz + 0.04, a), (0, math.pi / 2, a), mi=ST) if False else m.add(p_stud(0.014, 0.012, 5), Pt(r + 0.025, 0, zz + 0.045, a), (0, math.pi / 2, 0) if False else (0, math.pi / 2, 0), mi=ST) if False else None
+            a = 2 * math.pi * i / 22; m.add(p_stud(0.014, 0.012, 5), Pt(r + 0.03, 0, zz + 0.05, a), (0, math.pi / 2, a), mi=ST)
     m.lathe([(r + 0.006, 1.95), (r + 0.01, 1.96), (r + 0.01, 2.2), (r + 0.006, 2.21)], seg=28, mi=I['paint'], rgba=(0.12, 0.28, 0.5, 1))   # blue band
     m.lathe([(r, h), (r + 0.05, h + 0.012), (r * 0.62, h + 0.17), (r * 0.5, h + 0.2), (0.0, h + 0.2)], seg=28, mi=I['paint'], rgba=tuple(k * 0.86 for k in rgba[:3]) + (1,))   # roof
     m.add(p_torus(r + 0.03, 0.02, 28, 4), (0, 0, h + 0.005), mi=ST)                                                                   # roof angle ring
     # --- roof hatch, handrail
     hx, hy = -0.2, -0.15
     m.rbox(hx, hy, h + 0.28, 0.58, 0.58, 0.08, 0.02, seg=1, mi=ST, rgba=(0.08, 0.08, 0.09, 1)); m.rbox(hx, hy, h + 0.33, 0.52, 0.52, 0.03, 0.012, rot=(0, 0.07, 0.0), seg=1, mi=I['paint'], rgba=(0.55, 0.58, 0.6, 1))
-    m.add(p_cyl(0.012, 0.3, 6), (hx - 0.3, hy, h + 0.32), (0, math.pi / 2, math.pi / 2) if False else (math.pi / 2, 0, 0), mi=I['steel_brushed'], rgba=BR); m.rbox(hx + 0.2, hy, h + 0.36, 0.1, 0.05, 0.03, 0.008, seg=1, mi=ST)
+    m.add(p_cyl(0.012, 0.3, 6), (hx - 0.3, hy, h + 0.32), (math.pi / 2, 0, 0), mi=I['steel_brushed'], rgba=BR); m.rbox(hx + 0.2, hy, h + 0.36, 0.1, 0.05, 0.03, 0.008, seg=1, mi=ST)
     stud_row(m, (hx - 0.24, hy + 0.27, h + 0.325), (hx + 0.24, hy + 0.27, h + 0.325), 5, '+y', r=0.012, h=0.01, mi=ST)
     m.cylz(0.5, 0.6, h + 0.19, h + 0.5, 0.06, seg=10, mi=ST); m.add(p_cyl(0.09, 0.02, 12), (0.5, 0.6, h + 0.5), (0.2, 0.0, 0.0), mi=ST)    # vent pipe with cap
-    nrail = 14; gate = (0.0, 0.9)
+    nrail = 14
     for i in range(nrail):
         a = 2 * math.pi * i / nrail + 0.1
         if abs(math.atan2(math.sin(a - 0.35), math.cos(a - 0.35))) < 0.3: continue
@@ -419,9 +414,8 @@ def tank_vertical(F, P, h=2.6, r=1.05, rgba=(0.5, 0.52, 0.5, 1), name='tank'):
     # --- outlet pipe with gate valve and drain (angle oa)
     oa = 2.55
     m.between(Pt(r - 0.02, 0, 0.65, oa), Pt(r + 0.42, 0, 0.65, oa), 0.06, seg=10, mi=I['steel_brushed'], rgba=(0.6, 0.62, 0.64, 1))
-    m.add(p_cyl(0.1, 0.03, 12), Pt(r + 0.05, 0, 0.65, oa), (0, math.pi / 2, oa), mi=ST) if False else m.add(p_cyl(0.1, 0.03, 12), Pt(r + 0.05, 0, 0.65, oa), (0, math.pi / 2, 0), mi=ST, rot=None) if False else None
     for dd in (0.04, 0.3):
-        pb = p_cyl(0.095, 0.03, 12); xf(pb, Pt(r + dd, 0, 0.65, oa), (0, math.pi / 2, 0)); xf(pb, (0, 0, 0), (0, 0, 0)); m.add(pb, mi=ST)
+        m.add(p_cyl(0.095, 0.03, 12), Pt(r + dd, 0, 0.65, oa), (0, math.pi / 2, oa), mi=ST)
     m.rbox(*Pt(r + 0.18, 0, 0.7, oa), 0.14, 0.12, 0.16, 0.02, rot=(0, 0, oa), seg=1, mi=I['paint'], rgba=(0.14, 0.28, 0.5, 1))           # valve body
     m.between(Pt(r + 0.18, 0, 0.78, oa), Pt(r + 0.18, 0, 1.0, oa), 0.014, seg=6, mi=I['steel_brushed'], rgba=BR)
     m.add(p_torus(0.075, 0.011, 12, 4), Pt(r + 0.18, 0, 1.0, oa), (0, 0, 0), mi=I['paint'], rgba=(0.85, 0.1, 0.07, 1))                    # hand wheel
@@ -434,13 +428,10 @@ def tank_vertical(F, P, h=2.6, r=1.05, rgba=(0.5, 0.52, 0.5, 1), name='tank'):
     m.between(Pt(r + 0.09, 0, h + 0.05, ia), Pt(r * 0.7, 0, h + 0.12, ia), 0.045, seg=8, mi=I['steel_brushed'], rgba=(0.6, 0.62, 0.64, 1))
     # --- manway
     ma = 3.8
-    pb = p_cyl(0.28, 0.04, 16); xf(pb, Pt(r + 0.02, 0, 1.1, ma), (0, math.pi / 2, 0)); m.add(pb, mi=ST)
-    pb = p_cyl(0.23, 0.05, 16); xf(pb, Pt(r + 0.06, 0, 1.1, ma), (0, math.pi / 2, 0)); m.add(pb, mi=I['paint'], rgba=tuple(k * 0.85 for k in rgba[:3]) + (1,))
+    m.add(p_cyl(0.28, 0.04, 16), Pt(r + 0.02, 0, 1.1, ma), (0, math.pi / 2, ma), mi=ST)
+    m.add(p_cyl(0.23, 0.05, 16), Pt(r + 0.06, 0, 1.1, ma), (0, math.pi / 2, ma), mi=I['paint'], rgba=tuple(k * 0.85 for k in rgba[:3]) + (1,))
     for i in range(10):
-        a_ = i * math.pi / 5; pp = Pt(r + 0.06, 0.255 * math.cos(a_), 1.1 + 0.255 * math.sin(a_), ma)
-        m.add(p_cyl(0.017, 0.022, 6), (pp[0] * 1.0, pp[1] * 1.0, pp[2]), (0, 0, 0), mi=I['steel_brushed'], rgba=BR) if False else None
-    for i in range(10):
-        a_ = i * math.pi / 5; pp = Pt(r + 0.075, 0.255 * math.cos(a_), 1.1 + 0.255 * math.sin(a_), ma); hex_bolt(m, pp, '+x', 0.017, 0.02, mi=I['steel_brushed'], rgba=BR) if False else m.add(p_cyl(0.017, 0.02, 6), pp, (0, math.pi / 2, 0), mi=I['steel_brushed'], rgba=BR)
+        a_ = i * math.pi / 5; pp = Pt(r + 0.075, 0.255 * math.cos(a_), 1.1 + 0.255 * math.sin(a_), ma); m.add(p_cyl(0.017, 0.02, 6), pp, (0, math.pi / 2, ma), mi=I['steel_brushed'], rgba=BR)
     m.rbox(*Pt(r + 0.1, 0, 1.1, ma), 0.03, 0.1, 0.03, 0.006, rot=(0, 0, ma), seg=1, mi=ST)
     weather(m, 21, dirt=0.4, dirt_h=0.4, streak=0.3, blotch=0.2, top=0.2, angle=32.0)
     return m.finish('proto_' + name, P)

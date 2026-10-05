@@ -1,32 +1,56 @@
 """Site/refit kit for the hall: jersey barriers, sandbags, scaffold tower, plasterboard, ladder, bags, buckets, rubble."""
 from fe_kit import *
+from fe_propkit import *
 from fe_assets_int import STD, I, mb
 
 def jersey(F, P):
+    """Concrete jersey barrier 2.0 m: bevelled profile, red/white chevron reflective stripes on both faces, recessed steel lifting loops, forklift pockets, end connector pins, cracks and spalled chips."""
+    m = mb(F); rnd = random.Random(8)
     prof = [(-0.3, 0.0), (0.3, 0.0), (0.3, 0.1), (0.2, 0.28), (0.12, 0.62), (0.1, 0.8), (-0.1, 0.8), (-0.12, 0.62), (-0.2, 0.28), (-0.3, 0.1)]
-    m = mb(F)
-    pb = p_ring_prism([(y, z) for y, z in prof], 2.0, 0.012); xf(pb, (0, 0, 0), (0, 0, 0))
-    # profile is in (x,y)=(depth,height); rotate so it extrudes along X with height along Z
-    pb2 = bmesh.new(); vs = [pb2.verts.new(Vector((0, y, z))) for y, z in prof]; f = pb2.faces.new(vs); r = bmesh.ops.extrude_face_region(pb2, geom=[f])
-    for v in [e for e in r['geom'] if isinstance(e, bmesh.types.BMVert)]: v.co.x += 2.0
-    for v in pb2.verts: v.co.x -= 1.0
-    bmesh.ops.recalc_face_normals(pb2, faces=pb2.faces[:]); bmesh.ops.bevel(pb2, geom=pb2.edges[:], offset=0.012, segments=1, affect='EDGES')
-    pb.free()
-    m.add(pb2, mi=I['concrete_slab'])
-    for k in range(4): m.rbox(-0.75 + k * 0.5, -0.131, 0.5, 0.2, 0.004, 0.32, 0.001, rot=(-0.12, 0, 0), mi=I['signage'], rgba=(0.92, 0.72, 0.06, 1)) if False else None
+    m.add(p_extrude_x(prof, 2.0, 0.014), mi=I['concrete_slab'])
     for sy in (-1, 1):
-        for k in range(4): m.rbox(-0.75 + k * 0.5, sy * 0.14, 0.52, 0.22, 0.008, 0.3, 0.001, rot=(sy * -0.12 * 0.0, 0, 0), mi=I['signage'], rgba=(0.92, 0.72, 0.06, 1) if k % 2 == 0 else (0.1, 0.1, 0.1, 1)) if False else None
+        for i in range(10):                                                                  # chevrons
+            x0 = -0.95 + i * 0.19; red = i % 2 == 0; y = sy * 0.1065
+            pts = [(x0, y, 0.63), (x0 + 0.095, y, 0.63), (x0 + 0.095 + 0.09, y, 0.785), (x0 + 0.09, y, 0.785)]
+            m.add(p_quad(pts, flip=sy < 0), mi=I['signage'], rgba=(0.78, 0.07, 0.05, 1) if red else (0.88, 0.87, 0.82, 1))
+        m.add(p_quad([(-1.0, sy * 0.3045, 0.1), (1.0, sy * 0.3045, 0.1), (1.0, sy * 0.2475, 0.19), (-1.0, sy * 0.2475, 0.19)], flip=sy < 0), mi=I['signage'], rgba=(0.2, 0.17, 0.13, 1))   # splash line
+        for x in (-0.76, 0.76): m.add(p_quad([(x - 0.03, sy * 0.1065, 0.8), (x + 0.03, sy * 0.1065, 0.8), (x + 0.045, sy * 0.1065, 0.5), (x - 0.02, sy * 0.1065, 0.5)], flip=sy < 0), mi=I['signage'], rgba=(0.30, 0.15, 0.07, 1)) if False else None
+    for x in (-0.45, 0.45): m.rbox(x, 0, 0.065, 0.22, 0.62, 0.13, 0.0, mi=I['steel_charcoal'])                  # fork pockets (dark openings through the base)
+    for x in (-0.76, 0.76):
+        m.rbox(x, 0, 0.8, 0.22, 0.17, 0.014, 0.003, seg=1, mi=I['steel_charcoal'])                              # lifting-loop recess plate
+        m.add(p_torus(0.065, 0.015, 12, 5), (x, 0, 0.855), (math.pi / 2, 0, 0), mi=I['steel_charcoal'])         # loop
+    for sx in (-1, 1):
+        for z in (0.25, 0.55): m.add(p_cyl(0.02, 0.05, 6), (sx * 1.0, 0.0, z), (0, math.pi / 2, 0), mi=I['steel_charcoal'])    # connector pins
     for sy in (-1, 1):
-        for k in range(4): m.rbox(-0.75 + k * 0.5, sy * 0.113, 0.5, 0.2, 0.006, 0.28, 0.001, mi=I['signage'], rgba=(0.88, 0.1, 0.08, 1) if k % 2 == 0 else (0.92, 0.92, 0.9, 1))
-    m.cylz(0.9, 0.0, 0.8, 0.8, 0.0, seg=3) if False else None
+        pts = [(-0.5, 0.35), (-0.46, 0.43), (-0.52, 0.5), (-0.47, 0.58)]
+        for a, b in zip(pts[:-1], pts[1:]):
+            m.between((a[0], sy * 0.158, a[1]), (b[0], sy * 0.152, b[1]), 0.004, seg=3, mi=I['steel_charcoal'], rgba=(0.02, 0.02, 0.02, 1))
+    for k in range(6):                                                                                       # spalled chips at the foot
+        x = rnd.uniform(-1.05, 1.05); y = rnd.choice((-1, 1)) * rnd.uniform(0.33, 0.45); s = rnd.uniform(0.03, 0.06)
+        m.add(p_rock(rnd, s, 0.6, 0.3, 0), (x, y, s * 0.15), (0, 0, rnd.uniform(0, 6)), mi=I['concrete_slab'])
+    weather(m, 8, dirt=0.5, dirt_h=0.25, streak=0.2, blotch=0.12)
     return m.finish('proto_jersey', P)
 
 def sandbags(F, P, seed=0):
-    m = mb(F); rnd = random.Random(seed)
+    """Slumped sandbag wall: pinched, flat-bottomed sacks in dark earthy burlap tones, offset rows with a leaning top bag, two loose bags in front and a split bag spilling sand."""
+    m = mb(F); rnd = random.Random(seed * 13 + 5)
+    cols = [(0.25, 0.19, 0.11, 1), (0.19, 0.16, 0.11, 1), (0.14, 0.12, 0.085, 1), (0.30, 0.25, 0.17, 1), (0.21, 0.17, 0.12, 1), (0.17, 0.15, 0.12, 1)]
+    def bag(x, y, z, yaw, pitch=0.0, roll=0.0, L=0.5, W=0.3, T=0.15):
+        c = rnd.choice(cols)
+        m.add(p_bag(L, W, T, rnd), (x, y, z), (pitch, roll, yaw), mi=I['fabric'], rgba=c)
+        for sx in (-1, 1):                                                                                  # tied corners
+            ex = math.cos(yaw) * sx * L * 0.5; ey = math.sin(yaw) * sx * L * 0.5
+            m.rbox(x + ex, y + ey, z + 0.01, 0.05, 0.075, 0.04, 0.0, rot=(0, 0, yaw), mi=I['fabric'], rgba=tuple(k * 0.8 for k in c[:3]) + (1,))
     for r in range(3):
-        for c in range(4 - (r % 2)):
-            col = (0.4 + rnd.uniform(-0.04, 0.04), 0.34 + rnd.uniform(-0.03, 0.03), 0.22, 1)
-            m.add(p_rbox(0.5, 0.3, 0.14, 0.06, 2), ((c - 1.5 + 0.5 * (r % 2)) * 0.5, rnd.uniform(-0.02, 0.02), 0.08 + r * 0.14), (rnd.uniform(-0.05, 0.05), rnd.uniform(-0.04, 0.04), rnd.uniform(-0.1, 0.1)), mi=I['fabric'], rgba=col)
+        for c in range(4 - r):
+            x = (c - (3 - r) / 2) * 0.5 + rnd.uniform(-0.03, 0.03); y = rnd.uniform(-0.04, 0.04)
+            bag(x, y, 0.07 + r * 0.115, rnd.uniform(-0.08, 0.08) + (0.0 if r < 2 else rnd.uniform(-0.1, 0.1)), pitch=rnd.uniform(-0.05, 0.05) + (0.12 if r == 2 and c == 1 else 0.0), roll=rnd.uniform(-0.05, 0.05))
+    bag(0.55, -0.33, 0.065, 0.4, pitch=0.05); bag(-0.35, -0.38, 0.06, -0.25, L=0.46)
+    bag(-0.9, -0.15, 0.05, 1.2, pitch=0.1, roll=0.3)
+    pb = bmesh.new(); res = bmesh.ops.create_icosphere(pb, subdivisions=1, radius=1.0)
+    for v in res['verts']: v.co = Vector((v.co.x * 0.2 * (1 + rnd.uniform(-.2, .2)), v.co.y * 0.14, max(v.co.z * 0.05, -0.0)))
+    add_var(m, pb, (-0.42, -0.34, 0.02), mi=I['props'], rgba=(0.5, 0.43, 0.3, 1), var=0.1, rnd=rnd)
+    weather(m, seed, dirt=0.6, dirt_h=0.12, streak=0.0, blotch=0.3, top=0.15)
     return m.finish(f'proto_sandbags_{seed}', P)
 
 def scaffold(F, P, w=1.6, d=1.0, h=3.0, levels=(0.0, 1.0, 2.0)):
@@ -65,9 +89,17 @@ def ladder(F, P, h=2.4):
     return m.finish('proto_ladder', P)
 
 def bucket(F, P, rgba=(0.85, 0.8, 0.1, 1)):
+    """Plastic bucket: tapered body with moulded ribs, rolled rim and foot ring, wire handle with grip on lug ears, a label panel and a dirty fill."""
     m = mb(F)
-    m.lathe([(0.0, 0.0), (0.12, 0.0), (0.14, 0.02), (0.17, 0.3), (0.175, 0.31), (0.165, 0.31), (0.13, 0.04), (0.0, 0.03)], seg=24, mi=I['plastic'], rgba=rgba)
-    m.add(p_torus(0.17, 0.006, 24, 5), (0, 0, 0.305), (0, 0, 0), mi=I['plastic'], rgba=rgba)
+    m.lathe([(0.0, 0.0), (0.118, 0.0), (0.126, 0.012), (0.132, 0.03), (0.15, 0.14), (0.152, 0.145), (0.158, 0.17), (0.16, 0.2), (0.168, 0.28), (0.172, 0.3), (0.18, 0.31), (0.182, 0.322), (0.172, 0.325), (0.166, 0.31),
+             (0.16, 0.26), (0.14, 0.05), (0.0, 0.04)], seg=20, mi=I['plastic'], rgba=rgba)
+    m.lathe([(0.0, 0.25), (0.158, 0.25), (0.0, 0.25)], seg=14, mi=I['props'], rgba=(0.10, 0.075, 0.05, 1))
+    for s in (-1, 1): m.rbox(s * 0.178, 0, 0.29, 0.03, 0.05, 0.04, 0.006, seg=1, mi=I['plastic'], rgba=rgba)
+    pts = [(0.18 * math.cos(math.pi * j / 8), 0.0, 0.29 + 0.17 * math.sin(math.pi * j / 8)) for j in range(9)]
+    for a, b in zip(pts[:-1], pts[1:]): m.between(a, b, 0.0065, seg=4, mi=I['steel_charcoal'])
+    m.add(p_cyl(0.014, 0.1, 6), (0.0, 0.0, 0.46), (0, math.pi / 2, 0), mi=I['plastic'], rgba=(0.08, 0.08, 0.09, 1))
+    m.add(p_arc_band(0.1675, 0.12, 0.2, 0.3, 1.5, 6, 0.004), mi=I['signage'], rgba=(0.85, 0.85, 0.8, 1))
+    weather(m, 5, dirt=0.5, dirt_h=0.1, streak=0.1, blotch=0.2, angle=30.0)
     return m.finish('proto_bucket', P)
 
 def cement_bags(F, P, seed=0):
@@ -80,21 +112,53 @@ def cement_bags(F, P, seed=0):
     return m.finish(f'proto_cement_bags_{seed}', P)
 
 def wheelbarrow(F, P):
-    m = mb(F); y = (0.85, 0.7, 0.1, 1)
-    m.add(p_rbox(0.95, 0.62, 0.3, 0.06, 2), (0.0, 0.0, 0.55), (0.0, 0.18, 0.0), mi=I['plastic'], rgba=y)
-    m.add(p_cyl(0.19, 0.08, 20), (0.55, 0, 0.19), (math.pi / 2, 0, 0), mi=I['rubber'], rgba=(0.03, 0.03, 0.03, 1)); m.add(p_cyl(0.08, 0.1, 12), (0.55, 0, 0.19), (math.pi / 2, 0, 0), mi=I['steel_charcoal'], rgba=(0.5, 0.5, 0.52, 1))
+    """Builder's wheelbarrow: pressed yellow tub with rolled rim and ribs, dirty rubble fill, pneumatic tyre on a spoked rim with fork, tubular chassis and handles with rubber grips, brace feet."""
+    m = mb(F); rnd = random.Random(14); Y = (0.82, 0.62, 0.08, 1); TUBE = (0.1, 0.1, 0.11, 1)
+    pb = p_frustum(0.62, 0.34, 1.0, 0.68, 0.3, 0.05, 2, shift=(0.1, 0.0)); fs = [f for f in pb.faces if f.normal.z > 0.99]; bmesh.ops.delete(pb, geom=fs, context='FACES_ONLY')
+    add_var(m, pb, (0.0, 0.0, 0.42), (0, -0.08, 0), mi=I['paint'], rgba=Y, var=0.0, rnd=rnd, flat=False)
+    m.rbox(0.05, 0, 0.67, 0.86, 0.5, 0.02, 0.0, rot=(0, -0.08, 0), mi=I['props'], rgba=(0.12, 0.09, 0.06, 1))                    # fill
+    for i in range(7):
+        x = rnd.uniform(-0.28, 0.32); y = rnd.uniform(-0.18, 0.18); s = rnd.uniform(0.05, 0.09)
+        m.add(p_rock(rnd, s, 0.7, 0.3, 0), (x, y, 0.68 + s * 0.2), (0, 0, rnd.uniform(0, 6)), mi=I['props'], rgba=rnd.choice([(0.35, 0.33, 0.3, 1), (0.5, 0.45, 0.4, 1), (0.25, 0.22, 0.2, 1), (0.45, 0.3, 0.2, 1)]))
     for sy in (-1, 1):
-        m.between((-0.15, sy * 0.3, 0.45), (-0.9, sy * 0.28, 0.62), 0.016, seg=8, mi=I['steel_charcoal'], rgba=(0.1, 0.1, 0.11, 1))
-        m.between((0.55, sy * 0.12, 0.19), (-0.1, sy * 0.3, 0.45), 0.016, seg=8, mi=I['steel_charcoal'], rgba=(0.1, 0.1, 0.11, 1))
-        m.between((-0.45, sy * 0.28, 0.5), (-0.5, sy * 0.28, 0.0), 0.016, seg=8, mi=I['steel_charcoal'], rgba=(0.1, 0.1, 0.11, 1))
-        m.rbox(-0.5, sy * 0.28, 0.01, 0.08, 0.05, 0.02, 0.006, mi=I['steel_charcoal'], rgba=(0.1, 0.1, 0.11, 1))
-        m.between((-0.9, sy * 0.28, 0.62), (-1.0, sy * 0.28, 0.62), 0.024, seg=8, mi=I['rubber'], rgba=(0.03, 0.03, 0.03, 1))
+        m.rbox(0.06, sy * 0.335, 0.715, 1.0, 0.045, 0.045, 0.012, rot=(0, -0.08, 0), seg=1, mi=I['paint'], rgba=tuple(k * 0.85 for k in Y[:3]) + (1,))     # rolled rim
+        for x in (-0.15, 0.2): m.rbox(x, sy * 0.28, 0.5, 0.04, 0.03, 0.26, 0.006, rot=(sy * 0.0, 0, 0), seg=1, mi=I['paint'], rgba=tuple(k * 0.85 for k in Y[:3]) + (1,)) if False else None
+    m.rbox(-0.43, 0, 0.7, 0.045, 0.7, 0.045, 0.012, seg=1, mi=I['paint'], rgba=tuple(k * 0.85 for k in Y[:3]) + (1,)); m.rbox(0.6, 0, 0.7, 0.045, 0.56, 0.045, 0.012, seg=1, mi=I['paint'], rgba=tuple(k * 0.85 for k in Y[:3]) + (1,))
+    m.add(p_lathe([(0.15, -0.06), (0.17, -0.065), (0.21, -0.04), (0.225, 0.0), (0.21, 0.04), (0.17, 0.065), (0.15, 0.06)], 18), (0.62, 0, 0.225), (math.pi / 2, 0, 0), mi=I['rubber'])                  # tyre
+    m.add(p_wheel_spoked(0.15, 0.04, 6, 14), (0.62, 0, 0.225), (math.pi / 2, 0, 0), mi=I['steel_brushed'], rgba=(0.8, 0.8, 0.8, 1))
+    m.between((0.62, -0.1, 0.225), (0.62, 0.1, 0.225), 0.012, seg=5, mi=I['steel_charcoal'])
+    for sy in (-1, 1):
+        m.between((0.62, sy * 0.1, 0.225), (0.34, sy * 0.2, 0.46), 0.017, seg=6, mi=I['paint'], rgba=TUBE)                                      # fork
+        m.between((0.34, sy * 0.2, 0.46), (-0.2, sy * 0.3, 0.46), 0.017, seg=6, mi=I['paint'], rgba=TUBE)                                      # chassis rail
+        m.between((-0.2, sy * 0.3, 0.46), (-0.9, sy * 0.3, 0.7), 0.019, seg=6, mi=I['paint'], rgba=TUBE)                                       # handle
+        m.between((-0.9, sy * 0.3, 0.7), (-1.05, sy * 0.3, 0.74), 0.026, seg=8, mi=I['rubber'])                                                # grip
+        m.between((-0.48, sy * 0.3, 0.53), (-0.56, sy * 0.3, 0.02), 0.017, seg=6, mi=I['paint'], rgba=TUBE)                                   # leg
+        m.rbox(-0.56, sy * 0.3, 0.012, 0.1, 0.05, 0.024, 0.006, seg=1, mi=I['rubber'])
+        m.rbox(0.3, sy * 0.2, 0.43, 0.09, 0.03, 0.05, 0.006, seg=1, mi=I['steel_charcoal'])
+    m.between((-0.48, -0.3, 0.3), (-0.48, 0.3, 0.3), 0.014, seg=5, mi=I['paint'], rgba=TUBE)
+    weather(m, 14, dirt=0.5, dirt_h=0.18, streak=0.2, blotch=0.2, angle=30.0)
     return m.finish('proto_wheelbarrow', P)
 
 def toolbox(F, P):
-    m = mb(F)
-    m.rbox(0, 0, 0.14, 0.55, 0.25, 0.28, 0.025, mi=I['plastic'], rgba=(0.7, 0.1, 0.07, 1)); m.rbox(0, 0, 0.29, 0.55, 0.25, 0.02, 0.01, mi=I['plastic'], rgba=(0.1, 0.1, 0.11, 1))
-    m.between((-0.15, 0, 0.3), (0.15, 0, 0.3), 0.012, seg=8, mi=I['steel_charcoal'], rgba=(0.1, 0.1, 0.11, 1)); m.rbox(0, 0.126, 0.18, 0.12, 0.01, 0.04, 0.004, mi=I['steel_charcoal'], rgba=(0.5, 0.5, 0.52, 1))
+    """Red steel toolbox 0.55 x 0.25: pressed body with swage ribs, separate lid with seam, front latches, carry handle on brackets, rear hinges, corner caps and a stencil label."""
+    m = mb(F); RD = (0.62, 0.08, 0.05, 1); DK = (0.07, 0.07, 0.08, 1)
+    m.rbox(0, 0, 0.115, 0.55, 0.25, 0.23, 0.02, seg=1, mi=I['paint'], rgba=RD)                                                      # body
+    m.rbox(0, 0, 0.255, 0.56, 0.26, 0.06, 0.02, seg=1, mi=I['paint'], rgba=tuple(k * 0.92 for k in RD[:3]) + (1,))                  # lid
+    m.rbox(0, 0, 0.226, 0.565, 0.265, 0.012, 0.003, seg=1, mi=I['steel_charcoal'], rgba=DK)                                           # seam
+    for sy in (-1, 1):
+        for z in (0.1, 0.17): m.rbox(0, sy * 0.127, z, 0.4, 0.008, 0.012, 0.0, mi=I['paint'], rgba=tuple(k * 0.78 for k in RD[:3]) + (1,))   # swage ribs
+    for sx in (-1, 1):
+        m.rbox(sx * 0.255, 0, 0.13, 0.04, 0.26, 0.2, 0.012, seg=1, mi=I['steel_charcoal'], rgba=DK) if False else None
+        for sy in (-1, 1): m.rbox(sx * 0.275, sy * 0.125, 0.03, 0.035, 0.035, 0.06, 0.008, seg=1, mi=I['steel_charcoal'])            # corner feet
+        m.rbox(sx * 0.17, 0.134, 0.21, 0.07, 0.016, 0.07, 0.004, seg=1, mi=I['steel_brushed'], rgba=(0.8, 0.8, 0.8, 1))                  # latch plates
+        m.rbox(sx * 0.17, 0.142, 0.2, 0.03, 0.01, 0.04, 0.003, seg=1, mi=I['steel_charcoal'])
+        m.rbox(sx * 0.18, -0.134, 0.24, 0.07, 0.02, 0.05, 0.004, seg=1, mi=I['steel_charcoal'])                                           # hinges
+        m.rbox(sx * 0.13, 0, 0.29, 0.03, 0.05, 0.03, 0.006, seg=1, mi=I['steel_charcoal'])                                                  # handle bracket
+    m.between((-0.13, 0, 0.335), (0.13, 0, 0.335), 0.014, seg=6, mi=I['rubber'])
+    for sx in (-1, 1): m.between((sx * 0.13, 0, 0.31), (sx * 0.13, 0, 0.335), 0.01, seg=5, mi=I['steel_charcoal'])
+    m.rbox(0, 0.1292, 0.12, 0.17, 0.004, 0.09, 0.0, mi=I['signage'], rgba=(0.85, 0.82, 0.72, 1)); m.rbox(0, 0.1315, 0.14, 0.12, 0.003, 0.02, 0.0, mi=I['signage'], rgba=(0.07, 0.07, 0.07, 1)); m.rbox(0, 0.1315, 0.1, 0.09, 0.003, 0.014, 0.0, mi=I['signage'], rgba=(0.07, 0.07, 0.07, 1))
+    studs(m, [(sx * 0.24, 0.131, z) for sx in (-1, 1) for z in (0.06, 0.18)], '+y', r=0.008, h=0.006, seg=4, mi=I['steel_brushed'], rgba=(0.8, 0.8, 0.8, 1))
+    weather(m, 6, dirt=0.4, dirt_h=0.1, streak=0.1, blotch=0.15, top=0.2, angle=30.0)
     return m.finish('proto_toolbox', P)
 
 def rubble_chunk(F, P, seed=0, size=0.35):

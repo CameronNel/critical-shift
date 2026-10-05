@@ -509,6 +509,29 @@ def fuel_station(F, P):
     m.add(p_torus(0.2, 0.018, 24, 6), (px + 0.3, 0.18, 0.9), (math.pi / 2, 0, 0), mi=I['rubber'], rgba=(0.04, 0.04, 0.05, 1))
     m.between((px + 0.3, -0.12, 1.15), (px + 0.5, -0.12, 0.7), 0.025, seg=8, mi=I['steel_brushed'], rgba=STEEL)
     for sy in (-1, 1): m.cylz(px + 0.7, sy * 0.55, 0.0, 1.0, 0.09, seg=12, mi=I['steel_painted'] if 'steel_painted' in I else I['paint'], rgba=(0.95, 0.75, 0.05, 1))
+    # ---- finish detail: tank straps, manways, gauges, manifold with valves, bund hazard band and step, nozzle, hose and pump lamp
+    BR = (0.8, 0.8, 0.8, 1)
+    for y in (-0.75, 0.75):
+        for x in (-0.8, 0.8): m.add(p_torus(0.632, 0.013, 22, 4), (x, y, 0.95), (0, math.pi / 2, 0), mi=I['steel_charcoal'])
+        m.add(p_cyl(0.22, 0.05, 14), (0.15, y, 1.57), mi=I['steel_charcoal'])
+        for k in range(8): a = k * math.pi / 4; m.add(p_cyl(0.014, 0.02, 6), (0.15 + math.cos(a) * 0.18, y + math.sin(a) * 0.18, 1.6), mi=I['steel_brushed'], rgba=BR)
+        m.add(p_cyl(0.045, 0.02, 12), (0.8, y, 1.585), mi=I['steel_charcoal']); m.add(p_cyl(0.034, 0.008, 12), (0.8, y, 1.6), mi=I['signage'], rgba=(0.9, 0.88, 0.8, 1))     # level dial
+        m.add(p_cyl(0.045, 0.03, 10, 0.0), (0.5, y, 2.23), (0.3, 0, 0), mi=I['steel_charcoal'])                                                                       # vent cap
+    for sy in (-1, 1): m.rbox(0, sy * (Wb / 2 - 0.1), 0.405, Lb, 0.12, 0.012, 0.0, mi=I['signage'], rgba=(0.92, 0.72, 0.06, 1))
+    for sx in (-1, 1): m.rbox(sx * (Lb / 2 - 0.1), 0, 0.405, 0.12, Wb - 0.2, 0.012, 0.0, mi=I['signage'], rgba=(0.92, 0.72, 0.06, 1))
+    for k in range(2): m.rbox(-Lb / 2 - 0.2 - k * 0.2, -0.3, 0.1 + k * 0.2, 0.2, 0.7, 0.04, 0.008, seg=1, mi=I['steel_brushed'], rgba=STEEL)                              # step over the bund
+    m.rbox(-Lb / 2 - 0.12, -0.3, 0.2, 0.05, 0.7, 0.4, 0.008, seg=1, mi=I['steel_charcoal'])
+    m.between((1.5, -0.75, 0.45), (1.5, 0.75, 0.45), 0.04, seg=8, mi=I['steel_brushed'], rgba=STEEL)                                                                      # manifold
+    m.between((1.5, 0.0, 0.45), (px - 0.25, 0.0, 0.45), 0.04, seg=8, mi=I['steel_brushed'], rgba=STEEL)
+    for y in (-0.75, 0.0, 0.75):
+        m.rbox(1.5, y, 0.45, 0.1, 0.1, 0.1, 0.012, seg=1, mi=I['steel_charcoal']); m.between((1.5, y, 0.5), (1.5, y, 0.68), 0.01, seg=5, mi=I['steel_brushed'], rgba=BR)
+        m.add(p_torus(0.05, 0.009, 10, 4), (1.5, y, 0.68), mi=I['paint'], rgba=(0.85, 0.1, 0.07, 1))
+    m.rbox(px + 0.34, -0.12, 1.12, 0.07, 0.08, 0.3, 0.012, seg=1, mi=I['steel_charcoal']); m.between((px + 0.4, -0.12, 1.2), (px + 0.5, -0.12, 1.0), 0.016, seg=6, mi=I['paint'], rgba=(0.1, 0.1, 0.11, 1))   # holster, nozzle
+    m.rbox(px + 0.27, 0.0, 0.56, 0.03, 0.16, 0.16, 0.006, seg=1, mi=I['paint'], rgba=(0.85, 0.7, 0.06, 1))
+    m.add(p_cyl(0.035, 0.03, 10), (px + 0.28, 0.12, 0.7), (0, math.pi / 2, 0), mi=I['paint'], rgba=(0.85, 0.1, 0.07, 1))                                                  # e-stop
+    m.add(p_cyl(0.07, 0.07, 12), (px, 0, 1.66), mi=I['emissive'], rgba=AMBER)
+    m.rbox(px + 0.26, 0, 1.4, 0.015, 0.3, 0.05, 0.004, seg=1, mi=I['screen'], rgba=(0.55, 0.9, 0.5, 1))
+    weather(m, 12, dirt=0.3, dirt_h=0.4, streak=0.2, blotch=0.15, angle=32.0)
     return m.finish('proto_fuel_station', P)
 
 def bay_walls(F, P, w=3.2, d=3.4, h=1.8):
@@ -546,21 +569,43 @@ def safety_mesh(F, P, w=2.4, h=1.6):
     return m.finish('proto_safety_mesh', P)
 
 def led_pole(F, P, h=6.2):
-    """Yard floodlight pole: tapered steel pole on a base plate, two LED heads on a short arm, access hatch."""
-    m = mb(F); steel = (0.18, 0.19, 0.21, 1)
-    m.rbox(0, 0, 0.02, 0.4, 0.4, 0.04, 0.01, mi=I['steel_charcoal'], rgba=DARK)
-    m.lathe([(0.0, 0.0), (0.14, 0.0), (0.12, 0.15), (0.09, 1.0), (0.05, h), (0.0, h)], seg=14, mi=I['steel_charcoal'], rgba=steel)
-    m.rbox(0.0, 0.1, 0.9, 0.16, 0.03, 0.4, 0.01, mi=I['steel_charcoal'], rgba=DARK)
-    m.between((0, 0, h - 0.2), (0.7, 0, h + 0.1), 0.03, seg=8, mi=I['steel_charcoal'], rgba=steel)
+    """Yard floodlight pole: tapered 12-sided steel pole on a base plate with gussets and anchor nuts, hand-hole cover and cable gland, reinforced swan-neck arm, and two LED floodlights
+    (cast housing with heat-sink fins, visor, emissive lens, yoke with bolts, safety cable)."""
+    m = mb(F); steel = (0.20, 0.21, 0.23, 1); ST = I['steel_charcoal']
+    m.rbox(0, 0, 0.02, 0.42, 0.42, 0.04, 0.01, seg=1, mi=ST, rgba=DARK)
+    for sx in (-1, 1):
+        for sy in (-1, 1):
+            m.add(p_cyl(0.022, 0.035, 6), (sx * 0.16, sy * 0.16, 0.058), mi=I['steel_brushed'], rgba=STEEL)                       # anchor nuts
+    for k in range(4):
+        a = k * math.pi / 2 + math.pi / 4; m.rbox(math.cos(a) * 0.12, math.sin(a) * 0.12, 0.11, 0.1, 0.012, 0.14, 0.0, rot=(0, 0, a), mi=ST, rgba=DARK)   # gussets
+    m.lathe([(0.0, 0.0), (0.15, 0.04), (0.13, 0.15), (0.095, 1.0), (0.08, 3.0), (0.052, h), (0.0, h)], seg=12, mi=ST, rgba=steel)
+    m.rbox(0.0, 0.105, 0.95, 0.17, 0.02, 0.42, 0.008, seg=1, mi=ST, rgba=DARK)                                                           # hand-hole plate
+    studs(m, [(sx * 0.065, 0.118, 0.95 + sz * 0.17) for sx in (-1, 1) for sz in (-1, 1)], '+y', r=0.014, h=0.012, mi=I['steel_brushed'], rgba=STEEL)
+    m.add(p_cyl(0.025, 0.06, 8), (0.0, 0.1, 1.3), (-math.pi / 2, 0, 0), mi=ST, rgba=DARK)                                              # cable gland
+    cable(m, [(0.0, 0.12, 1.33), (0.0, 0.27, 0.9), (0.0, 0.3, 0.06)], 0.014, 5, mi=I['rubber'])
+    m.between((0, 0, h - 0.25), (0.45, 0, h + 0.06), 0.032, seg=8, mi=ST, rgba=steel)
+    m.between((0.45, 0, h + 0.06), (0.8, 0, h + 0.1), 0.032, seg=8, mi=ST, rgba=steel)
+    m.between((0.0, 0, h - 0.7), (0.4, 0, h + 0.02), 0.018, seg=6, mi=ST, rgba=steel)                                                      # brace
     for sy in (-0.25, 0.25):
-        m.rbox(0.8, sy, h + 0.1, 0.5, 0.36, 0.08, 0.02, mi=I['steel_charcoal'], rgba=DARK)
-        m.rbox(0.8, sy, h + 0.05, 0.44, 0.3, 0.02, 0.005, mi=I['emissive'], rgba=(1.0, 0.95, 0.85, 1))
+        m.rbox(0.8, sy, h + 0.1, 0.5, 0.36, 0.08, 0.02, seg=1, mi=ST, rgba=DARK)                                                           # housing
+        m.rbox(0.8, sy, h + 0.052, 0.43, 0.29, 0.014, 0.004, seg=1, mi=I['emissive'], rgba=(1.0, 0.95, 0.85, 1))                          # lens
+        for dx in (-1, 1): m.rbox(0.8 + dx * 0.235, sy, h + 0.056, 0.03, 0.34, 0.022, 0.0, mi=ST, rgba=DARK)                       # bezel frame
+        for dy in (-1, 1): m.rbox(0.8, sy + dy * 0.165, h + 0.056, 0.5, 0.03, 0.022, 0.0, mi=ST, rgba=DARK)
+        for k in range(4): m.rbox(0.8 - 0.1 + k * 0.06 - 0.05, sy, h + 0.165, 0.014, 0.3, 0.05, 0.0, mi=ST, rgba=DARK)                   # heat-sink fins
+        for dx in (-0.18, 0.18): m.rbox(0.8 + dx, sy + (-0.19 if sy < 0 else 0.19), h + 0.1, 0.05, 0.02, 0.08, 0.0, mi=ST)     # yoke ears
+    m.rbox(0.8, 0, h + 0.07, 0.07, 0.55, 0.05, 0.0, mi=ST, rgba=DARK)                                                              # cross-arm
+    weather(m, 7, dirt=0.15, dirt_h=0.4, streak=0.1, blotch=0.1, angle=30.0)
     return m.finish('proto_led_pole', P)
 
 def wheel_stop(F, P):
+    """Concrete wheel stop 1.6 m: chamfered, with two steel anchor spikes through washers, a reflective yellow strip and tyre-scuff marks."""
     m = mb(F)
-    m.rbox(0, 0, 0.06, 1.6, 0.16, 0.12, 0.03, mi=I['concrete_slab'], rgba=(0.62, 0.6, 0.56, 1))
-    for sx in (-0.65, 0.65): m.rbox(sx, 0, 0.125, 0.12, 0.17, 0.006, 0.002, mi=I['signage'], rgba=(0.92, 0.72, 0.06, 1))
+    m.rbox(0, 0, 0.06, 1.6, 0.16, 0.12, 0.03, seg=2, mi=I['concrete_slab'])
+    for sx in (-0.62, 0.62):
+        m.add(p_cyl(0.03, 0.012, 10), (sx, 0.0, 0.126), mi=I['steel_charcoal']); m.add(p_cyl(0.014, 0.02, 6), (sx, 0.0, 0.14), mi=I['steel_brushed'], rgba=STEEL)
+    m.rbox(0, 0.0, 0.126, 1.0, 0.1, 0.006, 0.0, mi=I['signage'], rgba=(0.92, 0.72, 0.06, 1))
+    for k in range(3): m.rbox(-0.2 + k * 0.2, 0.082, 0.07, 0.1, 0.004, 0.05, 0.0, rot=(0, 0.3, 0), mi=I['signage'], rgba=(0.05, 0.05, 0.05, 1))
+    weather(m, 3, dirt=0.4, dirt_h=0.1)
     return m.finish('proto_wheel_stop', P)
 
 def dock_platform(F, P, L=6.0, D=2.6, H=0.95):
@@ -574,6 +619,14 @@ def dock_platform(F, P, L=6.0, D=2.6, H=0.95):
     for sy in (-0.85, 0.25):
         m.between((-L / 2 - 1.2, sy, 0.95), (-L / 2 - 0.1, sy, 1.0 + 0.0), 0.02, seg=6, mi=I['steel_charcoal'], rgba=DARK) if False else None
     for sx in (-0.4 * L, 0.4 * L): m.torus(sx, -D / 2 + 0.2, H + 0.02, 0.07, 0.014, ns=14, nt=6, mi=I['steel_charcoal'], rgba=DARK)
+    for x in (-0.38 * L, 0.0, 0.38 * L): m.rbox(x, D / 2 + 0.1, H - 0.28, 0.4, 0.1, 0.34, 0.015, seg=1, mi=I['rubber'])                                  # dock bumpers
+    for x in (-0.2 * L, 0.2 * L): m.rbox(x, 0, H + 0.003, 0.012, D - 0.3, 0.006, 0.0, mi=I['steel_charcoal'], rgba=(0.03, 0.03, 0.03, 1))      # expansion joints
+    for sx in (-1, 1): m.rbox(-L / 2 - 0.45, sx * 0.62 - 0.3, 0.4, 0.04, 0.04, 0.8, 0.006, seg=1, mi=I['steel_charcoal'])                         # step stringer posts
+    m.rbox(-L / 2 - 0.45, -0.3, 0.05, 0.9, 0.12, 0.1, 0.01, seg=1, mi=I['steel_charcoal'])
+    m.rbox(0.0, D / 2 - 0.35, H + 0.01, 1.6, 0.55, 0.02, 0.006, seg=1, mi=I['steel_brushed'], rgba=STEEL)                                           # dock leveller plate
+    stud_row(m, (-0.7, D / 2 - 0.1, H + 0.022), (0.7, D / 2 - 0.1, H + 0.022), 6, '+z', r=0.012, h=0.01, mi=I['steel_charcoal'])
+    stud_row(m, (-0.4 * L, D / 2 + 0.075, H - 0.06), (0.4 * L, D / 2 + 0.075, H - 0.06), 14, '+y', r=0.012, h=0.01, mi=I['steel_brushed'], rgba=STEEL)
+    weather(m, 2, dirt=0.35, dirt_h=0.3, streak=0.15, blotch=0.12)
     return m.finish('proto_dock_platform', P)
 
 def beacon_post(F, P, h=3.0):

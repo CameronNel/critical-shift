@@ -139,3 +139,27 @@ def dent(bm, center_ang, center_z, depth=0.012, size=0.07, R=0.29):
         w = math.exp(-(da * da + dz * dz) / (2 * size * size))
         if w > 0.02:
             k = (r - depth * w) / r; v.co.x *= k; v.co.y *= k
+
+def p_extrude_x(prof, L, bevel=0.0):
+    """Extrude a (y, z) profile along x (centred), e.g. a jersey barrier or a beam."""
+    pb = bmesh.new(); vs = [pb.verts.new(Vector((-L / 2, y, z))) for y, z in prof]; f = pb.faces.new(vs)
+    r = bmesh.ops.extrude_face_region(pb, geom=[f])
+    for v in [e for e in r['geom'] if isinstance(e, bmesh.types.BMVert)]: v.co.x += L
+    bmesh.ops.recalc_face_normals(pb, faces=pb.faces[:])
+    if bevel > 0: bmesh.ops.bevel(pb, geom=pb.edges[:], offset=bevel, segments=1, affect='EDGES')
+    return pb
+
+def p_quad(pts, flip=False):
+    """Single flat polygon from 3D points (decal-like colour patch)."""
+    pb = bmesh.new(); vs = [pb.verts.new(Vector(p)) for p in pts]; f = pb.faces.new(vs[::-1] if flip else vs); return pb
+
+def p_bag(L, W, T, rnd, jit=0.06):
+    """Sandbag: pinched-end, flat-bottomed squashed sphere."""
+    pb = bmesh.new(); bmesh.ops.create_uvsphere(pb, u_segments=10, v_segments=6, radius=1.0)
+    for v in pb.verts:
+        x = v.co.x * L / 2; y = v.co.y * W / 2; z = v.co.z * T / 2 * 1.25
+        e = abs(v.co.x); f = 1.0 - 0.36 * max(0.0, e - 0.6) / 0.4
+        k = 1.0 + rnd.uniform(-jit, jit)
+        v.co = Vector((x * 1.04, y * f * k, max(z * f * k, -T * 0.32)))
+    for f_ in pb.faces: f_.smooth = True
+    return pb
