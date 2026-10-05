@@ -69,15 +69,4 @@ def build_dressing(F, C, parts=('caf', 'hall', 'yard')):
     for i, y in enumerate((-75.0, -65.0)):
         box(f'yard_wall_lamp{i}', -8.5, -8.15, y - 0.2, y + 0.2, 3.2, 3.4, F['emissive'], yard, rgba=(1, 0.9, 0.7, 1), bev=0.03)
         box(f'yard_wall_lamp_hood{i}', -8.56, -8.15, y - 0.24, y + 0.24, 3.4, 3.46, F['steel_charcoal'], yard, bev=0.01)
-    # ---------------- signs
-    S = lambda *a, **k: wall_sign(F, *a, **k)
-    if 'yard' in parts: S(yard, 'sign_mine', 'MINE ENTRANCE', -47.7, -70.0, 4.6, 'E', w=3.0, h=0.5, plate=(0.95, 0.75, 0.05, 1), ink='signage', size=0.22, wall_plane=None, register=False)
-    if 'yard' in parts: S(yard, 'sign_refinery_gate', 'REFINERY  FREIGHT', -22.2, -60.28, 3.05, 'S', w=2.6, h=0.35, plate=(0.08, 0.08, 0.09, 1), size=0.16, wall_plane=-60.265)
-    if 'yard' in parts: S(yard, 'sign_evac', 'EVACUATION  GATE', -28.0, -83.78, 2.6, 'N', w=2.4, h=0.35, plate=(0.1, 0.55, 0.25, 1), ink='signage', size=0.15, wall_plane=-83.8)
-    if 'yard' in parts: S(yard, 'sign_cooling', 'COOLING PLANT >>', -46.0, -59.7, 2.8, 'S', w=1.9, h=0.32, plate=(0.08, 0.08, 0.09, 1), size=0.13, wall_plane=-59.7, register=False)
-    # ---------------- floor markings: hall joints, painted lane edges along the mine axis, rail crossing hatching
-    rng = random.Random(13)
-    if 'yard' not in parts: return
-    for k in range(20):
-        for yy in (-71.25, -68.75): box(f'lane_{k}_{yy}', -46.0 + k * 2.0, -45.0 + k * 2.0, yy - 0.06, yy + 0.06, 0.0, 0.004, F['signage'], yard, rgba=(0.9, 0.7, 0.06, 1))
-    for k in range(10): box(f'rail_crossing_{k}', -23.4 + k * 0.25, -23.4 + k * 0.25 + 0.12, -71.0, -66.0, 0.0, 0.004, F['signage'], yard, rgba=(0.9, 0.7, 0.06, 1) if k % 2 == 0 else (0.08, 0.08, 0.08, 1))
+    # (yard signs, lane markings and rail hatching now come from fe_depot)

@@ -43,3 +43,18 @@ FE_08 was re-aimed and FE_09 added after the owner's review notes (the old FE_08
 | HAL_X1_BLAST_DOOR | 8.0, -53.0, 1.65 | 8.0, -48.0, 2.2 | 24 | blast door, beacons, console, bollards |
 | HAL_X2_WEST_DOOR | 6.0, -54.0, 1.65 | -4.0, -54.0, 1.9 | 20 | west double door and signs |
 | HAL_X3_EAST_DOOR | 26.0, -54.0, 1.65 | 32.0, -54.0, 1.9 | 20 | east double door, muster area |
+
+## Yard inspection cameras (revision 7)
+
+| Camera | Eye (x, y, z) | Target (x, y, z) | Lens | Checks |
+|---|---|---|---|---|
+| YRD_01_FROM_PORCH | -8.8, -70.0, 1.65 | -48.0, -70.4, 2.2 | 22 | the whole mine lane: lamp room, ore cars, portal, rail dock |
+| YRD_02_PORTAL | -31.0, -70.6, 1.7 | -49.0, -70.0, 2.3 | 24 | portal collar, cliff, cabin, ore cars, tag board |
+| YRD_03_ORE_BAYS | -24.6, -69.3, 1.7 | -38.0, -62.0, 1.3 | 22 | ore bays, skid loader, gas store |
+| YRD_04_VEHICLE_BAYS | -28.5, -72.6, 1.7 | -36.0, -80.5, 1.2 | 22 | marked vehicle bays, diesel station, evacuation gate |
+| YRD_05_RAIL_DOCK | -22.2, -68.5, 1.7 | -22.2, -60.5, 2.0 | 22 | rail, docks, freight gate, canopy |
+| YRD_06_STORE_AND_POWER | -24.5, -71.2, 1.7 | -14.0, -79.0, 1.3 | 22 | containers, muster, generator, porch |
+| YRD_07_AERIAL | -24.0, -108.0, 52.0 | -28.0, -72.0, 0.0 | 30 | layout of the depot (roofs hidden) |
+| YRD_X1_PORTAL_CLOSE | -33.5, -71.3, 2.3 | -49.0, -70.0, 2.3 | 28 | portal detail |
+| YRD_X2_FREIGHT_GATE | -22.2, -64.0, 1.7 | -22.2, -60.0, 2.4 | 22 | freight gate and beacons |
+| YRD_X3_EVAC_GATE | -28.0, -76.0, 1.7 | -28.0, -84.0, 1.6 | 20 | evacuation gate and path |

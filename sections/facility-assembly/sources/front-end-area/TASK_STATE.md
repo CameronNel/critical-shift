@@ -20,6 +20,21 @@ Seven `IF_PORTAL_*` empties with clear width, height and outward normal: spawn a
 cafeteria-to-hall opening 6.0 m, hall west door 2.4 m, hall east door 2.4 m, spine blast door 3.6 m. All sit at the planned
 plan positions; none were moved.
 
+## Revision 7 (2026-10-05): yard rebuilt as the mine surface depot
+The owner asked for the yard next, with the same standard: everything must make sense, cliff, portal front and ground rebuilt as well. The old yard was a random scatter (mixed-colour containers, trees, shrubs, barrels, bales and tyres, a pickup, van and forklift with no reason to be where they were). It is replaced by the surface depot of the mine (see `design/facility-layout/front-end-area/DESIGN.md`, yard section):
+- **Portal:** natural cliff (benches, jointing, no block pattern, flattened around the portal), concrete collar with piers and lintel, steel jamb liners, hazard soffit, three timber sets with lagging, baked entrance plate, lamps, rock bolts and safety mesh; ventilation fan beside it with a duct stub into the rock. The reused R39 front panel (`fe_minefront.py`) is gone.
+- **Lamp room and rail:** site cabin with barred windows, glazed door, steps and AC unit; tag board; three numbered ore cars loaded with ore; flush track scale with a display post.
+- **Ore bays:** three push-wall bays (grade A, grade B, waste rock) with ore piles and baked plates, skid loader in front, caged gas store.
+- **Rail dock:** two loading docks either side of the freight gate under the canopy, parcels, drums, hand truck, forklift, amber beacons, hazard threshold, STOP TRAINS stencil.
+- **Vehicles and fuel:** three marked bays with wheel stops and numbers (new utility pickup, new crew van, forklift), bunded diesel station with two tanks, pump and board.
+- **Store and power:** three green containers with baked plates, marked muster area B, fenced generator, water tank. **Porch:** benches, PPE check and site rules boards, recycling, planters.
+- **Ground:** concrete apron with light wear (four slabs slightly sunk, two cracked, none missing), painted lane edges, bay lines, hatching, three trench drains; 212 wear decals now cover the hall, the yard apron and the cafeteria's yard-facing wall.
+- Removed: all trees, most shrubs, barrels, bales, tyres, cones, crates, cable drums, steel stock, pipe stacks, hose reels, planters except three, `fe_yard2.py`, the old props and `fe_minefront.py`. `fe_yard.py` is reduced to constants and `inst()`.
+- New modules: `fe_yard3.py` (apron, cliff, portal, rail, fence and gates, canopies, drains), `fe_depot.py` (layout, signs, markings), `fe_depot_assets.py` (pickup, van, ore car, ore pile, cabin, track scale, skid loader, fuel station, ore bays, rock bolt, safety mesh, LED pole, wheel stop, dock, beacon, fan).
+- Cameras: `YRD_01` to `YRD_07` plus `YRD_X1` portal close, `YRD_X2` freight gate, `YRD_X3` evacuation gate (see `CAMERAS.md`).
+- Numbers (`validation.json`): total 570,374 triangles (yard 214,170, cafeteria 262,624, hall 90,584, shared 2,996); 129 interior and 114 yard floor objects, 0 gap and 0 penetration failures; clear lanes pass; no prop-prop intersections except piles inside their bays (checked with a bounding-box script).
+- Not done: the whole-area `FE_*` renders are stale; vehicle bodies are simpler than the hall props; the refinery side beyond the freight gate is not modelled. Unreviewed, no independent review, not accepted.
+
 ## Revision 6 (2026-10-05): hall rebuilt as an operations hub
 The owner asked for the hall to be refined and for everything in it to make sense. The previous hall was a scatter of jersey barriers, sandbags, scaffold, cable drums and a cave-in with no purpose, plus a gantry that led nowhere. It was removed (`fe_hallsite.py` deleted) and the hall rebuilt around one idea: **the shift hub and junction of the facility**. Every item belongs to a zone with a job (plan frame, x east, y north; hall x -4..32, y -60..-48):
 - **Locker room and PPE issue (south-west):** eight steel PPE lockers on the west wall (two ajar with a hard hat and hi-vis), two changing benches, a PPE dispenser, a safety briefing board, water cooler, cleaner's cart.

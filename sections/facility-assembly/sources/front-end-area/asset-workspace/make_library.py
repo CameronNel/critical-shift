@@ -17,10 +17,13 @@ GROUPS = {
  'hall_work': ['workbench', 'tool_wall', 'tool_chest', 'bin_shelf', 'pallet_jack', 'parcels_0', 'roll_cage', 'staging_shelf'],
  'hall_safety': ['safety_station', 'hose_cabinet', 'blast_console', 'bollard_hall', 'cctv_dome', 'ceiling_smoke', 'ceiling_horn', 'ceiling_sprinkler'],
  'hall_shell': ['gantry_landing', 'gantry_stair', 'hall_cable_tray', 'hall_sprinkler_main'],
+ 'yard_vehicles': ['site_pickup', 'crew_van', 'skid_loader', 'forklift', 'ore_car', 'ore_pile_0', 'generator', 'fuel_station'],
+ 'yard_site': ['site_cabin', 'vent_fan', 'track_scale', 'scale_post', 'bay_walls', 'dock_platform', 'led_pole', 'wheel_stop', 'rock_bolt', 'safety_mesh'],
+ 'yard_stock': ['container_0', 'skip', 'barrel_0', 'gas_rack', 'hand_truck', 'bench', 'planter', 'tank_a'],
 }
 # triangle caps per asset class (owner-approved: hero up to ~15k, small props ~2k)
 HERO = {'kitchen_block', 'fridge_display', 'serving_counter', 'foosball', 'arcade_basketball', 'vending_0', 'vending_1', 'sofa3', 'booth', 'bookcase_0', 'kiosk_v2', 'hoops', 'dartboard'}
-HALL_CAP = {'lockers': 7000, 'gantry_landing': 7000, 'gantry_stair': 8000, 'hall_cable_tray': 4000, 'radio_dock': 3600, 'bin_shelf': 3500, 'tool_wall': 3500, 'ops_desk': 3500, 'ppe_dispenser': 3200, 'safety_station': 2500, 'parcels_0': 2500, 'workbench': 2000, 'pallet_jack': 1600, 'staging_shelf': 1600, 'office_chair': 1500, 'roll_cage': 1500}
+HALL_CAP = {'site_pickup': 9500, 'crew_van': 7600, 'ore_car': 4600, 'barrel_0': 2100, 'gas_rack': 2100, 'hand_truck': 2100, 'ore_pile_0': 2500, 'site_cabin': 6500, 'vent_fan': 4000, 'fuel_station': 5000, 'skid_loader': 5300, 'bay_walls': 3000, 'dock_platform': 1800, 'track_scale': 1700, 'led_pole': 1500, 'forklift': 6000, 'container_0': 7000, 'generator': 2500, 'tank_a': 3500, 'skip': 2000, 'safety_mesh': 2500, 'lockers': 7000, 'gantry_landing': 7000, 'gantry_stair': 8000, 'hall_cable_tray': 4000, 'radio_dock': 3600, 'bin_shelf': 3500, 'tool_wall': 3500, 'ops_desk': 3500, 'ppe_dispenser': 3200, 'safety_station': 2500, 'parcels_0': 2500, 'workbench': 2000, 'pallet_jack': 1600, 'staging_shelf': 1600, 'office_chair': 1500, 'roll_cage': 1500}
 CAP = lambda n: HALL_CAP[n] if n in HALL_CAP else 3000 if n == 'bulletin' else 2500 if n == 'recycling' else 15000 if n in HERO else 4000 if n.startswith(('sofa', 'armchair', 'leaf_', 'plant', 'table', 'chair', 'planter')) else 2000
 dg = bpy.context.evaluated_depsgraph_get()
 def tris(o):

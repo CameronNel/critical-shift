@@ -141,8 +141,6 @@ def container(F, P, rgba=(0.45, 0.12, 0.08, 1), name='container', L=6.0):
             m.rbox(x + sx * 0.08, sy * 0.1, 1.15, 0.03, 0.04, 0.18, 0.01, mi=I['steel_charcoal'], rgba=(0.55, 0.56, 0.58, 1))
         m.rbox(x + sx * 0.03, 0.0, H / 2, 0.02, 0.012, H - 0.28, 0.003, mi=I['steel_charcoal'], rgba=(0.02, 0.02, 0.02, 1))
         m.rbox(x + sx * 0.04, 0.0, H - 0.16, 0.05, W - 0.3, 0.08, 0.01, mi=I['steel_charcoal'], rgba=steel)
-    m.rbox(0, W / 2 + 0.012, H * 0.55, 1.0, 0.012, 0.28, 0.004, mi=I['signage'], rgba=(0.9, 0.9, 0.85, 1))
-    m.rbox(0, W / 2 + 0.018, H * 0.55, 0.7, 0.006, 0.06, 0.002, mi=I['signage'], rgba=(0.12, 0.12, 0.13, 1))
     return m.finish('proto_' + name, P)
 
 def skip_bin(F, P, rgba=(0.62, 0.32, 0.06, 1)):

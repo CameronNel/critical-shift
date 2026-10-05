@@ -53,6 +53,8 @@ def _wall_wear(coll, walls, rnd, nm, scuffs=14, drips=3):
             a = rnd.uniform(lo, hi - 1.5); w = rnd.uniform(0.9, 1.6)
             if free(a, a + w): decal(coll, nm('streak_drip'), 'drip', face, a, a + w, 1.35, 2.7, off + (0.005 if face in ('N', 'E') else -0.005), rnd.uniform(0.3, 0.5), flip=rnd.random() < 0.5)
 
+RAIL_X_ = -22.2
+
 def build_wear(F, C):
     caf, hall = C['CAFETERIA'], C['HALL']
     rnd = random.Random(77); n = 0
@@ -116,4 +118,25 @@ def build_wear(F, C):
         decal(hall, nm('hall_blotch'), 'blotch', 'F', x - 0.8, x + 0.8, y - 0.8, y + 0.8, 0.0045, 0.3)
     decal(hall, 'streak_path_hall_ns', 'path', 'F', 6.4, 9.6, -59.8, -48.4, 0.004, 0.55)
     _wall_wear(hall, (('N', -59.83, (-3.7, 31.7), [(4.9, 11.1)]), ('S', -48.17, (-3.7, 31.7), [(5.7, 10.3)]), ('E', -3.83, (-59.7, -48.3), [(-55.4, -52.6)]), ('W', 31.83, (-59.7, -48.3), [(-55.4, -52.6)])), rnd, nm, scuffs=12, drips=2)
+    # yard: traffic along the mine lane and to the gates, vehicle bays, fuel, ore bays, dock approach
+    yd = C['YARD']
+    decal(yd, 'streak_path_lane', 'path', 'F', -46.0, -9.0, -71.2, -68.8, 0.004, 0.7)
+    decal(yd, 'streak_path_evac', 'path', 'F', -29.4, -26.6, -83.6, -71.4, 0.004, 0.45)
+    decal(yd, 'streak_path_dock', 'path', 'F', RAIL_X_ - 1.6, RAIL_X_ + 1.6, -69.0, -60.6, 0.004, 0.5)
+    decal(yd, 'streak_path_ore', 'path', 'F', -44.0, -31.0, -68.2, -62.4, 0.004, 0.4)
+    decal(yd, 'streak_path_porch', 'path', 'F', -12.0, -8.2, -76.0, -64.0, 0.004, 0.45)
+    for (x0, x1, y0, y1) in ((-39.0, -30.0, -83.4, -77.9), (-42.8, -39.8, -83.2, -79.6), (-24.0, -18.0, -71.4, -69.0), (-34.0, -30.0, -72.0, -68.4), (-12.0, -9.0, -83.0, -78.0)):
+        decal(yd, nm('skid'), 'skid', 'F', x0, x1, y0, y1, 0.005, 0.5, flip=rnd.random() < 0.5)
+    for (x, y, r_) in ((-37.5, -80.6, 0.9), (-34.5, -80.6, 0.9), (-41.9, -80.6, 1.1), (-12.4, -80.9, 0.9), (-31.5, -81.2, 0.7), (-27.0, -67.5, 0.8), (-39.0, -62.8, 1.3)):
+        decal(yd, nm('yard_blotch'), 'blotch', 'F', x - r_, x + r_, y - r_, y + r_, 0.0045, 0.4)
+    for k in range(26):
+        x = rnd.uniform(-46.5, -9.0); y = rnd.uniform(-83.0, -61.0); s_ = rnd.uniform(0.6, 1.2)
+        decal(yd, nm('yard_scuff'), 'scuff', 'F', x - s_, x + s_, y - s_ * 0.6, y + s_ * 0.6, 0.005, rnd.uniform(0.25, 0.5), flip=rnd.random() < 0.5)
+    # vertical wear: lamp room walls, container doors, bay walls
+    decal(yd, nm('cabin_dust'), 'dust', 'N', -45.8, -39.8, 0.0, 0.9, -73.1 + 0.02, 0.6)
+    decal(yd, nm('cabin_drip'), 'drip', 'N', -45.4, -44.0, 0.5, 2.55, -73.1 + 0.015, 0.55); decal(yd, nm('cabin_drip'), 'drip', 'N', -43.0, -41.6, 0.5, 2.55, -73.1 + 0.015, 0.5)
+    for i, y in enumerate((-82.0, -79.1, -76.2)): decal(yd, nm('container_drip'), 'drip', 'W', y - 1.0, y + 1.0, 0.2, 2.5, -23.64 - 0.01, 0.5); decal(yd, nm('container_dust'), 'dust', 'W', y - 1.1, y + 1.1, 0.0, 0.8, -23.64 - 0.012, 0.55)
+    for i, cx in enumerate((-41.9, -37.4, -32.9)): decal(yd, nm('bay_dust'), 'dust', 'S', cx - 1.4, cx + 1.4, 0.0, 0.9, -61.5 - 0.01, 0.6)
+    # cafeteria exterior wall facing the yard: water streaks below the gutters
+    for (a, b) in ((-79.0, -77.5), (-72.5, -71.0), (-67.5, -66.0), (-62.5, -61.2)): decal(yd, nm('streak_wall'), 'drip', 'W', a, b, 0.8, 4.0, -8.16 - 0.01, 0.35)
     return n

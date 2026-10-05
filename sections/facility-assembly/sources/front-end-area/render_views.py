@@ -17,6 +17,6 @@ except Exception: pass
 os.makedirs(outdir, exist_ok=True)
 for n in names:
     ob = bpy.data.objects[n]; sc.camera = ob
-    fe_lighting.hide_roofs(n == 'FE_04_AERIAL')
+    fe_lighting.hide_roofs('AERIAL' in n)
     sc.render.filepath = os.path.join(outdir, n + '.png'); bpy.ops.render.render(write_still=True)
 print('RENDERED', names)
