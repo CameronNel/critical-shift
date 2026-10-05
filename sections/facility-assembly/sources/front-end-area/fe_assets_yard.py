@@ -255,19 +255,26 @@ def tube(m, pts, r, seg=8, mi=None, rgba=None, joints=True):
 def bezier(p0, p1, p2, n=6):
     return [tuple((1 - t) ** 2 * a + 2 * (1 - t) * t * b + t * t * c for a, b, c in zip(p0, p1, p2)) for t in [k / n for k in range(n + 1)]]
 
+def lowpoly_boxes(m):
+    """Vehicles hold hundreds of small rounded boxes: use chamfer-class bevels (2 segments only on big radii) to stay inside the triangle budget."""
+    orig = m.rbox
+    def rb(cx, cy, cz, sx, sy, sz, r=0.02, rot=(0, 0, 0), seg=None, mi=None, rgba=None):
+        return orig(cx, cy, cz, sx, sy, sz, r, rot, 2 if r >= 0.05 else 1, mi, rgba)
+    m.rbox = rb; return m
+
 def cube_into(pb, loc, size, rot=(0, 0, 0)):
     M = Matrix.Translation(Vector(loc)) @ Euler(rot, 'XYZ').to_matrix().to_4x4()
     bmesh.ops.create_cube(pb, size=1.0, matrix=M @ Matrix.Diagonal(Vector((*size, 1))))
 
 def wheel(m, x, y, z, r=0.36, w=0.26, flip=1, rim=(0.5, 0.52, 0.55, 1), lugs=True, detail=1.0):
     """Tyre with sidewall bulge, circumferential grooves and chevron tread blocks, dished rim with lip and bolt ring, six lug nuts, hub cap, valve stem. Axis along Y; flip=+1 puts the outer face toward +y."""
-    h = w / 2; seg = max(20, int(34 * detail)); rot = (-math.pi / 2, 0, 0) if flip > 0 else (math.pi / 2, 0, 0)
+    h = w / 2; seg = max(18, int(28 * detail)); rot = (-math.pi / 2, 0, 0) if flip > 0 else (math.pi / 2, 0, 0)
     half = [(r * 0.60, -h * 0.80), (r * 0.70, -h * 0.98), (r * 0.84, -h * 1.04), (r * 0.94, -h * 0.94), (r * 0.975, -h * 0.70), (r * 0.975, -h * 0.34),
             (r * 0.96, -h * 0.26), (r * 0.96, -h * 0.12)]
     prof = half + [(rr, -zz) for rr, zz in reversed(half)]
     pb = p_lathe(prof, seg); xf(pb, (x, y, z), rot); m.add(pb, mi=I['rubber'], rgba=(0.04, 0.04, 0.043, 1))
     if lugs:                                               # tread blocks standing proud of the grooved base
-        n = int(22 * detail) if detail >= 1 else 14; tb = bmesh.new()
+        n = int(16 * detail) if detail >= 1 else 11; tb = bmesh.new()
         for k in range(n):
             a = 2 * math.pi * k / n
             for zc, sk in ((-h * 0.5, 0.35), (h * 0.5, -0.35)):
@@ -279,7 +286,7 @@ def wheel(m, x, y, z, r=0.36, w=0.26, flip=1, rim=(0.5, 0.52, 0.55, 1), lugs=Tru
         xf(tb, (x, y, z), rot); m.add(tb, mi=I['rubber'], rgba=(0.05, 0.05, 0.055, 1))
     prof = [(0.0, h * 0.50), (r * 0.17, h * 0.50), (r * 0.21, h * 0.40), (r * 0.46, h * 0.36), (r * 0.52, h * 0.70), (r * 0.60, h * 0.76), (r * 0.62, h * 0.66),
             (r * 0.58, h * 0.30), (r * 0.58, -h * 0.5), (0.0, -h * 0.5)]
-    pb = p_lathe(prof, max(20, int(26 * detail))); xf(pb, (x, y, z), rot); m.add(pb, mi=I['steel_charcoal'], rgba=rim)
+    pb = p_lathe(prof, max(16, int(20 * detail))); xf(pb, (x, y, z), rot); m.add(pb, mi=I['steel_charcoal'], rgba=rim)
     pb = p_lathe([(r * 0.43, h * 0.375), (r * 0.5, h * 0.39), (r * 0.5, h * 0.33), (r * 0.43, h * 0.33)], 24); xf(pb, (x, y, z), rot); m.add(pb, mi=I['steel_charcoal'], rgba=(0.03, 0.03, 0.035, 1))
     nb = bmesh.new(); hb = bmesh.new()
     for k in range(6):
@@ -437,7 +444,7 @@ def hazard_band(m, x, y0, y1, z0, z1, side=1, w=0.07, slant=0.07, t=0.004):
 def forklift(F, P, rgba=(0.85, 0.62, 0.06, 1)):
     """Counterbalance forklift, ~2.0 m body + forks: chamfered counterweight with tow pin and tail lamps, hinged louvred hood with seat, tubular ROPS guard, steering column and levers,
     channel-section mast with chains, lift and tilt rams, carriage with backrest and tapered L forks, fenders, step plate, hoses, beacon."""
-    m = mb(F); PA = I['paint']; ST = I['steel_charcoal']; BR = I['steel_brushed']; PL = I['plastic']; RB = I['rubber']; EM = I['emissive']; GL = I['glass']
+    m = lowpoly_boxes(mb(F)); PA = I['paint']; ST = I['steel_charcoal']; BR = I['steel_brushed']; PL = I['plastic']; RB = I['rubber']; EM = I['emissive']; GL = I['glass']
     org = rgba; orgd = tuple(c * 0.74 for c in rgba[:3]) + (1,); orgl = tuple(min(1, c * 1.08) for c in rgba[:3]) + (1,)
     dk = (0.06, 0.06, 0.07, 1); gr = (0.2, 0.21, 0.23, 1); ch = (0.62, 0.64, 0.67, 1); blk = (0.1, 0.1, 0.11, 1)
     # ---- chassis, axles
@@ -455,8 +462,8 @@ def forklift(F, P, rgba=(0.85, 0.62, 0.06, 1)):
         panel(m, cw, sy * 0.36, sy * 0.55, 0.012, PA, orgd)
         panel(m, [(-0.69, 0.57), (-1.31, 0.57), (-1.31, 0.64), (-0.69, 0.64)], sy * 0.355, sy * 0.555, 0.006, PA, org)    # arch crown stiffener
     panel(m, [(-1.34, 0.45), (-1.34, 0.92), (-1.30, 1.06), (-1.22, 1.15), (-1.12, 1.2), (-0.72, 1.2), (-0.72, 0.45)], -0.36, 0.36, 0.014, PA, org)
-    m.rbox(-1.345, 0, 0.8, 0.012, 1.0, 0.016, 0.003, mi=ST, rgba=dk); m.rbox(-1.345, 0, 1.02, 0.012, 1.0, 0.016, 0.003, mi=ST, rgba=dk)  # cast ribs
-    m.rbox(-0.72, 0, 1.0, 0.012, 1.08, 0.46, 0.006, mi=ST, rgba=dk)                                         # seam to hood
+    m.rbox(-1.345, 0, 0.8, 0.012, 1.0, 0.016, 0, mi=ST, rgba=dk); m.rbox(-1.345, 0, 1.02, 0.012, 1.0, 0.016, 0, mi=ST, rgba=dk)  # cast ribs
+    m.rbox(-0.72, 0, 1.0, 0.012, 1.08, 0.46, 0, mi=ST, rgba=dk)                                         # seam to hood
     hazard_band(m, -1.347, -0.5, 0.5, 0.52, 0.74, side=-1)
     for sy in (-1, 1):
         m.rbox(-1.36, sy * 0.42, 0.96, 0.04, 0.12, 0.1, 0.015, mi=ST, rgba=dk)                             # tail lamp housing
@@ -464,41 +471,41 @@ def forklift(F, P, rgba=(0.85, 0.62, 0.06, 1)):
         m.torus(-1.0, sy * 0.28, 1.215, 0.045, 0.011, ns=12, nt=6, mi=ST, rgba=ch)                           # lifting eyes
     m.rbox(-1.39, 0, 0.5, 0.1, 0.3, 0.1, 0.012, mi=ST, rgba=gr)                                            # tow plate
     m.cylz(-1.43, 0, 0.42, 0.62, 0.02, seg=10, mi=ST, rgba=ch); m.torus(-1.43, 0, 0.64, 0.03, 0.007, ns=12, nt=6, mi=ST, rgba=ch)   # tow pin + clip
-    m.rbox(-1.35, -0.18, 1.12, 0.018, 0.2, 0.09, 0.004, mi=I['signage'], rgba=(0.7, 0.72, 0.74, 1))        # data plate
+    m.rbox(-1.35, -0.18, 1.12, 0.018, 0.2, 0.09, 0, mi=I['signage'], rgba=(0.7, 0.72, 0.74, 1))        # data plate
     # ---- hood (engine cover) with seams, louvres and hinges
     m.rbox(-0.4, 0, 0.78, 0.64, 0.8, 0.42, 0.04, mi=PA, rgba=org)
     m.rbox(-0.4, 0, 1.0, 0.66, 0.84, 0.05, 0.02, mi=PA, rgba=orgl)                                         # lid
-    m.rbox(-0.4, 0, 1.026, 0.6, 0.78, 0.012, 0.004, mi=ST, rgba=dk)                                        # lid seam
+    m.rbox(-0.4, 0, 1.026, 0.6, 0.78, 0.012, 0, mi=ST, rgba=dk)                                        # lid seam
     for sy in (-1, 1):
-        for k in range(6): m.rbox(-0.55 + k * 0.055, sy * 0.405, 0.8, 0.026, 0.016, 0.22, 0.004, mi=ST, rgba=dk)   # side louvres
-        m.rbox(-0.2, sy * 0.405, 0.8, 0.012, 0.014, 0.34, 0.004, mi=ST, rgba=dk)                            # panel gap
-        m.cylz(-0.71, sy * 0.28, 0.99, 1.04, 0.013, seg=8, mi=ST, rgba=ch); m.rbox(-0.69, sy * 0.28, 1.02, 0.06, 0.07, 0.012, 0.003, mi=ST, rgba=gr)   # hinges
-    m.rbox(-0.07, 0, 0.99, 0.03, 0.08, 0.03, 0.008, mi=ST, rgba=ch)                                       # latch
+        for k in range(6): m.rbox(-0.55 + k * 0.055, sy * 0.405, 0.8, 0.026, 0.016, 0.22, 0, mi=ST, rgba=dk)   # side louvres
+        m.rbox(-0.2, sy * 0.405, 0.8, 0.012, 0.014, 0.34, 0, mi=ST, rgba=dk)                            # panel gap
+        m.cylz(-0.71, sy * 0.28, 0.99, 1.04, 0.013, seg=8, mi=ST, rgba=ch); m.rbox(-0.69, sy * 0.28, 1.02, 0.06, 0.07, 0.012, 0, mi=ST, rgba=gr)   # hinges
+    m.rbox(-0.07, 0, 0.99, 0.03, 0.08, 0.03, 0, mi=ST, rgba=ch)                                       # latch
     m.rbox(-0.4, 0, 0.55, 0.7, 0.82, 0.05, 0.015, mi=PA, rgba=orgd)                                        # skirt
     # ---- mid body, floor, cowl, step
     for sy in (-1, 1):
         panel(m, [(-0.7, 0.36), (0.6, 0.36), (0.6, 0.6), (-0.7, 0.6)], sy * 0.36, sy * 0.405, 0.008, PA, orgd)
         m.rbox(-0.2, sy * 0.55, 0.37, 0.5, 0.2, 0.035, 0.012, mi=BR, rgba=(0.5, 0.5, 0.52, 1))             # step plate
-        for k in range(8): m.rbox(-0.4 + k * 0.06, sy * 0.55, 0.395, 0.014, 0.17, 0.008, 0.002, mi=ST, rgba=dk)
+        for k in range(8): m.rbox(-0.4 + k * 0.06, sy * 0.55, 0.395, 0.014, 0.17, 0.008, 0, mi=ST, rgba=dk)
         m.between((-0.38, sy * 0.45, 0.36), (-0.38, sy * 0.41, 0.5), 0.015, seg=6, mi=ST, rgba=dk); m.between((-0.02, sy * 0.45, 0.36), (-0.02, sy * 0.41, 0.5), 0.015, seg=6, mi=ST, rgba=dk)
     m.rbox(0.25, 0, 0.57, 0.8, 0.8, 0.05, 0.012, mi=ST, rgba=gr)                                           # floor plate
-    for k in range(10): m.rbox(0.0 + k * 0.05, 0, 0.6, 0.012, 0.6, 0.008, 0.002, mi=ST, rgba=dk)
+    for k in range(10): m.rbox(0.0 + k * 0.05, 0, 0.6, 0.012, 0.6, 0.008, 0, mi=ST, rgba=dk)
     m.rbox(0.46, 0, 0.82, 0.3, 0.8, 0.52, 0.05, mi=PA, rgba=org)                                           # cowl
     m.rbox(0.44, 0, 1.08, 0.28, 0.76, 0.05, 0.02, mi=PA, rgba=orgl)                                        # dash top
-    m.rbox(0.56, 0, 0.64, 0.02, 0.5, 0.12, 0.004, mi=ST, rgba=dk)                                          # front grille slots
-    for k in range(5): m.rbox(0.575, 0, 0.6 + k * 0.025, 0.012, 0.44, 0.008, 0.002, mi=ST, rgba=blk)
+    m.rbox(0.56, 0, 0.64, 0.02, 0.5, 0.12, 0, mi=ST, rgba=dk)                                          # front grille slots
+    for k in range(5): m.rbox(0.575, 0, 0.6 + k * 0.025, 0.012, 0.44, 0.008, 0, mi=ST, rgba=blk)
     for sy in (-1, 1):
         m.rbox(0.6, sy * 0.28, 0.82, 0.05, 0.12, 0.09, 0.015, mi=ST, rgba=dk); m.add(p_cyl(0.04, 0.02, 14), (0.63, sy * 0.28, 0.82), (0, math.pi / 2, 0), mi=EM, rgba=(1.0, 0.92, 0.7, 1))  # head lamps
-        m.rbox(0.47, sy * 0.405, 0.84, 0.012, 0.014, 0.36, 0.004, mi=ST, rgba=dk)
-    m.rbox(0.48, 0.405, 0.9, 0.1, 0.014, 0.05, 0.004, mi=I['signage'], rgba=(0.75, 0.77, 0.8, 1))            # service plate
+        m.rbox(0.47, sy * 0.405, 0.84, 0.012, 0.014, 0.36, 0, mi=ST, rgba=dk)
+    m.rbox(0.48, 0.405, 0.9, 0.1, 0.014, 0.05, 0, mi=I['signage'], rgba=(0.75, 0.77, 0.8, 1))            # service plate
     # ---- wheels, fenders
     for sy in (-1, 1):
         wheel(m, 0.35, sy * 0.52, 0.3, r=0.3, w=0.24, flip=sy, rim=(0.55, 0.12, 0.08, 1) if False else (0.7, 0.55, 0.12, 1))
         wheel(m, -1.0, sy * 0.46, 0.26, r=0.26, w=0.2, flip=sy, rim=(0.7, 0.55, 0.12, 1), detail=0.8)
         fe = arc_pts(0.35, 0.3, 0.375, 0, 180, 10) + arc_pts(0.35, 0.3, 0.345, 180, 0, 10)
         panel(m, fe, sy * 0.4, sy * 0.66, 0.006, PA, org)
-        m.rbox(0.35, sy * 0.53, 0.686, 0.64, 0.3, 0.02, 0.008, mi=PA, rgba=orgl)                           # fender top shelf
-        m.rbox(0.35, sy * 0.53, 0.72, 0.6, 0.012, 0.05, 0.004, mi=PA, rgba=orgd) if False else None
+        m.rbox(0.35, sy * 0.53, 0.686, 0.64, 0.3, 0.02, 0, mi=PA, rgba=orgl)                           # fender top shelf
+        m.rbox(0.35, sy * 0.53, 0.72, 0.6, 0.012, 0.05, 0, mi=PA, rgba=orgd) if False else None
     # ---- operator: seat, belt, steering, levers, pedals, props
     m.rbox(-0.36, 0, 1.075, 0.44, 0.46, 0.05, 0.015, mi=ST, rgba=dk)                                       # slide rails
     m.cushion(-0.36, 0, 1.15, 0.44, 0.44, 0.1, r=0.035, levels=1, mi=I['fabric'], rgba=(0.1, 0.1, 0.12, 1))
@@ -506,41 +513,41 @@ def forklift(F, P, rgba=(0.85, 0.62, 0.06, 1)):
     m.rbox(-0.62, 0, 1.45, 0.02, 0.38, 0.5, 0.01, mi=ST, rgba=dk, rot=(0, -0.14, 0))                        # backrest shell
     for sy in (-1, 1): m.rbox(-0.4, sy * 0.25, 1.3, 0.3, 0.04, 0.03, 0.01, mi=I['fabric'], rgba=(0.14, 0.14, 0.15, 1)) if sy > 0 else m.rbox(-0.4, sy * 0.25, 1.26, 0.2, 0.04, 0.03, 0.01, mi=I['fabric'], rgba=(0.14, 0.14, 0.15, 1))    # arm rests
     m.between((-0.5, 0.2, 1.5), (-0.28, -0.12, 1.2), 0.018, seg=6, mi=I['fabric'], rgba=(0.55, 0.14, 0.06, 1))   # seat belt
-    m.rbox(-0.3, -0.12, 1.2, 0.07, 0.04, 0.03, 0.006, mi=ST, rgba=ch)
+    m.rbox(-0.3, -0.12, 1.2, 0.07, 0.04, 0.03, 0, mi=ST, rgba=ch)
     m.sphere(-0.32, 0.06, 1.23, 0.1, 0.1, 0.07, rings=6, seg=12, mi=PL, rgba=(0.95, 0.78, 0.08, 1))        # hard hat on the seat
-    m.cylz(-0.32, 0.06, 1.2, 1.205, 0.12, seg=14, mi=PL, rgba=(0.95, 0.78, 0.08, 1)); m.rbox(-0.2, 0.06, 1.206, 0.07, 0.1, 0.01, 0.004, mi=PL, rgba=(0.9, 0.72, 0.06, 1))
+    m.cylz(-0.32, 0.06, 1.2, 1.205, 0.12, seg=14, mi=PL, rgba=(0.95, 0.78, 0.08, 1)); m.rbox(-0.2, 0.06, 1.206, 0.07, 0.1, 0.01, 0, mi=PL, rgba=(0.9, 0.72, 0.06, 1))
     col = [(0.42, 0.0, 0.98), (0.24, 0.0, 1.38)]
     m.between(col[0], col[1], 0.022, seg=10, mi=ST, rgba=blk); m.cylz(0.42, 0, 0.98, 1.1, 0.04, seg=10, r2=0.03, mi=PL, rgba=blk)
     m.torus(0.22, 0, 1.43, 0.17, 0.016, ns=24, nt=8, rot=(0, -0.55, 0), mi=PL, rgba=blk)
     for a in (0, 2.1, 4.2): m.between((0.22, 0, 1.43), (0.22 + 0.17 * math.cos(a) * math.sin(-0.55) * 0 + 0.0, 0.17 * math.cos(a), 1.43 + 0.17 * math.sin(a) * 0.82), 0.008, seg=6, mi=ST, rgba=blk)
     m.sphere(0.27, 0.0, 1.405, 0.025, 0.025, 0.04, rings=4, seg=8, mi=PL, rgba=(0.8, 0.8, 0.8, 1)); m.cylz(0.1, 0.12, 1.43, 1.431, 0.0, seg=3, mi=PL, rgba=blk) if False else None
     m.rbox(0.38, 0, 1.12, 0.12, 0.34, 0.05, 0.01, mi=ST, rgba=dk)                                           # dash cluster
-    m.rbox(0.355, 0, 1.135, 0.018, 0.2, 0.03, 0.004, mi=I['screen'], rgba=(0.4, 0.8, 0.5, 1))
+    m.rbox(0.355, 0, 1.135, 0.018, 0.2, 0.03, 0, mi=I['screen'], rgba=(0.4, 0.8, 0.5, 1))
     for k in range(3): m.add(p_cyl(0.008, 0.01, 8), (0.352, -0.1 + k * 0.1, 1.105), (0, math.pi / 2, 0), mi=EM, rgba=[(0.2, 0.9, 0.3, 1), (1.0, 0.6, 0.1, 1), (0.9, 0.12, 0.08, 1)][k])
     for k, c in enumerate(((0.8, 0.1, 0.06, 1), (0.1, 0.1, 0.12, 1), (0.9, 0.6, 0.08, 1))):                 # hydraulic levers
         yy = -0.28 + k * 0.07; m.cylz(0.42, yy, 1.1, 1.13, 0.016, seg=8, mi=RB, rgba=blk)
         m.between((0.42, yy, 1.12), (0.37 - k * 0.01, yy, 1.4), 0.007, seg=6, mi=ST, rgba=ch); m.sphere(0.37 - k * 0.01, yy, 1.42, 0.02, rings=5, seg=8, mi=PL, rgba=c)
     m.between((0.38, 0.3, 1.1), (0.28, 0.3, 1.26), 0.008, seg=6, mi=ST, rgba=ch); m.sphere(0.28, 0.3, 1.27, 0.02, rings=5, seg=8, mi=RB, rgba=blk)    # parking brake
     for k, yy in enumerate((-0.14, 0.04, 0.17)):                                                           # pedals
-        m.rbox(0.3, yy, 0.65, 0.07, 0.09 if k < 2 else 0.07, 0.025, 0.008, rot=(0, -0.7, 0), mi=ST, rgba=(0.2, 0.2, 0.22, 1)); m.between((0.33, yy, 0.64), (0.4, yy, 0.78), 0.008, seg=6, mi=ST, rgba=dk)
-    m.rbox(0.4, -0.2, 1.125, 0.3, 0.2, 0.014, 0.004, rot=(0.0, 0.0, 0.3), mi=PL, rgba=(0.42, 0.28, 0.14, 1)); m.rbox(0.4, -0.2, 1.135, 0.27, 0.17, 0.004, 0.001, rot=(0.0, 0.0, 0.3), mi=PL, rgba=(0.86, 0.86, 0.82, 1))   # clipboard
-    m.rbox(0.52, -0.1, 1.14, 0.04, 0.06, 0.012, 0.003, rot=(0, 0, 0.3), mi=ST, rgba=ch)
+        m.rbox(0.3, yy, 0.65, 0.07, 0.09 if k < 2 else 0.07, 0.025, 0, rot=(0, -0.7, 0), mi=ST, rgba=(0.2, 0.2, 0.22, 1)); m.between((0.33, yy, 0.64), (0.4, yy, 0.78), 0.008, seg=6, mi=ST, rgba=dk)
+    m.rbox(0.4, -0.2, 1.125, 0.3, 0.2, 0.014, 0, rot=(0.0, 0.0, 0.3), mi=PL, rgba=(0.42, 0.28, 0.14, 1)); m.rbox(0.4, -0.2, 1.135, 0.27, 0.17, 0.004, 0, rot=(0.0, 0.0, 0.3), mi=PL, rgba=(0.86, 0.86, 0.82, 1))   # clipboard
+    m.rbox(0.52, -0.1, 1.14, 0.04, 0.06, 0.012, 0, rot=(0, 0, 0.3), mi=ST, rgba=ch)
     # extinguisher on the hood side
-    m.cylz(-0.62, 0.42, 0.72, 1.0, 0.055, seg=12, bevel=0.012, mi=PL, rgba=(0.78, 0.08, 0.05, 1)); m.cylz(-0.62, 0.42, 1.0, 1.04, 0.025, seg=8, mi=ST, rgba=ch); m.rbox(-0.6, 0.42, 1.06, 0.06, 0.02, 0.03, 0.006, mi=ST, rgba=blk)
+    m.cylz(-0.62, 0.42, 0.72, 1.0, 0.055, seg=12, bevel=0.012, mi=PL, rgba=(0.78, 0.08, 0.05, 1)); m.cylz(-0.62, 0.42, 1.0, 1.04, 0.025, seg=8, mi=ST, rgba=ch); m.rbox(-0.6, 0.42, 1.06, 0.06, 0.02, 0.03, 0, mi=ST, rgba=blk)
     m.between((-0.58, 0.42, 1.05), (-0.5, 0.45, 0.82), 0.007, seg=6, mi=RB, rgba=blk)
-    for z in (0.78, 0.94): m.rbox(-0.62, 0.42, z, 0.14, 0.14, 0.02, 0.005, mi=ST, rgba=dk)
+    for z in (0.78, 0.94): m.rbox(-0.62, 0.42, z, 0.14, 0.14, 0.02, 0, mi=ST, rgba=dk)
     # ---- ROPS overhead guard (tubular)
     tr = 0.024
     for sy in (-1, 1):
         fr = [(0.5, sy * 0.43, 0.98), (0.5, sy * 0.43, 1.62), (0.6, sy * 0.43, 2.04)]; rr = [(-0.62, sy * 0.43, 1.03), (-0.62, sy * 0.43, 1.7), (-0.7, sy * 0.43, 2.04)]
         tube(m, fr, tr, seg=8, mi=ST, rgba=(0.09, 0.09, 0.1, 1)); tube(m, rr, tr, seg=8, mi=ST, rgba=(0.09, 0.09, 0.1, 1))
         tube(m, [(0.6, sy * 0.43, 2.04), (-0.7, sy * 0.43, 2.04)], tr, seg=8, mi=ST, rgba=(0.09, 0.09, 0.1, 1))
-        for p in (fr[0], rr[0]): m.rbox(p[0], p[1], p[2] + 0.01, 0.1, 0.1, 0.02, 0.006, mi=ST, rgba=gr); m.cylz(p[0] + 0.03, p[1] + 0.03, p[2] + 0.02, p[2] + 0.04, 0.012, seg=6, mi=ST, rgba=ch)
+        for p in (fr[0], rr[0]): m.rbox(p[0], p[1], p[2] + 0.01, 0.1, 0.1, 0.02, 0, mi=ST, rgba=gr); m.cylz(p[0] + 0.03, p[1] + 0.03, p[2] + 0.02, p[2] + 0.04, 0.012, seg=6, mi=ST, rgba=ch)
         m.between((0.5, sy * 0.43, 1.6), (-0.62, sy * 0.43, 1.66), 0.014, seg=6, mi=ST, rgba=(0.12, 0.12, 0.13, 1))          # side rail
     tube(m, [(0.6, -0.43, 2.04), (0.6, 0.43, 2.04)], tr, seg=8, mi=ST, rgba=(0.09, 0.09, 0.1, 1)); tube(m, [(-0.7, -0.43, 2.04), (-0.7, 0.43, 2.04)], tr, seg=8, mi=ST, rgba=(0.09, 0.09, 0.1, 1))
     tube(m, [(-0.62, -0.43, 1.7), (-0.62, 0.43, 1.7)], 0.016, seg=6, mi=ST, rgba=(0.12, 0.12, 0.13, 1))
-    for k in range(9): m.rbox(0.0, -0.4 + k * 0.1, 2.05, 1.3, 0.035, 0.012, 0.003, mi=ST, rgba=(0.1, 0.1, 0.11, 1))   # roof slats
-    for x in (-0.4, 0.1, 0.5): m.rbox(x, 0, 2.06, 0.03, 0.88, 0.014, 0.003, mi=ST, rgba=(0.1, 0.1, 0.11, 1))
+    for k in range(9): m.rbox(0.0, -0.4 + k * 0.1, 2.05, 1.3, 0.035, 0.012, 0, mi=ST, rgba=(0.1, 0.1, 0.11, 1))   # roof slats
+    for x in (-0.4, 0.1, 0.5): m.rbox(x, 0, 2.06, 0.03, 0.88, 0.014, 0, mi=ST, rgba=(0.1, 0.1, 0.11, 1))
     for sy in (-1, 1):
         m.add(p_cyl(0.045, 0.07, 14), (0.62, sy * 0.3, 2.1), (0, math.pi / 2, 0), mi=EM, rgba=(1.0, 0.95, 0.8, 1)); m.cylz(0.58, sy * 0.3, 2.06, 2.14, 0.055, seg=10, r2=0.04, mi=ST, rgba=dk) if False else None
         m.rbox(0.58, sy * 0.3, 2.1, 0.05, 0.12, 0.1, 0.02, mi=ST, rgba=dk)
@@ -551,20 +558,20 @@ def forklift(F, P, rgba=(0.85, 0.62, 0.06, 1)):
     # ---- mast: C-channel rails, cross members, rams, chains
     for sy in (-1, 1):
         y = sy * 0.31
-        m.rbox(0.775, y, 1.06, 0.022, 0.1, 2.0, 0.004, mi=ST, rgba=gr)
-        for fy in (-1, 1): m.rbox(0.835, y + fy * 0.04, 1.06, 0.1, 0.022, 2.0, 0.004, mi=ST, rgba=gr)
-        m.rbox(0.9, y, 1.2, 0.022, 0.07, 1.9, 0.004, mi=ST, rgba=(0.26, 0.27, 0.29, 1))
-        for fy in (-1, 1): m.rbox(0.945, y + fy * 0.025, 1.2, 0.07, 0.016, 1.9, 0.003, mi=ST, rgba=(0.26, 0.27, 0.29, 1))
+        m.rbox(0.775, y, 1.06, 0.022, 0.1, 2.0, 0, mi=ST, rgba=gr)
+        for fy in (-1, 1): m.rbox(0.835, y + fy * 0.04, 1.06, 0.1, 0.022, 2.0, 0, mi=ST, rgba=gr)
+        m.rbox(0.9, y, 1.2, 0.022, 0.07, 1.9, 0, mi=ST, rgba=(0.26, 0.27, 0.29, 1))
+        for fy in (-1, 1): m.rbox(0.945, y + fy * 0.025, 1.2, 0.07, 0.016, 1.9, 0, mi=ST, rgba=(0.26, 0.27, 0.29, 1))
         m.rbox(0.77, sy * 0.38, 0.12, 0.2, 0.06, 0.12, 0.01, mi=ST, rgba=gr)                                # mast foot pivot
-    for z in (0.3, 0.75, 1.5, 2.04): m.rbox(0.8, 0, z, 0.05, 0.6, 0.05, 0.008, mi=ST, rgba=gr)
-    for z in (0.35, 1.05, 2.13): m.rbox(0.93, 0, z, 0.05, 0.58, 0.05, 0.008, mi=ST, rgba=(0.26, 0.27, 0.29, 1))
+    for z in (0.3, 0.75, 1.5, 2.04): m.rbox(0.8, 0, z, 0.05, 0.6, 0.05, 0, mi=ST, rgba=gr)
+    for z in (0.35, 1.05, 2.13): m.rbox(0.93, 0, z, 0.05, 0.58, 0.05, 0, mi=ST, rgba=(0.26, 0.27, 0.29, 1))
     m.cylz(0.78, 0.0, 0.2, 1.2, 0.05, seg=12, mi=ST, rgba=(0.2, 0.21, 0.22, 1)); m.cylz(0.78, 0.0, 1.2, 2.1, 0.026, seg=10, mi=BR, rgba=ch)     # lift ram
     m.cylz(0.78, 0, 1.2, 1.24, 0.058, seg=12, mi=ST, rgba=gr)
     m.add(p_cyl(0.07, 0.05, 14), (0.84, 0, 2.18), (math.pi / 2, 0, 0), mi=ST, rgba=ch)                      # chain sheave
     for sy in (-1, 1):
         yc = sy * 0.1
         m.between((0.9, yc, 0.8), (0.9, yc, 2.18), 0.009, seg=6, mi=ST, rgba=(0.3, 0.3, 0.32, 1))
-        for k in range(14): m.rbox(0.9, yc, 0.9 + k * 0.095, 0.022, 0.034, 0.03, 0.004, mi=ST, rgba=(0.38, 0.38, 0.4, 1))
+        for k in range(14): m.rbox(0.9, yc, 0.9 + k * 0.095, 0.022, 0.034, 0.03, 0, mi=ST, rgba=(0.38, 0.38, 0.4, 1))
         a, b = (0.78, sy * 0.31, 0.0), (0.0, 0.0, 0.0)
         m.between((0.805, sy * 0.35, 0.6), (0.805, sy * 0.35, 0.74), 0.01, seg=6, mi=ST, rgba=ch)
         # tilt rams: from the cowl to the mast
@@ -573,9 +580,9 @@ def forklift(F, P, rgba=(0.85, 0.62, 0.06, 1)):
     # ---- carriage, backrest, forks
     for z in (0.2, 0.78): m.rbox(0.97, 0, z, 0.07, 0.98, 0.06, 0.012, mi=ST, rgba=gr)
     for sy in (-1, 1): m.rbox(0.95, sy * 0.46, 0.5, 0.07, 0.06, 0.64, 0.012, mi=ST, rgba=gr)
-    m.rbox(0.95, 0, 0.5, 0.05, 0.86, 0.04, 0.008, mi=ST, rgba=gr)
+    m.rbox(0.95, 0, 0.5, 0.05, 0.86, 0.04, 0, mi=ST, rgba=gr)
     for sy in (-1, 1): m.add(p_cyl(0.035, 0.05, 12), (0.9, sy * 0.4, 0.5), (math.pi / 2, 0, 0), mi=ST, rgba=ch)  # rollers
-    for k in range(8): m.rbox(1.0, -0.455 + k * 0.13, 1.17, 0.035, 0.035, 0.78, 0.006, mi=ST, rgba=(0.12, 0.12, 0.13, 1))   # load backrest
+    for k in range(8): m.rbox(1.0, -0.455 + k * 0.13, 1.17, 0.035, 0.035, 0.78, 0, mi=ST, rgba=(0.12, 0.12, 0.13, 1))   # load backrest
     for z in (0.84, 1.56): m.rbox(1.0, 0, z, 0.045, 1.0, 0.045, 0.01, mi=ST, rgba=(0.12, 0.12, 0.13, 1))
     for sy in (-1, 1): m.rbox(1.0, sy * 0.5, 1.2, 0.045, 0.045, 0.78, 0.01, mi=ST, rgba=(0.12, 0.12, 0.13, 1))
     for sy in (-1, 1):
