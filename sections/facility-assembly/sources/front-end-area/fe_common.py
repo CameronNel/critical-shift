@@ -219,7 +219,7 @@ def families():
     F['plastic'] = make_mat('plastic', (0.2, 0.22, 0.24), 0.45, var=0.08, attr=True, grime=0.4, wear={'color': (0.5, 0.5, 0.5), 'r': 0.006})
     F['signage'] = make_mat('signage', (0.9, 0.9, 0.9), 0.5, attr=True, var=0.05, grime=0.35)
     F['foliage'] = make_mat('foliage', (0.12, 0.30, 0.08), 0.75, attr=True, var=0.3, var_scale=3)
-    F['rock'] = make_mat('rock', (0.42, 0.31, 0.21), 0.9, var=0.35, var_scale=0.3, pointy=True, grime=0.3, dirt=(0.55, 0.5, 0.45), tex={'color': 'rock', 'scale': 0.35, 'tint': (1.6, 1.6, 1.7), 'normal': True, 'nstrength': 1.0, 'blend': 0.3})
+    F['rock'] = make_mat('rock', (0.42, 0.31, 0.21), 0.9, var=0.35, var_scale=0.3, pointy=True, grime=0.3, dirt=(0.55, 0.5, 0.45), tex={'color': 'rock', 'scale': 0.35, 'tint': (0.62, 0.60, 0.68), 'normal': True, 'nstrength': 1.0, 'blend': 0.3})
     F['props'] = make_mat('props', (0.5, 0.4, 0.3), 0.75, attr=True, var=0.22, var_scale=1.5, grime=0.4, wear={'color': (0.7, 0.6, 0.45), 'r': 0.01}, bump=0.12)
     F['emissive'] = make_mat('emissive', (1, 1, 1), 0.4, attr=True, var=0.0, emission=7.0)
     F['screen'] = make_mat('screen', (1, 1, 1), 0.2, attr=True, var=0.0, emission=1.6)

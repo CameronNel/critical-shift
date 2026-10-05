@@ -1,7 +1,7 @@
 """Night sky for the front-end area: a deterministic equirectangular star map (textures/night_sky.jpg).
 
 Real star positions (RA/Dec, approximate J2000) for the named constellations and the brightest stars, seen from latitude 40 N at local
-sidereal time 6 h, so Orion stands high in the south and the Pleiades and Taurus sit to its west. The Milky Way band is laid on the real
+sidereal time 8.5 h, so Orion hangs in the south-west with Taurus beyond it and Capella high in the north-west. The Milky Way band is laid on the real
 galactic plane with dust lanes. A gibbous moon is painted at MOON_DIR; fe_lighting puts the moon light at the same direction.
 
 World direction frame: +x east, +y north, +z up. Blender equirect mapping: u = 0.5 - atan2(d.y, d.x) / 2pi, v = atan2(d.z, hypot(d.x, d.y)) / pi + 0.5.
@@ -10,7 +10,7 @@ Run standalone (python3, needs numpy and Pillow) or through ensure().
 import math, os
 import numpy as np
 
-LAT = math.radians(40.0); LST_H = 6.0
+LAT = math.radians(40.0); LST_H = 8.5
 W, H = 6144, 3072
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'textures', 'night_sky.jpg')
 GAIN = 4.0                                   # image value 1.0 = 4x linear in the world shader
@@ -65,7 +65,7 @@ def altaz_vec(ra_h, dec_deg):
     az = math.atan2(-math.cos(dec) * math.sin(ha), math.sin(dec) * math.cos(LAT) - math.cos(dec) * math.sin(LAT) * math.cos(ha))
     return np.array([math.sin(az) * math.cos(alt), math.cos(az) * math.cos(alt), math.sin(alt)])
 
-MOON_AZ, MOON_ALT = 258.0, 46.0
+MOON_AZ, MOON_ALT = 305.0, 42.0
 def moon_dir():
     a, e = math.radians(MOON_AZ), math.radians(MOON_ALT)
     return np.array([math.sin(a) * math.cos(e), math.cos(a) * math.cos(e), math.sin(e)])

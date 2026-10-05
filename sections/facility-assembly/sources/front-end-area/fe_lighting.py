@@ -29,11 +29,11 @@ CAMERAS = [
  ('YRD_08_NIGHT_SKY', (-22.0, -70.5, 1.7), (-27.8, -103.1, 24.1), 18),
  ('YRD_09_GROUND_CLOSE', (-33.0, -74.4, 0.9), (-30.0, -70.8, 0.1), 24),
  ('YRD_10_ASSET_CLOSE', (-31.2, -77.8, 1.25), (-35.8, -80.8, 0.95), 28),
- ('REV_01_PORCH_HERO', (-8.8, -70.0, 1.65), (-48.0, -70.4, 7.5), 22),
- ('REV_02_VEHICLES', (-28.5, -72.6, 1.7), (-36.0, -80.5, 1.2), 22),
+ ('REV_01_PORCH_HERO', (-16.0, -70.0, 1.65), (-61.3, -76.4, 22.0), 22),
+ ('REV_02_VEHICLES', (-26.5, -75.0, 1.5), (-35.5, -80.6, 1.1), 24),
  ('REV_03_RAIL_DOCK', (-22.2, -68.5, 1.7), (-22.2, -60.5, 2.0), 22),
  ('REV_04_PORTAL', (-31.0, -70.6, 1.7), (-49.0, -70.0, 2.3), 24),
- ('REV_05_POWER_AND_STORE', (-16.2, -72.8, 1.7), (-13.2, -81.6, 2.2), 24),
+ ('REV_05_POWER_AND_STORE', (-16.4, -75.4, 1.6), (-13.0, -81.5, 1.8), 22),
  ('YRD_X1_PORTAL_CLOSE', (-33.5, -71.3, 2.3), (-49.0, -70.0, 2.3), 28),
  ('YRD_X2_FREIGHT_GATE', (-22.2, -64.0, 1.7), (-22.2, -60.0, 2.4), 22),
  ('YRD_X3_EVAC_GATE', (-28.0, -76.0, 1.7), (-28.0, -84.0, 1.6), 20),
@@ -68,7 +68,7 @@ def night_world(sc):
     gain = N('ShaderNodeMix', data_type='RGBA', blend_type='MULTIPLY'); gain.inputs['Factor'].default_value = 1.0; gain.inputs[7].default_value = (fe_sky.GAIN,) * 3 + (1,)
     Lk(env.outputs['Color'], gain.inputs[6]); add = gain
     Lk(add.outputs[2], bg.inputs['Color']); Lk(N('ShaderNodeLightPath').outputs['Is Camera Ray'], bg.inputs['Strength']); Lk(bg.outputs[0], out.inputs['Surface'])   # the sky is seen but lights nothing
-    vol = N('ShaderNodeVolumeScatter'); vol.inputs['Density'].default_value = 0.0016; vol.inputs['Anisotropy'].default_value = 0.35; vol.inputs['Color'].default_value = (0.95, 0.85, 0.75, 1)
+    vol = N('ShaderNodeVolumeScatter'); vol.inputs['Density'].default_value = 0.0009; vol.inputs['Anisotropy'].default_value = 0.35; vol.inputs['Color'].default_value = (0.95, 0.85, 0.75, 1)
     Lk(vol.outputs[0], out.inputs['Volume'])
     return w
 
@@ -89,7 +89,7 @@ def yard_night_lights(lc):
     """Real light for every yard fitting that is drawn lit: floodlight heads, canopy and portal lamps, gate beacons."""
     for o in [o for o in bpy.data.objects if o.name.startswith('pole_')]:
         loc = o.matrix_world @ Vector((0.8, 0.0, 6.12))
-        spot(f'LIGHT_{o.name}', loc, o.rotation_euler.z, math.radians(38), 2200, (1.0, 0.70, 0.38), lc, size=math.radians(105), blend=0.85)
+        spot(f'LIGHT_{o.name}', loc, o.rotation_euler.z, math.radians(38), 4600, (1.0, 0.68, 0.34), lc, size=math.radians(82), blend=0.55)
     for o in [o for o in bpy.data.objects if o.name.startswith('canopy_lamp')]:
         c = world_center(o); area_l = area(f'LIGHT_{o.name}', (0, 0, 0), 0.7, 380, (1.0, 0.82, 0.55), lc, sy=0.25); area_l.location = (c.x, c.y, c.z - 0.06)
     for o in [o for o in bpy.data.objects if o.name.startswith('portal_lamp_') or o.name.startswith('mouth_lamp_')]:
@@ -100,7 +100,7 @@ def yard_night_lights(lc):
     point('LIGHT_cabin_door', (LX(-42.8), LY(-73.4), 2.5), 160, (1.0, 0.85, 0.6), lc, radius=0.1)
     point('LIGHT_evac_gate', (LX(-28.0), LY(-83.2), 2.7), 140, (0.4, 1.0, 0.55), lc, radius=0.1)
     for o in [o for o in bpy.data.objects if o.name.startswith('fire_barrel')]:
-        l = point(f'LIGHT_{o.name}', (o.location.x, o.location.y, 1.25), 420, (1.0, 0.42, 0.10), lc, radius=0.25)
+        l = point(f'LIGHT_{o.name}', (o.location.x, o.location.y, 1.25), 900, (1.0, 0.42, 0.10), lc, radius=0.25)
     # festoon string along the lamp-room front: small warm bulbs, each a real light
     for k in range(7):
         x = -46.0 + k * 1.0; point(f'LIGHT_festoon_{k}', (LX(x), LY(-73.4), 2.75 - 0.12 * math.sin(k * math.pi / 6)), 22, (1.0, 0.62, 0.25), lc, radius=0.04)
@@ -118,7 +118,7 @@ def build_lighting(F, C):
     lc = C['LIGHTS']; sc = bpy.context.scene
     night_world(sc)
     md = Vector(tuple(fe_sky.moon_dir()))                                  # world direction toward the moon
-    moon = bpy.data.lights.new('FE_MOON', 'SUN'); moon.energy = 0.09; moon.angle = math.radians(1.2); moon.color = (0.66, 0.77, 1.0)
+    moon = bpy.data.lights.new('FE_MOON', 'SUN'); moon.energy = 0.11; moon.angle = math.radians(1.2); moon.color = (0.50, 0.62, 1.0)
     mo = bpy.data.objects.new('FE_MOON', moon); mo.rotation_euler = md.to_track_quat('Z', 'Y').to_euler(); lc.objects.link(mo)
     yard_night_lights(lc)
     area('KITCHEN_LIGHT_0', (17.0, -61.9, 2.9), 1.6, 220, (1.0, 0.95, 0.85), lc, sy=0.5); area('KITCHEN_LIGHT_1', (22.5, -61.9, 2.9), 1.6, 220, (1.0, 0.95, 0.85), lc, sy=0.5)
