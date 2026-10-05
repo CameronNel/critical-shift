@@ -65,15 +65,15 @@ def make_mud_material():
     mud = ramp(mid, [(0.30, (0.040, 0.028, 0.018, 1)), (0.55, (0.058, 0.040, 0.026, 1)), (0.80, (0.082, 0.058, 0.037, 1))])
     dry = mix(math_('MULTIPLY', math_('SUBTRACT', big, val=0.50, clamp=False), val=1.2), mud, (0.105, 0.078, 0.052, 1))
     mud_col = mix(math_('MULTIPLY', fine, val=0.22), dry, (0.028, 0.019, 0.013, 1))
-    gcol = mix(0.6, img('gravel_color.jpg', 'sRGB', 0.8), (0.07, 0.06, 0.05, 1))
-    gwet = mix(0.55, gcol, (0.03, 0.026, 0.022, 1))
+    gcol = mix(0.30, img('gravel_color.jpg', 'sRGB', 2.5), (0.045, 0.040, 0.034, 1))
+    gwet = mix(0.45, gcol, (0.02, 0.018, 0.016, 1))
     ground = mix(math_('MINIMUM', math_('MULTIPLY', grv, val=1.6), val=1.0), mud_col, gwet)
     water_col = (0.012, 0.011, 0.010, 1)
     col = mix(math_('MULTIPLY', puddle, val=0.92), ground, water_col)
     L(col, bsdf.inputs['Base Color'])
     # roughness: wet mud is satin, gravel a little rougher, pools are mirror
     r_mud = mix(math_('MULTIPLY', fine, val=1.0), 0.38, 0.62, 'FLOAT')
-    r_ground = mix(math_('MINIMUM', math_('MULTIPLY', grv, val=1.6), val=1.0), r_mud, 0.55, 'FLOAT')
+    r_ground = mix(math_('MINIMUM', math_('MULTIPLY', grv, val=1.6), val=1.0), r_mud, 0.82, 'FLOAT')
     rough = mix(puddle, r_ground, 0.025, 'FLOAT'); L(rough, bsdf.inputs['Roughness'])
     if 'Specular IOR Level' in bsdf.inputs: bsdf.inputs['Specular IOR Level'].default_value = 0.55
     # wet sheen over the mud
@@ -81,8 +81,8 @@ def make_mud_material():
         bsdf.inputs['Coat Weight'].default_value = 0.0; L(math_('MAXIMUM', math_('MULTIPLY', math_('SUBTRACT', 1.0, grv, clamp=False), val=0.35), puddle), bsdf.inputs['Coat Weight'])
         bsdf.inputs['Coat Roughness'].default_value = 0.06
     # normal: clods and gravel grit, flat in water
-    bump_h = mix(math_('MULTIPLY', grv, val=1.0), math_('ADD', math_('MULTIPLY', fine, val=0.7), math_('MULTIPLY', noise(5.0, 5), val=0.5)), img('gravel_rough.jpg', 'Non-Color', 0.8))
-    bp = N('ShaderNodeBump'); bp.inputs['Distance'].default_value = 0.02
+    bump_h = mix(math_('MULTIPLY', grv, val=1.0), math_('ADD', math_('MULTIPLY', fine, val=0.7), math_('MULTIPLY', noise(5.0, 5), val=0.5)), img('gravel_rough.jpg', 'Non-Color', 3.0))
+    bp = N('ShaderNodeBump'); bp.inputs['Distance'].default_value = 0.03
     L(bump_h, bp.inputs['Height']); L(math_('MULTIPLY', math_('SUBTRACT', 1.0, puddle, clamp=False), val=0.8), bp.inputs['Strength']); L(bp.outputs[0], bsdf.inputs['Normal'])
     # a displacement-free height cue for the gravel normal map
     return m
