@@ -15,7 +15,8 @@ def chair(F, P, rgba=(0.55, 0.17, 0.09, 1), name='chair'):
         for sy, splay in ((-1, -0.05), (1, 0.07)):
             m.between((sx * 0.185, sy * 0.17, 0.43), (sx * 0.2, sy * 0.19 + splay, 0.012), 0.0135, seg=12, mi=I['steel_charcoal'], rgba=(0.13, 0.13, 0.14, 1))
             m.cylz(sx * 0.2, sy * 0.19 + splay, 0.0, 0.016, 0.019, seg=12, mi=I['rubber'], rgba=(0.03, 0.03, 0.03, 1))
-        m.between((sx * 0.185, -0.17, 0.43), (sx * 0.19, -0.222, 0.86), 0.0125, seg=12, mi=I['steel_charcoal'], rgba=(0.13, 0.13, 0.14, 1))
+        m.between((sx * 0.185, -0.17, 0.43), (sx * 0.19, -0.236, 0.70), 0.0125, seg=12, mi=I['steel_charcoal'], rgba=(0.13, 0.13, 0.14, 1))
+        m.rbox(sx * 0.19, -0.234, 0.70, 0.05, 0.016, 0.09, 0.005, mi=I['steel_charcoal'], rgba=(0.13, 0.13, 0.14, 1))      # bracket, stays behind the shell
     for z in (0.17, 0.30): m.between((-0.19, 0.0, z), (0.19, 0.0, z), 0.0085, seg=8, mi=I['steel_charcoal'], rgba=(0.13, 0.13, 0.14, 1))
     for sy in (-1, 1): m.between((-0.19, sy * 0.185, 0.34), (0.19, sy * 0.185, 0.34), 0.0085, seg=8, mi=I['steel_charcoal'], rgba=(0.13, 0.13, 0.14, 1))
     return m.finish('proto_' + name, P)

@@ -54,19 +54,21 @@ def arcade_basketball(F, P):
     return m.finish('proto_arcade_basketball', P)
 
 def kiosk_v2(F, P):
-    """Self-order kiosk: tilted touchscreen, card reader, receipt slot, ticket printer, rear vent grille and service door."""
-    m = mb(F); body = (0.1, 0.12, 0.2, 1); chrome = (0.72, 0.74, 0.76, 1); orange = (0.86, 0.42, 0.08, 1)
-    m.rbox(0, 0, 0.55, 0.62, 0.42, 1.1, 0.035, mi=I['plastic'], rgba=body)
-    m.rbox(0, 0.03, 1.28, 0.62, 0.3, 0.52, 0.045, rot=(-0.32, 0, 0), mi=I['plastic'], rgba=body)
-    m.rbox(0, 0.196, 1.29, 0.5, 0.012, 0.4, 0.006, rot=(-0.32, 0, 0), mi=I['steel_charcoal'], rgba=(0.02, 0.02, 0.03, 1))
-    m.quad_image(0, 0.204, 1.295, 0.46, 0.36, I['tv_slide']) if False else m.rbox(0, 0.204, 1.295, 0.46, 0.006, 0.36, 0.003, rot=(-0.32, 0, 0), mi=I['screen'], rgba=(0.95, 0.7, 0.3, 1))
-    m.rbox(0, 0.215, 0.98, 0.26, 0.05, 0.12, 0.014, mi=I['steel_charcoal'], rgba=(0.06, 0.06, 0.07, 1)); m.rbox(0, 0.242, 0.98, 0.18, 0.006, 0.02, 0.003, mi=I['emissive'], rgba=(0.3, 0.9, 0.5, 1))
-    m.rbox(0, 0.213, 0.76, 0.22, 0.03, 0.02, 0.006, mi=I['steel_charcoal'], rgba=(0.01, 0.01, 0.01, 1)); m.rbox(0, 0.215, 0.62, 0.3, 0.015, 0.2, 0.01, mi=I['steel_charcoal'], rgba=(0.14, 0.14, 0.16, 1))
-    m.rbox(0, 0.0, 1.62, 0.66, 0.36, 0.06, 0.025, mi=I['steel_accent'], rgba=orange)
-    for k in range(10): m.rbox(0, -0.215, 0.5 + k * 0.045, 0.34, 0.01, 0.014, 0.003, mi=I['steel_charcoal'], rgba=(0.04, 0.04, 0.05, 1))
-    m.rbox(0, -0.215, 0.95, 0.4, 0.006, 0.5, 0.004, mi=I['steel_charcoal'], rgba=(0.14, 0.15, 0.2, 1)); m.rbox(0.12, -0.222, 0.95, 0.03, 0.02, 0.08, 0.008, mi=I['steel_charcoal'], rgba=chrome)
-    m.rbox(0, 0, 0.02, 0.7, 0.5, 0.04, 0.012, mi=I['steel_charcoal'], rgba=(0.07, 0.07, 0.08, 1))
-    m.between((0.2, -0.21, 0.09), (0.28, -0.4, 0.02), 0.012, seg=6, mi=I['rubber'], rgba=(0.03, 0.03, 0.03, 1))
+    """Self-order kiosk: one slim moulded pillar with a recessed screen under a hood, card reader, receipt slot, ticket tray, side vents and an orange header cap. Front faces +y."""
+    m = mb(F); body = (0.13, 0.15, 0.24, 1); dark = (0.02, 0.02, 0.03, 1); orange = (0.86, 0.42, 0.08, 1)
+    m.rbox(0, 0, 0.04, 0.66, 0.46, 0.08, 0.015, mi=I['steel_charcoal'], rgba=(0.07, 0.07, 0.08, 1))                 # plinth
+    m.rbox(0, 0, 0.84, 0.54, 0.34, 1.52, 0.04, mi=I['plastic'], rgba=body)                                           # pillar
+    m.rbox(0, 0, 1.64, 0.58, 0.38, 0.1, 0.03, mi=I['steel_accent'], rgba=orange)                                      # header cap
+    m.rbox(0, 0.175, 1.47, 0.5, 0.03, 0.12, 0.012, mi=I['plastic'], rgba=tuple(c * 0.7 for c in body[:3]) + (1,))     # screen hood
+    m.rbox(0, 0.172, 1.27, 0.46, 0.012, 0.36, 0.01, mi=I['steel_charcoal'], rgba=dark)                               # bezel
+    m.rbox(0, 0.18, 1.27, 0.40, 0.006, 0.30, 0.004, mi=I['screen'], rgba=(0.95, 0.7, 0.3, 1))                        # screen
+    m.rbox(0, 0.18, 0.98, 0.24, 0.03, 0.10, 0.012, mi=I['steel_charcoal'], rgba=(0.06, 0.06, 0.07, 1)); m.rbox(0, 0.197, 0.98, 0.16, 0.006, 0.018, 0.003, mi=I['emissive'], rgba=(0.3, 0.9, 0.5, 1))   # card reader
+    m.rbox(0, 0.178, 0.80, 0.22, 0.02, 0.022, 0.006, mi=I['steel_charcoal'], rgba=(0.01, 0.01, 0.01, 1))             # receipt slot
+    m.rbox(0, 0.205, 0.66, 0.30, 0.09, 0.03, 0.01, rot=(0.35, 0, 0), mi=I['steel_charcoal'], rgba=(0.14, 0.14, 0.16, 1))   # ticket tray
+    for sx in (-1, 1):
+        for k in range(7): m.rbox(sx * 0.272, 0, 0.45 + k * 0.045, 0.012, 0.2, 0.014, 0.003, mi=I['steel_charcoal'], rgba=(0.04, 0.04, 0.05, 1))
+    m.rbox(0, -0.172, 0.95, 0.36, 0.006, 0.7, 0.004, mi=I['steel_charcoal'], rgba=(0.16, 0.17, 0.22, 1))             # rear service panel
+    m.rbox(0.12, -0.178, 0.95, 0.03, 0.014, 0.08, 0.006, mi=I['steel_brushed'], rgba=(0.8, 0.82, 0.84, 1))
     return m.finish('proto_kiosk_v2', P)
 
 def tray_stack(F, P, n=8):
