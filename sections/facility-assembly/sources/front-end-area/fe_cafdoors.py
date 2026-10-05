@@ -7,14 +7,14 @@ def build_cafe_doors_and_signs(F, C):
     caf, yard, hall = C['CAFETERIA'], C['YARD'], C['HALL']; P = collection('PROTOTYPES')
     la = leaf_airlock(F, P); lg = leaf_glazed(F, P); lm = leaf_medical(F, P); ls = leaf_staff(F, P); lsl = sliding_panel(F, P)
     # ---- spawn airlock, south wall (x 6.7..9.3): two pressure-door leaves, closed
-    place_leaf(la, 'airlock_leaf_L', caf, 'x', 6.71, -80.0, 0.0, '+'); place_leaf(la, 'airlock_leaf_R', caf, 'x', 9.29, -80.0, 0.0, '+', mirror=True)
+    place_leaf(la, 'airlock_leaf_L', caf, 'x', 6.62, -80.0, 1.5, '+'); place_leaf(la, 'airlock_leaf_R', caf, 'x', 9.38, -80.0, 1.5, '+', mirror=True)
     box('airlock_threshold', 6.7, 9.3, -80.12, -79.88, 0.0, 0.025, F['steel_charcoal'], caf, bev=0.006)
     box('airlock_header_hazard', 6.6, 9.4, -79.86, -79.83, 2.62, 2.7, F['signage'], caf, rgba=(0.92, 0.72, 0.05, 1))
     # ---- yard door, west wall (y -71.5..-68.5): two glazed leaves, the north one ajar
-    place_leaf(lg, 'yard_leaf_S', caf, 'y', -8.0, -71.49, 0.0, '+'); place_leaf(lg, 'yard_leaf_N', caf, 'y', -8.0, -68.51, 0.5, '+', mirror=True)
+    place_leaf(lg, 'yard_leaf_S', caf, 'y', -8.0, -71.58, 1.5, '+'); place_leaf(lg, 'yard_leaf_N', caf, 'y', -8.0, -68.42, 1.5, '+', mirror=True)
     box('yard_threshold', -8.15, -7.85, -71.5, -68.5, 0.0, 0.02, F['steel_charcoal'], caf, bev=0.005)
     # ---- medical door, east wall (y -71.1..-68.9): two white leaves, closed
-    place_leaf(lm, 'med_leaf_S', caf, 'y', 26.0, -71.09, 0.0, '-'); place_leaf(lm, 'med_leaf_N', caf, 'y', 26.0, -68.91, 0.0, '-', mirror=True)
+    place_leaf(lm, 'med_leaf_S', caf, 'y', 26.0, -71.3, 1.5, '-'); place_leaf(lm, 'med_leaf_N', caf, 'y', 26.0, -68.7, 1.5, '-', mirror=True)
     box('med_threshold', 25.85, 26.15, -71.1, -68.9, 0.0, 0.02, F['steel_charcoal'], caf, bev=0.005)
     # ---- kitchen staff door in the kitchen's west wall (y -62.9..-62.0), ajar into the kitchen
     for nm, (y0, y1, z0, z1) in {'kdoor_wall_S': (-64.0, -62.95, 0, 3.3), 'kdoor_wall_N': (-62.0, -60.15, 0, 3.3), 'kdoor_head': (-62.95, -62.0, 2.1, 3.3)}.items():
@@ -50,13 +50,14 @@ def build_cafe_doors_and_signs(F, C):
                                        ('DRINKS & SNACKS', ['Tea and coffee  1.50', 'Fresh juice  1.80', 'Fruit pot  1.00']))):
         sign(caf, f'menu_board_{k}', title, 15.35 + k * 3.2 + 1.5, -64.17, 2.45, 'S', 3.0, 0.82, style='board', lines=lines)
     # ---- wall graphics: large baked slogan plates and rules boards
-    sign(caf, 'banner_slogan', 'PEOPLE KEEP OPERATIONS MOVING', 12.0, -79.83, 3.1, 'N', 4.2, 0.62, sub='Critical Shift', style='nav')
-    sign(caf, 'banner_safer', 'SAFER TOGETHER', 4.4, -79.83, 3.1, 'N', 3.0, 0.6, sub='Report hazards to your shift lead', style='green')
+    sign(caf, 'banner_slogan', 'PEOPLE KEEP OPERATIONS MOVING', 14.0, -79.83, 3.1, 'N', 3.4, 0.62, sub='Critical Shift', style='nav')
+    sign(caf, 'banner_safer', 'SAFER TOGETHER', 2.0, -79.83, 3.1, 'N', 3.3, 0.6, sub='Report hazards to your shift lead', style='green')
     sign(caf, 'banner_recycle', 'RECYCLING', 25.83, -77.6, 1.5, 'W', 1.6, 0.34, icon='arrow_d', style='green')
     sign(caf, 'rules_game', 'GAME ROOM RULES', -7.2, -60.17, 2.55, 'S', 1.7, 1.0, style='board', lines=['Wipe tables after use  ', 'Return the balls  ', 'Quiet after 22:00  ', 'Be kind  '])
     sign(caf, 'sign_lounge_wall', 'LOUNGE', -7.83, -78.2, 2.9, 'E', 1.3, 0.36, icon='sofa', style='green')
     sign(caf, 'neon_game', 'GAME ROOM', -3.6, -60.17, 3.25, 'S', 2.6, 0.55, sub='Foosball  -  basketball  -  darts', icon='game', style='nav', lit=True)
     sign(caf, 'board_allergen', 'ALLERGEN INFORMATION', 13.9, -61.15, 1.45, 'W', 1.7, 1.15, style='board', lines=['Ask staff before ordering  ', 'Nuts  -  see counter  ', 'Dairy  -  see counter  ', 'Gluten  -  see counter  '])
+    sign(caf, 'board_directory', 'DIRECTORY', 10.8, -66.58, 0.55, 'S', 0.8, 1.45, style='board', lines=['Dining hall  east  ', 'Serving  east  ', 'Lounge  west  ', 'Game room  west  ', 'Hall  north  ', 'Yard  west  ', 'Medical  east  '])
     sign(caf, 'sign_wash_hands', 'WASH YOUR HANDS', 13.9, -63.55, 1.35, 'W', 0.95, 0.26, style='med')
     # branded wall band along every cafeteria wall
     from fe_assets_caf2 import wall_band

@@ -1,10 +1,10 @@
 {
  "triangles": {
-  "YARD": 336796,
-  "CAFETERIA": 196342,
-  "HALL": 122290,
+  "YARD": 327180,
+  "CAFETERIA": 239582,
+  "HALL": 113962,
   "SHARED": 2996,
-  "TOTAL": 658424,
+  "TOTAL": 683720,
   "within_budget": true
  },
  "budget_m": 800000,
@@ -125,7 +125,7 @@
  ],
  "support_contact": {
   "interior": {
-   "checked": 145,
+   "checked": 154,
    "gap_fail": [],
    "pen_fail": []
   },
@@ -137,8 +137,12 @@
   }
  },
  "support_exempt_by_kind": {
-  "table": 32,
-  "wall": 71,
+  "table": 46,
+  "rug": 2,
+  "wall": 96,
+  "soft": 3,
+  "door": 9,
+  "hanging": 5,
   "stack": 7,
   "lean": 2,
   "heap": 93,

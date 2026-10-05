@@ -12,13 +12,33 @@ ochre; no teal.
   `blender --background --factory-startup --python build_front_end.py -- --stages shell,yard,cafeteria,hall,dress --output front_end_area.blend`.
   Needs `../mine-r39/module_r39_aaa.blend` (LFS pulled) for the mine front.
 - `render_views.py`: renders the fixed cameras (see `CAMERAS.md`). `validate_front_end.py`: numeric checks, output `validation.json`.
-- `renders/`: the nine fixed-camera images that were opened and inspected.
+- `renders/`: the nine v3 whole-area images (not regenerated this pass) and the eight revision 4 cafeteria images `CAF_*` (1600 x 900, 32 samples), all opened and inspected.
 
 ## Frame and interfaces
 Module-local frame: origin at the spawn airlock threshold, +Y into the building, +X east. Plan = local + (8, -80).
 Seven `IF_PORTAL_*` empties with clear width, height and outward normal: spawn airlock 2.6 m, yard door 3.0 m, medical door 2.2 m,
 cafeteria-to-hall opening 6.0 m, hall west door 2.4 m, hall east door 2.4 m, spine blast door 3.6 m. All sit at the planned
 plan positions; none were moved.
+
+## Revision 4 (2026-10-05): cafeteria-only refinement pass, doors with baked signs
+Per the owner's instruction to stop one-shotting every room, only the cafeteria (dining, serving/kitchen, lounge plus small game corner) was
+refined this pass. Hall and yard art were not refined; their text now uses the baked sign pipeline but the layouts are unchanged from v3.
+- Five inspection cameras (`CAF_01_ENTRY_NORTH`, `CAF_02_DINING`, `CAF_03_SERVING`, `CAF_04_LOUNGE`, `CAF_05_GAME_CORNER`) plus three door-check
+  cameras (`CAF_X1_AIRLOCK_DOOR`, `CAF_X2_YARD_DOOR`, `CAF_X3_MEDICAL_DOOR`). Four inspect-and-fix rounds were run on them.
+- Doors: real frames and leaves on every opening: spawn airlock (hazard-striped pressure leaves with porthole and wheel), yard door, medical
+  door, kitchen staff door, hall opening (sliding panels parked hall-side, rail and sensor). Leaves are swung open against the jambs so the
+  reactor-axis and door lanes stay clear (`lane_pass` true).
+- Signs: all lettering and icons are baked into one atlas, `textures/sign_atlas.png`, painted by `fe_signs.py` (Pillow, build-time only). Every
+  sign is a single plate mesh with UVs into the atlas, in the spawn-room style (dark plates, white lettering, icon, orange bar). There are
+  no text objects or per-letter shapes anywhere in the cafeteria. Signs: door and exit signs, hanging zone signs, menu boards, directory board,
+  allergen board, banners, recycling, game room rules, neon game room sign.
+- More cafeteria detail: branded wall bands on all four walls, painted roof beams, food pans in the hot wells, patterned baked rugs, TV and
+  poster art, directory board (the old blank totem screen), tray stacks, bread basket, cutlery bin, sanitiser stations, recycling bins, tray
+  trolley, bean bags, stools, side tables, table lamps, detailed arcade basketball.
+- Build needs Pillow: `blender-python -m pip install --target pylib pillow` (the build adds `pylib/` to its path; not committed).
+- Numbers (validation.json): total 683,720 triangles (yard 327,180, cafeteria 239,582, hall 113,962, shared 2,996), within the 800k budget.
+  Support contact: 154 interior and 130 yard objects, 0 gap and 0 penetration failures. Clear lanes: pass. Interfaces unchanged.
+- Status: still unreviewed, no independent review, not accepted. The earlier Revision 3 numbers below are superseded.
 
 ## Revision 3 (2026-10-05): cafeteria restored, game room cut down, real textures, more props
 The owner found v2 too sparse and too low in visual quality, and said the cafeteria had gone missing (v2 had shrunk the dining area to

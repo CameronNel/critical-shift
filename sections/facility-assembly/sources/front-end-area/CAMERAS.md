@@ -16,3 +16,16 @@ Plan coordinates (metres, x east, y north, z up); module-local = plan + (-8, +80
 | FE_09_MINE_FRONT | -30.5, -70.9, 1.7 | -48.0, -70.0, 2.3 | 24 | the R39 portal front, tunnel mouth, rail start |
 
 FE_08 was re-aimed and FE_09 added after the owner's review notes (the old FE_08 looked at a lounge that no longer exists).
+
+## Cafeteria inspection cameras (revision 4)
+
+| Camera | Eye (x, y, z) | Target (x, y, z) | Lens | Checks |
+|---|---|---|---|---|
+| CAF_01_ENTRY_NORTH | 8.0, -79.2, 1.65 | 8.0, -60.0, 2.3 | 20 | first view from the airlock: hall sign, directory, kiosk, serving |
+| CAF_02_DINING | 9.5, -78.8, 1.7 | 21.5, -72.5, 1.0 | 22 | dining tables, booths, drinks, recycling, medical door |
+| CAF_03_SERVING | 9.6, -70.9, 1.7 | 20.5, -64.5, 1.4 | 24 | counter, menu boards, kiosk, queue, kitchen door |
+| CAF_04_LOUNGE | 3.4, -71.2, 1.65 | -5.0, -77.0, 1.0 | 20 | lounge, TV wall, bookcase, yard door |
+| CAF_05_GAME_CORNER | 3.0, -67.0, 1.65 | -5.0, -62.5, 1.2 | 20 | arcade, foosball, darts, rules board |
+| CAF_X1_AIRLOCK_DOOR | 8.0, -71.5, 1.65 | 8.0, -80.0, 1.7 | 20 | spawn airlock leaves and sign |
+| CAF_X2_YARD_DOOR | 1.5, -70.0, 1.65 | -8.0, -70.0, 1.7 | 20 | yard door leaves and exit sign |
+| CAF_X3_MEDICAL_DOOR | 18.5, -70.0, 1.65 | 26.0, -70.0, 1.7 | 20 | medical door and sign |

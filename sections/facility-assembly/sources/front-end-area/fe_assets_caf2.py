@@ -116,7 +116,7 @@ def recycling_bins(F, P):
 def tray_trolley(F, P):
     m = mb(F); steel = (0.72, 0.74, 0.76, 1)
     for sx in (-1, 1):
-        for sy in (-1, 1): m.cylz(sx * 0.4, sy * 0.28, 0.12, 1.5, 0.014, seg=8, mi=I['steel_charcoal'], rgba=steel); m.add(p_cyl(0.05, 0.03, 12), (sx * 0.4, sy * 0.28, 0.06), (math.pi / 2, 0, 0), mi=I['rubber'], rgba=(0.03, 0.03, 0.03, 1))
+        for sy in (-1, 1): m.cylz(sx * 0.4, sy * 0.28, 0.12, 1.5, 0.014, seg=8, mi=I['steel_charcoal'], rgba=steel); m.add(p_cyl(0.05, 0.03, 12), (sx * 0.4, sy * 0.28, 0.05), (math.pi / 2, 0, 0), mi=I['rubber'], rgba=(0.03, 0.03, 0.03, 1))
     for z in (0.35, 0.8, 1.25):
         m.rbox(0, 0, z, 0.9, 0.64, 0.02, 0.006, mi=I['steel_charcoal'], rgba=steel)
         for k in range(4 if z < 1.2 else 2): m.rbox(-0.3 + k * 0.2, 0, z + 0.03 + 0.0, 0.02, 0.5, 0.04, 0.004, mi=I['steel_charcoal'], rgba=steel) if False else m.rbox(0, -0.1 + k * 0.07, z + 0.02, 0.4, 0.06, 0.02, 0.006, mi=I['plastic'], rgba=[(0.12, 0.35, 0.5, 1), (0.8, 0.45, 0.15, 1)][k % 2])
@@ -125,20 +125,20 @@ def tray_trolley(F, P):
 
 def bean_bag(F, P, rgba=(0.8, 0.35, 0.1, 1)):
     m = mb(F)
-    m.add(p_cushion(0.8, 0.8, 0.55, 0.2, 2), (0, 0, 0.3), (0, 0, 0), mi=I['fabric'], rgba=rgba)
+    m.add(p_cushion(0.8, 0.8, 0.55, 0.2, 2), (0, 0, 0.27), (0, 0, 0), mi=I['fabric'], rgba=rgba)
     return m.finish('proto_bean_bag', P)
 
 def stool(F, P, rgba=(0.12, 0.17, 0.35, 1)):
     m = mb(F)
     m.cylz(0, 0, 0.62, 0.68, 0.18, seg=20, bevel=0.02, mi=I['fabric'], rgba=rgba)
-    for k in range(4): a = k * math.pi / 2 + 0.4; m.between((math.cos(a) * 0.1, math.sin(a) * 0.1, 0.62), (math.cos(a) * 0.2, math.sin(a) * 0.2, 0.0), 0.014, seg=8, mi=I['steel_charcoal'], rgba=(0.72, 0.74, 0.76, 1))
+    for k in range(4): a = k * math.pi / 2 + 0.4; m.between((math.cos(a) * 0.1, math.sin(a) * 0.1, 0.62), (math.cos(a) * 0.2, math.sin(a) * 0.2, 0.002), 0.014, seg=8, mi=I['steel_charcoal'], rgba=(0.72, 0.74, 0.76, 1))
     m.add(p_torus(0.17, 0.01, 20, 5), (0, 0, 0.25), (0, 0, 0), mi=I['steel_charcoal'], rgba=(0.72, 0.74, 0.76, 1))
     return m.finish('proto_stool', P)
 
 def side_table(F, P):
     m = mb(F)
     m.cylz(0, 0, 0.45, 0.48, 0.25, seg=24, bevel=0.01, mi=I['laminate'], rgba=(0.72, 0.64, 0.52, 1))
-    for k in range(3): a = k * 2.094 + 0.5; m.between((math.cos(a) * 0.14, math.sin(a) * 0.14, 0.45), (math.cos(a) * 0.2, math.sin(a) * 0.2, 0.0), 0.016, seg=8, mi=I['timber'], rgba=(0.3, 0.17, 0.08, 1))
+    for k in range(3): a = k * 2.094 + 0.5; m.between((math.cos(a) * 0.14, math.sin(a) * 0.14, 0.45), (math.cos(a) * 0.2, math.sin(a) * 0.2, 0.002), 0.016, seg=8, mi=I['timber'], rgba=(0.3, 0.17, 0.08, 1))
     return m.finish('proto_side_table', P)
 
 def throw_cushion(F, P, rgba=(0.82, 0.62, 0.2, 1)):

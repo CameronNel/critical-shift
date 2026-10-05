@@ -88,9 +88,6 @@ def planter_long(F, P):
 def totem(F, P):
     m = mb(F)
     m.rbox(0, 0, 1.05, 0.9, 0.16, 2.1, 0.02, mi=I['plastic'], rgba=(0.12, 0.14, 0.3, 1))
-    m.rbox(0, 0.085, 1.45, 0.76, 0.01, 0.9, 0.004, mi=I['screen'], rgba=(0.9, 0.78, 0.5, 1))
-    for k in range(5): m.rbox(0.0, 0.092, 1.7 - k * 0.15, 0.55 - (k % 2) * 0.2, 0.004, 0.035, 0.001, mi=I['signage'], rgba=(0.12, 0.1, 0.07, 1))
-    m.rbox(0, 0.085, 0.7, 0.6, 0.01, 0.3, 0.004, mi=I['signage'], rgba=(0.8, 0.38, 0.06, 1))
     m.rbox(0, 0.0, 0.02, 1.0, 0.3, 0.04, 0.01, mi=I['steel_charcoal'], rgba=(0.08, 0.08, 0.09, 1))
     return m.finish('proto_totem', P)
 
@@ -177,7 +174,7 @@ def build_cafeteria(F, C):
     pl = planter_long(F, P); tt = totem(F, P)
     for i in range(3): inst(pl, f'divider_game_{i}', -6.2 + i * 1.95, -66.9, caf, rz=0.0)
     for i in range(2): inst(pl, f'divider_dining_{i}', 13.4, -76.0 - i * 1.95, caf, rz=math.pi / 2) if False else None
-    inst(tt, 'directory_totem', 10.8, -66.5, caf, rz=0.0)
+    inst(tt, 'directory_totem', 10.8, -66.5, caf, rz=math.pi)
     for i, x in enumerate((-5.5, -3.2)): inst(wsh[i % 2], f'game_wall_shelf_{i}', x, -60.17, caf, z=2.3, support=None, rz=math.pi)
     # ---- food service dressing on the counter and around the queue
     ts_, ps_, cs_, bb_, cb_ = tray_stack(F, P), plate_stack(F, P), cup_stack(F, P), bread_basket(F, P), cutlery_bin(F, P)
