@@ -39,6 +39,20 @@ def decal(coll, name, cell, face, a, b, z0, z1, off, strength=0.5, flip=False):
     o = bpy.data.objects.new(name, me); coll.objects.link(o); o.visible_shadow = False
     return o
 
+def _wall_wear(coll, walls, rnd, nm, scuffs=14, drips=3):
+    """Dado scuffs, skirting dust and water streaks along interior wall faces. walls: (facing, wall face coordinate, (lo, hi) span, [excluded spans])."""
+    for face, off, (lo, hi), excl in walls:
+        def free(a, b): return not any(a < e1 and b > e0 for e0, e1 in excl)
+        for k in range(scuffs):
+            a = rnd.uniform(lo, hi - 1.2); w = rnd.uniform(0.6, 1.3)
+            if free(a, a + w):
+                doff = off + (0.08 if face in ('N', 'E') else -0.08)
+                decal(coll, nm('dado_scuff'), 'scuff', face, a, a + w, 0.15, 0.15 + w * 0.6, doff, rnd.uniform(0.35, 0.6), flip=rnd.random() < 0.5)
+        decal(coll, nm('skirt_dust'), 'dust', face, lo, hi, 0.12, 0.7, off + (0.08 if face in ('N', 'E') else -0.08), 0.55)
+        for k in range(drips):
+            a = rnd.uniform(lo, hi - 1.5); w = rnd.uniform(0.9, 1.6)
+            if free(a, a + w): decal(coll, nm('streak_drip'), 'drip', face, a, a + w, 1.35, 2.7, off + (0.005 if face in ('N', 'E') else -0.005), rnd.uniform(0.3, 0.5), flip=rnd.random() < 0.5)
+
 def build_wear(F, C):
     caf, hall = C['CAFETERIA'], C['HALL']
     rnd = random.Random(77); n = 0
@@ -92,4 +106,14 @@ def build_wear(F, C):
     for k in range(10):
         x = rnd.uniform(-3.0, 30.0); s = rnd.uniform(0.6, 1.2)
         decal(hall, nm('hall_floor_scuff'), 'scuff', 'F', x - s, x + s, rnd.uniform(-58.5, -49.5) - 0.5, rnd.uniform(-58.5, -49.5) + 0.5, 0.005, rnd.uniform(0.3, 0.5))
+    # hall: lanes, doors, dispatch bays and the blast door take the traffic
+    for k in range(14):
+        x = rnd.uniform(-3.0, 30.0); sx = rnd.uniform(0.7, 1.4)
+        decal(hall, nm('hall_floor_scuff'), 'scuff', 'F', x - sx, x + sx, -55.2 + rnd.uniform(-0.3, 1.9) - 0.5, -55.2 + rnd.uniform(-0.3, 1.9) + 0.5, 0.005, rnd.uniform(0.3, 0.5), flip=rnd.random() < 0.5)
+    for (x0, x1, y0, y1) in ((20.4, 30.0, -58.8, -56.4), (6.3, 9.7, -52.0, -48.6), (-3.8, -1.5, -56.6, -52.6), (28.4, 31.8, -56.0, -52.4)):
+        decal(hall, nm('skid'), 'skid', 'F', x0, x1, y0, y1, 0.005, 0.5, flip=rnd.random() < 0.5)
+    for (x, y) in ((24.0, -57.7), (3.0, -57.0), (-1.5, -50.8)):
+        decal(hall, nm('hall_blotch'), 'blotch', 'F', x - 0.8, x + 0.8, y - 0.8, y + 0.8, 0.0045, 0.3)
+    decal(hall, 'streak_path_hall_ns', 'path', 'F', 6.4, 9.6, -59.8, -48.4, 0.004, 0.55)
+    _wall_wear(hall, (('N', -59.83, (-3.7, 31.7), [(4.9, 11.1)]), ('S', -48.17, (-3.7, 31.7), [(5.7, 10.3)]), ('E', -3.83, (-59.7, -48.3), [(-55.4, -52.6)]), ('W', 31.83, (-59.7, -48.3), [(-55.4, -52.6)])), rnd, nm, scuffs=12, drips=2)
     return n

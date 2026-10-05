@@ -53,7 +53,9 @@ def kitchen_block(F, P):
             m.cylz(x - 0.75 + b * 0.5, 1.0, 0.9, 0.93, 0.13, seg=20, mi=I['steel_charcoal'], rgba=(0.05, 0.05, 0.06, 1))
         m.rbox(x, 1.0, 0.45, 2.0, 0.02, 0.6, 0.006, rot=(0, 0, 0), mi=I['steel_brushed'], rgba=(0.9, 0.9, 0.92, 1)) if False else None
         for kn in range(4): m.add(p_cyl(0.025, 0.03, 10), (x - 0.75 + kn * 0.5, 0.54, 0.7), (math.pi / 2, 0, 0), mi=I['plastic'], rgba=(0.1, 0.1, 0.11, 1))
-    m.lathe([(0.0, 0.0), (1.2, 0.0), (1.1, 0.5), (0.35, 0.8), (0.3, 1.0), (0.0, 1.0)], loc=(-2.8, 1.0, 2.1), seg=4, mi=I['steel_charcoal'], rgba=steel, rot=(0, 0, math.pi / 4), scale=(2.5, 0.9, 1.0))
+    m.rbox(-2.8, 1.0, 2.2, 3.0, 1.3, 0.24, 0.03, mi=I['steel_charcoal'], rgba=steel)                 # extractor hood: canopy, taper, flue (kept inside the 3.8 m deep block)
+    m.rbox(-2.8, 1.0, 2.55, 2.1, 0.95, 0.46, 0.03, mi=I['steel_charcoal'], rgba=steel)
+    m.rbox(-2.8, 1.0, 2.98, 0.6, 0.6, 0.3, 0.02, mi=I['steel_charcoal'], rgba=steel)
     m.rbox(-2.8, 1.0, 3.0, 0.5, 0.5, 0.3, 0.03, mi=I['steel_charcoal'], rgba=steel)
     for x in (2.2, 4.4):
         m.rbox(x, -1.4, 0.45, 1.9, 0.8, 0.9, 0.02, mi=I['steel_charcoal'], rgba=steel)

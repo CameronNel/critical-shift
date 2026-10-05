@@ -97,7 +97,7 @@
  },
  "kitchen_block": {
   "group": "serving",
-  "tris": 12508,
+  "tris": 13032,
   "cap": 15000,
   "ok": true
  },
@@ -363,6 +363,180 @@
   "group": "doors",
   "tris": 264,
   "cap": 4000,
+  "ok": true
+ },
+ "hall_W_door_leaf_1": {
+  "group": "doors",
+  "tris": 420,
+  "cap": 2000,
+  "ok": true
+ },
+ "lockers": {
+  "group": "hall_ops",
+  "tris": 6412,
+  "cap": 7000,
+  "ok": true
+ },
+ "locker_bench": {
+  "group": "hall_ops",
+  "tris": 352,
+  "cap": 2000,
+  "ok": true
+ },
+ "ops_desk": {
+  "group": "hall_ops",
+  "tris": 3096,
+  "cap": 3500,
+  "ok": true
+ },
+ "office_chair": {
+  "group": "hall_ops",
+  "tris": 1424,
+  "cap": 1500,
+  "ok": true
+ },
+ "radio_dock": {
+  "group": "hall_ops",
+  "tris": 3480,
+  "cap": 3600,
+  "ok": true
+ },
+ "key_cabinet": {
+  "group": "hall_ops",
+  "tris": 1024,
+  "cap": 2000,
+  "ok": true
+ },
+ "ppe_dispenser": {
+  "group": "hall_ops",
+  "tris": 2952,
+  "cap": 3200,
+  "ok": true
+ },
+ "wet_cart": {
+  "group": "hall_ops",
+  "tris": 1156,
+  "cap": 2000,
+  "ok": true
+ },
+ "workbench": {
+  "group": "hall_work",
+  "tris": 1848,
+  "cap": 2000,
+  "ok": true
+ },
+ "tool_wall": {
+  "group": "hall_work",
+  "tris": 3120,
+  "cap": 3500,
+  "ok": true
+ },
+ "tool_chest": {
+  "group": "hall_work",
+  "tris": 1004,
+  "cap": 2000,
+  "ok": true
+ },
+ "bin_shelf": {
+  "group": "hall_work",
+  "tris": 3268,
+  "cap": 3500,
+  "ok": true
+ },
+ "pallet_jack": {
+  "group": "hall_work",
+  "tris": 1560,
+  "cap": 1600,
+  "ok": true
+ },
+ "parcels_0": {
+  "group": "hall_work",
+  "tris": 2080,
+  "cap": 2500,
+  "ok": true
+ },
+ "roll_cage": {
+  "group": "hall_work",
+  "tris": 1396,
+  "cap": 1500,
+  "ok": true
+ },
+ "staging_shelf": {
+  "group": "hall_work",
+  "tris": 1496,
+  "cap": 1600,
+  "ok": true
+ },
+ "safety_station": {
+  "group": "hall_safety",
+  "tris": 2308,
+  "cap": 2500,
+  "ok": true
+ },
+ "hose_cabinet": {
+  "group": "hall_safety",
+  "tris": 608,
+  "cap": 2000,
+  "ok": true
+ },
+ "blast_console": {
+  "group": "hall_safety",
+  "tris": 1080,
+  "cap": 2000,
+  "ok": true
+ },
+ "bollard_hall": {
+  "group": "hall_safety",
+  "tris": 612,
+  "cap": 2000,
+  "ok": true
+ },
+ "cctv_dome": {
+  "group": "hall_safety",
+  "tris": 284,
+  "cap": 2000,
+  "ok": true
+ },
+ "ceiling_smoke": {
+  "group": "hall_safety",
+  "tris": 124,
+  "cap": 2000,
+  "ok": true
+ },
+ "ceiling_horn": {
+  "group": "hall_safety",
+  "tris": 124,
+  "cap": 2000,
+  "ok": true
+ },
+ "ceiling_sprinkler": {
+  "group": "hall_safety",
+  "tris": 128,
+  "cap": 2000,
+  "ok": true
+ },
+ "gantry_landing": {
+  "group": "hall_shell",
+  "tris": 6248,
+  "cap": 7000,
+  "ok": true
+ },
+ "gantry_stair": {
+  "group": "hall_shell",
+  "tris": 7096,
+  "cap": 8000,
+  "ok": true
+ },
+ "hall_cable_tray": {
+  "group": "hall_shell",
+  "tris": 3668,
+  "cap": 4000,
+  "ok": true
+ },
+ "hall_sprinkler_main": {
+  "group": "hall_shell",
+  "tris": 720,
+  "cap": 2000,
   "ok": true
  }
 }

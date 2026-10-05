@@ -29,3 +29,17 @@ FE_08 was re-aimed and FE_09 added after the owner's review notes (the old FE_08
 | CAF_X1_AIRLOCK_DOOR | 8.0, -71.5, 1.65 | 8.0, -80.0, 1.7 | 20 | spawn airlock leaves and sign |
 | CAF_X2_YARD_DOOR | 1.5, -70.0, 1.65 | -8.0, -70.0, 1.7 | 20 | yard door leaves and exit sign |
 | CAF_X3_MEDICAL_DOOR | 18.5, -70.0, 1.65 | 26.0, -70.0, 1.7 | 20 | medical door and sign |
+
+## Hall inspection cameras (revision 6)
+
+| Camera | Eye (x, y, z) | Target (x, y, z) | Lens | Checks |
+|---|---|---|---|---|
+| HAL_01_FROM_CAFETERIA | 8.0, -59.4, 1.65 | 8.0, -48.0, 2.3 | 20 | first view from the cafeteria opening: blast door, gantry, stair, safety station |
+| HAL_02_WEST_LOCKERS | 30.5, -54.0, 1.65 | -3.5, -55.5, 1.5 | 20 | the long hall: dispatch, desk, status board, lockers, west door |
+| HAL_03_LOCKERS_AND_PPE | 5.6, -54.2, 1.65 | -3.0, -58.2, 1.2 | 22 | locker room, PPE issue, west door |
+| HAL_04_DESK_AND_DISPATCH | 12.0, -53.4, 1.65 | 24.0, -58.5, 1.3 | 22 | shift desk, radios, dispatch bays, east door |
+| HAL_05_SAFETY_STATUS | 17.0, -54.6, 1.65 | 16.0, -48.2, 2.1 | 24 | safety station, hose cabinet, status board |
+| HAL_06_MAINTENANCE_BAY | 6.4, -54.6, 1.65 | -2.4, -50.4, 1.5 | 22 | workbench, tool wall, stair, parts shelving |
+| HAL_X1_BLAST_DOOR | 8.0, -53.0, 1.65 | 8.0, -48.0, 2.2 | 24 | blast door, beacons, console, bollards |
+| HAL_X2_WEST_DOOR | 6.0, -54.0, 1.65 | -4.0, -54.0, 1.9 | 20 | west double door and signs |
+| HAL_X3_EAST_DOOR | 26.0, -54.0, 1.65 | 32.0, -54.0, 1.9 | 20 | east double door, muster area |

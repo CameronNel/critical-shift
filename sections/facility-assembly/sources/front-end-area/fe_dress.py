@@ -53,10 +53,6 @@ def build_dressing(F, C, parts=('caf', 'hall', 'yard')):
     hang(P, caf, 'caf_N', [(posters[1], -5.2, 1.6), (posters[2], 3.2, 1.6), (aid, 24.0, 1.5), (sock, -2.0, 0.4), (sock, 4.4, 0.4)])
     hang(P, caf, 'caf_E', [(bul, -66.2, 1.3), (posters[3], -74.2, 1.7), (posters[0], -78.95, 1.7), (ext, -63.0, 0.75), (sock, -77.0, 0.4)])
     # ---------------- hall, interior faces
-    if 'hall' in parts: hang(P, hall, 'hall_S', [(posters[4], -1.6, 1.6), (posters[5], -0.2, 1.6), (bul, 2.0, 1.3), (ext, 13.3, 0.75), (aid, 14.6, 1.5), (posters_l[1], 20.0, 1.6), (clk, 17.0, 3.8), (posters[1], 28.6, 1.6), (posters[2], 30.0, 1.6)])
-    if 'hall' in parts: hang(P, hall, 'hall_N', [(posters[0], -2.6, 1.6), (ext, 1.0 + 0.0, 0.75), (posters[3], 27.0, 1.6), (posters_l[2], 29.2, 1.6), (bul, 4.2 - 0.0, 1.3)]) if False else None
-    if 'hall' in parts: hang(P, hall, 'hall_W', [(posters[0], -57.0, 1.6), (posters[3], -50.4, 1.6), (clk, -58.0, 3.9), (ext, -56.3, 0.75)])
-    if 'hall' in parts: hang(P, hall, 'hall_E', [(posters[5], -57.0, 1.6), (posters[4], -50.4, 1.6), (ext, -56.3, 0.75), ])
     # ---------------- exterior: control joints, downpipes, cabinets, lamps on the yard-facing wall of the cafeteria
     for y in range(-78, -61, 3):
         if -72.2 < y < -67.8: continue
@@ -79,11 +75,6 @@ def build_dressing(F, C, parts=('caf', 'hall', 'yard')):
     if 'yard' in parts: S(yard, 'sign_refinery_gate', 'REFINERY  FREIGHT', -22.2, -60.28, 3.05, 'S', w=2.6, h=0.35, plate=(0.08, 0.08, 0.09, 1), size=0.16, wall_plane=-60.265)
     if 'yard' in parts: S(yard, 'sign_evac', 'EVACUATION  GATE', -28.0, -83.78, 2.6, 'N', w=2.4, h=0.35, plate=(0.1, 0.55, 0.25, 1), ink='signage', size=0.15, wall_plane=-83.8)
     if 'yard' in parts: S(yard, 'sign_cooling', 'COOLING PLANT >>', -46.0, -59.7, 2.8, 'S', w=1.9, h=0.32, plate=(0.08, 0.08, 0.09, 1), size=0.13, wall_plane=-59.7, register=False)
-    if 'hall' in parts: S(hall, 'sign_hall_refinery', 'REFINERY  <<', 0.0, -59.82, 3.4, 'N', w=1.9, h=0.36, plate=(0.08, 0.08, 0.09, 1), size=0.15, wall_plane=-59.85)
-    if 'hall' in parts: S(hall, 'sign_hall_dock', 'DOCK  >>', 28.0, -59.82, 3.4, 'N', w=1.6, h=0.36, plate=(0.08, 0.08, 0.09, 1), size=0.15, wall_plane=-59.85)
-    if 'hall' in parts: S(hall, 'sign_hard_hats', 'HARD HATS BEYOND THIS POINT', 13.5, -48.18, 3.9, 'S', w=3.4, h=0.34, plate=(0.95, 0.75, 0.05, 1), ink='signage', size=0.14, wall_plane=-48.15)
-    if 'hall' in parts: S(hall, 'sign_no_running', 'NO RUNNING', 31.82, -57.6, 2.2, 'W', w=1.1, h=0.3, plate=(0.8, 0.12, 0.1, 1), ink='signage', size=0.11, wall_plane=31.85)
-    if 'hall' in parts: S(hall, 'sign_route_a', 'ROUTE A', -3.82, -57.6, 2.2, 'E', w=1.0, h=0.3, plate=(0.1, 0.55, 0.25, 1), ink='signage', size=0.12, wall_plane=-3.85)
     # ---------------- floor markings: hall joints, painted lane edges along the mine axis, rail crossing hatching
     rng = random.Random(13)
     if 'yard' not in parts: return

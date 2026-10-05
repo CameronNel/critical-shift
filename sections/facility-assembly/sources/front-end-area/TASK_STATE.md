@@ -20,6 +20,25 @@ Seven `IF_PORTAL_*` empties with clear width, height and outward normal: spawn a
 cafeteria-to-hall opening 6.0 m, hall west door 2.4 m, hall east door 2.4 m, spine blast door 3.6 m. All sit at the planned
 plan positions; none were moved.
 
+## Revision 6 (2026-10-05): hall rebuilt as an operations hub
+The owner asked for the hall to be refined and for everything in it to make sense. The previous hall was a scatter of jersey barriers, sandbags, scaffold, cable drums and a cave-in with no purpose, plus a gantry that led nowhere. It was removed (`fe_hallsite.py` deleted) and the hall rebuilt around one idea: **the shift hub and junction of the facility**. Every item belongs to a zone with a job (plan frame, x east, y north; hall x -4..32, y -60..-48):
+- **Locker room and PPE issue (south-west):** eight steel PPE lockers on the west wall (two ajar with a hard hat and hi-vis), two changing benches, a PPE dispenser, a safety briefing board, water cooler, cleaner's cart.
+- **Shift desk (south wall, x 12..16):** staffed desk with three monitors, radio base, phone, chair behind it; schedule board; radio charging dock and key cabinet. It sits beside the cafeteria opening so arrivals check in first.
+- **Dispatch / goods in (south-east):** three painted pallet bays A to C, palletised parcels, pallet jack, roll cage, hand truck and two shelving bays, beside the east door to the trunk road to the dock and waste.
+- **Emergency and status (north-east):** safety station (eyewash, first aid, AED, extinguisher, spill kit), fire hose cabinet, facility status board, evacuation plan, and a marked green muster area at the east end.
+- **Blast door (north, reactor axis):** 3.6 x 3.2 m door with beacons, a control post (key switch, e-stop, lamps, keypad), an interlock notice (hard hat, dosimeter, two-person rule), two bollards and a hazard hatch in front.
+- **Maintenance bay (north-west):** workbench with vice, tool wall, tool chest, parts shelving, marked floor zone, directly under the stair to the plant gantry.
+- **Plant gantry (rebuilt):** a 10 m grated deck at 4.2 m over the blast door, reached by a 21-tread stair with sloped stringers (the old stair used horizontal beams), serving a closed plant-room hatch in the north wall.
+- **Wayfinding:** four hanging signs (refinery, dock/waste, reactor spine, cafeteria), floor stencils, yellow walkway lines along the two clear lanes, exit signs over both end doors, painted double leaves with vision panels on the end doors.
+- **Overhead services:** supply duct and PA horns along the south wall, red sprinkler main with heads, cable tray with cables, two rows of light strips, smoke detectors, four CCTV domes. All clear of the gantry and signs.
+- **Lettering:** every sign, board, label and floor stencil is baked in the sign atlas; no text objects remain in the hall. New icons: hard hat, wrench, bolt, box, warning, muster, lock.
+- Also fixed: the cafeteria kitchen's extractor hood poked through the hall wall; it is now a three-box hood inside the block. Painted-steel props had ignored their colour (no vertex-colour material); a new `paint` material fixes the lockers, bench, tool chest and station.
+- Wear: the decal pass now covers the hall (lanes, door scuffs, bays, blast door, dado scuffs, skirting dust, streaks).
+- Cameras: `HAL_01` to `HAL_06` plus door checks `HAL_X1` blast, `HAL_X2` west, `HAL_X3` east (see `CAMERAS.md`).
+- Numbers (`validation.json`): total 683,384 triangles (yard 327,180, cafeteria 262,624, hall 90,584, shared 2,996). 129 interior and 130 yard floor objects, 0 gap and 0 penetration failures; clear lanes pass; seven interface portals unchanged.
+- Asset library: five new groups in `asset-workspace/` (hall_ops, hall_work, hall_safety, hall_shell, and the hall door leaf).
+- Not done: yard art; the whole-area `FE_*` renders are stale; hall `FE_03` and `FE_07` no longer match. Unreviewed, no independent review, not accepted.
+
 ## Revision 5 (2026-10-05): textures, panelling, wear, asset workspace (final pass)
 The owner said the walls read as "90s doom graphics", some assets needed overhauls, and everything should look a bit worn. Only the cafeteria and the shared hall shell were touched.
 - Textures (new `fe_textures.py`, numpy + Pillow, build time, tileable, deterministic): `plaster5` (painted lime plaster with orange-peel stipple, trowel swirls, roller streaks, hairline cracks, pits), `wood5` (sealed timber veneer), `metal5` (brushed steel), `cork5` and `wear_atlas.png`. They replace the blotchy CC0 plaster, wood and metal sets on the walls, ceiling, timber and charcoal steel; the old files stay in `textures/` for the yard. A new `steel_brushed` material (light stainless) replaces the dark charcoal on every light-coloured steel part.

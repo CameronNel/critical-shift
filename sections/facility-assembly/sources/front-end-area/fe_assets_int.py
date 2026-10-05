@@ -1,7 +1,7 @@
 """Interior furniture and fittings at spawn-room quality: rounded forms, turned legs, subdivided upholstery, real leaves."""
 from fe_kit import *
 
-STD = ['plastic', 'steel_charcoal', 'fabric', 'timber', 'laminate', 'glass', 'emissive', 'rubber', 'foliage', 'props', 'signage', 'steel_accent', 'trim', 'concrete_slab', 'screen', 'poster_land', 'poster_port', 'tv_slide', 'cork', 'steel_brushed']
+STD = ['plastic', 'steel_charcoal', 'fabric', 'timber', 'laminate', 'glass', 'emissive', 'rubber', 'foliage', 'props', 'signage', 'steel_accent', 'trim', 'concrete_slab', 'screen', 'poster_land', 'poster_port', 'tv_slide', 'cork', 'steel_brushed', 'paint']
 I = {k: i for i, k in enumerate(STD)}
 def mb(F): return MB2([F[k] for k in STD])
 

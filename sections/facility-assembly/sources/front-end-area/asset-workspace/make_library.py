@@ -12,11 +12,16 @@ GROUPS = {
  'serving': ['kitchen_block', 'serving_counter', 'kiosk_v2', 'stanchion', 'tray_trolley', 'vending_0', 'vending_1', 'fridge_display', 'water_cooler', 'microwave_bench', 'recycling', 'totem'],
  'lounge': ['sofa3', 'sofa2', 'armchair', 'coffee_table', 'side_table', 'bookcase_0', 'floor_lamp', 'table_lamp', 'cushion', 'plant_leafy_1', 'plant_spiky_3', 'planter_long', 'tv', 'coat_rack', 'wall_shelf_0', 'bulletin'],
  'game': ['arcade_basketball', 'foosball', 'dartboard', 'hoops', 'bean_bag', 'stool', 'bench', 'wall_clock', 'extinguisher', 'first_aid', 'pendant', 'ceiling_strip'],
- 'doors': ['leaf_airlock', 'leaf_glazed', 'leaf_medical', 'leaf_staff', 'leaf_sliding'],
+ 'doors': ['leaf_airlock', 'leaf_glazed', 'leaf_medical', 'leaf_staff', 'leaf_sliding', 'hall_W_door_leaf_1'],
+ 'hall_ops': ['lockers', 'locker_bench', 'ops_desk', 'office_chair', 'radio_dock', 'key_cabinet', 'ppe_dispenser', 'wet_cart'],
+ 'hall_work': ['workbench', 'tool_wall', 'tool_chest', 'bin_shelf', 'pallet_jack', 'parcels_0', 'roll_cage', 'staging_shelf'],
+ 'hall_safety': ['safety_station', 'hose_cabinet', 'blast_console', 'bollard_hall', 'cctv_dome', 'ceiling_smoke', 'ceiling_horn', 'ceiling_sprinkler'],
+ 'hall_shell': ['gantry_landing', 'gantry_stair', 'hall_cable_tray', 'hall_sprinkler_main'],
 }
 # triangle caps per asset class (owner-approved: hero up to ~15k, small props ~2k)
 HERO = {'kitchen_block', 'fridge_display', 'serving_counter', 'foosball', 'arcade_basketball', 'vending_0', 'vending_1', 'sofa3', 'booth', 'bookcase_0', 'kiosk_v2', 'hoops', 'dartboard'}
-CAP = lambda n: 3000 if n == 'bulletin' else 2500 if n == 'recycling' else 15000 if n in HERO else 4000 if n.startswith(('sofa', 'armchair', 'leaf_', 'plant', 'table', 'chair', 'planter')) else 2000
+HALL_CAP = {'lockers': 7000, 'gantry_landing': 7000, 'gantry_stair': 8000, 'hall_cable_tray': 4000, 'radio_dock': 3600, 'bin_shelf': 3500, 'tool_wall': 3500, 'ops_desk': 3500, 'ppe_dispenser': 3200, 'safety_station': 2500, 'parcels_0': 2500, 'workbench': 2000, 'pallet_jack': 1600, 'staging_shelf': 1600, 'office_chair': 1500, 'roll_cage': 1500}
+CAP = lambda n: HALL_CAP[n] if n in HALL_CAP else 3000 if n == 'bulletin' else 2500 if n == 'recycling' else 15000 if n in HERO else 4000 if n.startswith(('sofa', 'armchair', 'leaf_', 'plant', 'table', 'chair', 'planter')) else 2000
 dg = bpy.context.evaluated_depsgraph_get()
 def tris(o):
     me = o.evaluated_get(dg).to_mesh(); t = sum(len(p.vertices) - 2 for p in me.polygons); o.evaluated_get(dg).to_mesh_clear(); return t
@@ -60,7 +65,7 @@ for g, names in GROUPS.items():
         o.location = (0, 0, 0); bpy.context.view_layer.update()
         ws = [o.matrix_world @ Vector(c) for c in o.bound_box]
         mn = Vector((min(v[i] for v in ws) for i in range(3))); mx = Vector((max(v[i] for v in ws) for i in range(3))); c = (mn + mx) / 2; r = (mx - mn).length / 2
-        d = Vector((1.0, -1.25, 0.7)).normalized() * (r * 3.0 + 0.5)
+        d = Vector((1.0, 1.25, 0.7)).normalized() * (r * 3.0 + 0.5)
         cam.location = c + d; cam.rotation_euler = (c - cam.location).to_track_quat('-Z', 'Y').to_euler()
         sc.render.filepath = os.path.join(tdir, n + '.png'); bpy.ops.render.render(write_still=True)
         tiles.append(n)
