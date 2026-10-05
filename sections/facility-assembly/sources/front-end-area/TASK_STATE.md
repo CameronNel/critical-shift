@@ -138,6 +138,13 @@ The owner found v1 read as a PS2 horror game and its props low-effort. v2 replac
 - The mine front is the reference mine's portal only; its tunnel interior, props and track are not used. The existing mine
   module was not edited.
 
+## Revision 8: night, wet mud (yard)
+- Scene is now night. World is a generated star map (`fe_sky.py` -> `textures/night_sky.jpg`; real RA/Dec positions seen from latitude 40 N, sidereal time 6 h, named constellations with faint lines, Milky Way, moon). The moon is also a cool sun light at the painted moon's direction. Interior fill lights are unchanged.
+- Yard ground (`fe_mud.py`, `fe_yard3.build_ground`): wet mud heightfield with tyre ruts and pools, flat reflective water, a darker gravel haul road along the mine lane and to the evacuation gate, concrete pads only under fuel/bays, cabin, ore bays, rail dock, stores, generator and porch. Painted lane dashes, the track-scale floor sign and floor decals off the pads were removed.
+- Real lights now exist for the 8 floodlight poles, canopy lamps, portal/mouth lamps, freight beacons and cabin, gate and porch lamps.
+- Ran: `validate_front_end.py` (0 gap/penetration failures, lane violations none, 608,798 triangles) and the overlap check. `ore_bay_1`/`ore_pile_1` overlap is by design (pile sits in the bay).
+- Not done: only the YRD renders were regenerated; CAF, HAL and FE renders are still the daytime set. Gravel and mud look judged from 64-sample renders only. No independent review.
+
 ## Known defects
 - Cliff face is a smoothed block heightfield with a box-projected rock texture: believable at yard distance, soft up close.
 - Vehicles, containers and tanks are stylised, not photoreal; interior props follow the spawn room's rounded stylisation.

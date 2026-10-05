@@ -65,7 +65,7 @@ def make_mud_material():
     mud = ramp(mid, [(0.30, (0.022, 0.015, 0.010, 1)), (0.55, (0.036, 0.025, 0.016, 1)), (0.80, (0.055, 0.038, 0.025, 1))])
     dry = mix(math_('MULTIPLY', math_('SUBTRACT', big, val=0.50, clamp=False), val=1.2), mud, (0.070, 0.050, 0.033, 1))
     mud_col = mix(math_('MULTIPLY', fine, val=0.22), dry, (0.028, 0.019, 0.013, 1))
-    gcol = mix(0.78, img('gravel_color.jpg', 'sRGB', 2.5), (0.045, 0.040, 0.034, 1))
+    gcol = mix(0.93, img('gravel_color.jpg', 'sRGB', 2.5), (0.045, 0.040, 0.034, 1))
     gwet = mix(0.35, gcol, (0.02, 0.018, 0.016, 1))
     ground = mix(math_('MINIMUM', math_('MULTIPLY', grv, val=1.6), val=1.0), mud_col, gwet)
     water_col = (0.012, 0.011, 0.010, 1)
