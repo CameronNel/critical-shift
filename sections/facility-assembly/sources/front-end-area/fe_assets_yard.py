@@ -48,8 +48,8 @@ def cable_drum(F, P):
     m = mb(F)
     for z in (0.0, 0.62): m.cylz(0, 0, z, z + 0.05, 0.5, seg=40, bevel=0.01, mi=I['timber'], rgba=(0.5, 0.34, 0.18, 1))
     m.cylz(0, 0, 0.05, 0.62, 0.12, seg=24, mi=I['timber'], rgba=(0.4, 0.27, 0.14, 1))
-    for r in range(12):
-        m.add(p_torus(0.27, 0.021, 36, 8), (0, 0, 0.08 + r * 0.044), (0, 0, 0), mi=I['plastic'], rgba=(0.06, 0.06, 0.07, 1))
+    for r in range(8):
+        m.add(p_torus(0.27, 0.03, 24, 6), (0, 0, 0.09 + r * 0.063), (0, 0, 0), mi=I['plastic'], rgba=(0.06, 0.06, 0.07, 1))
     for k in range(6):
         a = k * math.pi / 3
         for z in (0.052, 0.62): m.cylz(math.cos(a) * 0.38, math.sin(a) * 0.38, z - 0.002, z + 0.008, 0.02, seg=10, mi=I['steel_charcoal'], rgba=(0.5, 0.5, 0.5, 1)) if False else None
@@ -60,9 +60,7 @@ def tyre(F, P, stack=1, name='tyre'):
     m = mb(F)
     prof = [(0.17, 0.0), (0.235, 0.0), (0.29, 0.015), (0.32, 0.06), (0.325, 0.12), (0.32, 0.18), (0.29, 0.225), (0.235, 0.24), (0.17, 0.24), (0.165, 0.2), (0.165, 0.04)]
     for k in range(stack):
-        m.lathe(prof, loc=(0, 0, k * 0.235), seg=40, mi=I['rubber'], rgba=(0.035, 0.035, 0.038, 1), close=False)
-        # tread lugs
-        m.add(p_torus(0.31, 0.012, 40, 4), (0, 0, k * 0.235 + 0.12), (0, 0, 0), mi=I['rubber'], rgba=(0.03, 0.03, 0.032, 1))
+        m.lathe(prof, loc=(0, 0, k * 0.235), seg=28, mi=I['rubber'], rgba=(0.035, 0.035, 0.038, 1), close=False)
     return m.finish('proto_' + name, P)
 
 def cone(F, P):
@@ -195,7 +193,7 @@ def bale(F, P, seed=0):
     m = mb(F); rnd = random.Random(seed)
     base = [(0.3, 0.17, 0.09, 1), (0.22, 0.2, 0.18, 1), (0.34, 0.25, 0.13, 1)][seed % 3]
     m.rbox(0, 0, 0.45, 1.3, 1.0, 0.9, 0.04, mi=I['props'], rgba=base)
-    for i in range(60):
+    for i in range(36):
         x = rnd.uniform(-0.62, 0.62); y = rnd.uniform(-0.47, 0.47); z = rnd.uniform(0.05, 0.86); face = rnd.choice(('x', 'y', 'z'))
         k_ = rnd.uniform(0.6, 1.4); c = tuple(min(1, max(0, v * k_)) for v in base[:3]) + (1,)
         if face == 'z': m.rbox(x, y, 0.905, rnd.uniform(0.2, 0.5), rnd.uniform(0.15, 0.4), 0.02, 0.004, rot=(0, 0, rnd.uniform(0, 3)), mi=I['props'], rgba=c)
@@ -317,9 +315,9 @@ def fence_panel(F, P, L=3.0, H=2.2):
 
 def fence_post(F, P, H=2.4):
     m = mb(F); steel = (0.1, 0.1, 0.12, 1)
-    m.cylz(0, 0, 0.0, H, 0.045, seg=14, mi=I['steel_charcoal'], rgba=steel)
-    m.cylz(0, 0, H, H + 0.03, 0.055, seg=14, bevel=0.008, mi=I['steel_charcoal'], rgba=steel)
-    m.cylz(0, 0, 0.0, 0.04, 0.08, seg=14, bevel=0.008, mi=I['steel_charcoal'], rgba=steel)
+    m.cylz(0, 0, 0.0, H, 0.045, seg=10, mi=I['steel_charcoal'], rgba=steel)
+    m.cylz(0, 0, H, H + 0.03, 0.055, seg=10, mi=I['steel_charcoal'], rgba=steel)
+    m.cylz(0, 0, 0.0, 0.04, 0.08, seg=10, mi=I['steel_charcoal'], rgba=steel)
     return m.finish('proto_fence_post', P)
 
 def ore_cart(F, P):
@@ -346,12 +344,12 @@ def ore_cart(F, P):
     for sx in (-0.75, 0.75): m.rbox(sx, 0, 0.45, 0.1, 1.4, 0.05, 0.01, mi=I['steel_charcoal'], rgba=steel)
     return m.finish('proto_ore_cart', P)
 
-def shrub(F, P, seed=1, r=0.55, n=150):
+def shrub(F, P, seed=1, r=0.55, n=95):
     m = mb(F); rnd = random.Random(seed)
     greens = [(0.10, 0.28, 0.08, 1), (0.14, 0.34, 0.1, 1), (0.08, 0.22, 0.07, 1), (0.2, 0.38, 0.1, 1)]
     for i in range(n):
         a = rnd.uniform(0, 6.28); d = rnd.uniform(0.0, r * 0.8); z = 0.12 + rnd.uniform(0.0, r * 1.3) * (1 - d / r * 0.5)
-        m.leaf((math.cos(a) * d, math.sin(a) * d, z), rnd.uniform(0.26, 0.4), rnd.uniform(0.09, 0.14), bend=rnd.uniform(0.1, 0.4), twist=rnd.uniform(-0.3, 0.3), yaw=a - math.pi / 2 + rnd.uniform(-0.5, 0.5), pitch=rnd.uniform(0.2, 1.0), segs=4, mi=I['foliage'], rgba=rnd.choice(greens))
+        m.leaf((math.cos(a) * d, math.sin(a) * d, z), rnd.uniform(0.26, 0.4), rnd.uniform(0.09, 0.14), bend=rnd.uniform(0.1, 0.4), twist=rnd.uniform(-0.3, 0.3), yaw=a - math.pi / 2 + rnd.uniform(-0.5, 0.5), pitch=rnd.uniform(0.2, 1.0), segs=3, mi=I['foliage'], rgba=rnd.choice(greens))
     for k in range(5):
         a = k * 1.26; m.between((0, 0, 0.0), (math.cos(a) * 0.12, math.sin(a) * 0.12, 0.35), 0.012, seg=6, mi=I['props'], rgba=(0.3, 0.2, 0.1, 1))
     return m.finish(f'proto_shrub_{seed}', P)
@@ -367,7 +365,82 @@ def tree(F, P, seed=1, h=4.2):
         p1 = (math.cos(a) * ln, math.sin(a) * ln, z0 + rnd.uniform(0.3, 0.7)); m.between((0, 0, z0), p1, 0.035, seg=8, r2=0.02, mi=I['props'], rgba=bark); branches.append(p1)
     branches.append((0, 0, h * 0.8))
     for (bx, by, bz) in branches:
-        for i in range(70):
+        for i in range(46):
             a = rnd.uniform(0, 6.28); d = rnd.uniform(0.0, 0.8)
             m.leaf((bx + math.cos(a) * d * 0.5, by + math.sin(a) * d * 0.5, bz + rnd.uniform(-0.25, 0.65)), rnd.uniform(0.26, 0.4), rnd.uniform(0.1, 0.15), bend=0.2, yaw=a - math.pi / 2, pitch=rnd.uniform(-0.4, 0.8), segs=3, mi=I['foliage'], rgba=rnd.choice(greens))
     return m.finish(f'proto_tree_{seed}', P)
+
+def forklift(F, P, rgba=(0.85, 0.62, 0.06, 1)):
+    m = mb(F); dark = (0.07, 0.07, 0.08, 1)
+    m.rbox(-0.35, 0, 0.7, 1.9, 1.1, 0.8, 0.07, mi=I['props'], rgba=rgba)
+    m.rbox(-0.9, 0, 1.15, 0.6, 1.0, 0.45, 0.05, mi=I['props'], rgba=rgba)
+    for sx in (-1, 1):
+        for sy in (-1, 1): m.cylz(0.1 + sx * 0.35, sy * 0.52, 1.1, 2.1, 0.03, seg=8, mi=I['steel_charcoal'], rgba=dark)
+    m.rbox(0.1, 0, 2.1, 0.8, 1.1, 0.05, 0.015, mi=I['steel_charcoal'], rgba=dark)
+    m.rbox(0.0, 0.0, 1.35, 0.55, 0.6, 0.08, 0.03, mi=I['plastic'], rgba=(0.1, 0.1, 0.12, 1)); m.rbox(-0.2, 0.0, 1.6, 0.1, 0.6, 0.45, 0.03, mi=I['plastic'], rgba=(0.1, 0.1, 0.12, 1))
+    for sy in (-1, 1): m.rbox(0.82, sy * 0.28, 1.2, 0.08, 0.1, 2.4, 0.015, mi=I['steel_charcoal'], rgba=(0.12, 0.12, 0.13, 1)); m.rbox(0.95, sy * 0.28, 0.1, 1.0, 0.14, 0.05, 0.01, mi=I['steel_charcoal'], rgba=(0.5, 0.5, 0.52, 1)); m.rbox(0.9, sy * 0.28, 0.4, 0.06, 0.1, 0.7, 0.01, mi=I['steel_charcoal'], rgba=(0.5, 0.5, 0.52, 1))
+    m.rbox(0.82, 0, 2.3, 0.08, 0.7, 0.06, 0.01, mi=I['steel_charcoal'], rgba=(0.12, 0.12, 0.13, 1)); m.rbox(0.82, 0, 1.5, 0.08, 0.7, 0.05, 0.01, mi=I['steel_charcoal'], rgba=(0.12, 0.12, 0.13, 1))
+    for x, r in ((0.35, 0.3), (-0.95, 0.26)):
+        for sy in (-1, 1): wheel(m, x, sy * 0.5, r, r=r, w=0.24, flip=sy)
+    m.rbox(-1.3, 0, 0.9, 0.2, 0.9, 0.6, 0.06, mi=I['steel_charcoal'], rgba=(0.5, 0.5, 0.52, 1))
+    return m.finish('proto_forklift', P)
+
+def gas_rack(F, P):
+    m = mb(F); cols = [(0.7, 0.1, 0.08, 1), (0.1, 0.3, 0.6, 1), (0.15, 0.4, 0.2, 1), (0.85, 0.85, 0.82, 1)]
+    for sx in (-1, 1):
+        for sy in (-1, 1): m.cylz(sx * 0.65, sy * 0.3, 0.0, 1.6, 0.025, seg=8, mi=I['steel_charcoal'], rgba=(0.1, 0.1, 0.11, 1))
+    m.rbox(0, 0, 0.05, 1.4, 0.7, 0.05, 0.01, mi=I['steel_charcoal'], rgba=(0.1, 0.1, 0.11, 1)); m.rbox(0, 0, 1.6, 1.4, 0.7, 0.04, 0.01, mi=I['steel_charcoal'], rgba=(0.1, 0.1, 0.11, 1))
+    for i, (x, y) in enumerate(((-0.45, -0.15), (-0.15, -0.15), (0.15, -0.15), (0.45, -0.15), (-0.45, 0.17), (-0.15, 0.17), (0.15, 0.17), (0.45, 0.17))):
+        c = cols[i % 4]; m.lathe([(0.0, 0.0), (0.1, 0.0), (0.115, 0.05), (0.12, 0.8), (0.1, 1.0), (0.05, 1.08), (0.0, 1.1)], loc=(x, y, 0.08), seg=16, mi=I['props'], rgba=c)
+        m.cylz(x, y, 1.18, 1.3, 0.025, seg=8, mi=I['steel_charcoal'], rgba=(0.6, 0.6, 0.62, 1))
+    for z in (0.5, 1.0): 
+        for sy in (-1, 1): m.between((-0.65, sy * 0.3, z), (0.65, sy * 0.3, z), 0.012, seg=6, mi=I['steel_charcoal'], rgba=(0.1, 0.1, 0.11, 1))
+    return m.finish('proto_gas_rack', P)
+
+def hand_truck(F, P):
+    m = mb(F); b = (0.15, 0.25, 0.5, 1)
+    for sy in (-1, 1): m.between((0.0, sy * 0.2, 0.2), (-0.2, sy * 0.2, 1.2), 0.016, seg=8, mi=I['props'], rgba=b)
+    m.between((-0.2, -0.2, 1.2), (-0.2, 0.2, 1.2), 0.016, seg=8, mi=I['props'], rgba=b)
+    for z in (0.5, 0.85): m.between((-0.08 - (z - 0.2) * 0.2, -0.2, z), (-0.08 - (z - 0.2) * 0.2, 0.2, z), 0.012, seg=6, mi=I['props'], rgba=b)
+    m.rbox(0.12, 0.0, 0.1, 0.3, 0.36, 0.02, 0.006, mi=I['props'], rgba=b)
+    for sy in (-1, 1): wheel(m, -0.05, sy * 0.27, 0.12, r=0.12, w=0.06, flip=sy)
+    return m.finish('proto_hand_truck', P)
+
+def hose_reel(F, P):
+    m = mb(F)
+    m.rbox(0, 0, 0.4, 0.5, 0.5, 0.8, 0.03, mi=I['props'], rgba=(0.15, 0.2, 0.35, 1)) if False else None
+    m.rbox(0, -0.05, 0.02, 0.5, 0.45, 0.04, 0.008, mi=I['steel_charcoal'], rgba=(0.12, 0.12, 0.13, 1))
+    for sx in (-1, 1): m.rbox(sx * 0.2, 0, 0.35, 0.03, 0.4, 0.7, 0.01, mi=I['steel_charcoal'], rgba=(0.12, 0.12, 0.13, 1))
+    m.add(p_cyl(0.28, 0.34, 28), (0, 0, 0.45), (0, math.pi / 2, 0), mi=I['props'], rgba=(0.12, 0.3, 0.2, 1))
+    for r in range(5): m.add(p_torus(0.18, 0.03, 24, 6), (0, 0, 0.45), (0, math.pi / 2, 0), mi=I['rubber'], rgba=(0.1, 0.4, 0.2, 1)) if False else None
+    m.add(p_cyl(0.2, 0.3, 24), (0, 0, 0.45), (0, math.pi / 2, 0), mi=I['rubber'], rgba=(0.08, 0.35, 0.18, 1))
+    m.rbox(0.0, 0.0, 0.95, 0.5, 0.06, 0.05, 0.01, mi=I['steel_charcoal'], rgba=(0.12, 0.12, 0.13, 1))
+    return m.finish('proto_hose_reel', P)
+
+def traffic_barrier(F, P):
+    m = mb(F)
+    for sx in (-1, 1): m.between((sx * 0.7, 0.0, 0.0), (sx * 0.6, 0.0, 1.0), 0.02, seg=8, mi=I['steel_charcoal'], rgba=(0.12, 0.12, 0.13, 1))
+    for z in (0.35, 0.8):
+        for k in range(8): m.rbox(-0.7 + (k + 0.5) * 0.175, 0.0, z, 0.1, 0.03, 0.14, 0.004, rot=(0, 0.6 if k % 2 else -0.6, 0), mi=I['signage'], rgba=(0.9, 0.7, 0.05, 1) if k % 2 else (0.1, 0.1, 0.1, 1))
+        m.rbox(0, 0, z, 1.45, 0.03, 0.15, 0.006, mi=I['signage'], rgba=(0.92, 0.92, 0.9, 1)) if False else None
+    return m.finish('proto_traffic_barrier', P)
+
+def sign_post(F, P, text_rgba=(0.85, 0.12, 0.1, 1)):
+    m = mb(F)
+    m.cylz(0, 0, 0.0, 2.2, 0.03, seg=10, mi=I['steel_charcoal'], rgba=(0.12, 0.12, 0.13, 1))
+    m.rbox(0, 0.035, 1.95, 0.5, 0.02, 0.5, 0.01, mi=I['signage'], rgba=text_rgba)
+    m.rbox(0, 0.05, 1.95, 0.34, 0.006, 0.08, 0.002, mi=I['signage'], rgba=(0.95, 0.95, 0.92, 1))
+    return m.finish('proto_sign_post', P)
+
+def car_on_blocks(F, P, rgba=(0.14, 0.2, 0.28, 1)):
+    """Stripped utility car on blocks awaiting parts: body shell, no wheels, bonnet up."""
+    m = mb(F); L, W = 4.3, 1.8; dark = (0.07, 0.07, 0.08, 1)
+    m.rbox(0, 0, 0.78, L - 0.2, W - 0.1, 0.62, 0.08, mi=I['props'], rgba=rgba)
+    m.rbox(-0.2, 0, 1.3, 2.2, W - 0.2, 0.55, 0.12, mi=I['props'], rgba=rgba)
+    m.rbox(-0.2, 0, 1.3, 2.0, W - 0.1, 0.4, 0.05, mi=I['glass'])
+    m.rbox(L / 2 - 0.9, 0, 1.4, 1.2, W - 0.2, 0.03, 0.01, rot=(0, -0.9, 0), mi=I['props'], rgba=rgba)
+    m.rbox(L / 2 - 0.9, 0, 1.0, 1.4, W - 0.4, 0.5, 0.04, mi=I['steel_charcoal'], rgba=(0.2, 0.2, 0.22, 1))
+    m.rbox(L / 2 + 0.02, 0, 0.45, 0.14, W, 0.2, 0.04, mi=I['steel_charcoal'], rgba=(0.5, 0.5, 0.52, 1)); m.rbox(-L / 2 - 0.02, 0, 0.45, 0.14, W, 0.2, 0.04, mi=I['steel_charcoal'], rgba=(0.5, 0.5, 0.52, 1))
+    for x in (-1.3, 1.3):
+        for sy in (-1, 1): m.rbox(x, sy * 0.7, 0.2, 0.3, 0.3, 0.4, 0.02, mi=I['concrete_slab']); m.add(p_cyl(0.06, 0.1, 12), (x, sy * 0.78, 0.45), (math.pi / 2, 0, 0), mi=I['steel_charcoal'], rgba=(0.5, 0.5, 0.52, 1))
+    return m.finish('proto_car_blocks', P)

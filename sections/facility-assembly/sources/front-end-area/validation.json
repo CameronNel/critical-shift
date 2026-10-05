@@ -1,10 +1,10 @@
 {
  "triangles": {
-  "YARD": 433632,
-  "CAFETERIA": 158952,
-  "HALL": 133384,
+  "YARD": 336796,
+  "CAFETERIA": 200378,
+  "HALL": 122290,
   "SHARED": 2996,
-  "TOTAL": 728964,
+  "TOTAL": 662460,
   "within_budget": true
  },
  "budget_m": 800000,
@@ -125,22 +125,22 @@
  ],
  "support_contact": {
   "interior": {
-   "checked": 101,
+   "checked": 153,
    "gap_fail": [],
    "pen_fail": []
   },
   "yard": {
-   "checked": 113,
+   "checked": 130,
    "gap_fail": [],
    "pen_fail": [],
    "note": "yard slabs are deliberately sunk/tilted up to 0.10 m, so yard contact uses 0.12 m"
   }
  },
  "support_exempt_by_kind": {
-  "table": 14,
+  "table": 40,
   "wall": 71,
-  "stack": 10,
-  "lean": 1,
+  "stack": 7,
+  "lean": 2,
   "heap": 93,
   "floor_broken": 79,
   "floor_debris": 28

@@ -15,30 +15,12 @@ def put(o, facing, x, y, z):
     o.location = (LX(x), LY(y), z); o.rotation_euler = (0, 0, ROT[facing]); return o
 
 def poster(F, P, variant=0, w=0.8, h=1.1, name='poster'):
+    """Framed poster using the spawn room's poster art (portrait or landscape by shape)."""
     m = mb(F); frame = (0.07, 0.06, 0.06, 1)
-    cream = (0.62, 0.58, 0.48, 1)
+    land = w > h
     m.rbox(0, 0.02, h / 2, w, 0.04, h, 0.008, mi=I['timber'], rgba=frame)
-    m.rbox(0, 0.045, h / 2, w - 0.06, 0.012, h - 0.06, 0.003, mi=I['signage'], rgba=cream)
-    rnd = random.Random(variant)
-    pal = [(0.62, 0.34, 0.08, 1), (0.5, 0.18, 0.08, 1), (0.16, 0.2, 0.4, 1), (0.74, 0.58, 0.2, 1)]
-    if variant % 3 == 0:
-        # layered mountains
-        for k in range(3):
-            pts = [(-w / 2 + 0.05, 0.12 + k * 0.1)]
-            n = 7
-            for i in range(n + 1):
-                x = -w / 2 + 0.05 + (w - 0.1) * i / n; pts.append((x, 0.18 + k * 0.11 + rnd.uniform(0.0, 0.16) + 0.04 * math.sin(i)))
-            pts += [(w / 2 - 0.05, 0.1)]
-            pb = p_ring_prism([(x, y) for x, y in pts], 0.004); xf(pb, (0, 0, 0), (math.pi / 2, 0, 0))
-            m.add(pb, (0, 0.052 + k * 0.001, 0.0), mi=I['signage'], rgba=pal[(k + variant) % 4])
-    elif variant % 3 == 1:
-        for k, (r, c) in enumerate(((0.26, pal[0]), (0.19, pal[3]), (0.12, pal[1]), (0.06, cream))):
-            m.add(p_cyl(r, 0.004, 40), (0, 0.052 + k * 0.001, h * 0.58), (math.pi / 2, 0, 0), mi=I['signage'], rgba=c)
-        m.rbox(0, 0.052, 0.2, w - 0.16, 0.004, 0.2, 0.001, mi=I['signage'], rgba=pal[2])
-    else:
-        for k in range(5): m.rbox(0, 0.052 + k * 0.001, 0.25 + k * 0.14, w - 0.2 - k * 0.04, 0.004, 0.09, 0.001, mi=I['signage'], rgba=pal[k % 4])
-        m.add(p_cyl(0.1, 0.004, 32), (0.0, 0.056, h * 0.68), (math.pi / 2, 0, 0), mi=I['signage'], rgba=pal[1])
-    m.rbox(0, 0.052, 0.12, w - 0.2, 0.004, 0.012, 0.001, mi=I['signage'], rgba=(0.1, 0.1, 0.1, 1))
+    m.rbox(0, 0.041, h / 2, w - 0.05, 0.006, h - 0.05, 0.002, mi=I['signage'], rgba=(0.6, 0.57, 0.5, 1))
+    m.quad_image(0, 0.0452, h / 2, w - 0.1, h - 0.1, I['poster_land'] if land else I['poster_port'])
     return m.finish(f'proto_{name}_{variant}', P)
 
 def bulletin(F, P, w=1.5, h=1.0):

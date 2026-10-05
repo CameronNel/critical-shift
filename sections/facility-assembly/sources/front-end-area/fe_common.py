@@ -3,13 +3,14 @@
 All builder functions take PLAN coordinates (metres, the facility plan frame in design/facility-layout) and convert to the module's
 local frame: origin at the spawn airlock threshold centre on the floor, +Y inward (north), +X east, +Z up.
 """
-import bpy, bmesh, math, random
+import bpy, bmesh, math, random, os
 from mathutils import Vector, Matrix
 
 OX, OY = -8.0, 80.0          # plan -> local
 def LX(x): return x + OX
 def LY(y): return y + OY
 
+TEXDIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'textures')
 ROOT = 'MODULE_front-end-area'
 _cols = {}
 def collection(name, parent=None):
@@ -37,7 +38,7 @@ def _node(nt, kind, **kw):
     return n
 
 def make_mat(name, base=(0.5, 0.5, 0.5), rough=0.6, metallic=0.0, var=0.12, var_scale=0.6, wear=None, bump=0.0,
-             attr=False, emission=0.0, glass=False, tile=None, grain=None, strata=None, sheen=0.0, spec=0.5, pointy=False, grime=0.0, dirt=(0.52, 0.47, 0.42)):
+             attr=False, emission=0.0, glass=False, tile=None, grain=None, strata=None, sheen=0.0, spec=0.5, pointy=False, grime=0.0, dirt=(0.52, 0.47, 0.42), tex=None):
     if name in _mats: return _mats[name]
     m = bpy.data.materials.new(name); m.use_nodes = True
     nt = m.node_tree; nt.nodes.clear()
@@ -65,6 +66,19 @@ def make_mat(name, base=(0.5, 0.5, 0.5), rough=0.6, metallic=0.0, var=0.12, var_
         br.offset = 0.0; br.offset_frequency = 2
         nt.links.new(tc.outputs['Object'], br.inputs['Vector']); colsrc = br.outputs['Color']
         bumpsrc = br.outputs['Fac']
+    elif tex:
+        def _img(fn, cs):
+            n_ = _node(nt, 'ShaderNodeTexImage'); n_.image = bpy.data.images.load(os.path.join(TEXDIR, fn), check_existing=True)
+            n_.image.colorspace_settings.name = cs; n_.projection = 'BOX'; n_.projection_blend = tex.get('blend', 0.25); n_.interpolation = 'Cubic'
+            nt.links.new(tmap.outputs[0], n_.inputs['Vector']); return n_
+        tmap = _node(nt, 'ShaderNodeMapping'); s_ = tex.get('scale', 0.5); tmap.inputs['Scale'].default_value = (s_, s_, s_); nt.links.new(tc.outputs['Object'], tmap.inputs['Vector'])
+        ti = _img(tex['color'] + '_color.jpg', 'sRGB')
+        tint = _node(nt, 'ShaderNodeMix', data_type='RGBA', blend_type='MULTIPLY'); tint.inputs['Factor'].default_value = 1.0
+        tc_ = _node(nt, 'ShaderNodeRGB'); tc_.outputs[0].default_value = (*tex.get('tint', (1, 1, 1)), 1)
+        nt.links.new(ti.outputs['Color'], tint.inputs[6]); nt.links.new(tc_.outputs[0], tint.inputs[7]); colsrc = tint.outputs[2]
+        tex_rough = _img(tex['color'] + '_rough.jpg', 'Non-Color') if tex.get('rough', True) else None
+        tex_norm = _img(tex['color'] + '_normal.jpg', 'Non-Color') if tex.get('normal', False) else None
+        tex_h = _img(tex['color'] + '_height.jpg', 'Non-Color') if tex.get('height', False) else None
     else:
         rgb = _node(nt, 'ShaderNodeRGB'); rgb.outputs[0].default_value = (*base, 1); colsrc = rgb.outputs[0]
     # low-frequency variation
@@ -135,12 +149,19 @@ def make_mat(name, base=(0.5, 0.5, 0.5), rough=0.6, metallic=0.0, var=0.12, var_
     # roughness variation
     rv = _node(nt, 'ShaderNodeMapRange'); rv.inputs['To Min'].default_value = max(rough - 0.12, 0.05); rv.inputs['To Max'].default_value = min(rough + 0.12, 1.0)
     nt.links.new(nz.outputs['Fac'], rv.inputs['Value'])
+    if tex and tex_rough is not None:
+        rm_ = _node(nt, 'ShaderNodeMath', operation='MULTIPLY'); rm_.inputs[1].default_value = tex.get('rough_mul', 1.0); nt.links.new(tex_rough.outputs['Color'], rm_.inputs[0]); rv = rm_
     if dirt_f is not None:
         ra = _node(nt, 'ShaderNodeMath', operation='ADD'); ra.use_clamp = True
         rm = _node(nt, 'ShaderNodeMath', operation='MULTIPLY'); rm.inputs[1].default_value = 0.3; nt.links.new(dirt_f, rm.inputs[0])
         nt.links.new(rv.outputs[0], ra.inputs[0]); nt.links.new(rm.outputs[0], ra.inputs[1]); nt.links.new(ra.outputs[0], bsdf.inputs['Roughness'])
     else: nt.links.new(rv.outputs[0], bsdf.inputs['Roughness'])
-    if bump or tile:
+    if tex and (tex_norm is not None or tex_h is not None):
+        if tex_norm is not None:
+            nm_ = _node(nt, 'ShaderNodeNormalMap'); nm_.inputs['Strength'].default_value = tex.get('nstrength', 0.8); nt.links.new(tex_norm.outputs['Color'], nm_.inputs['Color']); nt.links.new(nm_.outputs[0], bsdf.inputs['Normal'])
+        else:
+            bp_ = _node(nt, 'ShaderNodeBump'); bp_.inputs['Strength'].default_value = tex.get('nstrength', 0.5); bp_.inputs['Distance'].default_value = 0.02; nt.links.new(tex_h.outputs['Color'], bp_.inputs['Height']); nt.links.new(bp_.outputs[0], bsdf.inputs['Normal'])
+    elif bump or tile:
         n2 = _node(nt, 'ShaderNodeTexNoise'); n2.inputs['Scale'].default_value = 40; n2.inputs['Detail'].default_value = 4
         nt.links.new(tc.outputs['Object'], n2.inputs['Vector'])
         bp = _node(nt, 'ShaderNodeBump'); bp.inputs['Strength'].default_value = bump or 0.15; bp.inputs['Distance'].default_value = 0.01
@@ -153,33 +174,48 @@ def make_mat(name, base=(0.5, 0.5, 0.5), rough=0.6, metallic=0.0, var=0.12, var_
     _mats[name] = m
     return m
 
+def make_img_mat(name, fn, emission=0.0):
+    """Flat image material (posters, TV slide) mapped from the object's UVs."""
+    if name in _mats: return _mats[name]
+    m = bpy.data.materials.new(name); m.use_nodes = True; nt = m.node_tree; nt.nodes.clear()
+    out = _node(nt, 'ShaderNodeOutputMaterial'); b = _node(nt, 'ShaderNodeBsdfPrincipled'); t = _node(nt, 'ShaderNodeTexImage')
+    t.image = bpy.data.images.load(os.path.join(TEXDIR, fn), check_existing=True); t.image.colorspace_settings.name = 'sRGB'
+    nt.links.new(t.outputs['Color'], b.inputs['Base Color']); b.inputs['Roughness'].default_value = 0.6
+    if emission:
+        b.inputs['Emission Color'].default_value = (1, 1, 1, 1); nt.links.new(t.outputs['Color'], b.inputs['Emission Color']); b.inputs['Emission Strength'].default_value = emission
+    nt.links.new(b.outputs[0], out.inputs['Surface']); _mats[name] = m; return m
+
 def families():
     """Shared material families. Palette follows the spawn room: dusty-lilac plaster over a navy dado, terracotta tile, rust-red,
     mustard and graphite accents, warm concrete outside. Wear is light: two years of use, not twenty."""
     F = {}
-    F['concrete_slab'] = make_mat('concrete_slab', (0.40, 0.375, 0.34), 0.82, var=0.2, var_scale=0.35, grime=0.55, wear={'color': (0.66, 0.63, 0.58), 'r': 0.02}, bump=0.08)
-    F['plaster'] = make_mat('plaster', (0.47, 0.35, 0.43), 0.88, var=0.12, var_scale=0.3, grime=0.45, bump=0.05)
+    F['concrete_slab'] = make_mat('concrete_slab', (0.40, 0.375, 0.34), 0.82, var=0.15, var_scale=0.35, grime=0.45, wear={'color': (0.66, 0.63, 0.58), 'r': 0.02}, tex={'color': 'concrete', 'scale': 0.5, 'tint': (0.66, 0.61, 0.66), 'normal': True, 'nstrength': 0.7})
+    F['plaster'] = make_mat('plaster', (0.47, 0.35, 0.43), 0.88, var=0.1, var_scale=0.3, grime=0.4, tex={'color': 'plaster', 'scale': 0.45, 'tint': (1.12, 0.95, 1.2), 'height': True, 'nstrength': 0.5})
     F['dado'] = make_mat('dado', (0.028, 0.034, 0.095), 0.5, var=0.1, grime=0.5, wear={'color': (0.12, 0.13, 0.2), 'r': 0.006})
-    F['ceiling'] = make_mat('ceiling', (0.66, 0.63, 0.60), 0.9, var=0.06, grime=0.3)
+    F['ceiling'] = make_mat('ceiling', (0.66, 0.63, 0.60), 0.9, var=0.06, grime=0.3, tex={'color': 'plaster', 'scale': 0.6, 'tint': (1.5, 1.45, 1.4), 'height': True, 'nstrength': 0.3})
+    F['gravel'] = make_mat('gravel', (0.3, 0.24, 0.15), 0.9, var=0.2, grime=0.0, tex={'color': 'gravel', 'scale': 0.8, 'tint': (0.8, 0.78, 0.74), 'normal': True, 'nstrength': 1.0})
     F['trim'] = make_mat('trim', (0.62, 0.60, 0.55), 0.55, var=0.06, grime=0.4)
-    F['steel_charcoal'] = make_mat('steel_charcoal', (0.085, 0.09, 0.105), 0.5, 0.2, var=0.12, grime=0.35, wear={'color': (0.30, 0.22, 0.17), 'r': 0.01})
+    F['steel_charcoal'] = make_mat('steel_charcoal', (0.085, 0.09, 0.105), 0.5, 0.2, var=0.1, grime=0.3, wear={'color': (0.30, 0.22, 0.17), 'r': 0.01}, tex={'color': 'metal', 'scale': 1.0, 'tint': (1.7, 1.8, 2.1), 'normal': True, 'nstrength': 0.4})
     F['steel_accent'] = make_mat('steel_accent', (0.72, 0.36, 0.06), 0.5, 0.1, var=0.15, grime=0.4, wear={'color': (0.35, 0.18, 0.08), 'r': 0.01})
     F['steel_rust'] = make_mat('steel_rust', (0.40, 0.19, 0.09), 0.82, 0.3, var=0.5, var_scale=1.2, grime=0.3, bump=0.25)
     F['corrugated'] = make_mat('corrugated', (0.52, 0.52, 0.50), 0.55, 0.55, var=0.25, var_scale=0.5, grime=0.5, dirt=(0.45, 0.40, 0.34))
-    F['cafe_tile'] = make_mat('cafe_tile', tile={'a': (0.46, 0.27, 0.19), 'b': (0.40, 0.24, 0.17), 'grout': (0.30, 0.26, 0.23), 'w': 0.5, 'h': 0.5, 'mortar': 0.01}, rough=0.5, var=0.12, grime=0.5)
+    F['cafe_tile'] = make_mat('cafe_tile', tile={'a': (0.52, 0.28, 0.18), 'b': (0.38, 0.21, 0.15), 'grout': (0.28, 0.25, 0.22), 'w': 0.5, 'h': 0.5, 'mortar': 0.008}, rough=0.32, var=0.2, grime=0.45, bump=0.35)
     F['tile_blue'] = make_mat('tile_blue', tile={'a': (0.05, 0.07, 0.21), 'b': (0.045, 0.06, 0.19), 'grout': (0.30, 0.26, 0.23), 'w': 0.6, 'h': 0.6, 'mortar': 0.012}, rough=0.5, var=0.1, grime=0.5)
     F['rubber'] = make_mat('rubber', (0.04, 0.04, 0.045), 0.9, var=0.08, bump=0.08, grime=0.3)
-    F['timber'] = make_mat('timber', (0.42, 0.25, 0.115), 0.65, var=0.25, grain=14, wear={'color': (0.55, 0.38, 0.2), 'r': 0.008}, bump=0.1, grime=0.3)
+    F['timber'] = make_mat('timber', (0.42, 0.25, 0.115), 0.65, var=0.12, grime=0.25, wear={'color': (0.55, 0.38, 0.2), 'r': 0.008}, tex={'color': 'wood', 'scale': 1.2, 'tint': (3.5, 6.0, 12.0), 'height': True, 'nstrength': 0.4})
     F['laminate'] = make_mat('laminate', (0.70, 0.64, 0.54), 0.4, var=0.08, grime=0.45, wear={'color': (0.80, 0.76, 0.68), 'r': 0.006})
     F['glass'] = make_mat('glass', (0.82, 0.92, 0.95), glass=True)
     F['fabric'] = make_mat('fabric', (0.45, 0.17, 0.11), 0.96, var=0.2, var_scale=4, sheen=0.4, bump=0.2, attr=True, grime=0.4)
     F['plastic'] = make_mat('plastic', (0.2, 0.22, 0.24), 0.45, var=0.08, attr=True, grime=0.4, wear={'color': (0.5, 0.5, 0.5), 'r': 0.006})
     F['signage'] = make_mat('signage', (0.9, 0.9, 0.9), 0.5, attr=True, var=0.05, grime=0.35)
     F['foliage'] = make_mat('foliage', (0.12, 0.30, 0.08), 0.75, attr=True, var=0.3, var_scale=3)
-    F['rock'] = make_mat('rock', (0.42, 0.31, 0.21), 0.9, var=0.7, var_scale=0.45, strata=0.15, bump=1.6, pointy=True, grime=0.4, dirt=(0.5, 0.45, 0.4))
+    F['rock'] = make_mat('rock', (0.42, 0.31, 0.21), 0.9, var=0.35, var_scale=0.3, pointy=True, grime=0.3, dirt=(0.55, 0.5, 0.45), tex={'color': 'rock', 'scale': 0.35, 'tint': (1.6, 1.6, 1.7), 'normal': True, 'nstrength': 1.0, 'blend': 0.3})
     F['props'] = make_mat('props', (0.5, 0.4, 0.3), 0.75, attr=True, var=0.22, var_scale=1.5, grime=0.4, wear={'color': (0.7, 0.6, 0.45), 'r': 0.01}, bump=0.12)
     F['emissive'] = make_mat('emissive', (1, 1, 1), 0.4, attr=True, var=0.0, emission=7.0)
     F['screen'] = make_mat('screen', (1, 1, 1), 0.2, attr=True, var=0.0, emission=1.6)
+    F['poster_land'] = make_img_mat('poster_land', 'poster_art_landscape.jpg', 0.0)
+    F['poster_port'] = make_img_mat('poster_port', 'poster_art_portrait.jpg', 0.0)
+    F['tv_slide'] = make_img_mat('tv_slide', 'tv_briefing_slide.jpg', 1.1)
     return F
 
 # --------------------------------------------------------------------------- geometry

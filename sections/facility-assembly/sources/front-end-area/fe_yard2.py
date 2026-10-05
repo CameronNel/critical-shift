@@ -25,7 +25,7 @@ def build_ground(F, C):
         g.append(row)
     for i in range(NX):
         for j in range(NY): bm.faces.new((g[i][j], g[i + 1][j], g[i + 1][j + 1], g[i][j + 1]))
-    mesh_obj('yard_earth', bm, F['props'], yard, rgba=(0.30, 0.22, 0.14, 1), smooth=True)
+    mesh_obj('yard_earth', bm, F['gravel'], yard, smooth=True)
     missing = {(6, 0), (3, 5)}; smashed = {(2, 3), (7, 4)}
     for ix in range(10):
         for iy in range(6):
@@ -104,7 +104,7 @@ def build_cliff(F, C):
         yy = -91 + i * 2.35 + rb.uniform(-0.6, 0.6)
         if -75 < yy < -65: continue
         inst(rocks[i % 6], f'boulder_{i}', -49.0 + rb.uniform(-0.9, 0.1), yy, yard, rz=rb.uniform(0, 6.28), z=-0.05, scale=(rb.uniform(1.0, 2.1),) * 3, support='floor_broken')
-    shs = [shrub(F, P, 30 + s, 0.38, 55) for s in range(3)]; vr = random.Random(9)
+    shs = [shrub(F, P, 30 + s, 0.38, 40) for s in range(3)]; vr = random.Random(9)
     from fe_assets_yard import shrub as _s
     for i in range(40):
         yy = vr.uniform(-90, -56)
@@ -239,7 +239,13 @@ def build_props(F, C):
             if a - r < x < b + r and c - r < y < d + r: return False
         return all((x - p[0]) ** 2 + (y - p[1]) ** 2 > (r + 0.3) ** 2 for p in pts)
     n = 0
-    for zone, cnt in (('A', 5), ('B', 4), ('C', 4)):
+    fk = forklift(F, P); cob = car_on_blocks(F, P); gr = gas_rack(F, P); ht = hand_truck(F, P); hr = hose_reel(F, P); tbar = traffic_barrier(F, P); spost = sign_post(F, P); spost2 = sign_post(F, P, (0.1, 0.45, 0.8, 1))
+    put(fk, 'forklift_0', -42.5, -66.3, math.pi, hx=1.8, hy=0.8); put(cob, 'car_blocks', -45.3, -74.6, math.pi / 2, hx=2.2, hy=0.95)
+    put(gr, 'gas_rack_0', -24.4, -76.4, math.pi / 2, hx=0.9, hy=0.5); put(gr, 'gas_rack_1', -44.0, -69.0 if False else -78.4, 0.0, hx=0.8, hy=0.5) if False else None
+    put(hr, 'hose_reel_0', -45.8, -66.1 if False else -61.0, 0.5); put(hr, 'hose_reel_1', -14.8, -63.9, 0.0); put(hr, 'hose_reel_2', -10.0, -82.5, 3.0)
+    for i, (x, y, rz) in enumerate(((-30.0, -82.8, 0.0), (-26.0, -82.8, 0.0), (-24.6, -61.6, 1.57), (-19.6, -61.6, 1.57), (-44.3, -61.4, 0.0))): put(tbar, f'traffic_barrier_{i}', x, y, rz)
+    for i, (x, y, rz) in enumerate(((-24.9, -83.4, 0.2), (-47.0, -71.9, 0.0), (-11.5, -60.9, 3.0), (-47.0, -68.0, 0.0))): put(spost if i % 2 == 0 else spost2, f'sign_post_{i}', x, y, rz)
+    for zone, cnt in (('A', 8), ('B', 6), ('C', 6)):
         x0, x1, y0, y1 = cl[zone]
         for _ in range(cnt):
             for _ in range(60):
@@ -262,6 +268,7 @@ def build_props(F, C):
     for i, (x, y) in enumerate(((-24.8, -61.5), (-19.8, -61.5), (-24.8, -66.3), (-19.6, -66.3), (-13.0, -62.0), (-13.0, -83.0), (-32.6, -83.0), (-22.8, -83.0))): put(cn, f'cone_{i}', x, y, rng.uniform(0, 3))
     for i, y in enumerate((-61.0, -66.5, -73.8, -77.0, -80.5)): put(bol, f'bollard_{i}', -8.9, y, 0.0)
     # carts on the track, facing east
+    put(ht, 'hand_truck_0', -37.7, -80.0, 0.7); put(ht, 'hand_truck_1', -33.0, -66.8, 2.2)
     put(cart, 'ore_cart_0', -41.0, RAIL_Y, 0.0, support=None); put(cart, 'ore_cart_1', -37.2, RAIL_Y, 0.0, support=None)
     # porch benches, planters with shrubs, trees
     for i, (x, y) in enumerate(((-10.5, -64.8), (-10.5, -75.2), (-10.5, -77.2))): put(bn, f'bench_{i}', x, y, math.pi / 2)

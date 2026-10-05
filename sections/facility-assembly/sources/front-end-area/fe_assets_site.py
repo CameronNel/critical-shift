@@ -76,7 +76,7 @@ def cement_bags(F, P, seed=0):
     for r in range(5):
         for c in range(2):
             for d in range(2):
-                m.add(p_cushion(0.55, 0.38, 0.12, 0.04, 1), (-0.28 + c * 0.56 + rnd.uniform(-0.02, 0.02), -0.2 + d * 0.4 + rnd.uniform(-0.02, 0.02), 0.22 + r * 0.115), (0, 0, rnd.uniform(-0.08, 0.08)), mi=I['plastic'], rgba=(0.72, 0.7, 0.62, 1))
+                m.add(p_rbox(0.55, 0.38, 0.12, 0.04, 2), (-0.28 + c * 0.56 + rnd.uniform(-0.02, 0.02), -0.2 + d * 0.4 + rnd.uniform(-0.02, 0.02), 0.22 + r * 0.115), (0, 0, rnd.uniform(-0.08, 0.08)), mi=I['plastic'], rgba=(0.72, 0.7, 0.62, 1))
     return m.finish(f'proto_cement_bags_{seed}', P)
 
 def wheelbarrow(F, P):

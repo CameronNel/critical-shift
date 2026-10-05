@@ -43,4 +43,8 @@ for n in ('YARD', 'CAFETERIA', 'HALL', 'SHARED'):
     report[n] = tri_count_coll(C[n])
 report['TOTAL'] = sum(report.values())
 print('TRIANGLES', json.dumps(report))
+for _im in bpy.data.images:
+    if _im.filepath and not _im.packed_file:
+        try: _im.pack()
+        except Exception: pass
 if out: bpy.ops.wm.save_as_mainfile(filepath=out, compress=True)

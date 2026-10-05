@@ -45,7 +45,7 @@ def hang(P_items, coll, key, items):
 
 def build_dressing(F, C):
     caf, hall, yard, sh = C['CAFETERIA'], C['HALL'], C['YARD'], C['SHARED']; P = collection('PROTOTYPES')
-    posters = [poster(F, P, v, 0.8, 1.1) for v in range(6)]; posters_l = [poster(F, P, 10 + v, 1.1, 0.8, 'poster_l') for v in range(3)]
+    posters = [poster(F, P, v, 0.8, 1.2) for v in range(6)]; posters_l = [poster(F, P, 10 + v, 1.2, 0.8, 'poster_l') for v in range(3)]
     bul = bulletin(F, P); ext = extinguisher(F, P); aid = first_aid(F, P); clk = wall_clock(F, P); sock = socket(F, P); exsign = exit_sign(F, P)
     # ---------------- cafeteria, interior faces
     hang(P, caf, 'caf_S', [(posters[0], 3.6, 1.4), (posters[1], 4.9, 1.4), (posters_l[0], 10.5, 1.5), (posters_l[1], 13.0, 1.5), (clk, 17.5, 3.55), (aid, 15.2, 1.5), (posters[2], 19.2, 1.5), (posters[3], 21.0, 1.5),

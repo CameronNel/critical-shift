@@ -118,6 +118,16 @@ class MB2(MB):
         if free: pb.free()
         before = set(self.bm.faces); self.bm.from_mesh(me); self._tag(before)
         bpy.data.meshes.remove(me); return self
+    def quad_image(self, cx, cy, cz, w, h, mi, flip=False):
+        """Upright quad in the XZ plane facing +Y with 0..1 UVs (posters, TV slide)."""
+        uvl = self.bm.loops.layers.uv.verify()
+        vs = [self.bm.verts.new(Vector((cx + sx * w / 2, cy, cz + sz * h / 2))) for sx, sz in ((-1, -1), (1, -1), (1, 1), (-1, 1))]
+        f = self.bm.faces.new(vs); f.material_index = mi
+        for l, (u, v) in zip(f.loops, ((0, 0), (1, 0), (1, 1), (0, 1))): l[uvl].uv = (u, v)
+        for l in f.loops: l[self.layer] = (1, 1, 1, 1)
+        f.normal_update()
+        if f.normal.y < 0: f.normal_flip()
+        return self
     def rbox(self, cx, cy, cz, sx, sy, sz, r=0.02, rot=(0, 0, 0), seg=3, mi=None, rgba=None):
         return self.add(p_rbox(sx, sy, sz, r, seg), (cx, cy, cz), rot, (1, 1, 1), mi, rgba)
     def cylz(self, cx, cy, z0, z1, r, seg=24, r2=None, bevel=0.0, mi=None, rgba=None, caps=True):

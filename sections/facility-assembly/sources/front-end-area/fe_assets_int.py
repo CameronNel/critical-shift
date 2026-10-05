@@ -1,7 +1,7 @@
 """Interior furniture and fittings at spawn-room quality: rounded forms, turned legs, subdivided upholstery, real leaves."""
 from fe_kit import *
 
-STD = ['plastic', 'steel_charcoal', 'fabric', 'timber', 'laminate', 'glass', 'emissive', 'rubber', 'foliage', 'props', 'signage', 'steel_accent', 'trim', 'concrete_slab', 'screen']
+STD = ['plastic', 'steel_charcoal', 'fabric', 'timber', 'laminate', 'glass', 'emissive', 'rubber', 'foliage', 'props', 'signage', 'steel_accent', 'trim', 'concrete_slab', 'screen', 'poster_land', 'poster_port', 'tv_slide']
 I = {k: i for i, k in enumerate(STD)}
 def mb(F): return MB2([F[k] for k in STD])
 
@@ -127,8 +127,7 @@ def vending(F, P, rgba=(0.62, 0.11, 0.09, 1), seed=0, name='vending'):
             x = wx0 + 0.07 + c * 0.1
             if rnd.random() < 0.12: continue
             col = rnd.choice(cols)
-            for k in range(3):
-                m.cylz(x, 0.0 + k * 0.1, z - 0.012, z + 0.1, 0.03, seg=12, mi=I['plastic'], rgba=col)
+            m.cylz(x, 0.33, z - 0.012, z + 0.1, 0.03, seg=10, mi=I['plastic'], rgba=col)
             m.add(p_torus(0.05, 0.004, 16, 5), (x, 0.36, z - 0.018), (0, 0, 0), (1, 1, 1), I['steel_charcoal'], (0.5, 0.5, 0.52, 1))
     m.rbox((wx0 + wx1) / 2, D / 2 + 0.004, (wz0 + wz1) / 2, wx1 - wx0 - 0.02, 0.008, wz1 - wz0 - 0.02, 0.002, mi=I['glass'])
     cx = (wx1 + W / 2) / 2
@@ -144,7 +143,7 @@ def vending(F, P, rgba=(0.62, 0.11, 0.09, 1), seed=0, name='vending'):
 def tv(F, P):
     m = mb(F)
     m.rbox(0, 0, 0.62, 1.38, 0.05, 0.8, 0.012, mi=I['steel_charcoal'], rgba=(0.03, 0.03, 0.035, 1))
-    m.rbox(0, 0.032, 0.62, 1.32, 0.006, 0.74, 0.003, mi=I['screen'], rgba=(0.07, 0.12, 0.2, 1))
+    m.quad_image(0, 0.0345, 0.62, 1.32, 0.74, I['tv_slide'])
     m.rbox(0, 0.0, 0.015, 0.7, 0.28, 0.03, 0.01, mi=I['steel_charcoal'], rgba=(0.06, 0.06, 0.07, 1))
     m.rbox(0, -0.02, 0.2, 0.08, 0.04, 0.4, 0.01, mi=I['steel_charcoal'], rgba=(0.06, 0.06, 0.07, 1))
     return m.finish('proto_tv', P)
@@ -229,7 +228,7 @@ def foosball(F, P):
         for j in range(n):
             y = (j - (n - 1) / 2) * (0.5 / max(n - 1, 1) if n > 1 else 0)
             m.rbox(x, y, 0.985, 0.032, 0.05, 0.09, 0.012, mi=I['plastic'], rgba=team)
-            m.sphere(x, y, 1.055, 0.027, rings=8, seg=12, mi=I['plastic'], rgba=team)
+            m.sphere(x, y, 1.055, 0.027, rings=5, seg=8, mi=I['plastic'], rgba=team)
             m.rbox(x, y, 0.945, 0.03, 0.045, 0.03, 0.01, mi=I['plastic'], rgba=(0.9, 0.9, 0.88, 1))
         for sy in (-1, 1):
             m.cylz(x, sy * 0.46, 0.0 + 0.0, 0.0, 0.0, seg=3) if False else None
@@ -327,3 +326,93 @@ def dartboard(F, P):
         m.between((x + tilt * 0.4, -0.2, z + 0.02), (x + tilt * 0.55, -0.25, z + 0.025), 0.007, seg=8, mi=I['plastic'], rgba=(0.1, 0.1, 0.12, 1))
         m.add(p_leaf(0.04, 0.012, 0, 0, 2), (x + tilt * 0.6, -0.26, z + 0.025), (0, 0, 0), mi=I['plastic'], rgba=(0.85, 0.15, 0.1, 1))
     return m.finish('proto_dartboard', P)
+
+def water_cooler(F, P):
+    m = mb(F)
+    m.rbox(0, 0, 0.55, 0.34, 0.34, 1.1, 0.03, mi=I['plastic'], rgba=(0.86, 0.86, 0.84, 1))
+    m.rbox(0, 0.17, 0.95, 0.24, 0.03, 0.12, 0.01, mi=I['plastic'], rgba=(0.12, 0.14, 0.2, 1))
+    for sx, c in ((-0.06, (0.2, 0.4, 0.8, 1)), (0.06, (0.8, 0.2, 0.15, 1))): m.rbox(sx, 0.19, 0.97, 0.04, 0.03, 0.03, 0.008, mi=I['plastic'], rgba=c)
+    m.rbox(0, 0.17, 0.72, 0.2, 0.1, 0.01, 0.003, mi=I['steel_charcoal'], rgba=(0.6, 0.62, 0.64, 1))
+    m.lathe([(0.0, 1.1), (0.12, 1.1), (0.16, 1.16), (0.17, 1.3), (0.14, 1.42), (0.08, 1.48), (0.06, 1.5), (0.0, 1.5)], seg=28, mi=I['glass'])
+    m.lathe([(0.0, 1.12), (0.115, 1.12), (0.155, 1.17), (0.165, 1.3), (0.0, 1.3)], seg=28, mi=I['glass'], rgba=(0.5, 0.7, 0.9, 1)) if False else None
+    return m.finish('proto_water_cooler', P)
+
+def fridge_display(F, P, rgba=(0.88, 0.88, 0.86, 1)):
+    m = mb(F); rnd = random.Random(6)
+    m.rbox(0, 0, 0.95, 0.9, 0.7, 1.9, 0.03, mi=I['plastic'], rgba=rgba)
+    m.rbox(0, 0.33, 1.0, 0.76, 0.05, 1.5, 0.01, mi=I['steel_charcoal'], rgba=(0.06, 0.06, 0.07, 1))
+    for r in range(4):
+        z = 0.5 + r * 0.38; m.rbox(0, 0.15, z, 0.74, 0.5, 0.012, 0.004, mi=I['steel_charcoal'], rgba=(0.6, 0.6, 0.62, 1))
+        for c in range(7):
+            col = rnd.choice([(0.8, 0.1, 0.08, 1), (0.1, 0.4, 0.8, 1), (0.9, 0.7, 0.1, 1), (0.15, 0.55, 0.3, 1), (0.9, 0.9, 0.88, 1)])
+            m.cylz(-0.3 + c * 0.1, 0.28, z + 0.006, z + 0.2, 0.032, seg=10, mi=I['plastic'], rgba=col)
+    m.rbox(0, 0.36, 1.0, 0.8, 0.008, 1.5, 0.002, mi=I['glass'])
+    m.rbox(0, 0.352, 1.85, 0.78, 0.03, 0.14, 0.01, mi=I['emissive'], rgba=(0.85, 0.95, 1.0, 1))
+    m.rbox(0.36, 0.38, 1.0, 0.03, 0.03, 0.4, 0.01, mi=I['steel_charcoal'], rgba=(0.6, 0.62, 0.64, 1))
+    for sx in (-1, 1): m.cylz(sx * 0.38, -0.28, 0.0, 0.04, 0.03, seg=8, mi=I['rubber'], rgba=(0.03, 0.03, 0.03, 1))
+    return m.finish('proto_fridge_display', P)
+
+def bookcase(F, P, seed=0):
+    m = mb(F); rnd = random.Random(seed); wood = (0.34, 0.2, 0.09, 1)
+    W, H, D = 1.2, 2.0, 0.34
+    for sx in (-1, 1): m.rbox(sx * W / 2, 0, H / 2, 0.03, D, H, 0.006, mi=I['timber'], rgba=wood)
+    for z in (0.02, 0.5, 0.98, 1.46, 1.98): m.rbox(0, 0, z, W, D, 0.03, 0.006, mi=I['timber'], rgba=wood)
+    m.rbox(0, -D / 2, H / 2, W, 0.01, H, 0.002, mi=I['timber'], rgba=tuple(c * 0.7 for c in wood[:3]) + (1,))
+    cols = [(0.55, 0.14, 0.08, 1), (0.12, 0.2, 0.4, 1), (0.8, 0.62, 0.2, 1), (0.2, 0.3, 0.2, 1), (0.85, 0.82, 0.74, 1), (0.4, 0.25, 0.15, 1)]
+    for sh, z in enumerate((0.04, 0.52, 1.0, 1.48)):
+        x = -W / 2 + 0.05
+        while x < W / 2 - 0.1:
+            if sh == 3 and rnd.random() < 0.25: x += 0.2; continue
+            w = rnd.uniform(0.025, 0.05); h = rnd.uniform(0.22, 0.4)
+            m.rbox(x + w / 2, 0.0, z + h / 2 + 0.015, w, 0.22, h, 0.003, mi=I['plastic'], rgba=rnd.choice(cols)); x += w + 0.003
+    return m.finish(f'proto_bookcase_{seed}', P)
+
+def microwave_bench(F, P):
+    m = mb(F)
+    m.rbox(0, 0, 0.45, 1.6, 0.6, 0.9, 0.02, mi=I['steel_charcoal'], rgba=(0.6, 0.62, 0.64, 1))
+    m.rbox(0, 0.0, 0.915, 1.64, 0.64, 0.04, 0.012, mi=I['laminate'], rgba=(0.72, 0.64, 0.52, 1))
+    m.rbox(-0.4, 0.02, 1.08, 0.5, 0.36, 0.28, 0.025, mi=I['plastic'], rgba=(0.82, 0.82, 0.8, 1)); m.rbox(-0.46, 0.2, 1.08, 0.34, 0.012, 0.2, 0.004, mi=I['glass']); m.rbox(-0.2, 0.2, 1.08, 0.08, 0.012, 0.22, 0.004, mi=I['steel_charcoal'], rgba=(0.1, 0.1, 0.11, 1))
+    m.lathe([(0.0, 0.0), (0.07, 0.0), (0.08, 0.04), (0.09, 0.18), (0.05, 0.2), (0.0, 0.2)], loc=(0.35, 0.0, 0.935), seg=20, mi=I['plastic'], rgba=(0.8, 0.8, 0.78, 1))
+    m.rbox(0.62, 0.0, 1.08, 0.26, 0.3, 0.28, 0.03, mi=I['plastic'], rgba=(0.12, 0.13, 0.15, 1))
+    for k in range(3): m.rbox(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0) if False else None
+    m.rbox(-0.1, 0.31, 0.5, 1.2, 0.012, 0.6, 0.004, mi=I['steel_charcoal'], rgba=(0.16, 0.17, 0.3, 1))
+    return m.finish('proto_microwave_bench', P)
+
+def table_set(F, P):
+    """Tabletop clutter: napkin dispenser, salt and pepper, sugar caddy, a menu card."""
+    m = mb(F)
+    m.rbox(0, 0, 0.07, 0.1, 0.07, 0.14, 0.012, mi=I['steel_charcoal'], rgba=(0.6, 0.62, 0.64, 1)); m.rbox(0, 0.036, 0.075, 0.07, 0.004, 0.1, 0.001, mi=I['signage'], rgba=(0.92, 0.9, 0.86, 1))
+    for x in (0.1, 0.15): m.lathe([(0.0, 0.0), (0.018, 0.0), (0.02, 0.05), (0.016, 0.08), (0.0, 0.085)], loc=(x, 0.0, 0.0), seg=12, mi=I['glass'])
+    m.rbox(-0.12, 0.0, 0.04, 0.09, 0.06, 0.08, 0.01, mi=I['plastic'], rgba=(0.8, 0.8, 0.78, 1))
+    m.rbox(0.0, 0.1, 0.075, 0.1, 0.012, 0.15, 0.003, rot=(-0.15, 0, 0), mi=I['signage'], rgba=(0.88, 0.82, 0.62, 1))
+    return m.finish('proto_table_set', P)
+
+def coat_rack(F, P):
+    m = mb(F)
+    m.lathe([(0.0, 0.0), (0.22, 0.0), (0.22, 0.02), (0.1, 0.05), (0.03, 0.08)], seg=20, mi=I['steel_charcoal'], rgba=(0.12, 0.12, 0.13, 1))
+    m.cylz(0, 0, 0.05, 1.75, 0.022, seg=10, mi=I['timber'], rgba=(0.3, 0.17, 0.08, 1))
+    for k in range(6):
+        a = k * math.pi / 3; m.between((0, 0, 1.68), (math.cos(a) * 0.22, math.sin(a) * 0.22, 1.82), 0.01, seg=6, mi=I['steel_charcoal'], rgba=(0.12, 0.12, 0.13, 1))
+    for k, a in enumerate((0.0, 2.1)): m.cushion(math.cos(a) * 0.2, math.sin(a) * 0.2, 1.4, 0.12, 0.2, 0.55, r=0.03, mi=I['fabric'], rgba=[(0.7, 0.3, 0.1, 1), (0.15, 0.2, 0.4, 1)][k])
+    return m.finish('proto_coat_rack', P)
+
+def wet_floor_sign(F, P):
+    m = mb(F)
+    for s in (-1, 1): m.rbox(0, s * 0.11, 0.3, 0.28, 0.012, 0.6, 0.006, rot=(s * -0.28, 0, 0), mi=I['plastic'], rgba=(0.92, 0.75, 0.05, 1)); m.rbox(0, s * 0.125, 0.33, 0.2, 0.004, 0.2, 0.002, rot=(s * -0.28, 0, 0), mi=I['signage'], rgba=(0.1, 0.1, 0.1, 1))
+    return m.finish('proto_wet_floor_sign', P)
+
+def mop_bucket(F, P):
+    m = mb(F)
+    m.rbox(0, 0, 0.2, 0.42, 0.3, 0.38, 0.04, mi=I['plastic'], rgba=(0.85, 0.7, 0.05, 1)); m.rbox(0, 0, 0.385, 0.34, 0.22, 0.01, 0.004, mi=I['glass'])
+    for sx in (-1, 1): m.cylz(sx * 0.17, 0, -0.0, 0.05, 0.03, seg=10, mi=I['rubber'], rgba=(0.03, 0.03, 0.03, 1))
+    m.between((0.1, -0.05, 0.4), (0.38, -0.1, 1.1), 0.014, seg=8, mi=I['steel_charcoal'], rgba=(0.6, 0.62, 0.64, 1))
+    return m.finish('proto_mop_bucket', P)
+
+def wall_shelf(F, P, seed=0):
+    m = mb(F); rnd = random.Random(seed)
+    m.rbox(0, 0.1, 0, 1.2, 0.2, 0.035, 0.008, mi=I['timber'], rgba=(0.34, 0.2, 0.09, 1))
+    for sx in (-0.45, 0.45): m.rbox(sx, 0.02, -0.09, 0.03, 0.04, 0.2, 0.006, mi=I['steel_charcoal'], rgba=(0.1, 0.1, 0.11, 1)); m.rbox(sx, 0.1, -0.03, 0.03, 0.17, 0.03, 0.006, mi=I['steel_charcoal'], rgba=(0.1, 0.1, 0.11, 1))
+    for k, x in enumerate((-0.4, 0.05, 0.4)):
+        m.lathe([(0.0, 0.0), (0.05, 0.0), (0.06, 0.1), (0.065, 0.11), (0.0, 0.11)], loc=(x, 0.1, 0.018), seg=14, mi=I['props'], rgba=[(0.7, 0.35, 0.2, 1), (0.14, 0.15, 0.25, 1), (0.8, 0.7, 0.5, 1)][k])
+        for i in range(14): m.leaf((x, 0.1, 0.12), rnd.uniform(0.1, 0.18), 0.03, bend=0.3, yaw=rnd.uniform(0, 6.28), pitch=rnd.uniform(0.4, 1.2), segs=3, mi=I['foliage'], rgba=(0.12, 0.32, 0.1, 1))
+    return m.finish(f'proto_wall_shelf_{seed}', P)

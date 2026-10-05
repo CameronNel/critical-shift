@@ -2,7 +2,7 @@
 Clear lanes stay on the cafeteria-spine axis (x 6.8..9.2) and the west-east door line (y -55.3..-52.7)."""
 from fe_kit import *
 from fe_assets_site import *
-from fe_assets_yard import crate, pallet, cable_drum, pipe_stack
+from fe_assets_yard import crate, pallet, cable_drum, pipe_stack, gas_rack, hand_truck
 from fe_assets_int import stanchion
 from fe_yard import inst
 
@@ -52,6 +52,12 @@ def build_hall_site(F, C, P):
         inst(crt[(i + 1) % 4], f'se_crate_{i}', x, y, hall, rz=0.1 * i, z=0.0 if i != 2 else 0.96, support='floor' if i != 2 else 'stack')
     inst(pal, 'se_pallet_0', 29.4, -57.0, hall, rz=0.2); inst(pal, 'se_pallet_1', 26.5, -56.8, hall, rz=-0.1)
     inst(jer, 'se_jersey_b', 24.2, -56.4, hall, rz=0.0); inst(jer, 'se_jersey_c', 31.0, -57.6, hall, rz=1.57)
+    gr = gas_rack(F, P); ht = hand_truck(F, P)
+    inst(gr, 'se_gas_rack_0', 22.0, -59.1, hall, rz=0.0); inst(gr, 'se_gas_rack_1', 23.5, -59.1, hall, rz=0.0)
+    inst(ht, 'hall_hand_truck_0', -3.2, -51.0, hall, rz=0.4); inst(ht, 'hall_hand_truck_1', 12.2, -58.6, hall, rz=-0.3)
+    inst(wb, 'ne_wheelbarrow', 22.8, -50.6, hall, rz=-0.5); inst(bk, 'ne_bucket_0', 21.6, -49.8, hall); inst(bk, 'ne_bucket_1', 21.9, -49.7, hall, rz=1.0)
+    inst(tb, 'ne_toolbox', 21.0, -50.4, hall, rz=0.2); inst(lad, 'ne_ladder', 31.4, -50.2, hall, rz=math.pi / 2, support='lean')
+    inst(drum, 'se_cable_drum', 30.6, -56.0 if False else -59.0, hall, rz=0.8)
     # ---- weave on the door line
     inst(jer, 'weave_jersey_0', 19.5, -56.0, hall, rz=0.0); inst(jer, 'weave_jersey_1', 23.0, -51.9, hall, rz=0.0)
     # ---- stanchions with tape around the collapse
