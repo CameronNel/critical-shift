@@ -65,9 +65,9 @@ def make_mud_material():
     # --- mud: dark wet brown with pale dried-clay patches, rust-ochre seams, clods
     big = noise(0.18, 5); mid = noise(1.1, 7, 0.7); fine = noise(16.0, 4, 0.6)
     clods = voro(9.0); pebbles_m = voro(30.0)
-    wet_dark = (0.010, 0.0065, 0.004, 1); brown = (0.045, 0.028, 0.016, 1); clay = (0.20, 0.125, 0.065, 1); ochre = (0.34, 0.17, 0.06, 1)
+    wet_dark = (0.010, 0.0065, 0.004, 1); brown = (0.045, 0.028, 0.016, 1); clay = (0.11, 0.07, 0.04, 1); ochre = (0.19, 0.10, 0.04, 1)
     base = ramp(mid, [(0.28, wet_dark), (0.50, brown), (0.72, clay)])
-    patches = math_('MULTIPLY', math_('SUBTRACT', big, val=0.50, clamp=False), val=3.0)
+    patches = math_('MULTIPLY', math_('SUBTRACT', big, val=0.58, clamp=False), val=2.0)
     mud_col = mix(patches, base, ochre)
     clod_shade = ramp(clods.outputs['Distance'], [(0.0, (0.55, 0.55, 0.55, 1)), (0.45, (1.0, 1.0, 1.0, 1)), (0.8, (1.35, 1.35, 1.35, 1))])
     mud_col = mix(1.0, mud_col, mud_col) if False else mud_col

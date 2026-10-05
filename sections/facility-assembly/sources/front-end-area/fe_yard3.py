@@ -43,8 +43,15 @@ def build_ground(F, C):
     ground = box('context_ground', -170, 90, -200, 60, -0.9, -0.15, F['props'], C['SHARED'], rgba=(0.06, 0.05, 0.04, 1)); ground['note'] = 'context only, outside the module footprint'
     box('yard_base', *YARD[:2], *YARD[2:], -0.45, -0.3, F['props'], yard, rgba=(0.06, 0.05, 0.04, 1))
     build_terrain(F, C, YARD, RUTS, POOLS, PADS, GRAVEL)
-    from fe_assets_site import rubble_chunk
-    Pc = collection('PROTOTYPES'); stones = [rubble_chunk(F, Pc, 61 + k * 3 + (1 if k % 3 == 0 else 0), 0.045 + 0.012 * (k % 3)) for k in range(6)]
+    Pc = collection('PROTOTYPES')
+    def stone(seed, size):
+        r = random.Random(seed); m = mb(F); pb = bmesh.new(); res = bmesh.ops.create_icosphere(pb, subdivisions=1, radius=1.0)
+        for v in res['verts']:
+            k = 1.0 + r.uniform(-0.3, 0.3); v.co = Vector((v.co.x * size * k, v.co.y * size * 0.85 * k, v.co.z * size * 0.55 * k))
+        for f in pb.faces: f.smooth = False
+        m.add(pb, mi=I['props'], rgba=r.choice(((0.05, 0.045, 0.04, 1), (0.09, 0.075, 0.06, 1), (0.14, 0.12, 0.10, 1), (0.07, 0.06, 0.07, 1))))
+        return m.finish(f'proto_stone_{seed}', Pc)
+    stones = [stone(61 + k, 0.05 + 0.014 * (k % 3)) for k in range(6)]
     for k in range(520):
         x = rnd.uniform(-47.5, -8.5); y = rnd.uniform(-83.5, -60.5)
         if on_pad(x, y, 0.3): continue
