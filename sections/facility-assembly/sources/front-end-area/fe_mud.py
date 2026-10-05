@@ -58,7 +58,7 @@ def make_mud_material():
     pud = sep.outputs['Red']; grv = sep.outputs['Green']
     # sharpen the pool edge with a little noise so the shoreline is not a perfect contour
     edge_n = noise(9.0, 4)
-    pud_s = math_('MULTIPLY', math_('SUBTRACT', math_('ADD', pud, edge_n, clamp=False), val=0.42, clamp=False), val=7.0)   # >0.5 where wet
+    pud_s = math_('ADD', math_('MULTIPLY', math_('SUBTRACT', math_('ADD', pud, math_('MULTIPLY', math_('SUBTRACT', edge_n, val=0.5, clamp=False), val=0.8, clamp=False), clamp=False), val=0.5, clamp=False), val=6.0, clamp=False), val=0.5, clamp=False)
     puddle = math_('MAXIMUM', math_('MINIMUM', pud_s, val=1.0), val=0.0)
     # mud colour: large patches of drier, paler clay among dark wet brown, fine clod detail
     big = noise(0.22, 5); mid = noise(1.3, 7, 0.7); fine = noise(14.0, 4, 0.6)
