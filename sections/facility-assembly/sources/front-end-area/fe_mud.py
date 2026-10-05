@@ -62,8 +62,8 @@ def make_mud_material():
     puddle = math_('MAXIMUM', math_('MINIMUM', pud_s, val=1.0), val=0.0)
     # mud colour: large patches of drier, paler clay among dark wet brown, fine clod detail
     big = noise(0.22, 5); mid = noise(1.3, 7, 0.7); fine = noise(14.0, 4, 0.6)
-    mud = ramp(mid, [(0.30, (0.040, 0.028, 0.018, 1)), (0.55, (0.058, 0.040, 0.026, 1)), (0.80, (0.082, 0.058, 0.037, 1))])
-    dry = mix(math_('MULTIPLY', math_('SUBTRACT', big, val=0.50, clamp=False), val=1.2), mud, (0.105, 0.078, 0.052, 1))
+    mud = ramp(mid, [(0.30, (0.022, 0.015, 0.010, 1)), (0.55, (0.036, 0.025, 0.016, 1)), (0.80, (0.055, 0.038, 0.025, 1))])
+    dry = mix(math_('MULTIPLY', math_('SUBTRACT', big, val=0.50, clamp=False), val=1.2), mud, (0.070, 0.050, 0.033, 1))
     mud_col = mix(math_('MULTIPLY', fine, val=0.22), dry, (0.028, 0.019, 0.013, 1))
     gcol = mix(0.30, img('gravel_color.jpg', 'sRGB', 2.5), (0.045, 0.040, 0.034, 1))
     gwet = mix(0.45, gcol, (0.02, 0.018, 0.016, 1))
