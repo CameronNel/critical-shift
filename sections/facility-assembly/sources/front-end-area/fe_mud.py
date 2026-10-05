@@ -60,31 +60,45 @@ def make_mud_material():
     edge_n = noise(9.0, 4)
     pud_s = math_('ADD', math_('MULTIPLY', math_('SUBTRACT', math_('ADD', pud, math_('MULTIPLY', math_('SUBTRACT', edge_n, val=0.5, clamp=False), val=0.8, clamp=False), clamp=False), val=0.5, clamp=False), val=6.0, clamp=False), val=0.5, clamp=False)
     puddle = math_('MAXIMUM', math_('MINIMUM', pud_s, val=1.0), val=0.0)
-    # mud colour: large patches of drier, paler clay among dark wet brown, fine clod detail
-    big = noise(0.22, 5); mid = noise(1.3, 7, 0.7); fine = noise(14.0, 4, 0.6)
-    mud = ramp(mid, [(0.30, (0.022, 0.015, 0.010, 1)), (0.55, (0.036, 0.025, 0.016, 1)), (0.80, (0.055, 0.038, 0.025, 1))])
-    dry = mix(math_('MULTIPLY', math_('SUBTRACT', big, val=0.50, clamp=False), val=1.2), mud, (0.070, 0.050, 0.033, 1))
-    mud_col = mix(math_('MULTIPLY', fine, val=0.22), dry, (0.028, 0.019, 0.013, 1))
-    gcol = mix(0.93, img('gravel_color.jpg', 'sRGB', 2.5), (0.045, 0.040, 0.034, 1))
-    gwet = mix(0.35, gcol, (0.02, 0.018, 0.016, 1))
-    ground = mix(math_('MINIMUM', math_('MULTIPLY', grv, val=1.6), val=1.0), mud_col, gwet)
-    water_col = (0.012, 0.011, 0.010, 1)
+    def voro(scale, kind='F1'):
+        v = N('ShaderNodeTexVoronoi'); v.feature = kind; v.inputs['Scale'].default_value = scale; L(tc.outputs['Object'], v.inputs['Vector']); return v
+    # --- mud: dark wet brown with pale dried-clay patches, rust-ochre seams, clods
+    big = noise(0.18, 5); mid = noise(1.1, 7, 0.7); fine = noise(16.0, 4, 0.6)
+    clods = voro(9.0); pebbles_m = voro(30.0)
+    wet_dark = (0.010, 0.0065, 0.004, 1); brown = (0.045, 0.028, 0.016, 1); clay = (0.20, 0.125, 0.065, 1); ochre = (0.34, 0.17, 0.06, 1)
+    base = ramp(mid, [(0.28, wet_dark), (0.50, brown), (0.72, clay)])
+    patches = math_('MULTIPLY', math_('SUBTRACT', big, val=0.50, clamp=False), val=3.0)
+    mud_col = mix(patches, base, ochre)
+    clod_shade = ramp(clods.outputs['Distance'], [(0.0, (0.55, 0.55, 0.55, 1)), (0.45, (1.0, 1.0, 1.0, 1)), (0.8, (1.35, 1.35, 1.35, 1))])
+    mud_col = mix(1.0, mud_col, mud_col) if False else mud_col
+    mm = N('ShaderNodeMix', data_type='RGBA', blend_type='MULTIPLY'); mm.inputs['Factor'].default_value = 1.0; L(mud_col, mm.inputs[6]); L(clod_shade, mm.inputs[7]); mud_col = mm.outputs[2]
+    # --- gravel: random-coloured pebbles with dark gaps
+    pb = voro(26.0); pb2 = voro(7.0)
+    pcol = ramp(pb.outputs['Color'] if False else noise(3.0, 2), [(0.0, (0.05, 0.05, 0.055, 1)), (0.4, (0.16, 0.14, 0.12, 1)), (0.7, (0.30, 0.22, 0.14, 1)), (1.0, (0.45, 0.42, 0.40, 1))])
+    gap = ramp(pb.outputs['Distance'], [(0.0, (1.0, 1.0, 1.0, 1)), (0.55, (0.8, 0.8, 0.8, 1)), (0.75, (0.12, 0.12, 0.12, 1))])
+    gcol = N('ShaderNodeMix', data_type='RGBA', blend_type='MULTIPLY'); gcol.inputs['Factor'].default_value = 1.0
+    jit = N('ShaderNodeSeparateColor'); L(pb.outputs['Color'], jit.inputs['Color'])
+    pj = ramp(jit.outputs['Red'], [(0.0, (0.35, 0.35, 0.35, 1)), (1.0, (1.5, 1.5, 1.5, 1))])
+    t1 = N('ShaderNodeMix', data_type='RGBA', blend_type='MULTIPLY'); t1.inputs['Factor'].default_value = 1.0; L(pcol, t1.inputs[6]); L(pj, t1.inputs[7])
+    L(t1.outputs[2], gcol.inputs[6]); L(gap, gcol.inputs[7]); gravel_col = gcol.outputs[2]
+    ground = mix(math_('MINIMUM', math_('MULTIPLY', grv, val=1.6), val=1.0), mud_col, gravel_col)
+    water_col = (0.008, 0.008, 0.009, 1)
     col = mix(math_('MULTIPLY', puddle, val=0.92), ground, water_col)
     L(col, bsdf.inputs['Base Color'])
-    # roughness: wet mud is satin, gravel a little rougher, pools are mirror
-    r_mud = mix(math_('MULTIPLY', fine, val=1.0), 0.38, 0.62, 'FLOAT')
-    r_ground = mix(math_('MINIMUM', math_('MULTIPLY', grv, val=1.6), val=1.0), r_mud, 0.82, 'FLOAT')
-    rough = mix(puddle, r_ground, 0.025, 'FLOAT'); L(rough, bsdf.inputs['Roughness'])
+    # roughness: wet mud satin and variable, gravel dry-ish, pools mirror
+    r_mud = mix(fine, 0.30, 0.65, 'FLOAT')
+    r_ground = mix(math_('MINIMUM', math_('MULTIPLY', grv, val=1.6), val=1.0), r_mud, 0.8, 'FLOAT')
+    L(mix(puddle, r_ground, 0.02, 'FLOAT'), bsdf.inputs['Roughness'])
     if 'Specular IOR Level' in bsdf.inputs: bsdf.inputs['Specular IOR Level'].default_value = 0.55
-    # wet sheen over the mud
     if 'Coat Weight' in bsdf.inputs:
-        bsdf.inputs['Coat Weight'].default_value = 0.0; L(math_('MAXIMUM', math_('MULTIPLY', math_('SUBTRACT', 1.0, grv, clamp=False), val=0.35), puddle), bsdf.inputs['Coat Weight'])
-        bsdf.inputs['Coat Roughness'].default_value = 0.06
-    # normal: clods and gravel grit, flat in water
-    bump_h = mix(math_('MULTIPLY', grv, val=1.0), math_('ADD', math_('MULTIPLY', fine, val=0.7), math_('MULTIPLY', noise(5.0, 5), val=0.5)), img('gravel_rough.jpg', 'Non-Color', 3.0))
-    bp = N('ShaderNodeBump'); bp.inputs['Distance'].default_value = 0.03
-    L(bump_h, bp.inputs['Height']); L(math_('MULTIPLY', math_('SUBTRACT', 1.0, puddle, clamp=False), val=0.8), bp.inputs['Strength']); L(bp.outputs[0], bsdf.inputs['Normal'])
-    # a displacement-free height cue for the gravel normal map
+        bsdf.inputs['Coat Weight'].default_value = 0.0
+        L(math_('MAXIMUM', math_('MULTIPLY', math_('SUBTRACT', 1.0, grv, clamp=False), val=0.45), puddle), bsdf.inputs['Coat Weight']); bsdf.inputs['Coat Roughness'].default_value = 0.05
+    # relief: clods and tracks in the mud, pebbles on the road, flat in water
+    h_mud = math_('ADD', math_('MULTIPLY', clods.outputs['Distance'], val=0.8), math_('MULTIPLY', pebbles_m.outputs['Distance'], val=0.35))
+    h_grv = math_('ADD', math_('MULTIPLY', pb.outputs['Distance'], val=1.0), math_('MULTIPLY', pb2.outputs['Distance'], val=0.5))
+    bump_h = mix(math_('MINIMUM', math_('MULTIPLY', grv, val=1.6), val=1.0), h_mud, h_grv, 'FLOAT')
+    bp = N('ShaderNodeBump'); bp.inputs['Distance'].default_value = 0.05
+    L(bump_h, bp.inputs['Height']); L(math_('MULTIPLY', math_('SUBTRACT', 1.0, puddle, clamp=False), val=1.0), bp.inputs['Strength']); L(bp.outputs[0], bsdf.inputs['Normal'])
     return m
 
 def build_terrain(F, C, YARD, ruts, pools, pads, gravel_zones, seed=77):

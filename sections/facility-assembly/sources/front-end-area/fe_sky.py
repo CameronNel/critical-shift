@@ -107,7 +107,7 @@ def generate(path=OUT):
         bulge = 0.55 + 0.9 * np.exp(-(np.degrees(l) / 38.0) ** 2)
         patch = np.clip((n - 0.30) / 0.30, 0.0, 1.4)
         dust = np.clip(1.0 - 1.9 * np.clip((ln - 0.52) / 0.18, 0, 1) * np.exp(-(bd / 6.0) ** 2), 0.12, 1.0)
-        mw = 0.021 * core * bulge * (0.35 + 0.85 * patch) * dust + 0.0016 * np.exp(-(bd / 25.0) ** 2)
+        mw = 0.010 * core * bulge * (0.35 + 0.85 * patch) * dust
         tint = np.array([1.0, 0.93, 0.80], np.float32); cool = np.array([0.80, 0.88, 1.0], np.float32)
         wcol = (bulge / 1.45)[..., None] * tint + (1 - bulge / 1.45)[..., None] * cool
         img[rows[0]:rows[-1] + 1] = (mw[..., None] * wcol)
@@ -179,7 +179,8 @@ def generate(path=OUT):
     # ---- encode: linear -> sRGB, dither so the dark gradient does not band
     lin = np.clip(img, 0.0, 1.0)
     srgb = np.where(lin <= 0.0031308, lin * 12.92, 1.055 * np.power(lin, 1 / 2.4) - 0.055)
-    srgb = srgb * 255.0 + rng.random(srgb.shape, dtype=np.float32) - 0.5
+    srgb = srgb * 255.0
+    srgb = np.where(srgb < 2.0, 0.0, srgb + rng.random(srgb.shape, dtype=np.float32) - 0.5)
     Image.fromarray(np.clip(np.round(srgb), 0, 255).astype(np.uint8), 'RGB').save(path, quality=94, subsampling=0, optimize=True)
     return path
 

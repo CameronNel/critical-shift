@@ -27,6 +27,7 @@ CAMERAS = [
  ('YRD_06_STORE_AND_POWER', (-24.5, -71.2, 1.7), (-14.0, -79.0, 1.3), 22),
  ('YRD_07_AERIAL', (-24.0, -108.0, 52.0), (-28.0, -72.0, 0.0), 30),
  ('YRD_08_NIGHT_SKY', (-22.0, -70.5, 1.7), (-27.8, -103.1, 24.1), 18),
+ ('YRD_09_GROUND_CLOSE', (-33.0, -74.4, 0.9), (-30.0, -70.8, 0.1), 24),
  ('YRD_X1_PORTAL_CLOSE', (-33.5, -71.3, 2.3), (-49.0, -70.0, 2.3), 28),
  ('YRD_X2_FREIGHT_GATE', (-22.2, -64.0, 1.7), (-22.2, -60.0, 2.4), 22),
  ('YRD_X3_EVAC_GATE', (-28.0, -76.0, 1.7), (-28.0, -84.0, 1.6), 20),
@@ -48,7 +49,7 @@ def area(name, loc, size, energy, color, coll, rot=(0, 0, 0), shape='RECTANGLE',
     o = bpy.data.objects.new(name, l); o.location = (LX(loc[0]), LY(loc[1]), loc[2]); o.rotation_euler = rot; coll.objects.link(o); return o
 
 def night_world(sc):
-    """Night sky: star map (fe_sky) as the world, plus a faint horizon airglow so silhouettes read; the moon light is added by build_lighting."""
+    """Night sky: star map (fe_sky) as the world, plus a no airglow: the sky is black except the stars and the moon; the moon light is added by build_lighting."""
     import fe_sky
     w = bpy.data.worlds.new('FE_NIGHT'); sc.world = w; w.use_nodes = True
     nt = w.node_tree; nt.nodes.clear(); Lk = nt.links.new
@@ -58,13 +59,8 @@ def night_world(sc):
         return n
     out = N('ShaderNodeOutputWorld'); bg = N('ShaderNodeBackground'); env = N('ShaderNodeTexEnvironment')
     env.image = bpy.data.images.load(fe_sky.ensure(), check_existing=True); env.image.colorspace_settings.name = 'sRGB'; env.interpolation = 'Cubic'
-    tc = N('ShaderNodeTexCoord'); sep = N('ShaderNodeSeparateXYZ'); Lk(tc.outputs['Generated'], sep.inputs[0])
-    mr = N('ShaderNodeMapRange'); mr.inputs['From Min'].default_value = -0.05; mr.inputs['From Max'].default_value = 0.5; mr.inputs['To Min'].default_value = 1.0; mr.inputs['To Max'].default_value = 0.0
-    mr.clamp = True; Lk(sep.outputs['Z'], mr.inputs['Value'])
-    glow = N('ShaderNodeMix', data_type='RGBA'); glow.inputs[6].default_value = (0.0016, 0.0024, 0.0050, 1); glow.inputs[7].default_value = (0.020, 0.026, 0.050, 1); Lk(mr.outputs[0], glow.inputs['Factor'])
-    add = N('ShaderNodeMix', data_type='RGBA', blend_type='ADD'); add.inputs['Factor'].default_value = 1.0
     gain = N('ShaderNodeMix', data_type='RGBA', blend_type='MULTIPLY'); gain.inputs['Factor'].default_value = 1.0; gain.inputs[7].default_value = (fe_sky.GAIN,) * 3 + (1,)
-    Lk(env.outputs['Color'], gain.inputs[6]); Lk(gain.outputs[2], add.inputs[6]); Lk(glow.outputs[2], add.inputs[7])
+    Lk(env.outputs['Color'], gain.inputs[6]); add = gain
     Lk(add.outputs[2], bg.inputs['Color']); bg.inputs['Strength'].default_value = 1.0; Lk(bg.outputs[0], out.inputs['Surface'])
     return w
 
@@ -95,6 +91,12 @@ def yard_night_lights(lc):
     # cabin and gate lamps
     point('LIGHT_cabin_door', (LX(-42.8), LY(-73.4), 2.5), 160, (1.0, 0.85, 0.6), lc, radius=0.1)
     point('LIGHT_evac_gate', (LX(-28.0), LY(-83.2), 2.7), 140, (0.4, 1.0, 0.55), lc, radius=0.1)
+    # coloured accents against the black
+    point('LIGHT_portal_red', (LX(-47.0), LY(-70.0), 3.4), 420, (1.0, 0.08, 0.04), lc, radius=0.15)
+    point('LIGHT_fuel_teal', (LX(-44.7), LY(-80.2), 3.0), 380, (0.1, 0.9, 1.0), lc, radius=0.15)
+    point('LIGHT_muster_green', (LX(-20.7), LY(-73.3), 2.6), 300, (0.2, 1.0, 0.3), lc, radius=0.15)
+    point('LIGHT_generator_amber', (LX(-12.4), LY(-80.9), 3.0), 300, (1.0, 0.5, 0.05), lc, radius=0.15)
+    point('LIGHT_dock_blue', (LX(-22.2), LY(-62.2), 3.4), 360, (0.25, 0.45, 1.0), lc, radius=0.15)
     point('LIGHT_porch_door', (LX(-8.6), LY(-70.0), 3.0), 220, (1.0, 0.9, 0.72), lc, radius=0.1)
 
 MOON_RES = None
@@ -103,7 +105,7 @@ def build_lighting(F, C):
     lc = C['LIGHTS']; sc = bpy.context.scene
     night_world(sc)
     md = Vector(tuple(fe_sky.moon_dir()))                                  # world direction toward the moon
-    moon = bpy.data.lights.new('FE_MOON', 'SUN'); moon.energy = 0.55; moon.angle = math.radians(1.2); moon.color = (0.66, 0.77, 1.0)
+    moon = bpy.data.lights.new('FE_MOON', 'SUN'); moon.energy = 0.10; moon.angle = math.radians(1.2); moon.color = (0.66, 0.77, 1.0)
     mo = bpy.data.objects.new('FE_MOON', moon); mo.rotation_euler = md.to_track_quat('Z', 'Y').to_euler(); lc.objects.link(mo)
     yard_night_lights(lc)
     area('KITCHEN_LIGHT_0', (17.0, -61.9, 2.9), 1.6, 220, (1.0, 0.95, 0.85), lc, sy=0.5); area('KITCHEN_LIGHT_1', (22.5, -61.9, 2.9), 1.6, 220, (1.0, 0.95, 0.85), lc, sy=0.5)

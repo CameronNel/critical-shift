@@ -161,10 +161,10 @@ def make_mat(name, base=(0.5, 0.5, 0.5), rough=0.6, metallic=0.0, var=0.12, var_
             nm_ = _node(nt, 'ShaderNodeNormalMap'); nm_.inputs['Strength'].default_value = tex.get('nstrength', 0.8); nt.links.new(tex_norm.outputs['Color'], nm_.inputs['Color']); nt.links.new(nm_.outputs[0], bsdf.inputs['Normal'])
         else:
             bp_ = _node(nt, 'ShaderNodeBump'); bp_.inputs['Strength'].default_value = tex.get('nstrength', 0.5); bp_.inputs['Distance'].default_value = 0.02; nt.links.new(tex_h.outputs['Color'], bp_.inputs['Height']); nt.links.new(bp_.outputs[0], bsdf.inputs['Normal'])
-    elif bump or tile:
-        n2 = _node(nt, 'ShaderNodeTexNoise'); n2.inputs['Scale'].default_value = 40; n2.inputs['Detail'].default_value = 4
+    elif not emission:
+        n2 = _node(nt, 'ShaderNodeTexNoise'); n2.inputs['Scale'].default_value = 40 if not tile else 40; n2.inputs['Detail'].default_value = 4
         nt.links.new(tc.outputs['Object'], n2.inputs['Vector'])
-        bp = _node(nt, 'ShaderNodeBump'); bp.inputs['Strength'].default_value = bump or 0.15; bp.inputs['Distance'].default_value = 0.01
+        bp = _node(nt, 'ShaderNodeBump'); bp.inputs['Strength'].default_value = bump or 0.35; bp.inputs['Distance'].default_value = 0.012
         nt.links.new((bumpsrc if tile else n2.outputs['Fac']), bp.inputs['Height']); nt.links.new(bp.outputs['Normal'], bsdf.inputs['Normal'])
     if emission:
         e = _node(nt, 'ShaderNodeEmission'); e.inputs['Strength'].default_value = emission

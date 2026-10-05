@@ -43,6 +43,12 @@ def build_ground(F, C):
     ground = box('context_ground', -170, 90, -200, 60, -0.9, -0.15, F['props'], C['SHARED'], rgba=(0.06, 0.05, 0.04, 1)); ground['note'] = 'context only, outside the module footprint'
     box('yard_base', *YARD[:2], *YARD[2:], -0.45, -0.3, F['props'], yard, rgba=(0.06, 0.05, 0.04, 1))
     build_terrain(F, C, YARD, RUTS, POOLS, PADS, GRAVEL)
+    from fe_assets_site import rubble_chunk
+    Pc = collection('PROTOTYPES'); stones = [rubble_chunk(F, Pc, 61 + k * 3 + (1 if k % 3 == 0 else 0), 0.045 + 0.012 * (k % 3)) for k in range(6)]
+    for k in range(520):
+        x = rnd.uniform(-47.5, -8.5); y = rnd.uniform(-83.5, -60.5)
+        if on_pad(x, y, 0.3): continue
+        inst(stones[k % 6], f'stone_{k}', x, y, yard, rz=rnd.uniform(0, 6.28), z=-0.02, scale=(rnd.uniform(0.6, 1.8),) * 3, support='floor_debris')
     wet = F['apron'].copy(); wet.name = 'apron_wet'
     for n in wet.node_tree.nodes:
         if n.type == 'BSDF_PRINCIPLED' and 'Coat Weight' in n.inputs: n.inputs['Coat Weight'].default_value = 0.45; n.inputs['Coat Roughness'].default_value = 0.08
