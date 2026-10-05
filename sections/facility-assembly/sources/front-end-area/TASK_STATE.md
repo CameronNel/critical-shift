@@ -23,11 +23,11 @@ plan positions; none were moved.
 ## Revision 3 (2026-10-05): cafeteria restored, game room cut down, real textures, more props
 The owner found v2 too sparse and too low in visual quality, and said the cafeteria had gone missing (v2 had shrunk the dining area to
 four tables and let the game area take over the room). v3:
-- Cafeteria restored as a real cafeteria: thirteen four-seat tables in blocks (east, west and north-middle), a booth bank, the serving
+- Cafeteria restored as a real cafeteria: ten four-seat tables (east block, north-middle, beside the lane) and two booth banks, the serving
   counter and kitchen with hatch, ordering kiosk and queue stanchions, vending, drinks fridge, water cooler, microwave bench, coat rack,
   planter dividers, table settings (trays, mugs, bottles, napkin dispensers, salt and pepper, menu cards).
 - Game room cut to a small north-west corner (about 7 x 6 m): foosball, arcade basketball and a dartboard. The air hockey table was dropped
-  to make room. The living corner was also made smaller (sofa, armchair, coffee table, bookcase, TV) in the south-west.
+  to make room. The **lounge stays on the left (west) side**, south of the west door and clear of the dining tables: 3-seat and 2-seat sofas, two armchairs, coffee table, bookcase, lamps, plants, a large rug and a TV on the slatted south wall.
 - Visual quality: real PBR texture maps from the repo (CC0 sets in `sections/mine/assets/pbr`: Concrete046, rock_face_03, gravel_ground_01,
   Metal046B; plaster and worn-wood maps and the poster and TV artwork from the spawn room's module) at 1024 px in `textures/`, applied by
   box projection with colour tints; a glossier varied tile floor; plaster-textured ceilings; the spawn room's poster art in the frames.
@@ -57,9 +57,9 @@ The owner found v1 read as a PS2 horror game and its props low-effort. v2 replac
   chicanes and sandbags, and one small cordoned ceiling collapse with rubble. Footprint unchanged; clear lanes kept.
 
 ## Numbers (from `validation.json`, final scene)
-- Triangles (evaluated, instances and text counted): yard 336,796; cafeteria 200,378; hall 122,290; shared 2,996; **total 662,460**
+- Triangles (evaluated, instances and text counted): yard 336,796; cafeteria 196,342; hall 122,290; shared 2,996; **total 658,424**
   against the 800,000 budget.
-- Support contact: 153 interior floor-supported props at 5 mm gap / 2 mm penetration: 0 failures. Yard, 130 props at 0.12 m because
+- Support contact: 145 interior floor-supported props at 5 mm gap / 2 mm penetration: 0 failures. Yard, 130 props at 0.12 m because
   the yard floor is deliberately uneven: 0 failures. Heap, broken-floor, debris, hanging, stacked, table and wall-mounted items are
   exempt, not measured.
 - Clear lanes (no prop above 0.25 m): reactor axis x 6.8 to 9.2 (cafeteria and hall), hall door line y -55.3 to -52.7, cafeteria west

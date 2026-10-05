@@ -46,9 +46,9 @@ for effect. Props are built at the spawn room's level of detail.
 - Porch canopy at the cafeteria door, loading canopy over the refinery gate, dead planting, pole lights.
 
 ### Cafeteria / chill room
-- **A full cafeteria**: thirteen four-seat tables in east, west and north-middle blocks plus a booth bank, facing a **kiosk / serving area** in the north-east:
+- **A full cafeteria**: ten four-seat tables in east and north-middle blocks plus two booth banks, facing a **kiosk / serving area** in the north-east:
   serving counter, ordering kiosk, queue stanchions, kitchen block, two vending machines.
-- **A small living corner** in the south-west: sofa, armchair, coffee table, bookcase, rug and a TV on the south wall.
+- **A lounge on the left (west) side**, south of the west door: 3-seat and 2-seat sofas, two armchairs, coffee table, bookcase, rug and a TV on the south wall. It is not shrunk or moved by the dining or game areas.
 - **A small game corner** in the north-west (about 7 x 6 m): foosball, arcade basketball and a dartboard with an oche line.
 - Aisle: a 2.4 m lane on x = 8 from the spawn door to the hall opening, and 2.4 m lanes to the yard and medical doors.
 - Light: working ceiling strips and pendants, daylight through the skylights.

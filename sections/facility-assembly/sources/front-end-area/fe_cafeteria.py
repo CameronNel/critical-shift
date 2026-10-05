@@ -108,9 +108,7 @@ def build_cafeteria(F, C):
     tbls = []
     for cx in (15.4, 19.3, 23.2):                      # east block, south of the medical lane
         for cy in (-73.6, -77.3): tbls.append((cx, cy))
-    for cx in (0.9, 4.5):                              # west block, south of the west lane
-        for cy in (-73.8, -77.4): tbls.append((cx, cy))
-    tbls += [(2.8, -63.4), (2.8, -66.4), (11.9, -73.6)]  # north-middle pair and a table beside the lane
+    tbls += [(2.8, -63.4), (2.8, -66.4), (11.9, -73.6), (4.0, -74.4)]  # north-middle pair and a table beside the lane
     for i, (tx, ty) in enumerate(tbls):
         inst(tbl, f'caf_table_{i}', tx, ty, caf, rz=0.0)
         for k, (dx, dy, rz) in enumerate(((-0.45, -0.7, 0), (0.45, -0.7, 0), (-0.45, 0.7, math.pi), (0.45, 0.7, math.pi))):
@@ -121,7 +119,8 @@ def build_cafeteria(F, C):
         if i % 2 == 0: inst(mg, f'caf_mug_{i}', tx + 0.4, ty + 0.18, caf, z=0.77, support='table')
         if i % 3 == 0: inst(bt, f'caf_bottle_{i}', tx + 0.3, ty - 0.2, caf, z=0.77, support='table')
     # booth bank along the south wall
-    inst(bth, 'caf_booth_0', 12.0, -79.5, caf, rz=0.0); inst(bth, 'caf_booth_1', 15.6, -79.5, caf, rz=0.0) if False else None
+    inst(bth, 'caf_booth_0', 12.0, -79.5, caf, rz=0.0); inst(bth, 'caf_booth_1', 4.4, -79.5, caf, rz=0.0)
+    for k, dx in enumerate((-0.6, 0.6)): inst(pc(chairs, k + 2), f'caf_booth_chair_w{k}', 4.4 + dx, -77.6, caf, rz=math.pi)
     for k, dx in enumerate((-0.6, 0.6)): inst(pc(chairs, k), f'caf_booth_chair_{k}', 12.0 + dx, -77.6, caf, rz=math.pi)
     # ---------------- SERVING AREA (north-east): counter, kitchen, kiosk, queue, drinks, cutlery
     inst(ksk, 'order_kiosk', 13.1, -66.8, caf, rz=-math.pi / 2)
@@ -133,17 +132,22 @@ def build_cafeteria(F, C):
     inst(bn, 'caf_bin_E', 25.45, -75.3, caf); inst(bn, 'caf_bin_N', 10.4, -61.0, caf); inst(plants[0], 'plant_ne', 25.3, -67.4, caf)
     inst(cr, 'caf_coat_rack', 9.75, -79.2, caf); inst(wfs, 'caf_wet_floor', 8.0 + 2.2, -71.6 if False else -76.2, caf, rz=0.4) if False else None
     inst(mpb, 'caf_mop_bucket', 25.2, -79.0, caf, rz=2.0); inst(wfs, 'caf_wet_floor_sign', 20.5, -71.6, caf, rz=0.3, z=-0.012)
-    # ---------------- LIVING CORNER (south-west, small)
-    inst(sof, 'living_sofa', -4.4, -75.6, caf, rz=math.pi)
-    inst(arm, 'living_armchair', -1.9, -77.7, caf, rz=math.pi / 2 + 0.25)
-    inst(cof, 'coffee_table', -4.4, -77.6, caf, rz=0.0)
-    inst(mg, 'living_mug', -4.1, -77.55, caf, z=0.42, support='table'); inst(bt, 'living_bottle', -4.7, -77.65, caf, z=0.42, support='table')
-    inst(lamp, 'living_floor_lamp', -7.2, -75.4, caf); inst(plants[1], 'plant_living', -1.2, -79.3, caf); inst(plants[2], 'plant_sw', -7.2, -79.2, caf)
-    inst(bc, 'living_bookcase', -7.2, -77.8, caf, rz=-math.pi / 2)
-    box('living_rug', -7.0, -1.0, -79.6, -74.2, 0.0, 0.014, F['fabric'], caf, rgba=(0.5, 0.2, 0.13, 1), bev=0.004)
-    box('living_rug_inner', -6.2, -1.8, -79.0, -74.9, 0.014, 0.02, F['fabric'], caf, rgba=(0.82, 0.74, 0.58, 1), bev=0.002)
-    for k in range(10): box(f'tv_slat_{k}', -6.6 + k * 0.5, -6.15 + k * 0.5, -79.97, -79.84, 0.0, 3.3, F['timber'], caf, bev=0.008)
-    t = inst(tvp, 'living_tv', -4.4, -79.8, caf, z=1.0, rz=math.pi, support=None); wall_item(t, 'y', -79.85, +1)
+    # ---------------- LOUNGE (west side, south): L of sofas around a coffee table facing the TV
+    sof3 = sofa(F, P, (0.52, 0.16, 0.09, 1), seats=3, name='sofa3'); sof2 = sofa(F, P, (0.52, 0.16, 0.09, 1), seats=2, name='sofa2')
+    arm2 = armchair(F, P, (0.14, 0.2, 0.38, 1))
+    inst(sof3, 'lounge_sofa_main', -4.2, -75.3, caf, rz=math.pi)
+    inst(sof2, 'lounge_sofa_side', -6.95, -77.5, caf, rz=-math.pi / 2)
+    inst(arm, 'lounge_armchair_0', -1.7, -77.9, caf, rz=math.pi / 2 + 0.3); inst(arm2, 'lounge_armchair_1', -1.7, -75.4, caf, rz=math.pi / 2 - 0.2)
+    inst(cof, 'lounge_coffee_table', -4.2, -77.6, caf, rz=0.0)
+    inst(mg, 'lounge_mug', -3.9, -77.55, caf, z=0.42, support='table'); inst(bt, 'lounge_bottle', -4.6, -77.7, caf, z=0.42, support='table'); inst(tr, 'lounge_tray', -4.2, -77.5, caf, z=0.42, support='table', rz=0.3)
+    inst(lamp, 'lounge_floor_lamp_0', -6.9, -74.7, caf); inst(lamp, 'lounge_floor_lamp_1', -0.9, -79.3, caf)
+    inst(plants[1], 'lounge_plant_0', -1.0, -73.2, caf); inst(plants[2], 'lounge_plant_1', -7.2, -79.3, caf); inst(plants[0], 'lounge_plant_2', -7.2, -72.9, caf)
+    inst(bc, 'lounge_bookcase', -7.65, -80.0 + 6.0 - 0.0, caf, rz=-math.pi / 2) if False else None
+    box('lounge_rug', -7.4, -0.8, -79.7, -74.0, 0.0, 0.014, F['fabric'], caf, rgba=(0.5, 0.2, 0.13, 1), bev=0.004)
+    box('lounge_rug_inner', -6.5, -1.7, -79.1, -74.8, 0.014, 0.02, F['fabric'], caf, rgba=(0.82, 0.74, 0.58, 1), bev=0.002)
+    for k in range(11): box(f'tv_slat_{k}', -7.0 + k * 0.5, -6.55 + k * 0.5, -79.97, -79.84, 0.0, 3.3, F['timber'], caf, bev=0.008)
+    t = inst(tvp, 'lounge_tv', -4.2, -79.8, caf, z=1.0, rz=math.pi, support=None, scale=(1.25, 1.25, 1.25)); wall_item(t, 'y', -79.85, +1)
+    inst(bc, 'lounge_bookcase', -7.55, -73.3, caf, rz=-math.pi / 2)
     # ---------------- GAME CORNER (north-west, small): foosball, arcade basketball, darts
     box('rec_rug', -7.6, -0.6, -66.2, -60.4, 0.0, 0.014, F['fabric'], caf, rgba=(0.08, 0.1, 0.26, 1), bev=0.004)
     inst(foos, 'rec_foosball', -3.4, -62.4, caf, rz=0.0)
