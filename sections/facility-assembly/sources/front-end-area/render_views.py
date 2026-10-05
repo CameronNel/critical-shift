@@ -9,6 +9,7 @@ sc.render.engine = 'CYCLES'; sc.cycles.device = 'CPU'; sc.cycles.samples = sampl
 sc.cycles.denoiser = 'OPENIMAGEDENOISE'; sc.cycles.denoising_prefilter = 'ACCURATE'; sc.cycles.denoising_input_passes = 'RGB_ALBEDO_NORMAL'
 if hasattr(sc.cycles, 'use_light_tree'): sc.cycles.use_light_tree = True
 sc.cycles.sample_clamp_indirect = 8.0
+sc.cycles.volume_step_rate = 2.0; sc.cycles.volume_max_steps = 64
 sc.render.resolution_x, sc.render.resolution_y = res; sc.render.resolution_percentage = 100
 sc.view_settings.view_transform = 'AgX'; sc.view_settings.exposure = float(a[5]) if len(a) > 5 else -0.5
 try:

@@ -65,7 +65,7 @@ def altaz_vec(ra_h, dec_deg):
     az = math.atan2(-math.cos(dec) * math.sin(ha), math.sin(dec) * math.cos(LAT) - math.cos(dec) * math.sin(LAT) * math.cos(ha))
     return np.array([math.sin(az) * math.cos(alt), math.cos(az) * math.cos(alt), math.sin(alt)])
 
-MOON_AZ, MOON_ALT = 162.0, 41.0
+MOON_AZ, MOON_ALT = 258.0, 46.0
 def moon_dir():
     a, e = math.radians(MOON_AZ), math.radians(MOON_ALT)
     return np.array([math.sin(a) * math.cos(e), math.cos(a) * math.cos(e), math.sin(e)])

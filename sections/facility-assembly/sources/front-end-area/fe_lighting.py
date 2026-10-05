@@ -29,11 +29,11 @@ CAMERAS = [
  ('YRD_08_NIGHT_SKY', (-22.0, -70.5, 1.7), (-27.8, -103.1, 24.1), 18),
  ('YRD_09_GROUND_CLOSE', (-33.0, -74.4, 0.9), (-30.0, -70.8, 0.1), 24),
  ('YRD_10_ASSET_CLOSE', (-31.2, -77.8, 1.25), (-35.8, -80.8, 0.95), 28),
- ('REV_01_PORCH_HERO', (-8.8, -70.0, 1.65), (-48.0, -70.4, 2.2), 22),
+ ('REV_01_PORCH_HERO', (-8.8, -70.0, 1.65), (-48.0, -70.4, 7.5), 22),
  ('REV_02_VEHICLES', (-28.5, -72.6, 1.7), (-36.0, -80.5, 1.2), 22),
  ('REV_03_RAIL_DOCK', (-22.2, -68.5, 1.7), (-22.2, -60.5, 2.0), 22),
  ('REV_04_PORTAL', (-31.0, -70.6, 1.7), (-49.0, -70.0, 2.3), 24),
- ('REV_05_POWER_AND_STORE', (-22.0, -72.0, 1.6), (-12.4, -82.5, 2.6), 22),
+ ('REV_05_POWER_AND_STORE', (-16.2, -72.8, 1.7), (-13.2, -81.6, 2.2), 24),
  ('YRD_X1_PORTAL_CLOSE', (-33.5, -71.3, 2.3), (-49.0, -70.0, 2.3), 28),
  ('YRD_X2_FREIGHT_GATE', (-22.2, -64.0, 1.7), (-22.2, -60.0, 2.4), 22),
  ('YRD_X3_EVAC_GATE', (-28.0, -76.0, 1.7), (-28.0, -84.0, 1.6), 20),
@@ -68,7 +68,7 @@ def night_world(sc):
     gain = N('ShaderNodeMix', data_type='RGBA', blend_type='MULTIPLY'); gain.inputs['Factor'].default_value = 1.0; gain.inputs[7].default_value = (fe_sky.GAIN,) * 3 + (1,)
     Lk(env.outputs['Color'], gain.inputs[6]); add = gain
     Lk(add.outputs[2], bg.inputs['Color']); Lk(N('ShaderNodeLightPath').outputs['Is Camera Ray'], bg.inputs['Strength']); Lk(bg.outputs[0], out.inputs['Surface'])   # the sky is seen but lights nothing
-    vol = N('ShaderNodeVolumeScatter'); vol.inputs['Density'].default_value = 0.0045; vol.inputs['Anisotropy'].default_value = 0.35; vol.inputs['Color'].default_value = (0.75, 0.8, 0.9, 1)
+    vol = N('ShaderNodeVolumeScatter'); vol.inputs['Density'].default_value = 0.0016; vol.inputs['Anisotropy'].default_value = 0.35; vol.inputs['Color'].default_value = (0.95, 0.85, 0.75, 1)
     Lk(vol.outputs[0], out.inputs['Volume'])
     return w
 
@@ -99,12 +99,17 @@ def yard_night_lights(lc):
     # cabin and gate lamps
     point('LIGHT_cabin_door', (LX(-42.8), LY(-73.4), 2.5), 160, (1.0, 0.85, 0.6), lc, radius=0.1)
     point('LIGHT_evac_gate', (LX(-28.0), LY(-83.2), 2.7), 140, (0.4, 1.0, 0.55), lc, radius=0.1)
+    for o in [o for o in bpy.data.objects if o.name.startswith('fire_barrel')]:
+        l = point(f'LIGHT_{o.name}', (o.location.x, o.location.y, 1.25), 420, (1.0, 0.42, 0.10), lc, radius=0.25)
+    # festoon string along the lamp-room front: small warm bulbs, each a real light
+    for k in range(7):
+        x = -46.0 + k * 1.0; point(f'LIGHT_festoon_{k}', (LX(x), LY(-73.4), 2.75 - 0.12 * math.sin(k * math.pi / 6)), 22, (1.0, 0.62, 0.25), lc, radius=0.04)
     # coloured accents against the black
-    point('LIGHT_portal_red', (LX(-47.0), LY(-70.0), 3.4), 420, (1.0, 0.18, 0.05), lc, radius=0.15)
-    point('LIGHT_fuel_teal', (LX(-44.7), LY(-80.2), 3.0), 380, (0.35, 1.0, 0.55), lc, radius=0.15)
-    point('LIGHT_muster_green', (LX(-20.7), LY(-73.3), 2.6), 300, (0.2, 1.0, 0.3), lc, radius=0.15)
-    point('LIGHT_generator_amber', (LX(-12.4), LY(-80.9), 3.0), 300, (1.0, 0.5, 0.05), lc, radius=0.15)
-    point('LIGHT_dock_blue', (LX(-22.2), LY(-62.2), 3.4), 300, (0.55, 0.95, 0.8), lc, radius=0.15)
+    point('LIGHT_portal_red', (LX(-47.0), LY(-70.0), 3.4), 260, (1.0, 0.18, 0.05), lc, radius=0.15)
+    point('LIGHT_fuel_teal', (LX(-44.7), LY(-79.0), 3.2), 130, (0.35, 1.0, 0.55), lc, radius=0.15)
+    point('LIGHT_muster_green', (LX(-17.4), LY(-73.0), 2.9), 55, (0.2, 1.0, 0.3), lc, radius=0.15)
+    point('LIGHT_generator_amber', (LX(-12.4), LY(-80.9), 3.0), 180, (1.0, 0.5, 0.05), lc, radius=0.15)
+    point('LIGHT_dock_blue', (LX(-22.2), LY(-62.2), 3.4), 120, (0.55, 0.95, 0.8), lc, radius=0.15)
     point('LIGHT_porch_door', (LX(-8.6), LY(-70.0), 3.0), 220, (1.0, 0.9, 0.72), lc, radius=0.1)
 
 MOON_RES = None
