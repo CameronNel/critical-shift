@@ -61,7 +61,6 @@ def build_yard_props(F, C):
     put('drum_cable', (-38.0, -30.0, -76.0, -72.8), 1, 'cable_drum', mud_only=True)
     put('pallet', (-39.0, -30.0, -76.0, -72.8), 2, 'pallet_m', stack_crate=True, mud_only=True)
     for k, nm in enumerate(('drum_blue', 'drum_red', 'drum_yel', 'drum_rust')): put(nm, (-47.0, -30.0, -83.0, -73.0), 2, f'drum_{k}')
-    put('jersey', (-32.5, -29.6, -84.0, -72.0), 3, 'jersey_s', rz=math.pi / 2)
     put('jersey', (-47.0, -13.0, -83.4, -82.4), 3, 'jersey_x')
     put('sand0', (-30.0, -13.0, -77.0, -72.5), 1, 'sandbags_a', mud_only=True); put('sand1', (-47.0, -30.0, -67.8, -64.0), 1, 'sandbags_b', mud_only=True)
     put('cone', (-40.0, -29.0, -78.8, -76.0), 8, 'cone', tries=500)

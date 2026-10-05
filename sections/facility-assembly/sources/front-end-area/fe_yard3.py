@@ -229,7 +229,7 @@ def build_rails(F, C):
         if prev:
             for a in range(len(row) - 1): bb.faces.new((prev[a], prev[a + 1], row[a + 1], row[a]))
         prev = row
-    mesh_obj('rail_ballast', bb, F['gravel'], yard, smooth=True)
+    mesh_obj('rail_ballast', bb, make_mat('ballast', (0.07, 0.065, 0.06), 0.9, var=0.3, tex={'color': 'gravel', 'scale': 1.6, 'tint': (0.30, 0.28, 0.27), 'normal': True, 'nstrength': 1.6}), yard, smooth=True)
     P = collection('PROTOTYPES'); rb = random.Random(5)
     from fe_assets_site import rubble_chunk
     st = [rubble_chunk(F, P, 40 + s, 0.07) for s in range(4)]
