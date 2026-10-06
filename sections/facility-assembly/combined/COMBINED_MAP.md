@@ -100,6 +100,9 @@ from shed through the turn into the refinery (`join_09`, `join_10`), colonnade t
   clear corridor to the mine lane (plan y -68.8). Shed frame (4 islands removed, 36 faces cut) and boards (15 small islands) are local copies with the volume cut and capped; the magazine board and powder sign that hung on the cut
   wall are removed. Verification: 130 horizontal rays (13 heights 0.3 to 2.7 m by 10 positions across 2.0 m) from just inside the gate to the lane, 0 blocked (excluded: the gate leaf and frame, the sign above the door, the shed's fog volume);
   0 overhead obstacles in 18 downward probes; renders `fix01_lane_to_service_gate.png`, `fix01_gate_into_shed.png`, `fix01_gate_from_outside.png`.
+- **Fix 2, brown yard cliff against the grey mine mountain: fixed.** The mountain's own material renders near black on the yard mesh (tried first, discarded). The yard cliff's own material is copied locally and a Hue/Saturation
+  node (saturation 0, value 3.6) plus a warm multiply (0.82, 0.79, 0.68) is put before its shader, matched from render measurements: mountain rock hsv 0.15/0.11/0.29, yard cliff before 0.55/0.20/0.13, after 0.30/0.08/0.25 in the
+  same lighting. Renders `fix02_*`. The yard cliff is still a rounded buttress in front of a flat wall (geometry unchanged); the textures differ in scale.
 
 Defects and open items found:
 1. **Shed blocks the yard's north-west service gate path** (`risk_12`). DESIGN.md keep-clear: x -47.4 to -44.8, y > -68.8 (to the cooling-plant door). The shed (plan x -54.0 to -36.3, y -78.6 to -61.0)

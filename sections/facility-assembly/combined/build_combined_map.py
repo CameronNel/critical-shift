@@ -269,6 +269,23 @@ ROOMS = [
      'personnel door (Door_Entry, south wall) to the east wall on the hall colonnade centre line y -54. East outer face lands on the colonnade end, x -18.9.'),
 ]
 
+CLIFF_TINT = {'saturation': 0.0, 'value': 3.6, 'warm': (0.82, 0.79, 0.68, 1.0)}   # measured from renders: mountain hsv ~(0.15, 0.10, 0.30), yard cliff was (0.55, 0.20, 0.13); grey it, brighten, warm it
+
+def unify_cliff_rock():
+    """The yard's cliff_face (front-end `rock` material, brown) butts against the mine mountain (R41 cliff rock, grey). Using the mountain's own material renders near black on the yard mesh, so the
+    yard material is copied locally and a Hue/Saturation node is put between its colour texture and the shader to match the mountain's grey."""
+    obj = bpy.data.objects.get('cliff_face')
+    if not (obj and obj.library is None and obj.data.materials): return
+    src = obj.data.materials[0]
+    m = src.copy(); m.name = 'rock_matched_to_mountain'; nt = m.node_tree
+    bsdf = next(n for n in nt.nodes if n.type == 'BSDF_PRINCIPLED')
+    link = next((l for l in nt.links if l.to_node.name == bsdf.name and l.to_socket.name == 'Base Color'), None)
+    if not link: print('CLIFF no base colour link'); return
+    hs = nt.nodes.new('ShaderNodeHueSaturation'); hs.inputs['Saturation'].default_value = CLIFF_TINT['saturation']; hs.inputs['Value'].default_value = CLIFF_TINT['value']
+    wm_ = nt.nodes.new('ShaderNodeMix'); wm_.data_type = 'RGBA'; wm_.blend_type = 'MULTIPLY'; wm_.inputs[0].default_value = 1.0; wm_.inputs[7].default_value = CLIFF_TINT['warm']
+    nt.links.new(link.from_socket, hs.inputs['Color']); nt.links.new(hs.outputs['Color'], wm_.inputs[6]); nt.links.new(wm_.outputs[2], bsdf.inputs['Base Color'])   # replaces the old link into Base Color
+    obj.data.materials[0] = m; print('CLIFF material tinted', CLIFF_TINT)
+
 def build(through, output):
     keys = [r[0] for r in ROOMS]
     INCLUDED.update(keys[:keys.index(through) + 1] if through in keys else ())
@@ -304,6 +321,7 @@ def build(through, output):
             inst = bpy.data.objects.new('ROOM_' + key, None); inst.instance_type = 'COLLECTION'; inst.instance_collection = lib_coll
             inst.location = loc; inst.rotation_euler = (0, 0, math.radians(rz)); inst['source'] = lib; inst['note'] = note
             root.objects.link(inst)
+    unify_cliff_rock()
     bpy.ops.wm.save_as_mainfile(filepath=output, relative_remap=True)
     print('COMBINED', through, [r[0] for r in ROOMS[:keys.index(through) + 1]], '->', output)
 
