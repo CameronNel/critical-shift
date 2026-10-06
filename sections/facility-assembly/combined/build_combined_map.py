@@ -348,15 +348,19 @@ def fix_evac_sign_back():
 
 # Exterior skins (additive, from sections/facility-assembly/exteriors/): the spawn room's own outside is flat saturated colour boxes, so its R05 exterior (167 objects, same footprint) is added.
 # Unreviewed. key -> (file under SRC/../exteriors, collection)
-EXTERIOR_SKINS = {'spawn-room': ('spawn-room/exterior-R05.blend', 'EXTERIOR_spawn-room')}
+EXTERIOR_SKINS = {'spawn-room': ('spawn-room/exterior-R05.blend', 'EXTERIOR_spawn-room'),
+                  'refinery': ('refinery/exterior-R01.blend', 'EXTERIOR_refinery'),
+                  'medical-reanimation': ('medical-reanimation/exterior-R04.blend', 'EXTERIOR_medical-reanimation')}
 
-def add_exterior_skin(key, wrap):
+def add_exterior_skin(key, wrap, as_child=False):
     f, c = EXTERIOR_SKINS[key]
     with bpy.data.libraries.load(os.path.normpath(os.path.join(SRC, '..', 'exteriors', f)), link=True, relative=True) as (src, dst):
         if c not in src.collections: print('EXTERIOR missing', c); return
         dst.collections = [c]
-    n = 0
-    for o in dst.collections[0].all_objects: wrap.objects.link(o); n += 1
+    n = len(dst.collections[0].all_objects)
+    if as_child: wrap.children.link(dst.collections[0])
+    else:
+        for o in dst.collections[0].all_objects: wrap.objects.link(o)
     print('EXTERIOR skin', key, n, 'objects')
 
 def placeholder_fuel_shutter():
@@ -371,6 +375,19 @@ def placeholder_fuel_shutter():
     me.from_pydata(v, [], [(0, 1, 3, 2), (4, 6, 7, 5), (0, 4, 5, 1), (2, 3, 7, 6), (0, 2, 6, 4), (1, 5, 7, 3)]); me.update()
     o = bpy.data.objects.new('PLACEHOLDER_fuel_door_shutter', me); bpy.context.scene.collection.children['COMBINED_MAP'].objects.link(o)
     print('PLACEHOLDER fuel door shutter added')
+
+SCENE_LIGHT = {'world_color': (0.045, 0.055, 0.09), 'world_strength': 1.0, 'sun_energy': 1.6, 'sun_color': (0.62, 0.72, 1.0), 'sun_rot_deg': (52.0, 0.0, 38.0)}
+
+def add_scene_lighting():
+    """The combined scene had no world and no sun of its own, so every exterior rendered near black. A cold dusk matching the mine's mood: dim blue sky and a moon-strength sun, set once for the whole map."""
+    sc = bpy.context.scene; L = SCENE_LIGHT
+    w = bpy.data.worlds.new('COMBINED dusk'); w.use_nodes = True
+    bg = w.node_tree.nodes['Background']; bg.inputs['Color'].default_value = L['world_color'] + (1.0,); bg.inputs['Strength'].default_value = L['world_strength']; sc.world = w
+    ld = bpy.data.lights.new('COMBINED moon', 'SUN'); ld.energy = L['sun_energy']; ld.color = L['sun_color']; ld.angle = math.radians(1.5)
+    o = bpy.data.objects.new('COMBINED moon', ld); o.rotation_euler = tuple(math.radians(a) for a in L['sun_rot_deg'])
+    sc.collection.children['COMBINED_MAP'].objects.link(o)
+    sc.view_settings.view_transform = 'Khronos PBR Neutral'; sc.view_settings.exposure = 0.5
+    print('LIGHT dusk world and moon added')
 
 def build(through, output):
     keys = [r[0] for r in ROOMS]
@@ -402,14 +419,16 @@ def build(through, output):
             root.objects.link(inst)
             print('WRAPPER', key, 'objects', kept, 'omitted', left)
         else:
-            if len(loaded) > 1:
+            if len(loaded) > 1 or key in EXTERIOR_SKINS:
                 lib_coll = bpy.data.collections.new('ROOM_' + key + '_members')
                 for c in loaded: lib_coll.children.link(c)
+                if key in EXTERIOR_SKINS: add_exterior_skin(key, lib_coll, as_child=True)
             inst = bpy.data.objects.new('ROOM_' + key, None); inst.instance_type = 'COLLECTION'; inst.instance_collection = lib_coll
             inst.location = loc; inst.rotation_euler = (0, 0, math.radians(rz)); inst['source'] = lib; inst['note'] = note
             root.objects.link(inst)
     unify_cliff_rock()
     fix_evac_sign_back()
+    add_scene_lighting()
     placeholder_fuel_shutter()
     bpy.ops.wm.save_as_mainfile(filepath=output, relative_remap=True)
     print('COMBINED', through, [r[0] for r in ROOMS[:keys.index(through) + 1]], '->', output)

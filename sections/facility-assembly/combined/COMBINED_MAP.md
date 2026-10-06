@@ -103,8 +103,20 @@ from shed through the turn into the refinery (`join_09`, `join_10`), colonnade t
 - **Fix 2, brown yard cliff against the grey mine mountain: fixed.** The mountain's own material renders near black on the yard mesh (tried first, discarded). The yard cliff's own material is copied locally and a Hue/Saturation
   node (saturation 0, value 3.6) plus a warm multiply (0.82, 0.79, 0.68) is put before its shader, matched from render measurements: mountain rock hsv 0.15/0.11/0.29, yard cliff before 0.55/0.20/0.13, after 0.30/0.08/0.25 in the
   same lighting. Renders `fix02_*`. The yard cliff is still a rounded buttress in front of a flat wall (geometry unchanged); the textures differ in scale.
+- **Fix 3, mountain too long / flat: eased, partly fixed.** The mountain's four meshes (R40) are local copies with heights scaled by a smoothstep toward the ground over plan y -49 to -29 (north end, clear
+  of the cooling plant area) and y -99 to -117 (south end); footprint and material unchanged. It is still one large wall, 80 m at full height against v7's 44 m; the yard-facing face was not touched.
+- **Fix 4, evacuation gate sign blank: fixed and verified.** The sign is a box with atlas UVs on its yard-facing face only, the rest collapsed to one green pixel. The opposite face is mapped to the same atlas rectangle in a local copy
+  (`fix04_evac_sign.png`, text readable from outside the gate). The first attempt, lowering the emission, was a wrong diagnosis and was dropped.
+- **Fix 5, cafeteria directory totem blank back: fixed and verified.** A copy of `board_directory` rotated 180 degrees on the totem's centre line (`fix05` renders in the review set).
+- **Fix 6, spawn exterior flat boxes: fixed.** The spawn room's R05 exterior skin (167 objects, `exteriors/spawn-room/exterior-R05.blend`, unreviewed) is added; same footprint. The refinery (R01) and medical (R04) exterior skins are added the same way.
+- **Fix 7, doors that lead nowhere: partly fixed.** Medical is now placed (room 4, `module_overhaul_R2.blend`, threshold on the cafeteria east door, rotation -90) so that door opens into a lit room (`fix07_*`). The refinery fuel door has a
+  closed placeholder shutter named `PLACEHOLDER_fuel_door_shutter` until the fuel corridor is placed. The hall spine door and east trunk door are real closed doors in the front-end build (`fix07_hall_spine_door.png`
+  shows the lit spine beyond the blast door; the east trunk door is a closed double door); they open onto black only if opened, until the reactor and dock are placed.
+- **Fix 8 and 10, dark night exterior, empty black world: fixed.** The combined scene now has its own dusk (dim blue sky, moon-strength sun) set in the build, so exteriors read (`fix_after_*` renders). The ground
+  plane is still the front end's 260 m context ground, with black beyond.
+- **Fix 9 and refinery wall: lighting only.** The refinery west wall and colonnade exterior are now readable under the new dusk; the wall itself is plain (the module's own exterior), and the tunnel end remains a dark timber barricade (`fix_after_07`). Not changed.
 
-Defects and open items found:
+Defects and open items found (original list, before the fixes above):
 1. **Shed blocks the yard's north-west service gate path** (`risk_12`). DESIGN.md keep-clear: x -47.4 to -44.8, y > -68.8 (to the cooling-plant door). The shed (plan x -54.0 to -36.3, y -78.6 to -61.0)
    covers that path from y -68.8 up to the fence. The owner requires the shed, so the path or the gate needs a decision (move the gate, route round the shed, or accept the gate leading into the shed).
 2. **Brown yard cliff against the grey mine mountain** (`risk_02`, `risk_11`): different rock materials and a hard vertical seam where the yard's cliff face butts the mine's flat grey wall.
