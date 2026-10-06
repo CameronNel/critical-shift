@@ -1,0 +1,1481 @@
+{
+ "time_base": "seconds of scene time T; frame-rate independent (verified by fps_independence_check.py, 24-480 fps)",
+ "inputs": {
+  "s": "reactor stability 0..1 (REACTOR_STATE.stability); engine feeds the host-authoritative value",
+  "T": "seconds on the controlled simulation/presentation clock"
+ },
+ "tv": {
+  "cycle_seconds": 20.0,
+  "states": [
+   "w_tel",
+   "w_bro",
+   "w_sta",
+   "w_bar"
+  ],
+  "weights_sum": 1.0,
+  "samples_every_0.25s": [
+   {
+    "t": 0.0,
+    "w_tel": 1.0,
+    "w_bro": 0.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 0.25,
+    "w_tel": 1.0,
+    "w_bro": 0.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 0.5,
+    "w_tel": 1.0,
+    "w_bro": 0.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 0.75,
+    "w_tel": 1.0,
+    "w_bro": 0.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 1.0,
+    "w_tel": 1.0,
+    "w_bro": 0.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 1.25,
+    "w_tel": 1.0,
+    "w_bro": 0.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 1.5,
+    "w_tel": 1.0,
+    "w_bro": 0.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 1.75,
+    "w_tel": 1.0,
+    "w_bro": 0.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 2.0,
+    "w_tel": 1.0,
+    "w_bro": 0.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 2.25,
+    "w_tel": 1.0,
+    "w_bro": 0.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 2.5,
+    "w_tel": 1.0,
+    "w_bro": 0.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 2.75,
+    "w_tel": 1.0,
+    "w_bro": 0.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 3.0,
+    "w_tel": 1.0,
+    "w_bro": 0.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 3.25,
+    "w_tel": 1.0,
+    "w_bro": 0.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 3.5,
+    "w_tel": 1.0,
+    "w_bro": 0.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 3.75,
+    "w_tel": 1.0,
+    "w_bro": 0.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 4.0,
+    "w_tel": 1.0,
+    "w_bro": 0.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 4.25,
+    "w_tel": 1.0,
+    "w_bro": 0.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 4.5,
+    "w_tel": 1.0,
+    "w_bro": 0.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 4.75,
+    "w_tel": 1.0,
+    "w_bro": 0.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 5.0,
+    "w_tel": 1.0,
+    "w_bro": 0.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 5.25,
+    "w_tel": 1.0,
+    "w_bro": 0.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 5.5,
+    "w_tel": 1.0,
+    "w_bro": 0.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 5.75,
+    "w_tel": 1.0,
+    "w_bro": 0.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 6.0,
+    "w_tel": 1.0,
+    "w_bro": 0.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 6.25,
+    "w_tel": 0.8739,
+    "w_bro": 0.0,
+    "w_sta": 0.1261,
+    "w_bar": 0.0
+   },
+   {
+    "t": 6.5,
+    "w_tel": 0.1231,
+    "w_bro": 0.0,
+    "w_sta": 0.8769,
+    "w_bar": 0.0
+   },
+   {
+    "t": 6.75,
+    "w_tel": 0.0,
+    "w_bro": 0.0,
+    "w_sta": 1.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 7.0,
+    "w_tel": 0.0,
+    "w_bro": 0.0,
+    "w_sta": 1.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 7.25,
+    "w_tel": 0.0,
+    "w_bro": 0.4988,
+    "w_sta": 0.5012,
+    "w_bar": 0.0
+   },
+   {
+    "t": 7.5,
+    "w_tel": 0.0,
+    "w_bro": 1.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 7.75,
+    "w_tel": 0.0,
+    "w_bro": 1.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 8.0,
+    "w_tel": 0.0,
+    "w_bro": 1.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 8.25,
+    "w_tel": 0.0,
+    "w_bro": 1.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 8.5,
+    "w_tel": 0.0,
+    "w_bro": 1.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 8.75,
+    "w_tel": 0.0,
+    "w_bro": 1.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 9.0,
+    "w_tel": 0.0,
+    "w_bro": 1.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 9.25,
+    "w_tel": 0.0,
+    "w_bro": 1.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 9.5,
+    "w_tel": 0.0,
+    "w_bro": 1.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 9.75,
+    "w_tel": 0.0,
+    "w_bro": 1.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 10.0,
+    "w_tel": 0.0,
+    "w_bro": 1.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 10.25,
+    "w_tel": 0.0,
+    "w_bro": 1.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 10.5,
+    "w_tel": 0.0,
+    "w_bro": 1.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 10.75,
+    "w_tel": 0.0,
+    "w_bro": 1.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 11.0,
+    "w_tel": 0.0,
+    "w_bro": 1.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 11.25,
+    "w_tel": 0.0,
+    "w_bro": 1.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 11.5,
+    "w_tel": 0.0,
+    "w_bro": 1.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 11.75,
+    "w_tel": 0.0,
+    "w_bro": 1.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 12.0,
+    "w_tel": 0.0,
+    "w_bro": 1.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 12.25,
+    "w_tel": 0.0,
+    "w_bro": 1.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 12.5,
+    "w_tel": 0.0,
+    "w_bro": 1.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 12.75,
+    "w_tel": 0.0,
+    "w_bro": 1.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 13.0,
+    "w_tel": 0.0,
+    "w_bro": 1.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 13.25,
+    "w_tel": 0.0,
+    "w_bro": 1.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 13.5,
+    "w_tel": 0.0,
+    "w_bro": 1.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 13.75,
+    "w_tel": 0.0,
+    "w_bro": 0.8562,
+    "w_sta": 0.1438,
+    "w_bar": 0.0
+   },
+   {
+    "t": 14.0,
+    "w_tel": 0.0,
+    "w_bro": 0.0,
+    "w_sta": 1.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 14.25,
+    "w_tel": 0.0,
+    "w_bro": 0.0,
+    "w_sta": 1.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 14.5,
+    "w_tel": 0.0,
+    "w_bro": 0.0,
+    "w_sta": 0.7508,
+    "w_bar": 0.2492
+   },
+   {
+    "t": 14.75,
+    "w_tel": 0.0,
+    "w_bro": 0.0,
+    "w_sta": 0.0,
+    "w_bar": 1.0
+   },
+   {
+    "t": 15.0,
+    "w_tel": 0.0,
+    "w_bro": 0.0,
+    "w_sta": 0.0,
+    "w_bar": 1.0
+   },
+   {
+    "t": 15.25,
+    "w_tel": 0.0,
+    "w_bro": 0.0,
+    "w_sta": 0.0,
+    "w_bar": 1.0
+   },
+   {
+    "t": 15.5,
+    "w_tel": 0.0,
+    "w_bro": 0.0,
+    "w_sta": 0.0,
+    "w_bar": 1.0
+   },
+   {
+    "t": 15.75,
+    "w_tel": 0.0,
+    "w_bro": 0.0,
+    "w_sta": 0.0,
+    "w_bar": 1.0
+   },
+   {
+    "t": 16.0,
+    "w_tel": 0.0,
+    "w_bro": 0.0,
+    "w_sta": 0.0,
+    "w_bar": 1.0
+   },
+   {
+    "t": 16.25,
+    "w_tel": 0.0,
+    "w_bro": 0.0,
+    "w_sta": 0.0,
+    "w_bar": 1.0
+   },
+   {
+    "t": 16.5,
+    "w_tel": 0.0,
+    "w_bro": 0.0,
+    "w_sta": 0.0,
+    "w_bar": 1.0
+   },
+   {
+    "t": 16.75,
+    "w_tel": 0.0,
+    "w_bro": 0.0,
+    "w_sta": 0.0,
+    "w_bar": 1.0
+   },
+   {
+    "t": 17.0,
+    "w_tel": 0.0,
+    "w_bro": 0.0,
+    "w_sta": 0.0,
+    "w_bar": 1.0
+   },
+   {
+    "t": 17.25,
+    "w_tel": 0.0,
+    "w_bro": 0.0,
+    "w_sta": 0.832,
+    "w_bar": 0.168
+   },
+   {
+    "t": 17.5,
+    "w_tel": 0.0,
+    "w_bro": 0.0,
+    "w_sta": 1.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 17.75,
+    "w_tel": 0.1261,
+    "w_bro": 0.0,
+    "w_sta": 0.8739,
+    "w_bar": 0.0
+   },
+   {
+    "t": 18.0,
+    "w_tel": 0.8769,
+    "w_bro": 0.0,
+    "w_sta": 0.1231,
+    "w_bar": 0.0
+   },
+   {
+    "t": 18.25,
+    "w_tel": 1.0,
+    "w_bro": 0.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 18.5,
+    "w_tel": 1.0,
+    "w_bro": 0.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 18.75,
+    "w_tel": 1.0,
+    "w_bro": 0.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 19.0,
+    "w_tel": 1.0,
+    "w_bro": 0.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 19.25,
+    "w_tel": 1.0,
+    "w_bro": 0.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 19.5,
+    "w_tel": 1.0,
+    "w_bro": 0.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 19.75,
+    "w_tel": 1.0,
+    "w_bro": 0.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   },
+   {
+    "t": 20.0,
+    "w_tel": 1.0,
+    "w_bro": 0.0,
+    "w_sta": 0.0,
+    "w_bar": 0.0
+   }
+  ],
+  "custom_clip": "w_clip=1 disables the cycle; play the clip by time, light colour/energy from tv_light_track.json track_time_s"
+ },
+ "drivers": [
+  {
+   "owner": "CR beacon +x",
+   "kind": "Object",
+   "target": "energy[0]",
+   "expression": "40*max(0.15,(0.5-s)*2)*(0.35+0.65*max(0,sin((T*30)*0.45)))",
+   "inputs": {
+    "s": "REACTOR_STATE[\"stability\"]"
+   }
+  },
+  {
+   "owner": "CR beacon +y",
+   "kind": "Object",
+   "target": "energy[0]",
+   "expression": "40*max(0.15,(0.5-s)*2)*(0.35+0.65*max(0,sin((T*30)*0.45)))",
+   "inputs": {
+    "s": "REACTOR_STATE[\"stability\"]"
+   }
+  },
+  {
+   "owner": "CR lift car",
+   "kind": "Object",
+   "target": "location[2]",
+   "expression": "z",
+   "inputs": {
+    "z": "CR_LIFT[\"car_z\"]"
+   }
+  },
+  {
+   "owner": "CR lift car lamp",
+   "kind": "Object",
+   "target": "energy[0]",
+   "expression": "150*(1-0.85*max(0,sin(T*47)*sin(T*11.3+1)-0.30)*1.6)*(1-0.7*bw)",
+   "inputs": {
+    "bw": "REACTOR_STATE[\"cr_brown\"]"
+   }
+  },
+  {
+   "owner": "CR lift cw",
+   "kind": "Object",
+   "target": "location[2]",
+   "expression": "-z",
+   "inputs": {
+    "z": "CR_LIFT[\"car_z\"]"
+   }
+  },
+  {
+   "owner": "CR lift rope car -7.85",
+   "kind": "Object",
+   "target": "scale[2]",
+   "expression": "7.12-z",
+   "inputs": {
+    "z": "CR_LIFT[\"car_z\"]"
+   }
+  },
+  {
+   "owner": "CR lift rope car -8.05",
+   "kind": "Object",
+   "target": "scale[2]",
+   "expression": "7.12-z",
+   "inputs": {
+    "z": "CR_LIFT[\"car_z\"]"
+   }
+  },
+  {
+   "owner": "CR lift rope cw -7.85",
+   "kind": "Object",
+   "target": "scale[2]",
+   "expression": "0.6+z",
+   "inputs": {
+    "z": "CR_LIFT[\"car_z\"]"
+   }
+  },
+  {
+   "owner": "CR lift rope cw -8.05",
+   "kind": "Object",
+   "target": "scale[2]",
+   "expression": "0.6+z",
+   "inputs": {
+    "z": "CR_LIFT[\"car_z\"]"
+   }
+  },
+  {
+   "owner": "CR lift_clock_hour",
+   "kind": "Object",
+   "target": "rotation_euler[1]",
+   "expression": "-6.28319*(0.84167+T/43200)",
+   "inputs": {}
+  },
+  {
+   "owner": "CR lift_clock_min",
+   "kind": "Object",
+   "target": "rotation_euler[1]",
+   "expression": "-6.28319*(0.14333+T/3600)",
+   "inputs": {}
+  },
+  {
+   "owner": "CR lift_clock_sec",
+   "kind": "Object",
+   "target": "rotation_euler[1]",
+   "expression": "-6.28319*(0.58333+T/60)",
+   "inputs": {}
+  },
+  {
+   "owner": "CR lift_dgL BLACK",
+   "kind": "Object",
+   "target": "location[0]",
+   "expression": "-0.50*d",
+   "inputs": {
+    "d": "CR_LIFT[\"dg\"]"
+   }
+  },
+  {
+   "owner": "CR lift_dgL STEEL",
+   "kind": "Object",
+   "target": "location[0]",
+   "expression": "-0.50*d",
+   "inputs": {
+    "d": "CR_LIFT[\"dg\"]"
+   }
+  },
+  {
+   "owner": "CR lift_dgL STEEL_L",
+   "kind": "Object",
+   "target": "location[0]",
+   "expression": "-0.50*d",
+   "inputs": {
+    "d": "CR_LIFT[\"dg\"]"
+   }
+  },
+  {
+   "owner": "CR lift_dgL YELLOW",
+   "kind": "Object",
+   "target": "location[0]",
+   "expression": "-0.50*d",
+   "inputs": {
+    "d": "CR_LIFT[\"dg\"]"
+   }
+  },
+  {
+   "owner": "CR lift_dgR BLACK",
+   "kind": "Object",
+   "target": "location[0]",
+   "expression": "+0.50*d",
+   "inputs": {
+    "d": "CR_LIFT[\"dg\"]"
+   }
+  },
+  {
+   "owner": "CR lift_dgR STEEL",
+   "kind": "Object",
+   "target": "location[0]",
+   "expression": "+0.50*d",
+   "inputs": {
+    "d": "CR_LIFT[\"dg\"]"
+   }
+  },
+  {
+   "owner": "CR lift_dgR STEEL_L",
+   "kind": "Object",
+   "target": "location[0]",
+   "expression": "+0.50*d",
+   "inputs": {
+    "d": "CR_LIFT[\"dg\"]"
+   }
+  },
+  {
+   "owner": "CR lift_dgR YELLOW",
+   "kind": "Object",
+   "target": "location[0]",
+   "expression": "+0.50*d",
+   "inputs": {
+    "d": "CR_LIFT[\"dg\"]"
+   }
+  },
+  {
+   "owner": "CR lift_duL BLACK",
+   "kind": "Object",
+   "target": "location[1]",
+   "expression": "-0.50*d",
+   "inputs": {
+    "d": "CR_LIFT[\"du\"]"
+   }
+  },
+  {
+   "owner": "CR lift_duL STEEL",
+   "kind": "Object",
+   "target": "location[1]",
+   "expression": "-0.50*d",
+   "inputs": {
+    "d": "CR_LIFT[\"du\"]"
+   }
+  },
+  {
+   "owner": "CR lift_duL STEEL_L",
+   "kind": "Object",
+   "target": "location[1]",
+   "expression": "-0.50*d",
+   "inputs": {
+    "d": "CR_LIFT[\"du\"]"
+   }
+  },
+  {
+   "owner": "CR lift_duL YELLOW",
+   "kind": "Object",
+   "target": "location[1]",
+   "expression": "-0.50*d",
+   "inputs": {
+    "d": "CR_LIFT[\"du\"]"
+   }
+  },
+  {
+   "owner": "CR lift_duR BLACK",
+   "kind": "Object",
+   "target": "location[1]",
+   "expression": "+0.50*d",
+   "inputs": {
+    "d": "CR_LIFT[\"du\"]"
+   }
+  },
+  {
+   "owner": "CR lift_duR STEEL",
+   "kind": "Object",
+   "target": "location[1]",
+   "expression": "+0.50*d",
+   "inputs": {
+    "d": "CR_LIFT[\"du\"]"
+   }
+  },
+  {
+   "owner": "CR lift_duR STEEL_L",
+   "kind": "Object",
+   "target": "location[1]",
+   "expression": "+0.50*d",
+   "inputs": {
+    "d": "CR_LIFT[\"du\"]"
+   }
+  },
+  {
+   "owner": "CR lift_duR YELLOW",
+   "kind": "Object",
+   "target": "location[1]",
+   "expression": "+0.50*d",
+   "inputs": {
+    "d": "CR_LIFT[\"du\"]"
+   }
+  },
+  {
+   "owner": "CR troffer -0.6",
+   "kind": "Object",
+   "target": "energy[0]",
+   "expression": "32*(0.5+0.3*s)*max(0.04,1-0.9*max(0.4,1-s)*fk)*(1-0.7*bw)",
+   "inputs": {
+    "s": "REACTOR_STATE[\"stability\"]",
+    "fk": "REACTOR_STATE[\"cr_flick\"]",
+    "bw": "REACTOR_STATE[\"cr_brown\"]"
+   }
+  },
+  {
+   "owner": "CR troffer -3.0",
+   "kind": "Object",
+   "target": "energy[0]",
+   "expression": "32*(0.5+0.3*s)*max(0.04,1-0.9*max(0.4,1-s)*fk)*(1-0.7*bw)",
+   "inputs": {
+    "s": "REACTOR_STATE[\"stability\"]",
+    "fk": "REACTOR_STATE[\"cr_flick\"]",
+    "bw": "REACTOR_STATE[\"cr_brown\"]"
+   }
+  },
+  {
+   "owner": "CR troffer 1.2",
+   "kind": "Object",
+   "target": "energy[0]",
+   "expression": "32*(0.5+0.3*s)*max(0.03,1-(0.85+0.15*(1-s))*fk)*(1-0.7*bw)",
+   "inputs": {
+    "s": "REACTOR_STATE[\"stability\"]",
+    "fk": "REACTOR_STATE[\"cr_flick\"]",
+    "bw": "REACTOR_STATE[\"cr_brown\"]"
+   }
+  },
+  {
+   "owner": "CR tv light",
+   "kind": "Object",
+   "target": "color[0]",
+   "expression": "wt*(min(1,2*(1-s)+0.24))*0.95+wb*1.0+ws*0.78*0.95+wn*0.78+wc*cr",
+   "inputs": {
+    "s": "REACTOR_STATE[\"stability\"]",
+    "wt": "CR_TV[\"w_tel\"]",
+    "wb": "CR_TV[\"w_bro\"]",
+    "ws": "CR_TV[\"w_sta\"]",
+    "wn": "CR_TV[\"w_bar\"]",
+    "wc": "CR_TV[\"w_clip\"]",
+    "cr": "CR_TV[\"clip_r\"]",
+    "cg": "CR_TV[\"clip_g\"]",
+    "cb": "CR_TV[\"clip_b\"]",
+    "ce": "CR_TV[\"clip_e\"]"
+   }
+  },
+  {
+   "owner": "CR tv light",
+   "kind": "Object",
+   "target": "color[1]",
+   "expression": "wt*(0.03+0.92*s)*0.95+wb*0.42+ws*0.88*0.95+wn*0.74+wc*cg",
+   "inputs": {
+    "s": "REACTOR_STATE[\"stability\"]",
+    "wt": "CR_TV[\"w_tel\"]",
+    "wb": "CR_TV[\"w_bro\"]",
+    "ws": "CR_TV[\"w_sta\"]",
+    "wn": "CR_TV[\"w_bar\"]",
+    "wc": "CR_TV[\"w_clip\"]",
+    "cr": "CR_TV[\"clip_r\"]",
+    "cg": "CR_TV[\"clip_g\"]",
+    "cb": "CR_TV[\"clip_b\"]",
+    "ce": "CR_TV[\"clip_e\"]"
+   }
+  },
+  {
+   "owner": "CR tv light",
+   "kind": "Object",
+   "target": "color[2]",
+   "expression": "wt*(0.20*s)*0.95+wb*0.16+ws*1.0*0.95+wn*0.62+wc*cb",
+   "inputs": {
+    "s": "REACTOR_STATE[\"stability\"]",
+    "wt": "CR_TV[\"w_tel\"]",
+    "wb": "CR_TV[\"w_bro\"]",
+    "ws": "CR_TV[\"w_sta\"]",
+    "wn": "CR_TV[\"w_bar\"]",
+    "wc": "CR_TV[\"w_clip\"]",
+    "cr": "CR_TV[\"clip_r\"]",
+    "cg": "CR_TV[\"clip_g\"]",
+    "cb": "CR_TV[\"clip_b\"]",
+    "ce": "CR_TV[\"clip_e\"]"
+   }
+  },
+  {
+   "owner": "CR tv light",
+   "kind": "Object",
+   "target": "energy[0]",
+   "expression": "80*(wt*1.0+wb*1.25+ws*(0.55+0.55*abs(sin((T*30)*13.7)*sin((T*30)*5.9)))+wn*0.8+wc*ce)",
+   "inputs": {
+    "wt": "CR_TV[\"w_tel\"]",
+    "wb": "CR_TV[\"w_bro\"]",
+    "ws": "CR_TV[\"w_sta\"]",
+    "wn": "CR_TV[\"w_bar\"]",
+    "wc": "CR_TV[\"w_clip\"]",
+    "cr": "CR_TV[\"clip_r\"]",
+    "cg": "CR_TV[\"clip_g\"]",
+    "cb": "CR_TV[\"clip_b\"]",
+    "ce": "CR_TV[\"clip_e\"]"
+   }
+  },
+  {
+   "owner": "CR_LIFT",
+   "kind": "Object",
+   "target": "[\"t_s\"][0]",
+   "expression": "fmod(T,24.0)",
+   "inputs": {}
+  },
+  {
+   "owner": "CR_LIFT",
+   "kind": "Object",
+   "target": "[\"car_z_0\"][0]",
+   "expression": "(+5.4)*max(0,min(1,(p-5.000)/6.000))+(-5.4)*max(0,min(1,(p-17.000)/6.000))",
+   "inputs": {
+    "p": "CR_LIFT[\"t_s\"]"
+   }
+  },
+  {
+   "owner": "CR_LIFT",
+   "kind": "Object",
+   "target": "[\"car_z\"][0]",
+   "expression": "0.000+q0",
+   "inputs": {
+    "q0": "CR_LIFT[\"car_z_0\"]"
+   }
+  },
+  {
+   "owner": "CR_LIFT",
+   "kind": "Object",
+   "target": "[\"dg_0\"][0]",
+   "expression": "(-1)*max(0,min(1,(p-4.200)/0.800))+(+1)*max(0,min(1,(p-23.000)/0.800))",
+   "inputs": {
+    "p": "CR_LIFT[\"t_s\"]"
+   }
+  },
+  {
+   "owner": "CR_LIFT",
+   "kind": "Object",
+   "target": "[\"dg\"][0]",
+   "expression": "1.000+q0",
+   "inputs": {
+    "q0": "CR_LIFT[\"dg_0\"]"
+   }
+  },
+  {
+   "owner": "CR_LIFT",
+   "kind": "Object",
+   "target": "[\"du_0\"][0]",
+   "expression": "(+1)*max(0,min(1,(p-11.000)/0.800))+(-1)*max(0,min(1,(p-16.200)/0.800))",
+   "inputs": {
+    "p": "CR_LIFT[\"t_s\"]"
+   }
+  },
+  {
+   "owner": "CR_LIFT",
+   "kind": "Object",
+   "target": "[\"du\"][0]",
+   "expression": "0.000+q0",
+   "inputs": {
+    "q0": "CR_LIFT[\"du_0\"]"
+   }
+  },
+  {
+   "owner": "CR_TV",
+   "kind": "Object",
+   "target": "[\"t_s\"][0]",
+   "expression": "fmod(T,20.0)",
+   "inputs": {}
+  },
+  {
+   "owner": "CR_TV",
+   "kind": "Object",
+   "target": "[\"w_tel_0\"][0]",
+   "expression": "(-1)*max(0,min(1,(p-6.208)/0.333))+(+1)*max(0,min(1,(p-17.708)/0.333))",
+   "inputs": {
+    "p": "CR_TV[\"t_s\"]"
+   }
+  },
+  {
+   "owner": "CR_TV",
+   "kind": "Object",
+   "target": "[\"w_tel\"][0]",
+   "expression": "1.000+q0",
+   "inputs": {
+    "q0": "CR_TV[\"w_tel_0\"]"
+   }
+  },
+  {
+   "owner": "CR_TV",
+   "kind": "Object",
+   "target": "[\"w_bro_0\"][0]",
+   "expression": "(+1)*max(0,min(1,(p-7.042)/0.417))+(-1)*max(0,min(1,(p-13.708)/0.292))",
+   "inputs": {
+    "p": "CR_TV[\"t_s\"]"
+   }
+  },
+  {
+   "owner": "CR_TV",
+   "kind": "Object",
+   "target": "[\"w_bro\"][0]",
+   "expression": "0.000+q0",
+   "inputs": {
+    "q0": "CR_TV[\"w_bro_0\"]"
+   }
+  },
+  {
+   "owner": "CR_TV",
+   "kind": "Object",
+   "target": "[\"w_sta_0\"][0]",
+   "expression": "(+1)*max(0,min(1,(p-6.208)/0.333))+(-1)*max(0,min(1,(p-7.042)/0.417))+(+1)*max(0,min(1,(p-13.708)/0.292))+(-1)*max(0,min(1,(p-14.417)/0.333))+(+1)*max(0,min(1,(p-17.042)/0.250))",
+   "inputs": {
+    "p": "CR_TV[\"t_s\"]"
+   }
+  },
+  {
+   "owner": "CR_TV",
+   "kind": "Object",
+   "target": "[\"w_sta_1\"][0]",
+   "expression": "(-1)*max(0,min(1,(p-17.708)/0.333))",
+   "inputs": {
+    "p": "CR_TV[\"t_s\"]"
+   }
+  },
+  {
+   "owner": "CR_TV",
+   "kind": "Object",
+   "target": "[\"w_sta\"][0]",
+   "expression": "0.000+q0+q1",
+   "inputs": {
+    "q0": "CR_TV[\"w_sta_0\"]",
+    "q1": "CR_TV[\"w_sta_1\"]"
+   }
+  },
+  {
+   "owner": "CR_TV",
+   "kind": "Object",
+   "target": "[\"w_bar_0\"][0]",
+   "expression": "(+1)*max(0,min(1,(p-14.417)/0.333))+(-1)*max(0,min(1,(p-17.042)/0.250))",
+   "inputs": {
+    "p": "CR_TV[\"t_s\"]"
+   }
+  },
+  {
+   "owner": "CR_TV",
+   "kind": "Object",
+   "target": "[\"w_bar\"][0]",
+   "expression": "0.000+q0",
+   "inputs": {
+    "q0": "CR_TV[\"w_bar_0\"]"
+   }
+  },
+  {
+   "owner": "CR crt SCR1",
+   "kind": "Material",
+   "target": "nodes[\"Principled BSDF\"].inputs[\"Emission Strength\"].default_value[0]",
+   "expression": "2.2*(0.93+0.07*sin((T*30)*1.7+2.2)*sin((T*30)*0.31))",
+   "inputs": {}
+  },
+  {
+   "owner": "CR crt SCR2",
+   "kind": "Material",
+   "target": "nodes[\"Principled BSDF\"].inputs[\"Emission Strength\"].default_value[0]",
+   "expression": "2.2*(0.93+0.07*sin((T*30)*1.7+2.2)*sin((T*30)*0.31))",
+   "inputs": {}
+  },
+  {
+   "owner": "CR crt SCR3",
+   "kind": "Material",
+   "target": "nodes[\"Principled BSDF\"].inputs[\"Emission Strength\"].default_value[0]",
+   "expression": "2.2*(0.93+0.07*sin((T*30)*1.7+2.2)*sin((T*30)*0.31))",
+   "inputs": {}
+  },
+  {
+   "owner": "CR emergency beacon",
+   "kind": "Material",
+   "target": "nodes[\"Principled BSDF\"].inputs[\"Emission Strength\"].default_value[0]",
+   "expression": "9.0*max(0.15,(0.5-s)*2)*(0.35+0.65*max(0,sin((T*30)*0.45)))",
+   "inputs": {
+    "s": "REACTOR_STATE[\"stability\"]"
+   }
+  },
+  {
+   "owner": "CR led amber 0",
+   "kind": "Material",
+   "target": "nodes[\"Principled BSDF\"].inputs[\"Emission Strength\"].default_value[0]",
+   "expression": "4.5*max(0.03,min(1.0,(sin((T*30)*1.440+0.31)+sin((T*30)*0.450+1.98))*3.2-1.6))",
+   "inputs": {}
+  },
+  {
+   "owner": "CR led amber 1",
+   "kind": "Material",
+   "target": "nodes[\"Principled BSDF\"].inputs[\"Emission Strength\"].default_value[0]",
+   "expression": "4.5*max(0.03,min(1.0,(sin((T*30)*0.515+6.09)+sin((T*30)*0.409+2.81))*3.2-1.6))",
+   "inputs": {}
+  },
+  {
+   "owner": "CR led amber 2",
+   "kind": "Material",
+   "target": "nodes[\"Principled BSDF\"].inputs[\"Emission Strength\"].default_value[0]",
+   "expression": "4.5*max(0.03,min(1.0,(sin((T*30)*1.272+5.26)+sin((T*30)*0.401+2.40))*3.2-1.6))",
+   "inputs": {}
+  },
+  {
+   "owner": "CR led amber 3",
+   "kind": "Material",
+   "target": "nodes[\"Principled BSDF\"].inputs[\"Emission Strength\"].default_value[0]",
+   "expression": "4.5*max(0.03,min(1.0,(sin((T*30)*1.418+1.77)+sin((T*30)*0.496+4.51))*3.2-1.6))",
+   "inputs": {}
+  },
+  {
+   "owner": "CR led green 0",
+   "kind": "Material",
+   "target": "nodes[\"Principled BSDF\"].inputs[\"Emission Strength\"].default_value[0]",
+   "expression": "4.5*max(0.03,min(1.0,(sin((T*30)*0.366+0.83)+sin((T*30)*0.151+0.17))*3.2-1.6))",
+   "inputs": {}
+  },
+  {
+   "owner": "CR led green 1",
+   "kind": "Material",
+   "target": "nodes[\"Principled BSDF\"].inputs[\"Emission Strength\"].default_value[0]",
+   "expression": "4.5*max(0.03,min(1.0,(sin((T*30)*0.529+0.02)+sin((T*30)*0.155+3.93))*3.2-1.6))",
+   "inputs": {}
+  },
+  {
+   "owner": "CR led green 2",
+   "kind": "Material",
+   "target": "nodes[\"Principled BSDF\"].inputs[\"Emission Strength\"].default_value[0]",
+   "expression": "4.5*max(0.03,min(1.0,(sin((T*30)*1.204+4.72)+sin((T*30)*0.340+4.13))*3.2-1.6))",
+   "inputs": {}
+  },
+  {
+   "owner": "CR led green 3",
+   "kind": "Material",
+   "target": "nodes[\"Principled BSDF\"].inputs[\"Emission Strength\"].default_value[0]",
+   "expression": "4.5*max(0.03,min(1.0,(sin((T*30)*0.584+2.38)+sin((T*30)*0.443+1.80))*3.2-1.6))",
+   "inputs": {}
+  },
+  {
+   "owner": "CR lift cabin light",
+   "kind": "Material",
+   "target": "nodes[\"Principled BSDF\"].inputs[\"Emission Strength\"].default_value[0]",
+   "expression": "16.0*(1-0.85*max(0,sin(T*47)*sin(T*11.3+1)-0.30)*1.6)*(1-0.7*bw)",
+   "inputs": {
+    "bw": "REACTOR_STATE[\"cr_brown\"]"
+   }
+  },
+  {
+   "owner": "CR lift camera led",
+   "kind": "Material",
+   "target": "nodes[\"Principled BSDF\"].inputs[\"Emission Strength\"].default_value[0]",
+   "expression": "4.0*(1 if fmod(T,2.4)<0.18 else 0)",
+   "inputs": {}
+  },
+  {
+   "owner": "CR lift cove",
+   "kind": "Material",
+   "target": "nodes[\"Principled BSDF\"].inputs[\"Emission Strength\"].default_value[0]",
+   "expression": "7.0*(1-0.35*min(1,fk))*(1-0.5*bw)",
+   "inputs": {
+    "fk": "REACTOR_STATE[\"cr_flick\"]",
+    "bw": "REACTOR_STATE[\"cr_brown\"]"
+   }
+  },
+  {
+   "owner": "CR lift lamp F1",
+   "kind": "Material",
+   "target": "nodes[\"Principled BSDF\"].inputs[\"Emission Strength\"].default_value[0]",
+   "expression": "4.0*min(1,max(0,(z-4.8)/0.6))",
+   "inputs": {
+    "z": "CR_LIFT[\"car_z\"]"
+   }
+  },
+  {
+   "owner": "CR lift lamp G",
+   "kind": "Material",
+   "target": "nodes[\"Principled BSDF\"].inputs[\"Emission Strength\"].default_value[0]",
+   "expression": "4.0*max(0,1-z/0.6)",
+   "inputs": {
+    "z": "CR_LIFT[\"car_z\"]"
+   }
+  },
+  {
+   "owner": "CR lift lamp moving",
+   "kind": "Material",
+   "target": "nodes[\"Principled BSDF\"].inputs[\"Emission Strength\"].default_value[0]",
+   "expression": "3.0*(1 if z>0.15 and z<5.25 else 0)",
+   "inputs": {
+    "z": "CR_LIFT[\"car_z\"]"
+   }
+  },
+  {
+   "owner": "CR tungsten tube",
+   "kind": "Material",
+   "target": "nodes[\"Principled BSDF\"].inputs[\"Emission Strength\"].default_value[0]",
+   "expression": "5.0*(0.5+0.3*s)*max(0.04,1-0.9*max(0.4,1-s)*fk)*(1-0.7*bw)",
+   "inputs": {
+    "s": "REACTOR_STATE[\"stability\"]",
+    "fk": "REACTOR_STATE[\"cr_flick\"]",
+    "bw": "REACTOR_STATE[\"cr_brown\"]"
+   }
+  },
+  {
+   "owner": "CR tungsten tube dying",
+   "kind": "Material",
+   "target": "nodes[\"Principled BSDF\"].inputs[\"Emission Strength\"].default_value[0]",
+   "expression": "5.0*(0.5+0.3*s)*max(0.03,1-(0.85+0.15*(1-s))*fk)*(1-0.7*bw)",
+   "inputs": {
+    "s": "REACTOR_STATE[\"stability\"]",
+    "fk": "REACTOR_STATE[\"cr_flick\"]",
+    "bw": "REACTOR_STATE[\"cr_brown\"]"
+   }
+  },
+  {
+   "owner": "CR tv anteroom screen",
+   "kind": "Material",
+   "target": "nodes[\"Principled BSDF\"].inputs[\"Emission Strength\"].default_value[0]",
+   "expression": "1.3*(1-0.30*min(1,fk))*(1-0.55*bw)",
+   "inputs": {
+    "fk": "REACTOR_STATE[\"cr_flick\"]",
+    "bw": "REACTOR_STATE[\"cr_brown\"]"
+   }
+  },
+  {
+   "owner": "CR tv screen",
+   "kind": "Material",
+   "target": "nodes[\"Value\"].outputs[0].default_value[0]",
+   "expression": "min(1,2*(1-s)+0.24)",
+   "inputs": {
+    "s": "REACTOR_STATE[\"stability\"]"
+   }
+  },
+  {
+   "owner": "CR tv screen",
+   "kind": "Material",
+   "target": "nodes[\"Value.001\"].outputs[0].default_value[0]",
+   "expression": "0.03+0.92*s",
+   "inputs": {
+    "s": "REACTOR_STATE[\"stability\"]"
+   }
+  },
+  {
+   "owner": "CR tv screen",
+   "kind": "Material",
+   "target": "nodes[\"Value.002\"].outputs[0].default_value[0]",
+   "expression": "0.20*s",
+   "inputs": {
+    "s": "REACTOR_STATE[\"stability\"]"
+   }
+  },
+  {
+   "owner": "CR tv screen",
+   "kind": "Material",
+   "target": "nodes[\"Noise Texture\"].inputs[\"W\"].default_value[0]",
+   "expression": "(T*30)*37.13",
+   "inputs": {}
+  },
+  {
+   "owner": "CR tv screen",
+   "kind": "Material",
+   "target": "nodes[\"Value.003\"].outputs[0].default_value[0]",
+   "expression": "w",
+   "inputs": {
+    "w": "CR_TV[\"w_tel\"]"
+   }
+  },
+  {
+   "owner": "CR tv screen",
+   "kind": "Material",
+   "target": "nodes[\"Value.004\"].outputs[0].default_value[0]",
+   "expression": "w",
+   "inputs": {
+    "w": "CR_TV[\"w_bro\"]"
+   }
+  },
+  {
+   "owner": "CR tv screen",
+   "kind": "Material",
+   "target": "nodes[\"Value.005\"].outputs[0].default_value[0]",
+   "expression": "w",
+   "inputs": {
+    "w": "CR_TV[\"w_sta\"]"
+   }
+  },
+  {
+   "owner": "CR tv screen",
+   "kind": "Material",
+   "target": "nodes[\"Value.006\"].outputs[0].default_value[0]",
+   "expression": "w",
+   "inputs": {
+    "w": "CR_TV[\"w_bar\"]"
+   }
+  },
+  {
+   "owner": "CR tv screen",
+   "kind": "Material",
+   "target": "nodes[\"Value.007\"].outputs[0].default_value[0]",
+   "expression": "w",
+   "inputs": {
+    "w": "CR_TV[\"w_clip\"]"
+   }
+  },
+  {
+   "owner": "CR tv screen",
+   "kind": "Material",
+   "target": "nodes[\"Principled BSDF\"].inputs[\"Emission Strength\"].default_value[0]",
+   "expression": "1.7*(0.96+0.04*sin((T*30)*3.1))",
+   "inputs": {}
+  },
+  {
+   "owner": "CR beacon +x",
+   "kind": "PointLight",
+   "target": "energy[0]",
+   "expression": "40*max(0.15,(0.5-s)*2)*(0.35+0.65*max(0,sin((T*30)*0.45)))",
+   "inputs": {
+    "s": "REACTOR_STATE[\"stability\"]"
+   }
+  },
+  {
+   "owner": "CR beacon +y",
+   "kind": "PointLight",
+   "target": "energy[0]",
+   "expression": "40*max(0.15,(0.5-s)*2)*(0.35+0.65*max(0,sin((T*30)*0.45)))",
+   "inputs": {
+    "s": "REACTOR_STATE[\"stability\"]"
+   }
+  },
+  {
+   "owner": "CR lift car lamp",
+   "kind": "AreaLight",
+   "target": "energy[0]",
+   "expression": "150*(1-0.85*max(0,sin(T*47)*sin(T*11.3+1)-0.30)*1.6)*(1-0.7*bw)",
+   "inputs": {
+    "bw": "REACTOR_STATE[\"cr_brown\"]"
+   }
+  },
+  {
+   "owner": "CR troffer -0.6",
+   "kind": "AreaLight",
+   "target": "energy[0]",
+   "expression": "32*(0.5+0.3*s)*max(0.04,1-0.9*max(0.4,1-s)*fk)*(1-0.7*bw)",
+   "inputs": {
+    "s": "REACTOR_STATE[\"stability\"]",
+    "fk": "REACTOR_STATE[\"cr_flick\"]",
+    "bw": "REACTOR_STATE[\"cr_brown\"]"
+   }
+  },
+  {
+   "owner": "CR troffer -3.0",
+   "kind": "AreaLight",
+   "target": "energy[0]",
+   "expression": "32*(0.5+0.3*s)*max(0.04,1-0.9*max(0.4,1-s)*fk)*(1-0.7*bw)",
+   "inputs": {
+    "s": "REACTOR_STATE[\"stability\"]",
+    "fk": "REACTOR_STATE[\"cr_flick\"]",
+    "bw": "REACTOR_STATE[\"cr_brown\"]"
+   }
+  },
+  {
+   "owner": "CR troffer 1.2",
+   "kind": "AreaLight",
+   "target": "energy[0]",
+   "expression": "32*(0.5+0.3*s)*max(0.03,1-(0.85+0.15*(1-s))*fk)*(1-0.7*bw)",
+   "inputs": {
+    "s": "REACTOR_STATE[\"stability\"]",
+    "fk": "REACTOR_STATE[\"cr_flick\"]",
+    "bw": "REACTOR_STATE[\"cr_brown\"]"
+   }
+  },
+  {
+   "owner": "CR tv light",
+   "kind": "SpotLight",
+   "target": "color[0]",
+   "expression": "wt*(min(1,2*(1-s)+0.24))*0.95+wb*1.0+ws*0.78*0.95+wn*0.78+wc*cr",
+   "inputs": {
+    "s": "REACTOR_STATE[\"stability\"]",
+    "wt": "CR_TV[\"w_tel\"]",
+    "wb": "CR_TV[\"w_bro\"]",
+    "ws": "CR_TV[\"w_sta\"]",
+    "wn": "CR_TV[\"w_bar\"]",
+    "wc": "CR_TV[\"w_clip\"]",
+    "cr": "CR_TV[\"clip_r\"]",
+    "cg": "CR_TV[\"clip_g\"]",
+    "cb": "CR_TV[\"clip_b\"]",
+    "ce": "CR_TV[\"clip_e\"]"
+   }
+  },
+  {
+   "owner": "CR tv light",
+   "kind": "SpotLight",
+   "target": "color[1]",
+   "expression": "wt*(0.03+0.92*s)*0.95+wb*0.42+ws*0.88*0.95+wn*0.74+wc*cg",
+   "inputs": {
+    "s": "REACTOR_STATE[\"stability\"]",
+    "wt": "CR_TV[\"w_tel\"]",
+    "wb": "CR_TV[\"w_bro\"]",
+    "ws": "CR_TV[\"w_sta\"]",
+    "wn": "CR_TV[\"w_bar\"]",
+    "wc": "CR_TV[\"w_clip\"]",
+    "cr": "CR_TV[\"clip_r\"]",
+    "cg": "CR_TV[\"clip_g\"]",
+    "cb": "CR_TV[\"clip_b\"]",
+    "ce": "CR_TV[\"clip_e\"]"
+   }
+  },
+  {
+   "owner": "CR tv light",
+   "kind": "SpotLight",
+   "target": "color[2]",
+   "expression": "wt*(0.20*s)*0.95+wb*0.16+ws*1.0*0.95+wn*0.62+wc*cb",
+   "inputs": {
+    "s": "REACTOR_STATE[\"stability\"]",
+    "wt": "CR_TV[\"w_tel\"]",
+    "wb": "CR_TV[\"w_bro\"]",
+    "ws": "CR_TV[\"w_sta\"]",
+    "wn": "CR_TV[\"w_bar\"]",
+    "wc": "CR_TV[\"w_clip\"]",
+    "cr": "CR_TV[\"clip_r\"]",
+    "cg": "CR_TV[\"clip_g\"]",
+    "cb": "CR_TV[\"clip_b\"]",
+    "ce": "CR_TV[\"clip_e\"]"
+   }
+  },
+  {
+   "owner": "CR tv light",
+   "kind": "SpotLight",
+   "target": "energy[0]",
+   "expression": "80*(wt*1.0+wb*1.25+ws*(0.55+0.55*abs(sin((T*30)*13.7)*sin((T*30)*5.9)))+wn*0.8+wc*ce)",
+   "inputs": {
+    "wt": "CR_TV[\"w_tel\"]",
+    "wb": "CR_TV[\"w_bro\"]",
+    "ws": "CR_TV[\"w_sta\"]",
+    "wn": "CR_TV[\"w_bar\"]",
+    "wc": "CR_TV[\"w_clip\"]",
+    "cr": "CR_TV[\"clip_r\"]",
+    "cg": "CR_TV[\"clip_g\"]",
+    "cb": "CR_TV[\"clip_b\"]",
+    "ce": "CR_TV[\"clip_e\"]"
+   }
+  }
+ ],
+ "status": {
+  "engine_implementation": "Blocked (no Unity target)",
+  "measured_performance": "NotRun"
+ }
+}

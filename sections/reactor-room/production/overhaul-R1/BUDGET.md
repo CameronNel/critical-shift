@@ -1,6 +1,6 @@
 # Reactor room performance budget (proposed, unmeasured)
 
-Fixed input from the owner: **60 fps on an RTX 3050, medium settings, 1080p**. The numbers below are engineering targets I chose to make that likely; none has been profiled. There is no Unity project or engine build in this repository, so no engine frame time was measured. Triangle counts are Blender evaluated, triangulated meshes; object and draw-call counts are the Blender object count and an object x material estimate before any static batching.
+Fixed input from the owner: **50 fps at 1080p on the Low preset, RTX 3050** (changed by the owner on 2026-10-01 from 60 fps, medium; see `design/ENGINE_DECISION.md` once PR #59 lands). The caps below were chosen for the old target and are not loosened: nothing is measured. The numbers below are engineering targets I chose to make that likely; none has been profiled. There is no Unity project or engine build in this repository, so no engine frame time was measured. Triangle counts are Blender evaluated, triangulated meshes; object and draw-call counts are the Blender object count and an object x material estimate before any static batching.
 
 ## Targets (to confirm)
 
@@ -55,3 +55,63 @@ An earlier version of this table counted meshes only and understated curve and t
 - Pool shaft lining (224 tile-course objects, 45k triangles) rebuilt as a few textured cylinders.
 - Remaining equipment (generator/reserve power, grid cabinets, fuel racks, bank housings) redone to the same per-asset budgets: hero asset at most 2k triangles, station asset at most 1k.
 - Measure in an engine build once one exists; until then treat every figure here as an estimate.
+
+## Control-room optimisation pass (measured in Blender, same counting as above)
+
+Scope: `31 CR CONTROL ROOM REDO` only. Visual-neutral tricks, all scripted:
+- **Bevel segments 2 -> 1** (`crk.BEVSEG`): a single smooth-shaded chamfer reads the same at 2-12 mm and halves the bevel triangles (the main saving).
+- **Cylinder sides scale with radius** (`crk.prism_seg`, 8 minimum): casters, screws, stems and lamps no longer carry 16-20 sides.
+- **Ceiling tiles unbevelled** (their edges sit under the grid flange and cannot be seen).
+- **Hidden-face removal** (`cr_optimize.py`): faces whose centre and corners are all flush (<= 1.5 mm) against another surface are deleted; coplanar dissolve with UV/material delimits.
+- **Static merge** by material for dressing groups (wall, deco, ceiling, clutter, shelf, break corner, work table, door): 292 -> 226 mesh objects. UV layers are unified by name first (a mismatch put 8.9% of loops at (0,0)).
+
+| State | Control-room triangles | Mesh objects | Materials in use |
+|---|---:|---:|---:|
+| Before | 154,462 | 292 | 85 |
+| After | 74,589 | 226 | 85 |
+
+Whole module (`scripts/stats2.py`): 413,910 -> 334,049 triangles including the 53,780-triangle roof proxy (about 280k without it, under the 400k target). glTF round trip of the control room: 74,613 triangles in and out, bounds difference 0.0 m, 0.3% of UV loops at the origin.
+Same four views rendered before and after at frame 1: mean pixel difference 0.003-0.005, no 16 px block above 0.07 (sampling noise level); the cork board was regressed by a first, too eager face test (centre only) and fixed by requiring full coverage.
+Not changed: **materials** (132 in the file, 85 in the control room, target 40: needs the atlas/bake step), **draw calls** (about 226 control-room objects, 1,704 module-wide, target 800; not engine-measured), no LODs, no instancing (props are merged world-space geometry). All numbers are Blender estimates, not engine measurements.
+
+## Control-room real-time lights and material consolidation (measured in Blender)
+
+**Light budget** (`scripts/cr_rt_lights.py`, spec in `control_room_light_budget.json/.md`): 18 authored lights -> 6 dynamic (three troffers with flicker/brownout/stability, the TV light, two beacons) of which 2 cast real-time shadows (middle troffer, TV); 12 are baked at their rest value (drivers removed, flagged `rt_mode=baked`). The CRT/rack flicker cue stays on the emissive screens and LEDs. Visible cost: during a brownout only the troffers and TV dip (mean frame luminance 0.150 with baked lights vs 0.132 with everything dipping), the rest of the room holds steady.
+
+**Decal atlas** (`scripts/cr_atlas_decals.py`): 24 image materials (posters, notices, stickies, stains, floor paint, stencil, photo) -> one 2048 px RGBA atlas (scale 0.85 to fit, 4 px edge padding), one material, one joined object (29 objects -> 1).
+
+| State | Control-room materials | Delivery images | glTF materials / images (round trip) | glb |
+|---|---:|---:|---:|---:|
+| Before | 85 | 72 | 87 / 72 | 12.7 MB |
+| After | 63 | 49 | 64 / 49 | 11.7 MB |
+
+Module file: 132 -> 109 materials, 1,704 -> 1,676 objects. Triangles unchanged (74,613 in and out of the glTF round trip, bounds 0.0 m, 0.2% of UV loops at the origin). Same four views before/after: mean pixel difference 0.004-0.006, no block above 0.07.
+Still over target: **materials** (63 in the control room, 109 in the file, target 40 - the procedural surfaces, 13 blinking LED variants and screens remain separate), **draw calls** (200 control-room objects after the merges; module-wide target 800 not met). Nothing is engine-measured.
+
+## Material families, step 1 (budgets in `design/MATERIAL_BUDGETS.md`, approved by the owner)
+
+`scripts/cr_families.py` replaces the 39 procedural spawn-recipe materials of the control room with 7 shared family materials (S01 painted metal, S02 bare metal, S03 plaster and tile, S05 plastic and rubber, S06 fabric, S07 wood/paper/organic, S09 cable). The recipe values travel on the mesh: colour attribute `Col` (RGB base colour, A roughness) and `Mat` (R metallic, G bump, B variation, A edge highlight). Objects of the same group and family are joined.
+Delivery (`cr_delivery.py`): a family exports as one glTF material (shared neutral grain tile) multiplied by `COLOR_0` (the `Mat` attribute is removed on the export copies because a second colour attribute makes the exporter write white, tested). The round trip multiplies `COLOR_0` into the base colour the way a glTF-compliant engine does; Blender's importer does not, so the check render adds it.
+
+| State | Control-room materials | Mesh objects | glTF materials / images (round trip) | glb |
+|---|---:|---:|---:|---:|
+| Before step 1 | 63 | 200 | 64 / 49 | 11.7 MB |
+| After step 1 | 31 | 120 | 32 / 11 | 10.9 MB |
+
+Same four views before/after: mean pixel difference 0.006-0.008, no block above 0.07; the round-trip render (family materials via `COLOR_0`) was opened and keeps the colours, the cork board, the decals and the wall dado. Triangles unchanged (74,613 in and out, bounds 0.0 m).
+Lost in the glTF export (Cycles-only): per-material mottling scale, bevel edge highlight, bump; the neutral grain tile replaces the mottling. Not lost in the Blender scene.
+Still over the control-room cap of 16: 31 materials. What remains: 16 emissive materials (13 blinking LEDs, tubes, beacon, lamps), 4 emissive screens (3 CRTs, TV), the decal atlas, floor tile, keyboard plane, glass, haze, 2 baked. Next steps: one emissive family with shader-clock blink (design item 7), one screen shader with an indexed atlas (item 8), floor into S04, glass into S13. Nothing is engine-measured.
+
+## Low-tier lighting: four lightmaps with runtime modulators (`scripts/cr_lightmaps.py`, tiers in `design/QUALITY_TIERS.md`)
+
+Static lighting is baked once with Cycles and shipped as textures; the flicker, brownouts, TV light and beacon pulse become per-frame scalars on pre-baked maps, so the Low tier has **zero real-time lights and zero shadow maps** and keeps the eerie look.
+
+| Map | Contains | Size | Modulator |
+|---|---|---:|---|
+| static | 12 baked lights, ambient, steady emissives | 2048 | constant |
+| troffer | three troffers and tubes at reference 32 W / strength 5 | 1024 | troffer expression / 32 |
+| tv | TV light (white, reference 80 W) and screen glow | 1024 | TV colour x energy / 80 |
+| beacon | two beacons at reference 40 W | 1024 | beacon energy / 40 |
+
+All maps share one second UV layer `Lightmap` (smart project 89 degrees + uniform-density pack): 121 objects, 663 m2 of surface, 48.6 texels/m at 2048, 37% of the atlas used. Files and decode values: `lightmaps/` (PNG + `control_room_lightmaps.json`, 6.5 MB total). Delivery glb now carries the second UV set (12.5 MB).
+Check (Blender only): the Low tier emulated as `albedo x lightmaps` with no lights, same four views as the path-traced renders. Mean luminance is 81% / 68% / 94% / 84% of the path-traced frame (wide / desk / rack / door), mean pixel difference 0.04-0.08. `renders/overhaul-R1/control_room_lowtier_vs_pathtraced_*.png` (top: path traced, bottom: Low emulation) were opened. What it keeps: composition, mood, warm/green split, shadow shapes, decals, posters. What it loses: real-time specular (copier, desk wood), contact grain and floor grime, window sheen, sharp shadow edges. A first bake with 32 samples and a 3x3 blur was visibly speckled; the shipped maps use an indirect clamp, firefly clamp and a coverage-aware blur. A lightmap gain of about 1.2 would match mean brightness but was not render-verified. Ultra adds real-time specular and shadows on top. Engine check **Blocked**; no frame time measured. The first bake attempt came out black because `film_exposure` is linear (0.0 = black), not stops.
