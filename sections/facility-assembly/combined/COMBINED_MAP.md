@@ -45,11 +45,15 @@ modules (they are never edited). Frame: plan metres, +x east, +y north, origin a
   `portal_void` (dark box closing the mouth), `mountain_mass` (8-vertex rock box filling x -90 to -56, which sealed the tunnel) and the 420 faces
   of `cliff_face` that form the rock plate closing the portal stub (a local copy of `cliff_face` with those faces cut). Ray test along the mine lane at
   heights 0.6, 1.7 and 3.0 m: clear from the yard to the far bulkhead (open at eye height).
-- Mine surface removed, because the front-end yard is the surface depot: everything east of the tunnel mouth. 198 objects omitted (portal shed, shed floor,
-  apron mud, yard puddles, yard ground fog, east lamps and props, 13 asset-source templates parked at the module origin), 20 straddling meshes trimmed
-  (rails, sleepers, tunnel floor and similar) by deleting faces east of the mouth, one object (`R39 | Cobwebs`, a non-plain mesh) kept whole. The mountain (R40) is kept whole.
-  The mine's sun lamp is kept; the lighting mood is the module's own.
-- Evidence (768x432, Cycles, 32 samples): `renders/02_mine_yard_to_portal.png`, `renders/02_mine_tunnel_to_yard.png`, `renders/02_mine_mountain_wide.png`.
+- **Owner requirement: the portal shed in front of the mine stays.** Kept: the `R39 | Portal shed` and `R39 | Shed floor` collections and every object inside the
+  shed footprint (module x -39.6 to -21.9, y -37.6 to -20.0 = plan x -54.0 to -36.3, y -78.6 to -61.0), with the rail running through it. 17 shed objects kept whole.
+- Mine surface still removed, because the front-end yard is the surface depot: apron mud, yard puddles, yard ground fog, and lamps and props outside the shed
+  (175 objects omitted, including 13 asset-source templates parked at the module origin); 26 straddling meshes (rails, sleepers, tunnel floor and similar) trimmed by
+  deleting faces east of the mouth and outside the shed; `R39 | Cobwebs` (not a plain mesh) kept whole. The mountain (R40) is kept whole. The mine's sun lamp is kept.
+- **Conflict, not resolved: the shed overlaps the yard's own objects.** The shed footprint contains the yard's `lamp_room_cabin`, `ore_bay_0/1`, `ore_pile_0/1`, `ore_cart_0/1/2`,
+  `pole_0`, `pole_3`, `vent_fan` and the portal collar (`portal_pier_L/R`, `portal_lintel`, `portal_cap`, `mouth_roof`); `boulder_11` and the site pickup clip its edges.
+  Nothing was removed or moved yet. Options: drop the overlapping yard props, shift the shed east of the collar, or accept the overlap.
+- Evidence (768x432, Cycles, 32 samples): `renders/02_mine_yard_to_portal.png`, `renders/02_mine_yard_overview.png`, `renders/02_mine_tunnel_to_yard.png`, `renders/02_mine_mountain_wide.png`.
 - Open and not fixed: the mine's mountain (R40) runs plan y -123 to -20, wider than v7's -104 to -60. Its north end will meet the cooling plant (x -57 to -44,
   y -30 to -15), the yard-to-cooling link and the mine-water pipe when those are placed; trim it then. The mine rail and the yard rail overlap
   only at the mouth (mine rail trimmed there); no check that the rail heights match.

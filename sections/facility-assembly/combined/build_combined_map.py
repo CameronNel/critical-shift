@@ -38,30 +38,43 @@ def open_portal_cap(wrap, lib_coll, omit):
     o = bpy.data.objects.new('cliff_face', me); o.matrix_world = src.matrix_world; wrap.objects.link(o)
     print('PORTAL_CAP faces removed', len(dead))
 
-MINE_MOUTH_X = -39.0   # module frame: first timber set of the tunnel; everything east of it is mine surface that the front-end yard replaces
+MINE_MOUTH_X = -39.0   # module frame: first timber set of the tunnel; mine surface east of it is trimmed, except the portal shed
+SHED = (-39.6, -21.9, -37.6, -20.0)   # module frame x0, x1, y0, y1: the portal shed footprint (measured: boards -39.25 to -22.25, -37.28 to -20.36)
+SHED_COLLECTIONS = ('R39 | Portal shed', 'R39 | Shed floor')
 
 def trim_mine_surface(wrap, lib_coll, omit):
-    """Drop the mine's own surface (portal shed, apron, yard puddles, haze, lamps) east of the tunnel mouth: the front-end yard is the surface
-    depot. Objects wholly east of the mouth are omitted; meshes that straddle it are copied locally with the faces east of it deleted.
-    R40 (the mountain) is kept whole."""
+    """Drop the mine's own surface (apron, yard puddles, yard fog, lamps and props outside the shed) east of the tunnel mouth: the front-end
+    yard is the surface depot. The owner requires the portal shed in front of the mine, so the shed (and everything inside its footprint)
+    is kept. Objects wholly east of the mouth and outside the shed are omitted; meshes that straddle are copied locally with the faces east
+    of the mouth and outside the shed deleted. R40 (the mountain) is kept whole."""
     import bmesh
     from mathutils import Vector
-    whole = clipped = skipped = 0
+    x0, x1, y0, y1 = SHED
+    inside = lambda p, m=0.0: x0 - m <= p.x <= x1 + m and y0 - m <= p.y <= y1 + m
+    whole = clipped = skipped = shed = 0
     for o in list(lib_coll.all_objects):
-        if o.name in omit or any(c.name.startswith('R40') for c in o.users_collection): continue
+        if o.name in omit or any(c.name.startswith('R40') or c.name in SHED_COLLECTIONS for c in o.users_collection):
+            shed += any(c.name in SHED_COLLECTIONS for c in o.users_collection); continue
         if o.type == 'LIGHT':
-            if o.data.type != 'SUN' and o.matrix_world.translation.x > MINE_MOUTH_X: omit.add(o.name); whole += 1
+            if o.data.type != 'SUN' and o.matrix_world.translation.x > MINE_MOUTH_X and not inside(o.matrix_world.translation):
+                omit.add(o.name); whole += 1
             continue
         if o.type not in ('MESH', 'CURVE', 'FONT'): continue
-        xs = [(o.matrix_world @ Vector(c)).x for c in o.bound_box]
-        if min(xs) >= MINE_MOUTH_X: omit.add(o.name); whole += 1
-        elif max(xs) > MINE_MOUTH_X:
-            if o.type != 'MESH' or o.modifiers or o.parent: skipped += 1; print('TRIM kept whole (not a plain mesh):', o.name); continue
-            me = o.data.copy(); bm = bmesh.new(); bm.from_mesh(me)
-            dead = [f for f in bm.faces if (o.matrix_world @ f.calc_center_median()).x > MINE_MOUTH_X]
-            bmesh.ops.delete(bm, geom=dead, context='FACES'); bm.to_mesh(me); bm.free()
-            n = bpy.data.objects.new(o.name, me); n.matrix_world = o.matrix_world; wrap.objects.link(n); omit.add(o.name); clipped += 1
-    print('TRIM mine surface: omitted whole', whole, 'clipped', clipped, 'kept whole', skipped)
+        pts = [o.matrix_world @ Vector(c) for c in o.bound_box]
+        mnx = min(p.x for p in pts); mxx = max(p.x for p in pts)
+        if mxx <= MINE_MOUTH_X: continue
+        if all(inside(p, 0.3) for p in pts): shed += 1; continue
+        hits_shed = min(p.y for p in pts) < y1 and max(p.y for p in pts) > y0 and mnx < x1
+        if any(k in o.name.lower() for k in ('fog', 'haze')):
+            if mnx < MINE_MOUTH_X - 5: continue          # tunnel haze: west of the mouth
+            omit.add(o.name); whole += 1; continue
+        if mnx >= MINE_MOUTH_X and not hits_shed: omit.add(o.name); whole += 1; continue
+        if o.type != 'MESH' or o.modifiers or o.parent: skipped += 1; print('TRIM kept whole (not a plain mesh):', o.name); continue
+        me = o.data.copy(); bm = bmesh.new(); bm.from_mesh(me)
+        dead = [f for f in bm.faces if (lambda c: c.x > MINE_MOUTH_X and not inside(c))(o.matrix_world @ f.calc_center_median())]
+        bmesh.ops.delete(bm, geom=dead, context='FACES'); bm.to_mesh(me); bm.free()
+        n = bpy.data.objects.new(o.name, me); n.matrix_world = o.matrix_world; wrap.objects.link(n); omit.add(o.name); clipped += 1
+    print('TRIM mine surface: omitted whole', whole, 'clipped', clipped, 'kept whole (non-plain)', skipped, 'shed objects kept', shed)
 
 PATCHES = {'front-end-area': open_portal_cap, 'mine': trim_mine_surface}
 
