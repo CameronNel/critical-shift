@@ -88,6 +88,26 @@ modules (they are never edited). Frame: plan metres, +x east, +y north, origin a
 - Not checked: refinery interior lighting against the dusk yard, rail height against the refinery's inner rail, the yard fence panels sitting against the wall, collision, performance;
   the fuel corridor, personnel interior route and refinery roof against the colonnade roof were not inspected beyond the renders. Unreviewed.
 
+## Review pass (renders in `renders/review/`, 33 views of the scene through room 3)
+Cycles, 28 to 36 samples, 768x432 or 960x540, night world. Cameras that landed inside geometry were discarded or re-shot; one interior angle (refinery NW) was dropped as unusable.
+Prefixes: `join_` connected areas, `new_` areas not shown before, `overview_` whole-scene, `risk_` places that look wrong or unfinished.
+
+What works: spawn airlock to hall sightline (`join_01`), cafeteria west door to yard and shed (`join_02`), shed to tunnel and the tunnel itself (`join_03`, `join_04`), the rail
+from shed through the turn into the refinery (`join_09`, `join_10`), colonnade to the refinery personnel door (`join_05`, `join_06`), refinery interior (`join_07`, `join_08`).
+
+Defects and open items found, none fixed yet:
+1. **Shed blocks the yard's north-west service gate path** (`risk_12`). DESIGN.md keep-clear: x -47.4 to -44.8, y > -68.8 (to the cooling-plant door). The shed (plan x -54.0 to -36.3, y -78.6 to -61.0)
+   covers that path from y -68.8 up to the fence. The owner requires the shed, so the path or the gate needs a decision (move the gate, route round the shed, or accept the gate leading into the shed).
+2. **Brown yard cliff against the grey mine mountain** (`risk_02`, `risk_11`): different rock materials and a hard vertical seam where the yard's cliff face butts the mine's flat grey wall.
+3. **Mine mountain is a flat, very large, repetitive wall** (`risk_02`, `risk_03`), running plan y -123 to -20; it will collide with the cooling plant area (see room 2 notes).
+4. **Evacuation gate sign is a blank mint rectangle** (`risk_01`, `risk_10`) in the front-end build (`sign_evac_gate`); other signs in the same atlas render their text.
+5. **Refinery fuel door opens onto nothing** (`risk_04`) until the fuel corridor is placed; refinery west wall and roof are plain and very dark at night (`risk_05`, `risk_06`).
+6. **Doors to rooms not placed yet** open to black: medical (`risk_09`), hall spine and east trunk, colonnade-side ground (`risk_07`).
+7. **Front-end `directory_totem` in the cafeteria has a blank back face** (seen in the cafeteria render from the hall opening), a plain lilac slab in the aisle sightline.
+8. **Spawn room exterior is flat saturated colour boxes** against the cafeteria's south wall (`new_07`).
+9. **Tunnel far end is a dark timber barricade** at x -107 (`risk_08`); fine as a dead end, very dark.
+10. Night exterior is very dark overall; the world beyond the front end's ground plane is empty black.
+
 ## Remaining rooms in plan order (not yet added)
 Hall-side: spine to reactor (middle), east trunk to dock and waste (right). Then medical, reactor,
 turbine, electrical, waste, cooling, fuel corridor, compliance dock, outer ring and gantry.
