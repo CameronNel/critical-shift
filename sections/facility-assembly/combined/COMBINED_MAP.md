@@ -95,7 +95,13 @@ Prefixes: `join_` connected areas, `new_` areas not shown before, `overview_` wh
 What works: spawn airlock to hall sightline (`join_01`), cafeteria west door to yard and shed (`join_02`), shed to tunnel and the tunnel itself (`join_03`, `join_04`), the rail
 from shed through the turn into the refinery (`join_09`, `join_10`), colonnade to the refinery personnel door (`join_05`, `join_06`), refinery interior (`join_07`, `join_08`).
 
-Defects and open items found, none fixed yet:
+**Fix log** (renders in `renders/fixes/`)
+- **Fix 1, shed across the north-west service path: fixed and verified.** The shed stays; a passage is carved through it on the gate line: opening in the north wall 2.8 m wide (plan x -47.5 to -44.7), 2.9 m high,
+  clear corridor to the mine lane (plan y -68.8). Shed frame (4 islands removed, 36 faces cut) and boards (15 small islands) are local copies with the volume cut and capped; the magazine board and powder sign that hung on the cut
+  wall are removed. Verification: 130 horizontal rays (13 heights 0.3 to 2.7 m by 10 positions across 2.0 m) from just inside the gate to the lane, 0 blocked (excluded: the gate leaf and frame, the sign above the door, the shed's fog volume);
+  0 overhead obstacles in 18 downward probes; renders `fix01_lane_to_service_gate.png`, `fix01_gate_into_shed.png`, `fix01_gate_from_outside.png`.
+
+Defects and open items found:
 1. **Shed blocks the yard's north-west service gate path** (`risk_12`). DESIGN.md keep-clear: x -47.4 to -44.8, y > -68.8 (to the cooling-plant door). The shed (plan x -54.0 to -36.3, y -78.6 to -61.0)
    covers that path from y -68.8 up to the fence. The owner requires the shed, so the path or the gate needs a decision (move the gate, route round the shed, or accept the gate leading into the shed).
 2. **Brown yard cliff against the grey mine mountain** (`risk_02`, `risk_11`): different rock materials and a hard vertical seam where the yard's cliff face butts the mine's flat grey wall.

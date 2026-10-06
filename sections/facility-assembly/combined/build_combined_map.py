@@ -48,6 +48,68 @@ MINE_MOUTH_X = -39.0   # module frame: first timber set of the tunnel; mine surf
 SHED = (-39.6, -21.9, -37.6, -20.0)   # module frame x0, x1, y0, y1: the portal shed footprint (measured: boards -39.25 to -22.25, -37.28 to -20.36)
 SHED_COLLECTIONS = ('R39 | Portal shed', 'R39 | Shed floor')
 
+def mesh_islands(bm):
+    seen = set(); out = []
+    for v in bm.verts:
+        if v.index in seen: continue
+        st = [v]; seen.add(v.index); cur = []
+        while st:
+            a = st.pop(); cur.append(a)
+            for e in a.link_edges:
+                b = e.other_vert(a)
+                if b.index not in seen: seen.add(b.index); st.append(b)
+        out.append(cur)
+    return out
+
+# North-west service path (front end: x -47.4 to -44.8 from the lane y -68.8 to the cooling-plant service gate in the north fence at y -60.1).
+# The mine's portal shed stands across it, so the shed gets a walkable passage: an opening in its north wall on the gate line and a clear corridor
+# down to the mine lane. Module frame (plan + (14.4, 41)); 2.8 m wide, 2.9 m high.
+PASSAGE_X = (-33.1, -30.3)
+PASSAGE_Y = (-27.8, -19.5)
+PASSAGE_Z = (0.25, 2.9)
+
+def carve_passage(wrap, lib_coll, omit):
+    """Local copies of the shed meshes with the passage volume cut out. Small islands (props, rope, boards) inside the volume are deleted whole;
+    larger ones (wall, frame, beams) are sliced at the volume faces, the faces inside deleted and the cut ends capped. Floors and ground (under 0.5 m high) are left."""
+    import bmesh
+    from mathutils import Vector
+    xa, xb = PASSAGE_X; ya, yb = PASSAGE_Y; za, zb = PASSAGE_Z; eps = 1e-3
+    inbox = lambda p: xa < p.x < xb and ya < p.y < yb and za < p.z < zb
+    hits = []
+    for o in list(lib_coll.all_objects):   # whole objects inside the passage volume (wall signs left hanging once the wall they hang on is cut) go
+        if o.name in omit or o.type not in ('MESH', 'FONT', 'CURVE') or any(k in o.name.lower() for k in ('haze', 'fog')): continue
+        q = [wm(o) @ Vector(c) for c in o.bound_box]
+        dim = [max(p[i] for p in q) - min(p[i] for p in q) for i in range(3)]
+        crosses = max(p.x for p in q) > xa and min(p.x for p in q) < xb and max(p.y for p in q) > ya and min(p.y for p in q) < yb and max(p.z for p in q) > za and min(p.z for p in q) < zb
+        thin_sign = crosses and min(dim[0], dim[1]) <= 0.1 and dim[2] < 1.2     # a flat board hanging across the passage
+        if thin_sign or all(xa - 0.1 < p.x < xb + 0.1 and ya < p.y < yb and za - 0.1 < p.z < zb + 0.1 for p in q): omit.add(o.name); hits.append((o.name, 'removed whole'))
+    for o in list(lib_coll.all_objects):
+        if o.name in omit or o.type != 'MESH' or o.modifiers or o.parent or any(k in o.name.lower() for k in ('haze', 'fog')) or any(c.name.startswith('R40') for c in o.users_collection): continue
+        pts = [wm(o) @ Vector(c) for c in o.bound_box]
+        if not (max(p.x for p in pts) > xa and min(p.x for p in pts) < xb and max(p.y for p in pts) > ya and min(p.y for p in pts) < yb and max(p.z for p in pts) - min(p.z for p in pts) >= 0.5 and max(p.z for p in pts) > za): continue
+        me = o.data.copy(); me.transform(wm(o)); bm = bmesh.new(); bm.from_mesh(me)
+        gone = sliced = 0; big = False
+        for isl in mesh_islands(bm):
+            lo = Vector((min(v.co.x for v in isl), min(v.co.y for v in isl), min(v.co.z for v in isl))); hi = Vector((max(v.co.x for v in isl), max(v.co.y for v in isl), max(v.co.z for v in isl)))
+            if not (hi.x > xa and lo.x < xb and hi.y > ya and lo.y < yb and hi.z > za and lo.z < zb): continue
+            if max(hi.x - lo.x, hi.y - lo.y, hi.z - lo.z) <= 2.5:
+                bmesh.ops.delete(bm, geom=isl, context='VERTS'); gone += 1
+            else: big = True
+        if big:
+            for pl in ((xa, 0), (xb, 0), (za, 2), (zb, 2)):
+                no = [0, 0, 0]; no[pl[1]] = 1; co = [0, 0, 0]; co[pl[1]] = pl[0]
+                bmesh.ops.bisect_plane(bm, geom=list(bm.verts) + list(bm.edges) + list(bm.faces), plane_co=co, plane_no=no)
+            dead = [f for f in bm.faces if inbox(f.calc_center_median())]
+            sliced = len(dead); bmesh.ops.delete(bm, geom=dead, context='FACES')
+            near = lambda v: xa - eps <= v.co.x <= xb + eps and ya - eps <= v.co.y <= yb + eps and za - eps <= v.co.z <= zb + eps
+            edges = [e for e in bm.edges if e.is_boundary and all(near(v) for v in e.verts)]
+            if edges: bmesh.ops.holes_fill(bm, edges=edges, sides=0)
+        if gone or sliced:
+            bm.normal_update(); bm.to_mesh(me); bm.free()
+            n = bpy.data.objects.new(o.name, me); wrap.objects.link(n); omit.add(o.name); hits.append((o.name, gone, sliced))
+        else: bm.free(); bpy.data.meshes.remove(me)
+    print('PASSAGE carved:', hits)
+
 def trim_mine_surface(wrap, lib_coll, omit):
     """Drop the mine's own surface (apron, yard puddles, yard fog, lamps and props outside the shed) east of the tunnel mouth: the front-end
     yard is the surface depot. The owner requires the portal shed in front of the mine, so the shed (and everything inside its footprint)
@@ -83,6 +145,7 @@ def trim_mine_surface(wrap, lib_coll, omit):
         bmesh.ops.delete(bm, geom=dead, context='FACES'); bm.to_mesh(me); bm.free()
         n = bpy.data.objects.new(o.name, me); n.matrix_basis = o.matrix_basis; wrap.objects.link(n); omit.add(o.name); clipped += 1
     if refinery: extend_mine_rail(wrap, lib_coll)
+    carve_passage(wrap, lib_coll, omit)
     print('TRIM mine surface: omitted whole', whole, 'clipped', clipped, 'kept whole (non-plain)', skipped, 'shed objects kept', shed)
 
 RAIL_RADIUS = 4.0   # m, turn from the mine lane (y -70) north onto the refinery freight line (x -22.2)
