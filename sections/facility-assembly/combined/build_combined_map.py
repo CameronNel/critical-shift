@@ -110,6 +110,29 @@ def carve_passage(wrap, lib_coll, omit):
         else: bm.free(); bpy.data.meshes.remove(me)
     print('PASSAGE carved:', hits)
 
+# The mine mountain (R40) is 103 m long (plan y -123 to -20) against v7's mountain y -104 to -60, and its north end sits where the cooling plant and the yard-to-cooling
+# link go. Its two ends are eased down to the ground: heights scale by 1 - smoothstep along y, module frame (plan + (14.4, 41)).
+MOUNTAIN_TAPER_NORTH = (-8.0, 12.0)     # plan y -49 to -29
+MOUNTAIN_TAPER_SOUTH = (-58.0, -76.0)   # plan y -99 to -117
+
+def taper_mountain(wrap, lib_coll, omit):
+    import numpy as np
+    def f(y):
+        n0, n1 = MOUNTAIN_TAPER_NORTH; s0, s1 = MOUNTAIN_TAPER_SOUTH
+        tn = np.clip((y - n0) / (n1 - n0), 0, 1); ts = np.clip((y - s0) / (s1 - s0), 0, 1)
+        sm = lambda t: t * t * (3 - 2 * t)
+        return 1.0 - np.maximum(sm(tn), sm(ts))
+    done = []
+    for o in list(lib_coll.all_objects):
+        if o.name in omit or o.type != 'MESH' or o.parent or o.modifiers or not any(c.name.startswith('R40') for c in o.users_collection): continue
+        me = o.data.copy(); n = len(me.vertices); co = np.empty(n * 3, dtype=np.float32); me.vertices.foreach_get('co', co); co = co.reshape(n, 3)
+        m = np.array(wm(o)); w = co @ m[:3, :3].T + m[:3, 3]            # module frame
+        up = w[:, 2] > 0
+        w[up, 2] = w[up, 2] * f(w[up, 1]).astype(np.float32)
+        me.vertices.foreach_set('co', w.astype(np.float32).ravel()); me.update()
+        obj = bpy.data.objects.new(o.name, me); wrap.objects.link(obj); omit.add(o.name); done.append((o.name, n))
+    print('MOUNTAIN tapered:', done)
+
 def trim_mine_surface(wrap, lib_coll, omit):
     """Drop the mine's own surface (apron, yard puddles, yard fog, lamps and props outside the shed) east of the tunnel mouth: the front-end
     yard is the surface depot. The owner requires the portal shed in front of the mine, so the shed (and everything inside its footprint)
@@ -146,6 +169,7 @@ def trim_mine_surface(wrap, lib_coll, omit):
         n = bpy.data.objects.new(o.name, me); n.matrix_basis = o.matrix_basis; wrap.objects.link(n); omit.add(o.name); clipped += 1
     if refinery: extend_mine_rail(wrap, lib_coll)
     carve_passage(wrap, lib_coll, omit)
+    taper_mountain(wrap, lib_coll, omit)
     print('TRIM mine surface: omitted whole', whole, 'clipped', clipped, 'kept whole (non-plain)', skipped, 'shed objects kept', shed)
 
 RAIL_RADIUS = 4.0   # m, turn from the mine lane (y -70) north onto the refinery freight line (x -22.2)
@@ -246,7 +270,12 @@ def clear_yard_for_shed(wrap, lib_coll, omit):
         elif o.name.startswith(YARD_PROPS_UNDER_SHED) and inside(c): omit.add(o.name); gone.append(o.name)
     print('SHED_CLEAR yard objects removed', len(gone), gone, 'rail meshes clipped', clipped)
 
-PATCHES = {'front-end-area': lambda w, l, o: (open_portal_cap(w, l, o), clear_yard_for_shed(w, l, o)), 'mine': trim_mine_surface}
+def localise_evac_sign(wrap, lib_coll, omit):
+    src = next((o for o in lib_coll.all_objects if o.name == 'sign_evac_gate'), None)
+    if not src: return
+    n = bpy.data.objects.new('sign_evac_gate', src.data.copy()); n.matrix_basis = src.matrix_basis; wrap.objects.link(n); omit.add('sign_evac_gate')
+
+PATCHES = {'front-end-area': lambda w, l, o: (open_portal_cap(w, l, o), clear_yard_for_shed(w, l, o), localise_evac_sign(w, l, o)), 'mine': trim_mine_surface}
 INCLUDED = set()
 
 # Refinery: every root collection of the overhaul scene except the duplicate MODULE_refinery wrapper and the review cameras.
@@ -286,6 +315,23 @@ def unify_cliff_rock():
     nt.links.new(link.from_socket, hs.inputs['Color']); nt.links.new(hs.outputs['Color'], wm_.inputs[6]); nt.links.new(wm_.outputs[2], bsdf.inputs['Base Color'])   # replaces the old link into Base Color
     obj.data.materials[0] = m; print('CLIFF material tinted', CLIFF_TINT)
 
+def fix_evac_sign_back():
+    """sign_evac_gate is a 6-face box; only the face towards the yard has atlas UVs, the other five are collapsed to one pixel of the board's green, so from outside the gate it is a blank
+    green slab. The face on the opposite side gets the same atlas rectangle, mapped by local x so the lettering reads from outside. (Mesh is already a local copy.)"""
+    o = bpy.data.objects.get('sign_evac_gate')
+    if not (o and o.library is None): return
+    me = o.data; uv = me.uv_layers.active
+    front = max(me.polygons, key=lambda p: max(uv.data[l].uv[0] for l in p.loop_indices) - min(uv.data[l].uv[0] for l in p.loop_indices))
+    us = [uv.data[l].uv[0] for l in front.loop_indices]; vs = [uv.data[l].uv[1] for l in front.loop_indices]
+    u0, u1, v0, v1 = min(us), max(us), min(vs), max(vs)
+    back = [p for p in me.polygons if p.normal.dot(front.normal) < -0.9]
+    xs = [v.co.x for v in me.vertices]; zs = [v.co.z for v in me.vertices]; x0, x1, z0, z1 = min(xs), max(xs), min(zs), max(zs)
+    for p in back:
+        for l in p.loop_indices:
+            c = me.vertices[me.loops[l].vertex_index].co
+            uv.data[l].uv = (u0 + (c.x - x0) / (x1 - x0) * (u1 - u0), v0 + (c.z - z0) / (z1 - z0) * (v1 - v0))
+    print('SIGN back face mapped:', len(back), 'face(s)')
+
 def build(through, output):
     keys = [r[0] for r in ROOMS]
     INCLUDED.update(keys[:keys.index(through) + 1] if through in keys else ())
@@ -322,6 +368,7 @@ def build(through, output):
             inst.location = loc; inst.rotation_euler = (0, 0, math.radians(rz)); inst['source'] = lib; inst['note'] = note
             root.objects.link(inst)
     unify_cliff_rock()
+    fix_evac_sign_back()
     bpy.ops.wm.save_as_mainfile(filepath=output, relative_remap=True)
     print('COMBINED', through, [r[0] for r in ROOMS[:keys.index(through) + 1]], '->', output)
 
