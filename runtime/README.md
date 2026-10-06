@@ -31,14 +31,14 @@ The successful workflow also packages `offline-scenario-runner.zip`: the actual 
 | `dotnet/src/CriticalShift.Features.*.Domain/` | Seven independent rule domains: Interaction, Session, Workers, Materials, Production, Reactor and Power |
 | `unity/Assets/CriticalShift/Application/ProcessLifetime.cs` | The single canonical local-process lifetime implementation, not the gameplay session owner |
 | `dotnet/src/CriticalShift.ProcessLifetime/` | Build project that links that exact process source; it contains no copied implementation |
-| `unity/Assets/CriticalShift/Bootstrap/` | WP-01 diagnostic bootstrap and optional native preparation/build code; not gameplay or map integration |
+| `unity/Assets/CriticalShift/Bootstrap/` | WP-01 diagnostic bootstrap plus the explicit FacilitySceneHost gameplay composition and scene binding editor tools |
 | `tools/` | Foundation static/evidence checks and optional native tooling |
 
 The foundation assembly was renamed from `CriticalShift.Application` to `CriticalShift.ProcessLifetime`, preserving its metadata GUID and C# type namespace. The gameplay assembly keeps `CriticalShift.Application`. Foundation references and checks were updated. The offline suite compiles both together and exercises multiple real gameplay sessions inside one process lifetime.
 
 The former narrow `tools/pure-tests/` harness was removed after its eight original assertions were linked into the normal offline NUnit suite. Their canonical source still also belongs to the original Unity EditMode test assembly. A passing offline run of that source is not a native Unity Test Runner pass.
 
-The application and seven gameplay domain DLLs built by the offline projects provide one future integration route. Do not copy these source files into another implementation or introduce a second mutable holder, material ledger, clock or power balance. The optional scenario package does not install DLLs into Unity. Native importer configuration and scene adapters remain future work.
+The Application and seven gameplay Domain DLLs are now built for Unity under `Assets/CriticalShift/Plugins/Rules` by `python runtime/tools/build_unity_rules.py`, with explicit importers and a source/binary hash manifest. Do not copy these source files into another implementation or introduce a second mutable holder, material ledger, clock or power balance. The optional scenario package does not install DLLs into Unity. The assignable scene adapters and setup workflow are documented in the [worker binding guide](unity/Assets/CriticalShift/Features/Workers/README.md); native import, physics and Player acceptance remain unverified.
 
 ## Contracts and useful entrypoints
 
@@ -51,6 +51,27 @@ The application and seven gameplay domain DLLs built by the offline projects pro
 - [Canonical architecture](../design/code-architecture/README.md)
 
 PR #43 and PR #46 remain provenance for their contributions. Their earlier heads are not substitutes for this reconciled candidate. The old offline branch's root README and map state were not transplanted. The entire current `sections/` tree remains `06a41745022bcaee48d7ca3291b19f5febfcb673`.
+
+## Worker movement and scene bindings
+
+The [binding guide](unity/Assets/CriticalShift/Features/Workers/README.md) covers
+player movement, camera, crouch/jump, ragdoll recovery, object/tool/cart/body physics,
+shared carrying, facility controls and typed production/reactor bindings. Its scene
+setup tool wires explicit references and validates required assignments. All 49
+existing take names have code routes; unfinished animation sources and clip assets
+remain untouched. Inspector contact overrides accommodate the final calibration.
+
+The offline verifier executes 784 tests, including 42 movement/cue/input cases, eight
+facility-control cases, nine shared-carry cases and 19 bonk contract/pose cases. Fifty-one native binding/physics
+cases exist but are NotRun here. The source/DLL manifest and metadata checks do not
+establish Unity compilation, imported animation compatibility, physical feel or
+Player readiness. See [task scope and evidence](validation/MOVEMENT_ANIMATIONS.md).
+
+The [bonk shovel extension](validation/BONK_SHOVEL.md) adds a receipt-backed swing,
+obstruction-aware player knockdown, procedural arm/grip animation and Harrisando's
+CC0 tin-bonk recording. Scene binding assigns the sound automatically. Finished animation
+assets remain untouched; native compilation, contact alignment and mixing remain
+unverified.
 
 ## Native foundation remains separately unverified
 
@@ -66,4 +87,4 @@ That runner needs Python 3.12+, an already activated matching Editor and matchin
 
 ## Scope boundary
 
-This is useful, user-authorized editor-free source prework, not a Gate 0/1 pass, accepted Unity foundation, production-ready reactor, complete power station or human fun test. It adds no physical interactions, transport, Steam, voice, UI/input framework, persistence, save schema, terrain or art changes. Single-threaded host policy, physical bindings, native compatibility and independently reviewed integration remain necessary. Read the reactor guide's fixture limits before using its values as game balance.
+This is useful, user-authorized editor-free source prework, not a Gate 0/1 pass, accepted Unity foundation, production-ready reactor, complete power station or human fun test. The OFFLINE-005 logical spike added no physical interactions. The later authorized scene extension adds movement and ragdoll physics code; transport, Steam/voice, persistence, save schema, terrain and art remain outside that implementation. Single-threaded host policy, physical bindings, native compatibility and independently reviewed integration remain necessary. Read the reactor guide's fixture limits before using its values as game balance.
