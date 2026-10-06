@@ -19,7 +19,7 @@ POOLC=bpy.data.collections["03 POOL AND RAIL"]
 wm=bpy.data.materials["water"]; wnt=wm.node_tree
 bump=next(n for n in wnt.nodes if n.type=='BUMP'); outn=next(n for n in wnt.nodes if n.type=='OUTPUT_MATERIAL')
 for n in [n for n in wnt.nodes if n.type=='BSDF_PRINCIPLED']: wnt.nodes.remove(n)
-gl=wnt.nodes.new("ShaderNodeBsdfGlossy"); gl.inputs['Roughness'].default_value=0.04; gl.inputs['Color'].default_value=(0.30,0.45,0.40,1.0)
+gl=wnt.nodes.new("ShaderNodeBsdfGlossy"); gl.inputs['Roughness'].default_value=0.04; gl.inputs['Color'].default_value=(0.38,0.40,0.38,1.0)
 trn=wnt.nodes.new("ShaderNodeBsdfTransparent"); lw=wnt.nodes.new("ShaderNodeLayerWeight"); lw.inputs['Blend'].default_value=0.35
 fm=wnt.nodes.new("ShaderNodeMath"); fm.operation='MULTIPLY'; fm.inputs[1].default_value=0.08; fm.use_clamp=True
 mx=wnt.nodes.new("ShaderNodeMixShader")
@@ -59,7 +59,7 @@ def N(t,x=0,y=0,name=None):
     if name: n.name=name
     return n
 out=N("ShaderNodeOutputMaterial",1200,0); mix=N("ShaderNodeMixShader",1000,0); tr=N("ShaderNodeBsdfTransparent",800,150); em=N("ShaderNodeEmission",800,-100)
-em.inputs['Color'].default_value=(0.55,1.0,0.85,1.0); em.inputs["Strength"].default_value=0.9
+em.inputs['Color'].default_value=(0.35,1.0,0.35,1.0); em.inputs["Strength"].default_value=0.9
 nt.links.new(tr.outputs[0],mix.inputs[1]); nt.links.new(em.outputs[0],mix.inputs[2]); nt.links.new(mix.outputs[0],out.inputs[0])
 tc=N("ShaderNodeTexCoord",-900,0); layers=[]
 for i,(sc,spd,nm) in enumerate(((0.8,0.30,"CausticV1"),(1.5,-0.42,"CausticV2"))):

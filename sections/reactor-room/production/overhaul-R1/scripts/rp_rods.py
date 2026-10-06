@@ -24,7 +24,7 @@ def mat(n): return bpy.data.materials[n]
 M=dict(IRON=mat("R2 iron"),ENAM=mat("R2 bank enamel"),TRIM=mat("R2 trim rust"),GLOW=mat("R2 state glow"))
 M["CHROME"]=crk.pm("RP chrome rod",(0.60,0.63,0.64),0.16,metal=1.0,scale=3.0,bump=0.0,var=(0.90,1.04),edge=(0.9,0.92,0.92))
 M["BRASS"]=crk.pm("RP brass",(0.50,0.34,0.10),0.28,metal=0.95,scale=3.0,bump=0.0,var=(0.88,1.06))
-M["GUN"]=crk.pm("RP gunmetal",(0.045,0.055,0.058),0.34,metal=0.8,scale=2.5,bump=0.0,edge=(0.30,0.32,0.32))
+M["GUN"]=crk.pm("RP gunmetal",(0.052,0.053,0.054),0.34,metal=0.8,scale=2.5,bump=0.0,edge=(0.30,0.32,0.32))
 M["HAZ"]=crk.pm("RP hazard yellow",(0.62,0.42,0.03),0.45,edge=(0.85,0.62,0.10),scale=2.0,bump=0.02)
 M["BLK"]=crk.pm("RP black rubber",(0.014,0.015,0.016),0.8,scale=3.0,bump=0.05)
 M["WHITE"]=crk.pm("RP gauge white",(0.62,0.62,0.56),0.5,scale=2.0,bump=0.0)
