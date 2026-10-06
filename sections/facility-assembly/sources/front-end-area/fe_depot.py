@@ -109,9 +109,9 @@ def build_depot(F, C):
     ex0, ex1, ey0, ey1 = -14.4, -10.4, -82.9, -79.0
     for k, (px, py, rz, sx) in enumerate(((-12.4, ey0, 0.0, 1.33), (-12.4, ey1, 0.0, 1.33), (ex0, -80.95, math.pi / 2, 1.3), (ex1, -80.95, math.pi / 2, 1.3))): inst(fp, f'gen_fence_{k}', px, py, yard, rz=rz, scale=(sx, 1, 0.9), support='floor')
     inst(gen, 'generator', -12.4, -80.95, yard, rz=0.0)
-    sign(yard, 'sign_generator', 'GENERATOR', -12.4, ey1 + 0.03, 1.6, 'N', 1.4, 0.35, sub='Authorised staff only', icon='bolt', style='hazard') if False else post_sign(yard, 'sign_generator', 'GENERATOR', -12.4, ey1 + 0.45, 'N', 1.4, 0.35, 1.5, F, sub='Authorised staff only', icon='bolt', style='hazard')
+    sign(yard, 'sign_generator', 'GENERATOR', -12.4, ey1 + 0.03, 1.6, 'N', 1.4, 0.35, sub='Authorised staff only', icon='bolt', style='hazard') if False else post_sign(yard, 'sign_generator', 'GENERATOR', -12.4, ey1 + 0.45, 'N', 0.9, 0.24, 1.35, F, sub='Authorised staff only', icon='bolt', style='hazard')
     inst(tank, 'water_tank', -16.2, -80.0, yard)
-    post_sign(yard, 'sign_water', 'WATER', -16.2, -78.45, 'N', 0.9, 0.3, 1.5, F, style='info')
+    post_sign(yard, 'sign_water', 'WATER', -16.2, -78.45, 'N', 0.5, 0.17, 1.2, F, style='info')
 
     # ---------------------------------------------------------------- waste (north-east) and porch
     inst(skp, 'skip_general', -14.8, -62.3, yard, rz=0.0); inst(skp, 'skip_scrap', -11.0, -62.3, yard, rz=0.0)

@@ -29,8 +29,8 @@ CAMERAS = [
  ('YRD_08_NIGHT_SKY', (-22.0, -70.5, 1.7), (-27.8, -103.1, 24.1), 18),
  ('YRD_09_GROUND_CLOSE', (-33.0, -74.4, 0.9), (-30.0, -70.8, 0.1), 24),
  ('YRD_10_ASSET_CLOSE', (-31.2, -77.8, 1.25), (-35.8, -80.8, 0.95), 28),
- ('REV_01_PORCH_HERO', (-24.0, -70.0, 1.65), (-72.2, -76.8, 12.9), 22),
- ('REV_02_VEHICLES', (-40.2, -77.3, 1.8), (-33.8, -81.0, 1.1), 26),
+ ('REV_01_PORCH_HERO', (-31.0, -70.0, 1.65), (-79.0, -76.7, 11.0), 22),
+ ('REV_02_VEHICLES', (-41.0, -76.6, 1.9), (-33.5, -81.2, 1.0), 22),
  ('REV_03_RAIL_DOCK', (-22.2, -68.5, 1.7), (-22.2, -60.5, 2.0), 22),
  ('REV_04_PORTAL', (-31.0, -70.6, 1.7), (-49.0, -70.0, 2.3), 24),
  ('REV_05_POWER_AND_STORE', (-16.4, -75.4, 1.6), (-13.0, -81.5, 1.8), 22),
@@ -111,6 +111,10 @@ def yard_night_lights(lc):
         c = world_center(o); area_l = area(f'LIGHT_{o.name}', (0, 0, 0), 0.7, 380, (1.0, 0.82, 0.55), lc, sy=0.25); area_l.location = (c.x, c.y, c.z - 0.06)
     for o in [o for o in bpy.data.objects if o.name.startswith('portal_lamp_') or o.name.startswith('mouth_lamp_')]:
         c = world_center(o); point(f'LIGHT_{o.name}', (c.x, c.y, c.z - 0.05), 180, (1.0, 0.72, 0.40), lc, radius=0.1)
+    for o in [o for o in bpy.data.objects if o.name.startswith('tunnel_lamp_')]:
+        c = world_center(o); point(f'LIGHT_{o.name}', (c.x, c.y, c.z - 0.2), 45, (1.0, 0.68, 0.34), lc, radius=0.15)
+    for o in [o for o in bpy.data.objects if o.name == 'tunnel_beacon']:
+        c = world_center(o); point('LIGHT_tunnel_beacon', (c.x, c.y + 0.2, c.z), 30, (1.0, 0.12, 0.05), lc, radius=0.1)
     for o in [o for o in bpy.data.objects if o.name.startswith('freight_beacon_')]:
         c = world_center(o); point(f'LIGHT_{o.name}', (c.x, c.y - 0.2, c.z), 90, (1.0, 0.55, 0.12), lc, radius=0.1)
     # cabin and gate lamps

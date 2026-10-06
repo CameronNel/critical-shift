@@ -66,5 +66,20 @@ def build_yard_props(F, C):
     put('cone', (-40.0, -29.0, -78.8, -76.0), 3, 'cone', tries=500)
     put('crate0', (-25.0, -9.0, -83.0, -72.5), 3, 'crate_a'); put('crate1', (-25.0, -9.0, -83.0, -72.5), 3, 'crate_b')
     put('pallet', (-25.0, -9.0, -83.0, -72.5), 2, 'pallet_p', stack_crate=True)
+    refinery_tunnel(F, C)
     put('barrow', (-47.0, -13.0, -67.8, -60.5), 1, 'wheelbarrow', mud_only=True); put('bucket', (-47.0, -13.0, -83.0, -60.5), 4, 'bucket'); put('toolbox', (-47.0, -13.0, -83.0, -60.5), 1, 'toolbox')
     return placed
+
+
+def refinery_tunnel(F, C):
+    """Short lit service tunnel behind the freight gate so the opening shows a corridor, not sky: concrete shell, ballast floor, rail stub, lamps down its length and a red beacon at the far end."""
+    yard = C['YARD']; RX = -22.2; y0, y1 = -60.2, -49.0
+    dark = F['concrete_slab']
+    box('tunnel_wall_w', RX - 2.4, RX - 2.0, y0, y1, 0.0, 3.8, dark, yard, bev=0.01); box('tunnel_wall_e', RX + 2.0, RX + 2.4, y0, y1, 0.0, 3.8, dark, yard, bev=0.01)
+    box('tunnel_roof', RX - 2.4, RX + 2.4, y0, y1, 3.6, 3.9, dark, yard); box('tunnel_end', RX - 2.4, RX + 2.4, y1 - 0.3, y1, 0.0, 3.8, dark, yard)
+    box('tunnel_floor', RX - 2.0, RX + 2.0, y0, y1, -0.1, 0.0, F['apron'], yard)
+    for k in range(5):
+        y = y0 + 1.6 + k * 2.2
+        box(f'tunnel_lamp_{k}', RX - 0.5, RX + 0.5, y - 0.1, y + 0.1, 3.5, 3.58, F['emissive'], yard, rgba=(1.0, 0.72, 0.38, 1))
+        box(f'tunnel_rib_{k}', RX - 2.0, RX + 2.0, y - 0.18, y + 0.18, 3.35, 3.6, F['steel_charcoal'], yard)
+    box('tunnel_beacon', RX - 0.15, RX + 0.15, y1 - 0.5, y1 - 0.3, 2.4, 2.7, F['emissive'], yard, rgba=(1.0, 0.1, 0.04, 1))

@@ -238,7 +238,6 @@ def build_rails(F, C):
             x, y = pts[i]; j = min(i + 1, len(pts) - 1); ang = math.atan2(pts[j][1] - y, pts[j][0] - x); nx, ny = -math.sin(ang), math.cos(ang)
             if rb.random() < 0.3: inst(st[rb.randrange(4)], f'ballast_{i}_{s}', x + nx * rb.uniform(1.0, 1.25) * s, y + ny * rb.uniform(1.0, 1.25) * s, yard, rz=rb.uniform(0, 6), z=-0.01, scale=(rb.uniform(0.8, 1.5),) * 3, support='floor_debris')
     # buffer stop where the rail leaves the tunnel mouth is not needed (the track runs on); rail-end marker at the freight gate threshold
-    box('rail_stop_marker', RAIL_X - 0.2, RAIL_X + 0.2, -60.6, -60.4, 0.0, 0.5, F['steel_accent'], yard, bev=0.01)
 
 # ----------------------------------------------------------------------------------------------------- fences, gates, canopies
 def build_fences(F, C):
