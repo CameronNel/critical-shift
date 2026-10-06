@@ -30,10 +30,10 @@ CAMERAS = [
  ('YRD_09_GROUND_CLOSE', (-33.0, -74.4, 0.9), (-30.0, -70.8, 0.1), 24),
  ('YRD_10_ASSET_CLOSE', (-31.2, -77.8, 1.25), (-35.8, -80.8, 0.95), 28),
  ('REV_01_PORCH_HERO', (-31.0, -70.0, 1.65), (-79.0, -76.7, 11.0), 22),
- ('REV_02_VEHICLES', (-41.0, -76.6, 1.9), (-33.5, -81.2, 1.0), 22),
+ ('REV_02_VEHICLES', (-44.6, -76.2, 1.8), (-33.4, -81.0, 1.0), 24),
  ('REV_03_RAIL_DOCK', (-22.2, -68.5, 1.7), (-22.2, -60.5, 2.0), 22),
- ('REV_04_PORTAL', (-31.0, -70.6, 1.7), (-49.0, -70.0, 2.3), 24),
- ('REV_05_POWER_AND_STORE', (-16.4, -75.4, 1.6), (-13.0, -81.5, 1.8), 22),
+ ('REV_04_PORTAL', (-39.2, -69.0, 1.2), (-49.5, -70.6, 2.3), 28),
+ ('REV_05_POWER_AND_STORE', (-18.8, -75.4, 1.6), (-13.2, -81.2, 1.8), 20),
  ('YRD_X1_PORTAL_CLOSE', (-33.5, -71.3, 2.3), (-49.0, -70.0, 2.3), 28),
  ('YRD_X2_FREIGHT_GATE', (-22.2, -64.0, 1.7), (-22.2, -60.0, 2.4), 22),
  ('YRD_X3_EVAC_GATE', (-28.0, -76.0, 1.7), (-28.0, -84.0, 1.6), 20),
@@ -87,7 +87,21 @@ def fog_boxes(lc):
             nt.links.new(nz.outputs['Fac'], mr.inputs['Value']); nt.links.new(mr.outputs[0], vs.inputs['Density'])
         else: vs.inputs['Density'].default_value = density
         nt.links.new(vs.outputs[0], out.inputs['Volume']); o.data.materials.append(m)
-    box_fog('FOG_HAZE', -49.5, -7.0, -85.0, -59.0, 0.0, 6.0, 0.0010, 0.55)
+    beam_cones(lc)
+
+def beam_cones(lc):
+    """Visible light cones: a faint scattering volume under every floodlight head, bounded to the beam so the sky and the rest of the yard stay clean."""
+    mat = bpy.data.materials.new('beam_cone'); mat.use_nodes = True; nt = mat.node_tree; nt.nodes.clear()
+    out = nt.nodes.new('ShaderNodeOutputMaterial'); vs = nt.nodes.new('ShaderNodeVolumeScatter'); vs.inputs['Density'].default_value = 0.035; vs.inputs['Anisotropy'].default_value = 0.6
+    nt.links.new(vs.outputs[0], out.inputs['Volume'])
+    for o in [o for o in bpy.data.objects if o.name.startswith('pole_')]:
+        head = o.matrix_world @ Vector((0.8, 0.0, 6.1)); aim = (Matrix.Rotation(o.rotation_euler.z, 3, 'Z') @ Matrix.Rotation(-math.radians(38), 3, 'Y')) @ Vector((0, 0, -1))
+        bm = bmesh.new(); res = bmesh.ops.create_cone(bm, cap_ends=True, cap_tris=True, segments=20, radius1=0.05, radius2=3.4, depth=7.2)
+        for v in bm.verts: v.co.z += 3.6                                # apex at the origin, opening toward +z
+        me = bpy.data.meshes.new('cone_' + o.name); bm.to_mesh(me); bm.free()
+        c = bpy.data.objects.new('BEAM_' + o.name, me); c.location = head
+        c.rotation_mode = 'XYZ'; lc.objects.link(c); c.visible_shadow = False; me.materials.append(mat)
+        c.rotation_euler = Vector((0, 0, 1)).rotation_difference(aim).to_euler()   # the cone opens toward +z in its own frame; aim it along the spot
 
 def point(name, loc, energy, color, coll, radius=0.08, plan=False):
     l = bpy.data.lights.new(name, 'POINT'); l.energy = energy; l.color = color; l.shadow_soft_size = radius
@@ -106,9 +120,10 @@ def yard_night_lights(lc):
     """Real light for every yard fitting that is drawn lit: floodlight heads, canopy and portal lamps, gate beacons."""
     for o in [o for o in bpy.data.objects if o.name.startswith('pole_')]:
         loc = o.matrix_world @ Vector((0.8, 0.0, 6.12))
-        spot(f'LIGHT_{o.name}', loc, o.rotation_euler.z, math.radians(38), 4600, (1.0, 0.68, 0.34), lc, size=math.radians(82), blend=0.55)
+        cool = o.name in ('pole_1', 'pole_4', 'pole_6')
+        spot(f'LIGHT_{o.name}', loc, o.rotation_euler.z, math.radians(38), 3600 if cool else 4200, (0.72, 0.84, 1.0) if cool else (1.0, 0.70, 0.36), lc, size=math.radians(82), blend=0.55)
     for o in [o for o in bpy.data.objects if o.name.startswith('canopy_lamp')]:
-        c = world_center(o); area_l = area(f'LIGHT_{o.name}', (0, 0, 0), 0.7, 380, (1.0, 0.82, 0.55), lc, sy=0.25); area_l.location = (c.x, c.y, c.z - 0.06)
+        c = world_center(o); area_l = area(f'LIGHT_{o.name}', (0, 0, 0), 0.7, 150, (1.0, 0.82, 0.55), lc, sy=0.25); area_l.location = (c.x, c.y, c.z - 0.06)
     for o in [o for o in bpy.data.objects if o.name.startswith('portal_lamp_') or o.name.startswith('mouth_lamp_')]:
         c = world_center(o); point(f'LIGHT_{o.name}', (c.x, c.y, c.z - 0.05), 180, (1.0, 0.72, 0.40), lc, radius=0.1)
     for o in [o for o in bpy.data.objects if o.name.startswith('tunnel_lamp_')]:

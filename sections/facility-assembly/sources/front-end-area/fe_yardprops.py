@@ -32,9 +32,9 @@ def build_yard_props(F, C):
     # fire barrel: rust drum with a ragged emissive flame (the lighting stage adds the flickering warm light at 'fire_barrel')
     m = mb(F)
     m.lathe([(0.0, 0.0), (0.27, 0.0), (0.285, 0.05), (0.285, 0.85), (0.27, 0.9), (0.0, 0.9)], seg=24, mi=I['props'], rgba=(0.12, 0.07, 0.05, 1))
-    for k in range(5):
-        a = k * 1.26; r = 0.12 if k else 0.0
-        m.lathe([(0.0, 0.0), (0.11, 0.0), (0.10, 0.12), (0.06, 0.34), (0.03, 0.55), (0.0, 0.78 + 0.16 * (k % 3))], loc=(math.cos(a) * r, math.sin(a) * r, 0.9), seg=8, mi=I['emissive'], rgba=(1.0, 0.30 + 0.12 * (k % 2), 0.04, 1))
+    for k, (sc, hh, col) in enumerate(((1.0, 0.62, (1.0, 0.26, 0.03, 1)), (0.8, 0.5, (1.0, 0.42, 0.05, 1)), (0.55, 0.42, (1.0, 0.72, 0.18, 1)))):
+        a = k * 2.1; r = 0.1 if k < 2 else 0.0; w = 0.17 * sc
+        m.lathe([(0.0, 0.0), (w * 0.8, 0.02), (w, 0.14), (w * 0.82, 0.3), (w * 0.5, 0.46), (w * 0.2, hh), (0.0, hh + 0.12)], loc=(math.cos(a) * r, math.sin(a) * r, 0.9), seg=14, mi=I['emissive'], rgba=col)
     pr['fire'] = m.finish('proto_fire_barrel', P)
     footprint = {'drum_blue': 0.36, 'drum_red': 0.36, 'drum_yel': 0.36, 'drum_rust': 0.36, 'tyre3': 0.42, 'tyre2': 0.42, 'cone': 0.2, 'pallet': 0.75, 'crate0': 0.5, 'crate1': 0.5, 'jersey': 1.05,
                  'sand0': 1.0, 'sand1': 1.0, 'bucket': 0.25, 'barrow': 0.6, 'toolbox': 0.3, 'drum_cable': 0.6, 'fire': 0.45}
