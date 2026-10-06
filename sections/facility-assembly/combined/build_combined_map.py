@@ -310,6 +310,9 @@ ROOMS = [
     ('medical-reanimation', 'medical-reanimation/module_overhaul_R2.blend', 'MODULE_medical-reanimation', (26.0, -70.0, 0.0), -90.0,
      'Local origin is the main entry threshold, inward +Y, door 2.2 m clear (contracts/interface.json). Cafeteria east door IF_PORTAL_CAF_E_MEDICAL is at plan (26, -70), 2.2 m (DESIGN.md), '
      'so threshold on threshold and rotation -90 degrees take inward +Y to plan +X (east). Room x 26.0 to 38.3 (outer), y -75.0 to -65.2.'),
+    ('fuel-corridor', '../../fuel-corridor/production/checkpoints/fuel_full_F23ci.blend', 'MODULE_fuel-corridor', (-22.2, -43.6, 0.0), 0.0,
+     'F23ci (reviewed 99; the AAA finish on top is unreviewed and not used). Local origin is port F01_REFINERY (centre (0,0,0), outward -Y, 2.6 m x 3.0 m), corridor runs +Y 24 m, no rotation. '
+     'Placed on the refinery north fuel door: x -22.2 (door centre) and y -43.6 (refinery outer sill). Far end F02_REACTOR lands at plan (-8.0, -19.6), outward +Y.'),
 ]
 
 CLIFF_TINT = {'saturation': 0.0, 'value': 3.6, 'warm': (0.82, 0.79, 0.68, 1.0)}   # measured from renders: mountain hsv ~(0.15, 0.10, 0.30), yard cliff was (0.55, 0.20, 0.13); grey it, brighten, warm it

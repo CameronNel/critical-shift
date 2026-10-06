@@ -117,13 +117,22 @@ from shed through the turn into the refinery (`join_09`, `join_10`), colonnade t
   plane is still the front end's 260 m context ground, with black beyond.
 - **Fix 9 and refinery wall: lighting only.** The refinery west wall and colonnade exterior are now readable under the new dusk; the wall itself is plain (the module's own exterior), and the tunnel end remains a dark timber barricade (`fix_after_07`). Not changed.
 
+## Room 5: fuel corridor (added after the fix pass, awaiting owner OK)
+
+- Source: `sections/fuel-corridor/production/checkpoints/fuel_full_F23ci.blend`, collection `MODULE_fuel-corridor` (F23ci reviewed 99; the AAA finish #77 on top is unreviewed and not used; 678,692 triangles). The file is not edited.
+- Placement: port `F01_REFINERY` is the module origin (centre (0,0,0), outward -Y, 2.6 x 3.0 m), corridor runs +Y for 24 m, rotation 0. Translation (-22.2, -43.6): x is the refinery fuel door centre, y the refinery outer sill.
+  Outer bounds x -27.9 to -4.9, y -43.6 to -19.6. The far port `F02_REACTOR` lands at plan (-8.0, -19.6) facing +Y; it ends in the corridor's own closed blast door (`room5_fuel_06`), 5 x 5 m.
+- The `PLACEHOLDER_fuel_door_shutter` is no longer built once this room is included. The refinery's own fuel door is a real closed double door (`room5_fuel_01`); the corridor inlet is visible beyond it (`room5_fuel_02`).
+- Checked in renders only: no overlap with the refinery, the mountain's north end, the hall or the neighbouring long building (plan view `room5_fuel_05`). No numeric clearance or walk test was run through the doors.
+- Not done: the corridor is shown as plain boxes from outside, since no exterior skin was added (`room5_fuel_03`, `04`); its interior is the module's own and is lit by its own practicals. Unreviewed in this scene.
+
 Defects and open items found (original list, before the fixes above):
 1. **Shed blocks the yard's north-west service gate path** (`risk_12`). DESIGN.md keep-clear: x -47.4 to -44.8, y > -68.8 (to the cooling-plant door). The shed (plan x -54.0 to -36.3, y -78.6 to -61.0)
    covers that path from y -68.8 up to the fence. The owner requires the shed, so the path or the gate needs a decision (move the gate, route round the shed, or accept the gate leading into the shed).
 2. **Brown yard cliff against the grey mine mountain** (`risk_02`, `risk_11`): different rock materials and a hard vertical seam where the yard's cliff face butts the mine's flat grey wall.
 3. **Mine mountain is a flat, very large, repetitive wall** (`risk_02`, `risk_03`), running plan y -123 to -20; it will collide with the cooling plant area (see room 2 notes).
 4. **Evacuation gate sign is a blank mint rectangle** (`risk_01`, `risk_10`) in the front-end build (`sign_evac_gate`); other signs in the same atlas render their text.
-5. **Refinery fuel door opens onto nothing** (`risk_04`) until the fuel corridor is placed; refinery west wall and roof are plain and very dark at night (`risk_05`, `risk_06`).
+5. **Refinery fuel door** now leads to the fuel corridor (room 5, see above); the refinery's own door stays closed; refinery west wall and roof are plain and very dark at night (`risk_05`, `risk_06`).
 6. **Doors to rooms not placed yet** open to black: medical (`risk_09`), hall spine and east trunk, colonnade-side ground (`risk_07`).
 7. **Front-end `directory_totem` in the cafeteria has a blank back face** (seen in the cafeteria render from the hall opening), a plain lilac slab in the aisle sightline.
 8. **Spawn room exterior is flat saturated colour boxes** against the cafeteria's south wall (`new_07`).
