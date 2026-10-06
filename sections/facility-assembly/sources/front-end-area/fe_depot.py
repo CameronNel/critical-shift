@@ -32,7 +32,7 @@ def post_sign(coll, name, text, x, y, facing, w, h, z, F, **kw):
 def build_depot(F, C):
     yard = C['YARD']; P = collection('PROTOTYPES'); rnd = random.Random(51)
     # ---------------------------------------------------------------- prototypes
-    pick = site_pickup(F, P); van = crew_van(F, P); car = ore_car(F, P); piles = [ore_pile(F, P, s, 1.15, 1.0) for s in range(3)]
+    pick = site_pickup(F, P, (0.55, 0.24, 0.15, 1)); van = crew_van(F, P, (0.10, 0.13, 0.27, 1)); car = ore_car(F, P); piles = [ore_pile(F, P, s, 1.15, 1.0) for s in range(3)]
     cabin = site_cabin(F, P); scale = track_scale(F, P); spost = scale_post(F, P); loader = skid_loader(F, P); fuel = fuel_station(F, P)
     bays = bay_walls(F, P, 4.4, 3.4, 1.8); pole = led_pole(F, P); wstop = wheel_stop(F, P); dock = dock_platform(F, P, 5.4, 2.6, 0.95); fan = vent_fan(F, P)
     green_c = (0.2, 0.3, 0.26, 1)

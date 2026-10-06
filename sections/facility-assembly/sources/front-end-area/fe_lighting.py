@@ -29,8 +29,8 @@ CAMERAS = [
  ('YRD_08_NIGHT_SKY', (-22.0, -70.5, 1.7), (-27.8, -103.1, 24.1), 18),
  ('YRD_09_GROUND_CLOSE', (-33.0, -74.4, 0.9), (-30.0, -70.8, 0.1), 24),
  ('YRD_10_ASSET_CLOSE', (-31.2, -77.8, 1.25), (-35.8, -80.8, 0.95), 28),
- ('REV_01_PORCH_HERO', (-16.0, -70.0, 1.65), (-61.0, -76.6, 17.0), 22),
- ('REV_02_VEHICLES', (-25.6, -74.6, 1.55), (-36.0, -80.9, 1.2), 25),
+ ('REV_01_PORCH_HERO', (-24.0, -70.0, 1.65), (-72.2, -76.8, 12.9), 22),
+ ('REV_02_VEHICLES', (-40.2, -77.3, 1.8), (-33.8, -81.0, 1.1), 26),
  ('REV_03_RAIL_DOCK', (-22.2, -68.5, 1.7), (-22.2, -60.5, 2.0), 22),
  ('REV_04_PORTAL', (-31.0, -70.6, 1.7), (-49.0, -70.0, 2.3), 24),
  ('REV_05_POWER_AND_STORE', (-16.4, -75.4, 1.6), (-13.0, -81.5, 1.8), 22),
@@ -87,7 +87,7 @@ def fog_boxes(lc):
             nt.links.new(nz.outputs['Fac'], mr.inputs['Value']); nt.links.new(mr.outputs[0], vs.inputs['Density'])
         else: vs.inputs['Density'].default_value = density
         nt.links.new(vs.outputs[0], out.inputs['Volume']); o.data.materials.append(m)
-    box_fog('FOG_HAZE', -49.5, -7.0, -85.0, -59.0, 0.0, 6.0, 0.00055, 0.55)
+    box_fog('FOG_HAZE', -49.5, -7.0, -85.0, -59.0, 0.0, 6.0, 0.0010, 0.55)
 
 def point(name, loc, energy, color, coll, radius=0.08, plan=False):
     l = bpy.data.lights.new(name, 'POINT'); l.energy = energy; l.color = color; l.shadow_soft_size = radius

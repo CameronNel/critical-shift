@@ -73,7 +73,7 @@ def make_mud_material():
     mud_col = mix(1.0, mud_col, mud_col) if False else mud_col
     mm = N('ShaderNodeMix', data_type='RGBA', blend_type='MULTIPLY'); mm.inputs['Factor'].default_value = 1.0; L(mud_col, mm.inputs[6]); L(clod_shade, mm.inputs[7]); mud_col = mm.outputs[2]
     # --- gravel: random-coloured pebbles with dark gaps
-    pb = voro(26.0); pb2 = voro(7.0)
+    pb = voro(11.0); pb2 = voro(3.2)
     pcol = ramp(pb.outputs['Color'] if False else noise(3.0, 2), [(0.0, (0.05, 0.05, 0.055, 1)), (0.4, (0.16, 0.14, 0.12, 1)), (0.7, (0.30, 0.22, 0.14, 1)), (1.0, (0.45, 0.42, 0.40, 1))])
     gap = ramp(pb.outputs['Distance'], [(0.0, (1.0, 1.0, 1.0, 1)), (0.55, (0.8, 0.8, 0.8, 1)), (0.75, (0.12, 0.12, 0.12, 1))])
     gcol = N('ShaderNodeMix', data_type='RGBA', blend_type='MULTIPLY'); gcol.inputs['Factor'].default_value = 1.0
@@ -135,7 +135,7 @@ def build_terrain(F, C, YARD, ruts, pools, pads, gravel_zones, seed=77):
             for (gx0, gx1, gy0, gy1, soft) in gravel_zones:
                 n = 0.3 * mnoise.noise(Vector((x * 0.8, y * 0.8, 7.0)))
                 gr = max(gr, _sm(0.0, soft, min(x - gx0, gx1 - x, y - gy0, gy1 - y) + n))
-            if gr > 0.5: z = max(z, BASE_Z + 0.006) ; wet *= (1 - gr)
+            if gr > 0.5: z = max(z, BASE_Z + 0.006) ; wet *= (1 - 0.55 * gr)
             for (px0, px1, py0, py1) in pads:                                       # dry crown and a raised kerb of mud against the slab edge
                 d = max(px0 - x, x - px1, py0 - y, y - py1)
                 if d < 0.25: z = min(max(z, -0.04), -0.012); wet = 0.0

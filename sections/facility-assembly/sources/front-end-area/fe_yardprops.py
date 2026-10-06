@@ -34,7 +34,7 @@ def build_yard_props(F, C):
     m.lathe([(0.0, 0.0), (0.27, 0.0), (0.285, 0.05), (0.285, 0.85), (0.27, 0.9), (0.0, 0.9)], seg=24, mi=I['props'], rgba=(0.12, 0.07, 0.05, 1))
     for k in range(5):
         a = k * 1.26; r = 0.12 if k else 0.0
-        m.lathe([(0.0, 0.0), (0.09, 0.0), (0.07, 0.18), (0.035, 0.34), (0.0, 0.5 + 0.12 * (k % 3))], loc=(math.cos(a) * r, math.sin(a) * r, 0.9), seg=8, mi=I['emissive'], rgba=(1.0, 0.45 + 0.1 * (k % 2), 0.08, 1))
+        m.lathe([(0.0, 0.0), (0.11, 0.0), (0.10, 0.12), (0.06, 0.34), (0.03, 0.55), (0.0, 0.78 + 0.16 * (k % 3))], loc=(math.cos(a) * r, math.sin(a) * r, 0.9), seg=8, mi=I['emissive'], rgba=(1.0, 0.30 + 0.12 * (k % 2), 0.04, 1))
     pr['fire'] = m.finish('proto_fire_barrel', P)
     footprint = {'drum_blue': 0.36, 'drum_red': 0.36, 'drum_yel': 0.36, 'drum_rust': 0.36, 'tyre3': 0.42, 'tyre2': 0.42, 'cone': 0.2, 'pallet': 0.75, 'crate0': 0.5, 'crate1': 0.5, 'jersey': 1.05,
                  'sand0': 1.0, 'sand1': 1.0, 'bucket': 0.25, 'barrow': 0.6, 'toolbox': 0.3, 'drum_cable': 0.6, 'fire': 0.45}
@@ -63,7 +63,7 @@ def build_yard_props(F, C):
     for k, nm in enumerate(('drum_blue', 'drum_red', 'drum_yel', 'drum_rust')): put(nm, (-47.0, -30.0, -83.0, -73.0), 2, f'drum_{k}')
     put('jersey', (-47.0, -13.0, -83.4, -82.4), 3, 'jersey_x')
     put('sand0', (-30.0, -13.0, -77.0, -72.5), 1, 'sandbags_a', mud_only=True); put('sand1', (-47.0, -30.0, -67.8, -64.0), 1, 'sandbags_b', mud_only=True)
-    put('cone', (-40.0, -29.0, -78.8, -76.0), 8, 'cone', tries=500)
+    put('cone', (-40.0, -29.0, -78.8, -76.0), 3, 'cone', tries=500)
     put('crate0', (-25.0, -9.0, -83.0, -72.5), 3, 'crate_a'); put('crate1', (-25.0, -9.0, -83.0, -72.5), 3, 'crate_b')
     put('pallet', (-25.0, -9.0, -83.0, -72.5), 2, 'pallet_p', stack_crate=True)
     put('barrow', (-47.0, -13.0, -67.8, -60.5), 1, 'wheelbarrow', mud_only=True); put('bucket', (-47.0, -13.0, -83.0, -60.5), 4, 'bucket'); put('toolbox', (-47.0, -13.0, -83.0, -60.5), 1, 'toolbox')

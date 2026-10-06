@@ -203,7 +203,7 @@ def families():
     F['trim'] = make_mat('trim', (0.62, 0.60, 0.55), 0.55, var=0.06, grime=0.4)
     F['steel_charcoal'] = make_mat('steel_charcoal', (0.085, 0.09, 0.105), 0.5, 0.2, var=0.1, grime=0.3, wear={'color': (0.30, 0.22, 0.17), 'r': 0.01}, tex={'color': 'metal5', 'scale': 1.0, 'tint': (0.17, 0.18, 0.21), 'normal': True, 'nstrength': 0.3})
     F['steel_painted'] = make_mat('steel_painted', (0.17, 0.19, 0.26), 0.45, 0.3, var=0.08, grime=0.2, wear={'color': (0.5, 0.5, 0.52), 'r': 0.01})
-    F['paint'] = make_mat('paint', (0.5, 0.5, 0.5), 0.5, 0.3, var=0.1, attr=True, grime=0.8, dirt=(0.42, 0.36, 0.30), wear={'color': (0.6, 0.6, 0.62), 'r': 0.006})
+    F['paint'] = make_mat('paint', (0.5, 0.5, 0.5), 0.5, 0.3, var=0.1, attr=True, grime=0.5, dirt=(0.42, 0.36, 0.30), wear={'color': (0.6, 0.6, 0.62), 'r': 0.006})
     F['steel_accent'] = make_mat('steel_accent', (0.72, 0.36, 0.06), 0.5, 0.1, var=0.15, grime=0.4, wear={'color': (0.35, 0.18, 0.08), 'r': 0.01})
     F['steel_rust'] = make_mat('steel_rust', (0.40, 0.19, 0.09), 0.82, 0.3, var=0.5, var_scale=1.2, grime=0.3, bump=0.25)
     F['corrugated'] = make_mat('corrugated', (0.52, 0.52, 0.50), 0.55, 0.55, var=0.25, var_scale=0.5, grime=0.5, dirt=(0.45, 0.40, 0.34))

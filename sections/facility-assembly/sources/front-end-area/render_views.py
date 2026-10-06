@@ -11,9 +11,9 @@ if hasattr(sc.cycles, 'use_light_tree'): sc.cycles.use_light_tree = True
 sc.cycles.sample_clamp_indirect = 8.0
 sc.cycles.volume_step_rate = 2.0; sc.cycles.volume_max_steps = 64
 sc.render.resolution_x, sc.render.resolution_y = res; sc.render.resolution_percentage = 100
-sc.view_settings.view_transform = 'AgX'; sc.view_settings.exposure = float(a[5]) if len(a) > 5 else -0.5
+sc.view_settings.view_transform = 'Khronos PBR Neutral'; sc.view_settings.exposure = float(a[5]) if len(a) > 5 else -0.5
 try:
-    sc.view_settings.look = 'AgX - Medium High Contrast'
+    sc.view_settings.look = 'None'
 except Exception: pass
 os.makedirs(outdir, exist_ok=True)
 for n in names:

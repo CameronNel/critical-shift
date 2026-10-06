@@ -149,11 +149,15 @@ def generate(path=OUT):
     md = moon_dir(); mx, my = to_uv(md); R = 19.0; yy, xx = np.mgrid[int(my - 140):int(my + 141), int(mx - 140):int(mx + 141)]
     dx = (xx - mx) / R; dy = (yy - my) / R; rr2 = dx * dx + dy * dy
     dpx = np.sqrt(rr2) * R; fade = np.clip((140.0 - dpx) / 60.0, 0, 1)
-    glow = (0.010 * np.exp(-dpx / 8.0) + 0.0015 * np.exp(-dpx / 40.0)) * fade
+    glow = (0.010 * np.exp(-dpx / 8.0) + 0.0030 * np.exp(-dpx / 55.0)) * fade
     nz = np.asarray(Image.fromarray(rng.random((12, 12)).astype(np.float32), mode='F').resize((282, 282), Image.BICUBIC))[:rr2.shape[0], :rr2.shape[1]]
     disc = rr2 <= 1.0; nzv = np.sqrt(np.clip(1 - rr2, 0, 1)); light = np.array([-0.55, -0.25, 0.8]); light /= np.linalg.norm(light)
     lam = np.clip(dx * light[0] + dy * light[1] + nzv * light[2], 0, 1)
     surf = (0.78 - 0.30 * np.clip((nz - 0.45) * 3.0, 0, 1)) * lam ** 0.6
+    for _ in range(22):
+        cx_, cy_ = rng.uniform(-0.8, 0.8, 2); sg = rng.uniform(0.05, 0.16)
+        surf = surf * (1.0 - rng.uniform(0.15, 0.35) * np.exp(-((dx - cx_) ** 2 + (dy - cy_) ** 2) / (2 * sg * sg)))
+    surf = surf * (0.8 + 0.2 * np.clip(1.4 - np.sqrt(rr2), 0, 1))
     edge = np.clip((1.0 - np.sqrt(rr2)) * R, 0, 1)
     moon = np.where(disc, 1.15 * surf * edge, 0.0) / 1.0
     mcol = np.array([1.0, 0.97, 0.90], np.float32)
@@ -170,12 +174,12 @@ def generate(path=OUT):
             seg = [pts[0]]
             for p in pts[1:]:
                 if abs(p[0] - seg[-1][0]) > W / 2:
-                    if len(seg) > 1: dr.line(seg, fill=255, width=2)
+                    if len(seg) > 1: dr.line(seg, fill=255, width=1)
                     seg = [p]
                 else: seg.append(p)
-            if len(seg) > 1: dr.line(seg, fill=255, width=2)
+            if len(seg) > 1: dr.line(seg, fill=255, width=1)
     lm = np.asarray(layer.filter(ImageFilter.GaussianBlur(1.0)), np.float32) / 255.0
-    img += lm[..., None] * np.array([0.0045, 0.0100, 0.0200], np.float32) * 0.9
+    img += lm[..., None] * np.array([0.0045, 0.0100, 0.0200], np.float32) * 0.5
     # ---- encode: linear -> sRGB, dither so the dark gradient does not band
     lin = np.clip(img, 0.0, 1.0)
     srgb = np.where(lin <= 0.0031308, lin * 12.92, 1.055 * np.power(lin, 1 / 2.4) - 0.055)
