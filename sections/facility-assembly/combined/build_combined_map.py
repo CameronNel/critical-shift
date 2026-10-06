@@ -359,6 +359,19 @@ def add_exterior_skin(key, wrap):
     for o in dst.collections[0].all_objects: wrap.objects.link(o); n += 1
     print('EXTERIOR skin', key, n, 'objects')
 
+def placeholder_fuel_shutter():
+    """The refinery's fuel door (module Door_Reactor (7.51, -4.08), 2.6 m x 3.0 m per DOOR_BINDINGS fuel_refinery) leads to the fuel corridor, which is not placed yet and opens onto empty night. A plain closed
+    shutter, named PLACEHOLDER_, stands in the doorway until the corridor is added and must be deleted then."""
+    if 'refinery' not in INCLUDED or 'fuel-corridor' in INCLUDED: return
+    mat = bpy.data.materials.new('PLACEHOLDER_shutter'); mat.diffuse_color = (0.09, 0.1, 0.11, 1)
+    mat.use_nodes = True; b = mat.node_tree.nodes['Principled BSDF']; b.inputs['Base Color'].default_value = (0.09, 0.1, 0.11, 1); b.inputs['Metallic'].default_value = 0.7; b.inputs['Roughness'].default_value = 0.5
+    me = bpy.data.meshes.new('PLACEHOLDER_fuel_door_shutter'); me.materials.append(mat)
+    cx, cy, w, d, h = -22.2, -44.69, 2.7, 0.14, 3.1
+    v = [(cx + a * w / 2, cy + b_ * d / 2, c * h) for a in (-1, 1) for b_ in (-1, 1) for c in (0, 1)]
+    me.from_pydata(v, [], [(0, 1, 3, 2), (4, 6, 7, 5), (0, 4, 5, 1), (2, 3, 7, 6), (0, 2, 6, 4), (1, 5, 7, 3)]); me.update()
+    o = bpy.data.objects.new('PLACEHOLDER_fuel_door_shutter', me); bpy.context.scene.collection.children['COMBINED_MAP'].objects.link(o)
+    print('PLACEHOLDER fuel door shutter added')
+
 def build(through, output):
     keys = [r[0] for r in ROOMS]
     INCLUDED.update(keys[:keys.index(through) + 1] if through in keys else ())
@@ -397,6 +410,7 @@ def build(through, output):
             root.objects.link(inst)
     unify_cliff_rock()
     fix_evac_sign_back()
+    placeholder_fuel_shutter()
     bpy.ops.wm.save_as_mainfile(filepath=output, relative_remap=True)
     print('COMBINED', through, [r[0] for r in ROOMS[:keys.index(through) + 1]], '->', output)
 
