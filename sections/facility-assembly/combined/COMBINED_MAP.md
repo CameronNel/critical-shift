@@ -16,7 +16,8 @@ modules (they are never edited). Frame: plan metres, +x east, +y north, origin a
 | # | Room | Source | Placement (plan) | Status |
 |---|---|---|---|---|
 | 0 | Front-end area (cafeteria, hall, yard) | `sources/front-end-area/front_end_area.blend`, `MODULE_front-end-area` | translation (8, -80), rotation 0. As built: local origin = spawn exit, plan = local + (8, -80) | built, unreviewed (see PR) |
-| 1 | Spawn room | `sources/spawn-room/module.blend`, `MODULE_spawn-room` | translation (8, -92.38), rotation 0 | **added, awaiting owner OK** |
+| 1 | Spawn room | `sources/spawn-room/module.blend`, `MODULE_spawn-room` | translation (8, -92.38), rotation 0 | added, awaiting owner OK |
+| 2 | Mine (R39) | `sources/mine-r39/module_r39_aaa.blend`, `MODULE_mine-r39` | translation (-14.4, -41.0), rotation 0 | **added, awaiting owner OK** |
 
 ### Room 1: spawn room, what fixes the placement
 - `DESIGN.md`: "Compared with plan v7 the 6 m connectors are gone ... That moves the spawn 12 m north", spawn exit on the reactor axis x = 8, exit
@@ -34,6 +35,26 @@ modules (they are never edited). Frame: plan metres, +x east, +y north, origin a
   x = 8, so the spawn is at x = 8.
 - Not checked: lighting balance between the two modules (each keeps its own lights), collision, door state animation, performance.
 
+### Room 2: mine, what fixes the placement
+- Source: the wooden `R39 | Old mine` set (not the concrete "Gullet Mine", which is DO NOT USE), AAA mood file, 4.08 M triangles, owner asked to keep the detail
+  (`sources/mine-r39/AAA_FINISH.md`). Not independently reviewed.
+- Join, both measured: the mine tunnel runs west, as does the yard portal, so no rotation. Tunnel centre line (module y -29.0) goes on the yard mine lane
+  (plan y -70, DESIGN.md "mine axis"); the first timber set (module x -39.0) goes on the end of the yard portal mouth (front-end local x -61.4,
+  plan -53.4). Translation = (-14.4, -41.0, 0). The tunnel then runs 41 m west to plan x about -95 and a far bulkhead at -107, inside v7's mountain (x -112 to -56).
+- Front-end stand-ins removed, because the real mine replaces them (done in the combined scene only; source files unchanged):
+  `portal_void` (dark box closing the mouth), `mountain_mass` (8-vertex rock box filling x -90 to -56, which sealed the tunnel) and the 420 faces
+  of `cliff_face` that form the rock plate closing the portal stub (a local copy of `cliff_face` with those faces cut). Ray test along the mine lane at
+  heights 0.6, 1.7 and 3.0 m: clear from the yard to the far bulkhead (open at eye height).
+- Mine surface removed, because the front-end yard is the surface depot: everything east of the tunnel mouth. 198 objects omitted (portal shed, shed floor,
+  apron mud, yard puddles, yard ground fog, east lamps and props, 13 asset-source templates parked at the module origin), 20 straddling meshes trimmed
+  (rails, sleepers, tunnel floor and similar) by deleting faces east of the mouth, one object (`R39 | Cobwebs`, a non-plain mesh) kept whole. The mountain (R40) is kept whole.
+  The mine's sun lamp is kept; the lighting mood is the module's own.
+- Evidence (768x432, Cycles, 32 samples): `renders/02_mine_yard_to_portal.png`, `renders/02_mine_tunnel_to_yard.png`, `renders/02_mine_mountain_wide.png`.
+- Open and not fixed: the mine's mountain (R40) runs plan y -123 to -20, wider than v7's -104 to -60. Its north end will meet the cooling plant (x -57 to -44,
+  y -30 to -15), the yard-to-cooling link and the mine-water pipe when those are placed; trim it then. The mine rail and the yard rail overlap
+  only at the mouth (mine rail trimmed there); no check that the rail heights match.
+- Not checked: lighting balance (the tunnel is dark green-lit, the yard warm), collision, rail height match, performance. 4 M triangles on top of the front end.
+
 ## Remaining rooms in plan order (not yet added)
-Yard-side: mountain/mine (R39). Hall-side: refinery (left), spine to reactor (middle), east trunk to dock and waste (right). Then medical, reactor,
+Hall-side: refinery (left), spine to reactor (middle), east trunk to dock and waste (right). Then medical, reactor,
 turbine, electrical, waste, cooling, fuel corridor, compliance dock, outer ring and gantry.
