@@ -40,7 +40,7 @@ import numpy as np
 import cr_desk as D
 if STAGE in("desk","all"):
     D.desk(c)
-    scr=[("SCR1",["KESTREL OS 4.2","","> BANK A   8.4 M   OK","> BANK B   7.4 M   OK","> COOLANT  P-10  RUN","> GRID DEMAND    74 %","> STABILITY","> _"],(0.15,1.0,0.25)),
+    scr=[("SCR1",["KESTREL OS 4.2","","> BANK A   8.4 M   OK","> BANK B   8.4 M   OK","> COOLANT  P-10  RUN","> GRID DEMAND    74 %","> STABILITY","> _"],(0.15,1.0,0.25)),
          ("SCR2",["LOAD SHEDDING PLAN","SECTOR 1 ....... ON","SECTOR 2 ....... ON","SECTOR 3 ....... ON","SECTOR 4 ...... OFF","","READY_"],(1.0,0.55,0.08)),
          ("SCR3",["SHIFT LOG  04","22:41  ROUTINE","23:10  ROUTINE","00:02  NOTHING","       UNUSUAL","> _"],(0.15,1.0,0.25))]
     for k,(nm,lines,col) in enumerate(scr):

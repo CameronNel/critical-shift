@@ -247,7 +247,7 @@ def tv_telemetry(W=384,H=216):
     for x,y in zip(xs,ys): R(x,y-1.2,x+1.2,y+1.2,1.0)
     for x in range(150,W-16,6): R(x,H-22-int(4+10*abs(math.sin(x*0.19))),x+3,H-22,0.62)
     for i in range(7):
-        tm=text_mask(("BANK A   8.4 M   OK","BANK B   7.4 M   OK","COOLANT P-10  RUN","GRID DEMAND   74%","POOL TEMP   NOMINAL","TURBINE  04   SYNC","STABILITY  --")[i],W,H,10,'LEFT',True,1.0,1.0,152,44+i*14); a[...]=np.maximum(a,tm*0.85)
+        tm=text_mask(("BANK A   8.4 M   OK","BANK B   8.4 M   OK","COOLANT P-10  RUN","GRID DEMAND   74%","POOL TEMP   NOMINAL","TURBINE  04   SYNC","STABILITY  --")[i],W,H,10,'LEFT',True,1.0,1.0,152,44+i*14); a[...]=np.maximum(a,tm*0.85)
     return a
 def tv_broadcast(W=384,H=216,seed=5):
     P=PAL; X,Y=XY(W,H); a=canvas(W,H,P["red"]); over(a,np.clip(Y/H,0,1),P["orange"],0.6)

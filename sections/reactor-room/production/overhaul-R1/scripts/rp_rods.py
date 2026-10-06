@@ -3,7 +3,7 @@ housings (machined housings with corner posts, cooling fins, louvres, access hat
 usage: python rp_rods.py -- <in.blend> <out.blend>      (run after the control-room pipeline; touches only collections 03 POOL AND RAIL and 04 BANK MECHANISMS)
 Contract objects keep their NAMES, parents and pivots: BANK_A_MOVING / BANK_B_MOVING (empties, the runtime moves them), BANK_x_DRIVE_COLUMN, BANK_x_CARRIAGE, BANK_x_FIXED_HOUSING get new
 geometry in place (same bounding box, same materials), so anything bound to them keeps working.  The glowing state bands and state rings keep their driver-fed material (R2 state glow).
-New detail is added as RP objects, parented to the moving empty where it moves.  Nothing here is time-driven; the motion stays with the runtime."""
+New detail is added as RP objects, parented to the moving empty where it moves.  Both banks are identical and level: B's rest height and keyframes are copied from A (they used to be 7.4 vs 8.4 m and out of phase).  Nothing here is time-driven; the motion stays with the runtime."""
 import bpy,sys,os,math,collections
 import numpy as np
 from mathutils import Vector
@@ -11,6 +11,15 @@ sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
 import crk
 A=sys.argv[sys.argv.index("--")+1:]; SRC,DST=A[0],A[1]
 bpy.ops.wm.open_mainfile(filepath=SRC)
+def bank_channels(ob):
+    ad=ob.animation_data; act=ad.action if ad else None
+    return [f for l in act.layers for st in l.strips for cb in st.channelbags for f in cb.fcurves] if act else []
+# ---- symmetry: bank B used to rest 1 m lower than A and its demo animation ran out of phase (A 8.4 / B 7.4 m).  Both banks now rest at A's height and share A's keyframes, so they always move together.
+_a=bpy.data.objects["BANK_A_MOVING"]; _b=bpy.data.objects["BANK_B_MOVING"]; _fa=[f for f in bank_channels(_a) if f.data_path=="location" and f.array_index==2]; _fb=[f for f in bank_channels(_b) if f.data_path=="location" and f.array_index==2]
+if _fa and _fb:
+    for ka,kb in zip(_fa[0].keyframe_points,_fb[0].keyframe_points):
+        kb.co[1]=ka.co[1]; kb.handle_left[1]=ka.handle_left[1]; kb.handle_right[1]=ka.handle_right[1]
+_b.location.z=_a.location.z; bpy.context.scene.frame_set(1); bpy.context.view_layer.update()
 def mat(n): return bpy.data.materials[n]
 M=dict(IRON=mat("R2 iron"),ENAM=mat("R2 bank enamel"),TRIM=mat("R2 trim rust"),GLOW=mat("R2 state glow"))
 M["CHROME"]=crk.pm("RP chrome rod",(0.60,0.63,0.64),0.16,metal=1.0,scale=3.0,bump=0.0,var=(0.90,1.04),edge=(0.9,0.92,0.92))
@@ -133,7 +142,7 @@ def bank(tag,x,pz):
     for k in range(8):
         th=k*math.pi/4; K.prism(("rp","BRASS"),(x+0.52*math.cos(th),0.52*math.sin(th),12.69),(x+0.52*math.cos(th),0.52*math.sin(th),12.735),0.03,0.03,6,0.0,True,0.0)
     attach(K.build(BANKC,"RP bank %s housing detail"%tag,M),None)
-bank("A",-1.4,8.4); bank("B",1.4,7.4)
+bank("A",-1.4,_a.location.z); bank("B",1.4,_b.location.z)
 # ---- fuel-assembly lattice on the pool floor (under the water): 8 bundles around the rod tips, caps tinted by the shared state glow
 K=crk.Kit(); zf=-6.18
 for xx in (-2.05,-0.75,0.75,2.05):

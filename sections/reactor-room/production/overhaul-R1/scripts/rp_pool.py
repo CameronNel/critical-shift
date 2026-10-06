@@ -3,7 +3,7 @@ underwater lamps.   usage: python rp_pool.py -- <in.blend> <out.blend>      (run
  * pool_medium (the volume object 'Deep water medium'): absorption cut from 0.075 to 0.028 and shifted to a clear teal-green, scatter cut to 0.006: the old values made 6 m of opaque green.
  * 'RP caustics': a disc on the pool floor, transparent except for a bright net (two layered 4D Voronoi edge patterns), drifting with scene time in SECONDS (driver on the Voronoi W input).
  * depth markers 1 M / 3 M / 5 M below the surface (surface z -0.47) painted on the lining at the four compass points; eight lamps (emissive bosses) on the lining at z -2.4.
-Glow fix (owner: "blown out green"): with AgX a 3.4 / 2.2 emission strength clips to white, so the strengths in the driver expressions of pool_glow (3.4 -> 1.0) and R2 state glow (2.2 -> 0.7) are lowered
+Glow fix (owner: "blown out green"): with AgX a 3.4 / 2.2 emission strength clips to white, so the strengths in the driver expressions of pool_glow (3.4 -> 1.0) and R2 state glow (2.2 -> 0.45) are lowered
 (instability still raises them by up to 60 %), the water absorption is made near-neutral so red and orange glow is not eaten by a green absorber, the in-scatter and the caustics follow the stability
 colour (green -> orange -> red), and the pool lamps use the state-glow material.  Check all three states: stability 1.0 (green), 0.5 (orange), 0.1 (red).
 Everything is static geometry or a seconds-based driver (the original hall glow drivers still use frames); nothing here needs the runtime."""
@@ -37,12 +37,19 @@ for nd in nt.nodes:
         nd.inputs['Density'].default_value=0.006; nd.name="PoolScatter"
         for i,ex in enumerate(("0.35+0.65*min(1,2*(1-s)+0.24)","0.35+0.65*(0.03+0.92*s)","0.35+0.65*(0.20*s)")): crk.drv(nt,'nodes["PoolScatter"].inputs["Color"].default_value',i,ex,var_s=True)
 # glow strengths: lower the base so AgX does not clip to white
-for mn,old,new in (("pool_glow","3.4*","1.0*"),("R2 state glow","2.2*","0.7*")):
+for mn,old,new in (("pool_glow","3.4*","1.0*"),("R2 state glow","2.2*","0.45*")):
     mt=bpy.data.materials[mn]
     for d in mt.node_tree.animation_data.drivers:
         if "Emission Strength" in d.data_path and old in d.driver.expression: d.driver.expression=d.driver.expression.replace(old,new,1)
     for nd in mt.node_tree.nodes:
         if nd.type=='BSDF_PRINCIPLED': nd.inputs['Emission Strength'].default_value*=new and (float(new[:-1])/float(old[:-1]))
+# state-glow base colour: the driven base colour (the full state colour) was lit by the pool's 2.5 kW of area lights and turned the rings and walls it sits on near-white.  Keep the glow in the EMISSION and give the base colour 2 %.
+for mn in ("pool_glow","R2 state glow"):
+    mt=bpy.data.materials[mn]
+    for d in mt.node_tree.animation_data.drivers:
+        if 'Base Color' in d.data_path and not d.driver.expression.startswith("0.02*("): d.driver.expression="0.02*("+d.driver.expression+")"
+    for nd in mt.node_tree.nodes:
+        if nd.type=='BSDF_PRINCIPLED': bc=nd.inputs['Base Color'].default_value; nd.inputs['Base Color'].default_value=(bc[0]*0.02,bc[1]*0.02,bc[2]*0.02,1.0)
 # ---- caustics: transparent disc with a drifting bright net
 m=bpy.data.materials.get("RP caustics")
 if m: bpy.data.materials.remove(m)
@@ -69,10 +76,18 @@ me=bpy.data.meshes.new("RP caustics"); bm.to_mesh(me); bm.free()
 co=bpy.data.objects.new("RP caustics",me); POOLC.objects.link(co); me.materials.append(m)
 # ---- depth markers + lamps on the lining
 M=dict(WHITE=crk.pm("RP depth paint",(0.70,0.70,0.62),0.5,scale=2.0,bump=0.0),LAMP=bpy.data.materials["R2 state glow"],GUN=crk.pm("RP lamp housing",(0.05,0.06,0.06),0.35,metal=0.8,scale=2.0,bump=0.0))
-R=3.36
-for (face,x,y) in (('-x',R,0.0),('+x',-R,0.0),('-y',0.0,R),('+y',0.0,-R)):
-    for zz,body in ((-1.47,"1 M"),(-3.47,"3 M"),(-5.47,"5 M")):
-        crk.text(POOLC,body,x,y,zz,face,0.22,M["WHITE"],'CENTER',"RP pool depth marker")
+import crt,numpy as np
+R=3.365                                                                           # depth markers: white text printed on curved strips that follow the lining (decal, alpha), so they bend with the wall instead of floating flat in front of it
+for body,zz in (("1 M",-1.47),("3 M",-3.47),("5 M",-5.47)):
+    msk=crt.text_mask(body,256,96,78); rgba=np.zeros((96,256,4),np.float32); rgba[...,:3]=(0.80,0.80,0.72); rgba[...,3]=msk
+    mt=crk.decal_mat("RP depth paint "+body,crk.new_image("RP depth tex "+body,rgba),0.6); bm=bmesh.new(); n=10; hw=0.34/R; hh=0.26
+    for th0 in (0.0,math.pi/2,math.pi,3*math.pi/2):
+        rows=[[bm.verts.new((R*math.cos(th0+hw*(1-2*i/n)),R*math.sin(th0+hw*(1-2*i/n)),zz-hh/2+j*hh)) for i in range(n+1)] for j in (0,1)]
+        uvl=bm.loops.layers.uv.verify()
+        for i in range(n):
+            f=bm.faces.new((rows[0][i],rows[0][i+1],rows[1][i+1],rows[1][i])); f.smooth=False
+            for lo,uv in zip(f.loops,((i/n,0),((i+1)/n,0),((i+1)/n,1),(i/n,1))): lo[uvl].uv=uv
+    me=bpy.data.meshes.new("RP depth "+body); bm.to_mesh(me); bm.free(); ob=bpy.data.objects.new("RP pool depth marker "+body,me); POOLC.objects.link(ob); me.materials.append(mt)
 K=crk.Kit()
 for k in range(8):
     th=k*math.pi/4+math.pi/8; cx,cy=3.34*math.cos(th),3.34*math.sin(th)
