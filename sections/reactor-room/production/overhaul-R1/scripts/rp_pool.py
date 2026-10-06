@@ -3,7 +3,10 @@ underwater lamps.   usage: python rp_pool.py -- <in.blend> <out.blend>      (run
  * pool_medium (the volume object 'Deep water medium'): absorption cut from 0.075 to 0.028 and shifted to a clear teal-green, scatter cut to 0.006: the old values made 6 m of opaque green.
  * 'RP caustics': a disc on the pool floor, transparent except for a bright net (two layered 4D Voronoi edge patterns), drifting with scene time in SECONDS (driver on the Voronoi W input).
  * depth markers 1 M / 3 M / 5 M below the surface (surface z -0.47) painted on the lining at the four compass points; eight lamps (emissive bosses) on the lining at z -2.4.
-Everything is static geometry or a seconds-based driver; nothing here needs the runtime."""
+Glow fix (owner: "blown out green"): with AgX a 3.4 / 2.2 emission strength clips to white, so the strengths in the driver expressions of pool_glow (3.4 -> 1.0) and R2 state glow (2.2 -> 0.7) are lowered
+(instability still raises them by up to 60 %), the water absorption is made near-neutral so red and orange glow is not eaten by a green absorber, the in-scatter and the caustics follow the stability
+colour (green -> orange -> red), and the pool lamps use the state-glow material.  Check all three states: stability 1.0 (green), 0.5 (orange), 0.1 (red).
+Everything is static geometry or a seconds-based driver (the original hall glow drivers still use frames); nothing here needs the runtime."""
 import bpy,sys,os,math,bmesh
 from mathutils import Vector
 sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
@@ -12,11 +15,34 @@ A=sys.argv[sys.argv.index("--")+1:]; SRC,DST=A[0],A[1]
 bpy.ops.wm.open_mainfile(filepath=SRC)
 crk.STATE=bpy.data.objects.get("REACTOR_STATE")
 POOLC=bpy.data.collections["03 POOL AND RAIL"]
+# ---- water surface: the single-plane glass (transmission 1) read as a milky cream veil over the whole pool; replace it with a thin sheet, mostly transparent with a Fresnel sheen and the old ripple bump
+wm=bpy.data.materials["water"]; wnt=wm.node_tree
+bump=next(n for n in wnt.nodes if n.type=='BUMP'); outn=next(n for n in wnt.nodes if n.type=='OUTPUT_MATERIAL')
+for n in [n for n in wnt.nodes if n.type=='BSDF_PRINCIPLED']: wnt.nodes.remove(n)
+gl=wnt.nodes.new("ShaderNodeBsdfGlossy"); gl.inputs['Roughness'].default_value=0.04; gl.inputs['Color'].default_value=(0.30,0.45,0.40,1.0)
+trn=wnt.nodes.new("ShaderNodeBsdfTransparent"); lw=wnt.nodes.new("ShaderNodeLayerWeight"); lw.inputs['Blend'].default_value=0.35
+fm=wnt.nodes.new("ShaderNodeMath"); fm.operation='MULTIPLY'; fm.inputs[1].default_value=0.08; fm.use_clamp=True
+mx=wnt.nodes.new("ShaderNodeMixShader")
+wnt.links.new(bump.outputs['Normal'],gl.inputs['Normal']); wnt.links.new(bump.outputs['Normal'],lw.inputs['Normal'])
+wnt.links.new(lw.outputs['Fresnel'],fm.inputs[0]); wnt.links.new(fm.outputs[0],mx.inputs[0]); wnt.links.new(trn.outputs[0],mx.inputs[1]); wnt.links.new(gl.outputs[0],mx.inputs[2]); wnt.links.new(mx.outputs[0],outn.inputs['Surface'])
+# the pool's two big area lights are visible in the surface reflection (that was the milky disc): keep them as illumination only
+for ln in ("Pool surface scattered cyan","Cyan from deep pool"):
+    lo=bpy.data.objects.get(ln)
+    if lo: lo.visible_camera=False; lo.visible_glossy=False
 # ---- clearer water
 nt=bpy.data.materials["pool_medium"].node_tree
 for nd in nt.nodes:
-    if nd.type=='VOLUME_ABSORPTION': nd.inputs['Density'].default_value=0.028; nd.inputs['Color'].default_value=(0.45,0.95,0.72,1.0)
-    if nd.type=='VOLUME_SCATTER': nd.inputs['Density'].default_value=0.006; nd.inputs['Color'].default_value=(0.35,0.95,0.78,1.0)
+    if nd.type=='VOLUME_ABSORPTION': nd.inputs['Density'].default_value=0.022; nd.inputs['Color'].default_value=(0.80,0.92,0.86,1.0)
+    if nd.type=='VOLUME_SCATTER':
+        nd.inputs['Density'].default_value=0.006; nd.name="PoolScatter"
+        for i,ex in enumerate(("0.35+0.65*min(1,2*(1-s)+0.24)","0.35+0.65*(0.03+0.92*s)","0.35+0.65*(0.20*s)")): crk.drv(nt,'nodes["PoolScatter"].inputs["Color"].default_value',i,ex,var_s=True)
+# glow strengths: lower the base so AgX does not clip to white
+for mn,old,new in (("pool_glow","3.4*","1.0*"),("R2 state glow","2.2*","0.7*")):
+    mt=bpy.data.materials[mn]
+    for d in mt.node_tree.animation_data.drivers:
+        if "Emission Strength" in d.data_path and old in d.driver.expression: d.driver.expression=d.driver.expression.replace(old,new,1)
+    for nd in mt.node_tree.nodes:
+        if nd.type=='BSDF_PRINCIPLED': nd.inputs['Emission Strength'].default_value*=new and (float(new[:-1])/float(old[:-1]))
 # ---- caustics: transparent disc with a drifting bright net
 m=bpy.data.materials.get("RP caustics")
 if m: bpy.data.materials.remove(m)
@@ -42,7 +68,7 @@ vs=[bm.verts.new((r*math.cos(2*math.pi*k/seg),r*math.sin(2*math.pi*k/seg),zc)) f
 me=bpy.data.meshes.new("RP caustics"); bm.to_mesh(me); bm.free()
 co=bpy.data.objects.new("RP caustics",me); POOLC.objects.link(co); me.materials.append(m)
 # ---- depth markers + lamps on the lining
-M=dict(WHITE=crk.pm("RP depth paint",(0.70,0.70,0.62),0.5,scale=2.0,bump=0.0),LAMP=crk.emit_mat("RP pool lamp",(0.55,1.0,0.85),5.0),GUN=crk.pm("RP lamp housing",(0.05,0.06,0.06),0.35,metal=0.8,scale=2.0,bump=0.0))
+M=dict(WHITE=crk.pm("RP depth paint",(0.70,0.70,0.62),0.5,scale=2.0,bump=0.0),LAMP=bpy.data.materials["R2 state glow"],GUN=crk.pm("RP lamp housing",(0.05,0.06,0.06),0.35,metal=0.8,scale=2.0,bump=0.0))
 R=3.36
 for (face,x,y) in (('-x',R,0.0),('+x',-R,0.0),('-y',0.0,R),('+y',0.0,-R)):
     for zz,body in ((-1.47,"1 M"),(-3.47,"3 M"),(-5.47,"5 M")):
