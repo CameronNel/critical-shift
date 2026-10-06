@@ -307,6 +307,9 @@ ROOMS = [
     ('refinery', 'refinery/module_overhaul_R1.blend', REFINERY_COLLECTIONS, (-26.28, -52.2, 0.0), 90.0,
      'Rotated 90 degrees: freight door (module Door_Mine, west wall) goes to the south wall on the yard freight gate centre x -22.2; fuel door (Door_Reactor, east wall) to the north wall; '
      'personnel door (Door_Entry, south wall) to the east wall on the hall colonnade centre line y -54. East outer face lands on the colonnade end, x -18.9.'),
+    ('medical-reanimation', 'medical-reanimation/module_overhaul_R2.blend', 'MODULE_medical-reanimation', (26.0, -70.0, 0.0), -90.0,
+     'Local origin is the main entry threshold, inward +Y, door 2.2 m clear (contracts/interface.json). Cafeteria east door IF_PORTAL_CAF_E_MEDICAL is at plan (26, -70), 2.2 m (DESIGN.md), '
+     'so threshold on threshold and rotation -90 degrees take inward +Y to plan +X (east). Room x 26.0 to 38.3 (outer), y -75.0 to -65.2.'),
 ]
 
 CLIFF_TINT = {'saturation': 0.0, 'value': 3.6, 'warm': (0.82, 0.79, 0.68, 1.0)}   # measured from renders: mountain hsv ~(0.15, 0.10, 0.30), yard cliff was (0.55, 0.20, 0.13); grey it, brighten, warm it
