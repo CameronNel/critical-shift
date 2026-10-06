@@ -247,3 +247,12 @@ The hall-side window glass is now fully clear (`CR window glass clear`: alpha 0.
 - **Fixed on the way:** the decal-atlas join had adopted the lift car as parent (a car-mounted certificate was the first decal object), which would have dragged every poster with the car; `cr_atlas_decals.py` now only joins unparented decals.
 - **Not done:** no collision proxies for the lift or anteroom; the car has no door leaves of its own (the landing leaves open and close); linear ride (no ease in/out); the lightmaps and the walk-through video predate all of this and are stale.
 - **Review renders:** `lift_p1..p17_*.png` (p5 TV wall, p13 couch and print, p14 mirror, p15 car from the door corner, p16 car ceiling and coves, p17 car door to panel).
+
+### Reactor pool centrepiece: control-rod banks and housings (`scripts/rp_rods.py`)
+Run after the control-room pipeline (`rp_rods.py -- in.blend out.blend`); it touches only collections `03 POOL AND RAIL` and `04 BANK MECHANISMS`. Contract objects keep their names, parents and pivots (`BANK_A/B_MOVING` empties, `BANK_x_DRIVE_COLUMN`, `BANK_x_CARRIAGE`, `BANK_x_FIXED_HOUSING`): they get new geometry in place with the same bounding box and materials, so anything bound to them keeps working (checked: moving the pivot carries every `RP` child).
+- Rod columns: turned lathe profile with chamfered collars every 1.25 m, polished sleeves between them, bullet-nosed tips, state bands rebuilt as turned rings at their original heights (they keep the stability-driven `R2 state glow` material), ribbed sleeve stem.
+- Carriages: crosshead blocks with side flanges, hazard stripes, hex bolts, rear louvres, lifting eyes, three status lamps; guide shoes with arms and vertical rollers.
+- Fixed housings: crisp chamfered housings with corner posts, cooling fins, access hatch with hinges and bolts, a brass pressure gauge, cable glands with cables to the gantry, roof lifting lugs and hazard skirt strips.
+- Pool floor: eight fuel-assembly bundles (pin grids, state-tinted caps) around the rod tips; they sit under the opaque water, so they are only seen if the water is made clearer.
+- Numbers: collections 03 + 04 went from 71.6k to 98.5k triangles (+27k); `cr_verify`, `verify_piping`, `clearance` and `fps_independence_check` pass. Not engine-measured; no collision or LOD work; the water, pool lining, guardrail and gantry are unchanged.
+- Renders: `pool_rods_hero.png`, `pool_rods_housing.png`, `pool_rods_carriage.png`, `pool_rods_looking_up.png`.
