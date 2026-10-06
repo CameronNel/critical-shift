@@ -1,6 +1,8 @@
 # Combined map (new scene, built room by room)
 
-Status: **work in progress, unreviewed, not accepted.** This is the scene that replaces the retiring `facility_environment.blend`
+**Agents: read [AGENT_READ_FIRST.md](AGENT_READ_FIRST.md) before touching anything here.** It has the rules and the exact procedure for adding the next room.
+
+Status: **work in progress, unreviewed, not accepted.** Merged to `main` on the owner's explicit instruction (2026-10-06, PR 95) without independent review. This is the scene that replaces the retiring `facility_environment.blend`
 (see `AGENTS.md`, owner plan 2026-10-03). The old map file is not touched.
 
 Spec followed: the layout proposal drafted with the owner on 2026-10-04, `design/facility-layout/README.md` (plan v7) and
@@ -18,8 +20,9 @@ modules (they are never edited). Frame: plan metres, +x east, +y north, origin a
 | 0 | Front-end area (cafeteria, hall, yard) | `sources/front-end-area/front_end_area.blend`, `MODULE_front-end-area` | translation (8, -80), rotation 0. As built: local origin = spawn exit, plan = local + (8, -80) | built, unreviewed (see PR) |
 | 1 | Spawn room | `sources/spawn-room/module.blend`, `MODULE_spawn-room` | translation (8, -92.38), rotation 0 | added, awaiting owner OK |
 | 2 | Mine (R39) | `sources/mine-r39/module_r39_aaa.blend`, `MODULE_mine-r39` | translation (-14.4, -41.0), rotation 0 | added, awaiting owner OK |
-| 4 | Medical reanimation | `sources/medical-reanimation/module_overhaul_R2.blend` | translation (26, -70), rotation -90 | added in the fix pass, awaiting owner OK |
-| 3 | Refinery | `sources/refinery/module_overhaul_R1.blend` (17 root collections of the overhaul scene) | translation (-26.28, -52.2), rotation 90 | **added, awaiting owner OK** |
+| 3 | Refinery | `sources/refinery/module_overhaul_R1.blend` (17 root collections of the overhaul scene) | translation (-26.28, -52.2), rotation 90 | added, awaiting owner OK |
+| 4 | Medical reanimation | `sources/medical-reanimation/module_overhaul_R2.blend` | translation (26, -70), rotation -90 | added, awaiting owner OK |
+| 5 | Fuel corridor | `sections/fuel-corridor/production/checkpoints/fuel_full_F23ci.blend`, `MODULE_fuel-corridor` | translation (-22.2, -43.6), rotation 0 | added, awaiting owner OK |
 
 ### Room 1: spawn room, what fixes the placement
 - `DESIGN.md`: "Compared with plan v7 the 6 m connectors are gone ... That moves the spawn 12 m north", spawn exit on the reactor axis x = 8, exit
@@ -140,5 +143,6 @@ Defects and open items found (original list, before the fixes above):
 10. Night exterior is very dark overall; the world beyond the front end's ground plane is empty black.
 
 ## Remaining rooms in plan order (not yet added)
-Hall-side: spine to reactor (middle), east trunk to dock and waste (right). Then medical, reactor,
-turbine, electrical, waste, cooling, fuel corridor, compliance dock, outer ring and gantry.
+Placed so far: front end (cafeteria, hall, yard), spawn, mine, refinery, medical, fuel corridor. Still to place: the reactor room (the fuel corridor's far port `F02_REACTOR` is at plan (-8.0, -19.6)
+facing +Y, 5 x 5 m; the hall spine also leads to the reactor), then the east trunk rooms (compliance dock, waste storage), turbine, electrical, cooling, condenser bay, outer ring and gantry.
+Order and sizes come from `design/facility-layout/README.md` (plan v7) and `MEASURED_ROOM_SIZES.md`. Add one room per owner OK, following AGENT_READ_FIRST.md.

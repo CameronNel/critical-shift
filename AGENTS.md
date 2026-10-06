@@ -1,6 +1,14 @@
 # Critical Shift Agent Entry Rules
 
-## Existing assembled map
+## Combined map (the scene replacing the old map)
+
+**Current environment work is the combined map in [sections/facility-assembly/combined/](sections/facility-assembly/combined/AGENT_READ_FIRST.md). Read its `AGENT_READ_FIRST.md` before any map, room-placement or environment task.**
+It is rebuilt from `build_combined_map.py` (never hand-edit `combined_map.blend`), links the room modules without editing them, and adds one room at a time on the owner's say-so, each placement
+recorded in `COMBINED_MAP.md`. As of 2026-10-06 it holds the front end (cafeteria, hall, yard), spawn room, mine, refinery, medical reanimation and fuel corridor; the reactor room is next, then
+the rest of the layout in `design/facility-layout/README.md`. All of it is **unreviewed and not accepted**; PR 95 was merged on the owner's explicit instruction, which waives the rule that an agent does
+not merge its own work, and that waiver does not carry over to later PRs. Linking a room here does not change its status in the table below. Do not use a broad sparse checkout in the cloud container: it filled the disk once; fetch single files as the procedure describes.
+
+## Existing assembled map (retiring)
 
 **Owner plan (2026-10-03): the current assembled map (`facility_environment.blend`) will be retired.** Do not start new work to promote rooms into it, relink it, or extend it. The room modules and overhaul files on `main` are the source of truth for whatever replaces it. Nothing here deletes the map yet, and the instructions below still describe how it works.
 
@@ -38,7 +46,7 @@ Because the owner plans to retire the current map, "promotion" below means the o
 
 Notes for agents:
 - The finishes for refinery, electrical, fuel, reanimation and dock were merged on the owner's instruction **without independent review**, against the rule above that no agent merges its own work. Treat them as unreviewed until a review says otherwise, and never describe them as accepted.
-- Do not edit a "done and dusted" room's files or start another art pass on it (refinery, electrical, turbine, medical-reanimation, compliance-dock) without the owner reopening it. Do not promote any room into the current map; see the owner plan at the top.
+- Do not edit a "done and dusted" room's files or start another art pass on it (refinery, electrical, turbine, medical-reanimation, compliance-dock) without the owner reopening it. Do not promote any room into the old map (`facility_environment.blend`); see the owner plan at the top. Rooms are placed in the combined map instead, by the procedure in its `AGENT_READ_FIRST.md`.
 - Triangle counts: the fuel corridor (678,692), turbine rebuild (about 387k) and dock (398,352) are near or above 400k; include text curves when counting, as the room validators do.
 - When a room changes state, update this table in the same PR and cite the review or validation file.
 
