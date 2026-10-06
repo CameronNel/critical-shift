@@ -256,3 +256,9 @@ Run after the control-room pipeline (`rp_rods.py -- in.blend out.blend`); it tou
 - **Pool floor:** eight fuel bundles around the rod tips; they sit under the opaque water, so they are only seen if the water is made clearer.
 - **Numbers:** collections 03 + 04 went from 71.6k to 106.1k triangles (+34.5k, mostly the spacer grids and pins); `cr_verify`, `verify_piping`, `clearance` and `fps_independence_check` pass. Not engine-measured; no collision or LOD work; the water, pool lining, guardrail and gantry are unchanged.
 - Renders: `pool_rods_hero.png`, `pool_rods_spider.png`, `pool_rods_cage.png`, `pool_rods_housing.png`.
+
+### Reactor pool interior: clear water, caustics, depth markers, lamps (`scripts/rp_pool.py`)
+Run after `rp_rods.py` (`rp_pool.py -- in.blend out.blend`). The old water volume absorbed so strongly (density 0.075, 6 m deep) that the pool read as a flat opaque green wash. Now: `pool_medium` absorption 0.028 in a clear teal-green and scatter 0.006, so the tiled lining, the rods continuing to the floor and the core bed are visible; `RP caustics`, a transparent disc on the pool floor with a bright net (two layered 4D Voronoi edge patterns) that drifts with scene time in seconds (driver on the Voronoi W input, frame-rate independent); depth markers "1 M / 3 M / 5 M" painted on the lining at the four compass points; eight emissive lamps on the lining at z -2.4.
+- Verified: `cr_verify`, `verify_piping`, `clearance`, `fps_independence_check` pass on the result.
+- Not great yet: the floor still reads as a pale milky disc in oblique views and the eight fuel bundles are only half legible through the glow; the glow strength (`pool_glow`, driven by the stability signal) was left alone because it is also the hall's key light; the caustics are a fake overlay (no refraction), cheap and view-independent; markers are flat text on a curved wall.
+- Renders: `pool_water_hero.png`, `pool_water_angle.png`, `pool_water_top.png`.
