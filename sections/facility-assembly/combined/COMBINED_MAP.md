@@ -18,6 +18,7 @@ modules (they are never edited). Frame: plan metres, +x east, +y north, origin a
 | 0 | Front-end area (cafeteria, hall, yard) | `sources/front-end-area/front_end_area.blend`, `MODULE_front-end-area` | translation (8, -80), rotation 0. As built: local origin = spawn exit, plan = local + (8, -80) | built, unreviewed (see PR) |
 | 1 | Spawn room | `sources/spawn-room/module.blend`, `MODULE_spawn-room` | translation (8, -92.38), rotation 0 | added, awaiting owner OK |
 | 2 | Mine (R39) | `sources/mine-r39/module_r39_aaa.blend`, `MODULE_mine-r39` | translation (-14.4, -41.0), rotation 0 | added, awaiting owner OK |
+| 4 | Medical reanimation | `sources/medical-reanimation/module_overhaul_R2.blend` | translation (26, -70), rotation -90 | added in the fix pass, awaiting owner OK |
 | 3 | Refinery | `sources/refinery/module_overhaul_R1.blend` (17 root collections of the overhaul scene) | translation (-26.28, -52.2), rotation 90 | **added, awaiting owner OK** |
 
 ### Room 1: spawn room, what fixes the placement
