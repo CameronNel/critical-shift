@@ -343,6 +343,19 @@ def fix_evac_sign_back():
             uv.data[l].uv = (u0 + (c.x - x0) / (x1 - x0) * (u1 - u0), v0 + (c.z - z0) / (z1 - z0) * (v1 - v0))
     print('SIGN back face mapped:', len(back), 'face(s)')
 
+# Exterior skins (additive, from sections/facility-assembly/exteriors/): the spawn room's own outside is flat saturated colour boxes, so its R05 exterior (167 objects, same footprint) is added.
+# Unreviewed. key -> (file under SRC/../exteriors, collection)
+EXTERIOR_SKINS = {'spawn-room': ('spawn-room/exterior-R05.blend', 'EXTERIOR_spawn-room')}
+
+def add_exterior_skin(key, wrap):
+    f, c = EXTERIOR_SKINS[key]
+    with bpy.data.libraries.load(os.path.normpath(os.path.join(SRC, '..', 'exteriors', f)), link=True, relative=True) as (src, dst):
+        if c not in src.collections: print('EXTERIOR missing', c); return
+        dst.collections = [c]
+    n = 0
+    for o in dst.collections[0].all_objects: wrap.objects.link(o); n += 1
+    print('EXTERIOR skin', key, n, 'objects')
+
 def build(through, output):
     keys = [r[0] for r in ROOMS]
     INCLUDED.update(keys[:keys.index(through) + 1] if through in keys else ())
@@ -364,6 +377,7 @@ def build(through, output):
             # Linked objects cannot be re-parented, so the wrapper itself is instanced at the placement transform (the source module is not edited).
             wrap = bpy.data.collections.new('ROOM_' + key + '_members'); kept = left = 0
             if key in PATCHES: PATCHES[key](wrap, lib_coll, omit)
+            if key in EXTERIOR_SKINS: add_exterior_skin(key, wrap)
             for o in lib_coll.all_objects:
                 if o.name in omit: left += 1; continue
                 wrap.objects.link(o); kept += 1
