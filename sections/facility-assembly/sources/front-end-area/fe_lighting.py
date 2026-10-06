@@ -29,8 +29,8 @@ CAMERAS = [
  ('YRD_08_NIGHT_SKY', (-22.0, -70.5, 1.7), (-27.8, -103.1, 24.1), 18),
  ('YRD_09_GROUND_CLOSE', (-33.0, -74.4, 0.9), (-30.0, -70.8, 0.1), 24),
  ('YRD_10_ASSET_CLOSE', (-31.2, -77.8, 1.25), (-35.8, -80.8, 0.95), 28),
- ('REV_01_PORCH_HERO', (-31.0, -70.0, 1.65), (-79.0, -76.7, 11.0), 22),
- ('REV_02_VEHICLES', (-44.6, -76.2, 1.8), (-33.4, -81.0, 1.0), 24),
+ ('REV_01_PORCH_HERO', (-28.5, -70.2, 1.65), (-76.5, -76.9, 11.5), 22),
+ ('REV_02_VEHICLES', (-38.0, -73.6, 2.2), (-34.2, -81.0, 1.0), 24),
  ('REV_03_RAIL_DOCK', (-22.2, -68.5, 1.7), (-22.2, -60.5, 2.0), 22),
  ('REV_04_PORTAL', (-39.2, -69.0, 1.2), (-49.5, -70.6, 2.3), 28),
  ('REV_05_POWER_AND_STORE', (-18.8, -75.4, 1.6), (-13.2, -81.2, 1.8), 20),
@@ -92,11 +92,11 @@ def fog_boxes(lc):
 def beam_cones(lc):
     """Visible light cones: a faint scattering volume under every floodlight head, bounded to the beam so the sky and the rest of the yard stay clean."""
     mat = bpy.data.materials.new('beam_cone'); mat.use_nodes = True; nt = mat.node_tree; nt.nodes.clear()
-    out = nt.nodes.new('ShaderNodeOutputMaterial'); vs = nt.nodes.new('ShaderNodeVolumeScatter'); vs.inputs['Density'].default_value = 0.035; vs.inputs['Anisotropy'].default_value = 0.6
+    out = nt.nodes.new('ShaderNodeOutputMaterial'); vs = nt.nodes.new('ShaderNodeVolumeScatter'); vs.inputs['Density'].default_value = 0.0055; vs.inputs['Anisotropy'].default_value = 0.6
     nt.links.new(vs.outputs[0], out.inputs['Volume'])
     for o in [o for o in bpy.data.objects if o.name.startswith('pole_')]:
         head = o.matrix_world @ Vector((0.8, 0.0, 6.1)); aim = (Matrix.Rotation(o.rotation_euler.z, 3, 'Z') @ Matrix.Rotation(-math.radians(38), 3, 'Y')) @ Vector((0, 0, -1))
-        bm = bmesh.new(); res = bmesh.ops.create_cone(bm, cap_ends=True, cap_tris=True, segments=20, radius1=0.05, radius2=3.4, depth=7.2)
+        bm = bmesh.new(); res = bmesh.ops.create_cone(bm, cap_ends=True, cap_tris=True, segments=20, radius1=0.05, radius2=2.7, depth=7.2)
         for v in bm.verts: v.co.z += 3.6                                # apex at the origin, opening toward +z
         me = bpy.data.meshes.new('cone_' + o.name); bm.to_mesh(me); bm.free()
         c = bpy.data.objects.new('BEAM_' + o.name, me); c.location = head
