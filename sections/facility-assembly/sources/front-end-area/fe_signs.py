@@ -100,6 +100,26 @@ def _icon(d, kind, cx, cy, r, ink, accent):
         d.ellipse([cx - r * .4, cy - r * .15, cx - r * .12, cy + r * .13], fill=accent); d.rectangle([cx + r * .15, cy - r * .08, cx + r * .5, cy + r * .08], fill=accent)
     elif kind == 'person':
         d.ellipse([cx - r * .22, cy - r * .7, cx + r * .22, cy - r * .26], fill=ink); d.rounded_rectangle([cx - r * .4, cy - r * .2, cx + r * .4, cy + r * .75], radius=r * .2, fill=ink)
+    elif kind == 'hat':
+        d.pieslice([cx - r * .6, cy - r * .6, cx + r * .6, cy + r * .6], 180, 360, fill=ink); d.rectangle([cx - r * .78, cy - r * .02, cx + r * .78, cy + r * .16], fill=ink)
+        d.rectangle([cx - r * .08, cy - r * .6, cx + r * .08, cy - r * .1], fill=accent)
+    elif kind == 'wrench':
+        d.line([(cx - r * .55, cy + r * .55), (cx + r * .25, cy - r * .25)], fill=ink, width=max(3, int(r * .22)))
+        d.ellipse([cx + r * .05, cy - r * .7, cx + r * .62, cy - r * .13], fill=ink); d.polygon([(cx + r * .3, cy - r * .7), (cx + r * .42, cy - r * .7), (cx + r * .36, cy - r * .38)], fill=accent)
+    elif kind == 'bolt':
+        d.polygon([(cx + r * .1, cy - r * .75), (cx - r * .45, cy + r * .08), (cx - r * .05, cy + r * .08), (cx - r * .15, cy + r * .75), (cx + r * .45, cy - r * .12), (cx + r * .05, cy - r * .12)], fill=accent)
+    elif kind == 'box':
+        d.rectangle([cx - r * .6, cy - r * .5, cx + r * .6, cy + r * .55], fill=ink); d.rectangle([cx - r * .08, cy - r * .5, cx + r * .08, cy + r * .55], fill=accent)
+        d.rectangle([cx - r * .6, cy - r * .5, cx + r * .6, cy - r * .3], fill=accent) if False else None
+    elif kind == 'warn':
+        d.polygon([(cx, cy - r * .72), (cx + r * .78, cy + r * .6), (cx - r * .78, cy + r * .6)], outline=ink, width=max(3, int(r * .12)))
+        d.rectangle([cx - r * .06, cy - r * .22, cx + r * .06, cy + r * .2], fill=ink); d.ellipse([cx - r * .08, cy + r * .3, cx + r * .08, cy + r * .46], fill=ink)
+    elif kind == 'muster':
+        d.ellipse([cx - r * .75, cy - r * .75, cx + r * .75, cy + r * .75], outline=ink, width=max(3, int(r * .1)))
+        d.ellipse([cx - r * .14, cy - r * .5, cx + r * .14, cy - r * .22], fill=ink); d.rounded_rectangle([cx - r * .26, cy - r * .16, cx + r * .26, cy + r * .5], radius=r * .12, fill=ink)
+    elif kind == 'lock':
+        d.arc([cx - r * .32, cy - r * .7, cx + r * .32, cy - r * .02], 180, 360, fill=ink, width=max(3, int(r * .12)))
+        d.rounded_rectangle([cx - r * .5, cy - r * .15, cx + r * .5, cy + r * .65], radius=r * .1, fill=ink); d.ellipse([cx - r * .08, cy + r * .1, cx + r * .08, cy + r * .26], fill=accent)
     elif kind == 'run':
         d.ellipse([cx - r * .1, cy - r * .7, cx + r * .26, cy - r * .34], fill=ink); d.line([(cx, cy - r * .3), (cx - r * .15, cy + r * .2), (cx - r * .5, cy + r * .5)], fill=ink, width=int(r * .2))
         d.line([(cx - r * .15, cy + r * .2), (cx + r * .3, cy + r * .5)], fill=ink, width=int(r * .2)); d.line([(cx - .3 * r, cy - r * .15), (cx + r * .45, cy - r * .1)], fill=ink, width=int(r * .15))

@@ -111,9 +111,6 @@ def build_shell(F, C):
         box(nm + '_border_N', x0 + 0.15, x1 - 0.15, y1 - 0.15 - bw, y1 - 0.15, -0.01, 0.003, F['tile_blue'], co)
         box(nm + '_border_W', x0 + 0.15, x0 + 0.15 + bw, y0 + 0.15 + bw, y1 - 0.15 - bw, -0.01, 0.003, F['tile_blue'], co)
         box(nm + '_border_E', x1 - 0.15 - bw, x1 - 0.15, y0 + 0.15 + bw, y1 - 0.15 - bw, -0.01, 0.003, F['tile_blue'], co)
-    # hall route lines (inset yellow strips) and rubber entry mats
-    for y in (-56.2, -51.8): box(f'hall_route_line_{y}', -3.7, 31.7, y - 0.07, y + 0.07, 0.0, 0.006, F['signage'], hall, rgba=(0.9, 0.7, 0.05, 1))
-    for x in (4.9, 11.1): box(f'hall_lane_line_{x}', x - 0.07, x + 0.07, -60.0, -48.2, 0.0, 0.006, F['signage'], hall, rgba=(0.9, 0.7, 0.05, 1))
     box('caf_door_mat_S', 6.6, 9.4, -80.4, -78.4, 0.0, 0.015, F['rubber'], caf, bev=0.004)
     box('caf_door_mat_W', -8.0, -6.0, -71.6, -68.4, 0.0, 0.015, F['rubber'], caf, bev=0.004)
     box('hall_blast_mat', 6.0, 10.0, -50.0, -48.2, 0.0, 0.015, F['rubber'], hall, bev=0.004)

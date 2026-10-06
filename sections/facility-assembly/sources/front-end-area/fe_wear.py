@@ -1,6 +1,7 @@
 """Light wear pass (about two years of use): baked decal atlas quads for scuffs, grime, streaks, floor traffic paths.
 All decals are single-quad meshes with UVs into textures/wear_atlas.png (4 x 2 cells), named stain_* / streak_* so the lane check ignores them."""
 from fe_common import *
+from fe_yard3 import on_pad
 
 CELLS = {'scuff': (0, 0), 'path': (1, 0), 'drip': (2, 0), 'corner': (3, 0), 'smudge': (0, 1), 'skid': (1, 1), 'blotch': (2, 1), 'dust': (3, 1)}
 _dm = {}
@@ -38,6 +39,22 @@ def decal(coll, name, cell, face, a, b, z0, z1, off, strength=0.5, flip=False):
     me.materials.append(decal_mat(strength))
     o = bpy.data.objects.new(name, me); coll.objects.link(o); o.visible_shadow = False
     return o
+
+def _wall_wear(coll, walls, rnd, nm, scuffs=14, drips=3):
+    """Dado scuffs, skirting dust and water streaks along interior wall faces. walls: (facing, wall face coordinate, (lo, hi) span, [excluded spans])."""
+    for face, off, (lo, hi), excl in walls:
+        def free(a, b): return not any(a < e1 and b > e0 for e0, e1 in excl)
+        for k in range(scuffs):
+            a = rnd.uniform(lo, hi - 1.2); w = rnd.uniform(0.6, 1.3)
+            if free(a, a + w):
+                doff = off + (0.08 if face in ('N', 'E') else -0.08)
+                decal(coll, nm('dado_scuff'), 'scuff', face, a, a + w, 0.15, 0.15 + w * 0.6, doff, rnd.uniform(0.35, 0.6), flip=rnd.random() < 0.5)
+        decal(coll, nm('skirt_dust'), 'dust', face, lo, hi, 0.12, 0.7, off + (0.08 if face in ('N', 'E') else -0.08), 0.55)
+        for k in range(drips):
+            a = rnd.uniform(lo, hi - 1.5); w = rnd.uniform(0.9, 1.6)
+            if free(a, a + w): decal(coll, nm('streak_drip'), 'drip', face, a, a + w, 1.35, 2.7, off + (0.005 if face in ('N', 'E') else -0.005), rnd.uniform(0.3, 0.5), flip=rnd.random() < 0.5)
+
+RAIL_X_ = -22.2
 
 def build_wear(F, C):
     caf, hall = C['CAFETERIA'], C['HALL']
@@ -92,4 +109,33 @@ def build_wear(F, C):
     for k in range(10):
         x = rnd.uniform(-3.0, 30.0); s = rnd.uniform(0.6, 1.2)
         decal(hall, nm('hall_floor_scuff'), 'scuff', 'F', x - s, x + s, rnd.uniform(-58.5, -49.5) - 0.5, rnd.uniform(-58.5, -49.5) + 0.5, 0.005, rnd.uniform(0.3, 0.5))
+    # hall: lanes, doors, dispatch bays and the blast door take the traffic
+    for k in range(14):
+        x = rnd.uniform(-3.0, 30.0); sx = rnd.uniform(0.7, 1.4)
+        decal(hall, nm('hall_floor_scuff'), 'scuff', 'F', x - sx, x + sx, -55.2 + rnd.uniform(-0.3, 1.9) - 0.5, -55.2 + rnd.uniform(-0.3, 1.9) + 0.5, 0.005, rnd.uniform(0.3, 0.5), flip=rnd.random() < 0.5)
+    for (x0, x1, y0, y1) in ((20.4, 30.0, -58.8, -56.4), (6.3, 9.7, -52.0, -48.6), (-3.8, -1.5, -56.6, -52.6), (28.4, 31.8, -56.0, -52.4)):
+        decal(hall, nm('skid'), 'skid', 'F', x0, x1, y0, y1, 0.005, 0.5, flip=rnd.random() < 0.5)
+    for (x, y) in ((24.0, -57.7), (3.0, -57.0), (-1.5, -50.8)):
+        decal(hall, nm('hall_blotch'), 'blotch', 'F', x - 0.8, x + 0.8, y - 0.8, y + 0.8, 0.0045, 0.3)
+    decal(hall, 'streak_path_hall_ns', 'path', 'F', 6.4, 9.6, -59.8, -48.4, 0.004, 0.55)
+    _wall_wear(hall, (('N', -59.83, (-3.7, 31.7), [(4.9, 11.1)]), ('S', -48.17, (-3.7, 31.7), [(5.7, 10.3)]), ('E', -3.83, (-59.7, -48.3), [(-55.4, -52.6)]), ('W', 31.83, (-59.7, -48.3), [(-55.4, -52.6)])), rnd, nm, scuffs=12, drips=2)
+    # yard: traffic along the mine lane and to the gates, vehicle bays, fuel, ore bays, dock approach
+    yd = C['YARD']
+    decal(yd, 'streak_path_dock', 'path', 'F', RAIL_X_ - 1.6, RAIL_X_ + 1.6, -67.2, -60.6, 0.004, 0.5)
+    decal(yd, 'streak_path_porch', 'path', 'F', -12.0, -8.2, -76.0, -64.0, 0.004, 0.45)
+    for (x0, x1, y0, y1) in ((-39.0, -30.0, -83.4, -77.9), (-42.8, -39.8, -83.2, -79.6), (-24.0, -18.0, -71.4, -69.0), (-34.0, -30.0, -72.0, -68.4), (-12.0, -9.0, -83.0, -78.0)):
+        if on_pad((x0 + x1) / 2, (y0 + y1) / 2, -1.0): decal(yd, nm('skid'), 'skid', 'F', x0, x1, y0, y1, 0.005, 0.5, flip=rnd.random() < 0.5)
+    for (x, y, r_) in ((-37.5, -80.6, 0.9), (-34.5, -80.6, 0.9), (-41.9, -80.6, 1.1), (-12.4, -80.9, 0.9), (-31.5, -81.2, 0.7), (-27.0, -67.5, 0.8), (-39.0, -62.8, 1.3)):
+        if on_pad(x, y): decal(yd, nm('yard_blotch'), 'blotch', 'F', x - r_, x + r_, y - r_, y + r_, 0.0045, 0.4)
+    for k in range(26):
+        x = rnd.uniform(-46.5, -9.0); y = rnd.uniform(-83.0, -61.0); s_ = rnd.uniform(0.6, 1.2)
+        if on_pad(x, y, -0.5): decal(yd, nm('yard_scuff'), 'scuff', 'F', x - s_, x + s_, y - s_ * 0.6, y + s_ * 0.6, 0.005, rnd.uniform(0.25, 0.5), flip=rnd.random() < 0.5)
+        else: rnd.uniform(0, 1)
+    # vertical wear: lamp room walls, container doors, bay walls
+    decal(yd, nm('cabin_dust'), 'dust', 'N', -45.8, -39.8, 0.0, 0.9, -73.1 + 0.02, 0.6)
+    decal(yd, nm('cabin_drip'), 'drip', 'N', -45.4, -44.0, 0.5, 2.55, -73.1 + 0.015, 0.55); decal(yd, nm('cabin_drip'), 'drip', 'N', -43.0, -41.6, 0.5, 2.55, -73.1 + 0.015, 0.5)
+    for i, y in enumerate((-82.0, -79.1, -76.2)): decal(yd, nm('container_drip'), 'drip', 'W', y - 1.0, y + 1.0, 0.2, 2.5, -23.64 - 0.01, 0.5); decal(yd, nm('container_dust'), 'dust', 'W', y - 1.1, y + 1.1, 0.0, 0.8, -23.64 - 0.012, 0.55)
+    for i, cx in enumerate((-41.9, -37.4, -32.9)): decal(yd, nm('bay_dust'), 'dust', 'S', cx - 1.4, cx + 1.4, 0.0, 0.9, -61.5 - 0.01, 0.6)
+    # cafeteria exterior wall facing the yard: water streaks below the gutters
+    for (a, b) in ((-79.0, -77.5), (-72.5, -71.0), (-67.5, -66.0), (-62.5, -61.2)): decal(yd, nm('streak_wall'), 'drip', 'W', a, b, 0.8, 4.0, -8.16 - 0.01, 0.35)
     return n

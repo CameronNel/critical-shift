@@ -33,17 +33,18 @@ The whole area follows the **spawn room's look** (dusty-lilac walls over a navy 
 outside) and is **lightly run-down, about two years of use, not abandoned**: faint dust and scuffs, a few uneven slabs, nothing broken
 for effect. Props are built at the spawn room's level of detail.
 
-### Yard (open air, scrapyard)
-- Ground is uneven but sound: slabs tilted or sunk by up to 0.07 m, two cracked in three pieces, two missing with broken shards
-  over displaced earth, a few hairline cracks and wet patches.
-- The rail starts at the **centre of the mine entrance (y = -70)**, runs east along the mine axis to x = -22.2 and turns north
-  to the refinery freight gate. Only the **front panel of the existing R39 mine** (its open timber portal, cut from
-  `sources/mine-r39/module_r39_aaa.blend`, 1.9k triangles) is reused; the rest of that mine is reference only.
-  A short timbered tunnel mouth and a dark void sit behind it.
-- A tidy salvage yard: stacked shipping containers, a pickup and a van, skips, steel stock, pipe stacks, scrap bales, tyre stacks,
-  crates, barrels, pallets and cable drums, all instanced. Keep-clear: the mine lane, the refinery rail,
-  the evacuation-gate path and the north-west service-door path.
-- Porch canopy at the cafeteria door, loading canopy over the refinery gate, dead planting, pole lights.
+### Yard (open air, mine surface depot)
+Revised after the owner's review (2026-10-05): the yard is the surface depot of the mine, not a scrapyard. Everything in it has a job.
+- **Portal (west):** the mine portal in a flattened rock face, built as a concrete collar with piers and lintel (7.2 m clear opening, 3.9 m high), steel jamb liners, hazard-striped soffit, three timber sets in the mouth, entrance plate, lamps, rock bolts and safety mesh on the face above. A ventilation fan stands beside it. Natural cliff with benches and jointing (no block pattern).
+- **Lamp room:** a site cabin south of the mine lane (tag in and out, board with the rules) and ore cars (numbered) on the rail.
+- **Rail and ore:** the rail starts at the centre of the portal (y = -70), runs east over a flush track scale, turns north at x = -22.2 and leaves through the refinery freight gate. Three push-wall bays hold ore grade A, grade B and waste rock, served by a skid loader.
+- **Rail dock:** two loading docks either side of the freight gate under the loading canopy (supplies in: parcels, drums, hand truck), a forklift on the apron, amber beacons and a hazard threshold.
+- **Vehicle bay and fuel:** three marked bays with wheel stops (utility pickup, crew van, forklift) and a bunded diesel station with pump, signage and bollards.
+- **Store:** three containers (spares, tools, consumables and PPE), a marked muster area, a fenced generator and a water tank by the evacuation gate.
+- **Porch:** at the cafeteria door, benches, PPE check and site rules boards, recycling, planters.
+- Keep-clear: the mine lane (y -71.4 to -68.6), the refinery rail strip (x -23.5 to -20.9, y > -70.5), the evacuation path (x -29.7 to -26.3, y < -71.2), the north-west service door path (x -47.4 to -44.8, y > -68.8) and the porch.
+- Ground: concrete apron in 4 m slabs with light wear (four slightly sunk, two cracked), no missing slabs; painted lane edges, bay lines and hatching; trench drains; decals for traffic, skids and oil. Fence with three gates (freight, evacuation, cooling-plant service door), poles with LED floodlights.
+- All signage lettering is baked into the sign atlas. Light run-down wear only.
 
 ### Cafeteria / chill room
 - **A full cafeteria**: ten four-seat tables in east and north-middle blocks plus two booth banks, facing a **kiosk / serving area** in the north-east:

@@ -1,0 +1,148 @@
+# Combined map (new scene, built room by room)
+
+**Agents: read [AGENT_READ_FIRST.md](AGENT_READ_FIRST.md) before touching anything here.** It has the rules and the exact procedure for adding the next room.
+
+Status: **work in progress, unreviewed, not accepted.** Merged to `main` on the owner's explicit instruction (2026-10-06, PR 95) without independent review. This is the scene that replaces the retiring `facility_environment.blend`
+(see `AGENTS.md`, owner plan 2026-10-03). The old map file is not touched.
+
+Spec followed: the layout proposal drafted with the owner on 2026-10-04, `design/facility-layout/README.md` (plan v7) and
+`design/facility-layout/front-end-area/DESIGN.md`. Rooms are added **one at a time**; the next room is added only after the owner's OK.
+Nothing is guessed: each placement cites the source that fixes it. Where the plan and the as-built front end disagree, the as-built
+front end and DESIGN.md win, and the difference is recorded here.
+
+Build: `blender --background --python build_combined_map.py -- --through <room-key>` writes `combined_map.blend`, which links the source
+modules (they are never edited). Frame: plan metres, +x east, +y north, origin at the reactor centre.
+
+## Rooms added so far
+
+| # | Room | Source | Placement (plan) | Status |
+|---|---|---|---|---|
+| 0 | Front-end area (cafeteria, hall, yard) | `sources/front-end-area/front_end_area.blend`, `MODULE_front-end-area` | translation (8, -80), rotation 0. As built: local origin = spawn exit, plan = local + (8, -80) | built, unreviewed (see PR) |
+| 1 | Spawn room | `sources/spawn-room/module.blend`, `MODULE_spawn-room` | translation (8, -92.38), rotation 0 | added, awaiting owner OK |
+| 2 | Mine (R39) | `sources/mine-r39/module_r39_aaa.blend`, `MODULE_mine-r39` | translation (-14.4, -41.0), rotation 0 | added, awaiting owner OK |
+| 3 | Refinery | `sources/refinery/module_overhaul_R1.blend` (17 root collections of the overhaul scene) | translation (-26.28, -52.2), rotation 90 | added, awaiting owner OK |
+| 4 | Medical reanimation | `sources/medical-reanimation/module_overhaul_R2.blend` | translation (26, -70), rotation -90 | added, awaiting owner OK |
+| 5 | Fuel corridor | `sections/fuel-corridor/production/checkpoints/fuel_full_F23ci.blend`, `MODULE_fuel-corridor` | translation (-22.2, -43.6), rotation 0 | added, awaiting owner OK |
+
+### Room 1: spawn room, what fixes the placement
+- `DESIGN.md`: "Compared with plan v7 the 6 m connectors are gone ... That moves the spawn 12 m north", spawn exit on the reactor axis x = 8, exit
+  2.6 m wide into the cafeteria. Plan v7 has the spawn at y -105.4 to -92; moved 12 m north is y -93.4 to -80.
+- Measured in the module (headless Blender): outer 17.4 x 13.4 m, exit on +Y, airlock leaves at local (0, 9.3), the 3.4 m wide service stub ends
+  at local y 12.38 to 12.46 (the old map's "spawn clean-route portal", `fix_spawn_transition.py`). Placing the stub end on the cafeteria south
+  wall gives spawn y from -93.3 to -80.0, which is exactly the 12 m shift, so the stub end is the join.
+- Doorways follow the old map's established method (`ENVIRONMENT_BACKUP.md`): the room is linked through a membership wrapper that omits the 22
+  airlock exclusions of `connections/access/DOOR_BINDINGS.json` (row `spawn_airlock`) and the four `SERVICE_end*` closures. 26 objects omitted,
+  1,916 kept. The source module is unchanged.
+- The cafeteria already has the 2.6 m "ARRIVAL AIRLOCK" opening in its south wall (front-end build), so nothing in the front end was edited.
+- Evidence (480p, Cycles, eye level): `renders/01_spawn_to_cafeteria.png`, `renders/01_cafeteria_to_spawn.png`, plan cutaway
+  `renders/01_spawn_plan_cutaway.png`.
+- Deviation from plan v7: spawn centre x. v7 draws the spawn door at x = 9; the as-built front end and DESIGN.md put the reactor axis and the exit at
+  x = 8, so the spawn is at x = 8.
+- Not checked: lighting balance between the two modules (each keeps its own lights), collision, door state animation, performance.
+
+### Room 2: mine, what fixes the placement
+- Source: the wooden `R39 | Old mine` set (not the concrete "Gullet Mine", which is DO NOT USE), AAA mood file, 4.08 M triangles, owner asked to keep the detail
+  (`sources/mine-r39/AAA_FINISH.md`). Not independently reviewed.
+- Join, both measured: the mine tunnel runs west, as does the yard portal, so no rotation. Tunnel centre line (module y -29.0) goes on the yard mine lane
+  (plan y -70, DESIGN.md "mine axis"); the first timber set (module x -39.0) goes on the end of the yard portal mouth (front-end local x -61.4,
+  plan -53.4). Translation = (-14.4, -41.0, 0). The tunnel then runs 41 m west to plan x about -95 and a far bulkhead at -107, inside v7's mountain (x -112 to -56).
+- Front-end stand-ins removed, because the real mine replaces them (done in the combined scene only; source files unchanged):
+  `portal_void` (dark box closing the mouth), `mountain_mass` (8-vertex rock box filling x -90 to -56, which sealed the tunnel) and the 420 faces
+  of `cliff_face` that form the rock plate closing the portal stub (a local copy of `cliff_face` with those faces cut). Ray test along the mine lane at
+  heights 0.6, 1.7 and 3.0 m: clear from the yard to the far bulkhead (open at eye height).
+- **Owner requirement: the portal shed in front of the mine stays.** Kept: the `R39 | Portal shed` and `R39 | Shed floor` collections and every object inside the
+  shed footprint (module x -39.6 to -21.9, y -37.6 to -20.0 = plan x -54.0 to -36.3, y -78.6 to -61.0), with the rail running through it. 17 shed objects kept whole.
+- Mine surface still removed, because the front-end yard is the surface depot: apron mud, yard puddles, yard ground fog and the 13 asset-source templates parked at
+  the module origin (28 objects omitted); 26 straddling meshes (rails, sleepers, tunnel floor and similar) trimmed by deleting faces east of the mouth and outside the shed;
+  `R39 | Cobwebs` (not a plain mesh) kept whole. 46 shed objects kept. The mountain (R40) is kept whole. The mine's sun lamp is kept.
+- **Shed vs yard, resolved (owner chose option 1: the shed replaces the yard props under it).** In the combined scene the front end loses the objects centred inside the shed
+  footprint: `lamp_room_cabin` and its sign, tag board, door light and stains; both `ore_bay` with piles, signs and stains; the three `ore_cart` and their signs; `pole_0`,
+  `pole_3` and their lights; `vent_fan`; `floor_bay_no_0`; nine ballast stones (37 objects). The yard's `rail_rails` and `rail_sleepers` are clipped through the footprint
+  (2,530 and 683 faces) so only the mine's rail runs through the shed. The portal collar, rock face, its signage, ground pads and the rest of the yard are untouched. The
+  front end now has no lamp room, ore bays or ore carts at the portal; its design notes (DESIGN.md section 3) still list them, so the owner should say whether they move
+  elsewhere in the yard or stay dropped.
+- Build note: linked objects report an identity world matrix until they pass through a scene, so the patches use `wm()` (the object's own transforms). An earlier build used
+  matrix_world and wrongly dropped many mine props and lamps; fixed.
+- Evidence (768x432, Cycles, 32 samples): `renders/02_mine_yard_to_portal.png`, `renders/02_mine_yard_overview.png`, `renders/02_mine_tunnel_to_yard.png`.
+- Open and not fixed: the mine's mountain (R40) runs plan y -123 to -20, wider than v7's -104 to -60. Its north end will meet the cooling plant (x -57 to -44,
+  y -30 to -15), the yard-to-cooling link and the mine-water pipe when those are placed; trim it then. The mine rail and the yard rail overlap
+  only at the mouth (mine rail trimmed there); the rails look continuous in the renders but the heights were not measured.
+- Not checked: lighting balance (the tunnel is dim next to the warm yard), collision, rail height match, performance. 4 M triangles on top of the front end.
+
+### Room 3: refinery, what fixes the placement
+- Plan checked first: `design/facility-layout/README.md` (plan v7, drafted with the owner; its status line still says proposal, not reviewed or accepted) and `front-end-area/DESIGN.md`.
+  v7 puts the refinery on the line yard (freight in) to refinery to fuel corridor (fuel out), x -33.7 to -18.9, with the hall colonnade arriving at its east wall.
+- Source: `module_overhaul_R1.blend` (R24 reviewed 99.10, "done and dusted" by owner; the R25 finish #76 on top is unreviewed). It is the complete room (module plus overhaul), so
+  every root collection of its scene is linked except the duplicate `MODULE_refinery` wrapper and the review cameras. Hidden state travels per object. The file is not edited.
+- Rotation 90 degrees: the module's freight door (`Door_Mine`, west wall at module (-7.51, -4.08)) goes to the south wall, the fuel door (`Door_Reactor`, east wall) to the north wall,
+  the personnel door (`Door_Entry`, south wall at module (-1.8, -6.43)) to the east wall. Same rotation as `LAYOUT_A12.json`.
+- Position, each from a measurement: freight door x = yard freight gate centre, x -22.2 (posts -23.9 to -20.5; DESIGN.md "turns north at x = -22.2") gives x = -26.28; personnel door y =
+  colonnade centre line y -54 (`colonnade_floor` y -55.5 to -52.5) gives y = -52.2. Cross-check, not used to fit: the east outer face lands at x -18.95 against the colonnade end at -18.9,
+  and the x range -33.75 to -18.95 matches v7's -33.7 to -18.9.
+- **Deviation from v7:** y range is -61.2 to -43.6 (outer, with door sills), v7 drew -57.6 to -40.4, so the refinery is 3.6 m further south. v7 assumed door positions; the as-built
+  gate and colonnade fix them. Consequence for later: the fuel corridor's start (v7 (-22.2, -40.4)) is now at y -43.6, 3.2 m closer to the refinery.
+- **Railway (owner preference: the mine's, not the courtyard's).** The yard's `rail_*` objects and all `ballast_*` stones are removed (55 yard objects with the earlier shed clearance).
+  The mine's own track (kept whole, no longer trimmed at the shed) is extended: its last 4.92 m segment (rails, sleepers, ironwork; level) is copied end to end: 4.2 m straight, a 4 m radius
+  quarter turn onto x -22.2 (rails sliced every 0.25 m and bent, sleepers and ironwork placed rigidly), then 6.0 m north to the freight door at y -60.0. 16.5 m, 12 new objects.
+  The refinery's own rail picks up inside the door. The yard's track scale stays on the line.
+- Yard changes needed to fit: the two loading dock platforms (`dock_west`, `dock_east`) ran past the refinery's south wall (plan y -60.1) by up to 1.5 m and are cut at the wall (local copies).
+  The north fence line (y -60.1) coincides with the refinery's south wall face; fence panels were left in place.
+- Evidence (768x432, Cycles, 32 samples): `renders/03_refinery_yard_to_gate.png`, `03_refinery_rail_turn.png`, `03_refinery_rail_overhead.png`, `03_refinery_colonnade_door.png`,
+  `03_refinery_freight_door_in.png`.
+- Not checked: refinery interior lighting against the dusk yard, rail height against the refinery's inner rail, the yard fence panels sitting against the wall, collision, performance;
+  the fuel corridor, personnel interior route and refinery roof against the colonnade roof were not inspected beyond the renders. Unreviewed.
+
+## Review pass (renders in `renders/review/`, 33 views of the scene through room 3)
+Cycles, 28 to 36 samples, 768x432 or 960x540, night world. Cameras that landed inside geometry were discarded or re-shot; one interior angle (refinery NW) was dropped as unusable.
+Prefixes: `join_` connected areas, `new_` areas not shown before, `overview_` whole-scene, `risk_` places that look wrong or unfinished.
+
+What works: spawn airlock to hall sightline (`join_01`), cafeteria west door to yard and shed (`join_02`), shed to tunnel and the tunnel itself (`join_03`, `join_04`), the rail
+from shed through the turn into the refinery (`join_09`, `join_10`), colonnade to the refinery personnel door (`join_05`, `join_06`), refinery interior (`join_07`, `join_08`).
+
+**Fix log** (renders in `renders/fixes/`)
+- **Fix 1, shed across the north-west service path: fixed and verified.** The shed stays; a passage is carved through it on the gate line: opening in the north wall 2.8 m wide (plan x -47.5 to -44.7), 2.9 m high,
+  clear corridor to the mine lane (plan y -68.8). Shed frame (4 islands removed, 36 faces cut) and boards (15 small islands) are local copies with the volume cut and capped; the magazine board and powder sign that hung on the cut
+  wall are removed. Verification: 130 horizontal rays (13 heights 0.3 to 2.7 m by 10 positions across 2.0 m) from just inside the gate to the lane, 0 blocked (excluded: the gate leaf and frame, the sign above the door, the shed's fog volume);
+  0 overhead obstacles in 18 downward probes; renders `fix01_lane_to_service_gate.png`, `fix01_gate_into_shed.png`, `fix01_gate_from_outside.png`.
+- **Fix 2, brown yard cliff against the grey mine mountain: fixed.** The mountain's own material renders near black on the yard mesh (tried first, discarded). The yard cliff's own material is copied locally and a Hue/Saturation
+  node (saturation 0, value 3.6) plus a warm multiply (0.82, 0.79, 0.68) is put before its shader, matched from render measurements: mountain rock hsv 0.15/0.11/0.29, yard cliff before 0.55/0.20/0.13, after 0.30/0.08/0.25 in the
+  same lighting. Renders `fix02_*`. The yard cliff is still a rounded buttress in front of a flat wall (geometry unchanged); the textures differ in scale.
+- **Fix 3, mountain too long / flat: eased, partly fixed.** The mountain's four meshes (R40) are local copies with heights scaled by a smoothstep toward the ground over plan y -49 to -29 (north end, clear
+  of the cooling plant area) and y -99 to -117 (south end); footprint and material unchanged. It is still one large wall, 80 m at full height against v7's 44 m; the yard-facing face was not touched.
+- **Fix 4, evacuation gate sign blank: fixed and verified.** The sign is a box with atlas UVs on its yard-facing face only, the rest collapsed to one green pixel. The opposite face is mapped to the same atlas rectangle in a local copy
+  (`fix04_evac_sign.png`, text readable from outside the gate). The first attempt, lowering the emission, was a wrong diagnosis and was dropped.
+- **Fix 5, cafeteria directory totem blank back: fixed and verified.** A copy of `board_directory` rotated 180 degrees on the totem's centre line (`fix05` renders in the review set).
+- **Fix 6, spawn exterior flat boxes: fixed.** The spawn room's R05 exterior skin (167 objects, `exteriors/spawn-room/exterior-R05.blend`, unreviewed) is added; same footprint. The refinery (R01) and medical (R04) exterior skins are added the same way.
+- **Fix 7, doors that lead nowhere: partly fixed.** Medical is now placed (room 4, `module_overhaul_R2.blend`, threshold on the cafeteria east door, rotation -90) so that door opens into a lit room (`fix07_*`). The refinery fuel door has a
+  closed placeholder shutter named `PLACEHOLDER_fuel_door_shutter` until the fuel corridor is placed. The hall spine door and east trunk door are real closed doors in the front-end build (`fix07_hall_spine_door.png`
+  shows the lit spine beyond the blast door; the east trunk door is a closed double door); they open onto black only if opened, until the reactor and dock are placed.
+- **Fix 8 and 10, dark night exterior, empty black world: fixed.** The combined scene now has its own dusk (dim blue sky, moon-strength sun) set in the build, so exteriors read (`fix_after_*` renders). The ground
+  plane is still the front end's 260 m context ground, with black beyond.
+- **Fix 9 and refinery wall: lighting only.** The refinery west wall and colonnade exterior are now readable under the new dusk; the wall itself is plain (the module's own exterior), and the tunnel end remains a dark timber barricade (`fix_after_07`). Not changed.
+
+## Room 5: fuel corridor (added after the fix pass, awaiting owner OK)
+
+- Source: `sections/fuel-corridor/production/checkpoints/fuel_full_F23ci.blend`, collection `MODULE_fuel-corridor` (F23ci reviewed 99; the AAA finish #77 on top is unreviewed and not used; 678,692 triangles). The file is not edited.
+- Placement: port `F01_REFINERY` is the module origin (centre (0,0,0), outward -Y, 2.6 x 3.0 m), corridor runs +Y for 24 m, rotation 0. Translation (-22.2, -43.6): x is the refinery fuel door centre, y the refinery outer sill.
+  Outer bounds x -27.9 to -4.9, y -43.6 to -19.6. The far port `F02_REACTOR` lands at plan (-8.0, -19.6) facing +Y; it ends in the corridor's own closed blast door (`room5_fuel_06`), 5 x 5 m.
+- The `PLACEHOLDER_fuel_door_shutter` is no longer built once this room is included. The refinery's own fuel door is a real closed double door (`room5_fuel_01`); the corridor inlet is visible beyond it (`room5_fuel_02`).
+- Checked in renders only: no overlap with the refinery, the mountain's north end, the hall or the neighbouring long building (plan view `room5_fuel_05`). No numeric clearance or walk test was run through the doors.
+- Not done: the corridor is shown as plain boxes from outside, since no exterior skin was added (`room5_fuel_03`, `04`); its interior is the module's own and is lit by its own practicals. Unreviewed in this scene.
+
+Defects and open items found (original list, before the fixes above):
+1. **Shed blocks the yard's north-west service gate path** (`risk_12`). DESIGN.md keep-clear: x -47.4 to -44.8, y > -68.8 (to the cooling-plant door). The shed (plan x -54.0 to -36.3, y -78.6 to -61.0)
+   covers that path from y -68.8 up to the fence. The owner requires the shed, so the path or the gate needs a decision (move the gate, route round the shed, or accept the gate leading into the shed).
+2. **Brown yard cliff against the grey mine mountain** (`risk_02`, `risk_11`): different rock materials and a hard vertical seam where the yard's cliff face butts the mine's flat grey wall.
+3. **Mine mountain is a flat, very large, repetitive wall** (`risk_02`, `risk_03`), running plan y -123 to -20; it will collide with the cooling plant area (see room 2 notes).
+4. **Evacuation gate sign is a blank mint rectangle** (`risk_01`, `risk_10`) in the front-end build (`sign_evac_gate`); other signs in the same atlas render their text.
+5. **Refinery fuel door** now leads to the fuel corridor (room 5, see above); the refinery's own door stays closed; refinery west wall and roof are plain and very dark at night (`risk_05`, `risk_06`).
+6. **Doors to rooms not placed yet** open to black: medical (`risk_09`), hall spine and east trunk, colonnade-side ground (`risk_07`).
+7. **Front-end `directory_totem` in the cafeteria has a blank back face** (seen in the cafeteria render from the hall opening), a plain lilac slab in the aisle sightline.
+8. **Spawn room exterior is flat saturated colour boxes** against the cafeteria's south wall (`new_07`).
+9. **Tunnel far end is a dark timber barricade** at x -107 (`risk_08`); fine as a dead end, very dark.
+10. Night exterior is very dark overall; the world beyond the front end's ground plane is empty black.
+
+## Remaining rooms in plan order (not yet added)
+Placed so far: front end (cafeteria, hall, yard), spawn, mine, refinery, medical, fuel corridor. Still to place: the reactor room (the fuel corridor's far port `F02_REACTOR` is at plan (-8.0, -19.6)
+facing +Y, 5 x 5 m; the hall spine also leads to the reactor), then the east trunk rooms (compliance dock, waste storage), turbine, electrical, cooling, condenser bay, outer ring and gantry.
+Order and sizes come from `design/facility-layout/README.md` (plan v7) and `MEASURED_ROOM_SIZES.md`. Add one room per owner OK, following AGENT_READ_FIRST.md.

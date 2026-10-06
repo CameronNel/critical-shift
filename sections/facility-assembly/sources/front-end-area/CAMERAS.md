@@ -29,3 +29,33 @@ FE_08 was re-aimed and FE_09 added after the owner's review notes (the old FE_08
 | CAF_X1_AIRLOCK_DOOR | 8.0, -71.5, 1.65 | 8.0, -80.0, 1.7 | 20 | spawn airlock leaves and sign |
 | CAF_X2_YARD_DOOR | 1.5, -70.0, 1.65 | -8.0, -70.0, 1.7 | 20 | yard door leaves and exit sign |
 | CAF_X3_MEDICAL_DOOR | 18.5, -70.0, 1.65 | 26.0, -70.0, 1.7 | 20 | medical door and sign |
+
+## Hall inspection cameras (revision 6)
+
+| Camera | Eye (x, y, z) | Target (x, y, z) | Lens | Checks |
+|---|---|---|---|---|
+| HAL_01_FROM_CAFETERIA | 8.0, -59.4, 1.65 | 8.0, -48.0, 2.3 | 20 | first view from the cafeteria opening: blast door, gantry, stair, safety station |
+| HAL_02_WEST_LOCKERS | 30.5, -54.0, 1.65 | -3.5, -55.5, 1.5 | 20 | the long hall: dispatch, desk, status board, lockers, west door |
+| HAL_03_LOCKERS_AND_PPE | 5.6, -54.2, 1.65 | -3.0, -58.2, 1.2 | 22 | locker room, PPE issue, west door |
+| HAL_04_DESK_AND_DISPATCH | 12.0, -53.4, 1.65 | 24.0, -58.5, 1.3 | 22 | shift desk, radios, dispatch bays, east door |
+| HAL_05_SAFETY_STATUS | 17.0, -54.6, 1.65 | 16.0, -48.2, 2.1 | 24 | safety station, hose cabinet, status board |
+| HAL_06_MAINTENANCE_BAY | 6.4, -54.6, 1.65 | -2.4, -50.4, 1.5 | 22 | workbench, tool wall, stair, parts shelving |
+| HAL_X1_BLAST_DOOR | 8.0, -53.0, 1.65 | 8.0, -48.0, 2.2 | 24 | blast door, beacons, console, bollards |
+| HAL_X2_WEST_DOOR | 6.0, -54.0, 1.65 | -4.0, -54.0, 1.9 | 20 | west double door and signs |
+| HAL_X3_EAST_DOOR | 26.0, -54.0, 1.65 | 32.0, -54.0, 1.9 | 20 | east double door, muster area |
+
+## Yard inspection cameras (revision 7)
+
+| Camera | Eye (x, y, z) | Target (x, y, z) | Lens | Checks |
+|---|---|---|---|---|
+| YRD_01_FROM_PORCH | -8.8, -70.0, 1.65 | -48.0, -70.4, 2.2 | 22 | the whole mine lane: lamp room, ore cars, portal, rail dock |
+| YRD_02_PORTAL | -31.0, -70.6, 1.7 | -49.0, -70.0, 2.3 | 24 | portal collar, cliff, cabin, ore cars, tag board |
+| YRD_03_ORE_BAYS | -24.6, -69.3, 1.7 | -38.0, -62.0, 1.3 | 22 | ore bays, skid loader, gas store |
+| YRD_04_VEHICLE_BAYS | -28.5, -72.6, 1.7 | -36.0, -80.5, 1.2 | 22 | marked vehicle bays, diesel station, evacuation gate |
+| YRD_05_RAIL_DOCK | -22.2, -68.5, 1.7 | -22.2, -60.5, 2.0 | 22 | rail, docks, freight gate, canopy |
+| YRD_06_STORE_AND_POWER | -24.5, -71.2, 1.7 | -14.0, -79.0, 1.3 | 22 | containers, muster, generator, porch |
+| YRD_07_AERIAL | -24.0, -108.0, 52.0 | -28.0, -72.0, 0.0 | 30 | layout of the depot (roofs hidden) |
+| YRD_08_NIGHT_SKY | -22.0, -70.5, 1.7 | -27.8, -103.1, 24.1 | 18 | night sky to the south: Orion, Sirius, Milky Way, moon |
+| YRD_X1_PORTAL_CLOSE | -33.5, -71.3, 2.3 | -49.0, -70.0, 2.3 | 28 | portal detail |
+| YRD_X2_FREIGHT_GATE | -22.2, -64.0, 1.7 | -22.2, -60.0, 2.4 | 22 | freight gate and beacons |
+| YRD_X3_EVAC_GATE | -28.0, -76.0, 1.7 | -28.0, -84.0, 1.6 | 20 | evacuation gate and path |

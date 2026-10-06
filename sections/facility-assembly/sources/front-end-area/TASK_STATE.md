@@ -20,6 +20,40 @@ Seven `IF_PORTAL_*` empties with clear width, height and outward normal: spawn a
 cafeteria-to-hall opening 6.0 m, hall west door 2.4 m, hall east door 2.4 m, spine blast door 3.6 m. All sit at the planned
 plan positions; none were moved.
 
+## Revision 7 (2026-10-05): yard rebuilt as the mine surface depot
+The owner asked for the yard next, with the same standard: everything must make sense, cliff, portal front and ground rebuilt as well. The old yard was a random scatter (mixed-colour containers, trees, shrubs, barrels, bales and tyres, a pickup, van and forklift with no reason to be where they were). It is replaced by the surface depot of the mine (see `design/facility-layout/front-end-area/DESIGN.md`, yard section):
+- **Portal:** natural cliff (benches, jointing, no block pattern, flattened around the portal), concrete collar with piers and lintel, steel jamb liners, hazard soffit, three timber sets with lagging, baked entrance plate, lamps, rock bolts and safety mesh; ventilation fan beside it with a duct stub into the rock. The reused R39 front panel (`fe_minefront.py`) is gone.
+- **Lamp room and rail:** site cabin with barred windows, glazed door, steps and AC unit; tag board; three numbered ore cars loaded with ore; flush track scale with a display post.
+- **Ore bays:** three push-wall bays (grade A, grade B, waste rock) with ore piles and baked plates, skid loader in front, caged gas store.
+- **Rail dock:** two loading docks either side of the freight gate under the canopy, parcels, drums, hand truck, forklift, amber beacons, hazard threshold, STOP TRAINS stencil.
+- **Vehicles and fuel:** three marked bays with wheel stops and numbers (new utility pickup, new crew van, forklift), bunded diesel station with two tanks, pump and board.
+- **Store and power:** three green containers with baked plates, marked muster area B, fenced generator, water tank. **Porch:** benches, PPE check and site rules boards, recycling, planters.
+- **Ground:** concrete apron with light wear (four slabs slightly sunk, two cracked, none missing), painted lane edges, bay lines, hatching, three trench drains; 212 wear decals now cover the hall, the yard apron and the cafeteria's yard-facing wall.
+- Removed: all trees, most shrubs, barrels, bales, tyres, cones, crates, cable drums, steel stock, pipe stacks, hose reels, planters except three, `fe_yard2.py`, the old props and `fe_minefront.py`. `fe_yard.py` is reduced to constants and `inst()`.
+- New modules: `fe_yard3.py` (apron, cliff, portal, rail, fence and gates, canopies, drains), `fe_depot.py` (layout, signs, markings), `fe_depot_assets.py` (pickup, van, ore car, ore pile, cabin, track scale, skid loader, fuel station, ore bays, rock bolt, safety mesh, LED pole, wheel stop, dock, beacon, fan).
+- Cameras: `YRD_01` to `YRD_07` plus `YRD_X1` portal close, `YRD_X2` freight gate, `YRD_X3` evacuation gate (see `CAMERAS.md`).
+- Numbers (`validation.json`): total 570,374 triangles (yard 214,170, cafeteria 262,624, hall 90,584, shared 2,996); 129 interior and 114 yard floor objects, 0 gap and 0 penetration failures; clear lanes pass; no prop-prop intersections except piles inside their bays (checked with a bounding-box script).
+- Not done: the whole-area `FE_*` renders are stale; vehicle bodies are simpler than the hall props; the refinery side beyond the freight gate is not modelled. Unreviewed, no independent review, not accepted.
+
+## Revision 6 (2026-10-05): hall rebuilt as an operations hub
+The owner asked for the hall to be refined and for everything in it to make sense. The previous hall was a scatter of jersey barriers, sandbags, scaffold, cable drums and a cave-in with no purpose, plus a gantry that led nowhere. It was removed (`fe_hallsite.py` deleted) and the hall rebuilt around one idea: **the shift hub and junction of the facility**. Every item belongs to a zone with a job (plan frame, x east, y north; hall x -4..32, y -60..-48):
+- **Locker room and PPE issue (south-west):** eight steel PPE lockers on the west wall (two ajar with a hard hat and hi-vis), two changing benches, a PPE dispenser, a safety briefing board, water cooler, cleaner's cart.
+- **Shift desk (south wall, x 12..16):** staffed desk with three monitors, radio base, phone, chair behind it; schedule board; radio charging dock and key cabinet. It sits beside the cafeteria opening so arrivals check in first.
+- **Dispatch / goods in (south-east):** three painted pallet bays A to C, palletised parcels, pallet jack, roll cage, hand truck and two shelving bays, beside the east door to the trunk road to the dock and waste.
+- **Emergency and status (north-east):** safety station (eyewash, first aid, AED, extinguisher, spill kit), fire hose cabinet, facility status board, evacuation plan, and a marked green muster area at the east end.
+- **Blast door (north, reactor axis):** 3.6 x 3.2 m door with beacons, a control post (key switch, e-stop, lamps, keypad), an interlock notice (hard hat, dosimeter, two-person rule), two bollards and a hazard hatch in front.
+- **Maintenance bay (north-west):** workbench with vice, tool wall, tool chest, parts shelving, marked floor zone, directly under the stair to the plant gantry.
+- **Plant gantry (rebuilt):** a 10 m grated deck at 4.2 m over the blast door, reached by a 21-tread stair with sloped stringers (the old stair used horizontal beams), serving a closed plant-room hatch in the north wall.
+- **Wayfinding:** four hanging signs (refinery, dock/waste, reactor spine, cafeteria), floor stencils, yellow walkway lines along the two clear lanes, exit signs over both end doors, painted double leaves with vision panels on the end doors.
+- **Overhead services:** supply duct and PA horns along the south wall, red sprinkler main with heads, cable tray with cables, two rows of light strips, smoke detectors, four CCTV domes. All clear of the gantry and signs.
+- **Lettering:** every sign, board, label and floor stencil is baked in the sign atlas; no text objects remain in the hall. New icons: hard hat, wrench, bolt, box, warning, muster, lock.
+- Also fixed: the cafeteria kitchen's extractor hood poked through the hall wall; it is now a three-box hood inside the block. Painted-steel props had ignored their colour (no vertex-colour material); a new `paint` material fixes the lockers, bench, tool chest and station.
+- Wear: the decal pass now covers the hall (lanes, door scuffs, bays, blast door, dado scuffs, skirting dust, streaks).
+- Cameras: `HAL_01` to `HAL_06` plus door checks `HAL_X1` blast, `HAL_X2` west, `HAL_X3` east (see `CAMERAS.md`).
+- Numbers (`validation.json`): total 683,384 triangles (yard 327,180, cafeteria 262,624, hall 90,584, shared 2,996). 129 interior and 130 yard floor objects, 0 gap and 0 penetration failures; clear lanes pass; seven interface portals unchanged.
+- Asset library: five new groups in `asset-workspace/` (hall_ops, hall_work, hall_safety, hall_shell, and the hall door leaf).
+- Not done: yard art; the whole-area `FE_*` renders are stale; hall `FE_03` and `FE_07` no longer match. Unreviewed, no independent review, not accepted.
+
 ## Revision 5 (2026-10-05): textures, panelling, wear, asset workspace (final pass)
 The owner said the walls read as "90s doom graphics", some assets needed overhauls, and everything should look a bit worn. Only the cafeteria and the shared hall shell were touched.
 - Textures (new `fe_textures.py`, numpy + Pillow, build time, tileable, deterministic): `plaster5` (painted lime plaster with orange-peel stipple, trowel swirls, roller streaks, hairline cracks, pits), `wood5` (sealed timber veneer), `metal5` (brushed steel), `cork5` and `wear_atlas.png`. They replace the blotchy CC0 plaster, wood and metal sets on the walls, ceiling, timber and charcoal steel; the old files stay in `textures/` for the yard. A new `steel_brushed` material (light stainless) replaces the dark charcoal on every light-coloured steel part.
@@ -103,6 +137,13 @@ The owner found v1 read as a PS2 horror game and its props low-effort. v2 replac
 - No physics or gameplay assumptions: furniture and junk are static scenery.
 - The mine front is the reference mine's portal only; its tunnel interior, props and track are not used. The existing mine
   module was not edited.
+
+## Revision 8: night, wet mud (yard)
+- Scene is now night. World is a generated star map (`fe_sky.py` -> `textures/night_sky.jpg`; real RA/Dec positions seen from latitude 40 N, sidereal time 6 h, named constellations with faint lines, Milky Way, moon). The moon is also a cool sun light at the painted moon's direction. Interior fill lights are unchanged.
+- Yard ground (`fe_mud.py`, `fe_yard3.build_ground`): wet mud heightfield with tyre ruts and pools, flat reflective water, a darker gravel haul road along the mine lane and to the evacuation gate, concrete pads only under fuel/bays, cabin, ore bays, rail dock, stores, generator and porch. Painted lane dashes, the track-scale floor sign and floor decals off the pads were removed.
+- Real lights now exist for the 8 floodlight poles, canopy lamps, portal/mouth lamps, freight beacons and cabin, gate and porch lamps.
+- Ran: `validate_front_end.py` (0 gap/penetration failures, lane violations none, 608,798 triangles) and the overlap check. `ore_bay_1`/`ore_pile_1` overlap is by design (pile sits in the bay).
+- Not done: only the YRD renders were regenerated; CAF, HAL and FE renders are still the daytime set. Gravel and mud look judged from 64-sample renders only. No independent review.
 
 ## Known defects
 - Cliff face is a smoothed block heightfield with a box-projected rock texture: believable at yard distance, soft up close.

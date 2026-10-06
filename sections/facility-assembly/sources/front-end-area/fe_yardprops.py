@@ -1,0 +1,85 @@
+"""Scatter of worked-in depot clutter on the mud: a fire barrel, tyre stacks, drums, sandbags, barriers, cones, crates on pallets, tools.
+Every candidate position is tested against the bounds of everything already standing in the yard and against the required clear lanes,
+so nothing is placed inside anything or across a route. Deterministic."""
+import math, random
+from fe_common import *
+from fe_assets_int import STD, I, mb
+from fe_assets_yard import barrel, tyre, cone, crate, pallet, cable_drum
+from fe_assets_site import jersey, sandbags, bucket, wheelbarrow, toolbox
+from fe_yard import inst
+from fe_yard3 import on_pad
+
+SKIP = ('yard_earth', 'pad_', 'floor_', 'context_', 'yard_base', 'ground_cracks', 'stone_', 'ballast', 'cliff', 'streak', 'stain', 'rail_', 'wear', 'sign_', 'board_', 'drain_')
+CLEAR = [(-49.0, -8.0, -71.4, -68.6), (-23.6, -20.8, -71.0, -59.5), (-29.8, -26.2, -84.5, -71.0), (-47.5, -44.7, -69.0, -59.5), (-12.7, -7.8, -85.0, -59.0)]
+
+def _boxes():
+    out = []; bpy.context.view_layer.update()
+    for o in bpy.data.objects:
+        if o.type != 'MESH' or o.name.startswith(SKIP) or o.hide_render: continue
+        try: cs = [o.matrix_world @ Vector(c) for c in o.bound_box]
+        except Exception: continue
+        if min(c.z for c in cs) > 3.0 or max(c.z for c in cs) < 0.02: continue
+        out.append((min(c.x for c in cs), max(c.x for c in cs), min(c.y for c in cs), max(c.y for c in cs)))
+    return out
+
+def build_yard_props(F, C):
+    yard = C['YARD']; P = collection('PROTOTYPES'); rnd = random.Random(2026)
+    boxes = _boxes()
+    pr = {'drum_blue': barrel(F, P, (0.07, 0.09, 0.20, 1), 'drum_blue'), 'drum_red': barrel(F, P, (0.52, 0.23, 0.14, 1), 'drum_red'), 'drum_yel': barrel(F, P, (0.85, 0.62, 0.12, 1), 'drum_yel'),
+          'drum_rust': barrel(F, P, (0.14, 0.14, 0.16, 1), 'drum_rust'), 'tyre3': tyre(F, P, 3, 'tyre3'), 'tyre2': tyre(F, P, 2, 'tyre2'), 'cone': cone(F, P), 'pallet': pallet(F, P),
+          'crate0': crate(F, P, 0), 'crate1': crate(F, P, 1), 'jersey': jersey(F, P), 'sand0': sandbags(F, P, 0), 'sand1': sandbags(F, P, 1), 'bucket': bucket(F, P), 'barrow': wheelbarrow(F, P),
+          'toolbox': toolbox(F, P), 'drum_cable': cable_drum(F, P)}
+    # fire barrel: rust drum with a ragged emissive flame (the lighting stage adds the flickering warm light at 'fire_barrel')
+    m = mb(F)
+    m.lathe([(0.0, 0.0), (0.27, 0.0), (0.285, 0.05), (0.285, 0.85), (0.27, 0.9), (0.0, 0.9)], seg=24, mi=I['props'], rgba=(0.12, 0.07, 0.05, 1))
+    for k, (sc, hh, col) in enumerate(((1.0, 0.62, (1.0, 0.26, 0.03, 1)), (0.8, 0.5, (1.0, 0.42, 0.05, 1)), (0.55, 0.42, (1.0, 0.72, 0.18, 1)))):
+        a = k * 2.1; r = 0.1 if k < 2 else 0.0; w = 0.17 * sc
+        m.lathe([(0.0, 0.0), (w * 0.8, 0.02), (w, 0.14), (w * 0.82, 0.3), (w * 0.5, 0.46), (w * 0.2, hh), (0.0, hh + 0.12)], loc=(math.cos(a) * r, math.sin(a) * r, 0.9), seg=14, mi=I['emissive'], rgba=col)
+    pr['fire'] = m.finish('proto_fire_barrel', P)
+    footprint = {'drum_blue': 0.36, 'drum_red': 0.36, 'drum_yel': 0.36, 'drum_rust': 0.36, 'tyre3': 0.42, 'tyre2': 0.42, 'cone': 0.2, 'pallet': 0.75, 'crate0': 0.5, 'crate1': 0.5, 'jersey': 1.05,
+                 'sand0': 1.0, 'sand1': 1.0, 'bucket': 0.25, 'barrow': 0.6, 'toolbox': 0.3, 'drum_cable': 0.6, 'fire': 0.45}
+    def free(x, y, r):
+        if not (-47.3 < x < -8.7 and -83.6 < y < -60.4): return False
+        for (a, b, c, d) in CLEAR:
+            if a - r < x < b + r and c - r < y < d + r: return False
+        for (a, b, c, d) in boxes:
+            if a - r < x < b + r and c - r < y < d + r: return False
+        return True
+    placed = []
+    def put(kind, region, n, name, stack_crate=False, tries=300, mud_only=False, **kw):
+        a, b, c, d = region; got = 0
+        for _ in range(tries):
+            if got >= n: break
+            x = rnd.uniform(a, b); y = rnd.uniform(c, d); r = footprint[kind]
+            if mud_only and on_pad(x, y, 0.4): continue
+            if not free(x, y, r) or any(math.hypot(x - px, y - py) < r + pr_ for px, py, pr_ in placed): continue
+            inst(pr[kind], f'{name}_{got}', x, y, yard, rz=kw.get('rz', rnd.uniform(0, 6.28)), support='floor'); placed.append((x, y, r)); got += 1
+            if stack_crate and kind == 'pallet': inst(pr[rnd.choice(('crate0', 'crate1'))], f'{name}_crate_{got}', x, y, yard, rz=rnd.uniform(-0.3, 0.3), z=0.17, support='stack')
+        return got
+    put('fire', (-43.6, -37.0, -67.6, -64.4), 1, 'fire_barrel', mud_only=True)
+    put('tyre3', (-40.0, -31.0, -67.8, -64.4), 2, 'tyre_stack_a', mud_only=True); put('tyre2', (-40.0, -31.0, -67.8, -64.4), 2, 'tyre_stack_b', mud_only=True)
+    put('drum_cable', (-38.0, -30.0, -76.0, -72.8), 1, 'cable_drum', mud_only=True)
+    put('pallet', (-39.0, -30.0, -76.0, -72.8), 2, 'pallet_m', stack_crate=True, mud_only=True)
+    for k, nm in enumerate(('drum_blue', 'drum_red', 'drum_yel', 'drum_rust')): put(nm, (-47.0, -30.0, -83.0, -73.0), 2, f'drum_{k}')
+    put('jersey', (-47.0, -13.0, -83.4, -82.4), 3, 'jersey_x')
+    put('sand0', (-30.0, -13.0, -77.0, -72.5), 1, 'sandbags_a', mud_only=True); put('sand1', (-47.0, -30.0, -67.8, -64.0), 1, 'sandbags_b', mud_only=True)
+    put('cone', (-40.0, -29.0, -78.8, -76.0), 3, 'cone', tries=500)
+    put('crate0', (-25.0, -9.0, -83.0, -72.5), 3, 'crate_a'); put('crate1', (-25.0, -9.0, -83.0, -72.5), 3, 'crate_b')
+    put('pallet', (-25.0, -9.0, -83.0, -72.5), 2, 'pallet_p', stack_crate=True)
+    refinery_tunnel(F, C)
+    put('barrow', (-47.0, -13.0, -67.8, -60.5), 1, 'wheelbarrow', mud_only=True); put('bucket', (-47.0, -13.0, -83.0, -60.5), 4, 'bucket'); put('toolbox', (-47.0, -13.0, -83.0, -60.5), 1, 'toolbox')
+    return placed
+
+
+def refinery_tunnel(F, C):
+    """Short lit service tunnel behind the freight gate so the opening shows a corridor, not sky: concrete shell, ballast floor, rail stub, lamps down its length and a red beacon at the far end."""
+    yard = C['YARD']; RX = -22.2; y0, y1 = -60.2, -49.0
+    dark = F['concrete_slab']
+    box('tunnel_wall_w', RX - 2.4, RX - 2.0, y0, y1, 0.0, 3.8, dark, yard, bev=0.01); box('tunnel_wall_e', RX + 2.0, RX + 2.4, y0, y1, 0.0, 3.8, dark, yard, bev=0.01)
+    box('tunnel_roof', RX - 2.4, RX + 2.4, y0, y1, 3.6, 3.9, dark, yard); box('tunnel_end', RX - 2.4, RX + 2.4, y1 - 0.3, y1, 0.0, 3.8, dark, yard)
+    box('tunnel_floor', RX - 2.0, RX + 2.0, y0, y1, -0.1, 0.0, F['apron'], yard)
+    for k in range(5):
+        y = y0 + 1.6 + k * 2.2
+        box(f'tunnel_lamp_{k}', RX - 0.5, RX + 0.5, y - 0.1, y + 0.1, 3.5, 3.58, F['emissive'], yard, rgba=(1.0, 0.72, 0.38, 1))
+        box(f'tunnel_rib_{k}', RX - 2.0, RX + 2.0, y - 0.18, y + 0.18, 3.35, 3.6, F['steel_charcoal'], yard)
+    box('tunnel_beacon', RX - 0.15, RX + 0.15, y1 - 0.5, y1 - 0.3, 2.4, 2.7, F['emissive'], yard, rgba=(1.0, 0.1, 0.04, 1))

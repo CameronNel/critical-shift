@@ -4,7 +4,7 @@
 
 **Status: proposal only.** Drafted with the owner on 2026-10-04. It has not been reviewed or accepted, nothing in it is built,
 and it does not change the current assembled map, which is being retired (see `AGENTS.md`). It is a layout for the map
-that replaces it. Room modules are not edited; the plan assumes new doors and connectors are cut wherever a link needs one.
+that replaces it. Its build is in progress at `sections/facility-assembly/combined/` (start with `AGENT_READ_FIRST.md` there; rooms placed so far are listed in it). Room modules are not edited; the plan assumes new doors and connectors are cut wherever a link needs one.
 
 ## Layout in one paragraph
 Spawn opens into a chill room and cafeteria. A west door leads to a yard and the mountain with the mine; a door on the

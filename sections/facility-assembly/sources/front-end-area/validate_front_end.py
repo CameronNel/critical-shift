@@ -53,7 +53,7 @@ lanes = {'reactor_axis_hall_x6.8-9.2': (6.8, 9.2, -60.0, -48.0), 'reactor_axis_c
 ALLOW = ('rail', 'ballast', 'cart', 'lane_', 'crack', 'stain', 'puddle', 'pothole', 'slab', 'shard', 'earth', 'yard_base', 'litter', 'debris', 'tiles', 'rug', 'oche', 'cliff', 'portal', 'mouth', 'mine_front', 'kerb', 'rail_crossing', 'sign', 'joint', 'drain', 'floor', 'streak', 'wall', 'seg', 'frame', 'context', 'canopy', 'porch', 'door_leaf')
 viol = {k: [] for k in lanes}
 for o in bpy.data.objects:
-    if o.type != 'MESH' or o.get('support') is None or o.get('support') in ('hanging', 'wall'): continue
+    if o.type != 'MESH' or o.get('support') is None or o.get('support') in ('hanging', 'wall', 'overhead'): continue
     if any(a in o.name.lower() for a in ALLOW): continue
     bb = wbbox(o)
     if bb[5] - bb[4] < 0.25 or bb[4] > 2.0: continue
