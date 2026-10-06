@@ -162,3 +162,11 @@ Built last, from the `PORT_*` empties. 26 runs, 76 objects, plus a perimeter cab
 - `scripts/ap1.py -- <scene dir> <src.blend> <dst.blend> [module.blend]` finds `module.blend` relative to the repository by default; the fourth argument overrides it, and a missing file stops with an error.
 - `scripts/t2b.py` no longer swallows glTF export errors: a failed export raises (non-zero exit) and `ok` is only printed after the GLB exists.
 - `verify_piping.py` tolerances were re-synced with the final layout (trench junction box and pool diffuser positions). The previous checked-in copy predated those layout changes and reported 2 false dangling runs on the shipped scene.
+
+## Control room depth +50% (`scripts/cr2.py`)
+
+The window-to-back-wall depth grew from 3.94 m to 5.92 m (glass at y -5.99, back wall inner face at y -11.91). The **back wall** moved back 1.97 m; the window, desks, chairs, west door, elevator landing and rails did not move. The hall's south wall is only about 0.5 m behind the old back wall, so an opening (x -5.0..2.2, z 5.16..9.0) was cut through the wall slab, panel bands, insets and pilasters, and the room's floor, soffit, roof, side walls and long beams were stretched out through it. The back wall, back furniture, shelves, east storage run, cot and back lamps, readouts and screens move as rigid pieces. One extra ceiling light covers the new rear area.
+
+The new rear volume sits outside the octagon shell (to about y -12.1, x -5.0..2.2). In the assembled map the reactor room is placed at (14.2, 46.5) rotated 180 degrees, so this bay lies at about x 12..19, y 57.3..58.7; `LAYOUT_A12.json` lists no placement or reserved volume there, but the cooling-plant footprint (placed at (-2.5, 63.2)) was not measured.
+
+Verified on the modified scene: sight lines unchanged from before (`verify_scene.py`: bank A and B 75% from the desk positions, pool water 52-61%), `clearance.py` 0 clashes, `verify_piping.py` 26 runs / 0 dangling / 0 unconnected ports, rays from inside the room pass through the opening to the new back wall, the hall wall above the room is intact (`cr2_chk.py`). The engine export (`engine/reactor_room_R1.glb`) has not been regenerated for this change.
