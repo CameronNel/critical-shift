@@ -47,17 +47,22 @@ modules (they are never edited). Frame: plan metres, +x east, +y north, origin a
   heights 0.6, 1.7 and 3.0 m: clear from the yard to the far bulkhead (open at eye height).
 - **Owner requirement: the portal shed in front of the mine stays.** Kept: the `R39 | Portal shed` and `R39 | Shed floor` collections and every object inside the
   shed footprint (module x -39.6 to -21.9, y -37.6 to -20.0 = plan x -54.0 to -36.3, y -78.6 to -61.0), with the rail running through it. 17 shed objects kept whole.
-- Mine surface still removed, because the front-end yard is the surface depot: apron mud, yard puddles, yard ground fog, and lamps and props outside the shed
-  (175 objects omitted, including 13 asset-source templates parked at the module origin); 26 straddling meshes (rails, sleepers, tunnel floor and similar) trimmed by
-  deleting faces east of the mouth and outside the shed; `R39 | Cobwebs` (not a plain mesh) kept whole. The mountain (R40) is kept whole. The mine's sun lamp is kept.
-- **Conflict, not resolved: the shed overlaps the yard's own objects.** The shed footprint contains the yard's `lamp_room_cabin`, `ore_bay_0/1`, `ore_pile_0/1`, `ore_cart_0/1/2`,
-  `pole_0`, `pole_3`, `vent_fan` and the portal collar (`portal_pier_L/R`, `portal_lintel`, `portal_cap`, `mouth_roof`); `boulder_11` and the site pickup clip its edges.
-  Nothing was removed or moved yet. Options: drop the overlapping yard props, shift the shed east of the collar, or accept the overlap.
-- Evidence (768x432, Cycles, 32 samples): `renders/02_mine_yard_to_portal.png`, `renders/02_mine_yard_overview.png`, `renders/02_mine_tunnel_to_yard.png`, `renders/02_mine_mountain_wide.png`.
+- Mine surface still removed, because the front-end yard is the surface depot: apron mud, yard puddles, yard ground fog and the 13 asset-source templates parked at
+  the module origin (28 objects omitted); 26 straddling meshes (rails, sleepers, tunnel floor and similar) trimmed by deleting faces east of the mouth and outside the shed;
+  `R39 | Cobwebs` (not a plain mesh) kept whole. 46 shed objects kept. The mountain (R40) is kept whole. The mine's sun lamp is kept.
+- **Shed vs yard, resolved (owner chose option 1: the shed replaces the yard props under it).** In the combined scene the front end loses the objects centred inside the shed
+  footprint: `lamp_room_cabin` and its sign, tag board, door light and stains; both `ore_bay` with piles, signs and stains; the three `ore_cart` and their signs; `pole_0`,
+  `pole_3` and their lights; `vent_fan`; `floor_bay_no_0`; nine ballast stones (37 objects). The yard's `rail_rails` and `rail_sleepers` are clipped through the footprint
+  (2,530 and 683 faces) so only the mine's rail runs through the shed. The portal collar, rock face, its signage, ground pads and the rest of the yard are untouched. The
+  front end now has no lamp room, ore bays or ore carts at the portal; its design notes (DESIGN.md section 3) still list them, so the owner should say whether they move
+  elsewhere in the yard or stay dropped.
+- Build note: linked objects report an identity world matrix until they pass through a scene, so the patches use `wm()` (the object's own transforms). An earlier build used
+  matrix_world and wrongly dropped many mine props and lamps; fixed.
+- Evidence (768x432, Cycles, 32 samples): `renders/02_mine_yard_to_portal.png`, `renders/02_mine_yard_overview.png`, `renders/02_mine_tunnel_to_yard.png`.
 - Open and not fixed: the mine's mountain (R40) runs plan y -123 to -20, wider than v7's -104 to -60. Its north end will meet the cooling plant (x -57 to -44,
   y -30 to -15), the yard-to-cooling link and the mine-water pipe when those are placed; trim it then. The mine rail and the yard rail overlap
-  only at the mouth (mine rail trimmed there); no check that the rail heights match.
-- Not checked: lighting balance (the tunnel is dark green-lit, the yard warm), collision, rail height match, performance. 4 M triangles on top of the front end.
+  only at the mouth (mine rail trimmed there); the rails look continuous in the renders but the heights were not measured.
+- Not checked: lighting balance (the tunnel is dim next to the warm yard), collision, rail height match, performance. 4 M triangles on top of the front end.
 
 ## Remaining rooms in plan order (not yet added)
 Hall-side: refinery (left), spine to reactor (middle), east trunk to dock and waste (right). Then medical, reactor,
