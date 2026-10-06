@@ -275,7 +275,18 @@ def localise_evac_sign(wrap, lib_coll, omit):
     if not src: return
     n = bpy.data.objects.new('sign_evac_gate', src.data.copy()); n.matrix_basis = src.matrix_basis; wrap.objects.link(n); omit.add('sign_evac_gate')
 
-PATCHES = {'front-end-area': lambda w, l, o: (open_portal_cap(w, l, o), clear_yard_for_shed(w, l, o), localise_evac_sign(w, l, o)), 'mine': trim_mine_surface}
+def totem_back_board(wrap, lib_coll, omit):
+    """directory_totem has its directory board on the south face only; the north face, in the cafeteria's main sightline from the hall, is a bare lilac slab. A copy of board_directory
+    rotated 180 degrees about the totem's vertical centre line (front-end local x 2.8, y 13.5) goes on the back."""
+    import math
+    from mathutils import Matrix
+    src = next((o for o in lib_coll.all_objects if o.name == 'board_directory'), None)
+    if not src: return
+    cx, cy = 2.8, 13.5
+    rot = Matrix.Translation((cx, cy, 0)) @ Matrix.Rotation(math.pi, 4, 'Z') @ Matrix.Translation((-cx, -cy, 0))
+    n = bpy.data.objects.new('board_directory_back', src.data); n.matrix_basis = rot @ src.matrix_basis; wrap.objects.link(n)
+
+PATCHES = {'front-end-area': lambda w, l, o: (open_portal_cap(w, l, o), clear_yard_for_shed(w, l, o), localise_evac_sign(w, l, o), totem_back_board(w, l, o)), 'mine': trim_mine_surface}
 INCLUDED = set()
 
 # Refinery: every root collection of the overhaul scene except the duplicate MODULE_refinery wrapper and the review cameras.
