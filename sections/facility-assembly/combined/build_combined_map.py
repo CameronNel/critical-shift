@@ -58,7 +58,9 @@ def trim_mine_surface(wrap, lib_coll, omit):
     x0, x1, y0, y1 = SHED
     inside = lambda p, m=0.0: x0 - m <= p.x <= x1 + m and y0 - m <= p.y <= y1 + m
     whole = clipped = skipped = shed = 0
+    refinery = 'refinery' in INCLUDED
     for o in list(lib_coll.all_objects):
+        if refinery and any(c.name == 'R39 | Track' for c in o.users_collection): continue   # the mine's own railway is kept whole and extended
         if o.name in omit or any(c.name.startswith('R40') or c.name in SHED_COLLECTIONS for c in o.users_collection):
             shed += any(c.name in SHED_COLLECTIONS for c in o.users_collection); continue
         if o.type == 'LIGHT':
@@ -80,7 +82,69 @@ def trim_mine_surface(wrap, lib_coll, omit):
         dead = [f for f in bm.faces if (lambda c: c.x > MINE_MOUTH_X and not inside(c))(wm(o) @ f.calc_center_median())]
         bmesh.ops.delete(bm, geom=dead, context='FACES'); bm.to_mesh(me); bm.free()
         n = bpy.data.objects.new(o.name, me); n.matrix_basis = o.matrix_basis; wrap.objects.link(n); omit.add(o.name); clipped += 1
+    if refinery: extend_mine_rail(wrap, lib_coll)
     print('TRIM mine surface: omitted whole', whole, 'clipped', clipped, 'kept whole (non-plain)', skipped, 'shed objects kept', shed)
+
+RAIL_RADIUS = 4.0   # m, turn from the mine lane (y -70) north onto the refinery freight line (x -22.2)
+
+def extend_mine_rail(wrap, lib_coll):
+    """Owner preference: the mine's railway replaces the yard's. The mine's last 4.92 m rail segment (rails, sleepers, ironwork; level) is copied end to end
+    past the track end (module x -16.0), kept straight, bent through a quarter circle onto the refinery freight line and run to the freight door.
+    Rails are sliced every 0.25 m and bent per vertex; sleepers and ironwork are placed rigidly, one island at a time."""
+    import bmesh, math
+    from mathutils import Vector
+    mx, my, _ = next(r[3] for r in ROOMS if r[0] == 'mine')
+    Tx, Ey = -22.2 - mx, -60.0 - my                   # module frame: freight line x, rail end y (plan x -22.2, y -60.0 at the refinery freight door)
+    R, S0, YC, XS = RAIL_RADIUS, -16.0, -29.0, -20.92
+    W = S0 - XS; E = (Tx - R) - S0; A = math.pi * R / 2; Cx, Cy = Tx - R, YC + R; Nn = Ey - Cy; L = E + A + Nn
+    def frame(s):
+        if s <= E: return Vector((S0 + s, YC)), 0.0
+        if s <= E + A: th = (s - E) / R; return Vector((Cx + R * math.sin(th), Cy - R * math.cos(th))), th
+        return Vector((Tx, Cy + (s - E - A))), math.pi / 2
+    def islands(bm):
+        seen = set(); out = []
+        for v in bm.verts:
+            if v.index in seen: continue
+            st = [v]; seen.add(v.index); cur = []
+            while st:
+                a = st.pop(); cur.append(a)
+                for e in a.link_edges:
+                    b = e.other_vert(a)
+                    if b.index not in seen: seen.add(b.index); st.append(b)
+            out.append(cur)
+        return out
+    src = {o.name: o for o in lib_coll.all_objects if o.name in ('R39 | Rails', 'R39 | Sleepers', 'R39 | Track ironwork')}
+    made = 0; k = 0
+    while k * W < L:
+        sk = k * W; umax = min(W, L - sk)
+        for name, o in src.items():
+            me = o.data; bm = bmesh.new(); bm.from_mesh(me)
+            keep = []; drop = []
+            for isl in islands(bm):
+                cx = sum(v.co.x for v in isl) / len(isl)
+                (keep if (XS - 0.05 <= cx <= XS + (W if name == 'R39 | Rails' else umax)) else drop).append(isl)
+            bmesh.ops.delete(bm, geom=[v for isl in drop for v in isl], context='VERTS')
+            if name == 'R39 | Rails':
+                cut = lambda x, **kw: bmesh.ops.bisect_plane(bm, geom=list(bm.verts) + list(bm.edges) + list(bm.faces), plane_co=(x, 0, 0), plane_no=(1, 0, 0), **kw)
+                if umax < W: cut(XS + umax, clear_outer=True); bmesh.ops.holes_fill(bm, edges=[e for e in bm.edges if e.is_boundary], sides=0)
+                for j in range(1, int(math.ceil(umax / 0.25))): cut(XS + j * 0.25)
+                for v in bm.verts:
+                    P, psi = frame(sk + v.co.x - XS); t = v.co.y - YC
+                    v.co = Vector((P.x - t * math.sin(psi), P.y + t * math.cos(psi), v.co.z))
+            else:
+                for isl in keep:
+                    c = sum((v.co for v in isl), Vector()) / len(isl)
+                    P, psi = frame(sk + c.x - XS); t = c.y - YC; cs, sn = math.cos(psi), math.sin(psi)
+                    ctr = Vector((P.x - t * sn, P.y + t * cs))
+                    for v in isl:
+                        rx, ry = v.co.x - c.x, v.co.y - c.y
+                        v.co = Vector((ctr.x + rx * cs - ry * sn, ctr.y + rx * sn + ry * cs, v.co.z))
+            bm.normal_update()
+            me2 = bpy.data.meshes.new(f'{name} ext{k}'); bm.to_mesh(me2); bm.free()
+            for m in me.materials: me2.materials.append(m)
+            wrap.objects.link(bpy.data.objects.new(f'{name} ext{k}', me2)); made += 1
+        k += 1
+    print('RAIL extension: straight', round(E, 2), 'arc', round(A, 2), 'north', round(Nn, 2), 'total', round(L, 2), 'tiles', k, 'objects', made)
 
 # Option 1 (owner decision): where the mine's portal shed stands, the front end's own props give way to it. The portal collar, rock face, signage on it,
 # ground pads and ground stay. Only objects whose plan centre lies inside the shed footprint are removed, so look-alikes elsewhere in the yard stay.
@@ -97,8 +161,17 @@ def clear_yard_for_shed(wrap, lib_coll, omit):
     px0, px1, py0, py1 = x0 + mx, x1 + mx, y0 + my, y1 + my
     inside = lambda v: px0 <= v.x + fx <= px1 and py0 <= v.y + fy <= py1
     gone = []; clipped = []
+    refinery = 'refinery' in INCLUDED   # owner preference: the mine's railway replaces the yard's, so the whole yard rail goes
+    if refinery:   # the loading docks run on past the refinery's south wall (plan y -60.1, the fence line); cut them at the wall
+        for o in list(lib_coll.all_objects):
+            if o.name in ('dock_west', 'dock_east') and o.type == 'MESH' and not o.modifiers and not o.parent:
+                me = o.data.copy(); me.transform(wm(o)); bm = bmesh.new(); bm.from_mesh(me)
+                bmesh.ops.bisect_plane(bm, geom=list(bm.verts) + list(bm.edges) + list(bm.faces), plane_co=(0, -60.1 - fy, 0), plane_no=(0, 1, 0), clear_outer=True)
+                bmesh.ops.holes_fill(bm, edges=[e for e in bm.edges if e.is_boundary], sides=0); bm.to_mesh(me); bm.free()
+                n = bpy.data.objects.new(o.name, me); wrap.objects.link(n); omit.add(o.name); print('DOCK clipped', o.name)
     for o in list(lib_coll.all_objects):
         if o.name in omit: continue
+        if refinery and o.name.startswith(('rail_', 'ballast_')): omit.add(o.name); gone.append(o.name); continue
         if o.type == 'LIGHT': c = wm(o).translation
         else:
             ws = [wm(o) @ Vector(v) for v in o.bound_box]; c = sum(ws, Vector()) / len(ws)
@@ -113,6 +186,11 @@ def clear_yard_for_shed(wrap, lib_coll, omit):
 PATCHES = {'front-end-area': lambda w, l, o: (open_portal_cap(w, l, o), clear_yard_for_shed(w, l, o)), 'mine': trim_mine_surface}
 INCLUDED = set()
 
+# Refinery: every root collection of the overhaul scene except the duplicate MODULE_refinery wrapper and the review cameras.
+REFINERY_COLLECTIONS = ['REFINERY_ARCHITECTURE', 'REFINERY_MACHINES', 'REFINERY_CONVEYORS', 'REFINERY_UTILITIES', 'REFINERY_PROPS', 'REFINERY_LIGHTING',
+                        'REFINERY_INTERACTION', 'REFINERY_VALIDATION', 'CS_SUPPORT_REQUIRED', 'CS_FLOOR_DRESSING', '03_CART_UNLOAD', 'CS_SURFACE_DRESSING',
+                        'CS_WALL_DRESSING', 'CS_CEILING_DRESSING', 'REFINERY_STATE_PREVIEWS', 'REFINERY_COBALT_ARCHITECTURE', 'REFINERY_OVERHAUL']
+
 ROOMS = [
     ('front-end-area', 'front-end-area/front_end_area.blend', 'MODULE_front-end-area', (8.0, -80.0, 0.0), 0.0,
      'As built: local origin is the spawn airlock threshold centre, so plan = local + (8, -80).'),
@@ -123,6 +201,9 @@ ROOMS = [
     ('mine', 'mine-r39/module_r39_aaa.blend', 'MODULE_mine-r39', (-14.4, -41.0, 0.0), 0.0,
      'Tunnel centre line (module y -29.0) on the yard mine lane (plan y -70); tunnel mouth (module x -39.0, first timber set) on the '
      'end of the yard portal mouth (front-end local x -61.4 = plan x -53.4). Both tunnels run west, so no rotation.'),
+    ('refinery', 'refinery/module_overhaul_R1.blend', REFINERY_COLLECTIONS, (-26.28, -52.2, 0.0), 90.0,
+     'Rotated 90 degrees: freight door (module Door_Mine, west wall) goes to the south wall on the yard freight gate centre x -22.2; fuel door (Door_Reactor, east wall) to the north wall; '
+     'personnel door (Door_Entry, south wall) to the east wall on the hall colonnade centre line y -54. East outer face lands on the colonnade end, x -18.9.'),
 ]
 
 def build(through, output):
@@ -134,10 +215,13 @@ def build(through, output):
     root = bpy.data.collections.new('COMBINED_MAP'); sc.collection.children.link(root)
     for key, lib, coll, loc, rz, note in ROOMS[:keys.index(through) + 1]:
         path = os.path.join(SRC, lib)
+        colls = [coll] if isinstance(coll, str) else list(coll)
         with bpy.data.libraries.load(path, link=True, relative=True) as (src, dst):
-            if coll not in src.collections: raise SystemExit(f'{lib} has no collection {coll}')
-            dst.collections = [coll]
-        lib_coll = dst.collections[0]; omit = set(OMIT.get(key, ()))
+            for c in colls:
+                if c not in src.collections: raise SystemExit(f'{lib} has no collection {c}')
+            dst.collections = colls
+        loaded = list(dst.collections)
+        lib_coll = loaded[0]; omit = set(OMIT.get(key, ()))
         if omit or key in PATCHES:
             # membership wrapper: the room's objects are linked individually into a local collection, minus the omitted doorway closures.
             # Linked objects cannot be re-parented, so the wrapper itself is instanced at the placement transform (the source module is not edited).
@@ -151,6 +235,9 @@ def build(through, output):
             root.objects.link(inst)
             print('WRAPPER', key, 'objects', kept, 'omitted', left)
         else:
+            if len(loaded) > 1:
+                lib_coll = bpy.data.collections.new('ROOM_' + key + '_members')
+                for c in loaded: lib_coll.children.link(c)
             inst = bpy.data.objects.new('ROOM_' + key, None); inst.instance_type = 'COLLECTION'; inst.instance_collection = lib_coll
             inst.location = loc; inst.rotation_euler = (0, 0, math.radians(rz)); inst['source'] = lib; inst['note'] = note
             root.objects.link(inst)

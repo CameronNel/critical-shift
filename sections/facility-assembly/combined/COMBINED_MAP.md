@@ -17,7 +17,8 @@ modules (they are never edited). Frame: plan metres, +x east, +y north, origin a
 |---|---|---|---|---|
 | 0 | Front-end area (cafeteria, hall, yard) | `sources/front-end-area/front_end_area.blend`, `MODULE_front-end-area` | translation (8, -80), rotation 0. As built: local origin = spawn exit, plan = local + (8, -80) | built, unreviewed (see PR) |
 | 1 | Spawn room | `sources/spawn-room/module.blend`, `MODULE_spawn-room` | translation (8, -92.38), rotation 0 | added, awaiting owner OK |
-| 2 | Mine (R39) | `sources/mine-r39/module_r39_aaa.blend`, `MODULE_mine-r39` | translation (-14.4, -41.0), rotation 0 | **added, awaiting owner OK** |
+| 2 | Mine (R39) | `sources/mine-r39/module_r39_aaa.blend`, `MODULE_mine-r39` | translation (-14.4, -41.0), rotation 0 | added, awaiting owner OK |
+| 3 | Refinery | `sources/refinery/module_overhaul_R1.blend` (17 root collections of the overhaul scene) | translation (-26.28, -52.2), rotation 90 | **added, awaiting owner OK** |
 
 ### Room 1: spawn room, what fixes the placement
 - `DESIGN.md`: "Compared with plan v7 the 6 m connectors are gone ... That moves the spawn 12 m north", spawn exit on the reactor axis x = 8, exit
@@ -64,6 +65,29 @@ modules (they are never edited). Frame: plan metres, +x east, +y north, origin a
   only at the mouth (mine rail trimmed there); the rails look continuous in the renders but the heights were not measured.
 - Not checked: lighting balance (the tunnel is dim next to the warm yard), collision, rail height match, performance. 4 M triangles on top of the front end.
 
+### Room 3: refinery, what fixes the placement
+- Plan checked first: `design/facility-layout/README.md` (plan v7, drafted with the owner; its status line still says proposal, not reviewed or accepted) and `front-end-area/DESIGN.md`.
+  v7 puts the refinery on the line yard (freight in) to refinery to fuel corridor (fuel out), x -33.7 to -18.9, with the hall colonnade arriving at its east wall.
+- Source: `module_overhaul_R1.blend` (R24 reviewed 99.10, "done and dusted" by owner; the R25 finish #76 on top is unreviewed). It is the complete room (module plus overhaul), so
+  every root collection of its scene is linked except the duplicate `MODULE_refinery` wrapper and the review cameras. Hidden state travels per object. The file is not edited.
+- Rotation 90 degrees: the module's freight door (`Door_Mine`, west wall at module (-7.51, -4.08)) goes to the south wall, the fuel door (`Door_Reactor`, east wall) to the north wall,
+  the personnel door (`Door_Entry`, south wall at module (-1.8, -6.43)) to the east wall. Same rotation as `LAYOUT_A12.json`.
+- Position, each from a measurement: freight door x = yard freight gate centre, x -22.2 (posts -23.9 to -20.5; DESIGN.md "turns north at x = -22.2") gives x = -26.28; personnel door y =
+  colonnade centre line y -54 (`colonnade_floor` y -55.5 to -52.5) gives y = -52.2. Cross-check, not used to fit: the east outer face lands at x -18.95 against the colonnade end at -18.9,
+  and the x range -33.75 to -18.95 matches v7's -33.7 to -18.9.
+- **Deviation from v7:** y range is -61.2 to -43.6 (outer, with door sills), v7 drew -57.6 to -40.4, so the refinery is 3.6 m further south. v7 assumed door positions; the as-built
+  gate and colonnade fix them. Consequence for later: the fuel corridor's start (v7 (-22.2, -40.4)) is now at y -43.6, 3.2 m closer to the refinery.
+- **Railway (owner preference: the mine's, not the courtyard's).** The yard's `rail_*` objects and all `ballast_*` stones are removed (55 yard objects with the earlier shed clearance).
+  The mine's own track (kept whole, no longer trimmed at the shed) is extended: its last 4.92 m segment (rails, sleepers, ironwork; level) is copied end to end: 4.2 m straight, a 4 m radius
+  quarter turn onto x -22.2 (rails sliced every 0.25 m and bent, sleepers and ironwork placed rigidly), then 6.0 m north to the freight door at y -60.0. 16.5 m, 12 new objects.
+  The refinery's own rail picks up inside the door. The yard's track scale stays on the line.
+- Yard changes needed to fit: the two loading dock platforms (`dock_west`, `dock_east`) ran past the refinery's south wall (plan y -60.1) by up to 1.5 m and are cut at the wall (local copies).
+  The north fence line (y -60.1) coincides with the refinery's south wall face; fence panels were left in place.
+- Evidence (768x432, Cycles, 32 samples): `renders/03_refinery_yard_to_gate.png`, `03_refinery_rail_turn.png`, `03_refinery_rail_overhead.png`, `03_refinery_colonnade_door.png`,
+  `03_refinery_freight_door_in.png`.
+- Not checked: refinery interior lighting against the dusk yard, rail height against the refinery's inner rail, the yard fence panels sitting against the wall, collision, performance;
+  the fuel corridor, personnel interior route and refinery roof against the colonnade roof were not inspected beyond the renders. Unreviewed.
+
 ## Remaining rooms in plan order (not yet added)
-Hall-side: refinery (left), spine to reactor (middle), east trunk to dock and waste (right). Then medical, reactor,
+Hall-side: spine to reactor (middle), east trunk to dock and waste (right). Then medical, reactor,
 turbine, electrical, waste, cooling, fuel corridor, compliance dock, outer ring and gantry.
