@@ -24,6 +24,18 @@
 
 The hall refinements cover machinery, floor, control rods, roof, walls, signs, props, materials and support geometry. The last correction moved the complete generator plaque 400 mm forward on fitted stand-offs to clear a conduit in the actual west-wall view. All ten main originals use the accepted source and canonical renderer. Current proof37 shows the full corrected sign. Historical fixture82 retains its original source identity.
 
+## Hall fixes after the reviewed handoff (unreviewed)
+
+A follow-up pass changed the saved scene. **Everything in the sections above describes the earlier reviewed scene (`28fc09a2…`), not this one.** The 91/100 review, the ten gallery renders and the portable verifier all refer to that earlier file; `verify_refinement_handoff.py` now fails on the source hash by design and has not been regenerated.
+
+- Scene SHA-256 now `6e2d3aa5931b2c2a65493e6a0db760c9a1f3a6894447302daf892399870fef38`.
+- Wet floor concrete and both wall concretes darkened; floor roughness lowered.
+- Lighting moodier: broad wash lights cut to about a third and tinted cool, uplights and roof-bay lights reduced, key roof shafts kept or lifted, world strength 0.16 to 0.05.
+- Wall numbers `N-1`..`N-5`, `S-`, `E-`, `W-` are a texture stencil layer in the two wall concrete materials (packed 3840x1024 atlas, keyed to world position and wall normal, no added geometry). Stencils sit at 3.0 to 3.6 m and are hidden wherever equipment stands in front.
+- Evaluated triangles (meshes, curves and text, render-visible objects) went from 1,478,532 to 1,165,073 by decimating fifteen-plus over-tessellated, non-interactive meshes. The saved scene is under 1.2 million; the earlier reviewed scene was not.
+- Reproduce with `overhaul-R1/scripts/make_wall_number_atlas.py` then `rh_hall_moody_fixes.py` on the reviewed scene.
+- Checked only with 480x270 Cycles CPU previews of the ten fixed views. No full-quality render, no independent review, no collision or interface re-check, no Unity measurement. The committed gallery renders do not show this look.
+
 ## Review limits and next actions
 
 Use the saved scene as the next authoring baseline. The task’s ≥90 overall / ≥85 area bar is satisfied; this does not advance map-owner or other repository acceptance gates. The broad floor puddle is a recorded minor finish weakness. Registered finite geometry checks do not prove exhaustive access or collision freedom; the control-room aggregate passes while individual front-access subchecks may be BLOCKED.
