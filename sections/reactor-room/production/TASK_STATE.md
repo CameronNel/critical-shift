@@ -24,6 +24,19 @@
 
 The hall refinements cover machinery, floor, control rods, roof, walls, signs, props, materials and support geometry. The last correction moved the complete generator plaque 400 mm forward on fitted stand-offs to clear a conduit in the actual west-wall view. All ten main originals use the accepted source and canonical renderer. Current proof37 shows the full corrected sign. Historical fixture82 retains its original source identity.
 
+## Hall fixes after the reviewed handoff (unreviewed)
+
+A follow-up pass changed the saved scene. **Everything in the sections above describes the earlier reviewed scene (`28fc09a2…`), not this one.** The 91/100 review, the ten gallery renders and the portable verifier all refer to that earlier file; `verify_refinement_handoff.py` now fails on the source hash by design and has not been regenerated.
+
+- Scene SHA-256 now `f01b2aa3ab48b58bd6a2a5f5744220069e2eb23800e2bdd0c953ff8ec364efe0`.
+- Wet floor concrete and both wall concretes darkened. The floor has puddle patches and drag streaks: darker, near-mirror smooth, with a clear coat for lamp and pool reflections.
+- Lighting moodier: broad wash lights cut to about 40% and tinted cool, uplights reduced, roof shafts and roof-bay lights lifted, six warm roof accent spots added so girders and crane keep structure, world strength 0.16 to 0.05.
+- Wall numbers `N-1`..`N-5`, `S-`, `E-`, `W-` (round geometric face with every corner rounded, no stencil cuts, bright chipped paint, 2.4 m x 0.8 m on the panel-field centres) are a texture stencil layer in the two wall concrete materials (packed 3840x1024 atlas, keyed to world position and wall normal, no added geometry). Stencils sit at 3.3 to 4.1 m. `check_wall_number_visibility.py` (finite sample, not a view check): most bays are partly hidden by signs, trim, doors or equipment; N-3 and W-3 sit on door openings, and N-1, N-5, S-1, S-5, E-1, E-5, W-1, W-4 and W-5 have two or fewer of nine samples clear. Placement is not yet adjusted per bay.
+- Evaluated triangles (meshes, curves and text, render-visible objects) went from 1,478,532 to 1,174,837 by decimating fifteen-plus over-tessellated, non-interactive meshes. The saved scene is under 1.2 million; the earlier reviewed scene was not.
+- The eight orange zone numerals `R2 gfx 01`..`08` (a diamond-ring zero plus an angular polygon digit each) were replaced by round Outfit Bold digit meshes on the same wall planes, same height and centre, with remaining sharp corners bevelled. Checked by projecting the meshes flat (all read 01 to 08, none mirrored in that projection); in-scene appearance only in the render noted below.
+- Reproduce with `overhaul-R1/scripts/make_wall_number_atlas.py` then `rh_hall_moody_fixes.py` on the reviewed scene.
+- Checked with 480x270 Cycles CPU previews of the fixed views plus five inspection close-ups of decimated parts (trolley, bank suspension, turbine base, hook, drums); no damage seen. The Cycles warning 'Maximum number of closures exceeded: 96 > 64' also appears when rendering the reviewed scene, so it is not new. No full-quality render, no independent review, no collision or interface re-check, no Unity measurement. The committed gallery renders do not show this look.
+
 ## Review limits and next actions
 
 Use the saved scene as the next authoring baseline. The task’s ≥90 overall / ≥85 area bar is satisfied; this does not advance map-owner or other repository acceptance gates. The broad floor puddle is a recorded minor finish weakness. Registered finite geometry checks do not prove exhaustive access or collision freedom; the control-room aggregate passes while individual front-access subchecks may be BLOCKED.
