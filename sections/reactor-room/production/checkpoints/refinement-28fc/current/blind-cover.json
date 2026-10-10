@@ -1,0 +1,27 @@
+{
+  "source": "/workspace/scratch/reactor-refinement-generator-visible-working/hall_final.blend",
+  "sha256": "28fc09a259369b685ca1f96ad78cfd19bc0992f4ae67b200cb2143d9272905e3",
+  "pass_check": true,
+  "failures": [],
+  "ends": [
+    {
+      "axis_x": 1.62,
+      "face_samples": 385,
+      "obstructed_or_misplaced": 0,
+      "bolt_seats": 10,
+      "bolt_errors": [],
+      "bad_face_samples": []
+    },
+    {
+      "axis_x": 3.48,
+      "face_samples": 385,
+      "obstructed_or_misplaced": 0,
+      "bolt_seats": 10,
+      "bolt_errors": [],
+      "bad_face_samples": []
+    }
+  ],
+  "plate_open_edges": 0,
+  "plate_signed_volume": 0.002543420828302195,
+  "scope": "Actual saved-mesh first-hit tests on two blind-cover centers (385 rays per end), twenty registered bolt-head axes, and plate manifold/volume. Registered plate/bolt contact seats are checked by the separate support audit. No exhaustive flange collision or fluid-network claim."
+}

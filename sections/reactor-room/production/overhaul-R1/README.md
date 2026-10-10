@@ -1,4 +1,12 @@
-# Reactor room overhaul R1 (draft, needs review)
+# Reactor room authoring tools
+
+The current editable reviewed hall is [../../blender/reactorroom.blend](../../blender/reactorroom.blend). Read [../HANDOFF.md](../HANDOFF.md) for narrow LFS checkout, original views and verification. The 140-item hall task scored 91/100; all nine areas scored 88–93. The saved scene derives from the October 7 approximately 2 am base, with its control-room content preserved.
+
+The `scripts/rh_*.py` hall stages, supporting modules and finite validators are preserved here. They are authoring tools; a fresh pipeline rebuild is not asserted to match the accepted saved scene’s bytes. The existing engine exports, lightmaps and historical R1 reports do not validate this refined scene.
+
+## Historical R1 build notes
+
+The following describes earlier R1 checkpoints and their limitations. It is not the current hall refinement’s acceptance record.
 
 ## Status at a glance
 

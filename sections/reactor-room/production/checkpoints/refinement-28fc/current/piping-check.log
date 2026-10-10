@@ -1,0 +1,33 @@
+Failed to create secure directory (/home/agent/.config/pulse): Read-only file system
+00:01.122  blend            | Read blend: "/workspace/scratch/reactor-refinement-generator-visible-working/hall_final.blend"
+runs manifest: /workspace/critical-shift/sections/reactor-room/production/overhaul-R1/piping_runs_generated.json
+run                        start                          end                           
+coolant supply header      port PORT_WALL_COOLANT_SUPPLY  junction with 'pump suction vi OK
+EC-1 feed                  tee on 'coolant supply header' port PORT_EC-1_top             OK
+EC-2 feed                  tee on 'coolant supply header' port PORT_EC-2_top             OK
+pump suction via isolation tee on 'coolant supply header' port PORT_P-10_suction         OK
+EC-1 injection line        port PORT_EC-1_wall            port PORT_WALL_EC-1_INJECTION  OK
+EC-2 injection line        port PORT_EC-2_wall            port PORT_WALL_EC-2_INJECTION  OK
+pump discharge             port PORT_P-10_discharge       trench junction box            OK
+pool inlet                 pool inlet manifold            pool diffuser                  OK
+steam supply               port PORT_WALL_STEAM_SUPPLY    port PORT_T-06_steam_in        OK
+turbine exhaust            port PORT_T-06_exhaust         port PORT_WALL_STEAM_EXHAUST   OK
+waste vent                 port PORT_W-04_vent            port PORT_WALL_WASTE_VENT      OK
+hydraulic AN               port PORT_BANK_A_hyd_N         hydraulic unit                 OK
+hydraulic AS               port PORT_BANK_A_hyd_S         return tank                    OK
+hydraulic BN               port PORT_BANK_B_hyd_N         hydraulic unit                 OK
+hydraulic BS               port PORT_BANK_B_hyd_S         return tank                    OK
+riser grid cabinets        device (RH refine gauge calibr cable ring                     OK
+riser turbine sensor       device (RH services fixture bo cable ring                     OK
+riser generator            device (RH services fixture bo cable ring                     OK
+riser bank control         device (RH services fixture bo cable ring                     OK
+riser control room         device (MERGED 26 R2 CONTRO R2 cable ring                     OK
+riser elevator machine     device (RH services bulb LENS) cable ring                     OK
+vent control feed          device (RH refine gauge calibr port PORT_WALL_VENT_POWER      OK
+riser west bench           device (RH services fixture bo cable ring                     OK
+riser reserve power A      device (RH services fixture bo cable ring                     OK
+riser reserve power B      device (RH services fixture bo cable ring                     OK
+pump starter conduit       device (RH refine gauge glass  trench junction box            OK
+RUNS: 26 dangling: 0
+PORTS unconnected: 0 []
+PASS

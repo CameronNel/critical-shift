@@ -5,7 +5,9 @@
 > **Art-direction canon:** Critical Shift uses **grounded stylized semi-realism**. Valorant-style environment principles are the primary rendering influence; PEAK contributes readability and restraint only. The target is believable, tactile and simplified, **not** generic low-poly, toy-like, Three.js-looking, glossy sci-fi, or modern AAA photorealism. [ART_DIRECTION](/design/ART_DIRECTION.md) and [ART_REFERENCE_INDEX](/design/ART_REFERENCE_INDEX.md) override conflicting legacy style wording in this file.
 
 
-Store only approved final fixed-camera evidence here after every reactor completion gate passes.
+The reviewed hall task’s ten full-quality 1280×720 originals are in [refinement-28fc/gallery.html](refinement-28fc/gallery.html). Their acceptance is scoped to the 140-item task and is recorded in [the handoff](../../HANDOFF.md); it does not assert combined-map or Unity acceptance.
+
+Store only reviewed final fixed-camera evidence here.
 
 The final set must prove:
 - route readability;

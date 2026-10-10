@@ -5,9 +5,11 @@
 > **Art-direction canon:** Critical Shift uses **grounded stylized semi-realism**. Valorant-style environment principles are the primary rendering influence; PEAK contributes readability and restraint only. The target is believable, tactile and simplified, **not** generic low-poly, toy-like, Three.js-looking, glossy sci-fi, or modern AAA photorealism. [ART_DIRECTION](/design/ART_DIRECTION.md) and [ART_REFERENCE_INDEX](/design/ART_REFERENCE_INDEX.md) override conflicting legacy style wording in this file.
 
 
-Store the future authoritative reactor-room Blender source here.
+The reviewed editable reactor hall is [reactorroom.blend](reactorroom.blend).
 
-Recommended primary filename: reactorroom.blend
+Read [the handoff](../production/HANDOFF.md) before checkout or further work. It records the 140-item review, LFS hydration, original render gallery and validation limits.
+
+Current primary filename: reactorroom.blend
 
 
 ## Build policy

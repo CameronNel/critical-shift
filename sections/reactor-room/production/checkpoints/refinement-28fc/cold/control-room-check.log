@@ -1,0 +1,26 @@
+Failed to create secure directory (/home/agent/.config/pulse): Read-only file system
+00:01.391  blend            | Read blend: "/workspace/scratch/reactor-refinement-generator-visible-working-cold/hall_final.blend"
+1. envelope violations: 0
+2. other-collection objects inside the room envelope: 0
+3. reachable free floor: 100.0% of the free area
+   door entry                       ok
+   desk row operator side bay1      ok
+   bay2                             ok
+   bay3                             ok
+   copier front                     BLOCKED (nearest reachable 0.15 m)
+   printer front                    BLOCKED (nearest reachable 0.10 m)
+   rack front                       BLOCKED (nearest reachable 0.10 m)
+   lockers front                    BLOCKED (nearest reachable 0.25 m)
+   break counter front              ok
+   TV front                         ok
+   work table south side            ok
+   work table north side            ok
+   shelving front                   ok
+   cot side                         ok
+   west door to desk end            ok
+7. collision proxies: 25 boxes; cover 98% of the detailed occupied floor area (excluding a 0.25 m wall strip); zones reachable with proxies only: all
+4. chair vertices inside the desk-top slab volume (must be 0): 0
+5. purple-band colours: 0  (mats/lights/world);  images with >2% purple pixels: []
+6. redo collection: 228 objects, 97669 triangles
+   by group: {'static': 24788, 'rack': 13664, 'chair': 9328, 'anteprop': 8796, 'lift_car': 4683, 'crt': 3843, 'ceil': 2988, 'desk': 2952, 'ante': 2816, 'lift': 2621, 'pc': 2216, 'grime': 2128}
+RESULT: PASS

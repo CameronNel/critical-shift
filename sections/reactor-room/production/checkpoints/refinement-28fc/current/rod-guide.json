@@ -1,0 +1,54 @@
+{
+  "source_sha256": "28fc09a259369b685ca1f96ad78cfd19bc0992f4ae67b200cb2143d9272905e3",
+  "banks": [
+    {
+      "bank": "A",
+      "cavity_clear": true,
+      "housing_radial_min": 0.3445843756198883,
+      "housing_radial_max": 0.34458446502685547,
+      "guide_inner_min": 0.24720178544521332,
+      "guide_inner_max": 0.24720190465450287,
+      "poses": 480,
+      "housing_surface_intersections": 0,
+      "guide_surface_intersections": 0,
+      "min_flange_bottom": 10.039999961853027,
+      "max_shaft_radius_at_guide": 0.24000003672352438
+    },
+    {
+      "bank": "B",
+      "cavity_clear": true,
+      "housing_radial_min": 0.3445843756198883,
+      "housing_radial_max": 0.34458446502685547,
+      "guide_inner_min": 0.24720178544521332,
+      "guide_inner_max": 0.24720190465450287,
+      "poses": 480,
+      "housing_surface_intersections": 0,
+      "guide_surface_intersections": 0,
+      "min_flange_bottom": 10.040000915527344,
+      "max_shaft_radius_at_guide": 0.24000003672352438
+    }
+  ],
+  "central_grid_fits": [
+    {
+      "bank": "A",
+      "sleeves": 7,
+      "rays": 18368,
+      "misses": 0,
+      "min_gap": 0.007263638079166412,
+      "max_gap": 0.008792795240879059,
+      "pass_check": true
+    },
+    {
+      "bank": "B",
+      "sleeves": 7,
+      "rays": 18368,
+      "misses": 0,
+      "min_gap": 0.007263638079166412,
+      "max_gap": 0.008792795240879059,
+      "pass_check": true
+    }
+  ],
+  "failures": [],
+  "pass_check": true,
+  "scope": "Actual housing bore/guide BVH faces, retained stem parent, evaluated rigid stem meshes in480 frame poses per bank, surface-intersection and nominal running-clearance/cap-height checks. Existing corner suspension seats are tested separately; this is not a global collision audit or arbitrary runtime stroke claim."
+}
