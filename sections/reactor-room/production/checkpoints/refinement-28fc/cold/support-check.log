@@ -1,0 +1,6 @@
+Failed to create secure directory (/home/agent/.config/pulse): Read-only file system
+00:00.637  blend            | Read blend: "/workspace/scratch/reactor-hall-integrated/hall_final.blend"
+00:02.052  blend            | Read blend: "/workspace/scratch/reactor-refinement-generator-visible-working-cold/hall_final.blend"
+/workspace/critical-shift/sections/reactor-room/production/overhaul-R1/scripts/rh_refine_audit.py:108: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  if not m or not m.use_nodes: return False
+AUDIT /workspace/scratch/reactor-refinement-generator-visible-working-cold/audit.json sign failures 0 contact failures 0 protected True

@@ -1,0 +1,54 @@
+{
+  "renderer_sha256": "d83cce269cfe477c204778594aa67a4bc13c844241f404ef19e9166903e6cd6d",
+  "source": "/workspace/scratch/reactor-refinement-bearing-lit-working/hall_final.blend",
+  "source_sha256": "870bca11bd9fc1f43a90a411d573ff990d1f7f41b7c52ec9a627c13a97b753da",
+  "blender": "5.2.2 LTS",
+  "frame": 1,
+  "stability": 1.0,
+  "resolution": [
+    1280,
+    720
+  ],
+  "engine": "CYCLES",
+  "device": "CPU",
+  "threads": 5,
+  "samples_max": 96,
+  "adaptive_threshold": 0.014999999664723873,
+  "adaptive_min_samples": 32,
+  "denoiser": "OPENIMAGEDENOISE",
+  "max_bounces": 12,
+  "volume_bounces": 1,
+  "reflective_caustics": false,
+  "refractive_caustics": false,
+  "path_guiding": true,
+  "guiding_training_samples": 64,
+  "color_depth": "16",
+  "color_management": {
+    "transform": "AgX",
+    "look": "AgX - Medium High Contrast",
+    "exposure": 0.0
+  },
+  "preview": false,
+  "views": [
+    {
+      "name": "82_bearing_maintenance_fixture_upper",
+      "title": "Inspection \u00b7 roof bearing maintenance housing and mount",
+      "location": [
+        4.45,
+        10.17,
+        16.49
+      ],
+      "target": [
+        3.84,
+        10.54,
+        16.44
+      ],
+      "lens_mm": 45,
+      "projection": "PERSP",
+      "ortho_scale": null,
+      "file": "82_bearing_maintenance_fixture_upper.png",
+      "elapsed_seconds": 2880.54,
+      "sha256": "05bae1bded3da336fccc3c21782656d3fab35000e2588397757a8795da3b7e7f"
+    }
+  ]
+}

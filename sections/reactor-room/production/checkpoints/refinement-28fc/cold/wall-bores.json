@@ -1,0 +1,56 @@
+{
+  "source": "/workspace/scratch/reactor-refinement-generator-visible-working-cold/hall_final.blend",
+  "sha256": "2f50f597c56f9c06db8514392ccc57be8219c52b6ac6798e24a54fdff940bec4",
+  "scope": "Eight active service cores and sleeve envelopes against evaluated owned concrete, mass, cladding and steel enclosure layers",
+  "ports": [
+    {
+      "name": "EC vent",
+      "rays": 65,
+      "hits": [],
+      "pass": true
+    },
+    {
+      "name": "EC-A drain",
+      "rays": 65,
+      "hits": [],
+      "pass": true
+    },
+    {
+      "name": "EC-B drain",
+      "rays": 65,
+      "hits": [],
+      "pass": true
+    },
+    {
+      "name": "turbine steam",
+      "rays": 65,
+      "hits": [],
+      "pass": true
+    },
+    {
+      "name": "turbine exhaust",
+      "rays": 65,
+      "hits": [],
+      "pass": true
+    },
+    {
+      "name": "waste vent",
+      "rays": 65,
+      "hits": [],
+      "pass": true
+    },
+    {
+      "name": "bank A service",
+      "rays": 65,
+      "hits": [],
+      "pass": true
+    },
+    {
+      "name": "bank B service",
+      "rays": 65,
+      "hits": [],
+      "pass": true
+    }
+  ],
+  "all_pass": true
+}

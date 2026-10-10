@@ -1,0 +1,54 @@
+{
+  "renderer_sha256": "06d0ac982dd1a217fa1fae8448633299dba993e391627979848dc0e39608b8ef",
+  "source": "/workspace/scratch/reactor-refinement-generator-visible-working/hall_final.blend",
+  "source_sha256": "28fc09a259369b685ca1f96ad78cfd19bc0992f4ae67b200cb2143d9272905e3",
+  "blender": "5.2.2 LTS",
+  "frame": 1,
+  "stability": 1.0,
+  "resolution": [
+    1280,
+    720
+  ],
+  "engine": "CYCLES",
+  "device": "CPU",
+  "threads": 5,
+  "samples_max": 96,
+  "adaptive_threshold": 0.014999999664723873,
+  "adaptive_min_samples": 32,
+  "denoiser": "OPENIMAGEDENOISE",
+  "max_bounces": 12,
+  "volume_bounces": 1,
+  "reflective_caustics": false,
+  "refractive_caustics": false,
+  "path_guiding": true,
+  "guiding_training_samples": 64,
+  "color_depth": "16",
+  "color_management": {
+    "transform": "AgX",
+    "look": "AgX - Medium High Contrast",
+    "exposure": 0.0
+  },
+  "preview": false,
+  "views": [
+    {
+      "name": "07_roof_crane",
+      "title": "Roof \u00b7 bridge crane and structural supports",
+      "location": [
+        0,
+        -7.5,
+        15.6
+      ],
+      "target": [
+        -3,
+        4.6,
+        15.8
+      ],
+      "lens_mm": 20,
+      "projection": "PERSP",
+      "ortho_scale": null,
+      "file": "07_roof_crane.png",
+      "elapsed_seconds": 2701.97,
+      "sha256": "799fa0fe003a0403e50a0e4bcf81c77ac7add6af243f55a1c62622914002e1aa"
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "source": "/workspace/scratch/reactor-refinement-generator-visible-working/hall_final.blend",
+  "source_sha256": "28fc09a259369b685ca1f96ad78cfd19bc0992f4ae67b200cb2143d9272905e3",
+  "all_pass": true,
+  "checks": [
+    {
+      "check": "door_hardware",
+      "exit": 0,
+      "pass": true,
+      "seconds": 3.93,
+      "log": "/workspace/scratch/reactor-refinement-generator-visible-working/door_hardware-check.log"
+    },
+    {
+      "check": "floor_guidance",
+      "exit": 0,
+      "pass": true,
+      "seconds": 2.96,
+      "log": "/workspace/scratch/reactor-refinement-generator-visible-working/floor_guidance-check.log"
+    },
+    {
+      "check": "blind_cover",
+      "exit": 0,
+      "pass": true,
+      "seconds": 3.44,
+      "log": "/workspace/scratch/reactor-refinement-generator-visible-working/blind_cover-check.log"
+    },
+    {
+      "check": "rod_guide",
+      "exit": 0,
+      "pass": true,
+      "seconds": 11.26,
+      "log": "/workspace/scratch/reactor-refinement-generator-visible-working/rod_guide-check.log"
+    },
+    {
+      "check": "roof_utility",
+      "exit": 0,
+      "pass": true,
+      "seconds": 2.2,
+      "log": "/workspace/scratch/reactor-refinement-generator-visible-working/roof_utility-check.log"
+    },
+    {
+      "check": "gantry_guard",
+      "exit": 0,
+      "pass": true,
+      "seconds": 4.55,
+      "log": "/workspace/scratch/reactor-refinement-generator-visible-working/gantry_guard-check.log"
+    },
+    {
+      "check": "bores",
+      "exit": 0,
+      "pass": true,
+      "seconds": 4.09,
+      "log": "/workspace/scratch/reactor-refinement-generator-visible-working/bores-check.log"
+    },
+    {
+      "check": "contract",
+      "exit": 0,
+      "pass": true,
+      "seconds": 3.6,
+      "log": "/workspace/scratch/reactor-refinement-generator-visible-working/contract-check.log"
+    },
+    {
+      "check": "piping",
+      "exit": 0,
+      "pass": true,
+      "seconds": 3.77,
+      "log": "/workspace/scratch/reactor-refinement-generator-visible-working/piping-check.log"
+    },
+    {
+      "check": "clearance",
+      "exit": 0,
+      "pass": true,
+      "seconds": 11.43,
+      "log": "/workspace/scratch/reactor-refinement-generator-visible-working/clearance-check.log"
+    },
+    {
+      "check": "palette",
+      "exit": 0,
+      "pass": true,
+      "seconds": 3.2,
+      "log": "/workspace/scratch/reactor-refinement-generator-visible-working/palette-check.log"
+    },
+    {
+      "check": "fps",
+      "exit": 0,
+      "pass": true,
+      "seconds": 4.75,
+      "log": "/workspace/scratch/reactor-refinement-generator-visible-working/fps-check.log"
+    },
+    {
+      "check": "motion",
+      "exit": 0,
+      "pass": true,
+      "seconds": 47.85,
+      "log": "/workspace/scratch/reactor-refinement-generator-visible-working/motion-check.log"
+    },
+    {
+      "check": "support",
+      "exit": 0,
+      "pass": true,
+      "seconds": 187.57,
+      "log": "/workspace/scratch/reactor-refinement-generator-visible-working/support-check.log"
+    }
+  ]
+}

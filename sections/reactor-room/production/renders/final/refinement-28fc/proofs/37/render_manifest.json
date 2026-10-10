@@ -1,0 +1,54 @@
+{
+  "renderer_sha256": "06d0ac982dd1a217fa1fae8448633299dba993e391627979848dc0e39608b8ef",
+  "source": "/workspace/scratch/reactor-refinement-generator-visible-working/hall_final.blend",
+  "source_sha256": "28fc09a259369b685ca1f96ad78cfd19bc0992f4ae67b200cb2143d9272905e3",
+  "blender": "5.2.2 LTS",
+  "frame": 1,
+  "stability": 1.0,
+  "resolution": [
+    1280,
+    720
+  ],
+  "engine": "CYCLES",
+  "device": "CPU",
+  "threads": 5,
+  "samples_max": 96,
+  "adaptive_threshold": 0.014999999664723873,
+  "adaptive_min_samples": 32,
+  "denoiser": "OPENIMAGEDENOISE",
+  "max_bounces": 12,
+  "volume_bounces": 1,
+  "reflective_caustics": false,
+  "refractive_caustics": false,
+  "path_guiding": true,
+  "guiding_training_samples": 64,
+  "color_depth": "16",
+  "color_management": {
+    "transform": "AgX",
+    "look": "AgX - Medium High Contrast",
+    "exposure": 0.0
+  },
+  "preview": false,
+  "views": [
+    {
+      "name": "37_generator_plaque",
+      "title": "Inspection \u00b7 standby generator identification",
+      "location": [
+        -8.150200843811035,
+        -4.300000190734863,
+        4.140399932861328
+      ],
+      "target": [
+        -10.28320026397705,
+        -4.300000190734863,
+        4.140399932861328
+      ],
+      "lens_mm": 35,
+      "projection": "PERSP",
+      "ortho_scale": null,
+      "file": "37_generator_plaque.png",
+      "elapsed_seconds": 1801.96,
+      "sha256": "248f445ddbaf39fcf876ca18cd302d95b121dc7ec12cf59d272e09ddebbac78b"
+    }
+  ]
+}

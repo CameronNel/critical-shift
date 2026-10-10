@@ -1,0 +1,54 @@
+{
+  "renderer_sha256": "06d0ac982dd1a217fa1fae8448633299dba993e391627979848dc0e39608b8ef",
+  "source": "/workspace/scratch/reactor-refinement-generator-visible-working/hall_final.blend",
+  "source_sha256": "28fc09a259369b685ca1f96ad78cfd19bc0992f4ae67b200cb2143d9272905e3",
+  "blender": "5.2.2 LTS",
+  "frame": 1,
+  "stability": 1.0,
+  "resolution": [
+    1280,
+    720
+  ],
+  "engine": "CYCLES",
+  "device": "CPU",
+  "threads": 5,
+  "samples_max": 96,
+  "adaptive_threshold": 0.014999999664723873,
+  "adaptive_min_samples": 32,
+  "denoiser": "OPENIMAGEDENOISE",
+  "max_bounces": 12,
+  "volume_bounces": 1,
+  "reflective_caustics": false,
+  "refractive_caustics": false,
+  "path_guiding": true,
+  "guiding_training_samples": 64,
+  "color_depth": "16",
+  "color_management": {
+    "transform": "AgX",
+    "look": "AgX - Medium High Contrast",
+    "exposure": 0.0
+  },
+  "preview": false,
+  "views": [
+    {
+      "name": "03_floor_access_lane",
+      "title": "Floor \u00b7 access lane, tiles and safety markings",
+      "location": [
+        -6.3,
+        -3,
+        1.4
+      ],
+      "target": [
+        -7.8,
+        -0.4,
+        0.02
+      ],
+      "lens_mm": 28,
+      "projection": "PERSP",
+      "ortho_scale": null,
+      "file": "03_floor_access_lane.png",
+      "elapsed_seconds": 1093.42,
+      "sha256": "0e88af5370c1f70420051a5b63e4f45936e9876794e74bd9ac35b3fc94f50636"
+    }
+  ]
+}

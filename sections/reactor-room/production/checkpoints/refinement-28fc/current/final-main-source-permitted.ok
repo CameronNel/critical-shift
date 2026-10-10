@@ -1,0 +1,38 @@
+{
+  "source_sha256": "28fc09a259369b685ca1f96ad78cfd19bc0992f4ae67b200cb2143d9272905e3",
+  "renderer_sha256": "06d0ac982dd1a217fa1fae8448633299dba993e391627979848dc0e39608b8ef",
+  "frozen_independent_ledger": "/workspace/scratch/reactor-refinement-generator-visible-working/independent-known-fix-source-review.json",
+  "frozen_independent_ledger_sha256": "01bf05c1cc0dc4923910dddedd9a45bfcd879388ad0e15cc1dfd251708254e66",
+  "known_fix_issue_ids": [
+    9,
+    17,
+    19,
+    20,
+    86,
+    108,
+    116,
+    125,
+    140
+  ],
+  "root_verified_issue_ids": [
+    9,
+    17,
+    19,
+    20,
+    86,
+    108,
+    116,
+    125,
+    140
+  ],
+  "independent_accepted_count": 135,
+  "pending_global_issue_ids": [
+    131,
+    136,
+    137,
+    138,
+    139
+  ],
+  "owned_cold_comparisons": 124,
+  "scope": "Permit remaining fresh same-source full720 review mains after independently accepted actual generator37/main10 source fix, current140finite audit and strict rolling-record identity verification. All140acceptance and finalscore remain mandatory separate delivery gates; no old image retagging."
+}

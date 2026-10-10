@@ -1,0 +1,2050 @@
+{
+  "source": "/workspace/scratch/reactor-refinement-generator-visible-working/hall_final.blend",
+  "source_sha256": "28fc09a259369b685ca1f96ad78cfd19bc0992f4ae67b200cb2143d9272905e3",
+  "scope": "Finite actual platform-mesh inventory and fixed-rail gate opening; the separate movable gate, global collisions and animation are outside this check.",
+  "samples": 120,
+  "failures": [],
+  "records": [
+    {
+      "assembly": "non-gate end return",
+      "point": [
+        -7.0,
+        0.86,
+        14.42
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 542,
+      "distance_m": 0.019499776884913445,
+      "pass_check": true
+    },
+    {
+      "assembly": "non-gate end return",
+      "point": [
+        -7.0,
+        0.86,
+        14.42
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 531,
+      "distance_m": 0.019499776884913445,
+      "pass_check": true
+    },
+    {
+      "assembly": "non-gate end return",
+      "point": [
+        -7.0,
+        1.1,
+        14.42
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 542,
+      "distance_m": 0.019499780610203743,
+      "pass_check": true
+    },
+    {
+      "assembly": "non-gate end return",
+      "point": [
+        -7.0,
+        1.1,
+        14.42
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 531,
+      "distance_m": 0.019499780610203743,
+      "pass_check": true
+    },
+    {
+      "assembly": "non-gate end return",
+      "point": [
+        -7.0,
+        1.3,
+        14.42
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 542,
+      "distance_m": 0.019499776884913445,
+      "pass_check": true
+    },
+    {
+      "assembly": "non-gate end return",
+      "point": [
+        -7.0,
+        1.3,
+        14.42
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 531,
+      "distance_m": 0.019499776884913445,
+      "pass_check": true
+    },
+    {
+      "assembly": "non-gate end return",
+      "point": [
+        -7.0,
+        0.86,
+        14.95
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 533,
+      "distance_m": 0.021500110626220703,
+      "pass_check": true
+    },
+    {
+      "assembly": "non-gate end return",
+      "point": [
+        -7.0,
+        0.86,
+        14.95
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 524,
+      "distance_m": 0.021500110626220703,
+      "pass_check": true
+    },
+    {
+      "assembly": "non-gate end return",
+      "point": [
+        -7.0,
+        1.1,
+        14.95
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 533,
+      "distance_m": 0.021500112488865852,
+      "pass_check": true
+    },
+    {
+      "assembly": "non-gate end return",
+      "point": [
+        -7.0,
+        1.1,
+        14.95
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 524,
+      "distance_m": 0.021500112488865852,
+      "pass_check": true
+    },
+    {
+      "assembly": "non-gate end return",
+      "point": [
+        -7.0,
+        1.3,
+        14.95
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 533,
+      "distance_m": 0.021500110626220703,
+      "pass_check": true
+    },
+    {
+      "assembly": "non-gate end return",
+      "point": [
+        -7.0,
+        1.3,
+        14.95
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 524,
+      "distance_m": 0.021500110626220703,
+      "pass_check": true
+    },
+    {
+      "assembly": "non-gate end return",
+      "point": [
+        -2.8,
+        0.86,
+        14.42
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 585,
+      "distance_m": 0.019500017166137695,
+      "pass_check": true
+    },
+    {
+      "assembly": "non-gate end return",
+      "point": [
+        -2.8,
+        0.86,
+        14.42
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 575,
+      "distance_m": 0.019500017166137695,
+      "pass_check": true
+    },
+    {
+      "assembly": "non-gate end return",
+      "point": [
+        -2.8,
+        1.1,
+        14.42
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 585,
+      "distance_m": 0.019500015303492546,
+      "pass_check": true
+    },
+    {
+      "assembly": "non-gate end return",
+      "point": [
+        -2.8,
+        1.1,
+        14.42
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 575,
+      "distance_m": 0.019500015303492546,
+      "pass_check": true
+    },
+    {
+      "assembly": "non-gate end return",
+      "point": [
+        -2.8,
+        1.3,
+        14.42
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 585,
+      "distance_m": 0.019500017166137695,
+      "pass_check": true
+    },
+    {
+      "assembly": "non-gate end return",
+      "point": [
+        -2.8,
+        1.3,
+        14.42
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 575,
+      "distance_m": 0.019500017166137695,
+      "pass_check": true
+    },
+    {
+      "assembly": "non-gate end return",
+      "point": [
+        -2.8,
+        0.86,
+        14.95
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 576,
+      "distance_m": 0.021500110626220703,
+      "pass_check": true
+    },
+    {
+      "assembly": "non-gate end return",
+      "point": [
+        -2.8,
+        0.86,
+        14.95
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 568,
+      "distance_m": 0.021500110626220703,
+      "pass_check": true
+    },
+    {
+      "assembly": "non-gate end return",
+      "point": [
+        -2.8,
+        1.1,
+        14.95
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 576,
+      "distance_m": 0.021500112488865852,
+      "pass_check": true
+    },
+    {
+      "assembly": "non-gate end return",
+      "point": [
+        -2.8,
+        1.1,
+        14.95
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 568,
+      "distance_m": 0.021500112488865852,
+      "pass_check": true
+    },
+    {
+      "assembly": "non-gate end return",
+      "point": [
+        -2.8,
+        1.3,
+        14.95
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 576,
+      "distance_m": 0.021500110626220703,
+      "pass_check": true
+    },
+    {
+      "assembly": "non-gate end return",
+      "point": [
+        -2.8,
+        1.3,
+        14.95
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 568,
+      "distance_m": 0.021500110626220703,
+      "pass_check": true
+    },
+    {
+      "assembly": "non-gate end return",
+      "point": [
+        2.8,
+        0.86,
+        14.42
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 229,
+      "distance_m": 0.019500017166137695,
+      "pass_check": true
+    },
+    {
+      "assembly": "non-gate end return",
+      "point": [
+        2.8,
+        0.86,
+        14.42
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 218,
+      "distance_m": 0.019500017166137695,
+      "pass_check": true
+    },
+    {
+      "assembly": "non-gate end return",
+      "point": [
+        2.8,
+        1.1,
+        14.42
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 229,
+      "distance_m": 0.019500015303492546,
+      "pass_check": true
+    },
+    {
+      "assembly": "non-gate end return",
+      "point": [
+        2.8,
+        1.1,
+        14.42
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 218,
+      "distance_m": 0.019500015303492546,
+      "pass_check": true
+    },
+    {
+      "assembly": "non-gate end return",
+      "point": [
+        2.8,
+        1.3,
+        14.42
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 229,
+      "distance_m": 0.019500017166137695,
+      "pass_check": true
+    },
+    {
+      "assembly": "non-gate end return",
+      "point": [
+        2.8,
+        1.3,
+        14.42
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 218,
+      "distance_m": 0.019500017166137695,
+      "pass_check": true
+    },
+    {
+      "assembly": "non-gate end return",
+      "point": [
+        2.8,
+        0.86,
+        14.95
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 219,
+      "distance_m": 0.021500110626220703,
+      "pass_check": true
+    },
+    {
+      "assembly": "non-gate end return",
+      "point": [
+        2.8,
+        0.86,
+        14.95
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 210,
+      "distance_m": 0.021500110626220703,
+      "pass_check": true
+    },
+    {
+      "assembly": "non-gate end return",
+      "point": [
+        2.8,
+        1.1,
+        14.95
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 219,
+      "distance_m": 0.021500112488865852,
+      "pass_check": true
+    },
+    {
+      "assembly": "non-gate end return",
+      "point": [
+        2.8,
+        1.1,
+        14.95
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 210,
+      "distance_m": 0.021500112488865852,
+      "pass_check": true
+    },
+    {
+      "assembly": "non-gate end return",
+      "point": [
+        2.8,
+        1.3,
+        14.95
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 219,
+      "distance_m": 0.021500110626220703,
+      "pass_check": true
+    },
+    {
+      "assembly": "non-gate end return",
+      "point": [
+        2.8,
+        1.3,
+        14.95
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 210,
+      "distance_m": 0.021500110626220703,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        -7.0,
+        1.42,
+        14.1
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 345,
+      "distance_m": 0.02500009350478649,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        -7.0,
+        1.42,
+        14.1
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 342,
+      "distance_m": 0.02500009536743164,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        -7.0,
+        1.42,
+        14.65
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 345,
+      "distance_m": 0.02500009350478649,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        -7.0,
+        1.42,
+        14.65
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 342,
+      "distance_m": 0.02500009350478649,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        -6.16,
+        1.42,
+        14.1
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 371,
+      "distance_m": 0.02500009350478649,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        -6.16,
+        1.42,
+        14.1
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 368,
+      "distance_m": 0.024999618530273438,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        -6.16,
+        1.42,
+        14.65
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 371,
+      "distance_m": 0.02500009350478649,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        -6.16,
+        1.42,
+        14.65
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 368,
+      "distance_m": 0.024999618530273438,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        -5.32,
+        1.42,
+        14.1
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 397,
+      "distance_m": 0.024999618530273438,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        -5.32,
+        1.42,
+        14.1
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 394,
+      "distance_m": 0.02500009536743164,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        -5.32,
+        1.42,
+        14.65
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 397,
+      "distance_m": 0.024999618530273438,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        -5.32,
+        1.42,
+        14.65
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 394,
+      "distance_m": 0.02500009350478649,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        -4.48,
+        1.42,
+        14.1
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 423,
+      "distance_m": 0.02500009350478649,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        -4.48,
+        1.42,
+        14.1
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 420,
+      "distance_m": 0.02500009536743164,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        -4.48,
+        1.42,
+        14.65
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 423,
+      "distance_m": 0.02500009350478649,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        -4.48,
+        1.42,
+        14.65
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 420,
+      "distance_m": 0.02500009350478649,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        -3.64,
+        1.42,
+        14.1
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 449,
+      "distance_m": 0.02499985694885254,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        -3.64,
+        1.42,
+        14.1
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 446,
+      "distance_m": 0.02500009536743164,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        -3.64,
+        1.42,
+        14.65
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 449,
+      "distance_m": 0.02499985694885254,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        -3.64,
+        1.42,
+        14.65
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 446,
+      "distance_m": 0.02500009350478649,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        -2.8,
+        1.42,
+        14.1
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 475,
+      "distance_m": 0.02500009350478649,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        -2.8,
+        1.42,
+        14.1
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 472,
+      "distance_m": 0.02499985694885254,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        -2.8,
+        1.42,
+        14.65
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 475,
+      "distance_m": 0.02500009350478649,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        -2.8,
+        1.42,
+        14.65
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 472,
+      "distance_m": 0.02499985694885254,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        2.8,
+        1.42,
+        14.1
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 27,
+      "distance_m": 0.02499985694885254,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        2.8,
+        1.42,
+        14.1
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 31,
+      "distance_m": 0.02500009536743164,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        2.8,
+        1.42,
+        14.65
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 27,
+      "distance_m": 0.02499985694885254,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        2.8,
+        1.42,
+        14.65
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 31,
+      "distance_m": 0.02500009350478649,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        3.64,
+        1.42,
+        14.1
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 57,
+      "distance_m": 0.02500009350478649,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        3.64,
+        1.42,
+        14.1
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 54,
+      "distance_m": 0.02499985694885254,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        3.64,
+        1.42,
+        14.65
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 57,
+      "distance_m": 0.02500009350478649,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        3.64,
+        1.42,
+        14.65
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 54,
+      "distance_m": 0.02499985694885254,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        4.48,
+        1.42,
+        14.1
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 83,
+      "distance_m": 0.02500009350478649,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        4.48,
+        1.42,
+        14.1
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 80,
+      "distance_m": 0.02500009536743164,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        4.48,
+        1.42,
+        14.65
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 83,
+      "distance_m": 0.02500009350478649,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        4.48,
+        1.42,
+        14.65
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 80,
+      "distance_m": 0.02500009350478649,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        5.32,
+        1.42,
+        14.1
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 109,
+      "distance_m": 0.02500009350478649,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        5.32,
+        1.42,
+        14.1
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 106,
+      "distance_m": 0.024999618530273438,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        5.32,
+        1.42,
+        14.65
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 109,
+      "distance_m": 0.02500009350478649,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        5.32,
+        1.42,
+        14.65
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 106,
+      "distance_m": 0.024999618530273438,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        6.16,
+        1.42,
+        14.1
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 135,
+      "distance_m": 0.024999618530273438,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        6.16,
+        1.42,
+        14.1
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 132,
+      "distance_m": 0.02500009536743164,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        6.16,
+        1.42,
+        14.65
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 135,
+      "distance_m": 0.024999618530273438,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        6.16,
+        1.42,
+        14.65
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 132,
+      "distance_m": 0.02500009350478649,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        7.0,
+        1.42,
+        14.1
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 161,
+      "distance_m": 0.02500009350478649,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        7.0,
+        1.42,
+        14.1
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 158,
+      "distance_m": 0.02500009536743164,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        7.0,
+        1.42,
+        14.65
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 161,
+      "distance_m": 0.02500009350478649,
+      "pass_check": true
+    },
+    {
+      "assembly": "longitudinal rail post",
+      "point": [
+        7.0,
+        1.42,
+        14.65
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 158,
+      "distance_m": 0.02500009350478649,
+      "pass_check": true
+    },
+    {
+      "assembly": "end-return post",
+      "point": [
+        -7.0,
+        0.74,
+        14.1
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 561,
+      "distance_m": 0.02500009536743164,
+      "pass_check": true
+    },
+    {
+      "assembly": "end-return post",
+      "point": [
+        -7.0,
+        0.74,
+        14.1
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 565,
+      "distance_m": 0.02500009536743164,
+      "pass_check": true
+    },
+    {
+      "assembly": "end-return post",
+      "point": [
+        -7.0,
+        0.74,
+        14.65
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 561,
+      "distance_m": 0.02500009536743164,
+      "pass_check": true
+    },
+    {
+      "assembly": "end-return post",
+      "point": [
+        -7.0,
+        0.74,
+        14.65
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 565,
+      "distance_m": 0.02500009536743164,
+      "pass_check": true
+    },
+    {
+      "assembly": "end-return post",
+      "point": [
+        -2.8,
+        0.74,
+        14.1
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 603,
+      "distance_m": 0.02500009536743164,
+      "pass_check": true
+    },
+    {
+      "assembly": "end-return post",
+      "point": [
+        -2.8,
+        0.74,
+        14.1
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 607,
+      "distance_m": 0.02499985694885254,
+      "pass_check": true
+    },
+    {
+      "assembly": "end-return post",
+      "point": [
+        -2.8,
+        0.74,
+        14.65
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 603,
+      "distance_m": 0.02500009536743164,
+      "pass_check": true
+    },
+    {
+      "assembly": "end-return post",
+      "point": [
+        -2.8,
+        0.74,
+        14.65
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 607,
+      "distance_m": 0.02499985694885254,
+      "pass_check": true
+    },
+    {
+      "assembly": "end-return post",
+      "point": [
+        2.8,
+        0.74,
+        14.1
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 249,
+      "distance_m": 0.02499985694885254,
+      "pass_check": true
+    },
+    {
+      "assembly": "end-return post",
+      "point": [
+        2.8,
+        0.74,
+        14.1
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 253,
+      "distance_m": 0.02500009536743164,
+      "pass_check": true
+    },
+    {
+      "assembly": "end-return post",
+      "point": [
+        2.8,
+        0.74,
+        14.65
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 249,
+      "distance_m": 0.02499985694885254,
+      "pass_check": true
+    },
+    {
+      "assembly": "end-return post",
+      "point": [
+        2.8,
+        0.74,
+        14.65
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 253,
+      "distance_m": 0.02500009536743164,
+      "pass_check": true
+    },
+    {
+      "assembly": "end-return post",
+      "point": [
+        7.0,
+        0.74,
+        14.1
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 315,
+      "distance_m": 0.02500009536743164,
+      "pass_check": true
+    },
+    {
+      "assembly": "end-return post",
+      "point": [
+        7.0,
+        0.74,
+        14.1
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 319,
+      "distance_m": 0.02500009536743164,
+      "pass_check": true
+    },
+    {
+      "assembly": "end-return post",
+      "point": [
+        7.0,
+        0.74,
+        14.65
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 315,
+      "distance_m": 0.02500009536743164,
+      "pass_check": true
+    },
+    {
+      "assembly": "end-return post",
+      "point": [
+        7.0,
+        0.74,
+        14.65
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 319,
+      "distance_m": 0.02500009536743164,
+      "pass_check": true
+    },
+    {
+      "assembly": "gate-adjacent fixed rail stub",
+      "point": [
+        7.0,
+        0.777,
+        14.42
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 275,
+      "distance_m": 0.019499780610203743,
+      "pass_check": true
+    },
+    {
+      "assembly": "gate-adjacent fixed rail stub",
+      "point": [
+        7.0,
+        0.777,
+        14.42
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 263,
+      "distance_m": 0.019499780610203743,
+      "pass_check": true
+    },
+    {
+      "assembly": "gate-adjacent fixed rail stub",
+      "point": [
+        7.0,
+        1.38,
+        14.42
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 295,
+      "distance_m": 0.019499778747558594,
+      "pass_check": true
+    },
+    {
+      "assembly": "gate-adjacent fixed rail stub",
+      "point": [
+        7.0,
+        1.38,
+        14.42
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 283,
+      "distance_m": 0.019499778747558594,
+      "pass_check": true
+    },
+    {
+      "assembly": "opening free of fixed return rail",
+      "point": [
+        7.0,
+        0.9,
+        14.42
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": false,
+      "hit_face": null,
+      "distance_m": null,
+      "pass_check": true
+    },
+    {
+      "assembly": "opening free of fixed return rail",
+      "point": [
+        7.0,
+        0.9,
+        14.42
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": false,
+      "hit_face": null,
+      "distance_m": null,
+      "pass_check": true
+    },
+    {
+      "assembly": "opening free of fixed return rail",
+      "point": [
+        7.0,
+        1.1,
+        14.42
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": false,
+      "hit_face": null,
+      "distance_m": null,
+      "pass_check": true
+    },
+    {
+      "assembly": "opening free of fixed return rail",
+      "point": [
+        7.0,
+        1.1,
+        14.42
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": false,
+      "hit_face": null,
+      "distance_m": null,
+      "pass_check": true
+    },
+    {
+      "assembly": "opening free of fixed return rail",
+      "point": [
+        7.0,
+        1.25,
+        14.42
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": false,
+      "hit_face": null,
+      "distance_m": null,
+      "pass_check": true
+    },
+    {
+      "assembly": "opening free of fixed return rail",
+      "point": [
+        7.0,
+        1.25,
+        14.42
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": false,
+      "hit_face": null,
+      "distance_m": null,
+      "pass_check": true
+    },
+    {
+      "assembly": "gate-adjacent fixed rail stub",
+      "point": [
+        7.0,
+        0.777,
+        14.95
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 265,
+      "distance_m": 0.021500112488865852,
+      "pass_check": true
+    },
+    {
+      "assembly": "gate-adjacent fixed rail stub",
+      "point": [
+        7.0,
+        0.777,
+        14.95
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 256,
+      "distance_m": 0.021500112488865852,
+      "pass_check": true
+    },
+    {
+      "assembly": "gate-adjacent fixed rail stub",
+      "point": [
+        7.0,
+        1.38,
+        14.95
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 285,
+      "distance_m": 0.021500112488865852,
+      "pass_check": true
+    },
+    {
+      "assembly": "gate-adjacent fixed rail stub",
+      "point": [
+        7.0,
+        1.38,
+        14.95
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": true,
+      "hit_face": 274,
+      "distance_m": 0.021500112488865852,
+      "pass_check": true
+    },
+    {
+      "assembly": "opening free of fixed return rail",
+      "point": [
+        7.0,
+        0.9,
+        14.95
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": false,
+      "hit_face": null,
+      "distance_m": null,
+      "pass_check": true
+    },
+    {
+      "assembly": "opening free of fixed return rail",
+      "point": [
+        7.0,
+        0.9,
+        14.95
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": false,
+      "hit_face": null,
+      "distance_m": null,
+      "pass_check": true
+    },
+    {
+      "assembly": "opening free of fixed return rail",
+      "point": [
+        7.0,
+        1.1,
+        14.95
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": false,
+      "hit_face": null,
+      "distance_m": null,
+      "pass_check": true
+    },
+    {
+      "assembly": "opening free of fixed return rail",
+      "point": [
+        7.0,
+        1.1,
+        14.95
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": false,
+      "hit_face": null,
+      "distance_m": null,
+      "pass_check": true
+    },
+    {
+      "assembly": "opening free of fixed return rail",
+      "point": [
+        7.0,
+        1.25,
+        14.95
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": false,
+      "hit_face": null,
+      "distance_m": null,
+      "pass_check": true
+    },
+    {
+      "assembly": "opening free of fixed return rail",
+      "point": [
+        7.0,
+        1.25,
+        14.95
+      ],
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "expected_present": false,
+      "hit_face": null,
+      "distance_m": null,
+      "pass_check": true
+    }
+  ],
+  "pass_check": true
+}

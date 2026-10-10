@@ -5,41 +5,40 @@
 > **Art-direction canon:** Critical Shift uses **grounded stylized semi-realism**. Valorant-style environment principles are the primary rendering influence; PEAK contributes readability and restraint only. The target is believable, tactile and simplified, **not** generic low-poly, toy-like, Three.js-looking, glossy sci-fi, or modern AAA photorealism. [ART_DIRECTION](/design/ART_DIRECTION.md) and [ART_REFERENCE_INDEX](/design/ART_REFERENCE_INDEX.md) override conflicting legacy style wording in this file.
 
 
-**Current phase:** Scenery specification exists; autonomous build protocol not yet instantiated into a reactor-specific build prompt  
-**Current overall score:** Not scored  
-**Cold-start status:** Not run  
-**Authoritative source:** ../blender/reactorroom.blend (future)
+**Current phase:** Reviewed hall refinement delivered for the owner’s 140-item task; Git handoff prepared.
+**Current overall score:** 91/100, independently reviewed by Luna; areas 88–93.
+**Open task criteria:** 0 of 140.
+**Authoritative source:** [../blender/reactorroom.blend](../blender/reactorroom.blend).
+**Source SHA-256:** `28fc09a259369b685ca1f96ad78cfd19bc0992f4ae67b200cb2143d9272905e3`.
+**Recorded cold status:** 14 finite checks and separate control-room aggregate pass; 124 declared owned comparisons pass.
+**Map/runtime status:** Not integrated into the combined map; Unity performance and runtime export not validated.
+
+## Entry points
+
+- [Handoff and commands](HANDOFF.md).
+- [Ten original full-quality 1280×720 views](renders/final/refinement-28fc/gallery.html).
+- [Independent final review](critics/refinement-28fc/LUNA_28FC_FINAL_REVIEW.md).
+- [File identities and scope](checkpoints/refinement-28fc/handoff.json).
 
 ## Completed
-- Reactor scenery/visual specification
-- Section package structure
-- Global autonomous build protocol
 
-## Next actions
-1. Write reactor-specific build/self-review prompt.
-2. Define reactor-specific rubric and critical failures.
-3. Define fixed validation cameras.
-4. Establish headless Blender entrypoint.
-5. Begin blockout and review loop.
+The hall refinements cover machinery, floor, control rods, roof, walls, signs, props, materials and support geometry. The last correction moved the complete generator plaque 400 mm forward on fitted stand-offs to clear a conduit in the actual west-wall view. All ten main originals use the accepted source and canonical renderer. Current proof37 shows the full corrected sign. Historical fixture82 retains its original source identity.
 
-## Last successful headless build command
-Not yet established.
+## Hall fixes after the reviewed handoff (unreviewed)
 
-## Last successful render batch
-None.
+A follow-up pass changed the saved scene. **Everything in the sections above describes the earlier reviewed scene (`28fc09a2…`), not this one.** The 91/100 review, the ten gallery renders and the portable verifier all refer to that earlier file; `verify_refinement_handoff.py` now fails on the source hash by design and has not been regenerated.
 
+- Scene SHA-256 now `f01b2aa3ab48b58bd6a2a5f5744220069e2eb23800e2bdd0c953ff8ec364efe0`.
+- Wet floor concrete and both wall concretes darkened. The floor has puddle patches and drag streaks: darker, near-mirror smooth, with a clear coat for lamp and pool reflections.
+- Lighting moodier: broad wash lights cut to about 40% and tinted cool, uplights reduced, roof shafts and roof-bay lights lifted, six warm roof accent spots added so girders and crane keep structure, world strength 0.16 to 0.05.
+- Wall numbers `N-1`..`N-5`, `S-`, `E-`, `W-` (round geometric face with every corner rounded, no stencil cuts, bright chipped paint, 2.4 m x 0.8 m on the panel-field centres) are a texture stencil layer in the two wall concrete materials (packed 3840x1024 atlas, keyed to world position and wall normal, no added geometry). Stencils sit at 3.3 to 4.1 m. `check_wall_number_visibility.py` (finite sample, not a view check): most bays are partly hidden by signs, trim, doors or equipment; N-3 and W-3 sit on door openings, and N-1, N-5, S-1, S-5, E-1, E-5, W-1, W-4 and W-5 have two or fewer of nine samples clear. Placement is not yet adjusted per bay.
+- Evaluated triangles (meshes, curves and text, render-visible objects) went from 1,478,532 to 1,174,837 by decimating fifteen-plus over-tessellated, non-interactive meshes. The saved scene is under 1.2 million; the earlier reviewed scene was not.
+- The eight orange zone numerals `R2 gfx 01`..`08` (a diamond-ring zero plus an angular polygon digit each) were replaced by round Outfit Bold digit meshes on the same wall planes, same height and centre, with remaining sharp corners bevelled. Checked by projecting the meshes flat (all read 01 to 08, none mirrored in that projection); in-scene appearance only in the render noted below.
+- Reproduce with `overhaul-R1/scripts/make_wall_number_atlas.py` then `rh_hall_moody_fixes.py` on the reviewed scene.
+- Checked with 480x270 Cycles CPU previews of the fixed views plus five inspection close-ups of decimated parts (trolley, bank suspension, turbine base, hook, drums); no damage seen. The Cycles warning 'Maximum number of closures exceeded: 96 > 64' also appears when rendering the reviewed scene, so it is not new. No full-quality render, no independent review, no collision or interface re-check, no Unity measurement. The committed gallery renders do not show this look.
 
-## Art-direction reset state — 2026-09-05
+## Review limits and next actions
 
-**Current phase:** STYLE VALIDATION REQUIRED  
-**Expansion status:** BLOCKED until a grounded stylized semi-realistic validation slice passes.
+Use the saved scene as the next authoring baseline. The task’s ≥90 overall / ≥85 area bar is satisfied; this does not advance map-owner or other repository acceptance gates. The broad floor puddle is a recorded minor finish weakness. Registered finite geometry checks do not prove exhaustive access or collision freedom; the control-room aggregate passes while individual front-access subchecks may be BLOCKED.
 
-Immediate next actions:
-1. Render one small reactor wall/console/pool-adjacent slice.
-2. Match `../art/reference/reactor_style_target.svg`.
-3. Establish approved material families.
-4. Prove practical lighting and cyan-pool balance.
-5. Score against `RUBRIC.md`.
-6. Only then expand the hall.
-
-Any prior low-poly/flat-plastic interpretation is not an approved baseline.
+Read the handoff, hydrate only its LFS files, and run its portable verifier. Further map placement follows the current combined-map instructions when requested by the owner. No fresh whole-pipeline equivalence is asserted. The historic build and render commands retain their original workspace paths in the immutable evidence.

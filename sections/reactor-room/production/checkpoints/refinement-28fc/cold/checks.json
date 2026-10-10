@@ -1,0 +1,105 @@
+{
+  "source": "/workspace/scratch/reactor-refinement-generator-visible-working-cold/hall_final.blend",
+  "source_sha256": "2f50f597c56f9c06db8514392ccc57be8219c52b6ac6798e24a54fdff940bec4",
+  "all_pass": true,
+  "checks": [
+    {
+      "check": "door_hardware",
+      "exit": 0,
+      "pass": true,
+      "seconds": 2.26,
+      "log": "/workspace/scratch/reactor-refinement-generator-visible-working-cold/door_hardware-check.log"
+    },
+    {
+      "check": "floor_guidance",
+      "exit": 0,
+      "pass": true,
+      "seconds": 2.25,
+      "log": "/workspace/scratch/reactor-refinement-generator-visible-working-cold/floor_guidance-check.log"
+    },
+    {
+      "check": "blind_cover",
+      "exit": 0,
+      "pass": true,
+      "seconds": 6.84,
+      "log": "/workspace/scratch/reactor-refinement-generator-visible-working-cold/blind_cover-check.log"
+    },
+    {
+      "check": "rod_guide",
+      "exit": 0,
+      "pass": true,
+      "seconds": 20.1,
+      "log": "/workspace/scratch/reactor-refinement-generator-visible-working-cold/rod_guide-check.log"
+    },
+    {
+      "check": "roof_utility",
+      "exit": 0,
+      "pass": true,
+      "seconds": 4.3,
+      "log": "/workspace/scratch/reactor-refinement-generator-visible-working-cold/roof_utility-check.log"
+    },
+    {
+      "check": "gantry_guard",
+      "exit": 0,
+      "pass": true,
+      "seconds": 3.9,
+      "log": "/workspace/scratch/reactor-refinement-generator-visible-working-cold/gantry_guard-check.log"
+    },
+    {
+      "check": "bores",
+      "exit": 0,
+      "pass": true,
+      "seconds": 4.3,
+      "log": "/workspace/scratch/reactor-refinement-generator-visible-working-cold/bores-check.log"
+    },
+    {
+      "check": "contract",
+      "exit": 0,
+      "pass": true,
+      "seconds": 3.35,
+      "log": "/workspace/scratch/reactor-refinement-generator-visible-working-cold/contract-check.log"
+    },
+    {
+      "check": "piping",
+      "exit": 0,
+      "pass": true,
+      "seconds": 1.88,
+      "log": "/workspace/scratch/reactor-refinement-generator-visible-working-cold/piping-check.log"
+    },
+    {
+      "check": "clearance",
+      "exit": 0,
+      "pass": true,
+      "seconds": 3.77,
+      "log": "/workspace/scratch/reactor-refinement-generator-visible-working-cold/clearance-check.log"
+    },
+    {
+      "check": "palette",
+      "exit": 0,
+      "pass": true,
+      "seconds": 1.9,
+      "log": "/workspace/scratch/reactor-refinement-generator-visible-working-cold/palette-check.log"
+    },
+    {
+      "check": "fps",
+      "exit": 0,
+      "pass": true,
+      "seconds": 2.5,
+      "log": "/workspace/scratch/reactor-refinement-generator-visible-working-cold/fps-check.log"
+    },
+    {
+      "check": "motion",
+      "exit": 0,
+      "pass": true,
+      "seconds": 19.0,
+      "log": "/workspace/scratch/reactor-refinement-generator-visible-working-cold/motion-check.log"
+    },
+    {
+      "check": "support",
+      "exit": 0,
+      "pass": true,
+      "seconds": 250.39,
+      "log": "/workspace/scratch/reactor-refinement-generator-visible-working-cold/support-check.log"
+    }
+  ]
+}

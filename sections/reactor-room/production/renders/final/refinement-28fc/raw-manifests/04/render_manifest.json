@@ -1,0 +1,54 @@
+{
+  "renderer_sha256": "06d0ac982dd1a217fa1fae8448633299dba993e391627979848dc0e39608b8ef",
+  "source": "/workspace/scratch/reactor-refinement-generator-visible-working/hall_final.blend",
+  "source_sha256": "28fc09a259369b685ca1f96ad78cfd19bc0992f4ae67b200cb2143d9272905e3",
+  "blender": "5.2.2 LTS",
+  "frame": 1,
+  "stability": 1.0,
+  "resolution": [
+    1280,
+    720
+  ],
+  "engine": "CYCLES",
+  "device": "CPU",
+  "threads": 5,
+  "samples_max": 96,
+  "adaptive_threshold": 0.014999999664723873,
+  "adaptive_min_samples": 32,
+  "denoiser": "OPENIMAGEDENOISE",
+  "max_bounces": 12,
+  "volume_bounces": 1,
+  "reflective_caustics": false,
+  "refractive_caustics": false,
+  "path_guiding": true,
+  "guiding_training_samples": 64,
+  "color_depth": "16",
+  "color_management": {
+    "transform": "AgX",
+    "look": "AgX - Medium High Contrast",
+    "exposure": 0.0
+  },
+  "preview": false,
+  "views": [
+    {
+      "name": "04_floor_pool_circulation",
+      "title": "Floor \u00b7 pool circulation and service routes",
+      "location": [
+        0,
+        9.4,
+        7.5
+      ],
+      "target": [
+        0.3,
+        3.2,
+        0.1
+      ],
+      "lens_mm": 20,
+      "projection": "PERSP",
+      "ortho_scale": null,
+      "file": "04_floor_pool_circulation.png",
+      "elapsed_seconds": 3118.88,
+      "sha256": "06f2c5e4f2f0e1b48994cc3167d6c07e4ec8491f57687b5791a9b99b998d3876"
+    }
+  ]
+}

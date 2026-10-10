@@ -5,7 +5,7 @@
 > **Art-direction canon:** Critical Shift uses **grounded stylized semi-realism**. Valorant-style environment principles are the primary rendering influence; PEAK contributes readability and restraint only. The target is believable, tactile and simplified, **not** generic low-poly, toy-like, Three.js-looking, glossy sci-fi, or modern AAA photorealism. [ART_DIRECTION](/design/ART_DIRECTION.md) and [ART_REFERENCE_INDEX](/design/ART_REFERENCE_INDEX.md) override conflicting legacy style wording in this file.
 
 
-This folder will hold persistent operating state and proof for the Reactor Room build.
+Current reviewed source and evidence: [HANDOFF.md](HANDOFF.md), [TASK_STATE.md](TASK_STATE.md), and [the original render gallery](renders/final/refinement-28fc/gallery.html). The 140-item hall task scored 91/100; combined-map and runtime validation remain separate.
 
 Follow:
 - ../../../design/AUTONOMOUS_SECTION_BUILD_PROTOCOL.md

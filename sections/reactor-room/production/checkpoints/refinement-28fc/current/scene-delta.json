@@ -1,0 +1,17 @@
+{
+  "source_sha256": "870bca11bd9fc1f43a90a411d573ff990d1f7f41b7c52ec9a627c13a97b753da",
+  "candidate_sha256": "28fc09a259369b685ca1f96ad78cfd19bc0992f4ae67b200cb2143d9272905e3",
+  "changed": [
+    "RH refine STANDBY GENERATOR",
+    "RH refine sign STANDBY GENERATOR ORANGE",
+    "RH refine sign STANDBY GENERATOR PANEL",
+    "RH refine sign STANDBY GENERATOR STEEL",
+    "RH refine sign mounting spacers STEEL"
+  ],
+  "added": [],
+  "removed": [],
+  "unexpected_changes": [],
+  "unchanged_count": 1963,
+  "pass_check": true,
+  "scope": "Exact inherited per-object snapshot scope including mesh positions/topology/materials and curves. Five existing generator-sign objects changed only. Complete plaque and lettering moved forward400mm, four isolated wall-spacer components extended from unchanged wall seats. Other per-object geometry, lights, materials and cameras unchanged; no pixel-identity claim. All-animation-key/all-customproperty equivalence not asserted."
+}
