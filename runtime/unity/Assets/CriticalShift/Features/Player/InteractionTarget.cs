@@ -15,6 +15,7 @@ namespace CriticalShift.Features.Player.Unity
         [SerializeField] private Transform attachment;
         [SerializeField] private Transform exit;
         [SerializeField] private Transform stationVisual;
+        [SerializeField] private Transform stationPose;
         [SerializeField] private int preparationMilliseconds;
         private Vector3 _spawn;
         private Quaternion _rotation;
@@ -31,8 +32,9 @@ namespace CriticalShift.Features.Player.Unity
         public float Radius { get; private set; }
         public int PreparationMilliseconds => preparationMilliseconds;
         public bool Station => preparationMilliseconds > 0;
-        public void ConfigureStation(Transform hangingSuit, int delayMilliseconds = 15000)
-        { stationVisual = hangingSuit; preparationMilliseconds = delayMilliseconds; }
+        public Transform StationPose => stationPose;
+        public void ConfigureStation(Transform hangingSuit, Transform standingPose, int delayMilliseconds = 15000)
+        { stationVisual = hangingSuit; stationPose = standingPose; preparationMilliseconds = delayMilliseconds; }
         public void ProjectStation(bool available)
         { if (stationVisual == null) throw new InvalidOperationException("Missing station suit projection."); stationVisual.gameObject.SetActive(available); }
 
@@ -44,7 +46,8 @@ namespace CriticalShift.Features.Player.Unity
         }
         public void Capture()
         {
-            if ((Station && (stationVisual == null || kind != PlayerTargetKind.ProtectiveEquipment ||
+            if ((Station && (stationVisual == null || stationPose == null || !stationPose.gameObject.activeInHierarchy ||
+                    kind != PlayerTargetKind.ProtectiveEquipment ||
                     preparationMilliseconds < 15000 || preparationMilliseconds > 30000 || stationVisual.IsChildOf(transform))) ||
                 !Guid.TryParse(identity, out var id) || id == Guid.Empty || shape == null ||
                 !shape.transform.IsChildOf(transform) || !isActiveAndEnabled || !shape.enabled ||

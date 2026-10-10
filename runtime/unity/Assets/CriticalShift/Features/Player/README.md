@@ -83,8 +83,8 @@ unity -batchmode -nographics -projectPath "$PWD/runtime/unity" -runTests -testPl
 Expect nine `PlayerBindingTests`, zero skips/failures. They cover physical pickup/drop,
 equipment, seat and blocked exit, placement/take, movement/pause, crouch clearance, ten resets,
 closing-door obstruction/reopening and an occupant inside a concave leaf's empty query bounds.
-The five actual-map cases require the generated assembled map; preparation and the combined
-14-case native run are documented in [SPAWN_ROOM.md](../../../../../validation/SPAWN_ROOM.md).
+The six actual-map cases require the generated assembled map; preparation and the combined
+15-case native run are documented in [SPAWN_ROOM.md](../../../../../validation/SPAWN_ROOM.md).
 For a desktop fixture build, invoke `CriticalShift.Bootstrap.Player.Editor.PlayerRoomBuild.Build`
 with `-csBuildPath` and `-buildTarget Linux64` or `Win64`. This method selects the fixture scene
 explicitly, Built-in rendering, Mono, .NET Standard 2.1 and Disabled stripping.
@@ -111,9 +111,12 @@ Multiplayer door state, airlock pressure, physical suit damage and scanner certi
 outside this local slice.
 
 Station suits use `PlayerOperations`' bounded, lease-bound preparation intention on the existing
-shift clock. E starts 15 seconds of preparation with free hands and an open, reachable locker;
-E/Q cancels. A completed claim equips the original equipment slot, projects the rig's suit outfit,
-and hides the hanging suit. E on that station (or U while in reach) returns it there. Closing the
-locker, losing reach/claim, impact, disconnect or reset cancels preparation. Pause freezes the
-deadline and animation while host lease renewal continues. No second inventory or suit owner
-is introduced. Scene generation and the nine native physical tests have not executed here.
+shift clock. Stand in front of an open locker, face it, and press E with free hands to start
+15 seconds of preparation. Movement/turning are held while the existing `SUIT_UP` clip follows
+the preparation clock. The worker stays unsuited and the hanging suit stays visible until
+the final pose; the equipment commit then shows the worn outfit and hides the hanging suit
+together. E/Q cancels. E on that station (or U while in reach) returns it there. Closing the
+locker, losing the standing pose/reach/claim, impact, disconnect or reset cancels preparation.
+Pause freezes the deadline and pose while host lease renewal continues. No second inventory
+or timer owner is introduced. Scene generation and all 15 native physical tests pass in this
+container; visual/human review remains separate.

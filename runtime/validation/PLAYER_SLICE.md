@@ -81,8 +81,9 @@ Independent review and maintainer merge are **pending**; this task does not merg
 ## Native follow-up — 10 October 2026
 
 Unity Personal was subsequently activated through official browser sign-in. The stacked spawn
-task now executes all nine graybox physical cases plus five cases against the current assembled
-map: 14 passed, zero failed/skipped/inconclusive. A Linux Player build and startup/shutdown check
+task now executes all nine graybox physical cases plus six cases against the current assembled
+map: 15 passed, zero failed/skipped/inconclusive, including locker stance and the outfit swap
+only at animation completion. A Linux Player build and startup/shutdown check
 also pass. See [SPAWN_ROOM.md](SPAWN_ROOM.md) and its compact evidence for current sources,
 package corrections, exact commands and limitations. The earlier blocked results above remain
 the historical evidence for this slice; human feel, remote peers, performance and independent

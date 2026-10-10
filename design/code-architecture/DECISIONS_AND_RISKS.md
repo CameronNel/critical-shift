@@ -8,6 +8,14 @@ clock. A station suit becomes intact only after its authored 15–30 second dela
 and an accepted equipment-slot transaction. Unity supplies stationary/reach
 observations and projects custody; it does not own another inventory or suit state.
 
+The owner's locker presentation request requires a standing, grounded, uncrouched worker
+in front of the locker and facing it. Generated Unity standing poses leave source markers
+untouched. The existing `SUIT_UP` clip is sampled against that same preparation clock;
+the hanging suit remains visible throughout. The final clip pose and accepted equipment
+transaction show the worn outfit and hide the hanging suit in one host projection.
+Pause freezes the clock/pose; cancellation never shows worn equipment. Animation sampling
+and renderer visibility remain presentation, with no additional inventory or timer owner.
+
 Doors, locker hinges, scanner presentation and briefing text are local physical
 prototypes owned by their scene components. A scan reports current suit condition;
 it does not repair a suit or certify future safety. Multiplayer replication,

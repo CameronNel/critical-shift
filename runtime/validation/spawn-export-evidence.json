@@ -4,7 +4,7 @@
   "map_commit": "bb6b4924849d38097ee629a6fa2c00dc1b56095f",
   "rig_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
   "canonical_source_sha256": "9c54db3198280deb4a25f6067b3ca73600f0ffa61f3d4848602642ff50a4ff4c",
-  "player_source_sha256": "727dcec3463ffee18aa0ad5c3b9a6cc86a3c6e512c117aea579cfa8a902e882f",
+  "player_source_sha256": "d71d64e84a41a494a520e0004e24c62a4258a8118ccab90e9861f00c5ddf5be5",
   "offline": {
     "status": "Passed",
     "tests": {
@@ -46,10 +46,10 @@
       }
     ],
     "report": {
-      "path": "runtime/out/spawn-api-validated/player-api.json",
-      "sha256": "8f9a7c461e45c68326000799e2fd3fb4f840d82aa7725a95cd92acc01608e285"
+      "path": "runtime/out/spawn-api-locker-end/player-api.json",
+      "sha256": "46e108581b3f8ab61499859e5959891c0917e85615b3078df9fbd3a86021404b"
     },
-    "limits": "Supplementary API compilation; the five editor-only map cases are validated by the native runner."
+    "limits": "Supplementary API compilation; the six editor-only map cases are validated by the native runner."
   },
   "python_tools": {
     "status": "Passed",
@@ -202,24 +202,25 @@
     "rooms": 6,
     "animation_states": 52,
     "log": {
-      "path": "runtime/out/spawn-build-prebaked.log",
-      "sha256": "319d000f7013527e6ca22fdc85c5ae061a4e3f15d0fb4f4a382ed32d2d9fbb35"
+      "path": "runtime/out/spawn-build-locker-end.log",
+      "sha256": "a16e86cef234c12e5369f8e7108de5da4927721cb2e86de7c5ace9c90a1f1070"
     },
     "scene": {
       "path": "runtime/unity/Assets/CriticalShift/Generated/Spawn/AssembledMap.unity",
-      "sha256": "3529e6028286ac6dfc0d1719fb4f78a7645c966b129bc5cb0341334d372585d4"
+      "sha256": "24a8ba56a27b8e4c0916c296df6a26a9def2d9b0fd3942d2cea0f2e95b135836"
     },
     "controller": {
       "path": "runtime/unity/Assets/CriticalShift/Generated/Spawn/CrewWorker.controller",
-      "sha256": "2ba9b062714086272a6746ef5e7a7be86dba9534915d7e12de6b5415dac37d57"
-    }
+      "sha256": "943b34e856f8e1929890d38b206f2367cdd825abd96bebd8a077f9a54cafabd9"
+    },
+    "locker_standing_poses": 4
   },
   "native_playmode": {
     "status": "Passed",
     "exit_code": 0,
     "counts": {
-      "total": 14,
-      "passed": 14,
+      "total": 15,
+      "passed": 15,
       "failed": 0,
       "skipped": 0,
       "inconclusive": 0
@@ -238,18 +239,19 @@
       "CriticalShift.Tests.Player.SpawnMapBindingTests.AllBenchSeatsAnimateAndHaveUsableStandingExits",
       "CriticalShift.Tests.Player.SpawnMapBindingTests.ImportedMapStartsWithCompleteCollisionAndAnimatedRig",
       "CriticalShift.Tests.Player.SpawnMapBindingTests.IntegrityChamberSealsTestsAndReleasesAnUnsuitedWorker",
-      "CriticalShift.Tests.Player.SpawnMapBindingTests.LockerPreparationPausesCompletesAndReturnsTheAuthoredSuit"
+      "CriticalShift.Tests.Player.SpawnMapBindingTests.LockerAnimationSwapsSuitOnlyAtCompletionAndPauses",
+      "CriticalShift.Tests.Player.SpawnMapBindingTests.LockerPreparationRequiresStandingInFrontAndCancelsIfDisplaced"
     ],
-    "duration_seconds": 116.6107559,
-    "started_utc": "2026-10-10 19:58:08Z",
-    "ended_utc": "2026-10-10 20:00:05Z",
+    "duration_seconds": 76.4008045,
+    "started_utc": "2026-10-10 20:27:55Z",
+    "ended_utc": "2026-10-10 20:29:12Z",
     "xml": {
-      "path": "runtime/out/spawn-playmode-validated.xml",
-      "sha256": "c10bb095255d8094b5b5f00c0ae4311b11a9aaa74c24e480fe47b9881553fbd2"
+      "path": "runtime/out/spawn-playmode-locker-end.xml",
+      "sha256": "5accde249a0b5b86322bc36c07af7e5dd2ca3a4163f2e8f8d5158216bf0ce0d9"
     },
     "log": {
-      "path": "runtime/out/spawn-playmode-validated.log",
-      "sha256": "9f59405347cf205a5b5076c41e1f677bdc67d4d1d7833822e88abce38ebc5cbc"
+      "path": "runtime/out/spawn-playmode-locker-end.log",
+      "sha256": "fb95a4a152ea16096c944e40753ac01f29a9159329617135cff0cc49fbcea1af"
     }
   },
   "desktop_player": {
@@ -270,12 +272,12 @@
     "display": "Xvfb 1280x720, OpenGL 4.5, Mesa 25.0.7, llvmpipe LLVM 19.1.7",
     "audio": "FMOD nosound fallback; audio behavior not tested",
     "build_log": {
-      "path": "runtime/out/spawn-build-prebaked.log",
-      "sha256": "319d000f7013527e6ca22fdc85c5ae061a4e3f15d0fb4f4a382ed32d2d9fbb35"
+      "path": "runtime/out/spawn-build-locker-end.log",
+      "sha256": "a16e86cef234c12e5369f8e7108de5da4927721cb2e86de7c5ace9c90a1f1070"
     },
     "smoke_log": {
-      "path": "runtime/out/spawn-player-smoke-prebaked.log",
-      "sha256": "e5f8f4b2d30044ff98fa04414a4b92b3cf3e8d130d62b9faff284af35cb27a69"
+      "path": "runtime/out/spawn-player-smoke-locker-end.log",
+      "sha256": "76bfda4339c26709e550e865354f398f4145d2286e1a726458166ee34ea982d7"
     },
     "fast_midphase_startup_warnings": 0,
     "build_fast_midphase_warnings": 2,
@@ -286,11 +288,19 @@
       },
       {
         "path": "runtime/out/spawn-player/CriticalShift_Data/globalgamemanagers",
-        "sha256": "32053ba7cab6b22b316b7950394db37f926944a4a0f6ed82558bc8b368aba0a7"
+        "sha256": "6930621f7526ed04129cef4aeaf86ea132b9ef5f79f7b00bac9fcbfabe087f5e"
       },
       {
         "path": "runtime/out/spawn-player/CriticalShift_Data/level0",
-        "sha256": "483453eeb05c3eab3c1f8e059eeac377b22c660fa3045c6e716ddf16aa76d4fb"
+        "sha256": "add46fa5464b16e5d2ec6664bf46ede964ec0f00f583d80366f23405573a7e7b"
+      },
+      {
+        "path": "runtime/out/spawn-player/CriticalShift_Data/Managed/CriticalShift.Features.Player.Unity.dll",
+        "sha256": "4cfe06121b8591f0653a4bd5e7e37f40cd0c2dcca0b10bbdeba240dc2830cacd"
+      },
+      {
+        "path": "runtime/out/spawn-player/CriticalShift_Data/Managed/CriticalShift.Player.Bootstrap.dll",
+        "sha256": "02b26a05c110cf77abe38c8cc02be181011406116019365c8d2423922332dc2c"
       }
     ],
     "windows_execution": "NotRun"
@@ -305,7 +315,7 @@
     "csharp_files": 19,
     "limits": "Not a resolved Unity graph, native import, gameplay or art review.",
     "report": {
-      "path": "runtime/out/spawn-source-validated.json",
+      "path": "runtime/out/spawn-source-locker-end.json",
       "sha256": "695747fc47d79e796f84bfc35d08144e81211b3002ac4adaed1a27b409431d24"
     }
   },
@@ -383,8 +393,30 @@
   ],
   "native_animation": {
     "status": "Passed",
-    "scope": "Seated bone changes, sit/idle/stand states and suit-up playback/pause are asserted in native PlayMode",
+    "scope": "Live seated bone/state changes; all four locker standing poses; facing/position/crouch rejection; displacement cancellation; unsuited worker and visible hanging suit throughout preparation; paused pose/clock; full 15-second clip progress; final-pose outfit swap and return, asserted in native PlayMode.",
     "continuous_all_clip_contact_review": "NotRun",
     "human_feel_review": "NotRun"
+  },
+  "locker_presentation": {
+    "status": "Passed",
+    "preparation_milliseconds": 15000,
+    "clock_owner": "existing canonical shift clock",
+    "standing_horizontal_tolerance_metres": 0.4,
+    "standing_vertical_tolerance_metres": 0.2,
+    "standing_facing_tolerance_degrees": 35,
+    "grounded_uncrouched_required": true,
+    "movement_and_turning_held": true,
+    "animation": "Original SUIT_UP clip sampled across the preparation interval; final pose applied before equip projection",
+    "hanging_suit": "Visible throughout preparation; hidden only for committed equipment-slot custody",
+    "worker_outfit": "Unsuited until equipment commit; worn suit then appears in the same host projection",
+    "pause": "Clock and sampled bone pose freeze; claim renewal continues",
+    "cancel": "Suit remains hanging and worker remains unsuited",
+    "source_art_changes": false,
+    "first_follow_up_native_run": {
+      "total": 15,
+      "passed": 15,
+      "failed": 0,
+      "skipped": 0
+    }
   }
 }

@@ -35,7 +35,11 @@ namespace CriticalShift.Features.Player.Unity
         {
             switch (action)
             {
-                case PlayerAction.PrepareEquipment: Gesture("SUIT_UP"); break;
+                case PlayerAction.PrepareEquipment: ProjectPreparation(host.Preparation(worker.Id)); break;
+                case PlayerAction.Equip:
+                    var equipment = host.Equipment(worker.Id);
+                    if (equipment != null && host.Target(equipment.EntityId).Station) SampleSuitUp(1);
+                    break;
                 case PlayerAction.Sit: Gesture("SPAWN_SIT_DOWN"); break;
                 case PlayerAction.Stand: Gesture("SPAWN_STAND_UP"); break;
                 case PlayerAction.PickUp: case PlayerAction.Take: Gesture("PICKUP"); break;
@@ -66,24 +70,43 @@ namespace CriticalShift.Features.Player.Unity
                 if (clip.name == state) { duration = clip.length; break; }
             _gestureEnds = Time.time + duration;
         }
-        private void LateUpdate()
+        public void ProjectOutfit()
         {
-            if (host == null || animator == null || worker == null || host.View == null) return;
-            var actor = host.Worker(worker.Id);
-            if (actor == null) { animator.speed = 0; return; }
-            // Preview the outfit during preparation; protection still requires the canonical equipment commit.
-            bool suited = host.Equipment(worker.Id) != null || host.Preparation(worker.Id) != null;
+            if (host == null || worker == null) return;
+            bool suited = host.Equipment(worker.Id) != null;
             foreach (var mesh in meshes)
             {
                 if (mesh.Renderer == null) continue;
                 mesh.Renderer.enabled = mesh.Suit ? suited : !(suited && mesh.Covered);
                 mesh.Renderer.shadowCastingMode = worker.LocalInput && mesh.Head ? ShadowCastingMode.ShadowsOnly : ShadowCastingMode.On;
             }
+        }
+        private void ProjectPreparation(PlayerPreparationView preparation)
+        {
+            if (preparation == null) return;
+            var station = host.Target(preparation.TargetId);
+            var started = preparation.DueShiftMilliseconds - station.PreparationMilliseconds;
+            SampleSuitUp((host.View.ElapsedMilliseconds - started) / (float)station.PreparationMilliseconds);
+        }
+        private void SampleSuitUp(float progress)
+        {
+            if (animator == null || !animator.HasState(0, Animator.StringToHash("SUIT_UP"))) return;
+            // The existing shift clock determines the pose. No second timer or outfit preview.
+            _gestureEnds = 0; _state = "SUIT_UP"; animator.speed = 0;
+            animator.Play("SUIT_UP", 0, Mathf.Clamp01(progress));
+            animator.Update(0); // Apply this pose before the host projects the completion outfit.
+        }
+        private void LateUpdate()
+        {
+            if (host == null || animator == null || worker == null || host.View == null) return;
+            var actor = host.Worker(worker.Id);
+            if (actor == null) { animator.speed = 0; return; }
+            ProjectOutfit();
             visual.localPosition = actor.Pose == WorkerPose.Seated ? Vector3.down * seatedSupportHeight : Vector3.zero;
+            var preparation = host.Preparation(worker.Id);
+            if (preparation != null) { ProjectPreparation(preparation); return; }
             if (host.View.Phase != WorldPhase.Running) { animator.speed = 0; return; }
             if (Time.time < _gestureEnds) { animator.speed = 1; return; }
-            if (host.Preparation(worker.Id) != null)
-            { animator.speed = 0; return; } // Hold the completed suit-up pose until the host's preparation deadline.
             var velocity = worker.transform.InverseTransformDirection(worker.Velocity);
             float speed = new Vector2(velocity.x, velocity.z).magnitude;
             bool grounded = worker.Grounded;

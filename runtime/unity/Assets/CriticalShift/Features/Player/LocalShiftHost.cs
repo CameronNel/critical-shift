@@ -41,6 +41,7 @@ namespace CriticalShift.Features.Player.Unity
         public void ConfigureSpawn(SpawnRoomBindings bindings) { spawnRoom = bindings; }
         public void Notify(string message) { _feedback = message; }
         public override bool Busy(Guid actor) => Preparation(actor) != null || (spawnRoom != null && spawnRoom.Busy(actor));
+        public override bool Preparing(Guid actor) => Preparation(actor) != null;
         public override bool TryUse(FirstPersonWorker worker) => spawnRoom != null && spawnRoom.TryUse(worker);
         public override string UsePrompt(FirstPersonWorker worker) => spawnRoom != null ? spawnRoom.Prompt(worker) : "";
 
@@ -204,7 +205,11 @@ namespace CriticalShift.Features.Player.Unity
                 if (request.Action == PlayerAction.Drop) return PlayerAccess.Allowed; // Return to the original station, never a floor drop.
                 if (spawnRoom != null && !spawnRoom.StationOpen(target)) return PlayerAccess.TargetUnavailable;
                 if (!InReach(worker, target.Shape)) return PlayerAccess.OutOfReach;
-                if (request.Action == PlayerAction.PrepareEquipment && !worker.Grounded) return PlayerAccess.ActorUnavailable;
+                if (request.Action == PlayerAction.PrepareEquipment || request.Action == PlayerAction.Equip)
+                {
+                    if (!worker.Grounded || worker.Crouched) return PlayerAccess.ActorUnavailable;
+                    if (!AtStation(worker, target)) return PlayerAccess.OutOfReach;
+                }
                 if (request.Action == PlayerAction.Equip && Preparation(actor)?.TargetId != id) return PlayerAccess.ActorUnavailable;
                 return PlayerAccess.Allowed;
             }
@@ -232,6 +237,14 @@ namespace CriticalShift.Features.Player.Unity
             if (Vector3.Distance(origin, shape.bounds.ClosestPoint(origin)) > 3) return false;
             return Ray(worker, shape.bounds.center - origin, 3.7f, out var visible) && visible.collider == shape;
         }
+        public bool AtStation(FirstPersonWorker worker, InteractionTarget station)
+        {
+            if (worker == null || station?.StationPose == null || !station.StationPose.gameObject.activeInHierarchy ||
+                !worker.Grounded || worker.Crouched) return false;
+            var offset = worker.transform.position - station.StationPose.position;
+            return new Vector2(offset.x, offset.z).sqrMagnitude <= 0.4f * 0.4f && Mathf.Abs(offset.y) <= 0.2f &&
+                Vector3.Dot(worker.transform.forward, station.StationPose.forward) >= Mathf.Cos(35 * Mathf.Deg2Rad);
+        }
         private static bool IsAvailable(InteractionTarget target) => target != null && target.isActiveAndEnabled && target.Shape != null;
         private bool ClearItem(FirstPersonWorker worker, InteractionTarget item, Vector3 point)
         {
@@ -251,6 +264,7 @@ namespace CriticalShift.Features.Player.Unity
                 var actor = Worker(worker.Id); if (actor == null) continue;
                 var seat = _world.Players.GetSeat(worker.Id);
                 worker.ProjectPosture(actor, seat == null ? null : Target(seat.EntityId));
+                worker.GetComponent<WorkerAnimation>()?.ProjectOutfit();
                 var held = Held(worker.Id);
                 if (held != null && Target(held.EntityId).Portable)
                 {
@@ -272,7 +286,7 @@ namespace CriticalShift.Features.Player.Unity
                 if (!target.Portable) continue;
                 var state = Object(target.Id);
                 if (target.Station)
-                { target.ProjectStation(state?.HolderId == null && state?.SlotId == null); continue; }
+                { target.ProjectStation(state?.SlotId == null); continue; } // Reservation leaves the suit on its hanger.
                 Transform destination = state?.HolderId != null ? _actors[state.HolderId.Value].CarryAnchor :
                     state?.SlotId != null ? _slots[state.SlotId.Value] : null;
                 if (destination == null && target.transform.parent != null &&

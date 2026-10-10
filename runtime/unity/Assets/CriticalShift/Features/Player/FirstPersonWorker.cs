@@ -135,6 +135,8 @@ namespace CriticalShift.Features.Player.Unity
             if (!Finite(deltaSeconds) || deltaSeconds <= 0 || !Finite(input.Move.x) || !Finite(input.Move.y) ||
                 !Finite(input.Look.x) || !Finite(input.Look.y)) throw new ArgumentException("Non-finite player input.");
             float dt = Mathf.Min(deltaSeconds, 0.05f);
+            // Stay facing the locker while the visible rig performs the preparation.
+            if (_host.Preparing(Id)) { _velocity = Vector3.zero; return; }
             transform.Rotate(Vector3.up, input.Look.x * mouseSensitivity);
             _pitch = Mathf.Clamp(_pitch - input.Look.y * mouseSensitivity, -80, 80);
             eye.transform.localRotation = Quaternion.Euler(_pitch, 0, 0);

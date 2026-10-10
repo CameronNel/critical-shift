@@ -21,8 +21,11 @@ namespace CriticalShift.Tests.Player
         private Animator _animator;
         private Transform[] _nodes;
         private InteractionTarget[] _targets;
+        private Renderer[] _suitMeshes, _coveredMeshes;
         [System.Serializable] private sealed class MapInventory { public RoomInventory[] rooms; }
         [System.Serializable] private sealed class RoomInventory { public string key; public int collisionTriangles; }
+        [System.Serializable] private sealed class RigInventory { public MeshInventory[] meshes; }
+        [System.Serializable] private sealed class MeshInventory { public string name, region; public bool suit; }
 
         [UnitySetUp] public IEnumerator SetUp()
         {
@@ -34,6 +37,12 @@ namespace CriticalShift.Tests.Player
             _animator = _worker.GetComponentInChildren<Animator>();
             _nodes = _host.GetComponentsInChildren<Transform>(true);
             _targets = _host.GetComponentsInChildren<InteractionTarget>();
+            var rig = JsonUtility.FromJson<RigInventory>(File.ReadAllText("Assets/CriticalShift/Generated/Spawn/rig-bindings.json"));
+            var renderers = _worker.GetComponentsInChildren<Renderer>(true);
+            _suitMeshes = rig.meshes.Where(mesh => mesh.suit).Select(mesh => renderers.Single(r => r.name == mesh.name)).ToArray();
+            _coveredMeshes = rig.meshes.Where(mesh => !mesh.suit && !string.IsNullOrEmpty(mesh.region))
+                .Select(mesh => renderers.Single(r => r.name == mesh.name)).ToArray();
+            Assert.That(_suitMeshes.Length, Is.GreaterThan(0)); Assert.That(_coveredMeshes.Length, Is.GreaterThan(0));
             Assert.That(_host.View, Is.Not.Null);
             if (_host.View.Phase == WorldPhase.Paused) _host.TogglePause();
             Assert.That(_host.View.Phase, Is.EqualTo(WorldPhase.Running), _host.Feedback);
@@ -48,20 +57,26 @@ namespace CriticalShift.Tests.Player
         private void Approach(Vector3 position, Vector3 aim)
         {
             var capsule = _worker.GetComponent<CharacterController>(); capsule.enabled = false;
-            _worker.transform.SetPositionAndRotation(position, Quaternion.identity); capsule.enabled = true;
+            var facing = aim - position; facing.y = 0;
+            _worker.transform.SetPositionAndRotation(position, Quaternion.LookRotation(facing)); capsule.enabled = true;
             Physics.SyncTransforms();
             for (int i = 0; i < 8; i++) _worker.Step(default, 0.05f);
             _worker.Eye.transform.LookAt(aim); Physics.SyncTransforms();
         }
         private void ApproachStation(InteractionTarget station)
         {
-            var room = Node("ROOM_spawn-room");
             var centre = station.Shape.bounds.center;
-            var side = room.InverseTransformPoint(centre).z > 4 ? -1 : 1;
-            var position = centre + Vector3.forward * (side * 0.9f); position.y = room.position.y + 0.06f;
-            Approach(position, centre);
+            Assert.That(station.StationPose, Is.Not.Null, station.name);
+            Assert.That(_worker.CanStandAt(station.StationPose.position), Is.True, station.name + " standing position is blocked");
+            Approach(station.StationPose.position, centre);
             Assert.That(_worker.Grounded, Is.True, station.name);
+            Assert.That(_host.AtStation(_worker, station), Is.True, station.name);
             Assert.That(_host.InReach(_worker, station.Shape), Is.True, station.name);
+        }
+        private void Outfit(bool worn)
+        {
+            Assert.That(_suitMeshes.All(mesh => mesh.enabled == worn), Is.True, "Worn suit visibility");
+            Assert.That(_coveredMeshes.All(mesh => mesh.enabled != worn), Is.True, "Underlying clothes visibility");
         }
         private IEnumerator Until(System.Func<bool> condition, float seconds, string reason)
         {
@@ -134,41 +149,105 @@ namespace CriticalShift.Tests.Player
             }
         }
 
-        [UnityTest] public IEnumerator LockerPreparationPausesCompletesAndReturnsTheAuthoredSuit()
+        [UnityTest] public IEnumerator LockerPreparationRequiresStandingInFrontAndCancelsIfDisplaced()
         {
             var stations = _targets.Where(target => target.Station).OrderBy(target => target.name).ToArray();
-            foreach (var station in stations)
+            for (int i = 0; i < stations.Length; i++)
             {
+                var station = stations[i]; var hanging = Node("CS_spawn-room_PPE_" + (i + 1).ToString("00") + "_suit");
+                ApproachStation(station);
+                _worker.transform.Rotate(Vector3.up, 180); _worker.Eye.transform.LookAt(station.Shape.bounds.center);
+                Physics.SyncTransforms();
+                Assert.That(_host.InReach(_worker, station.Shape), Is.True);
+                _host.Act(_worker, PlayerAction.PrepareEquipment, station);
+                Assert.That(_host.Preparation(_worker.Id), Is.Null, "Facing away must reject preparation");
+                Approach(station.StationPose.position - station.StationPose.forward * 0.75f, station.Shape.bounds.center);
+                Assert.That(_host.InReach(_worker, station.Shape), Is.True);
+                _host.Act(_worker, PlayerAction.PrepareEquipment, station);
+                Assert.That(_host.Preparation(_worker.Id), Is.Null, "Reach alone must not allow suiting up away from the standing position");
+                ApproachStation(station);
+                _worker.Step(new PlayerInputFrame(Vector2.zero, Vector2.zero, false, true, false), 0.05f);
+                Assert.That(_worker.Crouched, Is.True);
+                _host.Act(_worker, PlayerAction.PrepareEquipment, station);
+                Assert.That(_host.Preparation(_worker.Id), Is.Null, "Crouching must reject preparation");
+                _worker.Step(default, 0.05f);
                 ApproachStation(station); _host.Act(_worker, PlayerAction.PrepareEquipment, station);
                 Assert.That(_host.Preparation(_worker.Id), Is.Not.Null, station.name + ": " + _host.Feedback);
                 Assert.That(_host.Worker(_worker.Id).Suit, Is.EqualTo(WorkerSuit.None));
+                Outfit(false); Assert.That(hanging.gameObject.activeSelf, Is.True);
+                yield return null;
                 Assert.That(_host.TryUse(_worker), Is.True);
                 Assert.That(_host.Preparation(_worker.Id), Is.Null);
                 Assert.That(_host.Held(_worker.Id), Is.Null);
+                Outfit(false); Assert.That(hanging.gameObject.activeSelf, Is.True);
             }
             var chosen = stations[0]; ApproachStation(chosen);
             _host.Act(_worker, PlayerAction.PrepareEquipment, chosen);
             Assert.That(_host.Preparation(_worker.Id), Is.Not.Null);
-            var origin = _worker.transform.position;
-            _worker.Step(new PlayerInputFrame(Vector2.up, Vector2.zero, false, false, false), 0.05f);
+            Approach(chosen.StationPose.position - chosen.StationPose.forward * 0.75f, chosen.Shape.bounds.center);
+            yield return Until(() => _host.Preparation(_worker.Id) == null, 1, "Displacement did not cancel preparation");
+            Assert.That(_host.Held(_worker.Id), Is.Null); Assert.That(_host.Equipment(_worker.Id), Is.Null);
+            Outfit(false); Assert.That(Node("CS_spawn-room_PPE_01_suit").gameObject.activeSelf, Is.True);
+        }
+
+        [UnityTest] public IEnumerator LockerAnimationSwapsSuitOnlyAtCompletionAndPauses()
+        {
+            var chosen = _targets.Single(target => target.name == "Suit station 1"); ApproachStation(chosen);
+            var hanging = Node("CS_spawn-room_PPE_01_suit");
+            var bones = _worker.GetComponentsInChildren<SkinnedMeshRenderer>(true).SelectMany(mesh => mesh.bones).Distinct().ToArray();
+            var before = bones.Select(bone => bone.localRotation).ToArray();
+            _host.Act(_worker, PlayerAction.PrepareEquipment, chosen);
+            Assert.That(_host.Preparation(_worker.Id), Is.Not.Null);
+            var due = _host.Preparation(_worker.Id).DueShiftMilliseconds; var started = due - chosen.PreparationMilliseconds;
+            Outfit(false); Assert.That(hanging.gameObject.activeSelf, Is.True);
+            var origin = _worker.transform.position; var rotation = _worker.transform.rotation;
+            _worker.Step(new PlayerInputFrame(Vector2.up, Vector2.one * 100, true, true, true), 0.05f);
             Assert.That(_worker.transform.position, Is.EqualTo(origin));
+            Assert.That(_worker.transform.rotation, Is.EqualTo(rotation)); Assert.That(_worker.Crouched, Is.False);
             yield return Until(() => _animator.GetCurrentAnimatorStateInfo(0).IsName("SUIT_UP"), 1,
                 "Suit-up animation did not play; clip duration=" + _animator.runtimeAnimatorController.animationClips.Single(c => c.name == "SUIT_UP").length +
                 "; state=" + _animator.GetCurrentAnimatorStateInfo(0).shortNameHash + "; next=" + _animator.GetNextAnimatorStateInfo(0).shortNameHash +
                 "; speed=" + _animator.speed);
-            _host.TogglePause(); var elapsed = _host.View.ElapsedMilliseconds;
+            _host.TogglePause(); yield return null;
+            var elapsed = _host.View.ElapsedMilliseconds; var pausedProgress = _animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
+            var pausedPose = bones.Select(bone => bone.localRotation).ToArray();
             yield return new WaitForSecondsRealtime(0.3f);
             Assert.That(_host.View.ElapsedMilliseconds, Is.EqualTo(elapsed));
             Assert.That(_animator.speed, Is.Zero);
             Assert.That(_host.Equipment(_worker.Id), Is.Null);
+            Assert.That(_animator.GetCurrentAnimatorStateInfo(0).normalizedTime, Is.EqualTo(pausedProgress).Within(0.0001f));
+            Assert.That(bones.Where((bone, i) => Quaternion.Angle(pausedPose[i], bone.localRotation) > 0.01f).Any(), Is.False);
+            Outfit(false); Assert.That(hanging.gameObject.activeSelf, Is.True);
             _host.TogglePause();
-            yield return Until(() => _host.Equipment(_worker.Id) != null, 17, "Preparation did not equip the suit");
+            var deadline = Time.realtimeSinceStartupAsDouble + 17; bool middleObserved = false;
+            while (_host.Equipment(_worker.Id) == null && Time.realtimeSinceStartupAsDouble < deadline)
+            {
+                Outfit(false); Assert.That(hanging.gameObject.activeSelf, Is.True, "The suit must stay in the locker throughout the animation");
+                Assert.That(_host.Worker(_worker.Id).Suit, Is.EqualTo(WorkerSuit.None));
+                float progress = (_host.View.ElapsedMilliseconds - started) / (float)chosen.PreparationMilliseconds;
+                if (progress >= 0.45f && progress < 0.9f)
+                {
+                    Assert.That(_animator.GetCurrentAnimatorStateInfo(0).IsName("SUIT_UP"), Is.True);
+                    Assert.That(_animator.GetCurrentAnimatorStateInfo(0).normalizedTime, Is.EqualTo(progress).Within(0.03f),
+                        "Animation must follow the preparation clock rather than finish early");
+                    if (!middleObserved)
+                        Assert.That(bones.Where((bone, i) => Quaternion.Angle(before[i], bone.localRotation) > 10).Any(), Is.True);
+                    middleObserved = true;
+                }
+                yield return null;
+            }
+            Assert.That(middleObserved, Is.True); Assert.That(_host.Equipment(_worker.Id), Is.Not.Null, _host.Feedback);
             Assert.That(_host.Equipment(_worker.Id).EntityId, Is.EqualTo(chosen.Id));
+            Assert.That(_host.View.ElapsedMilliseconds, Is.GreaterThanOrEqualTo(due));
+            Assert.That(_animator.GetCurrentAnimatorStateInfo(0).IsName("SUIT_UP"), Is.True);
+            Assert.That(_animator.GetCurrentAnimatorStateInfo(0).normalizedTime, Is.GreaterThanOrEqualTo(0.99f));
+            Outfit(true);
             Assert.That(_host.Preparation(_worker.Id), Is.Null);
             Assert.That(_host.Worker(_worker.Id).Suit, Is.EqualTo(WorkerSuit.Intact));
             Assert.That(Node("CS_spawn-room_PPE_01_suit").gameObject.activeSelf, Is.False);
             _host.Act(_worker, PlayerAction.Unequip, chosen);
             Assert.That(_host.Equipment(_worker.Id), Is.Null, _host.Feedback);
+            Outfit(false);
             Assert.That(Node("CS_spawn-room_PPE_01_suit").gameObject.activeSelf, Is.True);
         }
 

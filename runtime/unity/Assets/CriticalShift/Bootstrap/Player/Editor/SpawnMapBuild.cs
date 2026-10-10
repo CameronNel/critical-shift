@@ -126,7 +126,11 @@ namespace CriticalShift.Player.Editor
                 var body = proxy.gameObject.AddComponent<Rigidbody>(); body.isKinematic = true; body.useGravity = false;
                 var station = proxy.gameObject.AddComponent<InteractionTarget>();
                 station.Configure(Id(20 + i), PlayerTargetKind.ProtectiveEquipment, "prepare suit at locker " + i, proxy, body);
-                station.ConfigureStation(Require(nodes, "CS_spawn-room_PPE_" + code + "_suit"));
+                var outward = spawnRoot.forward * (spawnRoot.InverseTransformPoint(front).z > 4 ? -1 : 1);
+                var position = front + outward * 0.9f; position.y = spawnRoot.position.y + 0.06f;
+                var standing = Anchor(root.transform, "Locker " + i + " standing position", position);
+                standing.rotation = Quaternion.LookRotation(-outward);
+                station.ConfigureStation(Require(nodes, "CS_spawn-room_PPE_" + code + "_suit"), standing);
                 targets.Add(station); stations.Add(station);
                 controls.Add(new SpawnControl { Door = door, Station = station, Label = "open/close locker " + i,
                     Shape = Trigger(root.transform, "Locker control " + i, left.position + Vector3.up * 1.25f, new Vector3(0.16f, 0.35f, 0.22f)) });

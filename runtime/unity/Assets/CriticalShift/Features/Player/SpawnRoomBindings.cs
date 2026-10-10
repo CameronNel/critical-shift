@@ -66,7 +66,7 @@ namespace CriticalShift.Features.Player.Unity
                 var preparation = _host.Preparation(worker.Id);
                 if (preparation == null) continue;
                 var target = _host.Target(preparation.TargetId);
-                if (!StationOpen(target) || !_host.InReach(worker, target.Shape))
+                if (!StationOpen(target) || !_host.AtStation(worker, target) || !_host.InReach(worker, target.Shape))
                 { _host.Act(worker, PlayerAction.Drop, target); _host.Notify("Preparation cancelled; suit returned to its locker."); }
                 else if (_host.View.ElapsedMilliseconds >= preparation.DueShiftMilliseconds)
                     _host.Act(worker, PlayerAction.Equip, target);
@@ -124,6 +124,9 @@ namespace CriticalShift.Features.Player.Unity
                 foreach (var station in stations)
                     if (station.Id == equipment.EntityId && shape == station.Shape)
                     { _host.Act(worker, PlayerAction.Unequip, station); return true; }
+            foreach (var station in stations)
+                if (shape == station.Shape && !_host.AtStation(worker, station))
+                { _host.Notify("Stand in front of the open locker and face it to put the suit on."); return true; }
             return false;
         }
         public string Prompt(FirstPersonWorker worker)
@@ -137,7 +140,8 @@ namespace CriticalShift.Features.Player.Unity
             if (shape == briefingScreen) return "E — shift briefing";
             foreach (var control in controls) if (shape == control.Shape || control.Door.Matches(shape)) return "E — " + control.Label;
             foreach (var station in stations)
-                if (shape == station.Shape) return _host.Equipment(worker.Id)?.EntityId == station.Id ? "E — return suit to this locker" : "E — prepare suit (15s)";
+                if (shape == station.Shape) return _host.Equipment(worker.Id)?.EntityId == station.Id ? "E — return suit to this locker" :
+                    !_host.AtStation(worker, station) ? "Stand in front of the locker and face it" : "E — put suit on (15s)";
             return "";
         }
         private Collider Aimed(FirstPersonWorker worker) => _host.Ray(worker, worker.Eye.transform.forward, 3, out var hit) ? hit.collider : null;

@@ -17,6 +17,7 @@ namespace CriticalShift.Features.Player.Unity
         public abstract void Act(FirstPersonWorker worker, PlayerAction action, InteractionTarget target);
         public virtual bool TryUse(FirstPersonWorker worker) => false;
         public virtual bool Busy(Guid actor) => false;
+        public virtual bool Preparing(Guid actor) => false;
         public virtual string UsePrompt(FirstPersonWorker worker) => "";
         public abstract void TogglePause();
         public abstract void Begin();

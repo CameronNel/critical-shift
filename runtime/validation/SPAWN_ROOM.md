@@ -42,7 +42,7 @@ Original geometry, images and existing material licensing/provenance remain with
 | Spawn object | Runtime binding |
 | --- | --- |
 | `SPAWN_1` | One local first-person worker. All four markers remain present; no remote players are created. |
-| Four `PPE_nn_suit` roots | Exclusive 15-second preparation at an open locker, original `SUIT_UP` gesture, cancel/return to that station, then equipment-slot custody and suit visibility. Boots/dock/light props stay put. |
+| Four `PPE_nn_suit` roots | Stand in front of an open locker and face it. The original `SUIT_UP` clip follows the 15-second preparation clock; the hanging suit stays visible and the worker stays unsuited. At the final pose, the accepted equipment transaction shows the worn suit and hides the hanging suit together. E/Q cancels; returning equipment restores the hanging suit. Boots/dock/light props stay put. |
 | Two briefing benches | Two exclusive seats each, oriented toward the authored TV, sit/idle/stand clips, explicit clear exits and disabled seated locomotion. |
 | `AIRLOCK_leaf_L/R` | Authored sliding translations, use on leaves or approach controls, closing obstruction checks/reopening, advisory PPE warning that permits exit. |
 | Eight personal locker leaves | Original hinge pivots/open rotations, interactive open/close; preparation requires that locker to be open. |
@@ -58,6 +58,14 @@ a bounded pending intention per actor, tied to the live claim generation and shi
 Early equip, full hands, contention, retries, cancellation, stale deadlines and legacy bypasses
 are rejected without a second inventory. Claim loss, impact, attachment failure, disconnect and
 stop reconcile the intention. Scanner state is not an authoritative gameplay certificate.
+
+Each locker has a generated Unity standing pose derived from its current imported front;
+the source room and its markers are unchanged. Starting requires a grounded, uncrouched worker
+within 0.4m horizontally and 0.2m vertically of that pose, facing within 35 degrees of the locker.
+Movement and turning are held during preparation; losing the pose or reach cancels it.
+The clip is sampled from the canonical shift clock across all 15 seconds, so pause freezes both
+its progress and the deadline. Its final pose is applied before the outfit changes, followed by
+the usual idle/movement blend. There is no suit flying out of the locker or cloth simulation.
 
 ## Prepare and play
 
@@ -117,7 +125,7 @@ Scene generation does not add it to the foundation build catalogue.
 | Source preservation | Passed: 51 scratch source inputs match their staged hashes after export. Tracked `sections/`, map builder/placement/docs, source rig and original checkout are unchanged. |
 | Static source/metadata | Passed: 84 GUIDs, 9 asmdefs, 19 C# assets, including ignored generated outputs. No missing/orphan/duplicate metadata or new runtime assembly dependency edge. Native package corrections are recorded above. |
 | Native map scene creation | Passed: exact editor imported and saved the separate six-room scene, checked all spawn anchors and bound all 52 animation states. The earlier license failure is retained. |
-| Native PlayMode | Passed: 14 discovered/executed/passed, zero failed/skipped/inconclusive. Nine graybox cases plus five actual-map cases cover complete collision/rig import, all four benches and live bone/animation changes, locker cancellation/pause/full 15-second equip/return, airlock-to-cafeteria traversal, and curved chamber sealing/test/release. |
+| Native PlayMode | Passed: 15 discovered/executed/passed, zero failed/skipped/inconclusive. Nine graybox cases plus six actual-map cases cover complete collision/rig import, all four benches and live bone/animation changes, all four locker standing poses and rejection/cancellation, hanging/worn visibility throughout the full 15-second clip, pause/final-pose equip/return, airlock-to-cafeteria traversal, and curved chamber sealing/test/release. |
 | Linux Player | Passed: Development Mono build, 120-frame running-world smoke and clean shutdown, exit 0. Pre-baking removes the two large-mesh warnings from Player startup; the build still emits them while processing mesh assets. Windows Player execution remains NotRun. |
 | Animation/art/feel and remote peers | Native sit/suit playback assertions pass. Full continuous playback/contact review, visual acceptance, human feel, remote peers and target profiling remain NotRun. Independent review and merge remain pending; no roadmap/art acceptance is advanced. |
 
@@ -131,7 +139,7 @@ blender -b --disable-autoexec --python-exit-code 1 --python runtime/tools/review
 ```
 
 Offline evidence: `runtime/dotnet/artifacts/summary.json` and `runtime/out/spawn-offline-final.log`.
-API/static evidence: `runtime/out/spawn-api-validated/player-api.json`, `runtime/out/spawn-source-validated.json`.
+API/static evidence: `runtime/out/spawn-api-locker-end/player-api.json`, `runtime/out/spawn-source-locker-end.json`.
 Exports: `map-bindings.json`, `rig-bindings.json`, `map-roundtrip.json`, `rig-roundtrip.json` inside the
 generated asset folder. Pose samples/images: `runtime/out/spawn-rig-review/pose-evidence.json` and
 `poses.png`. Source integrity: `runtime/out/spawn-export-source/source-integrity-final.json`.
@@ -158,18 +166,19 @@ xvfb-run -a -s '-screen 0 1280x720x24' "$PWD/runtime/out/spawn-player/CriticalSh
 `--cs-player-smoke` verifies a running world for 120 frames, then stops it and checks that the
 stopped view has no connected workers, pending timers, claims or registered objects. Success
 requires `CS_PLAYER_ROOM_SMOKE_OK` and exit 0. This checks lifecycle in the built Player; the
-14 native Test Runner cases establish the physical and animation behavior listed above.
+15 native Test Runner cases establish the physical and animation behavior listed above.
 The display uses Mesa llvmpipe software rendering, which is not target GPU performance evidence.
-The final native result is `runtime/out/spawn-playmode-validated.xml` with its matching `.log`.
-Build/smoke logs are `runtime/out/spawn-build-prebaked.log` and
-`runtime/out/spawn-player-smoke-prebaked.log`. The cloud audio device falls back to FMOD nosound;
+The final native result is `runtime/out/spawn-playmode-locker-end.xml` with its matching `.log`.
+Build/smoke logs are `runtime/out/spawn-build-locker-end.log` and
+`runtime/out/spawn-player-smoke-locker-end.log`. The cloud audio device falls back to FMOD nosound;
 audio behavior is not validated.
 
 The native pass required real fixes: invalid input-package and duplicate Test Runner references;
 default 16-bit/welded collision import; overwritten FBX axis correction; a disabled door query
 probe; interaction rays hitting the acting worker; bench orientation/clearance; and a decorative
 cafeteria dust plane blocking the exit. Earlier native runs recorded 10/14, 11/14, 12/14 and 13/14
-passes before the final 14/14 result. Original failures remain in ignored logs and XML files.
+passes before the prior 14/14 result. The locker timing/standing follow-up passes 15/15 on its
+first native run. Original failures remain in ignored logs and XML files.
 A Player attempt without a display crashed in SDL mouse input; the supported cloud smoke
 command above uses Xvfb. The initial smoke assertion also incorrectly expected the stopped
 view to disappear; the corrected check verifies its stopped state and released resources.
@@ -203,9 +212,10 @@ animation continuity still need broader physical/visual review. API compilation 
 Original clip contact defects documented on the rig branch remain, including `SUIT_UP` strap
 contact and some tool/prop grips. The new sitting clips are simple poses, with no hand contacts,
 breathing layer or polished sit approach. Suit removal reuses `SUIT_UP`; it has no bespoke doffing
-animation or full physical clothing simulation. The outfit previews during preparation, which
-holds its final gesture until the canonical deadline. Protection remains unequipped until that
-deadline commits equipment; cancellation clears the preview. Airlock pressure, upgrades, radiation protection,
+animation or full physical clothing simulation. Suit-up stretches the existing short gesture over
+the required 15-second preparation; its pacing/contact still needs human review. Both visible outfit
+and equipment stay unworn until the animation/deadline completes; cancellation leaves the suit
+on its hanger. Airlock pressure, upgrades, radiation protection,
 scanner certification, room machines and networked characters are separate gameplay work.
 
 The map pin is intentional. Future assembly changes require explicit source/binding review and
