@@ -61,10 +61,11 @@ The reactor-room specification has also been moved into the same structure:
 Do not place room-specific files in the repository root. Put them inside their matching section package. Global rules belong under design/.
 
 
-## Historical render storage
+## Historical artifact storage
 
-The 2026-10-10 storage cleanup removes superseded render images and animation
-frames from the current checkout. It retains the following review evidence:
+The 2026-10-10 storage cleanup removes superseded render images, animation
+frames, scene checkpoints and older duplicate CI image exports from the current
+checkout. It retains the following review evidence:
 
 | Area | Retained batches |
 |---|---|
@@ -75,12 +76,22 @@ frames from the current checkout. It retains the following review evidence:
 | Electrical room | R11/R12 and their diagnostics/map/optical evidence, plus T1 |
 | Condenser bay | R33/R34, including their warm/cold, stability and supplemental packs |
 
+Retained checkpoint inputs include the fuel baseline and F11ci/F12ci/F22ci/F23ci,
+the electrical baseline and reviewed `full-R11.blend`, refinery R22/R23/R24 and
+its R23 context scene, and dock `full-f16.blend`, `full-f17.blend` and the accepted
+style slice. The canonical legacy map, its R17 dependency, R18 recovery scene,
+latest A13/A14 scenes, original master/walkthrough baselines, electrical candidate
+and floor/proxy libraries remain available. The dependency restoration archive
+and current combined-map sources and renders are retained.
+
 Historical reports and manifests still record the original paths and hashes.
-Removed media can be recovered individually from commit
-`bb6b4924849d38097ee629a6fa2c00dc1b56095f` and its Git LFS objects. The cleanup
-reduces a fully downloaded checkout by approximately 2.66 GiB; Git history and
-existing container LFS caches need separate space management. Source scenes,
-textures, build scripts and current combined-map renders remain available.
+Removed artifacts can be recovered individually from commit
+`bb6b4924849d38097ee629a6fa2c00dc1b56095f` and its Git LFS objects. Historical
+migration scripts may name removed checkpoints; restore their exact inputs before
+rerunning those migrations. The cleanup reduces a fully downloaded checkout by
+approximately 6.33 GiB; Git history and existing container LFS caches need separate
+space management. Current source scenes, textures and build scripts remain
+available.
 
 ## Environment build policy
 
