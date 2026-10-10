@@ -61,6 +61,27 @@ The reactor-room specification has also been moved into the same structure:
 Do not place room-specific files in the repository root. Put them inside their matching section package. Global rules belong under design/.
 
 
+## Historical render storage
+
+The 2026-10-10 storage cleanup removes superseded render images and animation
+frames from the current checkout. It retains the following review evidence:
+
+| Area | Retained batches |
+|---|---|
+| Fuel corridor | F11ci/F12ci and F22ci/F23ci review packs, F23ci animation frames, AAA1, baseline, integration and Spawn references |
+| Medical reanimation | Final cycles 16/17 and final UV diagnostics |
+| Compliance dock | Full cycles 08/09, F17 preformal diagnostics and Spawn references |
+| Refinery | R22–R25, including retained cold and context packs |
+| Electrical room | R11/R12 and their diagnostics/map/optical evidence, plus T1 |
+| Condenser bay | R33/R34, including their warm/cold, stability and supplemental packs |
+
+Historical reports and manifests still record the original paths and hashes.
+Removed media can be recovered individually from commit
+`bb6b4924849d38097ee629a6fa2c00dc1b56095f` and its Git LFS objects. The cleanup
+reduces a fully downloaded checkout by approximately 2.66 GiB; Git history and
+existing container LFS caches need separate space management. Source scenes,
+textures, build scripts and current combined-map renders remain available.
+
 ## Environment build policy
 
 All playable 3D sections follow [design/AUTONOMOUS_SECTION_BUILD_PROTOCOL.md](design/AUTONOMOUS_SECTION_BUILD_PROTOCOL.md).
