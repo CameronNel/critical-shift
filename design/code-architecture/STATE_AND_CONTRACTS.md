@@ -29,6 +29,14 @@ For the first slice, inventory presentation is a view over Interaction custody a
 
 A RunState snapshot may aggregate the above for persistence or replication. It is not permission to give every system write access to a single mutable global object.
 
+The 10 October 2026 [local player fixture](../../runtime/validation/PLAYER_SLICE.md) implements
+seat occupancy as an exclusive Interaction claim and worn equipment as a custody slot.
+`WorkerState` owns seated posture and suit condition; `PlayerOperations` coordinates transitions.
+Bootstrap supplies sessions, the Unity session adapter pumps their lifetime, and the controller
+writes physical motion. UI and bindings read detached snapshots. Lease loss, impacts, disconnect
+and teardown cannot leave an orphaned seat claim; a blocked physical exit preserves a live seat.
+These source contracts do not establish native physics or multiplayer acceptance.
+
 ## S02. Command envelope and outcome
 
 Proposed neutral command identity: world/session epoch, authenticated connection epoch, actor ID, increasing command sequence, target logical ID, command kind/version, expected target revision when relevant, and bounded payload. Infrastructure derives the sender from its authenticated connection. An actor ID supplied in a payload does not grant authority.

@@ -67,6 +67,10 @@ namespace CriticalShift.Application
             return Reply(worker.SetEnvironment(revision, (SuitCondition)(int)suit, contamination), worker);
         }
 
+        internal WorkerReply Seat(Guid actor, long revision, bool seated) =>
+            _workers.TryGetValue(actor, out var worker) ? Reply(worker.SetSeated(revision, seated), worker) :
+                new WorkerReply(WorkerStatus.UnknownWorker);
+
         internal WorkerReply Begin(Guid actor, long episode, long revision, long now) =>
             _workers.TryGetValue(actor, out var worker) ? Reply(worker.BeginRecovery(episode, revision, now), worker) :
                 new WorkerReply(WorkerStatus.UnknownWorker);

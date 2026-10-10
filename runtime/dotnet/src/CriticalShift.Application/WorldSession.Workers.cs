@@ -24,7 +24,9 @@ namespace CriticalShift.Application
         public WorkerReply SetWorkerEnvironment(Guid epoch, Guid actorId, long expectedRevision,
             WorkerSuit suit, int contamination) =>
             ExecuteWorker(epoch, actorId, SessionTraceKind.Environment, expectedRevision, false,
-                () => _workers.Environment(actorId, expectedRevision, suit, contamination));
+                () => suit == WorkerSuit.None && Players.GetEquipment(actorId) != null
+                    ? new WorkerReply(WorkerStatus.InvalidState)
+                    : _workers.Environment(actorId, expectedRevision, suit, contamination));
 
         public WorkerReply BeginWorkerRecovery(Guid epoch, Guid actorId, long episode, long expectedRevision) =>
             ExecuteWorker(epoch, actorId, SessionTraceKind.RecoveryRequested, episode, false,

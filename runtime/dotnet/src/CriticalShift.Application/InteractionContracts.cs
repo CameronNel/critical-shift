@@ -2,14 +2,14 @@ using System;
 
 namespace CriticalShift.Application
 {
-    public enum InteractionKind { Grab, Release, Renew, Production, Reactor }
+    public enum InteractionKind { Grab, Release, Renew, Production, Reactor, Player }
     public enum AccessDecision { Allowed, OutOfReach, ActorUnavailable, TargetUnavailable }
     public enum InteractionStatus
     {
         Applied, NoChange, NotReady, WorldStopped, WorldFaulted, WrongEpoch,
         UnknownConnection, InvalidPayload, SequenceGap, TooOld, PayloadMismatch,
         OutOfReach, ActorUnavailable, TargetUnavailable, UnknownEntity, EntityRetired,
-        AlreadyClaimed, ActorAlreadyHolding, NotHolder, StaleLease, RevisionConflict, EntitySlotted, UnknownSlot, SlotOccupied, SlotEmpty, ProductionRejected, ReactorRejected
+        AlreadyClaimed, ActorAlreadyHolding, NotHolder, StaleLease, RevisionConflict, EntitySlotted, UnknownSlot, SlotOccupied, SlotEmpty, ProductionRejected, ReactorRejected, PlacementBlocked
     }
 
     /// <summary>
@@ -25,14 +25,14 @@ namespace CriticalShift.Application
     public sealed class InteractionCommand
     {
         public InteractionCommand(Guid epoch, long sequence, InteractionKind kind, Guid entityId,
-            long expectedRevision = 0, long leaseGeneration = 0, ProductionRequest? production = null, ReactorRequest? reactor = null)
+            long expectedRevision = 0, long leaseGeneration = 0, ProductionRequest? production = null, ReactorRequest? reactor = null, PlayerRequest? player = null)
         {
             Epoch = epoch;
             Sequence = sequence;
             Kind = kind;
             EntityId = entityId;
             ExpectedRevision = expectedRevision;
-            LeaseGeneration = leaseGeneration; Production = production; Reactor = reactor;
+            LeaseGeneration = leaseGeneration; Production = production; Reactor = reactor; Player = player;
         }
 
         public Guid Epoch { get; }
@@ -43,18 +43,21 @@ namespace CriticalShift.Application
         public long LeaseGeneration { get; }
         public ProductionRequest? Production { get; }
         public ReactorRequest? Reactor { get; }
+        public PlayerRequest? Player { get; }
 
         internal bool IsWellFormed => Sequence > 0 && EntityId != Guid.Empty &&
-            (Kind == InteractionKind.Reactor ? Reactor != null && Reactor.IsWellFormed && Production == null && ExpectedRevision == 0 && LeaseGeneration == 0 :
+            (Kind == InteractionKind.Player ? Player != null && Player.IsWellFormed && Reactor == null && Production == null && ExpectedRevision == 0 && LeaseGeneration == 0 :
+             Player == null && (Kind == InteractionKind.Reactor ? Reactor != null && Reactor.IsWellFormed && Production == null && ExpectedRevision == 0 && LeaseGeneration == 0 :
              Reactor == null && (Kind == InteractionKind.Production ? Production != null && Production.IsWellFormed && ExpectedRevision == 0 && LeaseGeneration == 0 :
              Production == null && (Kind == InteractionKind.Grab ? ExpectedRevision >= 0 && LeaseGeneration == 0 :
-             (Kind == InteractionKind.Release || Kind == InteractionKind.Renew) && ExpectedRevision == 0 && LeaseGeneration > 0)));
+             (Kind == InteractionKind.Release || Kind == InteractionKind.Renew) && ExpectedRevision == 0 && LeaseGeneration > 0))));
 
         internal bool SamePayload(InteractionCommand other) => Epoch == other.Epoch &&
             Sequence == other.Sequence && Kind == other.Kind && EntityId == other.EntityId &&
             ExpectedRevision == other.ExpectedRevision && LeaseGeneration == other.LeaseGeneration &&
             (Production == null ? other.Production == null : other.Production != null && Production.Same(other.Production)) &&
-            (Reactor == null ? other.Reactor == null : other.Reactor != null && Reactor.Same(other.Reactor));
+            (Reactor == null ? other.Reactor == null : other.Reactor != null && Reactor.Same(other.Reactor)) &&
+            (Player == null ? other.Player == null : other.Player != null && Player.Same(other.Player));
     }
 
     /// <summary>Detached application projection; never exposes the live domain owner.</summary>

@@ -23,7 +23,8 @@ namespace CriticalShift.Application
 
         public WorldSession(WorldSessionConfiguration configuration, IInteractionAccessPolicy access,
             IWorkerRecoveryPolicy? recovery = null, int traceCapacity = 128,
-            long recoveryCompletionWindowMilliseconds = 5000, int maxMachines = 16, int maxProductionCycles = 1024)
+            long recoveryCompletionWindowMilliseconds = 5000, int maxMachines = 16, int maxProductionCycles = 1024,
+            IPlayerActionPolicy? playerActions = null)
         {
             if (maxMachines < 1 || maxMachines > 128 || maxProductionCycles < 1 || maxProductionCycles > 4096)
                 throw new ArgumentOutOfRangeException(nameof(maxMachines));
@@ -46,6 +47,8 @@ namespace CriticalShift.Application
             _interaction.BindProduction(Production);
             Reactor = new ReactorOperations(this, _interaction);
             _interaction.BindReactor(Reactor);
+            Players = new PlayerOperations(this, _interaction, _workers, playerActions);
+            _interaction.BindPlayers(Players);
         }
 
         public ProductionOperations Production { get; }
@@ -138,6 +141,7 @@ namespace CriticalShift.Application
                         productionChanges: productionChanges, reactorChanges: reactorChanges);
                 }
                 var released = _interaction.AdvanceTo(hostMilliseconds);
+                Players.ReconcileSeats();
                 var workerChanges = _workers.ExpireRecovery(_timeline.ElapsedMilliseconds);
                 var due = _timers.AdvanceTo(hostMilliseconds, _timeline.ElapsedMilliseconds);
                 var signals = new List<WorldTimerSignal>(due.Count);
@@ -251,6 +255,7 @@ namespace CriticalShift.Application
             try
             {
                 var reply = _interaction.Execute(connectionId, command);
+                Players.ReconcileSeats();
                 if (reply.HasNewCommit) _revision = next;
                 _diagnostics.Append(View, command.Epoch, SessionTraceKind.Interaction,
                     _interaction.ConnectedActor(connectionId) ?? Guid.Empty, command.EntityId,
@@ -274,7 +279,7 @@ namespace CriticalShift.Application
                 var released = _interaction.Disconnect(connectionId);
                 if (count != _interaction.ConnectedCount)
                 {
-                    if (actor.HasValue) { _workers.Remove(actor.Value); _timers.CancelOwner(epoch, actor.Value); }
+                    if (actor.HasValue) { Players.Disconnect(actor.Value); _workers.Remove(actor.Value); _timers.CancelOwner(epoch, actor.Value); }
                     _revision = next;
                     _diagnostics.Append(View, epoch, SessionTraceKind.Disconnected, actor ?? Guid.Empty,
                         released?.EntityId ?? Guid.Empty, changed: true);
@@ -290,6 +295,7 @@ namespace CriticalShift.Application
             try
             {
                 var reply = _interaction.ReportAttachmentFailure(epoch, entityId, generation);
+                Players.ReconcileSeats();
                 if (reply.HasNewCommit) _revision = next;
                 return reply;
             }
@@ -303,6 +309,7 @@ namespace CriticalShift.Application
             {
                 if (Production.OwnsBatch(entityId)) return new InteractionReply(InteractionStatus.TargetUnavailable, false);
                 var reply = _interaction.RetireObject(epoch, entityId);
+                Players.ReconcileSeats();
                 if (reply.HasNewCommit)
                 {
                     _timers.CancelOwner(epoch, entityId); _revision = next;
@@ -325,12 +332,13 @@ namespace CriticalShift.Application
         /// Return one fresh setup-only successor. Explicit access-policy rebinding avoids silently
         /// reusing references to old world objects. The caller must bind its roster and entities again.
         /// </summary>
-        public WorldSession Restart(IInteractionAccessPolicy nextWorldAccess, IWorkerRecoveryPolicy? nextRecovery = null)
+        public WorldSession Restart(IInteractionAccessPolicy nextWorldAccess, IWorkerRecoveryPolicy? nextRecovery = null,
+            IPlayerActionPolicy? nextPlayerActions = null)
         {
             RequireIdle();
             if (_restartIssued) throw new InvalidOperationException("A successor was already created from this world.");
             var next = new WorldSession(Configuration, nextWorldAccess, nextRecovery, _diagnostics.Capacity,
-                _recoveryCompletionWindowMilliseconds, _maxMachines, _maxProductionCycles);
+                _recoveryCompletionWindowMilliseconds, _maxMachines, _maxProductionCycles, nextPlayerActions);
             Stop(); _restartIssued = true;
             return next;
         }
@@ -338,7 +346,7 @@ namespace CriticalShift.Application
         private WorldAdvanceResult EmptyAdvance(bool ended) => new WorldAdvanceResult(View,
             Array.Empty<WorldTimerSignal>(), Array.Empty<ObjectClaimView>(), ended);
         private long NextRevision() => checked(_revision + 1);
-        private void StopOwnedResources() { Reactor.Clear(); Production.Clear(); _timers.Stop(); _interaction.Stop(); _workers.Clear(); }
+        private void StopOwnedResources() { Players.Clear(); Reactor.Clear(); Production.Clear(); _timers.Stop(); _interaction.Stop(); _workers.Clear(); }
         private void FailClosed()
         {
             _timeline.Fault(); StopOwnedResources();

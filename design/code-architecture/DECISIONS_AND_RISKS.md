@@ -141,3 +141,19 @@ These support narrow Unity mechanisms, not the proposed architecture as a whole.
 | U8 | [Unity Test Framework: command-line tests](https://docs.unity3d.com/Packages/com.unity.test-framework@1.4/manual/reference-command-line.html) | Test selection and result output need explicit invocation/result handling |
 
 Numeric tolerances, window sizes, complexity triggers, ownership splits and delivery boundaries are proposed project engineering choices. They are not standards, vendor guarantees, measured results or independent approvals.
+
+## Bounded local player fixture — 10 October 2026
+
+D-03 working decision: the user authorized adding the discussed gameplay controls. This fixture
+uses only the engine's built-in legacy keyboard/mouse input and IMGUI, adding built-in physics
+and inputlegacy modules at 1.0.0. It selects no networking, external UI/input framework, Steam,
+voice or persistence package. D-03 production/remote-input acceptance remains open.
+D-09 uses the existing four actors, 256 receipts, three-second leases and one-second renewal.
+Movement speeds and immediate suit attachment are provisional local fixture settings.
+
+[The player task record](../../runtime/validation/PLAYER_SLICE.md) and its feature card record
+explicit DLL/assembly edges, owners, identities, checks and limits. Bootstrap supplies the
+canonical world factory; the player Unity adapter owns session pumping and physical observations.
+The existing Interaction and Workers writers retain custody, seats, suit state and posture.
+No domain peer edge is added. Native execution and independent approval remain prerequisites;
+this source change advances no roadmap gate and does not change the pinned editor selection.
