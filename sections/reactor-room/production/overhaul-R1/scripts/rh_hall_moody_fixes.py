@@ -273,6 +273,94 @@ def add_numbers(mat_name, atlas, paint=(0.95, 0.91, 0.8, 1.0)):
     t.links.new(mixer.outputs[2], sock)
 
 
+ROUND_FONT = '/mnt/skills/examples/canvas-design/canvas-fonts/Outfit-Bold.ttf'
+
+
+def round_zone_numerals():
+    """Replace the angular zone numerals R2 gfx 01..08 with round digits.
+
+    Each is a flat mesh on a wall plane: a diamond-ring zero plus a polygon digit.
+    Rebuild as two Outfit Bold glyphs on the same plane, upright (+Z), same height
+    and centre, material unchanged, then bevel any remaining sharp corners.
+    """
+    import bmesh
+    import math
+    from mathutils import Vector
+    assert Path(ROUND_FONT).exists(), 'Round numeral font missing: ' + ROUND_FONT
+    font = bpy.data.fonts.load(ROUND_FONT)
+    up = Vector((0, 0, 1))
+
+    def glyph(ch):
+        cu = bpy.data.curves.new('rh_tmp', 'FONT')
+        cu.body, cu.font, cu.size, cu.fill_mode, cu.resolution_u = ch, font, 1.0, 'FRONT', 14
+        ob = bpy.data.objects.new('rh_tmp', cu)
+        bpy.context.scene.collection.objects.link(ob)
+        bpy.context.view_layer.update()
+        me = bpy.data.meshes.new_from_object(ob.evaluated_get(bpy.context.evaluated_depsgraph_get()))
+        bpy.data.objects.remove(ob)
+        bpy.data.curves.remove(cu)
+        bm = bmesh.new()
+        bm.from_mesh(me)
+        bpy.data.meshes.remove(me)
+        sharp = []
+        for v in bm.verts:
+            bs = [e for e in v.link_edges if e.is_boundary]
+            if len(bs) == 2:
+                a, b = (e.other_vert(v).co - v.co for e in bs)
+                if math.pi - a.angle(b) > 0.45:
+                    sharp.append(v)
+        bmesh.ops.bevel(bm, geom=sharp, offset=0.022, offset_type='OFFSET', segments=6,
+                        profile=0.5, affect='VERTICES')
+        verts = [tuple(v.co) for v in bm.verts]
+        faces = [[v.index for v in f.verts] for f in bm.faces]
+        bm.free()
+        return verts, faces
+
+    for n in range(1, 9):
+        o = bpy.data.objects[f'R2 gfx {n:02d}']
+        me = o.data
+        mw = o.matrix_world.copy()
+        co = [mw @ v.co for v in me.vertices]
+        centre = sum(co, Vector()) / len(co)
+        nrm = (mw.to_3x3() @ me.polygons[0].normal).normalized()
+        nrm.z = 0
+        nrm.normalize()
+        if nrm.dot(Vector((-centre.x, -centre.y, 0))) < 0:
+            nrm = -nrm                      # face into the hall
+        right = (-nrm).cross(up).normalized()
+        plane = sum((c.dot(nrm) for c in co)) / len(co)
+        r_vals, z_vals = [c.dot(right) for c in co], [c.z for c in co]
+        c_r, c_z = (min(r_vals) + max(r_vals)) / 2, (min(z_vals) + max(z_vals)) / 2
+        target_h = (max(z_vals) - min(z_vals)) * 0.97
+        glyphs = [glyph(ch) for ch in f'{n:02d}']
+        zero_y = [v[1] for v in glyphs[0][0]]
+        scale = target_h / (max(zero_y) - min(zero_y))
+        mid_y = (max(zero_y) + min(zero_y)) / 2
+        widths = [(max(v[0] for v in g[0]) - min(v[0] for v in g[0])) * scale for g in glyphs]
+        gap = 0.14
+        x = c_r - (sum(widths) + gap) / 2
+        out_v, out_f = [], []
+        for (verts, faces), w in zip(glyphs, widths):
+            x_min = min(v[0] for v in verts)
+            base = len(out_v)
+            for vx, vy, _ in verts:
+                px = x + (vx - x_min) * scale
+                py = c_z + (vy - mid_y) * scale
+                out_v.append(right * px + up * py + nrm * plane)
+            out_f += [[base + i for i in f] for f in faces]
+            x += w + gap
+        me.clear_geometry()
+        inv = mw.inverted()
+        me.from_pydata([tuple(inv @ v) for v in out_v], [], out_f)
+        me.update()
+        if me.polygons and (mw.to_3x3() @ me.polygons[0].normal).dot(nrm) < 0:
+            for poly in me.polygons:
+                poly.flip()
+            me.update()
+        print('ROUND_NUMERAL', o.name, 'verts', len(me.vertices), 'height', round(target_h, 3))
+    bpy.data.fonts.remove(font)
+
+
 # --- run --------------------------------------------------------------
 before = tri_count()
 print('TRIS_BEFORE', before)
@@ -296,6 +384,7 @@ for light in (o for o in bpy.context.scene.objects if o.type == 'LIGHT'):
                 light.data.color = tint
             break
 add_roof_accents()
+round_zone_numerals()
 bg = next(n for n in bpy.context.scene.world.node_tree.nodes if n.type == 'BACKGROUND')
 bg.inputs['Strength'].default_value = WORLD_STRENGTH
 
