@@ -58,7 +58,7 @@ def main():
     report = {"rig_commit": commit, "fps": 24, "in_place": True, "unity_rig": "Generic (existing skeleton, no retargeting)",
               "source_forward": "+Y", "source_up": "+Z", "fbx_forward": "-Z", "fbx_up": "+Y", "unit": "metre",
               "bones": [b.name for b in arm.data.bones], "meshes": records, "clips": clips, "seatedSupportHeight": 0.34,
-              "fbx_sha256": hashlib.sha256(path.read_bytes()).hexdigest(), "native_unity": "Blocked: activation required",
+              "fbx_sha256": hashlib.sha256(path.read_bytes()).hexdigest(), "native_unity": "NotRun: validate this export in the pinned editor",
               "limits": "Source clip contact defects remain. Three simple sitting derivatives fill the source inventory gap. No preview props exported."}
     (output / "rig-bindings.json").write_text(json.dumps(report, indent=2) + "\n")
     # Verify actual export in a fresh empty Blender scene, rather than declaring success from the operator result.

@@ -77,12 +77,14 @@ python runtime/tools/check_source.py
 Native PlayMode tests, after activation/import (omit `-quit` when running tests):
 
 ```sh
-unity -batchmode -nographics -projectPath "$PWD/runtime/unity" -runTests -testPlatform PlayMode -testFilter CriticalShift.Tests.Player -testResults "$PWD/runtime/out/player-playmode.xml" -logFile "$PWD/runtime/out/player-playmode.log"
+unity -batchmode -nographics -projectPath "$PWD/runtime/unity" -runTests -testPlatform PlayMode -testFilter CriticalShift.Tests.Player.PlayerBindingTests -testResults "$PWD/runtime/out/player-playmode.xml" -logFile "$PWD/runtime/out/player-playmode.log"
 ```
 
 Expect nine `PlayerBindingTests`, zero skips/failures. They cover physical pickup/drop,
 equipment, seat and blocked exit, placement/take, movement/pause, crouch clearance, ten resets,
 closing-door obstruction/reopening and an occupant inside a concave leaf's empty query bounds.
+The five actual-map cases require the generated assembled map; preparation and the combined
+14-case native run are documented in [SPAWN_ROOM.md](../../../../../validation/SPAWN_ROOM.md).
 For a desktop fixture build, invoke `CriticalShift.Bootstrap.Player.Editor.PlayerRoomBuild.Build`
 with `-csBuildPath` and `-buildTarget Linux64` or `Win64`. This method selects the fixture scene
 explicitly, Built-in rendering, Mono, .NET Standard 2.1 and Disabled stripping.

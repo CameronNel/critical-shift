@@ -4,7 +4,7 @@
   "map_commit": "bb6b4924849d38097ee629a6fa2c00dc1b56095f",
   "rig_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
   "canonical_source_sha256": "9c54db3198280deb4a25f6067b3ca73600f0ffa61f3d4848602642ff50a4ff4c",
-  "player_source_sha256": "136968e828a3455ffdbb4a93d2b85243a7c6109b647e57b6c9afd2e8a1d48405",
+  "player_source_sha256": "727dcec3463ffee18aa0ad5c3b9a6cc86a3c6e512c117aea579cfa8a902e882f",
   "offline": {
     "status": "Passed",
     "tests": {
@@ -14,7 +14,11 @@
       "skipped": 0
     },
     "scenarios": 12,
-    "runs_each": 2
+    "runs_each": 2,
+    "report": {
+      "path": "runtime/dotnet/artifacts/summary.json",
+      "sha256": "b0e10d091914d4b540ea32f877b2b7040449a8d7ac2651a24553133335d97d92"
+    }
   },
   "api": {
     "status": "Passed",
@@ -37,18 +41,33 @@
       },
       {
         "assembly": "CriticalShift.Player.Tests.PlayMode",
-        "files": 1,
+        "files": 2,
         "status": "Passed"
       }
-    ]
+    ],
+    "report": {
+      "path": "runtime/out/spawn-api-validated/player-api.json",
+      "sha256": "8f9a7c461e45c68326000799e2fd3fb4f840d82aa7725a95cd92acc01608e285"
+    },
+    "limits": "Supplementary API compilation; the five editor-only map cases are validated by the native runner."
   },
   "python_tools": {
     "status": "Passed",
-    "tests": 40
+    "tests": 40,
+    "log": {
+      "path": "runtime/out/spawn-tools-validated.log",
+      "sha256": "5b87c571504df12796431292296051071a389c9498d155cb99ccf91236fe049f"
+    }
   },
   "sources_unchanged": {
     "status": "Passed",
-    "inputs": 51
+    "inputs": 51,
+    "report": {
+      "path": "runtime/out/spawn-export-source/source-integrity-final.json",
+      "sha256": "0ecef5c1e2973e2fa3a3f37893b03e42f0fe8e37e77b47ef9e648b52246010a7"
+    },
+    "tracked_sections_unchanged": true,
+    "original_checkout_clean": true
   },
   "rooms": [
     {
@@ -60,9 +79,11 @@
       ],
       "yaw": 0.0,
       "objects": 2106,
-      "collision_triangles": 550768,
-      "mesh_sha256": "93f9d88a7d8087911def2051d63fc99530f033761f3b7dae8a37c12c2b1a5532",
-      "collision_sha256": "9a27234aa44e5f0fd847af81105f24fde3d1af3986008621b6acb42311ac0ca3"
+      "collision_triangles": 550356,
+      "decorative_collision_omissions": 206,
+      "fast_midphase": true,
+      "mesh_sha256": "5f56ee09ea152aad70ae449eee5192761a66384aaf541f07ec1d84d4a483c91b",
+      "collision_sha256": "a8be3b782bcfbedb28f6a58198f3a90e4bd100e6d2229e1c16c3f41a81946394"
     },
     {
       "key": "spawn-room",
@@ -74,8 +95,10 @@
       "yaw": 0.0,
       "objects": 2145,
       "collision_triangles": 279370,
-      "mesh_sha256": "5025176fa00a81194c90a7ed6ba8796c8f2a478d28b14db44eafd21f6834be60",
-      "collision_sha256": "6f9afef72039b5036bd6397de29c48ca3608058c0cdaa4b93819926fd7f0bc2e"
+      "decorative_collision_omissions": 0,
+      "fast_midphase": true,
+      "mesh_sha256": "9810dc7b69b7f48598054bc83975c786de313edd5e061a12e76a60600c030f6e",
+      "collision_sha256": "b016cd5628d1aa11dedf02adb0fad99b35b39531079630586e49b3f6a7261383"
     },
     {
       "key": "mine",
@@ -87,8 +110,10 @@
       "yaw": 0.0,
       "objects": 247,
       "collision_triangles": 3287462,
-      "mesh_sha256": "7cc3777de45b05600ea3036f0f954ae94fa9c15a7ffb5cc10120ae29c5a863cb",
-      "collision_sha256": "c5103cd43026954a2e444d3d7967500168c9b569c9289c7288b9ea31cec37513"
+      "decorative_collision_omissions": 0,
+      "fast_midphase": false,
+      "mesh_sha256": "36f0d325517227e9e2e22b7dcb19ae3da23258eccc6babf34da7be5b3adfb337",
+      "collision_sha256": "b1a640f2e1ea9f08c23691c7b35e8b6ab23f1d65437beb0ecfd4bd3a7beb49ea"
     },
     {
       "key": "refinery",
@@ -100,8 +125,10 @@
       "yaw": 90.0,
       "objects": 3157,
       "collision_triangles": 389324,
-      "mesh_sha256": "dd6e58142abe9215c230e90b8f62e0220a43c507a579c03d4f63d49830acf563",
-      "collision_sha256": "5f0024e287c15465116dd572426fcaed33f6786ceb22b288816bd8c67c0f5698"
+      "decorative_collision_omissions": 0,
+      "fast_midphase": true,
+      "mesh_sha256": "d5c1bc1ec1c6bb79003de5e93b54223c0df82d08be140876c4d4cee2882d293d",
+      "collision_sha256": "800bbea1835b3d4b93184f2bd2e24198e3accb5afa864647deb30f394951f5e0"
     },
     {
       "key": "medical-reanimation",
@@ -113,8 +140,10 @@
       "yaw": -90.0,
       "objects": 1486,
       "collision_triangles": 505672,
-      "mesh_sha256": "90c7e7922002fdd70aba310bdaf0a16bdd46a44420afbef7c38572d70970752b",
-      "collision_sha256": "0b86cae166f03354836a2a7a62d6b85ae5a5c0bf94119b690c1e800b8c4f1536"
+      "decorative_collision_omissions": 0,
+      "fast_midphase": true,
+      "mesh_sha256": "27b332fbbccb5bbdd3e8cce52469cab6e47b4073f5f025ac6418256e78195331",
+      "collision_sha256": "98521e7f598911d5391c689523031dc34d5d01acb18f7ca5d1f0b4ba5408941e"
     },
     {
       "key": "fuel-corridor",
@@ -126,8 +155,10 @@
       "yaw": 0.0,
       "objects": 520,
       "collision_triangles": 2059090,
-      "mesh_sha256": "1bea8a544c81eb81b9acf169515ada328e85648557f3b8aa5067b395d4966d8c",
-      "collision_sha256": "9060897626476b9bb5b878520ea4f38b6e2acb3fee36bf94f385434a89571320"
+      "decorative_collision_omissions": 0,
+      "fast_midphase": false,
+      "mesh_sha256": "85901f5479699a55b1f166173d9cb32cd435fbf23f22facdaab92aa37b93cd04",
+      "collision_sha256": "28c924b6db7584f1e1f476b35b373a8c33dae27c08f048a225b8f00d3a9bc416"
     }
   ],
   "rig": {
@@ -165,15 +196,195 @@
     "real_time_playback": "NotRun"
   },
   "native_map_create": {
-    "status": "Blocked",
-    "exit_code": 198,
-    "reason": "No valid Unity Editor license found. Please activate your license."
+    "status": "Passed",
+    "exit_code": 0,
+    "via": "SpawnMapBuild.Build calls Create before building",
+    "rooms": 6,
+    "animation_states": 52,
+    "log": {
+      "path": "runtime/out/spawn-build-prebaked.log",
+      "sha256": "319d000f7013527e6ca22fdc85c5ae061a4e3f15d0fb4f4a382ed32d2d9fbb35"
+    },
+    "scene": {
+      "path": "runtime/unity/Assets/CriticalShift/Generated/Spawn/AssembledMap.unity",
+      "sha256": "3529e6028286ac6dfc0d1719fb4f78a7645c966b129bc5cb0341334d372585d4"
+    },
+    "controller": {
+      "path": "runtime/unity/Assets/CriticalShift/Generated/Spawn/CrewWorker.controller",
+      "sha256": "2ba9b062714086272a6746ef5e7a7be86dba9534915d7e12de6b5415dac37d57"
+    }
   },
   "native_playmode": {
-    "status": "NotRun",
-    "compiled_tests": 9
+    "status": "Passed",
+    "exit_code": 0,
+    "counts": {
+      "total": 14,
+      "passed": 14,
+      "failed": 0,
+      "skipped": 0,
+      "inconclusive": 0
+    },
+    "test_ids": [
+      "CriticalShift.Tests.Player.PlayerBindingTests.ClosingDoorReopensAroundAWorkerAndClosesAfterClearance",
+      "CriticalShift.Tests.Player.PlayerBindingTests.ConcaveLeafQueryBoundsAllowAnOccupantInTheEmptyChamber",
+      "CriticalShift.Tests.Player.PlayerBindingTests.ControllerMovesAndPausePreventsMovement",
+      "CriticalShift.Tests.Player.PlayerBindingTests.EquipmentAttachesToBodyAndReturnsToWorld",
+      "CriticalShift.Tests.Player.PlayerBindingTests.LowCeilingPreventsCrouchExpansion",
+      "CriticalShift.Tests.Player.PlayerBindingTests.PickupAndDropProjectCanonicalCustodyIntoPhysics",
+      "CriticalShift.Tests.Player.PlayerBindingTests.PlacementAndTakeUseTheAuthoredAnchor",
+      "CriticalShift.Tests.Player.PlayerBindingTests.SeatDisablesMotionAndBlockedExitKeepsLease",
+      "CriticalShift.Tests.Player.PlayerBindingTests.TenResetsReturnBindingsAndClaimsToTheirInitialState",
+      "CriticalShift.Tests.Player.SpawnMapBindingTests.AirlockControlOpensTheDoorAndAllowsWalkingIntoTheCafeteria",
+      "CriticalShift.Tests.Player.SpawnMapBindingTests.AllBenchSeatsAnimateAndHaveUsableStandingExits",
+      "CriticalShift.Tests.Player.SpawnMapBindingTests.ImportedMapStartsWithCompleteCollisionAndAnimatedRig",
+      "CriticalShift.Tests.Player.SpawnMapBindingTests.IntegrityChamberSealsTestsAndReleasesAnUnsuitedWorker",
+      "CriticalShift.Tests.Player.SpawnMapBindingTests.LockerPreparationPausesCompletesAndReturnsTheAuthoredSuit"
+    ],
+    "duration_seconds": 116.6107559,
+    "started_utc": "2026-10-10 19:58:08Z",
+    "ended_utc": "2026-10-10 20:00:05Z",
+    "xml": {
+      "path": "runtime/out/spawn-playmode-validated.xml",
+      "sha256": "c10bb095255d8094b5b5f00c0ae4311b11a9aaa74c24e480fe47b9881553fbd2"
+    },
+    "log": {
+      "path": "runtime/out/spawn-playmode-validated.log",
+      "sha256": "9f59405347cf205a5b5076c41e1f677bdc67d4d1d7833822e88abce38ebc5cbc"
+    }
   },
-  "desktop_player": "NotRun",
+  "desktop_player": {
+    "status": "Passed",
+    "platform": "Linux64",
+    "configuration": "Development Mono, Built-in, NET_Standard, Disabled stripping, pre-baked collision meshes",
+    "build_exit_code": 0,
+    "smoke_exit_code": 0,
+    "smoke_frames": 120,
+    "smoke_checks": [
+      "running world",
+      "stopped phase",
+      "zero active claims",
+      "zero connected workers",
+      "zero pending timers",
+      "zero registered objects"
+    ],
+    "display": "Xvfb 1280x720, OpenGL 4.5, Mesa 25.0.7, llvmpipe LLVM 19.1.7",
+    "audio": "FMOD nosound fallback; audio behavior not tested",
+    "build_log": {
+      "path": "runtime/out/spawn-build-prebaked.log",
+      "sha256": "319d000f7013527e6ca22fdc85c5ae061a4e3f15d0fb4f4a382ed32d2d9fbb35"
+    },
+    "smoke_log": {
+      "path": "runtime/out/spawn-player-smoke-prebaked.log",
+      "sha256": "e5f8f4b2d30044ff98fa04414a4b92b3cf3e8d130d62b9faff284af35cb27a69"
+    },
+    "fast_midphase_startup_warnings": 0,
+    "build_fast_midphase_warnings": 2,
+    "outputs": [
+      {
+        "path": "runtime/out/spawn-player/CriticalShift",
+        "sha256": "4a7ff1990210951a644fcf6f3ed721c3f1c95434eb185cfa8d49143550dab99a"
+      },
+      {
+        "path": "runtime/out/spawn-player/CriticalShift_Data/globalgamemanagers",
+        "sha256": "32053ba7cab6b22b316b7950394db37f926944a4a0f6ed82558bc8b368aba0a7"
+      },
+      {
+        "path": "runtime/out/spawn-player/CriticalShift_Data/level0",
+        "sha256": "483453eeb05c3eab3c1f8e059eeac377b22c660fa3045c6e716ddf16aa76d4fb"
+      }
+    ],
+    "windows_execution": "NotRun"
+  },
   "performance": "NotRun",
-  "independent_review": "Pending"
+  "independent_review": "Pending",
+  "static_source": {
+    "status": "Passed",
+    "check": "static-source-only",
+    "metadata_guids": 84,
+    "asmdefs": 9,
+    "csharp_files": 19,
+    "limits": "Not a resolved Unity graph, native import, gameplay or art review.",
+    "report": {
+      "path": "runtime/out/spawn-source-validated.json",
+      "sha256": "695747fc47d79e796f84bfc35d08144e81211b3002ac4adaed1a27b409431d24"
+    }
+  },
+  "native_editor": {
+    "version": "6000.4.3f1",
+    "revision": "39d1a88d4dd1",
+    "test_framework": "1.6.0",
+    "nunit": "2.0.5",
+    "license": "Unity Personal activated through official browser sign-in",
+    "profile": {
+      "path": "runtime/toolchain.json",
+      "sha256": "4839fbcc905a03fd19eaa4c7bc0c0e7dda23c2c4d47a1a6b50879697356c50bc"
+    },
+    "packages": {
+      "path": "runtime/unity/Packages/manifest.json",
+      "sha256": "e5d717b2a61993eb77c86fa170a9db0fab61ece6e4f7c19763f6ee879051642a"
+    },
+    "package_lock": {
+      "path": "runtime/unity/Packages/packages-lock.json",
+      "sha256": "4953cea3ef11c8f2fd1d5b25099aa745f390910489ec87a605380745cdbd58dc"
+    }
+  },
+  "native_failure_history": [
+    {
+      "attempt": "Before activation",
+      "status": "Blocked",
+      "exit_code": 198,
+      "reason": "No valid Unity Editor license"
+    },
+    {
+      "attempt": "First activated import",
+      "status": "Failed",
+      "reason": "Invalid inputlegacy package and duplicate Test Runner references"
+    },
+    {
+      "attempt": "First full import",
+      "status": "Failed",
+      "reason": "Disk full; only the task Library cache moved to tmpfs"
+    },
+    {
+      "attempt": "First collision imports",
+      "status": "Failed",
+      "reason": "16-bit splitting/welding and overwritten FBX root axis correction"
+    },
+    {
+      "attempt": "First PlayMode runs",
+      "passed_counts": [
+        10,
+        11,
+        12,
+        13
+      ],
+      "total": 14,
+      "status": "Failed",
+      "reason": "Door query probe, self-hit interaction rays, bench geometry/clearance, cafeteria decorative dust-plane collision"
+    },
+    {
+      "attempt": "Player without a display",
+      "status": "Failed",
+      "exit_code": 139,
+      "reason": "SDL mouse-input crash; use Xvfb"
+    },
+    {
+      "attempt": "First virtual-display smoke",
+      "status": "Failed",
+      "exit_code": 1,
+      "reason": "Incorrect shutdown assertion expected a null view; corrected to inspect stopped state/resources"
+    },
+    {
+      "attempt": "Player before pre-baking",
+      "status": "Passed with warnings",
+      "warnings": 2,
+      "reason": "Large-mesh default Fast Midphase warnings at startup; active scene colliders disabled Fast Midphase"
+    }
+  ],
+  "native_animation": {
+    "status": "Passed",
+    "scope": "Seated bone changes, sit/idle/stand states and suit-up playback/pause are asserted in native PlayMode",
+    "continuous_all_clip_contact_review": "NotRun",
+    "human_feel_review": "NotRun"
+  }
 }

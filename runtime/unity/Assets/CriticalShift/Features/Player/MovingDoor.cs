@@ -109,14 +109,22 @@ namespace CriticalShift.Features.Player.Unity
         }
         private static bool Penetrates(Collider occupant, Collider leaf)
         {
+            bool temporaryProbe = false;
             if (occupant is CharacterController)
             {
                 // ComputePenetration accepts primitive colliders, rather than CharacterController itself.
                 occupant = occupant.GetComponent<FirstPersonWorker>()?.DoorProbe;
                 if (occupant == null) return true;
+                // Disabled colliders have no PhysX shape for ComputePenetration. Enable the trigger
+                // only for this immediate query, then restore it before any other scene query.
+                temporaryProbe = !occupant.enabled; occupant.enabled = true;
             }
-            return Physics.ComputePenetration(occupant, occupant.transform.position, occupant.transform.rotation,
-                leaf, leaf.transform.position, leaf.transform.rotation, out _, out var distance) && distance > 0.003f;
+            try
+            {
+                return Physics.ComputePenetration(occupant, occupant.transform.position, occupant.transform.rotation,
+                    leaf, leaf.transform.position, leaf.transform.rotation, out _, out var distance) && distance > 0.003f;
+            }
+            finally { if (temporaryProbe) occupant.enabled = false; }
         }
     }
 }

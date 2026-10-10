@@ -140,8 +140,7 @@ namespace CriticalShift.Features.Player.Unity
                 if (shape == station.Shape) return _host.Equipment(worker.Id)?.EntityId == station.Id ? "E — return suit to this locker" : "E — prepare suit (15s)";
             return "";
         }
-        private Collider Aimed(FirstPersonWorker worker) => Physics.Raycast(worker.Eye.transform.position,
-            worker.Eye.transform.forward, out var hit, 3, ~0, QueryTriggerInteraction.Collide) ? hit.collider : null;
+        private Collider Aimed(FirstPersonWorker worker) => _host.Ray(worker, worker.Eye.transform.forward, 3, out var hit) ? hit.collider : null;
         private void ReleaseScan(string message)
         { scannerDoor.SetOpen(true); _scanActor = null; _testDue = -1; _releasing = true; _host.Notify(message); }
         private void Indicator(int index)

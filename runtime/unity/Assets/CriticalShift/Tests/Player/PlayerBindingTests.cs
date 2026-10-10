@@ -146,8 +146,8 @@ namespace CriticalShift.Tests.Player
                     transform = cube.transform.localToWorldMatrix } });
                 UnityEngine.Object.DestroyImmediate(cube.GetComponent<Collider>());
                 var query = leaf.AddComponent<BoxCollider>(); query.center = Vector3.up; query.size = new Vector3(2.2f, 2, 2); query.enabled = false;
-                var physical = leaf.AddComponent<MeshCollider>(); physical.sharedMesh = mesh;
                 var body = leaf.AddComponent<Rigidbody>(); body.isKinematic = true; body.useGravity = false;
+                var physical = leaf.AddComponent<MeshCollider>(); physical.sharedMesh = mesh;
                 var door = leaf.AddComponent<MovingDoor>();
                 door.Configure(new[] { new DoorLeaf { Root = leaf.transform, Shape = query, PhysicalShapes = new Collider[] { physical },
                     ClosedPosition = new Vector3(20, 0, 20), OpenPosition = new Vector3(20, 0, 20),

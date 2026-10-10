@@ -82,8 +82,18 @@ namespace CriticalShift.Features.Player.Unity
         }
         public bool CanStandAt(Vector3 position)
         {
-            int count = Physics.OverlapCapsuleNonAlloc(position + Vector3.up * 0.35f,
-                position + Vector3.up * (standingHeight - 0.35f), 0.29f, _clearance, ~0, QueryTriggerInteraction.Ignore);
+            return CapsuleClear(position + Vector3.up * 0.35f,
+                position + Vector3.up * (standingHeight - 0.35f), 0.29f);
+        }
+        public bool CanSitAt(Vector3 position)
+        {
+            // Clearance for the short seated rig, above the seat surface. A standing capsule
+            // overlaps an ordinary backrest even when the seated body fits comfortably.
+            return CapsuleClear(position + Vector3.up * 0.23f, position + Vector3.up * 0.85f, 0.2f);
+        }
+        private bool CapsuleClear(Vector3 bottom, Vector3 top, float radius)
+        {
+            int count = Physics.OverlapCapsuleNonAlloc(bottom, top, radius, _clearance, ~0, QueryTriggerInteraction.Ignore);
             if (count == _clearance.Length) return false;
             for (int i = 0; i < count; i++)
                 if (!_clearance[i].transform.IsChildOf(transform)) return false;

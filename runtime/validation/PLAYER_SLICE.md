@@ -77,3 +77,13 @@ would leave the slice unusable. New scripts and IDs have no pre-existing seriali
 the original foundation fixture remains available. D-01 native acceptance, D-02 transport,
 D-03 production UI/remote input, D-09 measured tuning and all existing roadmap gates remain open.
 Independent review and maintainer merge are **pending**; this task does not merge its own work.
+
+## Native follow-up — 10 October 2026
+
+Unity Personal was subsequently activated through official browser sign-in. The stacked spawn
+task now executes all nine graybox physical cases plus five cases against the current assembled
+map: 14 passed, zero failed/skipped/inconclusive. A Linux Player build and startup/shutdown check
+also pass. See [SPAWN_ROOM.md](SPAWN_ROOM.md) and its compact evidence for current sources,
+package corrections, exact commands and limitations. The earlier blocked results above remain
+the historical evidence for this slice; human feel, remote peers, performance and independent
+acceptance still require review.

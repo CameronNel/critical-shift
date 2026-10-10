@@ -22,7 +22,8 @@ def export(path, objects):
     bpy.context.view_layer.objects.active = objects[0]
     bpy.ops.export_scene.fbx(filepath=str(path), use_selection=True, object_types={"MESH", "EMPTY"},
         bake_anim=False, axis_forward="-Z", axis_up="Y", apply_unit_scale=True,
-        apply_scale_options="FBX_SCALE_UNITS", path_mode="COPY", embed_textures=True, use_custom_props=True)
+        apply_scale_options="FBX_SCALE_UNITS", path_mode="COPY", embed_textures=True, use_custom_props=True,
+        use_triangles=True)
 
 
 def main():
@@ -37,7 +38,7 @@ def main():
     source_scene.frame_set(1)
     manifest = {"schema": 1, "mapCommit": config["map_commit"], "sourceFrame": "plan metres: +X east, +Y north, +Z up",
                 "unityFrame": "+X east, +Z north, +Y up; Blender yaw is negated", "rooms": [], "anchors": [],
-                "doors": [], "materials": [], "nativeUnity": "Blocked: activation required"}
+                "doors": [], "materials": [], "nativeUnity": "NotRun: validate this export in the pinned editor"}
     original = bpy.data.collections.get("MODULE_spawn-room")
     if original is None:
         source_path = Path(config_path).parent / "map/sections/facility-assembly/sources/spawn-room/module.blend"
@@ -85,7 +86,7 @@ def main():
             # The assembly deliberately removed these leaves/gauges for viewing. Runtime adds their original geometry.
             members.extend(source_objects[name] for name in config["spawn_omitted"] if not name.startswith("SERVICE_end"))
         root = bpy.data.objects.new("CS_ROOM_" + key, None); target_scene.collection.objects.link(root)
-        copies, mappings, collider_vertices, collider_faces, lights = [], [], [], [], []
+        copies, mappings, collider_vertices, collider_faces, lights, collision_omissions = [], [], [], [], [], []
 
         def clone_group(objects, parent, prefix, inherited_dynamic=False):
             unique = list(dict.fromkeys(objects)); made = {}
@@ -116,6 +117,9 @@ def main():
         for mapping in mappings:
             o = by_name[mapping["node"]]
             if o.type != "MESH" or not mapping["visible"] or mapping["dynamic"] or any(t in mapping["source"].lower() for t in ("haze", "fog", "leaf", "paper", "rug", "carpet", "state_")): continue
+            if mapping["source"].lower().startswith(("stain_", "decal_", "scuff_")):
+                collision_omissions.append({"source": mapping["source"], "node": mapping["node"], "reason": "decorative surface graphic"})
+                continue
             offset = len(collider_vertices); mesh = o.data
             transform = root.matrix_world.inverted() @ o.matrix_world
             collider_vertices.extend(tuple(transform @ v.co) for v in mesh.vertices)
@@ -128,7 +132,8 @@ def main():
         export(output / collision_file, [collider])
         bounds = [[min(v[a] for v in collider_vertices), max(v[a] for v in collider_vertices)] for a in range(3)]
         manifest["rooms"].append({"key": key, "mesh": mesh_file, "collision": collision_file, "translation": placement,
-            "yaw": yaw, "objects": mappings, "lights": lights, "collisionBounds": bounds, "collisionTriangles": len(collider_faces),
+            "yaw": yaw, "objects": mappings, "lights": lights, "collisionOmissions": collision_omissions,
+            "collisionBounds": bounds, "collisionTriangles": len(collider_faces),
             "meshSha256": hashlib.sha256((output / mesh_file).read_bytes()).hexdigest(),
             "collisionSha256": hashlib.sha256((output / collision_file).read_bytes()).hexdigest()})
         print("RUNTIME ROOM", key, len(copies), "objects", len(collider_faces), "collision triangles", flush=True)

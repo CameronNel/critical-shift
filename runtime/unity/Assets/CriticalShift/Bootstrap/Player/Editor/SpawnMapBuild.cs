@@ -22,7 +22,7 @@ namespace CriticalShift.Player.Editor
     [Serializable] public sealed class ExportRoom
     {
         public string key, mesh, collision, meshSha256, collisionSha256;
-        public float[] translation; public float yaw; public ExportObject[] objects; public ExportLight[] lights;
+        public float[] translation; public float yaw; public int collisionTriangles; public ExportObject[] objects; public ExportLight[] lights;
     }
     [Serializable] public sealed class ExportMap { public int schema; public string mapCommit; public ExportRoom[] rooms; public ExportAnchor[] anchors; public ExportDoor[] doors; }
     [Serializable] public sealed class ExportClip { public string name; public float first, last; public bool loop, derivative; }
@@ -32,7 +32,7 @@ namespace CriticalShift.Player.Editor
     // Generates an isolated runtime scene from exact source/export bindings. Never saves a Blender authoring file.
     public static class SpawnMapBuild
     {
-        private const string Folder = "Assets/CriticalShift/Generated/Spawn/";
+        internal const string Folder = "Assets/CriticalShift/Generated/Spawn/";
         public const string ScenePath = "Assets/CriticalShift/Generated/Spawn/AssembledMap.unity";
         [MenuItem("Critical Shift/Spawn/Create assembled map scene")]
         public static void Create()
@@ -57,9 +57,11 @@ namespace CriticalShift.Player.Editor
             Transform spawnRoot = null;
             foreach (var room in map.rooms)
             {
+                var roomRoot = new GameObject("ROOM_" + room.key); roomRoot.transform.SetParent(root.transform, false);
+                roomRoot.transform.localPosition = V(room.translation); roomRoot.transform.localRotation = Quaternion.Euler(0, -room.yaw, 0);
                 var model = (GameObject)PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath<GameObject>(Folder + room.mesh));
-                model.name = "ROOM_" + room.key; model.transform.SetParent(root.transform, false);
-                model.transform.localPosition = V(room.translation); model.transform.localRotation = Quaternion.Euler(0, -room.yaw, 0);
+                // The FBX root carries Blender-to-Unity axis correction. Placement belongs to a separate parent.
+                model.transform.SetParent(roomRoot.transform, false);
                 foreach (var node in model.GetComponentsInChildren<Transform>(true))
                     if (node.name.StartsWith("CS_", StringComparison.Ordinal)) nodes.Add(node.name, node);
                 foreach (var binding in room.objects)
@@ -68,26 +70,42 @@ namespace CriticalShift.Player.Editor
                     var renderer = node.GetComponent<Renderer>(); if (renderer != null) renderer.enabled = binding.visible;
                 }
                 var collisionModel = AssetDatabase.LoadAssetAtPath<GameObject>(Folder + room.collision);
-                var filter = collisionModel.GetComponentInChildren<MeshFilter>(true);
-                if (filter == null || filter.sharedMesh == null) throw new InvalidOperationException("Missing room collision mesh.");
-                var collision = new GameObject("Static collision — " + room.key); collision.transform.SetParent(model.transform, false);
-                collision.AddComponent<MeshCollider>().sharedMesh = filter.sharedMesh;
+                var filters = collisionModel.GetComponentsInChildren<MeshFilter>(true);
+                if (filters.Length != 1 || filters[0].sharedMesh == null || filters[0].sharedMesh.triangles.Length / 3 != room.collisionTriangles)
+                    throw new InvalidOperationException("Room collision import changed or split its triangle inventory: " + room.key +
+                        "; meshes=" + filters.Length + "; triangles=" + filters.Sum(f => f.sharedMesh == null ? 0 : f.sharedMesh.triangles.Length / 3) +
+                        "; expected=" + room.collisionTriangles);
+                var collision = (GameObject)PrefabUtility.InstantiatePrefab(collisionModel);
+                collision.name = "Static collision — " + room.key; collision.transform.SetParent(roomRoot.transform, false);
+                var filter = collision.GetComponentInChildren<MeshFilter>(true);
+                var mesh = filter.sharedMesh; var collisionNode = filter.gameObject;
+                UnityEngine.Object.DestroyImmediate(filter.GetComponent<Renderer>());
+                UnityEngine.Object.DestroyImmediate(filter);
+                // Remove the MeshFilter before adding the collider; Unity otherwise cooks its mesh
+                // immediately with default options, before we can disable unsafe large-mesh midphase.
+                var collider = collisionNode.AddComponent<MeshCollider>();
+                if (room.collisionTriangles > 2000000)
+                    collider.cookingOptions &= ~MeshColliderCookingOptions.UseFastMidphase;
+                collider.sharedMesh = mesh;
                 foreach (var sourceLight in room.lights)
                 {
-                    var lamp = new GameObject("Runtime light preview"); lamp.transform.SetParent(model.transform, false);
+                    var lamp = new GameObject("Runtime light preview"); lamp.transform.SetParent(roomRoot.transform, false);
                     lamp.transform.localPosition = V(sourceLight.position);
                     var light = lamp.AddComponent<Light>(); light.type = LightType.Point; light.range = 7;
                     light.color = new Color(sourceLight.color[0], sourceLight.color[1], sourceLight.color[2]);
                     light.intensity = Mathf.Clamp(sourceLight.power / 150, 0.25f, 3); light.shadows = LightShadows.None;
                 }
-                if (room.key == "spawn-room") spawnRoot = model.transform;
+                if (room.key == "spawn-room") spawnRoot = roomRoot.transform;
             }
             if (spawnRoot == null) throw new InvalidOperationException("Missing assembled spawn room.");
             foreach (var anchor in map.anchors)
             {
                 var node = Require(nodes, anchor.node);
-                if (Vector3.Distance(spawnRoot.InverseTransformPoint(node.position), V(anchor.position)) > 0.02f)
-                    throw new InvalidOperationException("Imported scale/axes changed a spawn binding: " + anchor.name);
+                var actual = spawnRoot.InverseTransformPoint(node.position); var expected = V(anchor.position);
+                if (Vector3.Distance(actual, expected) > 0.02f)
+                    throw new InvalidOperationException("Imported scale/axes changed a spawn binding: " + anchor.name +
+                        "; actual=" + actual.ToString("F4") + "; expected=" + expected.ToString("F4") +
+                        "; local rotation=" + node.localEulerAngles.ToString("F2") + "; room rotation=" + spawnRoot.localEulerAngles.ToString("F2"));
             }
             var actor = Worker(root.transform, Require(nodes, "CS_spawn-room_SPAWN_1"), host, rig, controller);
             var targets = new List<InteractionTarget>(); var stations = new List<InteractionTarget>(); var controls = new List<SpawnControl>();
@@ -120,10 +138,11 @@ namespace CriticalShift.Player.Editor
                 var surface = slat.GetComponent<Renderer>().bounds.max.y;
                 for (int seat = 0; seat < 2; seat++)
                 {
-                    var centre = bench.position + bench.forward * (seat == 0 ? -0.27f : 0.27f); centre.y = surface + 0.03f;
+                    // The authored bench's local X spans the seat; local -Y faces its TV.
+                    var centre = bench.position + bench.right * (seat == 0 ? -0.27f : 0.27f); centre.y = surface + 0.03f;
                     var shape = Trigger(root.transform, $"Bench {i} seat {seat + 1}", centre, new Vector3(0.42f, 0.12f, 0.43f));
-                    var pose = Anchor(root.transform, "Seated body pose", centre); pose.rotation = Quaternion.LookRotation(-bench.right);
-                    var exit = Anchor(root.transform, "Seat exit", centre - bench.right * 0.95f); exit.position = new Vector3(exit.position.x, bench.position.y + 0.05f, exit.position.z);
+                    var pose = Anchor(root.transform, "Seated body pose", centre); pose.rotation = Quaternion.LookRotation(-bench.up);
+                    var exit = Anchor(root.transform, "Seat exit", centre - bench.up * 0.95f); exit.position = new Vector3(exit.position.x, bench.position.y + 0.05f, exit.position.z);
                     var target = shape.gameObject.AddComponent<InteractionTarget>(); target.Configure(Id(30 + i * 2 + seat), PlayerTargetKind.Seat, "sit on bench", shape, anchor: pose, exitPose: exit);
                     targets.Add(target);
                 }
@@ -176,9 +195,11 @@ namespace CriticalShift.Player.Editor
             if (target != BuildTarget.StandaloneLinux64 && target != BuildTarget.StandaloneWindows64)
                 throw new BuildFailedException("Only Linux64/Windows64 are in this local map scope.");
             var named = NamedBuildTarget.Standalone;
+            PlayerSettings.companyName = "Critical Shift"; PlayerSettings.productName = "Critical Shift";
             PlayerSettings.SetApiCompatibilityLevel(named, ApiCompatibilityLevel.NET_Standard);
             PlayerSettings.SetScriptingBackend(named, ScriptingImplementation.Mono2x);
             PlayerSettings.SetManagedStrippingLevel(named, ManagedStrippingLevel.Disabled);
+            PlayerSettings.bakeCollisionMeshes = true;
             if (UnityEngine.Rendering.GraphicsSettings.defaultRenderPipeline != null)
                 throw new BuildFailedException("The prepared map requires Built-in rendering.");
             var report = BuildPipeline.BuildPlayer(new BuildPlayerOptions { scenes = new[] { ScenePath }, target = target,
@@ -197,9 +218,7 @@ namespace CriticalShift.Player.Editor
         {
             var importer = AssetImporter.GetAtPath(Folder + file) as ModelImporter;
             if (importer == null) throw new InvalidOperationException("Expected the built-in FBX importer: " + file);
-            importer.globalScale = 1; importer.useFileScale = true; importer.bakeAxisConversion = true;
-            importer.importAnimation = animated; importer.importLights = false; importer.importCameras = false;
-            importer.isReadable = readable; importer.optimizeGameObjects = false;
+            ConfigureImporter(importer, animated, readable);
             if (animated)
             {
                 importer.animationType = ModelImporterAnimationType.Generic; importer.avatarSetup = ModelImporterAvatarSetup.CreateFromThisModel;
@@ -213,6 +232,23 @@ namespace CriticalShift.Player.Editor
                 importer.clipAnimations = takes;
             }
             importer.SaveAndReimport();
+        }
+        internal static void ConfigureImporter(ModelImporter importer, bool animated, bool readable)
+        {
+            importer.globalScale = 1; importer.useFileScale = true; importer.bakeAxisConversion = true;
+            importer.importAnimation = animated; importer.importLights = false; importer.importCameras = false;
+            importer.isReadable = readable; importer.optimizeGameObjects = false;
+            // Keep each room's complete collision mesh from the first import.
+            importer.indexFormat = ModelImporterIndexFormat.UInt32;
+            if (Path.GetFileName(importer.assetPath).StartsWith("Collision-", StringComparison.Ordinal))
+            {
+                // Welding coincident source vertices makes Unity discard faces before collision validation.
+                // PhysX retains its normal mesh-cleaning/cooking pass on the complete imported mesh.
+                importer.weldVertices = false; importer.optimizeMeshPolygons = false; importer.optimizeMeshVertices = false;
+                importer.importNormals = ModelImporterNormals.None; importer.importTangents = ModelImporterTangents.None;
+            }
+            if (animated)
+            { importer.animationType = ModelImporterAnimationType.Generic; importer.avatarSetup = ModelImporterAvatarSetup.CreateFromThisModel; }
         }
         private static AnimatorController Controller(ExportRig rig)
         {
@@ -229,7 +265,7 @@ namespace CriticalShift.Player.Editor
         private static FirstPersonWorker Worker(Transform parent, Transform spawn, LocalShiftHost host, ExportRig rig, AnimatorController controller)
         {
             var root = new GameObject("Local crew worker"); root.transform.SetParent(parent, false);
-            root.transform.SetPositionAndRotation(spawn.position + Vector3.up * 0.06f, spawn.rotation);
+            root.transform.SetPositionAndRotation(spawn.position + Vector3.up * 0.06f, Quaternion.LookRotation(spawn.up, -spawn.forward));
             var worker = root.AddComponent<FirstPersonWorker>();
             var eye = Anchor(root.transform, "First-person camera", root.transform.position + Vector3.up * 1.4f);
             var camera = eye.gameObject.AddComponent<Camera>(); camera.nearClipPlane = 0.05f; camera.farClipPlane = 250; camera.fieldOfView = 60;
@@ -266,10 +302,10 @@ namespace CriticalShift.Player.Editor
                     transform = node.worldToLocalMatrix * f.transform.localToWorldMatrix }).ToArray(), true, true);
                 combined.RecalculateBounds();
                 string path = Folder + "Door-" + source + ".asset"; AssetDatabase.DeleteAsset(path); AssetDatabase.CreateAsset(combined, path);
-                var physical = node.gameObject.AddComponent<MeshCollider>(); physical.sharedMesh = combined;
                 var body = node.gameObject.AddComponent<Rigidbody>(); body.isKinematic = true; body.useGravity = false;
-                return new DoorLeaf { Root = node, Shape = shape, PhysicalShapes = new Collider[] { physical }, ClosedPosition = V(binding.closed.position), OpenPosition = V(binding.opened.position),
-                    ClosedRotation = Q(binding.closed.rotation), OpenRotation = Q(binding.opened.rotation) };
+                var physical = node.gameObject.AddComponent<MeshCollider>(); physical.sharedMesh = combined;
+                return new DoorLeaf { Root = node, Shape = shape, PhysicalShapes = new Collider[] { physical }, ClosedPosition = ImportedPosition(binding.closed.position), OpenPosition = ImportedPosition(binding.opened.position),
+                    ClosedRotation = ImportedRotation(binding.closed.rotation), OpenRotation = ImportedRotation(binding.opened.rotation) };
             }).ToArray();
             door.Configure(leaves, open); return door;
         }
@@ -294,7 +330,21 @@ namespace CriticalShift.Player.Editor
         { var root = new GameObject(name); root.transform.SetParent(parent, false); root.transform.position = position; return root.transform; }
         private static Transform Require(Dictionary<string, Transform> nodes, string name) => nodes.TryGetValue(name, out var node) ? node : throw new InvalidOperationException("Missing exact map binding: " + name);
         private static Vector3 V(float[] value) => value != null && value.Length == 3 ? new Vector3(value[0], value[2], value[1]) : throw new ArgumentException("Invalid exported vector.");
-        private static Quaternion Q(float[] value) => value != null && value.Length == 4 ? new Quaternion(-value[0], -value[2], -value[1], value[3]) : throw new ArgumentException("Invalid exported quaternion.");
+        // Node-local FBX transforms use reflected Blender Z; the prefab root performs the final Y-up conversion.
+        private static Vector3 ImportedPosition(float[] value) => value != null && value.Length == 3 ? new Vector3(value[0], value[1], -value[2]) : throw new ArgumentException("Invalid exported vector.");
+        private static Quaternion ImportedRotation(float[] value) => value != null && value.Length == 4 ? new Quaternion(-value[0], -value[1], value[2], value[3]) : throw new ArgumentException("Invalid exported quaternion.");
         private static Guid Id(int value) => new Guid(value, 0, 0, new byte[8]);
+    }
+
+    // Apply the same scoped settings on a fresh checkout before Unity splits large FBX meshes.
+    public sealed class SpawnExportImporter : AssetPostprocessor
+    {
+        private void OnPreprocessModel()
+        {
+            if (!assetPath.StartsWith(SpawnMapBuild.Folder, StringComparison.Ordinal)) return;
+            string file = Path.GetFileName(assetPath);
+            SpawnMapBuild.ConfigureImporter((ModelImporter)assetImporter, file == "CrewWorker.fbx",
+                file.StartsWith("Collision-", StringComparison.Ordinal) || file == "Room-spawn-room.fbx");
+        }
     }
 }

@@ -166,10 +166,25 @@ namespace CriticalShift.Features.Player.Unity
         }
         public override InteractionTarget Aim(FirstPersonWorker worker)
         {
-            if (worker == null || !Physics.Raycast(worker.Eye.transform.position, worker.Eye.transform.forward,
-                out var hit, 3, ~0, QueryTriggerInteraction.Collide)) return null;
+            if (worker == null || !Ray(worker, worker.Eye.transform.forward, 3, out var hit)) return null;
             foreach (var target in targets) if (target.Shape == hit.collider && target.isActiveAndEnabled) return target;
             return null;
+        }
+        public bool Ray(FirstPersonWorker worker, Vector3 direction, float distance, out RaycastHit hit)
+        {
+            hit = default;
+            if (worker == null || direction.sqrMagnitude < 0.0001f || distance <= 0) return false;
+            int count = Physics.RaycastNonAlloc(worker.Eye.transform.position, direction.normalized, _hits,
+                distance, ~0, QueryTriggerInteraction.Collide);
+            if (count == _hits.Length) return false;
+            bool found = false; float nearest = distance;
+            for (int i = 0; i < count; i++)
+            {
+                var candidate = _hits[i];
+                if (candidate.collider == null || candidate.collider.transform.IsChildOf(worker.transform) || candidate.distance > nearest) continue;
+                found = true; nearest = candidate.distance; hit = candidate;
+            }
+            return found;
         }
         public AccessDecision Evaluate(Guid actor, Guid target, InteractionKind kind)
         {
@@ -197,7 +212,7 @@ namespace CriticalShift.Features.Player.Unity
                 return ClearItem(worker, target, worker.DropPoint) ? PlayerAccess.Allowed : PlayerAccess.PlacementBlocked;
             if (request.Action == PlayerAction.Equip) return PlayerAccess.Allowed;
             if (!InReach(worker, target.Shape)) return PlayerAccess.OutOfReach;
-            if (request.Action == PlayerAction.Sit && !worker.CanStandAt(target.Attachment.position)) return PlayerAccess.PlacementBlocked;
+            if (request.Action == PlayerAction.Sit && !worker.CanSitAt(target.Attachment.position)) return PlayerAccess.PlacementBlocked;
             if (request.Action == PlayerAction.Place)
             {
                 var item = Target(request.ItemId);
@@ -215,8 +230,7 @@ namespace CriticalShift.Features.Player.Unity
             if (worker == null || shape == null || !shape.enabled || !shape.gameObject.activeInHierarchy) return false;
             var origin = worker.Eye.transform.position;
             if (Vector3.Distance(origin, shape.bounds.ClosestPoint(origin)) > 3) return false;
-            return Physics.Raycast(origin, (shape.bounds.center - origin).normalized, out var visible, 3.7f, ~0,
-                QueryTriggerInteraction.Collide) && visible.collider == shape;
+            return Ray(worker, shape.bounds.center - origin, 3.7f, out var visible) && visible.collider == shape;
         }
         private static bool IsAvailable(InteractionTarget target) => target != null && target.isActiveAndEnabled && target.Shape != null;
         private bool ClearItem(FirstPersonWorker worker, InteractionTarget item, Vector3 point)
