@@ -1,0 +1,147 @@
+{
+  "source": "/workspace/scratch/reactor-refinement-generator-visible-working/hall_final.blend",
+  "sha256": "28fc09a259369b685ca1f96ad78cfd19bc0992f4ae67b200cb2143d9272905e3",
+  "pass_check": true,
+  "failures": [],
+  "small_loops": [
+    {
+      "object": "RF BATCH services RF dark",
+      "vertices": 2048,
+      "bounds": [
+        [
+          -9.038999557495117,
+          -9.038999557495117,
+          16.479000091552734
+        ],
+        [
+          9.038999557495117,
+          9.038999557495117,
+          16.520999908447266
+        ]
+      ],
+      "vertical_diameter": 0.04199981689453125,
+      "overlaps": {
+        "RH walls girders STEEL": 0,
+        "RF BATCH structure RF edge": 0,
+        "RF BATCH structure RF gunmetal": 0,
+        "RF BATCH services RF white": 0,
+        "RF BATCH skylights RF white": 0,
+        "RF BATCH skylights RF edge": 0
+      }
+    },
+    {
+      "object": "RF BATCH services RF orange",
+      "vertices": 2048,
+      "bounds": [
+        [
+          -8.930999755859375,
+          -8.930999755859375,
+          16.479000091552734
+        ],
+        [
+          8.930999755859375,
+          8.930999755859375,
+          16.520999908447266
+        ]
+      ],
+      "vertical_diameter": 0.04199981689453125,
+      "overlaps": {
+        "RH walls girders STEEL": 0,
+        "RF BATCH structure RF edge": 0,
+        "RF BATCH structure RF gunmetal": 0,
+        "RF BATCH services RF white": 0,
+        "RF BATCH skylights RF white": 0,
+        "RF BATCH skylights RF edge": 0
+      }
+    },
+    {
+      "object": "RF BATCH services RF orange",
+      "vertices": 2048,
+      "bounds": [
+        [
+          -9.147000312805176,
+          -9.147000312805176,
+          16.479000091552734
+        ],
+        [
+          9.147000312805176,
+          9.147000312805176,
+          16.520999908447266
+        ]
+      ],
+      "vertical_diameter": 0.04199981689453125,
+      "overlaps": {
+        "RH walls girders STEEL": 0,
+        "RF BATCH structure RF edge": 0,
+        "RF BATCH structure RF gunmetal": 0,
+        "RF BATCH services RF white": 0,
+        "RF BATCH skylights RF white": 0,
+        "RF BATCH skylights RF edge": 0
+      }
+    }
+  ],
+  "trunk": {
+    "bounds": [
+      [
+        -2.799999952316284,
+        9.5,
+        16.450000762939453
+      ],
+      [
+        2.799999952316284,
+        9.600000381469727,
+        16.549999237060547
+      ]
+    ],
+    "outer_diameter": 0.09999847412109375,
+    "overlaps": {
+      "RH walls girders STEEL": 0,
+      "RF BATCH structure RF edge": 0,
+      "RF BATCH structure RF gunmetal": 0,
+      "RF BATCH services RF white": 0,
+      "RF BATCH skylights RF white": 0,
+      "RF BATCH skylights RF edge": 0
+    }
+  },
+  "glyph_clearance": [
+    {
+      "glyph": "R2 gfx CRITICAL SHIFT ENERGY SYSTEMS",
+      "panel": "RH refine legacy hall identity panel PANEL",
+      "normal": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "min_plane_gap": 0.00099945068359375
+    },
+    {
+      "glyph": "R2 gfx 02",
+      "panel": "RH refine legacy numeral 02 panel PANEL",
+      "normal": [
+        -0.7071067690849304,
+        0.7071067690849304,
+        0.0
+      ],
+      "min_plane_gap": 0.0009999275207519531
+    },
+    {
+      "glyph": "R2 gfx 05",
+      "panel": "RH refine legacy numeral 05 panel PANEL",
+      "normal": [
+        -0.0,
+        -1.0,
+        0.0
+      ],
+      "min_plane_gap": 0.0010004043579101562
+    }
+  ],
+  "roof_obstacles": [
+    "RH walls girders STEEL",
+    "RF BATCH structure RF edge",
+    "RF BATCH structure RF gunmetal",
+    "RF BATCH services RF white",
+    "RF BATCH skylights RF white",
+    "RF BATCH skylights RF edge"
+  ],
+  "scope": "Actual mesh connected loop profiles positive legacy-glyph/backing separation, and BVH triangle intersections against named structural/service roof obstacles; no global collision or fluid-network claim. Supports and sampled moving machinery require separate support/motion audits."
+}

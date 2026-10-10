@@ -1,0 +1,234 @@
+{
+  "renderer_sha256": "06d0ac982dd1a217fa1fae8448633299dba993e391627979848dc0e39608b8ef",
+  "source": "/workspace/scratch/reactor-refinement-generator-visible-working/hall_final.blend",
+  "source_sha256": "28fc09a259369b685ca1f96ad78cfd19bc0992f4ae67b200cb2143d9272905e3",
+  "blender": "5.2.2 LTS",
+  "frame": 1,
+  "stability": 1.0,
+  "resolution": [
+    1280,
+    720
+  ],
+  "engine": "CYCLES",
+  "device": "CPU",
+  "threads": 5,
+  "samples_max": 96,
+  "adaptive_threshold": 0.014999999664723873,
+  "adaptive_min_samples": 32,
+  "denoiser": "OPENIMAGEDENOISE",
+  "max_bounces": 12,
+  "volume_bounces": 1,
+  "reflective_caustics": false,
+  "refractive_caustics": false,
+  "path_guiding": true,
+  "guiding_training_samples": 64,
+  "color_depth": "16",
+  "color_management": {
+    "transform": "AgX",
+    "look": "AgX - Medium High Contrast",
+    "exposure": 0.0
+  },
+  "preview": false,
+  "views": [
+    {
+      "name": "01_machinery_turbine_grid",
+      "title": "Machinery \u00b7 turbine and switchgear",
+      "location": [
+        5.9,
+        -7,
+        2.5
+      ],
+      "target": [
+        9.2,
+        -2.4,
+        1.5
+      ],
+      "lens_mm": 20,
+      "projection": "PERSP",
+      "ortho_scale": null,
+      "file": "01_machinery_turbine_grid.png",
+      "elapsed_seconds": 4065.08,
+      "sha256": "57b0c8dcfa2f2dad488d1f9ad8e3ee02c2eed7f43422650dbedd504eb62eab85"
+    },
+    {
+      "name": "02_machinery_coolant_eccs",
+      "title": "Machinery \u00b7 coolant pump and emergency cooling",
+      "location": [
+        6,
+        -5.4,
+        2.4
+      ],
+      "target": [
+        0,
+        -9.5,
+        2.25
+      ],
+      "lens_mm": 18,
+      "projection": "PERSP",
+      "ortho_scale": null,
+      "file": "02_machinery_coolant_eccs.png",
+      "elapsed_seconds": 3232.12,
+      "sha256": "04e02561700c47098d0c171649c336253c9524a0432a6a796de63f8fb99ea863"
+    },
+    {
+      "name": "03_floor_access_lane",
+      "title": "Floor \u00b7 access lane, tiles and safety markings",
+      "location": [
+        -6.3,
+        -3,
+        1.4
+      ],
+      "target": [
+        -7.8,
+        -0.4,
+        0.02
+      ],
+      "lens_mm": 28,
+      "projection": "PERSP",
+      "ortho_scale": null,
+      "file": "03_floor_access_lane.png",
+      "elapsed_seconds": 1093.42,
+      "sha256": "0e88af5370c1f70420051a5b63e4f45936e9876794e74bd9ac35b3fc94f50636"
+    },
+    {
+      "name": "04_floor_pool_circulation",
+      "title": "Floor \u00b7 pool circulation and service routes",
+      "location": [
+        0,
+        9.4,
+        7.5
+      ],
+      "target": [
+        0.3,
+        3.2,
+        0.1
+      ],
+      "lens_mm": 20,
+      "projection": "PERSP",
+      "ortho_scale": null,
+      "file": "04_floor_pool_circulation.png",
+      "elapsed_seconds": 3118.88,
+      "sha256": "06f2c5e4f2f0e1b48994cc3167d6c07e4ec8491f57687b5791a9b99b998d3876"
+    },
+    {
+      "name": "05_control_rods_upper",
+      "title": "Control rods \u00b7 bank housings and drives",
+      "location": [
+        0,
+        -7.5,
+        11.5
+      ],
+      "target": [
+        0,
+        0,
+        11.5
+      ],
+      "lens_mm": 28,
+      "projection": "PERSP",
+      "ortho_scale": null,
+      "file": "05_control_rods_upper.png",
+      "elapsed_seconds": 3044.33,
+      "sha256": "824e9d4cd68d767e2cdac722a4db80dd7283f5af7082f6daf0e26d5c042b4596"
+    },
+    {
+      "name": "06_control_rods_pool",
+      "title": "Control rods \u00b7 twin shafts and pool interfaces",
+      "location": [
+        3.7,
+        6.7,
+        5.2
+      ],
+      "target": [
+        0,
+        0,
+        3.9
+      ],
+      "lens_mm": 18,
+      "projection": "PERSP",
+      "ortho_scale": null,
+      "file": "06_control_rods_pool.png",
+      "elapsed_seconds": 3556.44,
+      "sha256": "1814bd35991737e7dfedab5248047db4dd44cf60ac1c2a33eec4e18ebbd8d58e"
+    },
+    {
+      "name": "07_roof_crane",
+      "title": "Roof \u00b7 bridge crane and structural supports",
+      "location": [
+        0,
+        -7.5,
+        15.6
+      ],
+      "target": [
+        -3,
+        4.6,
+        15.8
+      ],
+      "lens_mm": 20,
+      "projection": "PERSP",
+      "ortho_scale": null,
+      "file": "07_roof_crane.png",
+      "elapsed_seconds": 2701.97,
+      "sha256": "799fa0fe003a0403e50a0e4bcf81c77ac7add6af243f55a1c62622914002e1aa"
+    },
+    {
+      "name": "08_roof_girders_services",
+      "title": "Roof \u00b7 girders, cable trays and lighting",
+      "location": [
+        6.5,
+        1.4,
+        15.3
+      ],
+      "target": [
+        -3,
+        6,
+        16.8
+      ],
+      "lens_mm": 18,
+      "projection": "PERSP",
+      "ortho_scale": null,
+      "file": "08_roof_girders_services.png",
+      "elapsed_seconds": 2712.86,
+      "sha256": "09a86d0d95853d319e151658b0dceec5566284f1a03d83271178ec19d8659f05"
+    },
+    {
+      "name": "09_walls_north_fuel",
+      "title": "Walls \u00b7 north panels and fuel doorway",
+      "location": [
+        -5.6,
+        4.4,
+        3.6
+      ],
+      "target": [
+        0,
+        10.4,
+        4.3
+      ],
+      "lens_mm": 18,
+      "projection": "PERSP",
+      "ortho_scale": null,
+      "file": "09_walls_north_fuel.png",
+      "elapsed_seconds": 3655.26,
+      "sha256": "8fb7701d38952731eaa97e739e414b0fa6de5a1c8910175d8e1ada122286e025"
+    },
+    {
+      "name": "10_walls_west_access",
+      "title": "Walls \u00b7 west panels and main access",
+      "location": [
+        -3.7,
+        2.7,
+        3.2
+      ],
+      "target": [
+        -10.8,
+        0.8,
+        4.4
+      ],
+      "lens_mm": 18,
+      "projection": "PERSP",
+      "ortho_scale": null,
+      "file": "10_walls_west_access.png",
+      "elapsed_seconds": 1772.7,
+      "sha256": "2e548c6807c3e8543763c0d0b524a6bc9ebc0082eaae6c541085f8c6ea29f165"
+    }
+  ]
+}
