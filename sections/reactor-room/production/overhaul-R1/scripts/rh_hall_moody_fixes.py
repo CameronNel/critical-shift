@@ -24,21 +24,21 @@ args = ap.parse_args(argv)
 
 # Wall-number layout. Four walls (N, S, E, W) by five bays, pitch 4.1 m.
 BAY_PITCH, BAYS, ROWS = 4.1, 5, 4
-STENCIL_W, STENCIL_H, STENCIL_Z0 = 1.8, 0.6, 3.0
+STENCIL_W, STENCIL_H, STENCIL_Z0 = 2.4, 0.8, 3.3
 
 FLOOR_DARKEN = 0.36      # base-colour multiplier on the wet floor concrete
 FLOOR_ROUGH = 0.55       # roughness multiplier: wetter, glossier
 WALL_DARKEN = 0.58
 LIGHT_SCALE = [          # (name prefix, energy multiplier, optional tint)
-    ('LP wash', 0.34, (0.72, 0.83, 1.0)),
-    ('LP roof shaft', 1.1, None),
+    ('LP wash', 0.4, (0.72, 0.83, 1.0)),
+    ('LP roof shaft', 2.2, None),
     ('LP bank A uplight', 0.55, None),
     ('LP bank B uplight', 0.55, None),
     ('LP task', 0.75, None),
     ('LP bank A gantry', 0.75, None),
     ('LP bank B gantry', 0.75, None),
     ('RH refine circulation area', 0.4, None),
-    ('RH refine roof bay', 0.8, None),
+    ('RH refine roof bay', 1.6, None),
     ('LP rim', 0.5, None),
 ]
 WORLD_STRENGTH = 0.05
@@ -126,6 +126,69 @@ def darken(mat_name, amount, rough_mult=None):
             n.inputs[1].default_value = rough_mult
             return n
         insert_before(mat, 'Roughness', rough, 0, 0)
+
+
+def wet_floor(mat_name):
+    """Puddle patches and drag streaks: darker, mirror-smooth, with a clear coat."""
+    mat = bpy.data.materials[mat_name]
+    t = mat.node_tree
+    b = bsdf(mat)
+    geo = t.nodes.new('ShaderNodeNewGeometry')
+    pos = geo.outputs['Position']
+
+    def noise(scale, lo, hi, stretch=None):
+        src = pos
+        if stretch is not None:
+            vm = t.nodes.new('ShaderNodeVectorMath')
+            vm.operation = 'MULTIPLY'
+            vm.inputs[1].default_value = stretch
+            t.links.new(pos, vm.inputs[0])
+            src = vm.outputs[0]
+        n = t.nodes.new('ShaderNodeTexNoise')
+        n.inputs['Scale'].default_value = scale
+        n.inputs['Detail'].default_value = 4.0
+        t.links.new(src, n.inputs['Vector'])
+        r = t.nodes.new('ShaderNodeMapRange')
+        r.inputs['From Min'].default_value = lo
+        r.inputs['From Max'].default_value = hi
+        t.links.new(n.outputs['Fac'], r.inputs['Value'])
+        return r.outputs['Result']
+
+    puddle = noise(0.45, 0.50, 0.58)
+    streak = math(t, 'MULTIPLY', noise(1.3, 0.52, 0.64, (0.5, 4.0, 1.0)), 0.7)
+    wet = math(t, 'MAXIMUM', puddle, streak)
+    # darker under water
+    sock = b.inputs['Base Color']
+    dark = t.nodes.new('ShaderNodeMix')
+    dark.data_type = 'RGBA'
+    dark.blend_type = 'MULTIPLY'
+    dark.inputs[7].default_value = (0.5, 0.5, 0.52, 1)
+    t.links.new(wet, dark.inputs['Factor'])
+    t.links.new(sock.links[0].from_socket, dark.inputs[6])
+    t.links.new(dark.outputs[2], sock)
+    # smoother where wet: r' = r*(1-wet) + 0.05*wet
+    rs = b.inputs['Roughness']
+    r_src = rs.links[0].from_socket
+    keep = math(t, 'MULTIPLY', r_src, math(t, 'SUBTRACT', 1.0, wet))
+    t.links.new(math(t, 'ADD', keep, math(t, 'MULTIPLY', wet, 0.05)), rs)
+    # sharp clear coat for lamp and pool reflections
+    t.links.new(math(t, 'MULTIPLY', wet, 0.95), b.inputs['Coat Weight'])
+    b.inputs['Coat Roughness'].default_value = 0.03
+
+
+def add_roof_accents():
+    """Warm spots from roof level so girders and the crane keep their structure."""
+    coll = bpy.data.collections['25 LIGHTING']
+    for i, (x, y) in enumerate([(-6, -5), (6, -5), (-6, 5), (6, 5), (0, 8), (0, -8)]):
+        data = bpy.data.lights.new(f'RH hall roof accent {i}', 'SPOT')
+        data.energy = 9000
+        data.color = (1.0, 0.78, 0.55)
+        data.spot_size = 1.05
+        data.spot_blend = 0.7
+        data.shadow_soft_size = 0.15
+        obj = bpy.data.objects.new(data.name, data)
+        obj.location = (x, y, 16.2)
+        coll.objects.link(obj)
 
 
 def math(tree, op, a=None, b=None):
@@ -220,6 +283,7 @@ atlas.colorspace_settings.name = 'Non-Color'
 atlas.pack()
 
 darken('RH floor wet concrete', FLOOR_DARKEN, FLOOR_ROUGH)
+wet_floor('RH floor wet concrete')
 for name in ('RH refine wall concrete', 'RH refine cast concrete'):
     darken(name, WALL_DARKEN)
     add_numbers(name, atlas)
@@ -231,6 +295,7 @@ for light in (o for o in bpy.context.scene.objects if o.type == 'LIGHT'):
             if tint:
                 light.data.color = tint
             break
+add_roof_accents()
 bg = next(n for n in bpy.context.scene.world.node_tree.nodes if n.type == 'BACKGROUND')
 bg.inputs['Strength'].default_value = WORLD_STRENGTH
 

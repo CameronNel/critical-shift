@@ -28,13 +28,13 @@ The hall refinements cover machinery, floor, control rods, roof, walls, signs, p
 
 A follow-up pass changed the saved scene. **Everything in the sections above describes the earlier reviewed scene (`28fc09a2…`), not this one.** The 91/100 review, the ten gallery renders and the portable verifier all refer to that earlier file; `verify_refinement_handoff.py` now fails on the source hash by design and has not been regenerated.
 
-- Scene SHA-256 now `6e2d3aa5931b2c2a65493e6a0db760c9a1f3a6894447302daf892399870fef38`.
-- Wet floor concrete and both wall concretes darkened; floor roughness lowered.
-- Lighting moodier: broad wash lights cut to about a third and tinted cool, uplights and roof-bay lights reduced, key roof shafts kept or lifted, world strength 0.16 to 0.05.
-- Wall numbers `N-1`..`N-5`, `S-`, `E-`, `W-` are a texture stencil layer in the two wall concrete materials (packed 3840x1024 atlas, keyed to world position and wall normal, no added geometry). Stencils sit at 3.0 to 3.6 m and are hidden wherever equipment stands in front.
+- Scene SHA-256 now `f8098e538ff70d36ddcfe4003d1e0e3bc5818973989ef395f4eb6bab87b13fec`.
+- Wet floor concrete and both wall concretes darkened. The floor has puddle patches and drag streaks: darker, near-mirror smooth, with a clear coat for lamp and pool reflections.
+- Lighting moodier: broad wash lights cut to about 40% and tinted cool, uplights reduced, roof shafts and roof-bay lights lifted, six warm roof accent spots added so girders and crane keep structure, world strength 0.16 to 0.05.
+- Wall numbers `N-1`..`N-5`, `S-`, `E-`, `W-` (condensed stencil face with bridges, 2.4 m x 0.8 m on the panel-field centres) are a texture stencil layer in the two wall concrete materials (packed 3840x1024 atlas, keyed to world position and wall normal, no added geometry). Stencils sit at 3.3 to 4.1 m and are hidden wherever equipment stands in front.
 - Evaluated triangles (meshes, curves and text, render-visible objects) went from 1,478,532 to 1,165,073 by decimating fifteen-plus over-tessellated, non-interactive meshes. The saved scene is under 1.2 million; the earlier reviewed scene was not.
 - Reproduce with `overhaul-R1/scripts/make_wall_number_atlas.py` then `rh_hall_moody_fixes.py` on the reviewed scene.
-- Checked only with 480x270 Cycles CPU previews of the ten fixed views. No full-quality render, no independent review, no collision or interface re-check, no Unity measurement. The committed gallery renders do not show this look.
+- Checked with 480x270 Cycles CPU previews of the fixed views plus five inspection close-ups of decimated parts (trolley, bank suspension, turbine base, hook, drums); no damage seen. The Cycles warning 'Maximum number of closures exceeded: 96 > 64' also appears when rendering the reviewed scene, so it is not new. No full-quality render, no independent review, no collision or interface re-check, no Unity measurement. The committed gallery renders do not show this look.
 
 ## Review limits and next actions
 
