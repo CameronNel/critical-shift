@@ -12,6 +12,7 @@ namespace CriticalShift.Features.Player.Unity
         [SerializeField] private FirstPersonWorker[] workers = Array.Empty<FirstPersonWorker>();
         [SerializeField] private InteractionTarget[] targets = Array.Empty<InteractionTarget>();
         [SerializeField, Range(30, 3600)] private int shiftSeconds = 1200;
+        [SerializeField] private SpawnRoomBindings spawnRoom;
         private readonly Dictionary<Guid, FirstPersonWorker> _actors = new Dictionary<Guid, FirstPersonWorker>();
         private readonly Dictionary<Guid, InteractionTarget> _targets = new Dictionary<Guid, InteractionTarget>();
         private readonly Dictionary<Guid, Transform> _slots = new Dictionary<Guid, Transform>();
@@ -36,6 +37,12 @@ namespace CriticalShift.Features.Player.Unity
         public override ObjectClaimView Placed(Guid target) => _world?.Players.GetPlaced(target);
         public override InteractionTarget Target(Guid id) => _targets.TryGetValue(id, out var target) ? target : null;
         public ObjectClaimView Object(Guid id) => _world?.GetObject(id);
+        public PlayerPreparationView Preparation(Guid actor) => _world?.Players.GetPreparation(actor);
+        public void ConfigureSpawn(SpawnRoomBindings bindings) { spawnRoom = bindings; }
+        public void Notify(string message) { _feedback = message; }
+        public override bool Busy(Guid actor) => Preparation(actor) != null || (spawnRoom != null && spawnRoom.Busy(actor));
+        public override bool TryUse(FirstPersonWorker worker) => spawnRoom != null && spawnRoom.TryUse(worker);
+        public override string UsePrompt(FirstPersonWorker worker) => spawnRoom != null ? spawnRoom.Prompt(worker) : "";
 
         public void Configure(FirstPersonWorker[] players, InteractionTarget[] interactables, Func<WorldSession> worldFactory, int durationSeconds = 1200)
         {
@@ -76,10 +83,12 @@ namespace CriticalShift.Features.Player.Unity
                 foreach (var worker in workers)
                 { _world.RegisterConnection(_connections[worker.Id], worker.Id); _world.Players.RegisterActor(worker.Id, worker.EquipmentSlot); }
                 foreach (var target in targets)
-                    _world.Players.RegisterTarget(target.Id, target.Kind, target.Kind == PlayerTargetKind.Placement ? target.Slot : (Guid?)null);
+                    _world.Players.RegisterTarget(target.Id, target.Kind, target.Kind == PlayerTargetKind.Placement ? target.Slot : (Guid?)null,
+                        target.PreparationMilliseconds);
                 _world.Start(); _origin = Time.realtimeSinceStartupAsDouble; _nextRenew = 1000; _terminalProjected = false;
                 _previousTimeScale = Time.timeScale; _previousCursor = Cursor.lockState; _previousCursorVisible = Cursor.visible;
                 _ownsGlobals = true; Time.timeScale = 1; SetCursor(true); _feedback = "Shift started.";
+                if (spawnRoom != null) spawnRoom.Begin(this);
             }
             catch (Exception error) { Fault(error); }
         }
@@ -90,6 +99,7 @@ namespace CriticalShift.Features.Player.Unity
             {
                 Pump();
                 foreach (var worker in workers) worker.ReadInput();
+                if (spawnRoom != null) spawnRoom.Tick();
                 if (View.Phase == WorldPhase.Running || View.Phase == WorldPhase.Paused) Project();
             }
             catch (Exception error) { Fault(error); }
@@ -140,8 +150,9 @@ namespace CriticalShift.Features.Player.Unity
                 var request = new PlayerRequest(action, state.Revision, actor.Revision,
                     action == PlayerAction.Drop || action == PlayerAction.Stand || action == PlayerAction.Equip || action == PlayerAction.Place ? state.LeaseGeneration : 0, item);
                 var reply = Send(worker, new InteractionCommand(_world.Epoch, Next(worker.Id), InteractionKind.Player, target.Id, player: request));
-                if (reply.HasNewCommit && (action == PlayerAction.Drop || action == PlayerAction.Unequip))
+                if (reply.HasNewCommit && !target.Station && (action == PlayerAction.Drop || action == PlayerAction.Unequip))
                     target.transform.position = worker.DropPoint;
+                if (reply.HasNewCommit) worker.GetComponent<WorkerAnimation>()?.Action(action);
                 _feedback = Describe(reply.Status); Project();
             }
             catch (Exception error) { Fault(error); }
@@ -156,7 +167,7 @@ namespace CriticalShift.Features.Player.Unity
         public override InteractionTarget Aim(FirstPersonWorker worker)
         {
             if (worker == null || !Physics.Raycast(worker.Eye.transform.position, worker.Eye.transform.forward,
-                out var hit, 3, ~0, QueryTriggerInteraction.Ignore)) return null;
+                out var hit, 3, ~0, QueryTriggerInteraction.Collide)) return null;
             foreach (var target in targets) if (target.Shape == hit.collider && target.isActiveAndEnabled) return target;
             return null;
         }
@@ -170,16 +181,22 @@ namespace CriticalShift.Features.Player.Unity
             if (_world == null || epoch != _world.Epoch || !_actors.TryGetValue(actor, out var worker)) return PlayerAccess.ActorUnavailable;
             var target = Target(id);
             if (!IsAvailable(target)) return PlayerAccess.TargetUnavailable;
+            if (spawnRoom != null && spawnRoom.Busy(actor)) return PlayerAccess.ActorUnavailable;
             if (request.Action == PlayerAction.Stand)
                 return worker.TryExit(target, out _, out _) ? PlayerAccess.Allowed : PlayerAccess.PlacementBlocked;
+            if (target.Station)
+            {
+                if (request.Action == PlayerAction.Drop) return PlayerAccess.Allowed; // Return to the original station, never a floor drop.
+                if (spawnRoom != null && !spawnRoom.StationOpen(target)) return PlayerAccess.TargetUnavailable;
+                if (!InReach(worker, target.Shape)) return PlayerAccess.OutOfReach;
+                if (request.Action == PlayerAction.PrepareEquipment && !worker.Grounded) return PlayerAccess.ActorUnavailable;
+                if (request.Action == PlayerAction.Equip && Preparation(actor)?.TargetId != id) return PlayerAccess.ActorUnavailable;
+                return PlayerAccess.Allowed;
+            }
             if (request.Action == PlayerAction.Drop || request.Action == PlayerAction.Unequip)
                 return ClearItem(worker, target, worker.DropPoint) ? PlayerAccess.Allowed : PlayerAccess.PlacementBlocked;
             if (request.Action == PlayerAction.Equip) return PlayerAccess.Allowed;
-            if (Vector3.Distance(worker.Eye.transform.position, target.Shape.bounds.ClosestPoint(worker.Eye.transform.position)) > 3)
-                return PlayerAccess.OutOfReach;
-            if (!Physics.Raycast(worker.Eye.transform.position, (target.Shape.bounds.center - worker.Eye.transform.position).normalized,
-                out var visible, 3.7f, ~0, QueryTriggerInteraction.Ignore) || visible.collider != target.Shape)
-                return PlayerAccess.OutOfReach;
+            if (!InReach(worker, target.Shape)) return PlayerAccess.OutOfReach;
             if (request.Action == PlayerAction.Sit && !worker.CanStandAt(target.Attachment.position)) return PlayerAccess.PlacementBlocked;
             if (request.Action == PlayerAction.Place)
             {
@@ -192,6 +209,14 @@ namespace CriticalShift.Features.Player.Unity
                 if (item == null || !ClearItem(worker, item, worker.CarryAnchor.position)) return PlayerAccess.PlacementBlocked;
             }
             return PlayerAccess.Allowed;
+        }
+        public bool InReach(FirstPersonWorker worker, Collider shape)
+        {
+            if (worker == null || shape == null || !shape.enabled || !shape.gameObject.activeInHierarchy) return false;
+            var origin = worker.Eye.transform.position;
+            if (Vector3.Distance(origin, shape.bounds.ClosestPoint(origin)) > 3) return false;
+            return Physics.Raycast(origin, (shape.bounds.center - origin).normalized, out var visible, 3.7f, ~0,
+                QueryTriggerInteraction.Collide) && visible.collider == shape;
         }
         private static bool IsAvailable(InteractionTarget target) => target != null && target.isActiveAndEnabled && target.Shape != null;
         private bool ClearItem(FirstPersonWorker worker, InteractionTarget item, Vector3 point)
@@ -216,6 +241,7 @@ namespace CriticalShift.Features.Player.Unity
                 if (held != null && Target(held.EntityId).Portable)
                 {
                     var item = Target(held.EntityId);
+                    if (item.Station) continue;
                     var origin = worker.Eye.transform.position; var forward = worker.Eye.transform.forward;
                     float distance = 1.1f;
                     int count = Physics.SphereCastNonAlloc(origin, item.Radius, forward, _hits, distance, ~0, QueryTriggerInteraction.Ignore);
@@ -231,6 +257,8 @@ namespace CriticalShift.Features.Player.Unity
                 if (!IsAvailable(target)) throw new InvalidOperationException("A required target binding became unavailable.");
                 if (!target.Portable) continue;
                 var state = Object(target.Id);
+                if (target.Station)
+                { target.ProjectStation(state?.HolderId == null && state?.SlotId == null); continue; }
                 Transform destination = state?.HolderId != null ? _actors[state.HolderId.Value].CarryAnchor :
                     state?.SlotId != null ? _slots[state.SlotId.Value] : null;
                 if (destination == null && target.transform.parent != null &&
@@ -254,6 +282,7 @@ namespace CriticalShift.Features.Player.Unity
         }
         private void RestoreBindings()
         {
+            if (spawnRoom != null) spawnRoom.ResetBindings();
             foreach (var target in targets)
                 if (target != null) { try { target.Restore(); } catch (Exception error) { Debug.LogException(error, this); } }
             foreach (var worker in workers)
@@ -281,7 +310,7 @@ namespace CriticalShift.Features.Player.Unity
                 case InteractionStatus.OutOfReach: return "Move closer and keep a clear line of sight.";
                 case InteractionStatus.PlacementBlocked: return "There is not enough room.";
                 case InteractionStatus.SlotOccupied: return "That spot is occupied.";
-                case InteractionStatus.ActorUnavailable: return "Stand up before using another object.";
+                case InteractionStatus.ActorUnavailable: return "This action is unavailable right now. Finish or cancel your current action.";
                 default: return "That action is unavailable.";
             }
         }

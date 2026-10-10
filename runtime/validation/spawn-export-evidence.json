@@ -1,0 +1,179 @@
+{
+  "date": "2026-10-10",
+  "base_commit": "624879b6b50c3cee2ac753d78e033b5f53d43f9c",
+  "map_commit": "bb6b4924849d38097ee629a6fa2c00dc1b56095f",
+  "rig_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+  "canonical_source_sha256": "9c54db3198280deb4a25f6067b3ca73600f0ffa61f3d4848602642ff50a4ff4c",
+  "player_source_sha256": "136968e828a3455ffdbb4a93d2b85243a7c6109b647e57b6c9afd2e8a1d48405",
+  "offline": {
+    "status": "Passed",
+    "tests": {
+      "executed": 718,
+      "passed": 718,
+      "failed": 0,
+      "skipped": 0
+    },
+    "scenarios": 12,
+    "runs_each": 2
+  },
+  "api": {
+    "status": "Passed",
+    "native_execution": false,
+    "assemblies": [
+      {
+        "assembly": "CriticalShift.Features.Player.Unity",
+        "files": 7,
+        "status": "Passed"
+      },
+      {
+        "assembly": "CriticalShift.Player.Bootstrap",
+        "files": 2,
+        "status": "Passed"
+      },
+      {
+        "assembly": "CriticalShift.Player.Editor",
+        "files": 2,
+        "status": "Passed"
+      },
+      {
+        "assembly": "CriticalShift.Player.Tests.PlayMode",
+        "files": 1,
+        "status": "Passed"
+      }
+    ]
+  },
+  "python_tools": {
+    "status": "Passed",
+    "tests": 40
+  },
+  "sources_unchanged": {
+    "status": "Passed",
+    "inputs": 51
+  },
+  "rooms": [
+    {
+      "key": "front-end-area",
+      "translation": [
+        8.0,
+        -80.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "objects": 2106,
+      "collision_triangles": 550768,
+      "mesh_sha256": "93f9d88a7d8087911def2051d63fc99530f033761f3b7dae8a37c12c2b1a5532",
+      "collision_sha256": "9a27234aa44e5f0fd847af81105f24fde3d1af3986008621b6acb42311ac0ca3"
+    },
+    {
+      "key": "spawn-room",
+      "translation": [
+        8.0,
+        -92.38,
+        0.0
+      ],
+      "yaw": 0.0,
+      "objects": 2145,
+      "collision_triangles": 279370,
+      "mesh_sha256": "5025176fa00a81194c90a7ed6ba8796c8f2a478d28b14db44eafd21f6834be60",
+      "collision_sha256": "6f9afef72039b5036bd6397de29c48ca3608058c0cdaa4b93819926fd7f0bc2e"
+    },
+    {
+      "key": "mine",
+      "translation": [
+        -14.4,
+        -41.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "objects": 247,
+      "collision_triangles": 3287462,
+      "mesh_sha256": "7cc3777de45b05600ea3036f0f954ae94fa9c15a7ffb5cc10120ae29c5a863cb",
+      "collision_sha256": "c5103cd43026954a2e444d3d7967500168c9b569c9289c7288b9ea31cec37513"
+    },
+    {
+      "key": "refinery",
+      "translation": [
+        -26.28,
+        -52.2,
+        0.0
+      ],
+      "yaw": 90.0,
+      "objects": 3157,
+      "collision_triangles": 389324,
+      "mesh_sha256": "dd6e58142abe9215c230e90b8f62e0220a43c507a579c03d4f63d49830acf563",
+      "collision_sha256": "5f0024e287c15465116dd572426fcaed33f6786ceb22b288816bd8c67c0f5698"
+    },
+    {
+      "key": "medical-reanimation",
+      "translation": [
+        26.0,
+        -70.0,
+        0.0
+      ],
+      "yaw": -90.0,
+      "objects": 1486,
+      "collision_triangles": 505672,
+      "mesh_sha256": "90c7e7922002fdd70aba310bdaf0a16bdd46a44420afbef7c38572d70970752b",
+      "collision_sha256": "0b86cae166f03354836a2a7a62d6b85ae5a5c0bf94119b690c1e800b8c4f1536"
+    },
+    {
+      "key": "fuel-corridor",
+      "translation": [
+        -22.2,
+        -43.6,
+        0.0
+      ],
+      "yaw": 0.0,
+      "objects": 520,
+      "collision_triangles": 2059090,
+      "mesh_sha256": "1bea8a544c81eb81b9acf169515ada328e85648557f3b8aa5067b395d4966d8c",
+      "collision_sha256": "9060897626476b9bb5b878520ea4f38b6e2acb3fee36bf94f385434a89571320"
+    }
+  ],
+  "rig": {
+    "fbx_sha256": "c5f921a6208fd04565a6c4c4d6e5a191b5d2ac8002f2cd3c8bc8c28f6e86343a",
+    "bones": 23,
+    "fps": 24,
+    "original_clips": 49,
+    "sitting_derivatives": 3,
+    "seated_support_height": 0.34
+  },
+  "blender_roundtrip": {
+    "rooms": 6,
+    "bounds_tolerance_metres": 0.002,
+    "bones": 23,
+    "clips": 52,
+    "native_unity": false
+  },
+  "poses": {
+    "finite_samples": 156,
+    "seated_idle_position_seam_metres": 0.0,
+    "inspected_images": [
+      "SPAWN_SIT_DOWN-0.png",
+      "SPAWN_SIT_DOWN-9.png",
+      "SPAWN_SIT_DOWN-18.png",
+      "SPAWN_SEATED_IDLE-0.png",
+      "SPAWN_SEATED_IDLE-24.png",
+      "SPAWN_SEATED_IDLE-48.png",
+      "SPAWN_STAND_UP-0.png",
+      "SPAWN_STAND_UP-9.png",
+      "SPAWN_STAND_UP-18.png",
+      "SUIT_UP-0.png",
+      "SUIT_UP-32.png",
+      "SUIT_UP-64.png"
+    ],
+    "real_time_playback": "NotRun"
+  },
+  "native_map_create": {
+    "status": "Blocked",
+    "exit_code": 198,
+    "reason": "No valid Unity Editor license found. Please activate your license."
+  },
+  "native_playmode": {
+    "status": "NotRun",
+    "compiled_tests": 9
+  },
+  "desktop_player": "NotRun",
+  "performance": "NotRun",
+  "independent_review": "Pending"
+}

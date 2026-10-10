@@ -1,5 +1,25 @@
 # Decisions, Risks and Source Register
 
+## 10 October 2026: spawn preparation and additive bindings (review pending)
+
+Spawn reuses the player slice's custody and worker owners. `PlayerOperations` owns
+a bounded preparation intention per actor, measured against the existing shift
+clock. A station suit becomes intact only after its authored 15–30 second delay
+and an accepted equipment-slot transaction. Unity supplies stationary/reach
+observations and projects custody; it does not own another inventory or suit state.
+
+Doors, locker hinges, scanner presentation and briefing text are local physical
+prototypes owned by their scene components. A scan reports current suit condition;
+it does not repair a suit or certify future safety. Multiplayer replication,
+pressure simulation and damage detection remain separate work. No packages change.
+
+Exports are additive derivatives pinned to a caller-selected combined-map revision
+and the existing `claude/character-rig` revision. The assembly builder, linked room
+libraries, placements and original rig are read-only. FBX uses the existing Unity
+importer. Material conversion is a preview, not visual acceptance. Native import,
+playback and builds require an activated 6000.4.3f1 editor; API compilation alone
+cannot establish them. Unknown or ambiguous map bindings fail closed.
+
 **Revision 2.0 | 8 September 2026 | Documentation proposal for independent review**
 
 This is the decision and uncertainty register for the engineering plan, not a claim that any runtime gate has passed. A/S/H/V references point to documents in this directory. It records decisions here rather than scattering competing mini-ADRs across the repository.

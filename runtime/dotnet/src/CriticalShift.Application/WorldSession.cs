@@ -141,7 +141,7 @@ namespace CriticalShift.Application
                         productionChanges: productionChanges, reactorChanges: reactorChanges);
                 }
                 var released = _interaction.AdvanceTo(hostMilliseconds);
-                Players.ReconcileSeats();
+                Players.ReconcileClaims();
                 var workerChanges = _workers.ExpireRecovery(_timeline.ElapsedMilliseconds);
                 var due = _timers.AdvanceTo(hostMilliseconds, _timeline.ElapsedMilliseconds);
                 var signals = new List<WorldTimerSignal>(due.Count);
@@ -255,7 +255,7 @@ namespace CriticalShift.Application
             try
             {
                 var reply = _interaction.Execute(connectionId, command);
-                Players.ReconcileSeats();
+                Players.ReconcileClaims();
                 if (reply.HasNewCommit) _revision = next;
                 _diagnostics.Append(View, command.Epoch, SessionTraceKind.Interaction,
                     _interaction.ConnectedActor(connectionId) ?? Guid.Empty, command.EntityId,
@@ -295,7 +295,7 @@ namespace CriticalShift.Application
             try
             {
                 var reply = _interaction.ReportAttachmentFailure(epoch, entityId, generation);
-                Players.ReconcileSeats();
+                Players.ReconcileClaims();
                 if (reply.HasNewCommit) _revision = next;
                 return reply;
             }
@@ -309,7 +309,7 @@ namespace CriticalShift.Application
             {
                 if (Production.OwnsBatch(entityId)) return new InteractionReply(InteractionStatus.TargetUnavailable, false);
                 var reply = _interaction.RetireObject(epoch, entityId);
-                Players.ReconcileSeats();
+                Players.ReconcileClaims();
                 if (reply.HasNewCommit)
                 {
                     _timers.CancelOwner(epoch, entityId); _revision = next;

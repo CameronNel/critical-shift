@@ -69,7 +69,13 @@ That runner needs Python 3.12+, an already activated matching Editor and matchin
 
 The user-authorized [player slice](unity/Assets/CriticalShift/Features/Player/README.md) adds first-person movement, carry/place/take, protective equipment attachment, sitting/standing, feedback and a local start/pause/end/reset loop. Run `python runtime/tools/prepare_player.py` before opening Unity, then use **Critical Shift > Player Room > Create test scene**. It uses the canonical rules through authenticated commands and keeps the authored facility map and foundation scene catalogue intact. [Scope and evidence](validation/PLAYER_SLICE.md) distinguish offline/API checks from native physical tests.
 
-The pinned editor is installed here, but its native probe exits 198 because it has no valid activated license. Native import, the seven new physical PlayMode tests, a desktop Player build and human feel review remain blocked or unrun. Network transport, map bindings and the full suiting procedure are separate work.
+The pinned editor is installed here, but its native probe exits 198 because it has no valid activated license. Native import, physical PlayMode tests, a desktop Player build and human feel review remain blocked or unrun. Network transport and production PPE protection remain separate work.
+
+## Assembled map and spawn bindings — 10 October 2026
+
+The [spawn follow-up](validation/SPAWN_ROOM.md) prepares a separate runtime derivative of the **current PR #95 six-room combined map**, using its builder and exact placements. It adds spawn's existing character rig/animations, timed locker preparation, bench seats, moving doors, integrity-test feedback, briefing, and carry/place interactions. The Blender sources, assembly script and original rig stay untouched.
+
+From the repository root run `python runtime/tools/prepare_player.py`, then `python runtime/tools/prepare_spawn.py` with Blender 5.2.2 LTS and Git LFS available. Open the activated pinned editor and choose **Critical Shift > Spawn > Create assembled map scene**. Generated assets and the separate scene live under ignored `Assets/CriticalShift/Generated/Spawn/`. This exports geometry and a material/light preview; it does not reproduce or accept the authored Blender rendering. Native scene creation still requires license activation in this container. Exact source pins, checks, controls and remaining limits are in the spawn follow-up.
 
 ## Scope boundary
 

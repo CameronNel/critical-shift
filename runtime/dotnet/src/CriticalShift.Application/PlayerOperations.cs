@@ -13,6 +13,8 @@ namespace CriticalShift.Application
         private readonly Dictionary<Guid, PlayerTargetKind> _targets = new Dictionary<Guid, PlayerTargetKind>();
         private readonly Dictionary<Guid, Guid> _placements = new Dictionary<Guid, Guid>();
         private readonly Dictionary<Guid, Guid> _equipment = new Dictionary<Guid, Guid>();
+        private readonly Dictionary<Guid, long> _stationDelays = new Dictionary<Guid, long>();
+        private readonly Dictionary<Guid, PlayerPreparationView> _preparations = new Dictionary<Guid, PlayerPreparationView>();
 
         internal PlayerOperations(WorldSession world, InteractionWorld interaction, WorkerWorkflow workers, IPlayerActionPolicy? policy)
         { _world = world; _interaction = interaction; _workers = workers; _policy = policy; }
@@ -29,18 +31,21 @@ namespace CriticalShift.Application
             });
         }
 
-        public void RegisterTarget(Guid entity, PlayerTargetKind kind, Guid? placementSlot = null)
+        public void RegisterTarget(Guid entity, PlayerTargetKind kind, Guid? placementSlot = null, long stationPreparationMilliseconds = 0)
         {
             _world.RegisterPlayer(() =>
             {
                 if (kind < PlayerTargetKind.Carryable || kind > PlayerTargetKind.Placement || _targets.ContainsKey(entity) ||
-                    ((kind == PlayerTargetKind.Placement) != placementSlot.HasValue))
+                    ((kind == PlayerTargetKind.Placement) != placementSlot.HasValue) ||
+                    (stationPreparationMilliseconds != 0 && (kind != PlayerTargetKind.ProtectiveEquipment ||
+                        stationPreparationMilliseconds < 15000 || stationPreparationMilliseconds > 30000)))
                     throw new ArgumentException("Invalid or duplicate player target definition.");
                 _interaction.ValidatePlayerRegistration(entity, placementSlot);
                 _interaction.RegisterObject(entity);
                 if (placementSlot.HasValue)
                 { _interaction.RegisterProductionSlot(placementSlot.Value); _placements.Add(entity, placementSlot.Value); }
                 _targets.Add(entity, kind);
+                if (stationPreparationMilliseconds > 0) _stationDelays.Add(entity, stationPreparationMilliseconds);
             });
         }
 
@@ -53,8 +58,10 @@ namespace CriticalShift.Application
         }
         public ObjectClaimView? GetEquipment(Guid actor) => _equipment.TryGetValue(actor, out var slot) ? Occupant(slot) : null;
         public ObjectClaimView? GetPlaced(Guid target) => _placements.TryGetValue(target, out var slot) ? Occupant(slot) : null;
+        public PlayerPreparationView? GetPreparation(Guid actor) => _preparations.TryGetValue(actor, out var preparation) ? preparation : null;
 
-        internal bool AllowsLegacy(Guid entity, InteractionKind kind) => GetKind(entity) != PlayerTargetKind.Seat || kind == InteractionKind.Renew;
+        internal bool AllowsLegacy(Guid entity, InteractionKind kind) =>
+            (GetKind(entity) != PlayerTargetKind.Seat && !_stationDelays.ContainsKey(entity)) || kind == InteractionKind.Renew;
 
         internal InteractionReply Apply(Guid actor, Guid target, PlayerRequest request)
         {
@@ -65,6 +72,18 @@ namespace CriticalShift.Application
             if (worker.Pose == WorkerPose.Seated && request.Action != PlayerAction.Stand)
                 return Reject(InteractionStatus.ActorUnavailable);
             if (!_targets.TryGetValue(target, out var kind)) return Reject(InteractionStatus.TargetUnavailable);
+            if (_preparations.ContainsKey(actor) && request.Action != PlayerAction.Equip && request.Action != PlayerAction.Drop)
+                return Reject(InteractionStatus.ActorUnavailable);
+            if (_stationDelays.ContainsKey(target) && (request.Action == PlayerAction.PickUp || request.Action == PlayerAction.Place))
+                return Reject(InteractionStatus.TargetUnavailable);
+            if (request.Action == PlayerAction.PrepareEquipment && (!_stationDelays.ContainsKey(target) || worker.Suit != WorkerSuit.None))
+                return Reject(InteractionStatus.TargetUnavailable);
+            if (request.Action == PlayerAction.Equip && _stationDelays.ContainsKey(target) &&
+                (!_preparations.TryGetValue(actor, out var pending) || pending.TargetId != target ||
+                 pending.LeaseGeneration != request.LeaseGeneration || _world.View.ElapsedMilliseconds < pending.DueShiftMilliseconds))
+                return Reject(InteractionStatus.ActorUnavailable);
+            if (request.Action == PlayerAction.Place && _stationDelays.ContainsKey(request.ItemId))
+                return Reject(InteractionStatus.TargetUnavailable);
             if (((request.Action == PlayerAction.PickUp || request.Action == PlayerAction.Drop) && !Portable(kind)) ||
                 (request.Action == PlayerAction.Equip && kind != PlayerTargetKind.ProtectiveEquipment) ||
                 ((request.Action == PlayerAction.Sit || request.Action == PlayerAction.Stand) && kind != PlayerTargetKind.Seat) ||
@@ -85,10 +104,23 @@ namespace CriticalShift.Application
             }
             switch (request.Action)
             {
+                case PlayerAction.PrepareEquipment:
+                    if (_world.View.ElapsedMilliseconds > long.MaxValue - _stationDelays[target])
+                        return Reject(InteractionStatus.ActorUnavailable);
+                    long due = _world.View.ElapsedMilliseconds + _stationDelays[target];
+                    var prepare = _interaction.GrabPlayerObject(target, actor, request.ObjectRevision);
+                    if (prepare.HasNewCommit)
+                    {
+                        var claim = GetHeld(actor)!;
+                        _preparations.Add(actor, new PlayerPreparationView(target, claim.LeaseGeneration, due));
+                    }
+                    return prepare;
                 case PlayerAction.PickUp:
                     return Portable(kind) ? _interaction.GrabPlayerObject(target, actor, request.ObjectRevision) : Reject(InteractionStatus.TargetUnavailable);
                 case PlayerAction.Drop:
-                    return Portable(kind) ? _interaction.ReleasePlayerObject(target, actor, request.LeaseGeneration) : Reject(InteractionStatus.TargetUnavailable);
+                    var drop = _interaction.ReleasePlayerObject(target, actor, request.LeaseGeneration);
+                    if (drop.HasNewCommit) _preparations.Remove(actor);
+                    return drop;
                 case PlayerAction.Sit:
                     if (kind != PlayerTargetKind.Seat || worker.Pose != WorkerPose.Upright) return Reject(InteractionStatus.ActorUnavailable);
                     var sit = _interaction.GrabPlayerObject(target, actor, request.ObjectRevision);
@@ -103,7 +135,11 @@ namespace CriticalShift.Application
                     if (kind != PlayerTargetKind.ProtectiveEquipment || worker.Suit != WorkerSuit.None)
                         return Reject(InteractionStatus.TargetUnavailable);
                     var equip = _interaction.InsertBatch(target, actor, request.LeaseGeneration, request.ObjectRevision, _equipment[actor]);
-                    if (equip.HasNewCommit) RequireChanged(_workers.Environment(actor, worker.Revision, WorkerSuit.Intact, worker.Contamination));
+                    if (equip.HasNewCommit)
+                    {
+                        RequireChanged(_workers.Environment(actor, worker.Revision, WorkerSuit.Intact, worker.Contamination));
+                        _preparations.Remove(actor);
+                    }
                     return equip;
                 case PlayerAction.Unequip:
                     if (GetEquipment(actor)?.EntityId != target) return Reject(InteractionStatus.NotHolder);
@@ -121,10 +157,18 @@ namespace CriticalShift.Application
             }
         }
 
-        // Lease loss, physical-binding failure, retirement and impacts cannot leave a seated worker
-        // without its seat. Physical clearance/fallback remains the Unity binding's responsibility.
-        internal void ReconcileSeats()
+        // Lease loss, physical-binding failure, retirement and impacts cannot leave a worker
+        // seated or preparing without its claim. Physical recovery remains the Unity binding's responsibility.
+        internal void ReconcileClaims()
         {
+            var expired = new List<Guid>();
+            foreach (var preparation in _preparations)
+            {
+                var held = GetHeld(preparation.Key);
+                if (held?.EntityId != preparation.Value.TargetId || held.LeaseGeneration != preparation.Value.LeaseGeneration)
+                    expired.Add(preparation.Key);
+            }
+            foreach (var actor in expired) _preparations.Remove(actor);
             foreach (var actor in _equipment.Keys)
             {
                 var worker = _workers.Get(actor);
@@ -135,6 +179,7 @@ namespace CriticalShift.Application
 
         internal void Disconnect(Guid actor)
         {
+            _preparations.Remove(actor);
             var equipment = GetEquipment(actor);
             if (equipment != null)
             {
@@ -143,7 +188,7 @@ namespace CriticalShift.Application
             }
             _equipment.Remove(actor);
         }
-        internal void Clear() { _targets.Clear(); _placements.Clear(); _equipment.Clear(); }
+        internal void Clear() { _targets.Clear(); _placements.Clear(); _equipment.Clear(); _stationDelays.Clear(); _preparations.Clear(); }
         private ObjectClaimView? Occupant(Guid slot)
         { var item = _interaction.SlotOccupant(slot); return item.HasValue ? _interaction.GetObject(item.Value) : null; }
         private static bool Portable(PlayerTargetKind? kind) => kind == PlayerTargetKind.Carryable || kind == PlayerTargetKind.ProtectiveEquipment;

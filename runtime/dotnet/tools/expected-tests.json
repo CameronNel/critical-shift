@@ -261,5 +261,14 @@
   "StalePlayerReleaseCannotChangeCurrentCustody": 1,
   "EnvironmentCannotRemoveAnOccupiedEquipmentSlot": 1,
   "RestartRequiresExplicitPlayerPolicyRebinding": 1,
-  "MalformedPlayerPayloadsDoNotConsumeTheCommandSequence": 1
+  "MalformedPlayerPayloadsDoNotConsumeTheCommandSequence": 1,
+  "StationPreparationClaimsOnceAndCannotEquipEarly": 1,
+  "StationPreparationPausesWithShiftAndRequiresLiveClaim": 1,
+  "StationPreparationHasOneWinnerAndBlocksBypasses": 1,
+  "CancelledStationPreparationCannotUseAnOldDeadline": 1,
+  "StationSuitCannotMoveToAPlacementSlot": 1,
+  "InvalidStationDelayCannotPartiallyRegister": 1,
+  "StationPreparationDisconnectAndStopClearIntention": 1,
+  "FullHandsCannotStartOrReserveStationPreparation": 1,
+  "StationPreparationImpactOrAttachmentFailureClearsIntention": 2
 }
