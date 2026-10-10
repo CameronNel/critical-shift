@@ -23,10 +23,10 @@ for r, letter in enumerate(LETTERS):
         x0, y0 = b * CELL_W, r * CELL_H
         text = f'{letter}-{b + 1}'
         w = draw.textlength(text, font=big)
-        draw.text((x0 + (CELL_W - w) / 2, y0 + 4), text, font=big, fill=255, stroke_width=3, stroke_fill=255)
+        draw.text((x0 + (CELL_W - w) / 2, y0 + 4), text, font=big, fill=255, stroke_width=5, stroke_fill=255)
         # stencil bridges: thin cuts through every letter stroke
-        for fy in (0.36, 0.64):
-            draw.rectangle((x0, y0 + int(fy * CELL_H) - 4, x0 + CELL_W, y0 + int(fy * CELL_H) + 4), fill=0)
+        for fy in (0.5,):
+            draw.rectangle((x0, y0 + int(fy * CELL_H) - 1, x0 + CELL_W, y0 + int(fy * CELL_H) + 1), fill=0)
         # painted bay bar under the number, like a column-line stencil
         draw.rectangle((x0 + 160, y0 + CELL_H - 18, x0 + CELL_W - 160, y0 + CELL_H - 8), fill=255)
 atlas.save(out)

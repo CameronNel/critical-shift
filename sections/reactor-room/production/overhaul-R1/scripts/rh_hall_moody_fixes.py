@@ -204,7 +204,7 @@ def math(tree, op, a=None, b=None):
     return n.outputs[0]
 
 
-def add_numbers(mat_name, atlas, paint=(0.8, 0.77, 0.68, 1.0)):
+def add_numbers(mat_name, atlas, paint=(0.95, 0.91, 0.8, 1.0)):
     mat = bpy.data.materials[mat_name]
     t = mat.node_tree
     geo = t.nodes.new('ShaderNodeNewGeometry')
@@ -258,11 +258,11 @@ def add_numbers(mat_name, atlas, paint=(0.8, 0.77, 0.68, 1.0)):
     rng = t.nodes.new('ShaderNodeMapRange')
     rng.inputs['From Min'].default_value = 0.35
     rng.inputs['From Max'].default_value = 0.62
-    rng.inputs['To Min'].default_value = 0.5
+    rng.inputs['To Min'].default_value = 0.8
     rng.inputs['To Max'].default_value = 1.0
     t.links.new(chip.outputs['Fac'], rng.inputs['Value'])
     mask = math(t, 'MULTIPLY', math(t, 'MULTIPLY', glyph.outputs[0], inside), rng.outputs['Result'])
-    mask = math(t, 'MULTIPLY', mask, 0.9)
+    mask = math(t, 'MULTIPLY', mask, 1.0)
     mixer = t.nodes.new('ShaderNodeMix')
     mixer.data_type = 'RGBA'
     mixer.inputs[7].default_value = paint
