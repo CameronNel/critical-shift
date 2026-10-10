@@ -16,16 +16,18 @@ import time
 from pathlib import Path
 
 import bpy
+from mathutils import Vector
 
 argv = sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else []
 ap = argparse.ArgumentParser()
 ap.add_argument('--out', type=Path, required=True)
 ap.add_argument('--atlas', type=int, nargs='+', required=True)
-ap.add_argument('--maps', nargs='+', default=['albedo', 'rough', 'metal', 'normal'])
+ap.add_argument('--maps', nargs='+', default=['albedo', 'rm', 'normal'])
 ap.add_argument('--samples', type=int, default=128)
 ap.add_argument('--seed', type=int, default=1)
 ap.add_argument('--size', type=int, default=2048)
 ap.add_argument('--suffix', default='')
+ap.add_argument('--prune', type=float, default=0.1, help='hide objects farther than this (m) from the atlas group; 0 keeps everything')
 args = ap.parse_args(argv)
 args.out.mkdir(parents=True, exist_ok=True)
 
@@ -42,7 +44,7 @@ scene.render.bake.use_clear = True
 scene.render.bake.normal_space = 'TANGENT'
 scene.render.bake.target = 'IMAGE_TEXTURES'
 
-COLOR_SPACE = {'albedo': 'sRGB', 'rough': 'Non-Color', 'metal': 'Non-Color', 'normal': 'Non-Color'}
+COLOR_SPACE = {'albedo': 'sRGB', 'rough': 'Non-Color', 'metal': 'Non-Color', 'rm': 'Non-Color', 'normal': 'Non-Color'}
 FALLBACK = {'albedo': (0.5, 0.5, 0.5, 1.0), 'rough': 0.5, 'metal': 0.0}
 SOCKET = {'albedo': 'Base Color', 'rough': 'Roughness', 'metal': 'Metallic'}
 non_principled = set()
@@ -73,6 +75,20 @@ def route(mat, emit, channel):
     for link in list(emit.inputs['Color'].links):
         tree.links.remove(link)
     emit.inputs['Strength'].default_value = 1.0
+    if channel == 'rm':                       # packed: R roughness, G metallic
+        comb = tree.nodes.get('BAKE_RM') or tree.nodes.new('ShaderNodeCombineColor')
+        comb.name = 'BAKE_RM'
+        for link in list(comb.inputs['Red'].links) + list(comb.inputs['Green'].links):
+            tree.links.remove(link)
+        for chan, sock_name, default in (('Red', 'Roughness', 0.5), ('Green', 'Metallic', 0.0)):
+            if bsdf is not None and bsdf.inputs[sock_name].links:
+                tree.links.new(bsdf.inputs[sock_name].links[0].from_socket, comb.inputs[chan])
+            else:
+                comb.inputs[chan].default_value = bsdf.inputs[sock_name].default_value if bsdf is not None else default
+        comb.inputs['Blue'].default_value = 0.0
+        tree.links.new(comb.outputs['Color'], emit.inputs['Color'])
+        tree.links.new(emit.outputs['Emission'], out.inputs['Surface'])
+        return out, bsdf
     if bsdf is None:
         v = FALLBACK[channel]
         emit.inputs['Color'].default_value = v if channel == 'albedo' else (v, v, v, 1.0)
@@ -97,9 +113,38 @@ for o in bpy.data.objects:
     if o.type == 'MESH' and 'bake_atlas' in o:
         groups.setdefault(int(o['bake_atlas']), []).append(o)
 
+def world_box(o):
+    pts = [o.matrix_world @ Vector(c) for c in o.bound_box]
+    return (min(p.x for p in pts), min(p.y for p in pts), min(p.z for p in pts),
+            max(p.x for p in pts), max(p.y for p in pts), max(p.z for p in pts))
+
+
+def near(a, b, d):
+    return all(a[i] - d <= b[i + 3] and b[i] - d <= a[i + 3] for i in range(3))
+
+
+all_meshes = [o for o in bpy.data.objects if o.type == 'MESH']
+boxes = {o.name: world_box(o) for o in all_meshes}
+orig_hide = {o.name: o.hide_render for o in bpy.data.objects}
 log = []
 for k in args.atlas:
     objs = groups[k]
+    shell_group = any(o.get('bake_shell') for o in objs)
+    for o in bpy.data.objects:                       # restore, then prune for this atlas
+        o.hide_render = orig_hide[o.name]
+    if args.prune > 0 and not shell_group:
+        gboxes = [boxes[o.name] for o in objs]
+        keep = {o.name for o in objs}
+        for o in all_meshes:
+            if o.name not in keep and any(near(boxes[o.name], g, args.prune) for g in gboxes):
+                keep.add(o.name)
+        for o in all_meshes:
+            if o.name not in keep:
+                o.hide_render = True
+        for o in bpy.data.objects:
+            if o.type == 'LIGHT':
+                o.hide_render = True
+        print('PRUNE atlas', k, 'visible meshes', len(keep), 'of', len(all_meshes))
     mats = {s.material for o in objs for s in o.material_slots if s.material and s.material.use_nodes}
     prepared = {m: prepare(m) for m in mats}
     bpy.ops.object.select_all(action='DESELECT')
@@ -111,7 +156,7 @@ for k in args.atlas:
         name = f'med_a{k}_{channel}{args.suffix}'
         img = bpy.data.images.new(name, args.size, args.size, alpha=False, float_buffer=False)
         img.colorspace_settings.name = COLOR_SPACE[channel]
-        samples = {'metal': 8}.get(channel, args.samples)
+        samples = args.samples
         scene.cycles.samples = samples
         saved = []
         for m, (tex, emit) in prepared.items():

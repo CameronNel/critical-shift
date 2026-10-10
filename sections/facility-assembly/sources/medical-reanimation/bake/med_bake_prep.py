@@ -97,16 +97,27 @@ for o in targets:
         uv.active_render = True
 print('VISIBLE_AREA_M2', round(sum(vis_area.values()), 1), 'CULLED_FACES', sum(len(v) for v in culled.values()))
 
-# 3. balanced groups (first-fit decreasing on density-weighted area)
+# 3. groups. Room shells get their own atlases (balanced); props are cut into slabs along
+#    the room's long axis so neighbouring objects share an atlas, which lets the bake
+#    step hide distant objects (the occlusion nodes only reach 4.5 to 8 cm).
 weight = {o.name: vis_area[o.name] * (SHELL_FACTOR if o['bake_shell'] else PROP_FACTOR) ** 2 for o in targets}
-order = sorted(targets, key=lambda o: -weight[o.name])
+shells = sorted([o for o in targets if o['bake_shell']], key=lambda o: -weight[o.name])
+props = sorted([o for o in targets if not o['bake_shell']], key=lambda o: o.matrix_world.translation.y)
+n_shell = max(1, min(2, args.atlases - 1))
 bins = [[] for _ in range(args.atlases)]
 load = [0.0] * args.atlases
-for o in order:
-    k = load.index(min(load))
+for o in shells:
+    k = load.index(min(load[:n_shell]))
     bins[k].append(o)
     load[k] += weight[o.name]
-print('GROUP_LOAD', [round(v) for v in load])
+per_slab = sum(weight[o.name] for o in props) / (args.atlases - n_shell)
+k = n_shell
+for o in props:
+    if load[k] >= per_slab and k < args.atlases - 1:
+        k += 1
+    bins[k].append(o)
+    load[k] += weight[o.name]
+print('GROUP_LOAD', [round(v) for v in load], 'shell atlases', n_shell)
 
 
 def pack_group(objs):
