@@ -16,6 +16,7 @@ import time
 from pathlib import Path
 
 import bpy
+import numpy as np
 from mathutils import Vector
 
 argv = sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else []
@@ -27,6 +28,7 @@ ap.add_argument('--samples', type=int, default=128)
 ap.add_argument('--seed', type=int, default=1)
 ap.add_argument('--size', type=int, default=2048)
 ap.add_argument('--suffix', default='')
+ap.add_argument('--margin', type=int, default=4, help='texels of dilation, done once per image after the bake')
 ap.add_argument('--prune', type=float, default=0.1, help='hide objects farther than this (m) from the atlas group; 0 keeps everything')
 args = ap.parse_args(argv)
 args.out.mkdir(parents=True, exist_ok=True)
@@ -38,7 +40,7 @@ scene.cycles.device = 'CPU'
 scene.cycles.samples = args.samples
 scene.cycles.seed = args.seed
 scene.cycles.use_denoising = False
-scene.render.bake.margin = 4
+scene.render.bake.margin = 0   # per-object margin sweeps the whole image each time; dilate once instead
 scene.render.bake.margin_type = 'EXTEND'
 scene.render.bake.use_clear = True
 scene.render.bake.normal_space = 'TANGENT'
@@ -108,6 +110,39 @@ def restore(mat, out, bsdf):
         mat.node_tree.links.new(bsdf.outputs['BSDF'], out.inputs['Surface'])
 
 
+def dilate_to_rgb(img, name, channel):
+    """Fill args.margin texels around baked islands, then return an opaque RGB image."""
+    w, h = img.size
+    px = np.empty(w * h * 4, dtype=np.float32)
+    img.pixels.foreach_get(px)
+    a = px.reshape(h, w, 4)
+    rgb, cov = a[..., :3].copy(), a[..., 3] > 0.5
+    print('COVERAGE', name, round(float(cov.mean()), 4))
+    for _ in range(args.margin):
+        grow = np.zeros_like(cov)
+        acc = np.zeros_like(rgb)
+        cnt = np.zeros(cov.shape, dtype=np.float32)
+        for dy in (-1, 0, 1):
+            for dx in (-1, 0, 1):
+                if dx == 0 and dy == 0:
+                    continue
+                c = np.roll(np.roll(cov, dy, axis=0), dx, axis=1)
+                v = np.roll(np.roll(rgb, dy, axis=0), dx, axis=1)
+                acc += v * c[..., None]
+                cnt += c
+        grow = (~cov) & (cnt > 0)
+        rgb[grow] = acc[grow] / cnt[grow][:, None]
+        cov = cov | grow
+    if channel == 'normal':
+        rgb[~cov] = (0.5, 0.5, 1.0)
+    out = np.ones((h, w, 4), dtype=np.float32)
+    out[..., :3] = rgb
+    final = bpy.data.images.new(name + '_final', w, h, alpha=False, float_buffer=False)
+    final.colorspace_settings.name = img.colorspace_settings.name
+    final.pixels.foreach_set(out.reshape(-1))
+    return final
+
+
 groups = {}
 for o in bpy.data.objects:
     if o.type == 'MESH' and 'bake_atlas' in o:
@@ -154,7 +189,7 @@ for k in args.atlas:
     for channel in args.maps:
         t0 = time.time()
         name = f'med_a{k}_{channel}{args.suffix}'
-        img = bpy.data.images.new(name, args.size, args.size, alpha=False, float_buffer=False)
+        img = bpy.data.images.new(name, args.size, args.size, alpha=True, float_buffer=False)
         img.colorspace_settings.name = COLOR_SPACE[channel]
         samples = args.samples
         scene.cycles.samples = samples
@@ -165,15 +200,17 @@ for k in args.atlas:
             tex.select = True
             saved.append((m, *(route(m, emit, channel) if channel != 'normal' else (None, None))))
         if channel == 'normal':
-            bpy.ops.object.bake(type='NORMAL', margin=4, margin_type='EXTEND', use_clear=True, normal_space='TANGENT')
+            bpy.ops.object.bake(type='NORMAL', margin=0, use_clear=True, normal_space='TANGENT')
         else:
-            bpy.ops.object.bake(type='EMIT', margin=4, margin_type='EXTEND', use_clear=True)
+            bpy.ops.object.bake(type='EMIT', margin=0, use_clear=True)
             for m, out, bsdf in saved:
                 restore(m, out, bsdf)
+        final = dilate_to_rgb(img, name, channel)
         path = args.out / f'{name}.png'
-        img.filepath_raw = str(path)
-        img.file_format = 'PNG'
-        img.save()
+        final.filepath_raw = str(path)
+        final.file_format = 'PNG'
+        final.save()
+        bpy.data.images.remove(final)
         print('BAKED', name, 'samples', samples, 'seconds', round(time.time() - t0), path)
         log.append((name, samples, round(time.time() - t0)))
         bpy.data.images.remove(img)
