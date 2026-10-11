@@ -11,7 +11,7 @@ from mathutils import Vector
 # angle: direction the opening faces (outwards), c: centre of the door on the hall axis, hw: half clear width, along a0..a1: the wall
 # layer measured along the opening axis from the hall centre, z0..z1: clear height.
 HALL_CUTS = {
-    'south_door': dict(ang=-math.pi / 2, hw=2.5, a0=10.0, a1=12.2, z0=0.0, z1=5.0, rooms=('reactor-room',)),
+    'south_door': dict(ang=-math.pi / 2, hw=2.5, a0=10.0, a1=12.2, z0=0.0, z1=5.0, clear_a0=7.8, rooms=('reactor-room',)),
     'northeast_door': dict(ang=math.pi / 4, hw=2.5, a0=9.8, a1=13.6, z0=0.0, z1=5.0, rooms=('electrical-room',)),
 }
 
@@ -48,11 +48,11 @@ def cut_hall(wrap, omit, objects, wm, active):
         if o.type not in ('MESH', 'CURVE', 'FONT') or o.name in omit: continue
         m = wm(o)
         bbc = [m @ Vector(c) for c in o.bound_box]
-        touched = [k for k, ct in cuts.items() if any(_inside(ct, p, 0.4) for p in bbc) or _bbox_overlaps(ct, bbc)]
+        touched = [k for k, ct in cuts.items() if any(_inside(ct, p, 0.4) for p in bbc) or _bbox_overlaps(dict(ct, a0=ct.get('clear_a0', ct['a0'])), bbc)]
         if not touched: continue
         if o.type != 'MESH' or o.modifiers:
             centre = sum(bbc, Vector()) / 8
-            if any(_inside(cuts[k], centre) for k in touched):
+            if any(_inside(dict(cuts[k], a0=cuts[k].get('clear_a0', cuts[k]['a0'])), centre) for k in touched):
                 omit.add(o.name); report.setdefault(touched[0], []).append(o.name + ' (omitted)')
             continue
         me = o.data.copy(); me.transform(m)
@@ -71,11 +71,12 @@ def cut_hall(wrap, omit, objects, wm, active):
                 if dead: bmesh.ops.delete(bm, geom=dead, context='FACES'); changed = True
             else:
                 bm.faces.index_update(); dead = []
+                cl = dict(ct, a0=ct.get('clear_a0', ct['a0']))      # free-standing dressing is cleared in front of the door as well
                 for isl in _islands(bm):
                     pts = [v.co for f in isl for v in f.verts]
                     ctr = sum(pts, Vector()) / len(pts)
-                    n_in = sum(1 for p in pts if _inside(ct, p))
-                    if _inside(ct, ctr) or n_in > 0.5 * len(pts): dead.extend(isl)
+                    n_in = sum(1 for p in pts if _inside(cl, p))
+                    if _inside(cl, ctr) or n_in > 0.5 * len(pts): dead.extend(isl)
                 if dead: bmesh.ops.delete(bm, geom=dead, context='FACES'); changed = True
             if changed: report.setdefault(k, []).append(o.name)
         if not changed:

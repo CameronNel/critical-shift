@@ -4,7 +4,7 @@
 
 **Current environment work is the combined map in [sections/facility-assembly/combined/](sections/facility-assembly/combined/AGENT_READ_FIRST.md). Read its `AGENT_READ_FIRST.md` before any map, room-placement or environment task.**
 It is rebuilt from `build_combined_map.py` (never hand-edit `combined_map.blend`), links the room modules without editing them, and adds one room at a time on the owner's say-so, each placement
-recorded in `COMBINED_MAP.md`. As of 2026-10-11 it holds the front end (cafeteria, hall, yard), spawn room, mine, refinery, medical reanimation, fuel corridor and the reactor room (the refined hall, rotated 180 and joined by a proposed south concourse); next is
+recorded in `COMBINED_MAP.md`. As of 2026-10-11 it holds the front end (cafeteria, hall, yard), spawn room, mine, refinery, medical reanimation, fuel corridor the reactor room (the refined hall, rotation 0, joined by a proposed south concourse), turbine, electrical, waste storage and cooling plant, each connected to the reactor by a proposed tunnel; next is
 the rest of the layout in `design/facility-layout/README.md`. All of it is **unreviewed and not accepted**; PR 95 was merged on the owner's explicit instruction, which waives the rule that an agent does
 not merge its own work, and that waiver does not carry over to later PRs. Linking a room here does not change its status in the table below. Do not use a broad sparse checkout in the cloud container: it filled the disk once; fetch single files as the procedure describes.
 

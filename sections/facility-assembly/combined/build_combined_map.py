@@ -404,6 +404,18 @@ LINKS = {
     'cooling-plant': dict(pts=[(-14.5, 0.0), (-18.0, 0.0), (-28.0, -19.0), (-44.1, -19.0)], w=5.0, h=5.0),
 }
 
+# Doors of the newly placed rooms that the plan does not connect to anything (found by ray audit: they opened onto empty night). Closed plates stand in until the room behind them is placed; named PLACEHOLDER_.
+# name, room that must be included, (x0, x1), (y0, y1) plan metres, top z
+DOOR_PLACEHOLDERS = [('PLACEHOLDER_electrical_D02_shutter', 'electrical-room', (18.45, 21.05), (42.9, 43.0), 2.9),
+                     ('PLACEHOLDER_waste_dispatch_shutter', 'waste-storage', (46.64, 46.74), (-25.3, -22.7), 3.0)]
+
+def add_door_placeholders():
+    mat = bpy.data.materials.new('PLACEHOLDER_shutter_steel'); mat.use_nodes = True; b = mat.node_tree.nodes['Principled BSDF']
+    b.inputs['Base Color'].default_value = (0.09, 0.1, 0.11, 1); b.inputs['Metallic'].default_value = 0.7; b.inputs['Roughness'].default_value = 0.5
+    root = bpy.context.scene.collection.children['COMBINED_MAP']
+    for name, room, xs, ys, top in DOOR_PLACEHOLDERS:
+        if room in INCLUDED: _box(root, name, xs, ys, (0.0, top), mat); print('PLACEHOLDER', name)
+
 def add_reactor_links():
     import reactor_links
     root = bpy.context.scene.collection.children['COMBINED_MAP']
@@ -580,6 +592,7 @@ def build(through, output):
     fix_evac_sign_back()
     add_reactor_concourse()
     add_reactor_links()
+    add_door_placeholders()
     add_scene_lighting()
     placeholder_fuel_shutter()
     bpy.ops.wm.save_as_mainfile(filepath=output, relative_remap=True)
