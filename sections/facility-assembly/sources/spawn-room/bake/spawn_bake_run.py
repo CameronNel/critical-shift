@@ -206,7 +206,7 @@ for k in args.atlas:
     view_layer.objects.active = objs[0]
     for channel in args.maps:
         t0 = time.time()
-        name = f'med_a{k}_{channel}{args.suffix}'
+        name = f'spawn_a{k}_{channel}{args.suffix}'
         img = bpy.data.images.new(name, args.size, args.size, alpha=True, float_buffer=False)
         img.colorspace_settings.name = COLOR_SPACE[channel]
         samples = args.samples
