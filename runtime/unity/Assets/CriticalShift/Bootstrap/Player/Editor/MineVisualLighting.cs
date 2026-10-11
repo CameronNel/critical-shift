@@ -155,7 +155,8 @@ namespace CriticalShift.Player.Editor
                 minimum=new Vector3(source.minimum[0],source.minimum[2],source.minimum[1]),
                 maximum=new Vector3(source.maximum[0],source.maximum[2],source.maximum[1]),
                 grid=new Vector3(source.grid[0],source.grid[1],source.grid[2]),
-                color=new Color(source.color[0],source.color[1],source.color[2],source.color[3]).gamma,
+                // Raw shader scatter uniforms consume Blender linear colour directly.
+                color=new Color(source.color[0],source.color[1],source.color[2],source.color[3]),
                 density=SpawnSurfaceBuild.Texture(source.densityMap,false),
                 lighting=AssetDatabase.LoadAssetAtPath<Texture2D>(SpawnMapBuild.Folder+"Surfaces/MineVolume"+index+"Lighting.asset")
             }).ToArray();
@@ -183,9 +184,14 @@ namespace CriticalShift.Player.Editor
                     throw new InvalidOperationException("Authored mine emission has no texture: "+definition.key);
                 if(!definition.baseConstant && material.GetTexture("_MainTex")==null)
                     throw new InvalidOperationException("Authored mine colour has no texture: "+definition.key);
+                if(definition.sourceWood?.diffuse!=null && !string.IsNullOrEmpty(definition.sourceWood.diffuse.file) &&
+                    (!material.IsKeywordEnabled("_SOURCE_WOOD") || new[] {"_WoodDiffuse","_WoodNormal","_WoodHigh"}.Any(key=>material.GetTexture(key)==null)))
+                    throw new InvalidOperationException("Authored wood detail is missing: "+definition.key);
             }
             var nodes=root.GetComponentsInChildren<Transform>(true).Where(t=>t.name.StartsWith("CS_",StringComparison.Ordinal))
                 .ToDictionary(t=>t.name,StringComparer.Ordinal);
+            var woodMaterials=new HashSet<string>(package.definitions.Where(d=>d.sourceWood?.diffuse!=null &&
+                !string.IsNullOrEmpty(d.sourceWood.diffuse.file)).Select(d=>d.key),StringComparer.Ordinal);
             int surfaces=0,lightmapped=0,probeLit=0;
             foreach(var binding in source.objects.Where(o=>o.materials!=null && o.materials.Length>0))
             {
@@ -195,6 +201,12 @@ namespace CriticalShift.Player.Editor
                 if(renderer.sharedMaterials.Any(m=>m.shader.name!="CriticalShift/BlenderSurface" && m.shader.name!="CriticalShift/BlenderGlass"))
                     throw new InvalidOperationException("Mine has an automatic preview material: "+binding.node);
                 var mesh=renderer.GetComponent<MeshFilter>().sharedMesh;
+                if(binding.materials.Any(woodMaterials.Contains))
+                {
+                    var sourceUV=mesh.uv3;
+                    if(sourceUV.Length!=mesh.vertexCount || sourceUV.Any(p=>float.IsNaN(p.x) || float.IsNaN(p.y) || float.IsInfinity(p.x) || float.IsInfinity(p.y)))
+                        throw new InvalidOperationException("Authored wood UV channel is invalid: "+binding.node);
+                }
                 var uv=mesh.uv2;
                 if(uv.Length!=mesh.vertexCount || uv.Any(p=>float.IsNaN(p.x) || float.IsNaN(p.y) || float.IsInfinity(p.x) || float.IsInfinity(p.y)))
                     throw new InvalidOperationException("Mine lightmap UV channel is invalid: "+binding.node);

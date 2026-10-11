@@ -1,12 +1,14 @@
 {
   "claudePr": 102,
   "claudeBranch": "claude/critical-shift-hall-fixes-khgd29",
-  "inspectedHead": "7fffd1ae7d5a9d4a520047a3ef9b93757a6c4460",
+  "inspectedHead": "4980b0aac17a897063993f50d6d8a3e22c8e1ce4",
   "committedMain": "d9eb1c5642273722f2ecee7179e958f05d39fa61",
   "bakeAssembly": "bb6b4924849d38097ee629a6fa2c00dc1b56095f",
   "changedSourceRecords": [
     "sections/facility-assembly/combined/build_combined_map.py"
   ],
   "mineSourceUnchanged": true,
-  "handoff": "Refresh the full assembly after PR102 is merged, then rebake scoped mine surfaces and Unity lighting. Do not transplant this prepared six-room Unity scene over Claude's new assembly."
+  "handoff": "Refresh the full assembly after PR102 is merged, then rebake scoped mine surfaces and Unity lighting. Do not transplant this prepared six-room Unity scene over Claude's new assembly.",
+  "minePlacementUnchanged": true,
+  "mineTrimFunctionUnchanged": true
 }

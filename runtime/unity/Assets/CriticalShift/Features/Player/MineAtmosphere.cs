@@ -35,7 +35,7 @@ namespace CriticalShift.Features.Player.Unity
             for(int i=0;i<volumes.Length;i++)
             {
                 var volume=volumes[i];instance.SetVector("_Minimum"+i,volume.minimum);instance.SetVector("_Maximum"+i,volume.maximum);
-                instance.SetVector("_Grid"+i,volume.grid);instance.SetColor("_Scatter"+i,volume.color);
+                instance.SetVector("_Grid"+i,volume.grid);instance.SetVector("_Scatter"+i,(Vector4)volume.color);
                 instance.SetTexture("_Density"+i,volume.density);instance.SetTexture("_Lighting"+i,volume.lighting);
             }
             Graphics.Blit(source,destination,instance);

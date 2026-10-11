@@ -184,8 +184,16 @@ namespace CriticalShift.Player.Editor
             foreach(var roomPackage in map.materials.Where(p=>p.room!="spawn-room"))
             {
                 foreach(var atlas in roomPackage.atlases)
+                {
                     foreach(var texture in new[] {atlas.albedo,atlas.normal,atlas.metallicSmoothness,atlas.emission})
                         SpawnMapBuild.CheckHash(texture.file,texture.sha256);
+                    if(atlas.woodHigh!=null && !string.IsNullOrEmpty(atlas.woodHigh.file)) SpawnMapBuild.CheckHash(atlas.woodHigh.file,atlas.woodHigh.sha256);
+                }
+                foreach(var wood in roomPackage.definitions.Select(d=>d.sourceWood).Where(w=>w?.diffuse!=null && !string.IsNullOrEmpty(w.diffuse.file)))
+                {
+                    SpawnMapBuild.CheckHash(wood.diffuse.file,wood.diffuse.sha256);
+                    SpawnMapBuild.CheckHash(wood.normal.file,wood.normal.sha256);
+                }
                 SpawnMapBuild.CheckHash(roomPackage.displayLut.file,roomPackage.displayLut.sha256);
                 if(roomPackage.contextMesh!=null) SpawnMapBuild.CheckHash(roomPackage.contextMesh.file,roomPackage.contextMesh.sha256);
                 foreach(var volume in roomPackage.volumes ?? Array.Empty<MineSourceVolume>()) SpawnMapBuild.CheckHash(volume.densityMap.file,volume.densityMap.sha256);

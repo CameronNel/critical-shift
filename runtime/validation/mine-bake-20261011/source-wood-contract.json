@@ -1,0 +1,44 @@
+{
+  "status": "Passed",
+  "recipe": "authored-uv-affine-colour-ao16-v1",
+  "supportedMaterials": [
+    "GF | Dark Entrance Backboard",
+    "GF | Shadowed Wall Boards",
+    "GF | Silvered Structural Timber",
+    "GF | Traffic Polished Boards",
+    "R39 | Cart timber",
+    "R39 | Creosote sleepers",
+    "R39 | Rotten boards",
+    "R39 | Rotten timber"
+  ],
+  "negativeControls": [
+    {
+      "case": "nonlinear-grain",
+      "reason": "Non-affine source wood colour node: GF | Dark Entrance Backboard.001 / Math.011"
+    },
+    {
+      "case": "grain-dependent-ao",
+      "reason": "Grain-dependent source wood AO: GF | Dark Entrance Backboard.001"
+    },
+    {
+      "case": "tilted-uv",
+      "reason": "Unsupported tilted source wood UV mapping: GF | Dark Entrance Backboard.001"
+    },
+    {
+      "case": "changed-image-wrap",
+      "reason": "Unsupported source wood image sampling: GF | Dark Entrance Backboard.001"
+    },
+    {
+      "case": "invalid-bump-width",
+      "reason": "Invalid source wood bump filter width: GF | Dark Entrance Backboard.001"
+    },
+    {
+      "case": "linked-bump-width",
+      "reason": "Linked wood detail parameter requires an explicit export: GF | Dark Entrance Backboard.001"
+    }
+  ],
+  "sourceSha256": "0131ee35afa1f3fb9f26ee1dddd090e3b3c63e67bec2a854670214fee29825e1",
+  "sourceModified": false,
+  "scriptSha256": "a731602836dd04fe5b6808158f4f31e4c8c891160bcb0501c4b89534b4fc2fa0",
+  "limits": "Source graph contract only; final native lighting and appearance require separate validation."
+}

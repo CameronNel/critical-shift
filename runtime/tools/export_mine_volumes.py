@@ -8,9 +8,11 @@ from mathutils import Vector
 
 def export_volumes(scene, instance, output, matrix):
     records=[]
-    for o in instance.instance_collection.all_objects:
+    # Baking creates and removes sample datablocks. Blender's live collection
+    # iterator can invalidate its cached entries during those mutations.
+    for o in list(instance.instance_collection.all_objects):
         if o.type!='MESH':continue
-        for original in o.data.materials:
+        for original in list(o.data.materials):
             if not original or not original.use_nodes:continue
             volume=next((n for n in original.node_tree.nodes if n.type=='PRINCIPLED_VOLUME'),None)
             if volume is None:continue

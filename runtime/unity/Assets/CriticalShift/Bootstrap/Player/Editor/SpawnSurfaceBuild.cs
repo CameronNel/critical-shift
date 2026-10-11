@@ -9,11 +9,17 @@ using UnityEngine.Rendering;
 namespace CriticalShift.Player.Editor
 {
     [Serializable] public sealed class SurfaceTexture { public string file, sha256, colorSpace; public int size; }
-    [Serializable] public sealed class SurfaceMaps { public SurfaceTexture albedo, normal, emission, metallicSmoothness; }
+    [Serializable] public sealed class SurfaceMaps { public SurfaceTexture albedo, normal, emission, metallicSmoothness, woodHigh; }
+    [Serializable] public sealed class SourceWood
+    {
+        public SurfaceTexture diffuse, normal;
+        public float divisor,minimum,maximum,normalStrength,bumpStrength,bumpDistance,bumpFilterWidth,uvRotation;
+        public float[] uvScale,uvOffset;
+    }
     [Serializable] public sealed class SuitOcclusionVertex { public float[] position; public float front, back; }
     [Serializable] public sealed class SuitOcclusionMesh { public string node; public SuitOcclusionVertex[] vertices; }
     [Serializable] public sealed class SuitOcclusion { public bool lightingIncluded; public SuitOcclusionMesh[] meshes; }
-    [Serializable] public sealed class SurfaceDefinition { public string key, source; public int atlas; public float dielectricSpecular=0.04f; public float alpha, transmission, surfaceOpacity, metallic, smoothness, emissionStrength, reflectionIOR; public bool transparent, thinSurface, alphaMapped, baseConstant, normalConstant, metallicConstant, roughnessConstant, emissionConstant; public SurfaceTexture directEmission, directAlbedo; public float[] baseColor, emissionColor, reflectionColor; }
+    [Serializable] public sealed class SurfaceDefinition { public string key, source; public int atlas; public float dielectricSpecular=0.04f; public float alpha, transmission, surfaceOpacity, metallic, smoothness, emissionStrength, reflectionIOR; public bool transparent, thinSurface, alphaMapped, baseConstant, normalConstant, metallicConstant, roughnessConstant, emissionConstant; public SurfaceTexture directEmission, directAlbedo; public SourceWood sourceWood; public float[] baseColor, emissionColor, reflectionColor; }
     [Serializable] public sealed class SurfacePackage
     {
         public string room, uv; public bool lightingIncludedInAlbedo; public int meshes;
@@ -114,7 +120,8 @@ namespace CriticalShift.Player.Editor
             {
                 var maps=package.atlases[index];var definitions=package.definitions.Where(d=>d.atlas==index).ToArray();
                 if(definitions.Length==0) throw new InvalidOperationException("Surface atlas has no material definitions: "+package.room+" "+index);
-                bool unusedBase=definitions.All(d=>d.baseConstant),unusedNormal=definitions.All(d=>d.normalConstant);
+                bool unusedBase=definitions.All(d=>d.baseConstant),unusedNormal=definitions.All(d=>d.normalConstant ||
+                    (d.sourceWood?.diffuse!=null && !string.IsNullOrEmpty(d.sourceWood.diffuse.file)));
                 bool unusedNumeric=definitions.All(d=>d.metallicConstant && d.roughnessConstant && !d.thinSurface);
                 // JsonUtility can create an empty nested record for an omitted JSON
                 // field. Only an actual source file replaces the emission atlas.
@@ -185,6 +192,20 @@ namespace CriticalShift.Player.Editor
                 }
                 if(definition.directAlbedo!=null && !string.IsNullOrEmpty(definition.directAlbedo.file))
                     material.SetTexture("_MainTex",Texture(definition.directAlbedo,false));
+                if(definition.sourceWood?.diffuse!=null && !string.IsNullOrEmpty(definition.sourceWood.diffuse.file))
+                {
+                    var wood=definition.sourceWood;
+                    if(wood.divisor<=0 || wood.uvScale==null || wood.uvScale.Length!=2 || wood.uvOffset==null || wood.uvOffset.Length!=2)
+                        throw new InvalidOperationException("Invalid authored wood detail: "+definition.source);
+                    material.EnableKeyword("_SOURCE_WOOD");material.DisableKeyword("_NORMALMAP");material.SetTexture("_BumpMap",null);
+                    material.SetTexture("_WoodDiffuse",Texture(wood.diffuse,false));material.SetTexture("_WoodNormal",Texture(wood.normal,true));
+                    material.SetTexture("_WoodHigh",Texture(package.atlases[definition.atlas].woodHigh,false));
+                    if(float.IsNaN(wood.bumpFilterWidth) || float.IsInfinity(wood.bumpFilterWidth) || wood.bumpFilterWidth<=0) throw new InvalidOperationException("Missing source wood bump filter width: "+definition.key);
+                    material.SetVector("_WoodSignal",new Vector4(wood.divisor,wood.minimum,wood.maximum,wood.normalStrength));
+                    material.SetVector("_WoodBump",new Vector4(wood.bumpStrength,wood.bumpDistance,wood.uvRotation,wood.bumpFilterWidth));
+                    material.SetVector("_WoodUV",new Vector4(wood.uvScale[0],wood.uvScale[1],wood.uvOffset[0],wood.uvOffset[1]));
+                }
+                else material.DisableKeyword("_SOURCE_WOOD");
                 material.SetFloat("_Mode", definition.transparent ? 2 : 0);
                 material.SetOverrideTag("RenderType", definition.transparent ? "Transparent" : "Opaque");
                 material.SetInt("_SrcBlend", (int)(definition.transparent ? BlendMode.SrcAlpha : BlendMode.One));
@@ -245,15 +266,23 @@ namespace CriticalShift.Player.Editor
             importer.textureShape = TextureImporterShape.Texture2D;
             importer.sRGBTexture = source.colorSpace == "sRGB";
             importer.maxTextureSize = source.size; importer.textureCompression = TextureImporterCompression.Uncompressed;
-            if((source.file.StartsWith("Surfaces/mine-",StringComparison.Ordinal) || normal || source.file.Contains("metallic-smoothness")) &&
+            if((source.file.Contains("/mine-") || source.file.Contains("/source-wood/") || normal || source.file.Contains("metallic-smoothness")) &&
                 !source.file.Contains("display-lut") && !source.file.EndsWith(".exr",StringComparison.Ordinal))
             {
                 var platform=importer.GetPlatformTextureSettings("Standalone");platform.overridden=true;platform.format=normal ? TextureImporterFormat.BC5 : TextureImporterFormat.BC7;
                 platform.maxTextureSize=source.size;platform.textureCompression=TextureImporterCompression.CompressedHQ;platform.compressionQuality=100;
                 importer.SetPlatformTextureSettings(platform);
             }
+            if(source.file.StartsWith("Surfaces/mine-",StringComparison.Ordinal) && source.file.EndsWith("/spawn-emission.exr",StringComparison.Ordinal))
+            {
+                var platform=importer.GetPlatformTextureSettings("Standalone");platform.overridden=true;platform.format=TextureImporterFormat.BC6H;
+                platform.maxTextureSize=source.size;platform.textureCompression=TextureImporterCompression.CompressedHQ;platform.compressionQuality=100;
+                importer.SetPlatformTextureSettings(platform);
+            }
             importer.npotScale = TextureImporterNPOTScale.None;
             importer.mipmapEnabled = !source.file.Contains("display-lut") && !source.file.Contains("source-emission") && !source.file.Contains("mine-volume-"); importer.wrapMode = TextureWrapMode.Clamp;
+            if(source.file.Contains("/source-wood/"))
+            { importer.wrapMode=TextureWrapMode.Repeat;importer.anisoLevel=8; }
             importer.isReadable = false;
             importer.filterMode = source.file.Contains("display-lut") ? FilterMode.Bilinear : FilterMode.Trilinear;
             if(AssetDatabase.WriteImportSettingsIfDirty(path)) AssetDatabase.ImportAsset(path,ImportAssetOptions.ForceUpdate);

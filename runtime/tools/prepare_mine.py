@@ -9,6 +9,25 @@ from pathlib import Path
 from prepare_spawn import ROOT, assignments, sha
 from prepare_player import meta
 
+RECIPE_FILES = (
+    "prepare_mine.py", "export_spawn_map.py", "export_spawn_materials.py",
+    "export_mine_materials.py", "export_mine_context.py", "export_mine_volumes.py",
+    "export_source_wood.py", "normal_bake_pixels.py", "mine_delivery_uv.py", "mine_lightmap_uv.py", "mine_join_rays.py",
+)
+
+
+def export_recipe(root, blender_version, batched, runtime_scene_sha256=None):
+    return {"blender": blender_version, "batched": batched, "runtimeSceneSha256":runtime_scene_sha256, "tools": {
+        name: hashlib.sha256((root / "runtime/tools" / name).read_bytes()).hexdigest()
+        for name in RECIPE_FILES}}
+
+
+def validate_cache(cached, config, size, recipe):
+    if cached.get("method") != "source-recipe-v2" or cached.get("size") != size or cached.get("sources") != config["sources"]:
+        raise ValueError("Cached mine atlas belongs to a different source or bake recipe.")
+    if cached.get("exportRecipe") != recipe:
+        raise ValueError("Cached mine exporter/UV recipe changed. Generate a fresh cache with prepare_mine.py.")
+
 
 def texture_metadata(output, package):
     """Specify new mine PNG runtime formats before first import; retain source bytes/GUIDs."""
@@ -85,15 +104,20 @@ def prepare(args):
     for record in config["sources"]:
         path = scratch / "map" / record["path"]
         if hashlib.sha256(path.read_bytes()).hexdigest() != record["sha256"]: raise ValueError("Source hash mismatch: "+record["path"])
+    blender_version = subprocess.check_output([args.blender, "--version"], text=True).splitlines()[0]
+    runtime_scene = scratch / "combined-runtime-source.blend"
+    recipe = export_recipe(ROOT, blender_version, bool(getattr(args,"batched",False)),
+        hashlib.sha256(runtime_scene.read_bytes()).hexdigest())
     reuse=getattr(args,"reuse_atlases",None)
     if reuse:
         cached=json.loads(Path(reuse).read_text())
-        if cached["method"]!="original-objects-v1" or cached["size"]!=args.size or cached["sources"]!=config["sources"]:
-            raise ValueError("Cached mine atlas belongs to a different source or bake recipe.")
+        validate_cache(cached, config, args.size, recipe)
     before = {r["key"]:{k:r[k] for k in ("translation","yaw","collisionSha256","meshSha256")} for r in manifest["rooms"]}
     audit = ROOT / "runtime/out/mine-bake-audit"; audit.mkdir(parents=True,exist_ok=True)
     (audit / "before-bindings.json").write_text(json.dumps(manifest,indent=2)+"\n")
     environment = dict(os.environ, CS_MINE_BAKE="1", CS_REUSE_COLLISION="1", CS_SURFACE_SIZE=str(args.size))
+    environment.pop("CS_MINE_JOIN_BAKE", None)
+    environment.pop("CS_REUSE_MINE_ATLASES", None)
     if getattr(args,"batched",False): environment["CS_MINE_JOIN_BAKE"]="1"
     if reuse: environment["CS_REUSE_MINE_ATLASES"]=str(Path(reuse).resolve())
     if not getattr(args,"context_only",False):
@@ -114,6 +138,8 @@ def prepare(args):
     if not getattr(args,"skip_context",False):
         subprocess.run([args.blender,"-b",str(scratch/"combined-runtime-source.blend"),"--disable-autoexec",
             "--python-exit-code","1","--python",str(ROOT/"runtime/tools/export_mine_context.py"),"--",str(output)],check=True,env=environment)
+    if export_recipe(ROOT, blender_version, recipe["batched"],hashlib.sha256(runtime_scene.read_bytes()).hexdigest()) != recipe:
+        raise ValueError("Exporter changed during preparation. Regenerate the delivery before using its cache.")
     after = json.loads((output / "map-bindings.json").read_text())
     for room in after["rooms"]:
         for field,value in before[room["key"]].items():
@@ -133,6 +159,14 @@ def prepare(args):
         "otherRoomCollisionsUnchanged":True,
         "mineCollisionUnchanged":next(r for r in after["rooms"] if r["key"]=="mine")["collisionSha256"]==before["mine"]["collisionSha256"],
         "otherRoomMeshesUnchanged":True,"sourceFilesUnchanged":True},indent=2)+"\n")
+    if not getattr(args,"context_only",False):
+        # A context resume has not established current-recipe core provenance.
+        # Never certify its existing core as a newly produced v2 cache.
+        from export_source_wood import RECIPE as wood_recipe
+        cache = {"method":"source-recipe-v2", "size":args.size, "sources":config["sources"],
+            "exportRecipe":recipe, "woodRecipe":wood_recipe,
+            "atlases":{Path(atlas["albedo"]["file"]).parent.name:atlas for atlas in mine["atlases"]}}
+        (audit / "surface-cache.json").write_text(json.dumps(cache,indent=2)+"\n")
     print("CS_MINE_DELIVERY_OK",flush=True)
 
 

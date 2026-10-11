@@ -1,0 +1,12 @@
+Shader "Hidden/CriticalShift/MineColourAudit" {
+ Properties { _Declared("Declared color",Color)=(0,0,0,1) _Mode("Mode",Float)=0 }
+ SubShader { Cull Off ZWrite Off ZTest Always Pass {
+ CGPROGRAM
+ #pragma vertex vert_img
+ #pragma fragment frag
+ #include "UnityCG.cginc"
+ float4 _Scatter0,_Declared;float _Mode;
+ float4 frag(v2f_img input):SV_Target{return _Mode>0.5 ? _Declared : _Scatter0;}
+ ENDCG
+ }}
+}

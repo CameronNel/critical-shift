@@ -13,6 +13,50 @@ import prepare_mine
 
 
 class MineRefreshGuardTests(unittest.TestCase):
+    def test_changed_uv_exporter_rejects_source_identical_cache(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            tools = root / "runtime/tools"
+            tools.mkdir(parents=True)
+            for name in prepare_mine.RECIPE_FILES:
+                (tools/name).write_text("original conversion recipe")
+            config = {"sources":[{"path":"unchanged.blend","sha256":"a"*64}]}
+            recipe = prepare_mine.export_recipe(root,"Blender 5.2.2 LTS",True)
+            cached = {"method":"source-recipe-v2","size":4096,"sources":config["sources"],"exportRecipe":recipe}
+            prepare_mine.validate_cache(cached,config,4096,recipe)
+            (tools/"mine_delivery_uv.py").write_text("changed UV packing")
+            changed = prepare_mine.export_recipe(root,"Blender 5.2.2 LTS",True)
+            with self.assertRaisesRegex(ValueError,"exporter/UV recipe changed"):
+                prepare_mine.validate_cache(cached,config,4096,changed)
+
+    def test_cache_cannot_change_batching_or_blender_version(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            tools = root / "runtime/tools"
+            tools.mkdir(parents=True)
+            for name in prepare_mine.RECIPE_FILES:
+                (tools/name).write_text("original conversion recipe")
+            config = {"sources":[]}
+            recipe = prepare_mine.export_recipe(root,"Blender 5.2.2 LTS",True)
+            cached = {"method":"source-recipe-v2","size":4096,"sources":[],"exportRecipe":recipe}
+            for version,batched in (("Blender other version",True),("Blender 5.2.2 LTS",False)):
+                with self.assertRaisesRegex(ValueError,"exporter/UV recipe changed"):
+                    prepare_mine.validate_cache(cached,config,4096,prepare_mine.export_recipe(root,version,batched))
+
+    def test_cache_cannot_replace_generated_source_with_same_room_pins(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            tools = root / "runtime/tools"
+            tools.mkdir(parents=True)
+            for name in prepare_mine.RECIPE_FILES:
+                (tools/name).write_text("unchanged conversion recipe")
+            config = {"sources":[]}
+            original = prepare_mine.export_recipe(root,"Blender 5.2.2 LTS",True,"a"*64)
+            cached = {"method":"source-recipe-v2","size":4096,"sources":[],"exportRecipe":original}
+            changed = prepare_mine.export_recipe(root,"Blender 5.2.2 LTS",True,"b"*64)
+            with self.assertRaisesRegex(ValueError,"exporter/UV recipe changed"):
+                prepare_mine.validate_cache(cached,config,4096,changed)
+
     def reject_changed_source(self, changed_builder):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)

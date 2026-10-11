@@ -1,0 +1,32 @@
+{
+  "status": "Passed",
+  "native_unity_execution": false,
+  "editor": "6000.4.3f1",
+  "sdk": "8.0.425",
+  "checks": [
+    {
+      "assembly": "CriticalShift.Features.Player.Unity",
+      "files": 9,
+      "status": "Passed"
+    },
+    {
+      "assembly": "CriticalShift.Player.Bootstrap",
+      "files": 2,
+      "status": "Passed"
+    },
+    {
+      "assembly": "CriticalShift.Player.Editor",
+      "files": 5,
+      "status": "Passed"
+    },
+    {
+      "assembly": "CriticalShift.Player.Tests.PlayMode",
+      "files": 2,
+      "status": "Passed"
+    }
+  ],
+  "limits": "API compile only. No native import, Test Runner, physical execution, build or human review.",
+  "source_sha256": "b5d14ef30aa55bdc47c6873935ca78a8767ac33f905a22f36df4f2c27eb73518",
+  "referencesSha256": "c66d8d439df09c2e5d3ddcaa48d29bb1a750a000410a45a1b6f89444ed49bbe3",
+  "runner": "runtime/tools/check_player_api.py"
+}

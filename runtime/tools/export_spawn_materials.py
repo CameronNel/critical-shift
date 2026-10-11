@@ -110,7 +110,7 @@ def bake_atlas(scene, objects, mappings, output, source_view, atlas_key, room="s
         raise ValueError("Unsupported reviewed surface atlas resolution")
     meshes = [o for o in objects if o.type == "MESH" and len(o.data.polygons) and len(o.data.materials)]
     originals = list(dict.fromkeys(m for o in meshes for m in o.data.materials if m))
-    copies, states, definitions, coordinate_attributes, thin_states = {}, {}, [], {}, {}
+    copies, states, definitions, coordinate_attributes, thin_states, wood_states = {}, {}, [], {}, {}, {}
     joined = room != "mine" or os.environ.get("CS_MINE_JOIN_BAKE") == "1"
     if room == "mine" and any(n.type=="OBJECT_INFO" and any(s.is_linked for s in n.outputs) for m in originals for n in m.node_tree.nodes): joined=False
     for index, original in enumerate(originals):
@@ -169,6 +169,15 @@ def bake_atlas(scene, objects, mappings, output, source_view, atlas_key, room="s
         definition={"key":m.name,"source":original.name,"transmission":float(transmission),
             "alpha":float(alpha),"transparent":transmission > 0.01 or alpha < 0.999 or any(n.type == "BSDF_TRANSPARENT" for n in nt.nodes)}
         definition.update(constant_inputs(source_constants))
+        if room == "mine" and not atlas_key.startswith("mine-context-"):
+            from export_source_wood import export as export_wood
+            wood = export_wood(original, output)
+            if wood:
+                definition["sourceWood"] = wood
+                grain = nt.nodes[wood["clampNode"]].outputs["Result"]
+                destinations = [link.to_socket for link in grain.links]
+                replacement = nt.nodes.new("ShaderNodeValue")
+                wood_states[m] = (grain, destinations, replacement)
         emission_socket=bsdf.inputs["Emission Color"]
         if emission_socket.is_linked and emission_socket.links[0].from_node.type=="TEX_IMAGE" and all(not bsdf.inputs[k].is_linked for k in ("Base Color","Metallic","Roughness","Normal","Alpha","Emission Strength")):
             source_image=emission_socket.links[0].from_node.image
@@ -185,6 +194,11 @@ def bake_atlas(scene, objects, mappings, output, source_view, atlas_key, room="s
     for o in meshes:
         for slot in o.material_slots: slot.material = copies[slot.material]
         original_uv = o.data.uv_layers.active
+        wood_uvs = {d["sourceWood"]["sourceUvLayer"] for d in definitions if "sourceWood" in d and d["key"] in [slot.material.name for slot in o.material_slots]}
+        if len(wood_uvs) > 1: raise ValueError("Wood materials require distinct source UV channels: " + o.name)
+        if wood_uvs:
+            original_uv = o.data.uv_layers.get(next(iter(wood_uvs)))
+            if original_uv is None: raise ValueError("Missing authored wood UV channel: " + o.name)
         source_uv = o.data.uv_layers.new(name=SOURCE_UV, do_init=True)
         if original_uv:
             values = np.empty(len(original_uv.data)*2, dtype=np.float32)
@@ -280,9 +294,16 @@ def bake_atlas(scene, objects, mappings, output, source_view, atlas_key, room="s
         else: destination.default_value = source.default_value
 
     reuse_path=os.environ.get("CS_REUSE_MINE_ATLASES") if room=="mine" else None
-    reused=json.loads(Path(reuse_path).read_text())["atlases"].get(atlas_key) if reuse_path else None
-    for channel in ("albedo", "metallic-smoothness", "normal", "emission"):
-        key="metallicSmoothness" if channel=="metallic-smoothness" else channel
+    cache=json.loads(Path(reuse_path).read_text()) if reuse_path else {}
+    reused=cache.get("atlases",{}).get(atlas_key)
+    from export_source_wood import RECIPE as wood_recipe
+    if wood_states and reused and ("woodHigh" not in reused or cache.get("woodRecipe") != wood_recipe):
+        # A flattened grain atlas is not a colour coefficient map.
+        reused = None
+    channels = ["albedo", "metallic-smoothness", "normal", "emission"]
+    if wood_states: channels.append("wood-high")
+    for channel in channels:
+        key="metallicSmoothness" if channel=="metallic-smoothness" else "woodHigh" if channel=="wood-high" else channel
         if reused and key in reused:
             record=reused[key]
             if hashlib.sha256((output/record["file"]).read_bytes()).hexdigest()!=record["sha256"]:
@@ -291,9 +312,21 @@ def bake_atlas(scene, objects, mappings, output, source_view, atlas_key, room="s
             print("CS_SURFACE_REUSE_VERIFIED",atlas_key,channel,flush=True)
             continue
         image = bpy.data.images.new("CS_spawn_"+channel,width=size,height=size,alpha=True,float_buffer=True)
-        image.colorspace_settings.name = "sRGB" if channel == "albedo" else "Non-Color"
+        image.colorspace_settings.name = "sRGB" if channel in {"albedo", "wood-high"} else "Non-Color"
+        if room == "mine" and channel == "normal":
+            # use_clear=False preserves these values outside baked islands. Black
+            # is an invalid encoded normal and contaminates small-chart mipmaps.
+            background = np.empty((size*size,4),dtype=np.float32)
+            background[:] = (.5,.5,1,1)
+            image.pixels.foreach_set(background.ravel())
+            del background
         for m, (bsdf,out,root,target,emission) in states.items():
             nt = m.node_tree; target.image = image; nt.nodes.active = target
+            if m in wood_states:
+                grain, destinations, replacement = wood_states[m]
+                replacement.outputs[0].default_value = 1 if channel == "wood-high" else 0
+                for destination in destinations:
+                    nt.links.new(replacement.outputs[0] if channel in {"albedo", "wood-high"} else grain, destination)
             for n in nt.nodes: n.select = n == target
             if channel == "normal": nt.links.new(root,out.inputs["Surface"])
             else:
@@ -310,7 +343,9 @@ def bake_atlas(scene, objects, mappings, output, source_view, atlas_key, room="s
                     rgb.inputs["Green"].default_value=thin["smoothness"]
                     nt.links.new(nt.nodes[thin["maskNode"]].outputs["Result"],rgb.inputs["Blue"])
                     nt.links.new(rgb.outputs[0],emission.inputs["Color"])
-                elif channel == "albedo": connect(nt,bsdf.inputs["Base Color"],emission.inputs["Color"])
+                elif channel in {"albedo", "wood-high"}:
+                    if channel == "wood-high" and m not in wood_states: emission.inputs["Color"].default_value=(0,0,0,1)
+                    else: connect(nt,bsdf.inputs["Base Color"],emission.inputs["Color"])
                 elif channel == "emission":
                     connect(nt,bsdf.inputs["Emission Color"],emission.inputs["Color"])
                     connect(nt,bsdf.inputs["Emission Strength"],emission.inputs["Strength"])
@@ -322,7 +357,7 @@ def bake_atlas(scene, objects, mappings, output, source_view, atlas_key, room="s
                     connect(nt,bsdf.inputs["Alpha"],rgb.inputs["Blue"])
                     nt.links.new(rgb.outputs[0],emission.inputs["Color"])
         print("CS_SURFACE_BAKE_START",atlas_key,channel,len(meshes),size,flush=True)
-        uniform = room == "mine" and all(d["baseConstant"] if channel == "albedo" else
+        uniform = room == "mine" and channel != "wood-high" and all(d["baseConstant"] if channel == "albedo" else
             d["normalConstant"] if channel == "normal" else d["emissionConstant"] if channel == "emission" else
             d["metallicConstant"] and d["roughnessConstant"] for d in definitions)
         if uniform:
@@ -330,7 +365,19 @@ def bake_atlas(scene, objects, mappings, output, source_view, atlas_key, room="s
             # Retain its declared file without compiling the scene repeatedly for a discarded map.
             print("CS_SURFACE_CONSTANT_CHANNEL",atlas_key,channel,flush=True)
         else:
+            # Source shader AO is stochastic. Both colour coefficients need a
+            # stable estimate; a single ray turns their difference into mottling.
+            scene.cycles.samples = 16 if wood_states and channel in {"albedo", "wood-high"} else 1
             bpy.ops.object.bake(type="NORMAL" if channel == "normal" else "EMIT",uv_layer=UV)
+        if room == "mine" and channel == "normal":
+            from normal_bake_pixels import neutralize_empty
+            pixels = np.empty((size*size,4),dtype=np.float32)
+            image.pixels.foreach_get(pixels.ravel())
+            empty = neutralize_empty(pixels)
+            if empty:
+                image.pixels.foreach_set(pixels.ravel())
+                print("CS_NORMAL_EMPTY_TEXELS_NEUTRALIZED",atlas_key,empty,flush=True)
+            del pixels
         if channel == "metallic-smoothness":
             # Alpha is numeric smoothness, not opacity. Straight/premultiplied saving
             # would divide metallic by smoothness and turn painted steel into metal.
@@ -348,8 +395,8 @@ def bake_atlas(scene, objects, mappings, output, source_view, atlas_key, room="s
             scene.render.image_settings.exr_codec="ZIP"
             image.save_render(str(folder/name),scene=scene)
         else: image.save()
-        files["metallicSmoothness" if channel == "metallic-smoothness" else channel]={"file":"Surfaces/"+atlas_key+"/"+name,"sha256":hashlib.sha256((folder/name).read_bytes()).hexdigest(),
-            "colorSpace":"sRGB" if channel=="albedo" else "linear","size":size}
+        files[key]={"file":"Surfaces/"+atlas_key+"/"+name,"sha256":hashlib.sha256((folder/name).read_bytes()).hexdigest(),
+            "colorSpace":"sRGB" if channel in {"albedo", "wood-high"} else "linear","size":size}
         print("CS_SURFACE_BAKE_DONE",atlas_key,channel,flush=True)
         for state in states.values(): state[3].image=None
         bpy.data.images.remove(image)
@@ -381,6 +428,9 @@ def bake_atlas(scene, objects, mappings, output, source_view, atlas_key, room="s
                 raise ValueError("Source image UVs require uniform companion surfaces: "+mapping["node"])
     # Avoid embedding the atlas four times per material in FBX; the manifest binds it explicitly in Unity.
     for m, (bsdf,out,root,target,emission) in states.items():
+        if m in wood_states:
+            grain, destinations, replacement = wood_states[m]
+            for destination in destinations: m.node_tree.links.new(grain,destination)
         m.node_tree.links.new(root,out.inputs["Surface"])
         for n in list(m.node_tree.nodes):
             if n.type=="TEX_IMAGE": m.node_tree.nodes.remove(n)
