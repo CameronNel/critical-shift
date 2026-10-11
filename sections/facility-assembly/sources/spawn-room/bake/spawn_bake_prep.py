@@ -9,8 +9,8 @@ non-emissive Principled slot with procedural or image-driven inputs. Everything 
 original material and is left to whatever the engine export already does with it: emissive
 surfaces (screens, bulbs), glass and other transparent surfaces, mix/transparent shader roots, and
 the whole EXTERIOR_spawn-room collection. UV0 is untouched; the bake uses a second layer 'BAKE'.
-Outward-facing shell faces that no one inside can see (rays along the normal escape the building)
-are parked on a single junk texel so they cost no atlas space.
+Shell faces that look away from their room (the outer side of floor, ceiling and wall slabs) are
+parked on a single junk texel so they cost no atlas space. Nothing else is culled.
 """
 import argparse
 import json
@@ -21,7 +21,6 @@ from pathlib import Path
 import bmesh
 import bpy
 from mathutils import Vector
-from mathutils.bvhtree import BVHTree
 
 argv = sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else []
 ap = argparse.ArgumentParser()
@@ -85,19 +84,6 @@ for o in targets:
 print('MODIFIERS_APPLIED_ON', applied)
 view_layer.update()
 
-# whole-scene ray target for the outward-face test
-tris_v, tris_f, base = [], [], 0
-dg = bpy.context.evaluated_depsgraph_get()
-for o in scene.objects:
-    if o.type == 'MESH' and not o.hide_render and o.name not in exterior:
-        m = o.evaluated_get(dg).to_mesh()
-        m.calc_loop_triangles()
-        tris_v += [o.matrix_world @ v.co for v in m.vertices]
-        tris_f += [tuple(base + i for i in t.vertices) for t in m.loop_triangles]
-        base += len(m.vertices)
-        o.evaluated_get(dg).to_mesh_clear()
-bvh = BVHTree.FromPolygons(tris_v, tris_f)
-
 # interior reference point per room: centre of the non-shell objects of each room collection
 ROOM_COLLECTIONS = ('BRIEFING_ROOM', 'LOCKER_ROOM', 'FACILITY_HALL')
 
@@ -133,10 +119,10 @@ for o in targets:
         if shell:
             c = o.matrix_world @ p.center
             n = (mw3 @ p.normal).normalized()
-            hit = bvh.ray_cast(c + n * 0.002, n, 60.0)
-            looks_out = n.dot(centre - c) <= 0
-            buried = hit[0] is not None and hit[3] < 0.03
-            if looks_out or buried:
+            # Only faces that look away from their room are dropped. A 'buried within 3 cm of another
+            # surface' rule was tried and removed: large planks and wall panels that are only partly
+            # covered (rug edge, flush dressing) were dropped whole and rendered black where visible.
+            if n.dot(centre - c) <= 0:
                 dead.append(p.index)
                 continue
         area += p.area
