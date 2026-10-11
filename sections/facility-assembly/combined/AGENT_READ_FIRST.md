@@ -29,7 +29,7 @@ Build keys, in `ROOMS` order. `--through <key>` builds that room and every room 
 | 4 | `medical-reanimation` | medical overhaul R2 | (26, -70), -90 |
 | 5 | `fuel-corridor` | fuel corridor F23ci | (-22.2, -43.6), 0 |
 | 6 | `reactor-room` | reactor, refined hall (candidate A), joined by a south concourse | (0, 0), 0 |
-| 7 | `turbine-room` | turbine (rebuild v2) | (0, 17.25), 0 |
+| 7 | `turbine-room` | turbine (AAA finish from branch `claude/turbine-aaa`) | (0, 17.0), 0 |
 | 8 | `electrical-room` | electrical (overhaul R11) | (19.75, 26.25), 0 |
 | 9 | `waste-storage` | waste storage | (28.32, -24), -90 |
 | 10 | `cooling-plant` | cooling plant | (-44.1, -19), 90 |

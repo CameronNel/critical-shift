@@ -406,7 +406,8 @@ LINKS = {
 
 # Doors of the newly placed rooms that the plan does not connect to anything (found by ray audit: they opened onto empty night). Closed plates stand in until the room behind them is placed; named PLACEHOLDER_.
 # name, room that must be included, (x0, x1), (y0, y1) plan metres, top z
-DOOR_PLACEHOLDERS = [('PLACEHOLDER_electrical_D02_shutter', 'electrical-room', (18.45, 21.05), (42.9, 43.0), 2.9),
+DOOR_PLACEHOLDERS = [('PLACEHOLDER_turbine_D02_shutter', 'turbine-room', (-1.3, 1.3), (42.2, 42.3), 2.9),
+                     ('PLACEHOLDER_electrical_D02_shutter', 'electrical-room', (18.45, 21.05), (42.9, 43.0), 2.9),
                      ('PLACEHOLDER_waste_dispatch_shutter', 'waste-storage', (46.64, 46.74), (-25.3, -22.7), 3.0)]
 
 def add_door_placeholders():
@@ -459,9 +460,10 @@ ROOMS = [
      'Candidate A (the refined hall; owner chose it 2026-10-11): module origin is the pool centre, hall floor 21.6 x 21.6 m (measured walls +-10.8), so the module origin goes on the plan origin '
      '(plan frame: origin at the reactor centre) with no rotation (owner chose no rotation and new south doors). The hall has no interface.json; its own doors are MAIN ACCESS (west), FUEL HANDLING (north) '
      'and a diagonal COOLING PLANT link in the south-east corner. New doors on the south wall come from the plan, see COMBINED_MAP.md for what was cut.'),
-    ('turbine-room', 'turbine-room/rebuild/turbine_room_v2_geo.blend', 'TURBINE_ROOM_V2', (0.0, 17.25, 0.0), 0.0,
-     'Plan v7 turbine, north of the reactor on the axis x = 0 (link 0,13.75 to 0,17). Local D01 (reactor door, outward -Y, 2.4 x 2.7 m) is at module x 0, exterior wall face at module y -0.25 (measured with rays); '
-     'the exterior face goes on plan y 17.0 (the plan rectangle edge), so origin y = 17.25, and D01 sits on the hall FUEL HANDLING stub axis. The room is not centred on its door (module x -4.52 to 10.25), so it spans plan x -4.52 to 10.25, not the drawn -7.4 to 7.4.'),
+    ('turbine-room', 'turbine-room/module_overhaul_R1.blend', 'MODULE_turbine-room', (0.0, 17.0, 0.0), 0.0,
+     'Plan v7 turbine, north of the reactor on the axis x = 0 (link 0,13.75 to 0,17). The owner asked for the AAA finish (branch claude/turbine-aaa, additive module_overhaul_R1.blend, unreviewed; it is the ORIGINAL turbine module with a dark material and lighting pass, not the v2 rebuild). '
+     'Local D01 (reactor door, outward -Y, 2.4 x 2.7 m, open doorway) is at module x 0 and the end wall face at module y 0.0 (measured with rays), so the face goes on plan y 17.0 (the plan rectangle edge): origin y = 17.0, and D01 sits on the hall FUEL HANDLING stub axis. '
+     'The room is not centred on its door (module x -4.52 to 10.25), so it spans plan x -4.52 to 10.25, not the drawn -7.4 to 7.4.'),
     ('electrical-room', 'electrical-room/overhaul/checkpoints/full-R11.blend', 'MODULE_electrical-room', (19.75, 26.25, 0.0), 0.0,
      'Plan v7 electrical, north-east (rectangle x 14 to 29.4, y 26 to 43.2). Reviewed overhaul R11. Local D01_Turbine (0,0,0), outward -Y, 2.4 x 2.7 m, exterior wall face at y -0.25 (contract and measurement); module x -5.75 to 8.55 puts the left edge on plan x 14 '
      'when origin x = 19.75, and the exterior face on plan y 26 when origin y = 26.25.'),
