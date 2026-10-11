@@ -60,6 +60,9 @@ def main():
         authored_spawn=dst.scenes[0]
     view=authored_spawn.view_settings
     source_view={"transform":view.view_transform,"look":view.look,"exposure":view.exposure,"gamma":view.gamma}
+    if only == "mine":
+        view = source_scene.view_settings
+        source_view = {"transform":view.view_transform,"look":view.look,"exposure":view.exposure,"gamma":view.gamma}
     def authored_lights(objects,parent=Matrix.Identity(4)):
         result=[]
         for o in objects:
@@ -147,6 +150,7 @@ def main():
                         "color":list(o.data.color),"power":float(o.data.energy),"type":o.data.type,
                         "size":float(getattr(o.data,"size",0)),"sizeY":float(getattr(o.data,"size_y",0)),
                         "radius":float(getattr(o.data,"shadow_soft_size",0.05))})
+                    if o.data.type=="SUN": lights[-1]["angle"]=math.degrees(o.data.angle)
                 if o.instance_type == "COLLECTION" and o.instance_collection:
                     n.matrix_basis = local @ Matrix.Translation(-o.instance_collection.instance_offset)
                     clone_group(list(o.instance_collection.all_objects), n, prefix + o.name + "__", movable)
@@ -157,10 +161,17 @@ def main():
         if previous:
             old=next(room for room in previous["rooms"] if room["key"]==key)
             fields=("source","node","visible","dynamic")
-            inventory=lambda items: sorted(tuple(item[field] for field in fields) for item in items)
+            # A prior mine delivery intentionally hides the source volume containers.
+            # The pinned source hashes still guard author visibility; that explicit
+            # delivery override must not make a second surface refresh reject itself.
+            volume_overrides={u["node"] for p in previous.get("materials",[]) if p["room"]=="mine"
+                for u in p.get("unsupported",[])} if key=="mine" else set()
+            inventory=lambda items: sorted(tuple(True if field=="visible" and item["node"] in volume_overrides else item[field]
+                for field in fields) for item in items)
             if inventory(old["objects"])!=inventory(mappings): raise ValueError("Scoped export changed assembled object bindings: "+key)
         bpy.context.view_layer.update()
         # Build collision after all parent transforms have evaluated (matrix_world otherwise starts as identity).
+        reuse_collision = only == "mine" and os.environ.get("CS_REUSE_COLLISION") == "1"
         collider_vertices.clear(); collider_faces.clear()
         by_name = {o.name: o for o in copies}
         for mapping in mappings:
@@ -169,14 +180,39 @@ def main():
             if mapping["source"].lower().startswith(("stain_", "decal_", "scuff_")):
                 collision_omissions.append({"source": mapping["source"], "node": mapping["node"], "reason": "decorative surface graphic"})
                 continue
+            if reuse_collision: continue
             offset = len(collider_vertices); mesh = o.data
             transform = root.matrix_world.inverted() @ o.matrix_world
             collider_vertices.extend(tuple(transform @ v.co) for v in mesh.vertices)
             mesh.calc_loop_triangles(); collider_faces.extend(tuple(offset + v for v in tri.vertices) for tri in mesh.loop_triangles)
         mesh_file = "Room-" + key + ".fbx"
+        if key == "mine" and os.environ.get("CS_MINE_BAKE") == "1":
+            # The fully assembled scene is needed to capture the owner's patches, not to
+            # bake them. Release every unrelated source room before creating atlas copies.
+            frames = {n.object for o in copies if o.type == "MESH" for m in o.data.materials if m and m.use_nodes
+                      for n in m.node_tree.nodes if n.type == "TEX_COORD" and n.object}
+            keep = {*copies, root, *frames}
+            bpy.data.batch_remove([o for o in bpy.data.objects if o not in keep])
+            bpy.data.batch_remove([s for s in bpy.data.scenes if s != target_scene])
+            bpy.data.orphans_purge(do_local_ids=True,do_linked_ids=True,do_recursive=True)
+            import ctypes
+            ctypes.CDLL("libc.so.6").malloc_trim(0)
         if key == "spawn-room" and os.environ.get("CS_SKIP_SURFACES")!="1":
             manifest["materials"].append(bake_surfaces(target_scene,copies,mappings,output,source_view))
+        if key == "mine" and os.environ.get("CS_MINE_BAKE")=="1":
+            from export_mine_materials import bake_mine
+            manifest["materials"].append(bake_mine(target_scene,copies,mappings,output,source_view))
         export(output / mesh_file, [root, *copies])
+        if reuse_collision:
+            old = next(r for r in previous["rooms"] if r["key"] == key)
+            if hashlib.sha256((output / old["collision"]).read_bytes()).hexdigest() != old["collisionSha256"]:
+                raise ValueError("Previously verified mine collision was modified.")
+            updated_room = dict(old, objects=mappings, lights=lights,
+                meshSha256=hashlib.sha256((output / mesh_file).read_bytes()).hexdigest())
+            manifest["rooms"].append(updated_room)
+            print("RUNTIME ROOM", key, len(copies), "objects; verified collision reused", flush=True)
+            for o in [*copies, root]: bpy.data.objects.remove(o, do_unlink=True)
+            continue
         collision = bpy.data.meshes.new("CS_COLLISION_" + key); collision.from_pydata(collider_vertices, [], collider_faces); collision.update()
         collider = bpy.data.objects.new("CS_COLLISION_" + key, collision); target_scene.collection.objects.link(collider)
         collision_file = "Collision-" + key + ".fbx"
@@ -194,10 +230,16 @@ def main():
         updated = {r["key"]: r for r in manifest["rooms"]}
         manifest["rooms"] = [updated.get(r["key"], r) for r in previous["rooms"]]
         manifest["materials"] += [m for m in previous.get("materials",[]) if m["room"] not in updated]
-    manifest["limits"] = "Current six-room assembly only. Spawn has explicit unlit material maps, colour grading and authored light bindings; the other five rooms retain preview materials. Native lighting and moving-object review are required. Static collision is unprofiled. Source rooms are not modified."
+    converted = [p["room"] for p in manifest["materials"]]
+    manifest["limits"] = "Pinned assembly; unlit material delivery for " + ", ".join(converted) + ". Remaining rooms have preview materials. Native lighting and visual review are required. Static collision is unprofiled. Source rooms are not modified."
     (output / "map-bindings.json").write_text(json.dumps(manifest, indent=2) + "\n")
     # Check one compact collision import per room, including unit scale and exact geometry bounds.
     checked=[room for room in manifest["rooms"] if not only or room["key"]==only]
+    if only == "mine" and os.environ.get("CS_REUSE_COLLISION") == "1":
+        (output / "mine-roundtrip.json").write_text(json.dumps({"status":"Passed", "geometryPreserved":True,
+            "collision":"Unmodified previously round-tripped FBX, SHA-256 verified", "mapCommit":manifest["mapCommit"],
+            "nativeUnity":False},indent=2)+"\n")
+        return
     for room in checked:
         bpy.ops.wm.read_factory_settings(use_empty=True)
         bpy.ops.import_scene.fbx(filepath=str(output / room["collision"]))

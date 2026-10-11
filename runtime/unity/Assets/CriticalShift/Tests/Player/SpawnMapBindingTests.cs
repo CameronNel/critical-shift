@@ -104,11 +104,13 @@ namespace CriticalShift.Tests.Player
 
         [Test] public void ImportedMapStartsWithCompleteCollisionAndAnimatedRig()
         {
-            Assert.That(_nodes.Count(node => node.name.StartsWith("ROOM_")), Is.EqualTo(6));
+            var exported = JsonUtility.FromJson<MapInventory>(File.ReadAllText("Assets/CriticalShift/Generated/Spawn/map-bindings.json"));
+            Assert.That(exported.rooms.Length,Is.GreaterThanOrEqualTo(6));
+            Assert.That(_nodes.Where(node => node.name.StartsWith("ROOM_")).Select(node=>node.name),
+                Is.EquivalentTo(exported.rooms.Select(room=>"ROOM_"+room.key)));
             var collisions = _nodes.Where(node => node.name.StartsWith("Static collision — "))
                 .SelectMany(node => node.GetComponentsInChildren<MeshCollider>()).ToArray();
-            Assert.That(collisions.Length, Is.EqualTo(6));
-            var exported = JsonUtility.FromJson<MapInventory>(File.ReadAllText("Assets/CriticalShift/Generated/Spawn/map-bindings.json"));
+            Assert.That(collisions.Length, Is.EqualTo(exported.rooms.Length));
             foreach (var room in exported.rooms)
             {
                 var shape = Node("Static collision — " + room.key).GetComponentInChildren<MeshCollider>();
@@ -159,7 +161,7 @@ namespace CriticalShift.Tests.Player
 
         [Test] public void PersistedReflectionsRetainRoughSurfaceFiltering()
         {
-            var probes=_nodes.SelectMany(n=>n.GetComponents<ReflectionProbe>()).ToArray();
+            var probes=_nodes.SelectMany(n=>n.GetComponents<ReflectionProbe>()).Where(p=>p.name.StartsWith("Spawn reflection",System.StringComparison.Ordinal)).ToArray();
             Assert.That(probes.Length,Is.EqualTo(3));
             foreach(var probe in probes)
             {

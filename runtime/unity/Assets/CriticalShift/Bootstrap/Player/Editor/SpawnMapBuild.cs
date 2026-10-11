@@ -16,8 +16,8 @@ namespace CriticalShift.Player.Editor
 {
     [Serializable] public sealed class ExportPose { public float[] position, rotation; }
     [Serializable] public sealed class ExportDoor { public string name, node; public ExportPose closed, opened; }
-    [Serializable] public sealed class ExportObject { public string source, node; public bool visible, dynamic, sourceUv, lettering, wallSurface; public string[] materials; public int[] deliveryUvAxes; }
-    [Serializable] public sealed class ExportLight { public float[] position, color, rotation; public float power, size, sizeY, radius; public string name, type; }
+    [Serializable] public sealed class ExportObject { public string source, node; public bool visible, dynamic, sourceUv, lettering, wallSurface; public string[] materials, faceMaterials; public int[] deliveryUvAxes; }
+    [Serializable] public sealed class ExportLight { public float[] position, color, rotation; public float power, size, sizeY, radius, angle; public string name, type; }
     [Serializable] public sealed class ExportAnchor { public string name, node; public float[] position; }
     [Serializable] public sealed class ExportRoom
     {
@@ -40,7 +40,9 @@ namespace CriticalShift.Player.Editor
             if (UnityEngine.Application.unityVersion != "6000.4.3f1") throw new InvalidOperationException("Use the pinned 6000.4.3f1 editor.");
             var map = JsonUtility.FromJson<ExportMap>(File.ReadAllText(Folder + "map-bindings.json"));
             var rig = JsonUtility.FromJson<ExportRig>(File.ReadAllText(Folder + "rig-bindings.json"));
-            if (map.schema != 1 || map.rooms == null || map.rooms.Length != 6 || rig.fps != 24 || rig.clips.Length != 52)
+            var requiredRooms=new[] {"front-end-area","spawn-room","mine","refinery","medical-reanimation","fuel-corridor"};
+            if (map.schema != 1 || map.rooms == null || map.rooms.Select(r=>r.key).Distinct().Count()!=map.rooms.Length ||
+                requiredRooms.Any(key=>!map.rooms.Any(r=>r.key==key)) || rig.fps != 24 || rig.clips.Length != 52)
                 throw new InvalidOperationException("Unexpected current-map/rig inventory. Regenerate and review the interface.");
             foreach (var room in map.rooms)
             { CheckHash(room.mesh, room.meshSha256); CheckHash(room.collision, room.collisionSha256); }
@@ -54,7 +56,7 @@ namespace CriticalShift.Player.Editor
             QualitySettings.shadowResolution = ShadowResolution.VeryHigh; QualitySettings.shadowDistance = 25;
             QualitySettings.shadowmaskMode = ShadowmaskMode.Shadowmask;
             var package=map.materials.Single(p => p.room == "spawn-room");
-            var surfaces = SpawnSurfaceBuild.Materials(package);
+            var surfaces = map.materials.SelectMany(p=>SpawnSurfaceBuild.Materials(p)).ToDictionary(p=>p.Key,p=>p.Value,StringComparer.Ordinal);
             CheckHash(package.letteringMesh.file,package.letteringMesh.sha256);
             Import(package.letteringMesh.file,false,readable:true);
             var lettering=AssetDatabase.LoadAssetAtPath<GameObject>(Folder+package.letteringMesh.file)
@@ -107,14 +109,19 @@ namespace CriticalShift.Player.Editor
                     }
                     if (renderer != null && binding.materials != null)
                     {
-                        if (renderer.sharedMaterials.Length != binding.materials.Length) throw new InvalidOperationException("Surface slot inventory changed: " + binding.node);
+                        var expectedKeys=binding.faceMaterials ?? binding.materials;
+                        if (binding.faceMaterials==null && renderer.sharedMaterials.Length != expectedKeys.Length) throw new InvalidOperationException("Surface slot inventory changed: " + binding.node);
                         var importedKeys=renderer.sharedMaterials.Select(material=>material.name).ToArray();
-                        if (binding.materials.Length>1 && !importedKeys.OrderBy(key=>key,StringComparer.Ordinal).SequenceEqual(binding.materials.OrderBy(key=>key,StringComparer.Ordinal)))
-                            throw new InvalidOperationException("Imported surface names changed: "+binding.node+"; expected="+string.Join(",",binding.materials)+"; actual="+string.Join(",",importedKeys));
+                        if (expectedKeys.Length>1 && !importedKeys.Distinct().OrderBy(key=>key,StringComparer.Ordinal).SequenceEqual(expectedKeys.Distinct().OrderBy(key=>key,StringComparer.Ordinal)))
+                            throw new InvalidOperationException("Imported surface names changed: "+binding.node+"; expected="+string.Join(",",expectedKeys)+"; actual="+string.Join(",",importedKeys));
+                        if(binding.faceMaterials!=null && expectedKeys.Length==1 && importedKeys.Any(key=>key!=expectedKeys[0] && key!="Default-Material"))
+                            throw new InvalidOperationException("Imported mine surface changed: "+binding.node);
                         // FBX orders slots by first face use, rather than the source datablock's slot array.
                         // Some single-slot line/text meshes import as Default-Material. Their explicit
                         // source binding is unambiguous; multi-slot meshes must match imported names.
-                        renderer.sharedMaterials = (binding.materials.Length==1 ? binding.materials : importedKeys).Select(key => surfaces[key]).ToArray();
+                        // FBX also removes unused slots and collapses repeated materials. Mine's
+                        // declared face-material set verifies that every actually used shader survives.
+                        renderer.sharedMaterials = (expectedKeys.Length==1 ? Enumerable.Repeat(expectedKeys[0],importedKeys.Length) : importedKeys).Select(key => surfaces[key]).ToArray();
                         if (binding.sourceUv || binding.deliveryUvAxes!=null)
                         {
                             var sourceFilter=node.GetComponent<MeshFilter>();var sourceMesh=UnityEngine.Object.Instantiate(sourceFilter.sharedMesh);
@@ -139,7 +146,18 @@ namespace CriticalShift.Player.Editor
                         if (binding.visible)
                             GameObjectUtility.SetStaticEditorFlags(node.gameObject, StaticEditorFlags.ReflectionProbeStatic |
                                 (binding.dynamic ? 0 : StaticEditorFlags.ContributeGI));
-                        if(room.key=="spawn-room") SpawnSurfaceBuild.SplitEmbeddedEmitter(node,pointLights,package);
+                        if(room.key=="spawn-room" || room.key=="mine")
+                            SpawnSurfaceBuild.SplitEmbeddedEmitter(node,pointLights,map.materials.Single(p=>p.room==room.key));
+                        if(room.key=="mine" && renderer is MeshRenderer mineRenderer)
+                        {
+                            mineRenderer.scaleInLightmap=1;
+                            var size=mineRenderer.bounds.size;
+                            if(Mathf.Max(size.x,Mathf.Max(size.y,size.z))<0.5f)
+                            {
+                                mineRenderer.receiveGI=ReceiveGI.LightProbes;
+                                GameObjectUtility.SetStaticEditorFlags(node.gameObject,StaticEditorFlags.ReflectionProbeStatic);
+                            }
+                        }
                         if(binding.source=="LIFE_whiteboard_surface" ||
                            (binding.source.StartsWith("LIFE_socket_",StringComparison.Ordinal) && binding.source.EndsWith("_face",StringComparison.Ordinal)))
                         {
@@ -184,6 +202,18 @@ namespace CriticalShift.Player.Editor
                     light.shadowBias = 0.015f; light.shadowNormalBias = 0.025f; light.bounceIntensity = 1;
                     if(room.key=="spawn-room") light.shadowNearPlane=0.01f;
                     light.renderMode = LightRenderMode.ForcePixel;
+                    if(room.key=="mine")
+                    {
+                        light.shadowNearPlane=0.01f;
+                        light.lightmapBakeType=sourceLight.name.IndexOf("lantern",StringComparison.OrdinalIgnoreCase)>=0 ? LightmapBakeType.Mixed : LightmapBakeType.Baked;
+                        if(sourceLight.type=="SUN")
+                        {
+                            light.type=LightType.Directional; light.intensity=sourceLight.power;light.shadowAngle=sourceLight.angle;
+                            var q=sourceLight.rotation;var rotation=new Quaternion(q[1],q[2],q[3],q[0]);
+                            var forward=rotation*Vector3.back;var up=rotation*Vector3.up;
+                            light.transform.localRotation=Quaternion.LookRotation(V(new[] {forward.x,forward.y,forward.z}),V(new[] {up.x,up.y,up.z}));
+                        }
+                    }
                     if (room.key == "spawn-room")
                     {
                         if (sourceLight.type == "AREA")
@@ -296,6 +326,15 @@ namespace CriticalShift.Player.Editor
             RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Flat;
             RenderSettings.ambientLight = (new Color(0.32f, 0.36f, 0.55f) * 0.025f).gamma;
             RenderSettings.reflectionIntensity = 1;
+            var minePackage=map.materials.SingleOrDefault(p=>p.room=="mine");
+            if(minePackage!=null)
+            {
+                MineVisualLighting.ConfigureAssembly(minePackage.assemblyLighting);
+                var bounds=spawnRoot.Find("Static collision — spawn-room").GetComponentInChildren<MeshCollider>().bounds;
+                var sky=minePackage.assemblyLighting;
+                var background=new Color(sky.world_color[0],sky.world_color[1],sky.world_color[2]).gamma*sky.world_strength;
+                viewCamera.GetComponent<BlenderView>().ConfigureOutside(bounds,SpawnSurfaceBuild.View(minePackage),background);
+            }
             Physics.SyncTransforms();
             if (!EditorSceneManager.SaveScene(scene, ScenePath)) throw new IOException("Could not save the isolated runtime scene.");
             Debug.Log("Generated current assembled map with spawn runtime bindings: " + map.mapCommit + ". Native tests and Player validation still required.");
@@ -370,6 +409,8 @@ namespace CriticalShift.Player.Editor
             if(animated) importer.materialImportMode=ModelImporterMaterialImportMode.None;
             if (Path.GetFileName(importer.assetPath) == "Room-spawn-room.fbx" || Path.GetFileName(importer.assetPath) == "Lettering.fbx" || Path.GetFileName(importer.assetPath) == "Walls.fbx")
             { importer.weldVertices = false; importer.meshCompression = ModelImporterMeshCompression.Off; importer.generateSecondaryUV = true; importer.secondaryUVMinLightmapResolution = 40; importer.secondaryUVMinObjectScale = 0.1f; }
+            if(Path.GetFileName(importer.assetPath)=="Room-mine.fbx")
+            { importer.weldVertices=false;importer.meshCompression=ModelImporterMeshCompression.Off;importer.generateSecondaryUV=true;importer.secondaryUVMinLightmapResolution=20;importer.secondaryUVMinObjectScale=0.1f; }
             // Keep each room's complete collision mesh from the first import.
             importer.indexFormat = ModelImporterIndexFormat.UInt32;
             if (Path.GetFileName(importer.assetPath).StartsWith("Collision-", StringComparison.Ordinal))

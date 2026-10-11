@@ -1,0 +1,30 @@
+{
+  "initialRuns": [
+    {
+      "log": "bake-oom-first.log",
+      "sha256": "f97760a9b9ed980fcf921b6cbf3747d3367aabf1833ccd5cf3ade2f4dfad9785",
+      "result": "Failed: Blender exceeded the container memory limit. Retried with unrelated Blender data released."
+    },
+    {
+      "log": "bake-superseded-uv-fix.log",
+      "sha256": "a497351a510d7d74932fa5db1af2dd67dd98e059d76190a17782d146bbff44f2",
+      "result": "Superseded: pinned tangent-space normal inputs to the original source UV channel before retry."
+    },
+    {
+      "log": "native-bake-oom.log",
+      "sha256": "5ddb72f0f9819446c526aec66082e84e39ac4253debc5ae496a7ecfa7bacaeed",
+      "result": "Failed: Unity exceeded the container memory limit. Runtime-only BC7/BC5 compression bounds loaded texture memory; original source maps retained."
+    },
+    {
+      "log": "native-bake-slot-check.log",
+      "sha256": "91b95e74f51a094c117d657de3f0a89435e18bf584855f4b25a63aa486834618",
+      "result": "Failed: native FBX importer collapsed unused material slots. Bindings now check actual polygon material usage."
+    },
+    {
+      "log": "native-bake-invalid-raster.log",
+      "sha256": "d8673e533884675141eccdb0e66bea4dcf9cfb3f3b7ffe81ab8d4c0e8bba4f62",
+      "result": "Canceled: invalid internal raster coordinates caused a lighting stall. Shared texture-atlas UV reuse was replaced with independently generated Unity lightmap UVs."
+    }
+  ],
+  "limits": "Retries are preserved in ignored runtime/out/mine-bake-audit. These records are diagnostics, not a native pass."
+}

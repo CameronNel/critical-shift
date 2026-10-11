@@ -4,7 +4,7 @@ import hashlib
 import numpy as np
 
 
-def export_view(output, source_view):
+def export_view(output, source_view, name="spawn"):
     scene=bpy.data.scenes.new("CS_Display_Transform")
     scene.view_settings.view_transform=source_view["transform"]
     scene.view_settings.look=source_view["look"]
@@ -22,7 +22,7 @@ def export_view(output, source_view):
         data[:,blue*64:(blue+1)*64,1]=levels[:,None]
         data[:,blue*64:(blue+1)*64,2]=levels[blue]
     image.pixels.foreach_set(data.ravel())
-    file=output/"Surfaces"/"spawn-display-lut.png"
+    file=output/"Surfaces"/(name+"-display-lut.png")
     image.save_render(str(file),scene=scene)
     bpy.data.images.remove(image); bpy.data.scenes.remove(scene)
     return {"file":"Surfaces/"+file.name,"sha256":hashlib.sha256(file.read_bytes()).hexdigest(),

@@ -22,6 +22,9 @@ namespace CriticalShift.Player.Editor
         {
             SpawnMapBuild.Create();
             var root = GameObject.Find("ROOM_spawn-room").transform;
+            var map=JsonUtility.FromJson<ExportMap>(File.ReadAllText(SpawnMapBuild.Folder+"map-bindings.json"));
+            var mine=map.materials.Any(p=>p.room=="mine") ? GameObject.Find("ROOM_mine").transform : null;
+            if(mine!=null) MineVisualLighting.AddProbes(mine);
             var worker=GameObject.Find("Local crew worker");worker.SetActive(false);
             var settings = new LightingSettings
             {
@@ -42,14 +45,17 @@ namespace CriticalShift.Player.Editor
                         positions.Add(new Vector3(x,y,z));
             group.probePositions=positions.ToArray();
             var rooms=EditorSceneManager.GetActiveScene().GetRootGameObjects().SelectMany(o=>o.GetComponentsInChildren<Transform>(true))
-                .Where(o=>o.name.StartsWith("ROOM_",StringComparison.Ordinal) && o!=root).Select(o=>o.gameObject).ToArray();
+                .Where(o=>o.name.StartsWith("ROOM_",StringComparison.Ordinal) && o!=root && o!=mine).Select(o=>o.gameObject).ToArray();
             foreach (var room in rooms) room.SetActive(false);
             EditorSceneManager.SaveScene(EditorSceneManager.GetActiveScene(),SpawnMapBuild.ScenePath);
+            EditorUtility.UnloadUnusedAssetsImmediate();
+            GC.Collect();
             Debug.Log("CS_SPAWN_LIGHTING_BAKE_START");
             if (!Lightmapping.Bake()) throw new InvalidOperationException("Spawn lightmap bake did not complete.");
             Debug.Log("CS_SPAWN_LIGHTING_BAKE_OK; lightmaps="+LightmapSettings.lightmaps.Length);
             foreach (var room in rooms) room.SetActive(true);
             FinishLighting(root);
+            if(mine!=null) MineVisualLighting.Finish(mine);
             worker.SetActive(true);
             SavePreparedScene();
             Render();
@@ -154,6 +160,13 @@ namespace CriticalShift.Player.Editor
             SpawnMapBuild.CheckHash(package.displayLut.file,package.displayLut.sha256);
             foreach (var definition in package.definitions.Where(d=>d.directEmission!=null && !string.IsNullOrEmpty(d.directEmission.file)))
                 SpawnMapBuild.CheckHash(definition.directEmission.file,definition.directEmission.sha256);
+            foreach(var roomPackage in map.materials.Where(p=>p.room!="spawn-room"))
+            {
+                foreach(var atlas in roomPackage.atlases)
+                    foreach(var texture in new[] {atlas.albedo,atlas.normal,atlas.metallicSmoothness,atlas.emission})
+                        SpawnMapBuild.CheckHash(texture.file,texture.sha256);
+                SpawnMapBuild.CheckHash(roomPackage.displayLut.file,roomPackage.displayLut.sha256);
+            }
             ValidateReflectionImports();
         }
         private static void ValidateReflectionImports()
@@ -187,7 +200,7 @@ namespace CriticalShift.Player.Editor
             EditorSceneManager.OpenScene(SpawnMapBuild.ScenePath);
             LightProbes.Tetrahedralize();ReflectionProbe.UpdateCachedState();
             var persistedProbes=UnityEngine.Object.FindObjectsByType<ReflectionProbe>();
-            if(persistedProbes.Length!=3 || persistedProbes.Any(p=>p.mode!=ReflectionProbeMode.Custom || p.customBakedTexture==null))
+            if(persistedProbes.Count(p=>p.name.StartsWith("Spawn reflection",StringComparison.Ordinal))!=3 || persistedProbes.Any(p=>p.mode!=ReflectionProbeMode.Custom || p.customBakedTexture==null))
                 throw new InvalidOperationException("Spawn requires three persisted reflection cubemaps.");
             ValidateReflectionImports();
             var args=Environment.GetCommandLineArgs();
@@ -198,7 +211,9 @@ namespace CriticalShift.Player.Editor
             int cameraFile=Array.IndexOf(args,"-csCameraFile");
             var views=cameraFile>=0 ? JsonUtility.FromJson<SourceViews>(File.ReadAllText(Argument("-csCameraFile"))) : map.validationViews;
             if (views==null || views.views==null || views.views.Length!=3) throw new InvalidOperationException("Missing the three authored camera bindings.");
-            var root=GameObject.Find("ROOM_spawn-room").transform;
+            int roomArgument=Array.IndexOf(args,"-csRoom");
+            string roomKey=roomArgument>=0 ? args[roomArgument+1] : "spawn-room";
+            var root=GameObject.Find("ROOM_"+roomKey).transform;
             Debug.Log("CS_LIGHTMAP_CAPTURE count="+LightmapSettings.lightmaps.Length+" data="+Lightmapping.lightingDataAsset);
             var worker=GameObject.Find("Local crew worker"); worker.SetActive(false);
             if(views.workerPosition!=null && views.workerPosition.Length==3)
@@ -220,7 +235,8 @@ namespace CriticalShift.Player.Editor
                 animator.runtimeAnimatorController.animationClips.Single(c=>c.name=="IDLE").SampleAnimation(animator.gameObject,0);
             }
             foreach (var door in UnityEngine.Object.FindObjectsByType<MovingDoor>()) door.Capture();
-            var display=SpawnSurfaceBuild.View(map.materials.Single(p=>p.room=="spawn-room"));
+            var display=SpawnSurfaceBuild.View(map.materials.Single(p=>p.room==roomKey));
+            var sky=map.materials.Single(p=>p.room==roomKey).assemblyLighting;
             foreach (var view in views.views)
             {
                 var node=new GameObject("Validation camera "+view.name); node.transform.SetParent(root,false);
@@ -228,6 +244,7 @@ namespace CriticalShift.Player.Editor
                 var camera=node.AddComponent<Camera>(); camera.fieldOfView=view.verticalFov; camera.nearClipPlane=0.05f; camera.farClipPlane=250;
                 camera.allowHDR=true; camera.allowMSAA=true; camera.renderingPath=RenderingPath.Forward;
                 camera.clearFlags=CameraClearFlags.SolidColor; camera.backgroundColor=Color.black;
+                if(roomKey=="mine") camera.backgroundColor=new Color(sky.world_color[0],sky.world_color[1],sky.world_color[2]).gamma*sky.world_strength;
                 if (Array.IndexOf(args,"-csRawCapture")<0) node.AddComponent<BlenderView>().Configure(display);
                 var target=new RenderTexture(1440,810,24,RenderTextureFormat.ARGB32,RenderTextureReadWrite.sRGB);
                 target.antiAliasing=4;

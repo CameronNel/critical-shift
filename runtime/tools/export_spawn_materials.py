@@ -102,7 +102,7 @@ def bake_surfaces(scene, objects, mappings, output, source_view):
     return package
 
 
-def bake_atlas(scene, objects, mappings, output, source_view, atlas_key):
+def bake_atlas(scene, objects, mappings, output, source_view, atlas_key, room="spawn-room"):
     size = 2048 if atlas_key in {"floor","lettering"} else int(os.environ.get("CS_SURFACE_SIZE", "4096"))
     if size not in (2048, 4096, 8192):
         raise ValueError("Unsupported reviewed surface atlas resolution")
@@ -110,7 +110,8 @@ def bake_atlas(scene, objects, mappings, output, source_view, atlas_key):
     originals = list(dict.fromkeys(m for o in meshes for m in o.data.materials if m))
     copies, states, definitions, coordinate_attributes, thin_states = {}, {}, [], {}, {}
     for index, original in enumerate(originals):
-        m = original.copy(); m.name = "CS_spawn_surface_" + atlas_key + "_" + str(index).zfill(3)
+        prefix = "spawn" if room == "spawn-room" else room
+        m = original.copy(); m.name = "CS_" + prefix + "_surface_" + atlas_key + "_" + str(index).zfill(3)
         copies[original] = m
         nt = m.node_tree
         bsdf = next((n for n in nt.nodes if n.type == "BSDF_PRINCIPLED"), None)
@@ -118,6 +119,9 @@ def bake_atlas(scene, objects, mappings, output, source_view, atlas_key):
         # Explicitly retain the old UV input while baking into an additional UV layer.
         source_uv = nt.nodes.new("ShaderNodeUVMap"); source_uv.uv_map = SOURCE_UV
         for n in list(nt.nodes):
+            if room == "mine" and n.type == "NORMAL_MAP" and n.space == "TANGENT" and not n.uv_map:
+                # The original tangent basis must not silently switch to the new atlas UVs.
+                n.uv_map = SOURCE_UV
             if n.type in {"TEX_NOISE","TEX_VORONOI","TEX_WAVE","TEX_MAGIC","TEX_GRADIENT","TEX_BRICK","TEX_CHECKER","TEX_WHITE_NOISE"} and not n.inputs["Vector"].is_linked:
                 coordinate_attributes["CS_Generated"]=("Generated",None)
                 attribute=nt.nodes.new("ShaderNodeAttribute");attribute.attribute_name="CS_Generated"
@@ -285,6 +289,9 @@ def bake_atlas(scene, objects, mappings, output, source_view, atlas_key):
         for state in states.values(): state[3].image=None
         bpy.data.images.remove(image)
     bpy.data.objects.remove(batch,do_unlink=True)
+    # Joining/deleting temporary objects leaves their mesh datablocks allocated.
+    # Large room bakes must not accumulate a second copy of every preceding atlas.
+    bpy.data.batch_remove([mesh for mesh in bpy.data.meshes if mesh.users == 0])
     # UV0 is the atlas, UV1 is reserved for Unity's lightmapper, UV2 retains original screen coordinates.
     for o in meshes:
         delivery=np.empty(len(o.data.loops)*2,dtype=np.float32);source=np.empty_like(delivery)
@@ -297,6 +304,9 @@ def bake_atlas(scene, objects, mappings, output, source_view, atlas_key):
         o=next((o for o in meshes if o.name==mapping["node"]),None)
         if o:
             mapping["materials"]=[slot.material.name for slot in o.material_slots]
+            if room=="mine":
+                used_slots={polygon.material_index for polygon in o.data.polygons}
+                mapping["faceMaterials"]=list(dict.fromkeys(mapping["materials"][i] for i in sorted(used_slots)))
             used=[d for d in definitions if d["key"] in mapping["materials"]]
             mapping["sourceUv"]=any(d.get("directEmission") for d in used)
             if atlas_key=="floor": mapping["deliveryUvAxes"]=[0,1]
@@ -307,6 +317,6 @@ def bake_atlas(scene, objects, mappings, output, source_view, atlas_key):
         m.node_tree.links.new(root,out.inputs["Surface"])
         for n in list(m.node_tree.nodes):
             if n.type=="TEX_IMAGE": m.node_tree.nodes.remove(n)
-    return {"room":"spawn-room","uv":UV,"maps":files,"definitions":definitions,"displayLut":export_view(output,source_view),
+    return {"room":room,"uv":UV,"maps":files,"definitions":definitions,"displayLut":export_view(output,source_view,"spawn" if room=="spawn-room" else room),
         "lightingIncludedInAlbedo":False,"sourceView":source_view,
         "meshes":len(meshes)}

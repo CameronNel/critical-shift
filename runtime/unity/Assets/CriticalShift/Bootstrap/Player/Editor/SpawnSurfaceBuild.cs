@@ -23,6 +23,12 @@ namespace CriticalShift.Player.Editor
         public SurfaceTexture letteringMesh;
         public SurfaceTexture wallMesh;
         public SurfaceTexture suitOcclusion;
+        public AssemblyLighting assemblyLighting;
+    }
+    [Serializable] public sealed class AssemblyLighting
+    {
+        public float[] world_color, sun_color, sun_rot_deg;
+        public float world_strength, sun_energy;
     }
 
     internal static class SpawnSurfaceBuild
@@ -74,7 +80,8 @@ namespace CriticalShift.Player.Editor
                 if(slots[slot]) opaque.SetTriangles(Array.Empty<int>(),slot);
                 else emitter.SetTriangles(Array.Empty<int>(),slot);
             }
-            string prefix=SpawnMapBuild.Folder+"Surfaces/"+node.name;
+            string fileName=new string(node.name.Select(c=>"<>:\"/\\|?*".IndexOf(c)>=0 ? '_' : c).ToArray());
+            string prefix=SpawnMapBuild.Folder+"Surfaces/"+fileName;
             AssetDatabase.DeleteAsset(prefix+"-fixture.asset");AssetDatabase.CreateAsset(opaque,prefix+"-fixture.asset");
             AssetDatabase.DeleteAsset(prefix+"-emitter.asset");AssetDatabase.CreateAsset(emitter,prefix+"-emitter.asset");
             filter.sharedMesh=opaque;
@@ -87,12 +94,19 @@ namespace CriticalShift.Player.Editor
 
         internal static Dictionary<string, Material> Materials(SurfacePackage package)
         {
-            if (package == null || package.room != "spawn-room" || package.lightingIncludedInAlbedo || package.uv != "CS_DeliveryUV")
-                throw new InvalidOperationException("Spawn requires explicit unlit source material maps.");
+            if (package == null || (package.room != "spawn-room" && package.room != "mine") || package.lightingIncludedInAlbedo || package.uv != "CS_DeliveryUV")
+                throw new InvalidOperationException("Room requires explicit unlit source material maps.");
             string folder = SpawnMapBuild.Folder + "Surfaces/";
             var atlases=new List<(Texture2D albedo,Texture2D normal,Texture2D metallic,Texture2D emission)>();
-            foreach (var maps in package.atlases)
-                atlases.Add((Texture(maps.albedo,false),Texture(maps.normal,true),Texture(maps.metallicSmoothness,false),Texture(maps.emission,false)));
+            for(int index=0;index<package.atlases.Length;index++)
+            {
+                var maps=package.atlases[index];var definitions=package.definitions.Where(d=>d.atlas==index).ToArray();
+                bool mine=package.room=="mine";
+                atlases.Add((mine && definitions.All(d=>d.baseConstant) ? null : Texture(maps.albedo,false),
+                    mine && definitions.All(d=>d.normalConstant) ? null : Texture(maps.normal,true),
+                    mine && definitions.All(d=>d.metallicConstant && d.roughnessConstant) ? null : Texture(maps.metallicSmoothness,false),
+                    mine && definitions.All(d=>d.emissionConstant) ? null : Texture(maps.emission,false)));
+            }
             var result = new Dictionary<string, Material>();
             foreach (var definition in package.definitions)
             {
@@ -169,7 +183,7 @@ namespace CriticalShift.Player.Editor
         internal static Material View(SurfacePackage package)
         {
             var lut = Texture(package.displayLut, false);
-            string path = SpawnMapBuild.Folder + "Surfaces/BlenderView.mat";
+            string path = SpawnMapBuild.Folder + "Surfaces/" + (package.room=="spawn-room" ? "BlenderView" : "MineBlenderView") + ".mat";
             var material = AssetDatabase.LoadAssetAtPath<Material>(path);
             if (material == null) { material = new Material(Shader.Find("Hidden/CriticalShift/BlenderView")); AssetDatabase.CreateAsset(material,path); }
             material.SetTexture("_ViewLut",lut); EditorUtility.SetDirty(material); return material;
@@ -200,6 +214,13 @@ namespace CriticalShift.Player.Editor
             importer.textureShape = TextureImporterShape.Texture2D;
             importer.sRGBTexture = source.colorSpace == "sRGB";
             importer.maxTextureSize = source.size; importer.textureCompression = TextureImporterCompression.Uncompressed;
+            if(source.file.StartsWith("Surfaces/mine-",StringComparison.Ordinal) &&
+                !source.file.Contains("display-lut") && !source.file.EndsWith(".exr",StringComparison.Ordinal))
+            {
+                var platform=importer.GetPlatformTextureSettings("Standalone");platform.overridden=true;platform.format=normal ? TextureImporterFormat.BC5 : TextureImporterFormat.BC7;
+                platform.maxTextureSize=source.size;platform.textureCompression=TextureImporterCompression.CompressedHQ;platform.compressionQuality=100;
+                importer.SetPlatformTextureSettings(platform);
+            }
             importer.npotScale = TextureImporterNPOTScale.None;
             importer.mipmapEnabled = !source.file.Contains("display-lut") && !source.file.Contains("source-emission"); importer.wrapMode = TextureWrapMode.Clamp;
             importer.isReadable = false;
