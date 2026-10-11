@@ -286,7 +286,25 @@ def totem_back_board(wrap, lib_coll, omit):
     rot = Matrix.Translation((cx, cy, 0)) @ Matrix.Rotation(math.pi, 4, 'Z') @ Matrix.Translation((-cx, -cy, 0))
     n = bpy.data.objects.new('board_directory_back', src.data); n.matrix_basis = rot @ src.matrix_basis; wrap.objects.link(n)
 
-PATCHES = {'front-end-area': lambda w, l, o: (open_portal_cap(w, l, o), clear_yard_for_shed(w, l, o), localise_evac_sign(w, l, o), totem_back_board(w, l, o)), 'mine': trim_mine_surface}
+# Reactor room: candidate A, the refined hall (sections/reactor-room/blender/reactorroom.blend). The scene is the room: these are its content
+# collections; the review cameras (10 CAMERAS, MF PLAYER WALKTHROUGH), the hidden collision proxy (32 CR COLLISION) and the empty or duplicate
+# MODULE_reactor-room / QA collections are left out. 16 'RH refine roof bay' area lights sit directly in the scene root, so they are loaded by name.
+REACTOR_LIB = '../../reactor-room/blender/reactorroom.blend'
+REACTOR_COLLECTIONS = ['02 ROOF STRUCTURE', '03 POOL AND RAIL', '04 BANK MECHANISMS', '05 PERIMETER EQUIPMENT', 'RF APPROVED SKYLIGHT ROOF',
+                       'MF WORKFLOW MACHINERY', 'WA A FUEL BAY', 'WB B WASTE VENT', 'WD D COOLING WALL', 'WF F RIM SERVICE HANDLING',
+                       '20 CONTROL MEZZANINE', '23 ASSET PORTS', '24 REACTOR STATE', '25 LIGHTING', '22 R2 ARCHITECTURE', '23 R2 FLOOR AND DRESSING',
+                       '26 R2 CONTROL ROOM', '24 R2 PIPING AND CABLES', '27 R2 STATIONS', '29 R2 DRESSING 2', '30 R2 DOOR STUBS', '31 CR CONTROL ROOM REDO',
+                       'RH REFINEMENT', 'RH HOIST ANCHOR CORRECTION']
+
+def patch_reactor(wrap, lib_coll, omit):
+    path = os.path.normpath(os.path.join(SRC, REACTOR_LIB))
+    with bpy.data.libraries.load(path, link=True, relative=True) as (src, dst):
+        dst.objects = [n for n in src.objects if n.startswith('RH refine roof bay') and n.endswith((' up', ' down'))]
+    for o in dst.objects:
+        if o is not None: wrap.objects.link(o)
+    print('REACTOR scene-root lights linked', len(dst.objects))
+
+PATCHES = {'front-end-area': lambda w, l, o: (open_portal_cap(w, l, o), clear_yard_for_shed(w, l, o), localise_evac_sign(w, l, o), totem_back_board(w, l, o)), 'mine': trim_mine_surface, 'reactor-room': patch_reactor}
 INCLUDED = set()
 
 # Refinery: every root collection of the overhaul scene except the duplicate MODULE_refinery wrapper and the review cameras.
@@ -313,6 +331,10 @@ ROOMS = [
     ('fuel-corridor', '../../fuel-corridor/production/checkpoints/fuel_full_F23ci.blend', 'MODULE_fuel-corridor', (-22.2, -43.6, 0.0), 0.0,
      'F23ci (reviewed 99; the AAA finish on top is unreviewed and not used). Local origin is port F01_REFINERY (centre (0,0,0), outward -Y, 2.6 m x 3.0 m), corridor runs +Y 24 m, no rotation. '
      'Placed on the refinery north fuel door: x -22.2 (door centre) and y -43.6 (refinery outer sill). Far end F02_REACTOR lands at plan (-8.0, -19.6), outward +Y.'),
+    ('reactor-room', REACTOR_LIB, REACTOR_COLLECTIONS, (0.0, 0.0, 0.0), 0.0,
+     'Candidate A (the refined hall; owner chose it 2026-10-11): module origin is the pool centre, hall floor 21.6 x 21.6 m (measured walls +-10.8), so the module origin goes on the plan origin '
+     '(plan frame: origin at the reactor centre) with no rotation (owner chose no rotation and new south doors). The hall has no interface.json; its own doors are MAIN ACCESS (west), FUEL HANDLING (north) '
+     'and a diagonal COOLING PLANT link in the south-east corner. New doors on the south wall come from the plan, see COMBINED_MAP.md for what was cut.'),
 ]
 
 CLIFF_TINT = {'saturation': 0.0, 'value': 3.6, 'warm': (0.82, 0.79, 0.68, 1.0)}   # measured from renders: mountain hsv ~(0.15, 0.10, 0.30), yard cliff was (0.55, 0.20, 0.13); grey it, brighten, warm it
@@ -414,8 +436,9 @@ def build(through, output):
             wrap = bpy.data.collections.new('ROOM_' + key + '_members'); kept = left = 0
             if key in PATCHES: PATCHES[key](wrap, lib_coll, omit)
             if key in EXTERIOR_SKINS: add_exterior_skin(key, wrap)
-            for o in lib_coll.all_objects:
+            for o in dict.fromkeys(o for c in loaded for o in c.all_objects):
                 if o.name in omit: left += 1; continue
+                if o.name in wrap.objects: continue
                 wrap.objects.link(o); kept += 1
             inst = bpy.data.objects.new('ROOM_' + key, None); inst.instance_type = 'COLLECTION'; inst.instance_collection = wrap
             inst.location = loc; inst.rotation_euler = (0, 0, math.radians(rz)); inst['source'] = lib; inst['note'] = note
