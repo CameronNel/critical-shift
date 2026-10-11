@@ -30,7 +30,7 @@ The maps, a Unity-layout repack, the baked scene `module_baked_B1.blend` and a h
 * Texel density: shells about 120 px/m, props 150 to 185 px/m. Soft in close-ups.
 * Bake time on 4 CPU cores: about 3 hours for all 24 maps. Blender runs one bake job per object (about 2 s each);
   the occlusion nodes reach only 4.5 to 8 cm, so objects farther than 10 cm from an atlas are hidden during its bake.
-* Prop normal maps are near flat because the source bumps are tiny (0.2 to 1 mm); the shells carry real normal detail.
+* Normal maps: the first shell normals stored fine procedural bump (features smaller than about 1 cm) as per-texel noise at about 120 px/m. The committed shell normals are low-pass filtered (sigma 2 texels); fine grain belongs in an engine detail normal. Specular level (0.3 on the mauve plaster) is not baked; see `../baked/HANDOFF.md`.
 * Floor clear-coat weight is not baked (engines differ); the preview does not reproduce it.
 * The preview is a Blender render of baked-only materials with the room's authored lights and Cycles
   global illumination. It is a stand-in, not an engine screenshot: no engine lighting, post-processing or shader
