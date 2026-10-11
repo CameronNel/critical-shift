@@ -370,6 +370,21 @@ def add_reactor_concourse():
         _box(coll, f'CONNECTOR lamp {i}', (x - 0.9, x + 0.9), (-17.4, -17.0), (C['roof'] - 0.08, C['roof']), lamp)
         ld = bpy.data.lights.new(f'CONNECTOR light {i}', 'AREA'); ld.energy = 170; ld.size = 1.8; ld.size_y = 0.4; ld.color = (1.0, 0.92, 0.8)
         lo = bpy.data.objects.new(f'CONNECTOR light {i}', ld); lo.location = (x - 4.5 if i == 0 else x + (1.5 if i == 2 else 0.0), -17.2, C['roof'] - 0.12); coll.objects.link(lo)
+    # the spine's end door frame stops at z 3.6 and the spine roof top is z 4.4, so a 0.8 m slot looked through to the hall wall; cap it (measured with rays, 2026-10-11)
+    _box(coll, 'CONNECTOR spine end cap', (6.15, 9.85), (-14.62, -14.50), (3.5, 4.4), conc)
+    # wayfinding: painted threshold strips on the floor at the three openings and one sign over each way out (local to the combined scene)
+    paint = _mat('CONNECTOR hazard paint', (0.75, 0.55, 0.05), 0.6)
+    _box(coll, 'CONNECTOR strip hall', (-3.0, 3.0), (y1 - 0.55, y1 - 0.25), (0.0, 0.012), paint)
+    _box(coll, 'CONNECTOR strip fuel corridor', (-10.62, -5.38), (y0 + 0.25, y0 + 0.55), (0.0, 0.012), paint)
+    _box(coll, 'CONNECTOR strip spine', (5.3, 5.6), (y0, y1), (0.0, 0.012), paint)
+    sign = _mat('CONNECTOR sign paint', (0.9, 0.85, 0.7), 0.5, 0.0, 1.2)
+    import math
+    def _sign(text, loc, rot, size=0.42):
+        cu = bpy.data.curves.new('CONNECTOR sign ' + text, 'FONT'); cu.body = text; cu.size = size; cu.align_x = 'CENTER'; cu.extrude = 0.01; cu.materials.append(sign)
+        o = bpy.data.objects.new('CONNECTOR sign ' + text, cu); o.location = loc; o.rotation_euler = rot; coll.objects.link(o)
+    _sign('FUEL CORRIDOR', (-8.0, y0 + 0.02, 4.6), (math.pi / 2, 0, math.pi))
+    _sign('FRONT-END SPINE', (5.83, -17.2, 5.0), (math.pi / 2, 0, -math.pi / 2))
+    _sign('REACTOR CONCOURSE', (x0 + 0.02, -17.2, 3.6), (math.pi / 2, 0, math.pi / 2))
     print('CONCOURSE added: clear x %.1f to %.2f, y %.1f to %.1f, height %.1f' % (x0, 5.85, y0, y1, C['roof']))
 
 
