@@ -12,6 +12,9 @@ from mathutils import Vector
 # layer measured along the opening axis from the hall centre, z0..z1: clear height.
 HALL_CUTS = {
     'south_door': dict(ang=-math.pi / 2, hw=2.5, a0=10.0, a1=12.2, z0=0.0, z1=5.0, clear_a0=7.8, rooms=('reactor-room',)),
+    'label_turbine': dict(ang=math.pi / 2, hw=2.3, a0=10.2, a1=10.5, z0=5.5, z1=6.1, only=('RH walls text WHITE',), islands=True, rooms=('turbine-room',)),
+    'label_cooling': dict(ang=math.pi, hw=2.3, a0=10.2, a1=10.5, z0=5.5, z1=6.1, only=('RH walls text WHITE',), islands=True, rooms=('cooling-plant',)),
+    'label_waste': dict(ang=-math.pi / 4, hw=2.6, a0=11.2, a1=11.8, z0=5.5, z1=6.1, only=('RH walls text WHITE',), islands=True, rooms=('waste-storage',)),
     'northeast_door': dict(ang=math.pi / 4, hw=2.5, a0=9.8, a1=13.6, z0=0.0, z1=5.0, rooms=('electrical-room',)),
 }
 
@@ -48,7 +51,7 @@ def cut_hall(wrap, omit, objects, wm, active):
         if o.type not in ('MESH', 'CURVE', 'FONT') or o.name in omit: continue
         m = wm(o)
         bbc = [m @ Vector(c) for c in o.bound_box]
-        touched = [k for k, ct in cuts.items() if any(_inside(ct, p, 0.4) for p in bbc) or _bbox_overlaps(dict(ct, a0=ct.get('clear_a0', ct['a0'])), bbc)]
+        touched = [k for k, ct in cuts.items() if ('only' not in ct or o.name in ct['only']) and (any(_inside(ct, p, 0.4) for p in bbc) or _bbox_overlaps(dict(ct, a0=ct.get('clear_a0', ct['a0'])), bbc))]
         if not touched: continue
         if o.type != 'MESH' or o.modifiers:
             centre = sum(bbc, Vector()) / 8
@@ -61,7 +64,7 @@ def cut_hall(wrap, omit, objects, wm, active):
         big = o.name.startswith(('RH walls', 'R2 floor'))
         for k in touched:
             ct = cuts[k]; c, s = math.cos(ct['ang']), math.sin(ct['ang'])
-            if big:
+            if big and not ct.get('islands'):
                 for co, no in (((c * ct['a0'], s * ct['a0'], 0), (c, s, 0)), ((c * ct['a1'], s * ct['a1'], 0), (c, s, 0)),
                                ((-s * ct['hw'], c * ct['hw'], 0), (-s, c, 0)), ((s * ct['hw'], -c * ct['hw'], 0), (-s, c, 0)),
                                ((0, 0, ct['z1']), (0, 0, 1))):
@@ -325,3 +328,241 @@ def _wm(o):
 
 
 from mathutils import Matrix  # noqa: E402
+
+
+# ---------------------------------------------------------------------------------------------------------------------------------
+# Hall dressing pass ("umph"): zone colours, accent lighting, coves, pilasters, services, signage, spawn props, haze.
+# ---------------------------------------------------------------------------------------------------------------------------------
+import random as _random
+
+ZONES = {
+    'turbine-room':    dict(accent=(1.0, 0.45, 0.08), tint=(0.78, 0.72, 0.68), name='TURBINE HALL'),
+    'electrical-room': dict(accent=(0.12, 0.5, 1.0), tint=(0.62, 0.72, 0.9), name='ELECTRICAL'),
+    'waste-storage':   dict(accent=(1.0, 0.72, 0.08), tint=(0.8, 0.78, 0.6), name='WASTE STORAGE'),
+    'cooling-plant':   dict(accent=(0.08, 0.9, 0.85), tint=(0.58, 0.82, 0.84), name='COOLING PLANT'),
+    'bridge':          dict(accent=(1.0, 0.5, 0.12), tint=(0.78, 0.74, 0.74), name='TURBINE - ELECTRICAL'),
+    'tunnel':          dict(accent=(0.85, 0.92, 1.0), tint=(0.82, 0.82, 0.86), name='REACTOR CONCOURSE'),
+}
+SPAWN_PROPS = {   # prefix of object names in the spawn module: (mount origin in spawn coordinates, direction the prop faces in degrees)
+    'V_HALL_extinguisher': ((-1.70, 7.135, 0.0), 0.0),
+    'V_HALL_first_aid': ((-1.70, 7.10, 0.0), 0.0),
+    'LIFE_shift_clock': ((1.70, 0.95, 0.0), 180.0),
+    'V_HALL_shift_board': ((1.70, 6.0, 0.0), 180.0),
+    'HALL_notice': ((1.70, 0.95, 0.0), 180.0),
+    'V_HALL_culture_poster': ((1.70, 7.59, 0.0), 180.0),
+    'HALL_waiting_bench': ((-2.13, 1.55, 0.0), 0.0),
+    'COZY_L_ficus': ((2.37, 5.83, 0.0), 0.0),
+    'V_HALL_plant_shelf': ((-2.0, 2.04, 0.0), 0.0),
+}
+
+
+def load_spawn_props(spawn_path):
+    with bpy.data.libraries.load(spawn_path, link=True, relative=True) as (src, dst):
+        dst.objects = [n for n in src.objects if n.startswith(tuple(SPAWN_PROPS))]
+    return [o for o in dst.objects if o is not None]
+
+
+def tinted_copy(mat, tint, name):
+    """Local copy of a linked material with its base colour multiplied by tint (inserted between the colour source and the shader), the way the cliff rock is matched elsewhere in the build."""
+    m = mat.copy(); m.name = name
+    if not m.use_nodes: return m
+    nt = m.node_tree; bsdf = next((n for n in nt.nodes if n.type == 'BSDF_PRINCIPLED'), None)
+    if bsdf is None: return m
+    link = next((l for l in nt.links if l.to_node == bsdf and l.to_socket.name == 'Base Color'), None)
+    mix = nt.nodes.new('ShaderNodeMix'); mix.data_type = 'RGBA'; mix.blend_type = 'MULTIPLY'; mix.inputs[0].default_value = 1.0; mix.inputs[7].default_value = tuple(tint) + (1.0,)
+    if link:
+        nt.links.new(link.from_socket, mix.inputs[6]); nt.links.new(mix.outputs[2], bsdf.inputs['Base Color'])
+    else:
+        mix.inputs[6].default_value = bsdf.inputs['Base Color'].default_value; nt.links.new(mix.outputs[2], bsdf.inputs['Base Color'])
+    return m
+
+
+class MB:
+    """Collects many solids of one material into one object."""
+    def __init__(self, coll, name, mat):
+        self.coll, self.name, self.mat = coll, name, mat; self.bm = bmesh.new(); self.n = 0
+    def ring(self, ring, z0, z1):
+        _ring_solid(self.bm, ring, z0, z1); self.n += 1
+    def box(self, c, t, length, width, z0, z1):
+        t = Vector(t).normalized(); nn = Vector((-t.y, t.x)); c = Vector(c)
+        self.ring([c - t * length / 2 - nn * width / 2, c + t * length / 2 - nn * width / 2, c + t * length / 2 + nn * width / 2, c - t * length / 2 + nn * width / 2], z0, z1)
+    def done(self):
+        if not self.n: self.bm.free(); return None
+        bmesh.ops.recalc_face_normals(self.bm, faces=self.bm.faces); _uv(self.bm)
+        me = bpy.data.meshes.new(self.name); self.bm.to_mesh(me); self.bm.free(); me.materials.append(self.mat)
+        o = bpy.data.objects.new(self.name, me); self.coll.objects.link(o); return o
+
+
+def patch_ring(path, s0, s1, d0, d1):
+    n = max(2, int(abs(s1 - s0) / 0.4) + 2)
+    A = []; B = []
+    for i in range(n):
+        s = s0 + (s1 - s0) * i / (n - 1); pos, d, nn = path.at(s)
+        A.append(pos + nn * d0); B.append(pos + nn * d1)
+    return A + B[::-1]
+
+
+def loft(coll, name, path, section, mat, side=1):
+    """Extrude a (lateral d, z) section along the whole path. side -1 mirrors it to the right wall."""
+    bm = bmesh.new(); rings = []
+    sec = [(side * d, z) for d, z in section]
+    for i in range(path.n):
+        rings.append([bm.verts.new((path.P[i].x + path.off[i].x * d, path.P[i].y + path.off[i].y * d, z)) for d, z in sec])
+    k = len(sec)
+    for i in range(path.n - 1):
+        for j in range(k): bm.faces.new((rings[i][j], rings[i][(j + 1) % k], rings[i + 1][(j + 1) % k], rings[i + 1][j]))
+    bm.faces.new(rings[0][::-1]); bm.faces.new(rings[-1])
+    bmesh.ops.recalc_face_normals(bm, faces=bm.faces); _uv(bm)
+    me = bpy.data.meshes.new(name); bm.to_mesh(me); bm.free(); me.materials.append(mat)
+    o = bpy.data.objects.new(name, me); coll.objects.link(o); return o
+
+
+def text_obj(coll, body, loc, rot, size, mat, extrude=0.006, align='CENTER'):
+    cu = bpy.data.curves.new('HALL sign ' + body, 'FONT'); cu.body = body; cu.size = size; cu.align_x = align; cu.extrude = extrude; cu.materials.append(mat)
+    o = bpy.data.objects.new('HALL sign ' + body, cu); o.location = loc; o.rotation_euler = rot; coll.objects.link(o); return o
+
+
+def place_prop(coll, props, prefix, path, s, sg, W2, sk=0.04, offset=0.0):
+    """Copy a spawn-room prop onto the hall wall (sg +1 left, -1 right) at arclength s, facing into the hall."""
+    pos, t, nn = path.at(s)
+    origin, face = SPAWN_PROPS[prefix]
+    P = pos + nn * sg * (W2 - sk + offset); face_dir = -nn * sg
+    phi = math.atan2(face_dir.y, face_dir.x) - math.radians(face)
+    M = Matrix.Translation(Vector((P.x, P.y, 0.0))) @ Matrix.Rotation(phi, 4, 'Z') @ Matrix.Translation(-Vector(origin))
+    n = 0
+    for o in props:
+        if o.type == 'EMPTY' or not o.name.startswith(prefix): continue
+        no = bpy.data.objects.new(f'HALL prop {o.name}', o.data); no.matrix_basis = M @ _wm(o); coll.objects.link(no); n += 1
+    return n
+
+
+def straight_at(path, s, half=1.2, tol_deg=1.5):
+    a = path.at(max(s - half, 0))[1]; b = path.at(min(s + half, path.length))[1]
+    return math.degrees(math.acos(max(-1.0, min(1.0, a.dot(b))))) < tol_deg
+
+
+def dress_hall(coll, path, zone_key, mats, props, h=5.0, w=5.0, airlock_s=(), haze=True, seed=0):
+    """Add the dressing to a hall made by hall(): accent lines, coves, pilasters, wall insets, ceiling ribs and light bars, cable tray, duct, floor runner and LED dashes, signs, props, lights and haze."""
+    Z = ZONES[zone_key]; rnd = _random.Random(seed); W2 = w / 2; sk = 0.04; L = path.length
+    acc = _emissive(f'HALL accent {zone_key}', Z['accent'], 7.0); acc_dim = _emissive(f'HALL accent dim {zone_key}', Z['accent'], 2.6)
+    sign = _emissive('HALL sign ivory', (0.95, 0.92, 0.82), 2.2)
+    wall = mats['wall_t']
+    mb = {k: MB(coll, f'{zone_key} {k}', m) for k, m in (('acc', acc), ('accd', acc_dim), ('steel', mats['steel']), ('dark', mats['darksteel']), ('wall', wall), ('lamp', mats['lamp']),
+                                                           ('yellow', mats['yellow']), ('sign', sign))}
+    # 1. continuous accent lines and baseboard glow
+    for sg in (1, -1):
+        mb['acc'].ring(patch_ring(path, 0, L, sg * (W2 - sk), sg * (W2 - sk - 0.035)), 1.21, 1.26)
+        mb['accd'].ring(patch_ring(path, 0, L, sg * (W2 - sk), sg * (W2 - sk - 0.1)), 0.1, 0.13)
+        mb['acc'].ring(patch_ring(path, 0, L, sg * (1.25), sg * (1.31)), h - 0.05, h - 0.02)      # ceiling light lines
+    # 2. pilasters, insets, ribs, lamps
+    s = 1.5
+    bay = 0
+    while s < L - 1.0:
+        for sg in (1, -1):
+            mb['dark'].ring(patch_ring(path, s - 0.2, s + 0.2, sg * (W2 - sk - 0.14), sg * (W2 - sk)), 0.0, h - 0.7)
+            if bay % 2 == 0: mb['acc'].ring(patch_ring(path, s - 0.03, s + 0.03, sg * (W2 - sk - 0.16), sg * (W2 - sk - 0.14)), 0.5, 3.7)
+        if s + 3.0 < L - 1.0 and not any(abs(s + 1.5 - a) < 1.8 for a in airlock_s) and straight_at(path, s + 1.5, 1.4):
+            for sg in (1, -1):
+                if bay % 2 == 1 or sg == -1: mb['steel'].ring(patch_ring(path, s + 0.4, s + 2.6, sg * (W2 - sk - 0.02), sg * (W2 - sk)), 1.43, 2.87)
+                mb['dark'].ring(patch_ring(path, s + 0.46, s + 2.54, sg * (W2 - sk - 0.05), sg * (W2 - sk - 0.02)), 1.49, 2.81)
+        s += 3.0; bay += 1
+    s = 2.0
+    while s < L - 1.0:
+        c, d, n = path.at(s)
+        mb['steel'].box(c, d, 0.3, w, h - 0.5, h - 0.02)
+        s += 4.0
+    s = 4.0
+    while s < L - 1.0:
+        c, d, n = path.at(s); mb['lamp'].box(c, d, 2.4, 0.5, h - 0.54, h - 0.5); s += 4.0
+    # 3. services: cable tray, duct with flanges and hangers
+    mb['dark'].ring(patch_ring(path, 0.5, L - 0.5, 0.5, 1.1), h - 0.75, h - 0.68)
+    mb['steel'].ring(patch_ring(path, 0.5, L - 0.5, -1.9, -1.25), h - 0.95, h - 0.5)
+    s = 3.0
+    while s < L - 1.0:
+        mb['dark'].ring(patch_ring(path, s - 0.06, s + 0.06, -1.96, -1.19), h - 1.0, h - 0.45)
+        mb['dark'].ring(patch_ring(path, s - 0.02, s + 0.02, 0.5, 1.1), h - 0.68, h)
+        s += 3.0
+    # 4. floor runner and LED dashes
+    mb['dark'].ring(patch_ring(path, 0, L, -0.85, 0.85), 0.0, 0.008)
+    s = 0.5
+    while s < L - 0.4:
+        for sg in (1, -1):
+            mb['acc'].ring(patch_ring(path, s, s + 0.45, sg * 1.0, sg * 1.08), 0.0, 0.014)
+        s += 1.0
+    for a in airlock_s:
+        mb['yellow'].ring(patch_ring(path, a - 1.05, a - 0.75, -W2 + 0.1, W2 - 0.1), 0.0, 0.012)
+        mb['yellow'].ring(patch_ring(path, a + 0.75, a + 1.05, -W2 + 0.1, W2 - 0.1), 0.0, 0.012)
+    for m in mb.values(): m.done()
+    # 5. coves (plaster wedge in each wall/ceiling corner) with a glowing strip
+    for sg in (1, -1):
+        loft(coll, f'{zone_key} cove {sg}', path, [(W2 - sk, h - 0.75), (W2 - sk, h - sk), (W2 - sk - 0.75, h - sk)], wall, side=sg)
+        loft(coll, f'{zone_key} cove glow {sg}', path, [(W2 - sk - 0.2, h - 0.55), (W2 - sk - 0.26, h - 0.49), (W2 - sk - 0.36, h - 0.59), (W2 - sk - 0.3, h - 0.65)], acc_dim, side=sg)
+    # 6. signs
+    n0 = path.at(3.2); 
+    def wall_sign(s, sg, body, z, size):
+        pos, t, nn = path.at(s); alpha = math.atan2(t.y, t.x)
+        loc = pos + nn * sg * (W2 - sk - 0.012)
+        rot = (math.pi / 2, 0, alpha) if sg == 1 else (math.pi / 2, 0, alpha + math.pi)
+        text_obj(coll, body, (loc.x, loc.y, z), rot, size, sign)
+    if L > 8:
+        wall_sign(3.5, 1, 'REACTOR HALL  <', 3.05, 0.2); wall_sign(L - 3.5, -1, Z['name'] + '  >', 3.05, 0.2)
+        mid = L / 2
+        if straight_at(path, mid, 1.0): wall_sign(mid, 1, Z['name'], 3.05, 0.2)
+    for a in airlock_s:
+        pos, t, nn = path.at(a); th = math.atan2(-t.x, t.y)
+        text_obj(coll, f'AIRLOCK  {Z["name"]}', (pos.x - t.x * 0.28, pos.y - t.y * 0.28, 3.6), (math.pi / 2, 0, th), 0.22, sign)
+        # red beacon above the bulkhead
+        b = MB(coll, f'{zone_key} beacon', _emissive('HALL beacon red', (1.0, 0.08, 0.05), 9.0)); b.box(pos - t * 0.3 + nn * 0.0, t, 0.14, 0.14, 4.3, 4.45); b.done()
+    # 7. spawn props on straight wall sections
+    placed = 0
+    if props and L > 8:
+        spots = []
+        s = 6.0
+        while s < L - 6.0:
+            if straight_at(path, s, 0.5, 14.0) and not any(abs(s - a) < 2.5 for a in airlock_s): spots.append(s)
+            s += 1.0
+        rnd.shuffle(spots)
+        picks = [('V_HALL_extinguisher', -1), ('V_HALL_first_aid', 1), ('LIFE_shift_clock', 1), ('V_HALL_shift_board', -1), ('V_HALL_culture_poster', 1), ('HALL_waiting_bench', -1)]
+        used = []
+        for pref, sg in picks:
+            for sp in spots:
+                if pref == 'HALL_waiting_bench' and not straight_at(path, sp, 1.0, 2.0): continue
+                if all(abs(sp - u) > 3.2 for u in used):
+                    placed += place_prop(coll, props, pref, path, sp, sg, W2, offset=(0.0 if pref != 'HALL_waiting_bench' else -0.05)); used.append(sp); print('PROP', zone_key, pref, 'side', sg, 'at', tuple(round(v, 1) for v in path.at(sp)[0])); break
+    for a in airlock_s:   # a plant either side of every airlock approach
+        for sg in (1, -1):
+            if straight_at(path, a - 2.2, 1.0): placed += place_prop(coll, props, 'COZY_L_ficus', path, a - 1.9, sg, W2, offset=-0.45)
+    # 8. lights: ceiling warm panels, accent cove up-lights
+    k = 0; s = 4.0
+    while s < L - 1.0:
+        c, d, n = path.at(s)
+        ld = bpy.data.lights.new(f'{zone_key} bay light {k}', 'AREA'); ld.energy = 60; ld.size = 2.2; ld.size_y = 0.45; ld.color = (1.0, 0.9, 0.78)
+        lo = bpy.data.objects.new(f'{zone_key} bay light {k}', ld); lo.location = (c.x, c.y, h - 0.58); lo.rotation_euler = (0, 0, math.atan2(d.y, d.x) + 0.0); coll.objects.link(lo)
+        for sg in (1, -1):
+            c2 = c + n * sg * (W2 - 0.5)
+            ud = bpy.data.lights.new(f'{zone_key} cove light {k}{sg}', 'AREA'); ud.energy = 28; ud.size = 1.2; ud.size_y = 0.3; ud.color = Z['accent']
+            uo = bpy.data.objects.new(ud.name, ud); uo.location = (c2.x, c2.y, h - 0.62); uo.rotation_euler = (math.pi, 0, math.atan2(d.y, d.x)); coll.objects.link(uo)
+        k += 1; s += 4.0
+    # 9. haze
+    if haze:
+        hm = bpy.data.materials.new(f'{zone_key} haze'); hm.use_nodes = True; nt = hm.node_tree
+        for n_ in list(nt.nodes):
+            if n_.type != 'OUTPUT_MATERIAL': nt.nodes.remove(n_)
+        vs = nt.nodes.new('ShaderNodeVolumeScatter'); vs.inputs['Density'].default_value = 0.014; vs.inputs['Anisotropy'].default_value = 0.55
+        out = next(n_ for n_ in nt.nodes if n_.type == 'OUTPUT_MATERIAL'); nt.links.new(vs.outputs['Volume'], out.inputs['Volume'])
+        ring_in = path.lat(W2 - sk) + path.lat(-(W2 - sk))[::-1]
+        solid(coll, f'{zone_key} haze volume', ring_in, 0.02, h - 0.55, hm)
+    return placed
+
+
+def add_stub_labels(wrap, active, mat):
+    """New door labels for the hall's three stubs and two new doors (the old header letters are removed by the label cuts)."""
+    labels = [('turbine-room', 'TURBINE HALL', (0.0, 10.36, 5.8), (math.pi / 2, 0, 0.0)),
+              ('cooling-plant', 'COOLING PLANT', (-10.36, 0.0, 5.8), (math.pi / 2, 0, math.pi / 2)),
+              ('waste-storage', 'WASTE STORAGE', (8.09, -8.09, 5.8), (math.pi / 2, 0, math.radians(225))),
+              ('electrical-room', 'ELECTRICAL', (7.95, 7.95, 5.35), (math.pi / 2, 0, math.radians(315))),
+              ('reactor-room', 'CONCOURSE', (0.0, -10.72, 5.1), (math.pi / 2, 0, math.pi))]
+    for room, body, loc, rot in labels:
+        if room in active:
+            cu = bpy.data.curves.new('HALL door label ' + body, 'FONT'); cu.body = body; cu.size = 0.2; cu.align_x = 'CENTER'; cu.extrude = 0.006; cu.materials.append(mat)
+            o = bpy.data.objects.new('HALL door label ' + body, cu); o.location = loc; o.rotation_euler = rot; wrap.objects.link(o)

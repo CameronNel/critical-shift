@@ -307,6 +307,8 @@ def patch_reactor(wrap, lib_coll, omit):
     sys.path.insert(0, HERE); import reactor_links
     hall = [o for c in bpy.data.collections if c.library and os.path.basename(c.library.filepath) == os.path.basename(REACTOR_LIB) for o in c.all_objects]
     reactor_links.cut_hall(wrap, omit, list(dict.fromkeys(hall)), wm, INCLUDED)
+    lab = next((m for m in bpy.data.materials if m.library and m.name == 'RH refine signal ivory'), None)
+    reactor_links.add_stub_labels(wrap, INCLUDED, lab or _mat('HALL label ivory', (0.9, 0.88, 0.8), 0.5, 0.0, 1.0))
 
 # Reactor south concourse (proposed, unreviewed). Candidate A is rotated 180 degrees so its existing 6.0 m x 5.5 m FUEL HANDLING stub (module north,
 # closed double door at the stub end) faces south: plan door plane y -14.5, clear x -3.0 to 3.0, roof z 5.74. The plan's x = -8 and x = +8 south
@@ -385,8 +387,9 @@ def add_reactor_concourse():
     # reducer frame on the hall opening and the tunnel through the hall's south wall (cut by reactor_links.HALL_CUTS['south_door'])
     _box(coll, 'CONNECTOR hall frame head', (-2.9, 2.9), (y1 - 0.05, y1 + w), (4.8, 5.0), steel)
     import reactor_links
-    reactor_links.hall(coll, 'CONNECTOR hall tunnel', reactor_links.fillet([(0.0, -10.9), (0.0, y1 + w)], 1.0), 5.0, 5.0, M)
-    reactor_links.tube_lights(coll, 'CONNECTOR hall tunnel', [(0.0, -10.9), (0.0, y1 + w)], 5.0, every=6.0, energy=110)
+    Mt = zone_mats('tunnel')
+    tp = reactor_links.hall(coll, 'CONNECTOR hall tunnel', reactor_links.fillet([(0.0, -10.9), (0.0, y1 + w)], 1.0), 5.0, 5.0, Mt)
+    reactor_links.dress_hall(coll, tp, 'tunnel', Mt, [], haze=False)
     # washable dado and skirt on the concourse walls (spawn trim materials)
     dado = M['dado']; skirt = M['skirt']
     for nm, xs, ys in (('west', (x0 + 0.04, x0 + 0.09), (y0, y1)), ('south east', (-5.2, x1 - 0.2), (y0 + 0.04, y0 + 0.09)), ('north west', (x0, -2.5), (y1 - 0.09, y1 - 0.04)), ('north east', (2.5, 5.85), (y1 - 0.09, y1 - 0.04))):
@@ -425,22 +428,37 @@ LINKS = {
     'bridge': dict(pts=[(0.0, 42.2), (0.0, 51.0), (19.75, 51.0), (19.75, 42.9)], r=4.5, airlocks=[1.8, None], requires=('turbine-room', 'electrical-room')),
 }
 
+def zone_mats(zone_key):
+    """Per-zone material set: the spawn wall plaster multiplied by the zone tint."""
+    import reactor_links
+    M, _ = spawn_assets()
+    Mz = dict(M)
+    Mz['wall'] = Mz['wall_t'] = reactor_links.tinted_copy(M['wall'], reactor_links.ZONES[zone_key]['tint'], 'HALL plaster ' + zone_key)
+    return Mz
+
+def spawn_props():
+    if 'props' not in ASSETS:
+        import reactor_links
+        ASSETS['props'] = reactor_links.load_spawn_props(os.path.join(SRC, 'spawn-room', 'module.blend'))
+    return ASSETS['props']
+
 def add_reactor_links():
     import reactor_links
-    M, air = spawn_assets()
+    M, air = spawn_assets(); props = spawn_props()
     root = bpy.context.scene.collection.children['COMBINED_MAP']
     for key, L in LINKS.items():
         if not all(k in INCLUDED for k in L.get('requires', (key,))): continue
         coll = bpy.data.collections.new('CONNECTOR_reactor_to_' + key); root.children.link(coll)
         centre = reactor_links.fillet(L['pts'], L['r'])
-        path = reactor_links.hall(coll, 'CONNECTOR ' + key, centre, 5.0, 5.0, M)
-        n = reactor_links.tube_lights(coll, 'CONNECTOR ' + key, centre, 5.0, every=6.0, energy=90)
+        Mz = zone_mats(key)
+        path = reactor_links.hall(coll, 'CONNECTOR ' + key, centre, 5.0, 5.0, Mz)
+        spos = [path.length - 2.4 if s is None else (path.length + s if s < 0 else s) for s in L['airlocks']]       # None: 2.4 m in front of the room door at the far end; negative: that many m before the end
         na = 0
-        for s in L['airlocks']:
-            s_ = path.length - 2.4 if s is None else (path.length + s if s < 0 else s)       # None: 2.4 m in front of the room door at the far end; negative: that many m before the end
+        for s_ in spos:
             pos, d, _n = path.at(s_)
-            na += reactor_links.airlock(coll, air, pos, d, 5.0, 5.0, M)
-        print('LINK', key, 'length %.1f m' % path.length, 'lights', n, 'airlock objects', na)
+            na += reactor_links.airlock(coll, air, pos, d, 5.0, 5.0, Mz)
+        pl = reactor_links.dress_hall(coll, path, key, Mz, props, airlock_s=spos, seed=hash(key) % 1000)
+        print('LINK', key, 'length %.1f m' % path.length, 'airlock objects', na, 'props', pl)
 
 # Doors of the newly placed rooms that the plan does not connect to anything (found by ray audit: they opened onto empty night). Closed plates stand in until the room behind them is placed; named PLACEHOLDER_.
 # name, room that must be included, (x0, x1), (y0, y1) plan metres, top z
