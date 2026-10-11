@@ -16,15 +16,15 @@ namespace CriticalShift.Player.Editor
 {
     [Serializable] public sealed class ExportPose { public float[] position, rotation; }
     [Serializable] public sealed class ExportDoor { public string name, node; public ExportPose closed, opened; }
-    [Serializable] public sealed class ExportObject { public string source, node; public bool visible, dynamic; }
-    [Serializable] public sealed class ExportLight { public float[] position, color; public float power; public string type; }
+    [Serializable] public sealed class ExportObject { public string source, node; public bool visible, dynamic, sourceUv, lettering; public string[] materials; public int[] deliveryUvAxes; }
+    [Serializable] public sealed class ExportLight { public float[] position, color, rotation; public float power, size, sizeY, radius; public string name, type; }
     [Serializable] public sealed class ExportAnchor { public string name, node; public float[] position; }
     [Serializable] public sealed class ExportRoom
     {
         public string key, mesh, collision, meshSha256, collisionSha256;
         public float[] translation; public float yaw; public int collisionTriangles; public ExportObject[] objects; public ExportLight[] lights;
     }
-    [Serializable] public sealed class ExportMap { public int schema; public string mapCommit; public ExportRoom[] rooms; public ExportAnchor[] anchors; public ExportDoor[] doors; }
+    [Serializable] public sealed class ExportMap { public int schema; public string mapCommit; public ExportRoom[] rooms; public ExportAnchor[] anchors; public ExportDoor[] doors; public SurfacePackage[] materials; public SourceViews validationViews; }
     [Serializable] public sealed class ExportClip { public string name; public float first, last; public bool loop, derivative; }
     [Serializable] public sealed class ExportWorkerMesh { public string name, region; public bool suit, head; }
     [Serializable] public sealed class ExportRig { public string rig_commit, fbx_sha256; public int fps; public float seatedSupportHeight; public ExportClip[] clips; public ExportWorkerMesh[] meshes; }
@@ -46,6 +46,17 @@ namespace CriticalShift.Player.Editor
             { CheckHash(room.mesh, room.meshSha256); CheckHash(room.collision, room.collisionSha256); }
             CheckHash("CrewWorker.fbx", rig.fbx_sha256);
             AssetDatabase.Refresh();
+            PlayerSettings.colorSpace = ColorSpace.Linear;
+            UnityEngine.Rendering.GraphicsSettings.lightsUseLinearIntensity = true;
+            QualitySettings.pixelLightCount = 12; QualitySettings.shadows = ShadowQuality.All;
+            QualitySettings.antiAliasing = 4;
+            QualitySettings.shadowResolution = ShadowResolution.VeryHigh; QualitySettings.shadowDistance = 25;
+            var package=map.materials.Single(p => p.room == "spawn-room");
+            var surfaces = SpawnSurfaceBuild.Materials(package);
+            CheckHash(package.letteringMesh.file,package.letteringMesh.sha256);
+            Import(package.letteringMesh.file,false,readable:true);
+            var lettering=AssetDatabase.LoadAssetAtPath<GameObject>(Folder+package.letteringMesh.file)
+                .GetComponentsInChildren<MeshFilter>().ToDictionary(f=>f.name,StringComparer.Ordinal);
             foreach (var room in map.rooms) { Import(room.mesh, false, readable: room.key == "spawn-room"); Import(room.collision, false, readable: true); }
             Import("CrewWorker.fbx", true, clips: rig.clips);
             var controller = Controller(rig);
@@ -62,12 +73,73 @@ namespace CriticalShift.Player.Editor
                 var model = (GameObject)PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath<GameObject>(Folder + room.mesh));
                 // The FBX root carries Blender-to-Unity axis correction. Placement belongs to a separate parent.
                 model.transform.SetParent(roomRoot.transform, false);
+                var pointLights=room.lights.Where(l=>l.type=="POINT").Select(l=>roomRoot.transform.TransformPoint(V(l.position))).ToArray();
                 foreach (var node in model.GetComponentsInChildren<Transform>(true))
                     if (node.name.StartsWith("CS_", StringComparison.Ordinal)) nodes.Add(node.name, node);
                 foreach (var binding in room.objects)
                 {
                     if (!nodes.TryGetValue(binding.node, out var node)) throw new InvalidOperationException("Missing exported node: " + binding.node);
                     var renderer = node.GetComponent<Renderer>(); if (renderer != null) renderer.enabled = binding.visible;
+                    if(binding.lettering)
+                    {
+                        var glyphFilter=node.GetComponent<MeshFilter>();var source=lettering[binding.node+"__Lettering"];
+                        var glyphMesh=UnityEngine.Object.Instantiate(source.sharedMesh);
+                        var transform=node.worldToLocalMatrix*roomRoot.transform.localToWorldMatrix*source.transform.localToWorldMatrix;
+                        glyphMesh.vertices=glyphMesh.vertices.Select(v=>transform.MultiplyPoint3x4(v)).ToArray();
+                        var normalTransform=transform.inverse.transpose;
+                        glyphMesh.normals=glyphMesh.normals.Select(n=>normalTransform.MultiplyVector(n).normalized).ToArray();
+                        glyphMesh.RecalculateBounds();glyphMesh.RecalculateTangents();
+                        if((glyphMesh.bounds.center-glyphFilter.sharedMesh.bounds.center).magnitude>0.002f ||
+                           (glyphMesh.bounds.size-glyphFilter.sharedMesh.bounds.size).magnitude>0.002f ||
+                           glyphMesh.triangles.Length!=glyphFilter.sharedMesh.triangles.Length)
+                            throw new InvalidOperationException("Lettering delivery changed source geometry: "+binding.node);
+                        string meshPath=Folder+"Surfaces/"+binding.node+"-lettering.asset";
+                        AssetDatabase.DeleteAsset(meshPath);AssetDatabase.CreateAsset(glyphMesh,meshPath);glyphFilter.sharedMesh=glyphMesh;
+                        renderer.sharedMaterials=source.GetComponent<Renderer>().sharedMaterials;
+                    }
+                    if (renderer != null && binding.materials != null)
+                    {
+                        if (renderer.sharedMaterials.Length != binding.materials.Length) throw new InvalidOperationException("Surface slot inventory changed: " + binding.node);
+                        var importedKeys=renderer.sharedMaterials.Select(material=>material.name).ToArray();
+                        if (binding.materials.Length>1 && !importedKeys.OrderBy(key=>key,StringComparer.Ordinal).SequenceEqual(binding.materials.OrderBy(key=>key,StringComparer.Ordinal)))
+                            throw new InvalidOperationException("Imported surface names changed: "+binding.node+"; expected="+string.Join(",",binding.materials)+"; actual="+string.Join(",",importedKeys));
+                        // FBX orders slots by first face use, rather than the source datablock's slot array.
+                        // Some single-slot line/text meshes import as Default-Material. Their explicit
+                        // source binding is unambiguous; multi-slot meshes must match imported names.
+                        renderer.sharedMaterials = (binding.materials.Length==1 ? binding.materials : importedKeys).Select(key => surfaces[key]).ToArray();
+                        if (binding.sourceUv || binding.deliveryUvAxes!=null)
+                        {
+                            var sourceFilter=node.GetComponent<MeshFilter>();var sourceMesh=UnityEngine.Object.Instantiate(sourceFilter.sharedMesh);
+                            if(binding.sourceUv)
+                            {
+                                if (sourceMesh.uv3.Length!=sourceMesh.vertexCount) throw new InvalidOperationException("Missing original screen UV coordinates.");
+                                sourceMesh.uv=sourceMesh.uv3;
+                            }
+                            else
+                            {
+                                var axes=binding.deliveryUvAxes;
+                                if(axes.Length!=2 || axes.Any(a=>a<0 || a>2) || axes[0]==axes[1]) throw new InvalidOperationException("Invalid delivery projection axes.");
+                                var bounds=sourceMesh.bounds;
+                                sourceMesh.uv=sourceMesh.vertices.Select(v=>new Vector2((v[axes[0]]-bounds.min[axes[0]])/bounds.size[axes[0]],(v[axes[1]]-bounds.min[axes[1]])/bounds.size[axes[1]])).ToArray();
+                                sourceMesh.RecalculateTangents();
+                            }
+                            string meshPath=Folder+"Surfaces/"+binding.node+"-sourceUV.asset";
+                            AssetDatabase.DeleteAsset(meshPath);AssetDatabase.CreateAsset(sourceMesh,meshPath);sourceFilter.sharedMesh=sourceMesh;
+                        }
+                        renderer.receiveShadows = true;
+                        renderer.shadowCastingMode = binding.visible ? UnityEngine.Rendering.ShadowCastingMode.On : UnityEngine.Rendering.ShadowCastingMode.Off;
+                        if (binding.visible)
+                            GameObjectUtility.SetStaticEditorFlags(node.gameObject, StaticEditorFlags.ReflectionProbeStatic |
+                                (binding.dynamic ? 0 : StaticEditorFlags.ContributeGI));
+                        if(room.key=="spawn-room") SpawnSurfaceBuild.SplitEmbeddedEmitter(node,pointLights,package);
+                        if(binding.source=="LIFE_whiteboard_surface")
+                        {
+                            // Its authored front normal faces the wall. Runtime two-sided shading is
+                            // correct, but one baked chart cannot represent both sides reliably.
+                            ((MeshRenderer)renderer).receiveGI=ReceiveGI.LightProbes;
+                            GameObjectUtility.SetStaticEditorFlags(node.gameObject,StaticEditorFlags.ReflectionProbeStatic);
+                        }
+                    }
                 }
                 var collisionModel = AssetDatabase.LoadAssetAtPath<GameObject>(Folder + room.collision);
                 var filters = collisionModel.GetComponentsInChildren<MeshFilter>(true);
@@ -89,11 +161,36 @@ namespace CriticalShift.Player.Editor
                 collider.sharedMesh = mesh;
                 foreach (var sourceLight in room.lights)
                 {
-                    var lamp = new GameObject("Runtime light preview"); lamp.transform.SetParent(roomRoot.transform, false);
+                    var lamp = new GameObject(sourceLight.name ?? "Room practical"); lamp.transform.SetParent(roomRoot.transform, false);
                     lamp.transform.localPosition = V(sourceLight.position);
-                    var light = lamp.AddComponent<Light>(); light.type = LightType.Point; light.range = 7;
-                    light.color = new Color(sourceLight.color[0], sourceLight.color[1], sourceLight.color[2]);
-                    light.intensity = Mathf.Clamp(sourceLight.power / 150, 0.25f, 3); light.shadows = LightShadows.None;
+                    var light = lamp.AddComponent<Light>(); light.type = LightType.Point; light.range = 12;
+                    light.color = new Color(sourceLight.color[0], sourceLight.color[1], sourceLight.color[2]).gamma;
+                    // The inverse-square bake and legacy forward renderer use different intensity
+                    // scales. The bake scale is calibrated against the authored reference views. Forward
+                    // rendering uses a different attenuation scale, applied after the indirect bake.
+                    light.intensity = sourceLight.power / 100;
+                    light.shapeRadius = Mathf.Max(sourceLight.radius,0.001f);
+                    light.shadows = LightShadows.Soft;
+                    light.shadowBias = 0.015f; light.shadowNormalBias = 0.025f; light.bounceIntensity = 1;
+                    if(room.key=="spawn-room") light.shadowNearPlane=0.01f;
+                    light.renderMode = LightRenderMode.ForcePixel;
+                    if (room.key == "spawn-room")
+                    {
+                        if (sourceLight.type == "AREA")
+                        {
+                            // Built-in supports authored rectangle area lights in its lightmap bake.
+                            light.type = LightType.Rectangle;
+                            light.areaSize = new Vector2(sourceLight.size, sourceLight.sizeY > 0 ? sourceLight.sizeY : sourceLight.size);
+                            // The source area power is total energy; Unity's area intensity scales with emitting area.
+                            light.intensity=sourceLight.power/(Mathf.PI*Mathf.Max(light.areaSize.x*light.areaSize.y,0.001f));
+                            var q = sourceLight.rotation;
+                            var rotation = new Quaternion(q[1],q[2],q[3],q[0]);
+                            var forward = rotation * Vector3.back; var up = rotation * Vector3.up;
+                            light.transform.localRotation = Quaternion.LookRotation(new Vector3(forward.x,forward.z,forward.y), new Vector3(up.x,up.z,up.y));
+                            light.lightmapBakeType = LightmapBakeType.Baked;
+                        }
+                        else light.lightmapBakeType = LightmapBakeType.Mixed;
+                    }
                 }
                 if (room.key == "spawn-room") spawnRoot = roomRoot.transform;
             }
@@ -108,6 +205,9 @@ namespace CriticalShift.Player.Editor
                         "; local rotation=" + node.localEulerAngles.ToString("F2") + "; room rotation=" + spawnRoot.localEulerAngles.ToString("F2"));
             }
             var actor = Worker(root.transform, Require(nodes, "CS_spawn-room_SPAWN_1"), host, rig, controller);
+            var viewCamera = actor.GetComponentInChildren<Camera>(); viewCamera.allowHDR = true;
+            viewCamera.renderingPath = RenderingPath.Forward; viewCamera.allowMSAA=true;
+            viewCamera.gameObject.AddComponent<BlenderView>().Configure(SpawnSurfaceBuild.View(map.materials.Single(p => p.room == "spawn-room")));
             var targets = new List<InteractionTarget>(); var stations = new List<InteractionTarget>(); var controls = new List<SpawnControl>();
             var airlock = Door(root.transform, nodes, map, "Airlock", new[] { "AIRLOCK_leaf_L", "AIRLOCK_leaf_R" }, false);
             var airlockCentre = (Require(nodes, "CS_spawn-room_AIRLOCK_leaf_L").position + Require(nodes, "CS_spawn-room_AIRLOCK_leaf_R").position) * 0.5f;
@@ -182,16 +282,24 @@ namespace CriticalShift.Player.Editor
             host.ConfigureSpawn(bindings);
             var bootstrap = root.AddComponent<CriticalShift.Bootstrap.Player.PlayerRoomBootstrap>();
             bootstrap.Configure(host, new[] { actor }, targets.ToArray());
-            var sky = new GameObject("Runtime dusk light"); sky.transform.SetParent(root.transform, false); sky.transform.rotation = Quaternion.Euler(52, 38, 0);
-            var sun = sky.AddComponent<Light>(); sun.type = LightType.Directional; sun.intensity = 0.7f; sun.color = new Color(0.62f, 0.72f, 1);
-            RenderSettings.ambientLight = new Color(0.22f, 0.24f, 0.3f);
+            RenderSettings.skybox = null;
+            RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Flat;
+            RenderSettings.ambientLight = (new Color(0.32f, 0.36f, 0.55f) * 0.025f).gamma;
+            RenderSettings.reflectionIntensity = 1;
             Physics.SyncTransforms();
             if (!EditorSceneManager.SaveScene(scene, ScenePath)) throw new IOException("Could not save the isolated runtime scene.");
             Debug.Log("Generated current assembled map with spawn runtime bindings: " + map.mapCommit + ". Native tests and Player validation still required.");
         }
         public static void Build()
         {
-            Create();
+            // Build the reviewed lightmapped scene. Regenerating it here would discard its lighting.
+            SpawnVisualReview.ValidatePreparedScene();
+            EditorSceneManager.OpenScene(ScenePath);
+            PlayerSettings.colorSpace = ColorSpace.Linear;
+            UnityEngine.Rendering.GraphicsSettings.lightsUseLinearIntensity = true;
+            QualitySettings.pixelLightCount = 12; QualitySettings.shadows = ShadowQuality.All;
+            QualitySettings.antiAliasing = 4;
+            QualitySettings.shadowResolution = ShadowResolution.VeryHigh; QualitySettings.shadowDistance = 25;
             var args = Environment.GetCommandLineArgs(); int index = Array.IndexOf(args, "-csBuildPath");
             if (index < 0 || index + 1 >= args.Length) throw new BuildFailedException("-csBuildPath must name the executable.");
             var path = Path.GetFullPath(args[index + 1]); Directory.CreateDirectory(Path.GetDirectoryName(path));
@@ -212,7 +320,7 @@ namespace CriticalShift.Player.Editor
                 throw new BuildFailedException("Assembled map build failed.");
             Debug.Log("CS_SPAWN_MAP_BUILD_OK");
         }
-        private static void CheckHash(string file, string expected)
+        internal static void CheckHash(string file, string expected)
         {
             using var hash = SHA256.Create(); using var stream = File.OpenRead(Folder + file);
             string actual = BitConverter.ToString(hash.ComputeHash(stream)).Replace("-", "").ToLowerInvariant();
@@ -222,6 +330,7 @@ namespace CriticalShift.Player.Editor
         {
             var importer = AssetImporter.GetAtPath(Folder + file) as ModelImporter;
             if (importer == null) throw new InvalidOperationException("Expected the built-in FBX importer: " + file);
+            string previous=EditorJsonUtility.ToJson(importer);
             ConfigureImporter(importer, animated, readable);
             if (animated)
             {
@@ -235,13 +344,15 @@ namespace CriticalShift.Player.Editor
                 }
                 importer.clipAnimations = takes;
             }
-            importer.SaveAndReimport();
+            if (previous!=EditorJsonUtility.ToJson(importer)) importer.SaveAndReimport();
         }
         internal static void ConfigureImporter(ModelImporter importer, bool animated, bool readable)
         {
             importer.globalScale = 1; importer.useFileScale = true; importer.bakeAxisConversion = true;
             importer.importAnimation = animated; importer.importLights = false; importer.importCameras = false;
             importer.isReadable = readable; importer.optimizeGameObjects = false;
+            if (Path.GetFileName(importer.assetPath) == "Room-spawn-room.fbx" || Path.GetFileName(importer.assetPath) == "Lettering.fbx")
+            { importer.weldVertices = false; importer.meshCompression = ModelImporterMeshCompression.Off; importer.generateSecondaryUV = true; importer.secondaryUVMinLightmapResolution = 40; importer.secondaryUVMinObjectScale = 0.1f; }
             // Keep each room's complete collision mesh from the first import.
             importer.indexFormat = ModelImporterIndexFormat.UInt32;
             if (Path.GetFileName(importer.assetPath).StartsWith("Collision-", StringComparison.Ordinal))

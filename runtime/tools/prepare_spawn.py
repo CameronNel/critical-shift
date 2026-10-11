@@ -79,12 +79,20 @@ def prepare(args):
             stage(map_sha, "sections/facility-assembly/exteriors/" + lib, scratch / "map", records)
         stage(map_sha, "sections/facility-assembly/sources/spawn-room/hero_suit.blend", scratch / "map", records)
         config = {"map_commit": map_sha, "rooms": rooms, "sources": records.copy(),
-                  "spawn_omitted": values.get("OMIT", {}).get("spawn-room", [])}
+                  "spawn_omitted": values.get("OMIT", {}).get("spawn-room", []),"exterior_skins":values.get("EXTERIOR_SKINS",{})}
         (scratch / "map-config.json").write_text(json.dumps(config, indent=2))
         subprocess.run([args.blender, "-b", "--disable-autoexec", "--python-exit-code", "1", "--python", str(builder), "--",
                         "--through", rooms[-1][0], "--output", str(scratch / "combined-runtime-source.blend")], check=True)
+        geometry_environment=os.environ.copy(); geometry_environment["CS_SKIP_SURFACES"]="1"
         subprocess.run([args.blender, "-b", str(scratch / "combined-runtime-source.blend"), "--disable-autoexec", "--python-exit-code", "1", "--python",
-                        str(ROOT / "runtime/tools/export_spawn_map.py"), "--", str(scratch / "map-config.json"), str(output)], check=True)
+                        str(ROOT / "runtime/tools/export_spawn_map.py"), "--", str(scratch / "map-config.json"), str(output)], check=True,env=geometry_environment)
+        # Material baking needs only the source room, not the entire seven-million-triangle assembly.
+        subprocess.run([args.blender,"-b",str(scratch / "map/sections/facility-assembly/sources/spawn-room/module.blend"),
+                        "--disable-autoexec","--python-exit-code","1","--python",str(ROOT / "runtime/tools/export_spawn_map.py"),
+                        "--",str(scratch / "map-config.json"),str(output),"spawn-room"],check=True)
+        subprocess.run([args.blender,"-b",str(scratch / "map/sections/facility-assembly/sources/spawn-room/module.blend"),
+                        "--disable-autoexec","--python-exit-code","1","--python",str(ROOT / "runtime/tools/export_spawn_floor.py"),
+                        "--",str(output),"--lettering"],check=True)
     if not args.skip_rig:
         prefix = "sections/spawn-room/blender/"
         paths = subprocess.check_output(["git", "ls-tree", "-r", "--name-only", rig_sha, prefix], cwd=ROOT, text=True).splitlines()

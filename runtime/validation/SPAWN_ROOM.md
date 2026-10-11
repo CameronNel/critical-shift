@@ -92,7 +92,8 @@ hashes after export and creates deterministic asset metadata. Do not run a full 
 an old assembled map into this scene. Allow storage for the scoped sources and several hundred MB
 of derivative geometry. `--rig-only` / `--skip-rig` permit separate preparation.
 
-In Unity select **Critical Shift > Spawn > Create assembled map scene**, then Play. The generated
+Prepare the visual scene with **SpawnVisualReview.BakeAndRender** (command below), then open it and Play.
+**Critical Shift > Spawn > Create assembled map scene** recreates the bindings and discards baked lighting, so run the visual preparation again after using it. The generated
 `Assets/CriticalShift/Generated/Spawn/AssembledMap.unity` is separate from the foundation catalogue
 and graybox scene. Use the legacy Input Manager (Old), with default Mouse X/Y axes.
 
@@ -112,7 +113,10 @@ only the generated map scene, Built-in rendering, Mono, .NET Standard, Disabled 
 pre-baked collision meshes.
 Scene generation does not add it to the foundation build catalogue.
 
-## Actual verification
+## Gameplay baseline verification (4c5f1bb)
+
+These results predate the source-preserving visual conversion below. New native results are
+recorded separately; historical gameplay passes do not establish visual acceptance.
 
 | Check | Result and scope |
 | --- | --- |
@@ -158,7 +162,6 @@ Run the pinned editor after preparing both the canonical DLLs and map exports. N
 execution must omit `-quit`; the Test Runner exits when its result file is complete.
 
 ```sh
-unity -batchmode -nographics -quit -projectPath "$PWD/runtime/unity" -executeMethod CriticalShift.Player.Editor.SpawnMapBuild.Create -logFile "$PWD/runtime/out/spawn-native-create.log"
 unity -batchmode -nographics -projectPath "$PWD/runtime/unity" -runTests -testPlatform PlayMode -assemblyNames CriticalShift.Player.Tests.PlayMode -testResults "$PWD/runtime/out/spawn-playmode.xml" -logFile "$PWD/runtime/out/spawn-playmode.log"
 xvfb-run -a -s '-screen 0 1280x720x24' "$PWD/runtime/out/spawn-player/CriticalShift" -batchmode -force-glcore -screen-width 1280 -screen-height 720 -screen-fullscreen 0 --cs-player-smoke -logFile "$PWD/runtime/out/spawn-player-smoke.log"
 ```
@@ -195,9 +198,11 @@ and must be regenerated on a fresh checkout.
 
 ## Remaining limits
 
-Procedural Blender shaders and authored lighting do not transfer faithfully through FBX. Image
-textures and geometry are retained, while Unity lighting/materials are previews requiring native
-review. Prototype room collision totals 7,071,274 triangles (mine 3,287,462; fuel 2,059,090). The front end
+The spawn conversion explicitly delivers unlit base colour, tangent normals,
+metallic/smoothness and HDR emission in two 4096px atlases. The TV retains its original packed
+image and UV coordinates. Solid source colours and inactive normal inputs retain their original values instead of relying on tiny atlas islands. The other five rooms still use preview materials. Native lighting and
+image comparison are separate evidence from gameplay tests.
+Prototype room collision totals 7,071,274 triangles (mine 3,287,462; fuel 2,059,090). The front end
 omits 206 decorative surfaces / 412 triangles from collision. For rooms over two million triangles,
 Fast Midphase is disabled to avoid Unity’s documented large-mesh collision limitation.
 The final build retains two warnings while processing the mine/fuel mesh assets; native tests
@@ -221,3 +226,118 @@ scanner certification, room machines and networked characters are separate gamep
 The map pin is intentional. Future assembly changes require explicit source/binding review and
 `--map-ref`; unknown layouts fail rather than silently loading the old retiring map. Nothing in
 this task modifies Claude's next-room branch or advances a room's art acceptance status.
+
+## Source-preserving visual conversion
+
+The initial Unity views failed comparison with fresh Blender renders at the same three authored
+cameras. They lost procedural tile/paint/wood inputs, screen images and the authored lighting.
+The old exporter collected only eight light instances from the module collection, missing the
+ceiling and briefing practicals outside it. The conversion now reads the complete authored spawn
+scene (22 light instances including linked dependencies).
+
+`export_spawn_materials.py` evaluates shader inputs on export copies, retains original UVs for
+source sampling, and records each object's material slots in the existing manifest. A temporary
+joined bake mesh explicitly preserves object/generated coordinates as attributes, so joining
+does not change procedural recipes. The delivery UV is also the normal bake’s tangent basis, and implicit procedural coordinates are preserved explicitly. Solid input colours use small linear textures; unused normal inputs remain geometric normals. No lighting, shadows or AO are baked into albedo. Metallic
+is stored in R and smoothness in A; numeric maps stay linear and use channel-packed alpha
+when saved, so smoothness never premultiplies metallic. Each constant source input is bound
+independently from its atlas channel. HDR emission uses
+half-float ZIP EXR. UV0 is the atlas, UV1 is reserved for Unity lightmapping, and UV2 retains
+the original screen coordinates. The TV image is copied from the packed source without resizing.
+
+The partial exporter reads spawn and its PR95 exterior skin directly, validates the assembled
+object inventory, and round-trips only its updated collision. Other room exports are preserved.
+Full preparation exports assembly geometry first, then performs the scoped material pass. Two
+4096px atlases plus dedicated 2048px locker-floor and lettering atlases fit the 16GiB container; the single 8192px experiments exceeded memory. The shared atlas undersampled the tiny grout lines and produced visible aliasing. The dedicated floor uses a full planar UV layout and preserves the authored shader recipe.
+The lettering pass rebakes all 69 nonempty source text meshes at sufficient texel density.
+Its delivery meshes retain source positions and triangle counts; only UVs and material bindings
+change, with a 2mm bounds guard. This avoids thin glyphs sampling unrelated atlas padding. Failure
+logs remain under `runtime/out/spawn-surfaces-export-v2.log` through `v4.log`.
+
+FBX can reorder material slots, so multi-slot surfaces bind by imported material name.
+Single-slot text/line meshes use their explicit source binding even when Unity imports them
+as Default-Material. `BlenderSurface.shader` uses Standard lighting with two-sided rendering
+and reversed back-face shading normals, matching Cycles' treatment of opaque surfaces.
+The whiteboard's inward-facing front otherwise exposes its dark metal backing. Its two-sided
+surface receives probe lighting: a shared baked chart darkens the side that faces the room. Opaque
+materials also enable two-sided GI. The three reflection volumes cover the complete rooms
+and import their HDR captures as linear cubemaps. Custom probe textures persist across scene
+reloads; assigning only a bakedTexture outside Unity’s lighting-data asset loses the reference.
+Temporary reflection-only rectangles supply the authored fixture area-light radiance during
+capture and are removed before the scene is saved. Invisible spill/fill lights do not add
+rectangular fixture geometry to reflections. Glass uses two-sided Standard fade lighting with
+the source constant coverage: 0.16 for the pod and 0.10 for the suit visor. Raster glass still
+approximates Cycles transmission/refraction.
+
+For a floor-only refresh on an existing export, without changing geometry hashes
+(add `--lettering` for the text delivery pass, or `--inputs-only` for source constant values):
+
+```sh
+blender -b runtime/out/spawn-export-source/map/sections/facility-assembly/sources/spawn-room/module.blend --disable-autoexec --python-exit-code 1 --python runtime/tools/export_spawn_floor.py -- runtime/unity/Assets/CriticalShift/Generated/Spawn
+```
+
+After preparing assets, run the graphics-enabled visual generator:
+
+```sh
+xvfb-run -a -s '-screen 0 1440x810x24' unity -batchmode -force-glcore -quit -projectPath "$PWD/runtime/unity" -executeMethod CriticalShift.Player.Editor.SpawnVisualReview.BakeAndRender -csCapturePath "$PWD/runtime/out/spawn-unity-matched" -logFile "$PWD/runtime/out/spawn-lighting.log"
+```
+
+On a desktop omit `xvfb-run`. Do not use `-nographics` for captures. The manifest stores the
+three authored camera poses and 16:9 lens conversions. The generator sets linear rendering,
+imports maps explicitly, configures source practicals/shadows, bakes stationary geometry, and
+creates lighting/reflection probes. Players and movable doors/suits are excluded from static
+GI; the local worker is hidden during reflection capture. Source AgX/look/exposure/gamma are
+exported through Blender into a display LUT and applied to the actual gameplay camera.
+
+`SpawnMapBuild.Build` consumes this prepared scene instead of regenerating an unlit one.
+Source/scene/binding hashes reject stale preparation and altered exported textures or meshes.
+`SpawnVisualReview.Render` recaptures the saved scene without saving camera/worker visibility
+changes. Rebuild lighting after geometry/material/light changes. Built-in rectangle lights are
+baked; moving objects receive probe lighting. The inverse-square point bake uses the reference-calibrated scale
+power/100; area emitters use power/(π×area). Legacy forward
+point attenuation uses power/500 after baking. Mixed point lights bake indirect light only,
+so switching their direct illumination to runtime does not double the baked contribution.
+Practical point lights use real-time direct
+lighting and soft shadows after the indirect bake, avoiding embedded-fixture shadow-mask
+self-occlusion. The generator applies this mode before capturing reflections and saving.
+Regenerate with `BakeAndRender` after changing light/material settings; the prepared-scene
+source fingerprint rejects builds from an earlier lighting configuration.
+Embedded visible bulb faces are separated into a derived non-shadow-casting renderer; the
+fixture body keeps its shadows. Blender’s finite point emitter extends beyond those bulbs,
+whereas a built-in point bake starting at their centre otherwise self-occludes. The complete
+visible triangle union and collision mesh are preserved.
+Transparency, moving-object lighting, target performance and human acceptance need separate
+review. This route does not guarantee pixel-identical Cycles lighting.
+
+
+## Visual derivative verification (11 October 2026)
+
+The [three matched-camera comparisons](spawn-visual-20261011/README.md) and
+[compact evidence](spawn-visual-evidence.json) belong to this visual derivative,
+not the older gameplay baseline above. The native bake/capture finished on the
+saved gameplay scene with two lightmaps, 390 probe positions and three persisted
+reflection cubemaps. All 51 pinned source inputs and all six geometry/collision
+file hashes remain unchanged.
+
+| Check | Actual result |
+|---|---|
+| Pinned API compile | Passed: four assemblies, 16 C# files, warnings as errors. |
+| Python tooling | Passed: 40 tests. |
+| Metadata/static source | Passed: 918 GUIDs, nine asmdefs, 22 C# assets including generated derivatives. |
+| Native physical/animation PlayMode | Passed: 15 executed/passed, zero failed/skipped; all benches, lockers, full suit clip, airlock traversal and pod seal/test/release. |
+| Linux Development Mono Player | Build passed; 120-frame running-world smoke and clean shutdown passed, exit 0. |
+| Canonical rules | Unchanged from the 4c5f1bb baseline (718 tests and 12 scenarios run twice); those results are reused, not relabeled as a fresh run. |
+
+The final native PlayMode run preceded only the last point-light bake-intensity
+calibration; geometry, collisions, materials, animation and gameplay behavior were
+identical. The final calibrated scene was then baked, reloaded, captured, built
+and smoke-tested. Two large-collision-mesh warnings remain during build processing
+(the mine and fuel corridor); Player startup does not repeat them. The container
+has no audio device and uses FMOD nosound. Mesa llvmpipe is not target-GPU evidence.
+
+Visual acceptance is **pending**. Briefing's pendant shadows and ceiling brightness
+still differ visibly from Cycles; procedural grain and metallic/screen reflections
+also differ. Glass remains an approximation. The other five rooms still use their
+preview conversion. Windows Player execution, remote peers, full continuous
+animation/contact review and target-GPU performance remain NotRun. Neither the
+images nor passing physical tests declare a perfect Blender match.

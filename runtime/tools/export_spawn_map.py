@@ -1,10 +1,14 @@
 """Export the isolated assembly build; restore spawn's authored leaves only in this derivative."""
 import hashlib
 import json
+import math
+import os
 import sys
 from pathlib import Path
 import bpy
 from mathutils import Matrix, Vector
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from export_spawn_materials import bake_surfaces
 
 
 def matrix(o):
@@ -49,6 +53,32 @@ def main():
     if original.name not in source_scene.collection.children: source_scene.collection.children.link(original)
     dg = bpy.context.evaluated_depsgraph_get()
     source_objects = {o.name: o for o in original.all_objects}
+    source_path=Path(config_path).parent / "map/sections/facility-assembly/sources/spawn-room/module.blend"
+    if Path(bpy.data.filepath).resolve()==source_path.resolve(): authored_spawn=source_scene
+    else:
+        with bpy.data.libraries.load(str(source_path),link=True) as (src,dst): dst.scenes=[src.scenes[0]]
+        authored_spawn=dst.scenes[0]
+    view=authored_spawn.view_settings
+    source_view={"transform":view.view_transform,"look":view.look,"exposure":view.exposure,"gamma":view.gamma}
+    def authored_lights(objects,parent=Matrix.Identity(4)):
+        result=[]
+        for o in objects:
+            if o.hide_render: continue
+            world=parent @ matrix(o)
+            if o.type=="LIGHT":
+                result.append({"name":o.name,"position":list(world.translation),"rotation":list(world.to_quaternion()),
+                    "color":list(o.data.color),"power":float(o.data.energy),"type":o.data.type,
+                    "size":float(getattr(o.data,"size",0)),"sizeY":float(getattr(o.data,"size_y",0)),
+                    "radius":float(getattr(o.data,"shadow_soft_size",0.05))})
+            elif o.instance_type=="COLLECTION" and o.instance_collection:
+                result.extend(authored_lights(o.instance_collection.all_objects,world @ Matrix.Translation(-o.instance_collection.instance_offset)))
+        return result
+    manifest["validationViews"]={"views":[]}
+    for name in ("VALIDATE_Spawn","VALIDATE_BriefingDoor","VALIDATE_LockerDoor"):
+        o=source_objects[name]; rotation=matrix(o).to_quaternion()
+        manifest["validationViews"]["views"].append({"name":name,"position":list(matrix(o).translation),
+            "forward":list(rotation @ Vector((0,0,-1))),"up":list(rotation @ Vector((0,1,0))),
+            "verticalFov":math.degrees(2*math.atan(math.tan(o.data.angle_x/2)*810/1440))})
     required = [*[f"SPAWN_{i}" for i in range(1, 5)], *[f"PPE_{i:02}_suit" for i in range(1, 5)],
                 "AIRLOCK_leaf_L", "AIRLOCK_leaf_R", "BRIEFING_bench_01", "BRIEFING_bench_02", "INTEGRITY_POD",
                 "INTERACT_integrity", "POD_door_L", "POD_door_R", "POD_physical_button", "POD_physical_button.001"]
@@ -80,8 +110,18 @@ def main():
     for key, _lib, _collection, placement, yaw, _note in config["rooms"]:
         if only and key != only: continue
         instance = source_scene.objects.get("ROOM_" + key)
-        if instance is None: raise ValueError("Assembly is missing ROOM_" + key)
-        members = list(instance.instance_collection.all_objects)
+        if instance is None and only=="spawn-room":
+            # The PR95 wrapper only omits these named objects. Read the exact module directly for
+            # a scoped conversion, instead of loading four million unrelated mine triangles.
+            exterior_file,exterior_collection=config["exterior_skins"][key]
+            exterior_path=Path(config_path).parent / "map/sections/facility-assembly/exteriors" / exterior_file
+            with bpy.data.libraries.load(str(exterior_path),link=True) as (src,dst): dst.collections=[exterior_collection]
+            exterior=dst.collections[0];source_scene.collection.children.link(exterior)
+            bpy.context.window.scene=source_scene;bpy.context.view_layer.update();dg=bpy.context.evaluated_depsgraph_get()
+            bpy.context.window.scene=target_scene
+            members=[*exterior.all_objects,*[o for o in original.all_objects if o.name not in config["spawn_omitted"]]]
+        elif instance is None: raise ValueError("Assembly is missing ROOM_" + key)
+        else: members = list(instance.instance_collection.all_objects)
         if key == "spawn-room":
             # The assembly deliberately removed these leaves/gauges for viewing. Runtime adds their original geometry.
             members.extend(source_objects[name] for name in config["spawn_omitted"] if not name.startswith("SERVICE_end"))
@@ -103,13 +143,22 @@ def main():
                 visible = not o.hide_render
                 mappings.append({"source": o.name, "node": n.name, "visible": visible, "dynamic": movable})
                 if o.type == "LIGHT":
-                    lights.append({"position": list(matrix(o).translation), "color": list(o.data.color), "power": float(o.data.energy), "type": o.data.type})
+                    lights.append({"name":o.name,"position":list(matrix(o).translation),"rotation":list(matrix(o).to_quaternion()),
+                        "color":list(o.data.color),"power":float(o.data.energy),"type":o.data.type,
+                        "size":float(getattr(o.data,"size",0)),"sizeY":float(getattr(o.data,"size_y",0)),
+                        "radius":float(getattr(o.data,"shadow_soft_size",0.05))})
                 if o.instance_type == "COLLECTION" and o.instance_collection:
                     n.matrix_basis = local @ Matrix.Translation(-o.instance_collection.instance_offset)
                     clone_group(list(o.instance_collection.all_objects), n, prefix + o.name + "__", movable)
                 return n
             for o in unique: clone(o)
         clone_group(members, root, "CS_" + key + "_")
+        if key=="spawn-room": lights=authored_lights(authored_spawn.objects)
+        if previous:
+            old=next(room for room in previous["rooms"] if room["key"]==key)
+            fields=("source","node","visible","dynamic")
+            inventory=lambda items: sorted(tuple(item[field] for field in fields) for item in items)
+            if inventory(old["objects"])!=inventory(mappings): raise ValueError("Scoped export changed assembled object bindings: "+key)
         bpy.context.view_layer.update()
         # Build collision after all parent transforms have evaluated (matrix_world otherwise starts as identity).
         collider_vertices.clear(); collider_faces.clear()
@@ -125,6 +174,8 @@ def main():
             collider_vertices.extend(tuple(transform @ v.co) for v in mesh.vertices)
             mesh.calc_loop_triangles(); collider_faces.extend(tuple(offset + v for v in tri.vertices) for tri in mesh.loop_triangles)
         mesh_file = "Room-" + key + ".fbx"
+        if key == "spawn-room" and os.environ.get("CS_SKIP_SURFACES")!="1":
+            manifest["materials"].append(bake_surfaces(target_scene,copies,mappings,output,source_view))
         export(output / mesh_file, [root, *copies])
         collision = bpy.data.meshes.new("CS_COLLISION_" + key); collision.from_pydata(collider_vertices, [], collider_faces); collision.update()
         collider = bpy.data.objects.new("CS_COLLISION_" + key, collision); target_scene.collection.objects.link(collider)
@@ -142,10 +193,12 @@ def main():
     if previous:
         updated = {r["key"]: r for r in manifest["rooms"]}
         manifest["rooms"] = [updated.get(r["key"], r) for r in previous["rooms"]]
-    manifest["limits"] = "Current six-room assembly only. Static collision is a prototype, not profiled. FBX preserves geometry and image textures; procedural shaders/light rigs are not equivalent in Unity. Source rooms are not modified."
+        manifest["materials"] += [m for m in previous.get("materials",[]) if m["room"] not in updated]
+    manifest["limits"] = "Current six-room assembly only. Spawn has explicit unlit material maps, colour grading and authored light bindings; the other five rooms retain preview materials. Native lighting and moving-object review are required. Static collision is unprofiled. Source rooms are not modified."
     (output / "map-bindings.json").write_text(json.dumps(manifest, indent=2) + "\n")
     # Check one compact collision import per room, including unit scale and exact geometry bounds.
-    for room in manifest["rooms"]:
+    checked=[room for room in manifest["rooms"] if not only or room["key"]==only]
+    for room in checked:
         bpy.ops.wm.read_factory_settings(use_empty=True)
         bpy.ops.import_scene.fbx(filepath=str(output / room["collision"]))
         vertices = [o.matrix_world @ v.co for o in bpy.data.objects if o.type == "MESH" for v in o.data.vertices]
@@ -153,6 +206,7 @@ def main():
         error = max(abs(actual[a][b] - room["collisionBounds"][a][b]) for a in range(3) for b in range(2))
         if error > 0.002: raise ValueError("Collision round trip changed metre scale: " + room["key"] + " " + str(error))
     (output / "map-roundtrip.json").write_text(json.dumps({"status": "Passed", "rooms": len(manifest["rooms"]),
+        "checkedRooms":[room["key"] for room in checked],"unchangedRoomsReused":len(manifest["rooms"])-len(checked),
         "scaleToleranceMetres": 0.002, "nativeUnity": False}, indent=2) + "\n")
 
 
