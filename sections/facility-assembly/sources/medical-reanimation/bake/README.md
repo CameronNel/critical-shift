@@ -9,7 +9,7 @@ three maps: albedo (sRGB), packed roughness (R) and metallic (G), tangent-space 
 48 MB as PNG. 1,090 objects, 1,241 procedural material slots replaced by 8 baked materials.
 Plain single-colour materials (glass, lenses, phosphor, solid enamels; 60 slots) are left alone.
 No light, shadow or ambient occlusion is baked. UV0 is untouched; the bake uses a second UV layer `BAKE`.
-The maps and the baked scene were produced in scratch storage and are not committed.
+The maps, a Unity-layout repack, the baked scene `module_baked_B1.blend` and a handoff note are committed (Git LFS) in `../baked/`; see `../baked/HANDOFF.md`.
 
 ## Commands (Blender 5.2.2 LTS, CPU)
 1. `med_bake_prep.py -- --out PREP.blend --atlases 8` (about 45 s)
