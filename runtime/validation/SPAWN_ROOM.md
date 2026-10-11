@@ -37,6 +37,48 @@ The rig uses Generic animation on its original skeleton, with root motion disabl
 retargeting, external mocap, renderer/importer package, network transport or new third-party asset.
 Original geometry, images and existing material licensing/provenance remain with their source files.
 
+## Owner-agreed editing and gameplay workflow (11 October 2026)
+
+The owner is satisfied with the shown room comparisons and wants gameplay work
+continued while Claude assembles the facility. Suit appearance remains open.
+This records that feedback for those captures; it does not declare the complete
+map, character presentation or multiplayer accepted.
+
+Blender is the visual source of truth. Room assets are edited in the relevant
+Blender authoring task; assembly placement/connection patches belong to the
+combined builder. The combined `.blend` remains generated output, not a file to
+hand-edit. Unity owns gameplay and the engine-specific material/light conversion.
+Procedural texture inputs are baked from Blender; game lightmaps, shadow masks
+and reflection probes are generated in Unity from the authored lighting plus
+tracked conversion settings. No second lighting bake into Blender albedo is
+required.
+
+When the owner asks for a small map correction, the task includes the Blender
+change and the resulting Unity refresh. A full affected-room refresh is preferred
+for geometry/layout changes: preserve logical IDs, regenerate collision and
+interaction poses, rebake affected lighting/probes, compare source/runtime views
+and run the relevant physical checks. Rebuild textures only where their source
+inputs or delivery UVs require it. The updated room stays in the assembled map.
+Any newly assembled room uses Claude's recorded placement and reviewed handoff;
+unfinished assembly work must not be overwritten or silently followed.
+
+Gameplay rules and reusable adapters stay in tracked code. Bindings are recreated
+by the scene generator from stable source names/IDs and explicit manifests. Do
+not implement a feature only through manual changes to a generated scene: those
+changes would be lost at regeneration. A room edit must revalidate interaction
+positions, collision and reach, not merely its render mesh.
+
+Current automation limits are explicit: saving Blender alone is not a live Unity
+sync. `prepare_spawn.py` defaults to the documented PR95 snapshot; newer source
+work requires its explicit `--map-ref` revision. Full preparation exports the
+assembly, while the scoped spawn pass refreshes materials/collision and requires
+the existing object inventory to match. General geometry refresh for an arbitrary
+changed room, automatic upstream revision detection and incremental lighting
+invalidation are not yet implemented. Until those exist, use the full verified
+preparation path when required and handle it within the requested edit task.
+The other five rooms still have preview materials; this workflow does not imply
+that their conversion or gameplay is complete.
+
 ## Assigned behavior
 
 | Spawn object | Runtime binding |
