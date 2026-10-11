@@ -352,8 +352,8 @@ def add_reactor_concourse():
     if 'reactor-room' not in INCLUDED: return
     C = CONC; w = C['wall']; sl = C['slab']; top = C['roof'] + sl
     coll = bpy.data.collections.new('CONNECTOR_reactor_south_concourse'); bpy.context.scene.collection.children['COMBINED_MAP'].children.link(coll)
-    conc = _mat('CONNECTOR concrete', (0.30, 0.31, 0.33), 0.85); floor = _mat('CONNECTOR floor', (0.19, 0.2, 0.21), 0.55)
-    steel = _mat('CONNECTOR steel', (0.11, 0.12, 0.13), 0.5, 0.6); lamp = _mat('CONNECTOR lamp', (0.9, 0.9, 0.9), 0.4, 0.0, 8.0)
+    conc = _mat('CONNECTOR concrete', (0.20, 0.21, 0.23), 0.85); floor = _mat('CONNECTOR floor', (0.11, 0.115, 0.12), 0.5)
+    steel = _mat('CONNECTOR steel', (0.11, 0.12, 0.13), 0.5, 0.6); lamp = _mat('CONNECTOR lamp', (0.9, 0.9, 0.9), 0.4, 0.0, 3.0)
     x0, x1, y0, y1 = C['x0'], C['x1'], C['y0'], C['y1']
     _box(coll, 'CONNECTOR floor', (x0 - w, x1), (y0, y1 + w), (-sl, 0.0), floor)
     _box(coll, 'CONNECTOR roof', (x0 - w, x1), (y0 - w, y1 + w), (C['roof'], top), conc)
@@ -368,7 +368,7 @@ def add_reactor_concourse():
     _box(coll, 'CONNECTOR hall frame head', (-3.4, 3.4), (y1 - 0.05, y1 + w), (5.5, 5.74), steel)
     for i, x in enumerate((-2.0, 0.0, 2.0)):
         _box(coll, f'CONNECTOR lamp {i}', (x - 0.9, x + 0.9), (-17.4, -17.0), (C['roof'] - 0.08, C['roof']), lamp)
-        ld = bpy.data.lights.new(f'CONNECTOR light {i}', 'AREA'); ld.energy = 900; ld.size = 1.8; ld.size_y = 0.4; ld.color = (1.0, 0.92, 0.8)
+        ld = bpy.data.lights.new(f'CONNECTOR light {i}', 'AREA'); ld.energy = 170; ld.size = 1.8; ld.size_y = 0.4; ld.color = (1.0, 0.92, 0.8)
         lo = bpy.data.objects.new(f'CONNECTOR light {i}', ld); lo.location = (x - 4.5 if i == 0 else x + (1.5 if i == 2 else 0.0), -17.2, C['roof'] - 0.12); coll.objects.link(lo)
     print('CONCOURSE added: clear x %.1f to %.2f, y %.1f to %.1f, height %.1f' % (x0, 5.85, y0, y1, C['roof']))
 
