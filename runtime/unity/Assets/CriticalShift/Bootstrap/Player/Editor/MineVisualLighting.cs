@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using CriticalShift.Features.Player.Unity;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -15,7 +16,7 @@ namespace CriticalShift.Player.Editor
         public override uint GetVersion() => 3;
         private void OnPostprocessModel(GameObject model)
         {
-            if(assetPath!=SpawnMapBuild.Folder+"Room-mine.fbx") return;
+            if(assetPath!=SpawnMapBuild.Folder+"Room-mine.fbx" && assetPath!=SpawnMapBuild.Folder+"MineContext.fbx") return;
             var visited=new HashSet<Mesh>();int checkedMeshes=0;
             foreach(var filter in model.GetComponentsInChildren<MeshFilter>(true))
             {
@@ -109,13 +110,80 @@ namespace CriticalShift.Player.Editor
                 index++;
             }
             ReflectionProbe.UpdateCachedState();
+            FinishAtmosphere(map.materials.Single(p=>p.room=="mine"));
             Validate(root,map);
+        }
+
+        private static void FinishAtmosphere(SurfacePackage package)
+        {
+            if(package.volumes==null) return;
+            if(package.volumes.Length>2 || package.volumes.Any(v=>Mathf.Abs(v.anisotropy)>0.0001f)) throw new InvalidOperationException("Mine atmosphere requires the authored two isotropic volumes.");
+            LightProbes.Tetrahedralize();
+            var normals=new[] {Vector3.right,Vector3.left,Vector3.up,Vector3.down,Vector3.forward,Vector3.back};
+            for(int index=0;index<package.volumes.Length;index++)
+            {
+                var volume=package.volumes[index];
+                Vector3 V(float[] p)=>new Vector3(p[0],p[2],p[1]);
+                var minimum=V(volume.minimum);var maximum=V(volume.maximum);
+                var texture=new Texture2D(32,16,TextureFormat.RGBAHalf,false,true) {filterMode=FilterMode.Bilinear,wrapMode=TextureWrapMode.Clamp};
+                var values=new Color[6];
+                for(int z=0;z<4;z++) for(int y=0;y<4;y++) for(int x=0;x<32;x++)
+                {
+                    var p=minimum+Vector3.Scale(maximum-minimum,new Vector3((x+.5f)/32,(z+.5f)/4,(y+.5f)/4));
+                    LightProbes.GetInterpolatedProbe(p,null,out var probe);probe.Evaluate(normals,values);
+                    var color=values.Aggregate(Color.black,(sum,c)=>sum+c)/6;
+                    color=new Color(Mathf.Max(color.r,0),Mathf.Max(color.g,0),Mathf.Max(color.b,0),1);
+                    texture.SetPixel(x,z*4+y,color);
+                }
+                texture.Apply(false,false);
+                string path=SpawnMapBuild.Folder+"Surfaces/MineVolume"+index+"Lighting.asset";
+                AssetDatabase.DeleteAsset(path);AssetDatabase.CreateAsset(texture,path);
+            }
+            string materialPath=SpawnMapBuild.Folder+"Surfaces/MineAtmosphere.mat";
+            var material=AssetDatabase.LoadAssetAtPath<Material>(materialPath);
+            if(material==null) { material=new Material(Shader.Find("Hidden/CriticalShift/MineAtmosphere"));AssetDatabase.CreateAsset(material,materialPath); }
+            foreach(var camera in UnityEngine.Object.FindObjectsByType<Camera>(FindObjectsInactive.Include)) ConfigureAtmosphere(camera,package,material);
+            Debug.Log("CS_MINE_ATMOSPHERE_OK; sourceDensityVolumes="+package.volumes.Length);
+        }
+        internal static void ConfigureAtmosphere(Camera camera,SurfacePackage package,Material material=null)
+        {
+            if(package.volumes==null || package.volumes.Length==0) return;
+            material=material ?? AssetDatabase.LoadAssetAtPath<Material>(SpawnMapBuild.Folder+"Surfaces/MineAtmosphere.mat");
+            if(material==null) throw new InvalidOperationException("Mine atmosphere has not been prepared.");
+            var volumes=package.volumes.Select((source,index)=>new MineFogVolume
+            {
+                minimum=new Vector3(source.minimum[0],source.minimum[2],source.minimum[1]),
+                maximum=new Vector3(source.maximum[0],source.maximum[2],source.maximum[1]),
+                grid=new Vector3(source.grid[0],source.grid[1],source.grid[2]),
+                color=new Color(source.color[0],source.color[1],source.color[2],source.color[3]).gamma,
+                density=SpawnSurfaceBuild.Texture(source.densityMap,false),
+                lighting=AssetDatabase.LoadAssetAtPath<Texture2D>(SpawnMapBuild.Folder+"Surfaces/MineVolume"+index+"Lighting.asset")
+            }).ToArray();
+            if(volumes.Any(v=>v.density==null || v.lighting==null)) throw new InvalidOperationException("Missing mine volume maps.");
+            // Unity evaluates image effects in component order. Atmosphere precedes the view LUT.
+            var view=camera.GetComponent<BlenderView>();
+            var fog=camera.GetComponent<MineAtmosphere>() ?? camera.gameObject.AddComponent<MineAtmosphere>();
+            fog.Configure(material,volumes);
+            if(view!=null)
+            {
+                // Move the atmosphere earlier without altering the existing display-profile settings.
+                UnityEditorInternal.ComponentUtility.MoveComponentUp(fog);
+            }
         }
 
         private static void Validate(Transform root,ExportMap map)
         {
             var source=map.rooms.Single(r=>r.key=="mine");
             var package=map.materials.Single(p=>p.room=="mine");
+            foreach(var definition in package.definitions.Where(d=>!d.thinSurface))
+            {
+                var material=AssetDatabase.LoadAssetAtPath<Material>(SpawnMapBuild.Folder+"Surfaces/"+definition.key+".mat");
+                if(material==null) throw new InvalidOperationException("Missing authored mine material: "+definition.key);
+                if(!definition.emissionConstant && material.GetTexture("_EmissionMap")==null)
+                    throw new InvalidOperationException("Authored mine emission has no texture: "+definition.key);
+                if(!definition.baseConstant && material.GetTexture("_MainTex")==null)
+                    throw new InvalidOperationException("Authored mine colour has no texture: "+definition.key);
+            }
             var nodes=root.GetComponentsInChildren<Transform>(true).Where(t=>t.name.StartsWith("CS_",StringComparison.Ordinal))
                 .ToDictionary(t=>t.name,StringComparer.Ordinal);
             int surfaces=0,lightmapped=0,probeLit=0;
@@ -140,9 +208,34 @@ namespace CriticalShift.Player.Editor
                 surfaces++;
             }
             if(surfaces!=package.meshes) throw new InvalidOperationException("Mine delivery mesh coverage changed.");
+            int contextSurfaces=0;
+            if(package.contextObjects!=null)
+            {
+                var front=GameObject.Find("ROOM_front-end-area").GetComponentsInChildren<MeshRenderer>().Where(r=>r.name.StartsWith("CS_",StringComparison.Ordinal)).ToDictionary(r=>r.name,StringComparer.Ordinal);
+                foreach(var binding in package.contextObjects.Where(b=>b.materials!=null))
+                {
+                    var renderer=front[binding.node];
+                    if(!renderer.enabled || renderer.sharedMaterials.Any(m=>!binding.materials.Contains(m.name) || !m.shader.name.StartsWith("CriticalShift/Blender",StringComparison.Ordinal)))
+                        throw new InvalidOperationException("Mine context uses a preview material: "+binding.node);
+                    if(renderer.receiveGI!=ReceiveGI.LightProbes && (renderer.lightmapIndex<0 || renderer.lightmapIndex>=LightmapSettings.lightmaps.Length))
+                        throw new InvalidOperationException("Mine context is missing baked lighting: "+binding.node);
+                    contextSurfaces++;
+                }
+            }
             foreach(var emitter in root.GetComponentsInChildren<MeshRenderer>().Where(r=>r.name=="Embedded emitter surface"))
                 if(emitter.receiveGI!=ReceiveGI.LightProbes || GameObjectUtility.GetStaticEditorFlags(emitter.gameObject).HasFlag(StaticEditorFlags.ContributeGI))
                     throw new InvalidOperationException("Small mine emitter must use probes and its authored point light.");
+            if(package.volumes!=null)
+            {
+                foreach(var camera in UnityEngine.Object.FindObjectsByType<Camera>(FindObjectsInactive.Include))
+                {
+                    var fog=camera.GetComponent<MineAtmosphere>();
+                    if(fog==null) throw new InvalidOperationException("Player camera is missing the mine atmosphere.");
+                    var serialized=new SerializedObject(fog);
+                    if(serialized.FindProperty("profile").objectReferenceValue==null || serialized.FindProperty("volumes").arraySize!=package.volumes.Length)
+                        throw new InvalidOperationException("Player mine atmosphere is incomplete.");
+                }
+            }
             var collider=root.GetComponentsInChildren<MeshCollider>().Single();
             if(collider.sharedMesh.triangles.Length/3!=source.collisionTriangles)
                 throw new InvalidOperationException("Mine collision inventory changed.");
@@ -157,8 +250,8 @@ namespace CriticalShift.Player.Editor
             }
             File.WriteAllText(SpawnMapBuild.Folder+"mine-native-validation.json",JsonUtility.ToJson(new MineValidation
             {
-                mapCommit=map.mapCommit,surfaces=surfaces,collisionTriangles=source.collisionTriangles,
-                reflectionProbes=root.GetComponentsInChildren<ReflectionProbe>().Length,
+                mapCommit=map.mapCommit,surfaces=surfaces,contextSurfaces=contextSurfaces,collisionTriangles=source.collisionTriangles,
+                reflectionProbes=root.GetComponentsInChildren<ReflectionProbe>().Length,atmosphereVolumes=package.volumes?.Length ?? 0,
                 lightmaps=LightmapSettings.lightmaps.Length,lightmapped=lightmapped,probeLit=probeLit,
                 joinCentrelineRays=package.joinRays.Length,clearWalkingRays=6,sourcePreservation="Verified separately by prepare_mine.py"
             },true));
@@ -167,7 +260,7 @@ namespace CriticalShift.Player.Editor
 
         [Serializable] private sealed class MineValidation
         {
-            public string mapCommit,sourcePreservation;public int surfaces,collisionTriangles,reflectionProbes,lightmaps,lightmapped,probeLit,joinCentrelineRays,clearWalkingRays;
+            public string mapCommit,sourcePreservation;public int surfaces,contextSurfaces,atmosphereVolumes,collisionTriangles,reflectionProbes,lightmaps,lightmapped,probeLit,joinCentrelineRays,clearWalkingRays;
         }
     }
 }

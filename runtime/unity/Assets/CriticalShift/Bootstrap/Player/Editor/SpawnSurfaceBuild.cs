@@ -23,8 +23,13 @@ namespace CriticalShift.Player.Editor
         public SurfaceTexture letteringMesh;
         public SurfaceTexture wallMesh;
         public SurfaceTexture suitOcclusion;
+        public SurfaceTexture contextMesh; public ExportObject[] contextObjects; public MineSourceVolume[] volumes;
         public AssemblyLighting assemblyLighting;
         public MineJoinRay[] joinRays;
+    }
+    [Serializable] public sealed class MineSourceVolume
+    {
+        public string source; public float[] minimum,maximum,color;public int[] grid;public float anisotropy;public SurfaceTexture densityMap;
     }
     [Serializable] public sealed class MineJoinRay
     {
@@ -108,11 +113,19 @@ namespace CriticalShift.Player.Editor
             for(int index=0;index<package.atlases.Length;index++)
             {
                 var maps=package.atlases[index];var definitions=package.definitions.Where(d=>d.atlas==index).ToArray();
-                bool mine=package.room=="mine";
-                atlases.Add((mine && definitions.All(d=>d.baseConstant) ? null : Texture(maps.albedo,false),
-                    mine && definitions.All(d=>d.normalConstant) ? null : Texture(maps.normal,true),
-                    mine && definitions.All(d=>d.metallicConstant && d.roughnessConstant) ? null : Texture(maps.metallicSmoothness,false),
-                    mine && definitions.All(d=>d.emissionConstant) ? null : Texture(maps.emission,false)));
+                if(definitions.Length==0) throw new InvalidOperationException("Surface atlas has no material definitions: "+package.room+" "+index);
+                bool unusedBase=definitions.All(d=>d.baseConstant),unusedNormal=definitions.All(d=>d.normalConstant);
+                bool unusedNumeric=definitions.All(d=>d.metallicConstant && d.roughnessConstant && !d.thinSurface);
+                // JsonUtility can create an empty nested record for an omitted JSON
+                // field. Only an actual source file replaces the emission atlas.
+                bool unusedEmission=definitions.All(d=>d.emissionConstant ||
+                    (d.directEmission!=null && !string.IsNullOrEmpty(d.directEmission.file)));
+                if(unusedBase) TrimUnusedTexture(maps.albedo);
+                if(unusedNormal) TrimUnusedTexture(maps.normal);
+                if(unusedNumeric) TrimUnusedTexture(maps.metallicSmoothness);
+                if(unusedEmission) TrimUnusedTexture(maps.emission);
+                atlases.Add((unusedBase ? null : Texture(maps.albedo,false),unusedNormal ? null : Texture(maps.normal,true),
+                    unusedNumeric ? null : Texture(maps.metallicSmoothness,false),unusedEmission ? null : Texture(maps.emission,false)));
             }
             var result = new Dictionary<string, Material>();
             foreach (var definition in package.definitions)
@@ -209,7 +222,18 @@ namespace CriticalShift.Player.Editor
             texture.Apply(false,false); EditorUtility.SetDirty(texture); return texture;
         }
 
-        private static Texture2D Texture(SurfaceTexture source, bool normal)
+        private static void TrimUnusedTexture(SurfaceTexture source)
+        {
+            string path=SpawnMapBuild.Folder+source.file;
+            var importer=AssetImporter.GetAtPath(path) as TextureImporter;
+            if(importer==null) throw new InvalidOperationException("Missing unused atlas input: "+path);
+            importer.maxTextureSize=32;importer.mipmapEnabled=false;
+            var platform=importer.GetPlatformTextureSettings("Standalone");
+            if(platform.overridden) { platform.maxTextureSize=32;importer.SetPlatformTextureSettings(platform); }
+            if(AssetDatabase.WriteImportSettingsIfDirty(path)) AssetDatabase.ImportAsset(path,ImportAssetOptions.ForceUpdate);
+        }
+
+        internal static Texture2D Texture(SurfaceTexture source, bool normal)
         {
             if (source == null) throw new InvalidOperationException("Missing material texture.");
             SpawnMapBuild.CheckHash(source.file, source.sha256);
@@ -221,7 +245,7 @@ namespace CriticalShift.Player.Editor
             importer.textureShape = TextureImporterShape.Texture2D;
             importer.sRGBTexture = source.colorSpace == "sRGB";
             importer.maxTextureSize = source.size; importer.textureCompression = TextureImporterCompression.Uncompressed;
-            if(source.file.StartsWith("Surfaces/mine-",StringComparison.Ordinal) &&
+            if((source.file.StartsWith("Surfaces/mine-",StringComparison.Ordinal) || normal || source.file.Contains("metallic-smoothness")) &&
                 !source.file.Contains("display-lut") && !source.file.EndsWith(".exr",StringComparison.Ordinal))
             {
                 var platform=importer.GetPlatformTextureSettings("Standalone");platform.overridden=true;platform.format=normal ? TextureImporterFormat.BC5 : TextureImporterFormat.BC7;
@@ -229,10 +253,10 @@ namespace CriticalShift.Player.Editor
                 importer.SetPlatformTextureSettings(platform);
             }
             importer.npotScale = TextureImporterNPOTScale.None;
-            importer.mipmapEnabled = !source.file.Contains("display-lut") && !source.file.Contains("source-emission"); importer.wrapMode = TextureWrapMode.Clamp;
+            importer.mipmapEnabled = !source.file.Contains("display-lut") && !source.file.Contains("source-emission") && !source.file.Contains("mine-volume-"); importer.wrapMode = TextureWrapMode.Clamp;
             importer.isReadable = false;
             importer.filterMode = source.file.Contains("display-lut") ? FilterMode.Bilinear : FilterMode.Trilinear;
-            importer.SaveAndReimport();
+            if(AssetDatabase.WriteImportSettingsIfDirty(path)) AssetDatabase.ImportAsset(path,ImportAssetOptions.ForceUpdate);
             var texture=AssetDatabase.LoadAssetAtPath<Texture2D>(path);
             if (texture==null) throw new InvalidOperationException("Texture importer produced no Texture2D asset: "+path);
             if (source.file.Contains("display-lut") && (texture.width!=4096 || texture.height!=64))

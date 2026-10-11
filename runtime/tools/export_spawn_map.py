@@ -192,7 +192,12 @@ def main():
             # bake them. Release every unrelated source room before creating atlas copies.
             frames = {n.object for o in copies if o.type == "MESH" for m in o.data.materials if m and m.use_nodes
                       for n in m.node_tree.nodes if n.type == "TEX_COORD" and n.object}
-            keep = {*copies, root, *frames}
+            ancestors=set()
+            for frame in frames:
+                parent=frame.parent
+                while parent:
+                    ancestors.add(parent); parent=parent.parent
+            keep = {*copies, root, *frames, *ancestors}
             bpy.data.batch_remove([o for o in bpy.data.objects if o not in keep])
             bpy.data.batch_remove([s for s in bpy.data.scenes if s != target_scene])
             bpy.data.orphans_purge(do_local_ids=True,do_linked_ids=True,do_recursive=True)

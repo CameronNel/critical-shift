@@ -66,6 +66,16 @@ namespace CriticalShift.Player.Editor
             var wallMeshes=AssetDatabase.LoadAssetAtPath<GameObject>(Folder+package.wallMesh.file)
                 .GetComponentsInChildren<MeshFilter>().ToDictionary(f=>f.name,StringComparer.Ordinal);
             foreach (var room in map.rooms) { Import(room.mesh, false, readable: room.key == "spawn-room"); Import(room.collision, false, readable: true); }
+            var contextPackage=map.materials.SingleOrDefault(p=>p.room=="mine");
+            var contextBindings=(contextPackage?.contextObjects ?? Array.Empty<ExportObject>()).ToDictionary(b=>b.node,StringComparer.Ordinal);
+            var contextMeshes=new Dictionary<string,MeshFilter>(StringComparer.Ordinal);
+            if(contextPackage?.contextMesh!=null)
+            {
+                CheckHash(contextPackage.contextMesh.file,contextPackage.contextMesh.sha256);
+                Import(contextPackage.contextMesh.file,false,readable:true);
+                contextMeshes=AssetDatabase.LoadAssetAtPath<GameObject>(Folder+contextPackage.contextMesh.file)
+                    .GetComponentsInChildren<MeshFilter>().ToDictionary(f=>f.name,StringComparer.Ordinal);
+            }
             Import("CrewWorker.fbx", true);
             Import(rig.animationFile,true,clips:rig.clips);
             var controller = Controller(rig);
@@ -85,10 +95,29 @@ namespace CriticalShift.Player.Editor
                 var pointLights=room.lights.Where(l=>l.type=="POINT").Select(l=>roomRoot.transform.TransformPoint(V(l.position))).ToArray();
                 foreach (var node in model.GetComponentsInChildren<Transform>(true))
                     if (node.name.StartsWith("CS_", StringComparison.Ordinal)) nodes.Add(node.name, node);
-                foreach (var binding in room.objects)
+                foreach (var originalBinding in room.objects)
                 {
+                    var binding=contextBindings.TryGetValue(originalBinding.node,out var contextBinding) ? contextBinding : originalBinding;
                     if (!nodes.TryGetValue(binding.node, out var node)) throw new InvalidOperationException("Missing exported node: " + binding.node);
                     var renderer = node.GetComponent<Renderer>(); if (renderer != null) renderer.enabled = binding.visible;
+                    if(contextBindings.ContainsKey(binding.node))
+                    {
+                        var target=node.GetComponent<MeshFilter>();var source=contextMeshes[binding.node];
+                        var mesh=UnityEngine.Object.Instantiate(source.sharedMesh);
+                        var transform=node.worldToLocalMatrix*roomRoot.transform.localToWorldMatrix*source.transform.localToWorldMatrix;
+                        mesh.vertices=mesh.vertices.Select(v=>transform.MultiplyPoint3x4(v)).ToArray();
+                        var normalTransform=transform.inverse.transpose;
+                        mesh.normals=mesh.normals.Select(n=>normalTransform.MultiplyVector(n).normalized).ToArray();
+                        mesh.RecalculateBounds();mesh.RecalculateTangents();
+                        if((mesh.bounds.center-target.sharedMesh.bounds.center).magnitude>0.002f ||
+                           (mesh.bounds.size-target.sharedMesh.bounds.size).magnitude>0.002f || mesh.triangles.Length!=target.sharedMesh.triangles.Length)
+                            throw new InvalidOperationException("Mine context overlay changed geometry: "+binding.node+
+                                "; sourceBounds="+mesh.bounds+"; targetBounds="+target.sharedMesh.bounds+
+                                "; sourceIndices="+mesh.triangles.Length+"; targetIndices="+target.sharedMesh.triangles.Length);
+                        string meshPath=Folder+"Surfaces/"+binding.node+"-mine-context.asset";
+                        AssetDatabase.DeleteAsset(meshPath);AssetDatabase.CreateAsset(mesh,meshPath);target.sharedMesh=mesh;
+                        renderer.sharedMaterials=source.GetComponent<Renderer>().sharedMaterials;
+                    }
                     if(binding.lettering || binding.wallSurface)
                     {
                         var glyphFilter=node.GetComponent<MeshFilter>();
@@ -146,11 +175,11 @@ namespace CriticalShift.Player.Editor
                         if (binding.visible)
                             GameObjectUtility.SetStaticEditorFlags(node.gameObject, StaticEditorFlags.ReflectionProbeStatic |
                                 (binding.dynamic ? 0 : StaticEditorFlags.ContributeGI));
-                        if(room.key=="spawn-room" || room.key=="mine")
-                            SpawnSurfaceBuild.SplitEmbeddedEmitter(node,pointLights,map.materials.Single(p=>p.room==room.key));
-                        if(room.key=="mine" && renderer is MeshRenderer mineRenderer)
+                        if(room.key=="spawn-room" || room.key=="mine" || contextBindings.ContainsKey(binding.node))
+                            SpawnSurfaceBuild.SplitEmbeddedEmitter(node,pointLights,contextBindings.ContainsKey(binding.node) ? contextPackage : map.materials.Single(p=>p.room==room.key));
+                        if((room.key=="mine" || contextBindings.ContainsKey(binding.node)) && renderer is MeshRenderer mineRenderer)
                         {
-                            mineRenderer.scaleInLightmap=1;
+                            mineRenderer.scaleInLightmap=binding.source=="context_ground" ? 0.1f : 1;
                             var size=mineRenderer.bounds.size;
                             if(Mathf.Max(size.x,Mathf.Max(size.y,size.z))<0.5f)
                             {
@@ -192,6 +221,19 @@ namespace CriticalShift.Player.Editor
                         if(sourceLight.type=="SUN")
                         {
                             light.type=LightType.Directional; light.intensity=sourceLight.power;light.shadowAngle=sourceLight.angle;
+                            var q=sourceLight.rotation;var rotation=new Quaternion(q[1],q[2],q[3],q[0]);
+                            var forward=rotation*Vector3.back;var up=rotation*Vector3.up;
+                            light.transform.localRotation=Quaternion.LookRotation(V(new[] {forward.x,forward.y,forward.z}),V(new[] {up.x,up.y,up.z}));
+                        }
+                    }
+                    if(room.key=="front-end-area" && contextBindings.Count>0 && lamp.transform.position.x<=-23 && lamp.transform.position.z>=-99 && lamp.transform.position.z<=-44)
+                    {
+                        light.lightmapBakeType=LightmapBakeType.Baked;light.shadowNearPlane=0.01f;
+                        if(sourceLight.type=="AREA")
+                        {
+                            light.type=LightType.Rectangle;
+                            light.areaSize=new Vector2(sourceLight.size,sourceLight.sizeY>0 ? sourceLight.sizeY : sourceLight.size);
+                            light.intensity=sourceLight.power/(Mathf.PI*Mathf.Max(light.areaSize.x*light.areaSize.y,0.001f));
                             var q=sourceLight.rotation;var rotation=new Quaternion(q[1],q[2],q[3],q[0]);
                             var forward=rotation*Vector3.back;var up=rotation*Vector3.up;
                             light.transform.localRotation=Quaternion.LookRotation(V(new[] {forward.x,forward.y,forward.z}),V(new[] {up.x,up.y,up.z}));
@@ -408,8 +450,10 @@ namespace CriticalShift.Player.Editor
             if(animated) importer.materialImportMode=ModelImporterMaterialImportMode.None;
             if (Path.GetFileName(importer.assetPath) == "Room-spawn-room.fbx" || Path.GetFileName(importer.assetPath) == "Lettering.fbx" || Path.GetFileName(importer.assetPath) == "Walls.fbx")
             { importer.weldVertices = false; importer.meshCompression = ModelImporterMeshCompression.Off; importer.generateSecondaryUV = true; importer.secondaryUVMinLightmapResolution = 40; importer.secondaryUVMinObjectScale = 0.1f; }
-            if(Path.GetFileName(importer.assetPath)=="Room-mine.fbx")
+            if(Path.GetFileName(importer.assetPath)=="Room-mine.fbx" || Path.GetFileName(importer.assetPath)=="MineContext.fbx")
             { importer.weldVertices=false;importer.meshCompression=ModelImporterMeshCompression.Off;importer.generateSecondaryUV=false; }
+            if(Path.GetFileName(importer.assetPath)=="Room-front-end-area.fbx")
+                importer.weldVertices=false; // Match the overlay: retain authored faces before Unity's vertex welding.
             // Keep each room's complete collision mesh from the first import.
             importer.indexFormat = ModelImporterIndexFormat.UInt32;
             if (Path.GetFileName(importer.assetPath).StartsWith("Collision-", StringComparison.Ordinal))

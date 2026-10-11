@@ -85,13 +85,35 @@ def prepare(args):
     for record in config["sources"]:
         path = scratch / "map" / record["path"]
         if hashlib.sha256(path.read_bytes()).hexdigest() != record["sha256"]: raise ValueError("Source hash mismatch: "+record["path"])
+    reuse=getattr(args,"reuse_atlases",None)
+    if reuse:
+        cached=json.loads(Path(reuse).read_text())
+        if cached["method"]!="original-objects-v1" or cached["size"]!=args.size or cached["sources"]!=config["sources"]:
+            raise ValueError("Cached mine atlas belongs to a different source or bake recipe.")
     before = {r["key"]:{k:r[k] for k in ("translation","yaw","collisionSha256","meshSha256")} for r in manifest["rooms"]}
     audit = ROOT / "runtime/out/mine-bake-audit"; audit.mkdir(parents=True,exist_ok=True)
     (audit / "before-bindings.json").write_text(json.dumps(manifest,indent=2)+"\n")
     environment = dict(os.environ, CS_MINE_BAKE="1", CS_REUSE_COLLISION="1", CS_SURFACE_SIZE=str(args.size))
-    subprocess.run([args.blender,"-b",str(scratch/"combined-runtime-source.blend"),"--disable-autoexec",
-        "--python-exit-code","1","--python",str(ROOT/"runtime/tools/export_spawn_map.py"),"--",
-        str(scratch/"map-config.json"),str(output),"mine"],check=True,env=environment)
+    if getattr(args,"batched",False): environment["CS_MINE_JOIN_BAKE"]="1"
+    if reuse: environment["CS_REUSE_MINE_ATLASES"]=str(Path(reuse).resolve())
+    if not getattr(args,"context_only",False):
+        subprocess.run([args.blender,"-b",str(scratch/"combined-runtime-source.blend"),"--disable-autoexec",
+            "--python-exit-code","1","--python",str(ROOT/"runtime/tools/export_spawn_map.py"),"--",
+            str(scratch/"map-config.json"),str(output),"mine"],check=True,env=environment)
+    else:
+        package=next(p for p in manifest["materials"] if p["room"]=="mine")
+        if package.get("contextMesh"):
+            raise ValueError("Context is already attached; run a full preparation before rebuilding it.")
+        room=next(r for r in manifest["rooms"] if r["key"]=="mine")
+        if hashlib.sha256((output/room["mesh"]).read_bytes()).hexdigest()!=room["meshSha256"]:
+            raise ValueError("Completed core mesh changed before context resume.")
+        for atlas in package["atlases"]:
+            for record in atlas.values():
+                if hashlib.sha256((output/record["file"]).read_bytes()).hexdigest()!=record["sha256"]:
+                    raise ValueError("Completed core atlas changed before context resume.")
+    if not getattr(args,"skip_context",False):
+        subprocess.run([args.blender,"-b",str(scratch/"combined-runtime-source.blend"),"--disable-autoexec",
+            "--python-exit-code","1","--python",str(ROOT/"runtime/tools/export_mine_context.py"),"--",str(output)],check=True,env=environment)
     after = json.loads((output / "map-bindings.json").read_text())
     for room in after["rooms"]:
         for field,value in before[room["key"]].items():
@@ -118,5 +140,9 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--map-ref",default="d9eb1c5642273722f2ecee7179e958f05d39fa61")
     parser.add_argument("--blender",default="blender")
+    parser.add_argument("--batched",action="store_true",help="Batch compatible mine meshes with explicit coordinates and hidden originals.")
+    parser.add_argument("--reuse-atlases",type=Path,help="Verified source-pinned cache record for completed object-preserving atlas passes.")
+    parser.add_argument("--skip-context",action="store_true",help="Debug only: omit the source-authored depot mesh/material overlay.")
+    parser.add_argument("--context-only",action="store_true",help="Resume a completed core bake whose context export failed.")
     parser.add_argument("--size",type=int,choices=(2048,4096,8192),default=4096)
     prepare(parser.parse_args())

@@ -9,8 +9,8 @@
   "yaw": 0.0,
   "mesh": {
     "file": "Room-mine.fbx",
-    "sha256": "d540b4dd660d1da0410675f49cef97f40278576347b1e50310beb1d3b058f354",
-    "bytes": 201237100
+    "sha256": "e958dc5029da2a5f58881abb8cf89f331d5e10d9a092236213c55a7104384518",
+    "bytes": 191628204
   },
   "collision": {
     "file": "Collision-mine.fbx",
@@ -19,12 +19,12 @@
   },
   "geometrySha256": "27284056726f90dbcfd1a02a0ab3e3439c6af09d0244bd1b03c847a9d168bdb0",
   "surfaceMeshes": 167,
-  "materialDefinitions": 71,
+  "materialDefinitions": 135,
   "atlases": [
     {
       "albedo": {
         "file": "Surfaces/mine-mountain/spawn-albedo.png",
-        "sha256": "9a00355fc1b251d1003529440c2e8d7e2da38b6fb179794d4a9db09e762db718",
+        "sha256": "eb5a180c987a3b57b1fc727a893e63d21444fd6bda71d0d366d938865a93c662",
         "colorSpace": "sRGB",
         "size": 4096
       },
@@ -36,13 +36,13 @@
       },
       "normal": {
         "file": "Surfaces/mine-mountain/spawn-normal.png",
-        "sha256": "9fcb6865a00f0961c8112fd3e2e48f89101d52c44d4ef61861d90c520204a3c8",
+        "sha256": "15441c7ff69fe0f85a336ffcb6690c8eebedc82cfc3e99a9b553c2610b7601df",
         "colorSpace": "linear",
         "size": 4096
       },
       "emission": {
         "file": "Surfaces/mine-mountain/spawn-emission.exr",
-        "sha256": "f6e50eabbab487b4f2589f5991d2e52da443929ccd87affa6694d654e5568073",
+        "sha256": "80dc834549107e8e2b58e0bc7ffa65c06b82f4c82947892e938b9d158dec4a11",
         "colorSpace": "linear",
         "size": 4096
       }
@@ -50,25 +50,25 @@
     {
       "albedo": {
         "file": "Surfaces/mine-ground/spawn-albedo.png",
-        "sha256": "a5234300b51b7448fb22875576e7dfd5ea59422b2df7500b90dee29238701a7b",
+        "sha256": "ef4b556246d18e0e7df0c8209caff6dfb041edd47c494ae705eba471208254eb",
         "colorSpace": "sRGB",
         "size": 4096
       },
       "metallicSmoothness": {
         "file": "Surfaces/mine-ground/spawn-metallic-smoothness.png",
-        "sha256": "21c60b4ad139e72e018de4fd420648fbad47a25df19a967f9d701bb189e8b4ad",
+        "sha256": "6e18dd9164417611072cb78a645d7f61393e377703d41a548179a79ada66510b",
         "colorSpace": "linear",
         "size": 4096
       },
       "normal": {
         "file": "Surfaces/mine-ground/spawn-normal.png",
-        "sha256": "d4292c409beb6678db090328626b5763bbe88c5feee30b2f721d2fa82f8de3e6",
+        "sha256": "9cdbbc1862019b2403f3d71ee2b2b676f3bf74bf9f8facec8bdf14e9a084cc3d",
         "colorSpace": "linear",
         "size": 4096
       },
       "emission": {
         "file": "Surfaces/mine-ground/spawn-emission.exr",
-        "sha256": "2477a4b02c2b9825d2ce7db1ae2f1b0855cf9b282e5d2e9660b05ff457171797",
+        "sha256": "72a24e9e79fee3d1b706f2fdfdc8b73eaa62bf7278c2fd771ca28706425affcb",
         "colorSpace": "linear",
         "size": 4096
       }
@@ -76,25 +76,25 @@
     {
       "albedo": {
         "file": "Surfaces/mine-rocks/spawn-albedo.png",
-        "sha256": "39b090148e71da4194996da5ebaa864ef4a5012d525f158268a49bc203e8a583",
+        "sha256": "68a54448198eb6c5615060764a077ba69979be3bd21af82787b032593badf6c4",
         "colorSpace": "sRGB",
         "size": 4096
       },
       "metallicSmoothness": {
         "file": "Surfaces/mine-rocks/spawn-metallic-smoothness.png",
-        "sha256": "ccba2e047f07f3d861fccfb9b5184b1b52aea5483bbe73824fe0740020b84b74",
+        "sha256": "b3ba9461baf7622991bf394decdf60ed549401ea724f970f15e1c564630a872a",
         "colorSpace": "linear",
         "size": 4096
       },
       "normal": {
         "file": "Surfaces/mine-rocks/spawn-normal.png",
-        "sha256": "e8d16057aad636a4e8b5d68c816930c193c57f389bddb25e99ae493e32d3984b",
+        "sha256": "4878235228ef4948561ecd273a9632578376414c128c46e101c7ce915efbc993",
         "colorSpace": "linear",
         "size": 4096
       },
       "emission": {
         "file": "Surfaces/mine-rocks/spawn-emission.exr",
-        "sha256": "ca86081fe1c649620e002d92b331a190db35a96bb863ce65b2441c304c51209d",
+        "sha256": "2911c05597677d742d89e9ac95dc4f4728d01df84d6e00e956e9c770d9a27cb5",
         "colorSpace": "linear",
         "size": 4096
       }
@@ -102,19 +102,19 @@
     {
       "albedo": {
         "file": "Surfaces/mine-structure/spawn-albedo.png",
-        "sha256": "3f2736465f016817ebdc220a0f64a39410964c94fd6dbc6c54cd33e5e84af4d1",
+        "sha256": "2bed0051ac89106dc5c5d64b88b944a3fdefc0a288a0e56ede67b600461d5138",
         "colorSpace": "sRGB",
         "size": 4096
       },
       "metallicSmoothness": {
         "file": "Surfaces/mine-structure/spawn-metallic-smoothness.png",
-        "sha256": "23befe50dbf70a6c7bdc9b9ef9ad3f368f80f8f618aebee7c2cd8bfb332104fc",
+        "sha256": "604623adadca9b9bfa6dfc308fe9e24bfce8b51910447e677ac25060b537b794",
         "colorSpace": "linear",
         "size": 4096
       },
       "normal": {
         "file": "Surfaces/mine-structure/spawn-normal.png",
-        "sha256": "b5cdbcfde35b64cef9d2744aa7d5da43ef2337cf8e583c43d3ba6de846cea877",
+        "sha256": "9410a61f0c8ea6ba46d372abc2cd6a24f56211cec523a1fd134ab5d16efe6fae",
         "colorSpace": "linear",
         "size": 4096
       },
@@ -128,25 +128,103 @@
     {
       "albedo": {
         "file": "Surfaces/mine-props/spawn-albedo.png",
-        "sha256": "227a02bb712ad6d934b4413f95d9d05d5671396fe5c37cf86e58226ae06713e7",
+        "sha256": "97827d75f70229733b20426ac8f6927603d8e9a0483adb61fc296132dd3c62de",
         "colorSpace": "sRGB",
         "size": 4096
       },
       "metallicSmoothness": {
         "file": "Surfaces/mine-props/spawn-metallic-smoothness.png",
-        "sha256": "ff884f149951db851c08e117dd676ba1c4461c9b07ebe214a3f14cda856bb6d3",
+        "sha256": "0a7b22f49a61eb470f964d97ec21a73375e680a8dc76aac83f4d3e1ad60d1980",
         "colorSpace": "linear",
         "size": 4096
       },
       "normal": {
         "file": "Surfaces/mine-props/spawn-normal.png",
-        "sha256": "3ec9c4c9b0b3bfe60b3560cb44d9b0a9d007baa4773ee588ce3314c61189a830",
+        "sha256": "41a25d0013fef2e4708815f307496e91264645430be956d2ab05f0fa7e708519",
         "colorSpace": "linear",
         "size": 4096
       },
       "emission": {
         "file": "Surfaces/mine-props/spawn-emission.exr",
-        "sha256": "a344f28871e14bb77850800573c00d7375bd9db5a190b970c95a2cabd793a3ec",
+        "sha256": "0826718254b523fd17c02978e76211bbf53cc1404051cb759ad2921fce4d1335",
+        "colorSpace": "linear",
+        "size": 4096
+      }
+    },
+    {
+      "albedo": {
+        "file": "Surfaces/mine-context-ground/spawn-albedo.png",
+        "sha256": "f27e4bcb4813766610220a412b56442cc056959d77981c00b7637a305fb763ad",
+        "colorSpace": "sRGB",
+        "size": 4096
+      },
+      "metallicSmoothness": {
+        "file": "Surfaces/mine-context-ground/spawn-metallic-smoothness.png",
+        "sha256": "e2fac50f4928a5301c8edad49e3963eb5be408d42d579f0308c0d4b1b7febba2",
+        "colorSpace": "linear",
+        "size": 4096
+      },
+      "normal": {
+        "file": "Surfaces/mine-context-ground/spawn-normal.png",
+        "sha256": "edabc9250220f53af473815cd5a9a7334bd77b6ddcf76ea6ee6f5f0f8d24999e",
+        "colorSpace": "linear",
+        "size": 4096
+      },
+      "emission": {
+        "file": "Surfaces/mine-context-ground/spawn-emission.exr",
+        "sha256": "0826718254b523fd17c02978e76211bbf53cc1404051cb759ad2921fce4d1335",
+        "colorSpace": "linear",
+        "size": 4096
+      }
+    },
+    {
+      "albedo": {
+        "file": "Surfaces/mine-context-structure/spawn-albedo.png",
+        "sha256": "ec4647174570a99c65e6f4b5b05de590b4125f320b966daaf4d31b5303b09748",
+        "colorSpace": "sRGB",
+        "size": 4096
+      },
+      "metallicSmoothness": {
+        "file": "Surfaces/mine-context-structure/spawn-metallic-smoothness.png",
+        "sha256": "8fb1c1829048ca762c37c02f4952e2bc6134e81f0057c280e0d36e42cd5f5cb8",
+        "colorSpace": "linear",
+        "size": 4096
+      },
+      "normal": {
+        "file": "Surfaces/mine-context-structure/spawn-normal.png",
+        "sha256": "73cbe9cbec55b25fc96bbf043e08506a4fd4eeebac6b376114a683fd532ecc67",
+        "colorSpace": "linear",
+        "size": 4096
+      },
+      "emission": {
+        "file": "Surfaces/mine-context-structure/spawn-emission.exr",
+        "sha256": "c2e0827a5482f9bb01e0e99afad097d0d84cae3ad4b26e4703babe57398b93e6",
+        "colorSpace": "linear",
+        "size": 4096
+      }
+    },
+    {
+      "albedo": {
+        "file": "Surfaces/mine-context-props/spawn-albedo.png",
+        "sha256": "876422b77a9afbca48867520212f9a0e69fe7568276dc6304fef3b55cff10396",
+        "colorSpace": "sRGB",
+        "size": 4096
+      },
+      "metallicSmoothness": {
+        "file": "Surfaces/mine-context-props/spawn-metallic-smoothness.png",
+        "sha256": "b7f7a146d67d24de9adda77dc52846d21290f30ead3bc83f2c3ab16f1e3fe592",
+        "colorSpace": "linear",
+        "size": 4096
+      },
+      "normal": {
+        "file": "Surfaces/mine-context-props/spawn-normal.png",
+        "sha256": "1e4b5409307b11f6a47ee703cec77c11a8511d643ca3d8f653b44a23c586c518",
+        "colorSpace": "linear",
+        "size": 4096
+      },
+      "emission": {
+        "file": "Surfaces/mine-context-props/spawn-emission.exr",
+        "sha256": "c428c31d41a3115e0e766766bf8fe77fbb74d5609a534d643c3e8bda031e4634",
         "colorSpace": "linear",
         "size": 4096
       }
@@ -187,6 +265,82 @@
       "reason": "Authored volume requires engine-specific atmosphere, not an albedo atlas."
     }
   ],
-  "limits": "Unlit surface delivery. Source shader AO is retained; scene illumination is not baked into albedo. View-dependent crystal color, transmission and volumetric haze need native comparison; no independent art acceptance.",
-  "lightingUv": "Dedicated per-mesh Blender export; UV0, UV2 source channels and geometry preserved. See mine-lightmap-uv.json."
+  "limits": "Materials exported; corrected native lighting, matched captures and Player validation pending. Volume scattering and depot glazing are raster approximations; independent art acceptance pending.",
+  "lightingUv": "Dedicated per-mesh Blender export; UV0, UV2 source channels and geometry preserved. See mine-lightmap-uv.json.",
+  "contextMesh": {
+    "file": "MineContext.fbx",
+    "sha256": "bb82a687447001ac0838308fa1a9f420675d4124bb9d7b02ddbea725d0430c13",
+    "colorSpace": "mesh",
+    "size": 0
+  },
+  "contextSurfaces": 317,
+  "contextGeometrySha256": "204ef6ec5eb1971b78a68c7c0618d7ed4ae7c2ab42bfe174a92e8326b988fbb7",
+  "volumes": [
+    {
+      "source": "R38 | Tunnel haze",
+      "minimum": [
+        -107.4000015258789,
+        -75.5,
+        -1.1999999284744263
+      ],
+      "maximum": [
+        -53.400001525878906,
+        -64.5,
+        4.0
+      ],
+      "color": [
+        0.3199999928474426,
+        0.36000001430511475,
+        0.6200000047683716,
+        1.0
+      ],
+      "anisotropy": 0.0,
+      "grid": [
+        128,
+        16,
+        16
+      ],
+      "densityMinimum": 0.006179687101393938,
+      "densityMaximum": 0.03407031297683716,
+      "densityMap": {
+        "file": "Surfaces/mine-volume-0-density.exr",
+        "sha256": "240f0de3851c10c3d5f8bbd9ca73754aac127abbc49f27d64fe9fbdd7257eb59",
+        "colorSpace": "linear",
+        "size": 256
+      }
+    },
+    {
+      "source": "R39 | Shed haze",
+      "minimum": [
+        -51.69999694824219,
+        -77.5,
+        0.10000014305114746
+      ],
+      "maximum": [
+        -39.75,
+        -62.650001525878906,
+        4.699999809265137
+      ],
+      "color": [
+        0.5,
+        0.44999998807907104,
+        0.5,
+        1.0
+      ],
+      "anisotropy": 0.0,
+      "grid": [
+        128,
+        16,
+        16
+      ],
+      "densityMinimum": 0.007537500001490116,
+      "densityMaximum": 0.017662499099969864,
+      "densityMap": {
+        "file": "Surfaces/mine-volume-1-density.exr",
+        "sha256": "3d2f3d946319f74a2d99378b03ac7d402d1039283ba564e40ddf9d5324163baf",
+        "colorSpace": "linear",
+        "size": 256
+      }
+    }
+  ]
 }

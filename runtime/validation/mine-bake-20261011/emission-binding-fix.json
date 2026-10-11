@@ -1,0 +1,23 @@
+{
+  "status": "Diagnostic passed; fresh lighting pending",
+  "cause": "JsonUtility constructed empty directEmission records; non-null test skipped required emission atlases",
+  "nativeDiagnosticLog": "emission-diagnostic.log",
+  "shaderBindingsCheck": "CS_MATERIAL_EMISSION_BINDINGS_OK",
+  "solidWhiteTunnelBacking": "Removed in diagnostic render; previous lightmaps retained",
+  "sourceAlbedoCheck": "Blender emitting-shader comparison against delivered FBX atlas showed broadly matching cliff base colour; assembled/local source instances had matching colour",
+  "remaining": "Fresh native lighting, matched final captures, Player build and smoke; cliff lighting and timber appearance need visual review",
+  "additionalSourceConstantCorrection": {
+    "scope": "Only source-proven constant zero emission; no source, geometry, placement, UV, texture or collision changes",
+    "beforeMapSHA256": "9255bcbec77615c9cd4563a49b510e0d854dc3c83db192eb279356cf9fd8b96f",
+    "afterMapSHA256": "90e89701e213771583079b635535731edf750e84b65e4241e2b35f0a3c1d19fd",
+    "changes": [
+      {
+        "key": "CS_mine_surface_mine-mountain_001",
+        "source": "GF | Shaded Cliff Foot",
+        "oldEmissionConstant": false,
+        "newEmissionConstant": true,
+        "strength": 0.0
+      }
+    ]
+  }
+}

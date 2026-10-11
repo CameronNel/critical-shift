@@ -1,5 +1,6 @@
 """Bake source shader inputs into a delivery atlas; never bake scene lighting into albedo."""
 import hashlib
+import json
 import math
 import os
 from pathlib import Path
@@ -77,7 +78,8 @@ def constant_inputs(material):
     f0=((ior-1)/(ior+1))**2 * 2*float(bsdf.inputs["Specular IOR Level"].default_value)
     return {"baseConstant":constant("Base Color"),"normalConstant":constant("Normal"),
         "metallicConstant":constant("Metallic"),"roughnessConstant":constant("Roughness"),
-        "emissionConstant":constant("Emission Color") and constant("Emission Strength"),
+        "emissionConstant":constant("Emission Strength") and
+            (constant("Emission Color") or bsdf.inputs["Emission Strength"].default_value == 0),
         "surfaceOpacity":surface_opacity(material),
         "dielectricSpecular":f0,
         "baseColor":list(bsdf.inputs["Base Color"].default_value),
@@ -109,12 +111,31 @@ def bake_atlas(scene, objects, mappings, output, source_view, atlas_key, room="s
     meshes = [o for o in objects if o.type == "MESH" and len(o.data.polygons) and len(o.data.materials)]
     originals = list(dict.fromkeys(m for o in meshes for m in o.data.materials if m))
     copies, states, definitions, coordinate_attributes, thin_states = {}, {}, [], {}, {}
+    joined = room != "mine" or os.environ.get("CS_MINE_JOIN_BAKE") == "1"
+    if room == "mine" and any(n.type=="OBJECT_INFO" and any(s.is_linked for s in n.outputs) for m in originals for n in m.node_tree.nodes): joined=False
     for index, original in enumerate(originals):
         prefix = "spawn" if room == "spawn-room" else room
         m = original.copy(); m.name = "CS_" + prefix + "_surface_" + atlas_key + "_" + str(index).zfill(3)
         copies[original] = m
         nt = m.node_tree
         bsdf = next((n for n in nt.nodes if n.type == "BSDF_PRINCIPLED"), None)
+        source_constants = original
+        if bsdf is None and atlas_key.startswith("mine-context-"):
+            glass = next((n for n in nt.nodes if n.type == "BSDF_GLASS"), None)
+            if glass is not None:
+                # Raster approximation of depot glazing, in the disposable export only.
+                # The source's shadow-ray transparent branch has no raster equivalent.
+                bsdf = nt.nodes.new("ShaderNodeBsdfPrincipled")
+                for old_name, new_name in (("Color", "Base Color"), ("Roughness", "Roughness"), ("IOR", "IOR"), ("Normal", "Normal")):
+                    old_socket, new_socket = glass.inputs[old_name], bsdf.inputs[new_name]
+                    if old_socket.is_linked: nt.links.new(old_socket.links[0].from_socket, new_socket)
+                    else: new_socket.default_value = old_socket.default_value
+                bsdf.inputs["Transmission Weight"].default_value = 1
+                out = next(n for n in nt.nodes if n.type == "OUTPUT_MATERIAL" and n.is_active_output)
+                nt.links.new(bsdf.outputs["BSDF"], out.inputs["Surface"])
+                for node in list(nt.nodes):
+                    if node.type in {"BSDF_GLASS", "BSDF_TRANSPARENT", "MIX_SHADER", "LIGHT_PATH"}: nt.nodes.remove(node)
+                source_constants = m
         if bsdf is None: raise ValueError("Unsupported source surface: " + original.name)
         # Explicitly retain the old UV input while baking into an additional UV layer.
         source_uv = nt.nodes.new("ShaderNodeUVMap"); source_uv.uv_map = SOURCE_UV
@@ -122,13 +143,13 @@ def bake_atlas(scene, objects, mappings, output, source_view, atlas_key, room="s
             if room == "mine" and n.type == "NORMAL_MAP" and n.space == "TANGENT" and not n.uv_map:
                 # The original tangent basis must not silently switch to the new atlas UVs.
                 n.uv_map = SOURCE_UV
-            if n.type in {"TEX_NOISE","TEX_VORONOI","TEX_WAVE","TEX_MAGIC","TEX_GRADIENT","TEX_BRICK","TEX_CHECKER","TEX_WHITE_NOISE"} and not n.inputs["Vector"].is_linked:
+            if joined and n.type in {"TEX_NOISE","TEX_VORONOI","TEX_WAVE","TEX_MAGIC","TEX_GRADIENT","TEX_BRICK","TEX_CHECKER","TEX_WHITE_NOISE"} and not n.inputs["Vector"].is_linked:
                 coordinate_attributes["CS_Generated"]=("Generated",None)
                 attribute=nt.nodes.new("ShaderNodeAttribute");attribute.attribute_name="CS_Generated"
                 nt.links.new(attribute.outputs["Vector"],n.inputs["Vector"])
             if n.type == "TEX_IMAGE" and not n.inputs["Vector"].is_linked:
                 nt.links.new(source_uv.outputs["UV"], n.inputs["Vector"])
-            if n.type == "TEX_COORD":
+            if joined and n.type == "TEX_COORD":
                 for link in list(n.outputs["UV"].links): nt.links.new(source_uv.outputs["UV"], link.to_socket)
                 for socket in ("Generated", "Object"):
                     if not n.outputs[socket].is_linked: continue
@@ -147,7 +168,7 @@ def bake_atlas(scene, objects, mappings, output, source_view, atlas_key, room="s
         alpha = bsdf.inputs["Alpha"].default_value
         definition={"key":m.name,"source":original.name,"transmission":float(transmission),
             "alpha":float(alpha),"transparent":transmission > 0.01 or alpha < 0.999 or any(n.type == "BSDF_TRANSPARENT" for n in nt.nodes)}
-        definition.update(constant_inputs(original))
+        definition.update(constant_inputs(source_constants))
         emission_socket=bsdf.inputs["Emission Color"]
         if emission_socket.is_linked and emission_socket.links[0].from_node.type=="TEX_IMAGE" and all(not bsdf.inputs[k].is_linked for k in ("Base Color","Metallic","Roughness","Normal","Alpha","Emission Strength")):
             source_image=emission_socket.links[0].from_node.image
@@ -187,6 +208,11 @@ def bake_atlas(scene, objects, mappings, output, source_view, atlas_key, room="s
             for loop,uv in zip(o.data.loops,o.data.uv_layers[UV].data):
                 vertex=o.data.vertices[loop.vertex_index].co
                 uv.uv=((vertex.x-low[0])/extent[0],(vertex.y-low[1])/extent[1])
+    elif room=="mine" and atlas_key not in {"mine-mountain","mine-ground","mine-rocks"}:
+        # Source topology can split every painted face. Weld only temporary unwrap
+        # proxies, retaining every delivered vertex, polygon and custom attribute.
+        from mine_delivery_uv import unwrap
+        unwrap(meshes,UV,margin/size,world_vertices=True)
     else:
         bpy.ops.object.mode_set(mode="EDIT")
         bpy.ops.mesh.select_all(action="SELECT")
@@ -199,30 +225,51 @@ def bake_atlas(scene, objects, mappings, output, source_view, atlas_key, room="s
     del positions
     # Bake one temporary joined mesh rather than compiling the scene once for each of 1,700 objects.
     # Store object/generated coordinates first: joining alone would change the procedural recipes.
-    batches=[]
-    for o in meshes:
-        batch=o.copy(); batch.data=o.data.copy(); batch.parent=None; batch.matrix_world=o.matrix_world
-        # Source material coordinates/tangents are captured in the bind pose. The
-        # original skinned meshes keep their modifiers and weights for FBX export.
-        for modifier in list(batch.modifiers):
-            if modifier.type == "ARMATURE": batch.modifiers.remove(modifier)
-        scene.collection.objects.link(batch); batches.append(batch)
-        local=np.array([tuple(v.co) for v in batch.data.vertices],dtype=np.float32)
-        low=local.min(axis=0); extent=np.maximum(local.max(axis=0)-low,1e-8)
-        for name,(socket,frame) in coordinate_attributes.items():
-            if socket == "Generated": values=(local-low)/extent
-            elif frame is None: values=local
-            else:
-                transform=frame.matrix_world.inverted() @ o.matrix_world
-                values=np.array([tuple(transform @ v.co) for v in o.data.vertices],dtype=np.float32)
-            attribute=batch.data.attributes.new(name=name,type="FLOAT_VECTOR",domain="POINT")
-            attribute.data.foreach_set("vector",values.ravel())
-    bpy.ops.object.select_all(action="DESELECT")
-    for o in batches: o.select_set(True)
-    bpy.context.view_layer.objects.active=batches[0]
-    bpy.ops.object.join()
-    batch=bpy.context.view_layer.objects.active
+    batch = None
+    if not joined:
+        bpy.ops.object.select_all(action="DESELECT")
+        for o in meshes: o.select_set(True)
+        bpy.context.view_layer.objects.active = meshes[0]
+    else:
+        batches=[]
+        for o in meshes:
+            batch=o.copy(); batch.data=o.data.copy(); batch.parent=None; batch.matrix_world=o.matrix_world
+            # Source material coordinates/tangents are captured in the bind pose. The
+            # original skinned meshes keep their modifiers and weights for FBX export.
+            for modifier in list(batch.modifiers):
+                if modifier.type == "ARMATURE": batch.modifiers.remove(modifier)
+            scene.collection.objects.link(batch); batches.append(batch)
+            local=np.array([tuple(v.co) for v in batch.data.vertices],dtype=np.float32)
+            low=local.min(axis=0); extent=np.maximum(local.max(axis=0)-low,1e-8)
+            for name,(socket,frame) in coordinate_attributes.items():
+                if socket == "Generated": values=(local-low)/extent
+                elif frame is None: values=local
+                else:
+                    transform=frame.matrix_world.inverted() @ o.matrix_world
+                    values=np.array([tuple(transform @ v.co) for v in o.data.vertices],dtype=np.float32)
+                attribute=batch.data.attributes.new(name=name,type="FLOAT_VECTOR",domain="POINT")
+                attribute.data.foreach_set("vector",values.ravel())
+        schema_groups={}
+        for o in batches:
+            signature=(tuple(sorted((a.name,a.data_type,a.domain) for a in o.data.attributes if not a.name.startswith('.'))),tuple(u.name for u in o.data.uv_layers)) if room=='mine' else ('spawn',)
+            schema_groups.setdefault(signature,[]).append(o)
+        joined_batches=[]
+        for group in schema_groups.values():
+            bpy.ops.object.select_all(action="DESELECT")
+            for o in group:o.select_set(True)
+            bpy.context.view_layer.objects.active=group[0]
+            if len(group)>1:bpy.ops.object.join()
+            joined_batches.append(bpy.context.view_layer.objects.active)
+        original_visibility={o:o.hide_render for o in meshes}
+        if room=="mine":
+            for o in meshes:o.hide_render=True
+        bpy.ops.object.select_all(action="DESELECT")
+        for o in joined_batches:o.select_set(True)
+        bpy.context.view_layer.objects.active=joined_batches[0]
+        batch=joined_batches
+        print("CS_SURFACE_COMPATIBLE_BATCHES",atlas_key,len(joined_batches),flush=True)
     scene.render.engine = "CYCLES"; scene.cycles.device = "CPU"; scene.cycles.samples = 1
+    scene.render.use_persistent_data = room == "mine"
     scene.render.bake.margin = margin; scene.render.bake.use_clear = False
     scene.render.bake.use_selected_to_active = False
     folder = output / "Surfaces" / atlas_key; folder.mkdir(parents=True,exist_ok=True)
@@ -232,7 +279,17 @@ def bake_atlas(scene, objects, mappings, output, source_view, atlas_key, room="s
         if source.is_linked: nt.links.new(source.links[0].from_socket, destination)
         else: destination.default_value = source.default_value
 
+    reuse_path=os.environ.get("CS_REUSE_MINE_ATLASES") if room=="mine" else None
+    reused=json.loads(Path(reuse_path).read_text())["atlases"].get(atlas_key) if reuse_path else None
     for channel in ("albedo", "metallic-smoothness", "normal", "emission"):
+        key="metallicSmoothness" if channel=="metallic-smoothness" else channel
+        if reused and key in reused:
+            record=reused[key]
+            if hashlib.sha256((output/record["file"]).read_bytes()).hexdigest()!=record["sha256"]:
+                raise ValueError("Cached mine atlas changed: "+record["file"])
+            files[key]=record
+            print("CS_SURFACE_REUSE_VERIFIED",atlas_key,channel,flush=True)
+            continue
         image = bpy.data.images.new("CS_spawn_"+channel,width=size,height=size,alpha=True,float_buffer=True)
         image.colorspace_settings.name = "sRGB" if channel == "albedo" else "Non-Color"
         for m, (bsdf,out,root,target,emission) in states.items():
@@ -265,7 +322,15 @@ def bake_atlas(scene, objects, mappings, output, source_view, atlas_key, room="s
                     connect(nt,bsdf.inputs["Alpha"],rgb.inputs["Blue"])
                     nt.links.new(rgb.outputs[0],emission.inputs["Color"])
         print("CS_SURFACE_BAKE_START",atlas_key,channel,len(meshes),size,flush=True)
-        bpy.ops.object.bake(type="NORMAL" if channel == "normal" else "EMIT",uv_layer=UV)
+        uniform = room == "mine" and all(d["baseConstant"] if channel == "albedo" else
+            d["normalConstant"] if channel == "normal" else d["emissionConstant"] if channel == "emission" else
+            d["metallicConstant"] and d["roughnessConstant"] for d in definitions)
+        if uniform:
+            # Every runtime material carries the exact source constants; this atlas channel is unused.
+            # Retain its declared file without compiling the scene repeatedly for a discarded map.
+            print("CS_SURFACE_CONSTANT_CHANNEL",atlas_key,channel,flush=True)
+        else:
+            bpy.ops.object.bake(type="NORMAL" if channel == "normal" else "EMIT",uv_layer=UV)
         if channel == "metallic-smoothness":
             # Alpha is numeric smoothness, not opacity. Straight/premultiplied saving
             # would divide metallic by smoothness and turn painted steel into metal.
@@ -288,7 +353,9 @@ def bake_atlas(scene, objects, mappings, output, source_view, atlas_key, room="s
         print("CS_SURFACE_BAKE_DONE",atlas_key,channel,flush=True)
         for state in states.values(): state[3].image=None
         bpy.data.images.remove(image)
-    bpy.data.objects.remove(batch,do_unlink=True)
+    if batch is not None:
+        for o in batch:bpy.data.objects.remove(o,do_unlink=True)
+        for o,visible in original_visibility.items():o.hide_render=visible
     # Joining/deleting temporary objects leaves their mesh datablocks allocated.
     # Large room bakes must not accumulate a second copy of every preceding atlas.
     bpy.data.batch_remove([mesh for mesh in bpy.data.meshes if mesh.users == 0])

@@ -55,7 +55,11 @@ namespace CriticalShift.Player.Editor
             group.probePositions=positions.ToArray();
             var rooms=EditorSceneManager.GetActiveScene().GetRootGameObjects().SelectMany(o=>o.GetComponentsInChildren<Transform>(true))
                 .Where(o=>o.name.StartsWith("ROOM_",StringComparison.Ordinal) && o!=root && o!=mine).Select(o=>o.gameObject).ToArray();
-            foreach (var room in rooms) room.SetActive(false);
+            var contextNodes=new HashSet<string>(map.materials.Single(p=>p.room=="mine").contextObjects?.Select(o=>o.node) ?? Enumerable.Empty<string>(),StringComparer.Ordinal);
+            var contextRoot=contextNodes.Count>0 ? RoomRoot("front-end-area") : null;
+            var mutedContext=contextRoot==null ? Array.Empty<Renderer>() : contextRoot.GetComponentsInChildren<Renderer>().Where(r=>r.enabled && !contextNodes.Contains(r.name) && r.name!="Embedded emitter surface").ToArray();
+            foreach(var renderer in mutedContext) renderer.enabled=false;
+            foreach (var room in rooms) if(room.transform!=contextRoot) room.SetActive(false);
             EditorSceneManager.SaveScene(EditorSceneManager.GetActiveScene(),SpawnMapBuild.ScenePath);
             // Physics meshes do not participate in lighting. Release cooked collision
             // during the bake, then restore the exact manifest meshes before saving.
@@ -64,11 +68,13 @@ namespace CriticalShift.Player.Editor
             EditorUtility.UnloadUnusedAssetsImmediate();
             GC.Collect();
             Debug.Log("CS_SPAWN_LIGHTING_BAKE_START");
-            if (!Lightmapping.Bake()) throw new InvalidOperationException("Spawn lightmap bake did not complete.");
+            if (!Lightmapping.Bake() || LightmapSettings.lightmaps.Length==0)
+                throw new InvalidOperationException("Spawn lightmap bake did not produce lightmaps.");
             Debug.Log("CS_SPAWN_LIGHTING_BAKE_OK; lightmaps="+LightmapSettings.lightmaps.Length);
             foreach(var room in map.rooms)
                 SpawnMapBuild.RestoreCollision(RoomRoot(room.key),room);
             foreach (var room in rooms) room.SetActive(true);
+            foreach(var renderer in mutedContext) renderer.enabled=true;
             FinishLighting(root);
             if(mine!=null) MineVisualLighting.Finish(mine);
             worker.SetActive(true);
@@ -181,6 +187,8 @@ namespace CriticalShift.Player.Editor
                     foreach(var texture in new[] {atlas.albedo,atlas.normal,atlas.metallicSmoothness,atlas.emission})
                         SpawnMapBuild.CheckHash(texture.file,texture.sha256);
                 SpawnMapBuild.CheckHash(roomPackage.displayLut.file,roomPackage.displayLut.sha256);
+                if(roomPackage.contextMesh!=null) SpawnMapBuild.CheckHash(roomPackage.contextMesh.file,roomPackage.contextMesh.sha256);
+                foreach(var volume in roomPackage.volumes ?? Array.Empty<MineSourceVolume>()) SpawnMapBuild.CheckHash(volume.densityMap.file,volume.densityMap.sha256);
             }
             ValidateReflectionImports();
         }
@@ -260,6 +268,8 @@ namespace CriticalShift.Player.Editor
                 camera.allowHDR=true; camera.allowMSAA=true; camera.renderingPath=RenderingPath.Forward;
                 camera.clearFlags=CameraClearFlags.SolidColor; camera.backgroundColor=Color.black;
                 if(roomKey=="mine") camera.backgroundColor=new Color(sky.world_color[0],sky.world_color[1],sky.world_color[2]).gamma*sky.world_strength;
+                var minePackage=map.materials.SingleOrDefault(p=>p.room=="mine");
+                if(minePackage!=null) MineVisualLighting.ConfigureAtmosphere(camera,minePackage);
                 if (Array.IndexOf(args,"-csRawCapture")<0) node.AddComponent<BlenderView>().Configure(display);
                 var target=new RenderTexture(1440,810,24,RenderTextureFormat.ARGB32,RenderTextureReadWrite.sRGB);
                 target.antiAliasing=4;
