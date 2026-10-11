@@ -23,6 +23,7 @@ modules (they are never edited). Frame: plan metres, +x east, +y north, origin a
 | 3 | Refinery | `sources/refinery/module_overhaul_R1.blend` (17 root collections of the overhaul scene) | translation (-26.28, -52.2), rotation 90 | added, awaiting owner OK |
 | 4 | Medical reanimation | `sources/medical-reanimation/module_overhaul_R2.blend` | translation (26, -70), rotation -90 | added, awaiting owner OK |
 | 5 | Fuel corridor | `sections/fuel-corridor/production/checkpoints/fuel_full_F23ci.blend`, `MODULE_fuel-corridor` | translation (-22.2, -43.6), rotation 0 | added, awaiting owner OK |
+| 6 | Reactor room (candidate A, refined hall) | `sections/reactor-room/blender/reactorroom.blend`, 24 content collections plus 12 scene-root lights | translation (0, 0, 0), rotation 180; joined by a south concourse (see Room 6) | added, awaiting owner OK; connectors proposed, unreviewed |
 
 ### Room 1: spawn room, what fixes the placement
 - `DESIGN.md`: "Compared with plan v7 the 6 m connectors are gone ... That moves the spawn 12 m north", spawn exit on the reactor axis x = 8, exit
@@ -129,6 +130,34 @@ from shed through the turn into the refinery (`join_09`, `join_10`), colonnade t
 - Checked in renders only: no overlap with the refinery, the mountain's north end, the hall or the neighbouring long building (plan view `room5_fuel_05`). No numeric clearance or walk test was run through the doors.
 - Not done: the corridor is shown as plain boxes from outside, since no exterior skin was added (`room5_fuel_03`, `04`); its interior is the module's own and is lit by its own practicals. Unreviewed in this scene.
 
+## Room 6: reactor room (candidate A, added 2026-10-11 on the owner's choice, awaiting owner OK)
+
+**Everything here is unreviewed and not accepted.** The 91/100 independent review (Luna, 140-item hall task) covers Codex's delivery of this hall, not the scene as linked here: PR #100 then changed its materials, lighting,
+wall numbers, zone numerals and triangle count without independent review.
+
+- **Source and why this file.** `sections/reactor-room/blender/reactorroom.blend` (the refined hall on `main`; the owner chose it over the older `module_overhaul_R1.blend` and the original builds). The scene is the room: 24 content collections
+  are linked (`REACTOR_COLLECTIONS` in `build_combined_map.py`) plus the 12 `RH refine roof bay ... up/down` lights that sit directly in the scene root; left out are `10 CAMERAS`, `MF PLAYER WALKTHROUGH`, the hidden `32 CR COLLISION`
+  and empty or duplicate collections. 1,933 objects (1,921 from the collections, 12 lights).
+- **Placement.** Module origin is the pool centre; hall walls measure plus or minus 10.8 m (the straight south wall runs about x -6.6 to 6.6 because the corners are chamfered). The plan frame has its origin at the reactor centre, so translation (0, 0, 0).
+  The hall has no `interface.json`; its own doors, measured in the file, are MAIN ACCESS (west, 6.0 x 5.5 m stub to x -14.5), FUEL HANDLING (north, same size, stub to y +14.5, centre x 0) and a diagonal COOLING PLANT link in the south-east
+  corner (door centre about (11, -11)), each ending in a closed double door.
+- **Why rotation 180 and not the plan's two south doors.** Plan v7 puts the fuel corridor (port `F02_REACTOR`, plan (-8.0, -19.6), outward +Y, 5 x 5 m) and the spine (axis x = 8) on the south side. Measured from inside the hall with rays:
+  at x = -8 the first thing inside is the control-room lift car and anteroom (y about -7), and at x = +8 the wall is the diagonal cooling stub, so neither door could be cut as planned. Rotating 180 puts the FUEL HANDLING stub on the south
+  wall at x = 0 (plan door plane y -14.5, clear x -3.0 to 3.0, roof z 5.74), the one straight stretch of wall with a ready-made door. The owner delegated the layout choice ("do what you think is best, you can build airlocks").
+- **South concourse (new geometry, local to the combined scene).** One room joins three existing openings: clear x -10.8 to 5.85, y -19.6 to -14.8 (4.8 m deep), height 5.9 m, walls 0.3 m, floor top z 0. Hall stub door on its north wall (6.0 m opening, lintel above z 5.74);
+  the fuel corridor reactor adapter on its south-west side (the corridor is open between x -10.62 and -5.38 at y -19.6, its own door stands 0.5 m inside at y -20.13, floor z 0, ceiling 5.9); the spine on its east end.
+  Surfaces are plain placeholder concrete (`CONNECTOR concrete`, `CONNECTOR floor`), three 170 W area lights. The first lighting (900 W each) rendered as a featureless white box and was reduced.
+- **Spine trim (local copy, source unchanged).** The spine's west wall (`spine_wall_-1`, front-end local) and dado are trimmed between plan y -19.6 and -14.8 and the two ribs inside that range (`spine_rib_-1_8`, `spine_rib_-1_9`) are omitted,
+  so the concourse opens into the spine (clear 3.7 m wide, plan x 6.15 to 9.85). The spine's own end door (`reactor_door`, plan y -14.55, x 6.35 to 9.65) is untouched and now leads to nothing.
+- **Side effect to know about.** The hall's wall stencils (N-1 to W-5, PR #100) are keyed to world position and normal, so after the rotation the letters follow the plan compass: the wall that is the module's north wall now reads `S-2`, `S-4`.
+- **Checked (run):** build `--through reactor-room` succeeds (25 s); ray tests at eye height 1.7 m (and 3.0 m through the spine opening): spine west to the concourse west wall at x -10.8 (open), concourse north at x 0 to the hall stub door (y -14.49) and solid wall at x -6,
+  concourse south at x -8 to the fuel corridor door (y -20.2), hall interior south through the stub to the door (y -14.39), spine north to its end door, ceiling z 5.9 and floor z 0 as built; interior and overview renders (`renders/06_reactor_*.png`: concourse from the spine, looking west, to the hall door; hall looking south to the stub; plan overview; south aerial), every image looked at;
+  the first set exposed a bad camera and blown-out lighting, both fixed.
+- **Not checked:** collision or a walk test through the doors with them open, door animation, lighting balance with the neighbouring modules, performance (the reactor is about 1.17 M triangles on top of the map), Unity, and the other three hall doors.
+- **Open items:** (1) the east stub (module MAIN ACCESS) and the north-west diagonal stub (module COOLING PLANT) end in closed doors that lead nowhere; plan v7's turbine, electrical, waste and cooling adjacencies are not built.
+  (2) The module's north wall (now the plan north) has no door, so the plan's turbine link at 3 m needs a new opening. (3) The spine's own end door is unused. (4) The concourse is greybox: no signage, no materials from the neighbouring rooms.
+  (5) The hall's status in `AGENTS.md` is unchanged; this placement does not advance any acceptance gate.
+
 Defects and open items found (original list, before the fixes above):
 1. **Shed blocks the yard's north-west service gate path** (`risk_12`). DESIGN.md keep-clear: x -47.4 to -44.8, y > -68.8 (to the cooling-plant door). The shed (plan x -54.0 to -36.3, y -78.6 to -61.0)
    covers that path from y -68.8 up to the fence. The owner requires the shed, so the path or the gate needs a decision (move the gate, route round the shed, or accept the gate leading into the shed).
@@ -143,6 +172,5 @@ Defects and open items found (original list, before the fixes above):
 10. Night exterior is very dark overall; the world beyond the front end's ground plane is empty black.
 
 ## Remaining rooms in plan order (not yet added)
-Placed so far: front end (cafeteria, hall, yard), spawn, mine, refinery, medical, fuel corridor. Still to place: the reactor room (the fuel corridor's far port `F02_REACTOR` is at plan (-8.0, -19.6)
-facing +Y, 5 x 5 m; the hall spine also leads to the reactor), then the east trunk rooms (compliance dock, waste storage), turbine, electrical, cooling, condenser bay, outer ring and gantry.
+Placed so far: front end (cafeteria, hall, yard), spawn, mine, refinery, medical, fuel corridor, reactor (rotated 180, joined by the south concourse). Still to place: the east trunk rooms (compliance dock, waste storage), turbine, electrical, cooling, condenser bay, outer ring and gantry.
 Order and sizes come from `design/facility-layout/README.md` (plan v7) and `MEASURED_ROOM_SIZES.md`. Add one room per owner OK, following AGENT_READ_FIRST.md.
