@@ -357,9 +357,18 @@ SPAWN_PROPS = {   # prefix of object names in the spawn module: (mount origin in
 
 
 def load_spawn_props(spawn_path):
+    """Link the spawn module's objects, then keep those whose root ancestor starts with one of SPAWN_PROPS (the props are parented hierarchies, so the child names differ from the root)."""
     with bpy.data.libraries.load(spawn_path, link=True, relative=True) as (src, dst):
-        dst.objects = [n for n in src.objects if n.startswith(tuple(SPAWN_PROPS))]
-    return [o for o in dst.objects if o is not None]
+        dst.objects = list(src.objects)
+    objs = [o for o in dst.objects if o is not None]
+    def root(o):
+        while o.parent is not None: o = o.parent
+        return o
+    keep = []
+    for o in objs:
+        r = root(o)
+        if r.name.startswith(tuple(SPAWN_PROPS)): o['prop_root'] = r.name; keep.append(o)
+    return keep
 
 
 def tinted_copy(mat, tint, name):
@@ -418,7 +427,7 @@ def loft(coll, name, path, section, mat, side=1):
 
 
 def text_obj(coll, body, loc, rot, size, mat, extrude=0.006, align='CENTER'):
-    cu = bpy.data.curves.new('HALL sign ' + body, 'FONT'); cu.body = body; cu.size = size; cu.align_x = align; cu.extrude = extrude; cu.materials.append(mat)
+    cu = bpy.data.curves.new('HALL sign ' + body, 'FONT'); cu.body = body; cu.size = size; cu.align_x = align; cu.extrude = extrude; cu.resolution_u = 2; cu.materials.append(mat)
     o = bpy.data.objects.new('HALL sign ' + body, cu); o.location = loc; o.rotation_euler = rot; coll.objects.link(o); return o
 
 
@@ -431,7 +440,7 @@ def place_prop(coll, props, prefix, path, s, sg, W2, sk=0.04, offset=0.0):
     M = Matrix.Translation(Vector((P.x, P.y, 0.0))) @ Matrix.Rotation(phi, 4, 'Z') @ Matrix.Translation(-Vector(origin))
     n = 0
     for o in props:
-        if o.type == 'EMPTY' or not o.name.startswith(prefix): continue
+        if o.type == 'EMPTY' or o.get('prop_root', '') != prefix: continue
         no = bpy.data.objects.new(f'HALL prop {o.name}', o.data); no.matrix_basis = M @ _wm(o); coll.objects.link(no); n += 1
     return n
 
@@ -446,9 +455,10 @@ def dress_hall(coll, path, zone_key, mats, props, h=5.0, w=5.0, airlock_s=(), ha
     Z = ZONES[zone_key]; rnd = _random.Random(seed); W2 = w / 2; sk = 0.04; L = path.length
     acc = _emissive(f'HALL accent {zone_key}', Z['accent'], 7.0); acc_dim = _emissive(f'HALL accent dim {zone_key}', Z['accent'], 2.6)
     sign = _emissive('HALL sign ivory', (0.95, 0.92, 0.82), 2.2)
+    runner = _runner_mat(); runner_edge = _emissive('HALL runner edge', (0.8, 0.8, 0.82), 0.25)
     wall = mats['wall_t']
     mb = {k: MB(coll, f'{zone_key} {k}', m) for k, m in (('acc', acc), ('accd', acc_dim), ('steel', mats['steel']), ('dark', mats['darksteel']), ('wall', wall), ('lamp', mats['lamp']),
-                                                           ('yellow', mats['yellow']), ('sign', sign))}
+                                                           ('yellow', mats['yellow']), ('sign', sign), ('runner', runner), ('runner_edge', runner_edge), ('ext', mats['darksteel']), ('extacc', acc_dim))}
     # 1. continuous accent lines and baseboard glow
     for sg in (1, -1):
         mb['acc'].ring(patch_ring(path, 0, L, sg * (W2 - sk), sg * (W2 - sk - 0.035)), 1.21, 1.26)
@@ -485,7 +495,8 @@ def dress_hall(coll, path, zone_key, mats, props, h=5.0, w=5.0, airlock_s=(), ha
         mb['dark'].ring(patch_ring(path, s - 0.02, s + 0.02, 0.5, 1.1), h - 0.68, h)
         s += 3.0
     # 4. floor runner and LED dashes
-    mb['dark'].ring(patch_ring(path, 0, L, -0.85, 0.85), 0.0, 0.008)
+    mb['runner'].ring(patch_ring(path, 0, L, -0.85, 0.85), 0.0, 0.01)
+    for sg in (1, -1): mb['runner_edge'].ring(patch_ring(path, 0, L, sg * 0.85, sg * 0.91), 0.0, 0.012)
     s = 0.5
     while s < L - 0.4:
         for sg in (1, -1):
@@ -494,6 +505,15 @@ def dress_hall(coll, path, zone_key, mats, props, h=5.0, w=5.0, airlock_s=(), ha
     for a in airlock_s:
         mb['yellow'].ring(patch_ring(path, a - 1.05, a - 0.75, -W2 + 0.1, W2 - 0.1), 0.0, 0.012)
         mb['yellow'].ring(patch_ring(path, a + 0.75, a + 1.05, -W2 + 0.1, W2 - 0.1), 0.0, 0.012)
+    # exterior: plinth, buttress ribs, roof cap and a dim zone stripe on both outer faces
+    for sg in (1, -1):
+        mb['ext'].ring(patch_ring(path, 0, L, sg * (W2 + 0.3), sg * (W2 + 0.42)), 0.0, 0.35)
+        mb['ext'].ring(patch_ring(path, 0, L, sg * (W2 + 0.3), sg * (W2 + 0.38)), h + 0.05, h + 0.3)
+        mb['extacc'].ring(patch_ring(path, 0, L, sg * (W2 + 0.3), sg * (W2 + 0.34)), 3.9, 3.98)
+        e = 2.0
+        while e < L - 1.0:
+            mb['ext'].ring(patch_ring(path, e - 0.18, e + 0.18, sg * (W2 + 0.3), sg * (W2 + 0.62)), 0.0, h + 0.25)
+            e += 5.0
     for m in mb.values(): m.done()
     add_screens(coll, path, zone_key, screens, W2, sk)
     # 5. coves (plaster wedge in each wall/ceiling corner) with a glowing strip
@@ -567,7 +587,7 @@ def add_stub_labels(wrap, active, mat):
               ('reactor-room', 'CONCOURSE', (0.0, -10.72, 5.1), (math.pi / 2, 0, math.pi))]
     for room, body, loc, rot in labels:
         if room in active:
-            cu = bpy.data.curves.new('HALL door label ' + body, 'FONT'); cu.body = body; cu.size = 0.2; cu.align_x = 'CENTER'; cu.extrude = 0.006; cu.materials.append(mat)
+            cu = bpy.data.curves.new('HALL door label ' + body, 'FONT'); cu.body = body; cu.size = 0.2; cu.align_x = 'CENTER'; cu.extrude = 0.006; cu.resolution_u = 2; cu.materials.append(mat)
             o = bpy.data.objects.new('HALL door label ' + body, cu); o.location = loc; o.rotation_euler = rot; wrap.objects.link(o)
 
 
@@ -610,3 +630,10 @@ def add_screens(coll, path, zone_key, screens, W2, sk):
         bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
         me = bpy.data.meshes.new(f'{zone_key} screens {k}'); bm.to_mesh(me); bm.free(); me.materials.append(screen_material(zone_key, k))
         o = bpy.data.objects.new(f'{zone_key} screens {k}', me); coll.objects.link(o)
+
+
+def _runner_mat():
+    if 'HALL runner' in bpy.data.materials: return bpy.data.materials['HALL runner']
+    m = bpy.data.materials.new('HALL runner'); m.use_nodes = True; b = m.node_tree.nodes['Principled BSDF']
+    b.inputs['Base Color'].default_value = (0.045, 0.05, 0.058, 1); b.inputs['Roughness'].default_value = 0.38; b.inputs['Metallic'].default_value = 0.0
+    return m
