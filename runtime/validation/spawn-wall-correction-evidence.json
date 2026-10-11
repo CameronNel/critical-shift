@@ -1,0 +1,355 @@
+{
+  "date": "2026-10-11",
+  "baseline_commit": "5687ebe72a990b70eceaa027d7fc089dc126c330",
+  "map_commit": "bb6b4924849d38097ee629a6fa2c00dc1b56095f",
+  "rig_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+  "scope": "Wall material and pendant shadow correction on the PR95 six-room assembly; source rooms unchanged",
+  "source_preservation": {
+    "status": "Passed",
+    "verified_inputs": 51,
+    "map_commit": "bb6b4924849d38097ee629a6fa2c00dc1b56095f",
+    "rig_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+    "source_blends_and_assembly_unchanged": true
+  },
+  "room_geometry": [
+    {
+      "key": "front-end-area",
+      "mesh_sha256": "5f56ee09ea152aad70ae449eee5192761a66384aaf541f07ec1d84d4a483c91b",
+      "collision_sha256": "a8be3b782bcfbedb28f6a58198f3a90e4bd100e6d2229e1c16c3f41a81946394",
+      "collision_triangles": 550356
+    },
+    {
+      "key": "spawn-room",
+      "mesh_sha256": "fcf25728b024d5b196ee5f7f935936cd01dae70b97c155bb5b1e113e03584f5b",
+      "collision_sha256": "85443ad7c2d6b6528f6ab9eb7fa90e2b2308fdf0169b04806f7f4b1482e6aa2f",
+      "collision_triangles": 279370
+    },
+    {
+      "key": "mine",
+      "mesh_sha256": "36f0d325517227e9e2e22b7dcb19ae3da23258eccc6babf34da7be5b3adfb337",
+      "collision_sha256": "b1a640f2e1ea9f08c23691c7b35e8b6ab23f1d65437beb0ecfd4bd3a7beb49ea",
+      "collision_triangles": 3287462
+    },
+    {
+      "key": "refinery",
+      "mesh_sha256": "d5c1bc1ec1c6bb79003de5e93b54223c0df82d08be140876c4d4cee2882d293d",
+      "collision_sha256": "800bbea1835b3d4b93184f2bd2e24198e3accb5afa864647deb30f394951f5e0",
+      "collision_triangles": 389324
+    },
+    {
+      "key": "medical-reanimation",
+      "mesh_sha256": "27b332fbbccb5bbdd3e8cce52469cab6e47b4073f5f025ac6418256e78195331",
+      "collision_sha256": "98521e7f598911d5391c689523031dc34d5d01acb18f7ca5d1f0b4ba5408941e",
+      "collision_triangles": 505672
+    },
+    {
+      "key": "fuel-corridor",
+      "mesh_sha256": "85901f5479699a55b1f166173d9cb32cd435fbf23f22facdaab92aa37b93cd04",
+      "collision_sha256": "28c924b6db7584f1e1f476b35b373a8c33dae27c08f048a225b8f00d3a9bc416",
+      "collision_triangles": 2059090
+    }
+  ],
+  "conversion": {
+    "atlases": 5,
+    "wall_delivery_meshes": 52,
+    "wall_atlas_size": 4096,
+    "source_paint_dielectric_f0": {
+      "V13_BRIEFING_dado": 0.0304,
+      "V13_BRIEFING_wall": 0.024,
+      "V13_HALL_dado": 0.0304,
+      "V13_HALL_wall": 0.024,
+      "V13_LOCKER_dado": 0.0304,
+      "V13_LOCKER_wall": 0.024
+    },
+    "geometry_guard": "Identical triangle count and bounds within 2mm; delivery UVs/tangents change",
+    "mixed_lighting": "Shadowmask; two pendant points mixed; all other practicals baked",
+    "shadow_masks": [
+      {
+        "file": "AssembledMap/Lightmap-0_comp_shadowmask.png",
+        "sha256": "d9623d0134df835de60f480a291a710b3b4b4495ff04ff8fd35d339429b5981e"
+      },
+      {
+        "file": "AssembledMap/Lightmap-1_comp_shadowmask.png",
+        "sha256": "bf9f168ecc9fb98d5ab28e2ecd0ffa1d754efa9ed926451df146976c4ec76bfe"
+      }
+    ],
+    "socket_face_probe_receivers": 6
+  },
+  "checks": {
+    "pinned_api": {
+      "status": "Passed",
+      "checks": [
+        {
+          "assembly": "CriticalShift.Features.Player.Unity",
+          "files": 8,
+          "status": "Passed"
+        },
+        {
+          "assembly": "CriticalShift.Player.Bootstrap",
+          "files": 2,
+          "status": "Passed"
+        },
+        {
+          "assembly": "CriticalShift.Player.Editor",
+          "files": 4,
+          "status": "Passed"
+        },
+        {
+          "assembly": "CriticalShift.Player.Tests.PlayMode",
+          "files": 2,
+          "status": "Passed"
+        }
+      ],
+      "source_sha256": "326d189264c61b74f1501f4d180e3e77c08e1e017abf8ae6405a7432d7acd7bc",
+      "native_unity_execution": false
+    },
+    "python_tooling": {
+      "status": "Passed",
+      "executed": 40,
+      "log_sha256": "68e6a25511e8e78d06cb8c6bd83f6faa2083540fab3638235bf51bf6fe84fb42"
+    },
+    "metadata": {
+      "status": "Passed",
+      "check": "static-source-only",
+      "metadata_guids": 983,
+      "asmdefs": 9,
+      "csharp_files": 22,
+      "limits": "Not a resolved Unity graph, native import, gameplay or art review."
+    },
+    "native_bake_capture": {
+      "status": "Passed",
+      "exit_code": 0,
+      "lightmaps": 2,
+      "probe_positions": 390,
+      "persisted_reflection_cubemaps": 3,
+      "prepared_scene": {
+        "mapBindingsSha256": "9b02d6dba62bee01007d6f570b78767feaff4349ba7c0b97305fd5fd4f663f1d",
+        "sceneSha256": "4fad9f2a815545f4ae2c16aa1da065d3a96e0fba71b76ecca39b15609fab0bea",
+        "sourceSha256": "ecad59515d513b3e0d8262a8fc5baf93ff9aa8599809c466cb99b016110ac99d",
+        "lightmaps": 2
+      },
+      "log_sha256": "f36bddfb81db0b3c57d152a01d693c518aa5eeec09f34f6457ef55d149528ed6"
+    },
+    "native_playmode": {
+      "status": "Passed",
+      "executed": 15,
+      "passed": 15,
+      "failed": 0,
+      "skipped": 0,
+      "duration_seconds": 99.4561233,
+      "results": "spawn-visual-correction-20261011/native-playmode.xml",
+      "results_sha256": "6b994b45d74d989e2d90a1b75a8b8ef5fc5485ead873211ad7731d7c7b0aae11"
+    },
+    "linux_player": {
+      "status": "Passed",
+      "build_exit_code": 0,
+      "smoke_exit_code": 0,
+      "smoke_frames": 120,
+      "clean_world_shutdown": true,
+      "build_log_sha256": "ef6b6dfd13a54c855daeeb29e3b32fe475b918653426aca9004e7b116c81d2b3",
+      "smoke_log_sha256": "bcfaeba76ed0aa0e19bb35c06b7cca8ff4daef887f76bb47b1c8156bdc714d83",
+      "executable_sha256": "4a7ff1990210951a644fcf6f3ed721c3f1c95434eb185cfa8d49143550dab99a",
+      "rendering": "OpenGL Core through Xvfb/Mesa llvmpipe",
+      "limits": "Container has no audio device; FMOD nosound fallback. Not target-GPU performance evidence."
+    },
+    "canonical_rules": {
+      "status": "Reused baseline evidence",
+      "tests": 718,
+      "scenarios": 12,
+      "runs": 2,
+      "limits": "Canonical rules unchanged; no claim of a fresh local canonical run."
+    }
+  },
+  "captures": [
+    {
+      "room": "Briefing",
+      "file": "spawn-visual-correction-20261011/unity/Briefing.png",
+      "sha256": "64508bb98f379d4f61c341c3d5055aaee3201cbceb06fb26e8929feb1740245e",
+      "dimensions": [
+        1440,
+        810
+      ]
+    },
+    {
+      "room": "Lockers",
+      "file": "spawn-visual-correction-20261011/unity/Lockers.png",
+      "sha256": "29dd291f5f5fedf5f01829c8a019135a383ff999742ca50ba46bfc4e7bc067cb",
+      "dimensions": [
+        1440,
+        810
+      ]
+    },
+    {
+      "room": "Spawn",
+      "file": "spawn-visual-correction-20261011/unity/Spawn.png",
+      "sha256": "4a297fb31f2f58f31da9d385a4daca95a86dfcbfda7df70d093c8d94c5ae3529",
+      "dimensions": [
+        1440,
+        810
+      ]
+    }
+  ],
+  "patch_measurements": {
+    "patches": {
+      "upper_wall": [
+        1080,
+        25,
+        1170,
+        95
+      ],
+      "lower_wall": [
+        1090,
+        440,
+        1150,
+        500
+      ],
+      "floor": [
+        95,
+        735,
+        155,
+        795
+      ]
+    },
+    "limits": "Display PNG samples, not linear material values or a global acceptance score. Identical same-camera coordinates. Highpass Gaussian radius 2.",
+    "results": {
+      "blender_source": {
+        "upper_wall": {
+          "mean_rgb": [
+            75.90793650793651,
+            14.463809523809523,
+            0.08301587301587302
+          ],
+          "highpass_rms": 0.5847262281655936
+        },
+        "lower_wall": {
+          "mean_rgb": [
+            26.1175,
+            21.1825,
+            24.88138888888889
+          ],
+          "highpass_rms": 0.49244289008980524
+        },
+        "floor": {
+          "mean_rgb": [
+            162.5222222222222,
+            80.35833333333333,
+            7.141944444444444
+          ],
+          "highpass_rms": 1.18023851952178
+        }
+      },
+      "unity_before": {
+        "upper_wall": {
+          "mean_rgb": [
+            191.7579365079365,
+            97.76619047619047,
+            60.077619047619045
+          ],
+          "highpass_rms": 1.7256545418720393
+        },
+        "lower_wall": {
+          "mean_rgb": [
+            27.121944444444445,
+            17.966666666666665,
+            19.490555555555556
+          ],
+          "highpass_rms": 0.5306355378921337
+        },
+        "floor": {
+          "mean_rgb": [
+            138.3502777777778,
+            65.96722222222222,
+            7.028888888888889
+          ],
+          "highpass_rms": 1.5563787504379565
+        }
+      },
+      "unity_corrected": {
+        "upper_wall": {
+          "mean_rgb": [
+            98.69761904761904,
+            21.123333333333335,
+            0.0
+          ],
+          "highpass_rms": 0.7752453102117361
+        },
+        "lower_wall": {
+          "mean_rgb": [
+            22.67527777777778,
+            15.860833333333334,
+            18.88361111111111
+          ],
+          "highpass_rms": 0.7742379766224623
+        },
+        "floor": {
+          "mean_rgb": [
+            138.235,
+            63.034166666666664,
+            1.1116666666666666
+          ],
+          "highpass_rms": 3.271566619854798
+        }
+      }
+    }
+  },
+  "diagnostic_controls": {
+    "source": {
+      "mean_rgb": [
+        75.90793650793651,
+        14.463809523809523,
+        0.08301587301587302
+      ],
+      "colour_highpass_rms": 0.5847262281655936
+    },
+    "before": {
+      "mean_rgb": [
+        191.7579365079365,
+        97.76619047619047,
+        60.077619047619045
+      ],
+      "colour_highpass_rms": 1.7256545418720393
+    },
+    "normal_off": {
+      "mean_rgb": [
+        192.1457142857143,
+        98.13063492063492,
+        60.48603174603175
+      ],
+      "colour_highpass_rms": 0.2731358171371426
+    },
+    "roughness_constant": {
+      "mean_rgb": [
+        192.71031746031747,
+        99.73984126984126,
+        62.44761904761905
+      ],
+      "colour_highpass_rms": 2.2389765235517483
+    },
+    "first_correction": {
+      "mean_rgb": [
+        98.56349206349206,
+        21.06968253968254,
+        0.0
+      ],
+      "colour_highpass_rms": 0.7784804082517081
+    }
+  },
+  "initial_failure": {
+    "status": "Resolved",
+    "cause": "Wrong ShadowmaskMode namespace in first API/native compile attempt; corrected to UnityEngine and recompiled/baked successfully",
+    "api_report_sha256": "d0437812971f0c6084a8ef041f52dfe0c1c84ffb886558c3f90188d8671d6f7a",
+    "native_log_sha256": "e04ad284aaf78c4483057f5389a2532689cda353fb93a255d474dd627f5858c8"
+  },
+  "remaining_limits": [
+    "Visual acceptance pending: sideboard illumination, screen reflections and some surface response differ from Cycles",
+    "Glass is a raster approximation",
+    "Other five rooms use preview material conversion",
+    "Mesa llvmpipe captures; target-GPU performance and Windows Player execution NotRun",
+    "Remote peers and human continuous animation/contact review NotRun"
+  ],
+  "environment_event": {
+    "disk_pressure": "Generated Player/build temporary files exhausted disk during build. Own archived generated backups were verified and moved to tmpfs; Player asset data also uses tmpfs. The same build completed successfully; no source files removed.",
+    "build_retry_required": false,
+    "new_oom_events": false
+  }
+}

@@ -1,5 +1,55 @@
 # Decisions, Risks and Source Register
 
+## 10 October 2026: spawn preparation and additive bindings (review pending)
+
+Spawn reuses the player slice's custody and worker owners. `PlayerOperations` owns
+a bounded preparation intention per actor, measured against the existing shift
+clock. A station suit becomes intact only after its authored 15–30 second delay
+and an accepted equipment-slot transaction. Unity supplies stationary/reach
+observations and projects custody; it does not own another inventory or suit state.
+
+The owner's locker presentation request requires a standing, grounded, uncrouched worker
+in front of the locker and facing it. Generated Unity standing poses leave source markers
+untouched. The existing `SUIT_UP` clip is sampled against that same preparation clock;
+the hanging suit remains visible throughout. The final clip pose and accepted equipment
+transaction show the worn outfit and hide the hanging suit in one host projection.
+Pause freezes the clock/pose; cancellation never shows worn equipment. Animation sampling
+and renderer visibility remain presentation, with no additional inventory or timer owner.
+
+Doors, locker hinges, scanner presentation and briefing text are local physical
+prototypes owned by their scene components. A scan reports current suit condition;
+it does not repair a suit or certify future safety. Multiplayer replication,
+pressure simulation and damage detection remain separate work.
+
+Native preparation uses the pinned editor's bundled Test Framework 1.6.0 and NUnit
+2.0.5; the recorded test-framework pin now matches what 6000.4.3f1 resolves. The
+invalid `com.unity.modules.inputlegacy` entry is removed (legacy input is supplied
+by the editor), and its built-in animation module is enabled. Linux SDK/toolchain
+1.1.0 packages are the build-support dependencies automatically registered by this
+editor. No transport, external input/UI framework or new runtime assembly edge is
+introduced. Duplicate explicit Test Runner references are removed because existing
+`TestAssemblies` declarations already supply them.
+
+Exports are additive derivatives pinned to a caller-selected combined-map revision
+and the existing `claude/character-rig` revision. The assembly builder, linked room
+libraries, placements and original rig are read-only. FBX uses the existing Unity
+importer. Material conversion is a preview, not visual acceptance. Native import,
+playback and builds require an activated 6000.4.3f1 editor; API compilation alone
+cannot establish them. Unknown or ambiguous map bindings fail closed.
+
+Room placement uses a separate parent so FBX root axis correction is retained.
+Door poses use imported node-local coordinates. Collision keeps 32-bit indices
+and disables importer welding/optimization to retain the complete exported
+triangle inventory; PhysX still performs its normal cooking/cleaning. Decorative
+surface graphics are excluded from collision with their omissions recorded in the
+export. Interaction rays ignore the acting worker's own colliders while preserving
+occlusion by the environment and other actors. Door clearance probes are enabled
+only during the immediate penetration query and restored in `finally`.
+Seated clearance uses the seated body's smaller capsule; standing exits retain the
+full standing clearance check. Room meshes over two million triangles disable
+Fast Midphase, and desktop builds pre-bake collision meshes. Native checks verify
+the selected cooking options as well as the complete imported triangle inventory.
+
 **Revision 2.0 | 8 September 2026 | Documentation proposal for independent review**
 
 This is the decision and uncertainty register for the engineering plan, not a claim that any runtime gate has passed. A/S/H/V references point to documents in this directory. It records decisions here rather than scattering competing mini-ADRs across the repository.

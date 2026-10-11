@@ -69,7 +69,13 @@ That runner needs Python 3.12+, an already activated matching Editor and matchin
 
 The user-authorized [player slice](unity/Assets/CriticalShift/Features/Player/README.md) adds first-person movement, carry/place/take, protective equipment attachment, sitting/standing, feedback and a local start/pause/end/reset loop. Run `python runtime/tools/prepare_player.py` before opening Unity, then use **Critical Shift > Player Room > Create test scene**. It uses the canonical rules through authenticated commands and keeps the authored facility map and foundation scene catalogue intact. [Scope and evidence](validation/PLAYER_SLICE.md) distinguish offline/API checks from native physical tests.
 
-The pinned editor is installed here, but its native probe exits 198 because it has no valid activated license. Native import, the seven new physical PlayMode tests, a desktop Player build and human feel review remain blocked or unrun. Network transport, map bindings and the full suiting procedure are separate work.
+The pinned editor is installed and Unity Personal is activated in this container. The [spawn follow-up](validation/SPAWN_ROOM.md) now records native import, physical PlayMode and Linux Player evidence. Human feel review, network transport and production PPE protection remain separate work.
+
+## Assembled map and spawn bindings — 10 October 2026
+
+The [spawn follow-up](validation/SPAWN_ROOM.md) prepares a separate runtime derivative of the **current PR #95 six-room combined map**, using its builder and exact placements. It adds spawn's existing character rig/animations, timed locker preparation, bench seats, moving doors, integrity-test feedback, briefing, and carry/place interactions. The Blender sources, assembly script and original rig stay untouched.
+
+From the repository root run `python runtime/tools/prepare_player.py`, then `python runtime/tools/prepare_spawn.py` with Blender 5.2.2 LTS and Git LFS available. Generated assets and the separate scene live under ignored `Assets/CriticalShift/Generated/Spawn/`. Spawn now has explicit procedural-material conversion, original TV artwork, authored light bindings and Blender colour grading. Use the graphics-enabled `SpawnVisualReview.BakeAndRender` route in the spawn follow-up before building its visual scene. Other rooms retain preview materials. The previous six-room scene passed 15 native physical tests; the visual revision requires fresh native and image evidence. Source pins, controls and remaining limits are in the spawn follow-up.
 
 ## Scope boundary
 

@@ -113,5 +113,50 @@ namespace CriticalShift.Tests.Player
                 Assert.That(crate.Shape.enabled, Is.True); Assert.That(crate.GetComponent<Rigidbody>().isKinematic, Is.False);
             }
         }
+        [Test] public void ClosingDoorReopensAroundAWorkerAndClosesAfterClearance()
+        {
+            var leaf = new GameObject("Sliding leaf"); var owner = new GameObject("Door owner");
+            try
+            {
+                var shape = leaf.AddComponent<BoxCollider>(); shape.center = Vector3.up; shape.size = new Vector3(0.2f, 2, 1);
+                var body = leaf.AddComponent<Rigidbody>(); body.isKinematic = true; body.useGravity = false;
+                var door = owner.AddComponent<MovingDoor>();
+                door.Configure(new[] { new DoorLeaf { Root = leaf.transform, Shape = shape,
+                    ClosedPosition = new Vector3(20, 0, 20), OpenPosition = new Vector3(22, 0, 20),
+                    ClosedRotation = Quaternion.identity, OpenRotation = Quaternion.identity } }, true, 1);
+                door.Capture(); Approach(Find(PlayerTargetKind.Seat), new Vector3(21, 0.06f, 20));
+                door.SetOpen(false); bool blocked = false;
+                for (int i = 0; i < 60; i++) { door.Step(0.05f); blocked |= door.Blocked; }
+                Assert.That(blocked, Is.True); Assert.That(door.Open, Is.True); Assert.That(door.Closed, Is.False);
+                Approach(Find(PlayerTargetKind.Seat), new Vector3(25, 0.06f, 25)); door.SetOpen(false);
+                for (int i = 0; i < 25; i++) door.Step(0.05f);
+                Assert.That(door.Closed, Is.True); Assert.That(door.Blocked, Is.False);
+            }
+            finally { UnityEngine.Object.DestroyImmediate(leaf); UnityEngine.Object.DestroyImmediate(owner); }
+        }
+        [Test] public void ConcaveLeafQueryBoundsAllowAnOccupantInTheEmptyChamber()
+        {
+            var leaf = new GameObject("Chamber leaf"); var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            var mesh = new Mesh();
+            try
+            {
+                cube.transform.SetParent(leaf.transform, false); cube.transform.localPosition = new Vector3(0.95f, 1, 0);
+                cube.transform.localScale = new Vector3(0.15f, 2, 2);
+                mesh.CombineMeshes(new[] { new CombineInstance { mesh = cube.GetComponent<MeshFilter>().sharedMesh,
+                    transform = cube.transform.localToWorldMatrix } });
+                UnityEngine.Object.DestroyImmediate(cube.GetComponent<Collider>());
+                var query = leaf.AddComponent<BoxCollider>(); query.center = Vector3.up; query.size = new Vector3(2.2f, 2, 2); query.enabled = false;
+                var body = leaf.AddComponent<Rigidbody>(); body.isKinematic = true; body.useGravity = false;
+                var physical = leaf.AddComponent<MeshCollider>(); physical.sharedMesh = mesh;
+                var door = leaf.AddComponent<MovingDoor>();
+                door.Configure(new[] { new DoorLeaf { Root = leaf.transform, Shape = query, PhysicalShapes = new Collider[] { physical },
+                    ClosedPosition = new Vector3(20, 0, 20), OpenPosition = new Vector3(20, 0, 20),
+                    ClosedRotation = Quaternion.identity, OpenRotation = Quaternion.identity } }, true, 0.5f);
+                door.Capture(); Approach(Find(PlayerTargetKind.Seat), new Vector3(20, 0.06f, 20));
+                door.SetOpen(false); for (int i = 0; i < 12; i++) door.Step(0.05f);
+                Assert.That(door.Closed, Is.True); Assert.That(door.Blocked, Is.False);
+            }
+            finally { UnityEngine.Object.DestroyImmediate(leaf); UnityEngine.Object.DestroyImmediate(mesh); }
+        }
     }
 }

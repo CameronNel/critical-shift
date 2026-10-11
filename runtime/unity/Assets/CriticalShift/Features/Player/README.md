@@ -1,7 +1,8 @@
 # Local player interaction slice
 
-Responsibility: first-person movement and physical projections of canonical player actions in
-an isolated graybox room. This does not assemble or change the authored facility map.
+Responsibility: first-person movement and physical projections of canonical player actions.
+Two separate scene generators provide a graybox fixture and a derivative of the current
+assembled map with spawn bindings. Neither edits the authored facility map.
 
 `PlayerRoomBootstrap` explicitly constructs application sessions. `LocalShiftHost` owns the
 local session lifetime, monotonic clock pump, connection/target registry and physical policy;
@@ -76,11 +77,14 @@ python runtime/tools/check_source.py
 Native PlayMode tests, after activation/import (omit `-quit` when running tests):
 
 ```sh
-unity -batchmode -nographics -projectPath "$PWD/runtime/unity" -runTests -testPlatform PlayMode -testFilter CriticalShift.Tests.Player -testResults "$PWD/runtime/out/player-playmode.xml" -logFile "$PWD/runtime/out/player-playmode.log"
+unity -batchmode -nographics -projectPath "$PWD/runtime/unity" -runTests -testPlatform PlayMode -testFilter CriticalShift.Tests.Player.PlayerBindingTests -testResults "$PWD/runtime/out/player-playmode.xml" -logFile "$PWD/runtime/out/player-playmode.log"
 ```
 
-Expect seven `PlayerBindingTests`, zero skips/failures. They cover physical pickup/drop,
-equipment, seat and blocked exit, placement/take, movement/pause, crouch clearance and ten resets.
+Expect nine `PlayerBindingTests`, zero skips/failures. They cover physical pickup/drop,
+equipment, seat and blocked exit, placement/take, movement/pause, crouch clearance, ten resets,
+closing-door obstruction/reopening and an occupant inside a concave leaf's empty query bounds.
+The six actual-map cases require the generated assembled map; preparation and the combined
+15-case native run are documented in [SPAWN_ROOM.md](../../../../../validation/SPAWN_ROOM.md).
 For a desktop fixture build, invoke `CriticalShift.Bootstrap.Player.Editor.PlayerRoomBuild.Build`
 with `-csBuildPath` and `-buildTarget Linux64` or `Win64`. This method selects the fixture scene
 explicitly, Built-in rendering, Mono, .NET Standard 2.1 and Disabled stripping.
@@ -88,5 +92,31 @@ explicitly, Built-in rendering, Mono, .NET Standard 2.1 and Disabled stripping.
 Contract coverage: CMD/HOLD/WORKER/LIFE/SHIFT offline cases; physical assertions supplement
 LIFE-01 and WORKER-01. This is not completion of PHYS ragdoll/cart/conveyor/network cases.
 No old path or serialized identity is replaced. New scene scripts have stable metadata.
-No networking, Steam, voice, persistence, character animation, accepted map import, measured
+No networking, Steam, voice, persistence, accepted map import, measured
 performance or human feel approval is claimed. See [the task evidence](../../../../../validation/PLAYER_SLICE.md).
+
+## Spawn on the current assembled map
+
+See [spawn preparation and evidence](../../../../../validation/SPAWN_ROOM.md). Run
+`python runtime/tools/prepare_spawn.py`, then **Critical Shift > Spawn > Create assembled map scene**.
+This separate generator consumes the pinned assembly builder, scoped FBX exports, exact source
+door poses/markers and the existing rig. All six placed rooms are included; runtime interactions
+are assigned only in spawn. The other rooms retain geometry and prototype static collision.
+
+`SpawnRoomBindings` owns local door/scanner/briefing presentation, while `WorkerAnimation`
+projects custody/posture onto the original skeleton and clips. `MovingDoor` checks intermediate
+leaf poses against workers/rigidbodies and reopens on blocked closing. Its disabled query bounds
+are separate from actual leaf mesh colliders, so the curved pod does not become a solid box.
+Multiplayer door state, airlock pressure, physical suit damage and scanner certification are
+outside this local slice.
+
+Station suits use `PlayerOperations`' bounded, lease-bound preparation intention on the existing
+shift clock. Stand in front of an open locker, face it, and press E with free hands to start
+15 seconds of preparation. Movement/turning are held while the existing `SUIT_UP` clip follows
+the preparation clock. The worker stays unsuited and the hanging suit stays visible until
+the final pose; the equipment commit then shows the worn outfit and hides the hanging suit
+together. E/Q cancels. E on that station (or U while in reach) returns it there. Closing the
+locker, losing the standing pose/reach/claim, impact, disconnect or reset cancels preparation.
+Pause freezes the deadline and pose while host lease renewal continues. No second inventory
+or timer owner is introduced. Scene generation and all 15 native physical tests pass in this
+container; visual/human review remains separate.

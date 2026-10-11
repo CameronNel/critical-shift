@@ -14,6 +14,9 @@ namespace CriticalShift.Features.Player.Unity
         [SerializeField] private Rigidbody body;
         [SerializeField] private Transform attachment;
         [SerializeField] private Transform exit;
+        [SerializeField] private Transform stationVisual;
+        [SerializeField] private Transform stationPose;
+        [SerializeField] private int preparationMilliseconds;
         private Vector3 _spawn;
         private Quaternion _rotation;
         private Transform _parent;
@@ -27,6 +30,13 @@ namespace CriticalShift.Features.Player.Unity
         public Transform Exit => exit;
         public bool Portable => kind == PlayerTargetKind.Carryable || kind == PlayerTargetKind.ProtectiveEquipment;
         public float Radius { get; private set; }
+        public int PreparationMilliseconds => preparationMilliseconds;
+        public bool Station => preparationMilliseconds > 0;
+        public Transform StationPose => stationPose;
+        public void ConfigureStation(Transform hangingSuit, Transform standingPose, int delayMilliseconds = 15000)
+        { stationVisual = hangingSuit; stationPose = standingPose; preparationMilliseconds = delayMilliseconds; }
+        public void ProjectStation(bool available)
+        { if (stationVisual == null) throw new InvalidOperationException("Missing station suit projection."); stationVisual.gameObject.SetActive(available); }
 
         public void Configure(Guid id, PlayerTargetKind type, string label, Collider collider,
             Rigidbody rigidbody = null, Transform anchor = null, Transform exitPose = null, Guid slot = default)
@@ -36,7 +46,10 @@ namespace CriticalShift.Features.Player.Unity
         }
         public void Capture()
         {
-            if (!Guid.TryParse(identity, out var id) || id == Guid.Empty || shape == null ||
+            if ((Station && (stationVisual == null || stationPose == null || !stationPose.gameObject.activeInHierarchy ||
+                    kind != PlayerTargetKind.ProtectiveEquipment ||
+                    preparationMilliseconds < 15000 || preparationMilliseconds > 30000 || stationVisual.IsChildOf(transform))) ||
+                !Guid.TryParse(identity, out var id) || id == Guid.Empty || shape == null ||
                 !shape.transform.IsChildOf(transform) || !isActiveAndEnabled || !shape.enabled ||
                 (Portable && (body == null || body.transform != transform || GetComponentsInChildren<Collider>(true).Length != 1)) ||
                 ((kind == PlayerTargetKind.Seat || kind == PlayerTargetKind.Placement) && attachment == null) ||
@@ -76,6 +89,7 @@ namespace CriticalShift.Features.Player.Unity
         public void Restore()
         {
             if (!_captured) return;
+            if (Station) ProjectStation(true);
             Project(null); transform.SetParent(_parent, true); transform.SetPositionAndRotation(_spawn, _rotation);
             if (shape != null) shape.enabled = _collidable;
             if (body != null)

@@ -1,0 +1,422 @@
+{
+  "date": "2026-10-10",
+  "base_commit": "624879b6b50c3cee2ac753d78e033b5f53d43f9c",
+  "map_commit": "bb6b4924849d38097ee629a6fa2c00dc1b56095f",
+  "rig_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+  "canonical_source_sha256": "9c54db3198280deb4a25f6067b3ca73600f0ffa61f3d4848602642ff50a4ff4c",
+  "player_source_sha256": "d71d64e84a41a494a520e0004e24c62a4258a8118ccab90e9861f00c5ddf5be5",
+  "offline": {
+    "status": "Passed",
+    "tests": {
+      "executed": 718,
+      "passed": 718,
+      "failed": 0,
+      "skipped": 0
+    },
+    "scenarios": 12,
+    "runs_each": 2,
+    "report": {
+      "path": "runtime/dotnet/artifacts/summary.json",
+      "sha256": "b0e10d091914d4b540ea32f877b2b7040449a8d7ac2651a24553133335d97d92"
+    }
+  },
+  "api": {
+    "status": "Passed",
+    "native_execution": false,
+    "assemblies": [
+      {
+        "assembly": "CriticalShift.Features.Player.Unity",
+        "files": 7,
+        "status": "Passed"
+      },
+      {
+        "assembly": "CriticalShift.Player.Bootstrap",
+        "files": 2,
+        "status": "Passed"
+      },
+      {
+        "assembly": "CriticalShift.Player.Editor",
+        "files": 2,
+        "status": "Passed"
+      },
+      {
+        "assembly": "CriticalShift.Player.Tests.PlayMode",
+        "files": 2,
+        "status": "Passed"
+      }
+    ],
+    "report": {
+      "path": "runtime/out/spawn-api-locker-end/player-api.json",
+      "sha256": "46e108581b3f8ab61499859e5959891c0917e85615b3078df9fbd3a86021404b"
+    },
+    "limits": "Supplementary API compilation; the six editor-only map cases are validated by the native runner."
+  },
+  "python_tools": {
+    "status": "Passed",
+    "tests": 40,
+    "log": {
+      "path": "runtime/out/spawn-tools-validated.log",
+      "sha256": "5b87c571504df12796431292296051071a389c9498d155cb99ccf91236fe049f"
+    }
+  },
+  "sources_unchanged": {
+    "status": "Passed",
+    "inputs": 51,
+    "report": {
+      "path": "runtime/out/spawn-export-source/source-integrity-final.json",
+      "sha256": "0ecef5c1e2973e2fa3a3f37893b03e42f0fe8e37e77b47ef9e648b52246010a7"
+    },
+    "tracked_sections_unchanged": true,
+    "original_checkout_clean": true
+  },
+  "rooms": [
+    {
+      "key": "front-end-area",
+      "translation": [
+        8.0,
+        -80.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "objects": 2106,
+      "collision_triangles": 550356,
+      "decorative_collision_omissions": 206,
+      "fast_midphase": true,
+      "mesh_sha256": "5f56ee09ea152aad70ae449eee5192761a66384aaf541f07ec1d84d4a483c91b",
+      "collision_sha256": "a8be3b782bcfbedb28f6a58198f3a90e4bd100e6d2229e1c16c3f41a81946394"
+    },
+    {
+      "key": "spawn-room",
+      "translation": [
+        8.0,
+        -92.38,
+        0.0
+      ],
+      "yaw": 0.0,
+      "objects": 2145,
+      "collision_triangles": 279370,
+      "decorative_collision_omissions": 0,
+      "fast_midphase": true,
+      "mesh_sha256": "9810dc7b69b7f48598054bc83975c786de313edd5e061a12e76a60600c030f6e",
+      "collision_sha256": "b016cd5628d1aa11dedf02adb0fad99b35b39531079630586e49b3f6a7261383"
+    },
+    {
+      "key": "mine",
+      "translation": [
+        -14.4,
+        -41.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "objects": 247,
+      "collision_triangles": 3287462,
+      "decorative_collision_omissions": 0,
+      "fast_midphase": false,
+      "mesh_sha256": "36f0d325517227e9e2e22b7dcb19ae3da23258eccc6babf34da7be5b3adfb337",
+      "collision_sha256": "b1a640f2e1ea9f08c23691c7b35e8b6ab23f1d65437beb0ecfd4bd3a7beb49ea"
+    },
+    {
+      "key": "refinery",
+      "translation": [
+        -26.28,
+        -52.2,
+        0.0
+      ],
+      "yaw": 90.0,
+      "objects": 3157,
+      "collision_triangles": 389324,
+      "decorative_collision_omissions": 0,
+      "fast_midphase": true,
+      "mesh_sha256": "d5c1bc1ec1c6bb79003de5e93b54223c0df82d08be140876c4d4cee2882d293d",
+      "collision_sha256": "800bbea1835b3d4b93184f2bd2e24198e3accb5afa864647deb30f394951f5e0"
+    },
+    {
+      "key": "medical-reanimation",
+      "translation": [
+        26.0,
+        -70.0,
+        0.0
+      ],
+      "yaw": -90.0,
+      "objects": 1486,
+      "collision_triangles": 505672,
+      "decorative_collision_omissions": 0,
+      "fast_midphase": true,
+      "mesh_sha256": "27b332fbbccb5bbdd3e8cce52469cab6e47b4073f5f025ac6418256e78195331",
+      "collision_sha256": "98521e7f598911d5391c689523031dc34d5d01acb18f7ca5d1f0b4ba5408941e"
+    },
+    {
+      "key": "fuel-corridor",
+      "translation": [
+        -22.2,
+        -43.6,
+        0.0
+      ],
+      "yaw": 0.0,
+      "objects": 520,
+      "collision_triangles": 2059090,
+      "decorative_collision_omissions": 0,
+      "fast_midphase": false,
+      "mesh_sha256": "85901f5479699a55b1f166173d9cb32cd435fbf23f22facdaab92aa37b93cd04",
+      "collision_sha256": "28c924b6db7584f1e1f476b35b373a8c33dae27c08f048a225b8f00d3a9bc416"
+    }
+  ],
+  "rig": {
+    "fbx_sha256": "c5f921a6208fd04565a6c4c4d6e5a191b5d2ac8002f2cd3c8bc8c28f6e86343a",
+    "bones": 23,
+    "fps": 24,
+    "original_clips": 49,
+    "sitting_derivatives": 3,
+    "seated_support_height": 0.34
+  },
+  "blender_roundtrip": {
+    "rooms": 6,
+    "bounds_tolerance_metres": 0.002,
+    "bones": 23,
+    "clips": 52,
+    "native_unity": false
+  },
+  "poses": {
+    "finite_samples": 156,
+    "seated_idle_position_seam_metres": 0.0,
+    "inspected_images": [
+      "SPAWN_SIT_DOWN-0.png",
+      "SPAWN_SIT_DOWN-9.png",
+      "SPAWN_SIT_DOWN-18.png",
+      "SPAWN_SEATED_IDLE-0.png",
+      "SPAWN_SEATED_IDLE-24.png",
+      "SPAWN_SEATED_IDLE-48.png",
+      "SPAWN_STAND_UP-0.png",
+      "SPAWN_STAND_UP-9.png",
+      "SPAWN_STAND_UP-18.png",
+      "SUIT_UP-0.png",
+      "SUIT_UP-32.png",
+      "SUIT_UP-64.png"
+    ],
+    "real_time_playback": "NotRun"
+  },
+  "native_map_create": {
+    "status": "Passed",
+    "exit_code": 0,
+    "via": "SpawnMapBuild.Build calls Create before building",
+    "rooms": 6,
+    "animation_states": 52,
+    "log": {
+      "path": "runtime/out/spawn-build-locker-end.log",
+      "sha256": "a16e86cef234c12e5369f8e7108de5da4927721cb2e86de7c5ace9c90a1f1070"
+    },
+    "scene": {
+      "path": "runtime/unity/Assets/CriticalShift/Generated/Spawn/AssembledMap.unity",
+      "sha256": "24a8ba56a27b8e4c0916c296df6a26a9def2d9b0fd3942d2cea0f2e95b135836"
+    },
+    "controller": {
+      "path": "runtime/unity/Assets/CriticalShift/Generated/Spawn/CrewWorker.controller",
+      "sha256": "943b34e856f8e1929890d38b206f2367cdd825abd96bebd8a077f9a54cafabd9"
+    },
+    "locker_standing_poses": 4
+  },
+  "native_playmode": {
+    "status": "Passed",
+    "exit_code": 0,
+    "counts": {
+      "total": 15,
+      "passed": 15,
+      "failed": 0,
+      "skipped": 0,
+      "inconclusive": 0
+    },
+    "test_ids": [
+      "CriticalShift.Tests.Player.PlayerBindingTests.ClosingDoorReopensAroundAWorkerAndClosesAfterClearance",
+      "CriticalShift.Tests.Player.PlayerBindingTests.ConcaveLeafQueryBoundsAllowAnOccupantInTheEmptyChamber",
+      "CriticalShift.Tests.Player.PlayerBindingTests.ControllerMovesAndPausePreventsMovement",
+      "CriticalShift.Tests.Player.PlayerBindingTests.EquipmentAttachesToBodyAndReturnsToWorld",
+      "CriticalShift.Tests.Player.PlayerBindingTests.LowCeilingPreventsCrouchExpansion",
+      "CriticalShift.Tests.Player.PlayerBindingTests.PickupAndDropProjectCanonicalCustodyIntoPhysics",
+      "CriticalShift.Tests.Player.PlayerBindingTests.PlacementAndTakeUseTheAuthoredAnchor",
+      "CriticalShift.Tests.Player.PlayerBindingTests.SeatDisablesMotionAndBlockedExitKeepsLease",
+      "CriticalShift.Tests.Player.PlayerBindingTests.TenResetsReturnBindingsAndClaimsToTheirInitialState",
+      "CriticalShift.Tests.Player.SpawnMapBindingTests.AirlockControlOpensTheDoorAndAllowsWalkingIntoTheCafeteria",
+      "CriticalShift.Tests.Player.SpawnMapBindingTests.AllBenchSeatsAnimateAndHaveUsableStandingExits",
+      "CriticalShift.Tests.Player.SpawnMapBindingTests.ImportedMapStartsWithCompleteCollisionAndAnimatedRig",
+      "CriticalShift.Tests.Player.SpawnMapBindingTests.IntegrityChamberSealsTestsAndReleasesAnUnsuitedWorker",
+      "CriticalShift.Tests.Player.SpawnMapBindingTests.LockerAnimationSwapsSuitOnlyAtCompletionAndPauses",
+      "CriticalShift.Tests.Player.SpawnMapBindingTests.LockerPreparationRequiresStandingInFrontAndCancelsIfDisplaced"
+    ],
+    "duration_seconds": 76.4008045,
+    "started_utc": "2026-10-10 20:27:55Z",
+    "ended_utc": "2026-10-10 20:29:12Z",
+    "xml": {
+      "path": "runtime/out/spawn-playmode-locker-end.xml",
+      "sha256": "5accde249a0b5b86322bc36c07af7e5dd2ca3a4163f2e8f8d5158216bf0ce0d9"
+    },
+    "log": {
+      "path": "runtime/out/spawn-playmode-locker-end.log",
+      "sha256": "fb95a4a152ea16096c944e40753ac01f29a9159329617135cff0cc49fbcea1af"
+    }
+  },
+  "desktop_player": {
+    "status": "Passed",
+    "platform": "Linux64",
+    "configuration": "Development Mono, Built-in, NET_Standard, Disabled stripping, pre-baked collision meshes",
+    "build_exit_code": 0,
+    "smoke_exit_code": 0,
+    "smoke_frames": 120,
+    "smoke_checks": [
+      "running world",
+      "stopped phase",
+      "zero active claims",
+      "zero connected workers",
+      "zero pending timers",
+      "zero registered objects"
+    ],
+    "display": "Xvfb 1280x720, OpenGL 4.5, Mesa 25.0.7, llvmpipe LLVM 19.1.7",
+    "audio": "FMOD nosound fallback; audio behavior not tested",
+    "build_log": {
+      "path": "runtime/out/spawn-build-locker-end.log",
+      "sha256": "a16e86cef234c12e5369f8e7108de5da4927721cb2e86de7c5ace9c90a1f1070"
+    },
+    "smoke_log": {
+      "path": "runtime/out/spawn-player-smoke-locker-end.log",
+      "sha256": "76bfda4339c26709e550e865354f398f4145d2286e1a726458166ee34ea982d7"
+    },
+    "fast_midphase_startup_warnings": 0,
+    "build_fast_midphase_warnings": 2,
+    "outputs": [
+      {
+        "path": "runtime/out/spawn-player/CriticalShift",
+        "sha256": "4a7ff1990210951a644fcf6f3ed721c3f1c95434eb185cfa8d49143550dab99a"
+      },
+      {
+        "path": "runtime/out/spawn-player/CriticalShift_Data/globalgamemanagers",
+        "sha256": "6930621f7526ed04129cef4aeaf86ea132b9ef5f79f7b00bac9fcbfabe087f5e"
+      },
+      {
+        "path": "runtime/out/spawn-player/CriticalShift_Data/level0",
+        "sha256": "add46fa5464b16e5d2ec6664bf46ede964ec0f00f583d80366f23405573a7e7b"
+      },
+      {
+        "path": "runtime/out/spawn-player/CriticalShift_Data/Managed/CriticalShift.Features.Player.Unity.dll",
+        "sha256": "4cfe06121b8591f0653a4bd5e7e37f40cd0c2dcca0b10bbdeba240dc2830cacd"
+      },
+      {
+        "path": "runtime/out/spawn-player/CriticalShift_Data/Managed/CriticalShift.Player.Bootstrap.dll",
+        "sha256": "02b26a05c110cf77abe38c8cc02be181011406116019365c8d2423922332dc2c"
+      }
+    ],
+    "windows_execution": "NotRun"
+  },
+  "performance": "NotRun",
+  "independent_review": "Pending",
+  "static_source": {
+    "status": "Passed",
+    "check": "static-source-only",
+    "metadata_guids": 84,
+    "asmdefs": 9,
+    "csharp_files": 19,
+    "limits": "Not a resolved Unity graph, native import, gameplay or art review.",
+    "report": {
+      "path": "runtime/out/spawn-source-locker-end.json",
+      "sha256": "695747fc47d79e796f84bfc35d08144e81211b3002ac4adaed1a27b409431d24"
+    }
+  },
+  "native_editor": {
+    "version": "6000.4.3f1",
+    "revision": "39d1a88d4dd1",
+    "test_framework": "1.6.0",
+    "nunit": "2.0.5",
+    "license": "Unity Personal activated through official browser sign-in",
+    "profile": {
+      "path": "runtime/toolchain.json",
+      "sha256": "4839fbcc905a03fd19eaa4c7bc0c0e7dda23c2c4d47a1a6b50879697356c50bc"
+    },
+    "packages": {
+      "path": "runtime/unity/Packages/manifest.json",
+      "sha256": "e5d717b2a61993eb77c86fa170a9db0fab61ece6e4f7c19763f6ee879051642a"
+    },
+    "package_lock": {
+      "path": "runtime/unity/Packages/packages-lock.json",
+      "sha256": "4953cea3ef11c8f2fd1d5b25099aa745f390910489ec87a605380745cdbd58dc"
+    }
+  },
+  "native_failure_history": [
+    {
+      "attempt": "Before activation",
+      "status": "Blocked",
+      "exit_code": 198,
+      "reason": "No valid Unity Editor license"
+    },
+    {
+      "attempt": "First activated import",
+      "status": "Failed",
+      "reason": "Invalid inputlegacy package and duplicate Test Runner references"
+    },
+    {
+      "attempt": "First full import",
+      "status": "Failed",
+      "reason": "Disk full; only the task Library cache moved to tmpfs"
+    },
+    {
+      "attempt": "First collision imports",
+      "status": "Failed",
+      "reason": "16-bit splitting/welding and overwritten FBX root axis correction"
+    },
+    {
+      "attempt": "First PlayMode runs",
+      "passed_counts": [
+        10,
+        11,
+        12,
+        13
+      ],
+      "total": 14,
+      "status": "Failed",
+      "reason": "Door query probe, self-hit interaction rays, bench geometry/clearance, cafeteria decorative dust-plane collision"
+    },
+    {
+      "attempt": "Player without a display",
+      "status": "Failed",
+      "exit_code": 139,
+      "reason": "SDL mouse-input crash; use Xvfb"
+    },
+    {
+      "attempt": "First virtual-display smoke",
+      "status": "Failed",
+      "exit_code": 1,
+      "reason": "Incorrect shutdown assertion expected a null view; corrected to inspect stopped state/resources"
+    },
+    {
+      "attempt": "Player before pre-baking",
+      "status": "Passed with warnings",
+      "warnings": 2,
+      "reason": "Large-mesh default Fast Midphase warnings at startup; active scene colliders disabled Fast Midphase"
+    }
+  ],
+  "native_animation": {
+    "status": "Passed",
+    "scope": "Live seated bone/state changes; all four locker standing poses; facing/position/crouch rejection; displacement cancellation; unsuited worker and visible hanging suit throughout preparation; paused pose/clock; full 15-second clip progress; final-pose outfit swap and return, asserted in native PlayMode.",
+    "continuous_all_clip_contact_review": "NotRun",
+    "human_feel_review": "NotRun"
+  },
+  "locker_presentation": {
+    "status": "Passed",
+    "preparation_milliseconds": 15000,
+    "clock_owner": "existing canonical shift clock",
+    "standing_horizontal_tolerance_metres": 0.4,
+    "standing_vertical_tolerance_metres": 0.2,
+    "standing_facing_tolerance_degrees": 35,
+    "grounded_uncrouched_required": true,
+    "movement_and_turning_held": true,
+    "animation": "Original SUIT_UP clip sampled across the preparation interval; final pose applied before equip projection",
+    "hanging_suit": "Visible throughout preparation; hidden only for committed equipment-slot custody",
+    "worker_outfit": "Unsuited until equipment commit; worn suit then appears in the same host projection",
+    "pause": "Clock and sampled bone pose freeze; claim renewal continues",
+    "cancel": "Suit remains hanging and worker remains unsuited",
+    "source_art_changes": false,
+    "first_follow_up_native_run": {
+      "total": 15,
+      "passed": 15,
+      "failed": 0,
+      "skipped": 0
+    }
+  }
+}

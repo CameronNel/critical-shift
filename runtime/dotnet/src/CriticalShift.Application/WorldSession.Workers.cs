@@ -65,7 +65,7 @@ namespace CriticalShift.Application
             {
                 long next = NextRevision();
                 _executing = true;
-                try { reply = operation(); if (reply.Changed) _revision = next; }
+                try { reply = operation(); Players.ReconcileClaims(); if (reply.Changed) _revision = next; }
                 catch { FailClosed(); throw; }
                 finally { _executing = false; }
             }

@@ -21,13 +21,13 @@ namespace CriticalShift.Offline.Tests
             internal readonly Policy Access = new Policy();
             internal readonly WorldSession World;
             internal long Sequence;
-            internal Scene(bool start = true)
+            internal Scene(bool start = true, long stationDelay = 0, long lease = 3000)
             {
-                World = new WorldSession(new WorldSessionConfiguration(1, 60000, true), new TestAccess(), playerActions: Access);
+                World = new WorldSession(new WorldSessionConfiguration(1, 60000, true, leaseMilliseconds: lease), new TestAccess(), playerActions: Access);
                 World.RegisterConnection(C1, A); World.RegisterConnection(C2, B);
                 World.Players.RegisterActor(A, Fixture.Id(11)); World.Players.RegisterActor(B, Fixture.Id(12));
                 World.Players.RegisterTarget(Seat, PlayerTargetKind.Seat);
-                World.Players.RegisterTarget(Suit, PlayerTargetKind.ProtectiveEquipment);
+                World.Players.RegisterTarget(Suit, PlayerTargetKind.ProtectiveEquipment, stationPreparationMilliseconds: stationDelay);
                 World.Players.RegisterTarget(Box, PlayerTargetKind.Carryable);
                 World.Players.RegisterTarget(Place, PlayerTargetKind.Placement, Fixture.Id(13));
                 if (start) World.Start();
@@ -53,6 +53,106 @@ namespace CriticalShift.Offline.Tests
             var changed = new InteractionCommand(s.World.Epoch, 1, InteractionKind.Player, s.Seat,
                 player: new PlayerRequest(PlayerAction.Stand, 1, revision, 1));
             Assert.That(s.World.ExecuteInteraction(s.C1, changed).Status, Is.EqualTo(InteractionStatus.PayloadMismatch));
+        }
+        [Test] public void StationPreparationClaimsOnceAndCannotEquipEarly()
+        {
+            var s = new Scene(stationDelay: 15000, lease: 30000);
+            var command = s.Command(PlayerAction.PrepareEquipment, s.Suit, 1);
+            Assert.That(s.World.ExecuteInteraction(s.C1, command).HasNewCommit, Is.True); s.Sequence = 1;
+            Assert.That(s.World.ExecuteInteraction(s.C1, command).IsReplay, Is.True);
+            Assert.That(s.World.Players.GetPreparation(s.A)!.DueShiftMilliseconds, Is.EqualTo(15000));
+            Assert.That(s.Do(PlayerAction.Equip, s.Suit).Status, Is.EqualTo(InteractionStatus.ActorUnavailable));
+            Assert.That(s.World.GetWorker(s.A)!.Suit, Is.EqualTo(WorkerSuit.None));
+            Assert.That(s.World.Players.GetEquipment(s.A), Is.Null);
+            s.World.AdvanceTo(15000);
+            Assert.That(s.Do(PlayerAction.Equip, s.Suit).HasNewCommit, Is.True);
+            Assert.That(s.World.GetWorker(s.A)!.Suit, Is.EqualTo(WorkerSuit.Intact));
+            Assert.That(s.World.Players.GetPreparation(s.A), Is.Null);
+            Assert.That(s.World.Players.GetHeld(s.A), Is.Null);
+        }
+        [Test] public void StationPreparationPausesWithShiftAndRequiresLiveClaim()
+        {
+            var s = new Scene(stationDelay: 15000, lease: 30000);
+            s.Do(PlayerAction.PrepareEquipment, s.Suit); s.World.AdvanceTo(1000); s.World.Pause(s.World.Epoch);
+            s.World.AdvanceTo(16000); s.World.Resume(s.World.Epoch);
+            Assert.That(s.Do(PlayerAction.Equip, s.Suit).Status, Is.EqualTo(InteractionStatus.ActorUnavailable));
+            s.World.AdvanceTo(29999);
+            Assert.That(s.Do(PlayerAction.Equip, s.Suit).Status, Is.EqualTo(InteractionStatus.ActorUnavailable));
+            // At host time 30000 the unrenewed lease expires, although 15 seconds of shift time also elapsed.
+            s.World.AdvanceTo(30000);
+            Assert.That(s.World.Players.GetPreparation(s.A), Is.Null);
+            Assert.That(s.Do(PlayerAction.Equip, s.Suit).Accepted, Is.False);
+            Assert.That(s.World.GetWorker(s.A)!.Suit, Is.EqualTo(WorkerSuit.None));
+        }
+        [Test] public void StationPreparationHasOneWinnerAndBlocksBypasses()
+        {
+            var s = new Scene(stationDelay: 15000, lease: 30000);
+            Assert.That(s.Do(PlayerAction.PickUp, s.Suit).Accepted, Is.False);
+            Assert.That(s.Do(PlayerAction.PrepareEquipment, s.Suit).Accepted, Is.True);
+            Assert.That(s.World.ExecuteInteraction(s.C2, s.Command(PlayerAction.PrepareEquipment, s.Suit, 1, s.B)).Status,
+                Is.EqualTo(InteractionStatus.AlreadyClaimed));
+            Assert.That(s.World.Players.GetPreparation(s.B), Is.Null);
+            Assert.That(s.Do(PlayerAction.Sit, s.Seat).Accepted, Is.False);
+            Assert.That(s.World.ExecuteInteraction(s.C1, new InteractionCommand(s.World.Epoch, ++s.Sequence, InteractionKind.Release,
+                s.Suit, leaseGeneration: s.World.GetObject(s.Suit)!.LeaseGeneration)).Accepted, Is.False);
+            Assert.That(s.World.GetObject(s.Suit)!.HolderId, Is.EqualTo(s.A));
+        }
+        [Test] public void CancelledStationPreparationCannotUseAnOldDeadline()
+        {
+            var s = new Scene(stationDelay: 15000, lease: 30000);
+            s.Do(PlayerAction.PrepareEquipment, s.Suit);
+            var cancelled = s.World.Players.GetPreparation(s.A)!;
+            Assert.That(s.Do(PlayerAction.Drop, s.Suit).Accepted, Is.True);
+            s.World.AdvanceTo(1000); s.Do(PlayerAction.PrepareEquipment, s.Suit);
+            Assert.That(s.World.Players.GetPreparation(s.A)!.LeaseGeneration, Is.GreaterThan(cancelled.LeaseGeneration));
+            s.World.AdvanceTo(15000);
+            Assert.That(s.Do(PlayerAction.Equip, s.Suit).Accepted, Is.False);
+            s.World.AdvanceTo(16000);
+            Assert.That(s.Do(PlayerAction.Equip, s.Suit).Accepted, Is.True);
+        }
+        [Test] public void StationSuitCannotMoveToAPlacementSlot()
+        {
+            var s = new Scene(stationDelay: 15000, lease: 30000);
+            s.Do(PlayerAction.PrepareEquipment, s.Suit); s.World.AdvanceTo(15000); s.Do(PlayerAction.Equip, s.Suit);
+            Assert.That(s.Do(PlayerAction.Unequip, s.Suit).Accepted, Is.True);
+            Assert.That(s.World.GetObject(s.Suit)!.HolderId, Is.Null);
+            Assert.That(s.World.GetObject(s.Suit)!.SlotId, Is.Null);
+            Assert.That(s.Do(PlayerAction.PickUp, s.Suit).Accepted, Is.False);
+            Assert.That(s.Do(PlayerAction.Place, s.Place, s.Suit).Accepted, Is.False);
+            Assert.That(s.World.Players.GetPlaced(s.Place), Is.Null);
+        }
+        [Test] public void InvalidStationDelayCannotPartiallyRegister()
+        {
+            var s = new Scene(false); var id = Fixture.Id(44);
+            Assert.Throws<ArgumentException>(() => s.World.Players.RegisterTarget(id, PlayerTargetKind.ProtectiveEquipment,
+                stationPreparationMilliseconds: 100));
+            Assert.That(s.World.GetObject(id), Is.Null);
+            Assert.That(s.World.Players.GetKind(id), Is.Null);
+        }
+        [Test] public void StationPreparationDisconnectAndStopClearIntention()
+        {
+            var s = new Scene(stationDelay: 15000); s.Do(PlayerAction.PrepareEquipment, s.Suit);
+            s.World.Disconnect(s.World.Epoch, s.C1);
+            Assert.That(s.World.Players.GetPreparation(s.A), Is.Null);
+            Assert.That(s.World.GetObject(s.Suit)!.HolderId, Is.Null);
+            s.World.Stop(); Assert.That(s.World.View.ActiveClaimCount, Is.Zero);
+        }
+        [Test] public void FullHandsCannotStartOrReserveStationPreparation()
+        {
+            var s = new Scene(stationDelay: 15000); s.Do(PlayerAction.PickUp, s.Box);
+            Assert.That(s.Do(PlayerAction.PrepareEquipment, s.Suit).Status, Is.EqualTo(InteractionStatus.ActorAlreadyHolding));
+            Assert.That(s.World.Players.GetPreparation(s.A), Is.Null);
+            Assert.That(s.World.GetObject(s.Suit)!.HolderId, Is.Null);
+            Assert.That(s.World.GetObject(s.Box)!.HolderId, Is.EqualTo(s.A));
+        }
+        [TestCase(true)] [TestCase(false)] public void StationPreparationImpactOrAttachmentFailureClearsIntention(bool impact)
+        {
+            var s = new Scene(stationDelay: 15000); s.Do(PlayerAction.PrepareEquipment, s.Suit);
+            if (impact) s.World.ApplyWorkerImpact(s.World.Epoch, s.A, 1, WorkerImpact.Incapacitating, 1000, Fixture.Id(40), Fixture.Id(41));
+            else s.World.ReportAttachmentFailure(s.World.Epoch, s.Suit, s.World.GetObject(s.Suit)!.LeaseGeneration);
+            Assert.That(s.World.Players.GetPreparation(s.A), Is.Null);
+            Assert.That(s.World.GetObject(s.Suit)!.HolderId, Is.Null);
+            Assert.That(s.World.GetWorker(s.A)!.Suit, Is.EqualTo(WorkerSuit.None));
         }
         [Test] public void SeatContentionHasOneWinnerAndStandFreesIt()
         {

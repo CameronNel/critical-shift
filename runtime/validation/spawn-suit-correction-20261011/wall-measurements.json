@@ -1,0 +1,35 @@
+{
+  "limits": "Display PNG patch at identical coordinates, not linear material values or global art acceptance. Gaussian highpass radius 2.",
+  "rectangle": [
+    1080,
+    25,
+    1170,
+    95
+  ],
+  "results": {
+    "approved": {
+      "meanRGB": [
+        98.69761904761904,
+        21.123333333333335,
+        0.0
+      ],
+      "highpassRMS": 0.7752453102117361
+    },
+    "current": {
+      "meanRGB": [
+        98.13825396825396,
+        20.904285714285713,
+        0.0
+      ],
+      "highpassRMS": 0.7682867630413466
+    },
+    "failed": {
+      "meanRGB": [
+        97.7331746031746,
+        20.63952380952381,
+        0.0
+      ],
+      "highpassRMS": 0.8140304064624998
+    }
+  }
+}

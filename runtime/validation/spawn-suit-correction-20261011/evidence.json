@@ -1,0 +1,97 @@
+{
+  "status": "PassedBoundedValidation",
+  "baseRevision": "467a411288ab693c6fe8a68fd2ab3c926b6ec473",
+  "mapCommit": "bb6b4924849d38097ee629a6fa2c00dc1b56095f",
+  "rigCommit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+  "editor": "6000.4.3f1",
+  "graphics": "Mesa llvmpipe (LLVM 19.1.7, 256 bits)",
+  "nativeBake": {
+    "lightmaps": 2,
+    "lightProbes": 390,
+    "shadowMasks": 2,
+    "reflectionCubemaps": 3,
+    "lightBakerMilliseconds": 404135.02
+  },
+  "nativePlayMode": {
+    "id": "2",
+    "testcasecount": "17",
+    "result": "Passed",
+    "total": "17",
+    "passed": "17",
+    "failed": "0",
+    "inconclusive": "0",
+    "skipped": "0",
+    "asserts": "0",
+    "engine-version": "3.5.0.0",
+    "clr-version": "4.0.30319.42000",
+    "start-time": "2026-10-11 11:07:35Z",
+    "end-time": "2026-10-11 11:09:05Z",
+    "duration": "90.1764023"
+  },
+  "nativePlayerBuild": {
+    "result": "Succeeded",
+    "target": "Linux64",
+    "strict": true,
+    "development": true,
+    "compression": "LZ4HC"
+  },
+  "nativePlayerSmoke": {
+    "exitCode": 0,
+    "frames": 120,
+    "marker": "CS_PLAYER_ROOM_SMOKE_OK"
+  },
+  "offlineAPIAssemblies": 4,
+  "pythonTestsPassed": 40,
+  "staticSource": {
+    "metadataGuids": 1040,
+    "asmdefs": 9,
+    "csharpFiles": 22
+  },
+  "sourcePreservation": "source-preservation.json",
+  "rigPreservation": "rig-preservation.json",
+  "artifacts": {
+    "WornFull-Blender-vs-Unity.png": "862b055141b6e166eca7d47c84612c106081e4df552d2d0d333e042c14e1cc01",
+    "wall-before-after.png": "4ab18fccd63e18817870632c680e3ec93f4a76c8c8f74fbb786cf66874d27f26",
+    "WornFace-Blender-vs-Unity.png": "3efcca78dad59e093d17d3338ccbcd261bd9d907ade64031667fdfe3bff32423",
+    "Visor-Blender-vs-Unity.png": "a5d61b12cda92e70b95ea70b5d4ac6b2d6fbc7527e6c9382a88b019ec150218a",
+    "source-preservation.json": "36b849d201ecf242a0b5fe055c260a23f3d930ffa94ca8f4b3ecc8034723dc3a",
+    "wall-measurements.json": "35b5e8ddd429000bd25e58bd9f46ba5e8c0b8b0a4268fd51d8eced8a593f2c57",
+    "worn-cameras.json": "53ca10d9a3f805044c253e9c3744405634ec44baf84e1f845e63ebc00d1f4333",
+    "cameras.json": "7e2d650a7b9c981077ab74fb76cf702df442344a7f6848378bc3d36bea54ad84",
+    "WornThreeQuarter-Blender-vs-Unity.png": "460722e480cd240c101b3963e0778dd55f2d703c6d6c84ea94bbfc7b104f804d",
+    "HangingSuit-Blender-vs-Unity.png": "aaa6dc57d7c6566833ba5529ae705da5c67d8d5f1ecfd778cf583252011f47d4",
+    "README.md": "7f73455852a68f8c1980edcd0ddc7aee1967a725d11cce21282077ffcc34c11d",
+    "playmode.xml": "461e1e44159a6e3cd0ff637f16fb87c05dd141c00225ff3239eb04d67d4455ee",
+    "rig-preservation.json": "5b5cc0d132ea16ecef34e706da978728deac882902206e9b26148e807778cc20",
+    "blender/WornThreeQuarter.png": "4eb682fb2c12f2a2278dc43c3190eca253ceb3006dfd73d95eb39600e62e307f",
+    "blender/Visor.png": "577be8b1b94e69183c9043c9204f8adf74465db36fa842f2ca00183278793966",
+    "blender/WornFull.png": "7276959a3dabb3cc05b4ea5bb318faf975d647897dc95be2ccdf2bece1baa95b",
+    "blender/WornFace.png": "9a4347ae0a98225db69f0c043ea4325324018627dc732756a987974f319bf84d",
+    "blender/HangingSuit.png": "d88da9659e59a53af03bf2a18958c79f6867c03283e3541fb83fb7f22c1a95bd",
+    "unity/Spawn.png": "d017e86dd65db7ac0d0c688a4e690b675743b1b770138729c79d5bf429d547ac",
+    "unity/Briefing.png": "91ad6463d8a96a60bf84c65e9aefba31a453e4f24238b3dcdc381ff5b34e57d1",
+    "unity/WornThreeQuarter.png": "4346ca9adb3dbfda1812dc0f44038ab3c5dfc7003c6b4a75e606ecc10a7cdb21",
+    "unity/Visor.png": "d5577a56b7e8294d29376a12fe61caaa4937da58e4e7521263a29316efff3d73",
+    "unity/WornFull.png": "4c3efa2e55239d1edb7ccf1f2db405cee99acfbe3632027df19847a771cb2c79",
+    "unity/Lockers.png": "e63b8342f7af9e42e12028bd95bfa5b0448e3e6cd6ddfde8b46477bfbc90a8ca",
+    "unity/WornFace.png": "d2fac1ad1c8d46135280f5d36f981e6c75a35901f69b04003a47e0138a53378d",
+    "unity/HangingSuit.png": "573a99092fe82796a3dc0332f0273c80fdb44e16c6a2439d131ba1dbda558e1a"
+  },
+  "logHashes": {
+    "native-bake-final4.log": "017709d438c502f3187b9a06b23963dcaac7671254a29fdce4e8780b7d99820b",
+    "native-room-final4.log": "6e44e65ce87bda28c7daa0cfbcac631bc139d659a319af8c3bedc79acc75ea07",
+    "native-hanging-final4.log": "83b5fed688eddf368436be776a832abd98d4e9703da9bb62db8463149ac14e0e",
+    "native-playmode-final.log": "0bda03990d30b2fccb49abce331f9eb259150defa71de0dc929c839aaa4102d1",
+    "native-player-build-final.log": "bddc4de1dbc978beb1b26def43ab06b526e17a60d1f6a82f7d8f999e7b3b1e6a",
+    "native-player-smoke-final.log": "ad421e562bd5ab230a02b6ecb0a20530a573a9f7aa64ddd4e303cf071d68b239",
+    "api-final-frozen.log": "9e7fa6739f107b989d8c1af8858188b1d77c10ac08cf2d49814d3f1830f551df",
+    "python-tests-face-final.log": "c2ce705174a1f406cd1255a0f1fd50921e7b82bcb4e1885ec1ba2a5b8bb33866",
+    "source-check-final-frozen.log": "1a390d892501d38f3edda4740b84c2a172603e9ceaa55105c9bca604546b1a52"
+  },
+  "limits": [
+    "Dynamic head/hood shading remains flatter than Cycles; probe reflections and standard cloth coat/sheen are approximations.",
+    "Source regenerated IDLE and preserved runtime IDLE arm poses differ; the animation payload was preserved.",
+    "Other five rooms retain preview materials.",
+    "No target-GPU performance measurement or independent art acceptance; draft PR remains unmerged."
+  ]
+}

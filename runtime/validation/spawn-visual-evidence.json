@@ -1,0 +1,239 @@
+{
+  "date": "2026-10-11",
+  "base_commit": "4c5f1bb337e5d9fce611ff75bde012b8d2dbdb9c",
+  "map_commit": "bb6b4924849d38097ee629a6fa2c00dc1b56095f",
+  "rig_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+  "scope": "Spawn hall, briefing, lockers on the PR95 six-room assembly",
+  "source_preservation": {
+    "status": "Passed",
+    "verified_inputs": 51,
+    "map_commit": "bb6b4924849d38097ee629a6fa2c00dc1b56095f",
+    "rig_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+    "source_blends_and_assembly_unchanged": true
+  },
+  "room_geometry": [
+    {
+      "key": "front-end-area",
+      "mesh_sha256": "5f56ee09ea152aad70ae449eee5192761a66384aaf541f07ec1d84d4a483c91b",
+      "collision_sha256": "a8be3b782bcfbedb28f6a58198f3a90e4bd100e6d2229e1c16c3f41a81946394",
+      "collision_triangles": 550356
+    },
+    {
+      "key": "spawn-room",
+      "mesh_sha256": "fcf25728b024d5b196ee5f7f935936cd01dae70b97c155bb5b1e113e03584f5b",
+      "collision_sha256": "85443ad7c2d6b6528f6ab9eb7fa90e2b2308fdf0169b04806f7f4b1482e6aa2f",
+      "collision_triangles": 279370
+    },
+    {
+      "key": "mine",
+      "mesh_sha256": "36f0d325517227e9e2e22b7dcb19ae3da23258eccc6babf34da7be5b3adfb337",
+      "collision_sha256": "b1a640f2e1ea9f08c23691c7b35e8b6ab23f1d65437beb0ecfd4bd3a7beb49ea",
+      "collision_triangles": 3287462
+    },
+    {
+      "key": "refinery",
+      "mesh_sha256": "d5c1bc1ec1c6bb79003de5e93b54223c0df82d08be140876c4d4cee2882d293d",
+      "collision_sha256": "800bbea1835b3d4b93184f2bd2e24198e3accb5afa864647deb30f394951f5e0",
+      "collision_triangles": 389324
+    },
+    {
+      "key": "medical-reanimation",
+      "mesh_sha256": "27b332fbbccb5bbdd3e8cce52469cab6e47b4073f5f025ac6418256e78195331",
+      "collision_sha256": "98521e7f598911d5391c689523031dc34d5d01acb18f7ca5d1f0b4ba5408941e",
+      "collision_triangles": 505672
+    },
+    {
+      "key": "fuel-corridor",
+      "mesh_sha256": "85901f5479699a55b1f166173d9cb32cd435fbf23f22facdaab92aa37b93cd04",
+      "collision_sha256": "28c924b6db7584f1e1f476b35b373a8c33dae27c08f048a225b8f00d3a9bc416",
+      "collision_triangles": 2059090
+    }
+  ],
+  "prepared_scene": {
+    "mapBindingsSha256": "487fde15c1d612c5501d66df780ebf2da492ca51eceaa29bc3b287c6b5957f79",
+    "sceneSha256": "7be86f7ed75fc37c23f47770fb95778f4143e9763fee46f54bef31a7ed474bc5",
+    "sourceSha256": "6da40c69c8459471b0273fa9344e03a2486a5a726ff50e3f31b883f9381b742b",
+    "lightmaps": 2
+  },
+  "lighting": {
+    "status": "Passed",
+    "native": true,
+    "lightmaps": 2,
+    "probe_positions": 390,
+    "persisted_reflection_cubemaps": 3,
+    "authored_lights": 22,
+    "atlases": 4,
+    "lettering_meshes": 69,
+    "embedded_emitter_surfaces": 4,
+    "mixed_bake_mode": "IndirectOnly"
+  },
+  "renders": [
+    {
+      "room": "Spawn",
+      "blender": {
+        "path": "runtime/validation/spawn-visual-20261011/blender/Spawn.png",
+        "sha256": "46be4abc7a3439e8a37e571ec5b5e10174a0218415f19077030545e0d80d5d0a"
+      },
+      "unity": {
+        "path": "runtime/validation/spawn-visual-20261011/unity/Spawn.png",
+        "sha256": "80929c71202116caefe5f18c63bac34a55316b6a7cea2f9e095370a1075fb94c"
+      },
+      "camera": {
+        "name": "VALIDATE_Spawn",
+        "position": [
+          0.0,
+          0.23000000417232513,
+          1.6299999952316284
+        ],
+        "forward": [
+          0.0,
+          0.9999999403953552,
+          3.5762786865234375e-07
+        ],
+        "up": [
+          0.0,
+          -3.5762786865234375e-07,
+          0.9999999403953552
+        ],
+        "verticalFov": 49.42635311494791
+      }
+    },
+    {
+      "room": "Briefing",
+      "blender": {
+        "path": "runtime/validation/spawn-visual-20261011/blender/Briefing.png",
+        "sha256": "074986c4a6703ce9875226ea0e7092154c3e33283c1d10829d4ddb4d33cd4056"
+      },
+      "unity": {
+        "path": "runtime/validation/spawn-visual-20261011/unity/Briefing.png",
+        "sha256": "5040408a61982bde1bc0d35645eee682319716b135ea228ffaab6987114f1e07"
+      },
+      "camera": {
+        "name": "VALIDATE_BriefingDoor",
+        "position": [
+          -1.9199999570846558,
+          3.700000047683716,
+          1.6299999952316284
+        ],
+        "forward": [
+          -0.9924041628837585,
+          -0.05393514037132263,
+          -0.1105666309595108
+        ],
+        "up": [
+          -0.11040377616882324,
+          -0.006000131368637085,
+          0.9938687086105347
+        ],
+        "verticalFov": 47.519858442563574
+      }
+    },
+    {
+      "room": "Lockers",
+      "blender": {
+        "path": "runtime/validation/spawn-visual-20261011/blender/Lockers.png",
+        "sha256": "cc248f68ec24fd6871654fd263ac4e211409327d76fb0e2f35c221cb8e623f27"
+      },
+      "unity": {
+        "path": "runtime/validation/spawn-visual-20261011/unity/Lockers.png",
+        "sha256": "9d4c21c2f3f8a9bac9b015b076e0d3c044f43a4e2d47e66fbcdf6eab837edef1"
+      },
+      "camera": {
+        "name": "VALIDATE_LockerDoor",
+        "position": [
+          1.4199999570846558,
+          3.950000047683716,
+          1.6299999952316284
+        ],
+        "forward": [
+          0.9996091723442078,
+          0.010035932064056396,
+          -0.026094108819961548
+        ],
+        "up": [
+          0.0260927677154541,
+          0.0002619028091430664,
+          0.9996595978736877
+        ],
+        "verticalFov": 69.85133344534826
+      }
+    }
+  ],
+  "native_bake_log": {
+    "path": "runtime/out/spawn-lighting-final6.log",
+    "sha256": "3ff639980e1ce7f06f6660884cd659f4634d2e037a958763bf17b868a7c3e4bc"
+  },
+  "api": {
+    "status": "Passed",
+    "native_execution": false,
+    "checks": [
+      {
+        "assembly": "CriticalShift.Features.Player.Unity",
+        "files": 8,
+        "status": "Passed"
+      },
+      {
+        "assembly": "CriticalShift.Player.Bootstrap",
+        "files": 2,
+        "status": "Passed"
+      },
+      {
+        "assembly": "CriticalShift.Player.Editor",
+        "files": 4,
+        "status": "Passed"
+      },
+      {
+        "assembly": "CriticalShift.Player.Tests.PlayMode",
+        "files": 2,
+        "status": "Passed"
+      }
+    ],
+    "report": {
+      "path": "runtime/out/spawn-api-visual-final11/player-api.json",
+      "sha256": "d934cbc2b632f78e2659172f8a0698fafd29d9de662719587616299e2534ba05"
+    }
+  },
+  "tooling": {
+    "python_tests": 40,
+    "status": "Passed",
+    "static": {
+      "status": "Passed",
+      "check": "static-source-only",
+      "metadata_guids": 918,
+      "asmdefs": 9,
+      "csharp_files": 22,
+      "limits": "Not a resolved Unity graph, native import, gameplay or art review."
+    }
+  },
+  "playmode": {
+    "status": "Passed",
+    "native_execution": true,
+    "executed": 15,
+    "passed": 15,
+    "failed": 0,
+    "skipped": 0,
+    "report": {
+      "path": "runtime/out/spawn-playmode-visual-final3.xml",
+      "sha256": "e8f349c8ded945766994a5cb9489ab3ebf4cca224816f3d72cab3723c0abf307"
+    }
+  },
+  "linux_player": {
+    "status": "Passed",
+    "smoke_frames": 120,
+    "clean_shutdown": true,
+    "build_log": {
+      "path": "runtime/out/spawn-player-visual-build.log",
+      "sha256": "dc34f8edfc4cd80e44619edd72651253175efd202229a44d1b0307e89d5f9bd4"
+    },
+    "smoke_log": {
+      "path": "runtime/out/spawn-player-visual-smoke.log",
+      "sha256": "6b786fd0eaf80ae3bf0baee39ae3284b2ae7415cc42db7ba691ec560fb4f40db"
+    }
+  },
+  "art_acceptance": "Pending human comparison",
+  "limits": [
+    "Not pixel-identical Cycles lighting or refraction",
+    "Other five rooms retain preview materials",
+    "Windows Player, remote peers and target-GPU performance NotRun"
+  ]
+}
