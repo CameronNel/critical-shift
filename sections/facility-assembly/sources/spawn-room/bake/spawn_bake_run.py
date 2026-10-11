@@ -151,6 +151,16 @@ def dilate_to_rgb(img, name, channel):
     return final
 
 
+def needs_normal(o):
+    for slot in o.material_slots:
+        m = slot.material
+        if m and m.use_nodes:
+            _out, bsdf = surface_bsdf(m)
+            if bsdf is not None and bsdf.inputs['Normal'].is_linked:
+                return True
+    return False
+
+
 groups = {}
 for o in bpy.data.objects:
     if o.type == 'MESH' and 'bake_atlas' in o:
@@ -208,7 +218,14 @@ for k in args.atlas:
             tex.select = True
             saved.append((m, *(route(m, emit, channel) if channel != 'normal' else (None, None))))
         if channel == 'normal':
-            bpy.ops.object.bake(type='NORMAL', margin=0, use_clear=True, normal_space='TANGENT')
+            with_normal = [o for o in objs if needs_normal(o)]
+            print('NORMAL_PASS objects', len(with_normal), 'of', len(objs))
+            if with_normal:
+                bpy.ops.object.select_all(action='DESELECT')
+                for o in with_normal:
+                    o.select_set(True)
+                view_layer.objects.active = with_normal[0]
+                bpy.ops.object.bake(type='NORMAL', margin=0, use_clear=True, normal_space='TANGENT')
         else:
             bpy.ops.object.bake(type='EMIT', margin=0, use_clear=True)
             for m, out, bsdf in saved:
