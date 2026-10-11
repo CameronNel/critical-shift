@@ -230,6 +230,15 @@ class Path:
 
     def lat(self, d): return [self.P[i] + self.off[i] * d for i in range(self.n)]
 
+    def nearest(self, p):
+        """Arclength of the centre-line point closest to plan point p."""
+        best = (1e9, 0.0); p = Vector(p)
+        for i in range(self.n - 1):
+            a, b = self.P[i], self.P[i + 1]; ab = b - a; f = max(0.0, min(1.0, (p - a).dot(ab) / max(ab.length_squared, 1e-9)))
+            dd = (a + ab * f - p).length
+            if dd < best[0]: best = (dd, self.cum[i] + f * ab.length)
+        return best[1]
+
 
 def _uv(bm, scale=2.0):
     layer = bm.loops.layers.uv.verify()
@@ -265,7 +274,22 @@ def pipe(coll, name, P, z, r, mat, sides=8):
     o = bpy.data.objects.new(name, me); coll.objects.link(o); return o
 
 
-def hall(coll, name, centre, w, h, mats, t=0.3, slab=0.25, rib_every=4.0, step_lights=True):
+def spans(L, openings, sg, pad=0.0):
+    """Intervals of arclength [0, L] on side sg that are not inside a wall opening of that side. openings: list of (s0, s1, side)."""
+    cuts = sorted((a - pad, b + pad) for a, b, sd in openings if sd == sg)
+    out = []; cur = 0.0
+    for a, b in cuts:
+        if a > cur + 1e-6: out.append((cur, a))
+        cur = max(cur, b)
+    if cur < L - 1e-6: out.append((cur, L))
+    return out
+
+
+def in_opening(s, openings, margin=0.0, sg=None):
+    return any(a - margin <= s <= b + margin and (sg is None or sd == sg) for a, b, sd in openings)
+
+
+def hall(coll, name, centre, w, h, mats, openings=(), t=0.3, slab=0.25, rib_every=4.0, step_lights=True):
     """A finished hall along the smooth centre line (list of plan points): spawn plaster walls over a washable dado with skirt and cap, spawn mineral ceiling with steel ribs and lamp panels,
     spawn floor with painted lane lines, two conduits. Returns the Path."""
     path = Path(centre); W2 = w / 2; sk = 0.04      # sk: thickness of the finished inner skin over the concrete shell
@@ -276,13 +300,15 @@ def hall(coll, name, centre, w, h, mats, t=0.3, slab=0.25, rib_every=4.0, step_l
     solid(coll, f'{name} roof slab', ring_out, h, h + slab, mats['slab'])
     solid(coll, f'{name} ceiling', ring_in, h - sk, h, mats['ceiling'])
     for side, sg in (('L', 1), ('R', -1)):
-        ribbon = lambda d0, d1: path.lat(sg * d0) + path.lat(sg * d1)[::-1]
-        solid(coll, f'{name} wall shell {side}', ribbon(W2 + t, W2), 0.0, h, mats['slab'])
-        solid(coll, f'{name} wall {side}', ribbon(W2, W2 - sk), sk, h - sk, mats['wall'])
-        solid(coll, f'{name} dado {side}', ribbon(W2 - sk, W2 - sk - 0.05), 0.1, 1.15, mats['dado'])
-        solid(coll, f'{name} dado cap {side}', ribbon(W2 - sk, W2 - sk - 0.07), 1.15, 1.2, mats['skirt'])
-        solid(coll, f'{name} skirt {side}', ribbon(W2 - sk, W2 - sk - 0.09), 0.0, 0.1, mats['skirt'])
-        solid(coll, f'{name} lane line {side}', ribbon(W2 - 0.55, W2 - 0.43), 0.0, 0.012, mats['yellow'])
+        for i, (a, b) in enumerate(spans(path.length, openings, sg)):
+            ribbon = lambda d0, d1: patch_ring(path, a, b, sg * d0, sg * d1)
+            tag = f'{side}{i}'
+            solid(coll, f'{name} wall shell {tag}', ribbon(W2 + t, W2), 0.0, h, mats['slab'])
+            solid(coll, f'{name} wall {tag}', ribbon(W2, W2 - sk), sk, h - sk, mats['wall'])
+            solid(coll, f'{name} dado {tag}', ribbon(W2 - sk, W2 - sk - 0.05), 0.1, 1.15, mats['dado'])
+            solid(coll, f'{name} dado cap {tag}', ribbon(W2 - sk, W2 - sk - 0.07), 1.15, 1.2, mats['skirt'])
+            solid(coll, f'{name} skirt {tag}', ribbon(W2 - sk, W2 - sk - 0.09), 0.0, 0.1, mats['skirt'])
+            solid(coll, f'{name} lane line {tag}', ribbon(W2 - 0.55, W2 - 0.43), 0.0, 0.012, mats['yellow'])
         pipe(coll, f'{name} conduit {side}', path.lat(sg * (W2 - 0.3)), h - 0.55, 0.07, mats['steel'])
     s = rib_every / 2
     while s < path.length - 0.5:
@@ -341,6 +367,7 @@ ZONES = {
     'waste-storage':   dict(accent=(1.0, 0.72, 0.08), tint=(0.8, 0.78, 0.6), name='WASTE STORAGE'),
     'cooling-plant':   dict(accent=(0.08, 0.9, 0.85), tint=(0.58, 0.82, 0.84), name='COOLING PLANT'),
     'bridge':          dict(accent=(1.0, 0.5, 0.12), tint=(0.78, 0.74, 0.74), name='TURBINE - ELECTRICAL'),
+    'service':         dict(accent=(0.3, 0.95, 0.9), tint=(0.7, 0.78, 0.8), name='PLANT SERVICE'),
     'tunnel':          dict(accent=(0.85, 0.92, 1.0), tint=(0.82, 0.82, 0.86), name='REACTOR CONCOURSE'),
 }
 SPAWN_PROPS = {   # prefix of object names in the spawn module: (mount origin in spawn coordinates, direction the prop faces in degrees)
@@ -450,29 +477,33 @@ def straight_at(path, s, half=1.2, tol_deg=1.5):
     return math.degrees(math.acos(max(-1.0, min(1.0, a.dot(b))))) < tol_deg
 
 
-def dress_hall(coll, path, zone_key, mats, props, h=5.0, w=5.0, airlock_s=(), haze=True, seed=0):
+def dress_hall(coll, path, zone_key, mats, props, h=5.0, w=5.0, airlock_s=(), haze=True, seed=0, openings=()):
     """Add the dressing to a hall made by hall(): accent lines, coves, pilasters, wall insets, ceiling ribs and light bars, cable tray, duct, floor runner and LED dashes, signs, props, lights and haze."""
     Z = ZONES[zone_key]; rnd = _random.Random(seed); W2 = w / 2; sk = 0.04; L = path.length
     acc = _emissive(f'HALL accent {zone_key}', Z['accent'], 7.0); acc_dim = _emissive(f'HALL accent dim {zone_key}', Z['accent'], 2.6)
     sign = _emissive('HALL sign ivory', (0.95, 0.92, 0.82), 2.2)
     runner = _runner_mat(); runner_edge = _emissive('HALL runner edge', (0.8, 0.8, 0.82), 0.25)
-    wall = mats['wall_t']
+    wall = mats['wall_t']; compact = w < 3.0; op = openings
     mb = {k: MB(coll, f'{zone_key} {k}', m) for k, m in (('acc', acc), ('accd', acc_dim), ('steel', mats['steel']), ('dark', mats['darksteel']), ('wall', wall), ('lamp', mats['lamp']),
                                                            ('yellow', mats['yellow']), ('sign', sign), ('runner', runner), ('runner_edge', runner_edge), ('ext', mats['darksteel']), ('extacc', acc_dim))}
-    # 1. continuous accent lines and baseboard glow
+    # 1. accent lines and baseboard glow (wall sides skip the branch openings)
     for sg in (1, -1):
-        mb['acc'].ring(patch_ring(path, 0, L, sg * (W2 - sk), sg * (W2 - sk - 0.035)), 1.21, 1.26)
-        mb['accd'].ring(patch_ring(path, 0, L, sg * (W2 - sk), sg * (W2 - sk - 0.1)), 0.1, 0.13)
-        mb['acc'].ring(patch_ring(path, 0, L, sg * (1.25), sg * (1.31)), h - 0.05, h - 0.02)      # ceiling light lines
+        for a, b in spans(L, op, sg):
+            mb['acc'].ring(patch_ring(path, a, b, sg * (W2 - sk), sg * (W2 - sk - 0.035)), 1.21, 1.26)
+            mb['accd'].ring(patch_ring(path, a, b, sg * (W2 - sk), sg * (W2 - sk - 0.1)), 0.1, 0.13)
+        lc = min(1.25, W2 - 0.4)
+        mb['acc'].ring(patch_ring(path, 0, L, sg * lc, sg * (lc + 0.06)), h - 0.05, h - 0.02)      # ceiling light lines
     # 2. pilasters, insets, ribs, lamps
     s = 1.5
     bay = 0
     screens = []
     while s < L - 1.0:
+        if in_opening(s, op, 0.9):
+            s += 3.0; bay += 1; continue
         for sg in (1, -1):
             mb['dark'].ring(patch_ring(path, s - 0.2, s + 0.2, sg * (W2 - sk - 0.14), sg * (W2 - sk)), 0.0, h - 0.7)
             if bay % 2 == 0: mb['acc'].ring(patch_ring(path, s - 0.03, s + 0.03, sg * (W2 - sk - 0.16), sg * (W2 - sk - 0.14)), 0.5, 3.7)
-        if s + 3.0 < L - 1.0 and not any(abs(s + 1.5 - a) < 1.8 for a in airlock_s) and straight_at(path, s + 1.5, 1.4):
+        if s + 3.0 < L - 1.0 and not any(abs(s + 1.5 - a) < 1.8 for a in airlock_s) and straight_at(path, s + 1.5, 1.4) and not any(in_opening(x, op, 0.5) for x in (s + 0.4, s + 1.5, s + 2.6)) and not compact:
             for sg in (1, -1):
                 if bay % 2 == 1 or sg == -1: mb['steel'].ring(patch_ring(path, s + 0.4, s + 2.6, sg * (W2 - sk - 0.02), sg * (W2 - sk)), 1.43, 2.87)
                 mb['dark'].ring(patch_ring(path, s + 0.46, s + 2.54, sg * (W2 - sk - 0.05), sg * (W2 - sk - 0.02)), 1.49, 2.81)
@@ -486,40 +517,46 @@ def dress_hall(coll, path, zone_key, mats, props, h=5.0, w=5.0, airlock_s=(), ha
     s = 4.0
     while s < L - 1.0:
         c, d, n = path.at(s); mb['lamp'].box(c, d, 2.4, 0.5, h - 0.54, h - 0.5); s += 4.0
-    # 3. services: cable tray, duct with flanges and hangers
-    mb['dark'].ring(patch_ring(path, 0.5, L - 0.5, 0.5, 1.1), h - 0.75, h - 0.68)
-    mb['steel'].ring(patch_ring(path, 0.5, L - 0.5, -1.9, -1.25), h - 0.95, h - 0.5)
-    s = 3.0
-    while s < L - 1.0:
-        mb['dark'].ring(patch_ring(path, s - 0.06, s + 0.06, -1.96, -1.19), h - 1.0, h - 0.45)
-        mb['dark'].ring(patch_ring(path, s - 0.02, s + 0.02, 0.5, 1.1), h - 0.68, h)
-        s += 3.0
+    # 3. services: cable tray, duct with flanges and hangers (full-width halls only)
+    if not compact:
+        mb['dark'].ring(patch_ring(path, 0.5, L - 0.5, 0.5, 1.1), h - 0.75, h - 0.68)
+        mb['steel'].ring(patch_ring(path, 0.5, L - 0.5, -1.9, -1.25), h - 0.95, h - 0.5)
+        s = 3.0
+        while s < L - 1.0:
+            mb['dark'].ring(patch_ring(path, s - 0.06, s + 0.06, -1.96, -1.19), h - 1.0, h - 0.45)
+            mb['dark'].ring(patch_ring(path, s - 0.02, s + 0.02, 0.5, 1.1), h - 0.68, h)
+            s += 3.0
     # 4. floor runner and LED dashes
-    mb['runner'].ring(patch_ring(path, 0, L, -0.85, 0.85), 0.0, 0.01)
-    for sg in (1, -1): mb['runner_edge'].ring(patch_ring(path, 0, L, sg * 0.85, sg * 0.91), 0.0, 0.012)
+    rw = 0.85 if not compact else 0.45
+    mb['runner'].ring(patch_ring(path, 0, L, -rw, rw), 0.0, 0.01)
+    for sg in (1, -1): mb['runner_edge'].ring(patch_ring(path, 0, L, sg * rw, sg * (rw + 0.06)), 0.0, 0.012)
     s = 0.5
     while s < L - 0.4:
         for sg in (1, -1):
-            mb['acc'].ring(patch_ring(path, s, s + 0.45, sg * 1.0, sg * 1.08), 0.0, 0.014)
+            mb['acc'].ring(patch_ring(path, s, s + 0.45, sg * (rw + 0.15), sg * (rw + 0.23)), 0.0, 0.014)
         s += 1.0
     for a in airlock_s:
         mb['yellow'].ring(patch_ring(path, a - 1.05, a - 0.75, -W2 + 0.1, W2 - 0.1), 0.0, 0.012)
         mb['yellow'].ring(patch_ring(path, a + 0.75, a + 1.05, -W2 + 0.1, W2 - 0.1), 0.0, 0.012)
     # exterior: plinth, buttress ribs, roof cap and a dim zone stripe on both outer faces
     for sg in (1, -1):
-        mb['ext'].ring(patch_ring(path, 0, L, sg * (W2 + 0.3), sg * (W2 + 0.42)), 0.0, 0.35)
-        mb['ext'].ring(patch_ring(path, 0, L, sg * (W2 + 0.3), sg * (W2 + 0.38)), h + 0.05, h + 0.3)
-        mb['extacc'].ring(patch_ring(path, 0, L, sg * (W2 + 0.3), sg * (W2 + 0.34)), 3.9, 3.98)
+        for a, b in spans(L, op, sg):
+            mb['ext'].ring(patch_ring(path, a, b, sg * (W2 + 0.3), sg * (W2 + 0.42)), 0.0, 0.35)
+            mb['ext'].ring(patch_ring(path, a, b, sg * (W2 + 0.3), sg * (W2 + 0.38)), h + 0.05, h + 0.3)
+            mb['extacc'].ring(patch_ring(path, a, b, sg * (W2 + 0.3), sg * (W2 + 0.34)), min(3.9, h - 0.2), min(3.98, h - 0.12))
         e = 2.0
         while e < L - 1.0:
-            mb['ext'].ring(patch_ring(path, e - 0.18, e + 0.18, sg * (W2 + 0.3), sg * (W2 + 0.62)), 0.0, h + 0.25)
+            if not in_opening(e, op, 0.6, sg): mb['ext'].ring(patch_ring(path, e - 0.18, e + 0.18, sg * (W2 + 0.3), sg * (W2 + 0.62)), 0.0, h + 0.25)
             e += 5.0
     for m in mb.values(): m.done()
-    add_screens(coll, path, zone_key, screens, W2, sk)
+    add_screens(coll, path, zone_key, screens, W2, sk, h)
     # 5. coves (plaster wedge in each wall/ceiling corner) with a glowing strip
+    cw = min(0.75, W2 * 0.45)
     for sg in (1, -1):
-        loft(coll, f'{zone_key} cove {sg}', path, [(W2 - sk, h - 0.75), (W2 - sk, h - sk), (W2 - sk - 0.75, h - sk)], wall, side=sg)
-        loft(coll, f'{zone_key} cove glow {sg}', path, [(W2 - sk - 0.2, h - 0.55), (W2 - sk - 0.26, h - 0.49), (W2 - sk - 0.36, h - 0.59), (W2 - sk - 0.3, h - 0.65)], acc_dim, side=sg)
+        for i, (a, b) in enumerate(spans(L, op, sg)):
+            sub = Path([path.at(a + (b - a) * k / max(2, int((b - a) / 0.5)))[0] for k in range(max(2, int((b - a) / 0.5)) + 1)]) if op else path
+            loft(coll, f'{zone_key} cove {sg}{i}', sub, [(W2 - sk, h - cw), (W2 - sk, h - sk), (W2 - sk - cw, h - sk)], wall, side=sg)
+            loft(coll, f'{zone_key} cove glow {sg}{i}', sub, [(W2 - sk - 0.2, h - cw + 0.2), (W2 - sk - 0.26, h - cw + 0.26), (W2 - sk - 0.36, h - cw + 0.16), (W2 - sk - 0.3, h - cw + 0.1)], acc_dim, side=sg)
     # 6. signs
     n0 = path.at(3.2); 
     def wall_sign(s, sg, body, z, size):
@@ -528,9 +565,9 @@ def dress_hall(coll, path, zone_key, mats, props, h=5.0, w=5.0, airlock_s=(), ha
         rot = (math.pi / 2, 0, alpha) if sg == 1 else (math.pi / 2, 0, alpha + math.pi)
         text_obj(coll, body, (loc.x, loc.y, z), rot, size, sign)
     if L > 8:
-        wall_sign(3.5, 1, 'REACTOR HALL  <', 3.05, 0.2); wall_sign(L - 3.5, -1, Z['name'] + '  >', 3.05, 0.2)
+        wall_sign(3.5, 1, 'REACTOR HALL  <' if not compact else 'SERVICE  <', min(3.05, h - 0.5), 0.2); wall_sign(L - 3.5, -1, Z['name'] + '  >', min(3.05, h - 0.5), 0.2)
         mid = L / 2
-        if straight_at(path, mid, 1.0): wall_sign(mid, 1, Z['name'], 3.05, 0.2)
+        if straight_at(path, mid, 1.0) and not in_opening(mid, op, 1.5, 1): wall_sign(mid, 1, Z['name'], 3.05, 0.2)
     for a in airlock_s:
         pos, t, nn = path.at(a); th = math.atan2(-t.x, t.y)
         text_obj(coll, f'AIRLOCK  {Z["name"]}', (pos.x - t.x * 0.28, pos.y - t.y * 0.28, 3.6), (math.pi / 2, 0, th), 0.22, sign)
@@ -538,11 +575,11 @@ def dress_hall(coll, path, zone_key, mats, props, h=5.0, w=5.0, airlock_s=(), ha
         b = MB(coll, f'{zone_key} beacon', _emissive('HALL beacon red', (1.0, 0.08, 0.05), 9.0)); b.box(pos - t * 0.3 + nn * 0.0, t, 0.14, 0.14, 4.3, 4.45); b.done()
     # 7. spawn props on straight wall sections
     placed = 0
-    if props and L > 8:
+    if props and L > 8 and not compact:
         spots = []
         s = 6.0
         while s < L - 6.0:
-            if straight_at(path, s, 0.5, 14.0) and not any(abs(s - a) < 2.5 for a in airlock_s): spots.append(s)
+            if straight_at(path, s, 0.5, 14.0) and not any(abs(s - a) < 2.5 for a in airlock_s) and not in_opening(s, op, 2.0): spots.append(s)
             s += 1.0
         rnd.shuffle(spots)
         picks = [('V_HALL_extinguisher', -1), ('V_HALL_first_aid', 1), ('LIFE_shift_clock', 1), ('V_HALL_shift_board', -1), ('V_HALL_culture_poster', 1), ('HALL_waiting_bench', -1)]
@@ -612,7 +649,7 @@ def screen_material(zone_key, k):
     return m
 
 
-def add_screens(coll, path, zone_key, screens, W2, sk):
+def add_screens(coll, path, zone_key, screens, W2, sk, h=5.0):
     """One lit display quad per recessed wall panel, UV 0..1 over the panel, one of four designs per panel (schematic, status, route map, trace)."""
     groups = {}
     for i, (s0, s1, sg) in enumerate(screens):
@@ -621,7 +658,7 @@ def add_screens(coll, path, zone_key, screens, W2, sk):
         bm = bmesh.new(); uv = bm.loops.layers.uv.verify()
         for s0, s1, sg in items:
             a, ta, na = path.at(s0); b, tb, nb = path.at(s1); d = W2 - sk - 0.058
-            pa = a + na * sg * d; pb = b + nb * sg * d; z0, z1 = 1.55, 2.75
+            pa = a + na * sg * d; pb = b + nb * sg * d; z0, z1 = 1.55, min(2.75, h - 0.5)
             vs = [bm.verts.new((pa.x, pa.y, z0)), bm.verts.new((pb.x, pb.y, z0)), bm.verts.new((pb.x, pb.y, z1)), bm.verts.new((pa.x, pa.y, z1))]
             ua, ub = (0.0, 1.0)       # checked in renders: this reads correctly on both walls
             uvs = {vs[0]: (ua, 0), vs[1]: (ub, 0), vs[2]: (ub, 1), vs[3]: (ua, 1)}
@@ -637,3 +674,9 @@ def _runner_mat():
     m = bpy.data.materials.new('HALL runner'); m.use_nodes = True; b = m.node_tree.nodes['Principled BSDF']
     b.inputs['Base Color'].default_value = (0.045, 0.05, 0.058, 1); b.inputs['Roughness'].default_value = 0.38; b.inputs['Metallic'].default_value = 0.0
     return m
+
+
+def lintel(coll, name, path, a, b, sg, W2, z0, z1, mats, t=0.3, sk=0.04):
+    """Fill the part of a wall opening above a lower branch hall (concrete shell and plaster skin)."""
+    solid(coll, f'{name} shell', patch_ring(path, a, b, sg * (W2 + t), sg * W2), z0, z1, mats['slab'])
+    solid(coll, f'{name} skin', patch_ring(path, a, b, sg * W2, sg * (W2 - sk)), z0, z1 - sk, mats['wall'])

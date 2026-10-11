@@ -23,7 +23,7 @@ SRC = os.path.normpath(os.path.join(HERE, '..', 'sources'))
 # that the old map's fix_spawn_transition.py removed.
 # Front end: portal_void (a dark box closing the portal mouth, local x -66 to -61.4) and mountain_mass (an 8-vertex rock box,
 # local x -98 to -64, y -16 to 30, z -1 to 9) are its stand-ins for the mountain and mine; the real mine module replaces both.
-OMIT = {'front-end-area': ['portal_void', 'mountain_mass', 'cliff_face'], 'spawn-room': ['AIRLOCK_leaf_body', 'AIRLOCK_steel_face', 'AIRLOCK_structural_rib', 'AIRLOCK_structural_rib.001', 'AIRLOCK_leaf_body.001', 'AIRLOCK_steel_face.001', 'AIRLOCK_structural_rib.002', 'AIRLOCK_structural_rib.003', 'LIFE_airlock_gauge_case', 'LIFE_airlock_gauge_dial', 'LIFE_airlock_pressure_tick', 'LIFE_airlock_pressure_tick.001', 'LIFE_airlock_pressure_tick.002', 'LIFE_airlock_pressure_tick.003', 'LIFE_airlock_pressure_tick.004', 'LIFE_airlock_pressure_tick.005', 'LIFE_airlock_pressure_tick.006', 'LIFE_airlock_pressure_tick.007', 'LIFE_airlock_pressure_tick.008', 'LIFE_airlock_pressure_tick.009', 'LIFE_airlock_pressure_tick.010', 'LIFE_airlock_pressure_unit', 'SERVICE_end', 'SERVICE_end_washable_dado', 'SERVICE_end_coved_skirt', 'SERVICE_end_dado_cap']}
+OMIT = {'fuel-corridor': ['FC | Plant service left leaf', 'FC | Plant service right leaf', 'FC | Plant service left handling wear', 'FC | Plant service right handling wear'], 'front-end-area': ['portal_void', 'mountain_mass', 'cliff_face'], 'spawn-room': ['AIRLOCK_leaf_body', 'AIRLOCK_steel_face', 'AIRLOCK_structural_rib', 'AIRLOCK_structural_rib.001', 'AIRLOCK_leaf_body.001', 'AIRLOCK_steel_face.001', 'AIRLOCK_structural_rib.002', 'AIRLOCK_structural_rib.003', 'LIFE_airlock_gauge_case', 'LIFE_airlock_gauge_dial', 'LIFE_airlock_pressure_tick', 'LIFE_airlock_pressure_tick.001', 'LIFE_airlock_pressure_tick.002', 'LIFE_airlock_pressure_tick.003', 'LIFE_airlock_pressure_tick.004', 'LIFE_airlock_pressure_tick.005', 'LIFE_airlock_pressure_tick.006', 'LIFE_airlock_pressure_tick.007', 'LIFE_airlock_pressure_tick.008', 'LIFE_airlock_pressure_tick.009', 'LIFE_airlock_pressure_tick.010', 'LIFE_airlock_pressure_unit', 'SERVICE_end', 'SERVICE_end_washable_dado', 'SERVICE_end_coved_skirt', 'SERVICE_end_dado_cap']}
 
 def wm(o):
     """World matrix from the object's own transforms. Linked objects that have not been through a depsgraph report an identity matrix_world,
@@ -419,13 +419,22 @@ def add_reactor_concourse():
 # Plan v7 links from the reactor to each neighbour (design/facility-layout/README.md, generate_plan.py SP): turbine 3 m north on x 0; electrical (10,13.75) to (18,26); waste (13.75,-6) to (28,-24);
 # cooling (-13.75,-5) to (-30,-19) to (-44.1,-19). Each uses the hall's own stub where it has one (N FUEL HANDLING, W MAIN ACCESS, SE diagonal) and ends on the neighbour's measured door; the electrical door is a new cut in the NE wall.
 # polyline in plan metres, clear width, clear height
-# smoothing radius r (m) for the centre line; airlocks are positions (m along the line from its start) of a bulkhead with the spawn room's airlock double door; requires lists the rooms that must be included
+# Halls (plan metres). pts: centre-line corners, r: smoothing radius, w/h: clear width/height, airlocks: metres along the line (negative: before the end), requires: rooms that must be placed.
+# into=(parent, side, (x, y)): a branch that opens into the wall of another hall at that plan point (side +1 left of the parent's direction, -1 right); the branch's last point lies on the parent's inner wall plane.
+# Sources: plan v7 links (design/facility-layout/generate_plan.py SP and outer ring), each room's contracts/interface.json and CONNECTIONS.md; see COMBINED_MAP.md "Rooms 7 to 10, connections".
 LINKS = {
     'turbine-room': dict(pts=[(0.0, 14.5), (0.0, 17.0)], r=1.0, airlocks=[1.4]),
     'electrical-room': dict(pts=[(8.0, 8.0), (19.75, 19.75), (19.75, 26.0)], r=10.0, airlocks=[-1.6]),
-    'waste-storage': dict(pts=[(11.15, -11.15), (14.0, -14.0), (19.0, -24.0), (27.68, -24.0)], r=6.0, airlocks=[None]),
+    # reactor to waste: WS_RECEIVING threshold (contracts/waste-storage CONNECTIONS.md); corner moved to (15,-24) so the hall has a straight run for the junction below
+    'waste-storage': dict(pts=[(11.15, -11.15), (14.0, -14.0), (15.0, -24.0), (27.68, -24.0)], r=6.0, airlocks=[-1.2]),
     'cooling-plant': dict(pts=[(-14.5, 0.0), (-22.0, 0.0), (-30.0, -19.0), (-44.1, -19.0)], r=8.0, airlocks=[None]),
-    'bridge': dict(pts=[(0.0, 42.2), (0.0, 51.0), (19.75, 51.0), (19.75, 42.9)], r=4.5, airlocks=[1.8, None], requires=('turbine-room', 'electrical-room')),
+    # turbine D02 (far end) north, east along y 53 past the electrical room, down the east side (the plan's outer ring east arm direction) and west into the waste hall: turbine - electrical - waste
+    'bridge': dict(pts=[(0.0, 42.2), (0.0, 53.0), (34.0, 53.0), (34.0, -12.0), (22.9, -12.0), (22.9, -21.5)], r=4.5, airlocks=[1.8], into=('waste-storage', 1, (22.9, -24.0)),
+                   requires=('turbine-room', 'electrical-room', 'waste-storage')),
+    # electrical D02_Waste (north door, 2.4 x 2.7, electrical contracts/CONNECTIONS.md) up to the bridge
+    'electrical-spur': dict(pts=[(19.75, 42.9), (19.75, 50.5)], r=1.0, airlocks=[2.4], into=('bridge', -1, (19.75, 53.0)), requires=('turbine-room', 'electrical-room', 'waste-storage'), zone='electrical-room'),
+    # fuel corridor S01_PLANT (interface.json: centre (-5.4, 17.4), outward -X, 2.0 x 2.5, plant_header cell height 3.0, route (0,17.4)-(-5.4,17.4)) to the cooling hall
+    'fuel-service': dict(pts=[(-27.66, -26.2), (-39.5, -26.2), (-39.5, -21.5)], r=3.0, w=2.4, h=3.0, airlocks=[], into=('cooling-plant', 1, (-39.5, -19.0)), requires=('fuel-corridor', 'cooling-plant'), zone='service'),
 }
 
 def zone_mats(zone_key):
@@ -446,19 +455,29 @@ def add_reactor_links():
     import reactor_links
     M, air = spawn_assets(); props = spawn_props()
     root = bpy.context.scene.collection.children['COMBINED_MAP']
-    for key, L in LINKS.items():
-        if not all(k in INCLUDED for k in L.get('requires', (key,))): continue
+    active = {k: L for k, L in LINKS.items() if all(r in INCLUDED for r in L.get('requires', (k,)))}
+    paths = {k: reactor_links.Path(reactor_links.fillet(L['pts'], L['r'])) for k, L in active.items()}
+    openings = {k: [] for k in active}
+    for k, L in active.items():
+        if 'into' in L:
+            par, sg, pt = L['into']
+            if par in active:
+                c = paths[par].nearest(pt); wb = L.get('w', 5.0); openings[par].append((c - wb / 2, c + wb / 2, sg))
+    for key, L in active.items():
         coll = bpy.data.collections.new('CONNECTOR_reactor_to_' + key); root.children.link(coll)
-        centre = reactor_links.fillet(L['pts'], L['r'])
-        Mz = zone_mats(key)
-        path = reactor_links.hall(coll, 'CONNECTOR ' + key, centre, 5.0, 5.0, Mz)
+        w, h = L.get('w', 5.0), L.get('h', 5.0); zone = L.get('zone', key)
+        Mz = zone_mats(zone); props_ = props if w >= 3 else []
+        path = reactor_links.hall(coll, 'CONNECTOR ' + key, paths[key].P, w, h, Mz, openings=openings[key])
         spos = [path.length - 2.4 if s is None else (path.length + s if s < 0 else s) for s in L['airlocks']]       # None: 2.4 m in front of the room door at the far end; negative: that many m before the end
         na = 0
         for s_ in spos:
             pos, d, _n = path.at(s_)
-            na += reactor_links.airlock(coll, air, pos, d, 5.0, 5.0, Mz)
-        pl = reactor_links.dress_hall(coll, path, key, Mz, props, airlock_s=spos, seed=hash(key) % 1000)
-        print('LINK', key, 'length %.1f m' % path.length, 'airlock objects', na, 'props', pl)
+            na += reactor_links.airlock(coll, air, pos, d, w, h, Mz)
+        pl = reactor_links.dress_hall(coll, path, zone, Mz, props_, h=h, w=w, airlock_s=spos, seed=hash(key) % 1000, openings=openings[key])
+        if 'into' in L and L['into'][0] in active and h < active[L['into'][0]].get('h', 5.0):
+            par, sg, pt = L['into']; pp = paths[par]; c = pp.nearest(pt); Hp = active[par].get('h', 5.0)
+            reactor_links.lintel(coll, 'CONNECTOR lintel ' + key, pp, c - w / 2, c + w / 2, sg, active[par].get('w', 5.0) / 2, h, Hp, Mz)
+        print('LINK', key, 'length %.1f m' % path.length, 'openings', [(round(a, 1), round(b, 1), sg) for a, b, sg in openings[key]], 'airlock objects', na, 'props', pl)
 
 # Doors of the newly placed rooms that the plan does not connect to anything (found by ray audit: they opened onto empty night). Closed plates stand in until the room behind them is placed; named PLACEHOLDER_.
 # name, room that must be included, (x0, x1), (y0, y1) plan metres, top z
