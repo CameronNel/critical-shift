@@ -14,6 +14,7 @@ Status of everything here: unreviewed, not accepted.
 import bpy, math, os, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HERE)
 SRC = os.path.normpath(os.path.join(HERE, '..', 'sources'))
 
 # key, library file (relative to SRC), collection to instance, plan translation (x, y, z), rotation about z (degrees), note
@@ -348,18 +349,32 @@ def _box(coll, name, xs, ys, zs, mat):
     bm = bmesh.new(); bmesh.ops.create_cube(bm, size=1.0)
     for v in bm.verts:
         v.co.x = xs[0] if v.co.x < 0 else xs[1]; v.co.y = ys[0] if v.co.y < 0 else ys[1]; v.co.z = zs[0] if v.co.z < 0 else zs[1]
+    import reactor_links
+    reactor_links._uv(bm)
     me = bpy.data.meshes.new(name); bm.to_mesh(me); bm.free(); me.materials.append(mat)
     o = bpy.data.objects.new(name, me); coll.objects.link(o); return o
+
+ASSETS = {}
+
+def spawn_assets():
+    """Spawn-room materials and airlock door objects (linked once)."""
+    if not ASSETS:
+        import reactor_links
+        fb = bpy.data.materials.get('CONNECTOR concrete') or _mat('CONNECTOR concrete', (0.20, 0.21, 0.23), 0.85)
+        ASSETS['mats'], ASSETS['air'] = reactor_links.load_spawn_assets(os.path.join(SRC, 'spawn-room', 'module.blend'), fb)
+    return ASSETS['mats'], ASSETS['air']
 
 def add_reactor_concourse():
     if 'reactor-room' not in INCLUDED: return
     C = CONC; w = C['wall']; sl = C['slab']; top = C['roof'] + sl
     coll = bpy.data.collections.new('CONNECTOR_reactor_south_concourse'); bpy.context.scene.collection.children['COMBINED_MAP'].children.link(coll)
-    conc = _mat('CONNECTOR concrete', (0.20, 0.21, 0.23), 0.85); floor = _mat('CONNECTOR floor', (0.11, 0.115, 0.12), 0.5)
-    steel = _mat('CONNECTOR steel', (0.11, 0.12, 0.13), 0.5, 0.6); lamp = _mat('CONNECTOR lamp', (0.9, 0.9, 0.9), 0.4, 0.0, 3.0)
+    M, _air = spawn_assets()      # spawn-room plaster, floor, ceiling and trim materials
+    plaster = M['wall']; conc = M['slab']; floor = M['floor']; ceil = M['ceiling']; steel = M['steel']; lamp = M['lamp']     # concrete shell outside, spawn plaster, floor and ceiling skins inside
     x0, x1, y0, y1 = C['x0'], C['x1'], C['y0'], C['y1']
-    _box(coll, 'CONNECTOR floor', (x0 - w, x1), (y0, y1 + w), (-sl, 0.0), floor)
-    _box(coll, 'CONNECTOR roof', (x0 - w, x1), (y0 - w, y1 + w), (C['roof'], top), conc)
+    _box(coll, 'CONNECTOR floor slab', (x0 - w, x1), (y0, y1 + w), (-sl, -0.04), conc); _box(coll, 'CONNECTOR floor', (x0, x1), (y0, y1), (-0.04, 0.0), floor)
+    _box(coll, 'CONNECTOR roof', (x0 - w, x1), (y0 - w, y1 + w), (C['roof'], top), conc); _box(coll, 'CONNECTOR ceiling skin', (x0, x1), (y0, y1), (C['roof'] - 0.04, C['roof']), ceil)
+    for nm, xs, ys in (('west', (x0, x0 + 0.04), (y0, y1)), ('south', (-5.2, x1), (y0, y0 + 0.04)), ('north west', (x0, -2.5), (y1 - 0.04, y1)), ('north east', (2.5, 5.85), (y1 - 0.04, y1))):
+        _box(coll, f'CONNECTOR plaster {nm}', xs, ys, (0.04, C['roof'] - 0.04), plaster)
     _box(coll, 'CONNECTOR west wall', (x0 - w, x0), (y0, y1 + w), (0.0, top), conc)
     _box(coll, 'CONNECTOR south wall', (-5.2, x1), (y0 - w, y0), (0.0, top), conc)
     _box(coll, 'CONNECTOR east wall above spine roof', (5.85, x1), (y0, y1 + w), (4.2, top), conc)
@@ -370,8 +385,12 @@ def add_reactor_concourse():
     # reducer frame on the hall opening and the tunnel through the hall's south wall (cut by reactor_links.HALL_CUTS['south_door'])
     _box(coll, 'CONNECTOR hall frame head', (-2.9, 2.9), (y1 - 0.05, y1 + w), (4.8, 5.0), steel)
     import reactor_links
-    reactor_links.tube(coll, 'CONNECTOR hall tunnel', [(0.0, -10.9), (0.0, y1 + w)], 5.0, 5.0, conc, floor)
+    reactor_links.hall(coll, 'CONNECTOR hall tunnel', reactor_links.fillet([(0.0, -10.9), (0.0, y1 + w)], 1.0), 5.0, 5.0, M)
     reactor_links.tube_lights(coll, 'CONNECTOR hall tunnel', [(0.0, -10.9), (0.0, y1 + w)], 5.0, every=6.0, energy=110)
+    # washable dado and skirt on the concourse walls (spawn trim materials)
+    dado = M['dado']; skirt = M['skirt']
+    for nm, xs, ys in (('west', (x0 + 0.04, x0 + 0.09), (y0, y1)), ('south east', (-5.2, x1 - 0.2), (y0 + 0.04, y0 + 0.09)), ('north west', (x0, -2.5), (y1 - 0.09, y1 - 0.04)), ('north east', (2.5, 5.85), (y1 - 0.09, y1 - 0.04))):
+        _box(coll, f'CONNECTOR dado {nm}', xs, ys, (0.1, 1.15), dado); _box(coll, f'CONNECTOR dado cap {nm}', xs, ys, (1.15, 1.2), skirt)
     for i, x in enumerate((-2.0, 0.0, 2.0)):
         _box(coll, f'CONNECTOR lamp {i}', (x - 0.9, x + 0.9), (-17.4, -17.0), (C['roof'] - 0.08, C['roof']), lamp)
         ld = bpy.data.lights.new(f'CONNECTOR light {i}', 'AREA'); ld.energy = 170; ld.size = 1.8; ld.size_y = 0.4; ld.color = (1.0, 0.92, 0.8)
@@ -397,12 +416,31 @@ def add_reactor_concourse():
 # Plan v7 links from the reactor to each neighbour (design/facility-layout/README.md, generate_plan.py SP): turbine 3 m north on x 0; electrical (10,13.75) to (18,26); waste (13.75,-6) to (28,-24);
 # cooling (-13.75,-5) to (-30,-19) to (-44.1,-19). Each uses the hall's own stub where it has one (N FUEL HANDLING, W MAIN ACCESS, SE diagonal) and ends on the neighbour's measured door; the electrical door is a new cut in the NE wall.
 # polyline in plan metres, clear width, clear height
+# smoothing radius r (m) for the centre line; airlocks are positions (m along the line from its start) of a bulkhead with the spawn room's airlock double door; requires lists the rooms that must be included
 LINKS = {
-    'turbine-room': dict(pts=[(0.0, 14.5), (0.0, 17.0)], w=5.0, h=5.0),
-    'electrical-room': dict(pts=[(8.0, 8.0), (13.5, 13.5), (19.75, 22.0), (19.75, 26.0)], w=5.0, h=5.0),
-    'waste-storage': dict(pts=[(11.0, -11.0), (13.5, -13.5), (20.0, -24.0), (27.68, -24.0)], w=5.0, h=5.0),
-    'cooling-plant': dict(pts=[(-14.5, 0.0), (-18.0, 0.0), (-28.0, -19.0), (-44.1, -19.0)], w=5.0, h=5.0),
+    'turbine-room': dict(pts=[(0.0, 14.5), (0.0, 17.0)], r=1.0, airlocks=[1.4]),
+    'electrical-room': dict(pts=[(8.0, 8.0), (19.75, 19.75), (19.75, 26.0)], r=10.0, airlocks=[-1.6]),
+    'waste-storage': dict(pts=[(11.15, -11.15), (14.0, -14.0), (19.0, -24.0), (27.68, -24.0)], r=6.0, airlocks=[None]),
+    'cooling-plant': dict(pts=[(-14.5, 0.0), (-22.0, 0.0), (-30.0, -19.0), (-44.1, -19.0)], r=8.0, airlocks=[None]),
+    'bridge': dict(pts=[(0.0, 42.2), (0.0, 51.0), (19.75, 51.0), (19.75, 42.9)], r=4.5, airlocks=[1.8, None], requires=('turbine-room', 'electrical-room')),
 }
+
+def add_reactor_links():
+    import reactor_links
+    M, air = spawn_assets()
+    root = bpy.context.scene.collection.children['COMBINED_MAP']
+    for key, L in LINKS.items():
+        if not all(k in INCLUDED for k in L.get('requires', (key,))): continue
+        coll = bpy.data.collections.new('CONNECTOR_reactor_to_' + key); root.children.link(coll)
+        centre = reactor_links.fillet(L['pts'], L['r'])
+        path = reactor_links.hall(coll, 'CONNECTOR ' + key, centre, 5.0, 5.0, M)
+        n = reactor_links.tube_lights(coll, 'CONNECTOR ' + key, centre, 5.0, every=6.0, energy=90)
+        na = 0
+        for s in L['airlocks']:
+            s_ = path.length - 2.4 if s is None else (path.length + s if s < 0 else s)       # None: 2.4 m in front of the room door at the far end; negative: that many m before the end
+            pos, d, _n = path.at(s_)
+            na += reactor_links.airlock(coll, air, pos, d, 5.0, 5.0, M)
+        print('LINK', key, 'length %.1f m' % path.length, 'lights', n, 'airlock objects', na)
 
 # Doors of the newly placed rooms that the plan does not connect to anything (found by ray audit: they opened onto empty night). Closed plates stand in until the room behind them is placed; named PLACEHOLDER_.
 # name, room that must be included, (x0, x1), (y0, y1) plan metres, top z
@@ -410,24 +448,14 @@ DOOR_PLACEHOLDERS = [('PLACEHOLDER_turbine_D02_shutter', 'turbine-room', (-1.3, 
                      ('PLACEHOLDER_electrical_D02_shutter', 'electrical-room', (18.45, 21.05), (42.9, 43.0), 2.9),
                      ('PLACEHOLDER_waste_dispatch_shutter', 'waste-storage', (46.64, 46.74), (-25.3, -22.7), 3.0)]
 
+BRIDGED = ('PLACEHOLDER_turbine_D02_shutter', 'PLACEHOLDER_electrical_D02_shutter')   # doors that the north bridge now connects
+
 def add_door_placeholders():
     mat = bpy.data.materials.new('PLACEHOLDER_shutter_steel'); mat.use_nodes = True; b = mat.node_tree.nodes['Principled BSDF']
     b.inputs['Base Color'].default_value = (0.09, 0.1, 0.11, 1); b.inputs['Metallic'].default_value = 0.7; b.inputs['Roughness'].default_value = 0.5
     root = bpy.context.scene.collection.children['COMBINED_MAP']
     for name, room, xs, ys, top in DOOR_PLACEHOLDERS:
-        if room in INCLUDED: _box(root, name, xs, ys, (0.0, top), mat); print('PLACEHOLDER', name)
-
-def add_reactor_links():
-    import reactor_links
-    root = bpy.context.scene.collection.children['COMBINED_MAP']
-    conc = bpy.data.materials.get('CONNECTOR concrete') or _mat('CONNECTOR concrete', (0.20, 0.21, 0.23), 0.85)
-    floor = bpy.data.materials.get('CONNECTOR floor') or _mat('CONNECTOR floor', (0.11, 0.115, 0.12), 0.5)
-    for key, L in LINKS.items():
-        if key not in INCLUDED: continue
-        coll = bpy.data.collections.new('CONNECTOR_reactor_to_' + key); root.children.link(coll)
-        reactor_links.tube(coll, 'CONNECTOR ' + key, L['pts'], L['w'], L['h'], conc, floor)
-        n = reactor_links.tube_lights(coll, 'CONNECTOR ' + key, L['pts'], L['h'])
-        print('LINK', key, 'polyline', L['pts'], 'lights', n)
+        if room in INCLUDED and not (name in BRIDGED and all(k in INCLUDED for k in LINKS['bridge']['requires'])): _box(root, name, xs, ys, (0.0, top), mat); print('PLACEHOLDER', name)
 
 PATCHES = {'front-end-area': lambda w, l, o: (open_portal_cap(w, l, o), clear_yard_for_shed(w, l, o), localise_evac_sign(w, l, o), totem_back_board(w, l, o), trim_spine_for_concourse(w, l, o)), 'mine': trim_mine_surface, 'reactor-room': patch_reactor}
 INCLUDED = set()
