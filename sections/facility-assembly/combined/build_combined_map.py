@@ -304,7 +304,76 @@ def patch_reactor(wrap, lib_coll, omit):
         if o is not None: wrap.objects.link(o)
     print('REACTOR scene-root lights linked', len(dst.objects))
 
-PATCHES = {'front-end-area': lambda w, l, o: (open_portal_cap(w, l, o), clear_yard_for_shed(w, l, o), localise_evac_sign(w, l, o), totem_back_board(w, l, o)), 'mine': trim_mine_surface, 'reactor-room': patch_reactor}
+# Reactor south concourse (proposed, unreviewed). Candidate A is rotated 180 degrees so its existing 6.0 m x 5.5 m FUEL HANDLING stub (module north,
+# closed double door at the stub end) faces south: plan door plane y -14.5, clear x -3.0 to 3.0, roof z 5.74. The plan's x = -8 and x = +8 south
+# doors cannot be cut (module lift stack at the south-west, diagonal cooling stub at the south-east), so one concourse joins three existing openings:
+#  * hall stub door, centre x 0, north wall of the concourse (opening 6.0 m wide, lintel above z 5.74);
+#  * fuel corridor reactor adapter, open between x -10.62 and -5.38 at plan y -19.6 (its own door stands 0.5 m inside), floor z 0, ceiling 5.9;
+#  * spine (front end, plan x 5.85 to 10.15, clear 3.7 m), whose west wall is trimmed locally between plan y -19.6 and -14.8 so the concourse opens into it.
+# Concourse clear space: x -10.8 to 5.85, y -19.6 to -14.8 (4.8 m deep), height 5.9. All measured from the modules; see COMBINED_MAP.md.
+CONC = {'x0': -10.8, 'x1': 6.15, 'y0': -19.6, 'y1': -14.8, 'wall': 0.3, 'roof': 5.9, 'slab': 0.25}
+SPINE_CUT = (-19.6, -14.8)    # plan y range removed from the spine's west wall (spine_wall_-1 and its dado), ribs inside it omitted
+
+def trim_spine_for_concourse(wrap, lib_coll, omit):
+    if 'reactor-room' not in INCLUDED: return
+    import bmesh
+    fx, fy, _ = next(r[3] for r in ROOMS if r[0] == 'front-end-area')
+    y0, y1 = SPINE_CUT[0] - fy, SPINE_CUT[1] - fy          # front-end local
+    for name in ('spine_wall_-1', 'spine_dado_-1'):
+        o = lib_coll.objects.get(name) or next((x for x in lib_coll.all_objects if x.name == name), None)
+        if o is None: print('SPINE trim missing', name); continue
+        for tag, lo_clamp, hi_clamp in (('a', None, y0), ('b', y1, None)):
+            if name == 'spine_dado_-1' and tag == 'b': continue
+            me = o.data.copy(); me.transform(wm(o)); bm = bmesh.new(); bm.from_mesh(me)
+            for v in bm.verts:
+                if hi_clamp is not None and v.co.y > hi_clamp: v.co.y = hi_clamp
+                if lo_clamp is not None and v.co.y < lo_clamp: v.co.y = lo_clamp
+            bm.to_mesh(me); bm.free()
+            n = bpy.data.objects.new(o.name + '_trim_' + tag, me); wrap.objects.link(n)
+        omit.add(name)
+    for rib in ('spine_rib_-1_8', 'spine_rib_-1_9'): omit.add(rib)
+    print('SPINE west wall trimmed between plan y', SPINE_CUT, 'ribs omitted')
+
+def _mat(name, base, rough, metal=0.0, emit=0.0):
+    m = bpy.data.materials.new(name); m.use_nodes = True; b = m.node_tree.nodes['Principled BSDF']
+    b.inputs['Base Color'].default_value = base + (1,); b.inputs['Roughness'].default_value = rough; b.inputs['Metallic'].default_value = metal
+    if emit: b.inputs['Emission Color'].default_value = (1.0, 0.92, 0.78, 1); b.inputs['Emission Strength'].default_value = emit
+    return m
+
+def _box(coll, name, xs, ys, zs, mat):
+    import bmesh
+    bm = bmesh.new(); bmesh.ops.create_cube(bm, size=1.0)
+    for v in bm.verts:
+        v.co.x = xs[0] if v.co.x < 0 else xs[1]; v.co.y = ys[0] if v.co.y < 0 else ys[1]; v.co.z = zs[0] if v.co.z < 0 else zs[1]
+    me = bpy.data.meshes.new(name); bm.to_mesh(me); bm.free(); me.materials.append(mat)
+    o = bpy.data.objects.new(name, me); coll.objects.link(o); return o
+
+def add_reactor_concourse():
+    if 'reactor-room' not in INCLUDED: return
+    C = CONC; w = C['wall']; sl = C['slab']; top = C['roof'] + sl
+    coll = bpy.data.collections.new('CONNECTOR_reactor_south_concourse'); bpy.context.scene.collection.children['COMBINED_MAP'].children.link(coll)
+    conc = _mat('CONNECTOR concrete', (0.30, 0.31, 0.33), 0.85); floor = _mat('CONNECTOR floor', (0.19, 0.2, 0.21), 0.55)
+    steel = _mat('CONNECTOR steel', (0.11, 0.12, 0.13), 0.5, 0.6); lamp = _mat('CONNECTOR lamp', (0.9, 0.9, 0.9), 0.4, 0.0, 8.0)
+    x0, x1, y0, y1 = C['x0'], C['x1'], C['y0'], C['y1']
+    _box(coll, 'CONNECTOR floor', (x0 - w, x1), (y0, y1 + w), (-sl, 0.0), floor)
+    _box(coll, 'CONNECTOR roof', (x0 - w, x1), (y0 - w, y1 + w), (C['roof'], top), conc)
+    _box(coll, 'CONNECTOR west wall', (x0 - w, x0), (y0, y1 + w), (0.0, top), conc)
+    _box(coll, 'CONNECTOR south wall', (-5.2, x1), (y0 - w, y0), (0.0, top), conc)
+    _box(coll, 'CONNECTOR east wall above spine roof', (5.85, x1), (y0, y1 + w), (4.2, top), conc)
+    # north wall (y1 to y1 + w): solid left and right of the hall stub opening (x -3.0 to 3.0), lintel above the stub roof (z 5.74)
+    _box(coll, 'CONNECTOR north wall west', (x0 - w, -3.0), (y1, y1 + w), (0.0, top), conc)
+    _box(coll, 'CONNECTOR north wall east', (3.0, x1), (y1, y1 + w), (0.0, top), conc)
+    _box(coll, 'CONNECTOR north lintel', (-3.0, 3.0), (y1, y1 + w), (5.74, top), conc)
+    # reducer frames on the three openings
+    _box(coll, 'CONNECTOR hall frame head', (-3.4, 3.4), (y1 - 0.05, y1 + w), (5.5, 5.74), steel)
+    for i, x in enumerate((-2.0, 0.0, 2.0)):
+        _box(coll, f'CONNECTOR lamp {i}', (x - 0.9, x + 0.9), (-17.4, -17.0), (C['roof'] - 0.08, C['roof']), lamp)
+        ld = bpy.data.lights.new(f'CONNECTOR light {i}', 'AREA'); ld.energy = 900; ld.size = 1.8; ld.size_y = 0.4; ld.color = (1.0, 0.92, 0.8)
+        lo = bpy.data.objects.new(f'CONNECTOR light {i}', ld); lo.location = (x - 4.5 if i == 0 else x + (1.5 if i == 2 else 0.0), -17.2, C['roof'] - 0.12); coll.objects.link(lo)
+    print('CONCOURSE added: clear x %.1f to %.2f, y %.1f to %.1f, height %.1f' % (x0, 5.85, y0, y1, C['roof']))
+
+
+PATCHES = {'front-end-area': lambda w, l, o: (open_portal_cap(w, l, o), clear_yard_for_shed(w, l, o), localise_evac_sign(w, l, o), totem_back_board(w, l, o), trim_spine_for_concourse(w, l, o)), 'mine': trim_mine_surface, 'reactor-room': patch_reactor}
 INCLUDED = set()
 
 # Refinery: every root collection of the overhaul scene except the duplicate MODULE_refinery wrapper and the review cameras.
@@ -331,7 +400,7 @@ ROOMS = [
     ('fuel-corridor', '../../fuel-corridor/production/checkpoints/fuel_full_F23ci.blend', 'MODULE_fuel-corridor', (-22.2, -43.6, 0.0), 0.0,
      'F23ci (reviewed 99; the AAA finish on top is unreviewed and not used). Local origin is port F01_REFINERY (centre (0,0,0), outward -Y, 2.6 m x 3.0 m), corridor runs +Y 24 m, no rotation. '
      'Placed on the refinery north fuel door: x -22.2 (door centre) and y -43.6 (refinery outer sill). Far end F02_REACTOR lands at plan (-8.0, -19.6), outward +Y.'),
-    ('reactor-room', REACTOR_LIB, REACTOR_COLLECTIONS, (0.0, 0.0, 0.0), 0.0,
+    ('reactor-room', REACTOR_LIB, REACTOR_COLLECTIONS, (0.0, 0.0, 0.0), 180.0,
      'Candidate A (the refined hall; owner chose it 2026-10-11): module origin is the pool centre, hall floor 21.6 x 21.6 m (measured walls +-10.8), so the module origin goes on the plan origin '
      '(plan frame: origin at the reactor centre) with no rotation (owner chose no rotation and new south doors). The hall has no interface.json; its own doors are MAIN ACCESS (west), FUEL HANDLING (north) '
      'and a diagonal COOLING PLANT link in the south-east corner. New doors on the south wall come from the plan, see COMBINED_MAP.md for what was cut.'),
@@ -454,6 +523,7 @@ def build(through, output):
             root.objects.link(inst)
     unify_cliff_rock()
     fix_evac_sign_back()
+    add_reactor_concourse()
     add_scene_lighting()
     placeholder_fuel_shutter()
     bpy.ops.wm.save_as_mainfile(filepath=output, relative_remap=True)
