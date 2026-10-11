@@ -303,6 +303,9 @@ def patch_reactor(wrap, lib_coll, omit):
     for o in dst.objects:
         if o is not None: wrap.objects.link(o)
     print('REACTOR scene-root lights linked', len(dst.objects))
+    sys.path.insert(0, HERE); import reactor_links
+    hall = [o for c in bpy.data.collections if c.library and os.path.basename(c.library.filepath) == os.path.basename(REACTOR_LIB) for o in c.all_objects]
+    reactor_links.cut_hall(wrap, omit, list(dict.fromkeys(hall)), wm, INCLUDED)
 
 # Reactor south concourse (proposed, unreviewed). Candidate A is rotated 180 degrees so its existing 6.0 m x 5.5 m FUEL HANDLING stub (module north,
 # closed double door at the stub end) faces south: plan door plane y -14.5, clear x -3.0 to 3.0, roof z 5.74. The plan's x = -8 and x = +8 south
@@ -360,12 +363,15 @@ def add_reactor_concourse():
     _box(coll, 'CONNECTOR west wall', (x0 - w, x0), (y0, y1 + w), (0.0, top), conc)
     _box(coll, 'CONNECTOR south wall', (-5.2, x1), (y0 - w, y0), (0.0, top), conc)
     _box(coll, 'CONNECTOR east wall above spine roof', (5.85, x1), (y0, y1 + w), (4.2, top), conc)
-    # north wall (y1 to y1 + w): solid left and right of the hall stub opening (x -3.0 to 3.0), lintel above the stub roof (z 5.74)
-    _box(coll, 'CONNECTOR north wall west', (x0 - w, -3.0), (y1, y1 + w), (0.0, top), conc)
-    _box(coll, 'CONNECTOR north wall east', (3.0, x1), (y1, y1 + w), (0.0, top), conc)
-    _box(coll, 'CONNECTOR north lintel', (-3.0, 3.0), (y1, y1 + w), (5.74, top), conc)
-    # reducer frames on the three openings
-    _box(coll, 'CONNECTOR hall frame head', (-3.4, 3.4), (y1 - 0.05, y1 + w), (5.5, 5.74), steel)
+    # north wall (y1 to y1 + w): solid left and right of the hall door opening (x -2.5 to 2.5, height 5.0), lintel above it
+    _box(coll, 'CONNECTOR north wall west', (x0 - w, -2.5), (y1, y1 + w), (0.0, top), conc)
+    _box(coll, 'CONNECTOR north wall east', (2.5, x1), (y1, y1 + w), (0.0, top), conc)
+    _box(coll, 'CONNECTOR north lintel', (-2.5, 2.5), (y1, y1 + w), (5.0, top), conc)
+    # reducer frame on the hall opening and the tunnel through the hall's south wall (cut by reactor_links.HALL_CUTS['south_door'])
+    _box(coll, 'CONNECTOR hall frame head', (-2.9, 2.9), (y1 - 0.05, y1 + w), (4.8, 5.0), steel)
+    import reactor_links
+    reactor_links.tube(coll, 'CONNECTOR hall tunnel', [(0.0, -10.9), (0.0, y1 + w)], 5.0, 5.0, conc, floor)
+    reactor_links.tube_lights(coll, 'CONNECTOR hall tunnel', [(0.0, -10.9), (0.0, y1 + w)], 5.0, every=6.0, energy=110)
     for i, x in enumerate((-2.0, 0.0, 2.0)):
         _box(coll, f'CONNECTOR lamp {i}', (x - 0.9, x + 0.9), (-17.4, -17.0), (C['roof'] - 0.08, C['roof']), lamp)
         ld = bpy.data.lights.new(f'CONNECTOR light {i}', 'AREA'); ld.energy = 170; ld.size = 1.8; ld.size_y = 0.4; ld.color = (1.0, 0.92, 0.8)
@@ -387,6 +393,28 @@ def add_reactor_concourse():
     _sign('REACTOR CONCOURSE', (x0 + 0.02, -17.2, 3.6), (math.pi / 2, 0, math.pi / 2))
     print('CONCOURSE added: clear x %.1f to %.2f, y %.1f to %.1f, height %.1f' % (x0, 5.85, y0, y1, C['roof']))
 
+
+# Plan v7 links from the reactor to each neighbour (design/facility-layout/README.md, generate_plan.py SP): turbine 3 m north on x 0; electrical (10,13.75) to (18,26); waste (13.75,-6) to (28,-24);
+# cooling (-13.75,-5) to (-30,-19) to (-44.1,-19). Each uses the hall's own stub where it has one (N FUEL HANDLING, W MAIN ACCESS, SE diagonal) and ends on the neighbour's measured door; the electrical door is a new cut in the NE wall.
+# polyline in plan metres, clear width, clear height
+LINKS = {
+    'turbine-room': dict(pts=[(0.0, 14.5), (0.0, 17.0)], w=5.0, h=5.0),
+    'electrical-room': dict(pts=[(8.0, 8.0), (13.5, 13.5), (19.75, 22.0), (19.75, 26.0)], w=5.0, h=5.0),
+    'waste-storage': dict(pts=[(11.0, -11.0), (13.5, -13.5), (20.0, -24.0), (27.68, -24.0)], w=5.0, h=5.0),
+    'cooling-plant': dict(pts=[(-14.5, 0.0), (-18.0, 0.0), (-28.0, -19.0), (-44.1, -19.0)], w=5.0, h=5.0),
+}
+
+def add_reactor_links():
+    import reactor_links
+    root = bpy.context.scene.collection.children['COMBINED_MAP']
+    conc = bpy.data.materials.get('CONNECTOR concrete') or _mat('CONNECTOR concrete', (0.20, 0.21, 0.23), 0.85)
+    floor = bpy.data.materials.get('CONNECTOR floor') or _mat('CONNECTOR floor', (0.11, 0.115, 0.12), 0.5)
+    for key, L in LINKS.items():
+        if key not in INCLUDED: continue
+        coll = bpy.data.collections.new('CONNECTOR_reactor_to_' + key); root.children.link(coll)
+        reactor_links.tube(coll, 'CONNECTOR ' + key, L['pts'], L['w'], L['h'], conc, floor)
+        n = reactor_links.tube_lights(coll, 'CONNECTOR ' + key, L['pts'], L['h'])
+        print('LINK', key, 'polyline', L['pts'], 'lights', n)
 
 PATCHES = {'front-end-area': lambda w, l, o: (open_portal_cap(w, l, o), clear_yard_for_shed(w, l, o), localise_evac_sign(w, l, o), totem_back_board(w, l, o), trim_spine_for_concourse(w, l, o)), 'mine': trim_mine_surface, 'reactor-room': patch_reactor}
 INCLUDED = set()
@@ -415,10 +443,22 @@ ROOMS = [
     ('fuel-corridor', '../../fuel-corridor/production/checkpoints/fuel_full_F23ci.blend', 'MODULE_fuel-corridor', (-22.2, -43.6, 0.0), 0.0,
      'F23ci (reviewed 99; the AAA finish on top is unreviewed and not used). Local origin is port F01_REFINERY (centre (0,0,0), outward -Y, 2.6 m x 3.0 m), corridor runs +Y 24 m, no rotation. '
      'Placed on the refinery north fuel door: x -22.2 (door centre) and y -43.6 (refinery outer sill). Far end F02_REACTOR lands at plan (-8.0, -19.6), outward +Y.'),
-    ('reactor-room', REACTOR_LIB, REACTOR_COLLECTIONS, (0.0, 0.0, 0.0), 180.0,
+    ('reactor-room', REACTOR_LIB, REACTOR_COLLECTIONS, (0.0, 0.0, 0.0), 0.0,
      'Candidate A (the refined hall; owner chose it 2026-10-11): module origin is the pool centre, hall floor 21.6 x 21.6 m (measured walls +-10.8), so the module origin goes on the plan origin '
      '(plan frame: origin at the reactor centre) with no rotation (owner chose no rotation and new south doors). The hall has no interface.json; its own doors are MAIN ACCESS (west), FUEL HANDLING (north) '
      'and a diagonal COOLING PLANT link in the south-east corner. New doors on the south wall come from the plan, see COMBINED_MAP.md for what was cut.'),
+    ('turbine-room', 'turbine-room/rebuild/turbine_room_v2_geo.blend', 'TURBINE_ROOM_V2', (0.0, 17.25, 0.0), 0.0,
+     'Plan v7 turbine, north of the reactor on the axis x = 0 (link 0,13.75 to 0,17). Local D01 (reactor door, outward -Y, 2.4 x 2.7 m) is at module x 0, exterior wall face at module y -0.25 (measured with rays); '
+     'the exterior face goes on plan y 17.0 (the plan rectangle edge), so origin y = 17.25, and D01 sits on the hall FUEL HANDLING stub axis. The room is not centred on its door (module x -4.52 to 10.25), so it spans plan x -4.52 to 10.25, not the drawn -7.4 to 7.4.'),
+    ('electrical-room', 'electrical-room/overhaul/checkpoints/full-R11.blend', 'MODULE_electrical-room', (19.75, 26.25, 0.0), 0.0,
+     'Plan v7 electrical, north-east (rectangle x 14 to 29.4, y 26 to 43.2). Reviewed overhaul R11. Local D01_Turbine (0,0,0), outward -Y, 2.4 x 2.7 m, exterior wall face at y -0.25 (contract and measurement); module x -5.75 to 8.55 puts the left edge on plan x 14 '
+     'when origin x = 19.75, and the exterior face on plan y 26 when origin y = 26.25.'),
+    ('waste-storage', 'waste-storage/module.blend', 'MODULE_waste-storage', (28.32, -24.0, 0.0), -90.0,
+     'Plan v7 waste, east-south-east (rectangle x 28 to 42.9, y -38 to -17.2), link end (28,-24). Local origin is the WS_RECEIVING threshold (outward -Y, 3.0 x 3.2 m), exterior wall face at module y -0.32 (contract). Rotation -90 turns outward -Y to plan -X (west, towards the reactor), '
+     'so the exterior face lands on plan x 28 (origin x 28.32) and the receiving door on plan y -24.'),
+    ('cooling-plant', 'cooling-plant/module.blend', 'MODULE_cooling-plant', (-44.1, -19.0, 0.0), 90.0,
+     'Plan v7 cooling, west-south-west (rectangle x -57 to -44.1, y -30 to -15), link end (-44.1,-19). Local origin CP-P01 (centre (0,0,0), +Y inward, 5 x 5 m); the module starts at y 0. Rotation +90 turns outward -Y to plan +X (east, towards the reactor), '
+     'so the door face lands on plan x -44.1 and the door on plan y -19.'),
 ]
 
 CLIFF_TINT = {'saturation': 0.0, 'value': 3.6, 'warm': (0.82, 0.79, 0.68, 1.0)}   # measured from renders: mountain hsv ~(0.15, 0.10, 0.30), yard cliff was (0.55, 0.20, 0.13); grey it, brighten, warm it
@@ -539,6 +579,7 @@ def build(through, output):
     unify_cliff_rock()
     fix_evac_sign_back()
     add_reactor_concourse()
+    add_reactor_links()
     add_scene_lighting()
     placeholder_fuel_shutter()
     bpy.ops.wm.save_as_mainfile(filepath=output, relative_remap=True)
