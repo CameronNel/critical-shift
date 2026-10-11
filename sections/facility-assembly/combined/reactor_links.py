@@ -457,6 +457,7 @@ def dress_hall(coll, path, zone_key, mats, props, h=5.0, w=5.0, airlock_s=(), ha
     # 2. pilasters, insets, ribs, lamps
     s = 1.5
     bay = 0
+    screens = []
     while s < L - 1.0:
         for sg in (1, -1):
             mb['dark'].ring(patch_ring(path, s - 0.2, s + 0.2, sg * (W2 - sk - 0.14), sg * (W2 - sk)), 0.0, h - 0.7)
@@ -465,6 +466,7 @@ def dress_hall(coll, path, zone_key, mats, props, h=5.0, w=5.0, airlock_s=(), ha
             for sg in (1, -1):
                 if bay % 2 == 1 or sg == -1: mb['steel'].ring(patch_ring(path, s + 0.4, s + 2.6, sg * (W2 - sk - 0.02), sg * (W2 - sk)), 1.43, 2.87)
                 mb['dark'].ring(patch_ring(path, s + 0.46, s + 2.54, sg * (W2 - sk - 0.05), sg * (W2 - sk - 0.02)), 1.49, 2.81)
+                screens.append((s + 0.5, s + 2.5, sg))
         s += 3.0; bay += 1
     s = 2.0
     while s < L - 1.0:
@@ -493,6 +495,7 @@ def dress_hall(coll, path, zone_key, mats, props, h=5.0, w=5.0, airlock_s=(), ha
         mb['yellow'].ring(patch_ring(path, a - 1.05, a - 0.75, -W2 + 0.1, W2 - 0.1), 0.0, 0.012)
         mb['yellow'].ring(patch_ring(path, a + 0.75, a + 1.05, -W2 + 0.1, W2 - 0.1), 0.0, 0.012)
     for m in mb.values(): m.done()
+    add_screens(coll, path, zone_key, screens, W2, sk)
     # 5. coves (plaster wedge in each wall/ceiling corner) with a glowing strip
     for sg in (1, -1):
         loft(coll, f'{zone_key} cove {sg}', path, [(W2 - sk, h - 0.75), (W2 - sk, h - sk), (W2 - sk - 0.75, h - sk)], wall, side=sg)
@@ -566,3 +569,44 @@ def add_stub_labels(wrap, active, mat):
         if room in active:
             cu = bpy.data.curves.new('HALL door label ' + body, 'FONT'); cu.body = body; cu.size = 0.2; cu.align_x = 'CENTER'; cu.extrude = 0.006; cu.materials.append(mat)
             o = bpy.data.objects.new('HALL door label ' + body, cu); o.location = loc; o.rotation_euler = rot; wrap.objects.link(o)
+
+
+SCREEN_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'textures')
+
+
+def screen_material(zone_key, k):
+    name = f'HALL screen {zone_key} {k}'
+    if name in bpy.data.materials: return bpy.data.materials[name]
+    path = os.path.join(SCREEN_DIR, f'hall_screen_{zone_key}_{k}.png')
+    m = bpy.data.materials.new(name); m.use_nodes = True; nt = m.node_tree
+    for n in list(nt.nodes):
+        if n.type != 'OUTPUT_MATERIAL': nt.nodes.remove(n)
+    out = next(n for n in nt.nodes if n.type == 'OUTPUT_MATERIAL')
+    bsdf = nt.nodes.new('ShaderNodeBsdfPrincipled'); tex = nt.nodes.new('ShaderNodeTexImage')
+    if os.path.exists(path):
+        tex.image = bpy.data.images.load(path, check_existing=True); tex.image.colorspace_settings.name = 'sRGB'
+    tex.extension = 'CLIP'
+    nt.links.new(tex.outputs['Color'], bsdf.inputs['Base Color']); nt.links.new(tex.outputs['Color'], bsdf.inputs['Emission Color'])
+    bsdf.inputs['Emission Strength'].default_value = 2.2; bsdf.inputs['Roughness'].default_value = 0.12; bsdf.inputs['Metallic'].default_value = 0.0
+    nt.links.new(bsdf.outputs['BSDF'], out.inputs['Surface'])
+    return m
+
+
+def add_screens(coll, path, zone_key, screens, W2, sk):
+    """One lit display quad per recessed wall panel, UV 0..1 over the panel, one of four designs per panel (schematic, status, route map, trace)."""
+    groups = {}
+    for i, (s0, s1, sg) in enumerate(screens):
+        groups.setdefault(i % 4, []).append((s0, s1, sg))
+    for k, items in groups.items():
+        bm = bmesh.new(); uv = bm.loops.layers.uv.verify()
+        for s0, s1, sg in items:
+            a, ta, na = path.at(s0); b, tb, nb = path.at(s1); d = W2 - sk - 0.058
+            pa = a + na * sg * d; pb = b + nb * sg * d; z0, z1 = 1.55, 2.75
+            vs = [bm.verts.new((pa.x, pa.y, z0)), bm.verts.new((pb.x, pb.y, z0)), bm.verts.new((pb.x, pb.y, z1)), bm.verts.new((pa.x, pa.y, z1))]
+            ua, ub = (0.0, 1.0)       # checked in renders: this reads correctly on both walls
+            uvs = {vs[0]: (ua, 0), vs[1]: (ub, 0), vs[2]: (ub, 1), vs[3]: (ua, 1)}
+            f = bm.faces.new(vs if sg == -1 else vs[::-1])
+            for l in f.loops: l[uv].uv = uvs[l.vert]
+        bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
+        me = bpy.data.meshes.new(f'{zone_key} screens {k}'); bm.to_mesh(me); bm.free(); me.materials.append(screen_material(zone_key, k))
+        o = bpy.data.objects.new(f'{zone_key} screens {k}', me); coll.objects.link(o)
