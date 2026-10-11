@@ -23,7 +23,7 @@ SRC = os.path.normpath(os.path.join(HERE, '..', 'sources'))
 # that the old map's fix_spawn_transition.py removed.
 # Front end: portal_void (a dark box closing the portal mouth, local x -66 to -61.4) and mountain_mass (an 8-vertex rock box,
 # local x -98 to -64, y -16 to 30, z -1 to 9) are its stand-ins for the mountain and mine; the real mine module replaces both.
-OMIT = {'fuel-corridor': ['FC | Plant service left leaf', 'FC | Plant service right leaf', 'FC | Plant service left handling wear', 'FC | Plant service right handling wear'], 'front-end-area': ['portal_void', 'mountain_mass', 'cliff_face'], 'spawn-room': ['AIRLOCK_leaf_body', 'AIRLOCK_steel_face', 'AIRLOCK_structural_rib', 'AIRLOCK_structural_rib.001', 'AIRLOCK_leaf_body.001', 'AIRLOCK_steel_face.001', 'AIRLOCK_structural_rib.002', 'AIRLOCK_structural_rib.003', 'LIFE_airlock_gauge_case', 'LIFE_airlock_gauge_dial', 'LIFE_airlock_pressure_tick', 'LIFE_airlock_pressure_tick.001', 'LIFE_airlock_pressure_tick.002', 'LIFE_airlock_pressure_tick.003', 'LIFE_airlock_pressure_tick.004', 'LIFE_airlock_pressure_tick.005', 'LIFE_airlock_pressure_tick.006', 'LIFE_airlock_pressure_tick.007', 'LIFE_airlock_pressure_tick.008', 'LIFE_airlock_pressure_tick.009', 'LIFE_airlock_pressure_tick.010', 'LIFE_airlock_pressure_unit', 'SERVICE_end', 'SERVICE_end_washable_dado', 'SERVICE_end_coved_skirt', 'SERVICE_end_dado_cap']}
+OMIT = {'compliance-dock': ['P1 deep back wall', 'P1 deep door leaf'], 'fuel-corridor': ['FC | Plant service left leaf', 'FC | Plant service right leaf', 'FC | Plant service left handling wear', 'FC | Plant service right handling wear'], 'front-end-area': ['portal_void', 'mountain_mass', 'cliff_face', 'hall_E_door_leaf_-1.001', 'hall_E_door_leaf_1.001', 'service_door_leaf', 'service_door_push'], 'spawn-room': ['AIRLOCK_leaf_body', 'AIRLOCK_steel_face', 'AIRLOCK_structural_rib', 'AIRLOCK_structural_rib.001', 'AIRLOCK_leaf_body.001', 'AIRLOCK_steel_face.001', 'AIRLOCK_structural_rib.002', 'AIRLOCK_structural_rib.003', 'LIFE_airlock_gauge_case', 'LIFE_airlock_gauge_dial', 'LIFE_airlock_pressure_tick', 'LIFE_airlock_pressure_tick.001', 'LIFE_airlock_pressure_tick.002', 'LIFE_airlock_pressure_tick.003', 'LIFE_airlock_pressure_tick.004', 'LIFE_airlock_pressure_tick.005', 'LIFE_airlock_pressure_tick.006', 'LIFE_airlock_pressure_tick.007', 'LIFE_airlock_pressure_tick.008', 'LIFE_airlock_pressure_tick.009', 'LIFE_airlock_pressure_tick.010', 'LIFE_airlock_pressure_unit', 'SERVICE_end', 'SERVICE_end_washable_dado', 'SERVICE_end_coved_skirt', 'SERVICE_end_dado_cap']}
 
 def wm(o):
     """World matrix from the object's own transforms. Linked objects that have not been through a depsgraph report an identity matrix_world,
@@ -434,7 +434,22 @@ LINKS = {
     # electrical D02_Waste (north door, 2.4 x 2.7, electrical contracts/CONNECTIONS.md) up to the bridge
     'electrical-spur': dict(pts=[(19.75, 42.9), (19.75, 50.5)], r=1.0, airlocks=[2.4], into=('bridge', -1, (19.75, 53.0)), requires=('turbine-room', 'electrical-room', 'waste-storage'), zone='electrical-room'),
     # fuel corridor S01_PLANT (interface.json: centre (-5.4, 17.4), outward -X, 2.0 x 2.5, plant_header cell height 3.0, route (0,17.4)-(-5.4,17.4)) to the cooling hall
-    'fuel-service': dict(pts=[(-27.66, -26.2), (-39.5, -26.2), (-39.5, -21.5)], r=3.0, w=2.4, h=3.0, airlocks=[], into=('cooling-plant', 1, (-39.5, -19.0)), requires=('fuel-corridor', 'cooling-plant'), zone='service'),
+    # east trunk: hall east door (front end, stub to x 36, 2.4 m clear, DESIGN.md "Hall east end to east trunk 2.4 m; the trunk splits just outside: dock one way, waste the other") east along y -54, then the plan's outer-ring east arm (x 56) north to y 39.45 and west into the bridge's east leg
+    'east-trunk': dict(pts=[(36.0, -54.0), (56.0, -54.0), (56.0, 39.45), (36.5, 39.45)], r=4.5, airlocks=[1.5], into=('bridge', 1, (34.0, 39.45)), requires=('compliance-dock', 'waste-storage', 'electrical-room'), zone='trunk'),
+    # compliance dock facility_entry P1 (plan (60,-79); sill face x 57.9): plan v7 dock link (56,-54)-(56,-79)-(60,-79), moved to x 48 so the corner has room for a 4.5 m radius
+    'dock-link': dict(pts=[(48.0, -56.5), (48.0, -79.0), (57.9, -79.0)], r=4.5, airlocks=[-0.3], into=('east-trunk', -1, (48.0, -54.0)), requires=('compliance-dock', 'waste-storage', 'electrical-room'), zone='dock'),
+    # waste WS_PERSONNEL (module (6, 2.4), outward +X = plan south, 1.2 x 2.3 m; plan point (30.72, -30.3)) from the trunk: plan v7 "hall right -> waste" (32,-48)-(32,-38)
+    'waste-personnel': dict(pts=[(42.0, -51.5), (42.0, -36.5), (30.72, -36.5), (30.72, -30.3)], r=3.0, w=2.4, h=3.0, airlocks=[], into=('east-trunk', 1, (42.0, -54.0)), requires=('compliance-dock', 'waste-storage', 'electrical-room'), zone='service'),
+    # waste WS_DISPATCH (module (0, 18), outward +Y = plan east, 2.4 x 2.8 m; plan point (46.64, -24)) to the east arm
+    'waste-dispatch': dict(pts=[(46.64, -24.0), (53.5, -24.0)], r=1.0, w=2.4, h=3.0, airlocks=[], into=('east-trunk', 1, (56.0, -24.0)), requires=('compliance-dock', 'waste-storage', 'electrical-room'), zone='service'),
+    # plan v7 outer ring west arm (-33.7,-49)-(-38,-49)-(-38,30)-(-7.4,30) with the yard-to-cooling passage (DESIGN.md: "Yard to cooling passage 2.4 m, north-west corner"; yard service door at plan (-46,-60.0)). Deviations: the passage joins the ring at y -49 instead of the refinery's
+    # west wall (the refinery wall behind (-33.7,-49) is blocked by the crusher and acoustic enclosure, ray scan), and the ring crosses the reactor-cooling hall at (-38,-19) as a T pair instead of an unbuilt cooling east door
+    # medical direct door (plan v7 (38.5,-71.7)-(38.5,-54)): door cut in the rear wall of medical's decon cell (plan x 37.3, y -72.33) east then north to the trunk
+    'medical-direct': dict(pts=[(37.3, -72.33), (42.0, -72.33), (42.0, -56.5)], r=3.0, w=2.4, h=3.0, airlocks=[], into=('east-trunk', -1, (42.0, -54.0)), requires=('compliance-dock', 'waste-storage', 'electrical-room'), zone='service'),
+    'ring-south': dict(pts=[(-46.0, -60.0), (-46.0, -49.0), (-38.0, -49.0), (-38.0, -21.5)], r=4.5, airlocks=[1.2], into=('cooling-plant', 1, (-38.0, -19.0)), requires=('cooling-plant',), zone='passage'),
+    'ring-north': dict(pts=[(-38.0, -16.5), (-38.0, 30.8), (-4.25, 30.8)], r=4.5, airlocks=[-0.3], outof=('cooling-plant', -1, (-38.0, -19.0)), requires=('cooling-plant', 'turbine-room'), zone='ring'),
+    # fuel corridor S01_PLANT (interface.json: centre (-5.4, 17.4), outward -X, 2.0 x 2.5, plant_header cell height 3.0; route (0,17.4)-(-5.4,17.4)) to the ring
+    'fuel-service': dict(pts=[(-27.66, -26.2), (-35.5, -26.2)], r=1.0, w=2.4, h=3.0, airlocks=[], into=('ring-south', -1, (-38.0, -26.2)), requires=('fuel-corridor', 'cooling-plant'), zone='service'),
 }
 
 def zone_mats(zone_key):
@@ -456,13 +471,16 @@ def add_reactor_links():
     M, air = spawn_assets(); props = spawn_props()
     root = bpy.context.scene.collection.children['COMBINED_MAP']
     active = {k: L for k, L in LINKS.items() if all(r in INCLUDED for r in L.get('requires', (k,)))}
+    for _ in range(4):      # a branch needs its parent hall
+        active = {k: L for k, L in active.items() if all(L[t][0] in active or L[t][0] in INCLUDED for t in ('into', 'outof') if t in L) and ('into' not in L or L['into'][0] in active or L['into'][0] in INCLUDED and L['into'][0] not in LINKS)}
     paths = {k: reactor_links.Path(reactor_links.fillet(L['pts'], L['r'])) for k, L in active.items()}
     openings = {k: [] for k in active}
     for k, L in active.items():
-        if 'into' in L:
-            par, sg, pt = L['into']
-            if par in active:
-                c = paths[par].nearest(pt); wb = L.get('w', 5.0); openings[par].append((c - wb / 2, c + wb / 2, sg))
+        for t in ('into', 'outof'):
+            if t in L:
+                par, sg, pt = L[t]
+                if par in active:
+                    c = paths[par].nearest(pt); wb = L.get('w', 5.0); openings[par].append((c - wb / 2, c + wb / 2, sg))
     for key, L in active.items():
         coll = bpy.data.collections.new('CONNECTOR_reactor_to_' + key); root.children.link(coll)
         w, h = L.get('w', 5.0), L.get('h', 5.0); zone = L.get('zone', key)
@@ -473,7 +491,7 @@ def add_reactor_links():
         for s_ in spos:
             pos, d, _n = path.at(s_)
             na += reactor_links.airlock(coll, air, pos, d, w, h, Mz)
-        pl = reactor_links.dress_hall(coll, path, zone, Mz, props_, h=h, w=w, airlock_s=spos, seed=hash(key) % 1000, openings=openings[key])
+        pl = reactor_links.dress_hall(coll, path, zone, Mz, props_, h=h, w=w, airlock_s=spos, seed=sum(map(ord, key)) % 1000, openings=openings[key])
         if 'into' in L and L['into'][0] in active and h < active[L['into'][0]].get('h', 5.0):
             par, sg, pt = L['into']; pp = paths[par]; c = pp.nearest(pt); Hp = active[par].get('h', 5.0)
             reactor_links.lintel(coll, 'CONNECTOR lintel ' + key, pp, c - w / 2, c + w / 2, sg, active[par].get('w', 5.0) / 2, h, Hp, Mz)
@@ -485,16 +503,36 @@ DOOR_PLACEHOLDERS = [('PLACEHOLDER_turbine_D02_shutter', 'turbine-room', (-1.3, 
                      ('PLACEHOLDER_electrical_D02_shutter', 'electrical-room', (18.45, 21.05), (42.9, 43.0), 2.9),
                      ('PLACEHOLDER_waste_dispatch_shutter', 'waste-storage', (46.64, 46.74), (-25.3, -22.7), 3.0)]
 
-BRIDGED = ('PLACEHOLDER_turbine_D02_shutter', 'PLACEHOLDER_electrical_D02_shutter')   # doors that the north bridge now connects
+BRIDGED = {'PLACEHOLDER_turbine_D02_shutter': 'bridge', 'PLACEHOLDER_electrical_D02_shutter': 'electrical-spur', 'PLACEHOLDER_waste_dispatch_shutter': 'waste-dispatch'}   # doors that a link now connects
 
 def add_door_placeholders():
     mat = bpy.data.materials.new('PLACEHOLDER_shutter_steel'); mat.use_nodes = True; b = mat.node_tree.nodes['Principled BSDF']
     b.inputs['Base Color'].default_value = (0.09, 0.1, 0.11, 1); b.inputs['Metallic'].default_value = 0.7; b.inputs['Roughness'].default_value = 0.5
     root = bpy.context.scene.collection.children['COMBINED_MAP']
     for name, room, xs, ys, top in DOOR_PLACEHOLDERS:
-        if room in INCLUDED and not (name in BRIDGED and all(k in INCLUDED for k in LINKS['bridge']['requires'])): _box(root, name, xs, ys, (0.0, top), mat); print('PLACEHOLDER', name)
+        if room in INCLUDED and not (name in BRIDGED and all(r in INCLUDED for r in LINKS[BRIDGED[name]].get('requires', (BRIDGED[name],)))): _box(root, name, xs, ys, (0.0, top), mat); print('PLACEHOLDER', name)
 
-PATCHES = {'front-end-area': lambda w, l, o: (open_portal_cap(w, l, o), clear_yard_for_shed(w, l, o), localise_evac_sign(w, l, o), totem_back_board(w, l, o), trim_spine_for_concourse(w, l, o)), 'mine': trim_mine_surface, 'reactor-room': patch_reactor}
+# Turbine west door for the outer ring: the turbine's west wall (two skins 'West wall' at module x -4.00 and -4.25, plinth and cable trunk) is cut 2.6 m wide at module y 13.8 (= plan y 30.8), the clear stretch found by ray scan (module y 12.0 to 15.6 had no equipment within 3 m of the wall)
+TURBINE_CUTS = {'west_door': dict(ang=math.pi, ox=0.0, oy=13.8, hw=1.3, a0=3.55, a1=4.4, z0=0.0, z1=2.9, walls=('West wall', 'Concrete impact plinth', 'Control cable trunk'), rooms=('turbine-room', 'cooling-plant'))}
+
+def patch_turbine(wrap, lib_coll, omit):
+    import reactor_links
+    objs = list(dict.fromkeys(lib_coll.all_objects))
+    reactor_links.cut_hall(wrap, omit, objs, wm, INCLUDED, table={k: dict(v, oy=v['oy']) for k, v in TURBINE_CUTS.items()})
+
+# Medical direct door (plan v7 "medical direct door" (38.5,-71.7)-(38.5,-54) to the east trunk). The medical module has a decon cell on its far side (module x 1.3 to 3.36, y 9.0 to 11.3, entered by the open 1.2 m "Decon doorway" in the rear wall at plan x 35.0) whose own rear wall (plan x 37.12 to 37.3) is solid piers and an extraction grille.
+# That is the only stretch of the far wall with a clear straight lane from the room (ray scan with equipment counted: module x 1.4 to 3.0 from y 2 to the wall; the planned y -71.7 is module x 1.7), so the direct door is the decon cell's rear wall opened 1.2 m wide, 2.3 m high at module x 2.33 (plan y -72.33), with the wash fixtures
+# in that 1.2 m stripe cleared. Local copies only; the module is unchanged.
+MEDICAL_CUTS = {'east_door': dict(ang=math.pi / 2, ox=2.33, oy=0.0, hw=0.6, a0=11.0, a1=11.45, clear_a0=10.7, z0=0.0, z1=2.3, walls=('Decon rear wall',), rooms=('medical-reanimation', 'compliance-dock'))}
+
+def patch_medical(wrap, lib_coll, omit):
+    import reactor_links
+    skin = [o for o in wrap.objects if o.library is not None]
+    reactor_links.cut_hall(wrap, omit, list(dict.fromkeys(list(lib_coll.all_objects) + skin)), wm, INCLUDED, table=MEDICAL_CUTS)
+    for o in skin:
+        if o.name in omit: wrap.objects.unlink(o)       # the exterior skin pieces that were cut or are in the doorway: the cut copy (or nothing) stands in
+
+PATCHES = {'front-end-area': lambda w, l, o: (open_portal_cap(w, l, o), clear_yard_for_shed(w, l, o), localise_evac_sign(w, l, o), totem_back_board(w, l, o), trim_spine_for_concourse(w, l, o)), 'mine': trim_mine_surface, 'reactor-room': patch_reactor, 'turbine-room': patch_turbine, 'medical-reanimation': patch_medical}
 INCLUDED = set()
 
 # Refinery: every root collection of the overhaul scene except the duplicate MODULE_refinery wrapper and the review cameras.
@@ -538,6 +576,10 @@ ROOMS = [
     ('cooling-plant', 'cooling-plant/module.blend', 'MODULE_cooling-plant', (-44.1, -19.0, 0.0), 90.0,
      'Plan v7 cooling, west-south-west (rectangle x -57 to -44.1, y -30 to -15), link end (-44.1,-19). Local origin CP-P01 (centre (0,0,0), +Y inward, 5 x 5 m); the module starts at y 0. Rotation +90 turns outward -Y to plan +X (east, towards the reactor), '
      'so the door face lands on plan x -44.1 and the door on plan y -19.'),
+    ('compliance-dock', 'compliance-dock/module_overhaul_R1.blend', ['MODULE_compliance-dock', '09 Overhaul | full'], (60.0, -79.0, 0.0), -90.0,
+     'Plan v7 compliance dock, hanging off the east trunk (rectangle x 60 to 78.7, y -87 to -71.2, "locked link" (56,-79) to (60,-79)). The AAA/overhaul module_overhaul_R1.blend (merged on main as #66 with the unreviewed finish #79; failed its recorded gate, C9 88.625 against 99). '
+     'Local origin is the facility_entry threshold P1 (0,0,0), inward +Y, 2.4 x 2.6 m, aperture depth 0.28 (contracts/interface.json); room long axis (15.8 m to the sealed external arrival P2 at local y 15.8) runs along local Y, and plan v7 draws it 18.7 wide in x and 15.8 in y, so inward +Y goes to plan +X: rotation -90 degrees, threshold on plan (60,-79). '
+     'Measured local bbox x -7.1 to 7.21, y -2.1 (sill) to 16.08, so the plan footprint is x 57.9 to 76.1, y -86.2 to -71.8.'),
 ]
 
 CLIFF_TINT = {'saturation': 0.0, 'value': 3.6, 'warm': (0.82, 0.79, 0.68, 1.0)}   # measured from renders: mountain hsv ~(0.15, 0.10, 0.30), yard cliff was (0.55, 0.20, 0.13); grey it, brighten, warm it
@@ -637,8 +679,8 @@ def build(through, output):
             # membership wrapper: the room's objects are linked individually into a local collection, minus the omitted doorway closures.
             # Linked objects cannot be re-parented, so the wrapper itself is instanced at the placement transform (the source module is not edited).
             wrap = bpy.data.collections.new('ROOM_' + key + '_members'); kept = left = 0
+            if key in EXTERIOR_SKINS: add_exterior_skin(key, wrap)        # skin first so patches can cut it too
             if key in PATCHES: PATCHES[key](wrap, lib_coll, omit)
-            if key in EXTERIOR_SKINS: add_exterior_skin(key, wrap)
             for o in dict.fromkeys(o for c in loaded for o in c.all_objects):
                 if o.name in omit: left += 1; continue
                 if o.name in wrap.objects: continue

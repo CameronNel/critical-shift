@@ -1,13 +1,14 @@
 """Draw the wall-screen images for the combined map's halls: python3 make_hall_screens.py textures/
 Four designs per zone colour (schematic, status table, route map, trace), 1024x620, drawn dark with glowing lines so the emissive material reads as a lit display.
 Content is placeholder facility signage, not a data feed."""
-import math, os, random, sys
+import math, os, random, sys, zlib
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 FD = '/mnt/skills/examples/canvas-design/canvas-fonts/'
 BOLD = ImageFont.truetype(FD + 'GeistMono-Bold.ttf', 40); REG = ImageFont.truetype(FD + 'GeistMono-Regular.ttf', 26); SM = ImageFont.truetype(FD + 'GeistMono-Regular.ttf', 20); BIG = ImageFont.truetype(FD + 'GeistMono-Bold.ttf', 64)
 W, H = 1024, 620
 ZONES = {'turbine-room': ((255, 140, 30), 'TURBINE HALL'), 'electrical-room': ((60, 150, 255), 'ELECTRICAL'), 'waste-storage': ((255, 200, 30), 'WASTE STORAGE'),
-         'cooling-plant': ((30, 235, 220), 'COOLING PLANT'), 'bridge': ((255, 140, 30), 'TURBINE - ELECTRICAL'), 'tunnel': ((215, 235, 255), 'REACTOR CONCOURSE')}
+         'cooling-plant': ((30, 235, 220), 'COOLING PLANT'), 'bridge': ((255, 140, 30), 'TURBINE - ELECTRICAL'), 'tunnel': ((215, 235, 255), 'REACTOR CONCOURSE'), 'trunk': ((140, 255, 115), 'EAST TRUNK'), 'dock': ((215, 90, 255), 'COMPLIANCE DOCK'),
+         'ring': ((230, 230, 242), 'OUTER RING'), 'passage': ((255, 205, 75), 'YARD PASSAGE'), 'service': ((80, 240, 230), 'PLANT SERVICE')}
 def mix(c, f): return tuple(int(v * f) for v in c)
 def base(col, title, sub):
     im = Image.new('RGB', (W, H), (4, 7, 10)); d = ImageDraw.Draw(im)
@@ -50,7 +51,7 @@ def trace(col, name, rnd):
 out = sys.argv[1]; os.makedirs(out, exist_ok=True)
 for z, (col, name) in ZONES.items():
     for k, fn in enumerate((schematic, table, route, trace)):
-        im = fn(col, name, random.Random(hash((z, k)) & 0xffff))
+        im = fn(col, name, random.Random(zlib.crc32(f'{z}{k}'.encode())))
         glow = im.filter(ImageFilter.GaussianBlur(4)); im = Image.blend(im, Image.eval(Image.merge('RGB', [Image.eval(c, lambda v: min(255, v * 2)) for c in glow.split()]), lambda v: v), 0.0)
         im.save(os.path.join(out, f'hall_screen_{z}_{k}.png'))
 print('wrote', len(ZONES) * 4)

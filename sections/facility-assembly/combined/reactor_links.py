@@ -20,8 +20,8 @@ HALL_CUTS = {
 
 
 def _inside(cut, p, grow=0.0):
-    c, s = math.cos(cut['ang']), math.sin(cut['ang'])
-    al = p[0] * c + p[1] * s; pe = -p[0] * s + p[1] * c
+    c, s = math.cos(cut['ang']), math.sin(cut['ang']); px = p[0] - cut.get('ox', 0.0); py = p[1] - cut.get('oy', 0.0)
+    al = px * c + py * s; pe = -px * s + py * c
     return cut['a0'] - grow <= al <= cut['a1'] + grow and abs(pe) <= cut['hw'] + grow and cut['z0'] - grow <= p[2] <= cut['z1'] + grow
 
 
@@ -39,12 +39,12 @@ def _islands(bm):
     return out
 
 
-def cut_hall(wrap, omit, objects, wm, active):
+def cut_hall(wrap, omit, objects, wm, active, table=None):
     """Cut the listed HALL_CUTS (those whose rooms are all included) out of the linked hall. Wall layers are clipped by bisecting the planes of the opening
     and deleting the faces inside; free-standing dressing (pipes, stations, signs) is removed island by island when its centre falls in the opening,
     text and curve objects when their centre does. Objects with modifiers are kept or omitted whole. Returns {cut name: objects touched}."""
     report = {}
-    cuts = {k: v for k, v in HALL_CUTS.items() if all(r in active for r in v['rooms'])}
+    cuts = {k: v for k, v in (HALL_CUTS if table is None else table).items() if all(r in active for r in v['rooms'])}
     if not cuts: return report
     done = {}
     for o in objects:
@@ -53,7 +53,9 @@ def cut_hall(wrap, omit, objects, wm, active):
         bbc = [m @ Vector(c) for c in o.bound_box]
         touched = [k for k, ct in cuts.items() if ('only' not in ct or o.name in ct['only']) and (any(_inside(ct, p, 0.4) for p in bbc) or _bbox_overlaps(dict(ct, a0=ct.get('clear_a0', ct['a0'])), bbc))]
         if not touched: continue
-        if o.type != 'MESH' or o.modifiers:
+        big = any(o.name.startswith(tuple(cuts[k].get('walls', ('RH walls', 'R2 floor')))) for k in touched)
+        cosmetic = o.type == 'MESH' and all(m.type in ('BEVEL', 'WEIGHTED_NORMAL', 'TRIANGULATE') for m in o.modifiers)       # edge-softening modifiers on a wall box are dropped on the cut copy
+        if o.type != 'MESH' or (o.modifiers and not (big and cosmetic)):
             centre = sum(bbc, Vector()) / 8
             if any(_inside(dict(cuts[k], a0=cuts[k].get('clear_a0', cuts[k]['a0'])), centre) for k in touched):
                 omit.add(o.name); report.setdefault(touched[0], []).append(o.name + ' (omitted)')
@@ -61,17 +63,27 @@ def cut_hall(wrap, omit, objects, wm, active):
         me = o.data.copy(); me.transform(m)
         bm = bmesh.new(); bm.from_mesh(me)
         changed = False
-        big = o.name.startswith(('RH walls', 'R2 floor'))
+        was_closed = not any(e.is_boundary for e in bm.edges)
         for k in touched:
             ct = cuts[k]; c, s = math.cos(ct['ang']), math.sin(ct['ang'])
             if big and not ct.get('islands'):
-                for co, no in (((c * ct['a0'], s * ct['a0'], 0), (c, s, 0)), ((c * ct['a1'], s * ct['a1'], 0), (c, s, 0)),
-                               ((-s * ct['hw'], c * ct['hw'], 0), (-s, c, 0)), ((s * ct['hw'], -c * ct['hw'], 0), (-s, c, 0)),
+                ox, oy = ct.get('ox', 0.0), ct.get('oy', 0.0)
+                for co, no in (((ox + c * ct['a0'], oy + s * ct['a0'], 0), (c, s, 0)), ((ox + c * ct['a1'], oy + s * ct['a1'], 0), (c, s, 0)),
+                               ((ox - s * ct['hw'], oy + c * ct['hw'], 0), (-s, c, 0)), ((ox + s * ct['hw'], oy - c * ct['hw'], 0), (-s, c, 0)),
                                ((0, 0, ct['z1']), (0, 0, 1))):
                     geom = list(bm.verts) + list(bm.edges) + list(bm.faces)
                     bmesh.ops.bisect_plane(bm, geom=geom, plane_co=co, plane_no=no, dist=1e-5)
                 dead = [f for f in bm.faces if _inside(ct, f.calc_center_median())]
-                if dead: bmesh.ops.delete(bm, geom=dead, context='FACES'); changed = True
+                if dead:
+                    bmesh.ops.delete(bm, geom=dead, context='FACES'); changed = True
+                    if was_closed:
+                        bnd = [e for e in bm.edges if e.is_boundary]
+                        try:
+                            if max(v.co.z for v in bm.verts) > ct['z1'] + 0.05:      # a wall box taller than the door: join the two hole rims so the jambs are solid
+                                bmesh.ops.bridge_loops(bm, edges=bnd)
+                            else:                                                    # a strip cut clean through (skirting, plinth): cap the two cut ends
+                                bmesh.ops.holes_fill(bm, edges=bnd, sides=8)
+                        except Exception as ex: print('BRIDGE failed', o.name, ex)
             else:
                 bm.faces.index_update(); dead = []
                 cl = dict(ct, a0=ct.get('clear_a0', ct['a0']))      # free-standing dressing is cleared in front of the door as well
@@ -88,13 +100,13 @@ def cut_hall(wrap, omit, objects, wm, active):
         if not me.polygons:
             bpy.data.meshes.remove(me); omit.add(o.name); continue
         n = bpy.data.objects.new(o.name, me); wrap.objects.link(n); omit.add(o.name)
-    for k, v in report.items(): print('HALL CUT', k, len(v), 'objects changed')
+    for k, v in report.items(): print('ROOM CUT', k, len(v), 'objects changed')
     return report
 
 
 def _bbox_overlaps(ct, pts):
-    c, s = math.cos(ct['ang']), math.sin(ct['ang'])
-    al = [p[0] * c + p[1] * s for p in pts]; pe = [-p[0] * s + p[1] * c for p in pts]; z = [p[2] for p in pts]
+    c, s = math.cos(ct['ang']), math.sin(ct['ang']); ox, oy = ct.get('ox', 0.0), ct.get('oy', 0.0)
+    al = [(p[0] - ox) * c + (p[1] - oy) * s for p in pts]; pe = [-(p[0] - ox) * s + (p[1] - oy) * c for p in pts]; z = [p[2] for p in pts]
     return min(al) <= ct['a1'] and max(al) >= ct['a0'] and min(pe) <= ct['hw'] and max(pe) >= -ct['hw'] and min(z) <= ct['z1'] and max(z) >= ct['z0']
 
 
@@ -367,6 +379,10 @@ ZONES = {
     'waste-storage':   dict(accent=(1.0, 0.72, 0.08), tint=(0.8, 0.78, 0.6), name='WASTE STORAGE'),
     'cooling-plant':   dict(accent=(0.08, 0.9, 0.85), tint=(0.58, 0.82, 0.84), name='COOLING PLANT'),
     'bridge':          dict(accent=(1.0, 0.5, 0.12), tint=(0.78, 0.74, 0.74), name='TURBINE - ELECTRICAL'),
+    'trunk':           dict(accent=(0.55, 1.0, 0.45), tint=(0.74, 0.8, 0.72), name='EAST TRUNK', origin='FRONT-END HALL'),
+    'dock':            dict(accent=(0.85, 0.35, 1.0), tint=(0.8, 0.72, 0.84), name='COMPLIANCE DOCK', origin='EAST TRUNK'),
+    'ring':            dict(accent=(0.9, 0.9, 0.95), tint=(0.78, 0.8, 0.84), name='OUTER RING', origin='REACTOR HALL'),
+    'passage':         dict(accent=(1.0, 0.8, 0.3), tint=(0.82, 0.78, 0.68), name='YARD PASSAGE', origin='YARD'),
     'service':         dict(accent=(0.3, 0.95, 0.9), tint=(0.7, 0.78, 0.8), name='PLANT SERVICE'),
     'tunnel':          dict(accent=(0.85, 0.92, 1.0), tint=(0.82, 0.82, 0.86), name='REACTOR CONCOURSE'),
 }
@@ -565,7 +581,7 @@ def dress_hall(coll, path, zone_key, mats, props, h=5.0, w=5.0, airlock_s=(), ha
         rot = (math.pi / 2, 0, alpha) if sg == 1 else (math.pi / 2, 0, alpha + math.pi)
         text_obj(coll, body, (loc.x, loc.y, z), rot, size, sign)
     if L > 8:
-        wall_sign(3.5, 1, 'REACTOR HALL  <' if not compact else 'SERVICE  <', min(3.05, h - 0.5), 0.2); wall_sign(L - 3.5, -1, Z['name'] + '  >', min(3.05, h - 0.5), 0.2)
+        wall_sign(3.5, 1, (Z.get('origin', 'REACTOR HALL') + '  <') if not compact else 'SERVICE  <', min(3.05, h - 0.5), 0.2); wall_sign(L - 3.5, -1, Z['name'] + '  >', min(3.05, h - 0.5), 0.2)
         mid = L / 2
         if straight_at(path, mid, 1.0) and not in_opening(mid, op, 1.5, 1): wall_sign(mid, 1, Z['name'], 3.05, 0.2)
     for a in airlock_s:

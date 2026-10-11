@@ -16,7 +16,7 @@ Where plan v7 and the as-built front end disagree, the as-built front end and DE
 - **Record of every decision is `COMBINED_MAP.md`:** per room, the source file, what fixed the placement (with the measurement), what was patched, evidence renders, what was not checked.
 - Evidence renders are in `renders/` (per room), `renders/review/` (whole-scene review) and `renders/fixes/` (fix log and room 5).
 
-## Current state (through room 10)
+## Current state (through room 11)
 
 Build keys, in `ROOMS` order. `--through <key>` builds that room and every room before it.
 
@@ -33,9 +33,10 @@ Build keys, in `ROOMS` order. `--through <key>` builds that room and every room 
 | 8 | `electrical-room` | electrical (overhaul R11) | (19.75, 26.25), 0 |
 | 9 | `waste-storage` | waste storage | (28.32, -24), -90 |
 | 10 | `cooling-plant` | cooling plant | (-44.1, -19), 90 |
+| 11 | `compliance-dock` | compliance dock (overhaul R1) | (60, -79), -90 |
 
-The committed `combined_map.blend` is built `--through cooling-plant`. Every room is "added, awaiting owner OK" except the front end, which is "built, unreviewed".
-Not yet placed: compliance dock, condenser bay, outer ring, gantry. Known defects and open items are listed in `COMBINED_MAP.md` (fix log and "Defects and open items").
+The committed `combined_map.blend` is built `--through compliance-dock`. Every room is "added, awaiting owner OK" except the front end, which is "built, unreviewed".
+Not placed: condenser bay (not in the plan), gantry (no attachment spec). Known defects and open items are listed in `COMBINED_MAP.md` (fix log and "Defects and open items").
 
 ## Rules
 
