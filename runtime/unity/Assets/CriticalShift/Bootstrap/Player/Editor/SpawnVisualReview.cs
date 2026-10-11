@@ -30,7 +30,7 @@ namespace CriticalShift.Player.Editor
                 lightmapResolution = 20, lightmapMaxSize = 2048, lightmapPadding = 4,
                 directSampleCount = 32, indirectSampleCount = 128, environmentSampleCount = 64,
                 maxBounces = 6, lightmapCompression = LightmapCompression.None,
-                mixedBakeMode = MixedLightingMode.IndirectOnly
+                mixedBakeMode = MixedLightingMode.Shadowmask
             };
             string path = SpawnMapBuild.Folder + "Surfaces/SpawnLightingSettings.lighting";
             AssetDatabase.DeleteAsset(path); AssetDatabase.CreateAsset(settings,path); Lightmapping.lightingSettings=settings;
@@ -55,17 +55,15 @@ namespace CriticalShift.Player.Editor
             Render();
         }
 
-        // A point bake starts inside the authored bulb; its shadow mask can still self-occlude.
-        // Keep the indirect bake, but evaluate the practical's direct light and shadows at runtime.
+        // Preserve the finite-emitter static shadow mask. Only moving objects need
+        // real-time caster shadows; discarding this mask creates hard fixture silhouettes.
         private static void FinishLighting(Transform root)
         {
             var map=JsonUtility.FromJson<ExportMap>(File.ReadAllText(SpawnMapBuild.Folder+"map-bindings.json"));
             var authored=map.rooms.Single(r=>r.key=="spawn-room").lights.ToDictionary(l=>l.name,StringComparer.Ordinal);
-            foreach(var light in root.GetComponentsInChildren<Light>().Where(l=>l.type==LightType.Point))
+            foreach(var light in root.GetComponentsInChildren<Light>().Where(l=>l.type==LightType.Point && l.lightmapBakeType==LightmapBakeType.Mixed))
             {
                 light.intensity=authored[light.name].power/500;
-                light.lightmapBakeType=LightmapBakeType.Realtime;
-                light.bakingOutput=new LightBakingOutput();
             }
             foreach(var old in root.GetComponentsInChildren<ReflectionProbe>()) UnityEngine.Object.DestroyImmediate(old.gameObject);
             // Built-in baked area lights have no runtime geometry to reflect. Give the captures
@@ -131,6 +129,7 @@ namespace CriticalShift.Player.Editor
             foreach (var room in map.rooms) { SpawnMapBuild.CheckHash(room.mesh,room.meshSha256); SpawnMapBuild.CheckHash(room.collision,room.collisionSha256); }
             var package=map.materials.Single(p=>p.room=="spawn-room");
             SpawnMapBuild.CheckHash(package.letteringMesh.file,package.letteringMesh.sha256);
+            SpawnMapBuild.CheckHash(package.wallMesh.file,package.wallMesh.sha256);
             foreach (var atlas in package.atlases)
                 foreach (var texture in new[] {atlas.albedo,atlas.normal,atlas.metallicSmoothness,atlas.emission})
                     SpawnMapBuild.CheckHash(texture.file,texture.sha256);

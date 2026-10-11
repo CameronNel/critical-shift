@@ -38,10 +38,17 @@ def surface_opacity(material):
 def constant_inputs(material):
     bsdf=next(n for n in material.node_tree.nodes if n.type=="BSDF_PRINCIPLED")
     def constant(name): return not bsdf.inputs[name].is_linked
+    if not constant("IOR") or not constant("Specular IOR Level"):
+        raise ValueError("Linked dielectric reflectivity requires an explicit export: "+material.name)
+    ior=float(bsdf.inputs["IOR"].default_value)
+    # Blender's neutral specular level is 0.5; Unity's fixed Standard dielectric
+    # F0 cannot represent the source paint's lower level (0.3).
+    f0=((ior-1)/(ior+1))**2 * 2*float(bsdf.inputs["Specular IOR Level"].default_value)
     return {"baseConstant":constant("Base Color"),"normalConstant":constant("Normal"),
         "metallicConstant":constant("Metallic"),"roughnessConstant":constant("Roughness"),
         "emissionConstant":constant("Emission Color") and constant("Emission Strength"),
         "surfaceOpacity":surface_opacity(material),
+        "dielectricSpecular":f0,
         "baseColor":list(bsdf.inputs["Base Color"].default_value),
         "metallic":float(bsdf.inputs["Metallic"].default_value),"smoothness":1-float(bsdf.inputs["Roughness"].default_value),
         "emissionColor":list(bsdf.inputs["Emission Color"].default_value),"emissionStrength":float(bsdf.inputs["Emission Strength"].default_value)}

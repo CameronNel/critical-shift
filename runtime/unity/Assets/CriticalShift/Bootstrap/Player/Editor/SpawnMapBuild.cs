@@ -16,7 +16,7 @@ namespace CriticalShift.Player.Editor
 {
     [Serializable] public sealed class ExportPose { public float[] position, rotation; }
     [Serializable] public sealed class ExportDoor { public string name, node; public ExportPose closed, opened; }
-    [Serializable] public sealed class ExportObject { public string source, node; public bool visible, dynamic, sourceUv, lettering; public string[] materials; public int[] deliveryUvAxes; }
+    [Serializable] public sealed class ExportObject { public string source, node; public bool visible, dynamic, sourceUv, lettering, wallSurface; public string[] materials; public int[] deliveryUvAxes; }
     [Serializable] public sealed class ExportLight { public float[] position, color, rotation; public float power, size, sizeY, radius; public string name, type; }
     [Serializable] public sealed class ExportAnchor { public string name, node; public float[] position; }
     [Serializable] public sealed class ExportRoom
@@ -51,11 +51,16 @@ namespace CriticalShift.Player.Editor
             QualitySettings.pixelLightCount = 12; QualitySettings.shadows = ShadowQuality.All;
             QualitySettings.antiAliasing = 4;
             QualitySettings.shadowResolution = ShadowResolution.VeryHigh; QualitySettings.shadowDistance = 25;
+            QualitySettings.shadowmaskMode = ShadowmaskMode.Shadowmask;
             var package=map.materials.Single(p => p.room == "spawn-room");
             var surfaces = SpawnSurfaceBuild.Materials(package);
             CheckHash(package.letteringMesh.file,package.letteringMesh.sha256);
             Import(package.letteringMesh.file,false,readable:true);
             var lettering=AssetDatabase.LoadAssetAtPath<GameObject>(Folder+package.letteringMesh.file)
+                .GetComponentsInChildren<MeshFilter>().ToDictionary(f=>f.name,StringComparer.Ordinal);
+            CheckHash(package.wallMesh.file,package.wallMesh.sha256);
+            Import(package.wallMesh.file,false,readable:true);
+            var wallMeshes=AssetDatabase.LoadAssetAtPath<GameObject>(Folder+package.wallMesh.file)
                 .GetComponentsInChildren<MeshFilter>().ToDictionary(f=>f.name,StringComparer.Ordinal);
             foreach (var room in map.rooms) { Import(room.mesh, false, readable: room.key == "spawn-room"); Import(room.collision, false, readable: true); }
             Import("CrewWorker.fbx", true, clips: rig.clips);
@@ -80,9 +85,10 @@ namespace CriticalShift.Player.Editor
                 {
                     if (!nodes.TryGetValue(binding.node, out var node)) throw new InvalidOperationException("Missing exported node: " + binding.node);
                     var renderer = node.GetComponent<Renderer>(); if (renderer != null) renderer.enabled = binding.visible;
-                    if(binding.lettering)
+                    if(binding.lettering || binding.wallSurface)
                     {
-                        var glyphFilter=node.GetComponent<MeshFilter>();var source=lettering[binding.node+"__Lettering"];
+                        var glyphFilter=node.GetComponent<MeshFilter>();
+                        var source=binding.wallSurface ? wallMeshes[binding.node+"__Walls"] : lettering[binding.node+"__Lettering"];
                         var glyphMesh=UnityEngine.Object.Instantiate(source.sharedMesh);
                         var transform=node.worldToLocalMatrix*roomRoot.transform.localToWorldMatrix*source.transform.localToWorldMatrix;
                         glyphMesh.vertices=glyphMesh.vertices.Select(v=>transform.MultiplyPoint3x4(v)).ToArray();
@@ -92,8 +98,8 @@ namespace CriticalShift.Player.Editor
                         if((glyphMesh.bounds.center-glyphFilter.sharedMesh.bounds.center).magnitude>0.002f ||
                            (glyphMesh.bounds.size-glyphFilter.sharedMesh.bounds.size).magnitude>0.002f ||
                            glyphMesh.triangles.Length!=glyphFilter.sharedMesh.triangles.Length)
-                            throw new InvalidOperationException("Lettering delivery changed source geometry: "+binding.node);
-                        string meshPath=Folder+"Surfaces/"+binding.node+"-lettering.asset";
+                            throw new InvalidOperationException("Surface delivery changed source geometry: "+binding.node);
+                        string meshPath=Folder+"Surfaces/"+binding.node+(binding.wallSurface?"-wall":"-lettering")+".asset";
                         AssetDatabase.DeleteAsset(meshPath);AssetDatabase.CreateAsset(glyphMesh,meshPath);glyphFilter.sharedMesh=glyphMesh;
                         renderer.sharedMaterials=source.GetComponent<Renderer>().sharedMaterials;
                     }
@@ -132,7 +138,8 @@ namespace CriticalShift.Player.Editor
                             GameObjectUtility.SetStaticEditorFlags(node.gameObject, StaticEditorFlags.ReflectionProbeStatic |
                                 (binding.dynamic ? 0 : StaticEditorFlags.ContributeGI));
                         if(room.key=="spawn-room") SpawnSurfaceBuild.SplitEmbeddedEmitter(node,pointLights,package);
-                        if(binding.source=="LIFE_whiteboard_surface")
+                        if(binding.source=="LIFE_whiteboard_surface" ||
+                           (binding.source.StartsWith("LIFE_socket_",StringComparison.Ordinal) && binding.source.EndsWith("_face",StringComparison.Ordinal)))
                         {
                             // Its authored front normal faces the wall. Runtime two-sided shading is
                             // correct, but one baked chart cannot represent both sides reliably.
@@ -189,7 +196,7 @@ namespace CriticalShift.Player.Editor
                             light.transform.localRotation = Quaternion.LookRotation(new Vector3(forward.x,forward.z,forward.y), new Vector3(up.x,up.z,up.y));
                             light.lightmapBakeType = LightmapBakeType.Baked;
                         }
-                        else light.lightmapBakeType = LightmapBakeType.Mixed;
+                        else light.lightmapBakeType = sourceLight.name.Contains("_pendant") ? LightmapBakeType.Mixed : LightmapBakeType.Baked;
                     }
                 }
                 if (room.key == "spawn-room") spawnRoot = roomRoot.transform;
@@ -351,7 +358,7 @@ namespace CriticalShift.Player.Editor
             importer.globalScale = 1; importer.useFileScale = true; importer.bakeAxisConversion = true;
             importer.importAnimation = animated; importer.importLights = false; importer.importCameras = false;
             importer.isReadable = readable; importer.optimizeGameObjects = false;
-            if (Path.GetFileName(importer.assetPath) == "Room-spawn-room.fbx" || Path.GetFileName(importer.assetPath) == "Lettering.fbx")
+            if (Path.GetFileName(importer.assetPath) == "Room-spawn-room.fbx" || Path.GetFileName(importer.assetPath) == "Lettering.fbx" || Path.GetFileName(importer.assetPath) == "Walls.fbx")
             { importer.weldVertices = false; importer.meshCompression = ModelImporterMeshCompression.Off; importer.generateSecondaryUV = true; importer.secondaryUVMinLightmapResolution = 40; importer.secondaryUVMinObjectScale = 0.1f; }
             // Keep each room's complete collision mesh from the first import.
             importer.indexFormat = ModelImporterIndexFormat.UInt32;

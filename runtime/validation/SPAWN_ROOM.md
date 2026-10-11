@@ -199,7 +199,7 @@ and must be regenerated on a fresh checkout.
 ## Remaining limits
 
 The spawn conversion explicitly delivers unlit base colour, tangent normals,
-metallic/smoothness and HDR emission in two 4096px atlases. The TV retains its original packed
+metallic/smoothness and HDR emission in two general 4096px atlases plus dedicated floor, lettering and wall atlases. The TV retains its original packed
 image and UV coordinates. Solid source colours and inactive normal inputs retain their original values instead of relying on tiny atlas islands. The other five rooms still use preview materials. Native lighting and
 image comparison are separate evidence from gameplay tests.
 Prototype room collision totals 7,071,274 triangles (mine 3,287,462; fuel 2,059,090). The front end
@@ -248,19 +248,24 @@ the original screen coordinates. The TV image is copied from the packed source w
 The partial exporter reads spawn and its PR95 exterior skin directly, validates the assembled
 object inventory, and round-trips only its updated collision. Other room exports are preserved.
 Full preparation exports assembly geometry first, then performs the scoped material pass. Two
-4096px atlases plus dedicated 2048px locker-floor and lettering atlases fit the 16GiB container; the single 8192px experiments exceeded memory. The shared atlas undersampled the tiny grout lines and produced visible aliasing. The dedicated floor uses a full planar UV layout and preserves the authored shader recipe.
+4096px general atlases, dedicated 2048px locker-floor and lettering atlases, and a
+4096px wall atlas fit the 16GiB container; the single 8192px experiments exceeded memory. The shared atlas undersampled the tiny grout lines and produced visible aliasing. The dedicated floor uses a full planar UV layout and preserves the authored shader recipe.
 The lettering pass rebakes all 69 nonempty source text meshes at sufficient texel density.
 Its delivery meshes retain source positions and triangle counts; only UVs and material bindings
-change, with a 2mm bounds guard. This avoids thin glyphs sampling unrelated atlas padding. Failure
+change, with a 2mm bounds guard. This avoids thin glyphs sampling unrelated atlas padding.
+The same derivative path delivers 52 wall/dado meshes with dedicated texture density,
+retaining source recipes and geometry. Failure
 logs remain under `runtime/out/spawn-surfaces-export-v2.log` through `v4.log`.
 
 FBX can reorder material slots, so multi-slot surfaces bind by imported material name.
 Single-slot text/line meshes use their explicit source binding even when Unity imports them
-as Default-Material. `BlenderSurface.shader` uses Standard lighting with two-sided rendering
+as Default-Material. `BlenderSurface.shader` uses StandardSpecular lighting with exported dielectric
+IOR/specular reflectivity and preserved metallic-workflow diffuse energy, two-sided rendering
 and reversed back-face shading normals, matching Cycles' treatment of opaque surfaces.
 The whiteboard's inward-facing front otherwise exposes its dark metal backing. Its two-sided
 surface receives probe lighting: a shared baked chart darkens the side that faces the room. Opaque
-materials also enable two-sided GI. The three reflection volumes cover the complete rooms
+materials also enable two-sided GI. Six tiny socket faces likewise use probe
+lighting instead of unreliable small baked charts. The three reflection volumes cover the complete rooms
 and import their HDR captures as linear cubemaps. Custom probe textures persist across scene
 reloads; assigning only a bakedTexture outside Unity’s lighting-data asset loses the reference.
 Temporary reflection-only rectangles supply the authored fixture area-light radiance during
@@ -270,7 +275,7 @@ the source constant coverage: 0.16 for the pod and 0.10 for the suit visor. Rast
 approximates Cycles transmission/refraction.
 
 For a floor-only refresh on an existing export, without changing geometry hashes
-(add `--lettering` for the text delivery pass, or `--inputs-only` for source constant values):
+(add `--lettering` for text, `--walls` for wall delivery, or `--inputs-only` for source constant values):
 
 ```sh
 blender -b runtime/out/spawn-export-source/map/sections/facility-assembly/sources/spawn-room/module.blend --disable-autoexec --python-exit-code 1 --python runtime/tools/export_spawn_floor.py -- runtime/unity/Assets/CriticalShift/Generated/Spawn
@@ -295,11 +300,11 @@ Source/scene/binding hashes reject stale preparation and altered exported textur
 changes. Rebuild lighting after geometry/material/light changes. Built-in rectangle lights are
 baked; moving objects receive probe lighting. The inverse-square point bake uses the reference-calibrated scale
 power/100; area emitters use power/(π×area). Legacy forward
-point attenuation uses power/500 after baking. Mixed point lights bake indirect light only,
-so switching their direct illumination to runtime does not double the baked contribution.
-Practical point lights use real-time direct
-lighting and soft shadows after the indirect bake, avoiding embedded-fixture shadow-mask
-self-occlusion. The generator applies this mode before capturing reflections and saving.
+point attenuation uses power/500 after baking. The two mixed pendant lights retain their finite-source baked shadow masks;
+other practical points and area lights are baked. Shadowmask mode combines static
+soft fixture shadows with moving-object caster shadows. The generator preserves
+the mixed bake output when calibrating runtime direct intensity, and does not
+switch the pendants to real-time-only lighting or discard their masks.
 Regenerate with `BakeAndRender` after changing light/material settings; the prepared-scene
 source fingerprint rejects builds from an earlier lighting configuration.
 Embedded visible bulb faces are separated into a derived non-shadow-casting renderer; the
@@ -310,7 +315,7 @@ Transparency, moving-object lighting, target performance and human acceptance ne
 review. This route does not guarantee pixel-identical Cycles lighting.
 
 
-## Visual derivative verification (11 October 2026)
+## Earlier visual derivative verification (5687ebe, 11 October 2026)
 
 The [three matched-camera comparisons](spawn-visual-20261011/README.md) and
 [compact evidence](spawn-visual-evidence.json) belong to this visual derivative,
@@ -341,3 +346,27 @@ also differ. Glass remains an approximation. The other five rooms still use thei
 preview conversion. Windows Player execution, remote peers, full continuous
 animation/contact review and target-GPU performance remain NotRun. Neither the
 images nor passing physical tests declare a perfect Blender match.
+
+## Wall correction follow-up (11 October 2026)
+
+The owner's harsh-wall feedback prompted a controlled material/shadow comparison.
+The [mistake and correction note](SPAWN_VISUAL_CORRECTION.md) records what was
+wrong and the final conversion. See the [new comparison gallery](spawn-visual-correction-20261011/README.md)
+and [current evidence](spawn-wall-correction-evidence.json). The earlier table
+above is historical evidence, not the test record for this follow-up. Visual
+acceptance remains pending; lighting near the sideboard and screen reflections
+still differ from Blender.
+
+| Current correction check | Actual result |
+|---|---|
+| Native bake and saved-scene capture | Passed: two lightmaps/two shadow masks, 390 probes and three persisted reflection cubemaps. |
+| Native PlayMode | Passed: 15 executed/passed, zero failed/skipped on the final corrected scene. |
+| Linux Development Mono Player | Build passed; 120-frame running-world check and clean shutdown passed, exit 0. |
+| Pinned API and tooling | Four assemblies/16 C# files passed; 40 Python tests passed; static metadata checks passed (983 GUIDs). |
+| Source and exported assets | All 51 inputs and six original room mesh/collision hashes unchanged; all five atlas packages and wall/lettering FBX hashes verified. |
+
+The initial API/native compile failed on an incorrect enum namespace, then passed
+after correction; its logs are retained in the evidence hashes. Disk pressure
+during the Player build was resolved by relocating own generated data/backups to
+tmpfs; that same build completed successfully. No new OOM events occurred. These
+container checks do not establish target performance or Windows Player execution.

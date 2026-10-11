@@ -93,6 +93,9 @@ def prepare(args):
         subprocess.run([args.blender,"-b",str(scratch / "map/sections/facility-assembly/sources/spawn-room/module.blend"),
                         "--disable-autoexec","--python-exit-code","1","--python",str(ROOT / "runtime/tools/export_spawn_floor.py"),
                         "--",str(output),"--lettering"],check=True)
+        subprocess.run([args.blender,"-b",str(scratch / "map/sections/facility-assembly/sources/spawn-room/module.blend"),
+                        "--disable-autoexec","--python-exit-code","1","--python",str(ROOT / "runtime/tools/export_spawn_floor.py"),
+                        "--",str(output),"--walls"],check=True)
     if not args.skip_rig:
         prefix = "sections/spawn-room/blender/"
         paths = subprocess.check_output(["git", "ls-tree", "-r", "--name-only", rig_sha, prefix], cwd=ROOT, text=True).splitlines()

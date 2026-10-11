@@ -10,7 +10,7 @@ namespace CriticalShift.Player.Editor
 {
     [Serializable] public sealed class SurfaceTexture { public string file, sha256, colorSpace; public int size; }
     [Serializable] public sealed class SurfaceMaps { public SurfaceTexture albedo, normal, emission, metallicSmoothness; }
-    [Serializable] public sealed class SurfaceDefinition { public string key, source; public int atlas; public float alpha, transmission, surfaceOpacity, metallic, smoothness, emissionStrength; public bool transparent, baseConstant, normalConstant, metallicConstant, roughnessConstant, emissionConstant; public SurfaceTexture directEmission; public float[] baseColor, emissionColor; }
+    [Serializable] public sealed class SurfaceDefinition { public string key, source; public int atlas; public float dielectricSpecular=0.04f; public float alpha, transmission, surfaceOpacity, metallic, smoothness, emissionStrength; public bool transparent, baseConstant, normalConstant, metallicConstant, roughnessConstant, emissionConstant; public SurfaceTexture directEmission; public float[] baseColor, emissionColor; }
     [Serializable] public sealed class SurfacePackage
     {
         public string room, uv; public bool lightingIncludedInAlbedo; public int meshes;
@@ -18,6 +18,7 @@ namespace CriticalShift.Player.Editor
         public SurfaceMaps[] atlases;
         public SurfaceTexture displayLut;
         public SurfaceTexture letteringMesh;
+        public SurfaceTexture wallMesh;
     }
 
     internal static class SpawnSurfaceBuild
@@ -71,6 +72,7 @@ namespace CriticalShift.Player.Editor
                 material.SetTexture("_MainTex", albedo); material.SetTexture("_BumpMap", normal); material.SetFloat("_BumpScale", 1);
                 material.SetTexture("_MetallicGlossMap", metallic); material.SetFloat("_GlossMapScale", 1);
                 material.SetFloat("_Metallic",definition.metallic);material.SetFloat("_Glossiness",definition.smoothness);
+                if(!definition.transparent) material.SetFloat("_DielectricSpecular",definition.dielectricSpecular);
                 material.SetFloat("_MetallicFromMap",definition.metallicConstant?0:1);
                 material.SetFloat("_SmoothnessFromMap",definition.roughnessConstant?0:1);
                 material.SetTexture("_EmissionMap", emission); material.SetColor("_EmissionColor", Color.white);

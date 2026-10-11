@@ -1,4 +1,7 @@
-# Spawn visual comparison
+# Earlier spawn visual comparison (5687ebe)
+
+These captures precede the owner-requested wall/shadow correction. See the
+[current correction gallery](../spawn-visual-correction-20261011/README.md).
 
 These are real Blender and Unity renders at the same three authored cameras, at
 1440×810. They are evidence for review, not an art acceptance declaration.
