@@ -13,8 +13,33 @@ UV = "CS_DeliveryUV"
 SOURCE_UV = "CS_SourceUV"
 
 
+def thin_visor(material):
+    """Export the active clear/Fresnel/glossy graph, not its unused Principled node."""
+    if material.get("cs_transparency_model") != "thin_surface_no_refraction": return None
+    nt = material.node_tree
+    output = next(n for n in nt.nodes if n.type == "OUTPUT_MATERIAL" and n.is_active_output)
+    mix = output.inputs["Surface"].links[0].from_node
+    if mix.type != "MIX_SHADER": raise ValueError("Unexpected thin visor output")
+    clear = mix.inputs[1].links[0].from_node
+    glossy = mix.inputs[2].links[0].from_node
+    weight = mix.inputs[0].links[0].from_node
+    if clear.type != "BSDF_TRANSPARENT" or glossy.bl_idname != "ShaderNodeBsdfAnisotropic" or weight.type != "MATH" or weight.operation != "MULTIPLY":
+        raise ValueError("Unsupported thin visor graph: " + material.name)
+    fresnel = weight.inputs[0].links[0].from_node
+    mask = weight.inputs[1].links[0].from_node
+    if fresnel.type != "FRESNEL" or mask.type != "MAP_RANGE" or any(abs(c-1)>1e-6 for c in clear.inputs["Color"].default_value):
+        raise ValueError("Unsupported thin visor tint/falloff: " + material.name)
+    if clear.inputs["Color"].is_linked or any(glossy.inputs[k].is_linked for k in ("Color","Roughness","Normal","Anisotropy")) or \
+            glossy.inputs["Anisotropy"].default_value != 0 or fresnel.inputs["IOR"].is_linked or fresnel.inputs["Normal"].is_linked:
+        raise ValueError("Thin visor requires a uniform isotropic reflection lobe: " + material.name)
+    return {"thinSurface": True, "reflectionIOR": float(fresnel.inputs["IOR"].default_value),
+            "reflectionColor": list(glossy.inputs["Color"].default_value),
+            "smoothness": 1-float(glossy.inputs["Roughness"].default_value), "maskNode": mask.name}
+
+
 def surface_opacity(material):
     """Retain constant transparent/Principled Mix Shader coverage for raster delivery."""
+    if thin_visor(material): return 0.0  # View-dependent reflection is evaluated in Unity.
     tree=material.node_tree
     output=next(n for n in tree.nodes if n.type=="OUTPUT_MATERIAL" and n.is_active_output)
     def coverage(socket):
@@ -36,6 +61,12 @@ def surface_opacity(material):
 
 
 def constant_inputs(material):
+    thin = thin_visor(material)
+    if thin:
+        return {k:v for k,v in dict(thin, baseConstant=True, normalConstant=True,
+            metallicConstant=True, roughnessConstant=True, emissionConstant=True,
+            surfaceOpacity=0.0, dielectricSpecular=0.0, baseColor=[0,0,0,1], metallic=1.0,
+            emissionColor=[0,0,0,1], emissionStrength=0.0).items() if k != "maskNode"}
     bsdf=next(n for n in material.node_tree.nodes if n.type=="BSDF_PRINCIPLED")
     def constant(name): return not bsdf.inputs[name].is_linked
     if not constant("IOR") or not constant("Specular IOR Level"):
@@ -77,7 +108,7 @@ def bake_atlas(scene, objects, mappings, output, source_view, atlas_key):
         raise ValueError("Unsupported reviewed surface atlas resolution")
     meshes = [o for o in objects if o.type == "MESH" and len(o.data.polygons) and len(o.data.materials)]
     originals = list(dict.fromkeys(m for o in meshes for m in o.data.materials if m))
-    copies, states, definitions, coordinate_attributes = {}, {}, [], {}
+    copies, states, definitions, coordinate_attributes, thin_states = {}, {}, [], {}, {}
     for index, original in enumerate(originals):
         m = original.copy(); m.name = "CS_spawn_surface_" + atlas_key + "_" + str(index).zfill(3)
         copies[original] = m
@@ -107,6 +138,7 @@ def bake_atlas(scene, objects, mappings, output, source_view, atlas_key):
         target = nt.nodes.new("ShaderNodeTexImage"); target.name = "CS_delivery_bake_target"
         emission = nt.nodes.new("ShaderNodeEmission")
         states[m] = (bsdf, out, root, target, emission)
+        thin_states[m] = thin_visor(m)
         transmission = bsdf.inputs["Transmission Weight"].default_value
         alpha = bsdf.inputs["Alpha"].default_value
         definition={"key":m.name,"source":original.name,"transmission":float(transmission),
@@ -166,6 +198,10 @@ def bake_atlas(scene, objects, mappings, output, source_view, atlas_key):
     batches=[]
     for o in meshes:
         batch=o.copy(); batch.data=o.data.copy(); batch.parent=None; batch.matrix_world=o.matrix_world
+        # Source material coordinates/tangents are captured in the bind pose. The
+        # original skinned meshes keep their modifiers and weights for FBX export.
+        for modifier in list(batch.modifiers):
+            if modifier.type == "ARMATURE": batch.modifiers.remove(modifier)
         scene.collection.objects.link(batch); batches.append(batch)
         local=np.array([tuple(v.co) for v in batch.data.vertices],dtype=np.float32)
         low=local.min(axis=0); extent=np.maximum(local.max(axis=0)-low,1e-8)
@@ -204,7 +240,16 @@ def bake_atlas(scene, objects, mappings, output, source_view, atlas_key):
                 for link in list(emission.inputs["Color"].links): nt.links.remove(link)
                 for link in list(emission.inputs["Strength"].links): nt.links.remove(link)
                 emission.inputs["Strength"].default_value=1
-                if channel == "albedo": connect(nt,bsdf.inputs["Base Color"],emission.inputs["Color"])
+                thin = thin_states[m]
+                if thin and channel in {"albedo", "emission"}:
+                    emission.inputs["Color"].default_value=(0,0,0,1)
+                elif thin:
+                    rgb=nt.nodes.new("ShaderNodeCombineColor"); rgb.mode="RGB"
+                    rgb.inputs["Red"].default_value=1
+                    rgb.inputs["Green"].default_value=thin["smoothness"]
+                    nt.links.new(nt.nodes[thin["maskNode"]].outputs["Result"],rgb.inputs["Blue"])
+                    nt.links.new(rgb.outputs[0],emission.inputs["Color"])
+                elif channel == "albedo": connect(nt,bsdf.inputs["Base Color"],emission.inputs["Color"])
                 elif channel == "emission":
                     connect(nt,bsdf.inputs["Emission Color"],emission.inputs["Color"])
                     connect(nt,bsdf.inputs["Emission Strength"],emission.inputs["Strength"])
@@ -222,7 +267,8 @@ def bake_atlas(scene, objects, mappings, output, source_view, atlas_key):
             # would divide metallic by smoothness and turn painted steel into metal.
             image.alpha_mode="CHANNEL_PACKED"
             pixels=np.empty(size*size*4,dtype=np.float32); image.pixels.foreach_get(pixels)
-            pixels=pixels.reshape((-1,4)); pixels[:,3]=pixels[:,1]; pixels[:,1:3]=0
+            pixels=pixels.reshape((-1,4)); pixels[:,3]=pixels[:,1]; pixels[:,1]=0
+            if not any(d.get("thinSurface") for d in definitions): pixels[:,2]=0
             image.pixels.foreach_set(pixels.ravel()); del pixels
         name="spawn-"+channel+(".exr" if channel=="emission" else ".png")
         image.filepath_raw=str(folder/name); image.file_format="OPEN_EXR" if channel=="emission" else "PNG"

@@ -1,0 +1,266 @@
+{
+  "status": "Passed",
+  "sources": 51,
+  "roomMeshAndColliderPairs": 6,
+  "mapCommit": "bb6b4924849d38097ee629a6fa2c00dc1b56095f",
+  "rigCommit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+  "approvedRoomAtlasHashesUnchanged": true,
+  "approvedRoomMaterialDefinitionsUnchanged": true,
+  "sourceRecords": [
+    {
+      "path": "sections/facility-assembly/combined/build_combined_map.py",
+      "source_commit": "bb6b4924849d38097ee629a6fa2c00dc1b56095f",
+      "sha256": "4802cabece93e968b263093ed9358cf4a70014608fdc39fd1899c27c023bae1a"
+    },
+    {
+      "path": "sections/facility-assembly/sources/front-end-area/front_end_area.blend",
+      "source_commit": "bb6b4924849d38097ee629a6fa2c00dc1b56095f",
+      "sha256": "f23649ed9f44717cc5185bca116154e1863404955ec7c56b7dae6f399a7c4eae"
+    },
+    {
+      "path": "sections/facility-assembly/sources/spawn-room/module.blend",
+      "source_commit": "bb6b4924849d38097ee629a6fa2c00dc1b56095f",
+      "sha256": "1964d3d16716730631af0d5c77bcc604a64455092142cc57c0283172a563a977"
+    },
+    {
+      "path": "sections/facility-assembly/sources/mine-r39/module_r39_aaa.blend",
+      "source_commit": "bb6b4924849d38097ee629a6fa2c00dc1b56095f",
+      "sha256": "0131ee35afa1f3fb9f26ee1dddd090e3b3c63e67bec2a854670214fee29825e1"
+    },
+    {
+      "path": "sections/facility-assembly/sources/refinery/module_overhaul_R1.blend",
+      "source_commit": "bb6b4924849d38097ee629a6fa2c00dc1b56095f",
+      "sha256": "29349f38a085511840afab8386c3fb0ce9efc64ad57a7b015495398efdb089de"
+    },
+    {
+      "path": "sections/facility-assembly/sources/medical-reanimation/module_overhaul_R2.blend",
+      "source_commit": "bb6b4924849d38097ee629a6fa2c00dc1b56095f",
+      "sha256": "074051ee29c443e0a4f6152f63eb65c48e45b8137be32b3d58776c8dee9e7af0"
+    },
+    {
+      "path": "sections/fuel-corridor/production/checkpoints/fuel_full_F23ci.blend",
+      "source_commit": "bb6b4924849d38097ee629a6fa2c00dc1b56095f",
+      "sha256": "def288245d8356802f972c45b4f389df5effabf249bb0e76601eaf7dd78cf3fe"
+    },
+    {
+      "path": "sections/facility-assembly/exteriors/spawn-room/exterior-R05.blend",
+      "source_commit": "bb6b4924849d38097ee629a6fa2c00dc1b56095f",
+      "sha256": "5c236b25f3fef0243c5d086f71eb33d006a77cedfe05bfd91848d1ff1a245b5a"
+    },
+    {
+      "path": "sections/facility-assembly/exteriors/refinery/exterior-R01.blend",
+      "source_commit": "bb6b4924849d38097ee629a6fa2c00dc1b56095f",
+      "sha256": "91dc6d076ef5b0a74f9b4931b253e14692081c1d9ec605dfa6ea0d0fd452710c"
+    },
+    {
+      "path": "sections/facility-assembly/exteriors/medical-reanimation/exterior-R04.blend",
+      "source_commit": "bb6b4924849d38097ee629a6fa2c00dc1b56095f",
+      "sha256": "a123a72256b3f920e28bcdeaf942d3277bd2513fb14267c5686f9a7d9a8a9787"
+    },
+    {
+      "path": "sections/facility-assembly/sources/spawn-room/hero_suit.blend",
+      "source_commit": "bb6b4924849d38097ee629a6fa2c00dc1b56095f",
+      "sha256": "2503186e06d941a1d9e0afee3282af65a2dc38fb4ae96bc67f643d65291571d7"
+    },
+    {
+      "path": "sections/spawn-room/blender/add_cozy_trinkets.py",
+      "source_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+      "sha256": "9bbb676b955aecc57645f0c4b487837869d427a352d29fb17a3c96175eb6515f"
+    },
+    {
+      "path": "sections/spawn-room/blender/add_hero_suits.py",
+      "source_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+      "sha256": "c7fa8cdb48ec36a2ef8f9e43c8b16e0d99df74007ccd1071221a4eca7b67a45f"
+    },
+    {
+      "path": "sections/spawn-room/blender/build_hero_suit.py",
+      "source_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+      "sha256": "e1ef85fcbde64ed1c8d6c104a7f3f2e23ab0a6521404f021a47577272abfb750"
+    },
+    {
+      "path": "sections/spawn-room/blender/character_clips.py",
+      "source_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+      "sha256": "2699c2d25d9b66867c5997df1a142f41e000ac05c24c3c9b8f77534ba38ca0eb"
+    },
+    {
+      "path": "sections/spawn-room/blender/character_face.py",
+      "source_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+      "sha256": "971a6d6ca098857a8fbe813f1d03fe802bc88f9f10fb4f9eea1789c02bb0cfc5"
+    },
+    {
+      "path": "sections/spawn-room/blender/character_faces/eyes_dot.png",
+      "source_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+      "sha256": "df11ee0d5c0fcde1600ceff9bf56a18ce78adbb179be0194a6bb3b110d3f54af"
+    },
+    {
+      "path": "sections/spawn-room/blender/character_faces/eyes_happy.png",
+      "source_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+      "sha256": "45bd29667d997c11176cb43f515dacc0f28510b9ad75e27c4415660b29f2cb7e"
+    },
+    {
+      "path": "sections/spawn-room/blender/character_faces/eyes_reference.png",
+      "source_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+      "sha256": "423d983961ea12f2f2637bd42b0240786d9320021fac662b2074889fbcbeb650"
+    },
+    {
+      "path": "sections/spawn-room/blender/character_faces/eyes_round.png",
+      "source_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+      "sha256": "d5f70339039ebcb288eb2369413157ef3caa06a967597bddf2679ef6a450b441"
+    },
+    {
+      "path": "sections/spawn-room/blender/character_faces/eyes_sleepy.png",
+      "source_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+      "sha256": "a68db88b3b470bf772de8b38f05b1e80461cdbb8bbb8db591c285ce94264c462"
+    },
+    {
+      "path": "sections/spawn-room/blender/character_faces/eyes_wide.png",
+      "source_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+      "sha256": "877e33ee55e418bbd6131e5a72dc67bb33569b5e8c521e6e8c08ba92f3eb4c4d"
+    },
+    {
+      "path": "sections/spawn-room/blender/character_faces/mouth_flat.png",
+      "source_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+      "sha256": "53a9a2d9de0ab8306fe02b3513b1cfc5426dcbee6e1b1cfaa0b256b069fc36ca"
+    },
+    {
+      "path": "sections/spawn-room/blender/character_faces/mouth_grin.png",
+      "source_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+      "sha256": "2042b47a32894d893215611bd39d1f3c1942e6fc4021e7dd823e994e2c611781"
+    },
+    {
+      "path": "sections/spawn-room/blender/character_faces/mouth_o.png",
+      "source_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+      "sha256": "56d66f1d5c65fbfa97ec2008f4ad2fb7d4df0bad129656baa46cd0bae96ce88b"
+    },
+    {
+      "path": "sections/spawn-room/blender/character_faces/mouth_reference.png",
+      "source_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+      "sha256": "db9178fd0c665c71ffe6c1d6899afcd9664592673c45c74cf200908a013a9ebe"
+    },
+    {
+      "path": "sections/spawn-room/blender/character_faces/mouth_smile.png",
+      "source_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+      "sha256": "cd8d2e6b5f2c352c5c828b296b0dcb6768fc5a626ac52246b85c104b0a589c6d"
+    },
+    {
+      "path": "sections/spawn-room/blender/character_faces/mouth_smirk.png",
+      "source_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+      "sha256": "fb5478368cf9477fa867bd3f2ac3159f8c4e755be3f569c3adf8fe4c3015b203"
+    },
+    {
+      "path": "sections/spawn-room/blender/character_kit.py",
+      "source_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+      "sha256": "817de132cef05dd8ee3e78e02106093cd60dd3eb9c9d99cee3f0e79b891a2b61"
+    },
+    {
+      "path": "sections/spawn-room/blender/character_regions.py",
+      "source_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+      "sha256": "220266b5b31f2b96697800f11f4cab9e1fc7d5c5197cf5435b5c1abe60d6f120"
+    },
+    {
+      "path": "sections/spawn-room/blender/character_rig.py",
+      "source_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+      "sha256": "c5260be5c1109679f13d07c06fd4d75c1b6cc147304daada25e9ec157468ab7f"
+    },
+    {
+      "path": "sections/spawn-room/blender/character_scout.py",
+      "source_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+      "sha256": "f3569ae3b6e6255fdb87fd4d6dc6b58c8e137f5e43bc2ffc0dc588651511f157"
+    },
+    {
+      "path": "sections/spawn-room/blender/character_suit.py",
+      "source_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+      "sha256": "d9032a725db07fc04b0d19d6efe4e08d2fed06782fe164393e3f256b295a14a1"
+    },
+    {
+      "path": "sections/spawn-room/blender/character_tools.py",
+      "source_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+      "sha256": "1c7f390db2ea1d541ee5e20682a91f718e4d182cd20329861167994cb0f25aab"
+    },
+    {
+      "path": "sections/spawn-room/blender/character_worker.py",
+      "source_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+      "sha256": "747e8189501fd30bbd903eefb18e1fc1254876b3a85319d3ca2bde4afe4d7577"
+    },
+    {
+      "path": "sections/spawn-room/blender/cozy_geo.py",
+      "source_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+      "sha256": "408c0eecc9a0dd534e9f5c8f0ace5442077db0c51b1dcbb299484f1ba59b4400"
+    },
+    {
+      "path": "sections/spawn-room/blender/cozy_props.py",
+      "source_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+      "sha256": "9abe0dbee931082ca51abff3acc5f24a46f97721ed8429d71966b4cedc895d31"
+    },
+    {
+      "path": "sections/spawn-room/blender/hazmat_reference.py",
+      "source_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+      "sha256": "9fb186fd08133409f0675bcf00f93b6ae027fdc414c50a73b67a63f29438d0f0"
+    },
+    {
+      "path": "sections/spawn-room/blender/lod_hero_suit.py",
+      "source_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+      "sha256": "fbee877cbe601fb38e7d2c8f579b84779dbbf8ba926e3f0c8a590b3593a6f09d"
+    },
+    {
+      "path": "sections/spawn-room/blender/polish_spawn.py",
+      "source_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+      "sha256": "87c259f2f54941f2d22d55fb2854429f85962ff065c2d465a7470ebe33fb9e31"
+    },
+    {
+      "path": "sections/spawn-room/blender/refine_spawn_assets.py",
+      "source_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+      "sha256": "25f0e5607764ede3ab63e99100ccc5d4124c6748cbff30f4551f86027209ff9b"
+    },
+    {
+      "path": "sections/spawn-room/blender/render_character_sheet.py",
+      "source_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+      "sha256": "6f43995d9de10bdd93dac4e72615cd1ae41478d46bbc5b5568b56e29dd93e2f0"
+    },
+    {
+      "path": "sections/spawn-room/blender/render_regions.py",
+      "source_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+      "sha256": "50c56c9115018021ab79b58307a11bcf00453f9a167f63437ac51044156130bd"
+    },
+    {
+      "path": "sections/spawn-room/blender/render_rig.py",
+      "source_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+      "sha256": "414a9e4ed749a551b93e6f33158590178631282cd69825ee09f63a40c58fd63c"
+    },
+    {
+      "path": "sections/spawn-room/blender/render_scout.py",
+      "source_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+      "sha256": "6a20741cc39faeb4790c67be7dc26f8f15e85e1742fd36a09a30786f57aa242a"
+    },
+    {
+      "path": "sections/spawn-room/blender/render_suit.py",
+      "source_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+      "sha256": "209dc8be1318be1fa5faa42bb59514926a20abd883f56e1afc41cfb375882e51"
+    },
+    {
+      "path": "sections/spawn-room/blender/render_suit_reference.py",
+      "source_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+      "sha256": "41b4d308fe2eec74a418bc73b71a7c8ef7db37be7792ef82fb3fcc8124e58d0a"
+    },
+    {
+      "path": "sections/spawn-room/blender/render_worker.py",
+      "source_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+      "sha256": "a628ea62d5cf94c0d1687f51642c7fe3d89f4fb945d5052615e51d07f5b95043"
+    },
+    {
+      "path": "sections/spawn-room/blender/restyle_cozy_modern.py",
+      "source_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+      "sha256": "4e2d7d860e827ef3888422e6dd03e7700b48ffd66219042ee9c1b8f38e910de3"
+    },
+    {
+      "path": "sections/spawn-room/blender/validate_contacts.py",
+      "source_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+      "sha256": "1f9ebf39cf753b62c43e28ccf8a00316cf64504b060fea31a1c813002a39ee53"
+    },
+    {
+      "path": "sections/spawn-room/blender/validate_suit_library.py",
+      "source_commit": "90a42290df627330e4c4e445b6bfa7fba0464e3a",
+      "sha256": "d223910915fbcd3edfeca24263a751889b501026f3b6785336b8551c74f710cf"
+    }
+  ]
+}

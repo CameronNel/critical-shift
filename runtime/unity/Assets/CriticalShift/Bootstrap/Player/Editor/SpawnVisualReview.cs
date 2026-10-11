@@ -12,8 +12,8 @@ using UnityEngine.Rendering;
 namespace CriticalShift.Player.Editor
 {
     [Serializable] public sealed class SourceView { public string name; public float[] position, forward, up; public float verticalFov; }
-    [Serializable] public sealed class SourceViews { public SourceView[] views; }
-    [Serializable] public sealed class PreparedScene { public string mapBindingsSha256, sceneSha256, sourceSha256; public int lightmaps; }
+    [Serializable] public sealed class SourceViews { public SourceView[] views; public float[] workerPosition; }
+    [Serializable] public sealed class PreparedScene { public string mapBindingsSha256, rigBindingsSha256, sceneSha256, sourceSha256; public int lightmaps; }
 
     // Real engine captures at the authored validation cameras, not substitute concept renders.
     public static class SpawnVisualReview
@@ -96,6 +96,13 @@ namespace CriticalShift.Player.Editor
                 AssetDatabase.ImportAsset(file);
                 var importer=(TextureImporter)AssetImporter.GetAtPath(file);
                 importer.sRGBTexture=false; importer.textureShape=TextureImporterShape.TextureCube;
+                // A clean metadata refresh can leave these as unfiltered cubemaps.
+                // Rough materials need the specular convolution mip chain, not raw
+                // reflected fixture pixels sampled through their normal-map grain.
+                var textureSettings=new TextureImporterSettings();importer.ReadTextureSettings(textureSettings);
+                textureSettings.cubemapConvolution=TextureImporterCubemapConvolution.Specular;
+                importer.SetTextureSettings(textureSettings);importer.mipmapEnabled=true;
+                importer.filterMode=FilterMode.Trilinear;importer.wrapMode=TextureWrapMode.Clamp;importer.anisoLevel=0;
                 importer.textureCompression=TextureImporterCompression.Uncompressed; importer.SaveAndReimport();
                 probe.mode=ReflectionProbeMode.Custom;
                 probe.customBakedTexture=AssetDatabase.LoadAssetAtPath<Cubemap>(file);
@@ -113,6 +120,7 @@ namespace CriticalShift.Player.Editor
             File.WriteAllText(SpawnMapBuild.Folder+"prepared-scene.json",JsonUtility.ToJson(new PreparedScene
             {
                 mapBindingsSha256=Digest(SpawnMapBuild.Folder+"map-bindings.json"),sceneSha256=Digest(SpawnMapBuild.ScenePath),
+                rigBindingsSha256=Digest(SpawnMapBuild.Folder+"rig-bindings.json"),
                 sourceSha256=SourceDigest(),lightmaps=LightmapSettings.lightmaps.Length
             },true));
         }
@@ -123,19 +131,44 @@ namespace CriticalShift.Player.Editor
             if (!File.Exists(path)) throw new InvalidOperationException("Run SpawnVisualReview.BakeAndRender before building the visual scene.");
             var record=JsonUtility.FromJson<PreparedScene>(File.ReadAllText(path));
             if (record.lightmaps<1 || record.sceneSha256!=Digest(SpawnMapBuild.ScenePath) ||
-                record.mapBindingsSha256!=Digest(SpawnMapBuild.Folder+"map-bindings.json") || record.sourceSha256!=SourceDigest())
+                record.mapBindingsSha256!=Digest(SpawnMapBuild.Folder+"map-bindings.json") ||
+                record.rigBindingsSha256!=Digest(SpawnMapBuild.Folder+"rig-bindings.json") || record.sourceSha256!=SourceDigest())
                 throw new InvalidOperationException("Prepared spawn scene is stale; regenerate lighting and inspect the views.");
             var map=JsonUtility.FromJson<ExportMap>(File.ReadAllText(SpawnMapBuild.Folder+"map-bindings.json"));
             foreach (var room in map.rooms) { SpawnMapBuild.CheckHash(room.mesh,room.meshSha256); SpawnMapBuild.CheckHash(room.collision,room.collisionSha256); }
             var package=map.materials.Single(p=>p.room=="spawn-room");
             SpawnMapBuild.CheckHash(package.letteringMesh.file,package.letteringMesh.sha256);
             SpawnMapBuild.CheckHash(package.wallMesh.file,package.wallMesh.sha256);
+            SpawnMapBuild.CheckHash(package.suitOcclusion.file,package.suitOcclusion.sha256);
+            var rig=JsonUtility.FromJson<ExportRig>(File.ReadAllText(SpawnMapBuild.Folder+"rig-bindings.json"));
+            SpawnMapBuild.CheckHash("CrewWorker.fbx",rig.fbx_sha256);
+            SpawnMapBuild.CheckHash(rig.animationFile,rig.animationSha256);
+            foreach(var atlas in rig.surfaces.atlases)
+                foreach(var texture in new[] {atlas.albedo,atlas.normal,atlas.metallicSmoothness,atlas.emission})
+                    SpawnMapBuild.CheckHash(texture.file,texture.sha256);
+            foreach(var definition in rig.surfaces.definitions.Where(d=>d.directAlbedo!=null && !string.IsNullOrEmpty(d.directAlbedo.file)))
+                SpawnMapBuild.CheckHash(definition.directAlbedo.file,definition.directAlbedo.sha256);
             foreach (var atlas in package.atlases)
                 foreach (var texture in new[] {atlas.albedo,atlas.normal,atlas.metallicSmoothness,atlas.emission})
                     SpawnMapBuild.CheckHash(texture.file,texture.sha256);
             SpawnMapBuild.CheckHash(package.displayLut.file,package.displayLut.sha256);
             foreach (var definition in package.definitions.Where(d=>d.directEmission!=null && !string.IsNullOrEmpty(d.directEmission.file)))
                 SpawnMapBuild.CheckHash(definition.directEmission.file,definition.directEmission.sha256);
+            ValidateReflectionImports();
+        }
+        private static void ValidateReflectionImports()
+        {
+            for(int index=0;index<3;index++)
+            {
+                var importer=AssetImporter.GetAtPath(SpawnMapBuild.Folder+"Surfaces/SpawnReflection"+index+".exr") as TextureImporter;
+                var settings=new TextureImporterSettings();
+                if(importer==null) throw new InvalidOperationException("Missing persisted spawn reflection.");
+                importer.ReadTextureSettings(settings);
+                if(importer.sRGBTexture || importer.textureShape!=TextureImporterShape.TextureCube || !importer.mipmapEnabled ||
+                    importer.filterMode!=FilterMode.Trilinear || importer.wrapMode!=TextureWrapMode.Clamp ||
+                    settings.cubemapConvolution!=TextureImporterCubemapConvolution.Specular)
+                    throw new InvalidOperationException("Spawn reflections require linear, specular-filtered cubemap mipmaps. Rebake before capture or build.");
+            }
         }
         private static string Digest(string path)
         { using var hash=SHA256.Create(); using var stream=File.OpenRead(path); return BitConverter.ToString(hash.ComputeHash(stream)).Replace("-","").ToLowerInvariant(); }
@@ -156,6 +189,7 @@ namespace CriticalShift.Player.Editor
             var persistedProbes=UnityEngine.Object.FindObjectsByType<ReflectionProbe>();
             if(persistedProbes.Length!=3 || persistedProbes.Any(p=>p.mode!=ReflectionProbeMode.Custom || p.customBakedTexture==null))
                 throw new InvalidOperationException("Spawn requires three persisted reflection cubemaps.");
+            ValidateReflectionImports();
             var args=Environment.GetCommandLineArgs();
             string Argument(string flag)
             { int i=Array.IndexOf(args,flag); if (i<0 || i+1>=args.Length) throw new ArgumentException("Missing "+flag); return Path.GetFullPath(args[i+1]); }
@@ -167,6 +201,24 @@ namespace CriticalShift.Player.Editor
             var root=GameObject.Find("ROOM_spawn-room").transform;
             Debug.Log("CS_LIGHTMAP_CAPTURE count="+LightmapSettings.lightmaps.Length+" data="+Lightmapping.lightingDataAsset);
             var worker=GameObject.Find("Local crew worker"); worker.SetActive(false);
+            if(views.workerPosition!=null && views.workerPosition.Length==3)
+            {
+                // A capture-only outfit projection; gameplay still owns equipment.
+                worker.SetActive(true);worker.GetComponent<FirstPersonWorker>().enabled=false;
+                worker.GetComponent<WorkerAnimation>().enabled=false;
+                foreach(var camera in worker.GetComponentsInChildren<Camera>()) camera.enabled=false;
+                worker.transform.SetPositionAndRotation(root.TransformPoint(V(views.workerPosition)),root.rotation);
+                var rig=JsonUtility.FromJson<ExportRig>(File.ReadAllText(SpawnMapBuild.Folder+"rig-bindings.json"));
+                var renderers=worker.GetComponentsInChildren<Renderer>(true);
+                foreach(var record in rig.meshes)
+                {
+                    var renderer=renderers.Single(r=>r.name==record.name);
+                    renderer.enabled=record.suit || string.IsNullOrEmpty(record.region);
+                    renderer.shadowCastingMode=ShadowCastingMode.On;
+                }
+                var animator=worker.GetComponentInChildren<Animator>();
+                animator.runtimeAnimatorController.animationClips.Single(c=>c.name=="IDLE").SampleAnimation(animator.gameObject,0);
+            }
             foreach (var door in UnityEngine.Object.FindObjectsByType<MovingDoor>()) door.Capture();
             var display=SpawnSurfaceBuild.View(map.materials.Single(p=>p.room=="spawn-room"));
             foreach (var view in views.views)

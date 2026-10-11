@@ -96,6 +96,9 @@ def prepare(args):
         subprocess.run([args.blender,"-b",str(scratch / "map/sections/facility-assembly/sources/spawn-room/module.blend"),
                         "--disable-autoexec","--python-exit-code","1","--python",str(ROOT / "runtime/tools/export_spawn_floor.py"),
                         "--",str(output),"--walls"],check=True)
+        subprocess.run([args.blender,"-b",str(scratch / "map/sections/facility-assembly/sources/spawn-room/module.blend"),
+                        "--disable-autoexec","--python-exit-code","1","--python",str(ROOT / "runtime/tools/export_spawn_suits.py"),
+                        "--",str(output)],check=True)
     if not args.skip_rig:
         prefix = "sections/spawn-room/blender/"
         paths = subprocess.check_output(["git", "ls-tree", "-r", "--name-only", rig_sha, prefix], cwd=ROOT, text=True).splitlines()
@@ -114,7 +117,7 @@ def prepare(args):
     sys.path.insert(0, str(ROOT / "runtime/tools"))
     from prepare_player import meta
     for path in [output.parent, output, *sorted(output.rglob("*"))]:
-        if not path.name.endswith(".meta"): meta(path)
+        if not path.name.endswith(".meta") and not Path(str(path)+".meta").exists(): meta(path)
     print("Runtime derivatives:", output, flush=True)
 
 

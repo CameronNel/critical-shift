@@ -26,8 +26,8 @@ namespace CriticalShift.Player.Editor
     }
     [Serializable] public sealed class ExportMap { public int schema; public string mapCommit; public ExportRoom[] rooms; public ExportAnchor[] anchors; public ExportDoor[] doors; public SurfacePackage[] materials; public SourceViews validationViews; }
     [Serializable] public sealed class ExportClip { public string name; public float first, last; public bool loop, derivative; }
-    [Serializable] public sealed class ExportWorkerMesh { public string name, region; public bool suit, head; }
-    [Serializable] public sealed class ExportRig { public string rig_commit, fbx_sha256; public int fps; public float seatedSupportHeight; public ExportClip[] clips; public ExportWorkerMesh[] meshes; }
+    [Serializable] public sealed class ExportWorkerMesh { public string name, region; public bool suit, head; public string[] materials; }
+    [Serializable] public sealed class ExportRig { public string rig_commit, fbx_sha256, animationFile, animationSha256; public int fps; public float seatedSupportHeight; public ExportClip[] clips; public ExportWorkerMesh[] meshes; public SurfacePackage surfaces; }
 
     // Generates an isolated runtime scene from exact source/export bindings. Never saves a Blender authoring file.
     public static class SpawnMapBuild
@@ -45,6 +45,7 @@ namespace CriticalShift.Player.Editor
             foreach (var room in map.rooms)
             { CheckHash(room.mesh, room.meshSha256); CheckHash(room.collision, room.collisionSha256); }
             CheckHash("CrewWorker.fbx", rig.fbx_sha256);
+            CheckHash(rig.animationFile,rig.animationSha256);
             AssetDatabase.Refresh();
             PlayerSettings.colorSpace = ColorSpace.Linear;
             UnityEngine.Rendering.GraphicsSettings.lightsUseLinearIntensity = true;
@@ -63,7 +64,8 @@ namespace CriticalShift.Player.Editor
             var wallMeshes=AssetDatabase.LoadAssetAtPath<GameObject>(Folder+package.wallMesh.file)
                 .GetComponentsInChildren<MeshFilter>().ToDictionary(f=>f.name,StringComparer.Ordinal);
             foreach (var room in map.rooms) { Import(room.mesh, false, readable: room.key == "spawn-room"); Import(room.collision, false, readable: true); }
-            Import("CrewWorker.fbx", true, clips: rig.clips);
+            Import("CrewWorker.fbx", true);
+            Import(rig.animationFile,true,clips:rig.clips);
             var controller = Controller(rig);
             if (!UnityEngine.Application.isBatchMode && !EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) return;
             var scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
@@ -148,6 +150,7 @@ namespace CriticalShift.Player.Editor
                         }
                     }
                 }
+                if(room.key=="spawn-room") SpawnSurfaceBuild.BindSuitOcclusion(nodes,roomRoot.transform,package);
                 var collisionModel = AssetDatabase.LoadAssetAtPath<GameObject>(Folder + room.collision);
                 var filters = collisionModel.GetComponentsInChildren<MeshFilter>(true);
                 if (filters.Length != 1 || filters[0].sharedMesh == null || filters[0].sharedMesh.triangles.Length / 3 != room.collisionTriangles)
@@ -321,8 +324,10 @@ namespace CriticalShift.Player.Editor
             PlayerSettings.bakeCollisionMeshes = true;
             if (UnityEngine.Rendering.GraphicsSettings.defaultRenderPipeline != null)
                 throw new BuildFailedException("The prepared map requires Built-in rendering.");
+            var options=BuildOptions.Development|BuildOptions.StrictMode;
+            if(args.Contains("-csCompressedBuild")) options|=BuildOptions.CompressWithLz4HC;
             var report = BuildPipeline.BuildPlayer(new BuildPlayerOptions { scenes = new[] { ScenePath }, target = target,
-                locationPathName = path, options = BuildOptions.Development | BuildOptions.StrictMode });
+                locationPathName = path, options = options });
             if (report.summary.result != BuildResult.Succeeded || report.summary.totalErrors != 0)
                 throw new BuildFailedException("Assembled map build failed.");
             Debug.Log("CS_SPAWN_MAP_BUILD_OK");
@@ -339,7 +344,9 @@ namespace CriticalShift.Player.Editor
             if (importer == null) throw new InvalidOperationException("Expected the built-in FBX importer: " + file);
             string previous=EditorJsonUtility.ToJson(importer);
             ConfigureImporter(importer, animated, readable);
-            if (animated)
+            if(animated && clips==null)
+            { importer.importAnimation=false;importer.clipAnimations=Array.Empty<ModelImporterClipAnimation>(); }
+            if (animated && clips!=null)
             {
                 importer.animationType = ModelImporterAnimationType.Generic; importer.avatarSetup = ModelImporterAvatarSetup.CreateFromThisModel;
                 var takes = importer.defaultClipAnimations;
@@ -358,6 +365,9 @@ namespace CriticalShift.Player.Editor
             importer.globalScale = 1; importer.useFileScale = true; importer.bakeAxisConversion = true;
             importer.importAnimation = animated; importer.importLights = false; importer.importCameras = false;
             importer.isReadable = readable; importer.optimizeGameObjects = false;
+            // Character surfaces are bound explicitly from the source manifest.
+            // FBX's automatic material conversion cannot retain the face alpha graph.
+            if(animated) importer.materialImportMode=ModelImporterMaterialImportMode.None;
             if (Path.GetFileName(importer.assetPath) == "Room-spawn-room.fbx" || Path.GetFileName(importer.assetPath) == "Lettering.fbx" || Path.GetFileName(importer.assetPath) == "Walls.fbx")
             { importer.weldVertices = false; importer.meshCompression = ModelImporterMeshCompression.Off; importer.generateSecondaryUV = true; importer.secondaryUVMinLightmapResolution = 40; importer.secondaryUVMinObjectScale = 0.1f; }
             // Keep each room's complete collision mesh from the first import.
@@ -376,7 +386,7 @@ namespace CriticalShift.Player.Editor
         {
             string path = Folder + "CrewWorker.controller"; AssetDatabase.DeleteAsset(path);
             var controller = AnimatorController.CreateAnimatorControllerAtPath(path); var machine = controller.layers[0].stateMachine;
-            var clips = AssetDatabase.LoadAllAssetsAtPath(Folder + "CrewWorker.fbx").OfType<AnimationClip>().Where(c => !c.name.StartsWith("__preview__", StringComparison.Ordinal)).ToArray();
+            var clips = AssetDatabase.LoadAllAssetsAtPath(Folder + rig.animationFile).OfType<AnimationClip>().Where(c => !c.name.StartsWith("__preview__", StringComparison.Ordinal)).ToArray();
             foreach (var definition in rig.clips)
             {
                 var state = machine.AddState(definition.name); state.motion = clips.Single(c => c.name == definition.name);
@@ -400,6 +410,14 @@ namespace CriticalShift.Player.Editor
             animator.runtimeAnimatorController = controller; animator.applyRootMotion = false; animator.cullingMode = AnimatorCullingMode.AlwaysAnimate;
             animator.avatar = AssetDatabase.LoadAllAssetsAtPath(Folder + "CrewWorker.fbx").OfType<Avatar>().Single();
             var renderers = model.GetComponentsInChildren<Renderer>(true);
+            var materials=SpawnSurfaceBuild.Materials(rig.surfaces);
+            foreach(var record in rig.meshes)
+            {
+                var renderer=renderers.Single(r=>r.name==record.name);
+                if(record.materials==null || renderer.sharedMaterials.Length!=record.materials.Length)
+                    throw new InvalidOperationException("Suit material slots changed: "+record.name);
+                renderer.sharedMaterials=record.materials.Select(key=>materials[key]).ToArray();
+            }
             var meshes = rig.meshes.Select(record => new WorkerMesh { Renderer = renderers.Single(r => r.name == record.name),
                 Suit = record.suit, Head = record.head, Covered = !string.IsNullOrEmpty(record.region) }).ToArray();
             foreach (var mesh in meshes)
@@ -465,7 +483,7 @@ namespace CriticalShift.Player.Editor
         {
             if (!assetPath.StartsWith(SpawnMapBuild.Folder, StringComparison.Ordinal)) return;
             string file = Path.GetFileName(assetPath);
-            SpawnMapBuild.ConfigureImporter((ModelImporter)assetImporter, file == "CrewWorker.fbx",
+            SpawnMapBuild.ConfigureImporter((ModelImporter)assetImporter, file == "CrewWorker.fbx" || file == "CrewWorkerAnimations.fbx",
                 file.StartsWith("Collision-", StringComparison.Ordinal) || file == "Room-spawn-room.fbx");
         }
     }

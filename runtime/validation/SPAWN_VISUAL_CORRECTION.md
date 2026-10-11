@@ -63,3 +63,35 @@ falloff. Blender still differs in sideboard illumination, screen reflections and
 some material response. This correction is not a claim of perfect Cycles matching,
 target-GPU performance or human art acceptance. All source rooms and the PR95
 assembly are preserved. The other five rooms remain preview conversions.
+
+
+## Reflection import regression during suit work (11 October 2026)
+
+A suit appearance refresh rewrote metadata for existing generated assets. That
+reset the three room reflection imports from specular convolution to unfiltered
+cubemaps. The reflection capture code had relied on the previous importer state
+instead of setting this required state explicitly. Metadata reset also changed trilinear/clamped reflection sampling to bilinear/repeating.
+Rough walls then sampled sharp
+fixture reflections through their fine source normals, producing the severe
+cream speckles. The same regression made rubber and pod parts too shiny.
+
+Restoring the shared room shader alone did not remove the speckles. Same-camera
+controls retained the original baked wall texture hashes: disabling normals
+removed the speckles but left broad glossy bands; restoring specular convolution
+removed the speckles with source normals still enabled. The earlier approved bake
+log also records convolution, while the failed refresh log does not. The final
+lighting and reflection snapshots are regenerated after this correction.
+
+Preparation now creates metadata only when missing, retaining existing importer
+settings. Reflection baking explicitly sets linear cubemap import, mipmaps and
+specular convolution, trilinear mip blending and clamped sampling. The saved
+approved Player independently confirms trilinear/clamped RGBAHalf cubemaps with
+nine mip levels. Capture and prepared-scene build validation reject imports
+that lose these settings, and a native integration test inspects all three
+persisted reflection textures. The hanging hood uses its own shader; the shared
+room surface shader is byte-identical to the approved `467a4112` version. No source
+wall material, room geometry or Blender file is edited to hide this regression.
+
+Final suit and room evidence is recorded in the
+[suit correction gallery](spawn-suit-correction-20261011/README.md). Earlier failed
+captures remain in ignored scratch output, not in the final comparison gallery.

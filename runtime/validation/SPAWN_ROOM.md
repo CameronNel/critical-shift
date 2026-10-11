@@ -412,3 +412,32 @@ after correction; its logs are retained in the evidence hashes. Disk pressure
 during the Player build was resolved by relocating own generated data/backups to
 tmpfs; that same build completed successfully. No new OOM events occurred. These
 container checks do not establish target performance or Windows Player execution.
+
+
+## Suit appearance and reflection imports (11 October 2026)
+
+The worn suit exports its original shader inputs to a separate 4096px atlas.
+The clear visor converts its active Transparent/Fresnel/Glossy graph rather than
+the unused Principled node. Its authored reflection falloff remains separate
+from colour; Fresnel is evaluated at runtime. The older hanging suit retains its
+own materials and receives geometry-derived front/back hood occlusion through a
+separate shader. No room texture, geometry or original Blender asset is edited.
+[The suit gallery](spawn-suit-correction-20261011/README.md) records the source
+comparisons, physical validation and remaining rendering differences.
+
+Appearance refreshes retain the validated animation FBX separately from the
+model/material FBX. Source-revision changes regenerate animations; the round trip
+checks the same 23-bone bind pose. The current correction preserves all 30 mesh
+geometries/skin weights and all 52 animation curves. Prepared-scene validation
+includes both FBXs, the rig manifest, suit atlas hashes and hood derivative.
+
+Refreshing exports creates Unity metadata only when missing. Reflection baking
+explicitly imports the three snapshots as linear cubemaps with specular-filtered
+mipmaps. Capture/build validation rejects unfiltered imports. This prevents the
+severe wall speckles caused by the metadata reset during the suit refresh; the
+[correction note](SPAWN_VISUAL_CORRECTION.md) retains that diagnosis and its controls.
+The shared room surface shader stays at its approved version.
+
+In this container, optional `-csCompressedBuild` development packaging uses LZ4HC
+to reduce transient disk use. The default build behavior is retained. This is
+packaging, not target-GPU performance evidence.

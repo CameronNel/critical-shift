@@ -10,7 +10,10 @@ namespace CriticalShift.Player.Editor
 {
     [Serializable] public sealed class SurfaceTexture { public string file, sha256, colorSpace; public int size; }
     [Serializable] public sealed class SurfaceMaps { public SurfaceTexture albedo, normal, emission, metallicSmoothness; }
-    [Serializable] public sealed class SurfaceDefinition { public string key, source; public int atlas; public float dielectricSpecular=0.04f; public float alpha, transmission, surfaceOpacity, metallic, smoothness, emissionStrength; public bool transparent, baseConstant, normalConstant, metallicConstant, roughnessConstant, emissionConstant; public SurfaceTexture directEmission; public float[] baseColor, emissionColor; }
+    [Serializable] public sealed class SuitOcclusionVertex { public float[] position; public float front, back; }
+    [Serializable] public sealed class SuitOcclusionMesh { public string node; public SuitOcclusionVertex[] vertices; }
+    [Serializable] public sealed class SuitOcclusion { public bool lightingIncluded; public SuitOcclusionMesh[] meshes; }
+    [Serializable] public sealed class SurfaceDefinition { public string key, source; public int atlas; public float dielectricSpecular=0.04f; public float alpha, transmission, surfaceOpacity, metallic, smoothness, emissionStrength, reflectionIOR; public bool transparent, thinSurface, alphaMapped, baseConstant, normalConstant, metallicConstant, roughnessConstant, emissionConstant; public SurfaceTexture directEmission, directAlbedo; public float[] baseColor, emissionColor, reflectionColor; }
     [Serializable] public sealed class SurfacePackage
     {
         public string room, uv; public bool lightingIncludedInAlbedo; public int meshes;
@@ -19,10 +22,42 @@ namespace CriticalShift.Player.Editor
         public SurfaceTexture displayLut;
         public SurfaceTexture letteringMesh;
         public SurfaceTexture wallMesh;
+        public SurfaceTexture suitOcclusion;
     }
 
     internal static class SpawnSurfaceBuild
     {
+        internal static void BindSuitOcclusion(Dictionary<string,Transform> nodes,Transform room,SurfacePackage package)
+        {
+            if(package.suitOcclusion==null) throw new InvalidOperationException("Regenerate hanging suit geometry occlusion.");
+            SpawnMapBuild.CheckHash(package.suitOcclusion.file,package.suitOcclusion.sha256);
+            var source=JsonUtility.FromJson<SuitOcclusion>(File.ReadAllText(SpawnMapBuild.Folder+package.suitOcclusion.file));
+            if(source.lightingIncluded || source.meshes.Length!=4) throw new InvalidOperationException("Unexpected hanging suit occlusion inventory.");
+            Vector3Int Key(Vector3 p)=>new Vector3Int(Mathf.RoundToInt(p.x*10000),Mathf.RoundToInt(p.y*10000),Mathf.RoundToInt(p.z*10000));
+            foreach(var record in source.meshes)
+            {
+                var node=nodes[record.node];var filter=node.GetComponent<MeshFilter>();var renderer=node.GetComponent<MeshRenderer>();
+                var lookup=record.vertices.GroupBy(v=>Key(new Vector3(v.position[0],v.position[2],v.position[1])))
+                    .ToDictionary(g=>g.Key,g=>new Color(g.Average(v=>v.front),g.Average(v=>v.back),1,1));
+                var mesh=UnityEngine.Object.Instantiate(filter.sharedMesh);
+                mesh.colors=mesh.vertices.Select(v=>
+                {
+                    var p=Key(room.InverseTransformPoint(node.TransformPoint(v)));
+                    if(lookup.TryGetValue(p,out var colour)) return colour;
+                    // FBX float rounding can land on the adjacent quantization cell.
+                    for(int x=-1;x<=1;x++) for(int y=-1;y<=1;y++) for(int z=-1;z<=1;z++)
+                        if(lookup.TryGetValue(p+new Vector3Int(x,y,z),out colour)) return colour;
+                    throw new InvalidOperationException("Source hood vertex is missing: "+record.node+" "+p);
+                }).ToArray();
+                string prefix=SpawnMapBuild.Folder+"Surfaces/"+record.node+"-occlusion";
+                AssetDatabase.DeleteAsset(prefix+".asset");AssetDatabase.CreateAsset(mesh,prefix+".asset");filter.sharedMesh=mesh;
+                renderer.sharedMaterials=renderer.sharedMaterials.Select((material,index)=>
+                {
+                    var copy=new Material(material);copy.shader=Shader.Find("CriticalShift/BlenderHood");copy.SetFloat("_VertexOcclusion",1);
+                    string path=prefix+"-"+index+".mat";AssetDatabase.DeleteAsset(path);AssetDatabase.CreateAsset(copy,path);return copy;
+                }).ToArray();
+            }
+        }
         internal static void SplitEmbeddedEmitter(Transform node, Vector3[] pointLights, SurfacePackage package)
         {
             var renderer=node.GetComponent<MeshRenderer>();var filter=node.GetComponent<MeshFilter>();
@@ -65,14 +100,22 @@ namespace CriticalShift.Player.Editor
                 string path = folder + definition.key + ".mat";
                 var material = AssetDatabase.LoadAssetAtPath<Material>(path);
                 if (material == null) { material = new Material(Shader.Find("Standard")); AssetDatabase.CreateAsset(material, path); }
-                material.shader=Shader.Find(definition.transparent ? "CriticalShift/BlenderGlass" : "CriticalShift/BlenderSurface");
+                material.shader=Shader.Find(definition.thinSurface ? "CriticalShift/BlenderThinVisor" : definition.alphaMapped ? "CriticalShift/BlenderDecal" : definition.transparent ? "CriticalShift/BlenderGlass" : "CriticalShift/BlenderSurface");
                 if(material.shader==null) throw new InvalidOperationException("Missing source surface shader.");
+                if(definition.thinSurface)
+                {
+                    material.SetTexture("_ReflectionMap",metallic);material.SetFloat("_ReflectionIOR",definition.reflectionIOR);
+                    var c=definition.reflectionColor;material.SetColor("_ReflectionColor",new Color(c[0],c[1],c[2],c[3]));
+                    material.SetFloat("_Glossiness",definition.smoothness);material.renderQueue=(int)RenderQueue.Transparent;
+                    material.doubleSidedGI=false;material.globalIlluminationFlags=MaterialGlobalIlluminationFlags.EmissiveIsBlack;
+                    EditorUtility.SetDirty(material);result.Add(definition.key,material);continue;
+                }
                 material.doubleSidedGI=!definition.transparent;
                 material.color = new Color(1, 1, 1, definition.transparent ? definition.surfaceOpacity : 1);
                 material.SetTexture("_MainTex", albedo); material.SetTexture("_BumpMap", normal); material.SetFloat("_BumpScale", 1);
                 material.SetTexture("_MetallicGlossMap", metallic); material.SetFloat("_GlossMapScale", 1);
                 material.SetFloat("_Metallic",definition.metallic);material.SetFloat("_Glossiness",definition.smoothness);
-                if(!definition.transparent) material.SetFloat("_DielectricSpecular",definition.dielectricSpecular);
+                if(!definition.transparent || definition.alphaMapped) material.SetFloat("_DielectricSpecular",definition.dielectricSpecular);
                 material.SetFloat("_MetallicFromMap",definition.metallicConstant?0:1);
                 material.SetFloat("_SmoothnessFromMap",definition.roughnessConstant?0:1);
                 material.SetTexture("_EmissionMap", emission); material.SetColor("_EmissionColor", Color.white);
@@ -106,6 +149,8 @@ namespace CriticalShift.Player.Editor
                     material.SetFloat("_Metallic",definition.metallic);material.SetFloat("_Glossiness",definition.smoothness);
                     material.SetTexture("_EmissionMap",Texture(definition.directEmission,false));material.SetColor("_EmissionColor",Color.white*definition.emissionStrength);
                 }
+                if(definition.directAlbedo!=null && !string.IsNullOrEmpty(definition.directAlbedo.file))
+                    material.SetTexture("_MainTex",Texture(definition.directAlbedo,false));
                 material.SetFloat("_Mode", definition.transparent ? 2 : 0);
                 material.SetOverrideTag("RenderType", definition.transparent ? "Transparent" : "Opaque");
                 material.SetInt("_SrcBlend", (int)(definition.transparent ? BlendMode.SrcAlpha : BlendMode.One));
@@ -114,7 +159,8 @@ namespace CriticalShift.Player.Editor
                 material.DisableKeyword("_ALPHAPREMULTIPLY_ON");
                 if (definition.transparent) material.EnableKeyword("_ALPHABLEND_ON");
                 else material.DisableKeyword("_ALPHABLEND_ON");
-                material.renderQueue = definition.transparent ? (int)RenderQueue.Transparent : -1;
+                // Decals lie under the outer clear visor; retain their source UVs/alpha.
+                material.renderQueue = definition.alphaMapped ? (int)RenderQueue.Transparent-10 : definition.transparent ? (int)RenderQueue.Transparent : -1;
                 EditorUtility.SetDirty(material); result.Add(definition.key, material);
             }
             AssetDatabase.SaveAssets(); return result;

@@ -125,6 +125,56 @@ namespace CriticalShift.Tests.Player
             Assert.That(_worker.CanStandAt(_worker.transform.position), Is.True);
         }
 
+        [Test] public void SuitsRetainSourceFabricClearVisorAndHoodCavity()
+        {
+            foreach(var renderer in _suitMeshes)
+                Assert.That(renderer.sharedMaterials.All(m=>m.shader.name=="CriticalShift/BlenderSurface" || m.shader.name=="CriticalShift/BlenderThinVisor"),Is.True,renderer.name);
+            var visor=_suitMeshes.Single(r=>r.name=="SUIT_VISOR").sharedMaterial;
+            Assert.That(visor.shader.name,Is.EqualTo("CriticalShift/BlenderThinVisor"));
+            Assert.That(visor.renderQueue,Is.EqualTo(3000));
+            Assert.That(visor.GetFloat("_ReflectionIOR"),Is.EqualTo(1.45f).Within(0.0001f));
+            Assert.That(visor.GetTexture("_ReflectionMap"),Is.Not.Null);
+            var cloth=_suitMeshes.Single(r=>r.name=="SUIT_BODY").sharedMaterials.First(m=>m.name.Contains("worker-suit"));
+            Assert.That(cloth.GetTexture("_BumpMap"),Is.Not.Null);
+            Assert.That(cloth.GetTexture("_MetallicGlossMap"),Is.Not.Null);
+            Assert.That(cloth.GetFloat("_DielectricSpecular"),Is.EqualTo(0.02f).Within(0.0001f));
+            foreach(var name in new[] {"FACE_EYES","FACE_MOUTH"})
+            {
+                var material=Node(name).GetComponent<Renderer>().sharedMaterial;
+                Assert.That(material.shader.name,Is.EqualTo("CriticalShift/BlenderDecal"));
+                Assert.That(material.GetTexture("_MainTex"),Is.Not.Null);
+                Assert.That(material.renderQueue,Is.EqualTo(2990),"Face decals must render behind the visor");
+                Assert.That(material.GetFloat("_DielectricSpecular"),Is.EqualTo(0.012f).Within(0.0001f));
+            }
+            foreach(var hood in _nodes.Where(n=>n.name.StartsWith("CS_spawn-room_PPE_") && n.name.EndsWith("__SUIT_HOOD")))
+            {
+                var mesh=hood.GetComponent<MeshFilter>().sharedMesh;
+                Assert.That(mesh.colors.Length,Is.EqualTo(mesh.vertexCount),hood.name);
+                Assert.That(mesh.colors.Any(c=>c.g<0.4f),Is.True,"Hood interior needs geometry occlusion");
+                Assert.That(mesh.colors.Any(c=>c.r>0.9f),Is.True,"Open hood surfaces must retain ambient light");
+                Assert.That(hood.GetComponent<Renderer>().sharedMaterials.All(m=>m.shader.name=="CriticalShift/BlenderHood"),Is.True);
+                Assert.That(hood.GetComponent<Renderer>().sharedMaterials.All(m=>m.GetFloat("_VertexOcclusion")==1),Is.True);
+            }
+        }
+
+        [Test] public void PersistedReflectionsRetainRoughSurfaceFiltering()
+        {
+            var probes=_nodes.SelectMany(n=>n.GetComponents<ReflectionProbe>()).ToArray();
+            Assert.That(probes.Length,Is.EqualTo(3));
+            foreach(var probe in probes)
+            {
+                var cube=probe.customBakedTexture as Cubemap;
+                Assert.That(cube,Is.Not.Null);
+                Assert.That(cube.mipmapCount,Is.GreaterThanOrEqualTo(6));
+                Assert.That(cube.filterMode,Is.EqualTo(FilterMode.Trilinear));
+                Assert.That(cube.wrapMode,Is.EqualTo(TextureWrapMode.Clamp));
+                var importer=(UnityEditor.TextureImporter)UnityEditor.AssetImporter.GetAtPath(UnityEditor.AssetDatabase.GetAssetPath(cube));
+                var settings=new UnityEditor.TextureImporterSettings();importer.ReadTextureSettings(settings);
+                Assert.That(importer.sRGBTexture,Is.False);
+                Assert.That(settings.cubemapConvolution,Is.EqualTo(UnityEditor.TextureImporterCubemapConvolution.Specular));
+            }
+        }
+
         [UnityTest] public IEnumerator AllBenchSeatsAnimateAndHaveUsableStandingExits()
         {
             foreach (var seat in _targets.Where(target => target.Kind == PlayerTargetKind.Seat))
