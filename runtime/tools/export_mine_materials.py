@@ -52,5 +52,11 @@ def bake_mine(scene, objects, mappings, output, source_view):
     result["meshes"] = sum(p["meshes"] for p in packages)
     result["geometrySha256"] = before
     result["unsupported"] = unsupported
+    from mine_lightmap_uv import generate
+    if generate(objects) != result["meshes"]:
+        raise ValueError("Mine lighting UV coverage changed.")
+    if before != geometry_digest(objects): raise ValueError("Lighting unwrap changed mine geometry.")
+    from mine_join_rays import generate as join_rays
+    result["joinRays"] = join_rays(objects,mappings)
     result["limits"] = "Unlit surface delivery. Source shader AO is retained; scene illumination is not baked into albedo. View-dependent crystal color, transmission and volumetric haze need native comparison; no independent art acceptance."
     return result

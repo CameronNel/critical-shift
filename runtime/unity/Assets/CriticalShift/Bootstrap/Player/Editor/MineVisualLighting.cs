@@ -8,11 +8,11 @@ using UnityEngine.Rendering;
 
 namespace CriticalShift.Player.Editor
 {
-    // Surface UV0 remains Blender's atlas. Verify Unity's independently generated
+    // Surface UV0 remains Blender's atlas. Verify the independently generated
     // lightmap channel; a shared texture atlas is not a valid lighting layout.
     internal sealed class MineLightmapUvImport : AssetPostprocessor
     {
-        public override uint GetVersion() => 2;
+        public override uint GetVersion() => 3;
         private void OnPostprocessModel(GameObject model)
         {
             if(assetPath!=SpawnMapBuild.Folder+"Room-mine.fbx") return;
@@ -59,6 +59,24 @@ namespace CriticalShift.Player.Editor
                 foreach(float z in new[] {-32f,-29f,-26f})
                     foreach(float y in new[] {-0.3f,1.2f,2.5f}) positions.Add(new Vector3(x,y,z));
             node.AddComponent<LightProbeGroup>().probePositions=positions.ToArray();
+        }
+
+        internal static void CheckCentreline(Transform root)
+        {
+            Physics.SyncTransforms();
+            var map=JsonUtility.FromJson<ExportMap>(File.ReadAllText(SpawnMapBuild.Folder+"map-bindings.json"));
+            var rays=map.materials.Single(p=>p.room=="mine").joinRays;
+            if(rays==null || rays.Length!=9) throw new InvalidOperationException("Missing Blender mine join-ray expectations.");
+            Vector3 V(float[] p)=>new Vector3(p[0],p[2],p[1]);
+            foreach(var ray in rays)
+            {
+                bool hit=Physics.Raycast(root.TransformPoint(V(ray.origin)),root.TransformDirection(V(ray.direction)),out var contact,ray.distance,~0,QueryTriggerInteraction.Ignore);
+                if(hit!=ray.hit || (hit && (contact.point-root.TransformPoint(V(ray.point))).magnitude>0.01f))
+                    throw new InvalidOperationException("Mine join differs from Blender at "+V(ray.origin)+"; expected="+ray.node+"; native="+(hit ? contact.collider.name+" "+contact.point : "clear"));
+            }
+            if(rays.Count(r=>!r.hit && Math.Abs(r.origin[1]+29)>0.1f)!=6)
+                throw new InvalidOperationException("Both authored walking lanes must remain clear.");
+            Debug.Log("CS_MINE_JOIN_RAYS_OK; sourceMatched=9; clearWalkingLanes=6");
         }
 
         internal static void Finish(Transform root)
@@ -122,15 +140,15 @@ namespace CriticalShift.Player.Editor
                 surfaces++;
             }
             if(surfaces!=package.meshes) throw new InvalidOperationException("Mine delivery mesh coverage changed.");
+            foreach(var emitter in root.GetComponentsInChildren<MeshRenderer>().Where(r=>r.name=="Embedded emitter surface"))
+                if(emitter.receiveGI!=ReceiveGI.LightProbes || GameObjectUtility.GetStaticEditorFlags(emitter.gameObject).HasFlag(StaticEditorFlags.ContributeGI))
+                    throw new InvalidOperationException("Small mine emitter must use probes and its authored point light.");
             var collider=root.GetComponentsInChildren<MeshCollider>().Single();
             if(collider.sharedMesh.triangles.Length/3!=source.collisionTriangles)
                 throw new InvalidOperationException("Mine collision inventory changed.");
             if((root.position-new Vector3(source.translation[0],source.translation[2],source.translation[1])).sqrMagnitude>0.000001f)
                 throw new InvalidOperationException("Mine moved away from its pinned assembly placement.");
-            Physics.SyncTransforms();
-            foreach(float height in new[] {0.6f,1.7f,3f})
-                if(Physics.Raycast(root.TransformPoint(new Vector3(-21.6f,height,-29f)),root.TransformDirection(Vector3.left),out var hit,25,~0,QueryTriggerInteraction.Ignore))
-                    throw new InvalidOperationException("Mine/yard centreline is blocked at height "+height+": "+hit.collider.name);
+            CheckCentreline(root);
             foreach(var probe in root.GetComponentsInChildren<ReflectionProbe>())
             {
                 var cube=probe.customBakedTexture as Cubemap;
@@ -142,14 +160,14 @@ namespace CriticalShift.Player.Editor
                 mapCommit=map.mapCommit,surfaces=surfaces,collisionTriangles=source.collisionTriangles,
                 reflectionProbes=root.GetComponentsInChildren<ReflectionProbe>().Length,
                 lightmaps=LightmapSettings.lightmaps.Length,lightmapped=lightmapped,probeLit=probeLit,
-                joinCentrelineRays=3,sourcePreservation="Verified separately by prepare_mine.py"
+                joinCentrelineRays=package.joinRays.Length,clearWalkingRays=6,sourcePreservation="Verified separately by prepare_mine.py"
             },true));
             Debug.Log("CS_MINE_NATIVE_BINDINGS_OK; surfaces="+surfaces+"; collision="+source.collisionTriangles);
         }
 
         [Serializable] private sealed class MineValidation
         {
-            public string mapCommit,sourcePreservation;public int surfaces,collisionTriangles,reflectionProbes,lightmaps,lightmapped,probeLit,joinCentrelineRays;
+            public string mapCommit,sourcePreservation;public int surfaces,collisionTriangles,reflectionProbes,lightmaps,lightmapped,probeLit,joinCentrelineRays,clearWalkingRays;
         }
     }
 }

@@ -107,7 +107,9 @@ def prepare(args):
         if hashlib.sha256((scratch/"map"/record["path"]).read_bytes()).hexdigest() != record["sha256"]:
             raise ValueError("Bake mutated source: "+record["path"])
     (audit / "preservation.json").write_text(json.dumps({"status":"Passed","inspectedMain":current,
-        "assemblyCommit":config["map_commit"],"sourceRecords":config["sources"],"roomPlacementsAndCollisionsUnchanged":True,
+        "assemblyCommit":config["map_commit"],"sourceRecords":config["sources"],"roomPlacementsUnchanged":True,
+        "otherRoomCollisionsUnchanged":True,
+        "mineCollisionUnchanged":next(r for r in after["rooms"] if r["key"]=="mine")["collisionSha256"]==before["mine"]["collisionSha256"],
         "otherRoomMeshesUnchanged":True,"sourceFilesUnchanged":True},indent=2)+"\n")
     print("CS_MINE_DELIVERY_OK",flush=True)
 

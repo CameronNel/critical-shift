@@ -169,24 +169,7 @@ namespace CriticalShift.Player.Editor
                     }
                 }
                 if(room.key=="spawn-room") SpawnSurfaceBuild.BindSuitOcclusion(nodes,roomRoot.transform,package);
-                var collisionModel = AssetDatabase.LoadAssetAtPath<GameObject>(Folder + room.collision);
-                var filters = collisionModel.GetComponentsInChildren<MeshFilter>(true);
-                if (filters.Length != 1 || filters[0].sharedMesh == null || filters[0].sharedMesh.triangles.Length / 3 != room.collisionTriangles)
-                    throw new InvalidOperationException("Room collision import changed or split its triangle inventory: " + room.key +
-                        "; meshes=" + filters.Length + "; triangles=" + filters.Sum(f => f.sharedMesh == null ? 0 : f.sharedMesh.triangles.Length / 3) +
-                        "; expected=" + room.collisionTriangles);
-                var collision = (GameObject)PrefabUtility.InstantiatePrefab(collisionModel);
-                collision.name = "Static collision — " + room.key; collision.transform.SetParent(roomRoot.transform, false);
-                var filter = collision.GetComponentInChildren<MeshFilter>(true);
-                var mesh = filter.sharedMesh; var collisionNode = filter.gameObject;
-                UnityEngine.Object.DestroyImmediate(filter.GetComponent<Renderer>());
-                UnityEngine.Object.DestroyImmediate(filter);
-                // Remove the MeshFilter before adding the collider; Unity otherwise cooks its mesh
-                // immediately with default options, before we can disable unsafe large-mesh midphase.
-                var collider = collisionNode.AddComponent<MeshCollider>();
-                if (room.collisionTriangles > 2000000)
-                    collider.cookingOptions &= ~MeshColliderCookingOptions.UseFastMidphase;
-                collider.sharedMesh = mesh;
+                RestoreCollision(roomRoot.transform,room);
                 foreach (var sourceLight in room.lights)
                 {
                     var lamp = new GameObject(sourceLight.name ?? "Room practical"); lamp.transform.SetParent(roomRoot.transform, false);
@@ -339,6 +322,22 @@ namespace CriticalShift.Player.Editor
             if (!EditorSceneManager.SaveScene(scene, ScenePath)) throw new IOException("Could not save the isolated runtime scene.");
             Debug.Log("Generated current assembled map with spawn runtime bindings: " + map.mapCommit + ". Native tests and Player validation still required.");
         }
+        internal static void RestoreCollision(Transform roomRoot,ExportRoom room)
+        {
+            var collisionModel=AssetDatabase.LoadAssetAtPath<GameObject>(Folder+room.collision);
+            var filters=collisionModel.GetComponentsInChildren<MeshFilter>(true);
+            if(filters.Length!=1 || filters[0].sharedMesh==null || filters[0].sharedMesh.triangles.Length/3!=room.collisionTriangles)
+                throw new InvalidOperationException("Room collision import changed or split: "+room.key);
+            var collision=(GameObject)PrefabUtility.InstantiatePrefab(collisionModel);
+            collision.name="Static collision — "+room.key;collision.transform.SetParent(roomRoot,false);
+            var filter=collision.GetComponentInChildren<MeshFilter>(true);var mesh=filter.sharedMesh;var node=filter.gameObject;
+            UnityEngine.Object.DestroyImmediate(filter.GetComponent<Renderer>());UnityEngine.Object.DestroyImmediate(filter);
+            // Configure large-mesh cooking before assigning the source mesh.
+            var collider=node.AddComponent<MeshCollider>();
+            if(room.collisionTriangles>2000000) collider.cookingOptions&=~MeshColliderCookingOptions.UseFastMidphase;
+            collider.sharedMesh=mesh;
+        }
+
         public static void Build()
         {
             // Build the reviewed lightmapped scene. Regenerating it here would discard its lighting.
@@ -410,7 +409,7 @@ namespace CriticalShift.Player.Editor
             if (Path.GetFileName(importer.assetPath) == "Room-spawn-room.fbx" || Path.GetFileName(importer.assetPath) == "Lettering.fbx" || Path.GetFileName(importer.assetPath) == "Walls.fbx")
             { importer.weldVertices = false; importer.meshCompression = ModelImporterMeshCompression.Off; importer.generateSecondaryUV = true; importer.secondaryUVMinLightmapResolution = 40; importer.secondaryUVMinObjectScale = 0.1f; }
             if(Path.GetFileName(importer.assetPath)=="Room-mine.fbx")
-            { importer.weldVertices=false;importer.meshCompression=ModelImporterMeshCompression.Off;importer.generateSecondaryUV=true;importer.secondaryUVMinLightmapResolution=20;importer.secondaryUVMinObjectScale=0.1f; }
+            { importer.weldVertices=false;importer.meshCompression=ModelImporterMeshCompression.Off;importer.generateSecondaryUV=false; }
             // Keep each room's complete collision mesh from the first import.
             importer.indexFormat = ModelImporterIndexFormat.UInt32;
             if (Path.GetFileName(importer.assetPath).StartsWith("Collision-", StringComparison.Ordinal))

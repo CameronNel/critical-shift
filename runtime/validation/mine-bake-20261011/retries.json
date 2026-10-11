@@ -24,6 +24,21 @@
       "log": "native-bake-invalid-raster.log",
       "sha256": "d8673e533884675141eccdb0e66bea4dcf9cfb3f3b7ffe81ab8d4c0e8bba4f62",
       "result": "Canceled: invalid internal raster coordinates caused a lighting stall. Shared texture-atlas UV reuse was replaced with independently generated Unity lightmap UVs."
+    },
+    {
+      "log": "native-bake-superseded-native-unwrap.log",
+      "sha256": "832fcbd219f60c043644fc9d9a9c8fd2cead7aa7af4e2b3fdc7275bf51d37caa",
+      "result": "Superseded: native dense-mesh unwrap ran for 38 minutes. Dedicated per-mesh Blender lighting UV export completed instead."
+    },
+    {
+      "log": "native-bake-oom-after-uv.log",
+      "sha256": "b56a7108e8cad6a346577cb3b459262587fa87ac3cbe776cae8581a916992d31",
+      "result": "Failed: Editor killed by container memory limit at LightBaker start. Temporary cache footprint and physics lifetime during bake were corrected."
+    },
+    {
+      "log": "native-join-before.log",
+      "sha256": "cf8828952aec930106b2b8d0d9a7053c419bc3d8da59b6ea0e520b56e93820fc",
+      "result": "Failed initial validation assumption: the authored ore cart occupies the centre rail at foot height. Blender-derived expected contacts and clear side lanes replace the incorrect all-clear assumption; collision files unchanged."
     }
   ],
   "limits": "Retries are preserved in ignored runtime/out/mine-bake-audit. These records are diagnostics, not a native pass."

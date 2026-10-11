@@ -18,12 +18,21 @@ namespace CriticalShift.Player.Editor
     // Real engine captures at the authored validation cameras, not substitute concept renders.
     public static class SpawnVisualReview
     {
+        public static void CheckMineJoin()
+        {
+            SpawnMapBuild.Create();
+            MineVisualLighting.CheckCentreline(GameObject.Find("ROOM_mine").transform);
+        }
+
         public static void BakeAndRender()
         {
             SpawnMapBuild.Create();
             var root = GameObject.Find("ROOM_spawn-room").transform;
             var map=JsonUtility.FromJson<ExportMap>(File.ReadAllText(SpawnMapBuild.Folder+"map-bindings.json"));
+            Transform RoomRoot(string key)=>EditorSceneManager.GetActiveScene().GetRootGameObjects()
+                .SelectMany(o=>o.GetComponentsInChildren<Transform>(true)).Single(t=>t.name=="ROOM_"+key);
             var mine=map.materials.Any(p=>p.room=="mine") ? GameObject.Find("ROOM_mine").transform : null;
+            if(mine!=null) MineVisualLighting.CheckCentreline(mine);
             if(mine!=null) MineVisualLighting.AddProbes(mine);
             var worker=GameObject.Find("Local crew worker");worker.SetActive(false);
             var settings = new LightingSettings
@@ -48,11 +57,17 @@ namespace CriticalShift.Player.Editor
                 .Where(o=>o.name.StartsWith("ROOM_",StringComparison.Ordinal) && o!=root && o!=mine).Select(o=>o.gameObject).ToArray();
             foreach (var room in rooms) room.SetActive(false);
             EditorSceneManager.SaveScene(EditorSceneManager.GetActiveScene(),SpawnMapBuild.ScenePath);
+            // Physics meshes do not participate in lighting. Release cooked collision
+            // during the bake, then restore the exact manifest meshes before saving.
+            foreach(var room in map.rooms)
+                UnityEngine.Object.DestroyImmediate(RoomRoot(room.key).Find("Static collision — "+room.key).gameObject);
             EditorUtility.UnloadUnusedAssetsImmediate();
             GC.Collect();
             Debug.Log("CS_SPAWN_LIGHTING_BAKE_START");
             if (!Lightmapping.Bake()) throw new InvalidOperationException("Spawn lightmap bake did not complete.");
             Debug.Log("CS_SPAWN_LIGHTING_BAKE_OK; lightmaps="+LightmapSettings.lightmaps.Length);
+            foreach(var room in map.rooms)
+                SpawnMapBuild.RestoreCollision(RoomRoot(room.key),room);
             foreach (var room in rooms) room.SetActive(true);
             FinishLighting(root);
             if(mine!=null) MineVisualLighting.Finish(mine);

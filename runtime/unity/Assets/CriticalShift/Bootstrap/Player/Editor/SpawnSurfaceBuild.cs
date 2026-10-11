@@ -24,6 +24,11 @@ namespace CriticalShift.Player.Editor
         public SurfaceTexture wallMesh;
         public SurfaceTexture suitOcclusion;
         public AssemblyLighting assemblyLighting;
+        public MineJoinRay[] joinRays;
+    }
+    [Serializable] public sealed class MineJoinRay
+    {
+        public float[] origin,direction,point;public float distance;public bool hit;public string node;
     }
     [Serializable] public sealed class AssemblyLighting
     {
@@ -89,7 +94,9 @@ namespace CriticalShift.Player.Editor
             child.AddComponent<MeshFilter>().sharedMesh=emitter;
             var surface=child.AddComponent<MeshRenderer>();surface.sharedMaterials=renderer.sharedMaterials;
             surface.shadowCastingMode=ShadowCastingMode.Off;surface.receiveShadows=false;
-            GameObjectUtility.SetStaticEditorFlags(child,StaticEditorFlags.ContributeGI|StaticEditorFlags.ReflectionProbeStatic);
+            GameObjectUtility.SetStaticEditorFlags(child,StaticEditorFlags.ReflectionProbeStatic |
+                (package.room=="mine" ? 0 : StaticEditorFlags.ContributeGI));
+            if(package.room=="mine") surface.receiveGI=ReceiveGI.LightProbes;
         }
 
         internal static Dictionary<string, Material> Materials(SurfacePackage package)

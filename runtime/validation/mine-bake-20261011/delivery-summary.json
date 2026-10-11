@@ -9,8 +9,8 @@
   "yaw": 0.0,
   "mesh": {
     "file": "Room-mine.fbx",
-    "sha256": "477bf39ffc7a017441dca890dd75a1a352861fd218812e12cdf6d429486523d6",
-    "bytes": 187825900
+    "sha256": "d540b4dd660d1da0410675f49cef97f40278576347b1e50310beb1d3b058f354",
+    "bytes": 201237100
   },
   "collision": {
     "file": "Collision-mine.fbx",
@@ -187,5 +187,6 @@
       "reason": "Authored volume requires engine-specific atmosphere, not an albedo atlas."
     }
   ],
-  "limits": "Unlit surface delivery. Source shader AO is retained; scene illumination is not baked into albedo. View-dependent crystal color, transmission and volumetric haze need native comparison; no independent art acceptance."
+  "limits": "Unlit surface delivery. Source shader AO is retained; scene illumination is not baked into albedo. View-dependent crystal color, transmission and volumetric haze need native comparison; no independent art acceptance.",
+  "lightingUv": "Dedicated per-mesh Blender export; UV0, UV2 source channels and geometry preserved. See mine-lightmap-uv.json."
 }

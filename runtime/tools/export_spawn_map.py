@@ -9,6 +9,7 @@ import bpy
 from mathutils import Matrix, Vector
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from export_spawn_materials import bake_surfaces
+from mine_join_rays import collision_eligible
 
 
 def matrix(o):
@@ -176,7 +177,7 @@ def main():
         by_name = {o.name: o for o in copies}
         for mapping in mappings:
             o = by_name[mapping["node"]]
-            if o.type != "MESH" or not mapping["visible"] or mapping["dynamic"] or any(t in mapping["source"].lower() for t in ("haze", "fog", "leaf", "paper", "rug", "carpet", "state_")): continue
+            if o.type != "MESH" or not collision_eligible(mapping): continue
             if mapping["source"].lower().startswith(("stain_", "decal_", "scuff_")):
                 collision_omissions.append({"source": mapping["source"], "node": mapping["node"], "reason": "decorative surface graphic"})
                 continue
