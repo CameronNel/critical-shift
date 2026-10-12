@@ -5,7 +5,7 @@ instruction, which waives the repository rule that an agent does not merge its o
 
 ## What this is
 
-`combined_map.blend` is the new assembled scene that replaces the retiring `sections/facility-assembly/blender/facility_environment.blend`
+`combined_map.blend` (now the compact layout) is the new assembled scene that replaces the retiring `sections/facility-assembly/blender/facility_environment.blend`
 (owner plan 2026-10-03, see `AGENTS.md`). It is built room by room from the layout drafted with the owner on 2026-10-04:
 `design/facility-layout/README.md` (plan v7), `design/facility-layout/MEASURED_ROOM_SIZES.md` and `design/facility-layout/front-end-area/DESIGN.md`.
 Where plan v7 and the as-built front end disagree, the as-built front end and DESIGN.md win, and the difference is written down in `COMBINED_MAP.md`.
@@ -16,7 +16,11 @@ Where plan v7 and the as-built front end disagree, the as-built front end and DE
 - **Record of every decision is `COMBINED_MAP.md`:** per room, the source file, what fixed the placement (with the measurement), what was patched, evidence renders, what was not checked.
 - Evidence renders are in `renders/` (per room), `renders/review/` (whole-scene review) and `renders/fixes/` (fix log and room 5).
 
-## Current state (through room 5)
+## Current layout: compact (read `COMPACT_MAP.md` first)
+
+The owner made the compact layout the main map on 2026-10-12. `combined_map.blend` is built by `build_compact_map.py`; the room table below lists rooms in build order, but turbine, electrical, waste, cooling and the dock use the compact placements in `COMPACT_MAP.md` (the translations in the table are the older spread-out ones), and the condenser bay is placed under the turbine. `build_combined_map.py` is the older layout and the shared machinery.
+
+## Current state (through room 11, older table)
 
 Build keys, in `ROOMS` order. `--through <key>` builds that room and every room before it.
 
@@ -28,10 +32,33 @@ Build keys, in `ROOMS` order. `--through <key>` builds that room and every room 
 | 3 | `refinery` | refinery overhaul R1 | (-26.28, -52.2), 90 |
 | 4 | `medical-reanimation` | medical overhaul R2 | (26, -70), -90 |
 | 5 | `fuel-corridor` | fuel corridor F23ci | (-22.2, -43.6), 0 |
+| 6 | `reactor-room` | reactor, refined hall (candidate A), joined by a south concourse | (0, 0), 0 |
+| 7 | `turbine-room` | turbine (AAA finish from branch `claude/turbine-aaa`) | (0, 17.0), 0 |
+| 8 | `electrical-room` | electrical (overhaul R11) | (19.75, 26.25), 0 |
+| 9 | `waste-storage` | waste storage | (28.32, -24), -90 |
+| 10 | `cooling-plant` | cooling plant | (-44.1, -19), 90 |
+| 11 | `compliance-dock` | compliance dock (overhaul R1) | (60, -79), -90 |
 
-The committed `combined_map.blend` is built `--through fuel-corridor`. Every room is "added, awaiting owner OK" except the front end, which is "built, unreviewed".
-Not yet placed: reactor room (next; the fuel corridor's far port `F02_REACTOR` is at plan (-8.0, -19.6) facing +Y, 5 x 5 m), compliance dock, waste storage, turbine, electrical, cooling,
-condenser bay, outer ring, gantry. Known defects and open items are listed in `COMBINED_MAP.md` (fix log and "Defects and open items").
+The committed `combined_map.blend` is built by `build_compact_map.py` (all rooms through the compliance dock plus the condenser bay). Every room is "added, awaiting owner OK" except the front end, which is "built, unreviewed".
+Not placed: condenser bay (not in the plan), gantry (no attachment spec). Known defects and open items are listed in `COMBINED_MAP.md` (fix log and "Defects and open items").
+
+## Files this folder needs that are not committed here (fetch before building)
+
+`build_combined_map.py --through compliance-dock` links source files that live elsewhere in the repository; fetch each single file (never a wide sparse checkout):
+- Turbine, the AAA finish from the unmerged branch `claude/turbine-aaa`: `git show origin/claude/turbine-aaa:sections/facility-assembly/sources/turbine-room/module_overhaul_R1.blend | git lfs smudge > sections/facility-assembly/sources/turbine-room/module_overhaul_R1.blend` (the build does not fall back to another turbine file; its door and wall positions are specific to this one).
+- Waste, cooling and condenser bay AAA finishes: `sources/{waste-storage,cooling-plant,condenser-bay}/module_aaa_A1.blend`, LFS files on `main` (`git show origin/main:<path> | git lfs smudge > <path>`).
+- Dock: `sources/compliance-dock/module_overhaul_R1.blend` is a plain Git blob on `main` (`git show origin/main:<path> > <path>`). Electrical `overhaul/checkpoints/full-R11.blend`, waste `module.blend`, cooling `module.blend`, medical `module_overhaul_R2.blend`, fuel corridor `fuel_full_F23ci.blend`, spawn `module.blend` and the front end's `textures/` folder are LFS files on `main`; the spawn module is also linked for the halls' materials, airlock doors and props.
+- The hall screens (`textures/hall_screen_*.png`) are committed here; regenerate with `python3 make_hall_screens.py textures`.
+
+## Hall network tools (committed here)
+
+- `reactor_links.py`: hall builder, wall-cutting, dressing (used by the build). `LINKS` and the room cut tables (`TURBINE_CUTS`, `MEDICAL_CUTS`, `reactor_links.HALL_CUTS`) in `build_combined_map.py` are the only places a hall or door is defined.
+- `validate_halls.py`: repeatable geometry audit (ray walk, sphere leak, junction probes, hall-to-hall and hall-to-room clearance, triangle counts); writes `validation/halls_report.json`. About ten minutes. Geometry evidence only.
+- `dump_network.py` + `draw_network_plan.py`: draw `renders/14_network_plan.png` from the same `LINKS`.
+
+## Compact layout tools
+
+`check_footprints.py` checks room overlaps in plain Python (compact placements). The halls of the older layout in `build_combined_map.py` (`LINKS`) are no longer built by default.
 
 ## Rules
 

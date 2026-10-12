@@ -2,6 +2,8 @@
 
 ![Plan v7](plan_v7.png)
 
+**Placement superseded 2026-10-12:** the owner chose a compact layout as the main map (`sections/facility-assembly/combined/COMPACT_MAP.md`): turbine, electrical, condenser, waste, cooling and dock sit directly on the reactor stubs and each other's doors, and the long halls, outer ring and yard-to-cooling link of this plan are not built. This plan still records the intended adjacencies and travel-time targets.
+
 **Status: proposal only.** Drafted with the owner on 2026-10-04. It has not been reviewed or accepted, nothing in it is built,
 and it does not change the current assembled map, which is being retired (see `AGENTS.md`). It is a layout for the map
 that replaces it. Its build is in progress at `sections/facility-assembly/combined/` (start with `AGENT_READ_FIRST.md` there; rooms placed so far are listed in it). Room modules are not edited; the plan assumes new doors and connectors are cut wherever a link needs one.
