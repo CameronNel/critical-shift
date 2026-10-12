@@ -1,0 +1,142 @@
+{
+  "status": "IdentityCookiePresentInCorrectedHistoricalSoftBakeControls",
+  "inputs": {
+    "/tmp/cs-mine-soft-radius-control-final12.cs.txt": "b45e4b3876530551ad2cf0384eb24b7627b30457f405e2ad8294a034f4b8fdb0",
+    "/workspace/critical-shift-spawn-runtime/runtime/validation/mine-bake-20261011/final12-controls/soft-radius-control-final12.native.log": "ca86d9b24daf705b1d892d139a053629be3fab801e0d0916fef257924a2bfd96",
+    "/tmp/cs-mine-soft-radius-independent-final12.json": "dba3b12aa5ae5bdd81d50ab0d0833b073398a07d747fb25d7b1df01890b24501"
+  },
+  "helperCookieEncoding": {
+    "format": "RGBAHalf",
+    "size": 1,
+    "mips": false,
+    "rgb": [
+      0.9375,
+      0.03125,
+      0.12
+    ],
+    "alpha": 1,
+    "uniformAllSixFaces": true
+  },
+  "nativeCookieEntityIds": [
+    "-1538",
+    "-1538",
+    "-1538",
+    "-1538",
+    "-1538"
+  ],
+  "fiveOotsSnapshotsIncludeOneCookie": true,
+  "previousGiPreservedExceptFalloff": true,
+  "nativeBakedRGBControls": [
+    {
+      "name": "Native-baked-radius012-power280-distance0.06.exr",
+      "centre8MeanRGB": [
+        286.0357892513275,
+        286.43921756744385,
+        286.7418394088745
+      ],
+      "nonfiniteRGBPixels": 0,
+      "sha256": "e494b39575656163ff05412c5ce08e654a3bea887a39f3306f21763912a136de"
+    },
+    {
+      "name": "Native-baked-radius012-power280-distance0.12.exr",
+      "centre8MeanRGB": [
+        83.32920253276825,
+        83.37757742404938,
+        83.45655167102814
+      ],
+      "nonfiniteRGBPixels": 0,
+      "sha256": "5f588abbc713adb64403b2eace4bdf6c4166fbbd77380807b2c0e56acb77948a"
+    },
+    {
+      "name": "Native-baked-radius012-power280-distance0.24.exr",
+      "centre8MeanRGB": [
+        21.781068950891495,
+        21.790069192647934,
+        21.80320343375206
+      ],
+      "nonfiniteRGBPixels": 0,
+      "sha256": "59ca39887fdb3cec645711d3116d606777394f23e54790feed54a8875602fd35"
+    },
+    {
+      "name": "Native-baked-radius012-power280-distance1.exr",
+      "centre8MeanRGB": [
+        1.2731395829468966,
+        1.273276699706912,
+        1.2734366804361343
+      ],
+      "nonfiniteRGBPixels": 0,
+      "sha256": "07da63829ce6119744c186fe6d7772405cabdebe818f767a326f196be890269f"
+    },
+    {
+      "name": "Native-baked-radius012-power280-distance2.exr",
+      "centre8MeanRGB": [
+        0.3184176441282034,
+        0.3184822332113981,
+        0.3185033267363906
+      ],
+      "nonfiniteRGBPixels": 0,
+      "sha256": "c54e7458d397755d435213e444a86dd8b8ab9726ae77e29e36f369f0d7cbc92b"
+    }
+  ],
+  "distinction": "SourceproductionConfigure itself tested only callback/corruptasset regeneration; bakedcontrols recreated equivalentuniformidentitycookie. Originalcookiefreecontrol notsolephysicalGI evidence.",
+  "limits": [
+    "HistoricalonepointLambert control, notcurrent full13 transport/artpass",
+    "Defaulthelperfilter/wrap differ fromConfigure Point/Clamp but1pixel allfacesuniform/mipsfalse",
+    "No pairednativeBakedcookie-on/off fullproductionasset test yet; canrunboundedafterfull13ifunexpectedtint/brightness persists",
+    "NearSoft sourcefinite-radius discrepancy remains; no speculativeproductionchange"
+  ],
+  "overallScore": null,
+  "actualHistoricalRawHDRFilesRehashed": [
+    {
+      "path": "/tmp/cs-mine-soft-radius-control-final12/Native-baked-radius012-power280-distance0.06.exr",
+      "sha256": "e494b39575656163ff05412c5ce08e654a3bea887a39f3306f21763912a136de",
+      "centre8MeanRGB": [
+        286.0357892513275,
+        286.43921756744385,
+        286.7418394088745
+      ],
+      "nonfiniteRGBPixels": 0
+    },
+    {
+      "path": "/tmp/cs-mine-soft-radius-control-final12/Native-baked-radius012-power280-distance0.12.exr",
+      "sha256": "5f588abbc713adb64403b2eace4bdf6c4166fbbd77380807b2c0e56acb77948a",
+      "centre8MeanRGB": [
+        83.32920253276825,
+        83.37757742404938,
+        83.45655167102814
+      ],
+      "nonfiniteRGBPixels": 0
+    },
+    {
+      "path": "/tmp/cs-mine-soft-radius-control-final12/Native-baked-radius012-power280-distance0.24.exr",
+      "sha256": "59ca39887fdb3cec645711d3116d606777394f23e54790feed54a8875602fd35",
+      "centre8MeanRGB": [
+        21.781068950891495,
+        21.790069192647934,
+        21.80320343375206
+      ],
+      "nonfiniteRGBPixels": 0
+    },
+    {
+      "path": "/tmp/cs-mine-soft-radius-control-final12/Native-baked-radius012-power280-distance1.exr",
+      "sha256": "07da63829ce6119744c186fe6d7772405cabdebe818f767a326f196be890269f",
+      "centre8MeanRGB": [
+        1.2731395829468966,
+        1.273276699706912,
+        1.2734366804361343
+      ],
+      "nonfiniteRGBPixels": 0
+    },
+    {
+      "path": "/tmp/cs-mine-soft-radius-control-final12/Native-baked-radius012-power280-distance2.exr",
+      "sha256": "c54e7458d397755d435213e444a86dd8b8ab9726ae77e29e36f369f0d7cbc92b",
+      "centre8MeanRGB": [
+        0.3184176441282034,
+        0.3184822332113981,
+        0.3185033267363906
+      ],
+      "nonfiniteRGBPixels": 0
+    }
+  ],
+  "cookieTintHypothesisAssessment": "No evidence of markerRGB contamination in measuredcorrectedSoftidentityCookie controls; excludes asserting cookie-free-onlybasis. Currentfullscene tint/transportnotcertified."
+}
