@@ -9,14 +9,14 @@ It also counts evaluated triangles per room instance. This is geometry evidence 
 import sys, os, json, math, random, bpy
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import build_combined_map as BM, reactor_links as R
-if os.environ.get('COMPACT'): import build_compact_map      # applies the compact layout's overrides (rooms, halls) to BM without building
+if not os.environ.get('SPREAD'): import build_compact_map      # the main (compact) layout's overrides (rooms, halls); set SPREAD=1 to audit the older spread-out layout instead
 from mathutils import Vector
 out = sys.argv[sys.argv.index('--') + 1] if '--' in sys.argv else 'halls_report.json'
 for o in bpy.data.objects:
     if 'haze' in o.name.lower(): o.hide_viewport = True          # volumes would be hit by the rays
 dg = bpy.context.evaluated_depsgraph_get(); sc = bpy.context.scene
 random.seed(4)
-BOXES = {} if os.environ.get('COMPACT') else {'turbine': (-4.52, 10.25, 16.64, 42.4), 'electrical': (14.0, 28.3, 26.0, 43.22), 'waste': (27.68, 46.7, -31.6, -17.7), 'cooling': (-57.4, -44.1, -24.8, -13.2), 'hall': (-11.6, 11.6, -11.6, 11.6),
+BOXES = {} if not os.environ.get('SPREAD') else {'turbine': (-4.52, 10.25, 16.64, 42.4), 'electrical': (14.0, 28.3, 26.0, 43.22), 'waste': (27.68, 46.7, -31.6, -17.7), 'cooling': (-57.4, -44.1, -24.8, -13.2), 'hall': (-11.6, 11.6, -11.6, 11.6),
          'concourse': (-11.1, 6.15, -19.9, -14.5), 'fuel_corridor': (-27.9, -4.9, -43.6, -19.6), 'spine': (5.85, 10.15, -48, -14.5), 'medical': (26, 38.4, -75.5, -64.8), 'refinery': (-33.8, -18.8, -57.7, -40.3),
          'frontend_hall': (-4, 32, -60, -48), 'dock': (57.9, 76.1, -86.2, -71.8)}      # measured outer plan bounds, COMBINED_MAP.md
 P = {k: R.Path(R.fillet(L['pts'], L['r'])) for k, L in BM.LINKS.items()}

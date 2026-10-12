@@ -1,5 +1,8 @@
 # Combined map (new scene, built room by room)
 
+> **Layout superseded 2026-10-12.** The owner made the compact layout the main map (`COMPACT_MAP.md`, built by `build_compact_map.py`). This file records the earlier spread-out layout (plan v7 positions, bridge, east trunk, outer ring, long halls, plan placement of turbine, electrical, waste, cooling and dock). Its measurements, door data and per-room decisions still stand; its placements, hall lists, audit results and renders for those rooms describe `build_combined_map.py`'s old output, not the current `combined_map.blend`.
+
+
 **Agents: read [AGENT_READ_FIRST.md](AGENT_READ_FIRST.md) before touching anything here.** It has the rules and the exact procedure for adding the next room.
 
 Status: **work in progress, unreviewed, not accepted.** Merged to `main` on the owner's explicit instruction (2026-10-06, PR 95) without independent review. This is the scene that replaces the retiring `facility_environment.blend`

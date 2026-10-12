@@ -1,9 +1,9 @@
 """Compact variant of the combined map: the same rooms, halls and materials, packed tightly around the reactor hall. Run:
 
-    blender --background --python build_compact_map.py -- [--output compact_map.blend]
+    blender --background --python build_compact_map.py -- [--output combined_map.blend]
 
-Owner instruction (2026-10-12): the map should be as compact as possible. This builds a second scene, `compact_map.blend`, by overriding the room placements and the hall list of
-`build_combined_map.py` (imported, not edited); `combined_map.blend` and its documentation are unchanged, so the owner can choose. Everything is unreviewed.
+Owner instruction (2026-10-12): the map should be as compact as possible. This is now THE main layout (owner instruction 2026-10-12: "Use the compact layout as the main map"): it writes `combined_map.blend`. It works by overriding the room placements and the hall list of
+`build_combined_map.py` (imported, not edited), which is kept as the older spread-out layout (rebuild it with `build_combined_map.py --through compliance-dock --output spread_layout.blend`). Everything is unreviewed.
 
 Layout rules: every room sits directly on the reactor hall's own stub or on its neighbour's door, so most links are zero-length. Door positions come from each room's module frame
 (contracts/interface.json and measured meshes), transformed by the placement below, never typed in by hand. The front block (front end, spawn, mine, refinery, medical, fuel corridor)
@@ -110,5 +110,5 @@ BM.add_door_placeholders = plates
 
 if __name__ == '__main__':
     a = sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else []
-    out = a[a.index('--output') + 1] if '--output' in a else os.path.join(HERE, 'compact_map.blend')
+    out = a[a.index('--output') + 1] if '--output' in a else os.path.join(HERE, 'combined_map.blend')
     BM.build('compliance-dock', out)

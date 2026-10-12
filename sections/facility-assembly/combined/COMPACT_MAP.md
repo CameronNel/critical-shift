@@ -1,8 +1,8 @@
-# Compact map (alternative layout, 2026-10-12)
+# Compact layout: the main map (2026-10-12)
 
-**Unreviewed, not accepted.** Owner instruction: "the map should be as compact as possible ... make this thing as close knit and tight as possible. Reuse what you can." This is a second scene, `compact_map.blend`, built by
-`build_compact_map.py` (it imports `build_combined_map.py` and overrides the room placements and the hall list; nothing in `combined_map.blend` or `COMBINED_MAP.md` was changed). The owner chooses which layout continues.
-Never hand-edit `compact_map.blend`. Rebuild: `blender --background --python build_compact_map.py`. The same source-file fetches as `AGENT_READ_FIRST.md` apply, plus the condenser bay's `sources/condenser-bay/module.blend` (LFS; the original R34, not the unreviewed AAA finish).
+**Unreviewed, not accepted.** Owner instructions: "the map should be as compact as possible ... make this thing as close knit and tight as possible. Reuse what you can", then "Use the compact layout as the main map".
+`combined_map.blend` is now built by `build_compact_map.py` (it imports `build_combined_map.py` and overrides the room placements and the hall list). `COMBINED_MAP.md` keeps the decision record of the older spread-out layout (plan v7 positions, long halls, outer ring), which is superseded wherever it disagrees with this file; its measurements and door data still stand.
+Never hand-edit `combined_map.blend`. Rebuild: `blender --background --python build_compact_map.py`. The older layout still rebuilds with `build_combined_map.py --through compliance-dock --output spread_layout.blend`. The same source-file fetches as `AGENT_READ_FIRST.md` apply, plus the condenser bay's `sources/condenser-bay/module.blend` (LFS; the original R34, not the unreviewed AAA finish).
 
 ## What changed against the combined layout
 
@@ -25,7 +25,7 @@ Reactor stub doors: the closed door pieces on the N, W and SE stubs (75 objects)
 - `check_footprints.py` (plain Python, 2D rotated-rectangle overlap of every room's measured outer bounds): no new overlap; 18 footprints; the only overlap >= 0.5 m, fuel corridor against refinery, is the pre-existing sill overlap of rough bounding boxes. Extent x -52 to 54, y -105 to 57 (mine further west at x -112, unchanged).
 - Ray lanes (z 1.5): reactor to turbine to electrical along x = 0, clear to the electrical north door plate; reactor to cooling clear to its rear wall; reactor to waste clear to the dispatch plate; front-end hall east door to the dock clear to the sealed P2 leaf; waste personnel door through the new hall and spine east wall clear.
 - Renders (every image looked at): reactor stub into turbine D01, turbine into electrical, reactor into cooling, reactor into waste with the airlock, the waste dispatch hall, the dock entry, the condenser bay under the turbine, plan views. The waste-to-spine hall render only shows a wall (camera at the bend), so that hall is checked by rays only.
-- `validate_halls.py` with `COMPACT=1` (two halls left): `PASS (geometry audit only)`, report `validation/compact_report.json`: waste hall 7.0 m and waste-spine hall 3.9 m, 0 walk obstructions, 0 sphere escapes of 1,000 each. Evaluated triangles of the whole scene: 13,230,889 (vs 13.16 M in the combined layout, the condenser bay adds 0.77 M while the long halls drop from 0.46 M to 0.06 M). The compact layout is smaller in area, not lighter in triangles.
+- `validate_halls.py` (compact is the default; `SPREAD=1` audits the old layout) (two halls left): `PASS (geometry audit only)`, report `validation/compact_report.json`: waste hall 7.0 m and waste-spine hall 3.9 m, 0 walk obstructions, 0 sphere escapes of 1,000 each. Evaluated triangles of the whole scene: 13,230,889 (vs 13.16 M in the combined layout, the condenser bay adds 0.77 M while the long halls drop from 0.46 M to 0.06 M). The compact layout is smaller in area, not lighter in triangles.
 - Renders `renders/15_compact_*`.
 
 ## Not checked
