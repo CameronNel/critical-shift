@@ -1,0 +1,32 @@
+{
+  "status": "RevisedExternalWrappersClearedForBoundedNativeRestart",
+  "inputs": {
+    "/tmp/cs-mine-evidence-final13.py": "3b1c8fc13dfc8164303815018606dd278317aad038b1466ae6ab4a41f51a5b5e",
+    "/tmp/cs-mine-complete-native-final13.py": "8f08ce71ff7445925edf549513f7da4ebebc69c61d9683f4baf09ab53bb6521f",
+    "/tmp/cs-mine-full-native-final13.py": "63dadd649ff25e0f0aa42cd5598f677e860cff24065e1a219a9e2835f2053add",
+    "/tmp/cs-mine-bake-source-wood-final13.py": "547ca054a0a0f1b977dace4daaacb10ded2d066c3da4d653197a03636e901927",
+    "/tmp/cs-mine-after-bake-source-wood-final13.py": "24fe71a97b5ec22978081810ddc111545bcd046cc7c032055c1d2cbf30466461"
+  },
+  "syntaxAllFiveParsed": true,
+  "closedPriorFindings": [
+    "Owned oldlogs/captures/XML rejected before launch",
+    "Stale generatedpreparedscene/pointinventory preserved then removed before native bake",
+    "Exactlyonecurrentbake/capture/inventory marker required with nativeexit0",
+    "3spawnreadable1440images/currentproof/inventory receipt required",
+    "3uniqueauthoredmine cameras/9files/currentproof/quaternion/FOV/clips/MSAA/rawHDRSHA/RGBfinite/PNGdimensions required",
+    "Exactly18 actualXML testcase records and18Passed/failed0/skipped0 required",
+    "Unaltered source/native panel composition with reviewed-source SHA pins",
+    "Terminalcomplete technicalreceipt required; no visual/Player claims"
+  ],
+  "fixtureReview": "/tmp/cs-mine-evidence-negative-review-final13.json",
+  "fixtureReviewSha256": "7021bbf15251183da7adf982d4c636445ebfaacbcdea382aa3ceeced9dc0a3ac",
+  "nonBlockingReliabilityNote": "Fresh-source state is written non-atomically by already-running exporter wrapper; bounded watcher retry on transient JSONDecodeError can avoid false failure during finished-state write. Persistent malformed state must fail.",
+  "remainingGates": [
+    "Actual freshsource13 complete/preservation/recipe/sourceflags",
+    "Actualfull13native6captures/3HDR/inventory/18PlayMode receipts",
+    "Independent art/spawnregression review; previousfinal11stillRejected39of60",
+    "FreshPlayer only after visualclearance"
+  ],
+  "overallScore": null,
+  "productionOrRecipeModified": false
+}
