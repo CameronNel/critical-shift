@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/tmp/cs-mine-bake-source-wood-final10.py", line 8, in <module>
+    temp=project/'Temp';assert temp.is_dir() and not temp.is_symlink() and not scratch.exists();shutil.move(temp,scratch);temp.symlink_to(scratch,target_is_directory=True);moved=True
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

@@ -63,5 +63,31 @@
   },
   "cliffMaterials": [
     "rock_matched_to_mountain"
+  ],
+  "mineSuns": [
+    {
+      "name": "AAA | cold rim key",
+      "type": "SUN",
+      "energy": 0.3499999940395355,
+      "color": [
+        0.6200000047683716,
+        0.7400000095367432,
+        1.0
+      ],
+      "hide_render": false,
+      "hide_viewport": false,
+      "shadow": true,
+      "position": [
+        -14.399999618530273,
+        -41.0,
+        0.0
+      ],
+      "collection": [
+        {
+          "name": "ROOM_mine_members",
+          "hide_render": false
+        }
+      ]
+    }
   ]
 }

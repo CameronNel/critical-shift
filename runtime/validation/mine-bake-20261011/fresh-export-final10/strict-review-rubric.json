@@ -1,0 +1,21 @@
+{
+  "target": 98,
+  "maximum": 100,
+  "categories": {
+    "matchedBlenderVisualFidelity": 40,
+    "materialDetailAndArtifactFreeShading": 20,
+    "sourceMapJoinPreservationAndSpawnRegression": 15,
+    "currentNativeGameplayAndFreshPlayer": 15,
+    "reproducibilityAndTruthfulEvidence": 10
+  },
+  "gates": [
+    "3 fresh matched 1440x810 mine PNGs plus finite pre-LUT HDR EXRs and capture JSON from frozen prepared scene",
+    "3 fresh spawn regression views",
+    "Pinned source, six-room mesh/collision/placement preservation, nine source join rays and six clear walking lanes; truthful scope versus Claude expanded PR102",
+    "All 18 current native PlayMode tests including actual thermos visuals and four official API assembly checks",
+    "Fresh native Player build and 120-frame smoke",
+    "Reproducible source/capture provenance and explicit software graphics/performance limits"
+  ],
+  "overallScore": "Pending all gates; final9 rejected provisional visual 29/60 is not carried forward",
+  "reviewer": "/root/strict_mine_review"
+}

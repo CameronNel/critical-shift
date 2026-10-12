@@ -92,6 +92,10 @@ namespace CriticalShift.Player.Editor
                 var model = (GameObject)PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath<GameObject>(Folder + room.mesh));
                 // The FBX root carries Blender-to-Unity axis correction. Placement belongs to a separate parent.
                 model.transform.SetParent(roomRoot.transform, false);
+                // Runtime carryables must leave the imported hierarchy. Editor prefab instances
+                // reject that reparenting; unpack this scene instance without changing its FBX.
+                if (room.key == "spawn-room")
+                    PrefabUtility.UnpackPrefabInstance(model, PrefabUnpackMode.Completely, InteractionMode.AutomatedAction);
                 var pointLights=room.lights.Where(l=>l.type=="POINT").Select(l=>roomRoot.transform.TransformPoint(V(l.position))).ToArray();
                 foreach (var node in model.GetComponentsInChildren<Transform>(true))
                     if (node.name.StartsWith("CS_", StringComparison.Ordinal)) nodes.Add(node.name, node);
@@ -344,19 +348,56 @@ namespace CriticalShift.Player.Editor
             foreach (int i in new[] { 1, 3 })
             {
                 var prop = Require(nodes, "CS_spawn-room_BELONG_" + i.ToString("00") + "_thermos");
-                var local = LocalBounds(prop); var centre = prop.TransformPoint(local.center);
+                // The runtime root is world-aligned; the imported prop carries FBX axis
+                // correction. Copy world bounds so the collider follows the visible axes.
+                var worldBounds = prop.GetComponentsInChildren<Renderer>(true).Select(renderer => renderer.bounds)
+                    .Aggregate((bounds, next) => { bounds.Encapsulate(next); return bounds; });
+                var centre = worldBounds.center;
+                var originalPosition = prop.position; var originalRotation = prop.rotation; var originalScale = prop.lossyScale;
                 var item = new GameObject("Carryable thermos " + i); item.transform.SetParent(root.transform, false); item.transform.position = centre;
-                var shape = item.AddComponent<BoxCollider>(); shape.size = Vector3.Scale(local.size, prop.lossyScale);
+                var shape = item.AddComponent<BoxCollider>(); shape.size = worldBounds.size;
                 prop.SetParent(item.transform, true);
+                if (prop.parent != item.transform || Vector3.Distance(prop.position, originalPosition) > 0.0001f ||
+                    Quaternion.Angle(prop.rotation, originalRotation) > 0.01f || Vector3.Distance(prop.lossyScale, originalScale) > 0.0001f)
+                    throw new InvalidOperationException("Thermos visual extraction changed its source pose or failed: " + prop.name);
                 var body = item.AddComponent<Rigidbody>(); body.mass = 0.5f; body.interpolation = RigidbodyInterpolation.Interpolate;
                 var target = item.AddComponent<InteractionTarget>(); target.Configure(Id(100 + i), PlayerTargetKind.Carryable, "pick up thermos", shape, body);
                 targets.Add(target);
             }
             var top = Require(nodes, "CS_spawn-room_BRIEFING_sideboard_laminate_top").GetComponent<Renderer>().bounds;
-            var placementShape = Trigger(root.transform, "Sideboard placement", new Vector3(top.center.x, top.max.y + 0.06f, top.center.z), new Vector3(0.4f, 0.1f, 0.6f));
+            Physics.SyncTransforms();
+            var itemHalf = targets.Where(target => target.Kind == PlayerTargetKind.Carryable).Select(target => target.Shape.bounds.extents).Aggregate(Vector3.Max);
+            var margin = itemHalf + Vector3.one * 0.025f;
+            if (top.size.x <= margin.x * 2 || top.size.z <= margin.z * 2)
+                throw new InvalidOperationException("The authored sideboard cannot support the imported thermos footprint.");
+            Vector3? placementPoint = null;
+            // Source decorations occupy the centre. Find a supported clear slot on
+            // the authored tabletop; retain every solid object and the original height.
+            var candidates = Enumerable.Range(0, 5).SelectMany(x => Enumerable.Range(0, 5).Select(z =>
+                new Vector3(Mathf.Lerp(top.max.x - margin.x, top.min.x + margin.x, x / 4f), top.max.y + 0.18f,
+                    Mathf.Lerp(top.min.z + margin.z, top.max.z - margin.z, z / 4f))))
+                .OrderBy(candidate => new Vector2(candidate.x - top.center.x, candidate.z - top.center.z).sqrMagnitude);
+            foreach (var candidate in candidates)
+            {
+                if (Physics.CheckBox(candidate, itemHalf + Vector3.one * 0.02f, Quaternion.identity, ~0, QueryTriggerInteraction.Ignore)) continue;
+                bool supported = true;
+                foreach (var corner in new[] { Vector3.zero, new Vector3(-itemHalf.x, 0, -itemHalf.z), new Vector3(-itemHalf.x, 0, itemHalf.z),
+                    new Vector3(itemHalf.x, 0, -itemHalf.z), new Vector3(itemHalf.x, 0, itemHalf.z) })
+                {
+                    var origin = new Vector3(candidate.x, top.max.y + 0.01f, candidate.z) + corner;
+                    if (!Physics.Raycast(origin, Vector3.down, out var contact, 0.025f, ~0, QueryTriggerInteraction.Ignore) ||
+                        Mathf.Abs(contact.point.y - top.max.y) > 0.002f || Vector3.Dot(contact.normal, Vector3.up) < 0.9f)
+                    { supported = false; break; }
+                }
+                if (supported) { placementPoint = candidate; break; }
+            }
+            if (!placementPoint.HasValue) throw new InvalidOperationException("No clear sideboard placement remains between authored decorations.");
+            var point = placementPoint.Value;
+            Debug.Log("CS_SPAWN_SIDEBOARD_SLOT_OK; point=" + point.ToString("F5") + "; footprint=" + (itemHalf * 2).ToString("F5"));
+            var placementShape = Trigger(root.transform, "Sideboard placement", new Vector3(point.x, top.max.y + 0.06f, point.z), new Vector3(0.4f, 0.1f, 0.6f));
             var placement = placementShape.gameObject.AddComponent<InteractionTarget>();
             placement.Configure(Id(41), PlayerTargetKind.Placement, "place/take thermos", placementShape,
-                anchor: Anchor(root.transform, "Sideboard item pose", new Vector3(top.center.x, top.max.y + 0.18f, top.center.z)), slot: Id(61));
+                anchor: Anchor(root.transform, "Sideboard item pose", point), slot: Id(61));
             targets.Add(placement);
             var pod = Door(root.transform, nodes, map, "Integrity chamber", new[] { "POD_door_L", "POD_door_R" }, true);
             var buttonNode = Require(nodes, "CS_spawn-room_POD_physical_button");

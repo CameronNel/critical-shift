@@ -1,0 +1,3 @@
+{
+  "reason": "Scratch relocation wrapper read the previous bake log before new Unity truncated it; wrapper assertion exited while editor continued. Stop before fresh bake start and restart after removing stale log. No lighting acceptance."
+}
