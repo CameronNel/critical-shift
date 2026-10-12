@@ -1,0 +1,31 @@
+{
+  "status": "FreshNative13FailedBeforeReview",
+  "state": {
+    "state": "Failed",
+    "pid": 162238,
+    "reason": "Command '['/home/agent/.local/share/critical-shift/venv/bin/python', '/tmp/cs-mine-full-native-final13.py']' returned non-zero exit status 1."
+  },
+  "actualNativeExitCode": 137,
+  "wrapperKilledMarker": true,
+  "nativeLastStage": "LightBaker bake-stage start then application shutdown",
+  "afterBakeWrapperPresent": false,
+  "technicalReceiptPresent": false,
+  "freshMineCaptureDirectoryPresent": false,
+  "freshSpawnCaptureDirectoryPresent": false,
+  "files": {
+    "/workspace/critical-shift-spawn-runtime/runtime/out/mine-bake-audit/full-native-final13-state.json": "4a332c71c52fb96056c7ae4ab184ec94379a335fe0453643ef7ebf64f6320bf9",
+    "/workspace/critical-shift-spawn-runtime/runtime/out/mine-bake-audit/native-bake-source-wood-final13-wrapper.log": "72fd7f9707c3a3be636c74838da3b3c346d71b90909aca8359187ae7336fffd7",
+    "/workspace/critical-shift-spawn-runtime/runtime/out/mine-bake-audit/native-bake-source-wood-final13.log": "ac537146e57f176426bc21ed27ba4077255d565e2d975b34b731f1cb1a3613ae",
+    "/workspace/critical-shift-spawn-runtime/runtime/out/mine-bake-audit/fresh-export-final13-state.json": "8efacd8fa662915a7b64f336885dc0ac7396aa0d0d51c62f56f810eff69e3f5d",
+    "/tmp/cs-mine-source-independent-final13.json": "4fcad127da56e444e070040a48ad65419491ec7eee3ce6d7ee9c834dd331bbeb"
+  },
+  "cgroupMemoryEventsAtObservation": "low 0\nhigh 0\nmax 829771\noom 49\noom_kill 16\noom_group_kill 0\n",
+  "limits": [
+    "Exit137/Killed is observed; OOM attribution requires comparing cgroup counters to parent pre-run baseline",
+    "Source13 independentrecipe/preservation/file/contextflag checks passed; nativeacceptance didnot",
+    "No native capture/test/Player/visualreview fabricated",
+    "Lastcompletevisualreview final11 remainsRejected39of60, overallscore null",
+    "Reviewer launched no Unity/Blender or heavy retry"
+  ],
+  "overallScore": null
+}

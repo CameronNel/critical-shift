@@ -1,0 +1,84 @@
+{
+  "status": "FailedNativeScratchLosslesslyArchivedAndVerifiedBeforeRelease",
+  "archive": "/tmp/cs-mine-failed-native-scratch-final13.tar.zst",
+  "archiveBytes": 212578866,
+  "archiveSha256": "02ffd85ecff29e574be642875c04df1953e5a95c60ec7e1d056f898b41eca5b6",
+  "rawBytes": 548774442,
+  "files": {
+    "FSTimeGet-21b9e55b93988daa18db3e819f81fd9a": {
+      "bytes": 8,
+      "sha256": "efd4018746a7e601d3d260d5b03172ae69381cf9f2459f7cd105ebacf6cda155"
+    },
+    "LightBakerOutput/lightmapRequest0/normal0.r2d": {
+      "bytes": 68532081,
+      "sha256": "44054c732a4d00965521d1e85af0155d9e3a897a875175bab856b3393364e64a"
+    },
+    "LightBakerOutput/lightmapRequest0/occupancy0.r2d": {
+      "bytes": 2412350,
+      "sha256": "ba5fbb39d7667cb48654a841dff01b6c322cde0ec6dc5cc0767ff93c12030e2f"
+    },
+    "LightBakerOutput/lightmapRequest0/occupiedTexels0.UInt64": {
+      "bytes": 8,
+      "sha256": "fb71af839ccac895136cefe2559c8ef338988f3c895288b03006f06a416f461d"
+    },
+    "LightBakerOutput/lightmapRequest0/validity0.r2d": {
+      "bytes": 801561,
+      "sha256": "cf7261df895aecb9a348e6018c257bb4ab186f51eb099c9aec40bc4d7abcedd7"
+    },
+    "LightBakerOutput/probeRequest0/lightProbeOcclusion0.vec4": {
+      "bytes": 3464,
+      "sha256": "83fa4111450967397b41057b626ff2cf12f385831996347d8fc5b23e3a8621d9"
+    },
+    "LightBakerOutput/probeRequest0/mixedLightOcclusion0.occ": {
+      "bytes": 7784,
+      "sha256": "200ecdb41986aaf429b17df03e37ceadf320965fee26a4f4c700b879f2244e4a"
+    },
+    "LightBakerOutput/probeRequest0/radianceDirect0.shl2": {
+      "bytes": 31112,
+      "sha256": "57dc99beccd23d17a43e037254906b650671daae5ae661e08aaec8dfc855eacc"
+    },
+    "LightBakerOutput/probeRequest0/radianceIndirect0.shl2": {
+      "bytes": 31112,
+      "sha256": "2d1480ba748fa50ddc1064070bc928611fdd089645a506bac10bfba1363102bc"
+    },
+    "LightBakerOutput/probeRequest1/lightProbeOcclusion1.vec4": {
+      "bytes": 6248,
+      "sha256": "150ccfc4709440e392319b9e38ebf3ce2ec358d5470a3b1addde7d529a03d2eb"
+    },
+    "LightBakerOutput/probeRequest1/mixedLightOcclusion1.occ": {
+      "bytes": 14048,
+      "sha256": "fa1864878227e0752e30a972ff391b9e1e3cdd447e166d41709e16f3be34bfa0"
+    },
+    "LightBakerOutput/probeRequest1/radianceDirect1.shl2": {
+      "bytes": 56168,
+      "sha256": "4e1f02e784650169b5cb6f74e5796370d7dcb1d7dc0bf74fd96056ed50f954df"
+    },
+    "LightBakerOutput/probeRequest1/radianceIndirect1.shl2": {
+      "bytes": 56168,
+      "sha256": "a19c465e284a9edcbfae54ddf58815232bc09341de37f1930228ff1db1687c35"
+    },
+    "ProcessJobs/b8613a84801a46c691ba1681b66ddf56.layout": {
+      "bytes": 64,
+      "sha256": "adb85bbf65039b3931ea9ab64d43d9a8172c0f581f84b63dcb1c34f7f18efa53"
+    },
+    "UnityLockfile": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "bakeInput.bakeInput": {
+      "bytes": 476525973,
+      "sha256": "f0d9c2454b1ea95388421e2a614f63f6b8c333b61803e405f14fd48e75e191e6"
+    },
+    "lightProbeRequests": {
+      "bytes": 17170,
+      "sha256": "91559340d1811141270424c8c3ab0be755a27ca935f9ca682bae336e159345f6"
+    },
+    "lightmapRequests": {
+      "bytes": 279123,
+      "sha256": "1238c39a9db94c3ee2fb3fa832ff70368ee324310b17a9f9c1c907843b9933b7"
+    }
+  },
+  "links": {},
+  "sourceRebakeRequired": false,
+  "nativePass": false
+}

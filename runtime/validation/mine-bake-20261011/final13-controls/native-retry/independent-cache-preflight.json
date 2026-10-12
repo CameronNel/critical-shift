@@ -1,0 +1,42 @@
+{
+  "status": "CacheAndFailedScratchArchivesChecked_TempAbsent_RetryPreflightCleared",
+  "indexSha256": "6955c8caac0e7831222935555c15b2d0baae04f59ffbcf3c22fd7ccc75fb23dd",
+  "archiveSha256": "606eb4a9ed4dbc39d3840cd62d02793dd35c765f6e9fa98d95b92131e754bdef",
+  "archiveCompressedBytes": 94547021,
+  "removedRawBytesManifestSum": 1171099800,
+  "activeLibraryTargetsVerified": [
+    {
+      "link": "/dev/shm/critical-shift-spawn-library/Artifacts/c9/c9cd52c60fc412f1009592a01c5edf87",
+      "target": "/workspace/critical-shift-spawn-runtime/runtime/out/inactive-cache-final13/active/Artifacts/c9/c9cd52c60fc412f1009592a01c5edf87",
+      "bytes": 134237084,
+      "sha256": "11a1f616fe767f6af084efaba12a99886d323f5f64333dbc7a83f6cf72fb73b1"
+    },
+    {
+      "link": "/dev/shm/critical-shift-spawn-library/Artifacts/08/088d584a4a2f338e9b5981e3455360b6",
+      "target": "/workspace/critical-shift-spawn-runtime/runtime/out/inactive-cache-final13/active/Artifacts/08/088d584a4a2f338e9b5981e3455360b6",
+      "bytes": 52484396,
+      "sha256": "550d0e5d1eed881157466aae187b835d0f25c7939e84292a2d41d1c79b22acae"
+    }
+  ],
+  "fiveReviewedHelpersUnchanged": true,
+  "noStaleCurrentCaptureOrTechnicalReceipt": true,
+  "observedProjectTemp": "/workspace/critical-shift-spawn-runtime/runtime/unity/Temp",
+  "projectTempStillSymlink": false,
+  "remainingPreflight": "Current Temp is ordinary/absent; parent must retain scratch preservation receipt and verify native process idle/headroom before retry.",
+  "limits": [
+    "Archive digest/size matches index and both activeLibrary targets SHAchecked; independent decompressed8member manifest check notrun",
+    "Exact rawbyte sum/removal manifest matches parentrecord; no independent before/after cgroupusage sample exists",
+    "Freed tmpfs headroom doesnotguarantee LightBaker peak fits16GB",
+    "No Unity/Blender launched, source/production unchanged, no art score"
+  ],
+  "overallScore": null,
+  "projectTempExists": false,
+  "scratchArchiveCheck": {
+    "receiptSha256": "7d27682a955d8857c52a5b955cc42bd301fbb0ccd05af0101a385c876cee1eec",
+    "archiveSha256": "02ffd85ecff29e574be642875c04df1953e5a95c60ec7e1d056f898b41eca5b6",
+    "compressedBytes": 212578866,
+    "rawManifestBytes": 548774442,
+    "parentMarkedNativePass": false,
+    "independentMemberStreamHashNotRun": true
+  }
+}
