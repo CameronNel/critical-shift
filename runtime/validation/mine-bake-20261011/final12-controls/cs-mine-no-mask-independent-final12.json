@@ -1,0 +1,57 @@
+{
+  "status": "NoMaskExperimentIndependentlyRejected",
+  "all36HDRFinite": true,
+  "allDeliveredFileHashesMatched": true,
+  "allSixActualBakedChannelMinus1": true,
+  "noMaskMeans": {
+    "Mixed6NoMask-actor-BlendProbes-off.exr": [
+      0.03897480666637421,
+      0.03897480666637421,
+      0.03897480666637421
+    ],
+    "Mixed6NoMask-actor-BlendProbes-on.exr": [
+      0.03897480666637421,
+      0.03897480666637421,
+      0.03897480666637421
+    ],
+    "Mixed6NoMask-actor-zeroSH-moving-blocker.exr": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "Mixed6NoMask-actor-zeroSH-off.exr": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "Mixed6NoMask-actor-zeroSH-on.exr": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "Mixed6NoMask-post-bake-off.exr": [
+      0.11340912777814083,
+      0.11342037672875449,
+      0.11344267366803251
+    ],
+    "Mixed6NoMask-post-bake-on.exr": [
+      0.11340912777814083,
+      0.11342037672875449,
+      0.11344267366803251
+    ],
+    "Mixed6NoMask-realtime-reference.exr": [
+      0.11368101451080292,
+      0.11368101451080292,
+      0.11368101451080292
+    ],
+    "Mixed6NoMask-static-moving-blocker.exr": [
+      0.11340912777814083,
+      0.11342037672875449,
+      0.11344267366803251
+    ]
+  },
+  "limitations": [
+    "One fixture, no imported-actor or fullmap score",
+    "Mixed1 half-bright BlendProbes still needs interpolated-occlusion fixture diagnosis; notgeneral engine diffuse bug"
+  ]
+}

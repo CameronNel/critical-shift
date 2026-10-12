@@ -1,0 +1,26 @@
+{
+  "status": "ChangesRequiredBeforeBoundedProbeBake",
+  "helperSha256": "4b9bb538844a8c84ed1b7d0c01d5612b8a6d4650526421a5f745cea488b7b01e",
+  "scope": "Read-only prelaunch source virtual-probe topology and ray visibility review; no fields rendered, no full-scene quality score",
+  "cleared": [
+    "Camera-visible-only bake admission measured against white Lambert constant linear world; remaining five ray visibility flags disabled",
+    "Actual E/pi quantity and source-to-Unity direction interpretation retained",
+    "Minimum .012m first-hit distance retained; open source backfaces need no source geometry mutation"
+  ],
+  "blockers": [
+    {
+      "location": "source-probe-field-final12.py clearance edge Counter",
+      "finding": "Whole-object edge counts cannot classify the ray-hit connected shell. Unrelated open geometry can mask a closed component containing the probe.",
+      "required": "Classify the evaluated face-connected component at returned face index; require manifold consistently oriented nondegenerate shell before closed classification. Record unknown cases separately."
+    },
+    {
+      "location": "source-probe-field-final12.py volume material skip",
+      "finding": "Any volume material currently exempts the entire object from clearance, potentially skipping a surface on a mixed material object.",
+      "required": "Prove all skipped instances are dedicated volume bounding objects or classify actual hit-face surface/volume material before exemption."
+    }
+  ],
+  "limits": [
+    "26 rays are a bounded clearance diagnostic, not a signed-distance or full sphere-intersection proof",
+    "One 64-sample field is not certification of actor lighting, source multi-probe convergence, Unity SH fit, or full-scene visual fidelity"
+  ]
+}

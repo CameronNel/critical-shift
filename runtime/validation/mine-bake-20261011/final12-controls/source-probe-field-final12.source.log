@@ -1,0 +1,31 @@
+00:00.616  blend            | Read blend: "/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/combined-runtime-source.blend"
+00:00.933  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/exteriors/refinery/exterior-R01.blend', '//map/sections/facility-assembly/exteriors/refinery/exterior-R01.blend', parent '<direct>'
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)
+00:00.960  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/exteriors/medical-reanimation/exterior-R04.blend', '//map/sections/facility-assembly/exteriors/medical-reanimation/exterior-R04.blend', parent '<direct>'
+00:00.979  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/exteriors/spawn-room/exterior-R05.blend', '//map/sections/facility-assembly/exteriors/spawn-room/exterior-R05.blend', parent '<direct>'
+00:01.016  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/front-end-area/front_end_area.blend', '//map/sections/facility-assembly/sources/front-end-area/front_end_area.blend', parent '<direct>'
+00:01.679  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/fuel-corridor/production/checkpoints/fuel_full_F23ci.blend', '//map/sections/fuel-corridor/production/checkpoints/fuel_full_F23ci.blend', parent '<direct>'
+00:02.826  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/spawn-room/module.blend', '//map/sections/facility-assembly/sources/spawn-room/module.blend', parent '<direct>'
+00:03.804  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/refinery/module_overhaul_R1.blend', '//map/sections/facility-assembly/sources/refinery/module_overhaul_R1.blend', parent '<direct>'
+00:04.841  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/medical-reanimation/module_overhaul_R2.blend', '//map/sections/facility-assembly/sources/medical-reanimation/module_overhaul_R2.blend', parent '<direct>'
+00:05.954  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/mine-r39/module_r39_aaa.blend', '//map/sections/facility-assembly/sources/mine-r39/module_r39_aaa.blend', parent '<direct>'
+00:06.596  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/spawn-room/hero_suit.blend', '//hero_suit.blend', parent '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/spawn-room/module.blend'
+/tmp/cs-mine-source-probe-field-final12.py:10: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  if not material.use_nodes:continue
+/tmp/cs-mine-source-probe-field-final12.py:40: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  material=bpy.data.materials.new('Diagnostic white Lambert receiver');material.use_nodes=True;nt=material.node_tree;nt.nodes.clear();diffuse=nt.nodes.new('ShaderNodeBsdfDiffuse');diffuse.inputs['Color'].default_value=(1,1,1,1);diffuse.inputs['Roughness'].default_value=0;output=nt.nodes.new('ShaderNodeOutputMaterial');nt.links.new(diffuse.outputs[0],output.inputs['Surface']);probe.data.materials.append(material)
+CS_SOURCE_PROBE_FIELD_START SourceProbeAllIndirect
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SOURCE_PROBE_FIELD_DONE SourceProbeAllIndirect
+CS_SOURCE_PROBE_FIELD_START SourceProbeNonExplicitDirect
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SOURCE_PROBE_FIELD_DONE SourceProbeNonExplicitDirect
+CS_SOURCE_PROBE_FIELD_START SourceProbeValidTexels
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SOURCE_PROBE_FIELD_DONE SourceProbeValidTexels
+CS_SOURCE_PROBE_FIELD_START SourceProbeActualWorldNormals
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SOURCE_PROBE_FIELD_DONE SourceProbeActualWorldNormals
+CS_SOURCE_SINGLE_PROBE_FIELD_READY_FOR_BOUNDED_VALIDATION
+
+Blender quit

@@ -1,0 +1,179 @@
+{
+  "status": "Independentmechanism rejection; no fullscene/actor score",
+  "all27HDRFinite": true,
+  "allDeliveredHashesMatched": true,
+  "analyticalLambertReferenceROI": 0.11368069919012723,
+  "referenceRelativeErrorMax": 2.7737397636506955e-06,
+  "cases": [
+    {
+      "case": "Mixed1",
+      "means": {
+        "actor-zeroSH-moving-blocker": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "static-moving-blocker": [
+          0.0,
+          8.516013139114875e-08,
+          8.516013139114875e-08
+        ],
+        "actor-BlendProbes-off": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "actor-BlendProbes-on": [
+          0.05684050622221548,
+          0.05684050622221548,
+          0.05684050622221548
+        ],
+        "actor-zeroSH-off": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "actor-zeroSH-on": [
+          0.11368101244443096,
+          0.11368101244443096,
+          0.11368101244443096
+        ],
+        "post-bake-off": [
+          0.0,
+          8.516013139114875e-08,
+          8.516013139114875e-08
+        ],
+        "post-bake-on": [
+          0.11368101241532713,
+          0.1136810943717137,
+          0.1136810943717137
+        ],
+        "realtime-reference": [
+          0.11368101241532713,
+          0.11368101241532713,
+          0.11368101241532713
+        ]
+      },
+      "actualBakingOutputs": [
+        "probeOcclusionLightIndex=0;occlusionMaskChannel=0;lightmapBakeType=Mixed;mixedLightingMode=Shadowmask;isBaked=True"
+      ],
+      "probeCoefficientMaxAbs": 0.0
+    },
+    {
+      "case": "Mixed6Overlap",
+      "means": {
+        "actor-zeroSH-moving-blocker": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "static-moving-blocker": [
+          0.0378056819899939,
+          0.03780794361955486,
+          0.03781422507017851
+        ],
+        "actor-BlendProbes-off": [
+          0.012991595081984997,
+          0.012991595081984997,
+          0.012991595081984997
+        ],
+        "actor-BlendProbes-on": [
+          0.05088526690087747,
+          0.05088526690087747,
+          0.05088526690087747
+        ],
+        "actor-zeroSH-off": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "actor-zeroSH-on": [
+          0.07578734276467003,
+          0.07578734276467003,
+          0.07578734276467003
+        ],
+        "post-bake-off": [
+          0.0378056819899939,
+          0.03780794361955486,
+          0.03781422507017851
+        ],
+        "post-bake-on": [
+          0.11359302530763671,
+          0.11359528690809384,
+          0.11360156841692515
+        ],
+        "realtime-reference": [
+          0.11368101451080292,
+          0.11368101451080292,
+          0.11368101451080292
+        ]
+      },
+      "actualBakingOutputs": [
+        "probeOcclusionLightIndex=3;occlusionMaskChannel=3;lightmapBakeType=Mixed;mixedLightingMode=Shadowmask;isBaked=True",
+        "probeOcclusionLightIndex=5;occlusionMaskChannel=-1;lightmapBakeType=Baked;mixedLightingMode=Shadowmask;isBaked=True",
+        "probeOcclusionLightIndex=1;occlusionMaskChannel=1;lightmapBakeType=Mixed;mixedLightingMode=Shadowmask;isBaked=True",
+        "probeOcclusionLightIndex=0;occlusionMaskChannel=0;lightmapBakeType=Mixed;mixedLightingMode=Shadowmask;isBaked=True",
+        "probeOcclusionLightIndex=4;occlusionMaskChannel=-1;lightmapBakeType=Baked;mixedLightingMode=Shadowmask;isBaked=True",
+        "probeOcclusionLightIndex=2;occlusionMaskChannel=2;lightmapBakeType=Mixed;mixedLightingMode=Shadowmask;isBaked=True"
+      ],
+      "probeCoefficientMaxAbs": 0.03427990525960922
+    },
+    {
+      "case": "Baked1",
+      "means": {
+        "actor-zeroSH-moving-blocker": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "static-moving-blocker": [
+          0.11340984789421782,
+          0.11342109701945446,
+          0.1134433937841095
+        ],
+        "actor-BlendProbes-off": [
+          0.03897472098469734,
+          0.03897472098469734,
+          0.03897472098469734
+        ],
+        "actor-BlendProbes-on": [
+          0.03897472098469734,
+          0.03897472098469734,
+          0.03897472098469734
+        ],
+        "actor-zeroSH-off": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "actor-zeroSH-on": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "post-bake-off": [
+          0.11340984789421782,
+          0.11342109701945446,
+          0.1134433937841095
+        ],
+        "post-bake-on": [
+          0.11340984789421782,
+          0.11342109701945446,
+          0.1134433937841095
+        ],
+        "realtime-reference": [
+          0.11368101241532713,
+          0.11368101241532713,
+          0.11368101241532713
+        ]
+      },
+      "actualBakingOutputs": [
+        "probeOcclusionLightIndex=0;occlusionMaskChannel=-1;lightmapBakeType=Baked;mixedLightingMode=Shadowmask;isBaked=True"
+      ],
+      "probeCoefficientMaxAbs": 0.10283974558115005
+    }
+  ],
+  "mixed1BlendHalfInterpretation": "SHcoefficientszero and exact.5 direct indicates bakedprobeocclusion, not diffuseGI error. Eightprobes straddlethebakedplane; queryactualocclusionvectors before callingthis fullyproven.",
+  "mixed6Interpretation": "FouractualMixed channels plus twoactualBaked fallback. StaticstoredDirect1/3 persists afteroff/blocker; dynamiczeroSH only4/6 realtimeDirect. Fallback directalso storedinprobeSH despitebounce0.",
+  "naiveAll63Mixed": "Rejected underShadowmask; source-range/nearGI/probe/dynamicshadow/performance unresolved."
+}

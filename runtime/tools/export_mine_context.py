@@ -46,6 +46,7 @@ def clone(o):
     mesh=bpy.data.meshes.new_from_object(o.evaluated_get(dg),preserve_all_data_layers=True,depsgraph=dg) if o.type in {'MESH','CURVE','FONT'} else None
     n=bpy.data.objects.new('CS_front-end-area_'+o.name,mesh);scene.collection.objects.link(n)
     n.parent=parent;n.matrix_basis=o.matrix_parent_inverse@o.matrix_basis if o.parent in members else matrix(o)
+    n.visible_shadow=o.visible_shadow
     made[o]=n
     return n
 selected=[]
@@ -58,7 +59,12 @@ for o in members:
     if max(v.x for v in bounds)<-116 or min(v.x for v in bounds)>-23 or max(v.y for v in bounds)<-99 or min(v.y for v in bounds)>-44:continue
     n=clone(o)
     if not n.data or not n.data.polygons:continue
-    selected.append(n);mappings.append(dict(old[o.name]))
+    selected.append(n)
+    binding=dict(old[o.name])
+    # The front-end manifest can predate this visibility contract. Read the
+    # current linked source rather than preserving a missing/default flag.
+    binding['sourceShadowExcluded']=not o.visible_shadow
+    mappings.append(binding)
 frames={n.object for o in selected for m in o.data.materials if m and m.use_nodes for n in m.node_tree.nodes if n.type=='TEX_COORD' and n.object}
 keep={root,*made.values(),*frames}
 for f in list(frames):

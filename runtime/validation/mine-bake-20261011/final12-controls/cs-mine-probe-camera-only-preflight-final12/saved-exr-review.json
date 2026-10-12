@@ -1,0 +1,29 @@
+{
+  "status": "PassedSavedEXRKnownWorldCameraOnlyReceiver",
+  "validTexels": 2048,
+  "cases": [
+    {
+      "name": "visible.exr",
+      "savedRGBMean": [
+        0.24991798400878906,
+        0.4998359680175781,
+        0.7497539520263672
+      ],
+      "sha256": "fa57b58a65b9bdfc686ccc2d2907e6ac0de2c2a4704ad12a0d40413bcf41bd84"
+    },
+    {
+      "name": "hidden-ray-receiver.exr",
+      "savedRGBMean": [
+        0.24991798400878906,
+        0.4998359680175781,
+        0.7497539520263672
+      ],
+      "sha256": "fa57b58a65b9bdfc686ccc2d2907e6ac0de2c2a4704ad12a0d40413bcf41bd84"
+    }
+  ],
+  "savedHiddenVsVisibleMaxAbs": 0.0,
+  "limits": [
+    "Camera-visible only for bake admission; no camera image taken in virtual probe scene.",
+    "No Source field or actors certified."
+  ]
+}

@@ -1,0 +1,368 @@
+{
+  "scope": "26 documented sourcegeometry rays; radiusclearance and conservativeclosedfirsthit test only, notfullsigned-distance proof. Backfacingopen-source surfacesare recordedwithoutinferringinside-solid.",
+  "radius": 0.01,
+  "rays": [
+    {
+      "direction": [
+        -0.5773502588272095,
+        -0.5773502588272095,
+        -0.5773502588272095
+      ],
+      "skipped": [
+        "R39 | Shed haze"
+      ],
+      "hit": true,
+      "object": "R39 | Shed floor joists",
+      "distance": 1.9745336078479694,
+      "normalDotRay": -0.5773502588272095
+    },
+    {
+      "direction": [
+        -0.7071067690849304,
+        -0.7071067690849304,
+        0.0
+      ],
+      "skipped": [
+        "R39 | Shed haze"
+      ],
+      "hit": true,
+      "object": "cliff_face",
+      "distance": 10.742380680081173,
+      "normalDotRay": 0.6683973409235477,
+      "watertightEdgeTopology": false,
+      "boundaryEdges": 470,
+      "nonManifoldEdges": 0
+    },
+    {
+      "direction": [
+        -0.5773502588272095,
+        -0.5773502588272095,
+        0.5773502588272095
+      ],
+      "skipped": [
+        "R39 | Shed haze"
+      ],
+      "hit": true,
+      "object": "cliff_face",
+      "distance": 16.542496718841175,
+      "normalDotRay": 0.61353550106287,
+      "watertightEdgeTopology": false,
+      "boundaryEdges": 470,
+      "nonManifoldEdges": 0
+    },
+    {
+      "direction": [
+        -0.7071067690849304,
+        0.0,
+        -0.7071067690849304
+      ],
+      "skipped": [
+        "R39 | Shed haze"
+      ],
+      "hit": true,
+      "object": "R39 | Sleepers",
+      "distance": 1.646587364079997,
+      "normalDotRay": -0.6938552940264344
+    },
+    {
+      "direction": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "skipped": [],
+      "hit": true,
+      "object": "R39 | Ore carts ironwork",
+      "distance": 1.4191284481568833,
+      "normalDotRay": -0.9734127521514893
+    },
+    {
+      "direction": [
+        -0.7071067690849304,
+        0.0,
+        0.7071067690849304
+      ],
+      "skipped": [
+        "R39 | Shed haze"
+      ],
+      "hit": true,
+      "object": "R39 | Shed frame",
+      "distance": 6.5619535672801454,
+      "normalDotRay": -0.7071067690849304
+    },
+    {
+      "direction": [
+        -0.5773502588272095,
+        0.5773502588272095,
+        -0.5773502588272095
+      ],
+      "skipped": [
+        "R39 | Shed haze"
+      ],
+      "hit": true,
+      "object": "R39 | Shed floor joists",
+      "distance": 1.9745336078479694,
+      "normalDotRay": -0.5773502588272095
+    },
+    {
+      "direction": [
+        -0.7071067690849304,
+        0.7071067690849304,
+        0.0
+      ],
+      "skipped": [
+        "R39 | Shed haze"
+      ],
+      "hit": true,
+      "object": "cliff_face",
+      "distance": 10.600958698032118,
+      "normalDotRay": 0.8044872283935547,
+      "watertightEdgeTopology": false,
+      "boundaryEdges": 470,
+      "nonManifoldEdges": 0
+    },
+    {
+      "direction": [
+        -0.5773502588272095,
+        0.5773502588272095,
+        0.5773502588272095
+      ],
+      "skipped": [
+        "R39 | Shed haze"
+      ],
+      "hit": true,
+      "object": "R39 | Shed frame",
+      "distance": 6.753546242415884,
+      "normalDotRay": -0.6776179596781731
+    },
+    {
+      "direction": [
+        0.0,
+        -0.7071067690849304,
+        -0.7071067690849304
+      ],
+      "skipped": [
+        "R39 | Shed haze"
+      ],
+      "hit": true,
+      "object": "R39 | Shed floor joists",
+      "distance": 1.6122050170774944,
+      "normalDotRay": -0.7071067690849304
+    },
+    {
+      "direction": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "skipped": [
+        "R39 | Shed haze"
+      ],
+      "hit": true,
+      "object": "R39 | Shed boards",
+      "distance": 7.847496080449229,
+      "normalDotRay": -1.0
+    },
+    {
+      "direction": [
+        0.0,
+        -0.7071067690849304,
+        0.7071067690849304
+      ],
+      "skipped": [
+        "R39 | Shed haze"
+      ],
+      "hit": true,
+      "object": "R39 | Shed boards",
+      "distance": 5.9524236150756735,
+      "normalDotRay": -0.8299090266227722
+    },
+    {
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "skipped": [
+        "R39 | Shed haze"
+      ],
+      "hit": true,
+      "object": "R39 | Sleepers",
+      "distance": 1.101339709971982,
+      "normalDotRay": -0.9998005628585815
+    },
+    {
+      "direction": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "skipped": [
+        "R39 | Shed haze"
+      ],
+      "hit": true,
+      "object": "R39 | Shed boards",
+      "distance": 5.0457295632605526,
+      "normalDotRay": -0.894428014755249
+    },
+    {
+      "direction": [
+        0.0,
+        0.7071067690849304,
+        -0.7071067690849304
+      ],
+      "skipped": [
+        "R39 | Shed haze"
+      ],
+      "hit": true,
+      "object": "R39 | Shed floor joists",
+      "distance": 1.6122050170774944,
+      "normalDotRay": -0.7071067690849304
+    },
+    {
+      "direction": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "skipped": [
+        "R39 | Shed haze"
+      ],
+      "hit": false
+    },
+    {
+      "direction": [
+        0.0,
+        0.7071067690849304,
+        0.7071067690849304
+      ],
+      "skipped": [
+        "R39 | Shed haze"
+      ],
+      "hit": true,
+      "object": "R39 | Shed boards",
+      "distance": 5.873793295444802,
+      "normalDotRay": -0.8299090713262558
+    },
+    {
+      "direction": [
+        0.5773502588272095,
+        -0.5773502588272095,
+        -0.5773502588272095
+      ],
+      "skipped": [
+        "R39 | Shed haze"
+      ],
+      "hit": true,
+      "object": "R39 | Shed floor joists",
+      "distance": 1.9745335474745773,
+      "normalDotRay": -0.5773502588272095
+    },
+    {
+      "direction": [
+        0.7071067690849304,
+        -0.7071067690849304,
+        0.0
+      ],
+      "skipped": [
+        "R39 | Shed haze"
+      ],
+      "hit": true,
+      "object": "forklift_1",
+      "distance": 13.944147962142997,
+      "normalDotRay": -0.18275622224657084
+    },
+    {
+      "direction": [
+        0.5773502588272095,
+        -0.5773502588272095,
+        0.5773502588272095
+      ],
+      "skipped": [
+        "R39 | Shed haze"
+      ],
+      "hit": false
+    },
+    {
+      "direction": [
+        0.7071067690849304,
+        0.0,
+        -0.7071067690849304
+      ],
+      "skipped": [
+        "R39 | Shed haze"
+      ],
+      "hit": true,
+      "object": "R39 | Sleepers",
+      "distance": 1.657875271255067,
+      "normalDotRay": -0.7198073361068964
+    },
+    {
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "skipped": [
+        "R39 | Shed haze"
+      ],
+      "hit": false
+    },
+    {
+      "direction": [
+        0.7071067690849304,
+        0.0,
+        0.7071067690849304
+      ],
+      "skipped": [
+        "R39 | Shed haze"
+      ],
+      "hit": true,
+      "object": "R39 | Shed boards",
+      "distance": 4.103754878161782,
+      "normalDotRay": -0.8585707396268845
+    },
+    {
+      "direction": [
+        0.5773502588272095,
+        0.5773502588272095,
+        -0.5773502588272095
+      ],
+      "skipped": [
+        "R39 | Shed haze"
+      ],
+      "hit": true,
+      "object": "R39 | Shed floor joists",
+      "distance": 1.9745335474745773,
+      "normalDotRay": -0.5773502588272095
+    },
+    {
+      "direction": [
+        0.7071067690849304,
+        0.7071067690849304,
+        0.0
+      ],
+      "skipped": [
+        "R39 | Shed haze"
+      ],
+      "hit": true,
+      "object": "ore_bay_2",
+      "distance": 8.906714711697372,
+      "normalDotRay": -0.7071068309021697
+    },
+    {
+      "direction": [
+        0.5773502588272095,
+        0.5773502588272095,
+        0.5773502588272095
+      ],
+      "skipped": [
+        "R39 | Shed haze"
+      ],
+      "hit": true,
+      "object": "R39 | Shed boards",
+      "distance": 5.026053926390353,
+      "normalDotRay": -0.7010202576278601
+    }
+  ]
+}

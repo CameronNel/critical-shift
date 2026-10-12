@@ -1,0 +1,53 @@
+{
+  "status": "MeasuredBasisVerified_FittedActorFieldRejected",
+  "basisRawCaptureCount": 286,
+  "allBasisRGBFinite": true,
+  "rawCaptureCpuMaxError": 1.8543667268389186e-07,
+  "neutralRGBMaxDifference": 0,
+  "sourceFieldHashesMatched": true,
+  "validAllRGBMaskTexels": 2048,
+  "sourceNormalMinMaxLength": [
+    0.9993335720309178,
+    0.9998226805616287
+  ],
+  "independentlyUsingActualUnityPolynomialOrder": true,
+  "coefficientsMaxDifferenceVsParentFit": 3.1216938686795537e-09,
+  "weightedFieldMeanRGB": [
+    0.023147510842616667,
+    0.0146712996825202,
+    0.006408340203749391
+  ],
+  "weightedRmsRGB": [
+    0.04236416707541759,
+    0.02120920025350821,
+    0.008377442819227353
+  ],
+  "relativeWeightedRmsRGB": [
+    1.8301824055060518,
+    1.4456251806223717,
+    1.3072718602432936
+  ],
+  "fieldRGB99_100Percentiles": [
+    [
+      0.27343236308544866,
+      0.13782622799597447,
+      0.04659137159134831
+    ],
+    [
+      0.497005308046937,
+      0.20499374717473984,
+      0.08468478359282017
+    ]
+  ],
+  "negativeWeightedFractionRGB": [
+    0.020115784694190366,
+    0.010449779521759855,
+    0.019417906350174284
+  ],
+  "limits": [
+    "RawUnity coefficient0=1 produces response1; generic normalized SH scaling is inappropriate for this actual coefficient API",
+    "64-sample onepoint field cannot distinguish Monte Carlo error from L2 truncation without independent-seed converged reference",
+    "26-rays old whole-mesh topology/volume exemption limitations remain; no actor-field adoption",
+    "No fitted-field neutral GPU validation, full216field, fullscene visual or Player clearance"
+  ]
+}

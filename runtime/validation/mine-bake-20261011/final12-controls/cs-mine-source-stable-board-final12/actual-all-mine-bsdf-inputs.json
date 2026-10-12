@@ -1,0 +1,2252 @@
+[
+  {
+    "material": "R39 | Rail steel",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": true,
+            "default": 0.5
+          },
+          "Metallic": {
+            "linked": true,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "R39 | Dusty cobweb",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": false,
+            "default": 0.949999988079071
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "R38 | Toon tattered canvas",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": false,
+            "default": 0.949999988079071
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "R39 | Cart timber",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": true,
+            "default": 0.5
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "GF | Shaded Cliff Foot",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": false,
+            "default": 0.8999999761581421
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "R38 | Lantern glow",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": false,
+            "default": 0.30000001192092896
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "Pick | charcoal forged iron",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": false,
+            "default": 0.49000000953674316
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.800000011920929
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "R38 | Painted wooden_crate_02",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": true,
+            "default": 0.800000011920929
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "R39 | Rotten timber",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": true,
+            "default": 0.5
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "GF | Silvered Structural Timber",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": true,
+            "default": 0.5
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "R40 | Talus limestone",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": false,
+            "default": 0.8600000143051147
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "MEX | Ivory Letter Paint",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": false,
+            "default": 0.8199999928474426
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "GF | Traffic Polished Boards",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": true,
+            "default": 0.5
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "R38 | Painted wooden_axe",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": true,
+            "default": 0.800000011920929
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "Pick | warm forging patina",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": false,
+            "default": 0.6899999976158142
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.47999998927116394
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "R38 | Toon blackened iron",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": true,
+            "default": 0.5
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "R39 | Hemp rope",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": false,
+            "default": 0.8999999761581421
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "R39 | Porcelain insulator",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": false,
+            "default": 0.3499999940395355
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "GF | Dark Entrance Backboard",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": true,
+            "default": 0.5
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "R38 | Painted namaqualand_boulder_05",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": true,
+            "default": 0.800000011920929
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "R39 | Ore crystal",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": false,
+            "default": 0.18000000715255737
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "GF | Ground Contact 0",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": true,
+            "default": 0.5
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "R39 | Puddle water",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": false,
+            "default": 0.3799999952316284
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "R39 | Faded white paint",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": false,
+            "default": 0.949999988079071
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "R39 | Tunnel dirt",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": true,
+            "default": 0.5
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "R39 | Riveted duct iron",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": true,
+            "default": 0.5
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.11999999731779099
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "R39 | Burlap",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": false,
+            "default": 0.949999988079071
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "R38 | Painted picke_dirty_01",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": true,
+            "default": 0.800000011920929
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "Pick | cut end grain",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": false,
+            "default": 0.75
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "R39 | Corroded pipe iron",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": true,
+            "default": 0.5
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.11999999731779099
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "Pick | dark hardwood wedge",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": false,
+            "default": 0.7699999809265137
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "R39 | Rusted iron",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": true,
+            "default": 0.5
+          },
+          "Metallic": {
+            "linked": true,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "R38 | Bone socket",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": false,
+            "default": 0.8999999761581421
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "R40 | Talus slate",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": false,
+            "default": 0.8600000143051147
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "R38 | Painted wooden_bucket_01",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": true,
+            "default": 0.800000011920929
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "R39 | Shed haze",
+    "closures": []
+  },
+  {
+    "material": "R39 | Faded red paint",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": false,
+            "default": 0.949999988079071
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "R38 | Toon rusty roof",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": true,
+            "default": 0.699999988079071
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "R38 | Painted boulder_01",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": true,
+            "default": 0.800000011920929
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "CY | Charcoal ballast",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": false,
+            "default": 0.9399999976158142
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "R38 | Painted sledgehammer_01",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": true,
+            "default": 0.800000011920929
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "R39 | Candle flame",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": false,
+            "default": 0.5
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "R39 | Stained canvas",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": false,
+            "default": 0.949999988079071
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "GF | Ground Contact 1",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": true,
+            "default": 0.5
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "R38 | Painted vintage_oil_lamp",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": true,
+            "default": 0.800000011920929
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "Pick | warm seasoned hardwood",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": false,
+            "default": 0.6600000262260437
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "R38 | Painted wooden_crate_01",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": true,
+            "default": 0.800000011920929
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "R39 | Rotten boards",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": true,
+            "default": 0.5
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "R39 | Yard gravel",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": false,
+            "default": 0.8600000143051147
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "GF | Shadowed Wall Boards",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": true,
+            "default": 0.5
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "R39 | Faded rug",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": false,
+            "default": 0.9700000286102295
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "Pick | burnished working steel",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": false,
+            "default": 0.3400000035762787
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.8799999952316284
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "R38 | Painted wine_barrel_01",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": true,
+            "default": 0.800000011920929
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "R39 | Creosote sleepers",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": true,
+            "default": 0.5
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "R38 | Tunnel haze",
+    "closures": []
+  },
+  {
+    "material": "R38 | Painted boulder_02",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": true,
+            "default": 0.800000011920929
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "R39 | Old bone",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": false,
+            "default": 0.8600000143051147
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "R41 | Cliff rock, soil and grass",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": false,
+            "default": 0.8999999761581421
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "R39 | Oxidised wire",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": false,
+            "default": 0.5
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.5
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "R39 | Candle wax",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": false,
+            "default": 0.6000000238418579
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "material": "R39 | Painted slate stones",
+    "closures": [
+      {
+        "closure": "BSDF_PRINCIPLED",
+        "inputs": {
+          "Diffuse Roughness": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Roughness": {
+            "linked": false,
+            "default": 0.8600000143051147
+          },
+          "Metallic": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Subsurface Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Sheen Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Coat Weight": {
+            "linked": false,
+            "default": 0.0
+          },
+          "Transmission Weight": {
+            "linked": false,
+            "default": 0.0
+          }
+        }
+      }
+    ]
+  }
+]

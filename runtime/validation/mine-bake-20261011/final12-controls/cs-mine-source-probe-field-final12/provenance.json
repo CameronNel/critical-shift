@@ -1,0 +1,39 @@
+{
+  "status": "SingleVirtualProbeBakeOnly",
+  "sourceSha256": "255fe337aacd602e81bd2940be7bf2a1da2541954f6c8446c8a06f5aae413b72",
+  "worldCentreBlenderXYZ": [
+    -41.400001525878906,
+    -70.0,
+    1.2000000476837158
+  ],
+  "radiusMetres": 0.01,
+  "size": [
+    64,
+    32
+  ],
+  "samples": 64,
+  "receiver": "White Lambert diffuse roughness0",
+  "receiverDiffuseColourRemoved": true,
+  "quantity": "White Lambert outgoing diffuse radiance E/pi, not incident radiance or irradiance E",
+  "helperSha256": "4b9bb538844a8c84ed1b7d0c01d5612b8a6d4650526421a5f745cea488b7b01e",
+  "receiverHiddenFromShadowDiffuseGlossyTransmissionRays": true,
+  "receiverCameraVisibleForCyclesBakeAdmission": true,
+  "noBeautyCameraRenderedInVirtualProbeScene": true,
+  "allIndirectIncludesOriginalExplicitLights": true,
+  "nonExplicitDirectDisablesOriginal66LightsOnlyDuringDirectBake": true,
+  "volumesDisabledInMemory": [
+    "R38 | Tunnel haze",
+    "R39 | Shed haze"
+  ],
+  "canonicalSourceSaved": false,
+  "nativeValidation": "Pending SH fit, GPU/CPU basis check and actual static/dynamic neutral receivers; no fullprobe/actor acceptance",
+  "files": {
+    "SourceProbeAllIndirect.exr": "f411f105bd2a55cf7caf07f9a9d240b72e5e824c7b9e8c8c383ebd8d3a846d64",
+    "SourceProbeNonExplicitDirect.exr": "57ba91df1f15e9eb5636381519bff658d2966658f455644ac250bc692c3de6ad",
+    "SourceProbeValidTexels.exr": "f684b59e8a2949cf67cb2e84fce6ce96d9ce760cd264c614781f61f473f3f4a3",
+    "SourceProbeActualWorldNormals.exr": "7d123302219d24f08426188aa3b08e47030a359fd48cc4f14ee33cabb0c63cd7",
+    "disabled-lights.json": "64ae6196c2b48e56c45295f1dd1225e229ef18f4fff74d42e1439d8ad8cdcdd4",
+    "restored-lights.json": "2edb2c5a4ef41e615257bbec4528594cc9b2c4dec548db009a2a2760e6d6a6fb",
+    "source-clearance.json": "ebc36834a0e7dbbd7d8a00e0649c4f1f775ec47b9daf0e19e27f527bc304b678"
+  }
+}

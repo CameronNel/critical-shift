@@ -1,0 +1,103 @@
+{
+  "status": "BoundedL2FitOnly",
+  "quantity": "White Lambert outgoing E/pi fitted to actual signedUnityCPUbasis verifiedagainstactualsourceShaderGPU",
+  "sourceProbeWorldBlenderXYZ": [
+    -41.400001525878906,
+    -70.0,
+    1.2000000476837158
+  ],
+  "validTexels": 2048,
+  "coefficientsRGBByNativeIndex": [
+    [
+      0.023162600603833586,
+      0.0027996670213922196,
+      -0.0044083344797344465,
+      -0.030075111108608353,
+      -0.006643289427756474,
+      -0.0014663032254678488,
+      0.0010757475450308119,
+      -0.00012503844530720068,
+      0.010215281822077918
+    ],
+    [
+      0.01468085126604071,
+      0.001535335297380817,
+      -0.002315214072495871,
+      -0.019163484428833533,
+      -0.004256107785746263,
+      -0.0007357035032086501,
+      0.00023503314949510634,
+      0.00030501825620664563,
+      0.006720702976231886
+    ],
+    [
+      0.006411916352375555,
+      0.0009935190279555907,
+      -0.0008803730419944637,
+      -0.008991669612681193,
+      -0.0023307819320871168,
+      -0.0002522959927189629,
+      -0.00018415939438760359,
+      0.0005125181476979786,
+      0.0032113160733237434
+    ]
+  ],
+  "quadrature": "Lat-long sin(theta) from measured sourceWorldnormal elevation, not equalUVtexelweights",
+  "extraPiConversion": false,
+  "extraCosineConvolution": false,
+  "basisCalibrationConditionNumber": 3.710081784307806,
+  "weightedFieldFitConditionNumber": 3.877417942537688,
+  "weightedClampedRmsRGB": [
+    0.0423633804043651,
+    0.021209004347788774,
+    0.008377234325320828
+  ],
+  "weightedNegativeFractionRGB": [
+    0.02011578530073166,
+    0.010449781082570553,
+    0.019417906180024147
+  ],
+  "basisCalibrationMaxResidual": 1.9209771695560818e-07,
+  "weightedFieldMeanRGB": [
+    0.02314753457903862,
+    0.014671270735561848,
+    0.00640833517536521
+  ],
+  "weightedRmsRGB": [
+    0.04236416819797945,
+    0.021209200620479096,
+    0.008377442997027458
+  ],
+  "relativeWeightedRmsRGB": [
+    1.8301805772586495,
+    1.4456280579070695,
+    1.3072729137564234
+  ],
+  "signedFitNegativeFractionRGB": [
+    0.01611328125,
+    0.0087890625,
+    0.01611328125
+  ],
+  "clampedFitMeanAbsErrorRGB": [
+    0.018570757975173952,
+    0.010145367626499986,
+    0.0043064227225138255
+  ],
+  "heldoutEveryOtherTexelMeanAbsErrorRGB": [
+    0.018839946567829172,
+    0.010325905453294999,
+    0.004376238948472942
+  ],
+  "limits": [
+    "onevirtualpoint",
+    "alternatetexelholdout isnearby angularinterpolation, notindependent MonteCarlovalidation",
+    "L2truncation and sourceMonteCarlovariance aremeasured, notexactSourceprobeclaim",
+    "actualneutralSource/nativeGPUreceiver at fittedfield notyettested",
+    "othernativeSH/ambient mustbereplaced, notadded",
+    "nofull216probes, actor ormapacceptance"
+  ],
+  "inputs": {
+    "/tmp/cs-mine-source-probe-field-final12/provenance.json": "a8437e326d02dda7378d7429f2ea2e0a14f5c4831c910f36a310df48968a980d",
+    "/tmp/cs-mine-sh-basis-measured-final12/basis.json": "c5259f10ad5de7ca43a0080ddeaa0b646281f265a4941e52da0bf7800280a11d"
+  }
+}

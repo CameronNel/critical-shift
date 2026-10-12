@@ -69,18 +69,18 @@ namespace CriticalShift.Player.Editor
                 runtimeIntensities=mine.GetComponentsInChildren<Light>().Where(l=>l.type==LightType.Point)
                     .ToDictionary(l=>l,l=>l.intensity);
                 var ids=new HashSet<EntityId>(runtimeIntensities.Keys.Select(l=>l.GetEntityId()));
-                // Diagnostic baseline only. The pinned Progressive CPU Soft
-                // inverse-square control receives shapeRadius but still differs
-                // from Cycles near the emitter. Preserve existing legacy GI until
-                // a source-radiance transfer passes independent visual review.
-                foreach(var pair in runtimeIntensities) pair.Key.intensity=pair.Value*(4*Mathf.PI*Mathf.PI)/100;
+                // Keep the independently measured physical intensity for baked
+                // direct light and bounce as well as Forward lighting. Legacy
+                // range-normalized falloff makes distant surfaces too bright.
+                // The pinned Soft baker receives the authored radius but still
+                // differs from Cycles near emitters; this is not an exact bake.
                 GiMapping.SetDelegate((requests,output)=>
                 {
                     previous(requests,output);
                     for(int index=0;index<requests.Length;index++)
                         if(ids.Contains(requests[index].GetEntityId()))
                         {
-                            var data=output[index];data.falloff=GiFalloff.Legacy;output[index]=data;
+                            var data=output[index];data.falloff=GiFalloff.InverseSquaredNoRangeAttenuation;output[index]=data;
                         }
                 });
             }

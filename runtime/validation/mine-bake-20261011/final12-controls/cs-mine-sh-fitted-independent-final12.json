@@ -1,0 +1,14 @@
+{
+  "status": "FittedSHNativeCoefficientAlbedoResponseVerifiedOnly",
+  "all78HDRFinite": true,
+  "deliveredHashesMatched": true,
+  "coefficientInputsExactlyMatchRejectedSourceL2Fit": true,
+  "actualUnityPolynomialOrderUsed": true,
+  "independentRawCaptureMaxAbsError": 2.2242671428654437e-09,
+  "sourceFieldAdoption": "Rejected; relativeWeightedRMS1.83/1.45/1.31 persists",
+  "limits": [
+    "Only verifies native coefficient packing, clamping and neutral albedo response",
+    "Does not validate source L2 truncation/64sample variance, actorfield, interpolation or source/native moving actors",
+    "No overallscore or visualacceptance"
+  ]
+}

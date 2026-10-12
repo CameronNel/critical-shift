@@ -1,0 +1,36 @@
+{
+  "status": "PhysicalScopeNativeMechanismCleared_InventoryHardeningRequested",
+  "scope": "Read-only production Scope proof and point bake inventory review, full13 visuals pending",
+  "inputs": {
+    "/tmp/cs-mine-production-scope-final13.json": "0bb65254974d7b4d75e435e1b940eb399eb7054252d620cdc9af702561072ec0",
+    "/tmp/cs-mine-production-scope-final13.cs.txt": "150e0e3222abd79f37d9852a21df5e61c82a3219d3cfe4b7d5e3791e2ebda1a6",
+    "/workspace/critical-shift-spawn-runtime/runtime/out/mine-bake-audit/cs-mine-production-scope-final13.native.log": "4fa0846c157dd9436b6661b522946fc1198b6b5df9b54ca7f44a8163797212f8",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/MinePointLighting.cs": "b66dbe1626d73b99ca16e9ee575d00a175842cee12bcdd0bae68c31a62bc2d48",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/MineVisualLighting.cs": "f35e24cb56ef934ec7f2c507b63274d6c7a5056a00bb9f357b0bba3ee41e333f"
+  },
+  "nativeScopeSuccessMarkerVerified": true,
+  "actualScopeChecks": [
+    "Physical intensity preserved in LightDataGI",
+    "Source Baked mode and Soft shadow shapeRadius preserved",
+    "Other-room sentinel Linear falloff unchanged",
+    "Corrupt marker regeneration",
+    "Intentional exception restores delegate and intensity"
+  ],
+  "inventoryCleared": [
+    "Separately reports configuredMixed/configuredBaked and actualMixed/actualBaked",
+    "Records all actual native bakingOutput channels/occlusion indices without claiming24 Mixed inspector lights allremainMixed"
+  ],
+  "inventoryRequestedGuard": [
+    "Configuredcounts24Mixed39Baked;actualmodecountsMixed+Baked=63 whileallowingfallback",
+    "Nonnegative intensity/radius",
+    "Unique native light names match canonical63sourcePOINT names"
+  ],
+  "remaining": [
+    "Fresh source13 complete recipe/provenance/context30flagguard",
+    "3native mine matched1440PNG/HDR/cameras",
+    "3spawnregression",
+    "Current18PlayMode",
+    "Independent visual clear then freshPlayer"
+  ],
+  "overallScore": null
+}

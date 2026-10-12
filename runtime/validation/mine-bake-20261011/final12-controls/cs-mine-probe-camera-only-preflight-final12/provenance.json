@@ -1,0 +1,69 @@
+{
+  "status": "PassedUniformWorldBakePreflightOnly",
+  "quantity": "White Lambert outgoing radiance E/pi equals constantWorldradiance",
+  "shader": "BSDF_DIFFUSE white roughness0",
+  "size": [
+    64,
+    32
+  ],
+  "samples": 64,
+  "canonicalSaved": false,
+  "receiverCameraVisibleForBakeAdmission": true,
+  "receiverTransportRayVisible": false,
+  "noBeautyCameraRender": true,
+  "helperSha256": "61e4ad41dce7cc0b6ffa3b7ba77799b804640ab07bfc19a26abec416f705a547",
+  "coverageMask": "RGB EMIT1, not alpha",
+  "coverageSha256": "f684b59e8a2949cf67cb2e84fce6ce96d9ce760cd264c614781f61f473f3f4a3",
+  "cases": [
+    {
+      "mode": "visible",
+      "validPixels": 2048,
+      "mean": [
+        0.24991798400878906,
+        0.4998359680175781,
+        0.7497539520263672
+      ],
+      "expected": [
+        0.25,
+        0.5,
+        0.75
+      ],
+      "meanAbsError": [
+        8.201621676562354e-05,
+        0.00016403243353124708,
+        0.0002460485848132521
+      ],
+      "sha256": "fa57b58a65b9bdfc686ccc2d2907e6ac0de2c2a4704ad12a0d40413bcf41bd84"
+    },
+    {
+      "mode": "hidden-ray-receiver",
+      "validPixels": 2048,
+      "mean": [
+        0.24991798400878906,
+        0.4998359680175781,
+        0.7497539520263672
+      ],
+      "expected": [
+        0.25,
+        0.5,
+        0.75
+      ],
+      "meanAbsError": [
+        8.201621676562354e-05,
+        0.00016403243353124708,
+        0.0002460485848132521
+      ],
+      "sha256": "fa57b58a65b9bdfc686ccc2d2907e6ac0de2c2a4704ad12a0d40413bcf41bd84"
+    }
+  ],
+  "hiddenVsVisibleMeanAbsDifference": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "hiddenVsVisibleMaxAbsDifference": [
+    0.0,
+    0.0,
+    0.0
+  ]
+}

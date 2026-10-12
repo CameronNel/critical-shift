@@ -1,0 +1,21 @@
+00:00.539  blend            | Read blend: "/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/combined-runtime-source.blend"
+00:00.762  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/exteriors/refinery/exterior-R01.blend', '//map/sections/facility-assembly/exteriors/refinery/exterior-R01.blend', parent '<direct>'
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)
+00:00.795  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/exteriors/medical-reanimation/exterior-R04.blend', '//map/sections/facility-assembly/exteriors/medical-reanimation/exterior-R04.blend', parent '<direct>'
+00:00.817  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/exteriors/spawn-room/exterior-R05.blend', '//map/sections/facility-assembly/exteriors/spawn-room/exterior-R05.blend', parent '<direct>'
+00:00.852  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/front-end-area/front_end_area.blend', '//map/sections/facility-assembly/sources/front-end-area/front_end_area.blend', parent '<direct>'
+00:01.470  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/fuel-corridor/production/checkpoints/fuel_full_F23ci.blend', '//map/sections/fuel-corridor/production/checkpoints/fuel_full_F23ci.blend', parent '<direct>'
+00:02.608  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/spawn-room/module.blend', '//map/sections/facility-assembly/sources/spawn-room/module.blend', parent '<direct>'
+00:03.425  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/refinery/module_overhaul_R1.blend', '//map/sections/facility-assembly/sources/refinery/module_overhaul_R1.blend', parent '<direct>'
+00:04.375  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/medical-reanimation/module_overhaul_R2.blend', '//map/sections/facility-assembly/sources/medical-reanimation/module_overhaul_R2.blend', parent '<direct>'
+00:05.421  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/mine-r39/module_r39_aaa.blend', '//map/sections/facility-assembly/sources/mine-r39/module_r39_aaa.blend', parent '<direct>'
+00:06.011  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/spawn-room/hero_suit.blend', '//hero_suit.blend', parent '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/spawn-room/module.blend'
+bounded-board-construction:13: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+CS_MINE_UV_PROXY DIAGNOSTIC_source_diffuse_chunk_0 36 to 34
+CS_SOURCE_DIFFUSE_CHUNK_DENSITIES [{'node': 'DIAGNOSTIC_source_diffuse_chunk_0', 'worldArea': 1.8724200830433704, 'uvArea': 0.8092841506004333, 'pixelsPerMetre': 336.60365946659516, 'atlasSize': 512, 'chunk': 0, 'sourcePolygons': 38}, {'pixelsPerMetre': None, 'scope': 'Source remainder only; not baked or exported', 'chunk': 1, 'sourcePolygons': 21143}]
+/tmp/cs-mine-source-stable-board-final12.py:9: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  for material in {m for o in bpy.data.objects['ROOM_mine'].instance_collection.all_objects if o.type in {'MESH','CURVE','FONT'} and hasattr(o.data,'materials') for m in o.data.materials if m and m.use_nodes}:
+05:23.630  render           | Saved: '/tmp/cs-mine-source-stable-board-final12/SourceContextShed-256.exr'
+CS_STABLE_SOURCE_BOARD_REFERENCE_OK
+
+Blender quit

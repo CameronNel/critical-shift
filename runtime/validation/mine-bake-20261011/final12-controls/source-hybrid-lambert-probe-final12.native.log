@@ -1,0 +1,571 @@
+Unity Editor version:    6000.4.3f1 (39d1a88d4dd1)
+Branch:                  6000.4/staging
+Build type:              Release
+Batch mode:              YES
+System name:             Linux
+Distro version:          #1 SMP Sat Sep 26 20:02:31 UTC 2026
+Kernel version:          6.18.44
+Architecture:            x86_64
+Available memory:        18007 MB
+Date:                    2026-10-12T14:51:06Z
+[Licensing::Module] Trying to connect to existing licensing client channel...
+[Licensing::IpcConnector] Channel LicenseClient-agent doesn't exist
+[Licensing::Module] Successfully launched the LicensingClient (PId: 156957)
+Selected window backend: (null) 
+Desktop is 640 x 360 @ 60 Hz
+Initialize udev device monitor.
+
+COMMAND LINE ARGUMENTS:
+/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Unity
+-batchmode
+-force-glcore
+-quit
+-projectPath
+/workspace/critical-shift-spawn-runtime/runtime/unity
+-executeMethod
+CsMineSourceHybridLambertProbeFinal12.Render
+-logFile
+/workspace/critical-shift-spawn-runtime/runtime/out/mine-bake-audit/source-hybrid-lambert-probe-final12.native.log
+Successfully changed project path to: /workspace/critical-shift-spawn-runtime/runtime/unity
+/workspace/critical-shift-spawn-runtime/runtime/unity
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-gfx=262144"
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+Player connection [140507527097216]  Target information:
+
+Player connection [140507527097216]  * "[IP] 172.26.91.250 [Port] 55504 [Flags] 2 [Guid] 1243591145 [EditorId] 1243591145 [Version] 1048832 [Id] LinuxEditor(16,172.26.91.250) [Debug] 1 [PackageName] LinuxEditor [ProjectName] Editor" 
+
+Player connection [140507527097216]  * "[IP] 172.31.0.158 [Port] 55504 [Flags] 2 [Guid] 1243591145 [EditorId] 1243591145 [Version] 1048832 [Id] LinuxEditor(16,172.26.91.250) [Debug] 1 [PackageName] LinuxEditor [ProjectName] Editor" 
+
+Player connection [140507527097216]  * "[IP] 172.17.0.1 [Port] 55504 [Flags] 2 [Guid] 1243591145 [EditorId] 1243591145 [Version] 1048832 [Id] LinuxEditor(16,172.26.91.250) [Debug] 1 [PackageName] LinuxEditor [ProjectName] Editor" 
+
+Player connection [140507527097216] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [140507527097216] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-agent" at "2026-10-12T14:51:07.161251Z"
+[SignatureVerifier] Application signature verification not supported on this platform.
+[Package Manager] Connected to IPC stream "Upm-156949" after 0.4 seconds.
+[Licensing::Module] Licensing is not yet initialized.
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.18.1+9fbee8e
+  Session Id:              023620c56cc74249a1254a6c41e4d67c
+  Correlation Id:          5001af788b11a1afe709ed7dbe5ab7e9
+  External correlation Id: 5025743401961201312
+  Machine Id:              HSfDcY8TYOsLF+Fc1eSelgog+jc=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-agent" (connect: 0.57s, validation: 0.23s, handshake: 0.00s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-agent-notifications" at "2026-10-12T14:51:07.386834Z"
+[Licensing::Module] Connected to LicensingClient (PId: 156957, launch time: 0.00, total connection time: 0.79s)
+[Licensing::Module] Error: Access token is unavailable; failed to update
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: 9072383120447-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+[Licensing::Client] Successfully updated license, isAsync: True, time: 0.01
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] Licensing Background thread has ended after 0.83s
+[Licensing::Module] Licensing is initialized (took 0.09s).
+[Licensing::Client] Successfully resolved entitlement details
+Library Redirect Path: Library/
+ALSA lib confmisc.c:855:(parse_card) cannot find card '0'
+ALSA lib conf.c:5205:(_snd_config_evaluate) function snd_func_card_inum returned error: No such file or directory
+ALSA lib confmisc.c:422:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:5205:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1342:(snd_func_refer) error evaluating name
+ALSA lib conf.c:5205:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5728:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2722:(snd_pcm_open_noupdate) Unknown PCM default
+FMOD failed to initialize the output device.: "Error initializing output device. " (60)
+Forced to initialize FMOD to to the device driver's system output rate 48000, this may impact performance and/or give inconsistent experiences compared to selected sample rate 48000
+ALSA lib confmisc.c:855:(parse_card) cannot find card '0'
+ALSA lib conf.c:5205:(_snd_config_evaluate) function snd_func_card_inum returned error: No such file or directory
+ALSA lib confmisc.c:422:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:5205:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1342:(snd_func_refer) error evaluating name
+ALSA lib conf.c:5205:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5728:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2722:(snd_pcm_open_noupdate) Unknown PCM default
+FMOD failed to initialize the output device.: "Error initializing output device. " (60)
+FMOD initialized on nosound output
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Artifact Garbage Collection - Removed 16 unused hashed content files
+Initialize engine version: 6000.4.3f1 (39d1a88d4dd1)
+[Subsystems] Discovering subsystems at path /home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path /workspace/critical-shift-spawn-runtime/runtime/unity/Assets
+Forcing GfxDevice: OpenGL Core
+kGfxThreadingModeNonThreaded is not supported on OpenGL Core. Reverting to kGfxThreadingModeDirect instead.
+GfxDevice: creating device client; kGfxThreadingModeDirect
+GLX Extensions: GLX_ARB_context_flush_control GLX_ARB_create_context GLX_ARB_create_context_no_error GLX_ARB_create_context_profile GLX_ARB_fbconfig_float GLX_ARB_framebuffer_sRGB GLX_ARB_get_proc_address GLX_ARB_multisample GLX_EXT_create_context_es2_profile GLX_EXT_create_context_es_profile GLX_EXT_fbconfig_packed_float GLX_EXT_framebuffer_sRGB GLX_EXT_no_config_context GLX_EXT_texture_from_pixmap GLX_EXT_visual_info GLX_EXT_visual_rating GLX_MESA_copy_sub_buffer GLX_MESA_gl_interop GLX_MESA_query_renderer GLX_SGIS_multisample GLX_SGIX_fbconfig GLX_SGIX_pbuffer GLX_SGIX_visual_select_group GLX_SGI_make_current_read 
+Renderer: llvmpipe (LLVM 19.1.7, 256 bits)
+Vendor:   Mesa
+Version:  4.5 (Core Profile) Mesa 25.0.7-2+deb13u1
+GLES:     0
+ GL_3DFX_texture_compression_FXT1 GL_AMD_conservative_depth GL_AMD_draw_buffers_blend GL_AMD_gpu_shader_int64 GL_AMD_multi_draw_indirect GL_AMD_pinned_memory GL_AMD_query_buffer_object GL_AMD_seamless_cubemap_per_texture GL_AMD_shader_stencil_export GL_AMD_shader_trinary_minmax GL_AMD_texture_texture4 GL_AMD_vertex_shader_layer GL_AMD_vertex_shader_viewport_index GL_ANGLE_texture_compression_dxt3 GL_ANGLE_texture_compression_dxt5 GL_ARB_ES2_compatibility GL_ARB_ES3_1_compatibility GL_ARB_ES3_2_compatibility GL_ARB_ES3_compatibility GL_ARB_arrays_of_arrays GL_ARB_base_instance GL_ARB_blend_func_extended GL_ARB_buffer_storage GL_ARB_clear_buffer_object GL_ARB_clear_texture GL_ARB_clip_control GL_ARB_compressed_texture_pixel_storage GL_ARB_compute_shader GL_ARB_conditional_render_inverted GL_ARB_conservative_depth GL_ARB_copy_buffer GL_ARB_copy_image GL_ARB_cull_distance GL_ARB_debug_output GL_ARB_depth_buffer_float GL_ARB_depth_clamp GL_ARB_derivative_control GL_ARB_direct_state_access GL_ARB_draw_buffers GL_A
+RB_draw_buffers_blend GL_ARB_draw_elements_base_vertex GL_ARB_draw_indirect GL_ARB_draw_instanced GL_ARB_enhanced_layouts GL_ARB_explicit_attrib_location GL_ARB_explicit_uniform_location GL_ARB_fragment_coord_conventions GL_ARB_fragment_layer_viewport GL_ARB_fragment_shader GL_ARB_framebuffer_no_attachments GL_ARB_framebuffer_object GL_ARB_framebuffer_sRGB GL_ARB_get_program_binary GL_ARB_get_texture_sub_image GL_ARB_gl_spirv GL_ARB_gpu_shader5 GL_ARB_gpu_shader_fp64 GL_ARB_gpu_shader_int64 GL_ARB_half_float_pixel GL_ARB_half_float_vertex GL_ARB_indirect_parameters GL_ARB_instanced_arrays GL_ARB_internalformat_query GL_ARB_internalformat_query2 GL_ARB_invalidate_subdata GL_ARB_map_buffer_alignment GL_ARB_map_buffer_range GL_ARB_multi_bind GL_ARB_multi_draw_indirect GL_ARB_occlusion_query2 GL_ARB_parallel_shader_compile GL_ARB_pipeline_statistics_query GL_ARB_pixel_buffer_object GL_ARB_point_sprite GL_ARB_polygon_offset_clamp GL_ARB_post_depth_coverage GL_ARB_program_interface_query GL_ARB_provoking_vertex GL
+_ARB_query_buffer_object GL_ARB_robust_buffer_access_behavior GL_ARB_robustness GL_ARB_sample_shading GL_ARB_sampler_objects GL_ARB_seamless_cube_map GL_ARB_seamless_cubemap_per_texture GL_ARB_separate_shader_objects GL_ARB_shader_atomic_counter_ops GL_ARB_shader_atomic_counters GL_ARB_shader_ballot GL_ARB_shader_bit_encoding GL_ARB_shader_clock GL_ARB_shader_draw_parameters GL_ARB_shader_group_vote GL_ARB_shader_image_load_store GL_ARB_shader_image_size GL_ARB_shader_objects GL_ARB_shader_precision GL_ARB_shader_stencil_export GL_ARB_shader_storage_buffer_object GL_ARB_shader_subroutine GL_ARB_shader_texture_image_samples GL_ARB_shader_texture_lod GL_ARB_shader_viewport_layer_array GL_ARB_shading_language_420pack GL_ARB_shading_language_include GL_ARB_shading_language_packing GL_ARB_spirv_extensions GL_ARB_stencil_texturing GL_ARB_sync GL_ARB_tessellation_shader GL_ARB_texture_barrier GL_ARB_texture_border_clamp GL_ARB_texture_buffer_object GL_ARB_texture_buffer_object_rgb32 GL_ARB_texture_buffer_range GL_A
+RB_texture_compression_bptc GL_ARB_texture_compression_rgtc GL_ARB_texture_cube_map_array GL_ARB_texture_filter_anisotropic GL_ARB_texture_filter_minmax GL_ARB_texture_float GL_ARB_texture_gather GL_ARB_texture_mirror_clamp_to_edge GL_ARB_texture_multisample GL_ARB_texture_non_power_of_two GL_ARB_texture_query_levels GL_ARB_texture_query_lod GL_ARB_texture_rectangle GL_ARB_texture_rg GL_ARB_texture_rgb10_a2ui GL_ARB_texture_stencil8 GL_ARB_texture_storage GL_ARB_texture_storage_multisample GL_ARB_texture_swizzle GL_ARB_texture_view GL_ARB_timer_query GL_ARB_transform_feedback2 GL_ARB_transform_feedback3 GL_ARB_transform_feedback_instanced GL_ARB_transform_feedback_overflow_query GL_ARB_uniform_buffer_object GL_ARB_vertex_array_bgra GL_ARB_vertex_array_object GL_ARB_vertex_attrib_64bit GL_ARB_vertex_attrib_binding GL_ARB_vertex_buffer_object GL_ARB_vertex_shader GL_ARB_vertex_type_10f_11f_11f_rev GL_ARB_vertex_type_2_10_10_10_rev GL_ARB_viewport_array GL_ARM_shader_framebuffer_fetch_depth_stencil GL_ATI_blend
+_equation_separate GL_ATI_meminfo GL_ATI_texture_float GL_ATI_texture_mirror_once GL_EXT_EGL_image_storage GL_EXT_EGL_image_storage_compression GL_EXT_EGL_sync GL_EXT_abgr GL_EXT_blend_equation_separate GL_EXT_debug_label GL_EXT_draw_buffers2 GL_EXT_draw_instanced GL_EXT_framebuffer_blit GL_EXT_framebuffer_multisample GL_EXT_framebuffer_multisample_blit_scaled GL_EXT_framebuffer_object GL_EXT_framebuffer_sRGB GL_EXT_memory_object GL_EXT_memory_object_fd GL_EXT_packed_depth_stencil GL_EXT_packed_float GL_EXT_pixel_buffer_object GL_EXT_polygon_offset_clamp GL_EXT_provoking_vertex GL_EXT_shader_framebuffer_fetch GL_EXT_shader_framebuffer_fetch_non_coherent GL_EXT_shader_image_load_formatted GL_EXT_shader_integer_mix GL_EXT_texture_array GL_EXT_texture_compression_dxt1 GL_EXT_texture_compression_rgtc GL_EXT_texture_compression_s3tc GL_EXT_texture_filter_anisotropic GL_EXT_texture_filter_minmax GL_EXT_texture_integer GL_EXT_texture_mirror_clamp GL_EXT_texture_sRGB GL_EXT_texture_sRGB_R8 GL_EXT_texture_sRGB_RG8 GL
+_EXT_texture_sRGB_decode GL_EXT_texture_shadow_lod GL_EXT_texture_shared_exponent GL_EXT_texture_snorm GL_EXT_texture_storage GL_EXT_texture_swizzle GL_EXT_timer_query GL_EXT_transform_feedback GL_EXT_vertex_array_bgra GL_EXT_vertex_attrib_64bit GL_IBM_multimode_draw_arrays GL_INTEL_shader_atomic_float_minmax GL_KHR_blend_equation_advanced GL_KHR_blend_equation_advanced_coherent GL_KHR_context_flush_control GL_KHR_debug GL_KHR_no_error GL_KHR_parallel_shader_compile GL_KHR_robust_buffer_access_behavior GL_KHR_robustness GL_KHR_texture_compression_astc_ldr GL_KHR_texture_compression_astc_sliced_3d GL_MESA_framebuffer_flip_y GL_MESA_pack_invert GL_MESA_shader_integer_functions GL_MESA_texture_signed_rgba GL_NVX_gpu_memory_info GL_NV_alpha_to_coverage_dither_control GL_NV_conditional_render GL_NV_copy_image GL_NV_depth_clamp GL_NV_packed_depth_stencil GL_NV_shader_atomic_float GL_NV_texture_barrier GL_OES_EGL_image GL_OVR_multiview GL_OVR_multiview2 GL_S3_s3tc
+OPENGL LOG: Creating OpenGL 4.5 graphics device ; Context level  <OpenGL 4.5> ; Context handle 2062272224
+Initialize mono
+Mono path[0] = '/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed'
+Mono path[1] = '/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-linux'
+Mono config path = '/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56949
+CodeReloadManager initialized
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+ImportWorker Server TCP listen port: 0
+AcceleratorClientConnectionCallback - disconnected - :0
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: /home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0.002638 seconds.
+Native extension for LinuxStandalone target not found
+Package Manager log level set to [2]
+Native extension for WindowsStandalone target not found
+(node:156985) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+(Use `UnityPackageManager --trace-deprecation ...` to show where the warning was created)
+[Licensing::Client] Successfully resolved entitlement details
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.816 seconds
+Domain Reload Profiling: 2510ms
+	BeginReloadAssembly (280ms)
+		CreateAndSetChildDomain (17ms)
+	RebuildCommonClasses (57ms)
+	RebuildNativeTypeToScriptingClass (9ms)
+	initialDomainReloadingComplete (92ms)
+	LoadAllAssembliesAndSetupDomain (254ms)
+		LoadAssemblies (261ms)
+		AnalyzeDomain (242ms)
+			TypeCache.Refresh (241ms)
+				TypeCache.ScanAssembly (222ms)
+	FinalizeReload (1818ms)
+		SetupLoadedEditorAssemblies (0ms)
+			InitializePlatformSupportModulesInManaged (48ms)
+			BeforeProcessingInitializeOnLoad (92ms)
+			ProcessInitializeOnLoadAttributes (173ms)
+			ProcessInitializeOnLoadMethodAttributes (1434ms)
+[Licensing::Client] Successfully resolved entitlement details
+Application.AssetDatabase Initial Refresh Start
+[Package Manager] Restoring resolved packages state from cache
+[Licensing::Client] Successfully resolved entitlement details
+[Package Manager] Registered 9 packages:
+  Packages from [https://packages.unity.com]:
+    com.unity.sdk.linux-x86_64@1.1.0 (location: /workspace/critical-shift-spawn-runtime/runtime/unity/Library/PackageCache/com.unity.sdk.linux-x86_64@6d12be270055)
+    com.unity.toolchain.linux-x86_64-linux@1.1.0 (location: /workspace/critical-shift-spawn-runtime/runtime/unity/Library/PackageCache/com.unity.toolchain.linux-x86_64-linux@d0308bf9d559)
+    com.unity.sysroot.base@1.1.0 (location: /workspace/critical-shift-spawn-runtime/runtime/unity/Library/PackageCache/com.unity.sysroot.base@3559fe1aa613)
+  Built-in packages:
+    com.unity.test-framework@1.6.0 (location: /workspace/critical-shift-spawn-runtime/runtime/unity/Library/PackageCache/com.unity.test-framework@9faaf09ec578)
+    com.unity.modules.imgui@1.0.0 (location: /workspace/critical-shift-spawn-runtime/runtime/unity/Library/PackageCache/com.unity.modules.imgui)
+    com.unity.modules.jsonserialize@1.0.0 (location: /workspace/critical-shift-spawn-runtime/runtime/unity/Library/PackageCache/com.unity.modules.jsonserialize)
+    com.unity.modules.physics@1.0.0 (location: /workspace/critical-shift-spawn-runtime/runtime/unity/Library/PackageCache/com.unity.modules.physics)
+    com.unity.modules.animation@1.0.0 (location: /workspace/critical-shift-spawn-runtime/runtime/unity/Library/PackageCache/com.unity.modules.animation)
+    com.unity.ext.nunit@2.0.5 (location: /workspace/critical-shift-spawn-runtime/runtime/unity/Library/PackageCache/com.unity.ext.nunit@ec2d0043d6fc)
+[Subsystems] No new subsystems found in resolved package list.
+[Package Manager] Done registering packages in 0.00 seconds
+Warning: Disk space low. The project is on a drive with diskspace below 1.00 GB. Please free up some space for Unity to work correctly.
+[ScriptCompilation] Requested script compilation because: AssetDatabase observed changes in script compilation related files
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://unix:/tmp/ilpp.sock-8905bfec88515832b1986b252f5b3832
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Production
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /workspace/critical-shift-spawn-runtime/runtime/unity
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/Ping - application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/Ping'
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/Ping'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/Ping - 200 - application/grpc 41.7673ms
+Starting: /home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Tools/BuildPipeline/bee_backend --ipc --defer-dag-verification --dagfile="Library/Bee/2400b0aE.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssemblies
+WorkingDir: /workspace/critical-shift-spawn-runtime/runtime/unity
+DisplayProgressbar: Compiling Scripts
+Starting: /home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/netcorerun/netcorerun "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Tools/BuildPipeline/ScriptCompilationBuildProgram.exe" "Library/Bee/2400b0aE.dag.json" "Library/Bee/2400b0aE-inputdata.json" "Library/Bee/buildprogram0.traceevents"
+WorkingDir: /workspace/critical-shift-spawn-runtime/runtime/unity
+ExitCode: 4 Duration: 0s142ms
+Rebuilding DAG because FileSignature timestamp changed: Library/Bee/2400b0aE-inputdata.json
+*** Tundra requires additional run (0.10 seconds), 0 items updated, 199 evaluated
+ExitCode: 0 Duration: 0s636ms
+Starting: /home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Tools/BuildPipeline/bee_backend --ipc --defer-dag-verification --dagfile="Library/Bee/2400b0aE.dag" --continue-on-failure --dagfilejson="Library/Bee/2400b0aE.dag.json" --profile="Library/Bee/backend2.traceevents" ScriptAssemblies
+WorkingDir: /workspace/critical-shift-spawn-runtime/runtime/unity
+ExitCode: 0 Duration: 4s417ms
+Finished compiling graph: 261 nodes, 2335 flattened edges (2209 ToBuild, 28 ToUse), maximum node priority 87
+[193/258    0s] WriteText Library/Bee/artifacts/2400b0aE.dag/CriticalShift.Player.Editor.rsp
+[255/258    4s] Csc Library/Bee/artifacts/2400b0aE.dag/CriticalShift.Player.Editor.dll (+2 others)
+Assets/CriticalShift/Bootstrap/Player/Editor/CsMineSourceHybridLambertProbeFinal12.cs(60,261): warning CS0618: 'LightShadowCasterMode.Everything' is obsolete: 'This has been deprecated. Use DistanceShadowMaskMode instead. (UnityUpgradable) -> DistanceShadowMask'
+[256/258    0s] CopyFiles Library/ScriptAssemblies/CriticalShift.Player.Editor.dll
+[257/258    0s] CopyFiles Library/ScriptAssemblies/CriticalShift.Player.Editor.pdb
+*** Tundra build success (4.30 seconds), 4 items updated, 258 evaluated
+[ApiUpdater] Total time: 1254ms, Parse response file: 57ms, Collect updater configs: 123ms, Update: 1072ms, Save: 2ms Files: 1 modified / 1 visited / 7 total (Library/Bee/artifacts/2400b0aE.dag/CriticalShift.Player.Editor.dll).
+[API Updater] Updated Files:
+Skipping ScriptUpdater consent dialog. Consent declined based on command line parameters.
+Finished running ScriptUpdaters
+Total cache size 1095868
+Assets/CriticalShift/Bootstrap/Player/Editor/CsMineSourceHybridLambertProbeFinal12.cs(60,261): warning CS0618: 'LightShadowCasterMode.Everything' is obsolete: 'This has been deprecated. Use DistanceShadowMaskMode instead. (UnityUpgradable) -> DistanceShadowMask'
+AssetDatabase: script compilation time: 7.287212s
+Total cache size after purge 1095868, took 00:00:00.0118351
+Begin MonoManager ReloadAssembly
+Assembly Assembly-CSharp-Editor-firstpass.dll at Library/ScriptAssemblies/Assembly-CSharp-Editor-firstpass.dll not valid. Loading of assembly skipped.
+Assembly Assembly-CSharp-Editor.dll at Library/ScriptAssemblies/Assembly-CSharp-Editor.dll not valid. Loading of assembly skipped.
+Assembly Assembly-CSharp-firstpass.dll at Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll not valid. Loading of assembly skipped.
+Assembly Assembly-CSharp.dll at Library/ScriptAssemblies/Assembly-CSharp.dll not valid. Loading of assembly skipped.
+Assembly TestNewCustomAssembly.dll at Library/ScriptAssemblies/TestNewCustomAssembly.dll not valid. Loading of assembly skipped.
+Assembly Unity.Sysroot.EditorTests.dll at Library/ScriptAssemblies/Unity.Sysroot.EditorTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Sysroot.Linux_x86_64.EditorTests.dll at Library/ScriptAssemblies/Unity.Sysroot.Linux_x86_64.EditorTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Toolchain.Linux-x86_64-Linux.EditorTests.dll at Library/ScriptAssemblies/Unity.Toolchain.Linux-x86_64-Linux.EditorTests.dll not valid. Loading of assembly skipped.
+Start importing Assets/CriticalShift/Generated/Spawn/Surfaces/mine-air-main using Guid(58bf5dc3b3755bc2bb74d6eb164340d5) (DefaultImporter) -> (Import Result ID: '158c679dd1f4e65c68fc0ce7a8e28736') in 0.028806073 seconds [static dependencies only]. Details - ImportResultOutputID=437c32e572c088229c6b66190bf64c4a DependenciesID=aa5d3d71e29213e37e7ad752b43f18bc StaticDependenciesID=801ec6cff7f920913a8b4e959c39531a 
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+ScheduleIndexationOnStartup MainProcess:True IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.505 seconds
+Domain Reload Profiling: 1002ms
+	BeginReloadAssembly (231ms)
+		DisableScriptedObjects (18ms)
+		CreateAndSetChildDomain (73ms)
+	RebuildCommonClasses (36ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (49ms)
+	LoadAllAssembliesAndSetupDomain (173ms)
+		LoadAssemblies (238ms)
+		AnalyzeDomain (28ms)
+			TypeCache.Refresh (21ms)
+				TypeCache.ScanAssembly (12ms)
+			BuildScriptInfoCaches (5ms)
+	FinalizeReload (506ms)
+		SetupLoadedEditorAssemblies (0ms)
+			InitializePlatformSupportModulesInManaged (30ms)
+			BeforeProcessingInitializeOnLoad (136ms)
+			ProcessInitializeOnLoadAttributes (83ms)
+			ProcessInitializeOnLoadMethodAttributes (69ms)
+			AfterProcessingInitializeOnLoad (6ms)
+		AwakeInstancesAfterBackupRestoration (22ms)
+Start importing Assets/CriticalShift/Generated/Spawn/Surfaces/mine-context-props/spawn-normal.png using Guid(1092b909c0d459589918a4f323aef991) (TextureImporter) -> (Import Result ID: '7b42a8656c899df37b50701d6d64f195') in 2.741942864 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=eeb22f6326b459d48e5d262f10c5ba76 DependenciesID=777e981d0f6caf66ab3d7b2534974d45 StaticDependenciesID=d00bcc09e026a1577d8d7e56af989199 
+Start importing Assets/CriticalShift/Generated/Spawn/Surfaces/mine-structure/spawn-albedo.png using Guid(03f1dc65d65653358da2bd90de8cd045) (TextureImporter) -> (Import Result ID: 'c2b5eae117a0fe1d9ae7f98d9ba45b35') in 5.657664358 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=ef8d0e43b27c53c7bef9597cd4913e35 DependenciesID=d0d160170950786823dbafa85f5da2a7 StaticDependenciesID=d3d889c1214ce973f759b8cf5a829799 
+Start importing Assets/CriticalShift/Generated/Spawn/Surfaces/mine-mountain/spawn-normal.png using Guid(13d78a2df5a350efb202ec974baac041) (TextureImporter) -> (Import Result ID: '3608948db28296463de9e6d184206b0c') in 3.993349338 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=27f6c1be30fd660dbb14df68c90cadfb DependenciesID=33a39d1de0cc21057c0a77d638d85af1 StaticDependenciesID=57dc94197229e69a0c707e497c7bffd0 
+Start importing Assets/CriticalShift/Generated/Spawn/Surfaces/mine-air-main/spawn-albedo.png using Guid(f4c023a063995405bca4ddeb33de31dc) (TextureImporter) -> (Import Result ID: '6c556d2c2c7cc5632ad80a863a87da4d') in 5.628133744 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=2e4bc0da1a812ef049df995306dd3fa8 DependenciesID=c3fb8fb46dae881f0916c79e1ead2712 StaticDependenciesID=e4462bf30ecd818317a05679df5e632a 
+Start importing Assets/CriticalShift/Generated/Spawn/Surfaces/mine-rocks/spawn-normal.png using Guid(1609d533aae65386aac6694b97c87ad7) (TextureImporter) -> (Import Result ID: 'a7da28b93664491e94b5e5d94691f979') in 0.784102945 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=2a8c435bab0e93c0a76052f7c6805967 DependenciesID=7db7947c2c8a57e3aea34e7c2665f8f9 StaticDependenciesID=c1a2fa9742e353b37b0d74c96f41382e 
+Start importing Assets/CriticalShift/Generated/Spawn/Surfaces/mine-air-main/spawn-normal.png using Guid(d69dcf64ee5c5eca91fce0f38ab7024a) (TextureImporter) -> (Import Result ID: '70835b4a639e066d9e1cf5a671617f71') in 4.383709059 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=fe9db557722f694e86d4e7b53e36bb75 DependenciesID=a7de98c0b366c1def21ab708c8a63b61 StaticDependenciesID=a2b103dae14161254a770884c2a64980 
+Start importing Assets/CriticalShift/Generated/Spawn/Surfaces/mine-props/spawn-metallic-smoothness.png using Guid(27cd2f3e58cf53508fbdb4c2ce22ae00) (TextureImporter) -> (Import Result ID: 'f64e9a9525adfe1d15d78de15368e8c7') in 3.247063703 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=bd1b7f24a2ab2c3465c9f9f2115f315c DependenciesID=c2463c59e39e557ffa774cacfeb94b27 StaticDependenciesID=18a0a5f9018c3a449d75d46027de5dd2 
+Start importing Assets/CriticalShift/Generated/Spawn/Surfaces/mine-duct/spawn-normal.png using Guid(6721b5cadd2d57d79fb708b5b001f912) (TextureImporter) -> (Import Result ID: '620f166ee9150e1a725b3987b3c7ef64') in 4.971480983 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=5b4c7f9b052f4b079f555a90c21615a1 DependenciesID=c4723ad60f6bc218763d053da2d91a75 StaticDependenciesID=a350afd0118ba61a15ceefc73b0e3a32 
+Start importing Assets/CriticalShift/Generated/Spawn/Surfaces/mine-tunnel-floor/spawn-albedo.png using Guid(a71a68e1d25c5074897bed288c6b741d) (TextureImporter) -> (Import Result ID: 'c0ea1e307649386d7369a478f263531b') in 3.866577691 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=8dba6ab313102d904d534d3ec767f757 DependenciesID=1d4a824f314612b593031c0ec7f87a4b StaticDependenciesID=7887bf6ae52ee6a46441e35bba020aac 
+Start importing Assets/CriticalShift/Generated/Spawn/Surfaces/mine-ground/spawn-albedo.png using Guid(38307efb3ea651ca904638331c9d8165) (TextureImporter) -> (Import Result ID: 'eae11a274f7a5c324ac23dc59ca185b6') in 3.330190078 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=cdb160c01d51114406b6665f3eb53d63 DependenciesID=d1f6f2180cd98f869b1d4706c939ffb5 StaticDependenciesID=c71a6365ac7b3ff386a6dd7f553865b2 
+Start importing Assets/CriticalShift/Generated/Spawn/Surfaces/mine-tunnel-floor/spawn-normal.png using Guid(48bdf8164f7751aeb01beef8cbd5b943) (TextureImporter) -> (Import Result ID: '87ec737efb68e53b2e12c78a9b3eea20') in 4.22905145 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=6cfdc8b19d6733a0fb594e980d6f919a DependenciesID=90e19de93f4dafb43cab1062014c6a6b StaticDependenciesID=715f388bc390ecdb9c62b9b0a36b5c1b 
+Start importing Assets/CriticalShift/Generated/Spawn/Surfaces/mine-structure/spawn-wood-high.png using Guid(b9684b1b001f5b439302268b0bf31c80) (TextureImporter) -> (Import Result ID: '64892dca33ee4f8dfe91ff4ded2cdf8f') in 3.983433257 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=c9aee1f0c7aebc627fa60cd3348e1b60 DependenciesID=bcec7c002333c6c16a7ea852fb8abbfd StaticDependenciesID=c66655adf88fbd2719d126ba1ee3f201 
+Start importing Assets/CriticalShift/Generated/Spawn/Surfaces/mine-structure/spawn-normal.png using Guid(4a4a61a4f8555b7a8030259c2a930e6e) (TextureImporter) -> (Import Result ID: '69e780620d65ea1cca05abcd5d3212d7') in 2.724623616 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=08f11f269a2ad29ec916a737989bb4de DependenciesID=42192ec8bb8aed79b6710fb5014702f7 StaticDependenciesID=8abe89d8d59895dd2e74e920faaa8167 
+Start importing Assets/CriticalShift/Generated/Spawn/Surfaces/mine-duct/spawn-albedo.png using Guid(6d21342f60675aaba011f4f3cc0a40db) (TextureImporter) -> (Import Result ID: 'c31da5dc3a3a03086ee111c5f7c0eb6e') in 6.550647381 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=452cc955cdffe6492ed7611751c327ea DependenciesID=b1ba3da4566011634c65e8feb3f51cab StaticDependenciesID=041f433f27d2748445901850853bde92 
+Start importing Assets/CriticalShift/Generated/Spawn/Surfaces/mine-air-main/spawn-metallic-smoothness.png using Guid(9dba739ddf035bdf93a20032380f933c) (TextureImporter) -> (Import Result ID: '78007184af714b9ffcb8f0fa79690db6') in 3.794757 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=f8c3e08122ddf6104f442b29891b99fd DependenciesID=5ed9d41a262d3bbf8e450aa9d7a0c4d8 StaticDependenciesID=9a9194d0e16145d282719e832cf32fe4 
+Start importing Assets/CriticalShift/Generated/Spawn/Surfaces/mine-props/spawn-albedo.png using Guid(ae147d8d0acb59f08e8c46ffacc59662) (TextureImporter) -> (Import Result ID: 'c4e76473dfd63e078e890eff7a1e14ff') in 3.47510765 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=d94c2828d38dac792c2f92c46b3115f8 DependenciesID=8a805bb30fa1c36e56be1a1e52ba928a StaticDependenciesID=495a530589b8cf7e013b77b61482b2d4 
+Start importing Assets/CriticalShift/Generated/Spawn/Surfaces/mine-air-main/spawn-emission.exr using Guid(aefd5a53722558178f8bf00408ca5484) (TextureImporter) -> (Import Result ID: 'e2e01f1e4397e21eba2fc9bfaa806784') in 5.880563233 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=0411c83e20c49acab8f52c8a0e8f4f14 DependenciesID=7a2d10196fb8d70cdc6b4fb8a706855f StaticDependenciesID=07914876a687369a933f276a75dfb3c8 
+Start importing Assets/CriticalShift/Generated/Spawn/Surfaces/mine-props/spawn-normal.png using Guid(3fff4d5b6e8e51e485fa0e01925aadcf) (TextureImporter) -> (Import Result ID: '5c59bcdeed1babc3c44b65a8d07e6581') in 1.22834559 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=e13e0d9d55f5d5b2bff8207cbe5d1e86 DependenciesID=58ae64138ae4e71c400989905c129b73 StaticDependenciesID=54c63b3ee3f2acd435b7362a01088e6b 
+Start importing Assets/CriticalShift/Generated/Spawn/Surfaces/mine-props/spawn-wood-high.png using Guid(af492f96e1955b8bbebabb0a609eee2a) (TextureImporter) -> (Import Result ID: '2a740dbe2fccb4d67064808432c77706') in 1.368835776 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=ab97db313f2f0e78e5b80e019513a270 DependenciesID=512cacb2505ec0ef94e92dcd27c0cabe StaticDependenciesID=fd47d74d8023bdcbab321ab4cbddcfd6 
+Start importing Assets/CriticalShift/Features/Player/CsMineSourceHybridLambertProbeFinal12.shader using Guid(664146b47872be1618269d1c98202c96) (ShaderImporter)Launched and connected shader compiler UnityShaderCompiler after 0.04 seconds
+ -> (Import Result ID: '0bbbd8643e9ef6d5810eec046bea31e1') in 0.429406116 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=f47d677c347f610ee0ab35c8b738e8ef DependenciesID=04efa454e1a8f6fe29a8317c8c9470c5 StaticDependenciesID=aab310a4bae2921af244624edf03adb5 
+Start importing Assets/CriticalShift/Generated/Spawn/Room-mine.fbx using Guid(fd1e27096095553d8557e49c95079590) (FBXImporter)WARNING: Couldn't open libxml2.so.16 (error=libxml2.so.16: cannot open shared object file: No such file or directory). Trying libxml2.so.2...
+CS_MINE_LIGHTMAP_UV_IMPORT_OK; meshes=167
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CriticalShift.Player.Editor.MineLightmapUvImport:OnPostprocessModel (UnityEngine.GameObject) (at Assets/CriticalShift/Bootstrap/Player/Editor/MineVisualLighting.cs:31)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.AssetPostprocessingInternal:InvokeMethodIfAvailable (object,string,object[]) (at /home/bokken/build/output/unity/unity/Editor/Mono/AssetPostprocessor.cs:1182)
+UnityEditor.AssetPostprocessingInternal:CallPostProcessMethods (string,object[]) (at /home/bokken/build/output/unity/unity/Editor/Mono/AssetPostprocessor.cs:1141)
+UnityEditor.AssetPostprocessingInternal:PostprocessMesh (UnityEngine.GameObject) (at /home/bokken/build/output/unity/unity/Editor/Mono/AssetPostprocessor.cs:776)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/MineVisualLighting.cs Line: 31)
+
+ -> (Import Result ID: '3e1a4bdf689d1227f7aff591dd6555ce') in 18.374424882 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=f4f4ee89e700e4d9b73b5eedacfeaee8 DependenciesID=26c0ede6ed26b1a5afb96d8d575c6e79 StaticDependenciesID=60655e8880b0f9ed377002c33ca7df1f 
+Start importing Assets/CriticalShift/Generated/Spawn/MineContext.fbx using Guid(ce9afa1b22235ed98329ac7865cd7ace) (FBXImporter)CS_MINE_LIGHTMAP_UV_IMPORT_OK; meshes=317
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CriticalShift.Player.Editor.MineLightmapUvImport:OnPostprocessModel (UnityEngine.GameObject) (at Assets/CriticalShift/Bootstrap/Player/Editor/MineVisualLighting.cs:31)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.AssetPostprocessingInternal:InvokeMethodIfAvailable (object,string,object[]) (at /home/bokken/build/output/unity/unity/Editor/Mono/AssetPostprocessor.cs:1182)
+UnityEditor.AssetPostprocessingInternal:CallPostProcessMethods (string,object[]) (at /home/bokken/build/output/unity/unity/Editor/Mono/AssetPostprocessor.cs:1141)
+UnityEditor.AssetPostprocessingInternal:PostprocessMesh (UnityEngine.GameObject) (at /home/bokken/build/output/unity/unity/Editor/Mono/AssetPostprocessor.cs:776)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/MineVisualLighting.cs Line: 31)
+
+ -> (Import Result ID: 'd02d836319f3dd8dcc4db36599b99cb8') in 1.274316589 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=90cce28eda4a800f5ef968f185edddd4 DependenciesID=7a44f73b3b7e1071dd0e18690c30742d StaticDependenciesID=e5dfd2e70654cc823b2e699f4975d70a 
+Start importing Assets/CriticalShift/Generated/Spawn/map-bindings.json using Guid(07b2821b13c5543783117895130b4b0d) (TextScriptImporter) -> (Import Result ID: 'd57bafcfd291e0ee40219b499df20325') in 0.02123285 seconds [static dependencies only]. Details - ImportResultOutputID=efcf0981846085cd1e8bd71def2aeaf7 DependenciesID=8674576a3039dd33cda78fbe596c5891 StaticDependenciesID=00c1dc9e338fa6f90e4d54f72f72f13b 
+Start importing Assets/CriticalShift/Generated/Spawn/mine-air-main-density.json using Guid(ab3783353cd05265b87c82d47b56e1af) (TextScriptImporter) -> (Import Result ID: '4afc903469a67332eec6f9cb9393df4b') in 0.001086447 seconds [static dependencies only]. Details - ImportResultOutputID=ecc2d5d0797a9f9ff115a221d6427be3 DependenciesID=2ddd768cd94b217648120cff294f5e85 StaticDependenciesID=5b9708aa3b5ea35702ea85e9ac35e9aa 
+Start importing Assets/CriticalShift/Generated/Spawn/mine-context.json using Guid(1fc7ffe82125533cbc946134e310fffe) (TextScriptImporter) -> (Import Result ID: '86ce990deb5219a48aa507be1f209fe6') in 0.003734006 seconds [static dependencies only]. Details - ImportResultOutputID=1a275d91f71318f63640da7cef08d9c7 DependenciesID=ec1ebcfe4aced6c7ede06f87dab8d0bb StaticDependenciesID=ac91feb8520d8202e08931798225527d 
+Launched and connected shader compiler UnityShaderCompiler after 0.07 seconds
+Launched and connected shader compiler UnityShaderCompiler after 0.23 seconds
+Launched and connected shader compiler UnityShaderCompiler after 0.05 seconds
+Launched and connected shader compiler UnityShaderCompiler after 0.04 seconds
+(Values over 0.050ms)
+Asset Pipeline Refresh (id=7e4f66e9423d0daff871105d99c6364e): Total: 103.490 seconds - Initiated by InitialRefreshV2(ForceSynchronousImport)
+	Summary:
+		Imports: total=26 (actual=26, local cache=0, cache server=0)
+		Asset DB Process Time: managed=669 ms, native=93905 ms
+		Asset DB Callback time: managed=893 ms, native=216 ms
+		Scripting: domain reloads=1, domain reload time=497 ms, compile time=7292 ms, other=14 ms
+		Project Asset Count: scripts=149, non-scripts=1579
+		Asset File Changes: new=8, changed=27, moved=0, deleted=2
+		Scan Filter Count: 1
+	InvokePackagesCallback: 7.565ms
+	ApplyChangesToAssetFolders: 0.131ms
+	Scan: 1891.322ms
+	OnSourceAssetsModified: 2.026ms
+	CategorizeScriptCompilationAssets: 4.700ms
+	ProcessAssetsWithTransientArtifactChanges: 13.305ms
+	CategorizeAssets: 31.240ms
+	CompileScripts: 7292.353ms
+	ImportOutOfDateAssets: 92544.859ms (511.589ms without children)
+		ImportManagerImport: 92031.136ms (20.413ms without children)
+			UpdateCategorizedAssets: 1.574ms
+		UnloadImportedAssets: 0.596ms
+		ReloadImportedAssets: 0.462ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.272ms
+		OnDemandSchedulerStart: 1.239ms
+	PostProcessAllAssets: 1101.018ms
+		ShaderAssetModifiedCallback 53.277ms
+		PostProcessCallbackCreateDeferredMaterials 0.308ms
+		RaytracingShaderImportPostprocess 0.140ms
+		ComputeShaderImportPostprocess 0.107ms
+		VersionControlSettings.HiddenFilePostprocess 0.090ms
+		SpeedTreeImporter.PostprocessAllAssets 0.081ms
+		MonoPostProcessAllAssets: 891.538ms
+			WindowAssetPostprocessingWatcher.OnPostprocessAllAssets 416.632ms
+			StyleCatalogPostProcessor.OnPostprocessAllAssets 192.977ms
+			AssetPostprocessor.OnPostprocessAllAssets 62.309ms
+			BuilderAssetPostprocessor.OnPostprocessAllAssets 43.305ms
+			AssetDatabaseCallbacks.OnPostprocessAllAssets 7.800ms
+			ArtifactBrowserPostProcessor.OnPostprocessAllAssets 3.464ms
+			AssetChangedListener.OnPostprocessAllAssets 3.232ms
+			TextAssetPostProcessor.OnPostprocessAllAssets 3.200ms
+			RetainedModeAssetPostprocessor.OnPostprocessAllAssets 2.462ms
+			SpeedTree9Postprocessor.OnPostprocessAllAssets 2.295ms
+			SyncVS.PostprocessSyncProject 1.716ms
+			ScenarioDriftAssetsTracker.OnPostprocessAllAssets 1.292ms
+			TerrainToolbarOverlayPostProcessor.OnPostprocessAllAssets 0.984ms
+			AudioMixerPostprocessor.OnPostprocessAllAssets 0.853ms
+			ReferencedClipsPostProcessor.OnPostprocessAllAssets 0.791ms
+			ConfigAssetsTracker.OnPostprocessAllAssets 0.716ms
+			AssetEvents.OnPostprocessAllAssets 0.593ms
+			AudioContainerPostProcessor.OnPostprocessAllAssets 0.294ms
+			RenderPipelineGlobalSettingsPostprocessor.OnPostprocessAllAssets 0.230ms
+			SpeedTreePostProcessor.OnPostprocessAllAssets 0.230ms
+	PostAssetChangesProfiler: 3.349ms
+	UnloadStreamsBegin: 1.659ms
+	PersistCurrentRevisions: 0.282ms
+	Untracked: 591.885ms
+
+Application.AssetDatabase Initial Refresh End
+Scanning for USB devices : 0.723ms
+Initializing Unity extensions:
+UpdateMenuTitleForLanguage: 10
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+[MODES] Loading mode Default (0) for mode-current-id-Critical Shift
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 446 unused Assets / (491.8 KB). Loaded Objects now: 1085.
+Memory consumption went from 101.1 MB to 100.7 MB.
+Total: 13.648030 ms (FindLiveObjects: 0.114796 ms CreateObjectMapping: 0.050295 ms MarkObjects: 12.794697 ms  DeleteObjects: 0.675233 ms)
+
+Start importing Assets/CriticalShift/Generated/MineSourceHybridLambertProbeFinal12 using Guid(6838b997d7e6159dea0166ba0b327e32) (DefaultImporter) -> (Import Result ID: '4e979bab04b9487379e7836301fbee47') in 0.001505152 seconds [static dependencies only]. Details - ImportResultOutputID=9f90a7f644e8fc18af6b4e63543f5dce DependenciesID=0876c7b424075670ada048816d3fb2e3 StaticDependenciesID=cc2e947064e49661c830de788d95a823 
+Asset Pipeline Refresh (id=9f315c68ad7a5b4d28a39cf48ea69255): Total: 0.024 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineSourceHybridLambertProbeFinal12/SourceDiffuseShedBoards.fbx using Guid(97f5f8a2eb4bc8b25a6b68f8a48f44ca) (FBXImporter) -> (Import Result ID: 'd4761ea67767793a181ff827bc953c70') in 0.022112238 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=65715a40b23109d2f24b8bdf1223cf88 DependenciesID=897b88244e90cb75f644caf8bc43dbc3 StaticDependenciesID=9f25d1f0f38f0e466c7dc507259778c4 
+Asset Pipeline Refresh (id=c2e006cfa5c7702b1a5cc88029ae1838): Total: 0.029 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineSourceHybridLambertProbeFinal12/SourceAllIndirect.exr using Guid(8b5973779c35f6f609a473979e99f695) (TextureImporter) -> (Import Result ID: 'd0931a2721d2c101e1d6751c4a98bfc4') in 0.172743177 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=b57eca82d2d7a61f42508596b7f9a8ec DependenciesID=d44706f65291c40573439ffca6337c53 StaticDependenciesID=e04dc9bf926b4e38407bc654d14813ad 
+Asset Pipeline Refresh (id=92d5e329cb5aad78d9a1c744a6369f16): Total: 0.180 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineSourceHybridLambertProbeFinal12/SourceAllIndirect.exr using Guid(8b5973779c35f6f609a473979e99f695) (TextureImporter) -> (Import Result ID: 'ccbcd28b9e943b51e00f384cc64e22ef') in 0.040952041 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=950af7f9dd4953ff7f16bb9bda8adfa0 DependenciesID=6b4a1d15de303ebeed3d4475163d3638 StaticDependenciesID=2a6474a4bc8887f0849bf026f24595e8 
+Asset Pipeline Refresh (id=6efc00d443f9da77cba45eb6c83e11ae): Total: 0.049 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineSourceHybridLambertProbeFinal12/SourceAllDirect.exr using Guid(6f8bc3ace690e07fdbb99eca28c354da) (TextureImporter) -> (Import Result ID: 'abf30cc3631de565a58b411f69938f7b') in 0.173749389 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=147bb337deb3b58c5ae9db66404897b7 DependenciesID=e20f9b402a08e859e8ba0236ae34077d StaticDependenciesID=d3d8e9a87b294a05621bdc70064861a1 
+Asset Pipeline Refresh (id=4dad1928196f35505b1b785ebe022a16): Total: 0.180 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineSourceHybridLambertProbeFinal12/SourceAllDirect.exr using Guid(6f8bc3ace690e07fdbb99eca28c354da) (TextureImporter) -> (Import Result ID: '78ce9ef487da90adf4d0a3ae55a189f2') in 0.039089083 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=b86e7511635a8d4d07a245b15d8e4a39 DependenciesID=94fa242616ab281b635b89c724529d26 StaticDependenciesID=da480fc1b8be743f53c4ec984498f0be 
+Asset Pipeline Refresh (id=f2a71d352b392be9197cc8f21451b185): Total: 0.047 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineSourceHybridLambertProbeFinal12/SourceNonExplicitDirect.exr using Guid(d0855d5138c2380d4aea5a7738467a00) (TextureImporter) -> (Import Result ID: 'fbdd951e0714b5bf5afd204028803f05') in 0.215093765 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=7305ebdfd817de2a234ac32f8d5798d5 DependenciesID=e7d975cdba12074765a77c9694a8298a StaticDependenciesID=b8fe1e8521c87bb27084a5cace588272 
+Asset Pipeline Refresh (id=aa14d0fbcf583267293dfac28b927171): Total: 0.236 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineSourceHybridLambertProbeFinal12/SourceNonExplicitDirect.exr using Guid(d0855d5138c2380d4aea5a7738467a00) (TextureImporter) -> (Import Result ID: '050c681c40672d04406c91e34ba6b0d1') in 0.045337893 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=fee05d9fc382571b4ad9f429761f8f60 DependenciesID=523911e78badf8e1d4e90d1bcb984898 StaticDependenciesID=4a14d73fc1a598b124488ff243cf99c1 
+Asset Pipeline Refresh (id=1d9bddf412ba5973ea793d20532f242a): Total: 0.066 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineSourceHybridLambertProbeFinal12/SourceBaseColor.exr using Guid(18c24d64203c17156a30621ad2e83387) (TextureImporter) -> (Import Result ID: '86139213126edcda6bfe08d6272f952e') in 0.160759504 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=fc143f71859d674db59296cf1ca17782 DependenciesID=a33609bf1d7e147584834d4086279afd StaticDependenciesID=bc5608f2f33a9fd6c9f17766fb1510e7 
+Asset Pipeline Refresh (id=e85146f93bcb2d04cbcb871d8d20ed53): Total: 0.171 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineSourceHybridLambertProbeFinal12/SourceBaseColor.exr using Guid(18c24d64203c17156a30621ad2e83387) (TextureImporter) -> (Import Result ID: '8c4a39d0e3200aa6a1de954b194e2043') in 0.040453185 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=9d96e04aee1e5386cf32747315057bcf DependenciesID=7f1ff4610b9f86c055a5c07bbd2a3415 StaticDependenciesID=3d5eb2576d674598afb2a549a54f220a 
+Asset Pipeline Refresh (id=e9ea6a6831e73656f963daabe884ce86): Total: 0.050 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineSourceHybridLambertProbeFinal12/SourceNormal.exr using Guid(6fa5b79bada9540d8a6afcba63c5cc9f) (TextureImporter) -> (Import Result ID: '275643441e33d5afcc07adb65b57444b') in 0.182630931 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=01483ae51b63b4973cc5821485fd6e4b DependenciesID=fa6d17e80144d930bb9cb489e91177ef StaticDependenciesID=a74289005db59fa5b1af786e7030c0ba 
+Asset Pipeline Refresh (id=315030a93cfcc66608fd040b29806fb2): Total: 0.190 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineSourceHybridLambertProbeFinal12/SourceNormal.exr using Guid(6fa5b79bada9540d8a6afcba63c5cc9f) (TextureImporter) -> (Import Result ID: 'd716e367d47da7a07298992eb95cdff8') in 0.040090606 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=31b16a29049b98427c5336db9f761231 DependenciesID=3205275ca0f662decce0bf7fe36224d8 StaticDependenciesID=38999d522772609133fbb0e18d3f24c2 
+Asset Pipeline Refresh (id=e827a8c87dbc8578dba98b9ae86d9fd9): Total: 0.049 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineSourceHybridLambertProbeFinal12/SourceRoughness.exr using Guid(59c04dd2af57a3efd86dcf8758b0e297) (TextureImporter) -> (Import Result ID: '82c86bf1bd30df20f4634f60214493ea') in 0.162806521 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=365fdca1473248325da754b987ddb44c DependenciesID=3ca6b21273fa302e92b58bef7e9ad1db StaticDependenciesID=e85926b79c50ce6aec763c99961d2906 
+Asset Pipeline Refresh (id=1901314fc4e3ba9da87d977438e820e4): Total: 0.170 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineSourceHybridLambertProbeFinal12/SourceRoughness.exr using Guid(59c04dd2af57a3efd86dcf8758b0e297) (TextureImporter) -> (Import Result ID: 'db27fbf31e61eaab37d42d52cb5660cc') in 0.029574929 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=3cee08555a3742bb23755a1a9e3efbd3 DependenciesID=90a77ed79a80d70634df2b753880f7f6 StaticDependenciesID=640622b797122518bea830cafd88abf3 
+Asset Pipeline Refresh (id=d3d2a746d1778decc9b402cc058204b9): Total: 0.041 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineSourceHybridLambertProbeFinal12/SourceMetallic.exr using Guid(ed626dd5175e227db9e20cbb89d8fcd0) (TextureImporter) -> (Import Result ID: '1ea41a06b2ce92ef5e121ee9d19cc054') in 0.159575965 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=0f36ab63b264ec93003efc0f48076572 DependenciesID=eef6540907160000d90f0d0aa1ffbe57 StaticDependenciesID=f8863fab40aaca5b0553e0a20e85ca47 
+Asset Pipeline Refresh (id=92ab3c1ed02ca012182820b943f70dae): Total: 0.166 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineSourceHybridLambertProbeFinal12/SourceMetallic.exr using Guid(ed626dd5175e227db9e20cbb89d8fcd0) (TextureImporter) -> (Import Result ID: '0a2b7daf0f12e1658540cbcf8c992c07') in 0.032086411 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=ea1f316144ec2e4e6ca9976ab2e05af4 DependenciesID=c90395ba0dd62d63a7664f2cedcea0f1 StaticDependenciesID=9e9cb926bca94b3f43f08fc4b5c2617c 
+Asset Pipeline Refresh (id=e911532b13c04ea99b77d40d388ef303): Total: 0.042 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineSourceHybridLambertProbeFinal12/SourceDiffuseShedBoards.fbx using Guid(97f5f8a2eb4bc8b25a6b68f8a48f44ca) (FBXImporter) -> (Import Result ID: '216805fdb08e795a0ff2bdcc80b60082') in 0.017183473 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=f85ce42576d67a574c87834145a477eb DependenciesID=bd3a0ae3e81c647adbf04fa1e1b8b448 StaticDependenciesID=5283e3ba13658c2f320da7c9ac339cda 
+Asset Pipeline Refresh (id=54a57216a42304646b954148e36c6633): Total: 0.028 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Opening scene 'Assets/CriticalShift/Generated/Spawn/AssembledMap.unity'
+[Licensing::Client] Successfully resolved entitlement details
+Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
+LightingSettings: switching bake backend from 2 to 1.
+Loaded scene 'Assets/CriticalShift/Generated/Spawn/AssembledMap.unity'
+	Deserialize:            159.803 ms
+	Integration:            29567.543 ms
+	Integration of assets:  0.880 ms
+	Thread Wait Time:       -0.146 ms
+	Total Operation Time:   29728.080 ms
+Unloading 13 unused Assets / (41.6 KB). Loaded Objects now: 76584.
+Memory consumption went from 1.42 GB to 1.42 GB.
+Total: 34.812307 ms (FindLiveObjects: 7.651578 ms CreateObjectMapping: 2.246554 ms MarkObjects: 24.013892 ms  DeleteObjects: 0.898985 ms)
+
+CS_SOURCE_HYBRID_FOLLOWUP_CAPTURE HybridSmallBounds
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineSourceHybridLambertProbeFinal12:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineSourceHybridLambertProbeFinal12.cs:73)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineSourceHybridLambertProbeFinal12.cs Line: 73)
+
+CS_SOURCE_HYBRID_FOLLOWUP_CAPTURE SpecularSmallBounds
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineSourceHybridLambertProbeFinal12:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineSourceHybridLambertProbeFinal12.cs:73)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineSourceHybridLambertProbeFinal12.cs Line: 73)
+
+CS_SOURCE_HYBRID_FOLLOWUP_CAPTURE HybridOriginalBounds
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineSourceHybridLambertProbeFinal12:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineSourceHybridLambertProbeFinal12.cs:73)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineSourceHybridLambertProbeFinal12.cs Line: 73)
+
+CS_SOURCE_HYBRID_FOLLOWUP_CAPTURE SpecularOriginalBounds
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineSourceHybridLambertProbeFinal12:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineSourceHybridLambertProbeFinal12.cs:73)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineSourceHybridLambertProbeFinal12.cs Line: 73)
+
+CS_SOURCE_HYBRID_FOLLOWUP_CAPTURE LambertDirectOriginalBounds
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineSourceHybridLambertProbeFinal12:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineSourceHybridLambertProbeFinal12.cs:73)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineSourceHybridLambertProbeFinal12.cs Line: 73)
+
+CS_SOURCE_HYBRID_FOLLOWUP_CAPTURE LambertHybridOriginalBounds
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineSourceHybridLambertProbeFinal12:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineSourceHybridLambertProbeFinal12.cs:73)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineSourceHybridLambertProbeFinal12.cs Line: 73)
+
+CS_SOURCE_HYBRID_LAMBERT_PROBE_NATIVE_OK; no scene save; all-explicit realtime applies only to diagnostic; non-target background carries duplicate historical lighting and must not be scored
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineSourceHybridLambertProbeFinal12:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineSourceHybridLambertProbeFinal12.cs:76)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineSourceHybridLambertProbeFinal12.cs Line: 76)
+
+Unloading 678 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 38121 unused Assets / (1.58 GB). Loaded Objects now: 1099.
+Memory consumption went from 1.96 GB to 388.6 MB.
+Total: 315.728902 ms (FindLiveObjects: 1.921808 ms CreateObjectMapping: 1.335999 ms MarkObjects: 44.574490 ms  DeleteObjects: 267.885141 ms)
+
+Asset Pipeline Refresh (id=69d6170f178bfdf6aaab16887711c8cb): Total: 0.042 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Batchmode quit successfully invoked - shutting down!
+[Physics::Module] Cleanup current backend.
+[Physics::Module] Id: 0xf2b8ea05
+Input System module state changed to: ShutdownInProgress.
+Input Polling Thread exited.
+Input System module state changed to: Shutdown.
+[Licensing::IpcConnector] LicenseClient-agent-notifications channel disconnected successfully.
+[Licensing::IpcConnector] LicenseClient-agent channel disconnected successfully.
+AcceleratorClientConnectionCallback - disconnected - :0
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...
+Cleanup mono
+CodeReloadManager destroyed
+debugger-agent: Unable to listen on 48
+Exiting batchmode successfully now!
+
+SDL leaked 2 allocations
+Turn on UNITY_SDL_ALLOCATION_TRACKING for detailed information.

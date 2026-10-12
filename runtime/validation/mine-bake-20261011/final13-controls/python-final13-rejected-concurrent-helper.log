@@ -1,0 +1,197 @@
+test_combined_reference_is_excluded_when_modules_exist (test_api_references.ModularReferenceTests.test_combined_reference_is_excluded_when_modules_exist) ... ok
+test_conflicting_same_named_modules_are_rejected (test_api_references.ModularReferenceTests.test_conflicting_same_named_modules_are_rejected) ... ok
+test_editor_modules_in_shared_engine_directory_are_found (test_api_references.ModularReferenceTests.test_editor_modules_in_shared_engine_directory_are_found) ... ok
+test_identical_reference_copies_are_deduplicated (test_api_references.ModularReferenceTests.test_identical_reference_copies_are_deduplicated) ... ok
+test_missing_core_module_is_rejected (test_api_references.ModularReferenceTests.test_missing_core_module_is_rejected) ... ok
+test_precondition_failure_preserves_a_failed_report (test_api_references.ModularReferenceTests.test_precondition_failure_preserves_a_failed_report) ... ok
+test_missing_framework_facade_is_rejected (test_api_references.SystemReferenceTests.test_missing_framework_facade_is_rejected) ... ok
+test_missing_standard_reference_is_rejected (test_api_references.SystemReferenceTests.test_missing_standard_reference_is_rejected) ... ok
+test_real_standard_and_framework_facade_paths_are_selected (test_api_references.SystemReferenceTests.test_real_standard_and_framework_facade_paths_are_selected) ... ok
+test_duplicate_ready_rejected (test_evidence.PlayerEvidenceTests.test_duplicate_ready_rejected) ... ok
+test_error_counter_rejected (test_evidence.PlayerEvidenceTests.test_error_counter_rejected) ... ok
+test_first_party_warning_rejected (test_evidence.PlayerEvidenceTests.test_first_party_warning_rejected) ... ok
+test_insufficient_frames_rejected (test_evidence.PlayerEvidenceTests.test_insufficient_frames_rejected) ... ok
+test_no_readiness_rejected (test_evidence.PlayerEvidenceTests.test_no_readiness_rejected) ... ok
+test_nonzero_exit_rejected (test_evidence.PlayerEvidenceTests.test_nonzero_exit_rejected) ... ok
+test_out_of_order_lifecycle_rejected (test_evidence.PlayerEvidenceTests.test_out_of_order_lifecycle_rejected) ... ok
+test_unhandled_exception_rejected (test_evidence.PlayerEvidenceTests.test_unhandled_exception_rejected) ... ok
+test_valid_player_evidence (test_evidence.PlayerEvidenceTests.test_valid_player_evidence) ... ok
+test_wrong_build_rejected (test_evidence.PlayerEvidenceTests.test_wrong_build_rejected) ... ok
+test_wrong_editor_rejected (test_evidence.PlayerEvidenceTests.test_wrong_editor_rejected) ... ok
+test_duplicate_identity_rejected (test_evidence.ResultEvidenceTests.test_duplicate_identity_rejected) ... ok
+test_empty_expected_catalogue_rejected (test_evidence.ResultEvidenceTests.test_empty_expected_catalogue_rejected) ... ok
+test_failed_case_rejected_even_with_green_summary (test_evidence.ResultEvidenceTests.test_failed_case_rejected_even_with_green_summary) ... ok
+test_failed_parent_suite_rejected (test_evidence.ResultEvidenceTests.test_failed_parent_suite_rejected) ... ok
+test_malformed_summary_count_rejected (test_evidence.ResultEvidenceTests.test_malformed_summary_count_rejected) ... ok
+test_malformed_xml_rejected (test_evidence.ResultEvidenceTests.test_malformed_xml_rejected) ... ok
+test_missing_summary_count_rejected (test_evidence.ResultEvidenceTests.test_missing_summary_count_rejected) ... ok
+test_missing_xml_cannot_pass_with_zero_exit (test_evidence.ResultEvidenceTests.test_missing_xml_cannot_pass_with_zero_exit) ... ok
+test_nonzero_process_rejected_with_passing_xml (test_evidence.ResultEvidenceTests.test_nonzero_process_rejected_with_passing_xml) ... ok
+test_skipped_case_rejected (test_evidence.ResultEvidenceTests.test_skipped_case_rejected) ... ok
+test_summary_count_mismatch_rejected (test_evidence.ResultEvidenceTests.test_summary_count_mismatch_rejected) ... ok
+test_valid_results_report_exact_counts (test_evidence.ResultEvidenceTests.test_valid_results_report_exact_counts) ... ok
+test_wrong_test_identity_rejected (test_evidence.ResultEvidenceTests.test_wrong_test_identity_rejected) ... ok
+test_zero_tests_rejected (test_evidence.ResultEvidenceTests.test_zero_tests_rejected) ... ok
+test_input_symlinks_are_rejected (test_evidence.RunnerSafetyTests.test_input_symlinks_are_rejected) ... ok
+test_missing_editor_is_blocked_and_source_is_unchanged (test_evidence.RunnerSafetyTests.test_missing_editor_is_blocked_and_source_is_unchanged) ... FAIL
+test_output_inside_art_is_rejected_before_creation (test_evidence.RunnerSafetyTests.test_output_inside_art_is_rejected_before_creation) ... ok
+test_output_inside_source_is_rejected_before_creation (test_evidence.RunnerSafetyTests.test_output_inside_source_is_rejected_before_creation) ... ok
+test_repeated_runs_use_fresh_directories (test_evidence.RunnerSafetyTests.test_repeated_runs_use_fresh_directories) ... ok
+test_timed_out_process_cannot_return_success (test_evidence.RunnerSafetyTests.test_timed_out_process_cannot_return_success) ... ok
+test_existing_native_settings_are_not_reset (test_mine_metadata.MineTextureMetadataTests.test_existing_native_settings_are_not_reset) ... ok
+test_new_import_keeps_guid_and_numeric_smoothness_alpha (test_mine_metadata.MineTextureMetadataTests.test_new_import_keeps_guid_and_numeric_smoothness_alpha) ... ok
+test_cache_cannot_change_batching_or_blender_version (test_mine_refresh.MineRefreshGuardTests.test_cache_cannot_change_batching_or_blender_version) ... ok
+test_cache_cannot_replace_generated_source_with_same_room_pins (test_mine_refresh.MineRefreshGuardTests.test_cache_cannot_replace_generated_source_with_same_room_pins) ... ok
+test_changed_builder_cannot_modify_the_prepared_map (test_mine_refresh.MineRefreshGuardTests.test_changed_builder_cannot_modify_the_prepared_map) ... ok
+test_changed_neighbor_room_cannot_modify_the_prepared_map (test_mine_refresh.MineRefreshGuardTests.test_changed_neighbor_room_cannot_modify_the_prepared_map) ... ok
+test_changed_uv_exporter_rejects_source_identical_cache (test_mine_refresh.MineRefreshGuardTests.test_changed_uv_exporter_rejects_source_identical_cache) ... ok
+test_only_invalid_black_rgb_changes_and_alpha_is_retained (test_normal_bake_pixels.NormalBakePixelsTests.test_only_invalid_black_rgb_changes_and_alpha_is_retained) ... ok
+
+======================================================================
+FAIL: test_missing_editor_is_blocked_and_source_is_unchanged (test_evidence.RunnerSafetyTests.test_missing_editor_is_blocked_and_source_is_unchanged)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/critical-shift-spawn-runtime/runtime/tools/tests/test_evidence.py", line 171, in test_missing_editor_is_blocked_and_source_is_unchanged
+    self.assertEqual(code, 2)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^
+AssertionError: 1 != 2
+
+----------------------------------------------------------------------
+Ran 48 tests in 27.372s
+
+FAILED (failures=1)
+{
+  "started_utc": "2026-10-12T18:39:42.371479+00:00",
+  "commit": "local-uncommitted",
+  "profile": {
+    "editor": "6000.4.3f1",
+    "revision": "39d1a88d4dd1",
+    "testFramework": "1.6.0",
+    "projectRoot": "runtime/unity",
+    "apiCompatibility": "NET_Standard",
+    "backend": "Mono2x",
+    "stripping": "Disabled",
+    "buildTarget": "StandaloneLinux64",
+    "productName": "Critical Shift Foundation",
+    "companyName": "Critical Shift",
+    "status": "Native acceptance pending; see runtime/validation/WP01.md",
+    "compiler": "Compiler bundled with the pinned Editor; no replacement compiler in native execution",
+    "supplementaryDotnetSdk": "8.0.423"
+  },
+  "target": "Linux64",
+  "status": "Failed",
+  "phases": {
+    "import": {
+      "status": "Blocked"
+    },
+    "EditMode": {
+      "status": "NotRun"
+    },
+    "PlayMode": {
+      "status": "NotRun"
+    },
+    "build": {
+      "status": "NotRun"
+    },
+    "player": {
+      "status": "NotRun"
+    }
+  },
+  "independent_review": "NotRun",
+  "limits": "WP-01 only; not Gate 0 acceptance, gameplay, visual or network validation.",
+  "source_sha256": "2842945b65735e6009e152daf4730bd013dc663b81f36cb7da915a640918ce47",
+  "reason": "Original input changed during validation.",
+  "source_unchanged": false,
+  "ended_utc": "2026-10-12T18:39:55.831629+00:00"
+}
+EVIDENCE_DIRECTORY=/tmp/tmp7atd7b9v/wp01-2v__53ln
+{
+  "started_utc": "2026-10-12T18:39:55.833882+00:00",
+  "commit": "local-uncommitted",
+  "profile": {
+    "editor": "6000.4.3f1",
+    "revision": "39d1a88d4dd1",
+    "testFramework": "1.6.0",
+    "projectRoot": "runtime/unity",
+    "apiCompatibility": "NET_Standard",
+    "backend": "Mono2x",
+    "stripping": "Disabled",
+    "buildTarget": "StandaloneLinux64",
+    "productName": "Critical Shift Foundation",
+    "companyName": "Critical Shift",
+    "status": "Native acceptance pending; see runtime/validation/WP01.md",
+    "compiler": "Compiler bundled with the pinned Editor; no replacement compiler in native execution",
+    "supplementaryDotnetSdk": "8.0.423"
+  },
+  "target": "Linux64",
+  "status": "Blocked",
+  "phases": {
+    "import": {
+      "status": "Blocked"
+    },
+    "EditMode": {
+      "status": "NotRun"
+    },
+    "PlayMode": {
+      "status": "NotRun"
+    },
+    "build": {
+      "status": "NotRun"
+    },
+    "player": {
+      "status": "NotRun"
+    }
+  },
+  "independent_review": "NotRun",
+  "limits": "WP-01 only; not Gate 0 acceptance, gameplay, visual or network validation.",
+  "source_sha256": "b6fd6d1607e7e4062a6485ece376cefeeeccb8241bb926fdeff20fcf9bc2ab2b",
+  "reason": "An activated Unity 6000.4.3f1 executable is required; pass --unity or UNITY_EDITOR.",
+  "source_unchanged": true,
+  "ended_utc": "2026-10-12T18:40:01.849290+00:00"
+}
+EVIDENCE_DIRECTORY=/tmp/tmpm39nnuee/wp01-1ct152mr
+{
+  "started_utc": "2026-10-12T18:40:01.849802+00:00",
+  "commit": "local-uncommitted",
+  "profile": {
+    "editor": "6000.4.3f1",
+    "revision": "39d1a88d4dd1",
+    "testFramework": "1.6.0",
+    "projectRoot": "runtime/unity",
+    "apiCompatibility": "NET_Standard",
+    "backend": "Mono2x",
+    "stripping": "Disabled",
+    "buildTarget": "StandaloneLinux64",
+    "productName": "Critical Shift Foundation",
+    "companyName": "Critical Shift",
+    "status": "Native acceptance pending; see runtime/validation/WP01.md",
+    "compiler": "Compiler bundled with the pinned Editor; no replacement compiler in native execution",
+    "supplementaryDotnetSdk": "8.0.423"
+  },
+  "target": "Linux64",
+  "status": "Blocked",
+  "phases": {
+    "import": {
+      "status": "Blocked"
+    },
+    "EditMode": {
+      "status": "NotRun"
+    },
+    "PlayMode": {
+      "status": "NotRun"
+    },
+    "build": {
+      "status": "NotRun"
+    },
+    "player": {
+      "status": "NotRun"
+    }
+  },
+  "independent_review": "NotRun",
+  "limits": "WP-01 only; not Gate 0 acceptance, gameplay, visual or network validation.",
+  "source_sha256": "865e528acc17ea6ca5a2186827525ab8cf7de1191e8bdc79795ceccb171fecce",
+  "reason": "An activated Unity 6000.4.3f1 executable is required; pass --unity or UNITY_EDITOR.",
+  "source_unchanged": true,
+  "ended_utc": "2026-10-12T18:40:08.715533+00:00"
+}
+EVIDENCE_DIRECTORY=/tmp/tmpm39nnuee/wp01-yti7xsak

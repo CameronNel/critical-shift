@@ -1,0 +1,11 @@
+/tmp/cs-mine-probe-camera-only-preflight-final12.py:4: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world=bpy.data.worlds.new('Known uniformlinearWorld');world.use_nodes=True;background=world.node_tree.nodes.get('Background');background.inputs['Color'].default_value=(.25,.5,.75,1);background.inputs['Strength'].default_value=1;scene.world=world
+/tmp/cs-mine-probe-camera-only-preflight-final12.py:7: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new('WhiteLambert');m.use_nodes=True;nt=m.node_tree;nt.nodes.clear();d=nt.nodes.new('ShaderNodeBsdfDiffuse');d.inputs['Color'].default_value=(1,1,1,1);d.inputs['Roughness'].default_value=0;o=nt.nodes.new('ShaderNodeOutputMaterial');nt.links.new(d.outputs[0],o.inputs['Surface']);sphere.data.materials.append(m)
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+CS_PROBE_UNIFORM_PREFLIGHT_OK
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)
+
+Blender quit

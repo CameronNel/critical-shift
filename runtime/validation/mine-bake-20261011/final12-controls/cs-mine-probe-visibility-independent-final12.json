@@ -1,0 +1,201 @@
+{
+  "status": "ConstantWorld visibility mechanism independently reproduced; pending actualsource virtualprobe",
+  "sourceControlCases": [
+    {
+      "mode": "all-visible",
+      "meanRGB": [
+        0.24991798378323438,
+        0.49983596756646875,
+        0.7497539514151867
+      ],
+      "flags": {
+        "visible_camera": true,
+        "visible_shadow": true,
+        "visible_diffuse": true,
+        "visible_glossy": true,
+        "visible_transmission": true,
+        "visible_volume_scatter": true
+      },
+      "sha256": "fa57b58a65b9bdfc686ccc2d2907e6ac0de2c2a4704ad12a0d40413bcf41bd84"
+    },
+    {
+      "mode": "visible_camera-off",
+      "meanRGB": [
+        0.24991798378323438,
+        0.49983596756646875,
+        0.7497539514151867
+      ],
+      "flags": {
+        "visible_camera": false,
+        "visible_shadow": true,
+        "visible_diffuse": true,
+        "visible_glossy": true,
+        "visible_transmission": true,
+        "visible_volume_scatter": true
+      },
+      "sha256": "fa57b58a65b9bdfc686ccc2d2907e6ac0de2c2a4704ad12a0d40413bcf41bd84"
+    },
+    {
+      "mode": "visible_shadow-off",
+      "meanRGB": [
+        0.24991798378323438,
+        0.49983596756646875,
+        0.7497539514151867
+      ],
+      "flags": {
+        "visible_camera": true,
+        "visible_shadow": false,
+        "visible_diffuse": true,
+        "visible_glossy": true,
+        "visible_transmission": true,
+        "visible_volume_scatter": true
+      },
+      "sha256": "fa57b58a65b9bdfc686ccc2d2907e6ac0de2c2a4704ad12a0d40413bcf41bd84"
+    },
+    {
+      "mode": "visible_diffuse-off",
+      "meanRGB": [
+        0.24991798378323438,
+        0.49983596756646875,
+        0.7497539514151867
+      ],
+      "flags": {
+        "visible_camera": true,
+        "visible_shadow": true,
+        "visible_diffuse": false,
+        "visible_glossy": true,
+        "visible_transmission": true,
+        "visible_volume_scatter": true
+      },
+      "sha256": "fa57b58a65b9bdfc686ccc2d2907e6ac0de2c2a4704ad12a0d40413bcf41bd84"
+    },
+    {
+      "mode": "visible_glossy-off",
+      "meanRGB": [
+        0.24991798378323438,
+        0.49983596756646875,
+        0.7497539514151867
+      ],
+      "flags": {
+        "visible_camera": true,
+        "visible_shadow": true,
+        "visible_diffuse": true,
+        "visible_glossy": false,
+        "visible_transmission": true,
+        "visible_volume_scatter": true
+      },
+      "sha256": "fa57b58a65b9bdfc686ccc2d2907e6ac0de2c2a4704ad12a0d40413bcf41bd84"
+    },
+    {
+      "mode": "visible_transmission-off",
+      "meanRGB": [
+        0.24991798378323438,
+        0.49983596756646875,
+        0.7497539514151867
+      ],
+      "flags": {
+        "visible_camera": true,
+        "visible_shadow": true,
+        "visible_diffuse": true,
+        "visible_glossy": true,
+        "visible_transmission": false,
+        "visible_volume_scatter": true
+      },
+      "sha256": "fa57b58a65b9bdfc686ccc2d2907e6ac0de2c2a4704ad12a0d40413bcf41bd84"
+    },
+    {
+      "mode": "visible_volume_scatter-off",
+      "meanRGB": [
+        0.24991798378323438,
+        0.49983596756646875,
+        0.7497539514151867
+      ],
+      "flags": {
+        "visible_camera": true,
+        "visible_shadow": true,
+        "visible_diffuse": true,
+        "visible_glossy": true,
+        "visible_transmission": true,
+        "visible_volume_scatter": false
+      },
+      "sha256": "fa57b58a65b9bdfc686ccc2d2907e6ac0de2c2a4704ad12a0d40413bcf41bd84"
+    },
+    {
+      "mode": "all-hidden",
+      "meanRGB": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "flags": {
+        "visible_camera": false,
+        "visible_shadow": false,
+        "visible_diffuse": false,
+        "visible_glossy": false,
+        "visible_transmission": false,
+        "visible_volume_scatter": false
+      },
+      "sha256": "73244d3da7e07c5cd10e7d2390dc5425f4f2d8405847d951924b35c6666ed6a5"
+    },
+    {
+      "mode": "only-visible_diffuse",
+      "meanRGB": [
+        0.24991798378323438,
+        0.49983596756646875,
+        0.7497539514151867
+      ],
+      "flags": {
+        "visible_camera": false,
+        "visible_shadow": false,
+        "visible_diffuse": true,
+        "visible_glossy": false,
+        "visible_transmission": false,
+        "visible_volume_scatter": false
+      },
+      "sha256": "fa57b58a65b9bdfc686ccc2d2907e6ac0de2c2a4704ad12a0d40413bcf41bd84"
+    },
+    {
+      "mode": "only-visible_shadow",
+      "meanRGB": [
+        0.24991798378323438,
+        0.49983596756646875,
+        0.7497539514151867
+      ],
+      "flags": {
+        "visible_camera": false,
+        "visible_shadow": true,
+        "visible_diffuse": false,
+        "visible_glossy": false,
+        "visible_transmission": false,
+        "visible_volume_scatter": false
+      },
+      "sha256": "fa57b58a65b9bdfc686ccc2d2907e6ac0de2c2a4704ad12a0d40413bcf41bd84"
+    },
+    {
+      "mode": "only-visible_camera",
+      "meanRGB": [
+        0.24991798378323438,
+        0.49983596756646875,
+        0.7497539514151867
+      ],
+      "flags": {
+        "visible_camera": true,
+        "visible_shadow": false,
+        "visible_diffuse": false,
+        "visible_glossy": false,
+        "visible_transmission": false,
+        "visible_volume_scatter": false
+      },
+      "sha256": "fa57b58a65b9bdfc686ccc2d2907e6ac0de2c2a4704ad12a0d40413bcf41bd84"
+    }
+  ],
+  "validCoveragePixels": 2048,
+  "proposal": "Only visible_camera=True; allshadow/diffuse/glossy/transmission/volume raysfalse. Bakeonly, no beautycamera renders.",
+  "interpretation": "All-ray-false receiver excludedfrombake; at leastcamera-only visibility admitswhiteLambert direct bake andsavedEXR matchesE/pi uniformWorld. Doesnotcertify sourcefield convergence/SH/actors.",
+  "requiredNext": [
+    "Archive originalallhiddenfailedpreflight before newcase",
+    "Update exactvisibilitydictionary/provenance (not fullyinvisible) andrerunpreflight",
+    "ActualsourceAllIndirect/nonExplicitDirect fields+normalvalidmask andSHGPUfit validations",
+    "For multiplevirtualreceivers camera-visible ghosts neverincludedinbeautyreference/render artifacts"
+  ]
+}

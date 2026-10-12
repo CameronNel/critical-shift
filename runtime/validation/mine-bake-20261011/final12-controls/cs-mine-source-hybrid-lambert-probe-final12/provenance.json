@@ -1,0 +1,202 @@
+{
+  "status": "PrototypeBakeOnly",
+  "sourceBlenderSha256": "255fe337aacd602e81bd2940be7bf2a1da2541954f6c8446c8a06f5aae413b72",
+  "sourceObject": "R39 | Shed boards",
+  "worldMatrix": [
+    [
+      1.0,
+      0.0,
+      0.0,
+      -14.399999618530273
+    ],
+    [
+      0.0,
+      1.0,
+      0.0,
+      -41.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "bake": "DIFFUSE",
+  "included": [
+    "separate colour-included all-indirect",
+    "separate colour-included all-direct reference",
+    "separate colour-included non-explicit direct(world/emission/other sources)"
+  ],
+  "excluded": [
+    "view-dependent specular",
+    "emission",
+    "camera beauty/composite"
+  ],
+  "visibleFaceDirection": {
+    "frontTriangles": 6894,
+    "backTriangles": 0,
+    "scope": "Target-only first-hit visibility at triangle centroids; conservative for other-object occlusion"
+  },
+  "fbxSourceDiffuseUVIndex": 1,
+  "size": 512,
+  "chunks": 1,
+  "chunkInventory": {
+    "sourcePolygons": 21181,
+    "sourceCorners": 80632,
+    "chunkPolygons": [
+      38,
+      21143
+    ],
+    "chunkCorners": [
+      144,
+      80488
+    ],
+    "allSourcePolygonsAssignedOnce": true,
+    "sourceNamedAttributesPreserved": true,
+    "sourceCornerNormalsPreserved": true,
+    "sourceGeneratedAndObjectCoordinatesFrozen": [
+      "DIAG_original_Generated",
+      "DIAG_original_Object_Self"
+    ],
+    "sourceWorldMatrixUnchanged": true,
+    "sourceUv0Preserved": true,
+    "maxLiveBakeImages": 1
+  },
+  "samples": 32,
+  "density": [
+    {
+      "node": "DIAGNOSTIC_source_diffuse_chunk_0",
+      "worldArea": 1.8724200830433704,
+      "uvArea": 0.8092841506004333,
+      "pixelsPerMetre": 336.60365946659516,
+      "atlasSize": 512,
+      "chunk": 0,
+      "sourcePolygons": 38
+    },
+    {
+      "pixelsPerMetre": null,
+      "scope": "Source remainder only; not baked or exported",
+      "chunk": 1,
+      "sourcePolygons": 21143
+    }
+  ],
+  "diagnosticVolumesDisabledInMemory": [
+    "R38 | Tunnel haze",
+    "R39 | Shed haze"
+  ],
+  "canonicalSourceSaved": false,
+  "sourceExplicitLightDataCount": 66,
+  "selection": {
+    "pixel": [
+      540,
+      340
+    ],
+    "sourceFace": 20661,
+    "sourceFaces": [
+      20627,
+      20628,
+      20629,
+      20630,
+      20631,
+      20632,
+      20633,
+      20634,
+      20635,
+      20636,
+      20637,
+      20638,
+      20639,
+      20640,
+      20641,
+      20642,
+      20643,
+      20644,
+      20645,
+      20646,
+      20647,
+      20648,
+      20649,
+      20650,
+      20651,
+      20652,
+      20653,
+      20654,
+      20655,
+      20656,
+      20657,
+      20658,
+      20659,
+      20660,
+      20661,
+      20662,
+      20663,
+      20664
+    ],
+    "faces": 38,
+    "triangles": 68,
+    "sourceWorldMatrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        -14.399999618530273
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        -41.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "sourceLocalMin": [
+      -24.90999984741211,
+      -33.47206115722656,
+      0.07121968269348145
+    ],
+    "sourceLocalMax": [
+      -24.869998931884766,
+      -33.085044860839844,
+      3.498487949371338
+    ],
+    "nativePrototypeExplicitLights": "All63 minePOINTs plus3 SUNs, enabled only in disposable native prototype",
+    "sourceNamedAttributesPreserved": true
+  },
+  "nativeValidation": "Pending; dynamic shadows, actors, source probe field and full-map not certified",
+  "files": {
+    "SourceAllIndirect.exr": "d2579752b5c87c5e16be54a2dbf6f5a6f91035fa7621274b5e45c423afe690db",
+    "SourceAllDirect.exr": "1661286c12d77c725b8dee579527b660f18248d0491838217f3dcd10e5d60c1d",
+    "SourceNonExplicitDirect.exr": "13bc4ef3dcf3b7424ba7d0308ee2b7749ed40be718f024116fee0feffb4f8c73",
+    "SourceBaseColor.exr": "063178c98a988d2e2527c2a4e52b6fc4b719a97ec6409c77475ddedb0ea0b257",
+    "SourceNormal.exr": "190f190d7ac5c5133ad48196c895dfd49ad25dce8b0977338d7160f658d32855",
+    "SourceRoughness.exr": "6bd1c20964ac60b59e5b0adab6c8ee81dcda1680abb241d6d60025e307d53e53",
+    "SourceMetallic.exr": "0415fde3c1b668d99963afcd114c46dc8492f36e53c6bd9f8bf677fb971d6866",
+    "SourceDiffuseShedBoards.fbx": "a0bf25028ac84291b715429aa7fb061fd371508353712f07e354e7272acec907",
+    "SourceContextShed.exr": "8c19554ea090e413a29c4f7177fe0eb21e7f60acaa1af29a4e7c4bd0a7ad7b67",
+    "density.json": "7a0229c83710480c587adcd7af40f0fe140947b4459e2e4798f8eb7e089c2a66",
+    "chunk-inventory.json": "5dd5354d88f79c4a967481f0d696f16a4a63666a6908ea4b9792cc1cdbc7a905",
+    "visible-face-direction.json": "4d097fb93daef452c2822c7015f9dc19ef0f795a42a0b4148048826db4785fc4",
+    "selection.json": "774f662f2b25bfe86765fa379cf320f6f19a8e9a6a90f2fd0dc5a2539762443d",
+    "explicit-lights-disabled.json": "64ae6196c2b48e56c45295f1dd1225e229ef18f4fff74d42e1439d8ad8cdcdd4",
+    "explicit-lights-restored.json": "2edb2c5a4ef41e615257bbec4528594cc9b2c4dec548db009a2a2760e6d6a6fb",
+    "camera-proof.json": "d57b9d561a044945328656bae513b866805d49b93b9794d653369c6aae04337e"
+  }
+}

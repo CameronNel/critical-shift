@@ -97,8 +97,7 @@ namespace CriticalShift.Player.Editor
         {
             var map=JsonUtility.FromJson<ExportMap>(File.ReadAllText(SpawnMapBuild.Folder+"map-bindings.json"));
             var sky=map.materials.Single(p=>p.room=="mine").assemblyLighting;
-            // The scoped legacy bake baseline is restored to source-physical
-            // runtime intensity before actors and reflections are rendered.
+            // Bake and runtime use the same source-physical point intensity.
             // Keep baked finite-angle SUN shadows on static scenery; moving
             // receivers use runtime casters and baked probe occlusion.
             foreach(var sun in UnityEngine.Object.FindObjectsByType<Light>()
@@ -130,6 +129,56 @@ namespace CriticalShift.Player.Editor
             ReflectionProbe.UpdateCachedState();
             FinishAtmosphere(map.materials.Single(p=>p.room=="mine"));
             Validate(root,map);
+            RecordPointBakeOutput(root,map);
+        }
+
+        [Serializable] private sealed class PointBakeRecord
+        {
+            public string name, configuredMode, bakedMode, mixedMode;
+            public bool isBaked;
+            public int shadowMaskChannel, probeOcclusionLightIndex;
+            public float intensity, radius;
+        }
+
+        [Serializable] private sealed class PointBakeInventory
+        {
+            public string unityVersion;
+            public int configuredMixed, configuredBaked, actualMixed, actualBaked;
+            public PointBakeRecord[] points;
+        }
+
+        private static void RecordPointBakeOutput(Transform root,ExportMap map)
+        {
+            var points=root.GetComponentsInChildren<Light>().Where(l=>l.type==LightType.Point)
+                .OrderBy(l=>l.name,StringComparer.Ordinal).Select(light=>
+                {
+                    var output=light.bakingOutput;
+                    return new PointBakeRecord
+                    {
+                        name=light.name,configuredMode=light.lightmapBakeType.ToString(),
+                        bakedMode=output.lightmapBakeType.ToString(),mixedMode=output.mixedLightingMode.ToString(),
+                        isBaked=output.isBaked,shadowMaskChannel=output.occlusionMaskChannel,
+                        probeOcclusionLightIndex=output.probeOcclusionLightIndex,
+                        intensity=light.intensity,radius=light.shapeRadius
+                    };
+                }).ToArray();
+            var names=new HashSet<string>(map.rooms.Single(r=>r.key=="mine").lights
+                .Where(l=>l.type=="POINT").Select(l=>l.name),StringComparer.Ordinal);
+            if(points.Length!=63 || names.Count!=63 || points.Select(p=>p.name).Distinct(StringComparer.Ordinal).Count()!=63 ||
+                !names.SetEquals(points.Select(p=>p.name)) ||
+                points.Any(p=>!p.isBaked || !float.IsFinite(p.intensity) || p.intensity<0 || !float.IsFinite(p.radius) || p.radius<0))
+                throw new InvalidOperationException("Mine point-light bake inventory is incomplete.");
+            var inventory=new PointBakeInventory
+            {
+                unityVersion=UnityEngine.Application.unityVersion,points=points,
+                configuredMixed=points.Count(p=>p.configuredMode=="Mixed"),configuredBaked=points.Count(p=>p.configuredMode=="Baked"),
+                actualMixed=points.Count(p=>p.bakedMode=="Mixed"),actualBaked=points.Count(p=>p.bakedMode=="Baked")
+            };
+            if(inventory.configuredMixed!=24 || inventory.configuredBaked!=39 || inventory.actualMixed+inventory.actualBaked!=63)
+                throw new InvalidOperationException("Mine point-light modes differ from the pinned source contract.");
+            File.WriteAllText(SpawnMapBuild.Folder+"mine-point-bake-output.json",JsonUtility.ToJson(inventory,true));
+            Debug.Log("CS_MINE_ACTUAL_POINT_BAKE_OUTPUT; configuredMixed="+inventory.configuredMixed+
+                "; actualMixed="+inventory.actualMixed+"; actualBaked="+inventory.actualBaked);
         }
 
         private static void FinishAtmosphere(SurfacePackage package)

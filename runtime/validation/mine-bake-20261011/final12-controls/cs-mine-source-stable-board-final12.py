@@ -4,6 +4,19 @@ import hashlib,json,math
 helper=Path('/tmp/cs-mine-source-hybrid-board-final12.py').read_text();prefix=helper.split("source.hide_render=True;scene.render.engine='CYCLES'")[0]
 prefix=prefix.replace("out=Path('/tmp/cs-mine-source-hybrid-board-final12')", "out=Path('/tmp/cs-mine-source-stable-board-final12')")
 exec(compile(prefix,'bounded-board-construction','exec'))
+(out/'context-shadow-exclusions.json').write_text(json.dumps([{'name':o.name,'visibleShadow':o.visible_shadow} for o in bpy.data.objects['ROOM_front-end-area'].instance_collection.all_objects if o.type in {'MESH','FONT','CURVE'} and not o.visible_shadow],indent=2)+'\n')
+all_material_inputs=[]
+for material in {m for o in bpy.data.objects['ROOM_mine'].instance_collection.all_objects if o.type in {'MESH','CURVE','FONT'} and hasattr(o.data,'materials') for m in o.data.materials if m and m.use_nodes}:
+ entries=[]
+ for node in material.node_tree.nodes:
+  if node.type not in {'BSDF_PRINCIPLED','BSDF_DIFFUSE'}:continue
+  values={}
+  for name in ['Diffuse Roughness','Roughness','Metallic','Subsurface Weight','Sheen Weight','Coat Weight','Transmission Weight']:
+   socket=node.inputs.get(name)
+   if socket:values[name]={'linked':socket.is_linked,'default':float(socket.default_value)}
+  entries.append({'closure':node.type,'inputs':values})
+ all_material_inputs.append({'material':material.name,'closures':entries})
+(out/'actual-all-mine-bsdf-inputs.json').write_text(json.dumps(all_material_inputs,indent=2)+'\n')
 source.hide_render=True;target=targets[0];scene.render.engine='CYCLES';scene.cycles.device='CPU';scene.cycles.samples=256;scene.cycles.use_denoising=False
 materials={m:m for m in target.data.materials};view=scene.view_layers[0];view.use_pass_diffuse_color=True;view.use_pass_diffuse_direct=True;view.use_pass_diffuse_indirect=True;view.use_pass_glossy_color=True;view.use_pass_glossy_direct=True;view.use_pass_glossy_indirect=True
 for name in ['SourceShedBoard','SourceBoardBaseColor','SourceBoardShadingNormal']:
@@ -30,4 +43,4 @@ scene.render.resolution_x=640;scene.render.resolution_y=360;scene.render.resolut
 actualvfov=2*math.atan(36*360/640/(2*lens));assert abs(actualvfov-vfov)<1e-6
 scene.render.image_settings.media_type='MULTI_LAYER_IMAGE';scene.render.image_settings.file_format='OPEN_EXR_MULTILAYER';scene.render.image_settings.color_depth='32';scene.render.filepath=str(out/'SourceContextShed-256.exr');bpy.ops.render.render(write_still=True)
 files={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in out.iterdir() if p.is_file()}
-(out/'provenance.json').write_text(json.dumps({'status':'HighSampleBoundedDiagnosticOnly','sourceSha256':hashlib.sha256((root/'runtime/out/spawn-export-source/combined-runtime-source.blend').read_bytes()).hexdigest(),'samples':256,'resolution':[640,360],'volumesDisabledInMemory':suppressed,'canonicalSourceSaved':False,'files':files},indent=2)+'\n');print('CS_STABLE_SOURCE_BOARD_REFERENCE_OK',flush=True)
+(out/'provenance.json').write_text(json.dumps({'status':'HighSampleBoundedDiagnosticOnly','sourceSha256':hashlib.sha256((root/'runtime/out/spawn-export-source/combined-runtime-source.blend').read_bytes()).hexdigest(),'helperSha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'constructionHelperSha256':hashlib.sha256(Path('/tmp/cs-mine-source-hybrid-board-final12.py').read_bytes()).hexdigest(),'samples':256,'resolution':[640,360],'volumesDisabledInMemory':suppressed,'canonicalSourceSaved':False,'files':files},indent=2)+'\n');print('CS_STABLE_SOURCE_BOARD_REFERENCE_OK',flush=True)
