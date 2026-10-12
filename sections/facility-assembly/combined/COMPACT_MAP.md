@@ -2,7 +2,7 @@
 
 **Unreviewed, not accepted.** Owner instructions: "the map should be as compact as possible ... make this thing as close knit and tight as possible. Reuse what you can", then "Use the compact layout as the main map".
 `combined_map.blend` is now built by `build_compact_map.py` (it imports `build_combined_map.py` and overrides the room placements and the hall list). `COMBINED_MAP.md` keeps the decision record of the older spread-out layout (plan v7 positions, long halls, outer ring), which is superseded wherever it disagrees with this file; its measurements and door data still stand.
-Never hand-edit `combined_map.blend`. Rebuild: `blender --background --python build_compact_map.py`. The older layout still rebuilds with `build_combined_map.py --through compliance-dock --output spread_layout.blend`. The same source-file fetches as `AGENT_READ_FIRST.md` apply, plus the condenser bay's `sources/condenser-bay/module.blend` (LFS; the original R34, not the unreviewed AAA finish).
+Never hand-edit `combined_map.blend`. Rebuild: `blender --background --python build_compact_map.py`. The older layout still rebuilds with `build_combined_map.py --through compliance-dock --output spread_layout.blend`. The same source-file fetches as `AGENT_READ_FIRST.md` apply, plus the AAA finishes `sources/{waste-storage,cooling-plant,condenser-bay}/module_aaa_A1.blend` (LFS).
 
 ## What changed against the combined layout
 
@@ -11,9 +11,9 @@ Never hand-edit `combined_map.blend`. Rebuild: `blender --background --python bu
 | Reactor, front end, spawn, mine, refinery, medical, fuel corridor | as built | **unchanged** | their own rails, the 34 m spine, the corridor and the yard portal; moving any of them breaks those interfaces |
 | Turbine (AAA finish) | origin (0, 17) | origin **(0, 14.5)**: end wall on the reactor N stub outer end, no hall | reactor stub measured y 10.8 to 14.5; turbine end wall module y 0.0 |
 | Electrical (R11) | (19.75, 26.25) NE, 2 halls away | origin **(0, 39.95)**, touching the turbine's far door | turbine and electrical CONNECTIONS.md: origin (0, 25.45) in turbine coordinates, collinear 2.4 m openings |
-| Condenser bay (original R34) | not placed | origin **(1.6, 21.9, -6.0)**, under the turbine | its CONNECTIONS.md: turbine = local + (1.6, 7.4, -6.0); U04 receive lands on turbine U04 (4.6, 11.45, 0) |
-| Waste | (28.32, -24), 23 m hall | origin **(16.2, -16.2)**, rotation -135, 7 m hall from the SE stub seam | WS_RECEIVING threshold on the stub axis (11.0163, -11.0163 seam, cooling CONNECTIONS.md) |
-| Cooling | (-44.1, -19), 40 m hall | origin **(-14.5, 0)**, rotation +90, on the W stub end | CP-P01 on the stub end; cooling owns y >= 0, reactor owns the stub |
+| Condenser bay (AAA finish) | not placed | origin **(1.6, 21.9, -6.0)**, under the turbine | its CONNECTIONS.md: turbine = local + (1.6, 7.4, -6.0); U04 receive lands on turbine U04 (4.6, 11.45, 0) |
+| Waste (AAA finish `module_aaa_A1.blend`) | (28.32, -24), 23 m hall | origin **(16.2, -16.2)**, rotation -135, 7 m hall from the SE stub seam | WS_RECEIVING threshold on the stub axis (11.0163, -11.0163 seam, cooling CONNECTIONS.md) |
+| Cooling (AAA finish `module_aaa_A1.blend`) | (-44.1, -19), 40 m hall | origin **(-14.5, 0)**, rotation +90, on the W stub end | CP-P01 on the stub end; cooling owns y >= 0, reactor owns the stub |
 | Compliance dock | (60, -79), 129 m trunk | origin **(38, -54)**, rotation -90, 2 m past the front-end hall east stub | P1 threshold; hall east door stub ends at x 36 |
 
 Dropped halls: the bridge, electrical spur, east trunk, dock link, waste personnel and dispatch halls, medical direct door, outer ring west arm, yard passage and the fuel-service hall (about 450 m of hall in all). Kept: the south concourse and tunnel, and the 7 m waste hall.
@@ -30,3 +30,7 @@ Reactor stub doors: the closed door pieces on the N, W and SE stubs (75 objects)
 
 ## Not checked
 No collision with a player capsule, door animation (the stub, turbine D01/D02, electrical D01 and cooling P01 doors are open or parked in these renders; closed leaves on other doors are untouched), lighting balance, the condenser bay's service door D01 (plated, underground), whether the condenser top meets the turbine floor cleanly, performance, Unity. The condenser bay at z -6 has no walkable access from the facility yet; only the U04 opening above links the two. Not built here: gantry (no attachment spec). Travel times are not recomputed.
+
+## Source files in use (swap done 2026-10-12 on the owner's request)
+Waste, cooling and the condenser bay now use their **AAA finishes** (`module_aaa_A1.blend`, 3 and 4 Oct on `main`, material and lighting passes, unreviewed, no validator run) instead of the 14 Sep originals. The same turbine file (AAA, branch `claude/turbine-aaa`, 3 Oct) was already in use. Measured before the swap: same bounding boxes and the same interface empties as the originals (waste x -6.32 to 7.61, y -0.32 to 18.32; cooling x -5.8 to 5.8, y 0 to 13.3; condenser x -2.1 to 9.88, y -2.56 to 9.68), so no placement moved. After the swap: same ray lanes (reactor to cooling, to waste, waste personnel hall to the spine) clear. Waste AAA has a few more architecture meshes (432 against 428). Triangles: waste AAA 329k and cooling AAA 276k and condenser AAA 345k by the file inspector (the originals counted 329k, 383k and 513k there).
+Files older than two weeks still in use: none. Every other file was last changed between 1 and 10 Oct (spawn 1 Oct, electrical R11 2 Oct, fuel corridor 2 Oct).

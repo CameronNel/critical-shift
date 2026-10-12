@@ -46,6 +46,7 @@ Not placed: condenser bay (not in the plan), gantry (no attachment spec). Known 
 
 `build_combined_map.py --through compliance-dock` links source files that live elsewhere in the repository; fetch each single file (never a wide sparse checkout):
 - Turbine, the AAA finish from the unmerged branch `claude/turbine-aaa`: `git show origin/claude/turbine-aaa:sections/facility-assembly/sources/turbine-room/module_overhaul_R1.blend | git lfs smudge > sections/facility-assembly/sources/turbine-room/module_overhaul_R1.blend` (the build does not fall back to another turbine file; its door and wall positions are specific to this one).
+- Waste, cooling and condenser bay AAA finishes: `sources/{waste-storage,cooling-plant,condenser-bay}/module_aaa_A1.blend`, LFS files on `main` (`git show origin/main:<path> | git lfs smudge > <path>`).
 - Dock: `sources/compliance-dock/module_overhaul_R1.blend` is a plain Git blob on `main` (`git show origin/main:<path> > <path>`). Electrical `overhaul/checkpoints/full-R11.blend`, waste `module.blend`, cooling `module.blend`, medical `module_overhaul_R2.blend`, fuel corridor `fuel_full_F23ci.blend`, spawn `module.blend` and the front end's `textures/` folder are LFS files on `main`; the spawn module is also linked for the halls' materials, airlock doors and props.
 - The hall screens (`textures/hall_screen_*.png`) are committed here; regenerate with `python3 make_hall_screens.py textures`.
 
