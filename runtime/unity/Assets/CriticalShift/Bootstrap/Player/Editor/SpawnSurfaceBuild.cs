@@ -30,6 +30,7 @@ namespace CriticalShift.Player.Editor
         public SurfaceTexture wallMesh;
         public SurfaceTexture suitOcclusion;
         public SurfaceTexture contextMesh; public ExportObject[] contextObjects; public MineSourceVolume[] volumes;
+        public ExportLight[] contextSunLights;
         public AssemblyLighting assemblyLighting;
         public MineJoinRay[] joinRays;
     }
@@ -272,6 +273,14 @@ namespace CriticalShift.Player.Editor
                 var platform=importer.GetPlatformTextureSettings("Standalone");platform.overridden=true;platform.format=normal ? TextureImporterFormat.BC5 : TextureImporterFormat.BC7;
                 platform.maxTextureSize=source.size;platform.textureCompression=TextureImporterCompression.CompressedHQ;platform.compressionQuality=100;
                 importer.SetPlatformTextureSettings(platform);
+            }
+            if(source.file.EndsWith("/spawn-wood-high.png",StringComparison.Ordinal))
+            {
+                // Native controls isolate nonfinite coefficient samples to
+                // anisotropic filtering, including uncompressed imports.
+                // Disable it only for this low-frequency coefficient atlas;
+                // retain the source detail image's anisotropy and grain.
+                importer.anisoLevel=0;
             }
             if(source.file.StartsWith("Surfaces/mine-",StringComparison.Ordinal) && source.file.EndsWith("/spawn-emission.exr",StringComparison.Ordinal))
             {

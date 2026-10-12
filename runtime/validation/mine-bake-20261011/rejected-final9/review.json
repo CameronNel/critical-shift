@@ -1,0 +1,80 @@
+{
+  "iteration": "source-wood-final9",
+  "accepted": false,
+  "target": 98,
+  "reviewer": "/root/strict_mine_review",
+  "visualSubtotal": {
+    "fidelity": 16,
+    "fidelityMax": 40,
+    "detailAndArtifacts": 13,
+    "detailAndArtifactsMax": 20,
+    "total": 29,
+    "max": 60,
+    "overallScore": null
+  },
+  "blockers": [
+    "Portal/backdrop cliff is emerald instead of grey",
+    "Tunnel black patches on H04 sign, distant supports and debris",
+    "Ground loses granular source detail",
+    "Shed is brighter and paler with harder shading than source"
+  ],
+  "retainedImprovements": [
+    "Authored wood grain restored",
+    "Pipe ripple highlights improved"
+  ],
+  "technicalChecks": {
+    "pythonTests": 48,
+    "nativePlayModePassed": 17,
+    "nativePlayModeFailed": 0,
+    "playerApiAssemblies": 4,
+    "freshPlayer": false
+  },
+  "preparedScene": {
+    "mapBindingsSha256": "1856acfb8df409ee6a54ce7a36f3b18fdee54ec9ca072b5f3bae0342be5b044b",
+    "rigBindingsSha256": "b89037e3c376c6e7958a3a1a1713664559baec579b861c8c5702ad03cc4a90a6",
+    "sceneSha256": "7ce86fba6991f820eaf005d295a15086a68adc946744502ac58916b2178daede",
+    "sourceSha256": "385d93a526731a940b62ee40f1d1bd100bac32e1757cdaad48585feaeb54c6b9",
+    "lightmaps": 3
+  },
+  "comparisons": {
+    "preparedScene": {
+      "mapBindingsSha256": "1856acfb8df409ee6a54ce7a36f3b18fdee54ec9ca072b5f3bae0342be5b044b",
+      "rigBindingsSha256": "b89037e3c376c6e7958a3a1a1713664559baec579b861c8c5702ad03cc4a90a6",
+      "sceneSha256": "7ce86fba6991f820eaf005d295a15086a68adc946744502ac58916b2178daede",
+      "sourceSha256": "385d93a526731a940b62ee40f1d1bd100bac32e1757cdaad48585feaeb54c6b9",
+      "lightmaps": 3
+    },
+    "images": [
+      {
+        "view": "R39_01_PORTAL_APPROACH",
+        "blender": "/workspace/critical-shift-spawn-runtime/runtime/out/mine-bake-audit/blender/R39_01_PORTAL_APPROACH.png",
+        "unity": "/workspace/critical-shift-spawn-runtime/runtime/out/mine-bake-audit/unity-source-wood-final9/R39_01_PORTAL_APPROACH.png",
+        "panel": "/workspace/critical-shift-spawn-runtime/runtime/out/mine-bake-audit/comparison-source-wood-final9/R39_01_PORTAL_APPROACH.png",
+        "blenderSha256": "0caace86a451e4349dee9d42b7bdb02a8901f3da8f1276b979f907c3561179be",
+        "unitySha256": "9664c85e13c3a6ba70236a255b9d1860433facb32a55af3fccbbb2181bb5f6f0",
+        "panelSha256": "5ba0ec5195d089d3e113483bf2ec1b4b16ae8700af8067ebb7934f029a8d24ca"
+      },
+      {
+        "view": "R39_02_TUNNEL",
+        "blender": "/workspace/critical-shift-spawn-runtime/runtime/out/mine-bake-audit/blender/R39_02_TUNNEL.png",
+        "unity": "/workspace/critical-shift-spawn-runtime/runtime/out/mine-bake-audit/unity-source-wood-final9/R39_02_TUNNEL.png",
+        "panel": "/workspace/critical-shift-spawn-runtime/runtime/out/mine-bake-audit/comparison-source-wood-final9/R39_02_TUNNEL.png",
+        "blenderSha256": "d233660db90911511901bd0781e4837afd2076a5d82d7f70f421e1a2ad17be19",
+        "unitySha256": "1a174c55d1810c378dbc67d401586fe1c3bf2b5b601833f77f3cc84aa08e3b2b",
+        "panelSha256": "d6ad84789e2af63f76654b3cf29d597ca00f6ba024c3e182aaa3765556267608"
+      },
+      {
+        "view": "R39_04_SHED_FRONT",
+        "blender": "/workspace/critical-shift-spawn-runtime/runtime/out/mine-bake-audit/blender/R39_04_SHED_FRONT.png",
+        "unity": "/workspace/critical-shift-spawn-runtime/runtime/out/mine-bake-audit/unity-source-wood-final9/R39_04_SHED_FRONT.png",
+        "panel": "/workspace/critical-shift-spawn-runtime/runtime/out/mine-bake-audit/comparison-source-wood-final9/R39_04_SHED_FRONT.png",
+        "blenderSha256": "34c68642df399f90c37df2ca2f65828ba131116cdcd9592096f708bf17cbc211",
+        "unitySha256": "bef3a02c8d7d1f745ad5cf1a6cc1688b0203ccf950b9e75b7e4bcb9d091304a0",
+        "panelSha256": "0f92e135c3f407ea261e6c924e1d0e0d931361259c3f613e3f6dcc80aecb3e7e"
+      }
+    ],
+    "manipulation": "Side-by-side layout and labels only; no resizing, image exposure, colour, contrast or content changes",
+    "acceptance": "Independent reviewer pending"
+  },
+  "scope": "Prepared PR95 six-room assembly; Claude expanded PR102 assembly is untouched and still requires full refresh after merge."
+}

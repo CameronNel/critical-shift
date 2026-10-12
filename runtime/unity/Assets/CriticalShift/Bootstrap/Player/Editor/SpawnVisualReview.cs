@@ -229,6 +229,7 @@ namespace CriticalShift.Player.Editor
         {
             if (SystemInfo.graphicsDeviceType==GraphicsDeviceType.Null) throw new InvalidOperationException("Captures require a real graphics context.");
             EditorSceneManager.OpenScene(SpawnMapBuild.ScenePath);
+            ValidatePreparedScene();
             LightProbes.Tetrahedralize();ReflectionProbe.UpdateCachedState();
             var persistedProbes=UnityEngine.Object.FindObjectsByType<ReflectionProbe>();
             if(persistedProbes.Count(p=>p.name.StartsWith("Spawn reflection",StringComparison.Ordinal))!=3 || persistedProbes.Any(p=>p.mode!=ReflectionProbeMode.Custom || p.customBakedTexture==null))
@@ -278,6 +279,7 @@ namespace CriticalShift.Player.Editor
                 if(roomKey=="mine") camera.backgroundColor=new Color(sky.world_color[0],sky.world_color[1],sky.world_color[2]).gamma*sky.world_strength;
                 var minePackage=map.materials.SingleOrDefault(p=>p.room=="mine");
                 if(minePackage!=null) MineVisualLighting.ConfigureAtmosphere(camera,minePackage);
+                if(roomKey=="mine") AuditLinearCapture(camera,Path.Combine(output,view.name+"-linear.exr"));
                 if (Array.IndexOf(args,"-csRawCapture")<0) node.AddComponent<BlenderView>().Configure(display);
                 var target=new RenderTexture(1440,810,24,RenderTextureFormat.ARGB32,RenderTextureReadWrite.sRGB);
                 target.antiAliasing=4;
@@ -290,6 +292,48 @@ namespace CriticalShift.Player.Editor
                 UnityEngine.Object.DestroyImmediate(pixels); UnityEngine.Object.DestroyImmediate(target); UnityEngine.Object.DestroyImmediate(node);
             }
             Debug.Log("CS_SPAWN_VISUAL_CAPTURE_OK; graphics="+SystemInfo.graphicsDeviceName+"; scene not saved by captures");
+        }
+        private static void AuditLinearCapture(Camera camera,string output)
+        {
+            var target=new RenderTexture(1440,810,24,RenderTextureFormat.ARGBHalf,RenderTextureReadWrite.Linear) {antiAliasing=4};
+            var previous=RenderTexture.active;
+            var pixels=new Texture2D(1440,810,TextureFormat.RGBAHalf,false,true);
+            try
+            {
+                camera.targetTexture=target;camera.Render();RenderTexture.active=target;
+                pixels.ReadPixels(new Rect(0,0,1440,810),0,0);pixels.Apply();
+                var values=pixels.GetPixelData<ushort>(0);
+                int nonfinite=0;
+                for(int i=0;i<values.Length;i+=4)
+                    if((values[i]&0x7c00)==0x7c00 || (values[i+1]&0x7c00)==0x7c00 || (values[i+2]&0x7c00)==0x7c00)nonfinite++;
+                var bytes=pixels.EncodeToEXR(Texture2D.EXRFlags.OutputAsFloat);
+                File.WriteAllBytes(output,bytes);
+                string digest;
+                using(var hash=SHA256.Create())digest=string.Concat(hash.ComputeHash(bytes).Select(b=>b.ToString("x2")));
+                var audit=new LinearCaptureAudit {camera=camera.name,captureSha256=digest,nonfiniteRGBPixels=nonfinite,
+                    position=camera.transform.position,rotation=camera.transform.rotation,
+                    verticalFov=camera.fieldOfView,nearClip=camera.nearClipPlane,farClip=camera.farClipPlane,
+                    width=target.width,height=target.height,msaa=target.antiAliasing,
+                    graphicsDevice=SystemInfo.graphicsDeviceName,graphicsVersion=SystemInfo.graphicsDeviceVersion,
+                    preparedScene=JsonUtility.FromJson<PreparedScene>(File.ReadAllText(SpawnMapBuild.Folder+"prepared-scene.json"))};
+                File.WriteAllText(Path.ChangeExtension(output,"json"),JsonUtility.ToJson(audit,true)+"\n");
+                if(nonfinite!=0) throw new InvalidOperationException("Mine HDR capture contains nonfinite RGB pixels: "+nonfinite+"; "+output);
+                Debug.Log("CS_MINE_HDR_AUDIT_OK; nonfinitePixels=0; capture="+output);
+            }
+            finally
+            {
+                RenderTexture.active=previous;camera.targetTexture=null;
+                UnityEngine.Object.DestroyImmediate(pixels);UnityEngine.Object.DestroyImmediate(target);
+            }
+        }
+        [Serializable] private sealed class LinearCaptureAudit
+        {
+            public string camera,captureSha256,graphicsDevice,graphicsVersion;
+            public Vector3 position;
+            public Quaternion rotation;
+            public float verticalFov,nearClip,farClip;
+            public int nonfiniteRGBPixels,width,height,msaa;
+            public PreparedScene preparedScene;
         }
         private static Vector3 V(float[] v)=>new Vector3(v[0],v[2],v[1]);
     }

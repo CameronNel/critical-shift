@@ -4,6 +4,32 @@ import bpy
 import numpy as np
 
 
+def surface_density(obj, layer_name, size):
+    """Measure delivered texture area against physical triangle area."""
+    mesh = obj.data
+    mesh.calc_loop_triangles()
+    vertices = np.empty(len(mesh.vertices) * 3, dtype=np.float32)
+    mesh.vertices.foreach_get('co', vertices)
+    transform = np.asarray(obj.matrix_world, dtype=np.float64)
+    world = vertices.reshape((-1, 3)) @ transform[:3, :3].T + transform[:3, 3]
+    indices = np.empty(len(mesh.loop_triangles) * 3, dtype=np.int32)
+    corners = np.empty_like(indices)
+    mesh.loop_triangles.foreach_get('vertices', indices)
+    mesh.loop_triangles.foreach_get('loops', corners)
+    points = world[indices.reshape((-1, 3))]
+    areas = np.linalg.norm(np.cross(points[:, 1] - points[:, 0], points[:, 2] - points[:, 0]), axis=1) / 2
+    values = np.empty(len(mesh.loops) * 2, dtype=np.float32)
+    mesh.uv_layers[layer_name].data.foreach_get('uv', values)
+    uv = values.reshape((-1, 2))[corners.reshape((-1, 3))]
+    a, b = uv[:, 1] - uv[:, 0], uv[:, 2] - uv[:, 0]
+    uv_areas = np.abs(a[:, 0] * b[:, 1] - a[:, 1] * b[:, 0]) / 2
+    sampled = areas > 1e-9
+    area, coverage = float(areas[sampled].sum()), float(uv_areas[sampled].sum())
+    density = size * math.sqrt(coverage / area) if area else 0
+    return {'node': obj.name, 'worldArea': area, 'uvArea': coverage,
+            'pixelsPerMetre': density, 'atlasSize': size}
+
+
 def unwrap(objects, layer_name, margin, world_vertices=False):
     proxies=[];records=[]
     for original in objects:

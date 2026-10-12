@@ -1,7 +1,7 @@
 {
   "claudePr": 102,
   "claudeBranch": "claude/critical-shift-hall-fixes-khgd29",
-  "inspectedHead": "4980b0aac17a897063993f50d6d8a3e22c8e1ce4",
+  "inspectedHead": "e1034ceafd35c72d4456fb8d9b65a40636b43b31",
   "committedMain": "d9eb1c5642273722f2ecee7179e958f05d39fa61",
   "bakeAssembly": "bb6b4924849d38097ee629a6fa2c00dc1b56095f",
   "changedSourceRecords": [
@@ -10,5 +10,17 @@
   "mineSourceUnchanged": true,
   "handoff": "Refresh the full assembly after PR102 is merged, then rebake scoped mine surfaces and Unity lighting. Do not transplant this prepared six-room Unity scene over Claude's new assembly.",
   "minePlacementUnchanged": true,
-  "mineTrimFunctionUnchanged": true
+  "mineTrimFunctionUnchanged": true,
+  "minePassageAndContextChecks": {
+    "SHED": true,
+    "SHED_COLLECTIONS": true,
+    "PASSAGE_X": true,
+    "PASSAGE_Y": true,
+    "PASSAGE_Z": true,
+    "carve_passage": true,
+    "open_portal_cap": true,
+    "clear_yard_for_shed": true,
+    "YARD_RAIL_CLIPPED": true
+  },
+  "expandedAssemblyRequiresFullRefresh": true
 }

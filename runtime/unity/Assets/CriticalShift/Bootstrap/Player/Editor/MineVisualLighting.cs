@@ -43,12 +43,25 @@ namespace CriticalShift.Player.Editor
             var node=new GameObject("Combined map moon");
             var light=node.AddComponent<Light>();light.type=LightType.Directional;
             light.color=new Color(source.sun_color[0],source.sun_color[1],source.sun_color[2]).gamma;
-            light.intensity=source.sun_energy;light.lightmapBakeType=LightmapBakeType.Mixed;light.shadows=LightShadows.Soft;
+            // Cycles SUN energy is irradiance; Unity's built-in BRDF omits
+            // diffuse /pi. Native direct and baked 18% grey controls verify
+            // this conversion independently of the mine's material colours.
+            light.intensity=source.sun_energy/Mathf.PI;light.lightmapBakeType=LightmapBakeType.Mixed;light.shadows=LightShadows.Soft;
             light.shadowAngle=1.5f; // The assembly builder's COMBINED moon angle.
             var sourceRotation=Quaternion.AngleAxis(source.sun_rot_deg[2],Vector3.forward)*
                 Quaternion.AngleAxis(source.sun_rot_deg[1],Vector3.up)*Quaternion.AngleAxis(source.sun_rot_deg[0],Vector3.right);
             var forward=sourceRotation*Vector3.back;var up=sourceRotation*Vector3.up;
             node.transform.rotation=Quaternion.LookRotation(new Vector3(forward.x,forward.z,forward.y),new Vector3(up.x,up.z,up.y));
+        }
+
+        internal static void ConfigureSourceSun(Light light,ExportLight source)
+        {
+            if(source.type!="SUN" || source.rotation==null || source.rotation.Length!=4)
+                throw new InvalidOperationException("Authored sun is missing its orientation: "+source.name);
+            light.type=LightType.Directional;light.intensity=source.power/Mathf.PI;light.shadowAngle=source.angle;
+            var q=source.rotation;var rotation=new Quaternion(q[1],q[2],q[3],q[0]);
+            var forward=rotation*Vector3.back;var up=rotation*Vector3.up;
+            light.transform.localRotation=Quaternion.LookRotation(new Vector3(forward.x,forward.z,forward.y),new Vector3(up.x,up.z,up.y));
         }
 
         internal static void AddProbes(Transform root)
@@ -231,6 +244,10 @@ namespace CriticalShift.Player.Editor
                         throw new InvalidOperationException("Mine context uses a preview material: "+binding.node);
                     if(renderer.receiveGI!=ReceiveGI.LightProbes && (renderer.lightmapIndex<0 || renderer.lightmapIndex>=LightmapSettings.lightmaps.Length))
                         throw new InvalidOperationException("Mine context is missing baked lighting: "+binding.node);
+                    if(binding.source=="cliff_face" && (renderer.receiveGI!=ReceiveGI.LightProbes ||
+                        renderer.lightProbeUsage!=LightProbeUsage.Off || renderer.reflectionProbeUsage!=ReflectionProbeUsage.Off ||
+                        !GameObjectUtility.GetStaticEditorFlags(renderer.gameObject).HasFlag(StaticEditorFlags.ContributeGI)))
+                        throw new InvalidOperationException("Mine cliff backface lighting adapter changed: "+binding.node);
                     contextSurfaces++;
                 }
             }

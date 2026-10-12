@@ -1,0 +1,11 @@
+# Controlled correction evidence; final scene still pending
+
+These controls diagnose the rejected final9 native scene. They are not final-room approval or a 98% claim. `provenance.json` hashes the retained control records and helpers. The native rendering device is llvmpipe/Mesa, so this evidence does not establish target-hardware performance.
+
+`nonfinite-counts.json` records the raw 640×360 native EXRs in the ignored task audit directory. The reviewer independently checked their values and hashes: coefficient anisotropy 1 produced 383 nonfinite RGB pixels; the actual BC7 coefficient import at anisotropy 0 produced none in all three cameras. Original source diffuse/normal anisotropy remains 8. The initial baseline assumes the coefficient atlas importer still has anisotropy 1. To reproduce after importing the correction, explicitly restore that initial coefficient setting first; calling the helper on an already corrected import does not recreate the historical baseline. The helper then calls the production material importer and verifies BC7, anisotropy 0, size, mip count and the global anisotropy mode. The cliff adapter in these controls is a temporary scene-only change against old lighting.
+
+The four retained 128×128 SUN EXRs compare a Lambertian 18% plane under source SUN energy 1.6 with Unity's realtime and baked lighting. The methods and JSON record retain the measured values. The native SUN file is a method body: wrap it in a temporary Editor class with the UnityEngine, UnityEditor and UnityEditor.SceneManagement imports, and make the entry public to execute it. The Blender helper uses its own disposable scene.
+
+The density helper calls the production unwrap and density functions on source floor copies and never saves the source. Its area-weighted result is a preflight measure; the actual floor export writes a separate `mine-floor-density.json`. Visual detail still requires fresh native comparison.
+
+Helpers contain task-local absolute paths. Adapt the checkout/audit paths when reproducing. Install native helpers only temporarily under Editor and remove their `.cs`/`.meta` files afterwards. They must not be present during a production bake, capture-proof validation or Player build, because source fingerprints include those directories.

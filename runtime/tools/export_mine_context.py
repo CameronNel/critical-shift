@@ -6,6 +6,7 @@ Run in Blender on the pinned, patched combined-runtime-source.blend.
 """
 import hashlib
 import json
+import math
 import sys
 from pathlib import Path
 import bpy
@@ -25,6 +26,13 @@ view=source.view_settings
 source_view={'transform':view.view_transform,'look':view.look,'exposure':view.exposure,'gamma':view.gamma}
 instance=source.objects['ROOM_front-end-area']
 members=list(instance.instance_collection.all_objects)
+# The original preview manifest omitted SUN names and orientation. Keep this
+# scoped source-light contract alongside the mine's existing context overlay,
+# without changing other rooms' delivered meshes or legacy light records.
+package['contextSunLights'] = [dict(name=o.name, type='SUN',
+    position=list(matrix(o).translation), rotation=list(matrix(o).to_quaternion()),
+    color=list(o.data.color), power=float(o.data.energy), angle=math.degrees(o.data.angle))
+    for o in members if o.type == 'LIGHT' and o.data.type == 'SUN' and not o.hide_render]
 old={r['source']:r for r in front['objects']}
 dg=bpy.context.evaluated_depsgraph_get()
 scene=bpy.data.scenes.new('CS_MINE_CONTEXT_EXPORT');bpy.context.window.scene=scene

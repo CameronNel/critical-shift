@@ -20,7 +20,7 @@ def geometry_digest(objects):
 
 def bake_mine(scene, objects, mappings, output, source_view):
     before = geometry_digest(objects)
-    groups = {key: [] for key in ("mine-mountain", "mine-ground", "mine-rocks", "mine-structure", "mine-props")}
+    groups = {key: [] for key in ("mine-mountain", "mine-tunnel-floor", "mine-ground", "mine-rocks", "mine-structure", "mine-props")}
     unsupported = []
     by_name = {o.name: o for o in objects}
     for mapping in mappings:
@@ -33,6 +33,10 @@ def bake_mine(scene, objects, mappings, output, source_view):
             continue
         name = mapping["source"].lower()
         if "mine cliff" in name: group = "mine-mountain"
+        # Tiny gravel islands consume the shared smart-project packing margin.
+        # The continuous walking surface needs its own atlas: the old layout
+        # allocated only about seven texels per metre to this authored terrain.
+        elif "tunnel floor" in name: group = "mine-tunnel-floor"
         elif any(s in name for s in ("floor", "gravel", "ground", "ledge debris")): group = "mine-ground"
         elif any(s in name for s in ("boulder", "rockfall", "rock", "crystal")): group = "mine-rocks"
         elif any(s in name for s in ("timber", "board", "shed", "rail", "sleeper", "duct", "pipe", "roof", "beam", "support", "wall")): group = "mine-structure"

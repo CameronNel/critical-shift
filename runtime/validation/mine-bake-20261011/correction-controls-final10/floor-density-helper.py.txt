@@ -1,0 +1,20 @@
+import bpy,json,sys,numpy as np
+from pathlib import Path
+sys.path.insert(0,'/workspace/critical-shift-spawn-runtime/runtime/tools')
+from mine_delivery_uv import unwrap,surface_density
+from export_spawn_map import matrix
+from mathutils import Matrix
+s=bpy.context.scene;i=s.objects['ROOM_mine'];selected=[]
+for o in i.instance_collection.all_objects:
+ if o.type=='MESH' and 'tunnel floor' in o.name.lower():
+  n=o.copy();n.data=o.data.copy();n.parent=None;n.matrix_world=matrix(o);s.collection.objects.link(n);selected.append(n)
+keep=set(selected);bpy.data.batch_remove([o for o in bpy.data.objects if o not in keep]);bpy.data.orphans_purge(do_local_ids=True,do_linked_ids=True,do_recursive=True)
+for o in selected:
+ for v in o.data.vertices:v.co=o.matrix_world@v.co
+ o.matrix_world=Matrix.Identity(4)
+ o.data.uv_layers.new(name='CS_PROXY_PROBE',do_init=False)
+print('CS_GROUND_UV_PROBE_BEGIN',len(selected),flush=True)
+unwrap(selected,'CS_PROXY_PROBE',4/4096,world_vertices=True)
+report=[surface_density(o,'CS_PROXY_PROBE',4096) for o in selected]
+assert all(r['pixelsPerMetre']>=64 for r in report),report
+Path('/workspace/critical-shift-spawn-runtime/runtime/out/mine-bake-audit/floor-production-density-preflight-final10.json').write_text(json.dumps(report,indent=2)+'\n');print('CS_GROUND_PROXY_DENSITY',json.dumps(report),flush=True)

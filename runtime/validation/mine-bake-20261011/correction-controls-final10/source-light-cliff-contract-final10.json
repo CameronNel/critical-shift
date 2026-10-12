@@ -1,0 +1,67 @@
+{
+  "extraction": "Relevant source SUN and cliff records; unrelated material graphs omitted",
+  "rawPath": "runtime/out/mine-bake-audit/source-light-cliff-contract-final10.json",
+  "rawSha256": "44c6ed3a0aa262bce38d289cc421a0358b0bace05644036ea8f05d25638f418f",
+  "sceneLights": [
+    {
+      "name": "COMBINED moon",
+      "type": "SUN",
+      "energy": 1.600000023841858,
+      "color": [
+        0.6200000047683716,
+        0.7200000286102295,
+        1.0
+      ],
+      "hide_render": false,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.849826455116272,
+        0.4144881069660187,
+        0.14271968603134155,
+        0.2926187515258789
+      ]
+    }
+  ],
+  "contextSuns": [
+    {
+      "name": "FE_MOON",
+      "type": "SUN",
+      "energy": 0.550000011920929,
+      "color": [
+        0.6600000262260437,
+        0.7699999809265137,
+        1.0
+      ],
+      "hide_render": false,
+      "hide_viewport": false,
+      "shadow": true,
+      "position": [
+        8.0,
+        -80.0,
+        0.0
+      ],
+      "collection": [
+        {
+          "name": "ROOM_front-end-area_members",
+          "hide_render": false
+        }
+      ]
+    }
+  ],
+  "cliff": {
+    "name": "cliff_face",
+    "position": [
+      8.0,
+      -80.0,
+      0.0
+    ],
+    "modifiers": []
+  },
+  "cliffMaterials": [
+    "rock_matched_to_mountain"
+  ]
+}

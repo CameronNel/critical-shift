@@ -1,0 +1,27 @@
+import bpy,sys,json,math
+from pathlib import Path
+from mathutils import Vector
+root=Path('/workspace/critical-shift-spawn-runtime');audit=root/'runtime/out/mine-bake-audit';sys.path.insert(0,str(root/'runtime/tools'))
+from export_spawn_map import matrix
+original=bpy.context.scene;dg=bpy.context.evaluated_depsgraph_get();instance=original.objects['ROOM_mine'];scene=bpy.data.scenes.new('CS_NeutralWoodReview');bpy.context.window.scene=scene;objects=[]
+for source in instance.instance_collection.all_objects:
+ if source.name not in ['R39 | Shed boards','R39 | Shed frame']:continue
+ mesh=bpy.data.meshes.new_from_object(source.evaluated_get(dg),preserve_all_data_layers=True,depsgraph=dg);obj=bpy.data.objects.new(source.name,mesh);scene.collection.objects.link(obj);obj.matrix_world=matrix(source);objects.append(obj)
+ for i,material in enumerate(list(mesh.materials)):
+  material=material.copy();mesh.materials[i]=material;bsdf=next(n for n in material.node_tree.nodes if n.type=='BSDF_PRINCIPLED')
+  for field,value in [('Base Color',(.35,.35,.35,1)),('Roughness',.65),('Metallic',0),('IOR',1.5),('Specular IOR Level',.5)]:
+   socket=bsdf.inputs[field]
+   for link in list(socket.links):material.node_tree.links.remove(link)
+   socket.default_value=value
+bpy.data.batch_remove([s for s in bpy.data.scenes if s!=scene]);bpy.data.batch_remove([o for o in bpy.data.objects if o not in objects]);bpy.data.orphans_purge(do_local_ids=True,do_linked_ids=True,do_recursive=True)
+scene.world=bpy.data.worlds.new('Black');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs['Strength'].default_value=0
+camera=bpy.data.objects.new('Review camera',bpy.data.cameras.new('Review camera'));scene.collection.objects.link(camera);scene.camera=camera
+sun=bpy.data.objects.new('Frontal white sun',bpy.data.lights.new('Frontal white sun','SUN'));scene.collection.objects.link(sun);sun.data.energy=math.pi;sun.data.angle=0
+view=json.loads((audit/'cameras.json').read_text())['views'][2];close=dict(view);close['name']='SHED_DETAIL';close['position']=list(Vector(view['position'])+Vector(view['forward'])*2)
+center=sum((o.matrix_world@Vector(c) for o in objects for c in o.bound_box),Vector())/16
+back=dict(view);back['name']='SHED_BACK';back['position']=list(center+(center-Vector(view['position'])).normalized()*5);back['forward']=list((center-Vector(back['position'])).normalized());back['up']=[0,0,1]
+views=[dict(view,name='SHED_FRONT'),close,back];(audit/'wood-neutral-cameras.json').write_text(json.dumps({'views':views},indent=2)+'\n')
+scene.render.engine='CYCLES';scene.cycles.samples=32;scene.cycles.use_denoising=True;scene.render.resolution_x=1440;scene.render.resolution_y=810;scene.render.resolution_percentage=100;scene.render.image_settings.file_format='PNG';scene.view_settings.view_transform='Standard';scene.view_settings.look='None';scene.view_settings.exposure=0;scene.view_settings.gamma=1
+for view in views:
+ camera.location=Vector(view['position']);camera.rotation_euler=Vector(view['forward']).to_track_quat('-Z','Y').to_euler();camera.data.lens=36/(2*math.tan(math.radians(view['verticalFov'])/2)*(1440/810));sun.rotation_euler=camera.rotation_euler;scene.render.filepath=str(audit/('wood-neutral-blender-'+view['name']+'.png'));bpy.ops.render.render(write_still=True)
+print('CS_WOOD_NEUTRAL_REFERENCE_OK; shader normals retained, isolated neutral colour and frontal sun pi',flush=True)

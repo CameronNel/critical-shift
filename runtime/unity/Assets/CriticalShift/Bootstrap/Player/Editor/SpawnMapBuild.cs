@@ -187,6 +187,17 @@ namespace CriticalShift.Player.Editor
                                 GameObjectUtility.SetStaticEditorFlags(node.gameObject,StaticEditorFlags.ReflectionProbeStatic);
                             }
                         }
+                        if(contextBindings.ContainsKey(binding.node) && binding.source=="cliff_face")
+                        {
+                            // This single sheet is seen from its authored back.
+                            // One baked chart lights the opposite face green.
+                            // Retain its baked occlusion/bounce contribution,
+                            // and shade the visible side with direct moonlight
+                            // and the authored ambient rather than that chart.
+                            ((MeshRenderer)renderer).receiveGI=ReceiveGI.LightProbes;
+                            renderer.lightProbeUsage=UnityEngine.Rendering.LightProbeUsage.Off;
+                            renderer.reflectionProbeUsage=UnityEngine.Rendering.ReflectionProbeUsage.Off;
+                        }
                         if(binding.source=="LIFE_whiteboard_surface" ||
                            (binding.source.StartsWith("LIFE_socket_",StringComparison.Ordinal) && binding.source.EndsWith("_face",StringComparison.Ordinal)))
                         {
@@ -201,6 +212,8 @@ namespace CriticalShift.Player.Editor
                 RestoreCollision(roomRoot.transform,room);
                 foreach (var sourceLight in room.lights)
                 {
+                    if(room.key=="front-end-area" && contextBindings.Count>0 && sourceLight.type=="SUN")
+                        continue; // The scoped context contract supplies its omitted source rotation.
                     var lamp = new GameObject(sourceLight.name ?? "Room practical"); lamp.transform.SetParent(roomRoot.transform, false);
                     lamp.transform.localPosition = V(sourceLight.position);
                     var light = lamp.AddComponent<Light>(); light.type = LightType.Point; light.range = 12;
@@ -220,10 +233,7 @@ namespace CriticalShift.Player.Editor
                         light.lightmapBakeType=sourceLight.name.IndexOf("lantern",StringComparison.OrdinalIgnoreCase)>=0 ? LightmapBakeType.Mixed : LightmapBakeType.Baked;
                         if(sourceLight.type=="SUN")
                         {
-                            light.type=LightType.Directional; light.intensity=sourceLight.power;light.shadowAngle=sourceLight.angle;
-                            var q=sourceLight.rotation;var rotation=new Quaternion(q[1],q[2],q[3],q[0]);
-                            var forward=rotation*Vector3.back;var up=rotation*Vector3.up;
-                            light.transform.localRotation=Quaternion.LookRotation(V(new[] {forward.x,forward.y,forward.z}),V(new[] {up.x,up.y,up.z}));
+                            MineVisualLighting.ConfigureSourceSun(light,sourceLight);
                         }
                     }
                     if(room.key=="front-end-area" && contextBindings.Count>0 && lamp.transform.position.x<=-23 && lamp.transform.position.z>=-99 && lamp.transform.position.z<=-44)
@@ -255,6 +265,21 @@ namespace CriticalShift.Player.Editor
                             light.lightmapBakeType = LightmapBakeType.Baked;
                         }
                         else light.lightmapBakeType = sourceLight.name.Contains("_pendant") ? LightmapBakeType.Mixed : LightmapBakeType.Baked;
+                    }
+                }
+                if(room.key=="front-end-area" && contextBindings.Count>0)
+                {
+                    var context=map.materials.Single(p=>p.room=="mine");
+                    if(context.contextSunLights==null || context.contextSunLights.Length==0)
+                        throw new InvalidOperationException("Regenerate the mine context's authored sun contract.");
+                    foreach(var sun in context.contextSunLights)
+                    {
+                        var lamp=new GameObject(sun.name);lamp.transform.SetParent(roomRoot.transform,false);
+                        lamp.transform.localPosition=V(sun.position);
+                        var light=lamp.AddComponent<Light>();light.color=new Color(sun.color[0],sun.color[1],sun.color[2]).gamma;
+                        light.lightmapBakeType=LightmapBakeType.Mixed;light.shadows=LightShadows.Soft;
+                        light.shadowBias=.015f;light.shadowNormalBias=.025f;light.renderMode=LightRenderMode.ForcePixel;
+                        MineVisualLighting.ConfigureSourceSun(light,sun);
                     }
                 }
                 if (room.key == "spawn-room") spawnRoot = roomRoot.transform;

@@ -1,0 +1,64 @@
+{
+  "controls": {
+    "sun-radiometry-native-source-energy.exr": {
+      "medianCentreLinearRGB": [
+        0.2880000174045563,
+        0.2880000174045563,
+        0.2880000174045563
+      ],
+      "finite": true
+    },
+    "sun-radiometry-native-baked-energy-over-pi.exr": {
+      "medianCentreLinearRGB": [
+        0.09166992455720901,
+        0.09166992455720901,
+        0.09166992455720901
+      ],
+      "finite": true
+    },
+    "sun-radiometry-blender.exr": {
+      "medianCentreLinearRGB": [
+        0.09152938425540924,
+        0.09164022654294968,
+        0.09164458513259888
+      ],
+      "finite": true
+    },
+    "sun-radiometry-native-energy-over-pi.exr": {
+      "medianCentreLinearRGB": [
+        0.09167325496673584,
+        0.09167325496673584,
+        0.09167325496673584
+      ],
+      "finite": true
+    }
+  },
+  "sourceReflectance": 0.18,
+  "sourceSunEnergy": 1.6,
+  "convertedNativeIntensity": 0.5092958178940651,
+  "sourceContextSun": [
+    {
+      "name": "FE_MOON",
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.8987581133842468,
+        0.40958771109580994,
+        0.06487230956554413,
+        0.14234930276870728
+      ],
+      "color": [
+        0.6600000262260437,
+        0.7699999809265137,
+        1.0
+      ],
+      "power": 0.550000011920929,
+      "type": "SUN",
+      "angle": 1.19999999070436
+    }
+  ],
+  "limits": "Flat direct-only control verifies built-in native realtime and baked unit conversion; scene lighting and spawn regression require fresh review."
+}
