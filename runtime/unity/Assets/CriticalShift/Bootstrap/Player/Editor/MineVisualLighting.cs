@@ -216,6 +216,7 @@ namespace CriticalShift.Player.Editor
                 var renderer=nodes[binding.node].GetComponent<MeshRenderer>();
                 if(renderer==null || !renderer.enabled || renderer.sharedMaterials.Any(m=>m==null || !binding.materials.Contains(m.name)))
                     throw new InvalidOperationException("Mine surface binding changed: "+binding.node);
+                ValidateShadowBinding(renderer,binding);
                 if(renderer.sharedMaterials.Any(m=>m.shader.name!="CriticalShift/BlenderSurface" && m.shader.name!="CriticalShift/BlenderGlass"))
                     throw new InvalidOperationException("Mine has an automatic preview material: "+binding.node);
                 var mesh=renderer.GetComponent<MeshFilter>().sharedMesh;
@@ -245,6 +246,7 @@ namespace CriticalShift.Player.Editor
                 foreach(var binding in package.contextObjects.Where(b=>b.materials!=null))
                 {
                     var renderer=front[binding.node];
+                    ValidateShadowBinding(renderer,binding);
                     if(!renderer.enabled || renderer.sharedMaterials.Any(m=>!binding.materials.Contains(m.name) || !m.shader.name.StartsWith("CriticalShift/Blender",StringComparison.Ordinal)))
                         throw new InvalidOperationException("Mine context uses a preview material: "+binding.node);
                     if(renderer.receiveGI!=ReceiveGI.LightProbes && (renderer.lightmapIndex<0 || renderer.lightmapIndex>=LightmapSettings.lightmaps.Length))
@@ -290,6 +292,14 @@ namespace CriticalShift.Player.Editor
                 joinCentrelineRays=package.joinRays.Length,clearWalkingRays=6,sourcePreservation="Verified separately by prepare_mine.py"
             },true));
             Debug.Log("CS_MINE_NATIVE_BINDINGS_OK; surfaces="+surfaces+"; collision="+source.collisionTriangles);
+        }
+
+        private static void ValidateShadowBinding(MeshRenderer renderer,ExportObject binding)
+        {
+            var expected=binding.visible && !binding.sourceShadowExcluded ? ShadowCastingMode.On : ShadowCastingMode.Off;
+            if(renderer.shadowCastingMode!=expected)
+                throw new InvalidOperationException("Mine source shadow visibility changed: "+binding.node+
+                    "; expected="+expected+"; actual="+renderer.shadowCastingMode);
         }
 
         [Serializable] private sealed class MineValidation

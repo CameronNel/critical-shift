@@ -1,0 +1,59 @@
+{
+  "status": "Bounded source-shadow correction cleared; full visual acceptance pending",
+  "overallScore": null,
+  "scope": "Historical final11 baked baseline, only24 source-shadow-excluded native lantern renderer flags changed in memory; no scene save or new bake",
+  "sourceInventorySha256": "3d73d94b6772cde1167c64fe4c3acd33c16daf97685abb33be711f99e4ff2499",
+  "sourceModuleSha256": "0131ee35afa1f3fb9f26ee1dddd090e3b3c63e67bec2a854670214fee29825e1",
+  "deliveredExcludedRendererCount": 24,
+  "allNamesMatchedSourceFlags": true,
+  "captures": [
+    {
+      "name": "before",
+      "dimensions": [
+        640,
+        360
+      ],
+      "nonfiniteRGBPixels": 0,
+      "exrSha256": "c22561ac9e31cc157bf7b2bf6d78e272698b14a963184d1f0cc16c0e02589ac3",
+      "pngSha256": "36846580f6c000c86e3418d7e3a820f5d33766ed81eaf8e34228b4ec838f70ed"
+    },
+    {
+      "name": "source-shadow-flags",
+      "dimensions": [
+        640,
+        360
+      ],
+      "nonfiniteRGBPixels": 0,
+      "exrSha256": "6669fe4b3c42be8e21a94fe544fe251eca7390f2aa0609a26ead79706c337850",
+      "pngSha256": "6796d3d9431146915326bc4d19ca28ef3fc791738d89d18b40eddece679e5167"
+    }
+  ],
+  "visualFinding": "Large hard floor lantern silhouettes disappear; chains and structural shadows remain. This corroborates missing source visible_shadow transfer rather than material tint as the cause of those blobs.",
+  "productionCodeReviewed": {
+    "runtime/tools/export_spawn_map.py": "02a240fea825c26335a67a29fe224227fcaf1116b9cc9a2e0218b7a5dc7b0a8b",
+    "runtime/tools/export_mine_materials.py": "89e375f5022edf1869c69edda233f0151ac77acdda9021af7a5402cb3892b610",
+    "runtime/tools/export_spawn_materials.py": "a8d762971499b73b4a54b4ba52379ac720be1e2684d13f174e4e0fe07a429b7b",
+    "runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/SpawnMapBuild.cs": "2df79a3c4cae0a455a935e79d9646ece84e5c665b6feec9ff9701e2204e4e182"
+  },
+  "remainingGates": [
+    "Native renderer shadowCastingMode validated against each delivered source binding",
+    "Source .024/.025 module lantern omission/effective visibility context recorded",
+    "Fresh bake3mineHDR/PNG plus3spawn regression",
+    "Actual air-main density/normal-AOV comparison",
+    "Current18tests and freshPlayer after visual clearance"
+  ],
+  "sunInventory": {
+    "Combined map moon": {
+      "bakeMode": "Mixed",
+      "channel": 1
+    },
+    "FE_MOON": {
+      "bakeMode": "Mixed",
+      "channel": 0
+    },
+    "AAA | cold rim key": {
+      "bakeMode": "Baked",
+      "channel": -1
+    }
+  }
+}

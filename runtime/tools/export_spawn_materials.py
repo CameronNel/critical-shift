@@ -237,13 +237,14 @@ def bake_atlas(scene, objects, mappings, output, source_view, atlas_key, room="s
         for v, p in zip(o.data.vertices, positions[o]): v.co = p
         o.data.update()
     del positions
-    if room == 'mine' and atlas_key in {'mine-tunnel-floor', 'mine-duct'}:
+    if room == 'mine' and atlas_key in {'mine-tunnel-floor', 'mine-duct', 'mine-air-main'}:
         from mine_delivery_uv import surface_density
         floor_density = [surface_density(o, UV, size) for o in meshes]
         minimum_density = 64 if atlas_key == 'mine-tunnel-floor' else 128
         if any(not math.isfinite(r['pixelsPerMetre']) or r['pixelsPerMetre'] < minimum_density for r in floor_density):
             raise ValueError('Mine surface has insufficient texture density: ' + repr(floor_density))
-        (output / ('mine-floor-density.json' if atlas_key == 'mine-tunnel-floor' else 'mine-duct-density.json')).write_text(json.dumps({
+        density_file = {'mine-tunnel-floor': 'mine-floor-density.json', 'mine-duct': 'mine-duct-density.json', 'mine-air-main': 'mine-air-main-density.json'}[atlas_key]
+        (output / density_file).write_text(json.dumps({
             'minimumPixelsPerMetre': minimum_density, 'surfaces': floor_density,
             'status': 'Passed', 'limits': 'UV density guard; native visual review is still required.'}, indent=2) + '\n')
     # Bake one temporary joined mesh rather than compiling the scene once for each of 1,700 objects.
@@ -376,7 +377,7 @@ def bake_atlas(scene, objects, mappings, output, source_view, atlas_key, room="s
         else:
             # Source shader AO is stochastic. Both colour coefficients need a
             # stable estimate; a single ray turns their difference into mottling.
-            scene.cycles.samples = 16 if (wood_states and channel in {"albedo", "wood-high"}) or (room == "mine" and atlas_key == "mine-duct" and channel == "normal") else 1
+            scene.cycles.samples = 16 if (wood_states and channel in {"albedo", "wood-high"}) or (room == "mine" and atlas_key in {"mine-duct", "mine-air-main"} and channel == "normal") else 1
             bpy.ops.object.bake(type="NORMAL" if channel == "normal" else "EMIT",uv_layer=UV)
         if room == "mine" and channel == "normal":
             from normal_bake_pixels import neutralize_empty

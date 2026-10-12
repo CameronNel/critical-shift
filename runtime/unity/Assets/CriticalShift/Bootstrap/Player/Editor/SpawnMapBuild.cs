@@ -16,7 +16,7 @@ namespace CriticalShift.Player.Editor
 {
     [Serializable] public sealed class ExportPose { public float[] position, rotation; }
     [Serializable] public sealed class ExportDoor { public string name, node; public ExportPose closed, opened; }
-    [Serializable] public sealed class ExportObject { public string source, node; public bool visible, dynamic, sourceUv, lettering, wallSurface; public string[] materials, faceMaterials; public int[] deliveryUvAxes; }
+    [Serializable] public sealed class ExportObject { public string source, node; public bool visible, dynamic, sourceUv, lettering, wallSurface, sourceShadowExcluded; public string[] materials, faceMaterials; public int[] deliveryUvAxes; }
     [Serializable] public sealed class ExportLight { public float[] position, color, rotation; public float power, size, sizeY, radius, angle; public string name, type; }
     [Serializable] public sealed class ExportAnchor { public string name, node; public float[] position; }
     [Serializable] public sealed class ExportRoom
@@ -175,7 +175,7 @@ namespace CriticalShift.Player.Editor
                             AssetDatabase.DeleteAsset(meshPath);AssetDatabase.CreateAsset(sourceMesh,meshPath);sourceFilter.sharedMesh=sourceMesh;
                         }
                         renderer.receiveShadows = true;
-                        renderer.shadowCastingMode = binding.visible ? UnityEngine.Rendering.ShadowCastingMode.On : UnityEngine.Rendering.ShadowCastingMode.Off;
+                        renderer.shadowCastingMode = binding.visible && !binding.sourceShadowExcluded ? UnityEngine.Rendering.ShadowCastingMode.On : UnityEngine.Rendering.ShadowCastingMode.Off;
                         if (binding.visible)
                             GameObjectUtility.SetStaticEditorFlags(node.gameObject, StaticEditorFlags.ReflectionProbeStatic |
                                 (binding.dynamic ? 0 : StaticEditorFlags.ContributeGI));

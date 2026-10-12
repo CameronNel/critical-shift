@@ -1,0 +1,442 @@
+{
+  "status": "Bounded diagnostic measurements; no production/98 acceptance",
+  "sourceProof": {
+    "status": "PrototypeBakeOnly",
+    "sourceBlenderSha256": "255fe337aacd602e81bd2940be7bf2a1da2541954f6c8446c8a06f5aae413b72",
+    "sourceObject": "R39 | Shed boards",
+    "worldMatrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        -14.399999618530273
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        -41.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "bake": "DIFFUSE",
+    "included": [
+      "separate colour-included all-indirect",
+      "separate colour-included all-direct reference",
+      "separate colour-included non-explicit direct(world/emission/other sources)"
+    ],
+    "excluded": [
+      "view-dependent specular",
+      "emission",
+      "camera beauty/composite"
+    ],
+    "visibleFaceDirection": {
+      "frontTriangles": 6894,
+      "backTriangles": 0,
+      "scope": "Target-only first-hit visibility at triangle centroids; conservative for other-object occlusion"
+    },
+    "fbxSourceDiffuseUVIndex": 1,
+    "size": 512,
+    "chunks": 1,
+    "chunkInventory": {
+      "sourcePolygons": 21181,
+      "sourceCorners": 80632,
+      "chunkPolygons": [
+        38,
+        21143
+      ],
+      "chunkCorners": [
+        144,
+        80488
+      ],
+      "allSourcePolygonsAssignedOnce": true,
+      "sourceNamedAttributesPreserved": true,
+      "sourceCornerNormalsPreserved": true,
+      "sourceGeneratedAndObjectCoordinatesFrozen": [
+        "DIAG_original_Generated",
+        "DIAG_original_Object_Self"
+      ],
+      "sourceWorldMatrixUnchanged": true,
+      "sourceUv0Preserved": true,
+      "maxLiveBakeImages": 1
+    },
+    "samples": 32,
+    "density": [
+      {
+        "node": "DIAGNOSTIC_source_diffuse_chunk_0",
+        "worldArea": 1.8724200830433704,
+        "uvArea": 0.8092841506004333,
+        "pixelsPerMetre": 336.60365946659516,
+        "atlasSize": 512,
+        "chunk": 0,
+        "sourcePolygons": 38
+      },
+      {
+        "pixelsPerMetre": null,
+        "scope": "Source remainder only; not baked or exported",
+        "chunk": 1,
+        "sourcePolygons": 21143
+      }
+    ],
+    "diagnosticVolumesDisabledInMemory": [
+      "R38 | Tunnel haze",
+      "R39 | Shed haze"
+    ],
+    "canonicalSourceSaved": false,
+    "sourceExplicitLightDataCount": 66,
+    "selection": {
+      "pixel": [
+        540,
+        340
+      ],
+      "sourceFace": 20661,
+      "sourceFaces": [
+        20627,
+        20628,
+        20629,
+        20630,
+        20631,
+        20632,
+        20633,
+        20634,
+        20635,
+        20636,
+        20637,
+        20638,
+        20639,
+        20640,
+        20641,
+        20642,
+        20643,
+        20644,
+        20645,
+        20646,
+        20647,
+        20648,
+        20649,
+        20650,
+        20651,
+        20652,
+        20653,
+        20654,
+        20655,
+        20656,
+        20657,
+        20658,
+        20659,
+        20660,
+        20661,
+        20662,
+        20663,
+        20664
+      ],
+      "faces": 38,
+      "triangles": 68,
+      "sourceWorldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -14.399999618530273
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -41.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "sourceLocalMin": [
+        -24.90999984741211,
+        -33.47206115722656,
+        0.07121968269348145
+      ],
+      "sourceLocalMax": [
+        -24.869998931884766,
+        -33.085044860839844,
+        3.498487949371338
+      ],
+      "nativePrototypeExplicitLights": "All63 minePOINTs plus3 SUNs, enabled only in disposable native prototype",
+      "sourceNamedAttributesPreserved": true
+    },
+    "nativeValidation": "Pending; dynamic shadows, actors, source probe field and full-map not certified",
+    "files": {
+      "SourceAllIndirect.exr": "d2579752b5c87c5e16be54a2dbf6f5a6f91035fa7621274b5e45c423afe690db",
+      "SourceAllDirect.exr": "1661286c12d77c725b8dee579527b660f18248d0491838217f3dcd10e5d60c1d",
+      "SourceNonExplicitDirect.exr": "13bc4ef3dcf3b7424ba7d0308ee2b7749ed40be718f024116fee0feffb4f8c73",
+      "SourceBaseColor.exr": "063178c98a988d2e2527c2a4e52b6fc4b719a97ec6409c77475ddedb0ea0b257",
+      "SourceNormal.exr": "190f190d7ac5c5133ad48196c895dfd49ad25dce8b0977338d7160f658d32855",
+      "SourceRoughness.exr": "6bd1c20964ac60b59e5b0adab6c8ee81dcda1680abb241d6d60025e307d53e53",
+      "SourceMetallic.exr": "0415fde3c1b668d99963afcd114c46dc8492f36e53c6bd9f8bf677fb971d6866",
+      "SourceDiffuseShedBoards.fbx": "a0bf25028ac84291b715429aa7fb061fd371508353712f07e354e7272acec907",
+      "SourceContextShed.exr": "8c19554ea090e413a29c4f7177fe0eb21e7f60acaa1af29a4e7c4bd0a7ad7b67",
+      "density.json": "7a0229c83710480c587adcd7af40f0fe140947b4459e2e4798f8eb7e089c2a66",
+      "chunk-inventory.json": "5dd5354d88f79c4a967481f0d696f16a4a63666a6908ea4b9792cc1cdbc7a905",
+      "visible-face-direction.json": "4d097fb93daef452c2822c7015f9dc19ef0f795a42a0b4148048826db4785fc4",
+      "selection.json": "774f662f2b25bfe86765fa379cf320f6f19a8e9a6a90f2fd0dc5a2539762443d",
+      "explicit-lights-disabled.json": "64ae6196c2b48e56c45295f1dd1225e229ef18f4fff74d42e1439d8ad8cdcdd4",
+      "explicit-lights-restored.json": "2edb2c5a4ef41e615257bbec4528594cc9b2c4dec548db009a2a2760e6d6a6fb",
+      "camera-proof.json": "d57b9d561a044945328656bae513b866805d49b93b9794d653369c6aae04337e"
+    }
+  },
+  "nativeProof": {
+    "status": "BoundedSingleBoardDiagnosticOnly",
+    "removedTriangles": 68,
+    "sourceTriangles": 68,
+    "remainingTriangles": 38202,
+    "originalTriangles": 38270,
+    "pointCount": 63,
+    "sunCount": 3,
+    "sourceBoundsMatched": true,
+    "remainderTrianglesUnchanged": true,
+    "finiteRGB": true,
+    "sourceDiffuseColourIncluded": true,
+    "nativeDiffuseGiRemoved": true,
+    "sourceF0": 0.019999999552965164,
+    "sourceMinimum": {
+      "x": -39.30999755859375,
+      "y": 0.07121968269348145,
+      "z": -74.47206115722656
+    },
+    "sourceMaximum": {
+      "x": -39.269996643066406,
+      "y": 3.498487949371338,
+      "z": -74.08504486083984
+    },
+    "nativeMinimum": {
+      "x": -39.310001373291016,
+      "y": 0.07122361660003662,
+      "z": -74.47206115722656
+    },
+    "nativeMaximum": {
+      "x": -39.27000045776367,
+      "y": 3.4984917640686035,
+      "z": -74.08503723144531
+    }
+  },
+  "sourceMaskPixels": 4441,
+  "nativeMaskPixels": 5080,
+  "maskIntersectionPixels": 4441,
+  "maskXorPixels": 639,
+  "erodedInteriorPixels": 3016,
+  "sourceDiffuseReferenceTransfer": {
+    "sourceMean": [
+      0.02687952294945717,
+      0.018895410001277924,
+      0.013543350622057915
+    ],
+    "nativeMean": [
+      0.027022038535177904,
+      0.019081295247511464,
+      0.013729164646277624
+    ],
+    "meanAbsoluteError": [
+      0.008580747055112439,
+      0.004976247636316003,
+      0.002835830158352684
+    ],
+    "relativeMeanDifference": [
+      0.00530226720568375,
+      0.009838360293867776,
+      0.013719949756553393
+    ],
+    "relativeMeanAbsoluteError": [
+      0.31922988630591476,
+      0.2633574839593029,
+      0.2093891118593649
+    ]
+  },
+  "hybridDiffuseAgainstSourceTotal": {
+    "sourceMean": [
+      0.02687952294945717,
+      0.018895410001277924,
+      0.013543350622057915
+    ],
+    "nativeMean": [
+      0.027288277411465323,
+      0.019579687677258973,
+      0.014418144291328558
+    ],
+    "meanAbsoluteError": [
+      0.00856794121670407,
+      0.005023001539409754,
+      0.002979943109815199
+    ],
+    "relativeMeanDifference": [
+      0.015207163091970097,
+      0.036214735811191855,
+      0.06459212048281368
+    ],
+    "relativeMeanAbsoluteError": [
+      0.31875347017187666,
+      0.26583183635973184,
+      0.22002997581424177
+    ]
+  },
+  "baseColourAgainstSourceContext": {
+    "sourceMean": [
+      0.03396693989634514,
+      0.027991052716970444,
+      0.021523796021938324
+    ],
+    "nativeMean": [
+      0.03401678133557059,
+      0.02803337196489075,
+      0.021557753384872945
+    ],
+    "meanAbsoluteError": [
+      0.0009808979674664868,
+      0.0008131469783943828,
+      0.0006300393181336692
+    ],
+    "relativeMeanDifference": [
+      0.001465708942883471,
+      0.0015110783588220208,
+      0.0015779101251290194
+    ],
+    "relativeMeanAbsoluteError": [
+      0.02887801993526158,
+      0.029050246398964023,
+      0.029271756594027185
+    ]
+  },
+  "nativeExplicitDirectAgainstTransferredSourceExplicitDirect": {
+    "sourceMean": [
+      0.014007969437795753,
+      0.009621109847534899,
+      0.007676080058561021
+    ],
+    "nativeMean": [
+      0.014274208311381223,
+      0.010119502267709794,
+      0.008365059724590644
+    ],
+    "meanAbsoluteError": [
+      0.0022525588010804632,
+      0.00124198636373589,
+      0.0010323998814846132
+    ],
+    "relativeMeanDifference": [
+      0.019006243179480062,
+      0.05180196755601871,
+      0.08975670664888573
+    ],
+    "relativeMeanAbsoluteError": [
+      0.16080551939260357,
+      0.12908971869332822,
+      0.134495715730999
+    ]
+  },
+  "sourceDiffuseDirectMean": [
+    0.022665102034807205,
+    0.01630093716084957,
+    0.012110965326428413
+  ],
+  "sourceDiffuseIndirectMean": [
+    0.0042144302278757095,
+    0.0025944719091057777,
+    0.001432390185073018
+  ],
+  "nativeTerms": {
+    "hybrid": [
+      0.0354806385070965,
+      0.025306300718840016,
+      0.019060306542704936
+    ],
+    "direct": [
+      0.014274208311381223,
+      0.010119502267709794,
+      0.008365059724590644
+    ],
+    "spec": [
+      0.008192361095631174,
+      0.005726613041581043,
+      0.004642162251376376
+    ],
+    "nonruntime": [
+      0.013014069097382152,
+      0.009460185399976563,
+      0.006053084587716604
+    ],
+    "reference": [
+      0.027022038535177904,
+      0.019081295247511464,
+      0.013729164646277624
+    ],
+    "normal": [
+      0.9984024276744465,
+      0.5147359509426181,
+      0.5151259564752604
+    ],
+    "base": [
+      0.03401678133557059,
+      0.02803337196489075,
+      0.021557753384872945
+    ]
+  },
+  "hybridClosureMaxAbs": 1.4901161193847656e-08,
+  "limits": [
+    "Only one38face board, no-volume camera.",
+    "Native explicit sources restricted to current12m POINT range; source radiance has no equivalent range.",
+    "Native/non-explicit source diffuse fields are colour-included.",
+    "Diffuse direct/reference comparison does not validate native specular, actor/probe matching, dynamic soft shadows, wholemap or Player."
+  ],
+  "normalVsIntactSource": {
+    "pixels": 3016,
+    "meanDegrees": 8.242170692586338,
+    "medianDegrees": 7.602292235537104,
+    "p90Degrees": 14.142318627529905
+  },
+  "nativeFileHashes": {
+    "NativeHybrid.exr": "c0345f9be54eebe474493b008331592a63adfc8b85892b3895761245c4802ff6",
+    "NativeNativeDirectDiffuse.exr": "7cff39258fd25ff25a503d9a95610f5495216874f02f08b3585d452b6b8d7bff",
+    "NativeNativeSpecular.exr": "cdfff007de35e2099d92a754c4da7d645175fe1138fc115828f5e38d6a8ea20c",
+    "NativeSourceNonRuntime.exr": "26d0c29584ab093a7214a6bc86fdaff743890c1d9b57844ee62d44912b504d0e",
+    "NativeSourceDiffuseReference.exr": "d2b0d0f829b2e924d1675121b80661a149e51922640b501c298cd2fe3cad2aa2",
+    "NativeNativeWorldNormal.exr": "b53242904dd894359b3e18814d8933ce571f5f341a2a1d300e3bc93ee7a90460",
+    "NativeNativeBaseColor.exr": "340885b6610eac3815a6cea00389d93c7ef0cb086ce3253a74d5162f2a96989f",
+    "NativeNativeTargetMask.exr": "39f5566d39ed5162c566b113b48d233034b52184524ac8bec5b9370f3e92c8bb"
+  },
+  "sourceCoverageMaskAudit": {
+    "thresholdHalfCoverageIoU": 0.9980314960629921,
+    "nativePixelsWithZeroSourceCoverage": 0,
+    "allStrictFullSourcePixelsInsideNativeMask": true,
+    "finding": "IoU.874at.99 compares full32sample source coverage to single-sample native centres; halfcoverageIoU.99803 supports geometry agreement."
+  },
+  "sourceResidualSpecVsNative": {
+    "sourceMean": [
+      0.01532176323235035,
+      0.010813487693667412,
+      0.008082816377282143
+    ],
+    "nativeMean": [
+      0.008192361332476139,
+      0.005726613570004702,
+      0.0046421680599451065
+    ],
+    "limits": "Source opaque nonemissive targetCombined minusDiffuse gives residualglossy; currentreference32sample noisy. Nativeprobe selection differs from historical original."
+  }
+}

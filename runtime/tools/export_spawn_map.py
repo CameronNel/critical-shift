@@ -145,7 +145,11 @@ def main():
                 while p: ancestry.append(p.name); p = p.parent
                 movable = inherited_dynamic or (key == "spawn-room" and any(a in dynamic for a in ancestry))
                 visible = not o.hide_render
-                mappings.append({"source": o.name, "node": n.name, "visible": visible, "dynamic": movable})
+                # The authored lantern meshes deliberately do not occlude their
+                # emitters. Visibility in camera rays is separate from shadows.
+                n.visible_shadow = o.visible_shadow
+                mappings.append({"source": o.name, "node": n.name, "visible": visible,
+                    "dynamic": movable, "sourceShadowExcluded": not o.visible_shadow})
                 if o.type == "LIGHT":
                     lights.append({"name":o.name,"position":list(matrix(o).translation),"rotation":list(matrix(o).to_quaternion()),
                         "color":list(o.data.color),"power":float(o.data.energy),"type":o.data.type,

@@ -20,7 +20,7 @@ def geometry_digest(objects):
 
 def bake_mine(scene, objects, mappings, output, source_view):
     before = geometry_digest(objects)
-    groups = {key: [] for key in ("mine-mountain", "mine-tunnel-floor", "mine-ground", "mine-rocks", "mine-duct", "mine-structure", "mine-props")}
+    groups = {key: [] for key in ("mine-mountain", "mine-tunnel-floor", "mine-ground", "mine-rocks", "mine-duct", "mine-air-main", "mine-structure", "mine-props")}
     unsupported = []
     by_name = {o.name: o for o in objects}
     for mapping in mappings:
@@ -41,6 +41,7 @@ def bake_mine(scene, objects, mappings, output, source_view):
         elif any(s in name for s in ("boulder", "rockfall", "rock", "crystal")): group = "mine-rocks"
         # The old shared structure atlas gave the ventilation duct only 23.5
         # texels/metre. Its procedural bump aliased into broad false wrinkles.
+        elif mapping["source"] == "R39 | Compressed air main": group = "mine-air-main"
         elif "duct" in name: group = "mine-duct"
         elif any(s in name for s in ("timber", "board", "shed", "rail", "sleeper", "pipe", "roof", "beam", "support", "wall")): group = "mine-structure"
         else: group = "mine-props"

@@ -1,0 +1,92 @@
+00:00.643  blend            | Read blend: "/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/combined-runtime-source.blend"
+00:00.903  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/exteriors/refinery/exterior-R01.blend', '//map/sections/facility-assembly/exteriors/refinery/exterior-R01.blend', parent '<direct>'
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)
+00:00.927  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/exteriors/medical-reanimation/exterior-R04.blend', '//map/sections/facility-assembly/exteriors/medical-reanimation/exterior-R04.blend', parent '<direct>'
+00:00.945  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/exteriors/spawn-room/exterior-R05.blend', '//map/sections/facility-assembly/exteriors/spawn-room/exterior-R05.blend', parent '<direct>'
+00:00.986  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/front-end-area/front_end_area.blend', '//map/sections/facility-assembly/sources/front-end-area/front_end_area.blend', parent '<direct>'
+00:01.646  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/fuel-corridor/production/checkpoints/fuel_full_F23ci.blend', '//map/sections/fuel-corridor/production/checkpoints/fuel_full_F23ci.blend', parent '<direct>'
+00:02.862  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/spawn-room/module.blend', '//map/sections/facility-assembly/sources/spawn-room/module.blend', parent '<direct>'
+00:03.862  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/refinery/module_overhaul_R1.blend', '//map/sections/facility-assembly/sources/refinery/module_overhaul_R1.blend', parent '<direct>'
+00:04.962  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/medical-reanimation/module_overhaul_R2.blend', '//map/sections/facility-assembly/sources/medical-reanimation/module_overhaul_R2.blend', parent '<direct>'
+00:06.102  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/mine-r39/module_r39_aaa.blend', '//map/sections/facility-assembly/sources/mine-r39/module_r39_aaa.blend', parent '<direct>'
+00:06.875  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/spawn-room/hero_suit.blend', '//hero_suit.blend', parent '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/spawn-room/module.blend'
+/workspace/critical-shift-spawn-runtime/runtime/tools/export_spawn_map.py:197: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  frames = {n.object for o in copies if o.type == "MESH" for m in o.data.materials if m and m.use_nodes
+CS_MINE_ATLAS mine-mountain 1 176287
+CS_SURFACE_COMPATIBLE_BATCHES mine-mountain 1
+CS_SURFACE_BAKE_START mine-mountain albedo 1 4096
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-mountain albedo
+CS_SURFACE_BAKE_START mine-mountain metallic-smoothness 1 4096
+CS_SURFACE_CONSTANT_CHANNEL mine-mountain metallic-smoothness
+CS_SURFACE_BAKE_DONE mine-mountain metallic-smoothness
+CS_SURFACE_BAKE_START mine-mountain normal 1 4096
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-mountain normal
+CS_SURFACE_BAKE_START mine-mountain emission 1 4096
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-mountain emission
+CS_MINE_ATLAS mine-tunnel-floor 1 41680
+CS_MINE_UV_PROXY CS_mine_R39 | Tunnel floor 41680 to 41680
+CS_SURFACE_COMPATIBLE_BATCHES mine-tunnel-floor 1
+CS_SURFACE_BAKE_START mine-tunnel-floor albedo 1 4096
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-tunnel-floor albedo
+CS_SURFACE_BAKE_START mine-tunnel-floor metallic-smoothness 1 4096
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-tunnel-floor metallic-smoothness
+CS_SURFACE_BAKE_START mine-tunnel-floor normal 1 4096
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-tunnel-floor normal
+CS_SURFACE_BAKE_START mine-tunnel-floor emission 1 4096
+CS_SURFACE_CONSTANT_CHANNEL mine-tunnel-floor emission
+CS_SURFACE_BAKE_DONE mine-tunnel-floor emission
+CS_MINE_ATLAS mine-ground 6 336713
+CS_SURFACE_COMPATIBLE_BATCHES mine-ground 4
+CS_SURFACE_BAKE_START mine-ground albedo 6 4096
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-ground albedo
+CS_SURFACE_BAKE_START mine-ground metallic-smoothness 6 4096
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-ground metallic-smoothness
+CS_SURFACE_BAKE_START mine-ground normal 6 4096
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-ground normal
+CS_SURFACE_BAKE_START mine-ground emission 6 4096
+CS_SURFACE_CONSTANT_CHANNEL mine-ground emission
+CS_SURFACE_BAKE_DONE mine-ground emission
+CS_SURFACE_BAKE_START mine-ground wood-high 6 4096
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-ground wood-high
+CS_MINE_ATLAS mine-rocks 14 578354
+CS_SURFACE_COMPATIBLE_BATCHES mine-rocks 4
+CS_SURFACE_BAKE_START mine-rocks albedo 14 4096
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-rocks albedo
+CS_SURFACE_BAKE_START mine-rocks metallic-smoothness 14 4096
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-rocks metallic-smoothness
+CS_SURFACE_BAKE_START mine-rocks normal 14 4096
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-rocks normal

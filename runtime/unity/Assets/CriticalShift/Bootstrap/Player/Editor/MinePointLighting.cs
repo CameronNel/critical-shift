@@ -69,9 +69,9 @@ namespace CriticalShift.Player.Editor
                 runtimeIntensities=mine.GetComponentsInChildren<Light>().Where(l=>l.type==LightType.Point)
                     .ToDictionary(l=>l,l=>l.intensity);
                 var ids=new HashSet<EntityId>(runtimeIntensities.Keys.Select(l=>l.GetEntityId()));
-                // Diagnostic baseline only. The native inverse-square baker
-                // ignores emitter radius in attenuation and grossly over-lights
-                // nearby shades/crystals. Preserve the existing legacy GI until
+                // Diagnostic baseline only. The pinned Progressive CPU Soft
+                // inverse-square control receives shapeRadius but still differs
+                // from Cycles near the emitter. Preserve existing legacy GI until
                 // a source-radiance transfer passes independent visual review.
                 foreach(var pair in runtimeIntensities) pair.Key.intensity=pair.Value*(4*Mathf.PI*Mathf.PI)/100;
                 GiMapping.SetDelegate((requests,output)=>
