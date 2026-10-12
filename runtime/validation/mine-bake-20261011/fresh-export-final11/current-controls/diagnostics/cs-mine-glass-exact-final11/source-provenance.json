@@ -1,0 +1,65 @@
+{
+  "status": "Bounded actual-source glass reflection diagnostic; no final glass acceptance",
+  "sourceBlenderSha256": "255fe337aacd602e81bd2940be7bf2a1da2541954f6c8446c8a06f5aae413b72",
+  "sourceObject": "crew_van",
+  "material": "glass",
+  "materialLibrary": "//map/sections/facility-assembly/sources/front-end-area/front_end_area.blend",
+  "authoredNodes": [
+    "OUTPUT_MATERIAL",
+    "TEX_COORD",
+    "BSDF_GLASS",
+    "BSDF_TRANSPARENT",
+    "LIGHT_PATH",
+    "MIX_SHADER"
+  ],
+  "glassDistribution": "MULTI_GGX",
+  "color": [
+    0.8199999928474426,
+    0.9200000166893005,
+    0.949999988079071,
+    1.0
+  ],
+  "roughness": 0.029999999329447746,
+  "ior": 1.4500000476837158,
+  "f0": 0.03373594919332527,
+  "worldLinear": [
+    0.1,
+    0.3,
+    0.8
+  ],
+  "backplates": {
+    "black": [
+      0,
+      0,
+      0
+    ],
+    "colour": [
+      0.04,
+      0.2,
+      0.3
+    ]
+  },
+  "resolution": [
+    128,
+    128
+  ],
+  "anglesDegrees": [
+    0,
+    40,
+    65
+  ],
+  "samples": 32,
+  "canonicalSourceSaved": false,
+  "limits": [
+    "Reflection-only uniform world control",
+    "No full vehicle cubemap, BTDF/background tint or Player acceptance"
+  ],
+  "files": {
+    "Source-black-angle0.exr": "5b9f9c21632d67c12d6ce4c8d70f69edd2ed8a6b334a4b7b85f82b117d3f3683",
+    "Source-black-angle40.exr": "e4daba3a2dc18dc2f8cbed6492d3774139c56df59de27e5babaa47e59f4b2ce1",
+    "Source-black-angle65.exr": "7c702033319ea9fa0d5cc73987e91362710572654d790eca06e35cf1937717a4",
+    "Source-colour-angle0.exr": "1a401ad72a2d74b650fbd1f130b3e2f8eb231815a4c862d9376f214d9c3e6d7f",
+    "Source-colour-angle40.exr": "1be91a0b72fbef74cedc244c366fe93908e76de2d90c8681875328a0067639e1",
+    "Source-colour-angle65.exr": "12432ec70357081e6c5f516e54a723f8602e37d9080950f93daca4496377ac26"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "sourceBlenderSha256": "255fe337aacd602e81bd2940be7bf2a1da2541954f6c8446c8a06f5aae413b72",
+  "resolution": [
+    640,
+    360
+  ],
+  "samples": 16,
+  "purpose": "Diagnostic source BaseColor AOV with original BSDF and bump normal graphs; separate emission-only normal-context control; no canonical file changes",
+  "materials": 560,
+  "woodMaterials": 8,
+  "diagnosticVolumesDisabledInMemory": [
+    "R38 | Tunnel haze",
+    "R39 | Shed haze"
+  ],
+  "materialMutationScope": "Actual referenced material node trees in disposable Blender process, no save; copies/user_remap missed indirect library users",
+  "files": [
+    {
+      "file": "/tmp/cs-mine-source-geometry-position-final11/R39_02_TUNNEL-original.exr",
+      "sha256": "ad707da585dade68a6f2fb724bb65d212e1b247319d1cb7957ede60f5e1dba5d",
+      "mode": "original",
+      "view": "R39_02_TUNNEL"
+    }
+  ],
+  "diagnosticWorldPositionOffset": [
+    14.399999618530273,
+    41.0,
+    -0.0
+  ]
+}

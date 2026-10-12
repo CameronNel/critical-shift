@@ -1,0 +1,29 @@
+{
+  "reason": "Full native LightBaker OOM at startup; inactive generated tmpfs scratch consumed memory",
+  "oomEvents": "low 0\nhigh 0\nmax 737890\noom 46\noom_kill 15\noom_group_kill 0\n",
+  "activeHeavyProcesses": [],
+  "removedGeneratedScratch": [
+    {
+      "path": "/tmp/cs-mine-unity-temp-62637d29d28641e297feeae891f98cbd",
+      "bytes": 993230198
+    },
+    {
+      "path": "/tmp/cs-mine-unity-temp-bbd35074782a4f6ab691aa1d2f40ef36",
+      "bytes": 977864185
+    },
+    {
+      "path": "/tmp/cs-mine-unity-temp-c2c87a0304804ca5a92c3081271939b3",
+      "bytes": 476767578
+    },
+    {
+      "path": "/tmp/blender_nUsjr5",
+      "bytes": 245698560
+    },
+    {
+      "path": "/tmp/blender_JYFXjo",
+      "bytes": 20549856
+    }
+  ],
+  "sourceFilesChanged": false,
+  "memoryCurrentAfter": 6227202048
+}

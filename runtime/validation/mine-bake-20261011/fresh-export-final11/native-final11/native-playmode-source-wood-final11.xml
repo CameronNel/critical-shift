@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="18" result="Passed" total="18" passed="18" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-12 09:24:03Z" end-time="2026-10-12 09:25:39Z" duration="95.8087245">
+  <test-suite type="TestSuite" id="1033" name="Critical Shift" fullname="Critical Shift" runstate="Runnable" testcasecount="20" result="Passed" start-time="2026-10-12 09:24:03Z" end-time="2026-10-12 09:25:39Z" duration="95.808725" total="18" passed="18" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <test-suite type="Assembly" id="1021" name="CriticalShift.Player.Tests.PlayMode.dll" fullname="/workspace/critical-shift-spawn-runtime/runtime/unity/Library/ScriptAssemblies/CriticalShift.Player.Tests.PlayMode.dll" runstate="Runnable" testcasecount="18" result="Passed" start-time="2026-10-12 09:24:03Z" end-time="2026-10-12 09:25:39Z" duration="95.800366" total="18" passed="18" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="148682" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <test-suite type="TestSuite" id="1022" name="CriticalShift" fullname="CriticalShift" runstate="Runnable" testcasecount="18" result="Passed" start-time="2026-10-12 09:24:03Z" end-time="2026-10-12 09:25:39Z" duration="95.799830" total="18" passed="18" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1023" name="Tests" fullname="CriticalShift.Tests" runstate="Runnable" testcasecount="18" result="Passed" start-time="2026-10-12 09:24:03Z" end-time="2026-10-12 09:25:39Z" duration="95.799549" total="18" passed="18" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="1024" name="Player" fullname="CriticalShift.Tests.Player" runstate="Runnable" testcasecount="18" result="Passed" start-time="2026-10-12 09:24:03Z" end-time="2026-10-12 09:25:39Z" duration="95.799126" total="18" passed="18" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestFixture" id="1001" name="PlayerBindingTests" fullname="CriticalShift.Tests.Player.PlayerBindingTests" classname="CriticalShift.Tests.Player.PlayerBindingTests" runstate="Runnable" testcasecount="9" result="Passed" start-time="2026-10-12 09:24:03Z" end-time="2026-10-12 09:24:04Z" duration="0.144927" total="9" passed="9" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1009" name="ClosingDoorReopensAroundAWorkerAndClosesAfterClearance" fullname="CriticalShift.Tests.Player.PlayerBindingTests.ClosingDoorReopensAroundAWorkerAndClosesAfterClearance" methodname="ClosingDoorReopensAroundAWorkerAndClosesAfterClearance" classname="CriticalShift.Tests.Player.PlayerBindingTests" runstate="Runnable" seed="574643644" result="Passed" start-time="2026-10-12 09:24:03Z" end-time="2026-10-12 09:24:03Z" duration="0.081055" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1010" name="ConcaveLeafQueryBoundsAllowAnOccupantInTheEmptyChamber" fullname="CriticalShift.Tests.Player.PlayerBindingTests.ConcaveLeafQueryBoundsAllowAnOccupantInTheEmptyChamber" methodname="ConcaveLeafQueryBoundsAllowAnOccupantInTheEmptyChamber" classname="CriticalShift.Tests.Player.PlayerBindingTests" runstate="Runnable" seed="272778159" result="Passed" start-time="2026-10-12 09:24:03Z" end-time="2026-10-12 09:24:03Z" duration="0.006042" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1006" name="ControllerMovesAndPausePreventsMovement" fullname="CriticalShift.Tests.Player.PlayerBindingTests.ControllerMovesAndPausePreventsMovement" methodname="ControllerMovesAndPausePreventsMovement" classname="CriticalShift.Tests.Player.PlayerBindingTests" runstate="Runnable" seed="1687964631" result="Passed" start-time="2026-10-12 09:24:03Z" end-time="2026-10-12 09:24:03Z" duration="0.017168" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1003" name="EquipmentAttachesToBodyAndReturnsToWorld" fullname="CriticalShift.Tests.Player.PlayerBindingTests.EquipmentAttachesToBodyAndReturnsToWorld" methodname="EquipmentAttachesToBodyAndReturnsToWorld" classname="CriticalShift.Tests.Player.PlayerBindingTests" runstate="Runnable" seed="363308843" result="Passed" start-time="2026-10-12 09:24:03Z" end-time="2026-10-12 09:24:04Z" duration="0.013928" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1007" name="LowCeilingPreventsCrouchExpansion" fullname="CriticalShift.Tests.Player.PlayerBindingTests.LowCeilingPreventsCrouchExpansion" methodname="LowCeilingPreventsCrouchExpansion" classname="CriticalShift.Tests.Player.PlayerBindingTests" runstate="Runnable" seed="606994655" result="Passed" start-time="2026-10-12 09:24:04Z" end-time="2026-10-12 09:24:04Z" duration="0.002298" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1002" name="PickupAndDropProjectCanonicalCustodyIntoPhysics" fullname="CriticalShift.Tests.Player.PlayerBindingTests.PickupAndDropProjectCanonicalCustodyIntoPhysics" methodname="PickupAndDropProjectCanonicalCustodyIntoPhysics" classname="CriticalShift.Tests.Player.PlayerBindingTests" runstate="Runnable" seed="1987543367" result="Passed" start-time="2026-10-12 09:24:04Z" end-time="2026-10-12 09:24:04Z" duration="0.002585" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1005" name="PlacementAndTakeUseTheAuthoredAnchor" fullname="CriticalShift.Tests.Player.PlayerBindingTests.PlacementAndTakeUseTheAuthoredAnchor" methodname="PlacementAndTakeUseTheAuthoredAnchor" classname="CriticalShift.Tests.Player.PlayerBindingTests" runstate="Runnable" seed="1890878193" result="Passed" start-time="2026-10-12 09:24:04Z" end-time="2026-10-12 09:24:04Z" duration="0.002403" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1004" name="SeatDisablesMotionAndBlockedExitKeepsLease" fullname="CriticalShift.Tests.Player.PlayerBindingTests.SeatDisablesMotionAndBlockedExitKeepsLease" methodname="SeatDisablesMotionAndBlockedExitKeepsLease" classname="CriticalShift.Tests.Player.PlayerBindingTests" runstate="Runnable" seed="882650128" result="Passed" start-time="2026-10-12 09:24:04Z" end-time="2026-10-12 09:24:04Z" duration="0.002746" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1008" name="TenResetsReturnBindingsAndClaimsToTheirInitialState" fullname="CriticalShift.Tests.Player.PlayerBindingTests.TenResetsReturnBindingsAndClaimsToTheirInitialState" methodname="TenResetsReturnBindingsAndClaimsToTheirInitialState" classname="CriticalShift.Tests.Player.PlayerBindingTests" runstate="Runnable" seed="839220124" result="Passed" start-time="2026-10-12 09:24:04Z" end-time="2026-10-12 09:24:04Z" duration="0.005139" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1011" name="SpawnMapBindingTests" fullname="CriticalShift.Tests.Player.SpawnMapBindingTests" classname="CriticalShift.Tests.Player.SpawnMapBindingTests" runstate="Runnable" testcasecount="9" result="Passed" start-time="2026-10-12 09:24:04Z" end-time="2026-10-12 09:25:39Z" duration="95.652525" total="9" passed="9" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1019" name="AirlockControlOpensTheDoorAndAllowsWalkingIntoTheCafeteria" fullname="CriticalShift.Tests.Player.SpawnMapBindingTests.AirlockControlOpensTheDoorAndAllowsWalkingIntoTheCafeteria" methodname="AirlockControlOpensTheDoorAndAllowsWalkingIntoTheCafeteria" classname="CriticalShift.Tests.Player.SpawnMapBindingTests" runstate="Runnable" seed="395902406" result="Passed" start-time="2026-10-12 09:24:04Z" end-time="2026-10-12 09:24:44Z" duration="40.528354" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1015" name="AllBenchSeatsAnimateAndHaveUsableStandingExits" fullname="CriticalShift.Tests.Player.SpawnMapBindingTests.AllBenchSeatsAnimateAndHaveUsableStandingExits" methodname="AllBenchSeatsAnimateAndHaveUsableStandingExits" classname="CriticalShift.Tests.Player.SpawnMapBindingTests" runstate="Runnable" seed="526163766" result="Passed" start-time="2026-10-12 09:24:44Z" end-time="2026-10-12 09:25:15Z" duration="30.960269" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1012" name="ImportedMapStartsWithCompleteCollisionAndAnimatedRig" fullname="CriticalShift.Tests.Player.SpawnMapBindingTests.ImportedMapStartsWithCompleteCollisionAndAnimatedRig" methodname="ImportedMapStartsWithCompleteCollisionAndAnimatedRig" classname="CriticalShift.Tests.Player.SpawnMapBindingTests" runstate="Runnable" seed="219835638" result="Passed" start-time="2026-10-12 09:25:15Z" end-time="2026-10-12 09:25:16Z" duration="0.706330" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1016" name="ImportedThermosVisualsFollowPickupPlacementTakeAndDrop" fullname="CriticalShift.Tests.Player.SpawnMapBindingTests.ImportedThermosVisualsFollowPickupPlacementTakeAndDrop" methodname="ImportedThermosVisualsFollowPickupPlacementTakeAndDrop" classname="CriticalShift.Tests.Player.SpawnMapBindingTests" runstate="Runnable" seed="1901144039" result="Passed" start-time="2026-10-12 09:25:16Z" end-time="2026-10-12 09:25:16Z" duration="0.337734" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1020" name="IntegrityChamberSealsTestsAndReleasesAnUnsuitedWorker" fullname="CriticalShift.Tests.Player.SpawnMapBindingTests.IntegrityChamberSealsTestsAndReleasesAnUnsuitedWorker" methodname="IntegrityChamberSealsTestsAndReleasesAnUnsuitedWorker" classname="CriticalShift.Tests.Player.SpawnMapBindingTests" runstate="Runnable" seed="2078896343" result="Passed" start-time="2026-10-12 09:25:16Z" end-time="2026-10-12 09:25:22Z" duration="5.933246" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1018" name="LockerAnimationSwapsSuitOnlyAtCompletionAndPauses" fullname="CriticalShift.Tests.Player.SpawnMapBindingTests.LockerAnimationSwapsSuitOnlyAtCompletionAndPauses" methodname="LockerAnimationSwapsSuitOnlyAtCompletionAndPauses" classname="CriticalShift.Tests.Player.SpawnMapBindingTests" runstate="Runnable" seed="1796079081" result="Passed" start-time="2026-10-12 09:25:22Z" end-time="2026-10-12 09:25:38Z" duration="15.774288" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1017" name="LockerPreparationRequiresStandingInFrontAndCancelsIfDisplaced" fullname="CriticalShift.Tests.Player.SpawnMapBindingTests.LockerPreparationRequiresStandingInFrontAndCancelsIfDisplaced" methodname="LockerPreparationRequiresStandingInFrontAndCancelsIfDisplaced" classname="CriticalShift.Tests.Player.SpawnMapBindingTests" runstate="Runnable" seed="1000087311" result="Passed" start-time="2026-10-12 09:25:38Z" end-time="2026-10-12 09:25:38Z" duration="0.379674" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1014" name="PersistedReflectionsRetainRoughSurfaceFiltering" fullname="CriticalShift.Tests.Player.SpawnMapBindingTests.PersistedReflectionsRetainRoughSurfaceFiltering" methodname="PersistedReflectionsRetainRoughSurfaceFiltering" classname="CriticalShift.Tests.Player.SpawnMapBindingTests" runstate="Runnable" seed="237896304" result="Passed" start-time="2026-10-12 09:25:38Z" end-time="2026-10-12 09:25:38Z" duration="0.316655" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1013" name="SuitsRetainSourceFabricClearVisorAndHoodCavity" fullname="CriticalShift.Tests.Player.SpawnMapBindingTests.SuitsRetainSourceFabricClearVisorAndHoodCavity" methodname="SuitsRetainSourceFabricClearVisorAndHoodCavity" classname="CriticalShift.Tests.Player.SpawnMapBindingTests" runstate="Runnable" seed="904620510" result="Passed" start-time="2026-10-12 09:25:38Z" end-time="2026-10-12 09:25:39Z" duration="0.708987" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[Saving results to: /workspace/critical-shift-spawn-runtime/runtime/out/mine-bake-audit/native-playmode-source-wood-final11.xml
+]]></output>
+              </test-case>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

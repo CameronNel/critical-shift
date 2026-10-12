@@ -222,9 +222,8 @@ namespace CriticalShift.Player.Editor
                     lamp.transform.localPosition = V(sourceLight.position);
                     var light = lamp.AddComponent<Light>(); light.type = LightType.Point; light.range = 12;
                     light.color = new Color(sourceLight.color[0], sourceLight.color[1], sourceLight.color[2]).gamma;
-                    // The inverse-square bake and legacy forward renderer use different intensity
-                    // scales. The bake scale is calibrated against the authored reference views. Forward
-                    // rendering uses a different attenuation scale, applied after the indirect bake.
+                    // Existing rooms retain their calibrated legacy intensity. The mine's
+                    // explicit physical-point adapter overrides this scale below.
                     light.intensity = sourceLight.power / 100;
                     light.shapeRadius = Mathf.Max(sourceLight.radius,0.001f);
                     light.shadows = LightShadows.Soft;
@@ -239,6 +238,7 @@ namespace CriticalShift.Player.Editor
                         {
                             MineVisualLighting.ConfigureSourceSun(light,sourceLight);
                         }
+                        else if(sourceLight.type=="POINT") MinePointLighting.Configure(light,sourceLight);
                     }
                     if(room.key=="front-end-area" && contextBindings.Count>0 && lamp.transform.position.x<=-23 && lamp.transform.position.z>=-99 && lamp.transform.position.z<=-44)
                     {

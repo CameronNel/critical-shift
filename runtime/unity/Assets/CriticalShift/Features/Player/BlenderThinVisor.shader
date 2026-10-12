@@ -15,6 +15,7 @@ Shader "CriticalShift/BlenderThinVisor"
         #pragma target 3.0
         #pragma surface surf ThinVisor alpha:premul fullforwardshadows
         #include "UnityPBSLighting.cginc"
+        #include "BlenderPointLighting.cginc"
         sampler2D _ReflectionMap;
         half _ReflectionIOR, _Glossiness;
         half4 _ReflectionColor;

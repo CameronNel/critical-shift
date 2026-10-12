@@ -97,9 +97,14 @@ namespace CriticalShift.Player.Editor
         {
             var map=JsonUtility.FromJson<ExportMap>(File.ReadAllText(SpawnMapBuild.Folder+"map-bindings.json"));
             var sky=map.materials.Single(p=>p.room=="mine").assemblyLighting;
-            var authored=map.rooms.Single(r=>r.key=="mine").lights.ToDictionary(l=>l.name,StringComparer.Ordinal);
-            foreach(var light in root.GetComponentsInChildren<Light>().Where(l=>l.type==LightType.Point && l.lightmapBakeType==LightmapBakeType.Mixed))
-                light.intensity=authored[light.name].power/500;
+            // The scoped legacy bake baseline is restored to source-physical
+            // runtime intensity before actors and reflections are rendered.
+            // Keep baked finite-angle SUN shadows on static scenery; moving
+            // receivers use runtime casters and baked probe occlusion.
+            foreach(var sun in UnityEngine.Object.FindObjectsByType<Light>()
+                .Where(l=>l.type==LightType.Directional && l.lightmapBakeType==LightmapBakeType.Mixed &&
+                    (l.transform.IsChildOf(root) || l.name=="Combined map moon" || l.name=="FE_MOON")))
+                sun.lightShadowCasterMode=LightShadowCasterMode.ShadowMask;
             int index=0;
             foreach(float x in new[] {-27f,-47f,-68f,-87f})
             {

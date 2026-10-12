@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/tmp/cs-mine-glass-sequence-final11.py", line 10, in <module>
+    if 'CS_FINAL11_ACTUAL_CONFIGURE_AND_SCOPE_CHECKS_READY' not in (audit/'native-after-export-final11-wrapper.log').read_text():raise RuntimeError('Current native import/preflight incomplete; glass not run')
+                                                                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Current native import/preflight incomplete; glass not run

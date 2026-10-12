@@ -1,0 +1,383 @@
+{
+    "status": "Historical final10 reflection coverage only; current exported inputs differ; no current lighting or final visual acceptance",
+    "sceneSha256": "71219fdb7f993cbd9bcabc022c46d6051e385508ccc7594db29b27dff1118d9a",
+    "preparedProofSha256": "3d155a86caa299fac65cd1d7803115d6324bea3023771627578d0015d4741649",
+    "defaultMode": "Skybox",
+    "defaultTexture": "UnityBlackCube",
+    "customTexture": "",
+    "skybox": "",
+    "glass": [
+        {
+            "name": "CS_front-end-area_site_pickup",
+            "probeUsage": "BlendProbes",
+            "materialNames": [
+                "CS_mine_surface_mine-context-props_020",
+                "CS_mine_surface_mine-context-props_005",
+                "CS_mine_surface_mine-context-props_001",
+                "CS_mine_surface_mine-context-props_000",
+                "CS_mine_surface_mine-context-props_007",
+                "CS_mine_surface_mine-context-props_010",
+                "CS_mine_surface_mine-context-props_006"
+            ],
+            "centre": {
+                "x": -37.5,
+                "y": 0.8899998664855957,
+                "z": -80.64250183105469
+            },
+            "size": {
+                "x": 2.1000003814697267,
+                "y": 1.820000171661377,
+                "z": 5.3849992752075199
+            },
+            "probes": [
+                {
+                    "name": "Mine reflection 0",
+                    "texture": "Assets/CriticalShift/Generated/Spawn/Surfaces/MineReflection0.exr",
+                    "centre": {
+                        "x": -41.400001525878909,
+                        "y": 1.7000000476837159,
+                        "z": -70.0
+                    },
+                    "size": {
+                        "x": 20.0,
+                        "y": 9.0,
+                        "z": 20.0
+                    },
+                    "weight": 1.0
+                }
+            ]
+        },
+        {
+            "name": "CS_spawn-room_POD_fixed_glass",
+            "probeUsage": "BlendProbes",
+            "materialNames": [
+                "CS_spawn_surface_architecture_028"
+            ],
+            "centre": {
+                "x": 15.041749954223633,
+                "y": 1.3634995222091675,
+                "z": -88.37999725341797
+            },
+            "size": {
+                "x": 1.3305002450942994,
+                "y": 2.2249999046325685,
+                "z": 1.7740002870559693
+            },
+            "probes": [
+                {
+                    "name": "Spawn reflection 2",
+                    "texture": "Assets/CriticalShift/Generated/Spawn/Surfaces/SpawnReflection2.exr",
+                    "centre": {
+                        "x": 13.0,
+                        "y": 2.0,
+                        "z": -88.37999725341797
+                    },
+                    "size": {
+                        "x": 7.599999904632568,
+                        "y": 4.199999809265137,
+                        "z": 9.0
+                    },
+                    "weight": 1.0
+                }
+            ]
+        },
+        {
+            "name": "CS_front-end-area_crew_van",
+            "probeUsage": "BlendProbes",
+            "materialNames": [
+                "CS_mine_surface_mine-context-props_020",
+                "CS_mine_surface_mine-context-props_005",
+                "CS_mine_surface_mine-context-props_007",
+                "CS_mine_surface_mine-context-props_001",
+                "CS_mine_surface_mine-context-props_010",
+                "CS_mine_surface_mine-context-props_000",
+                "CS_mine_surface_mine-context-props_006",
+                "CS_mine_surface_mine-context-props_019"
+            ],
+            "centre": {
+                "x": -34.5,
+                "y": 1.0799999237060547,
+                "z": -80.60499572753906
+            },
+            "size": {
+                "x": 2.1700003147125246,
+                "y": 2.200000286102295,
+                "z": 5.509998798370361
+            },
+            "probes": [
+                {
+                    "name": "Mine reflection 0",
+                    "texture": "Assets/CriticalShift/Generated/Spawn/Surfaces/MineReflection0.exr",
+                    "centre": {
+                        "x": -41.400001525878909,
+                        "y": 1.7000000476837159,
+                        "z": -70.0
+                    },
+                    "size": {
+                        "x": 20.0,
+                        "y": 9.0,
+                        "z": 20.0
+                    },
+                    "weight": 1.0
+                }
+            ]
+        },
+        {
+            "name": "CS_front-end-area_dock_parcels_1",
+            "probeUsage": "BlendProbes",
+            "materialNames": [
+                "CS_mine_surface_mine-context-props_003",
+                "CS_mine_surface_mine-context-props_009",
+                "CS_mine_surface_mine-context-props_010",
+                "CS_mine_surface_mine-context-props_005"
+            ],
+            "centre": {
+                "x": -25.200054168701173,
+                "y": 1.3564975261688233,
+                "z": -61.401004791259769
+            },
+            "size": {
+                "x": 1.2493791580200196,
+                "y": 0.8109999895095825,
+                "z": 1.0767027139663697
+            },
+            "probes": []
+        },
+        {
+            "name": "CS_front-end-area_dock_parcels_0",
+            "probeUsage": "BlendProbes",
+            "materialNames": [
+                "CS_mine_surface_mine-context-props_003",
+                "CS_mine_surface_mine-context-props_009",
+                "CS_mine_surface_mine-context-props_010",
+                "CS_mine_surface_mine-context-props_005"
+            ],
+            "centre": {
+                "x": -25.199905395507814,
+                "y": 1.3564977645874024,
+                "z": -63.60100173950195
+            },
+            "size": {
+                "x": 1.295635461807251,
+                "y": 0.8109999299049377,
+                "z": 1.1327142715454102
+            },
+            "probes": []
+        },
+        {
+            "name": "CS_spawn-room_POD_door_R_glazing",
+            "probeUsage": "BlendProbes",
+            "materialNames": [
+                "CS_spawn_surface_architecture_028"
+            ],
+            "centre": {
+                "x": 14.820977210998536,
+                "y": 1.363499641418457,
+                "z": -89.11778259277344
+            },
+            "size": {
+                "x": 0.8561357259750366,
+                "y": 2.2249996662139894,
+                "z": 0.7431803941726685
+            },
+            "probes": [
+                {
+                    "name": "Spawn reflection 2",
+                    "texture": "Assets/CriticalShift/Generated/Spawn/Surfaces/SpawnReflection2.exr",
+                    "centre": {
+                        "x": 13.0,
+                        "y": 2.0,
+                        "z": -88.37999725341797
+                    },
+                    "size": {
+                        "x": 7.599999904632568,
+                        "y": 4.199999809265137,
+                        "z": 9.0
+                    },
+                    "weight": 1.0
+                }
+            ]
+        },
+        {
+            "name": "CS_front-end-area_skid_loader",
+            "probeUsage": "BlendProbes",
+            "materialNames": [
+                "CS_mine_surface_mine-context-props_020",
+                "CS_mine_surface_mine-context-props_001",
+                "CS_mine_surface_mine-context-props_007",
+                "CS_mine_surface_mine-context-props_005",
+                "CS_mine_surface_mine-context-props_019",
+                "CS_mine_surface_mine-context-props_002",
+                "CS_mine_surface_mine-context-props_006"
+            ],
+            "centre": {
+                "x": -31.04781723022461,
+                "y": 0.9874981045722961,
+                "z": -65.88359069824219
+            },
+            "size": {
+                "x": 2.2817163467407228,
+                "y": 1.975000023841858,
+                "z": 3.262728452682495
+            },
+            "probes": [
+                {
+                    "name": "Mine reflection 0",
+                    "texture": "Assets/CriticalShift/Generated/Spawn/Surfaces/MineReflection0.exr",
+                    "centre": {
+                        "x": -41.400001525878909,
+                        "y": 1.7000000476837159,
+                        "z": -70.0
+                    },
+                    "size": {
+                        "x": 20.0,
+                        "y": 9.0,
+                        "z": 20.0
+                    },
+                    "weight": 1.0
+                }
+            ]
+        },
+        {
+            "name": "CS_spawn-room_POD_door_L_glazing",
+            "probeUsage": "BlendProbes",
+            "materialNames": [
+                "CS_spawn_surface_architecture_028"
+            ],
+            "centre": {
+                "x": 14.820977210998536,
+                "y": 1.363499402999878,
+                "z": -87.6422119140625
+            },
+            "size": {
+                "x": 0.8561357259750366,
+                "y": 2.2249996662139894,
+                "z": 0.743180513381958
+            },
+            "probes": [
+                {
+                    "name": "Spawn reflection 2",
+                    "texture": "Assets/CriticalShift/Generated/Spawn/Surfaces/SpawnReflection2.exr",
+                    "centre": {
+                        "x": 13.0,
+                        "y": 2.0,
+                        "z": -88.37999725341797
+                    },
+                    "size": {
+                        "x": 7.599999904632568,
+                        "y": 4.199999809265137,
+                        "z": 9.0
+                    },
+                    "weight": 1.0
+                }
+            ]
+        }
+    ],
+    "allProbes": [
+        {
+            "name": "Mine reflection 0",
+            "texture": "Assets/CriticalShift/Generated/Spawn/Surfaces/MineReflection0.exr",
+            "centre": {
+                "x": -41.400001525878909,
+                "y": 1.7000000476837159,
+                "z": -70.0
+            },
+            "size": {
+                "x": 20.0,
+                "y": 9.0,
+                "z": 20.0
+            },
+            "weight": 0.0
+        },
+        {
+            "name": "Spawn reflection 2",
+            "texture": "Assets/CriticalShift/Generated/Spawn/Surfaces/SpawnReflection2.exr",
+            "centre": {
+                "x": 13.0,
+                "y": 2.0,
+                "z": -88.37999725341797
+            },
+            "size": {
+                "x": 7.599999904632568,
+                "y": 4.199999809265137,
+                "z": 9.0
+            },
+            "weight": 0.0
+        },
+        {
+            "name": "Spawn reflection 0",
+            "texture": "Assets/CriticalShift/Generated/Spawn/Surfaces/SpawnReflection0.exr",
+            "centre": {
+                "x": 8.0,
+                "y": 2.0,
+                "z": -86.37999725341797
+            },
+            "size": {
+                "x": 3.5999999046325685,
+                "y": 4.199999809265137,
+                "z": 13.0
+            },
+            "weight": 0.0
+        },
+        {
+            "name": "Spawn reflection 1",
+            "texture": "Assets/CriticalShift/Generated/Spawn/Surfaces/SpawnReflection1.exr",
+            "centre": {
+                "x": 3.1999998092651369,
+                "y": 2.0,
+                "z": -88.37999725341797
+            },
+            "size": {
+                "x": 7.599999904632568,
+                "y": 4.199999809265137,
+                "z": 9.0
+            },
+            "weight": 0.0
+        },
+        {
+            "name": "Mine reflection 3",
+            "texture": "Assets/CriticalShift/Generated/Spawn/Surfaces/MineReflection3.exr",
+            "centre": {
+                "x": -101.4000015258789,
+                "y": 1.7000000476837159,
+                "z": -70.0
+            },
+            "size": {
+                "x": 24.0,
+                "y": 9.0,
+                "z": 20.0
+            },
+            "weight": 0.0
+        },
+        {
+            "name": "Mine reflection 2",
+            "texture": "Assets/CriticalShift/Generated/Spawn/Surfaces/MineReflection2.exr",
+            "centre": {
+                "x": -82.4000015258789,
+                "y": 1.7000000476837159,
+                "z": -70.0
+            },
+            "size": {
+                "x": 24.0,
+                "y": 9.0,
+                "z": 20.0
+            },
+            "weight": 0.0
+        },
+        {
+            "name": "Mine reflection 1",
+            "texture": "Assets/CriticalShift/Generated/Spawn/Surfaces/MineReflection1.exr",
+            "centre": {
+                "x": -61.400001525878909,
+                "y": 1.7000000476837159,
+                "z": -70.0
+            },
+            "size": {
+                "x": 24.0,
+                "y": 9.0,
+                "z": 20.0
+            },
+            "weight": 0.0
+        }
+    ]
+}

@@ -1,0 +1,598 @@
+{
+  "status": "Completed bounded diagnostics; fresh full lighting retry in progress; no visual acceptance",
+  "canonicalSourceSha256": "255fe337aacd602e81bd2940be7bf2a1da2541954f6c8446c8a06f5aae413b72",
+  "normal": "Broad false pipe wrinkles reduced: independent interior mean 12.9648 to 7.26 degrees. Remaining fine mismatch. Current unbaked normal captures, not current lighting proof.",
+  "glass": "Exact Fresnel plus RGB destination transmission diagnostics pass bounded reflection controls; no production glass change or actual vehicle approval.",
+  "historicalReflection": "Old final10 probe coverage inspection only; current scene acceptance excluded.",
+  "combinedDiffuse": "Prototype intentionally cancelled without radiance outputs/native transfer; 8192 predecessor failed OOM; not production.",
+  "sourceExport": "Current full fresh final11 source export completed with unchanged immutable source and exact recipe.",
+  "fullLighting": "First final11 native bake rejected by OOM; same-input retry pending.",
+  "overallScore": null,
+  "files": [
+    {
+      "file": "diagnostics/cs-mine-normal-fresh-final11/R39_01_PORTAL_APPROACH-ProductionNormal.exr",
+      "bytes": 3692491,
+      "sha256": "f30ecc69183e894946eacc4a6a1d01283552e9a4d618ea8f6403bd81ead13653"
+    },
+    {
+      "file": "diagnostics/cs-mine-normal-fresh-final11/R39_02_TUNNEL-ProductionNormal.exr",
+      "bytes": 3692491,
+      "sha256": "007080472920960cf7f4048ca6df0a87fa9ec607c6709f1945152e511178fe33"
+    },
+    {
+      "file": "diagnostics/cs-mine-normal-fresh-final11/R39_04_SHED_FRONT-ProductionNormal.exr",
+      "bytes": 3692491,
+      "sha256": "7edf1572fc13b7d5c33ac6159def02e70ba29aba24ef0027ef13670e00735a6f"
+    },
+    {
+      "file": "diagnostics/cs-mine-normal-fresh-final11/current-input-provenance.json",
+      "bytes": 45454,
+      "sha256": "d40e8299e111b0f0867363b4a7459fb010fcc6a6fb11161bb8b63ebfde9fa35f"
+    },
+    {
+      "file": "diagnostics/cs-mine-normal-native-final11/R39_01_PORTAL_APPROACH-Normal-comparison.png",
+      "bytes": 652960,
+      "sha256": "e154951f53a9bf3404408529bc2fd7408638eb917e10f5540de677ea4748c019"
+    },
+    {
+      "file": "diagnostics/cs-mine-normal-native-final11/R39_01_PORTAL_APPROACH-ProductionNormal.exr",
+      "bytes": 3692491,
+      "sha256": "40ff99c357cc5610412ebd943df0f166f3ecfa55fbce517bc00042389084c0bd"
+    },
+    {
+      "file": "diagnostics/cs-mine-normal-native-final11/R39_02_TUNNEL-Normal-comparison.png",
+      "bytes": 856845,
+      "sha256": "55fbbcf358507f9fc3dcea7cfd8e0dba52bdebac355efa28fcba02b4e07096a6"
+    },
+    {
+      "file": "diagnostics/cs-mine-normal-native-final11/R39_02_TUNNEL-ProductionNormal.exr",
+      "bytes": 3692491,
+      "sha256": "34812d36183c8350682c04b950d8a60cd647e237afb18418a6b877fa5ed94725"
+    },
+    {
+      "file": "diagnostics/cs-mine-normal-native-final11/R39_04_SHED_FRONT-Normal-comparison.png",
+      "bytes": 781381,
+      "sha256": "f522594369c921bfa58b4a55f34d5a5e00db10539d182f0274fb949bd27fe1f8"
+    },
+    {
+      "file": "diagnostics/cs-mine-normal-native-final11/R39_04_SHED_FRONT-ProductionNormal.exr",
+      "bytes": 3692491,
+      "sha256": "0360cd53d4c694d6c74b2bf3bf8410e3eebc561edafe8f3a19e06a92abd1fd71"
+    },
+    {
+      "file": "diagnostics/cs-mine-normal-native-final11/normal-comparison-metrics.json",
+      "bytes": 839,
+      "sha256": "7e9e4fe0d39d75685509183f6fe0939e093bc831148d0d4c0a7d45f0628401c0"
+    },
+    {
+      "file": "diagnostics/cs-mine-normal-native-final11/prepared-scene.json",
+      "bytes": 383,
+      "sha256": "3d155a86caa299fac65cd1d7803115d6324bea3023771627578d0015d4741649"
+    },
+    {
+      "file": "diagnostics/cs-mine-aov-linked-context-final11/R39_01_PORTAL_APPROACH-BaseColor-comparison.png",
+      "bytes": 600470,
+      "sha256": "36300374de912d67b94849431d9771b6da7b52bf690e8c550f9897898caf9b2e"
+    },
+    {
+      "file": "diagnostics/cs-mine-aov-linked-context-final11/R39_01_PORTAL_APPROACH-Roughness-comparison.png",
+      "bytes": 268656,
+      "sha256": "58dd1de943b830169bf298be9ad0d4912e43eb0d8f4dd1e4cd4c9a871de1d11c"
+    },
+    {
+      "file": "diagnostics/cs-mine-aov-linked-context-final11/R39_01_PORTAL_APPROACH-original.exr",
+      "bytes": 20312160,
+      "sha256": "5c499a179b451b88fbc068fd2a5c21c7130e170a734ada7b3f9f279d4426e423"
+    },
+    {
+      "file": "diagnostics/cs-mine-aov-linked-context-final11/R39_02_TUNNEL-BaseColor-comparison.png",
+      "bytes": 591329,
+      "sha256": "41be58bebae1b71b6ba7b74b7848173827ac658988d56caba2db3198e8ad5c0d"
+    },
+    {
+      "file": "diagnostics/cs-mine-aov-linked-context-final11/R39_02_TUNNEL-Roughness-comparison.png",
+      "bytes": 167829,
+      "sha256": "b16349d9d1376cd28ce8093053a296775f494399bbc2f74462a906c1dced74e3"
+    },
+    {
+      "file": "diagnostics/cs-mine-aov-linked-context-final11/R39_02_TUNNEL-original.exr",
+      "bytes": 21918289,
+      "sha256": "4c1039414c329a103e4c9aada87fcc81aef0948ca89b4146669eadca8fb8955d"
+    },
+    {
+      "file": "diagnostics/cs-mine-aov-linked-context-final11/R39_04_SHED_FRONT-BaseColor-comparison.png",
+      "bytes": 574734,
+      "sha256": "2ab1b155957a11d492722f6029556318da781f4f4127ef939f1033bfbdd04a87"
+    },
+    {
+      "file": "diagnostics/cs-mine-aov-linked-context-final11/R39_04_SHED_FRONT-Roughness-comparison.png",
+      "bytes": 101365,
+      "sha256": "fd235f695cb9995277838785ab3cadb7f258768945bf68ba9db6ed0c2aef5728"
+    },
+    {
+      "file": "diagnostics/cs-mine-aov-linked-context-final11/R39_04_SHED_FRONT-original.exr",
+      "bytes": 18584932,
+      "sha256": "87d1b13dfe67f22632e5f1d814b0863f463d004db8b88ef1ddc8d0cb7b20b88c"
+    },
+    {
+      "file": "diagnostics/cs-mine-aov-linked-context-final11/material-comparison-metrics.json",
+      "bytes": 2449,
+      "sha256": "0af7126833e96bd89bf3c8a8cb304ca31ddf1e3efab3e5fa24e54e6f1da4c4ad"
+    },
+    {
+      "file": "diagnostics/cs-mine-aov-linked-context-final11/provenance.json",
+      "bytes": 1362,
+      "sha256": "7d14ecba6b43d8e01a11bad78b2e8a368aedfcdd81cf5aeef54c684f2203cadf"
+    },
+    {
+      "file": "diagnostics/cs-mine-normal-independent-review-final11/R39_01_PORTAL_APPROACH-normal-three-way.png",
+      "bytes": 215688,
+      "sha256": "bda4758af95fc7e56c5451f417d79151ef18a7a1d9e6997c74b46cf9da062d51"
+    },
+    {
+      "file": "diagnostics/cs-mine-normal-independent-review-final11/R39_02_TUNNEL-normal-three-way.png",
+      "bytes": 419264,
+      "sha256": "28354486f2ea65d57232b94f476a026840a283490b17691252dff2e18211d01e"
+    },
+    {
+      "file": "diagnostics/cs-mine-normal-independent-review-final11/R39_04_SHED_FRONT-normal-three-way.png",
+      "bytes": 307043,
+      "sha256": "b98980ea55975b5d061908bbd92c98627feb08849fc4b41d1f0b596ad8baac31"
+    },
+    {
+      "file": "diagnostics/cs-mine-normal-independent-review-final11/normal-control-review.json",
+      "bytes": 51317,
+      "sha256": "17a64baf57faa7b1d4894c9a484cbc3dbb5ba3f44935b8e6768d7d75c43f1abd"
+    },
+    {
+      "file": "diagnostics/cs-mine-glass-control-final11/Native-fade-angle0.exr",
+      "bytes": 264523,
+      "sha256": "fb9298e5200c373ac1c633febf7afdf535f622c5b062407d4ebca6902f9e54a9"
+    },
+    {
+      "file": "diagnostics/cs-mine-glass-control-final11/Native-fade-angle40.exr",
+      "bytes": 264523,
+      "sha256": "d15fc31b24cf0105e0c191268c6ba167c7360ef7eaf0e2169ba974cea3e1b570"
+    },
+    {
+      "file": "diagnostics/cs-mine-glass-control-final11/Native-fade-angle65.exr",
+      "bytes": 264523,
+      "sha256": "63d4e88bbcb5a212a5ac9b7053f6fc3b0675d34c7ef10b9f7c520cdb11ddbf17"
+    },
+    {
+      "file": "diagnostics/cs-mine-glass-control-final11/Native-premul-diagnostic-angle0.exr",
+      "bytes": 264523,
+      "sha256": "d55fd1868610020dcf6d5fffa3e47855a2b24dea801bdcbeba6d922ea3046644"
+    },
+    {
+      "file": "diagnostics/cs-mine-glass-control-final11/Native-premul-diagnostic-angle40.exr",
+      "bytes": 264523,
+      "sha256": "df6d20b1a76afbbffa942ab97320cc80a151c244ad6a17228dd77837797239b4"
+    },
+    {
+      "file": "diagnostics/cs-mine-glass-control-final11/Native-premul-diagnostic-angle65.exr",
+      "bytes": 264523,
+      "sha256": "6b8b8bba707cf5d29336572d943fff44dfa8c899d99956d95c4be620f79a2b83"
+    },
+    {
+      "file": "diagnostics/cs-mine-glass-control-final11/Source-angle0.exr",
+      "bytes": 29510,
+      "sha256": "08cf16db5a7c799e8b9ed67e5df20d0ed3ec8e35f0d973fc9805c78957c9e8e3"
+    },
+    {
+      "file": "diagnostics/cs-mine-glass-control-final11/Source-angle40.exr",
+      "bytes": 41737,
+      "sha256": "ecb33e77701602c833f28836b1af7ec8efb3165e13b2b7fb52bada026d37ca57"
+    },
+    {
+      "file": "diagnostics/cs-mine-glass-control-final11/Source-angle65.exr",
+      "bytes": 49360,
+      "sha256": "3caccc2c28dd2f07340af37842e2e8da01dc6700eecc927333a03924a563a6fc"
+    },
+    {
+      "file": "diagnostics/cs-mine-glass-control-final11/source-provenance.json",
+      "bytes": 1374,
+      "sha256": "6379fc70ed22f236b97a48398fc9481a6f99237b9205676dd56eed7ced0d75ac"
+    },
+    {
+      "file": "diagnostics/cs-mine-glass-independent-review-final11/glass-control-review.json",
+      "bytes": 9713,
+      "sha256": "554cad99205bb5e16c9a95877a600d8c4cec56da30112ac066212b3b38764e3b"
+    },
+    {
+      "file": "diagnostics/cs-mine-glass-exact-final11/Native-exact-black-angle0.exr",
+      "bytes": 264523,
+      "sha256": "067153223d700adf4d495d822d09dc32d1cb00d38582a9fa8f6a6a8991ca5740"
+    },
+    {
+      "file": "diagnostics/cs-mine-glass-exact-final11/Native-exact-black-angle40.exr",
+      "bytes": 264523,
+      "sha256": "613cd03169dd742ce7b666fcacc668b66776e3612ac93bf9f5f42d5dd91c17ab"
+    },
+    {
+      "file": "diagnostics/cs-mine-glass-exact-final11/Native-exact-black-angle65.exr",
+      "bytes": 264523,
+      "sha256": "1358f1ac10f0143a86cfef7667077fed712473d21bd036265228d8b35ffffaeb"
+    },
+    {
+      "file": "diagnostics/cs-mine-glass-exact-final11/Native-exact-colour-angle0.exr",
+      "bytes": 264523,
+      "sha256": "616f5c3db69942dc266feb36bccbb29b82cbfebae9e630c1b34813d6b660be5d"
+    },
+    {
+      "file": "diagnostics/cs-mine-glass-exact-final11/Native-exact-colour-angle40.exr",
+      "bytes": 264523,
+      "sha256": "22781ea1a4efbcf8a19c58d5ea920f5bbeda89454fba64d7133ce2cd43cd0c8e"
+    },
+    {
+      "file": "diagnostics/cs-mine-glass-exact-final11/Native-exact-colour-angle65.exr",
+      "bytes": 264523,
+      "sha256": "37e0cc0043bc88be409ec85f04a9b59b83a707684413d76230c9dd1bb6522cc0"
+    },
+    {
+      "file": "diagnostics/cs-mine-glass-exact-final11/Source-black-angle0.exr",
+      "bytes": 29510,
+      "sha256": "5b9f9c21632d67c12d6ce4c8d70f69edd2ed8a6b334a4b7b85f82b117d3f3683"
+    },
+    {
+      "file": "diagnostics/cs-mine-glass-exact-final11/Source-black-angle40.exr",
+      "bytes": 41737,
+      "sha256": "e4daba3a2dc18dc2f8cbed6492d3774139c56df59de27e5babaa47e59f4b2ce1"
+    },
+    {
+      "file": "diagnostics/cs-mine-glass-exact-final11/Source-black-angle65.exr",
+      "bytes": 49360,
+      "sha256": "7c702033319ea9fa0d5cc73987e91362710572654d790eca06e35cf1937717a4"
+    },
+    {
+      "file": "diagnostics/cs-mine-glass-exact-final11/Source-colour-angle0.exr",
+      "bytes": 31566,
+      "sha256": "1a401ad72a2d74b650fbd1f130b3e2f8eb231815a4c862d9376f214d9c3e6d7f"
+    },
+    {
+      "file": "diagnostics/cs-mine-glass-exact-final11/Source-colour-angle40.exr",
+      "bytes": 37365,
+      "sha256": "1be91a0b72fbef74cedc244c366fe93908e76de2d90c8681875328a0067639e1"
+    },
+    {
+      "file": "diagnostics/cs-mine-glass-exact-final11/Source-colour-angle65.exr",
+      "bytes": 42184,
+      "sha256": "12432ec70357081e6c5f516e54a723f8602e37d9080950f93daca4496377ac26"
+    },
+    {
+      "file": "diagnostics/cs-mine-glass-exact-final11/source-provenance.json",
+      "bytes": 1782,
+      "sha256": "147698b8f2de4aff465d6099f3d61bbdae2b3e3b8018528b9641694644761fb2"
+    },
+    {
+      "file": "diagnostics/cs-mine-glass-exact-independent-review-final11/exact-glass-control-review.json",
+      "bytes": 10517,
+      "sha256": "ed76318682d5a57f7d50eb194d3524c2b3d7f432d94258e71b42cee71b0158f8"
+    },
+    {
+      "file": "diagnostics/cs-mine-production-scope-final11.json",
+      "bytes": 244,
+      "sha256": "8c9ba1ad64ef571f0b538e23b96785c409e542bc2f9697625fc7d5dc5c896878"
+    },
+    {
+      "file": "diagnostics/cs-mine-historical-reflection-final11.json",
+      "bytes": 13053,
+      "sha256": "0efff354950df8e720560b7ce56538c6fabb3f1e8c0341d2d3cea2bd4cb6e595"
+    },
+    {
+      "file": "diagnostics/cs-mine-shed-source-transport-split-final11.json",
+      "bytes": 681,
+      "sha256": "c3001368337b253d10b9ed6b738c7c6cf8b5e227bc367f80c698098599042b27"
+    },
+    {
+      "file": "diagnostics/cs-mine-source-memory-resume-final11.json",
+      "bytes": 106,
+      "sha256": "9be14e13c22cb12321f45eb74887aa89c6b8d0766a37dcecc5f27d6b49d7c3ba"
+    },
+    {
+      "file": "logs-and-inputs/surface-cache.json",
+      "bytes": 14445,
+      "sha256": "d059c49934f42ad0dc457c86c68017c906e90c859301ff994aa1dfe464ef43d7"
+    },
+    {
+      "file": "logs-and-inputs/preservation.json",
+      "bytes": 3074,
+      "sha256": "37602575c1f022f48d87d46ed7dd460c0aa9de33027e5c739aae9eddea2f109b"
+    },
+    {
+      "file": "logs-and-inputs/memory-cache-rebalance-final11.json",
+      "bytes": 352,
+      "sha256": "dd75c6f93e2331c506d1469fd2552eabe513bd6b7113e26c14d5519fc1af295f"
+    },
+    {
+      "file": "logs-and-inputs/source-memory-headroom-final11.json",
+      "bytes": 366,
+      "sha256": "6d0d949dd6da5b69158dd3c62f348cbfd6cb4fc0633539d905c5b7baab1ddac1"
+    },
+    {
+      "file": "logs-and-inputs/python-final11.log",
+      "bytes": 4408,
+      "sha256": "b2880bc48caa7d65ccc8fefa97b5a89bc81a5fa24174b96bb9cff1aa0d463957"
+    },
+    {
+      "file": "logs-and-inputs/api-final11-wrapper.log",
+      "bytes": 139,
+      "sha256": "9e7fa6739f107b989d8c1af8858188b1d77c10ac08cf2d49814d3f1830f551df"
+    },
+    {
+      "file": "logs-and-inputs/cs-mine-normal-fresh-final11.native.log",
+      "bytes": 517860,
+      "sha256": "fbda72de4b38dab95707f3105de380c57ab7fd6254c6fbefe9113b45694cac88"
+    },
+    {
+      "file": "logs-and-inputs/cs-mine-production-scope-final11.native.log",
+      "bytes": 23821,
+      "sha256": "f6b79b954911d61b3a15919521238d35d94aa69be7f93e676f57a24d13346d3b"
+    },
+    {
+      "file": "logs-and-inputs/cs-mine-glass-final11.native.log",
+      "bytes": 31527,
+      "sha256": "f71f9652eb91696c4933e1d950c9031108b882dd4e9c0fd1ae78880b14570efd"
+    },
+    {
+      "file": "logs-and-inputs/cs-mine-glass-exact-final11.native.log",
+      "bytes": 31559,
+      "sha256": "e5d4d9094a81b925e9214a7d0af4e08759e9eaf6a7434924f90b5e59d1c142a7"
+    },
+    {
+      "file": "logs-and-inputs/glass-sequence-final11-wrapper.log",
+      "bytes": 54,
+      "sha256": "0e7cd968856ccd52852e120d914a1fb4db909fbdba8887b720eea9df60f06b12"
+    },
+    {
+      "file": "logs-and-inputs/glass-exact-sequence-final11-wrapper.log",
+      "bytes": 71,
+      "sha256": "f789ce84c4757ebed1f2817bde6a2ff5408e796ad7c9e0c3130653cff38cc54e"
+    },
+    {
+      "file": "logs-and-inputs/native-after-export-final11-wrapper.log",
+      "bytes": 334,
+      "sha256": "7abbf1004f732148b7c6fd32e2122430647b0cf6aecab4a2f9b6b8ee7894d169"
+    },
+    {
+      "file": "api-checks/CriticalShift.Features.Player.Unity.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "api-checks/CriticalShift.Player.Bootstrap.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "api-checks/CriticalShift.Player.Editor.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "api-checks/CriticalShift.Player.Tests.PlayMode.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "api-checks/player-api.json",
+      "bytes": 68602,
+      "sha256": "6a41791efa45cd5faa374b545b8c8d114d3e1fcb971e14ddfa07acb7862ee177"
+    },
+    {
+      "file": "rejected-or-interrupted/final11-rejected-native-bake-memory/full-native-final11-wrapper.log",
+      "bytes": 937,
+      "sha256": "ffa04b17bf48f77f3191369dcb4c8088f3bb9a24337fc29a48f2cf028b5de9da"
+    },
+    {
+      "file": "rejected-or-interrupted/final11-rejected-native-bake-memory/native-bake-source-wood-final11-wrapper.log",
+      "bytes": 114,
+      "sha256": "2361903b3f28160412e105ea1b13298952b595ab4d1ed72f6267b2dda5d1ac2e"
+    },
+    {
+      "file": "rejected-or-interrupted/final11-rejected-native-bake-memory/native-bake-source-wood-final11.log",
+      "bytes": 491633,
+      "sha256": "93367315b31c4d95d20b5418852535ff025c87c7e30958e2dfc20d23360b5c66"
+    },
+    {
+      "file": "rejected-or-interrupted/final11-rejected-native-bake-memory/native-scratch.json",
+      "bytes": 846,
+      "sha256": "c6c5e5caabe48809a3976dc21edb3e5177316bc2a647abdfa358e6067961cbef"
+    },
+    {
+      "file": "rejected-or-interrupted/final11-rejected-native-bake-memory/rejection-and-cleanup.json",
+      "bytes": 808,
+      "sha256": "d57067e8971ddddf407a51405e890c9c1faca27f4a1cc1fa2ec2889c6743ee25"
+    },
+    {
+      "file": "rejected-or-interrupted/final11-interrupted-combined-diffuse-priority/chunk-inventory.json",
+      "bytes": 523,
+      "sha256": "b6af2f2fb1ee562b02badd2d322c7cccffea6b35c6e09b4f694b754def80189e"
+    },
+    {
+      "file": "rejected-or-interrupted/final11-interrupted-combined-diffuse-priority/cs-mine-diffuse-prototype-final11.cs.txt",
+      "bytes": 6478,
+      "sha256": "a5cf9422ba72763ac71683ac6437d3fa9602f8b502cb8a07c376c739c2f6c413"
+    },
+    {
+      "file": "rejected-or-interrupted/final11-interrupted-combined-diffuse-priority/cs-mine-source-diffuse-prototype-final11.py",
+      "bytes": 15192,
+      "sha256": "dac7de5fb37776fdae5d9af1405715d89ab3922ff467f0e9810720d41319ca5c"
+    },
+    {
+      "file": "rejected-or-interrupted/final11-interrupted-combined-diffuse-priority/cs-mine-source-diffuse-prototype-final11.source.log",
+      "bytes": 4892,
+      "sha256": "1ac18b69699d1ea0fab2920c5650a5de243af1a947c6ea84f0a207362cc4976a"
+    },
+    {
+      "file": "rejected-or-interrupted/final11-interrupted-combined-diffuse-priority/cs-mine-source-memory-resume-final11.json",
+      "bytes": 88,
+      "sha256": "04fbd4ba0bbe916a87f99b66ea0d15172b971badb305187dfeb80fbc19cb00ea"
+    },
+    {
+      "file": "rejected-or-interrupted/final11-interrupted-combined-diffuse-priority/density.json",
+      "bytes": 951,
+      "sha256": "66a557622f7a1ac46fde284c7cfc32d3252d8ec4daa109775d3e5e3550b0693f"
+    },
+    {
+      "file": "rejected-or-interrupted/final11-interrupted-combined-diffuse-priority/diffuse-prototype-sequence-final11-wrapper.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "rejected-or-interrupted/final11-interrupted-combined-diffuse-priority/interruption.json",
+      "bytes": 551,
+      "sha256": "1479da681764d544fa019e491a803fb6e6ceab89ec5cc6141caa139046a26e75"
+    },
+    {
+      "file": "rejected-or-interrupted/final11-interrupted-combined-diffuse-priority/visible-face-direction.json",
+      "bytes": 161,
+      "sha256": "4d097fb93daef452c2822c7015f9dc19ef0f795a42a0b4148048826db4785fc4"
+    },
+    {
+      "file": "rejected-or-interrupted/final11-rejected-diffuse-8192-memory/cs-mine-source-diffuse-prototype-final11.source.log",
+      "bytes": 4003,
+      "sha256": "49de6d44aa15801a7fd6ff0841108401eca6520da5a4a42b6a783f4eeee7267d"
+    },
+    {
+      "file": "rejected-or-interrupted/final11-rejected-diffuse-8192-memory/density.json",
+      "bytes": 180,
+      "sha256": "901ffab58b34a99ccecf572da210a86c04c97cfc5bafafe69b82667d8dc498e7"
+    },
+    {
+      "file": "rejected-or-interrupted/final11-rejected-diffuse-8192-memory/diffuse-prototype-sequence-final11-wrapper.log",
+      "bytes": 1481,
+      "sha256": "3dffe7259734c0d4d7acbe7e905113ab8ab00b5e0cd8d490b3e8f2dcee3c0611"
+    },
+    {
+      "file": "rejected-or-interrupted/final11-rejected-diffuse-8192-memory/failure.json",
+      "bytes": 238,
+      "sha256": "949b2ff23333bc75303e17fa86e51d90dd5a80055d16f02471a5897021f8aa3f"
+    },
+    {
+      "file": "rejected-or-interrupted/final11-rejected-diffuse-8192-memory/source-prototype.py",
+      "bytes": 9355,
+      "sha256": "c425753ca36ad2e118f7b49ddbad46a4b2b4319ecb4273fb1b7b459bc3b7b3d5"
+    },
+    {
+      "file": "rejected-or-interrupted/final11-rejected-diffuse-8192-memory/visible-face-direction.json",
+      "bytes": 161,
+      "sha256": "4d097fb93daef452c2822c7015f9dc19ef0f795a42a0b4148048826db4785fc4"
+    },
+    {
+      "file": "rejected-or-interrupted/final11-rejected-scope-helper-ambiguous-lighttype/cs-mine-production-scope-final11.native.log",
+      "bytes": 64072,
+      "sha256": "584b29501d3556917fdae24a27ceaa598ef3d71216edeb30e2ee7f18daead66e"
+    },
+    {
+      "file": "rejected-or-interrupted/final11-rejected-scope-helper-ambiguous-lighttype/cs-mine-production-scope-final11.wrapper.log",
+      "bytes": 67,
+      "sha256": "a37c1c1e436570b4d07be72152958fddea58dbbc6f3aa9a85d50736cb3902e6f"
+    },
+    {
+      "file": "rejected-or-interrupted/final11-rejected-scope-helper-ambiguous-lighttype/diffuse-prototype-sequence-final11-wrapper.log",
+      "bytes": 375,
+      "sha256": "419d3d7a3c750290cff0c1a4166a3d22e61786f23bd8ae8bba613f3aa3cb8d34"
+    },
+    {
+      "file": "rejected-or-interrupted/final11-rejected-scope-helper-ambiguous-lighttype/glass-sequence-final11-wrapper.log",
+      "bytes": 595,
+      "sha256": "7b6cd52c197561111ac7255d29a77be2bc840dd0c845b7ac7bfcdb0fb2e21d9a"
+    },
+    {
+      "file": "rejected-or-interrupted/final11-rejected-scope-helper-ambiguous-lighttype/native-after-export-final11-wrapper.log",
+      "bytes": 2640,
+      "sha256": "16b362abe3fc67f863aef6408282717cb34e35242f18de07012580500fa7371f"
+    },
+    {
+      "file": "rejected-or-interrupted/final11-rejected-scope-helper-ambiguous-lighttype/retry-stale-lock.log",
+      "bytes": 1050,
+      "sha256": "64714ed9702bf17117b9bfa64e347850991680e10c1693006ffdfa75df7d8ef2"
+    },
+    {
+      "file": "rejected-or-interrupted/final11-rejected-scope-helper-ambiguous-lighttype/scope-helper.cs.txt",
+      "bytes": 3203,
+      "sha256": "58a92e41ee113bcf982f2ab26cb9d9394a61e8429fdebb6c6c10edc614567fdd"
+    },
+    {
+      "file": "executed-helpers/cs-mine-normal-independent-review-final11.py",
+      "bytes": 6281,
+      "sha256": "3beba9fccdb1a92667a5068d242db7bbabc760fbda6d48b7b4eeb5ac78352347"
+    },
+    {
+      "file": "executed-helpers/cs-mine-normal-fresh-final11.cs.txt",
+      "bytes": 7849,
+      "sha256": "6a5066aeb4cf8f2a53fdf4d0331ed84fa37da482e765132326532189c2392753"
+    },
+    {
+      "file": "executed-helpers/cs-mine-glass-source-final11.py",
+      "bytes": 3982,
+      "sha256": "6a28469343767aed14048704840703b3350acdf99233c70a27e4b13d763e5c8a"
+    },
+    {
+      "file": "executed-helpers/cs-mine-glass-native-final11.cs.txt",
+      "bytes": 4448,
+      "sha256": "94b9bd246b2bfe7d50cbbd2fcdb1e65152cd7dd3a44cacc8f2b2c8b69e5f5509"
+    },
+    {
+      "file": "executed-helpers/cs-mine-glass-independent-review-final11.py",
+      "bytes": 3641,
+      "sha256": "839f3d29773021f424b21f4971462de845ed34de68758a29bc0387ecc71f62fa"
+    },
+    {
+      "file": "executed-helpers/cs-mine-glass-exact-source-final11.py",
+      "bytes": 4142,
+      "sha256": "7b71612c0f160fbeb71159de19d1f462598076dfc64efcc37d59fe79cfdf23ab"
+    },
+    {
+      "file": "executed-helpers/cs-mine-glass-exact-native-final11.cs.txt",
+      "bytes": 4088,
+      "sha256": "3b5cc15322ad0d5ed21879915a4a567be89ae46f98a04a676d67d81233d0d220"
+    },
+    {
+      "file": "executed-helpers/cs-mine-glass-exact-final11.shader",
+      "bytes": 2886,
+      "sha256": "ff4efe93f1d7649d731855d9120844273bd894c13baac5379a6bb318805d6fa6"
+    },
+    {
+      "file": "executed-helpers/cs-mine-glass-exact-independent-review-final11.py",
+      "bytes": 4023,
+      "sha256": "b5278b325785c8698f8d8c97b27d50d152cac3ee71f15c81dbf970f3d39f48f5"
+    },
+    {
+      "file": "executed-helpers/cs-mine-glass-exact-sequence-final11.py",
+      "bytes": 2564,
+      "sha256": "ba9614592fe762e08475eef7410be9b45b9927dc8ad95371436154d9b0521162"
+    },
+    {
+      "file": "executed-helpers/cs-mine-production-scope-final11.cs.txt",
+      "bytes": 3227,
+      "sha256": "1da5d4049d25caa648ec56c93a07517a399775cf26bbe2216b4d31042d7ffe42"
+    },
+    {
+      "file": "executed-helpers/cs-mine-production-scope-final11.py",
+      "bytes": 962,
+      "sha256": "bd1116a6b893033c2a90fa83746b275b0b36414d3cf1c4167b75c66c4742a2ba"
+    },
+    {
+      "file": "executed-helpers/cs-mine-aov-linked-context-final11.py",
+      "bytes": 5943,
+      "sha256": "d16da17f2faa0d6a137c1d39a7f820dd074d9c7fe100c152e7a9a5025244aaa0"
+    },
+    {
+      "file": "executed-helpers/cs-mine-bake-source-wood-final11.py",
+      "bytes": 1381,
+      "sha256": "18f846bcf00c8a10394eb1945878e1ba1463767c112b491f11cbd2423538b4a2"
+    },
+    {
+      "file": "executed-helpers/cs-mine-after-bake-source-wood-final11.py",
+      "bytes": 3546,
+      "sha256": "6de4a6f6d6b1ffc9634815f525b8ab794943d063574fe26733e7cb9eedf2c2ef"
+    },
+    {
+      "file": "executed-helpers/cs-mine-full-native-final11.py",
+      "bytes": 1393,
+      "sha256": "b521d3f9ae14e4950d727dab63fd1458cac75703275e0aca6a4ab15d2cdf0c3e"
+    }
+  ]
+}

@@ -36,6 +36,7 @@ Shader "CriticalShift/BlenderSurface"
         #pragma shader_feature_local _EMISSION
         #pragma shader_feature_local _SOURCE_WOOD
         #include "UnityStandardUtils.cginc"
+        #include "BlenderPointLighting.cginc"
         sampler2D _MainTex, _BumpMap, _MetallicGlossMap, _EmissionMap;
         fixed4 _Color;
         half _BumpScale, _Metallic, _DielectricSpecular, _Glossiness, _GlossMapScale, _MetallicFromMap, _SmoothnessFromMap;

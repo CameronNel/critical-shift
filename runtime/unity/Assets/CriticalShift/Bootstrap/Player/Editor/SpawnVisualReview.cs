@@ -68,8 +68,9 @@ namespace CriticalShift.Player.Editor
             EditorUtility.UnloadUnusedAssetsImmediate();
             GC.Collect();
             Debug.Log("CS_SPAWN_LIGHTING_BAKE_START");
-            if (!Lightmapping.Bake() || LightmapSettings.lightmaps.Length==0)
-                throw new InvalidOperationException("Spawn lightmap bake did not produce lightmaps.");
+            using(var pointTransport=mine==null ? null : MinePointLighting.ScopeBake(mine))
+                if (!Lightmapping.Bake() || LightmapSettings.lightmaps.Length==0)
+                    throw new InvalidOperationException("Spawn lightmap bake did not produce lightmaps.");
             Debug.Log("CS_SPAWN_LIGHTING_BAKE_OK; lightmaps="+LightmapSettings.lightmaps.Length);
             foreach(var room in map.rooms)
                 SpawnMapBuild.RestoreCollision(RoomRoot(room.key),room);
@@ -220,7 +221,7 @@ namespace CriticalShift.Player.Editor
         {
             using var hash=SHA256.Create(); using var bytes=new MemoryStream();
             foreach (var directory in new[] {"Assets/CriticalShift/Features/Player","Assets/CriticalShift/Bootstrap/Player"})
-                foreach (var path in Directory.GetFiles(directory,"*",SearchOption.AllDirectories).Where(p=>p.EndsWith(".cs",StringComparison.Ordinal)||p.EndsWith(".shader",StringComparison.Ordinal)).OrderBy(p=>p,StringComparer.Ordinal))
+                foreach (var path in Directory.GetFiles(directory,"*",SearchOption.AllDirectories).Where(p=>p.EndsWith(".cs",StringComparison.Ordinal)||p.EndsWith(".shader",StringComparison.Ordinal)||p.EndsWith(".cginc",StringComparison.Ordinal)).OrderBy(p=>p,StringComparer.Ordinal))
                 { var file=File.ReadAllBytes(path); bytes.Write(file,0,file.Length); }
             return BitConverter.ToString(hash.ComputeHash(bytes.ToArray())).Replace("-","").ToLowerInvariant();
         }

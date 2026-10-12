@@ -30,6 +30,7 @@ Shader "CriticalShift/BlenderHood"
         #pragma shader_feature_local _METALLICGLOSSMAP
         #pragma shader_feature_local _EMISSION
         #include "UnityStandardUtils.cginc"
+        #include "BlenderPointLighting.cginc"
         #include "UnityPBSLighting.cginc"
         sampler2D _MainTex, _BumpMap, _MetallicGlossMap, _EmissionMap;
         fixed4 _Color;
