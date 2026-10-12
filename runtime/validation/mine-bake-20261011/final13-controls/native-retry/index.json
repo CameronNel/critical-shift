@@ -1,6 +1,10 @@
 {
   "status": "FailedAttemptPreservedAndRetryPreflightOnly",
   "files": {
+    "bounded-controls-relocation.json": {
+      "bytes": 1052,
+      "sha256": "9af883b97a470cd782608ee195370b000262fef0c393abda8a45d1877b319edf"
+    },
     "cache-preservation-index.json": {
       "bytes": 2840,
       "sha256": "6955c8caac0e7831222935555c15b2d0baae04f59ffbcf3c22fd7ccc75fb23dd"
@@ -52,6 +56,10 @@
     "retry-launch-recipe.json": {
       "bytes": 627,
       "sha256": "558cdd787e503b8cb9b93294e3e2e6943e160c2565f283ef38b0aa2658ac7008"
+    },
+    "scratch-archive-relocation.json": {
+      "bytes": 401,
+      "sha256": "1de5abc57c603ee30c28c956fb8b80e4e70a169c222246e5706b2273146bb6e8"
     },
     "scratch-preservation.py.txt": {
       "bytes": 2149,
