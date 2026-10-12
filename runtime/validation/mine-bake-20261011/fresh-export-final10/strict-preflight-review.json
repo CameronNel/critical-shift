@@ -1,0 +1,65 @@
+{
+  "reviewer": "Independent strict reviewer /root/strict_mine_review",
+  "reviewDateUTC": "2026-10-12",
+  "reviewedCommit": "e833957c938991706869a31e2cc691c65d64e4d3",
+  "status": "Bounded thermos preflight and capture guards cleared; final acceptance pending",
+  "overallScore": null,
+  "scope": "Read-only code and evidence review, plus this documentation artifact. The reviewer did not run Unity or Blender, change production, or modify canonical sources.",
+  "sourceFilesSha256": {
+    "runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/SpawnMapBuild.cs": "52f4c8b9e78be366618d9961084af2c67a7d428db0001da18231e7573dd12ac6",
+    "runtime/unity/Assets/CriticalShift/Features/Player/LocalShiftHost.cs": "253481a711b32a32b607763eb7fc6912ce0f309c3c98a74ec518ab7b4ddb3ce5",
+    "runtime/unity/Assets/CriticalShift/Tests/Player/SpawnMapBindingTests.cs": "930d45209e710eef689f80f9b08cdda59fee42babcc01cf2d8e5d56bd3f509cd",
+    "runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/SpawnVisualReview.cs": "2e06d5490bd6ca2b35d24b8228ac0bd3acd7e08beb7bb9d6a3c7bed686bdede9"
+  },
+  "evidenceDirectory": "runtime/validation/mine-bake-20261011/fresh-export-final10/thermos-preflight-final",
+  "evidenceSha256": {
+    "result.json": "46d2510aab93594c05e12c6c332e10bbcdf30b5f4a4c202a592959e30ee94290",
+    "thermos-playmode-final10.xml": "ed8e5d659b44ffaa2e8c16c230edf7b51d77d409a31a207e31c5bf4613cfd86b",
+    "thermos-host-preflight-final10.xml": "c1316fac1acb947964bef98c96ac1d49005644c90cd6318a482c7268ce2e239d",
+    "player-api.json": "5df4d2d5658f3c9c23ed9b7867acbeabf7ba6cf5ecaa80af031ffa5d430799ab"
+  },
+  "verifiedChecks": {
+    "importedSceneNativeTests": {"passed": 1, "failed": 0, "skipped": 0},
+    "syntheticHostNativeTests": {"passed": 9, "failed": 0, "skipped": 0},
+    "apiCompileAssemblies": {"passed": 4, "nativeExecution": false},
+    "independentMethod": "Parsed archived native XML and API JSON; recomputed evidence hashes and current production/test file hashes. Native execution was performed by the implementation agent."
+  },
+  "thermosClearance": [
+    "Spawn-only scene-instance unpack permits extracting visible thermos hierarchies without changing source FBX or Blender files; extraction rejects failed parenting or changed world pose/scale.",
+    "Collider dimensions use actual aggregate world renderer bounds for the world-aligned carry root. The native test compares mesh geometry and collider axes in a common local frame, preserving tight tolerance while avoiding legitimate physics/render interpolation lag.",
+    "The real imported-scene test covers both thermoses through pickup, worker motion, placement, taking back, drop and a physics tick, retaining child mesh, material and renderer ownership checks.",
+    "Predicted carry-root box clearance uses destination orientation, collider center and scale, keeps 0.02m clearance and full-buffer rejection, and retains conservative sphere fallback for other or child collider shapes.",
+    "The nearest-clear tabletop slot retains authored height and all source obstacles including COZY_B_photo. Its bounded deterministic search requires footprint margin and five support rays at actual tabletop height; no supported clear slot fails generation.",
+    "The negative placement test verifies interaction reach remains valid while a real solid obstruction rejects placement and preserves custody. Removing it permits placement; separate drop locations prevent cross-item test interference."
+  ],
+  "captureGuardClearance": {
+    "productionGuard": "Render validates PreparedScene before capture. A 1440x810 linear RGBAHalf/MSAA4 render includes authored atmosphere before the display LUT, checks raw half RGB exponents for NaN/Inf, and writes EXR plus capture SHA, source proof, camera pose/FOV/clips and graphics device/version before rejecting nonfinite pixels.",
+    "independentValidator": "/tmp/cs-mine-hdr-independent-final10.py",
+    "independentValidatorSha256": "f66d003ad51601a1bfda928d5b1051db0fc34a61ed545dd63d49849bc860b642",
+    "independentValidatorScope": "Reviewed code requires exactly three unique expected mine camera names, raw EXR RGB finiteness and SHA, native dimensions and camera pose against source, and matching current PreparedScene metadata. It has not yet validated final10 captures.",
+    "notEstablished": "Finite HDR and valid camera/hash linkage do not establish visual fidelity, Player correctness, or target-hardware performance."
+  },
+  "strictRubric": {
+    "matchedBlenderVisualFidelity": 40,
+    "materialDetailAndArtifactFreeShading": 20,
+    "sourceMapJoinsAndSpawnPreservation": 15,
+    "currentNativeGameplayAndPlayer": 15,
+    "reproducibilityAndTruthfulEvidence": 10,
+    "target": 98,
+    "meaning": "Reviewer quality score, not pixel equality; no score assigned with missing evidence or unresolved blocking defects."
+  },
+  "remainingRequiredGates": [
+    "Fresh frozen-source full native lighting and all three matched 1440x810 mine PNGs with finite pre-LUT HDR EXR/JSON proof; independently review against unchanged Blender originals.",
+    "All three fresh spawn regression views after global SUN conversion and scene-instance extraction changes.",
+    "Current pinned source, six-room mesh/collision/placement preservation, nine join rays and six clear walking lanes; truthful scope relative to Claude's separate expanded assembly.",
+    "Complete current eighteen native Player PlayMode tests including the real imported thermos case; the one-plus-nine preflight is not the complete final suite.",
+    "Fresh native Player build and smoke validation from the same accepted source/prepared scene.",
+    "No major lighting/colour/atmosphere mismatch, missing material detail, broken lettering, black rendering artifacts, NaN/Inf, stale proof or missing gameplay/Player evidence."
+  ],
+  "limitations": [
+    "Final9 visuals remain rejected; no prior score or old capture is carried forward as final10 acceptance.",
+    "Fresh final10 full native lighting/captures, full-suite validation and Player are pending at this review.",
+    "Native environment uses llvmpipe/Mesa; these checks do not profile target hardware.",
+    "This bounded review grants no overall score, 98% claim, merge approval or canonical mine art acceptance."
+  ]
+}

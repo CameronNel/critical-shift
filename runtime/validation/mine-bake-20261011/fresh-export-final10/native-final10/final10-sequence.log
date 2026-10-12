@@ -1,0 +1,52 @@
+CS_FINAL10_FRESH_EXPORT_AND_RECIPE_VALIDATED
+CS_FINAL10_DELIVERED_HASHES_OK 70 rooms 6
+CS_FINAL10_NATIVE_BAKE_FINISHED
+{
+  "Spawn": {
+    "currentCaptureSha256": "e0951ea64d9b0b703cea21455a8a0bacb98910be08a7b933cdaf4ff13aecc991",
+    "baselines": {
+      "spawn-suit-correction-20261011": {
+        "meanAbsolutePixelDifference": 0.6463488936424255,
+        "maxAbsolutePixelDifference": 128.0,
+        "baselineSha256": "d017e86dd65db7ac0d0c688a4e690b675743b1b770138729c79d5bf429d547ac"
+      },
+      "spawn-visual-correction-20261011": {
+        "meanAbsolutePixelDifference": 0.8064643144607544,
+        "maxAbsolutePixelDifference": 168.0,
+        "baselineSha256": "4a297fb31f2f58f31da9d385a4daca95a86dfcbfda7df70d093c8d94c5ae3529"
+      }
+    }
+  },
+  "Briefing": {
+    "currentCaptureSha256": "d82e40e40946df4fb85e2dae4d7333acf3330813af26de233b19442150719eba",
+    "baselines": {
+      "spawn-suit-correction-20261011": {
+        "meanAbsolutePixelDifference": 1.447960376739502,
+        "maxAbsolutePixelDifference": 52.0,
+        "baselineSha256": "91ad6463d8a96a60bf84c65e9aefba31a453e4f24238b3dcdc381ff5b34e57d1"
+      },
+      "spawn-visual-correction-20261011": {
+        "meanAbsolutePixelDifference": 1.4387013912200928,
+        "maxAbsolutePixelDifference": 52.0,
+        "baselineSha256": "64508bb98f379d4f61c341c3d5055aaee3201cbceb06fb26e8929feb1740245e"
+      }
+    }
+  },
+  "Lockers": {
+    "currentCaptureSha256": "a1c178d5de35f4d281d9b6c9ad35b9a36f65a0a5e6ca5138c72c595f1211e723",
+    "baselines": {
+      "spawn-suit-correction-20261011": {
+        "meanAbsolutePixelDifference": 1.0645201206207275,
+        "maxAbsolutePixelDifference": 84.0,
+        "baselineSha256": "e63b8342f7af9e42e12028bd95bfa5b0448e3e6cd6ddfde8b46477bfbc90a8ca"
+      },
+      "spawn-visual-correction-20261011": {
+        "meanAbsolutePixelDifference": 0.9766098260879517,
+        "maxAbsolutePixelDifference": 129.0,
+        "baselineSha256": "29dd291f5f5fedf5f01829c8a019135a383ff999742ca50ba46bfc4e7bc067cb"
+      }
+    }
+  }
+}
+CS_CURRENT_UNALTERED_COMPARISONS_OK 3
+CS_FINAL10_NATIVE_IMAGES_AND_TESTS_READY_FOR_STRICT_REVIEW; no visual acceptance or Player claimed
