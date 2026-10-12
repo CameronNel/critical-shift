@@ -1,0 +1,46 @@
+{
+  "status": "IndependentCurrentFull13SpawnRegressionCleared",
+  "overallScore": null,
+  "preparedScene": {
+    "mapBindingsSha256": "dcd7f11119192381cd5c34df7076e840b0d27098dc68d28d424f09485ff5ad8e",
+    "rigBindingsSha256": "b89037e3c376c6e7958a3a1a1713664559baec579b861c8c5702ad03cc4a90a6",
+    "sceneSha256": "451f65f87a9947487b8b26ece16aed52b98b55fa55a4060563552511f5493e7a",
+    "sourceSha256": "516d88d25e8fa59c08b6fc11c2b75a60538cc640eedeb133c21443074418a657",
+    "lightmaps": 3
+  },
+  "preparedSceneFileSha256": "1361ca11b4dad769dc93cb4b9c1e35312bbdd943e7a89e4216a91818c6253a15",
+  "views": [
+    {
+      "camera": "VALIDATE_Spawn",
+      "currentPngSha256": "de753e728dae543898017535ba1eadf2a8bc8c5e9a60f8cffffd86459d1c431c",
+      "baselinePngSha256": "d017e86dd65db7ac0d0c688a4e690b675743b1b770138729c79d5bf429d547ac",
+      "baselinePath": "/workspace/critical-shift-spawn-runtime/runtime/validation/spawn-suit-correction-20261011/unity/Spawn.png",
+      "meanAbsoluteRgbDelta255": 0.676585219478738,
+      "meanAbsoluteRgbDeltaVsClearedFinal11": 0.4683882030178326,
+      "independentVisualVerdict": "No material regression observed; current view inspected"
+    },
+    {
+      "camera": "VALIDATE_BriefingDoor",
+      "currentPngSha256": "9d4b82e6ac6b81adb3c4bb56cd52da96e766ee30640084f581d4e27615c27754",
+      "baselinePngSha256": "91ad6463d8a96a60bf84c65e9aefba31a453e4f24238b3dcdc381ff5b34e57d1",
+      "baselinePath": "/workspace/critical-shift-spawn-runtime/runtime/validation/spawn-suit-correction-20261011/unity/Briefing.png",
+      "meanAbsoluteRgbDelta255": 1.435306927297668,
+      "meanAbsoluteRgbDeltaVsClearedFinal11": 0.5866903863740284,
+      "independentVisualVerdict": "No material regression observed; current view inspected"
+    },
+    {
+      "camera": "VALIDATE_LockerDoor",
+      "currentPngSha256": "5a78437d248a10cd90dac2dee141147b7664d118300434ec81f8701aa012cc10",
+      "baselinePngSha256": "e63b8342f7af9e42e12028bd95bfa5b0448e3e6cd6ddfde8b46477bfbc90a8ca",
+      "baselinePath": "/workspace/critical-shift-spawn-runtime/runtime/validation/spawn-suit-correction-20261011/unity/Lockers.png",
+      "meanAbsoluteRgbDelta255": 1.170945358939186,
+      "meanAbsoluteRgbDeltaVsClearedFinal11": 0.7443058413351623,
+      "independentVisualVerdict": "No material regression observed; current view inspected"
+    }
+  ],
+  "limits": [
+    "All3currentnativeSpawnPNG independentlyinspected; approvedsuit-correctionbaseline pins verified",
+    "Spawnpreservation only; no mine visual orPlayer/targethardwareacceptance",
+    "RawRGB deltas supplementvisualreview, notpixel-equality score"
+  ]
+}

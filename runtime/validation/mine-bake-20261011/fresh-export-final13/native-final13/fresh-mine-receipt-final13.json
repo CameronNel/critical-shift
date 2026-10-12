@@ -1,0 +1,64 @@
+{
+  "status": "Passed",
+  "preparedScene": {
+    "mapBindingsSha256": "dcd7f11119192381cd5c34df7076e840b0d27098dc68d28d424f09485ff5ad8e",
+    "rigBindingsSha256": "b89037e3c376c6e7958a3a1a1713664559baec579b861c8c5702ad03cc4a90a6",
+    "sceneSha256": "451f65f87a9947487b8b26ece16aed52b98b55fa55a4060563552511f5493e7a",
+    "sourceSha256": "516d88d25e8fa59c08b6fc11c2b75a60538cc640eedeb133c21443074418a657",
+    "lightmaps": 3
+  },
+  "mineCaptures": [
+    {
+      "name": "R39_01_PORTAL_APPROACH",
+      "dimensions": [
+        1440,
+        810
+      ],
+      "nonfiniteRGBPixels": 0,
+      "pngSha256": "af45bc39766936ce42d46301dfc4a2b4d34c6c42a39a2c02d0268e435763c2f9",
+      "hdrSha256": "19769f7fb2de1a669f54aec53092f7cf7cd3297be85cdea27b86cf9b28d53b02",
+      "metadataSha256": "26e9eb2b39484a2d583d51f0705f900f03544e987f9d06db0e998df2d9ab442b",
+      "cameraPoseVerified": true,
+      "meanLinearRGB": [
+        0.15627259016036987,
+        0.1387375295162201,
+        0.13168424367904663
+      ]
+    },
+    {
+      "name": "R39_02_TUNNEL",
+      "dimensions": [
+        1440,
+        810
+      ],
+      "nonfiniteRGBPixels": 0,
+      "pngSha256": "95f99947110d0befd31ed76d20be112655cb44159dd500a543d561f1f6bc2dde",
+      "hdrSha256": "ffc199128c9fcfd392c0c56310aa64fb806b2d935aa0f32c6b1ba8268d012b96",
+      "metadataSha256": "9b2c4ddd855b4d1546b39a11f9492ca97608a96552ccfdcbd8e03d9142f253fd",
+      "cameraPoseVerified": true,
+      "meanLinearRGB": [
+        0.11899077892303467,
+        0.06271102279424667,
+        0.031869035214185715
+      ]
+    },
+    {
+      "name": "R39_04_SHED_FRONT",
+      "dimensions": [
+        1440,
+        810
+      ],
+      "nonfiniteRGBPixels": 0,
+      "pngSha256": "fb8355dcc09a0762b8dc77522c9ece8976ebcbe56bbe41efbfce09d7116c1634",
+      "hdrSha256": "84f349565ef5710f2716cf3a071ea954d07d5bd2a401c67204d4fd3c543e593d",
+      "metadataSha256": "ad31cda9fef8922b262a1e9c537d501a53ef23e2ae27cac82042463a59328dde",
+      "cameraPoseVerified": true,
+      "meanLinearRGB": [
+        0.21042807400226593,
+        0.14537476003170013,
+        0.09408243000507355
+      ]
+    }
+  ],
+  "limits": "Parent full-resolution HDR/hash/camera audit only; no independent visual fidelity score."
+}
