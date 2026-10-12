@@ -493,7 +493,7 @@ def straight_at(path, s, half=1.2, tol_deg=1.5):
     return math.degrees(math.acos(max(-1.0, min(1.0, a.dot(b))))) < tol_deg
 
 
-def dress_hall(coll, path, zone_key, mats, props, h=5.0, w=5.0, airlock_s=(), haze=True, seed=0, openings=()):
+def dress_hall(coll, path, zone_key, mats, props, h=5.0, w=5.0, airlock_s=(), haze=True, seed=0, openings=(), jlabels=()):
     """Add the dressing to a hall made by hall(): accent lines, coves, pilasters, wall insets, ceiling ribs and light bars, cable tray, duct, floor runner and LED dashes, signs, props, lights and haze."""
     Z = ZONES[zone_key]; rnd = _random.Random(seed); W2 = w / 2; sk = 0.04; L = path.length
     acc = _emissive(f'HALL accent {zone_key}', Z['accent'], 7.0); acc_dim = _emissive(f'HALL accent dim {zone_key}', Z['accent'], 2.6)
@@ -584,6 +584,9 @@ def dress_hall(coll, path, zone_key, mats, props, h=5.0, w=5.0, airlock_s=(), ha
         wall_sign(3.5, 1, (Z.get('origin', 'REACTOR HALL') + '  <') if not compact else 'SERVICE  <', min(3.05, h - 0.5), 0.2); wall_sign(L - 3.5, -1, Z['name'] + '  >', min(3.05, h - 0.5), 0.2)
         mid = L / 2
         if straight_at(path, mid, 1.0) and not in_opening(mid, op, 1.5, 1): wall_sign(mid, 1, Z['name'], 3.05, 0.2)
+    # junction signs: on the wall opposite each branch opening, naming where the branch goes (jlabels: (arclength of the opening centre, side of the opening, text))
+    for c_, sd_, text_ in jlabels:
+        if L > 8: wall_sign(min(max(c_, 1.5), L - 1.5), -sd_, 'TO ' + text_, min(3.3, h - 0.6), 0.17)
     for a in airlock_s:
         pos, t, nn = path.at(a); th = math.atan2(-t.x, t.y)
         text_obj(coll, f'AIRLOCK  {Z["name"]}', (pos.x - t.x * 0.28, pos.y - t.y * 0.28, 3.6), (math.pi / 2, 0, th), 0.22, sign)

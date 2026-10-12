@@ -452,6 +452,9 @@ LINKS = {
     'fuel-service': dict(pts=[(-27.66, -26.2), (-35.5, -26.2)], r=1.0, w=2.4, h=3.0, airlocks=[], into=('ring-south', -1, (-38.0, -26.2)), requires=('fuel-corridor', 'cooling-plant'), zone='service'),
 }
 
+LINK_NAMES = {'electrical-spur': 'ELECTRICAL', 'bridge': 'TURBINE / BRIDGE', 'dock-link': 'COMPLIANCE DOCK', 'waste-personnel': 'WASTE (PERSONNEL)', 'waste-dispatch': 'WASTE (DISPATCH)',
+              'medical-direct': 'MEDICAL', 'ring-south': 'YARD / FUEL CORRIDOR', 'ring-north': 'OUTER RING NORTH', 'fuel-service': 'FUEL CORRIDOR', 'east-trunk': 'EAST TRUNK', 'waste-storage': 'WASTE STORAGE', 'cooling-plant': 'COOLING PLANT'}
+
 def zone_mats(zone_key):
     """Per-zone material set: the spawn wall plaster multiplied by the zone tint."""
     import reactor_links
@@ -481,6 +484,11 @@ def add_reactor_links():
                 par, sg, pt = L[t]
                 if par in active:
                     c = paths[par].nearest(pt); wb = L.get('w', 5.0); openings[par].append((c - wb / 2, c + wb / 2, sg))
+    jl = {k: [] for k in active}
+    for k, L in active.items():
+        for t in ('into', 'outof'):
+            if t in L and L[t][0] in active:
+                par, sg, pt = L[t]; jl[par].append((paths[par].nearest(pt), sg, LINK_NAMES.get(k, k.upper())))
     for key, L in active.items():
         coll = bpy.data.collections.new('CONNECTOR_reactor_to_' + key); root.children.link(coll)
         w, h = L.get('w', 5.0), L.get('h', 5.0); zone = L.get('zone', key)
@@ -491,7 +499,7 @@ def add_reactor_links():
         for s_ in spos:
             pos, d, _n = path.at(s_)
             na += reactor_links.airlock(coll, air, pos, d, w, h, Mz)
-        pl = reactor_links.dress_hall(coll, path, zone, Mz, props_, h=h, w=w, airlock_s=spos, seed=sum(map(ord, key)) % 1000, openings=openings[key])
+        pl = reactor_links.dress_hall(coll, path, zone, Mz, props_, h=h, w=w, airlock_s=spos, seed=sum(map(ord, key)) % 1000, openings=openings[key], jlabels=jl[key])
         if 'into' in L and L['into'][0] in active and h < active[L['into'][0]].get('h', 5.0):
             par, sg, pt = L['into']; pp = paths[par]; c = pp.nearest(pt); Hp = active[par].get('h', 5.0)
             reactor_links.lintel(coll, 'CONNECTOR lintel ' + key, pp, c - w / 2, c + w / 2, sg, active[par].get('w', 5.0) / 2, h, Hp, Mz)

@@ -38,6 +38,19 @@ Build keys, in `ROOMS` order. `--through <key>` builds that room and every room 
 The committed `combined_map.blend` is built `--through compliance-dock`. Every room is "added, awaiting owner OK" except the front end, which is "built, unreviewed".
 Not placed: condenser bay (not in the plan), gantry (no attachment spec). Known defects and open items are listed in `COMBINED_MAP.md` (fix log and "Defects and open items").
 
+## Files this folder needs that are not committed here (fetch before building)
+
+`build_combined_map.py --through compliance-dock` links source files that live elsewhere in the repository; fetch each single file (never a wide sparse checkout):
+- Turbine, the AAA finish from the unmerged branch `claude/turbine-aaa`: `git show origin/claude/turbine-aaa:sections/facility-assembly/sources/turbine-room/module_overhaul_R1.blend | git lfs smudge > sections/facility-assembly/sources/turbine-room/module_overhaul_R1.blend` (the build does not fall back to another turbine file; its door and wall positions are specific to this one).
+- Dock: `sources/compliance-dock/module_overhaul_R1.blend` is a plain Git blob on `main` (`git show origin/main:<path> > <path>`). Electrical `overhaul/checkpoints/full-R11.blend`, waste `module.blend`, cooling `module.blend`, medical `module_overhaul_R2.blend`, fuel corridor `fuel_full_F23ci.blend`, spawn `module.blend` and the front end's `textures/` folder are LFS files on `main`; the spawn module is also linked for the halls' materials, airlock doors and props.
+- The hall screens (`textures/hall_screen_*.png`) are committed here; regenerate with `python3 make_hall_screens.py textures`.
+
+## Hall network tools (committed here)
+
+- `reactor_links.py`: hall builder, wall-cutting, dressing (used by the build). `LINKS` and the room cut tables (`TURBINE_CUTS`, `MEDICAL_CUTS`, `reactor_links.HALL_CUTS`) in `build_combined_map.py` are the only places a hall or door is defined.
+- `validate_halls.py`: repeatable geometry audit (ray walk, sphere leak, junction probes, hall-to-hall and hall-to-room clearance, triangle counts); writes `validation/halls_report.json`. About ten minutes. Geometry evidence only.
+- `dump_network.py` + `draw_network_plan.py`: draw `renders/14_network_plan.png` from the same `LINKS`.
+
 ## Rules
 
 1. **One room at a time, and only on the owner's say-so.** Add a room when the owner asks for it. Show renders; the owner approves before the next room.
