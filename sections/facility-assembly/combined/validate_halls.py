@@ -9,16 +9,17 @@ It also counts evaluated triangles per room instance. This is geometry evidence 
 import sys, os, json, math, random, bpy
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import build_combined_map as BM, reactor_links as R
+if os.environ.get('COMPACT'): import build_compact_map      # applies the compact layout's overrides (rooms, halls) to BM without building
 from mathutils import Vector
 out = sys.argv[sys.argv.index('--') + 1] if '--' in sys.argv else 'halls_report.json'
 for o in bpy.data.objects:
     if 'haze' in o.name.lower(): o.hide_viewport = True          # volumes would be hit by the rays
 dg = bpy.context.evaluated_depsgraph_get(); sc = bpy.context.scene
 random.seed(4)
-BOXES = {'turbine': (-4.52, 10.25, 16.64, 42.4), 'electrical': (14.0, 28.3, 26.0, 43.22), 'waste': (27.68, 46.7, -31.6, -17.7), 'cooling': (-57.4, -44.1, -24.8, -13.2), 'hall': (-11.6, 11.6, -11.6, 11.6),
+BOXES = {} if os.environ.get('COMPACT') else {'turbine': (-4.52, 10.25, 16.64, 42.4), 'electrical': (14.0, 28.3, 26.0, 43.22), 'waste': (27.68, 46.7, -31.6, -17.7), 'cooling': (-57.4, -44.1, -24.8, -13.2), 'hall': (-11.6, 11.6, -11.6, 11.6),
          'concourse': (-11.1, 6.15, -19.9, -14.5), 'fuel_corridor': (-27.9, -4.9, -43.6, -19.6), 'spine': (5.85, 10.15, -48, -14.5), 'medical': (26, 38.4, -75.5, -64.8), 'refinery': (-33.8, -18.8, -57.7, -40.3),
          'frontend_hall': (-4, 32, -60, -48), 'dock': (57.9, 76.1, -86.2, -71.8)}      # measured outer plan bounds, COMBINED_MAP.md
-P = {k: R.Path(R.fillet(L['pts'], L['r'])) for k, L in BM.LINKS.items() if all(r in BM.INCLUDED or True for r in L.get('requires', ()))}
+P = {k: R.Path(R.fillet(L['pts'], L['r'])) for k, L in BM.LINKS.items()}
 report = {'halls': {}, 'pairs': [], 'rooms': {}, 'triangles': {}}
 def hit(o, d, dist): 
     ok, loc, n, i, ob, m = sc.ray_cast(dg, Vector(o), Vector(d).normalized(), distance=dist); return (ok, ob.name[:30] if ok else None, tuple(round(c, 2) for c in loc) if ok else None)
@@ -40,7 +41,7 @@ for k, L in BM.LINKS.items():
             if not hit((c.x, c.y, 1.6), (rr * math.cos(t), rr * math.sin(t), z), 500)[0]: esc += 1
     junc = []
     for t in ('into', 'outof'):
-        if t in L:
+        if t in L and L[t][0] in P:
             end = p.at(p.length if t == 'into' else 0)
             e, d = end[0], end[1] * (1 if t == 'into' else -1)
             for lat in (-0.5, 0, 0.5):
@@ -49,7 +50,7 @@ for k, L in BM.LINKS.items():
                 junc.append(dict(to=L[t][0], lat=lat, clear=not ok, blocked_by=name))
     report['halls'][k] = dict(length=round(p.length, 1), walk_blocked=len(blocked), walk_blocked_sample=blocked[:5], sphere_escapes=esc, sphere_rays=n_, junction_probes=junc)
     print('HALL', k, 'len', round(p.length, 1), 'walk blocked', len(blocked), 'escapes', esc, '/', n_, 'junctions clear', sum(j['clear'] for j in junc), '/', len(junc), flush=True)
-J = [Vector(L[t][2]) for L in BM.LINKS.values() for t in ('into', 'outof') if t in L] + [Vector(p.at(0)[0]) for p in P.values()] + [Vector(p.at(p.length)[0]) for p in P.values()]
+J = [Vector(L[t][2]) for L in BM.LINKS.values() for t in ('into', 'outof') if t in L and L[t][0] in P] + [Vector(p.at(0)[0]) for p in P.values()] + [Vector(p.at(p.length)[0]) for p in P.values()]
 keys = list(P)
 for i, a in enumerate(keys):
     for b in keys[i + 1:]:

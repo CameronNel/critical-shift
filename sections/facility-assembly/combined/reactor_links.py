@@ -634,6 +634,9 @@ def dress_hall(coll, path, zone_key, mats, props, h=5.0, w=5.0, airlock_s=(), ha
     return placed
 
 
+LABEL_SKIP = set()      # label bodies a layout does not want (set by build_compact_map.py)
+
+
 def add_stub_labels(wrap, active, mat):
     """New door labels for the hall's three stubs and two new doors (the old header letters are removed by the label cuts)."""
     labels = [('turbine-room', 'TURBINE HALL', (0.0, 10.36, 5.8), (math.pi / 2, 0, 0.0)),
@@ -642,7 +645,7 @@ def add_stub_labels(wrap, active, mat):
               ('electrical-room', 'ELECTRICAL', (7.95, 7.95, 5.35), (math.pi / 2, 0, math.radians(315))),
               ('reactor-room', 'CONCOURSE', (0.0, -10.72, 5.1), (math.pi / 2, 0, math.pi))]
     for room, body, loc, rot in labels:
-        if room in active:
+        if room in active and body not in LABEL_SKIP:
             cu = bpy.data.curves.new('HALL door label ' + body, 'FONT'); cu.body = body; cu.size = 0.2; cu.align_x = 'CENTER'; cu.extrude = 0.006; cu.resolution_u = 2; cu.materials.append(mat)
             o = bpy.data.objects.new('HALL door label ' + body, cu); o.location = loc; o.rotation_euler = rot; wrap.objects.link(o)
 
