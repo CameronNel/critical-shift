@@ -51,6 +51,10 @@ Not placed: condenser bay (not in the plan), gantry (no attachment spec). Known 
 - `validate_halls.py`: repeatable geometry audit (ray walk, sphere leak, junction probes, hall-to-hall and hall-to-room clearance, triangle counts); writes `validation/halls_report.json`. About ten minutes. Geometry evidence only.
 - `dump_network.py` + `draw_network_plan.py`: draw `renders/14_network_plan.png` from the same `LINKS`.
 
+## Compact layout (alternative scene)
+
+`COMPACT_MAP.md` and `build_compact_map.py` build `compact_map.blend`, the same rooms packed tightly around the reactor (owner instruction 2026-10-12); it does not replace `combined_map.blend`. `check_footprints.py` checks room overlaps in plain Python.
+
 ## Rules
 
 1. **One room at a time, and only on the owner's say-so.** Add a room when the owner asks for it. Show renders; the owner approves before the next room.
