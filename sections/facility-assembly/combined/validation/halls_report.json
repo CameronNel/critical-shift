@@ -1,0 +1,570 @@
+{
+ "halls": {
+  "turbine-room": {
+   "length": 2.5,
+   "walk_blocked": 0,
+   "walk_blocked_sample": [],
+   "sphere_escapes": 0,
+   "sphere_rays": 1000,
+   "junction_probes": []
+  },
+  "electrical-room": {
+   "length": 22.6,
+   "walk_blocked": 0,
+   "walk_blocked_sample": [],
+   "sphere_escapes": 0,
+   "sphere_rays": 1000,
+   "junction_probes": []
+  },
+  "waste-storage": {
+   "length": 24.9,
+   "walk_blocked": 0,
+   "walk_blocked_sample": [],
+   "sphere_escapes": 0,
+   "sphere_rays": 1000,
+   "junction_probes": []
+  },
+  "cooling-plant": {
+   "length": 40.2,
+   "walk_blocked": 0,
+   "walk_blocked_sample": [],
+   "sphere_escapes": 0,
+   "sphere_rays": 1000,
+   "junction_probes": []
+  },
+  "bridge": {
+   "length": 122.7,
+   "walk_blocked": 0,
+   "walk_blocked_sample": [],
+   "sphere_escapes": 0,
+   "sphere_rays": 1000,
+   "junction_probes": [
+    {
+     "to": "waste-storage",
+     "lat": -0.5,
+     "clear": true,
+     "blocked_by": null
+    },
+    {
+     "to": "waste-storage",
+     "lat": 0,
+     "clear": true,
+     "blocked_by": null
+    },
+    {
+     "to": "waste-storage",
+     "lat": 0.5,
+     "clear": true,
+     "blocked_by": null
+    }
+   ]
+  },
+  "electrical-spur": {
+   "length": 7.6,
+   "walk_blocked": 0,
+   "walk_blocked_sample": [],
+   "sphere_escapes": 0,
+   "sphere_rays": 1000,
+   "junction_probes": [
+    {
+     "to": "bridge",
+     "lat": -0.5,
+     "clear": true,
+     "blocked_by": null
+    },
+    {
+     "to": "bridge",
+     "lat": 0,
+     "clear": true,
+     "blocked_by": null
+    },
+    {
+     "to": "bridge",
+     "lat": 0.5,
+     "clear": true,
+     "blocked_by": null
+    }
+   ]
+  },
+  "east-trunk": {
+   "length": 129.1,
+   "walk_blocked": 0,
+   "walk_blocked_sample": [],
+   "sphere_escapes": 0,
+   "sphere_rays": 1000,
+   "junction_probes": [
+    {
+     "to": "bridge",
+     "lat": -0.5,
+     "clear": true,
+     "blocked_by": null
+    },
+    {
+     "to": "bridge",
+     "lat": 0,
+     "clear": true,
+     "blocked_by": null
+    },
+    {
+     "to": "bridge",
+     "lat": 0.5,
+     "clear": true,
+     "blocked_by": null
+    }
+   ]
+  },
+  "dock-link": {
+   "length": 30.5,
+   "walk_blocked": 0,
+   "walk_blocked_sample": [],
+   "sphere_escapes": 0,
+   "sphere_rays": 1000,
+   "junction_probes": [
+    {
+     "to": "east-trunk",
+     "lat": -0.5,
+     "clear": true,
+     "blocked_by": null
+    },
+    {
+     "to": "east-trunk",
+     "lat": 0,
+     "clear": true,
+     "blocked_by": null
+    },
+    {
+     "to": "east-trunk",
+     "lat": 0.5,
+     "clear": true,
+     "blocked_by": null
+    }
+   ]
+  },
+  "waste-personnel": {
+   "length": 30.0,
+   "walk_blocked": 0,
+   "walk_blocked_sample": [],
+   "sphere_escapes": 0,
+   "sphere_rays": 1000,
+   "junction_probes": [
+    {
+     "to": "east-trunk",
+     "lat": -0.5,
+     "clear": true,
+     "blocked_by": null
+    },
+    {
+     "to": "east-trunk",
+     "lat": 0,
+     "clear": true,
+     "blocked_by": null
+    },
+    {
+     "to": "east-trunk",
+     "lat": 0.5,
+     "clear": true,
+     "blocked_by": null
+    }
+   ]
+  },
+  "waste-dispatch": {
+   "length": 6.9,
+   "walk_blocked": 0,
+   "walk_blocked_sample": [],
+   "sphere_escapes": 0,
+   "sphere_rays": 1000,
+   "junction_probes": [
+    {
+     "to": "east-trunk",
+     "lat": -0.5,
+     "clear": true,
+     "blocked_by": null
+    },
+    {
+     "to": "east-trunk",
+     "lat": 0,
+     "clear": true,
+     "blocked_by": null
+    },
+    {
+     "to": "east-trunk",
+     "lat": 0.5,
+     "clear": true,
+     "blocked_by": null
+    }
+   ]
+  },
+  "medical-direct": {
+   "length": 19.6,
+   "walk_blocked": 0,
+   "walk_blocked_sample": [],
+   "sphere_escapes": 0,
+   "sphere_rays": 1000,
+   "junction_probes": [
+    {
+     "to": "east-trunk",
+     "lat": -0.5,
+     "clear": true,
+     "blocked_by": null
+    },
+    {
+     "to": "east-trunk",
+     "lat": 0,
+     "clear": true,
+     "blocked_by": null
+    },
+    {
+     "to": "east-trunk",
+     "lat": 0.5,
+     "clear": true,
+     "blocked_by": null
+    }
+   ]
+  },
+  "ring-south": {
+   "length": 43.3,
+   "walk_blocked": 0,
+   "walk_blocked_sample": [],
+   "sphere_escapes": 0,
+   "sphere_rays": 1000,
+   "junction_probes": [
+    {
+     "to": "cooling-plant",
+     "lat": -0.5,
+     "clear": true,
+     "blocked_by": null
+    },
+    {
+     "to": "cooling-plant",
+     "lat": 0,
+     "clear": true,
+     "blocked_by": null
+    },
+    {
+     "to": "cooling-plant",
+     "lat": 0.5,
+     "clear": true,
+     "blocked_by": null
+    }
+   ]
+  },
+  "ring-north": {
+   "length": 79.1,
+   "walk_blocked": 0,
+   "walk_blocked_sample": [],
+   "sphere_escapes": 0,
+   "sphere_rays": 1000,
+   "junction_probes": [
+    {
+     "to": "cooling-plant",
+     "lat": -0.5,
+     "clear": true,
+     "blocked_by": null
+    },
+    {
+     "to": "cooling-plant",
+     "lat": 0,
+     "clear": true,
+     "blocked_by": null
+    },
+    {
+     "to": "cooling-plant",
+     "lat": 0.5,
+     "clear": true,
+     "blocked_by": null
+    }
+   ]
+  },
+  "fuel-service": {
+   "length": 7.8,
+   "walk_blocked": 0,
+   "walk_blocked_sample": [],
+   "sphere_escapes": 0,
+   "sphere_rays": 1000,
+   "junction_probes": [
+    {
+     "to": "ring-south",
+     "lat": -0.5,
+     "clear": true,
+     "blocked_by": null
+    },
+    {
+     "to": "ring-south",
+     "lat": 0,
+     "clear": true,
+     "blocked_by": null
+    },
+    {
+     "to": "ring-south",
+     "lat": 0.5,
+     "clear": true,
+     "blocked_by": null
+    }
+   ]
+  }
+ },
+ "pairs": [],
+ "rooms": {
+  "turbine-room": {},
+  "electrical-room": {
+   "hall": [
+    -2.8,
+    3.2
+   ],
+   "electrical": [
+    0.52,
+    19.2
+   ],
+   "turbine": [
+    1.72,
+    7.8
+   ]
+  },
+  "waste-storage": {
+   "hall": [
+    -0.19,
+    3.2
+   ],
+   "spine": [
+    0.56,
+    3.2
+   ],
+   "waste": [
+    0.58,
+    21.5
+   ]
+  },
+  "cooling-plant": {
+   "fuel_corridor": [
+    0.56,
+    25.8
+   ],
+   "cooling": [
+    0.61,
+    36.8
+   ],
+   "hall": [
+    3.35,
+    3.2
+   ]
+  },
+  "bridge": {
+   "turbine": [
+    0.25,
+    3.2
+   ],
+   "waste": [
+    1.98,
+    118.8
+   ],
+   "electrical": [
+    2.9,
+    67.8
+   ]
+  },
+  "electrical-spur": {
+   "electrical": [
+    0.13,
+    3.2
+   ],
+   "turbine": [
+    7.41,
+    3.2
+   ],
+   "hall": [
+    32.7,
+    3.2
+   ]
+  },
+  "east-trunk": {
+   "frontend_hall": [
+    4.45,
+    3.2
+   ],
+   "waste": [
+    6.5,
+    54.2
+   ],
+   "medical": [
+    8.03,
+    3.2
+   ]
+  },
+  "dock-link": {
+   "dock": [
+    0.42,
+    27.2
+   ],
+   "medical": [
+    6.8,
+    8.0
+   ],
+   "frontend_hall": [
+    13.2,
+    3.2
+   ]
+  },
+  "waste-personnel": {
+   "waste": [
+    0.42,
+    26.8
+   ],
+   "frontend_hall": [
+    8.5,
+    3.2
+   ],
+   "medical": [
+    15.44,
+    3.2
+   ]
+  },
+  "waste-dispatch": {
+   "waste": [
+    1.69,
+    3.2
+   ],
+   "frontend_hall": [
+    28.43,
+    3.2
+   ],
+   "spine": [
+    38.24,
+    3.2
+   ]
+  },
+  "medical-direct": {
+   "medical": [
+    0.64,
+    3.2
+   ],
+   "frontend_hall": [
+    8.5,
+    16.0
+   ],
+   "dock": [
+    14.47,
+    5.8
+   ]
+  },
+  "ring-south": {
+   "refinery": [
+    1.4,
+    19.5
+   ],
+   "cooling": [
+    3.3,
+    40.0
+   ],
+   "fuel_corridor": [
+    7.3,
+    21.0
+   ]
+  },
+  "ring-north": {
+   "turbine": [
+    0.3,
+    75.8
+   ],
+   "cooling": [
+    3.3,
+    3.2
+   ],
+   "fuel_corridor": [
+    9.13,
+    3.2
+   ]
+  },
+  "fuel-service": {
+   "fuel_corridor": [
+    1.51,
+    3.2
+   ],
+   "cooling": [
+    10.52,
+    4.5
+   ],
+   "refinery": [
+    12.6,
+    4.5
+   ]
+  }
+ },
+ "triangles": {
+  "ROOM_mine": 3313624,
+  "ROOM_fuel-corridor": 3121182,
+  "ROOM_reactor-room": 1192932,
+  "ROOM_electrical-room": 768171,
+  "ROOM_cooling-plant": 643329,
+  "ROOM_medical-reanimation": 582273,
+  "ROOM_front-end-area": 560940,
+  "ROOM_waste-storage": 510248,
+  "connectors": 479661,
+  "ROOM_refinery": 464291,
+  "ROOM_turbine-room": 418387,
+  "ROOM_compliance-dock": 416761,
+  "ROOM_spawn-room": 358331,
+  "scene": 321238,
+  "airlock LIFE_airlock_pressure_unit": 236,
+  "airlock LIFE_airlock_pressure_unit.001": 236,
+  "airlock LIFE_airlock_pressure_unit.002": 236,
+  "airlock LIFE_airlock_pressure_unit.003": 236,
+  "airlock LIFE_airlock_pressure_unit.004": 236,
+  "airlock LIFE_airlock_pressure_unit.005": 236,
+  "airlock LIFE_airlock_pressure_unit.006": 236,
+  "airlock LIFE_airlock_pressure_unit.007": 236,
+  "airlock LIFE_airlock_pressure_unit.008": 236,
+  "airlock LIFE_airlock_pressure_unit.009": 236,
+  "airlock LIFE_airlock_lens_guard.001": 60,
+  "airlock LIFE_airlock_lens_guard": 60,
+  "airlock AIRLOCK_manual_grip.001": 60,
+  "airlock AIRLOCK_manual_grip": 60,
+  "airlock LIFE_airlock_lens_guard.002": 60,
+  "airlock LIFE_airlock_lens_guard.003": 60,
+  "airlock AIRLOCK_manual_grip.002": 60,
+  "airlock AIRLOCK_manual_grip.003": 60,
+  "airlock LIFE_airlock_lens_guard.004": 60,
+  "airlock LIFE_airlock_lens_guard.005": 60,
+  "airlock AIRLOCK_manual_grip.004": 60,
+  "airlock AIRLOCK_manual_grip.005": 60,
+  "airlock LIFE_airlock_lens_guard.006": 60,
+  "airlock LIFE_airlock_lens_guard.007": 60,
+  "airlock AIRLOCK_manual_grip.006": 60,
+  "airlock AIRLOCK_manual_grip.007": 60,
+  "airlock LIFE_airlock_lens_guard.008": 60,
+  "airlock LIFE_airlock_lens_guard.009": 60,
+  "airlock AIRLOCK_manual_grip.008": 60,
+  "airlock AIRLOCK_manual_grip.009": 60,
+  "airlock LIFE_airlock_lens_guard.010": 60,
+  "airlock LIFE_airlock_lens_guard.011": 60,
+  "airlock AIRLOCK_manual_grip.010": 60,
+  "airlock AIRLOCK_manual_grip.011": 60,
+  "airlock LIFE_airlock_lens_guard.012": 60,
+  "airlock LIFE_airlock_lens_guard.013": 60,
+  "airlock AIRLOCK_manual_grip.012": 60,
+  "airlock AIRLOCK_manual_grip.013": 60,
+  "airlock LIFE_airlock_lens_guard.014": 60,
+  "airlock LIFE_airlock_lens_guard.015": 60,
+  "airlock AIRLOCK_manual_grip.014": 60,
+  "airlock AIRLOCK_manual_grip.015": 60,
+  "airlock LIFE_airlock_lens_guard.016": 60,
+  "airlock LIFE_airlock_lens_guard.017": 60,
+  "airlock AIRLOCK_manual_grip.016": 60,
+  "airlock AIRLOCK_manual_grip.017": 60,
+  "airlock LIFE_airlock_lens_guard.018": 60,
+  "airlock LIFE_airlock_lens_guard.019": 60,
+  "airlock AIRLOCK_manual_grip.018": 60,
+  "airlock AIRLOCK_manual_grip.019": 60,
+  "airlock LIFE_airlock_pressure_needle": 20,
+  "airlock LIFE_airlock_pressure_needle.001": 20,
+  "airlock LIFE_airlock_pressure_needle.002": 20,
+  "airlock LIFE_airlock_pressure_needle.003": 20,
+  "airlock LIFE_airlock_pressure_needle.004": 20,
+  "airlock LIFE_airlock_pressure_needle.005": 20,
+  "airlock LIFE_airlock_pressure_needle.006": 20,
+  "airlock LIFE_airlock_pressure_needle.007": 20,
+  "airlock LIFE_airlock_pressure_needle.008": 20,
+  "airlock LIFE_airlock_pressure_needle.009": 20
+ },
+ "triangles_total": 13156328,
+ "summary": "PASS (geometry audit only)"
+}
