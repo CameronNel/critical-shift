@@ -1,0 +1,32 @@
+{
+  "status": "RestoreClearedAfterHeavyIdle_AdoptionRequiresApplyIdleGuard",
+  "inputs": {
+    "/tmp/cs-mine-restore-library-artifacts-final15.py": "4f6124d5c8ad73baed87921e8a2d5fd762aedf17b809cc86dd04ca59f03e47d7",
+    "/tmp/cs-main342-adopt-delivery-final15-r2.py": "612e9aabe48c8a180ed1a0fb56697a817d49d926ea683e839df49863664e9593"
+  },
+  "restoreChecks": [
+    "Exact owned Library alias and empty Artifacts",
+    "Streaming full archive SHA/member file hashes/types/modes/symlink text",
+    "Native Unity Main* and all heavy-process idle requirement",
+    "Exact inventory and every file/mode/link after extraction",
+    "Pre-existing dangling-target explicitly excludes cache health certification"
+  ],
+  "adoptionChecks": [
+    "R6 completed manifestSHA binds current staging",
+    "Current R2 actual Source provenance binds same map/sourceRecords/snapshot/config",
+    "Recursive map+rig file hashes and14room meshes/collisions",
+    "Stage/target symlink and file-directory collision rejection",
+    "Plan-only freezes exact changed paths/old-new hashes/sizes before mutation",
+    "Apply rechecks changed plan and capacity, preserves every replaced byte with rollback",
+    "Library restored status before apply"
+  ],
+  "requiredApplyCorrection": [
+    "Add actual live Unity/MainThre/LightBaker/ShaderCompiler process-idle check immediately before target mutation; absent project lock alone is insufficient"
+  ],
+  "inactiveScratchProposal": "Acceptable only exact owned inactive path/no open FD owner, safe streamed archive types/entries/hash verification before release; retain raw log/evidence and links/provenance. Compressed file must be outside deleted tree.",
+  "limits": [
+    "Neither script executed by reviewer",
+    "No successful surfaces, Source reference, Unity adoption or visual score inferred",
+    "Do not restore cache while Blender or Source render is alive"
+  ]
+}

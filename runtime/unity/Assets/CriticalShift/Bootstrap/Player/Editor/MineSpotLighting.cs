@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using UnityEditor;
 using UnityEngine;
 using GiMapping=UnityEngine.Experimental.GlobalIllumination.Lightmapping;
@@ -100,6 +101,66 @@ namespace CriticalShift.Player.Editor
         }
 
         internal static IDisposable ScopeBake(Transform room,ExportLight[] sources)=>new BakeScope(room,sources);
+
+        [Serializable] private sealed class SpotBakeRecord
+        {
+            public string name, type, configuredMode, bakedMode, shadows, cookiePath, cookieGuid;
+            public bool isBaked, cookieMatchesSource;
+            public float intensity, range, spotAngle, innerSpotAngle, radius;
+            public Vector3 position;
+            public Quaternion rotation;
+            public Color color;
+        }
+
+        [Serializable] private sealed class SpotBakeInventory
+        {
+            public string unityVersion, preparedSceneSha256;
+            public int lightmaps;
+            public SpotBakeRecord[] spots;
+        }
+
+        // Observe the saved scene after reopening it for a capture. Record actual
+        // bake output separately from the requested mode; do not repair lights here.
+        internal static void RecordBakeOutput(Transform room,ExportLight[] sources)
+        {
+            if(sources==null || sources.Length!=6 || sources.Select(s=>s.name).Distinct().Count()!=6)
+                throw new InvalidOperationException("Missing the six authored context spotlights.");
+            var lights=room.GetComponentsInChildren<Light>(true);
+            var records=sources.Select(source=>
+            {
+                ValidateSource(source);
+                var light=lights.Single(l=>l.name==source.name);
+                var output=light.bakingOutput;
+                var cookie=light.cookie as Texture2D;
+                string path=cookie==null ? "" : AssetDatabase.GetAssetPath(cookie);
+                return new SpotBakeRecord
+                {
+                    name=source.name,type=light.type.ToString(),configuredMode=light.lightmapBakeType.ToString(),
+                    bakedMode=output.lightmapBakeType.ToString(),isBaked=output.isBaked,
+                    shadows=light.shadows.ToString(),intensity=light.intensity,range=light.range,
+                    spotAngle=light.spotAngle,innerSpotAngle=light.innerSpotAngle,radius=light.shapeRadius,
+                    position=light.transform.localPosition,rotation=light.transform.localRotation,color=light.color,
+                    cookiePath=path,cookieGuid=string.IsNullOrEmpty(path) ? "" : AssetDatabase.AssetPathToGUID(path),
+                    cookieMatchesSource=cookie!=null && Valid(cookie,source)
+                };
+            }).ToArray();
+            if(records.Any(r=>r.type!="Spot" || !r.cookieMatchesSource || string.IsNullOrEmpty(r.cookiePath) ||
+                r.cookieGuid.Length!=32 || !File.Exists(r.cookiePath) ||
+                !float.IsFinite(r.intensity) || r.intensity<0 || !float.IsFinite(r.range) || r.range<=0 ||
+                !float.IsFinite(r.spotAngle) || !float.IsFinite(r.innerSpotAngle) || !float.IsFinite(r.radius) || r.radius<=0 ||
+                !float.IsFinite(r.position.x) || !float.IsFinite(r.position.y) || !float.IsFinite(r.position.z) ||
+                !float.IsFinite(r.rotation.x) || !float.IsFinite(r.rotation.y) || !float.IsFinite(r.rotation.z) || !float.IsFinite(r.rotation.w) ||
+                !float.IsFinite(r.color.r) || !float.IsFinite(r.color.g) || !float.IsFinite(r.color.b) || !float.IsFinite(r.color.a)))
+                throw new InvalidOperationException("Persisted context spotlight inventory is invalid.");
+            using var hash=SHA256.Create();
+            File.WriteAllText(SpawnMapBuild.Folder+"mine-spot-bake-output.json",JsonUtility.ToJson(new SpotBakeInventory
+            {
+                unityVersion=UnityEngine.Application.unityVersion,lightmaps=LightmapSettings.lightmaps.Length,spots=records,
+                preparedSceneSha256=BitConverter.ToString(hash.ComputeHash(File.ReadAllBytes(SpawnMapBuild.Folder+"prepared-scene.json")))
+                    .Replace("-","").ToLowerInvariant()
+            },true));
+            Debug.Log("CS_MINE_ACTUAL_SPOT_BAKE_OUTPUT; spots="+records.Length);
+        }
 
         private sealed class BakeScope : IDisposable
         {

@@ -243,6 +243,9 @@ namespace CriticalShift.Player.Editor
             string output=Argument("-csCapturePath"); Directory.CreateDirectory(output);
             var map=JsonUtility.FromJson<ExportMap>(File.ReadAllText(SpawnMapBuild.Folder+"map-bindings.json"));
             int cameraFile=Array.IndexOf(args,"-csCameraFile");
+            var recordedMinePackage=map.materials.SingleOrDefault(p=>p.room=="mine");
+            if(recordedMinePackage!=null)
+                MineSpotLighting.RecordBakeOutput(GameObject.Find("ROOM_front-end-area").transform,recordedMinePackage.contextSpotLights);
             var views=cameraFile>=0 ? JsonUtility.FromJson<SourceViews>(File.ReadAllText(Argument("-csCameraFile"))) : map.validationViews;
             if (views==null || views.views==null || views.views.Length!=3) throw new InvalidOperationException("Missing the three authored camera bindings.");
             int roomArgument=Array.IndexOf(args,"-csRoom");

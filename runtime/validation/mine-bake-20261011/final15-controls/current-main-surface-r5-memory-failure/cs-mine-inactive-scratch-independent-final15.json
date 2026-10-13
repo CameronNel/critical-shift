@@ -1,0 +1,14 @@
+{
+  "status": "PassedIndependentHistoricalScratchArchiveEntriesAndBytes",
+  "archiveSha256": "8907f57eb681a27286479a9a6bda197419953b84d2b0d0318dfac3c13935698d",
+  "receiptSha256": "b4c95b6d879ecbdae9d5cee8bc33c5dcb2c55fd479cd4907a548e8938ee18baf",
+  "entries": 80,
+  "rawBytes": 979998588,
+  "archiveBytes": 576164861,
+  "rawMinusArchiveBytes": 403833727,
+  "observedShmemReductionBytes": 485634048,
+  "limits": [
+    "Concurrent Source process changed anonymous memory; total cgroup before-after drop is not solely archive headroom",
+    "Historical scratch only; no R6 bake/Unity/visual success inferred"
+  ]
+}

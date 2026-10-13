@@ -1,0 +1,14 @@
+{
+  "status": "ReviewedAdditiveOwnershipDelta_WithUnityCommNamingQualification",
+  "wrapperSha256": "43b2d79b35581b4930dcfabc56b575c920919a2809c9483f4329c0c51acfafef",
+  "previousClearedReceipt": "/tmp/cs-current-main-surface-r6-cleared-independent-final15.json",
+  "currentLiveHeavyProcesses": [
+    {
+      "pid": 180919,
+      "comm": "blender",
+      "state": "R"
+    }
+  ],
+  "finding": "Exact comm guard misses actual Unity Main Thre editor name. Do not mutate frozen running wrapper; verify exclusive ownership externally and correct future guards.",
+  "otherGuardDelta": "All prior streamedSHA/postmeta/exact14/source/noReuse guards remain."
+}

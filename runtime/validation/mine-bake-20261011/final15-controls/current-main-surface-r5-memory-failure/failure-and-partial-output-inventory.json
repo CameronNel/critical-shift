@@ -1,0 +1,345 @@
+{
+  "status": "FailedCurrentMainMineBake_SIGKILL_MemoryLimit_NoCacheCertification",
+  "lastCompletedAtlasChannel": "mine-ground wood-high",
+  "activeAtFailure": "mine-rocks albedo",
+  "memoryEvents": "low 0\nhigh 0\nmax 927916\noom 50\noom_kill 17\noom_group_kill 0\n",
+  "preservedEvidence": [
+    {
+      "original": "/tmp/cs-current-main-surface-preparation-final15-r5.json",
+      "file": "cs-current-main-surface-preparation-final15-r5.json",
+      "sha256": "a0dec31c6f3f0fe89eb36d3cd438fe36a5c40b17592ca6798942f703280babe5"
+    },
+    {
+      "original": "/tmp/cs-current-main-surface-preparation-final15-r5.py",
+      "file": "cs-current-main-surface-preparation-final15-r5.py",
+      "sha256": "5629a68abe6900799385f69df42cde70caf67f3fc1c86804a7983eb6c5a97434"
+    },
+    {
+      "original": "/tmp/cs-current-main-surface-audit-final15-r5/mine-surfaces.log",
+      "file": "mine-surfaces.log",
+      "sha256": "3cf136f0b5092c45c8aec91ed6da75d9fbc210ec085258ef07b0f0e73c978ade"
+    },
+    {
+      "original": "/tmp/cs-mine-library-artifacts-preserved-final15.json",
+      "file": "cs-mine-library-artifacts-preserved-final15.json",
+      "sha256": "0552a490a5ddf36a616b319abd003d9a994f2eb91bd50ffa37bbf8bb3fe09c59"
+    },
+    {
+      "original": "/tmp/cs-mine-preserve-library-artifacts-final15.py",
+      "file": "cs-mine-preserve-library-artifacts-final15.py",
+      "sha256": "917be13ed4b58f7afd0b5df0b5e2c3da9f492cf9f4f126dbf07bb8ab9f871083"
+    },
+    {
+      "original": "/tmp/cs-mine-library-artifacts-independent-final15.json",
+      "file": "cs-mine-library-artifacts-independent-final15.json",
+      "sha256": "12ec916d01983ac91b0c8381726b069959b5da39d72134140395edf6ec6e35aa"
+    }
+  ],
+  "partialFiles": [
+    {
+      "path": "Surfaces/mine-air-main/spawn-albedo.png.meta",
+      "bytes": 2654,
+      "sha256": "e1bc9b6b68071d9d28e3849ae70103e7ce5b314e54b60d40f254d59db1909d03"
+    },
+    {
+      "path": "Surfaces/mine-air-main/spawn-emission.exr.meta",
+      "bytes": 2650,
+      "sha256": "5e3cb0e8b8745ea6cf43a3cd0e3d394e1677b999a1b1f285e6d68e26d92a7b29"
+    },
+    {
+      "path": "Surfaces/mine-air-main/spawn-metallic-smoothness.png.meta",
+      "bytes": 2654,
+      "sha256": "565d7201fd56ae2a52859e75b8b9c954dc0174d0af709c7ba9b23bc9192cbf9a"
+    },
+    {
+      "path": "Surfaces/mine-air-main/spawn-normal.png.meta",
+      "bytes": 2654,
+      "sha256": "cbd6ead88caaf7823b84c44cb71f82ea7b17e9259a2d730783073e22010fa736"
+    },
+    {
+      "path": "Surfaces/mine-context-ground/spawn-albedo.png.meta",
+      "bytes": 2654,
+      "sha256": "b6aa72b4e33f9c600d08ca35866af062d7c41a63fbe6c27be945ecb2646d61b1"
+    },
+    {
+      "path": "Surfaces/mine-context-ground/spawn-emission.exr.meta",
+      "bytes": 2650,
+      "sha256": "a3b402ffe77eac0c5ba8918da7507f2eb59dde193d73342c849505213f015343"
+    },
+    {
+      "path": "Surfaces/mine-context-ground/spawn-metallic-smoothness.png.meta",
+      "bytes": 2654,
+      "sha256": "6acb314b1abe8c9321108f7a06fffa00a333f3f7aa4c0c201c35931e2533979f"
+    },
+    {
+      "path": "Surfaces/mine-context-ground/spawn-normal.png.meta",
+      "bytes": 2654,
+      "sha256": "7df7d2d961e710dcc332fbb0063ec41c94d734ff7deb73dce959046a6b1422b0"
+    },
+    {
+      "path": "Surfaces/mine-context-props/spawn-albedo.png.meta",
+      "bytes": 2654,
+      "sha256": "9d4d3e2c70be399408d9c9740fa79cb76c8cbadeeddd6ad1b77c394039ab7132"
+    },
+    {
+      "path": "Surfaces/mine-context-props/spawn-emission.exr.meta",
+      "bytes": 2653,
+      "sha256": "138bed105d286c205421ce351aafcff97fc7754066b4774c7153f7a8101b3273"
+    },
+    {
+      "path": "Surfaces/mine-context-props/spawn-metallic-smoothness.png.meta",
+      "bytes": 2654,
+      "sha256": "6c1bc42e3b00d05d12bf2918c51d23de63ca2ca52b4b7b76c96b37e1b2a445d9"
+    },
+    {
+      "path": "Surfaces/mine-context-props/spawn-normal.png.meta",
+      "bytes": 2654,
+      "sha256": "96f69955137043c0d493a2ab659e2aa0101f18d6e59f2c8128dc946b1015c61c"
+    },
+    {
+      "path": "Surfaces/mine-context-structure/spawn-albedo.png.meta",
+      "bytes": 2654,
+      "sha256": "5d5a788dbc4c9011eecfeb0bb00cb8e84e631476c7499671b6f578c664aabdae"
+    },
+    {
+      "path": "Surfaces/mine-context-structure/spawn-emission.exr.meta",
+      "bytes": 2653,
+      "sha256": "3360be6d12452ccdcbff99634d6770e272111e63525daeabc61f5af0b7c19b5c"
+    },
+    {
+      "path": "Surfaces/mine-context-structure/spawn-metallic-smoothness.png.meta",
+      "bytes": 2654,
+      "sha256": "ef38db75d14d9432477d3c618974d804de100d2de216b67516b9853223df4a9d"
+    },
+    {
+      "path": "Surfaces/mine-context-structure/spawn-normal.png.meta",
+      "bytes": 2654,
+      "sha256": "0373e75a1051e03d9c0c8f5b7e215baaecee2da219bc3646d7c42dcafe1cb92d"
+    },
+    {
+      "path": "Surfaces/mine-duct/spawn-albedo.png.meta",
+      "bytes": 2654,
+      "sha256": "c74faed6632a72925be16dea879542a9b74fdba94a19d421d78176edf8479af7"
+    },
+    {
+      "path": "Surfaces/mine-duct/spawn-emission.exr.meta",
+      "bytes": 2650,
+      "sha256": "8fe6ae29ce1888863bf5a62f8df1b08117bd5626bd395966fbdbba493f5c603d"
+    },
+    {
+      "path": "Surfaces/mine-duct/spawn-metallic-smoothness.png.meta",
+      "bytes": 2654,
+      "sha256": "7bececf391aca7df0725a4b498c6beae798442222153b6ca1b887f768f61d4bc"
+    },
+    {
+      "path": "Surfaces/mine-duct/spawn-normal.png.meta",
+      "bytes": 2654,
+      "sha256": "d97c8efd5a7404ed838cda9c9bbba65930e0a01305f0cd639016d6e354116b13"
+    },
+    {
+      "path": "Surfaces/mine-ground/spawn-albedo.png",
+      "bytes": 6492830,
+      "sha256": "5485808f5099ba1deced959fada8be817a2411a71724ac52dc915aec8e550a39"
+    },
+    {
+      "path": "Surfaces/mine-ground/spawn-albedo.png.meta",
+      "bytes": 2654,
+      "sha256": "b66cc39fc46c2d38e57e6b4bc38e5fb478008980c93374635e3783b8430db9b9"
+    },
+    {
+      "path": "Surfaces/mine-ground/spawn-emission.exr",
+      "bytes": 167089,
+      "sha256": "0826718254b523fd17c02978e76211bbf53cc1404051cb759ad2921fce4d1335"
+    },
+    {
+      "path": "Surfaces/mine-ground/spawn-emission.exr.meta",
+      "bytes": 2650,
+      "sha256": "f1f8521f0bcbdf7182bd4399aec139bd508372f77221856931565fdc229b16cd"
+    },
+    {
+      "path": "Surfaces/mine-ground/spawn-metallic-smoothness.png",
+      "bytes": 1975576,
+      "sha256": "0bbacc0445a82ec5990040a4a936c04dcb1bd670dd29df02a93fab548b754856"
+    },
+    {
+      "path": "Surfaces/mine-ground/spawn-metallic-smoothness.png.meta",
+      "bytes": 2654,
+      "sha256": "3f0e66222f55cd0f9d475dc1164bc44f3026da716708474390ed9a8737d38953"
+    },
+    {
+      "path": "Surfaces/mine-ground/spawn-normal.png",
+      "bytes": 5141246,
+      "sha256": "a3e3f56510a07a29efdc4cd0f9ece7bd5ee2d2f996540efc98ab7d7e110fadca"
+    },
+    {
+      "path": "Surfaces/mine-ground/spawn-normal.png.meta",
+      "bytes": 2654,
+      "sha256": "12dcc65ff398321722f0afe4a76696d0f658dd313ee337ddac7e7fd5edd9c9de"
+    },
+    {
+      "path": "Surfaces/mine-ground/spawn-wood-high.png",
+      "bytes": 2650388,
+      "sha256": "594e0ec6214184552823eae928c602d46e29b4b18e58f030bf2382c8a071fb31"
+    },
+    {
+      "path": "Surfaces/mine-ground/spawn-wood-high.png.meta",
+      "bytes": 2653,
+      "sha256": "51f827215632c61920f62d5aa1c6691592ad7a15c8d302507f0a37c84b184750"
+    },
+    {
+      "path": "Surfaces/mine-mountain/spawn-albedo.png",
+      "bytes": 66822185,
+      "sha256": "abd24a153a4c7a7646c283069b86d2631483d53c6fddb68d5f16144c8a633dcd"
+    },
+    {
+      "path": "Surfaces/mine-mountain/spawn-albedo.png.meta",
+      "bytes": 2654,
+      "sha256": "d50101aeb81bf2bf9c7d9a86d1a98d0a19c09970e6dcafe9c3452cc11c3057da"
+    },
+    {
+      "path": "Surfaces/mine-mountain/spawn-emission.exr",
+      "bytes": 29225254,
+      "sha256": "71077c5d7faced73df5238c64b7274a4fafd05131bbd498daa9a0b478fb04330"
+    },
+    {
+      "path": "Surfaces/mine-mountain/spawn-emission.exr.meta",
+      "bytes": 2653,
+      "sha256": "92494bca62eb234b70c797b518de2fa54567d2df89a185b6b383201bd1a589cd"
+    },
+    {
+      "path": "Surfaces/mine-mountain/spawn-metallic-smoothness.png",
+      "bytes": 586802,
+      "sha256": "08169941e10846a108a53bd069e1b071b6ada2d67f1881d68bc07d4795b1724c"
+    },
+    {
+      "path": "Surfaces/mine-mountain/spawn-metallic-smoothness.png.meta",
+      "bytes": 2650,
+      "sha256": "9dc8cd0dbed4376a012873ee0746d1943690887fb6bc7ebb80bd93a600785e64"
+    },
+    {
+      "path": "Surfaces/mine-mountain/spawn-normal.png",
+      "bytes": 70557824,
+      "sha256": "656071432867c6157682455e40dec5e957bd34ffe71b22308db4043cc89300ab"
+    },
+    {
+      "path": "Surfaces/mine-mountain/spawn-normal.png.meta",
+      "bytes": 2654,
+      "sha256": "dc60f263d81793fab7072a03a270d0c59de8746d2e0df2bcbc40b3e7a5f70658"
+    },
+    {
+      "path": "Surfaces/mine-props/spawn-albedo.png.meta",
+      "bytes": 2654,
+      "sha256": "616bf99434bd4ae8f335d0d5138d3f9275020743ac2b88380e05a8f867ec49e2"
+    },
+    {
+      "path": "Surfaces/mine-props/spawn-emission.exr.meta",
+      "bytes": 2650,
+      "sha256": "a845205e1a2bf54584aeb6b7e70abfba6cc2ea4d790531d5fbc89c44ea4ab923"
+    },
+    {
+      "path": "Surfaces/mine-props/spawn-metallic-smoothness.png.meta",
+      "bytes": 2654,
+      "sha256": "8401bc61590c519a9790f6b74b6092ca6f60ec745e45ec52995dc15540590837"
+    },
+    {
+      "path": "Surfaces/mine-props/spawn-normal.png.meta",
+      "bytes": 2654,
+      "sha256": "5405fea2442bce1bc31490ee7e5fbe18fcf72c3fa6915691bbf811f30e5641f3"
+    },
+    {
+      "path": "Surfaces/mine-props/spawn-wood-high.png.meta",
+      "bytes": 2653,
+      "sha256": "39beba14633075fce1afda1e3d3b5779a8c5d43a8cc27b2e9746f62e48478e10"
+    },
+    {
+      "path": "Surfaces/mine-rocks/spawn-albedo.png.meta",
+      "bytes": 2654,
+      "sha256": "4e47c0f0dada50b74e001da872fc01e3f0956bf3f6ddd01735a9c1619033e5a4"
+    },
+    {
+      "path": "Surfaces/mine-rocks/spawn-emission.exr.meta",
+      "bytes": 2653,
+      "sha256": "068d2b4d4447602ba4e30efa5f44aed4e797526591cb17a923c955bb1f6c649a"
+    },
+    {
+      "path": "Surfaces/mine-rocks/spawn-metallic-smoothness.png.meta",
+      "bytes": 2654,
+      "sha256": "3ea17896236e8f0d5e9a0398464d14504388f5998c5739b1d9c5a12ece6c4c01"
+    },
+    {
+      "path": "Surfaces/mine-rocks/spawn-normal.png.meta",
+      "bytes": 2654,
+      "sha256": "dae206a4f44b005cac50c3f6ff5abc6d4960ca1b061134764ce16f9b6d0a1daa"
+    },
+    {
+      "path": "Surfaces/mine-structure/spawn-albedo.png.meta",
+      "bytes": 2654,
+      "sha256": "f0c00a76bdda62f6aa0e5352c8f0e3cad9b0777636387490756f67150e64cd47"
+    },
+    {
+      "path": "Surfaces/mine-structure/spawn-emission.exr.meta",
+      "bytes": 2650,
+      "sha256": "7f6ca8798a90ecc9c1a152492677a954b5fa2c692179640a81524afc7bdf9de0"
+    },
+    {
+      "path": "Surfaces/mine-structure/spawn-metallic-smoothness.png.meta",
+      "bytes": 2654,
+      "sha256": "905c051b882c8f95cf0a8434e12b41dc2fa7ac4591b2c23fa61d3dc3d3358b69"
+    },
+    {
+      "path": "Surfaces/mine-structure/spawn-normal.png.meta",
+      "bytes": 2654,
+      "sha256": "806ca7f291d264ac57688e9c0b8182c22119ace92424fb197f13d99c0dd3622c"
+    },
+    {
+      "path": "Surfaces/mine-structure/spawn-wood-high.png.meta",
+      "bytes": 2653,
+      "sha256": "ab3ee86b695489ae43874499bb6f022b590ad97da6a3b3c97efedd816994100e"
+    },
+    {
+      "path": "Surfaces/mine-tunnel-floor/spawn-albedo.png",
+      "bytes": 44361043,
+      "sha256": "2dd03f0dbfab980435c89d0d604c89d78f037c833efe355bedc1d0fa2cd3fbed"
+    },
+    {
+      "path": "Surfaces/mine-tunnel-floor/spawn-albedo.png.meta",
+      "bytes": 2654,
+      "sha256": "9645ec99c98528c8ae0d0be0b3d220c4af7f4b6b7298e9e422decff1574710b8"
+    },
+    {
+      "path": "Surfaces/mine-tunnel-floor/spawn-emission.exr",
+      "bytes": 167089,
+      "sha256": "0826718254b523fd17c02978e76211bbf53cc1404051cb759ad2921fce4d1335"
+    },
+    {
+      "path": "Surfaces/mine-tunnel-floor/spawn-emission.exr.meta",
+      "bytes": 2650,
+      "sha256": "41925d913bb4399de5f34271d98f936c223965c19261398551b652470e3ff003"
+    },
+    {
+      "path": "Surfaces/mine-tunnel-floor/spawn-metallic-smoothness.png",
+      "bytes": 9863799,
+      "sha256": "17294755dd71445bcd97c2ae45e784052ba4b08c5225f84378f9cab40b782118"
+    },
+    {
+      "path": "Surfaces/mine-tunnel-floor/spawn-metallic-smoothness.png.meta",
+      "bytes": 2654,
+      "sha256": "205abc749ee45642105b37355ea94e3574c126a1331393a5a619f24aef4e4f35"
+    },
+    {
+      "path": "Surfaces/mine-tunnel-floor/spawn-normal.png",
+      "bytes": 43684855,
+      "sha256": "06beef35517e8e81c1b8542291dc781bf47bfbff77a720437873716c9e20afcc"
+    },
+    {
+      "path": "Surfaces/mine-tunnel-floor/spawn-normal.png.meta",
+      "bytes": 2654,
+      "sha256": "5a6973703c2c289fafdcfb589237e987c3c0cd2f088f3938b87abdf0a7a4b7ff"
+    }
+  ],
+  "limits": [
+    "Partial mine files are not certified cache or delivery",
+    "Existing Unity map untouched; fresh current-main native/visual review remains pending",
+    "Exact cache symlink preservation includes one pre-existing missing external target"
+  ]
+}
