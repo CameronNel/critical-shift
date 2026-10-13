@@ -19,7 +19,7 @@ class DerivativeMetadataTests(unittest.TestCase):
             for output in [canonical,staged]:
                 (output/"Surfaces").mkdir(parents=True)
                 (output/"Surfaces/albedo.png").write_bytes(b"metadata identity fixture")
-            with patch.object(prepare_player,"ROOT",root),patch.object(prepare_spawn,"ROOT",root):
+            with patch.object(prepare_player,"ROOT",root/"runtime"),patch.object(prepare_spawn,"ROOT",root):
                 for relative in ["Surfaces","Surfaces/albedo.png"]:
                     prepare_player.meta(canonical/relative)
                     prepare_spawn.derivative_meta(staged/relative,staged)

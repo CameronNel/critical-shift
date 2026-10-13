@@ -1,0 +1,31 @@
+{
+  "status": "PreservedAllOwnedCacheBytesAndLogicalPaths",
+  "source": "/workspace/critical-shift-spawn-runtime/runtime/out/inactive-cache-final13",
+  "destination": "/tmp/cs-mine-preserved-cache-final13-final15",
+  "bytes": 281271341,
+  "files": [
+    {
+      "path": "index.json",
+      "bytes": 2840,
+      "sha256": "6955c8caac0e7831222935555c15b2d0baae04f59ffbcf3c22fd7ccc75fb23dd"
+    },
+    {
+      "path": "cache.tar.zst",
+      "bytes": 94547021,
+      "sha256": "606eb4a9ed4dbc39d3840cd62d02793dd35c765f6e9fa98d95b92131e754bdef"
+    },
+    {
+      "path": "active/Artifacts/08/088d584a4a2f338e9b5981e3455360b6",
+      "bytes": 52484396,
+      "sha256": "550d0e5d1eed881157466aae187b835d0f25c7939e84292a2d41d1c79b22acae"
+    },
+    {
+      "path": "active/Artifacts/c9/c9cd52c60fc412f1009592a01c5edf87",
+      "bytes": 134237084,
+      "sha256": "11a1f616fe767f6af084efaba12a99886d323f5f64333dbc7a83f6cf72fb73b1"
+    }
+  ],
+  "limits": [
+    "Canonical source, runtime derivatives and cache consumers unchanged; only verified cache storage location moved"
+  ]
+}
