@@ -1,14 +1,14 @@
 {
  "note": "Static counts of the built scene; no frame rate was measured (no runtime build exists). Budgets: only the 400k per-room flag and 800k front-end figure exist in the repo.",
  "totals": {
-  "triangles": 11026519,
-  "objects": 23562,
-  "submeshes": 25641,
-  "lights": 456,
-  "shadow_lights": 418,
-  "materials": 851,
-  "textures": 110,
-  "texture_mb_rgba8": 1013.7
+  "triangles": 11027980,
+  "objects": 21984,
+  "submeshes": 24074,
+  "lights": 494,
+  "shadow_lights": 456,
+  "materials": 856,
+  "textures": 133,
+  "texture_mb_rgba8": 1349.8
  },
  "rooms": {
   "ROOM_mine": {
@@ -154,17 +154,19 @@
    "over_flag": true
   },
   "ROOM_turbine-room": {
-   "triangles": 416781,
-   "objects": 1638,
-   "meshes": 1577,
-   "submeshes": 1638,
-   "materials": 28,
+   "triangles": 418250,
+   "objects": 62,
+   "meshes": 60,
+   "submeshes": 73,
+   "materials": 22,
    "lights": {
-    "AREA": 21
+    "SPOT": 45,
+    "POINT": 7,
+    "AREA": 7
    },
-   "shadow_lights": 21,
-   "textures": 0,
-   "texture_mb_rgba8": 0.0,
+   "shadow_lights": 59,
+   "textures": 29,
+   "texture_mb_rgba8": 368.2,
    "budget_flag": 400000,
    "over_flag": true
   },
@@ -245,10 +247,10 @@
    "over_flag": false
   },
   "EXTERIOR_evacuation": {
-   "triangles": 7825,
-   "objects": 129,
-   "meshes": 129,
-   "submeshes": 129,
+   "triangles": 7817,
+   "objects": 127,
+   "meshes": 127,
+   "submeshes": 127,
    "materials": 14,
    "lights": {
     "SPOT": 14,
@@ -459,6 +461,11 @@
    "object": "R40 | Mine cliff"
   },
   {
+   "triangles": 224574,
+   "owner": "ROOM_turbine-room",
+   "object": "TURBINE_MACH"
+  },
+  {
    "triangles": 97964,
    "owner": "ROOM_mine",
    "object": "R39 | namaqualand_boulder_02.001"
@@ -489,9 +496,19 @@
    "object": "R39 | namaqualand_boulder_05"
   },
   {
+   "triangles": 87738,
+   "owner": "ROOM_turbine-room",
+   "object": "TURBINE_ARCH clipped rest cut0 rest cut0 cut0"
+  },
+  {
    "triangles": 80698,
    "owner": "ROOM_mine",
    "object": "R39 | Tunnel floor"
+  },
+  {
+   "triangles": 67685,
+   "owner": "ROOM_turbine-room",
+   "object": "TURBINE_PROPS rest cut0 cut0"
   },
   {
    "triangles": 66122,
@@ -582,21 +599,6 @@
    "triangles": 33902,
    "owner": "ROOM_mine",
    "object": "R39 | Lantern.017"
-  },
-  {
-   "triangles": 33902,
-   "owner": "ROOM_mine",
-   "object": "R39 | Lantern.016"
-  },
-  {
-   "triangles": 33902,
-   "owner": "ROOM_mine",
-   "object": "R39 | Lantern.015"
-  },
-  {
-   "triangles": 33902,
-   "owner": "ROOM_mine",
-   "object": "R39 | Lantern.014"
   }
  ],
  "repeated_shapes": [
@@ -1056,25 +1058,6 @@
   [
    2,
    [
-    2284,
-    2264,
-    [
-     1.3,
-     0.13,
-     0.0
-    ]
-   ],
-   [
-    "ROOM_turbine-room"
-   ],
-   [
-    "D01 inside legend",
-    "D01 reactor direction"
-   ]
-  ],
-  [
-   2,
-   [
     1910,
     3688,
     [
@@ -1089,6 +1072,25 @@
    [
     "FC | Wall_E1.6_0_0 \u00b7 lined bay",
     "FC | Wall_W-1.6_0_0 \u00b7 lined bay"
+   ]
+  ],
+  [
+   2,
+   [
+    1910,
+    3688,
+    [
+     0.82,
+     0.15,
+     4.41
+    ]
+   ],
+   [
+    "ROOM_fuel-corridor"
+   ],
+   [
+    "FC | Wall_E4.4_0_7 \u00b7 lined bay",
+    "FC | Wall_W10_0_7 \u00b7 lined bay"
    ]
   ]
  ],
@@ -1116,14 +1118,14 @@
     "ROOM_waste-storage"
    ],
    "own": 1217405,
-   "with_neighbours": 2372577
+   "with_neighbours": 2374046
   },
   "ROOM_electrical-room": {
    "neighbours": [
     "ROOM_turbine-room"
    ],
    "own": 767131,
-   "with_neighbours": 1183912
+   "with_neighbours": 1185381
   },
   "ROOM_medical-reanimation": {
    "neighbours": [
@@ -1172,8 +1174,8 @@
     "ROOM_electrical-room",
     "ROOM_reactor-room"
    ],
-   "own": 416781,
-   "with_neighbours": 2402745
+   "own": 418250,
+   "with_neighbours": 2404214
   },
   "ROOM_compliance-dock": {
    "neighbours": [
@@ -1212,8 +1214,8 @@
   },
   "EXTERIOR_evacuation": {
    "neighbours": [],
-   "own": 7825,
-   "with_neighbours": 7825
+   "own": 7817,
+   "with_neighbours": 7817
   },
   "EVAC sign yard": {
    "neighbours": [],
@@ -1226,7 +1228,7 @@
     "ROOM_turbine-room"
    ],
    "own": 1428,
-   "with_neighbours": 840227
+   "with_neighbours": 841696
   },
   "EVAC sign hall": {
    "neighbours": [],

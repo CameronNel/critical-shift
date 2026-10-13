@@ -4,7 +4,7 @@
 Task: `OPUS_ASSEMBLY_PROMPT.md` (take the compact map from "laid out" to "assembled"), widened by the owner during the session: *"you may shift around the entire map as you please and build as many things as needed ... One shot the most compact map possible without reinventing the individual rooms beyond recognition"*, then *"Ignore all previous specs and planning docs - build and decide what comes where on your own with the goal of the most compact and logical map possible. Do not ask me questions"*. After the first assembly pass the owner asked about the fuel run, asked for a grey-box test of a short fuel corridor (`GREYBOX_FUEL_TEST.md`) and then said *"yes do the rebuild to the same graphical fidelity as it was previously"*. This report describes the result: the **short fuel corridor layout**. The first pass's numbers are kept where they are compared.
 Rooms are linked, never edited: every change below is a local copy made by `build_compact_map.py`, except the short fuel corridor, which is a new derived file (`sources/fuel-corridor/module_short_S1.blend`) built from F23ci by a script; F23ci itself is unchanged. "Done and dusted" rooms got no art pass; they got door cuts and closed leaves, which are layout work.
 
-Contents: layout decision, door table, plates and dead ends, **meltdown flow (3a)**, **door-frame audit (3b)**, lighting, collision and walk test, performance, travel times, Unity, files, open decisions, what ran.
+Contents: layout decision, **turbine rebuild swap (1a)**, door table, plates and dead ends, **meltdown flow (3a)**, **door-frame audit (3b)**, lighting, collision and walk test, performance, travel times, Unity, files, open decisions, what ran.
 
 ## 1. Layout decision
 
@@ -42,12 +42,26 @@ Placements (plan metres, rotation about z):
 |---|---|---|---|
 | fuel corridor S1 | (-22.2, -43.6, 0) | 0 | F01 on the refinery north fuel door (unchanged); F02E lands at (-5.46, -36.62) |
 | reactor | (0, -18.7, 0) | 0 | concourse y RY-19.6..RY-14.8 holds F02E; south wall (RY-11.6) 0.47 m clear of the corridor's north wall (-30.77) |
-| turbine / condenser bay | (0, -4.2, 0) / (1.6, 3.2, -6) | 0 | reactor north stub end (reactor-local y 14.5); condenser at turbine + (1.6, 7.4, -6) |
-| electrical (R11) | (10.5, 14.3, 0) | -90 | D01 face on the turbine east wall outer face at turbine-local y 18.5 (bay between columns at 16 and 21) |
+| turbine (v2 rebuild) / condenser bay | (0, -4.2, 0) / (1.6, 3.2, -6) | 0 | reactor north stub end (reactor-local y 14.5); condenser at turbine + (1.6, 7.4, -6) |
+| electrical (R11) | (10.5, 8.3, 0) | -90 | D01 face on the turbine shell's outer face (x 10.25) at turbine-local y 12.5 (rebuild bay between the columns at 10 and 14); was (10.5, 14.3) with the original turbine |
 | cooling | (-14.5, -18.7, 0) | 90 | reactor west stub end |
 | waste (AAA) | (11.94, -14.84, 0) | -90 | WS_RECEIVING exterior face (module y -0.32) on the reactor's east outer face x 11.62; opening centre reactor-local y 3.86, between the lockers (to y 2.42) and the column plinth (from y 5.29) |
 | compliance dock (R1) | (12.15, -40.39, 0) | -90 | P1 corridor start on the spine east face (unchanged) |
 | front end, spawn, mine, refinery, medical | unchanged | | COMPACT_MAP.md, COMBINED_MAP.md |
+
+## 1a. Turbine rebuild swap (latest)
+
+Owner: "swap in the turbine rebuild". `turbine-room` now links the v2 rebuild (`sources/turbine-room/rebuild/turbine_room_v2_geo.blend`, collection `TURBINE_ROOM_V2`; merged in #63, declared done by the owner, its only review the builder's own at about 79/100) instead of the AAA finish of the original module. The rebuild has the original's envelope and door centres, so its placement is unchanged. Before cutting, its walls were inventoried loose part by loose part and its floor ray-scanned on a 0.25 m grid (east aisle x 7.05..8.05 clear from D01 to the east bays; the generator pedestal fills x 1.8..7.05 from y 2.6 to 23).
+
+`patch_turbine` (local changes only; the room file is not edited):
+* **D01**: the rebuild's 1.9 m vestibule, which ended in a closed-door panel inside the reactor stub, is clipped at y -0.3 part by part (`clip_parts`, closed parts capped). TO REACTOR over it stays.
+* **D02 (emergency exit)**: the vestibule's end panel (windows, hinges, handle, seam, and the occluder's copy of it) is split out as the closed leaf (`take_parts`; the meltdown walk leaves it out by `leaf_regex`); the end wall behind it is opened 1.44 x 2.38 m (the band starts at y 25.68: the wall's inner face is 25.70, found when the first cut left it whole and the meltdown walk stuck there). The two TO ELECTRICAL signs (the lettered header board and a decal over the panel) are removed; a new EMERGENCY EXIT board, an EXIT label over the panel and the green EXIT box replace them. Outside, the vestibule is clad in the shell's concrete with a steel frame and the exit lamp; the north strip's apron is notched round it.
+* **Electrical door**: 2.4 x 2.7 m at turbine-local y 12.5 (11.3..13.7) through the wall skin, panels, dado, skirting, the wall board DB-04 and the shell, in the bay between the columns at y 10 and 14. The bay at 18..22 (the original position) holds a wall cabinet and the condensate tank's end. **The electrical room moves 6.0 m south** to (10.5, 8.3); its D02 spur, lane, sign and lamp follow (`evacuation.py` now reads the placements from the build module).
+* **Stair door**: 1.55 x 2.6 m at y 12.2..13.75 in the bay between the columns at 10 and 14 (its MIND YOUR HEAD poster and first-aid sign go with the cut). The stair's top landing starts at y 12.0, so the flight's goings shorten to 0.291 m (31.2 degrees).
+* **Exterior**: the rebuild's walls are 0.05 m interior skins inside a black light-occluder shell of loose quads. Its 86 faces on the shell's five outer planes take the front end's `concrete_slab`; the cuts through the shell are lined with steel reveals and floor thresholds.
+* Left out: the 16 cameras, the `MOON_EAST` sun lamp and the render-hidden haze box.
+
+![D02 inside and outside](renders/assembly/21_turbine_D02_exit.png)
 
 ## 2. Doors (`validation/doors.json`, 35 doors, `DOOR_<id>` anchors in the scene)
 
@@ -71,12 +85,12 @@ Default state when the map opens: each door's contract default where it has one,
 | REACTOR_W | reactor | (-14.40, -18.70, 0) | 5.00 x 5.00 | stub double door | open | cooling P01 |
 | REACTOR_SE | reactor | (11.00, -29.70, 0) | 5.00 x 5.00 | stub double door | **closed** | outside |
 | **REACTOR_E_WASTE** | reactor | (11.20, -14.84, 0) | 2.84 x 3.20 | new opening through the patch panel | open | waste |
-| TURBINE_D01 | turbine | (0.00, -4.20, 0) | 2.40 x 2.70 | opposed sliding | open | reactor N stub |
-| TURBINE_D02 | turbine | (0.00, 19.80, 0) | 2.40 x 2.70 | opposed sliding | **closed** | outside (32 leaf objects moved shut) |
-| TURBINE_E_ELECTRICAL | turbine | (10.12, 14.30, 0) | 2.40 x 2.70 | new opening | open | electrical D01 |
-| ELECTRICAL_D01 | electrical | (10.50, 14.30, 0) | 2.40 x 2.70 | sliding pair | open | turbine |
-| ELECTRICAL_D02 | electrical | (26.90, 14.30, 0) | 2.40 x 2.70 | sliding pair | **closed** | outside (74 leaf objects moved shut) |
-| TURBINE_W_STAIR | turbine | (-4.12, 9.25, 0) | 2.00 x 2.60 | new opening | open | condenser stair |
+| TURBINE_D01 | turbine | (0.00, -4.20, 0) | 2.40 x 2.70 | opening (rebuild vestibule, clipped) | open | reactor N stub |
+| TURBINE_D02 | turbine | (0.00, 21.53, 0) | 1.44 x 2.38 | vestibule end panel | **closed** | outside (the rebuild's end panel kept shut; the wall behind it opened) |
+| TURBINE_E_ELECTRICAL | turbine | (10.10, 8.30, 0) | 2.40 x 2.70 | new opening | open | electrical D01 |
+| ELECTRICAL_D01 | electrical | (10.50, 8.30, 0) | 2.40 x 2.70 | sliding pair | open | turbine |
+| ELECTRICAL_D02 | electrical | (26.90, 8.30, 0) | 2.40 x 2.70 | sliding pair | **closed** | outside (74 leaf objects moved shut) |
+| TURBINE_W_STAIR | turbine | (-4.10, 8.78, 0) | 1.55 x 2.60 | new opening | open | condenser stair |
 | CONDENSER_D01 | condenser | (1.60, 3.20, -6) | 2.00 x 2.40 | opposed sliding | open | stair corridor |
 | COOLING_P01 | cooling | (-14.50, -18.70, 0) | 5.00 x 5.00 | overhead folding shutter | open | reactor W stub |
 | WASTE_RECEIVING | waste | (11.94, -14.84, 0) | 3.00 x 3.20 | rolling shutter | open | reactor (east opening) |
@@ -121,8 +135,8 @@ Escape times (walked lanes, 4.5 m/s walking; a running speed is not defined in t
 | Station | Primary (m / s) | Backup (m / s) | Backup route |
 |---|---|---|---|
 | reactor (core) | 33.0 / 7.3 | 37.1 / 8.2 | SE stub exit, alley, spine end door, spine (or the east yard to the road: 38.5 m to the road) |
-| turbine (D01) | 70.5 / 15.7 | 161.9 / 36.0 | D02, north strip, east road, hall east door |
-| electrical (D01) | 101.3 / 22.5 | 101.2 / 22.5 | D02, east road, hall east door |
+| turbine (D01) | 70.5 / 15.7 | 153.3 / 34.1 | D02, north strip, east road, hall east door (161.9 m with the original turbine) |
+| electrical (D01) | 98.1 / 21.8 | 95.2 / 21.2 | D02, east road, hall east door (101.3 / 101.2 m with the original turbine) |
 | condenser bay | stair to the turbine (46.7 m to outside D02), then as the turbine | | one stair only (see open decisions) |
 | waste (receiving) | 57.8 / 12.9 | 69.1 / 15.4 | dispatch shutter, east road (personnel door: 30.0 m to the road) |
 | cooling (P01) | 91.8 / 20.4 | **69.9 / 15.5** | rear emergency door, west path, yard service door. The primary is long because the pool railing and the west stations close the reactor's west half between the W stub and the south door (walk-tested): the new exit is the faster way out. |
@@ -147,7 +161,7 @@ Meltdown walk test (`walk_test.py --meltdown`: the emergency exits' closed leave
 
 ## 3b. Door-frame audit (`door_audit.py`, `validation/door_audit.json`)
 
-Every map door (35) and every portal in the placed rooms' own contracts (7 more after removing duplicates; the fuel corridor's contract is F23ci's and is skipped, S1's ports are map doors) was ray-tested on both sides at two heights and three points across its middle 1.8 m: an open door or internal portal needs 1.2 m of clear space on both sides; a closed or emergency exit needs 1.5 m outside. **42 doors, 0 flagged**: no doorway opens onto a wall and no exit faces one. Two wide frames narrow onto a smaller passage (reported, not failed): the reactor's 5 m north stub ends on the turbine's 2.4 m D01 in its end wall, and the mine's 7.2 m portal mouth onto the timber-lined tunnel. Before this pass the audit would have passed the spine's end door too (its leaf faced 1.57 m of alley) although nothing was behind it; that one was found by the meltdown walk, which is why both tests are kept.
+Every map door (35) and every portal in the placed rooms' own contracts (8 more after removing duplicates; the fuel corridor's contract is F23ci's and is skipped, S1's ports are map doors) was ray-tested on both sides at two heights and three points across its middle 1.8 m: an open door or internal portal needs 1.2 m of clear space on both sides; a closed or emergency exit needs 1.5 m outside. **43 doors, 0 flagged** (re-run after the turbine rebuild swap: its new D02 exit faces 8.35 m of open strip, the electrical door 2.71 m of aisle, the stair door 2.51 m of landing): no doorway opens onto a wall and no exit faces one. Two wide frames narrow onto a smaller passage (reported, not failed): the reactor's 5 m north stub ends on the turbine's 2.4 m D01 (the clipped vestibule frame), and the mine's 7.2 m portal mouth onto the timber-lined tunnel. Before this pass the audit would have passed the spine's end door too (its leaf faced 1.57 m of alley) although nothing was behind it; that one was found by the meltdown walk, which is why both tests are kept.
 
 ## 4. Lighting (`validation/lighting.json`, `measure_lighting.py`)
 
@@ -155,10 +169,10 @@ Method: 23 views at 1.6 m eye height in every junction and on the evacuation rou
 
 | View | Median | P10 | Near-black | Clipped (any / white) | Result |
 |---|---|---|---|---|---|
-| reactor N stub (to turbine) | 0.714 | 0.388 | 0 % | 2.5 % / 0.0 % | ok |
-| turbine entry | 0.364 | 0.067 | 6 % | 1.3 % / 0.0 % | ok |
-| turbine east aisle to electrical | 0.442 | 0.179 | 1 % | 0.4 % / 0.0 % | ok |
-| electrical inside | 0.547 | 0.177 | 1 % | 2.7 % / 0.0 % | ok |
+| reactor N stub (to turbine) | 0.719 | 0.400 | 0 % | 3.6 % / 0.0 % | ok (7.2 % before the stub-end face was darkened, section 1a) |
+| turbine entry (v2 rebuild) | 0.202 | 0.046 | 10 % | 0.3 % / 0.0 % | ok (the rebuild is darker by design: was 0.364 with the original) |
+| turbine east aisle to electrical | 0.291 | 0.032 | 10 % | 0.5 % / 0.0 % | ok |
+| electrical inside | 0.547 | 0.184 | 1 % | 2.7 % / 0.0 % | ok |
 | reactor W stub to cooling | 0.543 | 0.198 | 3 % | 3.8 % / 0.1 % | ok |
 | cooling inside | 0.580 | 0.177 | 1 % | 3.1 % / 0.8 % | ok |
 | reactor to waste (east opening) | 0.316 | 0.143 | 4 % | 0.2 % / 0.0 % | ok |
@@ -202,17 +216,18 @@ No frame rate was measured: there is no runtime build. Static counts of the eval
 
 | | Triangles | Objects | Submeshes (draw calls before batching) | Lights (shadowed) | Textures |
 |---|---|---|---|---|---|
-| **whole map now** | **11,026,519** | 23,562 | 25,641 | 456 (418) | 110 images, 1,014 MB as RGBA8 with mips |
+| **whole map now** (turbine v2 rebuild) | **11,027,980** | 21,984 | 24,074 | 494 (456) | 133 images, 1,350 MB as RGBA8 with mips |
+| with the AAA finish of the original turbine (before the swap) | 11,026,519 | 23,562 | 25,641 | 456 (418) | 110 images, 1,014 MB |
 | of which the evacuation routes (paving, poles, signs, blast door) | 7,825 | | | 22 (22) | |
 | first assembly pass | 12,500,244 | 23,758 | 26,251 | 462 (424) | same |
 
 Per room (400k is the repository's per-room flag, 800k the front end's design budget): mine 3.31 M, **fuel corridor 1.64 M** (F23ci was 3.10 M), reactor 1.22 M, electrical 0.77 M, medical 0.60 M, front end 0.56 M, refinery 0.46 M, spawn 0.43 M, condenser 0.42 M, turbine 0.42 M, dock 0.42 M, waste 0.37 M, cooling 0.35 M; concourse, stair and signs 0.04 M. Ten rooms are over the flag.
 
 Proposals (not built):
-1. **Streaming by room**, using the portal graph from the door table. Worst-case visible sets through open doors: front end 5.80 M (it sees the mine, refinery, medical and spawn), mine 3.87 M, the concourse 3.43 M (corridor, front end and reactor), refinery 2.66 M, turbine 2.41 M, reactor 2.38 M (it no longer sees the whole corridor: was 5.10 M), fuel corridor 2.11 M (was 4.79 M); every other room under 1.6 M. The mine (tunnel / surface) is the one left to split.
+1. **Streaming by room**, using the portal graph from the door table. Worst-case visible sets through open doors: front end 5.80 M (it sees the mine, refinery, medical and spawn), mine 3.87 M, the concourse 3.43 M (corridor, front end and reactor), refinery 2.66 M, turbine 2.40 M, reactor 2.38 M (it no longer sees the whole corridor: was 5.10 M), fuel corridor 2.11 M (was 4.79 M); every other room under 1.6 M. The mine (tunnel / surface) is the one left to split.
 2. **LODs** first where one mesh is heavy: mine `R39 | Gravel tunnel` 444k, `R40 | Mine cliff` 352k, boulders 66 to 98k each (they share mesh data, so one LOD set serves all copies).
 3. **Batching**: unique meshes nearly equal objects in the overhauled rooms, so instancing buys little; static batching by material per room would cut 25k submeshes to roughly the material count per room.
-4. **Lights**: 418 shadow-casting lights (22 of them on the evacuation routes); the reactor carries 117 and the mine 64. Bake or limit shadows per room before any frame-rate test (baking is the last step and needs accepted lighting first).
+4. **Lights**: 456 shadow-casting lights (the turbine rebuild brings 60 of them) (22 of them on the evacuation routes); the reactor carries 117 and the mine 64. Bake or limit shadows per room before any frame-rate test (baking is the last step and needs accepted lighting first).
 
 ## 7. Travel times (`validation/walk_report.json` lane lengths)
 
@@ -223,8 +238,8 @@ Walking 4.5 m/s, loaded cart 1.5 m/s (README assumptions). Distances are the con
 | spawn -> reactor floor | 71.6 | 15.9 | | 90.2 |
 | spawn -> mine portal | 83.3 | 18.5 | | 83.3 |
 | medical -> reactor floor | 76.5 | 17.0 | | 95.0 |
-| reactor floor -> electrical (through the turbine) | 45.0 | 10.0 | | 45.0 |
-| reactor floor -> condenser bay (stair) | 54.6 | 12.1 | | 54.6 |
+| reactor floor -> electrical (through the turbine) | 42.0 | 9.3 | | 45.0 |
+| reactor floor -> condenser bay (stair) | 54.1 | 12.0 | | 54.6 |
 | reactor floor -> cooling | 15.0 | 3.3 | | 15.0 |
 | reactor floor -> waste receiving door | 22.6 | 5.0 | | about 30 (33.7 to 3.9 m inside waste) |
 | reactor floor -> dock (3.4 m past P1) | 30.4 | 6.8 | | 48.9 |
@@ -234,7 +249,7 @@ Walking 4.5 m/s, loaded cart 1.5 m/s (README assumptions). Distances are the con
 | the same on the shortest clear line (inside the gate's south post, diagonal across the concourse) | 41.4 | 9.2 | 27.6 | |
 | hall -> refinery (colonnade) | 31.6 | 7.0 | | 31.6 |
 | cafeteria -> medical | 23.0 | 5.1 | | 23.0 |
-| spawn -> electrical (farthest station) | 141.8 | 31.5 | | 160.9 |
+| spawn -> electrical (farthest station) | 138.7 | 30.8 | | 160.9 |
 | spawn -> waste (receiving door) | 93.9 | 20.9 | | |
 | mine portal -> electrical (composed from walked lanes, as before) | about 189 | 42 | | 208 |
 
@@ -258,6 +273,7 @@ Readiness checklist for whoever opens the editor: 1. decide the room export rout
 * Meltdown flow (section 3a): `evacuation.py` (new: evacuation road, paths, east yard, poles, signs, bulkheads, the cooling exit door, the reactor blast door), `patch_cooling` (the rear-wall cut), emergency-exit fields in the door table, the spine end door's opening, `evac_report.py` (new), `walk_test.py --meltdown`; `door_audit.py` (new, section 3b).
 * `assembly_colliders.py`, `walk_test.py`, `measure_lighting.py`, `check_footprints.py`, `draw_assembly_plan.py`, `perf_report.py` updated to the new layout (the scripts that run on a built scene read `scene['reactor_y']`). `greybox_fuel_test.py` is superseded (it refuses to run; use commit c25d102).
 * Evidence: `validation/` doors, colliders, walk reports, lighting, performance, overlaps, `compact_report.json` (the hall audit, now with no halls to audit); `renders/assembly/19_*` and `20_evac_*` (the first pass's `17_*` renders showed the old layout and were removed; they remain in the history); `export/`.
+* **Turbine rebuild swap** (section 1a): `build_compact_map.py` links `turbine-room/rebuild/turbine_room_v2_geo.blend`; `patch_turbine` rewritten for it, with the new loose-part helpers `take_parts` and `clip_parts`; `ELEC_DOOR_Y` 12.5, `STAIR_DOOR_Y` 12.975 with `ELEC_HW` / `STAIR_HW`; the stair's top landing follows the door. `evacuation.py` reads the turbine and electrical placements from the build module (north strip notch, electrical spur, lanes, signs, lamps). `walk_test.py` (turbine and electrical lanes, the D02 escape by the west aisle), `assembly_colliders.py`, `measure_lighting.py`, `check_footprints.py`, `draw_assembly_plan.py`, `evac_report.py` follow. New renders `21_turbine_*`.
 * `combined_map.blend` rebuilt from the final script. `build_combined_map.py`, `reactor_links.py` and every room source are unchanged.
 * Deliberately not done: any art pass on a room (the short corridor's closures are plain closures from its own parts, not an art pass); a review of S1; the gantry (no attachment spec); baking; LODs; Unity.
 
@@ -272,6 +288,7 @@ Readiness checklist for whoever opens the editor: 1. decide the room export rout
 7. AAA finishes' own open items (condenser and waste reach checks in their `reach-check.json`) are untouched.
 8. Performance: streaming split of the mine, LOD and shadow policy, once D-07 / D-09 budgets exist.
 9. The spine end door's glowing panel (5.8 % clipped in the spine view): leave, or dim it locally.
+10. **Turbine rebuild**: its own interior lighting is darker than the other rooms (turbine entry median 0.20, near-black 10 %; by the rebuild's design, not changed here). It has only its builder's review (about 79/100). The electrical room moved 6 m south to meet the rebuild's clear wall bay; the bay at the old position (y 18..22) could take the door only if its wall cabinet moved, a change to the done-and-dusted room.
 
 ## 11. What ran (exact)
 
@@ -279,9 +296,10 @@ Blender 5.2.2 LTS (downloaded to `/opt/blender52` in the container), headless. E
 * `build_short_corridor.py` (once, output committed); the S1 triangle count was then recounted on the saved file (1,650,355; the script's own log said 1,132,567 from a stale depsgraph, fixed in the script and noted in the `.json`).
 * `blender -b --factory-startup --python build_compact_map.py` (about 3 minutes; log: spine 6 moved, 20 left out, 7 clipped; reactor east opening 66 objects split; 32 door anchors; 117 colliders; stair 34 risers 30.5 degrees).
 * `plan_cut.py` (8 heights: 0.4, 1.1, 1.8, 2.8, 4.5, -3.5, -5.0, -5.6) + `check_overlaps.py`; `check_footprints.py`; box and hull areas from the 1.1 m cut.
-* `walk_test.py` (visual, 18 routes, 6 minutes), `walk_test.py --colliders` (9 routes) and `walk_test.py --meltdown` (18 escape legs); `evac_report.py`; `door_audit.py` (42 doors).
+* `walk_test.py` (visual, 18 routes, 6 minutes), `walk_test.py --colliders` (9 routes) and `walk_test.py --meltdown` (18 escape legs); `evac_report.py`; `door_audit.py` (43 doors).
 * `measure_lighting.py` (23 views).
 * `perf_report.py`; `export_unity.py` (export + re-import in an empty Blender process).
 * `validate_halls.py` (the older hall audit): `PASS (geometry audit only)` with **0 halls** (no `LINKS` hall is left in this layout; the concourse and spine are covered by the walk tests), written to `validation/compact_report.json`.
 * `render_views.py` (24 evidence views: `19_*` and `20_evac_*`) plus 14 of the lighting views copied as `19_walk_*`. Every image in `renders/assembly/19_*` was looked at; a stair-house exterior view rendered too dark at night to show anything and was not kept. Scratch renders were deleted.
+* After the turbine rebuild swap (2026-10-13, latest), on the rebuilt `combined_map.blend`: the full chain again (build; plan cut + `check_overlaps.py`: the old turbine-reactor intrusion is gone, the only new entry is the D02 EXIT sign on the vestibule face, placed there; the three walk modes: 17/18 (the cart route, as before), 9/9, 18/18, 11/11 closed doors block; `evac_report.py`; `door_audit.py` 43 doors, 0 flagged; `perf_report.py`; `export_unity.py` re-import PASS, 183 objects; `validate_halls.py`; `measure_lighting.py`; `render_views.py`, 27 views). Two fixes came out of it and were re-checked: the D02 cut band missed the vestibule's end wall (meltdown walk stuck; band moved, both turbine escape legs then pass), and the stub view clipped 7.2 % on the shell's south face (darkened; 3.6 %). The board text was shrunk off a wall conduit (renders re-made). Before cutting, the rebuild was inventoried part by part and ray-scanned for floor occupancy, and 12 single-view renders of its doors were looked at.
 Not run: Unity anything, a frame-rate test, an independent review, the room validators (including any validator on S1), a human playtest.

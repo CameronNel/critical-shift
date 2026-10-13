@@ -98,7 +98,7 @@ def build(root, L):
     hall_x(c, 'reactor west stub', -14.5, -10.8, RY, 5.8, 5.0)
     # junction thresholds through the new wall openings (floor plates spanning the wall thickness, heads)
     for zone, xr, yc, w, h in (('reactor-waste junction', (10.8, L.WASTE[0] - 0.32), L.WASTE[1], L.WASTE_HOLE[1] - L.WASTE_HOLE[0], L.WASTE_HOLE[2]),
-                               ('spine-dock junction', (9.85, L.DOCK[0]), L.DOCK[1], 2.4, 2.6), ('turbine-electrical junction', (10.0, L.ELEC[0] + 0.2), L.ELEC[1], 2.4, 2.7)):
+                               ('spine-dock junction', (9.85, L.DOCK[0]), L.DOCK[1], 2.4, 2.6), ('turbine-electrical junction', (10.0, L.ELEC[0] + 0.2), L.ELEC[1], 2 * L.ELEC_HW, 2.7)):
         box(c, zone + ' floor', xr, (yc - w / 2 - 0.3, yc + w / 2 + 0.3), (-0.3, 0.0), 'floor', zone)
         box(c, zone + ' head', xr, (yc - w / 2, yc + w / 2), (h, h + 0.3), 'roof', zone)
         if zone == 'reactor-waste junction':   # jambs: the wall either side of the opening
@@ -106,9 +106,9 @@ def build(root, L):
         if zone == 'spine-dock junction':      # the dock P1 tube walls (module x +-1.2..1.3, y -2.0..0)
             box(c, zone + ' tube north', (10.15, L.DOCK[0]), (yc + 1.2, yc + 1.3), (0, 2.6), 'wall', zone); box(c, zone + ' tube south', (10.15, L.DOCK[0]), (yc - 1.3, yc - 1.2), (0, 2.6), 'wall', zone)
             box(c, zone + ' tube floor', (10.15, L.DOCK[0]), (yc - 1.3, yc + 1.3), (-0.3, 0.0), 'floor', zone)
-    # condenser stair: top landing, a ramp along the flight's pitch line (34 risers, 30.5 degrees: under a 45 degree slope limit), shaft walls, the lower corridor
+    # condenser stair: top landing, a ramp along the flight's pitch line (34 risers, about 31 degrees: under a 45 degree slope limit), shaft walls, the lower corridor
     S = L.ST; z1 = -S['drop']; zone = 'condenser stair'
-    yd0, yd1 = L.TURB[1] + L.STAIR_DOOR_Y - 1.0, L.TURB[1] + L.STAIR_DOOR_Y + 1.0
+    yd0, yd1 = L.TURB[1] + L.STAIR_DOOR_Y - L.STAIR_HW, L.TURB[1] + L.STAIR_DOOR_Y + L.STAIR_HW
     box(c, 'stair top landing', (S['xw'], S['xe'] + S['t']), (S['ytop'], S['yn']), (-0.3, 0.0), 'floor', zone)
     slab(c, 'stair ramp', ((S['xw'] + S['xe']) / 2, S['ytop'], 0.0), ((S['xw'] + S['xe']) / 2, S['ybot'], z1), (S['xe'] - S['xw']) / 2, 0.3, 'ramp', zone)
     box(c, 'stair west wall', (S['xw'] - S['t'], S['xw']), (S['cy0'], S['yn'] + S['t']), (z1, S['roof']), 'wall', zone)

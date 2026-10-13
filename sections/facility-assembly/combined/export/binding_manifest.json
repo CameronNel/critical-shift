@@ -3,13 +3,13 @@
  "source": {
   "scene": "sections/facility-assembly/combined/combined_map.blend",
   "builder": "build_compact_map.py",
-  "git_revision_at_export": "0e0c165bc61866641995f519db8b3787121305f5",
+  "git_revision_at_export": "87c79e1ec22cf464760a5070d0ac5054d96bd7b1",
   "blender": "5.2.2 LTS"
  },
  "export": {
   "format": "FBX",
   "file": "compact_map_colliders_anchors.fbx",
-  "sha256": "2908b105425dbeae45b6efd10ba914304302ba7e90d29d0d364f269c849d5475",
+  "sha256": "f4138076a1153b97665cb5574d2d6dc3f018595cb57157e6ab6a195a0909e190",
   "settings": {
    "use_selection": true,
    "object_types": [
@@ -88,7 +88,7 @@
    "source": "electrical-room/overhaul/checkpoints/full-R11.blend",
    "translation": [
     10.5,
-    14.3,
+    8.3,
     0.0
    ],
    "rotation_z_deg": -90.0
@@ -165,7 +165,7 @@
   },
   {
    "room": "turbine-room",
-   "source": "turbine-room/module_overhaul_R1.blend",
+   "source": "turbine-room/rebuild/turbine_room_v2_geo.blend",
    "translation": [
     0.0,
     -4.2,
@@ -200,8 +200,8 @@
  "runtime_owner": "UNRESOLVED: no runtime owner for map collision or doors is decided (design/code-architecture DECISIONS_AND_RISKS); doors would belong to the Interaction feature per STATE_AND_CONTRACTS, not decided here",
  "reimport_check": {
   "fbx": "compact_map_colliders_anchors.fbx",
-  "sha256": "2908b105425dbeae45b6efd10ba914304302ba7e90d29d0d364f269c849d5475",
-  "bytes": 396764,
+  "sha256": "f4138076a1153b97665cb5574d2d6dc3f018595cb57157e6ab6a195a0909e190",
+  "bytes": 396108,
   "exported": 183,
   "reimported": 183,
   "missing": [],

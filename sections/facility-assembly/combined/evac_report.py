@@ -82,7 +82,7 @@ def main(out):
     times = {
         'reactor (core)': (ln('evac_reactor_via_tunnel_to_hall'), ln('evac_reactor_SE_to_spine'), 'SE stub emergency exit, alley, spine end door, spine'),
         'turbine (D01)': (ln('primary_turbine_via_reactor'), round(ln('evac_turbine_D02_to_road') + road, 1) if ln('evac_turbine_D02_to_road') and road else None, 'D02, north strip, east road, hall east door'),
-        'electrical (D01)': (ln('primary_electrical_via_reactor'), on_road('evac_electrical_D02_to_road', 14.3), 'D02, east road, hall east door'),
+        'electrical (D01)': (ln('primary_electrical_via_reactor'), on_road('evac_electrical_D02_to_road', RY + 27.0), 'D02, east road, hall east door'),
         'waste (receiving)': (ln('primary_waste_via_reactor'), on_road('evac_waste_dispatch_to_road', RY + 3.86), 'dispatch shutter, east road, hall east door'),
         'cooling (P01)': (ln('primary_cooling_via_reactor'), ln('evac_cooling_west_to_yard'), 'rear emergency door, west path, yard service door'),
         'dock (P1)': (ln('primary_dock_via_spine'), None, 'none: P1 is the dock\'s only door; P2 is its sealed arrival (contract)'),

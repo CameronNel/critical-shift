@@ -16,7 +16,7 @@ def r(x, y, z): return (x, y + RY, z)
 CY = RY - 17.2; WY = RY + 3.86
 VIEWS = {   # name: eye, target, lens (mm); plan metres
     'reactor_N_stub': (r(0, 7.5, 1.6), r(0, 16, 1.4), 18), 'turbine_entry': (r(0, 16.0, 1.6), r(0, 30, 1.6), 18),
-    'turbine_east_aisle_to_electrical': (r(7.8, 29.0, 1.6), r(12, 33, 1.4), 18), 'electrical_inside': (r(11.5, 33, 1.6), r(24, 33, 1.4), 18),
+    'turbine_east_aisle_to_electrical': (r(7.55, 22.0, 1.6), r(12, 27.0, 1.4), 18), 'electrical_inside': (r(11.5, 27.0, 1.6), r(24, 27.0, 1.4), 18),
     'reactor_W_stub_to_cooling': (r(-11.2, 0, 1.6), r(-20, 0, 1.4), 18), 'cooling_inside': (r(-15.5, 0, 1.6), r(-26, 0, 1.4), 18),
     'reactor_to_waste': ((7.0, WY, 1.6), (20, WY, 1.4), 18), 'waste_inside': ((12.6, WY, 1.6), (26, WY, 1.2), 18),
     'spine_to_dock': ((8.5, -40.39, 1.6), (20, -40.39, 1.3), 18), 'dock_inside': ((13.8, -40.39, 1.6), (26, -40.39, 1.2), 18),

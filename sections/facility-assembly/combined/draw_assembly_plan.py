@@ -35,7 +35,7 @@ for d in json.load(open(doors))['doors']:
 RY = -18.7      # build_compact_map.RY: the reactor cluster's labels are reactor-local + RY
 LABELS = {'ROOM_front-end-area': (8, -66, 'cafeteria'), 'ROOM_spawn-room': (8, -99, 'spawn'), 'ROOM_mine': (-50, -76, 'mine portal'), 'ROOM_refinery': (-26, -49, 'refinery'),
           'ROOM_medical-reanimation': (32, -70, 'medical'), 'ROOM_fuel-corridor': (-15, -34, 'fuel corridor'), 'ROOM_reactor-room': (0, RY, 'REACTOR'), 'ROOM_turbine-room': (2.8, 36 + RY, 'turbine'),
-          'ROOM_electrical-room': (19, 31 + RY, 'electrical'), 'ROOM_condenser-bay': (6, 30.5 + RY, '(condenser, -6 m)'), 'ROOM_waste-storage': (21, 4 + RY, 'waste'), 'ROOM_cooling-plant': (-22, 4 + RY, 'cooling'),
+          'ROOM_electrical-room': (19, 25 + RY, 'electrical'), 'ROOM_condenser-bay': (6, 30.5 + RY, '(condenser, -6 m)'), 'ROOM_waste-storage': (21, 4 + RY, 'waste'), 'ROOM_cooling-plant': (-22, 4 + RY, 'cooling'),
           'ROOM_compliance-dock': (21, -45, 'dock'), 'hall': (8, -54, 'hall'), 'yard': (-32, -80, 'yard'), 'spine': (8, -44, 'spine'), 'concourse': (0, -36, 'concourse'), 'stair': (-9.5, 22 + RY, 'stair')}
 if len(sys.argv) > 7 and sys.argv[7] == 'greybox':        # greybox_fuel_test.py (reactor centre y -20.6, grey fuel corridor)
     for k in ('ROOM_reactor-room', 'ROOM_turbine-room', 'ROOM_electrical-room', 'ROOM_condenser-bay', 'ROOM_cooling-plant', 'ROOM_waste-storage', 'stair'):

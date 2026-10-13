@@ -1,11 +1,25 @@
-# Compact layout: the main map (2026-10-12, assembly pass and short fuel corridor 2026-10-13)
+# Compact layout: the main map (2026-10-12, assembly pass, short fuel corridor and turbine rebuild 2026-10-13)
 
 **Unreviewed, not accepted.** Owner instructions: "the map should be as compact as possible ... make this thing as close knit and tight as possible. Reuse what you can", then "Use the compact layout as the main map".
 For the assembly pass (2026-10-13) the owner added: "Ignore all previous specs and planning docs - build and decide what comes where on your own with the goal of the most compact and logical map possible ... Move around, rotate, transform, structural changes etc are all allowed. Measure, plan, execute autonomously", and "do not ask me questions".
 `combined_map.blend` is built by `build_compact_map.py` (it imports `build_combined_map.py` and overrides placements, halls and patches). `COMBINED_MAP.md` keeps the decision record of the older spread-out layout; its measurements and door data still stand where this file does not supersede them.
 Never hand-edit `combined_map.blend`. Rebuild: `blender --background --factory-startup --python build_compact_map.py`. Results, tests and open decisions of the assembly pass: **`ASSEMBLY_REPORT.md`**.
 
-## Meltdown flow (2026-10-13, current; details in ASSEMBLY_REPORT.md sections 3a and 3b)
+## Turbine rebuild swap (2026-10-13, latest; details in ASSEMBLY_REPORT.md section 1a)
+
+Owner: "swap in the turbine rebuild". The turbine is now the **v2 rebuild** (`sources/turbine-room/rebuild/turbine_room_v2_geo.blend`, collection `TURBINE_ROOM_V2`, merged in #63; its only review is the builder's own, about 79/100), not the AAA finish of the original module. Same envelope (walls x -4..10, y 0..24, a 0.25 m light-occluder shell outside them) and the same door centres, so it keeps the original's placement: south wall face on the reactor north stub end, plan (0, -4.2). The room file is not edited; everything below is a local change in `patch_turbine`.
+
+| Item | AAA finish of the original (until now) | v2 rebuild |
+|---|---|---|
+| D01 (reactor) | sliding pair, parked | 1.9 m vestibule ending in a closed-door panel, reaching into the reactor stub: **clipped at y -0.3** with its panel (the original's wall reached -0.36) |
+| D02 (north) | parked pair slid shut, emergency exit | same vestibule: its **end panel is the closed leaf** (1.44 x 2.38 m), the wall behind it opened; the strip's apron is notched round the vestibule; outside, the vestibule is clad in concrete with a steel frame and the exit lamp |
+| Electrical door (east wall) | turbine y 18.5, between columns at 16 and 21 | **turbine y 12.5** (2.4 x 2.7 m, y 11.3..13.7), the rebuild's clear bay between the columns at 10 and 14 (the 18..22 bay holds a wall cabinet and the tank's end). The **electrical room moves 6.0 m south** with it: plan (10.5, 8.3), its north face at y 14.05 |
+| Stair door (west wall) | y 13.45, 2.0 m | **y 12.975, 1.55 m** (12.2..13.75): the bay between the columns at 10 and 14, whose MIND YOUR HEAD poster and first-aid sign go; the stair's top landing starts at y 12.0, so its 34 risers are on 0.291 m goings (31.2 degrees, was 30.5) |
+| Exterior | concrete walls | the rebuild's walls are interior skins inside a **black** occluder shell; its 86 outer-plane faces take the front end's `concrete_slab` (the shell's inner faces stay black and hidden). Door cuts in the shell are lined with steel reveals and thresholds |
+| Signs | relabelled D02 text | the two TO ELECTRICAL signs over D02 (the lettered header board and a decal over the end panel) go; a new board EMERGENCY EXIT, a panel label EXIT and the green EXIT box replace them. TO REACTOR over D01 is right and stays |
+| Left out | | cameras, the `MOON_EAST` sun lamp (it would light the whole map), the render-hidden haze box |
+
+## Meltdown flow (2026-10-13; details in ASSEMBLY_REPORT.md sections 3a and 3b)
 
 Every station north of the front end used to leave only through the reactor hall, which had one exit. `evacuation.py` adds a paved, lit **east evacuation road** (the yard's own wet concrete, LED poles and pole spotlights) that the former dead-end doors open onto as **emergency exits** (reactor SE stub, turbine D02, electrical D02, waste personnel and dispatch, the spine's end door), running to the hall's east door; a **west path** from a new emergency door in the cooling plant's rear wall to the yard's service door; a **reactor blast door** (sliding pair, parked open) at the tunnel's concourse end; lit EXIT signs, bulkhead lamps and painted arrows. The spine's end door had no opening behind its leaf (a solid panel): it has one now. Results: every station except the condenser bay (one stair) and the dock (one door; P2 sealed by contract) keeps a way out after any single door fails, and every station still gets out with both blast doors shut (`evac_report.py`); 18/18 escape legs walk (`walk_test.py --meltdown`); 42 doors audited, none faces a wall (`door_audit.py`).
 
@@ -23,7 +37,7 @@ After the grey-box test (`GREYBOX_FUEL_TEST.md`) the owner said "yes do the rebu
 |---|---|---|---|
 | Fuel corridor | F23ci at (-22.2, -43.6), rot 0; 38.2 m freight path, F02 north | **S1** at (-22.2, -43.6), rot 0; F01 to F02E about 26 m | refinery fuel door (unchanged) |
 | Reactor | (0, 0) | **(0, -18.7)** | concourse depth and F02E (above) |
-| Turbine / electrical / condenser / cooling | (0, 14.5) / (10.5, 33.0) / (1.6, 21.9, -6) / (-14.5, 0) | **+RY**: (0, -4.2) / (10.5, 14.3) / (1.6, 3.2, -6) / (-14.5, -18.7) | unchanged relative to the reactor |
+| Turbine / electrical / condenser / cooling | (0, 14.5) / (10.5, 33.0) / (1.6, 21.9, -6) / (-14.5, 0) | **+RY**: (0, -4.2) / (10.5, 14.3) / (1.6, 3.2, -6) / (-14.5, -18.7); electrical (10.5, 8.3) since the turbine rebuild swap | unchanged relative to the reactor |
 | Waste (AAA) | (10.47, -25.48), rot -90, spine east wall | **(11.94, -14.84), rot -90**, reactor east wall opening | reactor east outer face x 11.6; opening centre reactor-local y 3.86 between the lockers (to y 2.42) and the column plinth (from 5.29) |
 | Compliance dock | (12.15, -40.39), rot -90 | unchanged | spine east face |
 | Concourse | x -10.8..6.15, y -19.6..-14.8 | **x -5.46..6.15, y -38.3..-33.5** | F02E, spine west face, reactor south door |

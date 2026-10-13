@@ -4,8 +4,8 @@
   [
    "turbine-room",
    "TURBINE_D02",
-   32,
-   "sliding leaves moved 1.37 m to the closed position"
+   2,
+   "the vestibule end panel kept closed as the leaf; the end wall behind it opened 1.44 x 2.38 m"
   ],
   [
    "electrical-room",
@@ -437,10 +437,10 @@
    ],
    "clear_w": 2.4,
    "clear_h": 2.7,
-   "kind": "two opposed sliding leaves",
+   "kind": "opening (rebuild south vestibule, clipped at the reactor stub)",
    "state": "open",
    "leads_to": "reactor north stub",
-   "leaf": "contract: parked in module pockets",
+   "leaf": "the vestibule end panel (a closed-door graphic) is left out with the clipped vestibule",
    "emergency_exit": false,
    "evac_state": "open",
    "leaf_regex": ""
@@ -450,29 +450,29 @@
    "owner": "turbine-room",
    "plan": [
     0.0,
-    19.8,
+    21.53,
     0.0
    ],
    "outward": [
     0.0,
     1.0
    ],
-   "clear_w": 2.4,
-   "clear_h": 2.7,
-   "kind": "two opposed sliding leaves",
+   "clear_w": 1.44,
+   "clear_h": 2.38,
+   "kind": "single panel at the end of the rebuild north vestibule",
    "state": "closed",
    "leads_to": "east evacuation road (north strip)",
-   "leaf": "D02 electrical parked leaf pair moved shut (local copies)",
+   "leaf": "the vestibule end panel (local copies) kept shut; the end wall behind it is opened",
    "emergency_exit": true,
    "evac_state": "open",
-   "leaf_regex": "^(D02\\ electrical\\ parked\\ leaf\\ closed|D02\\ electrical\\ leaf\\ inset\\ closed|D02\\ electrical\\ kick\\ plate\\ closed|D02\\ electrical\\ pull\\ pocket\\ closed|D02\\ electrical\\ leaf\\ fastener\\ closed|D02\\ electrical\\ leaf\\ fastener\\.001\\ closed|D02\\ electrical\\ leaf\\ fastener\\.002\\ closed|D02\\ electrical\\ leaf\\ fastener\\.003\\ closed|D02\\ electrical\\ suspension\\ roller\\ closed|D02\\ electrical\\ suspension\\ roller\\.001\\ closed|D02\\ electrical\\ parked\\ leaf\\.001\\ closed|D02\\ electrical\\ leaf\\ inset\\.001\\ closed|D02\\ electrical\\ kick\\ plate\\.001\\ closed|D02\\ electrical\\ pull\\ pocket\\.001\\ closed|D02\\ electrical\\ leaf\\ fastener\\.004\\ closed|D02\\ electrical\\ leaf\\ fastener\\.005\\ closed|D02\\ electrical\\ leaf\\ fastener\\.006\\ closed|D02\\ electrical\\ leaf\\ fastener\\.007\\ closed|D02\\ electrical\\ suspension\\ roller\\.002\\ closed|D02\\ electrical\\ suspension\\ roller\\.003\\ closed|Door\\ kickplate\\ scuff\\ closed|Door\\ kickplate\\ scuff\\.001\\ closed|Door\\ localized\\ primer\\ closed|Door\\ localized\\ primer\\.001\\ closed|Door\\ localized\\ primer\\.002\\ closed|Door\\ localized\\ primer\\.003\\ closed|Door\\ localized\\ primer\\.004\\ closed|Door\\ localized\\ primer\\.005\\ closed|Kickplate\\ cart\\ rub\\ closed|Kickplate\\ cart\\ rub\\.001\\ closed|Kickplate\\ cart\\ rub\\.002\\ closed|Kickplate\\ cart\\ rub\\.003\\ closed)$"
+   "leaf_regex": "^(TURBINE_ARCH\\ clipped\\ D02\\ leaf|OCCLUDER_ONLY\\ skin\\ clipped\\ D02\\ leaf)$"
   },
   {
    "id": "TURBINE_E_ELECTRICAL",
    "owner": "turbine-room",
    "plan": [
-    10.125,
-    14.3,
+    10.1,
+    8.3,
     0.0
    ],
    "outward": [
@@ -494,7 +494,7 @@
    "owner": "electrical-room",
    "plan": [
     10.5,
-    14.3,
+    8.3,
     0.0
    ],
    "outward": [
@@ -516,7 +516,7 @@
    "owner": "electrical-room",
    "plan": [
     26.9,
-    14.3,
+    8.3,
     0.0
    ],
    "outward": [
@@ -537,15 +537,15 @@
    "id": "TURBINE_W_STAIR",
    "owner": "turbine-room",
    "plan": [
-    -4.125,
-    9.25,
+    -4.1,
+    8.775,
     0.0
    ],
    "outward": [
     -1.0,
     0.0
    ],
-   "clear_w": 2.0,
+   "clear_w": 1.55,
    "clear_h": 2.6,
    "kind": "opening (new cut)",
    "state": "open",

@@ -6,7 +6,7 @@ Why (design/GAME_SPEC.md section 18): stage 5 of a meltdown brings "door failure
 workers, escape". Before this pass every station north of the front end (turbine, electrical, condenser, cooling, waste) could only leave through the reactor hall
 itself, and the reactor hall had one way out (the south tunnel). Now:
   * EAST: a paved, lit evacuation road along the east side. The doors that faced nothing open onto it as emergency exits: reactor SE stub, waste personnel and
-    dispatch, electrical D02, turbine D02 (by a strip past the turbine's north end), and the spine's end door (by a short alley between the reactor and the dock).
+    dispatch, electrical D02, turbine D02 (its north vestibule, by a strip past the turbine's north end), and the spine's end door (by a short alley between the reactor and the dock).
     The road runs south to the hall's east door, behind the spine blast door, and so to the cafeteria, the yard and the yard evacuation gate.
   * WEST: a new emergency door in the cooling plant's rear wall and a paved path south, past the refinery's west face, to the yard's north service door.
   * SEAL: a sliding blast door pair at the reactor tunnel's concourse end (parked open), so the chamber can be sealed; the front end's spine blast door already seals the
@@ -17,6 +17,10 @@ from mathutils import Vector, Matrix
 
 FE_LIB = 'front_end_area.blend'
 APRON_Z = (-0.3, 0.0)
+_L = None        # the build module (set by build()): the turbine and electrical placements below are read from it
+
+def _ey(): return _L.ELEC[1] if _L else 14.3                    # electrical centre line (plan y): its D02 faces east onto the road
+def _vy(): return _L.TURB[1] + 25.76 if _L else 21.0           # outer end of the turbine's north (D02) vestibule (rebuild: module y 25.76)
 
 # ---- paved areas (plan metres). Polygons are counter-clockwise; every one is checked against the plan cut in ASSEMBLY_REPORT.md section 3. ----
 def east_polys(RY):
@@ -24,10 +28,11 @@ def east_polys(RY):
         # alley north of the spine end door and the yard between the reactor's SE stub, waste (south face y -21.2) and the dock (north wall y -33.29)
         'east yard': [(2.85, -33.22), (32.4, -33.22), (32.4, -21.25), (11.65, -21.25), (11.65, -26.36), (13.08, -27.79), (9.04, -31.83), (7.55, -30.37), (2.85, -30.37)],
         'east road': [(32.4, -50.5), (36.4, -50.5), (36.4, 25.0), (32.4, 25.0)],
-        'north strip': [(-4.5, 21.0), (32.4, 21.0), (32.4, 25.0), (-4.5, 25.0)],
-        'north strip west of D02': [(-4.5, 20.07), (-1.47, 20.07), (-1.47, 21.0), (-4.5, 21.0)],          # the turbine D02 porch keeps its own floor (x +-1.45, y 20.05..21.0)
+        # the turbine's north vestibule (x +-1.44, out to _vy()) keeps its own floor: the strip is notched round it
+        'north strip': [(-4.5, 21.0), (-1.47, 21.0), (-1.47, _vy()), (1.47, _vy()), (1.47, 21.0), (32.4, 21.0), (32.4, 25.0), (-4.5, 25.0)],
+        'north strip west of D02': [(-4.5, 20.07), (-1.47, 20.07), (-1.47, 21.0), (-4.5, 21.0)],
         'north strip east of D02': [(1.47, 20.07), (32.4, 20.07), (32.4, 21.0), (1.47, 21.0)],
-        'electrical D02 spur': [(27.3, 12.3), (32.4, 12.3), (32.4, 16.3), (27.3, 16.3)],
+        'electrical D02 spur': [(27.3, _ey() - 2.0), (32.4, _ey() - 2.0), (32.4, _ey() + 2.0), (27.3, _ey() + 2.0)],
         'waste dispatch spur': [(30.32, -16.9), (32.4, -16.9), (32.4, -12.8), (30.32, -12.8)],
         'hall canopy apron': [(32.4, -57.0), (40.4, -57.0), (40.4, -50.5), (32.4, -50.5)],
     }
@@ -43,7 +48,7 @@ def west_polys(RY):
 def east_lines(RY):
     return [([(0.0, 22.6), (34.4, 22.6), (34.4, -50.0), (38.0, -52.5), (37.2, -54.0)], 7.0),
             ([(12.4, -31.2), (22.0, -27.5), (34.4, -27.5)], 6.0),
-            ([(29.3, 14.3), (34.4, 14.3)], 0), ([(31.3, -14.84), (34.4, -14.84)], 0)]
+            ([(29.3, _ey()), (34.4, _ey())], 0), ([(31.3, -14.84), (34.4, -14.84)], 0)]
 
 def west_lines(RY):
     return [([(-29.0, -17.0), (-36.5, -17.0), (-36.5, -58.2), (-46.0, -58.2), (-46.0, -59.6)], 7.0)]
@@ -172,7 +177,8 @@ def cooling_exit(coll, L, M):
 
 def build(root, L):
     """Returns {door id: leaf regex} for the emergency exits it equips."""
-    coll = bpy.data.collections.new('EXTERIOR_evacuation'); root.children.link(coll)
+    global _L
+    _L = L; coll = bpy.data.collections.new('EXTERIOR_evacuation'); root.children.link(coll)
     RY = L.RY
     apron = fe_mat('apron_wet', mat('EVAC apron concrete', (0.32, 0.32, 0.31), 0.8))
     paint = fe_mat('paint', mat('EVAC lane yellow', (0.75, 0.55, 0.05), 0.6))
@@ -197,11 +203,11 @@ def build(root, L):
     spot_src = next((o for o in bpy.data.objects if o.name == 'LIGHT_pole_0' and o.library), None)
     for i, (x, y, yaw) in enumerate(poles(RY)): lamp_pole(coll, 'EVAC pole %02d' % i, x, y, yaw, pole_src, spot_src)
     # exit signs inside each emergency exit (facing into the room) and bulkhead lamps outside
-    SIGNS = [('reactor SE stub', (10.8, -29.5, 4.62), 135.0), ('turbine D02', (0.0, 19.55, 3.62), -90.0), ('electrical D02', (26.55, 14.3, 2.98), 180.0),
+    SIGNS = [('reactor SE stub', (10.8, -29.5, 4.62), 135.0), ('turbine D02', (0.0, _vy() - 1.99, 2.83), -90.0), ('electrical D02', (26.55, _ey(), 2.98), 180.0),
              ('waste dispatch', (29.55, L.WASTE[1], 3.08), 180.0), ('waste personnel', (14.34, -20.75, 2.55), 90.0), ('cooling exit', (-27.4, sum(L.COOL_EXIT_Y) / 2, 2.62), 0.0),
              ('spine end', (8.0, L.SPINE_END - 0.3, 3.72), -90.0)]
     for nm, loc, f in SIGNS: exit_sign(coll, 'EVAC exit sign ' + nm, loc, f, M)
-    BULK = [('reactor SE stub', (11.25, -29.95, 5.25), -45.0), ('turbine D02', (0.0, 20.12, 3.4), 90.0), ('electrical D02', (27.6, 14.3, 3.1), 0.0), ('waste dispatch', (30.45, L.WASTE[1], 3.25), 0.0),
+    BULK = [('reactor SE stub', (11.25, -29.95, 5.25), -45.0), ('turbine D02', (0.0, _vy() + 0.29, 2.67), 90.0), ('electrical D02', (27.6, _ey(), 3.1), 0.0), ('waste dispatch', (30.45, L.WASTE[1], 3.25), 0.0),
             ('waste personnel', (14.34, -21.35, 2.65), -90.0), ('cooling exit', (-27.95, sum(L.COOL_EXIT_Y) / 2, 2.7), 180.0), ('spine end', (8.0, L.SPINE_END + 0.2, 3.85), 90.0),
             ('hall east canopy', (35.85, -54.0, 3.25), 0.0)]
     for nm, loc, f in BULK: bulkhead(coll, 'EVAC bulkhead ' + nm, loc, f, M)

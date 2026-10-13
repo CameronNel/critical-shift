@@ -11,8 +11,9 @@ Layout ("street" layout, short fuel corridor; 2026-10-13). The front block (fron
 refinery and the refinery fuel door fixes the fuel corridor. The fuel corridor is the SHORT corridor S1 (sections/fuel-corridor/blender/build_short_corridor.py: F23ci
 with its north half removed and its waste-transfer door moved to the east wall as the reactor door F02E; owner: "yes do the rebuild to the same graphical fidelity").
 Its east door sets the concourse, and the concourse sets the reactor, which moves RY = -18.7 m south (0.47 m clear of the corridor's new north wall). The rest moves with it:
-  * turbine on the reactor north stub, condenser bay under it, reached by a new stair from a door in the turbine's west wall;
-  * electrical on the turbine's east flank, through a new 2.4 m door between two wall columns (turbine-local y 18.5);
+  * turbine (the v2 REBUILD, turbine_room_v2_geo.blend, since 2026-10-13 on the owner's "swap in the turbine rebuild") on the reactor north stub, condenser bay
+    under it, reached by a new stair from a door in the turbine's west wall; its north vestibule door D02 is an emergency exit;
+  * electrical on the turbine's east flank, through a new 2.4 m door in the clear wall bay between the columns at y 10 and 14 (turbine-local y 12.5);
   * waste on the reactor's east wall, through a new 2.84 m opening cut in the wall's patch panel (the reactor had a 4 m panel there);
   * the compliance dock on the spine's east wall; the front end's spine is shortened to 14.8 m (its end door moved with the reactor, the bays between left out);
   * the concourse joins the corridor's F02E door, the shortened spine and the reactor south door; cooling stays on the reactor west stub.
@@ -35,14 +36,17 @@ RY = -18.7               # reactor centre, plan y: the concourse (reactor y - 19
 REACTOR = (0.0, RY, 0.0)
 TURB = (0.0, RY + 14.5, 0.0)  # turbine end wall face (module y 0) on the reactor north stub end (reactor-local y 14.5)
 COND = (TURB[0] + 1.6, TURB[1] + 7.4, -6.0)       # condenser bay under the turbine (its CONNECTIONS.md: turbine = local + (1.6, 7.4, -6.0))
-ELEC_DOOR_Y = 18.5       # turbine-local y of the new east door: clear bay between wall columns at y 16 and 21 (feet +-0.32) and past the condensate return (ends y 16.8)
-ELEC = (10.25 + 0.25, TURB[1] + ELEC_DOOR_Y, 0.0) # electrical D01 exterior face (module y -0.25) on the turbine east wall outer face (module x 10.25); rotation -90: D01 faces west
+ELEC_DOOR_Y = 12.5       # turbine-local y of the new east door (2.4 m, y 11.3..13.7): rebuild wall bay between the columns at y 10 and 14 (flanges 9.85..10.15, 13.85..14.15), north of the
+                         # wall cabinet (ends y 11.2); the bay's only wall item, the DB-04 board (y 12.1..12.7), goes with the cut. Ray-scanned floor plan: aisle x 7.05..8.05 clear from D01
+ELEC_HW = 1.2
+ELEC = (10.25 + 0.25, TURB[1] + ELEC_DOOR_Y, 0.0) # electrical D01 exterior face (module y -0.25) on the turbine shell outer face (rebuild OCCLUDER_ONLY, module x 10.25); rotation -90: D01 faces west
 WASTE_HOLE = (2.44, 5.28, 3.2)                    # reactor-local y range and head of the east opening: inside the 4 m patch panel (y 1.6..5.6), clear of the lockers (to y 2.42) and the column plinth (from 5.29)
 WASTE = (11.62 + 0.32, RY + (WASTE_HOLE[0] + WASTE_HOLE[1]) / 2, 0.0)   # waste WS_RECEIVING exterior face (module y -0.32) on the reactor's east outer face (x 11.6, plan cut); rotation -90: receiving faces west
 DOCK = (SPINE_E + 2.0, -40.39, 0.0)              # dock P1 corridor (module y -2.0..0, back wall omitted) starts on the spine east face; rotation -90, P2 faces east (outside)
 COOL = (-14.5, RY, 0.0)                          # cooling CP-P01 on the reactor west stub end
 COOL_EXIT_Y = (-17.8, -16.2)  # plan y of the cooling plant's new rear-wall emergency door (1.6 x 2.35 m; rear wall clear between the maintenance alcove (y -20.3) and the north wall)
-STAIR_DOOR_Y = 13.45     # turbine-local y of the condenser stair door (west wall): bay between columns at y 11 and 16, clear of the power conduit (ends y 12.4), 2.0 m wide
+STAIR_DOOR_Y = 12.975    # turbine-local y of the condenser stair door (west wall, 1.55 m, y 12.2..13.75): rebuild bay between the columns at y 10 and 14, the stair's top landing starts at 12.0;
+STAIR_HW = 0.775         # the bay's MIND YOUR HEAD poster and first-aid sign go with the cut (the STEAM poster at y 10.9..11.5 stays)
 # reactor south concourse (plan): the corridor's east face to the spine's west inner face; same depth and height as build_combined_map.CONC, moved with the reactor
 CONC = {'x0': F02E[0], 'x1': 6.15, 'y0': RY - 19.6, 'y1': RY - 14.8, 'wall': 0.3, 'roof': 5.9, 'slab': 0.25}
 FE_LOC = (8.0, -80.0)    # front-end placement
@@ -61,10 +65,14 @@ NEW += [
     ('reactor-room', BM.REACTOR_LIB, BM.REACTOR_COLLECTIONS, REACTOR, 0.0,
      'Candidate A (the refined hall), no rotation, moved to plan y %.1f so its south door meets the concourse in front of the short corridor. New local cuts: south door '
      '(reactor_links), east waste opening through the patch panel.' % RY),
-    ('turbine-room', 'turbine-room/module_overhaul_R1.blend', 'MODULE_turbine-room', TURB, 0.0,
-     'AAA finish (owner accepted 2026-10-12, unreviewed). End wall face (module y 0.0) on the reactor north stub end (reactor-local y 14.5). New local cuts: east door (electrical) and west door (condenser stair).'),
+    ('turbine-room', 'turbine-room/rebuild/turbine_room_v2_geo.blend', 'TURBINE_ROOM_V2', TURB, 0.0,
+     'v2 REBUILD (merged #63; owner declared the room done; its only review is the builder\'s own, about 79/100; unreviewed here). Swapped in for the AAA finish of the original module on the '
+     'owner\'s "swap in the turbine rebuild" (2026-10-13). Same envelope and door centres as the original: south wall face (module y 0) on the reactor north stub end (reactor-local y 14.5). '
+     'Local changes: D01 vestibule clipped at the reactor stub (y -0.3) with its closed-door panel; D02 vestibule end opened as an emergency exit (its door panel is the leaf); '
+     'east door (electrical) and west door (condenser stair) cut; the black light-occluder shell given an exterior concrete skin on its outer faces; cameras, the moon lamp and the haze box left out.'),
     ('electrical-room', 'electrical-room/overhaul/checkpoints/full-R11.blend', 'MODULE_electrical-room', ELEC, -90.0,
-     'ASSEMBLY: on the turbine east flank. D01 exterior face (module y -0.25) on the turbine east wall outer face (module x 10.25) at turbine-local y 18.5; rotation -90 turns D01 to face west. D02 closed (no neighbour).'),
+     'ASSEMBLY: on the turbine east flank. D01 exterior face (module y -0.25) on the turbine shell outer face (module x 10.25) at turbine-local y %.1f; rotation -90 turns D01 to face west. '
+     'D02 closed (emergency exit to the east road).' % ELEC_DOOR_Y),
     ('condenser-bay', 'condenser-bay/module_aaa_A1.blend', 'MODULE_condenser-bay', COND, 0.0,
      'Under the turbine, origin at turbine (1.6, 7.4, -6.0) (its CONNECTIONS.md). D01 stub blanking removed locally; reached by the new condenser stair.'),
     ('waste-storage', 'waste-storage/module_aaa_A1.blend', 'MODULE_waste-storage', WASTE, -90.0,
@@ -251,15 +259,142 @@ def relabel(wrap, lib_coll, omit, name, body):
     if o is None: print('RELABEL missing', name); return
     n = local_copy(wrap, omit, o, Matrix.Identity(4), ' relabelled'); n.data = o.data.copy(); n.data.body = body; print('RELABEL', name, '->', body)
 
+def _part_split(o, pick):
+    """bmesh of o's mesh in its module frame with loose parts tagged; returns (bm, base mesh copy, M, parts {id: (lo, hi)}, picked ids)."""
+    import bmesh
+    M = BM.wm(o); base = o.data.copy(); base.transform(M); bm = bmesh.new(); bm.from_mesh(base); lay, B = _part_layer(bm)
+    return bm, base, M, B, {p for p, (l, h) in B.items() if pick(l, h)}
+
+def _local_from(o, bm, base, M, name):
+    """A local object (o's materials, modifiers and transform) from a module-frame bmesh."""
+    lay = bm.verts.layers.int.get('_split_part')
+    if lay is not None: bm.verts.layers.int.remove(lay)
+    me = base.copy(); me.name = name; bm.to_mesh(me); bm.free(); me.transform(M.inverted_safe())
+    n = o.copy(); n.data = me; n.parent = None; n.matrix_basis = M; n.name = name; return n
+
+def _retire(wrap, omit, o):
+    if o.library is None:
+        if any(x is o for x in wrap.objects): wrap.objects.unlink(o)
+    else: omit.add(o.name)
+
+def take_parts(wrap, omit, o, pick, tag):
+    """Split the loose parts of o picked by pick(lo, hi) (module frame) into their own local object `o.name + tag`; the rest becomes `o.name + ' rest'`.
+    Returns (rest, taken); (None, None) when nothing is picked (o is left as it is)."""
+    import bmesh
+    bm, base, M, B, hit = _part_split(o, pick)
+    if not hit: bm.free(); bpy.data.meshes.remove(base); return None, None
+    out = []
+    for parts, t in ((set(B) - hit, ' rest'), (hit, tag)):
+        if not parts: out.append(None); continue
+        b2 = bm.copy(); l2 = b2.verts.layers.int['_split_part']
+        bmesh.ops.delete(b2, geom=[v for v in b2.verts if v[l2] not in parts], context='VERTS')
+        n = _local_from(o, b2, base, M, o.name + t); wrap.objects.link(n); out.append(n)
+    bm.free(); bpy.data.meshes.remove(base); _retire(wrap, omit, o); return tuple(out)
+
+def clip_parts(wrap, omit, o, axis, value, keep_above=True, tag=' clipped'):
+    """Like clip_mesh, part by part: loose parts wholly on the far side of the plane go, parts across it are cut and, where closed, capped; the rest is untouched."""
+    import bmesh
+    far = (lambda l, h: h[axis] <= value) if keep_above else (lambda l, h: l[axis] >= value)
+    bm, base, M, B, gone = _part_split(o, far); lay = bm.verts.layers.int['_split_part']
+    cross = {p for p, (l, h) in B.items() if l[axis] < value < h[axis]}
+    if not gone and not cross: bm.free(); bpy.data.meshes.remove(base); return None
+    closed = set(cross)
+    for e in bm.edges:
+        if e.is_boundary: closed.discard(e.verts[0][lay])
+    bmesh.ops.delete(bm, geom=[v for v in bm.verts if v[lay] in gone], context='VERTS')
+    if cross:
+        geom = [v for v in bm.verts if v[lay] in cross]; gs = set(geom)
+        geom += [e for e in bm.edges if e.verts[0] in gs] + [f for f in bm.faces if f.verts[0] in gs]
+        co = [0.0, 0.0, 0.0]; co[axis] = value; no = [0.0, 0.0, 0.0]; no[axis] = 1.0
+        bmesh.ops.bisect_plane(bm, geom=geom, plane_co=co, plane_no=no, clear_inner=keep_above, clear_outer=not keep_above)
+        edges = [e for e in bm.edges if e.is_boundary and e.verts[0][lay] in closed and abs(e.verts[0].co[axis] - value) < 1e-4 and abs(e.verts[1].co[axis] - value) < 1e-4]
+        if edges: bmesh.ops.holes_fill(bm, edges=edges, sides=0)
+    n = _local_from(o, bm, base, M, o.name + tag); wrap.objects.link(n); bpy.data.meshes.remove(base); _retire(wrap, omit, o); return n
+
+def _live(lib_coll, omit, wrap):
+    return [o for o in dict.fromkeys(lib_coll.all_objects) if o.name not in omit and o.type == 'MESH'] + [o for o in wrap.objects if o.library is None and o.type == 'MESH']
+
+TURB_SHELL = (-4.25, 10.25, -0.25, 24.25, 7.45)     # rebuild OCCLUDER_ONLY outer planes: x west, x east, y south, y north, roof z
+
 def patch_turbine(wrap, lib_coll, omit):
-    objs = list(dict.fromkeys(lib_coll.all_objects))
-    # east wall, electrical door 2.4 x 2.7 m (like D01/D02) between the wall columns at y 16 and 21; west wall, condenser stair door 2.0 x 2.6 m between y 11 and 16
-    ne = split_openings(wrap, omit, objs, 1, (9.85, 10.35), [(ELEC_DOOR_Y - 1.2, ELEC_DOOR_Y + 1.2, 2.7)])
-    nw = split_openings(wrap, omit, objs, 1, (-4.35, -3.85), [(STAIR_DOOR_Y - 1.0, STAIR_DOOR_Y + 1.0, 2.6)])
+    """The v2 rebuild (TURBINE_ROOM_V2). Its walls are 0.05 m textured skins inside a black light-occluder shell of loose quads (OCCLUDER_ONLY, 0.25 m outside them);
+    its two end doors are 1.9 m vestibules, each ending in a closed door panel (D01 into the reactor stub, D02 north)."""
+    for o in lib_coll.all_objects:
+        if o.type == 'CAMERA' or o.name in ('MOON_EAST', 'HAZE_VOLUME', 'PASS_D01'): omit.add(o.name)
+    # the moon is a sun lamp for the room's own renders; the haze box is render-hidden; PASS_D01 lit the D01 vestibule, which is clipped away (it overexposed the reactor stub: 7.5 % clipped)
+    # 1. exterior: the shell's outer faces (on its five outer planes) take the front end's concrete; the rest of the shell stays the black occluder
+    occ = next(o for o in lib_coll.all_objects if o.name == 'OCCLUDER_ONLY')
+    skin = local_copy(wrap, omit, occ, Matrix.Identity(4), ' skin'); skin.data = occ.data.copy()
+    conc = next((m for m in bpy.data.materials if m.name == 'concrete_slab' and m.library), None) or BM._mat('ASSEMBLY turbine exterior concrete', (0.42, 0.41, 0.39), 0.85)
+    # the south plane is the end wall of the reactor's north stub (an interior, lit by the stub's lamps): the same concrete at 45 % (in full it clipped 7 % of the stub view)
+    stub = conc.copy(); stub.name = 'ASSEMBLY turbine stub end concrete'
+    if stub.node_tree:
+        bsdf = next((nd for nd in stub.node_tree.nodes if nd.type == 'BSDF_PRINCIPLED'), None)
+        if bsdf is not None and bsdf.inputs['Base Color'].links:
+            src = bsdf.inputs['Base Color'].links[0].from_socket; mix = stub.node_tree.nodes.new('ShaderNodeMix'); mix.data_type = 'RGBA'; mix.blend_type = 'MULTIPLY'
+            mix.inputs['Factor'].default_value = 1.0; mix.inputs['B'].default_value = (0.45, 0.45, 0.45, 1.0)
+            stub.node_tree.links.new(src, mix.inputs['A']); stub.node_tree.links.new(mix.outputs['Result'], bsdf.inputs['Base Color'])
+        elif bsdf is not None: bsdf.inputs['Base Color'].default_value = tuple(v * 0.45 for v in bsdf.inputs['Base Color'].default_value[:3]) + (1.0,)
+    skin.data.materials.append(conc); k = len(skin.data.materials) - 1; skin.data.materials.append(stub); ks = k + 1
+    xw, xe, ys, yn, zr = TURB_SHELL; n = 0; Mo = BM.wm(occ)
+    for p in skin.data.polygons:
+        c, d = Mo @ p.center, (Mo.to_3x3() @ p.normal).normalized()
+        if abs(d.y) > 0.99 and abs(c.y - ys) < 0.01: p.material_index = ks; n += 1
+        elif (abs(d.x) > 0.99 and min(abs(c.x - xw), abs(c.x - xe)) < 0.01) or (abs(d.y) > 0.99 and abs(c.y - yn) < 0.01) or (abs(d.z) > 0.99 and abs(c.z - zr) < 0.01):
+            p.material_index = k; n += 1
+    print('TURBINE exterior skin: %d shell faces in concrete' % n)
+    # 2. D01: the vestibule (x +-1.44, y -1.76..0.2) reaches 1.9 m into the reactor stub and ends in a closed panel. Clipped at y -0.3 (the original module's wall reached -0.36)
+    nc = 0
+    for o in _live(lib_coll, omit, wrap):
+        if bbox(o)[0].y < -0.31 and clip_parts(wrap, omit, o, 1, -0.3): nc += 1
+    print('TURBINE D01 vestibule clipped at y -0.3:', nc, 'objects')
+    # 3. D02: the vestibule end panel (x +-0.70, y 25.66..25.69, z 0.3..2.4, with its windows, hinges, handle and seam) becomes the emergency exit leaf; the end wall behind it is opened
+    leaf = lambda l, h: l[1] >= 25.6 and h[1] <= 25.75 and l[0] >= -0.75 and h[0] <= 0.75 and l[2] >= 0.0 and h[2] <= 2.45
+    for o in _live(lib_coll, omit, wrap):
+        if o.name.startswith('TURBINE_DECAL'): continue
+        lo, hi = bbox(o)
+        if hi.y < 25.6 or lo.y > 25.75: continue
+        r, t = take_parts(wrap, omit, o, leaf, ' D02 leaf')
+        if t is not None: LEAF_NAMES.setdefault('TURBINE_D02', []).append(t.name)
+    nd = split_openings(wrap, omit, [o for o in _live(lib_coll, omit, wrap) if not o.name.startswith('TURBINE_DECAL') and 'D02 leaf' not in o.name], 0, (25.68, 26.0), [(-0.72, 0.72, 2.38)])      # the end wall's inner face is y 25.70: the band starts in front of it
+    CLOSED.append(('turbine-room', 'TURBINE_D02', len(LEAF_NAMES.get('TURBINE_D02', [])), 'the vestibule end panel kept closed as the leaf; the end wall behind it opened 1.44 x 2.38 m'))
+    print('TURBINE D02 leaf objects', LEAF_NAMES.get('TURBINE_D02'), 'end wall opened:', nd)
+    # 4. decals and wall items that no longer fit: TO ELECTRICAL over D02 (it is the exit now; evacuation.py hangs an EXIT sign there), the MIND YOUR HEAD poster in the stair door
+    drops = [('TURBINE_DECAL', lambda l, h: l[1] > 23.85 and h[1] < 23.95 and l[0] < -1.8 and h[0] > 1.8 and l[2] > 2.9),
+             ('TURBINE_DECAL', lambda l, h: l[1] > 25.6 and h[1] < 25.7 and l[0] < -0.9 and h[0] > 0.9 and l[2] > 2.2),                   # the second TO ELECTRICAL, over the end panel
+             ('TURBINE_ARCH', lambda l, h: l[1] > 23.88 and h[1] < 23.97 and l[0] < -1.8 and h[0] > 1.8 and l[2] > 2.93 and h[2] < 3.67),     # the lettered TO ELECTRICAL board in its frame
+             ('TURBINE_DECAL', lambda l, h: h[0] < -3.85 and l[1] > 11.95 and h[1] < 12.65 and l[2] > 1.5),
+             ('TURBINE_PROPS', lambda l, h: h[0] < -3.85 and l[1] > 11.95 and h[1] < 12.65 and l[2] > 1.5)]
+    for name, pick in drops:
+        for o in [o for o in _live(lib_coll, omit, wrap) if o.name.startswith(name)]:
+            r, t = take_parts(wrap, omit, o, pick, ' dropped')
+            if t is not None: wrap.objects.unlink(t); print('TURBINE dropped', name, len(t.data.vertices), 'vertices')
+    # 5. the two new doors: east (electrical, 2.4 x 2.7) and west (condenser stair, 1.55 x 2.6), through the wall skins, panels, dado, skirting and the shell
+    ne = split_openings(wrap, omit, _live(lib_coll, omit, wrap), 1, (9.7, 10.3), [(ELEC_DOOR_Y - ELEC_HW, ELEC_DOOR_Y + ELEC_HW, 2.7)])
+    nw = split_openings(wrap, omit, _live(lib_coll, omit, wrap), 1, (-4.3, -3.85), [(STAIR_DOOR_Y - STAIR_HW, STAIR_DOOR_Y + STAIR_HW, 2.6)])
     print('TURBINE doors cut: east', ne, 'west', nw, 'objects split')
-    # D02 (north end) now opens onto the outside: its two parked leaves (module x +-1.39..2.57, y 23.87..23.98) and their fittings slide shut
-    close_sliding_pair(wrap, lib_coll, omit, 'turbine-room', 'TURBINE_D02', 23.80, 24.00, 1.30, 2.66, 1.37)
-    relabel(wrap, lib_coll, omit, 'D02 electrical direction', 'EXIT / D02')          # its sign said ELECTRICAL / D02; D02 is the emergency exit now (electrical is on the east door)
+    # 6. reveals: the shell is open quads, so each cut leaves a 0.3 m slot between the wall skin and the shell: lined in steel, with a threshold over the gap in the floor
+    steel = next((m for m in bpy.data.materials if m.name == 'steel_charcoal' and m.library), None) or BM._mat('ASSEMBLY reveal steel', (0.16, 0.16, 0.17), 0.5, 0.8)
+    for nm, (x0, x1), c, hw, h in (('east', (9.95, 10.25), ELEC_DOOR_Y, ELEC_HW, 2.7), ('west', (-4.25, -3.95), STAIR_DOOR_Y, STAIR_HW, 2.6)):
+        BM._box(wrap, 'ASSEMBLY turbine %s door reveal south' % nm, (x0, x1), (c - hw - 0.06, c - hw), (0.0, h + 0.06), steel)
+        BM._box(wrap, 'ASSEMBLY turbine %s door reveal north' % nm, (x0, x1), (c + hw, c + hw + 0.06), (0.0, h + 0.06), steel)
+        BM._box(wrap, 'ASSEMBLY turbine %s door reveal head' % nm, (x0, x1), (c - hw - 0.06, c + hw + 0.06), (h, h + 0.06), steel)
+        BM._box(wrap, 'ASSEMBLY turbine %s door threshold' % nm, (x0 - 0.05, x1 + 0.05), (c - hw, c + hw), (-0.3, 0.0), steel)
+    BM._box(wrap, 'ASSEMBLY turbine D02 threshold', (-0.8, 0.8), (25.6, 25.78), (-0.3, 0.0), steel)      # the north strip's apron starts at the vestibule end (25.76)
+    # 7. D02 wayfinding: a new board in the old one's frame (x +-1.85, z 2.95..3.65 on the north wall over the vestibule), EMERGENCY EXIT in the map's ivory sign paint
+    BM._box(wrap, 'ASSEMBLY turbine D02 board', (-1.84, 1.84), (23.905, 23.93), (2.96, 3.64), steel)
+    cu = bpy.data.curves.new('ASSEMBLY turbine D02 board text', 'FONT'); cu.body = 'EMERGENCY EXIT'; cu.size = 0.29; cu.align_x = 'CENTER'; cu.align_y = 'CENTER'; cu.extrude = 0.006
+    cu.materials.append(BM._mat('ASSEMBLY sign paint', (0.9, 0.85, 0.7), 0.5, 0.0, 1.2))
+    t = bpy.data.objects.new('ASSEMBLY turbine D02 board text', cu); t.location = (0.0, 23.9, 3.3); t.rotation_euler = (math.pi / 2, 0, 0); wrap.objects.link(t)
+    cu = cu.copy(); cu.name = 'ASSEMBLY turbine D02 panel label'; cu.body = 'EXIT'; cu.size = 0.12
+    t = bpy.data.objects.new('ASSEMBLY turbine D02 panel label', cu); t.location = (0.0, 25.63, 2.475); t.rotation_euler = (math.pi / 2, 0, 0); wrap.objects.link(t)
+    # 8. the vestibule's outside (it stands 1.5 m out of the north wall, past the shell): the rebuild leaves it as bare interior panels, so it is clad like the shell,
+    #    with a steel frame round the opened end
+    for nm, xs, ys, zs in (('west', (-1.5, -1.44), (24.25, 25.82), (0.0, 3.02)), ('east', (1.44, 1.5), (24.25, 25.82), (0.0, 3.02)), ('roof', (-1.5, 1.5), (24.25, 25.82), (2.96, 3.02)),
+                           ('end west', (-1.44, -0.72), (25.76, 25.82), (0.0, 2.96)), ('end east', (0.72, 1.44), (25.76, 25.82), (0.0, 2.96)), ('end head', (-0.72, 0.72), (25.76, 25.82), (2.38, 2.96))):
+        BM._box(wrap, 'ASSEMBLY turbine D02 vestibule cladding ' + nm, xs, ys, zs, conc)
+    for nm, xs, zs in (('west', (-0.84, -0.72), (0.0, 2.5)), ('east', (0.72, 0.84), (0.0, 2.5)), ('head', (-0.84, 0.84), (2.38, 2.5))):
+        BM._box(wrap, 'ASSEMBLY turbine D02 outer frame ' + nm, xs, (25.82, 25.88), zs, steel)
 
 def patch_electrical(wrap, lib_coll, omit):
     # D02 (module y 16.4) faces east onto the outside now: leaves parked at |x| 1.24..2.45, y 16.03..16.11 slide shut
@@ -378,16 +513,16 @@ BM.PATCHES['cooling-plant'] = patch_cooling
 BM.TURBINE_CUTS.clear(); BM.MEDICAL_CUTS.clear()
 
 # ------------------------------------------------------------------------------------------------------------------------------------------------
-# Condenser stair: turbine west door (reactor-local x -4.25, y 26.95..28.95) -> top landing -> 34 risers down to z -6 -> corridor east under the turbine end -> condenser D01 stub.
+# Condenser stair: turbine west door (reactor-local x -4.25, y 26.7..28.25) -> top landing -> 34 risers down to z -6 -> corridor east under the turbine end -> condenser D01 stub.
 # The y values are reactor-local plus RY (the stair moved with the reactor).
 # ------------------------------------------------------------------------------------------------------------------------------------------------
-ST = dict(xw=-6.65, xe=-4.55, t=0.3, ytop=RY + 26.8, ybot=RY + 16.9, yn=RY + 29.25, risers=34, drop=6.0, roof=2.9,
+ST = dict(xw=-6.65, xe=-4.55, t=0.3, ytop=TURB[1] + STAIR_DOOR_Y - STAIR_HW - 0.2, ybot=RY + 16.9, yn=RY + 29.25, risers=34, drop=6.0, roof=2.9,
           cy0=RY + 14.5, cy1=RY + 16.9, cx1=COND[0] + 1.24, cx0b=COND[0] - 1.24, vy=COND[1] - 2.56, ch=2.7)
 
 def add_condenser_stair(root):
     import reactor_links as RL
     M, _ = BM.spawn_assets(); coll = bpy.data.collections.new('CONNECTOR_condenser_stair'); root.children.link(coll)
-    s = ST; t = s['t']; z1 = -s['drop']; yd0, yd1 = TURB[1] + STAIR_DOOR_Y - 1.0, TURB[1] + STAIR_DOOR_Y + 1.0
+    s = ST; t = s['t']; z1 = -s['drop']; yd0, yd1 = TURB[1] + STAIR_DOOR_Y - STAIR_HW, TURB[1] + STAIR_DOOR_Y + STAIR_HW
     box = lambda n, xs, ys, zs, m: BM._box(coll, 'STAIR ' + n, xs, ys, zs, m)
     conc, wall, floor, steel, lamp, yellow, ceil = M['slab'], M['wall'], M['floor'], M['steel'], M['lamp'], M['yellow'], M['ceiling']
     tread = BM._mat('STAIR concrete', (0.36, 0.36, 0.34), 0.85)      # mid-grey: the spawn CS_slab_concrete (base 0.11) read as black on treads and wainscot
@@ -525,8 +660,8 @@ def add_signs(root):
         o = bpy.data.objects.new('SIGN ' + text, cu); o.location = loc; o.rotation_euler = (math.pi / 2, 0, rz); coll.objects.link(o)     # rz +90: text faces +x, -90: faces -x
     sign('WASTE', (10.74, WASTE[1], 4.45), -math.pi / 2, 0.4)                      # reactor east wall, inner face x 10.8, over the new opening above the wall's gauges and panels (facing -x)
     sign('COMPLIANCE DOCK', (SPINE_E - 0.33, DOCK[1], 2.9), -math.pi / 2)            # spine east wall, inner face x 9.85 (facing -x)
-    sign('ELECTRICAL', (9.9, ELEC[1], 2.95), -math.pi / 2)                           # inside the turbine, over the east door
-    sign('CONDENSER BAY', (-3.9, TURB[1] + STAIR_DOOR_Y, 2.85), math.pi / 2)       # inside the turbine, over the stair door
+    sign('ELECTRICAL', (9.85, ELEC[1], 3.0), -math.pi / 2)                           # inside the turbine, over the east door (wall panels' inner face x 9.9)
+    sign('CONDENSER BAY', (-3.85, TURB[1] + STAIR_DOOR_Y, 2.9), math.pi / 2, 0.26)  # inside the turbine, over the stair door
     sign('TURBINE HALL', (ELEC[0] + 0.5, ELEC[1], 3.0), math.pi / 2, 0.28)          # inside electrical, over D01
     # in the hall, a floor stencil in front of the spine blast door (the old one pointed at the east door, now a closed exit)
     paint = BM._mat('ASSEMBLY floor stencil yellow', (0.75, 0.55, 0.05), 0.6)
@@ -560,12 +695,14 @@ DOORS = [
      'BLAST reactor leaf west/east parked behind the concourse north wall; closed position x -2.75..0 and 0..2.75 (seal chamber)'),
     ('REACTOR_E_WASTE', 'reactor-room', (11.2, (WASTE_HOLE[0] + WASTE_HOLE[1]) / 2), (1, 0), round(WASTE_HOLE[1] - WASTE_HOLE[0], 2), WASTE_HOLE[2], 'opening (new cut through the east wall patch panel)', 'open', 'waste-storage',
      'no leaf (waste receiving shutter is the door)'),
-    ('TURBINE_D01', 'turbine-room', (0, 0), (0, -1), 2.4, 2.7, 'two opposed sliding leaves', 'open', 'reactor north stub', 'contract: parked in module pockets'),
-    ('TURBINE_D02', 'turbine-room', (0, 24.0), (0, 1), 2.4, 2.7, 'two opposed sliding leaves', 'closed', 'east evacuation road (north strip)', 'D02 electrical parked leaf pair moved shut (local copies)'),
-    ('TURBINE_E_ELECTRICAL', 'turbine-room', (10.125, ELEC_DOOR_Y), (1, 0), 2.4, 2.7, 'opening (new cut) + electrical D01 leaves', 'open', 'electrical-room D01', 'leaves are electrical D01 (parked inside electrical)'),
+    ('TURBINE_D01', 'turbine-room', (0, 0), (0, -1), 2.4, 2.7, 'opening (rebuild south vestibule, clipped at the reactor stub)', 'open', 'reactor north stub',
+     'the vestibule end panel (a closed-door graphic) is left out with the clipped vestibule'),
+    ('TURBINE_D02', 'turbine-room', (0, 25.73), (0, 1), 1.44, 2.38, 'single panel at the end of the rebuild north vestibule', 'closed', 'east evacuation road (north strip)',
+     'the vestibule end panel (local copies) kept shut; the end wall behind it is opened'),
+    ('TURBINE_E_ELECTRICAL', 'turbine-room', (10.1, ELEC_DOOR_Y), (1, 0), 2 * ELEC_HW, 2.7, 'opening (new cut) + electrical D01 leaves', 'open', 'electrical-room D01', 'leaves are electrical D01 (parked inside electrical)'),
     ('ELECTRICAL_D01', 'electrical-room', (0, 0), (0, -1), 2.4, 2.7, 'sliding pair', 'open', 'turbine-room (east door)', 'parked'),
     ('ELECTRICAL_D02', 'electrical-room', (0, 16.4), (0, 1), 2.4, 2.7, 'sliding pair', 'closed', 'east evacuation road', 'leaves moved shut (local copies)'),
-    ('TURBINE_W_STAIR', 'turbine-room', (-4.125, STAIR_DOOR_Y), (-1, 0), 2.0, 2.6, 'opening (new cut)', 'open', 'condenser stair', 'no leaf'),
+    ('TURBINE_W_STAIR', 'turbine-room', (-4.1, STAIR_DOOR_Y), (-1, 0), 2 * STAIR_HW, 2.6, 'opening (new cut)', 'open', 'condenser stair', 'no leaf'),
     ('CONDENSER_D01', 'condenser-bay', (0, 0), (0, -1), 2.0, 2.4, 'two opposed sliding leaves', 'open', 'condenser stair corridor', 'parked open (contract); stub blanking left out'),
     ('COOLING_P01', 'cooling-plant', (0, 0), (0, -1), 5.0, 5.0, 'overhead folding shutter', 'open', 'reactor west stub', 'raised (contract: fixed open)'),
     ('COOLING_W_EXIT', 'cooling-plant', ((COOL_EXIT_Y[0] + COOL_EXIT_Y[1]) / 2 - RY, 13.3), (0, 1), 1.6, 2.35, 'single leaf (new emergency door)', 'closed', 'west evacuation path',

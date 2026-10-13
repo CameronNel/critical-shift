@@ -257,7 +257,7 @@
    "nearest_in": "",
    "ok": true,
    "why": "",
-   "narrows": "the full 5.0 m width narrows within 0.35 m (outward side, ROOM_turbine-room / End wall.001)"
+   "narrows": "the full 5.0 m width narrows within 0.36 m (outward side, ROOM_turbine-room / TURBINE_ARCH clipped rest cut0 rest cut0 cut0)"
   },
   {
    "id": "REACTOR_W",
@@ -356,7 +356,7 @@
    "emergency_exit": true,
    "plan": [
     0.0,
-    19.8,
+    21.53,
     0.0
    ],
    "depth_out_m": 8.35,
@@ -373,14 +373,14 @@
    "state": "open",
    "emergency_exit": false,
    "plan": [
-    10.12,
-    14.3,
+    10.1,
+    8.3,
     0.0
    ],
    "depth_out_m": 8.35,
-   "depth_in_m": 4.43,
+   "depth_in_m": 2.71,
    "nearest_out": "",
-   "nearest_in": "ROOM_turbine-room / Generator removable side jacket.001",
+   "nearest_in": "ROOM_turbine-room / TURBINE_MACH",
    "ok": true,
    "why": "",
    "narrows": ""
@@ -392,12 +392,12 @@
    "emergency_exit": false,
    "plan": [
     10.5,
-    14.3,
+    8.3,
     0.0
    ],
-   "depth_out_m": 4.81,
+   "depth_out_m": 3.11,
    "depth_in_m": 8.35,
-   "nearest_out": "ROOM_turbine-room / Generator removable side jacket.001",
+   "nearest_out": "ROOM_turbine-room / TURBINE_MACH",
    "nearest_in": "",
    "ok": true,
    "why": "",
@@ -410,7 +410,7 @@
    "emergency_exit": true,
    "plan": [
     26.9,
-    14.3,
+    8.3,
     0.0
    ],
    "depth_out_m": 8.35,
@@ -427,14 +427,14 @@
    "state": "open",
    "emergency_exit": false,
    "plan": [
-    -4.12,
-    9.25,
+    -4.1,
+    8.78,
     0.0
    ],
-   "depth_out_m": 2.49,
-   "depth_in_m": 6.66,
+   "depth_out_m": 2.51,
+   "depth_in_m": 6.1,
    "nearest_out": "CONNECTOR_condenser_stair / STAIR plaster west",
-   "nearest_in": "ROOM_turbine-room / Oil cabinet access panel",
+   "nearest_in": "ROOM_turbine-room / TURBINE_MACH",
    "ok": true,
    "why": "",
    "narrows": ""
@@ -752,13 +752,31 @@
    "emergency_exit": false,
    "plan": [
     23.7,
-    8.8,
+    2.8,
     0.0
    ],
    "depth_out_m": 1.96,
    "depth_in_m": 8.35,
    "nearest_out": "ROOM_electrical-room / EOH | Cell interconnect cover.005",
    "nearest_in": "",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  },
+  {
+   "id": "turbine-room/D02",
+   "source": "contract",
+   "state": "two_opposed_sliding_leaves",
+   "emergency_exit": false,
+   "plan": [
+    0.0,
+    19.8,
+    0.0
+   ],
+   "depth_out_m": 1.67,
+   "depth_in_m": 5.37,
+   "nearest_out": "ROOM_turbine-room / TURBINE_ARCH clipped D02 leaf",
+   "nearest_in": "ROOM_turbine-room / TURBINE_MACH",
    "ok": true,
    "why": "",
    "narrows": ""
