@@ -577,6 +577,67 @@
    "centre_line_obstructions": []
   },
   {
+   "route": "condenser_escape_tunnel",
+   "samples": 49,
+   "centre_line_clear": 49,
+   "passed": true,
+   "lane_length_m": 4.75,
+   "max_offset_m": 0.0,
+   "lane": [
+    [
+     -0.85,
+     12.1,
+     -6.0
+    ],
+    [
+     -1.34,
+     12.1,
+     -6.0
+    ],
+    [
+     -1.84,
+     12.1,
+     -6.0
+    ],
+    [
+     -2.33,
+     12.1,
+     -6.0
+    ],
+    [
+     -2.83,
+     12.1,
+     -6.0
+    ],
+    [
+     -3.32,
+     12.1,
+     -6.0
+    ],
+    [
+     -3.82,
+     12.1,
+     -6.0
+    ],
+    [
+     -4.31,
+     12.1,
+     -6.0
+    ],
+    [
+     -4.81,
+     12.1,
+     -6.0
+    ],
+    [
+     -5.3,
+     12.1,
+     -6.0
+    ]
+   ],
+   "centre_line_obstructions": []
+  },
+  {
    "route": "condenser_stair",
    "samples": 239,
    "centre_line_clear": 239,
@@ -829,6 +890,18 @@
   }
  ],
  "closed_doors": [
+  {
+   "door": "CONDENSER_W_ESCAPE",
+   "state": "closed",
+   "samples_blocked": 10,
+   "blocks": true
+  },
+  {
+   "door": "ESCAPE_HOUSE_DOOR",
+   "state": "closed",
+   "samples_blocked": 10,
+   "blocks": true
+  },
   {
    "door": "TURBINE_D02",
    "state": "closed",

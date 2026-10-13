@@ -440,6 +440,42 @@
    "narrows": ""
   },
   {
+   "id": "CONDENSER_W_ESCAPE",
+   "source": "doors.json",
+   "state": "closed",
+   "emergency_exit": true,
+   "plan": [
+    -0.34,
+    12.1,
+    -6.0
+   ],
+   "depth_out_m": 6.27,
+   "depth_in_m": 6.75,
+   "nearest_out": "CONNECTOR_condenser_escape / ESCAPE plaster west",
+   "nearest_in": "ROOM_condenser-bay / CEP-B motor feed rerouted",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  },
+  {
+   "id": "ESCAPE_HOUSE_DOOR",
+   "source": "doors.json",
+   "state": "closed",
+   "emergency_exit": true,
+   "plan": [
+    -5.6,
+    13.1,
+    0.0
+   ],
+   "depth_out_m": 8.35,
+   "depth_in_m": 1.91,
+   "nearest_out": "",
+   "nearest_in": "CONNECTOR_condenser_escape / ESCAPE plaster south",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  },
+  {
    "id": "CONDENSER_D01",
    "source": "doors.json",
    "state": "open",

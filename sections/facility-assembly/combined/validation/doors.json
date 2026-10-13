@@ -556,6 +556,50 @@
    "leaf_regex": ""
   },
   {
+   "id": "CONDENSER_W_ESCAPE",
+   "owner": "condenser-bay",
+   "plan": [
+    -0.34,
+    12.1,
+    -6.0
+   ],
+   "outward": [
+    -1.0,
+    0.0
+   ],
+   "clear_w": 1.0,
+   "clear_h": 2.28,
+   "kind": "single steel leaf (new emergency door)",
+   "state": "closed",
+   "leads_to": "escape tunnel and ladder shaft to the outside",
+   "leaf": "ESCAPE bay door leaf (closed; opens for evacuation)",
+   "emergency_exit": true,
+   "evac_state": "open",
+   "leaf_regex": "^ESCAPE bay door leaf"
+  },
+  {
+   "id": "ESCAPE_HOUSE_DOOR",
+   "owner": "connector",
+   "plan": [
+    -5.6,
+    13.1,
+    0.0
+   ],
+   "outward": [
+    0.0,
+    1.0
+   ],
+   "clear_w": 1.56,
+   "clear_h": 2.18,
+   "kind": "single steel leaf (new emergency door, top of the escape ladder)",
+   "state": "closed",
+   "leads_to": "north evacuation strip",
+   "leaf": "ESCAPE house door leaf (closed; opens for evacuation)",
+   "emergency_exit": true,
+   "evac_state": "open",
+   "leaf_regex": "^ESCAPE house door leaf"
+  },
+  {
    "id": "CONDENSER_D01",
    "owner": "condenser-bay",
    "plan": [

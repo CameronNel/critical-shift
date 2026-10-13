@@ -1,11 +1,11 @@
 {
  "note": "Static counts of the built scene; no frame rate was measured (no runtime build exists). Budgets: only the 400k per-room flag and 800k front-end figure exist in the repo.",
  "totals": {
-  "triangles": 11027954,
-  "objects": 21988,
-  "submeshes": 24078,
-  "lights": 494,
-  "shadow_lights": 456,
+  "triangles": 11030247,
+  "objects": 22114,
+  "submeshes": 24204,
+  "lights": 499,
+  "shadow_lights": 461,
   "materials": 856,
   "textures": 133,
   "texture_mb_rgba8": 1349.8
@@ -91,10 +91,10 @@
    "over_flag": true
   },
   "ROOM_front-end-area": {
-   "triangles": 560390,
-   "objects": 2011,
-   "meshes": 1719,
-   "submeshes": 2653,
+   "triangles": 560372,
+   "objects": 2010,
+   "meshes": 1718,
+   "submeshes": 2652,
    "materials": 70,
    "lights": {
     "SUN": 1,
@@ -139,10 +139,10 @@
    "over_flag": true
   },
   "ROOM_condenser-bay": {
-   "triangles": 422018,
-   "objects": 2677,
-   "meshes": 2586,
-   "submeshes": 2677,
+   "triangles": 422140,
+   "objects": 2679,
+   "meshes": 2588,
+   "submeshes": 2679,
    "materials": 28,
    "lights": {
     "AREA": 27
@@ -247,16 +247,16 @@
    "over_flag": false
   },
   "EXTERIOR_evacuation": {
-   "triangles": 7817,
-   "objects": 127,
-   "meshes": 127,
-   "submeshes": 127,
+   "triangles": 7870,
+   "objects": 132,
+   "meshes": 132,
+   "submeshes": 132,
    "materials": 14,
    "lights": {
-    "SPOT": 14,
+    "SPOT": 15,
     "POINT": 8
    },
-   "shadow_lights": 22,
+   "shadow_lights": 23,
    "textures": 6,
    "texture_mb_rgba8": 32.0,
    "budget_flag": null,
@@ -272,6 +272,22 @@
    "shadow_lights": 0,
    "textures": 0,
    "texture_mb_rgba8": 0.0,
+   "budget_flag": null,
+   "over_flag": false
+  },
+  "CONNECTOR_condenser_escape": {
+   "triangles": 1752,
+   "objects": 117,
+   "meshes": 117,
+   "submeshes": 117,
+   "materials": 11,
+   "lights": {
+    "AREA": 3,
+    "POINT": 1
+   },
+   "shadow_lights": 4,
+   "textures": 3,
+   "texture_mb_rgba8": 64.0,
    "budget_flag": null,
    "over_flag": false
   },
@@ -421,6 +437,45 @@
    "over_flag": false
   },
   "EVAC exit sign spine end text": {
+   "triangles": 128,
+   "objects": 1,
+   "meshes": 1,
+   "submeshes": 1,
+   "materials": 1,
+   "lights": {},
+   "shadow_lights": 0,
+   "textures": 0,
+   "texture_mb_rgba8": 0.0,
+   "budget_flag": null,
+   "over_flag": false
+  },
+  "ESCAPE exit sign bay text": {
+   "triangles": 128,
+   "objects": 1,
+   "meshes": 1,
+   "submeshes": 1,
+   "materials": 1,
+   "lights": {},
+   "shadow_lights": 0,
+   "textures": 0,
+   "texture_mb_rgba8": 0.0,
+   "budget_flag": null,
+   "over_flag": false
+  },
+  "ESCAPE exit sign ladder text": {
+   "triangles": 128,
+   "objects": 1,
+   "meshes": 1,
+   "submeshes": 1,
+   "materials": 1,
+   "lights": {},
+   "shadow_lights": 0,
+   "textures": 0,
+   "texture_mb_rgba8": 0.0,
+   "budget_flag": null,
+   "over_flag": false
+  },
+  "ESCAPE exit sign house text": {
    "triangles": 128,
    "objects": 1,
    "meshes": 1,
@@ -1100,7 +1155,7 @@
     "ROOM_front-end-area"
    ],
    "own": 3313648,
-   "with_neighbours": 3874038
+   "with_neighbours": 3874020
   },
   "ROOM_fuel-corridor": {
    "neighbours": [
@@ -1132,7 +1187,7 @@
     "ROOM_front-end-area"
    ],
    "own": 599168,
-   "with_neighbours": 1159558
+   "with_neighbours": 1159540
   },
   "ROOM_front-end-area": {
    "neighbours": [
@@ -1143,8 +1198,8 @@
     "ROOM_refinery",
     "ROOM_spawn-room"
    ],
-   "own": 560390,
-   "with_neighbours": 5795458
+   "own": 560372,
+   "with_neighbours": 5795440
   },
   "ROOM_refinery": {
    "neighbours": [
@@ -1152,21 +1207,22 @@
     "ROOM_fuel-corridor"
    ],
    "own": 464675,
-   "with_neighbours": 2663412
+   "with_neighbours": 2663394
   },
   "ROOM_spawn-room": {
    "neighbours": [
     "ROOM_front-end-area"
    ],
    "own": 430704,
-   "with_neighbours": 991094
+   "with_neighbours": 991076
   },
   "ROOM_condenser-bay": {
    "neighbours": [
+    "CONNECTOR_condenser_escape",
     "CONNECTOR_condenser_stair"
    ],
-   "own": 422018,
-   "with_neighbours": 423446
+   "own": 422140,
+   "with_neighbours": 425320
   },
   "ROOM_turbine-room": {
    "neighbours": [
@@ -1182,7 +1238,7 @@
     "ROOM_front-end-area"
    ],
    "own": 416761,
-   "with_neighbours": 977151
+   "with_neighbours": 977133
   },
   "ROOM_waste-storage": {
    "neighbours": [
@@ -1210,17 +1266,24 @@
     "ROOM_reactor-room"
    ],
    "own": 10112,
-   "with_neighbours": 3426254
+   "with_neighbours": 3426236
   },
   "EXTERIOR_evacuation": {
    "neighbours": [],
-   "own": 7817,
-   "with_neighbours": 7817
+   "own": 7870,
+   "with_neighbours": 7870
   },
   "EVAC sign yard": {
    "neighbours": [],
    "own": 2524,
    "with_neighbours": 2524
+  },
+  "CONNECTOR_condenser_escape": {
+   "neighbours": [
+    "ROOM_condenser-bay"
+   ],
+   "own": 1752,
+   "with_neighbours": 423892
   },
   "CONNECTOR_condenser_stair": {
    "neighbours": [
@@ -1228,7 +1291,7 @@
     "ROOM_turbine-room"
    ],
    "own": 1428,
-   "with_neighbours": 841636
+   "with_neighbours": 841758
   },
   "EVAC sign hall": {
    "neighbours": [],
@@ -1281,6 +1344,21 @@
    "with_neighbours": 128
   },
   "EVAC exit sign spine end text": {
+   "neighbours": [],
+   "own": 128,
+   "with_neighbours": 128
+  },
+  "ESCAPE exit sign bay text": {
+   "neighbours": [],
+   "own": 128,
+   "with_neighbours": 128
+  },
+  "ESCAPE exit sign ladder text": {
+   "neighbours": [],
+   "own": 128,
+   "with_neighbours": 128
+  },
+  "ESCAPE exit sign house text": {
    "neighbours": [],
    "own": 128,
    "with_neighbours": 128

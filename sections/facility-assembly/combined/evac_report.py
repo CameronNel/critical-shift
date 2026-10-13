@@ -21,7 +21,7 @@ LINKS = [('reactor', 'turbine', ['REACTOR_N', 'TURBINE_D01']), ('turbine', 'elec
          ('spine', 'hall', ['HALL_SPINE']), ('spine', 'dock', ['SPINE_E_DOCK', 'DOCK_P1']), ('hall', 'cafeteria', []), ('cafeteria', 'yard', ['CAF_YARD']),
          ('reactor', 'east road', ['REACTOR_SE']), ('spine', 'east road', ['SPINE_NORTH_END']), ('turbine', 'east road', ['TURBINE_D02']), ('electrical', 'east road', ['ELECTRICAL_D02']),
          ('waste', 'east road', ['WASTE_PERSONNEL']), ('waste', 'east road', ['WASTE_DISPATCH']), ('east road', 'hall', ['HALL_EAST']), ('cooling', 'west path', ['COOLING_W_EXIT']),
-         ('west path', 'yard', ['YARD_SERVICE'])]
+         ('west path', 'yard', ['YARD_SERVICE']), ('condenser', 'east road', ['CONDENSER_W_ESCAPE', 'ESCAPE_HOUSE_DOOR'])]
 STATIONS = ['reactor', 'turbine', 'electrical', 'condenser', 'cooling', 'waste', 'dock', 'fuel corridor', 'concourse', 'spine']
 FRONT = {'hall', 'yard', 'cafeteria'}
 
@@ -84,6 +84,9 @@ def main(out):
         'turbine (D01)': (ln('primary_turbine_via_reactor'), round(ln('evac_turbine_D02_to_road') + road, 1) if ln('evac_turbine_D02_to_road') and road else None, 'D02, north strip, east road, hall east door'),
         'electrical (D01)': (ln('primary_electrical_via_reactor'), on_road('evac_electrical_D02_to_road', RY + 27.0), 'D02, east road, hall east door'),
         'waste (receiving)': (ln('primary_waste_via_reactor'), on_road('evac_waste_dispatch_to_road', RY + 3.86), 'dispatch shutter, east road, hall east door'),
+        'condenser (bay, by D01)': (round(ln('evac_condenser_to_turbine_D02') + 34.4 + road, 1) if ln('evac_condenser_to_turbine_D02') and road else None,
+                                    round(ln('evac_condenser_to_escape_ladder') + ln('evac_escape_house_to_road') + road, 1) if ln('evac_condenser_to_escape_ladder') and ln('evac_escape_house_to_road') and road else None,
+                                    'first: stair, turbine D02, north strip, road; second: west escape door, tunnel, 6.0 m ladder (not in the distance), north strip, road'),
         'cooling (P01)': (ln('primary_cooling_via_reactor'), ln('evac_cooling_west_to_yard'), 'rear emergency door, west path, yard service door'),
         'dock (P1)': (ln('primary_dock_via_spine'), None, 'none: P1 is the dock\'s only door; P2 is its sealed arrival (contract)'),
         'fuel corridor (F02E)': (None, ln('evac_fuel_corridor_via_refinery_to_hall'), 'F01, refinery, colonnade, hall west door (the concourse route is the primary)'),

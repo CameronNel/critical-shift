@@ -27,6 +27,8 @@ VIEWS = {   # name: eye, target, lens (mm); plan metres
     # evacuation routes at night (evacuation.py): the east road, the east yard behind the reactor, the west path
     'evac_east_road': ((34.4, 10.0, 1.6), (34.4, -12.0, 1.0), 18), 'evac_east_yard': ((26.0, -27.0, 1.6), (12.0, -30.5, 1.4), 18), 'evac_west_path': ((-36.5, -21.0, 1.6), (-36.5, -45.0, 1.0), 18),
     'concourse_blast_door': ((0.0, -37.8, 1.6), (0.0, -33.5, 2.4), 18),
+    # condenser bay second exit: along the escape tunnel to the ladder, and the hatch house outside at night
+    'condenser_escape_tunnel': (r(0.6, 30.8, -4.4), r(-5.6, 30.8, -4.6), 18), 'escape_house_night': ((-4.6, 17.5, 1.6), (-5.6, 13.2, 1.2), 18),
 }
 sc = bpy.context.scene; sc.render.engine = 'CYCLES'; sc.cycles.device = 'CPU'; sc.cycles.samples = 14; sc.cycles.use_denoising = True
 sc.render.resolution_x, sc.render.resolution_y = 640, 360; sc.render.image_settings.file_format = 'PNG'

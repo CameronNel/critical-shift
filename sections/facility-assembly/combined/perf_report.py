@@ -86,6 +86,7 @@ for d in doors:
     a_, b_ = nm(d['owner']), nm(d['leads_to'])
     if a_ == b_ or b_.startswith('outside'): continue
     G[a_].add(b_); G[b_].add(a_)
+G['CONNECTOR_condenser_escape'].add('ROOM_condenser-bay'); G['ROOM_condenser-bay'].add('CONNECTOR_condenser_escape')
 G['CONNECTOR_condenser_stair'].update({'ROOM_turbine-room', 'ROOM_condenser-bay'}); G['ROOM_turbine-room'].add('CONNECTOR_condenser_stair'); G['ROOM_condenser-bay'].add('CONNECTOR_condenser_stair')
 pvs = {}
 for k in rooms:

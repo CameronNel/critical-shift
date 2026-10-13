@@ -428,6 +428,25 @@ def patch_condenser(wrap, lib_coll, omit):
     for o in lib_coll.all_objects:
         if o.name.startswith(('D01 stub end wall', 'D01 local blanking', 'D01 blanking')): omit.add(o.name); n += 1
     print('CONDENSER D01 stub opened', n)
+    # the escape door in the west wall (module x -2.08..-1.80; module y = turbine-local y - 7.4): 1.0 x 2.3 m at the bay's north-west corner, through the wall and its dado
+    a0, a1 = ESC['ty0'] - COND[1], ESC['ty1'] - COND[1]
+    # the walk to that door passes between pump B's power riser (x 0.72, y 16.0 in turbine-local terms; a 32 mm cable from under the floor to the ceiling) and the north dado:
+    # 0.76 m, under the walk test's 0.8 m capsule. The riser is moved against the north wall (y 16.76): its under-floor run jogs north below the floor, its ceiling end cap moves with it.
+    # The walk then passes between the ejector exhaust riser (y 15.5) and the cable: 1.19 m
+    dy = 16.76 - 16.0
+    for o in [o for o in lib_coll.all_objects if o.name == 'CEP-B motor feed' and o.type == 'CURVE' and o.name not in omit]:
+        n = local_copy(wrap, omit, o, Matrix.Identity(4), ' rerouted'); n.data = o.data.copy(); Mo = BM.wm(o); Mi = Mo.inverted_safe(); k = 0
+        for sp in n.data.splines:
+            pts = sp.bezier_points if sp.type == 'BEZIER' else sp.points
+            for pt in pts:
+                w = Mo @ Vector(pt.co[:3])
+                if w.x <= 0.81 - (COND[0] - TURB[0]):
+                    d = Mi.to_3x3() @ Vector((0.0, dy, 0.0)); k += 1
+                    if sp.type == 'BEZIER': pt.co += d; pt.handle_left += d; pt.handle_right += d
+                    else: pt.co = (pt.co[0] + d.x, pt.co[1] + d.y, pt.co[2] + d.z, pt.co[3])
+        print('CONDENSER pump B power riser moved to the north wall:', k, 'curve points')
+    for o in [o for o in lib_coll.all_objects if o.name == 'CEP-B motor feed end cap' and o.name not in omit]: local_copy(wrap, omit, o, Matrix.Translation((0.0, dy, 0.0)), ' moved')
+    print('CONDENSER west escape door cut:', split_openings(wrap, omit, list(dict.fromkeys(lib_coll.all_objects)), 1, (-2.15, -1.7), [(a0, a1, 2.3)]), 'objects split')
     # its roof (`Ceiling slab`, module z 6.0..6.3 = map z 0.0..0.3) stood 0.3 m proud of the turbine floor (top z 0) across the turbine's east aisle and the electrical's west end:
     # it read as raw ground on the floor (owner, 2026-10-13). Squeezed to map z -0.305..-0.015, under the turbine floor (-0.3..0), so the bay's ceiling is still its own concrete
     for o in [o for o in lib_coll.all_objects if o.name == 'Ceiling slab' and o.name not in omit]:
@@ -511,8 +530,8 @@ def patch_front_end_spine(wrap, lib_coll, omit):
     # the front end's context_ground (an 8-vertex box, plan x -170..90, y -200..60, z -0.9..-0.15) roofs the condenser stair shaft: a hole is cut for the shaft
     g = next((o for o in lib_coll.all_objects if o.name == 'context_ground'), None)
     if g is not None:
-        x0, x1 = ST['xw'] - ST['t'] - FE_LOC[0], ST['xe'] + ST['t'] - FE_LOC[0]; y0, y1 = ST['ybot'] - FE_LOC[1], ST['yn'] + ST['t'] - FE_LOC[1]
-        print('GROUND hole for the stair shaft:', hole_in_slab(wrap, omit, g, x0, x1, y0, y1), 'pieces')
+        x0, x1 = ST['xw'] - ST['t'] - FE_LOC[0], ST['xe'] + ST['t'] - FE_LOC[0]; y0, y1 = ST['ybot'] - FE_LOC[1], ESC['ys1'] + ESC['t'] - FE_LOC[1]      # the escape shaft continues the stair house north
+        print('GROUND hole for the stair shaft and the escape shaft:', hole_in_slab(wrap, omit, g, x0, x1, y0, y1), 'pieces')
         # and over the condenser bay: the ground (z -0.9..-0.15) ran through the bay's top 0.9 m and was its ceiling (ray probe 2026-10-13); the hole is the bay's roof slab
         # (module x -2.08..9.88, y -0.14..9.54), which now sits under the turbine floor (patch_condenser)
         x0, x1 = COND[0] - 2.08 - FE_LOC[0], COND[0] + 9.88 - FE_LOC[0]; y0, y1 = COND[1] - 0.14 - FE_LOC[1], COND[1] + 9.54 - FE_LOC[1]; n = 0
@@ -541,6 +560,13 @@ BM.TURBINE_CUTS.clear(); BM.MEDICAL_CUTS.clear()
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 ST = dict(xw=-6.65, xe=-4.55, t=0.3, ytop=TURB[1] + STAIR_DOOR_Y - STAIR_HW - 0.2, ybot=RY + 16.9, yn=RY + 29.25, risers=34, drop=6.0, roof=2.9,
           cy0=RY + 14.5, cy1=RY + 16.9, cx1=COND[0] + 1.24, cx0b=COND[0] - 1.24, vy=COND[1] - 2.56, ch=2.7)
+# Condenser bay second exit (owner, 2026-10-13: "build the condenser ladder"): a 1.0 m emergency door in the bay's west wall at its north-west corner (turbine-local y 15.8..16.8;
+# the bay's floor is clear along its north wall and up its west side), a 4 m tunnel at bay level under the turbine's west aisle, and a 6 m ladder shaft outside the turbine on the
+# stair house's line (same x), topped by a small concrete house whose north door opens onto a path to the north evacuation strip. No column in the bay is clear both below and on
+# the floor above it (ejector skid and pump feeds in the north-west, the condensate skid in the turbine's east aisle, a 0.66 m overlap with a roof girder under electrical).
+ESC = dict(t=0.3, xw=ST['xw'], xe=ST['xe'], ys0=ST['yn'] + 2 * ST['t'], depth=1.8, ty0=TURB[1] + 15.8, ty1=TURB[1] + 16.8, tx1=COND[0] - 2.08, z1=COND[2], th=2.4, hh=2.5,
+           lx=(ST['xw'] + ST['xe']) / 2, dw=1.6, hole=0.9)
+ESC['ys1'] = ESC['ys0'] + ESC['depth']
 
 def add_condenser_stair(root):
     import reactor_links as RL
@@ -610,6 +636,89 @@ def add_condenser_stair(root):
         lo = bpy.data.objects.new('STAIR light %d' % i, ld); lo.location = (x, y, z); coll.objects.link(lo)
         box('lamp %d' % i, (x - 0.7, x + 0.7), (y - 0.2, y + 0.2), (z + 0.06, z + 0.11), lamp)
     print('STAIR condenser: %d risers of %.3f m, going %.3f m, %.1f degrees; corridor %.1f m' % (n, rise, g, math.degrees(math.atan2(rise, g)), (cx1 - cx0) + (s['vy'] - cy1)))
+
+def add_condenser_escape(root):
+    """The condenser bay's second exit (ESC above): bay west door, tunnel, ladder shaft with a caged ladder, hatch house with an emergency door, lights and signs."""
+    import evacuation as EV
+    M, _ = BM.spawn_assets(); coll = bpy.data.collections.new('CONNECTOR_condenser_escape'); root.children.link(coll)
+    E = ESC; t, z1, xw, xe, ys0, ys1, lx, hh = E['t'], E['z1'], E['xw'], E['xe'], E['ys0'], E['ys1'], E['lx'], E['hh']
+    ty0, ty1, tx1, th, dw, hole = E['ty0'], E['ty1'], E['tx1'], E['th'], E['dw'], E['hole']
+    box = lambda n, xs, ys, zs, m: BM._box(coll, 'ESCAPE ' + n, xs, ys, zs, m)
+    conc, wall, floor, steel, lamp, yellow, ceil = M['slab'], M['wall'], M['floor'], M['steel'], M['lamp'], M['yellow'], M['ceiling']
+    green = EV.mat('EVAC exit door green', (0.06, 0.32, 0.14), 0.55, 0.3)
+    # shaft (interior xw..xe, ys0..ys1, floor z1) and its house above grade (to hh)
+    box('shaft floor slab', (xw - t, xe + t), (ys0 - t, ys1 + t), (z1 - 0.25, z1 - 0.04), conc); box('shaft floor', (xw, xe), (ys0, ys1), (z1 - 0.04, z1), floor)
+    box('shaft west wall', (xw - t, xw), (ys0 - t, ys1 + t), (z1 - 0.25, hh + 0.25), conc)
+    box('shaft south wall', (xw, xe), (ys0 - t, ys0), (z1 - 0.25, hh + 0.25), conc)
+    box('shaft east wall south', (xe, xe + t), (ys0 - t, ty0), (z1 - 0.25, hh + 0.25), conc)
+    box('shaft east wall north', (xe, xe + t), (ty1, ys1 + t), (z1 - 0.25, hh + 0.25), conc)
+    box('shaft east wall over tunnel', (xe, xe + t), (ty0, ty1), (z1 + th, hh + 0.25), conc)
+    box('shaft north wall', (xw, xe), (ys1, ys1 + t), (z1 - 0.25, 0.0), conc)
+    box('house north jamb west', (xw, lx - dw / 2), (ys1, ys1 + t), (0.0, hh + 0.25), conc)
+    box('house north jamb east', (lx + dw / 2, xe), (ys1, ys1 + t), (0.0, hh + 0.25), conc)
+    box('house north lintel', (lx - dw / 2, lx + dw / 2), (ys1, ys1 + t), (2.2, hh + 0.25), conc)
+    box('house roof', (xw - t - 0.1, xe + t + 0.1), (ys0 - t - 0.1, ys1 + t + 0.1), (hh + 0.25, hh + 0.45), conc)
+    box('house ceiling skin', (xw, xe), (ys0, ys1), (hh - 0.04, hh), ceil)
+    for nm, xs, ys, zs in (('west', (xw, xw + 0.04), (ys0, ys1), (z1, hh - 0.04)), ('south', (xw, xe), (ys0, ys0 + 0.04), (z1, hh - 0.04)),
+                           ('east south', (xe - 0.04, xe), (ys0, ty0), (z1, hh - 0.04)), ('east north', (xe - 0.04, xe), (ty1, ys1), (z1, hh - 0.04)),
+                           ('east over tunnel', (xe - 0.04, xe), (ty0, ty1), (z1 + th, hh - 0.04)), ('north', (xw, xe), (ys1 - 0.04, ys1), (z1, 0.0)),
+                           ('north jamb west', (xw, lx - dw / 2), (ys1 - 0.04, ys1), (0.0, hh - 0.04)), ('north jamb east', (lx + dw / 2, xe), (ys1 - 0.04, ys1), (0.0, hh - 0.04)),
+                           ('north over door', (lx - dw / 2, lx + dw / 2), (ys1 - 0.04, ys1), (2.2, hh - 0.04))):
+        box('plaster ' + nm, xs, ys, zs, wall)
+    # grade landing: steel plate over the shaft except the ladder opening (0.7 x 0.9 m against the south wall); kick plates round the opening
+    for nm, xs, ys in (('north', (xw, xe), (ys0 + hole, ys1)), ('west', (xw, lx - 0.35), (ys0, ys0 + hole)), ('east', (lx + 0.35, xe), (ys0, ys0 + hole))):
+        box('landing plate ' + nm, xs, ys, (-0.06, 0.0), steel)
+    for nm, xs, ys in (('west', (lx - 0.38, lx - 0.35), (ys0, ys0 + hole)), ('east', (lx + 0.35, lx + 0.38), (ys0, ys0 + hole))):
+        box('landing kick plate ' + nm, xs, ys, (0.0, 0.1), yellow)
+        box('landing rail ' + nm, xs, (ys0 + hole - 0.04, ys0 + hole), (0.0, 1.1), steel); box('landing rail top ' + nm, xs, (ys0 + 0.05, ys0 + hole), (1.06, 1.1), steel)
+    box('landing edge strip', (lx - 0.35, lx + 0.35), (ys0 + hole, ys0 + hole + 0.08), (0.0, 0.006), yellow)
+    # caged ladder on the south wall: rails 0.5 m apart, 0.18 m stand-off, rungs every 0.30 m, the rails carried 1.1 m above the landing; cage hoops from 2.4 m above the shaft floor
+    ry = ys0 + 0.12
+    for k, x in enumerate((lx - 0.25, lx + 0.25)):
+        box('ladder rail %d' % k, (x - 0.03, x + 0.03), (ry, ry + 0.06), (z1, 1.1), steel)
+        for z in [z1 + 0.6 + 1.5 * i for i in range(4)] + [-0.3]:
+            box('ladder bracket %d' % k, (x - 0.02, x + 0.02), (ys0, ry), (z - 0.03, z + 0.03), steel)
+    zr = z1 + 0.3
+    while zr < 0.0:
+        box('ladder rung', (lx - 0.25, lx + 0.25), (ry + 0.01, ry + 0.05), (zr - 0.015, zr + 0.015), steel); zr += 0.3
+    zc = z1 + 2.4
+    while zc < -0.1:
+        box('ladder cage hoop front', (lx - 0.38, lx + 0.38), (ys0 + 0.84, ys0 + 0.88), (zc - 0.02, zc + 0.02), yellow)
+        for x in (lx - 0.38, lx + 0.34): box('ladder cage hoop side', (x, x + 0.04), (ys0 + 0.1, ys0 + 0.88), (zc - 0.02, zc + 0.02), yellow)
+        zc += 0.9
+    for x in (lx - 0.38, lx - 0.02, lx + 0.34): box('ladder cage strap', (x, x + 0.04), (ys0 + 0.84, ys0 + 0.88), (z1 + 2.4, -0.1), yellow)
+    # tunnel (interior xe..tx1 east, ty0..ty1, floor z1, height th) through the shaft's east wall to the bay's west wall
+    box('tunnel floor slab', (xe, tx1), (ty0 - t, ty1 + t), (z1 - 0.25, z1 - 0.04), conc); box('tunnel floor', (xe, tx1), (ty0, ty1), (z1 - 0.04, z1), floor)
+    box('tunnel south wall', (xe + t, tx1), (ty0 - t, ty0), (z1 - 0.25, z1 + th + 0.25), conc); box('tunnel north wall', (xe + t, tx1), (ty1, ty1 + t), (z1 - 0.25, z1 + th + 0.25), conc)
+    box('tunnel roof', (xe + t, tx1), (ty0 - t, ty1 + t), (z1 + th, z1 + th + 0.25), conc); box('tunnel ceiling skin', (xe, tx1), (ty0, ty1), (z1 + th - 0.04, z1 + th), ceil)
+    box('tunnel plaster south', (xe + t, tx1), (ty0, ty0 + 0.04), (z1, z1 + th - 0.04), wall); box('tunnel plaster north', (xe + t, tx1), (ty1 - 0.04, ty1), (z1, z1 + th - 0.04), wall)
+    box('tunnel wainscot south', (xe + t, tx1), (ty0 + 0.04, ty0 + 0.05), (z1, z1 + 1.15), M['dado']); box('tunnel wainscot north', (xe + t, tx1), (ty1 - 0.05, ty1 - 0.04), (z1, z1 + 1.15), M['dado'])
+    box('tunnel threshold', (tx1, tx1 + 0.3), (ty0, ty1), (z1 - 0.25, z1), floor)       # through the bay's 0.28 m west wall
+    box('strip shaft', (xe - 0.3, xe + t), (ty0, ty1), (z1, z1 + 0.012), yellow); box('strip bay door', (tx1 - 0.3, tx1), (ty0, ty1), (z1, z1 + 0.012), yellow)
+    # doors: the bay's west door (closed steel leaf mid-wall, frames both faces) and the house door (north face), both emergency exits (open in the evacuation state)
+    wx0, wx1 = tx1, tx1 + 0.28; h = 2.28
+    box('bay door leaf', (wx0 + 0.11, wx0 + 0.17), (ty0 + 0.02, ty1 - 0.02), (z1 + 0.01, z1 + h), green)
+    box('bay door leaf push bar', (wx0 + 0.17, wx0 + 0.23), (ty0 + 0.15, ty1 - 0.15), (z1 + 1.0, z1 + 1.06), steel)
+    for face, (a, b) in (('tunnel', (wx0 - 0.06, wx0)), ('bay', (wx1, wx1 + 0.06))):
+        box('bay door frame %s south' % face, (a, b), (ty0 - 0.1, ty0), (z1, z1 + 2.4), steel); box('bay door frame %s north' % face, (a, b), (ty1, ty1 + 0.1), (z1, z1 + 2.4), steel)
+        box('bay door frame %s head' % face, (a, b), (ty0 - 0.1, ty1 + 0.1), (z1 + 2.3, z1 + 2.4), steel)
+    box('house door leaf', (lx - dw / 2 + 0.02, lx + dw / 2 - 0.02), (ys1 + 0.12, ys1 + 0.18), (0.01, 2.18), green)
+    box('house door leaf push bar', (lx - dw / 2 + 0.2, lx + dw / 2 - 0.2), (ys1 + 0.06, ys1 + 0.12), (1.0, 1.06), steel)
+    for nm, xs, zs in (('west', (lx - dw / 2 - 0.1, lx - dw / 2), (0.0, 2.3)), ('east', (lx + dw / 2, lx + dw / 2 + 0.1), (0.0, 2.3)), ('head', (lx - dw / 2 - 0.1, lx + dw / 2 + 0.1), (2.2, 2.3))):
+        box('house door frame ' + nm, xs, (ys1 + t, ys1 + t + 0.06), zs, steel)
+    box('house door threshold', (lx - dw / 2, lx + dw / 2), (ys1, ys1 + t + 0.3), (-0.3, 0.0), steel)
+    # lights (warm area lights like the stair's) and signs
+    for i, (x, y, z, e) in enumerate(((lx + 0.4, (ys0 + ys1) / 2 + 0.3, hh - 0.12, 120), (lx + 0.4, ys1 - 0.3, z1 + th - 0.15, 90), ((xe + tx1) / 2, (ty0 + ty1) / 2, z1 + th - 0.12, 80))):
+        ld = bpy.data.lights.new('ESCAPE light %d' % i, 'AREA'); ld.energy = e; ld.size = 0.9; ld.size_y = 0.3; ld.color = (1.0, 0.93, 0.82)
+        lo = bpy.data.objects.new('ESCAPE light %d' % i, ld); lo.location = (x, y, z); coll.objects.link(lo)
+        box('lamp %d' % i, (x - 0.45, x + 0.45), (y - 0.15, y + 0.15), (z + 0.06, z + 0.1), lamp)
+    EM = {'exit green': EV.mat('EVAC exit sign green', (0.02, 0.55, 0.2), 0.4, 0.0, 4.0, (0.05, 1.0, 0.35)), 'exit white': EV.mat('EVAC exit sign white', (0.95, 0.97, 0.95), 0.4, 0.0, 3.0),
+          'steel': steel, 'lamp': lamp}
+    EV.exit_sign(coll, 'ESCAPE exit sign bay', (wx1 + 0.07, (ty0 + ty1) / 2, z1 + 2.58), 0.0, EM)                      # in the bay over its west door, facing the bay
+    EV.exit_sign(coll, 'ESCAPE exit sign ladder', (lx + 0.62, ys0 + 0.04, z1 + 2.1), 90.0, EM)                          # on the shaft's south wall beside the ladder foot
+    EV.exit_sign(coll, 'ESCAPE exit sign house', (lx, ys1 - 0.04, 2.38), -90.0, EM)                                    # inside the house over its door
+    EV.bulkhead(coll, 'ESCAPE bulkhead house', (lx, ys1 + t + 0.2, 2.6), 90.0, EM)
+    print('ESCAPE condenser: west door, %.1f m tunnel, %.1f m ladder shaft, hatch house at plan (%.2f, %.2f)' % (tx1 - xe, -z1, lx, (ys0 + ys1) / 2))
 
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 # South concourse (replaces build_combined_map.add_reactor_concourse, which was sized for the long corridor's F02 adapter): one room joining the short corridor's
@@ -726,6 +835,10 @@ DOORS = [
     ('ELECTRICAL_D01', 'electrical-room', (0, 0), (0, -1), 2.4, 2.7, 'sliding pair', 'open', 'turbine-room (east door)', 'parked'),
     ('ELECTRICAL_D02', 'electrical-room', (0, 16.4), (0, 1), 2.4, 2.7, 'sliding pair', 'closed', 'east evacuation road', 'leaves moved shut (local copies)'),
     ('TURBINE_W_STAIR', 'turbine-room', (-4.1, STAIR_DOOR_Y), (-1, 0), 2 * STAIR_HW, 2.6, 'opening (new cut)', 'open', 'condenser stair', 'no leaf'),
+    ('CONDENSER_W_ESCAPE', 'condenser-bay', (ESC['tx1'] + 0.14 - COND[0], (ESC['ty0'] + ESC['ty1']) / 2 - COND[1]), (-1, 0), 1.0, 2.28, 'single steel leaf (new emergency door)', 'closed',
+     'escape tunnel and ladder shaft to the outside', 'ESCAPE bay door leaf (closed; opens for evacuation)'),
+    ('ESCAPE_HOUSE_DOOR', 'connector', (ESC['lx'], ESC['ys1'] + 0.15), (0, 1), ESC['dw'] - 0.04, 2.18, 'single steel leaf (new emergency door, top of the escape ladder)', 'closed',
+     'north evacuation strip', 'ESCAPE house door leaf (closed; opens for evacuation)'),
     ('CONDENSER_D01', 'condenser-bay', (0, 0), (0, -1), 2.0, 2.4, 'two opposed sliding leaves', 'open', 'condenser stair corridor', 'parked open (contract); stub blanking left out'),
     ('COOLING_P01', 'cooling-plant', (0, 0), (0, -1), 5.0, 5.0, 'overhead folding shutter', 'open', 'reactor west stub', 'raised (contract: fixed open)'),
     ('COOLING_W_EXIT', 'cooling-plant', ((COOL_EXIT_Y[0] + COOL_EXIT_Y[1]) / 2 - RY, 13.3), (0, 1), 1.6, 2.35, 'single leaf (new emergency door)', 'closed', 'west evacuation path',
@@ -743,12 +856,13 @@ DOORS = [
 # Emergency exits: closed in normal play, open in the evacuation state; leaf_regex names the closed-leaf objects (the walk test's --meltdown mode leaves them out).
 EMERGENCY = {'REACTOR_SE': r'^(COOLING PLANT\..*door|RH refine door hardware COOLING PLANT)', 'WASTE_DISPATCH': r'^WASTE dispatch shutter', 'SPINE_NORTH_END': r'^reactor_door moved$',
              'HALL_EAST': r'^hall_E_door_leaf_', 'YARD_SERVICE': r'^service_door_(leaf|push)$', 'YARD_EVAC_GATE': r'^evac_(leaf_frame|push_bar|stripe)',
+             'CONDENSER_W_ESCAPE': r'^ESCAPE bay door leaf', 'ESCAPE_HOUSE_DOOR': r'^ESCAPE house door leaf',
              'TURBINE_D02': None, 'ELECTRICAL_D02': None, 'WASTE_PERSONNEL': None, 'COOLING_W_EXIT': None}      # None: filled from LEAF_NAMES / evacuation.build
 STATE_ANCHORS = {'closed': 'blocks: collider DOOR_<id>_blocker enabled', 'open': 'passes: blocker disabled', 'locked': 'closed and refuses interaction'}
 
 def add_door_anchors(root):
     coll = bpy.data.collections.new('DOORS'); root.children.link(coll)
-    place = {r[0]: (r[3], r[4]) for r in BM.ROOMS}; rows = []
+    place = {r[0]: (r[3], r[4]) for r in BM.ROOMS}; place['connector'] = ((0.0, 0.0, 0.0), 0.0); rows = []        # 'connector': a door of a built connector, plan frame
     for did, room, c, n, w, h, kind, state, to, leaf in DOORS:
         loc, rz = place[room]; p = wxy(loc, rz, *c); d = Vector(rot(rz)(*n)).normalized()
         e = bpy.data.objects.new('DOOR_' + did, None); e.empty_display_type = 'ARROWS'; e.empty_display_size = 0.6
@@ -798,6 +912,7 @@ def post_build():
     add_condenser_stair(root); add_signs(root); add_fill_lights(root)
     import re, evacuation
     EMERGENCY.update(evacuation.build(root, sys.modules[__name__]))
+    add_condenser_escape(root)
     for did in ('TURBINE_D02', 'ELECTRICAL_D02', 'WASTE_PERSONNEL'):
         EMERGENCY[did] = '^(' + '|'.join(re.escape(n) for n in LEAF_NAMES.get(did, ['(none)'])) + ')$'
     add_door_anchors(root)

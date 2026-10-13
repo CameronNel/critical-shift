@@ -126,12 +126,25 @@ def build(root, L):
     box(c, 'condenser corridor west jamb', (S['cx0b'] - S['t'], S['cx0b']), (cy1, S['vy']), (z1, zc), 'wall', zone)
     box(c, 'condenser corridor roof', (S['xe'], cx1 + S['t']), (cy0 - S['t'], cy1 + S['t']), (zc, zc + 0.25), 'roof', zone)
     box(c, 'condenser corridor north roof', (S['cx0b'] - S['t'], cx1 + S['t']), (cy1, S['vy']), (zc, zc + 0.25), 'roof', zone)
+    # condenser escape (build_compact_map.add_condenser_escape): tunnel and shaft floors and walls, the grade landing, and the ladder as a climb volume
+    E = L.ESC; z1 = E['z1']; zone = 'condenser escape'
+    box(c, 'escape tunnel floor', (E['xe'], E['tx1'] + 0.3), (E['ty0'], E['ty1']), (z1 - 0.3, z1), 'floor', zone)
+    box(c, 'escape tunnel south wall', (E['xe'] + E['t'], E['tx1']), (E['ty0'] - 0.3, E['ty0']), (z1, z1 + E['th']), 'wall', zone)
+    box(c, 'escape tunnel north wall', (E['xe'] + E['t'], E['tx1']), (E['ty1'], E['ty1'] + 0.3), (z1, z1 + E['th']), 'wall', zone)
+    box(c, 'escape tunnel roof', (E['xe'], E['tx1']), (E['ty0'] - 0.3, E['ty1'] + 0.3), (z1 + E['th'], z1 + E['th'] + 0.25), 'roof', zone)
+    box(c, 'escape shaft floor', (E['xw'], E['xe']), (E['ys0'], E['ys1']), (z1 - 0.3, z1), 'floor', zone)
+    for nm, xs, ys in (('west', (E['xw'] - 0.3, E['xw']), (E['ys0'] - 0.3, E['ys1'] + 0.3)), ('south', (E['xw'], E['xe']), (E['ys0'] - 0.3, E['ys0'])),
+                       ('east south', (E['xe'], E['xe'] + 0.3), (E['ys0'] - 0.3, E['ty0'])), ('east north', (E['xe'], E['xe'] + 0.3), (E['ty1'], E['ys1'] + 0.3))):
+        box(c, 'escape shaft %s wall' % nm, xs, ys, (z1, E['hh']), 'wall', zone)
+    box(c, 'escape shaft north wall below grade', (E['xw'], E['xe']), (E['ys1'], E['ys1'] + 0.3), (z1, 0.0), 'wall', zone)
+    box(c, 'escape landing', (E['xw'], E['xe']), (E['ys0'] + E['hole'], E['ys1'] + 0.6), (-0.3, 0.0), 'floor', zone)
+    box(c, 'escape ladder climb', (E['lx'] - 0.3, E['lx'] + 0.3), (E['ys0'] + 0.1, E['ys0'] + 0.8), (z1, 1.1), 'ladder', zone, trigger=True)
     # evacuation routes (evacuation.py): the paved aprons, road and paths as floor proxies; the cooling exit threshold through the wall depth
     import evacuation as EV
     for name, poly in EV.collider_polys(RY): poly_slab(c, 'evacuation ' + name, poly, (-0.3, 0.0), 'floor', 'evacuation route')
     box(c, 'cooling exit threshold', (-27.85, -27.45), L.COOL_EXIT_Y, (-0.3, 0.0), 'floor', 'evacuation route')
     # doors: a trigger threshold on every door plane, and a solid blocker on every door (enabled while closed; the map opens with the states in doors.json)
-    place = {r[0]: (r[3], r[4]) for r in BM.ROOMS}
+    place = {r[0]: (r[3], r[4]) for r in BM.ROOMS}; place['connector'] = ((0.0, 0.0, 0.0), 0.0)
     for did, room, cc, n, w, h, kind, state, to, leaf in L.DOORS:
         loc, rz = place[room]; p = L.wxy(loc, rz, *cc); d = Vector(L.rot(rz)(*n)).normalized(); ang = math.atan2(d.y, d.x); z0 = loc[2]
         box(c, 'DOOR_%s threshold' % did, (p.x - 0.3, p.x + 0.3), (p.y - w / 2, p.y + w / 2), (z0, z0 + min(h, 2.4)), 'door_threshold', room, door=did, trigger=True, rz=ang, about=(p.x, p.y))

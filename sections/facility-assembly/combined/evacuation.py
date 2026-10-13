@@ -21,6 +21,7 @@ _L = None        # the build module (set by build()): the turbine and electrical
 
 def _ey(): return _L.ELEC[1] if _L else 14.3                    # electrical centre line (plan y): its D02 faces east onto the road
 def _vy(): return _L.TURB[1] + 25.76 if _L else 21.0           # outer end of the turbine's north (D02) vestibule (rebuild: module y 25.76)
+def _esc(): return (_L.ESC['xw'] - _L.ESC['t'], _L.ESC['ys1'] + _L.ESC['t']) if _L else (-6.95, 13.25)   # condenser escape house: west outer face, north outer face
 
 # ---- paved areas (plan metres). Polygons are counter-clockwise; every one is checked against the plan cut in ASSEMBLY_REPORT.md section 3. ----
 def east_polys(RY):
@@ -32,6 +33,8 @@ def east_polys(RY):
         'north strip': [(-4.5, 21.0), (-1.47, 21.0), (-1.47, _vy()), (1.47, _vy()), (1.47, 21.0), (32.4, 21.0), (32.4, 25.0), (-4.5, 25.0)],
         'north strip west of D02': [(-4.5, 20.07), (-1.47, 20.07), (-1.47, 21.0), (-4.5, 21.0)],
         'north strip east of D02': [(1.47, 20.07), (32.4, 20.07), (32.4, 21.0), (1.47, 21.0)],
+        # from the condenser escape house's door (north face) north along the turbine's west wall to the strip
+        'condenser escape path': [(_esc()[0], _esc()[1]), (-4.5, _esc()[1]), (-4.5, 25.0), (_esc()[0], 25.0)],
         'electrical D02 spur': [(27.3, _ey() - 2.0), (32.4, _ey() - 2.0), (32.4, _ey() + 2.0), (27.3, _ey() + 2.0)],
         'waste dispatch spur': [(30.32, -16.9), (32.4, -16.9), (32.4, -12.8), (30.32, -12.8)],
         'hall canopy apron': [(32.4, -57.0), (40.4, -57.0), (40.4, -50.5), (32.4, -50.5)],
@@ -48,14 +51,14 @@ def west_polys(RY):
 def east_lines(RY):
     return [([(0.0, 22.6), (34.4, 22.6), (34.4, -50.0), (38.0, -52.5), (37.2, -54.0)], 7.0),
             ([(12.4, -31.2), (22.0, -27.5), (34.4, -27.5)], 6.0),
-            ([(29.3, _ey()), (34.4, _ey())], 0), ([(31.3, -14.84), (34.4, -14.84)], 0)]
+            ([(29.3, _ey()), (34.4, _ey())], 0), ([(-5.7, _esc()[1] + 0.8), (-5.7, 22.6), (-1.0, 22.6)], 5.0), ([(31.3, -14.84), (34.4, -14.84)], 0)]
 
 def west_lines(RY):
     return [([(-29.0, -17.0), (-36.5, -17.0), (-36.5, -58.2), (-46.0, -58.2), (-46.0, -59.6)], 7.0)]
 
 # pole positions (x, y, arm yaw degrees: the arm and the spot point that way)
 def poles(RY):
-    east = [(36.25, y, 180.0) for y in (22.0, 9.0, -4.0, -17.0, -30.0, -43.0)] + [(6.0, 24.85, -90.0), (20.0, 24.85, -90.0), (22.0, -33.1, 90.0), (40.25, -56.85, 135.0)]
+    east = [(36.25, y, 180.0) for y in (22.0, 9.0, -4.0, -17.0, -30.0, -43.0)] + [(6.0, 24.85, -90.0), (20.0, 24.85, -90.0), (-6.8, 18.0, 0.0), (22.0, -33.1, 90.0), (40.25, -56.85, 135.0)]
     west = [(-38.35, y, 0.0) for y in (-19.0, -31.0, -43.0, -55.0)]
     return east + west
 

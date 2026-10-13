@@ -56,6 +56,7 @@ COLLIDER_ROUTES = {
     'spine': P((8, -47.5, 0), (8, -34.0, 0)), 'spine_to_concourse_to_reactor': P((8, CY, 0), (0, CY, 0), (0, RY - 11.0, 0)), 'concourse_to_fuel_F02E': P((0, CY, 0), (-4.0, F02E[1], 0), (-5.3, F02E[1], 0)),
     'reactor_waste_junction': P((10.85, WY, 0), (11.55, WY, 0)), 'spine_to_dock_tube': P((8, -40.39, 0), (12.1, -40.39, 0)),
     'reactor_north_stub': R((0, 11.0, 0), (0, 14.4, 0)), 'reactor_west_stub': R((-11.0, 0, 0), (-14.4, 0, 0)), 'turbine_electrical_junction': R((10.05, 27.0, 0), (10.65, 27.0, 0)),
+    'condenser_escape_tunnel': R((-0.85, 30.8, -6), (-5.6, 30.8, -6)),     # from the tunnel side of the bay door (the bay itself has no proxies)
     'condenser_stair': R((-5.6, 28.6, 0), (-5.6, 26.5, 0), (-5.6, 16.9, -6), (-5.6, 15.7, -6), (1.6, 15.7, -6), (1.6, 19.2, -6)),
 }
 # Evacuation state (--meltdown): emergency exits open (their closed leaves left out, doors.json leaf_regex). Each route is one leg of an escape, ending where
@@ -83,12 +84,16 @@ MELTDOWN_ROUTES = {
                                   (-36.5, -58.2, 0), (-46.0, -58.2, 0), (-46.0, -60.15, 0), (-46.0, -62.5, 0)),
     'evac_condenser_to_turbine_D02': R((1.6, 22.0, -6), (1.6, 19.3, -6), (1.6, 15.7, -6), (-5.6, 15.7, -6), (-5.6, 16.9, -6), (-5.6, 26.5, 0), (-5.6, 27.475, 0), (-4.2, 27.475, 0), (-1.2, 27.475, 0),
                                        (-1.2, 28.6, 0), (1.0, 29.0, 0), (1.0, 37.9, 0), (0, 38.6, 0), (0, 40.6, 0)) + P((0, 22.6, 0)),
+    # condenser bay second exit: west escape door, tunnel, the foot of the escape ladder (6.0 m, not walked), then from the hatch house's landing to the road
+    'evac_condenser_to_escape_ladder': R((1.6, 22.5, -6), (1.6, 27.1, -6), (2.2, 27.5, -6), (2.2, 30.65, -6), (0.3, 30.65, -6), (-0.35, 30.8, -6),     # between the ejector exhaust riser and pump B's power riser (moved to the north wall)
+                                         (-2.5, 30.8, -6), (-4.4, 30.8, -6), (-5.6, 30.8, -6)),
+    'evac_escape_house_to_road': P((-5.6, 12.4, 0), (-5.6, 13.1, 0), (-5.6, 14.5, 0), (-5.6, 22.6, 0), (0.0, 22.6, 0), (20.0, 22.6, 0), (34.4, 22.6, 0)),
     'evac_reactor_via_tunnel_to_hall': R((0, -6.0, 0), (0, -12.0, 0)) + P((0, CY, 0), (8.0, CY, 0), (8.0, -47.0, 0), (8.0, -49.5, 0)),
     'evac_hall_to_yard_gate': P((8.0, -54.0, 0), (8.0, -60.0, 0), (8.0, -70.0, 0), (-7.27, -70.0, 0), (-12.0, -70.0, 0), (-28.0, -72.0, 0), (-28.0, -80.0, 0), (-28.0, -84.0, 0), (-28.0, -87.0, 0)),
     'evac_yard_service_to_gate': P((-46.0, -62.5, 0), (-40.0, -70.0, 0), (-28.0, -74.0, 0), (-28.0, -84.0, 0), (-28.0, -87.0, 0)),
 }
 # closed doors that must block: a short segment through each door centre (from doors.json at run time)
-BLOCK_CHECKS = ['TURBINE_D02', 'ELECTRICAL_D02', 'WASTE_DISPATCH', 'WASTE_PERSONNEL', 'REACTOR_SE', 'HALL_EAST', 'DOCK_P2', 'SPINE_NORTH_END', 'COOLING_W_EXIT', 'YARD_SERVICE', 'YARD_EVAC_GATE']
+BLOCK_CHECKS = ['CONDENSER_W_ESCAPE', 'ESCAPE_HOUSE_DOOR', 'TURBINE_D02', 'ELECTRICAL_D02', 'WASTE_DISPATCH', 'WASTE_PERSONNEL', 'REACTOR_SE', 'HALL_EAST', 'DOCK_P2', 'SPINE_NORTH_END', 'COOLING_W_EXIT', 'YARD_SERVICE', 'YARD_EVAC_GATE']
 
 def world_tris(zlo, zhi, colliders=False, skip=None, open_doors=()):
     """All evaluated triangles (world space) whose z range meets [zlo, zhi], with an owner index. colliders=True: only the COLLIDERS proxies (door blockers only when enabled now,

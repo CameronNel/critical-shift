@@ -18,7 +18,9 @@ Where plan v7 and the as-built front end disagree, the as-built front end and DE
 
 ## Current layout: compact, assembly pass (read `COMPACT_MAP.md` and `ASSEMBLY_REPORT.md` first)
 
-2026-10-13, last: **stacked slabs** fixed (the condenser bay's roof stood 0.3 m through the turbine floor; the front end's ground ran through the bay's top): `patch_condenser` lowers the roof slab under the turbine floor, the ground gets a hole over the bay. New check `floor_audit.py` (run on a built scene; flags any surface 2 to 50 cm above another room's floor); the plan cut also slices at z 0.15 and -0.6. Run both after any change that stacks or overlaps rooms.
+2026-10-13, latest: the **condenser escape ladder** (owner: "build the condenser ladder"): `add_condenser_escape` builds a 1.0 m emergency door in the bay's west wall (cut by `patch_condenser`), a 4.1 m tunnel under the turbine's west aisle, a 6.0 m caged ladder in a shaft on the stair house's line and a hatch house with an emergency door onto a path to the north strip (`evacuation.py`). Door rows `CONDENSER_W_ESCAPE` and `ESCAPE_HOUSE_DOOR` (owner `connector`: plan frame). The walk test walks both ends; the ladder itself is a `ladder` collider volume, not walked.
+
+2026-10-13, before that: **stacked slabs** fixed (the condenser bay's roof stood 0.3 m through the turbine floor; the front end's ground ran through the bay's top): `patch_condenser` lowers the roof slab under the turbine floor, the ground gets a hole over the bay. New check `floor_audit.py` (run on a built scene; flags any surface 2 to 50 cm above another room's floor); the plan cut also slices at z 0.15 and -0.6. Run both after any change that stacks or overlaps rooms.
 
 2026-10-13, before that: the **turbine rebuild** swap (owner: "swap in the turbine rebuild"). `turbine-room` links `sources/turbine-room/rebuild/turbine_room_v2_geo.blend` (collection `TURBINE_ROOM_V2`; the file and its PNG textures are on `main`, `git lfs pull` them) instead of the AAA finish of the original module. `patch_turbine` is written for the rebuild: it clips the D01 vestibule at the reactor stub, makes the D02 vestibule's end panel the emergency-exit leaf and opens the wall behind it, cuts the electrical door (turbine-local y 12.5) and the stair door (y 12.975, 1.55 m) in clear wall bays, gives the rebuild's black occluder shell a concrete exterior on its outer faces, clads the D02 vestibule, and replaces the two TO ELECTRICAL signs. The electrical room moved 6 m south with its door; `evacuation.py` reads the turbine and electrical placements from the build module. The new helpers `take_parts` and `clip_parts` work loose part by loose part like `split_openings`.
 
@@ -52,7 +54,7 @@ Build keys, in `ROOMS` order. `--through <key>` builds that room and every room 
 | 11 | `compliance-dock` | compliance dock (overhaul R1) | (60, -79), -90 |
 
 The committed `combined_map.blend` is built by `build_compact_map.py` (all rooms through the compliance dock plus the condenser bay). Every room is "added, awaiting owner OK" except the front end, which is "built, unreviewed".
-Not placed: condenser bay (not in the plan), gantry (no attachment spec). Known defects and open items are listed in `COMBINED_MAP.md` (fix log and "Defects and open items").
+Placed in the compact map (not in this older table): the condenser bay, 6 m under the turbine (`COND` in `build_compact_map.py`), reached by the stair from the turbine's west wall and, since 2026-10-13, an escape ladder. Not placed: the gantry (no attachment spec). Known defects and open items are listed in `COMBINED_MAP.md` (fix log and "Defects and open items").
 
 ## Files this folder needs that are not committed here (fetch before building)
 

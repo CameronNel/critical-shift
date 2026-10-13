@@ -1,12 +1,13 @@
 {
  "note": "Collision/navigation proxies of the compact map (halls, stubs, junctions, stair, door thresholds and blockers). Unreviewed. Plan metres, z up; Unity import is not run.",
  "counts": {
-  "door_blocker": 35,
-  "door_threshold": 35,
-  "floor": 24,
+  "door_blocker": 37,
+  "door_threshold": 37,
+  "floor": 28,
+  "ladder": 1,
   "ramp": 1,
-  "roof": 11,
-  "wall": 29
+  "roof": 12,
+  "wall": 36
  },
  "colliders": [
   {
@@ -1017,6 +1018,234 @@
    ]
   },
   {
+   "name": "COL escape tunnel floor",
+   "role": "floor",
+   "zone": "condenser escape",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -4.55,
+     11.6,
+     -6.3
+    ],
+    [
+     -0.18,
+     12.6,
+     -6.0
+    ]
+   ]
+  },
+  {
+   "name": "COL escape tunnel south wall",
+   "role": "wall",
+   "zone": "condenser escape",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -4.25,
+     11.3,
+     -6.0
+    ],
+    [
+     -0.48,
+     11.6,
+     -3.6
+    ]
+   ]
+  },
+  {
+   "name": "COL escape tunnel north wall",
+   "role": "wall",
+   "zone": "condenser escape",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -4.25,
+     12.6,
+     -6.0
+    ],
+    [
+     -0.48,
+     12.9,
+     -3.6
+    ]
+   ]
+  },
+  {
+   "name": "COL escape tunnel roof",
+   "role": "roof",
+   "zone": "condenser escape",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -4.55,
+     11.3,
+     -3.6
+    ],
+    [
+     -0.48,
+     12.9,
+     -3.35
+    ]
+   ]
+  },
+  {
+   "name": "COL escape shaft floor",
+   "role": "floor",
+   "zone": "condenser escape",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -6.65,
+     11.15,
+     -6.3
+    ],
+    [
+     -4.55,
+     12.95,
+     -6.0
+    ]
+   ]
+  },
+  {
+   "name": "COL escape shaft west wall",
+   "role": "wall",
+   "zone": "condenser escape",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -6.95,
+     10.85,
+     -6.0
+    ],
+    [
+     -6.65,
+     13.25,
+     2.5
+    ]
+   ]
+  },
+  {
+   "name": "COL escape shaft south wall",
+   "role": "wall",
+   "zone": "condenser escape",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -6.65,
+     10.85,
+     -6.0
+    ],
+    [
+     -4.55,
+     11.15,
+     2.5
+    ]
+   ]
+  },
+  {
+   "name": "COL escape shaft east south wall",
+   "role": "wall",
+   "zone": "condenser escape",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -4.55,
+     10.85,
+     -6.0
+    ],
+    [
+     -4.25,
+     11.6,
+     2.5
+    ]
+   ]
+  },
+  {
+   "name": "COL escape shaft east north wall",
+   "role": "wall",
+   "zone": "condenser escape",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -4.55,
+     12.6,
+     -6.0
+    ],
+    [
+     -4.25,
+     13.25,
+     2.5
+    ]
+   ]
+  },
+  {
+   "name": "COL escape shaft north wall below grade",
+   "role": "wall",
+   "zone": "condenser escape",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -6.65,
+     12.95,
+     -6.0
+    ],
+    [
+     -4.55,
+     13.25,
+     0.0
+    ]
+   ]
+  },
+  {
+   "name": "COL escape landing",
+   "role": "floor",
+   "zone": "condenser escape",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -6.65,
+     12.05,
+     -0.3
+    ],
+    [
+     -4.55,
+     13.55,
+     0.0
+    ]
+   ]
+  },
+  {
+   "name": "COL escape ladder climb",
+   "role": "ladder",
+   "zone": "condenser escape",
+   "door_id": null,
+   "trigger": true,
+   "bounds": [
+    [
+     -5.9,
+     11.25,
+     -6.0
+    ],
+    [
+     -5.3,
+     11.95,
+     1.1
+    ]
+   ]
+  },
+  {
    "name": "COL evacuation east yard",
    "role": "floor",
    "zone": "evacuation route",
@@ -1107,6 +1336,25 @@
     [
      32.4,
      21.0,
+     0.0
+    ]
+   ]
+  },
+  {
+   "name": "COL evacuation condenser escape path",
+   "role": "floor",
+   "zone": "evacuation route",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -6.95,
+     13.25,
+     -0.3
+    ],
+    [
+     -4.5,
+     25.0,
      0.0
     ]
    ]
@@ -2153,6 +2401,82 @@
      -4.04,
      9.55,
      2.6
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_CONDENSER_W_ESCAPE threshold",
+   "role": "door_threshold",
+   "zone": "condenser-bay",
+   "door_id": "CONDENSER_W_ESCAPE",
+   "trigger": true,
+   "bounds": [
+    [
+     -0.64,
+     11.6,
+     -6.0
+    ],
+    [
+     -0.04,
+     12.6,
+     -3.72
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_CONDENSER_W_ESCAPE blocker",
+   "role": "door_blocker",
+   "zone": "condenser-bay",
+   "door_id": "CONDENSER_W_ESCAPE",
+   "trigger": false,
+   "bounds": [
+    [
+     -0.4,
+     11.6,
+     -6.0
+    ],
+    [
+     -0.28,
+     12.6,
+     -3.72
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_ESCAPE_HOUSE_DOOR threshold",
+   "role": "door_threshold",
+   "zone": "connector",
+   "door_id": "ESCAPE_HOUSE_DOOR",
+   "trigger": true,
+   "bounds": [
+    [
+     -6.38,
+     12.8,
+     0.0
+    ],
+    [
+     -4.82,
+     13.4,
+     2.18
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_ESCAPE_HOUSE_DOOR blocker",
+   "role": "door_blocker",
+   "zone": "connector",
+   "door_id": "ESCAPE_HOUSE_DOOR",
+   "trigger": false,
+   "bounds": [
+    [
+     -6.38,
+     13.04,
+     0.0
+    ],
+    [
+     -4.82,
+     13.16,
+     2.18
     ]
    ]
   },

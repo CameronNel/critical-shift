@@ -13,7 +13,7 @@ R = {   # placements of build_compact_map.py (short fuel corridor layout); modul
  'reactor hall': r(-11.6, 11.6, -11.6, 11.6), 'reactor N stub': r(-2.8, 2.8, 11.6, 14.5), 'reactor W stub': r(-14.5, -11.6, -3.3, 3.3),
  'turbine': poly((0, 14.5 + RY), 0, -4.25, 10.25, -0.3, 24.25), 'turbine D02 vestibule': poly((0, 14.5 + RY), 0, -1.44, 1.44, 24.25, 25.76),
  'electrical': poly((10.5, 27.0 + RY), -90, -5.75, 8.55, -0.25, 16.97),
- 'condenser stair shaft': r(-6.95, -4.25, 16.9, 29.55),
+ 'condenser stair shaft': r(-6.95, -4.25, 16.9, 29.55), 'condenser escape house': r(-6.95, -4.25, 29.55, 31.95),
  'waste': poly((11.94, 3.86 + RY), -90, -6.32, 7.61, -0.32, 18.32), 'cooling': poly((-14.5, RY), 90, -5.8, 5.8, 0, 13.3), 'dock': poly((12.15, -40.39), -90, -7.1, 7.21, -2.1, 16.08),
  'concourse': box(-5.76, 6.15, -38.6, -33.2), 'reactor south tunnel': box(-2.8, 2.8, -33.2, RY - 11.6), 'spine': box(5.85, 10.15, -48, -33.1),
  'fuel corridor entry': box(-24.74, -20.2, -43.6, -38.1), 'fuel corridor hall': box(-24.74, -5.46, -38.41, -30.77),

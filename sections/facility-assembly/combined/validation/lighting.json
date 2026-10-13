@@ -2,8 +2,8 @@
  "settings": "Cycles CPU 640x360 14 spp denoised; view transform Khronos PBR Neutral exposure 0.50",
  "views": {
   "reactor_N_stub": {
-   "median": 0.719,
-   "mean": 0.697,
+   "median": 0.72,
+   "mean": 0.698,
    "p10": 0.397,
    "near_black": 0.001,
    "clipped": 0.036,
@@ -23,8 +23,8 @@
   "turbine_entry": {
    "median": 0.195,
    "mean": 0.258,
-   "p10": 0.039,
-   "near_black": 0.101,
+   "p10": 0.043,
+   "near_black": 0.098,
    "clipped": 0.003,
    "clipped_white": 0.0,
    "eye": [
@@ -41,7 +41,7 @@
   },
   "turbine_east_aisle_to_electrical": {
    "median": 0.27,
-   "mean": 0.296,
+   "mean": 0.295,
    "p10": 0.024,
    "near_black": 0.11,
    "clipped": 0.003,
@@ -61,8 +61,8 @@
   "electrical_inside": {
    "median": 0.547,
    "mean": 0.518,
-   "p10": 0.184,
-   "near_black": 0.012,
+   "p10": 0.183,
+   "near_black": 0.011,
    "clipped": 0.027,
    "clipped_white": 0.0,
    "eye": [
@@ -78,7 +78,7 @@
    "readable": true
   },
   "reactor_W_stub_to_cooling": {
-   "median": 0.545,
+   "median": 0.544,
    "mean": 0.534,
    "p10": 0.198,
    "near_black": 0.031,
@@ -97,12 +97,12 @@
    "readable": true
   },
   "cooling_inside": {
-   "median": 0.581,
+   "median": 0.58,
    "mean": 0.548,
    "p10": 0.18,
-   "near_black": 0.005,
-   "clipped": 0.031,
-   "clipped_white": 0.008,
+   "near_black": 0.006,
+   "clipped": 0.032,
+   "clipped_white": 0.007,
    "eye": [
     -15.5,
     -18.7,
@@ -116,10 +116,10 @@
    "readable": true
   },
   "reactor_to_waste": {
-   "median": 0.316,
-   "mean": 0.31,
+   "median": 0.315,
+   "mean": 0.309,
    "p10": 0.146,
-   "near_black": 0.037,
+   "near_black": 0.038,
    "clipped": 0.002,
    "clipped_white": 0.0,
    "eye": [
@@ -135,7 +135,7 @@
    "readable": true
   },
   "waste_inside": {
-   "median": 0.286,
+   "median": 0.285,
    "mean": 0.309,
    "p10": 0.13,
    "near_black": 0.047,
@@ -154,11 +154,11 @@
    "readable": true
   },
   "spine_to_dock": {
-   "median": 0.389,
+   "median": 0.388,
    "mean": 0.378,
-   "p10": 0.198,
+   "p10": 0.197,
    "near_black": 0.009,
-   "clipped": 0.003,
+   "clipped": 0.002,
    "clipped_white": 0.0,
    "eye": [
     8.5,
@@ -173,10 +173,10 @@
    "readable": true
   },
   "dock_inside": {
-   "median": 0.247,
-   "mean": 0.283,
+   "median": 0.244,
+   "mean": 0.282,
    "p10": 0.054,
-   "near_black": 0.056,
+   "near_black": 0.057,
    "clipped": 0.009,
    "clipped_white": 0.0,
    "eye": [
@@ -194,7 +194,7 @@
   "concourse": {
    "median": 0.606,
    "mean": 0.585,
-   "p10": 0.307,
+   "p10": 0.306,
    "near_black": 0.012,
    "clipped": 0.018,
    "clipped_white": 0.006,
@@ -212,7 +212,7 @@
   },
   "spine_mid": {
    "median": 0.469,
-   "mean": 0.473,
+   "mean": 0.474,
    "p10": 0.253,
    "near_black": 0.004,
    "clipped": 0.058,
@@ -230,12 +230,12 @@
    "readable": false
   },
   "reactor_from_south": {
-   "median": 0.505,
+   "median": 0.504,
    "mean": 0.49,
-   "p10": 0.264,
+   "p10": 0.262,
    "near_black": 0.005,
    "clipped": 0.037,
-   "clipped_white": 0.023,
+   "clipped_white": 0.022,
    "eye": [
     0,
     -35.199999999999996,
@@ -251,8 +251,8 @@
   "fuel_F02E_to_concourse": {
    "median": 0.376,
    "mean": 0.384,
-   "p10": 0.045,
-   "near_black": 0.086,
+   "p10": 0.042,
+   "near_black": 0.09,
    "clipped": 0.009,
    "clipped_white": 0.0,
    "eye": [
@@ -268,7 +268,7 @@
    "readable": true
   },
   "fuel_corridor_east": {
-   "median": 0.289,
+   "median": 0.288,
    "mean": 0.3,
    "p10": 0.088,
    "near_black": 0.028,
@@ -289,7 +289,7 @@
   "stair_top": {
    "median": 0.704,
    "mean": 0.664,
-   "p10": 0.373,
+   "p10": 0.369,
    "near_black": 0.011,
    "clipped": 0.032,
    "clipped_white": 0.0,
@@ -344,10 +344,10 @@
    "readable": true
   },
   "condenser_inside": {
-   "median": 0.47,
-   "mean": 0.481,
-   "p10": 0.252,
-   "near_black": 0.008,
+   "median": 0.473,
+   "mean": 0.483,
+   "p10": 0.253,
+   "near_black": 0.007,
    "clipped": 0.012,
    "clipped_white": 0.0,
    "eye": [
@@ -435,6 +435,44 @@
     0.0,
     -33.5,
     2.4
+   ],
+   "readable": true
+  },
+  "condenser_escape_tunnel": {
+   "median": 0.526,
+   "mean": 0.48,
+   "p10": 0.306,
+   "near_black": 0.036,
+   "clipped": 0.0,
+   "clipped_white": 0.0,
+   "eye": [
+    0.6,
+    12.100000000000001,
+    -4.4
+   ],
+   "target": [
+    -5.6,
+    12.100000000000001,
+    -4.6
+   ],
+   "readable": true
+  },
+  "escape_house_night": {
+   "median": 0.677,
+   "mean": 0.633,
+   "p10": 0.316,
+   "near_black": 0.004,
+   "clipped": 0.003,
+   "clipped_white": 0.001,
+   "eye": [
+    -4.6,
+    17.5,
+    1.6
+   ],
+   "target": [
+    -5.6,
+    13.2,
+    1.2
    ],
    "readable": true
   }

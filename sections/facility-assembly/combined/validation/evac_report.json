@@ -64,6 +64,14 @@
    "passed": true,
    "lane_m": 52.25
   },
+  "evac_condenser_to_escape_ladder": {
+   "passed": true,
+   "lane_m": 16.3
+  },
+  "evac_escape_house_to_road": {
+   "passed": true,
+   "lane_m": 50.2
+  },
   "evac_reactor_via_tunnel_to_hall": {
    "passed": true,
    "lane_m": 32.99
@@ -111,6 +119,14 @@
    "backup_route": "dispatch shutter, east road, hall east door"
   },
   {
+   "station": "condenser (bay, by D01)",
+   "primary_m": 174.8,
+   "primary_s": 38.8,
+   "backup_m": 154.6,
+   "backup_s": 34.4,
+   "backup_route": "first: stair, turbine D02, north strip, road; second: west escape door, tunnel, 6.0 m ladder (not in the distance), north strip, road"
+  },
+  {
    "station": "cooling (P01)",
    "primary_m": 91.83,
    "primary_s": 20.4,
@@ -146,7 +162,7 @@
   },
   "turbine": {
    "routes_normal": 1,
-   "routes_evacuation": 3,
+   "routes_evacuation": 4,
    "single_door_failures_that_cut_off": [],
    "route_avoiding_reactor": true,
    "out_with_chamber_sealed": true,
@@ -162,10 +178,8 @@
   },
   "condenser": {
    "routes_normal": 1,
-   "routes_evacuation": 1,
-   "single_door_failures_that_cut_off": [
-    "TURBINE_W_STAIR/CONDENSER_D01"
-   ],
+   "routes_evacuation": 2,
+   "single_door_failures_that_cut_off": [],
    "route_avoiding_reactor": true,
    "out_with_chamber_sealed": true,
    "out_with_chamber_and_spine_blast_door_sealed": true
