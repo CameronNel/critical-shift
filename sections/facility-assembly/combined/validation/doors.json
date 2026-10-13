@@ -218,87 +218,30 @@
    "leaf": "refinery REACTOR door: open frame"
   },
   {
-   "id": "FUEL_F02",
+   "id": "FUEL_F02E",
    "owner": "fuel-corridor",
    "plan": [
-    -8.0,
-    -19.6,
-    0.0
-   ],
-   "outward": [
-    0.0,
-    1.0
-   ],
-   "clear_w": 5.0,
-   "clear_h": 5.0,
-   "kind": "opening",
-   "state": "open",
-   "leads_to": "reactor concourse",
-   "leaf": "own door 0.5 m inside, open"
-  },
-  {
-   "id": "FUEL_S01_PLANT",
-   "owner": "fuel-corridor",
-   "plan": [
-    -27.6,
-    -26.2,
-    0.0
-   ],
-   "outward": [
-    -1.0,
-    0.0
-   ],
-   "clear_w": 2.0,
-   "clear_h": 2.5,
-   "kind": "double leaf",
-   "state": "closed",
-   "leads_to": "outside",
-   "leaf": "FC | Plant service leaves (source state)"
-  },
-  {
-   "id": "FUEL_S02_CLEAN",
-   "owner": "fuel-corridor",
-   "plan": [
-    -15.6,
-    -22.6,
-    0.0
-   ],
-   "outward": [
-    0.0,
-    1.0
-   ],
-   "clear_w": 2.0,
-   "clear_h": 2.5,
-   "kind": "double leaf",
-   "state": "closed",
-   "leads_to": "outside",
-   "leaf": "FC | Clean service leaves (source state)"
-  },
-  {
-   "id": "FUEL_S03_WASTE",
-   "owner": "fuel-corridor",
-   "plan": [
-    -5.8,
-    -27.6,
+    -5.46,
+    -36.62,
     0.0
    ],
    "outward": [
     1.0,
     0.0
    ],
-   "clear_w": 2.4,
+   "clear_w": 2.38,
    "clear_h": 3.0,
-   "kind": "double leaf",
+   "kind": "double leaf (the S03 door moved to the east wall)",
    "state": "open",
-   "leads_to": "waste-transfer hall",
-   "leaf": "FC | Waste transfer leaves left out (closed-state asset)"
+   "leads_to": "concourse (reactor south)",
+   "leaf": "FC | Reactor transfer leaves left out (closed-state asset)"
   },
   {
    "id": "REACTOR_S",
    "owner": "reactor-room",
    "plan": [
     0.0,
-    -12.2,
+    -30.9,
     0.0
    ],
    "outward": [
@@ -317,7 +260,7 @@
    "owner": "reactor-room",
    "plan": [
     0.0,
-    14.4,
+    -4.3,
     0.0
    ],
    "outward": [
@@ -336,7 +279,7 @@
    "owner": "reactor-room",
    "plan": [
     -14.4,
-    0.0,
+    -18.7,
     0.0
    ],
    "outward": [
@@ -355,7 +298,7 @@
    "owner": "reactor-room",
    "plan": [
     11.0,
-    -11.0,
+    -29.7,
     0.0
    ],
    "outward": [
@@ -370,11 +313,30 @@
    "leaf": "COOLING PLANT.* door pieces kept (closed)"
   },
   {
+   "id": "REACTOR_E_WASTE",
+   "owner": "reactor-room",
+   "plan": [
+    11.2,
+    -14.84,
+    0.0
+   ],
+   "outward": [
+    1.0,
+    0.0
+   ],
+   "clear_w": 2.84,
+   "clear_h": 3.2,
+   "kind": "opening (new cut through the east wall patch panel)",
+   "state": "open",
+   "leads_to": "waste-storage",
+   "leaf": "no leaf (waste receiving shutter is the door)"
+  },
+  {
    "id": "TURBINE_D01",
    "owner": "turbine-room",
    "plan": [
     0.0,
-    14.5,
+    -4.2,
     0.0
    ],
    "outward": [
@@ -393,7 +355,7 @@
    "owner": "turbine-room",
    "plan": [
     0.0,
-    38.5,
+    19.8,
     0.0
    ],
    "outward": [
@@ -412,7 +374,7 @@
    "owner": "turbine-room",
    "plan": [
     10.125,
-    33.0,
+    14.3,
     0.0
    ],
    "outward": [
@@ -431,7 +393,7 @@
    "owner": "electrical-room",
    "plan": [
     10.5,
-    33.0,
+    14.3,
     0.0
    ],
    "outward": [
@@ -450,7 +412,7 @@
    "owner": "electrical-room",
    "plan": [
     26.9,
-    33.0,
+    14.3,
     0.0
    ],
    "outward": [
@@ -469,7 +431,7 @@
    "owner": "turbine-room",
    "plan": [
     -4.125,
-    27.95,
+    9.25,
     0.0
    ],
    "outward": [
@@ -488,7 +450,7 @@
    "owner": "condenser-bay",
    "plan": [
     1.6,
-    21.9,
+    3.2,
     -6.0
    ],
    "outward": [
@@ -507,7 +469,7 @@
    "owner": "cooling-plant",
    "plan": [
     -14.5,
-    0.0,
+    -18.7,
     0.0
    ],
    "outward": [
@@ -525,8 +487,8 @@
    "id": "WASTE_RECEIVING",
    "owner": "waste-storage",
    "plan": [
-    10.47,
-    -25.48,
+    11.94,
+    -14.84,
     0.0
    ],
    "outward": [
@@ -537,15 +499,15 @@
    "clear_h": 3.2,
    "kind": "rolling shutter",
    "state": "open",
-   "leads_to": "spine (east door)",
+   "leads_to": "reactor hall (east opening)",
    "leaf": "rolled up (contract: parked fully open)"
   },
   {
    "id": "WASTE_PERSONNEL",
    "owner": "waste-storage",
    "plan": [
-    12.87,
-    -31.64,
+    14.34,
+    -21.0,
     0.0
    ],
    "outward": [
@@ -556,15 +518,15 @@
    "clear_h": 2.3,
    "kind": "hinged leaf, outward",
    "state": "closed",
-   "leads_to": "outside (gap to the dock wall)",
+   "leads_to": "outside",
    "leaf": "leaf turned into the frame (local copies)"
   },
   {
    "id": "WASTE_DISPATCH",
    "owner": "waste-storage",
    "plan": [
-    28.47,
-    -25.48,
+    29.94,
+    -14.84,
     0.0
    ],
    "outward": [
@@ -621,7 +583,7 @@
    "owner": "front-end-area",
    "plan": [
     8.0,
-    -14.55,
+    -33.25,
     0.0
    ],
    "outward": [
@@ -633,26 +595,26 @@
    "kind": "single leaf",
    "state": "closed",
    "leads_to": "outside (the concourse is entered through the spine west wall)",
-   "leaf": "reactor_door kept closed"
+   "leaf": "reactor_door kept closed (moved with the spine end)"
   },
   {
-   "id": "SPINE_E_WASTE",
+   "id": "SPINE_W_CONCOURSE",
    "owner": "front-end-area",
    "plan": [
-    10.0,
-    -25.48,
+    6.0,
+    -35.9,
     0.0
    ],
    "outward": [
-    1.0,
+    -1.0,
     0.0
    ],
-   "clear_w": 3.1,
-   "clear_h": 3.2,
-   "kind": "opening (new cut)",
+   "clear_w": 4.8,
+   "clear_h": 4.2,
+   "kind": "opening (west wall split out)",
    "state": "open",
-   "leads_to": "waste-storage",
-   "leaf": "no leaf (waste receiving shutter is the door)"
+   "leads_to": "concourse (reactor south)",
+   "leaf": "no leaf"
   },
   {
    "id": "SPINE_E_DOCK",
@@ -672,25 +634,6 @@
    "state": "open",
    "leads_to": "compliance-dock",
    "leaf": "no leaf (dock P1 is the door)"
-  },
-  {
-   "id": "SPINE_W_TRANSFER",
-   "owner": "front-end-area",
-   "plan": [
-    6.0,
-    -27.6,
-    0.0
-   ],
-   "outward": [
-    -1.0,
-    0.0
-   ],
-   "clear_w": 2.4,
-   "clear_h": 3.0,
-   "kind": "opening (new cut)",
-   "state": "open",
-   "leads_to": "waste-transfer hall",
-   "leaf": "no leaf (fuel S03 is the door)"
   }
  ]
 }

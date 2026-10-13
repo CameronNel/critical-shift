@@ -20,39 +20,46 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 R_CAP, STEP, H_CAP, DS, SIDE, MAXSHIFT = 0.40, 0.35, 1.80, 0.1, 1.5, 0.2
 
 def P(*pts): return [tuple(map(float, p)) for p in pts]
+RY = float(bpy.context.scene.get('reactor_y', 0.0)) if bpy.context.scene else 0.0    # reactor centre y, stored by build_compact_map.py
+def R(*pts): return [(float(x), float(y) + RY, float(z)) for x, y, z in pts]         # reactor-local points (everything that moved with the reactor)
+CY = RY - 17.2                                                                         # concourse centre line
+F02E = (-5.46, -36.62)                                                                 # short fuel corridor reactor door (module (16.74, 6.98) + F01 (-22.2, -43.6))
+WY = RY + 3.86                                                                         # reactor east opening to waste (centre)
 # Routes (plan metres). Door centres come from validation/doors.json; interior waypoints follow each room's contract lanes where it has them.
 ROUTES = {
-    'spawn_to_reactor': P((8, -88, 0), (8, -80, 0), (8, -60, 0), (8, -49, 0), (8, -30, 0), (8, -17.2, 0), (0, -17.2, 0), (0, -12, 0), (0, -6, 0)),
-    'reactor_to_turbine_to_electrical': P((0, 6.5, 0), (0, 10.5, 0), (0, 14.5, 0), (0, 16.5, 0), (8.2, 17.5, 0), (8.2, 33.0, 0), (10.4, 33.0, 0), (13.0, 33.0, 0), (19.0, 33.0, 0)),
-    'turbine_to_condenser': P((0, 16.5, 0), (-2.4, 18.0, 0), (-2.6, 27.95, 0), (-4.2, 27.95, 0), (-5.6, 27.9, 0), (-5.6, 26.8, 0), (-5.6, 16.9, -6), (-5.6, 15.7, -6), (1.6, 15.7, -6), (1.6, 19.3, -6), (1.6, 21.9, -6), (1.6, 24.0, -6)),
-    'reactor_to_cooling': P((-9.0, 0, 0), (-11.6, 0, 0), (-14.5, 0, 0), (-18, 0, 0), (-24, 0, 0)),
-    'spine_to_waste': P((8, -30, 0), (8, -25.48, 0), (10.15, -25.48, 0), (12.5, -25.48, 0), (20, -25.48, 0), (26, -25.48, 0)),
+    'spawn_to_reactor': P((8, -88, 0), (8, -80, 0), (8, -60, 0), (8, -49, 0), (8, -40, 0), (8, CY, 0), (0, CY, 0), (0, RY - 12, 0), (0, RY - 6, 0)),
+    'reactor_to_turbine_to_electrical': R((0, 6.5, 0), (0, 10.5, 0), (0, 14.5, 0), (0, 16.5, 0), (8.2, 17.5, 0), (8.2, 33.0, 0), (10.4, 33.0, 0), (13.0, 33.0, 0), (19.0, 33.0, 0)),
+    'turbine_to_condenser': R((0, 16.5, 0), (-2.4, 18.0, 0), (-2.6, 27.95, 0), (-4.2, 27.95, 0), (-5.6, 27.9, 0), (-5.6, 26.8, 0), (-5.6, 16.9, -6), (-5.6, 15.7, -6), (1.6, 15.7, -6), (1.6, 19.3, -6), (1.6, 21.9, -6), (1.6, 24.0, -6)),
+    'reactor_to_cooling': R((-9.0, 0, 0), (-11.6, 0, 0), (-14.5, 0, 0), (-18, 0, 0), (-24, 0, 0)),
+    'reactor_to_waste': R((0, -6, 0), (6.5, -6.5, 0), (7.5, 0, 0), (8.5, 3.86, 0), (10.8, 3.86, 0), (11.94, 3.86, 0), (16.0, 3.86, 0), (24.0, 3.86, 0)),
     'spine_to_dock': P((8, -45, 0), (8, -40.39, 0), (10.15, -40.39, 0), (12.15, -40.39, 0), (13.3, -40.39, 0), (19.15, -40.39, 0), (26.0, -40.39, 0)),
-    'fuel_to_spine_transfer': P((-8.0, -29.0, 0), (-8.0, -27.6, 0), (-7.0, -27.6, 0), (-5.46, -27.6, 0), (5.85, -27.6, 0), (8, -27.6, 0), (8, -25.48, 0), (12.5, -25.48, 0)),
-    'refinery_fuel_to_reactor': P((-22.2, -46.5, 0), (-22.2, -43.6, 0), (-22.2, -33.6, 0), (-8.0, -33.6, 0), (-8.0, -19.6, 0), (-8.0, -17.2, 0), (0, -17.2, 0), (0, -12, 0), (0, -6, 0)),
+    # the fuel run: refinery fuel door F01, north through the corridor, east through the middle of the freight gate to F02E, the concourse and the reactor floor
+    'refinery_fuel_to_reactor': P((-22.2, -46.5, 0), (-22.2, -43.6, 0), (-22.2, -35.1, 0), (-8.5, -35.1, 0), (-7.0, F02E[1], 0), (F02E[0], F02E[1], 0), (-3.0, CY, 0), (0, CY, 0), (0, RY - 12, 0), (0, RY - 6, 0)),
+    # the same run on the shortest clear line (inside the gate's south post, then across the concourse diagonally): what a player takes; the route above keeps the cart on the gate centre
+    'refinery_fuel_to_reactor_shortest': P((-22.2, -46.5, 0), (-22.2, -43.6, 0), (-22.2, -38.6, 0), (-20.7, -36.0, 0), (-6.5, -36.0, 0), (F02E[0], F02E[1], 0), (-1.0, -34.2, 0), (0, RY - 12, 0), (0, RY - 6, 0)),
     'hall_to_refinery': P((8, -54, 0), (-4, -54, 0), (-18.9, -54, 0), (-22, -54, 0)),
     'cafeteria_to_yard_to_mine': P((8, -70, 0), (-7.27, -70, 0), (-12, -70, 0), (-30, -70, 0), (-50, -70, 0), (-56, -70, 0)),
     'yard_to_refinery_freight (cart route)': P((-22.2, -66, 0), (-22.2, -60.1, 0), (-22.2, -57.5, 0), (-22.2, -54.5, 0)),
     'cafeteria_to_medical': P((8, -70, 0), (24, -70, 0), (26, -70, 0), (28, -70, 0), (31, -70, 0)),
     # travel-time routes (ASSEMBLY_REPORT.md): door to door through the real interiors
-    'reactor_to_waste': P((0, -6, 0), (0, -12, 0), (0, -17.2, 0), (8, -17.2, 0), (8, -25.48, 0), (10.15, -25.48, 0), (14, -25.48, 0)),
-    'reactor_to_dock': P((0, -6, 0), (0, -12, 0), (0, -17.2, 0), (8, -17.2, 0), (8, -40.39, 0), (10.15, -40.39, 0), (12.15, -40.39, 0), (14.5, -40.39, 0)),
-    'medical_to_reactor': P((31, -70, 0), (26, -70, 0), (8, -70, 0), (8, -60, 0), (8, -49, 0), (8, -30, 0), (8, -17.2, 0), (0, -17.2, 0), (0, -12, 0), (0, -6, 0)),
+    'reactor_to_dock': P((0, RY - 6, 0), (0, RY - 12, 0), (0, CY, 0), (8, CY, 0), (8, -40.39, 0), (10.15, -40.39, 0), (12.15, -40.39, 0), (14.5, -40.39, 0)),
+    'medical_to_reactor': P((31, -70, 0), (26, -70, 0), (8, -70, 0), (8, -60, 0), (8, -49, 0), (8, -40, 0), (8, CY, 0), (0, CY, 0), (0, RY - 12, 0), (0, RY - 6, 0)),
     'spawn_to_mine_portal': P((8, -88, 0), (8, -80, 0), (8, -70, 0), (-7.27, -70, 0), (-12, -70, 0), (-30, -70, 0), (-50, -70, 0), (-53.4, -70, 0)),
-    'spawn_to_electrical': P((8, -88, 0), (8, -80, 0), (8, -60, 0), (8, -49, 0), (8, -30, 0), (8, -17.2, 0), (0, -17.2, 0), (0, -12, 0), (0, -7.5, 0), (6.5, -6.5, 0), (7.5, 0, 0), (6.5, 6.5, 0),
+    'spawn_to_electrical': P((8, -88, 0), (8, -80, 0), (8, -60, 0), (8, -49, 0), (8, -40, 0), (8, CY, 0), (0, CY, 0)) + R((0, -12, 0), (0, -7.5, 0), (6.5, -6.5, 0), (7.5, 0, 0), (6.5, 6.5, 0),
                               (0, 7.5, 0), (0, 10.5, 0), (0, 14.5, 0), (0, 16.5, 0), (8.2, 17.5, 0), (8.2, 33.0, 0), (10.4, 33.0, 0), (13.0, 33.0, 0)),
-    'reactor_to_condenser': P((0, 7.5, 0), (0, 14.5, 0), (0, 16.5, 0), (-2.4, 18.0, 0), (-2.6, 27.95, 0), (-4.2, 27.95, 0), (-5.6, 27.9, 0), (-5.6, 26.8, 0), (-5.6, 16.9, -6), (-5.6, 15.7, -6),
-                               (1.6, 15.7, -6), (1.6, 19.3, -6), (1.6, 22.0, -6)),
+    'reactor_to_condenser': R((0, 7.5, 0), (0, 14.5, 0), (0, 16.5, 0), (-2.4, 18.0, 0), (-2.6, 27.95, 0), (-4.2, 27.95, 0), (-5.6, 27.9, 0), (-5.6, 26.8, 0), (-5.6, 16.9, -6), (-5.6, 15.7, -6),
+                              (1.6, 15.7, -6), (1.6, 19.3, -6), (1.6, 22.0, -6)),
+    'spawn_to_waste': P((8, -88, 0), (8, -80, 0), (8, -60, 0), (8, -49, 0), (8, -40, 0), (8, CY, 0), (0, CY, 0)) + R((0, -12, 0), (0, -7.5, 0), (6.5, -6.5, 0), (7.5, 0, 0), (8.5, 3.86, 0), (10.8, 3.86, 0), (14.0, 3.86, 0)),
 }
 # halls, stubs, junctions and the stair, walked against the collision proxies alone (assembly_colliders.py): floors must carry the capsule and walls must leave a lane
 COLLIDER_ROUTES = {
-    'spine': P((8, -47.5, 0), (8, -15.5, 0)), 'spine_to_concourse_to_reactor': P((8, -17.2, 0), (0, -17.2, 0), (0, -11.0, 0)), 'concourse_to_fuel_F02': P((0, -17.2, 0), (-8, -17.2, 0), (-8, -19.4, 0)),
-    'transfer_hall': P((-5.3, -27.6, 0), (8, -27.6, 0)), 'spine_to_waste_junction': P((8, -25.48, 0), (10.4, -25.48, 0)), 'spine_to_dock_tube': P((8, -40.39, 0), (12.1, -40.39, 0)),
-    'reactor_north_stub': P((0, 11.0, 0), (0, 14.4, 0)), 'reactor_west_stub': P((-11.0, 0, 0), (-14.4, 0, 0)), 'turbine_electrical_junction': P((10.05, 33.0, 0), (10.65, 33.0, 0)),
-    'condenser_stair': P((-5.6, 28.6, 0), (-5.6, 26.8, 0), (-5.6, 16.9, -6), (-5.6, 15.7, -6), (1.6, 15.7, -6), (1.6, 19.2, -6)),
+    'spine': P((8, -47.5, 0), (8, -34.0, 0)), 'spine_to_concourse_to_reactor': P((8, CY, 0), (0, CY, 0), (0, RY - 11.0, 0)), 'concourse_to_fuel_F02E': P((0, CY, 0), (-4.0, F02E[1], 0), (-5.3, F02E[1], 0)),
+    'reactor_waste_junction': P((10.85, WY, 0), (11.55, WY, 0)), 'spine_to_dock_tube': P((8, -40.39, 0), (12.1, -40.39, 0)),
+    'reactor_north_stub': R((0, 11.0, 0), (0, 14.4, 0)), 'reactor_west_stub': R((-11.0, 0, 0), (-14.4, 0, 0)), 'turbine_electrical_junction': R((10.05, 33.0, 0), (10.65, 33.0, 0)),
+    'condenser_stair': R((-5.6, 28.6, 0), (-5.6, 26.8, 0), (-5.6, 16.9, -6), (-5.6, 15.7, -6), (1.6, 15.7, -6), (1.6, 19.2, -6)),
 }
 # closed doors that must block: a short segment through each door centre (from doors.json at run time)
-BLOCK_CHECKS = ['TURBINE_D02', 'ELECTRICAL_D02', 'WASTE_DISPATCH', 'WASTE_PERSONNEL', 'REACTOR_SE', 'HALL_EAST', 'DOCK_P2', 'FUEL_S01_PLANT', 'FUEL_S02_CLEAN']
+BLOCK_CHECKS = ['TURBINE_D02', 'ELECTRICAL_D02', 'WASTE_DISPATCH', 'WASTE_PERSONNEL', 'REACTOR_SE', 'HALL_EAST', 'DOCK_P2', 'SPINE_NORTH_END']
 
 def world_tris(zlo, zhi, colliders=False):
     """All evaluated triangles (world space) whose z range meets [zlo, zhi], with an owner index. colliders=True: only the COLLIDERS proxies (door blockers only when enabled now)."""

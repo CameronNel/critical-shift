@@ -32,14 +32,15 @@ for d in json.load(open(doors))['doors']:
     x, y = d['plan'][0], d['plan'][1]; ox, oy = d['outward']; tx, ty = -oy, ox; h = d['clear_w'] / 2
     if d['state'] == 'open': dr.ellipse([P(x - 0.35, y + 0.35), P(x + 0.35, y - 0.35)], fill=(30, 160, 60))
     else: dr.line([P(x - tx * h, y - ty * h), P(x + tx * h, y + ty * h)], fill=(210, 30, 30), width=4)
+RY = -18.7      # build_compact_map.RY: the reactor cluster's labels are reactor-local + RY
 LABELS = {'ROOM_front-end-area': (8, -66, 'cafeteria'), 'ROOM_spawn-room': (8, -99, 'spawn'), 'ROOM_mine': (-50, -76, 'mine portal'), 'ROOM_refinery': (-26, -49, 'refinery'),
-          'ROOM_medical-reanimation': (32, -70, 'medical'), 'ROOM_fuel-corridor': (-17, -36, 'fuel corridor'), 'ROOM_reactor-room': (0, 0, 'REACTOR'), 'ROOM_turbine-room': (2.8, 36, 'turbine'),
-          'ROOM_electrical-room': (19, 31, 'electrical'), 'ROOM_condenser-bay': (6, 30.5, '(condenser, -6 m)'), 'ROOM_waste-storage': (20, -21, 'waste'), 'ROOM_cooling-plant': (-22, 4, 'cooling'),
-          'ROOM_compliance-dock': (21, -45, 'dock'), 'hall': (8, -54, 'hall'), 'yard': (-32, -80, 'yard'), 'spine': (8, -36, 'spine'), 'stair': (-9.5, 22, 'stair')}
-if len(sys.argv) > 7 and sys.argv[7] == 'greybox':        # greybox_fuel_test.py: the reactor cluster moved 20.6 m south, waste on the reactor's east wall, grey fuel corridor
-    for k in ('ROOM_reactor-room', 'ROOM_turbine-room', 'ROOM_electrical-room', 'ROOM_condenser-bay', 'ROOM_cooling-plant', 'stair'):
-        x, y, t = LABELS[k]; LABELS[k] = (x, y - 20.6, t)
-    LABELS['ROOM_waste-storage'] = (21, -12, 'waste'); LABELS['ROOM_fuel-corridor'] = (-17, -33, 'grey fuel corridor'); LABELS['spine'] = (13, -44, 'spine')
+          'ROOM_medical-reanimation': (32, -70, 'medical'), 'ROOM_fuel-corridor': (-15, -34, 'fuel corridor'), 'ROOM_reactor-room': (0, RY, 'REACTOR'), 'ROOM_turbine-room': (2.8, 36 + RY, 'turbine'),
+          'ROOM_electrical-room': (19, 31 + RY, 'electrical'), 'ROOM_condenser-bay': (6, 30.5 + RY, '(condenser, -6 m)'), 'ROOM_waste-storage': (21, 4 + RY, 'waste'), 'ROOM_cooling-plant': (-22, 4 + RY, 'cooling'),
+          'ROOM_compliance-dock': (21, -45, 'dock'), 'hall': (8, -54, 'hall'), 'yard': (-32, -80, 'yard'), 'spine': (8, -44, 'spine'), 'concourse': (0, -36, 'concourse'), 'stair': (-9.5, 22 + RY, 'stair')}
+if len(sys.argv) > 7 and sys.argv[7] == 'greybox':        # greybox_fuel_test.py (reactor centre y -20.6, grey fuel corridor)
+    for k in ('ROOM_reactor-room', 'ROOM_turbine-room', 'ROOM_electrical-room', 'ROOM_condenser-bay', 'ROOM_cooling-plant', 'ROOM_waste-storage', 'stair'):
+        x, y, t = LABELS[k]; LABELS[k] = (x, y - 20.6 - RY, t)
+    LABELS['ROOM_fuel-corridor'] = (-17, -33, 'grey fuel corridor')
 for k, (x, y, t) in LABELS.items():
     if x0 < x < x1 and y0 < y < y1:
         p = P(x, y); w = 6 * len(t); dr.rectangle([p[0] - w / 2 - 2, p[1] - 6, p[0] + w / 2 + 2, p[1] + 7], fill=(255, 255, 255)); dr.text((p[0] - w / 2, p[1] - 5), t, fill=(0, 0, 0))

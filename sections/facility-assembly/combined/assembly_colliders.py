@@ -6,7 +6,8 @@ Every proxy is a box (or, for the stair, a sloped slab) with custom properties t
   zone: the hall or junction it belongs to;  door_id: for blockers and thresholds (validation/doors.json)
   is_trigger: thresholds are triggers; blockers are solid and enabled only while the door is closed.
 Rooms keep their own collision (their modules or a later per-room pass); these proxies end at each room's door plane. Dimensions are the build's own numbers
-(build_compact_map.py, build_combined_map.py CONC, reactor_links) and measured stub walls (reactor N stub clear x +-2.5, W stub clear y +-2.9, plan cut 2026-10-13).
+(build_compact_map.py RY, CONC, WASTE_HOLE, reactor_links) and measured stub walls (reactor N stub clear x +-2.5, W stub clear y +-2.9, plan cut 2026-10-13), in reactor-local
+coordinates moved by RY where the part moved with the reactor.
 Unreviewed. The proxies are checked by walk_test.py --colliders (capsule against the proxies alone) as well as by the visual-mesh walk test."""
 import bpy, bmesh, math, json, os
 from mathutils import Vector, Matrix
@@ -68,29 +69,30 @@ def build(root, L):
     """L: the build_compact_map module (its placement constants and DOORS table)."""
     import build_combined_map as BM
     ROWS.clear(); c = _coll(root)
-    # spine (front end, plan x 6.15..9.85 clear, y -48..-14.5, clear height 3.6 under the frame; walls 0.3), with the five openings now in its walls
-    hall_y(c, 'spine', -47.85, -14.5, 8.0, 3.7, 3.6, gaps_e=[(L.WASTE[1] - 1.55, L.WASTE[1] + 1.55), (L.DOCK[1] - 1.3, L.DOCK[1] + 1.3)],
-           gaps_w=[(L.S03_Y - 1.2, L.S03_Y + 1.2), (-19.6, -14.8)])
-    # south concourse (build_combined_map.CONC) and the hall tunnel into the reactor south door
-    C = BM.CONC
-    box(c, 'concourse floor', (C['x0'] - 0.3, 5.85), (C['y0'] - 0.3, C['y1'] + 0.3), (-0.3, 0.0), 'floor', 'concourse')
-    box(c, 'concourse roof', (C['x0'] - 0.3, 5.85), (C['y0'] - 0.3, C['y1'] + 0.3), (C['roof'], C['roof'] + 0.25), 'roof', 'concourse')
-    box(c, 'concourse west wall', (C['x0'] - 0.3, C['x0']), (C['y0'], C['y1']), (0, C['roof']), 'wall', 'concourse')
-    box(c, 'concourse south wall west', (C['x0'] - 0.3, -10.62), (C['y0'] - 0.3, C['y0']), (0, C['roof']), 'wall', 'concourse')   # fuel corridor F02 opening x -10.62..-5.38
-    box(c, 'concourse south wall east', (-5.38, 5.85), (C['y0'] - 0.3, C['y0']), (0, C['roof']), 'wall', 'concourse')
-    box(c, 'concourse north wall west', (C['x0'] - 0.3, -2.5), (C['y1'], C['y1'] + 0.3), (0, C['roof']), 'wall', 'concourse')
-    box(c, 'concourse north wall east', (2.5, 5.85), (C['y1'], C['y1'] + 0.3), (0, C['roof']), 'wall', 'concourse')
-    hall_y(c, 'reactor south tunnel', -14.5, -10.8, 0.0, 5.0, 5.0)
+    RY = L.RY; C = L.CONC; x0, y0, y1, xs = C['x0'], C['y0'], C['y1'], L.SPINE_W
+    # spine (front end, plan x 6.15..9.85 clear, from the hall's north wall to its moved end door; clear height 3.6 under the frame; walls 0.3): dock door east, concourse west
+    hall_y(c, 'spine', -47.85, L.SPINE_END, 8.0, 3.7, 3.6, gaps_e=[(L.DOCK[1] - 1.3, L.DOCK[1] + 1.3)], gaps_w=[(y0, y1)])
+    # south concourse (build_compact_map.CONC): its west wall is the fuel corridor's east face, with the F02E door; the tunnel into the reactor south door
+    fy0, fy1 = L.F02E[1] - 1.19, L.F02E[1] + 1.19
+    box(c, 'concourse floor', (x0, xs), (y0 - 0.3, y1 + 0.3), (-0.3, 0.0), 'floor', 'concourse')
+    box(c, 'concourse roof', (x0 - 0.3, xs), (y0 - 0.3, y1 + 0.3), (C['roof'], C['roof'] + 0.25), 'roof', 'concourse')
+    box(c, 'concourse west wall south', (x0 - 0.3, x0), (y0 - 0.3, fy0), (0, C['roof']), 'wall', 'concourse')
+    box(c, 'concourse west wall north', (x0 - 0.3, x0), (fy1, y1 + 0.3), (0, C['roof']), 'wall', 'concourse')
+    box(c, 'concourse west wall over door', (x0 - 0.3, x0), (fy0, fy1), (3.0, C['roof']), 'wall', 'concourse')
+    box(c, 'concourse south wall', (x0, xs), (y0 - 0.3, y0), (0, C['roof']), 'wall', 'concourse')
+    box(c, 'concourse north wall west', (x0, -2.5), (y1, y1 + 0.3), (0, C['roof']), 'wall', 'concourse')
+    box(c, 'concourse north wall east', (2.5, xs), (y1, y1 + 0.3), (0, C['roof']), 'wall', 'concourse')
+    hall_y(c, 'reactor south tunnel', y1 + 0.3, RY - 10.8, 0.0, 5.0, 5.0)
     # reactor stubs: north (to turbine D01) and west (to cooling P01); the closed south-east stub gets a blocker in the door pass below
-    hall_y(c, 'reactor north stub', 10.8, 14.5, 0.0, 5.0, 5.0)
-    hall_x(c, 'reactor west stub', -14.5, -10.8, 0.0, 5.8, 5.0)
-    # S03 waste-transfer hall (fuel corridor east face x -5.46 to the spine west face x 5.85), 2.4 x 3.0
-    hall_x(c, 'waste transfer hall', -5.46, 5.85, L.S03_Y, 2.4, 3.0)
-    # junction thresholds through the new wall openings (floor plates spanning the wall thickness, jamb blocks)
-    for zone, xs, yc, w, h in (('spine-waste junction', (9.85, L.WASTE[0]), L.WASTE[1], 3.1, 3.2), ('spine-dock junction', (9.85, L.DOCK[0]), L.DOCK[1], 2.4, 2.6),
-                               ('turbine-electrical junction', (10.0, L.ELEC[0] + 0.2), L.ELEC[1], 2.4, 2.7)):
-        box(c, zone + ' floor', xs, (yc - w / 2 - 0.3, yc + w / 2 + 0.3), (-0.3, 0.0), 'floor', zone)
-        box(c, zone + ' head', xs, (yc - w / 2, yc + w / 2), (h, h + 0.3), 'roof', zone)
+    hall_y(c, 'reactor north stub', RY + 10.8, RY + 14.5, 0.0, 5.0, 5.0)
+    hall_x(c, 'reactor west stub', -14.5, -10.8, RY, 5.8, 5.0)
+    # junction thresholds through the new wall openings (floor plates spanning the wall thickness, heads)
+    for zone, xr, yc, w, h in (('reactor-waste junction', (10.8, L.WASTE[0] - 0.32), L.WASTE[1], L.WASTE_HOLE[1] - L.WASTE_HOLE[0], L.WASTE_HOLE[2]),
+                               ('spine-dock junction', (9.85, L.DOCK[0]), L.DOCK[1], 2.4, 2.6), ('turbine-electrical junction', (10.0, L.ELEC[0] + 0.2), L.ELEC[1], 2.4, 2.7)):
+        box(c, zone + ' floor', xr, (yc - w / 2 - 0.3, yc + w / 2 + 0.3), (-0.3, 0.0), 'floor', zone)
+        box(c, zone + ' head', xr, (yc - w / 2, yc + w / 2), (h, h + 0.3), 'roof', zone)
+        if zone == 'reactor-waste junction':   # jambs: the wall either side of the opening
+            box(c, zone + ' jamb south', xr, (yc - w / 2 - 0.3, yc - w / 2), (0, h), 'wall', zone); box(c, zone + ' jamb north', xr, (yc + w / 2, yc + w / 2 + 0.3), (0, h), 'wall', zone)
         if zone == 'spine-dock junction':      # the dock P1 tube walls (module x +-1.2..1.3, y -2.0..0)
             box(c, zone + ' tube north', (10.15, L.DOCK[0]), (yc + 1.2, yc + 1.3), (0, 2.6), 'wall', zone); box(c, zone + ' tube south', (10.15, L.DOCK[0]), (yc - 1.3, yc - 1.2), (0, 2.6), 'wall', zone)
             box(c, zone + ' tube floor', (10.15, L.DOCK[0]), (yc - 1.3, yc + 1.3), (-0.3, 0.0), 'floor', zone)

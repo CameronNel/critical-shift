@@ -1,5 +1,7 @@
 # Grey-box test: a short fuel corridor (2026-10-13)
 
+**Outcome:** the owner said "yes do the rebuild to the same graphical fidelity as it was previously"; the real short corridor (S1, cut from F23ci) and the layout around it are now the map (`COMPACT_MAP.md`, "Short fuel corridor layout"; `ASSEMBLY_REPORT.md`). The numbers below are the grey-box test's and are kept as its record; `greybox_fuel_test.py` runs from commit c25d102.
+
 **A test, not the map.** The owner asked whether to rebuild the fuel corridor, then said "yes do the greybox test". `combined_map.blend` is unchanged; this builds a separate scratch scene with `greybox_fuel_test.py` (it refuses to write `combined_map.blend`). Grey parts are plain boxes named `GREY_*`, not art. Unreviewed.
 
 ![grey-box plan](renders/greybox/18_greybox_plan.png)

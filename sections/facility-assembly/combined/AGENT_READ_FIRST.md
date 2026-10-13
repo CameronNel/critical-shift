@@ -1,6 +1,6 @@
 # Combined map: agent instructions (read before any environment or map work)
 
-Last updated 2026-10-13 (assembly pass). Status of everything in this folder: **unreviewed, not accepted.** It was merged to `main` (PR 95) on the owner's explicit
+Last updated 2026-10-13 (assembly pass, then the short fuel corridor layout). Status of everything in this folder: **unreviewed, not accepted.** It was merged to `main` (PR 95) on the owner's explicit
 instruction, which waives the repository rule that an agent does not merge its own work. No independent review has happened. Do not describe any of it as accepted.
 
 ## What this is
@@ -17,6 +17,8 @@ Where plan v7 and the as-built front end disagree, the as-built front end and DE
 - Evidence renders are in `renders/` (per room), `renders/review/` (whole-scene review) and `renders/fixes/` (fix log and room 5).
 
 ## Current layout: compact, assembly pass (read `COMPACT_MAP.md` and `ASSEMBLY_REPORT.md` first)
+
+2026-10-13, later the same day (current): the fuel corridor is the **short corridor S1** (`sources/fuel-corridor/module_short_S1.blend`, committed here as LFS; rebuild it from F23ci with `sections/fuel-corridor/blender/build_short_corridor.py`), the reactor cluster sits **18.7 m further south** (`RY` in `build_compact_map.py`; the reactor-local y values of the turbine, electrical, condenser, stair and cooling are unchanged), the concourse is rebuilt by `add_concourse` against the corridor's east door F02E, the front end's spine is shortened to 14.8 m (`fold_spine`), waste opens off the reactor's east wall, and the S03 transfer hall is gone. The builder stores `scene['reactor_y']`; `walk_test.py` and `measure_lighting.py` read it. `split_openings` now cuts only the loose parts that reach into an opening and keeps materials (the first pass's cut pieces had none). `greybox_fuel_test.py` is superseded (run it from commit c25d102).
 
 2026-10-13: electrical moved to the turbine's east flank, waste and the dock to new doors in the spine's east wall, the fuel corridor's S03 opened onto a transfer hall into the spine, the condenser bay reached by a stair from the turbine's west wall; dead-end doors closed with their own leaves; door anchors, collision proxies and a scoped FBX export added. Tools of the pass (all run on a built `combined_map.blend`): `plan_cut.py` + `check_overlaps.py` + `draw_assembly_plan.py` (plan section, intrusion screen, plan drawing), `walk_test.py` (player capsule on the visual meshes; `--colliders` on the proxies), `measure_lighting.py` (junction readability), `perf_report.py` (static counts, portal visible sets), `export_unity.py` (FBX + re-import check + binding manifest). The door cuts use `split_openings` in `build_compact_map.py`; do not use `reactor_links.cut_hall` for two openings in one mesh (it bridged them shut, found by the walk test).
 
@@ -51,7 +53,7 @@ Not placed: condenser bay (not in the plan), gantry (no attachment spec). Known 
 `build_combined_map.py --through compliance-dock` links source files that live elsewhere in the repository; fetch each single file (never a wide sparse checkout):
 - Turbine, the AAA finish from the unmerged branch `claude/turbine-aaa`: `git show origin/claude/turbine-aaa:sections/facility-assembly/sources/turbine-room/module_overhaul_R1.blend | git lfs smudge > sections/facility-assembly/sources/turbine-room/module_overhaul_R1.blend` (the build does not fall back to another turbine file; its door and wall positions are specific to this one).
 - Waste, cooling and condenser bay AAA finishes: `sources/{waste-storage,cooling-plant,condenser-bay}/module_aaa_A1.blend`, LFS files on `main` (`git show origin/main:<path> | git lfs smudge > <path>`).
-- Dock: `sources/compliance-dock/module_overhaul_R1.blend` is a plain Git blob on `main` (`git show origin/main:<path> > <path>`). Electrical `overhaul/checkpoints/full-R11.blend`, waste `module.blend`, cooling `module.blend`, medical `module_overhaul_R2.blend`, fuel corridor `fuel_full_F23ci.blend`, spawn `module.blend` and the front end's `textures/` folder are LFS files on `main`; the spawn module is also linked for the halls' materials, airlock doors and props.
+- Dock: `sources/compliance-dock/module_overhaul_R1.blend` is a plain Git blob on `main` (`git show origin/main:<path> > <path>`). Electrical `overhaul/checkpoints/full-R11.blend`, waste `module.blend`, cooling `module.blend`, medical `module_overhaul_R2.blend`, fuel corridor `fuel_full_F23ci.blend` (only to rebuild the short corridor; the map links `sources/fuel-corridor/module_short_S1.blend`, committed in this folder's sources), spawn `module.blend` and the front end's `textures/` folder are LFS files on `main`; the spawn module is also linked for the halls' materials, airlock doors and props.
 - The hall screens (`textures/hall_screen_*.png`) are committed here; regenerate with `python3 make_hall_screens.py textures`.
 
 ## Hall network tools (committed here)

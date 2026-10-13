@@ -1,12 +1,12 @@
 {
  "note": "Static counts of the built scene; no frame rate was measured (no runtime build exists). Budgets: only the 400k per-room flag and 800k front-end figure exist in the repo.",
  "totals": {
-  "triangles": 12500244,
-  "objects": 23758,
-  "submeshes": 26251,
-  "lights": 462,
-  "shadow_lights": 424,
-  "materials": 859,
+  "triangles": 11015587,
+  "objects": 23416,
+  "submeshes": 25495,
+  "lights": 434,
+  "shadow_lights": 396,
+  "materials": 845,
   "textures": 110,
   "texture_mb_rgba8": 1013.7
  },
@@ -28,26 +28,26 @@
    "over_flag": true
   },
   "ROOM_fuel-corridor": {
-   "triangles": 3098842,
-   "objects": 472,
-   "meshes": 408,
-   "submeshes": 1588,
-   "materials": 70,
+   "triangles": 1638347,
+   "objects": 286,
+   "meshes": 255,
+   "submeshes": 985,
+   "materials": 59,
    "lights": {
-    "AREA": 44
+    "AREA": 22
    },
-   "shadow_lights": 44,
+   "shadow_lights": 22,
    "textures": 9,
    "texture_mb_rgba8": 192.0,
    "budget_flag": 400000,
    "over_flag": true
   },
   "ROOM_reactor-room": {
-   "triangles": 1215091,
-   "objects": 1935,
-   "meshes": 1747,
-   "submeshes": 1941,
-   "materials": 169,
+   "triangles": 1217405,
+   "objects": 1841,
+   "meshes": 1653,
+   "submeshes": 1850,
+   "materials": 173,
    "lights": {
     "AREA": 61,
     "SPOT": 43,
@@ -91,10 +91,10 @@
    "over_flag": true
   },
   "ROOM_front-end-area": {
-   "triangles": 561076,
-   "objects": 2029,
-   "meshes": 1737,
-   "submeshes": 2671,
+   "triangles": 560316,
+   "objects": 2004,
+   "meshes": 1712,
+   "submeshes": 2646,
    "materials": 70,
    "lights": {
     "SUN": 1,
@@ -217,11 +217,11 @@
    "over_flag": false
   },
   "signs (wayfinding text)": {
-   "triangles": 38292,
-   "objects": 20,
-   "meshes": 13,
-   "submeshes": 20,
-   "materials": 4,
+   "triangles": 25312,
+   "objects": 15,
+   "meshes": 9,
+   "submeshes": 15,
+   "materials": 3,
    "lights": {},
    "shadow_lights": 0,
    "textures": 0,
@@ -230,30 +230,15 @@
    "over_flag": false
   },
   "CONNECTOR_reactor_south_concourse": {
-   "triangles": 12680,
-   "objects": 64,
-   "meshes": 64,
-   "submeshes": 64,
+   "triangles": 10112,
+   "objects": 72,
+   "meshes": 72,
+   "submeshes": 72,
    "materials": 17,
    "lights": {
     "AREA": 3
    },
    "shadow_lights": 3,
-   "textures": 3,
-   "texture_mb_rgba8": 64.0,
-   "budget_flag": null,
-   "over_flag": false
-  },
-  "CONNECTOR_reactor_to_waste-transfer": {
-   "triangles": 10168,
-   "objects": 40,
-   "meshes": 40,
-   "submeshes": 40,
-   "materials": 16,
-   "lights": {
-    "AREA": 6
-   },
-   "shadow_lights": 6,
    "textures": 3,
    "texture_mb_rgba8": 64.0,
    "budget_flag": null,
@@ -372,16 +357,6 @@
    "object": "yard_earth"
   },
   {
-   "triangles": 46804,
-   "owner": "ROOM_fuel-corridor",
-   "object": "FC | Wall_W-2.2_0_1.2 \u00b7 lined bay"
-  },
-  {
-   "triangles": 44184,
-   "owner": "ROOM_fuel-corridor",
-   "object": "FC | Floor finish bypass_north"
-  },
-  {
    "triangles": 39192,
    "owner": "ROOM_fuel-corridor",
    "object": "FC | Type PROCESS / 02"
@@ -395,6 +370,11 @@
    "triangles": 38270,
    "owner": "ROOM_mine",
    "object": "R39 | Shed boards"
+  },
+  {
+   "triangles": 36834,
+   "owner": "ROOM_fuel-corridor",
+   "object": "FC | Wall_W-2.2_0_1.2 \u00b7 lined bay N"
   },
   {
    "triangles": 33902,
@@ -440,6 +420,11 @@
    "triangles": 33902,
    "owner": "ROOM_mine",
    "object": "R39 | Lantern.015"
+  },
+  {
+   "triangles": 33902,
+   "owner": "ROOM_mine",
+   "object": "R39 | Lantern.014"
   }
  ],
  "repeated_shapes": [
@@ -709,25 +694,6 @@
   [
    2,
    [
-    7672,
-    13144,
-    [
-     0.07,
-     0.02,
-     0.0
-    ]
-   ],
-   [
-    "ROOM_fuel-corridor"
-   ],
-   [
-    "FC | Type R / 02",
-    "FC | Type R / 02.001"
-   ]
-  ],
-  [
-   2,
-   [
     5689,
     10482,
     [
@@ -780,25 +746,6 @@
    [
     "FC | Wall_N12.2_0_4.4 \u00b7 lined bay",
     "FC | Wall_S7.8_0_4.4 \u00b7 lined bay"
-   ]
-  ],
-  [
-   2,
-   [
-    3632,
-    7028,
-    [
-     2.36,
-     0.7,
-     2.86
-    ]
-   ],
-   [
-    "ROOM_fuel-corridor"
-   ],
-   [
-    "FC | Clean service frame",
-    "FC | Plant service frame"
    ]
   ],
   [
@@ -933,6 +880,44 @@
     "FC | Wall_N13.85_0_6.07 \u00b7 lined bay",
     "FC | Wall_S6.15_0_6.07 \u00b7 lined bay"
    ]
+  ],
+  [
+   2,
+   [
+    2284,
+    2264,
+    [
+     1.3,
+     0.13,
+     0.0
+    ]
+   ],
+   [
+    "ROOM_turbine-room"
+   ],
+   [
+    "D01 inside legend",
+    "D01 reactor direction"
+   ]
+  ],
+  [
+   2,
+   [
+    1910,
+    3688,
+    [
+     1.22,
+     0.15,
+     3.91
+    ]
+   ],
+   [
+    "ROOM_fuel-corridor"
+   ],
+   [
+    "FC | Wall_E1.6_0_0 \u00b7 lined bay",
+    "FC | Wall_W-1.6_0_0 \u00b7 lined bay"
+   ]
   ]
  ],
  "portal_visible_sets": {
@@ -941,26 +926,25 @@
     "ROOM_front-end-area"
    ],
    "own": 3313648,
-   "with_neighbours": 3874724
+   "with_neighbours": 3873964
   },
   "ROOM_fuel-corridor": {
    "neighbours": [
-    "CONNECTOR_reactor_to_waste-transfer",
-    "ROOM_reactor-room",
+    "CONNECTOR_reactor_south_concourse",
     "ROOM_refinery"
    ],
-   "own": 3098842,
-   "with_neighbours": 4788776
+   "own": 1638347,
+   "with_neighbours": 2113134
   },
   "ROOM_reactor-room": {
    "neighbours": [
     "CONNECTOR_reactor_south_concourse",
     "ROOM_cooling-plant",
-    "ROOM_fuel-corridor",
-    "ROOM_turbine-room"
+    "ROOM_turbine-room",
+    "ROOM_waste-storage"
    ],
-   "own": 1215091,
-   "with_neighbours": 5099271
+   "own": 1217405,
+   "with_neighbours": 2375039
   },
   "ROOM_electrical-room": {
    "neighbours": [
@@ -974,20 +958,19 @@
     "ROOM_front-end-area"
    ],
    "own": 599168,
-   "with_neighbours": 1160244
+   "with_neighbours": 1159484
   },
   "ROOM_front-end-area": {
    "neighbours": [
-    "CONNECTOR_reactor_to_waste-transfer",
+    "CONNECTOR_reactor_south_concourse",
     "ROOM_compliance-dock",
     "ROOM_medical-reanimation",
     "ROOM_mine",
     "ROOM_refinery",
-    "ROOM_spawn-room",
-    "ROOM_waste-storage"
+    "ROOM_spawn-room"
    ],
-   "own": 561076,
-   "with_neighbours": 6171064
+   "own": 560316,
+   "with_neighbours": 5795384
   },
   "ROOM_refinery": {
    "neighbours": [
@@ -995,14 +978,14 @@
     "ROOM_fuel-corridor"
    ],
    "own": 464675,
-   "with_neighbours": 4124593
+   "with_neighbours": 2663338
   },
   "ROOM_spawn-room": {
    "neighbours": [
     "ROOM_front-end-area"
    ],
    "own": 430704,
-   "with_neighbours": 991780
+   "with_neighbours": 991020
   },
   "ROOM_condenser-bay": {
    "neighbours": [
@@ -1018,48 +1001,42 @@
     "ROOM_reactor-room"
    ],
    "own": 419253,
-   "with_neighbours": 2403943
+   "with_neighbours": 2406257
   },
   "ROOM_compliance-dock": {
    "neighbours": [
     "ROOM_front-end-area"
    ],
    "own": 416761,
-   "with_neighbours": 977837
+   "with_neighbours": 977077
   },
   "ROOM_waste-storage": {
    "neighbours": [
-    "ROOM_front-end-area"
+    "ROOM_reactor-room"
    ],
    "own": 374864,
-   "with_neighbours": 935940
+   "with_neighbours": 1592269
   },
   "ROOM_cooling-plant": {
    "neighbours": [
     "ROOM_reactor-room"
    ],
    "own": 353405,
-   "with_neighbours": 1568496
+   "with_neighbours": 1570810
   },
   "signs (wayfinding text)": {
    "neighbours": [],
-   "own": 38292,
-   "with_neighbours": 38292
+   "own": 25312,
+   "with_neighbours": 25312
   },
   "CONNECTOR_reactor_south_concourse": {
    "neighbours": [
+    "ROOM_front-end-area",
+    "ROOM_fuel-corridor",
     "ROOM_reactor-room"
    ],
-   "own": 12680,
-   "with_neighbours": 1227771
-  },
-  "CONNECTOR_reactor_to_waste-transfer": {
-   "neighbours": [
-    "ROOM_front-end-area",
-    "ROOM_fuel-corridor"
-   ],
-   "own": 10168,
-   "with_neighbours": 3670086
+   "own": 10112,
+   "with_neighbours": 3426180
   },
   "CONNECTOR_condenser_stair": {
    "neighbours": [

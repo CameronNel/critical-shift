@@ -1,25 +1,14 @@
 {
- "halls": {
-  "waste-transfer": {
-   "length": 11.3,
-   "walk_blocked": 0,
-   "walk_blocked_sample": [],
-   "sphere_escapes": 0,
-   "sphere_rays": 1000,
-   "junction_probes": []
-  }
- },
+ "halls": {},
  "pairs": [],
- "rooms": {
-  "waste-transfer": {}
- },
+ "rooms": {},
  "triangles": {
   "ROOM_mine": 3313624,
-  "ROOM_fuel-corridor": 3098842,
-  "ROOM_reactor-room": 1211745,
+  "ROOM_fuel-corridor": 1638347,
+  "ROOM_reactor-room": 1214021,
   "ROOM_electrical-room": 768171,
   "ROOM_medical-reanimation": 595648,
-  "ROOM_front-end-area": 561076,
+  "ROOM_front-end-area": 560316,
   "ROOM_refinery": 464291,
   "ROOM_condenser-bay": 422018,
   "ROOM_turbine-room": 419241,
@@ -27,16 +16,15 @@
   "ROOM_spawn-room": 408467,
   "ROOM_waste-storage": 374864,
   "ROOM_cooling-plant": 353405,
-  "connectors": 53117,
-  "scene": 21308,
+  "connectors": 40601,
+  "scene": 12464,
   "SIGN COMPLIANCE DOCK": 2624,
   "SIGN CONDENSER BAY": 2512,
-  "SIGN WASTE TRANSFER / FUEL": 2492,
-  "SIGN WASTE STORAGE": 2412,
   "SIGN ELECTRICAL": 1364,
   "SIGN TURBINE HALL": 1360,
-  "SIGN floor REACTOR WASTE DOCK": 820
+  "SIGN floor REACTOR WASTE DOCK": 820,
+  "SIGN WASTE": 648
  },
- "triangles_total": 12496162,
+ "triangles_total": 11011567,
  "summary": "PASS (geometry audit only)"
 }

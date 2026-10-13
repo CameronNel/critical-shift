@@ -1,11 +1,35 @@
-# Compact layout: the main map (2026-10-12, assembly pass 2026-10-13)
+# Compact layout: the main map (2026-10-12, assembly pass and short fuel corridor 2026-10-13)
 
 **Unreviewed, not accepted.** Owner instructions: "the map should be as compact as possible ... make this thing as close knit and tight as possible. Reuse what you can", then "Use the compact layout as the main map".
 For the assembly pass (2026-10-13) the owner added: "Ignore all previous specs and planning docs - build and decide what comes where on your own with the goal of the most compact and logical map possible ... Move around, rotate, transform, structural changes etc are all allowed. Measure, plan, execute autonomously", and "do not ask me questions".
 `combined_map.blend` is built by `build_compact_map.py` (it imports `build_combined_map.py` and overrides placements, halls and patches). `COMBINED_MAP.md` keeps the decision record of the older spread-out layout; its measurements and door data still stand where this file does not supersede them.
 Never hand-edit `combined_map.blend`. Rebuild: `blender --background --factory-startup --python build_compact_map.py`. Results, tests and open decisions of the assembly pass: **`ASSEMBLY_REPORT.md`**.
 
-## Assembly pass (2026-10-13): the "street" layout
+## Short fuel corridor layout (2026-10-13, current)
+
+After the grey-box test (`GREYBOX_FUEL_TEST.md`) the owner said "yes do the rebuild to the same graphical fidelity as it was previously". So:
+* **Fuel corridor S1** (`sources/fuel-corridor/module_short_S1.blend`, built by `sections/fuel-corridor/blender/build_short_corridor.py` from F23ci, which is not modified): F23ci's north half (service bypass, plant header with S01, clean port S02, delivery leg, reactor adapter with F02) removed and closed by a concrete wall with two shallow lined alcoves; the corridor's own waste-transfer door assembly moved to the east turn's east wall as the new reactor exit **F02E** (module (16.74, 6.98), outward +X, 2.38 x 3.0 m clear); the entry leg shortened by one 1.47 m wall-panel bay. Every visible part is F23ci's own geometry, materials, lights and dressing. 319 objects, 1.65 M evaluated triangles (F23ci 3.10 M), footprint 19.3 x 12.8 m (F23ci 24 m long L). **Unreviewed**: F23ci's 99 review does not carry over.
+* **The reactor cluster moves 18.7 m south** (reactor centre (0, -18.7); turbine, electrical, condenser bay, the condenser stair and cooling move with it). RY = -18.7 is set by the concourse: it must hold F02E (plan (-5.46, -36.62)), and the reactor's south wall (y RY - 11.6) clears the corridor's new north wall (plan -30.77) by 0.47 m.
+* **Concourse rebuilt** (`add_concourse` in `build_compact_map.py`, same shell, materials, lamps and tunnel as the old one): x -5.46..5.85, y -38.3..-33.5, 5.9 m high. Its west wall is the corridor's east face with F02E in it; its east side opens into the spine's west wall (the wall split out over the full 4.8 m); the tunnel north enters the reactor's south door.
+* **Spine shortened from 33.5 m to 14.8 m** (`fold_spine`): the front end's end door, its frame and the last bay's rib, beam and lamp move by RY as local copies, the five bays between are left out, the walls, dado, floor, roof and route line are clipped at the new end (local y 46.9). The dock stays on the spine's east wall.
+* **Waste moves to the reactor's east wall**, through a new 2.84 x 3.2 m opening cut through the wall's 4 m patch panel (`East wall patch door`, which stays as the jambs and head), the wall mass, the panels and the wall-base plinth; a threshold in the hall's own floor material (`RH floor wet concrete`) spans the wall depth (x 10.8..11.62). WS_RECEIVING exterior face on the reactor's outer face x 11.6, rotation -90.
+* **Dropped**: the S03 transfer hall and the spine's waste door (the corridor they served is gone); fuel S01 and S02 (removed with the corridor's north half).
+
+| Room or part | Assembly pass (first) | Short corridor layout | Fixed by (measured) |
+|---|---|---|---|
+| Fuel corridor | F23ci at (-22.2, -43.6), rot 0; 38.2 m freight path, F02 north | **S1** at (-22.2, -43.6), rot 0; F01 to F02E about 26 m | refinery fuel door (unchanged) |
+| Reactor | (0, 0) | **(0, -18.7)** | concourse depth and F02E (above) |
+| Turbine / electrical / condenser / cooling | (0, 14.5) / (10.5, 33.0) / (1.6, 21.9, -6) / (-14.5, 0) | **+RY**: (0, -4.2) / (10.5, 14.3) / (1.6, 3.2, -6) / (-14.5, -18.7) | unchanged relative to the reactor |
+| Waste (AAA) | (10.47, -25.48), rot -90, spine east wall | **(11.94, -14.84), rot -90**, reactor east wall opening | reactor east outer face x 11.6; opening centre reactor-local y 3.86 between the lockers (to y 2.42) and the column plinth (from 5.29) |
+| Compliance dock | (12.15, -40.39), rot -90 | unchanged | spine east face |
+| Concourse | x -10.8..6.15, y -19.6..-14.8 | **x -5.46..6.15, y -38.3..-33.5** | F02E, spine west face, reactor south door |
+| Spine | 33.5 m (y -48..-14.5) | **14.8 m (y -48..-33.25)** | the concourse |
+
+Extent of the buildings (plan cut at 1.1 m, mine mountain excluded; box and convex hull of the cut, same script for every row): before the assembly pass 16,130 m2 box, 10,201 m2 hull; first assembly pass 12,080 / 8,981; **short corridor layout x -53.6..37.3, y -93.1..21.0: 10,380 m2 box (-14 % on the first pass, -36 % on the start), 7,640 m2 hull (-15 %, -25 %)**. The north edge drops from y 39.7 to 21.0.
+
+Defects of the first assembly pass found and fixed while building this layout: every piece made by `split_openings` and `hole_in_slab` (230 objects) had **no material** (the new mesh was made empty, so the cut walls rendered in Blender's default grey; the spine read white instead of the front end's plaster); and `split_openings` clipped **whole meshes** rather than the parts in the doorway, so room-wide merged meshes lost a strip across the room (the reactor's south door split removed everything of those meshes within x -2.5..2.5 below z 5 across the whole hall). It now cuts only the loose parts that reach into an opening, inside the wall band, and the pieces keep the source mesh's materials and the source object's transform (so Object-coordinate textures do not shift).
+
+## Assembly pass (2026-10-13, first): the "street" layout (positions of the reactor cluster, waste, the concourse and the fuel corridor superseded above)
 
 What is fixed and why: the yard rail fixes the refinery (freight door on the rail, personnel door on the hall colonnade), the refinery's fuel door fixes the fuel corridor (its F01 must face that door; the corridor is a fixed 10 / 14.2 / 14 m L), and the corridor's F02 fixes the reactor's south side (the concourse joins F02, the reactor south door and the spine). So the spine stays 34 m long and the reactor stays at the origin. Everything else was packed onto that chain:
 

@@ -11,7 +11,10 @@ Builds on build_compact_map.py (imported: same rooms, patches, stair, closed lea
   * the dock stays on the spine's east wall; waste moves to the reactor's east wall, where the reactor already has a 4 m opening closed by a patch panel
     (`East wall patch door`, module x 10.8..11.08, y 1.6..5.6), left out here;
   * the S03 transfer hall is dropped (the fuel corridor it served is gone).
-Every grey part is named GREY_*. combined_map.blend is not touched; the output goes to a scratch path. Measurements: GREYBOX_FUEL_TEST.md."""
+Every grey part is named GREY_*. combined_map.blend is not touched; the output goes to a scratch path. Measurements: GREYBOX_FUEL_TEST.md.
+
+SUPERSEDED (2026-10-13): the test led to the real rebuild (short corridor S1, reactor at RY in build_compact_map.py), so build_compact_map.py no longer has the
+first-pass placements this script shifts. Run it from commit c25d102 to reproduce the grey-box numbers."""
 import bpy, sys, os, math
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
 import build_compact_map as L                      # applies the assembly-pass overrides to build_combined_map (BM)
@@ -108,6 +111,7 @@ def post_build_gb():
 BM.add_door_placeholders = post_build_gb
 
 if __name__ == '__main__':
+    if getattr(L, 'RY', 0.0): raise SystemExit('superseded: build_compact_map.py now places the reactor at RY = %.1f; run this test from commit c25d102' % L.RY)
     a = sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else []
     if '--output' not in a: raise SystemExit('give --output <scratch path>; this test never writes combined_map.blend')
     out = a[a.index('--output') + 1]

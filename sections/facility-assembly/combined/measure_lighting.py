@@ -11,15 +11,19 @@ from mathutils import Vector
 a = sys.argv[sys.argv.index('--') + 1:]
 out = a[0]; rep = a[1] if len(a) > 1 and not a[1].startswith('--') else os.path.join(out, 'lighting.json')
 only = a[a.index('--only') + 1].split(',') if '--only' in a else None
+RY = float(bpy.context.scene.get('reactor_y', 0.0))      # reactor centre y (build_compact_map.py); views that moved with the reactor are reactor-local + RY
+def r(x, y, z): return (x, y + RY, z)
+CY = RY - 17.2; WY = RY + 3.86
 VIEWS = {   # name: eye, target, lens (mm); plan metres
-    'reactor_N_stub': ((0, 7.5, 1.6), (0, 16, 1.4), 18), 'turbine_entry': ((0, 16.0, 1.6), (0, 30, 1.6), 18),
-    'turbine_east_aisle_to_electrical': ((7.8, 29.0, 1.6), (12, 33, 1.4), 18), 'electrical_inside': ((11.5, 33, 1.6), (24, 33, 1.4), 18),
-    'reactor_W_stub_to_cooling': ((-11.2, 0, 1.6), (-20, 0, 1.4), 18), 'cooling_inside': ((-15.5, 0, 1.6), (-26, 0, 1.4), 18),
-    'spine_to_waste': ((8.5, -25.48, 1.6), (20, -25.48, 1.4), 18), 'waste_inside': ((12.0, -25.48, 1.6), (26, -25.48, 1.2), 18),
+    'reactor_N_stub': (r(0, 7.5, 1.6), r(0, 16, 1.4), 18), 'turbine_entry': (r(0, 16.0, 1.6), r(0, 30, 1.6), 18),
+    'turbine_east_aisle_to_electrical': (r(7.8, 29.0, 1.6), r(12, 33, 1.4), 18), 'electrical_inside': (r(11.5, 33, 1.6), r(24, 33, 1.4), 18),
+    'reactor_W_stub_to_cooling': (r(-11.2, 0, 1.6), r(-20, 0, 1.4), 18), 'cooling_inside': (r(-15.5, 0, 1.6), r(-26, 0, 1.4), 18),
+    'reactor_to_waste': ((7.0, WY, 1.6), (20, WY, 1.4), 18), 'waste_inside': ((12.6, WY, 1.6), (26, WY, 1.2), 18),
     'spine_to_dock': ((8.5, -40.39, 1.6), (20, -40.39, 1.3), 18), 'dock_inside': ((13.8, -40.39, 1.6), (26, -40.39, 1.2), 18),
-    'concourse': ((5, -17.2, 1.6), (-8, -17.2, 1.4), 18), 'spine_mid': ((8, -44, 1.6), (8, -20, 1.6), 18), 'reactor_from_south': ((0, -16.5, 1.6), (0, -4, 1.6), 18),
-    'transfer_hall': ((5, -27.6, 1.6), (-6, -27.6, 1.4), 18), 'stair_top': ((-5.6, 28.8, 1.6), (-5.6, 20, -2), 18), 'stair_bottom': ((-5.6, 15.7, -4.4), (1.6, 15.7, -4.6), 18),
-    'condenser_D01': ((1.6, 16.2, -4.4), (1.6, 26, -4.6), 18), 'condenser_inside': ((1.6, 22.6, -4.4), (6, 29, -4.8), 18),
+    'concourse': ((5, CY, 1.6), (-8, CY, 1.4), 18), 'spine_mid': ((8, -46, 1.6), (8, -30, 1.6), 18), 'reactor_from_south': ((0, CY + 0.7, 1.6), (0, RY - 4, 1.6), 18),
+    'fuel_F02E_to_concourse': ((-8.0, -36.4, 1.6), (4, -36.0, 1.4), 18), 'fuel_corridor_east': ((-20.5, -36.0, 1.6), (-6, -36.4, 1.4), 18),
+    'stair_top': (r(-5.6, 28.8, 1.6), r(-5.6, 20, -2), 18), 'stair_bottom': (r(-5.6, 15.7, -4.4), r(1.6, 15.7, -4.6), 18),
+    'condenser_D01': (r(1.6, 16.2, -4.4), r(1.6, 26, -4.6), 18), 'condenser_inside': (r(1.6, 22.6, -4.4), r(6, 29, -4.8), 18),
 }
 sc = bpy.context.scene; sc.render.engine = 'CYCLES'; sc.cycles.device = 'CPU'; sc.cycles.samples = 14; sc.cycles.use_denoising = True
 sc.render.resolution_x, sc.render.resolution_y = 640, 360; sc.render.image_settings.file_format = 'PNG'

@@ -73,7 +73,7 @@ heavy.sort(reverse=True)
 dups = sorted(([len(v), list(k), sorted({o for o, _ in v}), sorted({m for _, m in v})[:6]] for k, v in shape.items() if len({m for _, m in v}) > 1), reverse=True)[:25]
 # portal graph from the door table: open doors join their owner room to the room/hall they lead to
 doors = json.load(open(os.path.join(HERE, 'validation', 'doors.json')))['doors']
-ALIAS = {'reactor': 'ROOM_reactor-room', 'spine': 'ROOM_front-end-area', 'yard': 'ROOM_front-end-area', 'front-end-area': 'ROOM_front-end-area', 'concourse': 'CONNECTOR_reactor_south_concourse', 'waste-transfer': 'CONNECTOR_reactor_to_waste-transfer',
+ALIAS = {'reactor': 'ROOM_reactor-room', 'spine': 'ROOM_front-end-area', 'yard': 'ROOM_front-end-area', 'front-end-area': 'ROOM_front-end-area', 'concourse': 'CONNECTOR_reactor_south_concourse',
          'condenser': 'CONNECTOR_condenser_stair', 'refinery': 'ROOM_refinery'}
 def nm(s):
     s = s.split(' ')[0]
