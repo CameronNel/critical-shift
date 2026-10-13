@@ -1,0 +1,23 @@
+{
+  "status": "PassedExactInactiveUnity65ArchiveAndOriginalTree",
+  "utc": "2026-10-13T05:22:55.326784+00:00",
+  "source": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.6.5f1",
+  "archive": "/tmp/cs-unity6000.6.5f1-preserved-final15.tar.zst",
+  "archiveBytes": 3810806723,
+  "archiveSha256": "f701cb7400c39c93347f71ff86d14cb74bedd20f6b4acadf77af3adb77102d37",
+  "inventorySha256": "be333aca5fd16bf3d6cd8f57be41adaa5c02a671286471f8f4318c2fec9871c3",
+  "priorReceiptSha256": "8e845564d870f854307419a60fa0b037b4b58d88b3b0c18f985e3d05e1c797a7",
+  "reviewerHelperSha256": "de0c76f8f4d4bfec334c3a35ae71279d5ebc9bd6fb0c095130a808dfa0367c07",
+  "entries": 50543,
+  "rawBytes": 8089532094,
+  "pinnedToolHashes": {
+    "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Unity": "7f819ec201960e9846fe281c736c8de32ffc75899d902f6cc604fc8b2cb884a1",
+    "/home/agent/.local/share/critical-shift/toolchain/dotnet/dotnet": "01d89e0a0191052bfea616cd4ce624c8faf13b05bbddf7f64499c23e2a9d9269"
+  },
+  "limitations": [
+    "Original tree remains installed; no raw deletion or archive relocation by reviewer",
+    "Archive stores independent file bytes, not original hardlink inode sharing",
+    "WholeSDK not hashed;4.3 editor binary and dotnet launcher match",
+    "Separately reviewed release/restore/capacity receipts required; no engine or visual approval"
+  ]
+}

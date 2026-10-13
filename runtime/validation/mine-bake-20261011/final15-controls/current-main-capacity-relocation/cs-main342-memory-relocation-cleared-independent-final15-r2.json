@@ -1,0 +1,61 @@
+{
+  "status": "StaticClearance_ExactSixInactiveArtifactRelocation",
+  "utc": "2026-10-13T05:36:32.185483+00:00",
+  "helper": {
+    "path": "/tmp/cs-main342-memory-relocation-final15-r2.py",
+    "sha256": "e8aa2c7a72ad706ccc3bc62a84e22ab13c45a462599326a943341413e292941d"
+  },
+  "commonHelper": {
+    "path": "/tmp/cs-unity65-common-final15-r2.py",
+    "sha256": "19f9103f9bc85ea5e9e5b95fea0d1a537ffdb20e5cdf9af6c61f24a29e11e19c"
+  },
+  "resolved": "Destination known type/name/no-link preflight plus exact literal resolved ancestor check before mkdir/chmod/chown/append",
+  "statSourceSummary": [
+    {
+      "source": "/tmp/cs-mine-library-artifacts-preserved-final15.tar.zst",
+      "files": 1,
+      "bytes": 856016630
+    },
+    {
+      "source": "/tmp/cs-mine-inactive-bake-scratch-preserved-final15.tar.zst",
+      "files": 1,
+      "bytes": 576164861
+    },
+    {
+      "source": "/tmp/cs-mine-inactive-controls-final13-evidence.tar.gz",
+      "files": 1,
+      "bytes": 402530315
+    },
+    {
+      "source": "/tmp/cs-mine-preserved-player-data-final11.unity3d",
+      "files": 1,
+      "bytes": 610263051
+    },
+    {
+      "source": "/tmp/cs-main342-prior-delivery-final15",
+      "files": 29,
+      "bytes": 780041212
+    },
+    {
+      "source": "/tmp/cs-mine-preserved-cache-final13-final15",
+      "files": 4,
+      "bytes": 281271341
+    }
+  ],
+  "bytes": 3506287410,
+  "rootAvailableNow": 4986798080,
+  "reserve": 536870912,
+  "conditions": [
+    "Only hardcoded six inactive paths; all actual source/destination bytes/modes/ownership reverified by helper before release",
+    "Durable copy/release/done phases and prefix checks retained",
+    "Unknown paths/types/links rejected before destination mutation",
+    "Native/canonicalSource/current derivatives/active cache unaffected",
+    "No engine until relocation completed and final actual hashes/capacity/memory verified"
+  ],
+  "limits": [
+    "Static/stat checks only; no relocation by reviewer",
+    "No archive deletion; exact logical aliases retain historical evidence",
+    "Byte verification occurs in actual helper and independent post-review",
+    "No guarantee for subsequent full native peak or visual98%"
+  ]
+}

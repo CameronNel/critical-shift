@@ -1,0 +1,75 @@
+{
+  "status": "ConfirmedFailedCurrentMainBakeOOM_PreLightBaker_NoVisualEvidence",
+  "utc": "2026-10-13T04:34:42.037867+00:00",
+  "artifacts": [
+    {
+      "path": "/tmp/cs-main342-native-pipeline-final15.json",
+      "sha256": "b7a7c20d6db01bac7a2a864ddf7c6b4c5ae31b2544ce8cfe8c05233725d61fc1"
+    },
+    {
+      "path": "/tmp/cs-main342-native-final15/native-bake-source-wood-final15-main342.log",
+      "sha256": "be676f577a32acc37940cf86d2ed9c64dbc5bdcf9418e6640936cc016153739d"
+    },
+    {
+      "path": "/tmp/cs-main342-native-final15/native-memory-observations-final15-main342.jsonl",
+      "sha256": "5521e7b9cb940d208f49e5b0b69b535a0fd22cf9400c2c78460d16edf9239457"
+    },
+    {
+      "path": "/tmp/cs-main342-stage-alias-final15.json",
+      "sha256": "af2a000e4f456d2a331be6d7031fc55983ca3070c862cd84e9b27e0203038993"
+    },
+    {
+      "path": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/SpawnVisualReview.cs",
+      "sha256": "a98bbea6bcc050d74ecd67569247bd7481f7ba30a9f90d50bb889fc06fde94fa"
+    }
+  ],
+  "aliases": {
+    "count": 111,
+    "allExactRootBytesAndLinks": true,
+    "bytes": 2527463137
+  },
+  "peak": {
+    "memoryBytes": 17179865088,
+    "shmemBytes": 8343261184,
+    "anonBytes": 8555556864,
+    "OOMEventsBefore": {
+      "low": 0,
+      "high": 0,
+      "max": 943196,
+      "oom": 50,
+      "oom_kill": 17,
+      "oom_group_kill": 0
+    },
+    "OOMEventsAfter": {
+      "low": 0,
+      "high": 0,
+      "max": 973453,
+      "oom": 53,
+      "oom_kill": 18,
+      "oom_group_kill": 0
+    }
+  },
+  "observed": [
+    "1879 instances/geometries/meshes,353materials,97lights,6cookies extracted",
+    "Unused asset unloading freed0.9MB; inactive rooms retain references",
+    "No completed bake marker/captures/technical receipt"
+  ],
+  "recommendation": {
+    "primary": "Serialize excluded ROOM subtrees into owned stash scene; close/unload stash before identical-subset bake; reattach after worker finishes",
+    "requiredGuards": [
+      "Preserve original full derivative scene and exact14 room serialized component inventory",
+      "Detect cross-scene serialized references and preserve/repair them, without silently clearing references",
+      "Restore exact parent/world/local poses, active states, mesh/material/collider asset identities; do not reopen full pre-bake scene and discard new lighting",
+      "Keep worker/spawn gameplay references in retained scene",
+      "Record actual pre-extraction memory reduction and adequate reserve for subsequent LightBaker",
+      "Delete no Source/Claude assets; use distinct retry evidence and update C# fingerprints/API before launch"
+    ],
+    "supplemental": "Current root capacity602279936B limits archive relocation to468062208B after134217728B margin, not enough alone to establish safe peak headroom"
+  },
+  "limits": [
+    "No engine launched",
+    "No production edited",
+    "No new visual score or Player approval",
+    "Scene stash proposal has not been implemented or measured"
+  ]
+}

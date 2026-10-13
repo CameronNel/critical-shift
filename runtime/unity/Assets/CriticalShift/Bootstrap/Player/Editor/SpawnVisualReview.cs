@@ -27,6 +27,9 @@ namespace CriticalShift.Player.Editor
         public static void BakeAndRender()
         {
             SpawnMapBuild.Create();
+            var recoveryScene=Path.Combine(Path.GetTempPath(),"cs-bake-full-map-before-exclusion-"+Guid.NewGuid().ToString("N")+".unity");
+            File.Copy(SpawnMapBuild.ScenePath,recoveryScene,false);
+            Debug.Log("CS_BAKE_FULL_SCENE_BACKUP; path="+recoveryScene);
             var root = GameObject.Find("ROOM_spawn-room").transform;
             var map=JsonUtility.FromJson<ExportMap>(File.ReadAllText(SpawnMapBuild.Folder+"map-bindings.json"));
             Transform RoomRoot(string key)=>EditorSceneManager.GetActiveScene().GetRootGameObjects()
@@ -55,6 +58,7 @@ namespace CriticalShift.Player.Editor
             group.probePositions=positions.ToArray();
             var rooms=EditorSceneManager.GetActiveScene().GetRootGameObjects().SelectMany(o=>o.GetComponentsInChildren<Transform>(true))
                 .Where(o=>o.name.StartsWith("ROOM_",StringComparison.Ordinal) && o!=root && o!=mine).Select(o=>o.gameObject).ToArray();
+            var excludedRoomNames=rooms.Select(o=>o.name.Substring("ROOM_".Length)).ToArray();
             var contextNodes=new HashSet<string>(map.materials.Single(p=>p.room=="mine").contextObjects?.Select(o=>o.node) ?? Enumerable.Empty<string>(),StringComparer.Ordinal);
             var contextRoot=contextNodes.Count>0 ? RoomRoot("front-end-area") : null;
             var mutedContext=contextRoot==null ? Array.Empty<Renderer>() : contextRoot.GetComponentsInChildren<Renderer>().Where(r=>r.enabled && !contextNodes.Contains(r.name) && r.name!="Embedded emitter surface").ToArray();
@@ -68,6 +72,7 @@ namespace CriticalShift.Player.Editor
             EditorUtility.UnloadUnusedAssetsImmediate();
             GC.Collect();
             Debug.Log("CS_SPAWN_LIGHTING_BAKE_START");
+            using(var excludedRooms=new ExcludedRoomBakeScope(EditorSceneManager.GetActiveScene(),rooms.Where(o=>o.transform!=contextRoot).ToArray()))
             using(var pointTransport=mine==null ? null : MinePointLighting.ScopeBake(mine))
             using(var spotTransport=contextRoot==null ? null : MineSpotLighting.ScopeBake(contextRoot,map.materials.Single(p=>p.room=="mine").contextSpotLights))
                 if (!Lightmapping.Bake() || LightmapSettings.lightmaps.Length==0)
@@ -75,7 +80,7 @@ namespace CriticalShift.Player.Editor
             Debug.Log("CS_SPAWN_LIGHTING_BAKE_OK; lightmaps="+LightmapSettings.lightmaps.Length);
             foreach(var room in map.rooms)
                 SpawnMapBuild.RestoreCollision(RoomRoot(room.key),room);
-            foreach (var room in rooms) room.SetActive(true);
+            foreach (var room in excludedRoomNames) RoomRoot(room).gameObject.SetActive(true);
             foreach(var renderer in mutedContext) renderer.enabled=true;
             FinishLighting(root);
             if(mine!=null) MineVisualLighting.Finish(mine);

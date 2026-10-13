@@ -1,0 +1,65 @@
+{
+  "status": "PassedIndependentCurrent13SourceReferences_NotNativeVisualAccepted",
+  "utc": "2026-10-13T04:11:41.669397+00:00",
+  "stateSha256": "1039dff210d293bf5b91f7c59ae83c65c7a0c2979d4f77a96429bff673bbc7b4",
+  "provenanceSha256": "8cfb4ee275bd684d9721bfd97a1bb2405df38542ac51b9d69629a66e7b18f8d5",
+  "cameraFileSha256": "ba0394fa764f3b59d459e6e796c2c1dbf80ab9f82aad791eb67814c0f1b28f8f",
+  "sourceSceneSha256": "b1905627f2f6e4ba90198a99bc47238a3c3fdeb61277ffcc3ab72a3dff5a4192",
+  "blenderVersion": "5.2.2 LTS",
+  "sourceInputCount": 34,
+  "images": [
+    {
+      "name": "R39_01_PORTAL_APPROACH",
+      "pngSha256": "a93196c875ecb98ea887fe60619fbc7559603536c34397fecbb6a2040145606d",
+      "hdrSha256": "3320c081fb7b2ad0f11ef22941b4727aa2279dfeb379f323de976fbf0fda68a3",
+      "worldPoseAndFovPassed": true,
+      "dimensions": [
+        1440,
+        810
+      ],
+      "nonfiniteRGBPixels": 0,
+      "meanLinearRGB": [
+        0.15491381287574768,
+        0.1506536304950714,
+        0.14871329069137573
+      ]
+    },
+    {
+      "name": "R39_02_TUNNEL",
+      "pngSha256": "d6858a625a052f4221d6776207e075ca692ed81c783c2b74dc2a36dc1d15d35b",
+      "hdrSha256": "deb83cc7e7f992cd46db04e67a3f96291e380253f718a69ad5ab05a5cc454a11",
+      "worldPoseAndFovPassed": true,
+      "dimensions": [
+        1440,
+        810
+      ],
+      "nonfiniteRGBPixels": 0,
+      "meanLinearRGB": [
+        0.1900642067193985,
+        0.11014487594366074,
+        0.058067161589860916
+      ]
+    },
+    {
+      "name": "R39_04_SHED_FRONT",
+      "pngSha256": "905d5276bc0f904749d2eee7b218ad3ad671a4b399c2347622c2f39e10888700",
+      "hdrSha256": "f85ca12325572dd0b921cda80ec93d3d1783d1e331a5dbe2cb03688685a516a6",
+      "worldPoseAndFovPassed": true,
+      "dimensions": [
+        1440,
+        810
+      ],
+      "nonfiniteRGBPixels": 0,
+      "meanLinearRGB": [
+        0.11127056926488876,
+        0.0698804259300232,
+        0.04334602877497673
+      ]
+    }
+  ],
+  "limits": [
+    "Actual full13+connectors with original Source graphs and lights; sampling/camera/output settings explicitly64denoised",
+    "Potential96>64closure warning alone does not prove actual truncation; affected graph diagnostic still pending",
+    "No Native/Player/art fidelity score implied; no engine launched by reviewer"
+  ]
+}

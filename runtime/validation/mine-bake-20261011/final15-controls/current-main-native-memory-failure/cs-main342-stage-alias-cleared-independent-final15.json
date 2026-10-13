@@ -1,0 +1,30 @@
+{
+  "status": "ClearedSelectiveImmutableStageAliasingAndMixedStateRestorationPrelaunch_NotExecuted",
+  "inputs": {
+    "/tmp/cs-main342-stage-alias-final15.py": "91a01a245bb509fe0ee01796b710ee54bb4ede8a6e819b06115eae5df3d976c1",
+    "/tmp/cs-main342-stage-restore-final15.py": "e960c8a7af271fdc36bcd2f884783e32acde24b1e76638cd1df22d197690f3af",
+    "/tmp/cs-main342-native-final15.py": "2e4bad465e0eccae1afc8dc55799eb5628dca37eb2b7275b1a7ad4a721c9a1c8",
+    "/tmp/cs-main342-player-final15.py": "6ca81d7fb842d7ea26973ac75dd712cb3f2bd03db5a0bae004b16235383dbc6c",
+    "/tmp/cs-mine-return-scratch-archive-final15.py": "e8b447c9834740c5240674c6efa2113d9aac4ccb055c39ad8514891f51e9cce7"
+  },
+  "checks": [
+    "Strict declared FBX PNG EXR allowlist from exact adopted map/rig and14roommesh/collisions",
+    "Source/target paths reject symlinks/escapes; same SHA size before aliasing and after",
+    "Atomic JSON receipt temporary exclusive/write/fsync/replace/directoryfsync for all inventory/progress/success/failure states",
+    "Interrupted alias/restore states recover by validating actual exact rootalias or exact plain SHA/size/mode, not trusting counters",
+    "Restoration validates every root copy first; only pending alias bytes budgeted; exact owned stale temporary links removed",
+    "Fresh copy/fsync/hash/mode/atomicplain restoration and resumable failure history",
+    "Native/Player recipe pins alias helpers+receipt and verifies root copies before steps/after completion",
+    "Archive return reviewed safe only when engines idle"
+  ],
+  "conditionsBeforeLaunch": [
+    "Source renderer and reviewer Blender diagnostic both exited with no other active engine",
+    "Independently verified current13 adoption and actual reviewed capacity/changeplan receipts",
+    "Actual111-file/root equality, metadata plain invariants and measured released shmem verified after execution"
+  ],
+  "limitations": [
+    "Static review only; no aliases or restoration executed by reviewer",
+    "Heavy Source renderer memory constrained, so no additional fixture processes or engine launches during active render",
+    "Native/Player/visual acceptance remain gated; prior41/60 unchanged"
+  ]
+}

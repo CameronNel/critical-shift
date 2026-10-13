@@ -1,0 +1,23 @@
+{
+  "status": "VerifiedInactiveUnity65Archive_OriginalTreeStillInstalled",
+  "source": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.6.5f1",
+  "archive": "/tmp/cs-unity6000.6.5f1-preserved-final15.tar.zst",
+  "pinnedToolHashes": {
+    "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Unity": "7f819ec201960e9846fe281c736c8de32ffc75899d902f6cc604fc8b2cb884a1",
+    "/home/agent/.local/share/critical-shift/toolchain/dotnet/dotnet": "01d89e0a0191052bfea616cd4ce624c8faf13b05bbddf7f64499c23e2a9d9269"
+  },
+  "pinScope": "Required4.3 Editor binary and standalone dotnet launcher only; not wholeSDK tree",
+  "tmpAvailableBytes": 5068574720,
+  "baselineMemoryBytes": 12015026176,
+  "baselineMemoryEvents": "low 0\nhigh 0\nmax 973453\noom 53\noom_kill 18\noom_group_kill 0\n",
+  "rawBytes": 8089532094,
+  "inventorySha256": "be333aca5fd16bf3d6cd8f57be41adaa5c02a671286471f8f4318c2fec9871c3",
+  "archiveBytes": 3810806723,
+  "archiveSha256": "f701cb7400c39c93347f71ff86d14cb74bedd20f6b4acadf77af3adb77102d37",
+  "entries": 50543,
+  "limits": [
+    "Required6000.4.3 editor and SDK untouched",
+    "No tree deletion in archive phase",
+    "Restore preserves all file bytes/modes/uid/gid/link text; original file inode sharing is not required or recreated"
+  ]
+}

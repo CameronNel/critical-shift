@@ -1,0 +1,31 @@
+{
+  "status": "PassedIndependentActualCurrent13AdoptionAnd111Aliases_ClearedNativePrelaunch_NotArtAccepted",
+  "adoptionReceiptSha256": "230b607e6e09c3402b59f8cb458fbc10ec8f36bf38fd99a532d9493ff15b84ed",
+  "planSha256": "8014ee666018bf58c500748cbcf69fe7218f3889c536929dac57c41b0ba4afb1",
+  "aliasesReceiptSha256": "af2a000e4f456d2a331be6d7031fc55983ca3070c862cd84e9b27e0203038993",
+  "manifestSha256": "27ca0662ced40e8be146b7aa44948bdb597c394265b4ff7a87c9d3749a182b02",
+  "adoptedChanges": 63,
+  "backupBytesVerified": 780041212,
+  "aliasFilesVerified": 111,
+  "aliasRawBytes": 2527463137,
+  "observedShmemReductionBytes": 2527416320,
+  "observedCgroupReductionBytes": 2532433920,
+  "sourcePinsVerified": 34,
+  "nonmineRoomRecordsPreserved": 13,
+  "importerMetadataBytesPreserved": 1570,
+  "nativeHelperHashes": {
+    "/tmp/cs-main342-native-final15.py": "2e4bad465e0eccae1afc8dc55799eb5628dca37eb2b7275b1a7ad4a721c9a1c8",
+    "/tmp/cs-main342-native-bake-final15.py": "fb77edbca9506cee850e02dd100c3c494317c7f7706dc05a741654bcc5b8f52b",
+    "/tmp/cs-main342-native-after-bake-final15.py": "451747c570e470e3c8c34597258ab85761bb4dee21f483def35ea0970e1f2d1a",
+    "/tmp/cs-main342-native-evidence-final15.py": "5b2caf07d85fec64312f3c46fadedb34aa42acc5bdeb86f5ce88c69ac76c4ac5",
+    "/tmp/cs-main342-stage-alias-final15.py": "91a01a245bb509fe0ee01796b710ee54bb4ede8a6e819b06115eae5df3d976c1",
+    "/tmp/cs-main342-stage-restore-final15.py": "e960c8a7af271fdc36bcd2f884783e32acde24b1e76638cd1df22d197690f3af"
+  },
+  "currentCSharpAPI": "fb19eb8d6d159994328e546285553a36ce7c898507d274641bedd0234360955f",
+  "limits": [
+    "Native must pin/recheck alias target bytes/currentrecipe at launch/steps/completion",
+    "Stage now has intentional immutable source aliases; restore verified plain files before future export/adoption",
+    "Unbaked new-room lighting/continuous navigation outside Spawn remain unassessed",
+    "Actual native captures/tests/Player/independent visual fidelity not yet passed"
+  ]
+}

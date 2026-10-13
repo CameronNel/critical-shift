@@ -1,0 +1,21 @@
+{
+  "name": "CriticalShift.Player.Editor",
+  "rootNamespace": "CriticalShift.Player.Editor",
+  "references": [
+    "CriticalShift.Features.Player.Unity",
+    "CriticalShift.Player.Bootstrap"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": true,
+  "precompiledReferences": [
+    "CriticalShift.Application.dll"
+  ],
+  "autoReferenced": false,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

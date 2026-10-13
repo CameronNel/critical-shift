@@ -1,0 +1,66 @@
+{
+  "status": "FailedR1BeforeMoveConfirmed_AnimationDefaultFixConditionallyClearedForBoundedRetry",
+  "utc": "2026-10-13T04:59:09.010621+00:00",
+  "failureArtifacts": [
+    {
+      "path": "/tmp/cs-main342-excluded-roundtrip-final15-r1/receipt.json",
+      "sha256": "b6f9cd924690a58b1e1f3c3dee1485e0d41c4af6b096de652f3e3e8d9b006363"
+    },
+    {
+      "path": "/tmp/cs-main342-excluded-roundtrip-final15-r1/unity.log",
+      "sha256": "c9164c888a2eb828be69d2470d0c2b6bd2d9e4322b42a768741308de212b1913"
+    },
+    {
+      "path": "/tmp/cs-main342-excluded-roundtrip-final15-r1/memory.jsonl",
+      "sha256": "55832894d43329c3e7106cfaeee121ee1a596a94efb448844399f8993bd3db34"
+    },
+    {
+      "path": "/tmp/cs-main342-excluded-roundtrip-final15-r1.py",
+      "sha256": "11a639029a3359134820b701e278dc6d0467a7ac866c2dc07d323ada73b4ddfb"
+    }
+  ],
+  "failure": "Unsupported Animation rejected in Snapshot before owned folder/move; no native round trip",
+  "unchangedDeliveredInputs": [
+    {
+      "path": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/map-bindings.json",
+      "sha256": "27ca0662ced40e8be146b7aa44948bdb597c394265b4ff7a87c9d3749a182b02"
+    },
+    {
+      "path": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/rig-bindings.json",
+      "sha256": "b89037e3c376c6e7958a3a1a1713664559baec579b861c8c5702ad03cc4a90a6"
+    },
+    {
+      "path": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/AssembledMap.unity",
+      "sha256": "20abbcea3c0dd613cc4a2802137171bb3853d36a439e5b8701ddb58a97c668e0"
+    }
+  ],
+  "memory": {
+    "peakBytes": 14531022848,
+    "firstEvents": "low 0\nhigh 0\nmax 973453\noom 53\noom_kill 18\noom_group_kill 0\n",
+    "lastEvents": "low 0\nhigh 0\nmax 973453\noom 53\noom_kill 18\noom_group_kill 0\n",
+    "newOOM": false
+  },
+  "currentAnimationContract": {
+    "path": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/ExcludedRoomBakeScope.cs",
+    "sha256": "a8047779320fc9f49cc6709477c2c902bb849a93496e6d45f7b696f1de3d497e",
+    "staticAssessment": "Checks dormant isPlaying false/state enabled false/time0/speed1/weight1; records actual weight/time/speed/clip/default flags; leaves clips unchanged. Enumerated state defaults remain to be observed in actual retry."
+  },
+  "API": {
+    "path": "/tmp/cs-main342-excluded-scope-api-final15-r7/player-api.json",
+    "sha256": "16b9cd74f98dfdf7c14b0af8134e28af58c612e3a83e3e99be890c8c0eaefd0a",
+    "sourceDigest": "6687a450e6dde01be063fa31d9a1167b5c5ec262132d87e6f34b295589d68748",
+    "assembliesPassed": 4
+  },
+  "boundedRetryConditions": [
+    "New distinct audit/state/log and wrapper updated to pin exact r7 API and current digest",
+    "Single idle engine, -nographics, noBake/no deliveredScene save",
+    "Require exact unload/restore/roundtrip/join markers and postverify all pins+111 aliases",
+    "Preserve failure and check immutable scene/map/source pins even on unsuccessful native exit"
+  ],
+  "limitations": [
+    "No new roundtrip result",
+    "No full bake clearance",
+    "No visual score/Player acceptance",
+    "API compile not runtime preservation proof"
+  ]
+}
