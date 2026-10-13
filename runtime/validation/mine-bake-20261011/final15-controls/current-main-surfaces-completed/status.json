@@ -1,0 +1,40 @@
+{
+  "status": "IndependentlyPassedFreshCurrent13SurfaceDelivery_NotUnityOrArtAccepted",
+  "manifestSha256": "27ca0662ced40e8be146b7aa44948bdb597c394265b4ff7a87c9d3749a182b02",
+  "records": [
+    {
+      "path": "/tmp/cs-current-main-surface-audit-final15-r6/mine/before-bindings.json",
+      "frozen": "audit/mine/before-bindings.json.gz",
+      "sha256": "8d259af382d02621a3bc758a033225114cd7c5cc96e550e56e359a92e341cd84"
+    },
+    {
+      "path": "/tmp/cs-current-main-surface-audit-final15-r6/mine/preservation.json",
+      "frozen": "audit/mine/preservation.json",
+      "sha256": "68ab6b0643b8ce02dc1aa94843e1808f70b04b14bd0a62dc4253b6f8d2fd8adb"
+    },
+    {
+      "path": "/tmp/cs-current-main-surface-audit-final15-r6/mine/surface-cache.json",
+      "frozen": "audit/mine/surface-cache.json",
+      "sha256": "0c554827022b9c6844ebcec483de30ad609387abba61f946cee2ce20f8df658c"
+    },
+    {
+      "path": "/tmp/cs-current-main-surface-audit-final15-r6/mine-surfaces.log",
+      "frozen": "audit/mine-surfaces.log",
+      "sha256": "0993d10c04fa88b148fba461ddb7a0998fe0b3237afd8de49cd2af0d18aa0ca6"
+    },
+    {
+      "path": "/tmp/cs-current-main-surface-audit-final15-r6/recursive-delivery-validation.json",
+      "frozen": "audit/recursive-delivery-validation.json",
+      "sha256": "f75707b83bda9ea0857ee1c4176231a23ada8131586d624559a7b9f8f6526da8"
+    },
+    {
+      "path": "/tmp/cs-current-main-surface-audit-final15-r6/resumed-spawn-and-other-room-files.json",
+      "frozen": "audit/resumed-spawn-and-other-room-files.json",
+      "sha256": "565f48c1465729dc4ae37d56e2fba2b031f1e4058988b648f1ccf30d9201b670"
+    }
+  ],
+  "limits": [
+    "Compressed large JSON is byte-exact gzip preservation",
+    "Source reference still rendering; current Unity/native/visual/Player acceptance pending"
+  ]
+}

@@ -1,0 +1,588 @@
+{
+  "method": "source-recipe-v2",
+  "size": 4096,
+  "sources": [
+    {
+      "path": "sections/facility-assembly/sources/turbine-room/module_overhaul_R1.blend",
+      "source_commit": "e12c8e2a9c35a6888960ce08185cd3ad10898f59",
+      "gitBlobSha": "2cdb06387c4946dc0628200c0fce0e357f9f9564",
+      "sha256": "9059e5e44c1a7d89e7dd49dc73de161a4ba607265752319cea079ea981676737",
+      "bytes": 1194797,
+      "stagingMethod": "SinglePinnedLFSPointerHydration"
+    },
+    {
+      "path": "sections/reactor-room/blender/reactorroom.blend",
+      "source_commit": "342af0003fec9dbe80b5acb40d1477c23b5a3169",
+      "gitBlobSha": "6f686b23e7f47ea6e8d3202988a1061a058a81c3",
+      "sha256": "f01b2aa3ab48b58bd6a2a5f5744220069e2eb23800e2bdd0c953ff8ec364efe0",
+      "bytes": 28913939,
+      "stagingMethod": "SinglePinnedLFSPointerHydration"
+    },
+    {
+      "path": "sections/facility-assembly/sources/electrical-room/overhaul/checkpoints/full-R11.blend",
+      "source_commit": "342af0003fec9dbe80b5acb40d1477c23b5a3169",
+      "gitBlobSha": "6916e6ae9274662b096b9310d15a6ed3b041ad29",
+      "sha256": "eb962ce772ae055b2ca3d23a4e9638c6b42a3b4c8bff400431e30a756793a1df",
+      "bytes": 1966640,
+      "stagingMethod": "SinglePinnedLFSPointerHydration"
+    },
+    {
+      "path": "sections/facility-assembly/sources/condenser-bay/module_aaa_A1.blend",
+      "source_commit": "342af0003fec9dbe80b5acb40d1477c23b5a3169",
+      "gitBlobSha": "02e6f898905699fcb3f3c44c8fcd0ec8dd7d2b3a",
+      "sha256": "1e658dd2afcd7c347aef105a2aafc61d2f4a1d3cefaf96b76ddf1824ecc4f1ff",
+      "bytes": 1751850,
+      "stagingMethod": "SinglePinnedLFSPointerHydration"
+    },
+    {
+      "path": "sections/facility-assembly/sources/waste-storage/module_aaa_A1.blend",
+      "source_commit": "342af0003fec9dbe80b5acb40d1477c23b5a3169",
+      "gitBlobSha": "a90b75418b1377b3ee10570837d8193644e409b0",
+      "sha256": "e37536d5ea07a7fc1586a76e0d9236d48ac56f1d1c33d948454bc57ff56d8ce1",
+      "bytes": 1392282,
+      "stagingMethod": "SinglePinnedLFSPointerHydration"
+    },
+    {
+      "path": "sections/facility-assembly/sources/cooling-plant/module_aaa_A1.blend",
+      "source_commit": "342af0003fec9dbe80b5acb40d1477c23b5a3169",
+      "gitBlobSha": "f27f21d30fa972576f8ffb1dc3cc13c7c1d7d8bf",
+      "sha256": "056cc5e739604fd3ce3f5090d52deaf78ab979a2cb7eff1d64c33bccfa232666",
+      "bytes": 1596340,
+      "stagingMethod": "SinglePinnedLFSPointerHydration"
+    },
+    {
+      "path": "sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend",
+      "source_commit": "342af0003fec9dbe80b5acb40d1477c23b5a3169",
+      "gitBlobSha": "742928246e9ce5ffb9d5f5976b1c14f1aa44c517",
+      "sha256": "fcb01f2f9db3a281a1c0603e4da08d86b228aab097a353a3e89057d49d330227",
+      "bytes": 5430825,
+      "stagingMethod": "SinglePinnedExistingGitBlob"
+    },
+    {
+      "path": "sections/facility-assembly/sources/front-end-area/front_end_area.blend",
+      "source_commit": "342af0003fec9dbe80b5acb40d1477c23b5a3169",
+      "gitBlobSha": "eee2395d3d322b3b30338ff06de4c736dae23776",
+      "sha256": "f23649ed9f44717cc5185bca116154e1863404955ec7c56b7dae6f399a7c4eae",
+      "bytes": 16362208,
+      "stagingMethod": "VerifiedExistingSourceBytes"
+    },
+    {
+      "path": "sections/facility-assembly/sources/spawn-room/module.blend",
+      "source_commit": "342af0003fec9dbe80b5acb40d1477c23b5a3169",
+      "gitBlobSha": "02077126b18d0f9f32b78c0927704d6a62e25da1",
+      "sha256": "1964d3d16716730631af0d5c77bcc604a64455092142cc57c0283172a563a977",
+      "bytes": 29761287,
+      "stagingMethod": "VerifiedExistingSourceBytes"
+    },
+    {
+      "path": "sections/facility-assembly/sources/mine-r39/module_r39_aaa.blend",
+      "source_commit": "342af0003fec9dbe80b5acb40d1477c23b5a3169",
+      "gitBlobSha": "d4420f772dd67182a906e4e0d8c7a577f83e0ca9",
+      "sha256": "0131ee35afa1f3fb9f26ee1dddd090e3b3c63e67bec2a854670214fee29825e1",
+      "bytes": 114789574,
+      "stagingMethod": "VerifiedExistingSourceBytes"
+    },
+    {
+      "path": "sections/facility-assembly/sources/refinery/module_overhaul_R1.blend",
+      "source_commit": "342af0003fec9dbe80b5acb40d1477c23b5a3169",
+      "gitBlobSha": "a27152da21ef2edb72022c082159616b7efe872c",
+      "sha256": "29349f38a085511840afab8386c3fb0ce9efc64ad57a7b015495398efdb089de",
+      "bytes": 2230548,
+      "stagingMethod": "VerifiedExistingSourceBytes"
+    },
+    {
+      "path": "sections/facility-assembly/sources/medical-reanimation/module_overhaul_R2.blend",
+      "source_commit": "342af0003fec9dbe80b5acb40d1477c23b5a3169",
+      "gitBlobSha": "08cad094732cb13c4e9d5ff8bda10b9e477be497",
+      "sha256": "074051ee29c443e0a4f6152f63eb65c48e45b8137be32b3d58776c8dee9e7af0",
+      "bytes": 12625634,
+      "stagingMethod": "VerifiedExistingPlainGitSourceBytes"
+    },
+    {
+      "path": "sections/fuel-corridor/production/checkpoints/fuel_full_F23ci.blend",
+      "source_commit": "342af0003fec9dbe80b5acb40d1477c23b5a3169",
+      "gitBlobSha": "35fac1319a53c3dcfb154bbebcb0602705d0e279",
+      "sha256": "def288245d8356802f972c45b4f389df5effabf249bb0e76601eaf7dd78cf3fe",
+      "bytes": 36839634,
+      "stagingMethod": "VerifiedExistingPlainGitSourceBytes"
+    },
+    {
+      "path": "sections/facility-assembly/sources/spawn-room/hero_suit.blend",
+      "source_commit": "342af0003fec9dbe80b5acb40d1477c23b5a3169",
+      "gitBlobSha": "bab3688159e8674b3251a643f984080a55165359",
+      "sha256": "2503186e06d941a1d9e0afee3282af65a2dc38fb4ae96bc67f643d65291571d7",
+      "bytes": 337093,
+      "stagingMethod": "VerifiedExistingSourceBytes"
+    },
+    {
+      "path": "sections/facility-assembly/exteriors/spawn-room/exterior-R05.blend",
+      "source_commit": "342af0003fec9dbe80b5acb40d1477c23b5a3169",
+      "gitBlobSha": "5e916fe941ece5c65f3592201737a33f27f05616",
+      "sha256": "5c236b25f3fef0243c5d086f71eb33d006a77cedfe05bfd91848d1ff1a245b5a",
+      "bytes": 268244,
+      "stagingMethod": "VerifiedExistingSourceBytes"
+    },
+    {
+      "path": "sections/facility-assembly/exteriors/refinery/exterior-R01.blend",
+      "source_commit": "342af0003fec9dbe80b5acb40d1477c23b5a3169",
+      "gitBlobSha": "ccc72e84f43a8c1f0fb02f544b7dda34d9300628",
+      "sha256": "91dc6d076ef5b0a74f9b4931b253e14692081c1d9ec605dfa6ea0d0fd452710c",
+      "bytes": 213291,
+      "stagingMethod": "VerifiedExistingSourceBytes"
+    },
+    {
+      "path": "sections/facility-assembly/exteriors/medical-reanimation/exterior-R04.blend",
+      "source_commit": "342af0003fec9dbe80b5acb40d1477c23b5a3169",
+      "gitBlobSha": "9661768c00fd5155214271a117eb1230ffeed0a0",
+      "sha256": "a123a72256b3f920e28bcdeaf942d3277bd2513fb14267c5686f9a7d9a8a9787",
+      "bytes": 159179,
+      "stagingMethod": "VerifiedExistingSourceBytes"
+    },
+    {
+      "path": "sections/facility-assembly/combined/build_compact_map.py",
+      "source_commit": "342af0003fec9dbe80b5acb40d1477c23b5a3169",
+      "sha256": "068d07c974ac758d873e9edebb8ed975ca7a90c25009d1354cf5cf61b4e570ff",
+      "bytes": 9348,
+      "gitBlobSha": "fc4ff05be675fcfdcf98355682d620f281f98b2b"
+    },
+    {
+      "path": "sections/facility-assembly/combined/build_combined_map.py",
+      "source_commit": "342af0003fec9dbe80b5acb40d1477c23b5a3169",
+      "sha256": "1203989a0d17bfa963587f9f0bbdd7b243d7062b9bfd25259d03328e990acf7c",
+      "bytes": 62366,
+      "gitBlobSha": "9c249aea2159287157074bb03152d3cd9eaa5b4d"
+    },
+    {
+      "path": "sections/facility-assembly/combined/reactor_links.py",
+      "source_commit": "342af0003fec9dbe80b5acb40d1477c23b5a3169",
+      "sha256": "e60364cdb35ffe8c097ea82f3be29b7c45ed341cdda8825c134774ac93ef970a",
+      "bytes": 42806,
+      "gitBlobSha": "b253f54782c828af9ae1f9d464ccc7939b653ea4"
+    },
+    {
+      "path": "sections/facility-assembly/combined/AGENT_READ_FIRST.md",
+      "source_commit": "342af0003fec9dbe80b5acb40d1477c23b5a3169",
+      "sha256": "234a2dbb353647cf161b385ac700cb27584f502df68d7b661073b90c2a8ee680",
+      "bytes": 10531,
+      "gitBlobSha": "6e7dc275da2bc59107b5af96a4317e8115a165c7"
+    },
+    {
+      "path": "sections/facility-assembly/combined/COMPACT_MAP.md",
+      "source_commit": "342af0003fec9dbe80b5acb40d1477c23b5a3169",
+      "sha256": "dd458a2397693da96bb2e5d7860592bebf5ae6b91e4d5a06c09f8f71907dfdec",
+      "bytes": 7737,
+      "gitBlobSha": "acbc6fea046832cdb0006bdb3c39c855f3cd1c81"
+    },
+    {
+      "path": "sections/facility-assembly/combined/textures/hall_screen_tunnel_0.png",
+      "source_commit": "342af0003fec9dbe80b5acb40d1477c23b5a3169",
+      "gitBlobSha": "9d6d2416f618470f05517b3784bdcbb85e0a0aea",
+      "sha256": "cfdb89d42c25ca8df7e4c2fac409c76d795b6ab0fe4b73b298d103659e42f1dd",
+      "bytes": 23039
+    },
+    {
+      "path": "sections/facility-assembly/combined/textures/hall_screen_tunnel_1.png",
+      "source_commit": "342af0003fec9dbe80b5acb40d1477c23b5a3169",
+      "gitBlobSha": "0daded33349cfcbbde87169a3994d1e2db6dafbb",
+      "sha256": "978cbd5972b6411f60ad7adedda18b9179510492100f3d0f1865b6d0cf51f58a",
+      "bytes": 31967
+    },
+    {
+      "path": "sections/facility-assembly/combined/textures/hall_screen_tunnel_2.png",
+      "source_commit": "342af0003fec9dbe80b5acb40d1477c23b5a3169",
+      "gitBlobSha": "cd82249f33d5082f1f651999852f52e135876570",
+      "sha256": "2d578d66e80e737b8db447be7db7308ffe74c1420a829dab0897de9a35384e41",
+      "bytes": 19832
+    },
+    {
+      "path": "sections/facility-assembly/combined/textures/hall_screen_tunnel_3.png",
+      "source_commit": "342af0003fec9dbe80b5acb40d1477c23b5a3169",
+      "gitBlobSha": "8bc90192d55f0e5e9fcd7de5268d415f202a3adf",
+      "sha256": "4ddd310860df97a848d0cd8c5158a9a6c75cce94c998ca2cb54be05c5fb55942",
+      "bytes": 25548
+    },
+    {
+      "path": "sections/facility-assembly/combined/textures/hall_screen_waste-storage_0.png",
+      "source_commit": "342af0003fec9dbe80b5acb40d1477c23b5a3169",
+      "gitBlobSha": "3c043f5a0dd95d80639208379dc448c44104696a",
+      "sha256": "542172a5c963e18a778cfd75ee3d5abb9ee184b79356f9d99fb222fc290a7127",
+      "bytes": 22307
+    },
+    {
+      "path": "sections/facility-assembly/combined/textures/hall_screen_waste-storage_1.png",
+      "source_commit": "342af0003fec9dbe80b5acb40d1477c23b5a3169",
+      "gitBlobSha": "b07ae16d5f6d1b822b9ac91d4bd4304deba08d68",
+      "sha256": "dbfc1875d26ab4972efbbb5fab3511f0569a3f867640e3adbb884e4448f6e66c",
+      "bytes": 29861
+    },
+    {
+      "path": "sections/facility-assembly/combined/textures/hall_screen_waste-storage_2.png",
+      "source_commit": "342af0003fec9dbe80b5acb40d1477c23b5a3169",
+      "gitBlobSha": "950ed5757fbcb3cc4750baf7594cca9502323cf4",
+      "sha256": "3e508ecab928dd8ab7bf94b023e322aa0eaf1744e3af3606528bb767214f3dde",
+      "bytes": 18744
+    },
+    {
+      "path": "sections/facility-assembly/combined/textures/hall_screen_waste-storage_3.png",
+      "source_commit": "342af0003fec9dbe80b5acb40d1477c23b5a3169",
+      "gitBlobSha": "94915d875202bde53378c0eca365328d1cfa642b",
+      "sha256": "4b7f216f647ebbad03ff5e9897b7326f8ea5224cbedf26873baa5163c433565a",
+      "bytes": 24793
+    },
+    {
+      "path": "sections/facility-assembly/combined/textures/hall_screen_service_0.png",
+      "source_commit": "342af0003fec9dbe80b5acb40d1477c23b5a3169",
+      "gitBlobSha": "1b9bff98654e1c0e4613f394c288a43258ac1850",
+      "sha256": "925f29f0f0b5c803c96d58707939f297944703682a3c0e158e3879e93c101628",
+      "bytes": 22425
+    },
+    {
+      "path": "sections/facility-assembly/combined/textures/hall_screen_service_1.png",
+      "source_commit": "342af0003fec9dbe80b5acb40d1477c23b5a3169",
+      "gitBlobSha": "d866aeacaa7d1a86252cc64b6c4446d43b8cdf3f",
+      "sha256": "b07f70c50980922e538095f5621ffe6bcfa0defc9ccee70175e406d168a94ac4",
+      "bytes": 29972
+    },
+    {
+      "path": "sections/facility-assembly/combined/textures/hall_screen_service_2.png",
+      "source_commit": "342af0003fec9dbe80b5acb40d1477c23b5a3169",
+      "gitBlobSha": "5170df405cbfc966707b2b1525706c1ac988ee3c",
+      "sha256": "45bc45d6f60e1dc9cf0b36e0722c5349f4411dae176abe0bea516509a5589b3e",
+      "bytes": 18383
+    },
+    {
+      "path": "sections/facility-assembly/combined/textures/hall_screen_service_3.png",
+      "source_commit": "342af0003fec9dbe80b5acb40d1477c23b5a3169",
+      "gitBlobSha": "0f3acaeb5b86fc3408cce0607e448b298ba31254",
+      "sha256": "2adccb8190aac90f251a1321f79e7d91e2f0c6d6ffd8680d9fef3697073b562b",
+      "bytes": 24818
+    }
+  ],
+  "exportRecipe": {
+    "blender": "Blender 5.2.2 LTS",
+    "batched": true,
+    "runtimeSceneSha256": "b1905627f2f6e4ba90198a99bc47238a3c3fdeb61277ffcc3ab72a3dff5a4192",
+    "tools": {
+      "prepare_mine.py": "522c8c4cbfd0e2ea5392296c7992c90be3f709f973851cf318fdb48a89b21a4a",
+      "export_spawn_map.py": "3f3f49a4681906fbe179e7f508a2690a87fe6549e139d098bebc99bedf1205e8",
+      "export_spawn_materials.py": "a8d762971499b73b4a54b4ba52379ac720be1e2684d13f174e4e0fe07a429b7b",
+      "export_mine_materials.py": "89e375f5022edf1869c69edda233f0151ac77acdda9021af7a5402cb3892b610",
+      "export_mine_context.py": "0caa2420a030f2e71fbfcd4f8209b9c198649f66a93fc4d871c95890d6116f41",
+      "export_mine_volumes.py": "93e739bf06e94f5e423a132be54e1d34ec7eb0f0fd5b92ef04d04e3eab25eaf2",
+      "export_source_wood.py": "7f8b4dc0bbba186feb64941960a49eed51d49ecc029ec4978012fa3d01cdd574",
+      "normal_bake_pixels.py": "50d0ddde3d34ad4619d713fc88f96adf45483cf0754b0291113c4ef75843ac2e",
+      "mine_delivery_uv.py": "1448f6ada672d3e67cc5a4324d9de98ac46ae4bac4cdc392dc1255229063347a",
+      "mine_lightmap_uv.py": "019d3ed820b7b7ec30a22446386b4e59f64e215524ba1e1ffe107e09baf7cb29",
+      "mine_join_rays.py": "bc11dc46fa9c758cfd539719553e8344e8ceaf96380f4946fdbcf52169661b84",
+      "mine_context_lights.py": "eaa2118c44fffad8039f7981ecf060e6b9812b52b0813986305dcf36b1a4040c",
+      "map_source_snapshot.py": "ecc5e795e075f4b84e83905de549a9792e6a7d3a1889d40b77adc9523f3fd8df"
+    }
+  },
+  "woodRecipe": "authored-uv-affine-colour-ao16-v1",
+  "atlases": {
+    "mine-mountain": {
+      "albedo": {
+        "file": "Surfaces/mine-mountain/spawn-albedo.png",
+        "sha256": "abd24a153a4c7a7646c283069b86d2631483d53c6fddb68d5f16144c8a633dcd",
+        "colorSpace": "sRGB",
+        "size": 4096
+      },
+      "metallicSmoothness": {
+        "file": "Surfaces/mine-mountain/spawn-metallic-smoothness.png",
+        "sha256": "08169941e10846a108a53bd069e1b071b6ada2d67f1881d68bc07d4795b1724c",
+        "colorSpace": "linear",
+        "size": 4096
+      },
+      "normal": {
+        "file": "Surfaces/mine-mountain/spawn-normal.png",
+        "sha256": "06bcefc0c992ddab1adf6de515a89142db520a9b0acf34125f8ee8d1e6ffb392",
+        "colorSpace": "linear",
+        "size": 4096
+      },
+      "emission": {
+        "file": "Surfaces/mine-mountain/spawn-emission.exr",
+        "sha256": "71077c5d7faced73df5238c64b7274a4fafd05131bbd498daa9a0b478fb04330",
+        "colorSpace": "linear",
+        "size": 4096
+      }
+    },
+    "mine-tunnel-floor": {
+      "albedo": {
+        "file": "Surfaces/mine-tunnel-floor/spawn-albedo.png",
+        "sha256": "2dd03f0dbfab980435c89d0d604c89d78f037c833efe355bedc1d0fa2cd3fbed",
+        "colorSpace": "sRGB",
+        "size": 4096
+      },
+      "metallicSmoothness": {
+        "file": "Surfaces/mine-tunnel-floor/spawn-metallic-smoothness.png",
+        "sha256": "17294755dd71445bcd97c2ae45e784052ba4b08c5225f84378f9cab40b782118",
+        "colorSpace": "linear",
+        "size": 4096
+      },
+      "normal": {
+        "file": "Surfaces/mine-tunnel-floor/spawn-normal.png",
+        "sha256": "06beef35517e8e81c1b8542291dc781bf47bfbff77a720437873716c9e20afcc",
+        "colorSpace": "linear",
+        "size": 4096
+      },
+      "emission": {
+        "file": "Surfaces/mine-tunnel-floor/spawn-emission.exr",
+        "sha256": "0826718254b523fd17c02978e76211bbf53cc1404051cb759ad2921fce4d1335",
+        "colorSpace": "linear",
+        "size": 4096
+      }
+    },
+    "mine-ground": {
+      "albedo": {
+        "file": "Surfaces/mine-ground/spawn-albedo.png",
+        "sha256": "5485808f5099ba1deced959fada8be817a2411a71724ac52dc915aec8e550a39",
+        "colorSpace": "sRGB",
+        "size": 4096
+      },
+      "metallicSmoothness": {
+        "file": "Surfaces/mine-ground/spawn-metallic-smoothness.png",
+        "sha256": "0bbacc0445a82ec5990040a4a936c04dcb1bd670dd29df02a93fab548b754856",
+        "colorSpace": "linear",
+        "size": 4096
+      },
+      "normal": {
+        "file": "Surfaces/mine-ground/spawn-normal.png",
+        "sha256": "a3e3f56510a07a29efdc4cd0f9ece7bd5ee2d2f996540efc98ab7d7e110fadca",
+        "colorSpace": "linear",
+        "size": 4096
+      },
+      "emission": {
+        "file": "Surfaces/mine-ground/spawn-emission.exr",
+        "sha256": "0826718254b523fd17c02978e76211bbf53cc1404051cb759ad2921fce4d1335",
+        "colorSpace": "linear",
+        "size": 4096
+      },
+      "woodHigh": {
+        "file": "Surfaces/mine-ground/spawn-wood-high.png",
+        "sha256": "594e0ec6214184552823eae928c602d46e29b4b18e58f030bf2382c8a071fb31",
+        "colorSpace": "sRGB",
+        "size": 4096
+      }
+    },
+    "mine-rocks": {
+      "albedo": {
+        "file": "Surfaces/mine-rocks/spawn-albedo.png",
+        "sha256": "297b2214e321994ea6ee11e13e9a500125f55e9a41bc747419dba5a4cc666ee7",
+        "colorSpace": "sRGB",
+        "size": 4096
+      },
+      "metallicSmoothness": {
+        "file": "Surfaces/mine-rocks/spawn-metallic-smoothness.png",
+        "sha256": "2a667cbbdfafe4154021e30cc5b5a6e727e929a0cfa896cda75b07fe6f8b906d",
+        "colorSpace": "linear",
+        "size": 4096
+      },
+      "normal": {
+        "file": "Surfaces/mine-rocks/spawn-normal.png",
+        "sha256": "9cd591cb0dface6b9aa7d4df60b3f085c655f88451fcb1dfa5d2b03bd64e9740",
+        "colorSpace": "linear",
+        "size": 4096
+      },
+      "emission": {
+        "file": "Surfaces/mine-rocks/spawn-emission.exr",
+        "sha256": "5b7cbf440178bd25543f6568a6a7f8a30edc91c0eacdb33842ac13c293228cd5",
+        "colorSpace": "linear",
+        "size": 4096
+      }
+    },
+    "mine-duct": {
+      "albedo": {
+        "file": "Surfaces/mine-duct/spawn-albedo.png",
+        "sha256": "6e914cc1103435b059db8cc79ea954a6e4741481f8156ec026b1388934afb3d2",
+        "colorSpace": "sRGB",
+        "size": 4096
+      },
+      "metallicSmoothness": {
+        "file": "Surfaces/mine-duct/spawn-metallic-smoothness.png",
+        "sha256": "19786657b115904b2053d7b93186fe19d9496718d4d06d9b3cb7e09204834ae7",
+        "colorSpace": "linear",
+        "size": 4096
+      },
+      "normal": {
+        "file": "Surfaces/mine-duct/spawn-normal.png",
+        "sha256": "1199c74ed43b9f9b44fbca91ed2de4c1111f413fd49a1e0b88d3ae8df20a5814",
+        "colorSpace": "linear",
+        "size": 4096
+      },
+      "emission": {
+        "file": "Surfaces/mine-duct/spawn-emission.exr",
+        "sha256": "0826718254b523fd17c02978e76211bbf53cc1404051cb759ad2921fce4d1335",
+        "colorSpace": "linear",
+        "size": 4096
+      }
+    },
+    "mine-air-main": {
+      "albedo": {
+        "file": "Surfaces/mine-air-main/spawn-albedo.png",
+        "sha256": "af53ade1cc170a2bd7355668fee21a7509334e59b525603eda65adb2b0bbc8eb",
+        "colorSpace": "sRGB",
+        "size": 4096
+      },
+      "metallicSmoothness": {
+        "file": "Surfaces/mine-air-main/spawn-metallic-smoothness.png",
+        "sha256": "2734aad157f0d34e16d9f31d43a6f286186d3513a479591c30bfadfdc5fac438",
+        "colorSpace": "linear",
+        "size": 4096
+      },
+      "normal": {
+        "file": "Surfaces/mine-air-main/spawn-normal.png",
+        "sha256": "9edb0a91c9ba24bbafaccd380b1f3d3d2ceacf171acaaec6c23b86f5b8f734a9",
+        "colorSpace": "linear",
+        "size": 4096
+      },
+      "emission": {
+        "file": "Surfaces/mine-air-main/spawn-emission.exr",
+        "sha256": "0826718254b523fd17c02978e76211bbf53cc1404051cb759ad2921fce4d1335",
+        "colorSpace": "linear",
+        "size": 4096
+      }
+    },
+    "mine-structure": {
+      "albedo": {
+        "file": "Surfaces/mine-structure/spawn-albedo.png",
+        "sha256": "539f83fcb1f62c35cb879a4bcb69c54d8f3017a2b1ca3f41b953eefffdad2a47",
+        "colorSpace": "sRGB",
+        "size": 4096
+      },
+      "metallicSmoothness": {
+        "file": "Surfaces/mine-structure/spawn-metallic-smoothness.png",
+        "sha256": "d99aa4357835a540f54d445c2370019203f80ce7cefded3f922453bfbe07776a",
+        "colorSpace": "linear",
+        "size": 4096
+      },
+      "normal": {
+        "file": "Surfaces/mine-structure/spawn-normal.png",
+        "sha256": "aaa7bd7b486ed3151d381f20283a8b28b61e9f37ddd08f678970098cda628f9c",
+        "colorSpace": "linear",
+        "size": 4096
+      },
+      "emission": {
+        "file": "Surfaces/mine-structure/spawn-emission.exr",
+        "sha256": "0826718254b523fd17c02978e76211bbf53cc1404051cb759ad2921fce4d1335",
+        "colorSpace": "linear",
+        "size": 4096
+      },
+      "woodHigh": {
+        "file": "Surfaces/mine-structure/spawn-wood-high.png",
+        "sha256": "fad4ff7672ce267d515d44d0d0231c6f2b4e29f2b5538e291ff3c35fb1aec924",
+        "colorSpace": "sRGB",
+        "size": 4096
+      }
+    },
+    "mine-props": {
+      "albedo": {
+        "file": "Surfaces/mine-props/spawn-albedo.png",
+        "sha256": "7309280e6cdc36f88d1fc354885e8e24651d8c8cada20bdee3a22ea1dd4e6a1a",
+        "colorSpace": "sRGB",
+        "size": 4096
+      },
+      "metallicSmoothness": {
+        "file": "Surfaces/mine-props/spawn-metallic-smoothness.png",
+        "sha256": "1dce653e7ef24e6f00eb18d0bfd756cad3093f433ca66bccb10a3632a55a8c81",
+        "colorSpace": "linear",
+        "size": 4096
+      },
+      "normal": {
+        "file": "Surfaces/mine-props/spawn-normal.png",
+        "sha256": "9ee8e0b7c7cba9f88bab0d97416c83f5c6031794c8fc193205cd25af663da944",
+        "colorSpace": "linear",
+        "size": 4096
+      },
+      "emission": {
+        "file": "Surfaces/mine-props/spawn-emission.exr",
+        "sha256": "0826718254b523fd17c02978e76211bbf53cc1404051cb759ad2921fce4d1335",
+        "colorSpace": "linear",
+        "size": 4096
+      },
+      "woodHigh": {
+        "file": "Surfaces/mine-props/spawn-wood-high.png",
+        "sha256": "b3a527c9da5cbae8e972c14f9d2d12e8a7c59e9066400e4419f9ce69fc8322ba",
+        "colorSpace": "sRGB",
+        "size": 4096
+      }
+    },
+    "mine-context-ground": {
+      "albedo": {
+        "file": "Surfaces/mine-context-ground/spawn-albedo.png",
+        "sha256": "f27e4bcb4813766610220a412b56442cc056959d77981c00b7637a305fb763ad",
+        "colorSpace": "sRGB",
+        "size": 4096
+      },
+      "metallicSmoothness": {
+        "file": "Surfaces/mine-context-ground/spawn-metallic-smoothness.png",
+        "sha256": "e2fac50f4928a5301c8edad49e3963eb5be408d42d579f0308c0d4b1b7febba2",
+        "colorSpace": "linear",
+        "size": 4096
+      },
+      "normal": {
+        "file": "Surfaces/mine-context-ground/spawn-normal.png",
+        "sha256": "edabc9250220f53af473815cd5a9a7334bd77b6ddcf76ea6ee6f5f0f8d24999e",
+        "colorSpace": "linear",
+        "size": 4096
+      },
+      "emission": {
+        "file": "Surfaces/mine-context-ground/spawn-emission.exr",
+        "sha256": "0826718254b523fd17c02978e76211bbf53cc1404051cb759ad2921fce4d1335",
+        "colorSpace": "linear",
+        "size": 4096
+      }
+    },
+    "mine-context-structure": {
+      "albedo": {
+        "file": "Surfaces/mine-context-structure/spawn-albedo.png",
+        "sha256": "ec4647174570a99c65e6f4b5b05de590b4125f320b966daaf4d31b5303b09748",
+        "colorSpace": "sRGB",
+        "size": 4096
+      },
+      "metallicSmoothness": {
+        "file": "Surfaces/mine-context-structure/spawn-metallic-smoothness.png",
+        "sha256": "8fb1c1829048ca762c37c02f4952e2bc6134e81f0057c280e0d36e42cd5f5cb8",
+        "colorSpace": "linear",
+        "size": 4096
+      },
+      "normal": {
+        "file": "Surfaces/mine-context-structure/spawn-normal.png",
+        "sha256": "0618fc655dabc4c067563292958ac1a18cc02237dfa3af90d05c713e903f953f",
+        "colorSpace": "linear",
+        "size": 4096
+      },
+      "emission": {
+        "file": "Surfaces/mine-context-structure/spawn-emission.exr",
+        "sha256": "c2e0827a5482f9bb01e0e99afad097d0d84cae3ad4b26e4703babe57398b93e6",
+        "colorSpace": "linear",
+        "size": 4096
+      }
+    },
+    "mine-context-props": {
+      "albedo": {
+        "file": "Surfaces/mine-context-props/spawn-albedo.png",
+        "sha256": "876422b77a9afbca48867520212f9a0e69fe7568276dc6304fef3b55cff10396",
+        "colorSpace": "sRGB",
+        "size": 4096
+      },
+      "metallicSmoothness": {
+        "file": "Surfaces/mine-context-props/spawn-metallic-smoothness.png",
+        "sha256": "b7f7a146d67d24de9adda77dc52846d21290f30ead3bc83f2c3ab16f1e3fe592",
+        "colorSpace": "linear",
+        "size": 4096
+      },
+      "normal": {
+        "file": "Surfaces/mine-context-props/spawn-normal.png",
+        "sha256": "42e7da40aa4af109501b57c3fda313230a11c6a84e9bc55c8c903f46c778bfce",
+        "colorSpace": "linear",
+        "size": 4096
+      },
+      "emission": {
+        "file": "Surfaces/mine-context-props/spawn-emission.exr",
+        "sha256": "c428c31d41a3115e0e766766bf8fe77fbb74d5609a534d643c3e8bda031e4634",
+        "colorSpace": "linear",
+        "size": 4096
+      }
+    }
+  }
+}
