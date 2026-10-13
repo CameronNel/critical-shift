@@ -3,9 +3,9 @@
  "views": {
   "reactor_N_stub": {
    "median": 0.714,
-   "mean": 0.686,
+   "mean": 0.687,
    "p10": 0.388,
-   "near_black": 0.001,
+   "near_black": 0.0,
    "clipped": 0.025,
    "clipped_white": 0.0,
    "eye": [
@@ -21,10 +21,10 @@
    "readable": true
   },
   "turbine_entry": {
-   "median": 0.363,
-   "mean": 0.364,
-   "p10": 0.064,
-   "near_black": 0.062,
+   "median": 0.364,
+   "mean": 0.365,
+   "p10": 0.067,
+   "near_black": 0.061,
    "clipped": 0.013,
    "clipped_white": 0.0,
    "eye": [
@@ -40,9 +40,9 @@
    "readable": true
   },
   "turbine_east_aisle_to_electrical": {
-   "median": 0.443,
+   "median": 0.442,
    "mean": 0.407,
-   "p10": 0.182,
+   "p10": 0.179,
    "near_black": 0.011,
    "clipped": 0.004,
    "clipped_white": 0.0,
@@ -59,10 +59,10 @@
    "readable": true
   },
   "electrical_inside": {
-   "median": 0.544,
-   "mean": 0.513,
-   "p10": 0.172,
-   "near_black": 0.014,
+   "median": 0.547,
+   "mean": 0.516,
+   "p10": 0.177,
+   "near_black": 0.011,
    "clipped": 0.027,
    "clipped_white": 0.0,
    "eye": [
@@ -78,9 +78,9 @@
    "readable": true
   },
   "reactor_W_stub_to_cooling": {
-   "median": 0.538,
-   "mean": 0.531,
-   "p10": 0.196,
+   "median": 0.543,
+   "mean": 0.533,
+   "p10": 0.198,
    "near_black": 0.031,
    "clipped": 0.038,
    "clipped_white": 0.001,
@@ -97,10 +97,10 @@
    "readable": true
   },
   "cooling_inside": {
-   "median": 0.574,
-   "mean": 0.545,
+   "median": 0.58,
+   "mean": 0.547,
    "p10": 0.177,
-   "near_black": 0.004,
+   "near_black": 0.006,
    "clipped": 0.031,
    "clipped_white": 0.008,
    "eye": [
@@ -116,9 +116,9 @@
    "readable": true
   },
   "reactor_to_waste": {
-   "median": 0.319,
-   "mean": 0.311,
-   "p10": 0.146,
+   "median": 0.316,
+   "mean": 0.31,
+   "p10": 0.143,
    "near_black": 0.038,
    "clipped": 0.002,
    "clipped_white": 0.0,
@@ -135,10 +135,10 @@
    "readable": true
   },
   "waste_inside": {
-   "median": 0.282,
-   "mean": 0.307,
-   "p10": 0.13,
-   "near_black": 0.051,
+   "median": 0.286,
+   "mean": 0.31,
+   "p10": 0.133,
+   "near_black": 0.046,
    "clipped": 0.01,
    "clipped_white": 0.0,
    "eye": [
@@ -154,9 +154,9 @@
    "readable": true
   },
   "spine_to_dock": {
-   "median": 0.386,
+   "median": 0.389,
    "mean": 0.378,
-   "p10": 0.196,
+   "p10": 0.19,
    "near_black": 0.007,
    "clipped": 0.002,
    "clipped_white": 0.0,
@@ -174,10 +174,10 @@
   },
   "dock_inside": {
    "median": 0.246,
-   "mean": 0.285,
+   "mean": 0.283,
    "p10": 0.057,
    "near_black": 0.054,
-   "clipped": 0.01,
+   "clipped": 0.011,
    "clipped_white": 0.0,
    "eye": [
     13.8,
@@ -192,12 +192,12 @@
    "readable": true
   },
   "concourse": {
-   "median": 0.617,
-   "mean": 0.596,
-   "p10": 0.314,
-   "near_black": 0.002,
-   "clipped": 0.024,
-   "clipped_white": 0.007,
+   "median": 0.604,
+   "mean": 0.585,
+   "p10": 0.307,
+   "near_black": 0.012,
+   "clipped": 0.018,
+   "clipped_white": 0.006,
    "eye": [
     5,
     -35.9,
@@ -212,8 +212,8 @@
   },
   "spine_mid": {
    "median": 0.47,
-   "mean": 0.474,
-   "p10": 0.253,
+   "mean": 0.473,
+   "p10": 0.257,
    "near_black": 0.004,
    "clipped": 0.058,
    "clipped_white": 0.0,
@@ -230,12 +230,12 @@
    "readable": false
   },
   "reactor_from_south": {
-   "median": 0.505,
-   "mean": 0.492,
-   "p10": 0.267,
-   "near_black": 0.006,
+   "median": 0.503,
+   "mean": 0.489,
+   "p10": 0.265,
+   "near_black": 0.005,
    "clipped": 0.036,
-   "clipped_white": 0.023,
+   "clipped_white": 0.022,
    "eye": [
     0,
     -35.199999999999996,
@@ -249,11 +249,11 @@
    "readable": true
   },
   "fuel_F02E_to_concourse": {
-   "median": 0.39,
-   "mean": 0.393,
+   "median": 0.38,
+   "mean": 0.385,
    "p10": 0.046,
-   "near_black": 0.085,
-   "clipped": 0.012,
+   "near_black": 0.079,
+   "clipped": 0.009,
    "clipped_white": 0.0,
    "eye": [
     -8.0,
@@ -268,10 +268,10 @@
    "readable": true
   },
   "fuel_corridor_east": {
-   "median": 0.292,
-   "mean": 0.299,
-   "p10": 0.084,
-   "near_black": 0.033,
+   "median": 0.291,
+   "mean": 0.3,
+   "p10": 0.089,
+   "near_black": 0.027,
    "clipped": 0.001,
    "clipped_white": 0.0,
    "eye": [
@@ -287,9 +287,9 @@
    "readable": true
   },
   "stair_top": {
-   "median": 0.72,
-   "mean": 0.698,
-   "p10": 0.489,
+   "median": 0.719,
+   "mean": 0.699,
+   "p10": 0.493,
    "near_black": 0.002,
    "clipped": 0.029,
    "clipped_white": 0.0,
@@ -308,7 +308,7 @@
   "stair_bottom": {
    "median": 0.769,
    "mean": 0.754,
-   "p10": 0.627,
+   "p10": 0.626,
    "near_black": 0.0,
    "clipped": 0.018,
    "clipped_white": 0.0,
@@ -327,8 +327,8 @@
   "condenser_D01": {
    "median": 0.792,
    "mean": 0.678,
-   "p10": 0.347,
-   "near_black": 0.0,
+   "p10": 0.348,
+   "near_black": 0.001,
    "clipped": 0.021,
    "clipped_white": 0.0,
    "eye": [
@@ -344,10 +344,10 @@
    "readable": true
   },
   "condenser_inside": {
-   "median": 0.466,
-   "mean": 0.476,
-   "p10": 0.227,
-   "near_black": 0.009,
+   "median": 0.464,
+   "mean": 0.474,
+   "p10": 0.228,
+   "near_black": 0.011,
    "clipped": 0.012,
    "clipped_white": 0.0,
    "eye": [
@@ -359,6 +359,82 @@
     6,
     10.3,
     -4.8
+   ],
+   "readable": true
+  },
+  "evac_east_road": {
+   "median": 0.506,
+   "mean": 0.565,
+   "p10": 0.451,
+   "near_black": 0.0,
+   "clipped": 0.001,
+   "clipped_white": 0.0,
+   "eye": [
+    34.4,
+    10.0,
+    1.6
+   ],
+   "target": [
+    34.4,
+    -12.0,
+    1.0
+   ],
+   "readable": true
+  },
+  "evac_east_yard": {
+   "median": 0.568,
+   "mean": 0.61,
+   "p10": 0.428,
+   "near_black": 0.001,
+   "clipped": 0.011,
+   "clipped_white": 0.0,
+   "eye": [
+    26.0,
+    -27.0,
+    1.6
+   ],
+   "target": [
+    12.0,
+    -30.5,
+    1.4
+   ],
+   "readable": true
+  },
+  "evac_west_path": {
+   "median": 0.506,
+   "mean": 0.551,
+   "p10": 0.366,
+   "near_black": 0.0,
+   "clipped": 0.0,
+   "clipped_white": 0.0,
+   "eye": [
+    -36.5,
+    -21.0,
+    1.6
+   ],
+   "target": [
+    -36.5,
+    -45.0,
+    1.0
+   ],
+   "readable": true
+  },
+  "concourse_blast_door": {
+   "median": 0.547,
+   "mean": 0.516,
+   "p10": 0.233,
+   "near_black": 0.041,
+   "clipped": 0.022,
+   "clipped_white": 0.009,
+   "eye": [
+    0.0,
+    -37.8,
+    1.6
+   ],
+   "target": [
+    0.0,
+    -33.5,
+    2.4
    ],
    "readable": true
   }

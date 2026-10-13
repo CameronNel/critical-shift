@@ -12318,7 +12318,7 @@
   {
    "door": "HALL_EAST",
    "state": "closed",
-   "samples_blocked": 12,
+   "samples_blocked": 10,
    "blocks": true
   },
   {
@@ -12330,7 +12330,25 @@
   {
    "door": "SPINE_NORTH_END",
    "state": "closed",
-   "samples_blocked": 11,
+   "samples_blocked": 9,
+   "blocks": true
+  },
+  {
+   "door": "COOLING_W_EXIT",
+   "state": "closed",
+   "samples_blocked": 9,
+   "blocks": true
+  },
+  {
+   "door": "YARD_SERVICE",
+   "state": "closed",
+   "samples_blocked": 9,
+   "blocks": true
+  },
+  {
+   "door": "YARD_EVAC_GATE",
+   "state": "closed",
+   "samples_blocked": 12,
    "blocks": true
   }
  ],

@@ -1,12 +1,12 @@
 {
  "note": "Static counts of the built scene; no frame rate was measured (no runtime build exists). Budgets: only the 400k per-room flag and 800k front-end figure exist in the repo.",
  "totals": {
-  "triangles": 11015587,
-  "objects": 23416,
-  "submeshes": 25495,
-  "lights": 434,
-  "shadow_lights": 396,
-  "materials": 845,
+  "triangles": 11026519,
+  "objects": 23562,
+  "submeshes": 25641,
+  "lights": 456,
+  "shadow_lights": 418,
+  "materials": 851,
   "textures": 110,
   "texture_mb_rgba8": 1013.7
  },
@@ -60,7 +60,7 @@
    "over_flag": true
   },
   "ROOM_electrical-room": {
-   "triangles": 768171,
+   "triangles": 767131,
    "objects": 3124,
    "meshes": 3037,
    "submeshes": 3126,
@@ -91,10 +91,10 @@
    "over_flag": true
   },
   "ROOM_front-end-area": {
-   "triangles": 560316,
-   "objects": 2004,
-   "meshes": 1712,
-   "submeshes": 2646,
+   "triangles": 560356,
+   "objects": 2007,
+   "meshes": 1715,
+   "submeshes": 2649,
    "materials": 70,
    "lights": {
     "SUN": 1,
@@ -154,7 +154,7 @@
    "over_flag": true
   },
   "ROOM_turbine-room": {
-   "triangles": 419253,
+   "triangles": 416781,
    "objects": 1638,
    "meshes": 1577,
    "submeshes": 1638,
@@ -202,10 +202,10 @@
    "over_flag": false
   },
   "ROOM_cooling-plant": {
-   "triangles": 353405,
-   "objects": 1655,
-   "meshes": 1570,
-   "submeshes": 1655,
+   "triangles": 353415,
+   "objects": 1657,
+   "meshes": 1572,
+   "submeshes": 1657,
    "materials": 22,
    "lights": {
     "AREA": 15
@@ -244,6 +244,35 @@
    "budget_flag": null,
    "over_flag": false
   },
+  "EXTERIOR_evacuation": {
+   "triangles": 7825,
+   "objects": 129,
+   "meshes": 129,
+   "submeshes": 129,
+   "materials": 14,
+   "lights": {
+    "SPOT": 14,
+    "POINT": 8
+   },
+   "shadow_lights": 22,
+   "textures": 6,
+   "texture_mb_rgba8": 32.0,
+   "budget_flag": null,
+   "over_flag": false
+  },
+  "EVAC sign yard": {
+   "triangles": 2524,
+   "objects": 1,
+   "meshes": 1,
+   "submeshes": 1,
+   "materials": 1,
+   "lights": {},
+   "shadow_lights": 0,
+   "textures": 0,
+   "texture_mb_rgba8": 0.0,
+   "budget_flag": null,
+   "over_flag": false
+  },
   "CONNECTOR_condenser_stair": {
    "triangles": 1428,
    "objects": 119,
@@ -256,6 +285,149 @@
    "shadow_lights": 6,
    "textures": 3,
    "texture_mb_rgba8": 64.0,
+   "budget_flag": null,
+   "over_flag": false
+  },
+  "EVAC sign hall": {
+   "triangles": 1340,
+   "objects": 1,
+   "meshes": 1,
+   "submeshes": 1,
+   "materials": 1,
+   "lights": {},
+   "shadow_lights": 0,
+   "textures": 0,
+   "texture_mb_rgba8": 0.0,
+   "budget_flag": null,
+   "over_flag": false
+  },
+  "EVAC floor text east road": {
+   "triangles": 603,
+   "objects": 1,
+   "meshes": 1,
+   "submeshes": 1,
+   "materials": 1,
+   "lights": {},
+   "shadow_lights": 0,
+   "textures": 0,
+   "texture_mb_rgba8": 0.0,
+   "budget_flag": null,
+   "over_flag": false
+  },
+  "EVAC floor text east yard": {
+   "triangles": 603,
+   "objects": 1,
+   "meshes": 1,
+   "submeshes": 1,
+   "materials": 1,
+   "lights": {},
+   "shadow_lights": 0,
+   "textures": 0,
+   "texture_mb_rgba8": 0.0,
+   "budget_flag": null,
+   "over_flag": false
+  },
+  "EVAC floor text west path": {
+   "triangles": 603,
+   "objects": 1,
+   "meshes": 1,
+   "submeshes": 1,
+   "materials": 1,
+   "lights": {},
+   "shadow_lights": 0,
+   "textures": 0,
+   "texture_mb_rgba8": 0.0,
+   "budget_flag": null,
+   "over_flag": false
+  },
+  "EVAC exit sign reactor SE stub text": {
+   "triangles": 128,
+   "objects": 1,
+   "meshes": 1,
+   "submeshes": 1,
+   "materials": 1,
+   "lights": {},
+   "shadow_lights": 0,
+   "textures": 0,
+   "texture_mb_rgba8": 0.0,
+   "budget_flag": null,
+   "over_flag": false
+  },
+  "EVAC exit sign turbine D02 text": {
+   "triangles": 128,
+   "objects": 1,
+   "meshes": 1,
+   "submeshes": 1,
+   "materials": 1,
+   "lights": {},
+   "shadow_lights": 0,
+   "textures": 0,
+   "texture_mb_rgba8": 0.0,
+   "budget_flag": null,
+   "over_flag": false
+  },
+  "EVAC exit sign electrical D02 text": {
+   "triangles": 128,
+   "objects": 1,
+   "meshes": 1,
+   "submeshes": 1,
+   "materials": 1,
+   "lights": {},
+   "shadow_lights": 0,
+   "textures": 0,
+   "texture_mb_rgba8": 0.0,
+   "budget_flag": null,
+   "over_flag": false
+  },
+  "EVAC exit sign waste dispatch text": {
+   "triangles": 128,
+   "objects": 1,
+   "meshes": 1,
+   "submeshes": 1,
+   "materials": 1,
+   "lights": {},
+   "shadow_lights": 0,
+   "textures": 0,
+   "texture_mb_rgba8": 0.0,
+   "budget_flag": null,
+   "over_flag": false
+  },
+  "EVAC exit sign waste personnel text": {
+   "triangles": 128,
+   "objects": 1,
+   "meshes": 1,
+   "submeshes": 1,
+   "materials": 1,
+   "lights": {},
+   "shadow_lights": 0,
+   "textures": 0,
+   "texture_mb_rgba8": 0.0,
+   "budget_flag": null,
+   "over_flag": false
+  },
+  "EVAC exit sign cooling exit text": {
+   "triangles": 128,
+   "objects": 1,
+   "meshes": 1,
+   "submeshes": 1,
+   "materials": 1,
+   "lights": {},
+   "shadow_lights": 0,
+   "textures": 0,
+   "texture_mb_rgba8": 0.0,
+   "budget_flag": null,
+   "over_flag": false
+  },
+  "EVAC exit sign spine end text": {
+   "triangles": 128,
+   "objects": 1,
+   "meshes": 1,
+   "submeshes": 1,
+   "materials": 1,
+   "lights": {},
+   "shadow_lights": 0,
+   "textures": 0,
+   "texture_mb_rgba8": 0.0,
    "budget_flag": null,
    "over_flag": false
   },
@@ -926,7 +1098,7 @@
     "ROOM_front-end-area"
    ],
    "own": 3313648,
-   "with_neighbours": 3873964
+   "with_neighbours": 3874004
   },
   "ROOM_fuel-corridor": {
    "neighbours": [
@@ -944,21 +1116,21 @@
     "ROOM_waste-storage"
    ],
    "own": 1217405,
-   "with_neighbours": 2375039
+   "with_neighbours": 2372577
   },
   "ROOM_electrical-room": {
    "neighbours": [
     "ROOM_turbine-room"
    ],
-   "own": 768171,
-   "with_neighbours": 1187424
+   "own": 767131,
+   "with_neighbours": 1183912
   },
   "ROOM_medical-reanimation": {
    "neighbours": [
     "ROOM_front-end-area"
    ],
    "own": 599168,
-   "with_neighbours": 1159484
+   "with_neighbours": 1159524
   },
   "ROOM_front-end-area": {
    "neighbours": [
@@ -969,8 +1141,8 @@
     "ROOM_refinery",
     "ROOM_spawn-room"
    ],
-   "own": 560316,
-   "with_neighbours": 5795384
+   "own": 560356,
+   "with_neighbours": 5795424
   },
   "ROOM_refinery": {
    "neighbours": [
@@ -978,14 +1150,14 @@
     "ROOM_fuel-corridor"
    ],
    "own": 464675,
-   "with_neighbours": 2663338
+   "with_neighbours": 2663378
   },
   "ROOM_spawn-room": {
    "neighbours": [
     "ROOM_front-end-area"
    ],
    "own": 430704,
-   "with_neighbours": 991020
+   "with_neighbours": 991060
   },
   "ROOM_condenser-bay": {
    "neighbours": [
@@ -1000,15 +1172,15 @@
     "ROOM_electrical-room",
     "ROOM_reactor-room"
    ],
-   "own": 419253,
-   "with_neighbours": 2406257
+   "own": 416781,
+   "with_neighbours": 2402745
   },
   "ROOM_compliance-dock": {
    "neighbours": [
     "ROOM_front-end-area"
    ],
    "own": 416761,
-   "with_neighbours": 977077
+   "with_neighbours": 977117
   },
   "ROOM_waste-storage": {
    "neighbours": [
@@ -1021,8 +1193,8 @@
    "neighbours": [
     "ROOM_reactor-room"
    ],
-   "own": 353405,
-   "with_neighbours": 1570810
+   "own": 353415,
+   "with_neighbours": 1570820
   },
   "signs (wayfinding text)": {
    "neighbours": [],
@@ -1036,7 +1208,17 @@
     "ROOM_reactor-room"
    ],
    "own": 10112,
-   "with_neighbours": 3426180
+   "with_neighbours": 3426220
+  },
+  "EXTERIOR_evacuation": {
+   "neighbours": [],
+   "own": 7825,
+   "with_neighbours": 7825
+  },
+  "EVAC sign yard": {
+   "neighbours": [],
+   "own": 2524,
+   "with_neighbours": 2524
   },
   "CONNECTOR_condenser_stair": {
    "neighbours": [
@@ -1044,7 +1226,62 @@
     "ROOM_turbine-room"
    ],
    "own": 1428,
-   "with_neighbours": 842699
+   "with_neighbours": 840227
+  },
+  "EVAC sign hall": {
+   "neighbours": [],
+   "own": 1340,
+   "with_neighbours": 1340
+  },
+  "EVAC floor text east road": {
+   "neighbours": [],
+   "own": 603,
+   "with_neighbours": 603
+  },
+  "EVAC floor text east yard": {
+   "neighbours": [],
+   "own": 603,
+   "with_neighbours": 603
+  },
+  "EVAC floor text west path": {
+   "neighbours": [],
+   "own": 603,
+   "with_neighbours": 603
+  },
+  "EVAC exit sign reactor SE stub text": {
+   "neighbours": [],
+   "own": 128,
+   "with_neighbours": 128
+  },
+  "EVAC exit sign turbine D02 text": {
+   "neighbours": [],
+   "own": 128,
+   "with_neighbours": 128
+  },
+  "EVAC exit sign electrical D02 text": {
+   "neighbours": [],
+   "own": 128,
+   "with_neighbours": 128
+  },
+  "EVAC exit sign waste dispatch text": {
+   "neighbours": [],
+   "own": 128,
+   "with_neighbours": 128
+  },
+  "EVAC exit sign waste personnel text": {
+   "neighbours": [],
+   "own": 128,
+   "with_neighbours": 128
+  },
+  "EVAC exit sign cooling exit text": {
+   "neighbours": [],
+   "own": 128,
+   "with_neighbours": 128
+  },
+  "EVAC exit sign spine end text": {
+   "neighbours": [],
+   "own": 128,
+   "with_neighbours": 128
   },
   "COMBINED_MAP": {
    "neighbours": [],

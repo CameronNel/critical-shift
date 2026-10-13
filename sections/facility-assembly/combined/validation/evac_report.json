@@ -1,0 +1,224 @@
+{
+ "note": "    python3 evac_report.py [validation/evac_report.json]",
+ "walking_speed_m_s": 4.5,
+ "hall_to_yard_gate_m": 69.15,
+ "hall_to_yard_gate_s": 15.4,
+ "legs": {
+  "primary_turbine_via_reactor": {
+   "passed": true,
+   "lane_m": 70.5
+  },
+  "primary_electrical_via_reactor": {
+   "passed": true,
+   "lane_m": 101.34
+  },
+  "primary_cooling_via_reactor": {
+   "passed": true,
+   "lane_m": 91.83
+  },
+  "primary_waste_via_reactor": {
+   "passed": true,
+   "lane_m": 57.84
+  },
+  "primary_dock_via_spine": {
+   "passed": true,
+   "lane_m": 15.61
+  },
+  "evac_fuel_corridor_via_refinery_to_hall": {
+   "passed": true,
+   "lane_m": 64.95
+  },
+  "evac_turbine_D02_to_road": {
+   "passed": true,
+   "lane_m": 73.74
+  },
+  "evac_electrical_D02_to_road": {
+   "passed": true,
+   "lane_m": 21.4
+  },
+  "evac_road_to_hall": {
+   "passed": true,
+   "lane_m": 88.14
+  },
+  "evac_reactor_SE_to_road": {
+   "passed": true,
+   "lane_m": 38.5
+  },
+  "evac_reactor_SE_to_spine": {
+   "passed": true,
+   "lane_m": 37.08
+  },
+  "evac_waste_personnel_to_road": {
+   "passed": true,
+   "lane_m": 30.03
+  },
+  "evac_waste_dispatch_to_road": {
+   "passed": true,
+   "lane_m": 18.4
+  },
+  "evac_cooling_west_to_yard": {
+   "passed": true,
+   "lane_m": 69.94
+  },
+  "evac_condenser_to_turbine_D02": {
+   "passed": true,
+   "lane_m": 46.68
+  },
+  "evac_reactor_via_tunnel_to_hall": {
+   "passed": true,
+   "lane_m": 32.99
+  },
+  "evac_hall_to_yard_gate": {
+   "passed": true,
+   "lane_m": 69.15
+  },
+  "evac_yard_service_to_gate": {
+   "passed": true,
+   "lane_m": 37.78
+  }
+ },
+ "escape_times": [
+  {
+   "station": "reactor (core)",
+   "primary_m": 32.99,
+   "primary_s": 7.3,
+   "backup_m": 37.08,
+   "backup_s": 8.2,
+   "backup_route": "SE stub emergency exit, alley, spine end door, spine"
+  },
+  {
+   "station": "turbine (D01)",
+   "primary_m": 70.5,
+   "primary_s": 15.7,
+   "backup_m": 161.9,
+   "backup_s": 36.0,
+   "backup_route": "D02, north strip, east road, hall east door"
+  },
+  {
+   "station": "electrical (D01)",
+   "primary_m": 101.34,
+   "primary_s": 22.5,
+   "backup_m": 101.2,
+   "backup_s": 22.5,
+   "backup_route": "D02, east road, hall east door"
+  },
+  {
+   "station": "waste (receiving)",
+   "primary_m": 57.84,
+   "primary_s": 12.9,
+   "backup_m": 69.1,
+   "backup_s": 15.4,
+   "backup_route": "dispatch shutter, east road, hall east door"
+  },
+  {
+   "station": "cooling (P01)",
+   "primary_m": 91.83,
+   "primary_s": 20.4,
+   "backup_m": 69.94,
+   "backup_s": 15.5,
+   "backup_route": "rear emergency door, west path, yard service door"
+  },
+  {
+   "station": "dock (P1)",
+   "primary_m": 15.61,
+   "primary_s": 3.5,
+   "backup_m": null,
+   "backup_s": null,
+   "backup_route": "none: P1 is the dock's only door; P2 is its sealed arrival (contract)"
+  },
+  {
+   "station": "fuel corridor (F02E)",
+   "primary_m": null,
+   "primary_s": null,
+   "backup_m": 64.95,
+   "backup_s": 14.4,
+   "backup_route": "F01, refinery, colonnade, hall west door (the concourse route is the primary)"
+  }
+ ],
+ "redundancy": {
+  "reactor": {
+   "routes_normal": 1,
+   "routes_evacuation": 4,
+   "single_door_failures_that_cut_off": [],
+   "route_avoiding_reactor": null,
+   "out_with_chamber_sealed": true,
+   "out_with_chamber_and_spine_blast_door_sealed": true
+  },
+  "turbine": {
+   "routes_normal": 1,
+   "routes_evacuation": 3,
+   "single_door_failures_that_cut_off": [],
+   "route_avoiding_reactor": true,
+   "out_with_chamber_sealed": true,
+   "out_with_chamber_and_spine_blast_door_sealed": true
+  },
+  "electrical": {
+   "routes_normal": 1,
+   "routes_evacuation": 2,
+   "single_door_failures_that_cut_off": [],
+   "route_avoiding_reactor": true,
+   "out_with_chamber_sealed": true,
+   "out_with_chamber_and_spine_blast_door_sealed": true
+  },
+  "condenser": {
+   "routes_normal": 1,
+   "routes_evacuation": 1,
+   "single_door_failures_that_cut_off": [
+    "TURBINE_W_STAIR/CONDENSER_D01"
+   ],
+   "route_avoiding_reactor": true,
+   "out_with_chamber_sealed": true,
+   "out_with_chamber_and_spine_blast_door_sealed": true
+  },
+  "cooling": {
+   "routes_normal": 1,
+   "routes_evacuation": 2,
+   "single_door_failures_that_cut_off": [],
+   "route_avoiding_reactor": true,
+   "out_with_chamber_sealed": true,
+   "out_with_chamber_and_spine_blast_door_sealed": true
+  },
+  "waste": {
+   "routes_normal": 1,
+   "routes_evacuation": 3,
+   "single_door_failures_that_cut_off": [],
+   "route_avoiding_reactor": true,
+   "out_with_chamber_sealed": true,
+   "out_with_chamber_and_spine_blast_door_sealed": true
+  },
+  "dock": {
+   "routes_normal": 1,
+   "routes_evacuation": 1,
+   "single_door_failures_that_cut_off": [
+    "SPINE_E_DOCK/DOCK_P1"
+   ],
+   "route_avoiding_reactor": true,
+   "out_with_chamber_sealed": true,
+   "out_with_chamber_and_spine_blast_door_sealed": true
+  },
+  "fuel corridor": {
+   "routes_normal": 2,
+   "routes_evacuation": 2,
+   "single_door_failures_that_cut_off": [],
+   "route_avoiding_reactor": true,
+   "out_with_chamber_sealed": true,
+   "out_with_chamber_and_spine_blast_door_sealed": true
+  },
+  "concourse": {
+   "routes_normal": 2,
+   "routes_evacuation": 3,
+   "single_door_failures_that_cut_off": [],
+   "route_avoiding_reactor": true,
+   "out_with_chamber_sealed": true,
+   "out_with_chamber_and_spine_blast_door_sealed": true
+  },
+  "spine": {
+   "routes_normal": 2,
+   "routes_evacuation": 3,
+   "single_door_failures_that_cut_off": [],
+   "route_avoiding_reactor": true,
+   "out_with_chamber_sealed": true,
+   "out_with_chamber_and_spine_blast_door_sealed": true
+  }
+ }
+}

@@ -74,7 +74,8 @@ dups = sorted(([len(v), list(k), sorted({o for o, _ in v}), sorted({m for _, m i
 # portal graph from the door table: open doors join their owner room to the room/hall they lead to
 doors = json.load(open(os.path.join(HERE, 'validation', 'doors.json')))['doors']
 ALIAS = {'reactor': 'ROOM_reactor-room', 'spine': 'ROOM_front-end-area', 'yard': 'ROOM_front-end-area', 'front-end-area': 'ROOM_front-end-area', 'concourse': 'CONNECTOR_reactor_south_concourse',
-         'condenser': 'CONNECTOR_condenser_stair', 'refinery': 'ROOM_refinery'}
+         'condenser': 'CONNECTOR_condenser_stair', 'refinery': 'ROOM_refinery',
+         'east': 'EXTERIOR_evacuation', 'west': 'EXTERIOR_evacuation'}
 def nm(s):
     s = s.split(' ')[0]
     if s in ALIAS: return ALIAS[s]

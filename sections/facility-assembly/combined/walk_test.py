@@ -58,19 +58,50 @@ COLLIDER_ROUTES = {
     'reactor_north_stub': R((0, 11.0, 0), (0, 14.4, 0)), 'reactor_west_stub': R((-11.0, 0, 0), (-14.4, 0, 0)), 'turbine_electrical_junction': R((10.05, 33.0, 0), (10.65, 33.0, 0)),
     'condenser_stair': R((-5.6, 28.6, 0), (-5.6, 26.8, 0), (-5.6, 16.9, -6), (-5.6, 15.7, -6), (1.6, 15.7, -6), (1.6, 19.2, -6)),
 }
+# Evacuation state (--meltdown): emergency exits open (their closed leaves left out, doors.json leaf_regex). Each route is one leg of an escape, ending where
+# the front block is reached (the hall, behind the spine blast door, or the yard) or at the yard evacuation gate. Primary legs through the reactor are in ROUTES.
+MELTDOWN_ROUTES = {
+    # primary escapes: each station's reactor-side door, through the reactor hall and the south tunnel, the concourse and the spine to the hall (all walked)
+    'primary_turbine_via_reactor': R((0, 16.5, 0), (0, 14.5, 0), (0, 10.5, 0), (0, 7.5, 0), (6.5, 6.5, 0), (7.5, 0, 0), (6.5, -6.5, 0), (0, -7.5, 0), (0, -12.0, 0)) + P((0, CY, 0), (8.0, CY, 0), (8.0, -47.0, 0), (8.0, -49.5, 0)),
+    'primary_electrical_via_reactor': R((13.0, 33.0, 0), (10.4, 33.0, 0), (8.2, 33.0, 0), (8.2, 17.5, 0), (0, 16.5, 0), (0, 14.5, 0), (0, 10.5, 0), (0, 7.5, 0), (6.5, 6.5, 0), (7.5, 0, 0), (6.5, -6.5, 0), (0, -7.5, 0), (0, -12.0, 0))
+                                      + P((0, CY, 0), (8.0, CY, 0), (8.0, -47.0, 0), (8.0, -49.5, 0)),
+    # the reactor's west half is closed between the W stub and the south door by the pool railing and the west stations (tested 2026-10-13): around the north of the pool
+    'primary_cooling_via_reactor': R((-24.0, 0, 0), (-14.5, 0, 0), (-11.6, 0, 0), (-9.0, 0, 0), (-6.5, 6.5, 0), (0, 7.5, 0), (6.5, 6.5, 0), (7.5, 0, 0), (6.5, -6.5, 0), (0, -7.5, 0), (0, -12.0, 0))
+                                   + P((0, CY, 0), (8.0, CY, 0), (8.0, -47.0, 0), (8.0, -49.5, 0)),
+    'primary_waste_via_reactor': P((16.0, WY, 0), (11.94, WY, 0), (10.8, WY, 0), (8.5, WY, 0)) + R((7.5, 0, 0), (6.5, -6.5, 0), (0, -7.5, 0), (0, -12.0, 0)) + P((0, CY, 0), (8.0, CY, 0), (8.0, -47.0, 0), (8.0, -49.5, 0)),
+    'primary_dock_via_spine': P((14.5, -40.39, 0), (12.15, -40.39, 0), (10.15, -40.39, 0), (8.0, -40.39, 0), (8.0, -47.0, 0), (8.0, -49.5, 0)),
+    'evac_fuel_corridor_via_refinery_to_hall': P((-6.5, -36.0, 0), (-20.7, -36.0, 0), (-22.2, -38.6, 0), (-22.2, -43.6, 0), (-22.2, -46.5, 0), (-22.2, -50.0, 0), (-22.0, -54.0, 0), (-18.9, -54.0, 0), (-4.0, -54.0, 0), (8.0, -54.0, 0)),
+    # backup escapes: emergency exits and the exterior routes (legs; evac_report.py composes them)
+    'evac_turbine_D02_to_road': R((0, 16.5, 0), (8.2, 17.5, 0), (8.2, 36.5, 0), (1.6, 37.6, 0), (0, 38.0, 0)) + P((0, 19.8, 0), (0, 21.5, 0), (0, 22.6, 0), (20.0, 22.6, 0), (34.4, 22.6, 0)),
+    'evac_electrical_D02_to_road': R((13.0, 33.0, 0), (19.0, 33.0, 0), (24.5, 33.0, 0)) + P((26.9, 14.3, 0), (29.3, 14.3, 0), (34.4, 14.3, 0)),
+    'evac_road_to_hall': P((34.4, 22.6, 0), (34.4, 0.0, 0), (34.4, -30.0, 0), (34.4, -50.0, 0), (38.0, -52.5, 0), (37.6, -54.0, 0), (36.0, -54.0, 0), (31.97, -54.0, 0), (28.0, -54.0, 0)),
+    'evac_reactor_SE_to_road': R((0, -6.0, 0), (6.5, -6.5, 0), (9.0, -9.0, 0)) + P((11.0, -29.7, 0), (12.4, -31.2, 0), (22.0, -27.5, 0), (34.4, -27.5, 0)),
+    'evac_reactor_SE_to_spine': R((0, -6.0, 0), (6.5, -6.5, 0), (9.0, -9.0, 0)) + P((11.0, -29.7, 0), (12.0, -31.0, 0), (10.6, -32.4, 0), (8.0, -32.4, 0), (8.0, -33.25, 0), (8.0, -36.0, 0), (8.0, -47.0, 0), (8.0, -49.5, 0)),
+    'evac_waste_personnel_to_road': P((16.0, WY, 0), (14.34, WY - 3.0, 0), (14.34, -19.6, 0), (14.34, -21.0, 0), (14.34, -23.0, 0), (22.0, -27.5, 0), (34.4, -27.5, 0)),
+    'evac_waste_dispatch_to_road': P((16.0, WY, 0), (24.0, WY, 0), (29.94, WY, 0), (31.3, WY, 0), (34.4, WY, 0)),
+    'evac_cooling_west_to_yard': R((-24.0, 0, 0), (-24.0, 1.6, 0)) + P((-26.5, -17.0, 0), (-27.8, -17.0, 0), (-29.0, -17.0, 0), (-36.5, -17.0, 0), (-36.5, -40.0, 0),
+                                  (-36.5, -58.2, 0), (-46.0, -58.2, 0), (-46.0, -60.15, 0), (-46.0, -62.5, 0)),
+    'evac_condenser_to_turbine_D02': R((1.6, 22.0, -6), (1.6, 19.3, -6), (1.6, 15.7, -6), (-5.6, 15.7, -6), (-5.6, 16.9, -6), (-5.6, 26.8, 0), (-5.6, 27.9, 0), (-4.2, 27.95, 0), (-2.6, 27.95, 0),
+                                       (-2.4, 30.0, 0), (1.6, 37.6, 0), (0, 38.0, 0)) + P((0, 19.8, 0), (0, 21.5, 0)),
+    'evac_reactor_via_tunnel_to_hall': R((0, -6.0, 0), (0, -12.0, 0)) + P((0, CY, 0), (8.0, CY, 0), (8.0, -47.0, 0), (8.0, -49.5, 0)),
+    'evac_hall_to_yard_gate': P((8.0, -54.0, 0), (8.0, -60.0, 0), (8.0, -70.0, 0), (-7.27, -70.0, 0), (-12.0, -70.0, 0), (-28.0, -72.0, 0), (-28.0, -80.0, 0), (-28.0, -84.0, 0), (-28.0, -87.0, 0)),
+    'evac_yard_service_to_gate': P((-46.0, -62.5, 0), (-40.0, -70.0, 0), (-28.0, -74.0, 0), (-28.0, -84.0, 0), (-28.0, -87.0, 0)),
+}
 # closed doors that must block: a short segment through each door centre (from doors.json at run time)
-BLOCK_CHECKS = ['TURBINE_D02', 'ELECTRICAL_D02', 'WASTE_DISPATCH', 'WASTE_PERSONNEL', 'REACTOR_SE', 'HALL_EAST', 'DOCK_P2', 'SPINE_NORTH_END']
+BLOCK_CHECKS = ['TURBINE_D02', 'ELECTRICAL_D02', 'WASTE_DISPATCH', 'WASTE_PERSONNEL', 'REACTOR_SE', 'HALL_EAST', 'DOCK_P2', 'SPINE_NORTH_END', 'COOLING_W_EXIT', 'YARD_SERVICE', 'YARD_EVAC_GATE']
 
-def world_tris(zlo, zhi, colliders=False):
-    """All evaluated triangles (world space) whose z range meets [zlo, zhi], with an owner index. colliders=True: only the COLLIDERS proxies (door blockers only when enabled now)."""
+def world_tris(zlo, zhi, colliders=False, skip=None, open_doors=()):
+    """All evaluated triangles (world space) whose z range meets [zlo, zhi], with an owner index. colliders=True: only the COLLIDERS proxies (door blockers only when enabled now,
+    or not at all for the doors in open_doors). skip: compiled regex of object names to leave out (the evacuation state's open emergency leaves)."""
     dg = bpy.context.evaluated_depsgraph_get(); cache = {}; parts = []; owners = []; on = {}
     for inst in dg.object_instances:
         ob = inst.object
         if ob.type not in ('MESH', 'CURVE', 'FONT'): continue
         owner = inst.parent.original.name if (inst.is_instance and inst.parent) else (ob.original.users_collection[0].name if ob.original.users_collection else ob.name)
         if colliders:
-            if not owner.startswith('COLLIDERS') or ob.original.get('is_trigger') or (ob.original.get('collider_role') == 'door_blocker' and not ob.original.get('enabled_now')): continue
+            if not owner.startswith('COLLIDERS') or ob.original.get('is_trigger') or (ob.original.get('collider_role') == 'door_blocker' and (not ob.original.get('enabled_now') or ob.original.get('door_id') in open_doors)): continue
         elif owner.startswith('COLLIDERS') or 'haze' in ob.name.lower() or 'fog' in ob.name.lower() or 'volume' in ob.name.lower(): continue
+        if skip is not None and skip.search(ob.original.name): continue
         key = (ob.original.session_uid, ob.data.session_uid if ob.data else 0)
         if key not in cache:
             try: me = ob.to_mesh()
@@ -163,12 +194,18 @@ def blocked_check(door, T, own, names):
 if __name__ == '__main__':
     a = sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else []
     out = a[0] if a else os.path.join(HERE, 'validation', 'walk_report.json'); only = a[1:]
-    col = '--colliders' in only; only = [x for x in only if x != '--colliders']
-    t0 = time.time(); T, own, names = world_tris(-6.6, 2.3, colliders=col); print('TRIANGLES near walking heights', len(T), '%.0fs' % (time.time() - t0), '(collision proxies only)' if col else '')
-    res = [test_route(k, v, T, own, names) for k, v in (COLLIDER_ROUTES if col else ROUTES).items() if not only or k in only]
+    col = '--colliders' in only; melt = '--meltdown' in only; only = [x for x in only if x not in ('--colliders', '--meltdown')]
     doors = {d['id']: d for d in json.load(open(os.path.join(HERE, 'validation', 'doors.json')))['doors']}
-    blk = [blocked_check(doors[d], T, own, names) for d in BLOCK_CHECKS if d in doors] if not only else []
+    import re
+    emerg = [d for d in doors.values() if d.get('emergency_exit')]
+    skip = re.compile('|'.join('(?:%s)' % d['leaf_regex'] for d in emerg if d.get('leaf_regex'))) if melt else None
+    t0 = time.time(); T, own, names = world_tris(-6.6, 2.3, colliders=col, skip=skip, open_doors={d['id'] for d in emerg} if melt else ())
+    print('TRIANGLES near walking heights', len(T), '%.0fs' % (time.time() - t0), '(collision proxies only)' if col else '', '(evacuation state: emergency exits open)' if melt else '')
+    routes = MELTDOWN_ROUTES if melt else (COLLIDER_ROUTES if col else ROUTES)
+    res = [test_route(k, v, T, own, names) for k, v in routes.items() if not only or k in only]
+    blk = [blocked_check(doors[d], T, own, names) for d in BLOCK_CHECKS if d in doors] if not only and not melt else []
     if col: out = out.replace('.json', '') + '_colliders.json' if not out.endswith('_colliders.json') else out
-    json.dump(dict(geometry='collision proxies only (COLLIDERS)' if col else 'visual meshes (every evaluated triangle)', capsule=dict(radius=R_CAP, height=H_CAP, step_offset=STEP), sample_m=DS, side_search_m=SIDE, routes=res, closed_doors=blk,
+    if melt: out = out.replace('.json', '') + '_meltdown.json' if not out.endswith('_meltdown.json') else out
+    json.dump(dict(geometry=('collision proxies only (COLLIDERS)' if col else 'visual meshes (every evaluated triangle)') + ('; evacuation state: emergency exits open' if melt else ''), capsule=dict(radius=R_CAP, height=H_CAP, step_offset=STEP), sample_m=DS, side_search_m=SIDE, routes=res, closed_doors=blk,
                    note='Geometry test against every evaluated triangle near the routes; not a runtime controller test. Door states as built.'), open(out, 'w'), indent=1)
     print('WALK done %.0fs: %d/%d routes pass, %d/%d closed doors block' % (time.time() - t0, sum(r['passed'] for r in res), len(res), sum(b['blocks'] for b in blk), len(blk)))

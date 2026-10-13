@@ -41,6 +41,7 @@ WASTE_HOLE = (2.44, 5.28, 3.2)                    # reactor-local y range and he
 WASTE = (11.62 + 0.32, RY + (WASTE_HOLE[0] + WASTE_HOLE[1]) / 2, 0.0)   # waste WS_RECEIVING exterior face (module y -0.32) on the reactor's east outer face (x 11.6, plan cut); rotation -90: receiving faces west
 DOCK = (SPINE_E + 2.0, -40.39, 0.0)              # dock P1 corridor (module y -2.0..0, back wall omitted) starts on the spine east face; rotation -90, P2 faces east (outside)
 COOL = (-14.5, RY, 0.0)                          # cooling CP-P01 on the reactor west stub end
+COOL_EXIT_Y = (-17.8, -16.2)  # plan y of the cooling plant's new rear-wall emergency door (1.6 x 2.35 m; rear wall clear between the maintenance alcove (y -20.3) and the north wall)
 STAIR_DOOR_Y = 13.45     # turbine-local y of the condenser stair door (west wall): bay between columns at y 11 and 16, clear of the power conduit (ends y 12.4), 2.0 m wide
 # reactor south concourse (plan): the corridor's east face to the spine's west inner face; same depth and height as build_combined_map.CONC, moved with the reactor
 CONC = {'x0': F02E[0], 'x1': 6.15, 'y0': RY - 19.6, 'y1': RY - 14.8, 'wall': 0.3, 'roof': 5.9, 'slab': 0.25}
@@ -98,6 +99,7 @@ BM.OMIT['spawn-room'] = BM.OMIT['spawn-room'] + ['AIRLOCK_meeting_stile', 'AIRLO
 R.HALL_CUTS.pop('northeast_door', None); R.LABEL_SKIP.update({'ELECTRICAL', 'WASTE STORAGE'})
 
 CLOSED = []      # (room, door id, objects moved, how) for the report (validation/doors.json)
+LEAF_NAMES = {}  # door id -> names of the closed-leaf local copies (the evacuation walk test opens them)
 
 def local_copy(wrap, omit, o, M, tag):
     """A local copy of linked object o (same mesh data, modifiers kept) with module-frame matrix M @ wm(o); the original is left out of the membership."""
@@ -240,8 +242,14 @@ def close_sliding_pair(wrap, lib_coll, omit, room, door, y0, y1, ax0, ax1, shift
         if ax0 <= lo.x and hi.x <= ax1: d = -shift
         elif -ax1 <= lo.x and hi.x <= -ax0: d = shift
         else: continue
-        local_copy(wrap, omit, o, Matrix.Translation((d, 0, 0)), ' closed'); n += 1
+        LEAF_NAMES.setdefault(door, []).append(local_copy(wrap, omit, o, Matrix.Translation((d, 0, 0)), ' closed').name); n += 1
     CLOSED.append((room, door, n, 'sliding leaves moved %.2f m to the closed position' % shift)); print('CLOSED', room, door, n, 'objects')
+
+def relabel(wrap, lib_coll, omit, name, body):
+    """A door label whose text is wrong in this layout: a local copy with its own copy of the text data (font, size, material and place kept), new text."""
+    o = next((x for x in lib_coll.all_objects if x.name == name and x.type == 'FONT'), None)
+    if o is None: print('RELABEL missing', name); return
+    n = local_copy(wrap, omit, o, Matrix.Identity(4), ' relabelled'); n.data = o.data.copy(); n.data.body = body; print('RELABEL', name, '->', body)
 
 def patch_turbine(wrap, lib_coll, omit):
     objs = list(dict.fromkeys(lib_coll.all_objects))
@@ -251,10 +259,12 @@ def patch_turbine(wrap, lib_coll, omit):
     print('TURBINE doors cut: east', ne, 'west', nw, 'objects split')
     # D02 (north end) now opens onto the outside: its two parked leaves (module x +-1.39..2.57, y 23.87..23.98) and their fittings slide shut
     close_sliding_pair(wrap, lib_coll, omit, 'turbine-room', 'TURBINE_D02', 23.80, 24.00, 1.30, 2.66, 1.37)
+    relabel(wrap, lib_coll, omit, 'D02 electrical direction', 'EXIT / D02')          # its sign said ELECTRICAL / D02; D02 is the emergency exit now (electrical is on the east door)
 
 def patch_electrical(wrap, lib_coll, omit):
     # D02 (module y 16.4) faces east onto the outside now: leaves parked at |x| 1.24..2.45, y 16.03..16.11 slide shut
     close_sliding_pair(wrap, lib_coll, omit, 'electrical-room', 'ELECTRICAL_D02', 16.00, 16.12, 1.22, 2.50, 1.25)
+    relabel(wrap, lib_coll, omit, 'Engraved WASTE / D02', 'EXIT / D02')                 # D02 was planned to lead to waste; it is the emergency exit to the east road now
 
 WASTE_LEAF = ('Personnel leaf', 'Personnel kick plate', 'Personnel panic bar', 'Panic bar bracket', 'Recessed engraved plate.017', 'Engraved WS_PERSONNEL')
 
@@ -262,7 +272,7 @@ def patch_waste(wrap, lib_coll, omit):
     # personnel door: the outward leaf (hinge (6.345, 3.065), shown swung open 90 degrees) is turned back into the opening; it faces the dock's wall now
     hinge = Vector((6.345, 3.065, 0.0)); M = Matrix.Translation(hinge) @ Matrix.Rotation(math.radians(-90), 4, 'Z') @ Matrix.Translation(-hinge); n = 0
     for o in list(lib_coll.all_objects):
-        if o.name.startswith(WASTE_LEAF) and o.name not in omit: local_copy(wrap, omit, o, M, ' closed'); n += 1
+        if o.name.startswith(WASTE_LEAF) and o.name not in omit: LEAF_NAMES.setdefault('WASTE_PERSONNEL', []).append(local_copy(wrap, omit, o, M, ' closed').name); n += 1
     CLOSED.append(('waste-storage', 'WASTE_PERSONNEL', n, 'hinged leaf turned 90 degrees into the frame'))
     # dispatch: the module only has the rolled-up shutter (barrel, seal tracks). A closed curtain between the seal tracks: 2.5 x 2.8 m, 80 mm slats
     src = next((o for o in lib_coll.all_objects if o.name == 'Roller door barrel.001'), None)
@@ -278,6 +288,11 @@ def patch_condenser(wrap, lib_coll, omit):
     for o in lib_coll.all_objects:
         if o.name.startswith(('D01 stub end wall', 'D01 local blanking', 'D01 blanking')): omit.add(o.name); n += 1
     print('CONDENSER D01 stub opened', n)
+
+def patch_cooling(wrap, lib_coll, omit):
+    # rear wall (module y 13.0..13.3, outer bounds to 13.3): a 1.6 x 2.35 m emergency door; module x = plan y - RY (rotation +90). evacuation.py adds the leaf, frames and threshold
+    a0, a1 = COOL_EXIT_Y[0] - RY, COOL_EXIT_Y[1] - RY
+    print('COOLING rear emergency door cut:', split_openings(wrap, omit, list(dict.fromkeys(lib_coll.all_objects)), 0, (12.8, 13.7), [(a0, a1, 2.4)]), 'objects split')
 
 def patch_fuel(wrap, lib_coll, omit):
     n = 0
@@ -325,6 +340,10 @@ def fold_spine(wrap, lib_coll, omit):
         elif lo.y >= SPINE_END_L - 0.3: omit.add(o.name); dropped += 1
         else: clip_mesh(wrap, omit, o, 1, cut); clipped += 1
     print('SPINE shortened by %.2f m: %d moved, %d left out, %d clipped at local y %.2f' % (-RY, moved, dropped, clipped, cut))
+    # the end door was a leaf on a solid frame panel (reactor_door_frame: 4.0 x 0.25 x 3.6 m, no opening behind the leaf; found by the evacuation walk test).
+    # It is an emergency exit now, so the panel gets the leaf's 3.3 x 3.3 m opening; the leaf (reactor_door) closes it
+    fr = [o for o in wrap.objects if o.library is None and o.name.startswith('reactor_door_frame')]
+    print('SPINE end door opening cut through its frame panel:', split_openings(wrap, omit, fr, 0, (SPINE_END_L - 0.1, SPINE_END_L + 0.4), [(-1.65, 1.65, 3.3)]), 'objects')
 
 def patch_front_end_spine(wrap, lib_coll, omit):
     """The spine shortened, then two openings in its walls (front-end local frame): the concourse on the west wall, dock P1 on the east wall."""
@@ -338,7 +357,8 @@ def patch_front_end_spine(wrap, lib_coll, omit):
     objs = [o for o in dict.fromkeys(lib_coll.all_objects) if o.name not in omit and o.name.startswith('stain_')]
     nd = split_openings(wrap, omit, objs, 1, (-15.95, -15.6), [(8.62, 11.4, 2.6)]) + split_openings(wrap, omit, objs, 1, (17.6, 17.95), [(8.8, 11.18, 2.6)]) \
         + split_openings(wrap, omit, objs, 1, (-11.95, -11.6), [(24.83, 27.17, 2.7)]) + split_openings(wrap, omit, objs, 0, (0.0, 0.5), [(-1.3, 1.3, 2.6)]) \
-        + split_openings(wrap, omit, objs, 0, (31.1, 31.9), [(-1.8, 1.8, 3.2)]) + split_openings(wrap, omit, objs, 0, (19.4, 20.6), [(-3.0, 3.0, 3.0)])
+        + split_openings(wrap, omit, objs, 0, (31.1, 31.9), [(-1.8, 1.8, 3.2)]) + split_openings(wrap, omit, objs, 0, (19.4, 20.6), [(-3.0, 3.0, 3.0)]) \
+        + split_openings(wrap, omit, objs, 1, (23.5, 23.95), [(24.83, 27.17, 2.7)])          # hall east door: an emergency exit now (evacuation walk test)
     # the front end's context_ground (an 8-vertex box, plan x -170..90, y -200..60, z -0.9..-0.15) roofs the condenser stair shaft: a hole is cut for the shaft
     g = next((o for o in lib_coll.all_objects if o.name == 'context_ground'), None)
     if g is not None:
@@ -354,6 +374,7 @@ BM.PATCHES['electrical-room'] = patch_electrical
 BM.PATCHES['waste-storage'] = patch_waste
 BM.PATCHES['condenser-bay'] = patch_condenser
 BM.PATCHES['fuel-corridor'] = patch_fuel
+BM.PATCHES['cooling-plant'] = patch_cooling
 BM.TURBINE_CUTS.clear(); BM.MEDICAL_CUTS.clear()
 
 # ------------------------------------------------------------------------------------------------------------------------------------------------
@@ -524,36 +545,45 @@ DOORS = [
     ('CAF_MEDICAL', 'medical-reanimation', (0, 0), (0, -1), 2.2, 2.5, 'opposed sliding pressure leaves', 'open', 'front-end-area (cafeteria)', 'MED_R2 pressure leaves parked; contract: open traversal default'),
     ('HALL_WEST', 'front-end-area', (-11.97, 26.0), (-1, 0), 2.32, 2.6, 'double leaf', 'open', 'refinery (colonnade)', 'hall_W_door_leaf_+-1.001 left out (closed-state asset)'),
     ('HALL_SPINE', 'front-end-area', (0, 31.5), (0, 1), 3.6, 3.2, 'blast door, sliding pair', 'open', 'spine', 'blast_leaf_+-1 parked'),
-    ('HALL_EAST', 'front-end-area', (23.97, 26.0), (1, 0), 2.32, 2.6, 'double leaf', 'closed', 'outside (east trunk canopy)', 'hall_E_door_leaf_+-1.001 kept in the closed position'),
+    ('HALL_EAST', 'front-end-area', (23.97, 26.0), (1, 0), 2.32, 2.6, 'double leaf', 'closed', 'east evacuation road (canopy)', 'hall_E_door_leaf_+-1.001 kept in the closed position'),
     ('MINE_PORTAL', 'mine', (-39.0, -29.0), (1, 0), 7.2, 3.9, 'portal (no leaf)', 'open', 'front-end-area (yard)', 'tunnel mouth (first timber set); front end portal_void and the portal cap faces left out'),
-    ('YARD_SERVICE', 'front-end-area', (-54.0, 19.85), (0, 1), 2.4, 2.35, 'single leaf', 'closed', 'outside', 'service_door_leaf kept closed'),
+    ('YARD_SERVICE', 'front-end-area', (-54.0, 19.85), (0, 1), 2.4, 2.35, 'single leaf', 'closed', 'west evacuation path', 'service_door_leaf kept closed'),
+    ('YARD_EVAC_GATE', 'front-end-area', (-36.0, -4.0), (0, -1), 5.8, 2.3, 'double gate (evacuation)', 'closed', 'outside: the evacuation point', 'evac_leaf_frame+-1, push bars, stripes (closed; opens for evacuation)'),
     ('YARD_FREIGHT_GATE', 'front-end-area', (-30.2, 19.9), (0, 1), 3.1, 3.1, 'sliding gate', 'open', 'refinery freight door', 'freight_gate_leaf parked'),
     ('REFINERY_FUEL', 'fuel-corridor', (0, 0), (0, -1), 2.6, 3.0, 'opening (refinery Door_Reactor)', 'open', 'refinery', 'refinery REACTOR door: open frame'),
     ('FUEL_F02E', 'fuel-corridor', (16.74, 6.98), (1, 0), 2.38, 3.0, 'double leaf (the S03 door moved to the east wall)', 'open', 'concourse (reactor south)', 'FC | Reactor transfer leaves left out (closed-state asset)'),
     ('REACTOR_S', 'reactor-room', (0, -12.2), (0, -1), 5.0, 5.0, 'opening (cut)', 'open', 'concourse', 'hall wall cut south_door'),
     ('REACTOR_N', 'reactor-room', (0, 14.4), (0, 1), 5.0, 5.0, 'stub double door', 'open', 'turbine-room D01', 'FUEL HANDLING.* door pieces left out (closed-state asset)'),
     ('REACTOR_W', 'reactor-room', (-14.4, 0), (-1, 0), 5.0, 5.0, 'stub double door', 'open', 'cooling-plant CP-P01', 'MAIN ACCESS.* door pieces left out (closed-state asset)'),
-    ('REACTOR_SE', 'reactor-room', (11.0, -11.0), (0.7071, -0.7071), 5.0, 5.0, 'stub double door', 'closed', 'outside', 'COOLING PLANT.* door pieces kept (closed)'),
+    ('REACTOR_SE', 'reactor-room', (11.0, -11.0), (0.7071, -0.7071), 5.0, 5.0, 'stub double door', 'closed', 'east evacuation yard', 'COOLING PLANT.* door pieces kept (closed)'),
+    ('REACTOR_BLAST', 'reactor-room', (0, CONC['y1'] - 0.27 - RY), (0, -1), 5.0, 4.96, 'blast door, sliding pair (new)', 'open', 'concourse',
+     'BLAST reactor leaf west/east parked behind the concourse north wall; closed position x -2.75..0 and 0..2.75 (seal chamber)'),
     ('REACTOR_E_WASTE', 'reactor-room', (11.2, (WASTE_HOLE[0] + WASTE_HOLE[1]) / 2), (1, 0), round(WASTE_HOLE[1] - WASTE_HOLE[0], 2), WASTE_HOLE[2], 'opening (new cut through the east wall patch panel)', 'open', 'waste-storage',
      'no leaf (waste receiving shutter is the door)'),
     ('TURBINE_D01', 'turbine-room', (0, 0), (0, -1), 2.4, 2.7, 'two opposed sliding leaves', 'open', 'reactor north stub', 'contract: parked in module pockets'),
-    ('TURBINE_D02', 'turbine-room', (0, 24.0), (0, 1), 2.4, 2.7, 'two opposed sliding leaves', 'closed', 'outside', 'D02 electrical parked leaf pair moved shut (local copies)'),
+    ('TURBINE_D02', 'turbine-room', (0, 24.0), (0, 1), 2.4, 2.7, 'two opposed sliding leaves', 'closed', 'east evacuation road (north strip)', 'D02 electrical parked leaf pair moved shut (local copies)'),
     ('TURBINE_E_ELECTRICAL', 'turbine-room', (10.125, ELEC_DOOR_Y), (1, 0), 2.4, 2.7, 'opening (new cut) + electrical D01 leaves', 'open', 'electrical-room D01', 'leaves are electrical D01 (parked inside electrical)'),
     ('ELECTRICAL_D01', 'electrical-room', (0, 0), (0, -1), 2.4, 2.7, 'sliding pair', 'open', 'turbine-room (east door)', 'parked'),
-    ('ELECTRICAL_D02', 'electrical-room', (0, 16.4), (0, 1), 2.4, 2.7, 'sliding pair', 'closed', 'outside', 'leaves moved shut (local copies)'),
+    ('ELECTRICAL_D02', 'electrical-room', (0, 16.4), (0, 1), 2.4, 2.7, 'sliding pair', 'closed', 'east evacuation road', 'leaves moved shut (local copies)'),
     ('TURBINE_W_STAIR', 'turbine-room', (-4.125, STAIR_DOOR_Y), (-1, 0), 2.0, 2.6, 'opening (new cut)', 'open', 'condenser stair', 'no leaf'),
     ('CONDENSER_D01', 'condenser-bay', (0, 0), (0, -1), 2.0, 2.4, 'two opposed sliding leaves', 'open', 'condenser stair corridor', 'parked open (contract); stub blanking left out'),
     ('COOLING_P01', 'cooling-plant', (0, 0), (0, -1), 5.0, 5.0, 'overhead folding shutter', 'open', 'reactor west stub', 'raised (contract: fixed open)'),
+    ('COOLING_W_EXIT', 'cooling-plant', ((COOL_EXIT_Y[0] + COOL_EXIT_Y[1]) / 2 - RY, 13.3), (0, 1), 1.6, 2.35, 'single leaf (new emergency door)', 'closed', 'west evacuation path',
+     'EVAC cooling exit leaf (closed; opens for evacuation)'),
     ('WASTE_RECEIVING', 'waste-storage', (0, 0), (0, -1), 3.0, 3.2, 'rolling shutter', 'open', 'reactor hall (east opening)', 'rolled up (contract: parked fully open)'),
-    ('WASTE_PERSONNEL', 'waste-storage', (6.16, 2.4), (1, 0), 1.2, 2.3, 'hinged leaf, outward', 'closed', 'outside', 'leaf turned into the frame (local copies)'),
-    ('WASTE_DISPATCH', 'waste-storage', (0, 18.0), (0, 1), 2.4, 2.8, 'rolling shutter', 'closed', 'outside', 'new curtain'),
+    ('WASTE_PERSONNEL', 'waste-storage', (6.16, 2.4), (1, 0), 1.2, 2.3, 'hinged leaf, outward', 'closed', 'east evacuation yard', 'leaf turned into the frame (local copies)'),
+    ('WASTE_DISPATCH', 'waste-storage', (0, 18.0), (0, 1), 2.4, 2.8, 'rolling shutter', 'closed', 'east evacuation road', 'new curtain'),
     ('DOCK_P1', 'compliance-dock', (0, -1.0), (0, -1), 2.4, 2.6, 'sliding (X) in perimeter wall', 'open', 'spine (east door)', 'P1 deep back wall and leaf left out'),
     ('DOCK_P2', 'compliance-dock', (0, 15.8), (0, 1), 4.6, 3.5, 'opposed sliding blast leaves', 'closed', 'outside (arrival)', 'contract default sealed'),
-    ('SPINE_NORTH_END', 'front-end-area', (0, SPINE_END_L), (0, 1), 3.3, 3.3, 'single leaf', 'closed', 'outside (the concourse is entered through the spine west wall)',
+    ('SPINE_NORTH_END', 'front-end-area', (0, SPINE_END_L), (0, 1), 3.3, 3.3, 'single leaf', 'closed', 'east evacuation alley (emergency exit)',
      'reactor_door kept closed (moved with the spine end)'),
     ('SPINE_W_CONCOURSE', 'front-end-area', (-2.0, fe((CONC['y0'] + CONC['y1']) / 2)), (-1, 0), round(CONC['y1'] - CONC['y0'], 2), 4.2, 'opening (west wall split out)', 'open', 'concourse (reactor south)', 'no leaf'),
     ('SPINE_E_DOCK', 'front-end-area', (2.0, fe(DOCK[1])), (1, 0), 2.6, 2.6, 'opening (new cut)', 'open', 'compliance-dock', 'no leaf (dock P1 is the door)'),
 ]
+# Emergency exits: closed in normal play, open in the evacuation state; leaf_regex names the closed-leaf objects (the walk test's --meltdown mode leaves them out).
+EMERGENCY = {'REACTOR_SE': r'^(COOLING PLANT\..*door|RH refine door hardware COOLING PLANT)', 'WASTE_DISPATCH': r'^WASTE dispatch shutter', 'SPINE_NORTH_END': r'^reactor_door moved$',
+             'HALL_EAST': r'^hall_E_door_leaf_', 'YARD_SERVICE': r'^service_door_(leaf|push)$', 'YARD_EVAC_GATE': r'^evac_(leaf_frame|push_bar|stripe)',
+             'TURBINE_D02': None, 'ELECTRICAL_D02': None, 'WASTE_PERSONNEL': None, 'COOLING_W_EXIT': None}      # None: filled from LEAF_NAMES / evacuation.build
 STATE_ANCHORS = {'closed': 'blocks: collider DOOR_<id>_blocker enabled', 'open': 'passes: blocker disabled', 'locked': 'closed and refuses interaction'}
 
 def add_door_anchors(root):
@@ -563,11 +593,14 @@ def add_door_anchors(root):
         loc, rz = place[room]; p = wxy(loc, rz, *c); d = Vector(rot(rz)(*n)).normalized()
         e = bpy.data.objects.new('DOOR_' + did, None); e.empty_display_type = 'ARROWS'; e.empty_display_size = 0.6
         e.location = (p.x, p.y, loc[2]); e.rotation_euler = (0, 0, math.atan2(d.y, d.x)); coll.objects.link(e)
+        em = did in EMERGENCY; rx = EMERGENCY.get(did) or ''
         for k, v in (('door_id', did), ('owner_room', room), ('kind', kind), ('state_default', state), ('states', 'open,closed,locked'), ('leads_to', to),
-                     ('clear_width_m', w), ('clear_height_m', h), ('leaf', leaf)): e[k] = v
-        rows.append(dict(id=did, owner=room, plan=[round(p.x, 3), round(p.y, 3), loc[2]], outward=[round(d.x, 4), round(d.y, 4)], clear_w=w, clear_h=h, kind=kind, state=state, leads_to=to, leaf=leaf))
+                     ('clear_width_m', w), ('clear_height_m', h), ('leaf', leaf), ('emergency_exit', em), ('evac_state', 'open' if em else state), ('leaf_regex', rx)): e[k] = v
+        rows.append(dict(id=did, owner=room, plan=[round(p.x, 3), round(p.y, 3), loc[2]], outward=[round(d.x, 4), round(d.y, 4)], clear_w=w, clear_h=h, kind=kind, state=state, leads_to=to, leaf=leaf,
+                         emergency_exit=em, evac_state='open' if em else state, leaf_regex=rx))
     os.makedirs(os.path.join(HERE, 'validation'), exist_ok=True)
-    json.dump(dict(note='Door table of the compact map, assembly pass. Unreviewed. Runtime states: ' + json.dumps(STATE_ANCHORS), closed_copies=CLOSED, doors=rows),
+    json.dump(dict(note='Door table of the compact map, assembly pass. Unreviewed. Runtime states: ' + json.dumps(STATE_ANCHORS) + '. Emergency exits (emergency_exit true) are closed '
+                        'in normal play and open in the evacuation state (evac_state); leaf_regex matches their closed-leaf objects.', closed_copies=CLOSED, doors=rows),
               open(os.path.join(HERE, 'validation', 'doors.json'), 'w'), indent=1)
     print('DOORS', len(rows), 'anchors')
 
@@ -602,7 +635,12 @@ def post_build():
             for o in c.all_objects:
                 if o.type == 'LIGHT': o.data.energy *= k
             print('LIGHT scale', cname, k)
-    add_condenser_stair(root); add_signs(root); add_fill_lights(root); add_door_anchors(root)
+    add_condenser_stair(root); add_signs(root); add_fill_lights(root)
+    import re, evacuation
+    EMERGENCY.update(evacuation.build(root, sys.modules[__name__]))
+    for did in ('TURBINE_D02', 'ELECTRICAL_D02', 'WASTE_PERSONNEL'):
+        EMERGENCY[did] = '^(' + '|'.join(re.escape(n) for n in LEAF_NAMES.get(did, ['(none)'])) + ')$'
+    add_door_anchors(root)
     try:
         import assembly_colliders; assembly_colliders.build(root, sys.modules[__name__])
     except ImportError: print('COLLIDERS module not found')

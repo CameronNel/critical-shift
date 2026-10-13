@@ -44,6 +44,16 @@ def slab(coll, name, p0, p1, half_w, thick, role, zone, axis_x=True):
     ROWS.append(dict(name=o.name, role=role, zone=zone, door_id=None, trigger=False, bounds=[[round(min(v.co[i] for v in me.vertices), 3) for i in range(3)], [round(max(v.co[i] for v in me.vertices), 3) for i in range(3)]]))
     return o
 
+def poly_slab(coll, name, poly, zs, role, zone):
+    """Prism over a plan polygon (counter-clockwise), z from zs[0] to zs[1]."""
+    bm = bmesh.new(); f = bm.faces.new([bm.verts.new((x, y, zs[1])) for x, y in poly])
+    if f.normal.z < 0: f.normal_flip()
+    r = bmesh.ops.extrude_face_region(bm, geom=[f]); bmesh.ops.translate(bm, vec=(0, 0, zs[0] - zs[1]), verts=[v for v in r['geom'] if isinstance(v, bmesh.types.BMVert)])
+    bmesh.ops.recalc_face_normals(bm, faces=bm.faces); me = bpy.data.meshes.new('COL ' + name); bm.to_mesh(me); bm.free()
+    o = bpy.data.objects.new('COL ' + name, me); coll.objects.link(o); o.display_type = 'WIRE'; o.hide_render = True; o['collider_role'] = role; o['zone'] = zone; o['is_trigger'] = False
+    ROWS.append(dict(name=o.name, role=role, zone=zone, door_id=None, trigger=False, bounds=[[round(min(v.co[i] for v in me.vertices), 3) for i in range(3)], [round(max(v.co[i] for v in me.vertices), 3) for i in range(3)]]))
+    return o
+
 def hall_x(c, zone, x0, x1, yc, w, h, t=0.3, gaps_n=(), gaps_s=()):
     """Straight hall along x: floor, roof, north and south walls with door gaps (lists of (x0, x1))."""
     y0, y1 = yc - w / 2, yc + w / 2
@@ -116,13 +126,17 @@ def build(root, L):
     box(c, 'condenser corridor west jamb', (S['cx0b'] - S['t'], S['cx0b']), (cy1, S['vy']), (z1, zc), 'wall', zone)
     box(c, 'condenser corridor roof', (S['xe'], cx1 + S['t']), (cy0 - S['t'], cy1 + S['t']), (zc, zc + 0.25), 'roof', zone)
     box(c, 'condenser corridor north roof', (S['cx0b'] - S['t'], cx1 + S['t']), (cy1, S['vy']), (zc, zc + 0.25), 'roof', zone)
+    # evacuation routes (evacuation.py): the paved aprons, road and paths as floor proxies; the cooling exit threshold through the wall depth
+    import evacuation as EV
+    for name, poly in EV.collider_polys(RY): poly_slab(c, 'evacuation ' + name, poly, (-0.3, 0.0), 'floor', 'evacuation route')
+    box(c, 'cooling exit threshold', (-27.85, -27.45), L.COOL_EXIT_Y, (-0.3, 0.0), 'floor', 'evacuation route')
     # doors: a trigger threshold on every door plane, and a solid blocker on every door (enabled while closed; the map opens with the states in doors.json)
     place = {r[0]: (r[3], r[4]) for r in BM.ROOMS}
     for did, room, cc, n, w, h, kind, state, to, leaf in L.DOORS:
         loc, rz = place[room]; p = L.wxy(loc, rz, *cc); d = Vector(L.rot(rz)(*n)).normalized(); ang = math.atan2(d.y, d.x); z0 = loc[2]
         box(c, 'DOOR_%s threshold' % did, (p.x - 0.3, p.x + 0.3), (p.y - w / 2, p.y + w / 2), (z0, z0 + min(h, 2.4)), 'door_threshold', room, door=did, trigger=True, rz=ang, about=(p.x, p.y))
         b = box(c, 'DOOR_%s blocker' % did, (p.x - 0.06, p.x + 0.06), (p.y - w / 2, p.y + w / 2), (z0, z0 + h), 'door_blocker', room, door=did, rz=ang, about=(p.x, p.y))
-        b['enabled_when'] = 'closed,locked'; b['enabled_now'] = state != 'open'
+        b['enabled_when'] = 'closed,locked'; b['enabled_now'] = state != 'open'; b['emergency_exit'] = did in L.EMERGENCY
     c.hide_viewport = False
     for o in c.objects: o.hide_set(False)
     out = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'validation', 'colliders.json')

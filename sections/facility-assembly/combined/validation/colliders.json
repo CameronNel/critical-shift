@@ -1,9 +1,9 @@
 {
  "note": "Collision/navigation proxies of the compact map (halls, stubs, junctions, stair, door thresholds and blockers). Unreviewed. Plan metres, z up; Unity import is not run.",
  "counts": {
-  "door_blocker": 32,
-  "door_threshold": 32,
-  "floor": 12,
+  "door_blocker": 35,
+  "door_threshold": 35,
+  "floor": 24,
   "ramp": 1,
   "roof": 11,
   "wall": 29
@@ -1017,6 +1017,234 @@
    ]
   },
   {
+   "name": "COL evacuation east yard",
+   "role": "floor",
+   "zone": "evacuation route",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     2.85,
+     -33.22,
+     -0.3
+    ],
+    [
+     32.4,
+     -21.25,
+     0.0
+    ]
+   ]
+  },
+  {
+   "name": "COL evacuation east road",
+   "role": "floor",
+   "zone": "evacuation route",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     32.4,
+     -50.5,
+     -0.3
+    ],
+    [
+     36.4,
+     25.0,
+     0.0
+    ]
+   ]
+  },
+  {
+   "name": "COL evacuation north strip",
+   "role": "floor",
+   "zone": "evacuation route",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -4.5,
+     21.0,
+     -0.3
+    ],
+    [
+     32.4,
+     25.0,
+     0.0
+    ]
+   ]
+  },
+  {
+   "name": "COL evacuation north strip west of D02",
+   "role": "floor",
+   "zone": "evacuation route",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -4.5,
+     20.07,
+     -0.3
+    ],
+    [
+     -1.47,
+     21.0,
+     0.0
+    ]
+   ]
+  },
+  {
+   "name": "COL evacuation north strip east of D02",
+   "role": "floor",
+   "zone": "evacuation route",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     1.47,
+     20.07,
+     -0.3
+    ],
+    [
+     32.4,
+     21.0,
+     0.0
+    ]
+   ]
+  },
+  {
+   "name": "COL evacuation electrical D02 spur",
+   "role": "floor",
+   "zone": "evacuation route",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     27.3,
+     12.3,
+     -0.3
+    ],
+    [
+     32.4,
+     16.3,
+     0.0
+    ]
+   ]
+  },
+  {
+   "name": "COL evacuation waste dispatch spur",
+   "role": "floor",
+   "zone": "evacuation route",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     30.32,
+     -16.9,
+     -0.3
+    ],
+    [
+     32.4,
+     -12.8,
+     0.0
+    ]
+   ]
+  },
+  {
+   "name": "COL evacuation hall canopy apron",
+   "role": "floor",
+   "zone": "evacuation route",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     32.4,
+     -57.0,
+     -0.3
+    ],
+    [
+     40.4,
+     -50.5,
+     0.0
+    ]
+   ]
+  },
+  {
+   "name": "COL evacuation cooling exit apron",
+   "role": "floor",
+   "zone": "evacuation route",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -38.5,
+     -19.2,
+     -0.3
+    ],
+    [
+     -27.8,
+     -14.8,
+     0.0
+    ]
+   ]
+  },
+  {
+   "name": "COL evacuation west path",
+   "role": "floor",
+   "zone": "evacuation route",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -38.5,
+     -56.3,
+     -0.3
+    ],
+    [
+     -34.5,
+     -19.2,
+     0.0
+    ]
+   ]
+  },
+  {
+   "name": "COL evacuation yard service apron",
+   "role": "floor",
+   "zone": "evacuation route",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -48.4,
+     -60.05,
+     -0.3
+    ],
+    [
+     -34.5,
+     -56.3,
+     0.0
+    ]
+   ]
+  },
+  {
+   "name": "COL cooling exit threshold",
+   "role": "floor",
+   "zone": "evacuation route",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -27.85,
+     -17.8,
+     -0.3
+    ],
+    [
+     -27.45,
+     -16.2,
+     0.0
+    ]
+   ]
+  },
+  {
    "name": "COL DOOR_SPAWN_EXIT threshold",
    "role": "door_threshold",
    "zone": "front-end-area",
@@ -1321,6 +1549,44 @@
    ]
   },
   {
+   "name": "COL DOOR_YARD_EVAC_GATE threshold",
+   "role": "door_threshold",
+   "zone": "front-end-area",
+   "door_id": "YARD_EVAC_GATE",
+   "trigger": true,
+   "bounds": [
+    [
+     -30.9,
+     -84.3,
+     0.0
+    ],
+    [
+     -25.1,
+     -83.7,
+     2.3
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_YARD_EVAC_GATE blocker",
+   "role": "door_blocker",
+   "zone": "front-end-area",
+   "door_id": "YARD_EVAC_GATE",
+   "trigger": false,
+   "bounds": [
+    [
+     -30.9,
+     -84.06,
+     0.0
+    ],
+    [
+     -25.1,
+     -83.94,
+     2.3
+    ]
+   ]
+  },
+  {
    "name": "COL DOOR_YARD_FREIGHT_GATE threshold",
    "role": "door_threshold",
    "zone": "front-end-area",
@@ -1583,6 +1849,44 @@
      12.81,
      -27.89,
      5.0
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_REACTOR_BLAST threshold",
+   "role": "door_threshold",
+   "zone": "reactor-room",
+   "door_id": "REACTOR_BLAST",
+   "trigger": true,
+   "bounds": [
+    [
+     -2.5,
+     -34.07,
+     0.0
+    ],
+    [
+     2.5,
+     -33.47,
+     2.4
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_REACTOR_BLAST blocker",
+   "role": "door_blocker",
+   "zone": "reactor-room",
+   "door_id": "REACTOR_BLAST",
+   "trigger": false,
+   "bounds": [
+    [
+     -2.5,
+     -33.83,
+     0.0
+    ],
+    [
+     2.5,
+     -33.71,
+     4.96
     ]
    ]
   },
@@ -1925,6 +2229,44 @@
      -14.44,
      -16.2,
      5.0
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_COOLING_W_EXIT threshold",
+   "role": "door_threshold",
+   "zone": "cooling-plant",
+   "door_id": "COOLING_W_EXIT",
+   "trigger": true,
+   "bounds": [
+    [
+     -28.1,
+     -17.8,
+     0.0
+    ],
+    [
+     -27.5,
+     -16.2,
+     2.35
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_COOLING_W_EXIT blocker",
+   "role": "door_blocker",
+   "zone": "cooling-plant",
+   "door_id": "COOLING_W_EXIT",
+   "trigger": false,
+   "bounds": [
+    [
+     -27.86,
+     -17.8,
+     0.0
+    ],
+    [
+     -27.74,
+     -16.2,
+     2.35
     ]
    ]
   },

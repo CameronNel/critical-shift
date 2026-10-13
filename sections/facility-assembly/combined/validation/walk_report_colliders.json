@@ -876,6 +876,24 @@
    "state": "closed",
    "samples_blocked": 9,
    "blocks": true
+  },
+  {
+   "door": "COOLING_W_EXIT",
+   "state": "closed",
+   "samples_blocked": 9,
+   "blocks": true
+  },
+  {
+   "door": "YARD_SERVICE",
+   "state": "closed",
+   "samples_blocked": 9,
+   "blocks": true
+  },
+  {
+   "door": "YARD_EVAC_GATE",
+   "state": "closed",
+   "samples_blocked": 10,
+   "blocks": true
   }
  ],
  "note": "Geometry test against every evaluated triangle near the routes; not a runtime controller test. Door states as built."

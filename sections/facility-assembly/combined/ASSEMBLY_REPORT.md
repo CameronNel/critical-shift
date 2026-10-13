@@ -4,7 +4,7 @@
 Task: `OPUS_ASSEMBLY_PROMPT.md` (take the compact map from "laid out" to "assembled"), widened by the owner during the session: *"you may shift around the entire map as you please and build as many things as needed ... One shot the most compact map possible without reinventing the individual rooms beyond recognition"*, then *"Ignore all previous specs and planning docs - build and decide what comes where on your own with the goal of the most compact and logical map possible. Do not ask me questions"*. After the first assembly pass the owner asked about the fuel run, asked for a grey-box test of a short fuel corridor (`GREYBOX_FUEL_TEST.md`) and then said *"yes do the rebuild to the same graphical fidelity as it was previously"*. This report describes the result: the **short fuel corridor layout**. The first pass's numbers are kept where they are compared.
 Rooms are linked, never edited: every change below is a local copy made by `build_compact_map.py`, except the short fuel corridor, which is a new derived file (`sources/fuel-corridor/module_short_S1.blend`) built from F23ci by a script; F23ci itself is unchanged. "Done and dusted" rooms got no art pass; they got door cuts and closed leaves, which are layout work.
 
-Contents: layout decision, door table, plates and dead ends, lighting, collision and walk test, performance, travel times, Unity, files, open decisions, what ran.
+Contents: layout decision, door table, plates and dead ends, **meltdown flow (3a)**, **door-frame audit (3b)**, lighting, collision and walk test, performance, travel times, Unity, files, open decisions, what ran.
 
 ## 1. Layout decision
 
@@ -49,9 +49,9 @@ Placements (plan metres, rotation about z):
 | compliance dock (R1) | (12.15, -40.39, 0) | -90 | P1 corridor start on the spine east face (unchanged) |
 | front end, spawn, mine, refinery, medical | unchanged | | COMPACT_MAP.md, COMBINED_MAP.md |
 
-## 2. Doors (`validation/doors.json`, 32 doors, `DOOR_<id>` anchors in the scene)
+## 2. Doors (`validation/doors.json`, 35 doors, `DOOR_<id>` anchors in the scene)
 
-Default state when the map opens: each door's contract default where it has one, otherwise open when it leads somewhere and closed when it leads outside. Every door has an anchor empty (door id, owner room, kind, default state, states `open,closed,locked`, where it leads, clear size, leaf) and, in COLLIDERS, a trigger threshold and a solid blocker that is enabled while the door is closed or locked. Visual leaves for the non-default state are the room module's own objects (named in the doors file); this pass does not animate them.
+Default state when the map opens: each door's contract default where it has one, otherwise open when it leads somewhere and closed when it leads outside. Ten doors are **emergency exits** (`emergency_exit`: closed in normal play, `evac_state` open; `leaf_regex` names their closed-leaf objects): HALL_EAST, YARD_SERVICE, YARD_EVAC_GATE, REACTOR_SE, TURBINE_D02, ELECTRICAL_D02, COOLING_W_EXIT, WASTE_PERSONNEL, WASTE_DISPATCH, SPINE_NORTH_END (section 3a). Every door has an anchor empty (door id, owner room, kind, default state, states `open,closed,locked`, where it leads, clear size, leaf) and, in COLLIDERS, a trigger threshold and a solid blocker that is enabled while the door is closed or locked. Visual leaves for the non-default state are the room module's own objects (named in the doors file); this pass does not animate them.
 
 | Door | Owner | Plan (x, y, z) | Clear w x h | Kind | Default | Leads to |
 |---|---|---|---|---|---|---|
@@ -87,52 +87,112 @@ Default state when the map opens: each door's contract default where it has one,
 | SPINE_NORTH_END | front end | (8.00, -33.25, 0) | 3.30 x 3.30 | single leaf | **closed** | outside (moved with the spine end) |
 | **SPINE_W_CONCOURSE** | front end | (6.00, -35.90, 0) | 4.80 x 4.20 | opening (wall split out) | open | concourse |
 | SPINE_E_DOCK | front end | (10.00, -40.39, 0) | 2.60 x 2.60 | new opening | open | dock |
+| **REACTOR_BLAST** | reactor (concourse side) | (0.00, -33.77, 0) | 5.00 x 4.96 | blast door, sliding pair (new) | open | concourse (seal chamber) |
+| **COOLING_W_EXIT** | cooling | (-27.80, -17.00, 0) | 1.60 x 2.35 | single leaf (new) | **closed**, emergency | west evacuation path |
+| **YARD_EVAC_GATE** | front end | (-28.00, -84.00, 0) | 5.80 x 2.30 | double gate | **closed**, emergency | outside: the evacuation point |
 
+The emergency exits listed above lead to the evacuation routes now (REACTOR_SE and WASTE_PERSONNEL to the east yard, TURBINE_D02, ELECTRICAL_D02, WASTE_DISPATCH and HALL_EAST to the east road, SPINE_NORTH_END to the east alley, COOLING_W_EXIT and YARD_SERVICE to the west path); the "outside" in the table above is their old wording.
 Removed against the first pass: FUEL_F02, FUEL_S01_PLANT, FUEL_S02_CLEAN, FUEL_S03_WASTE (the corridor's north half), SPINE_E_WASTE and SPINE_W_TRANSFER. Doors that need an owner decision: none blocks play; see section 10.
 
 ## 3. Plates and dead ends
 
-All three `PLACEHOLDER_*` plates are gone (first pass). Turbine D02, electrical D02 and the waste personnel door are closed with their own leaves, waste dispatch with a new roller curtain; the reactor SE stub keeps its own door; the spine's end door is closed and now opens onto the 3 m gap between the spine end and the reactor's south wall. The short corridor's cut north wall carries two shallow alcoves (the bypass and delivery mouths), backed by copies of the corridor's own lined wall bay; they are dressing, not dead-end routes. The condenser bay is reached by the stair (34 risers of 0.176 m on 0.300 m goings, 30.5 degrees, 2.1 m clear, handrails both sides; corridor 2.48 x 2.7 m at z -6 for 11.9 m), moved with the turbine. Remaining walkable dead ends: none.
+All three `PLACEHOLDER_*` plates are gone (first pass). Every door that used to open onto nothing is now either a door between two places or an **emergency exit onto an evacuation route** (section 3a): turbine D02, electrical D02, waste personnel and dispatch, the reactor's SE stub, the spine's end door (now a real 3.3 m opening; its panel was solid), the hall's east door and the yard's service door. Closed in normal play, each with its own leaves (local copies moved shut where the source showed them open) or, for waste dispatch, a new roller curtain. The dock's P2 stays sealed (its contract's default). The short corridor's cut north wall carries two shallow alcoves (the bypass and delivery mouths), backed by copies of the corridor's own lined wall bay; they are dressing, not routes. The condenser bay is reached by the stair (34 risers of 0.176 m on 0.300 m goings, 30.5 degrees, 2.1 m clear, handrails both sides; corridor 2.48 x 2.7 m at z -6 for 11.9 m). Walkable dead ends: none; doorways onto walls: none (section 3b).
+
+## 3a. Meltdown flow (`evacuation.py`, `evac_report.py`, `validation/evac_report.json`, `validation/walk_report_meltdown.json`)
+
+![evacuation plan](renders/assembly/20_evac_plan.png)
+
+*The 18 escape legs the capsule walked in the evacuation state (green); red bars are doors closed in normal play, most of them emergency exits that open for evacuation.*
+
+![east evacuation road at night](renders/assembly/20_evac_road_south.png)
+
+Why: `design/GAME_SPEC.md` section 18 makes the critical meltdown a multi-stage event whose stage 5 brings *door failures and route collapse* and the objectives *seal chamber, restore blast door, recover workers, escape*. On the layout as it stood, every station north of the front end (turbine, electrical, condenser, cooling, waste) could leave only **through the reactor hall itself**, and the hall had **one** way out (its south tunnel); the doors that faced nothing were closed dead ends. What was added (all new geometry or the front end's own yard assets; no room source edited):
+
+| Part | What |
+|---|---|
+| **East evacuation road** | A paved (`apron_wet`, the yard's own wet concrete), edge-lined, arrow-marked route along the east side: north strip past the turbine's north end (with a notch for its D02 porch floor), a 4 m road from y 25 to y -50.5, an apron to the hall's east canopy, spurs to electrical D02 and waste dispatch, and the **east yard** between the reactor's SE stub, waste and the dock with a 1.4 m alley to the spine's end door. 10 of the yard's own LED poles (its mesh) with copies of its 2600 W pole spotlight. |
+| **West evacuation path** | A new 1.6 x 2.35 m emergency door in the cooling plant's rear wall (wall split like the other doors, a green steel leaf mid-wall, frames on both faces, push bar, threshold), a paved path south past the refinery's west face to the yard's north service door, 4 more poles. |
+| **Reactor blast door** | Two 2.75 x 4.96 x 0.3 m leaves (the reactor's own wall steel panel and structural steel, hazard edges and kick bands) parked open behind the concourse's north wall faces, a header track and a floor guide; closed they overlap the 5 m tunnel mouth. The chamber can be sealed (`REACTOR_BLAST`); the front end's spine blast door (`HALL_SPINE`) already seals the front block. |
+| **Signs and lamps** | A lit green EXIT sign over each emergency exit inside (7), a bulkhead lamp over each exit outside (8), "EVACUATION ROUTE" floor text and 24 painted arrows pointing to safety, "HALL > YARD GATE" on a fascia under the hall canopy and "YARD > EVACUATION GATE" over the yard service door. |
+| **Real doorways and labels** | The spine's end door was a leaf on a **solid** frame panel (no opening behind it, found by the meltdown walk): the panel now has the 3.3 x 3.3 m opening. A dust decal across the hall's east doorway (it was always closed before) is clipped. Two door labels from the old plan were wrong in this layout (turbine D02 "ELECTRICAL / D02", electrical D02 "WASTE / D02"); both read "EXIT / D02" now (local copies of their text objects, same font, size and material). |
+
+Escape times (walked lanes, 4.5 m/s walking; a running speed is not defined in the repository). Primary: from the station's reactor-side door through the reactor, the tunnel, the concourse and the spine to the hall (behind the spine blast door). Backup: through the emergency exits and the exterior routes; legs that join the east road part-way are composed with the road leg.
+
+| Station | Primary (m / s) | Backup (m / s) | Backup route |
+|---|---|---|---|
+| reactor (core) | 33.0 / 7.3 | 37.1 / 8.2 | SE stub exit, alley, spine end door, spine (or the east yard to the road: 38.5 m to the road) |
+| turbine (D01) | 70.5 / 15.7 | 161.9 / 36.0 | D02, north strip, east road, hall east door |
+| electrical (D01) | 101.3 / 22.5 | 101.2 / 22.5 | D02, east road, hall east door |
+| condenser bay | stair to the turbine (46.7 m to outside D02), then as the turbine | | one stair only (see open decisions) |
+| waste (receiving) | 57.8 / 12.9 | 69.1 / 15.4 | dispatch shutter, east road (personnel door: 30.0 m to the road) |
+| cooling (P01) | 91.8 / 20.4 | **69.9 / 15.5** | rear emergency door, west path, yard service door. The primary is long because the pool railing and the west stations close the reactor's west half between the W stub and the south door (walk-tested): the new exit is the faster way out. |
+| dock (P1) | 15.6 / 3.5 | none | P1 is its only door; P2 is its sealed arrival (contract default) |
+| fuel corridor (F02E) | via the concourse | 65.0 / 14.4 | F01, refinery, colonnade, hall west door |
+| hall to the yard evacuation gate | 69.2 / 15.4 | | cafeteria, yard; from the west path's service door 37.8 m |
+
+Redundancy on the door graph (evacuation state; `evac_report.py`): edge-disjoint routes from each station to the front block (hall, cafeteria, yard), and every single door whose failure cuts a station off.
+
+| Station | Routes, normal play | Routes, evacuation | Single doors that cut it off | Route that avoids the reactor hall | Out with the chamber sealed | ... and the spine blast door closed |
+|---|---|---|---|---|---|---|
+| reactor | 1 | **4** | none | (it is the reactor) | yes | yes |
+| turbine | 1 | **3** | none | yes | yes | yes |
+| electrical | 1 | **2** | none | yes | yes | yes |
+| condenser | 1 | 1 | its stair (TURBINE_W_STAIR / CONDENSER_D01) | yes | yes | yes |
+| cooling | 1 | **2** | none | yes | yes | yes |
+| waste | 1 | **3** | none | yes | yes | yes |
+| dock | 1 | 1 | its door (SPINE_E_DOCK / DOCK_P1) | yes | yes | yes |
+| fuel corridor, concourse, spine | 2 | 2 to 3 | none | yes | yes | yes |
+
+Meltdown walk test (`walk_test.py --meltdown`: the emergency exits' closed leaves left out, the same capsule): **18 of 18 legs pass** (primary routes, every backup leg, the hall and the service door to the yard gate). The first run found the solid spine-end panel and the hall doorway decal (both fixed) and that the reactor's west half is closed to the south door (recorded above).
+
+## 3b. Door-frame audit (`door_audit.py`, `validation/door_audit.json`)
+
+Every map door (35) and every portal in the placed rooms' own contracts (7 more after removing duplicates; the fuel corridor's contract is F23ci's and is skipped, S1's ports are map doors) was ray-tested on both sides at two heights and three points across its middle 1.8 m: an open door or internal portal needs 1.2 m of clear space on both sides; a closed or emergency exit needs 1.5 m outside. **42 doors, 0 flagged**: no doorway opens onto a wall and no exit faces one. Two wide frames narrow onto a smaller passage (reported, not failed): the reactor's 5 m north stub ends on the turbine's 2.4 m D01 in its end wall, and the mine's 7.2 m portal mouth onto the timber-lined tunnel. Before this pass the audit would have passed the spine's end door too (its leaf faced 1.57 m of alley) although nothing was behind it; that one was found by the meltdown walk, which is why both tests are kept.
 
 ## 4. Lighting (`validation/lighting.json`, `measure_lighting.py`)
 
-Method: 19 views at 1.6 m eye height in every junction, Cycles CPU 640 x 360, 14 spp, denoised, the scene's own view transform (Khronos PBR Neutral, exposure 0.5) and lights; measured on the image as displayed. My bar (not an art-direction rule): median luma >= 0.15, near-black (< 0.04) <= 25 %, clipped (any channel > 0.98) <= 5 %. Views that moved with the reactor keep their reactor-local positions; new: `reactor_to_waste`, `fuel_F02E_to_concourse`, `fuel_corridor_east`; gone: `spine_to_waste`, `transfer_hall`.
+Method: 23 views at 1.6 m eye height in every junction and on the evacuation routes, Cycles CPU 640 x 360, 14 spp, denoised, the scene's own view transform (Khronos PBR Neutral, exposure 0.5) and lights; measured on the image as displayed. My bar (not an art-direction rule): median luma >= 0.15, near-black (< 0.04) <= 25 %, clipped (any channel > 0.98) <= 5 %. Views that moved with the reactor keep their reactor-local positions; new: `reactor_to_waste`, `fuel_F02E_to_concourse`, `fuel_corridor_east`, `evac_east_road`, `evac_east_yard`, `evac_west_path`, `concourse_blast_door`; gone: `spine_to_waste`, `transfer_hall`.
 
 | View | Median | P10 | Near-black | Clipped (any / white) | Result |
 |---|---|---|---|---|---|
 | reactor N stub (to turbine) | 0.714 | 0.388 | 0 % | 2.5 % / 0.0 % | ok |
-| turbine entry | 0.363 | 0.064 | 6 % | 1.3 % / 0.0 % | ok |
-| turbine east aisle to electrical | 0.443 | 0.182 | 1 % | 0.4 % / 0.0 % | ok |
-| electrical inside | 0.544 | 0.172 | 1 % | 2.7 % / 0.0 % | ok |
-| reactor W stub to cooling | 0.538 | 0.196 | 3 % | 3.8 % / 0.1 % | ok |
-| cooling inside | 0.574 | 0.177 | 0 % | 3.1 % / 0.8 % | ok |
-| **reactor to waste (east opening)** | 0.319 | 0.146 | 4 % | 0.2 % / 0.0 % | ok |
-| waste inside | 0.282 | 0.130 | 5 % | 1.0 % / 0.0 % | ok |
-| spine to dock | 0.386 | 0.196 | 1 % | 0.2 % / 0.0 % | ok |
-| dock inside | 0.246 | 0.057 | 5 % | 1.0 % / 0.0 % | ok |
-| **concourse** | 0.617 | 0.314 | 0 % | 2.4 % / 0.7 % | ok |
-| spine (mid, towards the end door) | 0.470 | 0.253 | 0 % | 5.8 % / 0.0 % | marginal hot (the spine end door's glowing panel, now 18.7 m closer) |
-| reactor from the south door | 0.505 | 0.267 | 1 % | 3.6 % / 2.3 % | ok |
-| **fuel corridor F02E to the concourse** | 0.390 | 0.046 | 8 % | 1.2 % / 0.0 % | ok |
-| **fuel corridor, east turn** | 0.292 | 0.084 | 3 % | 0.1 % / 0.0 % | ok |
-| stair top | 0.720 | 0.489 | 0 % | 2.9 % / 0.0 % | ok |
-| stair bottom | 0.769 | 0.627 | 0 % | 1.8 % / 0.0 % | ok |
-| condenser D01 | 0.792 | 0.347 | 0 % | 2.1 % / 0.0 % | ok |
-| condenser inside | 0.466 | 0.227 | 1 % | 1.2 % / 0.0 % | ok |
+| turbine entry | 0.364 | 0.067 | 6 % | 1.3 % / 0.0 % | ok |
+| turbine east aisle to electrical | 0.442 | 0.179 | 1 % | 0.4 % / 0.0 % | ok |
+| electrical inside | 0.547 | 0.177 | 1 % | 2.7 % / 0.0 % | ok |
+| reactor W stub to cooling | 0.543 | 0.198 | 3 % | 3.8 % / 0.1 % | ok |
+| cooling inside | 0.580 | 0.177 | 1 % | 3.1 % / 0.8 % | ok |
+| reactor to waste (east opening) | 0.316 | 0.143 | 4 % | 0.2 % / 0.0 % | ok |
+| waste inside | 0.286 | 0.133 | 5 % | 1.0 % / 0.0 % | ok |
+| spine to dock | 0.389 | 0.190 | 1 % | 0.2 % / 0.0 % | ok |
+| dock inside | 0.246 | 0.057 | 5 % | 1.1 % / 0.0 % | ok |
+| concourse | 0.604 | 0.307 | 1 % | 1.8 % / 0.6 % | ok |
+| spine (mid, towards the end door) | 0.470 | 0.257 | 0 % | 5.8 % / 0.0 % | marginal hot (the spine end door's glowing panel, the front end's own) |
+| reactor from the south door | 0.503 | 0.265 | 0 % | 3.6 % / 2.2 % | ok |
+| fuel corridor F02E to the concourse | 0.380 | 0.046 | 8 % | 0.9 % / 0.0 % | ok |
+| fuel corridor, east turn | 0.291 | 0.089 | 3 % | 0.1 % / 0.0 % | ok |
+| stair top | 0.719 | 0.493 | 0 % | 2.9 % / 0.0 % | ok |
+| stair bottom | 0.769 | 0.626 | 0 % | 1.8 % / 0.0 % | ok |
+| condenser D01 | 0.792 | 0.348 | 0 % | 2.1 % / 0.0 % | ok |
+| condenser inside | 0.464 | 0.228 | 1 % | 1.2 % / 0.0 % | ok |
+| **east evacuation road (night)** | 0.506 | 0.451 | 0 % | 0.1 % / 0.0 % | ok |
+| **east yard behind the reactor (night)** | 0.568 | 0.428 | 0 % | 1.1 % / 0.0 % | ok |
+| **west evacuation path (night)** | 0.506 | 0.366 | 0 % | 0.0 % / 0.0 % | ok |
+| **concourse, blast door parked** | 0.547 | 0.233 | 4 % | 2.2 % / 0.9 % | ok |
 
-Findings: **18 of 19 views pass; nothing is too dark to read.** The new junctions read well: the concourse 0.62 median, the corridor's east turn 0.29 and its F02E view 0.39 (F23ci's own lighting), the reactor's east opening into waste 0.32. The one miss is the spine looking at its end door, 5.8 % of pixels with one channel clipped (0 % white): the front end's own end-door panel glows (the source spine renders the same, checked on `front_end_area.blend`), and the shorter spine brings it closer. Both reactor views that were marginally hot in the first pass now pass (2.5 % and 3.6 %), most likely because the reactor's merged meshes are no longer stripped by the old splitter and the cut pieces have their materials (not isolated by a separate test). No light was added or changed for this layout (`FILL_LIGHTS`, `EMISSION_OVERRIDES` and `HALL_LIGHT_SCALE` are empty; the first pass's transfer-hall overrides went with the hall). Not measured: dynamic exposure in the engine, animated screens, the exterior at night.
+Findings: **22 of 23 views pass; nothing is too dark to read**, the evacuation routes at night included (medians 0.51 to 0.57, no near-black: the yard's own pole spotlights). The new junctions read well: the concourse 0.62 median, the corridor's east turn 0.29 and its F02E view 0.39 (F23ci's own lighting), the reactor's east opening into waste 0.32. The one miss is the spine looking at its end door, 5.8 % of pixels with one channel clipped (0 % white): the front end's own end-door panel glows (the source spine renders the same, checked on `front_end_area.blend`), and the shorter spine brings it closer. Both reactor views that were marginally hot in the first pass now pass (2.5 % and 3.6 %), most likely because the reactor's merged meshes are no longer stripped by the old splitter and the cut pieces have their materials (not isolated by a separate test). No light inside a room was added or changed (`FILL_LIGHTS`, `EMISSION_OVERRIDES` and `HALL_LIGHT_SCALE` are empty); the evacuation routes carry their own 14 pole spotlights and 8 bulkheads (section 3a). Not measured: dynamic exposure in the engine, animated screens, the exterior at night.
 
 ## 5. Collision and navigation (`assembly_colliders.py`, `walk_test.py`)
 
-Proxies (COLLIDERS collection, hidden; `validation/colliders.json`): 117, for the spine (14.8 m, dock door east, concourse west), the concourse (its west wall with the F02E gap), the reactor south tunnel and N/W stubs, the reactor-waste, spine-dock and turbine-electrical junctions (floor plates, heads, jambs, the dock P1 tube), the condenser stair (landing, a 30.5-degree ramp, shaft, lower corridor), plus a trigger threshold and a solid blocker on each of the 32 doors (blockers enabled while closed). Roles: floor 12, wall 29, roof 11, ramp 1, door_threshold 32, door_blocker 32. Rooms keep their own collision; the proxies stop at each room's door plane.
+Proxies (COLLIDERS collection, hidden; `validation/colliders.json`): 135, for the spine (14.8 m, dock door east, concourse west), the concourse (its west wall with the F02E gap), the reactor south tunnel and N/W stubs, the reactor-waste, spine-dock and turbine-electrical junctions (floor plates, heads, jambs, the dock P1 tube), the condenser stair (landing, a 30.5-degree ramp, shaft, lower corridor), the evacuation aprons, road and paths (11 floor prisms) and the cooling exit threshold, plus a trigger threshold and a solid blocker on each of the 35 doors (blockers enabled while closed; emergency exits carry `emergency_exit`). Roles: floor 24, wall 29, roof 11, ramp 1, door_threshold 35, door_blocker 35. Rooms keep their own collision; the proxies stop at each room's door plane.
 
 Capsule walk test (radius 0.40 m, height 1.80 m, step offset 0.35 m; floor ray every 0.1 m, seven spheres from 0.75 to 1.40 m; sideways lane search up to 1.5 m with continuity):
 
 | Run | Result |
 |---|---|
 | visual meshes, 18 routes (`validation/walk_report.json`) | **17 pass**. Fail (as in the first pass): yard -> refinery freight door, blocked by the refinery's parked ore cart and tipper in the doorway (a cart route; players reach the refinery through the hall colonnade, which passes). |
-| visual meshes, 8 closed doors | **8 block** (turbine D02, electrical D02, waste dispatch, waste personnel, reactor SE, hall east, dock P2, spine north end) |
-| collision proxies only, 9 hall / stub / junction / stair routes (`validation/walk_report_colliders.json`) | **9 pass**; the same 8 closed doors block |
+| visual meshes, 11 closed doors | **11 block** (turbine D02, electrical D02, waste dispatch, waste personnel, reactor SE, hall east, dock P2, spine north end, cooling exit, yard service door, yard evacuation gate) |
+| collision proxies only, 9 hall / stub / junction / stair routes (`validation/walk_report_colliders.json`) | **9 pass**; the same 11 closed doors block |
+| evacuation state, 18 escape legs (`validation/walk_report_meltdown.json`) | **18 pass** (section 3a) |
 
 New routes: the fuel run through the short corridor (on the freight gate's centre, and on the shortest clear line), reactor -> waste through the east opening, spawn -> waste.
 
@@ -142,7 +202,8 @@ No frame rate was measured: there is no runtime build. Static counts of the eval
 
 | | Triangles | Objects | Submeshes (draw calls before batching) | Lights (shadowed) | Textures |
 |---|---|---|---|---|---|
-| **whole map now** | **11,015,587** | 23,416 | 25,495 | 434 (396) | 110 images, 1,014 MB as RGBA8 with mips |
+| **whole map now** | **11,026,519** | 23,562 | 25,641 | 456 (418) | 110 images, 1,014 MB as RGBA8 with mips |
+| of which the evacuation routes (paving, poles, signs, blast door) | 7,825 | | | 22 (22) | |
 | first assembly pass | 12,500,244 | 23,758 | 26,251 | 462 (424) | same |
 
 Per room (400k is the repository's per-room flag, 800k the front end's design budget): mine 3.31 M, **fuel corridor 1.64 M** (F23ci was 3.10 M), reactor 1.22 M, electrical 0.77 M, medical 0.60 M, front end 0.56 M, refinery 0.46 M, spawn 0.43 M, condenser 0.42 M, turbine 0.42 M, dock 0.42 M, waste 0.37 M, cooling 0.35 M; concourse, stair and signs 0.04 M. Ten rooms are over the flag.
@@ -151,7 +212,7 @@ Proposals (not built):
 1. **Streaming by room**, using the portal graph from the door table. Worst-case visible sets through open doors: front end 5.80 M (it sees the mine, refinery, medical and spawn), mine 3.87 M, the concourse 3.43 M (corridor, front end and reactor), refinery 2.66 M, turbine 2.41 M, reactor 2.38 M (it no longer sees the whole corridor: was 5.10 M), fuel corridor 2.11 M (was 4.79 M); every other room under 1.6 M. The mine (tunnel / surface) is the one left to split.
 2. **LODs** first where one mesh is heavy: mine `R39 | Gravel tunnel` 444k, `R40 | Mine cliff` 352k, boulders 66 to 98k each (they share mesh data, so one LOD set serves all copies).
 3. **Batching**: unique meshes nearly equal objects in the overhauled rooms, so instancing buys little; static batching by material per room would cut 25k submeshes to roughly the material count per room.
-4. **Lights**: 396 shadow-casting lights; the reactor carries 117 and the mine 64. Bake or limit shadows per room before any frame-rate test (baking is the last step and needs accepted lighting first).
+4. **Lights**: 418 shadow-casting lights (22 of them on the evacuation routes); the reactor carries 117 and the mine 64. Bake or limit shadows per room before any frame-rate test (baking is the last step and needs accepted lighting first).
 
 ## 7. Travel times (`validation/walk_report.json` lane lengths)
 
@@ -183,31 +244,34 @@ Against the README targets (adjacent 10 to 20 s, mine -> refinery 20 to 35 s, re
 
 `runtime/unity` is a source-only WP-01 foundation (Unity 6000.4.3f1, never opened for this map); there is no editor or licence in this environment and no approved map import route (`runtime/README.md`, game-asset-pipeline skill). So: **engine import, prefab binding, collision in engine and Player behaviour: Blocked (no editor); not claimed.**
 What exists instead (`export/`):
-* `compact_map_colliders_anchors.fbx` (338 KB): the 117 collision proxies, 32 door anchors and 13 room placement anchors with their custom properties. FBX because Unity imports it natively; no GLB importer is assumed. Settings in the manifest.
-* Blender re-import check (an empty process): 162 objects exported, 162 re-imported, 0 missing, 0 extra, 0 bound mismatches over 1 mm (recorded in the manifest).
+* `compact_map_colliders_anchors.fbx` (397 KB): the 135 collision proxies, 35 door anchors and 13 room placement anchors with their custom properties. FBX because Unity imports it natively; no GLB importer is assumed. Settings in the manifest.
+* Blender re-import check (an empty process): 183 objects exported, 183 re-imported, 0 missing, 0 extra, 0 bound mismatches over 1 mm (recorded in the manifest).
 * `binding_manifest.json`: the A08 fields (source revision, export settings, scale/axes/origin, logical ids, room placements, collider roles, state variants, licensing). UNRESOLVED fields: per-room prefab mapping (no approved room export route), spawn/interaction point ownership, runtime owner of map collision and doors.
 
-Readiness checklist for whoever opens the editor: 1. decide the room export route (FBX per room module, scale 1, -Z forward / Y up) and the runtime owner of doors (D-xx in DECISIONS_AND_RISKS); 2. import `export/compact_map_colliders_anchors.fbx` and confirm 117 proxies land on the room anchors; 3. bind `door_blocker` enable state to door state, `door_threshold` as triggers; 4. run the capsule routes of `walk_test.py` with the Unity CharacterController (radius 0.4, height 1.8, step 0.35, slope 45) and compare lane lengths; 5. profile against D-07 / D-09 once those budgets exist. No package was installed and no infrastructure was chosen.
+Readiness checklist for whoever opens the editor: 1. decide the room export route (FBX per room module, scale 1, -Z forward / Y up) and the runtime owner of doors (D-xx in DECISIONS_AND_RISKS); 2. import `export/compact_map_colliders_anchors.fbx` and confirm 135 proxies land on the room anchors; 3. bind `door_blocker` enable state to door state, `door_threshold` as triggers; 4. run the capsule routes of `walk_test.py` with the Unity CharacterController (radius 0.4, height 1.8, step 0.35, slope 45) and compare lane lengths; 5. profile against D-07 / D-09 once those budgets exist. No package was installed and no infrastructure was chosen.
 
 ## 9. What changed, files
 
 * `sections/fuel-corridor/blender/build_short_corridor.py` (new) and its output `sections/facility-assembly/sources/fuel-corridor/module_short_S1.blend` (LFS) with `module_short_S1.blend.json` (counts, ports, source hash). F23ci is not modified.
 * `build_compact_map.py`: `RY` and every placement derived from it, the short corridor, `fold_spine`, `add_concourse` (replaces `build_combined_map.add_reactor_concourse` for this map), the reactor east opening and threshold, the new door rows, signs (`WASTE` over the reactor's east opening; the spine's waste and transfer signs gone), `scene['reactor_y']`; the S03 transfer hall and its lighting overrides removed.
 * **`split_openings` fixed** (two defects of the first pass): every cut piece now keeps its source mesh's materials (the first pass's 230 cut pieces, and the 4 ground pieces of `hole_in_slab`, had none and rendered in Blender's default grey; the spine read white instead of the front end's pink plaster), and only the loose parts that reach into an opening are cut, inside the wall band (the first pass clipped whole meshes, so room-wide merged meshes lost a strip across the room: the reactor's south door split removed everything of those meshes within x -2.5..2.5 below z 5 across the whole hall). The pieces also keep the source object's transform (the first pass baked it into the mesh, which shifted Object-coordinate textures on the 13 cut objects whose origin is not at the module origin, all in the turbine). New helpers `clip_mesh` and a vertex-based `bbox` for local meshes.
+* Meltdown flow (section 3a): `evacuation.py` (new: evacuation road, paths, east yard, poles, signs, bulkheads, the cooling exit door, the reactor blast door), `patch_cooling` (the rear-wall cut), emergency-exit fields in the door table, the spine end door's opening, `evac_report.py` (new), `walk_test.py --meltdown`; `door_audit.py` (new, section 3b).
 * `assembly_colliders.py`, `walk_test.py`, `measure_lighting.py`, `check_footprints.py`, `draw_assembly_plan.py`, `perf_report.py` updated to the new layout (the scripts that run on a built scene read `scene['reactor_y']`). `greybox_fuel_test.py` is superseded (it refuses to run; use commit c25d102).
-* Evidence: `validation/` doors, colliders, walk reports, lighting, performance, overlaps, `compact_report.json` (the hall audit, now with no halls to audit); `renders/assembly/19_*` (the first pass's `17_*` renders showed the old layout and were removed; they remain in the history); `export/`.
+* Evidence: `validation/` doors, colliders, walk reports, lighting, performance, overlaps, `compact_report.json` (the hall audit, now with no halls to audit); `renders/assembly/19_*` and `20_evac_*` (the first pass's `17_*` renders showed the old layout and were removed; they remain in the history); `export/`.
 * `combined_map.blend` rebuilt from the final script. `build_combined_map.py`, `reactor_links.py` and every room source are unchanged.
 * Deliberately not done: any art pass on a room (the short corridor's closures are plain closures from its own parts, not an art pass); a review of S1; the gantry (no attachment spec); baking; LODs; Unity.
 
 ## 10. Open decisions for the owner
 
-1. **Short fuel corridor S1 needs a review** before it can be called anything but unreviewed: F23ci's 99 does not carry over. Its two north alcoves and the moved east-wall dressing are the parts to look at.
-2. **Fuel run**: 30.7 s end to end on the freight lane (27.6 s on the shortest line, 26.3 s to the reactor's south door). Accept, or define the drop at the concourse.
-3. **Refinery freight door is blocked to players** by the refinery's parked ore cart: intended (carts only) or should the cart park inside?
-4. Hall east exit, yard service door: are they evacuation exits (runtime rule)? The spine's end door now closes onto a 3 m outdoor gap: keep it as an exit or wall it.
-5. AAA finishes' own open items (condenser and waste reach checks in their `reach-check.json`) are untouched.
-6. Performance: streaming split of the mine, LOD and shadow policy, once D-07 / D-09 budgets exist.
-7. The spine end door's glowing panel (5.8 % clipped in the spine view): leave, or dim it locally.
+1. **Meltdown runtime rules**: which doors fail, lock or open in each meltdown stage, whether players run, and whether the yard evacuation gate is the escape point (front end DESIGN.md asks the same). The map now gives every station except the condenser bay and the dock a second way out, and both blast doors exist; the rules that use them are runtime design.
+2. **Condenser bay has one stair**: a second way out would be a ladder through its U04 receive opening into the turbine floor (not built: the opening's services were not surveyed). **Dock has one door**: P2 is its sealed arrival by contract; making P2 an evacuation exit is a compliance-design call.
+3. **Short fuel corridor S1 needs a review** before it can be called anything but unreviewed: F23ci's 99 does not carry over. Its two north alcoves and the moved east-wall dressing are the parts to look at.
+4. **Fuel run**: 30.7 s end to end on the freight lane (27.6 s on the shortest line, 26.3 s to the reactor's south door). Accept, or define the drop at the concourse.
+5. **Refinery freight door is blocked to players** by the refinery's parked ore cart: intended (carts only) or should the cart park inside?
+6. The reactor's west half is closed to the south door by the pool railing and the west stations (cooling's way through the reactor goes round the north of the pool): intended, or should the reactor's own layout open a lane there (a reactor-room change)?
+7. AAA finishes' own open items (condenser and waste reach checks in their `reach-check.json`) are untouched.
+8. Performance: streaming split of the mine, LOD and shadow policy, once D-07 / D-09 budgets exist.
+9. The spine end door's glowing panel (5.8 % clipped in the spine view): leave, or dim it locally.
 
 ## 11. What ran (exact)
 
@@ -215,9 +279,9 @@ Blender 5.2.2 LTS (downloaded to `/opt/blender52` in the container), headless. E
 * `build_short_corridor.py` (once, output committed); the S1 triangle count was then recounted on the saved file (1,650,355; the script's own log said 1,132,567 from a stale depsgraph, fixed in the script and noted in the `.json`).
 * `blender -b --factory-startup --python build_compact_map.py` (about 3 minutes; log: spine 6 moved, 20 left out, 7 clipped; reactor east opening 66 objects split; 32 door anchors; 117 colliders; stair 34 risers 30.5 degrees).
 * `plan_cut.py` (8 heights: 0.4, 1.1, 1.8, 2.8, 4.5, -3.5, -5.0, -5.6) + `check_overlaps.py`; `check_footprints.py`; box and hull areas from the 1.1 m cut.
-* `walk_test.py` (visual, 18 routes, 6 minutes) and `walk_test.py --colliders` (9 routes).
-* `measure_lighting.py` (19 views).
+* `walk_test.py` (visual, 18 routes, 6 minutes), `walk_test.py --colliders` (9 routes) and `walk_test.py --meltdown` (18 escape legs); `evac_report.py`; `door_audit.py` (42 doors).
+* `measure_lighting.py` (23 views).
 * `perf_report.py`; `export_unity.py` (export + re-import in an empty Blender process).
 * `validate_halls.py` (the older hall audit): `PASS (geometry audit only)` with **0 halls** (no `LINKS` hall is left in this layout; the concourse and spine are covered by the walk tests), written to `validation/compact_report.json`.
-* `render_views.py` (12 evidence views) plus 14 of the lighting views copied as `19_walk_*`. Every image in `renders/assembly/19_*` was looked at; a stair-house exterior view rendered too dark at night to show anything and was not kept. Scratch renders were deleted.
+* `render_views.py` (24 evidence views: `19_*` and `20_evac_*`) plus 14 of the lighting views copied as `19_walk_*`. Every image in `renders/assembly/19_*` was looked at; a stair-house exterior view rendered too dark at night to show anything and was not kept. Scratch renders were deleted.
 Not run: Unity anything, a frame-rate test, an independent review, the room validators (including any validator on S1), a human playtest.
