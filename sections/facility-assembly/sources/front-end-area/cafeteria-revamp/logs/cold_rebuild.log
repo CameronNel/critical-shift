@@ -1,0 +1,27 @@
+Running rebuild_graphics.log
+Running rebuild_foosball.log
+Running rebuild_dartboard.log
+Running rebuild_basketball.log
+Running rebuild_room.log
+Running rebuild_validation.log
+{
+  "module_triangles": true,
+  "furniture_lanes": true,
+  "support_anchors": true,
+  "reimport_bounds": true,
+  "five_reimported_instances": true,
+  "seven_interfaces_unchanged": true,
+  "packed_images": true,
+  "packed_fonts": false,
+  "no_linked_dependencies": true,
+  "unrelated_geometry": true,
+  "interior_floor_contacts": true,
+  "yard_floor_contacts": true
+}
+Traceback (most recent call last):
+  File "/workspace/critical-shift/sections/facility-assembly/sources/front-end-area/cafeteria-revamp/rebuild.py", line 55, in <module>
+    check_report(report)
+  File "/workspace/critical-shift/sections/facility-assembly/sources/front-end-area/cafeteria-revamp/rebuild.py", line 39, in check_report
+    if not all(gates.values()):raise RuntimeError('Authoring validation failed: '+', '.join(k for k,v in gates.items() if not v))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Authoring validation failed: packed_fonts
