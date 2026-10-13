@@ -18,6 +18,7 @@ Owner: "swap in the turbine rebuild". The turbine is now the **v2 rebuild** (`so
 | Exterior | concrete walls | the rebuild's walls are interior skins inside a **black** occluder shell; its 86 outer-plane faces take the front end's `concrete_slab` (the shell's inner faces stay black and hidden). Door cuts in the shell are lined with steel reveals and thresholds |
 | Signs | relabelled D02 text | the two TO ELECTRICAL signs over D02 (the lettered header board and a decal over the end panel) go; a new board EMERGENCY EXIT, a panel label EXIT and the green EXIT box replace them. TO REACTOR over D01 is right and stays |
 | Left out | | cameras, the `MOON_EAST` sun lamp (it would light the whole map), the render-hidden haze box |
+| Condenser bay under it | its roof slab (z 0..0.3) stood through the turbine floor and the ground slab ran through its top | roof slab lowered under the turbine floor, ground holed over the bay (`floor_audit.py` checks this now; ASSEMBLY_REPORT.md section 1a) |
 
 ## Meltdown flow (2026-10-13; details in ASSEMBLY_REPORT.md sections 3a and 3b)
 

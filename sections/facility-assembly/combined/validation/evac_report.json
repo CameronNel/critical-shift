@@ -10,7 +10,7 @@
   },
   "primary_electrical_via_reactor": {
    "passed": true,
-   "lane_m": 98.07
+   "lane_m": 97.53
   },
   "primary_cooling_via_reactor": {
    "passed": true,
@@ -30,7 +30,7 @@
   },
   "evac_turbine_D02_to_road": {
    "passed": true,
-   "lane_m": 65.14
+   "lane_m": 64.65
   },
   "evac_electrical_D02_to_road": {
    "passed": true,
@@ -62,7 +62,7 @@
   },
   "evac_condenser_to_turbine_D02": {
    "passed": true,
-   "lane_m": 52.54
+   "lane_m": 52.25
   },
   "evac_reactor_via_tunnel_to_hall": {
    "passed": true,
@@ -90,14 +90,14 @@
    "station": "turbine (D01)",
    "primary_m": 70.5,
    "primary_s": 15.7,
-   "backup_m": 153.3,
-   "backup_s": 34.1,
+   "backup_m": 152.8,
+   "backup_s": 34.0,
    "backup_route": "D02, north strip, east road, hall east door"
   },
   {
    "station": "electrical (D01)",
-   "primary_m": 98.07,
-   "primary_s": 21.8,
+   "primary_m": 97.53,
+   "primary_s": 21.7,
    "backup_m": 95.2,
    "backup_s": 21.2,
    "backup_route": "D02, east road, hall east door"

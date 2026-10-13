@@ -1,9 +1,9 @@
 {
  "note": "Static counts of the built scene; no frame rate was measured (no runtime build exists). Budgets: only the 400k per-room flag and 800k front-end figure exist in the repo.",
  "totals": {
-  "triangles": 11027980,
-  "objects": 21984,
-  "submeshes": 24074,
+  "triangles": 11027954,
+  "objects": 21988,
+  "submeshes": 24078,
   "lights": 494,
   "shadow_lights": 456,
   "materials": 856,
@@ -91,10 +91,10 @@
    "over_flag": true
   },
   "ROOM_front-end-area": {
-   "triangles": 560356,
-   "objects": 2007,
-   "meshes": 1715,
-   "submeshes": 2649,
+   "triangles": 560390,
+   "objects": 2011,
+   "meshes": 1719,
+   "submeshes": 2653,
    "materials": 70,
    "lights": {
     "SUN": 1,
@@ -154,7 +154,7 @@
    "over_flag": true
   },
   "ROOM_turbine-room": {
-   "triangles": 418250,
+   "triangles": 418190,
    "objects": 62,
    "meshes": 60,
    "submeshes": 73,
@@ -1100,7 +1100,7 @@
     "ROOM_front-end-area"
    ],
    "own": 3313648,
-   "with_neighbours": 3874004
+   "with_neighbours": 3874038
   },
   "ROOM_fuel-corridor": {
    "neighbours": [
@@ -1118,21 +1118,21 @@
     "ROOM_waste-storage"
    ],
    "own": 1217405,
-   "with_neighbours": 2374046
+   "with_neighbours": 2373986
   },
   "ROOM_electrical-room": {
    "neighbours": [
     "ROOM_turbine-room"
    ],
    "own": 767131,
-   "with_neighbours": 1185381
+   "with_neighbours": 1185321
   },
   "ROOM_medical-reanimation": {
    "neighbours": [
     "ROOM_front-end-area"
    ],
    "own": 599168,
-   "with_neighbours": 1159524
+   "with_neighbours": 1159558
   },
   "ROOM_front-end-area": {
    "neighbours": [
@@ -1143,8 +1143,8 @@
     "ROOM_refinery",
     "ROOM_spawn-room"
    ],
-   "own": 560356,
-   "with_neighbours": 5795424
+   "own": 560390,
+   "with_neighbours": 5795458
   },
   "ROOM_refinery": {
    "neighbours": [
@@ -1152,14 +1152,14 @@
     "ROOM_fuel-corridor"
    ],
    "own": 464675,
-   "with_neighbours": 2663378
+   "with_neighbours": 2663412
   },
   "ROOM_spawn-room": {
    "neighbours": [
     "ROOM_front-end-area"
    ],
    "own": 430704,
-   "with_neighbours": 991060
+   "with_neighbours": 991094
   },
   "ROOM_condenser-bay": {
    "neighbours": [
@@ -1174,15 +1174,15 @@
     "ROOM_electrical-room",
     "ROOM_reactor-room"
    ],
-   "own": 418250,
-   "with_neighbours": 2404214
+   "own": 418190,
+   "with_neighbours": 2404154
   },
   "ROOM_compliance-dock": {
    "neighbours": [
     "ROOM_front-end-area"
    ],
    "own": 416761,
-   "with_neighbours": 977117
+   "with_neighbours": 977151
   },
   "ROOM_waste-storage": {
    "neighbours": [
@@ -1210,7 +1210,7 @@
     "ROOM_reactor-room"
    ],
    "own": 10112,
-   "with_neighbours": 3426220
+   "with_neighbours": 3426254
   },
   "EXTERIOR_evacuation": {
    "neighbours": [],
@@ -1228,7 +1228,7 @@
     "ROOM_turbine-room"
    ],
    "own": 1428,
-   "with_neighbours": 841696
+   "with_neighbours": 841636
   },
   "EVAC sign hall": {
    "neighbours": [],

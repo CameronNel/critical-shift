@@ -342,7 +342,12 @@ def patch_turbine(wrap, lib_coll, omit):
         if abs(d.y) > 0.99 and abs(c.y - ys) < 0.01: p.material_index = ks; n += 1
         elif (abs(d.x) > 0.99 and min(abs(c.x - xw), abs(c.x - xe)) < 0.01) or (abs(d.y) > 0.99 and abs(c.y - yn) < 0.01) or (abs(d.z) > 0.99 and abs(c.z - zr) < 0.01):
             p.material_index = k; n += 1
-    print('TURBINE exterior skin: %d shell faces in concrete' % n)
+    # the shell's underside (z -0.4) shows as a black strip in the ceiling of the condenser bay below (between the turbine wall and the electrical): removed, it is never seen from above
+    import bmesh
+    bm = bmesh.new(); bm.from_mesh(skin.data); Mo3 = Mo.to_3x3()
+    under = [f for f in bm.faces if abs((Mo3 @ f.normal).normalized().z) > 0.99 and (Mo @ f.calc_center_median()).z < -0.35]
+    bmesh.ops.delete(bm, geom=under, context='FACES'); bm.to_mesh(skin.data); bm.free()
+    print('TURBINE exterior skin: %d shell faces in concrete, %d underside faces removed' % (n, len(under)))
     # 2. D01: the vestibule (x +-1.44, y -1.76..0.2) reaches 1.9 m into the reactor stub and ends in a closed panel. Clipped at y -0.3 (the original module's wall reached -0.36)
     nc = 0
     for o in _live(lib_coll, omit, wrap):
@@ -423,6 +428,15 @@ def patch_condenser(wrap, lib_coll, omit):
     for o in lib_coll.all_objects:
         if o.name.startswith(('D01 stub end wall', 'D01 local blanking', 'D01 blanking')): omit.add(o.name); n += 1
     print('CONDENSER D01 stub opened', n)
+    # its roof (`Ceiling slab`, module z 6.0..6.3 = map z 0.0..0.3) stood 0.3 m proud of the turbine floor (top z 0) across the turbine's east aisle and the electrical's west end:
+    # it read as raw ground on the floor (owner, 2026-10-13). Squeezed to map z -0.305..-0.015, under the turbine floor (-0.3..0), so the bay's ceiling is still its own concrete
+    for o in [o for o in lib_coll.all_objects if o.name == 'Ceiling slab' and o.name not in omit]:
+        z0 = bbox(o)[0].z
+        M = Matrix.Translation((0, 0, z0 - 0.305)) @ Matrix.Diagonal((1.0, 1.0, 0.29 / 0.30, 1.0)) @ Matrix.Translation((0, 0, -z0))
+        local_copy(wrap, omit, o, M, ' under turbine floor'); print('CONDENSER ceiling slab lowered under the turbine floor')
+    # the two gallery inspection lights hang at map z -0.28 and -0.34, inside or on the turbine floor's underside: dropped 0.12 m
+    for o in [o for o in lib_coll.all_objects if o.type == 'LIGHT' and o.name.startswith('gallery inspection light') and o.name not in omit]:
+        local_copy(wrap, omit, o, Matrix.Translation((0, 0, -0.12)), ' lowered')
 
 def patch_cooling(wrap, lib_coll, omit):
     # rear wall (module y 13.0..13.3, outer bounds to 13.3): a 1.6 x 2.35 m emergency door; module x = plan y - RY (rotation +90). evacuation.py adds the leaf, frames and threshold
@@ -499,6 +513,15 @@ def patch_front_end_spine(wrap, lib_coll, omit):
     if g is not None:
         x0, x1 = ST['xw'] - ST['t'] - FE_LOC[0], ST['xe'] + ST['t'] - FE_LOC[0]; y0, y1 = ST['ybot'] - FE_LOC[1], ST['yn'] + ST['t'] - FE_LOC[1]
         print('GROUND hole for the stair shaft:', hole_in_slab(wrap, omit, g, x0, x1, y0, y1), 'pieces')
+        # and over the condenser bay: the ground (z -0.9..-0.15) ran through the bay's top 0.9 m and was its ceiling (ray probe 2026-10-13); the hole is the bay's roof slab
+        # (module x -2.08..9.88, y -0.14..9.54), which now sits under the turbine floor (patch_condenser)
+        x0, x1 = COND[0] - 2.08 - FE_LOC[0], COND[0] + 9.88 - FE_LOC[0]; y0, y1 = COND[1] - 0.14 - FE_LOC[1], COND[1] + 9.54 - FE_LOC[1]; n = 0
+        for pc in [o for o in wrap.objects if o.library is None and o.name.startswith('context_ground piece')]:
+            lo, hi = bbox(pc)
+            if hi.x <= x0 or lo.x >= x1 or hi.y <= y0 or lo.y >= y1: continue
+            hole_in_slab(wrap, omit, pc, max(x0, lo.x - 1), min(x1, hi.x + 1), max(y0, lo.y - 1), min(y1, hi.y + 1)); wrap.objects.unlink(pc); n += 1
+        for pc in [o for o in wrap.objects if o.library is None and o.name.startswith('context_ground') and o.type == 'MESH' and not o.data.polygons]: wrap.objects.unlink(pc)
+        print('GROUND hole over the condenser bay:', n, 'ground pieces cut')
     print('SPINE openings: west (concourse)', nw, 'east (dock)', ne, 'objects split; doorway decals clipped', nd)
 
 _FE_BASE = (BM.open_portal_cap, BM.clear_yard_for_shed, BM.localise_evac_sign, BM.totem_back_board)      # build_combined_map's front-end patches without trim_spine_for_concourse

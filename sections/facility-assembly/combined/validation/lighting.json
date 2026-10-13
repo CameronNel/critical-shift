@@ -3,8 +3,8 @@
  "views": {
   "reactor_N_stub": {
    "median": 0.719,
-   "mean": 0.698,
-   "p10": 0.4,
+   "mean": 0.697,
+   "p10": 0.397,
    "near_black": 0.001,
    "clipped": 0.036,
    "clipped_white": 0.0,
@@ -21,10 +21,10 @@
    "readable": true
   },
   "turbine_entry": {
-   "median": 0.202,
-   "mean": 0.263,
-   "p10": 0.046,
-   "near_black": 0.095,
+   "median": 0.195,
+   "mean": 0.258,
+   "p10": 0.039,
+   "near_black": 0.101,
    "clipped": 0.003,
    "clipped_white": 0.0,
    "eye": [
@@ -40,11 +40,11 @@
    "readable": true
   },
   "turbine_east_aisle_to_electrical": {
-   "median": 0.291,
-   "mean": 0.331,
-   "p10": 0.032,
-   "near_black": 0.103,
-   "clipped": 0.005,
+   "median": 0.27,
+   "mean": 0.296,
+   "p10": 0.024,
+   "near_black": 0.11,
+   "clipped": 0.003,
    "clipped_white": 0.0,
    "eye": [
     7.55,
@@ -62,7 +62,7 @@
    "median": 0.547,
    "mean": 0.518,
    "p10": 0.184,
-   "near_black": 0.013,
+   "near_black": 0.012,
    "clipped": 0.027,
    "clipped_white": 0.0,
    "eye": [
@@ -252,7 +252,7 @@
    "median": 0.376,
    "mean": 0.384,
    "p10": 0.045,
-   "near_black": 0.085,
+   "near_black": 0.086,
    "clipped": 0.009,
    "clipped_white": 0.0,
    "eye": [
@@ -287,10 +287,10 @@
    "readable": true
   },
   "stair_top": {
-   "median": 0.705,
-   "mean": 0.665,
-   "p10": 0.379,
-   "near_black": 0.01,
+   "median": 0.704,
+   "mean": 0.664,
+   "p10": 0.373,
+   "near_black": 0.011,
    "clipped": 0.032,
    "clipped_white": 0.0,
    "eye": [
@@ -326,8 +326,8 @@
   },
   "condenser_D01": {
    "median": 0.792,
-   "mean": 0.677,
-   "p10": 0.346,
+   "mean": 0.678,
+   "p10": 0.347,
    "near_black": 0.001,
    "clipped": 0.021,
    "clipped_white": 0.0,
@@ -344,10 +344,10 @@
    "readable": true
   },
   "condenser_inside": {
-   "median": 0.464,
-   "mean": 0.475,
-   "p10": 0.231,
-   "near_black": 0.01,
+   "median": 0.47,
+   "mean": 0.481,
+   "p10": 0.252,
+   "near_black": 0.008,
    "clipped": 0.012,
    "clipped_white": 0.0,
    "eye": [
