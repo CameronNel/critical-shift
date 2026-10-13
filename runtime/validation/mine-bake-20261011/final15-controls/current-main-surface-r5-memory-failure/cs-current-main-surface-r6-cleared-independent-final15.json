@@ -1,0 +1,26 @@
+{
+  "status": "ClearedBoundedFresh4096MineRetry_NotBakeOrNativeAcceptance",
+  "wrapper": "/tmp/cs-current-main-surface-preparation-final15-r6.py",
+  "wrapperSha256": "4182fa1c1b11964d608ae3333520baa588145e737ffa4e66c6aee228ddd9e1b9",
+  "checks": {
+    "streamedHashes": true,
+    "metasPreAndPost": true,
+    "exact14PreAndPost": true,
+    "nonMineRecordsUnchanged": true,
+    "freshNoAtlasReuse": true,
+    "sourcePinsPrePost": true
+  },
+  "resolvedPriorFindings": [
+    "Streaming hashes",
+    "Post-preparation retained importer metadata checks",
+    "Exact14 source-derived room identities and whole nonmine room record preservation"
+  ],
+  "preservedCacheReview": "/tmp/cs-mine-library-artifacts-independent-final15.json",
+  "limits": [
+    "Completed source-pinned Spawn passes are reused; all mine core/context atlases fresh with no partial cache reuse",
+    "R5 remains failed; independent raw log correction says failure at mine-rocks albedo after ground wood-high completion",
+    "Cache release gives1,744,994,304bytes measured headroom, does not guarantee successful bake",
+    "Unity cache must be restored and verified after all heavy Blender/source-reference work and before Unity",
+    "Current-main Source renders, Unity adoption, matched visual/native tests/Player remain pending"
+  ]
+}

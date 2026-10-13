@@ -16,8 +16,8 @@ namespace CriticalShift.Player.Editor
 {
     [Serializable] public sealed class ExportPose { public float[] position, rotation; }
     [Serializable] public sealed class ExportDoor { public string name, node; public ExportPose closed, opened; }
-    [Serializable] public sealed class ExportObject { public string source, node; public bool visible, dynamic, sourceUv, lettering, wallSurface; public string[] materials; public int[] deliveryUvAxes; }
-    [Serializable] public sealed class ExportLight { public float[] position, color, rotation; public float power, size, sizeY, radius; public string name, type; }
+    [Serializable] public sealed class ExportObject { public string source, node; public bool visible, dynamic, sourceUv, lettering, wallSurface, sourceShadowExcluded; public string[] materials, faceMaterials; public int[] deliveryUvAxes; }
+    [Serializable] public sealed class ExportLight { public float[] position, color, rotation; public float power, size, sizeY, radius, angle, spotSize, spotBlend; public bool normalized, softFalloff; public string name, type; }
     [Serializable] public sealed class ExportAnchor { public string name, node; public float[] position; }
     [Serializable] public sealed class ExportRoom
     {
@@ -40,7 +40,9 @@ namespace CriticalShift.Player.Editor
             if (UnityEngine.Application.unityVersion != "6000.4.3f1") throw new InvalidOperationException("Use the pinned 6000.4.3f1 editor.");
             var map = JsonUtility.FromJson<ExportMap>(File.ReadAllText(Folder + "map-bindings.json"));
             var rig = JsonUtility.FromJson<ExportRig>(File.ReadAllText(Folder + "rig-bindings.json"));
-            if (map.schema != 1 || map.rooms == null || map.rooms.Length != 6 || rig.fps != 24 || rig.clips.Length != 52)
+            var requiredRooms=new[] {"front-end-area","spawn-room","mine","refinery","medical-reanimation","fuel-corridor"};
+            if (map.schema != 1 || map.rooms == null || map.rooms.Select(r=>r.key).Distinct().Count()!=map.rooms.Length ||
+                requiredRooms.Any(key=>!map.rooms.Any(r=>r.key==key)) || rig.fps != 24 || rig.clips.Length != 52)
                 throw new InvalidOperationException("Unexpected current-map/rig inventory. Regenerate and review the interface.");
             foreach (var room in map.rooms)
             { CheckHash(room.mesh, room.meshSha256); CheckHash(room.collision, room.collisionSha256); }
@@ -54,7 +56,7 @@ namespace CriticalShift.Player.Editor
             QualitySettings.shadowResolution = ShadowResolution.VeryHigh; QualitySettings.shadowDistance = 25;
             QualitySettings.shadowmaskMode = ShadowmaskMode.Shadowmask;
             var package=map.materials.Single(p => p.room == "spawn-room");
-            var surfaces = SpawnSurfaceBuild.Materials(package);
+            var surfaces = map.materials.SelectMany(p=>SpawnSurfaceBuild.Materials(p)).ToDictionary(p=>p.Key,p=>p.Value,StringComparer.Ordinal);
             CheckHash(package.letteringMesh.file,package.letteringMesh.sha256);
             Import(package.letteringMesh.file,false,readable:true);
             var lettering=AssetDatabase.LoadAssetAtPath<GameObject>(Folder+package.letteringMesh.file)
@@ -64,6 +66,16 @@ namespace CriticalShift.Player.Editor
             var wallMeshes=AssetDatabase.LoadAssetAtPath<GameObject>(Folder+package.wallMesh.file)
                 .GetComponentsInChildren<MeshFilter>().ToDictionary(f=>f.name,StringComparer.Ordinal);
             foreach (var room in map.rooms) { Import(room.mesh, false, readable: room.key == "spawn-room"); Import(room.collision, false, readable: true); }
+            var contextPackage=map.materials.SingleOrDefault(p=>p.room=="mine");
+            var contextBindings=(contextPackage?.contextObjects ?? Array.Empty<ExportObject>()).ToDictionary(b=>b.node,StringComparer.Ordinal);
+            var contextMeshes=new Dictionary<string,MeshFilter>(StringComparer.Ordinal);
+            if(contextPackage?.contextMesh!=null)
+            {
+                CheckHash(contextPackage.contextMesh.file,contextPackage.contextMesh.sha256);
+                Import(contextPackage.contextMesh.file,false,readable:true);
+                contextMeshes=AssetDatabase.LoadAssetAtPath<GameObject>(Folder+contextPackage.contextMesh.file)
+                    .GetComponentsInChildren<MeshFilter>().ToDictionary(f=>f.name,StringComparer.Ordinal);
+            }
             Import("CrewWorker.fbx", true);
             Import(rig.animationFile,true,clips:rig.clips);
             var controller = Controller(rig);
@@ -80,13 +92,36 @@ namespace CriticalShift.Player.Editor
                 var model = (GameObject)PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath<GameObject>(Folder + room.mesh));
                 // The FBX root carries Blender-to-Unity axis correction. Placement belongs to a separate parent.
                 model.transform.SetParent(roomRoot.transform, false);
+                // Runtime carryables must leave the imported hierarchy. Editor prefab instances
+                // reject that reparenting; unpack this scene instance without changing its FBX.
+                if (room.key == "spawn-room")
+                    PrefabUtility.UnpackPrefabInstance(model, PrefabUnpackMode.Completely, InteractionMode.AutomatedAction);
                 var pointLights=room.lights.Where(l=>l.type=="POINT").Select(l=>roomRoot.transform.TransformPoint(V(l.position))).ToArray();
                 foreach (var node in model.GetComponentsInChildren<Transform>(true))
                     if (node.name.StartsWith("CS_", StringComparison.Ordinal)) nodes.Add(node.name, node);
-                foreach (var binding in room.objects)
+                foreach (var originalBinding in room.objects)
                 {
+                    var binding=contextBindings.TryGetValue(originalBinding.node,out var contextBinding) ? contextBinding : originalBinding;
                     if (!nodes.TryGetValue(binding.node, out var node)) throw new InvalidOperationException("Missing exported node: " + binding.node);
                     var renderer = node.GetComponent<Renderer>(); if (renderer != null) renderer.enabled = binding.visible;
+                    if(contextBindings.ContainsKey(binding.node))
+                    {
+                        var target=node.GetComponent<MeshFilter>();var source=contextMeshes[binding.node];
+                        var mesh=UnityEngine.Object.Instantiate(source.sharedMesh);
+                        var transform=node.worldToLocalMatrix*roomRoot.transform.localToWorldMatrix*source.transform.localToWorldMatrix;
+                        mesh.vertices=mesh.vertices.Select(v=>transform.MultiplyPoint3x4(v)).ToArray();
+                        var normalTransform=transform.inverse.transpose;
+                        mesh.normals=mesh.normals.Select(n=>normalTransform.MultiplyVector(n).normalized).ToArray();
+                        mesh.RecalculateBounds();mesh.RecalculateTangents();
+                        if((mesh.bounds.center-target.sharedMesh.bounds.center).magnitude>0.002f ||
+                           (mesh.bounds.size-target.sharedMesh.bounds.size).magnitude>0.002f || mesh.triangles.Length!=target.sharedMesh.triangles.Length)
+                            throw new InvalidOperationException("Mine context overlay changed geometry: "+binding.node+
+                                "; sourceBounds="+mesh.bounds+"; targetBounds="+target.sharedMesh.bounds+
+                                "; sourceIndices="+mesh.triangles.Length+"; targetIndices="+target.sharedMesh.triangles.Length);
+                        string meshPath=Folder+"Surfaces/"+binding.node+"-mine-context.asset";
+                        AssetDatabase.DeleteAsset(meshPath);AssetDatabase.CreateAsset(mesh,meshPath);target.sharedMesh=mesh;
+                        renderer.sharedMaterials=source.GetComponent<Renderer>().sharedMaterials;
+                    }
                     if(binding.lettering || binding.wallSurface)
                     {
                         var glyphFilter=node.GetComponent<MeshFilter>();
@@ -107,14 +142,19 @@ namespace CriticalShift.Player.Editor
                     }
                     if (renderer != null && binding.materials != null)
                     {
-                        if (renderer.sharedMaterials.Length != binding.materials.Length) throw new InvalidOperationException("Surface slot inventory changed: " + binding.node);
+                        var expectedKeys=binding.faceMaterials ?? binding.materials;
+                        if (binding.faceMaterials==null && renderer.sharedMaterials.Length != expectedKeys.Length) throw new InvalidOperationException("Surface slot inventory changed: " + binding.node);
                         var importedKeys=renderer.sharedMaterials.Select(material=>material.name).ToArray();
-                        if (binding.materials.Length>1 && !importedKeys.OrderBy(key=>key,StringComparer.Ordinal).SequenceEqual(binding.materials.OrderBy(key=>key,StringComparer.Ordinal)))
-                            throw new InvalidOperationException("Imported surface names changed: "+binding.node+"; expected="+string.Join(",",binding.materials)+"; actual="+string.Join(",",importedKeys));
+                        if (expectedKeys.Length>1 && !importedKeys.Distinct().OrderBy(key=>key,StringComparer.Ordinal).SequenceEqual(expectedKeys.Distinct().OrderBy(key=>key,StringComparer.Ordinal)))
+                            throw new InvalidOperationException("Imported surface names changed: "+binding.node+"; expected="+string.Join(",",expectedKeys)+"; actual="+string.Join(",",importedKeys));
+                        if(binding.faceMaterials!=null && expectedKeys.Length==1 && importedKeys.Any(key=>key!=expectedKeys[0] && key!="Default-Material"))
+                            throw new InvalidOperationException("Imported mine surface changed: "+binding.node);
                         // FBX orders slots by first face use, rather than the source datablock's slot array.
                         // Some single-slot line/text meshes import as Default-Material. Their explicit
                         // source binding is unambiguous; multi-slot meshes must match imported names.
-                        renderer.sharedMaterials = (binding.materials.Length==1 ? binding.materials : importedKeys).Select(key => surfaces[key]).ToArray();
+                        // FBX also removes unused slots and collapses repeated materials. Mine's
+                        // declared face-material set verifies that every actually used shader survives.
+                        renderer.sharedMaterials = (expectedKeys.Length==1 ? Enumerable.Repeat(expectedKeys[0],importedKeys.Length) : importedKeys).Select(key => surfaces[key]).ToArray();
                         if (binding.sourceUv || binding.deliveryUvAxes!=null)
                         {
                             var sourceFilter=node.GetComponent<MeshFilter>();var sourceMesh=UnityEngine.Object.Instantiate(sourceFilter.sharedMesh);
@@ -135,11 +175,33 @@ namespace CriticalShift.Player.Editor
                             AssetDatabase.DeleteAsset(meshPath);AssetDatabase.CreateAsset(sourceMesh,meshPath);sourceFilter.sharedMesh=sourceMesh;
                         }
                         renderer.receiveShadows = true;
-                        renderer.shadowCastingMode = binding.visible ? UnityEngine.Rendering.ShadowCastingMode.On : UnityEngine.Rendering.ShadowCastingMode.Off;
+                        renderer.shadowCastingMode = binding.visible && !binding.sourceShadowExcluded ? UnityEngine.Rendering.ShadowCastingMode.On : UnityEngine.Rendering.ShadowCastingMode.Off;
                         if (binding.visible)
                             GameObjectUtility.SetStaticEditorFlags(node.gameObject, StaticEditorFlags.ReflectionProbeStatic |
                                 (binding.dynamic ? 0 : StaticEditorFlags.ContributeGI));
-                        if(room.key=="spawn-room") SpawnSurfaceBuild.SplitEmbeddedEmitter(node,pointLights,package);
+                        if(room.key=="spawn-room" || room.key=="mine" || contextBindings.ContainsKey(binding.node))
+                            SpawnSurfaceBuild.SplitEmbeddedEmitter(node,pointLights,contextBindings.ContainsKey(binding.node) ? contextPackage : map.materials.Single(p=>p.room==room.key));
+                        if((room.key=="mine" || contextBindings.ContainsKey(binding.node)) && renderer is MeshRenderer mineRenderer)
+                        {
+                            mineRenderer.scaleInLightmap=binding.source=="context_ground" ? 0.1f : 1;
+                            var size=mineRenderer.bounds.size;
+                            if(Mathf.Max(size.x,Mathf.Max(size.y,size.z))<0.5f)
+                            {
+                                mineRenderer.receiveGI=ReceiveGI.LightProbes;
+                                GameObjectUtility.SetStaticEditorFlags(node.gameObject,StaticEditorFlags.ReflectionProbeStatic);
+                            }
+                        }
+                        if(contextBindings.ContainsKey(binding.node) && binding.source=="cliff_face")
+                        {
+                            // This single sheet is seen from its authored back.
+                            // One baked chart lights the opposite face green.
+                            // Retain its baked occlusion/bounce contribution,
+                            // and shade the visible side with direct moonlight
+                            // and the authored ambient rather than that chart.
+                            ((MeshRenderer)renderer).receiveGI=ReceiveGI.LightProbes;
+                            renderer.lightProbeUsage=UnityEngine.Rendering.LightProbeUsage.Off;
+                            renderer.reflectionProbeUsage=UnityEngine.Rendering.ReflectionProbeUsage.Off;
+                        }
                         if(binding.source=="LIFE_whiteboard_surface" ||
                            (binding.source.StartsWith("LIFE_socket_",StringComparison.Ordinal) && binding.source.EndsWith("_face",StringComparison.Ordinal)))
                         {
@@ -151,39 +213,48 @@ namespace CriticalShift.Player.Editor
                     }
                 }
                 if(room.key=="spawn-room") SpawnSurfaceBuild.BindSuitOcclusion(nodes,roomRoot.transform,package);
-                var collisionModel = AssetDatabase.LoadAssetAtPath<GameObject>(Folder + room.collision);
-                var filters = collisionModel.GetComponentsInChildren<MeshFilter>(true);
-                if (filters.Length != 1 || filters[0].sharedMesh == null || filters[0].sharedMesh.triangles.Length / 3 != room.collisionTriangles)
-                    throw new InvalidOperationException("Room collision import changed or split its triangle inventory: " + room.key +
-                        "; meshes=" + filters.Length + "; triangles=" + filters.Sum(f => f.sharedMesh == null ? 0 : f.sharedMesh.triangles.Length / 3) +
-                        "; expected=" + room.collisionTriangles);
-                var collision = (GameObject)PrefabUtility.InstantiatePrefab(collisionModel);
-                collision.name = "Static collision — " + room.key; collision.transform.SetParent(roomRoot.transform, false);
-                var filter = collision.GetComponentInChildren<MeshFilter>(true);
-                var mesh = filter.sharedMesh; var collisionNode = filter.gameObject;
-                UnityEngine.Object.DestroyImmediate(filter.GetComponent<Renderer>());
-                UnityEngine.Object.DestroyImmediate(filter);
-                // Remove the MeshFilter before adding the collider; Unity otherwise cooks its mesh
-                // immediately with default options, before we can disable unsafe large-mesh midphase.
-                var collider = collisionNode.AddComponent<MeshCollider>();
-                if (room.collisionTriangles > 2000000)
-                    collider.cookingOptions &= ~MeshColliderCookingOptions.UseFastMidphase;
-                collider.sharedMesh = mesh;
+                RestoreCollision(roomRoot.transform,room);
                 foreach (var sourceLight in room.lights)
                 {
+                    if(room.key=="front-end-area" && contextBindings.Count>0 && sourceLight.type=="SUN")
+                        continue; // The scoped context contract supplies its omitted source rotation.
+                    if(room.key=="front-end-area" && contextBindings.Count>0 && sourceLight.type=="SPOT")
+                        continue; // Preserve the complete authored spot contract below.
                     var lamp = new GameObject(sourceLight.name ?? "Room practical"); lamp.transform.SetParent(roomRoot.transform, false);
                     lamp.transform.localPosition = V(sourceLight.position);
                     var light = lamp.AddComponent<Light>(); light.type = LightType.Point; light.range = 12;
                     light.color = new Color(sourceLight.color[0], sourceLight.color[1], sourceLight.color[2]).gamma;
-                    // The inverse-square bake and legacy forward renderer use different intensity
-                    // scales. The bake scale is calibrated against the authored reference views. Forward
-                    // rendering uses a different attenuation scale, applied after the indirect bake.
+                    // Existing rooms retain their calibrated legacy intensity. The mine's
+                    // explicit physical-point adapter overrides this scale below.
                     light.intensity = sourceLight.power / 100;
                     light.shapeRadius = Mathf.Max(sourceLight.radius,0.001f);
                     light.shadows = LightShadows.Soft;
                     light.shadowBias = 0.015f; light.shadowNormalBias = 0.025f; light.bounceIntensity = 1;
                     if(room.key=="spawn-room") light.shadowNearPlane=0.01f;
                     light.renderMode = LightRenderMode.ForcePixel;
+                    if(room.key=="mine")
+                    {
+                        light.shadowNearPlane=0.01f;
+                        light.lightmapBakeType=sourceLight.name.IndexOf("lantern",StringComparison.OrdinalIgnoreCase)>=0 ? LightmapBakeType.Mixed : LightmapBakeType.Baked;
+                        if(sourceLight.type=="SUN")
+                        {
+                            MineVisualLighting.ConfigureSourceSun(light,sourceLight);
+                        }
+                        else if(sourceLight.type=="POINT") MinePointLighting.Configure(light,sourceLight);
+                    }
+                    if(room.key=="front-end-area" && contextBindings.Count>0 && lamp.transform.position.x<=-23 && lamp.transform.position.z>=-99 && lamp.transform.position.z<=-44)
+                    {
+                        light.lightmapBakeType=LightmapBakeType.Baked;light.shadowNearPlane=0.01f;
+                        if(sourceLight.type=="AREA")
+                        {
+                            light.type=LightType.Rectangle;
+                            light.areaSize=new Vector2(sourceLight.size,sourceLight.sizeY>0 ? sourceLight.sizeY : sourceLight.size);
+                            light.intensity=sourceLight.power/(Mathf.PI*Mathf.Max(light.areaSize.x*light.areaSize.y,0.001f));
+                            var q=sourceLight.rotation;var rotation=new Quaternion(q[1],q[2],q[3],q[0]);
+                            var forward=rotation*Vector3.back;var up=rotation*Vector3.up;
+                            light.transform.localRotation=Quaternion.LookRotation(V(new[] {forward.x,forward.y,forward.z}),V(new[] {up.x,up.y,up.z}));
+                        }
+                    }
                     if (room.key == "spawn-room")
                     {
                         if (sourceLight.type == "AREA")
@@ -200,6 +271,52 @@ namespace CriticalShift.Player.Editor
                             light.lightmapBakeType = LightmapBakeType.Baked;
                         }
                         else light.lightmapBakeType = sourceLight.name.Contains("_pendant") ? LightmapBakeType.Mixed : LightmapBakeType.Baked;
+                    }
+                }
+                if(room.key=="front-end-area" && contextBindings.Count>0)
+                {
+                    var context=map.materials.Single(p=>p.room=="mine");
+                    if(context.contextSunLights==null || context.contextSunLights.Length==0)
+                        throw new InvalidOperationException("Regenerate the mine context's authored sun contract.");
+                    foreach(var sun in context.contextSunLights)
+                    {
+                        var lamp=new GameObject(sun.name);lamp.transform.SetParent(roomRoot.transform,false);
+                        lamp.transform.localPosition=V(sun.position);
+                        var light=lamp.AddComponent<Light>();light.color=new Color(sun.color[0],sun.color[1],sun.color[2]).gamma;
+                        light.lightmapBakeType=LightmapBakeType.Mixed;light.shadows=LightShadows.Soft;
+                        light.shadowBias=.015f;light.shadowNormalBias=.025f;light.renderMode=LightRenderMode.ForcePixel;
+                        MineVisualLighting.ConfigureSourceSun(light,sun);
+                    }
+                    if(context.contextSpotLights==null || context.contextSpotLights.Length==0)
+                        throw new InvalidOperationException("Regenerate the mine context's authored spot contract.");
+                    var authoredSpots=room.lights.Where(l=>l.type=="SPOT").ToArray();
+                    if(authoredSpots.Any(s=>string.IsNullOrEmpty(s.name)) ||
+                        authoredSpots.Select(s=>s.name).Distinct().Count()!=authoredSpots.Length ||
+                        context.contextSpotLights.Select(s=>s.name).Distinct().Count()!=context.contextSpotLights.Length ||
+                        !authoredSpots.Select(s=>s.name).OrderBy(s=>s).SequenceEqual(context.contextSpotLights.Select(s=>s.name).OrderBy(s=>s)))
+                        throw new InvalidOperationException("Context spotlight inventory differs from the authored room.");
+                    foreach(var spot in context.contextSpotLights)
+                    {
+                        var original=authoredSpots.Single(s=>s.name==spot.name);
+                        MineSpotLighting.ValidateSource(original);MineSpotLighting.ValidateSource(spot);
+                        if(Vector3.Distance(V(original.position),V(spot.position))>.0001f ||
+                            original.rotation==null || spot.rotation==null || original.rotation.Length!=4 || spot.rotation.Length!=4 ||
+                            original.rotation.Zip(spot.rotation,(a,b)=>Mathf.Abs(a-b)).Any(d=>d>.0001f) ||
+                            original.color.Zip(spot.color,(a,b)=>Mathf.Abs(a-b)).Any(d=>d>.0001f) ||
+                            Mathf.Abs(original.power-spot.power)>.0001f || Mathf.Abs(original.radius-spot.radius)>.00001f ||
+                            Mathf.Abs(original.spotSize-spot.spotSize)>.00001f || Mathf.Abs(original.spotBlend-spot.spotBlend)>.00001f ||
+                            original.type!=spot.type)
+                            throw new InvalidOperationException("Context spotlight does not match its authored room: "+spot.name);
+                        var lamp=new GameObject(spot.name);lamp.transform.SetParent(roomRoot.transform,false);
+                        lamp.transform.localPosition=V(spot.position);
+                        var light=lamp.AddComponent<Light>();light.range=12;
+                        light.color=new Color(spot.color[0],spot.color[1],spot.color[2]).gamma;
+                        light.shapeRadius=spot.radius;light.shadows=LightShadows.Soft;
+                        light.shadowNearPlane=.01f;light.shadowBias=.015f;light.shadowNormalBias=.025f;
+                        light.bounceIntensity=1;light.renderMode=LightRenderMode.ForcePixel;
+                        if(lamp.transform.position.x<=-23 && lamp.transform.position.z>=-99 && lamp.transform.position.z<=-44)
+                            light.lightmapBakeType=LightmapBakeType.Baked;
+                        MineSpotLighting.Configure(light,spot);
                     }
                 }
                 if (room.key == "spawn-room") spawnRoot = roomRoot.transform;
@@ -264,19 +381,56 @@ namespace CriticalShift.Player.Editor
             foreach (int i in new[] { 1, 3 })
             {
                 var prop = Require(nodes, "CS_spawn-room_BELONG_" + i.ToString("00") + "_thermos");
-                var local = LocalBounds(prop); var centre = prop.TransformPoint(local.center);
+                // The runtime root is world-aligned; the imported prop carries FBX axis
+                // correction. Copy world bounds so the collider follows the visible axes.
+                var worldBounds = prop.GetComponentsInChildren<Renderer>(true).Select(renderer => renderer.bounds)
+                    .Aggregate((bounds, next) => { bounds.Encapsulate(next); return bounds; });
+                var centre = worldBounds.center;
+                var originalPosition = prop.position; var originalRotation = prop.rotation; var originalScale = prop.lossyScale;
                 var item = new GameObject("Carryable thermos " + i); item.transform.SetParent(root.transform, false); item.transform.position = centre;
-                var shape = item.AddComponent<BoxCollider>(); shape.size = Vector3.Scale(local.size, prop.lossyScale);
+                var shape = item.AddComponent<BoxCollider>(); shape.size = worldBounds.size;
                 prop.SetParent(item.transform, true);
+                if (prop.parent != item.transform || Vector3.Distance(prop.position, originalPosition) > 0.0001f ||
+                    Quaternion.Angle(prop.rotation, originalRotation) > 0.01f || Vector3.Distance(prop.lossyScale, originalScale) > 0.0001f)
+                    throw new InvalidOperationException("Thermos visual extraction changed its source pose or failed: " + prop.name);
                 var body = item.AddComponent<Rigidbody>(); body.mass = 0.5f; body.interpolation = RigidbodyInterpolation.Interpolate;
                 var target = item.AddComponent<InteractionTarget>(); target.Configure(Id(100 + i), PlayerTargetKind.Carryable, "pick up thermos", shape, body);
                 targets.Add(target);
             }
             var top = Require(nodes, "CS_spawn-room_BRIEFING_sideboard_laminate_top").GetComponent<Renderer>().bounds;
-            var placementShape = Trigger(root.transform, "Sideboard placement", new Vector3(top.center.x, top.max.y + 0.06f, top.center.z), new Vector3(0.4f, 0.1f, 0.6f));
+            Physics.SyncTransforms();
+            var itemHalf = targets.Where(target => target.Kind == PlayerTargetKind.Carryable).Select(target => target.Shape.bounds.extents).Aggregate(Vector3.Max);
+            var margin = itemHalf + Vector3.one * 0.025f;
+            if (top.size.x <= margin.x * 2 || top.size.z <= margin.z * 2)
+                throw new InvalidOperationException("The authored sideboard cannot support the imported thermos footprint.");
+            Vector3? placementPoint = null;
+            // Source decorations occupy the centre. Find a supported clear slot on
+            // the authored tabletop; retain every solid object and the original height.
+            var candidates = Enumerable.Range(0, 5).SelectMany(x => Enumerable.Range(0, 5).Select(z =>
+                new Vector3(Mathf.Lerp(top.max.x - margin.x, top.min.x + margin.x, x / 4f), top.max.y + 0.18f,
+                    Mathf.Lerp(top.min.z + margin.z, top.max.z - margin.z, z / 4f))))
+                .OrderBy(candidate => new Vector2(candidate.x - top.center.x, candidate.z - top.center.z).sqrMagnitude);
+            foreach (var candidate in candidates)
+            {
+                if (Physics.CheckBox(candidate, itemHalf + Vector3.one * 0.02f, Quaternion.identity, ~0, QueryTriggerInteraction.Ignore)) continue;
+                bool supported = true;
+                foreach (var corner in new[] { Vector3.zero, new Vector3(-itemHalf.x, 0, -itemHalf.z), new Vector3(-itemHalf.x, 0, itemHalf.z),
+                    new Vector3(itemHalf.x, 0, -itemHalf.z), new Vector3(itemHalf.x, 0, itemHalf.z) })
+                {
+                    var origin = new Vector3(candidate.x, top.max.y + 0.01f, candidate.z) + corner;
+                    if (!Physics.Raycast(origin, Vector3.down, out var contact, 0.025f, ~0, QueryTriggerInteraction.Ignore) ||
+                        Mathf.Abs(contact.point.y - top.max.y) > 0.002f || Vector3.Dot(contact.normal, Vector3.up) < 0.9f)
+                    { supported = false; break; }
+                }
+                if (supported) { placementPoint = candidate; break; }
+            }
+            if (!placementPoint.HasValue) throw new InvalidOperationException("No clear sideboard placement remains between authored decorations.");
+            var point = placementPoint.Value;
+            Debug.Log("CS_SPAWN_SIDEBOARD_SLOT_OK; point=" + point.ToString("F5") + "; footprint=" + (itemHalf * 2).ToString("F5"));
+            var placementShape = Trigger(root.transform, "Sideboard placement", new Vector3(point.x, top.max.y + 0.06f, point.z), new Vector3(0.4f, 0.1f, 0.6f));
             var placement = placementShape.gameObject.AddComponent<InteractionTarget>();
             placement.Configure(Id(41), PlayerTargetKind.Placement, "place/take thermos", placementShape,
-                anchor: Anchor(root.transform, "Sideboard item pose", new Vector3(top.center.x, top.max.y + 0.18f, top.center.z)), slot: Id(61));
+                anchor: Anchor(root.transform, "Sideboard item pose", point), slot: Id(61));
             targets.Add(placement);
             var pod = Door(root.transform, nodes, map, "Integrity chamber", new[] { "POD_door_L", "POD_door_R" }, true);
             var buttonNode = Require(nodes, "CS_spawn-room_POD_physical_button");
@@ -292,14 +446,43 @@ namespace CriticalShift.Player.Editor
             host.ConfigureSpawn(bindings);
             var bootstrap = root.AddComponent<CriticalShift.Bootstrap.Player.PlayerRoomBootstrap>();
             bootstrap.Configure(host, new[] { actor }, targets.ToArray());
+            using (var hash = System.Security.Cryptography.SHA256.Create())
+                bootstrap.ConfigureMapIdentity(map.mapCommit,
+                    BitConverter.ToString(hash.ComputeHash(File.ReadAllBytes(Folder+"map-bindings.json"))).Replace("-","").ToLowerInvariant(),
+                    map.rooms.Select(room=>room.key).ToArray(),map.rooms.Select(room=>room.collisionTriangles).ToArray());
             RenderSettings.skybox = null;
             RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Flat;
             RenderSettings.ambientLight = (new Color(0.32f, 0.36f, 0.55f) * 0.025f).gamma;
             RenderSettings.reflectionIntensity = 1;
+            var minePackage=map.materials.SingleOrDefault(p=>p.room=="mine");
+            if(minePackage!=null)
+            {
+                MineVisualLighting.ConfigureAssembly(minePackage.assemblyLighting);
+                var bounds=spawnRoot.Find("Static collision — spawn-room").GetComponentInChildren<MeshCollider>().bounds;
+                var sky=minePackage.assemblyLighting;
+                var background=new Color(sky.world_color[0],sky.world_color[1],sky.world_color[2]).gamma*sky.world_strength;
+                viewCamera.GetComponent<BlenderView>().ConfigureOutside(bounds,SpawnSurfaceBuild.View(minePackage),background);
+            }
             Physics.SyncTransforms();
             if (!EditorSceneManager.SaveScene(scene, ScenePath)) throw new IOException("Could not save the isolated runtime scene.");
             Debug.Log("Generated current assembled map with spawn runtime bindings: " + map.mapCommit + ". Native tests and Player validation still required.");
         }
+        internal static void RestoreCollision(Transform roomRoot,ExportRoom room)
+        {
+            var collisionModel=AssetDatabase.LoadAssetAtPath<GameObject>(Folder+room.collision);
+            var filters=collisionModel.GetComponentsInChildren<MeshFilter>(true);
+            if(filters.Length!=1 || filters[0].sharedMesh==null || filters[0].sharedMesh.triangles.Length/3!=room.collisionTriangles)
+                throw new InvalidOperationException("Room collision import changed or split: "+room.key);
+            var collision=(GameObject)PrefabUtility.InstantiatePrefab(collisionModel);
+            collision.name="Static collision — "+room.key;collision.transform.SetParent(roomRoot,false);
+            var filter=collision.GetComponentInChildren<MeshFilter>(true);var mesh=filter.sharedMesh;var node=filter.gameObject;
+            UnityEngine.Object.DestroyImmediate(filter.GetComponent<Renderer>());UnityEngine.Object.DestroyImmediate(filter);
+            // Configure large-mesh cooking before assigning the source mesh.
+            var collider=node.AddComponent<MeshCollider>();
+            if(room.collisionTriangles>2000000) collider.cookingOptions&=~MeshColliderCookingOptions.UseFastMidphase;
+            collider.sharedMesh=mesh;
+        }
+
         public static void Build()
         {
             // Build the reviewed lightmapped scene. Regenerating it here would discard its lighting.
@@ -370,6 +553,10 @@ namespace CriticalShift.Player.Editor
             if(animated) importer.materialImportMode=ModelImporterMaterialImportMode.None;
             if (Path.GetFileName(importer.assetPath) == "Room-spawn-room.fbx" || Path.GetFileName(importer.assetPath) == "Lettering.fbx" || Path.GetFileName(importer.assetPath) == "Walls.fbx")
             { importer.weldVertices = false; importer.meshCompression = ModelImporterMeshCompression.Off; importer.generateSecondaryUV = true; importer.secondaryUVMinLightmapResolution = 40; importer.secondaryUVMinObjectScale = 0.1f; }
+            if(Path.GetFileName(importer.assetPath)=="Room-mine.fbx" || Path.GetFileName(importer.assetPath)=="MineContext.fbx")
+            { importer.weldVertices=false;importer.meshCompression=ModelImporterMeshCompression.Off;importer.generateSecondaryUV=false; }
+            if(Path.GetFileName(importer.assetPath)=="Room-front-end-area.fbx")
+                importer.weldVertices=false; // Match the overlay: retain authored faces before Unity's vertex welding.
             // Keep each room's complete collision mesh from the first import.
             importer.indexFormat = ModelImporterIndexFormat.UInt32;
             if (Path.GetFileName(importer.assetPath).StartsWith("Collision-", StringComparison.Ordinal))

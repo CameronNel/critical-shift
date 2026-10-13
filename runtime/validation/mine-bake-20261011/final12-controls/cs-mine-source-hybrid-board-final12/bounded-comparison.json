@@ -1,0 +1,121 @@
+{
+  "status": "BoundedSingleBoardDiagnosticOnly",
+  "sourceMaskPixels": 4441,
+  "nativeMaskPixels": 5080,
+  "sharedInteriorPixels": 3665,
+  "maskIntersectionOverUnion": 0.8742125984251968,
+  "sourceBakeTransferVsRenderedSourceDiffuse": {
+    "aMean": [
+      0.027361087501049042,
+      0.019420200958848,
+      0.014051169157028198
+    ],
+    "bMean": [
+      0.027271674945950508,
+      0.01928146369755268,
+      0.013918212614953518
+    ],
+    "relativeMeanAbsError": 0.29579779505729675,
+    "relativeMeanSignedError": 0.005970546510070562
+  },
+  "nativeBaseColourVsCopiedSource": {
+    "aMean": [
+      0.03436678647994995,
+      0.028354812413454056,
+      0.021849626675248146
+    ],
+    "bMean": [
+      0.03452206403017044,
+      0.02849133498966694,
+      0.021963132545351982
+    ],
+    "relativeMeanAbsError": 0.037056952714920044,
+    "relativeMeanSignedError": -0.004770528059452772
+  },
+  "copiedSourceBaseColourVsIntactOriginal": {
+    "aMean": [
+      0.03452206403017044,
+      0.02849133498966694,
+      0.021963132545351982
+    ],
+    "bMean": [
+      0.034516382962465286,
+      0.02848648466169834,
+      0.02195923775434494
+    ],
+    "relativeMeanAbsError": 0.03668176755309105,
+    "relativeMeanSignedError": 0.0001701659057289362
+  },
+  "hybridVsCopiedSourceTotal": {
+    "aMean": [
+      0.035551611334085464,
+      0.02548936940729618,
+      0.019301405176520348
+    ],
+    "bMean": [
+      0.04224034398794174,
+      0.02992081455886364,
+      0.02193465270102024
+    ],
+    "relativeMeanAbsError": 0.3382028043270111,
+    "relativeMeanSignedError": -0.14616405963897705
+  },
+  "historicalNativeVsCopiedSourceTotal": {
+    "aMean": [
+      0.16425937414169312,
+      0.12404104322195053,
+      0.08421556651592255
+    ],
+    "bMean": [
+      0.04224034398794174,
+      0.02992081455886364,
+      0.02193465270102024
+    ],
+    "relativeMeanAbsError": 2.9747519493103027,
+    "relativeMeanSignedError": 2.958899736404419
+  },
+  "nativeWorldNormalVsIntactSource": {
+    "meanDegrees": 8.33303451538086,
+    "medianDegrees": 7.719021797180176
+  },
+  "closureHybridDirectSpecNonRuntime": {
+    "aMean": [
+      0.035551611334085464,
+      0.02548936940729618,
+      0.019301405176520348
+    ],
+    "bMean": [
+      0.03555161878466606,
+      0.02548936940729618,
+      0.019301407039165497
+    ],
+    "relativeMeanAbsError": 4.890825167080948e-08,
+    "relativeMeanSignedError": 1.2184957487448855e-09
+  },
+  "limits": [
+    "single connected shed board only",
+    "native explicit-light runtime cutoffs and realtime SUN penumbra remain",
+    "NativeSpecular probe selection can differ due to renderer bounds",
+    "fullscene/background uses historical bake and must not be scored",
+    "moving shadows actors probes and full-map validation not certified"
+  ],
+  "hashes": {
+    "NativeNativeTargetMask.exr": "39f5566d39ed5162c566b113b48d233034b52184524ac8bec5b9370f3e92c8bb",
+    "NativeNativeBaseColor.exr": "340885b6610eac3815a6cea00389d93c7ef0cb086ce3253a74d5162f2a96989f",
+    "NativeNativeWorldNormal.exr": "b53242904dd894359b3e18814d8933ce571f5f341a2a1d300e3bc93ee7a90460",
+    "NativeSourceDiffuseReference.exr": "d2b0d0f829b2e924d1675121b80661a149e51922640b501c298cd2fe3cad2aa2",
+    "NativeSourceNonRuntime.exr": "26d0c29584ab093a7214a6bc86fdaff743890c1d9b57844ee62d44912b504d0e",
+    "NativeNativeSpecular.exr": "cdfff007de35e2099d92a754c4da7d645175fe1138fc115828f5e38d6a8ea20c",
+    "NativeNativeDirectDiffuse.exr": "7cff39258fd25ff25a503d9a95610f5495216874f02f08b3585d452b6b8d7bff",
+    "NativeHybrid.exr": "c0345f9be54eebe474493b008331592a63adfc8b85892b3895761245c4802ff6",
+    "SourceDiffuseShedBoards.fbx": "a0bf25028ac84291b715429aa7fb061fd371508353712f07e354e7272acec907",
+    "SourceContextShed.exr": "8c19554ea090e413a29c4f7177fe0eb21e7f60acaa1af29a4e7c4bd0a7ad7b67",
+    "SourceMetallic.exr": "0415fde3c1b668d99963afcd114c46dc8492f36e53c6bd9f8bf677fb971d6866",
+    "SourceRoughness.exr": "6bd1c20964ac60b59e5b0adab6c8ee81dcda1680abb241d6d60025e307d53e53",
+    "SourceNormal.exr": "190f190d7ac5c5133ad48196c895dfd49ad25dce8b0977338d7160f658d32855",
+    "SourceBaseColor.exr": "063178c98a988d2e2527c2a4e52b6fc4b719a97ec6409c77475ddedb0ea0b257",
+    "SourceNonExplicitDirect.exr": "13bc4ef3dcf3b7424ba7d0308ee2b7749ed40be718f024116fee0feffb4f8c73",
+    "SourceAllDirect.exr": "1661286c12d77c725b8dee579527b660f18248d0491838217f3dcd10e5d60c1d",
+    "SourceAllIndirect.exr": "d2579752b5c87c5e16be54a2dbf6f5a6f91035fa7621274b5e45c423afe690db"
+  }
+}

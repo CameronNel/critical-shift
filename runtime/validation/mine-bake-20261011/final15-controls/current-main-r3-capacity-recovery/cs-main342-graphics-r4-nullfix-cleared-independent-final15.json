@@ -1,0 +1,18 @@
+{
+  "status": "ClearedExactNullPreservingLightingSettingsFixAndFreshGraphicsR4",
+  "utc": "2026-10-13T07:04:02.328138+00:00",
+  "helper": "/tmp/cs-main342-graphics-cache-control-final15-r4.py",
+  "helperSha256": "62b14fbff2cb0ced794892a11149d97c0f7d91ae817c45bf83f8db230b741f2c",
+  "scopeSource": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/ExcludedRoomBakeScope.cs",
+  "scopeSourceSha256": "917939d825cba5b7a6f18e35aded72346b79d02f82848701762d05dae7165e67",
+  "currentCSharpSourceSha256": "fc9476fa0ae29986fcf325844346431b78f5a7baa04cd9faf3152072993a5199",
+  "officialApi": "/tmp/cs-main342-excluded-scope-api-final15-r8/player-api.json",
+  "officialApiSha256": "e559f1646f6e32ed01ca0fb78ebb880c762ea1fb1e8d964ddb5e0735410a5351",
+  "officialApiAssembliesPassed": 4,
+  "deltaFromFailed6687": "Only retained settings getter replaced by TryGet for snapshot/Verify; null still compared and no settings asset assigned",
+  "guards": "Freshnamespace/r8digest only from reviewedca711 graphics wrapper; all ownership/freshscene/processgroup/14/11/9/6 guards retained",
+  "limits": [
+    "No current graphics control execution yet",
+    "Static code and APIcompile only; no new lighting/visual/Player acceptance"
+  ]
+}

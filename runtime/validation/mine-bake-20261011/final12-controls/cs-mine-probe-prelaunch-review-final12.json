@@ -1,0 +1,40 @@
+{
+  "status": "Prelaunch review only; no prepared control score or actor approval",
+  "overallScore": null,
+  "lastFullVisualReview": "Rejected39/60 visual subtotal",
+  "codeHashes": {
+    "/tmp/cs-mine-probe-uniform-preflight-final12.py": "3e0601b279629dc6f8e3194afd3c3c1a29499800f3e195106da090226189a767",
+    "/tmp/cs-mine-source-probe-field-final12.py": "852defb319593bcafd51bc1360c045dbcc2c24ef32e34acab7618f5f0b6bd945",
+    "/tmp/cs-mine-sh-basis-final12.cs.txt": "df3fdfe56ad34ef421711f8dd583fd557a4184ebe129972e65d2123a276378e2",
+    "/tmp/cs-mine-sh-basis-final12.native.py": "aa84c9796bc0a632366d14c7eb4065f41c2c845844e3db8e328d0f72674028a0",
+    "/tmp/cs-mine-sh-fit-final12.py": "37ac409927966438b5a380df500f61e2e823987d11f2ec0b24705431f38f7d6a",
+    "/tmp/cs-mine-next-controls-final12.py": "1f760bb40fec9d07f0d2c4202418e39cf9422b0bd290882c02b25882c173ca1f"
+  },
+  "clearedMathAndScope": [
+    "RGB EMIT1 validcoverage, notalpha",
+    "WhiteLambert colour-excluded outgoingE/pi, noextra pi/cosine convolution",
+    "BlenderXYZ->UnityXZY worlddirection conversion beforeactualbasisfit",
+    "SignedUnity CPU/GPUbasis recovered withpositiveoffset toavoidunitlobe clamp",
+    "Rank9 fullfieldfit andfinitecoeff guards; weightedL2/clamping/negativefractions reported",
+    "Sourceoriginal66 explicitdata disabled/restored onlyfornonexplicitdirect; indirectretains originalsources",
+    "Onevirtualpoint with26rayclearance, invisibility andnoVolume; source notsaved"
+  ],
+  "actionableBeforeLaunch": [
+    "NativeRead checks onlyredfinite; require allRGB andCPUvaluesfinite, and finite maxError beforeOKmarker",
+    "SHfit assert EXRdimensions32x64x3, finitefield and conditionnumbers, heldouttrain rank9/finite"
+  ],
+  "exactOutputGates": [
+    "Independentlyreread uniform savedEXR/coverage/hash andexpected(.25,.5,.75), hidden-visible differences",
+    "Currentcanonical snapshot/input/provenance hashes and actual66disabled/restoredenergies",
+    "ActualnormalRGBmask coverage, unitdirections, probegeometryclearance and bounded.01m scope",
+    "26x9actualCPU/GPU signedbasis andbaseline1 agreement withfiniteproof",
+    "Weightedfit/clamping/negative/RMS/heldout diagnostics and independentactualfittedSH GPUneutralreceiver",
+    "Separate sourcecompatible static/dynamic neutral/actors+physicaldirect withoutoldprobe/ambient doubleaddition beforeactorclaim"
+  ],
+  "limitations": [
+    "64sampleonepoint fit doesnot establishMonteCarlo convergence orwhole216probefield",
+    "Alternatetexel holdout isangularinterpolation, notindependent render validation",
+    "26rays are conservativeclearance, notcomplete signed-distanceproof",
+    "All63Mixed is onlya mechanism diagnostic;63Mixed+2MixedSUNShadowmask overflow, near-source GIovershoot, performance/sourceActortransport unresolved"
+  ]
+}

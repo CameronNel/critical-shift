@@ -1,0 +1,43 @@
+using System;
+using System.IO;
+using System.Linq;
+using UnityEngine;
+using UnityEditor;
+using UnityEditor.SceneManagement;
+using CriticalShift.Player.Editor;
+public static class CsMineNormalFinal11
+{
+ public static void Render()
+ {
+  EditorSceneManager.OpenScene(SpawnMapBuild.ScenePath);LightProbes.Tetrahedralize();ReflectionProbe.UpdateCachedState();
+  var folder="/tmp/cs-mine-normal-native-final11/";Directory.CreateDirectory(folder);
+  var sourceProof=File.ReadAllText(SpawnMapBuild.Folder+"prepared-scene.json");File.WriteAllText(folder+"prepared-scene.json",sourceProof);
+  var shader=Shader.Find("CriticalShift/DiagnosticProductionNormal");if(shader==null)throw new InvalidOperationException("Missing diagnostic shader");
+  foreach(var renderer in UnityEngine.Object.FindObjectsByType<MeshRenderer>(FindObjectsSortMode.None))
+   renderer.sharedMaterials=renderer.sharedMaterials.Select(original=>{
+    var material=new Material(original);
+    bool supported=original.shader.name=="CriticalShift/BlenderSurface";
+    material.shader=supported ? shader : Shader.Find("Unlit/Color");material.CopyPropertiesFromMaterial(original);if(!supported)material.color=Color.black;
+    return material;
+   }).ToArray();
+  foreach(var camera in UnityEngine.Object.FindObjectsByType<Camera>(FindObjectsSortMode.None))camera.enabled=false;
+  GameObject.Find("Local crew worker").SetActive(false);
+  var root=GameObject.Find("ROOM_mine").transform;
+  var views=JsonUtility.FromJson<SourceViews>(File.ReadAllText("/workspace/critical-shift-spawn-runtime/runtime/out/mine-bake-audit/cameras.json")).views;
+  Vector3 V(float[] a)=>new Vector3(a[0],a[2],a[1]);
+  foreach(var view in views)
+  {
+   var node=new GameObject("AOV camera "+view.name);node.transform.SetPositionAndRotation(root.TransformPoint(V(view.position)),root.rotation*Quaternion.LookRotation(V(view.forward),V(view.up)));
+   var camera=node.AddComponent<Camera>();camera.allowHDR=true;camera.allowMSAA=false;camera.clearFlags=CameraClearFlags.SolidColor;camera.backgroundColor=Color.black;camera.nearClipPlane=.05f;camera.farClipPlane=250;camera.fieldOfView=view.verticalFov;camera.renderingPath=RenderingPath.Forward;
+   foreach(int mode in new[]{4})
+   {
+    foreach(var material in UnityEngine.Object.FindObjectsByType<MeshRenderer>(FindObjectsSortMode.None).SelectMany(r=>r.sharedMaterials).Where(m=>m.shader==shader))material.SetFloat("_CsDiagnostic",mode);
+    var target=new RenderTexture(640,360,24,RenderTextureFormat.ARGBHalf,RenderTextureReadWrite.Linear);camera.targetTexture=target;camera.Render();var previous=RenderTexture.active;RenderTexture.active=target;
+    var pixels=new Texture2D(640,360,TextureFormat.RGBAHalf,false,true);pixels.ReadPixels(new Rect(0,0,640,360),0,0);pixels.Apply();File.WriteAllBytes(folder+view.name+"-"+"ProductionNormal"+".exr",pixels.EncodeToEXR(Texture2D.EXRFlags.OutputAsFloat));
+    RenderTexture.active=previous;camera.targetTexture=null;UnityEngine.Object.DestroyImmediate(pixels);UnityEngine.Object.DestroyImmediate(target);Debug.Log("CS_MINE_DIAGNOSTIC_AOV "+view.name+" "+mode);
+   }
+   UnityEngine.Object.DestroyImmediate(node);
+  }
+  Debug.Log("CS_MINE_PRODUCTION_NORMAL_AOV_OK; disposable materials; no source/scene saves, no visual acceptance");
+ }
+}

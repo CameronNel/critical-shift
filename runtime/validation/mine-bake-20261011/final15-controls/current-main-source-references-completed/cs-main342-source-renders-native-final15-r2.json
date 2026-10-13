@@ -1,0 +1,25 @@
+{
+  "status": "PassedCurrentSourceRenderTechnicalChecks_IndependentComparisonPending",
+  "pins": {
+    "/tmp/cs-main342-source-renders-final15-r2.blender.py": "50eb57d5615af3b5e4f0d24ecebd2f542da6394c1bd114c8a2875ec6a9c754cf",
+    "/tmp/cs-main342-source-renders-native-final15-r2.py": "28d7594e0d4ab0cc2d64bee328add1bc33a128a973e2e95ac1bf498235c549c4",
+    "/tmp/cs-compact-main342-final14/combined-runtime-source.blend": "b1905627f2f6e4ba90198a99bc47238a3c3fdeb61277ffcc3ab72a3dff5a4192",
+    "/tmp/cs-compact-main342-final14/map-config.json": "14016230fcd0e9c4348f6edf2cb1f71dbd68c149f74ec52880bcc25a34c1f89a",
+    "/workspace/critical-shift-spawn-runtime/runtime/out/mine-bake-audit/cameras.json": "ba0394fa764f3b59d459e6e796c2c1dbf80ab9f82aad791eb67814c0f1b28f8f"
+  },
+  "preparationStateSha256": "ec05c439bb58981a1e73d380b48cabf96bd48bf5ebf359c9d3ce04423da1ee95",
+  "provenanceSha256": "8cfb4ee275bd684d9721bfd97a1bb2405df38542ac51b9d69629a66e7b18f8d5",
+  "command": [
+    "/home/agent/.local/bin/blender",
+    "-b",
+    "/tmp/cs-compact-main342-final14/combined-runtime-source.blend",
+    "-t",
+    "4",
+    "--disable-autoexec",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/tmp/cs-main342-source-renders-final15-r2.blender.py"
+  ],
+  "logSha256": "d812f0b264629674d6264dc86d82be869e8adcf17e8f6ed0405287f91621e225"
+}

@@ -1,0 +1,321 @@
+{
+  "status": "VisibilityMechanismDiagnosticOnly",
+  "helperSha256": "05ea9974cf4e550ea993e64c62827d0e7cd15b084e5fd1d946b28201a9a2674c",
+  "constructionHelperSha256": "3e0601b279629dc6f8e3194afd3c3c1a29499800f3e195106da090226189a767",
+  "coverageSha256": "f684b59e8a2949cf67cb2e84fce6ce96d9ce760cd264c614781f61f473f3f4a3",
+  "cases": [
+    {
+      "mode": "all-visible",
+      "visibility": {
+        "visible_camera": true,
+        "visible_shadow": true,
+        "visible_diffuse": true,
+        "visible_glossy": true,
+        "visible_transmission": true,
+        "visible_volume_scatter": true
+      },
+      "meanRGB": [
+        0.24991798400878906,
+        0.4998359680175781,
+        0.7497539520263672
+      ],
+      "expectedRGB": [
+        0.25,
+        0.5,
+        0.75
+      ],
+      "validTexels": 2048,
+      "meanErrorRGB": [
+        -8.20159912109375e-05,
+        -0.000164031982421875,
+        -0.0002460479736328125
+      ],
+      "sha256": "fa57b58a65b9bdfc686ccc2d2907e6ac0de2c2a4704ad12a0d40413bcf41bd84"
+    },
+    {
+      "mode": "visible_camera-off",
+      "visibility": {
+        "visible_camera": false,
+        "visible_shadow": true,
+        "visible_diffuse": true,
+        "visible_glossy": true,
+        "visible_transmission": true,
+        "visible_volume_scatter": true
+      },
+      "meanRGB": [
+        0.24991798400878906,
+        0.4998359680175781,
+        0.7497539520263672
+      ],
+      "expectedRGB": [
+        0.25,
+        0.5,
+        0.75
+      ],
+      "validTexels": 2048,
+      "meanErrorRGB": [
+        -8.20159912109375e-05,
+        -0.000164031982421875,
+        -0.0002460479736328125
+      ],
+      "sha256": "fa57b58a65b9bdfc686ccc2d2907e6ac0de2c2a4704ad12a0d40413bcf41bd84"
+    },
+    {
+      "mode": "visible_shadow-off",
+      "visibility": {
+        "visible_camera": true,
+        "visible_shadow": false,
+        "visible_diffuse": true,
+        "visible_glossy": true,
+        "visible_transmission": true,
+        "visible_volume_scatter": true
+      },
+      "meanRGB": [
+        0.24991798400878906,
+        0.4998359680175781,
+        0.7497539520263672
+      ],
+      "expectedRGB": [
+        0.25,
+        0.5,
+        0.75
+      ],
+      "validTexels": 2048,
+      "meanErrorRGB": [
+        -8.20159912109375e-05,
+        -0.000164031982421875,
+        -0.0002460479736328125
+      ],
+      "sha256": "fa57b58a65b9bdfc686ccc2d2907e6ac0de2c2a4704ad12a0d40413bcf41bd84"
+    },
+    {
+      "mode": "visible_diffuse-off",
+      "visibility": {
+        "visible_camera": true,
+        "visible_shadow": true,
+        "visible_diffuse": false,
+        "visible_glossy": true,
+        "visible_transmission": true,
+        "visible_volume_scatter": true
+      },
+      "meanRGB": [
+        0.24991798400878906,
+        0.4998359680175781,
+        0.7497539520263672
+      ],
+      "expectedRGB": [
+        0.25,
+        0.5,
+        0.75
+      ],
+      "validTexels": 2048,
+      "meanErrorRGB": [
+        -8.20159912109375e-05,
+        -0.000164031982421875,
+        -0.0002460479736328125
+      ],
+      "sha256": "fa57b58a65b9bdfc686ccc2d2907e6ac0de2c2a4704ad12a0d40413bcf41bd84"
+    },
+    {
+      "mode": "visible_glossy-off",
+      "visibility": {
+        "visible_camera": true,
+        "visible_shadow": true,
+        "visible_diffuse": true,
+        "visible_glossy": false,
+        "visible_transmission": true,
+        "visible_volume_scatter": true
+      },
+      "meanRGB": [
+        0.24991798400878906,
+        0.4998359680175781,
+        0.7497539520263672
+      ],
+      "expectedRGB": [
+        0.25,
+        0.5,
+        0.75
+      ],
+      "validTexels": 2048,
+      "meanErrorRGB": [
+        -8.20159912109375e-05,
+        -0.000164031982421875,
+        -0.0002460479736328125
+      ],
+      "sha256": "fa57b58a65b9bdfc686ccc2d2907e6ac0de2c2a4704ad12a0d40413bcf41bd84"
+    },
+    {
+      "mode": "visible_transmission-off",
+      "visibility": {
+        "visible_camera": true,
+        "visible_shadow": true,
+        "visible_diffuse": true,
+        "visible_glossy": true,
+        "visible_transmission": false,
+        "visible_volume_scatter": true
+      },
+      "meanRGB": [
+        0.24991798400878906,
+        0.4998359680175781,
+        0.7497539520263672
+      ],
+      "expectedRGB": [
+        0.25,
+        0.5,
+        0.75
+      ],
+      "validTexels": 2048,
+      "meanErrorRGB": [
+        -8.20159912109375e-05,
+        -0.000164031982421875,
+        -0.0002460479736328125
+      ],
+      "sha256": "fa57b58a65b9bdfc686ccc2d2907e6ac0de2c2a4704ad12a0d40413bcf41bd84"
+    },
+    {
+      "mode": "visible_volume_scatter-off",
+      "visibility": {
+        "visible_camera": true,
+        "visible_shadow": true,
+        "visible_diffuse": true,
+        "visible_glossy": true,
+        "visible_transmission": true,
+        "visible_volume_scatter": false
+      },
+      "meanRGB": [
+        0.24991798400878906,
+        0.4998359680175781,
+        0.7497539520263672
+      ],
+      "expectedRGB": [
+        0.25,
+        0.5,
+        0.75
+      ],
+      "validTexels": 2048,
+      "meanErrorRGB": [
+        -8.20159912109375e-05,
+        -0.000164031982421875,
+        -0.0002460479736328125
+      ],
+      "sha256": "fa57b58a65b9bdfc686ccc2d2907e6ac0de2c2a4704ad12a0d40413bcf41bd84"
+    },
+    {
+      "mode": "all-hidden",
+      "visibility": {
+        "visible_camera": false,
+        "visible_shadow": false,
+        "visible_diffuse": false,
+        "visible_glossy": false,
+        "visible_transmission": false,
+        "visible_volume_scatter": false
+      },
+      "meanRGB": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "expectedRGB": [
+        0.25,
+        0.5,
+        0.75
+      ],
+      "validTexels": 2048,
+      "meanErrorRGB": [
+        -0.25,
+        -0.5,
+        -0.75
+      ],
+      "sha256": "73244d3da7e07c5cd10e7d2390dc5425f4f2d8405847d951924b35c6666ed6a5"
+    },
+    {
+      "mode": "only-visible_diffuse",
+      "visibility": {
+        "visible_camera": false,
+        "visible_shadow": false,
+        "visible_diffuse": true,
+        "visible_glossy": false,
+        "visible_transmission": false,
+        "visible_volume_scatter": false
+      },
+      "meanRGB": [
+        0.24991798400878906,
+        0.4998359680175781,
+        0.7497539520263672
+      ],
+      "expectedRGB": [
+        0.25,
+        0.5,
+        0.75
+      ],
+      "validTexels": 2048,
+      "meanErrorRGB": [
+        -8.20159912109375e-05,
+        -0.000164031982421875,
+        -0.0002460479736328125
+      ],
+      "sha256": "fa57b58a65b9bdfc686ccc2d2907e6ac0de2c2a4704ad12a0d40413bcf41bd84"
+    },
+    {
+      "mode": "only-visible_shadow",
+      "visibility": {
+        "visible_camera": false,
+        "visible_shadow": true,
+        "visible_diffuse": false,
+        "visible_glossy": false,
+        "visible_transmission": false,
+        "visible_volume_scatter": false
+      },
+      "meanRGB": [
+        0.24991798400878906,
+        0.4998359680175781,
+        0.7497539520263672
+      ],
+      "expectedRGB": [
+        0.25,
+        0.5,
+        0.75
+      ],
+      "validTexels": 2048,
+      "meanErrorRGB": [
+        -8.20159912109375e-05,
+        -0.000164031982421875,
+        -0.0002460479736328125
+      ],
+      "sha256": "fa57b58a65b9bdfc686ccc2d2907e6ac0de2c2a4704ad12a0d40413bcf41bd84"
+    },
+    {
+      "mode": "only-visible_camera",
+      "visibility": {
+        "visible_camera": true,
+        "visible_shadow": false,
+        "visible_diffuse": false,
+        "visible_glossy": false,
+        "visible_transmission": false,
+        "visible_volume_scatter": false
+      },
+      "meanRGB": [
+        0.24991798400878906,
+        0.4998359680175781,
+        0.7497539520263672
+      ],
+      "expectedRGB": [
+        0.25,
+        0.5,
+        0.75
+      ],
+      "validTexels": 2048,
+      "meanErrorRGB": [
+        -8.20159912109375e-05,
+        -0.000164031982421875,
+        -0.0002460479736328125
+      ],
+      "sha256": "fa57b58a65b9bdfc686ccc2d2907e6ac0de2c2a4704ad12a0d40413bcf41bd84"
+    }
+  ],
+  "limits": [
+    "Known constantWorld only",
+    "No virtualprobe sourcefield acceptance",
+    "No source file saved"
+  ]
+}

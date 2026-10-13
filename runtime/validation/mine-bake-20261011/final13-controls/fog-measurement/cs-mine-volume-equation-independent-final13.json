@@ -1,0 +1,114 @@
+{
+  "status": "ReadOnlyVolumeEquationAndContractAudit_CurrentFogSplitPending",
+  "inputs": {
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Features/Player/MineAtmosphere.shader": "e39aac1c6bbb6c54018332a2b5647e85c33ce213ba374dba6f616bf36986ae86",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Features/Player/MineAtmosphere.cs": "f26664a6c431fb857bed28a2d033b76d965cb2b6de5e9af9cd9dee3e9f80f053",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/MineVisualLighting.cs": "7778d267d5b759bb141459ebee0a8d1b25e11f609386d5ad12438ae10ef0fab2",
+    "/workspace/critical-shift-spawn-runtime/runtime/tools/export_mine_volumes.py": "93e739bf06e94f5e423a132be54e1d34ec7eb0f0fd5b92ef04d04e3eab25eaf2",
+    "/workspace/critical-shift-spawn-runtime/runtime/out/mine-bake-audit/source-volume.log": "1f33dde30b9e4826835ae9d79b4572859e47cc1f1fce7b999a78b8ea62f29ab3",
+    "/home/agent/.local/share/critical-shift/toolchain/blender-5.2.2-linux-x64/5.2/scripts/addons_core/cycles/source/kernel/svm/closure.h": "585a5e6a6a9507e76983a2cf2e5fdb757f70e9213c5f1b151e6b8ed47842c673"
+  },
+  "currentVolumeContracts": [
+    {
+      "source": "R38 | Tunnel haze",
+      "minimum": [
+        -107.4000015258789,
+        -75.5,
+        -1.1999999284744263
+      ],
+      "maximum": [
+        -53.400001525878906,
+        -64.5,
+        4.0
+      ],
+      "color": [
+        0.3199999928474426,
+        0.36000001430511475,
+        0.6200000047683716,
+        1.0
+      ],
+      "anisotropy": 0.0,
+      "grid": [
+        128,
+        16,
+        16
+      ],
+      "densityMinimum": 0.006179687101393938,
+      "densityMaximum": 0.03407031297683716,
+      "densityMap": {
+        "file": "Surfaces/mine-volume-0-density.exr",
+        "sha256": "240f0de3851c10c3d5f8bbd9ca73754aac127abbc49f27d64fe9fbdd7257eb59",
+        "colorSpace": "linear",
+        "size": 256
+      }
+    },
+    {
+      "source": "R39 | Shed haze",
+      "minimum": [
+        -51.69999694824219,
+        -77.5,
+        0.10000014305114746
+      ],
+      "maximum": [
+        -39.75,
+        -62.650001525878906,
+        4.699999809265137
+      ],
+      "color": [
+        0.5,
+        0.44999998807907104,
+        0.5,
+        1.0
+      ],
+      "anisotropy": 0.0,
+      "grid": [
+        128,
+        16,
+        16
+      ],
+      "densityMinimum": 0.007537500001490116,
+      "densityMaximum": 0.017662499099969864,
+      "densityMap": {
+        "file": "Surfaces/mine-volume-1-density.exr",
+        "sha256": "3d2f3d946319f74a2d99378b03ac7d402d1039283ba564e40ddf9d5324163baf",
+        "colorSpace": "linear",
+        "size": 256
+      }
+    }
+  ],
+  "findings": [
+    {
+      "assessment": "No demonstrated blanketextinctionuniterror",
+      "sourceFormula": "Cycles \u03c3s=Color*density; \u03c3t=(Color+(1-Color)*(1-sqrt(AbsorptionColor)))*density",
+      "condition": "If actualAbsorptionColor black and active singleclosure/unit densityscale,\u03c3t=density matchesnative. ActualRGBabsorption value missinginoldlog/export; defaultOSLblack alone notactualgraphproof."
+    },
+    {
+      "assessment": "Atlasaxispackingconsistent",
+      "details": "Density/lightingrows sourceZslice*sourceY+sourceY; camera/world UnityXZY swizzle passeduv.xzy restoresBlenderXYZ grids."
+    },
+    {
+      "assessment": "No demonstrated missingpi normalization",
+      "details": "SignedUnityL2 coefficients evaluatedonsixaxisnormals averageconstant0; L1/L2 terms cancel. Thatconstant is isotropic incident-radiance mean from cosine-convolved diffuse response; no second/pi warranted absentcontrolleduniformvolumeproof."
+    },
+    {
+      "assessment": "Integration is boundedcamera-pathsingle-scatteringadapter",
+      "details": "Current code attenuates scene alongcamera segment andadds scatter frombakedprobe-derivedlighting; doesnottransport mediumattenuation onlights-to-surfaces/probes or medium-multiple-scattering. Mixed directabsence isanothercandidate, notmeasured dominantcause."
+    },
+    {
+      "assessment": "Resolution/step approximations unresolved",
+      "details": "Density128x16x16, lighting32x4x4,32midpoint raysteps maysmooth/alias localfields; current sourceopacity contribution requirescamera-matched measure beforechangingdensity."
+    }
+  ],
+  "requiredSourceClosureDump": [
+    "Actualactive Volumeoutput linkedPrincipled/Mix topology and weights",
+    "ActualAbsorptionColor RGB/link, Color RGB/link, density/colorattribute names and meshdata availability",
+    "Object/world transforms and volume_density scale; Generated/worldDensity expression context",
+    "Emission/blackbody/anisotropy values incllinkedinputs (oldlog records0/unlinked for emission/blackbody andanisotropy0)"
+  ],
+  "limits": [
+    "No Blender/Unity launched, no production/exporter edits",
+    "Source currentclosure actualabsorptionRGB notread byoldbpy_floatplaceholderlog",
+    "Currentfull13 remainsRejected41of60; fogdiagnostic cannotproveSourceMatch orMixedrootcause alone"
+  ],
+  "overallScore": null
+}

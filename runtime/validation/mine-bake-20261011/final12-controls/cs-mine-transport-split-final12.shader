@@ -1,0 +1,171 @@
+Shader "CriticalShift/DiagnosticTransportSplitFinal12"
+{
+    Properties
+    {
+        _CsSplit ("Diagnostic transport split", Float)=0
+        _Color ("Tint", Color) = (1,1,1,1)
+        _MainTex ("Source colour", 2D) = "white" {}
+        _BumpMap ("Source normal", 2D) = "bump" {}
+        _BumpScale ("Normal strength", Float) = 1
+        _MetallicGlossMap ("Metallic / smoothness", 2D) = "white" {}
+        _Metallic ("Metallic", Range(0,1)) = 0
+        _DielectricSpecular ("Source dielectric reflectivity", Range(0,1)) = 0.04
+        _Glossiness ("Smoothness", Range(0,1)) = 0.5
+        _GlossMapScale ("Smoothness scale", Range(0,1)) = 1
+        _MetallicFromMap ("Use metallic map", Float) = 1
+        _SmoothnessFromMap ("Use smoothness map", Float) = 1
+        _EmissionMap ("Source emission", 2D) = "white" {}
+        [HDR] _EmissionColor ("Emission", Color) = (0,0,0,1)
+        _WoodDiffuse ("Authored wood colour detail", 2D) = "white" {}
+        _WoodNormal ("Authored wood normal detail", 2D) = "bump" {}
+        _WoodHigh ("Wood colour coefficient at full grain", 2D) = "white" {}
+        _WoodSignal ("Source grain parameters", Vector) = (1,0,1,1)
+        _WoodBump ("Source bump and UV rotation", Vector) = (0,0,0,0)
+        _WoodUV ("Source UV scale and offset", Vector) = (1,1,0,0)
+    }
+    SubShader
+    {
+        Tags { "RenderType"="Opaque" }
+        LOD 300
+        // Cycles shades both sides and reverses the shading normal for back faces.
+        Cull Off
+        CGPROGRAM
+        #pragma target 3.0
+        #pragma surface surf DiagnosticTransportSplit fullforwardshadows addshadow vertex:vert
+        #pragma shader_feature_local _NORMALMAP
+        #pragma shader_feature_local _METALLICGLOSSMAP
+        #pragma shader_feature_local _EMISSION
+        #pragma shader_feature_local _SOURCE_WOOD
+        #include "UnityStandardUtils.cginc"
+        #include "UnityPBSLighting.cginc"
+        #include "BlenderPointLighting.cginc"
+        sampler2D _MainTex, _BumpMap, _MetallicGlossMap, _EmissionMap;
+        fixed4 _Color;
+        half _BumpScale, _Metallic, _DielectricSpecular, _Glossiness, _GlossMapScale, _MetallicFromMap, _SmoothnessFromMap;
+        half4 _EmissionColor;
+        #if defined(_SOURCE_WOOD)
+            sampler2D _WoodDiffuse,_WoodNormal,_WoodHigh;
+            float4 _WoodSignal,_WoodBump,_WoodUV;
+        #endif
+        #if defined(_SOURCE_WOOD)
+        float woodGrain(float2 uv,float2 dx,float2 dy)
+        {
+            return clamp(dot(tex2Dgrad(_WoodDiffuse,uv,dx,dy).rgb,float3(.2126,.7152,.0722))/_WoodSignal.x,_WoodSignal.y,_WoodSignal.z);
+        }
+        #endif
+        struct Input
+        {
+            float2 uv_MainTex; float facing : VFACE;
+            #if defined(_SOURCE_WOOD)
+                float2 woodUV;float3 worldPos;float3 worldNormal;
+                INTERNAL_DATA
+            #endif
+        };
+        void vert(inout appdata_full vertex,out Input output)
+        {
+            UNITY_INITIALIZE_OUTPUT(Input,output);
+            #if defined(_SOURCE_WOOD)
+                output.woodUV=vertex.texcoord2.xy;
+            #endif
+        }
+
+        float _CsSplit;
+        half4 LightingDiagnosticTransportSplit(SurfaceOutputStandardSpecular s,half3 viewDir,UnityGI gi)
+        {
+            half4 total=LightingStandardSpecular(s,viewDir,gi);
+            float3 halfDir=Unity_SafeNormalize(gi.light.dir+viewDir);
+            float nv=abs(dot(s.Normal,viewDir));float nl=saturate(dot(s.Normal,gi.light.dir));float lh=saturate(dot(gi.light.dir,halfDir));
+            half3 diffuseColour=s.Albedo*(1-SpecularStrength(s.Specular));
+            half3 direct=diffuseColour*gi.light.color*(DisneyDiffuse(nv,nl,lh,1-s.Smoothness)*nl);
+            half3 indirect=diffuseColour*gi.indirect.diffuse;
+            return half4(_CsSplit<.5 ? total.rgb : _CsSplit<1.5 ? direct : _CsSplit<2.5 ? indirect : _CsSplit<3.5 ? total.rgb-direct-indirect : half3(1,1,1),1);
+        }
+        void LightingDiagnosticTransportSplit_GI(SurfaceOutputStandardSpecular s,UnityGIInput data,inout UnityGI gi)
+        { LightingStandardSpecular_GI(s,data,gi); }
+
+        void surf(Input input, inout SurfaceOutputStandardSpecular output)
+        {
+            fixed4 colour=tex2D(_MainTex,input.uv_MainTex)*_Color;
+            #if defined(_SOURCE_WOOD)
+                float2 sourceUV=input.woodUV*_WoodUV.xy;
+                float s,c;sincos(_WoodBump.z,s,c);
+                sourceUV=float2(c*sourceUV.x-s*sourceUV.y,s*sourceUV.x+c*sourceUV.y)+_WoodUV.zw;
+                float2 uvDx=ddx(sourceUV),uvDy=ddy(sourceUV);
+                float grain=woodGrain(sourceUV,uvDx,uvDy);
+                colour.rgb=lerp(colour.rgb,tex2D(_WoodHigh,input.uv_MainTex).rgb*_Color.rgb,grain);
+            #endif
+            output.Alpha=colour.a;
+            half metallic;
+            #if defined(_METALLICGLOSSMAP)
+                half4 metal=tex2D(_MetallicGlossMap,input.uv_MainTex);
+                metallic=lerp(_Metallic,metal.r,_MetallicFromMap);
+                output.Smoothness=lerp(_Glossiness,metal.a*_GlossMapScale,_SmoothnessFromMap);
+            #else
+                metallic=_Metallic; output.Smoothness=_Glossiness;
+            #endif
+            output.Specular=lerp(half3(_DielectricSpecular,_DielectricSpecular,_DielectricSpecular),colour.rgb,metallic);
+            // StandardSpecular applies (1-max(specular)) itself. Retain the
+            // metallic workflow's diffuse energy while replacing dielectric F0.
+            half reflectivity=max(max(output.Specular.r,output.Specular.g),output.Specular.b);
+            output.Albedo=colour.rgb*(1-metallic)*(1-_DielectricSpecular)/max(1-reflectivity,0.0001h);
+            half3 normal=half3(0,0,1);
+            #if defined(_NORMALMAP)
+                normal=UnpackScaleNormal(tex2D(_BumpMap,input.uv_MainTex),_BumpScale);
+            #endif
+            #if defined(_SOURCE_WOOD)
+                // UV2 retains Blender's original image coordinates. Reconstruct
+                // their tangent frame instead of using the unrelated atlas UV0.
+                float3 atlasN=WorldNormalVector(input,float3(0,0,1));
+                float3 baseN=normalize(atlasN);
+                float3 dx=ddx(input.worldPos),dy=ddy(input.worldPos);
+                // Blender's Normal Map tangent basis belongs to the named UVMap,
+                // even when a Mapping node rotates or scales the sampled image.
+                float2 tx=ddx(input.woodUV),ty=ddy(input.woodUV);
+                float determinant=tx.x*ty.y-tx.y*ty.x;
+                float orientation=determinant>=0 ? 1 : -1;
+                float3 tangent=dx*ty.y-dy*tx.y;
+                tangent=normalize(tangent-baseN*dot(baseN,tangent)+float3(1e-12,0,0))*orientation;
+                float3 rawBitangent=(dy*tx.x-dx*ty.x)*orientation;
+                float handedness=dot(cross(baseN,tangent),rawBitangent)>=0 ? 1 : -1;
+                float3 bitangent=normalize(cross(baseN,tangent))*handedness;
+                float3 detail=UnpackScaleNormal(tex2D(_WoodNormal,sourceUV),_WoodSignal.w);
+                float3 world=abs(determinant)>1e-10 ? normalize(tangent*detail.x+bitangent*detail.y+baseN*detail.z) : baseN;
+                float3 r1=cross(dy,world),r2=cross(world,dx);
+                float area=dot(dx,r1);
+                // Cycles integrates jittered subpixel samples; MSAA resolves
+                // geometry but does not integrate nonlinear bump shading.
+                // Average four source-derived normals within this pixel footprint.
+                if(_WoodBump.x>0)
+                {
+                    float width=_WoodBump.w;float3 sum=0;
+                    [unroll] for(int sampleIndex=0;sampleIndex<4;sampleIndex++)
+                    {
+                        float2 offset=float2(sampleIndex==0 || sampleIndex==2 ? -.25 : .25,
+                            sampleIndex<2 ? -.25 : .25);
+                        float2 uv=sourceUV+uvDx*offset.x+uvDy*offset.y;
+                        float center=woodGrain(uv,uvDx,uvDy);
+                        float gx=(woodGrain(uv+uvDx*width,uvDx,uvDy)-center)/width;
+                        float gy=(woodGrain(uv+uvDy*width,uvDx,uvDy)-center)/width;
+                        float3 gradient=r1*gx+r2*gy;
+                        float3 bumped=normalize(abs(area)*world-(area>=0 ? 1 : -1)*gradient*_WoodBump.y+world*1e-12);
+                        sum+=normalize(lerp(world,bumped,_WoodBump.x));
+                    }
+                    world=normalize(sum);
+                }
+                float3 atlasT=WorldNormalVector(input,float3(1,0,0));
+                float3 atlasB=WorldNormalVector(input,float3(0,1,0));
+                float atlasDeterminant=dot(atlasT,cross(atlasB,atlasN));
+                // Invert the interpolated atlas frame; dot projection would
+                // distort the result on nonorthogonal smooth-normal bevels.
+                normal=abs(atlasDeterminant)>1e-8 ? float3(dot(world,cross(atlasB,atlasN)),
+                    dot(world,cross(atlasN,atlasT)),dot(world,cross(atlasT,atlasB)))/atlasDeterminant : float3(0,0,1);
+            #endif
+            output.Normal=normal*(input.facing>=0 ? 1 : -1);
+            #if defined(_EMISSION)
+                output.Emission=tex2D(_EmissionMap,input.uv_MainTex).rgb*_EmissionColor.rgb;
+            #endif
+        }
+        ENDCG
+    }
+    FallBack "Diffuse"
+}

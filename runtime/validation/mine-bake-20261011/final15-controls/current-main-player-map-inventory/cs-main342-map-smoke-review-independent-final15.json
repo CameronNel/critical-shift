@@ -1,0 +1,33 @@
+{
+  "status": "NativePrelaunchClearanceReboundToCurrentMapSmoke_PlayerMissingSpawnArtifactPins",
+  "inputs": {
+    "/tmp/cs-main342-native-final15.py": "ee19d6936a0a2840b4e15b7f339f8a7d32d4c830b0007c0dc07131ea5037fd31",
+    "/tmp/cs-main342-native-bake-final15.py": "fb77edbca9506cee850e02dd100c3c494317c7f7706dc05a741654bcc5b8f52b",
+    "/tmp/cs-main342-native-after-bake-final15.py": "451747c570e470e3c8c34597258ab85761bb4dee21f483def35ea0970e1f2d1a",
+    "/tmp/cs-main342-native-evidence-final15.py": "5b2caf07d85fec64312f3c46fadedb34aa42acc5bdeb86f5ce88c69ac76c4ac5",
+    "/tmp/cs-main342-player-final15.py": "17341b7768fb59ce11f6fde98292431abf08ecf54e7515d4c5602dbf7bb756a2",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/PlayerRoomBootstrap.cs": "639ad97edd1bf27823bf6d375b700e05018f1b0b0f390ce755f382fd7fe993f3",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/SpawnMapBuild.cs": "4735d76ce5ccd31a272432952b807728204f5b3a4f11ccdf3cb4367cb5c1e0b3",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/MineSpotLighting.cs": "af5b0ff7a694234a3f14fbf9e37edfa00d2f35cf0426d1db78ec47745fe2054c",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/SpawnVisualReview.cs": "a98bbea6bcc050d74ecd67569247bd7481f7ba30a9f90d50bb889fc06fde94fa"
+  },
+  "apiReceiptSha256": "e751a680de9af844e99c97f0d9537c612abf019585467a21393a1bd696285cfd",
+  "apiSourceSha256": "fb19eb8d6d159994328e546285553a36ce7c898507d274641bedd0234360955f",
+  "checks": [
+    "FourAPI assemblies bind currentCSharp",
+    "Runtime observer serialized full mapcommit/bindingSHA/source-derived unique roomkeys/collisioncounts",
+    "Smoke-only120frame report verifies exact actualroots/activecollisions/sharedmesh/GetIndexCount/finitebounds",
+    "Explicit CLI expected identity binds actual compiledScene; invalid/missing fails",
+    "Player fresh logs/output/report ownership and read-only process idle check",
+    "Player review+technical+Source/camera/mine artifact recipe before+after and complete hashed required buildoutputs"
+  ],
+  "remainingPlayerFix": [
+    "Include three fresh native Spawn PNGs in exact independent review artifacts/pins alongside Mine source/native PNG/HDR/metadata"
+  ],
+  "limits": [
+    "Native prelaunch still requires R6/SourceR2/adoption/restoredcache receipts and exclusive ownership",
+    "Player must remain unlaunched until actual independent visual approval",
+    "Map inventory and120frame lifecycle only; Source13 continuous navigation/new-room lighting/gameplay/performance not certified",
+    "No engines launched by reviewer; prior visual41/60 unchanged"
+  ]
+}

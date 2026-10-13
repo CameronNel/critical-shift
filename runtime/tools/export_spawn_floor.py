@@ -63,9 +63,9 @@ def main():
         import hashlib
         package["wallMesh" if walls else "letteringMesh"]={"file":file.relative_to(output).as_posix(),"sha256":hashlib.sha256(file.read_bytes()).hexdigest()}
         path.write_text(json.dumps(manifest,indent=2)+"\n")
-        from prepare_player import meta
+        from prepare_spawn import derivative_meta
         for asset in [output/("Surfaces/"+key),*sorted((output/("Surfaces/"+key)).rglob("*"))]:
-            if not asset.name.endswith(".meta"):meta(asset)
+            if not asset.name.endswith(".meta") and not Path(str(asset)+".meta").exists():derivative_meta(asset,output)
         print("CS_SOURCE_SURFACE_DELIVERY_OK; kind="+key+"; meshes="+str(len(objects))+"; original room geometry hashes unchanged",flush=True)
         return
     if "--inputs-only" in sys.argv:
@@ -91,9 +91,9 @@ def main():
     binding["deliveryUvAxes"]=[0,1]
     package["displayLut"]=baked["displayLut"]
     path.write_text(json.dumps(manifest,indent=2)+"\n")
-    from prepare_player import meta
+    from prepare_spawn import derivative_meta
     for asset in [output/"Surfaces/floor",*sorted((output/"Surfaces/floor").rglob("*"))]:
-        if not asset.name.endswith(".meta"):meta(asset)
+        if not asset.name.endswith(".meta") and not Path(str(asset)+".meta").exists():derivative_meta(asset,output)
     print("CS_SOURCE_FLOOR_DELIVERY_OK; geometry hashes unchanged",flush=True)
 
 

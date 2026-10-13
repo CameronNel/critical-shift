@@ -1,0 +1,548 @@
+{
+  "status": "PassedBoundedSourceSpotFamilyCalibration_WithKnownResiduals",
+  "nativeReceiptSha256": "87ffd3fad8b874dd1144b9727a407c610e9bec2badfbefc6e797648c95dc90b5",
+  "nativeLogSha256": "5ce21b24f69c7eff2f801e491e1e0678af860dcdf7c928b067e708c647ec1b19",
+  "sourceProvenanceSha256": "dc5d854be14eccb0b8bc25baea76c88d4453b3c6cdd4d500919a7d97d5c3d18b",
+  "frames": [
+    {
+      "name": "d1-a0-baked-tagged",
+      "sha256": "683c47f3751e4b02173d7825e97c0fa4c4a7448099cbee8d3ee3657c174377d3",
+      "metadataSha256": "4604c826c8363a7cd69e68c853b5de90afb088836e0e49e2756a2b306dda920b",
+      "finiteRgb": true,
+      "sourceCentre8MeanRgb": [
+        11.686149969696999,
+        10.751258611679077,
+        9.11519667506218
+      ],
+      "nativeCentre8MeanRgb": [
+        11.835000038146973,
+        10.88437557220459,
+        9.23062515258789
+      ],
+      "nativeToSourceRgbRatio": [
+        1.0127373060277296,
+        1.0123815234414424,
+        1.012663300819554
+      ],
+      "relativeRgbError": [
+        0.012737306027729633,
+        0.012381523441442282,
+        0.01266330081955403
+      ],
+      "maxRawRgb": 11.835000038146973,
+      "lampIntensityAndGeometryVerified": true
+    },
+    {
+      "name": "d1-a0-baked-white",
+      "sha256": "683c47f3751e4b02173d7825e97c0fa4c4a7448099cbee8d3ee3657c174377d3",
+      "metadataSha256": "8b4be4f540cedebdacc2712d7caa6cc172c811bde5052098d0eac8a650136592",
+      "finiteRgb": true,
+      "sourceCentre8MeanRgb": [
+        11.686149969696999,
+        10.751258611679077,
+        9.11519667506218
+      ],
+      "nativeCentre8MeanRgb": [
+        11.835000038146973,
+        10.88437557220459,
+        9.23062515258789
+      ],
+      "nativeToSourceRgbRatio": [
+        1.0127373060277296,
+        1.0123815234414424,
+        1.012663300819554
+      ],
+      "relativeRgbError": [
+        0.012737306027729633,
+        0.012381523441442282,
+        0.01266330081955403
+      ],
+      "maxRawRgb": 11.835000038146973,
+      "lampIntensityAndGeometryVerified": true
+    },
+    {
+      "name": "d1-a0-realtime-tagged",
+      "sha256": "6cff383385de2251df518083f00648a65c356111f5de2941dcaabec37bc62270",
+      "metadataSha256": "c7eee9de1074b51fb7a3e9e4c3f28e96678e2540c21a54a5eb03b6e058b9ddd0",
+      "finiteRgb": true,
+      "sourceCentre8MeanRgb": [
+        11.686149969696999,
+        10.751258611679077,
+        9.11519667506218
+      ],
+      "nativeCentre8MeanRgb": [
+        11.68579150736332,
+        10.750929027795792,
+        9.114916443824768
+      ],
+      "nativeToSourceRgbRatio": [
+        0.9999693258828093,
+        0.9999693446232493,
+        0.9999692566987416
+      ],
+      "relativeRgbError": [
+        -3.06741171907529e-05,
+        -3.065537675072721e-05,
+        -3.074330125845446e-05
+      ],
+      "maxRawRgb": 11.686064720153809,
+      "lampIntensityAndGeometryVerified": true
+    },
+    {
+      "name": "d2-a0-baked-tagged",
+      "sha256": "04ab7b92bce72575752cc366122f1840a2151fa295c435019ed36fff2d4f0ba3",
+      "metadataSha256": "68a19eb73b634fe9534cc60acb7f5152d3e9222e55be795b3379a17d004d08ee",
+      "finiteRgb": true,
+      "sourceCentre8MeanRgb": [
+        2.9529990293085575,
+        2.7167592979967594,
+        2.3033391013741493
+      ],
+      "nativeCentre8MeanRgb": [
+        2.958750009536743,
+        2.7210938930511475,
+        2.3076562881469727
+      ],
+      "nativeToSourceRgbRatio": [
+        1.0019475049504274,
+        1.0015955020592306,
+        1.001874316625914
+      ],
+      "relativeRgbError": [
+        0.0019475049504273766,
+        0.0015955020592307242,
+        0.0018743166259139797
+      ],
+      "maxRawRgb": 2.958750009536743,
+      "lampIntensityAndGeometryVerified": true
+    },
+    {
+      "name": "d2-a0-realtime-tagged",
+      "sha256": "eb9add644fa7d67ee8f2872010896bd5011304efae26c344ec25a2cb62051c57",
+      "metadataSha256": "78f2003e9d2a4e2b534117f5fe416763941c3c35c406ee8cbd790c975918ac4f",
+      "finiteRgb": true,
+      "sourceCentre8MeanRgb": [
+        2.9529990293085575,
+        2.7167592979967594,
+        2.3033391013741493
+      ],
+      "nativeCentre8MeanRgb": [
+        2.952937573194504,
+        2.716702751815319,
+        2.3032910525798798
+      ],
+      "nativeToSourceRgbRatio": [
+        0.9999791885762767,
+        0.9999791861643826,
+        0.9999791395047994
+      ],
+      "relativeRgbError": [
+        -2.0811423723398953e-05,
+        -2.0813835617328525e-05,
+        -2.0860495200596532e-05
+      ],
+      "maxRawRgb": 2.9529545307159424,
+      "lampIntensityAndGeometryVerified": true
+    },
+    {
+      "name": "d4-a0-baked-tagged",
+      "sha256": "07c8d8eb5af6d22b0cc5c826fa8265e0e1e7af74b6d21e3d14d8cfc0e1d7f9c2",
+      "metadataSha256": "36afab1c310444df92445408d36b924c454b0dc6380591bc50792f5167bc7a39",
+      "finiteRgb": true,
+      "sourceCentre8MeanRgb": [
+        0.7402438633143902,
+        0.6810244135558605,
+        0.5773901734501123
+      ],
+      "nativeCentre8MeanRgb": [
+        0.7396875023841858,
+        0.6802734732627869,
+        0.5769140720367432
+      ],
+      "nativeToSourceRgbRatio": [
+        0.9992484085883355,
+        0.9988973371906702,
+        0.9991754251539746
+      ],
+      "relativeRgbError": [
+        -0.0007515914116644267,
+        -0.0011026628093297553,
+        -0.000824574846025354
+      ],
+      "maxRawRgb": 0.7396875023841858,
+      "lampIntensityAndGeometryVerified": true
+    },
+    {
+      "name": "d4-a0-realtime-tagged",
+      "sha256": "181c9f681bcc5faf7914282fd243a294c54453be5c5c2f7218f8b27d916bff5d",
+      "metadataSha256": "445d7efc36ab86be9da0f332324ae31e34cd7d45528e369fb46789b82c1464dc",
+      "finiteRgb": true,
+      "sourceCentre8MeanRgb": [
+        0.7402438633143902,
+        0.6810244135558605,
+        0.5773901734501123
+      ],
+      "nativeCentre8MeanRgb": [
+        0.7402291167527437,
+        0.6810108441859484,
+        0.5773786390200257
+      ],
+      "nativeToSourceRgbRatio": [
+        0.9999800787789305,
+        0.9999800750609786,
+        0.9999800231617769
+      ],
+      "relativeRgbError": [
+        -1.9921221069546984e-05,
+        -1.992493902134465e-05,
+        -1.997683822308642e-05
+      ],
+      "maxRawRgb": 0.7402302622795105,
+      "lampIntensityAndGeometryVerified": true
+    },
+    {
+      "name": "d4-a30-baked-tagged",
+      "sha256": "5f130ac36b232213491e5811e835a788282f87a102bb0bc21cf8edced93edcac",
+      "metadataSha256": "8da300d1b3fdb802424c84658e037c07dfc0a156edd1a2833f18562844c91432",
+      "finiteRgb": true,
+      "sourceCentre8MeanRgb": [
+        0.7315746573731303,
+        0.6730486890301108,
+        0.5706281596794724
+      ],
+      "nativeCentre8MeanRgb": [
+        0.7321491567417979,
+        0.6735624987632036,
+        0.5711677307263017
+      ],
+      "nativeToSourceRgbRatio": [
+        1.0007852915117788,
+        1.0007634064837616,
+        1.000945573816638
+      ],
+      "relativeRgbError": [
+        0.0007852915117787992,
+        0.0007634064837615307,
+        0.0009455738166379768
+      ],
+      "maxRawRgb": 0.7356641888618469,
+      "lampIntensityAndGeometryVerified": true
+    },
+    {
+      "name": "d4-a30-realtime-tagged",
+      "sha256": "ff489a90c70a6c0a32a8450569e62b8469559e49fc9f47809680ad6692adf90b",
+      "metadataSha256": "979ae7bdeeaf2a917e55688aac35f9e71987499e5d336b74c15c6434be551ddf",
+      "finiteRgb": true,
+      "sourceCentre8MeanRgb": [
+        0.7315746573731303,
+        0.6730486890301108,
+        0.5706281596794724
+      ],
+      "nativeCentre8MeanRgb": [
+        0.7320017442107201,
+        0.6734416633844376,
+        0.5709612993523479
+      ],
+      "nativeToSourceRgbRatio": [
+        1.0005837911869764,
+        1.00058387210425,
+        1.0005838121852635
+      ],
+      "relativeRgbError": [
+        0.0005837911869764381,
+        0.0005838721042500153,
+        0.0005838121852635739
+      ],
+      "maxRawRgb": 0.73441082239151,
+      "lampIntensityAndGeometryVerified": true
+    },
+    {
+      "name": "d4-a50-baked-tagged",
+      "sha256": "22e5545543c8a970901ffe08ed2181c31eef3d64450a7b2b9e571518d66774bd",
+      "metadataSha256": "c20b1c5839fb1e94e57be22602d737a0e9a5d8042ed337edd200fdca006a4613",
+      "finiteRgb": true,
+      "sourceCentre8MeanRgb": [
+        0.28241498256102204,
+        0.2598217879422009,
+        0.22028367896564305
+      ],
+      "nativeCentre8MeanRgb": [
+        0.2821165304630995,
+        0.2595425280742347,
+        0.22009526519104838
+      ],
+      "nativeToSourceRgbRatio": [
+        0.9989432143605976,
+        0.9989251868745191,
+        0.9991446766484046
+      ],
+      "relativeRgbError": [
+        -0.0010567856394023867,
+        -0.0010748131254808327,
+        -0.0008553233515954256
+      ],
+      "maxRawRgb": 0.2999732494354248,
+      "lampIntensityAndGeometryVerified": true
+    },
+    {
+      "name": "d4-a50-baked-white",
+      "sha256": "22e5545543c8a970901ffe08ed2181c31eef3d64450a7b2b9e571518d66774bd",
+      "metadataSha256": "03f06f469dbfea08eed7515fcf7ddbc215385d9f9ec5c8b994ef40182009535f",
+      "finiteRgb": true,
+      "sourceCentre8MeanRgb": [
+        0.28241498256102204,
+        0.2598217879422009,
+        0.22028367896564305
+      ],
+      "nativeCentre8MeanRgb": [
+        0.2821165304630995,
+        0.2595425280742347,
+        0.22009526519104838
+      ],
+      "nativeToSourceRgbRatio": [
+        0.9989432143605976,
+        0.9989251868745191,
+        0.9991446766484046
+      ],
+      "relativeRgbError": [
+        -0.0010567856394023867,
+        -0.0010748131254808327,
+        -0.0008553233515954256
+      ],
+      "maxRawRgb": 0.2999732494354248,
+      "lampIntensityAndGeometryVerified": true
+    },
+    {
+      "name": "d4-a50-realtime-tagged",
+      "sha256": "2ae3841cedaef8db7416ba5b91f45e3f1b0c9cb749018732d0b896f81a595534",
+      "metadataSha256": "1ead177051d29e7910451af5ac4e21affc38c2add031d80a0b5e563dcaaadb7d",
+      "finiteRgb": true,
+      "sourceCentre8MeanRgb": [
+        0.28241498256102204,
+        0.2598217879422009,
+        0.22028367896564305
+      ],
+      "nativeCentre8MeanRgb": [
+        0.28249509166926146,
+        0.25989551143720746,
+        0.22034614975564182
+      ],
+      "nativeToSourceRgbRatio": [
+        1.000283657430328,
+        1.0002837463924426,
+        1.0002835924581073
+      ],
+      "relativeRgbError": [
+        0.00028365743032809156,
+        0.0002837463924425059,
+        0.0002835924581072261
+      ],
+      "maxRawRgb": 0.3014456033706665,
+      "lampIntensityAndGeometryVerified": true
+    },
+    {
+      "name": "d4-a60-baked-tagged",
+      "sha256": "f2a16f42b1ebcdb9f8b890abe14fe45e9bdae1db7824af275919ce89110b61c9",
+      "metadataSha256": "a28a70811c983ff3a6c037927a882219db84d78fe25d760647fea96520309df8",
+      "finiteRgb": true,
+      "sourceCentre8MeanRgb": [
+        0.018063602707115933,
+        0.01661851443350315,
+        0.014089608332142234
+      ],
+      "nativeCentre8MeanRgb": [
+        0.016215067211305723,
+        0.014926873467629775,
+        0.012654725433094427
+      ],
+      "nativeToSourceRgbRatio": [
+        0.8976651819804472,
+        0.8982074497307049,
+        0.898160199686002
+      ],
+      "relativeRgbError": [
+        -0.10233481801955283,
+        -0.1017925502692951,
+        -0.10183980031399796
+      ],
+      "maxRawRgb": 0.02398904599249363,
+      "lampIntensityAndGeometryVerified": true
+    },
+    {
+      "name": "d4-a60-realtime-tagged",
+      "sha256": "69adf64ca85e193e3f2b9b5040cea30b20b2dbc52b9e93ca07f83fedc54c45cb",
+      "metadataSha256": "d50a8d39857cef4d9381c3ecf26c2d82678ac585df1df064cf6462b0702e67d0",
+      "finiteRgb": true,
+      "sourceCentre8MeanRgb": [
+        0.018063602707115933,
+        0.01661851443350315,
+        0.014089608332142234
+      ],
+      "nativeCentre8MeanRgb": [
+        0.016549810447031632,
+        0.01522582683537621,
+        0.012908850840176456
+      ],
+      "nativeToSourceRgbRatio": [
+        0.9161965481289089,
+        0.9161966249330167,
+        0.9161965709669765
+      ],
+      "relativeRgbError": [
+        -0.08380345187109112,
+        -0.08380337506698332,
+        -0.08380342903302349
+      ],
+      "maxRawRgb": 0.024312257766723633,
+      "lampIntensityAndGeometryVerified": true
+    },
+    {
+      "name": "d4-a65-baked-tagged",
+      "sha256": "089262925861e47610cf7d8963cd68478fcb8aec5076f8efca9fdcbbc6269c2b",
+      "metadataSha256": "b8841a557872599dcece5541e03deeb9b4e4c64cd0f548373f68336537c043a5",
+      "finiteRgb": true,
+      "sourceCentre8MeanRgb": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "nativeCentre8MeanRgb": [
+        0.0,
+        8.533323381243463e-08,
+        8.533323381243463e-08
+      ],
+      "nativeToSourceRgbRatio": [
+        null,
+        null,
+        null
+      ],
+      "relativeRgbError": [
+        null,
+        null,
+        null
+      ],
+      "maxRawRgb": 8.533323381243463e-08,
+      "lampIntensityAndGeometryVerified": true
+    },
+    {
+      "name": "d4-a65-realtime-tagged",
+      "sha256": "57f3cc94fe9b4994c303ea6299c7605dddb33ecc4f00c3ec8b37535827f9633a",
+      "metadataSha256": "e378c0d9ebec79c924768784e819ae2b36b746f9bcafe82e846be5a61268d5d1",
+      "finiteRgb": true,
+      "sourceCentre8MeanRgb": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "nativeCentre8MeanRgb": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "nativeToSourceRgbRatio": [
+        null,
+        null,
+        null
+      ],
+      "relativeRgbError": [
+        null,
+        null,
+        null
+      ],
+      "maxRawRgb": 0.0,
+      "lampIntensityAndGeometryVerified": true
+    },
+    {
+      "name": "d4-a75-baked-tagged",
+      "sha256": "5e2b39b032158ad6d18af937cbbec3b4de37cb7f04a99ed8ac9d3211f215dec7",
+      "metadataSha256": "9c31732d51801a5e011d7dd466726eb1b97a137b83b28e485652c18a49a94b61",
+      "finiteRgb": true,
+      "sourceCentre8MeanRgb": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "nativeCentre8MeanRgb": [
+        0.0,
+        8.525833550265816e-08,
+        8.525833550265816e-08
+      ],
+      "nativeToSourceRgbRatio": [
+        null,
+        null,
+        null
+      ],
+      "relativeRgbError": [
+        null,
+        null,
+        null
+      ],
+      "maxRawRgb": 8.525833550265816e-08,
+      "lampIntensityAndGeometryVerified": true
+    },
+    {
+      "name": "d4-a75-realtime-tagged",
+      "sha256": "57f3cc94fe9b4994c303ea6299c7605dddb33ecc4f00c3ec8b37535827f9633a",
+      "metadataSha256": "b7ab329e2f6dde5b2c4fa0e9b27407d9067a0248be33d6fdfd9a5d6cd58c8457",
+      "finiteRgb": true,
+      "sourceCentre8MeanRgb": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "nativeCentre8MeanRgb": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "nativeToSourceRgbRatio": [
+        null,
+        null,
+        null
+      ],
+      "relativeRgbError": [
+        null,
+        null,
+        null
+      ],
+      "maxRawRgb": 0.0,
+      "lampIntensityAndGeometryVerified": true
+    }
+  ],
+  "bakedCookieRgbIdentityControls": [
+    {
+      "case": "d1-a0",
+      "wholeRgbExactlyEqual": true,
+      "maximumAbsoluteRawRgbDifference": 0.0,
+      "centreMeanRgbDifference": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "case": "d4-a50",
+      "wholeRgbExactlyEqual": true,
+      "maximumAbsoluteRawRgbDifference": 0.0,
+      "centreMeanRgbDifference": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "verdict": "Eligible for scoped implementation of the six inspected source spotlight family, pending actual-production-helper reproduction, blocker shadow control and fresh full-map visual/spawn/gameplay proof. Not final lighting approval.",
+  "findings": [
+    "Realtime axis response reproduces Source far-field radiometry and warm colour; cone profile reproduces30/50degree bulk",
+    "60degree residual reflects bounded finite source sphere/angular integration versus point-cookie approximation; do not retune authored blend",
+    "Near1m baked residual remains separate from realtime sphere response; actual Soft shape extraction proven",
+    "Tagged and white baked cookies independently compared; no speculative RGB-tint or inner-angle fix",
+    "Actual extracted inner cone metadata differs declared hard angle; observed60degree response does not show proposed large extra cone factor"
+  ],
+  "limits": [
+    "Single unoccluded Lambert receiver, one normalized spherical125deg/blend.8/radius.12 family; no map-shadow, specular, actor, range32+ behavior proof",
+    "Old six-room full13 remains rejected41/60; new compact13roommain integration and fresh Player pending",
+    "No reviewer production/source edits or Unity/Blender launch"
+  ],
+  "overallScore": null
+}

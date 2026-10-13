@@ -1,0 +1,50 @@
+{
+  "status": "PassedIndependent13RoomAndAssemblyGeometry_14BoundsRoundtrips_NotNativeAcceptance",
+  "files": [
+    {
+      "file": "cs-compact-main342-geometry-export-final15.py",
+      "bytes": 2681,
+      "sha256": "05c3a78aff4951a2cf462709fb21f939517b3b6fe6f862c456c6f50735142beb"
+    },
+    {
+      "file": "cs-compact-main342-geometry-export-final15.json",
+      "bytes": 7608,
+      "sha256": "e877a7c325d955d837b27785fa23e5b28c7fd01f1079652ba1debd74d1807037"
+    },
+    {
+      "file": "cs-compact-main342-geometry-export-final15.log",
+      "bytes": 9307,
+      "sha256": "997ca5285e215d19c6984fdfb90cea7afae3da135a32458d7e82a2f5b874b984"
+    },
+    {
+      "file": "cs-current-main-surface-r4-prelaunch-independent-final15.json",
+      "bytes": 6600,
+      "sha256": "ac3f7d12dc3c5aed2c6f238bbbe6acab3ac8ab5de414b91315e99036b700103c"
+    },
+    {
+      "file": "cs-main342-checkpoint-code-independent-final15.json",
+      "bytes": 3437,
+      "sha256": "4c35f6af00ec87ed957b7a4a4be5714d768efc7ee03e3327de54bd84e4003e98"
+    },
+    {
+      "file": "map-bindings.json",
+      "bytes": 5958408,
+      "sha256": "79d26548b4726d87b8d92f0b9e0025e546b493de7faf660298b0e8ca7715de7b"
+    },
+    {
+      "file": "map-roundtrip.json",
+      "bytes": 439,
+      "sha256": "52387148d8f6d019df9991789331a833b758ee55ca700f09725cb885c9f20603"
+    },
+    {
+      "file": "cs-main342-geometry-independent-final15.json",
+      "bytes": 16306,
+      "sha256": "cf4390511f57101b191fbaacf2cde30a1c4253d181602fe3363fc2e959a1601c"
+    }
+  ],
+  "limits": [
+    "13 room placements and202localassemblyobjects; one additional assembly delivery group",
+    "FBX exact hashes in export state and manifest; large runtime geometry retained in isolated workspace",
+    "Fresh Spawn/minesurfaces and native map/Player remain pending; no98"
+  ]
+}

@@ -9,6 +9,7 @@ import bpy
 from mathutils import Matrix, Vector
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from export_spawn_materials import bake_surfaces
+from mine_join_rays import collision_eligible
 
 
 def matrix(o):
@@ -43,6 +44,9 @@ def main():
     manifest = {"schema": 1, "mapCommit": config["map_commit"], "sourceFrame": "plan metres: +X east, +Y north, +Z up",
                 "unityFrame": "+X east, +Z north, +Y up; Blender yaw is negated", "rooms": [], "anchors": [],
                 "doors": [], "materials": [], "nativeUnity": "NotRun: validate this export in the pinned editor"}
+    if previous:
+        for field in ("assemblyObjects","assemblyMoonDelivery"):
+            if field in previous: manifest[field]=previous[field]
     original = bpy.data.collections.get("MODULE_spawn-room")
     if original is None:
         source_path = Path(config_path).parent / "map/sections/facility-assembly/sources/spawn-room/module.blend"
@@ -60,6 +64,9 @@ def main():
         authored_spawn=dst.scenes[0]
     view=authored_spawn.view_settings
     source_view={"transform":view.view_transform,"look":view.look,"exposure":view.exposure,"gamma":view.gamma}
+    if only == "mine":
+        view = source_scene.view_settings
+        source_view = {"transform":view.view_transform,"look":view.look,"exposure":view.exposure,"gamma":view.gamma}
     def authored_lights(objects,parent=Matrix.Identity(4)):
         result=[]
         for o in objects:
@@ -107,10 +114,24 @@ def main():
                *[f"BELONG_{i:02}_door_{s}" for i in range(1, 5) for s in ("L", "R")],
                *[f"PPE_{i:02}_suit" for i in range(1, 5)]}
     dynamic.update({"BELONG_01_thermos", "BELONG_03_thermos"})
-    for key, _lib, _collection, placement, yaw, _note in config["rooms"]:
+    delivery_rooms=list(config["rooms"])
+    assembly_members=[]
+    if not only and config.get("assembly_builder","").endswith("/build_compact_map.py"):
+        assembly=bpy.data.collections.get("COMBINED_MAP")
+        if assembly is None: raise ValueError("Compact assembly is missing its authored root collection.")
+        # Connector collections and shutter plates belong to the generated map,
+        # rather than any ROOM instance. Retain their world transforms/collision.
+        # The authored moon is already supplied by the mine's assemblyLighting.
+        assembly_members=[o for o in assembly.all_objects if not o.name.startswith("ROOM_") and o.name!="COMBINED moon"]
+        if not assembly_members: raise ValueError("Compact assembly has no connector/placeholder delivery.")
+        delivery_rooms.append(("assembly-context",None,None,(0,0,0),0,"Generated assembly objects at authored plan coordinates"))
+        manifest["assemblyObjects"]=[{"source":o.name,"type":o.type} for o in assembly_members]
+        manifest["assemblyMoonDelivery"]="mine.assemblyLighting"
+    for key, _lib, _collection, placement, yaw, _note in delivery_rooms:
         if only and key != only: continue
         instance = source_scene.objects.get("ROOM_" + key)
-        if instance is None and only=="spawn-room":
+        if key=="assembly-context": members=assembly_members
+        elif instance is None and only=="spawn-room":
             # The PR95 wrapper only omits these named objects. Read the exact module directly for
             # a scoped conversion, instead of loading four million unrelated mine triangles.
             exterior_file,exterior_collection=config["exterior_skins"][key]
@@ -141,12 +162,30 @@ def main():
                 while p: ancestry.append(p.name); p = p.parent
                 movable = inherited_dynamic or (key == "spawn-room" and any(a in dynamic for a in ancestry))
                 visible = not o.hide_render
-                mappings.append({"source": o.name, "node": n.name, "visible": visible, "dynamic": movable})
+                volume_only=False
+                if key=="assembly-context" and mesh is not None and o.data.materials:
+                    def pure_volume(material):
+                        if material is None or not material.use_nodes: return False
+                        outputs=[n for n in material.node_tree.nodes if n.type=='OUTPUT_MATERIAL' and n.is_active_output]
+                        return len(outputs)==1 and not outputs[0].inputs['Surface'].is_linked and outputs[0].inputs['Volume'].is_linked
+                    volume_only=all(pure_volume(m) for m in o.data.materials)
+                    if volume_only: visible=False
+                # The authored lantern meshes deliberately do not occlude their
+                # emitters. Visibility in camera rays is separate from shadows.
+                n.visible_shadow = o.visible_shadow
+                mappings.append({"source": o.name, "node": n.name, "visible": visible,
+                    "dynamic": movable, "sourceShadowExcluded": not o.visible_shadow})
+                if volume_only:
+                    mappings[-1].update(sourceVisible=not o.hide_render,unsupported="Pure volume closure; no connector haze adapter")
                 if o.type == "LIGHT":
                     lights.append({"name":o.name,"position":list(matrix(o).translation),"rotation":list(matrix(o).to_quaternion()),
                         "color":list(o.data.color),"power":float(o.data.energy),"type":o.data.type,
                         "size":float(getattr(o.data,"size",0)),"sizeY":float(getattr(o.data,"size_y",0)),
                         "radius":float(getattr(o.data,"shadow_soft_size",0.05))})
+                    if o.data.type=="SUN": lights[-1]["angle"]=math.degrees(o.data.angle)
+                    if o.data.type=="SPOT":
+                        lights[-1].update(spotSize=float(o.data.spot_size),spotBlend=float(o.data.spot_blend),
+                            normalized=bool(o.data.normalize),softFalloff=bool(o.data.use_soft_falloff))
                 if o.instance_type == "COLLECTION" and o.instance_collection:
                     n.matrix_basis = local @ Matrix.Translation(-o.instance_collection.instance_offset)
                     clone_group(list(o.instance_collection.all_objects), n, prefix + o.name + "__", movable)
@@ -157,26 +196,63 @@ def main():
         if previous:
             old=next(room for room in previous["rooms"] if room["key"]==key)
             fields=("source","node","visible","dynamic")
-            inventory=lambda items: sorted(tuple(item[field] for field in fields) for item in items)
+            # A prior mine delivery intentionally hides the source volume containers.
+            # The pinned source hashes still guard author visibility; that explicit
+            # delivery override must not make a second surface refresh reject itself.
+            volume_overrides={u["node"] for p in previous.get("materials",[]) if p["room"]=="mine"
+                for u in p.get("unsupported",[])} if key=="mine" else set()
+            inventory=lambda items: sorted(tuple(True if field=="visible" and item["node"] in volume_overrides else item[field]
+                for field in fields) for item in items)
             if inventory(old["objects"])!=inventory(mappings): raise ValueError("Scoped export changed assembled object bindings: "+key)
         bpy.context.view_layer.update()
         # Build collision after all parent transforms have evaluated (matrix_world otherwise starts as identity).
+        reuse_collision = only == "mine" and os.environ.get("CS_REUSE_COLLISION") == "1"
         collider_vertices.clear(); collider_faces.clear()
         by_name = {o.name: o for o in copies}
         for mapping in mappings:
             o = by_name[mapping["node"]]
-            if o.type != "MESH" or not mapping["visible"] or mapping["dynamic"] or any(t in mapping["source"].lower() for t in ("haze", "fog", "leaf", "paper", "rug", "carpet", "state_")): continue
+            if o.type != "MESH" or not collision_eligible(mapping): continue
             if mapping["source"].lower().startswith(("stain_", "decal_", "scuff_")):
                 collision_omissions.append({"source": mapping["source"], "node": mapping["node"], "reason": "decorative surface graphic"})
                 continue
+            if reuse_collision: continue
             offset = len(collider_vertices); mesh = o.data
             transform = root.matrix_world.inverted() @ o.matrix_world
             collider_vertices.extend(tuple(transform @ v.co) for v in mesh.vertices)
             mesh.calc_loop_triangles(); collider_faces.extend(tuple(offset + v for v in tri.vertices) for tri in mesh.loop_triangles)
         mesh_file = "Room-" + key + ".fbx"
+        if key == "mine" and os.environ.get("CS_MINE_BAKE") == "1":
+            # The fully assembled scene is needed to capture the owner's patches, not to
+            # bake them. Release every unrelated source room before creating atlas copies.
+            frames = {n.object for o in copies if o.type == "MESH" for m in o.data.materials if m and m.use_nodes
+                      for n in m.node_tree.nodes if n.type == "TEX_COORD" and n.object}
+            ancestors=set()
+            for frame in frames:
+                parent=frame.parent
+                while parent:
+                    ancestors.add(parent); parent=parent.parent
+            keep = {*copies, root, *frames, *ancestors}
+            bpy.data.batch_remove([o for o in bpy.data.objects if o not in keep])
+            bpy.data.batch_remove([s for s in bpy.data.scenes if s != target_scene])
+            bpy.data.orphans_purge(do_local_ids=True,do_linked_ids=True,do_recursive=True)
+            import ctypes
+            ctypes.CDLL("libc.so.6").malloc_trim(0)
         if key == "spawn-room" and os.environ.get("CS_SKIP_SURFACES")!="1":
             manifest["materials"].append(bake_surfaces(target_scene,copies,mappings,output,source_view))
+        if key == "mine" and os.environ.get("CS_MINE_BAKE")=="1":
+            from export_mine_materials import bake_mine
+            manifest["materials"].append(bake_mine(target_scene,copies,mappings,output,source_view))
         export(output / mesh_file, [root, *copies])
+        if reuse_collision:
+            old = next(r for r in previous["rooms"] if r["key"] == key)
+            if hashlib.sha256((output / old["collision"]).read_bytes()).hexdigest() != old["collisionSha256"]:
+                raise ValueError("Previously verified mine collision was modified.")
+            updated_room = dict(old, objects=mappings, lights=lights,
+                meshSha256=hashlib.sha256((output / mesh_file).read_bytes()).hexdigest())
+            manifest["rooms"].append(updated_room)
+            print("RUNTIME ROOM", key, len(copies), "objects; verified collision reused", flush=True)
+            for o in [*copies, root]: bpy.data.objects.remove(o, do_unlink=True)
+            continue
         collision = bpy.data.meshes.new("CS_COLLISION_" + key); collision.from_pydata(collider_vertices, [], collider_faces); collision.update()
         collider = bpy.data.objects.new("CS_COLLISION_" + key, collision); target_scene.collection.objects.link(collider)
         collision_file = "Collision-" + key + ".fbx"
@@ -194,10 +270,18 @@ def main():
         updated = {r["key"]: r for r in manifest["rooms"]}
         manifest["rooms"] = [updated.get(r["key"], r) for r in previous["rooms"]]
         manifest["materials"] += [m for m in previous.get("materials",[]) if m["room"] not in updated]
-    manifest["limits"] = "Current six-room assembly only. Spawn has explicit unlit material maps, colour grading and authored light bindings; the other five rooms retain preview materials. Native lighting and moving-object review are required. Static collision is unprofiled. Source rooms are not modified."
+    converted = [p["room"] for p in manifest["materials"]]
+    manifest["limits"] = "Pinned assembly; unlit material delivery for " + ", ".join(converted) + ". Remaining rooms have preview materials. Native lighting and visual review are required. Static collision is unprofiled. Source rooms are not modified."
+    if "assemblyObjects" in manifest:
+        manifest["limits"] += " Connector volume-only meshes are hidden and recorded as unsupported; their haze is not transferred. Assembly AREA lights retain the existing Point preview conversion; their lighting is not source-matched."
     (output / "map-bindings.json").write_text(json.dumps(manifest, indent=2) + "\n")
     # Check one compact collision import per room, including unit scale and exact geometry bounds.
     checked=[room for room in manifest["rooms"] if not only or room["key"]==only]
+    if only == "mine" and os.environ.get("CS_REUSE_COLLISION") == "1":
+        (output / "mine-roundtrip.json").write_text(json.dumps({"status":"Passed", "geometryPreserved":True,
+            "collision":"Unmodified previously round-tripped FBX, SHA-256 verified", "mapCommit":manifest["mapCommit"],
+            "nativeUnity":False},indent=2)+"\n")
+        return
     for room in checked:
         bpy.ops.wm.read_factory_settings(use_empty=True)
         bpy.ops.import_scene.fbx(filepath=str(output / room["collision"]))

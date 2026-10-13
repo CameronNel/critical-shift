@@ -1,0 +1,417 @@
+{
+  "status": "RejectedDirectClassification",
+  "indirectMultiplier": 0,
+  "purpose": "Isolate Mixed direct classification including greater-than-four overlapping shadow-mask volumes; no world/bounce or actor acceptance",
+  "limits": [
+    "source-near-field mismatch unresolved",
+    "no current map bake",
+    "neutral dynamic receiver mechanism only, no imported actor acceptance",
+    "no full63-point performance measurement"
+  ],
+  "inputs": {
+    "/tmp/cs-mine-mixed-direct-control-final12.cs.txt": "196e075bdceae1073fbde03c92ce8d112608ae949ca289f90fae0b525faf079e",
+    "/tmp/cs-mine-mixed-direct-control-final12.native.py": "956f4489e43ed61890730c656002b3afc3c05eded59b45b151f740370c65438f",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Features/Player/BlenderSurface.shader": "e4faf34a6053a24cdabcfa0ead743a1906fe4a9a76f5a92617967e4a6fbe06b8",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Features/Player/BlenderPointLighting.cginc": "dc69de33c0a51e4787f5d177ef33fe8c6263121246a8cda03eeb1a5c3986ee74"
+  },
+  "cases": [
+    {
+      "case": {
+        "name": "Mixed1",
+        "mixedMode": "Shadowmask",
+        "lights": [
+          {
+            "name": "Mixed1 point 0",
+            "mode": "Mixed",
+            "actualBakingOutput": "probeOcclusionLightIndex=0;occlusionMaskChannel=0;lightmapBakeType=Mixed;mixedLightingMode=Shadowmask;isBaked=True",
+            "channel": 0,
+            "power": 100.0,
+            "intensity": 2.533029317855835,
+            "shapeRadius": 0.0010000000474974513,
+            "bounceIntensity": 0.0
+          }
+        ],
+        "rendererLightmapIndex": 0,
+        "probeCount": 8,
+        "interpolatedProbeCoefficients": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rendererLightmapScaleOffset": {
+          "x": 0.5,
+          "y": 0.5,
+          "z": 0.00390625,
+          "w": 0.00390625
+        }
+      },
+      "additionalCentreMeans": {
+        "actor-zeroSH-on": [
+          0.11368101244443096,
+          0.11368101244443096,
+          0.11368101244443096
+        ],
+        "actor-zeroSH-off": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "actor-BlendProbes-on": [
+          0.05684050622221548,
+          0.05684050622221548,
+          0.05684050622221548
+        ],
+        "actor-BlendProbes-off": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "static-moving-blocker": [
+          0.0,
+          8.516013139114875e-08,
+          8.516013139114875e-08
+        ],
+        "actor-zeroSH-moving-blocker": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "centreRGBRealtime": [
+        0.11368101241532713,
+        0.11368101241532713,
+        0.11368101241532713
+      ],
+      "centreRGBPostBakeOn": [
+        0.11368101241532713,
+        0.1136810943717137,
+        0.1136810943717137
+      ],
+      "centreRGBPostBakeOff": [
+        0.0,
+        8.516013139114875e-08,
+        8.516013139114875e-08
+      ],
+      "postBakeOnRelativeErrorVsRealtime": 7.209329405577345e-07,
+      "classificationPass": false
+    },
+    {
+      "case": {
+        "name": "Mixed6Overlap",
+        "mixedMode": "Shadowmask",
+        "lights": [
+          {
+            "name": "Mixed6Overlap point 0",
+            "mode": "Mixed",
+            "actualBakingOutput": "probeOcclusionLightIndex=3;occlusionMaskChannel=3;lightmapBakeType=Mixed;mixedLightingMode=Shadowmask;isBaked=True",
+            "channel": 3,
+            "power": 16.66666603088379,
+            "intensity": 0.42217156291007996,
+            "shapeRadius": 0.0010000000474974513,
+            "bounceIntensity": 0.0
+          },
+          {
+            "name": "Mixed6Overlap point 1",
+            "mode": "Mixed",
+            "actualBakingOutput": "probeOcclusionLightIndex=5;occlusionMaskChannel=-1;lightmapBakeType=Baked;mixedLightingMode=Shadowmask;isBaked=True",
+            "channel": -1,
+            "power": 16.66666603088379,
+            "intensity": 0.42217156291007996,
+            "shapeRadius": 0.0010000000474974513,
+            "bounceIntensity": 0.0
+          },
+          {
+            "name": "Mixed6Overlap point 2",
+            "mode": "Mixed",
+            "actualBakingOutput": "probeOcclusionLightIndex=1;occlusionMaskChannel=1;lightmapBakeType=Mixed;mixedLightingMode=Shadowmask;isBaked=True",
+            "channel": 1,
+            "power": 16.66666603088379,
+            "intensity": 0.42217156291007996,
+            "shapeRadius": 0.0010000000474974513,
+            "bounceIntensity": 0.0
+          },
+          {
+            "name": "Mixed6Overlap point 3",
+            "mode": "Mixed",
+            "actualBakingOutput": "probeOcclusionLightIndex=0;occlusionMaskChannel=0;lightmapBakeType=Mixed;mixedLightingMode=Shadowmask;isBaked=True",
+            "channel": 0,
+            "power": 16.66666603088379,
+            "intensity": 0.42217156291007996,
+            "shapeRadius": 0.0010000000474974513,
+            "bounceIntensity": 0.0
+          },
+          {
+            "name": "Mixed6Overlap point 4",
+            "mode": "Mixed",
+            "actualBakingOutput": "probeOcclusionLightIndex=4;occlusionMaskChannel=-1;lightmapBakeType=Baked;mixedLightingMode=Shadowmask;isBaked=True",
+            "channel": -1,
+            "power": 16.66666603088379,
+            "intensity": 0.42217156291007996,
+            "shapeRadius": 0.0010000000474974513,
+            "bounceIntensity": 0.0
+          },
+          {
+            "name": "Mixed6Overlap point 5",
+            "mode": "Mixed",
+            "actualBakingOutput": "probeOcclusionLightIndex=2;occlusionMaskChannel=2;lightmapBakeType=Mixed;mixedLightingMode=Shadowmask;isBaked=True",
+            "channel": 2,
+            "power": 16.66666603088379,
+            "intensity": 0.42217156291007996,
+            "shapeRadius": 0.0010000000474974513,
+            "bounceIntensity": 0.0
+          }
+        ],
+        "rendererLightmapIndex": 0,
+        "probeCount": 8,
+        "interpolatedProbeCoefficients": [
+          0.03304801508784294,
+          0.004897085018455982,
+          -0.03427990525960922,
+          0.004897064995020628,
+          0.0003029684885405004,
+          -0.0021208059042692184,
+          0.0024238009937107563,
+          -0.00212079961784184,
+          -4.487520077756102e-10,
+          0.03304801508784294,
+          0.004897085018455982,
+          -0.03427990525960922,
+          0.004897064995020628,
+          0.0003029684885405004,
+          -0.0021208059042692184,
+          0.0024238009937107563,
+          -0.00212079961784184,
+          -4.487520077756102e-10,
+          0.03304801508784294,
+          0.004897085018455982,
+          -0.03427990525960922,
+          0.004897064995020628,
+          0.0003029684885405004,
+          -0.0021208059042692184,
+          0.0024238009937107563,
+          -0.00212079961784184,
+          -4.487520077756102e-10
+        ],
+        "rendererLightmapScaleOffset": {
+          "x": 0.5,
+          "y": 0.5,
+          "z": 0.00390625,
+          "w": 0.00390625
+        }
+      },
+      "additionalCentreMeans": {
+        "actor-zeroSH-on": [
+          0.07578734276467003,
+          0.07578734276467003,
+          0.07578734276467003
+        ],
+        "actor-zeroSH-off": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "actor-BlendProbes-on": [
+          0.05088526690087747,
+          0.05088526690087747,
+          0.05088526690087747
+        ],
+        "actor-BlendProbes-off": [
+          0.012991595081984997,
+          0.012991595081984997,
+          0.012991595081984997
+        ],
+        "static-moving-blocker": [
+          0.0378056819899939,
+          0.03780794361955486,
+          0.03781422507017851
+        ],
+        "actor-zeroSH-moving-blocker": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "centreRGBRealtime": [
+        0.11368101451080292,
+        0.11368101451080292,
+        0.11368101451080292
+      ],
+      "centreRGBPostBakeOn": [
+        0.11359302530763671,
+        0.11359528690809384,
+        0.11360156841692515
+      ],
+      "centreRGBPostBakeOff": [
+        0.0378056819899939,
+        0.03780794361955486,
+        0.03781422507017851
+      ],
+      "postBakeOnRelativeErrorVsRealtime": 0.0007740008614882227,
+      "classificationPass": false
+    },
+    {
+      "case": {
+        "name": "Baked1",
+        "mixedMode": "Shadowmask",
+        "lights": [
+          {
+            "name": "Baked1 point 0",
+            "mode": "Baked",
+            "actualBakingOutput": "probeOcclusionLightIndex=0;occlusionMaskChannel=-1;lightmapBakeType=Baked;mixedLightingMode=Shadowmask;isBaked=True",
+            "channel": -1,
+            "power": 100.0,
+            "intensity": 2.533029317855835,
+            "shapeRadius": 0.0010000000474974513,
+            "bounceIntensity": 0.0
+          }
+        ],
+        "rendererLightmapIndex": 0,
+        "probeCount": 8,
+        "interpolatedProbeCoefficients": [
+          0.09914365410804749,
+          0.014691239222884178,
+          -0.10283974558115005,
+          0.014691200107336044,
+          0.0009089054074138403,
+          -0.0063624195754528046,
+          0.007271410897374153,
+          -0.006362398155033588,
+          -1.346253108991391e-09,
+          0.09914365410804749,
+          0.014691239222884178,
+          -0.10283974558115005,
+          0.014691200107336044,
+          0.0009089054074138403,
+          -0.0063624195754528046,
+          0.007271410897374153,
+          -0.006362398155033588,
+          -1.346253108991391e-09,
+          0.09914365410804749,
+          0.014691239222884178,
+          -0.10283974558115005,
+          0.014691200107336044,
+          0.0009089054074138403,
+          -0.0063624195754528046,
+          0.007271410897374153,
+          -0.006362398155033588,
+          -1.346253108991391e-09
+        ],
+        "rendererLightmapScaleOffset": {
+          "x": 0.5,
+          "y": 0.5,
+          "z": 0.00390625,
+          "w": 0.00390625
+        }
+      },
+      "additionalCentreMeans": {
+        "actor-zeroSH-on": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "actor-zeroSH-off": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "actor-BlendProbes-on": [
+          0.03897472098469734,
+          0.03897472098469734,
+          0.03897472098469734
+        ],
+        "actor-BlendProbes-off": [
+          0.03897472098469734,
+          0.03897472098469734,
+          0.03897472098469734
+        ],
+        "static-moving-blocker": [
+          0.11340984789421782,
+          0.11342109701945446,
+          0.1134433937841095
+        ],
+        "actor-zeroSH-moving-blocker": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "centreRGBRealtime": [
+        0.11368101241532713,
+        0.11368101241532713,
+        0.11368101241532713
+      ],
+      "centreRGBPostBakeOn": [
+        0.11340984789421782,
+        0.11342109701945446,
+        0.1134433937841095
+      ],
+      "centreRGBPostBakeOff": [
+        0.11340984789421782,
+        0.11342109701945446,
+        0.1134433937841095
+      ],
+      "postBakeOnRelativeErrorVsRealtime": 0.0023853105751612115,
+      "classificationPass": true
+    }
+  ],
+  "files": {
+    "cases.json": "239e42e350ec643db3471e901d7267e00ddb9eab05b8e644bacd7d25bff6d1d4",
+    "Baked1-actor-zeroSH-moving-blocker.exr": "57f3cc94fe9b4994c303ea6299c7605dddb33ecc4f00c3ec8b37535827f9633a",
+    "Baked1-static-moving-blocker.exr": "069bfb28302a2af663640ac29aa080ea05e9bc9dd2ab63c1c6217ca23f3922cf",
+    "Baked1-actor-BlendProbes-off.exr": "eb1a4e7a44ee60c141e90db8e75537062d11abf5ad2bdffd53b5ecf6cbac418f",
+    "Baked1-actor-BlendProbes-on.exr": "eb1a4e7a44ee60c141e90db8e75537062d11abf5ad2bdffd53b5ecf6cbac418f",
+    "Baked1-actor-zeroSH-off.exr": "57f3cc94fe9b4994c303ea6299c7605dddb33ecc4f00c3ec8b37535827f9633a",
+    "Baked1-actor-zeroSH-on.exr": "57f3cc94fe9b4994c303ea6299c7605dddb33ecc4f00c3ec8b37535827f9633a",
+    "Baked1-post-bake-off.exr": "e019c1569fae4d3d311880e57dc76e3fd10d6bb522d61512a2b20f8ae96773e3",
+    "Baked1-post-bake-on.exr": "e019c1569fae4d3d311880e57dc76e3fd10d6bb522d61512a2b20f8ae96773e3",
+    "Baked1-realtime-reference.exr": "659582f6f2603511892e9c9db24e76be7b6be5c0fd8f491ff6de3c081992e2fe",
+    "Mixed6Overlap-actor-zeroSH-moving-blocker.exr": "934a5b05c4d5b4e64240dcc550af4cfb3b1fd08b6e0baa7e86f8da5ca8bbc9b3",
+    "Mixed6Overlap-static-moving-blocker.exr": "5fa75286d1b5d6ccd9c275e13ab8d7ab5cffdc250c964d0463cf71840a1ab97f",
+    "Mixed6Overlap-actor-BlendProbes-off.exr": "e36be0d80139d433759ffeb80708918faf170d8705a64dbcf9592a0479668d09",
+    "Mixed6Overlap-actor-BlendProbes-on.exr": "93c6339328f660d10c8da1039868d61752770b5b169d93edf132224bfbc4d959",
+    "Mixed6Overlap-actor-zeroSH-off.exr": "57f3cc94fe9b4994c303ea6299c7605dddb33ecc4f00c3ec8b37535827f9633a",
+    "Mixed6Overlap-actor-zeroSH-on.exr": "5d1f88f1935cbf0be98c996c95a2cdcbda24be879c5e6a327b747d373efe0863",
+    "Mixed6Overlap-post-bake-off.exr": "bf0ca8f3851b16eb621dfce0c45d55d7f5374851f76cc5de480695b422ada5bc",
+    "Mixed6Overlap-post-bake-on.exr": "17274a27b78b957e325a0c04067391b0d6cf8b014923d46c4cc6b48157ea3989",
+    "Mixed6Overlap-realtime-reference.exr": "43f164ed1fbf0b1b9f187c4306b397bb119f9ed5b1671afc75c792a77601a642",
+    "Mixed1-actor-zeroSH-moving-blocker.exr": "2504a7b2a637594f7b34d01533a48fb8f5e6d941dad85b314d4ef2b42ce99c43",
+    "Mixed1-static-moving-blocker.exr": "463e5f2d8f1fed690756269f21f2764a39dba7be83eea875a2a01c31cfb52fa6",
+    "Mixed1-actor-BlendProbes-off.exr": "57f3cc94fe9b4994c303ea6299c7605dddb33ecc4f00c3ec8b37535827f9633a",
+    "Mixed1-actor-BlendProbes-on.exr": "6c733e3d0e7f601dbca9c9774aaf42fff606d925c45d72e1b23dcf314b083b5f",
+    "Mixed1-actor-zeroSH-off.exr": "57f3cc94fe9b4994c303ea6299c7605dddb33ecc4f00c3ec8b37535827f9633a",
+    "Mixed1-actor-zeroSH-on.exr": "8e3506b3572890c7388dea21d4be476b315808ed7917de9280ba55f7f1bf42b6",
+    "Mixed1-post-bake-off.exr": "9935372559275ef859ba2a7f4a2d78401e0f967a3139bbc36458652f5d1dddaa",
+    "Mixed1-post-bake-on.exr": "52c54a4fecdb3572d9d402dc59f7a917971ee219a3b7a1c187baefd90dfe87a9",
+    "Mixed1-realtime-reference.exr": "659582f6f2603511892e9c9db24e76be7b6be5c0fd8f491ff6de3c081992e2fe",
+    "native-state.json": "f11ae00a5172dc3f898b52cbabb86b4b864e142dae80421748164577b76c8a3a"
+  }
+}
+Traceback (most recent call last):
+  File "/tmp/cs-mine-mixed-direct-control-final12.native.py", line 31, in <module>
+    if proof['status']!='PassedDirectClassificationOnly':raise RuntimeError('Mixed direct classification failed')
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Mixed direct classification failed

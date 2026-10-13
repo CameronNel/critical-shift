@@ -1,0 +1,17 @@
+00:01.331  blend            | Read blend: "/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/combined-runtime-source.blend"
+00:01.550  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/exteriors/refinery/exterior-R01.blend', '//map/sections/facility-assembly/exteriors/refinery/exterior-R01.blend', parent '<direct>'
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)
+00:01.565  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/exteriors/medical-reanimation/exterior-R04.blend', '//map/sections/facility-assembly/exteriors/medical-reanimation/exterior-R04.blend', parent '<direct>'
+00:01.591  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/exteriors/spawn-room/exterior-R05.blend', '//map/sections/facility-assembly/exteriors/spawn-room/exterior-R05.blend', parent '<direct>'
+00:01.633  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/front-end-area/front_end_area.blend', '//map/sections/facility-assembly/sources/front-end-area/front_end_area.blend', parent '<direct>'
+00:02.474  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/fuel-corridor/production/checkpoints/fuel_full_F23ci.blend', '//map/sections/fuel-corridor/production/checkpoints/fuel_full_F23ci.blend', parent '<direct>'
+00:04.547  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/spawn-room/module.blend', '//map/sections/facility-assembly/sources/spawn-room/module.blend', parent '<direct>'
+00:05.797  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/refinery/module_overhaul_R1.blend', '//map/sections/facility-assembly/sources/refinery/module_overhaul_R1.blend', parent '<direct>'
+00:07.528  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/medical-reanimation/module_overhaul_R2.blend', '//map/sections/facility-assembly/sources/medical-reanimation/module_overhaul_R2.blend', parent '<direct>'
+00:09.103  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/mine-r39/module_r39_aaa.blend', '//map/sections/facility-assembly/sources/mine-r39/module_r39_aaa.blend', parent '<direct>'
+00:09.777  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/spawn-room/hero_suit.blend', '//hero_suit.blend', parent '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/spawn-room/module.blend'
+/tmp/cs-mine-source-closure-inspect-final13.py:22: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  if not material or not material.use_nodes:continue
+CS_SOURCE_CLOSURE_INSPECTION_OK
+
+Blender quit

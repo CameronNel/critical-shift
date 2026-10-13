@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/tmp/cs-mine-diffuse-prototype-sequence-final11.py", line 11, in <module>
+    with (audit/'cs-mine-source-diffuse-prototype-final11.source.log').open('w') as log:subprocess.run(['/home/agent/.local/bin/blender','--background',str(root/'runtime/out/spawn-export-source/combined-runtime-source.blend'),'--disable-autoexec','--python-exit-code','1','--python','/tmp/cs-mine-source-diffuse-prototype-final11.py'],stdout=log,stderr=subprocess.STDOUT,check=True)
+                                                                                        ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/agent/.local/share/critical-shift/toolchain/python/cpython-3.14.8-linux-x86_64-gnu/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['/home/agent/.local/bin/blender', '--background', '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/combined-runtime-source.blend', '--disable-autoexec', '--python-exit-code', '1', '--python', '/tmp/cs-mine-source-diffuse-prototype-final11.py']' died with <Signals.SIGKILL: 9>.

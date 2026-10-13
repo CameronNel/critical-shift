@@ -1,0 +1,23 @@
+{
+  "scratch": "/tmp/cs-mine-unity-temp-58560b185d094fab80e167c1ab04d0d7",
+  "projectTemp": "/workspace/critical-shift-spawn-runtime/runtime/unity/Temp",
+  "relocatedBeforeLightBakerInput": true,
+  "command": [
+    "xvfb-run",
+    "-a",
+    "-s",
+    "-screen 0 1440x810x24",
+    "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Unity",
+    "-batchmode",
+    "-force-glcore",
+    "-quit",
+    "-projectPath",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity",
+    "-executeMethod",
+    "CriticalShift.Player.Editor.SpawnVisualReview.BakeAndRender",
+    "-csCapturePath",
+    "/tmp/cs-main342-native-final15/unity-spawn-source-wood-final15-main342",
+    "-logFile",
+    "/tmp/cs-main342-native-final15/native-bake-source-wood-final15-main342.log"
+  ]
+}

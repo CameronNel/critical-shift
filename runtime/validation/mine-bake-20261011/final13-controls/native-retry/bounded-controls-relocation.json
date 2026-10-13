@@ -1,0 +1,27 @@
+{
+  "status": "InactiveBoundedControlsReplacedByExactFrozenDiskCopies",
+  "plans": [
+    {
+      "old": "/tmp/cs-mine-source-hybrid-board-final12",
+      "new": "/workspace/critical-shift-spawn-runtime/runtime/validation/mine-bake-20261011/final12-controls/cs-mine-source-hybrid-board-final12",
+      "bytes": 50929623,
+      "files": 41
+    },
+    {
+      "old": "/tmp/cs-mine-source-hybrid-lambert-probe-final12",
+      "new": "/workspace/critical-shift-spawn-runtime/runtime/validation/mine-bake-20261011/final12-controls/cs-mine-source-hybrid-lambert-probe-final12",
+      "bytes": 43344388,
+      "files": 41
+    },
+    {
+      "old": "/tmp/cs-mine-transport-split-final12",
+      "new": "/workspace/critical-shift-spawn-runtime/runtime/validation/mine-bake-20261011/final12-controls/cs-mine-transport-split-final12",
+      "bytes": 25847820,
+      "files": 8
+    }
+  ],
+  "releasedRawRAMBytes": 120121831,
+  "allFilesVerifiedAgainstFrozenIndexBeforeRelease": true,
+  "activeLibraryReferencesFound": 0,
+  "sourceCodeBakeSettingsUntouched": true
+}

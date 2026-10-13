@@ -1,0 +1,17 @@
+{
+  "status": "FailedTmpArchived_RootHistoricalOriginalRetained",
+  "phase": "done",
+  "preparationReceiptSha256": "87889ea99f04630a580d6f590a84e11a98d80b99d68a1d759d4e1ede1143a91f",
+  "independentReceiptSha256": "32d7192605f7225e907929125bd28e1e309efe289f28903ec3c4d216d0b67702",
+  "limits": [
+    "OldRoot failed data stays exact and installed; only redundant new archive discarded; restore index1 unavailable until archive regenerated from original",
+    "NewR2 failed Temp retained in exact validated archive and restore recipe",
+    "No canonical source or current immutable derivative changed"
+  ],
+  "tempArchiveAvailable": true,
+  "rootDuplicateArchiveAvailable": false,
+  "rootOriginalAvailable": true,
+  "rootAvailableBytes": 1378775040,
+  "tmpAvailableBytes": 8334446592,
+  "shmemBytes": 4601532416
+}

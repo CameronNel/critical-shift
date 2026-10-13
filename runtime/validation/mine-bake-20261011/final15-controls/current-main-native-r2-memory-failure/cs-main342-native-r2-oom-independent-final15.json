@@ -1,0 +1,135 @@
+{
+  "status": "ConfirmedCurrentMainR2FailedOOM_NoBakeRestorationOrVisualEvidence",
+  "utc": "2026-10-13T06:27:25.517975+00:00",
+  "preservedCopies": [
+    {
+      "original": "/tmp/cs-main342-native-pipeline-final15-r2.json",
+      "copy": "/tmp/cs-main342-native-r2-failure-independent-final15/0-cs-main342-native-pipeline-final15-r2.json",
+      "sha256": "3e877ea9f7a8c698cd1b4e71579202fb6de04040db8eed28ce883e0db3abd8fe",
+      "bytes": 10540
+    },
+    {
+      "original": "/tmp/cs-main342-native-final15-r2/native-bake-source-wood-final15-r2-main342.log",
+      "copy": "/tmp/cs-main342-native-r2-failure-independent-final15/1-native-bake-source-wood-final15-r2-main342.log",
+      "sha256": "152f042ccb8618b9d6e088bbcf87163d9b386bfa262b247dcdc303fc6afe1cb0",
+      "bytes": 496172
+    },
+    {
+      "original": "/tmp/cs-main342-native-final15-r2/native-memory-observations-final15-r2-main342.jsonl",
+      "copy": "/tmp/cs-main342-native-r2-failure-independent-final15/2-native-memory-observations-final15-r2-main342.jsonl",
+      "sha256": "4b317d9694ac289c58b590ba234db8e4be01b96806d8c89de24b92ec78234d4d",
+      "bytes": 288957
+    },
+    {
+      "original": "/tmp/cs-bake-full-map-before-exclusion-1f9d65f228db4123ae4378d20d520cad.unity",
+      "copy": "/tmp/cs-main342-native-r2-failure-independent-final15/3-cs-bake-full-map-before-exclusion-1f9d65f228db4123ae4378d20d520cad.unity",
+      "sha256": "5d9718be84fc6f9c2219a14323cbfe972e4ce63d6fdf6404bb00b6126ecca9fe",
+      "bytes": 6841787
+    },
+    {
+      "original": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/BakeRoomStash-9ee722c22cba479a8ba6dee05fa25df0/ExcludedRooms.unity.meta",
+      "copy": "/tmp/cs-main342-native-r2-failure-independent-final15/4-ExcludedRooms.unity.meta",
+      "sha256": "10ad60517cde42b66e6073b558be6afb4def1dc1c8409fb8706c622633d3a432",
+      "bytes": 155
+    },
+    {
+      "original": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/BakeRoomStash-9ee722c22cba479a8ba6dee05fa25df0/ExcludedRooms.unity",
+      "copy": "/tmp/cs-main342-native-r2-failure-independent-final15/5-ExcludedRooms.unity",
+      "sha256": "202ddbe46a6fda0a1ba6104028b93b7aa23c348d5eea12c6a883b8ba08378d57",
+      "bytes": 831960
+    },
+    {
+      "original": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/BakeRoomStash-9ee722c22cba479a8ba6dee05fa25df0.meta",
+      "copy": "/tmp/cs-main342-native-r2-failure-independent-final15/6-BakeRoomStash-9ee722c22cba479a8ba6dee05fa25df0.meta",
+      "sha256": "e7f2cac56697f6c75758a093c664cb0782750b15d8c5122ea3d19aed3c34d383",
+      "bytes": 172
+    }
+  ],
+  "fullSceneBackupRooms": [
+    "ROOM_medical-reanimation",
+    "ROOM_compliance-dock",
+    "ROOM_assembly-context",
+    "ROOM_spawn-room",
+    "ROOM_reactor-room",
+    "ROOM_front-end-area",
+    "ROOM_condenser-bay",
+    "ROOM_waste-storage",
+    "ROOM_cooling-plant",
+    "ROOM_turbine-room",
+    "ROOM_mine",
+    "ROOM_electrical-room",
+    "ROOM_fuel-corridor",
+    "ROOM_refinery"
+  ],
+  "roomScope": "11excluded rooms serialized but never restored beforekill; current Source all-active backup retained",
+  "memory": {
+    "eventsBefore": {
+      "low": 0,
+      "high": 0,
+      "max": 1036266,
+      "oom": 53,
+      "oom_kill": 18,
+      "oom_group_kill": 0
+    },
+    "eventsAfter": {
+      "low": 0,
+      "high": 0,
+      "max": 1107429,
+      "oom": 54,
+      "oom_kill": 19,
+      "oom_group_kill": 0
+    },
+    "lastPreKill": {
+      "utc": "2026-10-13T06:09:15.649640+00:00",
+      "memoryBytes": 17176068096,
+      "shmemBytes": 4894699520,
+      "anonBytes": 11724177408,
+      "fileBytes": 5104005120,
+      "kernelBytes": 347127808,
+      "events": {
+        "low": 0,
+        "high": 0,
+        "max": 1083316,
+        "oom": 53,
+        "oom_kill": 18,
+        "oom_group_kill": 0
+      },
+      "status": "StartingNativeCurrentMainBake_NotArtAccepted",
+      "activeStep": "/tmp/cs-main342-native-bake-final15-r2.py"
+    },
+    "firstOOMSample": {
+      "utc": "2026-10-13T06:09:24.470880+00:00",
+      "memoryBytes": 16429207552,
+      "shmemBytes": 4897116160,
+      "anonBytes": 12053381120,
+      "fileBytes": 4905115648,
+      "kernelBytes": 221364224,
+      "events": {
+        "low": 0,
+        "high": 0,
+        "max": 1107429,
+        "oom": 54,
+        "oom_kill": 19,
+        "oom_group_kill": 0
+      },
+      "status": "StartingNativeCurrentMainBake_NotArtAccepted",
+      "activeStep": "/tmp/cs-main342-native-bake-final15-r2.py"
+    },
+    "anonSampleDifference": 329203712,
+    "caveat": "2s sample fields race process teardown; delta is not exact failed allocation or future peak bound"
+  },
+  "capacityRecommendation": {
+    "rootAvailableObserved": 1378783232,
+    "cacheTargetBytes": 800000000,
+    "remainingBeforeOutputEstimate": 578783232,
+    "reserveMinimum": 402653184,
+    "oneGiBLeavesOnly": 305041408,
+    "existingNativeLightingFolderBytes": 105695440,
+    "conditions": "Copyverify+exactDirectoryAlias only idle owned hash buckets; all modes/bytes/source identities preserved; freshretry names/failure proof preserved; output/temp capacity accounted"
+  },
+  "limits": [
+    "No source/cache movement or engine by reviewer",
+    "Preservedcopies outsideproject only",
+    "No technicalfinalsuccess/capture/test/Player/98%claim; previous visualscoreunchanged"
+  ]
+}

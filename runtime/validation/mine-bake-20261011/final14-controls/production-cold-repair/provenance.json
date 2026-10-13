@@ -1,0 +1,196 @@
+{
+  "status": "PassedColdCompatibleInPlaceRepair_BoundedNotMapAcceptance",
+  "files": [
+    {
+      "file": "native/ProductionCookie.asset.meta",
+      "bytes": 188,
+      "sha256": "aaae37cbfda7c7cc5cfd95b50593ba4c92b6025a97cc6d535c481884a30073a9"
+    },
+    {
+      "file": "native/ProductionCookie.asset",
+      "bytes": 263201,
+      "sha256": "77b6ab7a7a6a4c86a2dcc0749a92fda6d7288d4fc4750e2fff5b4ba699caccc9"
+    },
+    {
+      "file": "native/d4-a65-after-explicit-blit.json",
+      "bytes": 1368,
+      "sha256": "d7b8748635f7e57f20f9c8d4dfcae5632211954af487cac1dcd0310bb62dfda9"
+    },
+    {
+      "file": "native/d4-a65-after-explicit-blit.exr",
+      "bytes": 66891,
+      "sha256": "57f3cc94fe9b4994c303ea6299c7605dddb33ecc4f00c3ec8b37535827f9633a"
+    },
+    {
+      "file": "native/d4-a50-after-explicit-blit.json",
+      "bytes": 1364,
+      "sha256": "0b2f53eb21d07a226fc3230aa860f615b7643c1168987ed06752c4be43c3bb19"
+    },
+    {
+      "file": "native/d4-a50-after-explicit-blit.exr",
+      "bytes": 66891,
+      "sha256": "2ae3841cedaef8db7416ba5b91f45e3f1b0c9cb749018732d0b896f81a595534"
+    },
+    {
+      "file": "native/d4-a0-after-explicit-blit.json",
+      "bytes": 1303,
+      "sha256": "817669f0b06d2977e2785814dfcd2aa99972de265099627ce02a40a797ec5c18"
+    },
+    {
+      "file": "native/d4-a0-after-explicit-blit.exr",
+      "bytes": 66891,
+      "sha256": "181c9f681bcc5faf7914282fd243a294c54453be5c5c2f7218f8b27d916bff5d"
+    },
+    {
+      "file": "native/explicit-cookie-gpu-readback.exr",
+      "bytes": 264523,
+      "sha256": "9ffe531bab7b38a3b8651cfcb74196ef0f5e3114437f1df7b5f9c24c22058a8c"
+    },
+    {
+      "file": "native/d4-a65-cold-before-blit.json",
+      "bytes": 1362,
+      "sha256": "dd2ced1765aba81e0929f03257603c0c31aba731b367e5896d4ef970b33b7c5e"
+    },
+    {
+      "file": "native/d4-a65-cold-before-blit.exr",
+      "bytes": 66891,
+      "sha256": "57f3cc94fe9b4994c303ea6299c7605dddb33ecc4f00c3ec8b37535827f9633a"
+    },
+    {
+      "file": "native/d4-a50-cold-before-blit.json",
+      "bytes": 1358,
+      "sha256": "293ca3f49d5e4fdb79822728d97bb8f63d5cdbcc5309ed3cce33c32e922c18e7"
+    },
+    {
+      "file": "native/d4-a50-cold-before-blit.exr",
+      "bytes": 66891,
+      "sha256": "2ae3841cedaef8db7416ba5b91f45e3f1b0c9cb749018732d0b896f81a595534"
+    },
+    {
+      "file": "native/d4-a0-cold-before-blit.json",
+      "bytes": 1297,
+      "sha256": "cc50ba8f3d69663a5f06cc8e0bb9dd09270a55a95e2a8f0e930f96673297136c"
+    },
+    {
+      "file": "native/d4-a0-cold-before-blit.exr",
+      "bytes": 66891,
+      "sha256": "181c9f681bcc5faf7914282fd243a294c54453be5c5c2f7218f8b27d916bff5d"
+    },
+    {
+      "file": "native/d2-a0-cold-before-blit.json",
+      "bytes": 1298,
+      "sha256": "b13656220bac4695ca8235c43b491cf24a66ce5067c286a40f33c610da798bf5"
+    },
+    {
+      "file": "native/d2-a0-cold-before-blit.exr",
+      "bytes": 66891,
+      "sha256": "eb9add644fa7d67ee8f2872010896bd5011304efae26c344ec25a2cb62051c57"
+    },
+    {
+      "file": "native/d1-a0-cold-before-blit.json",
+      "bytes": 1297,
+      "sha256": "0bf351fbd1b752f3dd5e34a8a24f1de54945bfd7d79c068067fc8e56d0cce445"
+    },
+    {
+      "file": "native/d1-a0-cold-before-blit.exr",
+      "bytes": 66891,
+      "sha256": "6cff383385de2251df518083f00648a65c356111f5de2941dcaabec37bc62270"
+    },
+    {
+      "file": "cs-mine-spot-cold-repair-final14.cs.txt",
+      "bytes": 14065,
+      "sha256": "25608b1ef4758ea3a56fecf7c54cc30b892c90fea84dea4e3fa30896aac9b371"
+    },
+    {
+      "file": "cs-mine-spot-cold-repair-native-final14.py",
+      "bytes": 4824,
+      "sha256": "b27a68e1e56ccff220c85e3743cd74564ad27f01bbe59e6c056e5c9d024c89af"
+    },
+    {
+      "file": "cs-mine-spot-cold-repair-native-final14.json",
+      "bytes": 6806,
+      "sha256": "59d8dc85e51f3f26314f4aa230d7743ec12d322849a5039a0d128675ba595bb1"
+    },
+    {
+      "file": "cs-mine-spot-cold-repair-independent-final14.json",
+      "bytes": 8933,
+      "sha256": "1441122e475dc062bdcfaf705cad9d8d706af254dcaa045afdb3166b7fd9b2fa"
+    },
+    {
+      "file": "cs-mine-production-spot-cold-repair-api-final14-r3.json",
+      "bytes": 43619,
+      "sha256": "6e495d1271a8685081edfd7798c7d24bbd01361933ad561d1f7c30c4eaf5efb4"
+    },
+    {
+      "file": "spot-cold-repair-final14.native.log",
+      "bytes": 45565,
+      "sha256": "969120be18c3483138eb7d337a1e68a626526b48c79a3bb8167dd4bde5856250"
+    },
+    {
+      "file": "spot-cold-repair-final14.wrapper.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "production-source/BlenderPointLighting.cginc",
+      "bytes": 1856,
+      "sha256": "7314a8147285982eca1894d34cd0a84d66f95491323a3ee1a87856ebf882f89e"
+    },
+    {
+      "file": "production-source/BlenderSurface.shader",
+      "bytes": 8230,
+      "sha256": "e4faf34a6053a24cdabcfa0ead743a1906fe4a9a76f5a92617967e4a6fbe06b8"
+    },
+    {
+      "file": "production-source/cs-mine-spot-cold-repair-native-final14.py",
+      "bytes": 4824,
+      "sha256": "b27a68e1e56ccff220c85e3743cd74564ad27f01bbe59e6c056e5c9d024c89af"
+    },
+    {
+      "file": "production-source/MinePointLighting.cs",
+      "bytes": 5278,
+      "sha256": "b66dbe1626d73b99ca16e9ee575d00a175842cee12bcdd0bae68c31a62bc2d48"
+    },
+    {
+      "file": "production-source/MineSpotLighting.cs",
+      "bytes": 9232,
+      "sha256": "25967b76b79d94deb541f2241398f3461060348ab2d1cf8059ab16e1a0f774ca"
+    },
+    {
+      "file": "production-source/MineVisualLighting.cs",
+      "bytes": 25460,
+      "sha256": "7778d267d5b759bb141459ebee0a8d1b25e11f609386d5ad12438ae10ef0fab2"
+    },
+    {
+      "file": "production-source/PlayerRoomBuild.cs",
+      "bytes": 3010,
+      "sha256": "f95de4878e9254597cce73cdda2c1fec2d6e9d7f9c80d222952c1289f8a18919"
+    },
+    {
+      "file": "production-source/SpawnMapBuild.cs",
+      "bytes": 57596,
+      "sha256": "0c8f6a0183a6a80f55f355fb8cd886134ef2a6a69f01b7f51697457857a71969"
+    },
+    {
+      "file": "production-source/SpawnSurfaceBuild.cs",
+      "bytes": 24070,
+      "sha256": "de043055ac3f75d0a4f6d634b8a6dce26b67d4c02df2761379e8f9c9079379b1"
+    },
+    {
+      "file": "production-source/SpawnVisualReview.cs",
+      "bytes": 25607,
+      "sha256": "42d10de155b74d6669dae8f52b3ab05b43f1af7cab3e87f6b633e3502c204944"
+    },
+    {
+      "file": "source-fixture/provenance.json",
+      "bytes": 5329,
+      "sha256": "dc5d854be14eccb0b8bc25baea76c88d4453b3c6cdd4d500919a7d97d5c3d18b"
+    }
+  ],
+  "overallScore": null,
+  "limits": [
+    "Raw failures and retries preserved separately; technical completion is not fidelity acceptance",
+    "No current main map, Player or98 claim",
+    "Source fixture, production C#/shader and helper exact hashes included"
+  ]
+}

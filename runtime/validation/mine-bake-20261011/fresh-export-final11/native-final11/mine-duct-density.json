@@ -1,0 +1,21 @@
+{
+  "minimumPixelsPerMetre": 128,
+  "surfaces": [
+    {
+      "node": "CS_mine_R39 | Ventilation duct",
+      "worldArea": 88.8271416449946,
+      "uvArea": 0.6251870393753052,
+      "pixelsPerMetre": 343.6308033598344,
+      "atlasSize": 4096
+    },
+    {
+      "node": "CS_mine_R39 | Pipe and duct hangers",
+      "worldArea": 13.616469328656098,
+      "uvArea": 0.10065111517906189,
+      "pixelsPerMetre": 352.15753674651216,
+      "atlasSize": 4096
+    }
+  ],
+  "status": "Passed",
+  "limits": "UV density guard; native visual review is still required."
+}

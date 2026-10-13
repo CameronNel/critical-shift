@@ -1,0 +1,63 @@
+using System;
+using System.IO;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Collections.Generic;
+using UnityEngine.Rendering;
+using UnityEngine;
+using UnityEditor;
+using UnityEditor.SceneManagement;
+using CriticalShift.Player.Editor;
+public static class CsMineNormalFreshFinal11
+{
+ [Serializable] public sealed class NormalAsset {public string material,property,path,sha256;}
+ [Serializable] public sealed class InputProof {public string status,mapBindingsSha256,surfaceCacheSha256,preservationSha256,camerasSha256;public NormalAsset[] normalAssets;public SourceView[] views;}
+ static string Hash(string path){using var file=File.OpenRead(path);using var hash=SHA256.Create();return BitConverter.ToString(hash.ComputeHash(file)).Replace("-","").ToLowerInvariant();}
+ [Serializable] public sealed class ProbeRecord {public string name,texture;public Vector3 centre,size;public float weight;}
+ [Serializable] public sealed class GlassCoverage {public string name,probeUsage;public string[] materialNames;public Vector3 centre,size;public ProbeRecord[] probes;}
+ [Serializable] public sealed class HistoricalReflectionProof {public string status,sceneSha256,preparedProofSha256,defaultMode,defaultTexture,customTexture,skybox;public GlassCoverage[] glass;public ProbeRecord[] allProbes;}
+ static void HistoricalReflectionCoverage(){
+  string output="/tmp/cs-mine-historical-reflection-final11.json";if(!File.Exists(SpawnMapBuild.ScenePath))return;
+  string oldSceneHash=Hash(SpawnMapBuild.ScenePath);EditorSceneManager.OpenScene(SpawnMapBuild.ScenePath);ReflectionProbe.UpdateCachedState();
+  var map=JsonUtility.FromJson<ExportMap>(File.ReadAllText(SpawnMapBuild.Folder+"map-bindings.json"));var keys=new HashSet<string>(map.materials.SelectMany(p=>p.definitions).Where(d=>d.transparent && d.transmission>.5f).Select(d=>d.key));
+  var records=UnityEngine.Object.FindObjectsByType<MeshRenderer>().Where(r=>r.enabled&&(r.name=="CS_front-end-area_crew_van"||r.sharedMaterials.Any(m=>m!=null&&keys.Contains(m.name)))).Select(r=>{var list=new List<ReflectionProbeBlendInfo>();r.GetClosestReflectionProbes(list);return new GlassCoverage{name=r.name,materialNames=r.sharedMaterials.Where(m=>m!=null).Select(m=>m.name).ToArray(),probeUsage=r.reflectionProbeUsage.ToString(),centre=r.bounds.center,size=r.bounds.size,probes=list.Select(info=>new ProbeRecord{name=info.probe.name,centre=info.probe.bounds.center,size=info.probe.bounds.size,weight=info.weight,texture=AssetDatabase.GetAssetPath(info.probe.customBakedTexture)}).ToArray()};}).ToArray();
+  var property=typeof(RenderSettings).GetProperty("customReflectionTexture") ?? typeof(RenderSettings).GetProperty("customReflection");var custom=property?.GetValue(null) as Texture;
+  var proofPath=SpawnMapBuild.Folder+"prepared-scene.json";File.WriteAllText(output,JsonUtility.ToJson(new HistoricalReflectionProof{status="Historical final10 reflection coverage only; current exported inputs differ; no current lighting or final visual acceptance",sceneSha256=oldSceneHash,preparedProofSha256=File.Exists(proofPath)?Hash(proofPath):null,defaultMode=RenderSettings.defaultReflectionMode.ToString(),defaultTexture=ReflectionProbe.defaultTexture==null?null:ReflectionProbe.defaultTexture.name,customTexture=custom==null?null:AssetDatabase.GetAssetPath(custom),skybox=RenderSettings.skybox==null?null:RenderSettings.skybox.name,glass=records,allProbes=UnityEngine.Object.FindObjectsByType<ReflectionProbe>().Select(probe=>new ProbeRecord{name=probe.name,centre=probe.bounds.center,size=probe.bounds.size,texture=AssetDatabase.GetAssetPath(probe.customBakedTexture)}).ToArray()},true));
+ }
+ public static void Render()
+ {
+  HistoricalReflectionCoverage();
+  SpawnMapBuild.Create();MineVisualLighting.CheckCentreline(GameObject.Find("ROOM_mine").transform);
+  var folder="/tmp/cs-mine-normal-fresh-final11/";Directory.CreateDirectory(folder);
+  var sourceViews=JsonUtility.FromJson<SourceViews>(File.ReadAllText("/workspace/critical-shift-spawn-runtime/runtime/out/mine-bake-audit/cameras.json"));
+  var normalAssets=UnityEngine.Object.FindObjectsByType<MeshRenderer>().SelectMany(r=>r.sharedMaterials).Where(m=>m!=null).Distinct().SelectMany(m=>new[]{"_BumpMap","_WoodNormal"}.Where(p=>m.HasProperty(p)&&m.GetTexture(p)!=null).Select(p=>new NormalAsset{material=m.name,property=p,path=AssetDatabase.GetAssetPath(m.GetTexture(p))})).Where(a=>!string.IsNullOrEmpty(a.path)&&File.Exists(a.path)).ToArray();foreach(var asset in normalAssets)asset.sha256=Hash(asset.path);
+  File.WriteAllText(folder+"current-input-provenance.json",JsonUtility.ToJson(new InputProof{status="Current unbaked diagnostic inputs; old prepared-scene proof intentionally excluded",mapBindingsSha256=Hash(SpawnMapBuild.Folder+"map-bindings.json"),surfaceCacheSha256=Hash("/workspace/critical-shift-spawn-runtime/runtime/out/mine-bake-audit/surface-cache.json"),preservationSha256=Hash("/workspace/critical-shift-spawn-runtime/runtime/out/mine-bake-audit/preservation.json"),camerasSha256=Hash("/workspace/critical-shift-spawn-runtime/runtime/out/mine-bake-audit/cameras.json"),normalAssets=normalAssets,views=sourceViews.views},true));
+  var shader=Shader.Find("CriticalShift/DiagnosticProductionNormal");if(shader==null)throw new InvalidOperationException("Missing diagnostic shader");
+  foreach(var renderer in UnityEngine.Object.FindObjectsByType<MeshRenderer>(FindObjectsSortMode.None))
+   renderer.sharedMaterials=renderer.sharedMaterials.Select(original=>{
+    var material=new Material(original);
+    bool supported=original.shader.name=="CriticalShift/BlenderSurface";
+    material.shader=supported ? shader : Shader.Find("Unlit/Color");material.CopyPropertiesFromMaterial(original);if(!supported)material.color=Color.black;
+    return material;
+   }).ToArray();
+  foreach(var camera in UnityEngine.Object.FindObjectsByType<Camera>(FindObjectsSortMode.None))camera.enabled=false;
+  GameObject.Find("Local crew worker").SetActive(false);
+  var root=GameObject.Find("ROOM_mine").transform;
+  var views=JsonUtility.FromJson<SourceViews>(File.ReadAllText("/workspace/critical-shift-spawn-runtime/runtime/out/mine-bake-audit/cameras.json")).views;
+  Vector3 V(float[] a)=>new Vector3(a[0],a[2],a[1]);
+  foreach(var view in views)
+  {
+   var node=new GameObject("AOV camera "+view.name);node.transform.SetPositionAndRotation(root.TransformPoint(V(view.position)),root.rotation*Quaternion.LookRotation(V(view.forward),V(view.up)));
+   var camera=node.AddComponent<Camera>();camera.allowHDR=true;camera.allowMSAA=false;camera.clearFlags=CameraClearFlags.SolidColor;camera.backgroundColor=Color.black;camera.nearClipPlane=.05f;camera.farClipPlane=250;camera.fieldOfView=view.verticalFov;camera.renderingPath=RenderingPath.Forward;
+   foreach(int mode in new[]{4})
+   {
+    foreach(var material in UnityEngine.Object.FindObjectsByType<MeshRenderer>(FindObjectsSortMode.None).SelectMany(r=>r.sharedMaterials).Where(m=>m.shader==shader))material.SetFloat("_CsDiagnostic",mode);
+    var target=new RenderTexture(640,360,24,RenderTextureFormat.ARGBHalf,RenderTextureReadWrite.Linear);camera.targetTexture=target;camera.Render();var previous=RenderTexture.active;RenderTexture.active=target;
+    var pixels=new Texture2D(640,360,TextureFormat.RGBAHalf,false,true);pixels.ReadPixels(new Rect(0,0,640,360),0,0);pixels.Apply();File.WriteAllBytes(folder+view.name+"-"+"ProductionNormal"+".exr",pixels.EncodeToEXR(Texture2D.EXRFlags.OutputAsFloat));
+    RenderTexture.active=previous;camera.targetTexture=null;UnityEngine.Object.DestroyImmediate(pixels);UnityEngine.Object.DestroyImmediate(target);Debug.Log("CS_MINE_DIAGNOSTIC_AOV "+view.name+" "+mode);
+   }
+   UnityEngine.Object.DestroyImmediate(node);
+  }
+  Debug.Log("CS_MINE_PRODUCTION_NORMAL_AOV_OK; disposable materials; no source/scene saves, no visual acceptance");
+ }
+}

@@ -1,0 +1,141 @@
+{
+  "status": "VerifiedGenuineHistoricalSourceToggle_WithNoiseAndTransportLimits",
+  "sourceOnProvenanceSha256": "239bc3ef89797493e68b70c824ba0b54da410b97ef0de32411575b753865758d",
+  "sourceTrueOffProvenanceSha256": "7d14ecba6b43d8e01a11bad78b2e8a368aedfcdd81cf5aeef54c684f2203cadf",
+  "sourceSnapshotSha256": "255fe337aacd602e81bd2940be7bf2a1da2541954f6c8446c8a06f5aae413b72",
+  "sourceSamples": 16,
+  "sourceResolution": [
+    640,
+    360
+  ],
+  "views": [
+    {
+      "camera": "R39_01_PORTAL_APPROACH",
+      "sourceOffSha256": "5c499a179b451b88fbc068fd2a5c21c7130e170a734ada7b3f9f279d4426e423",
+      "sourceOnSha256": "42538bb377f028991b0d4b1a8088aa013e3b412d341b9777ebf1424cf075e827",
+      "sourceOffMeanRgb": [
+        0.14455884461315605,
+        0.14450611142551215,
+        0.14546867706579275
+      ],
+      "sourceOnMeanRgb": [
+        0.1545099530771596,
+        0.15008570292104362,
+        0.1480681972836647
+      ],
+      "sourceOnMinusOffMeanRgb": [
+        0.009951108464003555,
+        0.0055795914955314605,
+        0.0025995202178719767
+      ],
+      "sourceOnMinusOffMeanAbsoluteRgb": [
+        0.009951108464003555,
+        0.0055795914955314605,
+        0.0025995202178719767
+      ],
+      "nativeOffMeanRgb": [
+        0.15419249606706822,
+        0.13729264358084442,
+        0.13066070069119126
+      ],
+      "nativeOnMeanRgb": [
+        0.15384018019255666,
+        0.13710930021919518,
+        0.13063333364824453
+      ],
+      "nativeOnMinusOffMeanRgb": [
+        -0.00035231587451158296,
+        -0.00018334336164924835,
+        -2.7367042946732705e-05
+      ]
+    },
+    {
+      "camera": "R39_02_TUNNEL",
+      "sourceOffSha256": "4c1039414c329a103e4c9aada87fcc81aef0948ca89b4146669eadca8fb8955d",
+      "sourceOnSha256": "034b31746d446e5279c4a1bd8143aebee6548727515e9caecc218eed9f2ce04a",
+      "sourceOffMeanRgb": [
+        0.15980380350553036,
+        0.08429384500899137,
+        0.033242756860774964
+      ],
+      "sourceOnMeanRgb": [
+        0.19910359240373596,
+        0.11579537914472995,
+        0.06019078314980643
+      ],
+      "sourceOnMinusOffMeanRgb": [
+        0.039299788898205686,
+        0.03150153413573854,
+        0.026948026289031465
+      ],
+      "sourceOnMinusOffMeanAbsoluteRgb": [
+        0.0964256907438757,
+        0.057942273397628696,
+        0.0356163377415774
+      ],
+      "nativeOffMeanRgb": [
+        0.10419846470985147,
+        0.04958696426099373,
+        0.0189799033695211
+      ],
+      "nativeOnMeanRgb": [
+        0.11880014816919962,
+        0.06268466376596027,
+        0.03188747791780366
+      ],
+      "nativeOnMinusOffMeanRgb": [
+        0.014601683459348149,
+        0.013097699504966536,
+        0.012907574548282556
+      ]
+    },
+    {
+      "camera": "R39_04_SHED_FRONT",
+      "sourceOffSha256": "87d1b13dfe67f22632e5f1d814b0863f463d004db8b88ef1ddc8d0cb7b20b88c",
+      "sourceOnSha256": "0a6d3b2b0a14d7e1d34c73ada1f0b98e6c5b68c360dc4b8c47de47554e119788",
+      "sourceOffMeanRgb": [
+        0.08518220598928947,
+        0.05370474261215356,
+        0.034121367150808386
+      ],
+      "sourceOnMeanRgb": [
+        0.112262189731253,
+        0.07045433537650896,
+        0.04354247608997416
+      ],
+      "sourceOnMinusOffMeanRgb": [
+        0.0270799837419635,
+        0.0167495927643554,
+        0.009421108939165765
+      ],
+      "sourceOnMinusOffMeanAbsoluteRgb": [
+        0.0270799837419635,
+        0.0167495927643554,
+        0.009421108939165765
+      ],
+      "nativeOffMeanRgb": [
+        0.2100559347681701,
+        0.1454075277493232,
+        0.09400991477900081
+      ],
+      "nativeOnMeanRgb": [
+        0.21062787925617563,
+        0.1456572757102549,
+        0.09431730781474876
+      ],
+      "nativeOnMinusOffMeanRgb": [
+        0.0005719444880055057,
+        0.00024974796093172496,
+        0.00030739303574793867
+      ]
+    }
+  ],
+  "limits": [
+    "Source16sample on/off graph inventory validated but per-pixel delta contains noise and material AOV mutation differences; no deterministic equality claim",
+    "Source volume toggle includes physically medium-affected lamp/surface transport; native only postprocess camera-path scattering/extinction. Delta is not directly interchangeable",
+    "Whole-view means include different native/source baseline surface lighting, not isolated scattering coefficients or matched object masks",
+    "Exact Source true-off files are later direct-node mutation linked-context outputs; earlier copy/remap purported-off controls rejected",
+    "No source/production changes or heavy render launches by reviewer",
+    "Current full13 remains rejected41/60; overall score null; Player held"
+  ]
+}

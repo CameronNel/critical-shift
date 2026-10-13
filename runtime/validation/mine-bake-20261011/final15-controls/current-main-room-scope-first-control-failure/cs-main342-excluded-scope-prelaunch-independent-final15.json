@@ -1,0 +1,55 @@
+{
+  "status": "PrelaunchHeldForPartialRecoveryAndAdditiveLightingGuards",
+  "utc": "2026-10-13T04:44:04.431555+00:00",
+  "files": [
+    {
+      "path": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/ExcludedRoomBakeScope.cs",
+      "sha256": "99bcfc061896cf66069e3f91a9b2f4a27b7ae5c3d500e03f36d24ec7d782c7ae"
+    },
+    {
+      "path": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/SpawnVisualReview.cs",
+      "sha256": "54bdee78315989cc9dc09805abc454c2004c22c5d75fffa0b1ab053a464fbc79"
+    }
+  ],
+  "findings": [
+    {
+      "priority": 1,
+      "file": "ExcludedRoomBakeScope.cs",
+      "method": "constructor catch / Restore",
+      "issue": "On partial move failure, Restore demands stash roots equal all rooms; already-moved rooms cannot recover and the initiating exception is replaced. NewScene and active-scene mutation are outside try. Restore also cannot retry after a partial restoration.",
+      "fix": "Reconcile recorded rooms across original and stash with exact unique inventory, restore whichever were moved, make progress retryable, retain initial and recovery exceptions; cover scene creation and active-scene mutation."
+    },
+    {
+      "priority": 1,
+      "file": "ExcludedRoomBakeScope.cs",
+      "method": "Restore additive load/close",
+      "issue": "Global lighting data/probes/lightmaps and retained baked renderer assignments are not checked when opening/closing the stash.",
+      "fix": "Capture actual global lighting state and retained renderer baked/realtime indices+scale offsets immediately before reloading stash, verify after reattachment/closing or restore explicitly. Validate active original LightingDataAsset."
+    },
+    {
+      "priority": 2,
+      "file": "ExcludedRoomBakeScope.cs",
+      "method": "Snapshot",
+      "issue": "Renderer scale offsets/realtime indices, nonempty property blocks, light inner cone/area/bounce values omitted from exact-state claim.",
+      "fix": "Add these supported states or reject unsupported nonempty overrides."
+    },
+    {
+      "priority": 2,
+      "file": "SpawnVisualReview.cs",
+      "method": "SaveScene before scope",
+      "issue": "Recovery scene saved after room deactivation/front-end muting; it preserves full geometry but is not original all-active delivery.",
+      "fix": "Preserve a separate exact pre-mutation full scene or explicitly bind/restorable original activation/renderer state in recovery proof."
+    }
+  ],
+  "requiredNativeControls": [
+    "Actual14-room unload/reload exact component/parent/sibling/asset/world/local pose and collision reconstruction round trip",
+    "Partial constructor move/save/unload failure and partial restore retry leave no silently missing room",
+    "Inbound/outbound scene component references rejected before mutation; same-room references preserved",
+    "Existing retained lighting texture arrays/probes/LightingDataAsset/renderer indices-scale offsets unchanged across stash reload",
+    "Actual memory reduction recorded; samples/source geometry/light selection unchanged",
+    "Stash absent from final prepared scene build inputs/EditorBuildSettings; distinct retry source/API receipts"
+  ],
+  "limits": [
+    "Static review only; no native engine, no production edits, no new visual acceptance"
+  ]
+}

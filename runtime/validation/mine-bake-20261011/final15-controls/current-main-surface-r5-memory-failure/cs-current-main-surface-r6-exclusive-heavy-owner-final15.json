@@ -1,0 +1,14 @@
+{
+  "status": "SourceBlenderOnly_NoActiveUnityOrLightBaker",
+  "active": [
+    {
+      "pid": 180919,
+      "comm": "blender",
+      "exe": "/home/agent/.local/share/critical-shift/toolchain/blender-5.2.2-linux-x64/blender",
+      "args": "/home/agent/.local/bin/blender -b /tmp/cs-compact-main342-final14/combined-runtime-source.blend --disable-autoexec --python-exit-code 1 --python /workspace/critical-shift-spawn-runtime/runtime/tools/export_spawn_map.py -- /tmp/cs-compact-main342-final14/map-config.json /tmp/cs-compact-main342-geometry-final15 mine "
+    }
+  ],
+  "limits": [
+    "R6 comm guard omitted Unity Main Thre; separate process/executable audit qualifies it without modifying live pinned wrapper"
+  ]
+}

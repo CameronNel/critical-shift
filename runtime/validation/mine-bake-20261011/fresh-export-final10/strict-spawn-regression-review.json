@@ -1,0 +1,49 @@
+{
+  "reviewer": "Independent strict reviewer /root/strict_mine_review",
+  "status": "Spawn visual regression cleared for these three fresh captures",
+  "overallScore": null,
+  "captures": "runtime/out/mine-bake-audit/unity-spawn-source-wood-final10",
+  "baseline": "runtime/validation/spawn-suit-correction-20261011/unity",
+  "preparedScene": {
+    "mapBindingsSha256": "bb409dad74cf46d5216c2f2b4d7cc1aeecf137b23e5bc724f89f1fc31b6c9645",
+    "rigBindingsSha256": "b89037e3c376c6e7958a3a1a1713664559baec579b861c8c5702ad03cc4a90a6",
+    "sceneSha256": "71219fdb7f993cbd9bcabc022c46d6051e385508ccc7594db29b27dff1118d9a",
+    "sourceSha256": "0bf7cb1391057cba6cb7185d90f6aceb5798bad7227b298944b5fa65da89d04f",
+    "lightmaps": 3
+  },
+  "views": [
+    {
+      "capture": "VALIDATE_Spawn.png",
+      "captureSha256": "e0951ea64d9b0b703cea21455a8a0bacb98910be08a7b933cdaf4ff13aecc991",
+      "baseline": "Spawn.png",
+      "baselineSha256": "d017e86dd65db7ac0d0c688a4e690b675743b1b770138729c79d5bf429d547ac",
+      "dimensions": [1440, 810],
+      "independentMeanAbsoluteRGBDifferenceOutOf255": 0.6463488936424255,
+      "visualVerdict": "Clear: corridor surfaces, door, briefing doorway, lockers and hanging suits show no material visual regression."
+    },
+    {
+      "capture": "VALIDATE_BriefingDoor.png",
+      "captureSha256": "d82e40e40946df4fb85e2dae4d7333acf3330813af26de233b19442150719eba",
+      "baseline": "Briefing.png",
+      "baselineSha256": "91ad6463d8a96a60bf84c65e9aefba31a453e4f24238b3dcdc381ff5b34e57d1",
+      "dimensions": [1440, 810],
+      "independentMeanAbsoluteRGBDifferenceOutOf255": 1.447960376739502,
+      "visualVerdict": "Clear: terracotta and charcoal walls, floor, displays, seating and source props retain the corrected appearance."
+    },
+    {
+      "capture": "VALIDATE_LockerDoor.png",
+      "captureSha256": "a1c178d5de35f4d281d9b6c9ad35b9a36f65a0a5e6ca5138c72c595f1211e723",
+      "baseline": "Lockers.png",
+      "baselineSha256": "e63b8342f7af9e42e12028bd95bfa5b0448e3e6cd6ddfde8b46477bfbc90a8ca",
+      "dimensions": [1440, 810],
+      "independentMeanAbsoluteRGBDifferenceOutOf255": 1.0645201206207275,
+      "visualVerdict": "Clear: lockers, suits, integrity chamber, wall/floor surfaces and source props show no material visual regression."
+    }
+  ],
+  "method": "Independently viewed all three full-resolution fresh PNGs and recomputed dimensions, SHA256 and raw RGB differences against pinned suit-correction baselines. PreparedScene matches the current generated proof and the implementation's regression report.",
+  "limitations": [
+    "RGB differences support but do not replace the independent visual inspection.",
+    "This is spawn preservation evidence, not original source mine art approval or pixel equality.",
+    "Final mine visual/HDR review, complete current eighteen native tests and fresh Player remain pending; no overall score or98% claim."
+  ]
+}

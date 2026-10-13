@@ -1,0 +1,21 @@
+{
+  "status": "PreservedExactArchiveOnDisk_OriginalTmpPathLinked",
+  "path": "/tmp/cs-mine-inactive-bake-scratch-preserved-final15.tar.zst",
+  "diskPath": "/workspace/critical-shift-spawn-runtime/runtime/out/cs-mine-inactive-bake-scratch-preserved-final15.tar.zst",
+  "bytes": 576164861,
+  "sha256": "8907f57eb681a27286479a9a6bda197419953b84d2b0d0318dfac3c13935698d",
+  "before": {
+    "memory.current": "17178525696\n",
+    "memory.stat": "anon 8545464320\nfile 8135368704\nkernel 497041408\nkernel_stack 819200\npagetables 20664320\nsec_pagetables 0\npercpu 14000\nsock 0\nvmalloc 0\nshmem 6520729600\nfile_mapped 203587584\nfile_dirty 0\nfile_writeback 0\nswapcached 0\nanon_thp 652214272\nfile_thp 364904448\nshmem_thp 0\ninactive_anon 8889753600\nactive_anon 6176436224\ninactive_file 1029873664\nactive_file 584765440\nunevictable 0\nslab_reclaimable 445333328\nslab_unreclaimable 30182256\nslab 475515584\nworkingset_refault_anon 0\nworkingset_refault_file 40222365\nworkingset_activate_anon 0\nworkingset_activate_file 5296757\nworkingset_restore_anon 0\nworkingset_restore_file 3144977\nworkingset_nodereclaim 0\npgdemote_kswapd 0\npgdemote_direct 0\npgdemote_khugepaged 0\npgdemote_proactive 0\npgscan 177556267\npgsteal 49682824\npswpin 0\npswpout 0\npgscan_kswapd 1669041\npgscan_direct 175869890\npgscan_khugepaged 17336\npgscan_proactive 0\npgsteal_kswapd 1591587\npgsteal_direct 48074510\npgsteal_khugepaged 16727\npgsteal_proactive 0\npgfault 3108171725\npgmajfault 37944\npgrefill 24850941\npgactivate 56303691\npgdeactivate 23656902\npglazyfree 2\npglazyfreed 0\nswpin_zero 0\nswpout_zero 0\nthp_fault_alloc 193153\nthp_collapse_alloc 523\nthp_swpout 0\nthp_swpout_fallback 0\n",
+    "memory.events": "low 0\nhigh 0\nmax 936080\noom 50\noom_kill 17\noom_group_kill 0\n"
+  },
+  "after": {
+    "memory.current": "16600711168\n",
+    "memory.stat": "anon 8545591296\nfile 7542345728\nkernel 511971328\nkernel_stack 819200\npagetables 20668416\nsec_pagetables 0\npercpu 14000\nsock 0\nvmalloc 0\nshmem 5944561664\nfile_mapped 203587584\nfile_dirty 194486272\nfile_writeback 0\nswapcached 0\nanon_thp 652214272\nfile_thp 138412032\nshmem_thp 0\ninactive_anon 8889884672\nactive_anon 5600268288\ninactive_file 436858880\nactive_file 1160925184\nunevictable 0\nslab_reclaimable 460259392\nslab_unreclaimable 30187304\nslab 490446696\nworkingset_refault_anon 0\nworkingset_refault_file 40222365\nworkingset_activate_anon 0\nworkingset_activate_file 5296757\nworkingset_restore_anon 0\nworkingset_restore_file 3144977\nworkingset_nodereclaim 0\npgdemote_kswapd 0\npgdemote_direct 0\npgdemote_khugepaged 0\npgdemote_proactive 0\npgscan 177701048\npgsteal 49827605\npswpin 0\npswpout 0\npgscan_kswapd 1669041\npgscan_direct 176014671\npgscan_khugepaged 17336\npgscan_proactive 0\npgsteal_kswapd 1591587\npgsteal_direct 48219291\npgsteal_khugepaged 16727\npgsteal_proactive 0\npgfault 3108173197\npgmajfault 37944\npgrefill 24850941\npgactivate 56444355\npgdeactivate 23656902\npglazyfree 2\npglazyfreed 0\nswpin_zero 0\nswpout_zero 0\nthp_fault_alloc 193153\nthp_collapse_alloc 523\nthp_swpout 0\nthp_swpout_fallback 0\n",
+    "memory.events": "low 0\nhigh 0\nmax 938184\noom 50\noom_kill 17\noom_group_kill 0\n"
+  },
+  "limits": [
+    "Owned exact historical scratch archive only, Source/runtime assets untouched",
+    "Return archive to tmpfs after Source reference jobs exit and before adoption to restore required root capacity"
+  ]
+}

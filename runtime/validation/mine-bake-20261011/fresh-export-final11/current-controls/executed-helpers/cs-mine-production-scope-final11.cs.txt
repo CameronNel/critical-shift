@@ -1,0 +1,17 @@
+using System;using System.IO;using Unity.Collections;using UnityEngine.Experimental.GlobalIllumination;using UnityEngine;using UnityEditor;using UnityEditor.SceneManagement;using CriticalShift.Player.Editor;using GiMapping=UnityEngine.Experimental.GlobalIllumination.Lightmapping;
+public static class CsMineProductionScopeFinal11 {
+ public static void Render() {
+  EditorSceneManager.NewScene(NewSceneSetup.EmptyScene,NewSceneMode.Single);var root=new GameObject("Temporary mine scope control");var light=new GameObject("Native source point").AddComponent<Light>();light.transform.SetParent(root.transform);light.type=UnityEngine.LightType.Point;
+  var source=new ExportLight{name="Control",type="POINT",power=280,radius=.1234567f};string cookiePath=SpawnMapBuild.Folder+"Surfaces/MinePointRadius-"+BitConverter.ToInt32(BitConverter.GetBytes(source.radius),0).ToString("x8")+".asset";if(AssetDatabase.LoadAssetAtPath<Cubemap>(cookiePath)!=null)throw new Exception("Control radius asset already exists");
+  var previous=GiMapping.GetDelegate();
+  try {
+   MinePointLighting.Configure(light,source);float physical=light.intensity;var cube=(Cubemap)light.cookie;if(cube.GetPixel(CubemapFace.PositiveX,0,0).r!=.9375f)throw new Exception("Source cookie missing");
+   cube.SetPixel(CubemapFace.PositiveX,0,0,new Color(.5f,.03125f,source.radius,1));cube.Apply();EditorUtility.SetDirty(cube);AssetDatabase.SaveAssets();light.cookie=null;MinePointLighting.Configure(light,source);if(((Cubemap)light.cookie).GetPixel(CubemapFace.PositiveX,0,0).r!=.9375f)throw new Exception("Corrupt identity was not regenerated");
+   var other=new GameObject("Other room point").AddComponent<Light>();other.type=UnityEngine.LightType.Point;other.intensity=1.2345f;
+   GiMapping.RequestLightsDelegate sentinel=(requests,output)=>{previous(requests,output);for(int i=0;i<requests.Length;i++){var data=output[i];data.falloff=FalloffType.Linear;output[i]=data;}};GiMapping.SetDelegate(sentinel);
+   try {using(MinePointLighting.ScopeBake(root.transform)){if(Mathf.Abs(light.intensity-2.8f)>.00001f || other.intensity!=1.2345f)throw new Exception("Bake intensity scope leaked");using(var outputs=new NativeArray<LightDataGI>(2,Allocator.Temp)){GiMapping.GetDelegate()(new[]{light,other},outputs);if(outputs[0].falloff!=FalloffType.Legacy || outputs[1].falloff!=FalloffType.Linear)throw new Exception("Actual GI request scope leaked");}throw new ApplicationException("Deliberate bake exception control");}} catch(ApplicationException){}
+   if(Mathf.Abs(light.intensity-physical)>.00001f || other.intensity!=1.2345f || GiMapping.GetDelegate()!=sentinel)throw new Exception("Bake exception did not restore scope");
+   File.WriteAllText("/tmp/cs-mine-production-scope-final11.json","{\"status\":\"Passed\",\"actualProductionConfigure\":true,\"corruptCookieRegenerated\":true,\"actualProductionBakeScopeExceptionRestoresIntensityAndDelegate\":true,\"actualGiRequestScopedOnlyToMine\":true,\"otherRoomUnchanged\":true,\"visualAcceptance\":false}");Debug.Log("CS_MINE_ACTUAL_POINT_SCOPE_CONTROL_OK");
+  } finally {GiMapping.SetDelegate(previous);EditorSceneManager.NewScene(NewSceneSetup.EmptyScene,NewSceneMode.Single);AssetDatabase.DeleteAsset(cookiePath);}
+ }
+}

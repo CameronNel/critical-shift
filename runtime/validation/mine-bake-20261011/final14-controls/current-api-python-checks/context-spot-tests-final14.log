@@ -1,0 +1,12 @@
+test_coloured_or_linked_emission_rejects (test_mine_context_lights.ContextSpotGuardTests.test_coloured_or_linked_emission_rejects) ... ok
+test_duplicate_identities_reject (test_mine_context_lights.ContextSpotGuardTests.test_duplicate_identities_reject) ... ok
+test_hidden_spots_are_omitted (test_mine_context_lights.ContextSpotGuardTests.test_hidden_spots_are_omitted) ... ok
+test_missing_or_unsupported_active_closure_rejects (test_mine_context_lights.ContextSpotGuardTests.test_missing_or_unsupported_active_closure_rejects) ... ok
+test_neutral_closure_retains_source_pose_and_cone (test_mine_context_lights.ContextSpotGuardTests.test_neutral_closure_retains_source_pose_and_cone) ... ok
+test_nonphysical_and_nonfinite_parameters_reject (test_mine_context_lights.ContextSpotGuardTests.test_nonphysical_and_nonfinite_parameters_reject) ... ok
+test_unsupported_emitter_modifiers_reject (test_mine_context_lights.ContextSpotGuardTests.test_unsupported_emitter_modifiers_reject) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.001s
+
+OK

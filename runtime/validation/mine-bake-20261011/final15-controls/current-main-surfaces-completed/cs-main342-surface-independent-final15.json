@@ -1,0 +1,73 @@
+{
+  "status": "PassedIndependentCurrentMain14DeliveryProvenance_NotUnityOrVisualAccepted",
+  "utc": "2026-10-13T03:34:09.724153+00:00",
+  "stateSha256": "ec05c439bb58981a1e73d380b48cabf96bd48bf5ebf359c9d3ce04423da1ee95",
+  "manifestSha256": "27ca0662ced40e8be146b7aa44948bdb597c394265b4ff7a87c9d3749a182b02",
+  "mapCommit": "342af0003fec9dbe80b5acb40d1477c23b5a3169",
+  "uniqueRooms": [
+    "assembly-context",
+    "compliance-dock",
+    "condenser-bay",
+    "cooling-plant",
+    "electrical-room",
+    "front-end-area",
+    "fuel-corridor",
+    "medical-reanimation",
+    "mine",
+    "reactor-room",
+    "refinery",
+    "spawn-room",
+    "turbine-room",
+    "waste-storage"
+  ],
+  "sourceInputCount": 34,
+  "deliveredUniqueRecordFiles": 78,
+  "rigUniqueDependencies": 7,
+  "retainedImporterMetadataCount": 1570,
+  "preservedNonmineFileCount": 55,
+  "sourceRecipe": {
+    "blender": "Blender 5.2.2 LTS",
+    "batched": true,
+    "runtimeSceneSha256": "b1905627f2f6e4ba90198a99bc47238a3c3fdeb61277ffcc3ab72a3dff5a4192",
+    "tools": {
+      "prepare_mine.py": "522c8c4cbfd0e2ea5392296c7992c90be3f709f973851cf318fdb48a89b21a4a",
+      "export_spawn_map.py": "3f3f49a4681906fbe179e7f508a2690a87fe6549e139d098bebc99bedf1205e8",
+      "export_spawn_materials.py": "a8d762971499b73b4a54b4ba52379ac720be1e2684d13f174e4e0fe07a429b7b",
+      "export_mine_materials.py": "89e375f5022edf1869c69edda233f0151ac77acdda9021af7a5402cb3892b610",
+      "export_mine_context.py": "0caa2420a030f2e71fbfcd4f8209b9c198649f66a93fc4d871c95890d6116f41",
+      "export_mine_volumes.py": "93e739bf06e94f5e423a132be54e1d34ec7eb0f0fd5b92ef04d04e3eab25eaf2",
+      "export_source_wood.py": "7f8b4dc0bbba186feb64941960a49eed51d49ecc029ec4978012fa3d01cdd574",
+      "normal_bake_pixels.py": "50d0ddde3d34ad4619d713fc88f96adf45483cf0754b0291113c4ef75843ac2e",
+      "mine_delivery_uv.py": "1448f6ada672d3e67cc5a4324d9de98ac46ae4bac4cdc392dc1255229063347a",
+      "mine_lightmap_uv.py": "019d3ed820b7b7ec30a22446386b4e59f64e215524ba1e1ffe107e09baf7cb29",
+      "mine_join_rays.py": "bc11dc46fa9c758cfd539719553e8344e8ceaf96380f4946fdbcf52169661b84",
+      "mine_context_lights.py": "eaa2118c44fffad8039f7981ecf060e6b9812b52b0813986305dcf36b1a4040c",
+      "map_source_snapshot.py": "ecc5e795e075f4b84e83905de549a9792e6a7d3a1889d40b77adc9523f3fd8df"
+    }
+  },
+  "sixContextSpotNames": [
+    "LIGHT_pole_1",
+    "LIGHT_pole_2",
+    "LIGHT_pole_4",
+    "LIGHT_pole_5",
+    "LIGHT_pole_6",
+    "LIGHT_pole_7"
+  ],
+  "preservationSha256": "68ab6b0643b8ce02dc1aa94843e1808f70b04b14bd0a62dc4253b6f8d2fd8adb",
+  "surfaceCacheSha256": "0c554827022b9c6844ebcec483de30ad609387abba61f946cee2ce20f8df658c",
+  "mineLogSha256": "0993d10c04fa88b148fba461ddb7a0998fe0b3237afd8de49cd2af0d18aa0ca6",
+  "checks": [
+    "14 unique Source-derived room keys and exact13 nonmine room records preserved",
+    "All14mesh+collision bytes match declared hashes; mine collision unchanged",
+    "All retained metadata1570 + nonmine model/texture records byte-identical",
+    "Complete rig model/animation/declared dependency package + actual metas matches pinned canonical bytes",
+    "Current no-reuse4096 batched source-recipe-v2 exact13tools/sourceScene SHA and34Source pins",
+    "Six complete Source context SPOT contracts match room records"
+  ],
+  "limits": [
+    "Fresh source-pinned Spawn completed passes resumed from prior R4/R5; entire mine core/context fresh current recipe",
+    "Failed R5 remains failed; no partial mine cache reused",
+    "Source render R2/Unity adoption/bake/capture/gameplay/Player fidelity still pending",
+    "No Blender/Unity launched by reviewer; current art score not assigned"
+  ]
+}

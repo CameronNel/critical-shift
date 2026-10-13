@@ -1,0 +1,129 @@
+{
+  "status": "Rejected",
+  "reviewer": "Independent /root/strict_mine_review",
+  "iteration": "final13",
+  "targetOverallScore": 98,
+  "overallScore": null,
+  "visualSubtotal": 41,
+  "visualMaximum": 60,
+  "visualCategories": {
+    "matchedBlenderFidelity": {
+      "score": 24,
+      "maximum": 40,
+      "reason": "Dominant shed brightness/color, source haze/floor fill, exterior/glass/shadow response remain materially different across the three authored views despite physically correct far-field units."
+    },
+    "materialDetailAndArtifacts": {
+      "score": 17,
+      "maximum": 20,
+      "reason": "Left pipe detail and authored lantern shadow exclusion improve prior defects; wood grain retained and all HDR finite. Flat-floor response, ground/platform dark specks and missing sign/glass/specular response remain."
+    }
+  },
+  "previousReviewedVisualSubtotal": 39,
+  "remainingCategoriesUnscored": {
+    "preservation": 15,
+    "currentNativeGameplayAndPlayer": 15,
+    "reproducibility": 10
+  },
+  "preparedScene": {
+    "mapBindingsSha256": "dcd7f11119192381cd5c34df7076e840b0d27098dc68d28d424f09485ff5ad8e",
+    "rigBindingsSha256": "b89037e3c376c6e7958a3a1a1713664559baec579b861c8c5702ad03cc4a90a6",
+    "sceneSha256": "451f65f87a9947487b8b26ece16aed52b98b55fa55a4060563552511f5493e7a",
+    "sourceSha256": "516d88d25e8fa59c08b6fc11c2b75a60538cc640eedeb133c21443074418a657",
+    "lightmaps": 3
+  },
+  "preparedSceneFileSha256": "1361ca11b4dad769dc93cb4b9c1e35312bbdd943e7a89e4216a91818c6253a15",
+  "views": [
+    {
+      "camera": "R39_01_PORTAL_APPROACH",
+      "sourcePngSha256": "0caace86a451e4349dee9d42b7bdb02a8901f3da8f1276b979f907c3561179be",
+      "nativePngSha256": "af45bc39766936ce42d46301dfc4a2b4d34c6c42a39a2c02d0268e435763c2f9",
+      "nativeHdrSha256": "19769f7fb2de1a669f54aec53092f7cf7cd3297be85cdea27b86cf9b28d53b02",
+      "comparisonPanelSha256": "7c0dc155c1d255a173f66b78db80f4d31287d47ea7eb3c3fecd4152ebee97b83",
+      "cameraPoseVerified": true,
+      "RGBNonfinitePixels": 0,
+      "comparisonHalvesUnaltered": true,
+      "visualVerdict": "Rejected",
+      "observations": [
+        "Cliff remains grey and shed interior warm; geometry/camera composition preserved.",
+        "Upper shed gable/roof and exterior posts remain far brighter/paler than the dark brown source.",
+        "Van windshield loses blue source reflection; depot and yard foreground/shadow fill differ, with native near-ground purple/brown rather than source green/cool.",
+        "Native exterior shading/shadows are harder and several leaves/cutouts darker than source."
+      ]
+    },
+    {
+      "camera": "R39_02_TUNNEL",
+      "sourcePngSha256": "d233660db90911511901bd0781e4837afd2076a5d82d7f70f421e1a2ad17be19",
+      "nativePngSha256": "95f99947110d0befd31ed76d20be112655cb44159dd500a543d561f1f6bc2dde",
+      "nativeHdrSha256": "ffc199128c9fcfd392c0c56310aa64fb806b2d935aa0f32c6b1ba8268d012b96",
+      "comparisonPanelSha256": "abd6fb7c4c7c346013574c09f09ff54db76806f6b645f7261b1ed95415bc8303",
+      "cameraPoseVerified": true,
+      "RGBNonfinitePixels": 0,
+      "comparisonHalvesUnaltered": true,
+      "visualVerdict": "Rejected",
+      "observations": [
+        "Left air-main now carries fine normal detail and source lantern-floor silhouettes are removed. H04 lettering is readable.",
+        "Source has dense warm dusty haze and a brighter, softer floor; native floor remains uniform brown and distant fill/contrast differs.",
+        "Wood/metal highlights remain sharper and stronger locally; lower wall and rail lighting differ from source.",
+        "Rubble edges still contain small dark flecks/cutouts; material response and haze need isolation rather than invented floor texture."
+      ]
+    },
+    {
+      "camera": "R39_04_SHED_FRONT",
+      "sourcePngSha256": "34c68642df399f90c37df2ca2f65828ba131116cdcd9592096f708bf17cbc211",
+      "nativePngSha256": "fb8355dcc09a0762b8dc77522c9ece8976ebcbe56bbe41efbfce09d7116c1634",
+      "nativeHdrSha256": "84f349565ef5710f2716cf3a071ea954d07d5bd2a401c67204d4fd3c543e593d",
+      "comparisonPanelSha256": "a144db566e4995afea9016a348bdec9bb62510cda5c861c4498cc62233c21767",
+      "cameraPoseVerified": true,
+      "RGBNonfinitePixels": 0,
+      "comparisonHalvesUnaltered": true,
+      "visualVerdict": "Rejected",
+      "observations": [
+        "Authored timber grain and geometry are present with no broad quad speckle or nonfinite shading.",
+        "Dominant boards/posts/braces remain pale grey compared with the source dark warm brown; this large-area mismatch blocks fidelity acceptance.",
+        "01 lettering looks flat and its source depth/soft shadow is missing. Sign illumination gradient differs.",
+        "Platform/near-ground has conspicuous black specks and pale shading versus softer grey debris/dust in source; reflection/indirect and volume response remain unmatched."
+      ]
+    }
+  ],
+  "technicalEvidence": {
+    "independentTechnicalReceipt": "/tmp/cs-mine-hdr-technical-independent-final13.json",
+    "independentTechnicalReceiptSha256": "1ed8b68e81dfd3e2361eec6fff376a6c9f01b19043d217327b6c234818938a57",
+    "source13Receipt": "/tmp/cs-mine-source-independent-final13.json",
+    "source13MetadataPreservationRechecked": true,
+    "spawn": "All3 currentnativeSpawnviews independentlyinspected; no material regression; /tmp/cs-mine-spawn-independent-review-final13.json",
+    "current18": {
+      "status": "Passed",
+      "exactInventory": true,
+      "total": 18,
+      "failed": 0,
+      "skipped": 0,
+      "durationSeconds": 123.2007777,
+      "xmlSha256": "796accc45f64e3e52e61f79ea081a0187ec5df67aaa32146c00f21b88662a11d"
+    },
+    "actual63PointOutputs": {
+      "configuredMixed": 24,
+      "configuredBaked": 39,
+      "actualMixed": 5,
+      "actualBaked": 58,
+      "sha256": "e087e8a377b97a6093e518e95b32b4184809f5636ce478fcab411a3c2b88dc84",
+      "limits": "Only actual5Mixed provide runtime pointdirect;58Baked includes19fallback. Restoringintensity doesnotmake58realtime."
+    },
+    "freshPlayer": "Held/unbuilt; no current Player pass",
+    "sourceActorSHField": "Rejected and not applied; fittedneutralpacking control only",
+    "performance": "Software raster activity observed only; no target-hardware frame-time claim"
+  },
+  "nextMeasuredCorrections": [
+    "Run the gated current fog-on/off diagnostic to measure atmosphere contribution, compare disclosed no-volume source; do not assert omittedMixed direct is cause before measurement.",
+    "On exact front-board/gable masks, compare current native direct versus baked/probe/reflection contribution against source; physical far-field units alone did not resolve pale boards, do not recolor source albedo.",
+    "Verify 01 glyph geometry, world normals, material/caster/depth/lighting against source before assuming a shadow-only defect.",
+    "Isolate actual ground/platform dark flecks and density/normal/detail sampling on current material/object masks. Central floor historical albedo/normal means were close, so avoid invented grain.",
+    "Apply only a measured scoped glass Fresnel/reflection/transmission correction after actual-source/probe/background controls; production glass remains mismatched."
+  ],
+  "scopeLimits": [
+    "Current six-room committed-main snapshot; expanded Claude assembly not certified here",
+    "98 is quality target, not pixel equality; no rounding up or normalizing41of60 tooverall score",
+    "No Player, actor SourceGI field or targethardware acceptance",
+    "Authored source files and frozen production/queue unchanged by reviewer",
+    "Known finite-radius near-field GI/range/fallbackMixed/sourceindirect limitations unresolved"
+  ]
+}

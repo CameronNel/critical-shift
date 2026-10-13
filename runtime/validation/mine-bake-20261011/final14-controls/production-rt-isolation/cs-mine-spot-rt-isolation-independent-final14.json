@@ -1,0 +1,620 @@
+{
+  "utc": "2026-10-13T00:10:04.229234+00:00",
+  "reviewer": "/root/strict_mine_review",
+  "status": "PassedIndependentBoundedRealtimeIsolation_NoBakeNoCookieRegeneration",
+  "stateSha256": "9e315e0b7053b8a135c0852a380eb3a70a4b776b223f2d955890874c6d491ea9",
+  "nativeLogSha256": "950d1b7789bf4e08656d3d8ebdac56c76f3bf4b291486014e25bd52ed7a216be",
+  "pinsVerified": 22,
+  "frames": [
+    {
+      "name": "d1-a0-realtime-exact-clone",
+      "hdrSha256": "6cff383385de2251df518083f00648a65c356111f5de2941dcaabec37bc62270",
+      "metadataSha256": "4b99d0584fbb25563cd08180cf7cf66299105a89c81beb5c8db460630d95c39c",
+      "meanCentreRGB": [
+        11.68579150736332,
+        10.750929027795792,
+        9.114916443824768
+      ],
+      "shaderPath": "Assets/CsSpotRealtimeIsolationDiagnostic/ExactClone.shader",
+      "cookieCpuGpuExact": true,
+      "sourceHdrSha256": "e1f1a32c0b4e996168716f8a5849ea39add5b3a3334fe82109ccef6506cf0d0d",
+      "sourceMeanCentreRGB": [
+        11.686149969696999,
+        10.751258611679077,
+        9.11519667506218
+      ],
+      "relativePercentRGB": [
+        -0.0030674117190709893,
+        -0.0030655376750732266,
+        -0.003074330125840685
+      ]
+    },
+    {
+      "name": "d1-a0-realtime-explicit-override",
+      "hdrSha256": "6cff383385de2251df518083f00648a65c356111f5de2941dcaabec37bc62270",
+      "metadataSha256": "55920d91c7c8f0678bc3df96eb84563e6c3e05d78ca60bb68ce11a6c6ba6b3d0",
+      "meanCentreRGB": [
+        11.68579150736332,
+        10.750929027795792,
+        9.114916443824768
+      ],
+      "shaderPath": "Assets/CsSpotRealtimeIsolationDiagnostic/ExplicitClone.shader",
+      "cookieCpuGpuExact": true,
+      "sourceHdrSha256": "e1f1a32c0b4e996168716f8a5849ea39add5b3a3334fe82109ccef6506cf0d0d",
+      "sourceMeanCentreRGB": [
+        11.686149969696999,
+        10.751258611679077,
+        9.11519667506218
+      ],
+      "relativePercentRGB": [
+        -0.0030674117190709893,
+        -0.0030655376750732266,
+        -0.003074330125840685
+      ]
+    },
+    {
+      "name": "d1-a0-realtime-tagged",
+      "hdrSha256": "6cff383385de2251df518083f00648a65c356111f5de2941dcaabec37bc62270",
+      "metadataSha256": "a536f0ffb37120d92410327681dd2507ec8fbc32ffb4b9378d106543bce5392c",
+      "meanCentreRGB": [
+        11.68579150736332,
+        10.750929027795792,
+        9.114916443824768
+      ],
+      "shaderPath": "Assets/CriticalShift/Features/Player/BlenderSurface.shader",
+      "cookieCpuGpuExact": true,
+      "sourceHdrSha256": "e1f1a32c0b4e996168716f8a5849ea39add5b3a3334fe82109ccef6506cf0d0d",
+      "sourceMeanCentreRGB": [
+        11.686149969696999,
+        10.751258611679077,
+        9.11519667506218
+      ],
+      "relativePercentRGB": [
+        -0.0030674117190709893,
+        -0.0030655376750732266,
+        -0.003074330125840685
+      ]
+    },
+    {
+      "name": "d2-a0-realtime-exact-clone",
+      "hdrSha256": "eb9add644fa7d67ee8f2872010896bd5011304efae26c344ec25a2cb62051c57",
+      "metadataSha256": "87e10212a304f6c7cd40617b944c46683a1deb045d01cfe561b0e4c6fa448f64",
+      "meanCentreRGB": [
+        2.952937573194504,
+        2.716702751815319,
+        2.3032910525798798
+      ],
+      "shaderPath": "Assets/CsSpotRealtimeIsolationDiagnostic/ExactClone.shader",
+      "cookieCpuGpuExact": true,
+      "sourceHdrSha256": "bc7815f4d85a078c340316fb69f3f7c2ac19ddf476573c27f1839c61f61c8178",
+      "sourceMeanCentreRGB": [
+        2.9529990293085575,
+        2.7167592979967594,
+        2.3033391013741493
+      ],
+      "relativePercentRGB": [
+        -0.002081142372334366,
+        -0.00208138356173615,
+        -0.002086049520055866
+      ]
+    },
+    {
+      "name": "d2-a0-realtime-explicit-override",
+      "hdrSha256": "eb9add644fa7d67ee8f2872010896bd5011304efae26c344ec25a2cb62051c57",
+      "metadataSha256": "0c4e510d6856265a6f3ab586f3e5d2b3580fae2f3fdb95fde48fdac15e481b48",
+      "meanCentreRGB": [
+        2.952937573194504,
+        2.716702751815319,
+        2.3032910525798798
+      ],
+      "shaderPath": "Assets/CsSpotRealtimeIsolationDiagnostic/ExplicitClone.shader",
+      "cookieCpuGpuExact": true,
+      "sourceHdrSha256": "bc7815f4d85a078c340316fb69f3f7c2ac19ddf476573c27f1839c61f61c8178",
+      "sourceMeanCentreRGB": [
+        2.9529990293085575,
+        2.7167592979967594,
+        2.3033391013741493
+      ],
+      "relativePercentRGB": [
+        -0.002081142372334366,
+        -0.00208138356173615,
+        -0.002086049520055866
+      ]
+    },
+    {
+      "name": "d2-a0-realtime-tagged",
+      "hdrSha256": "eb9add644fa7d67ee8f2872010896bd5011304efae26c344ec25a2cb62051c57",
+      "metadataSha256": "e880c96c6f8c4a9e40b57513e390a85478082fd823baef332dca502e4e40dfe1",
+      "meanCentreRGB": [
+        2.952937573194504,
+        2.716702751815319,
+        2.3032910525798798
+      ],
+      "shaderPath": "Assets/CriticalShift/Features/Player/BlenderSurface.shader",
+      "cookieCpuGpuExact": true,
+      "sourceHdrSha256": "bc7815f4d85a078c340316fb69f3f7c2ac19ddf476573c27f1839c61f61c8178",
+      "sourceMeanCentreRGB": [
+        2.9529990293085575,
+        2.7167592979967594,
+        2.3033391013741493
+      ],
+      "relativePercentRGB": [
+        -0.002081142372334366,
+        -0.00208138356173615,
+        -0.002086049520055866
+      ]
+    },
+    {
+      "name": "d4-a0-fallback-production",
+      "hdrSha256": "47d9b07126858b7e6e497d006ec43d288f66f98577cc11eee5287116214a3cd4",
+      "metadataSha256": "6bfc7efe481f45fbb7ed9d75f6ee4187decca35c377f7acbc2e64c3ee692236f",
+      "meanCentreRGB": [
+        8.600563496351242,
+        7.912518747150898,
+        6.7084386721253395
+      ],
+      "shaderPath": "Assets/CriticalShift/Features/Player/BlenderSurface.shader",
+      "cookieCpuGpuExact": true
+    },
+    {
+      "name": "d4-a0-fallback-stock",
+      "hdrSha256": "47d9b07126858b7e6e497d006ec43d288f66f98577cc11eee5287116214a3cd4",
+      "metadataSha256": "29ec9fc80aee1d6c46fd88ba31ce41584d2af55f06c656692ef4fa5522fc6e88",
+      "meanCentreRGB": [
+        8.600563496351242,
+        7.912518747150898,
+        6.7084386721253395
+      ],
+      "shaderPath": "Assets/CsSpotRealtimeIsolationDiagnostic/StockBaseline.shader",
+      "cookieCpuGpuExact": true
+    },
+    {
+      "name": "d4-a0-realtime-exact-clone",
+      "hdrSha256": "181c9f681bcc5faf7914282fd243a294c54453be5c5c2f7218f8b27d916bff5d",
+      "metadataSha256": "6be3a03cda4e91d71e3b85828020d891c0314cfad6c1f45c872e43c8f940dabb",
+      "meanCentreRGB": [
+        0.7402291167527437,
+        0.6810108441859484,
+        0.5773786390200257
+      ],
+      "shaderPath": "Assets/CsSpotRealtimeIsolationDiagnostic/ExactClone.shader",
+      "cookieCpuGpuExact": true,
+      "sourceHdrSha256": "684fcb4e168f6652b4fc827235950a66013e0e81b8ca4272a57b21df239b5acc",
+      "sourceMeanCentreRGB": [
+        0.7402438633143902,
+        0.6810244135558605,
+        0.5773901734501123
+      ],
+      "relativePercentRGB": [
+        -0.001992122106952987,
+        -0.0019924939021365162,
+        -0.0019976838223079163
+      ]
+    },
+    {
+      "name": "d4-a0-realtime-explicit-override",
+      "hdrSha256": "181c9f681bcc5faf7914282fd243a294c54453be5c5c2f7218f8b27d916bff5d",
+      "metadataSha256": "3262622d23005b6b53f98be1f512add481179699da0f6898b998f606ea37c1f4",
+      "meanCentreRGB": [
+        0.7402291167527437,
+        0.6810108441859484,
+        0.5773786390200257
+      ],
+      "shaderPath": "Assets/CsSpotRealtimeIsolationDiagnostic/ExplicitClone.shader",
+      "cookieCpuGpuExact": true,
+      "sourceHdrSha256": "684fcb4e168f6652b4fc827235950a66013e0e81b8ca4272a57b21df239b5acc",
+      "sourceMeanCentreRGB": [
+        0.7402438633143902,
+        0.6810244135558605,
+        0.5773901734501123
+      ],
+      "relativePercentRGB": [
+        -0.001992122106952987,
+        -0.0019924939021365162,
+        -0.0019976838223079163
+      ]
+    },
+    {
+      "name": "d4-a0-realtime-tagged",
+      "hdrSha256": "181c9f681bcc5faf7914282fd243a294c54453be5c5c2f7218f8b27d916bff5d",
+      "metadataSha256": "2aa4a8c9bf89f41b380d4ea368b1d72008ea51cd41cdfac18df621cae05c290c",
+      "meanCentreRGB": [
+        0.7402291167527437,
+        0.6810108441859484,
+        0.5773786390200257
+      ],
+      "shaderPath": "Assets/CriticalShift/Features/Player/BlenderSurface.shader",
+      "cookieCpuGpuExact": true,
+      "sourceHdrSha256": "684fcb4e168f6652b4fc827235950a66013e0e81b8ca4272a57b21df239b5acc",
+      "sourceMeanCentreRGB": [
+        0.7402438633143902,
+        0.6810244135558605,
+        0.5773901734501123
+      ],
+      "relativePercentRGB": [
+        -0.001992122106952987,
+        -0.0019924939021365162,
+        -0.0019976838223079163
+      ]
+    },
+    {
+      "name": "d4-a0-shadow-blocker",
+      "hdrSha256": "e05884cd6e7368742c29923d635353a7089923e85b7e92dfedb70003ab176b66",
+      "metadataSha256": "a5e37c946c3ae4d59b1a28071882a6a5e671fc98f7881977b0c740170c29be7a",
+      "meanCentreRGB": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "shaderPath": "Assets/CriticalShift/Features/Player/BlenderSurface.shader",
+      "cookieCpuGpuExact": true
+    },
+    {
+      "name": "d4-a0-shadow-clear",
+      "hdrSha256": "181c9f681bcc5faf7914282fd243a294c54453be5c5c2f7218f8b27d916bff5d",
+      "metadataSha256": "7df31e4bc98f7d0cec4bd1ab99048e26cae13d1bbe91b46f145f73b57f253c87",
+      "meanCentreRGB": [
+        0.7402291167527437,
+        0.6810108441859484,
+        0.5773786390200257
+      ],
+      "shaderPath": "Assets/CriticalShift/Features/Player/BlenderSurface.shader",
+      "cookieCpuGpuExact": true
+    },
+    {
+      "name": "d4-a30-realtime-exact-clone",
+      "hdrSha256": "ff489a90c70a6c0a32a8450569e62b8469559e49fc9f47809680ad6692adf90b",
+      "metadataSha256": "8ca57f2d61872e69d31a06cd891e040fae5b8d49d5b4a66c8b1d2ba3cef5cced",
+      "meanCentreRGB": [
+        0.7320017442107201,
+        0.6734416633844376,
+        0.5709612993523479
+      ],
+      "shaderPath": "Assets/CsSpotRealtimeIsolationDiagnostic/ExactClone.shader",
+      "cookieCpuGpuExact": true,
+      "sourceHdrSha256": "4e84bedee74bfd4557a321e177be4282bd943fe30862e77d89f2baec1c6dfe64",
+      "sourceMeanCentreRGB": [
+        0.7315746573731303,
+        0.6730486890301108,
+        0.5706281596794724
+      ],
+      "relativePercentRGB": [
+        0.0583791186976379,
+        0.05838721042499273,
+        0.05838121852634881
+      ]
+    },
+    {
+      "name": "d4-a30-realtime-explicit-override",
+      "hdrSha256": "ff489a90c70a6c0a32a8450569e62b8469559e49fc9f47809680ad6692adf90b",
+      "metadataSha256": "76e8eadd1515047633825eddb82223c7b8d50c777a423f563ee51641009128f0",
+      "meanCentreRGB": [
+        0.7320017442107201,
+        0.6734416633844376,
+        0.5709612993523479
+      ],
+      "shaderPath": "Assets/CsSpotRealtimeIsolationDiagnostic/ExplicitClone.shader",
+      "cookieCpuGpuExact": true,
+      "sourceHdrSha256": "4e84bedee74bfd4557a321e177be4282bd943fe30862e77d89f2baec1c6dfe64",
+      "sourceMeanCentreRGB": [
+        0.7315746573731303,
+        0.6730486890301108,
+        0.5706281596794724
+      ],
+      "relativePercentRGB": [
+        0.0583791186976379,
+        0.05838721042499273,
+        0.05838121852634881
+      ]
+    },
+    {
+      "name": "d4-a30-realtime-tagged",
+      "hdrSha256": "ff489a90c70a6c0a32a8450569e62b8469559e49fc9f47809680ad6692adf90b",
+      "metadataSha256": "2e2b9e614132de5c48398bdf0a7ecadb1cebbed6aee22678089bd1732f1daeb9",
+      "meanCentreRGB": [
+        0.7320017442107201,
+        0.6734416633844376,
+        0.5709612993523479
+      ],
+      "shaderPath": "Assets/CriticalShift/Features/Player/BlenderSurface.shader",
+      "cookieCpuGpuExact": true,
+      "sourceHdrSha256": "4e84bedee74bfd4557a321e177be4282bd943fe30862e77d89f2baec1c6dfe64",
+      "sourceMeanCentreRGB": [
+        0.7315746573731303,
+        0.6730486890301108,
+        0.5706281596794724
+      ],
+      "relativePercentRGB": [
+        0.0583791186976379,
+        0.05838721042499273,
+        0.05838121852634881
+      ]
+    },
+    {
+      "name": "d4-a50-realtime-exact-clone",
+      "hdrSha256": "2ae3841cedaef8db7416ba5b91f45e3f1b0c9cb749018732d0b896f81a595534",
+      "metadataSha256": "1221d81168e1f533c7c3f234b2f92296fef32c427804ef918947600406e9da7e",
+      "meanCentreRGB": [
+        0.28249509166926146,
+        0.25989551143720746,
+        0.22034614975564182
+      ],
+      "shaderPath": "Assets/CsSpotRealtimeIsolationDiagnostic/ExactClone.shader",
+      "cookieCpuGpuExact": true,
+      "sourceHdrSha256": "7473061c74e1dca33ea19b2f8f0770e2f555e0af8babf5f792468bc2e7b7b3c4",
+      "sourceMeanCentreRGB": [
+        0.28241498256102204,
+        0.2598217879422009,
+        0.22028367896564305
+      ],
+      "relativePercentRGB": [
+        0.028365743032798818,
+        0.028374639244255206,
+        0.02835924581072735
+      ]
+    },
+    {
+      "name": "d4-a50-realtime-explicit-override",
+      "hdrSha256": "2ae3841cedaef8db7416ba5b91f45e3f1b0c9cb749018732d0b896f81a595534",
+      "metadataSha256": "4ec70e72f0ea5941f75ec83d31875525a3a48f00ccd0d134f039d130fa98992d",
+      "meanCentreRGB": [
+        0.28249509166926146,
+        0.25989551143720746,
+        0.22034614975564182
+      ],
+      "shaderPath": "Assets/CsSpotRealtimeIsolationDiagnostic/ExplicitClone.shader",
+      "cookieCpuGpuExact": true,
+      "sourceHdrSha256": "7473061c74e1dca33ea19b2f8f0770e2f555e0af8babf5f792468bc2e7b7b3c4",
+      "sourceMeanCentreRGB": [
+        0.28241498256102204,
+        0.2598217879422009,
+        0.22028367896564305
+      ],
+      "relativePercentRGB": [
+        0.028365743032798818,
+        0.028374639244255206,
+        0.02835924581072735
+      ]
+    },
+    {
+      "name": "d4-a50-realtime-tagged",
+      "hdrSha256": "2ae3841cedaef8db7416ba5b91f45e3f1b0c9cb749018732d0b896f81a595534",
+      "metadataSha256": "44e934d0e1cf74c87fc9b091c34e7636713206db100649392571538b4b0fa30d",
+      "meanCentreRGB": [
+        0.28249509166926146,
+        0.25989551143720746,
+        0.22034614975564182
+      ],
+      "shaderPath": "Assets/CriticalShift/Features/Player/BlenderSurface.shader",
+      "cookieCpuGpuExact": true,
+      "sourceHdrSha256": "7473061c74e1dca33ea19b2f8f0770e2f555e0af8babf5f792468bc2e7b7b3c4",
+      "sourceMeanCentreRGB": [
+        0.28241498256102204,
+        0.2598217879422009,
+        0.22028367896564305
+      ],
+      "relativePercentRGB": [
+        0.028365743032798818,
+        0.028374639244255206,
+        0.02835924581072735
+      ]
+    },
+    {
+      "name": "d4-a60-realtime-exact-clone",
+      "hdrSha256": "69adf64ca85e193e3f2b9b5040cea30b20b2dbc52b9e93ca07f83fedc54c45cb",
+      "metadataSha256": "6452824eb7facb31c9a2118c89aec26255d6c57415e40520c938035bdd3fcefd",
+      "meanCentreRGB": [
+        0.016549810447031632,
+        0.01522582683537621,
+        0.012908850840176456
+      ],
+      "shaderPath": "Assets/CsSpotRealtimeIsolationDiagnostic/ExactClone.shader",
+      "cookieCpuGpuExact": true,
+      "sourceHdrSha256": "f6653f31990e05ce329f4c8dc4acc53b5dab3bbe4048fcc3e56cb52a75de5a62",
+      "sourceMeanCentreRGB": [
+        0.018063602707115933,
+        0.01661851443350315,
+        0.014089608332142234
+      ],
+      "relativePercentRGB": [
+        -8.380345187109107,
+        -8.380337506698332,
+        -8.38034290330235
+      ]
+    },
+    {
+      "name": "d4-a60-realtime-explicit-override",
+      "hdrSha256": "69adf64ca85e193e3f2b9b5040cea30b20b2dbc52b9e93ca07f83fedc54c45cb",
+      "metadataSha256": "cfcd07ad10205d944e3f96e07d6bb887e2a6d781c0ca47c61b033c2b1d3aff3c",
+      "meanCentreRGB": [
+        0.016549810447031632,
+        0.01522582683537621,
+        0.012908850840176456
+      ],
+      "shaderPath": "Assets/CsSpotRealtimeIsolationDiagnostic/ExplicitClone.shader",
+      "cookieCpuGpuExact": true,
+      "sourceHdrSha256": "f6653f31990e05ce329f4c8dc4acc53b5dab3bbe4048fcc3e56cb52a75de5a62",
+      "sourceMeanCentreRGB": [
+        0.018063602707115933,
+        0.01661851443350315,
+        0.014089608332142234
+      ],
+      "relativePercentRGB": [
+        -8.380345187109107,
+        -8.380337506698332,
+        -8.38034290330235
+      ]
+    },
+    {
+      "name": "d4-a60-realtime-tagged",
+      "hdrSha256": "69adf64ca85e193e3f2b9b5040cea30b20b2dbc52b9e93ca07f83fedc54c45cb",
+      "metadataSha256": "c3932d0ae021a1d16da5c1867fd870ccd21487c6c1dfe72e5a57f034964466c6",
+      "meanCentreRGB": [
+        0.016549810447031632,
+        0.01522582683537621,
+        0.012908850840176456
+      ],
+      "shaderPath": "Assets/CriticalShift/Features/Player/BlenderSurface.shader",
+      "cookieCpuGpuExact": true,
+      "sourceHdrSha256": "f6653f31990e05ce329f4c8dc4acc53b5dab3bbe4048fcc3e56cb52a75de5a62",
+      "sourceMeanCentreRGB": [
+        0.018063602707115933,
+        0.01661851443350315,
+        0.014089608332142234
+      ],
+      "relativePercentRGB": [
+        -8.380345187109107,
+        -8.380337506698332,
+        -8.38034290330235
+      ]
+    },
+    {
+      "name": "d4-a65-realtime-exact-clone",
+      "hdrSha256": "57f3cc94fe9b4994c303ea6299c7605dddb33ecc4f00c3ec8b37535827f9633a",
+      "metadataSha256": "413dea2b6cc8d9b34e39b29ab84484ecefe420c4b601407db218d2501a58a41e",
+      "meanCentreRGB": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "shaderPath": "Assets/CsSpotRealtimeIsolationDiagnostic/ExactClone.shader",
+      "cookieCpuGpuExact": true,
+      "sourceHdrSha256": "6ae3e9b2d8d11b040883953b12c07b0203b6071c7a5983277a2735e8f55c9b03",
+      "sourceMeanCentreRGB": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "relativePercentRGB": null
+    },
+    {
+      "name": "d4-a65-realtime-explicit-override",
+      "hdrSha256": "57f3cc94fe9b4994c303ea6299c7605dddb33ecc4f00c3ec8b37535827f9633a",
+      "metadataSha256": "ea5fe7982124a32a96e5cf12eed5a77d876af93cbf2e4a11da63f98c62f5f9c5",
+      "meanCentreRGB": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "shaderPath": "Assets/CsSpotRealtimeIsolationDiagnostic/ExplicitClone.shader",
+      "cookieCpuGpuExact": true,
+      "sourceHdrSha256": "6ae3e9b2d8d11b040883953b12c07b0203b6071c7a5983277a2735e8f55c9b03",
+      "sourceMeanCentreRGB": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "relativePercentRGB": null
+    },
+    {
+      "name": "d4-a65-realtime-tagged",
+      "hdrSha256": "57f3cc94fe9b4994c303ea6299c7605dddb33ecc4f00c3ec8b37535827f9633a",
+      "metadataSha256": "da4155160ac5af1e596bdf43fdd7be822d46b44ef309a5168b77249d7cbf4e7d",
+      "meanCentreRGB": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "shaderPath": "Assets/CriticalShift/Features/Player/BlenderSurface.shader",
+      "cookieCpuGpuExact": true,
+      "sourceHdrSha256": "6ae3e9b2d8d11b040883953b12c07b0203b6071c7a5983277a2735e8f55c9b03",
+      "sourceMeanCentreRGB": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "relativePercentRGB": null
+    },
+    {
+      "name": "d4-a75-realtime-exact-clone",
+      "hdrSha256": "57f3cc94fe9b4994c303ea6299c7605dddb33ecc4f00c3ec8b37535827f9633a",
+      "metadataSha256": "76f4410198755dc3e4a089cd783fafc54dfca080c7dd5968616b94933994b793",
+      "meanCentreRGB": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "shaderPath": "Assets/CsSpotRealtimeIsolationDiagnostic/ExactClone.shader",
+      "cookieCpuGpuExact": true,
+      "sourceHdrSha256": "44b30530f1f90765653c1e5c162c0d19e9e0e2f1d65a0e0b82f4107f67968fda",
+      "sourceMeanCentreRGB": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "relativePercentRGB": null
+    },
+    {
+      "name": "d4-a75-realtime-explicit-override",
+      "hdrSha256": "57f3cc94fe9b4994c303ea6299c7605dddb33ecc4f00c3ec8b37535827f9633a",
+      "metadataSha256": "c3cbf8ea43ced6b131a6ef51d847ca8c33dcd3956e6b86ae2a18dac8d1064854",
+      "meanCentreRGB": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "shaderPath": "Assets/CsSpotRealtimeIsolationDiagnostic/ExplicitClone.shader",
+      "cookieCpuGpuExact": true,
+      "sourceHdrSha256": "44b30530f1f90765653c1e5c162c0d19e9e0e2f1d65a0e0b82f4107f67968fda",
+      "sourceMeanCentreRGB": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "relativePercentRGB": null
+    },
+    {
+      "name": "d4-a75-realtime-tagged",
+      "hdrSha256": "57f3cc94fe9b4994c303ea6299c7605dddb33ecc4f00c3ec8b37535827f9633a",
+      "metadataSha256": "6b2211dffe1fde1f00ed74d09b2b8082d16d3df557b6be93b23b43e956975880",
+      "meanCentreRGB": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "shaderPath": "Assets/CriticalShift/Features/Player/BlenderSurface.shader",
+      "cookieCpuGpuExact": true,
+      "sourceHdrSha256": "44b30530f1f90765653c1e5c162c0d19e9e0e2f1d65a0e0b82f4107f67968fda",
+      "sourceMeanCentreRGB": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "relativePercentRGB": null
+    }
+  ],
+  "allEightProductionCloneExplicitFramesBitIdentical": [
+    "d1-a0",
+    "d2-a0",
+    "d4-a0",
+    "d4-a30",
+    "d4-a50",
+    "d4-a60",
+    "d4-a65",
+    "d4-a75"
+  ],
+  "shadowClearMeanRGB": [
+    0.7402291297912598,
+    0.6810110211372375,
+    0.5773786306381226
+  ],
+  "shadowBlockedAllRGBZero": true,
+  "untaggedStockFallbackAllRGBBitIdentical": true,
+  "fallbackMeanRGB": [
+    8.600560188293457,
+    7.912517547607422,
+    6.708437442779541
+  ],
+  "conclusions": [
+    "Production SPOT macro and texture agree measured reference in this fresh no-bake/no-regeneration state; exact fresh clone and explicit measured override add no difference.",
+    "Opaque blocker zeroes direct Source spot; untagged whitecookie preserves stock legacy attenuation.",
+    "CPU and Graphics.Blit centre cookie values agree exactly; lighting-pass output also proves physical cone/radial response across8 rays.",
+    "Priorproduction20 RT failure is not reproducible in this isolation; regeneration/deletedasset transition remains a hypothesis, not yet causal proof."
+  ],
+  "limits": [
+    "60deg source finite-emitter residual remains (~-8.38%); do not retune source blend/power.",
+    "No production corrupt-cookie transition/GI scope bake integration/full20 success from this job.",
+    "No current thirteen-room main import, full-scene art, Actor/Player/performance acceptance.",
+    "Last full visual remains rejected41/60, overallscore unset."
+  ]
+}

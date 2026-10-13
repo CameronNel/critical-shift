@@ -1,0 +1,263 @@
+{
+  "utc": "2026-10-13T00:02:31.742160+00:00",
+  "reviewer": "/root/strict_mine_review",
+  "status": "RejectedPartialRealtimeRadiometryAsWellAsFailedNativeBake",
+  "partialReceiptSha256": "e7769edcc243c7c47590b7cac4bec95e83cde1abad96aeef40a231c1430a70b7",
+  "frames": [
+    {
+      "name": "d1-a0-baked-tagged",
+      "nativeSha256": "683c47f3751e4b02173d7825e97c0fa4c4a7448099cbee8d3ee3657c174377d3",
+      "metadataSha256": "4604c826c8363a7cd69e68c853b5de90afb088836e0e49e2756a2b306dda920b",
+      "sourceSha256": "e1f1a32c0b4e996168716f8a5849ea39add5b3a3334fe82109ccef6506cf0d0d",
+      "meanCentreRGB": [
+        11.835000038146973,
+        10.88437557220459,
+        9.23062515258789
+      ],
+      "sourceMeanCentreRGB": [
+        11.686149969696999,
+        10.751258611679077,
+        9.11519667506218
+      ],
+      "relativePercentRGB": [
+        1.27373060277296,
+        1.2381523441442388,
+        1.2663300819554024
+      ],
+      "finite": true
+    },
+    {
+      "name": "d1-a0-realtime-tagged",
+      "nativeSha256": "4f64355f6791fdb2e5321f54e84411e4f7d7a5287b192ddef9b1aa5f575612b3",
+      "metadataSha256": "4b55ee59533d66699418e6fa9267694b1c8cc1d1edb4003fca36455eb001ac37",
+      "sourceSha256": "e1f1a32c0b4e996168716f8a5849ea39add5b3a3334fe82109ccef6506cf0d0d",
+      "meanCentreRGB": [
+        11.712969228625298,
+        10.775932669639587,
+        9.136114999651909
+      ],
+      "sourceMeanCentreRGB": [
+        11.686149969696999,
+        10.751258611679077,
+        9.11519667506218
+      ],
+      "relativePercentRGB": [
+        0.2294961043443955,
+        0.22949925075477218,
+        0.22948846125239175
+      ],
+      "finite": true
+    },
+    {
+      "name": "d2-a0-baked-tagged",
+      "nativeSha256": "04ab7b92bce72575752cc366122f1840a2151fa295c435019ed36fff2d4f0ba3",
+      "metadataSha256": "68a19eb73b634fe9534cc60acb7f5152d3e9222e55be795b3379a17d004d08ee",
+      "sourceSha256": "bc7815f4d85a078c340316fb69f3f7c2ac19ddf476573c27f1839c61f61c8178",
+      "meanCentreRGB": [
+        2.958750009536743,
+        2.7210938930511475,
+        2.3076562881469727
+      ],
+      "sourceMeanCentreRGB": [
+        2.9529990293085575,
+        2.7167592979967594,
+        2.3033391013741493
+      ],
+      "relativePercentRGB": [
+        0.19475049504273922,
+        0.15955020592306468,
+        0.18743166259140853
+      ],
+      "finite": true
+    },
+    {
+      "name": "d2-a0-realtime-tagged",
+      "nativeSha256": "b4e83022cf9a0a56b2d5c0c93f3dbdd68337c95d967f8ac60282a9032d0315a2",
+      "metadataSha256": "b53a01e82ceed3962c8f081204ab333e538632d7453fe924ac42eedb194b11fe",
+      "sourceSha256": "bc7815f4d85a078c340316fb69f3f7c2ac19ddf476573c27f1839c61f61c8178",
+      "meanCentreRGB": [
+        10.922482773661613,
+        10.048685103654861,
+        8.519535765051842
+      ],
+      "sourceMeanCentreRGB": [
+        2.9529990293085575,
+        2.7167592979967594,
+        2.3033391013741493
+      ],
+      "relativePercentRGB": [
+        269.87762831128003,
+        269.8776373403562,
+        269.8776163687392
+      ],
+      "finite": true
+    },
+    {
+      "name": "d4-a0-baked-tagged",
+      "nativeSha256": "07c8d8eb5af6d22b0cc5c826fa8265e0e1e7af74b6d21e3d14d8cfc0e1d7f9c2",
+      "metadataSha256": "36afab1c310444df92445408d36b924c454b0dc6380591bc50792f5167bc7a39",
+      "sourceSha256": "684fcb4e168f6652b4fc827235950a66013e0e81b8ca4272a57b21df239b5acc",
+      "meanCentreRGB": [
+        0.7396875023841858,
+        0.6802734732627869,
+        0.5769140720367432
+      ],
+      "sourceMeanCentreRGB": [
+        0.7402438633143902,
+        0.6810244135558605,
+        0.5773901734501123
+      ],
+      "relativePercentRGB": [
+        -0.07515914116644762,
+        -0.11026628093298019,
+        -0.08245748460253832
+      ],
+      "finite": true
+    },
+    {
+      "name": "d4-a0-realtime-tagged",
+      "nativeSha256": "47d9b07126858b7e6e497d006ec43d288f66f98577cc11eee5287116214a3cd4",
+      "metadataSha256": "ae74962472cefe867014d1c001d8680b3fac42c83b984d0588038ee8e6c1ca9d",
+      "sourceSha256": "684fcb4e168f6652b4fc827235950a66013e0e81b8ca4272a57b21df239b5acc",
+      "meanCentreRGB": [
+        8.600563496351242,
+        7.912518747150898,
+        6.7084386721253395
+      ],
+      "sourceMeanCentreRGB": [
+        0.7402438633143902,
+        0.6810244135558605,
+        0.5773901734501123
+      ],
+      "relativePercentRGB": [
+        1061.855426648567,
+        1061.8553740000218,
+        1061.85535892307
+      ],
+      "finite": true
+    },
+    {
+      "name": "d4-a30-baked-tagged",
+      "nativeSha256": "5f130ac36b232213491e5811e835a788282f87a102bb0bc21cf8edced93edcac",
+      "metadataSha256": "8da300d1b3fdb802424c84658e037c07dfc0a156edd1a2833f18562844c91432",
+      "sourceSha256": "4e84bedee74bfd4557a321e177be4282bd943fe30862e77d89f2baec1c6dfe64",
+      "meanCentreRGB": [
+        0.7321491567417979,
+        0.6735624987632036,
+        0.5711677307263017
+      ],
+      "sourceMeanCentreRGB": [
+        0.7315746573731303,
+        0.6730486890301108,
+        0.5706281596794724
+      ],
+      "relativePercentRGB": [
+        0.07852915117787518,
+        0.07634064837616084,
+        0.09455738166379568
+      ],
+      "finite": true
+    },
+    {
+      "name": "d4-a30-realtime-tagged",
+      "nativeSha256": "918378ae511a1b5cc0819e4470839285f5d0c08e0027a487b0edc897e5259260",
+      "metadataSha256": "f80bbf76543fdd011fcbd9d0cfbc35d07181aad35b634a609a733027dcb5e2ea",
+      "sourceSha256": "4e84bedee74bfd4557a321e177be4282bd943fe30862e77d89f2baec1c6dfe64",
+      "meanCentreRGB": [
+        8.600563451647758,
+        7.912518724799156,
+        6.708438642323017
+      ],
+      "sourceMeanCentreRGB": [
+        0.7315746573731303,
+        0.6730486890301108,
+        0.5706281596794724
+      ],
+      "relativePercentRGB": [
+        1075.6234807982353,
+        1075.6235252759204,
+        1075.6234823902162
+      ],
+      "finite": true
+    },
+    {
+      "name": "d4-a50-baked-tagged",
+      "nativeSha256": "22e5545543c8a970901ffe08ed2181c31eef3d64450a7b2b9e571518d66774bd",
+      "metadataSha256": "c20b1c5839fb1e94e57be22602d737a0e9a5d8042ed337edd200fdca006a4613",
+      "sourceSha256": "7473061c74e1dca33ea19b2f8f0770e2f555e0af8babf5f792468bc2e7b7b3c4",
+      "meanCentreRGB": [
+        0.2821165304630995,
+        0.2595425280742347,
+        0.22009526519104838
+      ],
+      "sourceMeanCentreRGB": [
+        0.28241498256102204,
+        0.2598217879422009,
+        0.22028367896564305
+      ],
+      "relativePercentRGB": [
+        -0.10567856394023689,
+        -0.10748131254808557,
+        -0.08553233515954384
+      ],
+      "finite": true
+    },
+    {
+      "name": "d4-a50-realtime-tagged",
+      "nativeSha256": "d8b51c8e31eb02fc093446bda4297521a2920ae2e205a901e67f3e1a71e008ff",
+      "metadataSha256": "ae430604d7620f41956e68d27b9beca21e394d48a43bd876ba17c6597db936b6",
+      "sourceSha256": "7473061c74e1dca33ea19b2f8f0770e2f555e0af8babf5f792468bc2e7b7b3c4",
+      "meanCentreRGB": [
+        8.600563868880272,
+        7.912519179284573,
+        6.708438917994499
+      ],
+      "sourceMeanCentreRGB": [
+        0.28241498256102204,
+        0.2598217879422009,
+        0.22028367896564305
+      ],
+      "relativePercentRGB": [
+        2945.3638793833925,
+        2945.3639942793275,
+        2945.3635736857264
+      ],
+      "finite": true
+    },
+    {
+      "name": "d4-a60-realtime-tagged",
+      "nativeSha256": "2e7fb4da2654ae30794b00aef27564f695f58e81ed7ada2798ddf48aeef9d719",
+      "metadataSha256": "ecb9886705f43e52187b229cb28cbb32dd17a18aba91a7f1fb2e835ca9e44561",
+      "sourceSha256": "f6653f31990e05ce329f4c8dc4acc53b5dab3bbe4048fcc3e56cb52a75de5a62",
+      "meanCentreRGB": [
+        8.600563436746597,
+        7.912518739700317,
+        6.708438664674759
+      ],
+      "sourceMeanCentreRGB": [
+        0.018063602707115933,
+        0.01661851443350315,
+        0.014089608332142234
+      ],
+      "relativePercentRGB": [
+        47512.66938936003,
+        47512.6718267222,
+        47512.66961105642
+      ],
+      "finite": true
+    }
+  ],
+  "established": [
+    "All11 written frames RGBfinite and hashes/RT-bake state metadata match.",
+    "Five production baked frames agree prior Source reference to +1.274% near and <.20% for2/4m and30/50degrees.",
+    "Production realtime radiometry fails severely:2m red10.92248vsSource2.95300;4m red8.60056vsSource.74024;30/50/60degrees remain8.60056 despite decreasing Source cone.",
+    "First realtime1m +.2295% while subsequent realtime passes exhibit legacy-like radial/angular pattern.",
+    "Actual contract/corruptcookie/regeneration/nonownedGI/exception marker passed once; final20 marker absent.",
+    "LightBaker exit11 at sixth bake is a separate actual process failure; rootcause not established."
+  ],
+  "notEstablished": [
+    "Baked/probe contamination, GPU cookie marker binding or production shader variant/cache rootcause.",
+    "All20 pass, shadow/fallback behavior, full-scene main integration or98score."
+  ],
+  "requiredNext": "Diagnose current production RT shader/cookie/state with fresh RT-before-anyBake, and test afterbake separately. Record actual type/bakingOutput, ambientSH, cookie path/CPU bytes plus GPU marker sampling if needed. Retain failed raw evidence; do not bless retry from finite HDR/positive-only axial guard."
+}

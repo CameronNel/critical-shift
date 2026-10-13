@@ -1,0 +1,40 @@
+{
+  "status": "Independent current spawn regression cleared; final11 mine acceptance pending",
+  "overallScore": null,
+  "preparedScene": {
+    "mapBindingsSha256": "5607d5c7a3424ab5d4ec2d8ecefceb6b720e67cf336d22e8ffec55ff8466c26b",
+    "rigBindingsSha256": "b89037e3c376c6e7958a3a1a1713664559baec579b861c8c5702ad03cc4a90a6",
+    "sceneSha256": "544f6b3bc6cc7670a27506620c4b1804d0e55753b2d17d5ef34a89889443a09f",
+    "sourceSha256": "d5aec8973e22f5e15dca11ffe9151e778528085c67e049ae10d5df85355cb084",
+    "lightmaps": 3
+  },
+  "preparedSceneFileSha256": "1396842e99d33c9df4e8cb146aa824c22281b049ea1122819132b4a90617dc90",
+  "views": [
+    {
+      "camera": "VALIDATE_Spawn",
+      "currentPngSha256": "c3ec3c54dcac2b5634763e9589e82df51ab652f19051bbad25b5de0e19cacac2",
+      "baselinePngSha256": "d017e86dd65db7ac0d0c688a4e690b675743b1b770138729c79d5bf429d547ac",
+      "meanAbsoluteRgbDelta255": 0.6539234519004822,
+      "independentVisualVerdict": "No material regression observed"
+    },
+    {
+      "camera": "VALIDATE_BriefingDoor",
+      "currentPngSha256": "554b4ad2d7ea4523074c102a907652c3f2bc7e5f262c7992b90a1a7a2342474c",
+      "baselinePngSha256": "91ad6463d8a96a60bf84c65e9aefba31a453e4f24238b3dcdc381ff5b34e57d1",
+      "meanAbsoluteRgbDelta255": 1.4700100421905518,
+      "independentVisualVerdict": "No material regression observed"
+    },
+    {
+      "camera": "VALIDATE_LockerDoor",
+      "currentPngSha256": "8e9fc7cc5f371e1b773699c4b5fae78d667552483941048813d1281481083369",
+      "baselinePngSha256": "e63b8342f7af9e42e12028bd95bfa5b0448e3e6cd6ddfde8b46477bfbc90a8ca",
+      "meanAbsoluteRgbDelta255": 0.8376414775848389,
+      "independentVisualVerdict": "No material regression observed"
+    }
+  ],
+  "limits": [
+    "Spawn preservation only",
+    "No new mine fidelity/current18/Player acceptance from these images",
+    "No pixel-perfect claim"
+  ]
+}

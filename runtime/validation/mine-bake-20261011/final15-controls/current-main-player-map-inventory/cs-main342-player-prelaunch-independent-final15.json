@@ -1,0 +1,45 @@
+{
+  "status": "DraftPlayerHelperNeedsFreshnessArtifactAndCurrentMapSmokeGuards",
+  "helperSha256": "96b643dbf3deb34cec9030efb6365b825f8cf271a02e6e443a6ba9cfb900be91",
+  "exactCurrentTestCount": 18,
+  "cases": [
+    "CriticalShift.Tests.Player.PlayerBindingTests.ClosingDoorReopensAroundAWorkerAndClosesAfterClearance",
+    "CriticalShift.Tests.Player.PlayerBindingTests.ConcaveLeafQueryBoundsAllowAnOccupantInTheEmptyChamber",
+    "CriticalShift.Tests.Player.PlayerBindingTests.ControllerMovesAndPausePreventsMovement",
+    "CriticalShift.Tests.Player.PlayerBindingTests.EquipmentAttachesToBodyAndReturnsToWorld",
+    "CriticalShift.Tests.Player.PlayerBindingTests.LowCeilingPreventsCrouchExpansion",
+    "CriticalShift.Tests.Player.PlayerBindingTests.PickupAndDropProjectCanonicalCustodyIntoPhysics",
+    "CriticalShift.Tests.Player.PlayerBindingTests.PlacementAndTakeUseTheAuthoredAnchor",
+    "CriticalShift.Tests.Player.PlayerBindingTests.SeatDisablesMotionAndBlockedExitKeepsLease",
+    "CriticalShift.Tests.Player.PlayerBindingTests.TenResetsReturnBindingsAndClaimsToTheirInitialState",
+    "CriticalShift.Tests.Player.SpawnMapBindingTests.AirlockControlOpensTheDoorAndAllowsWalkingIntoTheCafeteria",
+    "CriticalShift.Tests.Player.SpawnMapBindingTests.AllBenchSeatsAnimateAndHaveUsableStandingExits",
+    "CriticalShift.Tests.Player.SpawnMapBindingTests.ImportedMapStartsWithCompleteCollisionAndAnimatedRig",
+    "CriticalShift.Tests.Player.SpawnMapBindingTests.ImportedThermosVisualsFollowPickupPlacementTakeAndDrop",
+    "CriticalShift.Tests.Player.SpawnMapBindingTests.IntegrityChamberSealsTestsAndReleasesAnUnsuitedWorker",
+    "CriticalShift.Tests.Player.SpawnMapBindingTests.LockerAnimationSwapsSuitOnlyAtCompletionAndPauses",
+    "CriticalShift.Tests.Player.SpawnMapBindingTests.LockerPreparationRequiresStandingInFrontAndCancelsIfDisplaced",
+    "CriticalShift.Tests.Player.SpawnMapBindingTests.PersistedReflectionsRetainRoughSurfaceFiltering",
+    "CriticalShift.Tests.Player.SpawnMapBindingTests.SuitsRetainSourceFabricClearVisorAndHoodCavity"
+  ],
+  "testScope": {
+    "syntheticPlayerBindings": 9,
+    "importedSpawnSceneBindings": 9,
+    "actualNavigation": "Spawn to cafeteria only"
+  },
+  "findings": [
+    "Current Player smoke120frames verifies session running/shutdown cleanup only; does not observe14room/collision inventory or new-room navigation",
+    "Reject stale owned build/smoke logs/report and require actualprocess idle",
+    "Pin review and technical/source receipt plus6PNG/3HDR/proof/camera identities and revalidate before/after",
+    "Require streaming SHA+size inventory of every actual Player output and required executable/compressedscene/feature+bootstrap managed assemblies"
+  ],
+  "recommendedBoundedCurrentMapObservation": [
+    "Exact source-derived14roomroots/fullmapcommit and enabled active collision indexcounts via GetIndexCount, not triangles allocation",
+    "Selected Source-defined continuous grounded capsule routes; known closed placeholders/missing condenser access explicitly excluded"
+  ],
+  "limits": [
+    "No engine execution or production mutation",
+    "No implication gameplay implemented throughout13rooms",
+    "Current visual41/60 rejected; Player approval gate has not been granted"
+  ]
+}

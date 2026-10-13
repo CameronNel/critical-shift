@@ -1,0 +1,41 @@
+{
+  "status": "StaticClearance_ExactInactiveUnity65ReleaseRelocationAndCapacityGuardedRestoration",
+  "utc": "2026-10-13T05:33:40.549342+00:00",
+  "helpers": [
+    {
+      "path": "/tmp/cs-unity65-common-final15-r2.py",
+      "sha256": "19f9103f9bc85ea5e9e5b95fea0d1a537ffdb20e5cdf9af6c61f24a29e11e19c"
+    },
+    {
+      "path": "/tmp/cs-unity65-release-final15-r2.py",
+      "sha256": "d0b3ea8cf1118050c94a04383ca30ebfc0a22750ce3fb0c781b3e40ac5ea8633"
+    },
+    {
+      "path": "/tmp/cs-unity65-restore-final15-r2.py",
+      "sha256": "ea5f3ca3231bd4a566afbe86b05dd01210224aba0aec1c2ce0c267b88057f11e"
+    }
+  ],
+  "archiveIndependentReceipt": {
+    "path": "/tmp/cs-unity65-archive-independent-final15.json",
+    "sha256": "59d1878466700fbfcfb5db31f36101307f7b40a68ee289eab08b23749875b85f"
+  },
+  "resolved": [
+    "Atomic receipts fsync file and containing directory",
+    "Release remove/copy/alias/done phase recovery; partial source tree must exactly match inventory subset",
+    "Resumed archive copy validates entire existing prefix; durable disk copy before replacing logical tmp file with exact alias",
+    "Restore validates known partial source, full archive hash/member data and types; temporary files remain outside Source",
+    "Pinned4.3editor/dotnet launcher unchanged; engine idle andSource FD ownership guard"
+  ],
+  "conditions": [
+    "Run only exact frozen helpers with independent archive/inventory bytes unchanged",
+    "Required project6000.4.3 remains installed/runnable;6.5 becomes archived and not directly callable",
+    "Restoration requires adequate actual root capacity; current diskarchive placement leaves insufficient capacity until verified archives are safely returned to tmpfs or equivalent space is freed",
+    "Measure actual root/shmem after release and relocation before native; archive preservation is not bake peak guarantee",
+    "Optional archive relocation helper is a separate review; do not delete preserved optional contents"
+  ],
+  "limits": [
+    "Static code review; no release/restore executed by reviewer",
+    "No native/Player/visual acceptance",
+    "Original hardlink inode sharing not restored; exact bytes/modes/uid/gid assured by archive and guards"
+  ]
+}

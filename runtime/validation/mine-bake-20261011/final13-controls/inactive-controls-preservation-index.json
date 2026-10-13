@@ -1,0 +1,3821 @@
+{
+  "status": "InactiveGeneratedEvidenceLosslesslyPreserved",
+  "archiveSha256": "b1f1a75333fd920ddc0a55a408356221959a6200dfc4f416d9ad9d7a9d8bd79f",
+  "archiveBytes": 402530315,
+  "tmpBytesReleased": 679939984,
+  "limits": "Historical generated diagnostics and inactivecache only; no source, toolchain, Player or current reviewer inputs removed.",
+  "files": {
+    "cs-mine-inactive-diagnostics-final10/reflection-native-isolation/reflection-off.exr": {
+      "sha256": "1cf65242cc7b2c324af7a62c25f8e2999179b6989acf0a67da513682ed0dbb26",
+      "bytes": 3692491
+    },
+    "cs-mine-inactive-diagnostics-final10/reflection-native-isolation/reflection-current.exr": {
+      "sha256": "682d3b36527fe9f28022520d5fb984828ad32b46e3cfa006cc2ad20d3168aa24",
+      "bytes": 3692491
+    },
+    "cs-mine-inactive-diagnostics-final10/reflection-native-isolation/reflection-no-box-projection.exr": {
+      "sha256": "1b5309b84ca772fd19b2d8ad6ec35c5e1b67e4720182e305f715d7f5a95132de",
+      "bytes": 3692491
+    },
+    "cs-mine-inactive-diagnostics-final10/cliff-native-isolation-stage3/full-scene-current.png": {
+      "sha256": "2a523111cbc71bc1645744a730e3ec6ea30fedc4ceac0a45f0e8ccfc49c581e8",
+      "bytes": 300437
+    },
+    "cs-mine-inactive-diagnostics-final10/cliff-native-isolation-stage3/full-scene-distance-shadowmask.exr": {
+      "sha256": "5410892790d0c2f0b67d70c9c10e396760e43564f4dd70215a957cb9f114724c",
+      "bytes": 3692491
+    },
+    "cs-mine-inactive-diagnostics-final10/cliff-native-isolation-stage3/full-scene-cliff-direct-only.png": {
+      "sha256": "8d9cef14d23d7d94e788dd98df9f74c89ed8bc3fe2d524da5a2c72ea70be0bab",
+      "bytes": 327093
+    },
+    "cs-mine-inactive-diagnostics-final10/cliff-native-isolation-stage3/full-scene-cliff-direct-only.exr": {
+      "sha256": "6a3e25cdda3947bbdb434be595728155f4c4adabf4e25ce83c7c843df320d3aa",
+      "bytes": 3692491
+    },
+    "cs-mine-inactive-diagnostics-final10/cliff-native-isolation-stage3/full-scene-distance-shadowmask.png": {
+      "sha256": "4c0221032c63a5554f584e387a6f0a269f6f538ec73749801ac56d8bdd412504",
+      "bytes": 323101
+    },
+    "cs-mine-inactive-diagnostics-final10/cliff-native-isolation-stage3/full-scene-current.exr": {
+      "sha256": "16aa9962087e4d42dfc13e2788101d6c930679ae4a40572d91d3171cdcda6235",
+      "bytes": 3692491
+    },
+    "cs-mine-inactive-diagnostics-final10/cliff-native-isolation-stage2/actual-surface-direct-only.png": {
+      "sha256": "19034937b6a018a022a53800269179db9bcf1edc83e7ad479e5b96e3115b47e3",
+      "bytes": 136006
+    },
+    "cs-mine-inactive-diagnostics-final10/cliff-native-isolation-stage2/actual-albedo-unlit-cull-off.png": {
+      "sha256": "f1462680f1a88d68bae9b809abcc53d38500102f8097562948bb360dc41a71f9",
+      "bytes": 122022
+    },
+    "cs-mine-inactive-diagnostics-final10/cliff-native-isolation-stage2/neutral-actual-lighting.png": {
+      "sha256": "19e087ae450a4d783106dd30526c35120b457a62da544b35a8eb05fa04dfd4ad",
+      "bytes": 67067
+    },
+    "cs-mine-inactive-diagnostics-final10/cliff-native-isolation-stage2/actual-surface-direct-only.exr": {
+      "sha256": "b4135dc4a99de95eeeeeb0cbf0e738b3efe81235fc0029d1bc9521662445fb51",
+      "bytes": 3692491
+    },
+    "cs-mine-inactive-diagnostics-final10/cliff-native-isolation-stage2/neutral-actual-lighting.exr": {
+      "sha256": "ce945c8577e76b6c6af40f6f2f5df0982464a69ce5a0ca09bde56e88815b35b4",
+      "bytes": 3692491
+    },
+    "cs-mine-inactive-diagnostics-final10/cliff-native-isolation-stage2/actual-albedo-unlit-cull-off.exr": {
+      "sha256": "22881340699b9d6b612149f27f51a4f9ec7d23cd0fb5f003cdf782083066e073",
+      "bytes": 3692491
+    },
+    "cs-mine-inactive-diagnostics-final10/cliff-native-isolation-stage2/actual-surface-lighting.png": {
+      "sha256": "042e935fdf9636c9c03efbecfad6be52ea8192924f2da3010382fefc0db78b87",
+      "bytes": 89299
+    },
+    "cs-mine-inactive-diagnostics-final10/cliff-native-isolation-stage2/actual-surface-lighting.exr": {
+      "sha256": "694e956723b928b32a5a8b04723a4d30e5a4a7e5d1e621d0278b9916f3aaa3c8",
+      "bytes": 3692491
+    },
+    "cs-mine-inactive-diagnostics-final10/cliff-native-isolation/linear-statistics.json": {
+      "sha256": "c2176044d7739c8a6f0c09c5565bff8131d85c6f3e1150e849c584528505395e",
+      "bytes": 772
+    },
+    "cs-mine-inactive-diagnostics-final10/cliff-native-isolation/actual-albedo-unlit.png": {
+      "sha256": "84495ba51b294721b561794b420f623cf73feb43b9603052f73cd521be5df1aa",
+      "bytes": 15037
+    },
+    "cs-mine-inactive-diagnostics-final10/cliff-native-isolation/neutral-actual-lighting.png": {
+      "sha256": "19e087ae450a4d783106dd30526c35120b457a62da544b35a8eb05fa04dfd4ad",
+      "bytes": 67067
+    },
+    "cs-mine-inactive-diagnostics-final10/cliff-native-isolation/neutral-actual-lighting.exr": {
+      "sha256": "ce945c8577e76b6c6af40f6f2f5df0982464a69ce5a0ca09bde56e88815b35b4",
+      "bytes": 3692491
+    },
+    "cs-mine-inactive-diagnostics-final10/cliff-native-isolation/actual-albedo-unlit.exr": {
+      "sha256": "d229d35ba571d2c015805b6187d62a913c238e68fa7f80dc54cf70bc647e12a8",
+      "bytes": 3692491
+    },
+    "cs-mine-inactive-diagnostics-final10/cliff-native-isolation/actual-surface-lighting.png": {
+      "sha256": "042e935fdf9636c9c03efbecfad6be52ea8192924f2da3010382fefc0db78b87",
+      "bytes": 89299
+    },
+    "cs-mine-inactive-diagnostics-final10/cliff-native-isolation/actual-surface-lighting.exr": {
+      "sha256": "694e956723b928b32a5a8b04723a4d30e5a4a7e5d1e621d0278b9916f3aaa3c8",
+      "bytes": 3692491
+    },
+    "cs-mine-inactive-diagnostics-final10/wood-coefficient-import-isolation-final10/fresh-uncompressed-coefficient.exr": {
+      "sha256": "89effc687427d3e7fe3f239986a56bdf6ffaf0d7d2b8f39d329118fa79366361",
+      "bytes": 3692491
+    },
+    "cs-mine-inactive-diagnostics-final10/wood-coefficient-import-isolation-final10/baseline.exr": {
+      "sha256": "443f1b12398535a175cfeaf2024e6c458a578ad5a87458eca09135fac3390b37",
+      "bytes": 3692491
+    },
+    "cs-mine-inactive-diagnostics-final10/wood-coefficient-import-isolation-final10/coefficient-point.exr": {
+      "sha256": "62473a6cbf40208d6d87b715123110028a536620bb20b0a22bbe097ee0e66964",
+      "bytes": 3692491
+    },
+    "cs-mine-inactive-diagnostics-final10/wood-sampling-isolation-final10/early-sample.exr": {
+      "sha256": "d438e8a5d51927683637ef4f1b450a52dc51cb3bcba74c43574b4fbcb0b8f975",
+      "bytes": 3692491
+    },
+    "cs-mine-inactive-diagnostics-final10/wood-sampling-isolation-final10/baseline.exr": {
+      "sha256": "d438e8a5d51927683637ef4f1b450a52dc51cb3bcba74c43574b4fbcb0b8f975",
+      "bytes": 3692491
+    },
+    "cs-mine-inactive-diagnostics-final10/wood-sampling-isolation-final10/anisotropy-off.exr": {
+      "sha256": "303ce9c7a1bea9d8a9a8b169211756c42c1f019f228b3ead55cd22ec5389fb21",
+      "bytes": 3692491
+    },
+    "cs-mine-inactive-diagnostics-final10/wood-sampling-isolation-final10/explicit-lod-zero.exr": {
+      "sha256": "cff797dcd31c9bcc68ec10acd02b596d9c15ad36f50fde3967380f9f8fa0c922",
+      "bytes": 3692491
+    },
+    "cs-mine-inactive-diagnostics-final10/wood-sampling-isolation-final10/explicit-gradient.exr": {
+      "sha256": "c395cdef71e5aa15e543b698220519d3659a0dac58178c390fde25fadcc997c3",
+      "bytes": 3692491
+    },
+    "cs-mine-inactive-diagnostics-final10/wood-production-import-final10/production-import-cliff-adapter-R39_04_SHED_FRONT.exr": {
+      "sha256": "f1598272263d88695895757cd3dc5723e7634c3b8d82836dff2a86236d0b9419",
+      "bytes": 3692491
+    },
+    "cs-mine-inactive-diagnostics-final10/wood-production-import-final10/baseline.exr": {
+      "sha256": "16aa9962087e4d42dfc13e2788101d6c930679ae4a40572d91d3171cdcda6235",
+      "bytes": 3692491
+    },
+    "cs-mine-inactive-diagnostics-final10/wood-production-import-final10/production-import-cliff-adapter-R39_01_PORTAL_APPROACH.exr": {
+      "sha256": "f1455ab1d653df3e79a7bada75207d61412f3be724cf1bbf02544ffaced67499",
+      "bytes": 3692491
+    },
+    "cs-mine-inactive-diagnostics-final10/wood-production-import-final10/production-import-cliff-adapter-R39_02_TUNNEL.exr": {
+      "sha256": "5b4b3365689838b32a3028c131f868626ff285d39f796028d064babc86910749",
+      "bytes": 3692491
+    },
+    "cs-mine-inactive-diagnostics-final10/wood-production-import-final10/production-import.exr": {
+      "sha256": "62ec1c84d3b9acf3fbe482f7dcebb17c6d235ca53fa43547644a06eac15cf5a6",
+      "bytes": 3692491
+    },
+    "cs-mine-inactive-diagnostics-final10/wood-channel-isolation-final10/no-source-wood.exr": {
+      "sha256": "dc056bf6ff16b6b99ee33e4859dac85180f2355ba393f580d9e9c976e9fb6e4c",
+      "bytes": 3692491
+    },
+    "cs-mine-inactive-diagnostics-final10/wood-channel-isolation-final10/nonfinite-counts.json": {
+      "sha256": "a8ffd8f369db0be4408e36b5c11c7cfa69132a2aedb2e4fb6e664390ef50473c",
+      "bytes": 146
+    },
+    "cs-mine-inactive-diagnostics-final10/wood-channel-isolation-final10/baseline.exr": {
+      "sha256": "69d440f34d41fb5e13cedd63303338428c405010386f72d76ebd45433c4e2bf0",
+      "bytes": 3692491
+    },
+    "cs-mine-inactive-diagnostics-final10/wood-channel-isolation-final10/no-lightmap-or-probes.exr": {
+      "sha256": "1e605fa02579292fd10ee94be31d35f4e770f28cd6b3c16dce17750e698a3047",
+      "bytes": 3692491
+    },
+    "cs-mine-inactive-diagnostics-final10/wood-channel-isolation-final10/constant-roughness.exr": {
+      "sha256": "ab33bc56b90a8a839946407e05877203286bb7a875da11efa62a7715b49519e0",
+      "bytes": 3692491
+    },
+    "cs-mine-inactive-diagnostics-final10/wood-channel-isolation-final10/no-specular.exr": {
+      "sha256": "c069e049f41e4b834d9a07782c52c3f714304f104ee1a7dd9daa9b67bec6e1cf",
+      "bytes": 3692491
+    },
+    "cs-mine-inactive-diagnostics-final10/wood-stage-isolation-final10/normal-reconstruction-off.exr": {
+      "sha256": "bce6bfb1218091c77a6e139d196c29c74349f6c8e9d5b677635da40ebdc41726",
+      "bytes": 3692491
+    },
+    "cs-mine-inactive-diagnostics-final10/wood-stage-isolation-final10/nonfinite-counts.json": {
+      "sha256": "5585e1f5448f39722f2303db3bad1ee33773a36fc524f1aae91da283f30a9eaf",
+      "bytes": 104
+    },
+    "cs-mine-inactive-diagnostics-final10/wood-stage-isolation-final10/baseline.exr": {
+      "sha256": "847643d9e1ab25948e22396cb75b3db60d49e376545526b54ea647cca1d23d5d",
+      "bytes": 3692491
+    },
+    "cs-mine-inactive-diagnostics-final10/wood-stage-isolation-final10/colour-reconstruction-off.exr": {
+      "sha256": "57dcb93126fbc7cd3347f18c1318a99fd75ecc985f1782aa98de28331836d31d",
+      "bytes": 3692491
+    },
+    "cs-mine-inactive-diagnostics-final10/wood-colour-input-isolation-final10/nonnegative-colour-lit.exr": {
+      "sha256": "f0dfafadc5d80260ecfec75f7eb540c085c51fce48cf0e9077e2969f15e4fe64",
+      "bytes": 3692491
+    },
+    "cs-mine-inactive-diagnostics-final10/wood-colour-input-isolation-final10/nonfinite-counts.json": {
+      "sha256": "1638d8d024076d324f9306ac7a2e1c2cb3dced9e397dd0543ee3ec8759f6d92d",
+      "bytes": 382
+    },
+    "cs-mine-inactive-diagnostics-final10/wood-colour-input-isolation-final10/high-coefficient-emission.exr": {
+      "sha256": "af6bd14d9cda3186004df7d04e3d9ff5a0610006cabc113d7b09fb1273d49e30",
+      "bytes": 3692491
+    },
+    "cs-mine-inactive-diagnostics-final10/wood-colour-input-isolation-final10/affine-colour-emission.exr": {
+      "sha256": "1aaf6727980e8e560bde4d860caf4a4b97c4a581215161558dd63cde660b4aa5",
+      "bytes": 3692491
+    },
+    "cs-mine-inactive-diagnostics-final10/wood-colour-input-isolation-final10/grain-emission.exr": {
+      "sha256": "fb1addd46bf0d453fd65008fe2caa310fb6b407cb97191e190fc78e67bf7f6e8",
+      "bytes": 3692491
+    },
+    "cs-unity-asset-audit/_brotli.cpython-314-x86_64-linux-gnu.so": {
+      "sha256": "594764b391df3b9ff4fe89e4600bf1f7a1b8e935af01f98d840430759240bfc7",
+      "bytes": 5149096
+    },
+    "cs-unity-asset-audit/brotli.py": {
+      "sha256": "813610bf0d74a6998d7b47d912e8892c3896e6eac19cb7b22575e04fc294b63f",
+      "bytes": 1970
+    },
+    "cs-unity-asset-audit/bin/UnityPy": {
+      "sha256": "690d931c212b6bc7a68673037dc4962ec3eee12f2989eeca7f3821724457c50c",
+      "bytes": 197
+    },
+    "cs-unity-asset-audit/bin/archspec": {
+      "sha256": "8794f07f8dd156b52ea46aeac66d1edcd7737c53023b9afbc53032a46b152a27",
+      "bytes": 198
+    },
+    "cs-unity-asset-audit/brotli-1.2.0.dist-info/RECORD": {
+      "sha256": "fe13180a90b8c987d5277fc39594c7f265cd01e629aca426dcfb29f4d8e28d3a",
+      "bytes": 688
+    },
+    "cs-unity-asset-audit/brotli-1.2.0.dist-info/INSTALLER": {
+      "sha256": "ceebae7b8927a3227e5303cf5e0f1f7b34bb542ad7250ac03fbcde36ec2f1508",
+      "bytes": 4
+    },
+    "cs-unity-asset-audit/brotli-1.2.0.dist-info/top_level.txt": {
+      "sha256": "82c4b9e07ae13b766f785c5e32b2a8ffba87e129b84db43b8c62d5044a89e0d2",
+      "bytes": 15
+    },
+    "cs-unity-asset-audit/brotli-1.2.0.dist-info/WHEEL": {
+      "sha256": "f3d33fcf8594e0d76cad413f7f270ea996fd2011f8bb58c13963d83b33ae52c5",
+      "bytes": 151
+    },
+    "cs-unity-asset-audit/brotli-1.2.0.dist-info/METADATA": {
+      "sha256": "f9d12d5184b5090b146b2e5f0d62931521b2b1435ea466433a239bb7c41fc962",
+      "bytes": 6116
+    },
+    "cs-unity-asset-audit/__pycache__/brotli.cpython-314.pyc": {
+      "sha256": "d38c93dac65a7df42e238e99e05f8e82c68e66d38131d8a4b26e8e429265d3ea",
+      "bytes": 1918
+    },
+    "cs-unity-asset-audit/tpk_ar/utils.py": {
+      "sha256": "06a5dbc75980d4b47772ac84659c8b35ac507c4319f68727890372f598608846",
+      "bytes": 3140
+    },
+    "cs-unity-asset-audit/tpk_ar/unityversion.py": {
+      "sha256": "7b3b237f7c3f25225ad31efd1152cf05a70784d5c0d5ff44a3003242e6379662",
+      "bytes": 748
+    },
+    "cs-unity-asset-audit/tpk_ar/unity.py": {
+      "sha256": "16956d3d9478814f714994244a63ba3a1728a939602bab76043b26ccbfde67fc",
+      "bytes": 3783
+    },
+    "cs-unity-asset-audit/tpk_ar/string.py": {
+      "sha256": "782cfb0973550d5c5054aa380e3b559c4adac944179658abe4eeeda05b23a598",
+      "bytes": 5244
+    },
+    "cs-unity-asset-audit/tpk_ar/file.py": {
+      "sha256": "ca929ef8b214d320c2dc70dd66679dab4be9566f39cb64d0ababf30a98ebdff8",
+      "bytes": 2739
+    },
+    "cs-unity-asset-audit/tpk_ar/enums.py": {
+      "sha256": "d3fa519585f79c7a9f88e4948c689a86189ab291debe5c5f469b5848cc106c34",
+      "bytes": 592
+    },
+    "cs-unity-asset-audit/tpk_ar/blob.py": {
+      "sha256": "5ea6df2cd1f84767e77e474bfe3b1f3cc270c573a36a2d3e841ac7abc6a6eb0a",
+      "bytes": 5486
+    },
+    "cs-unity-asset-audit/tpk_ar/__init__.py": {
+      "sha256": "35a68d28c3a9a489f3b7437a4db212459b06a6e5a670d1c8c1d1127277e5bae1",
+      "bytes": 487
+    },
+    "cs-unity-asset-audit/tpk_ar-0.2.4.dist-info/RECORD": {
+      "sha256": "1b062eb7f5b75d7e0ea367d808936907bff9617252446bf124492145889dfc62",
+      "bytes": 1432
+    },
+    "cs-unity-asset-audit/tpk_ar-0.2.4.dist-info/INSTALLER": {
+      "sha256": "ceebae7b8927a3227e5303cf5e0f1f7b34bb542ad7250ac03fbcde36ec2f1508",
+      "bytes": 4
+    },
+    "cs-unity-asset-audit/tpk_ar-0.2.4.dist-info/top_level.txt": {
+      "sha256": "b7f8e0afc4e8245b62b5a6cccfbafa7dd605af9520f34e28d9853b3d9e175cd2",
+      "bytes": 7
+    },
+    "cs-unity-asset-audit/tpk_ar-0.2.4.dist-info/WHEEL": {
+      "sha256": "61532836a2b3111b7ec23519c09df7c41180c27165fb872a6d8913b566b88ad1",
+      "bytes": 91
+    },
+    "cs-unity-asset-audit/tpk_ar-0.2.4.dist-info/METADATA": {
+      "sha256": "2aabe550608af571ae82781572fdb6e2efc507def9eaa36f4ed51e2d45be9dea",
+      "bytes": 3471
+    },
+    "cs-unity-asset-audit/texture2ddecoder/py.typed": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "cs-unity-asset-audit/texture2ddecoder/_texture2ddecoder.pyi": {
+      "sha256": "1fac16619d82a77b23b305c207b0ce91cb44f664216f323a8a8627c0726c9d03",
+      "bytes": 1466
+    },
+    "cs-unity-asset-audit/texture2ddecoder/_texture2ddecoder.abi3.so": {
+      "sha256": "372833805f4053d28618fdd806e35dfa5236cc287217a25e33281cee8ccb835e",
+      "bytes": 1305944
+    },
+    "cs-unity-asset-audit/texture2ddecoder/__init__.py": {
+      "sha256": "718c81111174cbc2e0367e07b90e5770f927762a0295974af943f74ce3107e06",
+      "bytes": 1008
+    },
+    "cs-unity-asset-audit/texture2ddecoder-1.0.6.dist-info/RECORD": {
+      "sha256": "c9914daf12eccf864cb341e43478703b9ab0c31280a1a36f77ce07d23a44233f",
+      "bytes": 956
+    },
+    "cs-unity-asset-audit/texture2ddecoder-1.0.6.dist-info/INSTALLER": {
+      "sha256": "ceebae7b8927a3227e5303cf5e0f1f7b34bb542ad7250ac03fbcde36ec2f1508",
+      "bytes": 4
+    },
+    "cs-unity-asset-audit/texture2ddecoder-1.0.6.dist-info/top_level.txt": {
+      "sha256": "a737f75494dea91a78922971cdff678932b00aa584faf791d185ab7fb4b6492e",
+      "bytes": 17
+    },
+    "cs-unity-asset-audit/texture2ddecoder-1.0.6.dist-info/WHEEL": {
+      "sha256": "9048c70dfec8f60d3e3f1727f6370500e010faa2db20cc30de7194c0ef6b3602",
+      "bytes": 187
+    },
+    "cs-unity-asset-audit/texture2ddecoder-1.0.6.dist-info/METADATA": {
+      "sha256": "c127460abec7afc0031754333aa788eb131b87c3ac9ae09a212d97597534b42c",
+      "bytes": 8341
+    },
+    "cs-unity-asset-audit/texture2ddecoder-1.0.6.dist-info/LICENSE": {
+      "sha256": "f933e94e0f23cc8ee4da01a7c5f832221f509c190819c5e2985b6cda7dbb9066",
+      "bytes": 1062
+    },
+    "cs-unity-asset-audit/pyfmodex/utils.py": {
+      "sha256": "adde96161a988dcfb8e8468f6defbd2630247c44e3bebb8929db94489cb87441",
+      "bytes": 1353
+    },
+    "cs-unity-asset-audit/pyfmodex/system.py": {
+      "sha256": "682754ff40be7b1c4090d84a623323d3166d2245b0c1a1e20a311df6bd21ced6",
+      "bytes": 86371
+    },
+    "cs-unity-asset-audit/pyfmodex/structures.py": {
+      "sha256": "efe04cd584c6ba0138ce154d1d567b00e8cdfb7cbeca5ddb1afb9f51dfcbd2d6",
+      "bytes": 43257
+    },
+    "cs-unity-asset-audit/pyfmodex/structure_declarations.py": {
+      "sha256": "f465e03f06ecc52a069ac8680673e2fd71322219346fd1bd3e1806c73e919318",
+      "bytes": 18968
+    },
+    "cs-unity-asset-audit/pyfmodex/structobject.py": {
+      "sha256": "2fd09b9294aa6ad17a0a2407a617b79e274fc747e4c17e348b1f5e843c1fa6f9",
+      "bytes": 1806
+    },
+    "cs-unity-asset-audit/pyfmodex/sound_group.py": {
+      "sha256": "91c2216846438339987a3e2b5f0952c2c05d3fa0dd66f8bdd70adea9022c84bf",
+      "bytes": 4543
+    },
+    "cs-unity-asset-audit/pyfmodex/sound.py": {
+      "sha256": "f9779d2f7085efaa823fcec28a1b211bdd1d1dfa12c7f806ff3b12f9a25cbaf1",
+      "bytes": 30695
+    },
+    "cs-unity-asset-audit/pyfmodex/roomproperties.py": {
+      "sha256": "e26d32ecc6ee771f2df60e0fd4d076c0c5ae70c89d4382e5b96e998ba31ddac9",
+      "bytes": 2815
+    },
+    "cs-unity-asset-audit/pyfmodex/reverb_presets.py": {
+      "sha256": "c562c059919b3a0549b6eab70ade857b34caea91b378cf0ff62e8eb7c159091f",
+      "bytes": 3516
+    },
+    "cs-unity-asset-audit/pyfmodex/reverb.py": {
+      "sha256": "6625ce2a167e7a5c7189e1ef1ba22dcf8abe09309981936a463d29324100174d",
+      "bytes": 3530
+    },
+    "cs-unity-asset-audit/pyfmodex/globalvars.py": {
+      "sha256": "4925deaa1b15ad3f609d72c97fd4e58196607461aed86354b34b0918a32fa95d",
+      "bytes": 262
+    },
+    "cs-unity-asset-audit/pyfmodex/geometry.py": {
+      "sha256": "2960b7684f032fe14c336368953461fa75c21d75eb50e2e04f28b35be4c93af0",
+      "bytes": 10923
+    },
+    "cs-unity-asset-audit/pyfmodex/function_prototypes.py": {
+      "sha256": "63f18acdb3d703f335f95139d10ab73edac11ad679505166193dc4f7eff0ebcf",
+      "bytes": 4608
+    },
+    "cs-unity-asset-audit/pyfmodex/fmodobject.py": {
+      "sha256": "82320a2aae6a36042ac4f3d97b9ac5443715d41e11d6fc37f563284eda6f66ba",
+      "bytes": 674
+    },
+    "cs-unity-asset-audit/pyfmodex/fmodex.py": {
+      "sha256": "2be169aa42d8849809b305ce5858c7ccaf3d8e1cb99b732ddfb91aa808c0b1d9",
+      "bytes": 7629
+    },
+    "cs-unity-asset-audit/pyfmodex/flags.py": {
+      "sha256": "b547c994d155a35b6b6e220a6e7876d8bc1b77a9769d2351801bf21f5f0bc640",
+      "bytes": 18479
+    },
+    "cs-unity-asset-audit/pyfmodex/exceptions.py": {
+      "sha256": "e405206246a43d7fc63b0468380b5e94c2a749649b93eb0bcd12901999ee9472",
+      "bytes": 354
+    },
+    "cs-unity-asset-audit/pyfmodex/enums.py": {
+      "sha256": "40648d7d8af37d04ca8f3e83b8ebd7c151dbfd0a3d2918f71e981a081e07427d",
+      "bytes": 81680
+    },
+    "cs-unity-asset-audit/pyfmodex/dsp_connection.py": {
+      "sha256": "7c985637e105bf6fa36da042fac90d2232700c8db4ce18889afd855edd61942f",
+      "bytes": 4690
+    },
+    "cs-unity-asset-audit/pyfmodex/dsp.py": {
+      "sha256": "94cbc59cdbdde90cf89383e6488ac939fdcbdd819aa623d3ccfa6cea76288296",
+      "bytes": 24993
+    },
+    "cs-unity-asset-audit/pyfmodex/constants.py": {
+      "sha256": "96f6a98d5a890b5041be0236b3cd6450dff53005e1962a48d5f268207f540a6e",
+      "bytes": 1578
+    },
+    "cs-unity-asset-audit/pyfmodex/cone_settings.py": {
+      "sha256": "5be0ddaa3315f97a504e592e79115fd40d8932c8ae2d62934924642b79e0f04b",
+      "bytes": 3371
+    },
+    "cs-unity-asset-audit/pyfmodex/channel_group.py": {
+      "sha256": "4d50d2393d189ed033e1152375244ca0b8a55f58704af2a85479bd1b1416c9e0",
+      "bytes": 3649
+    },
+    "cs-unity-asset-audit/pyfmodex/channel_control.py": {
+      "sha256": "b62e7573ecc2e0e63e5ad837a9bc634463f47926e4834c57be2a164ab210b90c",
+      "bytes": 36232
+    },
+    "cs-unity-asset-audit/pyfmodex/channel.py": {
+      "sha256": "ba83a587c588c2987fb4b6fdf799dbdb74269c4cc817ae5399f24c1597b5dbcc",
+      "bytes": 8902
+    },
+    "cs-unity-asset-audit/pyfmodex/callback_prototypes.py": {
+      "sha256": "7fe1d804fcd1c13247816008c627c30a03b40aa67acf055a1ca4416f205837fd",
+      "bytes": 5682
+    },
+    "cs-unity-asset-audit/pyfmodex/__init__.py": {
+      "sha256": "dd22afcedafc4b7a4da25c5ded27c9983a58f73d55a29f65c48e8784e4656efc",
+      "bytes": 969
+    },
+    "cs-unity-asset-audit/pyfmodex-0.7.2.dist-info/RECORD": {
+      "sha256": "64860bd677d06b5d0cbdac95d189eb306bb749373bffb06c612021cc7c9621b4",
+      "bytes": 5510
+    },
+    "cs-unity-asset-audit/pyfmodex-0.7.2.dist-info/INSTALLER": {
+      "sha256": "ceebae7b8927a3227e5303cf5e0f1f7b34bb542ad7250ac03fbcde36ec2f1508",
+      "bytes": 4
+    },
+    "cs-unity-asset-audit/pyfmodex-0.7.2.dist-info/WHEEL": {
+      "sha256": "b0ff78e83ee31421de373e48ab87cbe0bbbe3eb5ab16c81f2d76db91c8886708",
+      "bytes": 88
+    },
+    "cs-unity-asset-audit/pyfmodex-0.7.2.dist-info/METADATA": {
+      "sha256": "5a30ae55a81780c66d88847591340569d9b622737468f593da9cdbb3098f4061",
+      "bytes": 2617
+    },
+    "cs-unity-asset-audit/pyfmodex-0.7.2.dist-info/LICENSE": {
+      "sha256": "8b37a35de6d1724fb2e5aeed1739a7ef1729c8e46d8e6b3d453658be49592362",
+      "bytes": 1073
+    },
+    "cs-unity-asset-audit/PIL/report.py": {
+      "sha256": "e0963af8853bb07d512ae45b3afcb57d4b74740a22efd157e2d609377a750d3d",
+      "bytes": 100
+    },
+    "cs-unity-asset-audit/PIL/py.typed": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "cs-unity-asset-audit/PIL/features.py": {
+      "sha256": "14f904863b416914aaa6480735876ec31885b7272ee0d8d92b010c5b1b5e98f5",
+      "bytes": 10775
+    },
+    "cs-unity-asset-audit/PIL/_webp.pyi": {
+      "sha256": "ddf071712a6926be84384714a23bdf946dc47a083b96fd90a7474d41020bacfe",
+      "bytes": 63
+    },
+    "cs-unity-asset-audit/PIL/_webp.cpython-314-x86_64-linux-gnu.so": {
+      "sha256": "e82c41f2cd5f2f0389dca4d0159d8bd9a736970e8f6aaf37c4b7bcad74443328",
+      "bytes": 108841
+    },
+    "cs-unity-asset-audit/PIL/_version.py": {
+      "sha256": "fe7d75d4019326aca24ae57d4ab190cd62ba1225b175051119cd61cd87e42b1d",
+      "bytes": 87
+    },
+    "cs-unity-asset-audit/PIL/_util.py": {
+      "sha256": "7f185676b2c04727363ec3203779bdfd4d5d637a1429b57b9a4a0771782879e0",
+      "bytes": 684
+    },
+    "cs-unity-asset-audit/PIL/_typing.py": {
+      "sha256": "db3df7654a7d6909e44aa5f3351dd99fb974e1dd96fa8023d4e899862c8517af",
+      "bytes": 919
+    },
+    "cs-unity-asset-audit/PIL/_tkinter_finder.py": {
+      "sha256": "188678b2d985854a2c987292addc5c8d2b62a1c0cd7f2267ed10627b6496c54d",
+      "bytes": 538
+    },
+    "cs-unity-asset-audit/PIL/_imagingtk.pyi": {
+      "sha256": "ddf071712a6926be84384714a23bdf946dc47a083b96fd90a7474d41020bacfe",
+      "bytes": 63
+    },
+    "cs-unity-asset-audit/PIL/_imagingtk.cpython-314-x86_64-linux-gnu.so": {
+      "sha256": "422418cdcceddcda7985ca17b4e49324aeee1f2dd35e7aa92acd5e436597d228",
+      "bytes": 47456
+    },
+    "cs-unity-asset-audit/PIL/_imagingmorph.pyi": {
+      "sha256": "ddf071712a6926be84384714a23bdf946dc47a083b96fd90a7474d41020bacfe",
+      "bytes": 63
+    },
+    "cs-unity-asset-audit/PIL/_imagingmorph.cpython-314-x86_64-linux-gnu.so": {
+      "sha256": "20756f4844279156ed1de63bf7dc46ce043e369f97c7d6868f68f684aadf87a2",
+      "bytes": 39448
+    },
+    "cs-unity-asset-audit/PIL/_imagingmath.pyi": {
+      "sha256": "ddf071712a6926be84384714a23bdf946dc47a083b96fd90a7474d41020bacfe",
+      "bytes": 63
+    },
+    "cs-unity-asset-audit/PIL/_imagingmath.cpython-314-x86_64-linux-gnu.so": {
+      "sha256": "eb27d24bd91fa968b2fcd962e92e29d772e1798417acd5e236b7d391c954bf34",
+      "bytes": 142464
+    },
+    "cs-unity-asset-audit/PIL/_imagingft.pyi": {
+      "sha256": "718c92cef70a0428873c1b2fb6d3227bd01d7d4704b2a651fb7db9e9842dcf64",
+      "bytes": 1833
+    },
+    "cs-unity-asset-audit/PIL/_imagingft.cpython-314-x86_64-linux-gnu.so": {
+      "sha256": "8a553d447ea598f8882f6902a75f71c4fa48e3ca519d3e49e3bbf752c398d9ec",
+      "bytes": 327049
+    },
+    "cs-unity-asset-audit/PIL/_imagingcms.pyi": {
+      "sha256": "659f222288ba10758bbe001d7e6d613c3e42426c62ef92e2265e71f321b16285",
+      "bytes": 4433
+    },
+    "cs-unity-asset-audit/PIL/_imagingcms.cpython-314-x86_64-linux-gnu.so": {
+      "sha256": "7f900f62aaa7b71ca1e062f028d382f1c2d931ca0372f1be492c5db57a47cee9",
+      "bytes": 157825
+    },
+    "cs-unity-asset-audit/PIL/_imaging.pyi": {
+      "sha256": "7d3f934c6412d24ca6d60bfbee05d3290b49ac098ed4dca74b92ca06d1b71ba3",
+      "bytes": 893
+    },
+    "cs-unity-asset-audit/PIL/_imaging.cpython-314-x86_64-linux-gnu.so": {
+      "sha256": "fdf8144377b394125d936c9a5acea2985797977304d8ac974ccb75256f03475c",
+      "bytes": 3402273
+    },
+    "cs-unity-asset-audit/PIL/_deprecate.py": {
+      "sha256": "2a1c8b566418555c30d2b3916d4db84dededf1f3adf46d8b78ce9f24659b974a",
+      "bytes": 2034
+    },
+    "cs-unity-asset-audit/PIL/_binary.py": {
+      "sha256": "a6e0e837223ccab3b0e91c77223c951d3b3fb9d69ac2ce52430ced719baf3975",
+      "bytes": 2551
+    },
+    "cs-unity-asset-audit/PIL/_avif.pyi": {
+      "sha256": "ddf071712a6926be84384714a23bdf946dc47a083b96fd90a7474d41020bacfe",
+      "bytes": 63
+    },
+    "cs-unity-asset-audit/PIL/_avif.cpython-314-x86_64-linux-gnu.so": {
+      "sha256": "7fafe261651607b8e8e9fe3463867352809be974e1fc02960f57d7021d2ed206",
+      "bytes": 91969
+    },
+    "cs-unity-asset-audit/PIL/__main__.py": {
+      "sha256": "2e98f8bde7fc988ee3035b1109402855869e78f0ff51cf3df3117973b5cbc750",
+      "bytes": 133
+    },
+    "cs-unity-asset-audit/PIL/__init__.py": {
+      "sha256": "7361b6ad3878589affe5956e4a4da24d71398b0891fd3a8c15e9362217b4ca01",
+      "bytes": 2035
+    },
+    "cs-unity-asset-audit/PIL/XpmImagePlugin.py": {
+      "sha256": "c1e0ab0e03b71fdea52d0fae5d8f859e8c35649e100110e964062dcc991e7cba",
+      "bytes": 4382
+    },
+    "cs-unity-asset-audit/PIL/XbmImagePlugin.py": {
+      "sha256": "15de86543128ef79f2148080dd9df0e0b8e4c28656be11c1eab2829b9c95ae1a",
+      "bytes": 2669
+    },
+    "cs-unity-asset-audit/PIL/XVThumbImagePlugin.py": {
+      "sha256": "5e08669d19bc63ff23d0edbc5cf6c746b98aec2ac656e47ce3882fd617c5e6e8",
+      "bytes": 2126
+    },
+    "cs-unity-asset-audit/PIL/WmfImagePlugin.py": {
+      "sha256": "cd1e267adcf947e35c3bc14dd5ad390658bcde078e69b4e929dae1793b51a30d",
+      "bytes": 5207
+    },
+    "cs-unity-asset-audit/PIL/WebPImagePlugin.py": {
+      "sha256": "634360a326abfcd29ec5e05f6b84c3be6e5a783e7c4dd6ad46bd0eba182dae23",
+      "bytes": 9967
+    },
+    "cs-unity-asset-audit/PIL/WalImageFile.py": {
+      "sha256": "759db52034124f6a3b63b800f90c51cf0231d9a88e6c63b5528b2075dd84a497",
+      "bytes": 5762
+    },
+    "cs-unity-asset-audit/PIL/TiffTags.py": {
+      "sha256": "766dea350424b9a2caab3513be794689403c2b7222cd038006f69cff08edb45d",
+      "bytes": 17206
+    },
+    "cs-unity-asset-audit/PIL/TiffImagePlugin.py": {
+      "sha256": "440b2a3a80b280d18cda3fc70d9fd206e2fa44e9897c9550f70b51395047b273",
+      "bytes": 85947
+    },
+    "cs-unity-asset-audit/PIL/TgaImagePlugin.py": {
+      "sha256": "18c08cff8b345a8c893aa9daab5f311473a868dc2721dee794a142366f033f21",
+      "bytes": 7733
+    },
+    "cs-unity-asset-audit/PIL/TarIO.py": {
+      "sha256": "06a6140a10816fd17b4a1fae67cea2cf50eda32d83d286cdc069bae73d6b75cd",
+      "bytes": 1442
+    },
+    "cs-unity-asset-audit/PIL/SunImagePlugin.py": {
+      "sha256": "1ddc64864d29c69046c5884f25f0832f0b1870ed4a8f18eda6534c15889b22f9",
+      "bytes": 4589
+    },
+    "cs-unity-asset-audit/PIL/SpiderImagePlugin.py": {
+      "sha256": "c9ba6e8872e8fbd07520bdd1ea6bcc4f0c1b15d9564892317811a537c5ca6f4a",
+      "bytes": 10294
+    },
+    "cs-unity-asset-audit/PIL/SgiImagePlugin.py": {
+      "sha256": "24262e40fb7d61db86fbebf16939a5befcc775cc2a11bdbf9bdaeecfe18872db",
+      "bytes": 6371
+    },
+    "cs-unity-asset-audit/PIL/QoiImagePlugin.py": {
+      "sha256": "104ea5388aaaaf2ba9b8fd3cd68a8e5624c27ea0f7a9103be7cef99c63fbad95",
+      "bytes": 8596
+    },
+    "cs-unity-asset-audit/PIL/PsdImagePlugin.py": {
+      "sha256": "255df65089c00df5c8e70001790ca279200a8f723b420f3e2d66c8336a3fd594",
+      "bytes": 8910
+    },
+    "cs-unity-asset-audit/PIL/PpmImagePlugin.py": {
+      "sha256": "564cfa67fba33d48550fdba3715c155a20314f568a2b0dba488f60a6317d6d58",
+      "bytes": 12344
+    },
+    "cs-unity-asset-audit/PIL/PngImagePlugin.py": {
+      "sha256": "5911ebb3c8e58edf4fccace85ade20c3a062cc41dc55340bfb7b40f0bf1861c5",
+      "bytes": 52399
+    },
+    "cs-unity-asset-audit/PIL/PixarImagePlugin.py": {
+      "sha256": "97fe06c017749804e72176096f09a6383536bcfef07b02eee8146f887081d842",
+      "bytes": 1758
+    },
+    "cs-unity-asset-audit/PIL/PdfParser.py": {
+      "sha256": "7f5dee39ca48e76d2d801bde078fc18b05578fe501c261f9a3277a2de25eb6b9",
+      "bytes": 38661
+    },
+    "cs-unity-asset-audit/PIL/PdfImagePlugin.py": {
+      "sha256": "a35d4ee2ac5b9b90389bd92da67dc7add13b95ed9d145df2e81b4c7fc74721a6",
+      "bytes": 9405
+    },
+    "cs-unity-asset-audit/PIL/PcxImagePlugin.py": {
+      "sha256": "fa96552bb1f1d24490b671a2cba50e177aa2e507a331841b70c5a579bb11d71e",
+      "bytes": 6364
+    },
+    "cs-unity-asset-audit/PIL/PcfFontFile.py": {
+      "sha256": "f8b619c765457ea5e3f2faf780718010081f9033f95a3e4abfb9242aac54968d",
+      "bytes": 6984
+    },
+    "cs-unity-asset-audit/PIL/PcdImagePlugin.py": {
+      "sha256": "fa09cc52a407d11f9a963b1dde7652f5e048d63ef98a3583fc765f69d13746c4",
+      "bytes": 1774
+    },
+    "cs-unity-asset-audit/PIL/PalmImagePlugin.py": {
+      "sha256": "9ae33cd1925dd310aaf84b2957103b83035f58742069e69cecb2e5bdde914239",
+      "bytes": 8748
+    },
+    "cs-unity-asset-audit/PIL/PaletteFile.py": {
+      "sha256": "b2e0dd00be953258d7c38a049f5be14ede03438bdba481c6777038a313a013ab",
+      "bytes": 1216
+    },
+    "cs-unity-asset-audit/PIL/PSDraw.py": {
+      "sha256": "401ecc18cba66fe3ea8d9138cec81adaabd387bb3112d848cfc9db7dfc2379c6",
+      "bytes": 6992
+    },
+    "cs-unity-asset-audit/PIL/MspImagePlugin.py": {
+      "sha256": "090ea4bef4ace419526875867ff9ce404b2c654b0dffb5366bf426cce921467e",
+      "bytes": 5872
+    },
+    "cs-unity-asset-audit/PIL/MpoImagePlugin.py": {
+      "sha256": "094f1478f9f46ec9b4abb10f5cd1772c7288e487b707912eaaebc964e46e4c10",
+      "bytes": 6784
+    },
+    "cs-unity-asset-audit/PIL/MpegImagePlugin.py": {
+      "sha256": "83b05977dde45a9162e35486ff0285a22d3210fb22a08e248f8e5bd85fb756bc",
+      "bytes": 2010
+    },
+    "cs-unity-asset-audit/PIL/MicImagePlugin.py": {
+      "sha256": "8fdd548b3bcbfb381766039cabfe285816d25fa2cfab527d90d1e47484ccd50c",
+      "bytes": 2599
+    },
+    "cs-unity-asset-audit/PIL/McIdasImagePlugin.py": {
+      "sha256": "6da388903f822087828011537fc928b3ddbc3ca06e094a9861adfcbb75844bff",
+      "bytes": 1877
+    },
+    "cs-unity-asset-audit/PIL/JpegPresets.py": {
+      "sha256": "967a961e8e032c81c8ba571d1e9d0d27b0967b11edf13df0e759082a52df9080",
+      "bytes": 12379
+    },
+    "cs-unity-asset-audit/PIL/JpegImagePlugin.py": {
+      "sha256": "27ebe8f59a7a12e40277f8f84ce4637c300145e181fb5bd05ad894b89c391bb1",
+      "bytes": 31334
+    },
+    "cs-unity-asset-audit/PIL/Jpeg2KImagePlugin.py": {
+      "sha256": "c9ddaff5bd5fa20c03903694df5650479b15f41861b81e79f177daa2bb346558",
+      "bytes": 14622
+    },
+    "cs-unity-asset-audit/PIL/IptcImagePlugin.py": {
+      "sha256": "e26086c6d5aa7a68de3ff6766eb7704f46095fe8e68c0fce670c14a77a50daaa",
+      "bytes": 6437
+    },
+    "cs-unity-asset-audit/PIL/ImtImagePlugin.py": {
+      "sha256": "48be48aec1dc6e596dc6d5f8bff1d516162747a85a27400e77634785928c2266",
+      "bytes": 2665
+    },
+    "cs-unity-asset-audit/PIL/ImageWin.py": {
+      "sha256": "7277958eec1fd6ad9c1b43ac3757a8ecf57f17f51c03de2031ca23c201e2e372",
+      "bytes": 8098
+    },
+    "cs-unity-asset-audit/PIL/ImageTransform.py": {
+      "sha256": "faa7a4ecfde5ccb75d717b7d716b79c3f2f5d491a9db2637009b4e7e62409037",
+      "bytes": 3916
+    },
+    "cs-unity-asset-audit/PIL/ImageTk.py": {
+      "sha256": "6f94a7b5c9065ecd040ac2363267498370925fa02d10bb168743a1c6ee35bbf9",
+      "bytes": 8132
+    },
+    "cs-unity-asset-audit/PIL/ImageText.py": {
+      "sha256": "9f77bda821b1a7093f4774eca60288f970db5aa56e4b74da0b071dee7c1346f3",
+      "bytes": 18578
+    },
+    "cs-unity-asset-audit/PIL/ImageStat.py": {
+      "sha256": "1554e26161827223d6d500fad5bec361995c0ea474752ea1b0b8eafa070a706e",
+      "bytes": 5495
+    },
+    "cs-unity-asset-audit/PIL/ImageShow.py": {
+      "sha256": "ba0a31498cc64937dafc015e578cc35ca4fcf42fbecca75af356a04221c54f90",
+      "bytes": 10317
+    },
+    "cs-unity-asset-audit/PIL/ImageSequence.py": {
+      "sha256": "32986092befdb1c9980609a2f5982e8437d5c07be92d25f9b995470d996b9f42",
+      "bytes": 2253
+    },
+    "cs-unity-asset-audit/PIL/ImageQt.py": {
+      "sha256": "3d3b794cfca78162fe56ebf1fdbc271f5ec43817b7b44ee5e21b959af1903f96",
+      "bytes": 6684
+    },
+    "cs-unity-asset-audit/PIL/ImagePath.py": {
+      "sha256": "e72506e570948a5d4a2934c0ffc3e01a172683e9a7b9ef862b41704c19618f0e",
+      "bytes": 371
+    },
+    "cs-unity-asset-audit/PIL/ImagePalette.py": {
+      "sha256": "667e20ff1710d4a0e57f494a72f3cd72320f7ae7d0c7e92d3b91dc777c8a771f",
+      "bytes": 9208
+    },
+    "cs-unity-asset-audit/PIL/ImageOps.py": {
+      "sha256": "938f56b053a035ed06278d90d7cfb275807ab8ccf5e27db52c23595ccda97fff",
+      "bytes": 25697
+    },
+    "cs-unity-asset-audit/PIL/ImageMorph.py": {
+      "sha256": "a2d7f97fd03e638028b1f9751386161156ad8030489c6a7ac560497c0274351b",
+      "bytes": 10356
+    },
+    "cs-unity-asset-audit/PIL/ImageMode.py": {
+      "sha256": "69a6551c088211a9ce0362b58cddc3956dcd3ca6bc0e6e672174d712bcf2166b",
+      "bytes": 2395
+    },
+    "cs-unity-asset-audit/PIL/ImageMath.py": {
+      "sha256": "a820d28d35a6f94c7157b9b07204895288a8716f8bb156ad1244090b0415eab2",
+      "bytes": 10345
+    },
+    "cs-unity-asset-audit/PIL/ImageGrab.py": {
+      "sha256": "124cd6534e7fe23f8344277ded5cd71c9a870844e4ac6f701f34dc41013992da",
+      "bytes": 8241
+    },
+    "cs-unity-asset-audit/PIL/ImageFont.py": {
+      "sha256": "24fa5feeb91b4bf63eaad0ebba08a8161e9c889d9fd056a37c928134097b9649",
+      "bytes": 63750
+    },
+    "cs-unity-asset-audit/PIL/ImageFilter.py": {
+      "sha256": "1b85df7ac6aadc3d9daeeb3c8dc2c6f1682fc0eeb5927f6ca16da113b8277bf8",
+      "bytes": 19097
+    },
+    "cs-unity-asset-audit/PIL/ImageFile.py": {
+      "sha256": "983c4f35e0c51046d4c636998ec77000cd2da208870a03b205e104cd0b2df629",
+      "bytes": 29890
+    },
+    "cs-unity-asset-audit/PIL/ImageEnhance.py": {
+      "sha256": "e04961cff972cb12e6c741a4487af038098d2764e4a9540f1de8f31a285950c2",
+      "bytes": 3627
+    },
+    "cs-unity-asset-audit/PIL/ImageDraw2.py": {
+      "sha256": "7b04d8392e62dba3c1069aaecca187b12cda34752e22ff5eda4614a1bb8383cb",
+      "bytes": 7226
+    },
+    "cs-unity-asset-audit/PIL/ImageDraw.py": {
+      "sha256": "e83a5fc1f270e69f243e6cbcdd5cc548e997199aab276fa19a67ded591bb3c9a",
+      "bytes": 35419
+    },
+    "cs-unity-asset-audit/PIL/ImageColor.py": {
+      "sha256": "20603d0b6ba67840ff1334b60af8fa2ac53456eb42f51b2d58860f7bcb83b159",
+      "bytes": 9441
+    },
+    "cs-unity-asset-audit/PIL/ImageCms.py": {
+      "sha256": "dc00c0fe9e2c479ab41f2d3d1adf65e579e67d9786a84328c224b5c6cd6ce883",
+      "bytes": 40695
+    },
+    "cs-unity-asset-audit/PIL/ImageChops.py": {
+      "sha256": "1848e5ca67280ed03938e788c505485fde810feb3a01785bed39922d89f6b548",
+      "bytes": 7946
+    },
+    "cs-unity-asset-audit/PIL/Image.py": {
+      "sha256": "04af3f2db7ffdd61e829fa7aa8f5481d394a0a4129a8fd8aa5b13908928fcd6d",
+      "bytes": 153786
+    },
+    "cs-unity-asset-audit/PIL/ImImagePlugin.py": {
+      "sha256": "f2c04e032ef196a3fbdb6b175a19c99f85680614c1cdb6504ed7d6fd7b1679f5",
+      "bytes": 11602
+    },
+    "cs-unity-asset-audit/PIL/IcoImagePlugin.py": {
+      "sha256": "506cc80e5434d9907e54912ca3223b616993c76e99881d841c9675aaf076f094",
+      "bytes": 13103
+    },
+    "cs-unity-asset-audit/PIL/IcnsImagePlugin.py": {
+      "sha256": "42ed4565d672c7eb1b5a8803e623661fb870b92dc1911717b2a20316c1ab8620",
+      "bytes": 12397
+    },
+    "cs-unity-asset-audit/PIL/Hdf5StubImagePlugin.py": {
+      "sha256": "113338c9e49ccbe7908bc522acfe872352ef34e7b4b565bb364f67ca7dd4230a",
+      "bytes": 1696
+    },
+    "cs-unity-asset-audit/PIL/GribStubImagePlugin.py": {
+      "sha256": "f3233855eb8dcd86c09e87f1729df2ae8643ded95ef0af1d716f8fb981eacfba",
+      "bytes": 1714
+    },
+    "cs-unity-asset-audit/PIL/GimpPaletteFile.py": {
+      "sha256": "8481d0f4b279ae2d21cb57bfbd961e0fe9faed459d8440e529ce2f0f181a51d8",
+      "bytes": 1860
+    },
+    "cs-unity-asset-audit/PIL/GimpGradientFile.py": {
+      "sha256": "cd675b313f95b2c5f1d138340ce9b2b13a14818f9fc825c9bd89854a927578d8",
+      "bytes": 3983
+    },
+    "cs-unity-asset-audit/PIL/GifImagePlugin.py": {
+      "sha256": "fe956c85ac3a65ba9f01daec1acc3fc58b485dabcf25c90fe9b686039acae361",
+      "bytes": 42373
+    },
+    "cs-unity-asset-audit/PIL/GdImageFile.py": {
+      "sha256": "f0eadd77d114e0e6d9bbb3cd5d33da33c967ea3a4bc7c41d12f087fcb5e926c0",
+      "bytes": 2847
+    },
+    "cs-unity-asset-audit/PIL/GbrImagePlugin.py": {
+      "sha256": "0d8caf85e905075b0e40b1163f061b7f40847c676075ac75722fb70ee49e2204",
+      "bytes": 3053
+    },
+    "cs-unity-asset-audit/PIL/FtexImagePlugin.py": {
+      "sha256": "652d16a811ed22d3688b45b9d80e1110e1ab0c87e1e347421832ebb9a5cb4451",
+      "bytes": 3570
+    },
+    "cs-unity-asset-audit/PIL/FpxImagePlugin.py": {
+      "sha256": "f7175b4dac1e2d40e9a29b8a64309e1c10c6b196e36e82f36778fe93eb37e125",
+      "bytes": 7462
+    },
+    "cs-unity-asset-audit/PIL/FontFile.py": {
+      "sha256": "eb86240aaac643c1c79b47d4b5028f21bd124ddffce80f4635df4403db000036",
+      "bytes": 4259
+    },
+    "cs-unity-asset-audit/PIL/FliImagePlugin.py": {
+      "sha256": "e33c47f085c15fd0c68ba74944ce98e4d31d6c0d5df7dc7af7a99c1991f11f32",
+      "bytes": 4929
+    },
+    "cs-unity-asset-audit/PIL/FitsImagePlugin.py": {
+      "sha256": "f9fac59844400abddc273bff8fb7eeba3f5c1fb27bcba27beab662377fa6a820",
+      "bytes": 4722
+    },
+    "cs-unity-asset-audit/PIL/ExifTags.py": {
+      "sha256": "61c257add6fffd463aa788e37f998b3920c57fe931db10faf9bd921eef36bdf3",
+      "bytes": 9955
+    },
+    "cs-unity-asset-audit/PIL/EpsImagePlugin.py": {
+      "sha256": "94cb1da75871ec97ac6cb07bff57e5809929810ec9d5140fbed555e815adbc81",
+      "bytes": 16769
+    },
+    "cs-unity-asset-audit/PIL/DdsImagePlugin.py": {
+      "sha256": "85cf455296d054ac95c971d03cd3a8ea245cba2d1138b495d3533c2333f09050",
+      "bytes": 19101
+    },
+    "cs-unity-asset-audit/PIL/DcxImagePlugin.py": {
+      "sha256": "3a50afeb20c8d0b2d935bb9423bb3af452350ee02b3f21b1a37602cd0d67f078",
+      "bytes": 2180
+    },
+    "cs-unity-asset-audit/PIL/CurImagePlugin.py": {
+      "sha256": "6412c04ec22516b5f9aefe8395e135a12b5e394b338ccf5bd5b39c24fe54e3fa",
+      "bytes": 2711
+    },
+    "cs-unity-asset-audit/PIL/ContainerIO.py": {
+      "sha256": "c2406a2f618301be5f877c2bb5f4c651faa2a098a90a5fa58361b16e342b4d9c",
+      "bytes": 4604
+    },
+    "cs-unity-asset-audit/PIL/BufrStubImagePlugin.py": {
+      "sha256": "4032cc32835fb8d0ac6539f755353ca360358371560e31ba36ccb53741bed9e5",
+      "bytes": 1685
+    },
+    "cs-unity-asset-audit/PIL/BmpImagePlugin.py": {
+      "sha256": "e0067eb268d1257de5a1d746652938a39107a06eb5e3fe415d31ee07b7a83b0f",
+      "bytes": 19863
+    },
+    "cs-unity-asset-audit/PIL/BlpImagePlugin.py": {
+      "sha256": "615058c368c247d06baa095fe99756f39913153eebe2307f2262699cd09f7967",
+      "bytes": 16550
+    },
+    "cs-unity-asset-audit/PIL/BdfFontFile.py": {
+      "sha256": "0aa08fa855fc2774eac3ae73f72771132721aa6234a9ffd183290f71100e9c4e",
+      "bytes": 3339
+    },
+    "cs-unity-asset-audit/PIL/AvifImagePlugin.py": {
+      "sha256": "2ab961497bdd1519461deccb6581daf6bdc282f6dfba77d3ba72c630b5d8946d",
+      "bytes": 9301
+    },
+    "cs-unity-asset-audit/pillow.libs/libzstd-44be1190.so.1.5.7": {
+      "sha256": "9501ab40e92a57491cadd2d02df46b596f24e74e6c0476b8500793f822fa0072",
+      "bytes": 1800497
+    },
+    "cs-unity-asset-audit/pillow.libs/libxcb-ad31f5a3.so.1.1.0": {
+      "sha256": "633fe8df9f1bfc0ef60de6a3495a599ec56e56216491b90b79604cfecfb88000",
+      "bytes": 271913
+    },
+    "cs-unity-asset-audit/pillow.libs/libwebpmux-8fb1c9f6.so.3.1.2": {
+      "sha256": "48ebf91c4d208901a48f851fb4c851d380fededd2a272104e3ca24c17499deba",
+      "bytes": 64257
+    },
+    "cs-unity-asset-audit/pillow.libs/libwebpdemux-9fe2abcc.so.2.0.17": {
+      "sha256": "a7ccaaf4388d8ec212ca85be17907e8e021b7da113f7f48c47722c1ebe602f8e",
+      "bytes": 33553
+    },
+    "cs-unity-asset-audit/pillow.libs/libwebp-51b0b3f7.so.7.2.0": {
+      "sha256": "7df9ad3680dd09d756511334791c8c896207863816eb2910840e5fc4ae10028a",
+      "bytes": 735313
+    },
+    "cs-unity-asset-audit/pillow.libs/libtiff-fc87e79d.so.6.2.0": {
+      "sha256": "522bafb6812978fc53db6c32e5c57786186b551fc5fd6a7c61b857ca01261d16",
+      "bytes": 762929
+    },
+    "cs-unity-asset-audit/pillow.libs/libsharpyuv-0066295b.so.0.1.2": {
+      "sha256": "c2c5e89368b3bf9276a3cfea7e52ceb624db1c0c986c127169616219d5325807",
+      "bytes": 46113
+    },
+    "cs-unity-asset-audit/pillow.libs/libpng16-abb096d5.so.16.58.0": {
+      "sha256": "44f1d1d821c9b57cda2b32d4a278eeaa03bc9930ae9da0ec0f384c3daf165e12",
+      "bytes": 278001
+    },
+    "cs-unity-asset-audit/pillow.libs/libopenjp2-b07f72ad.so.2.5.4": {
+      "sha256": "185cb358047fd8b351c1d05b84a7e906c59d68d7f41222805f7042895ae266d8",
+      "bytes": 585849
+    },
+    "cs-unity-asset-audit/pillow.libs/liblzma-2be87c3e.so.5.8.3": {
+      "sha256": "535737fa00b49f62d14d6d9bce76482440df700b33d2666d636894f751dd25f1",
+      "bytes": 266369
+    },
+    "cs-unity-asset-audit/pillow.libs/liblcms2-dade1fbf.so.2.0.19": {
+      "sha256": "2549d6886e7de9960792e10ac87acfb9895e2afae85b7aac02108080cc7d3a71",
+      "bytes": 519257
+    },
+    "cs-unity-asset-audit/pillow.libs/libjpeg-31e2ca52.so.62.4.0": {
+      "sha256": "6d7c754529b30aff22efaaf88ba02061714591702c03f297f00ccb32ee6d9d9a",
+      "bytes": 829137
+    },
+    "cs-unity-asset-audit/pillow.libs/libharfbuzz-172d1f63.so.0.61421.0": {
+      "sha256": "7ff87422406706600619c8467a2daa42a8122207dcb95337273ae18419f7a220",
+      "bytes": 970233
+    },
+    "cs-unity-asset-audit/pillow.libs/libfreetype-9fc94c80.so.6.20.6": {
+      "sha256": "994d650f4fe686013580524dd868d7001325fa3bbf408800eaa4778138a7e690",
+      "bytes": 1467713
+    },
+    "cs-unity-asset-audit/pillow.libs/libbrotlidec-7e5462ba.so.1.2.0": {
+      "sha256": "301d8f1b7365c0204485f7bdc89165936fa8212b36c4f78563fe4229df53863c",
+      "bytes": 66441
+    },
+    "cs-unity-asset-audit/pillow.libs/libbrotlicommon-53534446.so.1.2.0": {
+      "sha256": "d0034d3c0dc0dc698266f9ce61ef1701402960eb0f18c0defadc61b91f793d88",
+      "bytes": 144425
+    },
+    "cs-unity-asset-audit/pillow.libs/libavif-8a7f9d56.so.16.4.2": {
+      "sha256": "3a8819e60f0fd7c716ef14776085a81c941db354002a9f9a679da38447e5507f",
+      "bytes": 5203513
+    },
+    "cs-unity-asset-audit/pillow.libs/libXau-154567c4.so.6.0.0": {
+      "sha256": "05484d24bf78cb8ed03169f1cb067204d829cb7af21de8820400d29d115e4320",
+      "bytes": 22081
+    },
+    "cs-unity-asset-audit/pillow-12.3.0.dist-info/RECORD": {
+      "sha256": "68376a303a07ca71e5eb0cd97cd48b202ed68d9e7a04cda8380266d24404a235",
+      "bytes": 16236
+    },
+    "cs-unity-asset-audit/pillow-12.3.0.dist-info/INSTALLER": {
+      "sha256": "ceebae7b8927a3227e5303cf5e0f1f7b34bb542ad7250ac03fbcde36ec2f1508",
+      "bytes": 4
+    },
+    "cs-unity-asset-audit/pillow-12.3.0.dist-info/zip-safe": {
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "bytes": 1
+    },
+    "cs-unity-asset-audit/pillow-12.3.0.dist-info/top_level.txt": {
+      "sha256": "ae266aae4fa1c99aa1e5fd59d19c228b774a7f112c07286ef5c53d20e0c5f8d6",
+      "bytes": 4
+    },
+    "cs-unity-asset-audit/pillow-12.3.0.dist-info/WHEEL": {
+      "sha256": "3c538aed656af66535988c6b04428e72d5aa5ad2b41a3bd0a7e8bbf28e83abc8",
+      "bytes": 152
+    },
+    "cs-unity-asset-audit/pillow-12.3.0.dist-info/METADATA": {
+      "sha256": "8fc07146cab33ef7582361dab6eac596d340b03ec648f18217da7894f73838c8",
+      "bytes": 9093
+    },
+    "cs-unity-asset-audit/lz4/version.py": {
+      "sha256": "5a40344b6f4a689f9c77fd57a3d6ff01c76ced4369e0b1f6259312c8357988c0",
+      "bytes": 712
+    },
+    "cs-unity-asset-audit/lz4/_version.cpython-314-x86_64-linux-gnu.so": {
+      "sha256": "3c2cde4fd46922f814c505b5325ba809b3a9033829c8abeab166ffcd7582b4e8",
+      "bytes": 1218168
+    },
+    "cs-unity-asset-audit/lz4/__init__.py": {
+      "sha256": "7adb15f971bdbe00a7f842ab169cd626c188a7e554b47fada4dad098c9831025",
+      "bytes": 627
+    },
+    "cs-unity-asset-audit/lz4-4.4.5.dist-info/RECORD": {
+      "sha256": "30fe7734191fc029160c81f423b57bf9cfc0b2045c563e6d36000ca3af9d8813",
+      "bytes": 1274
+    },
+    "cs-unity-asset-audit/lz4-4.4.5.dist-info/INSTALLER": {
+      "sha256": "ceebae7b8927a3227e5303cf5e0f1f7b34bb542ad7250ac03fbcde36ec2f1508",
+      "bytes": 4
+    },
+    "cs-unity-asset-audit/lz4-4.4.5.dist-info/top_level.txt": {
+      "sha256": "717ebf83115474d4a8e344dfc6b1a94c282eedea469b7c96de6da4ee2ad30f32",
+      "bytes": 4
+    },
+    "cs-unity-asset-audit/lz4-4.4.5.dist-info/WHEEL": {
+      "sha256": "0cc9e2d875975c6e286adf18e9b015baefb196407e82b1d08aab13bbe94b1e5b",
+      "bytes": 190
+    },
+    "cs-unity-asset-audit/lz4-4.4.5.dist-info/METADATA": {
+      "sha256": "08668dfdf13285efdb2a2b83c1ce06cee18bb1c542662c351f3da56e3ac60b9a",
+      "bytes": 3838
+    },
+    "cs-unity-asset-audit/fsspec/utils.py": {
+      "sha256": "9d35d657dc441e8f4be75d542e48fc4432fe01fb06ab80a501581f19afd6b35d",
+      "bytes": 28458
+    },
+    "cs-unity-asset-audit/fsspec/transaction.py": {
+      "sha256": "6d2d724103c48079511104818f0fb50eb76a627dbb31d72d900e7913bf27b7db",
+      "bytes": 3392
+    },
+    "cs-unity-asset-audit/fsspec/spec.py": {
+      "sha256": "add54e74430d1167f8f9f5ac5349bebe811234f5055899dda3b4ac1c5b98603b",
+      "bytes": 80278
+    },
+    "cs-unity-asset-audit/fsspec/registry.py": {
+      "sha256": "29e0cd2fd1cec875ff0f80f8a9018023e6370d08622de502d552b623cd4d65a1",
+      "bytes": 12344
+    },
+    "cs-unity-asset-audit/fsspec/prefetcher.py": {
+      "sha256": "620fe559d4923f6783bdb42abf7a7e65a8ead8cd457b2a28708bd59852d7c97b",
+      "bytes": 32611
+    },
+    "cs-unity-asset-audit/fsspec/parquet.py": {
+      "sha256": "d12cdfb305137369399c08fbc593583cfcaf52414d5f39c54575ed05186bfa21",
+      "bytes": 20506
+    },
+    "cs-unity-asset-audit/fsspec/mapping.py": {
+      "sha256": "80b0b05fa2d9730d3db3aa9950a2e77378319b5241b6313a854ef46c4f293667",
+      "bytes": 8537
+    },
+    "cs-unity-asset-audit/fsspec/json.py": {
+      "sha256": "e04059fb13a6462cb1988a8f230c660c89a8b1143b8a8eea04cdb18c93ec104e",
+      "bytes": 3768
+    },
+    "cs-unity-asset-audit/fsspec/gui.py": {
+      "sha256": "090ed0b2b4e968395648b34ea7036825cee484e7185c86719ab00937d6c75905",
+      "bytes": 14002
+    },
+    "cs-unity-asset-audit/fsspec/generic.py": {
+      "sha256": "f8b2000daf6a44defd6df6b71e5f66dc768deab954d86362bdac0b366c9bab11",
+      "bytes": 13752
+    },
+    "cs-unity-asset-audit/fsspec/fuse.py": {
+      "sha256": "43edcd38ec8ba817d86b80dbe44d7dcff658dfacf3607b48b3598e51ab08b414",
+      "bytes": 10177
+    },
+    "cs-unity-asset-audit/fsspec/exceptions.py": {
+      "sha256": "a5ab922c3331cd324c3a3bd7d561142b470cc8592b171a5626cc85cb06afec0f",
+      "bytes": 331
+    },
+    "cs-unity-asset-audit/fsspec/dircache.py": {
+      "sha256": "633a20589ae111ab2d1d4eef5b3f9c26227bb1db4b5c55e112922718a77811c3",
+      "bytes": 2717
+    },
+    "cs-unity-asset-audit/fsspec/core.py": {
+      "sha256": "9b98d959b4d178d355e8c5c564994a9c51c7fc822a63d45e1eb2fd3b20edd275",
+      "bytes": 24428
+    },
+    "cs-unity-asset-audit/fsspec/conftest.py": {
+      "sha256": "b967e6fd0b396a53d1c4e851a437d0d3ed63a92279e299e2e32f7a2313911173",
+      "bytes": 3446
+    },
+    "cs-unity-asset-audit/fsspec/config.py": {
+      "sha256": "9872b30208d76bf2f0aad3bf5684c9279ebc56ac1891b2b7814a7827a259269e",
+      "bytes": 4238
+    },
+    "cs-unity-asset-audit/fsspec/compression.py": {
+      "sha256": "deffc57b7f60cd14567da797a733630063ea813ce61136110a8dea1d5a83de9a",
+      "bytes": 5132
+    },
+    "cs-unity-asset-audit/fsspec/callbacks.py": {
+      "sha256": "0432302f32baaebff4579721e79edf4b3b22bc2125a5daa15ebe5d67d4def841",
+      "bytes": 9210
+    },
+    "cs-unity-asset-audit/fsspec/caching.py": {
+      "sha256": "57f1ebd4f8797381c5b08795afcd6745d8e99fe9a6ceb48d434191d1b158bd8f",
+      "bytes": 38542
+    },
+    "cs-unity-asset-audit/fsspec/asyn.py": {
+      "sha256": "fca12057b38ba11c7c528d610a39e6d26ac6541d3408cb827cc6ca57ab199839",
+      "bytes": 42244
+    },
+    "cs-unity-asset-audit/fsspec/archive.py": {
+      "sha256": "f51b0f9df23973858d0dd722b010449da2176b8f0c27080f927290366da40ec4",
+      "bytes": 2733
+    },
+    "cs-unity-asset-audit/fsspec/_version.py": {
+      "sha256": "08590b878f2f1a5c78b8f736fb19d86e9dc7b31d36d0c7cd0b8e3f8a2cda153a",
+      "bytes": 526
+    },
+    "cs-unity-asset-audit/fsspec/__init__.py": {
+      "sha256": "c457281c10f5edf73929a98a510008034ade3c68cba8837558101df4d028022f",
+      "bytes": 2111
+    },
+    "cs-unity-asset-audit/fsspec-2026.9.0.dist-info/RECORD": {
+      "sha256": "d135c5b64bc08a519e6fa224d8fcb1809ac00097d04e04f21f87b67af1bebb40",
+      "bytes": 8457
+    },
+    "cs-unity-asset-audit/fsspec-2026.9.0.dist-info/INSTALLER": {
+      "sha256": "ceebae7b8927a3227e5303cf5e0f1f7b34bb542ad7250ac03fbcde36ec2f1508",
+      "bytes": 4
+    },
+    "cs-unity-asset-audit/fsspec-2026.9.0.dist-info/WHEEL": {
+      "sha256": "4c769fa1bee87cdf8db2e30decc838a99c8769023b2a40fe4257106ad6215cfa",
+      "bytes": 87
+    },
+    "cs-unity-asset-audit/fsspec-2026.9.0.dist-info/METADATA": {
+      "sha256": "68f5a262767510638e9b1933b1493f2baadc9616fe1e696f62aedd59c8c0a37c",
+      "bytes": 10609
+    },
+    "cs-unity-asset-audit/attr/validators.pyi": {
+      "sha256": "80cd59987681724c98588d848aba51373aa6dc1d7d730e48aba0782a7a3d6023",
+      "bytes": 4087
+    },
+    "cs-unity-asset-audit/attr/validators.py": {
+      "sha256": "9b7411cd94c036be1fd82e1e55d528160d753605d66a4f166ade2a4131a1bdcb",
+      "bytes": 21553
+    },
+    "cs-unity-asset-audit/attr/setters.pyi": {
+      "sha256": "367564685535041e0907c13826e5f2af34d482fb4ca63f29df005d258eee8b1e",
+      "bytes": 584
+    },
+    "cs-unity-asset-audit/attr/setters.py": {
+      "sha256": "e7e75c4fadc640adf938d1334a07d70a46c1ee93e4691faabf5e669b83d54b34",
+      "bytes": 1617
+    },
+    "cs-unity-asset-audit/attr/py.typed": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "cs-unity-asset-audit/attr/filters.pyi": {
+      "sha256": "dc9e411be753c65b41935ffe46e351507aefdaabb5bfcbf868334043bfe689f0",
+      "bytes": 208
+    },
+    "cs-unity-asset-audit/attr/filters.py": {
+      "sha256": "64188a58ba774742df099b2aed7d75a67f565fc36c952db05cce23b272ce19cf",
+      "bytes": 1795
+    },
+    "cs-unity-asset-audit/attr/exceptions.pyi": {
+      "sha256": "cd9abc6c2527280cbd983b41130e366613e1014207a1329e7434089c90fcf373",
+      "bytes": 539
+    },
+    "cs-unity-asset-audit/attr/exceptions.py": {
+      "sha256": "6f8bcc6e7a10dd5a7059986aad88bfb2c5d508af28d9ce074124b4f5c49433da",
+      "bytes": 1990
+    },
+    "cs-unity-asset-audit/attr/converters.pyi": {
+      "sha256": "a2b5366df7fe56341ada4303caf9cc415ef7a094f6591c90bb0e19475ca6d5b1",
+      "bytes": 643
+    },
+    "cs-unity-asset-audit/attr/converters.py": {
+      "sha256": "1a50de3b33de4c581e0412db8fd1b9ec4cf994093af2e85200b45827f7b17bce",
+      "bytes": 3861
+    },
+    "cs-unity-asset-audit/attr/_version_info.pyi": {
+      "sha256": "c7f3372f75ae07baff50b5c05a3c7de7db9d290e072c1f25fa1b1cd450c636f9",
+      "bytes": 209
+    },
+    "cs-unity-asset-audit/attr/_version_info.py": {
+      "sha256": "c3847e1580b734afe43241945899583f87150251fd1d1682fae9b77dc8d89073",
+      "bytes": 2222
+    },
+    "cs-unity-asset-audit/attr/_typing_compat.pyi": {
+      "sha256": "5c33f9e13527f992a10fad9339079b9b3af0172a268540a8191a5c95be9a9510",
+      "bytes": 469
+    },
+    "cs-unity-asset-audit/attr/_next_gen.py": {
+      "sha256": "050b42525cf08368161d3617050beb118067cc152b0ef3b9eeed0fcba5023e17",
+      "bytes": 26274
+    },
+    "cs-unity-asset-audit/attr/_make.py": {
+      "sha256": "1fb387d9e592e429c1ccb5233451355b299f3eb985d6bf1fbf644f76df4cb980",
+      "bytes": 106129
+    },
+    "cs-unity-asset-audit/attr/_funcs.py": {
+      "sha256": "231e481134dfcf9174d45fb5d8c17f0921689889f687c6faec4555cf6802b411",
+      "bytes": 16479
+    },
+    "cs-unity-asset-audit/attr/_config.py": {
+      "sha256": "746ab7c51e9f819105e9406dfcbd13f9e507201e22e37911987d0fdbcb09570f",
+      "bytes": 843
+    },
+    "cs-unity-asset-audit/attr/_compat.py": {
+      "sha256": "c7483b88450e9c15490bbdb3c850a06f578aab2c52fbb7f62c69cdc99febf79b",
+      "bytes": 2829
+    },
+    "cs-unity-asset-audit/attr/_cmp.pyi": {
+      "sha256": "53efd153f5193b23d4110cd713a44c61041c8e4651636e704c7f7db0dd2cecc3",
+      "bytes": 368
+    },
+    "cs-unity-asset-audit/attr/_cmp.py": {
+      "sha256": "dcd9f54e3c659546225ff9c9a159c4917a0393484cd4360a8f90c4ec665ee22d",
+      "bytes": 4117
+    },
+    "cs-unity-asset-audit/attr/__init__.pyi": {
+      "sha256": "a55188980515a2fab6fd3625febfc72189c697239aa02b84871a3e12fb279d27",
+      "bytes": 11325
+    },
+    "cs-unity-asset-audit/attr/__init__.py": {
+      "sha256": "7ce608bedd5e192a90adee2e092dec256299d26c00b82f140faa9b6b9392f7f5",
+      "bytes": 2057
+    },
+    "cs-unity-asset-audit/attrs/validators.py": {
+      "sha256": "c5ccbac03e53b5391d086d5fe1759ba1c3d23b47da06393921f5497cfe92523d",
+      "bytes": 76
+    },
+    "cs-unity-asset-audit/attrs/setters.py": {
+      "sha256": "78bd5889d6105774f687dfd2608652651d4501c1c66f54ee093cb41342efd925",
+      "bytes": 73
+    },
+    "cs-unity-asset-audit/attrs/py.typed": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "cs-unity-asset-audit/attrs/filters.py": {
+      "sha256": "54e50c66e83db8453a754b80d1d1758c89d42b43cbddf2e03f45414b977e0831",
+      "bytes": 73
+    },
+    "cs-unity-asset-audit/attrs/exceptions.py": {
+      "sha256": "0020829a0d7dfaf0c56833d8f6f165d7df523d709030dfdb10db380c02e3ce6b",
+      "bytes": 76
+    },
+    "cs-unity-asset-audit/attrs/converters.py": {
+      "sha256": "f244258eb5707d24d1bbc20dc0493c488d1e1abce659fb6c4fbaccd04ab2a213",
+      "bytes": 76
+    },
+    "cs-unity-asset-audit/attrs/__init__.pyi": {
+      "sha256": "da057bf60f54c49a69192338f2101927a87f3076fbd1d66824bdf564d25e6582",
+      "bytes": 9416
+    },
+    "cs-unity-asset-audit/attrs/__init__.py": {
+      "sha256": "47168064dc1888487e7dcbc72d936943f0d62a78bbdccfe3c443c47ed8aad597",
+      "bytes": 1183
+    },
+    "cs-unity-asset-audit/attrs-26.1.0.dist-info/RECORD": {
+      "sha256": "3cc123d895d29f6371d82bc6743c0dea82c79123d9421837517c6b6777345a77",
+      "bytes": 3556
+    },
+    "cs-unity-asset-audit/attrs-26.1.0.dist-info/INSTALLER": {
+      "sha256": "ceebae7b8927a3227e5303cf5e0f1f7b34bb542ad7250ac03fbcde36ec2f1508",
+      "bytes": 4
+    },
+    "cs-unity-asset-audit/attrs-26.1.0.dist-info/WHEEL": {
+      "sha256": "41c708c5adba6e097513ab8ccb9f1d7865a2fb469e22491a9e01dcc64da459fc",
+      "bytes": 87
+    },
+    "cs-unity-asset-audit/attrs-26.1.0.dist-info/METADATA": {
+      "sha256": "4cd40e690f23bf37cbcad34efd6758e062df1df07c86833f7e3ce95bf1fa38cc",
+      "bytes": 8754
+    },
+    "cs-unity-asset-audit/archspec/cli.py": {
+      "sha256": "5991aa32a35fef3a1348ad26fd7d9eed064d9a99217c36718582a10869f02ce1",
+      "bytes": 2022
+    },
+    "cs-unity-asset-audit/archspec/__main__.py": {
+      "sha256": "959bb70b63fd15b3a51391817a8493aa074fc9cbdc41c2fb37c8a1b1d6465d83",
+      "bytes": 97
+    },
+    "cs-unity-asset-audit/archspec/__init__.py": {
+      "sha256": "4bf2a6572d0d38646b461ee3778f62a7bbfc592db1e368c0699b4ea5b1be7441",
+      "bytes": 67
+    },
+    "cs-unity-asset-audit/archspec-0.2.6.dist-info/RECORD": {
+      "sha256": "4051c1cc717d431ed5a7fac15c16034dd88f6ed65ab2133ce7c2efce5cf21ad1",
+      "bytes": 8322
+    },
+    "cs-unity-asset-audit/archspec-0.2.6.dist-info/INSTALLER": {
+      "sha256": "ceebae7b8927a3227e5303cf5e0f1f7b34bb542ad7250ac03fbcde36ec2f1508",
+      "bytes": 4
+    },
+    "cs-unity-asset-audit/archspec-0.2.6.dist-info/entry_points.txt": {
+      "sha256": "bfaba68aee5e4120fad3cf158b2be48e573559548728ad0b00331aeeb329366e",
+      "bytes": 46
+    },
+    "cs-unity-asset-audit/archspec-0.2.6.dist-info/WHEEL": {
+      "sha256": "36af367bdad4027123b7df09e8c95598c0996feb7d71813622bd64a419a759fb",
+      "bytes": 88
+    },
+    "cs-unity-asset-audit/archspec-0.2.6.dist-info/NOTICE": {
+      "sha256": "f4247dde07952a5ff866b24e45b5cdd1fce410cdb2e038255a1635867f59c10c",
+      "bytes": 1167
+    },
+    "cs-unity-asset-audit/archspec-0.2.6.dist-info/METADATA": {
+      "sha256": "276cc1abf9f496c89acd9acc1e3335c31b1b0a28302fcdd24f9162b7eb5092d0",
+      "bytes": 4426
+    },
+    "cs-unity-asset-audit/archspec-0.2.6.dist-info/LICENSE-MIT": {
+      "sha256": "9001ad99a662075a0e5a6a9a539fc75040d8063c3f7251d6839ca40b5234054e",
+      "bytes": 1171
+    },
+    "cs-unity-asset-audit/archspec-0.2.6.dist-info/LICENSE-APACHE": {
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "bytes": 11358
+    },
+    "cs-unity-asset-audit/fmod_toolkit/fmod.py": {
+      "sha256": "66c4638ad4b7cff28f09090a3aae05c385a03a485f7373421764283af8b312d4",
+      "bytes": 6932
+    },
+    "cs-unity-asset-audit/fmod_toolkit/__init__.py": {
+      "sha256": "2b2135e459e973f9adc83df11e615b2a4ed69bcb6a9ebfa598a5511f0cca519e",
+      "bytes": 127
+    },
+    "cs-unity-asset-audit/fmod_toolkit/importer.py": {
+      "sha256": "66a5b1faf34d96dcfa01a8372f59fdc8efd292eae1c671b3e8368f61d6a21785",
+      "bytes": 2012
+    },
+    "cs-unity-asset-audit/fmod_toolkit-0.1.3.dist-info/RECORD": {
+      "sha256": "52a7b979d339845c3d5ac4b63c0fe80e4313a9c67b1e7f86eb7fb22a1a8f0c4a",
+      "bytes": 1011
+    },
+    "cs-unity-asset-audit/fmod_toolkit-0.1.3.dist-info/INSTALLER": {
+      "sha256": "ceebae7b8927a3227e5303cf5e0f1f7b34bb542ad7250ac03fbcde36ec2f1508",
+      "bytes": 4
+    },
+    "cs-unity-asset-audit/fmod_toolkit-0.1.3.dist-info/top_level.txt": {
+      "sha256": "c31c7af37e6df78eb0d6ecd6d32e2dcc5123ae23d3fa9abefedd538b98d43b4e",
+      "bytes": 13
+    },
+    "cs-unity-asset-audit/fmod_toolkit-0.1.3.dist-info/LICENSE": {
+      "sha256": "16c432f5e0ac00f263bccd2a5ae79156a1f462a86a99260c0fa94b2f35ce7468",
+      "bytes": 1062
+    },
+    "cs-unity-asset-audit/fmod_toolkit-0.1.3.dist-info/WHEEL": {
+      "sha256": "8766cafe5d840c5a94cfa7ec461bcb4413351d903c049ee12239ea29fe3bc0ff",
+      "bytes": 361
+    },
+    "cs-unity-asset-audit/fmod_toolkit-0.1.3.dist-info/METADATA": {
+      "sha256": "92b03f826cffd4072ffdf4528cb1dd48e2c99a3adadea29ce8316d75a29e907a",
+      "bytes": 3576
+    },
+    "cs-unity-asset-audit/etcpak-0.9.15.dist-info/RECORD": {
+      "sha256": "385c30567a2d2287abe873bab66e21b67df351c980b15365b83d62960a209e85",
+      "bytes": 1176
+    },
+    "cs-unity-asset-audit/etcpak-0.9.15.dist-info/INSTALLER": {
+      "sha256": "ceebae7b8927a3227e5303cf5e0f1f7b34bb542ad7250ac03fbcde36ec2f1508",
+      "bytes": 4
+    },
+    "cs-unity-asset-audit/etcpak-0.9.15.dist-info/WHEEL": {
+      "sha256": "aff9a6f0c94636672ace5c2e50b7d8db7cabbfbd1a1929d58d9af031c6a65273",
+      "bytes": 148
+    },
+    "cs-unity-asset-audit/etcpak-0.9.15.dist-info/top_level.txt": {
+      "sha256": "4f60f4c7b4902d40775356d70b6ba8b7393207e56d6650bf990db061907d63c1",
+      "bytes": 7
+    },
+    "cs-unity-asset-audit/etcpak-0.9.15.dist-info/METADATA": {
+      "sha256": "578ecdb096328cf5fa21714984d85768d3c7efa0e21a03d08c1d8650882c1c81",
+      "bytes": 6085
+    },
+    "cs-unity-asset-audit/etcpak-0.9.15.dist-info/LICENSE": {
+      "sha256": "ed343b31be95ce6bb42d55c80d00b7c7fa98d99c0379e4857f0e38d28341a16f",
+      "bytes": 1062
+    },
+    "cs-unity-asset-audit/etcpak/__init__.py": {
+      "sha256": "62f14bd0e37ca651300ef4b2744d8291130e96d5b28056b76854bbc492a09918",
+      "bytes": 3016
+    },
+    "cs-unity-asset-audit/etcpak/py.typed": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "cs-unity-asset-audit/etcpak/_etcpak_avx512.cpython-37m-x86_64-linux-gnu.so": {
+      "sha256": "95ae6d1de935a649c8dc40e631f8a4a4d10096aa4bc2af0169ade2aa191c0995",
+      "bytes": 2505536
+    },
+    "cs-unity-asset-audit/etcpak/_etcpak_sse41.cpython-37m-x86_64-linux-gnu.so": {
+      "sha256": "f1a1cd331cb5c1c4672b54a14e4cd10753350857149ab73df849593e67c818cf",
+      "bytes": 2055560
+    },
+    "cs-unity-asset-audit/etcpak/_etcpak_none.abi3.so": {
+      "sha256": "ce0bf545bcbe20628eaae135bacb64ed6093f29e9cdea217949966840230cfb4",
+      "bytes": 1870472
+    },
+    "cs-unity-asset-audit/etcpak/_etcpak_avx2.cpython-37m-x86_64-linux-gnu.so": {
+      "sha256": "9fe89ba70eed8228cb203edf0244545ff10ccb1e1e1f923baad5873888bdc4cc",
+      "bytes": 2560536
+    },
+    "cs-unity-asset-audit/etcpak/__init__.pyi": {
+      "sha256": "e451dbd10d826f98bb4714db962970be5d62480b6946740bf8e5c61b7bc36596",
+      "bytes": 4767
+    },
+    "cs-unity-asset-audit/astc_encoder_py-0.1.12.dist-info/RECORD": {
+      "sha256": "30ac175003e5249df7c5272211b146ab095c6895ba359d56f17428739333c031",
+      "bytes": 1605
+    },
+    "cs-unity-asset-audit/astc_encoder_py-0.1.12.dist-info/INSTALLER": {
+      "sha256": "ceebae7b8927a3227e5303cf5e0f1f7b34bb542ad7250ac03fbcde36ec2f1508",
+      "bytes": 4
+    },
+    "cs-unity-asset-audit/astc_encoder_py-0.1.12.dist-info/WHEEL": {
+      "sha256": "aff9a6f0c94636672ace5c2e50b7d8db7cabbfbd1a1929d58d9af031c6a65273",
+      "bytes": 148
+    },
+    "cs-unity-asset-audit/astc_encoder_py-0.1.12.dist-info/top_level.txt": {
+      "sha256": "478bc8e1d0002c07cc9d714c32b5bb3d973eff644368e4f114815cc1805d8845",
+      "bytes": 13
+    },
+    "cs-unity-asset-audit/astc_encoder_py-0.1.12.dist-info/LICENSE": {
+      "sha256": "871b01a06ead50c425fe03687e67e04b1743e59466438b1301de7e1afb11731e",
+      "bytes": 1069
+    },
+    "cs-unity-asset-audit/astc_encoder_py-0.1.12.dist-info/METADATA": {
+      "sha256": "fea5dbf68737590f53eaafb983d9cb1e186e7948bab06128cb0e0eaa4a11553a",
+      "bytes": 5564
+    },
+    "cs-unity-asset-audit/astc_encoder/_encoder_avx2.abi3.so": {
+      "sha256": "0c3a766d12426f06c603f42ede1d50c82bd37bc2ae395fd222577d651aeed100",
+      "bytes": 4826368
+    },
+    "cs-unity-asset-audit/astc_encoder/py.typed": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "cs-unity-asset-audit/astc_encoder/_encoder_none.abi3.so": {
+      "sha256": "ddf5382905ba9366e53084a79bac4fb4e5ef211841dc02780b6cd326ce4c44ec",
+      "bytes": 5074824
+    },
+    "cs-unity-asset-audit/astc_encoder/encoder.py": {
+      "sha256": "f4d088487d1e85f729ac1e6fa3499ba4aaf022ae1c258073b233ef1eed530e77",
+      "bytes": 1071
+    },
+    "cs-unity-asset-audit/astc_encoder/_encoder_sse41.abi3.so": {
+      "sha256": "2c06aff14279f5cccabf741573f33ddb8375734f199d7c27965c09536941f1a5",
+      "bytes": 4627816
+    },
+    "cs-unity-asset-audit/astc_encoder/encoder.pyi": {
+      "sha256": "2d3f302720b07cbdc365cc62c515622885aa91e8450203e627df0b559ef17508",
+      "bytes": 10618
+    },
+    "cs-unity-asset-audit/astc_encoder/__init__.py": {
+      "sha256": "6d27d1236a4de2e3028f5c0b76a1a37b321843a0ac7afeda392192e9067b6110",
+      "bytes": 947
+    },
+    "cs-unity-asset-audit/astc_encoder/pil_codec.py": {
+      "sha256": "711aa7ff8b2acd29f8ab91bf3840ce33a25fb77c9a0b8a6402c99930252fd44f",
+      "bytes": 4333
+    },
+    "cs-unity-asset-audit/astc_encoder/enum.py": {
+      "sha256": "6a3d7bcb8435789fd15a7b73ebd3150ddd2178999c2bd41992eb18633902645f",
+      "bytes": 5981
+    },
+    "cs-unity-asset-audit/astc_encoder/_encoder_sse2.abi3.so": {
+      "sha256": "149aec72360fe111176a7027394a3a3f0b2a4a0301d8ce40463a559353481a3b",
+      "bytes": 4927552
+    },
+    "cs-unity-asset-audit/UnityPy/py.typed": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "cs-unity-asset-audit/UnityPy/exceptions.py": {
+      "sha256": "7b9a556598a18502a60c1140cdb72d436d4ca6b2815d63064ee91675f9ee7708",
+      "bytes": 363
+    },
+    "cs-unity-asset-audit/UnityPy/environment.py": {
+      "sha256": "6d8fab8d03479f80ab5c6509c8e5f0823b6a6151c3a67ba2980cef8ab3b5c75a",
+      "bytes": 12962
+    },
+    "cs-unity-asset-audit/UnityPy/config.py": {
+      "sha256": "f61b6631b066ef0d21feb4fb771170ca6eff0758e86968a6cb983a3b7457ee40",
+      "bytes": 1306
+    },
+    "cs-unity-asset-audit/UnityPy/__main__.py": {
+      "sha256": "494a4aa85a2128c55b2afc360e7f1fba2998ebb1567a918e64233f20ef22e0c7",
+      "bytes": 72
+    },
+    "cs-unity-asset-audit/UnityPy/__init__.py": {
+      "sha256": "fe0076e697d710521306dc5d58cec33d7eead3e4b7d007fc49acc760a23f5c27",
+      "bytes": 261
+    },
+    "cs-unity-asset-audit/UnityPy/UnityPyBoost.pyi": {
+      "sha256": "62bbc13c7d4e83dde62d61cc9cc993c8ed631d1578bd8e6930d74b9a56911237",
+      "bytes": 1225
+    },
+    "cs-unity-asset-audit/UnityPy/UnityPyBoost.cpython-314-x86_64-linux-gnu.so": {
+      "sha256": "96902f81c6f52c8edcbaeda3652c59b8ee294fee20810519a14f196576ed7e75",
+      "bytes": 3659344
+    },
+    "cs-unity-asset-audit/unitypy-1.25.4.dist-info/RECORD": {
+      "sha256": "b374ff4cccd8b4696574f07b32b0cec7eaeaedc56ce4fb7485091aa423dfb821",
+      "bytes": 13320
+    },
+    "cs-unity-asset-audit/unitypy-1.25.4.dist-info/REQUESTED": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "cs-unity-asset-audit/unitypy-1.25.4.dist-info/INSTALLER": {
+      "sha256": "ceebae7b8927a3227e5303cf5e0f1f7b34bb542ad7250ac03fbcde36ec2f1508",
+      "bytes": 4
+    },
+    "cs-unity-asset-audit/unitypy-1.25.4.dist-info/top_level.txt": {
+      "sha256": "9e7fc2b0351446f09e1092d739e4c0f262ef592f1c0f195a95f9769edabe534e",
+      "bytes": 8
+    },
+    "cs-unity-asset-audit/unitypy-1.25.4.dist-info/entry_points.txt": {
+      "sha256": "ad9952a6885ed675458cd2018d062ed1cc02e62842ae6191c448d2c98748632a",
+      "bytes": 45
+    },
+    "cs-unity-asset-audit/unitypy-1.25.4.dist-info/WHEEL": {
+      "sha256": "793f79551cab1d3af709f5f2c03ac8aa1f3efd31ccdb063e310192fd85fc2156",
+      "bytes": 152
+    },
+    "cs-unity-asset-audit/unitypy-1.25.4.dist-info/METADATA": {
+      "sha256": "7eb640d064926dbee916a794037014b33f23acca1ada15504b2fd5a1c48d2fd0",
+      "bytes": 21997
+    },
+    "cs-unity-asset-audit/unitypy-1.25.4.dist-info/licenses/LICENSE": {
+      "sha256": "c0d40160134c68c648a76e253b744e4a6825dbb4a1df597b79aac33dd5e4828f",
+      "bytes": 1067
+    },
+    "cs-unity-asset-audit/UnityPy/__pycache__/exceptions.cpython-314.pyc": {
+      "sha256": "9657ab1c73d3d8bea53c2776ee094396608443b795dfffe891379e76461f6b5c",
+      "bytes": 1475
+    },
+    "cs-unity-asset-audit/UnityPy/__pycache__/environment.cpython-314.pyc": {
+      "sha256": "4e8287a98e8303ae4044f094fbc8907dc10babff9b36f81b8ee2cea12f35b3f2",
+      "bytes": 22433
+    },
+    "cs-unity-asset-audit/UnityPy/__pycache__/config.cpython-314.pyc": {
+      "sha256": "d40a0f57d6584489d58964296282c2a5e274213d9c336c28677159c0dc1f2fd5",
+      "bytes": 1188
+    },
+    "cs-unity-asset-audit/UnityPy/__pycache__/__main__.cpython-314.pyc": {
+      "sha256": "f46ff865337587144b1d18d07c0399d88e79a75b2377eb47a0c9d899516207b4",
+      "bytes": 262
+    },
+    "cs-unity-asset-audit/UnityPy/__pycache__/__init__.cpython-314.pyc": {
+      "sha256": "b939326d3b51dc1f8341a025d2075cc3ad116b625c9facee427654615229956a",
+      "bytes": 356
+    },
+    "cs-unity-asset-audit/UnityPy/tools/extractor.py": {
+      "sha256": "31031f8ffa3ccd706535721affeeb04542f04ed2950555605ff0e0fbdf6ee9e5",
+      "bytes": 12616
+    },
+    "cs-unity-asset-audit/UnityPy/tools/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "cs-unity-asset-audit/UnityPy/tools/TpkClassGenerator.py": {
+      "sha256": "42480ae86b07b0e91921290df1947b3e1792e76950844bb1a5befad551f679b9",
+      "bytes": 10482
+    },
+    "cs-unity-asset-audit/UnityPy/streams/__init__.py": {
+      "sha256": "fe992e02803b1612f54ec2308ded7ebfbee61bf112e4725ebe8ec2ba35b5a54b",
+      "bytes": 169
+    },
+    "cs-unity-asset-audit/UnityPy/streams/EndianBinaryWriter.py": {
+      "sha256": "3a14b574c6e35f52f6f6d448c7b2bd2e31fc27752619725a4c696a2a3e843a33",
+      "bytes": 4022
+    },
+    "cs-unity-asset-audit/UnityPy/streams/EndianBinaryReader.py": {
+      "sha256": "602f1e563bfbe87522dc6a262a6620562d7e744c5644b26d36b988d9b26fa986",
+      "bytes": 12420
+    },
+    "cs-unity-asset-audit/UnityPy/resources/lzma.tpk": {
+      "sha256": "16f1f8b809d1cd3bc3aeebf0cd43ecd3690b326a7a88b2273e57bcd83f5df608",
+      "bytes": 207720
+    },
+    "cs-unity-asset-audit/UnityPy/resources/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "cs-unity-asset-audit/UnityPy/helpers/__init__.py": {
+      "sha256": "b856d98ac08bca1ac626ccf7f3160c83ea50ca6910914226160eae31080ef8e3",
+      "bytes": 270
+    },
+    "cs-unity-asset-audit/UnityPy/helpers/UnityVersion.py": {
+      "sha256": "bb4e8fdb7724ae8d995e7608eb09ee5bbd0f00fcb0feef388644ae6297182aff",
+      "bytes": 4630
+    },
+    "cs-unity-asset-audit/UnityPy/helpers/TypeTreeNode.py": {
+      "sha256": "f6563e0136cead8b94b95de6129e445d20a2f64a54a997d4f497bf2947a79220",
+      "bytes": 12193
+    },
+    "cs-unity-asset-audit/UnityPy/helpers/TypeTreeHelper.py": {
+      "sha256": "ea48ce7f0d8605e13fc3af0f74277ead8e24c3626261de3d6c569084e1ffb2a5",
+      "bytes": 16480
+    },
+    "cs-unity-asset-audit/UnityPy/helpers/TypeTreeGenerator.py": {
+      "sha256": "188516acd09282742b8f1c6a43336e61749c108340422092d72fda6fac1c7fc4",
+      "bytes": 2658
+    },
+    "cs-unity-asset-audit/UnityPy/helpers/Tpk.py": {
+      "sha256": "4dfa34a950ad7cb003ed24f44c324c9dcdd9e77944dbeafc503b5388d346876a",
+      "bytes": 2603
+    },
+    "cs-unity-asset-audit/UnityPy/helpers/TextureSwizzler.py": {
+      "sha256": "683aa059a4c9751e813e870f05825702adacc67bab368ad829c8a7dd19bc6cc4",
+      "bytes": 5511
+    },
+    "cs-unity-asset-audit/UnityPy/helpers/ResourceReader.py": {
+      "sha256": "8b60e7c7c101736db5054559603c0e8af3a8f6012697f373642eb1c579ee542a",
+      "bytes": 1171
+    },
+    "cs-unity-asset-audit/UnityPy/helpers/PackedBitVector.py": {
+      "sha256": "afee57491bc25b3e9213f629374caed8f1dda1f51fa85f60974a67f306eb2a5c",
+      "bytes": 4120
+    },
+    "cs-unity-asset-audit/UnityPy/helpers/MeshHelper.py": {
+      "sha256": "5c2a09f6f554576fea7dd217d5776c8b5ce7d3eb7505e82258b063a67800cffa",
+      "bytes": 27952
+    },
+    "cs-unity-asset-audit/UnityPy/helpers/ImportHelper.py": {
+      "sha256": "a365fc1c483c47e468a9566713e74bad0e4db6f1d506db6faa1edd9eff481195",
+      "bytes": 5462
+    },
+    "cs-unity-asset-audit/UnityPy/helpers/ContainerHelper.py": {
+      "sha256": "5fbbad1388b72346887559ced20424dbe1763d2b5394c1bd1dbe4a6ae5c4d39b",
+      "bytes": 3025
+    },
+    "cs-unity-asset-audit/UnityPy/helpers/CompressionHelper.py": {
+      "sha256": "0f0ecfa26fca2179428b0ebd106ad0a6fe290deea0df25888b22f8aa432f6f98",
+      "bytes": 8332
+    },
+    "cs-unity-asset-audit/UnityPy/helpers/ArchiveStorageManager.py": {
+      "sha256": "79da49e3c21d6030504ec0bb22810f56c32f0d027069cc8d3e774670a1bade59",
+      "bytes": 4987
+    },
+    "cs-unity-asset-audit/UnityPy/files/__init__.py": {
+      "sha256": "8b9e2a8164fccfe5705c963bd0fc124b3221c8b879834ccb7dfbfcba89cf1b82",
+      "bytes": 307
+    },
+    "cs-unity-asset-audit/UnityPy/files/WebFile.py": {
+      "sha256": "e8e277c57ce5988252f5c905e6f31311618af5f57286f00b1f115074ab889f0f",
+      "bytes": 3670
+    },
+    "cs-unity-asset-audit/UnityPy/files/SerializedFile.py": {
+      "sha256": "3736e94c28ca5fdf310e718e18d0e2641e1fca908c2c6346a96402fcc58aaa5a",
+      "bytes": 19014
+    },
+    "cs-unity-asset-audit/UnityPy/files/ObjectReader.py": {
+      "sha256": "37c1e6937723ea13be6dede3db1172f14d589e94a232cc811e20f6fc669196cf",
+      "bytes": 11261
+    },
+    "cs-unity-asset-audit/UnityPy/files/File.py": {
+      "sha256": "833cf684f9e28e011b139fd486bd8508cd68e0daac9fb8f25624b2945d40e3ee",
+      "bytes": 4978
+    },
+    "cs-unity-asset-audit/UnityPy/files/BundleFile.py": {
+      "sha256": "d2f281b0d863a4e4e468a157b4d687e8a90abd12a6fbd7bd30f323e4ac094243",
+      "bytes": 20343
+    },
+    "cs-unity-asset-audit/UnityPy/export/__init__.py": {
+      "sha256": "c78faee32bb95920b582d7ac5afcebfdce1ecae09794c816e475b9aab8cc5252",
+      "bytes": 263
+    },
+    "cs-unity-asset-audit/UnityPy/export/Texture2DConverter.py": {
+      "sha256": "ce6de9eefedeb09eb30a5cf7c00a2cca842b877cafb0a8d79ab2036cbc8d12d2",
+      "bytes": 22394
+    },
+    "cs-unity-asset-audit/UnityPy/export/SpriteHelper.py": {
+      "sha256": "ffbb75d27cd767c31f40ad09f1463e3ade5690d9407337700239a4a9eb439bfb",
+      "bytes": 13009
+    },
+    "cs-unity-asset-audit/UnityPy/export/ShaderConverter.py": {
+      "sha256": "98f58da5397107396d5396ce0e436b221b6841787e96d67465d4ed225e7cbfa1",
+      "bytes": 27437
+    },
+    "cs-unity-asset-audit/UnityPy/export/MeshRendererExporter.py": {
+      "sha256": "da52079583b1cf7106cdbc32650f317bb32e73aa3dfc1498b6975b1d889ffcd5",
+      "bytes": 6908
+    },
+    "cs-unity-asset-audit/UnityPy/export/MeshExporter.py": {
+      "sha256": "b892b04163ac9ce0613ea2e30804beb3bcad97cba101950d9722e0c39d040a49",
+      "bytes": 1714
+    },
+    "cs-unity-asset-audit/UnityPy/export/AudioClipConverter.py": {
+      "sha256": "6fcd389c7d034e59af20d5237e654454acafbc3c16e4e26881a622a4c0cb0784",
+      "bytes": 1508
+    },
+    "cs-unity-asset-audit/UnityPy/enums/__init__.py": {
+      "sha256": "5f339fa4338fdf2702c5e775e93a5cc3f105325447c0f76c3f9407ac47ca96aa",
+      "bytes": 1265
+    },
+    "cs-unity-asset-audit/UnityPy/enums/VertexFormat.py": {
+      "sha256": "5a2ee5b35db68bb3f1b1661d76d6e3f9bed3f208f87d4ef6d574d68e21d4039b",
+      "bytes": 2478
+    },
+    "cs-unity-asset-audit/UnityPy/enums/TextureFormat.py": {
+      "sha256": "481d962a6cf841b926bad37e42976cded5c2a5f3514d119876922b0dbbb53b75",
+      "bytes": 1545
+    },
+    "cs-unity-asset-audit/UnityPy/enums/TextureDimension.py": {
+      "sha256": "22b4082805b36a134ba3af1edf74a1216e82c461b92618e9b6646e2f9e872e5f",
+      "bytes": 262
+    },
+    "cs-unity-asset-audit/UnityPy/enums/SpritePackingRotation.py": {
+      "sha256": "4f3684a2541d486b07e67f60c32d5621b71b9ca4f4a5fc67008fb0f28c0faf97",
+      "bytes": 177
+    },
+    "cs-unity-asset-audit/UnityPy/enums/SpritePackingMode.py": {
+      "sha256": "4897a1a5047d1bd5368c2ece378bdff352daa77881148198876632331e4d88bd",
+      "bytes": 101
+    },
+    "cs-unity-asset-audit/UnityPy/enums/SpriteMeshType.py": {
+      "sha256": "577442f60354642eecd0a57fabd81776f34a6b9e9245665607e3882a861e8eed",
+      "bytes": 119
+    },
+    "cs-unity-asset-audit/UnityPy/enums/ShaderGpuProgramType.py": {
+      "sha256": "deb222f00ec685e66a28028143364e348a872ed3816f605d07142111654aeeab",
+      "bytes": 1248
+    },
+    "cs-unity-asset-audit/UnityPy/enums/ShaderCompilerPlatform.py": {
+      "sha256": "c118593dee99440a5e3797511d98062adf6b07ae5b28951a9f53eaf0916e3bbb",
+      "bytes": 815
+    },
+    "cs-unity-asset-audit/UnityPy/enums/SerializedPropertyType.py": {
+      "sha256": "448794bfdf5d2c9d376a54888daf88cd5288c82e5758116e2698b141458ed482",
+      "bytes": 144
+    },
+    "cs-unity-asset-audit/UnityPy/enums/PassType.py": {
+      "sha256": "aa8f8307ac3242c0d6e6c6780e2c1c677e9b89999ec6ba2b84338a22e5c60074",
+      "bytes": 119
+    },
+    "cs-unity-asset-audit/UnityPy/enums/MeshTopology.py": {
+      "sha256": "9fbe5da0795333d71b7dc8f332884bdb60c1b2a48f6174540a71e1a20fec6675",
+      "bytes": 171
+    },
+    "cs-unity-asset-audit/UnityPy/enums/GraphicsFormat.py": {
+      "sha256": "120978287103acbcf2dc815f712957dd64616b409bfec15a2abbef5caeed467b",
+      "bytes": 9663
+    },
+    "cs-unity-asset-audit/UnityPy/enums/GfxPrimitiveType.py": {
+      "sha256": "1ea32e36d1057a998280f11043ccb60b89b3f2594477c965fe074fe2fc9e66f1",
+      "bytes": 221
+    },
+    "cs-unity-asset-audit/UnityPy/enums/FileType.py": {
+      "sha256": "c6a5e4a55e068c9a8919487a5372f441023d47ab400be4892235a3320a2ee3f2",
+      "bytes": 140
+    },
+    "cs-unity-asset-audit/UnityPy/enums/ExtendableEnum.py": {
+      "sha256": "839da6a558b57a8b3cdc47fcb789d3b3a0f821fdd48a2172f348a2e57bfe5ad2",
+      "bytes": 775
+    },
+    "cs-unity-asset-audit/UnityPy/enums/ClassIDType.py": {
+      "sha256": "dbde0ff24c1ad5fe11abdd19be2ef382cc246d912624a8ce8d91ad9dd288ac10",
+      "bytes": 10275
+    },
+    "cs-unity-asset-audit/UnityPy/enums/BundleFile.py": {
+      "sha256": "c8b0baf57a8a34bd5890c42e87bd5ed6ad99960ae4a63f48c83099e085b32aa4",
+      "bytes": 617
+    },
+    "cs-unity-asset-audit/UnityPy/enums/BuildTarget.py": {
+      "sha256": "a2e54831f8cde23bb2516a45df856ced002d41da72f1d0fe7c4fbd39d97f8d99",
+      "bytes": 793
+    },
+    "cs-unity-asset-audit/UnityPy/enums/Audio.py": {
+      "sha256": "cff4a5aed2e9c0452a0ecf2c8b4651c7efa116b7fe3764513ef8c5f37693308f",
+      "bytes": 1189
+    },
+    "cs-unity-asset-audit/UnityPy/cli/update_tpk.py": {
+      "sha256": "8a404ee27be7bc0030805e8c4431ed3cc8a6daad7ca1923129138509d9e3f91b",
+      "bytes": 655
+    },
+    "cs-unity-asset-audit/UnityPy/cli/__init__.py": {
+      "sha256": "7a0b6779c9656dcc61ef9025f8f5a1c09dc89f24e3899a6ebbc95f2fc0e00aaa",
+      "bytes": 629
+    },
+    "cs-unity-asset-audit/UnityPy/classes/math.py": {
+      "sha256": "5c3531bb91589f89cc9d23a7b7c4a5ebd3955d7f716531224255ddf6cdb266b7",
+      "bytes": 2475
+    },
+    "cs-unity-asset-audit/UnityPy/classes/generated.py": {
+      "sha256": "0809fcbef66176bd90029ca05033b6edfe666a29647d8b028fefebbe91c69649",
+      "bytes": 364230
+    },
+    "cs-unity-asset-audit/UnityPy/classes/__init__.py": {
+      "sha256": "b1702cefacb30556a4266ff898e0ab45a0860bcecf30f92d1f837ca915c1d007",
+      "bytes": 617
+    },
+    "cs-unity-asset-audit/UnityPy/classes/UnknownObject.py": {
+      "sha256": "863b25624b7aa716a3d2e6b6690cd9a3ab9d14f94b5f591e0638e3e0c6afa7f6",
+      "bytes": 883
+    },
+    "cs-unity-asset-audit/UnityPy/classes/PPtr.py": {
+      "sha256": "1ec5eb9d8c50ef10987352e7f318508a5736922b3af7369df0dfce748517ec1b",
+      "bytes": 3787
+    },
+    "cs-unity-asset-audit/UnityPy/classes/Object.py": {
+      "sha256": "c0bf0e2abf6e235979dafbb8040a89baa81506c2c92d1ef0a2f7078cb1cc5fda",
+      "bytes": 1772
+    },
+    "cs-unity-asset-audit/UnityPy/classes/ClassIDTypeToClassMap.py": {
+      "sha256": "fca4f8e2f2b62fc5065db69629baba1398a0f3f0fe25aed6eab826f2aeae938f",
+      "bytes": 30831
+    },
+    "cs-unity-asset-audit/UnityPy/classes/__pycache__/math.cpython-314.pyc": {
+      "sha256": "1001022cf458c9761d97d0533aca4c9c996e1fe9dfc9375180d1859805369286",
+      "bytes": 8301
+    },
+    "cs-unity-asset-audit/UnityPy/classes/__pycache__/generated.cpython-314.pyc": {
+      "sha256": "d66d728d8e7e14dd702b2636c456eee2db706999e2d0e7a955dbbbf01a01fe47",
+      "bytes": 515697
+    },
+    "cs-unity-asset-audit/UnityPy/classes/__pycache__/__init__.cpython-314.pyc": {
+      "sha256": "ee80aeef2af8c5c92fc1693fe0d6bd289de117a0fec55e6123670b8012378000",
+      "bytes": 578
+    },
+    "cs-unity-asset-audit/UnityPy/classes/__pycache__/UnknownObject.cpython-314.pyc": {
+      "sha256": "1fe64f708303417e0af56e49e14c8d1c66ce0ed0562de1fa03dc940b29a74b9b",
+      "bytes": 2782
+    },
+    "cs-unity-asset-audit/UnityPy/classes/__pycache__/PPtr.cpython-314.pyc": {
+      "sha256": "d21a6679b92ae76dca7748a16ada19d9c25a371fb1602e75edff943e0f2f2c79",
+      "bytes": 6603
+    },
+    "cs-unity-asset-audit/UnityPy/classes/__pycache__/Object.cpython-314.pyc": {
+      "sha256": "99b9d1819bb7d4112d2e186c73968f998a2f5241a0216886e77601167d3c7c3c",
+      "bytes": 4237
+    },
+    "cs-unity-asset-audit/UnityPy/classes/__pycache__/ClassIDTypeToClassMap.cpython-314.pyc": {
+      "sha256": "c76e24d10d5ac31760dfc5c09928046fdd3f479aa8d88a40286470a3f491c782",
+      "bytes": 35285
+    },
+    "cs-unity-asset-audit/UnityPy/classes/legacy_patch/__init__.py": {
+      "sha256": "8bf75a505cd202cf3602f1d9740f0de923f9f92d1babb40fb13337fac8ed26e4",
+      "bytes": 397
+    },
+    "cs-unity-asset-audit/UnityPy/classes/legacy_patch/Texture2DArray.pyi": {
+      "sha256": "8ffb4624ed91676ae47056247159da235267a603ec46270ee3db6aaee7feac44",
+      "bytes": 838
+    },
+    "cs-unity-asset-audit/UnityPy/classes/legacy_patch/Texture2DArray.py": {
+      "sha256": "abe30f95d773942e1fda397d574fbc87c7c3cc7160b9fd04a49af3bd4bc14697",
+      "bytes": 1423
+    },
+    "cs-unity-asset-audit/UnityPy/classes/legacy_patch/Texture2D.pyi": {
+      "sha256": "4b06f1a2b69c403311996409c9c21fa8c37ade1c1acad90aefe6da75a308bb5b",
+      "bytes": 1448
+    },
+    "cs-unity-asset-audit/UnityPy/classes/legacy_patch/Texture2D.py": {
+      "sha256": "e510710f62da9f60c2ab61c7e83eb51f4b0f4fdf87513dd6393b48810532849e",
+      "bytes": 2532
+    },
+    "cs-unity-asset-audit/UnityPy/classes/legacy_patch/Sprite.pyi": {
+      "sha256": "87ebc2802dd6bd9b28d44941f832edaa605866781eedd81b8842bc0cbaa4daa7",
+      "bytes": 961
+    },
+    "cs-unity-asset-audit/UnityPy/classes/legacy_patch/Sprite.py": {
+      "sha256": "abba07535dab473f43f4ff63098cfa5c9bb16355c634c8dd72419dcbbd3feea4",
+      "bytes": 222
+    },
+    "cs-unity-asset-audit/UnityPy/classes/legacy_patch/Shader.pyi": {
+      "sha256": "f0442be65fc2fecb41ceb774b0069862fbeb2bc271bc76b4e4d531a5c49834dd",
+      "bytes": 1022
+    },
+    "cs-unity-asset-audit/UnityPy/classes/legacy_patch/Shader.py": {
+      "sha256": "2da3be0bd042bf9824650042352407f2df8b367655430879b6fdf239e8612dce",
+      "bytes": 218
+    },
+    "cs-unity-asset-audit/UnityPy/classes/legacy_patch/Renderer.pyi": {
+      "sha256": "3df77e4727d7ce7de86bb0ab18139028af3ddb595026051075ae1a49b6e31131",
+      "bytes": 248
+    },
+    "cs-unity-asset-audit/UnityPy/classes/legacy_patch/Renderer.py": {
+      "sha256": "77e86a8c2760d2a862c828175e4b66bc96a52ffdbe6d6670fef9f8d42b65a9f9",
+      "bytes": 242
+    },
+    "cs-unity-asset-audit/UnityPy/classes/legacy_patch/Mesh.pyi": {
+      "sha256": "065f156119f870cf1be7584ca7fdce8c031c1aa7c6d5fe5192d4625e512278f9",
+      "bytes": 2128
+    },
+    "cs-unity-asset-audit/UnityPy/classes/legacy_patch/Mesh.py": {
+      "sha256": "5b31a170d9fc3f10fd430c671d8b8f5cdc0d0b0d7ba23ebf420b6f0cba75410e",
+      "bytes": 222
+    },
+    "cs-unity-asset-audit/UnityPy/classes/legacy_patch/GameObject.pyi": {
+      "sha256": "fc5df6567ec3fb01c02af1e04a97557fc88616d78e8bf4313af7df3a284e7d53",
+      "bytes": 895
+    },
+    "cs-unity-asset-audit/UnityPy/classes/legacy_patch/GameObject.py": {
+      "sha256": "881ed38a7400600ab78fef0184f464b98bb3affee02803d58ad7d0b609277dc9",
+      "bytes": 1352
+    },
+    "cs-unity-asset-audit/UnityPy/classes/legacy_patch/AudioClip.pyi": {
+      "sha256": "522d5687f4ea5f6acf41f9c7c1f9b51d4bfd2b849a4e6aea2e23fa8d02a4359b",
+      "bytes": 1029
+    },
+    "cs-unity-asset-audit/UnityPy/classes/legacy_patch/AudioClip.py": {
+      "sha256": "7e01c4d99a1b48f9e396b540f82e04440ce6c2988d2e9efad4a32976fb1ba47a",
+      "bytes": 493
+    },
+    "cs-unity-asset-audit/UnityPy/classes/legacy_patch/__pycache__/__init__.cpython-314.pyc": {
+      "sha256": "257f2b6c5155ba650ffd0dc495d401689992589cceda04a1748cad9f11f6b9ff",
+      "bytes": 501
+    },
+    "cs-unity-asset-audit/UnityPy/classes/legacy_patch/__pycache__/Texture2DArray.cpython-314.pyc": {
+      "sha256": "cc0c4bbc0b7c4554d191cf1b7c6fc1dfcc5609043a5ca1fe6cc8482023ca8ddb",
+      "bytes": 2210
+    },
+    "cs-unity-asset-audit/UnityPy/classes/legacy_patch/__pycache__/Texture2D.cpython-314.pyc": {
+      "sha256": "47740a491aee789a25cb098acb5093b0e438e7180aca942a40e93433c5ab850e",
+      "bytes": 3959
+    },
+    "cs-unity-asset-audit/UnityPy/classes/legacy_patch/__pycache__/Sprite.cpython-314.pyc": {
+      "sha256": "933b3dcd2478faa8f3a2c93e5fadf6a5e44a7ca04294cd31481796a040af56c3",
+      "bytes": 681
+    },
+    "cs-unity-asset-audit/UnityPy/classes/legacy_patch/__pycache__/Shader.cpython-314.pyc": {
+      "sha256": "d218b7df88bff3990f6f012b6ab436f1467ade32456e32523aaec44a37200c00",
+      "bytes": 660
+    },
+    "cs-unity-asset-audit/UnityPy/classes/legacy_patch/__pycache__/Renderer.cpython-314.pyc": {
+      "sha256": "5e92693d61041c4c930705e36c1d1a5dd377f7b2c37f1081d56da18894f98308",
+      "bytes": 690
+    },
+    "cs-unity-asset-audit/UnityPy/classes/legacy_patch/__pycache__/Mesh.cpython-314.pyc": {
+      "sha256": "cc97423ba12c53b843357adf13e8a6528a92d7b9955cb2e501ef35a0de8cb4da",
+      "bytes": 665
+    },
+    "cs-unity-asset-audit/UnityPy/classes/legacy_patch/__pycache__/GameObject.cpython-314.pyc": {
+      "sha256": "f54a7bfb9aaf479bb07900d031ae14eb8b8ebd50f828b5f1d2fd8e8418d629ef",
+      "bytes": 3039
+    },
+    "cs-unity-asset-audit/UnityPy/classes/legacy_patch/__pycache__/AudioClip.cpython-314.pyc": {
+      "sha256": "4f83306937c55cc7dda30766b516c1be71596e2446849e2b47ddf10aae80dbae",
+      "bytes": 1256
+    },
+    "cs-unity-asset-audit/UnityPy/cli/__pycache__/update_tpk.cpython-314.pyc": {
+      "sha256": "41b072be463cee0b7e054ddd8f75e6003540a568c8e392c57becb820ada99457",
+      "bytes": 1335
+    },
+    "cs-unity-asset-audit/UnityPy/cli/__pycache__/__init__.cpython-314.pyc": {
+      "sha256": "7e916c814698871cef3fe396add5f7724298ef6e2b18d24dcfe569eadd7bfd32",
+      "bytes": 1172
+    },
+    "cs-unity-asset-audit/UnityPy/enums/__pycache__/__init__.cpython-314.pyc": {
+      "sha256": "4ef6e93616d7d3d0d17a94276e14537517dc6a4df0f4a06e3eb02a33f68ae5dc",
+      "bytes": 1048
+    },
+    "cs-unity-asset-audit/UnityPy/enums/__pycache__/VertexFormat.cpython-314.pyc": {
+      "sha256": "d1ab2a14b07988cde656935b5d9cf147d539c4a32ca0a69ab31a8aa18645386c",
+      "bytes": 2862
+    },
+    "cs-unity-asset-audit/UnityPy/enums/__pycache__/TextureFormat.cpython-314.pyc": {
+      "sha256": "8a7f07ecda6ef49b8be166acca9d3f19c38076114bb99604bf1d8da07a641828",
+      "bytes": 2017
+    },
+    "cs-unity-asset-audit/UnityPy/enums/__pycache__/TextureDimension.cpython-314.pyc": {
+      "sha256": "dd92559242696d5b30e6aa4b9818c65ee080c47813ca3c363e71dd1385555456",
+      "bytes": 666
+    },
+    "cs-unity-asset-audit/UnityPy/enums/__pycache__/SpritePackingRotation.cpython-314.pyc": {
+      "sha256": "8244cb21eb7d7d6076acc162e96df330007f6c6ac6663e103d62b2f603fdf6e4",
+      "bytes": 578
+    },
+    "cs-unity-asset-audit/UnityPy/enums/__pycache__/SpritePackingMode.cpython-314.pyc": {
+      "sha256": "f67f5cc728a424f2a271cb9e311cc69726b9866a85e9014d0e399ac6dbfab050",
+      "bytes": 490
+    },
+    "cs-unity-asset-audit/UnityPy/enums/__pycache__/SpriteMeshType.cpython-314.pyc": {
+      "sha256": "21b95da8dd19cda9752b48f8f99a33be518ca188e8ba22cfa4d2370a49f9e57d",
+      "bytes": 507
+    },
+    "cs-unity-asset-audit/UnityPy/enums/__pycache__/ShaderGpuProgramType.cpython-314.pyc": {
+      "sha256": "cf89aa9c6f0e8dbd9f3a4cef4dbe5f9fa705e89f207bd92bffa6f573185aef65",
+      "bytes": 1710
+    },
+    "cs-unity-asset-audit/UnityPy/enums/__pycache__/ShaderCompilerPlatform.cpython-314.pyc": {
+      "sha256": "2a467be78c890dfb458414a7424bc306d253dead6abc82b6f5d81ccc21cb233f",
+      "bytes": 1264
+    },
+    "cs-unity-asset-audit/UnityPy/enums/__pycache__/SerializedPropertyType.cpython-314.pyc": {
+      "sha256": "09ffa1568d4b296d9702fe308d884829a471c9cee9b301c9c4f560f7953a5b1e",
+      "bytes": 544
+    },
+    "cs-unity-asset-audit/UnityPy/enums/__pycache__/PassType.cpython-314.pyc": {
+      "sha256": "4b059155d630f30bd8c2421f2f6eed8e37fcdc3b8ec35a8837fa3bf98161de0c",
+      "bytes": 501
+    },
+    "cs-unity-asset-audit/UnityPy/enums/__pycache__/MeshTopology.cpython-314.pyc": {
+      "sha256": "bc3f214ff698148ba41172fd9bbfc130984e06c91c9887e9673dba230a9b05eb",
+      "bytes": 549
+    },
+    "cs-unity-asset-audit/UnityPy/enums/__pycache__/GraphicsFormat.cpython-314.pyc": {
+      "sha256": "1277b06a453933e031e5e6a3383720960f170acb3e112f76427ed20a053f062a",
+      "bytes": 11387
+    },
+    "cs-unity-asset-audit/UnityPy/enums/__pycache__/GfxPrimitiveType.cpython-314.pyc": {
+      "sha256": "bc7d51d930170bf6c18c11b0faf6027bb202caa9e5c18a943c14236a6217d7e5",
+      "bytes": 621
+    },
+    "cs-unity-asset-audit/UnityPy/enums/__pycache__/FileType.cpython-314.pyc": {
+      "sha256": "81acdeb4d78c1d1675c021cadd5e4fb08f8d587a4c2e0e9c279bc39085238b38",
+      "bytes": 525
+    },
+    "cs-unity-asset-audit/UnityPy/enums/__pycache__/ExtendableEnum.cpython-314.pyc": {
+      "sha256": "8813e882fbc20e2795e14ed3e512ed1e932dc09dc12f2a4aa9daf15be08d39bd",
+      "bytes": 1131
+    },
+    "cs-unity-asset-audit/UnityPy/enums/__pycache__/ClassIDType.cpython-314.pyc": {
+      "sha256": "19c1b27ece7b87d6dc41664c18952561d638ea2633537136b2d5d7d61583da6f",
+      "bytes": 11294
+    },
+    "cs-unity-asset-audit/UnityPy/enums/__pycache__/BundleFile.cpython-314.pyc": {
+      "sha256": "984202d012c49ca811ef7791fe302eaa936bb0aa25d2d8fa360f247a3f666127",
+      "bytes": 1197
+    },
+    "cs-unity-asset-audit/UnityPy/enums/__pycache__/BuildTarget.cpython-314.pyc": {
+      "sha256": "d4eae79134802a33a4042dee1aa73dd36cccc215619333e30e08bf45e0635f44",
+      "bytes": 1210
+    },
+    "cs-unity-asset-audit/UnityPy/enums/__pycache__/Audio.cpython-314.pyc": {
+      "sha256": "72a81edca32162b878fb35676b2b83eb890e1c29af9201803726a9eb2a6d9fef",
+      "bytes": 2085
+    },
+    "cs-unity-asset-audit/UnityPy/export/__pycache__/__init__.cpython-314.pyc": {
+      "sha256": "1b8d6ceb710d3a893152dd769e27297ecf493b629a292a5fb08f6ca1aa9a129e",
+      "bytes": 344
+    },
+    "cs-unity-asset-audit/UnityPy/export/__pycache__/Texture2DConverter.cpython-314.pyc": {
+      "sha256": "c234850400fa4a619715cac26282c2d0aad6e972c98fad5e3126b1117fbe78db",
+      "bytes": 33467
+    },
+    "cs-unity-asset-audit/UnityPy/export/__pycache__/SpriteHelper.cpython-314.pyc": {
+      "sha256": "62756b59f0ce62ce7c9505188e041e74c1722586d4eb5c9079a94d3a58e39ba4",
+      "bytes": 21033
+    },
+    "cs-unity-asset-audit/UnityPy/export/__pycache__/ShaderConverter.cpython-314.pyc": {
+      "sha256": "20b66f8710cc8906e270208f4f50d8a4ac1066ed9146794c07d43e21a012d951",
+      "bytes": 38800
+    },
+    "cs-unity-asset-audit/UnityPy/export/__pycache__/MeshRendererExporter.cpython-314.pyc": {
+      "sha256": "bd0851f1c7215ee62d41ad7598861b4254a8284e001b35a39830ff4a8f13ece7",
+      "bytes": 9273
+    },
+    "cs-unity-asset-audit/UnityPy/export/__pycache__/MeshExporter.cpython-314.pyc": {
+      "sha256": "6b9ba389a873cd8ce62eaccce74f16d616edd29313de3fedd9a1abcb80549177",
+      "bytes": 4014
+    },
+    "cs-unity-asset-audit/UnityPy/export/__pycache__/AudioClipConverter.cpython-314.pyc": {
+      "sha256": "98dd15ca8a0b87018c45a24c1248687351fe610ce3dca0dc6ce7e6271d4f0199",
+      "bytes": 2370
+    },
+    "cs-unity-asset-audit/UnityPy/files/__pycache__/__init__.cpython-314.pyc": {
+      "sha256": "2c4950360d790a584bcc618635440258ca352a95b1d67eab68ebe5998d989f3c",
+      "bytes": 409
+    },
+    "cs-unity-asset-audit/UnityPy/files/__pycache__/WebFile.cpython-314.pyc": {
+      "sha256": "b8c6d1664cb2592594a85346d4e46ac252f42d1fc8398268bcece64806f4f6f3",
+      "bytes": 5469
+    },
+    "cs-unity-asset-audit/UnityPy/files/__pycache__/SerializedFile.cpython-314.pyc": {
+      "sha256": "64b358283ec65d86168d00eb0fbdabc63bef6e9a4fe2f292867e43e92ef879ca",
+      "bytes": 27261
+    },
+    "cs-unity-asset-audit/UnityPy/files/__pycache__/ObjectReader.cpython-314.pyc": {
+      "sha256": "15b679b75dc6a850fc81dbd05fd391cd78609091425387c05ffe5a99dc69ba59",
+      "bytes": 17742
+    },
+    "cs-unity-asset-audit/UnityPy/files/__pycache__/File.cpython-314.pyc": {
+      "sha256": "1d4044707752772ef799193cfc251857e7ece99d616a306366922e3a113a8fbd",
+      "bytes": 8886
+    },
+    "cs-unity-asset-audit/UnityPy/files/__pycache__/BundleFile.cpython-314.pyc": {
+      "sha256": "54225699845221c05b7c1d702743bb5013f566faed0d2d59cb5a2fa2e7f8bf66",
+      "bytes": 21161
+    },
+    "cs-unity-asset-audit/UnityPy/helpers/__pycache__/__init__.cpython-314.pyc": {
+      "sha256": "df2b4f16db2450f564729c22b61e2bd48db31da867559b5f06e68bca87f8c555",
+      "bytes": 395
+    },
+    "cs-unity-asset-audit/UnityPy/helpers/__pycache__/UnityVersion.cpython-314.pyc": {
+      "sha256": "d47e909a7bfb5cbf6bf114781ce927c297564ebd759a39c93df95148d55dbb71",
+      "bytes": 9710
+    },
+    "cs-unity-asset-audit/UnityPy/helpers/__pycache__/TypeTreeNode.cpython-314.pyc": {
+      "sha256": "bc96d47ecec45da3b7b6adda8deb01962f29e919591adea81e064f50596de552",
+      "bytes": 19501
+    },
+    "cs-unity-asset-audit/UnityPy/helpers/__pycache__/TypeTreeHelper.cpython-314.pyc": {
+      "sha256": "c41e0c811ea4c475426f2a8b8f48aed39c0244f5a35d24e887db2b5dc4fcc194",
+      "bytes": 22472
+    },
+    "cs-unity-asset-audit/UnityPy/helpers/__pycache__/TypeTreeGenerator.cpython-314.pyc": {
+      "sha256": "87b08a47c044af3389fcb890c69a7acb35583f22c8ec1a1ffd8fae0fe0e10eb9",
+      "bytes": 7004
+    },
+    "cs-unity-asset-audit/UnityPy/helpers/__pycache__/Tpk.cpython-314.pyc": {
+      "sha256": "5745e11d6c9f107e4098da63c1b7c9b0bb354bb0e890d5135e713928142787d3",
+      "bytes": 4656
+    },
+    "cs-unity-asset-audit/UnityPy/helpers/__pycache__/TextureSwizzler.cpython-314.pyc": {
+      "sha256": "40f6d753aadd3987e03cef2100241a8e63ca3ff14278e046044f41ed3fbfd1d4",
+      "bytes": 7838
+    },
+    "cs-unity-asset-audit/UnityPy/helpers/__pycache__/ResourceReader.cpython-314.pyc": {
+      "sha256": "ff6a3bd705c8ef0aa2d7530218acd638555beafe2f8a72b563ccc1d3702b82d4",
+      "bytes": 1997
+    },
+    "cs-unity-asset-audit/UnityPy/helpers/__pycache__/PackedBitVector.cpython-314.pyc": {
+      "sha256": "b0b0a49a9190c543674507d27ac2494e79fd72aa92a35104e2fb26302c91eedc",
+      "bytes": 4074
+    },
+    "cs-unity-asset-audit/UnityPy/helpers/__pycache__/MeshHelper.cpython-314.pyc": {
+      "sha256": "ecf1fbc8be6c25952038b542b915109d1d3986545745633e2c45a304ffbe3e2f",
+      "bytes": 31563
+    },
+    "cs-unity-asset-audit/UnityPy/helpers/__pycache__/ImportHelper.cpython-314.pyc": {
+      "sha256": "acbc40d1e8af5db4a9a263569191b18054120669cc3a96c05660c60523cc3b19",
+      "bytes": 8953
+    },
+    "cs-unity-asset-audit/UnityPy/helpers/__pycache__/ContainerHelper.cpython-314.pyc": {
+      "sha256": "8d40026354b286ae7ad6de9d9443c65b84dec1b4a8b2eb79694b801f464a09fa",
+      "bytes": 8145
+    },
+    "cs-unity-asset-audit/UnityPy/helpers/__pycache__/CompressionHelper.cpython-314.pyc": {
+      "sha256": "28e6dcaca0802a62fe073697b646f26b96e122c622dd65abb63de9ee911e1875",
+      "bytes": 11418
+    },
+    "cs-unity-asset-audit/UnityPy/helpers/__pycache__/ArchiveStorageManager.cpython-314.pyc": {
+      "sha256": "7f74fe2fff560408f4d8bd418c6aef9fba34fd3f34b3b1b3e249bfa0d90eda83",
+      "bytes": 10046
+    },
+    "cs-unity-asset-audit/UnityPy/resources/__pycache__/__init__.cpython-314.pyc": {
+      "sha256": "2d73354a383d951b2d28ac655911933383294cc9d76f761f6aa1bc61ac260824",
+      "bytes": 164
+    },
+    "cs-unity-asset-audit/UnityPy/streams/__pycache__/__init__.cpython-314.pyc": {
+      "sha256": "507e9ca2e4a33dc145e205aad47c15c5d817cc7d647c0d80695c4a0b2e86591b",
+      "bytes": 290
+    },
+    "cs-unity-asset-audit/UnityPy/streams/__pycache__/EndianBinaryWriter.cpython-314.pyc": {
+      "sha256": "9bf42000717bf763151c6dabe43b9ec630b7483f07f63e83d35ca9dc0700d6a9",
+      "bytes": 13323
+    },
+    "cs-unity-asset-audit/UnityPy/streams/__pycache__/EndianBinaryReader.cpython-314.pyc": {
+      "sha256": "df6685b6a43e3b957489ca44aeda0ea6e183420a2f731c1859e752220eda1fca",
+      "bytes": 29015
+    },
+    "cs-unity-asset-audit/UnityPy/tools/__pycache__/extractor.cpython-314.pyc": {
+      "sha256": "0abcab7dafceaee3383a0977233a45f8e4371068a7d6f34c581c417d1561631a",
+      "bytes": 21225
+    },
+    "cs-unity-asset-audit/UnityPy/tools/__pycache__/__init__.cpython-314.pyc": {
+      "sha256": "9391bd6d2b8982b398a48f72988945585a09e8c34e3188ea55b2cebde7f86035",
+      "bytes": 160
+    },
+    "cs-unity-asset-audit/UnityPy/tools/__pycache__/TpkClassGenerator.cpython-314.pyc": {
+      "sha256": "2b9ff64f64a127b3936b266a3eba3ab359d243c1929c333918e43f2bdbbab091",
+      "bytes": 14835
+    },
+    "cs-unity-asset-audit/astc_encoder/__pycache__/pil_codec.cpython-314.pyc": {
+      "sha256": "a47476dca68677b54640c80ddc79cbf4f71784750259b9f3ed73da118571a54d",
+      "bytes": 8119
+    },
+    "cs-unity-asset-audit/astc_encoder/__pycache__/enum.cpython-314.pyc": {
+      "sha256": "0f6cc30dfd886b558c14ebe0ec936332aa01fefd649f1aa7c4aebe711900f011",
+      "bytes": 6533
+    },
+    "cs-unity-asset-audit/astc_encoder/__pycache__/encoder.cpython-314.pyc": {
+      "sha256": "53815589c67c58f256ebb278b67381fd68fdb0ec0ee8ccdef1c8f9085de0cf47",
+      "bytes": 1125
+    },
+    "cs-unity-asset-audit/astc_encoder/__pycache__/__init__.cpython-314.pyc": {
+      "sha256": "cfd94c22678009db336aa888ad7d8bee63dd7b855921a5ab9dd230b69b4582ea",
+      "bytes": 999
+    },
+    "cs-unity-asset-audit/etcpak/__pycache__/__init__.cpython-314.pyc": {
+      "sha256": "fa67fb9870674b10f49e5bc64cd2a34a86f34142fd394540f3577a02b4584ca0",
+      "bytes": 3198
+    },
+    "cs-unity-asset-audit/fmod_toolkit/__pycache__/importer.cpython-314.pyc": {
+      "sha256": "3d9eaf6aae187e1efc78c2d50b0295ec4eccd1b65b7c74c9ef4757225a8cd63b",
+      "bytes": 2915
+    },
+    "cs-unity-asset-audit/fmod_toolkit/__pycache__/fmod.cpython-314.pyc": {
+      "sha256": "00fde2437c9d373c6ca322fec55950bb979cb6df315c2cb93aff11ed57fe2995",
+      "bytes": 8678
+    },
+    "cs-unity-asset-audit/fmod_toolkit/__pycache__/__init__.cpython-314.pyc": {
+      "sha256": "21b835841b352189966e9ab9a79b0c4b6bffa0b67bafa0bfb53c0e8c8c7745cb",
+      "bytes": 321
+    },
+    "cs-unity-asset-audit/fmod_toolkit/libfmod/Linux/x86_64/libfmod.so": {
+      "sha256": "69c5359a8d163c8fca792662fe311e207d2c3ff615eddab81540339a883ef54a",
+      "bytes": 1569032
+    },
+    "cs-unity-asset-audit/archspec/__pycache__/cli.cpython-314.pyc": {
+      "sha256": "ba946f215281af6ecfe3e0af5a3a75a5ca9b3f596a522d5e8de7aebcab5bd166",
+      "bytes": 3237
+    },
+    "cs-unity-asset-audit/archspec/__pycache__/__main__.cpython-314.pyc": {
+      "sha256": "ce4488a5ff47be1a02ecd3a0bf3606b06596c9922ffb23e4002a965cbb34c373",
+      "bytes": 326
+    },
+    "cs-unity-asset-audit/archspec/__pycache__/__init__.cpython-314.pyc": {
+      "sha256": "d24521a1c7270fd76133e1823460a5abd05632b11da1c923d406f763e278ee34",
+      "bytes": 236
+    },
+    "cs-unity-asset-audit/archspec/json/README.md": {
+      "sha256": "8b31bb4ce98f6fbeb47019956b09cfb33c54b41972caf1e62a8c45adfddf2be8",
+      "bytes": 1531
+    },
+    "cs-unity-asset-audit/archspec/json/NOTICE": {
+      "sha256": "f4247dde07952a5ff866b24e45b5cdd1fce410cdb2e038255a1635867f59c10c",
+      "bytes": 1167
+    },
+    "cs-unity-asset-audit/archspec/json/LICENSE-MIT": {
+      "sha256": "9001ad99a662075a0e5a6a9a539fc75040d8063c3f7251d6839ca40b5234054e",
+      "bytes": 1171
+    },
+    "cs-unity-asset-audit/archspec/json/LICENSE-APACHE": {
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "bytes": 11358
+    },
+    "cs-unity-asset-audit/archspec/json/COPYRIGHT": {
+      "sha256": "9d70c5a837efa62df7ee37df1c70ddffc0bb38e38df29ddfdcfa01462407cdfb",
+      "bytes": 805
+    },
+    "cs-unity-asset-audit/archspec/cpu/schema.py": {
+      "sha256": "5b29f97d14d5b9b4fc6032fb761bd29d503c884051ea4e270cb475da75a1a36e",
+      "bytes": 3710
+    },
+    "cs-unity-asset-audit/archspec/cpu/microarchitecture.py": {
+      "sha256": "49a6328875e902151849619eecd303adaf25d9ae928f83c3b4b486d7dcdb6203",
+      "bytes": 16538
+    },
+    "cs-unity-asset-audit/archspec/cpu/detect.py": {
+      "sha256": "fd4bb5a5cb3c950fbdf36929a16125d458d5192699a0c68a895796aab3fb10e2",
+      "bytes": 23260
+    },
+    "cs-unity-asset-audit/archspec/cpu/alias.py": {
+      "sha256": "bed96f7850d11677e08c3e84270648031b45d0764bfc3015834f97c0b51497bd",
+      "bytes": 2562
+    },
+    "cs-unity-asset-audit/archspec/cpu/__init__.py": {
+      "sha256": "910baf73b5039e4e117502d7d113378a7bd96536133f743938d508f1ed6792c7",
+      "bytes": 751
+    },
+    "cs-unity-asset-audit/archspec/cpu/__pycache__/schema.cpython-314.pyc": {
+      "sha256": "54cbf06d5379b66647bd00f295d9866a19b0cd3756febe98bfe2121fcc76132f",
+      "bytes": 5757
+    },
+    "cs-unity-asset-audit/archspec/cpu/__pycache__/microarchitecture.cpython-314.pyc": {
+      "sha256": "927e56d2a7e61ecf2ff581e12962b59dcdc4ec28af83c811c4440c9b03ec6d84",
+      "bytes": 24493
+    },
+    "cs-unity-asset-audit/archspec/cpu/__pycache__/detect.cpython-314.pyc": {
+      "sha256": "283b1ce78399e77083ecfcc6c6e1fe931cefad3c999953e038612418b229a5af",
+      "bytes": 32583
+    },
+    "cs-unity-asset-audit/archspec/cpu/__pycache__/alias.cpython-314.pyc": {
+      "sha256": "ffc62c3edad47bfed032f5f18264bdeab599a98eeddcd938d1846c0d42c545de",
+      "bytes": 4666
+    },
+    "cs-unity-asset-audit/archspec/cpu/__pycache__/__init__.cpython-314.pyc": {
+      "sha256": "4e2ca6f90a24716945a93ba853d0c6b55d6f7f2ea202f3473d679252052ad0a7",
+      "bytes": 632
+    },
+    "cs-unity-asset-audit/archspec/json/cpu/microarchitectures_schema.json": {
+      "sha256": "7f8e717246f8b41c25710e317bbab14cf9b6ca04a2d0775c336eb18afa108a56",
+      "bytes": 3026
+    },
+    "cs-unity-asset-audit/archspec/json/cpu/microarchitectures.json": {
+      "sha256": "432297677c199b82f218bc87a82d8f0ec123548c0e23bda7ee8dce8bc92545e5",
+      "bytes": 96329
+    },
+    "cs-unity-asset-audit/archspec/json/cpu/cpuid_schema.json": {
+      "sha256": "ff70a987f945e307be391250c0ffe1cc6fe037b9f79c585e9d9c9d64e92e2ba7",
+      "bytes": 3130
+    },
+    "cs-unity-asset-audit/archspec/json/cpu/cpuid.json": {
+      "sha256": "800591e7b1a881a9c7ba97595f9eefd82c172d5a214a4c768719052ffaf4f8ed",
+      "bytes": 20572
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/windows-cpuid-icelake": {
+      "sha256": "6f62659a73e2505e49065de31c29a444fbe89fdbc213bfece4d8cfa61e441ab2",
+      "bytes": 432
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/windows-cpuid-broadwell": {
+      "sha256": "a61d13450a2bd6cdf78fd2158ed6c4e990f8fb0abb8a296dcb6be755be141c39",
+      "bytes": 395
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/linux-unknown-sapphirerapids": {
+      "sha256": "f000242685da2e436199c32a529ef6e53fcc2167b2c646ab538a688bf65bd181",
+      "bytes": 2187
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/linux-unknown-power10": {
+      "sha256": "ee7b425a65c60932647d930c074988024edf7b627b3653b5d63d248ca91a4943",
+      "bytes": 83
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/linux-unknown-neoverse_v2": {
+      "sha256": "8507c39b6b5cc917f7fa4c21313528c36699ba3c6a6d5967cd412335ac500b78",
+      "bytes": 447
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/linux-ubuntu22.04-neoverse_v2": {
+      "sha256": "16b9041b19dffa29dd0f3521bb2c6830b894440b82fb659d939f8561fd293928",
+      "bytes": 458
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/linux-ubuntu22.04-neoverse_n2": {
+      "sha256": "4d1e82e075f6411722500c3368949f4f12fb2b8dbb3670bf4a57e7513ab115ee",
+      "bytes": 396
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/linux-ubuntu22.04-ampere1a": {
+      "sha256": "c8eeb59f979837056e3cc2c45a303b29f00361c76933e13ec44bd56a4111f157",
+      "bytes": 395
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/linux-ubuntu22.04-ampere1": {
+      "sha256": "2c4574a37ba49d3acd3db69cbdd0bcab3ce4bf79df5da54caa2a8fd945b91567",
+      "bytes": 385
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/linux-ubuntu20.04-zen3": {
+      "sha256": "63b0b0b38930cc194dba94211a5ff6c2803fd7f496c51ab08339fd35a4f7fe48",
+      "bytes": 1531
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/linux-ubuntu18.04-broadwell": {
+      "sha256": "0336f7c5cf56be0c41bd044d0b99bcdd2269aabef788bac6489549e6ce3fccd2",
+      "bytes": 1190
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/linux-spacemit-x60": {
+      "sha256": "0e3c470876b8a754965bd72dc562a9a237717f80eaf86b08653640a72febd7f7",
+      "bytes": 447
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/linux-sifive-u74mc": {
+      "sha256": "3469efadc2b754fe2a99693b7993480203440facafc9f70405ab0c4e6b0781c9",
+      "bytes": 124
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/linux-scientificfermi6-piledriver": {
+      "sha256": "e69559a553d7b4a9aa28ad4fb362e661a8025a15936e3239728ff54236236712",
+      "bytes": 1099
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/linux-scientificfermi6-bulldozer": {
+      "sha256": "6666e836acd912c596c0ec0157fbe6acd222eb1d44dc4efa533e048f5e45bb6b",
+      "bytes": 1201
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/linux-scientific7-piledriver": {
+      "sha256": "90a0aca60ea06a65a031ef61f4cc7984fe4ed435e05ce23a887d81d817f08c38",
+      "bytes": 1149
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/linux-scientific7-k10": {
+      "sha256": "c4485009ce4222a0563a87b6f2bbeb5be0678d94a438406fd205cb40ce720271",
+      "bytes": 1111
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/linux-rocky9-zen5": {
+      "sha256": "fc770d91f4f942360e976ff9e71240fa07760c5be68421ce6712b7abadeb179a",
+      "bytes": 1882
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/linux-rocky8.5-zen4": {
+      "sha256": "cb850341d3b1b20d07978eb55e5043fed3dbfd35fc11c5d5edbc221d09facc53",
+      "bytes": 1750
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/linux-rocky8-a64fx": {
+      "sha256": "ad5a3ebaa6042679603d70216edf8b6b55b6e4247fc5f6f4deb874b79db4ff53",
+      "bytes": 256
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/linux-rhel9-neoverse_v2": {
+      "sha256": "5c357df05bc0a3b45d988f91a52fda87ca5d31601c98efec9e22798f58952070",
+      "bytes": 444
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/linux-rhel9-neoverse_n2": {
+      "sha256": "b6943d786ef68827a6c1accc316fdf19e982813692be7dc92147c95bbe30c89c",
+      "bytes": 429
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/linux-rhel8-power9": {
+      "sha256": "2f2d25d3092ef3408c762cefd5408a131d928a9f52ff405dd0f4c27d03d81cb7",
+      "bytes": 135
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/linux-rhel8-neoverse_v1": {
+      "sha256": "82d0bee8c360a4f4e15ff1d86181c48af86ab62ac1df62253ec71523b917dc3d",
+      "bytes": 351
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/linux-rhel7-zen": {
+      "sha256": "89cc9b64203e6d7b9ab272474bfaa7534b41a50823cbafa30d18ad482db42751",
+      "bytes": 1319
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/linux-rhel7-x86_64_v3": {
+      "sha256": "0fa88a864f4a4256fda987ad3dd50198354d015afe846576f7bbc31cbc1ed853",
+      "bytes": 1172
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/linux-rhel7-skylake_avx512": {
+      "sha256": "dc523c693fba3b0056135e452a8443cd38b3e415ea5d84799c5353060ed8f50c",
+      "bytes": 1286
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/linux-rhel7-ivybridge": {
+      "sha256": "3c2d4d2f0f404c1ac237bcc742ccf16ef1d5bcc1cbd71505a55d689fde1433a4",
+      "bytes": 1009
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/linux-rhel7-haswell": {
+      "sha256": "92adaa92ee78a8f89cfeaf829cec3e4548f59d74c6eac6470540cc84cc99cfd8",
+      "bytes": 1095
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/linux-rhel7-broadwell": {
+      "sha256": "1c15848b2136b8a0d8452dc2d2b2aca486ffe50ca96397ecf7834710349a3cbd",
+      "bytes": 1187
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/linux-rhel6-piledriver": {
+      "sha256": "dd89d0a53060062ec566d482ac98c0831f438c57bddbeb18a15240a6b3012bfa",
+      "bytes": 1411
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/linux-debian13-x60": {
+      "sha256": "b5be5d6fd3b387e188df565c0e989a54f8dfd597229e3b127e12bbe53b52d26e",
+      "bytes": 351
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/linux-centos7-thunderx2": {
+      "sha256": "2bcc6c9eadd6ec40be3d7bf98f732c1ab6aea3038044638a8f7ffbfa83ac3492",
+      "bytes": 238
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/linux-centos7-power8le": {
+      "sha256": "2a09064a41cba64daf3f88f45b79bb8877b9e7d7fea716b6ae25ad02420c471a",
+      "bytes": 111
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/linux-centos7-cascadelake": {
+      "sha256": "618768f06d1b3fce5b9f874675678f343b6112d0218632954525ecdcced88e0f",
+      "bytes": 1408
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/linux-asahi-m2": {
+      "sha256": "48a12dbf702133e673cf2afde06162aeb1795092894ce399a8adf72ae95a0622",
+      "bytes": 381
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/linux-asahi-m1": {
+      "sha256": "84a10e95ba66915e35ff5f03f9732283c4d95761626492e706363066da4dac84",
+      "bytes": 363
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/linux-amazon-neoverse_v1": {
+      "sha256": "d91b16bca108c87c5542e9c1460fd7ef5addbead9d84f29184a72c61d59bf36e",
+      "bytes": 361
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/linux-amazon-neoverse_n1": {
+      "sha256": "cef1c93aa2f31dfe1c4ec7259689815f689264d2b8e4c899d33da327d01e0ea9",
+      "bytes": 276
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/linux-amazon-cortex_a72": {
+      "sha256": "3fb6008a9bee765a365353ef51ad357434761ca41444f781d8f1cdbbb90745eb",
+      "bytes": 221
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/darwin-sequoia-m4": {
+      "sha256": "6c21aacd4d0daf0a88adf143e4dd85d593d1b1c5f9c24157180554e5c559e27b",
+      "bytes": 4105
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/darwin-sequoia-m3": {
+      "sha256": "7a0bcde172e580a101a1af2595d0cb01dedfe472ecbd5075218a8ab9ac1ebc31",
+      "bytes": 4106
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/darwin-monterey-m2": {
+      "sha256": "1310acde662c01bdcbb7a6570cb235a5a9bd5ab11f0cd561a1da617d503b2bac",
+      "bytes": 3307
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/darwin-monterey-m1": {
+      "sha256": "5921bd3b8e3a43f4920fdbc7b988f549a236cc0e83846b45dd4536d316e767db",
+      "bytes": 3307
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/darwin-mojave-skylake": {
+      "sha256": "e31cc9fed55fb6d1a154636808decd559e9bb22f4cc9adc05c8949303ff711c3",
+      "bytes": 663
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/darwin-mojave-ivybridge": {
+      "sha256": "6045156b145266635ad8da790e98c059d170146fa8f369e354a9b040329595dc",
+      "bytes": 2356
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/darwin-mojave-haswell": {
+      "sha256": "bae6ec1ec3877c82ce250eb56e6d0d2b0e352b6709e5efd11c87988ffb7a3407",
+      "bytes": 618
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/darwin-bigsur-m1": {
+      "sha256": "71c5c33f8a0635b3ad4c0d7a665f67b6e87947926a9c196f6504fa9b7538e13c",
+      "bytes": 534
+    },
+    "cs-unity-asset-audit/archspec/json/tests/targets/bgq-rhel6-power7": {
+      "sha256": "efc8296d50ed99a7a1c66f88e77fc90fdfed62bf2690325f503f5d03de5a9058",
+      "bytes": 116
+    },
+    "cs-unity-asset-audit/archspec/vendor/cpuid/example.py": {
+      "sha256": "83711400d1aece1bbad65e99fb988b79d3c47bfbdf39b2b1cacf91e6a9c8e8c6",
+      "bytes": 1855
+    },
+    "cs-unity-asset-audit/archspec/vendor/cpuid/cpuid.py": {
+      "sha256": "872c252864cab4f5f24b2272ebb77838ba5a40b7f07ec3e052f48f75ac5a9d14",
+      "bytes": 6037
+    },
+    "cs-unity-asset-audit/archspec/vendor/cpuid/README.md": {
+      "sha256": "50f2aa1a7563b25b22191d8681726ffadc2761d9c59e6085dffb7908b5e66344",
+      "bytes": 2400
+    },
+    "cs-unity-asset-audit/archspec/vendor/cpuid/LICENSE": {
+      "sha256": "0df811360326d9f455ddf102055348fda0c0318c5cd3abcaafe2aad2bb6db2ee",
+      "bytes": 1079
+    },
+    "cs-unity-asset-audit/archspec/vendor/cpuid/__pycache__/example.cpython-314.pyc": {
+      "sha256": "de91d9c67eac6f64c16d7d41fb56e3847cff9e2e14a175d3b4440aa3c51d5146",
+      "bytes": 3414
+    },
+    "cs-unity-asset-audit/archspec/vendor/cpuid/__pycache__/cpuid.cpython-314.pyc": {
+      "sha256": "da8631c285e34ae3f4e06b37d017446e1e351c21b8c91cd70f563c53dbe2889a",
+      "bytes": 7119
+    },
+    "cs-unity-asset-audit/attrs-26.1.0.dist-info/licenses/LICENSE": {
+      "sha256": "882115c95dfc2af1eeb6714f8ec6d5cbcabf667caff8729f42420da63f714e9f",
+      "bytes": 1109
+    },
+    "cs-unity-asset-audit/attrs/__pycache__/validators.cpython-314.pyc": {
+      "sha256": "6d98ff5d726db8d2bdc8ac06aef2de77c63d5bc1cb2aa64338755133559c796f",
+      "bytes": 193
+    },
+    "cs-unity-asset-audit/attrs/__pycache__/setters.cpython-314.pyc": {
+      "sha256": "412fad77d4ecf114a96ac35209b1e6189ee9807e05a2791437bea10f45da0de5",
+      "bytes": 187
+    },
+    "cs-unity-asset-audit/attrs/__pycache__/filters.cpython-314.pyc": {
+      "sha256": "866cbdde12263a40a41e8bddec00b722baebc9b45800bedc388ae85cf6657c7d",
+      "bytes": 187
+    },
+    "cs-unity-asset-audit/attrs/__pycache__/exceptions.cpython-314.pyc": {
+      "sha256": "5f0f9e53ea6d66fdfa590be1731239eac19b96b40355aebeea1394507ca0af20",
+      "bytes": 193
+    },
+    "cs-unity-asset-audit/attrs/__pycache__/converters.cpython-314.pyc": {
+      "sha256": "78605851f371a7ca0f84d6c0fef137d49279ea09020d0b51ceba80fe66c2cc89",
+      "bytes": 193
+    },
+    "cs-unity-asset-audit/attrs/__pycache__/__init__.cpython-314.pyc": {
+      "sha256": "e83ee4cb397801923217716c759aa817306bcc2f762dc6687e9460a308183f4d",
+      "bytes": 1716
+    },
+    "cs-unity-asset-audit/attr/__pycache__/validators.cpython-314.pyc": {
+      "sha256": "eadf50adb5af218fb5bcb27c1fe5f2681bbf0274ef75dfe1f4e336da6c26d1df",
+      "bytes": 27826
+    },
+    "cs-unity-asset-audit/attr/__pycache__/setters.cpython-314.pyc": {
+      "sha256": "9f51b6fc9ba954572538420209587d14978088a21c5617315b27a6fcd8e839d3",
+      "bytes": 1855
+    },
+    "cs-unity-asset-audit/attr/__pycache__/filters.cpython-314.pyc": {
+      "sha256": "0dc25fcfab117af5026ce82a1a9d75f616ef6e458d4b4dde239a3af4ef3730eb",
+      "bytes": 2980
+    },
+    "cs-unity-asset-audit/attr/__pycache__/exceptions.cpython-314.pyc": {
+      "sha256": "eae8b89a7b54a290999daabd00170bf48895fb46f16c19fc03aa8e0f5589b8f2",
+      "bytes": 3721
+    },
+    "cs-unity-asset-audit/attr/__pycache__/converters.cpython-314.pyc": {
+      "sha256": "ecce1cc3e8f224f5d5fe15abcb04ab6c50d83b697797f1ee020848c4b7a5a6b7",
+      "bytes": 4503
+    },
+    "cs-unity-asset-audit/attr/__pycache__/_version_info.cpython-314.pyc": {
+      "sha256": "bb1d4bb0f4cc79797c585a060cfff51cf7430fb30b5f70125174050a2ae3b09f",
+      "bytes": 3409
+    },
+    "cs-unity-asset-audit/attr/__pycache__/_next_gen.cpython-314.pyc": {
+      "sha256": "b6d8d24fba1942c9ec30f55297eb55f6a3c39f060ead75f85713a76434c5f77c",
+      "bytes": 25224
+    },
+    "cs-unity-asset-audit/attr/__pycache__/_make.cpython-314.pyc": {
+      "sha256": "6ef289dd6b1a672c94be42f79a106786112e480062cb15a974102bda5bd62be4",
+      "bytes": 114683
+    },
+    "cs-unity-asset-audit/attr/__pycache__/_funcs.cpython-314.pyc": {
+      "sha256": "05c731cbb6aeeb1de3e1ef711bda05143c45fc9565c18870ed8229d970d8b63b",
+      "bytes": 13867
+    },
+    "cs-unity-asset-audit/attr/__pycache__/_config.cpython-314.pyc": {
+      "sha256": "b1c3006ab6fabf6331bd1a3c8c814e627238bdc4ad65c6e7941a4d6bfb2faa07",
+      "bytes": 1061
+    },
+    "cs-unity-asset-audit/attr/__pycache__/_compat.cpython-314.pyc": {
+      "sha256": "e04c1d5bb24ba90926ef8b5646ae402eb1953d46d992c853de9c60f6a92966b2",
+      "bytes": 3779
+    },
+    "cs-unity-asset-audit/attr/__pycache__/_cmp.cpython-314.pyc": {
+      "sha256": "5d2484d376b01173b69be8944e10f5db12840ca133590a4346500d7e8b2a114e",
+      "bytes": 5128
+    },
+    "cs-unity-asset-audit/attr/__pycache__/__init__.cpython-314.pyc": {
+      "sha256": "027d5c2246e919f9b341c18c3106f515e353e840ea7b2bb98284cfee26535064",
+      "bytes": 3432
+    },
+    "cs-unity-asset-audit/fsspec-2026.9.0.dist-info/licenses/LICENSE": {
+      "sha256": "2dc35496ce53a7307915c008a844aad53e772b49b34cdd00445067691407ec94",
+      "bytes": 1513
+    },
+    "cs-unity-asset-audit/fsspec/__pycache__/utils.cpython-314.pyc": {
+      "sha256": "9db2a4b6799cf87ae92a9a622ab5b797af7db663efc3f11a4bc3424845b97ba7",
+      "bytes": 37611
+    },
+    "cs-unity-asset-audit/fsspec/__pycache__/transaction.cpython-314.pyc": {
+      "sha256": "48777fc4cc85021d66da946557b29cc6ac4154553c3f0dd8e9fd78b14713033c",
+      "bytes": 6123
+    },
+    "cs-unity-asset-audit/fsspec/__pycache__/spec.cpython-314.pyc": {
+      "sha256": "707dc35534284a8bee3aff821838361646e02b371aeb3563f8465e4d6648ba72",
+      "bytes": 94426
+    },
+    "cs-unity-asset-audit/fsspec/__pycache__/registry.cpython-314.pyc": {
+      "sha256": "a3aef8f1da0447c071922fff81cd8442d66e305a72b257dcad06aeeaddd7ab5d",
+      "bytes": 12192
+    },
+    "cs-unity-asset-audit/fsspec/__pycache__/prefetcher.cpython-314.pyc": {
+      "sha256": "059363aaffe0a3b6643f0b854b9df5706464231652fd6d7896b63c65fc1147c0",
+      "bytes": 41797
+    },
+    "cs-unity-asset-audit/fsspec/__pycache__/parquet.cpython-314.pyc": {
+      "sha256": "a7a08f3d19a8a851508471f18c152980fbfacf7bb2c34345fc9075eaffebdfca",
+      "bytes": 20076
+    },
+    "cs-unity-asset-audit/fsspec/__pycache__/mapping.cpython-314.pyc": {
+      "sha256": "16e5a7a980448e43abb9a18a5e2bae4d78e120fcadc886acb948b60a509f06c1",
+      "bytes": 12474
+    },
+    "cs-unity-asset-audit/fsspec/__pycache__/json.cpython-314.pyc": {
+      "sha256": "dbb4a944b5ebe483d77a0ee0dfa64fe4a616fbc1c9b9481ef1b91dbd4cc4d747",
+      "bytes": 7979
+    },
+    "cs-unity-asset-audit/fsspec/__pycache__/gui.cpython-314.pyc": {
+      "sha256": "1a667ad5643676c6a64f831ee2322f338439ab263983bc1be346da7cbb340aa8",
+      "bytes": 22406
+    },
+    "cs-unity-asset-audit/fsspec/__pycache__/generic.cpython-314.pyc": {
+      "sha256": "156e339e23b0d0e253337950b385e088102a2a4a48e9d17cea7fb78a7e1f201a",
+      "bytes": 19149
+    },
+    "cs-unity-asset-audit/fsspec/__pycache__/fuse.cpython-314.pyc": {
+      "sha256": "9dbaf646a119f20d4fb3c002bef3bfc40497b54e566c9b1521d45d25ff2582fd",
+      "bytes": 15947
+    },
+    "cs-unity-asset-audit/fsspec/__pycache__/exceptions.cpython-314.pyc": {
+      "sha256": "3361126f015375c26b7c319068433042d4aaff4dc42c762ea107996bd766bf6a",
+      "bytes": 854
+    },
+    "cs-unity-asset-audit/fsspec/__pycache__/dircache.cpython-314.pyc": {
+      "sha256": "62e5989a4a4268209624325827f114041c2c07c7c5da0499070dbed3c7e73600",
+      "bytes": 4572
+    },
+    "cs-unity-asset-audit/fsspec/__pycache__/core.cpython-314.pyc": {
+      "sha256": "498ded678a92724fa37510c8eb4d10eb89bbb8b127beeee366e16fe5513163cb",
+      "bytes": 28692
+    },
+    "cs-unity-asset-audit/fsspec/__pycache__/conftest.cpython-314.pyc": {
+      "sha256": "680fbd525dc5445b83e7533b7fbcae3b556a171d81e5fa207f0128ac7dec774d",
+      "bytes": 6734
+    },
+    "cs-unity-asset-audit/fsspec/__pycache__/config.cpython-314.pyc": {
+      "sha256": "20b254c87bb331fa162c0d51a25a44f76550789bcb4c4affd20e7d5d11157f3a",
+      "bytes": 5997
+    },
+    "cs-unity-asset-audit/fsspec/__pycache__/compression.cpython-314.pyc": {
+      "sha256": "d75c089866ac24df2cbe8b37bc499c5f0390dfc3db1dbed84e080cf2267c868d",
+      "bytes": 7754
+    },
+    "cs-unity-asset-audit/fsspec/__pycache__/callbacks.cpython-314.pyc": {
+      "sha256": "63ae7d407c06373c611c90837f6e6e2b63755df81b21f7b9aee1c90f074aacba",
+      "bytes": 12608
+    },
+    "cs-unity-asset-audit/fsspec/__pycache__/caching.cpython-314.pyc": {
+      "sha256": "e285bd0dd024c2ae6bbb6cad042e62da0eedc63cb96ac0692607f206c1405d59",
+      "bytes": 55031
+    },
+    "cs-unity-asset-audit/fsspec/__pycache__/asyn.cpython-314.pyc": {
+      "sha256": "19b889a58aa1d9ece66977886ba4840f218c33b4d01454d476115b1b571aae10",
+      "bytes": 54790
+    },
+    "cs-unity-asset-audit/fsspec/__pycache__/archive.cpython-314.pyc": {
+      "sha256": "729960883de4de577c1f4b88c8b0b23f2e05361476aad03dfa6ba9d303d2c7a9",
+      "bytes": 4720
+    },
+    "cs-unity-asset-audit/fsspec/__pycache__/_version.cpython-314.pyc": {
+      "sha256": "fc748218233180dcb3b844d94a5aa3c244d21d2d8b7cc126728e2d5dacc6c35d",
+      "bytes": 655
+    },
+    "cs-unity-asset-audit/fsspec/__pycache__/__init__.cpython-314.pyc": {
+      "sha256": "0e4e83c09f543ceb7a76db8f5247ef6c1938f9716d136ba387e47fec63daf645",
+      "bytes": 2006
+    },
+    "cs-unity-asset-audit/fsspec/implementations/zip.py": {
+      "sha256": "e8324f76ad3598831cf024a726932cd3c2ca44d1a2a4532a24f502f2ba2ed6a5",
+      "bytes": 6712
+    },
+    "cs-unity-asset-audit/fsspec/implementations/webhdfs.py": {
+      "sha256": "a2c1769b49e10e297ab1b333616ff80d9ce1c45e3282d6f9f570e2c9b77d1728",
+      "bytes": 17589
+    },
+    "cs-unity-asset-audit/fsspec/implementations/tar.py": {
+      "sha256": "616c1cc3f7a01c00734e06126ae684816919ebf7d037a3b3874dec3484a2b374",
+      "bytes": 5573
+    },
+    "cs-unity-asset-audit/fsspec/implementations/smb.py": {
+      "sha256": "e5f86ef21d3a9ce2c13e1d9ce3c693ed6051aa1f5c11c6c8c2dcaed3ac138de7",
+      "bytes": 15236
+    },
+    "cs-unity-asset-audit/fsspec/implementations/sftp.py": {
+      "sha256": "6bce1f9525fc78bedcb09cd45f51fae975f204b7717ac5479a0777db9555a446",
+      "bytes": 8864
+    },
+    "cs-unity-asset-audit/fsspec/implementations/reference.py": {
+      "sha256": "d29eae2633d4d383c47a4b94909588fb214a2154d023c90b59ef7c85e9afc446",
+      "bytes": 50997
+    },
+    "cs-unity-asset-audit/fsspec/implementations/memory.py": {
+      "sha256": "f2dbdb7a9f9ba1d8b6320c37de3381542beb8b4db8634e4f42424ad30f0a55d5",
+      "bytes": 15956
+    },
+    "cs-unity-asset-audit/fsspec/implementations/local.py": {
+      "sha256": "a6f34906b3f1f4b517ea1d1e5be48017f0d4d1da3a4ecb407e7da42c05560bf6",
+      "bytes": 17726
+    },
+    "cs-unity-asset-audit/fsspec/implementations/libarchive.py": {
+      "sha256": "4a9200d45fb37fb91bdbe558515ba132b5d304e841c545ca8045b545a01d0e80",
+      "bytes": 7098
+    },
+    "cs-unity-asset-audit/fsspec/implementations/jupyter.py": {
+      "sha256": "ab53e543ae8002cc06172afc305296ca86da57661e90c591b6a10d04342d0f6f",
+      "bytes": 4002
+    },
+    "cs-unity-asset-audit/fsspec/implementations/http_sync.py": {
+      "sha256": "52606a77ddfc79bc158d8815b7383ecac1b76681a1209c34c05b5001fc55dc0c",
+      "bytes": 30332
+    },
+    "cs-unity-asset-audit/fsspec/implementations/http.py": {
+      "sha256": "d6e5b0c6594e8cf7bc9900f9e08ac261024753561a01787f703997064f80a10f",
+      "bytes": 30894
+    },
+    "cs-unity-asset-audit/fsspec/implementations/github.py": {
+      "sha256": "682b192fc52f5d981d91c075454b370dd2de36b8cb29c16c15879014359b045a",
+      "bytes": 11653
+    },
+    "cs-unity-asset-audit/fsspec/implementations/git.py": {
+      "sha256": "a810d6333e4b36594fa958ebe637ffd45b8d85ae0fe65c9023722585883ec141",
+      "bytes": 3731
+    },
+    "cs-unity-asset-audit/fsspec/implementations/gist.py": {
+      "sha256": "63a8d30eb13ec2e4f0be93f20100eeb8e3011b195a8da7ca5a8075ff25fa8dd6",
+      "bytes": 8528
+    },
+    "cs-unity-asset-audit/fsspec/implementations/ftp.py": {
+      "sha256": "4bfcb95cebff421062601c38df4ab3141e4c7d2f40cf13413acddff3b5de842d",
+      "bytes": 13539
+    },
+    "cs-unity-asset-audit/fsspec/implementations/dirfs.py": {
+      "sha256": "73cba5872900d332fbfbad2d65e312d156ed90aac24faa489b2a28c801b5e3e6",
+      "bytes": 15120
+    },
+    "cs-unity-asset-audit/fsspec/implementations/dbfs.py": {
+      "sha256": "c87b8b50636641de69502b7dbe95e57903698cea48659c15640d3c61ab905385",
+      "bytes": 16249
+    },
+    "cs-unity-asset-audit/fsspec/implementations/data.py": {
+      "sha256": "f6d31ccb57f25f56aebf3157d9a00d3caf427cfa1aae7c530832e15f5daeb2fb",
+      "bytes": 2131
+    },
+    "cs-unity-asset-audit/fsspec/implementations/dask.py": {
+      "sha256": "09765b2732153a1295f082dcc6ecb76d3bdc69c0ae7806f24319af0246cf92b9",
+      "bytes": 4466
+    },
+    "cs-unity-asset-audit/fsspec/implementations/chained.py": {
+      "sha256": "8868afa4d6875058c1fde6b4f8700f85c9a6e822fcaa70dfdbbd0f4a3ec9c2e1",
+      "bytes": 680
+    },
+    "cs-unity-asset-audit/fsspec/implementations/cached.py": {
+      "sha256": "73a6b2bf54ba25cb41c358a21034b6f5fcad394d2f862d1f6e8784db1712cc16",
+      "bytes": 38867
+    },
+    "cs-unity-asset-audit/fsspec/implementations/cache_metadata.py": {
+      "sha256": "10f850576ee580f958444629ac3113d6f70c79dd79a5534c8adf936b5963a321",
+      "bytes": 7942
+    },
+    "cs-unity-asset-audit/fsspec/implementations/cache_mapper.py": {
+      "sha256": "5b8c25c723f165b4a9f48b49d29611541321e9bc3d785ca980fea4518bae888e",
+      "bytes": 2421
+    },
+    "cs-unity-asset-audit/fsspec/implementations/asyn_wrapper.py": {
+      "sha256": "218ad8fbe5ccec6533fb97378bfe0513bce74d0a20aeecaab29ed48402b066f9",
+      "bytes": 4304
+    },
+    "cs-unity-asset-audit/fsspec/implementations/arrow.py": {
+      "sha256": "346b49f72581b7948fa6f0cf4e8fa9e2bcb68f447d70e09379c779a00eabc45a",
+      "bytes": 9344
+    },
+    "cs-unity-asset-audit/fsspec/implementations/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "cs-unity-asset-audit/fsspec/implementations/__pycache__/zip.cpython-314.pyc": {
+      "sha256": "1ba673f15d8f9f48578b52f3568ba028488af8d9c2fa757d2adb1cdee2a21f78",
+      "bytes": 9376
+    },
+    "cs-unity-asset-audit/fsspec/implementations/__pycache__/webhdfs.cpython-314.pyc": {
+      "sha256": "79922a403d91af528176744f9b2f67e00c4a434aed509397ea64e5532c6801df",
+      "bytes": 23851
+    },
+    "cs-unity-asset-audit/fsspec/implementations/__pycache__/tar.cpython-314.pyc": {
+      "sha256": "d93e9419321c5ed445532b00911764055f48306be1bf81271f3fd97c87c28053",
+      "bytes": 7059
+    },
+    "cs-unity-asset-audit/fsspec/implementations/__pycache__/smb.cpython-314.pyc": {
+      "sha256": "040464bdc9125308f8c7eea0e3258f7dee36698bdb808e0d478617467d780db8",
+      "bytes": 19186
+    },
+    "cs-unity-asset-audit/fsspec/implementations/__pycache__/sftp.cpython-314.pyc": {
+      "sha256": "eab1eb94d3be70f1ecf0b44615c8af3654a27dd5e81d078762f4b817f9cbf743",
+      "bytes": 13683
+    },
+    "cs-unity-asset-audit/fsspec/implementations/__pycache__/reference.cpython-314.pyc": {
+      "sha256": "6e143a2eb47dedfc6c5f6da0eff71449f09c3258bc5c41fecd3ae90e6e700052",
+      "bytes": 69539
+    },
+    "cs-unity-asset-audit/fsspec/implementations/__pycache__/memory.cpython-314.pyc": {
+      "sha256": "7d66c944ecccc5b190cd449ea5336f395053f502c0de17b7f8daec4695e98c2d",
+      "bytes": 19960
+    },
+    "cs-unity-asset-audit/fsspec/implementations/__pycache__/local.cpython-314.pyc": {
+      "sha256": "38156b845b041c1bbbe1eb3082c10d9ce0437673a4d0cd1cf1aee750ea3b3452",
+      "bytes": 28803
+    },
+    "cs-unity-asset-audit/fsspec/implementations/__pycache__/libarchive.cpython-314.pyc": {
+      "sha256": "082ae9138d6ba3b53f60fcdbabd2324b2e0118f636d277ba97db77fa29411705",
+      "bytes": 8827
+    },
+    "cs-unity-asset-audit/fsspec/implementations/__pycache__/jupyter.cpython-314.pyc": {
+      "sha256": "c84f4cd828189d8f6cf3a57ad8dc1412e41b5a12b38ebbc57b00b3aef603afb5",
+      "bytes": 7099
+    },
+    "cs-unity-asset-audit/fsspec/implementations/__pycache__/http_sync.cpython-314.pyc": {
+      "sha256": "852b77a8e0828cf6b23389638f55e59a50afccbd95bd7a0e7bf64d14e610387e",
+      "bytes": 41540
+    },
+    "cs-unity-asset-audit/fsspec/implementations/__pycache__/http.cpython-314.pyc": {
+      "sha256": "03b0e89522a672e2b4eea07b16f72b5e3d604a87de174906e37553e82270523d",
+      "bytes": 44023
+    },
+    "cs-unity-asset-audit/fsspec/implementations/__pycache__/github.cpython-314.pyc": {
+      "sha256": "fbf40c3a07fa9582cfba2c31f2a652790f5da5290b3ced583cf58522139e1446",
+      "bytes": 14875
+    },
+    "cs-unity-asset-audit/fsspec/implementations/__pycache__/git.cpython-314.pyc": {
+      "sha256": "324ca8bdd5b96e5975bf1826e2416c8e591e3ff22c8364d05ecab4ac45945ae1",
+      "bytes": 6078
+    },
+    "cs-unity-asset-audit/fsspec/implementations/__pycache__/gist.cpython-314.pyc": {
+      "sha256": "8c7557da9df87b9cd4d16289c2af7df784044c504e9fa11111ce4378992040f7",
+      "bytes": 10180
+    },
+    "cs-unity-asset-audit/fsspec/implementations/__pycache__/ftp.cpython-314.pyc": {
+      "sha256": "4fe1b6ff3be69edabf0cea9bfa62b65f6b6ac3334f3c3f5d63b43a7f0d46bc27",
+      "bytes": 20745
+    },
+    "cs-unity-asset-audit/fsspec/implementations/__pycache__/dirfs.cpython-314.pyc": {
+      "sha256": "9532cee3822cde252df0a40cebf015c8d54862036b954c078d2b6f8ac27fd554",
+      "bytes": 29153
+    },
+    "cs-unity-asset-audit/fsspec/implementations/__pycache__/dbfs.cpython-314.pyc": {
+      "sha256": "7eadb72f27d16bfb9975ccb8a7b6112f595d7651b28a399a3840ec289c47d695",
+      "bytes": 19070
+    },
+    "cs-unity-asset-audit/fsspec/implementations/__pycache__/data.cpython-314.pyc": {
+      "sha256": "504356bb2576a1ec30d32f67c3da0cad1722a42d4addb2b57c84e00392eb6f08",
+      "bytes": 3960
+    },
+    "cs-unity-asset-audit/fsspec/implementations/__pycache__/dask.cpython-314.pyc": {
+      "sha256": "ce3d0659eb491c81e419614bc4bf2edb69c7fef6a2cc593d642471ce0fb45c19",
+      "bytes": 7497
+    },
+    "cs-unity-asset-audit/fsspec/implementations/__pycache__/chained.cpython-314.pyc": {
+      "sha256": "a9c32d63f77deca2dfe8ac17c203902e605fee8e1a854c260d2b29aa2cbb0c5b",
+      "bytes": 1321
+    },
+    "cs-unity-asset-audit/fsspec/implementations/__pycache__/cached.cpython-314.pyc": {
+      "sha256": "9417db3a3cd612272d893c1d3a35507da5e834d746baf3f02385ebcca56b78b0",
+      "bytes": 52579
+    },
+    "cs-unity-asset-audit/fsspec/implementations/__pycache__/cache_metadata.cpython-314.pyc": {
+      "sha256": "42d36bc697e830bfe48ce83d1408342620ff0278fbd7ffdcffc84088cf5f3002",
+      "bytes": 12528
+    },
+    "cs-unity-asset-audit/fsspec/implementations/__pycache__/cache_mapper.cpython-314.pyc": {
+      "sha256": "f54a51bc97e1b12bfb66b4b0590717fadf9ecb989859f1fead471fce2d77e520",
+      "bytes": 5422
+    },
+    "cs-unity-asset-audit/fsspec/implementations/__pycache__/asyn_wrapper.cpython-314.pyc": {
+      "sha256": "eb45e473f4640d53b070436bd92a9a4462bdab181df5c0569774c9a29c770173",
+      "bytes": 6017
+    },
+    "cs-unity-asset-audit/fsspec/implementations/__pycache__/arrow.cpython-314.pyc": {
+      "sha256": "951942bf09f70551395ea7bfb0d081323814db210a3c2a6d9faab12d3896f51a",
+      "bytes": 15424
+    },
+    "cs-unity-asset-audit/fsspec/implementations/__pycache__/__init__.cpython-314.pyc": {
+      "sha256": "2ef5eca6f57fbe1ce8ca95affd6245f41d1d34fc37b5472497417a9b88c04fd5",
+      "bytes": 169
+    },
+    "cs-unity-asset-audit/fsspec/tests/abstract/put.py": {
+      "sha256": "eda8a1d7b38a07f219661d4c92ad5e043223a1b86d310988f31f8fc3e4bf6999",
+      "bytes": 21201
+    },
+    "cs-unity-asset-audit/fsspec/tests/abstract/pipe.py": {
+      "sha256": "2c5cc8acb081e462d77fdaf314a26613c01d1bb2d0fe1e1b268ef4afc14b3ea3",
+      "bytes": 402
+    },
+    "cs-unity-asset-audit/fsspec/tests/abstract/open.py": {
+      "sha256": "162d8f04f60b6d1ab2b05f1c166d2bc27078d6431d415623abc706c835e9dc15",
+      "bytes": 329
+    },
+    "cs-unity-asset-audit/fsspec/tests/abstract/mv.py": {
+      "sha256": "93c79410122b46b18cb0163938e6835dd1a7414286c0321f43276e07a603dcdb",
+      "bytes": 1982
+    },
+    "cs-unity-asset-audit/fsspec/tests/abstract/get.py": {
+      "sha256": "bcd4781f3b6f4d1ec28f9e80328effb71ed3798cf5260affd966fc2eff948816",
+      "bytes": 20755
+    },
+    "cs-unity-asset-audit/fsspec/tests/abstract/copy.py": {
+      "sha256": "814e7e77ded4dd149d7b7e55a784713d8e2b5b02fbe381e24ab27c2013a9f7ef",
+      "bytes": 19967
+    },
+    "cs-unity-asset-audit/fsspec/tests/abstract/common.py": {
+      "sha256": "d46430368e4038dcc09f3663d1f5a09fc3493cb5c02de85bb2e1b14b71735955",
+      "bytes": 4973
+    },
+    "cs-unity-asset-audit/fsspec/tests/abstract/__init__.py": {
+      "sha256": "574fbc16a40f7c7947677c68989d21c9697ab7542faac0e74052581de493944c",
+      "bytes": 10197
+    },
+    "cs-unity-asset-audit/fsspec/tests/abstract/__pycache__/put.cpython-314.pyc": {
+      "sha256": "46dcf7da35513770a756d63db682fa303e86395ea1f83358fe26458323cc346d",
+      "bytes": 24202
+    },
+    "cs-unity-asset-audit/fsspec/tests/abstract/__pycache__/pipe.cpython-314.pyc": {
+      "sha256": "43e2cedd94c44cf5de7dffc8554b693adec7a798ac00bd716a314d0f84885176",
+      "bytes": 1207
+    },
+    "cs-unity-asset-audit/fsspec/tests/abstract/__pycache__/open.cpython-314.pyc": {
+      "sha256": "ed9ab1b5f7ca5effc57cf80c25f3d60cd5dcbd2e8e480bb7530bf75b6131586b",
+      "bytes": 1346
+    },
+    "cs-unity-asset-audit/fsspec/tests/abstract/__pycache__/mv.cpython-314.pyc": {
+      "sha256": "094c79b0479af03467e9c5f7935c8c564fff546b38d3e20eed408cd34c9c826f",
+      "bytes": 2615
+    },
+    "cs-unity-asset-audit/fsspec/tests/abstract/__pycache__/get.cpython-314.pyc": {
+      "sha256": "cae2d4178865c905398f3665875d3030216cc985cfda7a11cb87ab305588c283",
+      "bytes": 22755
+    },
+    "cs-unity-asset-audit/fsspec/tests/abstract/__pycache__/copy.cpython-314.pyc": {
+      "sha256": "9f53965b3816c194c45dfb5eb4ee1f18b38953e70e32f6c5c4a15b335385b512",
+      "bytes": 23085
+    },
+    "cs-unity-asset-audit/fsspec/tests/abstract/__pycache__/common.cpython-314.pyc": {
+      "sha256": "7c4c08793a5ac0169c98c8df79987dc47285f4fb442ab4fe12d65963c438532b",
+      "bytes": 2112
+    },
+    "cs-unity-asset-audit/fsspec/tests/abstract/__pycache__/__init__.cpython-314.pyc": {
+      "sha256": "b79e8e2f472785e3d95cbacaa16d629bbeffdffb364ad71314a62a269cce9e83",
+      "bytes": 13381
+    },
+    "cs-unity-asset-audit/lz4-4.4.5.dist-info/licenses/LICENSE": {
+      "sha256": "e2ac43d6eb80eb4e52141817c812437e0b981b1d7b2dc7cc86c7ef5524044c6f",
+      "bytes": 1495
+    },
+    "cs-unity-asset-audit/lz4/__pycache__/version.cpython-314.pyc": {
+      "sha256": "f469e4ea9056320c00c5272358bf66bc78153309546f9b4fd064c47a179fdac3",
+      "bytes": 1301
+    },
+    "cs-unity-asset-audit/lz4/__pycache__/__init__.cpython-314.pyc": {
+      "sha256": "949d23a49e408d86da7ea1b72ed041be7fc2576e8a3af881b06b02114e3f555f",
+      "bytes": 309
+    },
+    "cs-unity-asset-audit/lz4/frame/_frame.cpython-314-x86_64-linux-gnu.so": {
+      "sha256": "fdc659a5927a97cb96f42e7fee5fa6c1e1f4f30ac185ebbcc8b9e3f881294833",
+      "bytes": 2408000
+    },
+    "cs-unity-asset-audit/lz4/frame/__init__.py": {
+      "sha256": "4654df641363be2f43d55280d2eb940ad0019b2dd580e451c6a4da2a5a307024",
+      "bytes": 31165
+    },
+    "cs-unity-asset-audit/lz4/block/_block.cpython-314-x86_64-linux-gnu.so": {
+      "sha256": "a7f3d7c6a144924cfbc6fb5c31a331771a0c5de63e8fc4f4da52ab5dbc93651e",
+      "bytes": 2167912
+    },
+    "cs-unity-asset-audit/lz4/block/__init__.py": {
+      "sha256": "2ac4901a068fa49b553c9e507cc69d54615db8ccb48527ad2475863663afa6ca",
+      "bytes": 70
+    },
+    "cs-unity-asset-audit/lz4/block/__pycache__/__init__.cpython-314.pyc": {
+      "sha256": "8aec52539a6637465f63f5094b341ada0a0196efb8fd56ff50c5827b60945ae9",
+      "bytes": 246
+    },
+    "cs-unity-asset-audit/lz4/frame/__pycache__/__init__.cpython-314.pyc": {
+      "sha256": "540f6697c5c8975e8ef17854b7d343b5077ebf2fffdc8e2e927903f0560c49f8",
+      "bytes": 31570
+    },
+    "cs-unity-asset-audit/pillow-12.3.0.dist-info/sboms/pillow-12.3.0.cdx.json": {
+      "sha256": "40fa909b0f23405a7b97a6d91671a639a40acea7671b04387da22ba3e9fca50a",
+      "bytes": 22279
+    },
+    "cs-unity-asset-audit/pillow-12.3.0.dist-info/sboms/auditwheel.cdx.json": {
+      "sha256": "c0a2ad2a446d16552e801cabded8426286be0eb44a589d977f6be6e1a8ac0995",
+      "bytes": 1358
+    },
+    "cs-unity-asset-audit/pillow-12.3.0.dist-info/licenses/LICENSE": {
+      "sha256": "dda12a98c1979cf3d94df1cff45d27a4cb3f04a60c76f76902ac54cac03ec0ce",
+      "bytes": 70307
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/report.cpython-314.pyc": {
+      "sha256": "82907425a643543f2f860111ebe1036963da16660049bcf4d01ece25f301285c",
+      "bytes": 286
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/features.cpython-314.pyc": {
+      "sha256": "c99813ed673bb0b600e7a11bac6ef962177adabf7c22e7e446d6799c875e24fd",
+      "bytes": 15773
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/_version.cpython-314.pyc": {
+      "sha256": "732f79b4ff35c0ff6c9813f93c21a938339b818630ef33622d4820c208ad83dc",
+      "bytes": 229
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/_util.cpython-314.pyc": {
+      "sha256": "a29d80fb326d290cfc0646471763300d26697c81328c8351d829653f64c23757",
+      "bytes": 2165
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/_typing.cpython-314.pyc": {
+      "sha256": "3fcd7379deb5e72d6a541a5d50e423db9c8322368275ef3848a2a599a0b04560",
+      "bytes": 1954
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/_tkinter_finder.cpython-314.pyc": {
+      "sha256": "ac24e00a7d0d3fd4b04151a4748fb61979514711295977b3cb60cede32e47224",
+      "bytes": 751
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/_deprecate.cpython-314.pyc": {
+      "sha256": "fb24d7a730551a80722c16bcf76df7a50f4807e93fb89c7db2f48070ea45204f",
+      "bytes": 2691
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/_binary.cpython-314.pyc": {
+      "sha256": "9c8cd8dae137fef7ed17c2c4d7992cb66129104a442df03c9513a989cfd91f3b",
+      "bytes": 5133
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/__main__.cpython-314.pyc": {
+      "sha256": "b401b225f7ec3c92e6e4384007a3ca971c591b604553bc0f1fb06e4cd2b4200a",
+      "bytes": 354
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/__init__.cpython-314.pyc": {
+      "sha256": "b75fc88459ef3619f08843bb139611d1c4cea9b607d68df90579b14299837f5e",
+      "bytes": 2718
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/XpmImagePlugin.cpython-314.pyc": {
+      "sha256": "286027f7760e4dc41b43491c35419f6b4f61b1509b7c4e136130d2b1f72221bf",
+      "bytes": 6959
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/XbmImagePlugin.cpython-314.pyc": {
+      "sha256": "57922721f91be229d9232c8951c5d4c850ad5f2026a487803ffefd84f339e24a",
+      "bytes": 4682
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/XVThumbImagePlugin.cpython-314.pyc": {
+      "sha256": "b68347563e1947eaa5bd98e57c29180228f3a5c1fff6c511d90ec3641da6e664",
+      "bytes": 3088
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/WmfImagePlugin.cpython-314.pyc": {
+      "sha256": "98324dabcb484206bb6cc6a7e58a33db90d86483d13bc79c97f616efda669563",
+      "bytes": 7782
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/WebPImagePlugin.cpython-314.pyc": {
+      "sha256": "7c7a5f2764d640b81a06b51d5f1563cdaa4648fad08fac4bfbf1e4945b0630a6",
+      "bytes": 15719
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/WalImageFile.cpython-314.pyc": {
+      "sha256": "4b03e25458b6701b4c2e3c8d3dc81454d4e0165e836650c15e8bf01e6f023b9f",
+      "bytes": 4645
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/TiffTags.cpython-314.pyc": {
+      "sha256": "b7822212a4d95c99bfde68cc9ebece43abef1d67fb8d6b8e81f1682f5454dab4",
+      "bytes": 19990
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/TiffImagePlugin.cpython-314.pyc": {
+      "sha256": "ea5926f97abd6bedbbdb0ee96871436c1da75e5273e3c326c80ac837b5aa62e5",
+      "bytes": 121017
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/TgaImagePlugin.cpython-314.pyc": {
+      "sha256": "d4f61ab17ebae590b00e715798f0efb8e3d73bd0904e81f3636f0ed43433fd82",
+      "bytes": 10144
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/TarIO.cpython-314.pyc": {
+      "sha256": "a67ddbde799f19fda0b8cf47cc4386223eb42c8f586e826c89f2fcfd358db64a",
+      "bytes": 2243
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/SunImagePlugin.cpython-314.pyc": {
+      "sha256": "79baa788f88058cd8dad0988ee308504087d6b156d79dbb3b9b44c7a4d617084",
+      "bytes": 3822
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/SpiderImagePlugin.cpython-314.pyc": {
+      "sha256": "028385597c583eca46c6c993ce40e3addc7586afe3ce0e7620aa485205ed8e8f",
+      "bytes": 15125
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/SgiImagePlugin.cpython-314.pyc": {
+      "sha256": "5749d34d0da6b3260eb76a3cfad16a4498d70ff1193d86e168d63b65680c537d",
+      "bytes": 8885
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/QoiImagePlugin.cpython-314.pyc": {
+      "sha256": "7decb18edb13dedbab99df3264439d73ada42defc478667e3f3098fb67159399",
+      "bytes": 13517
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/PsdImagePlugin.cpython-314.pyc": {
+      "sha256": "26a53d1eeeabd0a6ad25bcb9232365efff268ed4591af4a30cdb686ba4a9906c",
+      "bytes": 13051
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/PpmImagePlugin.cpython-314.pyc": {
+      "sha256": "d0ea25977b94270fdc1c10294bd3faf8be8751b2bdd041e9ae09feea38ac8281",
+      "bytes": 16293
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/PngImagePlugin.cpython-314.pyc": {
+      "sha256": "03cf3fb8f71e4c9c945962aa8960169560ba3d6ea1b99b8ee962e0c931d222bb",
+      "bytes": 75790
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/PixarImagePlugin.cpython-314.pyc": {
+      "sha256": "8a7c54fe042025786b8c92762d835bb9fc0147c0e6ee83e277cda750f2509cab",
+      "bytes": 2331
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/PdfParser.cpython-314.pyc": {
+      "sha256": "1c4d43cdf143015cef32b52bae2661d375c7719a524c0e45c6ec397b32a21667",
+      "bytes": 64292
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/PdfImagePlugin.cpython-314.pyc": {
+      "sha256": "d0d0be238642e83358f4d2de659bc3b49ac6578f4ea50dbe67e4998d7d0b2958",
+      "bytes": 10673
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/PcxImagePlugin.cpython-314.pyc": {
+      "sha256": "f5a1a8389cab947738111a2ae48f0c9e2b71d42f39f0da6b5a9b2dba79967ee9",
+      "bytes": 8676
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/PcfFontFile.cpython-314.pyc": {
+      "sha256": "3b5d80c78863b404c89cd6d4c154ac30f745f26f7501938d9a0b37eba5092250",
+      "bytes": 11505
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/PcdImagePlugin.cpython-314.pyc": {
+      "sha256": "c052f38cd99e4056341d3e0b095ca500b91c6a9280ef6083185df32c686c0ec5",
+      "bytes": 3012
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/PalmImagePlugin.cpython-314.pyc": {
+      "sha256": "e2bd1aabaa28ac6a71765d21d3dcd34488f0457dc3d003af04b6dba94bb61e05",
+      "bytes": 9760
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/PaletteFile.cpython-314.pyc": {
+      "sha256": "4ffa890d5893a55c24445f477c2c69b4fba9878e5f1ddb82c281bb669cd5b644",
+      "bytes": 2303
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/PSDraw.cpython-314.pyc": {
+      "sha256": "3cd88dd2860a6c16d3854192360f46cf190f85084a5c4078b6b0df90e16c7115",
+      "bytes": 9265
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/MspImagePlugin.cpython-314.pyc": {
+      "sha256": "90bcb2ba88e5b38db6ed291653653ca467858d98188e134237324c5dcda5a3c6",
+      "bytes": 6696
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/MpoImagePlugin.cpython-314.pyc": {
+      "sha256": "46d5c190ca04bb318d959007e3035a0747d6cb3495eb3d85f9e8df9448032a36",
+      "bytes": 10365
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/MpegImagePlugin.cpython-314.pyc": {
+      "sha256": "52ff901c9614c376333417f1b4b6e3e8e58433241f96f3b1abce4f196747972a",
+      "bytes": 4718
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/MicImagePlugin.cpython-314.pyc": {
+      "sha256": "c916429a081c3f7b97a3edbce0bc3a2ba712f5f401ed8a156b6e4c0a1fc9a71e",
+      "bytes": 4755
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/McIdasImagePlugin.cpython-314.pyc": {
+      "sha256": "59e891f047ea0f0f749e45b5ebed7cb555592f1234e61be16b253eecffb22eb3",
+      "bytes": 2673
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/JpegPresets.cpython-314.pyc": {
+      "sha256": "1d0f1c27cebf4c17728f2f187fb7b2976368ddb4e6c79a8003d15b8df8422946",
+      "bytes": 18901
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/JpegImagePlugin.cpython-314.pyc": {
+      "sha256": "425744bdadfb0b861c36019b88f8860c404c2cc2171a2659f35c6a4069916cc6",
+      "bytes": 38682
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/Jpeg2KImagePlugin.cpython-314.pyc": {
+      "sha256": "acfc9a047a522906b196fb8688a45b643f15d0642f6830495c5b866e7fcbe75b",
+      "bytes": 22087
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/IptcImagePlugin.cpython-314.pyc": {
+      "sha256": "b27c948fd0cd48a068927828c61d858121aa0838481eb2de6fb671df7049d4b0",
+      "bytes": 9577
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/ImtImagePlugin.cpython-314.pyc": {
+      "sha256": "51fab356893971370ead3eeabf4889588c152fcd1c7d9188ec114d9b1c04f762",
+      "bytes": 2871
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/ImageWin.cpython-314.pyc": {
+      "sha256": "d12c5572ac1afbe75c33550e10a7baf9e87a83a3cf511e7695d596deccf3851f",
+      "bytes": 14775
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/ImageTransform.cpython-314.pyc": {
+      "sha256": "8ada63bce2a5dbade0295ec817f225afbcea67b77252414901476f33f70bb3ca",
+      "bytes": 5744
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/ImageTk.cpython-314.pyc": {
+      "sha256": "f07a06c43f57a3c45e80372126a7230761b8567cb990a76ed7358b55618633d2",
+      "bytes": 11181
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/ImageText.cpython-314.pyc": {
+      "sha256": "4f85e75ccc2dd0ffa08519051db6b9cc704055fd35e5a4013a6580be21f9e86c",
+      "bytes": 21818
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/ImageStat.cpython-314.pyc": {
+      "sha256": "3c0109cedcd9a9d21834dc8a36735dc374ab1e28775f34c35c770533cc814c53",
+      "bytes": 9226
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/ImageShow.cpython-314.pyc": {
+      "sha256": "bf8b0ac759f869998a9839997a04800e69b63a7e1014dc7d53d47549f338d3f3",
+      "bytes": 18691
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/ImageSequence.cpython-314.pyc": {
+      "sha256": "074505bffcb8b07a30f8ae34f2dc1c3d11f50ddf13f8454d921ccd85bb7049d0",
+      "bytes": 4160
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/ImageQt.cpython-314.pyc": {
+      "sha256": "bd1f9865fc1cada91950b19f05a0b6d035340ad65b37f93a989768f7326756af",
+      "bytes": 9570
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/ImagePath.cpython-314.pyc": {
+      "sha256": "a12e000d530d78372ce1bda7f85c1d96de30e50cd51be8a97cfcd2373b4599c0",
+      "bytes": 308
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/ImagePalette.cpython-314.pyc": {
+      "sha256": "de0370cc0948ba5503f46e036f82aa721ef2993deb831ad65e3d800cc56bcdbe",
+      "bytes": 15403
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/ImageOps.cpython-314.pyc": {
+      "sha256": "363114279f8de68a27a23a0c8b6d33b9316128f7630cf80806d490343c822cfc",
+      "bytes": 34693
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/ImageMorph.cpython-314.pyc": {
+      "sha256": "a79cead60e2bbcd6bbaeb5ae070c32e9a30130aefff10d80950306f9c73ed71d",
+      "bytes": 14793
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/ImageMode.cpython-314.pyc": {
+      "sha256": "9f668876fd5e1e92c1fdb23e93d504ba6620f6d1f130592575a87708da465860",
+      "bytes": 2962
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/ImageMath.cpython-314.pyc": {
+      "sha256": "8310f81e791e1669d42d99ac581a38e734abbe689964b6c7497a41e87ea7d36a",
+      "bytes": 20122
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/ImageGrab.cpython-314.pyc": {
+      "sha256": "2415fc8faa3a300c5b0a4466606ae9dcc225de8402d2636ac27cbac26a5d86e5",
+      "bytes": 9379
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/ImageFont.cpython-314.pyc": {
+      "sha256": "3cf35892cdbc4d0c992eb8edce5c7b2bae8c0ab4ba8fc2921649831084cf4878",
+      "bytes": 72674
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/ImageFilter.cpython-314.pyc": {
+      "sha256": "5b3bca9dff7eb5cbbd6fc56ae8277ed917d5c0fa822d0645e40ab99a7f0a7e46",
+      "bytes": 27445
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/ImageFile.cpython-314.pyc": {
+      "sha256": "4fbb7a9cc6ad352eed1e06f4153d67816db863577203075cf924940cb4d84c6a",
+      "bytes": 43155
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/ImageEnhance.cpython-314.pyc": {
+      "sha256": "1802e8de77a1997ddcd86ff54ecf06cf2442e46eecdbc4a746f579895398dd3e",
+      "bytes": 6209
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/ImageDraw2.cpython-314.pyc": {
+      "sha256": "069087a8471b69674de97940942f7d316519196874e1bf6b2265b48d90c4239b",
+      "bytes": 12141
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/ImageDraw.cpython-314.pyc": {
+      "sha256": "e336f9f64ecd698e7061d06eaf9069209968873d462f4a9cb0e1e2193bf2a445",
+      "bytes": 45930
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/ImageColor.cpython-314.pyc": {
+      "sha256": "917285f6f25f12bd4da9ad9487b78bfe097d167dd926c016c11faf8b021b6c8d",
+      "bytes": 13496
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/ImageCms.cpython-314.pyc": {
+      "sha256": "62d4543d160ee8b31120a051bb522dad38b6cc925ea18abb7600ba128cc48d51",
+      "bytes": 45021
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/ImageChops.cpython-314.pyc": {
+      "sha256": "0c0b95a72ebe55f09a26aa331622fc8b2872bbaec65d960d224b56c9acf0fabd",
+      "bytes": 13832
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/Image.cpython-314.pyc": {
+      "sha256": "d379507e557d527ae27330148811ce7a2dd7420e5e248e0f5c2147f56f7c6584",
+      "bytes": 203179
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/ImImagePlugin.cpython-314.pyc": {
+      "sha256": "aba812e3b8d6b461f35e3a884d407b89d6735037ea796d95d7a676752d0fe8d6",
+      "bytes": 14916
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/IcoImagePlugin.cpython-314.pyc": {
+      "sha256": "cd69eee731e2eaec156dce8ea821df4a78072fac911ff04edeacbd46c528e424",
+      "bytes": 17616
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/IcnsImagePlugin.cpython-314.pyc": {
+      "sha256": "d926c86b3617b56a52777746960833e19e4d42c5bace520731b4709aed39ffbc",
+      "bytes": 19707
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/Hdf5StubImagePlugin.cpython-314.pyc": {
+      "sha256": "147b995b76e109da91738aee2ac5700f913cd797fd97faa1c296f8d976149a46",
+      "bytes": 3376
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/GribStubImagePlugin.cpython-314.pyc": {
+      "sha256": "24f46c268dbbb1c91d0099f2ce15f9a0f33f27f65f878a5e3978bc049ec1a51c",
+      "bytes": 3490
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/GimpPaletteFile.cpython-314.pyc": {
+      "sha256": "80178902fbbf87bb9207904930bed16ed8fa62e46d91dc7e7105207c79372163",
+      "bytes": 3503
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/GimpGradientFile.cpython-314.pyc": {
+      "sha256": "21af93d947fe0bbf1f41d6e8aa3efbf12aa5c641ae38822870501a378d2d8024",
+      "bytes": 7210
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/GifImagePlugin.cpython-314.pyc": {
+      "sha256": "b6e9fd8d9e96d5e5ee84612a9b5ef3a5e86a6e77398c0a0f778c8a37a1f073ac",
+      "bytes": 52615
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/GdImageFile.cpython-314.pyc": {
+      "sha256": "458c89178c01d3d7d43da0029825c9c063d7a4a3874bed6cab0a012bb3846600",
+      "bytes": 3950
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/GbrImagePlugin.cpython-314.pyc": {
+      "sha256": "1bfd02c8bfb1d7d3c068013714a3e786661f6958a5aea7977888c6082508810d",
+      "bytes": 4308
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/FtexImagePlugin.cpython-314.pyc": {
+      "sha256": "42365b4a60eff59c35657f144ca283db60c1d34368289a49f3017e76334d98a8",
+      "bytes": 5875
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/FpxImagePlugin.cpython-314.pyc": {
+      "sha256": "e2a3602447cc8a4a8fe44cdfb42e60045eee0cc6dbb186f8635653fbec23f9af",
+      "bytes": 9368
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/FontFile.cpython-314.pyc": {
+      "sha256": "e0eca621ab932813c9d63009129525cae792fd6fd32e088c39da22b5282d5fce",
+      "bytes": 7008
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/FliImagePlugin.cpython-314.pyc": {
+      "sha256": "fffeaa963e15acc9725b4af052450ee42608070bd146b33b74f0a0bcb8d8d0f7",
+      "bytes": 8375
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/FitsImagePlugin.cpython-314.pyc": {
+      "sha256": "8c1d9b1d27c44bb697d0a7ac24c9f4f9302853cdf4410dd9620bf8d91299bad0",
+      "bytes": 7433
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/ExifTags.cpython-314.pyc": {
+      "sha256": "712a9a9fc12ccde2a449b09364fd149973115b1e358b86cf399c001e795255ba",
+      "bytes": 11459
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/EpsImagePlugin.cpython-314.pyc": {
+      "sha256": "b14f608ba053138b0e61254f6f26a3c3a5a5d11ef699da8ac1df9d4861b3e4ea",
+      "bytes": 18661
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/DdsImagePlugin.cpython-314.pyc": {
+      "sha256": "78f52e03dca5f0d7cb6bd9c0445e06e71bab9bd34271403d48b7e33258e4a1fd",
+      "bytes": 25218
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/DcxImagePlugin.cpython-314.pyc": {
+      "sha256": "0ce100c21ef2e5128b922eb540e1b3ebd29185dc8d69ca4ee1a0adf8873475fc",
+      "bytes": 3619
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/CurImagePlugin.cpython-314.pyc": {
+      "sha256": "2caa8c27a003120f2dd4a60fed3454908d3a0011e98285255c17d21eb5694725",
+      "bytes": 4963
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/ContainerIO.cpython-314.pyc": {
+      "sha256": "656cd37a529ec725922f18d81c9c48c41e86605c79645582f913c14ace3cf6c8",
+      "bytes": 9607
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/BufrStubImagePlugin.cpython-314.pyc": {
+      "sha256": "9b412bcb68c08d31000372f2675af9aad41eebd5d1a4e5f83b5b67639a057601",
+      "bytes": 3375
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/BmpImagePlugin.cpython-314.pyc": {
+      "sha256": "0400a23cc51a2f31d187d4e500c081f854ce25bbfd5447725e09a2433c30803a",
+      "bytes": 21122
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/BlpImagePlugin.cpython-314.pyc": {
+      "sha256": "a68c5eaabc6a6ea6a48aab1fcf55846c40c4f793ac705461be1678727bea6ca4",
+      "bytes": 28209
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/BdfFontFile.cpython-314.pyc": {
+      "sha256": "c50678b6e80ac243fb3b4add94e9abbb1cfda73c80c4c4b9500bfad0fc9bc581",
+      "bytes": 4748
+    },
+    "cs-unity-asset-audit/PIL/__pycache__/AvifImagePlugin.cpython-314.pyc": {
+      "sha256": "53a94cda37f1f1c11e920702ae0191eee5c2c6ccc59dfa73c067c20a1017dd33",
+      "bytes": 14338
+    },
+    "cs-unity-asset-audit/pyfmodex/__pycache__/utils.cpython-314.pyc": {
+      "sha256": "2d96b51d5691ac167ad370e84aa17cb1594349c571686bcd542be2eaf13315fd",
+      "bytes": 1944
+    },
+    "cs-unity-asset-audit/pyfmodex/__pycache__/system.cpython-314.pyc": {
+      "sha256": "bde06c3369ed849962f57fa9999cc5ed8b1bb23904cc3a3a59271c77dec42ae7",
+      "bytes": 97921
+    },
+    "cs-unity-asset-audit/pyfmodex/__pycache__/structures.cpython-314.pyc": {
+      "sha256": "d8fac0f4ae6320599632847dea64758f28075c9dbeeef6f4c41d245f04f9efa9",
+      "bytes": 46148
+    },
+    "cs-unity-asset-audit/pyfmodex/__pycache__/structure_declarations.cpython-314.pyc": {
+      "sha256": "b3ff267d5c38d3ccf926a5ed75dba6e406d4b7356654bc632718fabf883dec75",
+      "bytes": 19315
+    },
+    "cs-unity-asset-audit/pyfmodex/__pycache__/structobject.cpython-314.pyc": {
+      "sha256": "6ee8169576c87020f0b74daa8d8ac2384dba228180b0fba06eb451d59c9fc603",
+      "bytes": 3250
+    },
+    "cs-unity-asset-audit/pyfmodex/__pycache__/sound_group.cpython-314.pyc": {
+      "sha256": "c3b176b22c6954247c12560cdcab3ef2776884142638f87106af43233ee110e9",
+      "bytes": 6767
+    },
+    "cs-unity-asset-audit/pyfmodex/__pycache__/sound.cpython-314.pyc": {
+      "sha256": "8448fd5dc267960b9614f4cd43ca6cb1470419216d521d1bc2fe978655c55a59",
+      "bytes": 35479
+    },
+    "cs-unity-asset-audit/pyfmodex/__pycache__/roomproperties.cpython-314.pyc": {
+      "sha256": "e6c299b0d46c8f2f73791ee3d552c13116ace366851a8d471f8540d73cb40d2d",
+      "bytes": 4264
+    },
+    "cs-unity-asset-audit/pyfmodex/__pycache__/reverb_presets.cpython-314.pyc": {
+      "sha256": "16e75fca7aa837680e0d3457adcee88e85084c59a8b433e9fb6bf5257bac92cc",
+      "bytes": 3832
+    },
+    "cs-unity-asset-audit/pyfmodex/__pycache__/reverb.cpython-314.pyc": {
+      "sha256": "75f6afdbf8e0493d83b59eff6cb7ff9ff605a467d85d48dabfbcf1ff1a138540",
+      "bytes": 5352
+    },
+    "cs-unity-asset-audit/pyfmodex/__pycache__/globalvars.cpython-314.pyc": {
+      "sha256": "b8dd5bedcd5d688997f6efc028deb326d0cf9d770261417196ca7d3302434e7f",
+      "bytes": 469
+    },
+    "cs-unity-asset-audit/pyfmodex/__pycache__/geometry.cpython-314.pyc": {
+      "sha256": "835f6ba267857a21d30151422632d56c206eb0f0eac9c8d4b4f16274bdf8b63f",
+      "bytes": 15406
+    },
+    "cs-unity-asset-audit/pyfmodex/__pycache__/function_prototypes.cpython-314.pyc": {
+      "sha256": "097d66a6f385ba075468ea6c6de00a78f9ebad4453b812ad3aef49b0b84e9dd2",
+      "bytes": 2989
+    },
+    "cs-unity-asset-audit/pyfmodex/__pycache__/fmodobject.cpython-314.pyc": {
+      "sha256": "1c6e2fabecc1ba3bd2643c3e6a3b7ee953a3e4e937fc1cbc168a95fc09ba5c28",
+      "bytes": 1557
+    },
+    "cs-unity-asset-audit/pyfmodex/__pycache__/fmodex.cpython-314.pyc": {
+      "sha256": "e8fc1574e5febce7409ba939e7da2416cd708b321ae9a69fc2335313c0bc6924",
+      "bytes": 8638
+    },
+    "cs-unity-asset-audit/pyfmodex/__pycache__/flags.cpython-314.pyc": {
+      "sha256": "e559da9d1d6b5bed50f9f028b266f733ba246cc9c0d07bea8a79037997f880f1",
+      "bytes": 6953
+    },
+    "cs-unity-asset-audit/pyfmodex/__pycache__/exceptions.cpython-314.pyc": {
+      "sha256": "7786a475fc99f6069b0f006427c92fdcc55f25605e900e2b92e2f6ff3acd7766",
+      "bytes": 1123
+    },
+    "cs-unity-asset-audit/pyfmodex/__pycache__/enums.cpython-314.pyc": {
+      "sha256": "3c3b4a121c634461fd773d035185d5829a57c488555f24c7051bc04d1cf17eae",
+      "bytes": 42182
+    },
+    "cs-unity-asset-audit/pyfmodex/__pycache__/dsp_connection.cpython-314.pyc": {
+      "sha256": "bbf716958bbeec4b06524b906c905ff2e2d759e1268dd3f98125e36524d5cd81",
+      "bytes": 5715
+    },
+    "cs-unity-asset-audit/pyfmodex/__pycache__/dsp.cpython-314.pyc": {
+      "sha256": "4ee52247decc4bcd078b2f49d143975a491d98bc773346dd2bb7375c3fdf5d8a",
+      "bytes": 29359
+    },
+    "cs-unity-asset-audit/pyfmodex/__pycache__/constants.cpython-314.pyc": {
+      "sha256": "127fec97bab1fa9f1f833e9c3e13b900a3ecc4c2eac608f2d2748c120620439e",
+      "bytes": 413
+    },
+    "cs-unity-asset-audit/pyfmodex/__pycache__/cone_settings.cpython-314.pyc": {
+      "sha256": "1c5d2e27f8666407ec0098eea8a656f0d52e788bbaccc9567c527c11a66b1a1b",
+      "bytes": 4912
+    },
+    "cs-unity-asset-audit/pyfmodex/__pycache__/channel_group.cpython-314.pyc": {
+      "sha256": "c9e696e5d4f2b98765bbeaf53b02b4e8efc5e1015f7687e0cdc94073c2b92d4d",
+      "bytes": 4954
+    },
+    "cs-unity-asset-audit/pyfmodex/__pycache__/channel_control.cpython-314.pyc": {
+      "sha256": "5156bb3a958a8abe09945092a41f98cc3c10259177cfe33f28c25a1b201fbc0f",
+      "bytes": 43861
+    },
+    "cs-unity-asset-audit/pyfmodex/__pycache__/channel.cpython-314.pyc": {
+      "sha256": "e4b2bd6fc3e70e373afa0118dcfd64ace132e8152577d3b29258ab45160e9a71",
+      "bytes": 11756
+    },
+    "cs-unity-asset-audit/pyfmodex/__pycache__/callback_prototypes.cpython-314.pyc": {
+      "sha256": "6c16aaaf2563a4dd44d6f347ad07167690424e367cd3b4dc96a98f9a172d3fec",
+      "bytes": 6355
+    },
+    "cs-unity-asset-audit/pyfmodex/__pycache__/__init__.cpython-314.pyc": {
+      "sha256": "ef1047ca3eab57c329b45d6c69a04b63c831825351134ee60a8f16565fa98316",
+      "bytes": 1455
+    },
+    "cs-unity-asset-audit/pyfmodex/studio/utils.py": {
+      "sha256": "81a87acd3aa1d5e53d96d8e48d3e8a8f05bd587e667efb3a5771b6e4a11ed9e5",
+      "bytes": 219
+    },
+    "cs-unity-asset-audit/pyfmodex/studio/system.py": {
+      "sha256": "44b9a0ccc7b649819de4218e00cd97504ffe93ad0e255deaadb1d8b1e2439b51",
+      "bytes": 7217
+    },
+    "cs-unity-asset-audit/pyfmodex/studio/studio_object.py": {
+      "sha256": "8be161adbe37ba9afab3e6153de7ae47a344a707e6293d5f218234cecbaa09e5",
+      "bytes": 1089
+    },
+    "cs-unity-asset-audit/pyfmodex/studio/structures.py": {
+      "sha256": "bddcc3419456f429fb02a27430abbf87c0409ff4235640757577b6a2408de6b0",
+      "bytes": 3210
+    },
+    "cs-unity-asset-audit/pyfmodex/studio/library.py": {
+      "sha256": "40e69b23a87b33f51c8dd13bb810f420dbbc4e56a5465d7038c24599f731ddfd",
+      "bytes": 1077
+    },
+    "cs-unity-asset-audit/pyfmodex/studio/flags.py": {
+      "sha256": "530881167e92a2d1f6f031b10836d1ee8bbd9d7a5daf409c66f4bb7b09144f2b",
+      "bytes": 1544
+    },
+    "cs-unity-asset-audit/pyfmodex/studio/event_instance.py": {
+      "sha256": "50848987395f0de92386d6f3f6430ee7f59c2ee0748c1c531001e25081d800db",
+      "bytes": 2848
+    },
+    "cs-unity-asset-audit/pyfmodex/studio/event_description.py": {
+      "sha256": "569ea5bf7805be5ea5adc3d639b476bbfae7dcd9bdff1ab9d798a17bb25c61e6",
+      "bytes": 1936
+    },
+    "cs-unity-asset-audit/pyfmodex/studio/enums.py": {
+      "sha256": "9086d803ce87ae7262861c756ed8ebf94ed7c701d2bd5698336490bbbfd7fe58",
+      "bytes": 756
+    },
+    "cs-unity-asset-audit/pyfmodex/studio/bank.py": {
+      "sha256": "081d28b08f477f40f055f1bc72e2db2a4d63ea0eb290724192cb74e187a59f93",
+      "bytes": 1179
+    },
+    "cs-unity-asset-audit/pyfmodex/studio/__init__.py": {
+      "sha256": "1f165c119323c20f700b75f665ed398effa22e3d72be27e2aa1aef036d4fdb48",
+      "bytes": 73
+    },
+    "cs-unity-asset-audit/pyfmodex/studio/__pycache__/utils.cpython-314.pyc": {
+      "sha256": "06028c0d3258240a64d434a577805dea3066392b02eebeb36bdfca168d7494e0",
+      "bytes": 567
+    },
+    "cs-unity-asset-audit/pyfmodex/studio/__pycache__/system.cpython-314.pyc": {
+      "sha256": "f6e6d9c145720d595d1b945826b17966aa4b9f4b101ec4a2e0df880b4bf01440",
+      "bytes": 9649
+    },
+    "cs-unity-asset-audit/pyfmodex/studio/__pycache__/studio_object.cpython-314.pyc": {
+      "sha256": "d2f36a0f885ed89c70f90abefc69d5e37e1d0181fa76900b2dc4667cbe0bd864",
+      "bytes": 2154
+    },
+    "cs-unity-asset-audit/pyfmodex/studio/__pycache__/structures.cpython-314.pyc": {
+      "sha256": "a01c44c55f13005d52c53d717a0aee17f9da937f82139944040444c6972be43a",
+      "bytes": 3982
+    },
+    "cs-unity-asset-audit/pyfmodex/studio/__pycache__/library.cpython-314.pyc": {
+      "sha256": "0940a07628124272f18d0ab051e94089f57240ba1ba1c609631913d0afd6d2f9",
+      "bytes": 1830
+    },
+    "cs-unity-asset-audit/pyfmodex/studio/__pycache__/flags.cpython-314.pyc": {
+      "sha256": "05c3dfb02ae2b462e106dbfa94c6e19e729b40362591f2d420c4bd9053874eb3",
+      "bytes": 1905
+    },
+    "cs-unity-asset-audit/pyfmodex/studio/__pycache__/event_instance.cpython-314.pyc": {
+      "sha256": "d1ff16bb92bf1c03748d460417b4ff66588ed1780bb7b0d064501c7b96493573",
+      "bytes": 4563
+    },
+    "cs-unity-asset-audit/pyfmodex/studio/__pycache__/event_description.cpython-314.pyc": {
+      "sha256": "56b315353c4ddd0210870557c0a3a15c8f8e262fe8241a98522682aa99e1082a",
+      "bytes": 3473
+    },
+    "cs-unity-asset-audit/pyfmodex/studio/__pycache__/enums.cpython-314.pyc": {
+      "sha256": "a51dc62cc30da7e87922f3081e5d57a36aef21323fee8691949b51c04e9db26e",
+      "bytes": 1243
+    },
+    "cs-unity-asset-audit/pyfmodex/studio/__pycache__/bank.cpython-314.pyc": {
+      "sha256": "ed22998141f1363b61aae19fe56668171b392b39eeaf7b82fd367d6f708d0606",
+      "bytes": 2023
+    },
+    "cs-unity-asset-audit/pyfmodex/studio/__pycache__/__init__.cpython-314.pyc": {
+      "sha256": "74a264096fa31e23ae8efb19b41b6a39a840cde923e2b347974fb69a1094570c",
+      "bytes": 253
+    },
+    "cs-unity-asset-audit/texture2ddecoder/__pycache__/__init__.cpython-314.pyc": {
+      "sha256": "fe33cacbb286b98472d97b7121c61ea6074f9a80f3c2792583b63d3645a17e05",
+      "bytes": 978
+    },
+    "cs-unity-asset-audit/tpk_ar-0.2.4.dist-info/licenses/LICENSE": {
+      "sha256": "3e6ca44b2f6640e3424af456305aab678713c8f0426e66ae234d83ed2286e06f",
+      "bytes": 1067
+    },
+    "cs-unity-asset-audit/tpk_ar/__pycache__/utils.cpython-314.pyc": {
+      "sha256": "f1ee6bb865f38eb7e837527c63055fe5b946921d0c420c72ed07442ce03bfd40",
+      "bytes": 6327
+    },
+    "cs-unity-asset-audit/tpk_ar/__pycache__/unityversion.cpython-314.pyc": {
+      "sha256": "ca635e0aab3b198317caee0396974f8982967456ad4b674e4bf6ee7cbdc9cc41",
+      "bytes": 2138
+    },
+    "cs-unity-asset-audit/tpk_ar/__pycache__/unity.cpython-314.pyc": {
+      "sha256": "378838436e751358a15a635f1ac95416dfaf6a5b3a05047d608ca0ea15ce376e",
+      "bytes": 8494
+    },
+    "cs-unity-asset-audit/tpk_ar/__pycache__/string.cpython-314.pyc": {
+      "sha256": "36f0b95bf1790e0adaad184217a10599bc181e63b749d6703747ecf33cf1ed0c",
+      "bytes": 12059
+    },
+    "cs-unity-asset-audit/tpk_ar/__pycache__/file.cpython-314.pyc": {
+      "sha256": "3e718ed94d1c4d6c38c1ef2869e5a54a31fae9d9505dc70d852c2f222ecb616a",
+      "bytes": 4269
+    },
+    "cs-unity-asset-audit/tpk_ar/__pycache__/enums.cpython-314.pyc": {
+      "sha256": "dd388eba99239dee1299c26a34d18d78d7534364bab3fdf3910041ee52bf2397",
+      "bytes": 1259
+    },
+    "cs-unity-asset-audit/tpk_ar/__pycache__/blob.cpython-314.pyc": {
+      "sha256": "238f606667253c7160b153ed3c1cb0caff324ceff707d88690f9f85cd42aa1b2",
+      "bytes": 11435
+    },
+    "cs-unity-asset-audit/tpk_ar/__pycache__/__init__.cpython-314.pyc": {
+      "sha256": "e918308a4acf9495a72f1d00070b38108544088376d35fceaac02f5cf4be6712",
+      "bytes": 862
+    },
+    "cs-unity-asset-audit/brotli-1.2.0.dist-info/licenses/LICENSE": {
+      "sha256": "3d180008e36922a4e8daec11c34c7af264fed5962d07924aea928c38e8663c94",
+      "bytes": 1084
+    },
+    "cs-mine-wood-preview/WoodReview.fbx": {
+      "sha256": "5f6a532602da8142a6002416f314e67da30194f4997af557ef1f42b4a30a9bda",
+      "bytes": 3137308
+    },
+    "cs-mine-wood-preview/Surfaces/mine-display-lut.png": {
+      "sha256": "eb3d12b6f740f65dabbb6d976334d34b3bea32a045c22719ef30d190062ad95f",
+      "bytes": 212800
+    },
+    "cs-mine-wood-preview/Surfaces/mine-structure/spawn-wood-high.png": {
+      "sha256": "c7bf683ad41ff65ed51251daaa2db65b7c33394eeb145845196f8febbea0b957",
+      "bytes": 39416452
+    },
+    "cs-mine-wood-preview/Surfaces/mine-structure/spawn-emission.exr": {
+      "sha256": "0826718254b523fd17c02978e76211bbf53cc1404051cb759ad2921fce4d1335",
+      "bytes": 167089
+    },
+    "cs-mine-wood-preview/Surfaces/mine-structure/spawn-normal.png": {
+      "sha256": "32078a32149a9dac940f9b7146bd434395c7f61c74befc5fef5c3d0b908bcdbe",
+      "bytes": 43999463
+    },
+    "cs-mine-wood-preview/Surfaces/mine-structure/spawn-metallic-smoothness.png": {
+      "sha256": "7b1e00ac0d4345173cb03b5721ef49d65935f7339bc7262793da330d60b20e31",
+      "bytes": 2767565
+    },
+    "cs-mine-wood-preview/Surfaces/mine-structure/spawn-albedo.png": {
+      "sha256": "6fd7d8849dfef0b3d40c1d9cae96308eed61e12cac611684c6c626253520696e",
+      "bytes": 36044588
+    },
+    "cs-mine-wood-preview/Surfaces/source-wood/rough_wood_nor_gl_1k.jpg": {
+      "sha256": "3d1c6f098b66d93e52071b41834dd14a424d8cd2f7c4130c62dc062acfa65011",
+      "bytes": 790334
+    },
+    "cs-mine-wood-preview/Surfaces/source-wood/rough_wood_diff_1k.jpg": {
+      "sha256": "abc46d8e3163d911220f4ec3a4043b68d2b0c6d750513f80871211acfefb2a98",
+      "bytes": 567074
+    },
+    "cs-mine-cache-artifacts-final11-26/26356fe925e0fb75d459d0bc2c5d1c0e": {
+      "sha256": "2d8171bbede7a4497bad723a9617da13a709a06d80d7ad0a031dfa77c3c6669c",
+      "bytes": 134237088
+    },
+    "cs-mine-aov-final11-rejected-zero-aov-attempt2/provenance.json": {
+      "sha256": "85b9c2666eb2cceeac139198349f09e2dac0d3e851571d5acb51cef9503459e0",
+      "bytes": 1314
+    },
+    "cs-mine-aov-final11-rejected-zero-aov-attempt2/R39_04_SHED_FRONT-emission-context.exr": {
+      "sha256": "e3b2cad6dd3ffe0b76b44d142c7adbfd895da10b6c8a4cf0b38f534a903ba3d3",
+      "bytes": 10070388
+    },
+    "cs-mine-aov-final11-rejected-zero-aov-attempt2/R39_04_SHED_FRONT-original.exr": {
+      "sha256": "9dc9413f28431ec2c699ce81eea3138b67bf803598cc8f6da5105876ff04dfb0",
+      "bytes": 17422828
+    },
+    "cs-mine-aov-final11-rejected-zero-aov-attempt2/R39_02_TUNNEL-original.exr": {
+      "sha256": "1671ce0879755c57c1a28c43118ac726fe755b5422db039e8edd8e755cb0a211",
+      "bytes": 18245672
+    },
+    "cs-mine-aov-final11-rejected-zero-aov-attempt2/R39_01_PORTAL_APPROACH-original.exr": {
+      "sha256": "ce1b3795929252c67358e300a6b2a01888ae42d46b8e92c4674e0c9425841552",
+      "bytes": 15432224
+    },
+    "cs-mine-aov-final11/material-comparison-metrics.json": {
+      "sha256": "d7661d5e5ce5309fed12fe734c2f1d152f9a054d6c9bb9a001e5cb4061c7829a",
+      "bytes": 536
+    },
+    "cs-mine-aov-final11/wood-normal-context-comparison.png": {
+      "sha256": "e075e2d83a4541166781121c27534ff1a302d7ca339bd3f7849599155df8f184",
+      "bytes": 394626
+    },
+    "cs-mine-aov-final11/R39_04_SHED_FRONT-BaseColor-comparison.png": {
+      "sha256": "0d20fc8b3e179ac29b52153ffc05cb873afd2f506d44e13969d0e26cd6771f45",
+      "bytes": 616522
+    },
+    "cs-mine-aov-final11/R39_02_TUNNEL-BaseColor-comparison.png": {
+      "sha256": "28410a97e2f8eac073b992b47cd6d22312981c218cb84476a89ca1b001c4695f",
+      "bytes": 473241
+    },
+    "cs-mine-aov-final11/R39_01_PORTAL_APPROACH-BaseColor-comparison.png": {
+      "sha256": "5124327ce98eb43f53351e6258e8f2568ecaea4ae32c0b38be6eed03fc25d318",
+      "bytes": 441930
+    },
+    "cs-mine-aov-final11/provenance.json": {
+      "sha256": "239bc3ef89797493e68b70c824ba0b54da410b97ef0de32411575b753865758d",
+      "bytes": 1314
+    },
+    "cs-mine-aov-final11/R39_04_SHED_FRONT-emission-context.exr": {
+      "sha256": "e79bfa075d17570edec458ccf8d4d36acebc1e5b8463ded3e9f2f7e9c8f07c84",
+      "bytes": 15131659
+    },
+    "cs-mine-aov-final11/R39_04_SHED_FRONT-original.exr": {
+      "sha256": "0a6d3b2b0a14d7e1d34c73ada1f0b98e6c5b68c360dc4b8c47de47554e119788",
+      "bytes": 22514597
+    },
+    "cs-mine-aov-final11/R39_02_TUNNEL-original.exr": {
+      "sha256": "034b31746d446e5279c4a1bd8143aebee6548727515e9caecc218eed9f2ce04a",
+      "bytes": 21262560
+    },
+    "cs-mine-aov-final11/R39_01_PORTAL_APPROACH-original.exr": {
+      "sha256": "42538bb377f028991b0d4b1a8088aa013e3b412d341b9777ebf1424cf075e827",
+      "bytes": 17879344
+    },
+    "cs-mine-aov-no-volume-final11/material-comparison-metrics.json": {
+      "sha256": "11992613b5e52040d1eb1891af18758c0e008edc91aff3f9a6ee1086531c04b5",
+      "bytes": 2447
+    },
+    "cs-mine-aov-no-volume-final11/R39_04_SHED_FRONT-Roughness-comparison.png": {
+      "sha256": "a67b9c4ba1b32012d0520b2ad19b7cad39c4949b99b5d370c010a39074611884",
+      "bytes": 142859
+    },
+    "cs-mine-aov-no-volume-final11/R39_04_SHED_FRONT-BaseColor-comparison.png": {
+      "sha256": "48a7d89f5fbd9c077f721fe9a912731c5bdef3c60a71ba108d9a737b1dd62ae3",
+      "bytes": 616208
+    },
+    "cs-mine-aov-no-volume-final11/R39_02_TUNNEL-Roughness-comparison.png": {
+      "sha256": "e2a285ee971174169e6a8d01bdea18473e1dfc1433a8aa4c3632be2bb420fbd2",
+      "bytes": 211290
+    },
+    "cs-mine-aov-no-volume-final11/R39_02_TUNNEL-BaseColor-comparison.png": {
+      "sha256": "18db20a1c2920c93cc0c3023eb2a67e386317507062b229c121b60341e05b7c1",
+      "bytes": 473945
+    },
+    "cs-mine-aov-no-volume-final11/R39_01_PORTAL_APPROACH-Roughness-comparison.png": {
+      "sha256": "92e4935541337f1c829f60a66a0988f7156a5c4c114940b2ae7661337b4cf73c",
+      "bytes": 205464
+    },
+    "cs-mine-aov-no-volume-final11/R39_01_PORTAL_APPROACH-BaseColor-comparison.png": {
+      "sha256": "03004bbc8136289341b7c9cdb3b1ec0fcf5ec54c59267caae173c85dae343275",
+      "bytes": 442686
+    },
+    "cs-mine-aov-no-volume-final11/provenance.json": {
+      "sha256": "4b22379971100cbd0ca3fcd82ea61fc3023dd59726cd4fb1b30f3be5b3ed0765",
+      "bytes": 1191
+    },
+    "cs-mine-aov-no-volume-final11/R39_04_SHED_FRONT-original.exr": {
+      "sha256": "c91274c342e95e73c1544044e53d3eb089fd8220311978248c69c42e82d435d1",
+      "bytes": 22514597
+    },
+    "cs-mine-aov-no-volume-final11/R39_02_TUNNEL-original.exr": {
+      "sha256": "df2a9b4788f3272bb343508ec8b7e09ed1eb3373b8e3c6ecd6538f6f7e3869ab",
+      "bytes": 21262562
+    },
+    "cs-mine-aov-no-volume-final11/R39_01_PORTAL_APPROACH-original.exr": {
+      "sha256": "4efc5a924167464a907c86afa621c99af54b779141955d8cc83d5cad7b1ab0ed",
+      "bytes": 17879341
+    }
+  }
+}

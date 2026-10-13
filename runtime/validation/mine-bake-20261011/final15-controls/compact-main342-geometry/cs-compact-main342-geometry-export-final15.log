@@ -1,0 +1,135 @@
+00:00.594  blend            | Read blend: "/tmp/cs-compact-main342-final14/combined-runtime-source.blend"
+00:00.848  reports          | Read library: '/tmp/cs-compact-main342-final14/map/sections/facility-assembly/exteriors/refinery/exterior-R01.blend', '//map/sections/facility-assembly/exteriors/refinery/exterior-R01.blend', parent '<direct>'
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)
+00:00.866  reports          | Read library: '/tmp/cs-compact-main342-final14/map/sections/facility-assembly/exteriors/medical-reanimation/exterior-R04.blend', '//map/sections/facility-assembly/exteriors/medical-reanimation/exterior-R04.blend', parent '<direct>'
+00:00.898  reports          | Read library: '/tmp/cs-compact-main342-final14/map/sections/facility-assembly/exteriors/spawn-room/exterior-R05.blend', '//map/sections/facility-assembly/exteriors/spawn-room/exterior-R05.blend', parent '<direct>'
+00:00.945  reports          | Read library: '/tmp/cs-compact-main342-final14/map/sections/facility-assembly/sources/front-end-area/front_end_area.blend', '//map/sections/facility-assembly/sources/front-end-area/front_end_area.blend', parent '<direct>'
+00:01.707  reports          | Read library: '/tmp/cs-compact-main342-final14/map/sections/fuel-corridor/production/checkpoints/fuel_full_F23ci.blend', '//map/sections/fuel-corridor/production/checkpoints/fuel_full_F23ci.blend', parent '<direct>'
+00:02.718  reports          | Read library: '/tmp/cs-compact-main342-final14/map/sections/facility-assembly/sources/electrical-room/overhaul/checkpoints/full-R11.blend', '//map/sections/facility-assembly/sources/electrical-room/overhaul/checkpoints/full-R11.blend', parent '<direct>'
+00:04.075  reports          | Read library: '/tmp/cs-compact-main342-final14/map/sections/facility-assembly/sources/spawn-room/module.blend', '//map/sections/facility-assembly/sources/spawn-room/module.blend', parent '<direct>'
+00:05.328  reports          | Read library: '/tmp/cs-compact-main342-final14/map/sections/facility-assembly/sources/condenser-bay/module_aaa_A1.blend', '//map/sections/facility-assembly/sources/condenser-bay/module_aaa_A1.blend', parent '<direct>'
+00:05.910  reports          | Read library: '/tmp/cs-compact-main342-final14/map/sections/facility-assembly/sources/waste-storage/module_aaa_A1.blend', '//map/sections/facility-assembly/sources/waste-storage/module_aaa_A1.blend', parent '<direct>'
+00:06.900  reports          | Read library: '/tmp/cs-compact-main342-final14/map/sections/facility-assembly/sources/cooling-plant/module_aaa_A1.blend', '//map/sections/facility-assembly/sources/cooling-plant/module_aaa_A1.blend', parent '<direct>'
+00:07.421  reports          | Read library: '/tmp/cs-compact-main342-final14/map/sections/facility-assembly/sources/refinery/module_overhaul_R1.blend', '//map/sections/facility-assembly/sources/refinery/module_overhaul_R1.blend', parent '<direct>'
+00:08.531  reports          | Read library: '/tmp/cs-compact-main342-final14/map/sections/facility-assembly/sources/turbine-room/module_overhaul_R1.blend', '//map/sections/facility-assembly/sources/turbine-room/module_overhaul_R1.blend', parent '<direct>'
+00:09.944  reports          | Read library: '/tmp/cs-compact-main342-final14/map/sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend', '//map/sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend', parent '<direct>'
+00:11.611  reports          | Read library: '/tmp/cs-compact-main342-final14/map/sections/facility-assembly/sources/medical-reanimation/module_overhaul_R2.blend', '//map/sections/facility-assembly/sources/medical-reanimation/module_overhaul_R2.blend', parent '<direct>'
+00:13.180  reports          | Read library: '/tmp/cs-compact-main342-final14/map/sections/facility-assembly/sources/mine-r39/module_r39_aaa.blend', '//map/sections/facility-assembly/sources/mine-r39/module_r39_aaa.blend', parent '<direct>'
+00:14.041  reports          | Read library: '/tmp/cs-compact-main342-final14/map/sections/reactor-room/blender/reactorroom.blend', '//map/sections/reactor-room/blender/reactorroom.blend', parent '<direct>'
+00:16.176  reports          | Read library: '/tmp/cs-compact-main342-final14/map/sections/facility-assembly/sources/spawn-room/hero_suit.blend', '//hero_suit.blend', parent '/tmp/cs-compact-main342-final14/map/sections/facility-assembly/sources/spawn-room/module.blend'
+
+FBX export starting... '/tmp/cs-compact-main342-geometry-final15/Room-front-end-area.fbx'
+export finished in 53.5616 sec.
+
+FBX export starting... '/tmp/cs-compact-main342-geometry-final15/Collision-front-end-area.fbx'
+export finished in 1.6418 sec.
+RUNTIME ROOM front-end-area 2105 objects 550304 collision triangles
+
+FBX export starting... '/tmp/cs-compact-main342-geometry-final15/Room-spawn-room.fbx'
+export finished in 41.6950 sec.
+
+FBX export starting... '/tmp/cs-compact-main342-geometry-final15/Collision-spawn-room.fbx'
+export finished in 0.6883 sec.
+RUNTIME ROOM spawn-room 2145 objects 279370 collision triangles
+
+FBX export starting... '/tmp/cs-compact-main342-geometry-final15/Room-mine.fbx'
+export finished in 17.8367 sec.
+
+FBX export starting... '/tmp/cs-compact-main342-geometry-final15/Collision-mine.fbx'
+export finished in 15.9105 sec.
+RUNTIME ROOM mine 247 objects 3287462 collision triangles
+
+FBX export starting... '/tmp/cs-compact-main342-geometry-final15/Room-refinery.fbx'
+export finished in 98.5401 sec.
+
+FBX export starting... '/tmp/cs-compact-main342-geometry-final15/Collision-refinery.fbx'
+export finished in 2.5447 sec.
+RUNTIME ROOM refinery 3157 objects 389324 collision triangles
+
+FBX export starting... '/tmp/cs-compact-main342-geometry-final15/Room-medical-reanimation.fbx'
+export finished in 48.9830 sec.
+
+FBX export starting... '/tmp/cs-compact-main342-geometry-final15/Collision-medical-reanimation.fbx'
+export finished in 2.1478 sec.
+RUNTIME ROOM medical-reanimation 1486 objects 505672 collision triangles
+
+FBX export starting... '/tmp/cs-compact-main342-geometry-final15/Room-fuel-corridor.fbx'
+export finished in 18.5568 sec.
+
+FBX export starting... '/tmp/cs-compact-main342-geometry-final15/Collision-fuel-corridor.fbx'
+export finished in 9.8087 sec.
+RUNTIME ROOM fuel-corridor 520 objects 2059090 collision triangles
+
+FBX export starting... '/tmp/cs-compact-main342-geometry-final15/Room-reactor-room.fbx'
+export finished in 53.9665 sec.
+
+FBX export starting... '/tmp/cs-compact-main342-geometry-final15/Collision-reactor-room.fbx'
+export finished in 3.9010 sec.
+RUNTIME ROOM reactor-room 1799 objects 1111999 collision triangles
+
+FBX export starting... '/tmp/cs-compact-main342-geometry-final15/Room-turbine-room.fbx'
+export finished in 56.8010 sec.
+
+FBX export starting... '/tmp/cs-compact-main342-geometry-final15/Collision-turbine-room.fbx'
+export finished in 1.4531 sec.
+RUNTIME ROOM turbine-room 1661 objects 346953 collision triangles
+
+FBX export starting... '/tmp/cs-compact-main342-geometry-final15/Room-electrical-room.fbx'
+export finished in 136.5764 sec.
+
+FBX export starting... '/tmp/cs-compact-main342-geometry-final15/Collision-electrical-room.fbx'
+export finished in 2.3402 sec.
+RUNTIME ROOM electrical-room 3177 objects 570355 collision triangles
+
+FBX export starting... '/tmp/cs-compact-main342-geometry-final15/Room-condenser-bay.fbx'
+export finished in 104.9205 sec.
+
+FBX export starting... '/tmp/cs-compact-main342-geometry-final15/Collision-condenser-bay.fbx'
+export finished in 2.2211 sec.
+RUNTIME ROOM condenser-bay 2728 objects 385794 collision triangles
+
+FBX export starting... '/tmp/cs-compact-main342-geometry-final15/Room-waste-storage.fbx'
+export finished in 94.1051 sec.
+
+FBX export starting... '/tmp/cs-compact-main342-geometry-final15/Collision-waste-storage.fbx'
+export finished in 1.8141 sec.
+RUNTIME ROOM waste-storage 2345 objects 348952 collision triangles
+
+FBX export starting... '/tmp/cs-compact-main342-geometry-final15/Room-cooling-plant.fbx'
+export finished in 79.4993 sec.
+
+FBX export starting... '/tmp/cs-compact-main342-geometry-final15/Collision-cooling-plant.fbx'
+export finished in 2.0492 sec.
+RUNTIME ROOM cooling-plant 1658 objects 314581 collision triangles
+
+FBX export starting... '/tmp/cs-compact-main342-geometry-final15/Room-compliance-dock.fbx'
+export finished in 51.9438 sec.
+
+FBX export starting... '/tmp/cs-compact-main342-geometry-final15/Collision-compliance-dock.fbx'
+export finished in 1.4261 sec.
+RUNTIME ROOM compliance-dock 1337 objects 373828 collision triangles
+/workspace/critical-shift-spawn-runtime/runtime/tools/export_spawn_map.py:168: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  if material is None or not material.use_nodes: return False
+
+FBX export starting... '/tmp/cs-compact-main342-geometry-final15/Room-assembly-context.fbx'
+export finished in 8.6404 sec.
+
+FBX export starting... '/tmp/cs-compact-main342-geometry-final15/Collision-assembly-context.fbx'
+export finished in 0.1741 sec.
+RUNTIME ROOM assembly-context 202 objects 29206 collision triangles
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+
+Blender quit

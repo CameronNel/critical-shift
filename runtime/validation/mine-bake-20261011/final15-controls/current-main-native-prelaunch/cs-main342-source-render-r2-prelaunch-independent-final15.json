@@ -1,0 +1,15 @@
+{
+  "status": "ClearedMechanicalSourceRendererR2PathAndR6GateDelta_NotRenderSuccess",
+  "helperSha256": "50eb57d5615af3b5e4f0d24ecebd2f542da6394c1bd114c8a2875ec6a9c754cf",
+  "wrapperSha256": "28d7594e0d4ab0cc2d64bee328add1bc33a128a973e2e95ac1bf498235c549c4",
+  "priorReviewedReferencesUnchanged": true,
+  "delta": [
+    "New owned helper/state/log/output paths",
+    "Completed R6 prerequisite replaces failed R5"
+  ],
+  "limitations": [
+    "Actual64sample current13+connectors Reference only",
+    "Run after R6 heavy process exits; Unity cache should remain released until Source references finish",
+    "No renderer/native/visual score inferred"
+  ]
+}

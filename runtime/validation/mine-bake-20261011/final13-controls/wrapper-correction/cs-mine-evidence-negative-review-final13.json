@@ -1,0 +1,92 @@
+{
+  "status": "RevisedEvidenceGuardsBoundedFixturesPassed",
+  "helperSha256": "3b1c8fc13dfc8164303815018606dd278317aad038b1466ae6ab4a41f51a5b5e",
+  "checks": [
+    {
+      "fixture": "canonical63with19MixedFallbacks",
+      "result": "AcceptedExpected"
+    },
+    {
+      "fixture": "duplicateIdentity",
+      "result": "RejectedExpected"
+    },
+    {
+      "fixture": "missingPoint",
+      "result": "RejectedExpected"
+    },
+    {
+      "fixture": "nonBakedOutput",
+      "result": "RejectedExpected"
+    },
+    {
+      "fixture": "unexpectedActualMode",
+      "result": "RejectedExpected"
+    },
+    {
+      "fixture": "negativeIntensity",
+      "result": "RejectedExpected"
+    },
+    {
+      "fixture": "nonfiniteRadius",
+      "result": "RejectedExpected"
+    },
+    {
+      "fixture": "configuredModeDrift",
+      "result": "RejectedExpected"
+    },
+    {
+      "fixture": "lyingModeTotals",
+      "result": "RejectedExpected"
+    },
+    {
+      "fixture": "currentSyntheticProof",
+      "result": "AcceptedExpected"
+    },
+    {
+      "fixture": "staleSourceProof",
+      "result": "RejectedExpected"
+    },
+    {
+      "fixture": "spawnWrongDimensions",
+      "result": "RejectedExpected"
+    },
+    {
+      "fixture": "spawnExtraFile",
+      "result": "RejectedExpected"
+    },
+    {
+      "fixture": "mineMissingOutputs",
+      "result": "RejectedExpected"
+    },
+    {
+      "fixture": "ownedPriorOutput",
+      "result": "RejectedExpected"
+    },
+    {
+      "fixture": "danglingOwnedSymlink",
+      "result": "RejectedExpected"
+    },
+    {
+      "fixture": "exact18PassedXML",
+      "result": "AcceptedExpected"
+    },
+    {
+      "fixture": "missingTest",
+      "result": "RejectedExpected"
+    },
+    {
+      "fixture": "duplicateTest",
+      "result": "RejectedExpected"
+    },
+    {
+      "fixture": "failedCaseHiddenByRoot",
+      "result": "RejectedExpected"
+    }
+  ],
+  "limits": [
+    "Synthetic receipt guard exercise only; no actual source13/native tests/captures implied",
+    "No production or recipe files changed",
+    "Comparison panels reviewed by code inspection; actual panels pending",
+    "Full13 visual score and Player remain pending"
+  ]
+}

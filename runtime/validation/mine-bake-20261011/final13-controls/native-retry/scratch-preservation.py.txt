@@ -1,0 +1,38 @@
+from pathlib import Path
+import hashlib, json, os, shutil, subprocess, tarfile
+root=Path('/workspace/critical-shift-spawn-runtime')
+audit=root/'runtime/out/mine-bake-audit'
+failed=audit/'final13-failed-native-oom'
+scratch=Path('/tmp/cs-mine-unity-temp-7a23f4034b674855992572cc8e7c9068')
+archive=Path('/tmp/cs-mine-failed-native-scratch-final13.tar.zst')
+temp=root/'runtime/unity/Temp'
+assert temp.is_symlink() and temp.resolve()==scratch
+assert scratch.is_dir() and not archive.exists()
+def digest(p):
+ h=hashlib.sha256()
+ with p.open('rb') as f:
+  for b in iter(lambda:f.read(1024*1024),b''):h.update(b)
+ return h.hexdigest()
+files={str(p.relative_to(scratch)):{'bytes':p.stat().st_size,'sha256':digest(p)} for p in sorted(scratch.rglob('*')) if p.is_file() and not p.is_symlink()}
+links={str(p.relative_to(scratch)):os.readlink(p) for p in scratch.rglob('*') if p.is_symlink()}
+assert files
+subprocess.run(['tar','-I','zstd -T1 -3','-cf',str(archive),'-C',str(scratch),'.'],check=True)
+p=subprocess.Popen(['zstd','-dc',str(archive)],stdout=subprocess.PIPE)
+actual={};actual_links={}
+with tarfile.open(fileobj=p.stdout,mode='r|') as tar:
+ for m in tar:
+  name=m.name.removeprefix('./')
+  if m.isfile():
+   f=tar.extractfile(m);h=hashlib.sha256();size=0
+   for b in iter(lambda:f.read(1024*1024),b''):h.update(b);size+=len(b)
+   actual[name]={'bytes':size,'sha256':h.hexdigest()}
+  elif m.issym():actual_links[name]=m.linkname
+assert p.wait()==0 and actual==files and actual_links==links
+receipt={'status':'FailedNativeScratchLosslesslyArchivedAndVerifiedBeforeRelease','archive':str(archive),'archiveBytes':archive.stat().st_size,'archiveSha256':digest(archive),'rawBytes':sum(v['bytes'] for v in files.values()),'files':files,'links':links,'sourceRebakeRequired':False,'nativePass':False}
+(failed/'scratch-preservation.json').write_text(json.dumps(receipt,indent=2)+'\n')
+pre=audit/'final13-pre-bake-generated-receipts'
+assert pre.is_dir() and not (failed/pre.name).exists()
+shutil.move(pre,failed/pre.name)
+temp.unlink()
+shutil.rmtree(scratch)
+print(json.dumps({k:v for k,v in receipt.items() if k not in ['files','links']},indent=2),flush=True)

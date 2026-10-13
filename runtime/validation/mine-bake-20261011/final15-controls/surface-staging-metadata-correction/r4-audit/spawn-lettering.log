@@ -1,0 +1,36 @@
+00:00.777  blend            | Read blend: "/tmp/cs-compact-main342-final14/map/sections/facility-assembly/sources/spawn-room/module.blend"
+00:00.918  reports          | Read library: '/tmp/cs-compact-main342-final14/map/sections/facility-assembly/sources/spawn-room/hero_suit.blend', '//hero_suit.blend', parent '<direct>'
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)
+CS_SURFACE_COMPATIBLE_BATCHES lettering 1
+CS_SURFACE_BAKE_START lettering albedo 69 2048
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE lettering albedo
+CS_SURFACE_BAKE_START lettering metallic-smoothness 69 2048
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE lettering metallic-smoothness
+CS_SURFACE_BAKE_START lettering normal 69 2048
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE lettering normal
+CS_SURFACE_BAKE_START lettering emission 69 2048
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE lettering emission
+Traceback (most recent call last):
+  File "/workspace/critical-shift-spawn-runtime/runtime/tools/export_spawn_floor.py", line 100, in <module>
+    if __name__=="__main__":main()
+                            ~~~~^^
+  File "/workspace/critical-shift-spawn-runtime/runtime/tools/export_spawn_floor.py", line 68, in main
+    if not asset.name.endswith(".meta"):meta(asset)
+                                        ~~~~^^^^^^^
+  File "/workspace/critical-shift-spawn-runtime/runtime/tools/prepare_player.py", line 28, in meta
+    guid = uuid.uuid5(uuid.NAMESPACE_URL, "critical-shift:" + (identity_path or path).relative_to(ROOT).as_posix()).hex
+                                                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/agent/.local/share/critical-shift/toolchain/blender-5.2.2-linux-x64/5.2/python/lib/python3.13/pathlib/_local.py", line 385, in relative_to
+    raise ValueError(f"{str(self)!r} is not in the subpath of {str(other)!r}")
+ValueError: '/tmp/cs-compact-main342-geometry-final15/Surfaces/lettering' is not in the subpath of '/workspace/critical-shift-spawn-runtime/runtime'
+
+FBX export starting... '/tmp/cs-compact-main342-geometry-final15/Surfaces/lettering/Lettering.fbx'
+export finished in 0.3475 sec.
+
+Error: script failed, file: '/workspace/critical-shift-spawn-runtime/runtime/tools/export_spawn_floor.py', exiting.
+
+Blender quit

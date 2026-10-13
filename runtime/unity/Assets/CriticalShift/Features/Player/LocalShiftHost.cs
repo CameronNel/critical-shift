@@ -214,19 +214,19 @@ namespace CriticalShift.Features.Player.Unity
                 return PlayerAccess.Allowed;
             }
             if (request.Action == PlayerAction.Drop || request.Action == PlayerAction.Unequip)
-                return ClearItem(worker, target, worker.DropPoint) ? PlayerAccess.Allowed : PlayerAccess.PlacementBlocked;
+                return ClearItem(worker, target, worker.DropPoint, target.transform.rotation) ? PlayerAccess.Allowed : PlayerAccess.PlacementBlocked;
             if (request.Action == PlayerAction.Equip) return PlayerAccess.Allowed;
             if (!InReach(worker, target.Shape)) return PlayerAccess.OutOfReach;
             if (request.Action == PlayerAction.Sit && !worker.CanSitAt(target.Attachment.position)) return PlayerAccess.PlacementBlocked;
             if (request.Action == PlayerAction.Place)
             {
                 var item = Target(request.ItemId);
-                if (item == null || !ClearItem(worker, item, target.Attachment.position)) return PlayerAccess.PlacementBlocked;
+                if (item == null || !ClearItem(worker, item, target.Attachment.position, target.Attachment.rotation)) return PlayerAccess.PlacementBlocked;
             }
             if (request.Action == PlayerAction.PickUp || request.Action == PlayerAction.Take)
             {
                 var item = request.Action == PlayerAction.Take ? Target(request.ItemId) : target;
-                if (item == null || !ClearItem(worker, item, worker.CarryAnchor.position)) return PlayerAccess.PlacementBlocked;
+                if (item == null || !ClearItem(worker, item, worker.CarryAnchor.position, worker.CarryAnchor.rotation)) return PlayerAccess.PlacementBlocked;
             }
             return PlayerAccess.Allowed;
         }
@@ -246,9 +246,20 @@ namespace CriticalShift.Features.Player.Unity
                 Vector3.Dot(worker.transform.forward, station.StationPose.forward) >= Mathf.Cos(35 * Mathf.Deg2Rad);
         }
         private static bool IsAvailable(InteractionTarget target) => target != null && target.isActiveAndEnabled && target.Shape != null;
-        private bool ClearItem(FirstPersonWorker worker, InteractionTarget item, Vector3 point)
+        private bool ClearItem(FirstPersonWorker worker, InteractionTarget item, Vector3 point, Quaternion rotation)
         {
-            int count = Physics.OverlapSphereNonAlloc(point, item.Radius + 0.02f, _overlap, ~0, QueryTriggerInteraction.Ignore);
+            int count;
+            if (item.Shape is BoxCollider box && box.transform == item.transform)
+            {
+                // Query the collider at its future root pose. A bounding sphere can
+                // overlap a tabletop even when an upright slender object fits above it.
+                var scale = item.transform.lossyScale;
+                var absoluteScale = new Vector3(Mathf.Abs(scale.x), Mathf.Abs(scale.y), Mathf.Abs(scale.z));
+                var centre = point + rotation * Vector3.Scale(box.center, scale);
+                var extents = Vector3.Scale(box.size * 0.5f, absoluteScale) + Vector3.one * 0.02f;
+                count = Physics.OverlapBoxNonAlloc(centre, extents, _overlap, rotation, ~0, QueryTriggerInteraction.Ignore);
+            }
+            else count = Physics.OverlapSphereNonAlloc(point, item.Radius + 0.02f, _overlap, ~0, QueryTriggerInteraction.Ignore);
             if (count == _overlap.Length) return false;
             for (int i = 0; i < count; i++)
                 if (_overlap[i] != item.Shape && !_overlap[i].transform.IsChildOf(worker.transform)) return false;
@@ -296,7 +307,7 @@ namespace CriticalShift.Features.Player.Unity
                     var former = target.GetComponentInParent<FirstPersonWorker>();
                     if (former != null)
                     {
-                        if (!ClearItem(former, target, former.DropPoint)) throw new InvalidOperationException("Lost item lease has no clear drop pose.");
+                        if (!ClearItem(former, target, former.DropPoint, target.transform.rotation)) throw new InvalidOperationException("Lost item lease has no clear drop pose.");
                         target.transform.position = former.DropPoint;
                     }
                 }

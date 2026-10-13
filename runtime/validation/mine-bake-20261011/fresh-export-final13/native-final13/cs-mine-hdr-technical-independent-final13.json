@@ -1,0 +1,82 @@
+{
+  "status": "CurrentFull13IndependentTechnicalEvidencePassed",
+  "preparedScene": {
+    "mapBindingsSha256": "dcd7f11119192381cd5c34df7076e840b0d27098dc68d28d424f09485ff5ad8e",
+    "rigBindingsSha256": "b89037e3c376c6e7958a3a1a1713664559baec579b861c8c5702ad03cc4a90a6",
+    "sceneSha256": "451f65f87a9947487b8b26ece16aed52b98b55fa55a4060563552511f5493e7a",
+    "sourceSha256": "516d88d25e8fa59c08b6fc11c2b75a60538cc640eedeb133c21443074418a657",
+    "lightmaps": 3
+  },
+  "preparedSceneFileSha256": "1361ca11b4dad769dc93cb4b9c1e35312bbdd943e7a89e4216a91818c6253a15",
+  "views": [
+    {
+      "view": "R39_01_PORTAL_APPROACH",
+      "pngSha256": "af45bc39766936ce42d46301dfc4a2b4d34c6c42a39a2c02d0268e435763c2f9",
+      "hdrSha256": "19769f7fb2de1a669f54aec53092f7cf7cd3297be85cdea27b86cf9b28d53b02",
+      "sourcePngSha256": "0caace86a451e4349dee9d42b7bdb02a8901f3da8f1276b979f907c3561179be",
+      "metadataSha256": "26e9eb2b39484a2d583d51f0705f900f03544e987f9d06db0e998df2d9ab442b",
+      "RGBNonfinitePixels": 0,
+      "cameraVerified": true,
+      "unalteredComparisonHalvesVerified": true,
+      "meanLinearRGB": [
+        0.15617561764580765,
+        0.13878710856326487,
+        0.1316247510901858
+      ]
+    },
+    {
+      "view": "R39_02_TUNNEL",
+      "pngSha256": "95f99947110d0befd31ed76d20be112655cb44159dd500a543d561f1f6bc2dde",
+      "hdrSha256": "ffc199128c9fcfd392c0c56310aa64fb806b2d935aa0f32c6b1ba8268d012b96",
+      "sourcePngSha256": "d233660db90911511901bd0781e4837afd2076a5d82d7f70f421e1a2ad17be19",
+      "metadataSha256": "9b2c4ddd855b4d1546b39a11f9492ca97608a96552ccfdcbd8e03d9142f253fd",
+      "RGBNonfinitePixels": 0,
+      "cameraVerified": true,
+      "unalteredComparisonHalvesVerified": true,
+      "meanLinearRGB": [
+        0.11899787186595147,
+        0.06269892107802653,
+        0.03186982536512147
+      ]
+    },
+    {
+      "view": "R39_04_SHED_FRONT",
+      "pngSha256": "fb8355dcc09a0762b8dc77522c9ece8976ebcbe56bbe41efbfce09d7116c1634",
+      "hdrSha256": "84f349565ef5710f2716cf3a071ea954d07d5bd2a401c67204d4fd3c543e593d",
+      "sourcePngSha256": "34c68642df399f90c37df2ca2f65828ba131116cdcd9592096f708bf17cbc211",
+      "metadataSha256": "ad31cda9fef8922b262a1e9c537d501a53ef23e2ae27cac82042463a59328dde",
+      "RGBNonfinitePixels": 0,
+      "cameraVerified": true,
+      "unalteredComparisonHalvesVerified": true,
+      "meanLinearRGB": [
+        0.2104127198093876,
+        0.14538863405769253,
+        0.09408045168194425
+      ]
+    }
+  ],
+  "source13PreservedMetadataMatchesPreBakeIndependentCheck": true,
+  "native18": {
+    "status": "Passed",
+    "exactInventory": true,
+    "total": 18,
+    "failed": 0,
+    "skipped": 0,
+    "durationSeconds": 123.2007777,
+    "xmlSha256": "796accc45f64e3e52e61f79ea081a0187ec5df67aaa32146c00f21b88662a11d"
+  },
+  "actualPointInventory": {
+    "configuredMixed": 24,
+    "configuredBaked": 39,
+    "actualMixed": 5,
+    "actualBaked": 58,
+    "sha256": "e087e8a377b97a6093e518e95b32b4184809f5636ce478fcab411a3c2b88dc84",
+    "limits": "Only actual5Mixed provide runtime pointdirect;58Baked includes19fallback. Restoringintensity doesnotmake58realtime."
+  },
+  "overallScore": null,
+  "limits": [
+    "Technical/HDR/source preservation/panel integrity only; no artscore from thesechecks",
+    "Current six-room snapshot, notexpandedClaude assembly",
+    "Playerheld/unbuilt; actorSourceSHfieldnotadopted; no targethardwareperformanceclaim"
+  ]
+}

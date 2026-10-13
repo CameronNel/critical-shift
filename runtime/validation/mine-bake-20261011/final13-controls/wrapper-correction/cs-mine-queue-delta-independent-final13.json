@@ -1,0 +1,16 @@
+{
+  "status": "QueueOnlyDeltaCleared",
+  "queueSha256": "0e899e7437d620f8fc2769734af11ab9de27eedb0dec21bab8afb807aa8dcd35",
+  "launchRecipeSha256": "558cdd787e503b8cb9b93294e3e2e6943e160c2565f283ef38b0aa2658ac7008",
+  "allFiveCurrentHashesMatchQueuedPins": true,
+  "otherFourReviewedHelpersUnchanged": true,
+  "malformedStatePolicy": "Only JSONDecodeError retried twice with2seconds; third consecutive malformed read fails. Valid read resets counter; sourceFailed still fails.",
+  "helperFreezePolicy": "Pins five external helpers at queue start, verifies before native launch and after successful complete receipt before technical-success state.",
+  "observedNativeState": {
+    "state": "WaitingForFreshSource",
+    "pid": 162238
+  },
+  "remaining": "No native evidence or visualscore from queued launch recipe; wait for actual current full13captures/tests and independent art review.",
+  "overallScore": null,
+  "productionRecipeModifiedByReviewer": false
+}

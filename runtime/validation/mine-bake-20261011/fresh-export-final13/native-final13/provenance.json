@@ -1,0 +1,212 @@
+{
+  "status": "TechnicalPassedVisualRejected41of60",
+  "productionCommit": "7dc4452cb40f092c8b518203fbc0296e2487c0b5",
+  "visualSubtotal": 41,
+  "visualMaximum": 60,
+  "overallScore": null,
+  "preparedScene": {
+    "mapBindingsSha256": "dcd7f11119192381cd5c34df7076e840b0d27098dc68d28d424f09485ff5ad8e",
+    "rigBindingsSha256": "b89037e3c376c6e7958a3a1a1713664559baec579b861c8c5702ad03cc4a90a6",
+    "sceneSha256": "451f65f87a9947487b8b26ece16aed52b98b55fa55a4060563552511f5493e7a",
+    "sourceSha256": "516d88d25e8fa59c08b6fc11c2b75a60538cc640eedeb133c21443074418a657",
+    "lightmaps": 3
+  },
+  "sourceReferences": [
+    {
+      "file": "R39_01_PORTAL_APPROACH.png",
+      "sha256": "0caace86a451e4349dee9d42b7bdb02a8901f3da8f1276b979f907c3561179be"
+    },
+    {
+      "file": "R39_02_TUNNEL.png",
+      "sha256": "d233660db90911511901bd0781e4837afd2076a5d82d7f70f421e1a2ad17be19"
+    },
+    {
+      "file": "R39_04_SHED_FRONT.png",
+      "sha256": "34c68642df399f90c37df2ca2f65828ba131116cdcd9592096f708bf17cbc211"
+    }
+  ],
+  "files": [
+    {
+      "file": "after-bake-source-wood-final13-wrapper.log",
+      "bytes": 591,
+      "sha256": "01f29f0c7c6ee45e32140347d5faa028069c92c523736ed3178c9088457494eb"
+    },
+    {
+      "file": "cameras.json",
+      "bytes": 1220,
+      "sha256": "ba0394fa764f3b59d459e6e796c2c1dbf80ab9f82aad791eb67814c0f1b28f8f"
+    },
+    {
+      "file": "comparison-source-wood-final13/R39_01_PORTAL_APPROACH.png",
+      "bytes": 3080606,
+      "sha256": "7c0dc155c1d255a173f66b78db80f4d31287d47ea7eb3c3fecd4152ebee97b83"
+    },
+    {
+      "file": "comparison-source-wood-final13/R39_02_TUNNEL.png",
+      "bytes": 2714983,
+      "sha256": "abd6fb7c4c7c346013574c09f09ff54db76806f6b645f7261b1ed95415bc8303"
+    },
+    {
+      "file": "comparison-source-wood-final13/R39_04_SHED_FRONT.png",
+      "bytes": 3328886,
+      "sha256": "a144db566e4995afea9016a348bdec9bb62510cda5c861c4498cc62233c21767"
+    },
+    {
+      "file": "comparisons-source-wood-final13.json",
+      "bytes": 1555,
+      "sha256": "b0b005d16e9e6924e677a667a5d03871ae91d53ac0a5a8183d459d34a2f2549a"
+    },
+    {
+      "file": "cs-mine-freeze-native-final13.py",
+      "bytes": 3814,
+      "sha256": "66cf10e8563f354ae0fc37b4005005f0174d02749585ee7492686997c1516509"
+    },
+    {
+      "file": "cs-mine-hdr-technical-independent-final13.json",
+      "bytes": 3437,
+      "sha256": "1ed8b68e81dfd3e2361eec6fff376a6c9f01b19043d217327b6c234818938a57"
+    },
+    {
+      "file": "cs-mine-spawn-independent-review-final13.json",
+      "bytes": 2627,
+      "sha256": "cf82f9e1425aeb85a0b6a487c086205823f37f07edce6b3806631f29045c6f79"
+    },
+    {
+      "file": "cs-mine-strict-visual-review-final13.json",
+      "bytes": 7666,
+      "sha256": "b03b4c1b3e0ae9dce78f4d1fa00e5a99efd61a2547c91a642529e2190850b4ff"
+    },
+    {
+      "file": "fresh-mine-receipt-final13.json",
+      "bytes": 2225,
+      "sha256": "efb8939bc27a863143fd571284eeb53b09ccd7e3bd9799cbc35f73169a10fecf"
+    },
+    {
+      "file": "fresh-spawn-receipt-final13.json",
+      "bytes": 1588,
+      "sha256": "ca04d946111e9ec7d67f0bdd74965e230ca25d39e6e255c3fbd035f2095523ab"
+    },
+    {
+      "file": "fresh-technical-receipt-final13.json",
+      "bytes": 6745,
+      "sha256": "5d977c866eea2ec24ae250004d85f7445bb3893dfd8b9063a2c72fd0eae516c8"
+    },
+    {
+      "file": "full-native-final13-state.json",
+      "bytes": 84,
+      "sha256": "60d8d889cf0a571d659a2ff123bed2ebeacb08e61fea4c57a7eee90683f613bb"
+    },
+    {
+      "file": "mine-point-bake-output.json",
+      "bytes": 23809,
+      "sha256": "e087e8a377b97a6093e518e95b32b4184809f5636ce478fcab411a3c2b88dc84"
+    },
+    {
+      "file": "native-bake-source-wood-final13-wrapper.log",
+      "bytes": 157,
+      "sha256": "6898f0bfd5406efcc3974ad94db03af39f596b7e524e1cceb7d3dae8e3340831"
+    },
+    {
+      "file": "native-bake-source-wood-final13.log",
+      "bytes": 540632,
+      "sha256": "b6dcd19b1d5c9c975d07b5cf988966d40aa577ae28edafc0d1020c9b20d8ace2"
+    },
+    {
+      "file": "native-launch-recipe-final13.json",
+      "bytes": 627,
+      "sha256": "558cdd787e503b8cb9b93294e3e2e6943e160c2565f283ef38b0aa2658ac7008"
+    },
+    {
+      "file": "native-mine-render-source-wood-final13.log",
+      "bytes": 34753,
+      "sha256": "291726b6d23d4122e04e6348fade784cd909c7f6374ada99479b15b72ac133b6"
+    },
+    {
+      "file": "native-playmode-source-wood-final13.log",
+      "bytes": 37958,
+      "sha256": "2dbbea1f9a2aa6ba68e440d91de9958f37a114fe038a10f3bf6664b1e1c214a1"
+    },
+    {
+      "file": "native-playmode-source-wood-final13.xml",
+      "bytes": 16400,
+      "sha256": "796accc45f64e3e52e61f79ea081a0187ec5df67aaa32146c00f21b88662a11d"
+    },
+    {
+      "file": "native-resource-final13-retry.jsonl",
+      "bytes": 190572,
+      "sha256": "3d835836fd18646da186abbb7f073f548ec9514e5bcefa78c00f48175858f79b"
+    },
+    {
+      "file": "prepared-scene.json",
+      "bytes": 383,
+      "sha256": "1361ca11b4dad769dc93cb4b9c1e35312bbdd943e7a89e4216a91818c6253a15"
+    },
+    {
+      "file": "unity-source-wood-final13/R39_01_PORTAL_APPROACH-linear.exr",
+      "bytes": 18675691,
+      "sha256": "19769f7fb2de1a669f54aec53092f7cf7cd3297be85cdea27b86cf9b28d53b02"
+    },
+    {
+      "file": "unity-source-wood-final13/R39_01_PORTAL_APPROACH-linear.json",
+      "bytes": 1162,
+      "sha256": "26e9eb2b39484a2d583d51f0705f900f03544e987f9d06db0e998df2d9ab442b"
+    },
+    {
+      "file": "unity-source-wood-final13/R39_01_PORTAL_APPROACH.png",
+      "bytes": 1530489,
+      "sha256": "af45bc39766936ce42d46301dfc4a2b4d34c6c42a39a2c02d0268e435763c2f9"
+    },
+    {
+      "file": "unity-source-wood-final13/R39_02_TUNNEL-linear.exr",
+      "bytes": 18675691,
+      "sha256": "ffc199128c9fcfd392c0c56310aa64fb806b2d935aa0f32c6b1ba8268d012b96"
+    },
+    {
+      "file": "unity-source-wood-final13/R39_02_TUNNEL-linear.json",
+      "bytes": 1169,
+      "sha256": "9b2c4ddd855b4d1546b39a11f9492ca97608a96552ccfdcbd8e03d9142f253fd"
+    },
+    {
+      "file": "unity-source-wood-final13/R39_02_TUNNEL.png",
+      "bytes": 1490953,
+      "sha256": "95f99947110d0befd31ed76d20be112655cb44159dd500a543d561f1f6bc2dde"
+    },
+    {
+      "file": "unity-source-wood-final13/R39_04_SHED_FRONT-linear.exr",
+      "bytes": 18675691,
+      "sha256": "84f349565ef5710f2716cf3a071ea954d07d5bd2a401c67204d4fd3c543e593d"
+    },
+    {
+      "file": "unity-source-wood-final13/R39_04_SHED_FRONT-linear.json",
+      "bytes": 1147,
+      "sha256": "ad31cda9fef8922b262a1e9c537d501a53ef23e2ae27cac82042463a59328dde"
+    },
+    {
+      "file": "unity-source-wood-final13/R39_04_SHED_FRONT.png",
+      "bytes": 1859169,
+      "sha256": "fb8355dcc09a0762b8dc77522c9ece8976ebcbe56bbe41efbfce09d7116c1634"
+    },
+    {
+      "file": "unity-spawn-source-wood-final13/VALIDATE_BriefingDoor.png",
+      "bytes": 1044210,
+      "sha256": "9d4b82e6ac6b81adb3c4bb56cd52da96e766ee30640084f581d4e27615c27754"
+    },
+    {
+      "file": "unity-spawn-source-wood-final13/VALIDATE_LockerDoor.png",
+      "bytes": 1225478,
+      "sha256": "5a78437d248a10cd90dac2dee141147b7664d118300434ec81f8701aa012cc10"
+    },
+    {
+      "file": "unity-spawn-source-wood-final13/VALIDATE_Spawn.png",
+      "bytes": 1185874,
+      "sha256": "de753e728dae543898017535ba1eadf2a8bc8c5e9a60f8cffffd86459d1c431c"
+    }
+  ],
+  "limits": [
+    "All three untouched comparison panels and full-resolution finite HDR preserved",
+    "Three spawn views independently cleared and exact18 gameplay cases passed123.2007777 seconds",
+    "Actual63points5Mixed58Baked; no freshPlayer or target-hardware performance pass",
+    "SourcePNG images referenced by exact hashes; existing canonical validation refs retained",
+    "Initial exit137 preserved separately; no98 acceptance or assembly edits"
+  ]
+}

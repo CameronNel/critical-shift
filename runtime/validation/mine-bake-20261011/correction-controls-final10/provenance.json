@@ -1,0 +1,35 @@
+{
+  "status": "Controlled checks passed; full-room final10 acceptance pending",
+  "graphicsDevice": "llvmpipe (LLVM 19.1.7, 256 bits)",
+  "graphicsVersion": "OpenGL 4.5 Core Mesa 25.0.7-2+deb13u1",
+  "files": {
+    "sun-radiometry-final10.json": "d250f8559200ea7e5ad8a425b35df4320c44a06e4d391cd62c3268b7db8a762c",
+    "sun-radiometry-native-source-energy.exr": "9f1075a93321d34d861e1bb43701cb72547a2992b142c228fbeab4e152002e71",
+    "floor-production-density-preflight-final10.json": "63570792659d4b645ae2fb9bf8dc4d03e2467a10f83fcc24f53ca5233e07d9e8",
+    "native-sun-method.cs.txt": "95462e0a77474580b434aae3717b99771275864e05e810883d1c171205132f5c",
+    "source-light-cliff-contract-final10.json": "a6da5fb58312c8ce924d7108741cdc23b5a248181ab28f38c4c62c766291438c",
+    "blender-sun-helper.py.txt": "b099ffe63fc48feae5318b5ad74a265a078d803816c5990c0bc9ea5064966350",
+    "sun-radiometry-native-baked-energy-over-pi.exr": "d0ec121f50db87aa2559d1d3deee5397f664babb8e086d6e89eb6267c2da4102",
+    "sun-radiometry-blender.exr": "c043179263d0e68066238fbae9376df56ea0c97ed6b7ff1be51cd455c7c32c49",
+    "sun-radiometry-native-energy-over-pi.exr": "c3bd75863f4983d25b535c3803ee60bc730bac54b2b6d85e54d06a1a53a5be35",
+    "floor-density-helper.py.txt": "84d1a2b24d33ee92c37130a0d7d5370cfb3dd81418fd396efecbe03feec8e43f",
+    "README.md": "4c3c15c9debe8bb91edd8a841561930a8cad287c3d0279750e3ef007f2d38246",
+    "nonfinite-counts.json": "3e3451986f3e46fdaa0451d421fd552ccb330b195fe83e7b62fd2cd721ebe903",
+    "native-sampler-helper.cs.txt": "bd94e50c993e1f5a56fb22f3d83f3e084b0ac74cc5623da9946c0e9019f9f47c"
+  },
+  "samplerRawFiles": "runtime/out/mine-bake-audit/wood-production-sampler-final10",
+  "samplerResolution": [
+    640,
+    360
+  ],
+  "sourceScene": "runtime/out/spawn-export-source/combined-runtime-source.blend",
+  "sourceSceneSha256": "255fe337aacd602e81bd2940be7bf2a1da2541954f6c8446c8a06f5aae413b72",
+  "limitations": [
+    "Sampler controls use the rejected final9 lighting; native full-resolution HDR audits remain required.",
+    "The SUN flat plane checks direct radiometry, not full scene fidelity.",
+    "Floor density is area-weighted and does not prove visual sharpness or UV overlap coverage.",
+    "Native SUN method is a retained method body from the temporary diagnostic helper; wrap it in a temporary editor class and make its entry public to reproduce.",
+    "Helpers contain task-local absolute paths and must be adapted for another checkout.",
+    "Native sampler helper whitespace is normalized; retained source-light/cliff contract is an explicitly labelled extraction with the raw report SHA."
+  ]
+}

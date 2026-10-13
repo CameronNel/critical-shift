@@ -1,0 +1,568 @@
+{
+  "utc": "2026-10-13T01:29:16.718115+00:00",
+  "reviewer": "/root/strict_mine_review",
+  "status": "PassedIndependentIsolatedMain342GeometryDeliveryAndRecordedBoundsRoundtrip_NotUnityAccepted",
+  "stateSha256": "e877a7c325d955d837b27785fa23e5b28c7fd01f1079652ba1debd74d1807037",
+  "initialManifestSha256": "79d26548b4726d87b8d92f0b9e0025e546b493de7faf660298b0e8ca7715de7b",
+  "initialRoundtripSha256": "52387148d8f6d019df9991789331a833b758ee55ca700f09725cb885c9f20603",
+  "mapCommit": "342af0003fec9dbe80b5acb40d1477c23b5a3169",
+  "snapshotSha256": "b1905627f2f6e4ba90198a99bc47238a3c3fdeb61277ffcc3ab72a3dff5a4192",
+  "exportToolPinChecks": 14,
+  "allDeliveredGeometryFileChecks": [
+    {
+      "path": "map-roundtrip.json",
+      "bytes": 439,
+      "sha256": "52387148d8f6d019df9991789331a833b758ee55ca700f09725cb885c9f20603"
+    },
+    {
+      "path": "map-bindings.json",
+      "bytes": 5958408,
+      "sha256": "79d26548b4726d87b8d92f0b9e0025e546b493de7faf660298b0e8ca7715de7b"
+    },
+    {
+      "path": "Collision-assembly-context.fbx",
+      "bytes": 533372,
+      "sha256": "b51c6e575c410d31c6f4f1cff10d38bbf730dd4a8f01dcdb551b38ef5b99a38e"
+    },
+    {
+      "path": "Room-assembly-context.fbx",
+      "bytes": 1227836,
+      "sha256": "e10ef584481106d1303baa6e656301611b0d1b37facfa48af31f183ad16fb72a"
+    },
+    {
+      "path": "Collision-compliance-dock.fbx",
+      "bytes": 6560188,
+      "sha256": "b21ec686cda55e3591e6cbe63802d06fb4a474b3d56938e7e6bbb7525b5b8994"
+    },
+    {
+      "path": "Room-compliance-dock.fbx",
+      "bytes": 18313516,
+      "sha256": "d8e49f79da9d32ba10be51595892383bebffadb73b26042a3fe529591c5c33da"
+    },
+    {
+      "path": "Collision-cooling-plant.fbx",
+      "bytes": 5496380,
+      "sha256": "8a718dd69f0893fdfa62804ee91b88b14650afc2089bd2e0074320738f328568"
+    },
+    {
+      "path": "Room-cooling-plant.fbx",
+      "bytes": 11297356,
+      "sha256": "f52004b1065635fff3a37d83a3571466e122626292a156aee81bec7ed739c08c"
+    },
+    {
+      "path": "Collision-waste-storage.fbx",
+      "bytes": 6157356,
+      "sha256": "889a96d3f0c9c50643b3e3fdb4ab8785fb7cfcba7479c70e49f0dc581d32c6a5"
+    },
+    {
+      "path": "Room-waste-storage.fbx",
+      "bytes": 13687964,
+      "sha256": "682984079619191287629cacdb7768731ef23fcd23a888bc6cbbc58cb85fb86a"
+    },
+    {
+      "path": "Collision-condenser-bay.fbx",
+      "bytes": 6720684,
+      "sha256": "d1a8a1282cebb87876027f1388d91abd564eeb8da72006e17c395c5cba221f82"
+    },
+    {
+      "path": "Room-condenser-bay.fbx",
+      "bytes": 19066412,
+      "sha256": "8eac6502d90cdba339b89ae878fa2531cd8b0e61a933ba843eff48edb78a7130"
+    },
+    {
+      "path": "Collision-electrical-room.fbx",
+      "bytes": 10346748,
+      "sha256": "bd71e3e444c0d954911f9c940beaa53008e615096c4561e202feb0d049a34558"
+    },
+    {
+      "path": "Room-electrical-room.fbx",
+      "bytes": 20283548,
+      "sha256": "5e6f66f04f3d007eacb9d5acd6b8dc918507e598dac148c94c36e66724029e25"
+    },
+    {
+      "path": "Collision-turbine-room.fbx",
+      "bytes": 6124332,
+      "sha256": "43d6d07f8463fd2d58c3cdb5e09e5921650e924c4042d5c16703f2f6bf2fb339"
+    },
+    {
+      "path": "Room-turbine-room.fbx",
+      "bytes": 15805772,
+      "sha256": "87502c07a3fdec7a699e34e0b662e054774c234a135e3c4d37db425ede3aebd0"
+    },
+    {
+      "path": "Collision-reactor-room.fbx",
+      "bytes": 19929404,
+      "sha256": "7a2c77d17057553d80f10f49e935b5b713c38730cc4ab2bf580a1741ac8c08eb"
+    },
+    {
+      "path": "Room-reactor-room.fbx",
+      "bytes": 42109004,
+      "sha256": "3923feab6e9a9460fd4ba0c9cfffe26379ba2ed082f0a1837c5bbd68275e1cf7"
+    },
+    {
+      "path": "Collision-fuel-corridor.fbx",
+      "bytes": 38429628,
+      "sha256": "34d17562205d0949b06e02ed5b92082c31aa28312eefc2424b34e247561894dd"
+    },
+    {
+      "path": "Room-fuel-corridor.fbx",
+      "bytes": 58601532,
+      "sha256": "4b7bc5f592c062b72cd2d58db0e5bff13bbc1a3137e9440c1f81286144f30c9c"
+    },
+    {
+      "path": "Collision-medical-reanimation.fbx",
+      "bytes": 8227676,
+      "sha256": "776e47b5b9c125ed0339c96ea488bc54ccfe5c42d4dc015fabc49e5124372d1b"
+    },
+    {
+      "path": "Room-medical-reanimation.fbx",
+      "bytes": 17473020,
+      "sha256": "27b618e66c433f58f191dc1aa2961b7ec326d27b812df1fe18aad3e272656737"
+    },
+    {
+      "path": "Collision-refinery.fbx",
+      "bytes": 7617948,
+      "sha256": "476024ad5b6566c8ae68fc09e92ee21332a746cd0a4c664aa023407e4d0eeb1e"
+    },
+    {
+      "path": "Room-refinery.fbx",
+      "bytes": 14160252,
+      "sha256": "dbb6a61a6f9c4b64f810692527d7b42c12a7d6e44d2ca82f163f0fe6f8328e5b"
+    },
+    {
+      "path": "Collision-mine.fbx",
+      "bytes": 90131420,
+      "sha256": "5980f3e7f413b4f3f220947b7380f543b97ed090cd797389b2a01043f4d4d19e"
+    },
+    {
+      "path": "Room-mine.fbx",
+      "bytes": 118359548,
+      "sha256": "141bda0c9a9ec80dbb03e922f96f74e72fec34f7b7471d846a5ca2c31057aa45"
+    },
+    {
+      "path": "Collision-spawn-room.fbx",
+      "bytes": 5419660,
+      "sha256": "494d25b527df1b4395863c41416a7521e22978a2bcd1c4c50b902c3b91bb6eee"
+    },
+    {
+      "path": "Room-spawn-room.fbx",
+      "bytes": 13003596,
+      "sha256": "53c5984bf2acc77340f43bcfaada6c29f43b4baed27fa0806156c487d04730d3"
+    },
+    {
+      "path": "Collision-front-end-area.fbx",
+      "bytes": 9738220,
+      "sha256": "f12d5ba22393fdf5c6a76ac7b22c702e5b3379117bf0b027ae61131d74ee9c05"
+    },
+    {
+      "path": "Room-front-end-area.fbx",
+      "bytes": 21040108,
+      "sha256": "6d3908d58e40f3a0a7abd7e814bb059d4bcccccbcee682cdb9d3514f442e5b39"
+    }
+  ],
+  "sourcePinChecks": 34,
+  "canonicalRooms": [
+    {
+      "key": "front-end-area",
+      "translation": [
+        8.0,
+        -80.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "meshSha256": "6d3908d58e40f3a0a7abd7e814bb059d4bcccccbcee682cdb9d3514f442e5b39",
+      "collisionSha256": "f12d5ba22393fdf5c6a76ac7b22c702e5b3379117bf0b027ae61131d74ee9c05",
+      "collisionTriangles": 550304,
+      "collisionBounds": [
+        [
+          -178.0,
+          82.0
+        ],
+        [
+          -120.0,
+          140.0
+        ],
+        [
+          -1.100536823272705,
+          16.62462043762207
+        ]
+      ]
+    },
+    {
+      "key": "spawn-room",
+      "translation": [
+        8.0,
+        -92.38,
+        0.0
+      ],
+      "yaw": 0.0,
+      "meshSha256": "53c5984bf2acc77340f43bcfaada6c29f43b4baed27fa0806156c487d04730d3",
+      "collisionSha256": "494d25b527df1b4395863c41416a7521e22978a2bcd1c4c50b902c3b91bb6eee",
+      "collisionTriangles": 279370,
+      "collisionBounds": [
+        [
+          -7.562000274658203,
+          8.362000465393066
+        ],
+        [
+          -0.949999988079071,
+          12.579999923706055
+        ],
+        [
+          -0.17000000178813934,
+          3.9700000286102295
+        ]
+      ]
+    },
+    {
+      "key": "mine",
+      "translation": [
+        -14.4,
+        -41.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "meshSha256": "141bda0c9a9ec80dbb03e922f96f74e72fec34f7b7471d846a5ca2c31057aa45",
+      "collisionSha256": "5980f3e7f413b4f3f220947b7380f543b97ed090cd797389b2a01043f4d4d19e",
+      "collisionTriangles": 3287462,
+      "collisionBounds": [
+        [
+          -93.81999969482422,
+          -6.9110822677612305
+        ],
+        [
+          -82.00000762939453,
+          21.0
+        ],
+        [
+          -3.499999761581421,
+          31.459712982177734
+        ]
+      ]
+    },
+    {
+      "key": "refinery",
+      "translation": [
+        -26.28,
+        -52.2,
+        0.0
+      ],
+      "yaw": 90.0,
+      "meshSha256": "dbb6a61a6f9c4b64f810692527d7b42c12a7d6e44d2ca82f163f0fe6f8328e5b",
+      "collisionSha256": "476024ad5b6566c8ae68fc09e92ee21332a746cd0a4c664aa023407e4d0eeb1e",
+      "collisionTriangles": 389324,
+      "collisionBounds": [
+        [
+          -9.016663551330566,
+          8.606663703918457
+        ],
+        [
+          -7.005499839782715,
+          6.840000152587891
+        ],
+        [
+          -0.25999999046325684,
+          5.039999961853027
+        ]
+      ]
+    },
+    {
+      "key": "medical-reanimation",
+      "translation": [
+        26.0,
+        -70.0,
+        0.0
+      ],
+      "yaw": -90.0,
+      "meshSha256": "27b618e66c433f58f191dc1aa2961b7ec326d27b812df1fe18aad3e272656737",
+      "collisionSha256": "776e47b5b9c125ed0339c96ea488bc54ccfe5c42d4dc015fabc49e5124372d1b",
+      "collisionTriangles": 505672,
+      "collisionBounds": [
+        [
+          -4.28100061416626,
+          4.28100061416626
+        ],
+        [
+          -0.4699999988079071,
+          11.380000114440918
+        ],
+        [
+          -0.23999999463558197,
+          3.7699999809265137
+        ]
+      ]
+    },
+    {
+      "key": "fuel-corridor",
+      "translation": [
+        -22.2,
+        -43.6,
+        0.0
+      ],
+      "yaw": 0.0,
+      "meshSha256": "4b7bc5f592c062b72cd2d58db0e5bff13bbc1a3137e9440c1f81286144f30c9c",
+      "collisionSha256": "34d17562205d0949b06e02ed5b92082c31aa28312eefc2424b34e247561894dd",
+      "collisionTriangles": 2059090,
+      "collisionBounds": [
+        [
+          -5.740000247955322,
+          17.34000015258789
+        ],
+        [
+          -0.026000000536441803,
+          24.025999069213867
+        ],
+        [
+          -0.23999999463558197,
+          6.118000030517578
+        ]
+      ]
+    },
+    {
+      "key": "reactor-room",
+      "translation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "yaw": 0.0,
+      "meshSha256": "3923feab6e9a9460fd4ba0c9cfffe26379ba2ed082f0a1837c5bbd68275e1cf7",
+      "collisionSha256": "7a2c77d17057553d80f10f49e935b5b713c38730cc4ab2bf580a1741ac8c08eb",
+      "collisionTriangles": 1111999,
+      "collisionBounds": [
+        [
+          -14.520000457763672,
+          13.005306243896484
+        ],
+        [
+          -13.00405216217041,
+          14.530000686645508
+        ],
+        [
+          -6.659999847412109,
+          17.93000030517578
+        ]
+      ]
+    },
+    {
+      "key": "turbine-room",
+      "translation": [
+        0.0,
+        14.5,
+        0.0
+      ],
+      "yaw": 0.0,
+      "meshSha256": "87502c07a3fdec7a699e34e0b662e054774c234a135e3c4d37db425ede3aebd0",
+      "collisionSha256": "43d6d07f8463fd2d58c3cdb5e09e5921650e924c4042d5c16703f2f6bf2fb339",
+      "collisionTriangles": 346953,
+      "collisionBounds": [
+        [
+          -4.519999980926514,
+          10.25
+        ],
+        [
+          -0.3605000078678131,
+          25.400001525878906
+        ],
+        [
+          -0.3400000035762787,
+          7.440000057220459
+        ]
+      ]
+    },
+    {
+      "key": "electrical-room",
+      "translation": [
+        0.0,
+        39.95,
+        0.0
+      ],
+      "yaw": 0.0,
+      "meshSha256": "5e6f66f04f3d007eacb9d5acd6b8dc918507e598dac148c94c36e66724029e25",
+      "collisionSha256": "bd71e3e444c0d954911f9c940beaa53008e615096c4561e202feb0d049a34558",
+      "collisionTriangles": 570355,
+      "collisionBounds": [
+        [
+          -5.75,
+          8.550000190734863
+        ],
+        [
+          -0.2500001788139343,
+          16.969999313354492
+        ],
+        [
+          -0.23999999463558197,
+          5.0
+        ]
+      ]
+    },
+    {
+      "key": "condenser-bay",
+      "translation": [
+        1.6,
+        21.9,
+        -6.0
+      ],
+      "yaw": 0.0,
+      "meshSha256": "8eac6502d90cdba339b89ae878fa2531cd8b0e61a933ba843eff48edb78a7130",
+      "collisionSha256": "d1a8a1282cebb87876027f1388d91abd564eeb8da72006e17c395c5cba221f82",
+      "collisionTriangles": 385794,
+      "collisionBounds": [
+        [
+          -2.0999999046325684,
+          9.880000114440918
+        ],
+        [
+          -2.559999942779541,
+          9.680000305175781
+        ],
+        [
+          -0.3199999928474426,
+          7.199999809265137
+        ]
+      ]
+    },
+    {
+      "key": "waste-storage",
+      "translation": [
+        16.19232177734375,
+        -16.19232177734375,
+        0.0
+      ],
+      "yaw": -135.0,
+      "meshSha256": "682984079619191287629cacdb7768731ef23fcd23a888bc6cbbc58cb85fb86a",
+      "collisionSha256": "889a96d3f0c9c50643b3e3fdb4ab8785fb7cfcba7479c70e49f0dc581d32c6a5",
+      "collisionTriangles": 348952,
+      "collisionBounds": [
+        [
+          -6.320000171661377,
+          7.550217628479004
+        ],
+        [
+          -0.3199999928474426,
+          18.322500228881836
+        ],
+        [
+          -0.30000001192092896,
+          5.099999904632568
+        ]
+      ]
+    },
+    {
+      "key": "cooling-plant",
+      "translation": [
+        -14.5,
+        0.0,
+        0.0
+      ],
+      "yaw": 90.0,
+      "meshSha256": "f52004b1065635fff3a37d83a3571466e122626292a156aee81bec7ed739c08c",
+      "collisionSha256": "8a718dd69f0893fdfa62804ee91b88b14650afc2089bd2e0074320738f328568",
+      "collisionTriangles": 314581,
+      "collisionBounds": [
+        [
+          -5.800000190734863,
+          5.800000190734863
+        ],
+        [
+          -1.4901161193847656e-08,
+          13.300000190734863
+        ],
+        [
+          -0.3199999928474426,
+          6.079999923706055
+        ]
+      ]
+    },
+    {
+      "key": "compliance-dock",
+      "translation": [
+        38.0,
+        -54.0,
+        0.0
+      ],
+      "yaw": -90.0,
+      "meshSha256": "d8e49f79da9d32ba10be51595892383bebffadb73b26042a3fe529591c5c33da",
+      "collisionSha256": "b21ec686cda55e3591e6cbe63802d06fb4a474b3d56938e7e6bbb7525b5b8994",
+      "collisionTriangles": 373828,
+      "collisionBounds": [
+        [
+          -7.099999904632568,
+          7.208348274230957
+        ],
+        [
+          -2.0,
+          16.079999923706055
+        ],
+        [
+          -0.20000000298023224,
+          4.440000057220459
+        ]
+      ]
+    }
+  ],
+  "assemblyContext": {
+    "objects": 202,
+    "lights": 6,
+    "collisionTriangles": 29206,
+    "meshSha256": "e10ef584481106d1303baa6e656301611b0d1b37facfa48af31f183ad16fb72a",
+    "collisionSha256": "b51c6e575c410d31c6f4f1cff10d38bbf730dd4a8f01dcdb551b38ef5b99a38e",
+    "unsupportedPureVolumes": [
+      {
+        "source": "waste-storage haze volume",
+        "node": "CS_assembly-context_waste-storage haze volume",
+        "visible": false,
+        "dynamic": false,
+        "sourceShadowExcluded": false,
+        "sourceVisible": true,
+        "unsupported": "Pure volume closure; no connector haze adapter"
+      },
+      {
+        "source": "service haze volume",
+        "node": "CS_assembly-context_service haze volume",
+        "visible": false,
+        "dynamic": false,
+        "sourceShadowExcluded": false,
+        "sourceVisible": true,
+        "unsupported": "Pure volume closure; no connector haze adapter"
+      }
+    ],
+    "moonExcludedAndDeclaredOnce": true
+  },
+  "boundsRoundtrip": {
+    "status": "Passed",
+    "rooms": 14,
+    "checkedRooms": [
+      "front-end-area",
+      "spawn-room",
+      "mine",
+      "refinery",
+      "medical-reanimation",
+      "fuel-corridor",
+      "reactor-room",
+      "turbine-room",
+      "electrical-room",
+      "condenser-bay",
+      "waste-storage",
+      "cooling-plant",
+      "compliance-dock",
+      "assembly-context"
+    ],
+    "unchangedRoomsReused": 0,
+    "scaleToleranceMetres": 0.002,
+    "nativeUnity": false
+  },
+  "frozenReceiptDirectory": "/tmp/cs-main342-geometry-independent-final15",
+  "conclusions": [
+    "Actual13 sourceROOMs plus202 assembly-local objects and identityplacement pseudo-room exported, matching sourcebuildreceipt/configinventory.",
+    "Both pure-volume-only hallmeshes visiblefalse/sourcevisibletrue with explicitunsupported reason; Sourcehaze nottransferred.",
+    "All14 collision FBXs were reimported by source exporter and bounding extents passed2mm-scale guard; this verifies bounding scale, not every triangle/capsule navigation.",
+    "Alldeclared28 mesh/collisionFBX bytes plus initialmanifest/roundtrip match completed geometryreceipt; all34source pins remain unchanged."
+  ],
+  "limits": [
+    "GenericSpawn mesh/materialbindings are initial geometry only; freshsurfacepasses mayreplaceSpawn/Mine mesh and manifest, so frozeninitialreceipt remains historical.",
+    "Native Unity import/axis/material/collision/capsule paths and freshlighting/fullviews/gameplay/Player/performance nottestedhere.",
+    "Otherroom/assembly materials/lights preview; no current-main visual1:1claim.",
+    "Oldfullvisual41/60 remains rejected, overall98unset."
+  ]
+}

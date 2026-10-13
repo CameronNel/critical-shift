@@ -1,0 +1,189 @@
+{
+  "status": "PassedActualNativeFogToggleEvidenceOnly",
+  "provenanceSha256": "40e65a2ce9f516ab61651ae23a3d645643f2704b92cb5a14b3473839991bdd04",
+  "preparedScene": {
+    "mapBindingsSha256": "dcd7f11119192381cd5c34df7076e840b0d27098dc68d28d424f09485ff5ad8e",
+    "rigBindingsSha256": "b89037e3c376c6e7958a3a1a1713664559baec579b861c8c5702ad03cc4a90a6",
+    "sceneSha256": "451f65f87a9947487b8b26ece16aed52b98b55fa55a4060563552511f5493e7a",
+    "sourceSha256": "516d88d25e8fa59c08b6fc11c2b75a60538cc640eedeb133c21443074418a657",
+    "lightmaps": 3
+  },
+  "preparedInputs": {
+    "prepared-scene.json": "1361ca11b4dad769dc93cb4b9c1e35312bbdd943e7a89e4216a91818c6253a15",
+    "map-bindings.json": "dcd7f11119192381cd5c34df7076e840b0d27098dc68d28d424f09485ff5ad8e",
+    "rig-bindings.json": "b89037e3c376c6e7958a3a1a1713664559baec579b861c8c5702ad03cc4a90a6",
+    "AssembledMap.unity": "451f65f87a9947487b8b26ece16aed52b98b55fa55a4060563552511f5493e7a",
+    "mine-point-bake-output.json": "e087e8a377b97a6093e518e95b32b4184809f5636ce478fcab411a3c2b88dc84"
+  },
+  "helperSha256": {
+    "cs-mine-fog-split-final13.cs.txt": "fc88338ca4816f2357cec4508943b831fd87f629e0c7d3bf91946a330067f5eb",
+    "cs-mine-fog-split-final13.asmdef.txt": "0609fcf3791b5efb6dc9444de0ba9446d168ff252d575b085fda0dfe894889b5",
+    "cs-mine-fog-split-final13.py": "971ccd44098ec3539a881854427f8af6374109da46c219386c00bbcfdcc23c5c"
+  },
+  "frames": [
+    {
+      "file": "R39_01_PORTAL_APPROACH-no-volume.exr",
+      "sha256": "aa5e19e43c34460c30b1c73cab83a68237a6b7d14b64902a449ce5492f2e17c8",
+      "metadataSha256": "49c58bf9d1b27bc0d3c3e06993ed7eeb4a9dc9a7e654d76d7cc41cfdf27119fd",
+      "shape": [
+        360,
+        640,
+        3
+      ],
+      "nonfiniteRgbPixels": 0,
+      "meanRgb": [
+        0.15419249606706822,
+        0.13729264358084442,
+        0.13066070069119126
+      ],
+      "cameraPoseAndProofVerified": true
+    },
+    {
+      "file": "R39_01_PORTAL_APPROACH-with-volume.exr",
+      "sha256": "6ba62a6db96fb803e3f28e33a646f1ff8495c81c0908ee9a0b042973bb73b77d",
+      "metadataSha256": "17794a8e039f6ab7be5d44b7bee19153e34bb8f26ce7960208d7057fd1b1116f",
+      "shape": [
+        360,
+        640,
+        3
+      ],
+      "nonfiniteRgbPixels": 0,
+      "meanRgb": [
+        0.15384018019255666,
+        0.13710930021919518,
+        0.13063333364824453
+      ],
+      "cameraPoseAndProofVerified": true
+    },
+    {
+      "file": "R39_02_TUNNEL-no-volume.exr",
+      "sha256": "2c1007b2a02d73ca0c8c0b53865c01da020999ac7b33369aa80c50b41c3e47dd",
+      "metadataSha256": "b9d6264d9842f0e6a31435b74d1faa7fd18607565458b695dcf996c75291fc20",
+      "shape": [
+        360,
+        640,
+        3
+      ],
+      "nonfiniteRgbPixels": 0,
+      "meanRgb": [
+        0.10419846470985147,
+        0.04958696426099373,
+        0.0189799033695211
+      ],
+      "cameraPoseAndProofVerified": true
+    },
+    {
+      "file": "R39_02_TUNNEL-with-volume.exr",
+      "sha256": "f92ab8b8a83bc3986421ddf438a717be200fb102ddb9dc5823f607bb57162461",
+      "metadataSha256": "639cb81fd46c15f9f590d5ee0c0290e9d445f36f6e8b7d1a067291bfd7ac7f0d",
+      "shape": [
+        360,
+        640,
+        3
+      ],
+      "nonfiniteRgbPixels": 0,
+      "meanRgb": [
+        0.11880014816919962,
+        0.06268466376596027,
+        0.03188747791780366
+      ],
+      "cameraPoseAndProofVerified": true
+    },
+    {
+      "file": "R39_04_SHED_FRONT-no-volume.exr",
+      "sha256": "d35e5b813add04ed74272847796fdc4351f455706e381a8983e6074f69a3a0be",
+      "metadataSha256": "e57cca923cadfe2123478cac38cf180083c94cc2348c04574395c1ac23a630b9",
+      "shape": [
+        360,
+        640,
+        3
+      ],
+      "nonfiniteRgbPixels": 0,
+      "meanRgb": [
+        0.2100559347681701,
+        0.1454075277493232,
+        0.09400991477900081
+      ],
+      "cameraPoseAndProofVerified": true
+    },
+    {
+      "file": "R39_04_SHED_FRONT-with-volume.exr",
+      "sha256": "6d544024e10ea09471791adaece6f48752bb7df6d9142c04e24380eaecad06ce",
+      "metadataSha256": "b7cc922e613bff846c4914cda87b17cafae36b0cd5779090e5cdfbc8e3386b8c",
+      "shape": [
+        360,
+        640,
+        3
+      ],
+      "nonfiniteRgbPixels": 0,
+      "meanRgb": [
+        0.21062787925617563,
+        0.1456572757102549,
+        0.09431730781474876
+      ],
+      "cameraPoseAndProofVerified": true
+    }
+  ],
+  "pairs": [
+    {
+      "camera": "R39_01_PORTAL_APPROACH",
+      "onMinusOffMeanRgb": [
+        -0.00035231587451158296,
+        -0.00018334336164924835,
+        -2.7367042946732705e-05
+      ],
+      "meanAbsoluteRgbDifference": [
+        0.0007068607208525969,
+        0.00043020968014995255,
+        0.0002740982410291003
+      ],
+      "onMinusOffMeanLuminance": -0.00020800542767345905,
+      "pixelsMaxRgbDifferenceAbove1eMinus4": 26475,
+      "negativeRgbPixelsOff": 0,
+      "negativeRgbPixelsOn": 0
+    },
+    {
+      "camera": "R39_02_TUNNEL",
+      "onMinusOffMeanRgb": [
+        0.014601683459348149,
+        0.013097699504966536,
+        0.012907574548282556
+      ],
+      "meanAbsoluteRgbDifference": [
+        0.018540828335616325,
+        0.015072730404014389,
+        0.013363795916860302
+      ],
+      "onMinusOffMeanLuminance": 0.013403719471795483,
+      "pixelsMaxRgbDifferenceAbove1eMinus4": 230400,
+      "negativeRgbPixelsOff": 0,
+      "negativeRgbPixelsOn": 0
+    },
+    {
+      "camera": "R39_04_SHED_FRONT",
+      "onMinusOffMeanRgb": [
+        0.0005719444880055057,
+        0.00024974796093172496,
+        0.00030739303574793867
+      ],
+      "meanAbsoluteRgbDifference": [
+        0.002304482234434949,
+        0.0015815855521294805,
+        0.0014499757387157943
+      ],
+      "onMinusOffMeanLuminance": 0.0003224089169893414,
+      "pixelsMaxRgbDifferenceAbove1eMinus4": 74386,
+      "negativeRgbPixelsOff": 0,
+      "negativeRgbPixelsOn": 0
+    }
+  ],
+  "historicalSourceToggle": "Rejected; copy/user_remap failed actual linked material users. Genuine Source toggle pending.",
+  "limits": [
+    "Six actual current640x360 pre-LUT native HDR captures, not hero1440 quality acceptance",
+    "On/off measures existing postprocess contribution; does not prove Source scattering match or omitted Mixed direct as root cause",
+    "Shared exposure1 previews are diagnostic, unaltered strict hero comparisons remain separate",
+    "No Unity/Blender launched or source/production edits by reviewer",
+    "Current full13 quality remains rejected41/60; overall score null; Player held"
+  ],
+  "overallScore": null
+}

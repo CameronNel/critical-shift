@@ -1,0 +1,57 @@
+{
+  "status": "ExactVerifiedArchiveReleaseEvidence",
+  "files": [
+    {
+      "original": "/tmp/cs-unity65-preserved-final15.json",
+      "stored": "cs-unity65-preserved-final15.json",
+      "sha256": "8e845564d870f854307419a60fa0b037b4b58d88b3b0c18f985e3d05e1c797a7"
+    },
+    {
+      "original": "/tmp/cs-unity65-preserve-final15.py",
+      "stored": "cs-unity65-preserve-final15.py",
+      "sha256": "29e0629b91e585a3f490e49a4239b5bfa86f770a7efbaa12133431c10e108b2f"
+    },
+    {
+      "original": "/tmp/cs-unity65-archive-independent-final15.json",
+      "stored": "cs-unity65-archive-independent-final15.json",
+      "sha256": "59d1878466700fbfcfb5db31f36101307f7b40a68ee289eab08b23749875b85f"
+    },
+    {
+      "original": "/tmp/cs-unity65-common-final15-r2.py",
+      "stored": "cs-unity65-common-final15-r2.py",
+      "sha256": "19f9103f9bc85ea5e9e5b95fea0d1a537ffdb20e5cdf9af6c61f24a29e11e19c"
+    },
+    {
+      "original": "/tmp/cs-unity65-release-final15-r2.py",
+      "stored": "cs-unity65-release-final15-r2.py",
+      "sha256": "d0b3ea8cf1118050c94a04383ca30ebfc0a22750ce3fb0c781b3e40ac5ea8633"
+    },
+    {
+      "original": "/tmp/cs-unity65-restore-final15-r2.py",
+      "stored": "cs-unity65-restore-final15-r2.py",
+      "sha256": "ea5f3ca3231bd4a566afbe86b05dd01210224aba0aec1c2ce0c267b88057f11e"
+    },
+    {
+      "original": "/tmp/cs-unity65-release-restore-cleared-independent-final15-r2.json",
+      "stored": "cs-unity65-release-restore-cleared-independent-final15-r2.json",
+      "sha256": "85a2f27642388b3a1a04dec03d0057141c1cdcd4ae9c04e5c20fe610d620efd4"
+    },
+    {
+      "original": "/tmp/cs-unity65-released-final15-r2.json",
+      "stored": "cs-unity65-released-final15-r2.json",
+      "sha256": "f8b474ecb7259f5b62b3782ac61f492a0aba3cf143ec79e03377d6e5d8a983fa"
+    },
+    {
+      "original": "/tmp/cs-unity65-inventory-final15.json",
+      "stored": "cs-unity65-inventory-final15.json.gz",
+      "decodedSha256": "be333aca5fd16bf3d6cd8f57be41adaa5c02a671286471f8f4318c2fec9871c3",
+      "storedSha256": "3d6a8be478011fad2bd12fb9048235f879e4aba2dd2c1b17e9319edff1fdf268"
+    }
+  ],
+  "archiveSha256": "f701cb7400c39c93347f71ff86d14cb74bedd20f6b4acadf77af3adb77102d37",
+  "limits": [
+    "Full3.81GBarchive remains preserved at recorded logical/disk paths; it is not duplicated intoGit",
+    "6.5 is archived and needs adequate disk capacity to restore; project4.3 remains runnable",
+    "Restoration helpers reviewed statically, no full restore executed"
+  ]
+}

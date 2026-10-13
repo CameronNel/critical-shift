@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="1" result="Failed(Child)" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-12 02:12:24Z" end-time="2026-10-12 02:12:57Z" duration="32.7948798">
+  <test-suite type="TestSuite" id="1033" name="Critical Shift" fullname="Critical Shift" runstate="Runnable" testcasecount="20" result="Failed" site="Child" start-time="2026-10-12 02:12:24Z" end-time="2026-10-12 02:12:57Z" duration="32.794880" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1021" name="CriticalShift.Player.Tests.PlayMode.dll" fullname="/workspace/critical-shift-spawn-runtime/runtime/unity/Library/ScriptAssemblies/CriticalShift.Player.Tests.PlayMode.dll" runstate="Runnable" testcasecount="18" result="Failed" site="Child" start-time="2026-10-12 02:12:24Z" end-time="2026-10-12 02:12:57Z" duration="32.787174" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="129024" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestSuite" id="1022" name="CriticalShift" fullname="CriticalShift" runstate="Runnable" testcasecount="18" result="Failed" site="Child" start-time="2026-10-12 02:12:24Z" end-time="2026-10-12 02:12:57Z" duration="32.786259" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-suite type="TestSuite" id="1023" name="Tests" fullname="CriticalShift.Tests" runstate="Runnable" testcasecount="18" result="Failed" site="Child" start-time="2026-10-12 02:12:24Z" end-time="2026-10-12 02:12:57Z" duration="32.785766" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <failure>
+            <message><![CDATA[One or more child tests had errors]]></message>
+          </failure>
+          <test-suite type="TestSuite" id="1024" name="Player" fullname="CriticalShift.Tests.Player" runstate="Runnable" testcasecount="18" result="Failed" site="Child" start-time="2026-10-12 02:12:24Z" end-time="2026-10-12 02:12:57Z" duration="32.785230" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-suite type="TestFixture" id="1011" name="SpawnMapBindingTests" fullname="CriticalShift.Tests.Player.SpawnMapBindingTests" classname="CriticalShift.Tests.Player.SpawnMapBindingTests" runstate="Runnable" testcasecount="9" result="Failed" site="Child" start-time="2026-10-12 02:12:24Z" end-time="2026-10-12 02:12:57Z" duration="32.783820" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <failure>
+                <message><![CDATA[One or more child tests had errors]]></message>
+              </failure>
+              <test-case id="1016" name="ImportedThermosVisualsFollowPickupPlacementTakeAndDrop" fullname="CriticalShift.Tests.Player.SpawnMapBindingTests.ImportedThermosVisualsFollowPickupPlacementTakeAndDrop" methodname="ImportedThermosVisualsFollowPickupPlacementTakeAndDrop" classname="CriticalShift.Tests.Player.SpawnMapBindingTests" runstate="Runnable" seed="166685855" result="Failed" start-time="2026-10-12 02:12:24Z" end-time="2026-10-12 02:12:57Z" duration="32.769549" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <failure>
+                  <message><![CDATA[  Expected: less than 9.99999975E-05f
+  But was:  0.00788668171f
+]]></message>
+                  <stack-trace><![CDATA[at CriticalShift.Tests.Player.SpawnMapBindingTests+<ImportedThermosVisualsFollowPickupPlacementTakeAndDrop>d__25.MoveNext () [0x002c3] in /workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Tests/Player/SpawnMapBindingTests.cs:227
+at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in ./Library/PackageCache/com.unity.test-framework@9faaf09ec578/UnityEngine.TestRunner/NUnitExtensions/Attributes/TestEnumerator.cs:44
+]]></stack-trace>
+                </failure>
+                <output><![CDATA[Saving results to: /workspace/critical-shift-spawn-runtime/runtime/out/mine-bake-audit/thermos-playmode-final10.xml
+]]></output>
+              </test-case>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

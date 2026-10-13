@@ -1,0 +1,109 @@
+{
+  "status": "Rejected",
+  "reviewer": "Independent /root/strict_mine_review",
+  "iteration": "final11",
+  "targetOverallScore": 98,
+  "overallScore": null,
+  "visualSubtotal": 39,
+  "visualMaximum": 60,
+  "visualCategories": {
+    "matchedBlenderFidelity": {
+      "score": 24,
+      "maximum": 40,
+      "reason": "Warmer mine direct lighting improves the tunnel, but dominant shed brightness, floor lighting, exterior fill, glass and haze remain substantially different."
+    },
+    "materialDetailAndArtifacts": {
+      "score": 15,
+      "maximum": 20,
+      "reason": "Right duct false wrinkles reduced and wood grain retained; flat floor, uncorrected other pipe detail, glossy response and hard shadow artifacts persist."
+    }
+  },
+  "remainingCategoriesUnscored": {
+    "preservation": 15,
+    "currentNativeGameplayAndPlayer": 15,
+    "reproducibility": 10
+  },
+  "preparedScene": {
+    "mapBindingsSha256": "5607d5c7a3424ab5d4ec2d8ecefceb6b720e67cf336d22e8ffec55ff8466c26b",
+    "rigBindingsSha256": "b89037e3c376c6e7958a3a1a1713664559baec579b861c8c5702ad03cc4a90a6",
+    "sceneSha256": "544f6b3bc6cc7670a27506620c4b1804d0e55753b2d17d5ef34a89889443a09f",
+    "sourceSha256": "d5aec8973e22f5e15dca11ffe9151e778528085c67e049ae10d5df85355cb084",
+    "lightmaps": 3
+  },
+  "views": [
+    {
+      "camera": "R39_01_PORTAL_APPROACH",
+      "sourcePngSha256": "0caace86a451e4349dee9d42b7bdb02a8901f3da8f1276b979f907c3561179be",
+      "nativePngSha256": "23d946fa8c52f8b628c93694a30fc13fe56347b0e5fafb8abb1fe1a7eb86665d",
+      "nativeHdrSha256": "c308a008fd68bcc39889516f0993c5fdc82e9fa1444d501f693cc76e5debcc4a",
+      "cameraPoseVerified": true,
+      "RGBNonfinitePixels": 0,
+      "visualVerdict": "Rejected",
+      "observations": [
+        "Interior timber is warmer and cliff remains grey.",
+        "Roof/upper gable remains much paler and brighter than Blender.",
+        "Vehicle glass lacks source blue Fresnel reflection; rear depot is much darker.",
+        "Yard shadows and exterior fill differ substantially."
+      ]
+    },
+    {
+      "camera": "R39_02_TUNNEL",
+      "sourcePngSha256": "d233660db90911511901bd0781e4837afd2076a5d82d7f70f421e1a2ad17be19",
+      "nativePngSha256": "06270e527a26e57cf17e37bfc4f22aba9f0fdf64dac0076406d94b1a708dbb6d",
+      "nativeHdrSha256": "297d9c909f378e30ae933c561e8645ed321595c521578c675a60448be565c508",
+      "cameraPoseVerified": true,
+      "RGBNonfinitePixels": 0,
+      "visualVerdict": "Rejected",
+      "observations": [
+        "Warm tone and right ventilation duct normal detail improved.",
+        "Floor remains nearly featureless with large hard lantern-shaped shadow blobs absent from source.",
+        "Left pipe still has broad false ripples/gloss; right pipe specular response still differs.",
+        "Source soft haze/cool fill and depth illumination are not reproduced."
+      ]
+    },
+    {
+      "camera": "R39_04_SHED_FRONT",
+      "sourcePngSha256": "34c68642df399f90c37df2ca2f65828ba131116cdcd9592096f708bf17cbc211",
+      "nativePngSha256": "46700fa3e834f01a2317cf0c91b109c2ea3999102bb88c728085e5aed4907360",
+      "nativeHdrSha256": "21f4e814fa7ed5b0a2836f1350b6f938636cd275026fadec341c4ae4e645b5a4",
+      "cameraPoseVerified": true,
+      "RGBNonfinitePixels": 0,
+      "visualVerdict": "Rejected",
+      "observations": [
+        "Coherent timber grain remains restored and local warm illumination improved.",
+        "Dominant front boards/posts remain pale grey instead of source dark warm brown.",
+        "Source 01 lettering shadows/soft sign shading are flattened.",
+        "Native floor dark flecks/occlusion and background light differ."
+      ]
+    }
+  ],
+  "technicalEvidence": {
+    "HDR": "Three current1440x810 captures independently finite/hash/camera verified",
+    "spawn": "Three current spawn views independently inspected and cleared; /tmp/cs-mine-spawn-independent-review-final11.json",
+    "current18": {
+      "status": "Passed",
+      "total": 18,
+      "failed": 0,
+      "skipped": 0,
+      "durationSeconds": 95.8087245,
+      "xmlSha256": "70a36e9feed0e87e15374fde83af4ef450dbf09f70d00af66a09b4a17a1a5e7c",
+      "exactCurrentInventoryVerified": true
+    },
+    "freshPlayer": "Held; no current build claimed",
+    "exactGlass": "Completed bounded reflection/background controls only; production glass unchanged"
+  },
+  "nextMeasuredCorrections": [
+    "Identify actual native floor shadow casters and compare authored shadow-transparent lantern parts/finite emitter visibility.",
+    "Inspect actual source and native direct light contribution/occlusion on front boards/gable; do not alter source albedo to fit lighting.",
+    "Verify and improve the left pipe family atlas density/normal transport separately from corrected ventilation duct.",
+    "Scope exact-Fresnel glass correction, then verify actual van/probe/direct specular/nonuniform transmitted background.",
+    "Measure source versus native volume lighting/scattering instead of treating weaker haze as a texture issue."
+  ],
+  "scopeLimits": [
+    "Six-room committed-main snapshot; expanded Claude assembly not integrated by this review",
+    "No pixel equality claim",
+    "No target-hardware performance claim",
+    "Known legacyGI/range/mask/actor probe limitations remain",
+    "Parent turn currently blocked by model-capacity error; reviewer has made no production edits or heavy launches"
+  ]
+}

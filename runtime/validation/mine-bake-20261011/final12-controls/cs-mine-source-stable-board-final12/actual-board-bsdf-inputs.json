@@ -1,0 +1,78 @@
+[
+  {
+    "material": "R39 | Rotten boards.001",
+    "closure": "BSDF_PRINCIPLED",
+    "inputs": {
+      "Diffuse Roughness": {
+        "linked": false,
+        "default": 0.0
+      },
+      "Roughness": {
+        "linked": true,
+        "default": 0.5
+      },
+      "Metallic": {
+        "linked": false,
+        "default": 0.0
+      },
+      "Subsurface Weight": {
+        "linked": false,
+        "default": 0.0
+      },
+      "Sheen Weight": {
+        "linked": false,
+        "default": 0.0
+      },
+      "Coat Weight": {
+        "linked": false,
+        "default": 0.0
+      },
+      "IOR": {
+        "linked": false,
+        "default": 1.5
+      },
+      "Specular IOR Level": {
+        "linked": false,
+        "default": 0.25
+      }
+    }
+  },
+  {
+    "material": "GF | Shadowed Wall Boards.001",
+    "closure": "BSDF_PRINCIPLED",
+    "inputs": {
+      "Diffuse Roughness": {
+        "linked": false,
+        "default": 0.0
+      },
+      "Roughness": {
+        "linked": true,
+        "default": 0.5
+      },
+      "Metallic": {
+        "linked": false,
+        "default": 0.0
+      },
+      "Subsurface Weight": {
+        "linked": false,
+        "default": 0.0
+      },
+      "Sheen Weight": {
+        "linked": false,
+        "default": 0.0
+      },
+      "Coat Weight": {
+        "linked": false,
+        "default": 0.0
+      },
+      "IOR": {
+        "linked": false,
+        "default": 1.5
+      },
+      "Specular IOR Level": {
+        "linked": false,
+        "default": 0.25
+      }
+    }
+  }
+]

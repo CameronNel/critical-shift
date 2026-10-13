@@ -1,0 +1,70 @@
+{
+  "status": "FailedR4LetteringMetadata_CorrectedConsumers_63TestsPassed_ResumeReviewed",
+  "files": [
+    {
+      "file": "cs-current-main-surface-preparation-final15-r4.py",
+      "bytes": 7491,
+      "sha256": "382a37a3cd8b1dc15654b32fba1c0707106a5b73c33f8b0b00e0286284fd79f6"
+    },
+    {
+      "file": "cs-current-main-surface-preparation-final15-r4.json",
+      "bytes": 9852,
+      "sha256": "2abcd1de3df50991f496cb4ded57eb8d8b734c71c61480b8b5a38de8448c83c0"
+    },
+    {
+      "file": "cs-current-main-surface-r4-prelaunch-independent-final15.json",
+      "bytes": 6600,
+      "sha256": "ac3f7d12dc3c5aed2c6f238bbbe6acab3ac8ab5de414b91315e99036b700103c"
+    },
+    {
+      "file": "cs-current-main-surface-preparation-final15-r5.py",
+      "bytes": 7801,
+      "sha256": "5629a68abe6900799385f69df42cde70caf67f3fc1c86804a7983eb6c5a97434"
+    },
+    {
+      "file": "cs-current-main-surface-r5-resume-independent-final15.json",
+      "bytes": 2098,
+      "sha256": "d3280eabc8f12469409336b6a02abb1de628109222b4d7082119f6dec1e6542f"
+    },
+    {
+      "file": "r4-audit/spawn-lettering.log",
+      "bytes": 2473,
+      "sha256": "b1144975a3b2ed479931ff40e7328fd662136ac5d1b0d74c11b966db33a9a7eb"
+    },
+    {
+      "file": "r4-audit/spawn-surfaces.log",
+      "bytes": 2788,
+      "sha256": "5d6a408641ade827b3c94b09061a3b197da13c279e9fc259d0b685fba695b1c3"
+    },
+    {
+      "file": "r4-audit/retained-importer-metadata.json",
+      "bytes": 276413,
+      "sha256": "9e85994ecc5f61e4a5aa2b4f1e620c6830007517372168cebf74d8b4157547b8"
+    },
+    {
+      "file": "corrected-source/export_spawn_floor.py",
+      "bytes": 6243,
+      "sha256": "cb3929eba386c1d1c48e7b013590b76d6348efca27487dc8f67d6cea0ff68f73"
+    },
+    {
+      "file": "corrected-source/export_spawn_suits.py",
+      "bytes": 3550,
+      "sha256": "ca4e1585930c2011cee75b1d372ac5e16dc856b7556a45692bf8b10995ff6b3a"
+    },
+    {
+      "file": "corrected-source/test_derivative_metadata.py",
+      "bytes": 1332,
+      "sha256": "33c80733e7ab6a1bbad6c3170df79502392ba402e68e34f34984bc0e8c9ab9b0"
+    },
+    {
+      "file": "python-tests-final15-metadata-fix.log",
+      "bytes": 4423,
+      "sha256": "b0a4ed297bdde028e45568fffc7d555450591b7674eeb94ffbd4bced1500b2e0"
+    }
+  ],
+  "limits": [
+    "Raw failure and completed base step are distinct; independent resume review does not certify final surfaces",
+    "Canonical Source, original Generated scene and Claude assembly unchanged",
+    "No Native main/Player or98 acceptance"
+  ]
+}

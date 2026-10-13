@@ -1,0 +1,365 @@
+{
+  "status": "HistoricalFinal11FloorMaterialDiagnosticOnly",
+  "inputs": {
+    "/tmp/cs-mine-aov-linked-context-final11/R39_02_TUNNEL-original.exr": "4c1039414c329a103e4c9aada87fcc81aef0948ca89b4146669eadca8fb8955d",
+    "/tmp/cs-mine-aov-native-final11/R39_02_TUNNEL-BaseColor.exr": "a99d77897c32d976c378f5cb67363ad1a4663e710a59dbec12766f6a707a9436",
+    "/tmp/cs-mine-aov-native-final11/R39_02_TUNNEL-Roughness.exr": "1af020dae2cedf56dd671d8d798718bc2827979b07851d43c07d3724afe69d09",
+    "/tmp/cs-mine-normal-fresh-final11/R39_02_TUNNEL-ProductionNormal.exr": "007080472920960cf7f4048ca6df0a87fa9ec607c6709f1945152e511178fe33",
+    "/tmp/cs-mine-aov-native-final11/R39_02_TUNNEL-SupportedMask.exr": "c32f3627659a43f3398692ae7d13d676a7a6b40a60ddc73966ecece90d2d1c05"
+  },
+  "sourceSamples": 16,
+  "dimensions": [
+    640,
+    360
+  ],
+  "mask": "Same canonical geometry support mask and source DiagnosticOne>.99, normaldecoded lengths .8..1.2, threepixel3x3erosion; no actualmaterial/object ID mask",
+  "sourceCoordinateToUnity": "WorldnormalXZY; directions normalized only after lengthvalidation",
+  "regions": [
+    {
+      "name": "CentralTrackInterior",
+      "boundsXY": [
+        300,
+        350,
+        275,
+        340
+      ],
+      "rawROIPixels": 3250,
+      "erodedCommonPixels": 3200,
+      "normalAnglesDegrees": {
+        "mean": 0.7653909204598645,
+        "median": 0.7293491414839668,
+        "p90": 1.292349779267173
+      },
+      "sourceNormalSpread": {
+        "meanDegrees": 0.32764250840223014,
+        "p90Degrees": 0.5655757236819519,
+        "adjacentVectorGradientRmsXYZ": [
+          0.006009783954173079,
+          3.0390080779818634e-05,
+          0.007040526589317484
+        ]
+      },
+      "nativeNormalSpread": {
+        "meanDegrees": 0.6078761631009914,
+        "p90Degrees": 1.0469030976460876,
+        "adjacentVectorGradientRmsXYZ": [
+          0.005503837784325557,
+          6.327429952970161e-05,
+          0.00448253705239192
+        ]
+      },
+      "BaseColor": {
+        "source": {
+          "mean": [
+            0.04664279024698772,
+            0.0382337760028895,
+            0.03016285587043967
+          ],
+          "std": [
+            0.001053906083295565,
+            0.0009278017898661305,
+            0.0007687621406643624
+          ],
+          "p05": [
+            0.044869507849216464,
+            0.03671172745525837,
+            0.02881778459995985
+          ],
+          "p95": [
+            0.04830141123384237,
+            0.03971161153167486,
+            0.031380731426179406
+          ]
+        },
+        "native": {
+          "mean": [
+            0.046511964797973634,
+            0.03822547912597656,
+            0.030143332481384278
+          ],
+          "std": [
+            0.000866422868914137,
+            0.0008277255231481622,
+            0.000633555743768843
+          ],
+          "p05": [
+            0.045166015625,
+            0.036865234375,
+            0.029327392578125
+          ],
+          "p95": [
+            0.048065185546875,
+            0.039520263671875,
+            0.03125152587890624
+          ]
+        },
+        "meanAbsErrorRGB": [
+          0.000778714461484924,
+          0.0005116019013803452,
+          0.0006009190616896376
+        ],
+        "sourceAdjacentGradientRmsRGB": [
+          0.0006979818762985315,
+          0.0005728729466254482,
+          0.0005055279235649432
+        ],
+        "nativeAdjacentGradientRmsRGB": [
+          0.0003831446860949979,
+          0.00036139322382732045,
+          0.0002673185146726744
+        ]
+      },
+      "Roughness": {
+        "source": {
+          "mean": [
+            0.8292583757080138,
+            0.8292583757080138,
+            0.8292583757080138
+          ],
+          "std": [
+            0.017135051513501684,
+            0.017135051513501684,
+            0.017135051513501684
+          ],
+          "p05": [
+            0.8004984736442566,
+            0.8004984736442566,
+            0.8004984736442566
+          ],
+          "p95": [
+            0.8581595093011856,
+            0.8581595093011856,
+            0.8581595093011856
+          ]
+        },
+        "native": {
+          "mean": [
+            0.8295802307128907,
+            0.8295802307128907,
+            0.8295802307128907
+          ],
+          "std": [
+            0.01367624964803346,
+            0.01367624964803346,
+            0.01367624964803346
+          ],
+          "p05": [
+            0.8076171875,
+            0.8076171875,
+            0.8076171875
+          ],
+          "p95": [
+            0.8505859375,
+            0.8505859375,
+            0.8505859375
+          ]
+        },
+        "meanAbsErrorRGB": [
+          0.009509960282593965,
+          0.009509960282593965,
+          0.009509960282593965
+        ],
+        "sourceAdjacentGradientRmsRGB": [
+          0.011386540658808338,
+          0.011386540658808338,
+          0.011386540658808338
+        ],
+        "nativeAdjacentGradientRmsRGB": [
+          0.006561904072633062,
+          0.006561904072633062,
+          0.006561904072633062
+        ]
+      }
+    },
+    {
+      "name": "HistoricalBroadFloorRectangle",
+      "boundsXY": [
+        230,
+        440,
+        250,
+        360
+      ],
+      "rawROIPixels": 23100,
+      "erodedCommonPixels": 19577,
+      "normalAnglesDegrees": {
+        "mean": 0.8333056620428522,
+        "median": 0.7339360602954056,
+        "p90": 1.313561401365827
+      },
+      "sourceNormalSpread": {
+        "meanDegrees": 0.40716206690395707,
+        "p90Degrees": 0.5913099997716118,
+        "adjacentVectorGradientRmsXYZ": [
+          0.011750593710605958,
+          0.0023061030784653257,
+          0.012697273545259876
+        ]
+      },
+      "nativeNormalSpread": {
+        "meanDegrees": 0.6939054953649773,
+        "p90Degrees": 1.0567471381226645,
+        "adjacentVectorGradientRmsXYZ": [
+          0.015033105779177275,
+          0.01057620852360494,
+          0.01529874595765554
+        ]
+      },
+      "BaseColor": {
+        "source": {
+          "mean": [
+            0.04732525760734441,
+            0.03894999142171609,
+            0.03077142115783407
+          ],
+          "std": [
+            0.009326895145956117,
+            0.009150096245868003,
+            0.009024439556861068
+          ],
+          "p05": [
+            0.04494497254490852,
+            0.03677697256207466,
+            0.028923693299293517
+          ],
+          "p95": [
+            0.04846542626619339,
+            0.039926110208034514,
+            0.03143344968557358
+          ]
+        },
+        "native": {
+          "mean": [
+            0.047092529521349194,
+            0.038830350038070824,
+            0.03065857714576875
+          ],
+          "std": [
+            0.010717299599059272,
+            0.010626328073214545,
+            0.01045675165144606
+          ],
+          "p05": [
+            0.045166015625,
+            0.03692626953125,
+            0.029022216796875
+          ],
+          "p95": [
+            0.048095703125,
+            0.039520263671875,
+            0.031463623046875
+          ]
+        },
+        "meanAbsErrorRGB": [
+          0.0011060100604234411,
+          0.0008498705611863686,
+          0.0008915849729330405
+        ],
+        "sourceAdjacentGradientRmsRGB": [
+          0.006202328536369313,
+          0.00614930599666642,
+          0.0060926452049788905
+        ],
+        "nativeAdjacentGradientRmsRGB": [
+          0.00893756884936466,
+          0.008926089176531501,
+          0.008798730262805029
+        ]
+      },
+      "Roughness": {
+        "source": {
+          "mean": [
+            0.8282020828338092,
+            0.8282020828338092,
+            0.8282020828338092
+          ],
+          "std": [
+            0.020033965714566882,
+            0.020033965714566882,
+            0.020033965714566882
+          ],
+          "p05": [
+            0.8003510713577271,
+            0.8003510713577271,
+            0.8003510713577271
+          ],
+          "p95": [
+            0.8566608667373657,
+            0.8566608667373657,
+            0.8566608667373657
+          ]
+        },
+        "native": {
+          "mean": [
+            0.8287152424161643,
+            0.8287152424161643,
+            0.8287152424161643
+          ],
+          "std": [
+            0.01922515146678691,
+            0.01922515146678691,
+            0.01922515146678691
+          ],
+          "p05": [
+            0.8037109375,
+            0.8037109375,
+            0.8037109375
+          ],
+          "p95": [
+            0.8544921875,
+            0.8544921875,
+            0.8544921875
+          ]
+        },
+        "meanAbsErrorRGB": [
+          0.009774787892005341,
+          0.009774787892005341,
+          0.009774787892005341
+        ],
+        "sourceAdjacentGradientRmsRGB": [
+          0.013763623893825695,
+          0.013763623893825695,
+          0.013763623893825695
+        ],
+        "nativeAdjacentGradientRmsRGB": [
+          0.013686547066013695,
+          0.013686547066013695,
+          0.013686547066013695
+        ]
+      }
+    }
+  ],
+  "limits": [
+    "Historicalfinal11controlledmaterialpasses, notcurrentfull13",
+    "Narrow centralbetween-track ROI visually selected; no objectID proof, broadrectangle includes rails/otherfloorprops",
+    "Allpixelaggregates alone cannot certify floor; these specific ROIs do not test close gameplay floor/detail or atlasfiltering at other distances",
+    "Source16sample normalAOV averages samples; nativeNoAA singlepixel/shader sample differences remain",
+    "Sourceinventory only pipe/gravel/cliff graphs, lacks actual tunnel-floor recipe in available graph report",
+    "No visual score or causal lighting-only claim"
+  ],
+  "sourceProvenanceSha256": "7d14ecba6b43d8e01a11bad78b2e8a368aedfcdd81cf5aeef54c684f2203cadf",
+  "sourceBlenderSha256": "255fe337aacd602e81bd2940be7bf2a1da2541954f6c8446c8a06f5aae413b72",
+  "historicalFloorDensity": {
+    "file": "/workspace/critical-shift-spawn-runtime/runtime/validation/mine-bake-20261011/fresh-export-final11/native-final11/mine-floor-density.json",
+    "sha256": "2be4fe9520e6d7777339ee3c93564e5aabdec77144aed38f73e4f75815e99611",
+    "record": {
+      "minimumPixelsPerMetre": 64,
+      "surfaces": [
+        {
+          "node": "CS_mine_R39 | Tunnel floor",
+          "worldArea": 702.4456073008837,
+          "uvArea": 0.24731919169425964,
+          "pixelsPerMetre": 76.85683688137289,
+          "atlasSize": 4096
+        }
+      ],
+      "status": "Passed",
+      "limits": "UV density guard; native visual review is still required."
+    }
+  },
+  "nextBoundedDiagnosticIfCurrentFloorStillFails": [
+    "Current exact source/native floor-object/materialID mask with source active closure trace and bound native atlas/UV/density",
+    "One matched closer gameplay view to test filtering at actual distance",
+    "Matched white raking-light control normal on/off and roughness fixed/source; do not change visual source or invent detail",
+    "Wait for source-shadow/physicalGI full13 output before another exporter/shader correction"
+  ]
+}

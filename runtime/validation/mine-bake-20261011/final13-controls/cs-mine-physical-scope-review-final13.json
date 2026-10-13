@@ -1,0 +1,29 @@
+{
+  "status": "ReadOnlyDiffClearedForBoundedPhysicalScopeValidation",
+  "productionSha256": "b66dbe1626d73b99ca16e9ee575d00a175842cee12bcdd0bae68c31a62bc2d48",
+  "changesReviewed": [
+    "Remove Legacy P/100 conversion of physical P/(4*pi*pi) intensity",
+    "After previous light extraction, replace only owned POINT falloff with InverseSquaredNoRangeAttenuation",
+    "Retain authored source mode, radius, shadow mode, other-room requests and delegate/disposal lifecycle"
+  ],
+  "basisEvidence": "Independent far-field native/source white Lambert controls verify physical intensity and inverse-square convention. Existing Legacy scalar/falloff does not match source over multiple distances.",
+  "limitations": [
+    "Progressive CPU Soft finite-radius nearfield still differs from source (e.g. .06m native286 vssource65.75)",
+    "NoRange falloff does not remove native Light.range bounds",
+    "24 Mixed plus39Baked modes retained; baked-only/fallback direct remains in lightmaps and probe SH",
+    "Cannot predict pale-board visual improvement without fresh full captures",
+    "No full-scene acceptance, actor field adoption or Player clearance"
+  ],
+  "requiredBeforeFullBake": [
+    "Actual production Scope callback validates physical intensity, falloff, originalshape/mode and previousdelegate outputs",
+    "Deliberate exception/dispose restores delegate/intensities, non-owned room unchanged",
+    "Fresh source export includes all30 context shadow exclusions and canonical source/mapping/density/provenance checks"
+  ],
+  "requiredAfterBake": [
+    "3current mine matched PNG/HDR/camera/proof/hash checks",
+    "3current spawn regression checks",
+    "Current18 native gameplay tests",
+    "Independent strict visual review; fresh Player only after visual clearance"
+  ],
+  "overallScore": null
+}

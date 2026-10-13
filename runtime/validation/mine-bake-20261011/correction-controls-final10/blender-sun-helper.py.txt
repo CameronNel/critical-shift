@@ -1,0 +1,19 @@
+import bpy,json,math,sys
+from pathlib import Path
+sys.path.insert(0,'/workspace/critical-shift-spawn-runtime/runtime/tools')
+from export_spawn_map import matrix
+r=Path('/workspace/critical-shift-spawn-runtime/runtime/out/mine-bake-audit')
+suns=[]
+for o in bpy.context.scene.objects['ROOM_front-end-area'].instance_collection.all_objects:
+ if o.type=='LIGHT' and o.data.type=='SUN' and not o.hide_render:
+  t=matrix(o);suns.append({'name':o.name,'position':list(t.translation),'rotation':list(t.to_quaternion()),'color':list(o.data.color),'power':float(o.data.energy),'type':'SUN','angle':math.degrees(o.data.angle)})
+(r/'source-context-sun-final10.json').write_text(json.dumps(suns,indent=2)+'\n')
+bpy.ops.wm.read_factory_settings(use_empty=True)
+s=bpy.context.scene;s.render.engine='CYCLES';s.cycles.samples=16;s.render.resolution_x=s.render.resolution_y=128;s.render.resolution_percentage=100
+s.world=bpy.data.worlds.new('Black world');s.world.use_nodes=True;s.world.node_tree.nodes['Background'].inputs['Color'].default_value=(0,0,0,1)
+bpy.ops.mesh.primitive_plane_add(size=2);plane=bpy.context.object
+m=bpy.data.materials.new('Lambert18percent');m.use_nodes=True;t=m.node_tree;t.nodes.clear();d=t.nodes.new('ShaderNodeBsdfDiffuse');d.inputs['Color'].default_value=(.18,.18,.18,1);d.inputs['Roughness'].default_value=0;out=t.nodes.new('ShaderNodeOutputMaterial');t.links.new(d.outputs[0],out.inputs['Surface']);plane.data.materials.append(m)
+l=bpy.data.lights.new('White sun','SUN');l.energy=1.6;l.color=(1,1,1);l.angle=0;o=bpy.data.objects.new('White sun',l);s.collection.objects.link(o)
+c=bpy.data.cameras.new('Frontal');c.type='ORTHO';c.ortho_scale=1;o=bpy.data.objects.new('Frontal',c);o.location=(0,0,3);s.collection.objects.link(o);s.camera=o
+s.render.image_settings.file_format='OPEN_EXR';s.render.image_settings.color_depth='32';s.render.filepath=str(r/'sun-radiometry-blender.exr');bpy.ops.render.render(write_still=True)
+print('CS_SUN_RADIOMETRY_BLENDER_OK',flush=True)

@@ -1,0 +1,494 @@
+Unity Editor version:    6000.4.3f1 (39d1a88d4dd1)
+Branch:                  6000.4/staging
+Build type:              Release
+Batch mode:              YES
+System name:             Linux
+Distro version:          #1 SMP Sat Sep 26 20:02:31 UTC 2026
+Kernel version:          6.18.44
+Architecture:            x86_64
+Available memory:        18007 MB
+Date:                    2026-10-12T13:01:33Z
+[Licensing::Module] Trying to connect to existing licensing client channel...
+[Licensing::IpcConnector] Channel LicenseClient-agent doesn't exist
+[Licensing::Module] Successfully launched the LicensingClient (PId: 153631)
+Selected window backend: (null) 
+Desktop is 640 x 360 @ 60 Hz
+Initialize udev device monitor.
+
+COMMAND LINE ARGUMENTS:
+/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Unity
+-batchmode
+-force-glcore
+-quit
+-projectPath
+/workspace/critical-shift-spawn-runtime/runtime/unity
+-executeMethod
+CsMineSourceHybridBoardFinal12.Render
+-logFile
+/workspace/critical-shift-spawn-runtime/runtime/out/mine-bake-audit/source-hybrid-board-final12.native.log
+Successfully changed project path to: /workspace/critical-shift-spawn-runtime/runtime/unity
+/workspace/critical-shift-spawn-runtime/runtime/unity
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-gfx=262144"
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+Player connection [139751357123456]  Target information:
+
+Player connection [139751357123456]  * "[IP] 172.26.91.250 [Port] 55504 [Flags] 2 [Guid] 617228347 [EditorId] 617228347 [Version] 1048832 [Id] LinuxEditor(16,172.26.91.250) [Debug] 1 [PackageName] LinuxEditor [ProjectName] Editor" 
+
+Player connection [139751357123456]  * "[IP] 172.31.0.158 [Port] 55504 [Flags] 2 [Guid] 617228347 [EditorId] 617228347 [Version] 1048832 [Id] LinuxEditor(16,172.26.91.250) [Debug] 1 [PackageName] LinuxEditor [ProjectName] Editor" 
+
+Player connection [139751357123456]  * "[IP] 172.17.0.1 [Port] 55504 [Flags] 2 [Guid] 617228347 [EditorId] 617228347 [Version] 1048832 [Id] LinuxEditor(16,172.26.91.250) [Debug] 1 [PackageName] LinuxEditor [ProjectName] Editor" 
+
+Player connection [139751357123456] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [139751357123456] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-agent" at "2026-10-12T13:01:34.016139Z"
+[SignatureVerifier] Application signature verification not supported on this platform.
+[Package Manager] Connected to IPC stream "Upm-153623" after 0.4 seconds.
+[Licensing::Module] Licensing is not yet initialized.
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.18.1+9fbee8e
+  Session Id:              fee9474608d34f08a4df788851c42942
+  Correlation Id:          0492f7dcaa9ee20fc92bd7a4fddb0056
+  External correlation Id: 8266751787130426576
+  Machine Id:              HSfDcY8TYOsLF+Fc1eSelgog+jc=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-agent" (connect: 0.57s, validation: 0.23s, handshake: 0.00s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-agent-notifications" at "2026-10-12T13:01:34.250169Z"
+[Licensing::Module] Connected to LicensingClient (PId: 153631, launch time: 0.00, total connection time: 0.81s)
+[Licensing::Module] Error: Access token is unavailable; failed to update
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: 9072383120447-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+[Licensing::Client] Successfully updated license, isAsync: True, time: 0.06
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] Licensing Background thread has ended after 0.91s
+[Licensing::Module] Licensing is initialized (took 0.22s).
+[Licensing::Client] Successfully resolved entitlement details
+Library Redirect Path: Library/
+ALSA lib confmisc.c:855:(parse_card) cannot find card '0'
+ALSA lib conf.c:5205:(_snd_config_evaluate) function snd_func_card_inum returned error: No such file or directory
+ALSA lib confmisc.c:422:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:5205:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1342:(snd_func_refer) error evaluating name
+ALSA lib conf.c:5205:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5728:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2722:(snd_pcm_open_noupdate) Unknown PCM default
+FMOD failed to initialize the output device.: "Error initializing output device. " (60)
+Forced to initialize FMOD to to the device driver's system output rate 48000, this may impact performance and/or give inconsistent experiences compared to selected sample rate 48000
+ALSA lib confmisc.c:855:(parse_card) cannot find card '0'
+ALSA lib conf.c:5205:(_snd_config_evaluate) function snd_func_card_inum returned error: No such file or directory
+ALSA lib confmisc.c:422:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:5205:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1342:(snd_func_refer) error evaluating name
+ALSA lib conf.c:5205:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5728:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2722:(snd_pcm_open_noupdate) Unknown PCM default
+FMOD failed to initialize the output device.: "Error initializing output device. " (60)
+FMOD initialized on nosound output
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Artifact Garbage Collection - Removed 17 unused hashed content files
+Initialize engine version: 6000.4.3f1 (39d1a88d4dd1)
+[Subsystems] Discovering subsystems at path /home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path /workspace/critical-shift-spawn-runtime/runtime/unity/Assets
+Forcing GfxDevice: OpenGL Core
+kGfxThreadingModeNonThreaded is not supported on OpenGL Core. Reverting to kGfxThreadingModeDirect instead.
+GfxDevice: creating device client; kGfxThreadingModeDirect
+GLX Extensions: GLX_ARB_context_flush_control GLX_ARB_create_context GLX_ARB_create_context_no_error GLX_ARB_create_context_profile GLX_ARB_fbconfig_float GLX_ARB_framebuffer_sRGB GLX_ARB_get_proc_address GLX_ARB_multisample GLX_EXT_create_context_es2_profile GLX_EXT_create_context_es_profile GLX_EXT_fbconfig_packed_float GLX_EXT_framebuffer_sRGB GLX_EXT_no_config_context GLX_EXT_texture_from_pixmap GLX_EXT_visual_info GLX_EXT_visual_rating GLX_MESA_copy_sub_buffer GLX_MESA_gl_interop GLX_MESA_query_renderer GLX_SGIS_multisample GLX_SGIX_fbconfig GLX_SGIX_pbuffer GLX_SGIX_visual_select_group GLX_SGI_make_current_read 
+Renderer: llvmpipe (LLVM 19.1.7, 256 bits)
+Vendor:   Mesa
+Version:  4.5 (Core Profile) Mesa 25.0.7-2+deb13u1
+GLES:     0
+ GL_3DFX_texture_compression_FXT1 GL_AMD_conservative_depth GL_AMD_draw_buffers_blend GL_AMD_gpu_shader_int64 GL_AMD_multi_draw_indirect GL_AMD_pinned_memory GL_AMD_query_buffer_object GL_AMD_seamless_cubemap_per_texture GL_AMD_shader_stencil_export GL_AMD_shader_trinary_minmax GL_AMD_texture_texture4 GL_AMD_vertex_shader_layer GL_AMD_vertex_shader_viewport_index GL_ANGLE_texture_compression_dxt3 GL_ANGLE_texture_compression_dxt5 GL_ARB_ES2_compatibility GL_ARB_ES3_1_compatibility GL_ARB_ES3_2_compatibility GL_ARB_ES3_compatibility GL_ARB_arrays_of_arrays GL_ARB_base_instance GL_ARB_blend_func_extended GL_ARB_buffer_storage GL_ARB_clear_buffer_object GL_ARB_clear_texture GL_ARB_clip_control GL_ARB_compressed_texture_pixel_storage GL_ARB_compute_shader GL_ARB_conditional_render_inverted GL_ARB_conservative_depth GL_ARB_copy_buffer GL_ARB_copy_image GL_ARB_cull_distance GL_ARB_debug_output GL_ARB_depth_buffer_float GL_ARB_depth_clamp GL_ARB_derivative_control GL_ARB_direct_state_access GL_ARB_draw_buffers GL_A
+RB_draw_buffers_blend GL_ARB_draw_elements_base_vertex GL_ARB_draw_indirect GL_ARB_draw_instanced GL_ARB_enhanced_layouts GL_ARB_explicit_attrib_location GL_ARB_explicit_uniform_location GL_ARB_fragment_coord_conventions GL_ARB_fragment_layer_viewport GL_ARB_fragment_shader GL_ARB_framebuffer_no_attachments GL_ARB_framebuffer_object GL_ARB_framebuffer_sRGB GL_ARB_get_program_binary GL_ARB_get_texture_sub_image GL_ARB_gl_spirv GL_ARB_gpu_shader5 GL_ARB_gpu_shader_fp64 GL_ARB_gpu_shader_int64 GL_ARB_half_float_pixel GL_ARB_half_float_vertex GL_ARB_indirect_parameters GL_ARB_instanced_arrays GL_ARB_internalformat_query GL_ARB_internalformat_query2 GL_ARB_invalidate_subdata GL_ARB_map_buffer_alignment GL_ARB_map_buffer_range GL_ARB_multi_bind GL_ARB_multi_draw_indirect GL_ARB_occlusion_query2 GL_ARB_parallel_shader_compile GL_ARB_pipeline_statistics_query GL_ARB_pixel_buffer_object GL_ARB_point_sprite GL_ARB_polygon_offset_clamp GL_ARB_post_depth_coverage GL_ARB_program_interface_query GL_ARB_provoking_vertex GL
+_ARB_query_buffer_object GL_ARB_robust_buffer_access_behavior GL_ARB_robustness GL_ARB_sample_shading GL_ARB_sampler_objects GL_ARB_seamless_cube_map GL_ARB_seamless_cubemap_per_texture GL_ARB_separate_shader_objects GL_ARB_shader_atomic_counter_ops GL_ARB_shader_atomic_counters GL_ARB_shader_ballot GL_ARB_shader_bit_encoding GL_ARB_shader_clock GL_ARB_shader_draw_parameters GL_ARB_shader_group_vote GL_ARB_shader_image_load_store GL_ARB_shader_image_size GL_ARB_shader_objects GL_ARB_shader_precision GL_ARB_shader_stencil_export GL_ARB_shader_storage_buffer_object GL_ARB_shader_subroutine GL_ARB_shader_texture_image_samples GL_ARB_shader_texture_lod GL_ARB_shader_viewport_layer_array GL_ARB_shading_language_420pack GL_ARB_shading_language_include GL_ARB_shading_language_packing GL_ARB_spirv_extensions GL_ARB_stencil_texturing GL_ARB_sync GL_ARB_tessellation_shader GL_ARB_texture_barrier GL_ARB_texture_border_clamp GL_ARB_texture_buffer_object GL_ARB_texture_buffer_object_rgb32 GL_ARB_texture_buffer_range GL_A
+RB_texture_compression_bptc GL_ARB_texture_compression_rgtc GL_ARB_texture_cube_map_array GL_ARB_texture_filter_anisotropic GL_ARB_texture_filter_minmax GL_ARB_texture_float GL_ARB_texture_gather GL_ARB_texture_mirror_clamp_to_edge GL_ARB_texture_multisample GL_ARB_texture_non_power_of_two GL_ARB_texture_query_levels GL_ARB_texture_query_lod GL_ARB_texture_rectangle GL_ARB_texture_rg GL_ARB_texture_rgb10_a2ui GL_ARB_texture_stencil8 GL_ARB_texture_storage GL_ARB_texture_storage_multisample GL_ARB_texture_swizzle GL_ARB_texture_view GL_ARB_timer_query GL_ARB_transform_feedback2 GL_ARB_transform_feedback3 GL_ARB_transform_feedback_instanced GL_ARB_transform_feedback_overflow_query GL_ARB_uniform_buffer_object GL_ARB_vertex_array_bgra GL_ARB_vertex_array_object GL_ARB_vertex_attrib_64bit GL_ARB_vertex_attrib_binding GL_ARB_vertex_buffer_object GL_ARB_vertex_shader GL_ARB_vertex_type_10f_11f_11f_rev GL_ARB_vertex_type_2_10_10_10_rev GL_ARB_viewport_array GL_ARM_shader_framebuffer_fetch_depth_stencil GL_ATI_blend
+_equation_separate GL_ATI_meminfo GL_ATI_texture_float GL_ATI_texture_mirror_once GL_EXT_EGL_image_storage GL_EXT_EGL_image_storage_compression GL_EXT_EGL_sync GL_EXT_abgr GL_EXT_blend_equation_separate GL_EXT_debug_label GL_EXT_draw_buffers2 GL_EXT_draw_instanced GL_EXT_framebuffer_blit GL_EXT_framebuffer_multisample GL_EXT_framebuffer_multisample_blit_scaled GL_EXT_framebuffer_object GL_EXT_framebuffer_sRGB GL_EXT_memory_object GL_EXT_memory_object_fd GL_EXT_packed_depth_stencil GL_EXT_packed_float GL_EXT_pixel_buffer_object GL_EXT_polygon_offset_clamp GL_EXT_provoking_vertex GL_EXT_shader_framebuffer_fetch GL_EXT_shader_framebuffer_fetch_non_coherent GL_EXT_shader_image_load_formatted GL_EXT_shader_integer_mix GL_EXT_texture_array GL_EXT_texture_compression_dxt1 GL_EXT_texture_compression_rgtc GL_EXT_texture_compression_s3tc GL_EXT_texture_filter_anisotropic GL_EXT_texture_filter_minmax GL_EXT_texture_integer GL_EXT_texture_mirror_clamp GL_EXT_texture_sRGB GL_EXT_texture_sRGB_R8 GL_EXT_texture_sRGB_RG8 GL
+_EXT_texture_sRGB_decode GL_EXT_texture_shadow_lod GL_EXT_texture_shared_exponent GL_EXT_texture_snorm GL_EXT_texture_storage GL_EXT_texture_swizzle GL_EXT_timer_query GL_EXT_transform_feedback GL_EXT_vertex_array_bgra GL_EXT_vertex_attrib_64bit GL_IBM_multimode_draw_arrays GL_INTEL_shader_atomic_float_minmax GL_KHR_blend_equation_advanced GL_KHR_blend_equation_advanced_coherent GL_KHR_context_flush_control GL_KHR_debug GL_KHR_no_error GL_KHR_parallel_shader_compile GL_KHR_robust_buffer_access_behavior GL_KHR_robustness GL_KHR_texture_compression_astc_ldr GL_KHR_texture_compression_astc_sliced_3d GL_MESA_framebuffer_flip_y GL_MESA_pack_invert GL_MESA_shader_integer_functions GL_MESA_texture_signed_rgba GL_NVX_gpu_memory_info GL_NV_alpha_to_coverage_dither_control GL_NV_conditional_render GL_NV_copy_image GL_NV_depth_clamp GL_NV_packed_depth_stencil GL_NV_shader_atomic_float GL_NV_texture_barrier GL_OES_EGL_image GL_OVR_multiview GL_OVR_multiview2 GL_S3_s3tc
+OPENGL LOG: Creating OpenGL 4.5 graphics device ; Context level  <OpenGL 4.5> ; Context handle 517203552
+Initialize mono
+Mono path[0] = '/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed'
+Mono path[1] = '/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-linux'
+Mono config path = '/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56623
+CodeReloadManager initialized
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+ImportWorker Server TCP listen port: 0
+AcceleratorClientConnectionCallback - disconnected - :0
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: /home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0.001494 seconds.
+Native extension for LinuxStandalone target not found
+Package Manager log level set to [2]
+Native extension for WindowsStandalone target not found
+(node:153659) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+(Use `UnityPackageManager --trace-deprecation ...` to show where the warning was created)
+[Licensing::Client] Successfully resolved entitlement details
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  2.892 seconds
+Domain Reload Profiling: 3338ms
+	BeginReloadAssembly (121ms)
+		CreateAndSetChildDomain (6ms)
+	RebuildCommonClasses (41ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (70ms)
+	LoadAllAssembliesAndSetupDomain (204ms)
+		LoadAssemblies (114ms)
+		AnalyzeDomain (188ms)
+			TypeCache.Refresh (187ms)
+				TypeCache.ScanAssembly (170ms)
+	FinalizeReload (2893ms)
+		SetupLoadedEditorAssemblies (0ms)
+			InitializePlatformSupportModulesInManaged (50ms)
+			BeforeProcessingInitializeOnLoad (94ms)
+			ProcessInitializeOnLoadAttributes (107ms)
+			ProcessInitializeOnLoadMethodAttributes (2575ms)
+[Licensing::Client] Successfully resolved entitlement details
+Application.AssetDatabase Initial Refresh Start
+[Package Manager] Restoring resolved packages state from cache
+[Licensing::Client] Successfully resolved entitlement details
+[Package Manager] Registered 9 packages:
+  Packages from [https://packages.unity.com]:
+    com.unity.sdk.linux-x86_64@1.1.0 (location: /workspace/critical-shift-spawn-runtime/runtime/unity/Library/PackageCache/com.unity.sdk.linux-x86_64@6d12be270055)
+    com.unity.toolchain.linux-x86_64-linux@1.1.0 (location: /workspace/critical-shift-spawn-runtime/runtime/unity/Library/PackageCache/com.unity.toolchain.linux-x86_64-linux@d0308bf9d559)
+    com.unity.sysroot.base@1.1.0 (location: /workspace/critical-shift-spawn-runtime/runtime/unity/Library/PackageCache/com.unity.sysroot.base@3559fe1aa613)
+  Built-in packages:
+    com.unity.test-framework@1.6.0 (location: /workspace/critical-shift-spawn-runtime/runtime/unity/Library/PackageCache/com.unity.test-framework@9faaf09ec578)
+    com.unity.modules.imgui@1.0.0 (location: /workspace/critical-shift-spawn-runtime/runtime/unity/Library/PackageCache/com.unity.modules.imgui)
+    com.unity.modules.jsonserialize@1.0.0 (location: /workspace/critical-shift-spawn-runtime/runtime/unity/Library/PackageCache/com.unity.modules.jsonserialize)
+    com.unity.modules.physics@1.0.0 (location: /workspace/critical-shift-spawn-runtime/runtime/unity/Library/PackageCache/com.unity.modules.physics)
+    com.unity.modules.animation@1.0.0 (location: /workspace/critical-shift-spawn-runtime/runtime/unity/Library/PackageCache/com.unity.modules.animation)
+    com.unity.ext.nunit@2.0.5 (location: /workspace/critical-shift-spawn-runtime/runtime/unity/Library/PackageCache/com.unity.ext.nunit@ec2d0043d6fc)
+[Subsystems] No new subsystems found in resolved package list.
+[Package Manager] Done registering packages in 0.00 seconds
+Warning: Disk space low. The project is on a drive with diskspace below 1.00 GB. Please free up some space for Unity to work correctly.
+[ScriptCompilation] Requested script compilation because: AssetDatabase observed changes in script compilation related files
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://unix:/tmp/ilpp.sock-8905bfec88515832b1986b252f5b3832
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Production
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /workspace/critical-shift-spawn-runtime/runtime/unity
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/Ping - application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/Ping'
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/Ping'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/Ping - 200 - application/grpc 35.6299ms
+Starting: /home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Tools/BuildPipeline/bee_backend --ipc --defer-dag-verification --dagfile="Library/Bee/2400b0aE.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssemblies
+WorkingDir: /workspace/critical-shift-spawn-runtime/runtime/unity
+DisplayProgressbar: Compiling Scripts
+ExitCode: 0 Duration: 1s824ms
+[255/258    1s] Csc Library/Bee/artifacts/2400b0aE.dag/CriticalShift.Player.Editor.dll (+2 others)
+Assets/CriticalShift/Bootstrap/Player/Editor/CsMineSourceHybridBoardFinal12.cs(47,261): warning CS0618: 'LightShadowCasterMode.Everything' is obsolete: 'This has been deprecated. Use DistanceShadowMaskMode instead. (UnityUpgradable) -> DistanceShadowMask'
+[256/258    0s] CopyFiles Library/ScriptAssemblies/CriticalShift.Player.Editor.pdb
+[257/258    0s] CopyFiles Library/ScriptAssemblies/CriticalShift.Player.Editor.dll
+*** Tundra build success (1.78 seconds), 3 items updated, 258 evaluated
+[ApiUpdater] Total time: 1272ms, Parse response file: 47ms, Collect updater configs: 101ms, Update: 1122ms, Save: 2ms Files: 1 modified / 1 visited / 7 total (Library/Bee/artifacts/2400b0aE.dag/CriticalShift.Player.Editor.dll).
+[API Updater] Updated Files:
+Skipping ScriptUpdater consent dialog. Consent declined based on command line parameters.
+Finished running ScriptUpdaters
+Total cache size 1095868
+Assets/CriticalShift/Bootstrap/Player/Editor/CsMineSourceHybridBoardFinal12.cs(47,261): warning CS0618: 'LightShadowCasterMode.Everything' is obsolete: 'This has been deprecated. Use DistanceShadowMaskMode instead. (UnityUpgradable) -> DistanceShadowMask'
+Total cache size after purge 1095868, took 00:00:00.0156478
+AssetDatabase: script compilation time: 3.765152s
+Begin MonoManager ReloadAssembly
+Assembly Assembly-CSharp-Editor-firstpass.dll at Library/ScriptAssemblies/Assembly-CSharp-Editor-firstpass.dll not valid. Loading of assembly skipped.
+Assembly Assembly-CSharp-Editor.dll at Library/ScriptAssemblies/Assembly-CSharp-Editor.dll not valid. Loading of assembly skipped.
+Assembly Assembly-CSharp-firstpass.dll at Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll not valid. Loading of assembly skipped.
+Assembly Assembly-CSharp.dll at Library/ScriptAssemblies/Assembly-CSharp.dll not valid. Loading of assembly skipped.
+Assembly TestNewCustomAssembly.dll at Library/ScriptAssemblies/TestNewCustomAssembly.dll not valid. Loading of assembly skipped.
+Assembly Unity.Sysroot.EditorTests.dll at Library/ScriptAssemblies/Unity.Sysroot.EditorTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Sysroot.Linux_x86_64.EditorTests.dll at Library/ScriptAssemblies/Unity.Sysroot.Linux_x86_64.EditorTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Toolchain.Linux-x86_64-Linux.EditorTests.dll at Library/ScriptAssemblies/Unity.Toolchain.Linux-x86_64-Linux.EditorTests.dll not valid. Loading of assembly skipped.
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+ScheduleIndexationOnStartup MainProcess:True IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.645 seconds
+Domain Reload Profiling: 1172ms
+	BeginReloadAssembly (261ms)
+		DisableScriptedObjects (53ms)
+		CreateAndSetChildDomain (71ms)
+	RebuildCommonClasses (42ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (47ms)
+	LoadAllAssembliesAndSetupDomain (167ms)
+		LoadAssemblies (217ms)
+		AnalyzeDomain (28ms)
+			TypeCache.Refresh (19ms)
+				TypeCache.ScanAssembly (10ms)
+			BuildScriptInfoCaches (4ms)
+	FinalizeReload (646ms)
+		SetupLoadedEditorAssemblies (0ms)
+			InitializePlatformSupportModulesInManaged (50ms)
+			BeforeProcessingInitializeOnLoad (192ms)
+			ProcessInitializeOnLoadAttributes (160ms)
+			ProcessInitializeOnLoadMethodAttributes (68ms)
+			AfterProcessingInitializeOnLoad (4ms)
+		AwakeInstancesAfterBackupRestoration (18ms)
+Start importing Assets/CriticalShift/Features/Player/CsMineSourceHybridBoardFinal12.shader using Guid(0d015766dc622a527949fca2902d8cd5) (ShaderImporter)Launched and connected shader compiler UnityShaderCompiler after 0.01 seconds
+ -> (Import Result ID: '5ed9c5f6581951ec6c10577cb0896602') in 0.787713584 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=d2b7d0efee910b4496420a70f89c976a DependenciesID=80f39132e2fa289ef541e9da74ba198c StaticDependenciesID=37fb70365d4b8d1150ac65727ab76875 
+(Values over 0.050ms)
+Asset Pipeline Refresh (id=43a207133ebf0c3f78e8f175d483f7f7): Total: 6.364 seconds - Initiated by InitialRefreshV2(ForceSynchronousImport)
+	Summary:
+		Imports: total=1 (actual=1, local cache=0, cache server=0)
+		Asset DB Process Time: managed=2 ms, native=1837 ms
+		Asset DB Callback time: managed=116 ms, native=102 ms
+		Scripting: domain reloads=1, domain reload time=526 ms, compile time=3767 ms, other=12 ms
+		Project Asset Count: scripts=148, non-scripts=1574
+		Asset File Changes: new=0, changed=2, moved=0, deleted=0
+		Scan Filter Count: 1
+	InvokePackagesCallback: 6.024ms
+	ApplyChangesToAssetFolders: 0.108ms
+	Scan: 266.043ms
+	OnSourceAssetsModified: 1.400ms
+	CategorizeScriptCompilationAssets: 4.898ms
+	ProcessAssetsWithTransientArtifactChanges: 7.513ms
+	CategorizeAssets: 31.896ms
+	CompileScripts: 3766.791ms
+	ImportOutOfDateAssets: 1443.622ms (647.415ms without children)
+		ImportManagerImport: 790.662ms (2.596ms without children)
+		UnloadImportedAssets: 0.276ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.226ms
+		OnDemandSchedulerStart: 5.038ms
+	PostProcessAllAssets: 213.029ms
+		ShaderAssetModifiedCallback 95.064ms
+		PostProcessCallbackCreateDeferredMaterials 0.111ms
+		MonoPostProcessAllAssets: 114.991ms
+			AssetPostprocessor.OnPostprocessAllAssets 37.461ms
+			WindowAssetPostprocessingWatcher.OnPostprocessAllAssets 23.261ms
+			StyleCatalogPostProcessor.OnPostprocessAllAssets 18.065ms
+			BuilderAssetPostprocessor.OnPostprocessAllAssets 7.008ms
+			AssetChangedListener.OnPostprocessAllAssets 1.710ms
+			SyncVS.PostprocessSyncProject 1.398ms
+			RetainedModeAssetPostprocessor.OnPostprocessAllAssets 1.220ms
+			SpeedTree9Postprocessor.OnPostprocessAllAssets 0.813ms
+			TextAssetPostProcessor.OnPostprocessAllAssets 0.592ms
+			ArtifactBrowserPostProcessor.OnPostprocessAllAssets 0.586ms
+			ReferencedClipsPostProcessor.OnPostprocessAllAssets 0.379ms
+			TerrainToolbarOverlayPostProcessor.OnPostprocessAllAssets 0.275ms
+			AssetEvents.OnPostprocessAllAssets 0.260ms
+			AudioMixerPostprocessor.OnPostprocessAllAssets 0.246ms
+			AssetDatabaseCallbacks.OnPostprocessAllAssets 0.198ms
+			SpeedTreePostProcessor.OnPostprocessAllAssets 0.152ms
+			ScenarioDriftAssetsTracker.OnPostprocessAllAssets 0.131ms
+			ConfigAssetsTracker.OnPostprocessAllAssets 0.121ms
+			RenderPipelineGlobalSettingsPostprocessor.OnPostprocessAllAssets 0.098ms
+			AudioContainerPostProcessor.OnPostprocessAllAssets 0.063ms
+	PostAssetChangesProfiler: 0.812ms
+	UnloadStreamsBegin: 1.670ms
+	PersistCurrentRevisions: 0.063ms
+	Untracked: 612.409ms
+
+Application.AssetDatabase Initial Refresh End
+Scanning for USB devices : 0.486ms
+Initializing Unity extensions:
+UpdateMenuTitleForLanguage: 10
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+[MODES] Loading mode Default (0) for mode-current-id-Critical Shift
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 444 unused Assets / (450.9 KB). Loaded Objects now: 1085.
+Memory consumption went from 100.1 MB to 99.6 MB.
+Total: 9.733504 ms (FindLiveObjects: 0.100535 ms CreateObjectMapping: 0.017037 ms MarkObjects: 9.066007 ms  DeleteObjects: 0.548250 ms)
+
+Start importing Assets/CriticalShift/Generated/MineSourceHybridBoardFinal12 using Guid(4fa92d2536e605d14bb467f01a9c5293) (DefaultImporter) -> (Import Result ID: '2715670a4aab3141b40156f213d53500') in 0.001214905 seconds [static dependencies only]. Details - ImportResultOutputID=3962f03085378070a43bb8238f7d2df0 DependenciesID=10e58041b704a59eda151a8e76d268f7 StaticDependenciesID=f5884e062d9f1b5708f2452d9318a9d1 
+Asset Pipeline Refresh (id=b41f6eff2abbb5166977dccdf25c2bbc): Total: 0.017 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineSourceHybridBoardFinal12/SourceDiffuseShedBoards.fbx using Guid(122e6a77005cd2e798830581a050bdd0) (FBXImporter)WARNING: Couldn't open libxml2.so.16 (error=libxml2.so.16: cannot open shared object file: No such file or directory). Trying libxml2.so.2...
+ -> (Import Result ID: '9ea00cae62c70afea132cb0a15fafd94') in 0.034280708 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=ed7b8d493043d4977872f4679e5280ab DependenciesID=b6d4cf0bdbae86737d0882458e7523c9 StaticDependenciesID=7cb0af4f0667bc7a68309780b279d8eb 
+Asset Pipeline Refresh (id=a795c2d4a10993d548f7434cd91c2111): Total: 0.043 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineSourceHybridBoardFinal12/SourceAllIndirect.exr using Guid(a6faf74c17981480eabbc3f750a092cd) (TextureImporter) -> (Import Result ID: '0774f83ab43f3a63f0d7c3f46bc2e37f') in 0.327647222 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=085c5d3aa6f9ebe112cf59285a8952c7 DependenciesID=0e4716afcdb5d15923d40320498fba15 StaticDependenciesID=b567d73fcbb29073f1008cf798ece46b 
+(Values over 0.050ms)
+Asset Pipeline Refresh (id=51ae415e7cdfa11e189c36b7a8d9e8fe): Total: 0.337 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+	Summary:
+		Imports: total=1 (actual=1, local cache=0, cache server=0)
+		Asset DB Process Time: managed=1 ms, native=333 ms
+		Asset DB Callback time: managed=2 ms, native=0 ms
+		Scripting: domain reloads=0, domain reload time=0 ms, compile time=0 ms, other=0 ms
+		Project Asset Count: scripts=149, non-scripts=1576
+		Asset File Changes: new=1, changed=1, moved=0, deleted=0
+		Scan Filter Count: 5
+	Scan: 2.980ms
+	CategorizeAssets: 0.627ms
+	ImportOutOfDateAssets: 329.425ms (0.296ms without children)
+		ImportManagerImport: 328.234ms (0.306ms without children)
+			UpdateCategorizedAssets: 0.090ms
+		UnloadImportedAssets: 0.242ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.191ms
+		OnDemandSchedulerStart: 0.456ms
+	PostProcessAllAssets: 2.192ms
+		MonoPostProcessAllAssets: 2.048ms
+			TextAssetPostProcessor.OnPostprocessAllAssets 1.613ms
+			AssetPostprocessor.OnPostprocessAllAssets 0.110ms
+	PostAssetChangesProfiler: 0.380ms
+	GatherAllCurrentPrimaryImportResultRevisions: 0.069ms
+	PersistCurrentRevisions: 0.091ms
+	Untracked: 1.178ms
+
+Start importing Assets/CriticalShift/Generated/MineSourceHybridBoardFinal12/SourceAllIndirect.exr using Guid(a6faf74c17981480eabbc3f750a092cd) (TextureImporter) -> (Import Result ID: '6b68043993e3e5f62b2cb9886579a6b3') in 0.043035898 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=74b4fce01ed64ca873b50566ced4f705 DependenciesID=df4ef24b6a27439584af5fb5b0e7433c StaticDependenciesID=8bf159ed610f0e65e4539d6e82bb12c5 
+Asset Pipeline Refresh (id=44b9806a424d0abd4aa61b318e771e98): Total: 0.054 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineSourceHybridBoardFinal12/SourceAllDirect.exr using Guid(96b5fd570342c3b8c97e3d1be05db7ec) (TextureImporter) -> (Import Result ID: '65a2c902ca81647bf01a68ff1a01bae5') in 0.353730597 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=821942cdf73df4d2c9db497ff0a040e1 DependenciesID=d48ccb3aa64575660fca9a36469d30a8 StaticDependenciesID=c6e000f242682d29b7f7fa62b80dcaf2 
+(Values over 0.050ms)
+Asset Pipeline Refresh (id=bbbd0f1411a678b2ab180450937f3851): Total: 0.361 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+	Summary:
+		Imports: total=1 (actual=1, local cache=0, cache server=0)
+		Asset DB Process Time: managed=0 ms, native=359 ms
+		Asset DB Callback time: managed=0 ms, native=0 ms
+		Scripting: domain reloads=0, domain reload time=0 ms, compile time=0 ms, other=0 ms
+		Project Asset Count: scripts=149, non-scripts=1577
+		Asset File Changes: new=1, changed=1, moved=0, deleted=0
+		Scan Filter Count: 5
+	Scan: 3.161ms
+	CategorizeAssets: 0.593ms
+	ImportOutOfDateAssets: 354.916ms (0.246ms without children)
+		ImportManagerImport: 354.109ms (0.129ms without children)
+		UnloadImportedAssets: 0.091ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.166ms
+		OnDemandSchedulerStart: 0.298ms
+	PostProcessAllAssets: 0.444ms
+		MonoPostProcessAllAssets: 0.333ms
+			AssetPostprocessor.OnPostprocessAllAssets 0.061ms
+	PostAssetChangesProfiler: 0.325ms
+	GatherAllCurrentPrimaryImportResultRevisions: 0.080ms
+	PersistCurrentRevisions: 0.086ms
+	Untracked: 1.313ms
+
+Start importing Assets/CriticalShift/Generated/MineSourceHybridBoardFinal12/SourceAllDirect.exr using Guid(96b5fd570342c3b8c97e3d1be05db7ec) (TextureImporter) -> (Import Result ID: 'e935e9e749aa78741d1755b2e39a8266') in 0.041814796 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=dc3a9f52cdfeedccb2a98c91489bf7f2 DependenciesID=0c42e6830ee2aea8d443ad68175344bd StaticDependenciesID=ef0f8aff812f30c58d0fd68bbcad1f4e 
+Asset Pipeline Refresh (id=2b408683cfe2e722b85313e19d1bd3ef): Total: 0.051 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineSourceHybridBoardFinal12/SourceNonExplicitDirect.exr using Guid(ae23dab4bb164de9aa8d91514af420ce) (TextureImporter) -> (Import Result ID: '093066654d7353f3bdf2187514c5b69d') in 0.343997765 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=caf6bf4a57c7c13d13723951d3e82f90 DependenciesID=546e5437d4faff6d660ff37105754bf4 StaticDependenciesID=754781a69e8a9eb1df7194b787dee986 
+(Values over 0.050ms)
+Asset Pipeline Refresh (id=caa0a1ecd637ef3f0b939f824ec2876d): Total: 0.357 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+	Summary:
+		Imports: total=1 (actual=1, local cache=0, cache server=0)
+		Asset DB Process Time: managed=0 ms, native=356 ms
+		Asset DB Callback time: managed=0 ms, native=0 ms
+		Scripting: domain reloads=0, domain reload time=0 ms, compile time=0 ms, other=0 ms
+		Project Asset Count: scripts=149, non-scripts=1578
+		Asset File Changes: new=1, changed=1, moved=0, deleted=0
+		Scan Filter Count: 5
+	Scan: 3.632ms
+	CategorizeAssets: 0.564ms
+	ImportOutOfDateAssets: 350.661ms (0.305ms without children)
+		ImportManagerImport: 344.342ms (0.139ms without children)
+		UnloadImportedAssets: 0.086ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.151ms
+		OnDemandSchedulerStart: 5.771ms
+	PostProcessAllAssets: 0.488ms
+		MonoPostProcessAllAssets: 0.353ms
+			AssetPostprocessor.OnPostprocessAllAssets 0.076ms
+	PostAssetChangesProfiler: 0.399ms
+	GatherAllCurrentPrimaryImportResultRevisions: 0.075ms
+	PersistCurrentRevisions: 0.096ms
+	Untracked: 1.415ms
+
+Start importing Assets/CriticalShift/Generated/MineSourceHybridBoardFinal12/SourceNonExplicitDirect.exr using Guid(ae23dab4bb164de9aa8d91514af420ce) (TextureImporter) -> (Import Result ID: '8012b8573403798361487f6daca5b5bb') in 0.035251334 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=6379e71811cb58ce6155f2a5421e4147 DependenciesID=f8beb0a00fcab424eab983d170627f34 StaticDependenciesID=6a8e63a0e7d969ba87895b7567fbfe8d 
+Asset Pipeline Refresh (id=17aae6b5d5120dc819e7120d283bd317): Total: 0.047 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineSourceHybridBoardFinal12/SourceBaseColor.exr using Guid(3047dbdb5278e64839f5a2412319f36a) (TextureImporter) -> (Import Result ID: '8761fd845cd069d97ac01d274cfd5477') in 0.24427744 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=cde543f3b75032e320675d9c5a1f67e9 DependenciesID=a5bd08aa53b3d785b09e39bb1c37ea1c StaticDependenciesID=54d75b34e9d5c194df9d4d63cf98d6ca 
+Asset Pipeline Refresh (id=a94f470fe1213d0009303464bacbfac1): Total: 0.253 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineSourceHybridBoardFinal12/SourceBaseColor.exr using Guid(3047dbdb5278e64839f5a2412319f36a) (TextureImporter) -> (Import Result ID: '51320d9241d9765c36f2327be1ae6dba') in 0.041860712 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=93592574939f9bb11d3b786e35eafc91 DependenciesID=cde894f114a15c16239c77c5346b20c9 StaticDependenciesID=c210b90634335849cca589a6999ad992 
+Asset Pipeline Refresh (id=fc6908081ca57f68e984e8d429976fee): Total: 0.051 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineSourceHybridBoardFinal12/SourceNormal.exr using Guid(12fc38caeab1656b2a8c387f9c40d6bd) (TextureImporter) -> (Import Result ID: 'bef3a043f659a8493b8a4b3b7c63e070') in 0.255809907 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=f21ec43d43fb7fd2b5f275b145a62ea3 DependenciesID=8577fa97ba4549db8cdbc70c275e136c StaticDependenciesID=2cfa4a3b05d1f94c6b7a09ffcac449db 
+Asset Pipeline Refresh (id=242252963afc8af6caad18689bdc9753): Total: 0.264 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineSourceHybridBoardFinal12/SourceNormal.exr using Guid(12fc38caeab1656b2a8c387f9c40d6bd) (TextureImporter) -> (Import Result ID: 'df55b9612c5bcb2e30585d5611667c52') in 0.040818672 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=d386bb446c8a814633177106dd67d6d7 DependenciesID=d46ea91d05bd608ac7b9829cb32d6df5 StaticDependenciesID=08acb1645008c68d95fc8639e863084c 
+Asset Pipeline Refresh (id=a3cbd6da358ed4909bdb9a855be9f19d): Total: 0.051 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineSourceHybridBoardFinal12/SourceRoughness.exr using Guid(cd32f90372b644c208b5b63cc69734ba) (TextureImporter) -> (Import Result ID: '133bf05b6ba73af40ba738fe24f011ed') in 0.160922092 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=34ac21180ab72cc3e8c48d79d67d8012 DependenciesID=72d080059770332556cbdf32d075301c StaticDependenciesID=ccd18718940752ceeb4557e0c89d3194 
+Asset Pipeline Refresh (id=b1e2b026e2c691d669f8534f5e00d044): Total: 0.167 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineSourceHybridBoardFinal12/SourceRoughness.exr using Guid(cd32f90372b644c208b5b63cc69734ba) (TextureImporter) -> (Import Result ID: '908f53c80c23098503bd3b011d8bc830') in 0.027100766 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=c9b5f44b9fba1b430f8d4506fdcb57c8 DependenciesID=3528f1106e4f4e4be35791474725822d StaticDependenciesID=5ff5b05adca8ccf4a04791fa9997df02 
+Asset Pipeline Refresh (id=f47b69fe8f4a2796fb1c4adf2450ec19): Total: 0.040 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineSourceHybridBoardFinal12/SourceMetallic.exr using Guid(a259f416fe439219f84a527cad5040dd) (TextureImporter) -> (Import Result ID: 'ae898977ac9832bc1604b05f8e57725c') in 0.246986019 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=172d3a9344252d9a03b8be80d6ad23b5 DependenciesID=15561f6c4ad6e05b10c7aad316cf8df1 StaticDependenciesID=8cd7c1d53863637ffed7496839ba5c2f 
+Asset Pipeline Refresh (id=59d3ff0c927e9a81fad3642f8acd19f0): Total: 0.253 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineSourceHybridBoardFinal12/SourceMetallic.exr using Guid(a259f416fe439219f84a527cad5040dd) (TextureImporter) -> (Import Result ID: '0242c4a944bd2fb07b9ffb3884944716') in 0.029721298 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=738cb8cb658860700730ec8ae4d165cf DependenciesID=ea12de26a87614cecb8d351acd062296 StaticDependenciesID=0359a9ff526d29d6209f4accc895a6ad 
+Asset Pipeline Refresh (id=eae961c6bafd3ea3ab3248378390e49b): Total: 0.039 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineSourceHybridBoardFinal12/SourceDiffuseShedBoards.fbx using Guid(122e6a77005cd2e798830581a050bdd0) (FBXImporter) -> (Import Result ID: 'ec4f1cd0148e746212ef0ce18c778afa') in 0.014036373 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=2fbffeb76b9c9e02a826250e6f80860e DependenciesID=b8d165d8be9872848242353df96a69d4 StaticDependenciesID=c0a0ca669f2c1e684679a3d7a7ea7b58 
+Asset Pipeline Refresh (id=964f62ab787ad5ac58649f35a860e939): Total: 0.022 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Opening scene 'Assets/CriticalShift/Generated/Spawn/AssembledMap.unity'
+Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
+LightingSettings: switching bake backend from 2 to 1.
+Loaded scene 'Assets/CriticalShift/Generated/Spawn/AssembledMap.unity'
+	Deserialize:            114.910 ms
+	Integration:            30725.100 ms
+	Integration of assets:  0.516 ms
+	Thread Wait Time:       0.314 ms
+	Total Operation Time:   30840.840 ms
+Unloading 13 unused Assets / (41.6 KB). Loaded Objects now: 76584.
+Memory consumption went from 1.42 GB to 1.42 GB.
+Total: 80.822281 ms (FindLiveObjects: 35.125229 ms CreateObjectMapping: 3.061903 ms MarkObjects: 40.985968 ms  DeleteObjects: 1.636203 ms)
+
+Unloading 521 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 37958 unused Assets / (0.85 GB). Loaded Objects now: 1083.
+Memory consumption went from 1.22 GB to 386.7 MB.
+Total: 133.966390 ms (FindLiveObjects: 1.552094 ms CreateObjectMapping: 1.164108 ms MarkObjects: 8.152922 ms  DeleteObjects: 123.095497 ms)
+
+Asset Pipeline Refresh (id=9888f7fe501160f71ae6c1c3087c9457): Total: 0.031 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Exception: Selected triangle inventory differs: 64 vs 68
+  at CsMineSourceHybridBoardFinal12.Render () [0x00505] in /workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/CsMineSourceHybridBoardFinal12.cs:32 
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineSourceHybridBoardFinal12.cs Line: 32)
+
+executeMethod method CsMineSourceHybridBoardFinal12.Render threw exception.
+[Physics::Module] Cleanup current backend.
+[Physics::Module] Id: 0xf2b8ea05
+Input System module state changed to: ShutdownInProgress.
+Input Polling Thread exited.
+Input System module state changed to: Shutdown.
+[Licensing::IpcConnector] LicenseClient-agent-notifications channel disconnected successfully.
+[Licensing::IpcConnector] LicenseClient-agent channel disconnected successfully.
+AcceleratorClientConnectionCallback - disconnected - :0
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...
+Cleanup mono
+CodeReloadManager destroyed
+debugger-agent: Unable to listen on 48
+
+SDL leaked 2 allocations
+Turn on UNITY_SDL_ALLOCATION_TRACKING for detailed information.

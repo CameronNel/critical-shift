@@ -1,0 +1,16 @@
+{
+  "status": "Completed",
+  "purpose": "Controlled neutral colour, frontal white directional light; source normal/bump detail retained. No full lighting/Player acceptance claim",
+  "shaderSha256": "86fd569c9e7252c839d27b4e4a3cb7a2227a7d96e3af59b97d2f82d7bb78eff7",
+  "mapBindingsSha256": "cdd28794e1208f0ceef7d658aada8d5b0a1d1b345ceadd7b03d5631cce0be883",
+  "helperSha256": {
+    "MineWoodReview.cs": "6b0c77a8055614bb8c92da0b97382b2dafd368ec0bb7a7574adbb86df151419f",
+    "MineColourAudit.shader": "d66cdfd60d665df7f1e721b94ef44ba843cfa199e6605cb1474fec2a79d6cba8"
+  },
+  "captures": [
+    "wood-footprint-unity-SHED_FRONT-baseline.png",
+    "wood-footprint-unity-SHED_DETAIL-baseline.png"
+  ],
+  "filtering": "Four source-derived normals averaged within a pixel footprint; authored bump strength, distance and filter width unchanged",
+  "performance": "Added sampling cost not profiled on representative target hardware"
+}

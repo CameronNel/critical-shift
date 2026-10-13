@@ -1,0 +1,332 @@
+{
+  "status": "Bounded independent reflection control; no production glass or final acceptance",
+  "overallScore": null,
+  "sourceBlenderSha256": "255fe337aacd602e81bd2940be7bf2a1da2541954f6c8446c8a06f5aae413b72",
+  "regionXY": [
+    16,
+    112,
+    16,
+    112
+  ],
+  "centralPixels": 9216,
+  "sourceSamples": 32,
+  "sourceProvenanceSHA256": "6379fc70ed22f236b97a48398fc9481a6f99237b9205676dd56eed7ced0d75ac",
+  "angles": {
+    "0": {
+      "source": {
+        "sha256": "08cf16db5a7c799e8b9ed67e5df20d0ed3ec8e35f0d973fc9805c78957c9e8e3",
+        "meanLinearRGB": [
+          0.002770764986053109,
+          0.009331908077001572,
+          0.025703065097332
+        ],
+        "spatialStdRGB": [
+          0.0006986009539104998,
+          0.002362192142754793,
+          0.006524629425257444
+        ],
+        "centralP05RGB": [
+          0.0025625021662563086,
+          0.008625006303191185,
+          0.023750020191073418
+        ],
+        "centralP95RGB": [
+          0.005125004332512617,
+          0.01725001446902752,
+          0.047500044107437134
+        ],
+        "nonfiniteRGBPixels": 0
+      },
+      "fade": {
+        "sha256": "fb9298e5200c373ac1c633febf7afdf535f622c5b062407d4ebca6902f9e54a9",
+        "meanLinearRGB": [
+          0.00047999987145885825,
+          0.001440043793991208,
+          0.003839998971670866
+        ],
+        "spatialStdRGB": [
+          1.8044374883174896e-09,
+          4.9595371365285246e-08,
+          1.4435499906539917e-08
+        ],
+        "centralP05RGB": [
+          0.00047999806702136993,
+          0.0014399942010641098,
+          0.0038399845361709595
+        ],
+        "centralP95RGB": [
+          0.00047999806702136993,
+          0.0014399942010641098,
+          0.0038399845361709595
+        ],
+        "nonfiniteRGBPixels": 0,
+        "meanToSourceRatioRGB": [
+          0.17323730885982513,
+          0.15431396663188934,
+          0.14939849078655243
+        ],
+        "relativeCentralMeanErrorRGB": [
+          0.8267626762390137,
+          0.8456860780715942,
+          0.8506014943122864
+        ]
+      },
+      "diagnosticPremul": {
+        "sha256": "d55fd1868610020dcf6d5fffa3e47855a2b24dea801bdcbeba6d922ea3046644",
+        "meanLinearRGB": [
+          0.0027661400381475687,
+          0.009310569614171982,
+          0.0256379172205925
+        ],
+        "spatialStdRGB": [
+          1.9674963880333962e-07,
+          5.150366177986143e-07,
+          1.3001084653296857e-06
+        ],
+        "centralP05RGB": [
+          0.0027663367800414562,
+          0.009311084635555744,
+          0.025639217346906662
+        ],
+        "centralP95RGB": [
+          0.0027663367800414562,
+          0.009311084635555744,
+          0.025639217346906662
+        ],
+        "nonfiniteRGBPixels": 0,
+        "meanToSourceRatioRGB": [
+          0.99833083152771,
+          0.9977133870124817,
+          0.9974653720855713
+        ],
+        "relativeCentralMeanErrorRGB": [
+          0.0016691952478140593,
+          0.0022866129875183105,
+          0.0025346344336867332
+        ]
+      },
+      "smoothDielectricBenchmark": {
+        "reflectance": 0.03373594919332527,
+        "expectedWorldTimesTintRGB": [
+          0.002766347809722841,
+          0.009311122146266592,
+          0.025639321065196122
+        ],
+        "limit": "Analytic zero-roughness benchmark; actual source roughness is not zero"
+      }
+    },
+    "40": {
+      "source": {
+        "sha256": "ecb33e77701602c833f28836b1af7ec8efb3165e13b2b7fb52bada026d37ca57",
+        "meanLinearRGB": [
+          0.003204493783414364,
+          0.010785885155200958,
+          0.029700037091970444
+        ],
+        "spatialStdRGB": [
+          0.0011105865705758333,
+          0.0037380033172667027,
+          0.010293134488165379
+        ],
+        "centralP05RGB": [
+          0.002562503097578883,
+          0.008625012822449207,
+          0.023750033229589462
+        ],
+        "centralP95RGB": [
+          0.005125006660819054,
+          0.017250027507543564,
+          0.04750007390975952
+        ],
+        "nonfiniteRGBPixels": 0
+      },
+      "fade": {
+        "sha256": "d15fc31b24cf0105e0c191268c6ba167c7360ef7eaf0e2169ba974cea3e1b570",
+        "meanLinearRGB": [
+          0.0004892966244369745,
+          0.0014678857987746596,
+          0.003914372995495796
+        ],
+        "spatialStdRGB": [
+          5.1319284466444515e-06,
+          1.5395766240544617e-05,
+          4.105542757315561e-05
+        ],
+        "centralP05RGB": [
+          0.00048291657003574073,
+          0.0014487496810033917,
+          0.003863332560285926
+        ],
+        "centralP95RGB": [
+          0.0004988011787645519,
+          0.0014964034780859947,
+          0.003990409430116415
+        ],
+        "nonfiniteRGBPixels": 0,
+        "meanToSourceRatioRGB": [
+          0.15269076824188232,
+          0.13609321415424347,
+          0.1317969113588333
+        ],
+        "relativeCentralMeanErrorRGB": [
+          0.8473092317581177,
+          0.8639068007469177,
+          0.8682031035423279
+        ]
+      },
+      "diagnosticPremul": {
+        "sha256": "df6d20b1a76afbbffa942ab97320cc80a151c244ad6a17228dd77837797239b4",
+        "meanLinearRGB": [
+          0.0028448125813156366,
+          0.009545687586069107,
+          0.026264235377311707
+        ],
+        "spatialStdRGB": [
+          4.331560921855271e-05,
+          0.0001294958492508158,
+          0.0003449620271567255
+        ],
+        "centralP05RGB": [
+          0.0027909702621400356,
+          0.009384728968143463,
+          0.025835394859313965
+        ],
+        "centralP95RGB": [
+          0.0029250429943203926,
+          0.009785551577806473,
+          0.026903139427304268
+        ],
+        "nonfiniteRGBPixels": 0,
+        "meanToSourceRatioRGB": [
+          0.8877572417259216,
+          0.8850166201591492,
+          0.8843165636062622
+        ],
+        "relativeCentralMeanErrorRGB": [
+          0.11224275082349777,
+          0.11498337984085083,
+          0.115683414041996
+        ]
+      },
+      "smoothDielectricBenchmark": {
+        "reflectance": 0.039077092616401944,
+        "expectedWorldTimesTintRGB": [
+          0.003204321566594845,
+          0.01078527775777774,
+          0.02969859001579728
+        ],
+        "limit": "Analytic zero-roughness benchmark; actual source roughness is not zero"
+      }
+    },
+    "65": {
+      "source": {
+        "sha256": "3caccc2c28dd2f07340af37842e2e8da01dc6700eecc927333a03924a563a6fc",
+        "meanLinearRGB": [
+          0.009126029908657074,
+          0.030720360577106476,
+          0.0845784842967987
+        ],
+        "spatialStdRGB": [
+          0.001271575689315796,
+          0.004279803019016981,
+          0.011784381233155727
+        ],
+        "centralP05RGB": [
+          0.007687549106776714,
+          0.025875188410282135,
+          0.0712505355477333
+        ],
+        "centralP95RGB": [
+          0.01025006640702486,
+          0.034500256180763245,
+          0.0950007289648056
+        ],
+        "nonfiniteRGBPixels": 0
+      },
+      "fade": {
+        "sha256": "63d4e88bbcb5a212a5ac9b7053f6fc3b0675d34c7ef10b9f7c520cdb11ddbf17",
+        "meanLinearRGB": [
+          0.0012351438635960221,
+          0.003705426584929228,
+          0.009881150908768177
+        ],
+        "spatialStdRGB": [
+          0.000248178985202685,
+          0.0007445382652804255,
+          0.00198543188162148
+        ],
+        "centralP05RGB": [
+          0.0008698850288055837,
+          0.0026096550282090902,
+          0.00695908023044467
+        ],
+        "centralP95RGB": [
+          0.0016399257583543658,
+          0.004919777624309063,
+          0.013119406066834927
+        ],
+        "nonfiniteRGBPixels": 0,
+        "meanToSourceRatioRGB": [
+          0.13534295558929443,
+          0.12061794102191925,
+          0.11682818830013275
+        ],
+        "relativeCentralMeanErrorRGB": [
+          0.8646569848060608,
+          0.8793820738792419,
+          0.883171796798706
+        ]
+      },
+      "diagnosticPremul": {
+        "sha256": "6b8b8bba707cf5d29336572d943fff44dfa8c899d99956d95c4be620f79a2b83",
+        "meanLinearRGB": [
+          0.009140077978372574,
+          0.028365956619381905,
+          0.07639911770820618
+        ],
+        "spatialStdRGB": [
+          0.0020947372540831566,
+          0.006262404378503561,
+          0.016682283952832222
+        ],
+        "centralP05RGB": [
+          0.006057147402316332,
+          0.019149262458086014,
+          0.051846954971551895
+        ],
+        "centralP95RGB": [
+          0.012556617148220539,
+          0.038580019026994705,
+          0.10360818356275558
+        ],
+        "nonfiniteRGBPixels": 0,
+        "meanToSourceRatioRGB": [
+          1.0015393495559692,
+          0.9233601689338684,
+          0.9032925963401794
+        ],
+        "relativeCentralMeanErrorRGB": [
+          0.0015393407084047794,
+          0.07663985341787338,
+          0.09670741856098175
+        ]
+      },
+      "smoothDielectricBenchmark": {
+        "reflectance": 0.11133608723300356,
+        "expectedWorldTimesTintRGB": [
+          0.009129559073472517,
+          0.030728760633745408,
+          0.08461542523529904
+        ],
+        "limit": "Analytic zero-roughness benchmark; actual source roughness is not zero"
+      }
+    }
+  },
+  "limits": [
+    "Uniform-world reflection with black transmitted background only",
+    "Premultiplied Standard/Schlick is an approximation",
+    "Full BTDF, thickness, coloured background transmission and shadow-ray closure not validated",
+    "Actual portal probes, vehicle, Player and final full scene not certified",
+    "Source32sample reflection/transmission variance remains; central averaging is not a convergence claim"
+  ]
+}

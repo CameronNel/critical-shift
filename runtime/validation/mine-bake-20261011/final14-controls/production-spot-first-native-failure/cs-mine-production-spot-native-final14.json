@@ -1,0 +1,32 @@
+{
+  "state": "FailedActualProductionSpotControl",
+  "pins": {
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/prepared-scene.json": "1361ca11b4dad769dc93cb4b9c1e35312bbdd943e7a89e4216a91818c6253a15",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/AssembledMap.unity": "451f65f87a9947487b8b26ece16aed52b98b55fa55a4060563552511f5493e7a",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/map-bindings.json": "dcd7f11119192381cd5c34df7076e840b0d27098dc68d28d424f09485ff5ad8e",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/rig-bindings.json": "b89037e3c376c6e7958a3a1a1713664559baec579b861c8c5702ad03cc4a90a6",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/mine-point-bake-output.json": "e087e8a377b97a6093e518e95b32b4184809f5636ce478fcab411a3c2b88dc84",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/MineVisualLighting.cs": "7778d267d5b759bb141459ebee0a8d1b25e11f609386d5ad12438ae10ef0fab2",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/PlayerRoomBuild.cs": "f95de4878e9254597cce73cdda2c1fec2d6e9d7f9c80d222952c1289f8a18919",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/MinePointLighting.cs": "b66dbe1626d73b99ca16e9ee575d00a175842cee12bcdd0bae68c31a62bc2d48",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/SpawnMapBuild.cs": "0c8f6a0183a6a80f55f355fb8cd886134ef2a6a69f01b7f51697457857a71969",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/SpawnVisualReview.cs": "42d10de155b74d6669dae8f52b3ab05b43f1af7cab3e87f6b633e3502c204944",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/SpawnSurfaceBuild.cs": "de043055ac3f75d0a4f6d634b8a6dce26b67d4c02df2761379e8f9c9079379b1",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/MineSpotLighting.cs": "16ed27fca76f4722feba46a701778218072bb37b16594e35ca5e124265390e25",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Features/Player/BlenderPointLighting.cginc": "7314a8147285982eca1894d34cd0a84d66f95491323a3ee1a87856ebf882f89e",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Features/Player/BlenderSurface.shader": "e4faf34a6053a24cdabcfa0ead743a1906fe4a9a76f5a92617967e4a6fbe06b8",
+    "/workspace/critical-shift-spawn-runtime/runtime/tools/mine_context_lights.py": "eaa2118c44fffad8039f7981ecf060e6b9812b52b0813986305dcf36b1a4040c",
+    "/tmp/cs-mine-production-spot-control-final14.cs.txt": "3c63ab81b0f0a514dec4577485e09c84d24312540ec082a7f2a6e2e628b6f3fa",
+    "/tmp/cs-mine-production-spot-baseline-final14.shader.txt": "c824a9ad1fbbe3d51a1e93a1081640ad0524bafd2f0c0cac250be3ef88b5b43f",
+    "/tmp/cs-mine-production-spot-source-control-input-final14.json": "fd7fbc30de72d4bf63721f368e53be0e2228766afba38101098cad4197154f70",
+    "/tmp/cs-mine-production-spot-source-final14.json": "ba65e40b997610087852dada148e704bd971a7ca29db871ae375615ab9cb6560",
+    "/tmp/cs-mine-production-spot-api-final14-r3.json": "c180e0e247cacdebabff4a50a64752d7f27ef14fe30d26fe26b9eb5efff160cb",
+    "/tmp/cs-mine-front-spot-source-control-final14/provenance.json": "dc5d854be14eccb0b8bc25baea76c88d4453b3c6cdd4d500919a7d97d5c3d18b",
+    "/tmp/cs-mine-production-spot-native-final14.py": "abe3bb596210bae831f78829fed6d9ec73b847d04adc9dd17d9932be5a35b593"
+  },
+  "limits": [
+    "20 boundedfixtures; no Source/Generatedscene save, mainmap bake or98 claim"
+  ],
+  "error": "CalledProcessError(1, ['xvfb-run', '-a', '-s', '-screen 0 1440x810x24', '/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Unity', '-batchmode', '-force-glcore', '-quit', '-projectPath', '/workspace/critical-shift-spawn-runtime/runtime/unity', '-executeMethod', 'CsMineProductionSpotControlFinal14.Render', '-logFile', '/workspace/critical-shift-spawn-runtime/runtime/out/mine-bake-audit/production-spot-control-final14.native.log'])",
+  "traceback": "Traceback (most recent call last):\n  File \"/tmp/cs-mine-production-spot-native-final14.py\", line 16, in <module>\n    with wrapper.open('x') as f:subprocess.run(args,cwd=root,stdout=f,stderr=subprocess.STDOUT,check=True)\n                                ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/agent/.local/share/critical-shift/toolchain/python/cpython-3.14.8-linux-x86_64-gnu/lib/python3.14/subprocess.py\", line 578, in run\n    raise CalledProcessError(retcode, process.args,\n                             output=stdout, stderr=stderr)\nsubprocess.CalledProcessError: Command '['xvfb-run', '-a', '-s', '-screen 0 1440x810x24', '/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Unity', '-batchmode', '-force-glcore', '-quit', '-projectPath', '/workspace/critical-shift-spawn-runtime/runtime/unity', '-executeMethod', 'CsMineProductionSpotControlFinal14.Render', '-logFile', '/workspace/critical-shift-spawn-runtime/runtime/out/mine-bake-audit/production-spot-control-final14.native.log']' returned non-zero exit status 1.\n"
+}

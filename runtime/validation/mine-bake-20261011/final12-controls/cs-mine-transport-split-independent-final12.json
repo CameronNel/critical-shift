@@ -1,0 +1,132 @@
+{
+  "diagnosticMetrics": {
+    "broadRectangle": {
+      "pixels": 42500,
+      "native": {
+        "Total": [
+          0.20363555572558303,
+          0.13314303113189527,
+          0.08544033721876125
+        ],
+        "DirectDiffuse": [
+          0.0926242419320883,
+          0.0536867771791868,
+          0.03288869153374408
+        ],
+        "IndirectDiffuse": [
+          0.09206740701758862,
+          0.06816450722894375,
+          0.04598538387052818
+        ],
+        "Specular": [
+          0.018943906802092406,
+          0.011291746715712361,
+          0.0065662618220855675
+        ],
+        "DirectSuns": [
+          0.016224412470895663,
+          0.017475056994340044,
+          0.020173763855631688
+        ],
+        "DirectPoints": [
+          0.07639982951303045,
+          0.036211720197368666,
+          0.012714927680589365
+        ]
+      },
+      "sourceDiffuseDirect": [
+        0.08485808110609619,
+        0.04675692053920583,
+        0.02328800754610657
+      ],
+      "sourceDiffuseIndirect": [
+        0.004242272638452236,
+        0.002502662619441165,
+        0.0013370844202484009
+      ],
+      "nativeTotalClosureMaxAbs": 1.0924413800239563e-06,
+      "nativeDirectClosureMaxAbs": 2.3655593395233154e-07
+    },
+    "lowMetalSourceSupportedMask": {
+      "pixels": 28377,
+      "native": {
+        "Total": [
+          0.24528156577488341,
+          0.15463048744610833,
+          0.0888462444306072
+        ],
+        "DirectDiffuse": [
+          0.10711911615005952,
+          0.05381841413583079,
+          0.02336962762815118
+        ],
+        "IndirectDiffuse": [
+          0.11371177308422831,
+          0.08647697882955682,
+          0.05761392045952104
+        ],
+        "Specular": [
+          0.024450676581021798,
+          0.014335094452066656,
+          0.0078626963610473
+        ],
+        "DirectSuns": [
+          0.00634684545708914,
+          0.006241911118278138,
+          0.0067725136714233665
+        ],
+        "DirectPoints": [
+          0.10077227076002035,
+          0.04757650303613076,
+          0.016597113962135018
+        ]
+      },
+      "sourceDiffuseDirect": [
+        0.11898238850768848,
+        0.06584515101607775,
+        0.03303304901737372
+      ],
+      "sourceDiffuseIndirect": [
+        0.006039273389335157,
+        0.0035810649628982625,
+        0.001916123801213154
+      ],
+      "nativeTotalClosureMaxAbs": 1.0924413800239563e-06,
+      "nativeDirectClosureMaxAbs": 2.3655593395233154e-07
+    }
+  },
+  "allSevenFinite": true,
+  "historicalProof": {
+    "mapBindingsSha256": "5607d5c7a3424ab5d4ec2d8ecefceb6b720e67cf336d22e8ffec55ff8466c26b",
+    "rigBindingsSha256": "b89037e3c376c6e7958a3a1a1713664559baec579b861c8c5702ad03cc4a90a6",
+    "sceneSha256": "544f6b3bc6cc7670a27506620c4b1804d0e55753b2d17d5ef34a89889443a09f",
+    "sourceSha256": "d5aec8973e22f5e15dca11ffe9151e778528085c67e049ae10d5df85355cb084",
+    "lightmaps": 3
+  },
+  "fileHashes": {
+    "DirectPoints.exr": "68bc89bbcbe0f57e378ac732850b0d0c5e096764cde73e0e0a45449d7fb7db10",
+    "DirectSuns.exr": "a0b11a660df7f46af96aa0444852adbfd056ca158c147a1db10ff16f95c2617d",
+    "Support.exr": "c9ebdad4d144ee91af488a5b2251e602b60a34c92d377c21c9618d1862d432b0",
+    "Specular.exr": "057d5ff7b4a6b2320225b18e21003332e5fa5e7b1583f19f6ab2c762031f87d3",
+    "IndirectDiffuse.exr": "1d1095341d312dd0621944603a3e02ba7c216027555595f07c19c25837bf37ab",
+    "DirectDiffuse.exr": "3a6dfc165103b015c6d6d51b46161b5351170ec204d8c357906614ff655daf36",
+    "Total.exr": "604a89191360522d2fbe50e24523aab981d47e497cd7e3d3d3d647e82ab37f00"
+  },
+  "limits": "Native indirect-labelled term includes baked direct for39 source points, world/SH and diffuse GI. It is not comparable to Cycles indirect-only. Closure is partly algebraic by construction; diagnostic Total agrees production separately.",
+  "historicalFalloffReview": {
+    "evidence": "ActualCS_GI_BEFORE logs from oldtransport/radius/physical controls reportLegacy; historicalcode comment inverse-square is notactualproduction extraction",
+    "actualPriorProductionFalloff": "Not independently established by controlledscene logs"
+  },
+  "nearRadiusControlCorrection": {
+    "status": "Old productionfinite-radius conclusion unsupported",
+    "helper": "/tmp/cs-mine-radius-corrected-final11.cs.txt",
+    "helperSha256": "f2fcd18e5dae35570dd2f890c699ef82c5e031c4bfca63ab93c6c070fd722e87",
+    "finding": "Helper resetsLight.shadows=None then sets shapeRadius=.12; actualGI extraction logshape0=0 for all3near bakes. This is a zero-extracted-radius control, not productionSoft finite emitter.",
+    "requiredNextGate": "Softshadow actualextraction followed by source-matched near/distant radiance bake; shape0nonzero alone notsufficient"
+  },
+  "splitCaveats": [
+    "Total closure is partly algebraic byconstruction, not independentBRDF validation.",
+    "Native gi.indirect.diffuse cancontain storedBaked/fallbackMixed direct andSH/world; classifyactualbakingOutput beforecalling itindirect bounce.",
+    "Surface-generatedemission remainsoutsidecustomLightingfunction andcancontaminate fullscene Spec label; testedwoodROI nonemissive."
+  ]
+}

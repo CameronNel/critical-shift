@@ -1,0 +1,44 @@
+{
+  "status": "ConditionalClearance_BoundedNoBakeNoSaveActualRoomRoundTripOnly",
+  "utc": "2026-10-13T04:51:59.631962+00:00",
+  "currentCSharpDigest": "be6da3e223ed85a2bc5a1e493ea8d00d95a3da003af502df716311d34f395989",
+  "apiCSharpDigest": "82976752bd94038d62a722898fa84a8dba2fc53f327ee1551809b397e13a4d55",
+  "apiMatchesCurrent": false,
+  "apiReceipt": {
+    "path": "/tmp/cs-main342-excluded-scope-api-final15-r4/player-api.json",
+    "sha256": "7a3707eec6ae19ae9abe6de345bae8210aff9173ec90d0d70a698e1e3d854d74"
+  },
+  "code": [
+    {
+      "path": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/ExcludedRoomBakeScope.cs",
+      "sha256": "0126d1e4190c2b1a3cb5c841c388db17dbfeb2050c35995c6716192f9f503252"
+    },
+    {
+      "path": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/SpawnVisualReview.cs",
+      "sha256": "6bbb10991e7f739d8a499002e0fde9b6e4db0e770fea4bb13c68fe83d0302a58"
+    }
+  ],
+  "resolvedStaticFindings": [
+    "Constructor mutation in try and original/recovery errors retained",
+    "Reconciles partial moved/restored rooms across both scenes",
+    "Snapshots/compares retained global lighting and baked renderer assignments before/after additive transitions",
+    "Excluded state includes offsets, realtime slots, area/inner-cone/bounce and rejects property blocks",
+    "Owned stash deletion and build-scene absence checks"
+  ],
+  "conditions": [
+    "CurrentAPI exact source digest must match launch bytes; idle single editor process",
+    "Pin all current map/scene/source/aliases inputs before and after; preserve logs/failures",
+    "No Lightmapping.Bake, no SaveScene on delivery, no visual/Player claim",
+    "Observe cgroup anon/shmem as well as Profiler native allocation; no claimed memory headroom from profiler alone"
+  ],
+  "remainingFullBakeHolds": [
+    "Backup currently appears in CheckMineJoin rather than BakeAndRender; fix actual path before full bake",
+    "Actual roundtrip restoration and memory results pending",
+    "Failure-path and cross-reference native controls still unexecuted",
+    "Actual full lighting/captures/tests/Player and strict visual review remain pending"
+  ],
+  "limits": [
+    "Static clearance only",
+    "No engine launch or production edit by reviewer"
+  ]
+}

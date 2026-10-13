@@ -1,0 +1,80 @@
+using System;
+using System.IO;
+using System.Linq;
+using System.Collections.Generic;
+using UnityEditor;
+using UnityEditor.Experimental;
+using RenderSettings=UnityEngine.RenderSettings;
+using UnityEditor.SceneManagement;
+using UnityEngine;
+using UnityEngine.Rendering;
+namespace CriticalShift.Player.Editor {
+public static class MineWoodReview {
+ [Serializable] class Paths { public string[] paths; }
+ [Serializable] class ColourCase { public string name;public float[] stored,gpu; }
+ [Serializable] class ColourCases { public ColourCase[] cases; }
+ static void ColourProbe(string audit) {
+  var material=new Material(Shader.Find("Hidden/CriticalShift/MineColourAudit"));
+  var linear=new Color(.32f,.36f,.62f,1);var target=new RenderTexture(4,4,0,RenderTextureFormat.ARGBFloat,RenderTextureReadWrite.Linear);
+  var cases=new List<ColourCase>();
+  foreach(var name in new[]{"unknown-setcolor-gamma","declared-setcolor-gamma","unknown-setvector-linear","unknown-setcolor-linear"}) {
+   string key=name.StartsWith("declared") ? "_Declared" : "_Scatter0";material.SetFloat("_Mode",key=="_Declared" ? 1 : 0);
+   if(name=="unknown-setvector-linear")material.SetVector(key,(Vector4)linear);else material.SetColor(key,name.EndsWith("gamma") ? linear.gamma : linear);
+   var stored=material.GetVector(key);Graphics.Blit(Texture2D.blackTexture,target,material);RenderTexture.active=target;
+   var pixels=new Texture2D(4,4,TextureFormat.RGBAFloat,false,true);pixels.ReadPixels(new Rect(0,0,4,4),0,0);pixels.Apply();var gpu=pixels.GetPixel(2,2);
+   cases.Add(new ColourCase{name=name,stored=new[]{stored.x,stored.y,stored.z,stored.w},gpu=new[]{gpu.r,gpu.g,gpu.b,gpu.a}});UnityEngine.Object.DestroyImmediate(pixels);
+  }
+  RenderTexture.active=null;UnityEngine.Object.DestroyImmediate(target);UnityEngine.Object.DestroyImmediate(material);
+  File.WriteAllText(Path.Combine(audit,"native-colour-uniform-probe.json"),JsonUtility.ToJson(new ColourCases{cases=cases.ToArray()},true));
+ }
+
+ public static void Run() {
+  EditorSettings.asyncShaderCompilation=false;
+  EditorSceneManager.NewScene(NewSceneSetup.EmptyScene,NewSceneMode.Single);
+  LightmapSettings.lightmaps=Array.Empty<LightmapData>();RenderSettings.ambientMode=AmbientMode.Flat;RenderSettings.ambientLight=Color.black;RenderSettings.ambientIntensity=0;RenderSettings.ambientProbe=default(SphericalHarmonicsL2);RenderSettings.reflectionIntensity=0;RenderSettings.fog=false;
+  var folder=SpawnMapBuild.Folder;var audit=Path.GetFullPath("../out/mine-bake-audit");
+  var map=JsonUtility.FromJson<ExportMap>(File.ReadAllText(folder+"map-bindings.json"));var package=map.materials.Single(p=>p.room=="mine");var room=map.rooms.Single(r=>r.key=="mine");
+  ColourProbe(audit);
+  var materials=SpawnSurfaceBuild.Materials(package);
+  var importer=(ModelImporter)AssetImporter.GetAtPath(folder+room.mesh);SpawnMapBuild.ConfigureImporter(importer,false,false);if(AssetDatabase.WriteImportSettingsIfDirty(importer.assetPath))AssetDatabase.ImportAsset(importer.assetPath,ImportAssetOptions.ForceUpdate);
+  var model=(GameObject)PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath<GameObject>(folder+room.mesh));
+  var nodes=model.GetComponentsInChildren<Transform>(true).ToDictionary(n=>n.name);
+  var reviewMaterials=new List<Material>();
+  var grey=new Texture2D(1,1,TextureFormat.RGBAHalf,false,true);grey.SetPixel(0,0,new Color(.35f,.35f,.35f,1));grey.Apply();
+  int renderers=0;
+  foreach(var binding in room.objects) {
+   if(!nodes.TryGetValue(binding.node,out var node))continue;var renderer=node.GetComponent<MeshRenderer>();if(renderer==null)continue;
+   renderer.enabled=binding.source=="R39 | Shed boards" || binding.source=="R39 | Shed frame";
+   if(!renderer.enabled)continue;
+   var importedKeys=renderer.sharedMaterials.Select(m=>m.name).ToArray();
+   if(!importedKeys.Distinct().OrderBy(k=>k).SequenceEqual(binding.faceMaterials.Distinct().OrderBy(k=>k)))throw new Exception("Review material slot mismatch "+binding.node);
+   renderer.sharedMaterials=importedKeys.Select(key=>{
+    var material=new Material(materials[key]);if(!material.IsKeywordEnabled("_SOURCE_WOOD"))throw new Exception("Missing wood detail "+key);
+    material.SetTexture("_MainTex",grey);material.SetTexture("_WoodHigh",grey);material.color=Color.white;material.DisableKeyword("_METALLICGLOSSMAP");material.DisableKeyword("_EMISSION");material.SetFloat("_Metallic",0);material.SetFloat("_Glossiness",.35f);material.SetFloat("_DielectricSpecular",.04f);reviewMaterials.Add(material);return material;
+   }).ToArray();renderer.shadowCastingMode=ShadowCastingMode.On;renderer.receiveShadows=true;renderers++;
+  }
+  if(renderers!=2)throw new Exception("Expected two shed meshes: "+renderers);
+  var sun=new GameObject("Frontal white sun").AddComponent<Light>();sun.type=LightType.Directional;sun.color=Color.white;sun.intensity=1;sun.shadows=LightShadows.Hard;QualitySettings.shadowDistance=50;
+  EditorSettings.asyncShaderCompilation=false;
+  var views=JsonUtility.FromJson<SourceViews>(File.ReadAllText(Path.Combine(audit,"wood-neutral-cameras.json")));
+  foreach(var view in views.views.Take(2)) {
+   Vector3 V(float[] p)=>new Vector3(p[0],p[2],p[1]);
+   var camera=new GameObject(view.name).AddComponent<Camera>();camera.transform.SetPositionAndRotation(V(view.position),Quaternion.LookRotation(V(view.forward),V(view.up)));camera.fieldOfView=view.verticalFov;camera.nearClipPlane=.05f;camera.farClipPlane=250;camera.allowHDR=true;camera.clearFlags=CameraClearFlags.SolidColor;camera.backgroundColor=Color.black;camera.renderingPath=RenderingPath.Forward;sun.transform.rotation=camera.transform.rotation;
+   foreach(var variant in new[]{"baseline"}) {
+   foreach(var material in reviewMaterials) {var key=package.definitions.Single(d=>d.key==material.name.Replace(" (Instance)",""));var bump=material.GetVector("_WoodBump");bump.x=variant=="no-bump" || variant=="no-normal" ? 0 : key.sourceWood.bumpStrength;material.SetVector("_WoodBump",bump);var signal=material.GetVector("_WoodSignal");signal.w=variant=="no-normal" || variant=="no-source-normal" ? 0 : key.sourceWood.normalStrength;material.SetVector("_WoodSignal",signal);}
+   sun.shadows=variant=="no-shadows" ? LightShadows.None : LightShadows.Hard;
+   var target=new RenderTexture(1440,810,24,RenderTextureFormat.ARGB32,RenderTextureReadWrite.sRGB);target.antiAliasing=4;camera.targetTexture=target;camera.Render();camera.Render();RenderTexture.active=target;
+   var pixels=new Texture2D(1440,810,TextureFormat.RGB24,false,false);pixels.ReadPixels(new Rect(0,0,1440,810),0,0);pixels.Apply();File.WriteAllBytes(Path.Combine(audit,"wood-footprint-unity-"+view.name+"-"+variant+".png"),pixels.EncodeToPNG());camera.targetTexture=null;RenderTexture.active=null;UnityEngine.Object.DestroyImmediate(target);UnityEngine.Object.DestroyImmediate(pixels);
+  } UnityEngine.Object.DestroyImmediate(camera.gameObject);
+  }
+  UnityEngine.Object.DestroyImmediate(model);AssetDatabase.SaveAssets();AssetDatabase.Refresh();Resources.UnloadUnusedAssets();
+  var paths=new HashSet<string>();foreach(var asset in AssetDatabase.GetAllAssetPaths()) {
+   if(AssetDatabase.IsValidFolder(asset))continue;
+   var guid=AssetDatabase.AssetPathToGUID(asset);if(string.IsNullOrEmpty(guid))continue;
+   var key=new ArtifactKey(new GUID(guid));var id=AssetDatabaseExperimental.LookupArtifact(key);
+   if(AssetDatabaseExperimental.GetArtifactPaths(id,out var artifacts))foreach(var path in artifacts)paths.Add(path);
+  }
+  File.WriteAllText(Path.Combine(audit,"current-artifacts-source-wood.json"),JsonUtility.ToJson(new Paths{paths=paths.OrderBy(p=>p).ToArray()},true));
+  Debug.Log("CS_WOOD_NEUTRAL_NATIVE_OK; current production shader and UVs; neutral colour and frontal directional 1; scene not saved");
+ }
+}}

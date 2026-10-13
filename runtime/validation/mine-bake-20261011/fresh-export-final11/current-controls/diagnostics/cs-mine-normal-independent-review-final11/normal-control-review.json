@@ -1,0 +1,1138 @@
+{
+  "status": "Independent material-normal control only; no final visual acceptance",
+  "overallScore": null,
+  "sourceBlenderSha256": "255fe337aacd602e81bd2940be7bf2a1da2541954f6c8446c8a06f5aae413b72",
+  "views": {
+    "R39_01_PORTAL_APPROACH": {
+      "decodedNormalLengthDiagnostics": {
+        "source": {
+          "median": 0.9755251407623291,
+          "p01": 0.4933736026287079,
+          "p99": 3.3194825649261475,
+          "outside08to12Pixels": 32419
+        },
+        "old": {
+          "median": 0.9997295141220093,
+          "p01": 0.9989442229270935,
+          "p99": 1.0001808404922485,
+          "outside08to12Pixels": 0
+        },
+        "fresh": {
+          "median": 0.999729573726654,
+          "p01": 0.9989445805549622,
+          "p99": 1.0001797676086426,
+          "outside08to12Pixels": 0
+        }
+      },
+      "hashes": {
+        "sourceEXR": "5c499a179b451b88fbc068fd2a5c21c7130e170a734ada7b3f9f279d4426e423",
+        "oldEXR": "40ff99c357cc5610412ebd943df0f166f3ecfa55fbce517bc00042389084c0bd",
+        "freshEXR": "f30ecc69183e894946eacc4a6a1d01283552e9a4d618ea8f6403bd81ead13653",
+        "supportMaskEXR": "984083c4ae7f8c2be755e8d5d46aa74eae40e11f72e5a47050cbfc84fb0d86a3"
+      },
+      "oldVsSourceInterior": {
+        "pixels": 52934,
+        "meanDegrees": 8.70560073852539,
+        "medianDegrees": 7.106372833251953,
+        "p90Degrees": 18.876047134399414
+      },
+      "freshVsSourceInterior": {
+        "pixels": 52934,
+        "meanDegrees": 8.705597877502441,
+        "medianDegrees": 7.106372833251953,
+        "p90Degrees": 18.876047134399414
+      },
+      "freshVsOldInterior": {
+        "pixels": 52934,
+        "meanDegrees": 0.005320817697793245,
+        "medianDegrees": 0.0,
+        "p90Degrees": 0.01978234015405178
+      },
+      "rawRGBNonfinitePixels": 0
+    },
+    "R39_02_TUNNEL": {
+      "decodedNormalLengthDiagnostics": {
+        "source": {
+          "median": 0.9195750951766968,
+          "p01": 0.5963948369026184,
+          "p99": 0.9998588562011719,
+          "outside08to12Pixels": 13350
+        },
+        "old": {
+          "median": 0.9995622634887695,
+          "p01": 0.9988999366760254,
+          "p99": 1.0002647638320923,
+          "outside08to12Pixels": 0
+        },
+        "fresh": {
+          "median": 0.9995635747909546,
+          "p01": 0.9988999366760254,
+          "p99": 1.00026535987854,
+          "outside08to12Pixels": 0
+        }
+      },
+      "hashes": {
+        "sourceEXR": "4c1039414c329a103e4c9aada87fcc81aef0948ca89b4146669eadca8fb8955d",
+        "oldEXR": "34812d36183c8350682c04b950d8a60cd647e237afb18418a6b877fa5ed94725",
+        "freshEXR": "007080472920960cf7f4048ca6df0a87fa9ec607c6709f1945152e511178fe33",
+        "supportMaskEXR": "c32f3627659a43f3398692ae7d13d676a7a6b40a60ddc73966ecece90d2d1c05"
+      },
+      "oldVsSourceInterior": {
+        "pixels": 98927,
+        "meanDegrees": 6.056703567504883,
+        "medianDegrees": 4.248467922210693,
+        "p90Degrees": 14.398990631103516
+      },
+      "freshVsSourceInterior": {
+        "pixels": 98927,
+        "meanDegrees": 5.320212364196777,
+        "medianDegrees": 3.9306907653808594,
+        "p90Degrees": 12.063838958740234
+      },
+      "freshVsOldInterior": {
+        "pixels": 98927,
+        "meanDegrees": 1.4458292722702026,
+        "medianDegrees": 0.0,
+        "p90Degrees": 6.072597503662109
+      },
+      "rawRGBNonfinitePixels": 0,
+      "pipeROI": {
+        "boundsXY": [
+          505,
+          610,
+          70,
+          125
+        ],
+        "scope": "Same fixed foreground pipe rectangle as original13deg observation",
+        "oldVsSource": {
+          "pixels": 5471,
+          "meanDegrees": 12.964822769165039,
+          "medianDegrees": 12.099519729614258,
+          "p90Degrees": 22.576351165771484
+        },
+        "freshVsSource": {
+          "pixels": 5471,
+          "meanDegrees": 7.26353645324707,
+          "medianDegrees": 6.636518955230713,
+          "p90Degrees": 12.601553916931152
+        },
+        "freshVsOld": {
+          "pixels": 5471,
+          "meanDegrees": 11.015628814697266,
+          "medianDegrees": 10.293594360351562,
+          "p90Degrees": 19.02764320373535
+        }
+      },
+      "pipeROIEroded": {
+        "oldVsSource": {
+          "pixels": 4055,
+          "meanDegrees": 12.427123069763184,
+          "medianDegrees": 11.588215827941895,
+          "p90Degrees": 21.49625587463379
+        },
+        "freshVsSource": {
+          "pixels": 4055,
+          "meanDegrees": 6.906206130981445,
+          "medianDegrees": 6.446401596069336,
+          "p90Degrees": 11.904354095458984
+        }
+      },
+      "centralFloorControl": {
+        "oldVsSource": {
+          "pixels": 19577,
+          "meanDegrees": 0.8333660364151001,
+          "medianDegrees": 0.7340871095657349,
+          "p90Degrees": 1.3136417865753174
+        },
+        "freshVsSource": {
+          "pixels": 19577,
+          "meanDegrees": 0.8331043124198914,
+          "medianDegrees": 0.7340871095657349,
+          "p90Degrees": 1.3136417865753174
+        }
+      }
+    },
+    "R39_04_SHED_FRONT": {
+      "decodedNormalLengthDiagnostics": {
+        "source": {
+          "median": 0.9186087250709534,
+          "p01": 0.6118894219398499,
+          "p99": 0.9999999403953552,
+          "outside08to12Pixels": 13384
+        },
+        "old": {
+          "median": 0.9995984435081482,
+          "p01": 0.9989909529685974,
+          "p99": 1.0001481771469116,
+          "outside08to12Pixels": 0
+        },
+        "fresh": {
+          "median": 0.9995980858802795,
+          "p01": 0.9989909529685974,
+          "p99": 1.0001468658447266,
+          "outside08to12Pixels": 0
+        }
+      },
+      "hashes": {
+        "sourceEXR": "87d1b13dfe67f22632e5f1d814b0863f463d004db8b88ef1ddc8d0cb7b20b88c",
+        "oldEXR": "0360cd53d4c694d6c74b2bf3bf8410e3eebc561edafe8f3a19e06a92abd1fd71",
+        "freshEXR": "7edf1572fc13b7d5c33ac6159def02e70ba29aba24ef0027ef13670e00735a6f",
+        "supportMaskEXR": "600fc64fd1cd523a00c88af783679797cf61e48695b89eca85fbc6c5cf7dfb49"
+      },
+      "oldVsSourceInterior": {
+        "pixels": 74097,
+        "meanDegrees": 5.5707197189331055,
+        "medianDegrees": 4.728907108306885,
+        "p90Degrees": 11.378064155578613
+      },
+      "freshVsSourceInterior": {
+        "pixels": 74097,
+        "meanDegrees": 5.576082706451416,
+        "medianDegrees": 4.729819297790527,
+        "p90Degrees": 11.386505126953125
+      },
+      "freshVsOldInterior": {
+        "pixels": 74097,
+        "meanDegrees": 0.06894003599882126,
+        "medianDegrees": 0.0,
+        "p90Degrees": 0.01978234015405178
+      },
+      "rawRGBNonfinitePixels": 0
+    }
+  },
+  "limits": [
+    "Normal-only shaders exclude transport",
+    "Native support mask comes from earlier identical canonical geometry; fresh geometry input provenance must be checked",
+    "No Player or current native lighting acceptance"
+  ],
+  "freshInputProvenance": {
+    "file": "/tmp/cs-mine-normal-fresh-final11/current-input-provenance.json",
+    "sha256": "d40e8299e111b0f0867363b4a7459fb010fcc6a6fb11161bb8b63ebfde9fa35f",
+    "record": {
+      "status": "Current unbaked diagnostic inputs; old prepared-scene proof intentionally excluded",
+      "mapBindingsSha256": "5607d5c7a3424ab5d4ec2d8ecefceb6b720e67cf336d22e8ffec55ff8466c26b",
+      "surfaceCacheSha256": "d059c49934f42ad0dc457c86c68017c906e90c859301ff994aa1dfe464ef43d7",
+      "preservationSha256": "37602575c1f022f48d87d46ed7dd460c0aa9de33027e5c739aae9eddea2f109b",
+      "camerasSha256": "ba0394fa764f3b59d459e6e796c2c1dbf80ab9f82aad791eb67814c0f1b28f8f",
+      "normalAssets": [
+        {
+          "material": "CS_spawn_surface_props_014",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/props/spawn-normal.png",
+          "sha256": "ca949466d4db2a5a4fa3f2ed30f1e6731f35a8fb8131376cccc9d8969644fb62"
+        },
+        {
+          "material": "CS_spawn_surface_props_035",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/props/spawn-normal.png",
+          "sha256": "ca949466d4db2a5a4fa3f2ed30f1e6731f35a8fb8131376cccc9d8969644fb62"
+        },
+        {
+          "material": "CS_spawn_surface_architecture_021",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/architecture/spawn-normal.png",
+          "sha256": "030072276ad7b154d22414a968320a77da9f7c48d95b147a0fe0c5ddd639cf31"
+        },
+        {
+          "material": "CS_spawn_surface_props_008",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/props/spawn-normal.png",
+          "sha256": "ca949466d4db2a5a4fa3f2ed30f1e6731f35a8fb8131376cccc9d8969644fb62"
+        },
+        {
+          "material": "CS_spawn_surface_props_012",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/props/spawn-normal.png",
+          "sha256": "ca949466d4db2a5a4fa3f2ed30f1e6731f35a8fb8131376cccc9d8969644fb62"
+        },
+        {
+          "material": "CS_spawn_surface_props_007",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/props/spawn-normal.png",
+          "sha256": "ca949466d4db2a5a4fa3f2ed30f1e6731f35a8fb8131376cccc9d8969644fb62"
+        },
+        {
+          "material": "CS_spawn_surface_props_030",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/props/spawn-normal.png",
+          "sha256": "ca949466d4db2a5a4fa3f2ed30f1e6731f35a8fb8131376cccc9d8969644fb62"
+        },
+        {
+          "material": "CS_spawn_surface_architecture_042",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/architecture/spawn-normal.png",
+          "sha256": "030072276ad7b154d22414a968320a77da9f7c48d95b147a0fe0c5ddd639cf31"
+        },
+        {
+          "material": "CS_spawn_surface_props_000",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/props/spawn-normal.png",
+          "sha256": "ca949466d4db2a5a4fa3f2ed30f1e6731f35a8fb8131376cccc9d8969644fb62"
+        },
+        {
+          "material": "CS_spawn_surface_architecture_004",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/architecture/spawn-normal.png",
+          "sha256": "030072276ad7b154d22414a968320a77da9f7c48d95b147a0fe0c5ddd639cf31"
+        },
+        {
+          "material": "CS_spawn_surface_props_001",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/props/spawn-normal.png",
+          "sha256": "ca949466d4db2a5a4fa3f2ed30f1e6731f35a8fb8131376cccc9d8969644fb62"
+        },
+        {
+          "material": "CS_mine_surface_mine-context-props_001",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-context-props/spawn-normal.png",
+          "sha256": "20b74845db018250e453201a75eb4af13e4b79a9f009976cef9fdd0a64c63a60"
+        },
+        {
+          "material": "CS_spawn_surface_architecture_014",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/architecture/spawn-normal.png",
+          "sha256": "030072276ad7b154d22414a968320a77da9f7c48d95b147a0fe0c5ddd639cf31"
+        },
+        {
+          "material": "CS_spawn_surface_architecture_015",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/architecture/spawn-normal.png",
+          "sha256": "030072276ad7b154d22414a968320a77da9f7c48d95b147a0fe0c5ddd639cf31"
+        },
+        {
+          "material": "CS_mine_surface_mine-rocks_005",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-rocks/spawn-normal.png",
+          "sha256": "57b4a319572d8c030f64fb1919421f2f961a3dd121412c7cd49df027f5c602a8"
+        },
+        {
+          "material": "CS_spawn_surface_architecture_016",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/architecture/spawn-normal.png",
+          "sha256": "030072276ad7b154d22414a968320a77da9f7c48d95b147a0fe0c5ddd639cf31"
+        },
+        {
+          "material": "CS_spawn_surface_props_027",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/props/spawn-normal.png",
+          "sha256": "ca949466d4db2a5a4fa3f2ed30f1e6731f35a8fb8131376cccc9d8969644fb62"
+        },
+        {
+          "material": "CS_mine_surface_mine-context-structure_003",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-context-structure/spawn-normal.png",
+          "sha256": "0618fc655dabc4c067563292958ac1a18cc02237dfa3af90d05c713e903f953f"
+        },
+        {
+          "material": "CS_spawn_surface_props_011",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/props/spawn-normal.png",
+          "sha256": "ca949466d4db2a5a4fa3f2ed30f1e6731f35a8fb8131376cccc9d8969644fb62"
+        },
+        {
+          "material": "CS_spawn_surface_architecture_039",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/architecture/spawn-normal.png",
+          "sha256": "030072276ad7b154d22414a968320a77da9f7c48d95b147a0fe0c5ddd639cf31"
+        },
+        {
+          "material": "CS_mine_surface_mine-context-props_019",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-context-props/spawn-normal.png",
+          "sha256": "20b74845db018250e453201a75eb4af13e4b79a9f009976cef9fdd0a64c63a60"
+        },
+        {
+          "material": "CS_mine_surface_mine-props_025",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-props/spawn-normal.png",
+          "sha256": "ede695dbedfbe98cbf05677371094045b2edf601390bb472282a38e15225699a"
+        },
+        {
+          "material": "CS_mine_surface_mine-context-props_007",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-context-props/spawn-normal.png",
+          "sha256": "20b74845db018250e453201a75eb4af13e4b79a9f009976cef9fdd0a64c63a60"
+        },
+        {
+          "material": "CS_mine_surface_mine-props_005",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-props/spawn-normal.png",
+          "sha256": "ede695dbedfbe98cbf05677371094045b2edf601390bb472282a38e15225699a"
+        },
+        {
+          "material": "CS_spawn_surface_props_021",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/props/spawn-normal.png",
+          "sha256": "ca949466d4db2a5a4fa3f2ed30f1e6731f35a8fb8131376cccc9d8969644fb62"
+        },
+        {
+          "material": "CS_spawn_surface_architecture_027",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/architecture/spawn-normal.png",
+          "sha256": "030072276ad7b154d22414a968320a77da9f7c48d95b147a0fe0c5ddd639cf31"
+        },
+        {
+          "material": "CS_spawn_surface_props_018",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/props/spawn-normal.png",
+          "sha256": "ca949466d4db2a5a4fa3f2ed30f1e6731f35a8fb8131376cccc9d8969644fb62"
+        },
+        {
+          "material": "CS_spawn_surface_props_029",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/props/spawn-normal.png",
+          "sha256": "ca949466d4db2a5a4fa3f2ed30f1e6731f35a8fb8131376cccc9d8969644fb62"
+        },
+        {
+          "material": "CS_spawn_surface_props_019",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/props/spawn-normal.png",
+          "sha256": "ca949466d4db2a5a4fa3f2ed30f1e6731f35a8fb8131376cccc9d8969644fb62"
+        },
+        {
+          "material": "CS_spawn_surface_architecture_041",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/architecture/spawn-normal.png",
+          "sha256": "030072276ad7b154d22414a968320a77da9f7c48d95b147a0fe0c5ddd639cf31"
+        },
+        {
+          "material": "CS_spawn_surface_props_013",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/props/spawn-normal.png",
+          "sha256": "ca949466d4db2a5a4fa3f2ed30f1e6731f35a8fb8131376cccc9d8969644fb62"
+        },
+        {
+          "material": "CS_mine_surface_mine-structure_003",
+          "property": "_WoodNormal",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/source-wood/rough_wood_nor_gl_1k.jpg",
+          "sha256": "3d1c6f098b66d93e52071b41834dd14a424d8cd2f7c4130c62dc062acfa65011"
+        },
+        {
+          "material": "CS_spawn_surface_props_024",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/props/spawn-normal.png",
+          "sha256": "ca949466d4db2a5a4fa3f2ed30f1e6731f35a8fb8131376cccc9d8969644fb62"
+        },
+        {
+          "material": "CS_spawn_surface_walls_000",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/walls/spawn-normal.png",
+          "sha256": "a0477dc3d5eddfb57725975216c13435bb319d63246acd6c123956a824c6d15c"
+        },
+        {
+          "material": "CS_spawn_surface_props_004",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/props/spawn-normal.png",
+          "sha256": "ca949466d4db2a5a4fa3f2ed30f1e6731f35a8fb8131376cccc9d8969644fb62"
+        },
+        {
+          "material": "CS_mine_surface_mine-props_012",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-props/spawn-normal.png",
+          "sha256": "ede695dbedfbe98cbf05677371094045b2edf601390bb472282a38e15225699a"
+        },
+        {
+          "material": "CS_spawn_surface_walls_001",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/walls/spawn-normal.png",
+          "sha256": "a0477dc3d5eddfb57725975216c13435bb319d63246acd6c123956a824c6d15c"
+        },
+        {
+          "material": "CS_spawn_surface_props_031",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/props/spawn-normal.png",
+          "sha256": "ca949466d4db2a5a4fa3f2ed30f1e6731f35a8fb8131376cccc9d8969644fb62"
+        },
+        {
+          "material": "CS_spawn_surface_props_020",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/props/spawn-normal.png",
+          "sha256": "ca949466d4db2a5a4fa3f2ed30f1e6731f35a8fb8131376cccc9d8969644fb62"
+        },
+        {
+          "material": "CS_spawn_surface_props_040",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/props/spawn-normal.png",
+          "sha256": "ca949466d4db2a5a4fa3f2ed30f1e6731f35a8fb8131376cccc9d8969644fb62"
+        },
+        {
+          "material": "CS_spawn_surface_props_023",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/props/spawn-normal.png",
+          "sha256": "ca949466d4db2a5a4fa3f2ed30f1e6731f35a8fb8131376cccc9d8969644fb62"
+        },
+        {
+          "material": "CS_mine_surface_mine-duct_000",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-duct/spawn-normal.png",
+          "sha256": "84580ddeea4f04261118436bf732b6ee052751bcadb57e4a40f099e5e32db3bf"
+        },
+        {
+          "material": "CS_spawn_surface_architecture_003",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/architecture/spawn-normal.png",
+          "sha256": "030072276ad7b154d22414a968320a77da9f7c48d95b147a0fe0c5ddd639cf31"
+        },
+        {
+          "material": "CS_mine_surface_mine-context-props_013",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-context-props/spawn-normal.png",
+          "sha256": "20b74845db018250e453201a75eb4af13e4b79a9f009976cef9fdd0a64c63a60"
+        },
+        {
+          "material": "CS_spawn_surface_walls_003",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/walls/spawn-normal.png",
+          "sha256": "a0477dc3d5eddfb57725975216c13435bb319d63246acd6c123956a824c6d15c"
+        },
+        {
+          "material": "CS_spawn_surface_walls_005",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/walls/spawn-normal.png",
+          "sha256": "a0477dc3d5eddfb57725975216c13435bb319d63246acd6c123956a824c6d15c"
+        },
+        {
+          "material": "CS_mine_surface_mine-context-props_009",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-context-props/spawn-normal.png",
+          "sha256": "20b74845db018250e453201a75eb4af13e4b79a9f009976cef9fdd0a64c63a60"
+        },
+        {
+          "material": "CS_mine_surface_mine-props_035",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-props/spawn-normal.png",
+          "sha256": "ede695dbedfbe98cbf05677371094045b2edf601390bb472282a38e15225699a"
+        },
+        {
+          "material": "CS_mine_surface_mine-props_021",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-props/spawn-normal.png",
+          "sha256": "ede695dbedfbe98cbf05677371094045b2edf601390bb472282a38e15225699a"
+        },
+        {
+          "material": "CS_mine_surface_mine-context-structure_011",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-context-structure/spawn-normal.png",
+          "sha256": "0618fc655dabc4c067563292958ac1a18cc02237dfa3af90d05c713e903f953f"
+        },
+        {
+          "material": "CS_mine_surface_mine-structure_002",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-structure/spawn-normal.png",
+          "sha256": "b2d764599a90ab264d561ef4b5cc5b49a69401f56c573a7fd00702e01f849742"
+        },
+        {
+          "material": "CS_mine_surface_mine-structure_002",
+          "property": "_WoodNormal",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/source-wood/rough_wood_nor_gl_1k.jpg",
+          "sha256": "3d1c6f098b66d93e52071b41834dd14a424d8cd2f7c4130c62dc062acfa65011"
+        },
+        {
+          "material": "CS_spawn_surface_architecture_020",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/architecture/spawn-normal.png",
+          "sha256": "030072276ad7b154d22414a968320a77da9f7c48d95b147a0fe0c5ddd639cf31"
+        },
+        {
+          "material": "CS_spawn_surface_architecture_013",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/architecture/spawn-normal.png",
+          "sha256": "030072276ad7b154d22414a968320a77da9f7c48d95b147a0fe0c5ddd639cf31"
+        },
+        {
+          "material": "CS_mine_surface_mine-props_015",
+          "property": "_WoodNormal",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/source-wood/rough_wood_nor_gl_1k.jpg",
+          "sha256": "3d1c6f098b66d93e52071b41834dd14a424d8cd2f7c4130c62dc062acfa65011"
+        },
+        {
+          "material": "CS_mine_surface_mine-context-props_023",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-context-props/spawn-normal.png",
+          "sha256": "20b74845db018250e453201a75eb4af13e4b79a9f009976cef9fdd0a64c63a60"
+        },
+        {
+          "material": "CS_mine_surface_mine-context-structure_005",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-context-structure/spawn-normal.png",
+          "sha256": "0618fc655dabc4c067563292958ac1a18cc02237dfa3af90d05c713e903f953f"
+        },
+        {
+          "material": "CS_spawn_surface_props_033",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/props/spawn-normal.png",
+          "sha256": "ca949466d4db2a5a4fa3f2ed30f1e6731f35a8fb8131376cccc9d8969644fb62"
+        },
+        {
+          "material": "CS_mine_surface_mine-context-props_003",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-context-props/spawn-normal.png",
+          "sha256": "20b74845db018250e453201a75eb4af13e4b79a9f009976cef9fdd0a64c63a60"
+        },
+        {
+          "material": "CS_spawn_surface_architecture_035",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/architecture/spawn-normal.png",
+          "sha256": "030072276ad7b154d22414a968320a77da9f7c48d95b147a0fe0c5ddd639cf31"
+        },
+        {
+          "material": "CS_spawn_surface_props_032",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/props/spawn-normal.png",
+          "sha256": "ca949466d4db2a5a4fa3f2ed30f1e6731f35a8fb8131376cccc9d8969644fb62"
+        },
+        {
+          "material": "CS_spawn_surface_architecture_034",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/architecture/spawn-normal.png",
+          "sha256": "030072276ad7b154d22414a968320a77da9f7c48d95b147a0fe0c5ddd639cf31"
+        },
+        {
+          "material": "CS_spawn_surface_architecture_036",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/architecture/spawn-normal.png",
+          "sha256": "030072276ad7b154d22414a968320a77da9f7c48d95b147a0fe0c5ddd639cf31"
+        },
+        {
+          "material": "CS_mine_surface_mine-structure_009",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-structure/spawn-normal.png",
+          "sha256": "b2d764599a90ab264d561ef4b5cc5b49a69401f56c573a7fd00702e01f849742"
+        },
+        {
+          "material": "CS_spawn_surface_props_009",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/props/spawn-normal.png",
+          "sha256": "ca949466d4db2a5a4fa3f2ed30f1e6731f35a8fb8131376cccc9d8969644fb62"
+        },
+        {
+          "material": "CS_spawn_surface_architecture_011",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/architecture/spawn-normal.png",
+          "sha256": "030072276ad7b154d22414a968320a77da9f7c48d95b147a0fe0c5ddd639cf31"
+        },
+        {
+          "material": "CS_mine_surface_mine-props_034",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-props/spawn-normal.png",
+          "sha256": "ede695dbedfbe98cbf05677371094045b2edf601390bb472282a38e15225699a"
+        },
+        {
+          "material": "CS_spawn_surface_props_038",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/props/spawn-normal.png",
+          "sha256": "ca949466d4db2a5a4fa3f2ed30f1e6731f35a8fb8131376cccc9d8969644fb62"
+        },
+        {
+          "material": "CS_mine_surface_mine-props_033",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-props/spawn-normal.png",
+          "sha256": "ede695dbedfbe98cbf05677371094045b2edf601390bb472282a38e15225699a"
+        },
+        {
+          "material": "CS_mine_surface_mine-context-structure_001",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-context-structure/spawn-normal.png",
+          "sha256": "0618fc655dabc4c067563292958ac1a18cc02237dfa3af90d05c713e903f953f"
+        },
+        {
+          "material": "CS_mine_surface_mine-props_006",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-props/spawn-normal.png",
+          "sha256": "ede695dbedfbe98cbf05677371094045b2edf601390bb472282a38e15225699a"
+        },
+        {
+          "material": "CS_spawn_surface_props_044",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/props/spawn-normal.png",
+          "sha256": "ca949466d4db2a5a4fa3f2ed30f1e6731f35a8fb8131376cccc9d8969644fb62"
+        },
+        {
+          "material": "CS_spawn_surface_walls_004",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/walls/spawn-normal.png",
+          "sha256": "a0477dc3d5eddfb57725975216c13435bb319d63246acd6c123956a824c6d15c"
+        },
+        {
+          "material": "CS_spawn_surface_props_015",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/props/spawn-normal.png",
+          "sha256": "ca949466d4db2a5a4fa3f2ed30f1e6731f35a8fb8131376cccc9d8969644fb62"
+        },
+        {
+          "material": "CS_spawn_surface_architecture_012",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/architecture/spawn-normal.png",
+          "sha256": "030072276ad7b154d22414a968320a77da9f7c48d95b147a0fe0c5ddd639cf31"
+        },
+        {
+          "material": "CS_spawn_surface_lettering_000",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/lettering/spawn-normal.png",
+          "sha256": "42c6b010b294c16ae6bad81a5fbaeb5fa0672924fe036ca3dc14981524c1c98d"
+        },
+        {
+          "material": "CS_spawn_surface_architecture_017",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/architecture/spawn-normal.png",
+          "sha256": "030072276ad7b154d22414a968320a77da9f7c48d95b147a0fe0c5ddd639cf31"
+        },
+        {
+          "material": "CS_mine_surface_mine-props_022",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-props/spawn-normal.png",
+          "sha256": "ede695dbedfbe98cbf05677371094045b2edf601390bb472282a38e15225699a"
+        },
+        {
+          "material": "CS_mine_surface_mine-props_024",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-props/spawn-normal.png",
+          "sha256": "ede695dbedfbe98cbf05677371094045b2edf601390bb472282a38e15225699a"
+        },
+        {
+          "material": "CS_spawn_surface_walls_006",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/walls/spawn-normal.png",
+          "sha256": "a0477dc3d5eddfb57725975216c13435bb319d63246acd6c123956a824c6d15c"
+        },
+        {
+          "material": "CS_mine_surface_mine-props_000",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-props/spawn-normal.png",
+          "sha256": "ede695dbedfbe98cbf05677371094045b2edf601390bb472282a38e15225699a"
+        },
+        {
+          "material": "CS_mine_surface_mine-props_001",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-props/spawn-normal.png",
+          "sha256": "ede695dbedfbe98cbf05677371094045b2edf601390bb472282a38e15225699a"
+        },
+        {
+          "material": "CS_mine_surface_mine-structure_010",
+          "property": "_WoodNormal",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/source-wood/rough_wood_nor_gl_1k.jpg",
+          "sha256": "3d1c6f098b66d93e52071b41834dd14a424d8cd2f7c4130c62dc062acfa65011"
+        },
+        {
+          "material": "CS_mine_surface_mine-props_004",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-props/spawn-normal.png",
+          "sha256": "ede695dbedfbe98cbf05677371094045b2edf601390bb472282a38e15225699a"
+        },
+        {
+          "material": "CS_spawn_surface_walls_002",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/walls/spawn-normal.png",
+          "sha256": "a0477dc3d5eddfb57725975216c13435bb319d63246acd6c123956a824c6d15c"
+        },
+        {
+          "material": "CS_spawn_surface_props_022",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/props/spawn-normal.png",
+          "sha256": "ca949466d4db2a5a4fa3f2ed30f1e6731f35a8fb8131376cccc9d8969644fb62"
+        },
+        {
+          "material": "CS_spawn_surface_architecture_024",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/architecture/spawn-normal.png",
+          "sha256": "030072276ad7b154d22414a968320a77da9f7c48d95b147a0fe0c5ddd639cf31"
+        },
+        {
+          "material": "CS_spawn_surface_props_005",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/props/spawn-normal.png",
+          "sha256": "ca949466d4db2a5a4fa3f2ed30f1e6731f35a8fb8131376cccc9d8969644fb62"
+        },
+        {
+          "material": "CS_mine_surface_mine-ground_006",
+          "property": "_WoodNormal",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/source-wood/rough_wood_nor_gl_1k.jpg",
+          "sha256": "3d1c6f098b66d93e52071b41834dd14a424d8cd2f7c4130c62dc062acfa65011"
+        },
+        {
+          "material": "CS_spawn_surface_props_042",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/props/spawn-normal.png",
+          "sha256": "ca949466d4db2a5a4fa3f2ed30f1e6731f35a8fb8131376cccc9d8969644fb62"
+        },
+        {
+          "material": "CS_spawn_surface_props_041",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/props/spawn-normal.png",
+          "sha256": "ca949466d4db2a5a4fa3f2ed30f1e6731f35a8fb8131376cccc9d8969644fb62"
+        },
+        {
+          "material": "CS_mine_surface_mine-context-props_022",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-context-props/spawn-normal.png",
+          "sha256": "20b74845db018250e453201a75eb4af13e4b79a9f009976cef9fdd0a64c63a60"
+        },
+        {
+          "material": "CS_mine_surface_mine-props_002",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-props/spawn-normal.png",
+          "sha256": "ede695dbedfbe98cbf05677371094045b2edf601390bb472282a38e15225699a"
+        },
+        {
+          "material": "CS_mine_surface_mine-props_003",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-props/spawn-normal.png",
+          "sha256": "ede695dbedfbe98cbf05677371094045b2edf601390bb472282a38e15225699a"
+        },
+        {
+          "material": "CS_mine_surface_mine-rocks_004",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-rocks/spawn-normal.png",
+          "sha256": "57b4a319572d8c030f64fb1919421f2f961a3dd121412c7cd49df027f5c602a8"
+        },
+        {
+          "material": "CS_mine_surface_mine-structure_001",
+          "property": "_WoodNormal",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/source-wood/rough_wood_nor_gl_1k.jpg",
+          "sha256": "3d1c6f098b66d93e52071b41834dd14a424d8cd2f7c4130c62dc062acfa65011"
+        },
+        {
+          "material": "CS_mine_surface_mine-props_013",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-props/spawn-normal.png",
+          "sha256": "ede695dbedfbe98cbf05677371094045b2edf601390bb472282a38e15225699a"
+        },
+        {
+          "material": "CS_mine_surface_mine-props_014",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-props/spawn-normal.png",
+          "sha256": "ede695dbedfbe98cbf05677371094045b2edf601390bb472282a38e15225699a"
+        },
+        {
+          "material": "CS_spawn_surface_props_025",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/props/spawn-normal.png",
+          "sha256": "ca949466d4db2a5a4fa3f2ed30f1e6731f35a8fb8131376cccc9d8969644fb62"
+        },
+        {
+          "material": "CS_spawn_surface_props_043",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/props/spawn-normal.png",
+          "sha256": "ca949466d4db2a5a4fa3f2ed30f1e6731f35a8fb8131376cccc9d8969644fb62"
+        },
+        {
+          "material": "CS_spawn_surface_architecture_031",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/architecture/spawn-normal.png",
+          "sha256": "030072276ad7b154d22414a968320a77da9f7c48d95b147a0fe0c5ddd639cf31"
+        },
+        {
+          "material": "CS_spawn_surface_architecture_030",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/architecture/spawn-normal.png",
+          "sha256": "030072276ad7b154d22414a968320a77da9f7c48d95b147a0fe0c5ddd639cf31"
+        },
+        {
+          "material": "CS_spawn_surface_architecture_029",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/architecture/spawn-normal.png",
+          "sha256": "030072276ad7b154d22414a968320a77da9f7c48d95b147a0fe0c5ddd639cf31"
+        },
+        {
+          "material": "CS_spawn_surface_architecture_032",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/architecture/spawn-normal.png",
+          "sha256": "030072276ad7b154d22414a968320a77da9f7c48d95b147a0fe0c5ddd639cf31"
+        },
+        {
+          "material": "CS_spawn_surface_architecture_033",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/architecture/spawn-normal.png",
+          "sha256": "030072276ad7b154d22414a968320a77da9f7c48d95b147a0fe0c5ddd639cf31"
+        },
+        {
+          "material": "CS_spawn_surface_lettering_003",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/lettering/spawn-normal.png",
+          "sha256": "42c6b010b294c16ae6bad81a5fbaeb5fa0672924fe036ca3dc14981524c1c98d"
+        },
+        {
+          "material": "CS_mine_surface_mine-rocks_003",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-rocks/spawn-normal.png",
+          "sha256": "57b4a319572d8c030f64fb1919421f2f961a3dd121412c7cd49df027f5c602a8"
+        },
+        {
+          "material": "CS_mine_surface_mine-props_011",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-props/spawn-normal.png",
+          "sha256": "ede695dbedfbe98cbf05677371094045b2edf601390bb472282a38e15225699a"
+        },
+        {
+          "material": "CS_spawn_surface_architecture_025",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/architecture/spawn-normal.png",
+          "sha256": "030072276ad7b154d22414a968320a77da9f7c48d95b147a0fe0c5ddd639cf31"
+        },
+        {
+          "material": "CS_mine_surface_mine-structure_007",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-structure/spawn-normal.png",
+          "sha256": "b2d764599a90ab264d561ef4b5cc5b49a69401f56c573a7fd00702e01f849742"
+        },
+        {
+          "material": "CS_mine_surface_mine-structure_007",
+          "property": "_WoodNormal",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/source-wood/rough_wood_nor_gl_1k.jpg",
+          "sha256": "3d1c6f098b66d93e52071b41834dd14a424d8cd2f7c4130c62dc062acfa65011"
+        },
+        {
+          "material": "CS_mine_surface_mine-duct_001",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-duct/spawn-normal.png",
+          "sha256": "84580ddeea4f04261118436bf732b6ee052751bcadb57e4a40f099e5e32db3bf"
+        },
+        {
+          "material": "CS_spawn_surface_props_039",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/props/spawn-normal.png",
+          "sha256": "ca949466d4db2a5a4fa3f2ed30f1e6731f35a8fb8131376cccc9d8969644fb62"
+        },
+        {
+          "material": "CS_mine_surface_mine-context-structure_000",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-context-structure/spawn-normal.png",
+          "sha256": "0618fc655dabc4c067563292958ac1a18cc02237dfa3af90d05c713e903f953f"
+        },
+        {
+          "material": "CS_mine_surface_mine-context-props_002",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-context-props/spawn-normal.png",
+          "sha256": "20b74845db018250e453201a75eb4af13e4b79a9f009976cef9fdd0a64c63a60"
+        },
+        {
+          "material": "CS_mine_surface_mine-props_023",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-props/spawn-normal.png",
+          "sha256": "ede695dbedfbe98cbf05677371094045b2edf601390bb472282a38e15225699a"
+        },
+        {
+          "material": "CS_mine_surface_mine-ground_007",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-ground/spawn-normal.png",
+          "sha256": "a3e3f56510a07a29efdc4cd0f9ece7bd5ee2d2f996540efc98ab7d7e110fadca"
+        },
+        {
+          "material": "CS_mine_surface_mine-ground_007",
+          "property": "_WoodNormal",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/source-wood/rough_wood_nor_gl_1k.jpg",
+          "sha256": "3d1c6f098b66d93e52071b41834dd14a424d8cd2f7c4130c62dc062acfa65011"
+        },
+        {
+          "material": "CS_spawn_surface_props_017",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/props/spawn-normal.png",
+          "sha256": "ca949466d4db2a5a4fa3f2ed30f1e6731f35a8fb8131376cccc9d8969644fb62"
+        },
+        {
+          "material": "CS_mine_surface_mine-mountain_000",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-mountain/spawn-normal.png",
+          "sha256": "aeeaead3bf1751edc1748f3b10a034f8614a5d3359e4fbcc1fa548db229d382b"
+        },
+        {
+          "material": "CS_mine_surface_mine-mountain_001",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-mountain/spawn-normal.png",
+          "sha256": "aeeaead3bf1751edc1748f3b10a034f8614a5d3359e4fbcc1fa548db229d382b"
+        },
+        {
+          "material": "CS_mine_surface_mine-structure_006",
+          "property": "_WoodNormal",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/source-wood/rough_wood_nor_gl_1k.jpg",
+          "sha256": "3d1c6f098b66d93e52071b41834dd14a424d8cd2f7c4130c62dc062acfa65011"
+        },
+        {
+          "material": "CS_spawn_surface_architecture_040",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/floor/spawn-normal.png",
+          "sha256": "5ccb5790f5c9b0c65e7cd70db13cc38d931333da3935890d4fcd90e8872490f4"
+        },
+        {
+          "material": "CS_mine_surface_mine-ground_005",
+          "property": "_WoodNormal",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/source-wood/rough_wood_nor_gl_1k.jpg",
+          "sha256": "3d1c6f098b66d93e52071b41834dd14a424d8cd2f7c4130c62dc062acfa65011"
+        },
+        {
+          "material": "CS_spawn_surface_architecture_006",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/architecture/spawn-normal.png",
+          "sha256": "030072276ad7b154d22414a968320a77da9f7c48d95b147a0fe0c5ddd639cf31"
+        },
+        {
+          "material": "CS_spawn_surface_architecture_044",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/architecture/spawn-normal.png",
+          "sha256": "030072276ad7b154d22414a968320a77da9f7c48d95b147a0fe0c5ddd639cf31"
+        },
+        {
+          "material": "CS_spawn_surface_architecture_043",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/architecture/spawn-normal.png",
+          "sha256": "030072276ad7b154d22414a968320a77da9f7c48d95b147a0fe0c5ddd639cf31"
+        },
+        {
+          "material": "CS_mine_surface_mine-ground_001",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-ground/spawn-normal.png",
+          "sha256": "a3e3f56510a07a29efdc4cd0f9ece7bd5ee2d2f996540efc98ab7d7e110fadca"
+        },
+        {
+          "material": "CS_spawn_surface_props_010",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/props/spawn-normal.png",
+          "sha256": "ca949466d4db2a5a4fa3f2ed30f1e6731f35a8fb8131376cccc9d8969644fb62"
+        },
+        {
+          "material": "CS_spawn_surface_architecture_022",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/architecture/spawn-normal.png",
+          "sha256": "030072276ad7b154d22414a968320a77da9f7c48d95b147a0fe0c5ddd639cf31"
+        },
+        {
+          "material": "CS_mine_surface_mine-structure_008",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-structure/spawn-normal.png",
+          "sha256": "b2d764599a90ab264d561ef4b5cc5b49a69401f56c573a7fd00702e01f849742"
+        },
+        {
+          "material": "CS_mine_surface_mine-rocks_001",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-rocks/spawn-normal.png",
+          "sha256": "57b4a319572d8c030f64fb1919421f2f961a3dd121412c7cd49df027f5c602a8"
+        },
+        {
+          "material": "CS_spawn_surface_architecture_000",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/architecture/spawn-normal.png",
+          "sha256": "030072276ad7b154d22414a968320a77da9f7c48d95b147a0fe0c5ddd639cf31"
+        },
+        {
+          "material": "CS_mine_surface_mine-structure_005",
+          "property": "_WoodNormal",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/source-wood/rough_wood_nor_gl_1k.jpg",
+          "sha256": "3d1c6f098b66d93e52071b41834dd14a424d8cd2f7c4130c62dc062acfa65011"
+        },
+        {
+          "material": "CS_mine_surface_mine-structure_004",
+          "property": "_WoodNormal",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/source-wood/rough_wood_nor_gl_1k.jpg",
+          "sha256": "3d1c6f098b66d93e52071b41834dd14a424d8cd2f7c4130c62dc062acfa65011"
+        },
+        {
+          "material": "CS_mine_surface_mine-rocks_006",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-rocks/spawn-normal.png",
+          "sha256": "57b4a319572d8c030f64fb1919421f2f961a3dd121412c7cd49df027f5c602a8"
+        },
+        {
+          "material": "CS_mine_surface_mine-context-ground_000",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-context-ground/spawn-normal.png",
+          "sha256": "edabc9250220f53af473815cd5a9a7334bd77b6ddcf76ea6ee6f5f0f8d24999e"
+        },
+        {
+          "material": "CS_mine_surface_mine-structure_000",
+          "property": "_WoodNormal",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/source-wood/rough_wood_nor_gl_1k.jpg",
+          "sha256": "3d1c6f098b66d93e52071b41834dd14a424d8cd2f7c4130c62dc062acfa65011"
+        },
+        {
+          "material": "CS_spawn_surface_architecture_037",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/architecture/spawn-normal.png",
+          "sha256": "030072276ad7b154d22414a968320a77da9f7c48d95b147a0fe0c5ddd639cf31"
+        },
+        {
+          "material": "CS_mine_surface_mine-tunnel-floor_000",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-tunnel-floor/spawn-normal.png",
+          "sha256": "90749426d495c95b3e238b18a1a9105beed4a1d10a07e0d6964fa1df892d6561"
+        },
+        {
+          "material": "CS_mine_surface_mine-ground_004",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-ground/spawn-normal.png",
+          "sha256": "a3e3f56510a07a29efdc4cd0f9ece7bd5ee2d2f996540efc98ab7d7e110fadca"
+        },
+        {
+          "material": "CS_mine_surface_mine-ground_003",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-ground/spawn-normal.png",
+          "sha256": "a3e3f56510a07a29efdc4cd0f9ece7bd5ee2d2f996540efc98ab7d7e110fadca"
+        },
+        {
+          "material": "CS_mine_surface_mine-ground_000",
+          "property": "_BumpMap",
+          "path": "Assets/CriticalShift/Generated/Spawn/Surfaces/mine-ground/spawn-normal.png",
+          "sha256": "a3e3f56510a07a29efdc4cd0f9ece7bd5ee2d2f996540efc98ab7d7e110fadca"
+        }
+      ],
+      "views": [
+        {
+          "name": "R39_01_PORTAL_APPROACH",
+          "position": [
+            -18.0,
+            -48.0,
+            3.200000047683716
+          ],
+          "forward": [
+            -0.495529443025589,
+            0.8671764731407166,
+            -0.04955295845866203
+          ],
+          "up": [
+            -0.024585174396634102,
+            0.04302399978041649,
+            0.9987714886665344
+          ],
+          "verticalFov": 45.74732971191406
+        },
+        {
+          "name": "R39_02_TUNNEL",
+          "position": [
+            -44.0,
+            -29.200000762939453,
+            1.7000000476837158
+          ],
+          "forward": [
+            -0.9999755620956421,
+            0.006249908823519945,
+            -0.0031249034218490124
+          ],
+          "up": [
+            -0.0031248419545590878,
+            1.9599929146352224e-05,
+            0.9999951124191284
+          ],
+          "verticalFov": 49.426353454589844
+        },
+        {
+          "name": "R39_04_SHED_FRONT",
+          "position": [
+            -20.0,
+            -36.0,
+            2.0
+          ],
+          "forward": [
+            -0.7890791893005371,
+            0.6137281060218811,
+            0.026302805170416832
+          ],
+          "up": [
+            0.020762093365192413,
+            -0.016148468479514122,
+            0.9996539950370789
+          ],
+          "verticalFov": 39.760704040527344
+        }
+      ]
+    }
+  }
+}

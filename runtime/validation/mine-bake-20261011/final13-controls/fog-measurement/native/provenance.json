@@ -1,0 +1,76 @@
+{
+  "status": "PassedBoundedFogSplitOnly",
+  "helpers": {
+    "cs-mine-fog-split-final13.cs.txt": "fc88338ca4816f2357cec4508943b831fd87f629e0c7d3bf91946a330067f5eb",
+    "cs-mine-fog-split-final13.asmdef.txt": "0609fcf3791b5efb6dc9444de0ba9446d168ff252d575b085fda0dfe894889b5",
+    "cs-mine-fog-split-final13.py": "971ccd44098ec3539a881854427f8af6374109da46c219386c00bbcfdcc23c5c"
+  },
+  "preparedInputs": {
+    "prepared-scene.json": "1361ca11b4dad769dc93cb4b9c1e35312bbdd943e7a89e4216a91818c6253a15",
+    "map-bindings.json": "dcd7f11119192381cd5c34df7076e840b0d27098dc68d28d424f09485ff5ad8e",
+    "rig-bindings.json": "b89037e3c376c6e7958a3a1a1713664559baec579b861c8c5702ad03cc4a90a6",
+    "AssembledMap.unity": "451f65f87a9947487b8b26ece16aed52b98b55fa55a4060563552511f5493e7a",
+    "mine-point-bake-output.json": "e087e8a377b97a6093e518e95b32b4184809f5636ce478fcab411a3c2b88dc84"
+  },
+  "camerasFileSha256": "ba0394fa764f3b59d459e6e796c2c1dbf80ab9f82aad791eb67814c0f1b28f8f",
+  "strictReviewFileSha256": "b03b4c1b3e0ae9dce78f4d1fa00e5a99efd61a2547c91a642529e2190850b4ff",
+  "frames": [
+    {
+      "file": "R39_01_PORTAL_APPROACH-no-volume.exr",
+      "sha256": "aa5e19e43c34460c30b1c73cab83a68237a6b7d14b64902a449ce5492f2e17c8",
+      "metadataSha256": "49c58bf9d1b27bc0d3c3e06993ed7eeb4a9dc9a7e654d76d7cc41cfdf27119fd",
+      "finiteRGB": true
+    },
+    {
+      "file": "R39_01_PORTAL_APPROACH-with-volume.exr",
+      "sha256": "6ba62a6db96fb803e3f28e33a646f1ff8495c81c0908ee9a0b042973bb73b77d",
+      "metadataSha256": "17794a8e039f6ab7be5d44b7bee19153e34bb8f26ce7960208d7057fd1b1116f",
+      "finiteRGB": true
+    },
+    {
+      "file": "R39_02_TUNNEL-no-volume.exr",
+      "sha256": "2c1007b2a02d73ca0c8c0b53865c01da020999ac7b33369aa80c50b41c3e47dd",
+      "metadataSha256": "b9d6264d9842f0e6a31435b74d1faa7fd18607565458b695dcf996c75291fc20",
+      "finiteRGB": true
+    },
+    {
+      "file": "R39_02_TUNNEL-with-volume.exr",
+      "sha256": "f92ab8b8a83bc3986421ddf438a717be200fb102ddb9dc5823f607bb57162461",
+      "metadataSha256": "639cb81fd46c15f9f590d5ee0c0290e9d445f36f6e8b7d1a067291bfd7ac7f0d",
+      "finiteRGB": true
+    },
+    {
+      "file": "R39_04_SHED_FRONT-no-volume.exr",
+      "sha256": "d35e5b813add04ed74272847796fdc4351f455706e381a8983e6074f69a3a0be",
+      "metadataSha256": "e57cca923cadfe2123478cac38cf180083c94cc2348c04574395c1ac23a630b9",
+      "finiteRGB": true
+    },
+    {
+      "file": "R39_04_SHED_FRONT-with-volume.exr",
+      "sha256": "6d544024e10ea09471791adaece6f48752bb7df6d9142c04e24380eaecad06ce",
+      "metadataSha256": "b7cc922e613bff846c4914cda87b17cafae36b0cd5779090e5cdfbc8e3386b8c",
+      "finiteRGB": true
+    }
+  ],
+  "command": [
+    "xvfb-run",
+    "-a",
+    "-s",
+    "-screen 0 1440x810x24",
+    "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Unity",
+    "-batchmode",
+    "-force-glcore",
+    "-quit",
+    "-projectPath",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity",
+    "-executeMethod",
+    "CsMineFogSplitFinal13.Render",
+    "-logFile",
+    "/workspace/critical-shift-spawn-runtime/runtime/out/mine-bake-audit/fog-split-final13.native.log"
+  ],
+  "limits": [
+    "Six finite actualNative640HDR frames; no Source/scene save",
+    "No visual score, Source scattering match, gameplay or Player claim",
+    "Current hero1440 images remain separate; Source noVolume16samples has noise and different sampling"
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "utc": "2026-10-13T00:42:55.228084+00:00",
+  "reviewer": "/root/strict_mine_review",
+  "status": "StaticSourceSnapshotAndCurrentCompactGeometryDeliveryReview_EligibleForIsolatedExport_NoNativeAcceptance",
+  "inputs": {
+    "/workspace/critical-shift-spawn-runtime/runtime/tools/map_source_snapshot.py": "6f859b04dd65c745e5ef53f14e33a178fe37b01080fc0d2b99d7b0b461793bb7",
+    "/workspace/critical-shift-spawn-runtime/runtime/tools/prepare_spawn.py": "13ae14f44fe720a0e49f76947d2d72e4241fe1e3b0a13812da45732a622a5048",
+    "/workspace/critical-shift-spawn-runtime/runtime/tools/prepare_mine.py": "32105cb9ec1ed0697569e936ec52c2b5bbef24bff746a250f185170313a863fa",
+    "/workspace/critical-shift-spawn-runtime/runtime/tools/export_spawn_map.py": "3f3f49a4681906fbe179e7f508a2690a87fe6549e139d098bebc99bedf1205e8"
+  },
+  "snapshotProof": {
+    "configSha256": "14016230fcd0e9c4348f6edf2cb1f71dbd68c149f74ec52880bcc25a34c1f89a",
+    "buildReceiptSha256": "4f24d5a3b23c8efcacc5dec68d59b9e22169cf24edb9f2d14b72ab07e7995ebd",
+    "sourceSha256": "b1905627f2f6e4ba90198a99bc47238a3c3fdeb61277ffcc3ab72a3dff5a4192",
+    "mapCommit": "342af0003fec9dbe80b5acb40d1477c23b5a3169",
+    "externalTurbineCommit": "e12c8e2a9c35a6888960ce08185cd3ad10898f59",
+    "independentStreamedSourcePinChecks": 34,
+    "uniqueRoomCount": 13,
+    "localAssemblyInventory": 203,
+    "deliveryLocalExpected": 202,
+    "excludedSourceLocal": "COMBINED moon; delivered once via mine.assemblyLighting"
+  },
+  "resolvedFindings": [
+    "Compact COMBINED_MAP discovery now full-only, permitting standalone spawn scoped secondpass; previous assemblyObjects/Moon metadata retained during partial merge.",
+    "Assembly-local pure-volume-only closures explicitly visiblefalse/sourceVisible/unsupported; collision excluded and no claim of transferred haze.",
+    "Assembly AREA\u2192Point current preview limitation explicit in manifest."
+  ],
+  "positiveChecks": [
+    "Snapshot current config/source/build/sourceRecords34 identities, bytes, streamSHA, GitRaw/LFSpointerBlobSHA and exact external turbine/source_commit pins independently match.",
+    "All13 configuration room paths normalized and present in source pin records; receipt13roomnames agree,203local inventory.",
+    "Staged symlinks resolve existing source targets; bytes pinned and verified, not assumed to belong to snapshot directory physically.",
+    "New pseudo-room assembly-context identityplacement uses source world matrices and ordinary compact collision roundtrip.",
+    "Source linkedROOM instances and moon excluded from local delivery, avoiding intended duplicates.",
+    "Preparemine snapshot pins every dependency including compact/basemap/reactorlinks before scoped export; recipe includes snapshot helper."
+  ],
+  "nonBlockingGuardRecommendation": "verified_snapshot could compare config room names with receipt.rooms and require every normalized room library/exterior dependency in sources; actual snapshot already independently passes those checks.",
+  "requiredBeforeIntegrationClaim": [
+    "Isolated actual export must prove all13ROOM deliveries+202localmapped objects, exactlyone moon, collision hashes/roundtrip, source hashes unchanged and no standalone spawn failure.",
+    "Native source13/main342 map geometry/pose/material/light/renderer/collision import, walking joins and gameplay still untested.",
+    "Current mine/spawn fresh matched Source refs/nativeHDR/PNG/18suite and freshPlayer gates remain pending.",
+    "Assembly otherrooms retain previewmaterials/lights, missing connector haze; no visual1:1 claim."
+  ],
+  "lastFullVisual": {
+    "version": "old6roomfinal13",
+    "status": "Rejected",
+    "score": 41,
+    "outOf": 60,
+    "overallScore": null
+  },
+  "notRunByReviewer": [
+    "Unity",
+    "Blender",
+    "sourceexport",
+    "nativeimport"
+  ]
+}

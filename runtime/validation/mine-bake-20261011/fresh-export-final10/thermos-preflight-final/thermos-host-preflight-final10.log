@@ -1,0 +1,527 @@
+Unity Editor version:    6000.4.3f1 (39d1a88d4dd1)
+Branch:                  6000.4/staging
+Build type:              Release
+Batch mode:              YES
+System name:             Linux
+Distro version:          #1 SMP Sat Sep 26 20:02:31 UTC 2026
+Kernel version:          6.18.44
+Architecture:            x86_64
+Available memory:        18007 MB
+Date:                    2026-10-12T02:40:12Z
+[Licensing::Module] Trying to connect to existing licensing client channel...
+Initialize udev device monitor.
+[Licensing::IpcConnector] Channel LicenseClient-agent doesn't exist
+[Licensing::Module] Successfully launched the LicensingClient (PId: 132714)
+
+COMMAND LINE ARGUMENTS:
+/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Unity
+-batchmode
+-nographics
+-projectPath
+/workspace/critical-shift-spawn-runtime/runtime/unity
+-runTests
+-testPlatform
+PlayMode
+-testFilter
+CriticalShift.Tests.Player.PlayerBindingTests
+-testResults
+/workspace/critical-shift-spawn-runtime/runtime/out/mine-bake-audit/thermos-host-preflight-final10.xml
+-logFile
+/workspace/critical-shift-spawn-runtime/runtime/out/mine-bake-audit/thermos-host-preflight-final10.log
+Successfully changed project path to: /workspace/critical-shift-spawn-runtime/runtime/unity
+/workspace/critical-shift-spawn-runtime/runtime/unity
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-gfx=262144"
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+Player connection [140567035792256]  Target information:
+
+Player connection [140567035792256]  * "[IP] 172.26.91.250 [Port] 55504 [Flags] 2 [Guid] 870518047 [EditorId] 870518047 [Version] 1048832 [Id] LinuxEditor(16,172.26.91.250) [Debug] 1 [PackageName] LinuxEditor [ProjectName] Editor" 
+
+Player connection [140567035792256]  * "[IP] 172.31.0.158 [Port] 55504 [Flags] 2 [Guid] 870518047 [EditorId] 870518047 [Version] 1048832 [Id] LinuxEditor(16,172.26.91.250) [Debug] 1 [PackageName] LinuxEditor [ProjectName] Editor" 
+
+Player connection [140567035792256]  * "[IP] 172.17.0.1 [Port] 55504 [Flags] 2 [Guid] 870518047 [EditorId] 870518047 [Version] 1048832 [Id] LinuxEditor(16,172.26.91.250) [Debug] 1 [PackageName] LinuxEditor [ProjectName] Editor" 
+
+Player connection [140567035792256] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [140567035792256] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+[Package Manager] Connected to IPC stream "Upm-132704" after 0.4 seconds.
+[Licensing::Module] Licensing is not yet initialized.
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-agent" at "2026-10-12T02:40:12.781842Z"
+[SignatureVerifier] Application signature verification not supported on this platform.
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.18.1+9fbee8e
+  Session Id:              82b9e6f3f5014ea2a6c3305e5dccd2ec
+  Correlation Id:          71394859b391d517061d666992ac1b0d
+  External correlation Id: 5935348805344165223
+  Machine Id:              HSfDcY8TYOsLF+Fc1eSelgog+jc=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-agent" (connect: 0.58s, validation: 0.12s, handshake: 0.00s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-agent-notifications" at "2026-10-12T02:40:12.897785Z"
+[Licensing::Module] Connected to LicensingClient (PId: 132714, launch time: 0.00, total connection time: 0.70s)
+[Licensing::Module] Error: Access token is unavailable; failed to update
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: 9072383120447-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+[Licensing::Client] Successfully updated license, isAsync: True, time: 0.01
+[Licensing::Module] Licensing Background thread has ended after 0.79s
+[Licensing::Module] Licensing is initialized (took 0.32s).
+[Licensing::Client] Successfully resolved entitlement details
+Library Redirect Path: Library/
+ALSA lib confmisc.c:855:(parse_card) cannot find card '0'
+ALSA lib conf.c:5205:(_snd_config_evaluate) function snd_func_card_inum returned error: No such file or directory
+ALSA lib confmisc.c:422:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:5205:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1342:(snd_func_refer) error evaluating name
+ALSA lib conf.c:5205:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5728:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2722:(snd_pcm_open_noupdate) Unknown PCM default
+FMOD failed to initialize the output device.: "Error initializing output device. " (60)
+Forced to initialize FMOD to to the device driver's system output rate 48000, this may impact performance and/or give inconsistent experiences compared to selected sample rate 48000
+ALSA lib confmisc.c:855:(parse_card) cannot find card '0'
+ALSA lib conf.c:5205:(_snd_config_evaluate) function snd_func_card_inum returned error: No such file or directory
+ALSA lib confmisc.c:422:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:5205:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1342:(snd_func_refer) error evaluating name
+ALSA lib conf.c:5205:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5728:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2722:(snd_pcm_open_noupdate) Unknown PCM default
+FMOD failed to initialize the output device.: "Error initializing output device. " (60)
+FMOD initialized on nosound output
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Initialize engine version: 6000.4.3f1 (39d1a88d4dd1)
+[Subsystems] Discovering subsystems at path /home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path /workspace/critical-shift-spawn-runtime/runtime/unity/Assets
+Forcing GfxDevice: Null
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+NullGfxDevice:
+    Version:  NULL 1.0 [1.0]
+    Renderer: Null Device
+    Vendor:   Unity Technologies
+Initialize mono
+Mono path[0] = '/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed'
+Mono path[1] = '/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-linux'
+Mono config path = '/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56704
+CodeReloadManager initialized
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+ImportWorker Server TCP listen port: 0
+AcceleratorClientConnectionCallback - disconnected - :0
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: /home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0.003302 seconds.
+Native extension for LinuxStandalone target not found
+Package Manager log level set to [2]
+Native extension for WindowsStandalone target not found
+(node:132715) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+(Use `UnityPackageManager --trace-deprecation ...` to show where the warning was created)
+[Licensing::Client] Successfully resolved entitlement details
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.079 seconds
+Domain Reload Profiling: 1916ms
+	BeginReloadAssembly (265ms)
+		CreateAndSetChildDomain (7ms)
+	RebuildCommonClasses (79ms)
+	RebuildNativeTypeToScriptingClass (14ms)
+	initialDomainReloadingComplete (140ms)
+	LoadAllAssembliesAndSetupDomain (337ms)
+		LoadAssemblies (258ms)
+		AnalyzeDomain (323ms)
+			TypeCache.Refresh (322ms)
+				TypeCache.ScanAssembly (297ms)
+	FinalizeReload (1081ms)
+		SetupLoadedEditorAssemblies (0ms)
+			InitializePlatformSupportModulesInManaged (53ms)
+			BeforeProcessingInitializeOnLoad (111ms)
+			ProcessInitializeOnLoadAttributes (121ms)
+			ProcessInitializeOnLoadMethodAttributes (721ms)
+[Licensing::Client] Successfully resolved entitlement details
+Application.AssetDatabase Initial Refresh Start
+[Package Manager] Restoring resolved packages state from cache
+[Licensing::Client] Successfully resolved entitlement details
+[Package Manager] Registered 9 packages:
+  Packages from [https://packages.unity.com]:
+    com.unity.sdk.linux-x86_64@1.1.0 (location: /workspace/critical-shift-spawn-runtime/runtime/unity/Library/PackageCache/com.unity.sdk.linux-x86_64@6d12be270055)
+    com.unity.toolchain.linux-x86_64-linux@1.1.0 (location: /workspace/critical-shift-spawn-runtime/runtime/unity/Library/PackageCache/com.unity.toolchain.linux-x86_64-linux@d0308bf9d559)
+    com.unity.sysroot.base@1.1.0 (location: /workspace/critical-shift-spawn-runtime/runtime/unity/Library/PackageCache/com.unity.sysroot.base@3559fe1aa613)
+  Built-in packages:
+    com.unity.test-framework@1.6.0 (location: /workspace/critical-shift-spawn-runtime/runtime/unity/Library/PackageCache/com.unity.test-framework@9faaf09ec578)
+    com.unity.modules.imgui@1.0.0 (location: /workspace/critical-shift-spawn-runtime/runtime/unity/Library/PackageCache/com.unity.modules.imgui)
+    com.unity.modules.jsonserialize@1.0.0 (location: /workspace/critical-shift-spawn-runtime/runtime/unity/Library/PackageCache/com.unity.modules.jsonserialize)
+    com.unity.modules.physics@1.0.0 (location: /workspace/critical-shift-spawn-runtime/runtime/unity/Library/PackageCache/com.unity.modules.physics)
+    com.unity.modules.animation@1.0.0 (location: /workspace/critical-shift-spawn-runtime/runtime/unity/Library/PackageCache/com.unity.modules.animation)
+    com.unity.ext.nunit@2.0.5 (location: /workspace/critical-shift-spawn-runtime/runtime/unity/Library/PackageCache/com.unity.ext.nunit@ec2d0043d6fc)
+[Subsystems] No new subsystems found in resolved package list.
+[Package Manager] Done registering packages in 0.01 seconds
+Warning: Disk space low. The project is on a drive with diskspace below 1.00 GB. Please free up some space for Unity to work correctly.
+[ScriptCompilation] Requested script compilation because: AssetDatabase observed changes in script compilation related files
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://unix:/tmp/ilpp.sock-8905bfec88515832b1986b252f5b3832
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Production
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /workspace/critical-shift-spawn-runtime/runtime/unity
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/Ping - application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/Ping'
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/Ping'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/Ping - 200 - application/grpc 35.8020ms
+Starting: /home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Tools/BuildPipeline/bee_backend --ipc --defer-dag-verification --dagfile="Library/Bee/2400b0aE.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssemblies
+WorkingDir: /workspace/critical-shift-spawn-runtime/runtime/unity
+DisplayProgressbar: Compiling Scripts
+ExitCode: 0 Duration: 2s81ms
+[255/258    2s] Csc Library/Bee/artifacts/2400b0aE.dag/CriticalShift.Player.Tests.PlayMode.dll (+2 others)
+[256/258    0s] CopyFiles Library/ScriptAssemblies/CriticalShift.Player.Tests.PlayMode.pdb
+[257/258    0s] CopyFiles Library/ScriptAssemblies/CriticalShift.Player.Tests.PlayMode.dll
+*** Tundra build success (2.06 seconds), 3 items updated, 258 evaluated
+Total cache size 1095868
+AssetDatabase: script compilation time: 2.498431s
+Total cache size after purge 1095868, took 00:00:00.0159247
+Begin MonoManager ReloadAssembly
+Assembly Assembly-CSharp-Editor-firstpass.dll at Library/ScriptAssemblies/Assembly-CSharp-Editor-firstpass.dll not valid. Loading of assembly skipped.
+Assembly Assembly-CSharp-Editor.dll at Library/ScriptAssemblies/Assembly-CSharp-Editor.dll not valid. Loading of assembly skipped.
+Assembly Assembly-CSharp-firstpass.dll at Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll not valid. Loading of assembly skipped.
+Assembly Assembly-CSharp.dll at Library/ScriptAssemblies/Assembly-CSharp.dll not valid. Loading of assembly skipped.
+Assembly TestNewCustomAssembly.dll at Library/ScriptAssemblies/TestNewCustomAssembly.dll not valid. Loading of assembly skipped.
+Assembly Unity.Sysroot.EditorTests.dll at Library/ScriptAssemblies/Unity.Sysroot.EditorTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Sysroot.Linux_x86_64.EditorTests.dll at Library/ScriptAssemblies/Unity.Sysroot.Linux_x86_64.EditorTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Toolchain.Linux-x86_64-Linux.EditorTests.dll at Library/ScriptAssemblies/Unity.Toolchain.Linux-x86_64-Linux.EditorTests.dll not valid. Loading of assembly skipped.
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+ScheduleIndexationOnStartup MainProcess:True IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.525 seconds
+Domain Reload Profiling: 1112ms
+	BeginReloadAssembly (273ms)
+		DisableScriptedObjects (18ms)
+		CreateAndSetChildDomain (76ms)
+	RebuildCommonClasses (45ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (54ms)
+	LoadAllAssembliesAndSetupDomain (204ms)
+		LoadAssemblies (304ms)
+		AnalyzeDomain (32ms)
+			TypeCache.Refresh (23ms)
+				TypeCache.ScanAssembly (11ms)
+			BuildScriptInfoCaches (5ms)
+	FinalizeReload (527ms)
+		SetupLoadedEditorAssemblies (0ms)
+			InitializePlatformSupportModulesInManaged (28ms)
+			BeforeProcessingInitializeOnLoad (119ms)
+			ProcessInitializeOnLoadAttributes (81ms)
+			ProcessInitializeOnLoadMethodAttributes (123ms)
+			AfterProcessingInitializeOnLoad (5ms)
+		AwakeInstancesAfterBackupRestoration (18ms)
+(Values over 0.050ms)
+Asset Pipeline Refresh (id=ebf7c1bf8dd63becda1596bf21157a62): Total: 4.011 seconds - Initiated by InitialRefreshV2(ForceSynchronousImport)
+	Summary:
+		Imports: total=0 (actual=0, local cache=0, cache server=0)
+		Asset DB Process Time: managed=0 ms, native=805 ms
+		Asset DB Callback time: managed=99 ms, native=11 ms
+		Scripting: domain reloads=1, domain reload time=585 ms, compile time=2500 ms, other=7 ms
+		Project Asset Count: scripts=147, non-scripts=1560
+		Asset File Changes: new=0, changed=1, moved=0, deleted=0
+		Scan Filter Count: 1
+	InvokePackagesCallback: 9.195ms
+	ApplyChangesToAssetFolders: 0.110ms
+	Scan: 189.475ms
+	OnSourceAssetsModified: 0.714ms
+	CategorizeScriptCompilationAssets: 3.330ms
+	ProcessAssetsWithTransientArtifactChanges: 7.899ms
+	CategorizeAssets: 15.227ms
+	CompileScripts: 2500.280ms
+	ImportOutOfDateAssets: 530.602ms (528.958ms without children)
+		UnloadImportedAssets: 0.453ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.193ms
+		OnDemandSchedulerStart: 0.998ms
+	PostProcessAllAssets: 101.025ms
+		VCAutoAddAssetPostprocess 1.064ms
+		PostProcessCallbackCreateDeferredMaterials 0.106ms
+		MonoPostProcessAllAssets: 99.185ms
+			AssetPostprocessor.OnPostprocessAllAssets 38.715ms
+			StyleCatalogPostProcessor.OnPostprocessAllAssets 20.841ms
+			BuilderAssetPostprocessor.OnPostprocessAllAssets 11.902ms
+			WindowAssetPostprocessingWatcher.OnPostprocessAllAssets 8.737ms
+			AssetChangedListener.OnPostprocessAllAssets 1.721ms
+			SyncVS.PostprocessSyncProject 1.327ms
+			RetainedModeAssetPostprocessor.OnPostprocessAllAssets 1.216ms
+			ArtifactBrowserPostProcessor.OnPostprocessAllAssets 0.861ms
+			SpeedTree9Postprocessor.OnPostprocessAllAssets 0.761ms
+			TextAssetPostProcessor.OnPostprocessAllAssets 0.633ms
+			AudioMixerPostprocessor.OnPostprocessAllAssets 0.476ms
+			ReferencedClipsPostProcessor.OnPostprocessAllAssets 0.357ms
+			AssetDatabaseCallbacks.OnPostprocessAllAssets 0.330ms
+			TerrainToolbarOverlayPostProcessor.OnPostprocessAllAssets 0.241ms
+			AssetEvents.OnPostprocessAllAssets 0.192ms
+			ScenarioDriftAssetsTracker.OnPostprocessAllAssets 0.179ms
+			ConfigAssetsTracker.OnPostprocessAllAssets 0.171ms
+			SpeedTreePostProcessor.OnPostprocessAllAssets 0.148ms
+			AudioContainerPostProcessor.OnPostprocessAllAssets 0.139ms
+			RenderPipelineGlobalSettingsPostprocessor.OnPostprocessAllAssets 0.088ms
+	PostAssetChangesProfiler: 0.673ms
+	UnloadStreamsBegin: 1.596ms
+	PersistCurrentRevisions: 0.061ms
+	Untracked: 648.029ms
+
+Application.AssetDatabase Initial Refresh End
+Scanning for USB devices : 0.313ms
+Initializing Unity extensions:
+UpdateMenuTitleForLanguage: 10
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+[MODES] Loading mode Default (0) for mode-current-id-Critical Shift
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 442 unused Assets / (0.5 MB). Loaded Objects now: 1080.
+Memory consumption went from 92.6 MB to 92.1 MB.
+Total: 7.008619 ms (FindLiveObjects: 0.095450 ms CreateObjectMapping: 0.017918 ms MarkObjects: 6.530722 ms  DeleteObjects: 0.363316 ms)
+
+
+(process:132704): GLib-GObject-CRITICAL **: 02:40:19.482: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+(process:132704): Gtk-CRITICAL **: 02:40:19.483: gtk_widget_hide: assertion 'GTK_IS_WIDGET (widget)' failed
+
+(process:132704): Gtk-CRITICAL **: 02:40:19.483: gtk_widget_destroy: assertion 'GTK_IS_WIDGET (widget)' failed
+
+(process:132704): GLib-GObject-CRITICAL **: 02:40:19.483: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+[Project] Loading completed in 7.296 seconds
+	Project init time: 				7.191 seconds
+		Template init time: 		0.000 seconds
+		Package Manager init time: 		0.701 seconds
+		Asset Database init time: 		0.131 seconds
+		Global illumination init time: 	0.008 seconds
+		Assemblies load time: 			1.978 seconds
+		Unity extensions init time: 	0.001 seconds
+		Asset Database refresh time: 	4.011 seconds
+	Scene opening time: 			0.089 seconds
+##utp:{"type":"ProjectInfo","version":2,"phase":"Immediate","time":1791772819484,"processId":132704,"projectLoad":7.296340214,"projectInit":7.190894531,"templateInit":0.0,"packageManagerInit":0.701215717,"assetDatabaseInit":0.131250951,"globalIlluminationInit":0.008082512,"assembliesLoad":1.977865883,"unityExtensionsInit":0.000821627,"assetDatabaseRefresh":4.011144371,"sceneOpening":0.089261346}
+##utp:{"type":"EditorInfo","version":2,"phase":"Immediate","time":1791772819484,"processId":132704,"editorVersion":"6000.4.3f1 (39d1a88d4dd1)","branch":"6000.4/staging","buildType":"Release","platform":"Linux"}
+Asset Pipeline Refresh (id=7c8d61109260b64459a56a42f15ec381): Total: 0.061 seconds - Initiated by RefreshV2(ForceSynchronousImport)
+[Licensing::Client] Successfully resolved entitlement details
+Running tests for ExecutionSettings with details:
+targetPlatform = 
+playerHeartbeatTimeout = 600
+filters[0] = 
+   Filter with settings:
+   testMode = PlayMode
+   targetPlatform = 
+   testNames = null
+   groupNames = CriticalShift.Tests.Player.PlayerBindingTests
+   categoryNames = null
+   assemblyNames = null
+ignoreTests = {}
+featureFlags = null
+
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+UnityEditor.TestTools.TestRunner.CommandLineTest.Executer:InitializeAndExecuteRun (string[]) (at ./Library/PackageCache/com.unity.test-framework@9faaf09ec578/UnityEditor.TestRunner/CommandLineTest/Executer.cs:53)
+UnityEditor.TestTools.TestRunner.CommandLineTest.TestStarter:InitializeAndExecuteRun () (at ./Library/PackageCache/com.unity.test-framework@9faaf09ec578/UnityEditor.TestRunner/CommandLineTest/TestStarter.cs:64)
+UnityEditor.EditorApplication:Internal_CallUpdateFunctions () (at /home/bokken/build/output/unity/unity/Editor/Mono/EditorApplication.cs:401)
+
+(Filename: ./Library/PackageCache/com.unity.test-framework@9faaf09ec578/UnityEditor.TestRunner/CommandLineTest/Executer.cs Line: 53)
+
+Start Indexing on Editor startup
+[Indexing] Starting Initial Indexing for Assets
+[UnityConnectServicesConfig] config is NOT valid, switching to default
+Created GICache directory at /home/agent/.cache/unity3d/GiCache. Took: 0.004s, timestamps: [7.301 - 7.304]
+Asset Pipeline Refresh (id=8a48f1204264ffba69056e9946d0a25e): Total: 0.041 seconds - Initiated by RefreshV2(ForceSynchronousImport)
+Starting new worker id: 0 with log in /workspace/critical-shift-spawn-runtime/runtime/unity/Logs/AssetImportWorker0.log
+[Licensing::Client] Successfully resolved entitlement details
+Asset Pipeline Refresh (id=7b7a5b837e12028f09252cfe5e4d14ee): Total: 0.023 seconds - Initiated by RefreshV2(ForceSynchronousImport)
+[Licensing::Client] Successfully resolved entitlement details
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 1 unused Assets / (0.8 KB). Loaded Objects now: 1098.
+Memory consumption went from 90.9 MB to 90.9 MB.
+Total: 9.193440 ms (FindLiveObjects: 0.058576 ms CreateObjectMapping: 0.011541 ms MarkObjects: 9.086354 ms  DeleteObjects: 0.035788 ms)
+
+Start importing Assets/InitTestSceneac01d128-5b92-4735-b96e-ac4d75cc4d7a.unity using Guid(aaa26f09271090ccb80f04b8ae7cc2dc) (DefaultImporter) -> (Import Result ID: '799faf8a4c34f77a3675a4f46c6c3599') in 0.005894963 seconds [static dependencies only]. Details - ImportResultOutputID=409220be8aa591b93c65f6e5410db0f3 DependenciesID=dc9abc2d054401ca3725386b057c03a7 StaticDependenciesID=62c23053c9d9ee226461318f49b42b5c 
+Asset Pipeline Refresh (id=4e49f93e2305751e8954b5d36bfb3e3d): Total: 0.018 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Reloading assemblies for play mode.
+Reloading assemblies after forced synchronous recompile.
+Assembly Assembly-CSharp-Editor-firstpass.dll at Library/ScriptAssemblies/Assembly-CSharp-Editor-firstpass.dll not valid. Loading of assembly skipped.
+Assembly Assembly-CSharp-Editor.dll at Library/ScriptAssemblies/Assembly-CSharp-Editor.dll not valid. Loading of assembly skipped.
+Assembly Assembly-CSharp-firstpass.dll at Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll not valid. Loading of assembly skipped.
+Assembly Assembly-CSharp.dll at Library/ScriptAssemblies/Assembly-CSharp.dll not valid. Loading of assembly skipped.
+Assembly TestNewCustomAssembly.dll at Library/ScriptAssemblies/TestNewCustomAssembly.dll not valid. Loading of assembly skipped.
+Assembly Unity.Sysroot.EditorTests.dll at Library/ScriptAssemblies/Unity.Sysroot.EditorTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Sysroot.Linux_x86_64.EditorTests.dll at Library/ScriptAssemblies/Unity.Sysroot.Linux_x86_64.EditorTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Toolchain.Linux-x86_64-Linux.EditorTests.dll at Library/ScriptAssemblies/Unity.Toolchain.Linux-x86_64-Linux.EditorTests.dll not valid. Loading of assembly skipped.
+Begin MonoManager ReloadAssembly
+Assembly Assembly-CSharp-Editor-firstpass.dll at Library/ScriptAssemblies/Assembly-CSharp-Editor-firstpass.dll not valid. Loading of assembly skipped.
+Assembly Assembly-CSharp-Editor.dll at Library/ScriptAssemblies/Assembly-CSharp-Editor.dll not valid. Loading of assembly skipped.
+Assembly Assembly-CSharp-firstpass.dll at Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll not valid. Loading of assembly skipped.
+Assembly Assembly-CSharp.dll at Library/ScriptAssemblies/Assembly-CSharp.dll not valid. Loading of assembly skipped.
+Assembly TestNewCustomAssembly.dll at Library/ScriptAssemblies/TestNewCustomAssembly.dll not valid. Loading of assembly skipped.
+Assembly Unity.Sysroot.EditorTests.dll at Library/ScriptAssemblies/Unity.Sysroot.EditorTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Sysroot.Linux_x86_64.EditorTests.dll at Library/ScriptAssemblies/Unity.Sysroot.Linux_x86_64.EditorTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Toolchain.Linux-x86_64-Linux.EditorTests.dll at Library/ScriptAssemblies/Unity.Toolchain.Linux-x86_64-Linux.EditorTests.dll not valid. Loading of assembly skipped.
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+ScheduleIndexationOnStartup MainProcess:True IndexOnStartup:True
+Mono: successfully reloaded assembly
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+- Finished resetting the current domain, in  0.644 seconds
+Domain Reload Profiling: 1034ms
+	BeginReloadAssembly (171ms)
+		DisableScriptedObjects (19ms)
+		CreateAndSetChildDomain (55ms)
+	RebuildCommonClasses (39ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (92ms)
+	LoadAllAssembliesAndSetupDomain (78ms)
+		LoadAssemblies (95ms)
+		AnalyzeDomain (39ms)
+			TypeCache.Refresh (20ms)
+			BuildScriptInfoCaches (15ms)
+	FinalizeReload (645ms)
+		SetupLoadedEditorAssemblies (0ms)
+			InitializePlatformSupportModulesInManaged (31ms)
+			BeforeProcessingInitializeOnLoad (116ms)
+			ProcessInitializeOnLoadAttributes (89ms)
+			ProcessInitializeOnLoadMethodAttributes (122ms)
+			AfterProcessingInitializeOnLoad (4ms)
+		AwakeInstancesAfterBackupRestoration (26ms)
+(Values over 0.050ms)
+Asset Pipeline Refresh (id=55c75b5d3d086fdfaabb57f757a5163e): Total: 1.115 seconds - Initiated by StopAssetImportingV2(ForceSynchronousImport | ForceDomainReload)
+	Summary:
+		Imports: total=0 (actual=0, local cache=0, cache server=0)
+		Asset DB Process Time: managed=0 ms, native=680 ms
+		Asset DB Callback time: managed=19 ms, native=0 ms
+		Scripting: domain reloads=1, domain reload time=413 ms, compile time=2 ms, other=0 ms
+		Project Asset Count: scripts=147, non-scripts=1561
+		Asset File Changes: new=0, changed=0, moved=0, deleted=0
+		Scan Filter Count: 0
+	InvokePackagesCallback: 0.641ms
+	ApplyChangesToAssetFolders: 0.089ms
+	ProcessAssetsWithTransientArtifactChanges: 0.253ms
+	CategorizeAssets: 10.997ms
+	CompileScripts: 1.599ms
+	ImportOutOfDateAssets: 646.408ms (645.998ms without children)
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.149ms
+		OnDemandSchedulerStart: 0.243ms
+	PostProcessAllAssets: 19.162ms
+		MonoPostProcessAllAssets: 19.142ms
+			WindowAssetPostprocessingWatcher.OnPostprocessAllAssets 7.698ms
+			AssetPostprocessor.OnPostprocessAllAssets 1.664ms
+			SyncVS.PostprocessSyncProject 1.372ms
+			SpeedTree9Postprocessor.OnPostprocessAllAssets 0.764ms
+			ReferencedClipsPostProcessor.OnPostprocessAllAssets 0.322ms
+			AssetDatabaseCallbacks.OnPostprocessAllAssets 0.236ms
+			TerrainToolbarOverlayPostProcessor.OnPostprocessAllAssets 0.226ms
+			RenderPipelineGlobalSettingsPostprocessor.OnPostprocessAllAssets 0.118ms
+	GatherAllCurrentPrimaryImportResultRevisions: 0.075ms
+	PersistCurrentRevisions: 0.062ms
+	Untracked: 433.388ms
+
+Loaded scene 'Temp/__Backupscenes/0.backup'
+	Deserialize:            1.331 ms
+	Integration:            17.425 ms
+	Integration of assets:  0.003 ms
+	Thread Wait Time:       0.037 ms
+	Total Operation Time:   18.797 ms
+[Licensing::Client] Successfully resolved entitlement details
+Saving results to: /workspace/critical-shift-spawn-runtime/runtime/out/mine-bake-audit/thermos-host-preflight-final10.xml
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
+Loaded scene 'Temp/__Backupscenes/0.backup'
+	Deserialize:            0.626 ms
+	Integration:            5.612 ms
+	Integration of assets:  0.002 ms
+	Thread Wait Time:       0.020 ms
+	Total Operation Time:   6.259 ms
+Unloading 1 unused Assets / (0.8 KB). Loaded Objects now: 1105.
+Memory consumption went from 89.3 MB to 89.3 MB.
+Total: 7.570923 ms (FindLiveObjects: 0.063046 ms CreateObjectMapping: 0.012748 ms MarkObjects: 7.467976 ms  DeleteObjects: 0.025983 ms)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 0 unused Assets / (0 B). Loaded Objects now: 1110.
+Memory consumption went from 89.1 MB to 89.1 MB.
+Total: 5.920170 ms (FindLiveObjects: 0.048223 ms CreateObjectMapping: 0.010787 ms MarkObjects: 5.854664 ms  DeleteObjects: 0.005345 ms)
+
+Asset Pipeline Refresh (id=f8e1bba1a830ffb0eb1c3a7c4e27dbf0): Total: 0.046 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+DisplayProgressbar: Undo
+Test run completed. Exiting with code 0 (Ok). Run completed.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+UnityEditor.TestTools.TestRunner.CommandLineTest.Executer:ExitApplication (UnityEditor.TestTools.TestRunner.CommandLineTest.Executer/ReturnCodes,string) (at ./Library/PackageCache/com.unity.test-framework@9faaf09ec578/UnityEditor.TestRunner/CommandLineTest/Executer.cs:81)
+UnityEditor.TestTools.TestRunner.CommandLineTest.Executer:ExitIfRunIsCompleted () (at ./Library/PackageCache/com.unity.test-framework@9faaf09ec578/UnityEditor.TestRunner/CommandLineTest/Executer.cs:74)
+UnityEditor.EditorApplication:Internal_CallUpdateFunctions () (at /home/bokken/build/output/unity/unity/Editor/Mono/EditorApplication.cs:401)
+
+(Filename: ./Library/PackageCache/com.unity.test-framework@9faaf09ec578/UnityEditor.TestRunner/CommandLineTest/Executer.cs Line: 81)
+
+Start importing ProjectSettings/ProjectSettings.asset using Guid(00000000000000004000000000000000) (LibraryAssetImporter) -> (Import Result ID: 'be8a13f3ced0345bb50aa6dd4242cdc4') in 0.004854904 seconds [static dependencies only]. Details - ImportResultOutputID=d3ca6db29495033f6ec6c171ea098da8 DependenciesID=50c47e743bd31d1b54e4250916904072 StaticDependenciesID=f04d28f0105590e50da7104af2dbfb0a 
+Asset Pipeline Refresh (id=db884318d0269245886ebdd4d56ecfb8): Total: 0.011 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+[Physics::Module] Cleanup current backend.
+[Physics::Module] Id: 0xf2b8ea05
+Input System module state changed to: ShutdownInProgress.
+Input Polling Thread exited.
+Input System module state changed to: Shutdown.
+[Licensing::IpcConnector] LicenseClient-agent-notifications channel disconnected successfully.
+[Licensing::IpcConnector] LicenseClient-agent channel disconnected successfully.
+ExternalTask::IsRunning: waitpid failed: No child processes
+AcceleratorClientConnectionCallback - disconnected - :0
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...
+Cleanup mono
+CodeReloadManager destroyed
+debugger-agent: Unable to listen on 39
+Checking for leaked weakptr:
+  Found no leaked weakptrs.
+[Package Manager] Server process was shutdown
+##utp:{"type":"MemoryLeaks","version":2,"phase":"Immediate","time":1791772825559,"processId":132704,"allocatedMemory":9707115,"memoryLabels":[{"Default":168919},{"Permanent":16008},{"Thread":1084616},{"Manager":17725},{"VertexData":8},{"Geometry":408},{"Texture":24},{"Shader":834118},{"Material":24},{"GfxDevice":36096},{"Animation":456},{"Audio":2632},{"FreeType":8},{"FontEngine":736},{"Physics":2090},{"Physics2D":16},{"Serialization":816},{"Input":27232},{"JobScheduler":33024},{"TextLib":216},{"Mono":32},{"ScriptingNativeRuntime":155088},{"BaseObject":1623072},{"Resource":1008},{"Renderer":3000},{"Transform":4717},{"File":828},{"WebCam":80},{"Culling":32},{"Terrain":11298},{"Wind":24},{"String":14412},{"StaticString":7050},{"Utility":2671648},{"Curl":2741},{"PoolAlloc":1864},{"AI":80},{"TypeTree":14821},{"ScriptManager":448},{"RuntimeInitializeOnLoadManager":64},{"SpriteAtlas":120},{"GI":7384},{"Director":8288},{"CloudService":432},{"WebRequest":808},{"VR":47810},{"SceneManager":536},{"Video":64},{"LazyScriptCache":32},{"Camera":17},{"Secure":2113},{"SerializationCache":1576},{"APIUpdating":10320},{"Subsystems":336},{"VirtualTexturing":57552},{"StaticSafetyDebugInfo":278528},{"Analytics":336},{"Hierarchy":1416},{"CoreStats":13032},{"Identifiers":12960},{"Gui":160},{"EditorUtility":77334},{"VersionControl":4},{"Undo":963},{"AssetDatabase":2393721},{"EditorGi":328},{"UnityConnect":37785},{"Upm":1760},{"UpmDiagnostics":8},{"AssetCompliance":64},{"DrivenProperties":72},{"LocalIPC":148},{"ProfilerEditor":9746},{"CoreBusinessMetrics":2347},{"Windowing":480},{"Licensing":1096},{"AssetReference":32},{"IPCStream":32}]}

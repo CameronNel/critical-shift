@@ -1,0 +1,50 @@
+{
+  "utc": "2026-10-12T23:58:12.739311+00:00",
+  "reviewer": "/root/strict_mine_review",
+  "status": "ClearedBoundedProduction20PrelaunchOnly",
+  "inputSha256": {
+    "/workspace/critical-shift-spawn-runtime/runtime/tools/export_spawn_map.py": "34e95124c2bbdf8830d89291386337090b1b7d45659649bb4ce9b87b2bfc790b",
+    "/workspace/critical-shift-spawn-runtime/runtime/tools/mine_context_lights.py": "eaa2118c44fffad8039f7981ecf060e6b9812b52b0813986305dcf36b1a4040c",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/MineSpotLighting.cs": "16ed27fca76f4722feba46a701778218072bb37b16594e35ca5e124265390e25",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/SpawnMapBuild.cs": "0c8f6a0183a6a80f55f355fb8cd886134ef2a6a69f01b7f51697457857a71969",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/SpawnVisualReview.cs": "42d10de155b74d6669dae8f52b3ab05b43f1af7cab3e87f6b633e3502c204944",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Features/Player/BlenderPointLighting.cginc": "7314a8147285982eca1894d34cd0a84d66f95491323a3ee1a87856ebf882f89e",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Features/Player/BlenderSurface.shader": "e4faf34a6053a24cdabcfa0ead743a1906fe4a9a76f5a92617967e4a6fbe06b8",
+    "/tmp/cs-mine-production-spot-control-final14.cs.txt": "3c63ab81b0f0a514dec4577485e09c84d24312540ec082a7f2a6e2e628b6f3fa",
+    "/tmp/cs-mine-production-spot-baseline-final14.shader.txt": "c824a9ad1fbbe3d51a1e93a1081640ad0524bafd2f0c0cac250be3ef88b5b43f",
+    "/tmp/cs-mine-production-spot-native-final14.py": "abe3bb596210bae831f78829fed6d9ec73b847d04adc9dd17d9932be5a35b593",
+    "/tmp/cs-mine-production-spot-api-final14-r3.json": "c180e0e247cacdebabff4a50a64752d7f27ef14fe30d26fe26b9eb5efff160cb",
+    "/tmp/cs-mine-production-spot-source-control-input-final14.json": "fd7fbc30de72d4bf63721f368e53be0e2228766afba38101098cad4197154f70",
+    "/tmp/cs-mine-production-spot-source-final14.json": "ba65e40b997610087852dada148e704bd971a7ca29db871ae375615ab9cb6560"
+  },
+  "resolvedFindings": [
+    "Complete distinct room/context spotlight inventory and source parameter match before replacement.",
+    "Owned native light actual pose, color, cone, intensity, range/radius/Soft/cookie validated including explicit finite components."
+  ],
+  "checks": [
+    "R3 actual API helper and every compiled source hash current.",
+    "Six independent expected source forwards exactly equal source world forwards under XZY axis conversion.",
+    "Stock fallback shader exactly equals production material shader except name and physical include.",
+    "Actual production Configure and ScopeBake invoked from own Editor assembly; corrupt cookie regeneration and actual GI sentinel/exception tested in fixture.",
+    "Source-independent numerical formula reused solely as reference; renderer uses production shader/cginc.",
+    "Opaque shadow blocker is outside camera-to-receiver segment and lies between source and receiver.",
+    "Fresh output ownership, exactly20 frame inventory, finite HDR and baked/RT state and before/after pinned inputs guarded."
+  ],
+  "remainingGates": [
+    "Review actual20 pixels vs Source reference and inspect callback/state logs after native completion.",
+    "Current main thirteen-room geometry/lighting/collision/source authority integration, full fresh visual/gameplay/Player gates remain pending."
+  ],
+  "notRunByReviewer": [
+    "Unity",
+    "Blender",
+    "C# compiler",
+    "native renders"
+  ],
+  "lastFullVisual": {
+    "score": 41,
+    "outOf": 60,
+    "status": "Rejected",
+    "overallScore": null,
+    "source": "old six-room final13 snapshot"
+  }
+}

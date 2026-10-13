@@ -1,0 +1,192 @@
+{
+  "status": "Bounded256sampleoneboarddiagnostic only; no overallscore",
+  "pixels": 3064,
+  "sourceSamples": 256,
+  "nativeFieldBakeSamples": 32,
+  "hashes": {
+    "/tmp/cs-mine-source-stable-board-final12/provenance.json": "bc274fd61cac52d9580dbca304dfef02b253a747e8427ff409f519e6f61a0f73",
+    "/tmp/cs-mine-source-stable-board-final12/SourceContextShed-256.exr": "0826aea31c4969bb4fabdbdd529efa2ca2424991882094b6d4d28d00e415c4d9",
+    "/tmp/cs-mine-source-hybrid-lambert-probe-final12/native-hybrid-proof.json": "cad995d67d64074c4a52176f377109654295b4e6d189aa4cc7c3479689302a13",
+    "/tmp/cs-mine-source-hybrid-lambert-probe-final12/HybridSmallBounds.exr": "0d9bf5ccc75b957ee427dfe6e8996b5070a5c44ec0032b7eec58ce49ba97a18f",
+    "/tmp/cs-mine-source-hybrid-lambert-probe-final12/SpecularSmallBounds.exr": "caf48ee863314ae9144a44902071a9921de28c1ff7b4234088d2f76341f992a0",
+    "/tmp/cs-mine-source-hybrid-lambert-probe-final12/HybridOriginalBounds.exr": "5c197f0da0d68d6c1baba1afd08fe9c4ee13f4d69d745c2a1d4e7189b1f9daab",
+    "/tmp/cs-mine-source-hybrid-lambert-probe-final12/SpecularOriginalBounds.exr": "5644e783712a2968b0ba3fcf6f977a3fa6d0af0ccea1dada2fea693d5704e314",
+    "/tmp/cs-mine-source-hybrid-lambert-probe-final12/LambertDirectOriginalBounds.exr": "4d6bb89ba9c13a5af5113b8a1fbb2e14f678f5a24b991729a1e1f74f69fab472",
+    "/tmp/cs-mine-source-hybrid-lambert-probe-final12/LambertHybridOriginalBounds.exr": "2e4bf5d2e76d68cdce17ff346e756c1f14b3190032ab06d14f9fa4af99de04d7"
+  },
+  "nativeAllFinite": true,
+  "identicalEnabledLightInventories": true,
+  "lightInventory": [
+    "R39 | Lantern light.021 Point I=8.358997 range=12 shadow=512",
+    "R39 | Lantern light.016 Point I=4.812756 range=12 shadow=512",
+    "R39 | Lantern light.017 Point I=4.812756 range=12 shadow=512",
+    "R39 | Oil lamp.006 Point I=0.5572665 range=12 shadow=512",
+    "R39 | Lantern light.020 Point I=8.358997 range=12 shadow=512",
+    "R39 | Notice lamp Point I=1.519818 range=12 shadow=512",
+    "R39 | Lantern light.023 Point I=5.572665 range=12 shadow=512",
+    "AAA | cold rim key Directional I=0.1114085 range=12 shadow=2048",
+    "R39 | Lantern light.019 Point I=4.812756 range=12 shadow=512",
+    "Combined map moon Directional I=0.5092958 range=10 shadow=2048",
+    "R39 | Lantern light.022 Point I=5.572665 range=12 shadow=512",
+    "R39 | Lantern light.018 Point I=4.812756 range=12 shadow=512",
+    "FE_MOON Directional I=0.1750704 range=10 shadow=2048"
+  ],
+  "reflectionProbeSelections": {
+    "HybridSmallBounds": "Mine reflection 0 weight=1\n",
+    "SpecularSmallBounds": "Mine reflection 0 weight=1\n",
+    "HybridOriginalBounds": "Mine reflection 0 weight=0.7763642\nMine reflection 1 weight=0.2236358\n",
+    "SpecularOriginalBounds": "Mine reflection 0 weight=0.7763642\nMine reflection 1 weight=0.2236358\n",
+    "LambertDirectOriginalBounds": "Mine reflection 0 weight=0.7763642\nMine reflection 1 weight=0.2236358\n",
+    "LambertHybridOriginalBounds": "Mine reflection 0 weight=0.7763642\nMine reflection 1 weight=0.2236358\n"
+  },
+  "nativeProof": {
+    "status": "BoundedSingleBoardDiagnosticOnly",
+    "removedTriangles": 68,
+    "sourceTriangles": 68,
+    "remainingTriangles": 38202,
+    "originalTriangles": 38270,
+    "pointCount": 63,
+    "sunCount": 3,
+    "sourceBoundsMatched": true,
+    "remainderTrianglesUnchanged": true,
+    "finiteRGB": true,
+    "sourceDiffuseColourIncluded": true,
+    "nativeDiffuseGiRemoved": true,
+    "sourceF0": 0.019999999552965164,
+    "sourceMinimum": {
+      "x": -39.30999755859375,
+      "y": 0.07121968269348145,
+      "z": -74.47206115722656
+    },
+    "sourceMaximum": {
+      "x": -39.269996643066406,
+      "y": 3.498487949371338,
+      "z": -74.08504486083984
+    },
+    "nativeMinimum": {
+      "x": -39.310001373291016,
+      "y": 0.07122361660003662,
+      "z": -74.47206115722656
+    },
+    "nativeMaximum": {
+      "x": -39.27000045776367,
+      "y": 3.4984917640686035,
+      "z": -74.08503723144531
+    }
+  },
+  "sourceDiffuseVsDisneyOriginalProbe": {
+    "sourceMean": [
+      0.027186201953050458,
+      0.01912478741167179,
+      0.013693687861291161
+    ],
+    "nativeMean": [
+      0.027339482883917892,
+      0.019622205987687564,
+      0.014454261828650108
+    ],
+    "relativeMeanDifference": [
+      0.005638188487385781,
+      0.02600910354235885,
+      0.05554193837796689
+    ],
+    "relativeMeanAbsoluteError": [
+      0.13229167438942738,
+      0.1090446170007517,
+      0.09985373126164576
+    ]
+  },
+  "sourceDiffuseVsLambertOriginalProbe": {
+    "sourceMean": [
+      0.027186201953050458,
+      0.01912478741167179,
+      0.013693687861291161
+    ],
+    "nativeMean": [
+      0.026448850259160522,
+      0.019028396661713715,
+      0.014002629844026516
+    ],
+    "relativeMeanDifference": [
+      -0.02712227677714284,
+      -0.005040095237829918,
+      0.02256090440097305
+    ],
+    "relativeMeanAbsoluteError": [
+      0.13385401424388427,
+      0.10550108578203161,
+      0.09012453898928305
+    ]
+  },
+  "sourceGlossyVsNativeOriginalProbe": {
+    "sourceMean": [
+      0.015595125914227894,
+      0.010992916463989038,
+      0.008183293519009928
+    ],
+    "nativeMean": [
+      0.0081356665257525,
+      0.005620596419813783,
+      0.004506703575639304
+    ],
+    "relativeMeanDifference": [
+      -0.47831992056376466,
+      -0.4887074382648208,
+      -0.44927997936647923
+    ],
+    "relativeMeanAbsoluteError": [
+      0.48476727668287395,
+      0.49003357893711585,
+      0.4492906869559499
+    ]
+  },
+  "sourceCombinedVsLambertOriginalProbe": {
+    "sourceMean": [
+      0.0427813281781738,
+      0.030117703950052047,
+      0.021876981375524993
+    ],
+    "nativeMean": [
+      0.03458451678491302,
+      0.024648993081527498,
+      0.018509333419665822
+    ],
+    "relativeMeanDifference": [
+      -0.19159787090113384,
+      -0.18157794756180604,
+      -0.15393567778170472
+    ],
+    "relativeMeanAbsoluteError": [
+      0.22020152542817473,
+      0.19660767774144278,
+      0.16349764020558674
+    ]
+  },
+  "sourceGlossyVsResidualClosureMaxAbs": 7.571260279143344e-08,
+  "probeBoundsDiffuseIsolationMaxAbs": 1.862645149230957e-08,
+  "normalMeanMedianP90Degrees": [
+    6.8450641687554965,
+    6.514364918503611,
+    10.660683452076885
+  ],
+  "independentTriangleAreas": {
+    "source": {
+      "triangles": 64,
+      "nondegenerate": 64,
+      "zeroarea": 0,
+      "totalWorldArea": 1.8724417461817173
+    },
+    "native": {
+      "triangles": 68,
+      "nondegenerate": 64,
+      "zeroarea": 4,
+      "totalWorldArea": 1.8724417461817173
+    }
+  },
+  "limitations": [
+    "Onecomponent no-volume reference only; wholemap/actors/Player unapproved",
+    "Spec deficit remains after matchingoriginalprobeweights",
+    "Lambertmeancloser forgreenblue butred slightunder; pixel13/11/9percentMAE unresolved",
+    "32sampleatlasnoise andL2/probeactorfields notcertified"
+  ]
+}

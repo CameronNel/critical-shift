@@ -1,0 +1,207 @@
+{
+  "utc": "2026-10-13T00:24:30.041129+00:00",
+  "reviewer": "/root/strict_mine_review",
+  "status": "RejectedIndependentColdOriginalRealtimeRadiometry_ReproducedWithoutBake",
+  "stateSha256": "f732639b9728e39555598a057c3eed7c99ab9c11b2a32707c0f5dea1962d59de",
+  "nativeLogSha256": "15c27b141b9154b066977c6be3a75a4e76ea0628de8921501a41e444751c8ee0",
+  "pinsVerified": 22,
+  "frames": [
+    {
+      "name": "d1-a0-cold-before-blit",
+      "hdrSha256": "4f64355f6791fdb2e5321f54e84411e4f7d7a5287b192ddef9b1aa5f575612b3",
+      "metadataSha256": "d6c5455e6f267ecdc341504302cff853d1f1bd3eef019999024024489eea4339",
+      "sourceHdrSha256": "e1f1a32c0b4e996168716f8a5849ea39add5b3a3334fe82109ccef6506cf0d0d",
+      "meanCentreRGB": [
+        11.712969228625298,
+        10.775932669639587,
+        9.136114999651909
+      ],
+      "sourceMeanCentreRGB": [
+        11.686149969696999,
+        10.751258611679077,
+        9.11519667506218
+      ],
+      "relativePercentRGB": [
+        0.2294961043443955,
+        0.22949925075477218,
+        0.22948846125239175
+      ]
+    },
+    {
+      "name": "d2-a0-cold-before-blit",
+      "hdrSha256": "b4e83022cf9a0a56b2d5c0c93f3dbdd68337c95d967f8ac60282a9032d0315a2",
+      "metadataSha256": "73d244ee155967ec7de3d4a0c0ecd3c6e0a5207c1737727e8a794a7191a78e0d",
+      "sourceHdrSha256": "bc7815f4d85a078c340316fb69f3f7c2ac19ddf476573c27f1839c61f61c8178",
+      "meanCentreRGB": [
+        10.922482773661613,
+        10.048685103654861,
+        8.519535765051842
+      ],
+      "sourceMeanCentreRGB": [
+        2.9529990293085575,
+        2.7167592979967594,
+        2.3033391013741493
+      ],
+      "relativePercentRGB": [
+        269.87762831128003,
+        269.8776373403562,
+        269.8776163687392
+      ]
+    },
+    {
+      "name": "d4-a0-cold-before-blit",
+      "hdrSha256": "47d9b07126858b7e6e497d006ec43d288f66f98577cc11eee5287116214a3cd4",
+      "metadataSha256": "02de78051bb31a262699a47942ab3059c7f0aa6777181f0052420bc61f16b7a1",
+      "sourceHdrSha256": "684fcb4e168f6652b4fc827235950a66013e0e81b8ca4272a57b21df239b5acc",
+      "meanCentreRGB": [
+        8.600563496351242,
+        7.912518747150898,
+        6.7084386721253395
+      ],
+      "sourceMeanCentreRGB": [
+        0.7402438633143902,
+        0.6810244135558605,
+        0.5773901734501123
+      ],
+      "relativePercentRGB": [
+        1061.855426648567,
+        1061.8553740000218,
+        1061.85535892307
+      ]
+    },
+    {
+      "name": "d4-a50-cold-before-blit",
+      "hdrSha256": "d8b51c8e31eb02fc093446bda4297521a2920ae2e205a901e67f3e1a71e008ff",
+      "metadataSha256": "2c893f0335fd7063850cddf1e0aac87e1bf95ffc4891a43fac06db77121bc83d",
+      "sourceHdrSha256": "7473061c74e1dca33ea19b2f8f0770e2f555e0af8babf5f792468bc2e7b7b3c4",
+      "meanCentreRGB": [
+        8.600563868880272,
+        7.912519179284573,
+        6.708438917994499
+      ],
+      "sourceMeanCentreRGB": [
+        0.28241498256102204,
+        0.2598217879422009,
+        0.22028367896564305
+      ],
+      "relativePercentRGB": [
+        2945.3638793833925,
+        2945.3639942793275,
+        2945.3635736857264
+      ]
+    },
+    {
+      "name": "d4-a65-cold-before-blit",
+      "hdrSha256": "57f3cc94fe9b4994c303ea6299c7605dddb33ecc4f00c3ec8b37535827f9633a",
+      "metadataSha256": "dd2ced1765aba81e0929f03257603c0c31aba731b367e5896d4ef970b33b7c5e",
+      "sourceHdrSha256": "6ae3e9b2d8d11b040883953b12c07b0203b6071c7a5983277a2735e8f55c9b03",
+      "meanCentreRGB": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "sourceMeanCentreRGB": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "relativePercentRGB": null
+    },
+    {
+      "name": "d4-a0-after-explicit-blit",
+      "hdrSha256": "47d9b07126858b7e6e497d006ec43d288f66f98577cc11eee5287116214a3cd4",
+      "metadataSha256": "991737698782bd0ea81f3a796c3ed960f54a0b82e3e807e2aad01dacd69850d0",
+      "sourceHdrSha256": "684fcb4e168f6652b4fc827235950a66013e0e81b8ca4272a57b21df239b5acc",
+      "meanCentreRGB": [
+        8.600563496351242,
+        7.912518747150898,
+        6.7084386721253395
+      ],
+      "sourceMeanCentreRGB": [
+        0.7402438633143902,
+        0.6810244135558605,
+        0.5773901734501123
+      ],
+      "relativePercentRGB": [
+        1061.855426648567,
+        1061.8553740000218,
+        1061.85535892307
+      ]
+    },
+    {
+      "name": "d4-a50-after-explicit-blit",
+      "hdrSha256": "d8b51c8e31eb02fc093446bda4297521a2920ae2e205a901e67f3e1a71e008ff",
+      "metadataSha256": "1350c4f2436950b9592364bb787cd281e395afffb604870aae3fba2cc6300919",
+      "sourceHdrSha256": "7473061c74e1dca33ea19b2f8f0770e2f555e0af8babf5f792468bc2e7b7b3c4",
+      "meanCentreRGB": [
+        8.600563868880272,
+        7.912519179284573,
+        6.708438917994499
+      ],
+      "sourceMeanCentreRGB": [
+        0.28241498256102204,
+        0.2598217879422009,
+        0.22028367896564305
+      ],
+      "relativePercentRGB": [
+        2945.3638793833925,
+        2945.3639942793275,
+        2945.3635736857264
+      ]
+    },
+    {
+      "name": "d4-a65-after-explicit-blit",
+      "hdrSha256": "57f3cc94fe9b4994c303ea6299c7605dddb33ecc4f00c3ec8b37535827f9633a",
+      "metadataSha256": "d7b8748635f7e57f20f9c8d4dfcae5632211954af487cac1dcd0310bb62dfda9",
+      "sourceHdrSha256": "6ae3e9b2d8d11b040883953b12c07b0203b6071c7a5983277a2735e8f55c9b03",
+      "meanCentreRGB": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "sourceMeanCentreRGB": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "relativePercentRGB": null
+    }
+  ],
+  "explicitGpuCookieExrSha256": "9ffe531bab7b38a3b8651cfcb74196ef0f5e3114437f1df7b5f9c24c22058a8c",
+  "explicitGpuCookieCentreRGBA": [
+    0.9375,
+    0.03125,
+    0.1199951171875,
+    1.0
+  ],
+  "pairedWarmup": [
+    {
+      "angle": 0,
+      "allRgbBitIdentical": true,
+      "maxAllPixelAbsDelta": 0.0
+    },
+    {
+      "angle": 50,
+      "allRgbBitIdentical": true,
+      "maxAllPixelAbsDelta": 0.0
+    },
+    {
+      "angle": 65,
+      "allRgbBitIdentical": true,
+      "maxAllPixelAbsDelta": 0.0
+    }
+  ],
+  "cookieAssetSha256": "77b6ab7a7a6a4c86a2dcc0749a92fda6d7288d4fc4750e2fff5b4ba699caccc9",
+  "cookieMetaSha256": "3b2705401f07ede140640126fd9969801963b2f1ff4a74e8a0052dcf931a713d",
+  "conclusions": [
+    "Original20 preRT composite corruption/regeneration plus manual scopedGI extraction before first camera draw reproduces legacy-like radial intensity and lost smooth cone without any actual bake.",
+    "Explicit cookie GPUblit/readback does not repair these paired views; texture data is correct, actual lighting response remains wrong.",
+    "Production shader fresh-state baseline28 succeeds; neither blit-alone upload failure nor postBake-only failure explains current evidence."
+  ],
+  "nextBoundedGate": "Separate cold regeneration-only and cold manualGI-only fixtures in fresh native processes/owned texture assets before any camera draw, compare to existing coldcombined failure.",
+  "limits": [
+    "This isolates composite preRT setup; does not establish whether regeneration, GI extraction, mode transition or their interaction is causal.",
+    "65deg remainszero due cone/culling; does not prove source smoothstep cookie alpha sampling.",
+    "No speculative upload/cookie/intensity fix, full20 success, main13 orPlayer acceptance."
+  ]
+}

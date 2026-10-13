@@ -1,0 +1,27 @@
+from pathlib import Path
+import hashlib,json,numpy as np,OpenEXR
+from PIL import Image
+root=Path('/workspace/critical-shift-spawn-runtime');audit=root/'runtime/out/mine-bake-audit';folder=audit/'unity-source-wood-final10'
+generated=root/'runtime/unity/Assets/CriticalShift/Generated/Spawn';proof=json.loads((generated/'prepared-scene.json').read_text());mapping=json.loads((generated/'map-bindings.json').read_text());room=next(r for r in mapping['rooms'] if r['key']=='mine');assert room['yaw']==0
+convert=lambda v:np.array([v[0],v[2],v[1]],dtype=float)
+records=[]
+views=json.loads((audit/'cameras.json').read_text())['views']
+expected={'R39_01_PORTAL_APPROACH','R39_02_TUNNEL','R39_04_SHED_FRONT'}
+assert len(views)==3 and {view['name'] for view in views}==expected
+for view in views:
+ name=view['name'];image=folder/(name+'.png');raw=folder/(name+'-linear.exr');meta=json.loads((folder/(name+'-linear.json')).read_text())
+ assert meta['preparedScene']==proof and meta['nonfiniteRGBPixels']==0
+ assert (meta['width'],meta['height'],meta['msaa'])==(1440,810,4)
+ assert abs(meta['verticalFov']-view['verticalFov'])<.0001 and abs(meta['nearClip']-.05)<.00001 and meta['farClip']==250
+ assert hashlib.sha256(raw.read_bytes()).hexdigest()==meta['captureSha256']
+ actual=np.array([meta['position'][k] for k in ['x','y','z']]);assert np.max(np.abs(actual-convert(room['translation'])-convert(view['position'])))<.0001
+ q=meta['rotation'];v=np.array([q[k] for k in ['x','y','z']]);w=q['w']
+ def rotate(axis):return axis+2*np.cross(v,np.cross(v,axis)+w*axis)
+ for axis,key in [(np.array([0.,0.,1.]),'forward'),(np.array([0.,1.,0.]),'up')]:
+  expected=convert(view[key]);expected/=np.linalg.norm(expected);assert np.max(np.abs(rotate(axis)-expected))<.0001
+ channels=OpenEXR.File(str(raw)).channels();pixels=channels.get('RGB',channels.get('RGBA')).pixels[:,:,:3];assert pixels.shape==(810,1440,3)
+ count=int(np.count_nonzero(~np.isfinite(pixels).all(axis=2)));assert count==0
+ with Image.open(image) as img:assert img.size==(1440,810)
+ records.append({'view':name,'dimensions':[1440,810],'RGBNonfinitePixels':count,'minimumLinearRGB':float(pixels.min()),'maximumLinearRGB':float(pixels.max()),'meanLinearRGB':[float(x) for x in pixels.mean(axis=(0,1))],'rawSha256':meta['captureSha256'],'pngSha256':hashlib.sha256(image.read_bytes()).hexdigest(),'cameraPoseVerifiedAgainstSource':True})
+report={'status':'Passed','views':records,'preparedScene':proof,'limits':'Independent full-resolution RGB finite/hash/camera audit only; no visual fidelity score or target-hardware performance claim.'}
+(audit/'independent-hdr-source-wood-final10.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))

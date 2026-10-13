@@ -104,11 +104,13 @@ namespace CriticalShift.Tests.Player
 
         [Test] public void ImportedMapStartsWithCompleteCollisionAndAnimatedRig()
         {
-            Assert.That(_nodes.Count(node => node.name.StartsWith("ROOM_")), Is.EqualTo(6));
+            var exported = JsonUtility.FromJson<MapInventory>(File.ReadAllText("Assets/CriticalShift/Generated/Spawn/map-bindings.json"));
+            Assert.That(exported.rooms.Length,Is.GreaterThanOrEqualTo(6));
+            Assert.That(_nodes.Where(node => node.name.StartsWith("ROOM_")).Select(node=>node.name),
+                Is.EquivalentTo(exported.rooms.Select(room=>"ROOM_"+room.key)));
             var collisions = _nodes.Where(node => node.name.StartsWith("Static collision — "))
                 .SelectMany(node => node.GetComponentsInChildren<MeshCollider>()).ToArray();
-            Assert.That(collisions.Length, Is.EqualTo(6));
-            var exported = JsonUtility.FromJson<MapInventory>(File.ReadAllText("Assets/CriticalShift/Generated/Spawn/map-bindings.json"));
+            Assert.That(collisions.Length, Is.EqualTo(exported.rooms.Length));
             foreach (var room in exported.rooms)
             {
                 var shape = Node("Static collision — " + room.key).GetComponentInChildren<MeshCollider>();
@@ -159,7 +161,7 @@ namespace CriticalShift.Tests.Player
 
         [Test] public void PersistedReflectionsRetainRoughSurfaceFiltering()
         {
-            var probes=_nodes.SelectMany(n=>n.GetComponents<ReflectionProbe>()).ToArray();
+            var probes=_nodes.SelectMany(n=>n.GetComponents<ReflectionProbe>()).Where(p=>p.name.StartsWith("Spawn reflection",System.StringComparison.Ordinal)).ToArray();
             Assert.That(probes.Length,Is.EqualTo(3));
             foreach(var probe in probes)
             {
@@ -196,6 +198,116 @@ namespace CriticalShift.Tests.Player
                 Assert.That(_worker.CanStandAt(_worker.transform.position), Is.True, seat.name);
                 yield return Until(() => _animator.GetCurrentAnimatorStateInfo(0).IsName("SPAWN_STAND_UP"), 1, "Stand-up did not play");
                 yield return Until(() => !_animator.GetCurrentAnimatorStateInfo(0).IsName("SPAWN_STAND_UP"), 2, "Stand-up did not finish");
+            }
+        }
+
+        [UnityTest] public IEnumerator ImportedThermosVisualsFollowPickupPlacementTakeAndDrop()
+        {
+            var room = Node("ROOM_spawn-room");
+            var placement = _targets.Single(target => target.Kind == PlayerTargetKind.Placement);
+            foreach (int i in new[] { 1, 3 })
+            {
+                var item = _targets.Single(target => target.name == "Carryable thermos " + i);
+                var visual = Node("CS_spawn-room_BELONG_" + i.ToString("00") + "_thermos");
+                var renderers = visual.GetComponentsInChildren<Renderer>(true);
+                var filters = visual.GetComponentsInChildren<MeshFilter>(true);
+                Assert.That(renderers.Length, Is.GreaterThan(0)); Assert.That(filters.Length, Is.GreaterThan(0));
+                var meshes = filters.Select(filter => filter.sharedMesh).ToArray();
+                var materials = renderers.Select(renderer => renderer.sharedMaterials).ToArray();
+                Bounds VisualBounds()
+                {
+                    var bounds = renderers[0].bounds;
+                    foreach (var renderer in renderers.Skip(1)) bounds.Encapsulate(renderer.bounds);
+                    return bounds;
+                }
+                Bounds VisualLocalBounds()
+                {
+                    var bounds = new Bounds(); bool first = true;
+                    foreach (var filter in filters)
+                    {
+                        var meshBounds = filter.sharedMesh.bounds;
+                        var matrix = item.transform.worldToLocalMatrix * filter.transform.localToWorldMatrix;
+                        foreach (int x in new[] { -1, 1 }) foreach (int y in new[] { -1, 1 }) foreach (int z in new[] { -1, 1 })
+                        {
+                            var point = matrix.MultiplyPoint3x4(meshBounds.center + Vector3.Scale(meshBounds.extents, new Vector3(x, y, z)));
+                            if (first) { bounds = new Bounds(point, Vector3.zero); first = false; } else bounds.Encapsulate(point);
+                        }
+                    }
+                    return bounds;
+                }
+                var body = item.GetComponent<Rigidbody>();
+                var localPosition = visual.localPosition; var localRotation = visual.localRotation;
+                var localScale = visual.localScale; var originalCentre = VisualBounds().center;
+                Assert.That(visual.parent, Is.EqualTo(item.transform), "The visible imported mesh must belong to the carryable, not remain in its FBX hierarchy");
+                // Compare geometry in the carry root's frame; interpolation legitimately
+                // puts rendered and physics world poses on different fixed-step samples.
+                var collider = (BoxCollider)item.Shape; var localBounds = VisualLocalBounds();
+                Assert.That(Vector3.Distance(collider.center, localBounds.center), Is.LessThan(0.0001f));
+                Assert.That(Vector3.Distance(collider.size, localBounds.size), Is.LessThan(0.0001f),
+                    "Collider axes must match the upright imported visual rather than the unrotated FBX local bounds");
+                void AssertVisual()
+                {
+                    Assert.That(visual.parent, Is.EqualTo(item.transform));
+                    foreach (var renderer in renderers) Assert.That(renderer.enabled && renderer.gameObject.activeInHierarchy, Is.True);
+                    for (int j = 0; j < filters.Length; j++) Assert.That(filters[j].sharedMesh, Is.SameAs(meshes[j]));
+                    for (int j = 0; j < renderers.Length; j++) Assert.That(renderers[j].sharedMaterials, Is.EqualTo(materials[j]));
+                    Assert.That(Vector3.Distance(visual.localPosition, localPosition), Is.LessThan(0.0001f));
+                    Assert.That(Quaternion.Angle(visual.localRotation, localRotation), Is.LessThan(0.01f));
+                    Assert.That(Vector3.Distance(visual.localScale, localScale), Is.LessThan(0.0001f));
+                    Assert.That(Vector3.Distance(VisualBounds().center, item.Shape.transform.position), Is.LessThan(0.05f),
+                        "The rendered thermos must travel with its physical root");
+                }
+                var outward = room.forward * (room.InverseTransformPoint(item.transform.position).z > 4 ? -1 : 1);
+                // The held object projects 1.1m from the eye. Leave room between
+                // that anchor and the locker instead of attempting a blocked pickup.
+                var approach = item.transform.position + outward * 2.0f; approach.y = room.position.y + 0.06f;
+                Approach(approach, item.Shape.bounds.center);
+                Assert.That(_host.InReach(_worker, item.Shape), Is.True, item.name + "; ray=" + RayTo(item.Shape.bounds.center));
+                _host.Act(_worker, PlayerAction.PickUp, item);
+                Assert.That(_host.Held(_worker.Id)?.EntityId, Is.EqualTo(item.Id), _host.Feedback + "; carry=" + _worker.CarryAnchor.position +
+                    "; blockers=" + string.Join(",", Physics.OverlapSphere(_worker.CarryAnchor.position, item.Radius + 0.02f, ~0, QueryTriggerInteraction.Ignore)
+                        .Where(shape => shape != item.Shape && !shape.transform.IsChildOf(_worker.transform)).Select(shape => shape.name)));
+                Assert.That(item.transform.parent, Is.EqualTo(_worker.CarryAnchor));
+                Assert.That(body.isKinematic, Is.True); Assert.That(item.Shape.enabled, Is.False); AssertVisual();
+                var towardCentre = room.TransformPoint(new Vector3(0, 0, 4.5f)) - placement.Shape.bounds.center;
+                towardCentre.y = 0;
+                approach = placement.Shape.bounds.center + towardCentre.normalized * 1.5f; approach.y = room.position.y + 0.06f;
+                Approach(approach, placement.Shape.bounds.center);
+                Assert.That(Vector3.Distance(VisualBounds().center, originalCentre), Is.GreaterThan(0.5f)); AssertVisual();
+                Assert.That(_host.InReach(_worker, placement.Shape), Is.True, "The derived sideboard slot must be reachable from its front; ray=" + RayTo(placement.Shape.bounds.center));
+                var blocker = new GameObject("Temporary sideboard obstruction");
+                blocker.transform.position = placement.Attachment.position;
+                blocker.AddComponent<BoxCollider>().size = Vector3.one * 0.1f;
+                Physics.SyncTransforms();
+                try
+                {
+                    Assert.That(_host.InReach(_worker, placement.Shape), Is.True,
+                        "The obstruction must block the destination while leaving the interaction ray reachable");
+                    _host.Act(_worker, PlayerAction.Place, placement);
+                    Assert.That(_host.Placed(placement.Id), Is.Null, "An actual obstruction must reject placement");
+                    Assert.That(_host.Held(_worker.Id)?.EntityId, Is.EqualTo(item.Id));
+                    Assert.That(item.transform.parent, Is.EqualTo(_worker.CarryAnchor)); AssertVisual();
+                }
+                finally { Object.DestroyImmediate(blocker); Physics.SyncTransforms(); }
+                _host.Act(_worker, PlayerAction.Place, placement);
+                Assert.That(_host.Placed(placement.Id)?.EntityId, Is.EqualTo(item.Id), _host.Feedback + "; placement=" + placement.Attachment.position +
+                    "; blockers=" + string.Join(",", Physics.OverlapSphere(placement.Attachment.position, item.Radius + 0.02f, ~0, QueryTriggerInteraction.Ignore)
+                        .Where(shape => shape != item.Shape && !shape.transform.IsChildOf(_worker.transform)).Select(shape => shape.name)));
+                Assert.That(_host.Held(_worker.Id), Is.Null);
+                Assert.That(item.transform.parent, Is.EqualTo(placement.Attachment)); AssertVisual();
+                _host.Act(_worker, PlayerAction.Take, placement);
+                Assert.That(_host.Placed(placement.Id), Is.Null);
+                Assert.That(_host.Held(_worker.Id)?.EntityId, Is.EqualTo(item.Id), _host.Feedback);
+                Assert.That(item.transform.parent, Is.EqualTo(_worker.CarryAnchor)); AssertVisual();
+                var dropPosition = room.TransformPoint(new Vector3(i == 1 ? -0.5f : 0.5f, 0.06f, 4.5f));
+                Approach(dropPosition, dropPosition + room.forward + Vector3.up * 1.65f);
+                var dropPoint = _worker.DropPoint;
+                _host.Act(_worker, PlayerAction.Drop, item);
+                Assert.That(_host.Held(_worker.Id), Is.Null, _host.Feedback);
+                Assert.That(item.Shape.enabled, Is.True); Assert.That(body.isKinematic, Is.False);
+                Assert.That(Vector3.Distance(item.transform.position, dropPoint), Is.LessThan(0.0001f)); AssertVisual();
+                yield return new WaitForFixedUpdate(); yield return null;
+                AssertVisual();
             }
         }
 

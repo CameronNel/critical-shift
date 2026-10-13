@@ -1,0 +1,101 @@
+{
+  "status": "SourceSpotFixtureRenderedAwaitingFiniteAndNativeAudit",
+  "sourceInventorySha256": "874bff14c1e51c5f75c67b8b4d3458a86abe872c8eaab614063f8d870f6aa991",
+  "sourceSnapshotSha256": "255fe337aacd602e81bd2940be7bf2a1da2541954f6c8446c8a06f5aae413b72",
+  "helperSha256": "322f23e0c1db8e5221c84a2d1cd90f08f733a5480e45cdb445fff8cb7a28ba7c",
+  "blenderVersion": "5.2.2 LTS",
+  "lightNodesEnabled": true,
+  "activeEmissionColor": [
+    1,
+    1,
+    1,
+    1
+  ],
+  "activeEmissionStrength": 1,
+  "sourceParameters": {
+    "name": "LIGHT_pole_1",
+    "power": 2600.0,
+    "color": [
+      1.0,
+      0.9200000166893005,
+      0.7799999713897705
+    ],
+    "radius": 0.11999999731779099,
+    "spotSizeRadians": 2.181661605834961,
+    "spotBlend": 0.800000011920929,
+    "normalize": true,
+    "isSphere": true,
+    "worldMatrix": [
+      [
+        -3.4445044150288595e-08,
+        1.0,
+        2.6911420647479645e-08,
+        -34.0
+      ],
+      [
+        -0.7880107164382935,
+        -4.371138828673793e-08,
+        0.6156615018844604,
+        -67.5999984741211
+      ],
+      [
+        0.6156615018844604,
+        0.0,
+        0.7880107164382935,
+        6.119999885559082
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "worldPosition": [
+      -34.0,
+      -67.5999984741211,
+      6.119999885559082
+    ],
+    "worldForward": [
+      -2.6911420647479645e-08,
+      -0.6156615018844604,
+      -0.7880107164382935
+    ],
+    "hideRender": false,
+    "visibleShadow": true
+  },
+  "samples": 512,
+  "resolution": [
+    64,
+    64
+  ],
+  "seed": 28361,
+  "frames": [
+    {
+      "name": "d1-a0",
+      "distance": 1,
+      "angleDegrees": 0,
+      "receiverPosition": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "receiverNormal": [
+        -0.0,
+        -0.0,
+        1.0
+      ],
+      "cameraPosition": [
+        0.0,
+        0.0,
+        -0.699999988079071
+      ],
+      "sha256": "2f5524f14c606da6bdda97f2014d3bd8df436deeabe22812213a0e7a4cbd34b6"
+    }
+  ],
+  "limits": [
+    "Numeric-data normalizedSpot parameterfamily; actual emitter nodes/exposure/temperature not yet certified; no full-map shade/cause/score",
+    "Sphericalradius.12 softens Source cone edge; receiverfaceslamp at each angle",
+    "No canonical/source scene saves"
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "status": "InventoryCleared_QueuedWrapperReceiptsChangesRequired",
+  "head": "50843834791aea2fffdacc6ec4e37c4cdfd337e6",
+  "inputs": {
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/MineVisualLighting.cs": "7778d267d5b759bb141459ebee0a8d1b25e11f609386d5ad12438ae10ef0fab2",
+    "/tmp/cs-mine-complete-native-final13.py": "44e9a835387c98c383d5927b65847e733993bc2e77dc74b173c6a8d06e61f23a",
+    "/tmp/cs-mine-full-native-final13.py": "63dadd649ff25e0f0aa42cd5598f677e860cff24065e1a219a9e2835f2053add",
+    "/tmp/cs-mine-bake-source-wood-final13.py": "bb25c751ea0b1a9bc2569bb5816863e79f60c7327a9c2f33254b17b434716ff0",
+    "/tmp/cs-mine-after-bake-source-wood-final13.py": "02b6d777a79e473a311b4a6a26a25a12d72f7be2a3733c3c56ef6cdc5a0ab819",
+    "/workspace/critical-shift-spawn-runtime/runtime/out/mine-bake-audit/api-final13/player-api.json": "a06d9c94f837c91c2a5aef269f95b31ea0fde7278b737fe0827a3fa4cb6665e1",
+    "/tmp/cs-mine-production-scope-final13.json": "0bb65254974d7b4d75e435e1b940eb399eb7054252d620cdc9af702561072ec0"
+  },
+  "observedSourceState": {
+    "state": "Running",
+    "pid": 161051
+  },
+  "observedNativeState": {
+    "state": "WaitingForFreshSource",
+    "pid": 161518
+  },
+  "productionInventoryGuard": "Cleared: canonical63 unique names, configured24Mixed39Baked, actualMixed+Baked63 withfallbackallowed, allisBaked, finite nonnegative intensity/radius",
+  "queuedChecksCleared": [
+    "Pins all current API .cs source bytes againstPassedofficialAPIreport",
+    "Pins freshsource v2 recipe/Blender version/batching/snapshot/sourcehashes",
+    "Verifies30contextsourceShadowExcludedflags",
+    "Checks prepared scene/source/map/rig hashes before dependent render",
+    "Native Render itself validates preparedscene and records finite preLUT HDR",
+    "Checks exactrequired18testname set and everytestPassed/failed0/skipped0",
+    "Explicit no visual score or Player pass implied"
+  ],
+  "findings": [
+    {
+      "priority": 1,
+      "file": "/tmp/cs-mine-bake-source-wood-final13.py",
+      "line": 12,
+      "finding": "Unity exit0 alone is treated as fresh lighting/spawn capture success without requiring current bake/capturemarkers and current3spawn artifacts.",
+      "required": "Require actualcurrentprocess bake/capturemarkers plus fresh3spawn manifest/proof; do not reuse prior logs/captures on same-inputretry."
+    },
+    {
+      "priority": 1,
+      "file": "/tmp/cs-mine-after-bake-source-wood-final13.py",
+      "line": 18,
+      "finding": "Dependent native render log, captureoutputs and PlayModeXML/log are not cleared/refused beforelaunch; prior same-input outputs can survive an exit0 run that does not execute targetmethod/tests.",
+      "required": "Clear/reject own prioroutputs beforeeachlaunch, require freshmarker/receipt and exactly18actualXML test-case records."
+    },
+    {
+      "priority": 1,
+      "file": "/tmp/cs-mine-complete-native-final13.py",
+      "line": 18,
+      "finding": "Terminal FinishedTechnicalChecks state is not gated on an independent exactly3camera/currentproof/HDRhash/camerapose/finite/PNGdimension manifest or3spawncapture manifest.",
+      "required": "Run existing independent HDR checker adaptedfinal13 and spawn3manifest before terminaltechnicalsuccess; keep strictvisualreview/playerpending."
+    }
+  ],
+  "limits": [
+    "Source13 stillRunning and nativeWaiting; no false-success observed",
+    "No heavyprocesses launched or frozenexporter/C# modified",
+    "Previousfullvisualfinal11Rejected39of60 persists; overallscore null"
+  ],
+  "overallScore": null
+}

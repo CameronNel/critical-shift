@@ -1,0 +1,47 @@
+{
+  "status": "ClearedExactFailureReleaseRecoveryAndBoundedArtifactCacheRelocation_WithInverseRestoration",
+  "utc": "2026-10-13T06:48:31.804338+00:00",
+  "helpers": [
+    {
+      "path": "/tmp/cs-main342-release-failed-temp-final15-r3.py",
+      "sha256": "e4e25115b199b4e45ea1dda4952f04732039bdbedc5c6dee1f598080e6a046a0"
+    },
+    {
+      "path": "/tmp/cs-main342-artifact-disk-relocation-final15-r3.py",
+      "sha256": "20deddda36dd153fb35e1a43cd816087d556ccf5cd766ce4b478f50fc5094740"
+    },
+    {
+      "path": "/tmp/cs-main342-artifact-disk-restore-final15-r3.py",
+      "sha256": "b58af9483aa7e252457818316960d8749c500a991d3c5e3f28734f91bfdcf0b0"
+    },
+    {
+      "path": "/tmp/cs-main342-recover-full-scene-final15-r3.py",
+      "sha256": "86cd9cf9a336289ba983de10aef6bf47ecb7b6365611fceaa2b116c2b1ecee78"
+    }
+  ],
+  "failedArchiveIndependentReceipt": {
+    "path": "/tmp/cs-main342-failed-archives-independent-final15-r3.json",
+    "sha256": "32d7192605f7225e907929125bd28e1e309efe289f28903ec3c4d216d0b67702"
+  },
+  "reviewedGuards": [
+    "Only redundant211.8MBRootarchive discarded after complete oldRootoriginal inventory reverified; oldRootraw retained",
+    "Only encodedverifiedR2rawTemp released, exactmatchingProjectTemp alias detached, knownpartial retry and activeFD guard",
+    "Full14-activeSHA-boundgeneratedbackup restored atomically; failedscene/stash/meta copies preservedoutsideproject before ownedstash removal; no preparedproof invented",
+    "Library mover780\u2013820decimalMB plain2hex buckets with full bytes/mode/ownership preservation, Root384MiBreserve, safeexactalias, knownpartial prefix/mixedstate recovery, activeFD guard",
+    "Inverse snapshots current legitimatelychanged diskcache, verifiespartialstage and capacity; scopedFDguard beforealiasunlink; diskduplicates retained"
+  ],
+  "conditions": [
+    "Sequence release\u2192SceneRecovery\u2192cacheMove while enginesidle and hashesunchanged",
+    "NoSourcebuilders/canonicalrooms/current111 immutableassets/C#6687 edits",
+    "FullsceneRecovery explicitly nonresumable; anypartialfailure needs newreviewedattempt with exactcopies retained",
+    "CachemutablepostUnity: relocationpreservation is not futureimmutability/cachehealth certificate",
+    "CurrentRootreserve must also leave room for nativeoutput/tempwrites; measured RAMgain not peakguarantee",
+    "Independent actual post-action bytes/aliases/proofs+bounded -force-glcore roundtrip before R3Baking"
+  ],
+  "limits": [
+    "Static clearance only; no release/cachemove/recovery/engine by reviewer",
+    "No NativeBake/visual/Player/98% acceptance",
+    "OldRootarchive becomes unavailable while completeoriginal persists; restore index1requires regeneratingarchive",
+    "Original Sourcetexture resolution/lighting samples/algorithm unchanged"
+  ]
+}

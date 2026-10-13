@@ -1,0 +1,701 @@
+{
+  "status": "Diagnostic controls; no final visual acceptance",
+  "sourceBlenderSha256": "255fe337aacd602e81bd2940be7bf2a1da2541954f6c8446c8a06f5aae413b72",
+  "canonicalSourcesChanged": false,
+  "sourcePositionShiftNormalResult": "Duct normal unchanged; not the normal artifact cause",
+  "uncompressedNormalResult": "Duct ROI mean12.99deg versusBC512.96deg; compression not cause",
+  "pointRuntimeNear": "Matches source <0.15% at .06/.12/.24m; old cap rejected",
+  "pointInverseSquareNativeGI": "REJECTED: emitter radius ignored in attenuation; source near controls and nearest visible lamp surfaces disprove production use",
+  "legacyGI": "Temporary diagnostic baseline retained; no final lighting parity claim",
+  "SUNCaster": "Static deep-umbra and dynamic BlendProbes wall-occlusion controls pass; real actor and soft-edge/full-scene gates pending",
+  "files": [
+    {
+      "file": "cs-mine-point-control-final11/Blender-100W-distance1.exr",
+      "sha256": "338f9b983fe75b3c4964636be47d9afad89c327591bc39d41902f57aeaf2c185"
+    },
+    {
+      "file": "cs-mine-point-control-final11/Blender-100W-distance2.exr",
+      "sha256": "81a1085aa28ebbbfec818d4a095b4224b69218485a48157d2bd12dd218a3f7b5"
+    },
+    {
+      "file": "cs-mine-point-control-final11/Blender-100W-distance4.exr",
+      "sha256": "a2564b7f4ea638e8f29a98df7f2c05d0dce1c4b8d5cd51e4db695f5ded432dd3"
+    },
+    {
+      "file": "cs-mine-point-control-final11/source.json",
+      "sha256": "7d019d63ec5439a4e0dce56751fdadade740ae5faa83b66bd70f1b75c82a2aef"
+    },
+    {
+      "file": "cs-mine-point-native-final11/Native-baked-powerOver100-distance1.exr",
+      "sha256": "6f7475685deba0b930c0b127bdbddf9f9604948a4262253ae86aa23df2eb87ad"
+    },
+    {
+      "file": "cs-mine-point-native-final11/Native-baked-powerOver100-distance2.exr",
+      "sha256": "708e4dccf0c69d131b2bed3d2cf76ec07eaf10b36fa1e0948516c284af2b8fc1"
+    },
+    {
+      "file": "cs-mine-point-native-final11/Native-baked-powerOver100-distance4.exr",
+      "sha256": "9135274a943b409d08fe2c55ab1dc9fca925f0020a1c792c5b864b7604adc9a6"
+    },
+    {
+      "file": "cs-mine-point-native-final11/Native-direct-intensity1-range12-distance1.exr",
+      "sha256": "11336b69375ddf4c4bde6dcab141cee3c5b9bc62b2aea42171214f1a9597a3fb"
+    },
+    {
+      "file": "cs-mine-point-native-final11/Native-direct-intensity1-range12-distance2.exr",
+      "sha256": "a097650a9be2d9e47a7e6ddfe71aabde0defe4ce3d3f68ce625bc1df7a3db55d"
+    },
+    {
+      "file": "cs-mine-point-native-final11/Native-direct-intensity1-range12-distance4.exr",
+      "sha256": "f9ef3f8695b5465b02e2384f62435f4ec6272cc6d66058031bb0129cfaf52314"
+    },
+    {
+      "file": "cs-mine-point-native-final11/Native-direct-intensity1-range30-distance1.exr",
+      "sha256": "795e966ac2bb23bf47c9288daec0187cc0ac148c81eec008906401c48fbaf048"
+    },
+    {
+      "file": "cs-mine-point-native-final11/Native-direct-intensity1-range30-distance2.exr",
+      "sha256": "6884381e9e980fa565d41077201776fc9095c39968ab41b791d9d7f70f01ef33"
+    },
+    {
+      "file": "cs-mine-point-native-final11/Native-direct-intensity1-range30-distance4.exr",
+      "sha256": "446ca1c9d7d9fbb95c48c451074c151f978d7fec6bce7a8a31049c1023c2483d"
+    },
+    {
+      "file": "cs-mine-point-native-final11/Native-direct-powerOver500-range12-distance1.exr",
+      "sha256": "52631accff86ea33bbdc84179db83e39f0161a0b65c3c9077d4d0514b3addf26"
+    },
+    {
+      "file": "cs-mine-point-native-final11/Native-direct-powerOver500-range12-distance2.exr",
+      "sha256": "36869e72bbc60ddb5c318b391d35c34a2b5e57d819e42b872c741878c8d4b807"
+    },
+    {
+      "file": "cs-mine-point-native-final11/Native-direct-powerOver500-range12-distance4.exr",
+      "sha256": "98049961778b0e907d9b848127555a1fec510bee329a3763449b23de49ec874b"
+    },
+    {
+      "file": "cs-mine-point-native-final11/Native-direct-powerOver500-range30-distance1.exr",
+      "sha256": "0fcbf4a255a0ee04b04bb0a188d91c35172024463788d7f9de7be0caed79d1ac"
+    },
+    {
+      "file": "cs-mine-point-native-final11/Native-direct-powerOver500-range30-distance2.exr",
+      "sha256": "d226b077c3accf24c57b339097705c7a646fcc4a5d5c2605eda32e1040ee7bfa"
+    },
+    {
+      "file": "cs-mine-point-native-final11/Native-direct-powerOver500-range30-distance4.exr",
+      "sha256": "ebd93eea33a457e8586401f1c6b8c7871c24e82dc766361f63aae5c0a9db5b09"
+    },
+    {
+      "file": "cs-mine-point-native-final11/measurements.json",
+      "sha256": "409a102582f350185b8830918183971f8904d1e761f47b9b5de12196b074e4f2"
+    },
+    {
+      "file": "cs-mine-transport-native-final11/measurements.json",
+      "sha256": "c9a80664bec2b86c7302ca479906a81d3a546cb604a2e4225a83bdf736fdb5bb"
+    },
+    {
+      "file": "cs-mine-world-control-final11/source.json",
+      "sha256": "bd1de0540f8afa3fd498f3110c5f924b12b392dfb49d27e98016f6c35f3ac5e9"
+    },
+    {
+      "file": "cs-mine-physical-point-native-final11/Legacy-no-cookie-distance2.exr",
+      "sha256": "c1695c9030ccf30cd1c168d35831f1848eb7f9ffbce05e35e1fc2ed5448238bb"
+    },
+    {
+      "file": "cs-mine-physical-point-native-final11/Legacy-white-cookie-quarter-distance2.exr",
+      "sha256": "119fcce449ce2c55e8db3ec0f2a07426d0e158c77a931ebff4c9ff647dc225d9"
+    },
+    {
+      "file": "cs-mine-physical-point-native-final11/Native-baked-noRange-tagged-cookie-distance1.exr",
+      "sha256": "7807b5607d25ad6462cca84ad5ee81cdb04b4c0bfe3ad9a65458ab74bf457c14"
+    },
+    {
+      "file": "cs-mine-physical-point-native-final11/Native-baked-noRange-tagged-cookie-distance2.exr",
+      "sha256": "acf9413cd071174d881d46f9de3344e0687324f4866035ca29905ea38a15a9f4"
+    },
+    {
+      "file": "cs-mine-physical-point-native-final11/Native-baked-noRange-tagged-cookie-distance4.exr",
+      "sha256": "80723312c1e307f7ffab736728b78fda9a10638c4b609e99d971f3b754d167ed"
+    },
+    {
+      "file": "cs-mine-physical-point-native-final11/Physical-direct-range12-distance1.exr",
+      "sha256": "f395a70aa3ca251f0daaf5e389500f9ffc72f402a35231fa601c02702ca75f26"
+    },
+    {
+      "file": "cs-mine-physical-point-native-final11/Physical-direct-range12-distance11.9.exr",
+      "sha256": "8033a186a874d409ee07e41a2f411162a9699d75d1e77476a25a34635bba1848"
+    },
+    {
+      "file": "cs-mine-physical-point-native-final11/Physical-direct-range12-distance12.1.exr",
+      "sha256": "c2e7b238064e18dc3b08fbfbc641c9e849f0d8cce4ddab3db1426a5d72afdf48"
+    },
+    {
+      "file": "cs-mine-physical-point-native-final11/Physical-direct-range12-distance2.exr",
+      "sha256": "7b4d737116e8572e665d4b1dfc8305d8b9a3915b55684621bc7c4e7dd570e7c9"
+    },
+    {
+      "file": "cs-mine-physical-point-native-final11/Physical-direct-range12-distance4.exr",
+      "sha256": "a0442d480e87421a20e06cc507f1426e549607773fc630feab3efbbbe983c10d"
+    },
+    {
+      "file": "cs-mine-physical-point-native-final11/Physical-direct-range128-distance127.9.exr",
+      "sha256": "9a2457a20686484d3034dbbc4241cbbdaba16fda7d9895a20633cd066e0b7c9d"
+    },
+    {
+      "file": "cs-mine-physical-point-native-final11/Physical-direct-range128-distance128.1.exr",
+      "sha256": "c2e7b238064e18dc3b08fbfbc641c9e849f0d8cce4ddab3db1426a5d72afdf48"
+    },
+    {
+      "file": "cs-mine-physical-point-native-final11/Physical-half-cookie-distance2.exr",
+      "sha256": "f0640a05e3dc51928d0db2523c4a7cf9b5e995126ea235d0f48c134c9ef57779"
+    },
+    {
+      "file": "cs-mine-physical-point-native-final11/Physical-radius012-power280-distance0.06.exr",
+      "sha256": "85c58e85323760ad60aa57c831dc84fdb20758b50a0a93f9051929bc242e7967"
+    },
+    {
+      "file": "cs-mine-physical-point-native-final11/Physical-radius012-power280-distance0.12.exr",
+      "sha256": "3b6144ee3c3d0f9d48a949a6d91ece198e1ad4fe2706fa611805974864b6b13d"
+    },
+    {
+      "file": "cs-mine-physical-point-native-final11/Physical-radius012-power280-distance0.24.exr",
+      "sha256": "f2b0270c396bb6f5deae5c6091d9626186892ddde4aa5df5320bb5ce5c0a015f"
+    },
+    {
+      "file": "cs-mine-physical-point-native-final11/Physical-shadow-blocked-distance2.exr",
+      "sha256": "475c7599c14f839eaa89c66ea386cfcc627be86523ae961abec7672878e10466"
+    },
+    {
+      "file": "cs-mine-physical-point-native-final11/Physical-shadow-unblocked-distance2.exr",
+      "sha256": "fbd2bb60ea1831a450404854517e97466bf5622e5526eb845bb7d52c45c28e7d"
+    },
+    {
+      "file": "cs-mine-physical-point-native-final11/measurements.json",
+      "sha256": "1be5e0800e284143a00169be72a57bd87d4ca637f7ff5055565ae6568922ce45"
+    },
+    {
+      "file": "cs-mine-production-point-native-final11/ActualShader-BlenderDecal-distance1.exr",
+      "sha256": "19d7cc50cf5a9d334400924c0dd80f695001c6e2e66f3cb4076a0add1da9c66b"
+    },
+    {
+      "file": "cs-mine-production-point-native-final11/ActualShader-BlenderDecal-distance2.exr",
+      "sha256": "de8b4dcd0c6bc63aef8b07d42a044f4fc8540c2e6a70ad5671392f2b3866879d"
+    },
+    {
+      "file": "cs-mine-production-point-native-final11/ActualShader-BlenderDecal-distance4.exr",
+      "sha256": "cb6714477855216f405175cc501f32a4fb42a570510cd773294bfb2b0ef46bea"
+    },
+    {
+      "file": "cs-mine-production-point-native-final11/ActualShader-BlenderGlass-distance1.exr",
+      "sha256": "d2ca44c324503bb1a5162e3e40cd70fca58a9d0fbcbb85ad75ac55fd73343873"
+    },
+    {
+      "file": "cs-mine-production-point-native-final11/ActualShader-BlenderGlass-distance2.exr",
+      "sha256": "156efda13556d9cd3c13d8b434644399dd3dc500e2ba1b345d53e819f4352f54"
+    },
+    {
+      "file": "cs-mine-production-point-native-final11/ActualShader-BlenderGlass-distance4.exr",
+      "sha256": "9f4e93142e2beef57954771383ce8248fa6a5573075976c1d5c33db5257d8e72"
+    },
+    {
+      "file": "cs-mine-production-point-native-final11/ActualShader-BlenderHood-distance1.exr",
+      "sha256": "f1c62d999b0bd715b08a9ef443f6a3c3df47946b1dc91ca21090cba62adde26f"
+    },
+    {
+      "file": "cs-mine-production-point-native-final11/ActualShader-BlenderHood-distance2.exr",
+      "sha256": "a03f5c0afd445488c41c0cd407fc03fdc27308aa32b10b12a167ae88dd510399"
+    },
+    {
+      "file": "cs-mine-production-point-native-final11/ActualShader-BlenderHood-distance4.exr",
+      "sha256": "a0442d480e87421a20e06cc507f1426e549607773fc630feab3efbbbe983c10d"
+    },
+    {
+      "file": "cs-mine-production-point-native-final11/ActualShader-BlenderSurface-distance1.exr",
+      "sha256": "f1c62d999b0bd715b08a9ef443f6a3c3df47946b1dc91ca21090cba62adde26f"
+    },
+    {
+      "file": "cs-mine-production-point-native-final11/ActualShader-BlenderSurface-distance2.exr",
+      "sha256": "a03f5c0afd445488c41c0cd407fc03fdc27308aa32b10b12a167ae88dd510399"
+    },
+    {
+      "file": "cs-mine-production-point-native-final11/ActualShader-BlenderSurface-distance4.exr",
+      "sha256": "a0442d480e87421a20e06cc507f1426e549607773fc630feab3efbbbe983c10d"
+    },
+    {
+      "file": "cs-mine-production-point-native-final11/ActualShader-BlenderThinVisor-distance1.exr",
+      "sha256": "a8679fb6531d2a8836f85b0bc390125098f62416c7a556e61dcdc46fb6e47621"
+    },
+    {
+      "file": "cs-mine-production-point-native-final11/ActualShader-BlenderThinVisor-distance2.exr",
+      "sha256": "fe97857986859e0111e21e83798d6b478d525f8975a44472dbb9e121043794a2"
+    },
+    {
+      "file": "cs-mine-production-point-native-final11/ActualShader-BlenderThinVisor-distance4.exr",
+      "sha256": "ce9675ec38d8a77d95f9441aa424bb2f0c39e02ee024a1dbcfc8dafbb503394c"
+    },
+    {
+      "file": "cs-mine-production-point-native-final11/Legacy-no-cookie-distance2.exr",
+      "sha256": "a097650a9be2d9e47a7e6ddfe71aabde0defe4ce3d3f68ce625bc1df7a3db55d"
+    },
+    {
+      "file": "cs-mine-production-point-native-final11/Legacy-white-cookie-quarter-distance2.exr",
+      "sha256": "7013b3dcf89a8b523fcff73fae536895946a0806456de20d6d158ad0c27d7239"
+    },
+    {
+      "file": "cs-mine-production-point-native-final11/Native-baked-noRange-tagged-cookie-distance1.exr",
+      "sha256": "7807b5607d25ad6462cca84ad5ee81cdb04b4c0bfe3ad9a65458ab74bf457c14"
+    },
+    {
+      "file": "cs-mine-production-point-native-final11/Native-baked-noRange-tagged-cookie-distance12.1.exr",
+      "sha256": "af08ae9fe403a27004fcf99cbd93b37de8423d3744e61fdafaef4804b63539f8"
+    },
+    {
+      "file": "cs-mine-production-point-native-final11/Native-baked-noRange-tagged-cookie-distance16.exr",
+      "sha256": "af08ae9fe403a27004fcf99cbd93b37de8423d3744e61fdafaef4804b63539f8"
+    },
+    {
+      "file": "cs-mine-production-point-native-final11/Native-baked-noRange-tagged-cookie-distance2.exr",
+      "sha256": "acf9413cd071174d881d46f9de3344e0687324f4866035ca29905ea38a15a9f4"
+    },
+    {
+      "file": "cs-mine-production-point-native-final11/Native-baked-noRange-tagged-cookie-distance4.exr",
+      "sha256": "80723312c1e307f7ffab736728b78fda9a10638c4b609e99d971f3b754d167ed"
+    },
+    {
+      "file": "cs-mine-production-point-native-final11/Physical-direct-range12-distance1.exr",
+      "sha256": "f1c62d999b0bd715b08a9ef443f6a3c3df47946b1dc91ca21090cba62adde26f"
+    },
+    {
+      "file": "cs-mine-production-point-native-final11/Physical-direct-range12-distance11.9.exr",
+      "sha256": "8033a186a874d409ee07e41a2f411162a9699d75d1e77476a25a34635bba1848"
+    },
+    {
+      "file": "cs-mine-production-point-native-final11/Physical-direct-range12-distance12.1.exr",
+      "sha256": "c2e7b238064e18dc3b08fbfbc641c9e849f0d8cce4ddab3db1426a5d72afdf48"
+    },
+    {
+      "file": "cs-mine-production-point-native-final11/Physical-direct-range12-distance2.exr",
+      "sha256": "a03f5c0afd445488c41c0cd407fc03fdc27308aa32b10b12a167ae88dd510399"
+    },
+    {
+      "file": "cs-mine-production-point-native-final11/Physical-direct-range12-distance4.exr",
+      "sha256": "a0442d480e87421a20e06cc507f1426e549607773fc630feab3efbbbe983c10d"
+    },
+    {
+      "file": "cs-mine-production-point-native-final11/Physical-direct-range128-distance127.9.exr",
+      "sha256": "9a2457a20686484d3034dbbc4241cbbdaba16fda7d9895a20633cd066e0b7c9d"
+    },
+    {
+      "file": "cs-mine-production-point-native-final11/Physical-direct-range128-distance128.1.exr",
+      "sha256": "c2e7b238064e18dc3b08fbfbc641c9e849f0d8cce4ddab3db1426a5d72afdf48"
+    },
+    {
+      "file": "cs-mine-production-point-native-final11/Physical-half-cookie-distance2.exr",
+      "sha256": "f791741d8c4a8c8d56d3dfa86882d131e57bfd49de7f3ce118062564305e1c2b"
+    },
+    {
+      "file": "cs-mine-production-point-native-final11/Physical-radius012-power280-distance0.06.exr",
+      "sha256": "40875ccaee6e047a6c6a743bf58f102f0222a180111058e1c5c007ac45a2b416"
+    },
+    {
+      "file": "cs-mine-production-point-native-final11/Physical-radius012-power280-distance0.12.exr",
+      "sha256": "4ea4bed7354385621e2149dd42362b080900a380ec835d7070de165a20c8b181"
+    },
+    {
+      "file": "cs-mine-production-point-native-final11/Physical-radius012-power280-distance0.24.exr",
+      "sha256": "e95e19cb87bb9b03b5afff8e12d58fccd28caab167e34cfd4aeb5ca1912d66be"
+    },
+    {
+      "file": "cs-mine-production-point-native-final11/Physical-shadow-blocked-distance2.exr",
+      "sha256": "25bc9b9c8468c2deba23f7c30a1b943b23df9bd1ec50fce6aaf70229183242b4"
+    },
+    {
+      "file": "cs-mine-production-point-native-final11/Physical-shadow-unblocked-distance2.exr",
+      "sha256": "524304d603cc458884f5b0e07d224c3f307c73c6e20b42dbe2f747a0546c15f1"
+    },
+    {
+      "file": "cs-mine-production-point-native-final11/measurements.json",
+      "sha256": "d4fc0ce6d21ce8d27bef8eaaa21beef8a40b4a54d69513fe5f3b2f1aefc94029"
+    },
+    {
+      "file": "cs-mine-near-source-final11/Blender-radius012-power280-distance0.06.exr",
+      "sha256": "2da2f04bba95a4f673abbec0ddb2b560e0e1402c066e3d62fde05c9f426c3ac7"
+    },
+    {
+      "file": "cs-mine-near-source-final11/Blender-radius012-power280-distance0.12.exr",
+      "sha256": "c27cc1fb30729797d82b910e5936d413ab4565ce519fad79251f87ce2f4f3f13"
+    },
+    {
+      "file": "cs-mine-near-source-final11/Blender-radius012-power280-distance0.24.exr",
+      "sha256": "b4989a2c8aef1935be5913268d9a76a1ea296d66e604b51e594b1bd2a73f8514"
+    },
+    {
+      "file": "cs-mine-near-source-final11/source.json",
+      "sha256": "12d92ac5ff3e83d5ccfbe871108832a86cb63c159b551baeb75c092ec8c05e38"
+    },
+    {
+      "file": "cs-mine-radius-corrected-final11/Legacy-no-cookie-distance2.exr",
+      "sha256": "a097650a9be2d9e47a7e6ddfe71aabde0defe4ce3d3f68ce625bc1df7a3db55d"
+    },
+    {
+      "file": "cs-mine-radius-corrected-final11/Legacy-white-cookie-quarter-distance2.exr",
+      "sha256": "7013b3dcf89a8b523fcff73fae536895946a0806456de20d6d158ad0c27d7239"
+    },
+    {
+      "file": "cs-mine-radius-corrected-final11/Native-baked-radius012-power280-distance0.06.exr",
+      "sha256": "f3c80231679ea725b3054b6b2c1f6d97940f8eb85c6bd9eb11e50f756fe2a7ea"
+    },
+    {
+      "file": "cs-mine-radius-corrected-final11/Native-baked-radius012-power280-distance0.12.exr",
+      "sha256": "79394c2af5d2d95ee521f658c27d0e3cac93475a80d4dddeef5af2dc6cc983f9"
+    },
+    {
+      "file": "cs-mine-radius-corrected-final11/Native-baked-radius012-power280-distance0.24.exr",
+      "sha256": "2136c59c1029b1c2d06735740319188832aca34c26abcbf537f3174e178a145e"
+    },
+    {
+      "file": "cs-mine-radius-corrected-final11/Physical-direct-range12-distance1.exr",
+      "sha256": "c5c2e4da73fe77a1410bfedbf001476ddda0a2d133c14b0484bb2d0436c61dc7"
+    },
+    {
+      "file": "cs-mine-radius-corrected-final11/Physical-direct-range12-distance11.9.exr",
+      "sha256": "8033a186a874d409ee07e41a2f411162a9699d75d1e77476a25a34635bba1848"
+    },
+    {
+      "file": "cs-mine-radius-corrected-final11/Physical-direct-range12-distance12.1.exr",
+      "sha256": "c2e7b238064e18dc3b08fbfbc641c9e849f0d8cce4ddab3db1426a5d72afdf48"
+    },
+    {
+      "file": "cs-mine-radius-corrected-final11/Physical-direct-range12-distance2.exr",
+      "sha256": "871098f7d9a8ac042116352a8ba7237167cef69e23285ae7076801200a49dd1e"
+    },
+    {
+      "file": "cs-mine-radius-corrected-final11/Physical-direct-range12-distance4.exr",
+      "sha256": "0bb0e9862622d3d546c90912460256db328b6f4f564ee89b28e86ca252cf5dcb"
+    },
+    {
+      "file": "cs-mine-radius-corrected-final11/Physical-direct-range128-distance127.9.exr",
+      "sha256": "9a2457a20686484d3034dbbc4241cbbdaba16fda7d9895a20633cd066e0b7c9d"
+    },
+    {
+      "file": "cs-mine-radius-corrected-final11/Physical-direct-range128-distance128.1.exr",
+      "sha256": "c2e7b238064e18dc3b08fbfbc641c9e849f0d8cce4ddab3db1426a5d72afdf48"
+    },
+    {
+      "file": "cs-mine-radius-corrected-final11/Physical-half-cookie-distance2.exr",
+      "sha256": "e1868de5318e82aa5d9ad664ab2102f2916f304148f4f996e534e6f9e405e197"
+    },
+    {
+      "file": "cs-mine-radius-corrected-final11/Physical-radius012-power280-distance0.06.exr",
+      "sha256": "953880a95c0bd8b2a9737e6316410c61de7876acdc6d95bc0e62d43b4878755f"
+    },
+    {
+      "file": "cs-mine-radius-corrected-final11/Physical-radius012-power280-distance0.12.exr",
+      "sha256": "9af95772580155ca961029f4c66db138bf2821258fc3ac8f24e7e4f28b3f5fdd"
+    },
+    {
+      "file": "cs-mine-radius-corrected-final11/Physical-radius012-power280-distance0.24.exr",
+      "sha256": "8cc7ae386f0a133ff28b158dbb9f3f58b17c591161905272b7feb049d27f8389"
+    },
+    {
+      "file": "cs-mine-radius-corrected-final11/Physical-shadow-blocked-distance2.exr",
+      "sha256": "f45981b469216b4d440da1592112159bfeed02bef286b3e300e115b56ed8ecb2"
+    },
+    {
+      "file": "cs-mine-radius-corrected-final11/Physical-shadow-unblocked-distance2.exr",
+      "sha256": "2c03f91b29e8587da6395aa16512bdf1331ee9059252edf883b79213ba7f4d1f"
+    },
+    {
+      "file": "cs-mine-radius-corrected-final11/measurements.json",
+      "sha256": "3bec89ee36bdf22bccc02c47790340aee7e5802c899d66bb5369fcf95d60bb9b"
+    },
+    {
+      "file": "cs-mine-sun-caster-native-final11/Actor-inside-Everything.exr",
+      "sha256": "def4a3411e891159c5c25895390d48b866e36f81ab7c0dd1afda0904a73238d6"
+    },
+    {
+      "file": "cs-mine-sun-caster-native-final11/Actor-inside-ShadowMask.exr",
+      "sha256": "def4a3411e891159c5c25895390d48b866e36f81ab7c0dd1afda0904a73238d6"
+    },
+    {
+      "file": "cs-mine-sun-caster-native-final11/Actor-outside-Everything.exr",
+      "sha256": "8b53b7000ab5a3fd3834c4a165d512463cc7c1afcdb5058c1374573a9a1ea8df"
+    },
+    {
+      "file": "cs-mine-sun-caster-native-final11/Actor-outside-ShadowMask.exr",
+      "sha256": "8d2e1924263d1aa165279f51b262025c35e11394a8439da42b51aee494ddee71"
+    },
+    {
+      "file": "cs-mine-sun-caster-native-final11/Static-floor-Everything.exr",
+      "sha256": "3122348cd03fb9d21f1dbcce5c9696d21f5b8c91c606f46872620c5c0e535b65"
+    },
+    {
+      "file": "cs-mine-sun-caster-native-final11/Static-floor-NonLightmappedOnly.exr",
+      "sha256": "3122348cd03fb9d21f1dbcce5c9696d21f5b8c91c606f46872620c5c0e535b65"
+    },
+    {
+      "file": "cs-mine-sun-caster-native-final11/measurements.json",
+      "sha256": "8944faccd5e4a35a430bfd4dd0ad133b99e7b47db109eec466e391799e8d57b9"
+    },
+    {
+      "file": "cs-mine-normal-compression-final11/pipe-normal-metrics.json",
+      "sha256": "62606afff0059fbe1c66149913a3099962e6955bbd196e2a47f78ef37705e3de"
+    },
+    {
+      "file": "cs-mine-normal-compression-final11/prepared-scene.json",
+      "sha256": "3d155a86caa299fac65cd1d7803115d6324bea3023771627578d0015d4741649"
+    },
+    {
+      "file": "cs-mine-normal-uv-native-final11/pipe-atlas-audit.json",
+      "sha256": "96f7d66dee043fa15327ece4377cd5a46293736dae08cdc389291de209ab5474"
+    },
+    {
+      "file": "cs-mine-normal-uv-native-final11/pipe-bilinear-audit.json",
+      "sha256": "38db15b542ff247253e2f69f7aaaf5b335a75f356642bd9889dbbf46dd1f93bd"
+    },
+    {
+      "file": "cs-mine-normal-uv-native-final11/prepared-scene.json",
+      "sha256": "3d155a86caa299fac65cd1d7803115d6324bea3023771627578d0015d4741649"
+    },
+    {
+      "file": "cs-mine-source-geometry-position-final11/normal-compare.json",
+      "sha256": "28d81c429a95e13120aa16124f99c5d0b0a2b66446769eb172456511709e22ea"
+    },
+    {
+      "file": "cs-mine-source-geometry-position-final11/provenance.json",
+      "sha256": "c0900eb6d535f51b2dac8df2664344217c36491a366dbb2e11f89b7b975c0679"
+    },
+    {
+      "file": "cs-mine-density-lamp-final11/density.json",
+      "sha256": "d2fdf9f229470035accb57d25f8e4977273721e15349d15f5f6898d16f9ffc35"
+    },
+    {
+      "file": "cs-mine-density-lamp-final11/duct-links.json",
+      "sha256": "596e635e6d98d1f46a6671b34678bb56e00f32df5d9789e7a30ee0bb7ae0496a"
+    },
+    {
+      "file": "cs-mine-density-lamp-final11/lamp-surfaces.json",
+      "sha256": "6b49a89677f379661d37f33ab93ef48084b02c10acc01c5d499657d5e74da0c4"
+    },
+    {
+      "file": "helpers/cs-mine-aov-check-final11.py",
+      "sha256": "4bc778adffa8ab9aa87a715f6eb694517be1be16e843ebb5ba9d48d7282f86db"
+    },
+    {
+      "file": "helpers/cs-mine-aov-final11.py",
+      "sha256": "293669957be87736a5b213c5a155acc237be9c07691a7a065687f141811d8198"
+    },
+    {
+      "file": "helpers/cs-mine-aov-final11.shader",
+      "sha256": "4442cde39efcde19f6ff7692414386cbf664fb782ab600d74fee73cb5826faf2"
+    },
+    {
+      "file": "helpers/cs-mine-aov-linked-context-final11.py",
+      "sha256": "d16da17f2faa0d6a137c1d39a7f820dd074d9c7fe100c152e7a9a5025244aaa0"
+    },
+    {
+      "file": "helpers/cs-mine-aov-native-final11.cs.txt",
+      "sha256": "b5d50f6cf2b3e2bbfbb28aa404ce6412f2146b23b9c823b25978df127bf059c4"
+    },
+    {
+      "file": "helpers/cs-mine-aov-no-volume-final11.py",
+      "sha256": "15c383127b4aae2114906785ab81df39d2b2b17a3d5cf37da60897ad930d46a0"
+    },
+    {
+      "file": "helpers/cs-mine-aov-rerun-final11.py",
+      "sha256": "864ea7fe8bed8addaa94f61792e1c9ea3632d8c304b182c91797f8f7e9a4df22"
+    },
+    {
+      "file": "helpers/cs-mine-controls-final11.py",
+      "sha256": "7f699da71e9207028f61979332887514a39ecc47440c9a61604e6659e407f824"
+    },
+    {
+      "file": "helpers/cs-mine-density-lamp-final11.py",
+      "sha256": "9742aa2341d09c9c9436ee6a9ac398ed365a36aff19cd04d7a453edbffc6d08e"
+    },
+    {
+      "file": "helpers/cs-mine-diagnostic-sequence-final11.py",
+      "sha256": "4bd89a5f28f5a68fae8b0778a36a6933184982cf65b0bcc93d591031af8b6693"
+    },
+    {
+      "file": "helpers/cs-mine-directionality-native-final11.cs.txt",
+      "sha256": "58a552c50569989f6d3420595f17fbac098e39795b631916115de433257787d1"
+    },
+    {
+      "file": "helpers/cs-mine-duct-inspect-final11.py",
+      "sha256": "da73467d784782c208573b1adec9df990f067a935770ec60a80fcd7acf32ddde"
+    },
+    {
+      "file": "helpers/cs-mine-final11-controls-archive.py",
+      "sha256": "e9019fe7720cc66a3a1c8e190b69fcfcdf26d3b77d37954caab60e51b86d03c3"
+    },
+    {
+      "file": "helpers/cs-mine-fresh-export-final11.py",
+      "sha256": "11349b815ea54b32bae813677264a8a08b8c7aa9543fd8dc4c7d8c84341a5987"
+    },
+    {
+      "file": "helpers/cs-mine-geometric-native-final11.cs.txt",
+      "sha256": "808159225a0ed3650578950037ca6a19a1135f09b614f78316c25853901fa5b8"
+    },
+    {
+      "file": "helpers/cs-mine-geometric-source-final11.py",
+      "sha256": "a845ed15c0af2123d04f70555e8159beb61b328031b13a3bbebd7dacc8da7e9e"
+    },
+    {
+      "file": "helpers/cs-mine-material-linked-compare-final11.py",
+      "sha256": "6d657a190919ae01b78123e9ed623302e1d6a7da62e756e4919dca52fb28d2a7"
+    },
+    {
+      "file": "helpers/cs-mine-material-no-volume-compare-final11.py",
+      "sha256": "4dc8e1ebf080b3ba9300554da63bbbecd043875a7f96c6fc24d00fcb6ee5e97f"
+    },
+    {
+      "file": "helpers/cs-mine-more-diagnostics-final11.py",
+      "sha256": "77ee010df8479fc9e71995eea6930295a110418d000ca5310d6ac0e1e96dc542"
+    },
+    {
+      "file": "helpers/cs-mine-near-source-final11.py",
+      "sha256": "b77b5fc85203cc1b2c07596ebc4397698d4bed8d3fe9ea703b9214bdd3b78e25"
+    },
+    {
+      "file": "helpers/cs-mine-next-controls-final11.py",
+      "sha256": "42fc5cc95733cdb1544e24d3f4f843e7678455c4060dbcb7aff04ed4df2ca282"
+    },
+    {
+      "file": "helpers/cs-mine-next-diagnostics-final11.py",
+      "sha256": "83e360a87bb8efb9a8bbb951d62b4959bfaecb524751e251c48bbbd1bf264208"
+    },
+    {
+      "file": "helpers/cs-mine-normal-compare-final11.py",
+      "sha256": "77030ad90f1fdf23a769f13abc99f36edacb7ddd70215fe6731224532c8f390c"
+    },
+    {
+      "file": "helpers/cs-mine-normal-compression-final11.cs.txt",
+      "sha256": "f0fd02c804814a56c3886052e5fbbd0e5fa8891030d8023782adc3702e2c9402"
+    },
+    {
+      "file": "helpers/cs-mine-normal-compression-final11.py",
+      "sha256": "b333f6f0d916379b7ee9a906741ca3b8badd7b7e5f8b3cf3d11a3e1b67e6a98f"
+    },
+    {
+      "file": "helpers/cs-mine-normal-corrected-final11.shader",
+      "sha256": "1cade1ff2cc8087698fb10825e752e88ac71dabed6aa6ab8ea665180d5611d87"
+    },
+    {
+      "file": "helpers/cs-mine-normal-directionality-final11.py",
+      "sha256": "2583430b4a138dd2a50cd45f66eede24e6a9a6c58c6da2a36745487152485699"
+    },
+    {
+      "file": "helpers/cs-mine-normal-final11.shader",
+      "sha256": "bfe6ee545cade38945bee6a21f8ac1f91a4bf4328400ba455fffee49d5fedc7f"
+    },
+    {
+      "file": "helpers/cs-mine-normal-native-final11.cs.txt",
+      "sha256": "efb1d19aa2199a642c726e70b15c4014591be8e0a4c080977f183bcae689276b"
+    },
+    {
+      "file": "helpers/cs-mine-normal-uv-final11.shader",
+      "sha256": "e572848a56cf02a94db60465027a10da98f213c669011a21236ab7d02894d3a3"
+    },
+    {
+      "file": "helpers/cs-mine-normal-uv-native-final11.cs.txt",
+      "sha256": "6dc8c77b2d771476e14c57b4fcb8f18cb3d19ec0578051e759021e068ff4ad75"
+    },
+    {
+      "file": "helpers/cs-mine-physical-point-final11.cginc",
+      "sha256": "d671e0dc5ac4fb6c5811e5e36dce25cf5fc0204da8c64ff8838603e552cfec77"
+    },
+    {
+      "file": "helpers/cs-mine-physical-point-final11.shader",
+      "sha256": "a433a84f4b34d8a69ffcbdb97fa9bb836dc9b30012180effbc2c32acc763e7ce"
+    },
+    {
+      "file": "helpers/cs-mine-physical-point-native-final11.cs.txt",
+      "sha256": "cc63d4577e7b70230706c944b2f47dd5aa2ffbeaf7efd597a51d2f75e72d3df2"
+    },
+    {
+      "file": "helpers/cs-mine-pipe-bilinear-final11.py",
+      "sha256": "668d547911bd999dd1fafd1dff4f0dd1be4e67cba1b84b45e1874c2275524790"
+    },
+    {
+      "file": "helpers/cs-mine-pipe-uv-check-final11.py",
+      "sha256": "ba32d9c8114682f591f6480018b32c7ac59bf81115ae736a09fc8ab6a706f04e"
+    },
+    {
+      "file": "helpers/cs-mine-point-control-final11.cs.txt",
+      "sha256": "a44a48ab4c2bbed73fae00d5097fb135c943856136b11b3d134784dd0756506d"
+    },
+    {
+      "file": "helpers/cs-mine-point-control-final11.py",
+      "sha256": "91b7302726c19613d2142808d5b4b55e1bd2929f2c457c29cb75d1d681ef4719"
+    },
+    {
+      "file": "helpers/cs-mine-production-controls-final11.py",
+      "sha256": "37a09f2a88ad4f905d8219a5ba0b7df0b71f78c9507994c28c595623d9ea2909"
+    },
+    {
+      "file": "helpers/cs-mine-production-point-native-final11.cs.txt",
+      "sha256": "3395e6693d1671ef0c383150c4420fcebde6501f56a808d7797009387068907f"
+    },
+    {
+      "file": "helpers/cs-mine-radius-corrected-final11.cs.txt",
+      "sha256": "f2fcd18e5dae35570dd2f890c699ef82c5e031c4bfca63ab93c6c070fd722e87"
+    },
+    {
+      "file": "helpers/cs-mine-source-geometry-position-final11.py",
+      "sha256": "0cb5fc245bb2a6426c757f19abd9686cda0afcb92bb3cd65d9040d19e9b59bc4"
+    },
+    {
+      "file": "helpers/cs-mine-source-geometry-position-render-final11.py",
+      "sha256": "4e5d1634cfda2c30337e040eaaaf7810ccdb29bc3c0525f777f0a5da31e58937"
+    },
+    {
+      "file": "helpers/cs-mine-source-material-inspect-final11.py",
+      "sha256": "8783a2b8c425db1708224be75c76cd1dde071b085f76e08fcd3f8ef999a30a51"
+    },
+    {
+      "file": "helpers/cs-mine-source-material-inventory-final11.py",
+      "sha256": "f2d4c9fe3ad148532dcbdb0f02713b5d90080d8abf2d888f848ef315bc913a94"
+    },
+    {
+      "file": "helpers/cs-mine-sun-caster-final11.cs.txt",
+      "sha256": "958a9ad0f135d2d437bd7805862ed01bf179b9c808b90db3a3ac72b917645204"
+    },
+    {
+      "file": "helpers/cs-mine-transport-control-final11.cs.txt",
+      "sha256": "dec01f50f342124e77d889240316b902b9d741dab463467e04af64824531dc4f"
+    },
+    {
+      "file": "helpers/cs-mine-world-control-final11.py",
+      "sha256": "4bb4c237cc8fd333ccd1cfe47b07b764552c11424327277345af7f67cb54a2a3"
+    },
+    {
+      "file": "logs/cs-mine-radius-corrected-final11.native.log",
+      "sha256": "da8d75df158dec195c4668f2bc6656d9ff0a611b3ea88aec994e3b52980b2eeb"
+    },
+    {
+      "file": "logs/cs-mine-radius-corrected-final11.wrapper.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "logs/CsMineProductionPointFinal11.Render.native.log",
+      "sha256": "328a59a8d62066e06752adec7f070407f58e11dcf066dd4ad8fb3db01a1b87d6"
+    },
+    {
+      "file": "logs/CsMineSunCasterFinal11.Render.native.log",
+      "sha256": "a1c20044d75d3d9bb7aba39f18419464c7b71fdd1ccba04c680aa2b0dc7b817e"
+    },
+    {
+      "file": "logs/cs-mine-normal-compression-final11.native.log",
+      "sha256": "9ba37650d44df080038d9225ccbfd25ec2263b03594f08de929592edd00f3e5e"
+    },
+    {
+      "file": "logs/cs-mine-density-lamp-final11.log",
+      "sha256": "6baa03bc8cb68d21b9118c7e532cb35a2712db0a89ca4fb8a4d6bed9d1ee2191"
+    },
+    {
+      "file": "logs/cs-mine-source-geometry-position-final11.log",
+      "sha256": "2dd00dcaf82fc78285a290a65207cfedd88db0d1270523e0ffa96e4d4c0917ea"
+    }
+  ]
+}

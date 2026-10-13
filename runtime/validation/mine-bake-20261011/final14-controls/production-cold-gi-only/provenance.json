@@ -1,0 +1,106 @@
+{
+  "status": "PassedColdGiOnlyRealtime_BoundedNotMapAcceptance",
+  "files": [
+    {
+      "file": "native/ProductionCookie.asset.meta",
+      "bytes": 188,
+      "sha256": "d05a0fb70e9a8e0ad273d28282fd890a7dfb1c43bcaf2753469b7879cf22f2db"
+    },
+    {
+      "file": "native/ProductionCookie.asset",
+      "bytes": 263201,
+      "sha256": "77b6ab7a7a6a4c86a2dcc0749a92fda6d7288d4fc4750e2fff5b4ba699caccc9"
+    },
+    {
+      "file": "native/d4-a65-cold-before-blit.json",
+      "bytes": 1362,
+      "sha256": "dd2ced1765aba81e0929f03257603c0c31aba731b367e5896d4ef970b33b7c5e"
+    },
+    {
+      "file": "native/d4-a65-cold-before-blit.exr",
+      "bytes": 66891,
+      "sha256": "57f3cc94fe9b4994c303ea6299c7605dddb33ecc4f00c3ec8b37535827f9633a"
+    },
+    {
+      "file": "native/d4-a50-cold-before-blit.json",
+      "bytes": 1358,
+      "sha256": "293ca3f49d5e4fdb79822728d97bb8f63d5cdbcc5309ed3cce33c32e922c18e7"
+    },
+    {
+      "file": "native/d4-a50-cold-before-blit.exr",
+      "bytes": 66891,
+      "sha256": "2ae3841cedaef8db7416ba5b91f45e3f1b0c9cb749018732d0b896f81a595534"
+    },
+    {
+      "file": "native/d4-a0-cold-before-blit.json",
+      "bytes": 1297,
+      "sha256": "cc50ba8f3d69663a5f06cc8e0bb9dd09270a55a95e2a8f0e930f96673297136c"
+    },
+    {
+      "file": "native/d4-a0-cold-before-blit.exr",
+      "bytes": 66891,
+      "sha256": "181c9f681bcc5faf7914282fd243a294c54453be5c5c2f7218f8b27d916bff5d"
+    },
+    {
+      "file": "native/d2-a0-cold-before-blit.json",
+      "bytes": 1298,
+      "sha256": "b13656220bac4695ca8235c43b491cf24a66ce5067c286a40f33c610da798bf5"
+    },
+    {
+      "file": "native/d2-a0-cold-before-blit.exr",
+      "bytes": 66891,
+      "sha256": "eb9add644fa7d67ee8f2872010896bd5011304efae26c344ec25a2cb62051c57"
+    },
+    {
+      "file": "native/d1-a0-cold-before-blit.json",
+      "bytes": 1297,
+      "sha256": "0bf351fbd1b752f3dd5e34a8a24f1de54945bfd7d79c068067fc8e56d0cce445"
+    },
+    {
+      "file": "native/d1-a0-cold-before-blit.exr",
+      "bytes": 66891,
+      "sha256": "6cff383385de2251df518083f00648a65c356111f5de2941dcaabec37bc62270"
+    },
+    {
+      "file": "cs-mine-spot-cold-gi-only-final14.cs.txt",
+      "bytes": 11735,
+      "sha256": "03e3a682aa0a05e665dc20015afd8914072f7f15680ae3e6330047d04a8138cd"
+    },
+    {
+      "file": "cs-mine-spot-cold-gi-only-native-final14.py",
+      "bytes": 4584,
+      "sha256": "ebf553911a3912c38662031ac1488c595e0f73ecac616a4043a9e014853e3b3d"
+    },
+    {
+      "file": "cs-mine-spot-cold-gi-only-native-final14.json",
+      "bytes": 5769,
+      "sha256": "fe5fc367526d85da96e89db77c14fbde7b7c2f4f96b19f3450fcd23272f99eb2"
+    },
+    {
+      "file": "cs-mine-spot-cold-components-prelaunch-independent-final14.json",
+      "bytes": 5140,
+      "sha256": "f780468607091e6d18ca6ed65c73bbd6d26a52d1dddd6607a46498efca974c26"
+    },
+    {
+      "file": "cs-mine-spot-cold-components-independent-final14.json",
+      "bytes": 22001,
+      "sha256": "b7bd6e2c51080e022a65d03f2156a11e8ce94110b179ed4e488053b0794eb32b"
+    },
+    {
+      "file": "spot-cold-gi-only-final14.native.log",
+      "bytes": 40037,
+      "sha256": "5cd6023ef077bb9a1995a1de9f27e19093b22486443cc68f1e1859500ff136d2"
+    },
+    {
+      "file": "spot-cold-gi-only-final14.wrapper.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "overallScore": null,
+  "limits": [
+    "Freshprocess before anyCamera/GPUprobe; original production code pinned in state/frozen firstfailure",
+    "No image/brightness correction; full20 and main13/Player remain held",
+    "Failed radiometry and technical finite/state checks are recorded separately"
+  ]
+}

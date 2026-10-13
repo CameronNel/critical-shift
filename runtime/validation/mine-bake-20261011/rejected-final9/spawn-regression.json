@@ -1,0 +1,58 @@
+{
+  "captures": "/workspace/critical-shift-spawn-runtime/runtime/out/mine-bake-audit/unity-spawn-source-wood-final9",
+  "preparedScene": {
+    "mapBindingsSha256": "1856acfb8df409ee6a54ce7a36f3b18fdee54ec9ca072b5f3bae0342be5b044b",
+    "rigBindingsSha256": "b89037e3c376c6e7958a3a1a1713664559baec579b861c8c5702ad03cc4a90a6",
+    "sceneSha256": "7ce86fba6991f820eaf005d295a15086a68adc946744502ac58916b2178daede",
+    "sourceSha256": "385d93a526731a940b62ee40f1d1bd100bac32e1757cdaad48585feaeb54c6b9",
+    "lightmaps": 3
+  },
+  "views": {
+    "Spawn": {
+      "currentCaptureSha256": "88d7463e09bafe9f2f3a76ead497ede4c52d7d9841b0f104aab5fe83abff0af1",
+      "baselines": {
+        "spawn-suit-correction-20261011": {
+          "meanAbsolutePixelDifference": 0.6715700626373291,
+          "maxAbsolutePixelDifference": 169.0,
+          "baselineSha256": "d017e86dd65db7ac0d0c688a4e690b675743b1b770138729c79d5bf429d547ac"
+        },
+        "spawn-visual-correction-20261011": {
+          "meanAbsolutePixelDifference": 0.7697730660438538,
+          "maxAbsolutePixelDifference": 169.0,
+          "baselineSha256": "4a297fb31f2f58f31da9d385a4daca95a86dfcbfda7df70d093c8d94c5ae3529"
+        }
+      }
+    },
+    "Briefing": {
+      "currentCaptureSha256": "7d10d61bcee88d3c11e5e8d9e9744ac79379bde51a0c2ec4b4e25308a268144d",
+      "baselines": {
+        "spawn-suit-correction-20261011": {
+          "meanAbsolutePixelDifference": 1.6750917434692383,
+          "maxAbsolutePixelDifference": 84.0,
+          "baselineSha256": "91ad6463d8a96a60bf84c65e9aefba31a453e4f24238b3dcdc381ff5b34e57d1"
+        },
+        "spawn-visual-correction-20261011": {
+          "meanAbsolutePixelDifference": 1.4892375469207764,
+          "maxAbsolutePixelDifference": 85.0,
+          "baselineSha256": "64508bb98f379d4f61c341c3d5055aaee3201cbceb06fb26e8929feb1740245e"
+        }
+      }
+    },
+    "Lockers": {
+      "currentCaptureSha256": "188125663ff3349ecbeb18f194691c1137889dadbe21d96f1b7ad22cb147804c",
+      "baselines": {
+        "spawn-suit-correction-20261011": {
+          "meanAbsolutePixelDifference": 0.6335156559944153,
+          "maxAbsolutePixelDifference": 102.0,
+          "baselineSha256": "e63b8342f7af9e42e12028bd95bfa5b0448e3e6cd6ddfde8b46477bfbc90a8ca"
+        },
+        "spawn-visual-correction-20261011": {
+          "meanAbsolutePixelDifference": 1.1365768909454346,
+          "maxAbsolutePixelDifference": 129.0,
+          "baselineSha256": "29dd291f5f5fedf5f01829c8a019135a383ff999742ca50ba46bfc4e7bc067cb"
+        }
+      }
+    }
+  },
+  "limits": "Raw 8-bit RGB differences against preserved spawn baselines. These metrics do not replace visual review or gameplay checks."
+}

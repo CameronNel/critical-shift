@@ -1,0 +1,1779 @@
+Unity Editor version:    6000.4.3f1 (39d1a88d4dd1)
+Branch:                  6000.4/staging
+Build type:              Release
+Batch mode:              YES
+System name:             Linux
+Distro version:          #1 SMP Sat Sep 26 20:02:31 UTC 2026
+Kernel version:          6.18.44
+Architecture:            x86_64
+Available memory:        18007 MB
+Date:                    2026-10-12T05:07:40Z
+[Licensing::Module] Trying to connect to existing licensing client channel...
+[Licensing::IpcConnector] Channel LicenseClient-agent doesn't exist
+[Licensing::Module] Successfully launched the LicensingClient (PId: 140175)
+Selected window backend: (null) 
+Desktop is 640 x 360 @ 60 Hz
+Initialize udev device monitor.
+
+COMMAND LINE ARGUMENTS:
+/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Unity
+-batchmode
+-force-glcore
+-quit
+-projectPath
+/workspace/critical-shift-spawn-runtime/runtime/unity
+-executeMethod
+CsMineProductionPointFinal11.Render
+-logFile
+/workspace/critical-shift-spawn-runtime/runtime/out/mine-bake-audit/CsMineProductionPointFinal11.Render.native.log
+Successfully changed project path to: /workspace/critical-shift-spawn-runtime/runtime/unity
+/workspace/critical-shift-spawn-runtime/runtime/unity
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-gfx=262144"
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+Player connection [140085959682944]  Target information:
+
+Player connection [140085959682944]  * "[IP] 172.26.91.250 [Port] 55504 [Flags] 2 [Guid] 1159486850 [EditorId] 1159486850 [Version] 1048832 [Id] LinuxEditor(16,172.26.91.250) [Debug] 1 [PackageName] LinuxEditor [ProjectName] Editor" 
+
+Player connection [140085959682944]  * "[IP] 172.31.0.158 [Port] 55504 [Flags] 2 [Guid] 1159486850 [EditorId] 1159486850 [Version] 1048832 [Id] LinuxEditor(16,172.26.91.250) [Debug] 1 [PackageName] LinuxEditor [ProjectName] Editor" 
+
+Player connection [140085959682944]  * "[IP] 172.17.0.1 [Port] 55504 [Flags] 2 [Guid] 1159486850 [EditorId] 1159486850 [Version] 1048832 [Id] LinuxEditor(16,172.26.91.250) [Debug] 1 [PackageName] LinuxEditor [ProjectName] Editor" 
+
+Player connection [140085959682944] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [140085959682944] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+[Package Manager] Connected to IPC stream "Upm-140167" after 0.3 seconds.
+[Licensing::Module] Licensing is not yet initialized.
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-agent" at "2026-10-12T05:07:41.109498Z"
+[SignatureVerifier] Application signature verification not supported on this platform.
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.18.1+9fbee8e
+  Session Id:              55942190627c48999b422611186cb9e1
+  Correlation Id:          883b826a6bd6caf2902adef7157a05a0
+  External correlation Id: 4100071433092808113
+  Machine Id:              HSfDcY8TYOsLF+Fc1eSelgog+jc=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-agent" (connect: 0.57s, validation: 0.08s, handshake: 0.00s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-agent-notifications" at "2026-10-12T05:07:41.188288Z"
+[Licensing::Module] Connected to LicensingClient (PId: 140175, launch time: 0.00, total connection time: 0.65s)
+[Licensing::Module] Error: Access token is unavailable; failed to update
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: 9072383120447-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+[Licensing::Client] Successfully updated license, isAsync: True, time: 0.02
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] Licensing Background thread has ended after 0.71s
+[Licensing::Module] Licensing is initialized (took 0.14s).
+[Licensing::Client] Successfully resolved entitlement details
+Library Redirect Path: Library/
+ALSA lib confmisc.c:855:(parse_card) cannot find card '0'
+ALSA lib conf.c:5205:(_snd_config_evaluate) function snd_func_card_inum returned error: No such file or directory
+ALSA lib confmisc.c:422:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:5205:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1342:(snd_func_refer) error evaluating name
+ALSA lib conf.c:5205:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5728:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2722:(snd_pcm_open_noupdate) Unknown PCM default
+FMOD failed to initialize the output device.: "Error initializing output device. " (60)
+Forced to initialize FMOD to to the device driver's system output rate 48000, this may impact performance and/or give inconsistent experiences compared to selected sample rate 48000
+ALSA lib confmisc.c:855:(parse_card) cannot find card '0'
+ALSA lib conf.c:5205:(_snd_config_evaluate) function snd_func_card_inum returned error: No such file or directory
+ALSA lib confmisc.c:422:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:5205:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1342:(snd_func_refer) error evaluating name
+ALSA lib conf.c:5205:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5728:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2722:(snd_pcm_open_noupdate) Unknown PCM default
+FMOD failed to initialize the output device.: "Error initializing output device. " (60)
+FMOD initialized on nosound output
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Artifact Garbage Collection - Removed 7 unused hashed content files
+Initialize engine version: 6000.4.3f1 (39d1a88d4dd1)
+[Subsystems] Discovering subsystems at path /home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path /workspace/critical-shift-spawn-runtime/runtime/unity/Assets
+Forcing GfxDevice: OpenGL Core
+kGfxThreadingModeNonThreaded is not supported on OpenGL Core. Reverting to kGfxThreadingModeDirect instead.
+GfxDevice: creating device client; kGfxThreadingModeDirect
+GLX Extensions: GLX_ARB_context_flush_control GLX_ARB_create_context GLX_ARB_create_context_no_error GLX_ARB_create_context_profile GLX_ARB_fbconfig_float GLX_ARB_framebuffer_sRGB GLX_ARB_get_proc_address GLX_ARB_multisample GLX_EXT_create_context_es2_profile GLX_EXT_create_context_es_profile GLX_EXT_fbconfig_packed_float GLX_EXT_framebuffer_sRGB GLX_EXT_no_config_context GLX_EXT_texture_from_pixmap GLX_EXT_visual_info GLX_EXT_visual_rating GLX_MESA_copy_sub_buffer GLX_MESA_gl_interop GLX_MESA_query_renderer GLX_SGIS_multisample GLX_SGIX_fbconfig GLX_SGIX_pbuffer GLX_SGIX_visual_select_group GLX_SGI_make_current_read 
+Renderer: llvmpipe (LLVM 19.1.7, 256 bits)
+Vendor:   Mesa
+Version:  4.5 (Core Profile) Mesa 25.0.7-2+deb13u1
+GLES:     0
+ GL_3DFX_texture_compression_FXT1 GL_AMD_conservative_depth GL_AMD_draw_buffers_blend GL_AMD_gpu_shader_int64 GL_AMD_multi_draw_indirect GL_AMD_pinned_memory GL_AMD_query_buffer_object GL_AMD_seamless_cubemap_per_texture GL_AMD_shader_stencil_export GL_AMD_shader_trinary_minmax GL_AMD_texture_texture4 GL_AMD_vertex_shader_layer GL_AMD_vertex_shader_viewport_index GL_ANGLE_texture_compression_dxt3 GL_ANGLE_texture_compression_dxt5 GL_ARB_ES2_compatibility GL_ARB_ES3_1_compatibility GL_ARB_ES3_2_compatibility GL_ARB_ES3_compatibility GL_ARB_arrays_of_arrays GL_ARB_base_instance GL_ARB_blend_func_extended GL_ARB_buffer_storage GL_ARB_clear_buffer_object GL_ARB_clear_texture GL_ARB_clip_control GL_ARB_compressed_texture_pixel_storage GL_ARB_compute_shader GL_ARB_conditional_render_inverted GL_ARB_conservative_depth GL_ARB_copy_buffer GL_ARB_copy_image GL_ARB_cull_distance GL_ARB_debug_output GL_ARB_depth_buffer_float GL_ARB_depth_clamp GL_ARB_derivative_control GL_ARB_direct_state_access GL_ARB_draw_buffers GL_A
+RB_draw_buffers_blend GL_ARB_draw_elements_base_vertex GL_ARB_draw_indirect GL_ARB_draw_instanced GL_ARB_enhanced_layouts GL_ARB_explicit_attrib_location GL_ARB_explicit_uniform_location GL_ARB_fragment_coord_conventions GL_ARB_fragment_layer_viewport GL_ARB_fragment_shader GL_ARB_framebuffer_no_attachments GL_ARB_framebuffer_object GL_ARB_framebuffer_sRGB GL_ARB_get_program_binary GL_ARB_get_texture_sub_image GL_ARB_gl_spirv GL_ARB_gpu_shader5 GL_ARB_gpu_shader_fp64 GL_ARB_gpu_shader_int64 GL_ARB_half_float_pixel GL_ARB_half_float_vertex GL_ARB_indirect_parameters GL_ARB_instanced_arrays GL_ARB_internalformat_query GL_ARB_internalformat_query2 GL_ARB_invalidate_subdata GL_ARB_map_buffer_alignment GL_ARB_map_buffer_range GL_ARB_multi_bind GL_ARB_multi_draw_indirect GL_ARB_occlusion_query2 GL_ARB_parallel_shader_compile GL_ARB_pipeline_statistics_query GL_ARB_pixel_buffer_object GL_ARB_point_sprite GL_ARB_polygon_offset_clamp GL_ARB_post_depth_coverage GL_ARB_program_interface_query GL_ARB_provoking_vertex GL
+_ARB_query_buffer_object GL_ARB_robust_buffer_access_behavior GL_ARB_robustness GL_ARB_sample_shading GL_ARB_sampler_objects GL_ARB_seamless_cube_map GL_ARB_seamless_cubemap_per_texture GL_ARB_separate_shader_objects GL_ARB_shader_atomic_counter_ops GL_ARB_shader_atomic_counters GL_ARB_shader_ballot GL_ARB_shader_bit_encoding GL_ARB_shader_clock GL_ARB_shader_draw_parameters GL_ARB_shader_group_vote GL_ARB_shader_image_load_store GL_ARB_shader_image_size GL_ARB_shader_objects GL_ARB_shader_precision GL_ARB_shader_stencil_export GL_ARB_shader_storage_buffer_object GL_ARB_shader_subroutine GL_ARB_shader_texture_image_samples GL_ARB_shader_texture_lod GL_ARB_shader_viewport_layer_array GL_ARB_shading_language_420pack GL_ARB_shading_language_include GL_ARB_shading_language_packing GL_ARB_spirv_extensions GL_ARB_stencil_texturing GL_ARB_sync GL_ARB_tessellation_shader GL_ARB_texture_barrier GL_ARB_texture_border_clamp GL_ARB_texture_buffer_object GL_ARB_texture_buffer_object_rgb32 GL_ARB_texture_buffer_range GL_A
+RB_texture_compression_bptc GL_ARB_texture_compression_rgtc GL_ARB_texture_cube_map_array GL_ARB_texture_filter_anisotropic GL_ARB_texture_filter_minmax GL_ARB_texture_float GL_ARB_texture_gather GL_ARB_texture_mirror_clamp_to_edge GL_ARB_texture_multisample GL_ARB_texture_non_power_of_two GL_ARB_texture_query_levels GL_ARB_texture_query_lod GL_ARB_texture_rectangle GL_ARB_texture_rg GL_ARB_texture_rgb10_a2ui GL_ARB_texture_stencil8 GL_ARB_texture_storage GL_ARB_texture_storage_multisample GL_ARB_texture_swizzle GL_ARB_texture_view GL_ARB_timer_query GL_ARB_transform_feedback2 GL_ARB_transform_feedback3 GL_ARB_transform_feedback_instanced GL_ARB_transform_feedback_overflow_query GL_ARB_uniform_buffer_object GL_ARB_vertex_array_bgra GL_ARB_vertex_array_object GL_ARB_vertex_attrib_64bit GL_ARB_vertex_attrib_binding GL_ARB_vertex_buffer_object GL_ARB_vertex_shader GL_ARB_vertex_type_10f_11f_11f_rev GL_ARB_vertex_type_2_10_10_10_rev GL_ARB_viewport_array GL_ARM_shader_framebuffer_fetch_depth_stencil GL_ATI_blend
+_equation_separate GL_ATI_meminfo GL_ATI_texture_float GL_ATI_texture_mirror_once GL_EXT_EGL_image_storage GL_EXT_EGL_image_storage_compression GL_EXT_EGL_sync GL_EXT_abgr GL_EXT_blend_equation_separate GL_EXT_debug_label GL_EXT_draw_buffers2 GL_EXT_draw_instanced GL_EXT_framebuffer_blit GL_EXT_framebuffer_multisample GL_EXT_framebuffer_multisample_blit_scaled GL_EXT_framebuffer_object GL_EXT_framebuffer_sRGB GL_EXT_memory_object GL_EXT_memory_object_fd GL_EXT_packed_depth_stencil GL_EXT_packed_float GL_EXT_pixel_buffer_object GL_EXT_polygon_offset_clamp GL_EXT_provoking_vertex GL_EXT_shader_framebuffer_fetch GL_EXT_shader_framebuffer_fetch_non_coherent GL_EXT_shader_image_load_formatted GL_EXT_shader_integer_mix GL_EXT_texture_array GL_EXT_texture_compression_dxt1 GL_EXT_texture_compression_rgtc GL_EXT_texture_compression_s3tc GL_EXT_texture_filter_anisotropic GL_EXT_texture_filter_minmax GL_EXT_texture_integer GL_EXT_texture_mirror_clamp GL_EXT_texture_sRGB GL_EXT_texture_sRGB_R8 GL_EXT_texture_sRGB_RG8 GL
+_EXT_texture_sRGB_decode GL_EXT_texture_shadow_lod GL_EXT_texture_shared_exponent GL_EXT_texture_snorm GL_EXT_texture_storage GL_EXT_texture_swizzle GL_EXT_timer_query GL_EXT_transform_feedback GL_EXT_vertex_array_bgra GL_EXT_vertex_attrib_64bit GL_IBM_multimode_draw_arrays GL_INTEL_shader_atomic_float_minmax GL_KHR_blend_equation_advanced GL_KHR_blend_equation_advanced_coherent GL_KHR_context_flush_control GL_KHR_debug GL_KHR_no_error GL_KHR_parallel_shader_compile GL_KHR_robust_buffer_access_behavior GL_KHR_robustness GL_KHR_texture_compression_astc_ldr GL_KHR_texture_compression_astc_sliced_3d GL_MESA_framebuffer_flip_y GL_MESA_pack_invert GL_MESA_shader_integer_functions GL_MESA_texture_signed_rgba GL_NVX_gpu_memory_info GL_NV_alpha_to_coverage_dither_control GL_NV_conditional_render GL_NV_copy_image GL_NV_depth_clamp GL_NV_packed_depth_stencil GL_NV_shader_atomic_float GL_NV_texture_barrier GL_OES_EGL_image GL_OVR_multiview GL_OVR_multiview2 GL_S3_s3tc
+OPENGL LOG: Creating OpenGL 4.5 graphics device ; Context level  <OpenGL 4.5> ; Context handle -217098768
+Initialize mono
+Mono path[0] = '/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed'
+Mono path[1] = '/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-linux'
+Mono config path = '/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56167
+CodeReloadManager initialized
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+ImportWorker Server TCP listen port: 0
+AcceleratorClientConnectionCallback - disconnected - :0
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: /home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0.003052 seconds.
+Native extension for LinuxStandalone target not found
+Package Manager log level set to [2]
+Native extension for WindowsStandalone target not found
+(node:140203) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+(Use `UnityPackageManager --trace-deprecation ...` to show where the warning was created)
+[Licensing::Client] Successfully resolved entitlement details
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.482 seconds
+Domain Reload Profiling: 2046ms
+	BeginReloadAssembly (168ms)
+		CreateAndSetChildDomain (5ms)
+	RebuildCommonClasses (53ms)
+	RebuildNativeTypeToScriptingClass (9ms)
+	initialDomainReloadingComplete (88ms)
+	LoadAllAssembliesAndSetupDomain (245ms)
+		LoadAssemblies (163ms)
+		AnalyzeDomain (232ms)
+			TypeCache.Refresh (229ms)
+				TypeCache.ScanAssembly (210ms)
+	FinalizeReload (1484ms)
+		SetupLoadedEditorAssemblies (0ms)
+			InitializePlatformSupportModulesInManaged (62ms)
+			BeforeProcessingInitializeOnLoad (153ms)
+			ProcessInitializeOnLoadAttributes (132ms)
+			ProcessInitializeOnLoadMethodAttributes (1031ms)
+[Licensing::Client] Successfully resolved entitlement details
+Application.AssetDatabase Initial Refresh Start
+[Package Manager] Restoring resolved packages state from cache
+[Licensing::Client] Successfully resolved entitlement details
+[Package Manager] Registered 9 packages:
+  Packages from [https://packages.unity.com]:
+    com.unity.sdk.linux-x86_64@1.1.0 (location: /workspace/critical-shift-spawn-runtime/runtime/unity/Library/PackageCache/com.unity.sdk.linux-x86_64@6d12be270055)
+    com.unity.toolchain.linux-x86_64-linux@1.1.0 (location: /workspace/critical-shift-spawn-runtime/runtime/unity/Library/PackageCache/com.unity.toolchain.linux-x86_64-linux@d0308bf9d559)
+    com.unity.sysroot.base@1.1.0 (location: /workspace/critical-shift-spawn-runtime/runtime/unity/Library/PackageCache/com.unity.sysroot.base@3559fe1aa613)
+  Built-in packages:
+    com.unity.test-framework@1.6.0 (location: /workspace/critical-shift-spawn-runtime/runtime/unity/Library/PackageCache/com.unity.test-framework@9faaf09ec578)
+    com.unity.modules.imgui@1.0.0 (location: /workspace/critical-shift-spawn-runtime/runtime/unity/Library/PackageCache/com.unity.modules.imgui)
+    com.unity.modules.jsonserialize@1.0.0 (location: /workspace/critical-shift-spawn-runtime/runtime/unity/Library/PackageCache/com.unity.modules.jsonserialize)
+    com.unity.modules.physics@1.0.0 (location: /workspace/critical-shift-spawn-runtime/runtime/unity/Library/PackageCache/com.unity.modules.physics)
+    com.unity.modules.animation@1.0.0 (location: /workspace/critical-shift-spawn-runtime/runtime/unity/Library/PackageCache/com.unity.modules.animation)
+    com.unity.ext.nunit@2.0.5 (location: /workspace/critical-shift-spawn-runtime/runtime/unity/Library/PackageCache/com.unity.ext.nunit@ec2d0043d6fc)
+[Subsystems] No new subsystems found in resolved package list.
+[Package Manager] Done registering packages in 0.01 seconds
+Warning: Disk space low. The project is on a drive with diskspace below 1.00 GB. Please free up some space for Unity to work correctly.
+[ScriptCompilation] Requested script compilation because: AssetDatabase observed changes in script compilation related files
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://unix:/tmp/ilpp.sock-8905bfec88515832b1986b252f5b3832
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Production
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /workspace/critical-shift-spawn-runtime/runtime/unity
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/Ping - application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/Ping'
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/Ping'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/Ping - 200 - application/grpc 44.7955ms
+Starting: /home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Tools/BuildPipeline/bee_backend --ipc --defer-dag-verification --dagfile="Library/Bee/2400b0aE.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssemblies
+WorkingDir: /workspace/critical-shift-spawn-runtime/runtime/unity
+DisplayProgressbar: Compiling Scripts
+ExitCode: 4 Duration: 1s792ms
+Rebuilding DAG because FileSignature timestamp changed: Library/Bee/2400b0aE-inputdata.json
+*** Tundra requires additional run (1.73 seconds), 1 items updated, 254 evaluated
+Starting: /home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/netcorerun/netcorerun "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Tools/BuildPipeline/ScriptCompilationBuildProgram.exe" "Library/Bee/2400b0aE.dag.json" "Library/Bee/2400b0aE-inputdata.json" "Library/Bee/buildprogram0.traceevents"
+WorkingDir: /workspace/critical-shift-spawn-runtime/runtime/unity
+ExitCode: 0 Duration: 0s758ms
+Starting: /home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Tools/BuildPipeline/bee_backend --ipc --defer-dag-verification --dagfile="Library/Bee/2400b0aE.dag" --continue-on-failure --dagfilejson="Library/Bee/2400b0aE.dag.json" --profile="Library/Bee/backend2.traceevents" ScriptAssemblies
+WorkingDir: /workspace/critical-shift-spawn-runtime/runtime/unity
+ExitCode: 0 Duration: 2s253ms
+Finished compiling graph: 261 nodes, 2335 flattened edges (2209 ToBuild, 28 ToUse), maximum node priority 87
+[213/258    0s] WriteText Library/Bee/artifacts/2400b0aE.dag/CriticalShift.Player.Editor.rsp
+[255/258    2s] Csc Library/Bee/artifacts/2400b0aE.dag/CriticalShift.Player.Editor.dll (+2 others)
+Assets/CriticalShift/Bootstrap/Player/Editor/MinePointLighting.cs(45,124): warning CS0618: 'Object.GetInstanceID()' is obsolete: 'GetInstanceID is deprecated. Use GetEntityId instead. This will be removed in a future version.'
+Assets/CriticalShift/Bootstrap/Player/Editor/MinePointLighting.cs(50,41): warning CS0618: 'Object.GetInstanceID()' is obsolete: 'GetInstanceID is deprecated. Use GetEntityId instead. This will be removed in a future version.'
+[256/258    0s] CopyFiles Library/ScriptAssemblies/CriticalShift.Player.Editor.pdb
+[257/258    0s] CopyFiles Library/ScriptAssemblies/CriticalShift.Player.Editor.dll
+*** Tundra build success (2.21 seconds), 4 items updated, 258 evaluated
+Total cache size 1095868
+Assets/CriticalShift/Bootstrap/Player/Editor/MinePointLighting.cs(45,124): warning CS0618: 'Object.GetInstanceID()' is obsolete: 'GetInstanceID is deprecated. Use GetEntityId instead. This will be removed in a future version.'
+Assets/CriticalShift/Bootstrap/Player/Editor/MinePointLighting.cs(50,41): warning CS0618: 'Object.GetInstanceID()' is obsolete: 'GetInstanceID is deprecated. Use GetEntityId instead. This will be removed in a future version.'
+AssetDatabase: script compilation time: 5.383942s
+Total cache size after purge 1095868, took 00:00:00.0173515
+Begin MonoManager ReloadAssembly
+Assembly Assembly-CSharp-Editor-firstpass.dll at Library/ScriptAssemblies/Assembly-CSharp-Editor-firstpass.dll not valid. Loading of assembly skipped.
+Assembly Assembly-CSharp-Editor.dll at Library/ScriptAssemblies/Assembly-CSharp-Editor.dll not valid. Loading of assembly skipped.
+Assembly Assembly-CSharp-firstpass.dll at Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll not valid. Loading of assembly skipped.
+Assembly Assembly-CSharp.dll at Library/ScriptAssemblies/Assembly-CSharp.dll not valid. Loading of assembly skipped.
+Assembly TestNewCustomAssembly.dll at Library/ScriptAssemblies/TestNewCustomAssembly.dll not valid. Loading of assembly skipped.
+Assembly Unity.Sysroot.EditorTests.dll at Library/ScriptAssemblies/Unity.Sysroot.EditorTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Sysroot.Linux_x86_64.EditorTests.dll at Library/ScriptAssemblies/Unity.Sysroot.Linux_x86_64.EditorTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Toolchain.Linux-x86_64-Linux.EditorTests.dll at Library/ScriptAssemblies/Unity.Toolchain.Linux-x86_64-Linux.EditorTests.dll not valid. Loading of assembly skipped.
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+ScheduleIndexationOnStartup MainProcess:True IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.568 seconds
+Domain Reload Profiling: 1250ms
+	BeginReloadAssembly (248ms)
+		DisableScriptedObjects (25ms)
+		CreateAndSetChildDomain (76ms)
+	RebuildCommonClasses (41ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (63ms)
+	LoadAllAssembliesAndSetupDomain (320ms)
+		LoadAssemblies (369ms)
+		AnalyzeDomain (47ms)
+			TypeCache.Refresh (36ms)
+				TypeCache.ScanAssembly (14ms)
+			BuildScriptInfoCaches (7ms)
+	FinalizeReload (570ms)
+		SetupLoadedEditorAssemblies (0ms)
+			InitializePlatformSupportModulesInManaged (29ms)
+			BeforeProcessingInitializeOnLoad (127ms)
+			ProcessInitializeOnLoadAttributes (97ms)
+			ProcessInitializeOnLoadMethodAttributes (50ms)
+			AfterProcessingInitializeOnLoad (4ms)
+		AwakeInstancesAfterBackupRestoration (18ms)
+Start importing Assets/CriticalShift/Features/Player/BlenderPointLighting.cginc using Guid(8bf8b4bffc562dd05b7e187c3c08b3e7) (ShaderIncludeImporter) -> (Import Result ID: 'e34d1c5857b66c729b397d0a5c491504') in 0.018749091 seconds [static dependencies only]. Details - ImportResultOutputID=aaff6515c5ab2940a1c3b2325f8cab75 DependenciesID=fe1537fef79065999761f70677ba7d37 StaticDependenciesID=c080a02dec5f1a22d067c9fa8c7ae5c9 
+Start importing Assets/CriticalShift/Features/Player/BlenderThinVisor.shader using Guid(122e3b9783f755b2806201c92b147bb4) (ShaderImporter)Launched and connected shader compiler UnityShaderCompiler after 0.03 seconds
+ -> (Import Result ID: '7a34b50cfd63163372c80421ad1b1158') in 0.249326596 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=ca6774f2eb0ad988d6b2b5195a3dcac2 DependenciesID=e3ac9c8ccff7bbf37805a6b7a910d323 StaticDependenciesID=66cdc9e0928745917024ef6f80c42376 
+Start importing Assets/CriticalShift/Features/Player/BlenderSurface.shader using Guid(32fbd845963e42859f0b97896de49577) (ShaderImporter) -> (Import Result ID: '83de07cba40164c33d4eedbb8133a030') in 2.513916895 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=9ce100e6c4bce01bd453b22313267743 DependenciesID=edccdfe6f99d748c841ad68200583720 StaticDependenciesID=cde06cc5b9818c919229e58dd8dc392d 
+Start importing Assets/CriticalShift/Features/Player/BlenderHood.shader using Guid(b5fce91f91ed5020afda2fa0d16afe04) (ShaderImporter) -> (Import Result ID: '0d3963403c36caad17cc62a6ab4ef7db') in 0.685181758 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=7a4079ecffda01d882af8b4c754b12b7 DependenciesID=1199169410c3f9e161e84035398e7cca StaticDependenciesID=f90594aed302f87469c96c7ddc9956fc 
+Start importing Assets/CriticalShift/Features/Player/BlenderGlass.shader using Guid(2a0008f576db4307baea1b67d89ee91b) (ShaderImporter) -> (Import Result ID: '247ea39ca9fa85ca9a0be6987ac24f48') in 0.709174887 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=2d6e264747553a8dfe721374ec041708 DependenciesID=df42ce5c4f270536d1a46948546ac474 StaticDependenciesID=fff4e71e51266025779425a49e3f2b3b 
+Start importing Assets/CriticalShift/Features/Player/BlenderDecal.shader using Guid(1e7596cc591e592f80441e8bc3107f0b) (ShaderImporter) -> (Import Result ID: '09bbf1971d54792bfa541c7f59f760b6') in 0.733398511 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=8900c229a7d6fc49c1028dc775804980 DependenciesID=35c3bdf49b3329b4767b3598d76c09c8 StaticDependenciesID=534e49d0e8b99617545b4d77679fd1dd 
+Launched and connected shader compiler UnityShaderCompiler after 0.02 seconds
+Launched and connected shader compiler UnityShaderCompiler after 0.02 seconds
+Launched and connected shader compiler UnityShaderCompiler after 0.01 seconds
+(Values over 0.050ms)
+Asset Pipeline Refresh (id=2ad91a5782b4bf7a7a1266fba313aeaa): Total: 12.489 seconds - Initiated by InitialRefreshV2(ForceSynchronousImport)
+	Summary:
+		Imports: total=6 (actual=6, local cache=0, cache server=0)
+		Asset DB Process Time: managed=2 ms, native=6200 ms
+		Asset DB Callback time: managed=130 ms, native=80 ms
+		Scripting: domain reloads=1, domain reload time=681 ms, compile time=5386 ms, other=7 ms
+		Project Asset Count: scripts=147, non-scripts=1561
+		Asset File Changes: new=3, changed=11, moved=0, deleted=1
+		Scan Filter Count: 1
+	InvokePackagesCallback: 10.244ms
+	ApplyChangesToAssetFolders: 0.184ms
+	Scan: 596.485ms
+	OnSourceAssetsModified: 4.000ms
+	CategorizeScriptCompilationAssets: 4.882ms
+	ProcessAssetsWithTransientArtifactChanges: 7.833ms
+	CategorizeAssets: 10.662ms
+	CompileScripts: 5385.779ms
+	ImportOutOfDateAssets: 5499.339ms (573.831ms without children)
+		ImportManagerImport: 4921.933ms (1.500ms without children)
+			UpdateCategorizedAssets: 0.205ms
+		UnloadImportedAssets: 2.494ms
+		ReloadImportedAssets: 8.061ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.219ms
+		OnDemandSchedulerStart: 0.847ms
+	PostProcessAllAssets: 197.175ms
+		ShaderAssetModifiedCallback 65.354ms
+		PostProcessCallbackCreateDeferredMaterials 0.154ms
+		ComputeShaderImportPostprocess 0.109ms
+		MonoPostProcessAllAssets: 128.465ms
+			AssetPostprocessor.OnPostprocessAllAssets 53.879ms
+			StyleCatalogPostProcessor.OnPostprocessAllAssets 30.229ms
+			WindowAssetPostprocessingWatcher.OnPostprocessAllAssets 10.412ms
+			BuilderAssetPostprocessor.OnPostprocessAllAssets 7.621ms
+			AssetChangedListener.OnPostprocessAllAssets 2.146ms
+			SyncVS.PostprocessSyncProject 1.424ms
+			RetainedModeAssetPostprocessor.OnPostprocessAllAssets 1.402ms
+			SpeedTree9Postprocessor.OnPostprocessAllAssets 1.154ms
+			TextAssetPostProcessor.OnPostprocessAllAssets 0.846ms
+			ArtifactBrowserPostProcessor.OnPostprocessAllAssets 0.823ms
+			ReferencedClipsPostProcessor.OnPostprocessAllAssets 0.455ms
+			TerrainToolbarOverlayPostProcessor.OnPostprocessAllAssets 0.386ms
+			AudioMixerPostprocessor.OnPostprocessAllAssets 0.299ms
+			AssetEvents.OnPostprocessAllAssets 0.240ms
+			AssetDatabaseCallbacks.OnPostprocessAllAssets 0.235ms
+			RenderPipelineGlobalSettingsPostprocessor.OnPostprocessAllAssets 0.215ms
+			ConfigAssetsTracker.OnPostprocessAllAssets 0.210ms
+			SpeedTreePostProcessor.OnPostprocessAllAssets 0.184ms
+			ScenarioDriftAssetsTracker.OnPostprocessAllAssets 0.148ms
+			AudioContainerPostProcessor.OnPostprocessAllAssets 0.095ms
+	PostAssetChangesProfiler: 1.202ms
+	UnloadStreamsBegin: 3.373ms
+	PersistCurrentRevisions: 0.132ms
+	Untracked: 765.401ms
+
+Application.AssetDatabase Initial Refresh End
+Launched and connected shader compiler UnityShaderCompiler after 0.02 seconds
+Scanning for USB devices : 0.254ms
+Initializing Unity extensions:
+UpdateMenuTitleForLanguage: 10
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+[MODES] Loading mode Default (0) for mode-current-id-Critical Shift
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 444 unused Assets / (448.9 KB). Loaded Objects now: 1084.
+Memory consumption went from 97.2 MB to 96.7 MB.
+Total: 10.012236 ms (FindLiveObjects: 0.100327 ms CreateObjectMapping: 0.037356 ms MarkObjects: 9.299734 ms  DeleteObjects: 0.563268 ms)
+
+Start importing Assets/CriticalShift/Generated/MineProductionPointFinal11 using Guid(86c887720a4d17344888aa509431e8bd) (DefaultImporter) -> (Import Result ID: 'b9fe2d00fd8bad7d9bd193e5b6b87c3f') in 0.001567899 seconds [static dependencies only]. Details - ImportResultOutputID=cbfca50d16d79d4064229a7a79aeea94 DependenciesID=caef20964aa537698745410275b0adbc StaticDependenciesID=79ba99d7a1a2c4fa65c17e1c43236b95 
+Asset Pipeline Refresh (id=c9fd67836e8df65f7a080d4afebdf6f0): Total: 0.022 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+CS_PREVIOUS_LIGHTMAP_MODE Single, Dual
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:11)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 11)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 1 unused Assets / (0.8 KB). Loaded Objects now: 1084.
+Memory consumption went from 93.3 MB to 93.3 MB.
+Total: 5.112072 ms (FindLiveObjects: 0.045725 ms CreateObjectMapping: 0.010196 ms MarkObjects: 5.033705 ms  DeleteObjects: 0.021430 ms)
+
+Start importing Assets/CriticalShift/Generated/MineProductionPointFinal11/Quad.asset using Guid(71d9b147c8ae06566964aa25a34c15cd) (NativeFormatImporter) -> (Import Result ID: '29c63b7c6fe6a8d1dc02fff323ef248d') in 0.001025464 seconds [static dependencies only]. Details - ImportResultOutputID=03708c225caa574655e6d8b2eff2707b DependenciesID=24eadb9278d782b017e9810896b0524a StaticDependenciesID=1f5784250bedf078a59e60f6261bfc3c 
+Asset Pipeline Refresh (id=f94e4806b1de3e39ca53cb3a03827b2d): Total: 0.010 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineProductionPointFinal11/IdentityCookie.asset using Guid(47e1098addcb6348fa34db71a684a481) (NativeFormatImporter) -> (Import Result ID: '486c41f23e8696c37ae831a49f563ab6') in 0.002311272 seconds [static dependencies only]. Details - ImportResultOutputID=957eedce7a008be02b87d2cb2066ad39 DependenciesID=d88090637b5fe2e59f84a928d184a514 StaticDependenciesID=787ed82b259430b877e8d1fee389a7b2 
+Asset Pipeline Refresh (id=50bf07a8f7fb03b889691eba6a9a659d): Total: 0.019 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+CS_GI_FALLOFF_ENUMS InverseSquared,InverseSquaredNoRangeAttenuation,Linear,Legacy,Undefined
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:25)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 25)
+
+LightingSettings: switching bake backend from 2 to 1.
+Start importing Assets/CriticalShift/Generated/MineProductionPointFinal11/Lighting.lighting using Guid(422123a4ff51b6e36b7c262f595717e5) (NativeFormatImporter) -> (Import Result ID: '339720be1634518696ae47bca11d6c53') in 0.001196579 seconds [static dependencies only]. Details - ImportResultOutputID=b640cc1783fa97e811f80ace63bd6f46 DependenciesID=9e187e53dd3dc3c2f8dbbd92b6aacb96 StaticDependenciesID=8ca26081b756efd250dca679fa4e4209 
+Asset Pipeline Refresh (id=92f0aa014c73204aeb0888d3f287b913): Total: 0.009 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineProductionPointFinal11/Scene.unity using Guid(b7a9740fe35ce3097868a9b62fdb553c) (DefaultImporter) -> (Import Result ID: '5b538917c2400474c4fe38bd4a669090') in 0.000992787 seconds [static dependencies only]. Details - ImportResultOutputID=f37b8279c7bd6b785061c4d1aa4086ca DependenciesID=4df6be38b71538e5c8aac99e2804d141 StaticDependenciesID=af4bdff3d3929b36fa5d84e984e9f6bc 
+Asset Pipeline Refresh (id=7d1f2582407d179bcb848c942b6d657a): Total: 0.008 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Created GICache directory at /home/agent/.cache/unity3d/GiCache. Took: 0.007s, timestamps: [18.924 - 18.931]
+[00:00:02] Precompute started.
+CS_LIGHTDATA_FIELD entityId=-1484
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD cookieTextureEntityId=-1562
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD cookieScale=1
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD color=UnityEngine.Experimental.GlobalIllumination.LinearColor
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD indirectColor=UnityEngine.Experimental.GlobalIllumination.LinearColor
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD orientation=(0.00000, 0.00000, 0.00000, 1.00000)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD position=(0.00, 0.00, -1.00)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD range=12
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD coneAngle=0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD innerConeAngle=0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD shape0=0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD shape1=0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD type=Point
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD mode=Baked
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD shadow=0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD falloff=Legacy
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_GI_BEFORE Legacy direct=2.533029 indirect=2.533029
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+[BakePipeline::Driver] Extracted OOTS snapshot with 1 instances, 1 geometries, 1 meshes, 1 materials, 1 lights, 1 cookies in 11.69ms.
+[BakePipeline::Driver] Transformed OOTS snapshot into LightBaker scene input (0x7f67b09adc00) in 16.08ms. Size: 1.50MB.
+[BakePipeline::PreprocessStage] Background thread started.
+[PathTracer] Finished packing lightmaps in 0.001186 seconds.
+[00:00:02] Finished 1 Layout Systems job (0.02s execute, 0.00s integrate, 0.06s wallclock)
+[BakePipeline::BakeStage] Background thread started. Calling LightBaker.
+[00:00:02] Finished 1 Tetrahedralize Probes job (0.00s execute, 0.00s integrate, 0.02s wallclock)
+[00:00:02] Precompute took 0.077427 seconds.
+Enlighten scene contents:   0 geometries.   0 instances.   0 systems.   0 probe groups.   0 cube maps. Scene is up-to-date.
+[BakePipeline::BakeStage] LightBaker bake took 8886.13ms and succeeded.
+[BakePipeline::PostProcessStage] Started.
+[BakePipeline::Run] Completed succesfully.
+[00:00:11] LightingDataAsset started.
+Start importing Assets/CriticalShift/Generated/MineProductionPointFinal11/Scene using Guid(0702550888a22df9fa65c51e673ad3f3) (DefaultImporter) -> (Import Result ID: 'bebbfdfa0bce3166fb9ad6000f592965') in 0.005131964 seconds [static dependencies only]. Details - ImportResultOutputID=33b03e6f19d706ddcd0a69410a7aba7f DependenciesID=e3dea1189bc13a1536ec72737ecef6ba StaticDependenciesID=cdb1ebcd397e91f9093338e060e7aff6 
+Start importing Assets/CriticalShift/Generated/MineProductionPointFinal11/Scene/Lightmap-0_comp_light.exr using Guid(69d759f182e741d36854bc7601290ff4) (TextureImporter) -> (Import Result ID: '1ca1ed28accc160d109c66f0fc448ab5') in 0.016057473 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=21c27970125e3e676172177399ddc881 DependenciesID=09121b74c9ac660aac52201c251a5527 StaticDependenciesID=0f9c1de8ff0087d51c1e016206aab0dd 
+Start importing Assets/CriticalShift/Generated/MineProductionPointFinal11/Scene/Lightmap-0_comp_dir.png using Guid(5bf2d3bf4cbe6456f957c985e8c07339) (TextureImporter) -> (Import Result ID: '6cb3f8cd14afbbcde0e7568239e4bc34') in 0.003196145 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=edb7ed5d4f9ce676ee27d6d755eab76b DependenciesID=04c18241ebdc1591b2aee8cb929e6636 StaticDependenciesID=e4ef2e32d379d876f8e56f0513c53439 
+Asset Pipeline Refresh (id=ad9d56189fa1f23de8db4a8686f9cd34): Total: 0.080 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineProductionPointFinal11/Scene/Lightmap-0_comp_light.exr using Guid(69d759f182e741d36854bc7601290ff4) (TextureImporter) -> (Import Result ID: '7139646fbff92ddf1fd660693b2463fb') in 0.011308311 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=999fc46a561bb1fe6c597780cf485047 DependenciesID=e139486a7ba7bafeaf194fa804a7ad29 StaticDependenciesID=0cefffd2dc033f660472b0e660cac4fe 
+Start importing Assets/CriticalShift/Generated/MineProductionPointFinal11/Scene/Lightmap-0_comp_dir.png using Guid(5bf2d3bf4cbe6456f957c985e8c07339) (TextureImporter) -> (Import Result ID: 'a187496794b83f08366c884dd1bccf4b') in 0.002761966 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=aa98120a4fda85bcb16ee0a1688032d9 DependenciesID=2451180a215a1eb53f481122320ac736 StaticDependenciesID=64b2082b0c8266843c3e8f0fce13b33a 
+Asset Pipeline Refresh (id=e6c89df2f56aa1b8ca2d10dd44202101): Total: 0.027 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=f31e6bb50160c81ab9c3f053528ff5da): Total: 0.001 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=8ab4c014f1971708ea262dcc1853e1e9): Total: 0.001 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+> Collecting Enlighten data
+Start importing Assets/CriticalShift/Generated/MineProductionPointFinal11/Scene/LightingData.asset using Guid(a347880ab1e862ff3896efa93e40a551) (NativeFormatImporter) -> (Import Result ID: 'b32d7315724dee88df0e07e24746812d') in 0.000917409 seconds [static dependencies only]. Details - ImportResultOutputID=f021c94cccdcaa6ad5e4fb3c103ffb6f DependenciesID=0f0225a62a663e3c8cacc9382df82d34 StaticDependenciesID=f5d314957190eef60ebad73f28165ddc 
+Asset Pipeline Refresh (id=fffd0d3e119b622bc826e9440e703c4b): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineProductionPointFinal11/Scene.unity using Guid(b7a9740fe35ce3097868a9b62fdb553c) (DefaultImporter) -> (Import Result ID: 'd0c95c24fbb667def0f6a12f9be8d371') in 0.004219523 seconds [static dependencies only]. Details - ImportResultOutputID=f37b8279c7bd6b785061c4d1aa4086ca DependenciesID=ec963f47c95633e225d5f470c2fb35ff StaticDependenciesID=ba95b9a537741314f827a27ad6a1afd1 
+Asset Pipeline Refresh (id=0f63148c9962aa2e88cbf05d5273c2e0): Total: 0.027 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+[00:00:11] Precompute started.
+CS_LIGHTDATA_FIELD entityId=-1484
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD cookieTextureEntityId=-1562
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD cookieScale=1
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD color=UnityEngine.Experimental.GlobalIllumination.LinearColor
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD indirectColor=UnityEngine.Experimental.GlobalIllumination.LinearColor
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD orientation=(0.00000, 0.00000, 0.00000, 1.00000)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD position=(0.00, 0.00, -2.00)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD range=12
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD coneAngle=0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD innerConeAngle=0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD shape0=0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD shape1=0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD type=Point
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD mode=Baked
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD shadow=0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD falloff=Legacy
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_GI_BEFORE Legacy direct=2.533029 indirect=2.533029
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+[BakePipeline::Driver] Extracted OOTS snapshot with 1 instances, 1 geometries, 1 meshes, 1 materials, 1 lights, 1 cookies in 7.94ms.
+[BakePipeline::Driver] Transformed OOTS snapshot into LightBaker scene input (0x7f67b1fef830) in 20.92ms. Size: 1.50MB.
+[BakePipeline::PreprocessStage] Background thread started.
+[00:00:12] Finished 1 Layout Systems job (0.04s execute, 0.00s integrate, 0.05s wallclock)
+[PathTracer] Finished packing lightmaps in 0.003045 seconds.
+[00:00:12] Finished 1 Tetrahedralize Probes job (0.00s execute, 0.00s integrate, 0.01s wallclock)
+[00:00:12] Precompute took 0.058460 seconds.
+Enlighten scene contents:   0 geometries.   0 instances.   0 systems.   0 probe groups.   0 cube maps. Scene is up-to-date.
+[BakePipeline::BakeStage] Background thread started. Calling LightBaker.
+[BakePipeline::BakeStage] LightBaker bake took 6758.21ms and succeeded.
+[BakePipeline::PostProcessStage] Started.
+[BakePipeline::Run] Completed succesfully.
+Asset Pipeline Refresh (id=f97a06cef1e1a71f4bc31e7342e4a14c): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=c0bc013712448de5480ed099db25340a): Total: 0.012 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineProductionPointFinal11/Scene/LightingData.asset using Guid(a347880ab1e862ff3896efa93e40a551) (NativeFormatImporter) -> (Import Result ID: '04baf544b41545c5354482d2c550dd55') in 0.001311274 seconds [static dependencies only]. Details - ImportResultOutputID=b615c68581c1804c3cae2dfeb19f6562 DependenciesID=8612f1950bd0310d17e1b9d049e1a59e StaticDependenciesID=c4f8d6278f5fb935043b214608a1ac60 
+Asset Pipeline Refresh (id=9db4ad133f4db6b2d9e7759a35e312bd): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=87f7d16ffb827205497bbbea26644629): Total: 0.005 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineProductionPointFinal11/Scene/Lightmap-0_comp_light.exr using Guid(69d759f182e741d36854bc7601290ff4) (TextureImporter) -> (Import Result ID: '1ca1ed28accc160d109c66f0fc448ab5') in 0.004365666 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=21c27970125e3e676172177399ddc881 DependenciesID=09121b74c9ac660aac52201c251a5527 StaticDependenciesID=0f9c1de8ff0087d51c1e016206aab0dd 
+Start importing Assets/CriticalShift/Generated/MineProductionPointFinal11/Scene/Lightmap-0_comp_dir.png using Guid(5bf2d3bf4cbe6456f957c985e8c07339) (TextureImporter) -> (Import Result ID: '6cb3f8cd14afbbcde0e7568239e4bc34') in 0.001476444 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=edb7ed5d4f9ce676ee27d6d755eab76b DependenciesID=04c18241ebdc1591b2aee8cb929e6636 StaticDependenciesID=e4ef2e32d379d876f8e56f0513c53439 
+Asset Pipeline Refresh (id=0a00082538be421118a95418451d7d99): Total: 0.018 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineProductionPointFinal11/Scene/Lightmap-0_comp_light.exr using Guid(69d759f182e741d36854bc7601290ff4) (TextureImporter) -> (Import Result ID: 'c7978b3a036d96dcf2adc9b904ee1766') in 0.009294448 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=458cbcb1c061ecd01f426836f5da2925 DependenciesID=57ccf0cc1af3ea58f432d25c92f81c12 StaticDependenciesID=5ad8a55f4232ab45809413eecafcf7de 
+Start importing Assets/CriticalShift/Generated/MineProductionPointFinal11/Scene/Lightmap-0_comp_dir.png using Guid(5bf2d3bf4cbe6456f957c985e8c07339) (TextureImporter) -> (Import Result ID: '0c738f4a2891201bb5f9d0441ac1ddea') in 0.002932759 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=753e3ba63ab1f198745d0c299dcba728 DependenciesID=989792a817758a98ccdc708598986c33 StaticDependenciesID=8b375e32db954df19a4677e2ade93ef4 
+Asset Pipeline Refresh (id=7a0f851e38e75b814b8aee139259faa5): Total: 0.022 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=5c55297d34638ba58b3157d25e37b765): Total: 0.001 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=29832031f9e139886a03afd076e83908): Total: 0.001 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+> Collecting Enlighten data
+Start importing Assets/CriticalShift/Generated/MineProductionPointFinal11/Scene/LightingData.asset using Guid(a347880ab1e862ff3896efa93e40a551) (NativeFormatImporter) -> (Import Result ID: 'b32d7315724dee88df0e07e24746812d') in 0.00100772 seconds [static dependencies only]. Details - ImportResultOutputID=f021c94cccdcaa6ad5e4fb3c103ffb6f DependenciesID=0f0225a62a663e3c8cacc9382df82d34 StaticDependenciesID=f5d314957190eef60ebad73f28165ddc 
+Asset Pipeline Refresh (id=304d11eee3e942711937ee9fadc9589f): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineProductionPointFinal11/Scene.unity using Guid(b7a9740fe35ce3097868a9b62fdb553c) (DefaultImporter) -> (Import Result ID: '8c09009fc1e94ef49c840585dfd0debe') in 0.001058994 seconds [static dependencies only]. Details - ImportResultOutputID=f37b8279c7bd6b785061c4d1aa4086ca DependenciesID=56c37a5c304d080d212ec6ccab711b20 StaticDependenciesID=33ff16cdeb4d8acbece364140ea00b50 
+Asset Pipeline Refresh (id=bf9c1a71252496b1a87d5241bfe582a7): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+[00:00:19] Precompute started.
+CS_LIGHTDATA_FIELD entityId=-1484
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD cookieTextureEntityId=-1562
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD cookieScale=1
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD color=UnityEngine.Experimental.GlobalIllumination.LinearColor
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD indirectColor=UnityEngine.Experimental.GlobalIllumination.LinearColor
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD orientation=(0.00000, 0.00000, 0.00000, 1.00000)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD position=(0.00, 0.00, -4.00)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD range=12
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD coneAngle=0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD innerConeAngle=0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD shape0=0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD shape1=0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD type=Point
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD mode=Baked
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD shadow=0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD falloff=Legacy
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_GI_BEFORE Legacy direct=2.533029 indirect=2.533029
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+[BakePipeline::Driver] Extracted OOTS snapshot with 1 instances, 1 geometries, 1 meshes, 1 materials, 1 lights, 1 cookies in 3.03ms.
+[BakePipeline::Driver] Transformed OOTS snapshot into LightBaker scene input (0x7f67b3924460) in 9.60ms. Size: 1.50MB.
+[BakePipeline::PreprocessStage] Background thread started.
+[00:00:19] Finished 1 Layout Systems job (0.03s execute, 0.00s integrate, 0.03s wallclock)
+[PathTracer] Finished packing lightmaps in 0.001013 seconds.
+[00:00:19] Finished 1 Tetrahedralize Probes job (0.00s execute, 0.00s integrate, 0.01s wallclock)
+[00:00:19] Precompute took 0.039571 seconds.
+Enlighten scene contents:   0 geometries.   0 instances.   0 systems.   0 probe groups.   0 cube maps. Scene is up-to-date.
+[BakePipeline::BakeStage] Background thread started. Calling LightBaker.
+[BakePipeline::BakeStage] LightBaker bake took 6407.74ms and succeeded.
+[BakePipeline::PostProcessStage] Started.
+[BakePipeline::Run] Completed succesfully.
+Asset Pipeline Refresh (id=293c0ce47d0b4a49bbab69ed74e510e5): Total: 0.022 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=b27f47024cdc070bdab8fda1996bad8d): Total: 0.009 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineProductionPointFinal11/Scene/LightingData.asset using Guid(a347880ab1e862ff3896efa93e40a551) (NativeFormatImporter) -> (Import Result ID: '04baf544b41545c5354482d2c550dd55') in 0.001353388 seconds [static dependencies only]. Details - ImportResultOutputID=b615c68581c1804c3cae2dfeb19f6562 DependenciesID=8612f1950bd0310d17e1b9d049e1a59e StaticDependenciesID=c4f8d6278f5fb935043b214608a1ac60 
+Asset Pipeline Refresh (id=23bfd7ddb64290052aa3fcfa74f35f84): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=6a43a319611231108b1eab18d11c464c): Total: 0.006 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineProductionPointFinal11/Scene/Lightmap-0_comp_light.exr using Guid(69d759f182e741d36854bc7601290ff4) (TextureImporter) -> (Import Result ID: '1ca1ed28accc160d109c66f0fc448ab5') in 0.004875975 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=21c27970125e3e676172177399ddc881 DependenciesID=09121b74c9ac660aac52201c251a5527 StaticDependenciesID=0f9c1de8ff0087d51c1e016206aab0dd 
+Start importing Assets/CriticalShift/Generated/MineProductionPointFinal11/Scene/Lightmap-0_comp_dir.png using Guid(5bf2d3bf4cbe6456f957c985e8c07339) (TextureImporter) -> (Import Result ID: '6cb3f8cd14afbbcde0e7568239e4bc34') in 0.001670131 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=edb7ed5d4f9ce676ee27d6d755eab76b DependenciesID=04c18241ebdc1591b2aee8cb929e6636 StaticDependenciesID=e4ef2e32d379d876f8e56f0513c53439 
+Asset Pipeline Refresh (id=1f661a6f6c1428c2c8342bcbb9a8ffcb): Total: 0.016 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineProductionPointFinal11/Scene/Lightmap-0_comp_light.exr using Guid(69d759f182e741d36854bc7601290ff4) (TextureImporter) -> (Import Result ID: '7ec20741b7e364d404b4ffc78f490c94') in 0.009882245 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=794a15d9de0fafe8b2a1758ef84c51db DependenciesID=e3dac7632dd66c7cb89d18448eb8fa1f StaticDependenciesID=f50e8ec345ff54d261d1eae52aecffcc 
+Start importing Assets/CriticalShift/Generated/MineProductionPointFinal11/Scene/Lightmap-0_comp_dir.png using Guid(5bf2d3bf4cbe6456f957c985e8c07339) (TextureImporter) -> (Import Result ID: '12a1901347b04ed53485490c5a4a6656') in 0.003322177 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=a0f6a73efa1d562e7da6143b686b425a DependenciesID=2a43bb9523ada9280ec206e67ff32782 StaticDependenciesID=47de4972c81535d5f0142a60addd9318 
+Asset Pipeline Refresh (id=419867d7f4c30480d86a71bf2ea22895): Total: 0.024 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=787e17857693a41ad9fc8f5350002894): Total: 0.001 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=d6b981e98c8096e6fb0a81d91f913c4c): Total: 0.001 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+> Collecting Enlighten data
+Start importing Assets/CriticalShift/Generated/MineProductionPointFinal11/Scene/LightingData.asset using Guid(a347880ab1e862ff3896efa93e40a551) (NativeFormatImporter) -> (Import Result ID: '61d68026a23a3cb482f6bef3479e9f21') in 0.00096368 seconds [static dependencies only]. Details - ImportResultOutputID=f021c94cccdcaa6ad5e4fb3c103ffb6f DependenciesID=f5a660b84ed1fe41e417b33b685d3481 StaticDependenciesID=78ae1daeda0f5a50e4e522f7b1317606 
+Asset Pipeline Refresh (id=2ef0c12b711e028c5b510ebdc5d9359f): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineProductionPointFinal11/Scene.unity using Guid(b7a9740fe35ce3097868a9b62fdb553c) (DefaultImporter) -> (Import Result ID: 'ffb6467fe1d09886eeedb42e7b2a13f8') in 0.001164505 seconds [static dependencies only]. Details - ImportResultOutputID=f37b8279c7bd6b785061c4d1aa4086ca DependenciesID=8b6068d5a69c6705fc8823497d83bc14 StaticDependenciesID=b3ff236b0e87f640c23766f8da90842d 
+Asset Pipeline Refresh (id=65c73a266250ac9af820891853c8d002): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+[00:00:25] Precompute started.
+CS_LIGHTDATA_FIELD entityId=-1484
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD cookieTextureEntityId=-1562
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD cookieScale=1
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD color=UnityEngine.Experimental.GlobalIllumination.LinearColor
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD indirectColor=UnityEngine.Experimental.GlobalIllumination.LinearColor
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD orientation=(0.00000, 0.00000, 0.00000, 1.00000)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD position=(0.00, 0.00, -12.10)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD range=12
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD coneAngle=0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD innerConeAngle=0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD shape0=0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD shape1=0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD type=Point
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD mode=Baked
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD shadow=0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD falloff=Legacy
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_GI_BEFORE Legacy direct=2.533029 indirect=2.533029
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+[BakePipeline::Driver] Extracted OOTS snapshot with 1 instances, 1 geometries, 1 meshes, 1 materials, 1 lights, 1 cookies in 3.71ms.
+[BakePipeline::Driver] Transformed OOTS snapshot into LightBaker scene input (0x7f67b1f30090) in 14.87ms. Size: 1.50MB.
+[BakePipeline::PreprocessStage] Background thread started.
+[00:00:25] Finished 1 Layout Systems job (0.03s execute, 0.00s integrate, 0.04s wallclock)
+[PathTracer] Finished packing lightmaps in 0.001239 seconds.
+[00:00:25] Finished 1 Tetrahedralize Probes job (0.00s execute, 0.00s integrate, 0.01s wallclock)
+[00:00:25] Precompute took 0.051210 seconds.
+Enlighten scene contents:   0 geometries.   0 instances.   0 systems.   0 probe groups.   0 cube maps. Scene is up-to-date.
+[BakePipeline::BakeStage] Background thread started. Calling LightBaker.
+TrimDiskCacheJob: Current cache size 69mb
+[BakePipeline::BakeStage] LightBaker bake took 8683.49ms and succeeded.
+[BakePipeline::PostProcessStage] Started.
+[BakePipeline::Run] Completed succesfully.
+Asset Pipeline Refresh (id=2a7dbe3feb7ede5d280783b95c1da36d): Total: 0.010 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=e4b6898e9ca6b357196c4269944cdd7d): Total: 0.009 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineProductionPointFinal11/Scene/LightingData.asset using Guid(a347880ab1e862ff3896efa93e40a551) (NativeFormatImporter) -> (Import Result ID: '04baf544b41545c5354482d2c550dd55') in 0.001261191 seconds [static dependencies only]. Details - ImportResultOutputID=b615c68581c1804c3cae2dfeb19f6562 DependenciesID=8612f1950bd0310d17e1b9d049e1a59e StaticDependenciesID=c4f8d6278f5fb935043b214608a1ac60 
+Asset Pipeline Refresh (id=5c994087a5c7c666d889bc93f9d1125f): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=5596cdd2651b3692e86a3ca41c985c20): Total: 0.005 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineProductionPointFinal11/Scene/Lightmap-0_comp_light.exr using Guid(69d759f182e741d36854bc7601290ff4) (TextureImporter) -> (Import Result ID: '1ca1ed28accc160d109c66f0fc448ab5') in 0.004601817 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=21c27970125e3e676172177399ddc881 DependenciesID=09121b74c9ac660aac52201c251a5527 StaticDependenciesID=0f9c1de8ff0087d51c1e016206aab0dd 
+Start importing Assets/CriticalShift/Generated/MineProductionPointFinal11/Scene/Lightmap-0_comp_dir.png using Guid(5bf2d3bf4cbe6456f957c985e8c07339) (TextureImporter) -> (Import Result ID: '6cb3f8cd14afbbcde0e7568239e4bc34') in 0.001729527 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=edb7ed5d4f9ce676ee27d6d755eab76b DependenciesID=04c18241ebdc1591b2aee8cb929e6636 StaticDependenciesID=e4ef2e32d379d876f8e56f0513c53439 
+Asset Pipeline Refresh (id=673cc03a9be8bca56a60805c20a359c5): Total: 0.016 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineProductionPointFinal11/Scene/Lightmap-0_comp_light.exr using Guid(69d759f182e741d36854bc7601290ff4) (TextureImporter) -> (Import Result ID: '315a162c16f7592319f7a8c5e5c3e076') in 0.009062043 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=f9869db467c756128ef3a2698892f003 DependenciesID=d20b0160a1881b239787135668440647 StaticDependenciesID=b0f879d94d66243b66aae1eef3b0c9f4 
+Start importing Assets/CriticalShift/Generated/MineProductionPointFinal11/Scene/Lightmap-0_comp_dir.png using Guid(5bf2d3bf4cbe6456f957c985e8c07339) (TextureImporter) -> (Import Result ID: 'd7ed81e6424a7b7f808b67b086dc6acf') in 0.002656 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=c0f7876552afcc4976dc461fd6178a40 DependenciesID=6cb5ca83e9afc9dddf9f4d90ce41625f StaticDependenciesID=5b2b3e4c1a2fced2824af43db54cd5f1 
+Asset Pipeline Refresh (id=b7ec3914c4dfff710b80f688c9d626b7): Total: 0.022 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=2877f1875724c986f953b35efe57a650): Total: 0.001 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=7a1ba4681f4cf4c0aab90e0345553766): Total: 0.001 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+> Collecting Enlighten data
+Start importing Assets/CriticalShift/Generated/MineProductionPointFinal11/Scene/LightingData.asset using Guid(a347880ab1e862ff3896efa93e40a551) (NativeFormatImporter) -> (Import Result ID: 'f1209bf6d8d3f3c505c29678dad25e35') in 0.000961529 seconds [static dependencies only]. Details - ImportResultOutputID=f021c94cccdcaa6ad5e4fb3c103ffb6f DependenciesID=acfa702948e9f692f770cceb1a15b093 StaticDependenciesID=39ee30a00af1fd2ffb4e149be9df95cf 
+Asset Pipeline Refresh (id=c636d3b2b83ddd71a8d7cc2fb0c8e1fd): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineProductionPointFinal11/Scene.unity using Guid(b7a9740fe35ce3097868a9b62fdb553c) (DefaultImporter) -> (Import Result ID: '7e074d0cdb7fd9badf65eb5d64c619c5') in 0.001043171 seconds [static dependencies only]. Details - ImportResultOutputID=f37b8279c7bd6b785061c4d1aa4086ca DependenciesID=b5f89b6e60449840bb713976644fe245 StaticDependenciesID=f71f5570d99f8760969b0a4e9b042578 
+Asset Pipeline Refresh (id=45d18b0077c5e11679d70d107e03b778): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+[00:00:34] Precompute started.
+CS_LIGHTDATA_FIELD entityId=-1484
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD cookieTextureEntityId=-1562
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD cookieScale=1
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD color=UnityEngine.Experimental.GlobalIllumination.LinearColor
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD indirectColor=UnityEngine.Experimental.GlobalIllumination.LinearColor
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD orientation=(0.00000, 0.00000, 0.00000, 1.00000)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD position=(0.00, 0.00, -16.00)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD range=12
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD coneAngle=0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD innerConeAngle=0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD shape0=0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD shape1=0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD type=Point
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD mode=Baked
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD shadow=0
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_LIGHTDATA_FIELD falloff=Legacy
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+CS_GI_BEFORE Legacy direct=2.533029 indirect=2.533029
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11/<>c__DisplayClass0_0:<Render>b__2 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:26)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:29)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 26)
+
+[BakePipeline::Driver] Extracted OOTS snapshot with 1 instances, 1 geometries, 1 meshes, 1 materials, 1 lights, 1 cookies in 3.21ms.
+[BakePipeline::Driver] Transformed OOTS snapshot into LightBaker scene input (0x7f67b1fb1ac0) in 18.70ms. Size: 1.50MB.
+[BakePipeline::PreprocessStage] Background thread started.
+[00:00:35] Finished 1 Layout Systems job (0.02s execute, 0.00s integrate, 0.03s wallclock)
+[PathTracer] Finished packing lightmaps in 0.000920 seconds.
+[00:00:35] Finished 1 Tetrahedralize Probes job (0.00s execute, 0.00s integrate, 0.01s wallclock)
+[00:00:35] Precompute took 0.045119 seconds.
+Enlighten scene contents:   0 geometries.   0 instances.   0 systems.   0 probe groups.   0 cube maps. Scene is up-to-date.
+[BakePipeline::BakeStage] Background thread started. Calling LightBaker.
+[BakePipeline::BakeStage] LightBaker bake took 5849.27ms and succeeded.
+[BakePipeline::PostProcessStage] Started.
+[BakePipeline::Run] Completed succesfully.
+Asset Pipeline Refresh (id=1403ed5a34a2ad39185d4d567e02e52e): Total: 0.009 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=2986df02767d1d33fb8e68e194f32e27): Total: 0.009 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineProductionPointFinal11/Scene/LightingData.asset using Guid(a347880ab1e862ff3896efa93e40a551) (NativeFormatImporter) -> (Import Result ID: '04baf544b41545c5354482d2c550dd55') in 0.001231754 seconds [static dependencies only]. Details - ImportResultOutputID=b615c68581c1804c3cae2dfeb19f6562 DependenciesID=8612f1950bd0310d17e1b9d049e1a59e StaticDependenciesID=c4f8d6278f5fb935043b214608a1ac60 
+Asset Pipeline Refresh (id=20fa4ac6e1f9efc3e891033f0788ee0c): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=ed142b525f701698ebff6e5aff0d6fab): Total: 0.008 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineProductionPointFinal11/Scene/Lightmap-0_comp_light.exr using Guid(69d759f182e741d36854bc7601290ff4) (TextureImporter) -> (Import Result ID: '1ca1ed28accc160d109c66f0fc448ab5') in 0.004208485 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=21c27970125e3e676172177399ddc881 DependenciesID=09121b74c9ac660aac52201c251a5527 StaticDependenciesID=0f9c1de8ff0087d51c1e016206aab0dd 
+Start importing Assets/CriticalShift/Generated/MineProductionPointFinal11/Scene/Lightmap-0_comp_dir.png using Guid(5bf2d3bf4cbe6456f957c985e8c07339) (TextureImporter) -> (Import Result ID: '6cb3f8cd14afbbcde0e7568239e4bc34') in 0.00162515 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=edb7ed5d4f9ce676ee27d6d755eab76b DependenciesID=04c18241ebdc1591b2aee8cb929e6636 StaticDependenciesID=e4ef2e32d379d876f8e56f0513c53439 
+Asset Pipeline Refresh (id=2747c91f80bf2fc658876eb32a619ba8): Total: 0.016 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CriticalShift/Generated/MineProductionPointFinal11/Scene/Lightmap-0_comp_light.exr using Guid(69d759f182e741d36854bc7601290ff4) (TextureImporter) -> (Import Result ID: '315a162c16f7592319f7a8c5e5c3e076') in 0.008869456 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=f9869db467c756128ef3a2698892f003 DependenciesID=d20b0160a1881b239787135668440647 StaticDependenciesID=b0f879d94d66243b66aae1eef3b0c9f4 
+Start importing Assets/CriticalShift/Generated/MineProductionPointFinal11/Scene/Lightmap-0_comp_dir.png using Guid(5bf2d3bf4cbe6456f957c985e8c07339) (TextureImporter) -> (Import Result ID: 'd7ed81e6424a7b7f808b67b086dc6acf') in 0.002543435 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=c0f7876552afcc4976dc461fd6178a40 DependenciesID=6cb5ca83e9afc9dddf9f4d90ce41625f StaticDependenciesID=5b2b3e4c1a2fced2824af43db54cd5f1 
+Asset Pipeline Refresh (id=7ceafbd7fb1588c11919db5da1614e91): Total: 0.021 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=2556a232f2203408fa27e055e13cbf3a): Total: 0.001 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=6c22b83d2e0114b4fae8afd6d7354601): Total: 0.001 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+> Collecting Enlighten data
+Start importing Assets/CriticalShift/Generated/MineProductionPointFinal11/Scene/LightingData.asset using Guid(a347880ab1e862ff3896efa93e40a551) (NativeFormatImporter) -> (Import Result ID: '7885a605eceb9a79e4de8703bc50a079') in 0.000884293 seconds [static dependencies only]. Details - ImportResultOutputID=f021c94cccdcaa6ad5e4fb3c103ffb6f DependenciesID=289cae86aaa01bf9452459ba00ade710 StaticDependenciesID=3c82860a1bd0318dac86c07d470b25a0 
+Asset Pipeline Refresh (id=12eae80a1748b233fa2a6be6721d200d): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+CS_NATIVE_PHYSICAL_POINT_CONTROL_OK; driver=llvmpipe (LLVM 19.1.7, 256 bits); lightsUseLinearIntensity=True; lightsUseColorTemperature=False
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineProductionPointFinal11:Render () (at Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs:30)
+
+(Filename: Assets/CriticalShift/Bootstrap/Player/Editor/CsMineProductionDiagnosticFinal11.cs Line: 30)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 10 unused Assets / (4.4 KB). Loaded Objects now: 1092.
+Memory consumption went from 95.1 MB to 95.0 MB.
+Total: 19.138064 ms (FindLiveObjects: 0.074357 ms CreateObjectMapping: 0.010197 ms MarkObjects: 18.905692 ms  DeleteObjects: 0.135807 ms)
+
+Asset Pipeline Refresh (id=973f11ea3d111eec793527edb733e8d2): Total: 0.009 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Batchmode quit successfully invoked - shutting down!
+[Physics::Module] Cleanup current backend.
+[Physics::Module] Id: 0xf2b8ea05
+Input System module state changed to: ShutdownInProgress.
+Input Polling Thread exited.
+Input System module state changed to: Shutdown.
+[Licensing::IpcConnector] LicenseClient-agent-notifications channel disconnected successfully.
+[Licensing::IpcConnector] LicenseClient-agent channel disconnected successfully.
+AcceleratorClientConnectionCallback - disconnected - :0
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...
+Cleanup mono
+CodeReloadManager destroyed
+debugger-agent: Unable to listen on 48
+Exiting batchmode successfully now!
+
+SDL leaked 2 allocations
+Turn on UNITY_SDL_ALLOCATION_TRACKING for detailed information.

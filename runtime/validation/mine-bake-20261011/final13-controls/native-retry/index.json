@@ -1,0 +1,74 @@
+{
+  "status": "FailedAttemptPreservedAndRetryPreflightOnly",
+  "files": {
+    "bounded-controls-relocation.json": {
+      "bytes": 1052,
+      "sha256": "9af883b97a470cd782608ee195370b000262fef0c393abda8a45d1877b319edf"
+    },
+    "cache-preservation-index.json": {
+      "bytes": 2840,
+      "sha256": "6955c8caac0e7831222935555c15b2d0baae04f59ffbcf3c22fd7ccc75fb23dd"
+    },
+    "failed-attempt/final13-pre-bake-generated-receipts/prepared-scene.json": {
+      "bytes": 383,
+      "sha256": "1396842e99d33c9df4e8cb146aa824c22281b049ea1122819132b4a90617dc90"
+    },
+    "failed-attempt/full-native-final13-state.json": {
+      "bytes": 198,
+      "sha256": "4a332c71c52fb96056c7ae4ab184ec94379a335fe0453643ef7ebf64f6320bf9"
+    },
+    "failed-attempt/independent-failure.json": {
+      "bytes": 1987,
+      "sha256": "1747db9aca0233e081b8223f7bad29cff5e9d9eb690c99a00d4860a12dfe9a1d"
+    },
+    "failed-attempt/native-bake-source-wood-final13-wrapper.log": {
+      "bytes": 114,
+      "sha256": "72fd7f9707c3a3be636c74838da3b3c346d71b90909aca8359187ae7336fffd7"
+    },
+    "failed-attempt/native-bake-source-wood-final13.log": {
+      "bytes": 520889,
+      "sha256": "ac537146e57f176426bc21ed27ba4077255d565e2d975b34b731f1cb1a3613ae"
+    },
+    "failed-attempt/native-launch-recipe-final13.json": {
+      "bytes": 627,
+      "sha256": "558cdd787e503b8cb9b93294e3e2e6943e160c2565f283ef38b0aa2658ac7008"
+    },
+    "failed-attempt/native-scratch.json": {
+      "bytes": 846,
+      "sha256": "a72e4fd4f7710a66e7c6eea2d9f37d580fcb07a71a6631937d0b388701a3c472"
+    },
+    "failed-attempt/receipt.json": {
+      "bytes": 929,
+      "sha256": "1405af4b787207bc673bf1987b68a6244f5b5eb6ecedb773d70e265f55b8d13e"
+    },
+    "failed-attempt/scratch-preservation.json": {
+      "bytes": 3350,
+      "sha256": "7d27682a955d8857c52a5b955cc42bd301fbb0ccd05af0101a385c876cee1eec"
+    },
+    "inactive-controls-relocation.json": {
+      "bytes": 414,
+      "sha256": "883913c04ea7583edd2e6f447fca27d798378fb08cba3889535d341f697015d7"
+    },
+    "independent-cache-preflight.json": {
+      "bytes": 2333,
+      "sha256": "fac5003c4781454da6017d86063090e124d39289a2bd699143bf9b5978f8a49f"
+    },
+    "retry-launch-recipe.json": {
+      "bytes": 627,
+      "sha256": "558cdd787e503b8cb9b93294e3e2e6943e160c2565f283ef38b0aa2658ac7008"
+    },
+    "scratch-archive-relocation.json": {
+      "bytes": 401,
+      "sha256": "1de5abc57c603ee30c28c956fb8b80e4e70a169c222246e5706b2273146bb6e8"
+    },
+    "scratch-preservation.py.txt": {
+      "bytes": 2149,
+      "sha256": "ab49fa721a44c7b98c86bfbc14622b71cd016b52be11b0c46ffb3a2aea7540b5"
+    }
+  },
+  "sourceReused": "IndependentlyVerifiedGenuineFreshFinal13",
+  "nativeRetryCompleted": false,
+  "visualScore": null,
+  "playerPass": false,
+  "archiveFilesRemainInWorkspaceOnly": true
+}

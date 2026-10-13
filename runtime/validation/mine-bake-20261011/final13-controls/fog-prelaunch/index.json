@@ -1,0 +1,33 @@
+{
+  "status": "NotRunCandidateStaticFreshnessReviewOnly",
+  "files": {
+    "cs-mine-fog-split-final13.py": {
+      "bytes": 6325,
+      "sha256": "971ccd44098ec3539a881854427f8af6374109da46c219386c00bbcfdcc23c5c"
+    },
+    "cs-mine-fog-split-final13.cs.txt": {
+      "bytes": 6556,
+      "sha256": "fc88338ca4816f2357cec4508943b831fd87f629e0c7d3bf91946a330067f5eb"
+    },
+    "cs-mine-fog-recheck-independent-final13.json": {
+      "bytes": 1191,
+      "sha256": "bdb24348c35e16de7f015bc7e15b231309fa88242571fda0985ff144fced82bb"
+    },
+    "cs-mine-fog-split-final13.asmdef.txt": {
+      "bytes": 334,
+      "sha256": "0609fcf3791b5efb6dc9444de0ba9446d168ff252d575b085fda0dfe894889b5"
+    },
+    "cs-mine-fog-prelaunch-independent-final13.json": {
+      "bytes": 1682,
+      "sha256": "dc1937949107d7c325fc627bdfd91bd87056864a9d2fea4173414c5270bf3360"
+    }
+  },
+  "nativeCSharpCompile": "NotRun",
+  "nativeCaptures": "NotRun",
+  "productionSourceChanges": false,
+  "gate": "Only after full13 technical completion and current strict visual review; exact prepared scene and current3 reviewed NativePNG/HDR/SourcePNG hashes required",
+  "limits": [
+    "Future paired fog contribution isolation only",
+    "Does not establish missing Mixed direct, Source scattering equivalence or art acceptance"
+  ]
+}

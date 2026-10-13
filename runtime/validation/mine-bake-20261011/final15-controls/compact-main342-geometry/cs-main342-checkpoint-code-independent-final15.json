@@ -1,0 +1,51 @@
+{
+  "utc": "2026-10-13T01:15:53.952808+00:00",
+  "reviewer": "/root/strict_mine_review",
+  "status": "AuthoredCodeCheckpointNoNewStaticBlocker_ExternalPreparationRigCompletenessBlocker",
+  "head": "2ade919f7aafefa0f1f58b4b3e36e575e6672044",
+  "inputs": {
+    "runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/MineSpotLighting.cs": "25967b76b79d94deb541f2241398f3461060348ab2d1cf8059ab16e1a0f774ca",
+    "runtime/unity/Assets/CriticalShift/Features/Player/BlenderPointLighting.cginc": "7314a8147285982eca1894d34cd0a84d66f95491323a3ee1a87856ebf882f89e",
+    "runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/SpawnMapBuild.cs": "0c8f6a0183a6a80f55f355fb8cd886134ef2a6a69f01b7f51697457857a71969",
+    "runtime/tools/map_source_snapshot.py": "ecc5e795e075f4b84e83905de549a9792e6a7d3a1889d40b77adc9523f3fd8df",
+    "runtime/tools/prepare_spawn.py": "6a4c128af0ad6bd42ec56f92a0e84bbb321c1bbc2f64765da47abe5361fc4541",
+    "runtime/tools/prepare_mine.py": "522c8c4cbfd0e2ea5392296c7992c90be3f709f973851cf318fdb48a89b21a4a",
+    "runtime/tools/prepare_player.py": "7009a6895eb874f93edf89700d4ae6385d347552f27c7c5ee9b7ea98e199f020",
+    "runtime/tools/export_spawn_map.py": "3f3f49a4681906fbe179e7f508a2690a87fe6549e139d098bebc99bedf1205e8"
+  },
+  "positiveCodeChecks": [
+    "Actual completeSourceSpot contract/source family guards, field/pose validation, in-place compatiblecookie repair and wrongtype failclosed unchanged.",
+    "Nested point/spotGIcallbacks ownership/restoration plus sharedSourceSPOT physical formula/untaggedfallback independently bounded tested.",
+    "Source snapshot now compares room inventory vs receipt and requires normalized room/exterior libraries; exactcurrent34pins alreadyindependentlyverified.",
+    "Compactlocalobjects full-only discovery, room-only metadata preservation, pureVolume hiddenunsupported descriptors and AREApreviewlimits.",
+    "Isolatedoutput derivative_meta maps outputtree to canonical GUIDidentity; actual matching importer bytes mustcarryforward."
+  ],
+  "remainingBlocker": {
+    "scope": "external queued wrapper, notcommitted coreexporter",
+    "file": "/tmp/cs-current-main-surface-preparation-final15-r2.py",
+    "problem": "Only three rig model/animation/json files preserved; recursively referenced rig package textures absent.",
+    "required": "Copy/hash every rig dependency+actualmeta; verify sharedpath collisions against freshSpawnexpectedhashes; validate complete nestedfile inventory beforepreparedstatus."
+  },
+  "boundedNativeEvidence": [
+    "Correctedcoldinplacecompatiblecookie8passed beforeGPUprobe; wrongtype rejection assetidentityunchanged.",
+    "Actual Baked+persistentlyRealtime sharedcookie noClear dynamiczeroSH lifecycle16passed currentprocess/fresheditorreload.",
+    "Full20 correction remainsrejected forsynthetic actualBake\u2192Clear\u2192switchedRT path; dirty repairedasset persistence unresolved."
+  ],
+  "nextGates": [
+    "Finishactual geometry14delivery/13sourceROOM+202localobjects collisionroundtrip/sourcepreservation.",
+    "FreshSpawn/mine surfaces and delivered recursivefile/metaproof.",
+    "Actual currentmain nativeimport/maplighting/HDR+visual/18PlayMode/freshPlayer/performance; no98claim."
+  ],
+  "lastVisual": {
+    "score": 41,
+    "outOf": 60,
+    "status": "RejectedOldSixRoomFinal13",
+    "overallScore": null
+  },
+  "notRunByReviewer": [
+    "Unity",
+    "Blender",
+    "APIcompiler",
+    "sourcebakes"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "utc": "2026-10-13T01:38:11.469693+00:00",
+  "reviewer": "/root/strict_mine_review",
+  "status": "ReviewedMetadataCorrectionAndExplicitR5Resume_NoCompletedSurfaceAcceptance",
+  "inputs": {
+    "/workspace/critical-shift-spawn-runtime/runtime/tools/export_spawn_floor.py": "cb3929eba386c1d1c48e7b013590b76d6348efca27487dc8f67d6cea0ff68f73",
+    "/workspace/critical-shift-spawn-runtime/runtime/tools/export_spawn_suits.py": "ca4e1585930c2011cee75b1d372ac5e16dc856b7556a45692bf8b10995ff6b3a",
+    "/workspace/critical-shift-spawn-runtime/runtime/tools/prepare_spawn.py": "6a4c128af0ad6bd42ec56f92a0e84bbb321c1bbc2f64765da47abe5361fc4541",
+    "/workspace/critical-shift-spawn-runtime/runtime/tools/prepare_player.py": "7009a6895eb874f93edf89700d4ae6385d347552f27c7c5ee9b7ea98e199f020",
+    "/workspace/critical-shift-spawn-runtime/runtime/tools/tests/test_derivative_metadata.py": "33c80733e7ab6a1bbad6c3170df79502392ba402e68e34f34984bc0e8c9ab9b0",
+    "/tmp/cs-current-main-surface-preparation-final15-r5.py": "5629a68abe6900799385f69df42cde70caf67f3fc1c86804a7983eb6c5a97434"
+  },
+  "review": [
+    "Floor/lettering/wall and suit exporters now call canonical derivative_meta for isolated outputs, and preserveexistingmeta bytes.",
+    "Unit fixture ROOT separation now mirrors actual repo/runtime modules.",
+    "Failed lettering wrote derivative files/manifest before metadata exception; rerun lettering replaces sameatlasindex/removes priorprefix definitions, avoidingduplicateatlas bindings.",
+    "R5 requiresFailed R4 atlettering, exactlycompletedbase step, completedloghash and everypriorpin unchanged exceptexplicitfloor/suit/wrapper corrections.",
+    "Retainedimportermeta hashes checked atresume; complete recursive mesh/texture/rig plus Source34pins required atfinal."
+  ],
+  "reviewGapAcknowledged": "Initial isolatedoutput code review didnottrace direct meta calls in floor/suit consumer exporters; current correction resolves that identified failure.",
+  "remainingGates": [
+    "R5 actualsurfaces output/hash/meta parity and nativeintegration; no newScore/art acceptance."
+  ]
+}

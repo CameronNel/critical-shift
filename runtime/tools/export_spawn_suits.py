@@ -54,8 +54,8 @@ def main():
     file.write_text(json.dumps({"samples":samples,"distanceMetres":2,"lightingIncluded":False,"meshes":records},indent=2)+"\n")
     package["suitOcclusion"]={"file":file.relative_to(output).as_posix(),"sha256":hashlib.sha256(file.read_bytes()).hexdigest()}
     path.write_text(json.dumps(manifest,indent=2)+"\n")
-    from prepare_player import meta
-    meta(file)
+    from prepare_spawn import derivative_meta
+    if not Path(str(file)+".meta").exists():derivative_meta(file,output)
     print("CS_SUIT_OCCLUSION_OK; source and room geometry unchanged",flush=True)
 
 

@@ -1,0 +1,12 @@
+{
+  "status": "Passed",
+  "nativeImportedThermosTests": 1,
+  "nativeHostTests": 9,
+  "apiAssemblies": 4,
+  "scope": "Thermos binding preflight only; full18 after fresh lighting, matched mine views, spawn regression and fresh Player still required.",
+  "sourceFiles": {
+    "runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/SpawnMapBuild.cs": "52f4c8b9e78be366618d9961084af2c67a7d428db0001da18231e7573dd12ac6",
+    "runtime/unity/Assets/CriticalShift/Features/Player/LocalShiftHost.cs": "253481a711b32a32b607763eb7fc6912ce0f309c3c98a74ec518ab7b4ddb3ce5",
+    "runtime/unity/Assets/CriticalShift/Tests/Player/SpawnMapBindingTests.cs": "930d45209e710eef689f80f9b08cdda59fee42babcc01cf2d8e5d56bd3f509cd"
+  }
+}

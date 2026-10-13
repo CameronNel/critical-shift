@@ -1,0 +1,51 @@
+{
+  "utc": "2026-10-13T01:20:52.591799+00:00",
+  "reviewer": "/root/strict_mine_review",
+  "status": "ClearedExternalR4FreshSurfacePreparationAfterGeometrySuccess_NotNativeAccepted",
+  "inputs": {
+    "/tmp/cs-current-main-surface-preparation-final15-r4.py": "382a37a3cd8b1dc15654b32fba1c0707106a5b73c33f8b0b00e0286284fd79f6",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/rig-bindings.json": "b89037e3c376c6e7958a3a1a1713664559baec579b861c8c5702ad03cc4a90a6",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/CrewWorker.fbx": "22f649c20eae6f9a6337f159201cc13c6d4e58f3ff2d8e3dd86d59b705830c77",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/CrewWorkerAnimations.fbx": "c5f921a6208fd04565a6c4c4d6e5a191b5d2ac8002f2cd3c8bc8c28f6e86343a",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/Surfaces/worker-suit/spawn-albedo.png": "e48df336047c5146ba30616e18ee942f71a99077652710600b239dfbf8f65cd3",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/Surfaces/worker-suit/spawn-metallic-smoothness.png": "86b1370269fb0c8031769578f7523fbe2ebda189da5922e10dc1cb837ffc6efb",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/Surfaces/worker-suit/spawn-normal.png": "683201b365d9fce7f4b84b60e96e973ace86fb0cfb2a01b38b29bef775fad3a7",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/Surfaces/worker-suit/spawn-emission.exr": "edcd8a48a6c9e56223aa60ea55dfd18f95ae5f6daea2dcf1ec2d66471f175833",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/Surfaces/worker-face/eyes_reference.png": "423d983961ea12f2f2637bd42b0240786d9320021fac662b2074889fbcbeb650",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/Surfaces/worker-face/mouth_reference.png": "db9178fd0c665c71ffe6c1d6899afcd9664592673c45c74cf200908a013a9ebe",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/Surfaces/spawn-display-lut.png": "24fdd7d0826468081ff6a5796d27973b7bbc4baad66920c170bee3798f66111b",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/rig-bindings.json.meta": "fbf35abee805454a94863702c2af603358d2b322630611eb5d16bb89826ea379",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/CrewWorker.fbx.meta": "2727bf9bbb179777e69c8c5ca2bcbb2af93c79572d7eaf67ea3ebe25ad90ed18",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/CrewWorkerAnimations.fbx.meta": "72d993f331c89baefb8fb010d681ceb46d883d544ebcdb3ecf0f634c1ad8738a",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/Surfaces/worker-suit/spawn-albedo.png.meta": "1154f85e790d66064f05b033213d3c08d3f30882eb3868e6a3e16513b7cba0ae",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/Surfaces/worker-suit/spawn-metallic-smoothness.png.meta": "164e9ab1b91177691ccddfe89d4b3bc7b2285762aa00d8ec8f4408b11c3916e5",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/Surfaces/worker-suit/spawn-normal.png.meta": "269ba4e9c753345cfed7114a11e751ac3ced74aede2bd4d7eb7d966f2c4fa707",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/Surfaces/worker-suit/spawn-emission.exr.meta": "38e684fde064bc3fe85cc491766d04bb1f054f216fb94c9bb93e6bf847707df7",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/Surfaces/worker-face/eyes_reference.png.meta": "a6654e7afae6d2da4b05bab2ab0e7badf41a19bd4fe6d20735be884eeb33852c",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/Surfaces/worker-face/mouth_reference.png.meta": "32772c885ec373f113d09f3512800e01390e05fee45127d30ea37034f99a6609",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/Surfaces/spawn-display-lut.png.meta": "4ac8cba77508f1b9892b8f90e702f8e64517402bd2c096023e1e29ad24112a02"
+  },
+  "rigUniqueSurfaceDependencies": {
+    "Surfaces/worker-suit/spawn-albedo.png": "e48df336047c5146ba30616e18ee942f71a99077652710600b239dfbf8f65cd3",
+    "Surfaces/worker-suit/spawn-metallic-smoothness.png": "86b1370269fb0c8031769578f7523fbe2ebda189da5922e10dc1cb837ffc6efb",
+    "Surfaces/worker-suit/spawn-normal.png": "683201b365d9fce7f4b84b60e96e973ace86fb0cfb2a01b38b29bef775fad3a7",
+    "Surfaces/worker-suit/spawn-emission.exr": "edcd8a48a6c9e56223aa60ea55dfd18f95ae5f6daea2dcf1ec2d66471f175833",
+    "Surfaces/worker-face/eyes_reference.png": "423d983961ea12f2f2637bd42b0240786d9320021fac662b2074889fbcbeb650",
+    "Surfaces/worker-face/mouth_reference.png": "db9178fd0c665c71ffe6c1d6899afcd9664592673c45c74cf200908a013a9ebe",
+    "Surfaces/spawn-display-lut.png": "24fdd7d0826468081ff6a5796d27973b7bbc4baad66920c170bee3798f66111b"
+  },
+  "checks": [
+    "Canonical rig JSON/models/7unique image dependencies and actualmeta hashed beforewait; both model bytes match declared hashes.",
+    "Complete rig package copies after freshsurfaces, preserving actual importmeta; shared freshlygenerated paths refused on hash conflict.",
+    "All recursive material/rig declaredfiles and every roommesh/collision hashes validated beforepreparedstatus.",
+    "Fresh Spawn module-derived surfaces/lettering/walls/suits, freshmine currentrecipe no reuselabel; allrelevant tools/self/config/sourceSHA pinned acrossrun.",
+    "Source verifiedsnapshot before/after; isolated output/audit avoids Generated/source replacement.",
+    "Sequential prerequisites and steps; incomplete geometry/failingchild rejects preparation."
+  ],
+  "nonBlockingOperationalNote": "Current geometry-state read uses direct JSON load while producer writes nonatomically; transient JSONDecodeError fails safely but may need retained retry. Bounded decode retry/atomicpublish can reduce avoidable restart without weakening failed-state guard.",
+  "remainingGates": [
+    "Geometry receipt stillRunning; reviewer must verify actual13+202local/collision/source proof on completion.",
+    "Actual sourceprep nestedfile/meta results and main import/nativefreshlighting/HDR/views/gameplay/Player gates.",
+    "No visualscore/98 increase from wrapper review."
+  ]
+}

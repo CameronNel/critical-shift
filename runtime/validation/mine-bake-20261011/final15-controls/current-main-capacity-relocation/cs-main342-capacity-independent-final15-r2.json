@@ -1,0 +1,62 @@
+{
+  "status": "PassedIndependentCurrentCapacityArchivesAliasesAndPinnedEditor",
+  "utc": "2026-10-13T05:39:49.710343+00:00",
+  "releaseReceiptSha256": "f8b474ecb7259f5b62b3782ac61f492a0aba3cf143ec79e03377d6e5d8a983fa",
+  "relocationReceiptSha256": "1110ec1a8e7787145743aee3da7eac3a03c7415bfa99f448b13ecabfdf8a395d",
+  "archiveSha256": "f701cb7400c39c93347f71ff86d14cb74bedd20f6b4acadf77af3adb77102d37",
+  "archiveBytes": 3810806723,
+  "pinnedProjectToolHashes": {
+    "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Unity": "7f819ec201960e9846fe281c736c8de32ffc75899d902f6cc604fc8b2cb884a1",
+    "/home/agent/.local/share/critical-shift/toolchain/dotnet/dotnet": "01d89e0a0191052bfea616cd4ce624c8faf13b05bbddf7f64499c23e2a9d9269"
+  },
+  "sixInactiveAliases": [
+    {
+      "source": "/tmp/cs-mine-library-artifacts-preserved-final15.tar.zst",
+      "destination": "/home/agent/.local/share/critical-shift/toolchain/cache-archives/mine-capacity-preserved-final15-r2/cs-mine-library-artifacts-preserved-final15.tar.zst",
+      "entries": 1,
+      "fileBytes": 856016630
+    },
+    {
+      "source": "/tmp/cs-mine-inactive-bake-scratch-preserved-final15.tar.zst",
+      "destination": "/home/agent/.local/share/critical-shift/toolchain/cache-archives/mine-capacity-preserved-final15-r2/cs-mine-inactive-bake-scratch-preserved-final15.tar.zst",
+      "entries": 1,
+      "fileBytes": 576164861
+    },
+    {
+      "source": "/tmp/cs-mine-inactive-controls-final13-evidence.tar.gz",
+      "destination": "/home/agent/.local/share/critical-shift/toolchain/cache-archives/mine-capacity-preserved-final15-r2/cs-mine-inactive-controls-final13-evidence.tar.gz",
+      "entries": 1,
+      "fileBytes": 402530315
+    },
+    {
+      "source": "/tmp/cs-mine-preserved-player-data-final11.unity3d",
+      "destination": "/home/agent/.local/share/critical-shift/toolchain/cache-archives/mine-capacity-preserved-final15-r2/cs-mine-preserved-player-data-final11.unity3d",
+      "entries": 1,
+      "fileBytes": 610263051
+    },
+    {
+      "source": "/tmp/cs-main342-prior-delivery-final15",
+      "destination": "/home/agent/.local/share/critical-shift/toolchain/cache-archives/mine-capacity-preserved-final15-r2/cs-main342-prior-delivery-final15",
+      "entries": 40,
+      "fileBytes": 780041212
+    },
+    {
+      "source": "/tmp/cs-mine-preserved-cache-final13-final15",
+      "destination": "/home/agent/.local/share/critical-shift/toolchain/cache-archives/mine-capacity-preserved-final15-r2/cs-mine-preserved-cache-final13-final15",
+      "entries": 9,
+      "fileBytes": 281271341
+    }
+  ],
+  "relocatedBytes": 3506287410,
+  "observedReceiptShmemReduction": 3506327552,
+  "currentShmemBytes": 4379009024,
+  "rootAvailableBytes": 1480245248,
+  "memoryEvents": "low 0\nhigh 0\nmax 1036266\noom 53\noom_kill 18\noom_group_kill 0\n",
+  "currentImmutableSourceAliasCount": 111,
+  "limits": [
+    "Pinned6000.4.3 project editor remains runnable;6.5 archived and requires capacity-qualified restoration",
+    "All historical byte/mode/ownership records match disk copies and logical aliases",
+    "Current111 canonical derivative bytes remain exact",
+    "No native engine by reviewer and no next-bake peak or visual98% guarantee"
+  ]
+}

@@ -1,0 +1,309 @@
+[{
+    "name": "Mixed1",
+    "mixedMode": "Shadowmask",
+    "lights": [
+        {
+            "name": "Mixed1 point 0",
+            "mode": "Mixed",
+            "actualBakingOutput": "probeOcclusionLightIndex=0;occlusionMaskChannel=0;lightmapBakeType=Mixed;mixedLightingMode=Shadowmask;isBaked=True",
+            "channel": 0,
+            "power": 100.0,
+            "intensity": 2.533029317855835,
+            "shapeRadius": 0.0010000000474974514,
+            "bounceIntensity": 0.0
+        }
+    ],
+    "rendererLightmapIndex": 0,
+    "probeCount": 8,
+    "interpolatedProbeCoefficients": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+    ],
+    "rendererLightmapScaleOffset": {
+        "x": 0.5,
+        "y": 0.5,
+        "z": 0.00390625,
+        "w": 0.00390625
+    }
+},{
+    "name": "Mixed6Overlap",
+    "mixedMode": "Shadowmask",
+    "lights": [
+        {
+            "name": "Mixed6Overlap point 0",
+            "mode": "Mixed",
+            "actualBakingOutput": "probeOcclusionLightIndex=2;occlusionMaskChannel=2;lightmapBakeType=Mixed;mixedLightingMode=Shadowmask;isBaked=True",
+            "channel": 2,
+            "power": 16.66666603088379,
+            "intensity": 0.42217156291007998,
+            "shapeRadius": 0.0010000000474974514,
+            "bounceIntensity": 0.0
+        },
+        {
+            "name": "Mixed6Overlap point 1",
+            "mode": "Mixed",
+            "actualBakingOutput": "probeOcclusionLightIndex=5;occlusionMaskChannel=-1;lightmapBakeType=Baked;mixedLightingMode=Shadowmask;isBaked=True",
+            "channel": -1,
+            "power": 16.66666603088379,
+            "intensity": 0.42217156291007998,
+            "shapeRadius": 0.0010000000474974514,
+            "bounceIntensity": 0.0
+        },
+        {
+            "name": "Mixed6Overlap point 2",
+            "mode": "Mixed",
+            "actualBakingOutput": "probeOcclusionLightIndex=3;occlusionMaskChannel=3;lightmapBakeType=Mixed;mixedLightingMode=Shadowmask;isBaked=True",
+            "channel": 3,
+            "power": 16.66666603088379,
+            "intensity": 0.42217156291007998,
+            "shapeRadius": 0.0010000000474974514,
+            "bounceIntensity": 0.0
+        },
+        {
+            "name": "Mixed6Overlap point 3",
+            "mode": "Mixed",
+            "actualBakingOutput": "probeOcclusionLightIndex=1;occlusionMaskChannel=1;lightmapBakeType=Mixed;mixedLightingMode=Shadowmask;isBaked=True",
+            "channel": 1,
+            "power": 16.66666603088379,
+            "intensity": 0.42217156291007998,
+            "shapeRadius": 0.0010000000474974514,
+            "bounceIntensity": 0.0
+        },
+        {
+            "name": "Mixed6Overlap point 4",
+            "mode": "Mixed",
+            "actualBakingOutput": "probeOcclusionLightIndex=4;occlusionMaskChannel=-1;lightmapBakeType=Baked;mixedLightingMode=Shadowmask;isBaked=True",
+            "channel": -1,
+            "power": 16.66666603088379,
+            "intensity": 0.42217156291007998,
+            "shapeRadius": 0.0010000000474974514,
+            "bounceIntensity": 0.0
+        },
+        {
+            "name": "Mixed6Overlap point 5",
+            "mode": "Mixed",
+            "actualBakingOutput": "probeOcclusionLightIndex=0;occlusionMaskChannel=0;lightmapBakeType=Mixed;mixedLightingMode=Shadowmask;isBaked=True",
+            "channel": 0,
+            "power": 16.66666603088379,
+            "intensity": 0.42217156291007998,
+            "shapeRadius": 0.0010000000474974514,
+            "bounceIntensity": 0.0
+        }
+    ],
+    "rendererLightmapIndex": 0,
+    "probeCount": 8,
+    "interpolatedProbeCoefficients": [
+        0.03304801508784294,
+        0.004897085018455982,
+        -0.03427990525960922,
+        0.004897064995020628,
+        0.0003029684885405004,
+        -0.0021208059042692186,
+        0.0024238009937107565,
+        -0.00212079961784184,
+        -4.487520077756102e-10,
+        0.03304801508784294,
+        0.004897085018455982,
+        -0.03427990525960922,
+        0.004897064995020628,
+        0.0003029684885405004,
+        -0.0021208059042692186,
+        0.0024238009937107565,
+        -0.00212079961784184,
+        -4.487520077756102e-10,
+        0.03304801508784294,
+        0.004897085018455982,
+        -0.03427990525960922,
+        0.004897064995020628,
+        0.0003029684885405004,
+        -0.0021208059042692186,
+        0.0024238009937107565,
+        -0.00212079961784184,
+        -4.487520077756102e-10
+    ],
+    "rendererLightmapScaleOffset": {
+        "x": 0.5,
+        "y": 0.5,
+        "z": 0.00390625,
+        "w": 0.00390625
+    }
+},{
+    "name": "Baked1",
+    "mixedMode": "Shadowmask",
+    "lights": [
+        {
+            "name": "Baked1 point 0",
+            "mode": "Baked",
+            "actualBakingOutput": "probeOcclusionLightIndex=0;occlusionMaskChannel=-1;lightmapBakeType=Baked;mixedLightingMode=Shadowmask;isBaked=True",
+            "channel": -1,
+            "power": 100.0,
+            "intensity": 2.533029317855835,
+            "shapeRadius": 0.0010000000474974514,
+            "bounceIntensity": 0.0
+        }
+    ],
+    "rendererLightmapIndex": 0,
+    "probeCount": 8,
+    "interpolatedProbeCoefficients": [
+        0.09914365410804749,
+        0.014691239222884179,
+        -0.10283974558115006,
+        0.014691200107336045,
+        0.0009089054074138403,
+        -0.0063624195754528049,
+        0.007271410897374153,
+        -0.006362398155033588,
+        -1.346253108991391e-9,
+        0.09914365410804749,
+        0.014691239222884179,
+        -0.10283974558115006,
+        0.014691200107336045,
+        0.0009089054074138403,
+        -0.0063624195754528049,
+        0.007271410897374153,
+        -0.006362398155033588,
+        -1.346253108991391e-9,
+        0.09914365410804749,
+        0.014691239222884179,
+        -0.10283974558115006,
+        0.014691200107336045,
+        0.0009089054074138403,
+        -0.0063624195754528049,
+        0.007271410897374153,
+        -0.006362398155033588,
+        -1.346253108991391e-9
+    ],
+    "rendererLightmapScaleOffset": {
+        "x": 0.5,
+        "y": 0.5,
+        "z": 0.00390625,
+        "w": 0.00390625
+    }
+},{
+    "name": "Mixed6NoMask",
+    "mixedMode": "Shadowmask",
+    "lights": [
+        {
+            "name": "Mixed6NoMask point 0",
+            "mode": "Mixed",
+            "actualBakingOutput": "probeOcclusionLightIndex=3;occlusionMaskChannel=-1;lightmapBakeType=Baked;mixedLightingMode=Shadowmask;isBaked=True",
+            "channel": -1,
+            "power": 16.66666603088379,
+            "intensity": 0.42217156291007998,
+            "shapeRadius": 0.0010000000474974514,
+            "bounceIntensity": 0.0
+        },
+        {
+            "name": "Mixed6NoMask point 1",
+            "mode": "Mixed",
+            "actualBakingOutput": "probeOcclusionLightIndex=4;occlusionMaskChannel=-1;lightmapBakeType=Baked;mixedLightingMode=Shadowmask;isBaked=True",
+            "channel": -1,
+            "power": 16.66666603088379,
+            "intensity": 0.42217156291007998,
+            "shapeRadius": 0.0010000000474974514,
+            "bounceIntensity": 0.0
+        },
+        {
+            "name": "Mixed6NoMask point 2",
+            "mode": "Mixed",
+            "actualBakingOutput": "probeOcclusionLightIndex=0;occlusionMaskChannel=-1;lightmapBakeType=Baked;mixedLightingMode=Shadowmask;isBaked=True",
+            "channel": -1,
+            "power": 16.66666603088379,
+            "intensity": 0.42217156291007998,
+            "shapeRadius": 0.0010000000474974514,
+            "bounceIntensity": 0.0
+        },
+        {
+            "name": "Mixed6NoMask point 3",
+            "mode": "Mixed",
+            "actualBakingOutput": "probeOcclusionLightIndex=1;occlusionMaskChannel=-1;lightmapBakeType=Baked;mixedLightingMode=Shadowmask;isBaked=True",
+            "channel": -1,
+            "power": 16.66666603088379,
+            "intensity": 0.42217156291007998,
+            "shapeRadius": 0.0010000000474974514,
+            "bounceIntensity": 0.0
+        },
+        {
+            "name": "Mixed6NoMask point 4",
+            "mode": "Mixed",
+            "actualBakingOutput": "probeOcclusionLightIndex=5;occlusionMaskChannel=-1;lightmapBakeType=Baked;mixedLightingMode=Shadowmask;isBaked=True",
+            "channel": -1,
+            "power": 16.66666603088379,
+            "intensity": 0.42217156291007998,
+            "shapeRadius": 0.0010000000474974514,
+            "bounceIntensity": 0.0
+        },
+        {
+            "name": "Mixed6NoMask point 5",
+            "mode": "Mixed",
+            "actualBakingOutput": "probeOcclusionLightIndex=2;occlusionMaskChannel=-1;lightmapBakeType=Baked;mixedLightingMode=Shadowmask;isBaked=True",
+            "channel": -1,
+            "power": 16.66666603088379,
+            "intensity": 0.42217156291007998,
+            "shapeRadius": 0.0010000000474974514,
+            "bounceIntensity": 0.0
+        }
+    ],
+    "rendererLightmapIndex": 0,
+    "probeCount": 8,
+    "interpolatedProbeCoefficients": [
+        0.09914439171552658,
+        0.014691275544464589,
+        -0.10283956676721573,
+        0.014691207557916642,
+        0.000908904243260622,
+        -0.006362412124872208,
+        0.007271365728229284,
+        -0.00636239955201745,
+        -1.3462384540474659e-9,
+        0.09914439171552658,
+        0.014691275544464589,
+        -0.10283956676721573,
+        0.014691207557916642,
+        0.000908904243260622,
+        -0.006362412124872208,
+        0.007271365728229284,
+        -0.00636239955201745,
+        -1.3462384540474659e-9,
+        0.09914439171552658,
+        0.014691275544464589,
+        -0.10283956676721573,
+        0.014691207557916642,
+        0.000908904243260622,
+        -0.006362412124872208,
+        0.007271365728229284,
+        -0.00636239955201745,
+        -1.3462384540474659e-9
+    ],
+    "rendererLightmapScaleOffset": {
+        "x": 0.5,
+        "y": 0.5,
+        "z": 0.00390625,
+        "w": 0.00390625
+    }
+}]

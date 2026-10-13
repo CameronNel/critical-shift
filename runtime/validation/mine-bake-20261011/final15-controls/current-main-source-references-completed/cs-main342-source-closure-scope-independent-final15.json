@@ -1,0 +1,37 @@
+{
+  "status": "SourceClosureWarningQualified_ReactorPoolPotentialCandidate_NotTruncationProof",
+  "graphDiagnosticSha256": "2299506638684b2bb4b9de00b9d98ffc89fd154791cc4085d03ddb2f295ccaab",
+  "diagnosticWrapper": "/tmp/cs-main342-material-candidates-native-final15.json",
+  "sourceReferenceReview": "/tmp/cs-main342-source-r2-independent-final15.json",
+  "installedBlenderVersion": "5.2.2 LTS",
+  "installedBuildHash": "d13f752e3b9c",
+  "boundMaterialCount": 918,
+  "above64Candidates": [
+    {
+      "material": "pool_medium|//map/sections/reactor-room/blender/reactorroom.blend",
+      "connectedNodeTypes": {
+        "ADD_SHADER": 2,
+        "VOLUME_ABSORPTION": 1,
+        "VOLUME_SCATTER": 2
+      },
+      "publicMainPotentialEstimate": 96,
+      "users": [
+        {
+          "room": "reactor-room",
+          "object": "Deep water medium",
+          "sourceHideRender": false,
+          "visibleCamera": true,
+          "potentialCameraFrusta": [],
+          "modifiersUnevaluated": false
+        }
+      ]
+    }
+  ],
+  "mineFrontendPotentialMaximum": 13,
+  "limits": [
+    "Exact installed source graph read-only; publicmain closure estimate not exact installed compiler expansion/simplification",
+    "Reactor pool candidate has no conservative mine-camera frustum candidates; bounds are unevaluated/no occlusion or pixel visibility certificate",
+    "Unseen reactor-volume indirect/path contribution and actual runtime closure clipping are unmeasured",
+    "Canonical source/reference images unchanged; Source references technical Passed, no Native art score inferred"
+  ]
+}

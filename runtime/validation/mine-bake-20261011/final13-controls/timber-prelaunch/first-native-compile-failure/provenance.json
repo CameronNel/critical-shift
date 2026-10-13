@@ -1,0 +1,46 @@
+{
+  "status": "FailedBeforeNativeRender",
+  "sourceRenderCompleted": true,
+  "sourceMasks": {
+    "boards": 82759,
+    "frame": 52445
+  },
+  "cause": "InternalSpawnMapBuild.Folder inaccessible to independentEditorassembly; missingRenderingnamespace forReflectionProbeBlendInfo",
+  "files": [
+    {
+      "file": "cs-mine-timber-diagnostics-final13.py",
+      "sha256": "66e6ee726af116442b0305bb18aeb7c88ed2979a5ea2c29a838ab5a3104de83b"
+    },
+    {
+      "file": "cs-mine-timber-diagnostics-final13.json",
+      "sha256": "ad233b280c3568c8d1e0596098d0028ceb40e7d21b21c435897b92a21d5b4ff2"
+    },
+    {
+      "file": "cs-mine-timber-native-final13.cs.txt",
+      "sha256": "9b0a789a02ecf271abf6ab7c67b72a0bfa675334a1ad76e8c4ef7cf16468b882"
+    },
+    {
+      "file": "cs-mine-timber-native-final13.shader.txt",
+      "sha256": "d43159f98efe56d76595294d607fff7d410008bee581ebd5f8b56bf9a6a9c26e"
+    },
+    {
+      "file": "cs-mine-timber-object-id-final13.shader.txt",
+      "sha256": "c9b4fff830a8e966040b322c39fe6dd7e3b63a3c88515cf5ebf6a71b4b1980db"
+    },
+    {
+      "file": "cs-mine-timber-source-final13.py",
+      "sha256": "3ccef9ef76f5741c06d8a4ea23212e96b92df87b4042ebd719b0502891fe4fac"
+    },
+    {
+      "file": "timber-split-final13.native.log",
+      "sha256": "4f4d1c2489617f9c3a413e8c7b2594369a33d3a138f8fe9882745ba4e33eb756"
+    },
+    {
+      "file": "timber-split-final13.wrapper.log",
+      "sha256": "a37c1c1e436570b4d07be72152958fddea58dbbc6f3aa9a85d50736cb3902e6f"
+    }
+  ],
+  "limits": [
+    "No actualNative frames produced; no source/fullscene changes or score"
+  ]
+}

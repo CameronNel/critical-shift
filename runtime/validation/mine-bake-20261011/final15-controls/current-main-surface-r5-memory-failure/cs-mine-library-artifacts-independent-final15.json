@@ -1,0 +1,39 @@
+{
+  "status": "PassedIndependentArchiveBytesEntriesAndReleaseAudit_NotBakeSuccess",
+  "receiptSha256": "0552a490a5ddf36a616b319abd003d9a994f2eb91bd50ffa37bbf8bb3fe09c59",
+  "archiveSha256": "9059ed87f03260b05483e75a71b652437d1735d04010e36f4e049bfbb16eff38",
+  "archiveBytes": 856016630,
+  "entryCount": 456,
+  "types": {
+    "file": 196,
+    "directory": 257,
+    "symlink": 3
+  },
+  "rawCacheBytes": 2600878837,
+  "measuredShmemReductionBytes": 1744994304,
+  "cacheAlias": "/dev/shm/critical-shift-spawn-library",
+  "cacheEmpty": true,
+  "limitations": [
+    "Net shmem release is raw cache bytes minus tmpfs archive overhead, not full raw byte count",
+    "Restore archive bytes/entry set/modes/links before Unity and after all heavy Blender/reference work exits",
+    "No proof of successful mine rerun or current-main visual/native integration",
+    "One archived cache symlink target was already missing; exact link preservation does not certify external cache-target health"
+  ],
+  "externalSymlinkTargets": {
+    "Artifacts/08/088d584a4a2f338e9b5981e3455360b6": {
+      "link": "/workspace/critical-shift-spawn-runtime/runtime/out/inactive-cache-final13/active/Artifacts/08/088d584a4a2f338e9b5981e3455360b6",
+      "targetExists": true,
+      "targetBytes": 52484396
+    },
+    "Artifacts/2e/2e50fecb9f661386d2c34df028d6f8ca": {
+      "link": "/workspace/critical-shift-spawn-runtime/runtime/out/mine-disk-cache/Artifacts/2e/2e50fecb9f661386d2c34df028d6f8ca",
+      "targetExists": false,
+      "targetBytes": null
+    },
+    "Artifacts/c9/c9cd52c60fc412f1009592a01c5edf87": {
+      "link": "/workspace/critical-shift-spawn-runtime/runtime/out/inactive-cache-final13/active/Artifacts/c9/c9cd52c60fc412f1009592a01c5edf87",
+      "targetExists": true,
+      "targetBytes": 134237084
+    }
+  }
+}

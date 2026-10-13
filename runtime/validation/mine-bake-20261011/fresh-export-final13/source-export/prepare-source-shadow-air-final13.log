@@ -1,0 +1,1251 @@
+00:00.865  blend            | Read blend: "/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/combined-runtime-source.blend"
+00:01.180  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/exteriors/refinery/exterior-R01.blend', '//map/sections/facility-assembly/exteriors/refinery/exterior-R01.blend', parent '<direct>'
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)
+00:01.208  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/exteriors/medical-reanimation/exterior-R04.blend', '//map/sections/facility-assembly/exteriors/medical-reanimation/exterior-R04.blend', parent '<direct>'
+00:01.228  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/exteriors/spawn-room/exterior-R05.blend', '//map/sections/facility-assembly/exteriors/spawn-room/exterior-R05.blend', parent '<direct>'
+00:01.267  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/front-end-area/front_end_area.blend', '//map/sections/facility-assembly/sources/front-end-area/front_end_area.blend', parent '<direct>'
+00:02.048  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/fuel-corridor/production/checkpoints/fuel_full_F23ci.blend', '//map/sections/fuel-corridor/production/checkpoints/fuel_full_F23ci.blend', parent '<direct>'
+00:03.268  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/spawn-room/module.blend', '//map/sections/facility-assembly/sources/spawn-room/module.blend', parent '<direct>'
+00:04.263  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/refinery/module_overhaul_R1.blend', '//map/sections/facility-assembly/sources/refinery/module_overhaul_R1.blend', parent '<direct>'
+00:05.367  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/medical-reanimation/module_overhaul_R2.blend', '//map/sections/facility-assembly/sources/medical-reanimation/module_overhaul_R2.blend', parent '<direct>'
+00:06.515  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/mine-r39/module_r39_aaa.blend', '//map/sections/facility-assembly/sources/mine-r39/module_r39_aaa.blend', parent '<direct>'
+00:07.238  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/spawn-room/hero_suit.blend', '//hero_suit.blend', parent '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/spawn-room/module.blend'
+/workspace/critical-shift-spawn-runtime/runtime/tools/export_spawn_map.py:197: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  frames = {n.object for o in copies if o.type == "MESH" for m in o.data.materials if m and m.use_nodes
+CS_MINE_ATLAS mine-mountain 1 176287
+CS_SURFACE_COMPATIBLE_BATCHES mine-mountain 1
+CS_SURFACE_BAKE_START mine-mountain albedo 1 4096
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-mountain albedo
+CS_SURFACE_BAKE_START mine-mountain metallic-smoothness 1 4096
+CS_SURFACE_CONSTANT_CHANNEL mine-mountain metallic-smoothness
+CS_SURFACE_BAKE_DONE mine-mountain metallic-smoothness
+CS_SURFACE_BAKE_START mine-mountain normal 1 4096
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-mountain normal
+CS_SURFACE_BAKE_START mine-mountain emission 1 4096
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-mountain emission
+CS_MINE_ATLAS mine-tunnel-floor 1 41680
+CS_MINE_UV_PROXY CS_mine_R39 | Tunnel floor 41680 to 41680
+CS_SURFACE_COMPATIBLE_BATCHES mine-tunnel-floor 1
+CS_SURFACE_BAKE_START mine-tunnel-floor albedo 1 4096
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-tunnel-floor albedo
+CS_SURFACE_BAKE_START mine-tunnel-floor metallic-smoothness 1 4096
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-tunnel-floor metallic-smoothness
+CS_SURFACE_BAKE_START mine-tunnel-floor normal 1 4096
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-tunnel-floor normal
+CS_SURFACE_BAKE_START mine-tunnel-floor emission 1 4096
+CS_SURFACE_CONSTANT_CHANNEL mine-tunnel-floor emission
+CS_SURFACE_BAKE_DONE mine-tunnel-floor emission
+CS_MINE_ATLAS mine-ground 6 336713
+CS_SURFACE_COMPATIBLE_BATCHES mine-ground 4
+CS_SURFACE_BAKE_START mine-ground albedo 6 4096
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-ground albedo
+CS_SURFACE_BAKE_START mine-ground metallic-smoothness 6 4096
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-ground metallic-smoothness
+CS_SURFACE_BAKE_START mine-ground normal 6 4096
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-ground normal
+CS_SURFACE_BAKE_START mine-ground emission 6 4096
+CS_SURFACE_CONSTANT_CHANNEL mine-ground emission
+CS_SURFACE_BAKE_DONE mine-ground emission
+CS_SURFACE_BAKE_START mine-ground wood-high 6 4096
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-ground wood-high
+CS_MINE_ATLAS mine-rocks 14 578354
+CS_SURFACE_COMPATIBLE_BATCHES mine-rocks 4
+CS_SURFACE_BAKE_START mine-rocks albedo 14 4096
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-rocks albedo
+CS_SURFACE_BAKE_START mine-rocks metallic-smoothness 14 4096
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-rocks metallic-smoothness
+CS_SURFACE_BAKE_START mine-rocks normal 14 4096
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-rocks normal
+CS_SURFACE_BAKE_START mine-rocks emission 14 4096
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-rocks emission
+CS_MINE_ATLAS mine-duct 2 8706
+CS_MINE_UV_PROXY CS_mine_R39 | Ventilation duct 3312 to 3189
+CS_MINE_UV_PROXY CS_mine_R39 | Pipe and duct hangers 5394 to 5394
+CS_SURFACE_COMPATIBLE_BATCHES mine-duct 1
+CS_SURFACE_BAKE_START mine-duct albedo 2 4096
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-duct albedo
+CS_SURFACE_BAKE_START mine-duct metallic-smoothness 2 4096
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-duct metallic-smoothness
+CS_SURFACE_BAKE_START mine-duct normal 2 4096
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-duct normal
+CS_SURFACE_BAKE_START mine-duct emission 2 4096
+CS_SURFACE_CONSTANT_CHANNEL mine-duct emission
+CS_SURFACE_BAKE_DONE mine-duct emission
+CS_MINE_ATLAS mine-air-main 1 3396
+CS_MINE_UV_PROXY CS_mine_R39 | Compressed air main 3396 to 3394
+CS_SURFACE_COMPATIBLE_BATCHES mine-air-main 1
+CS_SURFACE_BAKE_START mine-air-main albedo 1 4096
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-air-main albedo
+CS_SURFACE_BAKE_START mine-air-main metallic-smoothness 1 4096
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-air-main metallic-smoothness
+CS_SURFACE_BAKE_START mine-air-main normal 1 4096
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-air-main normal
+CS_SURFACE_BAKE_START mine-air-main emission 1 4096
+CS_SURFACE_CONSTANT_CHANNEL mine-air-main emission
+CS_SURFACE_BAKE_DONE mine-air-main emission
+CS_MINE_ATLAS mine-structure 25 74765
+CS_MINE_UV_PROXY CS_mine_R39 | Ore carts timber 3582 to 3494
+CS_MINE_UV_PROXY CS_mine_R39 | Warning boards 42 to 42
+CS_MINE_UV_PROXY CS_mine_R39 | Timber props 1344 to 1319
+CS_MINE_UV_PROXY CS_mine_R39 | Rails ext0 816 to 816
+CS_MINE_UV_PROXY CS_mine_R39 | Sleepers ext0 288 to 281
+CS_MINE_UV_PROXY CS_mine_R39 | Rails ext1 816 to 816
+CS_MINE_UV_PROXY CS_mine_R39 | Sleepers ext1 288 to 281
+CS_MINE_UV_PROXY CS_mine_R39 | Rails ext2 816 to 816
+CS_MINE_UV_PROXY CS_mine_R39 | Sleepers ext2 288 to 281
+CS_MINE_UV_PROXY CS_mine_R39 | Rails ext3 288 to 288
+CS_MINE_UV_PROXY CS_mine_R39 | Sleepers ext3 114 to 111
+CS_MINE_UV_PROXY CS_mine_R39 | Shed frame 6306 to 6212
+CS_MINE_UV_PROXY CS_mine_R39 | Shed boards 20387 to 20081
+CS_MINE_UV_PROXY CS_mine_R39 | Rails 4512 to 4512
+CS_MINE_UV_PROXY CS_mine_R39 | Sleepers 4158 to 4066
+CS_MINE_UV_PROXY CS_mine_R39 | Tunnel timber sets 16230 to 16051
+CS_MINE_UV_PROXY CS_mine_R39 | Timber ironwork 4608 to 4608
+CS_MINE_UV_PROXY CS_mine_R39 | Post number boards 552 to 539
+CS_MINE_UV_PROXY CS_mine_R39 | Duckboard walkway 5748 to 5628
+CS_MINE_UV_PROXY CS_mine_R39 | Shed ironwork 256 to 256
+CS_MINE_UV_PROXY CS_mine_R39 | Shed tin patches 1050 to 1050
+CS_MINE_UV_PROXY CS_mine_R39 | Shed footings 1322 to 1304
+CS_MINE_UV_PROXY CS_mine_R39 | Shed signs 48 to 47
+CS_MINE_UV_PROXY CS_mine_R39 | Notice board 462 to 451
+CS_MINE_UV_PROXY CS_mine_R39 | Sign boards 444 to 434
+CS_SURFACE_COMPATIBLE_BATCHES mine-structure 3
+CS_SURFACE_BAKE_START mine-structure albedo 25 4096
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-structure albedo
+CS_SURFACE_BAKE_START mine-structure metallic-smoothness 25 4096
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-structure metallic-smoothness
+CS_SURFACE_BAKE_START mine-structure normal 25 4096
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-structure normal
+CS_SURFACE_BAKE_START mine-structure emission 25 4096
+CS_SURFACE_CONSTANT_CHANNEL mine-structure emission
+CS_SURFACE_BAKE_DONE mine-structure emission
+CS_SURFACE_BAKE_START mine-structure wood-high 25 4096
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-structure wood-high
+CS_MINE_ATLAS mine-props 117 798156
+CS_MINE_UV_PROXY CS_mine_R39 | Apron mud 12978 to 12978
+CS_MINE_UV_PROXY CS_mine_R39 | Yard puddles 32 to 32
+CS_MINE_UV_PROXY CS_mine_R39 | Ore carts ironwork 8862 to 8668
+CS_MINE_UV_PROXY CS_mine_R39 | Ore carts load 1048 to 1048
+CS_MINE_UV_PROXY CS_mine_R39 | Trough water 4 to 4
+CS_MINE_UV_PROXY CS_mine_R39 | Skeletons 6764 to 6743
+CS_MINE_UV_PROXY CS_mine_R39 | Iron props 136 to 136
+CS_MINE_UV_PROXY CS_mine_R39 | Rope and canvas 1570 to 1570
+CS_MINE_UV_PROXY CS_mine_R39 | Ore piles 447 to 447
+CS_MINE_UV_PROXY CS_mine_R39 | Dirt mounds 789 to 789
+CS_MINE_UV_PROXY CS_mine_R39 | Mound stones 845 to 845
+CS_MINE_UV_PROXY CS_mine_R39 | Lantern chains and hooks 3904 to 3904
+CS_MINE_UV_PROXY CS_mine_R39 | Hanging chains 1332 to 1332
+CS_MINE_UV_PROXY CS_mine_R39 | Track ironwork ext0 1566 to 1566
+CS_MINE_UV_PROXY CS_mine_R39 | Track ironwork ext1 1566 to 1566
+CS_MINE_UV_PROXY CS_mine_R39 | Track ironwork ext2 1566 to 1566
+CS_MINE_UV_PROXY CS_mine_R39 | Track ironwork ext3 624 to 624
+CS_MINE_UV_PROXY CS_mine_R40 | Cliff talus 11832 to 11678
+CS_MINE_UV_PROXY CS_mine_R39 | Tunnel puddles 322 to 322
+CS_MINE_UV_PROXY CS_mine_R39 | Track ironwork 17800 to 17800
+CS_MINE_UV_PROXY CS_mine_R39 | Tunnel lagging 12396 to 12144
+CS_MINE_UV_PROXY CS_mine_R39 | Post number 448 to 224
+CS_MINE_UV_PROXY CS_mine_R39 | Post number.001 788 to 394
+CS_MINE_UV_PROXY CS_mine_R39 | Post number.002 1020 to 510
+CS_MINE_UV_PROXY CS_mine_R39 | Post number.003 492 to 246
+CS_MINE_UV_PROXY CS_mine_R39 | Post number.004 744 to 372
+CS_MINE_UV_PROXY CS_mine_R39 | Post number.005 916 to 458
+CS_MINE_UV_PROXY CS_mine_R39 | Post number.006 456 to 228
+CS_MINE_UV_PROXY CS_mine_R39 | Post number.007 1200 to 600
+CS_MINE_UV_PROXY CS_mine_R39 | Post number.008 964 to 482
+CS_MINE_UV_PROXY CS_mine_R39 | Post number.009 448 to 224
+CS_MINE_UV_PROXY CS_mine_R39 | Post number.010 80 to 40
+CS_MINE_UV_PROXY CS_mine_R39 | Post number.011 420 to 210
+CS_MINE_UV_PROXY CS_mine_R39 | Post number.012 652 to 326
+CS_MINE_UV_PROXY CS_mine_R39 | Post number.013 124 to 62
+CS_MINE_UV_PROXY CS_mine_R39 | Post number.014 376 to 188
+CS_MINE_UV_PROXY CS_mine_R39 | Post number.015 548 to 274
+CS_MINE_UV_PROXY CS_mine_R39 | Bell wire 1472 to 1335
+CS_MINE_UV_PROXY CS_mine_R39 | Sign text 1264 to 632
+CS_MINE_UV_PROXY CS_mine_R39 | Rugs 3802 to 3802
+CS_MINE_UV_PROXY CS_mine_R39 | Cart number 444 to 222
+CS_MINE_UV_PROXY CS_mine_R39 | Cart number.001 408 to 204
+CS_MINE_UV_PROXY CS_mine_R39 | wooden_bucket_01 3991 to 2872
+CS_MINE_UV_PROXY CS_mine_R39 | wooden_axe 2225 to 1678
+CS_MINE_UV_PROXY CS_mine_R39 | picke_dirty_01 3578 to 3100
+CS_MINE_UV_PROXY CS_mine_R39 | sledgehammer_01 1603 to 1309
+CS_MINE_UV_PROXY CS_mine_R39 | wooden_bucket_01.001 3991 to 2872
+CS_MINE_UV_PROXY CS_mine_R39 | vintage_oil_lamp 4464 to 3731
+CS_MINE_UV_PROXY CS_mine_R39 | picke_dirty_01.001 3578 to 3100
+CS_MINE_UV_PROXY CS_mine_R39 | sledgehammer_01.001 1603 to 1309
+CS_MINE_UV_PROXY CS_mine_R39 | wooden_bucket_01.002 3991 to 2872
+CS_MINE_UV_PROXY CS_mine_R39 | hero_pickaxe 956 to 956
+CS_MINE_UV_PROXY CS_mine_R39 | wooden_crate_01 4686 to 3348
+CS_MINE_UV_PROXY CS_mine_R39 | vintage_oil_lamp.001 4464 to 3731
+CS_MINE_UV_PROXY CS_mine_R39 | wooden_crate_02 3719 to 2734
+CS_MINE_UV_PROXY CS_mine_R39 | wooden_crate_01.001 4686 to 3348
+CS_MINE_UV_PROXY CS_mine_R39 | vintage_oil_lamp.002 4464 to 3731
+CS_MINE_UV_PROXY CS_mine_R39 | wooden_bucket_01.003 3991 to 2872
+CS_MINE_UV_PROXY CS_mine_R39 | wooden_axe.001 2225 to 1678
+CS_MINE_UV_PROXY CS_mine_R39 | wine_barrel_01 10031 to 5966
+CS_MINE_UV_PROXY CS_mine_R39 | vintage_oil_lamp.003 4464 to 3731
+CS_MINE_UV_PROXY CS_mine_R39 | wooden_crate_02.001 3719 to 2734
+CS_MINE_UV_PROXY CS_mine_R39 | wooden_crate_01.002 4686 to 3348
+CS_MINE_UV_PROXY CS_mine_R39 | vintage_oil_lamp.004 4464 to 3731
+CS_MINE_UV_PROXY CS_mine_R39 | wooden_bucket_01.004 3991 to 2872
+CS_MINE_UV_PROXY CS_mine_R39 | hero_pickaxe.001 956 to 956
+CS_MINE_UV_PROXY CS_mine_R39 | vintage_oil_lamp.005 4464 to 3731
+CS_MINE_UV_PROXY CS_mine_R39 | vintage_oil_lamp.006 4464 to 3731
+CS_MINE_UV_PROXY CS_mine_R39 | sledgehammer_01.002 1603 to 1309
+CS_MINE_UV_PROXY CS_mine_R39 | vintage_oil_lamp.007 4464 to 3731
+CS_MINE_UV_PROXY CS_mine_R39 | wooden_bucket_01.005 3991 to 2872
+CS_MINE_UV_PROXY CS_mine_R39 | picke_dirty_01.002 3578 to 3100
+CS_MINE_UV_PROXY CS_mine_R39 | wine_barrel_01.001 10031 to 5966
+CS_MINE_UV_PROXY CS_mine_R39 | wine_barrel_01.002 10031 to 5966
+CS_MINE_UV_PROXY CS_mine_R39 | wooden_crate_02.002 3719 to 2734
+CS_MINE_UV_PROXY CS_mine_R39 | wine_barrel_01.003 10031 to 5966
+CS_MINE_UV_PROXY CS_mine_R39 | wooden_crate_01.003 4686 to 3348
+CS_MINE_UV_PROXY CS_mine_R39 | wooden_bucket_01.006 3991 to 2872
+CS_MINE_UV_PROXY CS_mine_R39 | wine_barrel_01.004 10031 to 5966
+CS_MINE_UV_PROXY CS_mine_R39 | wine_barrel_01.005 10031 to 5966
+CS_MINE_UV_PROXY CS_mine_R39 | wooden_crate_02.003 3719 to 2734
+CS_MINE_UV_PROXY CS_mine_R39 | wooden_crate_01.004 4686 to 3348
+CS_MINE_UV_PROXY CS_mine_R39 | hero_pickaxe.002 956 to 956
+CS_MINE_UV_PROXY CS_mine_R39 | wooden_bucket_01.007 3991 to 2872
+CS_MINE_UV_PROXY CS_mine_R39 | Warning text.001 2088 to 1044
+CS_MINE_UV_PROXY CS_mine_R39 | Candles 580 to 580
+CS_MINE_UV_PROXY CS_mine_R39 | Lantern 20670 to 17162
+CS_MINE_UV_PROXY CS_mine_R39 | Lantern.001 20670 to 17162
+CS_MINE_UV_PROXY CS_mine_R39 | Lantern.002 20670 to 17162
+CS_MINE_UV_PROXY CS_mine_R39 | Lantern.003 20670 to 17162
+CS_MINE_UV_PROXY CS_mine_R39 | Lantern.004 20670 to 17162
+CS_MINE_UV_PROXY CS_mine_R39 | Lantern.005 20670 to 17162
+CS_MINE_UV_PROXY CS_mine_R39 | Lantern.006 20670 to 17162
+CS_MINE_UV_PROXY CS_mine_R39 | Lantern.007 20670 to 17162
+CS_MINE_UV_PROXY CS_mine_R39 | Lantern.008 20670 to 17162
+CS_MINE_UV_PROXY CS_mine_R39 | Lantern.009 20670 to 17162
+CS_MINE_UV_PROXY CS_mine_R39 | Lantern.010 20670 to 17162
+CS_MINE_UV_PROXY CS_mine_R39 | Lantern.011 20670 to 17162
+CS_MINE_UV_PROXY CS_mine_R39 | Lantern.012 20670 to 17162
+CS_MINE_UV_PROXY CS_mine_R39 | Lantern.013 20670 to 17162
+CS_MINE_UV_PROXY CS_mine_R39 | Lantern.014 20670 to 17162
+CS_MINE_UV_PROXY CS_mine_R39 | Lantern.015 20670 to 17162
+CS_MINE_UV_PROXY CS_mine_R39 | Lantern.016 20670 to 17162
+CS_MINE_UV_PROXY CS_mine_R39 | Lantern.017 20670 to 17162
+CS_MINE_UV_PROXY CS_mine_R39 | Lantern.018 20670 to 17162
+CS_MINE_UV_PROXY CS_mine_R39 | Lantern.019 20670 to 17162
+CS_MINE_UV_PROXY CS_mine_R39 | Lantern.020 20670 to 17162
+CS_MINE_UV_PROXY CS_mine_R39 | Lantern.021 20670 to 17162
+CS_MINE_UV_PROXY CS_mine_R39 | Lantern.022 20670 to 17162
+CS_MINE_UV_PROXY CS_mine_R39 | Lantern.023 20670 to 17162
+CS_MINE_UV_PROXY CS_mine_R39 | Cobwebs 3528 to 3276
+CS_MINE_UV_PROXY CS_mine_R39 | Banner 01 400 to 200
+CS_MINE_UV_PROXY CS_mine_R39 | Banner 01.001 400 to 200
+CS_MINE_UV_PROXY CS_mine_R39 | Tattered banners 154 to 154
+CS_MINE_UV_PROXY CS_mine_R39 | Far bulkhead 606 to 596
+CS_MINE_UV_PROXY CS_mine_R39 | Hanging roots 1350 to 1350
+CS_MINE_UV_PROXY CS_mine_R39 | Pulley rope 528 to 528
+CS_SURFACE_COMPATIBLE_BATCHES mine-props 10
+CS_SURFACE_BAKE_START mine-props albedo 117 4096
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-props albedo
+CS_SURFACE_BAKE_START mine-props metallic-smoothness 117 4096
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-props metallic-smoothness
+CS_SURFACE_BAKE_START mine-props normal 117 4096
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-props normal
+CS_SURFACE_BAKE_START mine-props emission 117 4096
+CS_SURFACE_CONSTANT_CHANNEL mine-props emission
+CS_SURFACE_BAKE_DONE mine-props emission
+CS_SURFACE_BAKE_START mine-props wood-high 117 4096
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-props wood-high
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Tunnel floor
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Apron mud
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Yard puddles
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Compressed air main
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Ventilation duct
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Ore carts timber
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Ore carts ironwork
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Ore carts load
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Trough water
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Warning boards
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Skeletons
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Timber props
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Iron props
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Rope and canvas
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Ore piles
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Ore crystals
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Gravel tunnel
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Gravel yard
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Loose rocks yard
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Dirt mounds
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Mound stones
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Lantern chains and hooks
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Hanging chains
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Rails ext0
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Sleepers ext0
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Track ironwork ext0
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Rails ext1
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Sleepers ext1
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Track ironwork ext1
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Rails ext2
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Sleepers ext2
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Track ironwork ext2
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Rails ext3
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Sleepers ext3
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Track ironwork ext3
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Shed frame
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Shed boards
+CS_MINE_LIGHTMAP_UV CS_mine_R40 | Mine cliff
+CS_MINE_LIGHTMAP_UV CS_mine_R40 | Cliff talus
+CS_MINE_LIGHTMAP_UV CS_mine_R40 | Cliff ledge debris
+CS_MINE_LIGHTMAP_UV CS_mine_R40 | Cliff crystals
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Tunnel puddles
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Rails
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Sleepers
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Track ironwork
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Tunnel timber sets
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Tunnel lagging
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Timber ironwork
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Post number boards
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Post number
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Post number.001
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Post number.002
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Post number.003
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Post number.004
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Post number.005
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Post number.006
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Post number.007
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Post number.008
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Post number.009
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Post number.010
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Post number.011
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Post number.012
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Post number.013
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Post number.014
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Post number.015
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Pipe and duct hangers
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Bell wire
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Duckboard walkway
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Shed ironwork
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Shed tin patches
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Shed footings
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Shed signs
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Sign text
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Shed floor planks
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Shed floor joists
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Floor nails
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Rugs
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Cart number
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Cart number.001
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | wooden_bucket_01
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | wooden_axe
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | picke_dirty_01
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | sledgehammer_01
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | wooden_bucket_01.001
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | vintage_oil_lamp
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | picke_dirty_01.001
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | sledgehammer_01.001
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | wooden_bucket_01.002
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | hero_pickaxe
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | wooden_crate_01
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | vintage_oil_lamp.001
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | wooden_crate_02
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | wooden_crate_01.001
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | vintage_oil_lamp.002
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | wooden_bucket_01.003
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | wooden_axe.001
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | wine_barrel_01
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | vintage_oil_lamp.003
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | wooden_crate_02.001
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | wooden_crate_01.002
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | vintage_oil_lamp.004
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | wooden_bucket_01.004
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | hero_pickaxe.001
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | vintage_oil_lamp.005
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | namaqualand_boulder_05
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | boulder_01
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | boulder_01.001
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | boulder_01.002
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | namaqualand_boulder_05.001
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | namaqualand_boulder_02
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | namaqualand_boulder_02.001
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | namaqualand_boulder_05.002
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | boulder_01.003
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | namaqualand_boulder_05.003
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Notice board
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | vintage_oil_lamp.006
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | sledgehammer_01.002
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | vintage_oil_lamp.007
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | wooden_bucket_01.005
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | picke_dirty_01.002
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | wine_barrel_01.001
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | wine_barrel_01.002
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | wooden_crate_02.002
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | wine_barrel_01.003
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | wooden_crate_01.003
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | wooden_bucket_01.006
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | wine_barrel_01.004
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | wine_barrel_01.005
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | wooden_crate_02.003
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | wooden_crate_01.004
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | hero_pickaxe.002
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | wooden_bucket_01.007
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Warning text.001
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Candles
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Loose rocks
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Lantern
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Lantern.001
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Lantern.002
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Lantern.003
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Lantern.004
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Lantern.005
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Lantern.006
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Lantern.007
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Lantern.008
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Lantern.009
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Lantern.010
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Lantern.011
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Lantern.012
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Lantern.013
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Lantern.014
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Lantern.015
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Lantern.016
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Lantern.017
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Lantern.018
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Lantern.019
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Lantern.020
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Lantern.021
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Lantern.022
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Lantern.023
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Cobwebs
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Banner 01
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Banner 01.001
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Tattered banners
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Sign boards
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Far bulkhead
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Hanging roots
+CS_MINE_LIGHTMAP_UV CS_mine_R39 | Pulley rope
+
+FBX export starting... '/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/Room-mine.fbx'
+export finished in 12.0403 sec.
+RUNTIME ROOM mine 247 objects; verified collision reused
+
+Blender quit
+00:00.566  blend            | Read blend: "/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/combined-runtime-source.blend"
+00:00.797  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/exteriors/refinery/exterior-R01.blend', '//map/sections/facility-assembly/exteriors/refinery/exterior-R01.blend', parent '<direct>'
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)
+00:00.812  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/exteriors/medical-reanimation/exterior-R04.blend', '//map/sections/facility-assembly/exteriors/medical-reanimation/exterior-R04.blend', parent '<direct>'
+00:00.829  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/exteriors/spawn-room/exterior-R05.blend', '//map/sections/facility-assembly/exteriors/spawn-room/exterior-R05.blend', parent '<direct>'
+00:00.854  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/front-end-area/front_end_area.blend', '//map/sections/facility-assembly/sources/front-end-area/front_end_area.blend', parent '<direct>'
+00:01.389  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/fuel-corridor/production/checkpoints/fuel_full_F23ci.blend', '//map/sections/fuel-corridor/production/checkpoints/fuel_full_F23ci.blend', parent '<direct>'
+00:02.450  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/spawn-room/module.blend', '//map/sections/facility-assembly/sources/spawn-room/module.blend', parent '<direct>'
+00:03.344  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/refinery/module_overhaul_R1.blend', '//map/sections/facility-assembly/sources/refinery/module_overhaul_R1.blend', parent '<direct>'
+00:04.542  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/medical-reanimation/module_overhaul_R2.blend', '//map/sections/facility-assembly/sources/medical-reanimation/module_overhaul_R2.blend', parent '<direct>'
+00:05.592  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/mine-r39/module_r39_aaa.blend', '//map/sections/facility-assembly/sources/mine-r39/module_r39_aaa.blend', parent '<direct>'
+00:06.125  reports          | Read library: '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/spawn-room/hero_suit.blend', '//hero_suit.blend', parent '/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/spawn-room/module.blend'
+Info: Baking map saved to internal image, save it externally or pack it
+CS_MINE_VOLUME_DENSITY {'source': 'R38 | Tunnel haze', 'minimum': [-107.4000015258789, -75.5, -1.1999999284744263], 'maximum': [-53.400001525878906, -64.5, 4.0], 'color': [0.3199999928474426, 0.36000001430511475, 0.6200000047683716, 1.0], 'anisotropy': 0.0, 'grid': [128, 16, 16], 'densityMinimum': 0.006179687101393938, 'densityMaximum': 0.03407031297683716, 'densityMap': {'file': 'Surfaces/mine-volume-0-density.exr', 'sha256': '240f0de3851c10c3d5f8bbd9ca73754aac127abbc49f27d64fe9fbdd7257eb59', 'colorSpace': 'linear', 'size': 256}}
+Info: Baking map saved to internal image, save it externally or pack it
+CS_MINE_VOLUME_DENSITY {'source': 'R39 | Shed haze', 'minimum': [-51.69999694824219, -77.5, 0.10000014305114746], 'maximum': [-39.75, -62.650001525878906, 4.699999809265137], 'color': [0.5, 0.44999998807907104, 0.5, 1.0], 'anisotropy': 0.0, 'grid': [128, 16, 16], 'densityMinimum': 0.007537500001490116, 'densityMaximum': 0.017662499099969864, 'densityMap': {'file': 'Surfaces/mine-volume-1-density.exr', 'sha256': '3d2f3d946319f74a2d99378b03ac7d402d1039283ba564e40ddf9d5324163baf', 'colorSpace': 'linear', 'size': 256}}
+/workspace/critical-shift-spawn-runtime/runtime/tools/export_mine_context.py:68: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  frames={n.object for o in selected for m in o.data.materials if m and m.use_nodes for n in m.node_tree.nodes if n.type=='TEX_COORD' and n.object}
+CS_MINE_CONTEXT_ATLAS mine-context-ground 2 408
+CS_MINE_UV_PROXY CS_front-end-area_ground_cracks 400 to 400
+CS_MINE_UV_PROXY CS_front-end-area_context_ground 8 to 8
+CS_SURFACE_COMPATIBLE_BATCHES mine-context-ground 1
+CS_SURFACE_BAKE_START mine-context-ground albedo 2 4096
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-context-ground albedo
+CS_SURFACE_BAKE_START mine-context-ground metallic-smoothness 2 4096
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-context-ground metallic-smoothness
+CS_SURFACE_BAKE_START mine-context-ground normal 2 4096
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-context-ground normal
+CS_SURFACE_BAKE_START mine-context-ground emission 2 4096
+CS_SURFACE_CONSTANT_CHANNEL mine-context-ground emission
+CS_SURFACE_BAKE_DONE mine-context-ground emission
+CS_MINE_CONTEXT_ATLAS mine-context-structure 92 22412
+CS_MINE_UV_PROXY CS_front-end-area_cliff_face 10152 to 8175
+CS_MINE_UV_PROXY CS_front-end-area_cliff_kerb_S 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_cliff_kerb_N 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_cliff_shrub_2 492 to 492
+CS_MINE_UV_PROXY CS_front-end-area_cliff_shrub_3 492 to 492
+CS_MINE_UV_PROXY CS_front-end-area_cliff_shrub_6 492 to 492
+CS_MINE_UV_PROXY CS_front-end-area_cliff_shrub_7 492 to 492
+CS_MINE_UV_PROXY CS_front-end-area_cliff_shrub_8 492 to 492
+CS_MINE_UV_PROXY CS_front-end-area_cliff_shrub_10 492 to 492
+CS_MINE_UV_PROXY CS_front-end-area_cliff_shrub_12 492 to 492
+CS_MINE_UV_PROXY CS_front-end-area_cliff_shrub_13 492 to 492
+CS_MINE_UV_PROXY CS_front-end-area_cliff_shrub_14 492 to 492
+CS_MINE_UV_PROXY CS_front-end-area_cliff_shrub_15 492 to 492
+CS_MINE_UV_PROXY CS_front-end-area_mouth_wall_L 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_mouth_wall_R 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_mouth_roof 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_rock_bolt_0_0 46 to 46
+CS_MINE_UV_PROXY CS_front-end-area_rock_bolt_0_1 46 to 46
+CS_MINE_UV_PROXY CS_front-end-area_rock_bolt_0_2 46 to 46
+CS_MINE_UV_PROXY CS_front-end-area_rock_bolt_0_3 46 to 46
+CS_MINE_UV_PROXY CS_front-end-area_rock_bolt_0_4 46 to 46
+CS_MINE_UV_PROXY CS_front-end-area_rock_bolt_0_5 46 to 46
+CS_MINE_UV_PROXY CS_front-end-area_rock_bolt_0_6 46 to 46
+CS_MINE_UV_PROXY CS_front-end-area_rock_bolt_0_7 46 to 46
+CS_MINE_UV_PROXY CS_front-end-area_rock_bolt_0_8 46 to 46
+CS_MINE_UV_PROXY CS_front-end-area_rock_bolt_0_9 46 to 46
+CS_MINE_UV_PROXY CS_front-end-area_rock_bolt_0_10 46 to 46
+CS_MINE_UV_PROXY CS_front-end-area_rock_bolt_0_11 46 to 46
+CS_MINE_UV_PROXY CS_front-end-area_rock_bolt_0_12 46 to 46
+CS_MINE_UV_PROXY CS_front-end-area_rock_bolt_0_13 46 to 46
+CS_MINE_UV_PROXY CS_front-end-area_rock_bolt_1_0 46 to 46
+CS_MINE_UV_PROXY CS_front-end-area_rock_bolt_1_1 46 to 46
+CS_MINE_UV_PROXY CS_front-end-area_rock_bolt_1_2 46 to 46
+CS_MINE_UV_PROXY CS_front-end-area_rock_bolt_1_3 46 to 46
+CS_MINE_UV_PROXY CS_front-end-area_rock_bolt_1_4 46 to 46
+CS_MINE_UV_PROXY CS_front-end-area_rock_bolt_1_5 46 to 46
+CS_MINE_UV_PROXY CS_front-end-area_rock_bolt_1_6 46 to 46
+CS_MINE_UV_PROXY CS_front-end-area_rock_bolt_1_7 46 to 46
+CS_MINE_UV_PROXY CS_front-end-area_rock_bolt_1_8 46 to 46
+CS_MINE_UV_PROXY CS_front-end-area_rock_bolt_1_9 46 to 46
+CS_MINE_UV_PROXY CS_front-end-area_rock_bolt_1_10 46 to 46
+CS_MINE_UV_PROXY CS_front-end-area_rock_bolt_1_11 46 to 46
+CS_MINE_UV_PROXY CS_front-end-area_rock_bolt_1_12 46 to 46
+CS_MINE_UV_PROXY CS_front-end-area_rock_bolt_1_13 46 to 46
+CS_MINE_UV_PROXY CS_front-end-area_rock_bolt_2_0 46 to 46
+CS_MINE_UV_PROXY CS_front-end-area_rock_bolt_2_1 46 to 46
+CS_MINE_UV_PROXY CS_front-end-area_rock_bolt_2_2 46 to 46
+CS_MINE_UV_PROXY CS_front-end-area_rock_bolt_2_3 46 to 46
+CS_MINE_UV_PROXY CS_front-end-area_rock_bolt_2_4 46 to 46
+CS_MINE_UV_PROXY CS_front-end-area_rock_bolt_2_5 46 to 46
+CS_MINE_UV_PROXY CS_front-end-area_rock_bolt_2_6 46 to 46
+CS_MINE_UV_PROXY CS_front-end-area_rock_bolt_2_7 46 to 46
+CS_MINE_UV_PROXY CS_front-end-area_rock_bolt_2_8 46 to 46
+CS_MINE_UV_PROXY CS_front-end-area_rock_bolt_2_9 46 to 46
+CS_MINE_UV_PROXY CS_front-end-area_rock_bolt_2_10 46 to 46
+CS_MINE_UV_PROXY CS_front-end-area_rock_bolt_2_11 46 to 46
+CS_MINE_UV_PROXY CS_front-end-area_rock_bolt_2_12 46 to 46
+CS_MINE_UV_PROXY CS_front-end-area_rock_bolt_2_13 46 to 46
+CS_MINE_UV_PROXY CS_front-end-area_fence_N_panel0 280 to 280
+CS_MINE_UV_PROXY CS_front-end-area_fence_N_post1 60 to 60
+CS_MINE_UV_PROXY CS_front-end-area_fence_N_post2 60 to 60
+CS_MINE_UV_PROXY CS_front-end-area_fence_N_panel3 280 to 280
+CS_MINE_UV_PROXY CS_front-end-area_fence_N_panel4 280 to 280
+CS_MINE_UV_PROXY CS_front-end-area_fence_N_panel5 280 to 280
+CS_MINE_UV_PROXY CS_front-end-area_fence_N_panel6 280 to 280
+CS_MINE_UV_PROXY CS_front-end-area_fence_N_panel7 280 to 280
+CS_MINE_UV_PROXY CS_front-end-area_fence_N_panel8 280 to 280
+CS_MINE_UV_PROXY CS_front-end-area_fence_N_panel9 280 to 280
+CS_MINE_UV_PROXY CS_front-end-area_fence_N_post10 60 to 60
+CS_MINE_UV_PROXY CS_front-end-area_fence_N_post11 60 to 60
+CS_MINE_UV_PROXY CS_front-end-area_fence_N_post12 60 to 60
+CS_MINE_UV_PROXY CS_front-end-area_fence_N_post13 60 to 60
+CS_MINE_UV_PROXY CS_front-end-area_fence_N_post14 60 to 60
+CS_MINE_UV_PROXY CS_front-end-area_fence_N_post15 60 to 60
+CS_MINE_UV_PROXY CS_front-end-area_fence_N_post16 60 to 60
+CS_MINE_UV_PROXY CS_front-end-area_fence_N_post17 60 to 60
+CS_MINE_UV_PROXY CS_front-end-area_fence_S_panel0 280 to 280
+CS_MINE_UV_PROXY CS_front-end-area_fence_S_panel1 280 to 280
+CS_MINE_UV_PROXY CS_front-end-area_fence_S_panel2 280 to 280
+CS_MINE_UV_PROXY CS_front-end-area_fence_S_panel3 280 to 280
+CS_MINE_UV_PROXY CS_front-end-area_fence_S_panel4 280 to 280
+CS_MINE_UV_PROXY CS_front-end-area_fence_S_panel5 280 to 280
+CS_MINE_UV_PROXY CS_front-end-area_fence_S_post6 60 to 60
+CS_MINE_UV_PROXY CS_front-end-area_fence_S_post7 60 to 60
+CS_MINE_UV_PROXY CS_front-end-area_fence_S_post8 60 to 60
+CS_MINE_UV_PROXY CS_front-end-area_fence_S_post9 60 to 60
+CS_MINE_UV_PROXY CS_front-end-area_fence_S_post10 60 to 60
+CS_MINE_UV_PROXY CS_front-end-area_fence_S_post11 60 to 60
+CS_MINE_UV_PROXY CS_front-end-area_fence_S_post12 60 to 60
+CS_MINE_UV_PROXY CS_front-end-area_fence_S_panel13 280 to 280
+CS_MINE_UV_PROXY CS_front-end-area_fence_S_post19 60 to 60
+CS_MINE_UV_PROXY CS_front-end-area_loading_canopy_roof 8 to 8
+CS_SURFACE_COMPATIBLE_BATCHES mine-context-structure 3
+CS_SURFACE_BAKE_START mine-context-structure albedo 92 4096
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-context-structure albedo
+CS_SURFACE_BAKE_START mine-context-structure metallic-smoothness 92 4096
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-context-structure metallic-smoothness
+CS_SURFACE_BAKE_START mine-context-structure normal 92 4096
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-context-structure normal
+CS_SURFACE_BAKE_START mine-context-structure emission 92 4096
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-context-structure emission
+CS_MINE_CONTEXT_ATLAS mine-context-props 223 68961
+CS_MINE_UV_PROXY CS_front-end-area_dock_west 272 to 271
+CS_MINE_UV_PROXY CS_front-end-area_sign_evac_gate 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_yard_base 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_yard_earth 24321 to 24321
+CS_MINE_UV_PROXY CS_front-end-area_pad_0_0_0 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_pad_0_0_1 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_pad_0_1_0 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_pad_0_1_1 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_pad_0_2_0 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_pad_0_2_1 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_pad_0_3_0 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_pad_0_3_1 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_pad_1_0_0 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_pad_1_1_0 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_pad_2_0_0 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_pad_2_1_0 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_pad_2_2_0 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_pad_2_3_0 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_pad_3_0_0 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_pad_3_0_1 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_pad_3_1_0 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_pad_3_1_1 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_pad_4_0_0 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_pad_4_0_1 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_pad_4_0_2 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_drain_apron_frame_a 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_drain_apron_frame_b 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_drain_apron_sump 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_drain_apron_grating 528 to 528
+CS_MINE_UV_PROXY CS_front-end-area_drain_fuel_frame_a 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_drain_fuel_frame_b 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_drain_fuel_sump 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_drain_fuel_grating 264 to 264
+CS_MINE_UV_PROXY CS_front-end-area_boulder_0 42 to 42
+CS_MINE_UV_PROXY CS_front-end-area_boulder_1 52 to 52
+CS_MINE_UV_PROXY CS_front-end-area_boulder_2 42 to 42
+CS_MINE_UV_PROXY CS_front-end-area_boulder_3 42 to 42
+CS_MINE_UV_PROXY CS_front-end-area_boulder_4 52 to 52
+CS_MINE_UV_PROXY CS_front-end-area_boulder_11 42 to 42
+CS_MINE_UV_PROXY CS_front-end-area_portal_pier_L 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_portal_pier_R 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_portal_lintel 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_portal_cap 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_portal_jamb_L 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_portal_jamb_R 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_portal_header_steel 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_portal_haz_0 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_portal_haz_1 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_portal_haz_2 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_portal_haz_3 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_portal_haz_4 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_portal_haz_5 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_portal_haz_6 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_portal_haz_7 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_portal_haz_8 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_portal_haz_9 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_portal_haz_10 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_portal_haz_11 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_portal_haz_12 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_portal_haz_13 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_sign_mine_entrance 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_portal_lamp_L 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_portal_lamp_R 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_portal_floor 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_mouth_post_0L 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_mouth_post_0R 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_mouth_cap_0 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_mouth_post_1L 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_mouth_post_1R 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_mouth_cap_1 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_mouth_post_2L 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_mouth_post_2R 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_mouth_cap_2 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_mouth_lamp_0 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_mouth_lamp_1 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_safety_mesh_0 240 to 200
+CS_MINE_UV_PROXY CS_front-end-area_safety_mesh_1 240 to 200
+CS_MINE_UV_PROXY CS_front-end-area_safety_mesh_2 240 to 200
+CS_MINE_UV_PROXY CS_front-end-area_safety_mesh_3 240 to 200
+CS_MINE_UV_PROXY CS_front-end-area_safety_mesh_4 240 to 200
+CS_MINE_UV_PROXY CS_front-end-area_safety_mesh_5 240 to 200
+CS_MINE_UV_PROXY CS_front-end-area_safety_mesh_6 240 to 200
+CS_MINE_UV_PROXY CS_front-end-area_freight_gate_post-1 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_freight_gate_header 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_evac_leaf_frame-1 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_evac_stripe_-1_0 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_evac_stripe_-1_1 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_evac_stripe_-1_2 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_evac_stripe_-1_3 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_evac_stripe_-1_4 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_evac_stripe_-1_5 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_evac_stripe_-1_6 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_evac_stripe_-1_7 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_evac_push_bar_-1 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_evac_post-1 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_evac_leaf_frame1 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_evac_stripe_1_0 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_evac_stripe_1_1 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_evac_stripe_1_2 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_evac_stripe_1_3 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_evac_stripe_1_4 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_evac_stripe_1_5 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_evac_stripe_1_6 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_evac_stripe_1_7 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_evac_push_bar_1 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_evac_post1 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_evac_keypad 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_service_door_L 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_service_door_R 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_service_door_H 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_service_door_leaf 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_service_door_push 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_loading_canopy_post0 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_loading_canopy_post2 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_loading_canopy_beamA 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_loading_canopy_beamB 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_loading_canopy_rafter0 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_loading_canopy_rafter1 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_loading_canopy_rafter2 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_loading_canopy_rib0 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_loading_canopy_rib1 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_loading_canopy_rib2 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_loading_canopy_rib3 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_loading_canopy_rib4 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_loading_canopy_rib5 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_loading_canopy_rib6 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_loading_canopy_edge_accent 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_loading_canopy_edge_accent2 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_floor_track_scale 912 to 888
+CS_MINE_UV_PROXY CS_front-end-area_scale_post 196 to 196
+CS_MINE_UV_PROXY CS_front-end-area_ore_bay_2 856 to 772
+CS_MINE_UV_PROXY CS_front-end-area_ore_pile_2 602 to 602
+CS_MINE_UV_PROXY CS_front-end-area_sign_bay_2 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_skid_loader 2984 to 2760
+CS_MINE_UV_PROXY CS_front-end-area_gas_cage_0 280 to 280
+CS_MINE_UV_PROXY CS_front-end-area_gas_cage_1 280 to 280
+CS_MINE_UV_PROXY CS_front-end-area_gas_cage_2 280 to 280
+CS_MINE_UV_PROXY CS_front-end-area_gas_rack_0 1184 to 944
+CS_MINE_UV_PROXY CS_front-end-area_sign_gas 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_dock_parcels_0 888 to 888
+CS_MINE_UV_PROXY CS_front-end-area_dock_parcels_1 888 to 888
+CS_MINE_UV_PROXY CS_front-end-area_forklift_0 3136 to 2920
+CS_MINE_UV_PROXY CS_front-end-area_freight_beacon_L 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_sign_freight 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_floor_freight_hatch_0 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_floor_freight_hatch_1 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_floor_freight_hatch_2 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_floor_freight_hatch_3 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_floor_stop_train 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_floor_bayline_-39.0 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_floor_bayline_-36.0 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_floor_bayline_-33.0 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_floor_bayline_-30.0 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_floor_bayline_front 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_wheel_stop_0 144 to 144
+CS_MINE_UV_PROXY CS_front-end-area_wheel_stop_1 144 to 144
+CS_MINE_UV_PROXY CS_front-end-area_floor_bay_no_1 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_wheel_stop_2 144 to 144
+CS_MINE_UV_PROXY CS_front-end-area_floor_bay_no_2 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_site_pickup 5110 to 4894
+CS_MINE_UV_PROXY CS_front-end-area_crew_van 4176 to 3960
+CS_MINE_UV_PROXY CS_front-end-area_forklift_1 3136 to 2920
+CS_MINE_UV_PROXY CS_front-end-area_sign_pickup 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_sign_van 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_fuel_station 1952 to 1844
+CS_MINE_UV_PROXY CS_front-end-area_board_fuel_post 24 to 24
+CS_MINE_UV_PROXY CS_front-end-area_board_fuel 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_fuel_bollard_0 240 to 194
+CS_MINE_UV_PROXY CS_front-end-area_fuel_bollard_1 240 to 194
+CS_MINE_UV_PROXY CS_front-end-area_floor_fuel_hatch_0 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_floor_fuel_hatch_1 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_floor_fuel_hatch_2 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_floor_fuel_hatch_3 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_floor_fuel_hatch_4 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_floor_fuel_hatch_5 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_floor_fuel_hatch_6 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_floor_fuel_hatch_7 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_floor_fuel_hatch_8 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_floor_fuel_hatch_9 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_container_0 3392 to 3392
+CS_MINE_UV_PROXY CS_front-end-area_sign_store_0 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_container_1 3392 to 3392
+CS_MINE_UV_PROXY CS_front-end-area_sign_store_1 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_container_2 3392 to 3392
+CS_MINE_UV_PROXY CS_front-end-area_sign_store_2 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_floor_muster_fill 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_floor_muster_edge_s 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_floor_muster_edge_n 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_floor_muster_edge_w 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_sign_cooling 8 to 8
+CS_MINE_UV_PROXY CS_front-end-area_pole_1 388 to 362
+CS_MINE_UV_PROXY CS_front-end-area_pole_4 388 to 362
+CS_MINE_UV_PROXY CS_front-end-area_pole_6 388 to 362
+CS_MINE_UV_PROXY CS_front-end-area_streak_path_dock 4 to 4
+CS_MINE_UV_PROXY CS_front-end-area_stain_skid_171 4 to 4
+CS_MINE_UV_PROXY CS_front-end-area_stain_skid_172 4 to 4
+CS_MINE_UV_PROXY CS_front-end-area_stain_yard_blotch_174 4 to 4
+CS_MINE_UV_PROXY CS_front-end-area_stain_yard_blotch_175 4 to 4
+CS_MINE_UV_PROXY CS_front-end-area_stain_yard_blotch_176 4 to 4
+CS_MINE_UV_PROXY CS_front-end-area_stain_yard_blotch_178 4 to 4
+CS_MINE_UV_PROXY CS_front-end-area_stain_yard_blotch_179 4 to 4
+CS_MINE_UV_PROXY CS_front-end-area_stain_yard_scuff_180 4 to 4
+CS_MINE_UV_PROXY CS_front-end-area_stain_yard_scuff_181 4 to 4
+CS_MINE_UV_PROXY CS_front-end-area_stain_yard_scuff_182 4 to 4
+CS_MINE_UV_PROXY CS_front-end-area_stain_yard_scuff_183 4 to 4
+CS_MINE_UV_PROXY CS_front-end-area_stain_yard_scuff_184 4 to 4
+CS_MINE_UV_PROXY CS_front-end-area_stain_yard_scuff_185 4 to 4
+CS_MINE_UV_PROXY CS_front-end-area_stain_yard_scuff_186 4 to 4
+CS_MINE_UV_PROXY CS_front-end-area_stain_yard_scuff_187 4 to 4
+CS_MINE_UV_PROXY CS_front-end-area_stain_yard_scuff_188 4 to 4
+CS_MINE_UV_PROXY CS_front-end-area_stain_yard_scuff_189 4 to 4
+CS_MINE_UV_PROXY CS_front-end-area_stain_yard_scuff_190 4 to 4
+CS_MINE_UV_PROXY CS_front-end-area_stain_yard_scuff_191 4 to 4
+CS_MINE_UV_PROXY CS_front-end-area_stain_yard_scuff_192 4 to 4
+CS_MINE_UV_PROXY CS_front-end-area_stain_yard_scuff_193 4 to 4
+CS_MINE_UV_PROXY CS_front-end-area_stain_yard_scuff_194 4 to 4
+CS_MINE_UV_PROXY CS_front-end-area_stain_container_drip_199 4 to 4
+CS_MINE_UV_PROXY CS_front-end-area_stain_container_dust_200 4 to 4
+CS_MINE_UV_PROXY CS_front-end-area_stain_container_drip_201 4 to 4
+CS_MINE_UV_PROXY CS_front-end-area_stain_container_dust_202 4 to 4
+CS_MINE_UV_PROXY CS_front-end-area_stain_container_drip_203 4 to 4
+CS_MINE_UV_PROXY CS_front-end-area_stain_container_dust_204 4 to 4
+CS_MINE_UV_PROXY CS_front-end-area_stain_bay_dust_207 4 to 4
+CS_SURFACE_COMPATIBLE_BATCHES mine-context-props 6
+CS_SURFACE_BAKE_START mine-context-props albedo 223 4096
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-context-props albedo
+CS_SURFACE_BAKE_START mine-context-props metallic-smoothness 223 4096
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-context-props metallic-smoothness
+CS_SURFACE_BAKE_START mine-context-props normal 223 4096
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-context-props normal
+CS_SURFACE_BAKE_START mine-context-props emission 223 4096
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+CS_SURFACE_BAKE_DONE mine-context-props emission
+CS_MINE_LIGHTMAP_UV CS_front-end-area_cliff_face
+CS_MINE_LIGHTMAP_UV CS_front-end-area_dock_west
+CS_MINE_LIGHTMAP_UV CS_front-end-area_sign_evac_gate
+CS_MINE_LIGHTMAP_UV CS_front-end-area_yard_base
+CS_MINE_LIGHTMAP_UV CS_front-end-area_yard_earth
+CS_MINE_LIGHTMAP_UV CS_front-end-area_pad_0_0_0
+CS_MINE_LIGHTMAP_UV CS_front-end-area_pad_0_0_1
+CS_MINE_LIGHTMAP_UV CS_front-end-area_pad_0_1_0
+CS_MINE_LIGHTMAP_UV CS_front-end-area_pad_0_1_1
+CS_MINE_LIGHTMAP_UV CS_front-end-area_pad_0_2_0
+CS_MINE_LIGHTMAP_UV CS_front-end-area_pad_0_2_1
+CS_MINE_LIGHTMAP_UV CS_front-end-area_pad_0_3_0
+CS_MINE_LIGHTMAP_UV CS_front-end-area_pad_0_3_1
+CS_MINE_LIGHTMAP_UV CS_front-end-area_pad_1_0_0
+CS_MINE_LIGHTMAP_UV CS_front-end-area_pad_1_1_0
+CS_MINE_LIGHTMAP_UV CS_front-end-area_pad_2_0_0
+CS_MINE_LIGHTMAP_UV CS_front-end-area_pad_2_1_0
+CS_MINE_LIGHTMAP_UV CS_front-end-area_pad_2_2_0
+CS_MINE_LIGHTMAP_UV CS_front-end-area_pad_2_3_0
+CS_MINE_LIGHTMAP_UV CS_front-end-area_pad_3_0_0
+CS_MINE_LIGHTMAP_UV CS_front-end-area_pad_3_0_1
+CS_MINE_LIGHTMAP_UV CS_front-end-area_pad_3_1_0
+CS_MINE_LIGHTMAP_UV CS_front-end-area_pad_3_1_1
+CS_MINE_LIGHTMAP_UV CS_front-end-area_pad_4_0_0
+CS_MINE_LIGHTMAP_UV CS_front-end-area_pad_4_0_1
+CS_MINE_LIGHTMAP_UV CS_front-end-area_pad_4_0_2
+CS_MINE_LIGHTMAP_UV CS_front-end-area_ground_cracks
+CS_MINE_LIGHTMAP_UV CS_front-end-area_drain_apron_frame_a
+CS_MINE_LIGHTMAP_UV CS_front-end-area_drain_apron_frame_b
+CS_MINE_LIGHTMAP_UV CS_front-end-area_drain_apron_sump
+CS_MINE_LIGHTMAP_UV CS_front-end-area_drain_apron_grating
+CS_MINE_LIGHTMAP_UV CS_front-end-area_drain_fuel_frame_a
+CS_MINE_LIGHTMAP_UV CS_front-end-area_drain_fuel_frame_b
+CS_MINE_LIGHTMAP_UV CS_front-end-area_drain_fuel_sump
+CS_MINE_LIGHTMAP_UV CS_front-end-area_drain_fuel_grating
+CS_MINE_LIGHTMAP_UV CS_front-end-area_cliff_kerb_S
+CS_MINE_LIGHTMAP_UV CS_front-end-area_cliff_kerb_N
+CS_MINE_LIGHTMAP_UV CS_front-end-area_boulder_0
+CS_MINE_LIGHTMAP_UV CS_front-end-area_boulder_1
+CS_MINE_LIGHTMAP_UV CS_front-end-area_boulder_2
+CS_MINE_LIGHTMAP_UV CS_front-end-area_boulder_3
+CS_MINE_LIGHTMAP_UV CS_front-end-area_boulder_4
+CS_MINE_LIGHTMAP_UV CS_front-end-area_boulder_11
+CS_MINE_LIGHTMAP_UV CS_front-end-area_cliff_shrub_2
+CS_MINE_LIGHTMAP_UV CS_front-end-area_cliff_shrub_3
+CS_MINE_LIGHTMAP_UV CS_front-end-area_cliff_shrub_6
+CS_MINE_LIGHTMAP_UV CS_front-end-area_cliff_shrub_7
+CS_MINE_LIGHTMAP_UV CS_front-end-area_cliff_shrub_8
+CS_MINE_LIGHTMAP_UV CS_front-end-area_cliff_shrub_10
+CS_MINE_LIGHTMAP_UV CS_front-end-area_cliff_shrub_12
+CS_MINE_LIGHTMAP_UV CS_front-end-area_cliff_shrub_13
+CS_MINE_LIGHTMAP_UV CS_front-end-area_cliff_shrub_14
+CS_MINE_LIGHTMAP_UV CS_front-end-area_cliff_shrub_15
+CS_MINE_LIGHTMAP_UV CS_front-end-area_portal_pier_L
+CS_MINE_LIGHTMAP_UV CS_front-end-area_portal_pier_R
+CS_MINE_LIGHTMAP_UV CS_front-end-area_portal_lintel
+CS_MINE_LIGHTMAP_UV CS_front-end-area_portal_cap
+CS_MINE_LIGHTMAP_UV CS_front-end-area_portal_jamb_L
+CS_MINE_LIGHTMAP_UV CS_front-end-area_portal_jamb_R
+CS_MINE_LIGHTMAP_UV CS_front-end-area_portal_header_steel
+CS_MINE_LIGHTMAP_UV CS_front-end-area_portal_haz_0
+CS_MINE_LIGHTMAP_UV CS_front-end-area_portal_haz_1
+CS_MINE_LIGHTMAP_UV CS_front-end-area_portal_haz_2
+CS_MINE_LIGHTMAP_UV CS_front-end-area_portal_haz_3
+CS_MINE_LIGHTMAP_UV CS_front-end-area_portal_haz_4
+CS_MINE_LIGHTMAP_UV CS_front-end-area_portal_haz_5
+CS_MINE_LIGHTMAP_UV CS_front-end-area_portal_haz_6
+CS_MINE_LIGHTMAP_UV CS_front-end-area_portal_haz_7
+CS_MINE_LIGHTMAP_UV CS_front-end-area_portal_haz_8
+CS_MINE_LIGHTMAP_UV CS_front-end-area_portal_haz_9
+CS_MINE_LIGHTMAP_UV CS_front-end-area_portal_haz_10
+CS_MINE_LIGHTMAP_UV CS_front-end-area_portal_haz_11
+CS_MINE_LIGHTMAP_UV CS_front-end-area_portal_haz_12
+CS_MINE_LIGHTMAP_UV CS_front-end-area_portal_haz_13
+CS_MINE_LIGHTMAP_UV CS_front-end-area_sign_mine_entrance
+CS_MINE_LIGHTMAP_UV CS_front-end-area_portal_lamp_L
+CS_MINE_LIGHTMAP_UV CS_front-end-area_portal_lamp_R
+CS_MINE_LIGHTMAP_UV CS_front-end-area_portal_floor
+CS_MINE_LIGHTMAP_UV CS_front-end-area_mouth_wall_L
+CS_MINE_LIGHTMAP_UV CS_front-end-area_mouth_wall_R
+CS_MINE_LIGHTMAP_UV CS_front-end-area_mouth_roof
+CS_MINE_LIGHTMAP_UV CS_front-end-area_mouth_post_0L
+CS_MINE_LIGHTMAP_UV CS_front-end-area_mouth_post_0R
+CS_MINE_LIGHTMAP_UV CS_front-end-area_mouth_cap_0
+CS_MINE_LIGHTMAP_UV CS_front-end-area_mouth_post_1L
+CS_MINE_LIGHTMAP_UV CS_front-end-area_mouth_post_1R
+CS_MINE_LIGHTMAP_UV CS_front-end-area_mouth_cap_1
+CS_MINE_LIGHTMAP_UV CS_front-end-area_mouth_post_2L
+CS_MINE_LIGHTMAP_UV CS_front-end-area_mouth_post_2R
+CS_MINE_LIGHTMAP_UV CS_front-end-area_mouth_cap_2
+CS_MINE_LIGHTMAP_UV CS_front-end-area_mouth_lamp_0
+CS_MINE_LIGHTMAP_UV CS_front-end-area_mouth_lamp_1
+CS_MINE_LIGHTMAP_UV CS_front-end-area_rock_bolt_0_0
+CS_MINE_LIGHTMAP_UV CS_front-end-area_rock_bolt_0_1
+CS_MINE_LIGHTMAP_UV CS_front-end-area_rock_bolt_0_2
+CS_MINE_LIGHTMAP_UV CS_front-end-area_rock_bolt_0_3
+CS_MINE_LIGHTMAP_UV CS_front-end-area_rock_bolt_0_4
+CS_MINE_LIGHTMAP_UV CS_front-end-area_rock_bolt_0_5
+CS_MINE_LIGHTMAP_UV CS_front-end-area_rock_bolt_0_6
+CS_MINE_LIGHTMAP_UV CS_front-end-area_rock_bolt_0_7
+CS_MINE_LIGHTMAP_UV CS_front-end-area_rock_bolt_0_8
+CS_MINE_LIGHTMAP_UV CS_front-end-area_rock_bolt_0_9
+CS_MINE_LIGHTMAP_UV CS_front-end-area_rock_bolt_0_10
+CS_MINE_LIGHTMAP_UV CS_front-end-area_rock_bolt_0_11
+CS_MINE_LIGHTMAP_UV CS_front-end-area_rock_bolt_0_12
+CS_MINE_LIGHTMAP_UV CS_front-end-area_rock_bolt_0_13
+CS_MINE_LIGHTMAP_UV CS_front-end-area_rock_bolt_1_0
+CS_MINE_LIGHTMAP_UV CS_front-end-area_rock_bolt_1_1
+CS_MINE_LIGHTMAP_UV CS_front-end-area_rock_bolt_1_2
+CS_MINE_LIGHTMAP_UV CS_front-end-area_rock_bolt_1_3
+CS_MINE_LIGHTMAP_UV CS_front-end-area_rock_bolt_1_4
+CS_MINE_LIGHTMAP_UV CS_front-end-area_rock_bolt_1_5
+CS_MINE_LIGHTMAP_UV CS_front-end-area_rock_bolt_1_6
+CS_MINE_LIGHTMAP_UV CS_front-end-area_rock_bolt_1_7
+CS_MINE_LIGHTMAP_UV CS_front-end-area_rock_bolt_1_8
+CS_MINE_LIGHTMAP_UV CS_front-end-area_rock_bolt_1_9
+CS_MINE_LIGHTMAP_UV CS_front-end-area_rock_bolt_1_10
+CS_MINE_LIGHTMAP_UV CS_front-end-area_rock_bolt_1_11
+CS_MINE_LIGHTMAP_UV CS_front-end-area_rock_bolt_1_12
+CS_MINE_LIGHTMAP_UV CS_front-end-area_rock_bolt_1_13
+CS_MINE_LIGHTMAP_UV CS_front-end-area_rock_bolt_2_0
+CS_MINE_LIGHTMAP_UV CS_front-end-area_rock_bolt_2_1
+CS_MINE_LIGHTMAP_UV CS_front-end-area_rock_bolt_2_2
+CS_MINE_LIGHTMAP_UV CS_front-end-area_rock_bolt_2_3
+CS_MINE_LIGHTMAP_UV CS_front-end-area_rock_bolt_2_4
+CS_MINE_LIGHTMAP_UV CS_front-end-area_rock_bolt_2_5
+CS_MINE_LIGHTMAP_UV CS_front-end-area_rock_bolt_2_6
+CS_MINE_LIGHTMAP_UV CS_front-end-area_rock_bolt_2_7
+CS_MINE_LIGHTMAP_UV CS_front-end-area_rock_bolt_2_8
+CS_MINE_LIGHTMAP_UV CS_front-end-area_rock_bolt_2_9
+CS_MINE_LIGHTMAP_UV CS_front-end-area_rock_bolt_2_10
+CS_MINE_LIGHTMAP_UV CS_front-end-area_rock_bolt_2_11
+CS_MINE_LIGHTMAP_UV CS_front-end-area_rock_bolt_2_12
+CS_MINE_LIGHTMAP_UV CS_front-end-area_rock_bolt_2_13
+CS_MINE_LIGHTMAP_UV CS_front-end-area_safety_mesh_0
+CS_MINE_LIGHTMAP_UV CS_front-end-area_safety_mesh_1
+CS_MINE_LIGHTMAP_UV CS_front-end-area_safety_mesh_2
+CS_MINE_LIGHTMAP_UV CS_front-end-area_safety_mesh_3
+CS_MINE_LIGHTMAP_UV CS_front-end-area_safety_mesh_4
+CS_MINE_LIGHTMAP_UV CS_front-end-area_safety_mesh_5
+CS_MINE_LIGHTMAP_UV CS_front-end-area_safety_mesh_6
+CS_MINE_LIGHTMAP_UV CS_front-end-area_fence_N_panel0
+CS_MINE_LIGHTMAP_UV CS_front-end-area_fence_N_post1
+CS_MINE_LIGHTMAP_UV CS_front-end-area_fence_N_post2
+CS_MINE_LIGHTMAP_UV CS_front-end-area_fence_N_panel3
+CS_MINE_LIGHTMAP_UV CS_front-end-area_fence_N_panel4
+CS_MINE_LIGHTMAP_UV CS_front-end-area_fence_N_panel5
+CS_MINE_LIGHTMAP_UV CS_front-end-area_fence_N_panel6
+CS_MINE_LIGHTMAP_UV CS_front-end-area_fence_N_panel7
+CS_MINE_LIGHTMAP_UV CS_front-end-area_fence_N_panel8
+CS_MINE_LIGHTMAP_UV CS_front-end-area_fence_N_panel9
+CS_MINE_LIGHTMAP_UV CS_front-end-area_fence_N_post10
+CS_MINE_LIGHTMAP_UV CS_front-end-area_fence_N_post11
+CS_MINE_LIGHTMAP_UV CS_front-end-area_fence_N_post12
+CS_MINE_LIGHTMAP_UV CS_front-end-area_fence_N_post13
+CS_MINE_LIGHTMAP_UV CS_front-end-area_fence_N_post14
+CS_MINE_LIGHTMAP_UV CS_front-end-area_fence_N_post15
+CS_MINE_LIGHTMAP_UV CS_front-end-area_fence_N_post16
+CS_MINE_LIGHTMAP_UV CS_front-end-area_fence_N_post17
+CS_MINE_LIGHTMAP_UV CS_front-end-area_fence_S_panel0
+CS_MINE_LIGHTMAP_UV CS_front-end-area_fence_S_panel1
+CS_MINE_LIGHTMAP_UV CS_front-end-area_fence_S_panel2
+CS_MINE_LIGHTMAP_UV CS_front-end-area_fence_S_panel3
+CS_MINE_LIGHTMAP_UV CS_front-end-area_fence_S_panel4
+CS_MINE_LIGHTMAP_UV CS_front-end-area_fence_S_panel5
+CS_MINE_LIGHTMAP_UV CS_front-end-area_fence_S_post6
+CS_MINE_LIGHTMAP_UV CS_front-end-area_fence_S_post7
+CS_MINE_LIGHTMAP_UV CS_front-end-area_fence_S_post8
+CS_MINE_LIGHTMAP_UV CS_front-end-area_fence_S_post9
+CS_MINE_LIGHTMAP_UV CS_front-end-area_fence_S_post10
+CS_MINE_LIGHTMAP_UV CS_front-end-area_fence_S_post11
+CS_MINE_LIGHTMAP_UV CS_front-end-area_fence_S_post12
+CS_MINE_LIGHTMAP_UV CS_front-end-area_fence_S_panel13
+CS_MINE_LIGHTMAP_UV CS_front-end-area_fence_S_post19
+CS_MINE_LIGHTMAP_UV CS_front-end-area_freight_gate_post-1
+CS_MINE_LIGHTMAP_UV CS_front-end-area_freight_gate_header
+CS_MINE_LIGHTMAP_UV CS_front-end-area_evac_leaf_frame-1
+CS_MINE_LIGHTMAP_UV CS_front-end-area_evac_stripe_-1_0
+CS_MINE_LIGHTMAP_UV CS_front-end-area_evac_stripe_-1_1
+CS_MINE_LIGHTMAP_UV CS_front-end-area_evac_stripe_-1_2
+CS_MINE_LIGHTMAP_UV CS_front-end-area_evac_stripe_-1_3
+CS_MINE_LIGHTMAP_UV CS_front-end-area_evac_stripe_-1_4
+CS_MINE_LIGHTMAP_UV CS_front-end-area_evac_stripe_-1_5
+CS_MINE_LIGHTMAP_UV CS_front-end-area_evac_stripe_-1_6
+CS_MINE_LIGHTMAP_UV CS_front-end-area_evac_stripe_-1_7
+CS_MINE_LIGHTMAP_UV CS_front-end-area_evac_push_bar_-1
+CS_MINE_LIGHTMAP_UV CS_front-end-area_evac_post-1
+CS_MINE_LIGHTMAP_UV CS_front-end-area_evac_leaf_frame1
+CS_MINE_LIGHTMAP_UV CS_front-end-area_evac_stripe_1_0
+CS_MINE_LIGHTMAP_UV CS_front-end-area_evac_stripe_1_1
+CS_MINE_LIGHTMAP_UV CS_front-end-area_evac_stripe_1_2
+CS_MINE_LIGHTMAP_UV CS_front-end-area_evac_stripe_1_3
+CS_MINE_LIGHTMAP_UV CS_front-end-area_evac_stripe_1_4
+CS_MINE_LIGHTMAP_UV CS_front-end-area_evac_stripe_1_5
+CS_MINE_LIGHTMAP_UV CS_front-end-area_evac_stripe_1_6
+CS_MINE_LIGHTMAP_UV CS_front-end-area_evac_stripe_1_7
+CS_MINE_LIGHTMAP_UV CS_front-end-area_evac_push_bar_1
+CS_MINE_LIGHTMAP_UV CS_front-end-area_evac_post1
+CS_MINE_LIGHTMAP_UV CS_front-end-area_evac_keypad
+CS_MINE_LIGHTMAP_UV CS_front-end-area_service_door_L
+CS_MINE_LIGHTMAP_UV CS_front-end-area_service_door_R
+CS_MINE_LIGHTMAP_UV CS_front-end-area_service_door_H
+CS_MINE_LIGHTMAP_UV CS_front-end-area_service_door_leaf
+CS_MINE_LIGHTMAP_UV CS_front-end-area_service_door_push
+CS_MINE_LIGHTMAP_UV CS_front-end-area_loading_canopy_post0
+CS_MINE_LIGHTMAP_UV CS_front-end-area_loading_canopy_post2
+CS_MINE_LIGHTMAP_UV CS_front-end-area_loading_canopy_beamA
+CS_MINE_LIGHTMAP_UV CS_front-end-area_loading_canopy_beamB
+CS_MINE_LIGHTMAP_UV CS_front-end-area_loading_canopy_rafter0
+CS_MINE_LIGHTMAP_UV CS_front-end-area_loading_canopy_rafter1
+CS_MINE_LIGHTMAP_UV CS_front-end-area_loading_canopy_rafter2
+CS_MINE_LIGHTMAP_UV CS_front-end-area_loading_canopy_roof
+CS_MINE_LIGHTMAP_UV CS_front-end-area_loading_canopy_rib0
+CS_MINE_LIGHTMAP_UV CS_front-end-area_loading_canopy_rib1
+CS_MINE_LIGHTMAP_UV CS_front-end-area_loading_canopy_rib2
+CS_MINE_LIGHTMAP_UV CS_front-end-area_loading_canopy_rib3
+CS_MINE_LIGHTMAP_UV CS_front-end-area_loading_canopy_rib4
+CS_MINE_LIGHTMAP_UV CS_front-end-area_loading_canopy_rib5
+CS_MINE_LIGHTMAP_UV CS_front-end-area_loading_canopy_rib6
+CS_MINE_LIGHTMAP_UV CS_front-end-area_loading_canopy_edge_accent
+CS_MINE_LIGHTMAP_UV CS_front-end-area_loading_canopy_edge_accent2
+CS_MINE_LIGHTMAP_UV CS_front-end-area_floor_track_scale
+CS_MINE_LIGHTMAP_UV CS_front-end-area_scale_post
+CS_MINE_LIGHTMAP_UV CS_front-end-area_ore_bay_2
+CS_MINE_LIGHTMAP_UV CS_front-end-area_ore_pile_2
+CS_MINE_LIGHTMAP_UV CS_front-end-area_sign_bay_2
+CS_MINE_LIGHTMAP_UV CS_front-end-area_skid_loader
+CS_MINE_LIGHTMAP_UV CS_front-end-area_gas_cage_0
+CS_MINE_LIGHTMAP_UV CS_front-end-area_gas_cage_1
+CS_MINE_LIGHTMAP_UV CS_front-end-area_gas_cage_2
+CS_MINE_LIGHTMAP_UV CS_front-end-area_gas_rack_0
+CS_MINE_LIGHTMAP_UV CS_front-end-area_sign_gas
+CS_MINE_LIGHTMAP_UV CS_front-end-area_dock_parcels_0
+CS_MINE_LIGHTMAP_UV CS_front-end-area_dock_parcels_1
+CS_MINE_LIGHTMAP_UV CS_front-end-area_forklift_0
+CS_MINE_LIGHTMAP_UV CS_front-end-area_freight_beacon_L
+CS_MINE_LIGHTMAP_UV CS_front-end-area_sign_freight
+CS_MINE_LIGHTMAP_UV CS_front-end-area_floor_freight_hatch_0
+CS_MINE_LIGHTMAP_UV CS_front-end-area_floor_freight_hatch_1
+CS_MINE_LIGHTMAP_UV CS_front-end-area_floor_freight_hatch_2
+CS_MINE_LIGHTMAP_UV CS_front-end-area_floor_freight_hatch_3
+CS_MINE_LIGHTMAP_UV CS_front-end-area_floor_stop_train
+CS_MINE_LIGHTMAP_UV CS_front-end-area_floor_bayline_-39.0
+CS_MINE_LIGHTMAP_UV CS_front-end-area_floor_bayline_-36.0
+CS_MINE_LIGHTMAP_UV CS_front-end-area_floor_bayline_-33.0
+CS_MINE_LIGHTMAP_UV CS_front-end-area_floor_bayline_-30.0
+CS_MINE_LIGHTMAP_UV CS_front-end-area_floor_bayline_front
+CS_MINE_LIGHTMAP_UV CS_front-end-area_wheel_stop_0
+CS_MINE_LIGHTMAP_UV CS_front-end-area_wheel_stop_1
+CS_MINE_LIGHTMAP_UV CS_front-end-area_floor_bay_no_1
+CS_MINE_LIGHTMAP_UV CS_front-end-area_wheel_stop_2
+CS_MINE_LIGHTMAP_UV CS_front-end-area_floor_bay_no_2
+CS_MINE_LIGHTMAP_UV CS_front-end-area_site_pickup
+CS_MINE_LIGHTMAP_UV CS_front-end-area_crew_van
+CS_MINE_LIGHTMAP_UV CS_front-end-area_forklift_1
+CS_MINE_LIGHTMAP_UV CS_front-end-area_sign_pickup
+CS_MINE_LIGHTMAP_UV CS_front-end-area_sign_van
+CS_MINE_LIGHTMAP_UV CS_front-end-area_fuel_station
+CS_MINE_LIGHTMAP_UV CS_front-end-area_board_fuel_post
+CS_MINE_LIGHTMAP_UV CS_front-end-area_board_fuel
+CS_MINE_LIGHTMAP_UV CS_front-end-area_fuel_bollard_0
+CS_MINE_LIGHTMAP_UV CS_front-end-area_fuel_bollard_1
+CS_MINE_LIGHTMAP_UV CS_front-end-area_floor_fuel_hatch_0
+CS_MINE_LIGHTMAP_UV CS_front-end-area_floor_fuel_hatch_1
+CS_MINE_LIGHTMAP_UV CS_front-end-area_floor_fuel_hatch_2
+CS_MINE_LIGHTMAP_UV CS_front-end-area_floor_fuel_hatch_3
+CS_MINE_LIGHTMAP_UV CS_front-end-area_floor_fuel_hatch_4
+CS_MINE_LIGHTMAP_UV CS_front-end-area_floor_fuel_hatch_5
+CS_MINE_LIGHTMAP_UV CS_front-end-area_floor_fuel_hatch_6
+CS_MINE_LIGHTMAP_UV CS_front-end-area_floor_fuel_hatch_7
+CS_MINE_LIGHTMAP_UV CS_front-end-area_floor_fuel_hatch_8
+CS_MINE_LIGHTMAP_UV CS_front-end-area_floor_fuel_hatch_9
+CS_MINE_LIGHTMAP_UV CS_front-end-area_container_0
+CS_MINE_LIGHTMAP_UV CS_front-end-area_sign_store_0
+CS_MINE_LIGHTMAP_UV CS_front-end-area_container_1
+CS_MINE_LIGHTMAP_UV CS_front-end-area_sign_store_1
+CS_MINE_LIGHTMAP_UV CS_front-end-area_container_2
+CS_MINE_LIGHTMAP_UV CS_front-end-area_sign_store_2
+CS_MINE_LIGHTMAP_UV CS_front-end-area_floor_muster_fill
+CS_MINE_LIGHTMAP_UV CS_front-end-area_floor_muster_edge_s
+CS_MINE_LIGHTMAP_UV CS_front-end-area_floor_muster_edge_n
+CS_MINE_LIGHTMAP_UV CS_front-end-area_floor_muster_edge_w
+CS_MINE_LIGHTMAP_UV CS_front-end-area_sign_cooling
+CS_MINE_LIGHTMAP_UV CS_front-end-area_pole_1
+CS_MINE_LIGHTMAP_UV CS_front-end-area_pole_4
+CS_MINE_LIGHTMAP_UV CS_front-end-area_pole_6
+CS_MINE_LIGHTMAP_UV CS_front-end-area_streak_path_dock
+CS_MINE_LIGHTMAP_UV CS_front-end-area_stain_skid_171
+CS_MINE_LIGHTMAP_UV CS_front-end-area_stain_skid_172
+CS_MINE_LIGHTMAP_UV CS_front-end-area_stain_yard_blotch_174
+CS_MINE_LIGHTMAP_UV CS_front-end-area_stain_yard_blotch_175
+CS_MINE_LIGHTMAP_UV CS_front-end-area_stain_yard_blotch_176
+CS_MINE_LIGHTMAP_UV CS_front-end-area_stain_yard_blotch_178
+CS_MINE_LIGHTMAP_UV CS_front-end-area_stain_yard_blotch_179
+CS_MINE_LIGHTMAP_UV CS_front-end-area_stain_yard_scuff_180
+CS_MINE_LIGHTMAP_UV CS_front-end-area_stain_yard_scuff_181
+CS_MINE_LIGHTMAP_UV CS_front-end-area_stain_yard_scuff_182
+CS_MINE_LIGHTMAP_UV CS_front-end-area_stain_yard_scuff_183
+CS_MINE_LIGHTMAP_UV CS_front-end-area_stain_yard_scuff_184
+CS_MINE_LIGHTMAP_UV CS_front-end-area_stain_yard_scuff_185
+CS_MINE_LIGHTMAP_UV CS_front-end-area_stain_yard_scuff_186
+CS_MINE_LIGHTMAP_UV CS_front-end-area_stain_yard_scuff_187
+CS_MINE_LIGHTMAP_UV CS_front-end-area_stain_yard_scuff_188
+CS_MINE_LIGHTMAP_UV CS_front-end-area_stain_yard_scuff_189
+CS_MINE_LIGHTMAP_UV CS_front-end-area_stain_yard_scuff_190
+CS_MINE_LIGHTMAP_UV CS_front-end-area_stain_yard_scuff_191
+CS_MINE_LIGHTMAP_UV CS_front-end-area_stain_yard_scuff_192
+CS_MINE_LIGHTMAP_UV CS_front-end-area_stain_yard_scuff_193
+CS_MINE_LIGHTMAP_UV CS_front-end-area_stain_yard_scuff_194
+CS_MINE_LIGHTMAP_UV CS_front-end-area_stain_container_drip_199
+CS_MINE_LIGHTMAP_UV CS_front-end-area_stain_container_dust_200
+CS_MINE_LIGHTMAP_UV CS_front-end-area_stain_container_drip_201
+CS_MINE_LIGHTMAP_UV CS_front-end-area_stain_container_dust_202
+CS_MINE_LIGHTMAP_UV CS_front-end-area_stain_container_drip_203
+CS_MINE_LIGHTMAP_UV CS_front-end-area_stain_container_dust_204
+CS_MINE_LIGHTMAP_UV CS_front-end-area_stain_bay_dust_207
+CS_MINE_LIGHTMAP_UV CS_front-end-area_context_ground
+
+FBX export starting... '/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/MineContext.fbx'
+export finished in 2.4083 sec.
+CS_MINE_CONTEXT_DELIVERY_OK 317
+
+Blender quit
+CS_MINE_DELIVERY_OK

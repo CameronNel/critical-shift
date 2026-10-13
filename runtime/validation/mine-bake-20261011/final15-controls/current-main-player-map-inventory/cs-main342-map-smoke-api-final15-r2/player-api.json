@@ -1,0 +1,20 @@
+{
+  "status": "Failed",
+  "native_unity_execution": false,
+  "editor": "6000.4.3f1",
+  "sdk": "8.0.425",
+  "checks": [
+    {
+      "assembly": "CriticalShift.Features.Player.Unity",
+      "files": 9,
+      "status": "Passed"
+    },
+    {
+      "assembly": "CriticalShift.Player.Bootstrap",
+      "files": 2,
+      "status": "Failed"
+    }
+  ],
+  "limits": "API compile only. No native import, Test Runner, physical execution, build or human review.",
+  "reason": "API compilation failed: CriticalShift.Player.Bootstrap"
+}

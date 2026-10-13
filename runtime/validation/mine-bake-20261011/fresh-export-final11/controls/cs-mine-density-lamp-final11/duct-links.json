@@ -1,0 +1,652 @@
+[
+  {
+    "name": "Principled BSDF",
+    "type": "BSDF_PRINCIPLED",
+    "links": [
+      [
+        "Mix (Legacy).005",
+        "Color",
+        "Base Color"
+      ],
+      [
+        "Math.017",
+        "Value",
+        "Roughness"
+      ],
+      [
+        "Bump.001",
+        "Normal",
+        "Normal"
+      ]
+    ],
+    "image": null
+  },
+  {
+    "name": "Material Output",
+    "type": "OUTPUT_MATERIAL",
+    "links": [
+      [
+        "Principled BSDF",
+        "BSDF",
+        "Surface"
+      ]
+    ],
+    "image": null
+  },
+  {
+    "name": "Texture Coordinate",
+    "type": "TEX_COORD",
+    "links": [],
+    "image": null
+  },
+  {
+    "name": "Mapping",
+    "type": "MAPPING",
+    "links": [
+      [
+        "Texture Coordinate",
+        "Object",
+        "Vector"
+      ]
+    ],
+    "image": null
+  },
+  {
+    "name": "RGB to BW",
+    "type": "RGBTOBW",
+    "links": [
+      [
+        "Image Texture",
+        "Color",
+        "Color"
+      ]
+    ],
+    "image": null
+  },
+  {
+    "name": "Image Texture",
+    "type": "TEX_IMAGE",
+    "links": [
+      [
+        "Mapping",
+        "Vector",
+        "Vector"
+      ]
+    ],
+    "image": {
+      "file": "C:/Users/Camer/Games/critical-shift/worktrees/main-integration-20260914/sections/facility-assembly/sources/polyhaven-cc0/textures/rust_coarse_01/rust_coarse_01_diff_1k.jpg",
+      "projection": "BOX",
+      "extension": "REPEAT",
+      "interpolation": "Linear"
+    }
+  },
+  {
+    "name": "Math",
+    "type": "MATH",
+    "links": [
+      [
+        "RGB to BW",
+        "Val",
+        "Value"
+      ]
+    ],
+    "image": null
+  },
+  {
+    "name": "Clamp",
+    "type": "CLAMP",
+    "links": [
+      [
+        "Math",
+        "Value",
+        "Value"
+      ]
+    ],
+    "image": null
+  },
+  {
+    "name": "Mapping.001",
+    "type": "MAPPING",
+    "links": [
+      [
+        "Texture Coordinate",
+        "Object",
+        "Vector"
+      ]
+    ],
+    "image": null
+  },
+  {
+    "name": "Noise Texture",
+    "type": "TEX_NOISE",
+    "links": [
+      [
+        "Mapping.001",
+        "Vector",
+        "Vector"
+      ]
+    ],
+    "image": null
+  },
+  {
+    "name": "Math.001",
+    "type": "MATH",
+    "links": [
+      [
+        "Noise Texture",
+        "Factor",
+        "Value"
+      ]
+    ],
+    "image": null
+  },
+  {
+    "name": "Color Ramp",
+    "type": "VALTORGB",
+    "links": [
+      [
+        "Math.001",
+        "Value",
+        "Fac"
+      ]
+    ],
+    "image": null
+  },
+  {
+    "name": "Geometry",
+    "type": "NEW_GEOMETRY",
+    "links": [],
+    "image": null
+  },
+  {
+    "name": "Mapping.002",
+    "type": "MAPPING",
+    "links": [
+      [
+        "Geometry",
+        "Position",
+        "Vector"
+      ]
+    ],
+    "image": null
+  },
+  {
+    "name": "Noise Texture.001",
+    "type": "TEX_NOISE",
+    "links": [
+      [
+        "Mapping.002",
+        "Vector",
+        "Vector"
+      ]
+    ],
+    "image": null
+  },
+  {
+    "name": "Color Ramp.001",
+    "type": "VALTORGB",
+    "links": [
+      [
+        "Noise Texture.001",
+        "Factor",
+        "Fac"
+      ]
+    ],
+    "image": null
+  },
+  {
+    "name": "Math.002",
+    "type": "MATH",
+    "links": [
+      [
+        "Color Ramp.001",
+        "Color",
+        "Value"
+      ]
+    ],
+    "image": null
+  },
+  {
+    "name": "Mix (Legacy)",
+    "type": "MIX_RGB",
+    "links": [
+      [
+        "Math.002",
+        "Value",
+        "Fac"
+      ],
+      [
+        "Color Ramp",
+        "Color",
+        "Color1"
+      ]
+    ],
+    "image": null
+  },
+  {
+    "name": "Mapping.003",
+    "type": "MAPPING",
+    "links": [
+      [
+        "Texture Coordinate",
+        "Object",
+        "Vector"
+      ]
+    ],
+    "image": null
+  },
+  {
+    "name": "Noise Texture.002",
+    "type": "TEX_NOISE",
+    "links": [
+      [
+        "Mapping.003",
+        "Vector",
+        "Vector"
+      ]
+    ],
+    "image": null
+  },
+  {
+    "name": "Attribute",
+    "type": "ATTRIBUTE",
+    "links": [],
+    "image": null
+  },
+  {
+    "name": "Math.003",
+    "type": "MATH",
+    "links": [
+      [
+        "Noise Texture.002",
+        "Factor",
+        "Value"
+      ]
+    ],
+    "image": null
+  },
+  {
+    "name": "Math.004",
+    "type": "MATH",
+    "links": [
+      [
+        "Math.003",
+        "Value",
+        "Value"
+      ]
+    ],
+    "image": null
+  },
+  {
+    "name": "Math.005",
+    "type": "MATH",
+    "links": [
+      [
+        "Attribute",
+        "Factor",
+        "Value"
+      ],
+      [
+        "Math.004",
+        "Value",
+        "Value_001"
+      ]
+    ],
+    "image": null
+  },
+  {
+    "name": "Mix (Legacy).001",
+    "type": "MIX_RGB",
+    "links": [
+      [
+        "Math.005",
+        "Value",
+        "Fac"
+      ],
+      [
+        "Mix (Legacy)",
+        "Color",
+        "Color1"
+      ]
+    ],
+    "image": null
+  },
+  {
+    "name": "Math.006",
+    "type": "MATH",
+    "links": [
+      [
+        "Clamp",
+        "Result",
+        "Value"
+      ]
+    ],
+    "image": null
+  },
+  {
+    "name": "Math.007",
+    "type": "MATH",
+    "links": [
+      [
+        "Math.006",
+        "Value",
+        "Value"
+      ]
+    ],
+    "image": null
+  },
+  {
+    "name": "Combine Color",
+    "type": "COMBINE_COLOR",
+    "links": [
+      [
+        "Math.007",
+        "Value",
+        "Red"
+      ],
+      [
+        "Math.007",
+        "Value",
+        "Green"
+      ],
+      [
+        "Math.007",
+        "Value",
+        "Blue"
+      ]
+    ],
+    "image": null
+  },
+  {
+    "name": "Mix (Legacy).002",
+    "type": "MIX_RGB",
+    "links": [
+      [
+        "Mix (Legacy).001",
+        "Color",
+        "Color1"
+      ],
+      [
+        "Combine Color",
+        "Color",
+        "Color2"
+      ]
+    ],
+    "image": null
+  },
+  {
+    "name": "Attribute.001",
+    "type": "ATTRIBUTE",
+    "links": [],
+    "image": null
+  },
+  {
+    "name": "Color Ramp.002",
+    "type": "VALTORGB",
+    "links": [
+      [
+        "Attribute.001",
+        "Factor",
+        "Fac"
+      ]
+    ],
+    "image": null
+  },
+  {
+    "name": "Math.008",
+    "type": "MATH",
+    "links": [
+      [
+        "Color Ramp.002",
+        "Color",
+        "Value"
+      ]
+    ],
+    "image": null
+  },
+  {
+    "name": "Mix (Legacy).003",
+    "type": "MIX_RGB",
+    "links": [
+      [
+        "Math.008",
+        "Value",
+        "Fac"
+      ],
+      [
+        "Mix (Legacy).002",
+        "Color",
+        "Color1"
+      ]
+    ],
+    "image": null
+  },
+  {
+    "name": "Attribute.002",
+    "type": "ATTRIBUTE",
+    "links": [],
+    "image": null
+  },
+  {
+    "name": "Mix (Legacy).004",
+    "type": "MIX_RGB",
+    "links": [
+      [
+        "Attribute.002",
+        "Factor",
+        "Fac"
+      ],
+      [
+        "Mix (Legacy).003",
+        "Color",
+        "Color1"
+      ]
+    ],
+    "image": null
+  },
+  {
+    "name": "Ambient Occlusion",
+    "type": "AMBIENT_OCCLUSION",
+    "links": [
+      [
+        "Mix (Legacy).004",
+        "Color",
+        "Color"
+      ]
+    ],
+    "image": null
+  },
+  {
+    "name": "Color Ramp.003",
+    "type": "VALTORGB",
+    "links": [
+      [
+        "Ambient Occlusion",
+        "AO",
+        "Fac"
+      ]
+    ],
+    "image": null
+  },
+  {
+    "name": "Mix (Legacy).005",
+    "type": "MIX_RGB",
+    "links": [
+      [
+        "Mix (Legacy).004",
+        "Color",
+        "Color1"
+      ],
+      [
+        "Color Ramp.003",
+        "Color",
+        "Color2"
+      ]
+    ],
+    "image": null
+  },
+  {
+    "name": "Color Ramp.004",
+    "type": "VALTORGB",
+    "links": [
+      [
+        "Math.001",
+        "Value",
+        "Fac"
+      ]
+    ],
+    "image": null
+  },
+  {
+    "name": "Math.009",
+    "type": "MATH",
+    "links": [
+      [
+        "Color Ramp.004",
+        "Color",
+        "Value"
+      ],
+      [
+        "Math.005",
+        "Value",
+        "Value_001"
+      ]
+    ],
+    "image": null
+  },
+  {
+    "name": "Math.010",
+    "type": "MATH",
+    "links": [
+      [
+        "Math.009",
+        "Value",
+        "Value_001"
+      ]
+    ],
+    "image": null
+  },
+  {
+    "name": "Math.011",
+    "type": "MATH",
+    "links": [
+      [
+        "Math.010",
+        "Value",
+        "Value"
+      ]
+    ],
+    "image": null
+  },
+  {
+    "name": "Math.012",
+    "type": "MATH",
+    "links": [
+      [
+        "Attribute.002",
+        "Factor",
+        "Value"
+      ]
+    ],
+    "image": null
+  },
+  {
+    "name": "Math.013",
+    "type": "MATH",
+    "links": [
+      [
+        "Math.011",
+        "Value",
+        "Value"
+      ],
+      [
+        "Math.012",
+        "Value",
+        "Value_001"
+      ]
+    ],
+    "image": null
+  },
+  {
+    "name": "Math.014",
+    "type": "MATH",
+    "links": [
+      [
+        "Math.009",
+        "Value",
+        "Value"
+      ]
+    ],
+    "image": null
+  },
+  {
+    "name": "Math.015",
+    "type": "MATH",
+    "links": [
+      [
+        "Math.014",
+        "Value",
+        "Value_001"
+      ]
+    ],
+    "image": null
+  },
+  {
+    "name": "Math.016",
+    "type": "MATH",
+    "links": [
+      [
+        "Attribute.002",
+        "Factor",
+        "Value"
+      ]
+    ],
+    "image": null
+  },
+  {
+    "name": "Math.017",
+    "type": "MATH",
+    "links": [
+      [
+        "Math.015",
+        "Value",
+        "Value"
+      ],
+      [
+        "Math.016",
+        "Value",
+        "Value_001"
+      ]
+    ],
+    "image": null
+  },
+  {
+    "name": "Bump",
+    "type": "BUMP",
+    "links": [
+      [
+        "Clamp",
+        "Result",
+        "Height"
+      ]
+    ],
+    "image": null
+  },
+  {
+    "name": "Bump.001",
+    "type": "BUMP",
+    "links": [
+      [
+        "Math.005",
+        "Value",
+        "Height"
+      ],
+      [
+        "Bump",
+        "Normal",
+        "Normal"
+      ]
+    ],
+    "image": null
+  }
+]

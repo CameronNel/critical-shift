@@ -1,0 +1,242 @@
+{
+  "utc": "2026-10-13T00:34:19.623782+00:00",
+  "reviewer": "/root/strict_mine_review",
+  "status": "PassedIndependentBoundedColdInPlaceRepair_EligibleForFullProduction20Validation",
+  "stateSha256": "59d8dc85e51f3f26314f4aa230d7743ec12d322849a5039a0d128675ba595bb1",
+  "nativeLogSha256": "969120be18c3483138eb7d337a1e68a626526b48c79a3bb8167dd4bde5856250",
+  "pinsVerified": 22,
+  "frames": [
+    {
+      "name": "d1-a0-cold-before-blit",
+      "hdrSha256": "6cff383385de2251df518083f00648a65c356111f5de2941dcaabec37bc62270",
+      "metadataSha256": "0bf351fbd1b752f3dd5e34a8a24f1de54945bfd7d79c068067fc8e56d0cce445",
+      "sourceHdrSha256": "e1f1a32c0b4e996168716f8a5849ea39add5b3a3334fe82109ccef6506cf0d0d",
+      "oldFailedHdrSha256": "4f64355f6791fdb2e5321f54e84411e4f7d7a5287b192ddef9b1aa5f575612b3",
+      "meanCentreRGB": [
+        11.68579150736332,
+        10.750929027795792,
+        9.114916443824768
+      ],
+      "sourceMeanCentreRGB": [
+        11.686149969696999,
+        10.751258611679077,
+        9.11519667506218
+      ],
+      "oldFailedMeanCentreRGB": [
+        11.712969228625298,
+        10.775932669639587,
+        9.136114999651909
+      ],
+      "relativePercentRGB": [
+        -0.0030674117190709893,
+        -0.0030655376750732266,
+        -0.003074330125840685
+      ]
+    },
+    {
+      "name": "d2-a0-cold-before-blit",
+      "hdrSha256": "eb9add644fa7d67ee8f2872010896bd5011304efae26c344ec25a2cb62051c57",
+      "metadataSha256": "b13656220bac4695ca8235c43b491cf24a66ce5067c286a40f33c610da798bf5",
+      "sourceHdrSha256": "bc7815f4d85a078c340316fb69f3f7c2ac19ddf476573c27f1839c61f61c8178",
+      "oldFailedHdrSha256": "b4e83022cf9a0a56b2d5c0c93f3dbdd68337c95d967f8ac60282a9032d0315a2",
+      "meanCentreRGB": [
+        2.952937573194504,
+        2.716702751815319,
+        2.3032910525798798
+      ],
+      "sourceMeanCentreRGB": [
+        2.9529990293085575,
+        2.7167592979967594,
+        2.3033391013741493
+      ],
+      "oldFailedMeanCentreRGB": [
+        10.922482773661613,
+        10.048685103654861,
+        8.519535765051842
+      ],
+      "relativePercentRGB": [
+        -0.002081142372334366,
+        -0.00208138356173615,
+        -0.002086049520055866
+      ]
+    },
+    {
+      "name": "d4-a0-cold-before-blit",
+      "hdrSha256": "181c9f681bcc5faf7914282fd243a294c54453be5c5c2f7218f8b27d916bff5d",
+      "metadataSha256": "cc50ba8f3d69663a5f06cc8e0bb9dd09270a55a95e2a8f0e930f96673297136c",
+      "sourceHdrSha256": "684fcb4e168f6652b4fc827235950a66013e0e81b8ca4272a57b21df239b5acc",
+      "oldFailedHdrSha256": "47d9b07126858b7e6e497d006ec43d288f66f98577cc11eee5287116214a3cd4",
+      "meanCentreRGB": [
+        0.7402291167527437,
+        0.6810108441859484,
+        0.5773786390200257
+      ],
+      "sourceMeanCentreRGB": [
+        0.7402438633143902,
+        0.6810244135558605,
+        0.5773901734501123
+      ],
+      "oldFailedMeanCentreRGB": [
+        8.600563496351242,
+        7.912518747150898,
+        6.7084386721253395
+      ],
+      "relativePercentRGB": [
+        -0.001992122106952987,
+        -0.0019924939021365162,
+        -0.0019976838223079163
+      ]
+    },
+    {
+      "name": "d4-a50-cold-before-blit",
+      "hdrSha256": "2ae3841cedaef8db7416ba5b91f45e3f1b0c9cb749018732d0b896f81a595534",
+      "metadataSha256": "293ca3f49d5e4fdb79822728d97bb8f63d5cdbcc5309ed3cce33c32e922c18e7",
+      "sourceHdrSha256": "7473061c74e1dca33ea19b2f8f0770e2f555e0af8babf5f792468bc2e7b7b3c4",
+      "oldFailedHdrSha256": "d8b51c8e31eb02fc093446bda4297521a2920ae2e205a901e67f3e1a71e008ff",
+      "meanCentreRGB": [
+        0.28249509166926146,
+        0.25989551143720746,
+        0.22034614975564182
+      ],
+      "sourceMeanCentreRGB": [
+        0.28241498256102204,
+        0.2598217879422009,
+        0.22028367896564305
+      ],
+      "oldFailedMeanCentreRGB": [
+        8.600563868880272,
+        7.912519179284573,
+        6.708438917994499
+      ],
+      "relativePercentRGB": [
+        0.028365743032798818,
+        0.028374639244255206,
+        0.02835924581072735
+      ]
+    },
+    {
+      "name": "d4-a65-cold-before-blit",
+      "hdrSha256": "57f3cc94fe9b4994c303ea6299c7605dddb33ecc4f00c3ec8b37535827f9633a",
+      "metadataSha256": "dd2ced1765aba81e0929f03257603c0c31aba731b367e5896d4ef970b33b7c5e",
+      "sourceHdrSha256": "6ae3e9b2d8d11b040883953b12c07b0203b6071c7a5983277a2735e8f55c9b03",
+      "oldFailedHdrSha256": "57f3cc94fe9b4994c303ea6299c7605dddb33ecc4f00c3ec8b37535827f9633a",
+      "meanCentreRGB": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "sourceMeanCentreRGB": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "oldFailedMeanCentreRGB": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "relativePercentRGB": null
+    },
+    {
+      "name": "d4-a0-after-explicit-blit",
+      "hdrSha256": "181c9f681bcc5faf7914282fd243a294c54453be5c5c2f7218f8b27d916bff5d",
+      "metadataSha256": "817669f0b06d2977e2785814dfcd2aa99972de265099627ce02a40a797ec5c18",
+      "sourceHdrSha256": "684fcb4e168f6652b4fc827235950a66013e0e81b8ca4272a57b21df239b5acc",
+      "oldFailedHdrSha256": "47d9b07126858b7e6e497d006ec43d288f66f98577cc11eee5287116214a3cd4",
+      "meanCentreRGB": [
+        0.7402291167527437,
+        0.6810108441859484,
+        0.5773786390200257
+      ],
+      "sourceMeanCentreRGB": [
+        0.7402438633143902,
+        0.6810244135558605,
+        0.5773901734501123
+      ],
+      "oldFailedMeanCentreRGB": [
+        8.600563496351242,
+        7.912518747150898,
+        6.7084386721253395
+      ],
+      "relativePercentRGB": [
+        -0.001992122106952987,
+        -0.0019924939021365162,
+        -0.0019976838223079163
+      ]
+    },
+    {
+      "name": "d4-a50-after-explicit-blit",
+      "hdrSha256": "2ae3841cedaef8db7416ba5b91f45e3f1b0c9cb749018732d0b896f81a595534",
+      "metadataSha256": "0b2f53eb21d07a226fc3230aa860f615b7643c1168987ed06752c4be43c3bb19",
+      "sourceHdrSha256": "7473061c74e1dca33ea19b2f8f0770e2f555e0af8babf5f792468bc2e7b7b3c4",
+      "oldFailedHdrSha256": "d8b51c8e31eb02fc093446bda4297521a2920ae2e205a901e67f3e1a71e008ff",
+      "meanCentreRGB": [
+        0.28249509166926146,
+        0.25989551143720746,
+        0.22034614975564182
+      ],
+      "sourceMeanCentreRGB": [
+        0.28241498256102204,
+        0.2598217879422009,
+        0.22028367896564305
+      ],
+      "oldFailedMeanCentreRGB": [
+        8.600563868880272,
+        7.912519179284573,
+        6.708438917994499
+      ],
+      "relativePercentRGB": [
+        0.028365743032798818,
+        0.028374639244255206,
+        0.02835924581072735
+      ]
+    },
+    {
+      "name": "d4-a65-after-explicit-blit",
+      "hdrSha256": "57f3cc94fe9b4994c303ea6299c7605dddb33ecc4f00c3ec8b37535827f9633a",
+      "metadataSha256": "d7b8748635f7e57f20f9c8d4dfcae5632211954af487cac1dcd0310bb62dfda9",
+      "sourceHdrSha256": "6ae3e9b2d8d11b040883953b12c07b0203b6071c7a5983277a2735e8f55c9b03",
+      "oldFailedHdrSha256": "57f3cc94fe9b4994c303ea6299c7605dddb33ecc4f00c3ec8b37535827f9633a",
+      "meanCentreRGB": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "sourceMeanCentreRGB": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "oldFailedMeanCentreRGB": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "relativePercentRGB": null
+    }
+  ],
+  "explicitGpuCookieExrSha256": "9ffe531bab7b38a3b8651cfcb74196ef0f5e3114437f1df7b5f9c24c22058a8c",
+  "pairedColdWarmAnglesAllPixelIdentical": [
+    0,
+    50,
+    65
+  ],
+  "serializedCookieSha256": "77b6ab7a7a6a4c86a2dcc0749a92fda6d7288d4fc4750e2fff5b4ba699caccc9",
+  "serializedCookieMetaSha256": "aaae37cbfda7c7cc5cfd95b50593ba4c92b6025a97cc6d535c481884a30073a9",
+  "conclusions": [
+    "Compatible-cookie in-place regeneration resolves tested original cold composite failure without blit workaround or source power/color/cone changes.",
+    "Cold realtime axis Source error<.0031%,50deg<.0284%,65zero; before/afterGPUprobe pairs allRGB bit-identical.",
+    "Actual texture EntityId and assetGUID retention and wrong-type fail-closed unchanged-asset assertions passed before terminal success.",
+    "Corrected actual implementation eligible for next full20 adapter bake/shadow/fallback validation."
+  ],
+  "remainingGates": [
+    "Fresh full20 current helper/API/Source/production pins, independent all20 radiometry/shadow/fallback/currentactualBake callbacks; old engineexit11 remains failed historical.",
+    "Native near/finiteemitter edge residuals remain bounded and should not change Source recipe to conceal them.",
+    "Current main13 source+alllocalassembly runtime export, full mine/spawn visual/HDR, exactgameplay/Player/performance checks."
+  ],
+  "limits": [
+    "One compatible cookie/profile/current Unity editor/software driver.",
+    "No proof of general cookie-cache internal mechanism beyond observed repair and isolated cold regeneration failure.",
+    "No overall98/art approval; last full visuals rejected41/60 old6room source."
+  ]
+}

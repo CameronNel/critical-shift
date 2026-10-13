@@ -1,0 +1,1100 @@
+{
+  "status": "Passed",
+  "native_unity_execution": false,
+  "editor": "6000.4.3f1",
+  "sdk": "8.0.425",
+  "checks": [
+    {
+      "assembly": "CriticalShift.Features.Player.Unity",
+      "files": 9,
+      "status": "Passed"
+    },
+    {
+      "assembly": "CriticalShift.Player.Bootstrap",
+      "files": 2,
+      "status": "Passed"
+    },
+    {
+      "assembly": "CriticalShift.Player.Editor",
+      "files": 7,
+      "status": "Passed"
+    },
+    {
+      "assembly": "CriticalShift.Player.Tests.PlayMode",
+      "files": 2,
+      "status": "Passed"
+    }
+  ],
+  "limits": "API compile only. No native import, Test Runner, physical execution, build or human review.",
+  "source_sha256": "19be9b1a7be0a15491729d95f92601faaef43f0fb946994b6a542ea93201480f",
+  "references": [
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/Microsoft.Win32.Primitives.dll",
+      "sha256": "2522cb85ef5379a4f716a035e11549b6814f4d426e758649250738358a71c85f"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.AppContext.dll",
+      "sha256": "643ec79d998df16995c4270bf2dc8ba881796179c03fa55d343ee9c43ba074d7"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Buffers.dll",
+      "sha256": "d0648fc3d820c8b225fe991d55d506f3210b698cc02beaf8aa31d990cd990772"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Collections.Concurrent.dll",
+      "sha256": "c882ff60ae9e26a23d149a11aa8bcc546652e1bd2b58656a7c3b11a8f5e227a7"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Collections.NonGeneric.dll",
+      "sha256": "17221b8767355654f5c97b53a4fd8dd413f95e2faf36dd2d28ea863ca7536f4a"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Collections.Specialized.dll",
+      "sha256": "9572743bf2fa4fd7a5c5e8d2c8a9b44424f38ff67042c833789282dbe241cb88"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Collections.dll",
+      "sha256": "969da19309c9d0aa44d4ab9c03ad9f85a614fe0c285eaa68ee0bb5dc4dc6e47a"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.ComponentModel.Composition.dll",
+      "sha256": "3d9e953036e19ba57ee12c1148a35e067442063c86ad9d40ff393fb289421914"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.ComponentModel.EventBasedAsync.dll",
+      "sha256": "04a7ea907580d9d41ca1d8d67abfe81d61af8fc59125e1383a9502bfd4f9134f"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.ComponentModel.Primitives.dll",
+      "sha256": "6522dfefdddfbf58ccc4f3ba6f41121e16ee5b20dd8f325c6983b4ac8c3befd8"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.ComponentModel.TypeConverter.dll",
+      "sha256": "399642afed43a9c150650eeb37cd407c2d14ab005e58d6f2784b726e0be72f53"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.ComponentModel.dll",
+      "sha256": "a488ab63c97df6d45f8dc01ecdd56c4ece383fc88231869caca1a74c29ee1c12"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Console.dll",
+      "sha256": "98b2c46fda1c10418cddd36e3950058a7d188a48c482074ec77c3daca1dbad04"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.Core.dll",
+      "sha256": "83c8c06c5e59955aad7ef4acc13b63d702764f5b4e20cefb3a431cb2f75a12ed"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Data.Common.dll",
+      "sha256": "cfbbe345a3af5c2820492779ce4c9e1d9c7e4c9e714f222a15ab524cf827af52"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.Data.dll",
+      "sha256": "722b754ca36e903c69519e8906ebc0f96f14525d847f73f3b5f2ac765499715b"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.Contracts.dll",
+      "sha256": "250ba880b970a355cf626e7ad60f736aab379c7ba06f68ffdebb6f2b852c25cb"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.Debug.dll",
+      "sha256": "3964a2da6b23e89d076faf6a91cf8b2fe6d196d4dea2f954e0c5e1f570ef85b1"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.FileVersionInfo.dll",
+      "sha256": "3f6ce9c7991ab252c5c704ff91e1c99d21b5fe99937d27132b3b56f8b981a045"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.Process.dll",
+      "sha256": "29f7e89a609dcbcec72a4adf094a458718b23940721cebae0440ad7a0f522921"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.StackTrace.dll",
+      "sha256": "2b91c8a72755071086c0fe4ab8019480eeabf9ae5243cbf58942761abd1013a5"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.TextWriterTraceListener.dll",
+      "sha256": "d85c7a6c1d9e848b69aa5a8ffb4a9755e8d84fc957ae9c455ead30fd8b688869"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.Tools.dll",
+      "sha256": "25d1dec703daa1e68dea27c6f85f4a0c55d24a56d1c597388c6c596e0ff9f856"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.TraceSource.dll",
+      "sha256": "10ae31d5bdd373bbca96dc83cad65a32d1e788d8f95fb1555b371026025b2643"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.Tracing.dll",
+      "sha256": "469d5ab04348ab7db62f71d757586e46692695b5c4604a26a01899baceb4b47d"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Drawing.Primitives.dll",
+      "sha256": "da2afcd4237dc4f8e14f66bd9d2983143881e97c3f3c1738620438df94d030e4"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.Drawing.dll",
+      "sha256": "c9a3ea4bcb020c63a986fd72a31ce997e62a5f8d04460a32548e6fa31ae8f910"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Dynamic.Runtime.dll",
+      "sha256": "f34cb31b138244d902cc4220500a60a7ffe6e5cf0874f48678145aa2f42318ea"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Globalization.Calendars.dll",
+      "sha256": "03d14391a91d831f15050cd6255cd1097f546760b46f9fd2c0479069735d264b"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Globalization.Extensions.dll",
+      "sha256": "744c044a966cde69a0362d7f7eadba7f4b89e28c95cb47ab6022740d381969c0"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Globalization.dll",
+      "sha256": "a8bb8be1079c4220b202bc873b7ffe39a2e306cd5280843ad5c1aed8376db2d3"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.IO.Compression.FileSystem.dll",
+      "sha256": "2511e6d2df543140d45bf45d8df2cb34b8590db5193157e970021136c20173d6"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.IO.Compression.ZipFile.dll",
+      "sha256": "f721f7c90e0e1a8b04a62ce570eb7f7c238db9136ac213a6c04970e94a737e82"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.IO.Compression.dll",
+      "sha256": "dd36080142c15c7cf005e78e3237cd85a6d9e241b979072c0b82e0a40f6848b3"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.IO.FileSystem.DriveInfo.dll",
+      "sha256": "25e4ed8748fdbd9cf2fd77014d087ed9ed24dbde2e694e966a68a9d72371f51d"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.IO.FileSystem.Primitives.dll",
+      "sha256": "4e96df37c5713fb21e30c767aa216e1f10878f30e4a89c6d7657b86637a62647"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.IO.FileSystem.Watcher.dll",
+      "sha256": "c75a0339b10aedcddff7c3acc85f23bfc95c63244abc7edbaec8606b426a6556"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.IO.FileSystem.dll",
+      "sha256": "3e6b283d0ad07f2d3e33eb1588e0279f52e684d638fe3dcfa6441deefe799c13"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.IO.IsolatedStorage.dll",
+      "sha256": "7b514b9dfd4ad5b514b54aa9a12f4a9cd02de97a724b21ecaefdd97c2f94b31f"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.IO.MemoryMappedFiles.dll",
+      "sha256": "a7bcea398169e5f8b7bf01ce75d23065590db0d1a62e67df6a5b0894236e46b1"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.IO.Pipes.dll",
+      "sha256": "c988c381f5ed6e2e8ff84a85f71e859f47c19ac149c8ee8230dc3c315100cad4"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.IO.UnmanagedMemoryStream.dll",
+      "sha256": "52df0618cf4bc35ac97150c1a999220b5e6107b7272042cdd49e2adbc41e8adf"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.IO.dll",
+      "sha256": "855c8b76c1dd99ecd97f079b073eff83292b1ff90b9c5426cbe36b76c39a34d1"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Linq.Expressions.dll",
+      "sha256": "1a9d4766cc13b2e27d6295d707c3af5d57f11d63f4cb4a9ffd47d9917edacd7c"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Linq.Parallel.dll",
+      "sha256": "f6d2eba7f641721e3a41ee29000430659f0f987ec1b33fc467f715c9d186e58c"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Linq.Queryable.dll",
+      "sha256": "6c5b11651156aedfbacacadfbe4a388062cbae74a2a43004b590990a0b941a26"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Linq.dll",
+      "sha256": "0f94f7b2e726b32509e628a8514c6ce5ae903d07c99f99a61933289f13756ca4"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Memory.dll",
+      "sha256": "34abf197fbf191fb83e983571a6f3a6fc460fa80f32038c94d54e96966678f88"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Net.Http.dll",
+      "sha256": "bba894cb713ef6a2f48776240ee55122c38839af88c72742294b4583f8d2a66e"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Net.NameResolution.dll",
+      "sha256": "2308c9e1f674c3b854320507d41ba633802c8db7d10ec8dbb3ef9d86acca44fe"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Net.NetworkInformation.dll",
+      "sha256": "8fb1051323d2fc34c59f8aeaa3f17cd37907eeaf7d0c274323b12b14aa7027e9"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Net.Ping.dll",
+      "sha256": "a17b78f469c6622970d1eb6ee5105220235c70d2908c856de6742797c7d82c32"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Net.Primitives.dll",
+      "sha256": "0a3b1ad27d640a56a55ca750861768271edd211ca1c494ae36b5184ab8e26780"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Net.Requests.dll",
+      "sha256": "5f2a63d0ec2fd4ccc45ca2ba3dcfd7a4cf72931e97fd41bd36f00ca2f18dab06"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Net.Security.dll",
+      "sha256": "ca922585b98ea8bc9b2c684dc11cf0a0946211cecec6b3f59c9c9b784a41ba56"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Net.Sockets.dll",
+      "sha256": "cb5996625a8ae3b82a2e06d8b27b00e6a4ad480b6dde96492e1a245583275d68"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Net.WebHeaderCollection.dll",
+      "sha256": "edfc6c63a5f6374134bc9b25349978acbc4c2b02ae7de2fe7935e898044e6ff7"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Net.WebSockets.Client.dll",
+      "sha256": "c212a3431d18b2c678daeb0d1c0a839ea0eb02fb2029ecda32b09e00aed00aa5"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Net.WebSockets.dll",
+      "sha256": "538827c5993417c9aba603171200b0f6f096f399e6e7178cf2028735f1b909d7"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.Net.dll",
+      "sha256": "b99d8f30be2f3ef351b7e00b6cd6b4c09826dfc3ba334999cfbc2899d87204e8"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Numerics.Vectors.dll",
+      "sha256": "4c6ba8896ea9d26ff732d5afaccb3b13ffa4097799b10b3260bf7f64bc8b09c1"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.Numerics.dll",
+      "sha256": "ff69f92af7abae62302e0b29e7562d3f7392bc11d95d75e587b4ca6f1ceb8cbe"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.ObjectModel.dll",
+      "sha256": "a5d377dbf15d2abe6b00a65ae81766b237354738b275c7a0e2d9466f093cbc20"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Reflection.DispatchProxy.dll",
+      "sha256": "69833afb991f90cf22590b9de9aa95ac3aae9bed2b186321ff73fa5790efe08f"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Reflection.Emit.ILGeneration.dll",
+      "sha256": "125c6aaab34dec8c7799fc99074ab01a42f67e549187f50cad9da2184bd35d32"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Reflection.Emit.Lightweight.dll",
+      "sha256": "5e24ed2d22416fca721f54243e4cbc693e6f293904660947067ba1c0288e79fe"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Reflection.Emit.dll",
+      "sha256": "b42bfcd22d815a9ab3d2b2e8a425ecc91e50a6e2aa7e3c5cfa2d5b9b9e127c92"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Reflection.Extensions.dll",
+      "sha256": "59ec997a2dd047441fbf886691dffe2fe9eff0e549dd5d6241400aa2241c7c23"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Reflection.Primitives.dll",
+      "sha256": "ebfd6f084c8741e359358711ae6da4b0a06db2369be8c9defb4d6eb17bc8ee14"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Reflection.dll",
+      "sha256": "00d69622de91ce2e2aeee6c1215debaa721a120d8f59b08e7f4a70796ecf9b3f"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Resources.Reader.dll",
+      "sha256": "f73fa653ba6ceb7e7c1d5eeb82d09c77d4101424422ec74f7313a7845cc882c6"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Resources.ResourceManager.dll",
+      "sha256": "99ed45baff87bd6723ef8dac8d04d21075627141f7525a1ace95ba1dcba9a964"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Resources.Writer.dll",
+      "sha256": "49e3aaa0b5e6d87c3f1d038877063582811f78ae4fb6d6a8f2cb8920f3782d26"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.CompilerServices.VisualC.dll",
+      "sha256": "a75c6fa50f10ad888663ab694ca2cb45b8379070065e9d558d4c19086be9f28b"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.Extensions.dll",
+      "sha256": "3cb31bf3acb245a0e409b2e6160e8dfbbe7c26fbd9eeabcc8bf2bb81535cbab9"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.Handles.dll",
+      "sha256": "aa5fc7ca286d170bfe32dd15663d508bb94e297a52797984a9aa7d8ffddf5ec5"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.InteropServices.RuntimeInformation.dll",
+      "sha256": "1ae138913f54d55cea0f40807ee363fdd1ceaf2037f4a029c1d2aca445146183"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.InteropServices.dll",
+      "sha256": "7e97622025bcbda146408eecbb750345bd373ab9454fb118f11377f215f56400"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.Numerics.dll",
+      "sha256": "e0727d00a0dda8280716df9a2019d4e53cf3da0b6339b1ad4d407ba2dd3396fd"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.Serialization.Formatters.dll",
+      "sha256": "54c2621c4476473fe95be77a8c91a153c63d6d0cf4912683f6dbc98aae0db85a"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.Serialization.Json.dll",
+      "sha256": "8c50999e83e5ef46a479498e2010425283b04eb674cf6e9a691f6e1ea39e3b47"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.Serialization.Primitives.dll",
+      "sha256": "f35293ebdd0b318f02341da4bc7bb236cf0c8e14e1c7ec8e3cba9cc4db2d2aee"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.Serialization.Xml.dll",
+      "sha256": "baac69344e578e064dcc277d93bbe1082a72e5d0c21f04b137a3c343c75ef405"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.Runtime.Serialization.dll",
+      "sha256": "618f378d908436c7e143ec0ffe95ea791431a728a29815eaa1618ec5906aa05f"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.dll",
+      "sha256": "81be9e3c2938390b15445969128e65e5ff14b80193fc531bce4e9e28a368273a"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Security.Claims.dll",
+      "sha256": "ea04a2840cede1e5ee2281442540f5df410c562cf5943277ab938abf30b386e8"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Security.Cryptography.Algorithms.dll",
+      "sha256": "39bd261f8befb2334ab3e720c312ead1d584408c29717f8b439371491d0946ae"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Security.Cryptography.Csp.dll",
+      "sha256": "30f289b46935daa1770373812ac97fe2a3d14806051ba28f900cd305967a0ef9"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Security.Cryptography.Encoding.dll",
+      "sha256": "2327c771b6f00d194816c7e142ba054b8ee120018295c2d61289dfbf822fbbf7"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Security.Cryptography.Primitives.dll",
+      "sha256": "4ce2892fa454e46f7d99411caab18db1595bb3650f8fcbe303851731d889f4cd"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Security.Cryptography.X509Certificates.dll",
+      "sha256": "af66cdf9b9e2ee26174a56aae0bee557edd9a7a61b27a4b99509b338cf68c4b4"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Security.Principal.dll",
+      "sha256": "f7edd00a5f69766356638b9c8692fa7d8ad2465239c5aeb14d9f071f3832a64b"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Security.SecureString.dll",
+      "sha256": "fd85a43436a9ed3667df457c6a92721052c29405eba2232b867d3797ca72cb8b"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.ServiceModel.Web.dll",
+      "sha256": "ef71e6e462f783e8a9ae8d019c7c737256b3d1593659e9831583af4c1b3747e9"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Text.Encoding.Extensions.dll",
+      "sha256": "7d88331223deb5e7226b56fe02a2967c8770b7120d3f23a043192a2396d207d3"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Text.Encoding.dll",
+      "sha256": "968665d2b5b1d7a2786b8e35d9df599ac40d45aedc86b3a2ea21ad35bf02f071"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Text.RegularExpressions.dll",
+      "sha256": "d8839d80664bcaffafada263aded6bda805885fc8c1af0a38eb784f8786a3d2e"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.Overlapped.dll",
+      "sha256": "fb48baf7cb0693c44e907b89a8c792cb4b90de258cd9735bef67d9b4dd85e2f1"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.Tasks.Extensions.dll",
+      "sha256": "a159ada6a533b86727178129915d53c9c7554b0e55e117fce27b8661f8366f62"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.Tasks.Parallel.dll",
+      "sha256": "69efa79ae26cc823964170b3a23f69c8c2346206f3c2670d8d07f60cd4c19a94"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.Tasks.dll",
+      "sha256": "30984a07e22928be7fbea6fc3518ef0171537652402d5622497f8dd5afcb16f4"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.Thread.dll",
+      "sha256": "6822f2724465e7c973ae1f2d5a2e7a5755a816b6847498a855fe9c8d0ed69a0b"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.ThreadPool.dll",
+      "sha256": "cdb2e88636ec5e827305d93e008e69cd205675fed0e19115a03288624769e853"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.Timer.dll",
+      "sha256": "e9aa691cef3ec721b26e7d0efc1a960ec7fc5661eb1921e06a0ff0afb52f41b9"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.dll",
+      "sha256": "23c49cba7193aa07fea9c840254433461601ad3b7e9d77d97c889a8b671dee62"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.Transactions.dll",
+      "sha256": "a518484c7988530007547406cc8d14b1cde92fc26f373d49ea155cab472a6131"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.ValueTuple.dll",
+      "sha256": "1b0ee8e45405c0b4917327b1e44454ffffc63750b7df479a7f6ffbda2a1f92a2"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.Web.dll",
+      "sha256": "2c1b3298574d95c3232a45a073d39dae0908e89dacfbfb42e4f44ebf06368fe4"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.Windows.dll",
+      "sha256": "a1bc4b5483e459783cde59c72f9213d13136695ebbba1b9e6093d50d675d741d"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.Xml.Linq.dll",
+      "sha256": "9649dcf62b2882648a5b5de48b931b8c7080da8e8a96fc853e87801fae8d892d"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Xml.ReaderWriter.dll",
+      "sha256": "ae8db24c60c075fc0cd7c30e9aecc7f7de52fa05048d1d09e3ee35653f4c54d5"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.Xml.Serialization.dll",
+      "sha256": "41738a9f79bbe5dfcf9b5d75960caa091d5b4a7cd276e7176c9d03df260737e7"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Xml.XDocument.dll",
+      "sha256": "729c42931e8812e1a993727a0f32c832ebfc3abac2223a5a30c2a8ac1cc9964d"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Xml.XPath.XDocument.dll",
+      "sha256": "857621dc44cff6ac7388d828a5a083d99f149901f2bec74993d87ef3cd541b35"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Xml.XPath.dll",
+      "sha256": "ddcb1eb78a567a323b47dc18a9dd63c066000e3cdbb90a4559607dae69ab4be0"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Xml.XmlDocument.dll",
+      "sha256": "e683ff6c95f117954a616d304f3b89cb273e8b00b42efef7fe99a48713800645"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Xml.XmlSerializer.dll",
+      "sha256": "6650b822e73bc40af1f242a6d96c2f25397189b8fa778d22ac6a8c5fa2ea58f7"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.Xml.dll",
+      "sha256": "1191d6b547783fb32061de561a9379fbe7c788518510cc22c71d3c4646dd65f5"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.dll",
+      "sha256": "2886c15559ef9f2f2c06389d204176ef86f74344416e680d450ac210d40656aa"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/mscorlib.dll",
+      "sha256": "fb7ac3d0534282d14c3256e66f8d273ea016055ea1307c0f70021e7a236d6c33"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/NetStandard/ref/2.1.0/netstandard.dll",
+      "sha256": "79a49049c360a3ff282e747c311fcd567834efde564a96689872564164756e84"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll",
+      "sha256": "3dd8e899a1ad7c75d25a99fca95e8a01b8142d1d5da835160af145be41f67d4d"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.AMDModule.dll",
+      "sha256": "fb90c2076e776612220ec6b4245bd8556ff80da2bbd8fab81d21e741b30f1df4"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.ARModule.dll",
+      "sha256": "b2fcb0889fe9d3a5b448c646da2c27d5d0c50d05adac5b47f06b9ea8f4c3410a"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.AccessibilityModule.dll",
+      "sha256": "61338fa034287bae897ef2b2ae6c6e8dff5b747807d059f19ec193862de39162"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.AdaptivePerformanceModule.dll",
+      "sha256": "65831abe9da62c7fb885ce5876effde2ca0ca052a026845abc214735746732b1"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.AndroidJNIModule.dll",
+      "sha256": "3782834eddf395eb869ebb11f322ac90cf9c1b8181344a92aa6e7521191a08cf"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.AnimationModule.dll",
+      "sha256": "d10c11853a48b741f3893974674b16c821e3801043ac138ba7916da7d1339bf2"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.AssetBundleModule.dll",
+      "sha256": "d1a51de4b95bf4d025f02101b8243e852ec4d79b1305ab2ae2699f9cab0e8609"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.AudioModule.dll",
+      "sha256": "2f72277e37308d3a3608234bbf3c81b240e26698476ee1bc9bffc902b70d379d"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.ClothModule.dll",
+      "sha256": "8b10b0af2b8258667d38e07f27e14ebfcd7b5efd5eec5e0627abd79e232eb5c9"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.ClusterInputModule.dll",
+      "sha256": "7399fdcb7d57ab465a12df32276b79d11f49bbab575465079eb6249995fcb577"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.ClusterRendererModule.dll",
+      "sha256": "10942a086cee3b70d9511cd3effc8802840fae358bd3be3befc5aaed72f11e32"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.ContentLoadModule.dll",
+      "sha256": "81c9872d2f087083b227df8e6dc8d03fa51260047c826440848eed52d977b2d1"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.CoreModule.dll",
+      "sha256": "123e2babd98ed6330bd73d89da2e580b34c289169f8572e5a76ef5afdcbcdd67"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.CrashReportingModule.dll",
+      "sha256": "100c15a875c35427ac829b52d4bddf8a046da2c7e9f7287ed74d096a042343e2"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.DSPGraphModule.dll",
+      "sha256": "1ccc8fa315d4ca12ce33f7c856a7f8545a865f3c5f56b2d85c5752fa14efc13b"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.DirectorModule.dll",
+      "sha256": "8e6e7adc3d679e2029bbcbf6dcd54cfe8618214bd8771a8fae494fe8d5f96bdd"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.GIModule.dll",
+      "sha256": "a9cfab9bba4a6525a5f7ffbc3a25c970dcaca5c652d98fb4a436e40736e1fd88"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.GameCenterModule.dll",
+      "sha256": "1d2c0c7579e5cd7aaf1a796e7bf2f9a5a876a677eca28e01ed7757283e51c277"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.GraphicsStateCollectionSerializerModule.dll",
+      "sha256": "4403492bf1010822ec5d2f243acbe68831e3de0c6c7cd95de706c1dcbc6d95a2"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.GridModule.dll",
+      "sha256": "54a4c14837cc45ef90793d665e2caeef84f665c81bd1013bdc90b078b581b137"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.HierarchyCoreModule.dll",
+      "sha256": "a9f538a621167606dc4f749f1cd3f6c643758fe7fa1bfcdcd9aef2b7912d2816"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.HierarchyModule.dll",
+      "sha256": "088d1d299a16aacaee1c15bcd4bc55525f474e0dacb569977c654e52803934c9"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.HotReloadModule.dll",
+      "sha256": "2a5d619848c7ccd9963d84c304ba4deef8c8290db2b3d443d573cb82e968ea08"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.IMGUIModule.dll",
+      "sha256": "f9a7f2636a97c8ee3997ca778f671f816668c5a9d112230ea4146d97685eb3ce"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.IdentifiersModule.dll",
+      "sha256": "97159b3a7afb057d3909e02fb2b68c5357453c2d301b39f0ca29c75737f85fe8"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.ImageConversionModule.dll",
+      "sha256": "3f401c39644937d2c4cc89fbde7e5aa01b2029754c53dda728fa30b9f4ac3188"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.InputForUIModule.dll",
+      "sha256": "39aeb172ffefec31d93e17d7bf8b81d8063a593374844bf42ddef56a7c4114c5"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.InputLegacyModule.dll",
+      "sha256": "dc267debc54466005943b27584217dd332707ea527f89aed127371301bc0f629"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.InputModule.dll",
+      "sha256": "587ca405138ae56862ab029f38ee94dacb7a4cd6f5d103af1271fe85029d0b43"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.InsightsModule.dll",
+      "sha256": "66a767fda6b3ef9e7c13257949c4575b9e6fbc7cf85302c58e28b44816b32f84"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.JSONSerializeModule.dll",
+      "sha256": "f3df88c8de42f44cc865b83b7db14a511c35b7156ae9a7277580344b20540f4b"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.LocalizationModule.dll",
+      "sha256": "120e142430f404aa3cfb9a81319d53d3f0a524f220716f0addbcf5acd2caf69a"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.MarshallingModule.dll",
+      "sha256": "8d358737422452bdd50005cd3bb6592adfc2e4d1ba541dfc37140e6afa057869"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.MultiplayerModule.dll",
+      "sha256": "60cd5579fae21fd221f0b2f22482ccaffd76407c9cc72d5e005fbb3941ab137c"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.NVIDIAModule.dll",
+      "sha256": "568abbf7fd891ba28e02f9665853ddcf638d8ff59bda71514e1cde629ad0f936"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.ParticleSystemModule.dll",
+      "sha256": "d125e6fc02d2dc49c7b65e99051857943d6b39aa8df410b2e1ac5705a949eec9"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.PerformanceReportingModule.dll",
+      "sha256": "d07b89091b485c062213faa905cc5462c16ecdb43670449c76b9cdbc181fa746"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.Physics2DModule.dll",
+      "sha256": "0e4f72633cebb2341c029891b17599064bed55e3950b436d12ccf04ca73dbc08"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.PhysicsBackendPhysXModule.dll",
+      "sha256": "7f0261cbd44eec3276ef805b38bb6962e8574b4f18a71ef2b3d7f60df5d7e48b"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.PhysicsModule.dll",
+      "sha256": "241f00b79126c7af7c9c6befbe888d7b94bfe1130cd034cdf1ef27f652da4f56"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.PropertiesModule.dll",
+      "sha256": "83d1f1a2006a4031f17b447dc2d2c119810af4207efcf2266f43458d16bff0a4"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.RenderAs2DModule.dll",
+      "sha256": "29b519edfadf1987ae90a5b4bfe9b181c990d240fb82ba7fd635180827d19058"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll",
+      "sha256": "510e09745b29926d88a1f12579f9e4524e7ffdd09dbebf2ea3220ba6e12776a7"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.ScreenCaptureModule.dll",
+      "sha256": "cb0b7ee4e8299e272fbb3349d2347a72abe98bf9b8c11bdbb11238c9766aeaf5"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.ScriptingModule.dll",
+      "sha256": "adc721619528d3686909c24a18c7bc04ffae1f46970fbbf7798345b75ba016f4"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.ShaderVariantAnalyticsModule.dll",
+      "sha256": "ce2a816cb08e568bb6649f8c3c50716d6e7930052b14c076cb500957ed74814e"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.SharedInternalsModule.dll",
+      "sha256": "d5f8598f892193059dc3df5b6816e4d3b1e8e2be4a1376f600ca86a116122077"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.SpriteMaskModule.dll",
+      "sha256": "015b5e712dae455022c9742b4377bec15d9a948deb147ddcfac9365a20105860"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.SpriteShapeModule.dll",
+      "sha256": "e273abd19097b7d5997329261b771952db3b01c86db44b91071c01b658cb7c37"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.StreamingModule.dll",
+      "sha256": "c7a5e07820d00e2bf5e0ff01e1efdc9e1a94f24ab1e88a5fd546ecfce0d130b3"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.SubstanceModule.dll",
+      "sha256": "72dc264d6820a85e350159bd4818b15ea3e73e3afd3eb1f1a6f1ef224931f4d0"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.SubsystemsModule.dll",
+      "sha256": "14f46dd5ae55d4850e5a593df1212f7135cba599d8a73e5b53840e819ba7c552"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.TLSModule.dll",
+      "sha256": "87fe1a8e93984688fde9fbf685ccf54be134e01bc227047e383c55c27ab7a30f"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.TerrainModule.dll",
+      "sha256": "09a203fadba28417910586efd86070484f7d1141d65813315a1c9e388bcb06c1"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.TerrainPhysicsModule.dll",
+      "sha256": "0be03a0133b856c33d7230e4cbf4012b993b302b142199ca05aed12d05e10ab9"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.TextCoreFontEngineModule.dll",
+      "sha256": "65f2b95d4144b567e4422394b6c83e23f0c140fcc385d4c5b243457d20fc9ddf"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.TextCoreTextEngineModule.dll",
+      "sha256": "3db756a637f77cb532f6d261000cd9471f580f3756e551fa63f14db4b78ddb4a"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.TextRenderingModule.dll",
+      "sha256": "f1b0db754b238e27b172c984560747b16c4b63bff1c531495e776f8ba2fa6e48"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.TilemapModule.dll",
+      "sha256": "ed6a1cafe74e741d292021e2d1fb6c2693ba7c0bb4f7174a19384b5ea44e2b83"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.UIElementsModule.dll",
+      "sha256": "9b1bd7b461a20f645237f98abb5dfdfb1ebf664ade35a7531cbee52e0ee17c20"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.UIModule.dll",
+      "sha256": "f5111e97e4df83c4fd57d3fdba13386812c4afbb940cc589e462c93a65e6489c"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.UmbraModule.dll",
+      "sha256": "a0a73f837d016f9e87e7a247767b8c45c0854963dd36dd9472facfdce2367e77"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityAnalyticsCommonModule.dll",
+      "sha256": "0405183180c3d2b2b7f7856ead9c937dbd60867c8826701c66dc86785ea1c16c"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityAnalyticsModule.dll",
+      "sha256": "4dd9b5429bcd37c54421e50c12097bfd20d84c71b72381ddeb911ef44afc180d"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityConnectModule.dll",
+      "sha256": "02af86b55911ffc1503334efe8f0cf32688e3a30af9314fde92d4f33822a8ef6"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityConsentModule.dll",
+      "sha256": "54dbca4972689abdeeaa4039dfb1cdc1cd64b8412182429ea284dc736a4381c8"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityCurlModule.dll",
+      "sha256": "1e5800bf492908bc13685b247c17cc0c35a1acf5450d8c159ccbb6ef5873ace3"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestAssetBundleModule.dll",
+      "sha256": "05d815f6b4c9d902bf096918829c8e7c56225bee75cb2443a18e4f3b10710734"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestAudioModule.dll",
+      "sha256": "40b81b328d1283c549e131a1135afd8bf75b655c5ccaa88bd25d9a19e498a73c"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestModule.dll",
+      "sha256": "2f833dfb722b06e8679c3b9dc263b703fcf5e22141e7fb41cfa33eb8c07b25c9"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestTextureModule.dll",
+      "sha256": "061fc55222f6eb2ed3988e540dc02c179b022eb19c05f9ed3312b356626c2011"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestWWWModule.dll",
+      "sha256": "3a945617c7abe49f947a1fb4eb47c54050bc9e4f22a3182694b3af410996f33f"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.VFXModule.dll",
+      "sha256": "1b4efc5f26e9ec119d8a5a0108e77815edf5015d0db779d074346379ff0621ac"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.VRModule.dll",
+      "sha256": "8b77b4050d3b6db70d2903cf3b11fb2828aea34aea638d8d4dfbd830646de34b"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.VectorGraphicsModule.dll",
+      "sha256": "665dd944a6877ab692f82f10c58ae4938d0c4e0ac62dcc2732d4f1d942d2ffdf"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.VehiclesModule.dll",
+      "sha256": "83fcd80bcb0934af05cfbec66e970fb908fc1af4b369b9a9311e574a95fd553f"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.VideoModule.dll",
+      "sha256": "99054244276ec2cee9714a219b034550d47e6ce6cdd8fda2b3821abd310e7d1a"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.VirtualTexturingModule.dll",
+      "sha256": "7e99b5c2544f0e27a459a1304cdafde922f4c2028133d70f81ec5555a659a062"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.WindModule.dll",
+      "sha256": "c47b399907764feb5ea22071c07ed8e83656bd30c3cc9a4aae5f45b5c5ee97cd"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll",
+      "sha256": "ef2926ac48310a4130905182be48ca62610f9aeceb40f40744cc9daf2c75b4a6"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.AccessibilityModule.dll",
+      "sha256": "4b1909d61ef3a3e2558094b70998658fd6a99e89987d8f817d7cc7f0d87f536d"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.AdaptivePerformanceModule.dll",
+      "sha256": "4a7e7fb7de9d0ec3d80a64aeee7ea0a52035d01d12ed242fb88617a09c7d7cdc"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.AssetComplianceModule.dll",
+      "sha256": "9aa5c7cdbbb44a2e13f91b19cded0aa59755c1833750f377a1d251359b225bb4"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.BuildProfileModule.dll",
+      "sha256": "160b1674d83560d7ef3faddbb7513574a33374384b96b617c30deac575b2d41f"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.ClothModule.dll",
+      "sha256": "882a7cd54ab4c18d8535c89208d56d93e21002b3548be2403481712c85509b2b"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.CoreBusinessMetricsModule.dll",
+      "sha256": "a329ccba739987d4d32059baafab03c697f1f4a292d6a98b1e2df22995820996"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.CoreModule.dll",
+      "sha256": "3aaa3c603e92cf65ade70326c2866e998aa322b8c62189fd0ddb16974340119a"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.DeviceSimulatorModule.dll",
+      "sha256": "af116ae3b85596bbd27d00ba1445fb8b2c8b23d33f3cd60943a6096907589b91"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.DiagnosticsModule.dll",
+      "sha256": "22ce79838987a190ed3e9688fec81023814eb344950c18a9d4a5822cf1428d42"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.EditorToolbarModule.dll",
+      "sha256": "123e0cc1c349ebc2899c6f07da0ba53ceb3480324fda538ef4de28d32453ccd2"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.EmbreeModule.dll",
+      "sha256": "a381ff7e7649353f9a501858677f5c4f5993f9fd8a531c99182b295383413dcb"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.GIModule.dll",
+      "sha256": "ffdd5f0a621b87bb8497809f1faf5ba9e768d6b1232814f2ed90d395d70e5cc9"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.GraphToolkitModule.dll",
+      "sha256": "ed47c57824e5e17d6c2606977bfa0b99f9cac943770ad6015fbee92c9797426e"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.GraphViewModule.dll",
+      "sha256": "166e72beab18f64fbb816f9267ce9097f93860da337115c66cf60c2d6482e3e2"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.GraphicsStateCollectionSerializerModule.dll",
+      "sha256": "313caa74c594026b166412ecfffb88463e32cdeb987e932d118f61651e0b616e"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEditor.Graphs.dll",
+      "sha256": "654944083e26269ab9b2bab19a61ce9b5f7ccfab723a9e621ebca12dff05fcea"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.GridAndSnapModule.dll",
+      "sha256": "cc4aeeec452a26b40cdca51f5e6d23639f8e354069e5026714a36f6f744df0aa"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.GridModule.dll",
+      "sha256": "a10a55e67660823924d126ed648cddca9d1e481d6f5e415582758b0f22692eae"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.HierarchyModule.dll",
+      "sha256": "2b9303f2f251f212883840f783059084129d02e4c482e7201831407db45614e5"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.MediaModule.dll",
+      "sha256": "9798536358495a648dff14c240eec47f8548adf3e9e1324f5b7cb0091e9e438f"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.MultiplayerModule.dll",
+      "sha256": "a36264ce3d786f1ea459d77607b49507e1a2bf79132f956e8d95ca0473a58bd0"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.Physics2DModule.dll",
+      "sha256": "36120f7c462b80486fd9025ccd64ce97d41050a9281cad5988e486cfe7b62eb1"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.PhysicsModule.dll",
+      "sha256": "abd45fafe4a65685c33086f5d5e0e802af731b1ba860966df19039139f36f348"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.PlayModeModule.dll",
+      "sha256": "5eff7f74a7588726d24f74a1d566acec6b67c5e2bd3a72ecf10898e09de025da"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.PresetsUIModule.dll",
+      "sha256": "535715f7413e56719c1488aacdaf4497b011f047855bb13a4e10383c5487d7b6"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.ProjectAuditorModule.dll",
+      "sha256": "4fcb7bd6a54a4764f44f8b822fba2b656477cbcaa07d8225a0eb0f492b109f6c"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.PropertiesModule.dll",
+      "sha256": "de5a588f8ba1000328a45c274d3c0a19430a87b5583d8b7903a7a4aae4d44a27"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.QuickInstallModule.dll",
+      "sha256": "bbb1929f876cd43dcc575d6fae25d841d185b42c86e343dd0ce0e0cdf2b1eb75"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.QuickSearchModule.dll",
+      "sha256": "a80a8a226f7e69c3e868cbd32b323e1ac0a3e41ee9d2df7d1f03cbf38c9f5942"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.SafeModeModule.dll",
+      "sha256": "cb061f2c8bdcf1818b41cbeb6598cb51980f602c898abb5a6a8b1c9b92c151b2"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.SceneTemplateModule.dll",
+      "sha256": "64ef3ee70b98d7468a2cb84135ddb1890d5acb305f77ff672b719048861a0816"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.SceneViewModule.dll",
+      "sha256": "38b5b60c0265bb27a0f240e243a5cfad2c49302fbb2b2e484cb624e9b09f486c"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.ShaderBuildSettingsModule.dll",
+      "sha256": "7bcae74313660e12b8ef25e145d4f01d142dc254fdab006982913f50d12aaaf3"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.ShaderCompilationModule.dll",
+      "sha256": "5d14588b27acb96e9bdaa9829c67dcf46eb59190fda3642c75bf2bec05f2edca"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.ShaderFoundryModule.dll",
+      "sha256": "2c3df9e63b3178e7922e92703b920c9ad9595327406c96201dccefed1fa8a7e9"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.SketchUpModule.dll",
+      "sha256": "fa20d1edc492e3c855314b36077eb98811d378a4c97a39449df0a36a0805b76e"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.SpriteMaskModule.dll",
+      "sha256": "d73c908bae4357b4b0b26d7af4bc6b998391d645748811727203efa4530259dd"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.SpriteShapeModule.dll",
+      "sha256": "878532dde537429afa8a7888df5bf8b6d2e1b6acbd4d2e13386a4ee1b0bcd42a"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.SubstanceModule.dll",
+      "sha256": "ceea32e7d82f3133d107e84f1fc6f5c146e2c467cf7f74ebab16be9fa10067ab"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.TerrainModule.dll",
+      "sha256": "be30a6f3f4d49aa1fafeb19bd7457b74276e8fdec786e7c3a8168fb6492dce74"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.TextCoreFontEngineModule.dll",
+      "sha256": "5e70352d10a7b78d83506d23aba2946f5827d420a2347e313dcf52e4f6f1fd3f"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.TextCoreTextEngineModule.dll",
+      "sha256": "4854a380355c46b13eb65649747f8bc71fc58768a76c18ffc57e60f048fbdbd0"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.TextRenderingModule.dll",
+      "sha256": "74096aa3c22e03d862ce745f4cd681a6ace08039ab5240ad53abb7199c23fbb6"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.TilemapModule.dll",
+      "sha256": "95a11298fb94876d7041611a1ddca8385bbb81fd76164c0cb77695291f70681d"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.TreeModule.dll",
+      "sha256": "1693f0dfae0bc9afc3ba8d2573b72dd0737a896e417937c55fbb3224bb7f5085"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.UIAutomationModule.dll",
+      "sha256": "1bd0da706eaa9607778663a738b512b8874ac66dde29efd0765f9421f2df23ac"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.UIBuilderModule.dll",
+      "sha256": "095bb09ee645ab59e92c061a1e34ebb47132bc8ed93789f218be87da073b2410"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.UIElementsModule.dll",
+      "sha256": "cf6dd66cec75a1f91150a6eb5c7893ed0482952bcb0778adcd0fc364b39c9fe4"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.UIElementsSamplesModule.dll",
+      "sha256": "2102db0145ee38609697ec07ce226d9d4b88e1a2fba3eced7b4bc4428d9b7fcc"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.UIToolkitAuthoringModule.dll",
+      "sha256": "d8ad01a06f868d88ffc3714bce4e2471c0c271951176da57bcbbebefd26a8737"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.UmbraModule.dll",
+      "sha256": "7233b43bcaad9467017a27d178b16c13978acd6546af046cdac3c820c30e4d24"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.UnityConnectModule.dll",
+      "sha256": "7c8ddbaab29fead32e1c54415c3bccf70e43dc2313d0e661a8784327f054d5c2"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.VFXModule.dll",
+      "sha256": "add7934b91d42f75a44a639283697839f18c37220a1efdb0cdd18aa2c5d13c4f"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.VectorGraphicsModule.dll",
+      "sha256": "c4b2857d7681a6060ffd9fd28d68625513655f582d8644e61e1ccbdc470d2c5c"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.VideoModule.dll",
+      "sha256": "3c7e0a0050c0ab79d000bf4a907a6c926b77e73a902964c5c8fde2a164db5324"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed/UnityEngine/UnityEditor.XRModule.dll",
+      "sha256": "fc1e714f603ed82ec6a7edc0a428030d275b8f2bd9139499963b515fbc45a831"
+    },
+    {
+      "path": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/RuntimeLibraries/CriticalShift.Application.dll",
+      "sha256": "6a55cf8e6933d2496b2eb4eafc6ee9f6c04e54b7b66b8cd0664581645afe0171"
+    },
+    {
+      "path": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/RuntimeLibraries/CriticalShift.Features.Interaction.Domain.dll",
+      "sha256": "0c7e07bbd10dffd4f97f4ff7074db991cb16060f518f0ab624f9f10084395802"
+    },
+    {
+      "path": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/RuntimeLibraries/CriticalShift.Features.Session.Domain.dll",
+      "sha256": "4305f65aedf4ce54edded2e61c594d7b341395cb12498c41c5e285116bf50b34"
+    },
+    {
+      "path": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/RuntimeLibraries/CriticalShift.Features.Workers.Domain.dll",
+      "sha256": "30d295af2c495d1884000377c62096a84562581c11d7dd6174286b24018268fe"
+    },
+    {
+      "path": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/RuntimeLibraries/CriticalShift.Features.Materials.Domain.dll",
+      "sha256": "b1d371f720ef471a372244547837a0d4873bbdfedcbec2f84e46b06d2ab8461b"
+    },
+    {
+      "path": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/RuntimeLibraries/CriticalShift.Features.Production.Domain.dll",
+      "sha256": "9a30506c407fb8ed93c0f5c3244e61f6fd1b1afec3d57b3c173268ef1e1e2953"
+    },
+    {
+      "path": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/RuntimeLibraries/CriticalShift.Features.Reactor.Domain.dll",
+      "sha256": "24a12dde86f2fa3610c577824a376d4be920fb07cca689630606be26d5e9920f"
+    },
+    {
+      "path": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/RuntimeLibraries/CriticalShift.Features.Power.Domain.dll",
+      "sha256": "5a99d7c13e4e5243c4ea86dc7f2c9a3df4585312ac451a37765421e4bf16e666"
+    },
+    {
+      "path": "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ext.nunit/net40/unity-custom/nunit.framework.dll",
+      "sha256": "25466626abfea654a068abc579be018d8ef164fbb5415856230de2b8fc4795d5"
+    }
+  ]
+}

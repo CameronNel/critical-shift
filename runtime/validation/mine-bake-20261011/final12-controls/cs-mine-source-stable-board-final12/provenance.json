@@ -1,0 +1,26 @@
+{
+  "status": "HighSampleBoundedDiagnosticOnly",
+  "sourceSha256": "255fe337aacd602e81bd2940be7bf2a1da2541954f6c8446c8a06f5aae413b72",
+  "helperSha256": "358d7b195a596b44613204fcc37caf9117f64a4d541c3f02322996fd27392979",
+  "constructionHelperSha256": "abee80aa1b2ce748a590365093d5db60f414e621c9c017f08abcc406b026e415",
+  "samples": 256,
+  "resolution": [
+    640,
+    360
+  ],
+  "volumesDisabledInMemory": [
+    "R38 | Tunnel haze",
+    "R39 | Shed haze"
+  ],
+  "canonicalSourceSaved": false,
+  "files": {
+    "SourceContextShed-256.exr": "0826aea31c4969bb4fabdbdd529efa2ca2424991882094b6d4d28d00e415c4d9",
+    "actual-board-bsdf-inputs.json": "00ef5a0f874c086be56c5772d995db3f1dfdf5aea0f3332d9507b5e91308cdd8",
+    "actual-all-mine-bsdf-inputs.json": "21a4f17793fdb064cfc2b28f746a3ad9a0a3d9c45c3925fdac996a786f218a52",
+    "context-shadow-exclusions.json": "195645195215a04b58065817a325e5c3b009a880f9da3d0aadcc5e0505684834",
+    "density.json": "7a0229c83710480c587adcd7af40f0fe140947b4459e2e4798f8eb7e089c2a66",
+    "chunk-inventory.json": "5dd5354d88f79c4a967481f0d696f16a4a63666a6908ea4b9792cc1cdbc7a905",
+    "selection.json": "774f662f2b25bfe86765fa379cf320f6f19a8e9a6a90f2fd0dc5a2539762443d",
+    "visible-face-direction.json": "4d097fb93daef452c2822c7015f9dc19ef0f795a42a0b4148048826db4785fc4"
+  }
+}

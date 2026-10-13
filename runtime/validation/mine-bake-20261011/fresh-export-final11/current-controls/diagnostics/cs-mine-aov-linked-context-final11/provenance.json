@@ -1,0 +1,36 @@
+{
+  "sourceBlenderSha256": "255fe337aacd602e81bd2940be7bf2a1da2541954f6c8446c8a06f5aae413b72",
+  "resolution": [
+    640,
+    360
+  ],
+  "samples": 16,
+  "purpose": "Diagnostic source BaseColor AOV with original BSDF and bump normal graphs; separate emission-only normal-context control; no canonical file changes",
+  "materials": 560,
+  "woodMaterials": 8,
+  "diagnosticVolumesDisabledInMemory": [
+    "R38 | Tunnel haze",
+    "R39 | Shed haze"
+  ],
+  "materialMutationScope": "Actual referenced material node trees in disposable Blender process, no save; copies/user_remap missed indirect library users",
+  "files": [
+    {
+      "file": "/tmp/cs-mine-aov-linked-context-final11/R39_01_PORTAL_APPROACH-original.exr",
+      "sha256": "5c499a179b451b88fbc068fd2a5c21c7130e170a734ada7b3f9f279d4426e423",
+      "mode": "original",
+      "view": "R39_01_PORTAL_APPROACH"
+    },
+    {
+      "file": "/tmp/cs-mine-aov-linked-context-final11/R39_02_TUNNEL-original.exr",
+      "sha256": "4c1039414c329a103e4c9aada87fcc81aef0948ca89b4146669eadca8fb8955d",
+      "mode": "original",
+      "view": "R39_02_TUNNEL"
+    },
+    {
+      "file": "/tmp/cs-mine-aov-linked-context-final11/R39_04_SHED_FRONT-original.exr",
+      "sha256": "87d1b13dfe67f22632e5f1d814b0863f463d004db8b88ef1ddc8d0cb7b20b88c",
+      "mode": "original",
+      "view": "R39_04_SHED_FRONT"
+    }
+  ]
+}

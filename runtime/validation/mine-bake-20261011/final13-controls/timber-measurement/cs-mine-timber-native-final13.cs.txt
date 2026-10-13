@@ -1,0 +1,60 @@
+using System;using System.IO;using System.Linq;using System.Reflection;using System.Security.Cryptography;using UnityEngine;using UnityEngine.Rendering;using UnityEditor;using UnityEditor.SceneManagement;using CriticalShift.Player.Editor;
+public static class CsMineTimberSplitFinal13
+{
+ const string Generated="Assets/CriticalShift/Generated/Spawn/";
+ const string Output="/tmp/cs-mine-timber-native-final13/";
+ [Serializable] public sealed class TargetMaterial {public string name,shader;public string[] textures;public float metallic,metallicFromMap,dielectricSpecular;public Color emission;}
+ [Serializable] public sealed class TargetBinding {public string node,receiveGI,lightProbeUsage,reflectionProbeUsage,meshAsset;public int lightmapIndex,vertexCount;public Vector4 lightmapScaleOffset;public Bounds bounds;public TargetMaterial[] materials;public string[] reflectionProbes;}
+ [Serializable] public sealed class BindingReceipt {public TargetBinding[] targets;public string[] nonTargetShaderInventory;public string[] originallyEnabledLights;}
+ [Serializable] public sealed class Frame {public string mode,fileSha256,sceneFileSha256,pointFileSha256,camera;public Vector3 position;public Quaternion rotation;public float verticalFov;public int width,height,msaa,nonfiniteRGBPixels;public PreparedScene preparedScene;}
+ static string Sha(string p){using(var h=SHA256.Create())return string.Concat(h.ComputeHash(File.ReadAllBytes(p)).Select(b=>b.ToString("x2")));}
+ public static void Render()
+ {
+  if(Directory.Exists(Output))throw new Exception("Existing diagnostic must be preserved");
+  if(SystemInfo.graphicsDeviceType==UnityEngine.Rendering.GraphicsDeviceType.Null)throw new Exception("Real graphics required");
+  EditorSceneManager.OpenScene(SpawnMapBuild.ScenePath);var validate=typeof(SpawnVisualReview).GetMethod("ValidatePreparedScene",BindingFlags.NonPublic|BindingFlags.Static);validate.Invoke(null,null);
+  string sceneSha=Sha(SpawnMapBuild.ScenePath),points=Sha(Generated+"mine-point-bake-output.json");var proof=JsonUtility.FromJson<PreparedScene>(File.ReadAllText(Generated+"prepared-scene.json"));
+  foreach(var camera in UnityEngine.Object.FindObjectsByType<Camera>())camera.enabled=false;GameObject.Find("Local crew worker").SetActive(false);LightProbes.Tetrahedralize();ReflectionProbe.UpdateCachedState();
+  var root=GameObject.Find("ROOM_mine").transform;var shader=Shader.Find("CriticalShift/Diagnostics/TimberSplitFinal13");if(shader==null)throw new Exception("Missing split shader");
+  var originalLightStates=UnityEngine.Object.FindObjectsByType<Light>().ToDictionary(l=>l,l=>l.enabled);
+  var maskShader=Shader.Find("CriticalShift/Diagnostics/TimberObjectIdFinal13");if(maskShader==null)throw new Exception("Missing exact mask shader");
+  var targets=new[]{"CS_mine_R39 | Shed boards","CS_mine_R39 | Shed frame"};var renderers=UnityEngine.Object.FindObjectsByType<MeshRenderer>();
+  if(targets.Any(n=>renderers.Count(r=>r.name==n)!=1))throw new Exception("Exact authored wood renderers missing");
+  Directory.CreateDirectory(Output);
+  var bindings=renderers.Where(r=>targets.Contains(r.name)).Select(r=>{
+   var probes=new System.Collections.Generic.List<ReflectionProbeBlendInfo>();r.GetClosestReflectionProbes(probes);var mesh=r.GetComponent<MeshFilter>().sharedMesh;
+   return new TargetBinding{node=r.name,receiveGI=r.receiveGI.ToString(),lightProbeUsage=r.lightProbeUsage.ToString(),reflectionProbeUsage=r.reflectionProbeUsage.ToString(),lightmapIndex=r.lightmapIndex,lightmapScaleOffset=r.lightmapScaleOffset,bounds=r.bounds,vertexCount=mesh.vertexCount,meshAsset=AssetDatabase.GetAssetPath(mesh),reflectionProbes=probes.Select(p=>p.probe.name+" weight="+p.weight).ToArray(),materials=r.sharedMaterials.Select(m=>new TargetMaterial{name=m.name,shader=m.shader.name,metallic=m.GetFloat("_Metallic"),metallicFromMap=m.GetFloat("_MetallicFromMap"),dielectricSpecular=m.GetFloat("_DielectricSpecular"),emission=m.GetColor("_EmissionColor"),textures=new[]{"_MainTex","_WoodHigh","_WoodDiffuse","_WoodNormal","_BumpMap","_MetallicGlossMap"}.Select(k=>k+"="+AssetDatabase.GetAssetPath(m.GetTexture(k))).ToArray()}).ToArray()};
+  }).ToArray();
+  File.WriteAllText(Output+"bindings.json",JsonUtility.ToJson(new BindingReceipt{targets=bindings,nonTargetShaderInventory=renderers.SelectMany(r=>r.sharedMaterials).Select(m=>m.shader.name+" renderType="+m.GetTag("RenderType",false,"")).Distinct().OrderBy(x=>x).ToArray(),originallyEnabledLights=originalLightStates.Where(p=>p.Value).Select(p=>p.Key.name).OrderBy(x=>x).ToArray()},true));
+  foreach(var r in renderers)
+  {
+   if(r.sharedMaterials.Any(m=>m==null))throw new Exception("Null native material");
+   int tag=Array.IndexOf(targets,r.name)+1;
+   if(tag>0 && r.sharedMaterials.Any(m=>m.shader.name!="CriticalShift/BlenderSurface" || m.GetFloat("_Metallic")!=0 || m.GetFloat("_MetallicFromMap")!=0 || m.GetColor("_EmissionColor").maxColorComponent>0))throw new Exception("Unsupported selected material/metal/emission");
+   if(r.sharedMaterials.Any(m=>!new[]{"Opaque","Transparent","TransparentCutout"}.Contains(m.GetTag("RenderType",false,""))))throw new Exception("Unsupported mask render type: "+r.name);
+   var properties=new MaterialPropertyBlock();r.GetPropertyBlock(properties);properties.SetFloat("_CsSelected",tag);r.SetPropertyBlock(properties);
+   r.sharedMaterials=r.sharedMaterials.Select(original=>{
+    var m=new Material(original);if(original.shader.name=="CriticalShift/BlenderSurface"){m.shader=shader;m.CopyPropertiesFromMaterial(original);m.SetFloat("_CsSelected",tag);}else { /* Preserve unsupported caster/transparency shaders; exact Source target mask excludes them. */ }
+    return m;
+   }).ToArray();
+  }
+  var materials=renderers.SelectMany(r=>r.sharedMaterials).Where(m=>m.shader==shader).Distinct().ToArray();
+  var view=JsonUtility.FromJson<SourceViews>(File.ReadAllText("/workspace/critical-shift-spawn-runtime/runtime/out/mine-bake-audit/cameras.json")).views.Single(v=>v.name=="R39_04_SHED_FRONT");
+  Vector3 V(float[] a)=>new Vector3(a[0],a[2],a[1]);var node=new GameObject("Timber split camera");var c=node.AddComponent<Camera>();c.transform.SetPositionAndRotation(root.TransformPoint(V(view.position)),root.rotation*Quaternion.LookRotation(V(view.forward),V(view.up)));c.fieldOfView=view.verticalFov;c.nearClipPlane=.05f;c.farClipPlane=250;c.allowHDR=true;c.allowMSAA=false;c.renderingPath=RenderingPath.Forward;c.clearFlags=CameraClearFlags.SolidColor;c.backgroundColor=Color.black;
+  Directory.CreateDirectory(Output);var lights=UnityEngine.Object.FindObjectsByType<Light>();
+  string[] modes={"RealtimeDiffuse","BakedAndProbeDiffuse","BaseColor","WorldNormal","ExactObjectMask"};
+  try
+  {
+   for(int mode=0;mode<modes.Length;mode++)
+   {
+    foreach(var m in materials)m.SetFloat("_CsSplit",mode);foreach(var l in lights)l.enabled=mode<2 && originalLightStates[l];if(mode==4)c.SetReplacementShader(maskShader,"RenderType");
+    var target=new RenderTexture(640,360,24,RenderTextureFormat.ARGBHalf,RenderTextureReadWrite.Linear){antiAliasing=1};var pixels=new Texture2D(640,360,TextureFormat.RGBAHalf,false,true);var previous=RenderTexture.active;
+    try {c.targetTexture=target;c.Render();RenderTexture.active=target;pixels.ReadPixels(new Rect(0,0,640,360),0,0);pixels.Apply();var data=pixels.GetPixelData<ushort>(0);int bad=0;for(int i=0;i<data.Length;i+=4)if((data[i]&0x7c00)==0x7c00 || (data[i+1]&0x7c00)==0x7c00 || (data[i+2]&0x7c00)==0x7c00)bad++;if(bad!=0)throw new Exception("Nonfinite timber split");string path=Output+modes[mode]+".exr";File.WriteAllBytes(path,pixels.EncodeToEXR(Texture2D.EXRFlags.OutputAsFloat));File.WriteAllText(Path.ChangeExtension(path,"json"),JsonUtility.ToJson(new Frame{mode=modes[mode],fileSha256=Sha(path),sceneFileSha256=sceneSha,pointFileSha256=points,camera=view.name,position=c.transform.position,rotation=c.transform.rotation,verticalFov=c.fieldOfView,width=640,height=360,msaa=1,nonfiniteRGBPixels=bad,preparedScene=proof},true));Debug.Log("CS_TIMBER_SPLIT_FRAME "+modes[mode]);}
+    finally {c.targetTexture=null;RenderTexture.active=previous;UnityEngine.Object.DestroyImmediate(pixels);UnityEngine.Object.DestroyImmediate(target);}
+   }
+   validate.Invoke(null,null);
+   if(Sha(SpawnMapBuild.ScenePath)!=sceneSha || Sha(Generated+"mine-point-bake-output.json")!=points)throw new Exception("Prepared scene changed");Debug.Log("CS_TIMBER_SPLIT_OK; no save; realtime versus baked/probe diffuse; no score");
+  }
+  finally {EditorSceneManager.NewScene(NewSceneSetup.EmptyScene,NewSceneMode.Single);}
+ }
+}

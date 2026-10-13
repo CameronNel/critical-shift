@@ -18,10 +18,25 @@ namespace CriticalShift.Player.Editor
     // Real engine captures at the authored validation cameras, not substitute concept renders.
     public static class SpawnVisualReview
     {
+        public static void CheckMineJoin()
+        {
+            SpawnMapBuild.Create();
+            MineVisualLighting.CheckCentreline(GameObject.Find("ROOM_mine").transform);
+        }
+
         public static void BakeAndRender()
         {
             SpawnMapBuild.Create();
+            var recoveryScene=Path.Combine(Path.GetTempPath(),"cs-bake-full-map-before-exclusion-"+Guid.NewGuid().ToString("N")+".unity");
+            File.Copy(SpawnMapBuild.ScenePath,recoveryScene,false);
+            Debug.Log("CS_BAKE_FULL_SCENE_BACKUP; path="+recoveryScene);
             var root = GameObject.Find("ROOM_spawn-room").transform;
+            var map=JsonUtility.FromJson<ExportMap>(File.ReadAllText(SpawnMapBuild.Folder+"map-bindings.json"));
+            Transform RoomRoot(string key)=>EditorSceneManager.GetActiveScene().GetRootGameObjects()
+                .SelectMany(o=>o.GetComponentsInChildren<Transform>(true)).Single(t=>t.name=="ROOM_"+key);
+            var mine=map.materials.Any(p=>p.room=="mine") ? GameObject.Find("ROOM_mine").transform : null;
+            if(mine!=null) MineVisualLighting.CheckCentreline(mine);
+            if(mine!=null) MineVisualLighting.AddProbes(mine);
             var worker=GameObject.Find("Local crew worker");worker.SetActive(false);
             var settings = new LightingSettings
             {
@@ -42,14 +57,33 @@ namespace CriticalShift.Player.Editor
                         positions.Add(new Vector3(x,y,z));
             group.probePositions=positions.ToArray();
             var rooms=EditorSceneManager.GetActiveScene().GetRootGameObjects().SelectMany(o=>o.GetComponentsInChildren<Transform>(true))
-                .Where(o=>o.name.StartsWith("ROOM_",StringComparison.Ordinal) && o!=root).Select(o=>o.gameObject).ToArray();
-            foreach (var room in rooms) room.SetActive(false);
+                .Where(o=>o.name.StartsWith("ROOM_",StringComparison.Ordinal) && o!=root && o!=mine).Select(o=>o.gameObject).ToArray();
+            var excludedRoomNames=rooms.Select(o=>o.name.Substring("ROOM_".Length)).ToArray();
+            var contextNodes=new HashSet<string>(map.materials.Single(p=>p.room=="mine").contextObjects?.Select(o=>o.node) ?? Enumerable.Empty<string>(),StringComparer.Ordinal);
+            var contextRoot=contextNodes.Count>0 ? RoomRoot("front-end-area") : null;
+            var mutedContext=contextRoot==null ? Array.Empty<Renderer>() : contextRoot.GetComponentsInChildren<Renderer>().Where(r=>r.enabled && !contextNodes.Contains(r.name) && r.name!="Embedded emitter surface").ToArray();
+            foreach(var renderer in mutedContext) renderer.enabled=false;
+            foreach (var room in rooms) if(room.transform!=contextRoot) room.SetActive(false);
             EditorSceneManager.SaveScene(EditorSceneManager.GetActiveScene(),SpawnMapBuild.ScenePath);
+            // Physics meshes do not participate in lighting. Release cooked collision
+            // during the bake, then restore the exact manifest meshes before saving.
+            foreach(var room in map.rooms)
+                UnityEngine.Object.DestroyImmediate(RoomRoot(room.key).Find("Static collision — "+room.key).gameObject);
+            EditorUtility.UnloadUnusedAssetsImmediate();
+            GC.Collect();
             Debug.Log("CS_SPAWN_LIGHTING_BAKE_START");
-            if (!Lightmapping.Bake()) throw new InvalidOperationException("Spawn lightmap bake did not complete.");
+            using(var excludedRooms=new ExcludedRoomBakeScope(EditorSceneManager.GetActiveScene(),rooms.Where(o=>o.transform!=contextRoot).ToArray()))
+            using(var pointTransport=mine==null ? null : MinePointLighting.ScopeBake(mine))
+            using(var spotTransport=contextRoot==null ? null : MineSpotLighting.ScopeBake(contextRoot,map.materials.Single(p=>p.room=="mine").contextSpotLights))
+                if (!Lightmapping.Bake() || LightmapSettings.lightmaps.Length==0)
+                    throw new InvalidOperationException("Spawn lightmap bake did not produce lightmaps.");
             Debug.Log("CS_SPAWN_LIGHTING_BAKE_OK; lightmaps="+LightmapSettings.lightmaps.Length);
-            foreach (var room in rooms) room.SetActive(true);
+            foreach(var room in map.rooms)
+                SpawnMapBuild.RestoreCollision(RoomRoot(room.key),room);
+            foreach (var room in excludedRoomNames) RoomRoot(room).gameObject.SetActive(true);
+            foreach(var renderer in mutedContext) renderer.enabled=true;
             FinishLighting(root);
+            if(mine!=null) MineVisualLighting.Finish(mine);
             worker.SetActive(true);
             SavePreparedScene();
             Render();
@@ -154,6 +188,23 @@ namespace CriticalShift.Player.Editor
             SpawnMapBuild.CheckHash(package.displayLut.file,package.displayLut.sha256);
             foreach (var definition in package.definitions.Where(d=>d.directEmission!=null && !string.IsNullOrEmpty(d.directEmission.file)))
                 SpawnMapBuild.CheckHash(definition.directEmission.file,definition.directEmission.sha256);
+            foreach(var roomPackage in map.materials.Where(p=>p.room!="spawn-room"))
+            {
+                foreach(var atlas in roomPackage.atlases)
+                {
+                    foreach(var texture in new[] {atlas.albedo,atlas.normal,atlas.metallicSmoothness,atlas.emission})
+                        SpawnMapBuild.CheckHash(texture.file,texture.sha256);
+                    if(atlas.woodHigh!=null && !string.IsNullOrEmpty(atlas.woodHigh.file)) SpawnMapBuild.CheckHash(atlas.woodHigh.file,atlas.woodHigh.sha256);
+                }
+                foreach(var wood in roomPackage.definitions.Select(d=>d.sourceWood).Where(w=>w?.diffuse!=null && !string.IsNullOrEmpty(w.diffuse.file)))
+                {
+                    SpawnMapBuild.CheckHash(wood.diffuse.file,wood.diffuse.sha256);
+                    SpawnMapBuild.CheckHash(wood.normal.file,wood.normal.sha256);
+                }
+                SpawnMapBuild.CheckHash(roomPackage.displayLut.file,roomPackage.displayLut.sha256);
+                if(roomPackage.contextMesh!=null) SpawnMapBuild.CheckHash(roomPackage.contextMesh.file,roomPackage.contextMesh.sha256);
+                foreach(var volume in roomPackage.volumes ?? Array.Empty<MineSourceVolume>()) SpawnMapBuild.CheckHash(volume.densityMap.file,volume.densityMap.sha256);
+            }
             ValidateReflectionImports();
         }
         private static void ValidateReflectionImports()
@@ -176,7 +227,7 @@ namespace CriticalShift.Player.Editor
         {
             using var hash=SHA256.Create(); using var bytes=new MemoryStream();
             foreach (var directory in new[] {"Assets/CriticalShift/Features/Player","Assets/CriticalShift/Bootstrap/Player"})
-                foreach (var path in Directory.GetFiles(directory,"*",SearchOption.AllDirectories).Where(p=>p.EndsWith(".cs",StringComparison.Ordinal)||p.EndsWith(".shader",StringComparison.Ordinal)).OrderBy(p=>p,StringComparer.Ordinal))
+                foreach (var path in Directory.GetFiles(directory,"*",SearchOption.AllDirectories).Where(p=>p.EndsWith(".cs",StringComparison.Ordinal)||p.EndsWith(".shader",StringComparison.Ordinal)||p.EndsWith(".cginc",StringComparison.Ordinal)).OrderBy(p=>p,StringComparer.Ordinal))
                 { var file=File.ReadAllBytes(path); bytes.Write(file,0,file.Length); }
             return BitConverter.ToString(hash.ComputeHash(bytes.ToArray())).Replace("-","").ToLowerInvariant();
         }
@@ -185,9 +236,10 @@ namespace CriticalShift.Player.Editor
         {
             if (SystemInfo.graphicsDeviceType==GraphicsDeviceType.Null) throw new InvalidOperationException("Captures require a real graphics context.");
             EditorSceneManager.OpenScene(SpawnMapBuild.ScenePath);
+            ValidatePreparedScene();
             LightProbes.Tetrahedralize();ReflectionProbe.UpdateCachedState();
             var persistedProbes=UnityEngine.Object.FindObjectsByType<ReflectionProbe>();
-            if(persistedProbes.Length!=3 || persistedProbes.Any(p=>p.mode!=ReflectionProbeMode.Custom || p.customBakedTexture==null))
+            if(persistedProbes.Count(p=>p.name.StartsWith("Spawn reflection",StringComparison.Ordinal))!=3 || persistedProbes.Any(p=>p.mode!=ReflectionProbeMode.Custom || p.customBakedTexture==null))
                 throw new InvalidOperationException("Spawn requires three persisted reflection cubemaps.");
             ValidateReflectionImports();
             var args=Environment.GetCommandLineArgs();
@@ -196,9 +248,14 @@ namespace CriticalShift.Player.Editor
             string output=Argument("-csCapturePath"); Directory.CreateDirectory(output);
             var map=JsonUtility.FromJson<ExportMap>(File.ReadAllText(SpawnMapBuild.Folder+"map-bindings.json"));
             int cameraFile=Array.IndexOf(args,"-csCameraFile");
+            var recordedMinePackage=map.materials.SingleOrDefault(p=>p.room=="mine");
+            if(recordedMinePackage!=null)
+                MineSpotLighting.RecordBakeOutput(GameObject.Find("ROOM_front-end-area").transform,recordedMinePackage.contextSpotLights);
             var views=cameraFile>=0 ? JsonUtility.FromJson<SourceViews>(File.ReadAllText(Argument("-csCameraFile"))) : map.validationViews;
             if (views==null || views.views==null || views.views.Length!=3) throw new InvalidOperationException("Missing the three authored camera bindings.");
-            var root=GameObject.Find("ROOM_spawn-room").transform;
+            int roomArgument=Array.IndexOf(args,"-csRoom");
+            string roomKey=roomArgument>=0 ? args[roomArgument+1] : "spawn-room";
+            var root=GameObject.Find("ROOM_"+roomKey).transform;
             Debug.Log("CS_LIGHTMAP_CAPTURE count="+LightmapSettings.lightmaps.Length+" data="+Lightmapping.lightingDataAsset);
             var worker=GameObject.Find("Local crew worker"); worker.SetActive(false);
             if(views.workerPosition!=null && views.workerPosition.Length==3)
@@ -220,7 +277,8 @@ namespace CriticalShift.Player.Editor
                 animator.runtimeAnimatorController.animationClips.Single(c=>c.name=="IDLE").SampleAnimation(animator.gameObject,0);
             }
             foreach (var door in UnityEngine.Object.FindObjectsByType<MovingDoor>()) door.Capture();
-            var display=SpawnSurfaceBuild.View(map.materials.Single(p=>p.room=="spawn-room"));
+            var display=SpawnSurfaceBuild.View(map.materials.Single(p=>p.room==roomKey));
+            var sky=map.materials.Single(p=>p.room==roomKey).assemblyLighting;
             foreach (var view in views.views)
             {
                 var node=new GameObject("Validation camera "+view.name); node.transform.SetParent(root,false);
@@ -228,6 +286,10 @@ namespace CriticalShift.Player.Editor
                 var camera=node.AddComponent<Camera>(); camera.fieldOfView=view.verticalFov; camera.nearClipPlane=0.05f; camera.farClipPlane=250;
                 camera.allowHDR=true; camera.allowMSAA=true; camera.renderingPath=RenderingPath.Forward;
                 camera.clearFlags=CameraClearFlags.SolidColor; camera.backgroundColor=Color.black;
+                if(roomKey=="mine") camera.backgroundColor=new Color(sky.world_color[0],sky.world_color[1],sky.world_color[2]).gamma*sky.world_strength;
+                var minePackage=map.materials.SingleOrDefault(p=>p.room=="mine");
+                if(minePackage!=null) MineVisualLighting.ConfigureAtmosphere(camera,minePackage);
+                if(roomKey=="mine") AuditLinearCapture(camera,Path.Combine(output,view.name+"-linear.exr"));
                 if (Array.IndexOf(args,"-csRawCapture")<0) node.AddComponent<BlenderView>().Configure(display);
                 var target=new RenderTexture(1440,810,24,RenderTextureFormat.ARGB32,RenderTextureReadWrite.sRGB);
                 target.antiAliasing=4;
@@ -240,6 +302,48 @@ namespace CriticalShift.Player.Editor
                 UnityEngine.Object.DestroyImmediate(pixels); UnityEngine.Object.DestroyImmediate(target); UnityEngine.Object.DestroyImmediate(node);
             }
             Debug.Log("CS_SPAWN_VISUAL_CAPTURE_OK; graphics="+SystemInfo.graphicsDeviceName+"; scene not saved by captures");
+        }
+        private static void AuditLinearCapture(Camera camera,string output)
+        {
+            var target=new RenderTexture(1440,810,24,RenderTextureFormat.ARGBHalf,RenderTextureReadWrite.Linear) {antiAliasing=4};
+            var previous=RenderTexture.active;
+            var pixels=new Texture2D(1440,810,TextureFormat.RGBAHalf,false,true);
+            try
+            {
+                camera.targetTexture=target;camera.Render();RenderTexture.active=target;
+                pixels.ReadPixels(new Rect(0,0,1440,810),0,0);pixels.Apply();
+                var values=pixels.GetPixelData<ushort>(0);
+                int nonfinite=0;
+                for(int i=0;i<values.Length;i+=4)
+                    if((values[i]&0x7c00)==0x7c00 || (values[i+1]&0x7c00)==0x7c00 || (values[i+2]&0x7c00)==0x7c00)nonfinite++;
+                var bytes=pixels.EncodeToEXR(Texture2D.EXRFlags.OutputAsFloat);
+                File.WriteAllBytes(output,bytes);
+                string digest;
+                using(var hash=SHA256.Create())digest=string.Concat(hash.ComputeHash(bytes).Select(b=>b.ToString("x2")));
+                var audit=new LinearCaptureAudit {camera=camera.name,captureSha256=digest,nonfiniteRGBPixels=nonfinite,
+                    position=camera.transform.position,rotation=camera.transform.rotation,
+                    verticalFov=camera.fieldOfView,nearClip=camera.nearClipPlane,farClip=camera.farClipPlane,
+                    width=target.width,height=target.height,msaa=target.antiAliasing,
+                    graphicsDevice=SystemInfo.graphicsDeviceName,graphicsVersion=SystemInfo.graphicsDeviceVersion,
+                    preparedScene=JsonUtility.FromJson<PreparedScene>(File.ReadAllText(SpawnMapBuild.Folder+"prepared-scene.json"))};
+                File.WriteAllText(Path.ChangeExtension(output,"json"),JsonUtility.ToJson(audit,true)+"\n");
+                if(nonfinite!=0) throw new InvalidOperationException("Mine HDR capture contains nonfinite RGB pixels: "+nonfinite+"; "+output);
+                Debug.Log("CS_MINE_HDR_AUDIT_OK; nonfinitePixels=0; capture="+output);
+            }
+            finally
+            {
+                RenderTexture.active=previous;camera.targetTexture=null;
+                UnityEngine.Object.DestroyImmediate(pixels);UnityEngine.Object.DestroyImmediate(target);
+            }
+        }
+        [Serializable] private sealed class LinearCaptureAudit
+        {
+            public string camera,captureSha256,graphicsDevice,graphicsVersion;
+            public Vector3 position;
+            public Quaternion rotation;
+            public float verticalFov,nearClip,farClip;
+            public int nonfiniteRGBPixels,width,height,msaa;
+            public PreparedScene preparedScene;
         }
         private static Vector3 V(float[] v)=>new Vector3(v[0],v[2],v[1]);
     }

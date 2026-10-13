@@ -1,0 +1,22 @@
+ static void SunRadiometry() {
+  var folder="Assets/CriticalShift/Generated/MineSunRadiometry";
+  if(AssetDatabase.IsValidFolder(folder))throw new Exception("Radiometry scratch already exists");
+  AssetDatabase.CreateFolder("Assets/CriticalShift/Generated","MineSunRadiometry");
+  try {
+   EditorSceneManager.NewScene(NewSceneSetup.EmptyScene,NewSceneMode.Single);
+   RenderSettings.skybox=null;RenderSettings.ambientMode=UnityEngine.Rendering.AmbientMode.Flat;RenderSettings.ambientLight=Color.black;RenderSettings.ambientIntensity=0;RenderSettings.reflectionIntensity=0;
+   var quad=GameObject.CreatePrimitive(PrimitiveType.Quad);var renderer=quad.GetComponent<MeshRenderer>();
+   var mesh=UnityEngine.Object.Instantiate(quad.GetComponent<MeshFilter>().sharedMesh);mesh.uv2=mesh.uv;AssetDatabase.CreateAsset(mesh,folder+"/Quad.asset");quad.GetComponent<MeshFilter>().sharedMesh=mesh;
+   GameObjectUtility.SetStaticEditorFlags(quad,StaticEditorFlags.ContributeGI);renderer.receiveGI=ReceiveGI.Lightmaps;
+   var material=new Material(Shader.Find("CriticalShift/BlenderSurface"));material.SetColor("_Color",new Color(.18f,.18f,.18f).gamma);material.SetFloat("_DielectricSpecular",0);material.SetFloat("_Metallic",0);material.SetFloat("_Glossiness",.5f);renderer.sharedMaterial=material;
+   var sun=new GameObject("Flat radiometry white sun").AddComponent<Light>();sun.type=LightType.Directional;sun.color=Color.white;sun.shadows=LightShadows.None;sun.renderMode=LightRenderMode.ForcePixel;sun.lightmapBakeType=LightmapBakeType.Realtime;sun.intensity=1.6f;
+   var camera=new GameObject("Flat radiometry camera").AddComponent<Camera>();camera.transform.position=new Vector3(0,0,-3);camera.orthographic=true;camera.orthographicSize=.4f;camera.clearFlags=CameraClearFlags.SolidColor;camera.backgroundColor=Color.black;camera.allowHDR=true;camera.renderingPath=RenderingPath.Forward;
+   void Save(string name){var rt=new RenderTexture(128,128,24,RenderTextureFormat.ARGBFloat,RenderTextureReadWrite.Linear);camera.targetTexture=rt;camera.Render();RenderTexture.active=rt;var p=new Texture2D(128,128,TextureFormat.RGBAFloat,false,true);p.ReadPixels(new Rect(0,0,128,128),0,0);p.Apply();File.WriteAllBytes("/workspace/critical-shift-spawn-runtime/runtime/out/mine-bake-audit/"+name+".exr",p.EncodeToEXR(Texture2D.EXRFlags.OutputAsFloat));RenderTexture.active=null;camera.targetTexture=null;UnityEngine.Object.DestroyImmediate(p);UnityEngine.Object.DestroyImmediate(rt);}
+   Save("sun-radiometry-native-source-energy");sun.intensity=1.6f/Mathf.PI;Save("sun-radiometry-native-energy-over-pi");
+   var settings=new LightingSettings {bakedGI=true,realtimeGI=false,lightmapper=LightingSettings.Lightmapper.ProgressiveCPU,lightmapResolution=32,lightmapMaxSize=128,lightmapPadding=4,directSampleCount=64,indirectSampleCount=8,environmentSampleCount=8,maxBounces=1,lightmapCompression=LightmapCompression.None};
+   AssetDatabase.CreateAsset(settings,folder+"/Lighting.lighting");Lightmapping.lightingSettings=settings;sun.lightmapBakeType=LightmapBakeType.Baked;
+   EditorSceneManager.SaveScene(EditorSceneManager.GetActiveScene(),folder+"/Scene.unity");
+   if(!Lightmapping.Bake() || renderer.lightmapIndex<0 || renderer.lightmapIndex>=LightmapSettings.lightmaps.Length)throw new Exception("Radiometry native bake failed");
+   Save("sun-radiometry-native-baked-energy-over-pi");Debug.Log("CS_SUN_RADIOMETRY_NATIVE_OK rendererLightmap="+renderer.lightmapIndex+" driver="+SystemInfo.graphicsDeviceName+" version="+SystemInfo.graphicsDeviceVersion);
+  }finally{EditorSceneManager.NewScene(NewSceneSetup.EmptyScene,NewSceneMode.Single);AssetDatabase.DeleteAsset(folder);}
+ }
