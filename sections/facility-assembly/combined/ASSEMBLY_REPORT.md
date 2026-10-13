@@ -153,7 +153,9 @@ Walking 4.5 m/s, loaded cart 1.5 m/s (README assumptions). Distances are the con
 | reactor floor -> cooling | 15.0 | 3.3 | |
 | reactor floor -> waste | 33.7 | 7.5 | |
 | reactor floor -> dock | 48.9 | 10.9 | |
-| refinery fuel door -> reactor floor (fuel run) | 62.9 | 14.0 | **41.9** |
+| refinery fuel door -> fuel corridor F02 (the reactor-side fuel boundary, measuring point of plan v7's "41 m, 27 s") | 41.6 | 9.2 | **27.7** |
+| refinery fuel door -> reactor south door (FUEL HANDLING stub) | 56.8 | 12.6 | 37.9 |
+| refinery fuel door -> reactor floor by the core (fuel run end to end) | 62.9 | 14.0 | 41.9 |
 | fuel corridor -> waste (S03 transfer) | 24.4 | 5.4 | 16.2 |
 | mine portal -> refinery freight door, along the rail (geometry, not walked) | 39.5 | | 26.3 |
 | hall -> refinery (colonnade) | 31.6 | 7.0 | |
@@ -161,7 +163,7 @@ Walking 4.5 m/s, loaded cart 1.5 m/s (README assumptions). Distances are the con
 | spawn -> electrical (farthest station) | 160.9 | 35.8 | |
 | mine portal -> electrical (composed from walked lanes) | 208 | 46 | |
 
-Against the README targets (adjacent 10 to 20 s, mine -> refinery 20 to 35 s, refinery -> reactor 15 to 30 s, full crossing under 60 s): **misses** the refinery -> reactor fuel run with a loaded cart (41.9 s against 30; the corridor's own 38.2 m freight path is already 25.5 s, and the concourse and reactor tunnel add 25 m). Fixing it needs either a shorter fuel corridor (a room change) or a fuel drop nearer the reactor (a gameplay change): owner decision. Adjacent stations from the reactor are all under 13 s (cooling is 3.3 s, under the 10 s floor of the target, which a compact map will do). Full crossing 46 s: within 60.
+Against the README targets (adjacent 10 to 20 s, mine -> refinery 20 to 35 s, refinery -> reactor 15 to 30 s, full crossing under 60 s): the refinery -> reactor fuel run **depends on where the fuel is dropped**: to the fuel corridor's reactor port F02 it is 27.7 s by loaded cart (within 30, and the same measuring point as plan v7's 27 s); to the reactor's south door 37.9 s; all the way to the core 41.9 s (misses). The corridor's own 38.2 m freight path is 25.5 s of it, so the end-to-end run can only meet 30 s with a fuel drop at or near F02 (the concourse) or a faster cart. Recommendation: define the fuel drop at the concourse end of the corridor (F02); owner decision. Adjacent stations from the reactor are all under 13 s (cooling is 3.3 s, under the 10 s floor of the target, which a compact map will do). Full crossing 46 s: within 60.
 
 ## 8. Unity
 
@@ -183,7 +185,7 @@ Readiness checklist for whoever opens the editor: 1. decide the room export rout
 
 ## 10. Open decisions for the owner
 
-1. **Fuel run is 42 s by loaded cart** against a 30 s target: accept, shorten the fuel corridor (room change), or move the fuel drop.
+1. **Fuel run**: 27.7 s by loaded cart to the corridor's reactor port F02 (meets 30 s), 41.9 s to the core (misses). Recommended: fuel drop at F02 / the concourse. Alternatives: accept 42 s, raise the cart speed above 1.5 m/s, or shorten the fuel corridor (a room change).
 2. **Refinery freight door is blocked to players** by the refinery's parked ore cart: intended (carts only) or should the cart park inside?
 3. Hall east exit, yard service door: are they evacuation exits (runtime rule)? The spine's north-end door closes a 3 m blind stub: keep or remove (removing it means trimming the front end's spine).
 4. Fuel corridor S01 (plant service) and S02 (clean service) stay closed: they have no neighbour in this layout.
