@@ -446,6 +446,10 @@ namespace CriticalShift.Player.Editor
             host.ConfigureSpawn(bindings);
             var bootstrap = root.AddComponent<CriticalShift.Bootstrap.Player.PlayerRoomBootstrap>();
             bootstrap.Configure(host, new[] { actor }, targets.ToArray());
+            using (var hash = System.Security.Cryptography.SHA256.Create())
+                bootstrap.ConfigureMapIdentity(map.mapCommit,
+                    BitConverter.ToString(hash.ComputeHash(File.ReadAllBytes(Folder+"map-bindings.json"))).Replace("-","").ToLowerInvariant(),
+                    map.rooms.Select(room=>room.key).ToArray(),map.rooms.Select(room=>room.collisionTriangles).ToArray());
             RenderSettings.skybox = null;
             RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Flat;
             RenderSettings.ambientLight = (new Color(0.32f, 0.36f, 0.55f) * 0.025f).gamma;
