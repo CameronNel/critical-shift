@@ -1,0 +1,91 @@
+{
+  "status": "RejectedFixturePositionBeforeBake",
+  "files": [
+    {
+      "file": "native/persistent-before-bake.json",
+      "bytes": 1169,
+      "sha256": "909f4f0f47ed28eb96dd4bcc74f097d572ad6576aa8836c891264f355a10f62f"
+    },
+    {
+      "file": "native/pre-bake-realtime-a65.json",
+      "bytes": 1262,
+      "sha256": "bccad59a7cdda83729008899f29a02aa1a5d9903fd9f2b5eabdf977c34bf5d5d"
+    },
+    {
+      "file": "native/pre-bake-realtime-a65.exr",
+      "bytes": 66891,
+      "sha256": "57f3cc94fe9b4994c303ea6299c7605dddb33ecc4f00c3ec8b37535827f9633a"
+    },
+    {
+      "file": "native/pre-bake-realtime-a50.json",
+      "bytes": 1262,
+      "sha256": "4ffcb8d977c7b95ecf4e4bb0be885557f64fdb92c2cd3216340a8a6133c041bb"
+    },
+    {
+      "file": "native/pre-bake-realtime-a50.exr",
+      "bytes": 66891,
+      "sha256": "ed3d72580ed52b06c88b653708f50c9ccc64c36a9132d1b54aeeef4ab503f6d2"
+    },
+    {
+      "file": "native/pre-bake-realtime-a0.json",
+      "bytes": 1232,
+      "sha256": "34ac93c71a0aed1b60a5677dbc4485a96eaf4c874b511d52c3064bd9bbc0a0e1"
+    },
+    {
+      "file": "native/pre-bake-realtime-a0.exr",
+      "bytes": 66891,
+      "sha256": "8076e05dcd5062ec99976484a77192e0ccc74c35730a5d42ff6a9ecf8c15cf23"
+    },
+    {
+      "file": "native/owned-cookie/MineSpot-3df5c28f-400ba058-3f4ccccd.asset.meta",
+      "bytes": 188,
+      "sha256": "c89bf8e1920aa409f6c3837e83d9671206584f3e329ccead7f29b663b9cc856e"
+    },
+    {
+      "file": "native/owned-cookie/MineSpot-3df5c28f-400ba058-3f4ccccd.asset",
+      "bytes": 263201,
+      "sha256": "77b6ab7a7a6a4c86a2dcc0749a92fda6d7288d4fc4750e2fff5b4ba699caccc9"
+    },
+    {
+      "file": "cs-mine-spot-bake-lifecycle-final15.cs.txt",
+      "bytes": 11485,
+      "sha256": "aea386e21be6719ffad26a488522beee5271f71b73b8d641c75df3722245703d"
+    },
+    {
+      "file": "cs-mine-spot-bake-lifecycle-native-final15.py",
+      "bytes": 5491,
+      "sha256": "aea355cfc8b7754e81f045fd46184ff8c2826683c2685799099e80119fe18fc1"
+    },
+    {
+      "file": "cs-mine-spot-bake-lifecycle-native-final15.json",
+      "bytes": 4932,
+      "sha256": "66dbca4e704c3e25b0e63a7158dc29db6228f7ac4cfe8c171ac868bc039e7340"
+    },
+    {
+      "file": "cs-mine-spot-bake-lifecycle-api-final15.json",
+      "bytes": 43480,
+      "sha256": "c803acdfbcdcd086f5ab4865c18c2b0a29675c8149711ccecaefdd014245d5d3"
+    },
+    {
+      "file": "spot-bake-lifecycle-final15-bake.native.wrapper.log",
+      "bytes": 111,
+      "sha256": "4eacd0274c6eba2f17e971fda65925abc011a2b5ad23c2ad7e282f134e7bf0a7"
+    },
+    {
+      "file": "spot-bake-lifecycle-final15-bake.native.log",
+      "bytes": 36894,
+      "sha256": "6363cb1cb22cff68e3cd93e25042a52ec861f9f9849d0df665b54081736c3e55"
+    },
+    {
+      "file": "source-fixture/provenance.json",
+      "bytes": 5329,
+      "sha256": "dc5d854be14eccb0b8bc25baea76c88d4453b3c6cdd4d500919a7d97d5c3d18b"
+    }
+  ],
+  "overallScore": null,
+  "limits": [
+    "Failed fixture and native lifecycle evidence retained separately",
+    "R3 dynamic zero-SH receiver retains baked scene; synthetic switched lamp is separate from persistent realtime policy",
+    "No current main/Player visual acceptance or98 claim"
+  ]
+}

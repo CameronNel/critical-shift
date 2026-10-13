@@ -1,0 +1,54 @@
+{
+  "status": "RejectedSourceToggle",
+  "restorationIndexSha256": "6b7a6e20b2b44c79f2e8da7e823b392cfc810fccfa0d00cd49ee9f37b232abf1",
+  "helpers": {
+    "/tmp/cs-mine-aov-no-volume-final11.py": "15c383127b4aae2114906785ab81df39d2b2b17a3d5cf37da60897ad930d46a0",
+    "/tmp/cs-mine-aov-linked-context-final11.py": "d16da17f2faa0d6a137c1d39a7f820dd074d9c7fe100c152e7a9a5025244aaa0"
+  },
+  "views": [
+    {
+      "camera": "R39_01_PORTAL_APPROACH",
+      "onSha256": "42538bb377f028991b0d4b1a8088aa013e3b412d341b9777ebf1424cf075e827",
+      "purportedOffSha256": "4efc5a924167464a907c86afa621c99af54b779141955d8cc83d5cad7b1ab0ed",
+      "combinedMeanAbsoluteRgbDifference": [
+        5.301226337905973e-09,
+        6.437743043837448e-09,
+        4.67596692033112e-09
+      ],
+      "maxRgbDifference": 0.00041434168815612793,
+      "pixelsDifferenceAbove1eMinus6": 41
+    },
+    {
+      "camera": "R39_02_TUNNEL",
+      "onSha256": "034b31746d446e5279c4a1bd8143aebee6548727515e9caecc218eed9f2ce04a",
+      "purportedOffSha256": "df2a9b4788f3272bb343508ec8b7e09ed1eb3373b8e3c6ecd6538f6f7e3869ab",
+      "combinedMeanAbsoluteRgbDifference": [
+        2.6631549745717266e-09,
+        1.6296050691582625e-09,
+        7.229811495158679e-10
+      ],
+      "maxRgbDifference": 0.0006067752838134766,
+      "pixelsDifferenceAbove1eMinus6": 2
+    },
+    {
+      "camera": "R39_04_SHED_FRONT",
+      "onSha256": "0a6d3b2b0a14d7e1d34c73ada1f0b98e6c5b68c360dc4b8c47de47554e119788",
+      "purportedOffSha256": "c91274c342e95e73c1544044e53d3eb089fd8220311978248c69c42e82d435d1",
+      "combinedMeanAbsoluteRgbDifference": [
+        1.0516032489249483e-13,
+        1.5372986834134079e-13,
+        7.288589485041383e-14
+      ],
+      "maxRgbDifference": 1.4901161193847656e-08,
+      "pixelsDifferenceAbove1eMinus6": 0
+    }
+  ],
+  "finding": "The purported source-off variant disconnects copied materials using original.user_remap(local), which missed actual indirect linked users. Combined pixels remain essentially identical across all three views. A disabled material-name list alone is not an effective scene toggle proof.",
+  "alternative": "Later linked-context helper directly disconnects actual original referenced Volume sockets in a disposable process; exact archived outputs may serve as true off references if preserved and verified.",
+  "limits": [
+    "Historical Source16samples, not current native13",
+    "Source snapshot hash agrees current canonical snapshot",
+    "No Blender/Unity launched and no source edits",
+    "Current strict final13 rejection remains41/60, overall score null"
+  ]
+}

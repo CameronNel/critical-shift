@@ -69,6 +69,7 @@ namespace CriticalShift.Player.Editor
             GC.Collect();
             Debug.Log("CS_SPAWN_LIGHTING_BAKE_START");
             using(var pointTransport=mine==null ? null : MinePointLighting.ScopeBake(mine))
+            using(var spotTransport=contextRoot==null ? null : MineSpotLighting.ScopeBake(contextRoot,map.materials.Single(p=>p.room=="mine").contextSpotLights))
                 if (!Lightmapping.Bake() || LightmapSettings.lightmaps.Length==0)
                     throw new InvalidOperationException("Spawn lightmap bake did not produce lightmaps.");
             Debug.Log("CS_SPAWN_LIGHTING_BAKE_OK; lightmaps="+LightmapSettings.lightmaps.Length);

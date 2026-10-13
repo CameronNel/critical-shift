@@ -1,0 +1,95 @@
+{
+  "status": "Passed5BoundedPixels_PreRenderGPUObserverLimit",
+  "files": [
+    {
+      "file": "native/d4-a0-after-fresh-emitter.json",
+      "bytes": 1456,
+      "sha256": "e6867fcefe466672356efc4945165f8180af34d0118858c2763a8b2f8bbe2383"
+    },
+    {
+      "file": "native/d4-a0-after-fresh-emitter.exr",
+      "bytes": 66891,
+      "sha256": "181c9f681bcc5faf7914282fd243a294c54453be5c5c2f7218f8b27d916bff5d"
+    },
+    {
+      "file": "native/d4-a0-after-cookie-force-import.json",
+      "bytes": 1468,
+      "sha256": "7a1c462c2ef2860ec0c416fa6e4b1c1de41d2aa7ba2a9dcf8acfbc480841d7c0"
+    },
+    {
+      "file": "native/d4-a0-after-cookie-force-import.exr",
+      "bytes": 66891,
+      "sha256": "181c9f681bcc5faf7914282fd243a294c54453be5c5c2f7218f8b27d916bff5d"
+    },
+    {
+      "file": "native/d4-a0-after-light-enable-cycle.json",
+      "bytes": 1466,
+      "sha256": "a18f9e5dc202dffecd8bf4d0a10dbb24fa9aed714521735f47ec2b153c4c67db"
+    },
+    {
+      "file": "native/d4-a0-after-light-enable-cycle.exr",
+      "bytes": 66891,
+      "sha256": "181c9f681bcc5faf7914282fd243a294c54453be5c5c2f7218f8b27d916bff5d"
+    },
+    {
+      "file": "native/d4-a0-after-production-regeneration.json",
+      "bytes": 1476,
+      "sha256": "e4a41ddbd3174415056fbe40bf25c4f64131bd709d774a76378b3695beec1910"
+    },
+    {
+      "file": "native/d4-a0-after-production-regeneration.exr",
+      "bytes": 66891,
+      "sha256": "181c9f681bcc5faf7914282fd243a294c54453be5c5c2f7218f8b27d916bff5d"
+    },
+    {
+      "file": "native/d4-a0-before-corruption.json",
+      "bytes": 1452,
+      "sha256": "10fe3691d600aa00047a53e35aee396561ba42a65c1754748da140e0521940ba"
+    },
+    {
+      "file": "native/d4-a0-before-corruption.exr",
+      "bytes": 66891,
+      "sha256": "181c9f681bcc5faf7914282fd243a294c54453be5c5c2f7218f8b27d916bff5d"
+    },
+    {
+      "file": "cs-mine-spot-cookie-transition-final14.cs.txt",
+      "bytes": 11674,
+      "sha256": "a2cb028e80f51dc6d00f221dff530fd0ef15e2f67a4ddd2035617d3e6fa0d7e2"
+    },
+    {
+      "file": "cs-mine-spot-cookie-transition-native-final14.py",
+      "bytes": 4703,
+      "sha256": "8d20c5e90bd1da15524b9f33a03b81e92e8df695dc7af693358117ce35481474"
+    },
+    {
+      "file": "cs-mine-spot-cookie-transition-native-final14.json",
+      "bytes": 5879,
+      "sha256": "cab1754ec651502515de93c1286ecd73a2bcff56376b9775b395353c9000cf1c"
+    },
+    {
+      "file": "cs-mine-spot-cookie-transition-prelaunch-independent-final14.json",
+      "bytes": 3380,
+      "sha256": "5f2371571e451acdb3cd2ba4253e569b1b07f930904e99f96abe713dbe4c5512"
+    },
+    {
+      "file": "cs-mine-spot-cookie-transition-independent-final14.json",
+      "bytes": 3325,
+      "sha256": "2aef215f9963144f71f5f4b12532f901312115c3a766d1e9966e9d4ffbbfd900"
+    },
+    {
+      "file": "spot-cookie-transition-final14.native.log",
+      "bytes": 46515,
+      "sha256": "844e66698c1656fd48bfc3e20e89b5b3f1331d7343c687bb4d7b815107ab76f9"
+    },
+    {
+      "file": "spot-cookie-transition-final14.wrapper.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "overallScore": null,
+  "limits": [
+    "Bounded rawdata/independentreceipts only; currentfullvisualstillREJECT41/60",
+    "No current13main Unity/Player acceptance or98claim; partial20failednative preserved separately"
+  ]
+}

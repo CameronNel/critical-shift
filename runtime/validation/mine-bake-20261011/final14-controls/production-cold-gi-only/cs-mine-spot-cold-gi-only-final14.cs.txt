@@ -1,0 +1,60 @@
+using LightType=UnityEngine.LightType;
+using Unity.Collections;using FalloffType=UnityEngine.Experimental.GlobalIllumination.FalloffType;using LightDataGI=UnityEngine.Experimental.GlobalIllumination.LightDataGI;using LightMode=UnityEngine.Experimental.GlobalIllumination.LightMode;using CriticalShift.Player.Editor;
+using System;using System.IO;using System.Linq;using UnityEngine;using UnityEditor;using UnityEditor.SceneManagement;using UnityEngine.Rendering;using GiMapping=UnityEngine.Experimental.GlobalIllumination.Lightmapping;using GiFalloff=UnityEngine.Experimental.GlobalIllumination.FalloffType;
+public static class CsMineSpotColdGiOnlyFinal14
+{
+ const string Output="/tmp/cs-mine-spot-cold-gi-only-final14/",Scratch="Assets/CsSpotColdGiOnlyDiagnostic/Scratch";
+ [Serializable] public sealed class Source {public float power,radius,spotSizeRadians,spotBlend;public float[] color;public bool normalize,isSphere;}
+ [Serializable] public sealed class Input {public Source sourceParameters;}
+ [Serializable] public sealed class Frame {public string name,mode,fileSha256;public float distance,angle,power,intensity,outerAngle,innerAngle,radius,range,spotBlend;public string shadows,cookieKind,cookieProfile;public Vector3 receiver,normal,camera;public int width,height,nonfiniteRGBPixels,lightmapIndex,lightmapCount,probeCount;public string graphicsDevice,actualLightType,actualBakeType,actualShaderPath;public bool actualOutputIsBaked;public Color cookieCPU;}
+ static string Sha(string p){using(var h=System.Security.Cryptography.SHA256.Create())return string.Concat(h.ComputeHash(File.ReadAllBytes(p)).Select(b=>b.ToString("x2")));}
+ [Serializable] public sealed class Expected {public string name;public float[] forward;}
+ [Serializable] public sealed class SourceContract {public ExportLight[] lights;public Expected[] expected;}
+ public static void Render()
+ {
+  if(Directory.Exists(Output)||AssetDatabase.IsValidFolder(Scratch))throw new Exception("Existing control must be preserved");
+  var input=JsonUtility.FromJson<Input>(File.ReadAllText("/tmp/cs-mine-front-spot-source-control-final14/provenance.json"));var source=input.sourceParameters;if(source==null||!source.normalize||!source.isSphere||source.color.Length!=3)throw new Exception("Unsupported spot source");
+  Directory.CreateDirectory(Output);AssetDatabase.CreateFolder("Assets/CsSpotColdGiOnlyDiagnostic","Scratch");var previousGi=GiMapping.GetDelegate();
+  try
+  {
+   EditorSceneManager.NewScene(NewSceneSetup.EmptyScene,NewSceneMode.Single);RenderSettings.skybox=null;RenderSettings.ambientMode=AmbientMode.Flat;RenderSettings.ambientLight=Color.black;RenderSettings.ambientIntensity=0;RenderSettings.reflectionIntensity=0;RenderSettings.ambientProbe=new UnityEngine.Rendering.SphericalHarmonicsL2();GraphicsSettings.lightsUseLinearIntensity=true;
+   var quad=GameObject.CreatePrimitive(PrimitiveType.Quad);quad.transform.localScale=Vector3.one*.2f;var renderer=quad.GetComponent<MeshRenderer>();var mesh=UnityEngine.Object.Instantiate(quad.GetComponent<MeshFilter>().sharedMesh);mesh.uv2=mesh.uv;AssetDatabase.CreateAsset(mesh,Scratch+"/Quad.asset");quad.GetComponent<MeshFilter>().sharedMesh=mesh;GameObjectUtility.SetStaticEditorFlags(quad,StaticEditorFlags.ContributeGI);renderer.receiveGI=ReceiveGI.Lightmaps;
+   var material=new Material(Shader.Find("CriticalShift/BlenderSurface"));if(material.shader==null)throw new Exception("Missing spot control shader");material.SetColor("_Color",new Color(.18f,.18f,.18f).gamma);material.SetFloat("_DielectricSpecular",0);material.SetFloat("_Metallic",0);material.SetFloat("_Glossiness",.5f);renderer.sharedMaterial=material;
+   var lamp=new GameObject("Actual normalized Source spot fixture").AddComponent<Light>();lamp.type=LightType.Spot;lamp.transform.rotation=Quaternion.LookRotation(Vector3.down,Vector3.forward);lamp.color=new Color(source.color[0],source.color[1],source.color[2]).gamma;lamp.spotAngle=source.spotSizeRadians*Mathf.Rad2Deg;lamp.innerSpotAngle=lamp.spotAngle;lamp.range=32;lamp.shapeRadius=source.radius;lamp.shadows=LightShadows.Soft;lamp.shadowNearPlane=.01f;lamp.bounceIntensity=1;lamp.renderMode=LightRenderMode.ForcePixel;lamp.intensity=source.power/(4*Mathf.PI*Mathf.PI);
+   var authored=new ExportLight{name=lamp.name,type="SPOT",position=new[]{0f,0f,0f},color=source.color,power=source.power,radius=source.radius,spotSize=source.spotSizeRadians,spotBlend=source.spotBlend,normalized=source.normalize,softFalloff=source.isSphere,rotation=new[]{1f,0f,0f,0f}};
+   string Bits(float f)=>BitConverter.ToInt32(BitConverter.GetBytes(f),0).ToString("x8");
+   string cookiePath="Assets/CriticalShift/Generated/Spawn/Surfaces/MineSpot-"+Bits(authored.radius)+"-"+Bits(authored.spotSize)+"-"+Bits(authored.spotBlend)+".asset";
+   if(AssetDatabase.LoadAssetAtPath<Texture2D>(cookiePath)!=null)throw new Exception("Pre-existing production cookie must be preserved");
+   var ownership=new GameObject("Actual production source ownership");lamp.transform.SetParent(ownership.transform);
+   MineSpotLighting.Configure(lamp,authored);var tagged=(Texture2D)lamp.cookie;
+   var white=new Texture2D(128,128,TextureFormat.RGBAHalf,false,true){filterMode=FilterMode.Bilinear,wrapMode=TextureWrapMode.Clamp};white.SetPixels(tagged.GetPixels().Select(c=>new Color(1,1,1,c.a)).ToArray());white.Apply(false,false);AssetDatabase.CreateAsset(white,Scratch+"/WhiteCone.asset");
+   // Imported source quaternions must reproduce independently inspected forwards.
+   var contract=JsonUtility.FromJson<SourceContract>(File.ReadAllText("/tmp/cs-mine-production-spot-source-control-input-final14.json"));
+   foreach(var record in contract.lights){var test=new GameObject(record.name).AddComponent<Light>();MineSpotLighting.Configure(test,record);var expected=contract.expected.Single(e=>e.name==record.name);if(Vector3.Distance(test.transform.forward,new Vector3(expected.forward[0],expected.forward[1],expected.forward[2]))>1e-5f)throw new Exception("Production source rotation differs "+record.name);UnityEngine.Object.DestroyImmediate(test.gameObject);}
+   var originalDelegate=GiMapping.GetDelegate();var other=new GameObject("Non-owned native spot").AddComponent<Light>();other.type=UnityEngine.LightType.Spot;other.intensity=1.2345f;
+   GiMapping.RequestLightsDelegate sentinel=(requests,result)=>{originalDelegate(requests,result);for(int i=0;i<requests.Length;i++){var data=result[i];data.falloff=FalloffType.Linear;result[i]=data;}};
+   GiMapping.SetDelegate(sentinel);lamp.lightmapBakeType=LightmapBakeType.Baked;
+   try{using(MineSpotLighting.ScopeBake(ownership.transform,new[]{authored})){using(var outputs=new NativeArray<LightDataGI>(2,Allocator.Temp)){GiMapping.GetDelegate()(new[]{lamp,other},outputs);if(outputs[0].type!=UnityEngine.Experimental.GlobalIllumination.LightType.Spot||outputs[0].mode!=LightMode.Baked||outputs[0].falloff!=FalloffType.InverseSquaredNoRangeAttenuation||Mathf.Abs(outputs[0].shape0-authored.radius)>1e-5f||outputs[1].falloff!=FalloffType.Linear)throw new Exception("Production GI ownership leaked");}throw new ApplicationException("Intentional scoped bake exception");}}catch(ApplicationException){}
+   if(GiMapping.GetDelegate()!=sentinel||other.intensity!=1.2345f)throw new Exception("Production scope exception leaked");GiMapping.SetDelegate(originalDelegate);UnityEngine.Object.DestroyImmediate(other.gameObject);
+   Debug.Log("CS_COLD_GI_ONLY_SETUP_OK;6sourceRotations;noRegeneration;nonownedSentinel;exceptionRestored");
+   var camera=new GameObject("Spot fixture camera").AddComponent<Camera>();camera.orthographic=true;camera.orthographicSize=.04f;camera.nearClipPlane=.01f;camera.farClipPlane=100;camera.clearFlags=CameraClearFlags.SolidColor;camera.backgroundColor=Color.black;camera.allowHDR=true;camera.allowMSAA=false;camera.renderingPath=RenderingPath.Forward;
+   var settings=new LightingSettings{bakedGI=true,realtimeGI=false,lightmapper=LightingSettings.Lightmapper.ProgressiveCPU,lightmapResolution=256,lightmapMaxSize=128,lightmapPadding=4,directSampleCount=512,indirectSampleCount=16,environmentSampleCount=32,maxBounces=1,lightmapCompression=LightmapCompression.None};AssetDatabase.CreateAsset(settings,Scratch+"/Lighting.lighting");Lightmapping.lightingSettings=settings;
+   string frameName="";
+   void Save(string mode,float distance,float angle)
+   {
+    string name=frameName+"-"+mode;var target=new RenderTexture(64,64,24,RenderTextureFormat.ARGBFloat,RenderTextureReadWrite.Linear);var pixels=new Texture2D(64,64,TextureFormat.RGBAFloat,false,true);var prior=RenderTexture.active;
+    try {camera.targetTexture=target;camera.Render();RenderTexture.active=target;pixels.ReadPixels(new Rect(0,0,64,64),0,0);pixels.Apply();int bad=pixels.GetPixels().Count(p=>!float.IsFinite(p.r)||!float.IsFinite(p.g)||!float.IsFinite(p.b));if(bad!=0)throw new Exception("Nonfinite spot control");string path=Output+name+".exr";File.WriteAllBytes(path,pixels.EncodeToEXR(Texture2D.EXRFlags.OutputAsFloat));File.WriteAllText(Path.ChangeExtension(path,"json"),JsonUtility.ToJson(new Frame{name=name,mode=mode,fileSha256=Sha(path),distance=distance,angle=angle,power=source.power,intensity=lamp.intensity,outerAngle=lamp.spotAngle,innerAngle=lamp.innerSpotAngle,radius=lamp.shapeRadius,range=lamp.range,spotBlend=source.spotBlend,shadows=lamp.shadows.ToString(),cookieKind=lamp.cookie==white?"WhiteRGB":"IdentityMarkerRGB",cookieProfile="128x128_sourceCosineSmoothstep_linearRGBAHalf",receiver=quad.transform.position,normal=quad.transform.rotation*Vector3.back,camera=camera.transform.position,width=64,height=64,nonfiniteRGBPixels=bad,lightmapIndex=renderer.lightmapIndex,lightmapCount=LightmapSettings.lightmaps.Length,probeCount=LightmapSettings.lightProbes==null?0:LightmapSettings.lightProbes.count,actualLightType=lamp.type.ToString(),actualBakeType=lamp.lightmapBakeType.ToString(),actualOutputIsBaked=lamp.bakingOutput.isBaked,actualShaderPath=AssetDatabase.GetAssetPath(renderer.sharedMaterial.shader),cookieCPU=((Texture2D)lamp.cookie).GetPixel(64,64),graphicsDevice=SystemInfo.graphicsDeviceName},true));Debug.Log("CS_SPOT_FRAME "+name);}
+    finally {camera.targetTexture=null;RenderTexture.active=prior;UnityEngine.Object.DestroyImmediate(pixels);UnityEngine.Object.DestroyImmediate(target);}
+   }
+   var cases=new[]{new Vector2(1,0),new Vector2(2,0),new Vector2(4,0),new Vector2(4,50),new Vector2(4,65)};
+   foreach(var sample in cases)
+   {
+    float distance=sample.x,angle=sample.y,a=angle*Mathf.Deg2Rad;var direction=new Vector3(Mathf.Sin(a),-Mathf.Cos(a),0);var normal=-direction;quad.transform.SetPositionAndRotation(direction*distance,Quaternion.FromToRotation(Vector3.back,normal));camera.transform.SetPositionAndRotation(quad.transform.position+normal*.3f,Quaternion.LookRotation(-normal,Vector3.forward));if((quad.transform.rotation*Vector3.back-normal).sqrMagnitude>1e-8f)throw new Exception("Receiver normal changed");frameName="d"+distance+"-a"+angle;
+    Lightmapping.Clear();renderer.lightmapIndex=-1;if(LightmapSettings.lightmaps.Length!=0 || (LightmapSettings.lightProbes!=null && LightmapSettings.lightProbes.count!=0))throw new Exception("Stale baked data contaminates RT fixture");lamp.cookie=tagged;lamp.lightmapBakeType=LightmapBakeType.Realtime;Save("cold-before-blit",distance,angle);
+   }
+   AssetDatabase.SaveAssets();File.Copy(cookiePath,Output+"ProductionCookie.asset");File.Copy(cookiePath+".meta",Output+"ProductionCookie.asset.meta");AssetDatabase.DeleteAsset(cookiePath);
+   Debug.Log("CS_ACTUAL_COLD_GIONLY_OK;5Cold; no mainmap save or visual score");
+  }
+  finally {GiMapping.SetDelegate(previousGi);EditorSceneManager.NewScene(NewSceneSetup.EmptyScene,NewSceneMode.Single);AssetDatabase.DeleteAsset(Scratch);}
+ }
+}

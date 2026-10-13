@@ -44,6 +44,9 @@ def main():
     manifest = {"schema": 1, "mapCommit": config["map_commit"], "sourceFrame": "plan metres: +X east, +Y north, +Z up",
                 "unityFrame": "+X east, +Z north, +Y up; Blender yaw is negated", "rooms": [], "anchors": [],
                 "doors": [], "materials": [], "nativeUnity": "NotRun: validate this export in the pinned editor"}
+    if previous:
+        for field in ("assemblyObjects","assemblyMoonDelivery"):
+            if field in previous: manifest[field]=previous[field]
     original = bpy.data.collections.get("MODULE_spawn-room")
     if original is None:
         source_path = Path(config_path).parent / "map/sections/facility-assembly/sources/spawn-room/module.blend"
@@ -111,10 +114,24 @@ def main():
                *[f"BELONG_{i:02}_door_{s}" for i in range(1, 5) for s in ("L", "R")],
                *[f"PPE_{i:02}_suit" for i in range(1, 5)]}
     dynamic.update({"BELONG_01_thermos", "BELONG_03_thermos"})
-    for key, _lib, _collection, placement, yaw, _note in config["rooms"]:
+    delivery_rooms=list(config["rooms"])
+    assembly_members=[]
+    if not only and config.get("assembly_builder","").endswith("/build_compact_map.py"):
+        assembly=bpy.data.collections.get("COMBINED_MAP")
+        if assembly is None: raise ValueError("Compact assembly is missing its authored root collection.")
+        # Connector collections and shutter plates belong to the generated map,
+        # rather than any ROOM instance. Retain their world transforms/collision.
+        # The authored moon is already supplied by the mine's assemblyLighting.
+        assembly_members=[o for o in assembly.all_objects if not o.name.startswith("ROOM_") and o.name!="COMBINED moon"]
+        if not assembly_members: raise ValueError("Compact assembly has no connector/placeholder delivery.")
+        delivery_rooms.append(("assembly-context",None,None,(0,0,0),0,"Generated assembly objects at authored plan coordinates"))
+        manifest["assemblyObjects"]=[{"source":o.name,"type":o.type} for o in assembly_members]
+        manifest["assemblyMoonDelivery"]="mine.assemblyLighting"
+    for key, _lib, _collection, placement, yaw, _note in delivery_rooms:
         if only and key != only: continue
         instance = source_scene.objects.get("ROOM_" + key)
-        if instance is None and only=="spawn-room":
+        if key=="assembly-context": members=assembly_members
+        elif instance is None and only=="spawn-room":
             # The PR95 wrapper only omits these named objects. Read the exact module directly for
             # a scoped conversion, instead of loading four million unrelated mine triangles.
             exterior_file,exterior_collection=config["exterior_skins"][key]
@@ -145,17 +162,30 @@ def main():
                 while p: ancestry.append(p.name); p = p.parent
                 movable = inherited_dynamic or (key == "spawn-room" and any(a in dynamic for a in ancestry))
                 visible = not o.hide_render
+                volume_only=False
+                if key=="assembly-context" and mesh is not None and o.data.materials:
+                    def pure_volume(material):
+                        if material is None or not material.use_nodes: return False
+                        outputs=[n for n in material.node_tree.nodes if n.type=='OUTPUT_MATERIAL' and n.is_active_output]
+                        return len(outputs)==1 and not outputs[0].inputs['Surface'].is_linked and outputs[0].inputs['Volume'].is_linked
+                    volume_only=all(pure_volume(m) for m in o.data.materials)
+                    if volume_only: visible=False
                 # The authored lantern meshes deliberately do not occlude their
                 # emitters. Visibility in camera rays is separate from shadows.
                 n.visible_shadow = o.visible_shadow
                 mappings.append({"source": o.name, "node": n.name, "visible": visible,
                     "dynamic": movable, "sourceShadowExcluded": not o.visible_shadow})
+                if volume_only:
+                    mappings[-1].update(sourceVisible=not o.hide_render,unsupported="Pure volume closure; no connector haze adapter")
                 if o.type == "LIGHT":
                     lights.append({"name":o.name,"position":list(matrix(o).translation),"rotation":list(matrix(o).to_quaternion()),
                         "color":list(o.data.color),"power":float(o.data.energy),"type":o.data.type,
                         "size":float(getattr(o.data,"size",0)),"sizeY":float(getattr(o.data,"size_y",0)),
                         "radius":float(getattr(o.data,"shadow_soft_size",0.05))})
                     if o.data.type=="SUN": lights[-1]["angle"]=math.degrees(o.data.angle)
+                    if o.data.type=="SPOT":
+                        lights[-1].update(spotSize=float(o.data.spot_size),spotBlend=float(o.data.spot_blend),
+                            normalized=bool(o.data.normalize),softFalloff=bool(o.data.use_soft_falloff))
                 if o.instance_type == "COLLECTION" and o.instance_collection:
                     n.matrix_basis = local @ Matrix.Translation(-o.instance_collection.instance_offset)
                     clone_group(list(o.instance_collection.all_objects), n, prefix + o.name + "__", movable)
@@ -242,6 +272,8 @@ def main():
         manifest["materials"] += [m for m in previous.get("materials",[]) if m["room"] not in updated]
     converted = [p["room"] for p in manifest["materials"]]
     manifest["limits"] = "Pinned assembly; unlit material delivery for " + ", ".join(converted) + ". Remaining rooms have preview materials. Native lighting and visual review are required. Static collision is unprofiled. Source rooms are not modified."
+    if "assemblyObjects" in manifest:
+        manifest["limits"] += " Connector volume-only meshes are hidden and recorded as unsupported; their haze is not transferred. Assembly AREA lights retain the existing Point preview conversion; their lighting is not source-matched."
     (output / "map-bindings.json").write_text(json.dumps(manifest, indent=2) + "\n")
     # Check one compact collision import per room, including unit scale and exact geometry bounds.
     checked=[room for room in manifest["rooms"] if not only or room["key"]==only]

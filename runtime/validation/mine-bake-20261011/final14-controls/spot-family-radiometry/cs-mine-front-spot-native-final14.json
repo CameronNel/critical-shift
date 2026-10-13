@@ -1,0 +1,229 @@
+{
+  "state": "PassedBoundedTechnicalChecksAwaitingIndependentRadiometry",
+  "pins": {
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/prepared-scene.json": "1361ca11b4dad769dc93cb4b9c1e35312bbdd943e7a89e4216a91818c6253a15",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/AssembledMap.unity": "451f65f87a9947487b8b26ece16aed52b98b55fa55a4060563552511f5493e7a",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/map-bindings.json": "dcd7f11119192381cd5c34df7076e840b0d27098dc68d28d424f09485ff5ad8e",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/rig-bindings.json": "b89037e3c376c6e7958a3a1a1713664559baec579b861c8c5702ad03cc4a90a6",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/mine-point-bake-output.json": "e087e8a377b97a6093e518e95b32b4184809f5636ce478fcab411a3c2b88dc84",
+    "/tmp/cs-mine-front-spot-source-control-final14/d1-a0.exr": "e1f1a32c0b4e996168716f8a5849ea39add5b3a3334fe82109ccef6506cf0d0d",
+    "/tmp/cs-mine-front-spot-source-control-final14/d2-a0.exr": "bc7815f4d85a078c340316fb69f3f7c2ac19ddf476573c27f1839c61f61c8178",
+    "/tmp/cs-mine-front-spot-source-control-final14/d4-a0.exr": "684fcb4e168f6652b4fc827235950a66013e0e81b8ca4272a57b21df239b5acc",
+    "/tmp/cs-mine-front-spot-source-control-final14/d4-a30.exr": "4e84bedee74bfd4557a321e177be4282bd943fe30862e77d89f2baec1c6dfe64",
+    "/tmp/cs-mine-front-spot-source-control-final14/d4-a50.exr": "7473061c74e1dca33ea19b2f8f0770e2f555e0af8babf5f792468bc2e7b7b3c4",
+    "/tmp/cs-mine-front-spot-source-control-final14/d4-a60.exr": "f6653f31990e05ce329f4c8dc4acc53b5dab3bbe4048fcc3e56cb52a75de5a62",
+    "/tmp/cs-mine-front-spot-source-control-final14/d4-a65.exr": "6ae3e9b2d8d11b040883953b12c07b0203b6071c7a5983277a2735e8f55c9b03",
+    "/tmp/cs-mine-front-spot-source-control-final14/d4-a75.exr": "44b30530f1f90765653c1e5c162c0d19e9e0e2f1d65a0e0b82f4107f67968fda",
+    "/tmp/cs-mine-front-spot-source-control-final14/provenance.json": "dc5d854be14eccb0b8bc25baea76c88d4453b3c6cdd4d500919a7d97d5c3d18b",
+    "/tmp/cs-mine-front-spots-source-final13.json": "874bff14c1e51c5f75c67b8b4d3458a86abe872c8eaab614063f8d870f6aa991",
+    "/tmp/cs-mine-front-spot-source-control-final14.py": "465da68c62199a39640131d2ee9bf48f0a71285d8e8c42c3bc69942cb9deb8e2",
+    "/tmp/cs-mine-front-spot-control-final14.cs.txt": "691a93523a9275f3e9525bf116c34a0b22f4ea61e80dd08d63ffdaff7fd1f029",
+    "/tmp/cs-mine-front-spot-control-final14.cginc.txt": "71b54115008f90b258d6aa9f2a5cedbea2d6d24d3735fc0bfbc49eb4170efd1c",
+    "/tmp/cs-mine-front-spot-control-final14.shader.txt": "5abf8c93327fb269e461dbdf451cc52d37bf90257e6bf49118c9d6d66046afb8",
+    "/tmp/cs-mine-fog-split-final13.asmdef.txt": "0609fcf3791b5efb6dc9444de0ba9446d168ff252d575b085fda0dfe894889b5",
+    "/tmp/cs-mine-front-spot-native-final14.py": "2fc4c2ad2f344375528c9b48d248322b296c8f0ee62d4c5da4040784340a54a6"
+  },
+  "limits": [
+    "Numericspotfamily control; neutral-node equivalence independently gated; no full-map shadow certification",
+    "No Source/main scene save, Player, full-map fidelity or98 claim"
+  ],
+  "frames": [
+    {
+      "name": "d1-a0-baked-tagged",
+      "sha256": "683c47f3751e4b02173d7825e97c0fa4c4a7448099cbee8d3ee3657c174377d3",
+      "metadataSha256": "4604c826c8363a7cd69e68c853b5de90afb088836e0e49e2756a2b306dda920b",
+      "meanCentreRGB": [
+        11.835000038146973,
+        10.88437557220459,
+        9.23062515258789
+      ]
+    },
+    {
+      "name": "d1-a0-baked-white",
+      "sha256": "683c47f3751e4b02173d7825e97c0fa4c4a7448099cbee8d3ee3657c174377d3",
+      "metadataSha256": "8b4be4f540cedebdacc2712d7caa6cc172c811bde5052098d0eac8a650136592",
+      "meanCentreRGB": [
+        11.835000038146973,
+        10.88437557220459,
+        9.23062515258789
+      ]
+    },
+    {
+      "name": "d1-a0-realtime-tagged",
+      "sha256": "6cff383385de2251df518083f00648a65c356111f5de2941dcaabec37bc62270",
+      "metadataSha256": "c7eee9de1074b51fb7a3e9e4c3f28e96678e2540c21a54a5eb03b6e058b9ddd0",
+      "meanCentreRGB": [
+        11.68579150736332,
+        10.750929027795792,
+        9.114916443824768
+      ]
+    },
+    {
+      "name": "d2-a0-baked-tagged",
+      "sha256": "04ab7b92bce72575752cc366122f1840a2151fa295c435019ed36fff2d4f0ba3",
+      "metadataSha256": "68a19eb73b634fe9534cc60acb7f5152d3e9222e55be795b3379a17d004d08ee",
+      "meanCentreRGB": [
+        2.958750009536743,
+        2.7210938930511475,
+        2.3076562881469727
+      ]
+    },
+    {
+      "name": "d2-a0-realtime-tagged",
+      "sha256": "eb9add644fa7d67ee8f2872010896bd5011304efae26c344ec25a2cb62051c57",
+      "metadataSha256": "78f2003e9d2a4e2b534117f5fe416763941c3c35c406ee8cbd790c975918ac4f",
+      "meanCentreRGB": [
+        2.952937573194504,
+        2.716702751815319,
+        2.3032910525798798
+      ]
+    },
+    {
+      "name": "d4-a0-baked-tagged",
+      "sha256": "07c8d8eb5af6d22b0cc5c826fa8265e0e1e7af74b6d21e3d14d8cfc0e1d7f9c2",
+      "metadataSha256": "36afab1c310444df92445408d36b924c454b0dc6380591bc50792f5167bc7a39",
+      "meanCentreRGB": [
+        0.7396875023841858,
+        0.6802734732627869,
+        0.5769140720367432
+      ]
+    },
+    {
+      "name": "d4-a0-realtime-tagged",
+      "sha256": "181c9f681bcc5faf7914282fd243a294c54453be5c5c2f7218f8b27d916bff5d",
+      "metadataSha256": "445d7efc36ab86be9da0f332324ae31e34cd7d45528e369fb46789b82c1464dc",
+      "meanCentreRGB": [
+        0.7402291167527437,
+        0.6810108441859484,
+        0.5773786390200257
+      ]
+    },
+    {
+      "name": "d4-a30-baked-tagged",
+      "sha256": "5f130ac36b232213491e5811e835a788282f87a102bb0bc21cf8edced93edcac",
+      "metadataSha256": "8da300d1b3fdb802424c84658e037c07dfc0a156edd1a2833f18562844c91432",
+      "meanCentreRGB": [
+        0.7321491567417979,
+        0.6735624987632036,
+        0.5711677307263017
+      ]
+    },
+    {
+      "name": "d4-a30-realtime-tagged",
+      "sha256": "ff489a90c70a6c0a32a8450569e62b8469559e49fc9f47809680ad6692adf90b",
+      "metadataSha256": "979ae7bdeeaf2a917e55688aac35f9e71987499e5d336b74c15c6434be551ddf",
+      "meanCentreRGB": [
+        0.7320017442107201,
+        0.6734416633844376,
+        0.5709612993523479
+      ]
+    },
+    {
+      "name": "d4-a50-baked-tagged",
+      "sha256": "22e5545543c8a970901ffe08ed2181c31eef3d64450a7b2b9e571518d66774bd",
+      "metadataSha256": "c20b1c5839fb1e94e57be22602d737a0e9a5d8042ed337edd200fdca006a4613",
+      "meanCentreRGB": [
+        0.2821165304630995,
+        0.2595425280742347,
+        0.22009526519104838
+      ]
+    },
+    {
+      "name": "d4-a50-baked-white",
+      "sha256": "22e5545543c8a970901ffe08ed2181c31eef3d64450a7b2b9e571518d66774bd",
+      "metadataSha256": "03f06f469dbfea08eed7515fcf7ddbc215385d9f9ec5c8b994ef40182009535f",
+      "meanCentreRGB": [
+        0.2821165304630995,
+        0.2595425280742347,
+        0.22009526519104838
+      ]
+    },
+    {
+      "name": "d4-a50-realtime-tagged",
+      "sha256": "2ae3841cedaef8db7416ba5b91f45e3f1b0c9cb749018732d0b896f81a595534",
+      "metadataSha256": "1ead177051d29e7910451af5ac4e21affc38c2add031d80a0b5e563dcaaadb7d",
+      "meanCentreRGB": [
+        0.28249509166926146,
+        0.25989551143720746,
+        0.22034614975564182
+      ]
+    },
+    {
+      "name": "d4-a60-baked-tagged",
+      "sha256": "f2a16f42b1ebcdb9f8b890abe14fe45e9bdae1db7824af275919ce89110b61c9",
+      "metadataSha256": "a28a70811c983ff3a6c037927a882219db84d78fe25d760647fea96520309df8",
+      "meanCentreRGB": [
+        0.016215067211305723,
+        0.014926873467629775,
+        0.012654725433094427
+      ]
+    },
+    {
+      "name": "d4-a60-realtime-tagged",
+      "sha256": "69adf64ca85e193e3f2b9b5040cea30b20b2dbc52b9e93ca07f83fedc54c45cb",
+      "metadataSha256": "d50a8d39857cef4d9381c3ecf26c2d82678ac585df1df064cf6462b0702e67d0",
+      "meanCentreRGB": [
+        0.016549810447031632,
+        0.01522582683537621,
+        0.012908850840176456
+      ]
+    },
+    {
+      "name": "d4-a65-baked-tagged",
+      "sha256": "089262925861e47610cf7d8963cd68478fcb8aec5076f8efca9fdcbbc6269c2b",
+      "metadataSha256": "b8841a557872599dcece5541e03deeb9b4e4c64cd0f548373f68336537c043a5",
+      "meanCentreRGB": [
+        0.0,
+        8.533323381243463e-08,
+        8.533323381243463e-08
+      ]
+    },
+    {
+      "name": "d4-a65-realtime-tagged",
+      "sha256": "57f3cc94fe9b4994c303ea6299c7605dddb33ecc4f00c3ec8b37535827f9633a",
+      "metadataSha256": "e378c0d9ebec79c924768784e819ae2b36b746f9bcafe82e846be5a61268d5d1",
+      "meanCentreRGB": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "d4-a75-baked-tagged",
+      "sha256": "5e2b39b032158ad6d18af937cbbec3b4de37cb7f04a99ed8ac9d3211f215dec7",
+      "metadataSha256": "9c31732d51801a5e011d7dd466726eb1b97a137b83b28e485652c18a49a94b61",
+      "meanCentreRGB": [
+        0.0,
+        8.525833550265816e-08,
+        8.525833550265816e-08
+      ]
+    },
+    {
+      "name": "d4-a75-realtime-tagged",
+      "sha256": "57f3cc94fe9b4994c303ea6299c7605dddb33ecc4f00c3ec8b37535827f9633a",
+      "metadataSha256": "b7ab329e2f6dde5b2c4fa0e9b27407d9067a0248be33d6fdfd9a5d6cd58c8457",
+      "meanCentreRGB": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "command": [
+    "xvfb-run",
+    "-a",
+    "-s",
+    "-screen 0 1440x810x24",
+    "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Unity",
+    "-batchmode",
+    "-force-glcore",
+    "-quit",
+    "-projectPath",
+    "/workspace/critical-shift-spawn-runtime/runtime/unity",
+    "-executeMethod",
+    "CsMineFrontSpotControlFinal14.Render",
+    "-logFile",
+    "/workspace/critical-shift-spawn-runtime/runtime/out/mine-bake-audit/front-spot-control-final14.native.log"
+  ],
+  "logSha256": "5ce21b24f69c7eff2f801e491e1e0678af860dcdf7c928b067e708c647ec1b19"
+}

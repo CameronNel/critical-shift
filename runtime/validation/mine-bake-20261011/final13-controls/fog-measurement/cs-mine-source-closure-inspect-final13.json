@@ -1,0 +1,798 @@
+{
+  "status": "ReadOnlySourceClosureInspection",
+  "snapshotSha256": "255fe337aacd602e81bd2940be7bf2a1da2541954f6c8446c8a06f5aae413b72",
+  "helperSha256": "18168d431aa6f8c4fbdaa872b242330cbcd68d9d20c861e6d10e14026051426d",
+  "blenderVersion": "5.2.2 LTS",
+  "scene": "COMBINED_MAP",
+  "volumes": [
+    {
+      "worldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -14.399999618530273
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -41.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "worldBounds": {
+        "minimum": [
+          -107.4000015258789,
+          -75.5,
+          -1.1999999284744263
+        ],
+        "maximum": [
+          -53.400001525878906,
+          -64.5,
+          4.0
+        ]
+      },
+      "meshAttributes": [
+        {
+          "name": "r38e",
+          "type": "FLOAT",
+          "domain": "FACE"
+        },
+        {
+          "name": "sharp_face",
+          "type": "BOOLEAN",
+          "domain": "FACE"
+        },
+        {
+          "name": "position",
+          "type": "FLOAT_VECTOR",
+          "domain": "POINT"
+        },
+        {
+          "name": ".edge_verts",
+          "type": "INT32_2D",
+          "domain": "EDGE"
+        },
+        {
+          "name": ".corner_vert",
+          "type": "INT",
+          "domain": "CORNER"
+        },
+        {
+          "name": ".corner_edge",
+          "type": "INT",
+          "domain": "CORNER"
+        }
+      ],
+      "visibility": {
+        "visible_camera": true,
+        "visible_diffuse": true,
+        "visible_glossy": true,
+        "visible_transmission": true,
+        "visible_volume_scatter": true,
+        "visible_shadow": true
+      },
+      "hideRender": false,
+      "library": "//map/sections/facility-assembly/sources/mine-r39/module_r39_aaa.blend",
+      "object": "R38 | Tunnel haze",
+      "material": "R38 | Tunnel haze",
+      "node": "Principled Volume",
+      "visibleShadow": true,
+      "outputs": [
+        {
+          "name": "Material Output",
+          "volumeLinks": [
+            {
+              "node": "Principled Volume",
+              "socket": "Volume"
+            }
+          ]
+        }
+      ],
+      "inputs": {
+        "Color": {
+          "default": [
+            0.3199999928474426,
+            0.36000001430511475,
+            0.6200000047683716,
+            1.0
+          ],
+          "linked": false,
+          "links": []
+        },
+        "Color Attribute": {
+          "default": "",
+          "linked": false,
+          "links": []
+        },
+        "Density": {
+          "default": 1.0,
+          "linked": true,
+          "links": [
+            {
+              "node": "Map Range",
+              "type": "MAP_RANGE",
+              "socket": "Result"
+            }
+          ]
+        },
+        "Density Attribute": {
+          "default": "density",
+          "linked": false,
+          "links": []
+        },
+        "Anisotropy": {
+          "default": 0.0,
+          "linked": false,
+          "links": []
+        },
+        "Absorption Color": {
+          "default": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "linked": false,
+          "links": []
+        },
+        "Emission Strength": {
+          "default": 0.0,
+          "linked": false,
+          "links": []
+        },
+        "Emission Color": {
+          "default": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "linked": false,
+          "links": []
+        },
+        "Blackbody Intensity": {
+          "default": 0.0,
+          "linked": false,
+          "links": []
+        },
+        "Blackbody Tint": {
+          "default": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "linked": false,
+          "links": []
+        },
+        "Temperature": {
+          "default": 1000.0,
+          "linked": false,
+          "links": []
+        },
+        "Temperature Attribute": {
+          "default": "temperature",
+          "linked": false,
+          "links": []
+        },
+        "Weight": {
+          "default": 0.0,
+          "linked": false,
+          "links": []
+        }
+      },
+      "activePrincipledClosureDirect": true
+    },
+    {
+      "worldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -14.399999618530273
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -41.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "worldBounds": {
+        "minimum": [
+          -51.69999694824219,
+          -77.5,
+          0.10000014305114746
+        ],
+        "maximum": [
+          -39.75,
+          -62.650001525878906,
+          4.699999809265137
+        ]
+      },
+      "meshAttributes": [
+        {
+          "name": "r38e",
+          "type": "FLOAT",
+          "domain": "FACE"
+        },
+        {
+          "name": "r39v",
+          "type": "FLOAT",
+          "domain": "FACE"
+        },
+        {
+          "name": "r39w",
+          "type": "FLOAT",
+          "domain": "FACE"
+        },
+        {
+          "name": "r39j",
+          "type": "FLOAT",
+          "domain": "FACE"
+        },
+        {
+          "name": "r39t",
+          "type": "FLOAT",
+          "domain": "FACE"
+        },
+        {
+          "name": "UVMap",
+          "type": "FLOAT2",
+          "domain": "CORNER"
+        },
+        {
+          "name": "sharp_face",
+          "type": "BOOLEAN",
+          "domain": "FACE"
+        },
+        {
+          "name": ".uv_select_vert",
+          "type": "BOOLEAN",
+          "domain": "CORNER"
+        },
+        {
+          "name": ".uv_select_edge",
+          "type": "BOOLEAN",
+          "domain": "CORNER"
+        },
+        {
+          "name": ".uv_select_face",
+          "type": "BOOLEAN",
+          "domain": "FACE"
+        },
+        {
+          "name": "position",
+          "type": "FLOAT_VECTOR",
+          "domain": "POINT"
+        },
+        {
+          "name": ".edge_verts",
+          "type": "INT32_2D",
+          "domain": "EDGE"
+        },
+        {
+          "name": ".corner_vert",
+          "type": "INT",
+          "domain": "CORNER"
+        },
+        {
+          "name": ".corner_edge",
+          "type": "INT",
+          "domain": "CORNER"
+        }
+      ],
+      "visibility": {
+        "visible_camera": true,
+        "visible_diffuse": true,
+        "visible_glossy": true,
+        "visible_transmission": true,
+        "visible_volume_scatter": true,
+        "visible_shadow": true
+      },
+      "hideRender": false,
+      "library": "//map/sections/facility-assembly/sources/mine-r39/module_r39_aaa.blend",
+      "object": "R39 | Shed haze",
+      "material": "R39 | Shed haze",
+      "node": "Principled Volume",
+      "visibleShadow": true,
+      "outputs": [
+        {
+          "name": "Material Output",
+          "volumeLinks": [
+            {
+              "node": "Principled Volume",
+              "socket": "Volume"
+            }
+          ]
+        }
+      ],
+      "inputs": {
+        "Color": {
+          "default": [
+            0.5,
+            0.44999998807907104,
+            0.5,
+            1.0
+          ],
+          "linked": false,
+          "links": []
+        },
+        "Color Attribute": {
+          "default": "",
+          "linked": false,
+          "links": []
+        },
+        "Density": {
+          "default": 1.0,
+          "linked": true,
+          "links": [
+            {
+              "node": "Map Range",
+              "type": "MAP_RANGE",
+              "socket": "Result"
+            }
+          ]
+        },
+        "Density Attribute": {
+          "default": "density",
+          "linked": false,
+          "links": []
+        },
+        "Anisotropy": {
+          "default": 0.0,
+          "linked": false,
+          "links": []
+        },
+        "Absorption Color": {
+          "default": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "linked": false,
+          "links": []
+        },
+        "Emission Strength": {
+          "default": 0.0,
+          "linked": false,
+          "links": []
+        },
+        "Emission Color": {
+          "default": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "linked": false,
+          "links": []
+        },
+        "Blackbody Intensity": {
+          "default": 0.0,
+          "linked": false,
+          "links": []
+        },
+        "Blackbody Tint": {
+          "default": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "linked": false,
+          "links": []
+        },
+        "Temperature": {
+          "default": 1000.0,
+          "linked": false,
+          "links": []
+        },
+        "Temperature Attribute": {
+          "default": "temperature",
+          "linked": false,
+          "links": []
+        },
+        "Weight": {
+          "default": 0.0,
+          "linked": false,
+          "links": []
+        }
+      },
+      "activePrincipledClosureDirect": true
+    }
+  ],
+  "selectedObjects": [
+    {
+      "name": "R39 | Shed frame",
+      "type": "MESH",
+      "matrixLocal": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "visibleShadow": true,
+      "materials": [
+        "R39 | Rotten timber",
+        "GF | Silvered Structural Timber"
+      ]
+    },
+    {
+      "name": "R39 | Shed boards",
+      "type": "MESH",
+      "matrixLocal": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "visibleShadow": true,
+      "materials": [
+        "R39 | Rotten boards",
+        "GF | Shadowed Wall Boards"
+      ]
+    },
+    {
+      "name": "R39 | Post number",
+      "type": "FONT",
+      "matrixLocal": [
+        [
+          -1.0,
+          -3.821371353845884e-15,
+          -8.742277657347586e-08,
+          -39.45000076293945
+        ],
+        [
+          -8.742277657347586e-08,
+          4.371138828673793e-08,
+          1.0,
+          -31.322734832763672
+        ],
+        [
+          0.0,
+          1.0,
+          -4.371138828673793e-08,
+          1.573651909828186
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "visibleShadow": true,
+      "materials": [
+        "R39 | Faded white paint"
+      ],
+      "text": "H01",
+      "extrude": 0.001500000013038516,
+      "bevelDepth": 0.0
+    },
+    {
+      "name": "R39 | Shed signs",
+      "type": "MESH",
+      "matrixLocal": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "visibleShadow": true,
+      "materials": [
+        "GF | Dark Entrance Backboard"
+      ]
+    },
+    {
+      "name": "R39 | Sign text",
+      "type": "FONT",
+      "matrixLocal": [
+        [
+          -4.371138828673793e-08,
+          4.371138828673793e-08,
+          1.0,
+          -37.125
+        ],
+        [
+          1.0,
+          1.910685676922942e-15,
+          4.371138828673793e-08,
+          -29.0
+        ],
+        [
+          0.0,
+          1.0,
+          -4.371138828673793e-08,
+          4.71999979019165
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "visibleShadow": true,
+      "materials": [
+        "MEX | Ivory Letter Paint"
+      ],
+      "text": "01 / GULLET",
+      "extrude": 0.0020000000949949026,
+      "bevelDepth": 0.0
+    },
+    {
+      "name": "R39 | Sign boards",
+      "type": "MESH",
+      "matrixLocal": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "visibleShadow": true,
+      "materials": [
+        "R39 | Rotten boards"
+      ]
+    }
+  ],
+  "fonts": [
+    {
+      "object": "R39 | Post number",
+      "body": "H01",
+      "extrude": 0.001500000013038516,
+      "bevelDepth": 0.0
+    },
+    {
+      "object": "R39 | Post number.001",
+      "body": "H02",
+      "extrude": 0.001500000013038516,
+      "bevelDepth": 0.0
+    },
+    {
+      "object": "R39 | Post number.002",
+      "body": "H03",
+      "extrude": 0.001500000013038516,
+      "bevelDepth": 0.0
+    },
+    {
+      "object": "R39 | Post number.003",
+      "body": "H04",
+      "extrude": 0.001500000013038516,
+      "bevelDepth": 0.0
+    },
+    {
+      "object": "R39 | Post number.004",
+      "body": "H05",
+      "extrude": 0.001500000013038516,
+      "bevelDepth": 0.0
+    },
+    {
+      "object": "R39 | Post number.005",
+      "body": "H06",
+      "extrude": 0.001500000013038516,
+      "bevelDepth": 0.0
+    },
+    {
+      "object": "R39 | Post number.006",
+      "body": "H07",
+      "extrude": 0.001500000013038516,
+      "bevelDepth": 0.0
+    },
+    {
+      "object": "R39 | Post number.007",
+      "body": "H08",
+      "extrude": 0.001500000013038516,
+      "bevelDepth": 0.0
+    },
+    {
+      "object": "R39 | Post number.008",
+      "body": "H09",
+      "extrude": 0.001500000013038516,
+      "bevelDepth": 0.0
+    },
+    {
+      "object": "R39 | Post number.009",
+      "body": "H10",
+      "extrude": 0.001500000013038516,
+      "bevelDepth": 0.0
+    },
+    {
+      "object": "R39 | Post number.010",
+      "body": "H11",
+      "extrude": 0.001500000013038516,
+      "bevelDepth": 0.0
+    },
+    {
+      "object": "R39 | Post number.011",
+      "body": "H12",
+      "extrude": 0.001500000013038516,
+      "bevelDepth": 0.0
+    },
+    {
+      "object": "R39 | Post number.012",
+      "body": "H13",
+      "extrude": 0.001500000013038516,
+      "bevelDepth": 0.0
+    },
+    {
+      "object": "R39 | Post number.013",
+      "body": "H14",
+      "extrude": 0.001500000013038516,
+      "bevelDepth": 0.0
+    },
+    {
+      "object": "R39 | Post number.014",
+      "body": "H15",
+      "extrude": 0.001500000013038516,
+      "bevelDepth": 0.0
+    },
+    {
+      "object": "R39 | Post number.015",
+      "body": "H16",
+      "extrude": 0.001500000013038516,
+      "bevelDepth": 0.0
+    },
+    {
+      "object": "R39 | Sign text",
+      "body": "01 / GULLET",
+      "extrude": 0.0020000000949949026,
+      "bevelDepth": 0.0
+    },
+    {
+      "object": "R39 | Cart number",
+      "body": "04",
+      "extrude": 0.0010000000474974513,
+      "bevelDepth": 0.0
+    },
+    {
+      "object": "R39 | Cart number.001",
+      "body": "07",
+      "extrude": 0.0010000000474974513,
+      "bevelDepth": 0.0
+    },
+    {
+      "object": "R39 | Warning text.001",
+      "body": "DANGER\nNO ENTRY",
+      "extrude": 0.0010000000474974513,
+      "bevelDepth": 0.0
+    },
+    {
+      "object": "R39 | Banner 01",
+      "body": "01",
+      "extrude": 0.0020000000949949026,
+      "bevelDepth": 0.0
+    },
+    {
+      "object": "R39 | Banner 01.001",
+      "body": "01",
+      "extrude": 0.0020000000949949026,
+      "bevelDepth": 0.0
+    }
+  ],
+  "zeroOneFonts": [
+    {
+      "object": "R39 | Banner 01",
+      "body": "01",
+      "extrude": 0.0020000000949949026,
+      "bevelDepth": 0.0
+    },
+    {
+      "object": "R39 | Banner 01.001",
+      "body": "01",
+      "extrude": 0.0020000000949949026,
+      "bevelDepth": 0.0
+    }
+  ],
+  "signCheck": "CompleteForFoundFontsOnly",
+  "limits": [
+    "No render, source save, native match or visual acceptance",
+    "Linked source closure inputs inspected, not procedural density reevaluated"
+  ]
+}

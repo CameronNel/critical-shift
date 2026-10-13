@@ -1,0 +1,471 @@
+{
+  "utc": "2026-10-13T00:30:30.265505+00:00",
+  "reviewer": "/root/strict_mine_review",
+  "status": "IndependentColdComponentClassification_ColdRegenerationPathFails_GiOnlyPasses",
+  "fixtures": [
+    {
+      "component": "regen",
+      "classification": "RejectedRealtimeRadiometry_ReproducesColdFailure",
+      "stateSha256": "a2d8fd6030c2d750a06ea2ac24b4472e64322c8065164bcad9e1f53bf76a4e21",
+      "nativeLogSha256": "babcb6f27e5fd8fd5c1faac16c6f664270d93d38b7ed1bc8425d79c3de662cc2",
+      "resolvedPins": [
+        {
+          "file": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/prepared-scene.json",
+          "sha256": "1361ca11b4dad769dc93cb4b9c1e35312bbdd943e7a89e4216a91818c6253a15",
+          "verification": "currentbyte-match"
+        },
+        {
+          "file": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/AssembledMap.unity",
+          "sha256": "451f65f87a9947487b8b26ece16aed52b98b55fa55a4060563552511f5493e7a",
+          "verification": "currentbyte-match"
+        },
+        {
+          "file": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/map-bindings.json",
+          "sha256": "dcd7f11119192381cd5c34df7076e840b0d27098dc68d28d424f09485ff5ad8e",
+          "verification": "currentbyte-match"
+        },
+        {
+          "file": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/rig-bindings.json",
+          "sha256": "b89037e3c376c6e7958a3a1a1713664559baec579b861c8c5702ad03cc4a90a6",
+          "verification": "currentbyte-match"
+        },
+        {
+          "file": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/mine-point-bake-output.json",
+          "sha256": "e087e8a377b97a6093e518e95b32b4184809f5636ce478fcab411a3c2b88dc84",
+          "verification": "currentbyte-match"
+        },
+        {
+          "file": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Features/Player/BlenderPointLighting.cginc",
+          "sha256": "7314a8147285982eca1894d34cd0a84d66f95491323a3ee1a87856ebf882f89e",
+          "verification": "currentbyte-match"
+        },
+        {
+          "file": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Features/Player/BlenderSurface.shader",
+          "sha256": "e4faf34a6053a24cdabcfa0ead743a1906fe4a9a76f5a92617967e4a6fbe06b8",
+          "verification": "currentbyte-match"
+        },
+        {
+          "file": "/tmp/cs-mine-spot-cold-regen-only-final14.cs.txt",
+          "sha256": "d24a131dc6e748d357df4adaef265ecf18721addec53fef670241fbb0b91758c",
+          "verification": "currentbyte-match"
+        },
+        {
+          "file": "/tmp/cs-mine-spot-rt-isolation-clone-final14.shader.txt",
+          "sha256": "4cdf98892fc800ba86967a8af8349027551e9516c13c10996d2f069725c7f211",
+          "verification": "currentbyte-match"
+        },
+        {
+          "file": "/tmp/cs-mine-spot-rt-isolation-explicit-final14.shader.txt",
+          "sha256": "1545ece8316bb2b3a91fc9281639642d82f423e070d81d2a30a281d54e534c08",
+          "verification": "currentbyte-match"
+        },
+        {
+          "file": "/tmp/cs-mine-front-spot-control-final14.cginc.txt",
+          "sha256": "71b54115008f90b258d6aa9f2a5cedbea2d6d24d3735fc0bfbc49eb4170efd1c",
+          "verification": "currentbyte-match"
+        },
+        {
+          "file": "/tmp/cs-mine-production-spot-baseline-final14.shader.txt",
+          "sha256": "c824a9ad1fbbe3d51a1e93a1081640ad0524bafd2f0c0cac250be3ef88b5b43f",
+          "verification": "currentbyte-match"
+        },
+        {
+          "file": "/tmp/cs-mine-production-spot-source-control-input-final14.json",
+          "sha256": "fd7fbc30de72d4bf63721f368e53be0e2228766afba38101098cad4197154f70",
+          "verification": "currentbyte-match"
+        },
+        {
+          "file": "/tmp/cs-mine-spot-cold-regen-only-native-final14.py",
+          "sha256": "eff3355674fe9b62f799fff9104613860900ff958c5bc816d63a006e8ddb7489",
+          "verification": "currentbyte-match"
+        },
+        {
+          "file": "/tmp/cs-mine-front-spot-source-control-final14/provenance.json",
+          "sha256": "dc5d854be14eccb0b8bc25baea76c88d4453b3c6cdd4d500919a7d97d5c3d18b",
+          "verification": "currentbyte-match"
+        },
+        {
+          "file": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/MinePointLighting.cs",
+          "sha256": "b66dbe1626d73b99ca16e9ee575d00a175842cee12bcdd0bae68c31a62bc2d48",
+          "verification": "currentbyte-match"
+        },
+        {
+          "file": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/MineSpotLighting.cs",
+          "sha256": "16ed27fca76f4722feba46a701778218072bb37b16594e35ca5e124265390e25",
+          "verification": "archived-original-byte-match",
+          "archive": "/workspace/critical-shift-spawn-runtime/runtime/validation/mine-bake-20261011/final14-controls/production-spot-first-native-failure/exact-production/MineSpotLighting.cs"
+        },
+        {
+          "file": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/MineVisualLighting.cs",
+          "sha256": "7778d267d5b759bb141459ebee0a8d1b25e11f609386d5ad12438ae10ef0fab2",
+          "verification": "currentbyte-match"
+        },
+        {
+          "file": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/PlayerRoomBuild.cs",
+          "sha256": "f95de4878e9254597cce73cdda2c1fec2d6e9d7f9c80d222952c1289f8a18919",
+          "verification": "currentbyte-match"
+        },
+        {
+          "file": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/SpawnMapBuild.cs",
+          "sha256": "0c8f6a0183a6a80f55f355fb8cd886134ef2a6a69f01b7f51697457857a71969",
+          "verification": "currentbyte-match"
+        },
+        {
+          "file": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/SpawnSurfaceBuild.cs",
+          "sha256": "de043055ac3f75d0a4f6d634b8a6dce26b67d4c02df2761379e8f9c9079379b1",
+          "verification": "currentbyte-match"
+        },
+        {
+          "file": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/SpawnVisualReview.cs",
+          "sha256": "42d10de155b74d6669dae8f52b3ab05b43f1af7cab3e87f6b633e3502c204944",
+          "verification": "currentbyte-match"
+        }
+      ],
+      "frames": [
+        {
+          "name": "d1-a0-cold-before-blit",
+          "hdrSha256": "4f64355f6791fdb2e5321f54e84411e4f7d7a5287b192ddef9b1aa5f575612b3",
+          "metadataSha256": "d6c5455e6f267ecdc341504302cff853d1f1bd3eef019999024024489eea4339",
+          "sourceHdrSha256": "e1f1a32c0b4e996168716f8a5849ea39add5b3a3334fe82109ccef6506cf0d0d",
+          "meanCentreRGB": [
+            11.712969228625298,
+            10.775932669639587,
+            9.136114999651909
+          ],
+          "sourceMeanCentreRGB": [
+            11.686149969696999,
+            10.751258611679077,
+            9.11519667506218
+          ],
+          "relativePercentRGB": [
+            0.2294961043443955,
+            0.22949925075477218,
+            0.22948846125239175
+          ]
+        },
+        {
+          "name": "d2-a0-cold-before-blit",
+          "hdrSha256": "b4e83022cf9a0a56b2d5c0c93f3dbdd68337c95d967f8ac60282a9032d0315a2",
+          "metadataSha256": "73d244ee155967ec7de3d4a0c0ecd3c6e0a5207c1737727e8a794a7191a78e0d",
+          "sourceHdrSha256": "bc7815f4d85a078c340316fb69f3f7c2ac19ddf476573c27f1839c61f61c8178",
+          "meanCentreRGB": [
+            10.922482773661613,
+            10.048685103654861,
+            8.519535765051842
+          ],
+          "sourceMeanCentreRGB": [
+            2.9529990293085575,
+            2.7167592979967594,
+            2.3033391013741493
+          ],
+          "relativePercentRGB": [
+            269.87762831128003,
+            269.8776373403562,
+            269.8776163687392
+          ]
+        },
+        {
+          "name": "d4-a0-cold-before-blit",
+          "hdrSha256": "47d9b07126858b7e6e497d006ec43d288f66f98577cc11eee5287116214a3cd4",
+          "metadataSha256": "02de78051bb31a262699a47942ab3059c7f0aa6777181f0052420bc61f16b7a1",
+          "sourceHdrSha256": "684fcb4e168f6652b4fc827235950a66013e0e81b8ca4272a57b21df239b5acc",
+          "meanCentreRGB": [
+            8.600563496351242,
+            7.912518747150898,
+            6.7084386721253395
+          ],
+          "sourceMeanCentreRGB": [
+            0.7402438633143902,
+            0.6810244135558605,
+            0.5773901734501123
+          ],
+          "relativePercentRGB": [
+            1061.855426648567,
+            1061.8553740000218,
+            1061.85535892307
+          ]
+        },
+        {
+          "name": "d4-a50-cold-before-blit",
+          "hdrSha256": "d8b51c8e31eb02fc093446bda4297521a2920ae2e205a901e67f3e1a71e008ff",
+          "metadataSha256": "2c893f0335fd7063850cddf1e0aac87e1bf95ffc4891a43fac06db77121bc83d",
+          "sourceHdrSha256": "7473061c74e1dca33ea19b2f8f0770e2f555e0af8babf5f792468bc2e7b7b3c4",
+          "meanCentreRGB": [
+            8.600563868880272,
+            7.912519179284573,
+            6.708438917994499
+          ],
+          "sourceMeanCentreRGB": [
+            0.28241498256102204,
+            0.2598217879422009,
+            0.22028367896564305
+          ],
+          "relativePercentRGB": [
+            2945.3638793833925,
+            2945.3639942793275,
+            2945.3635736857264
+          ]
+        },
+        {
+          "name": "d4-a65-cold-before-blit",
+          "hdrSha256": "57f3cc94fe9b4994c303ea6299c7605dddb33ecc4f00c3ec8b37535827f9633a",
+          "metadataSha256": "dd2ced1765aba81e0929f03257603c0c31aba731b367e5896d4ef970b33b7c5e",
+          "sourceHdrSha256": "6ae3e9b2d8d11b040883953b12c07b0203b6071c7a5983277a2735e8f55c9b03",
+          "meanCentreRGB": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "sourceMeanCentreRGB": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "relativePercentRGB": null
+        }
+      ],
+      "cookieAssetSha256": "77b6ab7a7a6a4c86a2dcc0749a92fda6d7288d4fc4750e2fff5b4ba699caccc9",
+      "cookieMetaSha256": "4f56d450c50bad9f96d7ea35003ab315bfc1eace307ee51c2ae31ea3b80b8f53"
+    },
+    {
+      "component": "gi",
+      "classification": "PassedBoundedColdRealtimeSourceMatch",
+      "stateSha256": "fe5fc367526d85da96e89db77c14fbde7b7c2f4f96b19f3450fcd23272f99eb2",
+      "nativeLogSha256": "5cd6023ef077bb9a1995a1de9f27e19093b22486443cc68f1e1859500ff136d2",
+      "resolvedPins": [
+        {
+          "file": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/prepared-scene.json",
+          "sha256": "1361ca11b4dad769dc93cb4b9c1e35312bbdd943e7a89e4216a91818c6253a15",
+          "verification": "currentbyte-match"
+        },
+        {
+          "file": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/AssembledMap.unity",
+          "sha256": "451f65f87a9947487b8b26ece16aed52b98b55fa55a4060563552511f5493e7a",
+          "verification": "currentbyte-match"
+        },
+        {
+          "file": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/map-bindings.json",
+          "sha256": "dcd7f11119192381cd5c34df7076e840b0d27098dc68d28d424f09485ff5ad8e",
+          "verification": "currentbyte-match"
+        },
+        {
+          "file": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/rig-bindings.json",
+          "sha256": "b89037e3c376c6e7958a3a1a1713664559baec579b861c8c5702ad03cc4a90a6",
+          "verification": "currentbyte-match"
+        },
+        {
+          "file": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/mine-point-bake-output.json",
+          "sha256": "e087e8a377b97a6093e518e95b32b4184809f5636ce478fcab411a3c2b88dc84",
+          "verification": "currentbyte-match"
+        },
+        {
+          "file": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Features/Player/BlenderPointLighting.cginc",
+          "sha256": "7314a8147285982eca1894d34cd0a84d66f95491323a3ee1a87856ebf882f89e",
+          "verification": "currentbyte-match"
+        },
+        {
+          "file": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Features/Player/BlenderSurface.shader",
+          "sha256": "e4faf34a6053a24cdabcfa0ead743a1906fe4a9a76f5a92617967e4a6fbe06b8",
+          "verification": "currentbyte-match"
+        },
+        {
+          "file": "/tmp/cs-mine-spot-cold-gi-only-final14.cs.txt",
+          "sha256": "03e3a682aa0a05e665dc20015afd8914072f7f15680ae3e6330047d04a8138cd",
+          "verification": "currentbyte-match"
+        },
+        {
+          "file": "/tmp/cs-mine-spot-rt-isolation-clone-final14.shader.txt",
+          "sha256": "4cdf98892fc800ba86967a8af8349027551e9516c13c10996d2f069725c7f211",
+          "verification": "currentbyte-match"
+        },
+        {
+          "file": "/tmp/cs-mine-spot-rt-isolation-explicit-final14.shader.txt",
+          "sha256": "1545ece8316bb2b3a91fc9281639642d82f423e070d81d2a30a281d54e534c08",
+          "verification": "currentbyte-match"
+        },
+        {
+          "file": "/tmp/cs-mine-front-spot-control-final14.cginc.txt",
+          "sha256": "71b54115008f90b258d6aa9f2a5cedbea2d6d24d3735fc0bfbc49eb4170efd1c",
+          "verification": "currentbyte-match"
+        },
+        {
+          "file": "/tmp/cs-mine-production-spot-baseline-final14.shader.txt",
+          "sha256": "c824a9ad1fbbe3d51a1e93a1081640ad0524bafd2f0c0cac250be3ef88b5b43f",
+          "verification": "currentbyte-match"
+        },
+        {
+          "file": "/tmp/cs-mine-production-spot-source-control-input-final14.json",
+          "sha256": "fd7fbc30de72d4bf63721f368e53be0e2228766afba38101098cad4197154f70",
+          "verification": "currentbyte-match"
+        },
+        {
+          "file": "/tmp/cs-mine-spot-cold-gi-only-native-final14.py",
+          "sha256": "ebf553911a3912c38662031ac1488c595e0f73ecac616a4043a9e014853e3b3d",
+          "verification": "currentbyte-match"
+        },
+        {
+          "file": "/tmp/cs-mine-front-spot-source-control-final14/provenance.json",
+          "sha256": "dc5d854be14eccb0b8bc25baea76c88d4453b3c6cdd4d500919a7d97d5c3d18b",
+          "verification": "currentbyte-match"
+        },
+        {
+          "file": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/MinePointLighting.cs",
+          "sha256": "b66dbe1626d73b99ca16e9ee575d00a175842cee12bcdd0bae68c31a62bc2d48",
+          "verification": "currentbyte-match"
+        },
+        {
+          "file": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/MineSpotLighting.cs",
+          "sha256": "16ed27fca76f4722feba46a701778218072bb37b16594e35ca5e124265390e25",
+          "verification": "archived-original-byte-match",
+          "archive": "/workspace/critical-shift-spawn-runtime/runtime/validation/mine-bake-20261011/final14-controls/production-spot-first-native-failure/exact-production/MineSpotLighting.cs"
+        },
+        {
+          "file": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/MineVisualLighting.cs",
+          "sha256": "7778d267d5b759bb141459ebee0a8d1b25e11f609386d5ad12438ae10ef0fab2",
+          "verification": "currentbyte-match"
+        },
+        {
+          "file": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/PlayerRoomBuild.cs",
+          "sha256": "f95de4878e9254597cce73cdda2c1fec2d6e9d7f9c80d222952c1289f8a18919",
+          "verification": "currentbyte-match"
+        },
+        {
+          "file": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/SpawnMapBuild.cs",
+          "sha256": "0c8f6a0183a6a80f55f355fb8cd886134ef2a6a69f01b7f51697457857a71969",
+          "verification": "currentbyte-match"
+        },
+        {
+          "file": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/SpawnSurfaceBuild.cs",
+          "sha256": "de043055ac3f75d0a4f6d634b8a6dce26b67d4c02df2761379e8f9c9079379b1",
+          "verification": "currentbyte-match"
+        },
+        {
+          "file": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/SpawnVisualReview.cs",
+          "sha256": "42d10de155b74d6669dae8f52b3ab05b43f1af7cab3e87f6b633e3502c204944",
+          "verification": "currentbyte-match"
+        }
+      ],
+      "frames": [
+        {
+          "name": "d1-a0-cold-before-blit",
+          "hdrSha256": "6cff383385de2251df518083f00648a65c356111f5de2941dcaabec37bc62270",
+          "metadataSha256": "0bf351fbd1b752f3dd5e34a8a24f1de54945bfd7d79c068067fc8e56d0cce445",
+          "sourceHdrSha256": "e1f1a32c0b4e996168716f8a5849ea39add5b3a3334fe82109ccef6506cf0d0d",
+          "meanCentreRGB": [
+            11.68579150736332,
+            10.750929027795792,
+            9.114916443824768
+          ],
+          "sourceMeanCentreRGB": [
+            11.686149969696999,
+            10.751258611679077,
+            9.11519667506218
+          ],
+          "relativePercentRGB": [
+            -0.0030674117190709893,
+            -0.0030655376750732266,
+            -0.003074330125840685
+          ]
+        },
+        {
+          "name": "d2-a0-cold-before-blit",
+          "hdrSha256": "eb9add644fa7d67ee8f2872010896bd5011304efae26c344ec25a2cb62051c57",
+          "metadataSha256": "b13656220bac4695ca8235c43b491cf24a66ce5067c286a40f33c610da798bf5",
+          "sourceHdrSha256": "bc7815f4d85a078c340316fb69f3f7c2ac19ddf476573c27f1839c61f61c8178",
+          "meanCentreRGB": [
+            2.952937573194504,
+            2.716702751815319,
+            2.3032910525798798
+          ],
+          "sourceMeanCentreRGB": [
+            2.9529990293085575,
+            2.7167592979967594,
+            2.3033391013741493
+          ],
+          "relativePercentRGB": [
+            -0.002081142372334366,
+            -0.00208138356173615,
+            -0.002086049520055866
+          ]
+        },
+        {
+          "name": "d4-a0-cold-before-blit",
+          "hdrSha256": "181c9f681bcc5faf7914282fd243a294c54453be5c5c2f7218f8b27d916bff5d",
+          "metadataSha256": "cc50ba8f3d69663a5f06cc8e0bb9dd09270a55a95e2a8f0e930f96673297136c",
+          "sourceHdrSha256": "684fcb4e168f6652b4fc827235950a66013e0e81b8ca4272a57b21df239b5acc",
+          "meanCentreRGB": [
+            0.7402291167527437,
+            0.6810108441859484,
+            0.5773786390200257
+          ],
+          "sourceMeanCentreRGB": [
+            0.7402438633143902,
+            0.6810244135558605,
+            0.5773901734501123
+          ],
+          "relativePercentRGB": [
+            -0.001992122106952987,
+            -0.0019924939021365162,
+            -0.0019976838223079163
+          ]
+        },
+        {
+          "name": "d4-a50-cold-before-blit",
+          "hdrSha256": "2ae3841cedaef8db7416ba5b91f45e3f1b0c9cb749018732d0b896f81a595534",
+          "metadataSha256": "293ca3f49d5e4fdb79822728d97bb8f63d5cdbcc5309ed3cce33c32e922c18e7",
+          "sourceHdrSha256": "7473061c74e1dca33ea19b2f8f0770e2f555e0af8babf5f792468bc2e7b7b3c4",
+          "meanCentreRGB": [
+            0.28249509166926146,
+            0.25989551143720746,
+            0.22034614975564182
+          ],
+          "sourceMeanCentreRGB": [
+            0.28241498256102204,
+            0.2598217879422009,
+            0.22028367896564305
+          ],
+          "relativePercentRGB": [
+            0.028365743032798818,
+            0.028374639244255206,
+            0.02835924581072735
+          ]
+        },
+        {
+          "name": "d4-a65-cold-before-blit",
+          "hdrSha256": "57f3cc94fe9b4994c303ea6299c7605dddb33ecc4f00c3ec8b37535827f9633a",
+          "metadataSha256": "dd2ced1765aba81e0929f03257603c0c31aba731b367e5896d4ef970b33b7c5e",
+          "sourceHdrSha256": "6ae3e9b2d8d11b040883953b12c07b0203b6071c7a5983277a2735e8f55c9b03",
+          "meanCentreRGB": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "sourceMeanCentreRGB": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "relativePercentRGB": null
+        }
+      ],
+      "cookieAssetSha256": "77b6ab7a7a6a4c86a2dcc0749a92fda6d7288d4fc4750e2fff5b4ba699caccc9",
+      "cookieMetaSha256": "d05a0fb70e9a8e0ad273d28282fd890a7dfb1c43bcaf2753469b7879cf22f2db"
+    }
+  ],
+  "conclusions": [
+    "Cold composite corruption/apply/save+Configure delete/recreate/rebind alone reproduces original20 legacy-like response.",
+    "Cold GI/mode/extraction alone without corruption matches Source axial and50deg cone response;65zero.",
+    "Therefore tested cold regeneration path is sufficient; GI extraction is not required.",
+    "GPU binding internal mechanism not directly measured: avoid asserting fallback texture identity merely from legacy-like response."
+  ],
+  "remainingGates": [
+    "Current compatible in-place repair identity+GUID retention and cold original combined fixture actual pixels.",
+    "Fail closed on incompatible shell including existing wrong-type assets.",
+    "Fresh full20 radiometry/shadow/fallback/bake proof, current Main13 export/native visuals/gameplay/Player."
+  ],
+  "limits": [
+    "Single inspected source family; regeneration path remains composite, not deletion-alone causation.",
+    "Historical original input bytes verified via preserved archive when implementation has since changed.",
+    "No overall/art score increase."
+  ]
+}

@@ -1,0 +1,425 @@
+{
+  "utc": "2026-10-13T00:55:52.251594+00:00",
+  "reviewer": "/root/strict_mine_review",
+  "status": "PassedBoundedActualBakedPlusPersistentlyRealtimePolicy_FreshEditorReload",
+  "stateSha256": "81000e30c8011f0427ac63847ac0cbfbb5a4aab58bf393f769674992a7c448de",
+  "pinsVerified": 18,
+  "logs": [
+    {
+      "phase": "bake",
+      "sha256": "28e5e3d27506a13097a82611f1da06a5ee80bc0f58ddd8ba01282f675c0bb950"
+    },
+    {
+      "phase": "reload",
+      "sha256": "b33be09f1a32418a99729c94a8514c7a4341939d0ede026274f38246da406a8c"
+    }
+  ],
+  "frames": [
+    {
+      "name": "actual-baked-axis",
+      "hdrSha256": "07c8d8eb5af6d22b0cc5c826fa8265e0e1e7af74b6d21e3d14d8cfc0e1d7f9c2",
+      "metadataSha256": "fb7eb1cf772d549480e6ce714c5a1c47beb8c5a2bb2edc2ec11a0f3bf101e188",
+      "meanCentreRGB": [
+        0.7396875023841858,
+        0.6802734732627869,
+        0.5769140720367432
+      ],
+      "mode": "Baked",
+      "bakingOutputType": "Baked",
+      "outputIsBaked": true,
+      "lightmapIndex": 0,
+      "lightmapCount": 1,
+      "probeUsage": "BlendProbes",
+      "reflectionUsage": "BlendProbes",
+      "cookieGuid": "4267e863ffb623b81a0e85c0147486b5",
+      "sourceHdrSha256": "684fcb4e168f6652b4fc827235950a66013e0e81b8ca4272a57b21df239b5acc",
+      "sourceMeanCentreRGB": [
+        0.7402438633143902,
+        0.6810244135558605,
+        0.5773901734501123
+      ],
+      "relativePercentRGB": [
+        -0.07515914116644762,
+        -0.11026628093298019,
+        -0.08245748460253832
+      ]
+    },
+    {
+      "name": "fresh-reload-always-realtime-a0",
+      "hdrSha256": "181c9f681bcc5faf7914282fd243a294c54453be5c5c2f7218f8b27d916bff5d",
+      "metadataSha256": "11d3093852d4e062ef4ce4c61e33b2ec3a61b7bcfccd085b4df87405c6dde775",
+      "meanCentreRGB": [
+        0.7402291167527437,
+        0.6810108441859484,
+        0.5773786390200257
+      ],
+      "mode": "Realtime",
+      "bakingOutputType": "Realtime",
+      "outputIsBaked": false,
+      "lightmapIndex": -1,
+      "lightmapCount": 1,
+      "probeUsage": "CustomProvided",
+      "reflectionUsage": "Off",
+      "cookieGuid": "4267e863ffb623b81a0e85c0147486b5",
+      "sourceHdrSha256": "684fcb4e168f6652b4fc827235950a66013e0e81b8ca4272a57b21df239b5acc",
+      "sourceMeanCentreRGB": [
+        0.7402438633143902,
+        0.6810244135558605,
+        0.5773901734501123
+      ],
+      "relativePercentRGB": [
+        -0.001992122106952987,
+        -0.0019924939021365162,
+        -0.0019976838223079163
+      ]
+    },
+    {
+      "name": "fresh-reload-always-realtime-a50",
+      "hdrSha256": "2ae3841cedaef8db7416ba5b91f45e3f1b0c9cb749018732d0b896f81a595534",
+      "metadataSha256": "10153897015d3a6f416ab3908c0e96d45aaf632e8ba1a059e0c84ab3a7ccab1c",
+      "meanCentreRGB": [
+        0.28249509166926146,
+        0.25989551143720746,
+        0.22034614975564182
+      ],
+      "mode": "Realtime",
+      "bakingOutputType": "Realtime",
+      "outputIsBaked": false,
+      "lightmapIndex": -1,
+      "lightmapCount": 1,
+      "probeUsage": "CustomProvided",
+      "reflectionUsage": "Off",
+      "cookieGuid": "4267e863ffb623b81a0e85c0147486b5",
+      "sourceHdrSha256": "7473061c74e1dca33ea19b2f8f0770e2f555e0af8babf5f792468bc2e7b7b3c4",
+      "sourceMeanCentreRGB": [
+        0.28241498256102204,
+        0.2598217879422009,
+        0.22028367896564305
+      ],
+      "relativePercentRGB": [
+        0.028365743032798818,
+        0.028374639244255206,
+        0.02835924581072735
+      ]
+    },
+    {
+      "name": "fresh-reload-always-realtime-a65",
+      "hdrSha256": "57f3cc94fe9b4994c303ea6299c7605dddb33ecc4f00c3ec8b37535827f9633a",
+      "metadataSha256": "81275fe455690705a500e401cbc7f936389567d1f1f02f73b4d835621c1c9767",
+      "meanCentreRGB": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mode": "Realtime",
+      "bakingOutputType": "Realtime",
+      "outputIsBaked": false,
+      "lightmapIndex": -1,
+      "lightmapCount": 1,
+      "probeUsage": "CustomProvided",
+      "reflectionUsage": "Off",
+      "cookieGuid": "4267e863ffb623b81a0e85c0147486b5",
+      "sourceHdrSha256": "6ae3e9b2d8d11b040883953b12c07b0203b6071c7a5983277a2735e8f55c9b03",
+      "sourceMeanCentreRGB": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "relativePercentRGB": null
+    },
+    {
+      "name": "fresh-reload-switched-realtime-a0",
+      "hdrSha256": "57f3cc94fe9b4994c303ea6299c7605dddb33ecc4f00c3ec8b37535827f9633a",
+      "metadataSha256": "cdda0d2b2e439bdf433d43edc734bc580d292f18c3fdc7324b094050bf2530be",
+      "meanCentreRGB": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mode": "Realtime",
+      "bakingOutputType": "Baked",
+      "outputIsBaked": true,
+      "lightmapIndex": -1,
+      "lightmapCount": 1,
+      "probeUsage": "CustomProvided",
+      "reflectionUsage": "Off",
+      "cookieGuid": "4267e863ffb623b81a0e85c0147486b5"
+    },
+    {
+      "name": "fresh-reload-switched-realtime-a50",
+      "hdrSha256": "57f3cc94fe9b4994c303ea6299c7605dddb33ecc4f00c3ec8b37535827f9633a",
+      "metadataSha256": "fcaf6a6c3163248da075073486157fac3e794bfaa9a49602da09223519e505a9",
+      "meanCentreRGB": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mode": "Realtime",
+      "bakingOutputType": "Baked",
+      "outputIsBaked": true,
+      "lightmapIndex": -1,
+      "lightmapCount": 1,
+      "probeUsage": "CustomProvided",
+      "reflectionUsage": "Off",
+      "cookieGuid": "4267e863ffb623b81a0e85c0147486b5"
+    },
+    {
+      "name": "fresh-reload-switched-realtime-a65",
+      "hdrSha256": "57f3cc94fe9b4994c303ea6299c7605dddb33ecc4f00c3ec8b37535827f9633a",
+      "metadataSha256": "00d9533e93951fadd45a2f552922c190bf3e964a4a9351cea52c39dcaeb0050f",
+      "meanCentreRGB": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mode": "Realtime",
+      "bakingOutputType": "Baked",
+      "outputIsBaked": true,
+      "lightmapIndex": -1,
+      "lightmapCount": 1,
+      "probeUsage": "CustomProvided",
+      "reflectionUsage": "Off",
+      "cookieGuid": "4267e863ffb623b81a0e85c0147486b5"
+    },
+    {
+      "name": "post-bake-always-realtime-a0",
+      "hdrSha256": "181c9f681bcc5faf7914282fd243a294c54453be5c5c2f7218f8b27d916bff5d",
+      "metadataSha256": "456b57a0458357496e5ca7f53417cd05b789474304c5324185d5111389ad818c",
+      "meanCentreRGB": [
+        0.7402291167527437,
+        0.6810108441859484,
+        0.5773786390200257
+      ],
+      "mode": "Realtime",
+      "bakingOutputType": "Realtime",
+      "outputIsBaked": false,
+      "lightmapIndex": -1,
+      "lightmapCount": 1,
+      "probeUsage": "CustomProvided",
+      "reflectionUsage": "Off",
+      "cookieGuid": "4267e863ffb623b81a0e85c0147486b5",
+      "sourceHdrSha256": "684fcb4e168f6652b4fc827235950a66013e0e81b8ca4272a57b21df239b5acc",
+      "sourceMeanCentreRGB": [
+        0.7402438633143902,
+        0.6810244135558605,
+        0.5773901734501123
+      ],
+      "relativePercentRGB": [
+        -0.001992122106952987,
+        -0.0019924939021365162,
+        -0.0019976838223079163
+      ]
+    },
+    {
+      "name": "post-bake-always-realtime-a50",
+      "hdrSha256": "2ae3841cedaef8db7416ba5b91f45e3f1b0c9cb749018732d0b896f81a595534",
+      "metadataSha256": "737bbb566a0ac9a3698a3e96a57171b1b270c375d07aa7323293088ae76a37ea",
+      "meanCentreRGB": [
+        0.28249509166926146,
+        0.25989551143720746,
+        0.22034614975564182
+      ],
+      "mode": "Realtime",
+      "bakingOutputType": "Realtime",
+      "outputIsBaked": false,
+      "lightmapIndex": -1,
+      "lightmapCount": 1,
+      "probeUsage": "CustomProvided",
+      "reflectionUsage": "Off",
+      "cookieGuid": "4267e863ffb623b81a0e85c0147486b5",
+      "sourceHdrSha256": "7473061c74e1dca33ea19b2f8f0770e2f555e0af8babf5f792468bc2e7b7b3c4",
+      "sourceMeanCentreRGB": [
+        0.28241498256102204,
+        0.2598217879422009,
+        0.22028367896564305
+      ],
+      "relativePercentRGB": [
+        0.028365743032798818,
+        0.028374639244255206,
+        0.02835924581072735
+      ]
+    },
+    {
+      "name": "post-bake-always-realtime-a65",
+      "hdrSha256": "57f3cc94fe9b4994c303ea6299c7605dddb33ecc4f00c3ec8b37535827f9633a",
+      "metadataSha256": "fd741c7ed2bedac36d5e4d444ff3b88e01accddf490aef669ed87f414c61b276",
+      "meanCentreRGB": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mode": "Realtime",
+      "bakingOutputType": "Realtime",
+      "outputIsBaked": false,
+      "lightmapIndex": -1,
+      "lightmapCount": 1,
+      "probeUsage": "CustomProvided",
+      "reflectionUsage": "Off",
+      "cookieGuid": "4267e863ffb623b81a0e85c0147486b5",
+      "sourceHdrSha256": "6ae3e9b2d8d11b040883953b12c07b0203b6071c7a5983277a2735e8f55c9b03",
+      "sourceMeanCentreRGB": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "relativePercentRGB": null
+    },
+    {
+      "name": "post-bake-switched-realtime-a0",
+      "hdrSha256": "57f3cc94fe9b4994c303ea6299c7605dddb33ecc4f00c3ec8b37535827f9633a",
+      "metadataSha256": "136aeb33ebdc7662ee2a800240e0c60f59d776d013d13a19bfb5b5b16b38a29d",
+      "meanCentreRGB": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mode": "Realtime",
+      "bakingOutputType": "Baked",
+      "outputIsBaked": true,
+      "lightmapIndex": -1,
+      "lightmapCount": 1,
+      "probeUsage": "CustomProvided",
+      "reflectionUsage": "Off",
+      "cookieGuid": "4267e863ffb623b81a0e85c0147486b5"
+    },
+    {
+      "name": "post-bake-switched-realtime-a50",
+      "hdrSha256": "57f3cc94fe9b4994c303ea6299c7605dddb33ecc4f00c3ec8b37535827f9633a",
+      "metadataSha256": "75b2161566170a60e04ef5d0fd2234f9d0cc37471292a1c5bce7e314ab013884",
+      "meanCentreRGB": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mode": "Realtime",
+      "bakingOutputType": "Baked",
+      "outputIsBaked": true,
+      "lightmapIndex": -1,
+      "lightmapCount": 1,
+      "probeUsage": "CustomProvided",
+      "reflectionUsage": "Off",
+      "cookieGuid": "4267e863ffb623b81a0e85c0147486b5"
+    },
+    {
+      "name": "post-bake-switched-realtime-a65",
+      "hdrSha256": "57f3cc94fe9b4994c303ea6299c7605dddb33ecc4f00c3ec8b37535827f9633a",
+      "metadataSha256": "c119c9eca4563b123e487014c8c6430c12e76ef62014576b562aa8455a78a300",
+      "meanCentreRGB": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mode": "Realtime",
+      "bakingOutputType": "Baked",
+      "outputIsBaked": true,
+      "lightmapIndex": -1,
+      "lightmapCount": 1,
+      "probeUsage": "CustomProvided",
+      "reflectionUsage": "Off",
+      "cookieGuid": "4267e863ffb623b81a0e85c0147486b5"
+    },
+    {
+      "name": "pre-bake-realtime-a0",
+      "hdrSha256": "181c9f681bcc5faf7914282fd243a294c54453be5c5c2f7218f8b27d916bff5d",
+      "metadataSha256": "33cb11d1cffeeb772625de489daa40a3c47a9746a1667ede20347ef4689bb9e6",
+      "meanCentreRGB": [
+        0.7402291167527437,
+        0.6810108441859484,
+        0.5773786390200257
+      ],
+      "mode": "Realtime",
+      "bakingOutputType": "Realtime",
+      "outputIsBaked": false,
+      "lightmapIndex": -1,
+      "lightmapCount": 0,
+      "probeUsage": "BlendProbes",
+      "reflectionUsage": "BlendProbes",
+      "cookieGuid": "4267e863ffb623b81a0e85c0147486b5",
+      "sourceHdrSha256": "684fcb4e168f6652b4fc827235950a66013e0e81b8ca4272a57b21df239b5acc",
+      "sourceMeanCentreRGB": [
+        0.7402438633143902,
+        0.6810244135558605,
+        0.5773901734501123
+      ],
+      "relativePercentRGB": [
+        -0.001992122106952987,
+        -0.0019924939021365162,
+        -0.0019976838223079163
+      ]
+    },
+    {
+      "name": "pre-bake-realtime-a50",
+      "hdrSha256": "2ae3841cedaef8db7416ba5b91f45e3f1b0c9cb749018732d0b896f81a595534",
+      "metadataSha256": "e876fd3dee3b02a9cba62a63cdcc98e3797135288b5a1a918fe298c9e3c20c39",
+      "meanCentreRGB": [
+        0.28249509166926146,
+        0.25989551143720746,
+        0.22034614975564182
+      ],
+      "mode": "Realtime",
+      "bakingOutputType": "Realtime",
+      "outputIsBaked": false,
+      "lightmapIndex": -1,
+      "lightmapCount": 0,
+      "probeUsage": "BlendProbes",
+      "reflectionUsage": "BlendProbes",
+      "cookieGuid": "4267e863ffb623b81a0e85c0147486b5",
+      "sourceHdrSha256": "7473061c74e1dca33ea19b2f8f0770e2f555e0af8babf5f792468bc2e7b7b3c4",
+      "sourceMeanCentreRGB": [
+        0.28241498256102204,
+        0.2598217879422009,
+        0.22028367896564305
+      ],
+      "relativePercentRGB": [
+        0.028365743032798818,
+        0.028374639244255206,
+        0.02835924581072735
+      ]
+    },
+    {
+      "name": "pre-bake-realtime-a65",
+      "hdrSha256": "57f3cc94fe9b4994c303ea6299c7605dddb33ecc4f00c3ec8b37535827f9633a",
+      "metadataSha256": "4c5225d1659b2cd2a9045bc2ef8b20b00b5f507165d34ef8aa695ea8cfa0ab82",
+      "meanCentreRGB": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mode": "Realtime",
+      "bakingOutputType": "Realtime",
+      "outputIsBaked": false,
+      "lightmapIndex": -1,
+      "lightmapCount": 0,
+      "probeUsage": "BlendProbes",
+      "reflectionUsage": "BlendProbes",
+      "cookieGuid": "4267e863ffb623b81a0e85c0147486b5",
+      "sourceHdrSha256": "6ae3e9b2d8d11b040883953b12c07b0203b6071c7a5983277a2735e8f55c9b03",
+      "sourceMeanCentreRGB": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "relativePercentRGB": null
+    }
+  ],
+  "serializedAssetHashChecks": 18,
+  "serializedAssetsManifestSha256": "358c3b4b89a9b5730a23c7cfac9b9f05391eadcc55d3cf0adeed0741adddbe3c",
+  "conclusions": [
+    "PersistentlyRealtime emitter sharing cookie with actualBaked emitter preserves physical0/50deg response afterBake and fresh editor reload, with bakedlightingdata retained and zeroSH dynamic receiver.",
+    "All16 RGBfinite/hash/type/state checks pass; persistent postBake/fresh pairs allRGB bit-identical.",
+    "ActualBaked static axis .7396875 matches Source.7402439 within-.0752%.",
+    "Synthetic Baked\u2192Realtime original yields zero because bakingOutput remainsBaked/isBaked=true; not an approved runtime light-mode switching policy.",
+    "Actual current nearBaked/farRealtime source spot policy eligible for isolated map implementation/verification with fresh valid serialized cookies; original full20 remains rejected."
+  ],
+  "remainingGates": [
+    "Dirty repaired cookie serialized-vs-in-memory bake control still distinct and unresolved.",
+    "Actual source6 import/quats/cones/current main13 map full bake/capture/native actual outputs; these fixture emitters do not certify fullscene shading.",
+    "Fresh Player lifecycle/actor/directspec/shadow/realProbe SH and runtime performance not certified by neutral Editorreceiver."
+  ],
+  "limits": [
+    "One Baked+one Realtime sharedcookie; no globalClear, no forceImport/GPUprobe/production reset.",
+    "CustomProvided SH zeros re-applied after reload because MaterialPropertyBlocks are notserialized; this is deliberate direct-light isolation.",
+    "Only exterior spot family/profile/current softwareGPU+editor measured.",
+    "Last full visual stays rejected41/60, overall98unset."
+  ]
+}

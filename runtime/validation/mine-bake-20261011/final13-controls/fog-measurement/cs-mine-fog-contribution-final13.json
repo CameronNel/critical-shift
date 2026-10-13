@@ -1,0 +1,229 @@
+{
+  "status": "MeasuredFogContributionOnly",
+  "sourceSnapshotSha256": "255fe337aacd602e81bd2940be7bf2a1da2541954f6c8446c8a06f5aae413b72",
+  "nativeProvenanceSha256": "40e65a2ce9f516ab61651ae23a3d645643f2704b92cb5a14b3473839991bdd04",
+  "restorationSha256": "6b7a6e20b2b44c79f2e8da7e823b392cfc810fccfa0d00cd49ee9f37b232abf1",
+  "effectiveSourceOffProvenanceSha256": "7d14ecba6b43d8e01a11bad78b2e8a368aedfcdd81cf5aeef54c684f2203cadf",
+  "rejectedSourceOff": "cs-mine-aov-no-volume-final11 copy/user_remap does not affect indirect libraryusers",
+  "helperSha256": "2eeb6606819e8a76909a76c1ec9661a1283edd83354aa8db7c5872aaa1c56315",
+  "views": [
+    {
+      "camera": "R39_01_PORTAL_APPROACH",
+      "native": {
+        "offMeanRGB": [
+          0.15419249606706822,
+          0.13729264358084442,
+          0.13066070069119126
+        ],
+        "onMeanRGB": [
+          0.15384018019255666,
+          0.13710930021919518,
+          0.13063333364824453
+        ],
+        "meanRGBChange": [
+          -0.00035231587451158296,
+          -0.00018334336164924835,
+          -2.7367042946732705e-05
+        ],
+        "meanAbsoluteRGBChange": [
+          0.0007068607208525969,
+          0.00043020968014995255,
+          0.0002740982410291003
+        ],
+        "deltaLumaQuantiles": [
+          -0.006075330261230468,
+          -3.0517578125e-05,
+          0.0,
+          0.0,
+          0.0027750859527587908
+        ],
+        "meanLumaChange": -0.00020800542767345905,
+        "noiseLimit": "Source separate16sample runs include stochastic differences; aggregate diagnostic only"
+      },
+      "sourceHistorical": {
+        "offMeanRGB": [
+          0.14455884461315605,
+          0.14450611142551215,
+          0.14546867706579275
+        ],
+        "onMeanRGB": [
+          0.1545099530771596,
+          0.15008570292104362,
+          0.1480681972836647
+        ],
+        "meanRGBChange": [
+          0.009951108464003555,
+          0.0055795914955314605,
+          0.0025995202178719767
+        ],
+        "meanAbsoluteRGBChange": [
+          0.009951108464003555,
+          0.0055795914955314605,
+          0.0025995202178719767
+        ],
+        "deltaLumaQuantiles": [
+          0.0,
+          0.0,
+          0.0,
+          0.0012175647783367837,
+          0.12740790747052438
+        ],
+        "meanLumaChange": 0.006293814856781612,
+        "noiseLimit": "Source separate16sample runs include stochastic differences; aggregate diagnostic only"
+      },
+      "inputHashes": {
+        "/tmp/cs-mine-fog-split-final13/R39_01_PORTAL_APPROACH-no-volume.exr": "aa5e19e43c34460c30b1c73cab83a68237a6b7d14b64902a449ce5492f2e17c8",
+        "/tmp/cs-mine-fog-split-final13/R39_01_PORTAL_APPROACH-with-volume.exr": "6ba62a6db96fb803e3f28e33a646f1ff8495c81c0908ee9a0b042973bb73b77d",
+        "/workspace/critical-shift-spawn-runtime/runtime/validation/mine-bake-20261011/fresh-export-final11/current-controls/diagnostics/cs-mine-aov-linked-context-final11/R39_01_PORTAL_APPROACH-original.exr": "5c499a179b451b88fbc068fd2a5c21c7130e170a734ada7b3f9f279d4426e423",
+        "/tmp/cs-mine-restored-source-fog-final13/cs-mine-aov-final11/R39_01_PORTAL_APPROACH-original.exr": "42538bb377f028991b0d4b1a8088aa013e3b412d341b9777ebf1424cf075e827"
+      }
+    },
+    {
+      "camera": "R39_02_TUNNEL",
+      "native": {
+        "offMeanRGB": [
+          0.10419846470985147,
+          0.04958696426099373,
+          0.0189799033695211
+        ],
+        "onMeanRGB": [
+          0.11880014816919962,
+          0.06268466376596027,
+          0.03188747791780366
+        ],
+        "meanRGBChange": [
+          0.014601683459348149,
+          0.013097699504966536,
+          0.012907574548282556
+        ],
+        "meanAbsoluteRGBChange": [
+          0.018540828335616325,
+          0.015072730404014389,
+          0.013363795916860302
+        ],
+        "deltaLumaQuantiles": [
+          -0.00812718505859375,
+          0.0056264956665039055,
+          0.012740753746032715,
+          0.022471742439270023,
+          0.06087146710205079
+        ],
+        "meanLumaChange": 0.013403719471795483,
+        "noiseLimit": "Source separate16sample runs include stochastic differences; aggregate diagnostic only"
+      },
+      "sourceHistorical": {
+        "offMeanRGB": [
+          0.15980380350553036,
+          0.08429384500899137,
+          0.033242756860774964
+        ],
+        "onMeanRGB": [
+          0.19910359240373596,
+          0.11579537914472995,
+          0.06019078314980643
+        ],
+        "meanRGBChange": [
+          0.039299788898205686,
+          0.03150153413573854,
+          0.026948026289031465
+        ],
+        "meanAbsoluteRGBChange": [
+          0.0964256907438757,
+          0.057942273397628696,
+          0.0356163377415774
+        ],
+        "deltaLumaQuantiles": [
+          -0.2569071592220068,
+          -0.03076425282059237,
+          0.0062535641032445705,
+          0.1520888050795719,
+          0.3992715650553669
+        ],
+        "meanLumaChange": 0.03283067983170681,
+        "noiseLimit": "Source separate16sample runs include stochastic differences; aggregate diagnostic only"
+      },
+      "inputHashes": {
+        "/tmp/cs-mine-fog-split-final13/R39_02_TUNNEL-no-volume.exr": "2c1007b2a02d73ca0c8c0b53865c01da020999ac7b33369aa80c50b41c3e47dd",
+        "/tmp/cs-mine-fog-split-final13/R39_02_TUNNEL-with-volume.exr": "f92ab8b8a83bc3986421ddf438a717be200fb102ddb9dc5823f607bb57162461",
+        "/workspace/critical-shift-spawn-runtime/runtime/validation/mine-bake-20261011/fresh-export-final11/current-controls/diagnostics/cs-mine-aov-linked-context-final11/R39_02_TUNNEL-original.exr": "4c1039414c329a103e4c9aada87fcc81aef0948ca89b4146669eadca8fb8955d",
+        "/tmp/cs-mine-restored-source-fog-final13/cs-mine-aov-final11/R39_02_TUNNEL-original.exr": "034b31746d446e5279c4a1bd8143aebee6548727515e9caecc218eed9f2ce04a"
+      }
+    },
+    {
+      "camera": "R39_04_SHED_FRONT",
+      "native": {
+        "offMeanRGB": [
+          0.2100559347681701,
+          0.1454075277493232,
+          0.09400991477900081
+        ],
+        "onMeanRGB": [
+          0.21062787925617563,
+          0.1456572757102549,
+          0.09431730781474876
+        ],
+        "meanRGBChange": [
+          0.0005719444880055057,
+          0.00024974796093172496,
+          0.00030739303574793867
+        ],
+        "meanAbsoluteRGBChange": [
+          0.002304482234434949,
+          0.0015815855521294805,
+          0.0014499757387157943
+        ],
+        "deltaLumaQuantiles": [
+          -0.01823252026367187,
+          -0.000244140625,
+          0.0,
+          0.0010857053375244168,
+          0.028541339485168588
+        ],
+        "meanLumaChange": 0.0003224089169893414,
+        "noiseLimit": "Source separate16sample runs include stochastic differences; aggregate diagnostic only"
+      },
+      "sourceHistorical": {
+        "offMeanRGB": [
+          0.08518220598928947,
+          0.05370474261215356,
+          0.034121367150808386
+        ],
+        "onMeanRGB": [
+          0.112262189731253,
+          0.07045433537650896,
+          0.04354247608997416
+        ],
+        "meanRGBChange": [
+          0.0270799837419635,
+          0.0167495927643554,
+          0.009421108939165765
+        ],
+        "meanAbsoluteRGBChange": [
+          0.0270799837419635,
+          0.0167495927643554,
+          0.009421108939165765
+        ],
+        "deltaLumaQuantiles": [
+          0.0,
+          0.0,
+          0.0,
+          0.03981917268998921,
+          0.28355811383020907
+        ],
+        "meanLumaChange": 0.018416717354016187,
+        "noiseLimit": "Source separate16sample runs include stochastic differences; aggregate diagnostic only"
+      },
+      "inputHashes": {
+        "/tmp/cs-mine-fog-split-final13/R39_04_SHED_FRONT-no-volume.exr": "d35e5b813add04ed74272847796fdc4351f455706e381a8983e6074f69a3a0be",
+        "/tmp/cs-mine-fog-split-final13/R39_04_SHED_FRONT-with-volume.exr": "6d544024e10ea09471791adaece6f48752bb7df6d9142c04e24380eaecad06ce",
+        "/workspace/critical-shift-spawn-runtime/runtime/validation/mine-bake-20261011/fresh-export-final11/current-controls/diagnostics/cs-mine-aov-linked-context-final11/R39_04_SHED_FRONT-original.exr": "87d1b13dfe67f22632e5f1d814b0863f463d004db8b88ef1ddc8d0cb7b20b88c",
+        "/tmp/cs-mine-restored-source-fog-final13/cs-mine-aov-final11/R39_04_SHED_FRONT-original.exr": "0a6d3b2b0a14d7e1d34c73ada1f0b98e6c5b68c360dc4b8c47de47554e119788"
+      }
+    }
+  ],
+  "limits": [
+    "Native640MSAA4 versus historicalCycles64016samples; no exact pixel agreement claim",
+    "Source cameras use storedauthoring eye/aim/lens; nativeposes verified separately, no newSourcepose metadata",
+    "No omittedMixed-cause conclusion, retuning, full fidelity score, gameplay orPlayer pass"
+  ]
+}

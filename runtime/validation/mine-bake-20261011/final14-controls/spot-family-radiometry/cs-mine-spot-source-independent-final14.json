@@ -1,0 +1,184 @@
+{
+  "status": "PassedEightSourceSpotNumericFixtureHDRChecks_EmitterNodeParityPending",
+  "sourceProvenanceSha256": "dc5d854be14eccb0b8bc25baea76c88d4453b3c6cdd4d500919a7d97d5c3d18b",
+  "helperSha256": "465da68c62199a39640131d2ee9bf48f0a71285d8e8c42c3bc69942cb9deb8e2",
+  "samples": 512,
+  "frames": [
+    {
+      "name": "d1-a0",
+      "sha256": "e1f1a32c0b4e996168716f8a5849ea39add5b3a3334fe82109ccef6506cf0d0d",
+      "centre8MeanRgb": [
+        11.686149969696999,
+        10.751258611679077,
+        9.11519667506218
+      ],
+      "centre8StandardDeviationRgb": [
+        0.0016141932090712218,
+        0.0014852306769879435,
+        0.0012592456158441975
+      ],
+      "nonfiniteRGBPixels": 0
+    },
+    {
+      "name": "d2-a0",
+      "sha256": "bc7815f4d85a078c340316fb69f3f7c2ac19ddf476573c27f1839c61f61c8178",
+      "centre8MeanRgb": [
+        2.9529990293085575,
+        2.7167592979967594,
+        2.3033391013741493
+      ],
+      "centre8StandardDeviationRgb": [
+        0.00011047774666675454,
+        0.00010167076689865216,
+        8.613814396703185e-05
+      ],
+      "nonfiniteRGBPixels": 0
+    },
+    {
+      "name": "d4-a0",
+      "sha256": "684fcb4e168f6652b4fc827235950a66013e0e81b8ca4272a57b21df239b5acc",
+      "centre8MeanRgb": [
+        0.7402438633143902,
+        0.6810244135558605,
+        0.5773901734501123
+      ],
+      "centre8StandardDeviationRgb": [
+        6.0036228761449e-06,
+        5.529072547822162e-06,
+        4.6838170625062015e-06
+      ],
+      "nonfiniteRGBPixels": 0
+    },
+    {
+      "name": "d4-a30",
+      "sha256": "4e84bedee74bfd4557a321e177be4282bd943fe30862e77d89f2baec1c6dfe64",
+      "centre8MeanRgb": [
+        0.7315746573731303,
+        0.6730486890301108,
+        0.5706281596794724
+      ],
+      "centre8StandardDeviationRgb": [
+        0.0002131580257865668,
+        0.00019611184831167569,
+        0.0001662705416852325
+      ],
+      "nonfiniteRGBPixels": 0
+    },
+    {
+      "name": "d4-a50",
+      "sha256": "7473061c74e1dca33ea19b2f8f0770e2f555e0af8babf5f792468bc2e7b7b3c4",
+      "centre8MeanRgb": [
+        0.28241498256102204,
+        0.2598217879422009,
+        0.22028367896564305
+      ],
+      "centre8StandardDeviationRgb": [
+        0.0013749567969207844,
+        0.0012649602320563562,
+        0.0010724731802113437
+      ],
+      "nonfiniteRGBPixels": 0
+    },
+    {
+      "name": "d4-a60",
+      "sha256": "f6653f31990e05ce329f4c8dc4acc53b5dab3bbe4048fcc3e56cb52a75de5a62",
+      "centre8MeanRgb": [
+        0.018063602707115933,
+        0.01661851443350315,
+        0.014089608332142234
+      ],
+      "centre8StandardDeviationRgb": [
+        0.0005122711993475423,
+        0.0004712895260797701,
+        0.0003995715149240553
+      ],
+      "nonfiniteRGBPixels": 0
+    },
+    {
+      "name": "d4-a65",
+      "sha256": "6ae3e9b2d8d11b040883953b12c07b0203b6071c7a5983277a2735e8f55c9b03",
+      "centre8MeanRgb": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "centre8StandardDeviationRgb": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "nonfiniteRGBPixels": 0
+    },
+    {
+      "name": "d4-a75",
+      "sha256": "44b30530f1f90765653c1e5c162c0d19e9e0e2f1d65a0e0b82f4107f67968fda",
+      "centre8MeanRgb": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "centre8StandardDeviationRgb": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "nonfiniteRGBPixels": 0
+    }
+  ],
+  "limits": [
+    "Numeric Source spot family only; actual use_nodesTrue neutral emitter and data-color combination need explicit singleaxis comparison",
+    "All8 finite64HDR and source poses verified; no native results or map integration approval",
+    "Current full13 rejection41of60 and latestmain13room integration remain separate pending gates",
+    "Scalar centre-ray profile model matches far axis and most cone sweep but underestimates60deg edge by finite sphere integration; do not tune blend to hide that residual."
+  ],
+  "pointSphereCentreProfilePredictions": [
+    {
+      "name": "d1-a0",
+      "predictedRed": 11.686295833671473,
+      "measuredRed": 11.686149969696999,
+      "sourceToCentreProfileRatio": 0.9999875183739527
+    },
+    {
+      "name": "d2-a0",
+      "predictedRed": 2.9530137724328576,
+      "measuredRed": 2.9529990293085575,
+      "sourceToCentreProfileRatio": 0.9999950074312427
+    },
+    {
+      "name": "d4-a0",
+      "predictedRed": 0.7402449349729017,
+      "measuredRed": 0.7402438633143902,
+      "sourceToCentreProfileRatio": 0.9999985522920039
+    },
+    {
+      "name": "d4-a30",
+      "predictedRed": 0.7322835271592376,
+      "measuredRed": 0.7315746573731303,
+      "sourceToCentreProfileRatio": 0.999031973600639
+    },
+    {
+      "name": "d4-a50",
+      "predictedRed": 0.2825198585346563,
+      "measuredRed": 0.28241498256102204,
+      "sourceToCentreProfileRatio": 0.9996287837103622
+    },
+    {
+      "name": "d4-a60",
+      "predictedRed": 0.016486498758867884,
+      "measuredRed": 0.018063602707115933,
+      "sourceToCentreProfileRatio": 1.0956603322096965
+    },
+    {
+      "name": "d4-a65",
+      "predictedRed": 0.0,
+      "measuredRed": 0.0,
+      "sourceToCentreProfileRatio": null
+    },
+    {
+      "name": "d4-a75",
+      "predictedRed": 0.0,
+      "measuredRed": 0.0,
+      "sourceToCentreProfileRatio": null
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "utc": "2026-10-13T00:25:29.353992+00:00",
+  "reviewer": "/root/strict_mine_review",
+  "status": "ClearedTwoIndependentFreshProcessColdComponentPrelaunches",
+  "fixtures": [
+    {
+      "component": "regen",
+      "inputs": {
+        "/tmp/cs-mine-spot-cold-regen-only-final14.cs.txt": "d24a131dc6e748d357df4adaef265ecf18721addec53fef670241fbb0b91758c",
+        "/tmp/cs-mine-spot-cold-regen-only-native-final14.py": "eff3355674fe9b62f799fff9104613860900ff958c5bc816d63a006e8ddb7489",
+        "/tmp/cs-mine-production-spot-cold-regen-only-api-final14.json": "ee7ef5e4202823374b475ec17b546708bfe4708634db7e89613a0d9085010666",
+        "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/MinePointLighting.cs": "b66dbe1626d73b99ca16e9ee575d00a175842cee12bcdd0bae68c31a62bc2d48",
+        "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/MineSpotLighting.cs": "16ed27fca76f4722feba46a701778218072bb37b16594e35ca5e124265390e25",
+        "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/MineVisualLighting.cs": "7778d267d5b759bb141459ebee0a8d1b25e11f609386d5ad12438ae10ef0fab2",
+        "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/PlayerRoomBuild.cs": "f95de4878e9254597cce73cdda2c1fec2d6e9d7f9c80d222952c1289f8a18919",
+        "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/SpawnMapBuild.cs": "0c8f6a0183a6a80f55f355fb8cd886134ef2a6a69f01b7f51697457857a71969",
+        "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/SpawnSurfaceBuild.cs": "de043055ac3f75d0a4f6d634b8a6dce26b67d4c02df2761379e8f9c9079379b1",
+        "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/SpawnVisualReview.cs": "42d10de155b74d6669dae8f52b3ab05b43f1af7cab3e87f6b633e3502c204944"
+      }
+    },
+    {
+      "component": "gi",
+      "inputs": {
+        "/tmp/cs-mine-spot-cold-gi-only-final14.cs.txt": "03e3a682aa0a05e665dc20015afd8914072f7f15680ae3e6330047d04a8138cd",
+        "/tmp/cs-mine-spot-cold-gi-only-native-final14.py": "ebf553911a3912c38662031ac1488c595e0f73ecac616a4043a9e014853e3b3d",
+        "/tmp/cs-mine-production-spot-cold-gi-only-api-final14.json": "758f94290fc1ae62e25946d8a277cf2a972cf9fb5b2d2e2f32c369355d1f8c5e",
+        "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/MinePointLighting.cs": "b66dbe1626d73b99ca16e9ee575d00a175842cee12bcdd0bae68c31a62bc2d48",
+        "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/MineSpotLighting.cs": "16ed27fca76f4722feba46a701778218072bb37b16594e35ca5e124265390e25",
+        "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/MineVisualLighting.cs": "7778d267d5b759bb141459ebee0a8d1b25e11f609386d5ad12438ae10ef0fab2",
+        "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/PlayerRoomBuild.cs": "f95de4878e9254597cce73cdda2c1fec2d6e9d7f9c80d222952c1289f8a18919",
+        "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/SpawnMapBuild.cs": "0c8f6a0183a6a80f55f355fb8cd886134ef2a6a69f01b7f51697457857a71969",
+        "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/SpawnSurfaceBuild.cs": "de043055ac3f75d0a4f6d634b8a6dce26b67d4c02df2761379e8f9c9079379b1",
+        "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Bootstrap/Player/Editor/SpawnVisualReview.cs": "42d10de155b74d6669dae8f52b3ab05b43f1af7cab3e87f6b633e3502c204944"
+      }
+    }
+  ],
+  "checks": [
+    "Each helper retains identical actual production Configure/Source6quats/receiver/5rays and removes exactly the other composite setup component.",
+    "No GPU cookie probe or actual bake before or between camera captures.",
+    "Fresh per-process output/state/helper/scratch ownership; shared generatedcookie refused whenpre-existing and removed only whenowned.",
+    "Exact5 HDR/meta+2cookiebytes, finite/RTactualstate/type/hash guards.",
+    "Both officialAPI receipts match all current sources and helpers."
+  ],
+  "requiredExecution": "Parent runs sequentially in fresh editor processes, requiring first process successful exit and owned cleanup before second launch; reviewer launches no heavy tools.",
+  "interpretationLimits": [
+    "GI-only still includes Baked mode switch+default/sentinel/scoped extraction+exception/disposal+nonowned light, not one isolated callback instruction.",
+    "Regeneration-only is corruption/apply/save/delete/recreate/rebind composite.",
+    "Main/sharedLibrary persists acrossprocesses, so these are fresh GPUtexture ownership experiments rather than clean Unity-install/cache experiments.",
+    "Independent pixel classification required; prepared technical checks do not pass radiometry or full20."
+  ]
+}

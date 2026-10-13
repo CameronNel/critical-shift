@@ -1,0 +1,95 @@
+{
+  "status": "FourCurrentCSharpAPIAssembliesAnd63PipelineTestsPassed",
+  "files": [
+    {
+      "file": "api/CriticalShift.Player.Bootstrap.dll",
+      "bytes": 9728,
+      "sha256": "8918212a08c6e4557d1dd094b5f74fda4c5183fe41e8af8bf612477b1a8bcc5a"
+    },
+    {
+      "file": "api/CriticalShift.Features.Player.Unity.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "api/player-api.json",
+      "bytes": 68602,
+      "sha256": "b0e2b0e3212047c5990cbd3a59016f6a2d5f48d2575a3fec0ee3399f4489dfca"
+    },
+    {
+      "file": "api/CriticalShift.Player.Bootstrap.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "api/CriticalShift.Player.Editor.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "api/CriticalShift.Player.Editor.dll",
+      "bytes": 115200,
+      "sha256": "a8d102cd82a8fca09939d84acc1e7bd7ebae184b45cb7777f4dbfb99d464f9cc"
+    },
+    {
+      "file": "api/CriticalShift.Player.Tests.PlayMode.dll",
+      "bytes": 11776,
+      "sha256": "abaa963314903c42fc28cb5e5bf351554468a2d3a1d2b520f932ffca45c5e256"
+    },
+    {
+      "file": "api/CriticalShift.Player.Tests.PlayMode.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "api/CriticalShift.Features.Player.Unity.dll",
+      "bytes": 49152,
+      "sha256": "b71bd8be00558dbb775c08e171a102caaa778a947bed6c1eb970e13b8e31920f"
+    },
+    {
+      "file": "python-tests-final15-idle.log",
+      "bytes": 4422,
+      "sha256": "dbc2b3ac9223065e3354eae2efd45227aa7aee170b6ed9c24179795262d1dba8"
+    },
+    {
+      "file": "python-tests-final15-current-idle.log",
+      "bytes": 4423,
+      "sha256": "2898446023dee7b6a4ac57ef27c5836c0ffd578a3276f086a540e1554da18de8"
+    },
+    {
+      "file": "pipeline-source/prepare_player.py",
+      "bytes": 2919,
+      "sha256": "7009a6895eb874f93edf89700d4ae6385d347552f27c7c5ee9b7ea98e199f020"
+    },
+    {
+      "file": "pipeline-source/prepare_spawn.py",
+      "bytes": 9202,
+      "sha256": "6a4c128af0ad6bd42ec56f92a0e84bbb321c1bbc2f64765da47abe5361fc4541"
+    },
+    {
+      "file": "pipeline-source/prepare_mine.py",
+      "bytes": 11264,
+      "sha256": "522c8c4cbfd0e2ea5392296c7992c90be3f709f973851cf318fdb48a89b21a4a"
+    },
+    {
+      "file": "pipeline-source/map_source_snapshot.py",
+      "bytes": 3412,
+      "sha256": "ecc5e795e075f4b84e83905de549a9792e6a7d3a1889d40b77adc9523f3fd8df"
+    },
+    {
+      "file": "tests/test_derivative_metadata.py",
+      "bytes": 1322,
+      "sha256": "e344bfd6f89fdd1ad008a1b7a1305713e2880c63185753613914c6ff0360d9c6"
+    },
+    {
+      "file": "tests/test_map_source_snapshot.py",
+      "bytes": 4468,
+      "sha256": "bca24b5847d56d8ed43c8ddfd94e910748435f8ba630c07a0ce76c49eed14f1c"
+    }
+  ],
+  "limits": [
+    "API-only compile and pipeline guard checks; not Native main scene/gameplay/Player",
+    "Earlier62 check log retained separately;63 log includes current metadata staging test",
+    "No overall score or98 claim"
+  ]
+}

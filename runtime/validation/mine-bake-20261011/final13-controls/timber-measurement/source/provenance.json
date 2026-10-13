@@ -1,0 +1,113 @@
+{
+  "status": "RenderedSourceTimberMasksAwaitingPixelAudit",
+  "sourceSnapshotSha256": "255fe337aacd602e81bd2940be7bf2a1da2541954f6c8446c8a06f5aae413b72",
+  "helperSha256": "3ccef9ef76f5741c06d8a4ea23212e96b92df87b4042ebd719b0502891fe4fac",
+  "imageSha256": "5e556171ace042a633aed8d7f95f9d8d6c721f8666088e623fa868e0e0841887",
+  "selected": [
+    {
+      "name": "R39 | Shed boards",
+      "index": 1,
+      "worldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -14.399999618530273
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -41.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "materials": [
+        "R39 | Rotten boards",
+        "GF | Shadowed Wall Boards"
+      ]
+    },
+    {
+      "name": "R39 | Shed frame",
+      "index": 2,
+      "worldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -14.399999618530273
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -41.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "materials": [
+        "R39 | Rotten timber",
+        "GF | Silvered Structural Timber"
+      ]
+    }
+  ],
+  "removedVolumeLinks": [
+    {
+      "material": "R38 | Tunnel haze",
+      "output": "Material Output",
+      "from": "Principled Volume"
+    },
+    {
+      "material": "R39 | Shed haze",
+      "output": "Material Output",
+      "from": "Principled Volume"
+    }
+  ],
+  "resolution": [
+    640,
+    360
+  ],
+  "samples": 32,
+  "seed": 21947,
+  "camera": {
+    "name": "R39_04_SHED_FRONT",
+    "eye": [
+      -34.4,
+      -77.0,
+      2.0
+    ],
+    "aim": [
+      -46.236187839508055,
+      -67.79407840967178,
+      2.3945420775562525
+    ],
+    "lens": 28.0,
+    "verticalFov": 39.76070472928529
+  },
+  "limits": [
+    "Only shed/frame objects targeted; mask effectiveness/finite/matchedgeometry pending native pixel audit",
+    "No source save, new lighting bake, Player or visual grade"
+  ]
+}

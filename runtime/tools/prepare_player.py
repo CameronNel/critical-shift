@@ -24,8 +24,8 @@ def source_fingerprint():
                                   for p in source)).hexdigest()
 
 
-def meta(path, plugin=False):
-    guid = uuid.uuid5(uuid.NAMESPACE_URL, "critical-shift:" + path.relative_to(ROOT).as_posix()).hex
+def meta(path, plugin=False, identity_path=None):
+    guid = uuid.uuid5(uuid.NAMESPACE_URL, "critical-shift:" + (identity_path or path).relative_to(ROOT).as_posix()).hex
     text = "fileFormatVersion: 2\nguid: " + guid + "\n"
     if path.is_dir():
         text += "folderAsset: yes\nDefaultImporter:\n  externalObjects: {}\n  userData: \n  assetBundleName: \n  assetBundleVariant: \n"

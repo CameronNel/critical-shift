@@ -1,0 +1,292 @@
+{
+  "status": "ReadOnlyActualSourceEmitterModifiers",
+  "sourceSnapshotSha256": "255fe337aacd602e81bd2940be7bf2a1da2541954f6c8446c8a06f5aae413b72",
+  "helperSha256": "6b8e813519b062c7bfce9475bf8da4a2fd3f0d98c28071823e88f8b6f6b5a066",
+  "emitters": [
+    {
+      "name": "LIGHT_pole_1",
+      "useNodes": true,
+      "properties": {
+        "exposure": 0.0,
+        "use_temperature": false,
+        "temperature": 6500.0,
+        "diffuse_factor": 1.0,
+        "specular_factor": 1.0,
+        "volume_factor": 1.0,
+        "normalize": true,
+        "use_soft_falloff": true
+      },
+      "nodes": [
+        {
+          "name": "Emission",
+          "type": "EMISSION",
+          "inputs": {
+            "Color": {
+              "default": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "linked": false,
+              "links": []
+            },
+            "Strength": {
+              "default": 1.0,
+              "linked": false,
+              "links": []
+            },
+            "Weight": {
+              "default": 0.0,
+              "linked": false,
+              "links": []
+            }
+          }
+        },
+        {
+          "name": "Light Output",
+          "type": "OUTPUT_LIGHT",
+          "inputs": {}
+        }
+      ]
+    },
+    {
+      "name": "LIGHT_pole_2",
+      "useNodes": true,
+      "properties": {
+        "exposure": 0.0,
+        "use_temperature": false,
+        "temperature": 6500.0,
+        "diffuse_factor": 1.0,
+        "specular_factor": 1.0,
+        "volume_factor": 1.0,
+        "normalize": true,
+        "use_soft_falloff": true
+      },
+      "nodes": [
+        {
+          "name": "Emission",
+          "type": "EMISSION",
+          "inputs": {
+            "Color": {
+              "default": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "linked": false,
+              "links": []
+            },
+            "Strength": {
+              "default": 1.0,
+              "linked": false,
+              "links": []
+            },
+            "Weight": {
+              "default": 0.0,
+              "linked": false,
+              "links": []
+            }
+          }
+        },
+        {
+          "name": "Light Output",
+          "type": "OUTPUT_LIGHT",
+          "inputs": {}
+        }
+      ]
+    },
+    {
+      "name": "LIGHT_pole_4",
+      "useNodes": true,
+      "properties": {
+        "exposure": 0.0,
+        "use_temperature": false,
+        "temperature": 6500.0,
+        "diffuse_factor": 1.0,
+        "specular_factor": 1.0,
+        "volume_factor": 1.0,
+        "normalize": true,
+        "use_soft_falloff": true
+      },
+      "nodes": [
+        {
+          "name": "Emission",
+          "type": "EMISSION",
+          "inputs": {
+            "Color": {
+              "default": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "linked": false,
+              "links": []
+            },
+            "Strength": {
+              "default": 1.0,
+              "linked": false,
+              "links": []
+            },
+            "Weight": {
+              "default": 0.0,
+              "linked": false,
+              "links": []
+            }
+          }
+        },
+        {
+          "name": "Light Output",
+          "type": "OUTPUT_LIGHT",
+          "inputs": {}
+        }
+      ]
+    },
+    {
+      "name": "LIGHT_pole_5",
+      "useNodes": true,
+      "properties": {
+        "exposure": 0.0,
+        "use_temperature": false,
+        "temperature": 6500.0,
+        "diffuse_factor": 1.0,
+        "specular_factor": 1.0,
+        "volume_factor": 1.0,
+        "normalize": true,
+        "use_soft_falloff": true
+      },
+      "nodes": [
+        {
+          "name": "Emission",
+          "type": "EMISSION",
+          "inputs": {
+            "Color": {
+              "default": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "linked": false,
+              "links": []
+            },
+            "Strength": {
+              "default": 1.0,
+              "linked": false,
+              "links": []
+            },
+            "Weight": {
+              "default": 0.0,
+              "linked": false,
+              "links": []
+            }
+          }
+        },
+        {
+          "name": "Light Output",
+          "type": "OUTPUT_LIGHT",
+          "inputs": {}
+        }
+      ]
+    },
+    {
+      "name": "LIGHT_pole_6",
+      "useNodes": true,
+      "properties": {
+        "exposure": 0.0,
+        "use_temperature": false,
+        "temperature": 6500.0,
+        "diffuse_factor": 1.0,
+        "specular_factor": 1.0,
+        "volume_factor": 1.0,
+        "normalize": true,
+        "use_soft_falloff": true
+      },
+      "nodes": [
+        {
+          "name": "Emission",
+          "type": "EMISSION",
+          "inputs": {
+            "Color": {
+              "default": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "linked": false,
+              "links": []
+            },
+            "Strength": {
+              "default": 1.0,
+              "linked": false,
+              "links": []
+            },
+            "Weight": {
+              "default": 0.0,
+              "linked": false,
+              "links": []
+            }
+          }
+        },
+        {
+          "name": "Light Output",
+          "type": "OUTPUT_LIGHT",
+          "inputs": {}
+        }
+      ]
+    },
+    {
+      "name": "LIGHT_pole_7",
+      "useNodes": true,
+      "properties": {
+        "exposure": 0.0,
+        "use_temperature": false,
+        "temperature": 6500.0,
+        "diffuse_factor": 1.0,
+        "specular_factor": 1.0,
+        "volume_factor": 1.0,
+        "normalize": true,
+        "use_soft_falloff": true
+      },
+      "nodes": [
+        {
+          "name": "Emission",
+          "type": "EMISSION",
+          "inputs": {
+            "Color": {
+              "default": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "linked": false,
+              "links": []
+            },
+            "Strength": {
+              "default": 1.0,
+              "linked": false,
+              "links": []
+            },
+            "Weight": {
+              "default": 0.0,
+              "linked": false,
+              "links": []
+            }
+          }
+        },
+        {
+          "name": "Light Output",
+          "type": "OUTPUT_LIGHT",
+          "inputs": {}
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Inventory only; actual modifiers may block numericfixture adoption; no source save or Native parity"
+  ]
+}

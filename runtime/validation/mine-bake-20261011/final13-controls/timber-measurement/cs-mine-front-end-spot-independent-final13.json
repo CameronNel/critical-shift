@@ -1,0 +1,274 @@
+{
+  "status": "ConfirmedSourceSPOTImportedAsNativePOINT_ActualSavedScene",
+  "preparedScene": {
+    "mapBindingsSha256": "dcd7f11119192381cd5c34df7076e840b0d27098dc68d28d424f09485ff5ad8e",
+    "rigBindingsSha256": "b89037e3c376c6e7958a3a1a1713664559baec579b861c8c5702ad03cc4a90a6",
+    "sceneSha256": "451f65f87a9947487b8b26ece16aed52b98b55fa55a4060563552511f5493e7a",
+    "sourceSha256": "516d88d25e8fa59c08b6fc11c2b75a60538cc640eedeb133c21443074418a657",
+    "lightmaps": 3
+  },
+  "sceneSha256": "451f65f87a9947487b8b26ece16aed52b98b55fa55a4060563552511f5493e7a",
+  "mapBindingsSha256": "dcd7f11119192381cd5c34df7076e840b0d27098dc68d28d424f09485ff5ad8e",
+  "nativeTargetBindingsSha256": "be8f4db36c3e0f57045032ee307d057aa4b8c4c0a25708c2d349c1627d8e209d",
+  "spots": [
+    {
+      "sourceIndex": 1,
+      "sourceType": "SPOT",
+      "sourceRecord": {
+        "position": [
+          -42.0,
+          12.399999618530273,
+          6.119999885559082
+        ],
+        "color": [
+          1.0,
+          0.9200000166893005,
+          0.7799999713897705
+        ],
+        "power": 2600.0,
+        "type": "SPOT"
+      },
+      "native": {
+        "lightId": "1530478890",
+        "gameObject": "Room practical",
+        "type": 2,
+        "range": 12.0,
+        "intensity": 26.0,
+        "spotAngle": 30.0,
+        "localPosition": [
+          -42.0,
+          6.12,
+          12.4
+        ],
+        "localRotation": "{x: 0, y: 0, z: 0, w: 1}",
+        "parent": "ROOM_front-end-area"
+      },
+      "nativeWorldPosition": [
+        -34.0,
+        6.119999885559082,
+        -67.60000038146973
+      ],
+      "distanceToTargetAabb": {
+        "CS_mine_R39 | Shed boards": 2.6459007263183594,
+        "CS_mine_R39 | Shed frame": 2.744277000427246
+      }
+    },
+    {
+      "sourceIndex": 2,
+      "sourceType": "SPOT",
+      "sourceRecord": {
+        "position": [
+          -25.0,
+          12.399999618530273,
+          6.119999885559082
+        ],
+        "color": [
+          1.0,
+          0.9200000166893005,
+          0.7799999713897705
+        ],
+        "power": 2600.0,
+        "type": "SPOT"
+      },
+      "native": {
+        "lightId": "184649772",
+        "gameObject": "Room practical",
+        "type": 2,
+        "range": 12.0,
+        "intensity": 26.0,
+        "spotAngle": 30.0,
+        "localPosition": [
+          -25.0,
+          6.12,
+          12.4
+        ],
+        "localRotation": "{x: 0, y: 0, z: 0, w: 1}",
+        "parent": "ROOM_front-end-area"
+      },
+      "nativeWorldPosition": [
+        -17.0,
+        6.119999885559082,
+        -67.60000038146973
+      ],
+      "distanceToTargetAabb": {
+        "CS_mine_R39 | Shed boards": 19.64590072631836,
+        "CS_mine_R39 | Shed frame": 19.744277000427246
+      }
+    },
+    {
+      "sourceIndex": 3,
+      "sourceType": "SPOT",
+      "sourceRecord": {
+        "position": [
+          -39.20000076293945,
+          7.800000190734863,
+          6.119999885559082
+        ],
+        "color": [
+          1.0,
+          0.9200000166893005,
+          0.7799999713897705
+        ],
+        "power": 2600.0,
+        "type": "SPOT"
+      },
+      "native": {
+        "lightId": "852136644",
+        "gameObject": "Room practical",
+        "type": 2,
+        "range": 12.0,
+        "intensity": 26.0,
+        "spotAngle": 30.0,
+        "localPosition": [
+          -39.2,
+          6.12,
+          7.8
+        ],
+        "localRotation": "{x: 0, y: 0, z: 0, w: 1}",
+        "parent": "ROOM_front-end-area"
+      },
+      "nativeWorldPosition": [
+        -31.200000762939453,
+        6.119999885559082,
+        -72.19999980926514
+      ],
+      "distanceToTargetAabb": {
+        "CS_mine_R39 | Shed boards": 5.445899963378906,
+        "CS_mine_R39 | Shed frame": 5.544276237487793
+      }
+    },
+    {
+      "sourceIndex": 4,
+      "sourceType": "SPOT",
+      "sourceRecord": {
+        "position": [
+          -25.0,
+          8.0,
+          6.119999885559082
+        ],
+        "color": [
+          1.0,
+          0.9200000166893005,
+          0.7799999713897705
+        ],
+        "power": 2600.0,
+        "type": "SPOT"
+      },
+      "native": {
+        "lightId": "795228281",
+        "gameObject": "Room practical",
+        "type": 2,
+        "range": 12.0,
+        "intensity": 26.0,
+        "spotAngle": 30.0,
+        "localPosition": [
+          -25.0,
+          6.12,
+          8.0
+        ],
+        "localRotation": "{x: 0, y: 0, z: 0, w: 1}",
+        "parent": "ROOM_front-end-area"
+      },
+      "nativeWorldPosition": [
+        -17.0,
+        6.119999885559082,
+        -72.0
+      ],
+      "distanceToTargetAabb": {
+        "CS_mine_R39 | Shed boards": 19.64590072631836,
+        "CS_mine_R39 | Shed frame": 19.744277000427246
+      }
+    },
+    {
+      "sourceIndex": 5,
+      "sourceType": "SPOT",
+      "sourceRecord": {
+        "position": [
+          -41.5,
+          3.5999999046325684,
+          6.119999885559082
+        ],
+        "color": [
+          1.0,
+          0.9200000166893005,
+          0.7799999713897705
+        ],
+        "power": 2600.0,
+        "type": "SPOT"
+      },
+      "native": {
+        "lightId": "636399812",
+        "gameObject": "Room practical",
+        "type": 2,
+        "range": 12.0,
+        "intensity": 26.0,
+        "spotAngle": 30.0,
+        "localPosition": [
+          -41.5,
+          6.12,
+          3.6
+        ],
+        "localRotation": "{x: 0, y: 0, z: 0, w: 1}",
+        "parent": "ROOM_front-end-area"
+      },
+      "nativeWorldPosition": [
+        -33.5,
+        6.119999885559082,
+        -76.40000009536743
+      ],
+      "distanceToTargetAabb": {
+        "CS_mine_R39 | Shed boards": 3.1459007263183594,
+        "CS_mine_R39 | Shed frame": 3.244277000427246
+      }
+    },
+    {
+      "sourceIndex": 6,
+      "sourceType": "SPOT",
+      "sourceRecord": {
+        "position": [
+          -20.200000762939453,
+          3.5999999046325684,
+          6.119999885559082
+        ],
+        "color": [
+          1.0,
+          0.9200000166893005,
+          0.7799999713897705
+        ],
+        "power": 2600.0,
+        "type": "SPOT"
+      },
+      "native": {
+        "lightId": "960501345",
+        "gameObject": "Room practical",
+        "type": 2,
+        "range": 12.0,
+        "intensity": 26.0,
+        "spotAngle": 30.0,
+        "localPosition": [
+          -20.2,
+          6.12,
+          3.6
+        ],
+        "localRotation": "{x: 0, y: 0, z: 0, w: 1}",
+        "parent": "ROOM_front-end-area"
+      },
+      "nativeWorldPosition": [
+        -12.200000762939453,
+        6.119999885559082,
+        -76.40000009536743
+      ],
+      "distanceToTargetAabb": {
+        "CS_mine_R39 | Shed boards": 24.445899963378906,
+        "CS_mine_R39 | Shed frame": 24.544276237487793
+      }
+    }
+  ],
+  "finding": "Six source front-end SPOTs are saved as isotropic native Point type2 intensity26 range12, identity local rotations. Source records omit names/orientation/spot_size/spot_blend/radius. This destroys source cone/direction and uses uncalibrated point falloff/power mapping.",
+  "limits": [
+    "Snapshot/source metadata and actual native YAML verify type/shape mismatch, not sole visual cause",
+    "AABB distance establishes potential proximity, not actual visibility/shadow irradiance",
+    "Actual authored spot rotations/cones need read-only Source inspection and scoped native spot-on/off bake/radiometry controls",
+    "No production/source edits or reviewer render launch; current full13 remains rejected41/60"
+  ]
+}

@@ -18,4 +18,15 @@
     float csRadial=csPhysical ? rcp(dot(csToLight,csToLight)+csRadius*csRadius) : csLegacy; \
     float destName=csRadial*csCookie.a*UNITY_SHADOW_ATTENUATION(input,worldPos);
 #endif
+#if defined(SPOT)
+#undef UNITY_LIGHT_ATTENUATION
+#define UNITY_LIGHT_ATTENUATION(destName,input,worldPos) \
+    unityShadowCoord4 lightCoord=mul(unity_WorldToLight,float4(worldPos,1)); \
+    float4 csSpotCookie=tex2D(_LightTexture0,lightCoord.xy/lightCoord.w+.5); \
+    bool csSpotPhysical=abs(csSpotCookie.r-.9375)<.001 && abs(csSpotCookie.g-.03125)<.001; \
+    float3 csSpotToLight=_WorldSpaceLightPos0.xyz-worldPos; \
+    float csSpotRadius=max(csSpotCookie.b,.001); \
+    float csSpotRadial=csSpotPhysical ? rcp(dot(csSpotToLight,csSpotToLight)+csSpotRadius*csSpotRadius) : UnitySpotAttenuate(lightCoord.xyz); \
+    float destName=(lightCoord.z>0)*csSpotRadial*csSpotCookie.a*UNITY_SHADOW_ATTENUATION(input,worldPos);
+#endif
 #endif

@@ -6,13 +6,12 @@ import os
 import re
 import subprocess
 from pathlib import Path
-from prepare_spawn import ROOT, assignments, sha
-from prepare_player import meta
+from prepare_spawn import ROOT, assignments, sha, derivative_meta
 
 RECIPE_FILES = (
     "prepare_mine.py", "export_spawn_map.py", "export_spawn_materials.py",
     "export_mine_materials.py", "export_mine_context.py", "export_mine_volumes.py",
-    "export_source_wood.py", "normal_bake_pixels.py", "mine_delivery_uv.py", "mine_lightmap_uv.py", "mine_join_rays.py",
+    "export_source_wood.py", "normal_bake_pixels.py", "mine_delivery_uv.py", "mine_lightmap_uv.py", "mine_join_rays.py", "mine_context_lights.py", "map_source_snapshot.py",
 )
 
 
@@ -36,7 +35,7 @@ def texture_metadata(output, package):
             record = atlas[channel]
             path = output / record["file"]
             metadata = Path(str(path)+".meta")
-            if not metadata.exists(): meta(path)
+            if not metadata.exists(): derivative_meta(path,output)
             previous = metadata.read_text()
             if "TextureImporter:" in previous: continue  # Native importer owns existing settings.
             guid = re.search(r"^guid: ([0-9a-f]{32})$", previous, re.M).group(1)
@@ -83,19 +82,25 @@ TextureImporter:
 
 
 def prepare(args):
-    output = ROOT / "runtime/unity/Assets/CriticalShift/Generated/Spawn"
-    scratch = ROOT / "runtime/out/spawn-export-source"
-    config = json.loads((scratch / "map-config.json").read_text())
+    output = Path(getattr(args,"output",None) or ROOT / "runtime/unity/Assets/CriticalShift/Generated/Spawn")
+    snapshot=getattr(args,"source_snapshot",None)
+    if snapshot:
+        from map_source_snapshot import verified_snapshot
+        scratch,config=verified_snapshot(snapshot,args.map_ref)
+    else:
+        scratch=ROOT / "runtime/out/spawn-export-source"
+        config=json.loads((scratch / "map-config.json").read_text())
     manifest = json.loads((output / "map-bindings.json").read_text())
     if config["map_commit"] != manifest["mapCommit"]: raise ValueError("Prepared assembly revision differs from its source.")
     builder_path = "sections/facility-assembly/combined/build_combined_map.py"
-    current = sha(args.map_ref)
-    builder = subprocess.check_output(["git", "show", current+":"+builder_path], cwd=ROOT)
+    current=config["map_commit"] if snapshot else sha(args.map_ref)
+    builder=(scratch/"map"/builder_path).read_bytes() if snapshot else subprocess.check_output(["git", "show", current+":"+builder_path], cwd=ROOT)
     pinned = next(r for r in config["sources"] if r["path"] == builder_path)
     if hashlib.sha256(builder).hexdigest() != pinned["sha256"]:
         raise ValueError("Assembly builder changed. Refresh the assembled delivery before applying a scoped mine bake.")
     for source in config["sources"]:
         if source["path"]==builder_path: continue
+        if snapshot: continue  # Every dependency, exact Git/LFS blob and external room pin was checked above.
         pointer = subprocess.check_output(["git", "show", current+":"+source["path"]], cwd=ROOT)
         expected = (dict(line.split(" ",1) for line in pointer.decode().splitlines())["oid"].removeprefix("sha256:")
                     if pointer.startswith(b"version https://git-lfs.github.com/spec/v1\n") else hashlib.sha256(pointer).hexdigest())
@@ -113,7 +118,7 @@ def prepare(args):
         cached=json.loads(Path(reuse).read_text())
         validate_cache(cached, config, args.size, recipe)
     before = {r["key"]:{k:r[k] for k in ("translation","yaw","collisionSha256","meshSha256")} for r in manifest["rooms"]}
-    audit = ROOT / "runtime/out/mine-bake-audit"; audit.mkdir(parents=True,exist_ok=True)
+    audit = Path(getattr(args,"audit",None) or ROOT / "runtime/out/mine-bake-audit"); audit.mkdir(parents=True,exist_ok=True)
     (audit / "before-bindings.json").write_text(json.dumps(manifest,indent=2)+"\n")
     environment = dict(os.environ, CS_MINE_BAKE="1", CS_REUSE_COLLISION="1", CS_SURFACE_SIZE=str(args.size))
     environment.pop("CS_MINE_JOIN_BAKE", None)
@@ -149,7 +154,7 @@ def prepare(args):
     mine["assemblyLighting"] = assignments(builder.decode())["SCENE_LIGHT"]
     (output / "map-bindings.json").write_text(json.dumps(after,indent=2)+"\n")
     for path in [output,*sorted(output.rglob("*"))]:
-        if not path.name.endswith(".meta") and not Path(str(path)+".meta").exists(): meta(path)
+        if not path.name.endswith(".meta") and not Path(str(path)+".meta").exists(): derivative_meta(path,output)
     texture_metadata(output,mine)
     for record in config["sources"]:
         if hashlib.sha256((scratch/"map"/record["path"]).read_bytes()).hexdigest() != record["sha256"]:
@@ -172,7 +177,10 @@ def prepare(args):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output",type=Path,help="Refresh an isolated derivative delivery before Unity adoption.")
+    parser.add_argument("--audit",type=Path,help="Preserve this preparation's receipts in a separate directory.")
     parser.add_argument("--map-ref",default="d9eb1c5642273722f2ecee7179e958f05d39fa61")
+    parser.add_argument("--source-snapshot",type=Path,help="The same verified individual-file snapshot used to prepare the map.")
     parser.add_argument("--blender",default="blender")
     parser.add_argument("--batched",action="store_true",help="Batch compatible mine meshes with explicit coordinates and hidden originals.")
     parser.add_argument("--reuse-atlases",type=Path,help="Verified source-pinned cache record for completed object-preserving atlas passes.")

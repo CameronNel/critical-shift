@@ -1,0 +1,105 @@
+{
+  "status": "Passed6BoundedPixels_PreRenderGPUObserverLimit",
+  "files": [
+    {
+      "file": "native/d4-a0-after-fresh-emitter.json",
+      "bytes": 1456,
+      "sha256": "e6867fcefe466672356efc4945165f8180af34d0118858c2763a8b2f8bbe2383"
+    },
+    {
+      "file": "native/d4-a0-after-fresh-emitter.exr",
+      "bytes": 66891,
+      "sha256": "181c9f681bcc5faf7914282fd243a294c54453be5c5c2f7218f8b27d916bff5d"
+    },
+    {
+      "file": "native/d4-a0-after-cookie-force-import.json",
+      "bytes": 1468,
+      "sha256": "7a1c462c2ef2860ec0c416fa6e4b1c1de41d2aa7ba2a9dcf8acfbc480841d7c0"
+    },
+    {
+      "file": "native/d4-a0-after-cookie-force-import.exr",
+      "bytes": 66891,
+      "sha256": "181c9f681bcc5faf7914282fd243a294c54453be5c5c2f7218f8b27d916bff5d"
+    },
+    {
+      "file": "native/d4-a0-after-light-enable-cycle.json",
+      "bytes": 1466,
+      "sha256": "a18f9e5dc202dffecd8bf4d0a10dbb24fa9aed714521735f47ec2b153c4c67db"
+    },
+    {
+      "file": "native/d4-a0-after-light-enable-cycle.exr",
+      "bytes": 66891,
+      "sha256": "181c9f681bcc5faf7914282fd243a294c54453be5c5c2f7218f8b27d916bff5d"
+    },
+    {
+      "file": "native/d4-a0-after-scoped-gi-extraction.json",
+      "bytes": 1470,
+      "sha256": "8b1bd8ede56670b713d9a117a4e4cc83c0916f566745f04fd54b843a177b69fc"
+    },
+    {
+      "file": "native/d4-a0-after-scoped-gi-extraction.exr",
+      "bytes": 66891,
+      "sha256": "181c9f681bcc5faf7914282fd243a294c54453be5c5c2f7218f8b27d916bff5d"
+    },
+    {
+      "file": "native/d4-a0-after-mode-cycle.json",
+      "bytes": 1450,
+      "sha256": "8917cdff8030c8c1609a8450617d9da27674a1731a113d3311bb4b08d6525f1a"
+    },
+    {
+      "file": "native/d4-a0-after-mode-cycle.exr",
+      "bytes": 66891,
+      "sha256": "181c9f681bcc5faf7914282fd243a294c54453be5c5c2f7218f8b27d916bff5d"
+    },
+    {
+      "file": "native/d4-a0-before-mode-cycle.json",
+      "bytes": 1452,
+      "sha256": "490139c3e6d26be59261155b14b9cf3ca0c633184f278d279ecdc858fcfe6170"
+    },
+    {
+      "file": "native/d4-a0-before-mode-cycle.exr",
+      "bytes": 66891,
+      "sha256": "181c9f681bcc5faf7914282fd243a294c54453be5c5c2f7218f8b27d916bff5d"
+    },
+    {
+      "file": "cs-mine-spot-gi-transition-final14.cs.txt",
+      "bytes": 12862,
+      "sha256": "d884598bb9302868667f3367ed0ab51db22ef506f6a625eb0123d5800210cf83"
+    },
+    {
+      "file": "cs-mine-spot-gi-transition-native-final14.py",
+      "bytes": 4650,
+      "sha256": "534da4b85c719233bcad58433eeb9d58038d6f9d3f8d6137e1cd8b3d3b55b29c"
+    },
+    {
+      "file": "cs-mine-spot-gi-transition-native-final14.json",
+      "bytes": 6199,
+      "sha256": "e7de1fe7074ed02249006ba16ed0826306d6f7e46dc5d418d0b4a2747e57d985"
+    },
+    {
+      "file": "cs-mine-spot-gi-transition-prelaunch-independent-final14.json",
+      "bytes": 3164,
+      "sha256": "7a419afaf6ccaa4e973ee9e3bc5d6977c98af384e9280d1bf2e6210207d5e40f"
+    },
+    {
+      "file": "cs-mine-spot-gi-transition-independent-final14.json",
+      "bytes": 3558,
+      "sha256": "8012512071178fc7945d441c27ef943d34c867814f43d1ca719207bd908300d9"
+    },
+    {
+      "file": "spot-gi-transition-final14.native.log",
+      "bytes": 47135,
+      "sha256": "c20db5ebbaf39d78b00538b8387315e9bcb2fead7ea8892f564a7416c7eeeeca"
+    },
+    {
+      "file": "spot-gi-transition-final14.wrapper.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "overallScore": null,
+  "limits": [
+    "Bounded rawdata/independentreceipts only; currentfullvisualstillREJECT41/60",
+    "No current13main Unity/Player acceptance or98claim; partial20failednative preserved separately"
+  ]
+}

@@ -1,0 +1,340 @@
+{
+  "status": "Passed28BoundedPixels_PreRenderGPUObserverLimit",
+  "files": [
+    {
+      "file": "native/d4-a0-fallback-stock.json",
+      "bytes": 1402,
+      "sha256": "29ec9fc80aee1d6c46fd88ba31ce41584d2af55f06c656692ef4fa5522fc6e88"
+    },
+    {
+      "file": "native/d4-a0-fallback-stock.exr",
+      "bytes": 66891,
+      "sha256": "47d9b07126858b7e6e497d006ec43d288f66f98577cc11eee5287116214a3cd4"
+    },
+    {
+      "file": "native/d4-a0-fallback-production.json",
+      "bytes": 1409,
+      "sha256": "6bfc7efe481f45fbb7ed9d75f6ee4187decca35c377f7acbc2e64c3ee692236f"
+    },
+    {
+      "file": "native/d4-a0-fallback-production.exr",
+      "bytes": 66891,
+      "sha256": "47d9b07126858b7e6e497d006ec43d288f66f98577cc11eee5287116214a3cd4"
+    },
+    {
+      "file": "native/d4-a0-shadow-blocker.json",
+      "bytes": 1446,
+      "sha256": "a5e37c946c3ae4d59b1a28071882a6a5e671fc98f7881977b0c740170c29be7a"
+    },
+    {
+      "file": "native/d4-a0-shadow-blocker.exr",
+      "bytes": 66891,
+      "sha256": "e05884cd6e7368742c29923d635353a7089923e85b7e92dfedb70003ab176b66"
+    },
+    {
+      "file": "native/d4-a0-shadow-clear.json",
+      "bytes": 1442,
+      "sha256": "7df31e4bc98f7d0cec4bd1ab99048e26cae13d1bbe91b46f145f73b57f253c87"
+    },
+    {
+      "file": "native/d4-a0-shadow-clear.exr",
+      "bytes": 66891,
+      "sha256": "181c9f681bcc5faf7914282fd243a294c54453be5c5c2f7218f8b27d916bff5d"
+    },
+    {
+      "file": "native/d4-a75-realtime-explicit-override.json",
+      "bytes": 1535,
+      "sha256": "c3cbf8ea43ced6b131a6ef51d847ca8c33dcd3956e6b86ae2a18dac8d1064854"
+    },
+    {
+      "file": "native/d4-a75-realtime-explicit-override.exr",
+      "bytes": 66891,
+      "sha256": "57f3cc94fe9b4994c303ea6299c7605dddb33ecc4f00c3ec8b37535827f9633a"
+    },
+    {
+      "file": "native/d4-a75-realtime-exact-clone.json",
+      "bytes": 1520,
+      "sha256": "76f4410198755dc3e4a089cd783fafc54dfca080c7dd5968616b94933994b793"
+    },
+    {
+      "file": "native/d4-a75-realtime-exact-clone.exr",
+      "bytes": 66891,
+      "sha256": "57f3cc94fe9b4994c303ea6299c7605dddb33ecc4f00c3ec8b37535827f9633a"
+    },
+    {
+      "file": "native/d4-a75-realtime-tagged.json",
+      "bytes": 1510,
+      "sha256": "6b2211dffe1fde1f00ed74d09b2b8082d16d3df557b6be93b23b43e956975880"
+    },
+    {
+      "file": "native/d4-a75-realtime-tagged.exr",
+      "bytes": 66891,
+      "sha256": "57f3cc94fe9b4994c303ea6299c7605dddb33ecc4f00c3ec8b37535827f9633a"
+    },
+    {
+      "file": "native/d4-a65-realtime-explicit-override.json",
+      "bytes": 1538,
+      "sha256": "ea5fe7982124a32a96e5cf12eed5a77d876af93cbf2e4a11da63f98c62f5f9c5"
+    },
+    {
+      "file": "native/d4-a65-realtime-explicit-override.exr",
+      "bytes": 66891,
+      "sha256": "57f3cc94fe9b4994c303ea6299c7605dddb33ecc4f00c3ec8b37535827f9633a"
+    },
+    {
+      "file": "native/d4-a65-realtime-exact-clone.json",
+      "bytes": 1523,
+      "sha256": "413dea2b6cc8d9b34e39b29ab84484ecefe420c4b601407db218d2501a58a41e"
+    },
+    {
+      "file": "native/d4-a65-realtime-exact-clone.exr",
+      "bytes": 66891,
+      "sha256": "57f3cc94fe9b4994c303ea6299c7605dddb33ecc4f00c3ec8b37535827f9633a"
+    },
+    {
+      "file": "native/d4-a65-realtime-tagged.json",
+      "bytes": 1513,
+      "sha256": "da4155160ac5af1e596bdf43fdd7be822d46b44ef309a5168b77249d7cbf4e7d"
+    },
+    {
+      "file": "native/d4-a65-realtime-tagged.exr",
+      "bytes": 66891,
+      "sha256": "57f3cc94fe9b4994c303ea6299c7605dddb33ecc4f00c3ec8b37535827f9633a"
+    },
+    {
+      "file": "native/d4-a60-realtime-explicit-override.json",
+      "bytes": 1533,
+      "sha256": "cfcd07ad10205d944e3f96e07d6bb887e2a6d781c0ca47c61b033c2b1d3aff3c"
+    },
+    {
+      "file": "native/d4-a60-realtime-explicit-override.exr",
+      "bytes": 66891,
+      "sha256": "69adf64ca85e193e3f2b9b5040cea30b20b2dbc52b9e93ca07f83fedc54c45cb"
+    },
+    {
+      "file": "native/d4-a60-realtime-exact-clone.json",
+      "bytes": 1518,
+      "sha256": "6452824eb7facb31c9a2118c89aec26255d6c57415e40520c938035bdd3fcefd"
+    },
+    {
+      "file": "native/d4-a60-realtime-exact-clone.exr",
+      "bytes": 66891,
+      "sha256": "69adf64ca85e193e3f2b9b5040cea30b20b2dbc52b9e93ca07f83fedc54c45cb"
+    },
+    {
+      "file": "native/d4-a60-realtime-tagged.json",
+      "bytes": 1508,
+      "sha256": "c3932d0ae021a1d16da5c1867fd870ccd21487c6c1dfe72e5a57f034964466c6"
+    },
+    {
+      "file": "native/d4-a60-realtime-tagged.exr",
+      "bytes": 66891,
+      "sha256": "69adf64ca85e193e3f2b9b5040cea30b20b2dbc52b9e93ca07f83fedc54c45cb"
+    },
+    {
+      "file": "native/d4-a50-realtime-explicit-override.json",
+      "bytes": 1534,
+      "sha256": "4ec70e72f0ea5941f75ec83d31875525a3a48f00ccd0d134f039d130fa98992d"
+    },
+    {
+      "file": "native/d4-a50-realtime-explicit-override.exr",
+      "bytes": 66891,
+      "sha256": "2ae3841cedaef8db7416ba5b91f45e3f1b0c9cb749018732d0b896f81a595534"
+    },
+    {
+      "file": "native/d4-a50-realtime-exact-clone.json",
+      "bytes": 1519,
+      "sha256": "1221d81168e1f533c7c3f234b2f92296fef32c427804ef918947600406e9da7e"
+    },
+    {
+      "file": "native/d4-a50-realtime-exact-clone.exr",
+      "bytes": 66891,
+      "sha256": "2ae3841cedaef8db7416ba5b91f45e3f1b0c9cb749018732d0b896f81a595534"
+    },
+    {
+      "file": "native/d4-a50-realtime-tagged.json",
+      "bytes": 1509,
+      "sha256": "44e934d0e1cf74c87fc9b091c34e7636713206db100649392571538b4b0fa30d"
+    },
+    {
+      "file": "native/d4-a50-realtime-tagged.exr",
+      "bytes": 66891,
+      "sha256": "2ae3841cedaef8db7416ba5b91f45e3f1b0c9cb749018732d0b896f81a595534"
+    },
+    {
+      "file": "native/d4-a30-realtime-explicit-override.json",
+      "bytes": 1517,
+      "sha256": "76e8eadd1515047633825eddb82223c7b8d50c777a423f563ee51641009128f0"
+    },
+    {
+      "file": "native/d4-a30-realtime-explicit-override.exr",
+      "bytes": 66891,
+      "sha256": "ff489a90c70a6c0a32a8450569e62b8469559e49fc9f47809680ad6692adf90b"
+    },
+    {
+      "file": "native/d4-a30-realtime-exact-clone.json",
+      "bytes": 1502,
+      "sha256": "8ca57f2d61872e69d31a06cd891e040fae5b8d49d5b4a66c8b1d2ba3cef5cced"
+    },
+    {
+      "file": "native/d4-a30-realtime-exact-clone.exr",
+      "bytes": 66891,
+      "sha256": "ff489a90c70a6c0a32a8450569e62b8469559e49fc9f47809680ad6692adf90b"
+    },
+    {
+      "file": "native/d4-a30-realtime-tagged.json",
+      "bytes": 1492,
+      "sha256": "2e2b9e614132de5c48398bdf0a7ecadb1cebbed6aee22678089bd1732f1daeb9"
+    },
+    {
+      "file": "native/d4-a30-realtime-tagged.exr",
+      "bytes": 66891,
+      "sha256": "ff489a90c70a6c0a32a8450569e62b8469559e49fc9f47809680ad6692adf90b"
+    },
+    {
+      "file": "native/d4-a0-realtime-explicit-override.json",
+      "bytes": 1473,
+      "sha256": "3262622d23005b6b53f98be1f512add481179699da0f6898b998f606ea37c1f4"
+    },
+    {
+      "file": "native/d4-a0-realtime-explicit-override.exr",
+      "bytes": 66891,
+      "sha256": "181c9f681bcc5faf7914282fd243a294c54453be5c5c2f7218f8b27d916bff5d"
+    },
+    {
+      "file": "native/d4-a0-realtime-exact-clone.json",
+      "bytes": 1458,
+      "sha256": "6be3a03cda4e91d71e3b85828020d891c0314cfad6c1f45c872e43c8f940dabb"
+    },
+    {
+      "file": "native/d4-a0-realtime-exact-clone.exr",
+      "bytes": 66891,
+      "sha256": "181c9f681bcc5faf7914282fd243a294c54453be5c5c2f7218f8b27d916bff5d"
+    },
+    {
+      "file": "native/d4-a0-realtime-tagged.json",
+      "bytes": 1448,
+      "sha256": "2aa4a8c9bf89f41b380d4ea368b1d72008ea51cd41cdfac18df621cae05c290c"
+    },
+    {
+      "file": "native/d4-a0-realtime-tagged.exr",
+      "bytes": 66891,
+      "sha256": "181c9f681bcc5faf7914282fd243a294c54453be5c5c2f7218f8b27d916bff5d"
+    },
+    {
+      "file": "native/d2-a0-realtime-explicit-override.json",
+      "bytes": 1474,
+      "sha256": "0c4e510d6856265a6f3ab586f3e5d2b3580fae2f3fdb95fde48fdac15e481b48"
+    },
+    {
+      "file": "native/d2-a0-realtime-explicit-override.exr",
+      "bytes": 66891,
+      "sha256": "eb9add644fa7d67ee8f2872010896bd5011304efae26c344ec25a2cb62051c57"
+    },
+    {
+      "file": "native/d2-a0-realtime-exact-clone.json",
+      "bytes": 1459,
+      "sha256": "87e10212a304f6c7cd40617b944c46683a1deb045d01cfe561b0e4c6fa448f64"
+    },
+    {
+      "file": "native/d2-a0-realtime-exact-clone.exr",
+      "bytes": 66891,
+      "sha256": "eb9add644fa7d67ee8f2872010896bd5011304efae26c344ec25a2cb62051c57"
+    },
+    {
+      "file": "native/d2-a0-realtime-tagged.json",
+      "bytes": 1449,
+      "sha256": "e880c96c6f8c4a9e40b57513e390a85478082fd823baef332dca502e4e40dfe1"
+    },
+    {
+      "file": "native/d2-a0-realtime-tagged.exr",
+      "bytes": 66891,
+      "sha256": "eb9add644fa7d67ee8f2872010896bd5011304efae26c344ec25a2cb62051c57"
+    },
+    {
+      "file": "native/d1-a0-realtime-explicit-override.json",
+      "bytes": 1473,
+      "sha256": "55920d91c7c8f0678bc3df96eb84563e6c3e05d78ca60bb68ce11a6c6ba6b3d0"
+    },
+    {
+      "file": "native/d1-a0-realtime-explicit-override.exr",
+      "bytes": 66891,
+      "sha256": "6cff383385de2251df518083f00648a65c356111f5de2941dcaabec37bc62270"
+    },
+    {
+      "file": "native/d1-a0-realtime-exact-clone.json",
+      "bytes": 1458,
+      "sha256": "4b99d0584fbb25563cd08180cf7cf66299105a89c81beb5c8db460630d95c39c"
+    },
+    {
+      "file": "native/d1-a0-realtime-exact-clone.exr",
+      "bytes": 66891,
+      "sha256": "6cff383385de2251df518083f00648a65c356111f5de2941dcaabec37bc62270"
+    },
+    {
+      "file": "native/d1-a0-realtime-tagged.json",
+      "bytes": 1448,
+      "sha256": "a536f0ffb37120d92410327681dd2507ec8fbc32ffb4b9378d106543bce5392c"
+    },
+    {
+      "file": "native/d1-a0-realtime-tagged.exr",
+      "bytes": 66891,
+      "sha256": "6cff383385de2251df518083f00648a65c356111f5de2941dcaabec37bc62270"
+    },
+    {
+      "file": "cs-mine-spot-rt-isolation-final14.cs.txt",
+      "bytes": 12718,
+      "sha256": "2da68c41cd24503cf992c50091333dbe05bc4ba728954c4bd2c99d2b9edd4dfc"
+    },
+    {
+      "file": "cs-mine-spot-rt-isolation-native-final14.py",
+      "bytes": 5195,
+      "sha256": "5105271a7cc9fcb906199ae3718dbd61895a7b53089b32232900eba5d7c4c0a6"
+    },
+    {
+      "file": "cs-mine-spot-rt-isolation-native-final14.json",
+      "bytes": 13583,
+      "sha256": "9e315e0b7053b8a135c0852a380eb3a70a4b776b223f2d955890874c6d491ea9"
+    },
+    {
+      "file": "cs-mine-spot-rt-isolation-prelaunch-independent-final14.json",
+      "bytes": 2168,
+      "sha256": "2da1b4401e8a1a8d314c944134fa2b7dce451888876cf0e7b226b6512b53092c"
+    },
+    {
+      "file": "cs-mine-spot-rt-isolation-independent-final14.json",
+      "bytes": 22066,
+      "sha256": "e16b5a1ed42f6c58d0a587d21cf71991cc4d40b1c4060ef656df579806148ce5"
+    },
+    {
+      "file": "cs-mine-spot-rt-isolation-clone-final14.shader.txt",
+      "bytes": 8296,
+      "sha256": "4cdf98892fc800ba86967a8af8349027551e9516c13c10996d2f069725c7f211"
+    },
+    {
+      "file": "cs-mine-spot-rt-isolation-explicit-final14.shader.txt",
+      "bytes": 8376,
+      "sha256": "1545ece8316bb2b3a91fc9281639642d82f423e070d81d2a30a281d54e534c08"
+    },
+    {
+      "file": "cs-mine-production-spot-baseline-final14.shader.txt",
+      "bytes": 8241,
+      "sha256": "c824a9ad1fbbe3d51a1e93a1081640ad0524bafd2f0c0cac250be3ef88b5b43f"
+    },
+    {
+      "file": "spot-rt-isolation-final14.native.log",
+      "bytes": 96366,
+      "sha256": "950d1b7789bf4e08656d3d8ebdac56c76f3bf4b291486014e25bd52ed7a216be"
+    },
+    {
+      "file": "spot-rt-isolation-final14.wrapper.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "overallScore": null,
+  "limits": [
+    "Bounded rawdata/independentreceipts only; currentfullvisualstillREJECT41/60",
+    "No current13main Unity/Player acceptance or98claim; partial20failednative preserved separately"
+  ]
+}

@@ -1,0 +1,152 @@
+using System;
+using System.IO;
+using System.Linq;
+using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEditor;
+using UnityEditor.SceneManagement;
+using CriticalShift.Player.Editor;
+using GiMapping = UnityEngine.Experimental.GlobalIllumination.Lightmapping;
+
+public static class CsMineSpotBakeLifecycleFinal15Third
+{
+ const string Output = "/tmp/cs-mine-spot-bake-lifecycle-final15-r3/";
+ const string Scratch = "Assets/CsSpotBakeLifecycleDiagnosticFinal15Third";
+ const string ScenePath = Scratch + "/Scene.unity";
+ [Serializable] public sealed class Source { public float power, radius, spotSizeRadians, spotBlend; public float[] color; public bool normalize, isSphere; }
+ [Serializable] public sealed class Input { public Source sourceParameters; }
+ [Serializable] public sealed class State
+ {
+  public string name, sha256, lamp, mode, cookiePath, cookieGuid, cookieEntityId, shaderPath, graphicsDevice;
+  public int lightmapIndex, lightmapCount, probeCount; public string probeUsage, reflectionUsage;
+  public bool outputIsBaked;
+  public string outputBakeType, outputMixedMode;
+  public float intensity, range, radius, outerAngle, innerAngle;
+  public Vector3 lampPosition, lampForward, receiverPosition;
+  public Color cookieCentre;
+ }
+ static string Sha(string p) { using (var h = System.Security.Cryptography.SHA256.Create()) return string.Concat(h.ComputeHash(File.ReadAllBytes(p)).Select(b => b.ToString("x2"))); }
+ static Source Parameters() => JsonUtility.FromJson<Input>(File.ReadAllText("/tmp/cs-mine-front-spot-source-control-final14/provenance.json")).sourceParameters;
+ static ExportLight Record(string name, float x)
+ {
+  var s = Parameters();
+  return new ExportLight { name=name, type="SPOT", position=new[]{x,0f,0f}, rotation=new[]{1f,0f,0f,0f}, color=s.color,
+   power=s.power, radius=s.radius, spotSize=s.spotSizeRadians, spotBlend=s.spotBlend, normalized=s.normalize, softFalloff=s.isSphere };
+ }
+ static State Describe(string name, Light light, MeshRenderer receiver)
+ {
+  var cookie = (Texture2D)light.cookie;
+  var bo = light.bakingOutput;
+  return new State { name=name, lamp=light.name, mode=light.lightmapBakeType.ToString(), cookiePath=AssetDatabase.GetAssetPath(cookie),
+   cookieGuid=AssetDatabase.AssetPathToGUID(AssetDatabase.GetAssetPath(cookie)), cookieEntityId=cookie.GetEntityId().ToString(),
+   cookieCentre=cookie.GetPixel(64,64), intensity=light.intensity, range=light.range, radius=light.shapeRadius,
+   outerAngle=light.spotAngle, innerAngle=light.innerSpotAngle, lampPosition=light.transform.position, lampForward=light.transform.forward,
+   probeUsage=receiver.lightProbeUsage.ToString(), reflectionUsage=receiver.reflectionProbeUsage.ToString(), receiverPosition=receiver.transform.position, lightmapIndex=receiver.lightmapIndex, lightmapCount=LightmapSettings.lightmaps.Length,
+   probeCount=LightmapSettings.lightProbes==null?0:LightmapSettings.lightProbes.count, outputIsBaked=bo.isBaked,
+   outputBakeType=bo.lightmapBakeType.ToString(), outputMixedMode=bo.mixedLightingMode.ToString(),
+   shaderPath=AssetDatabase.GetAssetPath(receiver.sharedMaterial.shader), graphicsDevice=SystemInfo.graphicsDeviceName };
+ }
+ static void Save(string name, Light lamp, MeshRenderer receiver, Camera camera)
+ {
+  // No cookie GPU blit, force import, lamp reconstruction or bakingOutput reset.
+  var state=Describe(name,lamp,receiver);
+  var target=new RenderTexture(64,64,24,RenderTextureFormat.ARGBFloat,RenderTextureReadWrite.Linear);
+  var pixels=new Texture2D(64,64,TextureFormat.RGBAFloat,false,true);
+  var prior=RenderTexture.active;
+  try
+  {
+   camera.targetTexture=target; camera.Render(); RenderTexture.active=target;
+   pixels.ReadPixels(new Rect(0,0,64,64),0,0); pixels.Apply();
+   if(pixels.GetPixels().Any(c=>!float.IsFinite(c.r)||!float.IsFinite(c.g)||!float.IsFinite(c.b))) throw new Exception("Nonfinite lifecycle pixels");
+   var path=Output+name+".exr"; File.WriteAllBytes(path,pixels.EncodeToEXR(Texture2D.EXRFlags.OutputAsFloat)); state.sha256=Sha(path);
+   File.WriteAllText(Output+name+".json",JsonUtility.ToJson(state,true)); Debug.Log("CS_LIFECYCLE_FRAME "+name);
+  }
+  finally { camera.targetTexture=null; RenderTexture.active=prior; UnityEngine.Object.DestroyImmediate(pixels); UnityEngine.Object.DestroyImmediate(target); }
+ }
+ static void ZeroProvidedSH(MeshRenderer receiver)
+ {
+  receiver.lightProbeUsage=LightProbeUsage.CustomProvided;receiver.reflectionProbeUsage=ReflectionProbeUsage.Off;
+  var block=new MaterialPropertyBlock();block.CopySHCoefficientArraysFrom(new[]{new SphericalHarmonicsL2()});receiver.SetPropertyBlock(block);
+ }
+ static void CaptureRays(string phase,Light lamp,MeshRenderer receiver,Camera camera)
+ {
+  foreach(var degrees in new[]{0f,50f,65f})
+  {
+   var angle=degrees*Mathf.Deg2Rad; var direction=new Vector3(Mathf.Sin(angle),-Mathf.Cos(angle),0); var normal=-direction;
+   receiver.transform.SetPositionAndRotation(direction*4,Quaternion.FromToRotation(Vector3.back,normal));
+   camera.transform.SetPositionAndRotation(receiver.transform.position+normal*.3f,Quaternion.LookRotation(-normal,Vector3.forward));
+   Save(phase+"-a"+degrees,lamp,receiver,camera);
+  }
+ }
+ public static void Bake()
+ {
+  if(Directory.Exists(Output)||AssetDatabase.IsValidFolder(Scratch))throw new Exception("Preserve existing lifecycle evidence");
+  Directory.CreateDirectory(Output); AssetDatabase.CreateFolder("Assets","CsSpotBakeLifecycleDiagnosticFinal15Third");
+  EditorSceneManager.NewScene(NewSceneSetup.EmptyScene,NewSceneMode.Single);
+  RenderSettings.skybox=null; RenderSettings.ambientMode=AmbientMode.Flat; RenderSettings.ambientLight=Color.black;
+  RenderSettings.ambientIntensity=0; RenderSettings.reflectionIntensity=0; RenderSettings.ambientProbe=new SphericalHarmonicsL2(); GraphicsSettings.lightsUseLinearIntensity=true;
+  var quad=GameObject.CreatePrimitive(PrimitiveType.Quad);quad.name="Lifecycle receiver";quad.transform.localScale=Vector3.one*.2f;
+  var mesh=UnityEngine.Object.Instantiate(quad.GetComponent<MeshFilter>().sharedMesh);mesh.uv2=mesh.uv;AssetDatabase.CreateAsset(mesh,Scratch+"/Quad.asset");quad.GetComponent<MeshFilter>().sharedMesh=mesh;
+  GameObjectUtility.SetStaticEditorFlags(quad,StaticEditorFlags.ContributeGI);var receiver=quad.GetComponent<MeshRenderer>();receiver.receiveGI=ReceiveGI.Lightmaps;
+  var material=new Material(Shader.Find("CriticalShift/BlenderSurface"));material.SetColor("_Color",new Color(.18f,.18f,.18f).gamma);material.SetFloat("_DielectricSpecular",0);material.SetFloat("_Metallic",0);material.SetFloat("_Glossiness",.5f);
+  AssetDatabase.CreateAsset(material,Scratch+"/Receiver.mat");receiver.sharedMaterial=material;
+  var root=new GameObject("Actual production spot ownership");
+  Light Make(string name,float x,LightmapBakeType mode)
+  {
+   var light=new GameObject(name).AddComponent<Light>();light.transform.SetParent(root.transform);light.transform.localPosition=new Vector3(x,0,0);light.type=LightType.Spot;
+   var authored=Record(name,x);light.color=new Color(authored.color[0],authored.color[1],authored.color[2]).gamma;
+   light.lightmapBakeType=mode;light.range=32;light.shadows=LightShadows.Soft;light.shadowNearPlane=.01f;light.bounceIntensity=1;light.renderMode=LightRenderMode.ForcePixel;
+   MineSpotLighting.Configure(light,authored);return light;
+  }
+  var original=Make("Bake then switch source lamp",0,LightmapBakeType.Realtime);
+  var persistent=Make("Always realtime source lamp",100,LightmapBakeType.Realtime);
+  if(original.cookie!=persistent.cookie)throw new Exception("Lifecycle fixtures must share the production cookie");
+  var camera=new GameObject("Lifecycle camera").AddComponent<Camera>();camera.orthographic=true;camera.orthographicSize=.04f;camera.nearClipPlane=.01f;camera.farClipPlane=100;camera.clearFlags=CameraClearFlags.SolidColor;camera.backgroundColor=Color.black;camera.allowHDR=true;camera.allowMSAA=false;camera.renderingPath=RenderingPath.Forward;
+  CaptureRays("pre-bake-realtime",original,receiver,camera);
+  var settings=new LightingSettings{bakedGI=true,realtimeGI=false,lightmapper=LightingSettings.Lightmapper.ProgressiveCPU,lightmapResolution=256,lightmapMaxSize=128,lightmapPadding=4,directSampleCount=512,indirectSampleCount=16,environmentSampleCount=32,maxBounces=1,lightmapCompression=LightmapCompression.None};
+  AssetDatabase.CreateAsset(settings,Scratch+"/Lighting.lighting");Lightmapping.lightingSettings=settings;
+  receiver.transform.SetPositionAndRotation(Vector3.down*4,Quaternion.FromToRotation(Vector3.back,Vector3.up));camera.transform.SetPositionAndRotation(Vector3.down*3.7f,Quaternion.LookRotation(Vector3.down,Vector3.forward));
+  original.lightmapBakeType=LightmapBakeType.Baked;
+  File.WriteAllText(Output+"persistent-before-bake.json",JsonUtility.ToJson(Describe("persistent-before-bake",persistent,receiver),true));
+  using(MineSpotLighting.ScopeBake(root.transform,new[]{Record(original.name,0),Record(persistent.name,100)}))
+  {
+   EditorSceneManager.SaveScene(EditorSceneManager.GetActiveScene(),ScenePath);
+   if(!Lightmapping.Bake()||receiver.lightmapIndex<0||LightmapSettings.lightmaps.Length==0)throw new Exception("Actual lifecycle Bake failed");
+  }
+  Save("actual-baked-axis",original,receiver,camera);
+  File.WriteAllText(Output+"persistent-after-bake.json",JsonUtility.ToJson(Describe("persistent-after-bake",persistent,receiver),true));
+  if(persistent.lightmapBakeType!=LightmapBakeType.Realtime)throw new Exception("Persistent lamp mode changed during bake");
+  // Dynamic actor receiver isolates direct lighting without clearing baked scene data.
+  receiver.enabled=false;
+  var actor=GameObject.CreatePrimitive(PrimitiveType.Quad);actor.name="Lifecycle dynamic receiver";actor.transform.localScale=Vector3.one*.2f;
+  actor.GetComponent<MeshFilter>().sharedMesh=mesh;receiver=actor.GetComponent<MeshRenderer>();receiver.sharedMaterial=material;
+  GameObjectUtility.SetStaticEditorFlags(actor,0);receiver.receiveGI=ReceiveGI.LightProbes;ZeroProvidedSH(receiver);
+  original.enabled=false;persistent.transform.position=Vector3.zero;
+  CaptureRays("post-bake-always-realtime",persistent,receiver,camera);
+  persistent.enabled=false;original.enabled=true;original.lightmapBakeType=LightmapBakeType.Realtime;
+  CaptureRays("post-bake-switched-realtime",original,receiver,camera);
+  original.lightmapBakeType=LightmapBakeType.Baked;original.enabled=false;persistent.enabled=true;
+  receiver.transform.SetPositionAndRotation(Vector3.down*4,Quaternion.FromToRotation(Vector3.back,Vector3.up));camera.transform.SetPositionAndRotation(Vector3.down*3.7f,Quaternion.LookRotation(Vector3.down,Vector3.forward));
+  AssetDatabase.SaveAssets();EditorSceneManager.SaveScene(EditorSceneManager.GetActiveScene(),ScenePath);
+  var dependencies=AssetDatabase.GetDependencies(ScenePath,true);File.WriteAllLines(Output+"scene-dependencies.txt",dependencies);
+  File.WriteAllText(Output+"cookie-path.txt",AssetDatabase.GetAssetPath(persistent.cookie));
+  Debug.Log("CS_LIFECYCLE_BAKE_PHASE_OK;assets retained for fresh editor reload");
+ }
+ public static void Reload()
+ {
+  if(!File.Exists(Output+"cookie-path.txt"))throw new Exception("Missing actual baked lifecycle scene");
+  EditorSceneManager.OpenScene(ScenePath,OpenSceneMode.Single);
+  var persistent=GameObject.Find("Always realtime source lamp").GetComponent<Light>();var original=GameObject.Find("Bake then switch source lamp").GetComponent<Light>();
+  var receiver=GameObject.Find("Lifecycle dynamic receiver").GetComponent<MeshRenderer>();var camera=GameObject.Find("Lifecycle camera").GetComponent<Camera>();
+  if(!persistent.enabled||original.enabled||persistent.lightmapBakeType!=LightmapBakeType.Realtime||original.lightmapBakeType!=LightmapBakeType.Baked||persistent.cookie!=original.cookie)throw new Exception("Serialized lifecycle policy differs");
+  File.WriteAllText(Output+"fresh-serialized-state.json",JsonUtility.ToJson(Describe("fresh-serialized-state",persistent,receiver),true));
+  if(receiver.lightmapIndex<LightmapSettings.lightmaps.Length&&receiver.lightmapIndex>=0)throw new Exception("Dynamic direct-light receiver unexpectedly lightmapped");
+  if(LightmapSettings.lightmaps.Length==0||receiver.lightProbeUsage!=LightProbeUsage.CustomProvided||receiver.reflectionProbeUsage!=ReflectionProbeUsage.Off)throw new Exception("Baked scene or dynamic isolation policy was not serialized");
+  ZeroProvidedSH(receiver);
+  // First fresh-process camera, before any cookie GPU probe/force import/reset.
+  CaptureRays("fresh-reload-always-realtime",persistent,receiver,camera);
+  persistent.enabled=false;original.enabled=true;original.lightmapBakeType=LightmapBakeType.Realtime;
+  CaptureRays("fresh-reload-switched-realtime",original,receiver,camera);
+  Debug.Log("CS_LIFECYCLE_RELOAD_PHASE_OK;first captures precede probes and resets");
+ }
+}

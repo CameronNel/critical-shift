@@ -33,6 +33,8 @@ package['contextSunLights'] = [dict(name=o.name, type='SUN',
     position=list(matrix(o).translation), rotation=list(matrix(o).to_quaternion()),
     color=list(o.data.color), power=float(o.data.energy), angle=math.degrees(o.data.angle))
     for o in members if o.type == 'LIGHT' and o.data.type == 'SUN' and not o.hide_render]
+from mine_context_lights import context_spot_lights
+package['contextSpotLights'] = context_spot_lights(members, matrix)
 old={r['source']:r for r in front['objects']}
 dg=bpy.context.evaluated_depsgraph_get()
 scene=bpy.data.scenes.new('CS_MINE_CONTEXT_EXPORT');bpy.context.window.scene=scene

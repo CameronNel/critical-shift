@@ -1,0 +1,237 @@
+{
+  "status": "PassedBoundedCurrentTimberPixelAudit_NotVisualAcceptance",
+  "wrapperStateSha256": "07e8cc9a21893ab222b52d97c15212ff2504037d8b1731040c8cd690c7c47d42",
+  "sourceImageSha256": "5e556171ace042a633aed8d7f95f9d8d6c721f8666088e623fa868e0e0841887",
+  "sourceProvenanceSha256": "5a39bebbb5fb5a426d82c2f48b763943f1e96d2dd640771381d4e86609108d30",
+  "nativeBindingsSha256": "be8f4db36c3e0f57045032ee307d057aa4b8c4c0a25708c2d349c1627d8e209d",
+  "preparedScene": {
+    "mapBindingsSha256": "dcd7f11119192381cd5c34df7076e840b0d27098dc68d28d424f09485ff5ad8e",
+    "rigBindingsSha256": "b89037e3c376c6e7958a3a1a1713664559baec579b861c8c5702ad03cc4a90a6",
+    "sceneSha256": "451f65f87a9947487b8b26ece16aed52b98b55fa55a4060563552511f5493e7a",
+    "sourceSha256": "516d88d25e8fa59c08b6fc11c2b75a60538cc640eedeb133c21443074418a657",
+    "lightmaps": 3
+  },
+  "frames": [
+    {
+      "file": "RealtimeDiffuse.exr",
+      "sha256": "e8bd8e2680b5b8a36198e7dc50784ab743a3c28b3d51d799a6f3d93cb17d1501",
+      "metadataSha256": "2adc1d833254163ccec934a80ffaa5a3e91f767e5452982d004603fc67a4be72",
+      "nonfiniteRgbPixels": 0
+    },
+    {
+      "file": "BakedAndProbeDiffuse.exr",
+      "sha256": "f5fec206126e8ed83141fe51763e11e35ccf95d5ee9ed17d8fc69ede1ce996dd",
+      "metadataSha256": "1092da7e7dea74c693b5a8c68cfbae1e8ceb76d773d4b3f5f489b85f7b3e5d8a",
+      "nonfiniteRgbPixels": 0
+    },
+    {
+      "file": "BaseColor.exr",
+      "sha256": "5268224568e47f1461c285babc12f7018ad06f34b99729bbc3adb3ba2ee9e9ef",
+      "metadataSha256": "ad7672f7f057b0b2471dd3691df181e6020fc0d7e4045f54ebf371622938e2e2",
+      "nonfiniteRgbPixels": 0
+    },
+    {
+      "file": "WorldNormal.exr",
+      "sha256": "eb01fdf27e7e2e65d3174c024b161d512265619f1f09ac45dfa78f6f0bd7e5e2",
+      "metadataSha256": "455c4e35602b8c9802b1f9f740247af1a53e85c70b1a76adbf9b61e8b6e173b1",
+      "nonfiniteRgbPixels": 0
+    },
+    {
+      "file": "ExactObjectMask.exr",
+      "sha256": "05e2e352cbf2d4b06095b143dac91808862bbf485fccc7c68eb10ecfc2566c14",
+      "metadataSha256": "875f29af075e5e34afe4d5cf708aee002e26380500b8051e2f87ff12fba343d9",
+      "nonfiniteRgbPixels": 0
+    }
+  ],
+  "targets": [
+    {
+      "target": "Shed boards",
+      "id": 1,
+      "sourceFullyCoveredPixels": 82759,
+      "nativeFullyCoveredPixels": 92793,
+      "maskIoU": 0.8901557974525448,
+      "twoPixelErodedSharedInteriorPixels": 60883,
+      "sourceBaseColorMean": [
+        0.03211515153063182,
+        0.026811496031369654,
+        0.020772696669350183
+      ],
+      "nativeBaseColorMean": [
+        0.030778600068286033,
+        0.02576006067967506,
+        0.019944983642557073
+      ],
+      "baseColorMeanAbsoluteRgbError": [
+        0.005227611810496386,
+        0.004475600297173609,
+        0.0037024900199413417
+      ],
+      "sourceDiffuseDirectMean": [
+        0.027726223440085046,
+        0.018188590309247143,
+        0.012135838609901283
+      ],
+      "sourceDiffuseIndirectMean": [
+        0.00381341838014528,
+        0.0023018022841931785,
+        0.0012330326542101767
+      ],
+      "sourceDiffuseTotalMean": [
+        0.031539641820230266,
+        0.02049039259344032,
+        0.013368871264111397
+      ],
+      "sourceSpecularMean": [
+        0.018710518203068707,
+        0.012725955397136772,
+        0.00880578682424902
+      ],
+      "sourceCombinedMean": [
+        0.05025016004116013,
+        0.03321634800661278,
+        0.02217465810050685
+      ],
+      "nativeRealtimeDiffuseMean": [
+        0.0057814916539493345,
+        0.0049586931806985726,
+        0.004864503404594973
+      ],
+      "nativeBakedAndProbeDiffuseMean": [
+        0.10394426376871341,
+        0.07531698688211468,
+        0.0483741332605779
+      ],
+      "nativeDiffuseTotalMean": [
+        0.10972575542266275,
+        0.08027568006281326,
+        0.053238636665172874
+      ],
+      "nativeToSourceMeanDiffuseRatio": [
+        3.4789791224668276,
+        3.9177228887509097,
+        3.982283590993315
+      ],
+      "sourceCombinedClosureMeanAbsoluteRgbError": [
+        4.523388872117822e-09,
+        2.919398384098883e-09,
+        1.9141545847211753e-09
+      ],
+      "normalValidPixels": 60883,
+      "normalMeanAngleDegrees": 5.978228850717622,
+      "normalMedianAngleDegrees": 4.309221286356279,
+      "normalP90AngleDegrees": 10.71014391061434,
+      "sourceEncodedNormalLengthMean": 0.8998725880648808,
+      "nativeEncodedNormalLengthMean": 0.9995400971655574,
+      "nativeOffBeautyMeanRgb": [
+        0.11316175034596647,
+        0.08301178424502438,
+        0.05597743640608495
+      ],
+      "nativeOffBeautyMinusDiffuseMeanRgb": [
+        0.003435994923303724,
+        0.002736104182211126,
+        0.002738799740912075
+      ],
+      "nativeOffBeautyBelowDiffuseFraction": 0.03022190102327415
+    },
+    {
+      "target": "Shed frame",
+      "id": 2,
+      "sourceFullyCoveredPixels": 52445,
+      "nativeFullyCoveredPixels": 62082,
+      "maskIoU": 0.8447401059871462,
+      "twoPixelErodedSharedInteriorPixels": 33663,
+      "sourceBaseColorMean": [
+        0.07961960378503646,
+        0.06776341780955371,
+        0.05390190357783276
+      ],
+      "nativeBaseColorMean": [
+        0.08024022119042354,
+        0.06826315840358024,
+        0.054469689970733516
+      ],
+      "baseColorMeanAbsoluteRgbError": [
+        0.009426395907766576,
+        0.008192163123236684,
+        0.006733360727594928
+      ],
+      "sourceDiffuseDirectMean": [
+        0.10457884784960612,
+        0.06592522797390925,
+        0.03914927863963773
+      ],
+      "sourceDiffuseIndirectMean": [
+        0.008848987760905239,
+        0.005617749954394876,
+        0.00317331996638789
+      ],
+      "sourceDiffuseTotalMean": [
+        0.11342783561051269,
+        0.07154297792830439,
+        0.04232259860602599
+      ],
+      "sourceSpecularMean": [
+        0.01999143014466702,
+        0.014783867030296374,
+        0.0106966147214825
+      ],
+      "sourceCombinedMean": [
+        0.13341926559388986,
+        0.08632684493314934,
+        0.05301921332945484
+      ],
+      "nativeRealtimeDiffuseMean": [
+        0.020596933314228207,
+        0.01456246409714939,
+        0.01194313950169353
+      ],
+      "nativeBakedAndProbeDiffuseMean": [
+        0.24691455285540595,
+        0.17051496618490886,
+        0.10605154209084836
+      ],
+      "nativeDiffuseTotalMean": [
+        0.26751148616963416,
+        0.18507743028205825,
+        0.11799468159254188
+      ],
+      "nativeToSourceMeanDiffuseRatio": [
+        2.3584289053016256,
+        2.586940544570713,
+        2.7879829093419968
+      ],
+      "sourceCombinedClosureMeanAbsoluteRgbError": [
+        1.207077278886288e-08,
+        7.865426073507837e-09,
+        4.873629811738886e-09
+      ],
+      "normalValidPixels": 33663,
+      "normalMeanAngleDegrees": 6.3672183680050765,
+      "normalMedianAngleDegrees": 4.7012100235495735,
+      "normalP90AngleDegrees": 11.730018176907377,
+      "sourceEncodedNormalLengthMean": 0.8974652069189605,
+      "nativeEncodedNormalLengthMean": 0.9997020405607122,
+      "nativeOffBeautyMeanRgb": [
+        0.27109144412695335,
+        0.1876229270272362,
+        0.12022705562285475
+      ],
+      "nativeOffBeautyMinusDiffuseMeanRgb": [
+        0.0035799579573191805,
+        0.0025454967451779753,
+        0.002232374030312862
+      ],
+      "nativeOffBeautyBelowDiffuseFraction": 0.04978760062977156
+    }
+  ],
+  "limits": [
+    "Only two exact authored shed/frame target objects at one camera; no full-scene score",
+    "Source32sample AA versus native noAA: eroded shared interiors exclude boundary pixels but do not eliminate all sampling noise",
+    "Native BakedAndProbeDiffuse includes58 actual Baked direct plus world/bounce; not an apples-to-apples SourceIndirect class",
+    "Disney/source BSDF angular response and source normal residuals remain in diffuse sum; large total mismatch can locate transport error but not isolate one point law",
+    "No production changes or reviewer Unity/Blender launch; current full13 still rejected41/60, overall null; Player held",
+    "Native no-volume beauty usesMSAA4 vs diagnosticMSAA1; beauty minus isolated diffuse is a residual, not a clean separately rendered specular pass."
+  ],
+  "overallScore": null
+}

@@ -1,0 +1,1194 @@
+Unity Editor version:    6000.4.3f1 (39d1a88d4dd1)
+Branch:                  6000.4/staging
+Build type:              Release
+Batch mode:              YES
+System name:             Linux
+Distro version:          #1 SMP Sat Sep 26 20:02:31 UTC 2026
+Kernel version:          6.18.44
+Architecture:            x86_64
+Available memory:        18007 MB
+Date:                    2026-10-12T23:43:59Z
+[Licensing::Module] Trying to connect to existing licensing client channel...
+[Licensing::IpcConnector] Channel LicenseClient-agent doesn't exist
+[Licensing::Module] Successfully launched the LicensingClient (PId: 169558)
+Selected window backend: (null) 
+Desktop is 1440 x 810 @ 60 Hz
+Initialize udev device monitor.
+
+COMMAND LINE ARGUMENTS:
+/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Unity
+-batchmode
+-force-glcore
+-quit
+-projectPath
+/workspace/critical-shift-spawn-runtime/runtime/unity
+-executeMethod
+CsMineFrontSpotControlFinal14.Render
+-logFile
+/workspace/critical-shift-spawn-runtime/runtime/out/mine-bake-audit/front-spot-control-final14.native.log
+Successfully changed project path to: /workspace/critical-shift-spawn-runtime/runtime/unity
+/workspace/critical-shift-spawn-runtime/runtime/unity
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-gfx=262144"
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+Player connection [140460217170816]  Target information:
+
+Player connection [140460217170816]  * "[IP] 172.26.91.250 [Port] 55504 [Flags] 2 [Guid] 34189323 [EditorId] 34189323 [Version] 1048832 [Id] LinuxEditor(16,172.26.91.250) [Debug] 1 [PackageName] LinuxEditor [ProjectName] Editor" 
+
+Player connection [140460217170816]  * "[IP] 172.31.0.158 [Port] 55504 [Flags] 2 [Guid] 34189323 [EditorId] 34189323 [Version] 1048832 [Id] LinuxEditor(16,172.26.91.250) [Debug] 1 [PackageName] LinuxEditor [ProjectName] Editor" 
+
+Player connection [140460217170816]  * "[IP] 172.17.0.1 [Port] 55504 [Flags] 2 [Guid] 34189323 [EditorId] 34189323 [Version] 1048832 [Id] LinuxEditor(16,172.26.91.250) [Debug] 1 [PackageName] LinuxEditor [ProjectName] Editor" 
+
+Player connection [140460217170816] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [140460217170816] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-agent" at "2026-10-12T23:44:01.154253Z"
+[SignatureVerifier] Application signature verification not supported on this platform.
+[Package Manager] Connected to IPC stream "Upm-169550" after 0.6 seconds.
+[Licensing::Module] Licensing is not yet initialized.
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.18.1+9fbee8e
+  Session Id:              1620d63fc3034ce1af394f02561dfe47
+  Correlation Id:          5befc0c9c999b20200acd7ce5860be9d
+  External correlation Id: 31907215219398425
+  Machine Id:              HSfDcY8TYOsLF+Fc1eSelgog+jc=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-agent" (connect: 1.51s, validation: 0.34s, handshake: 0.00s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-agent-notifications" at "2026-10-12T23:44:01.49538Z"
+[Licensing::Module] Connected to LicensingClient (PId: 169558, launch time: 0.00, total connection time: 1.85s)
+[Licensing::Module] Error: Access token is unavailable; failed to update
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: 9072383120447-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+[Licensing::Client] Successfully updated license, isAsync: True, time: 0.02
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] Licensing Background thread has ended after 2.29s
+[Licensing::Module] Licensing is initialized (took 0.77s).
+[Licensing::Client] Successfully resolved entitlement details
+Library Redirect Path: Library/
+ALSA lib confmisc.c:855:(parse_card) cannot find card '0'
+ALSA lib conf.c:5205:(_snd_config_evaluate) function snd_func_card_inum returned error: No such file or directory
+ALSA lib confmisc.c:422:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:5205:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1342:(snd_func_refer) error evaluating name
+ALSA lib conf.c:5205:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5728:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2722:(snd_pcm_open_noupdate) Unknown PCM default
+FMOD failed to initialize the output device.: "Error initializing output device. " (60)
+Forced to initialize FMOD to to the device driver's system output rate 48000, this may impact performance and/or give inconsistent experiences compared to selected sample rate 48000
+ALSA lib confmisc.c:855:(parse_card) cannot find card '0'
+ALSA lib conf.c:5205:(_snd_config_evaluate) function snd_func_card_inum returned error: No such file or directory
+ALSA lib confmisc.c:422:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:5205:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1342:(snd_func_refer) error evaluating name
+ALSA lib conf.c:5205:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5728:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2722:(snd_pcm_open_noupdate) Unknown PCM default
+FMOD failed to initialize the output device.: "Error initializing output device. " (60)
+FMOD initialized on nosound output
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Artifact Garbage Collection - Removed 1 unused hashed content files
+Initialize engine version: 6000.4.3f1 (39d1a88d4dd1)
+[Subsystems] Discovering subsystems at path /home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path /workspace/critical-shift-spawn-runtime/runtime/unity/Assets
+Forcing GfxDevice: OpenGL Core
+kGfxThreadingModeNonThreaded is not supported on OpenGL Core. Reverting to kGfxThreadingModeDirect instead.
+GfxDevice: creating device client; kGfxThreadingModeDirect
+GLX Extensions: GLX_ARB_context_flush_control GLX_ARB_create_context GLX_ARB_create_context_no_error GLX_ARB_create_context_profile GLX_ARB_fbconfig_float GLX_ARB_framebuffer_sRGB GLX_ARB_get_proc_address GLX_ARB_multisample GLX_EXT_create_context_es2_profile GLX_EXT_create_context_es_profile GLX_EXT_fbconfig_packed_float GLX_EXT_framebuffer_sRGB GLX_EXT_no_config_context GLX_EXT_texture_from_pixmap GLX_EXT_visual_info GLX_EXT_visual_rating GLX_MESA_copy_sub_buffer GLX_MESA_gl_interop GLX_MESA_query_renderer GLX_SGIS_multisample GLX_SGIX_fbconfig GLX_SGIX_pbuffer GLX_SGIX_visual_select_group GLX_SGI_make_current_read 
+Renderer: llvmpipe (LLVM 19.1.7, 256 bits)
+Vendor:   Mesa
+Version:  4.5 (Core Profile) Mesa 25.0.7-2+deb13u1
+GLES:     0
+ GL_3DFX_texture_compression_FXT1 GL_AMD_conservative_depth GL_AMD_draw_buffers_blend GL_AMD_gpu_shader_int64 GL_AMD_multi_draw_indirect GL_AMD_pinned_memory GL_AMD_query_buffer_object GL_AMD_seamless_cubemap_per_texture GL_AMD_shader_stencil_export GL_AMD_shader_trinary_minmax GL_AMD_texture_texture4 GL_AMD_vertex_shader_layer GL_AMD_vertex_shader_viewport_index GL_ANGLE_texture_compression_dxt3 GL_ANGLE_texture_compression_dxt5 GL_ARB_ES2_compatibility GL_ARB_ES3_1_compatibility GL_ARB_ES3_2_compatibility GL_ARB_ES3_compatibility GL_ARB_arrays_of_arrays GL_ARB_base_instance GL_ARB_blend_func_extended GL_ARB_buffer_storage GL_ARB_clear_buffer_object GL_ARB_clear_texture GL_ARB_clip_control GL_ARB_compressed_texture_pixel_storage GL_ARB_compute_shader GL_ARB_conditional_render_inverted GL_ARB_conservative_depth GL_ARB_copy_buffer GL_ARB_copy_image GL_ARB_cull_distance GL_ARB_debug_output GL_ARB_depth_buffer_float GL_ARB_depth_clamp GL_ARB_derivative_control GL_ARB_direct_state_access GL_ARB_draw_buffers GL_A
+RB_draw_buffers_blend GL_ARB_draw_elements_base_vertex GL_ARB_draw_indirect GL_ARB_draw_instanced GL_ARB_enhanced_layouts GL_ARB_explicit_attrib_location GL_ARB_explicit_uniform_location GL_ARB_fragment_coord_conventions GL_ARB_fragment_layer_viewport GL_ARB_fragment_shader GL_ARB_framebuffer_no_attachments GL_ARB_framebuffer_object GL_ARB_framebuffer_sRGB GL_ARB_get_program_binary GL_ARB_get_texture_sub_image GL_ARB_gl_spirv GL_ARB_gpu_shader5 GL_ARB_gpu_shader_fp64 GL_ARB_gpu_shader_int64 GL_ARB_half_float_pixel GL_ARB_half_float_vertex GL_ARB_indirect_parameters GL_ARB_instanced_arrays GL_ARB_internalformat_query GL_ARB_internalformat_query2 GL_ARB_invalidate_subdata GL_ARB_map_buffer_alignment GL_ARB_map_buffer_range GL_ARB_multi_bind GL_ARB_multi_draw_indirect GL_ARB_occlusion_query2 GL_ARB_parallel_shader_compile GL_ARB_pipeline_statistics_query GL_ARB_pixel_buffer_object GL_ARB_point_sprite GL_ARB_polygon_offset_clamp GL_ARB_post_depth_coverage GL_ARB_program_interface_query GL_ARB_provoking_vertex GL
+_ARB_query_buffer_object GL_ARB_robust_buffer_access_behavior GL_ARB_robustness GL_ARB_sample_shading GL_ARB_sampler_objects GL_ARB_seamless_cube_map GL_ARB_seamless_cubemap_per_texture GL_ARB_separate_shader_objects GL_ARB_shader_atomic_counter_ops GL_ARB_shader_atomic_counters GL_ARB_shader_ballot GL_ARB_shader_bit_encoding GL_ARB_shader_clock GL_ARB_shader_draw_parameters GL_ARB_shader_group_vote GL_ARB_shader_image_load_store GL_ARB_shader_image_size GL_ARB_shader_objects GL_ARB_shader_precision GL_ARB_shader_stencil_export GL_ARB_shader_storage_buffer_object GL_ARB_shader_subroutine GL_ARB_shader_texture_image_samples GL_ARB_shader_texture_lod GL_ARB_shader_viewport_layer_array GL_ARB_shading_language_420pack GL_ARB_shading_language_include GL_ARB_shading_language_packing GL_ARB_spirv_extensions GL_ARB_stencil_texturing GL_ARB_sync GL_ARB_tessellation_shader GL_ARB_texture_barrier GL_ARB_texture_border_clamp GL_ARB_texture_buffer_object GL_ARB_texture_buffer_object_rgb32 GL_ARB_texture_buffer_range GL_A
+RB_texture_compression_bptc GL_ARB_texture_compression_rgtc GL_ARB_texture_cube_map_array GL_ARB_texture_filter_anisotropic GL_ARB_texture_filter_minmax GL_ARB_texture_float GL_ARB_texture_gather GL_ARB_texture_mirror_clamp_to_edge GL_ARB_texture_multisample GL_ARB_texture_non_power_of_two GL_ARB_texture_query_levels GL_ARB_texture_query_lod GL_ARB_texture_rectangle GL_ARB_texture_rg GL_ARB_texture_rgb10_a2ui GL_ARB_texture_stencil8 GL_ARB_texture_storage GL_ARB_texture_storage_multisample GL_ARB_texture_swizzle GL_ARB_texture_view GL_ARB_timer_query GL_ARB_transform_feedback2 GL_ARB_transform_feedback3 GL_ARB_transform_feedback_instanced GL_ARB_transform_feedback_overflow_query GL_ARB_uniform_buffer_object GL_ARB_vertex_array_bgra GL_ARB_vertex_array_object GL_ARB_vertex_attrib_64bit GL_ARB_vertex_attrib_binding GL_ARB_vertex_buffer_object GL_ARB_vertex_shader GL_ARB_vertex_type_10f_11f_11f_rev GL_ARB_vertex_type_2_10_10_10_rev GL_ARB_viewport_array GL_ARM_shader_framebuffer_fetch_depth_stencil GL_ATI_blend
+_equation_separate GL_ATI_meminfo GL_ATI_texture_float GL_ATI_texture_mirror_once GL_EXT_EGL_image_storage GL_EXT_EGL_image_storage_compression GL_EXT_EGL_sync GL_EXT_abgr GL_EXT_blend_equation_separate GL_EXT_debug_label GL_EXT_draw_buffers2 GL_EXT_draw_instanced GL_EXT_framebuffer_blit GL_EXT_framebuffer_multisample GL_EXT_framebuffer_multisample_blit_scaled GL_EXT_framebuffer_object GL_EXT_framebuffer_sRGB GL_EXT_memory_object GL_EXT_memory_object_fd GL_EXT_packed_depth_stencil GL_EXT_packed_float GL_EXT_pixel_buffer_object GL_EXT_polygon_offset_clamp GL_EXT_provoking_vertex GL_EXT_shader_framebuffer_fetch GL_EXT_shader_framebuffer_fetch_non_coherent GL_EXT_shader_image_load_formatted GL_EXT_shader_integer_mix GL_EXT_texture_array GL_EXT_texture_compression_dxt1 GL_EXT_texture_compression_rgtc GL_EXT_texture_compression_s3tc GL_EXT_texture_filter_anisotropic GL_EXT_texture_filter_minmax GL_EXT_texture_integer GL_EXT_texture_mirror_clamp GL_EXT_texture_sRGB GL_EXT_texture_sRGB_R8 GL_EXT_texture_sRGB_RG8 GL
+_EXT_texture_sRGB_decode GL_EXT_texture_shadow_lod GL_EXT_texture_shared_exponent GL_EXT_texture_snorm GL_EXT_texture_storage GL_EXT_texture_swizzle GL_EXT_timer_query GL_EXT_transform_feedback GL_EXT_vertex_array_bgra GL_EXT_vertex_attrib_64bit GL_IBM_multimode_draw_arrays GL_INTEL_shader_atomic_float_minmax GL_KHR_blend_equation_advanced GL_KHR_blend_equation_advanced_coherent GL_KHR_context_flush_control GL_KHR_debug GL_KHR_no_error GL_KHR_parallel_shader_compile GL_KHR_robust_buffer_access_behavior GL_KHR_robustness GL_KHR_texture_compression_astc_ldr GL_KHR_texture_compression_astc_sliced_3d GL_MESA_framebuffer_flip_y GL_MESA_pack_invert GL_MESA_shader_integer_functions GL_MESA_texture_signed_rgba GL_NVX_gpu_memory_info GL_NV_alpha_to_coverage_dither_control GL_NV_conditional_render GL_NV_copy_image GL_NV_depth_clamp GL_NV_packed_depth_stencil GL_NV_shader_atomic_float GL_NV_texture_barrier GL_OES_EGL_image GL_OVR_multiview GL_OVR_multiview2 GL_S3_s3tc
+OPENGL LOG: Creating OpenGL 4.5 graphics device ; Context level  <OpenGL 4.5> ; Context handle 303843216
+Initialize mono
+Mono path[0] = '/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Managed'
+Mono path[1] = '/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-linux'
+Mono config path = '/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56550
+CodeReloadManager initialized
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+ImportWorker Server TCP listen port: 0
+AcceleratorClientConnectionCallback - disconnected - :0
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: /home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0.004320 seconds.
+Native extension for LinuxStandalone target not found
+Package Manager log level set to [2]
+Native extension for WindowsStandalone target not found
+(node:169586) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+(Use `UnityPackageManager --trace-deprecation ...` to show where the warning was created)
+[Licensing::Client] Successfully resolved entitlement details
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  3.185 seconds
+Domain Reload Profiling: 4965ms
+	BeginReloadAssembly (472ms)
+		CreateAndSetChildDomain (21ms)
+	RebuildCommonClasses (77ms)
+	RebuildNativeTypeToScriptingClass (9ms)
+	initialDomainReloadingComplete (133ms)
+	LoadAllAssembliesAndSetupDomain (1084ms)
+		LoadAssemblies (442ms)
+		AnalyzeDomain (1055ms)
+			TypeCache.Refresh (1051ms)
+				TypeCache.ScanAssembly (996ms)
+	FinalizeReload (3190ms)
+		SetupLoadedEditorAssemblies (0ms)
+			InitializePlatformSupportModulesInManaged (227ms)
+			BeforeProcessingInitializeOnLoad (413ms)
+			ProcessInitializeOnLoadAttributes (218ms)
+			ProcessInitializeOnLoadMethodAttributes (2045ms)
+[Licensing::Client] Successfully resolved entitlement details
+Application.AssetDatabase Initial Refresh Start
+[Package Manager] Restoring resolved packages state from cache
+[Licensing::Client] Successfully resolved entitlement details
+[Package Manager] Registered 9 packages:
+  Packages from [https://packages.unity.com]:
+    com.unity.sdk.linux-x86_64@1.1.0 (location: /workspace/critical-shift-spawn-runtime/runtime/unity/Library/PackageCache/com.unity.sdk.linux-x86_64@6d12be270055)
+    com.unity.toolchain.linux-x86_64-linux@1.1.0 (location: /workspace/critical-shift-spawn-runtime/runtime/unity/Library/PackageCache/com.unity.toolchain.linux-x86_64-linux@d0308bf9d559)
+    com.unity.sysroot.base@1.1.0 (location: /workspace/critical-shift-spawn-runtime/runtime/unity/Library/PackageCache/com.unity.sysroot.base@3559fe1aa613)
+  Built-in packages:
+    com.unity.test-framework@1.6.0 (location: /workspace/critical-shift-spawn-runtime/runtime/unity/Library/PackageCache/com.unity.test-framework@9faaf09ec578)
+    com.unity.modules.imgui@1.0.0 (location: /workspace/critical-shift-spawn-runtime/runtime/unity/Library/PackageCache/com.unity.modules.imgui)
+    com.unity.modules.jsonserialize@1.0.0 (location: /workspace/critical-shift-spawn-runtime/runtime/unity/Library/PackageCache/com.unity.modules.jsonserialize)
+    com.unity.modules.physics@1.0.0 (location: /workspace/critical-shift-spawn-runtime/runtime/unity/Library/PackageCache/com.unity.modules.physics)
+    com.unity.modules.animation@1.0.0 (location: /workspace/critical-shift-spawn-runtime/runtime/unity/Library/PackageCache/com.unity.modules.animation)
+    com.unity.ext.nunit@2.0.5 (location: /workspace/critical-shift-spawn-runtime/runtime/unity/Library/PackageCache/com.unity.ext.nunit@ec2d0043d6fc)
+[Subsystems] No new subsystems found in resolved package list.
+[Package Manager] Done registering packages in 0.01 seconds
+Warning: Disk space low. The project is on a drive with diskspace below 1.00 GB. Please free up some space for Unity to work correctly.
+[ScriptCompilation] Requested script compilation because: Assembly Definition File(s) changed
+[ScriptCompilation] Requested script compilation because: AssetDatabase observed changes in script compilation related files
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://unix:/tmp/ilpp.sock-8905bfec88515832b1986b252f5b3832
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Production
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /workspace/critical-shift-spawn-runtime/runtime/unity
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/Ping - application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/Ping'
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/Ping'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/Ping - 200 - application/grpc 181.2310ms
+Starting: /home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Tools/BuildPipeline/bee_backend --ipc --defer-dag-verification --dagfile="Library/Bee/2400b0aE.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssemblies
+WorkingDir: /workspace/critical-shift-spawn-runtime/runtime/unity
+DisplayProgressbar: Compiling Scripts
+ExitCode: 4 Duration: 2s591ms
+Rebuilding DAG because FileSignature timestamp changed: Library/Bee/2400b0aE-inputdata.json
+*** Tundra requires additional run (2.34 seconds), 1 items updated, 262 evaluated
+Starting: /home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/netcorerun/netcorerun "/home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Tools/BuildPipeline/ScriptCompilationBuildProgram.exe" "Library/Bee/2400b0aE.dag.json" "Library/Bee/2400b0aE-inputdata.json" "Library/Bee/buildprogram0.traceevents"
+WorkingDir: /workspace/critical-shift-spawn-runtime/runtime/unity
+ExitCode: 0 Duration: 1s156ms
+Starting: /home/agent/.local/share/critical-shift/toolchain/unity-6000.4.3f1/Editor/Data/Tools/BuildPipeline/bee_backend --ipc --defer-dag-verification --dagfile="Library/Bee/2400b0aE.dag" --continue-on-failure --dagfilejson="Library/Bee/2400b0aE.dag.json" --profile="Library/Bee/backend2.traceevents" ScriptAssemblies
+WorkingDir: /workspace/critical-shift-spawn-runtime/runtime/unity
+ExitCode: 0 Duration: 5s539ms
+Finished compiling graph: 269 nodes, 2512 flattened edges (2374 ToBuild, 30 ToUse), maximum node priority 92
+[           0s] Delete 5 artifact files that are no longer in use. (like Library/Bee/artifacts/2400b0aE.dag/CriticalShift.Diagnostics.TimberSplitFinal13.rsp)
+[197/266    0s] WriteText Library/Bee/artifacts/2400b0aE.dag/CriticalShift.Diagnostics.FrontSpotControlFinal14.rsp2
+[198/266    0s] WriteText Library/Bee/artifacts/2400b0aE.dag/CriticalShift.Diagnostics.FrontSpotControlFinal14.dll.mvfrm.rsp
+[199/266    0s] WriteText Library/Bee/artifacts/2400b0aE.dag/CriticalShift.Diagnostics.FrontSpotControlFinal14.UnityAdditionalFile.txt
+[219/266    0s] WriteText Library/Bee/artifacts/2400b0aE.dag/CriticalShift.Diagnostics.FrontSpotControlFinal14.rsp
+[262/266    0s] MovedFromExtractor-Combine Library/Bee/artifacts/2400b0aE.dag/CriticalShift.Diagnostics.FrontSpotControlFinal14.dll.mvfrm
+[263/266    5s] Csc Library/Bee/artifacts/2400b0aE.dag/CriticalShift.Diagnostics.FrontSpotControlFinal14.dll (+2 others)
+[264/266    0s] CopyFiles Library/ScriptAssemblies/CriticalShift.Diagnostics.FrontSpotControlFinal14.pdb
+[265/266    0s] CopyFiles Library/ScriptAssemblies/CriticalShift.Diagnostics.FrontSpotControlFinal14.dll
+*** Tundra build success (5.48 seconds), 8 items updated, 266 evaluated
+Total cache size 1095868
+AssetDatabase: script compilation time: 10.837566s
+Total cache size after purge 1095868, took 00:00:00.1259159
+Begin MonoManager ReloadAssembly
+Assembly Assembly-CSharp-Editor-firstpass.dll at Library/ScriptAssemblies/Assembly-CSharp-Editor-firstpass.dll not valid. Loading of assembly skipped.
+Assembly Assembly-CSharp-Editor.dll at Library/ScriptAssemblies/Assembly-CSharp-Editor.dll not valid. Loading of assembly skipped.
+Assembly Assembly-CSharp-firstpass.dll at Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll not valid. Loading of assembly skipped.
+Assembly Assembly-CSharp.dll at Library/ScriptAssemblies/Assembly-CSharp.dll not valid. Loading of assembly skipped.
+Assembly TestNewCustomAssembly.dll at Library/ScriptAssemblies/TestNewCustomAssembly.dll not valid. Loading of assembly skipped.
+Assembly Unity.Sysroot.EditorTests.dll at Library/ScriptAssemblies/Unity.Sysroot.EditorTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Sysroot.Linux_x86_64.EditorTests.dll at Library/ScriptAssemblies/Unity.Sysroot.Linux_x86_64.EditorTests.dll not valid. Loading of assembly skipped.
+Assembly Unity.Toolchain.Linux-x86_64-Linux.EditorTests.dll at Library/ScriptAssemblies/Unity.Toolchain.Linux-x86_64-Linux.EditorTests.dll not valid. Loading of assembly skipped.
+Start importing Assets/CsFrontSpotControlDiagnostic using Guid(4bfc52d1ed1a8811ab5d10a6fe8f072c) (DefaultImporter) -> (Import Result ID: 'c654993d2ee1485660d36098c8ddd301') in 0.038689077 seconds [static dependencies only]. Details - ImportResultOutputID=0c76a5144bfcd8acdc5707b67b7a21e8 DependenciesID=341cab4fdfbe025964d9050ace835386 StaticDependenciesID=a50cfe303582b0116e3f05a3a04cff82 
+Start importing Assets/CsFrontSpotControlDiagnostic/CriticalShift.Diagnostics.FrontSpotControlFinal14.asmdef using Guid(a77db11f6de19c5a097a501cf1887f48) (AssemblyDefinitionImporter) -> (Import Result ID: 'c82b39bfe2744cb12c07a474a6e9fe21') in 0.00570231 seconds [static dependencies only]. Details - ImportResultOutputID=97fd89e483e0da08d3720589153e4a1e DependenciesID=05567949212c5a2020a820604d20626e StaticDependenciesID=65301b4722f67b39900f2cca1395ff2e 
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+ScheduleIndexationOnStartup MainProcess:True IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.438 seconds
+Domain Reload Profiling: 4467ms
+	BeginReloadAssembly (1437ms)
+		DisableScriptedObjects (56ms)
+		CreateAndSetChildDomain (267ms)
+	RebuildCommonClasses (272ms)
+	RebuildNativeTypeToScriptingClass (10ms)
+	initialDomainReloadingComplete (116ms)
+	LoadAllAssembliesAndSetupDomain (1190ms)
+		LoadAssemblies (1781ms)
+		AnalyzeDomain (233ms)
+			TypeCache.Refresh (64ms)
+				TypeCache.ScanAssembly (17ms)
+			BuildScriptInfoCaches (20ms)
+			ResolveRequiredComponents (7ms)
+	FinalizeReload (1442ms)
+		SetupLoadedEditorAssemblies (0ms)
+			InitializePlatformSupportModulesInManaged (57ms)
+			BeforeProcessingInitializeOnLoad (429ms)
+			ProcessInitializeOnLoadAttributes (177ms)
+			ProcessInitializeOnLoadMethodAttributes (64ms)
+			AfterProcessingInitializeOnLoad (5ms)
+		AwakeInstancesAfterBackupRestoration (33ms)
+Start importing Assets/CsFrontSpotControlDiagnostic/SpotControl.cginc using Guid(4133b18ff1abd7bea97693c850a752da) (ShaderIncludeImporter) -> (Import Result ID: '7560f3f1fbaf4796b73fa59aa36180e4') in 0.108892088 seconds [static dependencies only]. Details - ImportResultOutputID=e80995201c5544e114f10b6090114998 DependenciesID=fc391e9d3bcb28db2621e333ed61e78a StaticDependenciesID=9707ee560931597229c2fbb2a37bf20c 
+Start importing Assets/CsFrontSpotControlDiagnostic/SpotControl.shader using Guid(62f778c8be18c2a83802c6dc93e9f1b4) (ShaderImporter)Launched and connected shader compiler UnityShaderCompiler after 0.17 seconds
+ -> (Import Result ID: '629da4eee4e1739d46cc7d392e527b1c') in 6.290050428 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=3609f0507437e68aa55cabc2cbdb0ec6 DependenciesID=8b877437c5d5674d96be21fc6fb2b8f7 StaticDependenciesID=cbd4d3d378b0aadc2328b1478c8df127 
+Launched and connected shader compiler UnityShaderCompiler after 0.15 seconds
+Launched and connected shader compiler UnityShaderCompiler after 0.03 seconds
+Launched and connected shader compiler UnityShaderCompiler after 0.02 seconds
+Launched and connected shader compiler UnityShaderCompiler after 0.03 seconds
+(Values over 0.050ms)
+Asset Pipeline Refresh (id=1d3e41af2909dfab3a0ef26808fc9390): Total: 24.479 seconds - Initiated by InitialRefreshV2(ForceSynchronousImport)
+	Summary:
+		Imports: total=4 (actual=4, local cache=0, cache server=0)
+		Asset DB Process Time: managed=6 ms, native=9729 ms
+		Asset DB Callback time: managed=587 ms, native=152 ms
+		Scripting: domain reloads=1, domain reload time=3026 ms, compile time=10932 ms, other=43 ms
+		Project Asset Count: scripts=151, non-scripts=1589
+		Asset File Changes: new=5, changed=5, moved=0, deleted=5
+		Scan Filter Count: 1
+	InvokePackagesCallback: 18.455ms
+	ApplyChangesToAssetFolders: 0.316ms
+	Scan: 1129.574ms
+	OnSourceAssetsModified: 7.603ms
+	CategorizeScriptCompilationAssets: 6.493ms
+	ProcessAssetsWithTransientArtifactChanges: 29.305ms
+	CategorizeAssets: 66.543ms
+	CompileScripts: 10931.548ms
+	ImportOutOfDateAssets: 7934.269ms (1458.427ms without children)
+		ImportManagerImport: 6467.461ms (17.214ms without children)
+			UpdateCategorizedAssets: 2.229ms
+		UnloadImportedAssets: 1.256ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.400ms
+		InitializingProgressBar: 0.098ms
+		OnDemandSchedulerStart: 6.665ms
+	PostProcessAllAssets: 719.901ms
+		ShaderAssetModifiedCallback 100.514ms
+		AssemblyValidation.PostprocessAllAssets 29.200ms
+		PostProcessCallbackCreateDeferredMaterials 0.132ms
+		LocalizationDatabase.AssetDatabasePostprocessCallback 0.086ms
+		VersionControlSettings.HiddenFilePostprocess 0.080ms
+		ComputeShaderImportPostprocess 0.058ms
+		MonoPostProcessAllAssets: 581.524ms
+			AssetPostprocessor.OnPostprocessAllAssets 241.899ms
+			StyleCatalogPostProcessor.OnPostprocessAllAssets 132.452ms
+			WindowAssetPostprocessingWatcher.OnPostprocessAllAssets 35.181ms
+			BuilderAssetPostprocessor.OnPostprocessAllAssets 11.165ms
+			AssetChangedListener.OnPostprocessAllAssets 2.861ms
+			RetainedModeAssetPostprocessor.OnPostprocessAllAssets 2.655ms
+			SpeedTree9Postprocessor.OnPostprocessAllAssets 1.926ms
+			SyncVS.PostprocessSyncProject 1.777ms
+			AssetEvents.OnPostprocessAllAssets 1.282ms
+			ArtifactBrowserPostProcessor.OnPostprocessAllAssets 1.073ms
+			ReferencedClipsPostProcessor.OnPostprocessAllAssets 1.044ms
+			TextAssetPostProcessor.OnPostprocessAllAssets 0.952ms
+			TerrainToolbarOverlayPostProcessor.OnPostprocessAllAssets 0.726ms
+			AudioMixerPostprocessor.OnPostprocessAllAssets 0.479ms
+			RenderPipelineGlobalSettingsPostprocessor.OnPostprocessAllAssets 0.388ms
+			SpeedTreePostProcessor.OnPostprocessAllAssets 0.317ms
+			AssetDatabaseCallbacks.OnPostprocessAllAssets 0.302ms
+			ConfigAssetsTracker.OnPostprocessAllAssets 0.298ms
+			ScenarioDriftAssetsTracker.OnPostprocessAllAssets 0.225ms
+			AudioContainerPostProcessor.OnPostprocessAllAssets 0.098ms
+	PostAssetChangesProfiler: 2.299ms
+	UnloadStreamsBegin: 6.142ms
+	PersistCurrentRevisions: 0.376ms
+	Untracked: 3614.412ms
+
+Application.AssetDatabase Initial Refresh End
+Scanning for USB devices : 0.369ms
+Initializing Unity extensions:
+UpdateMenuTitleForLanguage: 10
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+[MODES] Loading mode Default (0) for mode-current-id-Critical Shift
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 444 unused Assets / (379.2 KB). Loaded Objects now: 1085.
+Memory consumption went from 101.7 MB to 101.4 MB.
+Total: 113.373271 ms (FindLiveObjects: 11.425211 ms CreateObjectMapping: 0.100156 ms MarkObjects: 95.106196 ms  DeleteObjects: 6.715400 ms)
+
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch using Guid(89320d767830d9a21ac1f8adaca28147) (DefaultImporter) -> (Import Result ID: '3200e731d795c0532ead3366f6903293') in 0.002540429 seconds [static dependencies only]. Details - ImportResultOutputID=dc15bfd2aea9e10613a35c4d41b208c9 DependenciesID=456810dc233066b787315c7389f07c1d StaticDependenciesID=1d0689665a8598e8c11659c5c0bbe226 
+Asset Pipeline Refresh (id=23b023298c3a17053b1dfb2f45bf4474): Total: 0.071 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 1 unused Assets / (0.8 KB). Loaded Objects now: 1085.
+Memory consumption went from 97.6 MB to 97.6 MB.
+Total: 19.331822 ms (FindLiveObjects: 2.850558 ms CreateObjectMapping: 0.026513 ms MarkObjects: 16.344832 ms  DeleteObjects: 0.108541 ms)
+
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Quad.asset using Guid(e5bf9a2b6f8ee3774a2049080f1a9273) (NativeFormatImporter) -> (Import Result ID: '1909cb9b5cb8718ce5ef6e0248211ec6') in 0.002750739 seconds [static dependencies only]. Details - ImportResultOutputID=336fb8545616bdf239b04dbeb275bb9c DependenciesID=90d160b31a9915236968dbd0d07829cd StaticDependenciesID=8f2be7d046b8ee7b013f3a2ce70fafe4 
+Asset Pipeline Refresh (id=2f3ce04eefb80d95285c4d9ea0fe243c): Total: 0.032 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/TaggedCone.asset using Guid(4a26a00aa48239bfb9c676b76940a3d1) (NativeFormatImporter) -> (Import Result ID: 'c4e90dfd1dc095a0ea98e1d817c0b12f') in 0.003876153 seconds [static dependencies only]. Details - ImportResultOutputID=ea211884d04e565aa8f04e6be594e0e5 DependenciesID=5ca55cdd7b788815718920382ad64b5a StaticDependenciesID=15fc889a4ff1af9ba11bcd00a6ec6e67 
+Asset Pipeline Refresh (id=1ff1fad5d66181efc95f4803b92c60ea): Total: 0.032 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/WhiteCone.asset using Guid(47066ddab57b8516d8e9483128717ef5) (NativeFormatImporter) -> (Import Result ID: '463235b07d08fdc69c709cf4607ae1e4') in 0.006731062 seconds [static dependencies only]. Details - ImportResultOutputID=0c10840906402598ed44c64fc1b33e87 DependenciesID=823dc13b407da91b27e0547dd52c544d StaticDependenciesID=13cb7f4d0046c59ad50f14f7cbe7c676 
+Asset Pipeline Refresh (id=cbf705499b53de525b0cacf8b7c6260a): Total: 0.028 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+LightingSettings: switching bake backend from 2 to 1.
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Lighting.lighting using Guid(9df9833672d8c7c85879c8c03867b13b) (NativeFormatImporter) -> (Import Result ID: 'c730501daf73b2a3981816e557eb2827') in 0.006478638 seconds [static dependencies only]. Details - ImportResultOutputID=9060e3ee881b0a82b2c98d5ab9b37316 DependenciesID=32dc7b4b701677f1241a67bda91c2358 StaticDependenciesID=4b8830e664770fce24954b24bf638a72 
+Asset Pipeline Refresh (id=35b6eafbe1b2479f6aa4f533ecd1effa): Total: 0.037 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+CS_SPOT_FRAME d1-a0-realtime-tagged
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineFrontSpotControlFinal14/<>c__DisplayClass6_1:<Render>g__Save|2 (string,single,single) (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:28)
+CsMineFrontSpotControlFinal14:Render () (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:35)
+
+(Filename: Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs Line: 28)
+
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene.unity using Guid(ceefe631e4556a9e3a8b1177af2d8113) (DefaultImporter) -> (Import Result ID: 'ea330a06998161bd6443e1f64c499b96') in 0.000991211 seconds [static dependencies only]. Details - ImportResultOutputID=397643a8fdd2eb2520bb9bef69fbaaa7 DependenciesID=202f940cf33dcebd40afdabb1acc50c0 StaticDependenciesID=21e7c013d9e16255ed07b5c5b061e2ba 
+Asset Pipeline Refresh (id=097219505be9a9e84b91b2a8a88a383b): Total: 0.019 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Created GICache directory at /home/agent/.cache/unity3d/GiCache. Took: 0.009s, timestamps: [35.327 - 35.336]
+[00:00:00] Precompute started.
+CS_SPOT_EXTRACTION d1-a0-baked-tagged intensity=65.85876 type=Spot mode=Baked falloff=InverseSquaredNoRangeAttenuation spotFields=entityId=-1460,cookieTextureEntityId=-1462,cookieScale=1,color=UnityEngine.Experimental.GlobalIllumination.LinearColor,indirectColor=UnityEngine.Experimental.GlobalIllumination.LinearColor,orientation=(0.70711, 0.00000, 0.00000, 0.70711),position=(0.00, 0.00, 0.00),range=32,coneAngle=2.181662,innerConeAngle=1.887937,shape0=0.12,shape1=0,type=Spot,mode=Baked,shadow=1,falloff=InverseSquaredNoRangeAttenuation
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineFrontSpotControlFinal14/<>c__DisplayClass6_1:<Render>b__1 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:24)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineFrontSpotControlFinal14:Render () (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:37)
+
+(Filename: Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs Line: 24)
+
+[BakePipeline::Driver] Extracted OOTS snapshot with 1 instances, 1 geometries, 1 meshes, 1 materials, 1 lights, 1 cookies in 23.19ms.
+[BakePipeline::Driver] Transformed OOTS snapshot into LightBaker scene input (0x7fbee0928d70) in 112.20ms. Size: 1.56MB.
+[BakePipeline::PreprocessStage] Background thread started.
+[PathTracer] Finished packing lightmaps in 0.008680 seconds.
+[00:00:01] Finished 1 Layout Systems job (0.04s execute, 0.00s integrate, 0.20s wallclock)
+[BakePipeline::BakeStage] Background thread started. Calling LightBaker.
+[00:00:01] Finished 1 Tetrahedralize Probes job (0.00s execute, 0.00s integrate, 0.01s wallclock)
+[00:00:01] Precompute took 0.213496 seconds.
+Enlighten scene contents:   0 geometries.   0 instances.   0 systems.   0 probe groups.   0 cube maps. Scene is up-to-date.
+[BakePipeline::BakeStage] LightBaker bake took 14295.62ms and succeeded.
+[BakePipeline::PostProcessStage] Started.
+[BakePipeline::Run] Completed succesfully.
+[00:00:15] LightingDataAsset started.
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene using Guid(2dda8ef0a1fcc8bb8b4f407d985811a1) (DefaultImporter) -> (Import Result ID: 'f4d3a1592ef155a04f27358ee92f07b1') in 0.003821088 seconds [static dependencies only]. Details - ImportResultOutputID=81e7a0a386ed1b46488d7b6e8a73dc63 DependenciesID=ef5af9ce5d36f04d08a62cc3f77ed542 StaticDependenciesID=e7b4852819c122313f709924a16be379 
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/Lightmap-0_comp_dir.png using Guid(045f7b49a5266bfbaba1370c8e66cf43) (TextureImporter) -> (Import Result ID: 'e7795116f3737b47d98d63cb90bfd354') in 0.010716249 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=a579df485831969837ea454d4706f0e9 DependenciesID=162ba29e9bcbf098943e89d474761809 StaticDependenciesID=321fe15801d04a5b90c9be93112a4183 
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/Lightmap-0_comp_light.exr using Guid(8f3b1056327b396b38dc4d9d347014cf) (TextureImporter) -> (Import Result ID: '7726aff8c0357010e1b16cb8768d23ae') in 0.005485054 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=977f82124ebddef61b2cf6527a191517 DependenciesID=880b3a318b39036a115a02a41ea4db15 StaticDependenciesID=a588d61e6bc63a32dd33b3c806eab419 
+Asset Pipeline Refresh (id=2c88acf13dd92631f83fc9b4277108c9): Total: 0.055 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/Lightmap-0_comp_dir.png using Guid(045f7b49a5266bfbaba1370c8e66cf43) (TextureImporter) -> (Import Result ID: '30645d73e71e3c094f3a9ffff4c312fb') in 0.00185362 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=f06dd1416391d5d1fdcc559608f80fb7 DependenciesID=815797168c6b45b70112881e31adc9f4 StaticDependenciesID=14f22d167fa468283242959ed6813ece 
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/Lightmap-0_comp_light.exr using Guid(8f3b1056327b396b38dc4d9d347014cf) (TextureImporter) -> (Import Result ID: '50aee1877ac31f5ae5faf845bdaa3f2d') in 0.002396761 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=4c9bc0ddec8dc04a403210a66b98d706 DependenciesID=2dbcbbbffbff96c7e2f2c46286cc2239 StaticDependenciesID=30a8d384ef5d48a348d3ba841bb1b9ba 
+Asset Pipeline Refresh (id=5fcff058bfced6d31b4b4810df04f0dc): Total: 0.016 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=4550260a99220790fbaebdc7aa146ce2): Total: 0.001 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=389ae3e973432d6108ca9f5b4806e29a): Total: 0.001 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+> Collecting Enlighten data
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/LightingData.asset using Guid(90afeb35f9fceda79a47ca32ac4cef44) (NativeFormatImporter) -> (Import Result ID: '01a7026f6a228f733ee7e07344d83f23') in 0.001221139 seconds [static dependencies only]. Details - ImportResultOutputID=f890b5698493efd9603baab5edf15468 DependenciesID=250b388cfdb541ab92e37fe98400a8c6 StaticDependenciesID=c047eecf95d11b80d710f9cfa5d665b7 
+Asset Pipeline Refresh (id=b0e2ccedb0c74a66e9e0c47eb01a0668): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+CS_SPOT_BAKE_CALLBACK_OK d1-a0-baked-tagged calls=1
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineFrontSpotControlFinal14:Render () (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:37)
+
+(Filename: Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs Line: 37)
+
+CS_SPOT_FRAME d1-a0-baked-tagged
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineFrontSpotControlFinal14/<>c__DisplayClass6_1:<Render>g__Save|2 (string,single,single) (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:28)
+CsMineFrontSpotControlFinal14:Render () (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:37)
+
+(Filename: Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs Line: 28)
+
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene.unity using Guid(ceefe631e4556a9e3a8b1177af2d8113) (DefaultImporter) -> (Import Result ID: '5119d3b463b3ce6e2d6c0a1eb21fa5a7') in 0.006796939 seconds [static dependencies only]. Details - ImportResultOutputID=397643a8fdd2eb2520bb9bef69fbaaa7 DependenciesID=54ed1604c25a957bb06f43ba344f5ec0 StaticDependenciesID=3d9829fa67803550ac843d5c2211139d 
+Asset Pipeline Refresh (id=56912efa7c3c05f779be5cf78718edcb): Total: 0.083 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+[00:00:16] Precompute started.
+CS_SPOT_EXTRACTION d1-a0-baked-white intensity=65.85876 type=Spot mode=Baked falloff=InverseSquaredNoRangeAttenuation spotFields=entityId=-1460,cookieTextureEntityId=-1464,cookieScale=1,color=UnityEngine.Experimental.GlobalIllumination.LinearColor,indirectColor=UnityEngine.Experimental.GlobalIllumination.LinearColor,orientation=(0.70711, 0.00000, 0.00000, 0.70711),position=(0.00, 0.00, 0.00),range=32,coneAngle=2.181662,innerConeAngle=1.887937,shape0=0.12,shape1=0,type=Spot,mode=Baked,shadow=1,falloff=InverseSquaredNoRangeAttenuation
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineFrontSpotControlFinal14/<>c__DisplayClass6_1:<Render>b__1 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:24)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineFrontSpotControlFinal14:Render () (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:37)
+
+(Filename: Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs Line: 24)
+
+[BakePipeline::Driver] Extracted OOTS snapshot with 1 instances, 1 geometries, 1 meshes, 1 materials, 1 lights, 1 cookies in 1.76ms.
+[BakePipeline::Driver] Transformed OOTS snapshot into LightBaker scene input (0x7fbee42435a0) in 14.42ms. Size: 1.56MB.
+[BakePipeline::PreprocessStage] Background thread started.
+[00:00:16] Finished 1 Layout Systems job (0.03s execute, 0.00s integrate, 0.04s wallclock)
+[PathTracer] Finished packing lightmaps in 0.001030 seconds.
+[00:00:16] Finished 1 Tetrahedralize Probes job (0.00s execute, 0.00s integrate, 0.01s wallclock)
+[00:00:16] Precompute took 0.045416 seconds.
+Enlighten scene contents:   0 geometries.   0 instances.   0 systems.   0 probe groups.   0 cube maps. Scene is up-to-date.
+[BakePipeline::BakeStage] Background thread started. Calling LightBaker.
+[BakePipeline::BakeStage] LightBaker bake took 10725.56ms and succeeded.
+[BakePipeline::PostProcessStage] Started.
+[BakePipeline::Run] Completed succesfully.
+Asset Pipeline Refresh (id=d8f8fa46ee9759b088f30f58fd6c248a): Total: 0.066 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=8353af55634a618d58a1a32152c03743): Total: 0.030 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/LightingData.asset using Guid(90afeb35f9fceda79a47ca32ac4cef44) (NativeFormatImporter) -> (Import Result ID: 'e7c72649c46c7b9a08f5cc979524022e') in 0.006776197 seconds [static dependencies only]. Details - ImportResultOutputID=74451431532eb6d6304d88f47b8834b0 DependenciesID=767bdc5ebf66101d77c99d7f5bb0d945 StaticDependenciesID=307d7bdff6c3043830a879a6e78b1a23 
+Asset Pipeline Refresh (id=638a20bbb68d4cfcea77fc9025df53d3): Total: 0.022 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=2380f2ed01f6facc887fb0c952512fc2): Total: 0.011 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/Lightmap-0_comp_dir.png using Guid(045f7b49a5266bfbaba1370c8e66cf43) (TextureImporter) -> (Import Result ID: 'e7795116f3737b47d98d63cb90bfd354') in 0.004409864 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=a579df485831969837ea454d4706f0e9 DependenciesID=162ba29e9bcbf098943e89d474761809 StaticDependenciesID=321fe15801d04a5b90c9be93112a4183 
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/Lightmap-0_comp_light.exr using Guid(8f3b1056327b396b38dc4d9d347014cf) (TextureImporter) -> (Import Result ID: '7726aff8c0357010e1b16cb8768d23ae') in 0.01779699 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=977f82124ebddef61b2cf6527a191517 DependenciesID=880b3a318b39036a115a02a41ea4db15 StaticDependenciesID=a588d61e6bc63a32dd33b3c806eab419 
+Asset Pipeline Refresh (id=649da9f1b9a7654f88f01bc5bc7d8f37): Total: 0.050 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/Lightmap-0_comp_dir.png using Guid(045f7b49a5266bfbaba1370c8e66cf43) (TextureImporter) -> (Import Result ID: '30645d73e71e3c094f3a9ffff4c312fb') in 0.001403546 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=f06dd1416391d5d1fdcc559608f80fb7 DependenciesID=815797168c6b45b70112881e31adc9f4 StaticDependenciesID=14f22d167fa468283242959ed6813ece 
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/Lightmap-0_comp_light.exr using Guid(8f3b1056327b396b38dc4d9d347014cf) (TextureImporter) -> (Import Result ID: '50aee1877ac31f5ae5faf845bdaa3f2d') in 0.008718321 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=4c9bc0ddec8dc04a403210a66b98d706 DependenciesID=2dbcbbbffbff96c7e2f2c46286cc2239 StaticDependenciesID=30a8d384ef5d48a348d3ba841bb1b9ba 
+Asset Pipeline Refresh (id=8f5ccde81151dd4ab8824f771d3b6dd9): Total: 0.045 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=a375dbdab91257b51a8425028a4d6393): Total: 0.001 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=330557e7f9fdefc81a99b5e36199741b): Total: 0.002 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+> Collecting Enlighten data
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/LightingData.asset using Guid(90afeb35f9fceda79a47ca32ac4cef44) (NativeFormatImporter) -> (Import Result ID: '01a7026f6a228f733ee7e07344d83f23') in 0.002671288 seconds [static dependencies only]. Details - ImportResultOutputID=f890b5698493efd9603baab5edf15468 DependenciesID=250b388cfdb541ab92e37fe98400a8c6 StaticDependenciesID=c047eecf95d11b80d710f9cfa5d665b7 
+Asset Pipeline Refresh (id=af31964d2f7c77fc8acb1e0a8e9edc92): Total: 0.020 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+CS_SPOT_BAKE_CALLBACK_OK d1-a0-baked-white calls=1
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineFrontSpotControlFinal14:Render () (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:37)
+
+(Filename: Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs Line: 37)
+
+CS_SPOT_FRAME d1-a0-baked-white
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineFrontSpotControlFinal14/<>c__DisplayClass6_1:<Render>g__Save|2 (string,single,single) (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:28)
+CsMineFrontSpotControlFinal14:Render () (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:37)
+
+(Filename: Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs Line: 28)
+
+CS_SPOT_FRAME d2-a0-realtime-tagged
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineFrontSpotControlFinal14/<>c__DisplayClass6_1:<Render>g__Save|2 (string,single,single) (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:28)
+CsMineFrontSpotControlFinal14:Render () (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:35)
+
+(Filename: Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs Line: 28)
+
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene.unity using Guid(ceefe631e4556a9e3a8b1177af2d8113) (DefaultImporter) -> (Import Result ID: 'f740dfcbcce8d9dcb4d7bd4cd58791f8') in 0.008270601 seconds [static dependencies only]. Details - ImportResultOutputID=397643a8fdd2eb2520bb9bef69fbaaa7 DependenciesID=75af3a8e54886ce2d6e71f1085af3010 StaticDependenciesID=01b53744fbfa0aafb8c88950072fc56d 
+Asset Pipeline Refresh (id=a8f2758131affefa392cbc2c17e0c320): Total: 0.034 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+[00:00:27] Precompute started.
+CS_SPOT_EXTRACTION d2-a0-baked-tagged intensity=65.85876 type=Spot mode=Baked falloff=InverseSquaredNoRangeAttenuation spotFields=entityId=-1460,cookieTextureEntityId=-1462,cookieScale=1,color=UnityEngine.Experimental.GlobalIllumination.LinearColor,indirectColor=UnityEngine.Experimental.GlobalIllumination.LinearColor,orientation=(0.70711, 0.00000, 0.00000, 0.70711),position=(0.00, 0.00, 0.00),range=32,coneAngle=2.181662,innerConeAngle=1.887937,shape0=0.12,shape1=0,type=Spot,mode=Baked,shadow=1,falloff=InverseSquaredNoRangeAttenuation
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineFrontSpotControlFinal14/<>c__DisplayClass6_1:<Render>b__1 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:24)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineFrontSpotControlFinal14:Render () (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:37)
+
+(Filename: Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs Line: 24)
+
+[BakePipeline::Driver] Extracted OOTS snapshot with 1 instances, 1 geometries, 1 meshes, 1 materials, 1 lights, 1 cookies in 7.50ms.
+[BakePipeline::Driver] Transformed OOTS snapshot into LightBaker scene input (0x7fbee1f2fb60) in 50.42ms. Size: 1.56MB.
+[BakePipeline::PreprocessStage] Background thread started.
+[00:00:27] Finished 1 Layout Systems job (0.03s execute, 0.00s integrate, 0.09s wallclock)
+[PathTracer] Finished packing lightmaps in 0.004054 seconds.
+[00:00:27] Finished 1 Tetrahedralize Probes job (0.00s execute, 0.00s integrate, 0.01s wallclock)
+[00:00:27] Precompute took 0.100423 seconds.
+Enlighten scene contents:   0 geometries.   0 instances.   0 systems.   0 probe groups.   0 cube maps. Scene is up-to-date.
+[BakePipeline::BakeStage] Background thread started. Calling LightBaker.
+TrimDiskCacheJob: Current cache size 69mb
+[BakePipeline::BakeStage] LightBaker bake took 15245.42ms and succeeded.
+[BakePipeline::PostProcessStage] Started.
+[BakePipeline::Run] Completed succesfully.
+Asset Pipeline Refresh (id=a8ac99c84fbb21ee28a3d2d9bb707a87): Total: 0.022 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=96e60ed86e7bbb83e9e8ba731311d6aa): Total: 0.010 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/LightingData.asset using Guid(90afeb35f9fceda79a47ca32ac4cef44) (NativeFormatImporter) -> (Import Result ID: 'e7c72649c46c7b9a08f5cc979524022e') in 0.009469915 seconds [static dependencies only]. Details - ImportResultOutputID=74451431532eb6d6304d88f47b8834b0 DependenciesID=767bdc5ebf66101d77c99d7f5bb0d945 StaticDependenciesID=307d7bdff6c3043830a879a6e78b1a23 
+Asset Pipeline Refresh (id=8dc5eb1afce418b519ff0cb656654a76): Total: 0.023 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=a844d793d95f5088eb3b0029a749b4ad): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/Lightmap-0_comp_dir.png using Guid(045f7b49a5266bfbaba1370c8e66cf43) (TextureImporter) -> (Import Result ID: 'e7795116f3737b47d98d63cb90bfd354') in 0.005164934 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=a579df485831969837ea454d4706f0e9 DependenciesID=162ba29e9bcbf098943e89d474761809 StaticDependenciesID=321fe15801d04a5b90c9be93112a4183 
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/Lightmap-0_comp_light.exr using Guid(8f3b1056327b396b38dc4d9d347014cf) (TextureImporter) -> (Import Result ID: '7726aff8c0357010e1b16cb8768d23ae') in 0.020924752 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=977f82124ebddef61b2cf6527a191517 DependenciesID=880b3a318b39036a115a02a41ea4db15 StaticDependenciesID=a588d61e6bc63a32dd33b3c806eab419 
+Asset Pipeline Refresh (id=5ce7878b001cadd6ebcdae97b1e6f1e9): Total: 0.193 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/Lightmap-0_comp_dir.png using Guid(045f7b49a5266bfbaba1370c8e66cf43) (TextureImporter) -> (Import Result ID: 'bf54bcf9cce208e2fae56c491b174146') in 0.033218779 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=8723bf4ca384a562c59125771febae38 DependenciesID=7fa55e28c03cefafc7505c17f2457218 StaticDependenciesID=4b9c27f65d8c8ae040d9e5cfc5c80a34 
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/Lightmap-0_comp_light.exr using Guid(8f3b1056327b396b38dc4d9d347014cf) (TextureImporter) -> (Import Result ID: '04d7b7fd44bccb1058149433aafdc0e1') in 0.01029887 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=188bd48468a6fef3001fcb1f1040cbd6 DependenciesID=00c62369d430d5708f85226c4c8290eb StaticDependenciesID=7b504f99c09177731b153d588a73e047 
+Asset Pipeline Refresh (id=efe55f27b09c5893f9528071c9388d78): Total: 0.105 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=6432ddb1e7ccca231be7877c20886bf3): Total: 0.003 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=1ab538dc351b81997bfd79d9fd2aae61): Total: 0.001 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+> Collecting Enlighten data
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/LightingData.asset using Guid(90afeb35f9fceda79a47ca32ac4cef44) (NativeFormatImporter) -> (Import Result ID: '532360c0db82b6ef185d6701c03982fa') in 0.001191112 seconds [static dependencies only]. Details - ImportResultOutputID=f890b5698493efd9603baab5edf15468 DependenciesID=871e52a3d9bfc8b325be980d048a112d StaticDependenciesID=8593928935ebe6bdac449a90417b9748 
+Asset Pipeline Refresh (id=9c15f2b498245d6d1b52252826e798b9): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+CS_SPOT_BAKE_CALLBACK_OK d2-a0-baked-tagged calls=1
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineFrontSpotControlFinal14:Render () (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:37)
+
+(Filename: Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs Line: 37)
+
+CS_SPOT_FRAME d2-a0-baked-tagged
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineFrontSpotControlFinal14/<>c__DisplayClass6_1:<Render>g__Save|2 (string,single,single) (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:28)
+CsMineFrontSpotControlFinal14:Render () (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:37)
+
+(Filename: Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs Line: 28)
+
+CS_SPOT_FRAME d4-a0-realtime-tagged
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineFrontSpotControlFinal14/<>c__DisplayClass6_1:<Render>g__Save|2 (string,single,single) (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:28)
+CsMineFrontSpotControlFinal14:Render () (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:35)
+
+(Filename: Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs Line: 28)
+
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene.unity using Guid(ceefe631e4556a9e3a8b1177af2d8113) (DefaultImporter) -> (Import Result ID: '8520cffdf24db55c99622537fffb3ba1') in 0.003274528 seconds [static dependencies only]. Details - ImportResultOutputID=397643a8fdd2eb2520bb9bef69fbaaa7 DependenciesID=4999080a97283c0b0364b2bac4032a2d StaticDependenciesID=fb80c9a238d53e0664f4c374e09d6a50 
+Asset Pipeline Refresh (id=ed146c488c69685a19c71efc51a33564): Total: 0.017 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+[00:00:43] Precompute started.
+CS_SPOT_EXTRACTION d4-a0-baked-tagged intensity=65.85876 type=Spot mode=Baked falloff=InverseSquaredNoRangeAttenuation spotFields=entityId=-1460,cookieTextureEntityId=-1462,cookieScale=1,color=UnityEngine.Experimental.GlobalIllumination.LinearColor,indirectColor=UnityEngine.Experimental.GlobalIllumination.LinearColor,orientation=(0.70711, 0.00000, 0.00000, 0.70711),position=(0.00, 0.00, 0.00),range=32,coneAngle=2.181662,innerConeAngle=1.887937,shape0=0.12,shape1=0,type=Spot,mode=Baked,shadow=1,falloff=InverseSquaredNoRangeAttenuation
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineFrontSpotControlFinal14/<>c__DisplayClass6_1:<Render>b__1 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:24)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineFrontSpotControlFinal14:Render () (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:37)
+
+(Filename: Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs Line: 24)
+
+[BakePipeline::Driver] Extracted OOTS snapshot with 1 instances, 1 geometries, 1 meshes, 1 materials, 1 lights, 1 cookies in 9.30ms.
+[BakePipeline::Driver] Transformed OOTS snapshot into LightBaker scene input (0x7fbee1f4f130) in 101.74ms. Size: 1.56MB.
+[BakePipeline::PreprocessStage] Background thread started.
+[00:00:43] Finished 1 Layout Systems job (0.14s execute, 0.00s integrate, 0.16s wallclock)
+[PathTracer] Finished packing lightmaps in 0.002448 seconds.
+[00:00:43] Finished 1 Tetrahedralize Probes job (0.00s execute, 0.00s integrate, 0.01s wallclock)
+[00:00:43] Precompute took 0.172069 seconds.
+Enlighten scene contents:   0 geometries.   0 instances.   0 systems.   0 probe groups.   0 cube maps. Scene is up-to-date.
+[BakePipeline::BakeStage] Background thread started. Calling LightBaker.
+[BakePipeline::BakeStage] LightBaker bake took 7528.39ms and succeeded.
+[BakePipeline::PostProcessStage] Started.
+[BakePipeline::Run] Completed succesfully.
+Asset Pipeline Refresh (id=3be7555717129b45e95d2c8a1ec6546c): Total: 0.012 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=8205267155127033eafc65b2b0b4054a): Total: 0.010 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/LightingData.asset using Guid(90afeb35f9fceda79a47ca32ac4cef44) (NativeFormatImporter) -> (Import Result ID: 'e7c72649c46c7b9a08f5cc979524022e') in 0.001818593 seconds [static dependencies only]. Details - ImportResultOutputID=74451431532eb6d6304d88f47b8834b0 DependenciesID=767bdc5ebf66101d77c99d7f5bb0d945 StaticDependenciesID=307d7bdff6c3043830a879a6e78b1a23 
+Asset Pipeline Refresh (id=4325d559afa72e4458e2be0636b825e0): Total: 0.011 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=34b2b8c5ecc620b568c7af1ea8aa0cb0): Total: 0.006 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/Lightmap-0_comp_dir.png using Guid(045f7b49a5266bfbaba1370c8e66cf43) (TextureImporter) -> (Import Result ID: 'e7795116f3737b47d98d63cb90bfd354') in 0.001911818 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=a579df485831969837ea454d4706f0e9 DependenciesID=162ba29e9bcbf098943e89d474761809 StaticDependenciesID=321fe15801d04a5b90c9be93112a4183 
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/Lightmap-0_comp_light.exr using Guid(8f3b1056327b396b38dc4d9d347014cf) (TextureImporter) -> (Import Result ID: '7726aff8c0357010e1b16cb8768d23ae') in 0.004999691 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=977f82124ebddef61b2cf6527a191517 DependenciesID=880b3a318b39036a115a02a41ea4db15 StaticDependenciesID=a588d61e6bc63a32dd33b3c806eab419 
+Asset Pipeline Refresh (id=7600e76da9605415bbaf2d6aa65750c8): Total: 0.017 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/Lightmap-0_comp_dir.png using Guid(045f7b49a5266bfbaba1370c8e66cf43) (TextureImporter) -> (Import Result ID: '99b6c9004c0403b1bda9643edad6d409') in 0.001515589 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=36fde3821c32fcd85b1aeb8e8fc15f42 DependenciesID=17e1b564741dc81cf24627e9c49fd3ef StaticDependenciesID=a52debc266d0a0fd396e9577fbe908ee 
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/Lightmap-0_comp_light.exr using Guid(8f3b1056327b396b38dc4d9d347014cf) (TextureImporter) -> (Import Result ID: '4bbe9907b123fbc4f6ed28ebac5c2f06') in 0.001830457 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=2cf16edc19c6a94511ed6b416e61a02d DependenciesID=6a2357d219f6faf26563523def288be3 StaticDependenciesID=5849084d9c7a48518be4c5e1a75e9ee3 
+Asset Pipeline Refresh (id=86812c938f2d3e6659d3595074c5932a): Total: 0.015 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=21115c3d1b8754efbbcd421e9e383555): Total: 0.001 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=0d545eead4020bb748ce0bcb0fc75357): Total: 0.009 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+> Collecting Enlighten data
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/LightingData.asset using Guid(90afeb35f9fceda79a47ca32ac4cef44) (NativeFormatImporter) -> (Import Result ID: 'edbe467f9a4fd9e2a96f517f38fe12fa') in 0.000915066 seconds [static dependencies only]. Details - ImportResultOutputID=f890b5698493efd9603baab5edf15468 DependenciesID=91d3afd893670453fdff59265a0249ce StaticDependenciesID=da854df7e1685901d8d8065af0dd5f76 
+Asset Pipeline Refresh (id=326869b91c13805179ebd25d3a42e846): Total: 0.019 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+CS_SPOT_BAKE_CALLBACK_OK d4-a0-baked-tagged calls=1
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineFrontSpotControlFinal14:Render () (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:37)
+
+(Filename: Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs Line: 37)
+
+CS_SPOT_FRAME d4-a0-baked-tagged
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineFrontSpotControlFinal14/<>c__DisplayClass6_1:<Render>g__Save|2 (string,single,single) (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:28)
+CsMineFrontSpotControlFinal14:Render () (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:37)
+
+(Filename: Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs Line: 28)
+
+CS_SPOT_FRAME d4-a30-realtime-tagged
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineFrontSpotControlFinal14/<>c__DisplayClass6_1:<Render>g__Save|2 (string,single,single) (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:28)
+CsMineFrontSpotControlFinal14:Render () (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:35)
+
+(Filename: Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs Line: 28)
+
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene.unity using Guid(ceefe631e4556a9e3a8b1177af2d8113) (DefaultImporter) -> (Import Result ID: '104ef3f46b42e3a8df4f311a608382f3') in 0.003081521 seconds [static dependencies only]. Details - ImportResultOutputID=397643a8fdd2eb2520bb9bef69fbaaa7 DependenciesID=12aaefabb1ab8dd154a578a50d9b9fcf StaticDependenciesID=810adbd516a41eda473243ccfd2744c4 
+Asset Pipeline Refresh (id=58ea1e9c6a2bd7078a2b387fd3267fdc): Total: 0.020 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+[00:00:51] Precompute started.
+CS_SPOT_EXTRACTION d4-a30-baked-tagged intensity=65.85876 type=Spot mode=Baked falloff=InverseSquaredNoRangeAttenuation spotFields=entityId=-1460,cookieTextureEntityId=-1462,cookieScale=1,color=UnityEngine.Experimental.GlobalIllumination.LinearColor,indirectColor=UnityEngine.Experimental.GlobalIllumination.LinearColor,orientation=(0.70711, 0.00000, 0.00000, 0.70711),position=(0.00, 0.00, 0.00),range=32,coneAngle=2.181662,innerConeAngle=1.887937,shape0=0.12,shape1=0,type=Spot,mode=Baked,shadow=1,falloff=InverseSquaredNoRangeAttenuation
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineFrontSpotControlFinal14/<>c__DisplayClass6_1:<Render>b__1 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:24)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineFrontSpotControlFinal14:Render () (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:37)
+
+(Filename: Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs Line: 24)
+
+[BakePipeline::Driver] Extracted OOTS snapshot with 1 instances, 1 geometries, 1 meshes, 1 materials, 1 lights, 1 cookies in 1.42ms.
+[BakePipeline::Driver] Transformed OOTS snapshot into LightBaker scene input (0x7fbee1f7e030) in 10.96ms. Size: 1.56MB.
+[BakePipeline::PreprocessStage] Background thread started.
+[PathTracer] Finished packing lightmaps in 0.004915 seconds.
+[BakePipeline::BakeStage] Background thread started. Calling LightBaker.
+[00:00:51] Finished 1 Layout Systems job (0.05s execute, 0.00s integrate, 0.05s wallclock)
+[00:00:51] Finished 1 Tetrahedralize Probes job (0.00s execute, 0.00s integrate, 0.01s wallclock)
+[00:00:51] Precompute took 0.063173 seconds.
+Enlighten scene contents:   0 geometries.   0 instances.   0 systems.   0 probe groups.   0 cube maps. Scene is up-to-date.
+[BakePipeline::BakeStage] LightBaker bake took 6959.64ms and succeeded.
+[BakePipeline::PostProcessStage] Started.
+[BakePipeline::Run] Completed succesfully.
+Asset Pipeline Refresh (id=79a5cf6fbb808f3c7924014024280d11): Total: 0.009 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=9670e52760a95a5e5b6b8b3ff19dbdac): Total: 0.009 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/LightingData.asset using Guid(90afeb35f9fceda79a47ca32ac4cef44) (NativeFormatImporter) -> (Import Result ID: 'e7c72649c46c7b9a08f5cc979524022e') in 0.001050551 seconds [static dependencies only]. Details - ImportResultOutputID=74451431532eb6d6304d88f47b8834b0 DependenciesID=767bdc5ebf66101d77c99d7f5bb0d945 StaticDependenciesID=307d7bdff6c3043830a879a6e78b1a23 
+Asset Pipeline Refresh (id=415530d65dfb1ddf1b82a228532f30c6): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=be7f05055e4e02593920e7d2b4cad69a): Total: 0.005 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/Lightmap-0_comp_dir.png using Guid(045f7b49a5266bfbaba1370c8e66cf43) (TextureImporter) -> (Import Result ID: 'e7795116f3737b47d98d63cb90bfd354') in 0.001654235 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=a579df485831969837ea454d4706f0e9 DependenciesID=162ba29e9bcbf098943e89d474761809 StaticDependenciesID=321fe15801d04a5b90c9be93112a4183 
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/Lightmap-0_comp_light.exr using Guid(8f3b1056327b396b38dc4d9d347014cf) (TextureImporter) -> (Import Result ID: '7726aff8c0357010e1b16cb8768d23ae') in 0.003350649 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=977f82124ebddef61b2cf6527a191517 DependenciesID=880b3a318b39036a115a02a41ea4db15 StaticDependenciesID=a588d61e6bc63a32dd33b3c806eab419 
+Asset Pipeline Refresh (id=df443f4279b5039c3b5fa465c9a1c825): Total: 0.015 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/Lightmap-0_comp_dir.png using Guid(045f7b49a5266bfbaba1370c8e66cf43) (TextureImporter) -> (Import Result ID: '07a0a3fc68bb4bb673ed4fb755856a81') in 0.00136724 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=4efdc0466a4d412a3fd81c19db676a59 DependenciesID=4197e14f2d65da35c8409570521a22cb StaticDependenciesID=52f73e8602b5227db9b708a8d476bb6a 
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/Lightmap-0_comp_light.exr using Guid(8f3b1056327b396b38dc4d9d347014cf) (TextureImporter) -> (Import Result ID: 'cc9817965be726517451d6d1810694d4') in 0.001942492 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=0cce46cb04a4ad75bdb7812a487d2e09 DependenciesID=fbffcdefa63e7792defa7a51bfaa0143 StaticDependenciesID=5f7d60c587b81cd081c2199b93666796 
+Asset Pipeline Refresh (id=79552b7f6da3231e0a0135eb37a5d2a4): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=75af8c79e0948b18789747d2d8eda02d): Total: 0.001 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=9dc90c206b553714e94a54fcd85ff3b4): Total: 0.001 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+> Collecting Enlighten data
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/LightingData.asset using Guid(90afeb35f9fceda79a47ca32ac4cef44) (NativeFormatImporter) -> (Import Result ID: 'edbe467f9a4fd9e2a96f517f38fe12fa') in 0.000823948 seconds [static dependencies only]. Details - ImportResultOutputID=f890b5698493efd9603baab5edf15468 DependenciesID=91d3afd893670453fdff59265a0249ce StaticDependenciesID=da854df7e1685901d8d8065af0dd5f76 
+Asset Pipeline Refresh (id=a23f81ee4cc1220e8b8539b979823c50): Total: 0.006 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+CS_SPOT_BAKE_CALLBACK_OK d4-a30-baked-tagged calls=1
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineFrontSpotControlFinal14:Render () (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:37)
+
+(Filename: Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs Line: 37)
+
+CS_SPOT_FRAME d4-a30-baked-tagged
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineFrontSpotControlFinal14/<>c__DisplayClass6_1:<Render>g__Save|2 (string,single,single) (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:28)
+CsMineFrontSpotControlFinal14:Render () (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:37)
+
+(Filename: Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs Line: 28)
+
+CS_SPOT_FRAME d4-a50-realtime-tagged
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineFrontSpotControlFinal14/<>c__DisplayClass6_1:<Render>g__Save|2 (string,single,single) (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:28)
+CsMineFrontSpotControlFinal14:Render () (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:35)
+
+(Filename: Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs Line: 28)
+
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene.unity using Guid(ceefe631e4556a9e3a8b1177af2d8113) (DefaultImporter) -> (Import Result ID: '725662a3b7795118fc2bbad32b5b4cb1') in 0.000971673 seconds [static dependencies only]. Details - ImportResultOutputID=397643a8fdd2eb2520bb9bef69fbaaa7 DependenciesID=05af899ac91ee7c2f9769aa1c512f10b StaticDependenciesID=bfbac3cc7997ebb0acce065483ac0475 
+Asset Pipeline Refresh (id=1970206597f8765809569b741d406c75): Total: 0.008 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+[00:00:58] Precompute started.
+CS_SPOT_EXTRACTION d4-a50-baked-tagged intensity=65.85876 type=Spot mode=Baked falloff=InverseSquaredNoRangeAttenuation spotFields=entityId=-1460,cookieTextureEntityId=-1462,cookieScale=1,color=UnityEngine.Experimental.GlobalIllumination.LinearColor,indirectColor=UnityEngine.Experimental.GlobalIllumination.LinearColor,orientation=(0.70711, 0.00000, 0.00000, 0.70711),position=(0.00, 0.00, 0.00),range=32,coneAngle=2.181662,innerConeAngle=1.887937,shape0=0.12,shape1=0,type=Spot,mode=Baked,shadow=1,falloff=InverseSquaredNoRangeAttenuation
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineFrontSpotControlFinal14/<>c__DisplayClass6_1:<Render>b__1 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:24)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineFrontSpotControlFinal14:Render () (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:37)
+
+(Filename: Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs Line: 24)
+
+[BakePipeline::Driver] Extracted OOTS snapshot with 1 instances, 1 geometries, 1 meshes, 1 materials, 1 lights, 1 cookies in 1.20ms.
+[BakePipeline::Driver] Transformed OOTS snapshot into LightBaker scene input (0x7fbee1f7e030) in 13.18ms. Size: 1.56MB.
+[BakePipeline::PreprocessStage] Background thread started.
+[00:00:58] Finished 1 Layout Systems job (0.04s execute, 0.00s integrate, 0.05s wallclock)
+[PathTracer] Finished packing lightmaps in 0.000728 seconds.
+[00:00:58] Finished 1 Tetrahedralize Probes job (0.00s execute, 0.00s integrate, 0.01s wallclock)
+[00:00:58] Precompute took 0.059254 seconds.
+Enlighten scene contents:   0 geometries.   0 instances.   0 systems.   0 probe groups.   0 cube maps. Scene is up-to-date.
+[BakePipeline::BakeStage] Background thread started. Calling LightBaker.
+[BakePipeline::BakeStage] LightBaker bake took 7373.87ms and succeeded.
+[BakePipeline::PostProcessStage] Started.
+[BakePipeline::Run] Completed succesfully.
+Asset Pipeline Refresh (id=4d7b56ba520a465a89fc4bc34ec9e7de): Total: 0.009 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=3851c29124f1e57c68f15a52c03ad9fd): Total: 0.009 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/LightingData.asset using Guid(90afeb35f9fceda79a47ca32ac4cef44) (NativeFormatImporter) -> (Import Result ID: 'e7c72649c46c7b9a08f5cc979524022e') in 0.001166302 seconds [static dependencies only]. Details - ImportResultOutputID=74451431532eb6d6304d88f47b8834b0 DependenciesID=767bdc5ebf66101d77c99d7f5bb0d945 StaticDependenciesID=307d7bdff6c3043830a879a6e78b1a23 
+Asset Pipeline Refresh (id=fb61097b100992f5eba1031e7bdfbeb8): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=ea3a83adff3cecce79227dc691155b43): Total: 0.006 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/Lightmap-0_comp_dir.png using Guid(045f7b49a5266bfbaba1370c8e66cf43) (TextureImporter) -> (Import Result ID: 'e7795116f3737b47d98d63cb90bfd354') in 0.00187037 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=a579df485831969837ea454d4706f0e9 DependenciesID=162ba29e9bcbf098943e89d474761809 StaticDependenciesID=321fe15801d04a5b90c9be93112a4183 
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/Lightmap-0_comp_light.exr using Guid(8f3b1056327b396b38dc4d9d347014cf) (TextureImporter) -> (Import Result ID: '7726aff8c0357010e1b16cb8768d23ae') in 0.003419808 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=977f82124ebddef61b2cf6527a191517 DependenciesID=880b3a318b39036a115a02a41ea4db15 StaticDependenciesID=a588d61e6bc63a32dd33b3c806eab419 
+Asset Pipeline Refresh (id=5e707aca042d28f339d9fabc7a752ecb): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/Lightmap-0_comp_dir.png using Guid(045f7b49a5266bfbaba1370c8e66cf43) (TextureImporter) -> (Import Result ID: '6cb5bdb8d153efd10a29ffcb82554d63') in 0.001503969 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=fba9220a325cd5659b28750b56ac9250 DependenciesID=c89a0a69d878223332c327012f8073b6 StaticDependenciesID=e52a7f40db49aa9dcc3c8da1033b2521 
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/Lightmap-0_comp_light.exr using Guid(8f3b1056327b396b38dc4d9d347014cf) (TextureImporter) -> (Import Result ID: '13bc323321f041ba766f5aea720b145f') in 0.002203787 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=48dca5b70e45dcb81073e5e855683a08 DependenciesID=427ca79e40bd630e8e2c1e1af8f5f296 StaticDependenciesID=4b161fcdfe66e4bd84543ca817a7e00c 
+Asset Pipeline Refresh (id=034c77cf6909b06a7a211ed3ad312b45): Total: 0.016 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=8a44dd2bc240ae0bfbc558938aa242b6): Total: 0.001 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=06bd48338527fa3d6bcacd0cfefa7ea8): Total: 0.001 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+> Collecting Enlighten data
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/LightingData.asset using Guid(90afeb35f9fceda79a47ca32ac4cef44) (NativeFormatImporter) -> (Import Result ID: 'edbe467f9a4fd9e2a96f517f38fe12fa') in 0.000886652 seconds [static dependencies only]. Details - ImportResultOutputID=f890b5698493efd9603baab5edf15468 DependenciesID=91d3afd893670453fdff59265a0249ce StaticDependenciesID=da854df7e1685901d8d8065af0dd5f76 
+Asset Pipeline Refresh (id=a50da4deea28370ce9a46544fedc1c70): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+CS_SPOT_BAKE_CALLBACK_OK d4-a50-baked-tagged calls=1
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineFrontSpotControlFinal14:Render () (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:37)
+
+(Filename: Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs Line: 37)
+
+CS_SPOT_FRAME d4-a50-baked-tagged
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineFrontSpotControlFinal14/<>c__DisplayClass6_1:<Render>g__Save|2 (string,single,single) (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:28)
+CsMineFrontSpotControlFinal14:Render () (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:37)
+
+(Filename: Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs Line: 28)
+
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene.unity using Guid(ceefe631e4556a9e3a8b1177af2d8113) (DefaultImporter) -> (Import Result ID: '85cfd9bdc89e8f93468fb1c74acf7a97') in 0.000959507 seconds [static dependencies only]. Details - ImportResultOutputID=397643a8fdd2eb2520bb9bef69fbaaa7 DependenciesID=a1e7f030e2f9fc39fda7290b58519591 StaticDependenciesID=cbf5397613f86a6568b12241bd635e10 
+Asset Pipeline Refresh (id=24a671efacb4be0969fb175fb90491ba): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+[00:01:06] Precompute started.
+CS_SPOT_EXTRACTION d4-a50-baked-white intensity=65.85876 type=Spot mode=Baked falloff=InverseSquaredNoRangeAttenuation spotFields=entityId=-1460,cookieTextureEntityId=-1464,cookieScale=1,color=UnityEngine.Experimental.GlobalIllumination.LinearColor,indirectColor=UnityEngine.Experimental.GlobalIllumination.LinearColor,orientation=(0.70711, 0.00000, 0.00000, 0.70711),position=(0.00, 0.00, 0.00),range=32,coneAngle=2.181662,innerConeAngle=1.887937,shape0=0.12,shape1=0,type=Spot,mode=Baked,shadow=1,falloff=InverseSquaredNoRangeAttenuation
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineFrontSpotControlFinal14/<>c__DisplayClass6_1:<Render>b__1 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:24)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineFrontSpotControlFinal14:Render () (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:37)
+
+(Filename: Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs Line: 24)
+
+[BakePipeline::Driver] Extracted OOTS snapshot with 1 instances, 1 geometries, 1 meshes, 1 materials, 1 lights, 1 cookies in 1.23ms.
+[BakePipeline::Driver] Transformed OOTS snapshot into LightBaker scene input (0x7fbee33f0880) in 9.97ms. Size: 1.56MB.
+[BakePipeline::PreprocessStage] Background thread started.
+[00:01:06] Finished 1 Layout Systems job (0.02s execute, 0.00s integrate, 0.02s wallclock)
+[PathTracer] Finished packing lightmaps in 0.000791 seconds.
+[00:01:06] Finished 1 Tetrahedralize Probes job (0.00s execute, 0.00s integrate, 0.01s wallclock)
+[00:01:06] Precompute took 0.033375 seconds.
+Enlighten scene contents:   0 geometries.   0 instances.   0 systems.   0 probe groups.   0 cube maps. Scene is up-to-date.
+[BakePipeline::BakeStage] Background thread started. Calling LightBaker.
+[BakePipeline::BakeStage] LightBaker bake took 8078.95ms and succeeded.
+[BakePipeline::PostProcessStage] Started.
+[BakePipeline::Run] Completed succesfully.
+Asset Pipeline Refresh (id=37b16067e97b7f4d799c6fa7aab3a956): Total: 0.012 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=5e2f4ca1c093cbb4ebd6dd04f0f42866): Total: 0.009 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/LightingData.asset using Guid(90afeb35f9fceda79a47ca32ac4cef44) (NativeFormatImporter) -> (Import Result ID: 'e7c72649c46c7b9a08f5cc979524022e') in 0.001441594 seconds [static dependencies only]. Details - ImportResultOutputID=74451431532eb6d6304d88f47b8834b0 DependenciesID=767bdc5ebf66101d77c99d7f5bb0d945 StaticDependenciesID=307d7bdff6c3043830a879a6e78b1a23 
+Asset Pipeline Refresh (id=9ca668b5a24d88283a9dd44c057b9616): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=36c13e07800e38ced8427c0c589f76cc): Total: 0.006 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/Lightmap-0_comp_dir.png using Guid(045f7b49a5266bfbaba1370c8e66cf43) (TextureImporter) -> (Import Result ID: 'e7795116f3737b47d98d63cb90bfd354') in 0.001896839 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=a579df485831969837ea454d4706f0e9 DependenciesID=162ba29e9bcbf098943e89d474761809 StaticDependenciesID=321fe15801d04a5b90c9be93112a4183 
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/Lightmap-0_comp_light.exr using Guid(8f3b1056327b396b38dc4d9d347014cf) (TextureImporter) -> (Import Result ID: '7726aff8c0357010e1b16cb8768d23ae') in 0.008657022 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=977f82124ebddef61b2cf6527a191517 DependenciesID=880b3a318b39036a115a02a41ea4db15 StaticDependenciesID=a588d61e6bc63a32dd33b3c806eab419 
+Asset Pipeline Refresh (id=caaaac689d4b68f2eb955daa44f229f1): Total: 0.020 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/Lightmap-0_comp_dir.png using Guid(045f7b49a5266bfbaba1370c8e66cf43) (TextureImporter) -> (Import Result ID: '6cb5bdb8d153efd10a29ffcb82554d63') in 0.001523642 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=fba9220a325cd5659b28750b56ac9250 DependenciesID=c89a0a69d878223332c327012f8073b6 StaticDependenciesID=e52a7f40db49aa9dcc3c8da1033b2521 
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/Lightmap-0_comp_light.exr using Guid(8f3b1056327b396b38dc4d9d347014cf) (TextureImporter) -> (Import Result ID: '13bc323321f041ba766f5aea720b145f') in 0.001977365 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=48dca5b70e45dcb81073e5e855683a08 DependenciesID=427ca79e40bd630e8e2c1e1af8f5f296 StaticDependenciesID=4b161fcdfe66e4bd84543ca817a7e00c 
+Asset Pipeline Refresh (id=7e004e7770544de4cb7ff0d4f1f68cd0): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=c980533735041da01bca19efc9c96762): Total: 0.001 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=6210cddf6151f8d72bac80e0315280c9): Total: 0.001 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+> Collecting Enlighten data
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/LightingData.asset using Guid(90afeb35f9fceda79a47ca32ac4cef44) (NativeFormatImporter) -> (Import Result ID: '307d215b8260fce1d399af22ac3faa2a') in 0.000845429 seconds [static dependencies only]. Details - ImportResultOutputID=f890b5698493efd9603baab5edf15468 DependenciesID=012c9a6644e945d68bd6fe318aa6b3fc StaticDependenciesID=2ea2360f733ddf8c7de4382af509eb1d 
+Asset Pipeline Refresh (id=16b0cf653621c286db80f4663a305b9a): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+CS_SPOT_BAKE_CALLBACK_OK d4-a50-baked-white calls=1
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineFrontSpotControlFinal14:Render () (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:37)
+
+(Filename: Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs Line: 37)
+
+CS_SPOT_FRAME d4-a50-baked-white
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineFrontSpotControlFinal14/<>c__DisplayClass6_1:<Render>g__Save|2 (string,single,single) (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:28)
+CsMineFrontSpotControlFinal14:Render () (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:37)
+
+(Filename: Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs Line: 28)
+
+CS_SPOT_FRAME d4-a60-realtime-tagged
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineFrontSpotControlFinal14/<>c__DisplayClass6_1:<Render>g__Save|2 (string,single,single) (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:28)
+CsMineFrontSpotControlFinal14:Render () (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:35)
+
+(Filename: Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs Line: 28)
+
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene.unity using Guid(ceefe631e4556a9e3a8b1177af2d8113) (DefaultImporter) -> (Import Result ID: 'c4faa47ea12b0a71221ddd5e73d171d6') in 0.001085081 seconds [static dependencies only]. Details - ImportResultOutputID=397643a8fdd2eb2520bb9bef69fbaaa7 DependenciesID=03d2a3692f2d5b1439e9dbd7228759e6 StaticDependenciesID=9ff0a00c6f8babc04af02f7f207622e3 
+Asset Pipeline Refresh (id=25c81e0a83f4fcbacbdacf3064b59c9f): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+[00:01:14] Precompute started.
+CS_SPOT_EXTRACTION d4-a60-baked-tagged intensity=65.85876 type=Spot mode=Baked falloff=InverseSquaredNoRangeAttenuation spotFields=entityId=-1460,cookieTextureEntityId=-1462,cookieScale=1,color=UnityEngine.Experimental.GlobalIllumination.LinearColor,indirectColor=UnityEngine.Experimental.GlobalIllumination.LinearColor,orientation=(0.70711, 0.00000, 0.00000, 0.70711),position=(0.00, 0.00, 0.00),range=32,coneAngle=2.181662,innerConeAngle=1.887937,shape0=0.12,shape1=0,type=Spot,mode=Baked,shadow=1,falloff=InverseSquaredNoRangeAttenuation
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineFrontSpotControlFinal14/<>c__DisplayClass6_1:<Render>b__1 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:24)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineFrontSpotControlFinal14:Render () (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:37)
+
+(Filename: Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs Line: 24)
+
+[BakePipeline::Driver] Extracted OOTS snapshot with 1 instances, 1 geometries, 1 meshes, 1 materials, 1 lights, 1 cookies in 1.62ms.
+[BakePipeline::Driver] Transformed OOTS snapshot into LightBaker scene input (0x7fbee1f7e030) in 12.41ms. Size: 1.56MB.
+[BakePipeline::PreprocessStage] Background thread started.
+[PathTracer] Finished packing lightmaps in 0.000991 seconds.
+[00:01:14] Finished 1 Layout Systems job (0.03s execute, 0.00s integrate, 0.04s wallclock)
+[BakePipeline::BakeStage] Background thread started. Calling LightBaker.
+[00:01:14] Finished 1 Tetrahedralize Probes job (0.00s execute, 0.00s integrate, 0.01s wallclock)
+[00:01:14] Precompute took 0.047943 seconds.
+Enlighten scene contents:   0 geometries.   0 instances.   0 systems.   0 probe groups.   0 cube maps. Scene is up-to-date.
+[BakePipeline::BakeStage] LightBaker bake took 6838.65ms and succeeded.
+[BakePipeline::PostProcessStage] Started.
+[BakePipeline::Run] Completed succesfully.
+Asset Pipeline Refresh (id=c29572390ae7ae11aa5ebd0515ebd5f0): Total: 0.009 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=47e8f5cf0c6b9202c81cf99826ada4ea): Total: 0.009 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/LightingData.asset using Guid(90afeb35f9fceda79a47ca32ac4cef44) (NativeFormatImporter) -> (Import Result ID: 'e7c72649c46c7b9a08f5cc979524022e') in 0.001161051 seconds [static dependencies only]. Details - ImportResultOutputID=74451431532eb6d6304d88f47b8834b0 DependenciesID=767bdc5ebf66101d77c99d7f5bb0d945 StaticDependenciesID=307d7bdff6c3043830a879a6e78b1a23 
+Asset Pipeline Refresh (id=60fd584643e20e9fabb5d440d73b008a): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=32fadc7111e598deebb88a9108075e83): Total: 0.005 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/Lightmap-0_comp_dir.png using Guid(045f7b49a5266bfbaba1370c8e66cf43) (TextureImporter) -> (Import Result ID: 'e7795116f3737b47d98d63cb90bfd354') in 0.001812806 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=a579df485831969837ea454d4706f0e9 DependenciesID=162ba29e9bcbf098943e89d474761809 StaticDependenciesID=321fe15801d04a5b90c9be93112a4183 
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/Lightmap-0_comp_light.exr using Guid(8f3b1056327b396b38dc4d9d347014cf) (TextureImporter) -> (Import Result ID: '7726aff8c0357010e1b16cb8768d23ae') in 0.004239465 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=977f82124ebddef61b2cf6527a191517 DependenciesID=880b3a318b39036a115a02a41ea4db15 StaticDependenciesID=a588d61e6bc63a32dd33b3c806eab419 
+Asset Pipeline Refresh (id=31fefb2bd431d99f4858d9bb8208b5a7): Total: 0.015 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/Lightmap-0_comp_dir.png using Guid(045f7b49a5266bfbaba1370c8e66cf43) (TextureImporter) -> (Import Result ID: '8cc77b2a495698b27352feb0f276aeab') in 0.001562965 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=092e01de1a64d130f1599910c27523eb DependenciesID=de1362162915d1269d9b14d6d8f8ad3b StaticDependenciesID=ad8a0ef104e61a14cbf7b145373eb2dc 
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/Lightmap-0_comp_light.exr using Guid(8f3b1056327b396b38dc4d9d347014cf) (TextureImporter) -> (Import Result ID: 'abf868008c62a303b658128288a966f7') in 0.00189596 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=a8eed900e4ab667f4fe44710edbcf267 DependenciesID=8c60aec090d223a8254a2a8f3139a434 StaticDependenciesID=b397c4c22290db1c0e0d4374aa8ada7e 
+Asset Pipeline Refresh (id=26eb138ccc0832c2ca968339ae3afd2f): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=d0e604e04b2f30b9484197ca9c1e65f5): Total: 0.001 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=82cdb6253821976dcb5e4c2b442047a5): Total: 0.001 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+> Collecting Enlighten data
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/LightingData.asset using Guid(90afeb35f9fceda79a47ca32ac4cef44) (NativeFormatImporter) -> (Import Result ID: 'c6a5162a38c970ef491a40a9a7c445a4') in 0.000865321 seconds [static dependencies only]. Details - ImportResultOutputID=f890b5698493efd9603baab5edf15468 DependenciesID=347b7305a0cb74e95dfc61d994d71b21 StaticDependenciesID=ca4643588d8a5c2d5108fd0b4d4fc56a 
+Asset Pipeline Refresh (id=9cca9a34256a57af49386b5964633433): Total: 0.006 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+CS_SPOT_BAKE_CALLBACK_OK d4-a60-baked-tagged calls=1
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineFrontSpotControlFinal14:Render () (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:37)
+
+(Filename: Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs Line: 37)
+
+CS_SPOT_FRAME d4-a60-baked-tagged
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineFrontSpotControlFinal14/<>c__DisplayClass6_1:<Render>g__Save|2 (string,single,single) (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:28)
+CsMineFrontSpotControlFinal14:Render () (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:37)
+
+(Filename: Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs Line: 28)
+
+CS_SPOT_FRAME d4-a65-realtime-tagged
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineFrontSpotControlFinal14/<>c__DisplayClass6_1:<Render>g__Save|2 (string,single,single) (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:28)
+CsMineFrontSpotControlFinal14:Render () (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:35)
+
+(Filename: Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs Line: 28)
+
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene.unity using Guid(ceefe631e4556a9e3a8b1177af2d8113) (DefaultImporter) -> (Import Result ID: 'cf536ebc557719f3babceaaf5c898d8d') in 0.001075137 seconds [static dependencies only]. Details - ImportResultOutputID=397643a8fdd2eb2520bb9bef69fbaaa7 DependenciesID=59c2d33be301d11422ce20b1338e703b StaticDependenciesID=19efee7ad53d0da00557d1d32bab3f43 
+Asset Pipeline Refresh (id=87675a0474c33611ba977408d5b6465b): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+[00:01:21] Precompute started.
+CS_SPOT_EXTRACTION d4-a65-baked-tagged intensity=65.85876 type=Spot mode=Baked falloff=InverseSquaredNoRangeAttenuation spotFields=entityId=-1460,cookieTextureEntityId=-1462,cookieScale=1,color=UnityEngine.Experimental.GlobalIllumination.LinearColor,indirectColor=UnityEngine.Experimental.GlobalIllumination.LinearColor,orientation=(0.70711, 0.00000, 0.00000, 0.70711),position=(0.00, 0.00, 0.00),range=32,coneAngle=2.181662,innerConeAngle=1.887937,shape0=0.12,shape1=0,type=Spot,mode=Baked,shadow=1,falloff=InverseSquaredNoRangeAttenuation
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineFrontSpotControlFinal14/<>c__DisplayClass6_1:<Render>b__1 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:24)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineFrontSpotControlFinal14:Render () (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:37)
+
+(Filename: Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs Line: 24)
+
+[BakePipeline::Driver] Extracted OOTS snapshot with 1 instances, 1 geometries, 1 meshes, 1 materials, 1 lights, 1 cookies in 1.25ms.
+[BakePipeline::Driver] Transformed OOTS snapshot into LightBaker scene input (0x7fbee48ed530) in 9.52ms. Size: 1.56MB.
+[BakePipeline::PreprocessStage] Background thread started.
+[00:01:21] Finished 1 Layout Systems job (0.03s execute, 0.00s integrate, 0.03s wallclock)
+[PathTracer] Finished packing lightmaps in 0.000662 seconds.
+[00:01:21] Finished 1 Tetrahedralize Probes job (0.00s execute, 0.00s integrate, 0.01s wallclock)
+[00:01:21] Precompute took 0.041863 seconds.
+Enlighten scene contents:   0 geometries.   0 instances.   0 systems.   0 probe groups.   0 cube maps. Scene is up-to-date.
+[BakePipeline::BakeStage] Background thread started. Calling LightBaker.
+[BakePipeline::BakeStage] LightBaker bake took 8949.24ms and succeeded.
+[BakePipeline::PostProcessStage] Started.
+[BakePipeline::Run] Completed succesfully.
+Asset Pipeline Refresh (id=ea28035db41472caa8536ddd0f6e9dc1): Total: 0.009 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=15d27204a02c42b229c69cc8fa635d41): Total: 0.009 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/LightingData.asset using Guid(90afeb35f9fceda79a47ca32ac4cef44) (NativeFormatImporter) -> (Import Result ID: 'e7c72649c46c7b9a08f5cc979524022e') in 0.001036223 seconds [static dependencies only]. Details - ImportResultOutputID=74451431532eb6d6304d88f47b8834b0 DependenciesID=767bdc5ebf66101d77c99d7f5bb0d945 StaticDependenciesID=307d7bdff6c3043830a879a6e78b1a23 
+Asset Pipeline Refresh (id=bde0bcad666048e5182a8932495176e6): Total: 0.008 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=c9ab7bdca5a5b23398a2a442cead9bb4): Total: 0.006 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/Lightmap-0_comp_dir.png using Guid(045f7b49a5266bfbaba1370c8e66cf43) (TextureImporter) -> (Import Result ID: 'e7795116f3737b47d98d63cb90bfd354') in 0.001863506 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=a579df485831969837ea454d4706f0e9 DependenciesID=162ba29e9bcbf098943e89d474761809 StaticDependenciesID=321fe15801d04a5b90c9be93112a4183 
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/Lightmap-0_comp_light.exr using Guid(8f3b1056327b396b38dc4d9d347014cf) (TextureImporter) -> (Import Result ID: '7726aff8c0357010e1b16cb8768d23ae') in 0.004679819 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=977f82124ebddef61b2cf6527a191517 DependenciesID=880b3a318b39036a115a02a41ea4db15 StaticDependenciesID=a588d61e6bc63a32dd33b3c806eab419 
+Asset Pipeline Refresh (id=0e6de2ec38c5568439e0ed0e81710d39): Total: 0.020 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/Lightmap-0_comp_dir.png using Guid(045f7b49a5266bfbaba1370c8e66cf43) (TextureImporter) -> (Import Result ID: '35455f32d0e9bc6d183fa84d8e68931a') in 0.001448206 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=21867007b54a166e965ec16f770954e1 DependenciesID=d2449731287347b023346c00705e221a StaticDependenciesID=3037093daff829b80c6d4df61fd08803 
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/Lightmap-0_comp_light.exr using Guid(8f3b1056327b396b38dc4d9d347014cf) (TextureImporter) -> (Import Result ID: 'dc5e3f9fca67b255c84e2ab2ddc917ab') in 0.001835946 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=ff9f8af3c326fc2b4957e2a7be5ad938 DependenciesID=b1776168601ce809f36a9629a6a5ea7f StaticDependenciesID=e9aa9fd971c02b043d2d7bca44211de9 
+Asset Pipeline Refresh (id=e6554dbc3a52650dfb0a39e995003820): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=60e22c3a7b5dbf562a58b4e87b89556d): Total: 0.001 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=56e2554653918bfd5b7fa0d030640e77): Total: 0.001 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+> Collecting Enlighten data
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/LightingData.asset using Guid(90afeb35f9fceda79a47ca32ac4cef44) (NativeFormatImporter) -> (Import Result ID: '01a7026f6a228f733ee7e07344d83f23') in 0.000890406 seconds [static dependencies only]. Details - ImportResultOutputID=f890b5698493efd9603baab5edf15468 DependenciesID=250b388cfdb541ab92e37fe98400a8c6 StaticDependenciesID=c047eecf95d11b80d710f9cfa5d665b7 
+Asset Pipeline Refresh (id=81fb553f22084062691cd6e91da9561f): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+CS_SPOT_BAKE_CALLBACK_OK d4-a65-baked-tagged calls=1
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineFrontSpotControlFinal14:Render () (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:37)
+
+(Filename: Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs Line: 37)
+
+CS_SPOT_FRAME d4-a65-baked-tagged
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineFrontSpotControlFinal14/<>c__DisplayClass6_1:<Render>g__Save|2 (string,single,single) (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:28)
+CsMineFrontSpotControlFinal14:Render () (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:37)
+
+(Filename: Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs Line: 28)
+
+CS_SPOT_FRAME d4-a75-realtime-tagged
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineFrontSpotControlFinal14/<>c__DisplayClass6_1:<Render>g__Save|2 (string,single,single) (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:28)
+CsMineFrontSpotControlFinal14:Render () (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:35)
+
+(Filename: Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs Line: 28)
+
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene.unity using Guid(ceefe631e4556a9e3a8b1177af2d8113) (DefaultImporter) -> (Import Result ID: 'bf7eaa300838a472c96a74cdf1a9cbc5') in 0.001037434 seconds [static dependencies only]. Details - ImportResultOutputID=397643a8fdd2eb2520bb9bef69fbaaa7 DependenciesID=1f8abd9073f251e8f3fbaa05bfed3c69 StaticDependenciesID=ec2cf363c97d34c1634daa72c5264a2f 
+Asset Pipeline Refresh (id=31c13dc0c8bcc53a6bfa80fb80dd1554): Total: 0.006 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+[00:01:31] Precompute started.
+CS_SPOT_EXTRACTION d4-a75-baked-tagged intensity=65.85876 type=Spot mode=Baked falloff=InverseSquaredNoRangeAttenuation spotFields=entityId=-1460,cookieTextureEntityId=-1462,cookieScale=1,color=UnityEngine.Experimental.GlobalIllumination.LinearColor,indirectColor=UnityEngine.Experimental.GlobalIllumination.LinearColor,orientation=(0.70711, 0.00000, 0.00000, 0.70711),position=(0.00, 0.00, 0.00),range=32,coneAngle=2.181662,innerConeAngle=1.887937,shape0=0.12,shape1=0,type=Spot,mode=Baked,shadow=1,falloff=InverseSquaredNoRangeAttenuation
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineFrontSpotControlFinal14/<>c__DisplayClass6_1:<Render>b__1 (UnityEngine.Light[],Unity.Collections.NativeArray`1<UnityEngine.Experimental.GlobalIllumination.LightDataGI>) (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:24)
+UnityEngine.Experimental.GlobalIllumination.Lightmapping:RequestLights (UnityEngine.Light[],intptr,int,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle) (at /home/bokken/build/output/unity/unity/Runtime/Export/GI/Lightmapping.cs:747)
+UnityEditor.Lightmapping:Bake () (at /home/bokken/build/output/unity/unity/Editor/Mono/GI/Lightmapping.bindings.cs:261)
+CsMineFrontSpotControlFinal14:Render () (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:37)
+
+(Filename: Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs Line: 24)
+
+[BakePipeline::Driver] Extracted OOTS snapshot with 1 instances, 1 geometries, 1 meshes, 1 materials, 1 lights, 1 cookies in 1.50ms.
+[BakePipeline::Driver] Transformed OOTS snapshot into LightBaker scene input (0x7fbee1f451b0) in 23.56ms. Size: 1.56MB.
+[BakePipeline::PreprocessStage] Background thread started.
+[00:01:31] Finished 1 Layout Systems job (0.02s execute, 0.00s integrate, 0.04s wallclock)
+[PathTracer] Finished packing lightmaps in 0.003152 seconds.
+[00:01:31] Finished 1 Tetrahedralize Probes job (0.00s execute, 0.00s integrate, 0.01s wallclock)
+[00:01:31] Precompute took 0.047754 seconds.
+Enlighten scene contents:   0 geometries.   0 instances.   0 systems.   0 probe groups.   0 cube maps. Scene is up-to-date.
+[BakePipeline::BakeStage] Background thread started. Calling LightBaker.
+[BakePipeline::BakeStage] LightBaker bake took 8560.79ms and succeeded.
+[BakePipeline::PostProcessStage] Started.
+[BakePipeline::Run] Completed succesfully.
+Asset Pipeline Refresh (id=32c022e0925bd66db8a3e977cdc8b0e0): Total: 0.013 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=faedff9d522ad3d32ab983e1d2dd8879): Total: 0.014 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/LightingData.asset using Guid(90afeb35f9fceda79a47ca32ac4cef44) (NativeFormatImporter) -> (Import Result ID: 'e7c72649c46c7b9a08f5cc979524022e') in 0.001673563 seconds [static dependencies only]. Details - ImportResultOutputID=74451431532eb6d6304d88f47b8834b0 DependenciesID=767bdc5ebf66101d77c99d7f5bb0d945 StaticDependenciesID=307d7bdff6c3043830a879a6e78b1a23 
+Asset Pipeline Refresh (id=f1a0040bd09a5395dbba371a03f7610d): Total: 0.007 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=aac82a3895f4ab847a50ee72822b520e): Total: 0.005 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/Lightmap-0_comp_dir.png using Guid(045f7b49a5266bfbaba1370c8e66cf43) (TextureImporter) -> (Import Result ID: 'e7795116f3737b47d98d63cb90bfd354') in 0.001758539 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=a579df485831969837ea454d4706f0e9 DependenciesID=162ba29e9bcbf098943e89d474761809 StaticDependenciesID=321fe15801d04a5b90c9be93112a4183 
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/Lightmap-0_comp_light.exr using Guid(8f3b1056327b396b38dc4d9d347014cf) (TextureImporter) -> (Import Result ID: '7726aff8c0357010e1b16cb8768d23ae') in 0.004253478 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=977f82124ebddef61b2cf6527a191517 DependenciesID=880b3a318b39036a115a02a41ea4db15 StaticDependenciesID=a588d61e6bc63a32dd33b3c806eab419 
+Asset Pipeline Refresh (id=f9ef3cda1eb8d9f34be5ebd711f4f683): Total: 0.016 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/Lightmap-0_comp_dir.png using Guid(045f7b49a5266bfbaba1370c8e66cf43) (TextureImporter) -> (Import Result ID: '35455f32d0e9bc6d183fa84d8e68931a') in 0.001302178 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=21867007b54a166e965ec16f770954e1 DependenciesID=d2449731287347b023346c00705e221a StaticDependenciesID=3037093daff829b80c6d4df61fd08803 
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/Lightmap-0_comp_light.exr using Guid(8f3b1056327b396b38dc4d9d347014cf) (TextureImporter) -> (Import Result ID: 'dc5e3f9fca67b255c84e2ab2ddc917ab') in 0.001524942 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=ff9f8af3c326fc2b4957e2a7be5ad938 DependenciesID=b1776168601ce809f36a9629a6a5ea7f StaticDependenciesID=e9aa9fd971c02b043d2d7bca44211de9 
+Asset Pipeline Refresh (id=a9d043c8db892c52f8f42e572e0bf0fe): Total: 0.012 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=0685d3dabdda88ea6b90284859fa8c41): Total: 0.001 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=43b017354f29c78b4b5f12c222344cd7): Total: 0.001 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+> Collecting Enlighten data
+Start importing Assets/CsFrontSpotControlDiagnostic/Scratch/Scene/LightingData.asset using Guid(90afeb35f9fceda79a47ca32ac4cef44) (NativeFormatImporter) -> (Import Result ID: '7d921ef2cbc1bffda73927d51e9e5c7c') in 0.000829466 seconds [static dependencies only]. Details - ImportResultOutputID=f890b5698493efd9603baab5edf15468 DependenciesID=a1c7c1ea2431f31786c68ffb7cdc871c StaticDependenciesID=cc9046c342a7938cf7c80448de9a9b2f 
+Asset Pipeline Refresh (id=cc4912c2d7a407642bb018e0cfea1488): Total: 0.006 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+CS_SPOT_BAKE_CALLBACK_OK d4-a75-baked-tagged calls=1
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineFrontSpotControlFinal14:Render () (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:37)
+
+(Filename: Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs Line: 37)
+
+CS_SPOT_FRAME d4-a75-baked-tagged
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineFrontSpotControlFinal14/<>c__DisplayClass6_1:<Render>g__Save|2 (string,single,single) (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:28)
+CsMineFrontSpotControlFinal14:Render () (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:37)
+
+(Filename: Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs Line: 28)
+
+CS_ACTUAL_SPOT_CONTROL_OK;8Realtime10Baked; numericfamily only; no mainmap save or visual score
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /home/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:35)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+CsMineFrontSpotControlFinal14:Render () (at Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs:39)
+
+(Filename: Assets/CsFrontSpotControlDiagnostic/CsMineFrontSpotControlFinal14.cs Line: 39)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 12 unused Assets / (5.8 KB). Loaded Objects now: 1091.
+Memory consumption went from 100.0 MB to 100.0 MB.
+Total: 33.919875 ms (FindLiveObjects: 0.076351 ms CreateObjectMapping: 0.010197 ms MarkObjects: 33.587153 ms  DeleteObjects: 0.228398 ms)
+
+Asset Pipeline Refresh (id=4fb12dade8ca750548b8e8b93b7faae1): Total: 0.010 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Batchmode quit successfully invoked - shutting down!
+[Physics::Module] Cleanup current backend.
+[Physics::Module] Id: 0xf2b8ea05
+Input System module state changed to: ShutdownInProgress.
+Input Polling Thread exited.
+Input System module state changed to: Shutdown.
+[Licensing::IpcConnector] LicenseClient-agent-notifications channel disconnected successfully.
+[Licensing::IpcConnector] LicenseClient-agent channel disconnected successfully.
+AcceleratorClientConnectionCallback - disconnected - :0
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...
+Cleanup mono
+CodeReloadManager destroyed
+debugger-agent: Unable to listen on 48
+Exiting batchmode successfully now!
+
+SDL leaked 2 allocations
+Turn on UNITY_SDL_ALLOCATION_TRACKING for detailed information.

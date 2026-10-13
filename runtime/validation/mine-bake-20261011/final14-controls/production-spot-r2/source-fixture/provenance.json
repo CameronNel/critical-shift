@@ -1,0 +1,240 @@
+{
+  "status": "SourceSpotFixtureRenderedAwaitingFiniteAndNativeAudit",
+  "sourceInventorySha256": "874bff14c1e51c5f75c67b8b4d3458a86abe872c8eaab614063f8d870f6aa991",
+  "sourceSnapshotSha256": "255fe337aacd602e81bd2940be7bf2a1da2541954f6c8446c8a06f5aae413b72",
+  "helperSha256": "465da68c62199a39640131d2ee9bf48f0a71285d8e8c42c3bc69942cb9deb8e2",
+  "blenderVersion": "5.2.2 LTS",
+  "sourceParameters": {
+    "name": "LIGHT_pole_1",
+    "power": 2600.0,
+    "color": [
+      1.0,
+      0.9200000166893005,
+      0.7799999713897705
+    ],
+    "radius": 0.11999999731779099,
+    "spotSizeRadians": 2.181661605834961,
+    "spotBlend": 0.800000011920929,
+    "normalize": true,
+    "isSphere": true,
+    "worldMatrix": [
+      [
+        -3.4445044150288595e-08,
+        1.0,
+        2.6911420647479645e-08,
+        -34.0
+      ],
+      [
+        -0.7880107164382935,
+        -4.371138828673793e-08,
+        0.6156615018844604,
+        -67.5999984741211
+      ],
+      [
+        0.6156615018844604,
+        0.0,
+        0.7880107164382935,
+        6.119999885559082
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "worldPosition": [
+      -34.0,
+      -67.5999984741211,
+      6.119999885559082
+    ],
+    "worldForward": [
+      -2.6911420647479645e-08,
+      -0.6156615018844604,
+      -0.7880107164382935
+    ],
+    "hideRender": false,
+    "visibleShadow": true
+  },
+  "samples": 512,
+  "resolution": [
+    64,
+    64
+  ],
+  "seed": 28361,
+  "frames": [
+    {
+      "name": "d1-a0",
+      "distance": 1,
+      "angleDegrees": 0,
+      "receiverPosition": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "receiverNormal": [
+        -0.0,
+        -0.0,
+        1.0
+      ],
+      "cameraPosition": [
+        0.0,
+        0.0,
+        -0.699999988079071
+      ],
+      "sha256": "e1f1a32c0b4e996168716f8a5849ea39add5b3a3334fe82109ccef6506cf0d0d"
+    },
+    {
+      "name": "d2-a0",
+      "distance": 2,
+      "angleDegrees": 0,
+      "receiverPosition": [
+        0.0,
+        0.0,
+        -2.0
+      ],
+      "receiverNormal": [
+        -0.0,
+        -0.0,
+        1.0
+      ],
+      "cameraPosition": [
+        0.0,
+        0.0,
+        -1.7000000476837158
+      ],
+      "sha256": "bc7815f4d85a078c340316fb69f3f7c2ac19ddf476573c27f1839c61f61c8178"
+    },
+    {
+      "name": "d4-a0",
+      "distance": 4,
+      "angleDegrees": 0,
+      "receiverPosition": [
+        0.0,
+        0.0,
+        -4.0
+      ],
+      "receiverNormal": [
+        -0.0,
+        -0.0,
+        1.0
+      ],
+      "cameraPosition": [
+        0.0,
+        0.0,
+        -3.700000047683716
+      ],
+      "sha256": "684fcb4e168f6652b4fc827235950a66013e0e81b8ca4272a57b21df239b5acc"
+    },
+    {
+      "name": "d4-a30",
+      "distance": 4,
+      "angleDegrees": 30,
+      "receiverPosition": [
+        2.0,
+        0.0,
+        -3.464101552963257
+      ],
+      "receiverNormal": [
+        -0.5,
+        -0.0,
+        0.8660253882408142
+      ],
+      "cameraPosition": [
+        1.850000023841858,
+        0.0,
+        -3.204293966293335
+      ],
+      "sha256": "4e84bedee74bfd4557a321e177be4282bd943fe30862e77d89f2baec1c6dfe64"
+    },
+    {
+      "name": "d4-a50",
+      "distance": 4,
+      "angleDegrees": 50,
+      "receiverPosition": [
+        3.0641777515411377,
+        0.0,
+        -2.571150541305542
+      ],
+      "receiverNormal": [
+        -0.7660444378852844,
+        -0.0,
+        0.6427876353263855
+      ],
+      "cameraPosition": [
+        2.834364414215088,
+        0.0,
+        -2.378314256668091
+      ],
+      "sha256": "7473061c74e1dca33ea19b2f8f0770e2f555e0af8babf5f792468bc2e7b7b3c4"
+    },
+    {
+      "name": "d4-a60",
+      "distance": 4,
+      "angleDegrees": 60,
+      "receiverPosition": [
+        3.464101552963257,
+        0.0,
+        -2.0
+      ],
+      "receiverNormal": [
+        -0.8660253882408142,
+        -0.0,
+        0.5
+      ],
+      "cameraPosition": [
+        3.204293966293335,
+        0.0,
+        -1.850000023841858
+      ],
+      "sha256": "f6653f31990e05ce329f4c8dc4acc53b5dab3bbe4048fcc3e56cb52a75de5a62"
+    },
+    {
+      "name": "d4-a65",
+      "distance": 4,
+      "angleDegrees": 65,
+      "receiverPosition": [
+        3.6252312660217285,
+        0.0,
+        -1.6904730796813965
+      ],
+      "receiverNormal": [
+        -0.9063078165054321,
+        -0.0,
+        0.4226182699203491
+      ],
+      "cameraPosition": [
+        3.3533389568328857,
+        0.0,
+        -1.5636875629425049
+      ],
+      "sha256": "6ae3e9b2d8d11b040883953b12c07b0203b6071c7a5983277a2735e8f55c9b03"
+    },
+    {
+      "name": "d4-a75",
+      "distance": 4,
+      "angleDegrees": 75,
+      "receiverPosition": [
+        3.8637032508850098,
+        0.0,
+        -1.035276174545288
+      ],
+      "receiverNormal": [
+        -0.9659258127212524,
+        -0.0,
+        0.258819043636322
+      ],
+      "cameraPosition": [
+        3.573925495147705,
+        0.0,
+        -0.957630455493927
+      ],
+      "sha256": "44b30530f1f90765653c1e5c162c0d19e9e0e2f1d65a0e0b82f4107f67968fda"
+    }
+  ],
+  "limits": [
+    "Numeric-data normalizedSpot parameterfamily; actual emitter nodes/exposure/temperature not yet certified; no full-map shade/cause/score",
+    "Sphericalradius.12 softens Source cone edge; receiverfaceslamp at each angle",
+    "No canonical/source scene saves"
+  ]
+}

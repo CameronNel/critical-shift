@@ -1,0 +1,34 @@
+{
+  "status": "ClearedBounded18NativeSpotControls_RadiometryAndGIColourAcceptancePending",
+  "helpers": {
+    "/tmp/cs-mine-front-spot-native-final14.py": "2fc4c2ad2f344375528c9b48d248322b296c8f0ee62d4c5da4040784340a54a6",
+    "/tmp/cs-mine-front-spot-control-final14.cs.txt": "691a93523a9275f3e9525bf116c34a0b22f4ea61e80dd08d63ffdaff7fd1f029",
+    "/tmp/cs-mine-front-spot-control-final14.cginc.txt": "71b54115008f90b258d6aa9f2a5cedbea2d6d24d3735fc0bfbc49eb4170efd1c",
+    "/tmp/cs-mine-front-spot-control-final14.shader.txt": "5abf8c93327fb269e461dbdf451cc52d37bf90257e6bf49118c9d6d66046afb8"
+  },
+  "apiReceiptSha256": "5bbc9dc3ccb47a7267db42e984d4480d36190fa24fac9c52ade1e20f52029510",
+  "sourceClosureSha256": "5e902fbc0a5888d447fbd749e22ec1f26f976df3b1de236a25e4157c4ab48c34",
+  "sourceNodeProofSha256": "4ee6e7d00a10e69050db531d4ed319119bfdd70bdd6f2dcef35fd5af08163fbf",
+  "sourceNodeOnAxisRGBAExactlyEqual": true,
+  "sourceNodeMaximumAbsoluteRGBAError": 0,
+  "checked": [
+    "Matched orthographic Lambert receiver XZY geometry and linear source colour setters",
+    "Source cosine smoothstep alpha cookie128 and hard equal inner/outer stock spot cone",
+    "Physical runtime d2+R2, scoped inverseNoRange bake falloff/Soft shape checks",
+    "Per-case callback mode/type/radius assertion and indexed tagged-versus-white logs",
+    "RT explicit index=-1 and no lightmap/probe data; subsequent bake bound valid current index",
+    "Exactly8RT+10Baked HDR/currentmetadata/finite/geometry/positiveaxis/SHA assertions",
+    "Main5prepared files/helper/source fixture bytes pinned; no main scene opened/saved"
+  ],
+  "acceptanceGates": [
+    "Actual shader native compilation",
+    "Independent full18numeric response/colour comparison including tagged-vs-white baking",
+    "Known source finite sphere edge integration residual at60deg retained, not authored-blend tuning",
+    "No collider/blocker fixtures: this is unoccluded radiometry only, no map shadow proof"
+  ],
+  "limits": [
+    "Native callback extraction intensity and frame active colourspace should be logged/verified in output, but static explicit physical intensity/known Linear project are consistent",
+    "No production lighting adapter approval or full-scene grade",
+    "Current oldsixroom full13 rejection41/60; new compact13roommain and Player pending"
+  ]
+}

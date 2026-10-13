@@ -1,0 +1,57 @@
+{
+  "status": "ReadOnlyLatestMainCompactAuthorityAudit_NotRuntimeIntegration",
+  "mainCommit": "342af0003fec9dbe80b5acb40d1477c23b5a3169",
+  "fetchMethod": "GitHub fetch_file exact commit; no git checkout/large binary fetch",
+  "documents": {
+    "build_combined_map.py": "1203989a0d17bfa963587f9f0bbdd7b243d7062b9bfd25259d03328e990acf7c",
+    "build_compact_map.py": "068d07c974ac758d873e9edebb8ed975ca7a90c25009d1354cf5cf61b4e570ff",
+    "COMPACT_MAP.md": "dd458a2397693da96bb2e5d7860592bebf5ae6b91e4d5a06c09f8f71907dfdec",
+    "AGENT_READ_FIRST.md": "234a2dbb353647cf161b385ac700cb27584f502df68d7b661073b90c2a8ee680"
+  },
+  "authority": "COMPACT_MAP.md and build_compact_map.py override superseded build_combined_map spread placement/hall list; output remains combined_map.blend",
+  "compactRoomCount": 13,
+  "existingSixSourceTuplesAndPlacements": "AST exact unchanged",
+  "mine": {
+    "source": "mine-r39/module_r39_aaa.blend",
+    "translation": [
+      -14.4,
+      -41,
+      0
+    ],
+    "yaw": 0,
+    "unchangedFunctions": {
+      "trim_mine_surface": true,
+      "extend_mine_rail": true,
+      "carve_passage": true,
+      "open_portal_cap": true,
+      "clear_yard_for_shed": true
+    },
+    "unchangedConstants": {
+      "SHED": true,
+      "PASSAGE_X": true,
+      "PASSAGE_Y": true,
+      "PASSAGE_Z": true,
+      "YARD_RAIL_CLIPPED": true,
+      "SCENE_LIGHT": true
+    }
+  },
+  "blockers": [
+    "Current runtime prepare_mine still pins old build_combined_map authority and six-room snapshot255fe, not current main compact assembled13rooms",
+    "New compact/imported BM machinery and reactor_links plus new front-end wall cuts/door omissions/halls must be pinned and imported; matching old room placement alone is insufficient",
+    "Turbine AAA is dependency on unmerged claude/turbine-aaa, requires exact commit/file identity, no source fallback",
+    "New full scene lighting/join/collision/gameplay/memory evidence required; old six-room receipts cannot certify13room integration",
+    "Latest agent instructions retain stale source-of-truth/table/not-placed-condenser sentences; compact authority overrides these"
+  ],
+  "unchangedSourceArtAssumptionLimit": "AST source paths same, not independent newmain binary/OID parity check; original source files remain protected",
+  "documentedValidationLimits": [
+    "Owner accepted AAA finishes, independent unreviewed",
+    "Geometry-only halls/rays; capsule/doors/lighting/performance/Unity untested",
+    "Condenser bay z=-6 has no walkable access yet; D01 plated"
+  ],
+  "limits": [
+    "No Blender/Unity launches or repository/source/branch changes",
+    "Text Git blob SHA1 identities independently verified for all4files",
+    "Current art rejection41/60 only old six-room controlled snapshot; no latest-main/98/Player claim"
+  ],
+  "overallScore": null
+}

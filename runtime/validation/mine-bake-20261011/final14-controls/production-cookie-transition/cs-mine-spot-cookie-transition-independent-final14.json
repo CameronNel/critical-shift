@@ -1,0 +1,77 @@
+{
+  "utc": "2026-10-13T00:14:52.326787+00:00",
+  "reviewer": "/root/strict_mine_review",
+  "status": "PassedIndependentFivePhaseTransition_NoFailureReproduced",
+  "stateSha256": "cab1754ec651502515de93c1286ecd73a2bcff56376b9775b395353c9000cf1c",
+  "nativeLogSha256": "844e66698c1656fd48bfc3e20e89b5b3f1331d7343c687bb4d7b815107ab76f9",
+  "pinsVerified": 22,
+  "frames": [
+    {
+      "name": "d4-a0-before-corruption",
+      "hdrSha256": "181c9f681bcc5faf7914282fd243a294c54453be5c5c2f7218f8b27d916bff5d",
+      "metadataSha256": "10fe3691d600aa00047a53e35aee396561ba42a65c1754748da140e0521940ba",
+      "meanCentreRGB": [
+        0.7402291167527437,
+        0.6810108441859484,
+        0.5773786390200257
+      ],
+      "maximumAllPixelAbsDifferenceFromInitial": 0.0,
+      "allRGBBitIdenticalToInitial": true
+    },
+    {
+      "name": "d4-a0-after-production-regeneration",
+      "hdrSha256": "181c9f681bcc5faf7914282fd243a294c54453be5c5c2f7218f8b27d916bff5d",
+      "metadataSha256": "e4a41ddbd3174415056fbe40bf25c4f64131bd709d774a76378b3695beec1910",
+      "meanCentreRGB": [
+        0.7402291167527437,
+        0.6810108441859484,
+        0.5773786390200257
+      ],
+      "maximumAllPixelAbsDifferenceFromInitial": 0.0,
+      "allRGBBitIdenticalToInitial": true
+    },
+    {
+      "name": "d4-a0-after-light-enable-cycle",
+      "hdrSha256": "181c9f681bcc5faf7914282fd243a294c54453be5c5c2f7218f8b27d916bff5d",
+      "metadataSha256": "a18f9e5dc202dffecd8bf4d0a10dbb24fa9aed714521735f47ec2b153c4c67db",
+      "meanCentreRGB": [
+        0.7402291167527437,
+        0.6810108441859484,
+        0.5773786390200257
+      ],
+      "maximumAllPixelAbsDifferenceFromInitial": 0.0,
+      "allRGBBitIdenticalToInitial": true
+    },
+    {
+      "name": "d4-a0-after-cookie-force-import",
+      "hdrSha256": "181c9f681bcc5faf7914282fd243a294c54453be5c5c2f7218f8b27d916bff5d",
+      "metadataSha256": "7a1c462c2ef2860ec0c416fa6e4b1c1de41d2aa7ba2a9dcf8acfbc480841d7c0",
+      "meanCentreRGB": [
+        0.7402291167527437,
+        0.6810108441859484,
+        0.5773786390200257
+      ],
+      "maximumAllPixelAbsDifferenceFromInitial": 0.0,
+      "allRGBBitIdenticalToInitial": true
+    },
+    {
+      "name": "d4-a0-after-fresh-emitter",
+      "hdrSha256": "181c9f681bcc5faf7914282fd243a294c54453be5c5c2f7218f8b27d916bff5d",
+      "metadataSha256": "e6867fcefe466672356efc4945165f8180af34d0118858c2763a8b2f8bbe2383",
+      "meanCentreRGB": [
+        0.7402291167527437,
+        0.6810108441859484,
+        0.5773786390200257
+      ],
+      "maximumAllPixelAbsDifferenceFromInitial": 0.0,
+      "allRGBBitIdenticalToInitial": true
+    }
+  ],
+  "conclusion": "Current actual source cookie corruption/apply/save+Configure delete/recreate path does not reproduce the prior legacy lighting failure. No speculative in-place cookie repair justified.",
+  "nextBoundedGate": "Isolate original preRT Baked mode/manual GI delegate extraction/disposal/Realtime transition against fresh baseline without actual bake.",
+  "limits": [
+    "One source family, one receiver distance/angle, no bake and sequential phases.",
+    "Does not rule out a combined interaction among original manualGI scope, corruption and mode switching.",
+    "Actualproduction20 remains failed; current main13 Generated integration/fullart/Player remains pending."
+  ]
+}

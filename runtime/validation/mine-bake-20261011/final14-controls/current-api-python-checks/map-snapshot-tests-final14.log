@@ -1,0 +1,10 @@
+test_changed_snapshot_or_dependency_rejects (test_map_source_snapshot.MapSnapshotGuardTests.test_changed_snapshot_or_dependency_rejects) ... ok
+test_missing_compact_dependency_rejects_even_with_consistent_receipt (test_map_source_snapshot.MapSnapshotGuardTests.test_missing_compact_dependency_rejects_even_with_consistent_receipt) ... ok
+test_valid_pinned_external_turbine_is_allowed (test_map_source_snapshot.MapSnapshotGuardTests.test_valid_pinned_external_turbine_is_allowed) ... ok
+test_wrong_external_revision_or_blob_rejects (test_map_source_snapshot.MapSnapshotGuardTests.test_wrong_external_revision_or_blob_rejects) ... ok
+test_wrong_map_revision_rejects (test_map_source_snapshot.MapSnapshotGuardTests.test_wrong_map_revision_rejects) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.005s
+
+OK

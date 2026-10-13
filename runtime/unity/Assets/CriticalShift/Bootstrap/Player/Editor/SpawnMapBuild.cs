@@ -17,7 +17,7 @@ namespace CriticalShift.Player.Editor
     [Serializable] public sealed class ExportPose { public float[] position, rotation; }
     [Serializable] public sealed class ExportDoor { public string name, node; public ExportPose closed, opened; }
     [Serializable] public sealed class ExportObject { public string source, node; public bool visible, dynamic, sourceUv, lettering, wallSurface, sourceShadowExcluded; public string[] materials, faceMaterials; public int[] deliveryUvAxes; }
-    [Serializable] public sealed class ExportLight { public float[] position, color, rotation; public float power, size, sizeY, radius, angle; public string name, type; }
+    [Serializable] public sealed class ExportLight { public float[] position, color, rotation; public float power, size, sizeY, radius, angle, spotSize, spotBlend; public bool normalized, softFalloff; public string name, type; }
     [Serializable] public sealed class ExportAnchor { public string name, node; public float[] position; }
     [Serializable] public sealed class ExportRoom
     {
@@ -218,6 +218,8 @@ namespace CriticalShift.Player.Editor
                 {
                     if(room.key=="front-end-area" && contextBindings.Count>0 && sourceLight.type=="SUN")
                         continue; // The scoped context contract supplies its omitted source rotation.
+                    if(room.key=="front-end-area" && contextBindings.Count>0 && sourceLight.type=="SPOT")
+                        continue; // Preserve the complete authored spot contract below.
                     var lamp = new GameObject(sourceLight.name ?? "Room practical"); lamp.transform.SetParent(roomRoot.transform, false);
                     lamp.transform.localPosition = V(sourceLight.position);
                     var light = lamp.AddComponent<Light>(); light.type = LightType.Point; light.range = 12;
@@ -284,6 +286,37 @@ namespace CriticalShift.Player.Editor
                         light.lightmapBakeType=LightmapBakeType.Mixed;light.shadows=LightShadows.Soft;
                         light.shadowBias=.015f;light.shadowNormalBias=.025f;light.renderMode=LightRenderMode.ForcePixel;
                         MineVisualLighting.ConfigureSourceSun(light,sun);
+                    }
+                    if(context.contextSpotLights==null || context.contextSpotLights.Length==0)
+                        throw new InvalidOperationException("Regenerate the mine context's authored spot contract.");
+                    var authoredSpots=room.lights.Where(l=>l.type=="SPOT").ToArray();
+                    if(authoredSpots.Any(s=>string.IsNullOrEmpty(s.name)) ||
+                        authoredSpots.Select(s=>s.name).Distinct().Count()!=authoredSpots.Length ||
+                        context.contextSpotLights.Select(s=>s.name).Distinct().Count()!=context.contextSpotLights.Length ||
+                        !authoredSpots.Select(s=>s.name).OrderBy(s=>s).SequenceEqual(context.contextSpotLights.Select(s=>s.name).OrderBy(s=>s)))
+                        throw new InvalidOperationException("Context spotlight inventory differs from the authored room.");
+                    foreach(var spot in context.contextSpotLights)
+                    {
+                        var original=authoredSpots.Single(s=>s.name==spot.name);
+                        MineSpotLighting.ValidateSource(original);MineSpotLighting.ValidateSource(spot);
+                        if(Vector3.Distance(V(original.position),V(spot.position))>.0001f ||
+                            original.rotation==null || spot.rotation==null || original.rotation.Length!=4 || spot.rotation.Length!=4 ||
+                            original.rotation.Zip(spot.rotation,(a,b)=>Mathf.Abs(a-b)).Any(d=>d>.0001f) ||
+                            original.color.Zip(spot.color,(a,b)=>Mathf.Abs(a-b)).Any(d=>d>.0001f) ||
+                            Mathf.Abs(original.power-spot.power)>.0001f || Mathf.Abs(original.radius-spot.radius)>.00001f ||
+                            Mathf.Abs(original.spotSize-spot.spotSize)>.00001f || Mathf.Abs(original.spotBlend-spot.spotBlend)>.00001f ||
+                            original.type!=spot.type)
+                            throw new InvalidOperationException("Context spotlight does not match its authored room: "+spot.name);
+                        var lamp=new GameObject(spot.name);lamp.transform.SetParent(roomRoot.transform,false);
+                        lamp.transform.localPosition=V(spot.position);
+                        var light=lamp.AddComponent<Light>();light.range=12;
+                        light.color=new Color(spot.color[0],spot.color[1],spot.color[2]).gamma;
+                        light.shapeRadius=spot.radius;light.shadows=LightShadows.Soft;
+                        light.shadowNearPlane=.01f;light.shadowBias=.015f;light.shadowNormalBias=.025f;
+                        light.bounceIntensity=1;light.renderMode=LightRenderMode.ForcePixel;
+                        if(lamp.transform.position.x<=-23 && lamp.transform.position.z>=-99 && lamp.transform.position.z<=-44)
+                            light.lightmapBakeType=LightmapBakeType.Baked;
+                        MineSpotLighting.Configure(light,spot);
                     }
                 }
                 if (room.key == "spawn-room") spawnRoot = roomRoot.transform;

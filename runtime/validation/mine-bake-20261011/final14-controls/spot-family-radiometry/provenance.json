@@ -1,0 +1,340 @@
+{
+  "status": "Passed18NumericSpotControls_ProductionAcceptanceSeparate",
+  "files": [
+    {
+      "file": "source/provenance.json",
+      "bytes": 5329,
+      "sha256": "dc5d854be14eccb0b8bc25baea76c88d4453b3c6cdd4d500919a7d97d5c3d18b"
+    },
+    {
+      "file": "source/d4-a75.exr",
+      "bytes": 1777,
+      "sha256": "44b30530f1f90765653c1e5c162c0d19e9e0e2f1d65a0e0b82f4107f67968fda"
+    },
+    {
+      "file": "source/d4-a65.exr",
+      "bytes": 1777,
+      "sha256": "6ae3e9b2d8d11b040883953b12c07b0203b6071c7a5983277a2735e8f55c9b03"
+    },
+    {
+      "file": "source/d4-a60.exr",
+      "bytes": 50402,
+      "sha256": "f6653f31990e05ce329f4c8dc4acc53b5dab3bbe4048fcc3e56cb52a75de5a62"
+    },
+    {
+      "file": "source/d4-a50.exr",
+      "bytes": 49200,
+      "sha256": "7473061c74e1dca33ea19b2f8f0770e2f555e0af8babf5f792468bc2e7b7b3c4"
+    },
+    {
+      "file": "source/d4-a30.exr",
+      "bytes": 38525,
+      "sha256": "4e84bedee74bfd4557a321e177be4282bd943fe30862e77d89f2baec1c6dfe64"
+    },
+    {
+      "file": "source/d4-a0.exr",
+      "bytes": 31474,
+      "sha256": "684fcb4e168f6652b4fc827235950a66013e0e81b8ca4272a57b21df239b5acc"
+    },
+    {
+      "file": "source/d2-a0.exr",
+      "bytes": 39023,
+      "sha256": "bc7815f4d85a078c340316fb69f3f7c2ac19ddf476573c27f1839c61f61c8178"
+    },
+    {
+      "file": "source/d1-a0.exr",
+      "bytes": 45448,
+      "sha256": "e1f1a32c0b4e996168716f8a5849ea39add5b3a3334fe82109ccef6506cf0d0d"
+    },
+    {
+      "file": "source-neutral-node/provenance.json",
+      "bytes": 2302,
+      "sha256": "4ee6e7d00a10e69050db531d4ed319119bfdd70bdd6f2dcef35fd5af08163fbf"
+    },
+    {
+      "file": "source-neutral-node/d1-a0.exr",
+      "bytes": 45448,
+      "sha256": "2f5524f14c606da6bdda97f2014d3bd8df436deeabe22812213a0e7a4cbd34b6"
+    },
+    {
+      "file": "native/d4-a75-baked-tagged.json",
+      "bytes": 1049,
+      "sha256": "9c31732d51801a5e011d7dd466726eb1b97a137b83b28e485652c18a49a94b61"
+    },
+    {
+      "file": "native/d4-a75-baked-tagged.exr",
+      "bytes": 66891,
+      "sha256": "5e2b39b032158ad6d18af937cbbec3b4de37cb7f04a99ed8ac9d3211f215dec7"
+    },
+    {
+      "file": "native/d4-a75-realtime-tagged.json",
+      "bytes": 1056,
+      "sha256": "b7ab329e2f6dde5b2c4fa0e9b27407d9067a0248be33d6fdfd9a5d6cd58c8457"
+    },
+    {
+      "file": "native/d4-a75-realtime-tagged.exr",
+      "bytes": 66891,
+      "sha256": "57f3cc94fe9b4994c303ea6299c7605dddb33ecc4f00c3ec8b37535827f9633a"
+    },
+    {
+      "file": "native/d4-a65-baked-tagged.json",
+      "bytes": 1052,
+      "sha256": "b8841a557872599dcece5541e03deeb9b4e4c64cd0f548373f68336537c043a5"
+    },
+    {
+      "file": "native/d4-a65-baked-tagged.exr",
+      "bytes": 66891,
+      "sha256": "089262925861e47610cf7d8963cd68478fcb8aec5076f8efca9fdcbbc6269c2b"
+    },
+    {
+      "file": "native/d4-a65-realtime-tagged.json",
+      "bytes": 1059,
+      "sha256": "e378c0d9ebec79c924768784e819ae2b36b746f9bcafe82e846be5a61268d5d1"
+    },
+    {
+      "file": "native/d4-a65-realtime-tagged.exr",
+      "bytes": 66891,
+      "sha256": "57f3cc94fe9b4994c303ea6299c7605dddb33ecc4f00c3ec8b37535827f9633a"
+    },
+    {
+      "file": "native/d4-a60-baked-tagged.json",
+      "bytes": 1047,
+      "sha256": "a28a70811c983ff3a6c037927a882219db84d78fe25d760647fea96520309df8"
+    },
+    {
+      "file": "native/d4-a60-baked-tagged.exr",
+      "bytes": 66891,
+      "sha256": "f2a16f42b1ebcdb9f8b890abe14fe45e9bdae1db7824af275919ce89110b61c9"
+    },
+    {
+      "file": "native/d4-a60-realtime-tagged.json",
+      "bytes": 1054,
+      "sha256": "d50a8d39857cef4d9381c3ecf26c2d82678ac585df1df064cf6462b0702e67d0"
+    },
+    {
+      "file": "native/d4-a60-realtime-tagged.exr",
+      "bytes": 66891,
+      "sha256": "69adf64ca85e193e3f2b9b5040cea30b20b2dbc52b9e93ca07f83fedc54c45cb"
+    },
+    {
+      "file": "native/d4-a50-baked-white.json",
+      "bytes": 1037,
+      "sha256": "03f06f469dbfea08eed7515fcf7ddbc215385d9f9ec5c8b994ef40182009535f"
+    },
+    {
+      "file": "native/d4-a50-baked-white.exr",
+      "bytes": 66891,
+      "sha256": "22e5545543c8a970901ffe08ed2181c31eef3d64450a7b2b9e571518d66774bd"
+    },
+    {
+      "file": "native/d4-a50-baked-tagged.json",
+      "bytes": 1048,
+      "sha256": "c20b1c5839fb1e94e57be22602d737a0e9a5d8042ed337edd200fdca006a4613"
+    },
+    {
+      "file": "native/d4-a50-baked-tagged.exr",
+      "bytes": 66891,
+      "sha256": "22e5545543c8a970901ffe08ed2181c31eef3d64450a7b2b9e571518d66774bd"
+    },
+    {
+      "file": "native/d4-a50-realtime-tagged.json",
+      "bytes": 1055,
+      "sha256": "1ead177051d29e7910451af5ac4e21affc38c2add031d80a0b5e563dcaaadb7d"
+    },
+    {
+      "file": "native/d4-a50-realtime-tagged.exr",
+      "bytes": 66891,
+      "sha256": "2ae3841cedaef8db7416ba5b91f45e3f1b0c9cb749018732d0b896f81a595534"
+    },
+    {
+      "file": "native/d4-a30-baked-tagged.json",
+      "bytes": 1031,
+      "sha256": "8da300d1b3fdb802424c84658e037c07dfc0a156edd1a2833f18562844c91432"
+    },
+    {
+      "file": "native/d4-a30-baked-tagged.exr",
+      "bytes": 66891,
+      "sha256": "5f130ac36b232213491e5811e835a788282f87a102bb0bc21cf8edced93edcac"
+    },
+    {
+      "file": "native/d4-a30-realtime-tagged.json",
+      "bytes": 1038,
+      "sha256": "979ae7bdeeaf2a917e55688aac35f9e71987499e5d336b74c15c6434be551ddf"
+    },
+    {
+      "file": "native/d4-a30-realtime-tagged.exr",
+      "bytes": 66891,
+      "sha256": "ff489a90c70a6c0a32a8450569e62b8469559e49fc9f47809680ad6692adf90b"
+    },
+    {
+      "file": "native/d4-a0-baked-tagged.json",
+      "bytes": 987,
+      "sha256": "36afab1c310444df92445408d36b924c454b0dc6380591bc50792f5167bc7a39"
+    },
+    {
+      "file": "native/d4-a0-baked-tagged.exr",
+      "bytes": 66891,
+      "sha256": "07c8d8eb5af6d22b0cc5c826fa8265e0e1e7af74b6d21e3d14d8cfc0e1d7f9c2"
+    },
+    {
+      "file": "native/d4-a0-realtime-tagged.json",
+      "bytes": 994,
+      "sha256": "445d7efc36ab86be9da0f332324ae31e34cd7d45528e369fb46789b82c1464dc"
+    },
+    {
+      "file": "native/d4-a0-realtime-tagged.exr",
+      "bytes": 66891,
+      "sha256": "181c9f681bcc5faf7914282fd243a294c54453be5c5c2f7218f8b27d916bff5d"
+    },
+    {
+      "file": "native/d2-a0-baked-tagged.json",
+      "bytes": 988,
+      "sha256": "68a19eb73b634fe9534cc60acb7f5152d3e9222e55be795b3379a17d004d08ee"
+    },
+    {
+      "file": "native/d2-a0-baked-tagged.exr",
+      "bytes": 66891,
+      "sha256": "04ab7b92bce72575752cc366122f1840a2151fa295c435019ed36fff2d4f0ba3"
+    },
+    {
+      "file": "native/d2-a0-realtime-tagged.json",
+      "bytes": 995,
+      "sha256": "78f2003e9d2a4e2b534117f5fe416763941c3c35c406ee8cbd790c975918ac4f"
+    },
+    {
+      "file": "native/d2-a0-realtime-tagged.exr",
+      "bytes": 66891,
+      "sha256": "eb9add644fa7d67ee8f2872010896bd5011304efae26c344ec25a2cb62051c57"
+    },
+    {
+      "file": "native/d1-a0-baked-white.json",
+      "bytes": 976,
+      "sha256": "8b4be4f540cedebdacc2712d7caa6cc172c811bde5052098d0eac8a650136592"
+    },
+    {
+      "file": "native/d1-a0-baked-white.exr",
+      "bytes": 66891,
+      "sha256": "683c47f3751e4b02173d7825e97c0fa4c4a7448099cbee8d3ee3657c174377d3"
+    },
+    {
+      "file": "native/d1-a0-baked-tagged.json",
+      "bytes": 987,
+      "sha256": "4604c826c8363a7cd69e68c853b5de90afb088836e0e49e2756a2b306dda920b"
+    },
+    {
+      "file": "native/d1-a0-baked-tagged.exr",
+      "bytes": 66891,
+      "sha256": "683c47f3751e4b02173d7825e97c0fa4c4a7448099cbee8d3ee3657c174377d3"
+    },
+    {
+      "file": "native/d1-a0-realtime-tagged.json",
+      "bytes": 994,
+      "sha256": "c7eee9de1074b51fb7a3e9e4c3f28e96678e2540c21a54a5eb03b6e058b9ddd0"
+    },
+    {
+      "file": "native/d1-a0-realtime-tagged.exr",
+      "bytes": 66891,
+      "sha256": "6cff383385de2251df518083f00648a65c356111f5de2941dcaabec37bc62270"
+    },
+    {
+      "file": "cs-mine-front-spot-source-control-final14.py",
+      "bytes": 4119,
+      "sha256": "465da68c62199a39640131d2ee9bf48f0a71285d8e8c42c3bc69942cb9deb8e2"
+    },
+    {
+      "file": "cs-mine-front-spot-source-node-control-final14.py",
+      "bytes": 4514,
+      "sha256": "322f23e0c1db8e5221c84a2d1cd90f08f733a5480e45cdb445fff8cb7a28ba7c"
+    },
+    {
+      "file": "cs-mine-front-spot-emitter-inspect-final14.py",
+      "bytes": 1671,
+      "sha256": "6b8e813519b062c7bfce9475bf8da4a2fd3f0d98c28071823e88f8b6f6b5a066"
+    },
+    {
+      "file": "cs-mine-front-spot-emitter-inspect-final14.json",
+      "bytes": 6782,
+      "sha256": "e6395924bce2291b8ac7e998b0c2117cb1cb9c41fb457fed518cff9807157033"
+    },
+    {
+      "file": "cs-mine-front-spot-closure-final14.py",
+      "bytes": 1488,
+      "sha256": "289085168870007a27f954580ef89c226e06f54927e61fa4701e3e8afdbdfd30"
+    },
+    {
+      "file": "cs-mine-front-spot-closure-final14.json",
+      "bytes": 1953,
+      "sha256": "5e902fbc0a5888d447fbd749e22ec1f26f976df3b1de236a25e4157c4ab48c34"
+    },
+    {
+      "file": "cs-mine-front-spot-closure-final14.log",
+      "bytes": 3190,
+      "sha256": "145c3e1f166c14725ed47aec9e14ce1ef4d7903564052f9038171c7fb70687c6"
+    },
+    {
+      "file": "cs-mine-front-spot-control-final14.cs.txt",
+      "bytes": 9859,
+      "sha256": "691a93523a9275f3e9525bf116c34a0b22f4ea61e80dd08d63ffdaff7fd1f029"
+    },
+    {
+      "file": "cs-mine-front-spot-control-final14.cginc.txt",
+      "bytes": 729,
+      "sha256": "71b54115008f90b258d6aa9f2a5cedbea2d6d24d3735fc0bfbc49eb4170efd1c"
+    },
+    {
+      "file": "cs-mine-front-spot-control-final14.shader.txt",
+      "bytes": 8362,
+      "sha256": "5abf8c93327fb269e461dbdf451cc52d37bf90257e6bf49118c9d6d66046afb8"
+    },
+    {
+      "file": "cs-mine-front-spot-native-final14.py",
+      "bytes": 6395,
+      "sha256": "2fc4c2ad2f344375528c9b48d248322b296c8f0ee62d4c5da4040784340a54a6"
+    },
+    {
+      "file": "cs-mine-front-spot-native-final14.json",
+      "bytes": 9945,
+      "sha256": "87ffd3fad8b874dd1144b9727a407c610e9bec2badfbefc6e797648c95dc90b5"
+    },
+    {
+      "file": "cs-mine-front-spot-api-final14-r3.json",
+      "bytes": 41460,
+      "sha256": "5bbc9dc3ccb47a7267db42e984d4480d36190fa24fac9c52ade1e20f52029510"
+    },
+    {
+      "file": "cs-mine-front-spot-api-final14-r3.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "cs-mine-spot-source-independent-final14.json",
+      "bytes": 5276,
+      "sha256": "dc27e9b2517cc704e3f61fb3c2de20ab2d73355eacc8aa51dbe44bb939d398a7"
+    },
+    {
+      "file": "cs-mine-spot-native-prelaunch-independent-final14.json",
+      "bytes": 2335,
+      "sha256": "216906236e6d457bb82f691b5479cc3466ae4f1e79e147e87a3306fb99b005e5"
+    },
+    {
+      "file": "cs-mine-spot-native-independent-final14.json",
+      "bytes": 16554,
+      "sha256": "5bf38bf33a677119719fc02c4f6992c18d6add656277f859b45d9cfc3baf6075"
+    },
+    {
+      "file": "front-spot-control-final14.native.log",
+      "bytes": 133338,
+      "sha256": "5ce21b24f69c7eff2f801e491e1e0678af860dcdf7c928b067e708c647ec1b19"
+    },
+    {
+      "file": "front-spot-control-final14.wrapper.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "overallScore": null,
+  "limits": [
+    "Bounded rawdata/independentreceipts only; currentfullvisualstillREJECT41/60",
+    "No current13main Unity/Player acceptance or98claim; partial20failednative preserved separately"
+  ]
+}

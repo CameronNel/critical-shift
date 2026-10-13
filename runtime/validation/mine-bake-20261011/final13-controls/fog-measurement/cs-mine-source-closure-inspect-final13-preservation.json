@@ -1,0 +1,32 @@
+{
+  "status": "PassedReadOnlySourceInspectionPreservation",
+  "pins": {
+    "/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/combined/build_combined_map.py": "4802cabece93e968b263093ed9358cf4a70014608fdc39fd1899c27c023bae1a",
+    "/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/front-end-area/front_end_area.blend": "f23649ed9f44717cc5185bca116154e1863404955ec7c56b7dae6f399a7c4eae",
+    "/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/spawn-room/module.blend": "1964d3d16716730631af0d5c77bcc604a64455092142cc57c0283172a563a977",
+    "/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/mine-r39/module_r39_aaa.blend": "0131ee35afa1f3fb9f26ee1dddd090e3b3c63e67bec2a854670214fee29825e1",
+    "/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/refinery/module_overhaul_R1.blend": "29349f38a085511840afab8386c3fb0ce9efc64ad57a7b015495398efdb089de",
+    "/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/medical-reanimation/module_overhaul_R2.blend": "074051ee29c443e0a4f6152f63eb65c48e45b8137be32b3d58776c8dee9e7af0",
+    "/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/fuel-corridor/production/checkpoints/fuel_full_F23ci.blend": "def288245d8356802f972c45b4f389df5effabf249bb0e76601eaf7dd78cf3fe",
+    "/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/exteriors/spawn-room/exterior-R05.blend": "5c236b25f3fef0243c5d086f71eb33d006a77cedfe05bfd91848d1ff1a245b5a",
+    "/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/exteriors/refinery/exterior-R01.blend": "91dc6d076ef5b0a74f9b4931b253e14692081c1d9ec605dfa6ea0d0fd452710c",
+    "/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/exteriors/medical-reanimation/exterior-R04.blend": "a123a72256b3f920e28bcdeaf942d3277bd2513fb14267c5686f9a7d9a8a9787",
+    "/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/map/sections/facility-assembly/sources/spawn-room/hero_suit.blend": "2503186e06d941a1d9e0afee3282af65a2dc38fb4ae96bc67f643d65291571d7",
+    "/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/combined-runtime-source.blend": "255fe337aacd602e81bd2940be7bf2a1da2541954f6c8446c8a06f5aae413b72",
+    "/tmp/cs-mine-source-closure-inspect-final13.py": "18168d431aa6f8c4fbdaa872b242330cbcd68d9d20c861e6d10e14026051426d"
+  },
+  "outputSha256": "dbae6bf87c6a63a49a59b21c783e1c0e8f9115ed400e221355959d7e26436ab7",
+  "logSha256": "f12cb9e003296517cb3f3ed8a75dfde8809f1c50142ae83a8982ebd6d786e1df",
+  "command": [
+    "/home/agent/.local/bin/blender",
+    "--background",
+    "/workspace/critical-shift-spawn-runtime/runtime/out/spawn-export-source/combined-runtime-source.blend",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/tmp/cs-mine-source-closure-inspect-final13.py"
+  ],
+  "limits": [
+    "Numeric socket/visibility/geometry inventory, no render or grade"
+  ]
+}

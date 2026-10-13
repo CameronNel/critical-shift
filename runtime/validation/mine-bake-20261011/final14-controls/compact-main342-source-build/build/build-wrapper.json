@@ -1,0 +1,18 @@
+{
+  "returncode": 0,
+  "command": [
+    "/home/agent/.local/bin/blender",
+    "-b",
+    "--disable-autoexec",
+    "--python-exit-code",
+    "1",
+    "-t",
+    "4",
+    "--python",
+    "/tmp/cs-compact-main342-final14/build-runtime-derivative.py"
+  ],
+  "helperSha256": "7c9d0c9ee40eefd9134b1deba11c200d37844345d7dc2e4aa127030fa3ca3fad",
+  "limits": [
+    "No canonical/Claude files changed; Source construction is not Unity validation"
+  ]
+}

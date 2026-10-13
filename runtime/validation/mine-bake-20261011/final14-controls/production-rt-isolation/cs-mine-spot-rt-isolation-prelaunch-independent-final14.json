@@ -1,0 +1,29 @@
+{
+  "utc": "2026-10-13T00:07:57.562588+00:00",
+  "reviewer": "/root/strict_mine_review",
+  "status": "ClearedBoundedNoBakeIsolationStaticReview",
+  "inputs": {
+    "/tmp/cs-mine-spot-rt-isolation-native-final14.py": "5105271a7cc9fcb906199ae3718dbd61895a7b53089b32232900eba5d7c4c0a6",
+    "/tmp/cs-mine-spot-rt-isolation-final14.cs.txt": "2da68c41cd24503cf992c50091333dbe05bc4ba728954c4bd2c99d2b9edd4dfc",
+    "/tmp/cs-mine-spot-rt-isolation-clone-final14.shader.txt": "4cdf98892fc800ba86967a8af8349027551e9516c13c10996d2f069725c7f211",
+    "/tmp/cs-mine-spot-rt-isolation-explicit-final14.shader.txt": "1545ece8316bb2b3a91fc9281639642d82f423e070d81d2a30a281d54e534c08",
+    "/tmp/cs-mine-front-spot-control-final14.cginc.txt": "71b54115008f90b258d6aa9f2a5cedbea2d6d24d3735fc0bfbc49eb4170efd1c",
+    "/tmp/cs-mine-production-spot-rt-isolation-api-final14-r2.json": "45b11e3072139440dbfbf38532c56c985bfdc93d21b5e99f6bfc40f60a84703b",
+    "/tmp/cs-mine-front-spot-source-control-final14/provenance.json": "dc5d854be14eccb0b8bc25baea76c88d4453b3c6cdd4d500919a7d97d5c3d18b"
+  },
+  "checks": [
+    "Pinned current Source fixture parameter provenance.",
+    "Exact28 names and metadata name/mode now fail closed.",
+    "Current API hash proof includes helper and all actual production adapter sources.",
+    "Exact production clone differs only name and include path; explicit variant only adds measured override include.",
+    "No Lightmapping.Bake call, GI scope or cookie corruption/regeneration in this isolation.",
+    "Actual production Configure and source6 forwards retained; finite HDR actual light type/bakingOutput, CPU/GPU cookie data and ambientL0 logged.",
+    "Fresh owned outputs/helpers/scratch and Generated input hashes checked before/after."
+  ],
+  "causalLimits": [
+    "Graphics.Blit validates cookie data, not actual _LightTexture0 binding inside the lighting pass.",
+    "L0 log alone cannot exclude all ambient SH; no-bake/fresh scene is the isolation step.",
+    "No adaptation/radiometry/full-map approval until independent resulting frames."
+  ],
+  "previousResult": "Actualproduction20 remains rejected: realtime wrong plus LightBaker exit11."
+}

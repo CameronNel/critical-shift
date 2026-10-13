@@ -30,7 +30,7 @@ namespace CriticalShift.Player.Editor
         public SurfaceTexture wallMesh;
         public SurfaceTexture suitOcclusion;
         public SurfaceTexture contextMesh; public ExportObject[] contextObjects; public MineSourceVolume[] volumes;
-        public ExportLight[] contextSunLights;
+        public ExportLight[] contextSunLights, contextSpotLights;
         public AssemblyLighting assemblyLighting;
         public MineJoinRay[] joinRays;
     }
