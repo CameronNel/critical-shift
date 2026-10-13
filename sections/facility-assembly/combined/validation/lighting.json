@@ -1,0 +1,347 @@
+{
+ "settings": "Cycles CPU 640x360 14 spp denoised; view transform Khronos PBR Neutral exposure 0.50",
+ "views": {
+  "reactor_N_stub": {
+   "median": 0.802,
+   "mean": 0.77,
+   "p10": 0.519,
+   "near_black": 0.0,
+   "clipped": 0.057,
+   "clipped_white": 0.0,
+   "eye": [
+    0,
+    7.5,
+    1.6
+   ],
+   "target": [
+    0,
+    16,
+    1.4
+   ],
+   "readable": false
+  },
+  "turbine_entry": {
+   "median": 0.449,
+   "mean": 0.435,
+   "p10": 0.082,
+   "near_black": 0.035,
+   "clipped": 0.013,
+   "clipped_white": 0.0,
+   "eye": [
+    0,
+    16.0,
+    1.6
+   ],
+   "target": [
+    0,
+    30,
+    1.6
+   ],
+   "readable": true
+  },
+  "turbine_east_aisle_to_electrical": {
+   "median": 0.575,
+   "mean": 0.561,
+   "p10": 0.223,
+   "near_black": 0.005,
+   "clipped": 0.004,
+   "clipped_white": 0.0,
+   "eye": [
+    7.8,
+    29.0,
+    1.6
+   ],
+   "target": [
+    12,
+    33,
+    1.4
+   ],
+   "readable": true
+  },
+  "electrical_inside": {
+   "median": 0.549,
+   "mean": 0.515,
+   "p10": 0.178,
+   "near_black": 0.014,
+   "clipped": 0.028,
+   "clipped_white": 0.0,
+   "eye": [
+    11.5,
+    33,
+    1.6
+   ],
+   "target": [
+    24,
+    33,
+    1.4
+   ],
+   "readable": true
+  },
+  "reactor_W_stub_to_cooling": {
+   "median": 0.596,
+   "mean": 0.579,
+   "p10": 0.228,
+   "near_black": 0.024,
+   "clipped": 0.045,
+   "clipped_white": 0.001,
+   "eye": [
+    -11.2,
+    0,
+    1.6
+   ],
+   "target": [
+    -20,
+    0,
+    1.4
+   ],
+   "readable": true
+  },
+  "cooling_inside": {
+   "median": 0.58,
+   "mean": 0.552,
+   "p10": 0.189,
+   "near_black": 0.005,
+   "clipped": 0.033,
+   "clipped_white": 0.008,
+   "eye": [
+    -15.5,
+    0,
+    1.6
+   ],
+   "target": [
+    -26,
+    0,
+    1.4
+   ],
+   "readable": true
+  },
+  "spine_to_waste": {
+   "median": 0.279,
+   "mean": 0.299,
+   "p10": 0.011,
+   "near_black": 0.11,
+   "clipped": 0.007,
+   "clipped_white": 0.0,
+   "eye": [
+    8.5,
+    -25.48,
+    1.6
+   ],
+   "target": [
+    20,
+    -25.48,
+    1.4
+   ],
+   "readable": true
+  },
+  "waste_inside": {
+   "median": 0.283,
+   "mean": 0.297,
+   "p10": 0.115,
+   "near_black": 0.054,
+   "clipped": 0.014,
+   "clipped_white": 0.0,
+   "eye": [
+    12.0,
+    -25.48,
+    1.6
+   ],
+   "target": [
+    26,
+    -25.48,
+    1.2
+   ],
+   "readable": true
+  },
+  "spine_to_dock": {
+   "median": 0.407,
+   "mean": 0.421,
+   "p10": 0.2,
+   "near_black": 0.006,
+   "clipped": 0.003,
+   "clipped_white": 0.0,
+   "eye": [
+    8.5,
+    -40.39,
+    1.6
+   ],
+   "target": [
+    20,
+    -40.39,
+    1.3
+   ],
+   "readable": true
+  },
+  "dock_inside": {
+   "median": 0.248,
+   "mean": 0.285,
+   "p10": 0.063,
+   "near_black": 0.05,
+   "clipped": 0.01,
+   "clipped_white": 0.0,
+   "eye": [
+    13.8,
+    -40.39,
+    1.6
+   ],
+   "target": [
+    26,
+    -40.39,
+    1.2
+   ],
+   "readable": true
+  },
+  "concourse": {
+   "median": 0.589,
+   "mean": 0.58,
+   "p10": 0.313,
+   "near_black": 0.001,
+   "clipped": 0.013,
+   "clipped_white": 0.007,
+   "eye": [
+    5,
+    -17.2,
+    1.6
+   ],
+   "target": [
+    -8,
+    -17.2,
+    1.4
+   ],
+   "readable": true
+  },
+  "spine_mid": {
+   "median": 0.704,
+   "mean": 0.62,
+   "p10": 0.298,
+   "near_black": 0.002,
+   "clipped": 0.023,
+   "clipped_white": 0.0,
+   "eye": [
+    8,
+    -44,
+    1.6
+   ],
+   "target": [
+    8,
+    -20,
+    1.6
+   ],
+   "readable": true
+  },
+  "reactor_from_south": {
+   "median": 0.583,
+   "mean": 0.58,
+   "p10": 0.278,
+   "near_black": 0.006,
+   "clipped": 0.054,
+   "clipped_white": 0.023,
+   "eye": [
+    0,
+    -16.5,
+    1.6
+   ],
+   "target": [
+    0,
+    -4,
+    1.6
+   ],
+   "readable": false
+  },
+  "transfer_hall": {
+   "median": 0.533,
+   "mean": 0.508,
+   "p10": 0.193,
+   "near_black": 0.0,
+   "clipped": 0.061,
+   "clipped_white": 0.0,
+   "eye": [
+    5,
+    -27.6,
+    1.6
+   ],
+   "target": [
+    -6,
+    -27.6,
+    1.4
+   ],
+   "readable": false
+  },
+  "stair_top": {
+   "median": 0.736,
+   "mean": 0.733,
+   "p10": 0.543,
+   "near_black": 0.0,
+   "clipped": 0.049,
+   "clipped_white": 0.0,
+   "eye": [
+    -5.6,
+    28.8,
+    1.6
+   ],
+   "target": [
+    -5.6,
+    20,
+    -2
+   ],
+   "readable": true
+  },
+  "stair_bottom": {
+   "median": 0.769,
+   "mean": 0.754,
+   "p10": 0.625,
+   "near_black": 0.0,
+   "clipped": 0.018,
+   "clipped_white": 0.0,
+   "eye": [
+    -5.6,
+    15.7,
+    -4.4
+   ],
+   "target": [
+    1.6,
+    15.7,
+    -4.6
+   ],
+   "readable": true
+  },
+  "condenser_D01": {
+   "median": 0.792,
+   "mean": 0.683,
+   "p10": 0.351,
+   "near_black": 0.0,
+   "clipped": 0.021,
+   "clipped_white": 0.0,
+   "eye": [
+    1.6,
+    16.2,
+    -4.4
+   ],
+   "target": [
+    1.6,
+    26,
+    -4.6
+   ],
+   "readable": true
+  },
+  "condenser_inside": {
+   "median": 0.463,
+   "mean": 0.473,
+   "p10": 0.243,
+   "near_black": 0.006,
+   "clipped": 0.011,
+   "clipped_white": 0.0,
+   "eye": [
+    1.6,
+    22.6,
+    -4.4
+   ],
+   "target": [
+    6,
+    29,
+    -4.8
+   ],
+   "readable": true
+  }
+ }
+}

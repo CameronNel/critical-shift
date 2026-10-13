@@ -1,0 +1,696 @@
+{
+ "note": "Door table of the compact map, assembly pass. Unreviewed. Runtime states: {\"closed\": \"blocks: collider DOOR_<id>_blocker enabled\", \"open\": \"passes: blocker disabled\", \"locked\": \"closed and refuses interaction\"}",
+ "closed_copies": [
+  [
+   "turbine-room",
+   "TURBINE_D02",
+   32,
+   "sliding leaves moved 1.37 m to the closed position"
+  ],
+  [
+   "electrical-room",
+   "ELECTRICAL_D02",
+   74,
+   "sliding leaves moved 1.25 m to the closed position"
+  ],
+  [
+   "waste-storage",
+   "WASTE_PERSONNEL",
+   11,
+   "hinged leaf turned 90 degrees into the frame"
+  ],
+  [
+   "waste-storage",
+   "WASTE_DISPATCH",
+   36,
+   "new closed roller curtain (36 slats) between the seal tracks; the module has only the rolled-up barrel"
+  ]
+ ],
+ "doors": [
+  {
+   "id": "SPAWN_EXIT",
+   "owner": "front-end-area",
+   "plan": [
+    8.0,
+    -80.0,
+    0.0
+   ],
+   "outward": [
+    0.0,
+    -1.0
+   ],
+   "clear_w": 2.58,
+   "clear_h": 2.6,
+   "kind": "airlock",
+   "state": "open",
+   "leads_to": "spawn-room",
+   "leaf": "front end airlock_leaf_L/R shown parked; spawn AIRLOCK_* leaves left out (DOOR_BINDINGS spawn_airlock)"
+  },
+  {
+   "id": "CAF_YARD",
+   "owner": "front-end-area",
+   "plan": [
+    -7.27,
+    -70.0,
+    0.0
+   ],
+   "outward": [
+    -1.0,
+    0.0
+   ],
+   "clear_w": 3.0,
+   "clear_h": 2.51,
+   "kind": "double sliding",
+   "state": "open",
+   "leads_to": "yard",
+   "leaf": "yard_leaf_N/S parked"
+  },
+  {
+   "id": "CAF_MEDICAL",
+   "owner": "medical-reanimation",
+   "plan": [
+    26.0,
+    -70.0,
+    0.0
+   ],
+   "outward": [
+    -1.0,
+    -0.0
+   ],
+   "clear_w": 2.2,
+   "clear_h": 2.5,
+   "kind": "opposed sliding pressure leaves",
+   "state": "open",
+   "leads_to": "front-end-area (cafeteria)",
+   "leaf": "MED_R2 pressure leaves parked; contract: open traversal default"
+  },
+  {
+   "id": "HALL_WEST",
+   "owner": "front-end-area",
+   "plan": [
+    -3.97,
+    -54.0,
+    0.0
+   ],
+   "outward": [
+    -1.0,
+    0.0
+   ],
+   "clear_w": 2.32,
+   "clear_h": 2.6,
+   "kind": "double leaf",
+   "state": "open",
+   "leads_to": "refinery (colonnade)",
+   "leaf": "hall_W_door_leaf_+-1.001 left out (closed-state asset)"
+  },
+  {
+   "id": "HALL_SPINE",
+   "owner": "front-end-area",
+   "plan": [
+    8.0,
+    -48.5,
+    0.0
+   ],
+   "outward": [
+    0.0,
+    1.0
+   ],
+   "clear_w": 3.6,
+   "clear_h": 3.2,
+   "kind": "blast door, sliding pair",
+   "state": "open",
+   "leads_to": "spine",
+   "leaf": "blast_leaf_+-1 parked"
+  },
+  {
+   "id": "HALL_EAST",
+   "owner": "front-end-area",
+   "plan": [
+    31.97,
+    -54.0,
+    0.0
+   ],
+   "outward": [
+    1.0,
+    0.0
+   ],
+   "clear_w": 2.32,
+   "clear_h": 2.6,
+   "kind": "double leaf",
+   "state": "closed",
+   "leads_to": "outside (east trunk canopy)",
+   "leaf": "hall_E_door_leaf_+-1.001 kept in the closed position"
+  },
+  {
+   "id": "MINE_PORTAL",
+   "owner": "mine",
+   "plan": [
+    -53.4,
+    -70.0,
+    0.0
+   ],
+   "outward": [
+    1.0,
+    0.0
+   ],
+   "clear_w": 7.2,
+   "clear_h": 3.9,
+   "kind": "portal (no leaf)",
+   "state": "open",
+   "leads_to": "front-end-area (yard)",
+   "leaf": "tunnel mouth (first timber set); front end portal_void and the portal cap faces left out"
+  },
+  {
+   "id": "YARD_SERVICE",
+   "owner": "front-end-area",
+   "plan": [
+    -46.0,
+    -60.15,
+    0.0
+   ],
+   "outward": [
+    0.0,
+    1.0
+   ],
+   "clear_w": 2.4,
+   "clear_h": 2.35,
+   "kind": "single leaf",
+   "state": "closed",
+   "leads_to": "outside",
+   "leaf": "service_door_leaf kept closed"
+  },
+  {
+   "id": "YARD_FREIGHT_GATE",
+   "owner": "front-end-area",
+   "plan": [
+    -22.2,
+    -60.1,
+    0.0
+   ],
+   "outward": [
+    0.0,
+    1.0
+   ],
+   "clear_w": 3.1,
+   "clear_h": 3.1,
+   "kind": "sliding gate",
+   "state": "open",
+   "leads_to": "refinery freight door",
+   "leaf": "freight_gate_leaf parked"
+  },
+  {
+   "id": "REFINERY_FUEL",
+   "owner": "fuel-corridor",
+   "plan": [
+    -22.2,
+    -43.6,
+    0.0
+   ],
+   "outward": [
+    0.0,
+    -1.0
+   ],
+   "clear_w": 2.6,
+   "clear_h": 3.0,
+   "kind": "opening (refinery Door_Reactor)",
+   "state": "open",
+   "leads_to": "refinery",
+   "leaf": "refinery REACTOR door: open frame"
+  },
+  {
+   "id": "FUEL_F02",
+   "owner": "fuel-corridor",
+   "plan": [
+    -8.0,
+    -19.6,
+    0.0
+   ],
+   "outward": [
+    0.0,
+    1.0
+   ],
+   "clear_w": 5.0,
+   "clear_h": 5.0,
+   "kind": "opening",
+   "state": "open",
+   "leads_to": "reactor concourse",
+   "leaf": "own door 0.5 m inside, open"
+  },
+  {
+   "id": "FUEL_S01_PLANT",
+   "owner": "fuel-corridor",
+   "plan": [
+    -27.6,
+    -26.2,
+    0.0
+   ],
+   "outward": [
+    -1.0,
+    0.0
+   ],
+   "clear_w": 2.0,
+   "clear_h": 2.5,
+   "kind": "double leaf",
+   "state": "closed",
+   "leads_to": "outside",
+   "leaf": "FC | Plant service leaves (source state)"
+  },
+  {
+   "id": "FUEL_S02_CLEAN",
+   "owner": "fuel-corridor",
+   "plan": [
+    -15.6,
+    -22.6,
+    0.0
+   ],
+   "outward": [
+    0.0,
+    1.0
+   ],
+   "clear_w": 2.0,
+   "clear_h": 2.5,
+   "kind": "double leaf",
+   "state": "closed",
+   "leads_to": "outside",
+   "leaf": "FC | Clean service leaves (source state)"
+  },
+  {
+   "id": "FUEL_S03_WASTE",
+   "owner": "fuel-corridor",
+   "plan": [
+    -5.8,
+    -27.6,
+    0.0
+   ],
+   "outward": [
+    1.0,
+    0.0
+   ],
+   "clear_w": 2.4,
+   "clear_h": 3.0,
+   "kind": "double leaf",
+   "state": "open",
+   "leads_to": "waste-transfer hall",
+   "leaf": "FC | Waste transfer leaves left out (closed-state asset)"
+  },
+  {
+   "id": "REACTOR_S",
+   "owner": "reactor-room",
+   "plan": [
+    0.0,
+    -12.2,
+    0.0
+   ],
+   "outward": [
+    0.0,
+    -1.0
+   ],
+   "clear_w": 5.0,
+   "clear_h": 5.0,
+   "kind": "opening (cut)",
+   "state": "open",
+   "leads_to": "concourse",
+   "leaf": "hall wall cut south_door"
+  },
+  {
+   "id": "REACTOR_N",
+   "owner": "reactor-room",
+   "plan": [
+    0.0,
+    14.4,
+    0.0
+   ],
+   "outward": [
+    0.0,
+    1.0
+   ],
+   "clear_w": 5.0,
+   "clear_h": 5.0,
+   "kind": "stub double door",
+   "state": "open",
+   "leads_to": "turbine-room D01",
+   "leaf": "FUEL HANDLING.* door pieces left out (closed-state asset)"
+  },
+  {
+   "id": "REACTOR_W",
+   "owner": "reactor-room",
+   "plan": [
+    -14.4,
+    0.0,
+    0.0
+   ],
+   "outward": [
+    -1.0,
+    0.0
+   ],
+   "clear_w": 5.0,
+   "clear_h": 5.0,
+   "kind": "stub double door",
+   "state": "open",
+   "leads_to": "cooling-plant CP-P01",
+   "leaf": "MAIN ACCESS.* door pieces left out (closed-state asset)"
+  },
+  {
+   "id": "REACTOR_SE",
+   "owner": "reactor-room",
+   "plan": [
+    11.0,
+    -11.0,
+    0.0
+   ],
+   "outward": [
+    0.7071,
+    -0.7071
+   ],
+   "clear_w": 5.0,
+   "clear_h": 5.0,
+   "kind": "stub double door",
+   "state": "closed",
+   "leads_to": "outside",
+   "leaf": "COOLING PLANT.* door pieces kept (closed)"
+  },
+  {
+   "id": "TURBINE_D01",
+   "owner": "turbine-room",
+   "plan": [
+    0.0,
+    14.5,
+    0.0
+   ],
+   "outward": [
+    0.0,
+    -1.0
+   ],
+   "clear_w": 2.4,
+   "clear_h": 2.7,
+   "kind": "two opposed sliding leaves",
+   "state": "open",
+   "leads_to": "reactor north stub",
+   "leaf": "contract: parked in module pockets"
+  },
+  {
+   "id": "TURBINE_D02",
+   "owner": "turbine-room",
+   "plan": [
+    0.0,
+    38.5,
+    0.0
+   ],
+   "outward": [
+    0.0,
+    1.0
+   ],
+   "clear_w": 2.4,
+   "clear_h": 2.7,
+   "kind": "two opposed sliding leaves",
+   "state": "closed",
+   "leads_to": "outside",
+   "leaf": "D02 electrical parked leaf pair moved shut (local copies)"
+  },
+  {
+   "id": "TURBINE_E_ELECTRICAL",
+   "owner": "turbine-room",
+   "plan": [
+    10.125,
+    33.0,
+    0.0
+   ],
+   "outward": [
+    1.0,
+    0.0
+   ],
+   "clear_w": 2.4,
+   "clear_h": 2.7,
+   "kind": "opening (new cut) + electrical D01 leaves",
+   "state": "open",
+   "leads_to": "electrical-room D01",
+   "leaf": "leaves are electrical D01 (parked inside electrical)"
+  },
+  {
+   "id": "ELECTRICAL_D01",
+   "owner": "electrical-room",
+   "plan": [
+    10.5,
+    33.0,
+    0.0
+   ],
+   "outward": [
+    -1.0,
+    -0.0
+   ],
+   "clear_w": 2.4,
+   "clear_h": 2.7,
+   "kind": "sliding pair",
+   "state": "open",
+   "leads_to": "turbine-room (east door)",
+   "leaf": "parked"
+  },
+  {
+   "id": "ELECTRICAL_D02",
+   "owner": "electrical-room",
+   "plan": [
+    26.9,
+    33.0,
+    0.0
+   ],
+   "outward": [
+    1.0,
+    0.0
+   ],
+   "clear_w": 2.4,
+   "clear_h": 2.7,
+   "kind": "sliding pair",
+   "state": "closed",
+   "leads_to": "outside",
+   "leaf": "leaves moved shut (local copies)"
+  },
+  {
+   "id": "TURBINE_W_STAIR",
+   "owner": "turbine-room",
+   "plan": [
+    -4.125,
+    27.95,
+    0.0
+   ],
+   "outward": [
+    -1.0,
+    0.0
+   ],
+   "clear_w": 2.0,
+   "clear_h": 2.6,
+   "kind": "opening (new cut)",
+   "state": "open",
+   "leads_to": "condenser stair",
+   "leaf": "no leaf"
+  },
+  {
+   "id": "CONDENSER_D01",
+   "owner": "condenser-bay",
+   "plan": [
+    1.6,
+    21.9,
+    -6.0
+   ],
+   "outward": [
+    0.0,
+    -1.0
+   ],
+   "clear_w": 2.0,
+   "clear_h": 2.4,
+   "kind": "two opposed sliding leaves",
+   "state": "open",
+   "leads_to": "condenser stair corridor",
+   "leaf": "parked open (contract); stub blanking left out"
+  },
+  {
+   "id": "COOLING_P01",
+   "owner": "cooling-plant",
+   "plan": [
+    -14.5,
+    0.0,
+    0.0
+   ],
+   "outward": [
+    1.0,
+    -0.0
+   ],
+   "clear_w": 5.0,
+   "clear_h": 5.0,
+   "kind": "overhead folding shutter",
+   "state": "open",
+   "leads_to": "reactor west stub",
+   "leaf": "raised (contract: fixed open)"
+  },
+  {
+   "id": "WASTE_RECEIVING",
+   "owner": "waste-storage",
+   "plan": [
+    10.47,
+    -25.48,
+    0.0
+   ],
+   "outward": [
+    -1.0,
+    -0.0
+   ],
+   "clear_w": 3.0,
+   "clear_h": 3.2,
+   "kind": "rolling shutter",
+   "state": "open",
+   "leads_to": "spine (east door)",
+   "leaf": "rolled up (contract: parked fully open)"
+  },
+  {
+   "id": "WASTE_PERSONNEL",
+   "owner": "waste-storage",
+   "plan": [
+    12.87,
+    -31.64,
+    0.0
+   ],
+   "outward": [
+    0.0,
+    -1.0
+   ],
+   "clear_w": 1.2,
+   "clear_h": 2.3,
+   "kind": "hinged leaf, outward",
+   "state": "closed",
+   "leads_to": "outside (gap to the dock wall)",
+   "leaf": "leaf turned into the frame (local copies)"
+  },
+  {
+   "id": "WASTE_DISPATCH",
+   "owner": "waste-storage",
+   "plan": [
+    28.47,
+    -25.48,
+    0.0
+   ],
+   "outward": [
+    1.0,
+    0.0
+   ],
+   "clear_w": 2.4,
+   "clear_h": 2.8,
+   "kind": "rolling shutter",
+   "state": "closed",
+   "leads_to": "outside",
+   "leaf": "new curtain"
+  },
+  {
+   "id": "DOCK_P1",
+   "owner": "compliance-dock",
+   "plan": [
+    11.15,
+    -40.39,
+    0.0
+   ],
+   "outward": [
+    -1.0,
+    -0.0
+   ],
+   "clear_w": 2.4,
+   "clear_h": 2.6,
+   "kind": "sliding (X) in perimeter wall",
+   "state": "open",
+   "leads_to": "spine (east door)",
+   "leaf": "P1 deep back wall and leaf left out"
+  },
+  {
+   "id": "DOCK_P2",
+   "owner": "compliance-dock",
+   "plan": [
+    27.95,
+    -40.39,
+    0.0
+   ],
+   "outward": [
+    1.0,
+    0.0
+   ],
+   "clear_w": 4.6,
+   "clear_h": 3.5,
+   "kind": "opposed sliding blast leaves",
+   "state": "closed",
+   "leads_to": "outside (arrival)",
+   "leaf": "contract default sealed"
+  },
+  {
+   "id": "SPINE_NORTH_END",
+   "owner": "front-end-area",
+   "plan": [
+    8.0,
+    -14.55,
+    0.0
+   ],
+   "outward": [
+    0.0,
+    1.0
+   ],
+   "clear_w": 3.3,
+   "clear_h": 3.3,
+   "kind": "single leaf",
+   "state": "closed",
+   "leads_to": "outside (the concourse is entered through the spine west wall)",
+   "leaf": "reactor_door kept closed"
+  },
+  {
+   "id": "SPINE_E_WASTE",
+   "owner": "front-end-area",
+   "plan": [
+    10.0,
+    -25.48,
+    0.0
+   ],
+   "outward": [
+    1.0,
+    0.0
+   ],
+   "clear_w": 3.1,
+   "clear_h": 3.2,
+   "kind": "opening (new cut)",
+   "state": "open",
+   "leads_to": "waste-storage",
+   "leaf": "no leaf (waste receiving shutter is the door)"
+  },
+  {
+   "id": "SPINE_E_DOCK",
+   "owner": "front-end-area",
+   "plan": [
+    10.0,
+    -40.39,
+    0.0
+   ],
+   "outward": [
+    1.0,
+    0.0
+   ],
+   "clear_w": 2.6,
+   "clear_h": 2.6,
+   "kind": "opening (new cut)",
+   "state": "open",
+   "leads_to": "compliance-dock",
+   "leaf": "no leaf (dock P1 is the door)"
+  },
+  {
+   "id": "SPINE_W_TRANSFER",
+   "owner": "front-end-area",
+   "plan": [
+    6.0,
+    -27.6,
+    0.0
+   ],
+   "outward": [
+    -1.0,
+    0.0
+   ],
+   "clear_w": 2.4,
+   "clear_h": 3.0,
+   "kind": "opening (new cut)",
+   "state": "open",
+   "leads_to": "waste-transfer hall",
+   "leaf": "no leaf (fuel S03 is the door)"
+  }
+ ]
+}

@@ -1,10 +1,30 @@
-# Compact layout: the main map (2026-10-12)
+# Compact layout: the main map (2026-10-12, assembly pass 2026-10-13)
 
 **Unreviewed, not accepted.** Owner instructions: "the map should be as compact as possible ... make this thing as close knit and tight as possible. Reuse what you can", then "Use the compact layout as the main map".
-`combined_map.blend` is now built by `build_compact_map.py` (it imports `build_combined_map.py` and overrides the room placements and the hall list). `COMBINED_MAP.md` keeps the decision record of the older spread-out layout (plan v7 positions, long halls, outer ring), which is superseded wherever it disagrees with this file; its measurements and door data still stand.
-Never hand-edit `combined_map.blend`. Rebuild: `blender --background --python build_compact_map.py`. The older layout still rebuilds with `build_combined_map.py --through compliance-dock --output spread_layout.blend`. The same source-file fetches as `AGENT_READ_FIRST.md` apply, plus the AAA finishes `sources/{waste-storage,cooling-plant,condenser-bay}/module_aaa_A1.blend` (LFS).
+For the assembly pass (2026-10-13) the owner added: "Ignore all previous specs and planning docs - build and decide what comes where on your own with the goal of the most compact and logical map possible ... Move around, rotate, transform, structural changes etc are all allowed. Measure, plan, execute autonomously", and "do not ask me questions".
+`combined_map.blend` is built by `build_compact_map.py` (it imports `build_combined_map.py` and overrides placements, halls and patches). `COMBINED_MAP.md` keeps the decision record of the older spread-out layout; its measurements and door data still stand where this file does not supersede them.
+Never hand-edit `combined_map.blend`. Rebuild: `blender --background --factory-startup --python build_compact_map.py`. Results, tests and open decisions of the assembly pass: **`ASSEMBLY_REPORT.md`**.
 
-## What changed against the combined layout
+## Assembly pass (2026-10-13): the "street" layout
+
+What is fixed and why: the yard rail fixes the refinery (freight door on the rail, personnel door on the hall colonnade), the refinery's fuel door fixes the fuel corridor (its F01 must face that door; the corridor is a fixed 10 / 14.2 / 14 m L), and the corridor's F02 fixes the reactor's south side (the concourse joins F02, the reactor south door and the spine). So the spine stays 34 m long and the reactor stays at the origin. Everything else was packed onto that chain:
+
+| Room or part | Before (2026-10-12 compact) | Assembly pass | Fixed by (measured) |
+|---|---|---|---|
+| Electrical (R11) | (0, 39.95), rot 0, on turbine D02 (far end) | **(10.5, 33.0), rot -90**, on a new 2.4 x 2.7 m door in the turbine's east wall at turbine-local y 18.5 | turbine east wall outer face x 10.25 = electrical D01 exterior face (module y -0.25); wall columns at local y 16 and 21 (feet +-0.32) and the condensate return (ends y 16.8) leave the bay y 17.3..19.7 clear; electrical top lands on y 38.75 = turbine end |
+| Waste (AAA) | (16.19, -16.19), rot -135, 7 m diagonal hall from the SE stub + 3.9 m hall to the spine | **(10.47, -25.48), rot -90**, WS_RECEIVING on a new 3.1 x 3.2 m opening in the spine's east wall | spine east wall outer face x 10.15 = waste exterior face (module y -0.32); its 13.9 m width sits between the dock (south) and the reactor SE stub (north, y > -13.1) |
+| Compliance dock (R1) | (38, -54), rot -90, off the hall's east stub | **(12.15, -40.39), rot -90**, P1 on a new 2.6 x 2.6 m opening in the spine's east wall; sealed arrival P2 faces east, to the outside | the P1 corridor (module y -2.0..0, back wall left out) starts on the spine face x 10.15; south edge (module x 7.21) at y -47.6, 0.4 m clear of the hall's north wall; 0.29 m gap to waste |
+| Fuel corridor S03 (waste transfer) | closed, onto nothing | **open onto a new 11.3 m hall** (2.4 x 3.0, waste zone dressing) into a new opening in the spine's west wall, y -27.6 | S03 centre module (16.4, 16) = plan (-5.8, -27.6); corridor outer wall x -5.46 to spine west face x 5.85 |
+| Condenser bay (AAA) | under the turbine, no walkable access, D01 plated | **reached by a new stair**: 2.0 x 2.6 m door in the turbine's west wall (turbine-local y 13.45, between columns at 11 and 16, clear of the power conduit ending y 12.4), a 2.1 m wide shaft west of the turbine, 34 risers of 0.176 m on 0.300 m goings (30.5 degrees), then an 11.9 m corridor at z -6 under the turbine end to the D01 stub, whose end wall and blanking panel are left out | condenser CONNECTIONS.md (D01 at turbine (1.6, 7.4, -6.0)); D01 stub module x +-1.24, y -2.56..0 |
+| Turbine D02, electrical D02, waste dispatch, waste personnel, reactor SE stub, hall east door | open onto nothing / plated / open | **closed** with their own leaves (local copies moved to the closed position), a new roller curtain for waste dispatch (the module has only the rolled-up barrel), the SE stub's own door kept | see the door table in ASSEMBLY_REPORT.md |
+| Dropped | | the 7 m waste hall, the 3.9 m waste-to-spine hall, the three PLACEHOLDER plates, the reactor NE door label and the SE stub WASTE label | |
+
+Extent of the buildings (plan cut at 1.1 m, mine mountain excluded): before x -53.6..54.1, y -93.1..56.6 (16,130 m2 box, 10,184 m2 hull); after x -53.6..37.3, y -93.1..39.7 (12,080 m2 box, -25 %; 8,969 m2 hull, -12 %).
+Hall built for the pass: 11.3 m (transfer hall) plus the stair (9.9 m run, 11.9 m corridor); halls removed: 10.9 m.
+
+Defects found by the walk test and fixed in the same pass (all local copies): the spine wall cuts (the cut_hall bridge closed both doorways when two holes were cut in one mesh: the spine and turbine doors now use `split_openings`, bisect-clipped pieces with capped jambs); fuel corridor F01 and F02 boundary leaves closed in F23ci (the whole fuel run was blocked; left out now); the reactor south doorway kept a 0.5 m high `RH walls trim YELLOW` bar across it (split out); floating leaf hardware in the reactor N and W stubs and in the spawn exit airlock (meeting stiles, grips, gauge curves; left out); skirt dust decals running across five open front-end doorways (clipped); the front end's `context_ground` slab roofing the new stair shaft (holed).
+
+## Before the assembly pass: what changed against the combined layout (2026-10-12; electrical, waste and dock rows superseded above)
 
 | Room | Combined layout | Compact layout | Fixed by |
 |---|---|---|---|

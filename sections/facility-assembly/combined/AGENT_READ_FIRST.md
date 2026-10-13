@@ -1,6 +1,6 @@
 # Combined map: agent instructions (read before any environment or map work)
 
-Last updated 2026-10-06. Status of everything in this folder: **unreviewed, not accepted.** It was merged to `main` (PR 95) on the owner's explicit
+Last updated 2026-10-13 (assembly pass). Status of everything in this folder: **unreviewed, not accepted.** It was merged to `main` (PR 95) on the owner's explicit
 instruction, which waives the repository rule that an agent does not merge its own work. No independent review has happened. Do not describe any of it as accepted.
 
 ## What this is
@@ -16,7 +16,11 @@ Where plan v7 and the as-built front end disagree, the as-built front end and DE
 - **Record of every decision is `COMBINED_MAP.md`:** per room, the source file, what fixed the placement (with the measurement), what was patched, evidence renders, what was not checked.
 - Evidence renders are in `renders/` (per room), `renders/review/` (whole-scene review) and `renders/fixes/` (fix log and room 5).
 
-## Current layout: compact (read `COMPACT_MAP.md` first)
+## Current layout: compact, assembly pass (read `COMPACT_MAP.md` and `ASSEMBLY_REPORT.md` first)
+
+2026-10-13: electrical moved to the turbine's east flank, waste and the dock to new doors in the spine's east wall, the fuel corridor's S03 opened onto a transfer hall into the spine, the condenser bay reached by a stair from the turbine's west wall; dead-end doors closed with their own leaves; door anchors, collision proxies and a scoped FBX export added. Tools of the pass (all run on a built `combined_map.blend`): `plan_cut.py` + `check_overlaps.py` + `draw_assembly_plan.py` (plan section, intrusion screen, plan drawing), `walk_test.py` (player capsule on the visual meshes; `--colliders` on the proxies), `measure_lighting.py` (junction readability), `perf_report.py` (static counts, portal visible sets), `export_unity.py` (FBX + re-import check + binding manifest). The door cuts use `split_openings` in `build_compact_map.py`; do not use `reactor_links.cut_hall` for two openings in one mesh (it bridged them shut, found by the walk test).
+
+### Before the assembly pass
 
 The owner made the compact layout the main map on 2026-10-12. `combined_map.blend` is built by `build_compact_map.py`; the room table below lists rooms in build order, but turbine, electrical, waste, cooling and the dock use the compact placements in `COMPACT_MAP.md` (the translations in the table are the older spread-out ones), and the condenser bay is placed under the turbine. `build_combined_map.py` is the older layout and the shared machinery.
 

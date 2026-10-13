@@ -1,0 +1,2407 @@
+{
+ "note": "Collision/navigation proxies of the compact map (halls, stubs, junctions, stair, door thresholds and blockers). Unreviewed. Plan metres, z up; Unity import is not run.",
+ "counts": {
+  "door_blocker": 35,
+  "door_threshold": 35,
+  "floor": 13,
+  "ramp": 1,
+  "roof": 12,
+  "wall": 30
+ },
+ "colliders": [
+  {
+   "name": "COL spine floor",
+   "role": "floor",
+   "zone": "spine",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     5.85,
+     -47.85,
+     -0.3
+    ],
+    [
+     10.15,
+     -14.5,
+     0.0
+    ]
+   ]
+  },
+  {
+   "name": "COL spine roof",
+   "role": "roof",
+   "zone": "spine",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     5.85,
+     -47.85,
+     3.6
+    ],
+    [
+     10.15,
+     -14.5,
+     3.85
+    ]
+   ]
+  },
+  {
+   "name": "COL spine east wall -47.9",
+   "role": "wall",
+   "zone": "spine",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     9.85,
+     -47.85,
+     0.0
+    ],
+    [
+     10.15,
+     -41.69,
+     3.6
+    ]
+   ]
+  },
+  {
+   "name": "COL spine east wall -39.1",
+   "role": "wall",
+   "zone": "spine",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     9.85,
+     -39.09,
+     0.0
+    ],
+    [
+     10.15,
+     -27.03,
+     3.6
+    ]
+   ]
+  },
+  {
+   "name": "COL spine east wall -23.9",
+   "role": "wall",
+   "zone": "spine",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     9.85,
+     -23.93,
+     0.0
+    ],
+    [
+     10.15,
+     -14.5,
+     3.6
+    ]
+   ]
+  },
+  {
+   "name": "COL spine west wall -47.9",
+   "role": "wall",
+   "zone": "spine",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     5.85,
+     -47.85,
+     0.0
+    ],
+    [
+     6.15,
+     -28.8,
+     3.6
+    ]
+   ]
+  },
+  {
+   "name": "COL spine west wall -26.4",
+   "role": "wall",
+   "zone": "spine",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     5.85,
+     -26.4,
+     0.0
+    ],
+    [
+     6.15,
+     -19.6,
+     3.6
+    ]
+   ]
+  },
+  {
+   "name": "COL spine west wall -14.8",
+   "role": "wall",
+   "zone": "spine",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     5.85,
+     -14.8,
+     0.0
+    ],
+    [
+     6.15,
+     -14.5,
+     3.6
+    ]
+   ]
+  },
+  {
+   "name": "COL concourse floor",
+   "role": "floor",
+   "zone": "concourse",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -11.1,
+     -19.9,
+     -0.3
+    ],
+    [
+     5.85,
+     -14.5,
+     0.0
+    ]
+   ]
+  },
+  {
+   "name": "COL concourse roof",
+   "role": "roof",
+   "zone": "concourse",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -11.1,
+     -19.9,
+     5.9
+    ],
+    [
+     5.85,
+     -14.5,
+     6.15
+    ]
+   ]
+  },
+  {
+   "name": "COL concourse west wall",
+   "role": "wall",
+   "zone": "concourse",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -11.1,
+     -19.6,
+     0.0
+    ],
+    [
+     -10.8,
+     -14.8,
+     5.9
+    ]
+   ]
+  },
+  {
+   "name": "COL concourse south wall west",
+   "role": "wall",
+   "zone": "concourse",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -11.1,
+     -19.9,
+     0.0
+    ],
+    [
+     -10.62,
+     -19.6,
+     5.9
+    ]
+   ]
+  },
+  {
+   "name": "COL concourse south wall east",
+   "role": "wall",
+   "zone": "concourse",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -5.38,
+     -19.9,
+     0.0
+    ],
+    [
+     5.85,
+     -19.6,
+     5.9
+    ]
+   ]
+  },
+  {
+   "name": "COL concourse north wall west",
+   "role": "wall",
+   "zone": "concourse",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -11.1,
+     -14.8,
+     0.0
+    ],
+    [
+     -2.5,
+     -14.5,
+     5.9
+    ]
+   ]
+  },
+  {
+   "name": "COL concourse north wall east",
+   "role": "wall",
+   "zone": "concourse",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     2.5,
+     -14.8,
+     0.0
+    ],
+    [
+     5.85,
+     -14.5,
+     5.9
+    ]
+   ]
+  },
+  {
+   "name": "COL reactor south tunnel floor",
+   "role": "floor",
+   "zone": "reactor south tunnel",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -2.8,
+     -14.5,
+     -0.3
+    ],
+    [
+     2.8,
+     -10.8,
+     0.0
+    ]
+   ]
+  },
+  {
+   "name": "COL reactor south tunnel roof",
+   "role": "roof",
+   "zone": "reactor south tunnel",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -2.8,
+     -14.5,
+     5.0
+    ],
+    [
+     2.8,
+     -10.8,
+     5.25
+    ]
+   ]
+  },
+  {
+   "name": "COL reactor south tunnel east wall -14.5",
+   "role": "wall",
+   "zone": "reactor south tunnel",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     2.5,
+     -14.5,
+     0.0
+    ],
+    [
+     2.8,
+     -10.8,
+     5.0
+    ]
+   ]
+  },
+  {
+   "name": "COL reactor south tunnel west wall -14.5",
+   "role": "wall",
+   "zone": "reactor south tunnel",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -2.8,
+     -14.5,
+     0.0
+    ],
+    [
+     -2.5,
+     -10.8,
+     5.0
+    ]
+   ]
+  },
+  {
+   "name": "COL reactor north stub floor",
+   "role": "floor",
+   "zone": "reactor north stub",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -2.8,
+     10.8,
+     -0.3
+    ],
+    [
+     2.8,
+     14.5,
+     0.0
+    ]
+   ]
+  },
+  {
+   "name": "COL reactor north stub roof",
+   "role": "roof",
+   "zone": "reactor north stub",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -2.8,
+     10.8,
+     5.0
+    ],
+    [
+     2.8,
+     14.5,
+     5.25
+    ]
+   ]
+  },
+  {
+   "name": "COL reactor north stub east wall 10.8",
+   "role": "wall",
+   "zone": "reactor north stub",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     2.5,
+     10.8,
+     0.0
+    ],
+    [
+     2.8,
+     14.5,
+     5.0
+    ]
+   ]
+  },
+  {
+   "name": "COL reactor north stub west wall 10.8",
+   "role": "wall",
+   "zone": "reactor north stub",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -2.8,
+     10.8,
+     0.0
+    ],
+    [
+     -2.5,
+     14.5,
+     5.0
+    ]
+   ]
+  },
+  {
+   "name": "COL reactor west stub floor",
+   "role": "floor",
+   "zone": "reactor west stub",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -14.5,
+     -3.2,
+     -0.3
+    ],
+    [
+     -10.8,
+     3.2,
+     0.0
+    ]
+   ]
+  },
+  {
+   "name": "COL reactor west stub roof",
+   "role": "roof",
+   "zone": "reactor west stub",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -14.5,
+     -3.2,
+     5.0
+    ],
+    [
+     -10.8,
+     3.2,
+     5.25
+    ]
+   ]
+  },
+  {
+   "name": "COL reactor west stub north wall -14.5",
+   "role": "wall",
+   "zone": "reactor west stub",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -14.5,
+     2.9,
+     0.0
+    ],
+    [
+     -10.8,
+     3.2,
+     5.0
+    ]
+   ]
+  },
+  {
+   "name": "COL reactor west stub south wall -14.5",
+   "role": "wall",
+   "zone": "reactor west stub",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -14.5,
+     -3.2,
+     0.0
+    ],
+    [
+     -10.8,
+     -2.9,
+     5.0
+    ]
+   ]
+  },
+  {
+   "name": "COL waste transfer hall floor",
+   "role": "floor",
+   "zone": "waste transfer hall",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -5.46,
+     -29.1,
+     -0.3
+    ],
+    [
+     5.85,
+     -26.1,
+     0.0
+    ]
+   ]
+  },
+  {
+   "name": "COL waste transfer hall roof",
+   "role": "roof",
+   "zone": "waste transfer hall",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -5.46,
+     -29.1,
+     3.0
+    ],
+    [
+     5.85,
+     -26.1,
+     3.25
+    ]
+   ]
+  },
+  {
+   "name": "COL waste transfer hall north wall -5.5",
+   "role": "wall",
+   "zone": "waste transfer hall",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -5.46,
+     -26.4,
+     0.0
+    ],
+    [
+     5.85,
+     -26.1,
+     3.0
+    ]
+   ]
+  },
+  {
+   "name": "COL waste transfer hall south wall -5.5",
+   "role": "wall",
+   "zone": "waste transfer hall",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -5.46,
+     -29.1,
+     0.0
+    ],
+    [
+     5.85,
+     -28.8,
+     3.0
+    ]
+   ]
+  },
+  {
+   "name": "COL spine-waste junction floor",
+   "role": "floor",
+   "zone": "spine-waste junction",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     9.85,
+     -27.33,
+     -0.3
+    ],
+    [
+     10.47,
+     -23.63,
+     0.0
+    ]
+   ]
+  },
+  {
+   "name": "COL spine-waste junction head",
+   "role": "roof",
+   "zone": "spine-waste junction",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     9.85,
+     -27.03,
+     3.2
+    ],
+    [
+     10.47,
+     -23.93,
+     3.5
+    ]
+   ]
+  },
+  {
+   "name": "COL spine-dock junction floor",
+   "role": "floor",
+   "zone": "spine-dock junction",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     9.85,
+     -41.89,
+     -0.3
+    ],
+    [
+     12.15,
+     -38.89,
+     0.0
+    ]
+   ]
+  },
+  {
+   "name": "COL spine-dock junction head",
+   "role": "roof",
+   "zone": "spine-dock junction",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     9.85,
+     -41.59,
+     2.6
+    ],
+    [
+     12.15,
+     -39.19,
+     2.9
+    ]
+   ]
+  },
+  {
+   "name": "COL spine-dock junction tube north",
+   "role": "wall",
+   "zone": "spine-dock junction",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     10.15,
+     -39.19,
+     0.0
+    ],
+    [
+     12.15,
+     -39.09,
+     2.6
+    ]
+   ]
+  },
+  {
+   "name": "COL spine-dock junction tube south",
+   "role": "wall",
+   "zone": "spine-dock junction",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     10.15,
+     -41.69,
+     0.0
+    ],
+    [
+     12.15,
+     -41.59,
+     2.6
+    ]
+   ]
+  },
+  {
+   "name": "COL spine-dock junction tube floor",
+   "role": "floor",
+   "zone": "spine-dock junction",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     10.15,
+     -41.69,
+     -0.3
+    ],
+    [
+     12.15,
+     -39.09,
+     0.0
+    ]
+   ]
+  },
+  {
+   "name": "COL turbine-electrical junction floor",
+   "role": "floor",
+   "zone": "turbine-electrical junction",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     10.0,
+     31.5,
+     -0.3
+    ],
+    [
+     10.7,
+     34.5,
+     0.0
+    ]
+   ]
+  },
+  {
+   "name": "COL turbine-electrical junction head",
+   "role": "roof",
+   "zone": "turbine-electrical junction",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     10.0,
+     31.8,
+     2.7
+    ],
+    [
+     10.7,
+     34.2,
+     3.0
+    ]
+   ]
+  },
+  {
+   "name": "COL stair top landing",
+   "role": "floor",
+   "zone": "condenser stair",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -6.65,
+     26.8,
+     -0.3
+    ],
+    [
+     -4.25,
+     29.25,
+     0.0
+    ]
+   ]
+  },
+  {
+   "name": "COL stair ramp",
+   "role": "ramp",
+   "zone": "condenser stair",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -6.65,
+     16.9,
+     -6.3
+    ],
+    [
+     -4.55,
+     26.8,
+     0.0
+    ]
+   ]
+  },
+  {
+   "name": "COL stair west wall",
+   "role": "wall",
+   "zone": "condenser stair",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -6.95,
+     14.5,
+     -6.0
+    ],
+    [
+     -6.65,
+     29.55,
+     2.9
+    ]
+   ]
+  },
+  {
+   "name": "COL stair east wall south",
+   "role": "wall",
+   "zone": "condenser stair",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -4.55,
+     16.9,
+     -6.0
+    ],
+    [
+     -4.25,
+     26.95,
+     2.9
+    ]
+   ]
+  },
+  {
+   "name": "COL stair east wall north",
+   "role": "wall",
+   "zone": "condenser stair",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -4.55,
+     28.95,
+     -6.0
+    ],
+    [
+     -4.25,
+     29.25,
+     2.9
+    ]
+   ]
+  },
+  {
+   "name": "COL stair east wall below door",
+   "role": "wall",
+   "zone": "condenser stair",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -4.55,
+     26.95,
+     -6.0
+    ],
+    [
+     -4.25,
+     28.95,
+     -0.3
+    ]
+   ]
+  },
+  {
+   "name": "COL stair north wall",
+   "role": "wall",
+   "zone": "condenser stair",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -6.65,
+     29.25,
+     -0.3
+    ],
+    [
+     -4.55,
+     29.55,
+     2.9
+    ]
+   ]
+  },
+  {
+   "name": "COL stair roof",
+   "role": "roof",
+   "zone": "condenser stair",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -6.95,
+     16.9,
+     2.9
+    ],
+    [
+     -4.25,
+     29.55,
+     3.15
+    ]
+   ]
+  },
+  {
+   "name": "COL condenser corridor floor",
+   "role": "floor",
+   "zone": "condenser stair",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -6.65,
+     14.5,
+     -6.3
+    ],
+    [
+     2.84,
+     16.9,
+     -6.0
+    ]
+   ]
+  },
+  {
+   "name": "COL condenser corridor north floor",
+   "role": "floor",
+   "zone": "condenser stair",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     0.36,
+     16.9,
+     -6.3
+    ],
+    [
+     2.84,
+     19.34,
+     -6.0
+    ]
+   ]
+  },
+  {
+   "name": "COL condenser corridor south wall",
+   "role": "wall",
+   "zone": "condenser stair",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -6.95,
+     14.2,
+     -6.0
+    ],
+    [
+     3.14,
+     14.5,
+     -3.3
+    ]
+   ]
+  },
+  {
+   "name": "COL condenser corridor east wall",
+   "role": "wall",
+   "zone": "condenser stair",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     2.84,
+     14.5,
+     -6.0
+    ],
+    [
+     3.14,
+     19.34,
+     -3.3
+    ]
+   ]
+  },
+  {
+   "name": "COL condenser corridor north wall",
+   "role": "wall",
+   "zone": "condenser stair",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -4.55,
+     16.9,
+     -6.0
+    ],
+    [
+     0.36,
+     17.2,
+     -3.3
+    ]
+   ]
+  },
+  {
+   "name": "COL condenser corridor west jamb",
+   "role": "wall",
+   "zone": "condenser stair",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     0.06,
+     16.9,
+     -6.0
+    ],
+    [
+     0.36,
+     19.34,
+     -3.3
+    ]
+   ]
+  },
+  {
+   "name": "COL condenser corridor roof",
+   "role": "roof",
+   "zone": "condenser stair",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     -4.55,
+     14.2,
+     -3.3
+    ],
+    [
+     3.14,
+     17.2,
+     -3.05
+    ]
+   ]
+  },
+  {
+   "name": "COL condenser corridor north roof",
+   "role": "roof",
+   "zone": "condenser stair",
+   "door_id": null,
+   "trigger": false,
+   "bounds": [
+    [
+     0.06,
+     16.9,
+     -3.3
+    ],
+    [
+     3.14,
+     19.34,
+     -3.05
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_SPAWN_EXIT threshold",
+   "role": "door_threshold",
+   "zone": "front-end-area",
+   "door_id": "SPAWN_EXIT",
+   "trigger": true,
+   "bounds": [
+    [
+     6.71,
+     -80.3,
+     0.0
+    ],
+    [
+     9.29,
+     -79.7,
+     2.4
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_SPAWN_EXIT blocker",
+   "role": "door_blocker",
+   "zone": "front-end-area",
+   "door_id": "SPAWN_EXIT",
+   "trigger": false,
+   "bounds": [
+    [
+     6.71,
+     -80.06,
+     0.0
+    ],
+    [
+     9.29,
+     -79.94,
+     2.6
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_CAF_YARD threshold",
+   "role": "door_threshold",
+   "zone": "front-end-area",
+   "door_id": "CAF_YARD",
+   "trigger": true,
+   "bounds": [
+    [
+     -7.57,
+     -71.5,
+     0.0
+    ],
+    [
+     -6.97,
+     -68.5,
+     2.4
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_CAF_YARD blocker",
+   "role": "door_blocker",
+   "zone": "front-end-area",
+   "door_id": "CAF_YARD",
+   "trigger": false,
+   "bounds": [
+    [
+     -7.33,
+     -71.5,
+     0.0
+    ],
+    [
+     -7.21,
+     -68.5,
+     2.51
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_CAF_MEDICAL threshold",
+   "role": "door_threshold",
+   "zone": "medical-reanimation",
+   "door_id": "CAF_MEDICAL",
+   "trigger": true,
+   "bounds": [
+    [
+     25.7,
+     -71.1,
+     0.0
+    ],
+    [
+     26.3,
+     -68.9,
+     2.4
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_CAF_MEDICAL blocker",
+   "role": "door_blocker",
+   "zone": "medical-reanimation",
+   "door_id": "CAF_MEDICAL",
+   "trigger": false,
+   "bounds": [
+    [
+     25.94,
+     -71.1,
+     0.0
+    ],
+    [
+     26.06,
+     -68.9,
+     2.5
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_HALL_WEST threshold",
+   "role": "door_threshold",
+   "zone": "front-end-area",
+   "door_id": "HALL_WEST",
+   "trigger": true,
+   "bounds": [
+    [
+     -4.27,
+     -55.16,
+     0.0
+    ],
+    [
+     -3.67,
+     -52.84,
+     2.4
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_HALL_WEST blocker",
+   "role": "door_blocker",
+   "zone": "front-end-area",
+   "door_id": "HALL_WEST",
+   "trigger": false,
+   "bounds": [
+    [
+     -4.03,
+     -55.16,
+     0.0
+    ],
+    [
+     -3.91,
+     -52.84,
+     2.6
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_HALL_SPINE threshold",
+   "role": "door_threshold",
+   "zone": "front-end-area",
+   "door_id": "HALL_SPINE",
+   "trigger": true,
+   "bounds": [
+    [
+     6.2,
+     -48.8,
+     0.0
+    ],
+    [
+     9.8,
+     -48.2,
+     2.4
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_HALL_SPINE blocker",
+   "role": "door_blocker",
+   "zone": "front-end-area",
+   "door_id": "HALL_SPINE",
+   "trigger": false,
+   "bounds": [
+    [
+     6.2,
+     -48.56,
+     0.0
+    ],
+    [
+     9.8,
+     -48.44,
+     3.2
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_HALL_EAST threshold",
+   "role": "door_threshold",
+   "zone": "front-end-area",
+   "door_id": "HALL_EAST",
+   "trigger": true,
+   "bounds": [
+    [
+     31.67,
+     -55.16,
+     0.0
+    ],
+    [
+     32.27,
+     -52.84,
+     2.4
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_HALL_EAST blocker",
+   "role": "door_blocker",
+   "zone": "front-end-area",
+   "door_id": "HALL_EAST",
+   "trigger": false,
+   "bounds": [
+    [
+     31.91,
+     -55.16,
+     0.0
+    ],
+    [
+     32.03,
+     -52.84,
+     2.6
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_MINE_PORTAL threshold",
+   "role": "door_threshold",
+   "zone": "mine",
+   "door_id": "MINE_PORTAL",
+   "trigger": true,
+   "bounds": [
+    [
+     -53.7,
+     -73.6,
+     0.0
+    ],
+    [
+     -53.1,
+     -66.4,
+     2.4
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_MINE_PORTAL blocker",
+   "role": "door_blocker",
+   "zone": "mine",
+   "door_id": "MINE_PORTAL",
+   "trigger": false,
+   "bounds": [
+    [
+     -53.46,
+     -73.6,
+     0.0
+    ],
+    [
+     -53.34,
+     -66.4,
+     3.9
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_YARD_SERVICE threshold",
+   "role": "door_threshold",
+   "zone": "front-end-area",
+   "door_id": "YARD_SERVICE",
+   "trigger": true,
+   "bounds": [
+    [
+     -47.2,
+     -60.45,
+     0.0
+    ],
+    [
+     -44.8,
+     -59.85,
+     2.35
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_YARD_SERVICE blocker",
+   "role": "door_blocker",
+   "zone": "front-end-area",
+   "door_id": "YARD_SERVICE",
+   "trigger": false,
+   "bounds": [
+    [
+     -47.2,
+     -60.21,
+     0.0
+    ],
+    [
+     -44.8,
+     -60.09,
+     2.35
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_YARD_FREIGHT_GATE threshold",
+   "role": "door_threshold",
+   "zone": "front-end-area",
+   "door_id": "YARD_FREIGHT_GATE",
+   "trigger": true,
+   "bounds": [
+    [
+     -23.75,
+     -60.4,
+     0.0
+    ],
+    [
+     -20.65,
+     -59.8,
+     2.4
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_YARD_FREIGHT_GATE blocker",
+   "role": "door_blocker",
+   "zone": "front-end-area",
+   "door_id": "YARD_FREIGHT_GATE",
+   "trigger": false,
+   "bounds": [
+    [
+     -23.75,
+     -60.16,
+     0.0
+    ],
+    [
+     -20.65,
+     -60.04,
+     3.1
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_REFINERY_FUEL threshold",
+   "role": "door_threshold",
+   "zone": "fuel-corridor",
+   "door_id": "REFINERY_FUEL",
+   "trigger": true,
+   "bounds": [
+    [
+     -23.5,
+     -43.9,
+     0.0
+    ],
+    [
+     -20.9,
+     -43.3,
+     2.4
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_REFINERY_FUEL blocker",
+   "role": "door_blocker",
+   "zone": "fuel-corridor",
+   "door_id": "REFINERY_FUEL",
+   "trigger": false,
+   "bounds": [
+    [
+     -23.5,
+     -43.66,
+     0.0
+    ],
+    [
+     -20.9,
+     -43.54,
+     3.0
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_FUEL_F02 threshold",
+   "role": "door_threshold",
+   "zone": "fuel-corridor",
+   "door_id": "FUEL_F02",
+   "trigger": true,
+   "bounds": [
+    [
+     -10.5,
+     -19.9,
+     0.0
+    ],
+    [
+     -5.5,
+     -19.3,
+     2.4
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_FUEL_F02 blocker",
+   "role": "door_blocker",
+   "zone": "fuel-corridor",
+   "door_id": "FUEL_F02",
+   "trigger": false,
+   "bounds": [
+    [
+     -10.5,
+     -19.66,
+     0.0
+    ],
+    [
+     -5.5,
+     -19.54,
+     5.0
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_FUEL_S01_PLANT threshold",
+   "role": "door_threshold",
+   "zone": "fuel-corridor",
+   "door_id": "FUEL_S01_PLANT",
+   "trigger": true,
+   "bounds": [
+    [
+     -27.9,
+     -27.2,
+     0.0
+    ],
+    [
+     -27.3,
+     -25.2,
+     2.4
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_FUEL_S01_PLANT blocker",
+   "role": "door_blocker",
+   "zone": "fuel-corridor",
+   "door_id": "FUEL_S01_PLANT",
+   "trigger": false,
+   "bounds": [
+    [
+     -27.66,
+     -27.2,
+     0.0
+    ],
+    [
+     -27.54,
+     -25.2,
+     2.5
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_FUEL_S02_CLEAN threshold",
+   "role": "door_threshold",
+   "zone": "fuel-corridor",
+   "door_id": "FUEL_S02_CLEAN",
+   "trigger": true,
+   "bounds": [
+    [
+     -16.6,
+     -22.9,
+     0.0
+    ],
+    [
+     -14.6,
+     -22.3,
+     2.4
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_FUEL_S02_CLEAN blocker",
+   "role": "door_blocker",
+   "zone": "fuel-corridor",
+   "door_id": "FUEL_S02_CLEAN",
+   "trigger": false,
+   "bounds": [
+    [
+     -16.6,
+     -22.66,
+     0.0
+    ],
+    [
+     -14.6,
+     -22.54,
+     2.5
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_FUEL_S03_WASTE threshold",
+   "role": "door_threshold",
+   "zone": "fuel-corridor",
+   "door_id": "FUEL_S03_WASTE",
+   "trigger": true,
+   "bounds": [
+    [
+     -6.1,
+     -28.8,
+     0.0
+    ],
+    [
+     -5.5,
+     -26.4,
+     2.4
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_FUEL_S03_WASTE blocker",
+   "role": "door_blocker",
+   "zone": "fuel-corridor",
+   "door_id": "FUEL_S03_WASTE",
+   "trigger": false,
+   "bounds": [
+    [
+     -5.86,
+     -28.8,
+     0.0
+    ],
+    [
+     -5.74,
+     -26.4,
+     3.0
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_REACTOR_S threshold",
+   "role": "door_threshold",
+   "zone": "reactor-room",
+   "door_id": "REACTOR_S",
+   "trigger": true,
+   "bounds": [
+    [
+     -2.5,
+     -12.5,
+     0.0
+    ],
+    [
+     2.5,
+     -11.9,
+     2.4
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_REACTOR_S blocker",
+   "role": "door_blocker",
+   "zone": "reactor-room",
+   "door_id": "REACTOR_S",
+   "trigger": false,
+   "bounds": [
+    [
+     -2.5,
+     -12.26,
+     0.0
+    ],
+    [
+     2.5,
+     -12.14,
+     5.0
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_REACTOR_N threshold",
+   "role": "door_threshold",
+   "zone": "reactor-room",
+   "door_id": "REACTOR_N",
+   "trigger": true,
+   "bounds": [
+    [
+     -2.5,
+     14.1,
+     0.0
+    ],
+    [
+     2.5,
+     14.7,
+     2.4
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_REACTOR_N blocker",
+   "role": "door_blocker",
+   "zone": "reactor-room",
+   "door_id": "REACTOR_N",
+   "trigger": false,
+   "bounds": [
+    [
+     -2.5,
+     14.34,
+     0.0
+    ],
+    [
+     2.5,
+     14.46,
+     5.0
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_REACTOR_W threshold",
+   "role": "door_threshold",
+   "zone": "reactor-room",
+   "door_id": "REACTOR_W",
+   "trigger": true,
+   "bounds": [
+    [
+     -14.7,
+     -2.5,
+     0.0
+    ],
+    [
+     -14.1,
+     2.5,
+     2.4
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_REACTOR_W blocker",
+   "role": "door_blocker",
+   "zone": "reactor-room",
+   "door_id": "REACTOR_W",
+   "trigger": false,
+   "bounds": [
+    [
+     -14.46,
+     -2.5,
+     0.0
+    ],
+    [
+     -14.34,
+     2.5,
+     5.0
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_REACTOR_SE threshold",
+   "role": "door_threshold",
+   "zone": "reactor-room",
+   "door_id": "REACTOR_SE",
+   "trigger": true,
+   "bounds": [
+    [
+     9.02,
+     -12.98,
+     0.0
+    ],
+    [
+     12.98,
+     -9.02,
+     2.4
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_REACTOR_SE blocker",
+   "role": "door_blocker",
+   "zone": "reactor-room",
+   "door_id": "REACTOR_SE",
+   "trigger": false,
+   "bounds": [
+    [
+     9.19,
+     -12.81,
+     0.0
+    ],
+    [
+     12.81,
+     -9.19,
+     5.0
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_TURBINE_D01 threshold",
+   "role": "door_threshold",
+   "zone": "turbine-room",
+   "door_id": "TURBINE_D01",
+   "trigger": true,
+   "bounds": [
+    [
+     -1.2,
+     14.2,
+     0.0
+    ],
+    [
+     1.2,
+     14.8,
+     2.4
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_TURBINE_D01 blocker",
+   "role": "door_blocker",
+   "zone": "turbine-room",
+   "door_id": "TURBINE_D01",
+   "trigger": false,
+   "bounds": [
+    [
+     -1.2,
+     14.44,
+     0.0
+    ],
+    [
+     1.2,
+     14.56,
+     2.7
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_TURBINE_D02 threshold",
+   "role": "door_threshold",
+   "zone": "turbine-room",
+   "door_id": "TURBINE_D02",
+   "trigger": true,
+   "bounds": [
+    [
+     -1.2,
+     38.2,
+     0.0
+    ],
+    [
+     1.2,
+     38.8,
+     2.4
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_TURBINE_D02 blocker",
+   "role": "door_blocker",
+   "zone": "turbine-room",
+   "door_id": "TURBINE_D02",
+   "trigger": false,
+   "bounds": [
+    [
+     -1.2,
+     38.44,
+     0.0
+    ],
+    [
+     1.2,
+     38.56,
+     2.7
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_TURBINE_E_ELECTRICAL threshold",
+   "role": "door_threshold",
+   "zone": "turbine-room",
+   "door_id": "TURBINE_E_ELECTRICAL",
+   "trigger": true,
+   "bounds": [
+    [
+     9.825,
+     31.8,
+     0.0
+    ],
+    [
+     10.425,
+     34.2,
+     2.4
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_TURBINE_E_ELECTRICAL blocker",
+   "role": "door_blocker",
+   "zone": "turbine-room",
+   "door_id": "TURBINE_E_ELECTRICAL",
+   "trigger": false,
+   "bounds": [
+    [
+     10.065,
+     31.8,
+     0.0
+    ],
+    [
+     10.185,
+     34.2,
+     2.7
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_ELECTRICAL_D01 threshold",
+   "role": "door_threshold",
+   "zone": "electrical-room",
+   "door_id": "ELECTRICAL_D01",
+   "trigger": true,
+   "bounds": [
+    [
+     10.2,
+     31.8,
+     0.0
+    ],
+    [
+     10.8,
+     34.2,
+     2.4
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_ELECTRICAL_D01 blocker",
+   "role": "door_blocker",
+   "zone": "electrical-room",
+   "door_id": "ELECTRICAL_D01",
+   "trigger": false,
+   "bounds": [
+    [
+     10.44,
+     31.8,
+     0.0
+    ],
+    [
+     10.56,
+     34.2,
+     2.7
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_ELECTRICAL_D02 threshold",
+   "role": "door_threshold",
+   "zone": "electrical-room",
+   "door_id": "ELECTRICAL_D02",
+   "trigger": true,
+   "bounds": [
+    [
+     26.6,
+     31.8,
+     0.0
+    ],
+    [
+     27.2,
+     34.2,
+     2.4
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_ELECTRICAL_D02 blocker",
+   "role": "door_blocker",
+   "zone": "electrical-room",
+   "door_id": "ELECTRICAL_D02",
+   "trigger": false,
+   "bounds": [
+    [
+     26.84,
+     31.8,
+     0.0
+    ],
+    [
+     26.96,
+     34.2,
+     2.7
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_TURBINE_W_STAIR threshold",
+   "role": "door_threshold",
+   "zone": "turbine-room",
+   "door_id": "TURBINE_W_STAIR",
+   "trigger": true,
+   "bounds": [
+    [
+     -4.425,
+     26.95,
+     0.0
+    ],
+    [
+     -3.825,
+     28.95,
+     2.4
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_TURBINE_W_STAIR blocker",
+   "role": "door_blocker",
+   "zone": "turbine-room",
+   "door_id": "TURBINE_W_STAIR",
+   "trigger": false,
+   "bounds": [
+    [
+     -4.185,
+     26.95,
+     0.0
+    ],
+    [
+     -4.065,
+     28.95,
+     2.6
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_CONDENSER_D01 threshold",
+   "role": "door_threshold",
+   "zone": "condenser-bay",
+   "door_id": "CONDENSER_D01",
+   "trigger": true,
+   "bounds": [
+    [
+     0.6,
+     21.6,
+     -6.0
+    ],
+    [
+     2.6,
+     22.2,
+     -3.6
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_CONDENSER_D01 blocker",
+   "role": "door_blocker",
+   "zone": "condenser-bay",
+   "door_id": "CONDENSER_D01",
+   "trigger": false,
+   "bounds": [
+    [
+     0.6,
+     21.84,
+     -6.0
+    ],
+    [
+     2.6,
+     21.96,
+     -3.6
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_COOLING_P01 threshold",
+   "role": "door_threshold",
+   "zone": "cooling-plant",
+   "door_id": "COOLING_P01",
+   "trigger": true,
+   "bounds": [
+    [
+     -14.8,
+     -2.5,
+     0.0
+    ],
+    [
+     -14.2,
+     2.5,
+     2.4
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_COOLING_P01 blocker",
+   "role": "door_blocker",
+   "zone": "cooling-plant",
+   "door_id": "COOLING_P01",
+   "trigger": false,
+   "bounds": [
+    [
+     -14.56,
+     -2.5,
+     0.0
+    ],
+    [
+     -14.44,
+     2.5,
+     5.0
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_WASTE_RECEIVING threshold",
+   "role": "door_threshold",
+   "zone": "waste-storage",
+   "door_id": "WASTE_RECEIVING",
+   "trigger": true,
+   "bounds": [
+    [
+     10.17,
+     -26.98,
+     0.0
+    ],
+    [
+     10.77,
+     -23.98,
+     2.4
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_WASTE_RECEIVING blocker",
+   "role": "door_blocker",
+   "zone": "waste-storage",
+   "door_id": "WASTE_RECEIVING",
+   "trigger": false,
+   "bounds": [
+    [
+     10.41,
+     -26.98,
+     0.0
+    ],
+    [
+     10.53,
+     -23.98,
+     3.2
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_WASTE_PERSONNEL threshold",
+   "role": "door_threshold",
+   "zone": "waste-storage",
+   "door_id": "WASTE_PERSONNEL",
+   "trigger": true,
+   "bounds": [
+    [
+     12.27,
+     -31.94,
+     0.0
+    ],
+    [
+     13.47,
+     -31.34,
+     2.3
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_WASTE_PERSONNEL blocker",
+   "role": "door_blocker",
+   "zone": "waste-storage",
+   "door_id": "WASTE_PERSONNEL",
+   "trigger": false,
+   "bounds": [
+    [
+     12.27,
+     -31.7,
+     0.0
+    ],
+    [
+     13.47,
+     -31.58,
+     2.3
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_WASTE_DISPATCH threshold",
+   "role": "door_threshold",
+   "zone": "waste-storage",
+   "door_id": "WASTE_DISPATCH",
+   "trigger": true,
+   "bounds": [
+    [
+     28.17,
+     -26.68,
+     0.0
+    ],
+    [
+     28.77,
+     -24.28,
+     2.4
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_WASTE_DISPATCH blocker",
+   "role": "door_blocker",
+   "zone": "waste-storage",
+   "door_id": "WASTE_DISPATCH",
+   "trigger": false,
+   "bounds": [
+    [
+     28.41,
+     -26.68,
+     0.0
+    ],
+    [
+     28.53,
+     -24.28,
+     2.8
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_DOCK_P1 threshold",
+   "role": "door_threshold",
+   "zone": "compliance-dock",
+   "door_id": "DOCK_P1",
+   "trigger": true,
+   "bounds": [
+    [
+     10.85,
+     -41.59,
+     0.0
+    ],
+    [
+     11.45,
+     -39.19,
+     2.4
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_DOCK_P1 blocker",
+   "role": "door_blocker",
+   "zone": "compliance-dock",
+   "door_id": "DOCK_P1",
+   "trigger": false,
+   "bounds": [
+    [
+     11.09,
+     -41.59,
+     0.0
+    ],
+    [
+     11.21,
+     -39.19,
+     2.6
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_DOCK_P2 threshold",
+   "role": "door_threshold",
+   "zone": "compliance-dock",
+   "door_id": "DOCK_P2",
+   "trigger": true,
+   "bounds": [
+    [
+     27.65,
+     -42.69,
+     0.0
+    ],
+    [
+     28.25,
+     -38.09,
+     2.4
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_DOCK_P2 blocker",
+   "role": "door_blocker",
+   "zone": "compliance-dock",
+   "door_id": "DOCK_P2",
+   "trigger": false,
+   "bounds": [
+    [
+     27.89,
+     -42.69,
+     0.0
+    ],
+    [
+     28.01,
+     -38.09,
+     3.5
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_SPINE_NORTH_END threshold",
+   "role": "door_threshold",
+   "zone": "front-end-area",
+   "door_id": "SPINE_NORTH_END",
+   "trigger": true,
+   "bounds": [
+    [
+     6.35,
+     -14.85,
+     0.0
+    ],
+    [
+     9.65,
+     -14.25,
+     2.4
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_SPINE_NORTH_END blocker",
+   "role": "door_blocker",
+   "zone": "front-end-area",
+   "door_id": "SPINE_NORTH_END",
+   "trigger": false,
+   "bounds": [
+    [
+     6.35,
+     -14.61,
+     0.0
+    ],
+    [
+     9.65,
+     -14.49,
+     3.3
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_SPINE_E_WASTE threshold",
+   "role": "door_threshold",
+   "zone": "front-end-area",
+   "door_id": "SPINE_E_WASTE",
+   "trigger": true,
+   "bounds": [
+    [
+     9.7,
+     -27.03,
+     0.0
+    ],
+    [
+     10.3,
+     -23.93,
+     2.4
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_SPINE_E_WASTE blocker",
+   "role": "door_blocker",
+   "zone": "front-end-area",
+   "door_id": "SPINE_E_WASTE",
+   "trigger": false,
+   "bounds": [
+    [
+     9.94,
+     -27.03,
+     0.0
+    ],
+    [
+     10.06,
+     -23.93,
+     3.2
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_SPINE_E_DOCK threshold",
+   "role": "door_threshold",
+   "zone": "front-end-area",
+   "door_id": "SPINE_E_DOCK",
+   "trigger": true,
+   "bounds": [
+    [
+     9.7,
+     -41.69,
+     0.0
+    ],
+    [
+     10.3,
+     -39.09,
+     2.4
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_SPINE_E_DOCK blocker",
+   "role": "door_blocker",
+   "zone": "front-end-area",
+   "door_id": "SPINE_E_DOCK",
+   "trigger": false,
+   "bounds": [
+    [
+     9.94,
+     -41.69,
+     0.0
+    ],
+    [
+     10.06,
+     -39.09,
+     2.6
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_SPINE_W_TRANSFER threshold",
+   "role": "door_threshold",
+   "zone": "front-end-area",
+   "door_id": "SPINE_W_TRANSFER",
+   "trigger": true,
+   "bounds": [
+    [
+     5.7,
+     -28.8,
+     0.0
+    ],
+    [
+     6.3,
+     -26.4,
+     2.4
+    ]
+   ]
+  },
+  {
+   "name": "COL DOOR_SPINE_W_TRANSFER blocker",
+   "role": "door_blocker",
+   "zone": "front-end-area",
+   "door_id": "SPINE_W_TRANSFER",
+   "trigger": false,
+   "bounds": [
+    [
+     5.94,
+     -28.8,
+     0.0
+    ],
+    [
+     6.06,
+     -26.4,
+     3.0
+    ]
+   ]
+  }
+ ]
+}
