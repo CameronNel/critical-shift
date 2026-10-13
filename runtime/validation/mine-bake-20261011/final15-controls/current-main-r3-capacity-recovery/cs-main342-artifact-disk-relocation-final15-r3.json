@@ -1,0 +1,160 @@
+{
+  "status": "PreservedExactArtifactBucketsOnDisk_LogicalCachePathsAvailable",
+  "items": [
+    {
+      "name": "0b",
+      "bytes": 388842180,
+      "inventory": {
+        "0b": {
+          "mode": 448,
+          "uid": 1000,
+          "gid": 1000,
+          "type": "dir"
+        },
+        "0b/0b385c59fda7951d7b5718e8828d1b7d": {
+          "mode": 384,
+          "uid": 1000,
+          "gid": 1000,
+          "type": "file",
+          "bytes": 22388712,
+          "sha256": "5ed8dff8a1b7c96217553a8e370d959583f9bd57e34f1d2cfc8b33e4b9213b98"
+        },
+        "0b/0b7832104a7fee41e41dcd36dbf311f9": {
+          "mode": 384,
+          "uid": 1000,
+          "gid": 1000,
+          "type": "file",
+          "bytes": 366453468,
+          "sha256": "014973f31901a851de5f336133db3082207d2982c949dd42b001bce84b59cbb1"
+        }
+      },
+      "phase": "done"
+    },
+    {
+      "name": "7f",
+      "bytes": 121103704,
+      "inventory": {
+        "7f": {
+          "mode": 448,
+          "uid": 1000,
+          "gid": 1000,
+          "type": "dir"
+        },
+        "7f/7fca8e912ce37e1c5441667ccd35fec8": {
+          "mode": 384,
+          "uid": 1000,
+          "gid": 1000,
+          "type": "file",
+          "bytes": 121076444,
+          "sha256": "58160904f216c06e6497302a4e4a9b0f8e2257ca0f7c03572f2d4e107e6032d4"
+        },
+        "7f/7f25dbb690884c3bba2bfd2908d0f83c": {
+          "mode": 384,
+          "uid": 1000,
+          "gid": 1000,
+          "type": "file",
+          "bytes": 27260,
+          "sha256": "edbb5c59b7dfb2a738740fed7ccbaa960aa031087df3b1717cbfca4881444a4b"
+        }
+      },
+      "phase": "done"
+    },
+    {
+      "name": "ea",
+      "bytes": 100685948,
+      "inventory": {
+        "ea": {
+          "mode": 448,
+          "uid": 1000,
+          "gid": 1000,
+          "type": "dir"
+        },
+        "ea/ea14aabbe2514054957ed93995101293": {
+          "mode": 384,
+          "uid": 1000,
+          "gid": 1000,
+          "type": "file",
+          "bytes": 100682656,
+          "sha256": "47c7ebc17ec38c91f1ff3657c9fe2cb802e232b5ad0636fdca356ed534cfe05c"
+        },
+        "ea/eae9ca243d526c7135f7f2bdccdfb18e": {
+          "mode": 384,
+          "uid": 1000,
+          "gid": 1000,
+          "type": "file",
+          "bytes": 3292,
+          "sha256": "ae085067c2890ea2e50424c9ac3e90f7b7a412a032c8954afdf4d9be5e9d6ba0"
+        }
+      },
+      "phase": "done"
+    },
+    {
+      "name": "a4",
+      "bytes": 99367060,
+      "inventory": {
+        "a4": {
+          "mode": 448,
+          "uid": 1000,
+          "gid": 1000,
+          "type": "dir"
+        },
+        "a4/a41f85b977ae7978f6b00740e8921816": {
+          "mode": 384,
+          "uid": 1000,
+          "gid": 1000,
+          "type": "file",
+          "bytes": 9869512,
+          "sha256": "bc226a0280a78b435b019dc0807f55634be351d7c9c887c86431a52299865a0b"
+        },
+        "a4/a4debce0e810db27f58394e8bc339d8b": {
+          "mode": 384,
+          "uid": 1000,
+          "gid": 1000,
+          "type": "file",
+          "bytes": 89497548,
+          "sha256": "806662ca59fd30c460400533fa64cde5a5ab521a4fb1c4d9490204a2e808e304"
+        }
+      },
+      "phase": "done"
+    },
+    {
+      "name": "fc",
+      "bytes": 95975700,
+      "inventory": {
+        "fc": {
+          "mode": 448,
+          "uid": 1000,
+          "gid": 1000,
+          "type": "dir"
+        },
+        "fc/fca182afe04850163e740bfb7e16ca7f": {
+          "mode": 384,
+          "uid": 1000,
+          "gid": 1000,
+          "type": "file",
+          "bytes": 32313500,
+          "sha256": "0a1648dc5fe276a06ae1a2f188d02d9b6f94eefcdb90d843c47a914b8f3af70a"
+        },
+        "fc/fc37b76bece91dcf975cc646af54b704": {
+          "mode": 384,
+          "uid": 1000,
+          "gid": 1000,
+          "type": "file",
+          "bytes": 63662200,
+          "sha256": "735f2e2ce00e8615d5631e15a20107af4a245fdf8f39f67695525544e55c2f15"
+        }
+      },
+      "phase": "done"
+    }
+  ],
+  "bytes": 805974592,
+  "rootAvailableBefore": 1379938304,
+  "shmemBefore": 4609540096,
+  "limits": [
+    "Generated Library cache only; current immutable assets/canonical Source untouched",
+    "Unity may subsequently update/evict cache entries; this is byte preservation at relocation, not cache-health or immutability certification",
+    "384MiB minimum Rootreserve; next-bake peak not guaranteed"
+  ],
+  "rootAvailableAfter": 573898752,
+  "shmemAfter": 3803557888
+}

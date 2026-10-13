@@ -1,0 +1,108 @@
+{
+  "status": "PassedExactR3PostReleaseSceneRecoveryAndCacheRelocation_NoEngineRun",
+  "utc": "2026-10-13T06:57:11.223915+00:00",
+  "receipts": [
+    {
+      "path": "/tmp/cs-main342-failed-temp-released-final15-r3.json",
+      "sha256": "9f39dfdf1a58fe06883a023e208e74a36fc97a9b78e3313d9464f981ef582934"
+    },
+    {
+      "path": "/tmp/cs-main342-full-scene-recovered-final15-r3.json",
+      "sha256": "45f656764ae45f10639c45b092df8e390c7b420ac5fe9bb6dc21ef7876d458a9"
+    },
+    {
+      "path": "/tmp/cs-main342-artifact-disk-relocation-final15-r3.json",
+      "sha256": "c03c6641dff23fdd7aa93cda91317ec8143a32ec4225c179d6229f5d43caab0e"
+    }
+  ],
+  "tempArchiveSha256": "5cc2977580195d0285492233fa7bb9d4fc3da2f535b990f9bb197d31e093cef2",
+  "tempRawAbsent": true,
+  "rootHistoricalOriginalEntries": 14,
+  "redundantRootArchiveAbsent": true,
+  "recoveredSceneSha256": "5d9718be84fc6f9c2219a14323cbfe972e4ce63d6fdf6404bb00b6126ecca9fe",
+  "exactUniqueRoomNames": [
+    "ROOM_assembly-context",
+    "ROOM_compliance-dock",
+    "ROOM_condenser-bay",
+    "ROOM_cooling-plant",
+    "ROOM_electrical-room",
+    "ROOM_front-end-area",
+    "ROOM_fuel-corridor",
+    "ROOM_medical-reanimation",
+    "ROOM_mine",
+    "ROOM_reactor-room",
+    "ROOM_refinery",
+    "ROOM_spawn-room",
+    "ROOM_turbine-room",
+    "ROOM_waste-storage"
+  ],
+  "stashCopies": [
+    {
+      "original": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/BakeRoomStash-9ee722c22cba479a8ba6dee05fa25df0/ExcludedRooms.unity.meta",
+      "copy": "/tmp/cs-main342-failed-room-stash-preserved-final15-r3/ExcludedRooms.unity.meta",
+      "sha256": "10ad60517cde42b66e6073b558be6afb4def1dc1c8409fb8706c622633d3a432",
+      "bytes": 155
+    },
+    {
+      "original": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/BakeRoomStash-9ee722c22cba479a8ba6dee05fa25df0/ExcludedRooms.unity",
+      "copy": "/tmp/cs-main342-failed-room-stash-preserved-final15-r3/ExcludedRooms.unity",
+      "sha256": "202ddbe46a6fda0a1ba6104028b93b7aa23c348d5eea12c6a883b8ba08378d57",
+      "bytes": 831960
+    },
+    {
+      "original": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/BakeRoomStash-9ee722c22cba479a8ba6dee05fa25df0.meta",
+      "copy": "/tmp/cs-main342-failed-room-stash-preserved-final15-r3/BakeRoomStash-9ee722c22cba479a8ba6dee05fa25df0.meta",
+      "sha256": "e7f2cac56697f6c75758a093c664cb0782750b15d8c5122ea3d19aed3c34d383",
+      "bytes": 172
+    },
+    {
+      "original": "/workspace/critical-shift-spawn-runtime/runtime/unity/Assets/CriticalShift/Generated/Spawn/AssembledMap.unity",
+      "copy": "/tmp/cs-main342-failed-room-stash-preserved-final15-r3/AssembledMap.unity",
+      "sha256": "e4e694993016af024a72f082de2d3708972f780ec51754cf972e38bdf6d0af9c",
+      "bytes": 7159083
+    }
+  ],
+  "cacheBuckets": [
+    {
+      "name": "0b",
+      "bytes": 388842180,
+      "entries": 3
+    },
+    {
+      "name": "7f",
+      "bytes": 121103704,
+      "entries": 3
+    },
+    {
+      "name": "ea",
+      "bytes": 100685948,
+      "entries": 3
+    },
+    {
+      "name": "a4",
+      "bytes": 99367060,
+      "entries": 3
+    },
+    {
+      "name": "fc",
+      "bytes": 95975700,
+      "entries": 3
+    }
+  ],
+  "cacheBytes": 805974592,
+  "immutableRootAssets": 111,
+  "immutableRootBytes": 2527463137,
+  "currentCSharpSourceSha256": "6687a450e6dde01be063fa31d9a1167b5c5ec262132d87e6f34b295589d68748",
+  "capacityObserved": {
+    "rootAvailableBytes": 573898752,
+    "shmemBytes": 3803566080,
+    "events": "low 0\nhigh 0\nmax 1107429\noom 54\noom_kill 19\noom_group_kill 0\n"
+  },
+  "limits": [
+    "Source delivery and current C# unchanged; generated full scene restored without fabricated lighting proof",
+    "Cache bytes exact before next Unity launch; later cache updates/eviction legitimate",
+    "Temp archive SHA rechecked against independently streamed prior full-member proof",
+    "Capacity observation is not a bake peak guarantee",
+    "No graphics, bake, visual, Player or 98% acceptance"
+  ]
+}

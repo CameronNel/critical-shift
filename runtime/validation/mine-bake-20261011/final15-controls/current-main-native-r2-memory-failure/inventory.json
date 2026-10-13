@@ -1,0 +1,82 @@
+{
+  "status": "PreservedFailedCurrentNativeR2_NoBakedRestorationCaptureTestOrPlayerPass",
+  "files": [
+    {
+      "original": "/tmp/cs-main342-native-final15-r2/native-scratch.json",
+      "stored": "audit/native-scratch.json",
+      "sha256": "629282d709ec8a46f56f17151b585e630724b00513174fa2b2fac67b4d7006ef",
+      "bytes": 800
+    },
+    {
+      "original": "/tmp/cs-main342-native-final15-r2/native-memory-observations-final15-r2-main342.jsonl",
+      "stored": "audit/native-memory-observations-final15-r2-main342.jsonl",
+      "sha256": "4b317d9694ac289c58b590ba234db8e4be01b96806d8c89de24b92ec78234d4d",
+      "bytes": 288957
+    },
+    {
+      "original": "/tmp/cs-main342-native-final15-r2/native-bake-source-wood-final15-r2-main342.log",
+      "stored": "audit/native-bake-source-wood-final15-r2-main342.log",
+      "sha256": "152f042ccb8618b9d6e088bbcf87163d9b386bfa262b247dcdc303fc6afe1cb0",
+      "bytes": 496172
+    },
+    {
+      "original": "/tmp/cs-main342-native-pipeline-final15-r2.json",
+      "stored": "cs-main342-native-pipeline-final15-r2.json",
+      "sha256": "3e877ea9f7a8c698cd1b4e71579202fb6de04040db8eed28ce883e0db3abd8fe",
+      "bytes": 10540
+    },
+    {
+      "original": "/tmp/cs-main342-native-final15-r2.py",
+      "stored": "cs-main342-native-final15-r2.py",
+      "sha256": "ff8bfc98430263d565070ec4f50f82c3f558b48b003cab6c2858c5449a5b210a",
+      "bytes": 5386
+    },
+    {
+      "original": "/tmp/cs-main342-native-bake-final15-r2.py",
+      "stored": "cs-main342-native-bake-final15-r2.py",
+      "sha256": "f94409d1a454f292b38407bc1795d5ecc2869848942500da6a6664ed7fffbc3b",
+      "bytes": 3730
+    },
+    {
+      "original": "/tmp/cs-main342-native-after-bake-final15-r2.py",
+      "stored": "cs-main342-native-after-bake-final15-r2.py",
+      "sha256": "f62f2418f93a217fd636a9d499e4eb4eda76c3d38a918345ae6c7e95e7d34b9d",
+      "bytes": 4400
+    },
+    {
+      "original": "/tmp/cs-main342-native-evidence-final15-r2.py",
+      "stored": "cs-main342-native-evidence-final15-r2.py",
+      "sha256": "5e6ea621ab67b25a69b08e218f3628e9f526396275f77b7967dc7a510e26a6dd",
+      "bytes": 13661
+    },
+    {
+      "original": "/tmp/cs-main342-native-memory-final15-r2.py",
+      "stored": "cs-main342-native-memory-final15-r2.py",
+      "sha256": "2860e8f7b180ac6598af63c6169e83244a5862df85baf68e577ab4065dae6ccb",
+      "bytes": 1238
+    },
+    {
+      "original": "/tmp/cs-main342-native-bake-wrapper-final15-r2.log",
+      "stored": "cs-main342-native-bake-wrapper-final15-r2.log",
+      "sha256": "41fccaeab4fbd8b565c364f2851e624c7df95af8765e376a01a4b27d84a26cd5",
+      "bytes": 114
+    },
+    {
+      "original": "/tmp/cs-main342-native-r2-cleared-independent-final15.json",
+      "stored": "cs-main342-native-r2-cleared-independent-final15.json",
+      "sha256": "cec78a1294ee737359ba69b0bebb4c56fd269baf18fef3b33b0a6561b54fc83a",
+      "bytes": 3180
+    },
+    {
+      "original": "/tmp/cs-bake-full-map-before-exclusion-1f9d65f228db4123ae4378d20d520cad.unity",
+      "stored": "full-map-before-exclusion.unity",
+      "sha256": "5d9718be84fc6f9c2219a14323cbfe972e4ce63d6fdf6404bb00b6126ecca9fe"
+    }
+  ],
+  "memoryEvents": "low 0\nhigh 0\nmax 1107429\noom 54\noom_kill 19\noom_group_kill 0\n",
+  "limits": [
+    "Raw logs are exact including original whitespace",
+    "Full14-room pre-exclusion scene preserved",
+    "Source/freshtextures are unchanged; no visual98 score"
+  ]
+}

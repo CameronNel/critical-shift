@@ -1,0 +1,42 @@
+{
+  "status": "ConfirmedGraphicsR3RejectedNullLightingSettingsBeforeScopeMovement_NoBake",
+  "utc": "2026-10-13T07:01:44.456188+00:00",
+  "preserved": [
+    {
+      "path": "/tmp/cs-main342-graphics-r3-nullsettings-independent-final15/receipt.json",
+      "sha256": "ba2d154fd095e158764baacd9dc9187302afd36bdf624e4d6c62c0fa636c99f6",
+      "bytes": 9115
+    },
+    {
+      "path": "/tmp/cs-main342-graphics-r3-nullsettings-independent-final15/unity.log",
+      "sha256": "c88fc25270938f954455976ddb05b7aef9bc791565fdc64646e393c568b0da76",
+      "bytes": 31665
+    },
+    {
+      "path": "/tmp/cs-main342-graphics-r3-nullsettings-independent-final15/memory.jsonl",
+      "sha256": "00e616d9152f244dde327512df6d8c78e93b09e4022b4d7857fa2d62af59ad7a",
+      "bytes": 5465
+    },
+    {
+      "path": "/tmp/cs-main342-graphics-r3-nullsettings-independent-final15/cs-main342-graphics-cache-control-final15-r3.py",
+      "sha256": "ca711d3e7d8800fd8f88cca06ac2e748607315abeba8f775eaf8cd49baaf99ab",
+      "bytes": 5747
+    }
+  ],
+  "failure": "Throwing Lightmapping.lightingSettings getter in RetainedLighting constructor, actual recovered fullscene has no LightingSettings assigned",
+  "markers": {
+    "before": 1,
+    "unloaded": 0,
+    "restored": 0,
+    "bakeStart": 0
+  },
+  "recordedPostFailurePinsAndAliases": "VerifiedIntact",
+  "memoryPeakObserved": 12364025856,
+  "lastMemoryEvents": "low 0\nhigh 0\nmax 1107429\noom 54\noom_kill 19\noom_group_kill 0\n",
+  "proposedNarrowFix": "TryGetLightingSettings in snapshot and Verify, preserving and comparing null without assigning a synthetic asset",
+  "limits": [
+    "Saved-scene/no movement claim refers to scope movement and save; temporary in-memory colliders/actives were changed by VerifyRoundTrip before constructor",
+    "Parent wrapper independently reported code/scene/111 assets unchanged after failure",
+    "No graphics roundtrip/bake/visual/Player acceptance"
+  ]
+}

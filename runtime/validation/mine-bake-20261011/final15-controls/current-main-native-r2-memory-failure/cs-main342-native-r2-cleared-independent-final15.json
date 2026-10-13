@@ -1,0 +1,61 @@
+{
+  "status": "ClearedExactCurrentMainNativeRetry_VisualPlayerAndPeakAcceptancePending",
+  "utc": "2026-10-13T05:43:19.214609+00:00",
+  "helpers": [
+    {
+      "path": "/tmp/cs-main342-native-final15-r2.py",
+      "sha256": "ff8bfc98430263d565070ec4f50f82c3f558b48b003cab6c2858c5449a5b210a"
+    },
+    {
+      "path": "/tmp/cs-main342-native-bake-final15-r2.py",
+      "sha256": "f94409d1a454f292b38407bc1795d5ecc2869848942500da6a6664ed7fffbc3b"
+    },
+    {
+      "path": "/tmp/cs-main342-native-after-bake-final15-r2.py",
+      "sha256": "f62f2418f93a217fd636a9d499e4eb4eda76c3d38a918345ae6c7e95e7d34b9d"
+    },
+    {
+      "path": "/tmp/cs-main342-native-evidence-final15-r2.py",
+      "sha256": "5e6ea621ab67b25a69b08e218f3628e9f526396275f77b7967dc7a510e26a6dd"
+    },
+    {
+      "path": "/tmp/cs-main342-native-memory-final15-r2.py",
+      "sha256": "2860e8f7b180ac6598af63c6169e83244a5862df85baf68e577ab4065dae6ccb"
+    }
+  ],
+  "CSharpDigest": "6687a450e6dde01be063fa31d9a1167b5c5ec262132d87e6f34b295589d68748",
+  "apiReceipt": {
+    "path": "/tmp/cs-main342-excluded-scope-api-final15-r7/player-api.json",
+    "sha256": "16b9cd74f98dfdf7c14b0af8134e28af58c612e3a83e3e99be890c8c0eaefd0a"
+  },
+  "capacityIndependentReceipt": {
+    "path": "/tmp/cs-main342-capacity-independent-final15-r2.json",
+    "sha256": "a39f8637becdae7d63f26440c8ec43ec54151c348ac939805aa6d4650b87dba9"
+  },
+  "roundTripIndependentReceipt": {
+    "path": "/tmp/cs-main342-excluded-roundtrip-r2-independent-final15.json",
+    "sha256": "3a034ef9ff81c6ef5e6f394f954e3b9f26da9716b9ce2cd0a2f1e796c1ea5045"
+  },
+  "currentBaseline": {
+    "rootAvailableBytes": 1387835392,
+    "shmemBytes": 4379013120,
+    "memoryEvents": "low 0\nhigh 0\nmax 1036266\noom 53\noom_kill 18\noom_group_kill 0\n"
+  },
+  "reviewedGuards": [
+    "Fresh distinct state/log/audit/captures/XML",
+    "Pins all five wrappers/currentAPI/sourcecameras/config/snapshot/source-render proofs/C#shader/test/assembly and current111 root asset contracts before eachstage and after",
+    "Prelaunch requires completed capacity release/relocation+idle engines+shmem<5GiB/root>1GiB",
+    "Full scene backup plus11excluded rooms unload/restore+stashabsence+successful lighting/material/point/spot/capture markers mandatory",
+    "Post-bake additive lighting/room exact state fail closed; owned recovery proof recorded",
+    "Three currentSource/native unchanged1440 panels+three spawn; threefiniteHDR/SHA/pose and exact18 current tests required",
+    "Terminal technicalsuccess revalidates complete current proof and tests, carries no visualscore/Player approval"
+  ],
+  "limits": [
+    "Archive+relocation keeps6.5 bytes restorable with adequate future capacity; required4.3 remains callable",
+    "No injected failure-path certification and no guarantee on peak extraction/bake memory",
+    "New11room unloading graphics effect/newly baked additive state still actual retry evidence",
+    "Full13geometry/colliders loaded does not certify lighting/gameplay/navigation throughout13rooms",
+    "Only three current mine views and spawn regressions receive visual review; target98 remains unachieved",
+    "No engine launch by reviewer"
+  ]
+}

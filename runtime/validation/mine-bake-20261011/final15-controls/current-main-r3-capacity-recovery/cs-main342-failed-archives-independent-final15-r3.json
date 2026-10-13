@@ -1,0 +1,34 @@
+{
+  "status": "PassedExactTwoFailedDataArchivesAndOriginalTrees",
+  "utc": "2026-10-13T06:34:43.664880+00:00",
+  "archivePreparationReceiptSha256": "87889ea99f04630a580d6f590a84e11a98d80b99d68a1d759d4e1ede1143a91f",
+  "reviewerHelperSha256": "831bf8795f1496920ecb505eb4fa3bdae9e0576285c3686f0f58f1cac0463666",
+  "items": [
+    {
+      "source": "/tmp/cs-mine-unity-temp-f641ef18fa1748dc8e311fa133c01ef7",
+      "archive": "/tmp/cs-main342-native-r2-failed-temp-preserved-final15-r3.tar.zst",
+      "archiveBytes": 205929430,
+      "archiveSha256": "5cc2977580195d0285492233fa7bb9d4fc3da2f535b990f9bb197d31e093cef2",
+      "inventorySha256": "4a1ffbd8e5c4e319a75a00cf56c9da0385b3acb4a8683729a5a0b7c5cf2ec7cb",
+      "entries": 24,
+      "rawBytes": 548851749,
+      "originalAndArchiveExact": true
+    },
+    {
+      "source": "/workspace/critical-shift-spawn-runtime/runtime/out/mine-bake-audit/final13-failed-native-oom",
+      "archive": "/home/agent/.local/share/critical-shift/toolchain/cache-archives/cs-mine-final13-failed-native-data-preserved-final15-r3.tar.zst",
+      "archiveBytes": 211811356,
+      "archiveSha256": "3a7ecf953a08418e59a25ad0d07fc7b41f9fe068e5d2f895bb414c9a9f2b6ce8",
+      "inventorySha256": "38ceb2a9be0300f5778ac4bfd6d3b82db20a950a36d27040e3b811f3e3763f98",
+      "entries": 14,
+      "rawBytes": 213109642,
+      "originalAndArchiveExact": true
+    }
+  ],
+  "limits": [
+    "No original or archive deletion by reviewer",
+    "OldRoot archive almost incompressible; keeping original and deleting only exact newlycreated duplicate loses no unique bytes",
+    "Only newTemp rawrelease may proceed after separate FD/ownership release review",
+    "No engine/bake/visual/98%success"
+  ]
+}

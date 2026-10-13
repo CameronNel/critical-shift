@@ -65,7 +65,7 @@ namespace CriticalShift.Player.Editor
                 outputs=lights.Select(l=>l.bakingOutput).ToArray();
                 maps=LightmapSettings.lightmaps.Select(m=>new LightmapData {lightmapColor=m.lightmapColor,lightmapDir=m.lightmapDir,shadowMask=m.shadowMask}).ToArray();
                 mode=LightmapSettings.lightmapsMode;
-                data=Lightmapping.lightingDataAsset;settings=Lightmapping.lightingSettings;
+                data=Lightmapping.lightingDataAsset;Lightmapping.TryGetLightingSettings(out settings);
                 probePositions=LightmapSettings.lightProbes?.positions ?? Array.Empty<Vector3>();
                 probeValues=LightmapSettings.lightProbes?.bakedProbes ?? Array.Empty<SphericalHarmonicsL2>();
                 ambient=RenderSettings.ambientProbe;environment=EnvironmentSignature();
@@ -73,7 +73,8 @@ namespace CriticalShift.Player.Editor
 
             internal void Verify()
             {
-                if(SceneManager.GetActiveScene()!=scene || Lightmapping.lightingDataAsset!=data || Lightmapping.lightingSettings!=settings ||
+                Lightmapping.TryGetLightingSettings(out var actualSettings);
+                if(SceneManager.GetActiveScene()!=scene || Lightmapping.lightingDataAsset!=data || actualSettings!=settings ||
                    LightmapSettings.lightmaps.Length!=maps.Length || LightmapSettings.lightmapsMode!=mode || !RenderSettings.ambientProbe.Equals(ambient) || EnvironmentSignature()!=environment)
                     throw new InvalidOperationException("Additive room restoration changed active/global baked lighting.");
                 for(int i=0;i<maps.Length;i++)
