@@ -185,7 +185,7 @@ Readiness checklist for whoever opens the editor: 1. decide the room export rout
 
 ## 10. Open decisions for the owner
 
-1. **Fuel run**: 27.7 s by loaded cart to the corridor's reactor port F02 (meets 30 s), 41.9 s to the core (misses). Recommended: fuel drop at F02 / the concourse. Alternatives: accept 42 s, raise the cart speed above 1.5 m/s, or shorten the fuel corridor (a room change).
+1. **Fuel run**: 27.7 s by loaded cart to the corridor's reactor port F02 (meets 30 s), 41.9 s to the core (misses). A grey-box test of a short replacement corridor (`GREYBOX_FUEL_TEST.md`) gives 28.1 s end to end and 16 % less map area, at the cost of a new fuel corridor room. Recommended: fuel drop at F02 / the concourse. Alternatives: accept 42 s, raise the cart speed above 1.5 m/s, or shorten the fuel corridor (a room change).
 2. **Refinery freight door is blocked to players** by the refinery's parked ore cart: intended (carts only) or should the cart park inside?
 3. Hall east exit, yard service door: are they evacuation exits (runtime rule)? The spine's north-end door closes a 3 m blind stub: keep or remove (removing it means trimming the front end's spine).
 4. Fuel corridor S01 (plant service) and S02 (clean service) stay closed: they have no neighbour in this layout.

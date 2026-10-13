@@ -1,6 +1,6 @@
 """Plan drawing of the built map from a plan cut (plan_cut.py) with the walk-test lanes and the door table on top (plain Python: numpy + Pillow).
 
-    python3 draw_assembly_plan.py cut.npz validation/walk_report.json validation/doors.json out.png [x0,y0,x1,y1] [px_per_m]
+    python3 draw_assembly_plan.py cut.npz validation/walk_report.json validation/doors.json out.png [x0,y0,x1,y1] [px_per_m] [greybox]
 
 Walls: the section at z 1.1 m (z -5.0 m for the condenser level, drawn lighter). Lanes: the continuous capsule lanes the walk test found (green), failed routes red.
 Doors: open green dot, closed red bar across the opening."""
@@ -36,6 +36,10 @@ LABELS = {'ROOM_front-end-area': (8, -66, 'cafeteria'), 'ROOM_spawn-room': (8, -
           'ROOM_medical-reanimation': (32, -70, 'medical'), 'ROOM_fuel-corridor': (-17, -36, 'fuel corridor'), 'ROOM_reactor-room': (0, 0, 'REACTOR'), 'ROOM_turbine-room': (2.8, 36, 'turbine'),
           'ROOM_electrical-room': (19, 31, 'electrical'), 'ROOM_condenser-bay': (6, 30.5, '(condenser, -6 m)'), 'ROOM_waste-storage': (20, -21, 'waste'), 'ROOM_cooling-plant': (-22, 4, 'cooling'),
           'ROOM_compliance-dock': (21, -45, 'dock'), 'hall': (8, -54, 'hall'), 'yard': (-32, -80, 'yard'), 'spine': (8, -36, 'spine'), 'stair': (-9.5, 22, 'stair')}
+if len(sys.argv) > 7 and sys.argv[7] == 'greybox':        # greybox_fuel_test.py: the reactor cluster moved 20.6 m south, waste on the reactor's east wall, grey fuel corridor
+    for k in ('ROOM_reactor-room', 'ROOM_turbine-room', 'ROOM_electrical-room', 'ROOM_condenser-bay', 'ROOM_cooling-plant', 'stair'):
+        x, y, t = LABELS[k]; LABELS[k] = (x, y - 20.6, t)
+    LABELS['ROOM_waste-storage'] = (21, -12, 'waste'); LABELS['ROOM_fuel-corridor'] = (-17, -33, 'grey fuel corridor'); LABELS['spine'] = (13, -44, 'spine')
 for k, (x, y, t) in LABELS.items():
     if x0 < x < x1 and y0 < y < y1:
         p = P(x, y); w = 6 * len(t); dr.rectangle([p[0] - w / 2 - 2, p[1] - 6, p[0] + w / 2 + 2, p[1] + 7], fill=(255, 255, 255)); dr.text((p[0] - w / 2, p[1] - 5), t, fill=(0, 0, 0))
