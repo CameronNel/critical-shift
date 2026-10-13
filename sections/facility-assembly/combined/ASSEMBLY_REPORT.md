@@ -284,7 +284,7 @@ Readiness checklist for whoever opens the editor: 1. decide the room export rout
 ## 10. Open decisions for the owner
 
 1. **Meltdown runtime rules**: which doors fail, lock or open in each meltdown stage, whether players run, and whether the yard evacuation gate is the escape point (front end DESIGN.md asks the same). The map now gives every station except the condenser bay and the dock a second way out, and both blast doors exist; the rules that use them are runtime design.
-2. **Condenser bay has one stair**: a second way out would be a ladder through its U04 receive opening into the turbine floor (not built: the opening's services were not surveyed). **Dock has one door**: P2 is its sealed arrival by contract; making P2 an evacuation exit is a compliance-design call.
+2. **Condenser bay has one stair** (its place under the turbine is settled: owner, 2026-10-13, "Ok keep it under the turbine"): a second way out would be a ladder through its U04 receive opening into the turbine floor (not built: the opening's services were not surveyed). **Dock has one door**: P2 is its sealed arrival by contract; making P2 an evacuation exit is a compliance-design call.
 3. **Short fuel corridor S1 needs a review** before it can be called anything but unreviewed: F23ci's 99 does not carry over. Its two north alcoves and the moved east-wall dressing are the parts to look at.
 4. **Fuel run**: 30.7 s end to end on the freight lane (27.6 s on the shortest line, 26.3 s to the reactor's south door). Accept, or define the drop at the concourse.
 5. **Refinery freight door is blocked to players** by the refinery's parked ore cart: intended (carts only) or should the cart park inside?
