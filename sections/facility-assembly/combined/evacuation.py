@@ -15,7 +15,7 @@ Emergency exits default closed in normal play and open in the evacuation state (
 import bpy, bmesh, math, os
 from mathutils import Vector, Matrix
 
-FE_LIB = 'front_end_area.blend'
+FE_LIBS = ('front_end_area.blend', 'front_end_area_cafeteria_revamp.blend')   # original front end or the cafeteria revamp (same yard materials)
 APRON_Z = (-0.3, 0.0)
 _L = None        # the build module (set by build()): the turbine and electrical placements below are read from it
 
@@ -63,7 +63,7 @@ def poles(RY):
     return east + west
 
 def fe_mat(name, fallback):
-    m = next((m for m in bpy.data.materials if m.name == name and m.library and os.path.basename(m.library.filepath) == FE_LIB), None)
+    m = next((m for m in bpy.data.materials if m.name == name and m.library and os.path.basename(m.library.filepath) in FE_LIBS), None)
     return m or fallback
 
 def mat(name, rgb, rough=0.6, metal=0.0, emit=0.0, emit_rgb=None):
