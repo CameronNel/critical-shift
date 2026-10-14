@@ -3,9 +3,9 @@
  "source": {
   "scene": "sections/facility-assembly/combined/combined_map.blend",
   "builder": "build_compact_map.py",
-  "git_revision_at_export": "1e967afae595c60135de8152316cd936e35efd8d",
+  "git_revision_at_export": "7f1ea5f84fe278636cd46572f134693169f031a0",
   "worktree_dirty_at_export": true,
-  "inputs_sha256": "f023a087e8a73e74052ba31ce9935696d2b3f92d519d52f3b3a38f4c43bb81db",
+  "inputs_sha256": "73265a4dc8f4dd1a50ca1b1f9a1c0d385d8c303ffb0476ba753138962ca329b3",
   "inputs": [
    "build_compact_map.py",
    "build_combined_map.py",
@@ -20,7 +20,7 @@
  "export": {
   "format": "FBX",
   "file": "compact_map_colliders_anchors.fbx",
-  "sha256": "b23b5c988514cdb2c279794b7bf4d19821237ccadf03b236a028be9ecd2c1f94",
+  "sha256": "ff75be3913c399b0f1e512e25ef4ca9fd4799ccb5ae5764b3054f6680bfa0a3d",
   "settings": {
    "use_selection": true,
    "object_types": [
@@ -106,7 +106,7 @@
   },
   {
    "room": "front-end-area",
-   "source": "front-end-area/front_end_area.blend",
+   "source": "front-end-area/front_end_area_cafeteria_revamp.blend",
    "translation": [
     8.0,
     -80.0,
@@ -212,8 +212,8 @@
  "runtime_owner": "UNRESOLVED: no runtime owner for map collision or doors is decided (design/code-architecture DECISIONS_AND_RISKS); doors would belong to the Interaction feature per STATE_AND_CONTRACTS, not decided here",
  "reimport_check": {
   "fbx": "compact_map_colliders_anchors.fbx",
-  "sha256": "b23b5c988514cdb2c279794b7bf4d19821237ccadf03b236a028be9ecd2c1f94",
-  "bytes": 437324,
+  "sha256": "ff75be3913c399b0f1e512e25ef4ca9fd4799ccb5ae5764b3054f6680bfa0a3d",
+  "bytes": 437372,
   "exported": 202,
   "reimported": 202,
   "missing": [],
