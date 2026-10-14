@@ -1,14 +1,14 @@
 {
  "note": "Static counts of the built scene; no frame rate was measured (no runtime build exists). Budgets: only the 400k per-room flag and 800k front-end figure exist in the repo.",
  "totals": {
-  "triangles": 11030247,
-  "objects": 22114,
-  "submeshes": 24204,
-  "lights": 499,
-  "shadow_lights": 461,
-  "materials": 856,
-  "textures": 133,
-  "texture_mb_rgba8": 1349.8
+  "triangles": 11223611,
+  "objects": 22313,
+  "submeshes": 24521,
+  "lights": 526,
+  "shadow_lights": 486,
+  "materials": 909,
+  "textures": 147,
+  "texture_mb_rgba8": 1393.9
  },
  "rooms": {
   "ROOM_mine": {
@@ -74,6 +74,24 @@
    "budget_flag": 400000,
    "over_flag": true
   },
+  "ROOM_front-end-area": {
+   "triangles": 753736,
+   "objects": 2209,
+   "meshes": 1902,
+   "submeshes": 2969,
+   "materials": 123,
+   "lights": {
+    "AREA": 57,
+    "SUN": 1,
+    "SPOT": 6,
+    "POINT": 8
+   },
+   "shadow_lights": 70,
+   "textures": 42,
+   "texture_mb_rgba8": 272.3,
+   "budget_flag": 800000,
+   "over_flag": false
+  },
   "ROOM_medical-reanimation": {
    "triangles": 599168,
    "objects": 1476,
@@ -89,24 +107,6 @@
    "texture_mb_rgba8": 77.3,
    "budget_flag": 400000,
    "over_flag": true
-  },
-  "ROOM_front-end-area": {
-   "triangles": 560372,
-   "objects": 2010,
-   "meshes": 1718,
-   "submeshes": 2652,
-   "materials": 70,
-   "lights": {
-    "SUN": 1,
-    "SPOT": 6,
-    "AREA": 30,
-    "POINT": 8
-   },
-   "shadow_lights": 45,
-   "textures": 28,
-   "texture_mb_rgba8": 228.3,
-   "budget_flag": 800000,
-   "over_flag": false
   },
   "ROOM_refinery": {
    "triangles": 464675,
@@ -660,6 +660,28 @@
   [
    5,
    [
+    1732,
+    3456,
+    [
+     0.69,
+     0.78,
+     0.61
+    ]
+   ],
+   [
+    "ROOM_front-end-area"
+   ],
+   [
+    "lounge_sofa_main_cushion_0",
+    "lounge_sofa_main_cushion_1",
+    "lounge_sofa_main_cushion_2",
+    "lounge_sofa_side_cushion_0",
+    "lounge_sofa_side_cushion_1"
+   ]
+  ],
+  [
+   5,
+   [
     1152,
     2256,
     [
@@ -698,6 +720,90 @@
     "FC | Wall_E6.78_1_12.2 \u00b7 lined bay",
     "FC | Wall_W6.07_0_6.15 \u00b7 lined bay",
     "FC | Wall_W6.07_1_12.2 \u00b7 lined bay"
+   ]
+  ],
+  [
+   4,
+   [
+    2166,
+    4152,
+    [
+     0.05,
+     1.24,
+     0.21
+    ]
+   ],
+   [
+    "ROOM_front-end-area"
+   ],
+   [
+    "FT_Rod_04_players_handle_bearings",
+    "FT_Rod_04_players_handle_bearings.001",
+    "FT_Rod_05_players_handle_bearings",
+    "FT_Rod_05_players_handle_bearings.001"
+   ]
+  ],
+  [
+   4,
+   [
+    1714,
+    3304,
+    [
+     0.05,
+     1.24,
+     0.21
+    ]
+   ],
+   [
+    "ROOM_front-end-area"
+   ],
+   [
+    "FT_Rod_03_players_handle_bearings",
+    "FT_Rod_03_players_handle_bearings.001",
+    "FT_Rod_06_players_handle_bearings",
+    "FT_Rod_06_players_handle_bearings.001"
+   ]
+  ],
+  [
+   4,
+   [
+    1488,
+    2880,
+    [
+     0.05,
+     1.24,
+     0.21
+    ]
+   ],
+   [
+    "ROOM_front-end-area"
+   ],
+   [
+    "FT_Rod_02_players_handle_bearings",
+    "FT_Rod_02_players_handle_bearings.001",
+    "FT_Rod_07_players_handle_bearings",
+    "FT_Rod_07_players_handle_bearings.001"
+   ]
+  ],
+  [
+   4,
+   [
+    1262,
+    2456,
+    [
+     0.05,
+     1.24,
+     0.21
+    ]
+   ],
+   [
+    "ROOM_front-end-area"
+   ],
+   [
+    "FT_Rod_01_players_handle_bearings",
+    "FT_Rod_01_players_handle_bearings.001",
+    "FT_Rod_08_players_handle_bearings",
+    "FT_Rod_08_players_handle_bearings.001"
    ]
   ],
   [
@@ -1052,101 +1158,6 @@
     "Cube.687",
     "Cube.750"
    ]
-  ],
-  [
-   2,
-   [
-    3176,
-    6348,
-    [
-     0.04,
-     3.01,
-     1.14
-    ]
-   ],
-   [
-    "ROOM_medical-reanimation"
-   ],
-   [
-    "Cube.748",
-    "Cube.751"
-   ]
-  ],
-  [
-   2,
-   [
-    3176,
-    6348,
-    [
-     0.04,
-     2.4,
-     1.14
-    ]
-   ],
-   [
-    "ROOM_medical-reanimation"
-   ],
-   [
-    "Cube.686",
-    "Cube.749"
-   ]
-  ],
-  [
-   2,
-   [
-    3174,
-    6164,
-    [
-     0.73,
-     0.15,
-     4.41
-    ]
-   ],
-   [
-    "ROOM_fuel-corridor"
-   ],
-   [
-    "FC | Wall_N13.85_0_6.07 \u00b7 lined bay",
-    "FC | Wall_S6.15_0_6.07 \u00b7 lined bay"
-   ]
-  ],
-  [
-   2,
-   [
-    1910,
-    3688,
-    [
-     1.22,
-     0.15,
-     3.91
-    ]
-   ],
-   [
-    "ROOM_fuel-corridor"
-   ],
-   [
-    "FC | Wall_E1.6_0_0 \u00b7 lined bay",
-    "FC | Wall_W-1.6_0_0 \u00b7 lined bay"
-   ]
-  ],
-  [
-   2,
-   [
-    1910,
-    3688,
-    [
-     0.82,
-     0.15,
-     4.41
-    ]
-   ],
-   [
-    "ROOM_fuel-corridor"
-   ],
-   [
-    "FC | Wall_E4.4_0_7 \u00b7 lined bay",
-    "FC | Wall_W10_0_7 \u00b7 lined bay"
-   ]
   ]
  ],
  "portal_visible_sets": {
@@ -1155,7 +1166,7 @@
     "ROOM_front-end-area"
    ],
    "own": 3313648,
-   "with_neighbours": 3874020
+   "with_neighbours": 4067384
   },
   "ROOM_fuel-corridor": {
    "neighbours": [
@@ -1182,13 +1193,6 @@
    "own": 767131,
    "with_neighbours": 1185321
   },
-  "ROOM_medical-reanimation": {
-   "neighbours": [
-    "ROOM_front-end-area"
-   ],
-   "own": 599168,
-   "with_neighbours": 1159540
-  },
   "ROOM_front-end-area": {
    "neighbours": [
     "CONNECTOR_reactor_south_concourse",
@@ -1198,8 +1202,15 @@
     "ROOM_refinery",
     "ROOM_spawn-room"
    ],
-   "own": 560372,
-   "with_neighbours": 5795440
+   "own": 753736,
+   "with_neighbours": 5988804
+  },
+  "ROOM_medical-reanimation": {
+   "neighbours": [
+    "ROOM_front-end-area"
+   ],
+   "own": 599168,
+   "with_neighbours": 1352904
   },
   "ROOM_refinery": {
    "neighbours": [
@@ -1207,14 +1218,14 @@
     "ROOM_fuel-corridor"
    ],
    "own": 464675,
-   "with_neighbours": 2663394
+   "with_neighbours": 2856758
   },
   "ROOM_spawn-room": {
    "neighbours": [
     "ROOM_front-end-area"
    ],
    "own": 430704,
-   "with_neighbours": 991076
+   "with_neighbours": 1184440
   },
   "ROOM_condenser-bay": {
    "neighbours": [
@@ -1238,7 +1249,7 @@
     "ROOM_front-end-area"
    ],
    "own": 416761,
-   "with_neighbours": 977133
+   "with_neighbours": 1170497
   },
   "ROOM_waste-storage": {
    "neighbours": [
@@ -1266,7 +1277,7 @@
     "ROOM_reactor-room"
    ],
    "own": 10112,
-   "with_neighbours": 3426236
+   "with_neighbours": 3619600
   },
   "EXTERIOR_evacuation": {
    "neighbours": [],
