@@ -29,6 +29,10 @@ VIEWS = {   # name: eye, target, lens (mm); plan metres
     'concourse_blast_door': ((0.0, -37.8, 1.6), (0.0, -33.5, 2.4), 18),
     # condenser bay second exit: along the escape tunnel to the ladder, and the hatch house outside at night
     'condenser_escape_tunnel': (r(0.6, 30.8, -4.4), r(-5.6, 30.8, -4.6), 18), 'escape_house_night': ((-4.6, 17.5, 1.6), (-5.6, 13.2, 1.2), 18),
+    # cafeteria (the revamp since 2026-10-14): its own camera spots (cafeteria-revamp/CAMERAS.md, module-local + (8, -80)) at walking height
+    'cafeteria_entry': ((8.0, -79.2, 1.6), (8.0, -74.2, 1.6), 18), 'cafeteria_dining': ((9.5, -78.8, 1.6), (13.9, -76.5, 1.3), 18),
+    'cafeteria_lounge': ((3.4, -71.2, 1.6), (-0.7, -74.0, 1.3), 18), 'cafeteria_games': ((3.0, -67.0, 1.6), (-1.35, -64.55, 1.4), 18),
+    'cafeteria_medical_door': ((18.5, -70.0, 1.6), (23.5, -70.0, 1.6), 18),
 }
 sc = bpy.context.scene; sc.render.engine = 'CYCLES'; sc.cycles.device = 'CPU'; sc.cycles.samples = 14; sc.cycles.use_denoising = True
 sc.render.resolution_x, sc.render.resolution_y = 640, 360; sc.render.image_settings.file_format = 'PNG'

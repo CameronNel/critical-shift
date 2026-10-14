@@ -5,7 +5,11 @@ For the assembly pass (2026-10-13) the owner added: "Ignore all previous specs a
 `combined_map.blend` is built by `build_compact_map.py` (it imports `build_combined_map.py` and overrides placements, halls and patches). `COMBINED_MAP.md` keeps the decision record of the older spread-out layout; its measurements and door data still stand where this file does not supersede them.
 Never hand-edit `combined_map.blend`. Rebuild: `blender --background --factory-startup --python build_compact_map.py`. Results, tests and open decisions of the assembly pass: **`ASSEMBLY_REPORT.md`**.
 
-## Turbine rebuild swap (2026-10-13, latest; details in ASSEMBLY_REPORT.md section 1a)
+## Cafeteria revamp (2026-10-14, latest; details in ASSEMBLY_REPORT.md section 1c)
+
+Owner: "yes switch it on and run everything". The front end is now Codex's cafeteria revamp (PR 105, `front_end_area_cafeteria_revamp.blend`): same collection, frame, hall and yard, so no placement moved. The map leaves out its closed airlock and medical door leaves, so those doorways stay open as before. Every check gives the same result as before: walks 17/18, 10/10 and 20/20; 13/13 closed doors block; 45 doors with 0 flagged; no new overlap or floor flag; export re-import PASS. Lighting is 29/30 with five new cafeteria views, all passing. The front end goes from 560k to 754k triangles (budget 800k). `FRONT_END_SOURCE=original` builds with the original. Unreviewed.
+
+## Turbine rebuild swap (2026-10-13; details in ASSEMBLY_REPORT.md section 1a)
 
 Owner: "swap in the turbine rebuild". The turbine is now the **v2 rebuild** (`sources/turbine-room/rebuild/turbine_room_v2_geo.blend`, collection `TURBINE_ROOM_V2`, merged in #63; its only review is the builder's own, about 79/100), not the AAA finish of the original module. Same envelope (walls x -4..10, y 0..24, a 0.25 m light-occluder shell outside them) and the same door centres, so it keeps the original's placement: south wall face on the reactor north stub end, plan (0, -4.2). The room file is not edited; everything below is a local change in `patch_turbine`.
 
