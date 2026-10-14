@@ -3,13 +3,24 @@
  "source": {
   "scene": "sections/facility-assembly/combined/combined_map.blend",
   "builder": "build_compact_map.py",
-  "git_revision_at_export": "df115ab06f5f6d3a2e7910aa0f8c9cada79a2051",
+  "git_revision_at_export": "1e967afae595c60135de8152316cd936e35efd8d",
+  "worktree_dirty_at_export": true,
+  "inputs_sha256": "f023a087e8a73e74052ba31ce9935696d2b3f92d519d52f3b3a38f4c43bb81db",
+  "inputs": [
+   "build_compact_map.py",
+   "build_combined_map.py",
+   "reactor_links.py",
+   "evacuation.py",
+   "assembly_colliders.py",
+   "export_unity.py",
+   "combined_map.blend"
+  ],
   "blender": "5.2.2 LTS"
  },
  "export": {
   "format": "FBX",
   "file": "compact_map_colliders_anchors.fbx",
-  "sha256": "ec076671c95920911c5bd7305ef8b20ac964efd32149d6cfb766f3e3ae308b9b",
+  "sha256": "b23b5c988514cdb2c279794b7bf4d19821237ccadf03b236a028be9ecd2c1f94",
   "settings": {
    "use_selection": true,
    "object_types": [
@@ -30,7 +41,7 @@
  },
  "scale_axes_origin": {
   "units": "metres",
-  "blender_frame": "plan frame: +x east, +y north, +z up, origin at the reactor centre",
+  "blender_frame": "plan frame: +x east, +y north, +z up; origin (0, 0, 0) is the layout's plan origin (the reactor centre before the compact layout moved it); the reactor centre is now at (0, -18.70, 0). Every exported anchor and collider is in this frame",
   "fbx_axes": "forward -Z, up Y (Unity left-handed import converts)",
   "room_origins": "each ANCHOR_ROOM_<key> carries its module origin; a room prefab is placed at that anchor"
  },
@@ -189,7 +200,8 @@
   "floor": "static, walkable",
   "wall": "static",
   "roof": "static",
-  "ramp": "static, walkable stair proxy (30.5 degrees)",
+  "ramp": "static, walkable stair proxy (about 31 degrees)",
+  "ladder": "trigger: climb volume of the condenser escape ladder",
   "door_blocker": "static while state in enabled_when (closed, locked); disabled while open",
   "door_threshold": "trigger: door interaction and room-entry events"
  },
@@ -200,7 +212,7 @@
  "runtime_owner": "UNRESOLVED: no runtime owner for map collision or doors is decided (design/code-architecture DECISIONS_AND_RISKS); doors would belong to the Interaction feature per STATE_AND_CONTRACTS, not decided here",
  "reimport_check": {
   "fbx": "compact_map_colliders_anchors.fbx",
-  "sha256": "ec076671c95920911c5bd7305ef8b20ac964efd32149d6cfb766f3e3ae308b9b",
+  "sha256": "b23b5c988514cdb2c279794b7bf4d19821237ccadf03b236a028be9ecd2c1f94",
   "bytes": 437324,
   "exported": 202,
   "reimported": 202,

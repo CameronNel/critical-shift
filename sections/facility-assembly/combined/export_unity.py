@@ -57,18 +57,31 @@ for k, v in expect.items():
 h = hashlib.sha256(open(fbx, 'rb').read()).hexdigest()
 src = bpy.data.filepath
 rev = subprocess.run(['git', '-C', os.path.dirname(src), 'rev-parse', 'HEAD'], capture_output=True, text=True).stdout.strip()
+# the export is usually made from uncommitted builder changes (they are committed together with it): record whether the combined folder was dirty and a content
+# hash of the scene and the scripts that build it, so the artifact can be traced even when git_revision_at_export predates it
+here = os.path.dirname(os.path.abspath(__file__))
+dirty = bool(subprocess.run(['git', '-C', here, 'status', '--porcelain', '--', '.'], capture_output=True, text=True).stdout.strip())
+inputs = ['build_compact_map.py', 'build_combined_map.py', 'reactor_links.py', 'evacuation.py', 'assembly_colliders.py', 'export_unity.py']
+ih = hashlib.sha256()
+for f in inputs + [os.path.relpath(src, here)]:
+    p = os.path.join(here, f)
+    if os.path.exists(p): ih.update(f.encode()); ih.update(open(p, 'rb').read())
+input_hash = ih.hexdigest()
+rays = bpy.context.scene.get('reactor_y', 0.0)
 check = dict(fbx=os.path.basename(fbx), sha256=h, bytes=os.path.getsize(fbx), exported=len(expect), reimported=len(got), missing=miss, extra=extra, bounds_mismatch_over_1mm=bad[:20],
              n_bounds_mismatch=len(bad), passed=not miss and not bad)
 manifest = dict(
     schema='critical-shift compact-map binding manifest, draft (A08 fields); unreviewed',
-    source=dict(scene='sections/facility-assembly/combined/combined_map.blend', builder='build_compact_map.py', git_revision_at_export=rev or 'UNRESOLVED', blender=bpy.app.version_string),
+    source=dict(scene='sections/facility-assembly/combined/combined_map.blend', builder='build_compact_map.py', git_revision_at_export=rev or 'UNRESOLVED', worktree_dirty_at_export=dirty,
+                inputs_sha256=input_hash, inputs=inputs + ['combined_map.blend'], blender=bpy.app.version_string),
     export=dict(format='FBX', file=os.path.basename(fbx), sha256=h, settings={k: (sorted(v) if isinstance(v, set) else v) for k, v in opts.items() if k != 'filepath'}),
-    scale_axes_origin=dict(units='metres', blender_frame='plan frame: +x east, +y north, +z up, origin at the reactor centre', fbx_axes='forward -Z, up Y (Unity left-handed import converts)',
+    scale_axes_origin=dict(units='metres', blender_frame='plan frame: +x east, +y north, +z up; origin (0, 0, 0) is the layout\'s plan origin (the reactor centre before the compact layout moved it); '
+                                                 'the reactor centre is now at (0, %.2f, 0). Every exported anchor and collider is in this frame' % rays, fbx_axes='forward -Z, up Y (Unity left-handed import converts)',
                            room_origins='each ANCHOR_ROOM_<key> carries its module origin; a room prefab is placed at that anchor'),
     logical_ids=dict(rooms=[r['room'] for r in rooms], doors='door_id on DOOR_<id> empties and on collider thresholds/blockers (validation/doors.json)'),
     room_placements=rooms,
     mesh_prefab_mapping='UNRESOLVED: no approved per-room export route or prefab set exists in the repository; rooms are referenced by source file only',
-    collider_roles=dict(floor='static, walkable', wall='static', roof='static', ramp='static, walkable stair proxy (30.5 degrees)',
+    collider_roles=dict(floor='static, walkable', wall='static', roof='static', ramp='static, walkable stair proxy (about 31 degrees)', ladder='trigger: climb volume of the condenser escape ladder',
                         door_blocker='static while state in enabled_when (closed, locked); disabled while open', door_threshold='trigger: door interaction and room-entry events'),
     spawn_interaction_points='UNRESOLVED: the spawn room module owns spawn points; door interaction points are the DOOR_<id> anchors',
     state_variants='doors: open | closed | locked; default per door in doors.json. Visual leaves for the non-default state are in each room module (see the leaf column).',
