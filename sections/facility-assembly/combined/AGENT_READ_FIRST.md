@@ -1,6 +1,6 @@
 # Combined map: agent instructions (read before any environment or map work)
 
-Last updated 2026-10-06. Status of everything in this folder: **unreviewed, not accepted.** It was merged to `main` (PR 95) on the owner's explicit
+Last updated 2026-10-13 (assembly pass, then the short fuel corridor layout). Status of everything in this folder: **unreviewed, not accepted.** It was merged to `main` (PR 95) on the owner's explicit
 instruction, which waives the repository rule that an agent does not merge its own work. No independent review has happened. Do not describe any of it as accepted.
 
 ## What this is
@@ -16,7 +16,23 @@ Where plan v7 and the as-built front end disagree, the as-built front end and DE
 - **Record of every decision is `COMBINED_MAP.md`:** per room, the source file, what fixed the placement (with the measurement), what was patched, evidence renders, what was not checked.
 - Evidence renders are in `renders/` (per room), `renders/review/` (whole-scene review) and `renders/fixes/` (fix log and room 5).
 
-## Current layout: compact (read `COMPACT_MAP.md` first)
+## Current layout: compact, assembly pass (read `COMPACT_MAP.md` and `ASSEMBLY_REPORT.md` first)
+
+2026-10-14: the condenser bay's A1 finish is to be reworked (owner). The brief, with every map constraint and the map-level checks, is `sources/condenser-bay/REWORK_BRIEF.md`; follow it for any condenser change. `FRONT_END_SOURCE=revamp` builds the map with the cafeteria revamp candidate (PR 105) for compatibility tests; the map itself still links the original front end.
+
+2026-10-13, latest: the **condenser escape ladder** (owner: "build the condenser ladder"): `add_condenser_escape` builds a 1.0 m emergency door in the bay's west wall (cut by `patch_condenser`), a 4.1 m tunnel under the turbine's west aisle, a 6.0 m caged ladder in a shaft on the stair house's line and a hatch house with an emergency door onto a path to the north strip (`evacuation.py`). Door rows `CONDENSER_W_ESCAPE` and `ESCAPE_HOUSE_DOOR` (owner `connector`: plan frame). The walk test walks both ends; the ladder itself is a `ladder` collider volume, not walked.
+
+2026-10-13, before that: **stacked slabs** fixed (the condenser bay's roof stood 0.3 m through the turbine floor; the front end's ground ran through the bay's top): `patch_condenser` lowers the roof slab under the turbine floor, the ground gets a hole over the bay. New check `floor_audit.py` (run on a built scene; flags any surface 2 to 50 cm above another room's floor); the plan cut also slices at z 0.15 and -0.6. Run both after any change that stacks or overlaps rooms.
+
+2026-10-13, before that: the **turbine rebuild** swap (owner: "swap in the turbine rebuild"). `turbine-room` links `sources/turbine-room/rebuild/turbine_room_v2_geo.blend` (collection `TURBINE_ROOM_V2`; the file and its PNG textures are on `main`, `git lfs pull` them) instead of the AAA finish of the original module. `patch_turbine` is written for the rebuild: it clips the D01 vestibule at the reactor stub, makes the D02 vestibule's end panel the emergency-exit leaf and opens the wall behind it, cuts the electrical door (turbine-local y 12.5) and the stair door (y 12.975, 1.55 m) in clear wall bays, gives the rebuild's black occluder shell a concrete exterior on its outer faces, clads the D02 vestibule, and replaces the two TO ELECTRICAL signs. The electrical room moved 6 m south with its door; `evacuation.py` reads the turbine and electrical placements from the build module. The new helpers `take_parts` and `clip_parts` work loose part by loose part like `split_openings`.
+
+2026-10-13, before that: the **meltdown flow** pass (`evacuation.py`, called from `post_build`): east evacuation road and west path with emergency exits, the cooling rear-wall door (`patch_cooling`), the reactor blast door, exit signs and lamps; door rows carry `emergency_exit`, `evac_state` and `leaf_regex`. Checks: `walk_test.py --meltdown` (escape legs with the emergency exits open), `evac_report.py` (escape times and single-door redundancy; run after both walk tests), `door_audit.py` (every map door and room-contract portal ray-tested on both sides). Any new door must keep `door_audit.py` at 0 flagged.
+
+2026-10-13, earlier the same day: the fuel corridor is the **short corridor S1** (`sources/fuel-corridor/module_short_S1.blend`, committed here as LFS; rebuild it from F23ci with `sections/fuel-corridor/blender/build_short_corridor.py`), the reactor cluster sits **18.7 m further south** (`RY` in `build_compact_map.py`; the reactor-local y values of the turbine, electrical, condenser, stair and cooling are unchanged), the concourse is rebuilt by `add_concourse` against the corridor's east door F02E, the front end's spine is shortened to 14.8 m (`fold_spine`), waste opens off the reactor's east wall, and the S03 transfer hall is gone. The builder stores `scene['reactor_y']`; `walk_test.py` and `measure_lighting.py` read it. `split_openings` now cuts only the loose parts that reach into an opening and keeps materials (the first pass's cut pieces had none). `greybox_fuel_test.py` is superseded (run it from commit c25d102).
+
+2026-10-13: electrical moved to the turbine's east flank, waste and the dock to new doors in the spine's east wall, the fuel corridor's S03 opened onto a transfer hall into the spine, the condenser bay reached by a stair from the turbine's west wall; dead-end doors closed with their own leaves; door anchors, collision proxies and a scoped FBX export added. Tools of the pass (all run on a built `combined_map.blend`): `plan_cut.py` + `check_overlaps.py` + `draw_assembly_plan.py` (plan section, intrusion screen, plan drawing), `walk_test.py` (player capsule on the visual meshes; `--colliders` on the proxies), `measure_lighting.py` (junction readability), `perf_report.py` (static counts, portal visible sets), `export_unity.py` (FBX + re-import check + binding manifest). The door cuts use `split_openings` in `build_compact_map.py`; do not use `reactor_links.cut_hall` for two openings in one mesh (it bridged them shut, found by the walk test).
+
+### Before the assembly pass
 
 The owner made the compact layout the main map on 2026-10-12. `combined_map.blend` is built by `build_compact_map.py`; the room table below lists rooms in build order, but turbine, electrical, waste, cooling and the dock use the compact placements in `COMPACT_MAP.md` (the translations in the table are the older spread-out ones), and the condenser bay is placed under the turbine. `build_combined_map.py` is the older layout and the shared machinery.
 
@@ -33,21 +49,22 @@ Build keys, in `ROOMS` order. `--through <key>` builds that room and every room 
 | 4 | `medical-reanimation` | medical overhaul R2 | (26, -70), -90 |
 | 5 | `fuel-corridor` | fuel corridor F23ci | (-22.2, -43.6), 0 |
 | 6 | `reactor-room` | reactor, refined hall (candidate A), joined by a south concourse | (0, 0), 0 |
-| 7 | `turbine-room` | turbine (AAA finish from branch `claude/turbine-aaa`) | (0, 17.0), 0 |
+| 7 | `turbine-room` | turbine: the compact map links the v2 rebuild `rebuild/turbine_room_v2_geo.blend`; `build_combined_map.py` (older layout) still names the AAA finish from branch `claude/turbine-aaa` | (0, 17.0), 0 |
 | 8 | `electrical-room` | electrical (overhaul R11) | (19.75, 26.25), 0 |
 | 9 | `waste-storage` | waste storage | (28.32, -24), -90 |
 | 10 | `cooling-plant` | cooling plant | (-44.1, -19), 90 |
 | 11 | `compliance-dock` | compliance dock (overhaul R1) | (60, -79), -90 |
 
 The committed `combined_map.blend` is built by `build_compact_map.py` (all rooms through the compliance dock plus the condenser bay). Every room is "added, awaiting owner OK" except the front end, which is "built, unreviewed".
-Not placed: condenser bay (not in the plan), gantry (no attachment spec). Known defects and open items are listed in `COMBINED_MAP.md` (fix log and "Defects and open items").
+Placed in the compact map (not in this older table): the condenser bay, 6 m under the turbine (`COND` in `build_compact_map.py`), reached by the stair from the turbine's west wall and, since 2026-10-13, an escape ladder. Not placed: the gantry (no attachment spec). Known defects and open items are listed in `COMBINED_MAP.md` (fix log and "Defects and open items").
 
 ## Files this folder needs that are not committed here (fetch before building)
 
 `build_combined_map.py --through compliance-dock` links source files that live elsewhere in the repository; fetch each single file (never a wide sparse checkout):
-- Turbine, the AAA finish from the unmerged branch `claude/turbine-aaa`: `git show origin/claude/turbine-aaa:sections/facility-assembly/sources/turbine-room/module_overhaul_R1.blend | git lfs smudge > sections/facility-assembly/sources/turbine-room/module_overhaul_R1.blend` (the build does not fall back to another turbine file; its door and wall positions are specific to this one).
+- Turbine for the compact map (`build_compact_map.py`): the v2 rebuild, `sources/turbine-room/rebuild/turbine_room_v2_geo.blend` and the PNG textures beside it, on `main` (`git lfs pull --include "sections/facility-assembly/sources/turbine-room/rebuild/*"`). Its `patch_turbine` is specific to this file.
+- Turbine for the older layout only (`build_combined_map.py`), the AAA finish from the unmerged branch `claude/turbine-aaa`: `git show origin/claude/turbine-aaa:sections/facility-assembly/sources/turbine-room/module_overhaul_R1.blend | git lfs smudge > sections/facility-assembly/sources/turbine-room/module_overhaul_R1.blend` (the build does not fall back to another turbine file; its door and wall positions are specific to this one).
 - Waste, cooling and condenser bay AAA finishes: `sources/{waste-storage,cooling-plant,condenser-bay}/module_aaa_A1.blend`, LFS files on `main` (`git show origin/main:<path> | git lfs smudge > <path>`).
-- Dock: `sources/compliance-dock/module_overhaul_R1.blend` is a plain Git blob on `main` (`git show origin/main:<path> > <path>`). Electrical `overhaul/checkpoints/full-R11.blend`, waste `module.blend`, cooling `module.blend`, medical `module_overhaul_R2.blend`, fuel corridor `fuel_full_F23ci.blend`, spawn `module.blend` and the front end's `textures/` folder are LFS files on `main`; the spawn module is also linked for the halls' materials, airlock doors and props.
+- Dock: `sources/compliance-dock/module_overhaul_R1.blend` is a plain Git blob on `main` (`git show origin/main:<path> > <path>`). Electrical `overhaul/checkpoints/full-R11.blend`, waste `module.blend`, cooling `module.blend`, medical `module_overhaul_R2.blend`, fuel corridor `fuel_full_F23ci.blend` (only to rebuild the short corridor; the map links `sources/fuel-corridor/module_short_S1.blend`, committed in this folder's sources), spawn `module.blend` and the front end's `textures/` folder are LFS files on `main`; the spawn module is also linked for the halls' materials, airlock doors and props.
 - The hall screens (`textures/hall_screen_*.png`) are committed here; regenerate with `python3 make_hall_screens.py textures`.
 
 ## Hall network tools (committed here)

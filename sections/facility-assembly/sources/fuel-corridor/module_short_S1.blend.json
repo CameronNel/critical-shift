@@ -1,0 +1,307 @@
+{
+ "source": "sections/fuel-corridor/production/checkpoints/fuel_full_F23ci.blend",
+ "source_sha256": "def288245d8356802f972c45b4f389df5effabf249bb0e76601eaf7dd78cf3fe",
+ "output": "sections/facility-assembly/sources/fuel-corridor/module_short_S1.blend",
+ "objects": 319,
+ "evaluated_triangles": 1650355,
+ "bounds": [
+  [
+   -2.54,
+   -0.026,
+   -0.24
+  ],
+  [
+   16.74,
+   12.83,
+   4.842
+  ]
+ ],
+ "ports": {
+  "F01_REFINERY": {
+   "centre": [
+    0,
+    0,
+    0
+   ],
+   "outward": "-Y",
+   "clear": [
+    2.6,
+    3.0
+   ]
+  },
+  "F02E_REACTOR": {
+   "centre": [
+    16.74,
+    6.98,
+    0
+   ],
+   "outward": "+X",
+   "clear": [
+    2.38,
+    3.0
+   ]
+  }
+ },
+ "removed": 218,
+ "moved": [
+  [
+   "FC | East extraction service header",
+   1.5
+  ],
+  [
+   "FC | East extraction collector",
+   1.06
+  ],
+  [
+   "FC | Type EXTRACT / 03",
+   1.06
+  ],
+  [
+   "FC | Extraction inspection practical",
+   1.5
+  ],
+  [
+   "FC | Extraction inspection practical pool",
+   1.5
+  ],
+  [
+   "FC | East-turn practical",
+   2.1
+  ],
+  [
+   "FC | East-turn practical pool",
+   2.1
+  ],
+  [
+   "FC | Process distribution junction box",
+   0.69
+  ],
+  [
+   "FC | Type JB / 04",
+   0.69
+  ],
+  [
+   "FC | Process retained junction leads",
+   0.69
+  ],
+  [
+   "FC | East electrical distribution",
+   1.01
+  ],
+  [
+   "FC | East distribution feed",
+   1.01
+  ]
+ ],
+ "deleted_named": [
+  "FC | Waste bay identification",
+  "FC | Waste bay identification type",
+  "FC | Type WASTE / HANDOFF",
+  "FC | Waste seal and receipt station",
+  "FC | Waste sealing task practical",
+  "FC | Waste sealing task practical pool",
+  "FC | Type SEAL / RECEIPT",
+  "FC | Type B / 017.001",
+  "FC | Type B / 017.002",
+  "FC | Delivery cable ladder"
+ ],
+ "cut": [
+  [
+   "FC | Wall_E16.4_0_7 \u00b7 lined bay",
+   "east door",
+   [
+    "FC | Wall_E16.4_0_7 \u00b7 lined bay.001",
+    "FC | Wall_E16.4_0_7 \u00b7 lined bay.002",
+    "FC | Wall_E16.4_0_7 \u00b7 lined bay.003"
+   ]
+  ],
+  [
+   "Wall_E16.4_0_7_concrete",
+   "east door",
+   [
+    "Wall_E16.4_0_7_concrete.001",
+    "Wall_E16.4_0_7_concrete.002",
+    "Wall_E16.4_0_7_concrete.003"
+   ]
+  ],
+  [
+   "Ceiling_bypass_west",
+   "north",
+   null
+  ],
+  [
+   "Ceiling_delivery",
+   "north",
+   null
+  ],
+  [
+   "FC | Ceiling cassettes bypass_west",
+   "north",
+   null
+  ],
+  [
+   "FC | Ceiling cassettes delivery",
+   "north",
+   null
+  ],
+  [
+   "FC | Delivery cooling main",
+   "north",
+   null
+  ],
+  [
+   "FC | Floor finish bypass_west",
+   "north",
+   null
+  ],
+  [
+   "FC | Floor finish delivery",
+   "north",
+   null
+  ],
+  [
+   "FC | Wall_E1.2_0_13.2 \u00b7 lined bay",
+   "north",
+   null
+  ],
+  [
+   "FC | Wall_E16.4_0_7 \u00b7 lined bay.002",
+   "north",
+   null
+  ],
+  [
+   "FC | Wall_W-1.2_0_13.2 \u00b7 lined bay",
+   "north",
+   null
+  ],
+  [
+   "FC | Wall_W12_0_13.2 \u00b7 lined bay",
+   "north",
+   null
+  ],
+  [
+   "Floor_bypass_west",
+   "north",
+   null
+  ],
+  [
+   "Floor_delivery",
+   "north",
+   null
+  ],
+  [
+   "Wall_E1.2_0_13.2_concrete",
+   "north",
+   null
+  ],
+  [
+   "Wall_E16.4_0_7_concrete.002",
+   "north",
+   null
+  ],
+  [
+   "Wall_N13.85_0_6.07_concrete",
+   "north",
+   null
+  ],
+  [
+   "Wall_S14.3_0_-1.65_concrete",
+   "north",
+   null
+  ],
+  [
+   "Wall_W-1.2_0_13.2_concrete",
+   "north",
+   null
+  ],
+  [
+   "Wall_W12_0_13.2_concrete",
+   "north",
+   null
+  ],
+  [
+   "FC | Wall_N14_alcove_delivery",
+   "alcove back",
+   [
+    12.0,
+    16.4
+   ]
+  ],
+  [
+   "FC | Wall_N14_alcove_bypass",
+   "alcove back",
+   [
+    -1.2,
+    1.2
+   ]
+  ],
+  [
+   "Ceiling_entry",
+   "entry slab",
+   null
+  ],
+  [
+   "FC | Ceiling cassettes entry",
+   "entry slab",
+   null
+  ],
+  [
+   "(south part empty)",
+   "entry slab",
+   null
+  ],
+  [
+   "FC | Entry dry-air main",
+   "entry slab",
+   null
+  ],
+  [
+   "FC | Floor finish entry",
+   "entry slab",
+   null
+  ],
+  [
+   "(south part empty)",
+   "entry slab",
+   null
+  ],
+  [
+   "FC | Wall_E2.2_0_1.2 \u00b7 lined bay",
+   "entry slab",
+   null
+  ],
+  [
+   "FC | Wall_W-2.2_0_1.2 \u00b7 lined bay",
+   "entry slab",
+   null
+  ],
+  [
+   "Floor_entry",
+   "entry slab",
+   null
+  ],
+  [
+   "Wall_E2.2_0_1.2_concrete",
+   "entry slab",
+   null
+  ],
+  [
+   "Wall_W-2.2_0_1.2_concrete",
+   "entry slab",
+   null
+  ]
+ ],
+ "door_objects": [
+  "FC | Type REACTOR / F02.001",
+  "FC | Reactor transfer folded roof closure",
+  "FC | Reactor transfer frame",
+  "FC | Reactor transfer header",
+  "FC | Reactor transfer left handling wear",
+  "FC | Reactor transfer left leaf",
+  "FC | Reactor transfer right handling wear",
+  "FC | Reactor transfer right leaf"
+ ],
+ "lining_source": "FC | Wall_W12_0_13.2 \u00b7 lined bay",
+ "evaluated_triangles_build_log": 1132567,
+ "evaluated_triangles_note": "Recounted on the saved file with a fresh depsgraph (view_layer.update; instances counted), 2026-10-13. The build log value (1,132,567) came from a stale depsgraph; the script now updates it first. In combined_map.blend the corridor counts 1,638,347 (F01 and F02E leaves left out)."
+}

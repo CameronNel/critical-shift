@@ -1,0 +1,225 @@
+{
+ "schema": "critical-shift compact-map binding manifest, draft (A08 fields); unreviewed",
+ "source": {
+  "scene": "sections/facility-assembly/combined/combined_map.blend",
+  "builder": "build_compact_map.py",
+  "git_revision_at_export": "1e967afae595c60135de8152316cd936e35efd8d",
+  "worktree_dirty_at_export": true,
+  "inputs_sha256": "f023a087e8a73e74052ba31ce9935696d2b3f92d519d52f3b3a38f4c43bb81db",
+  "inputs": [
+   "build_compact_map.py",
+   "build_combined_map.py",
+   "reactor_links.py",
+   "evacuation.py",
+   "assembly_colliders.py",
+   "export_unity.py",
+   "combined_map.blend"
+  ],
+  "blender": "5.2.2 LTS"
+ },
+ "export": {
+  "format": "FBX",
+  "file": "compact_map_colliders_anchors.fbx",
+  "sha256": "b23b5c988514cdb2c279794b7bf4d19821237ccadf03b236a028be9ecd2c1f94",
+  "settings": {
+   "use_selection": true,
+   "object_types": [
+    "EMPTY",
+    "MESH"
+   ],
+   "use_custom_props": true,
+   "apply_unit_scale": true,
+   "apply_scale_options": "FBX_SCALE_ALL",
+   "axis_forward": "-Z",
+   "axis_up": "Y",
+   "bake_space_transform": false,
+   "mesh_smooth_type": "FACE",
+   "use_mesh_modifiers": true,
+   "add_leaf_bones": false,
+   "bake_anim": false
+  }
+ },
+ "scale_axes_origin": {
+  "units": "metres",
+  "blender_frame": "plan frame: +x east, +y north, +z up; origin (0, 0, 0) is the layout's plan origin (the reactor centre before the compact layout moved it); the reactor centre is now at (0, -18.70, 0). Every exported anchor and collider is in this frame",
+  "fbx_axes": "forward -Z, up Y (Unity left-handed import converts)",
+  "room_origins": "each ANCHOR_ROOM_<key> carries its module origin; a room prefab is placed at that anchor"
+ },
+ "logical_ids": {
+  "rooms": [
+   "compliance-dock",
+   "condenser-bay",
+   "cooling-plant",
+   "electrical-room",
+   "front-end-area",
+   "fuel-corridor",
+   "medical-reanimation",
+   "mine",
+   "reactor-room",
+   "refinery",
+   "spawn-room",
+   "turbine-room",
+   "waste-storage"
+  ],
+  "doors": "door_id on DOOR_<id> empties and on collider thresholds/blockers (validation/doors.json)"
+ },
+ "room_placements": [
+  {
+   "room": "compliance-dock",
+   "source": "compliance-dock/module_overhaul_R1.blend",
+   "translation": [
+    12.15,
+    -40.39,
+    0.0
+   ],
+   "rotation_z_deg": -90.0
+  },
+  {
+   "room": "condenser-bay",
+   "source": "condenser-bay/module_aaa_A1.blend",
+   "translation": [
+    1.6,
+    3.2,
+    -6.0
+   ],
+   "rotation_z_deg": 0.0
+  },
+  {
+   "room": "cooling-plant",
+   "source": "cooling-plant/module_aaa_A1.blend",
+   "translation": [
+    -14.5,
+    -18.7,
+    0.0
+   ],
+   "rotation_z_deg": 90.0
+  },
+  {
+   "room": "electrical-room",
+   "source": "electrical-room/overhaul/checkpoints/full-R11.blend",
+   "translation": [
+    10.5,
+    8.3,
+    0.0
+   ],
+   "rotation_z_deg": -90.0
+  },
+  {
+   "room": "front-end-area",
+   "source": "front-end-area/front_end_area.blend",
+   "translation": [
+    8.0,
+    -80.0,
+    0.0
+   ],
+   "rotation_z_deg": 0.0
+  },
+  {
+   "room": "fuel-corridor",
+   "source": "fuel-corridor/module_short_S1.blend",
+   "translation": [
+    -22.2,
+    -43.6,
+    0.0
+   ],
+   "rotation_z_deg": 0.0
+  },
+  {
+   "room": "medical-reanimation",
+   "source": "medical-reanimation/module_overhaul_R2.blend",
+   "translation": [
+    26.0,
+    -70.0,
+    0.0
+   ],
+   "rotation_z_deg": -90.0
+  },
+  {
+   "room": "mine",
+   "source": "mine-r39/module_r39_aaa.blend",
+   "translation": [
+    -14.4,
+    -41.0,
+    0.0
+   ],
+   "rotation_z_deg": 0.0
+  },
+  {
+   "room": "reactor-room",
+   "source": "../../reactor-room/blender/reactorroom.blend",
+   "translation": [
+    0.0,
+    -18.7,
+    0.0
+   ],
+   "rotation_z_deg": 0.0
+  },
+  {
+   "room": "refinery",
+   "source": "refinery/module_overhaul_R1.blend",
+   "translation": [
+    -26.28,
+    -52.2,
+    0.0
+   ],
+   "rotation_z_deg": 90.0
+  },
+  {
+   "room": "spawn-room",
+   "source": "spawn-room/module.blend",
+   "translation": [
+    8.0,
+    -92.38,
+    0.0
+   ],
+   "rotation_z_deg": 0.0
+  },
+  {
+   "room": "turbine-room",
+   "source": "turbine-room/rebuild/turbine_room_v2_geo.blend",
+   "translation": [
+    0.0,
+    -4.2,
+    0.0
+   ],
+   "rotation_z_deg": 0.0
+  },
+  {
+   "room": "waste-storage",
+   "source": "waste-storage/module_aaa_A1.blend",
+   "translation": [
+    11.94,
+    -14.84,
+    0.0
+   ],
+   "rotation_z_deg": -90.0
+  }
+ ],
+ "mesh_prefab_mapping": "UNRESOLVED: no approved per-room export route or prefab set exists in the repository; rooms are referenced by source file only",
+ "collider_roles": {
+  "floor": "static, walkable",
+  "wall": "static",
+  "roof": "static",
+  "ramp": "static, walkable stair proxy (about 31 degrees)",
+  "ladder": "trigger: climb volume of the condenser escape ladder",
+  "door_blocker": "static while state in enabled_when (closed, locked); disabled while open",
+  "door_threshold": "trigger: door interaction and room-entry events"
+ },
+ "spawn_interaction_points": "UNRESOLVED: the spawn room module owns spawn points; door interaction points are the DOOR_<id> anchors",
+ "state_variants": "doors: open | closed | locked; default per door in doors.json. Visual leaves for the non-default state are in each room module (see the leaf column).",
+ "material_conversion": "NotApplicable for this package (colliders and anchors carry no materials)",
+ "licensing": "first-party geometry generated by build_compact_map.py / assembly_colliders.py",
+ "runtime_owner": "UNRESOLVED: no runtime owner for map collision or doors is decided (design/code-architecture DECISIONS_AND_RISKS); doors would belong to the Interaction feature per STATE_AND_CONTRACTS, not decided here",
+ "reimport_check": {
+  "fbx": "compact_map_colliders_anchors.fbx",
+  "sha256": "b23b5c988514cdb2c279794b7bf4d19821237ccadf03b236a028be9ecd2c1f94",
+  "bytes": 437324,
+  "exported": 202,
+  "reimported": 202,
+  "missing": [],
+  "extra": [],
+  "bounds_mismatch_over_1mm": [],
+  "n_bounds_mismatch": 0,
+  "passed": true
+ }
+}
