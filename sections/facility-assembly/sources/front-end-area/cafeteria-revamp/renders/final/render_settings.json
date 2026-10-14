@@ -1,0 +1,24 @@
+{
+  "engine": "CYCLES",
+  "device": "CPU",
+  "maximum_samples": 48,
+  "adaptive_threshold": 0.03500000014901161,
+  "adaptive_minimum_samples": 8,
+  "resolution": [
+    1600,
+    900
+  ],
+  "view_transform": "Khronos PBR Neutral",
+  "exposure": -0.5,
+  "cameras": [
+    "R8_GAMES_HERO",
+    "R8_FOOSBALL_DETAIL",
+    "R8_DARTBOARD_DETAIL",
+    "R8_BASKETBALL_DETAIL",
+    "R8_LOUNGE_HERO",
+    "R8_DINING_HERO",
+    "R8_COFFEE_DETAIL"
+  ],
+  "geometry_modified": false,
+  "scene_saved": false
+}

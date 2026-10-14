@@ -1,5 +1,9 @@
 # Front-end area (cafeteria, hall, yard): production state
 
+## Cafeteria revamp candidate — 2026-10-13
+
+The user's high-detail cafeteria pass is an additive scene: [front_end_area_cafeteria_revamp.blend](front_end_area_cafeteria_revamp.blend). Its [production state](cafeteria-revamp/TASK_STATE.md), [rebuild entrypoint](cafeteria-revamp/rebuild.py) and [asset/evidence handoff](cafeteria-revamp/README.md) are separate from the historical source below. Foosball, darts and basketball are independently authored native assets and reimported into this candidate. Final [R6 independent authoring review](cafeteria-revamp/critics/review_r6.md): **91.90/100 PASS**, all 13 camera views pass, all categories exceed 85%, and R5/R6 are free of material regression. All seven interfaces, six circulation lanes and 850 registered support anchors pass, with 799,874 evaluated triangles. All 431 classified supported cafeteria objects are covered; a missing-registration negative check is verified. Yard, hall and shared geometry/transforms equal the original. Fresh-process builds/renders and packed dependencies pass. Owner acceptance, combined-map source selection and runtime integration remain separate.
+
 **Status: second build, unreviewed. Not independently reviewed, not accepted, not promoted anywhere.** Built 2026-10-04 from the
 design in `design/facility-layout/front-end-area/DESIGN.md` and revised with the owner's review notes the same day.
 Art label: owner's brief is "run-down, half-abandoned, horror-adjacent". Warm concrete, machine grey, charcoal steel, rust,
