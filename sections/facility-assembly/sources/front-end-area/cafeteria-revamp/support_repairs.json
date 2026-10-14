@@ -1,0 +1,179 @@
+[
+  {
+    "object": "zone_dining_rod-0.9",
+    "roof_end_extension_m": 0.09999990463256836
+  },
+  {
+    "object": "zone_dining_rod+0.9",
+    "roof_end_extension_m": 0.09999990463256836
+  },
+  {
+    "object": "zone_lounge_rod-0.8",
+    "roof_end_extension_m": -0.019999980926513672
+  },
+  {
+    "object": "zone_lounge_rod+0.8",
+    "roof_end_extension_m": 0.09999990463256836
+  },
+  {
+    "object": "zone_game_rod-0.8",
+    "roof_end_extension_m": 0.09999990463256836
+  },
+  {
+    "object": "zone_game_rod+0.8",
+    "roof_end_extension_m": 0.09999990463256836
+  },
+  {
+    "object": "zone_serving_rod-0.8",
+    "roof_end_extension_m": 0.09999990463256836
+  },
+  {
+    "object": "zone_serving_rod+0.8",
+    "roof_end_extension_m": 0.09999990463256836
+  },
+  {
+    "object": "zone_order_rod-0.5",
+    "roof_end_extension_m": 0.09999990463256836
+  },
+  {
+    "object": "zone_order_rod+0.5",
+    "roof_end_extension_m": 0.09999990463256836
+  },
+  {
+    "object": "game_side_table",
+    "contact_translation_m": [
+      0.0,
+      0.0,
+      -0.014876678586006165
+    ],
+    "target": "caf_floor"
+  },
+  {
+    "object": "caf_N_first_aid_2",
+    "contact_translation_m": [
+      0.0,
+      0.019000457599759102,
+      0.0
+    ],
+    "target": "cafhall_mid_seg1_core"
+  },
+  {
+    "object": "caf_N_socket_3",
+    "contact_translation_m": [
+      0.0,
+      0.019000457599759102,
+      0.0
+    ],
+    "target": "cafhall_mid_seg0_core"
+  },
+  {
+    "object": "caf_N_socket_4",
+    "contact_translation_m": [
+      0.0,
+      0.019000457599759102,
+      0.0
+    ],
+    "target": "cafhall_mid_seg0_core"
+  },
+  {
+    "object": "caf_S_wall_clock_6",
+    "contact_translation_m": [
+      0.0,
+      -0.019999997690320015,
+      0.0
+    ],
+    "target": "caf_S_seg1_skin"
+  },
+  {
+    "object": "caf_W_wall_clock_4",
+    "contact_translation_m": [
+      -0.019998954609036446,
+      0.0,
+      0.0
+    ],
+    "target": "caf_W_seg1_skin"
+  },
+  {
+    "object": "caf_light_strip_00",
+    "roof_end_extension_m": 0.03500032424926758
+  },
+  {
+    "object": "caf_pendant_0",
+    "roof_end_extension_m": 0.26999950408935547
+  },
+  {
+    "object": "caf_pendant_4",
+    "roof_end_extension_m": 0.020000457763671875
+  },
+  {
+    "object": "caf_pendant_6",
+    "roof_end_extension_m": -0.01999950408935547
+  },
+  {
+    "object": "caf_pendant_L0",
+    "roof_end_extension_m": 0.1699991226196289
+  },
+  {
+    "object": "counter_trays_0",
+    "contact_translation_m": [
+      0.0,
+      0.0,
+      -0.004999982193112373
+    ],
+    "target": "serving_counter"
+  },
+  {
+    "object": "counter_trays_1",
+    "contact_translation_m": [
+      0.0,
+      0.0,
+      -0.004999982193112373
+    ],
+    "target": "serving_counter"
+  },
+  {
+    "object": "game_wall_shelf_0",
+    "contact_translation_m": [
+      -0.0,
+      -0.007299972698092461,
+      -0.0
+    ],
+    "target": "cafhall_mid_seg0_core"
+  },
+  {
+    "object": "lounge_table_lamp_0",
+    "contact_translation_m": [
+      -0.0,
+      -0.0,
+      0.017000002786517143
+    ],
+    "target": "lounge_side_table_0"
+  },
+  {
+    "object": "neon_game",
+    "contact_translation_m": [
+      0.0,
+      0.019000457599759102,
+      0.0
+    ],
+    "target": "cafhall_mid_seg0_core"
+  },
+  {
+    "object": "rules_game",
+    "contact_translation_m": [
+      0.0,
+      0.019000457599759102,
+      0.0
+    ],
+    "target": "cafhall_mid_seg0_core"
+  },
+  {
+    "object": "sign_hall_in",
+    "contact_translation_m": [
+      0.0,
+      0.019000457599759102,
+      0.0
+    ],
+    "target": "cafhall_mid_hdr0_core"
+  }
+]

@@ -1,0 +1,6180 @@
+{
+  "triangles": {
+    "YARD": 252594,
+    "CAFETERIA": 453700,
+    "HALL": 90584,
+    "SHARED": 2996,
+    "TOTAL": 799874,
+    "within_budget": true
+  },
+  "budget_m": 800000,
+  "bounds": {
+    "YARD": {
+      "declared": [
+        -48,
+        -8,
+        -84,
+        -60
+      ],
+      "actual_min_xy_plan": [
+        -53.01,
+        -84.15
+      ],
+      "actual_max_xy_plan": [
+        -7.83,
+        -58.6
+      ]
+    },
+    "CAFETERIA": {
+      "declared": [
+        -8,
+        26,
+        -80,
+        -60
+      ],
+      "actual_min_xy_plan": [
+        -8.48,
+        -80.4
+      ],
+      "actual_max_xy_plan": [
+        26.22,
+        -59.88
+      ]
+    },
+    "HALL": {
+      "declared": [
+        -4,
+        32,
+        -60,
+        -48
+      ],
+      "actual_min_xy_plan": [
+        -8.0,
+        -60.22
+      ],
+      "actual_max_xy_plan": [
+        32.5,
+        -47.78
+      ]
+    }
+  },
+  "interfaces": [
+    {
+      "name": "IF_PORTAL_CAF_E_MEDICAL",
+      "plan_xy": [
+        26.0,
+        -70.0
+      ],
+      "clear_w": 2.2,
+      "clear_h": 2.5
+    },
+    {
+      "name": "IF_PORTAL_CAF_N_HALL_OPENING",
+      "plan_xy": [
+        8.0,
+        -60.0
+      ],
+      "clear_w": 6.0,
+      "clear_h": 3.6
+    },
+    {
+      "name": "IF_PORTAL_CAF_S_SPAWN_AIRLOCK",
+      "plan_xy": [
+        8.0,
+        -80.0
+      ],
+      "clear_w": 2.6,
+      "clear_h": 2.7
+    },
+    {
+      "name": "IF_PORTAL_CAF_W_YARD",
+      "plan_xy": [
+        -8.0,
+        -70.0
+      ],
+      "clear_w": 3.0,
+      "clear_h": 2.7
+    },
+    {
+      "name": "IF_PORTAL_HALL_E_TRUNK",
+      "plan_xy": [
+        32.0,
+        -54.0
+      ],
+      "clear_w": 2.4,
+      "clear_h": 2.7
+    },
+    {
+      "name": "IF_PORTAL_HALL_N_SPINE_REACTOR",
+      "plan_xy": [
+        8.0,
+        -48.0
+      ],
+      "clear_w": 3.6,
+      "clear_h": 3.2
+    },
+    {
+      "name": "IF_PORTAL_HALL_W_REFINERY",
+      "plan_xy": [
+        -4.0,
+        -54.0
+      ],
+      "clear_w": 2.4,
+      "clear_h": 2.7
+    }
+  ],
+  "support_contact": {
+    "interior": {
+      "checked": 108,
+      "gap_fail": [],
+      "pen_fail": []
+    },
+    "yard": {
+      "checked": 113,
+      "gap_fail": [],
+      "pen_fail": [],
+      "note": "yard slabs are deliberately sunk/tilted up to 0.10 m, so yard contact uses 0.12 m"
+    }
+  },
+  "support_exempt_by_kind": {
+    "table": 29,
+    "rug": 11,
+    "overhead": 37,
+    "wall": 86,
+    "door": 13,
+    "hanging": 37,
+    "assembly": 232,
+    "soft": 1,
+    "stack": 7,
+    "floor_broken": 42,
+    "floor_debris": 23
+  },
+  "lane_violations": {
+    "reactor_axis_hall_x6.8-9.2": [],
+    "reactor_axis_cafe_x6.8-9.2": [],
+    "hall_door_line_y-55.3--52.7": [],
+    "cafe_west_door_lane_y-71.2--68.8": [],
+    "cafe_east_door_lane": [],
+    "mine_axis_lane_y-71.3--68.7": []
+  },
+  "lane_pass": true,
+  "cafeteria_revamp": {
+    "support_anchors_checked": 847,
+    "support_anchor_pass": true,
+    "support_anchors": [
+      {
+        "object": "FOOSBALL_A",
+        "target": "game_rug",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "FOOSBALL_A",
+        "target": "game_rug",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "FOOSBALL_A",
+        "target": "game_rug",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "FOOSBALL_A",
+        "target": "game_rug",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "FOOSBALL_B",
+        "target": "game_rug",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "FOOSBALL_B",
+        "target": "game_rug",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "FOOSBALL_B",
+        "target": "game_rug",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "FOOSBALL_B",
+        "target": "game_rug",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "BASKETBALL_A",
+        "target": "game_rug",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "BASKETBALL_A",
+        "target": "game_rug",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "BASKETBALL_A",
+        "target": "game_rug",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "BASKETBALL_A",
+        "target": "game_rug",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "BASKETBALL_B",
+        "target": "game_rug",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "BASKETBALL_B",
+        "target": "game_rug",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "BASKETBALL_B",
+        "target": "game_rug",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "BASKETBALL_B",
+        "target": "game_rug",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "DARTBOARD",
+        "target": "cafhall_mid_seg0_core",
+        "gap_m": 0.002001,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "Game_dartboard_task_lamp",
+        "target": "cafhall_mid_seg0_core",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_sofa_main",
+        "target": "lounge_rug",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_sofa_main",
+        "target": "lounge_rug",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_sofa_main",
+        "target": "lounge_rug",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_sofa_main",
+        "target": "lounge_rug",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_sofa_side",
+        "target": "lounge_rug",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_sofa_side",
+        "target": "lounge_rug",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_sofa_side",
+        "target": "lounge_rug",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_sofa_side",
+        "target": "lounge_rug",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_armchair_0",
+        "target": "lounge_rug",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_armchair_0",
+        "target": "lounge_rug",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_armchair_0",
+        "target": "lounge_rug",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_armchair_0",
+        "target": "lounge_rug",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_armchair_1",
+        "target": "lounge_rug",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_armchair_1",
+        "target": "lounge_rug",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_armchair_1",
+        "target": "lounge_rug",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_armchair_1",
+        "target": "lounge_rug",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "LOUNGE_MEDIA_WALL",
+        "target": "caf_S_seg0_skin",
+        "gap_m": 0.004,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "LOUNGE_LAST_BREAK",
+        "target": "lounge_coffee_table",
+        "gap_m": 0.001,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "LOUNGE_LAST_BREAK",
+        "target": "lounge_coffee_table",
+        "gap_m": 0.003,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "ESPRESSO_STATION",
+        "target": "serving_counter",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "ESPRESSO_STATION",
+        "target": "serving_counter",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "Coffee_under_hatch_task_strip",
+        "target": "hatch_frame_head",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_cutlery_0",
+        "target": "serving_counter",
+        "gap_m": 0.005,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_cutlery_1",
+        "target": "serving_counter",
+        "gap_m": 0.005,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "KITCHEN_MENU",
+        "target": "kitchen_front_hi",
+        "gap_m": 0.004001,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "KITCHEN_PREP",
+        "target": "kitchen_block",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "KITCHEN_PREP",
+        "target": "kitchen_block",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "TABLE_Lunch",
+        "target": "caf_table_0",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "TABLE_Late_break",
+        "target": "caf_table_5",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "order_kiosk",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "order_kiosk",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "order_kiosk",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "order_kiosk",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "CEILING_FAN_DINING",
+        "target": "caf_roof_deck4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "CEILING_FAN_CENTRAL",
+        "target": "caf_roof_deck1",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "GAME_TRACK_LIGHT",
+        "target": "caf_roof_beam3",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_coffee_table",
+        "target": "lounge_rug",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_coffee_table",
+        "target": "lounge_rug",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_coffee_table",
+        "target": "lounge_rug",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_coffee_table",
+        "target": "lounge_rug",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_floor_lamp_0",
+        "target": "lounge_rug",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_floor_lamp_0",
+        "target": "lounge_rug",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_floor_lamp_0",
+        "target": "lounge_rug",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_floor_lamp_0",
+        "target": "lounge_rug",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_floor_lamp_1",
+        "target": "lounge_rug",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_floor_lamp_1",
+        "target": "lounge_rug",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_floor_lamp_1",
+        "target": "lounge_rug",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_floor_lamp_1",
+        "target": "lounge_rug",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_plant_1",
+        "target": "lounge_rug",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_plant_1",
+        "target": "lounge_rug",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_plant_1",
+        "target": "lounge_rug",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_plant_1",
+        "target": "lounge_rug",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_side_table_0",
+        "target": "lounge_rug",
+        "gap_m": 0.000136,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_side_table_0",
+        "target": "lounge_rug",
+        "gap_m": -6.4e-05,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_side_table_0",
+        "target": "lounge_rug",
+        "gap_m": -6.4e-05,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_side_table_0",
+        "target": "lounge_rug",
+        "gap_m": -0.000123,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "Staff_league",
+        "target": "cafhall_mid_seg0_core",
+        "gap_m": -0.0005,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "Ridge_landscape",
+        "target": "caf_S_seg1_skin",
+        "gap_m": 0.0005,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "Ridge_contours",
+        "target": "caf_E_seg0_skin",
+        "gap_m": 0.0005,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "TABLE_FINISHED_LUNCH",
+        "target": "caf_table_1",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "TABLE_WIPED_READY",
+        "target": "caf_table_6",
+        "gap_m": 0.003,
+        "angle_deg": 0.02,
+        "pass": true
+      },
+      {
+        "object": "TABLE_WIPED_READY",
+        "target": "caf_table_6",
+        "gap_m": 0.0,
+        "angle_deg": 0.02,
+        "pass": true
+      },
+      {
+        "object": "airlock_L_HINGE",
+        "target": "caf_S_frame0_L",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "airlock_R_HINGE",
+        "target": "caf_S_frame0_R",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "medical_S_HINGE",
+        "target": "caf_E_frame0_L",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "medical_N_HINGE",
+        "target": "caf_E_frame0_R",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "yard_leaf_S",
+        "target": "caf_W_frame0_L",
+        "gap_m": 0.000999,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "yard_leaf_S",
+        "target": "caf_W_frame0_L",
+        "gap_m": 0.000999,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "yard_leaf_S",
+        "target": "caf_W_frame0_L",
+        "gap_m": 0.000999,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "yard_leaf_S",
+        "target": "caf_W_frame0_L",
+        "gap_m": 0.000999,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "yard_leaf_S",
+        "target": "caf_W_frame0_L",
+        "gap_m": 0.000999,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "yard_leaf_S",
+        "target": "caf_W_frame0_L",
+        "gap_m": 0.000999,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "yard_leaf_N",
+        "target": "caf_W_frame0_R",
+        "gap_m": 0.000998,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "yard_leaf_N",
+        "target": "caf_W_frame0_R",
+        "gap_m": 0.000998,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "yard_leaf_N",
+        "target": "caf_W_frame0_R",
+        "gap_m": 0.000998,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "yard_leaf_N",
+        "target": "caf_W_frame0_R",
+        "gap_m": 0.000998,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "yard_leaf_N",
+        "target": "caf_W_frame0_R",
+        "gap_m": 0.000998,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "yard_leaf_N",
+        "target": "caf_W_frame0_R",
+        "gap_m": 0.000998,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "Airlock_overdoor_practical",
+        "target": "caf_S_frame0_H",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_plant_0",
+        "target": "lounge_rug",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_plant_0",
+        "target": "lounge_rug",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_plant_0",
+        "target": "lounge_rug",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_plant_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_plant_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_plant_2",
+        "target": "caf_floor",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "plant_ne",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "plant_ne",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "plant_ne",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "zone_dining_rod-0.9",
+        "target": "caf_roof_deck4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "zone_dining",
+        "target": "zone_dining_rod-0.9",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "zone_dining_rod+0.9",
+        "target": "caf_roof_deck4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "zone_dining",
+        "target": "zone_dining_rod+0.9",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "zone_lounge_rod-0.8",
+        "target": "caf_roof_purlin1",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "zone_lounge",
+        "target": "zone_lounge_rod-0.8",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "zone_lounge_rod+0.8",
+        "target": "caf_roof_deck0",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "zone_lounge",
+        "target": "zone_lounge_rod+0.8",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "zone_game_rod-0.8",
+        "target": "caf_roof_deck0",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "zone_game",
+        "target": "zone_game_rod-0.8",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "zone_game_rod+0.8",
+        "target": "caf_roof_deck0",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "zone_game",
+        "target": "zone_game_rod+0.8",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "zone_serving_rod-0.8",
+        "target": "caf_roof_deck4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "zone_serving",
+        "target": "zone_serving_rod-0.8",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "zone_serving_rod+0.8",
+        "target": "caf_roof_deck4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "zone_serving",
+        "target": "zone_serving_rod+0.8",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "zone_order_rod-0.5",
+        "target": "caf_roof_deck3",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "zone_order",
+        "target": "zone_order_rod-0.5",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "zone_order_rod+0.5",
+        "target": "caf_roof_deck3",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "zone_order",
+        "target": "zone_order_rod+0.5",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_bin_E",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_bin_E",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_bin_E",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_bin_E",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_bin_E",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_bin_N",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_bin_N",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_bin_N",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_bin_N",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_bin_N",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_booth_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_booth_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_booth_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_booth_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_booth_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_booth_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_booth_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_booth_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_booth_chair_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_booth_chair_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_booth_chair_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_booth_chair_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_booth_chair_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_booth_chair_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_booth_chair_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_booth_chair_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_booth_chair_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_booth_chair_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_booth_chair_w0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_booth_chair_w0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_booth_chair_w0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_booth_chair_w0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_booth_chair_w0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_booth_chair_w1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_booth_chair_w1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_booth_chair_w1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_booth_chair_w1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_booth_chair_w1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_0_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_0_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_0_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_0_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_0_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_0_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_0_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_0_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_0_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_0_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_0_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_0_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_0_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_0_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_0_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_0_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_0_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_0_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_0_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_0_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_1_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_1_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_1_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_1_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_1_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_1_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_1_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_1_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_1_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_1_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_1_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_1_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_1_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_1_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_1_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_1_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_1_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_1_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_1_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_1_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_2_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_2_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_2_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_2_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_2_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_2_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_2_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_2_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_2_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_2_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_2_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_2_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_2_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_2_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_2_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_3_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_3_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_3_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_3_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_3_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_3_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_3_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_3_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_3_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_3_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_3_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_3_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_3_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_3_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_3_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_4_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_4_0",
+        "target": "caf_floor",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_4_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_4_0",
+        "target": "caf_floor",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_4_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_4_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_4_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_4_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_4_2",
+        "target": "caf_floor",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_4_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_4_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_4_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_4_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_4_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_4_3",
+        "target": "caf_floor",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_5_1",
+        "target": "caf_floor",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_5_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_5_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_5_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_5_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_5_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_5_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_5_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_5_2",
+        "target": "caf_floor",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_5_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_5_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_5_3",
+        "target": "caf_floor",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_5_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_5_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_5_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_6_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_6_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_6_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_6_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_6_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_6_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_6_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_6_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_6_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_6_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_6_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_6_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_6_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_6_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_6_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_6_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_6_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_6_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_6_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_6_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_7_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_7_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_7_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_7_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_7_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_7_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_7_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_7_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_7_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_7_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_7_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_7_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_7_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_7_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_7_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_7_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_7_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_7_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_7_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_7_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_8_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_8_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_8_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_8_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_8_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_8_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_8_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_8_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_8_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_8_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_8_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_8_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_8_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_8_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_8_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_8_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_8_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_8_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_8_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_8_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_9_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_9_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_9_0",
+        "target": "caf_floor",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_9_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_9_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_9_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_9_1",
+        "target": "caf_floor",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_9_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_9_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_9_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_9_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_9_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_9_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_9_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_9_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_9_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_9_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_9_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_9_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_chair_9_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_coat_rack",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_coat_rack",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_coat_rack",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_coat_rack",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_coat_rack",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_fridge_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_fridge_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_fridge_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_fridge_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_microwave_bench",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_microwave_bench",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_microwave_bench",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_microwave_bench",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_mop_bucket",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_mop_bucket",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_mop_bucket",
+        "target": "caf_floor",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_mop_bucket",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_mop_bucket",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_table_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_table_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_table_0",
+        "target": "caf_floor",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_table_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_table_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_table_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_table_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_table_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_table_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_table_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_table_2",
+        "target": "caf_floor",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_table_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_table_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_table_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_table_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_table_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_table_4",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_table_4",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_table_4",
+        "target": "caf_floor",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_table_4",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_table_5",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_table_5",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_table_5",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_table_5",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_table_6",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_table_6",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_table_6",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_table_6",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_table_7",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_table_7",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_table_7",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_table_7",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_table_8",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_table_8",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_table_8",
+        "target": "caf_floor",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_table_8",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_table_9",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_table_9",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_table_9",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_table_9",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_vending_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_vending_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_vending_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_vending_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_vending_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_vending_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_vending_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_vending_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_water_cooler",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_water_cooler",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_water_cooler",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_water_cooler",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_wet_floor_sign",
+        "target": "caf_floor",
+        "gap_m": -0.00035,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_wet_floor_sign",
+        "target": "caf_floor",
+        "gap_m": -0.00035,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_wet_floor_sign",
+        "target": "caf_floor",
+        "gap_m": -0.00035,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_wet_floor_sign",
+        "target": "caf_floor",
+        "gap_m": -0.00035,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_wet_floor_sign",
+        "target": "caf_floor",
+        "gap_m": -0.00035,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "directory_totem",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "directory_totem",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "directory_totem",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "directory_totem",
+        "target": "caf_floor",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "divider_game_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "divider_game_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "divider_game_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "divider_game_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "divider_game_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "divider_game_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "divider_game_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "divider_game_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "game_rug",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "game_rug",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "game_rug",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "game_rug",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "game_side_table",
+        "target": "caf_floor",
+        "gap_m": 0.001,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "game_stool_0",
+        "target": "game_rug",
+        "gap_m": -6.6e-05,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "game_stool_0",
+        "target": "game_rug",
+        "gap_m": -6e-05,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "game_stool_0",
+        "target": "game_rug",
+        "gap_m": -6e-05,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "game_stool_0",
+        "target": "game_rug",
+        "gap_m": -6e-05,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "game_stool_0",
+        "target": "game_rug",
+        "gap_m": -6e-05,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "game_stool_1",
+        "target": "game_rug",
+        "gap_m": -6.6e-05,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "game_stool_1",
+        "target": "game_rug",
+        "gap_m": -7.2e-05,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "game_stool_1",
+        "target": "game_rug",
+        "gap_m": -7.2e-05,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "kitchen_block",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "kitchen_block",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "kitchen_block",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "kitchen_block",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "kitchen_block",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_bookcase",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_bookcase",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_bookcase",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_bookcase",
+        "target": "caf_floor",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_bookcase",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_rug",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_rug",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_rug",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_rug",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "queue_sanitiser",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "queue_sanitiser",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "queue_sanitiser",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "queue_sanitiser",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "queue_sanitiser",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "queue_stanchion_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "queue_stanchion_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "queue_stanchion_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "queue_stanchion_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "queue_stanchion_0",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "queue_stanchion_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "queue_stanchion_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "queue_stanchion_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "queue_stanchion_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "queue_stanchion_1",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "queue_stanchion_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "queue_stanchion_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "queue_stanchion_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "queue_stanchion_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "queue_stanchion_2",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "queue_stanchion_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "queue_stanchion_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "queue_stanchion_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "queue_stanchion_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "queue_stanchion_3",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "rec_oche_regulation_2p37m",
+        "target": "game_rug",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "rec_oche_regulation_2p37m",
+        "target": "game_rug",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "rec_oche_regulation_2p37m",
+        "target": "game_rug",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "rec_oche_regulation_2p37m",
+        "target": "game_rug",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "recycling_bins",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "recycling_bins",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "recycling_bins",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "recycling_bins",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "recycling_bins",
+        "target": "caf_floor",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "serving_counter",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "serving_counter",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "serving_counter",
+        "target": "caf_floor",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "serving_counter",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "tray_trolley",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "tray_trolley",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "tray_trolley",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "tray_trolley",
+        "target": "caf_floor",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "tray_trolley",
+        "target": "caf_floor",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "HVAC_trunk_outlet_grilles_hangers_sprinklers",
+        "target": "caf_roof_deck3",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "Hot_food_six_gastronorm_pans_and_ladles",
+        "target": "serving_counter",
+        "gap_m": 0.002,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "Hot_food_six_gastronorm_pans_and_ladles",
+        "target": "serving_counter",
+        "gap_m": 0.002,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "banner_recycle",
+        "target": "caf_E_seg0_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "banner_recycle",
+        "target": "caf_E_seg0_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "banner_recycle",
+        "target": "caf_E_seg0_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "banner_recycle",
+        "target": "caf_E_seg0_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "board_allergen",
+        "target": "kdoor_wall_N",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "board_allergen",
+        "target": "kdoor_wall_N",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "board_allergen",
+        "target": "kdoor_wall_N",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "board_allergen",
+        "target": "kdoor_wall_N",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "board_directory",
+        "target": "directory_totem",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "board_directory",
+        "target": "directory_totem",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "board_directory",
+        "target": "directory_totem",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "board_directory",
+        "target": "directory_totem",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_E_bulletin_0",
+        "target": "caf_E_seg1_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_E_bulletin_0",
+        "target": "caf_E_seg1_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_E_bulletin_0",
+        "target": "caf_E_seg1_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_E_bulletin_0",
+        "target": "caf_E_seg1_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_E_extinguisher_3",
+        "target": "caf_E_seg1_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_E_extinguisher_3",
+        "target": "caf_E_seg1_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_E_extinguisher_3",
+        "target": "caf_E_seg1_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_E_extinguisher_3",
+        "target": "caf_E_seg1_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_E_socket_4",
+        "target": "caf_E_seg0_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_E_socket_4",
+        "target": "caf_E_seg0_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_E_socket_4",
+        "target": "caf_E_seg0_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_E_socket_4",
+        "target": "caf_E_seg0_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_N_first_aid_2",
+        "target": "cafhall_mid_seg1_core",
+        "gap_m": 0.000999,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_N_first_aid_2",
+        "target": "cafhall_mid_seg1_core",
+        "gap_m": 0.000999,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_N_first_aid_2",
+        "target": "cafhall_mid_seg1_core",
+        "gap_m": 0.000999,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_N_first_aid_2",
+        "target": "cafhall_mid_seg1_core",
+        "gap_m": 0.000999,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_N_socket_3",
+        "target": "cafhall_mid_seg0_core",
+        "gap_m": 0.000999,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_N_socket_3",
+        "target": "cafhall_mid_seg0_core",
+        "gap_m": 0.000999,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_N_socket_3",
+        "target": "cafhall_mid_seg0_core",
+        "gap_m": 0.000999,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_N_socket_3",
+        "target": "cafhall_mid_seg0_core",
+        "gap_m": 0.000999,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_N_socket_4",
+        "target": "cafhall_mid_seg0_core",
+        "gap_m": 0.000999,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_N_socket_4",
+        "target": "cafhall_mid_seg0_core",
+        "gap_m": 0.000999,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_N_socket_4",
+        "target": "cafhall_mid_seg0_core",
+        "gap_m": 0.000999,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_N_socket_4",
+        "target": "cafhall_mid_seg0_core",
+        "gap_m": 0.000999,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_S_extinguisher_11",
+        "target": "caf_S_seg1_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_S_extinguisher_11",
+        "target": "caf_S_seg1_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_S_extinguisher_11",
+        "target": "caf_S_seg1_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_S_extinguisher_11",
+        "target": "caf_S_seg1_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_S_first_aid_7",
+        "target": "caf_S_seg1_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_S_first_aid_7",
+        "target": "caf_S_seg1_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_S_first_aid_7",
+        "target": "caf_S_seg1_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_S_first_aid_7",
+        "target": "caf_S_seg1_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_S_socket_12",
+        "target": "caf_S_seg0_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_S_socket_12",
+        "target": "caf_S_seg0_skin",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_S_socket_12",
+        "target": "caf_S_seg0_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_S_socket_12",
+        "target": "caf_S_seg0_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_S_socket_13",
+        "target": "caf_S_seg0_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_S_socket_13",
+        "target": "caf_S_seg0_skin",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_S_socket_13",
+        "target": "caf_S_seg0_skin",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_S_socket_13",
+        "target": "caf_S_seg0_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_S_socket_14",
+        "target": "caf_S_seg1_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_S_socket_14",
+        "target": "caf_S_seg1_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_S_socket_14",
+        "target": "caf_S_seg1_skin",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_S_socket_14",
+        "target": "caf_S_seg1_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_S_wall_clock_6",
+        "target": "caf_S_seg1_skin",
+        "gap_m": 0.001,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_S_wall_clock_6",
+        "target": "caf_S_seg1_skin",
+        "gap_m": 0.001,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_S_wall_clock_6",
+        "target": "caf_S_seg1_skin",
+        "gap_m": 0.001,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_S_wall_clock_6",
+        "target": "caf_S_seg1_skin",
+        "gap_m": 0.001,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_S_wall_clock_6",
+        "target": "caf_S_seg1_skin",
+        "gap_m": 0.001,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_W_bulletin_0",
+        "target": "caf_W_seg0_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_W_bulletin_0",
+        "target": "caf_W_seg0_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_W_bulletin_0",
+        "target": "caf_W_seg0_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_W_bulletin_0",
+        "target": "caf_W_seg0_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_W_extinguisher_5",
+        "target": "caf_W_seg1_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_W_extinguisher_5",
+        "target": "caf_W_seg1_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_W_extinguisher_5",
+        "target": "caf_W_seg1_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_W_extinguisher_5",
+        "target": "caf_W_seg1_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_W_socket_6",
+        "target": "caf_W_seg0_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_W_socket_6",
+        "target": "caf_W_seg0_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_W_socket_6",
+        "target": "caf_W_seg0_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_W_socket_6",
+        "target": "caf_W_seg0_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_W_wall_clock_4",
+        "target": "caf_W_seg1_skin",
+        "gap_m": 0.001002,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_W_wall_clock_4",
+        "target": "caf_W_seg1_skin",
+        "gap_m": 0.001001,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_W_wall_clock_4",
+        "target": "caf_W_seg1_skin",
+        "gap_m": 0.001001,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_W_wall_clock_4",
+        "target": "caf_W_seg1_skin",
+        "gap_m": 0.001001,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_W_wall_clock_4",
+        "target": "caf_W_seg1_skin",
+        "gap_m": 0.001001,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_bottle_3",
+        "target": "caf_table_3",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_bottle_3",
+        "target": "caf_table_3",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_bottle_3",
+        "target": "caf_table_3",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_bottle_3",
+        "target": "caf_table_3",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_bottle_3",
+        "target": "caf_table_3",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_light_strip_00",
+        "target": "caf_roof_deck0",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_light_strip_01",
+        "target": "caf_roof_deck0",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_light_strip_02",
+        "target": "caf_roof_deck0",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_light_strip_10",
+        "target": "caf_roof_deck2",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_light_strip_10",
+        "target": "caf_roof_deck2",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_light_strip_10",
+        "target": "caf_roof_deck2",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_light_strip_11",
+        "target": "caf_roof_deck2",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_light_strip_11",
+        "target": "caf_roof_deck2",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_light_strip_11",
+        "target": "caf_roof_deck2",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_light_strip_12",
+        "target": "caf_roof_deck2",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_light_strip_12",
+        "target": "caf_roof_deck2",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_light_strip_12",
+        "target": "caf_roof_deck2",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_light_strip_20",
+        "target": "caf_roof_deck3",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_light_strip_20",
+        "target": "caf_roof_deck3",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_light_strip_20",
+        "target": "caf_roof_deck3",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_light_strip_20",
+        "target": "caf_roof_deck3",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_light_strip_21",
+        "target": "caf_roof_deck3",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_light_strip_21",
+        "target": "caf_roof_deck3",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_light_strip_21",
+        "target": "caf_roof_deck3",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_light_strip_21",
+        "target": "caf_roof_deck3",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_light_strip_22",
+        "target": "caf_roof_deck3",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_light_strip_22",
+        "target": "caf_roof_deck3",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_light_strip_22",
+        "target": "caf_roof_deck3",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_light_strip_22",
+        "target": "caf_roof_deck3",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_light_strip_30",
+        "target": "caf_roof_deck4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_light_strip_30",
+        "target": "caf_roof_deck4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_light_strip_30",
+        "target": "caf_roof_deck4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_light_strip_30",
+        "target": "caf_roof_deck4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_light_strip_31",
+        "target": "caf_roof_deck4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_light_strip_31",
+        "target": "caf_roof_deck4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_light_strip_31",
+        "target": "caf_roof_deck4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_light_strip_31",
+        "target": "caf_roof_deck4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_light_strip_32",
+        "target": "caf_roof_deck4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_light_strip_32",
+        "target": "caf_roof_deck4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_light_strip_32",
+        "target": "caf_roof_deck4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_light_strip_32",
+        "target": "caf_roof_deck4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_mug_2",
+        "target": "caf_table_2",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_mug_2",
+        "target": "caf_table_2",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_mug_2",
+        "target": "caf_table_2",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_mug_2",
+        "target": "caf_table_2",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_mug_2",
+        "target": "caf_table_2",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_mug_8",
+        "target": "caf_table_8",
+        "gap_m": -0.0,
+        "angle_deg": 0.02,
+        "pass": true
+      },
+      {
+        "object": "caf_mug_8",
+        "target": "caf_table_8",
+        "gap_m": 0.0,
+        "angle_deg": 0.02,
+        "pass": true
+      },
+      {
+        "object": "caf_mug_8",
+        "target": "caf_table_8",
+        "gap_m": 0.0,
+        "angle_deg": 0.02,
+        "pass": true
+      },
+      {
+        "object": "caf_mug_8",
+        "target": "caf_table_8",
+        "gap_m": 0.0,
+        "angle_deg": 0.02,
+        "pass": true
+      },
+      {
+        "object": "caf_mug_8",
+        "target": "caf_table_8",
+        "gap_m": 0.0,
+        "angle_deg": 0.02,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_0",
+        "target": "caf_roof_deck3",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_0",
+        "target": "caf_roof_deck3",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_0",
+        "target": "caf_roof_deck3",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_0",
+        "target": "caf_roof_deck3",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_0",
+        "target": "caf_roof_deck3",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_1",
+        "target": "caf_roof_deck3",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_1",
+        "target": "caf_roof_deck3",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_1",
+        "target": "caf_roof_deck3",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_1",
+        "target": "caf_roof_deck3",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_1",
+        "target": "caf_roof_deck3",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_2",
+        "target": "caf_roof_deck4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_2",
+        "target": "caf_roof_deck4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_2",
+        "target": "caf_roof_deck4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_2",
+        "target": "caf_roof_deck4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_2",
+        "target": "caf_roof_deck4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_3",
+        "target": "caf_roof_deck4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_3",
+        "target": "caf_roof_deck4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_3",
+        "target": "caf_roof_deck4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_3",
+        "target": "caf_roof_deck4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_3",
+        "target": "caf_roof_deck4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_4",
+        "target": "caf_roof_sky4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_4",
+        "target": "caf_roof_sky4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_4",
+        "target": "caf_roof_sky4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_4",
+        "target": "caf_roof_sky4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_4",
+        "target": "caf_roof_sky4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_5",
+        "target": "caf_roof_sky4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_5",
+        "target": "caf_roof_sky4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_5",
+        "target": "caf_roof_sky4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_5",
+        "target": "caf_roof_sky4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_5",
+        "target": "caf_roof_sky4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_6",
+        "target": "caf_roof_deck1",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_6",
+        "target": "caf_roof_deck1",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_6",
+        "target": "caf_roof_deck1",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_6",
+        "target": "caf_roof_deck1",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_6",
+        "target": "caf_roof_deck1",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_7",
+        "target": "caf_roof_deck1",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_7",
+        "target": "caf_roof_deck1",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_7",
+        "target": "caf_roof_deck1",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_7",
+        "target": "caf_roof_deck1",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_7",
+        "target": "caf_roof_deck1",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_8",
+        "target": "caf_roof_deck3",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_8",
+        "target": "caf_roof_deck3",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_8",
+        "target": "caf_roof_deck3",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_8",
+        "target": "caf_roof_deck3",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_8",
+        "target": "caf_roof_deck3",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_L0",
+        "target": "caf_roof_deck0",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_L0",
+        "target": "caf_roof_deck0",
+        "gap_m": 1e-06,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_L0",
+        "target": "caf_roof_deck0",
+        "gap_m": 1e-06,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_L0",
+        "target": "caf_roof_deck0",
+        "gap_m": 1e-06,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_L0",
+        "target": "caf_roof_deck0",
+        "gap_m": 1e-06,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_L1",
+        "target": "caf_roof_deck0",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_L1",
+        "target": "caf_roof_deck0",
+        "gap_m": 1e-06,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_L2",
+        "target": "caf_roof_deck0",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_L2",
+        "target": "caf_roof_deck0",
+        "gap_m": 1e-06,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_L2",
+        "target": "caf_roof_deck0",
+        "gap_m": 1e-06,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_L2",
+        "target": "caf_roof_deck0",
+        "gap_m": 1e-06,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_L2",
+        "target": "caf_roof_deck0",
+        "gap_m": 1e-06,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_L3",
+        "target": "caf_roof_deck1",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_L3",
+        "target": "caf_roof_deck1",
+        "gap_m": 1e-06,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_L3",
+        "target": "caf_roof_deck1",
+        "gap_m": 1e-06,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_L3",
+        "target": "caf_roof_deck1",
+        "gap_m": 1e-06,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_pendant_L3",
+        "target": "caf_roof_deck1",
+        "gap_m": 1e-06,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_tableset_2",
+        "target": "caf_table_2",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_tableset_2",
+        "target": "caf_table_2",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_tableset_2",
+        "target": "caf_table_2",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_tableset_2",
+        "target": "caf_table_2",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_tableset_2",
+        "target": "caf_table_2",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_tableset_4",
+        "target": "caf_table_4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_tableset_4",
+        "target": "caf_table_4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_tableset_4",
+        "target": "caf_table_4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_tableset_4",
+        "target": "caf_table_4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_tableset_4",
+        "target": "caf_table_4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_tableset_8",
+        "target": "caf_table_8",
+        "gap_m": 0.0,
+        "angle_deg": 0.02,
+        "pass": true
+      },
+      {
+        "object": "caf_tableset_8",
+        "target": "caf_table_8",
+        "gap_m": 0.0,
+        "angle_deg": 0.02,
+        "pass": true
+      },
+      {
+        "object": "caf_tableset_8",
+        "target": "caf_table_8",
+        "gap_m": 0.0,
+        "angle_deg": 0.02,
+        "pass": true
+      },
+      {
+        "object": "caf_tableset_8",
+        "target": "caf_table_8",
+        "gap_m": 0.0,
+        "angle_deg": 0.02,
+        "pass": true
+      },
+      {
+        "object": "caf_tableset_8",
+        "target": "caf_table_8",
+        "gap_m": 0.0,
+        "angle_deg": 0.02,
+        "pass": true
+      },
+      {
+        "object": "caf_tableset_9",
+        "target": "caf_table_9",
+        "gap_m": 0.0,
+        "angle_deg": 0.02,
+        "pass": true
+      },
+      {
+        "object": "caf_tableset_9",
+        "target": "caf_table_9",
+        "gap_m": 0.0,
+        "angle_deg": 0.02,
+        "pass": true
+      },
+      {
+        "object": "caf_tableset_9",
+        "target": "caf_table_9",
+        "gap_m": 0.0,
+        "angle_deg": 0.02,
+        "pass": true
+      },
+      {
+        "object": "caf_tableset_9",
+        "target": "caf_table_9",
+        "gap_m": 0.0,
+        "angle_deg": 0.02,
+        "pass": true
+      },
+      {
+        "object": "caf_tableset_9",
+        "target": "caf_table_9",
+        "gap_m": 0.0,
+        "angle_deg": 0.02,
+        "pass": true
+      },
+      {
+        "object": "caf_tray_0",
+        "target": "caf_table_0",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_tray_0",
+        "target": "caf_table_0",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_tray_0",
+        "target": "caf_table_0",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_tray_0",
+        "target": "caf_table_0",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_tray_0",
+        "target": "caf_table_0",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_tray_3",
+        "target": "caf_table_3",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_tray_3",
+        "target": "caf_table_3",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_tray_3",
+        "target": "caf_table_3",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_tray_3",
+        "target": "caf_table_3",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_tray_3",
+        "target": "caf_table_3",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_tray_4",
+        "target": "caf_table_4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_tray_4",
+        "target": "caf_table_4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_tray_4",
+        "target": "caf_table_4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_tray_4",
+        "target": "caf_table_4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_tray_4",
+        "target": "caf_table_4",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_tray_5",
+        "target": "caf_table_5",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_tray_5",
+        "target": "caf_table_5",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_tray_5",
+        "target": "caf_table_5",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_tray_5",
+        "target": "caf_table_5",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_tray_5",
+        "target": "caf_table_5",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "caf_tray_8",
+        "target": "caf_table_8",
+        "gap_m": -0.0,
+        "angle_deg": 0.02,
+        "pass": true
+      },
+      {
+        "object": "caf_tray_8",
+        "target": "caf_table_8",
+        "gap_m": -0.0,
+        "angle_deg": 0.02,
+        "pass": true
+      },
+      {
+        "object": "caf_tray_8",
+        "target": "caf_table_8",
+        "gap_m": -0.0,
+        "angle_deg": 0.02,
+        "pass": true
+      },
+      {
+        "object": "caf_tray_8",
+        "target": "caf_table_8",
+        "gap_m": -0.0,
+        "angle_deg": 0.02,
+        "pass": true
+      },
+      {
+        "object": "caf_tray_8",
+        "target": "caf_table_8",
+        "gap_m": -0.0,
+        "angle_deg": 0.02,
+        "pass": true
+      },
+      {
+        "object": "caf_tray_9",
+        "target": "caf_table_9",
+        "gap_m": 0.0,
+        "angle_deg": 0.02,
+        "pass": true
+      },
+      {
+        "object": "caf_tray_9",
+        "target": "caf_table_9",
+        "gap_m": 0.0,
+        "angle_deg": 0.02,
+        "pass": true
+      },
+      {
+        "object": "caf_tray_9",
+        "target": "caf_table_9",
+        "gap_m": 0.0,
+        "angle_deg": 0.02,
+        "pass": true
+      },
+      {
+        "object": "caf_tray_9",
+        "target": "caf_table_9",
+        "gap_m": 0.0,
+        "angle_deg": 0.02,
+        "pass": true
+      },
+      {
+        "object": "caf_tray_9",
+        "target": "caf_table_9",
+        "gap_m": 0.0,
+        "angle_deg": 0.02,
+        "pass": true
+      },
+      {
+        "object": "counter_bread_0",
+        "target": "serving_counter",
+        "gap_m": 0.005,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_bread_0",
+        "target": "serving_counter",
+        "gap_m": 0.005,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_bread_0",
+        "target": "serving_counter",
+        "gap_m": 0.005,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_bread_0",
+        "target": "serving_counter",
+        "gap_m": 0.005,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_bread_1",
+        "target": "serving_counter",
+        "gap_m": 0.005,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_bread_1",
+        "target": "serving_counter",
+        "gap_m": 0.005,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_bread_1",
+        "target": "serving_counter",
+        "gap_m": 0.005,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_bread_1",
+        "target": "serving_counter",
+        "gap_m": 0.005,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_cups_0",
+        "target": "serving_counter",
+        "gap_m": 0.005,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_cups_0",
+        "target": "serving_counter",
+        "gap_m": 0.005,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_cups_0",
+        "target": "serving_counter",
+        "gap_m": 0.005,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_cups_0",
+        "target": "serving_counter",
+        "gap_m": 0.005,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_cups_0",
+        "target": "serving_counter",
+        "gap_m": 0.005,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_cups_1",
+        "target": "serving_counter",
+        "gap_m": 0.005,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_cups_1",
+        "target": "serving_counter",
+        "gap_m": 0.005,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_cups_1",
+        "target": "serving_counter",
+        "gap_m": 0.005,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_cups_1",
+        "target": "serving_counter",
+        "gap_m": 0.005,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_cups_1",
+        "target": "serving_counter",
+        "gap_m": 0.005,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_cups_2",
+        "target": "serving_counter",
+        "gap_m": 0.005,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_cups_2",
+        "target": "serving_counter",
+        "gap_m": 0.005,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_cups_2",
+        "target": "serving_counter",
+        "gap_m": 0.005,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_cups_2",
+        "target": "serving_counter",
+        "gap_m": 0.005,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_cups_2",
+        "target": "serving_counter",
+        "gap_m": 0.005,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_cups_3",
+        "target": "serving_counter",
+        "gap_m": 0.005,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_cups_3",
+        "target": "serving_counter",
+        "gap_m": 0.005,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_cups_3",
+        "target": "serving_counter",
+        "gap_m": 0.005,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_cups_3",
+        "target": "serving_counter",
+        "gap_m": 0.005,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_cups_3",
+        "target": "serving_counter",
+        "gap_m": 0.005,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_plates_0",
+        "target": "serving_counter",
+        "gap_m": 0.004999,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_plates_0",
+        "target": "serving_counter",
+        "gap_m": 0.005,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_plates_0",
+        "target": "serving_counter",
+        "gap_m": 0.005,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_plates_0",
+        "target": "serving_counter",
+        "gap_m": 0.005,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_plates_1",
+        "target": "serving_counter",
+        "gap_m": 0.004999,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_plates_1",
+        "target": "serving_counter",
+        "gap_m": 0.005,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_plates_1",
+        "target": "serving_counter",
+        "gap_m": 0.005,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_plates_1",
+        "target": "serving_counter",
+        "gap_m": 0.005,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_plates_2",
+        "target": "serving_counter",
+        "gap_m": 0.004999,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_plates_2",
+        "target": "serving_counter",
+        "gap_m": 0.005,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_plates_2",
+        "target": "serving_counter",
+        "gap_m": 0.005,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_plates_2",
+        "target": "serving_counter",
+        "gap_m": 0.005,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_trays_0",
+        "target": "serving_counter",
+        "gap_m": 0.001,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_trays_0",
+        "target": "serving_counter",
+        "gap_m": 0.001,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_trays_1",
+        "target": "serving_counter",
+        "gap_m": 0.001,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_trays_1",
+        "target": "serving_counter",
+        "gap_m": 0.001,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "counter_trays_1",
+        "target": "serving_counter",
+        "gap_m": 0.001,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "game_wall_shelf_0",
+        "target": "cafhall_mid_seg0_core",
+        "gap_m": 0.000999,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "kitchen_staff_leaf",
+        "target": "kdoor_wall_S",
+        "gap_m": 0.004444,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "kitchen_staff_leaf",
+        "target": "kdoor_wall_S",
+        "gap_m": 0.004444,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "kitchen_staff_leaf",
+        "target": "kdoor_wall_S",
+        "gap_m": 0.004444,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_bottle",
+        "target": "lounge_coffee_table",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_bottle",
+        "target": "lounge_coffee_table",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_bottle",
+        "target": "lounge_coffee_table",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_bottle",
+        "target": "lounge_coffee_table",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_bottle",
+        "target": "lounge_coffee_table",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_mug",
+        "target": "lounge_coffee_table",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_mug",
+        "target": "lounge_coffee_table",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_mug",
+        "target": "lounge_coffee_table",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_mug",
+        "target": "lounge_coffee_table",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_mug",
+        "target": "lounge_coffee_table",
+        "gap_m": -0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_table_lamp_0",
+        "target": "lounge_side_table_0",
+        "gap_m": 0.001,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_table_lamp_0",
+        "target": "lounge_side_table_0",
+        "gap_m": 0.001,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_table_lamp_0",
+        "target": "lounge_side_table_0",
+        "gap_m": 0.001,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_table_lamp_0",
+        "target": "lounge_side_table_0",
+        "gap_m": 0.001,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_table_lamp_0",
+        "target": "lounge_side_table_0",
+        "gap_m": 0.001,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_tray",
+        "target": "lounge_coffee_table",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_tray",
+        "target": "lounge_coffee_table",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_tray",
+        "target": "lounge_coffee_table",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "lounge_tray",
+        "target": "lounge_coffee_table",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "neon_game",
+        "target": "cafhall_mid_seg0_core",
+        "gap_m": 0.000999,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "neon_game",
+        "target": "cafhall_mid_seg0_core",
+        "gap_m": 0.000999,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "neon_game",
+        "target": "cafhall_mid_seg0_core",
+        "gap_m": 0.000999,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "neon_game",
+        "target": "cafhall_mid_seg0_core",
+        "gap_m": 0.000999,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "sign_airlock_in",
+        "target": "caf_S_seg1_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "sign_airlock_in",
+        "target": "caf_S_seg1_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "sign_drinks",
+        "target": "caf_E_seg0_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "sign_drinks",
+        "target": "caf_E_seg0_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "sign_drinks",
+        "target": "caf_E_seg0_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "sign_drinks",
+        "target": "caf_E_seg0_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "sign_exit_yard",
+        "target": "caf_W_hdr0_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "sign_exit_yard",
+        "target": "caf_W_hdr0_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "sign_exit_yard",
+        "target": "caf_W_hdr0_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "sign_exit_yard",
+        "target": "caf_W_hdr0_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "sign_hall_in",
+        "target": "cafhall_mid_hdr0_core",
+        "gap_m": 0.000999,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "sign_hall_in",
+        "target": "cafhall_mid_hdr0_core",
+        "gap_m": 0.000999,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "sign_hall_in",
+        "target": "cafhall_mid_hdr0_core",
+        "gap_m": 0.000999,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "sign_hall_in",
+        "target": "cafhall_mid_hdr0_core",
+        "gap_m": 0.000999,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "sign_medical_in",
+        "target": "caf_E_hdr0_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.02,
+        "pass": true
+      },
+      {
+        "object": "sign_medical_in",
+        "target": "caf_E_hdr0_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.02,
+        "pass": true
+      },
+      {
+        "object": "sign_medical_in",
+        "target": "caf_E_hdr0_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.02,
+        "pass": true
+      },
+      {
+        "object": "sign_staff_only",
+        "target": "kdoor_head",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "sign_staff_only",
+        "target": "kdoor_head",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "sign_staff_only",
+        "target": "kdoor_head",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "sign_tray_return",
+        "target": "caf_E_seg0_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "sign_tray_return",
+        "target": "caf_E_seg0_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "sign_tray_return",
+        "target": "caf_E_seg0_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "sign_tray_return",
+        "target": "caf_E_seg0_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "sign_wash_hands",
+        "target": "kdoor_wall_S",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "sign_wash_hands",
+        "target": "kdoor_wall_S",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "sign_yard_in",
+        "target": "caf_W_hdr0_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "sign_yard_in",
+        "target": "caf_W_hdr0_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "sign_yard_in",
+        "target": "caf_W_hdr0_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      },
+      {
+        "object": "sign_yard_in",
+        "target": "caf_W_hdr0_skin",
+        "gap_m": 0.0,
+        "angle_deg": 0.0,
+        "pass": true
+      }
+    ],
+    "reimport_instances": [
+      {
+        "instance": "FOOSBALL_A",
+        "kind": "foosball",
+        "source": "cafeteria-revamp/assets/foosball.blend",
+        "triangles": 32830,
+        "component_count": 26,
+        "bounds_error_m": 0.0
+      },
+      {
+        "instance": "FOOSBALL_B",
+        "kind": "foosball",
+        "source": "cafeteria-revamp/assets/foosball.blend",
+        "triangles": 32830,
+        "component_count": 26,
+        "bounds_error_m": 0.0
+      },
+      {
+        "instance": "BASKETBALL_A",
+        "kind": "basketball",
+        "source": "cafeteria-revamp/assets/basketball.blend",
+        "triangles": 14592,
+        "component_count": 18,
+        "bounds_error_m": 0.0
+      },
+      {
+        "instance": "BASKETBALL_B",
+        "kind": "basketball",
+        "source": "cafeteria-revamp/assets/basketball.blend",
+        "triangles": 14592,
+        "component_count": 18,
+        "bounds_error_m": 0.0
+      },
+      {
+        "instance": "DARTBOARD",
+        "kind": "dartboard",
+        "source": "cafeteria-revamp/assets/dartboard.blend",
+        "triangles": 15574,
+        "component_count": 111,
+        "bounds_error_m": 0.0
+      }
+    ],
+    "reimport_bounds_pass": true,
+    "interfaces_unchanged": true,
+    "missing_image_dependencies": [],
+    "all_file_images_packed": true,
+    "external_fonts_packed": true,
+    "missing_font_dependencies": [],
+    "linked_libraries": [],
+    "support_coverage": {
+      "required_objects": 431,
+      "registered_objects": 226,
+      "missing": [
+        "rules_game"
+      ]
+    },
+    "door_poses": [
+      {
+        "name": "airlock_L_HINGE",
+        "pose": "closed",
+        "hinge_axis": "local Z"
+      },
+      {
+        "name": "airlock_R_HINGE",
+        "pose": "closed",
+        "hinge_axis": "local Z"
+      },
+      {
+        "name": "medical_N_HINGE",
+        "pose": "closed",
+        "hinge_axis": "local Z"
+      },
+      {
+        "name": "medical_S_HINGE",
+        "pose": "closed",
+        "hinge_axis": "local Z"
+      }
+    ]
+  },
+  "negative_check": {
+    "pass": true,
+    "removed_registration": "rules_game",
+    "validator_rejected": true,
+    "scene_saved": false
+  }
+}
