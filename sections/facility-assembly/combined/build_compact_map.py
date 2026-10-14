@@ -57,6 +57,13 @@ def wxy(loc, rz, x, y): r = rot(rz)(x, y); return Vector((loc[0] + r[0], loc[1] 
 
 old = {r[0]: r for r in BM.ROOMS}
 NEW = [old[k] for k in ('front-end-area', 'spawn-room', 'mine', 'refinery', 'medical-reanimation')]
+# Front-end source: the map links the original front end. FRONT_END_SOURCE=revamp builds with the cafeteria revamp candidate (PR 105, front_end_area_cafeteria_revamp.blend,
+# same collection and module frame, hall/yard/shell unchanged) for a compatibility test; choosing it for the map is the owner's call (its TASK_STATE.md)
+if os.environ.get('FRONT_END_SOURCE') == 'revamp':
+    NEW[0] = (NEW[0][0], 'front-end-area/front_end_area_cafeteria_revamp.blend') + tuple(NEW[0][2:5]) + (NEW[0][5] + ' CAFETERIA REVAMP CANDIDATE (PR 105).',)
+    # the revamp's new airlock (spawn exit) and medical door leaves stand closed in the doorways the map keeps open (SPAWN_EXIT, CAF_MEDICAL): left out, as the original's
+    # parked leaves were open (compatibility walk test 2026-10-14: six routes stuck on them)
+    REVAMP_DOOR_LEAVES = ['%s_door_leaf_%s' % (d, p) for d in ('airlock_L', 'airlock_R', 'medical_N', 'medical_S') for p in ('body', 'fittings_seals_hinges')]
 NEW += [
     ('fuel-corridor', 'fuel-corridor/module_short_S1.blend', 'MODULE_fuel-corridor', FUEL, 0.0,
      'SHORT corridor S1 (2026-10-13, unreviewed): F23ci (reviewed 99) with its north half removed (bypass, plant header and S01, S02, delivery bay, F02 adapter) and the S03 '
@@ -99,6 +106,7 @@ BM.OMIT['compliance-dock'] = ['P1 deep back wall', 'P1 deep door leaf']         
 # front end: hall east door closed (it now opens onto the outside), the hall west door to the refinery colonnade open, yard service door closed
 BM.OMIT['front-end-area'] = [n for n in BM.OMIT['front-end-area'] if n not in ('hall_E_door_leaf_-1.001', 'hall_E_door_leaf_1.001', 'service_door_leaf', 'service_door_push')]
 BM.OMIT['front-end-area'] += ['hall_W_door_leaf_-1.001', 'hall_W_door_leaf_1.001']
+if os.environ.get('FRONT_END_SOURCE') == 'revamp': BM.OMIT['front-end-area'] += REVAMP_DOOR_LEAVES
 # the hall's floor stencil and hanging sign "to dock" point at the east door, which is now a closed exit: left out (render review 2026-10-13); the spine door sign below replaces them
 BM.OMIT['front-end-area'] += ['floor_stencil_dock', 'hang_to_dock', 'hang_to_dock_rod+0.9', 'hang_to_dock_rod-0.9']
 # spawn exit airlock: the leaf pieces are left out by build_combined_map.py; the leaf hardware that stayed behind in the open doorway goes too (walk test 2026-10-13)

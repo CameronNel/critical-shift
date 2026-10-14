@@ -18,6 +18,8 @@ Where plan v7 and the as-built front end disagree, the as-built front end and DE
 
 ## Current layout: compact, assembly pass (read `COMPACT_MAP.md` and `ASSEMBLY_REPORT.md` first)
 
+2026-10-14: the condenser bay's A1 finish is to be reworked (owner). The brief, with every map constraint and the map-level checks, is `sources/condenser-bay/REWORK_BRIEF.md`; follow it for any condenser change. `FRONT_END_SOURCE=revamp` builds the map with the cafeteria revamp candidate (PR 105) for compatibility tests; the map itself still links the original front end.
+
 2026-10-13, latest: the **condenser escape ladder** (owner: "build the condenser ladder"): `add_condenser_escape` builds a 1.0 m emergency door in the bay's west wall (cut by `patch_condenser`), a 4.1 m tunnel under the turbine's west aisle, a 6.0 m caged ladder in a shaft on the stair house's line and a hatch house with an emergency door onto a path to the north strip (`evacuation.py`). Door rows `CONDENSER_W_ESCAPE` and `ESCAPE_HOUSE_DOOR` (owner `connector`: plan frame). The walk test walks both ends; the ladder itself is a `ladder` collider volume, not walked.
 
 2026-10-13, before that: **stacked slabs** fixed (the condenser bay's roof stood 0.3 m through the turbine floor; the front end's ground ran through the bay's top): `patch_condenser` lowers the roof slab under the turbine floor, the ground gets a hole over the bay. New check `floor_audit.py` (run on a built scene; flags any surface 2 to 50 cm above another room's floor); the plan cut also slices at z 0.15 and -0.6. Run both after any change that stacks or overlaps rooms.
