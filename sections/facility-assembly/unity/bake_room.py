@@ -31,6 +31,8 @@ def arg(k, d=None): return a[a.index(k) + 1] if k in a else d
 ROOM = arg('--room'); OUT = os.path.abspath(arg('--out')); COLL = arg('--collection', 'MODULE_' + ROOM)
 DENSITY = float(arg('--density', 256)); MAXSZ = int(arg('--max', 4096)); SAMPLES = int(arg('--samples', 8))
 STAGE = arg('--stage', 'all'); PASS = arg('--pass')
+ONLY = set(arg('--materials').split(',')) if arg('--materials') else None      # bake only these materials in this run (batches that fit a job limit)
+NODE_SAMPLES = int(arg('--node-samples', 0))   # >0: cap the AO and bevel shader nodes' own ray samples (they dominate bake time)
 SRC = bpy.data.filepath; WORK = os.path.join(OUT, '_work.blend'); RAW = os.path.join(OUT, '_raw'); PLAN = os.path.join(OUT, '_plan.json')
 for d in (OUT, os.path.join(OUT, 'textures'), RAW): os.makedirs(d, exist_ok=True)
 t0 = time.time(); log = dict(source=os.path.relpath(SRC, os.path.join(os.path.dirname(__file__), '..', '..', '..')), room=ROOM, collection=COLL, density_px_per_m=DENSITY,
@@ -133,6 +135,10 @@ else:
 if STAGE in ('bake', 'all'):
     # --- bake -------------------------------------------------------------------------------------------------------------------------------------------
     sc.render.engine = 'CYCLES'; sc.cycles.device = 'CPU'; sc.cycles.samples = SAMPLES; sc.cycles.use_denoising = False
+    if NODE_SAMPLES:
+        for m in mats:
+            for n_ in (m.node_tree.nodes if m.node_tree else []):
+                if n_.type in ('AMBIENT_OCCLUSION', 'BEVEL'): n_.samples = min(n_.samples, NODE_SAMPLES)
     bk = sc.render.bake; bk.margin = 8; bk.margin_type = 'EXTEND'; bk.use_clear = True; bk.use_selected_to_active = False
     dummy = bpy.data.images.new('_bake_dummy', 8, 8)
     imgs = {}
@@ -145,7 +151,7 @@ if STAGE in ('bake', 'all'):
             nt = m.node_tree
             if nt is None: m.use_nodes = True; nt = m.node_tree
             node = nt.nodes.get('_bake_target') or nt.nodes.new('ShaderNodeTexImage'); node.name = '_bake_target'
-            node.image = image(m.name, kind, colour) if (plan[m.name]['bake'] and wanted(m)) else dummy
+            node.image = image(m.name, kind, colour) if (plan[m.name]['bake'] and wanted(m) and (ONLY is None or m.name in ONLY)) else dummy
             nt.nodes.active = node
     def run(kind, btype, colour=True, wanted=lambda m: True, **kw):
         target(kind, colour, wanted); t = time.time()
