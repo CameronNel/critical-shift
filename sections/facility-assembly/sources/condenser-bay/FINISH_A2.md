@@ -157,3 +157,5 @@ runtime performance/FPS, human playtest, full removal swept volume, turbine U02
 work, reciprocal cooling remotes or full facility loop. The FBX round trip covers
 colliders/anchors through Blender only. No new neighbor openings or source edits.
 One task branch, one draft PR, no self merge.
+
+Delivery: [draft PR107](https://github.com/CameronNel/critical-shift/pull/107), branch `codex/condenser-finish-a2`. Complete evidence/review pushed in4278835e. No merge or strict acceptance.

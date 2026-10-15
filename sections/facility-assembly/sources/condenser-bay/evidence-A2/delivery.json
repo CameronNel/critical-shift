@@ -26,8 +26,16 @@
     "exit_code": 0,
     "downloaded_sha256": "5c1277da8d68c89abacaf851fbd8a70467032afaa86ff8fafe2f5e7951a73388"
   },
-  "draft_pr": "NOT CREATED YET; complete fresh evidence/review first",
-  "merge": "NOT PERFORMED; latest brief forbids self merge",
+  "draft_pr": {
+    "url": "https://github.com/CameronNel/critical-shift/pull/107",
+    "number": 107,
+    "created_as_draft": true,
+    "creation_exit_code": 0,
+    "evidence_commit": "4278835e",
+    "head": "codex/condenser-finish-a2",
+    "base": "main"
+  },
+  "merge": "NOT PERFORMED; latest brief forbids self merge and independent review is REJECT",
   "source_checks": {
     "authored_diff_whitespace": "PASS with raw *.log and renderer-source copies excluded",
     "raw_evidence_whitespace": "759 original whitespace/CRLF diagnostics across28 raw log/source-copy files; preserved exact evidence, not reformatted",
@@ -57,5 +65,11 @@
     "new_raw_evidence_whitespace_diagnostics": 120,
     "new_raw_evidence_files": 2,
     "policy": "Exact raw logs and CRLF source snapshots retained without formatting. Metadata-only builder fix compiled and tested against actual saved evaluated fixture meshes; no native/art change."
+  },
+  "final_evidence_push": {
+    "commit": "4278835e",
+    "exit_code": 0,
+    "lfs_objects_uploaded": 59,
+    "lfs_megabytes_uploaded": 124
   }
 }
