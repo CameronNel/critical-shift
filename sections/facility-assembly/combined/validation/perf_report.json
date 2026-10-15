@@ -1,7 +1,7 @@
 {
  "note": "Static counts of the built scene; no frame rate was measured (no runtime build exists). Budgets: only the 400k per-room flag and 800k front-end figure exist in the repo.",
  "totals": {
-  "triangles": 11223611,
+  "triangles": 8728266,
   "objects": 22313,
   "submeshes": 24521,
   "lights": 526,
@@ -11,22 +11,6 @@
   "texture_mb_rgba8": 1393.9
  },
  "rooms": {
-  "ROOM_mine": {
-   "triangles": 3313648,
-   "objects": 192,
-   "meshes": 106,
-   "submeshes": 315,
-   "materials": 58,
-   "lights": {
-    "SUN": 1,
-    "POINT": 63
-   },
-   "shadow_lights": 26,
-   "textures": 32,
-   "texture_mb_rgba8": 169.3,
-   "budget_flag": 400000,
-   "over_flag": true
-  },
   "ROOM_fuel-corridor": {
    "triangles": 1638347,
    "objects": 286,
@@ -56,6 +40,22 @@
    "shadow_lights": 117,
    "textures": 21,
    "texture_mb_rgba8": 64.1,
+   "budget_flag": 400000,
+   "over_flag": true
+  },
+  "ROOM_mine": {
+   "triangles": 818303,
+   "objects": 192,
+   "meshes": 106,
+   "submeshes": 315,
+   "materials": 58,
+   "lights": {
+    "SUN": 1,
+    "POINT": 63
+   },
+   "shadow_lights": 26,
+   "textures": 32,
+   "texture_mb_rgba8": 169.3,
    "budget_flag": 400000,
    "over_flag": true
   },
@@ -506,49 +506,9 @@
  },
  "heaviest_meshes": [
   {
-   "triangles": 444202,
-   "owner": "ROOM_mine",
-   "object": "R39 | Gravel tunnel"
-  },
-  {
-   "triangles": 351776,
-   "owner": "ROOM_mine",
-   "object": "R40 | Mine cliff"
-  },
-  {
    "triangles": 224574,
    "owner": "ROOM_turbine-room",
    "object": "TURBINE_MACH"
-  },
-  {
-   "triangles": 97964,
-   "owner": "ROOM_mine",
-   "object": "R39 | namaqualand_boulder_02.001"
-  },
-  {
-   "triangles": 97964,
-   "owner": "ROOM_mine",
-   "object": "R39 | namaqualand_boulder_02"
-  },
-  {
-   "triangles": 89618,
-   "owner": "ROOM_mine",
-   "object": "R39 | namaqualand_boulder_05.003"
-  },
-  {
-   "triangles": 89618,
-   "owner": "ROOM_mine",
-   "object": "R39 | namaqualand_boulder_05.002"
-  },
-  {
-   "triangles": 89618,
-   "owner": "ROOM_mine",
-   "object": "R39 | namaqualand_boulder_05.001"
-  },
-  {
-   "triangles": 89618,
-   "owner": "ROOM_mine",
-   "object": "R39 | namaqualand_boulder_05"
   },
   {
    "triangles": 87738,
@@ -556,44 +516,9 @@
    "object": "TURBINE_ARCH clipped rest cut0 rest cut0 cut0"
   },
   {
-   "triangles": 80698,
-   "owner": "ROOM_mine",
-   "object": "R39 | Tunnel floor"
-  },
-  {
    "triangles": 67685,
    "owner": "ROOM_turbine-room",
    "object": "TURBINE_PROPS rest cut0 cut0"
-  },
-  {
-   "triangles": 66122,
-   "owner": "ROOM_mine",
-   "object": "R39 | boulder_01.003"
-  },
-  {
-   "triangles": 66122,
-   "owner": "ROOM_mine",
-   "object": "R39 | boulder_01.002"
-  },
-  {
-   "triangles": 66122,
-   "owner": "ROOM_mine",
-   "object": "R39 | boulder_01.001"
-  },
-  {
-   "triangles": 66122,
-   "owner": "ROOM_mine",
-   "object": "R39 | boulder_01"
-  },
-  {
-   "triangles": 58820,
-   "owner": "ROOM_mine",
-   "object": "R40 | Cliff ledge debris"
-  },
-  {
-   "triangles": 48690,
-   "owner": "ROOM_mine",
-   "object": "R39 | Gravel yard"
   },
   {
    "triangles": 48000,
@@ -611,6 +536,11 @@
    "object": "FC | Type PROCESS / 02"
   },
   {
+   "triangles": 38380,
+   "owner": "ROOM_mine",
+   "object": "R39 | Gravel tunnel"
+  },
+  {
    "triangles": 38270,
    "owner": "ROOM_mine",
    "object": "R39 | Shed boards"
@@ -621,39 +551,109 @@
    "object": "FC | Wall_W-2.2_0_1.2 \u00b7 lined bay N"
   },
   {
-   "triangles": 33902,
-   "owner": "ROOM_mine",
-   "object": "R39 | Lantern.023"
+   "triangles": 33376,
+   "owner": "ROOM_electrical-room",
+   "object": "Stored-energy operating spring.001"
   },
   {
-   "triangles": 33902,
-   "owner": "ROOM_mine",
-   "object": "R39 | Lantern.022"
+   "triangles": 33376,
+   "owner": "ROOM_electrical-room",
+   "object": "Stored-energy operating spring.001"
   },
   {
-   "triangles": 33902,
-   "owner": "ROOM_mine",
-   "object": "R39 | Lantern.021"
+   "triangles": 33376,
+   "owner": "ROOM_electrical-room",
+   "object": "Stored-energy operating spring"
   },
   {
-   "triangles": 33902,
-   "owner": "ROOM_mine",
-   "object": "R39 | Lantern.020"
+   "triangles": 33376,
+   "owner": "ROOM_electrical-room",
+   "object": "Stored-energy operating spring"
   },
   {
-   "triangles": 33902,
-   "owner": "ROOM_mine",
-   "object": "R39 | Lantern.019"
+   "triangles": 32788,
+   "owner": "ROOM_fuel-corridor",
+   "object": "FC | Type TRANSFER CHECKS"
   },
   {
-   "triangles": 33902,
-   "owner": "ROOM_mine",
-   "object": "R39 | Lantern.018"
+   "triangles": 32788,
+   "owner": "ROOM_fuel-corridor",
+   "object": "FC | Type TRANSFER CHECKS"
   },
   {
-   "triangles": 33902,
+   "triangles": 32278,
    "owner": "ROOM_mine",
-   "object": "R39 | Lantern.017"
+   "object": "R39 | Tunnel floor"
+  },
+  {
+   "triangles": 32152,
+   "owner": "ROOM_mine",
+   "object": "R39 | Track ironwork"
+  },
+  {
+   "triangles": 27096,
+   "owner": "ROOM_fuel-corridor",
+   "object": "FC | Type REACTOR / F02.001"
+  },
+  {
+   "triangles": 27096,
+   "owner": "ROOM_fuel-corridor",
+   "object": "FC | Type REACTOR / F02.001"
+  },
+  {
+   "triangles": 27024,
+   "owner": "ROOM_fuel-corridor",
+   "object": "FC | East turn reactor designation type"
+  },
+  {
+   "triangles": 27024,
+   "owner": "ROOM_fuel-corridor",
+   "object": "FC | East turn reactor designation type"
+  },
+  {
+   "triangles": 26611,
+   "owner": "ROOM_mine",
+   "object": "R39 | boulder_01.003 lod"
+  },
+  {
+   "triangles": 26611,
+   "owner": "ROOM_mine",
+   "object": "R39 | boulder_01.002 lod"
+  },
+  {
+   "triangles": 26611,
+   "owner": "ROOM_mine",
+   "object": "R39 | boulder_01.001 lod"
+  },
+  {
+   "triangles": 26611,
+   "owner": "ROOM_mine",
+   "object": "R39 | boulder_01 lod"
+  },
+  {
+   "triangles": 26508,
+   "owner": "ROOM_medical-reanimation",
+   "object": "Floor"
+  },
+  {
+   "triangles": 25340,
+   "owner": "ROOM_fuel-corridor",
+   "object": "FC | Fuel conditioning identity type"
+  },
+  {
+   "triangles": 25340,
+   "owner": "ROOM_fuel-corridor",
+   "object": "FC | Fuel conditioning identity type"
+  },
+  {
+   "triangles": 24452,
+   "owner": "ROOM_fuel-corridor",
+   "object": "FC | Type PURGE / BALANCE"
+  },
+  {
+   "triangles": 24452,
+   "owner": "ROOM_fuel-corridor",
+   "object": "FC | Type PURGE / BALANCE"
   }
  ],
  "repeated_shapes": [
@@ -1161,13 +1161,6 @@
   ]
  ],
  "portal_visible_sets": {
-  "ROOM_mine": {
-   "neighbours": [
-    "ROOM_front-end-area"
-   ],
-   "own": 3313648,
-   "with_neighbours": 4067384
-  },
   "ROOM_fuel-corridor": {
    "neighbours": [
     "CONNECTOR_reactor_south_concourse",
@@ -1186,6 +1179,13 @@
    "own": 1217405,
    "with_neighbours": 2373986
   },
+  "ROOM_mine": {
+   "neighbours": [
+    "ROOM_front-end-area"
+   ],
+   "own": 818303,
+   "with_neighbours": 1572039
+  },
   "ROOM_electrical-room": {
    "neighbours": [
     "ROOM_turbine-room"
@@ -1203,7 +1203,7 @@
     "ROOM_spawn-room"
    ],
    "own": 753736,
-   "with_neighbours": 5988804
+   "with_neighbours": 3493459
   },
   "ROOM_medical-reanimation": {
    "neighbours": [
