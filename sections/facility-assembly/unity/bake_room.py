@@ -100,6 +100,7 @@ for m in mats:
     area[m.name] = tot
     if tot <= 0: plan[m.name]['bake'] = False; continue
     bpy.ops.uv.smart_project(angle_limit=math.radians(66), island_margin=0.003, area_weight=0.0, correct_aspect=True, scale_to_bounds=False)
+    bpy.ops.uv.pack_islands(rotate=True, margin_method='FRACTION', margin=0.002)                 # smart project leaves up to 40 % of the square empty
 bpy.ops.object.mode_set(mode='OBJECT')
 for n, p in plan.items():
     if p['bake']:
