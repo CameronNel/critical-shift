@@ -14,6 +14,9 @@
 > [!IMPORTANT]
 > **Current-state clarification, 8 September 2026:** the Unity implementation was removed on 4 September 2026. The supporting prototype evidence and tooling descriptions below are historical; they do not establish that the current repository contains a runnable Unity project, installed MCP package or working runtime test/build pipeline. The recorded engine selection is unchanged. Reproduce the required capabilities at Gate 0 before claiming present readiness. See [runtime planning status and decisions](code-architecture/DECISIONS_AND_RISKS.md).
 
+> [!IMPORTANT]
+> **Render pipeline, 15 October 2026 (owner decision):** asked which pipeline the map should target for Unity, the decision owner chose the **Universal Render Pipeline (URP)** over the recorded Built-in pipeline. Map art is now prepared for URP Lit (`sections/facility-assembly/unity/`, baked texture sets and material/light manifests). Nothing in `runtime/unity/` has been switched yet: there is no editor in the agent environment, and adding `com.unity.render-pipelines.universal` and a pipeline asset is a project change that still needs a validated editor run. Where this file says Built-in below, that is the earlier record.
+
 ## Decision
 
 Use Unity, C#, the Built-in Render Pipeline, and Unity's 3D physics for the
@@ -49,7 +52,7 @@ Godot alternative.
 
 - Engine: Unity 6000.4.3f1
 - Language: C#
-- Renderer: Built-in Render Pipeline, low graphics defaults, no ray tracing
+- Renderer: Built-in Render Pipeline, low graphics defaults, no ray tracing (superseded for the target by URP, owner decision 2026-10-15; the project itself is not switched yet)
 - Physics: Unity 3D physics
 - Networking: not installed; next gate is host-authoritative selection/spike
 - Steam: not selected
