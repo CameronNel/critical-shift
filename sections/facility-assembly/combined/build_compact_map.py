@@ -993,11 +993,12 @@ HALL_LIGHT_SCALE = {}    # connector collection -> light energy factor
 # mostly in scanned CC0 rocks and lanterns (34k triangles for a 0.44 m lantern, 66k to 98k for a 1 m boulder) and the tunnel and cliff terrain. The heaviest meshes
 # are decimated (collapse) once at build time into local meshes, each shared mesh once, so the saved map carries the light versions and nothing runs on load. The
 # mine module is not edited. Target: triangles per object (int) or a ratio (float); keyed by mesh data name, or by object name for the local terrain copies.
-MINE_LOD = {'R38 CC0 | namaqualand_boulder_02': 4000, 'R38 CC0 | namaqualand_boulder_05': 3000, 'R38 CC0 | boulder_01': 3000, 'R38 CC0 | Lantern_01': 2000,
+MINE_LOD = {'R38 CC0 | namaqualand_boulder_02': 4000, 'R38 CC0 | namaqualand_boulder_05': 3000, 'R38 CC0 | boulder_01': 3000, 'R38 CC0 | Lantern_01': 1500,
             'R38 CC0 | wine_barrel_01': 2000, 'R38 CC0 | vintage_oil_lamp': 1200,
             'R39 | Gravel tunnel': 0.08, 'R40 | Mine cliff': 0.08, 'R39 | Tunnel floor': 0.4, 'R40 | Cliff ledge debris': 0.25, 'R40 | Cliff talus': 0.4,
             'R39 | Tunnel timber sets': 0.5, 'R39 | Tunnel lagging': 0.5, 'R39 | Loose rocks': 0.4, 'R39 | Ore crystals': 0.5, 'R39 | Skeletons': 0.5,
-            'R39 | Apron mud': 0.5, 'R39 | Floor nails': 0.3, 'R40 | Cliff crystals': 0.5, 'R39 | Pipe and duct hangers': 0.6, 'R39 | Lantern chains and hooks': 0.5}
+            'R39 | Apron mud': 0.5, 'R39 | Floor nails': 0.3, 'R40 | Cliff crystals': 0.5, 'R39 | Pipe and duct hangers': 0.6, 'R39 | Lantern chains and hooks': 0.5,
+            'R39 | Gravel yard': 0.5, 'R39 | Ore carts ironwork': 0.6}
 MINE_LOD_DONE = []      # (object, triangles before, after) for the report
 
 def slim_mine():
