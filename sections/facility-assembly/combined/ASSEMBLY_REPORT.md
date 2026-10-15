@@ -81,7 +81,7 @@ Doors `CONDENSER_W_ESCAPE` and `ESCAPE_HOUSE_DOOR` (both emergency exits: closed
 
 ![escape](renders/assembly/22_escape_ladder.png)
 
-## 1c. Cafeteria revamp as the front end (2026-10-14, latest)
+## 1c. Cafeteria revamp as the front end (2026-10-14)
 
 Owner: "yes switch it on and run everything". The front end is now Codex's cafeteria revamp (PR 105, `sources/front-end-area/front_end_area_cafeteria_revamp.blend`: same `MODULE_front-end-area` collection and module frame; hall, yard and shell equal to the original; its own R6 authoring review 91.90/100; owner acceptance and runtime integration were open in its `TASK_STATE.md`). Unreviewed in the map. `FRONT_END_SOURCE=original` builds with the original front end.
 
@@ -108,6 +108,68 @@ Results on the rebuilt map (all run, one Blender process at a time):
 | Lighting | 29/30. The five new cafeteria views pass (medians 0.69 to 0.76, no near-black). The game corner sits on the 5 % clip bar and dining is at 4.7 %. The spine view is the same marginal-hot miss as before. |
 
 Renders from the map: `renders/assembly/22_cafeteria_*` (15 views: Codex's own cafeteria camera spots in plan coordinates, plus an overview and a view from the medical side).
+
+## 1d. Ore cart, cart-only freight door, mine triangle cut (2026-10-15, latest)
+
+Owner: "fix both" (the freight door and the mine's triangle count) and "Animate minecart wheel as well". Then, on the choices put to them: the freight door is a cart-only door, the cart rolls in, tips and rolls out, and the mine goes under 800k triangles. All map-side (`build_compact_map.py`); the refinery and mine files are not edited. Unreviewed.
+
+**Freight door.** The walk test's former "cart route" stopped at the refinery's tipper, not just its parked cart: the side tipper sits in the doorway (lock at the cart's south end, trunnion bearings on the axis). The door is now a **cart door**. People reach the refinery through the hall's west door and the colonnade (`hall_to_refinery`, passes). The walk test drops the route, and `YARD_FREIGHT_GATE` in `validation/doors.json` says so. The new **`cart_check.py`** runs the cart through its whole cycle instead.
+
+**Ore cart** (`patch_refinery_cart`). The receiving bay's gullet cart (its four wheels, the 40 ore pieces in its hopper) and the tipper's cradle, lock and trunnion bearings are copied locally with their hierarchy. One loop: 576 frames at 24 fps (24 s), Cycles modifiers, frame 1 = the authored pose (so every static check sees the room as built):
+
+| Frames | Motion |
+|---|---|
+| 1 to 24 | parked, loaded, lock up |
+| 24 to 72 | tipper swings 75 degrees west into the receiving hopper (cradle and cart together about the trunnion axis) |
+| 78 to 96 | load empties (scaled down onto the hopper floor) |
+| 100 to 148 | tipper back upright |
+| 148 to 172 | tip lock folds flat toward the door; captive wheel guides drop 0.05 m and retaining clamps 0.48 m |
+| 172 to 340 | cart rolls 7.0 m out through the freight door to the yard end of the straight rail |
+| 346 to 382 | reloaded in the yard (load rises) |
+| 388 to 556 | rolls back onto the tipper |
+| 556 to 576 | lock up, guides and clamps raised |
+
+The wheels turn by distance over tread radius (0.235 m: axle height over the rail head), keyed on the same frames as the cart, so they roll without slipping.
+
+As authored, the cart could not leave the tipper. Both trunnion bearings stood 0.08 m into the west wheels' path, the lock stood in front of the axle, and the guides and clamps stood above the flanges. So in the copy, the bearings and the tip axis sit 0.12 m further outboard, and the lock, guides and clamps retract, as a working tipper's would.
+
+`cart_check.py` checks the cart (cart, wheels, load) against everything near the rail, the tipper's own moving parts included, every 4 frames. Contacts already present at frame 1 (the clamps on the north axle) are allowed. Result: **145 frames, 0 new contacts, PASS**. Its tip sweep is clear up to 80 degrees; at 85 the hopper lip meets the receiving hopper's walls, so the loop uses 75.
+
+Renders `renders/assembly/23_cart_*`, every one looked at: tipping into the hopper, upright, lock folded, rolling out through the door, empty and reloaded in the yard, rolling back.
+
+Not done: an ore stream or sound; the load scales away rather than pouring. No runtime playback, real-time review or Unity Animator test was run.
+
+**Mine** (`slim_mine`, `MINE_LOD`). The mine was 3.31 M triangles, eight times the 400k room flag, mostly scanned CC0 props and terrain: a 0.44 m lantern was 34k triangles, a 1 m boulder 66k to 98k, the gravel tunnel 444k and the cliff 352k. The 67 heaviest objects (25 meshes) are decimated once at build time into local meshes, so nothing runs on load. Each shared mesh is decimated once. Targets:
+
+| Group | Target |
+|---|---|
+| Lanterns | 2,500 triangles each |
+| Boulders | 2,000 to 2,500 each |
+| Barrels | 2,000 each |
+| Oil lamps | 1,200 each |
+| Gravel tunnel, cliff | 6 % |
+| Tunnel floor, talus | 40 % |
+| Mid-weight timber, ironwork and rock meshes | 30 to 60 % |
+
+Result: those objects went from 2,973,014 to 444,507 triangles, and the **mine from 3,313,648 to 785,141** (`perf_report.py`). `MINE_LOD=0` builds it at full detail. Lanterns were first cut to 1,500; a close-up render showed faceted caps, so they stay at 2,500.
+
+Before/after renders: `renders/assembly/23_mine_before_after.png` (tunnel mouth, lantern close-up, deep tunnel, tunnel end, shed, cliff) and `23_mine_lantern_before_after.png`. They are indistinguishable at walking distance, with slight faceting on the lantern base at 1.3 m.
+
+Results on the rebuilt map:
+
+| Check | Result |
+|---|---|
+| Walk, normal | **17/17** (the freight door is no longer a walking route) |
+| Walk, collision proxies | 10/10 |
+| Walk, meltdown | 20/20 |
+| Closed doors | 13/13 block |
+| `door_audit.py` | 45 doors, 0 flagged |
+| `floor_audit.py` | 39 owner pairs, all the existing mine-yard dressing ones (one fewer; one renamed `... lod`) |
+| Export | 202 objects, re-import PASS |
+| Lighting | 29/30 (spine_mid as before) |
+| Whole map | **8,695,104** triangles (was 11,223,611) |
+
+The plan cut adds two lines, `ROOM_mine <- EXTERIOR_evacuation` at 1.1 m and 1.8 m. These are the same 16 segments of the west evacuation path already flagged at 0.15 m and 0.4 m. With fewer mine triangles, the mine's measured outline (its percentile box) shifted, so the same segments now count as inside at two more heights. No geometry moved.
 
 ## 2. Doors (`validation/doors.json`, 37 doors since the escape ladder, `DOOR_<id>` anchors in the scene)
 
@@ -258,7 +320,7 @@ Capsule walk test (radius 0.40 m, height 1.80 m, step offset 0.35 m; floor ray e
 
 | Run | Result |
 |---|---|
-| visual meshes, 18 routes (`validation/walk_report.json`) | **17 pass**. Fail (as in the first pass): yard -> refinery freight door, blocked by the refinery's parked ore cart and tipper in the doorway (a cart route; players reach the refinery through the hall colonnade, which passes). |
+| visual meshes, 17 routes (`validation/walk_report.json`) | **17 pass** (since 2026-10-15; before, the yard -> refinery freight door route failed at the tipper in the doorway. That door is now a cart door, checked by `cart_check.py`, section 1d) |
 | visual meshes, 11 closed doors | **11 block** (turbine D02, electrical D02, waste dispatch, waste personnel, reactor SE, hall east, dock P2, spine north end, cooling exit, yard service door, yard evacuation gate) |
 | collision proxies only, 9 hall / stub / junction / stair routes (`validation/walk_report_colliders.json`) | **9 pass**; the same 11 closed doors block |
 | evacuation state, 18 escape legs (`validation/walk_report_meltdown.json`) | **18 pass** (section 3a) |
@@ -271,13 +333,14 @@ No frame rate was measured: there is no runtime build. Static counts of the eval
 
 | | Triangles | Objects | Submeshes (draw calls before batching) | Lights (shadowed) | Textures |
 |---|---|---|---|---|---|
-| **whole map now** (cafeteria revamp, turbine v2 rebuild, condenser escape) | **11,223,611** | 22,313 | 24,521 | 526 (486) | 147 images, 1,394 MB as RGBA8 with mips |
+| **whole map now** (mine cut, animated cart, cafeteria revamp, turbine v2 rebuild, condenser escape) | **8,695,104** | 22,313 | 24,521 | 526 (486) | 147 images, 1,394 MB as RGBA8 with mips |
+| before the mine cut (2026-10-14) | 11,223,611 | 22,313 | 24,521 | 526 (486) | 147 images, 1,394 MB |
 | with the original front end (before the revamp) | 11,030,247 | 22,114 | 24,204 | 499 (461) | 133 images, 1,350 MB |
 | with the AAA finish of the original turbine (before the swap) | 11,026,519 | 23,562 | 25,641 | 456 (418) | 110 images, 1,014 MB |
 | of which the evacuation routes (paving, poles, signs, blast door) | 7,825 | | | 22 (22) | |
 | first assembly pass | 12,500,244 | 23,758 | 26,251 | 462 (424) | same |
 
-Per room (400k is the repository's per-room flag, 800k the front end's design budget): mine 3.31 M, **fuel corridor 1.64 M** (F23ci was 3.10 M), reactor 1.22 M, electrical 0.77 M, medical 0.60 M, front end 0.75 M (0.56 M with the original; under its 800k budget), refinery 0.46 M, spawn 0.43 M, condenser 0.42 M, turbine 0.42 M, dock 0.42 M, waste 0.37 M, cooling 0.35 M; concourse, stair and signs 0.04 M. Ten rooms are over the flag.
+Per room (400k is the repository's per-room flag, 800k the front end's design budget): mine 0.79 M (3.31 M before the cut, section 1d), **fuel corridor 1.64 M** (F23ci was 3.10 M), reactor 1.22 M, electrical 0.77 M, medical 0.60 M, front end 0.75 M (0.56 M with the original; under its 800k budget), refinery 0.46 M, spawn 0.43 M, condenser 0.42 M, turbine 0.42 M, dock 0.42 M, waste 0.37 M, cooling 0.35 M; concourse, stair and signs 0.04 M. Ten rooms are over the flag.
 
 Proposals (not built):
 1. **Streaming by room**, using the portal graph from the door table. Worst-case visible sets through open doors: front end 5.80 M (it sees the mine, refinery, medical and spawn), mine 3.87 M, the concourse 3.43 M (corridor, front end and reactor), refinery 2.66 M, turbine 2.40 M, reactor 2.38 M (it no longer sees the whole corridor: was 5.10 M), fuel corridor 2.11 M (was 4.79 M); every other room under 1.6 M. The mine (tunnel / surface) is the one left to split.
@@ -339,10 +402,10 @@ Readiness checklist for whoever opens the editor: 1. decide the room export rout
 2. **Condenser bay**: its place under the turbine is settled (owner, 2026-10-13, "Ok keep it under the turbine") and it now has a second way out (the escape ladder, section 1b; owner: "build the condenser ladder"). Open: a climbing speed for the meltdown timings, and a review of the reroute of pump B's power riser (a small change to the bay's own dressing). **Dock has one door**: P2 is its sealed arrival by contract; making P2 an evacuation exit is a compliance-design call.
 3. **Short fuel corridor S1 needs a review** before it can be called anything but unreviewed: F23ci's 99 does not carry over. Its two north alcoves and the moved east-wall dressing are the parts to look at.
 4. **Fuel run**: 30.7 s end to end on the freight lane (27.6 s on the shortest line, 26.3 s to the reactor's south door). Accept, or define the drop at the concourse.
-5. **Refinery freight door is blocked to players** by the refinery's parked ore cart: intended (carts only) or should the cart park inside?
+5. ~~Refinery freight door blocked to players~~: decided 2026-10-15, a cart-only door (section 1d). Open: whether the cart loop should play all the time at runtime or on a trigger.
 6. The reactor's west half is closed to the south door by the pool railing and the west stations (cooling's way through the reactor goes round the north of the pool): intended, or should the reactor's own layout open a lane there (a reactor-room change)?
 7. AAA finishes' own open items (condenser and waste reach checks in their `reach-check.json`) are untouched.
-8. Performance: streaming split of the mine, LOD and shadow policy, once D-07 / D-09 budgets exist.
+8. Performance: the mine is now 0.79 M (section 1d). Still open: LOD and shadow policy and streaming, once D-07 / D-09 budgets exist; the fuel corridor (1.64 M) and reactor (1.22 M) are the next heaviest.
 9. The spine end door's glowing panel (5.8 % clipped in the spine view): leave, or dim it locally.
 10. **Turbine rebuild**: its own interior lighting is darker than the other rooms (turbine entry median 0.20, near-black 10 %; by the rebuild's design, not changed here). It has only its builder's review (about 79/100). The electrical room moved 6 m south to meet the rebuild's clear wall bay; the bay at the old position (y 18..22) could take the door only if its wall cabinet moved, a change to the done-and-dusted room.
 
@@ -359,6 +422,7 @@ Blender 5.2.2 LTS (downloaded to `/opt/blender52` in the container), headless. E
 * `render_views.py` (24 evidence views: `19_*` and `20_evac_*`) plus 14 of the lighting views copied as `19_walk_*`. Every image in `renders/assembly/19_*` was looked at; a stair-house exterior view rendered too dark at night to show anything and was not kept. Scratch renders were deleted.
 * Cafeteria revamp compatibility (2026-10-14, after merging main with PR 105): `FRONT_END_SOURCE=revamp` build, identical patch log apart from the cafeteria's extra objects. The first walk found the revamp's new airlock and medical door leaves standing closed in two open doorways (6 routes stuck); with those leaves left out (as the original's parked leaves were open), all 8 front-end routes and the 5 meltdown legs through the cafeteria and yard pass, door audit 45/0, floor audit unchanged. The map then still linked the original front end.
 * Cafeteria revamp switched on (2026-10-14, latest; section 1c): build; `plan_cut.py` + `check_overlaps.py`; `walk_test.py` (three modes); `evac_report.py`; `door_audit.py`; `floor_audit.py`; `perf_report.py`; `export_unity.py`; `measure_lighting.py` (25 views, then the 5 new cafeteria views); `render_views.py` (15 cafeteria views from the map, each looked at).
+* Ore cart, cart-only freight door and mine cut (2026-10-15, latest; section 1d): build (and `MINE_LOD=0` for the before renders); `perf_report.py`; `cart_check.py --step 4 --tip-sweep`; `plan_cut.py` + `check_overlaps.py`; `walk_test.py` (three modes); `evac_report.py`; `door_audit.py`; `floor_audit.py`; `export_unity.py`; `measure_lighting.py` (30 views); `render_views.py` (mine before/after, 6 views each; cart, 10 frames), every image looked at. The perf, overlap, walk, floor, cart, export and mine-render steps were rerun after the last mine trim; the evac report, door audit and lighting ran on the build just before it (mine meshes only changed, and no lighting view or door is in the mine).
 * After the condenser escape ladder (latest): build; walks 17/18 (cart route, as before), 10/10 proxies, 20/20 meltdown, 13/13 closed doors block; `evac_report.py`; `door_audit.py` 45 doors, 0 flagged; plan cut and overlaps (new entries: the escape door's frame on the bay's wall face, the front end's box round the shaft); `floor_audit.py` (no new flag); `perf_report.py`; export re-import PASS; lighting 24/25 (the new tunnel and hatch-house views pass; spine_mid as before); 32 evidence renders, the five `22_*` looked at. Before that, a column survey of the bay and the floor above, a 0.1 m occupancy map of the bay's north-west corner and the cable paths (found the 0.76 m pinch).
 * After the stacked-slab fix: the full chain again on the rebuilt map (walks 17/18, 9/9, 18/18, 11/11 block; door audit 43/0; export PASS; lighting 22/23, condenser inside median 0.47; plan cut now at 10 heights), plus `floor_audit.py` (above, section 1a) and up/down ray probes in the condenser bay and the turbine aisle.
 * After the turbine rebuild swap (2026-10-13), on the rebuilt `combined_map.blend`: the full chain again (build; plan cut + `check_overlaps.py`: the old turbine-reactor intrusion is gone, the only new entry is the D02 EXIT sign on the vestibule face, placed there; the three walk modes: 17/18 (the cart route, as before), 9/9, 18/18, 11/11 closed doors block; `evac_report.py`; `door_audit.py` 43 doors, 0 flagged; `perf_report.py`; `export_unity.py` re-import PASS, 183 objects; `validate_halls.py`; `measure_lighting.py`; `render_views.py`, 27 views). Two fixes came out of it and were re-checked: the D02 cut band missed the vestibule's end wall (meltdown walk stuck; band moved, both turbine escape legs then pass), and the stub view clipped 7.2 % on the shell's south face (darkened; 3.6 %). The board text was shrunk off a wall conduit (renders re-made). Before cutting, the rebuild was inventoried part by part and ray-scanned for floor occupancy, and 12 single-view renders of its doors were looked at.

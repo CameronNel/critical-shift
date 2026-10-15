@@ -1,7 +1,7 @@
 {
  "note": "Static counts of the built scene; no frame rate was measured (no runtime build exists). Budgets: only the 400k per-room flag and 800k front-end figure exist in the repo.",
  "totals": {
-  "triangles": 8728266,
+  "triangles": 8695104,
   "objects": 22313,
   "submeshes": 24521,
   "lights": 526,
@@ -44,7 +44,7 @@
    "over_flag": true
   },
   "ROOM_mine": {
-   "triangles": 818303,
+   "triangles": 785141,
    "objects": 192,
    "meshes": 106,
    "submeshes": 315,
@@ -586,11 +586,6 @@
    "object": "R39 | Tunnel floor"
   },
   {
-   "triangles": 32152,
-   "owner": "ROOM_mine",
-   "object": "R39 | Track ironwork"
-  },
-  {
    "triangles": 27096,
    "owner": "ROOM_fuel-corridor",
    "object": "FC | Type REACTOR / F02.001"
@@ -654,6 +649,11 @@
    "triangles": 24452,
    "owner": "ROOM_fuel-corridor",
    "object": "FC | Type PURGE / BALANCE"
+  },
+  {
+   "triangles": 24345,
+   "owner": "ROOM_mine",
+   "object": "R39 | Gravel yard"
   }
  ],
  "repeated_shapes": [
@@ -1183,8 +1183,8 @@
    "neighbours": [
     "ROOM_front-end-area"
    ],
-   "own": 818303,
-   "with_neighbours": 1572039
+   "own": 785141,
+   "with_neighbours": 1538877
   },
   "ROOM_electrical-room": {
    "neighbours": [
@@ -1203,7 +1203,7 @@
     "ROOM_spawn-room"
    ],
    "own": 753736,
-   "with_neighbours": 3493459
+   "with_neighbours": 3460297
   },
   "ROOM_medical-reanimation": {
    "neighbours": [

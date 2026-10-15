@@ -134,7 +134,8 @@ Run them one at a time. Two Blender processes with this map run out of memory on
 | Check | Must show |
 |---|---|
 | Build log | `CONDENSER D01 stub opened` > 0, `CONDENSER pump B power riser moved to the north wall: 8 curve points`, `CONDENSER west escape door cut:` > 0 objects, `CONDENSER ceiling slab lowered under the turbine floor`, `GROUND hole over the condenser bay: 1 ground pieces cut`. A zero count means a renamed object. |
-| Walk, normal | 17/18. Only `yard_to_refinery_freight (cart route)` fails, as before. |
+| Walk, normal | 17/17 (since 2026-10-15; before, 17/18 with the freight cart route failing) |
+| `cart_check.py` | PASS (the ore cart's cycle; unaffected by the bay, run it anyway) |
 | Walk, colliders | 10/10 |
 | Walk, meltdown | 20/20, including `evac_condenser_to_escape_ladder` and `evac_condenser_to_turbine_D02` |
 | Closed doors | 13/13 block |
