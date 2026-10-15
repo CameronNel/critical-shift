@@ -1,0 +1,1383 @@
+{
+ "note": "Static counts of the built scene; no frame rate was measured (no runtime build exists). Budgets: only the 400k per-room flag and 800k front-end figure exist in the repo.",
+ "totals": {
+  "triangles": 11223611,
+  "objects": 22313,
+  "submeshes": 24521,
+  "lights": 526,
+  "shadow_lights": 486,
+  "materials": 909,
+  "textures": 147,
+  "texture_mb_rgba8": 1393.9
+ },
+ "rooms": {
+  "ROOM_mine": {
+   "triangles": 3313648,
+   "objects": 192,
+   "meshes": 106,
+   "submeshes": 315,
+   "materials": 58,
+   "lights": {
+    "SUN": 1,
+    "POINT": 63
+   },
+   "shadow_lights": 26,
+   "textures": 32,
+   "texture_mb_rgba8": 169.3,
+   "budget_flag": 400000,
+   "over_flag": true
+  },
+  "ROOM_fuel-corridor": {
+   "triangles": 1638347,
+   "objects": 286,
+   "meshes": 255,
+   "submeshes": 985,
+   "materials": 59,
+   "lights": {
+    "AREA": 22
+   },
+   "shadow_lights": 22,
+   "textures": 9,
+   "texture_mb_rgba8": 192.0,
+   "budget_flag": 400000,
+   "over_flag": true
+  },
+  "ROOM_reactor-room": {
+   "triangles": 1217405,
+   "objects": 1841,
+   "meshes": 1653,
+   "submeshes": 1850,
+   "materials": 173,
+   "lights": {
+    "AREA": 61,
+    "SPOT": 43,
+    "POINT": 13
+   },
+   "shadow_lights": 117,
+   "textures": 21,
+   "texture_mb_rgba8": 64.1,
+   "budget_flag": 400000,
+   "over_flag": true
+  },
+  "ROOM_electrical-room": {
+   "triangles": 767131,
+   "objects": 3124,
+   "meshes": 3037,
+   "submeshes": 3126,
+   "materials": 34,
+   "lights": {
+    "AREA": 18
+   },
+   "shadow_lights": 18,
+   "textures": 0,
+   "texture_mb_rgba8": 0.0,
+   "budget_flag": 400000,
+   "over_flag": true
+  },
+  "ROOM_front-end-area": {
+   "triangles": 753736,
+   "objects": 2209,
+   "meshes": 1902,
+   "submeshes": 2969,
+   "materials": 123,
+   "lights": {
+    "AREA": 57,
+    "SUN": 1,
+    "SPOT": 6,
+    "POINT": 8
+   },
+   "shadow_lights": 70,
+   "textures": 42,
+   "texture_mb_rgba8": 272.3,
+   "budget_flag": 800000,
+   "over_flag": false
+  },
+  "ROOM_medical-reanimation": {
+   "triangles": 599168,
+   "objects": 1476,
+   "meshes": 1385,
+   "submeshes": 1693,
+   "materials": 56,
+   "lights": {
+    "AREA": 19,
+    "SPOT": 2
+   },
+   "shadow_lights": 21,
+   "textures": 5,
+   "texture_mb_rgba8": 77.3,
+   "budget_flag": 400000,
+   "over_flag": true
+  },
+  "ROOM_refinery": {
+   "triangles": 464675,
+   "objects": 2942,
+   "meshes": 2817,
+   "submeshes": 2983,
+   "materials": 83,
+   "lights": {
+    "AREA": 21
+   },
+   "shadow_lights": 21,
+   "textures": 0,
+   "texture_mb_rgba8": 0.0,
+   "budget_flag": 400000,
+   "over_flag": true
+  },
+  "ROOM_spawn-room": {
+   "triangles": 430704,
+   "objects": 2013,
+   "meshes": 1677,
+   "submeshes": 2357,
+   "materials": 206,
+   "lights": {
+    "AREA": 8
+   },
+   "shadow_lights": 8,
+   "textures": 15,
+   "texture_mb_rgba8": 282.5,
+   "budget_flag": 400000,
+   "over_flag": true
+  },
+  "ROOM_condenser-bay": {
+   "triangles": 422140,
+   "objects": 2679,
+   "meshes": 2588,
+   "submeshes": 2679,
+   "materials": 28,
+   "lights": {
+    "AREA": 27
+   },
+   "shadow_lights": 27,
+   "textures": 0,
+   "texture_mb_rgba8": 0.0,
+   "budget_flag": 400000,
+   "over_flag": true
+  },
+  "ROOM_turbine-room": {
+   "triangles": 418190,
+   "objects": 62,
+   "meshes": 60,
+   "submeshes": 73,
+   "materials": 22,
+   "lights": {
+    "SPOT": 45,
+    "POINT": 7,
+    "AREA": 7
+   },
+   "shadow_lights": 59,
+   "textures": 29,
+   "texture_mb_rgba8": 368.2,
+   "budget_flag": 400000,
+   "over_flag": true
+  },
+  "ROOM_compliance-dock": {
+   "triangles": 416761,
+   "objects": 1170,
+   "meshes": 1143,
+   "submeshes": 1172,
+   "materials": 36,
+   "lights": {
+    "AREA": 20,
+    "POINT": 3,
+    "SPOT": 3
+   },
+   "shadow_lights": 26,
+   "textures": 0,
+   "texture_mb_rgba8": 0.0,
+   "budget_flag": 400000,
+   "over_flag": true
+  },
+  "ROOM_waste-storage": {
+   "triangles": 374864,
+   "objects": 2192,
+   "meshes": 2111,
+   "submeshes": 2192,
+   "materials": 24,
+   "lights": {
+    "AREA": 10,
+    "SPOT": 9
+   },
+   "shadow_lights": 19,
+   "textures": 0,
+   "texture_mb_rgba8": 0.0,
+   "budget_flag": 400000,
+   "over_flag": false
+  },
+  "ROOM_cooling-plant": {
+   "triangles": 353415,
+   "objects": 1657,
+   "meshes": 1572,
+   "submeshes": 1657,
+   "materials": 22,
+   "lights": {
+    "AREA": 15
+   },
+   "shadow_lights": 15,
+   "textures": 0,
+   "texture_mb_rgba8": 0.0,
+   "budget_flag": 400000,
+   "over_flag": false
+  },
+  "signs (wayfinding text)": {
+   "triangles": 25312,
+   "objects": 15,
+   "meshes": 9,
+   "submeshes": 15,
+   "materials": 3,
+   "lights": {},
+   "shadow_lights": 0,
+   "textures": 0,
+   "texture_mb_rgba8": 0.0,
+   "budget_flag": null,
+   "over_flag": false
+  },
+  "CONNECTOR_reactor_south_concourse": {
+   "triangles": 10112,
+   "objects": 72,
+   "meshes": 72,
+   "submeshes": 72,
+   "materials": 17,
+   "lights": {
+    "AREA": 3
+   },
+   "shadow_lights": 3,
+   "textures": 3,
+   "texture_mb_rgba8": 64.0,
+   "budget_flag": null,
+   "over_flag": false
+  },
+  "EXTERIOR_evacuation": {
+   "triangles": 7870,
+   "objects": 132,
+   "meshes": 132,
+   "submeshes": 132,
+   "materials": 14,
+   "lights": {
+    "SPOT": 15,
+    "POINT": 8
+   },
+   "shadow_lights": 23,
+   "textures": 6,
+   "texture_mb_rgba8": 32.0,
+   "budget_flag": null,
+   "over_flag": false
+  },
+  "EVAC sign yard": {
+   "triangles": 2524,
+   "objects": 1,
+   "meshes": 1,
+   "submeshes": 1,
+   "materials": 1,
+   "lights": {},
+   "shadow_lights": 0,
+   "textures": 0,
+   "texture_mb_rgba8": 0.0,
+   "budget_flag": null,
+   "over_flag": false
+  },
+  "CONNECTOR_condenser_escape": {
+   "triangles": 1752,
+   "objects": 117,
+   "meshes": 117,
+   "submeshes": 117,
+   "materials": 11,
+   "lights": {
+    "AREA": 3,
+    "POINT": 1
+   },
+   "shadow_lights": 4,
+   "textures": 3,
+   "texture_mb_rgba8": 64.0,
+   "budget_flag": null,
+   "over_flag": false
+  },
+  "CONNECTOR_condenser_stair": {
+   "triangles": 1428,
+   "objects": 119,
+   "meshes": 119,
+   "submeshes": 119,
+   "materials": 8,
+   "lights": {
+    "AREA": 6
+   },
+   "shadow_lights": 6,
+   "textures": 3,
+   "texture_mb_rgba8": 64.0,
+   "budget_flag": null,
+   "over_flag": false
+  },
+  "EVAC sign hall": {
+   "triangles": 1340,
+   "objects": 1,
+   "meshes": 1,
+   "submeshes": 1,
+   "materials": 1,
+   "lights": {},
+   "shadow_lights": 0,
+   "textures": 0,
+   "texture_mb_rgba8": 0.0,
+   "budget_flag": null,
+   "over_flag": false
+  },
+  "EVAC floor text east road": {
+   "triangles": 603,
+   "objects": 1,
+   "meshes": 1,
+   "submeshes": 1,
+   "materials": 1,
+   "lights": {},
+   "shadow_lights": 0,
+   "textures": 0,
+   "texture_mb_rgba8": 0.0,
+   "budget_flag": null,
+   "over_flag": false
+  },
+  "EVAC floor text east yard": {
+   "triangles": 603,
+   "objects": 1,
+   "meshes": 1,
+   "submeshes": 1,
+   "materials": 1,
+   "lights": {},
+   "shadow_lights": 0,
+   "textures": 0,
+   "texture_mb_rgba8": 0.0,
+   "budget_flag": null,
+   "over_flag": false
+  },
+  "EVAC floor text west path": {
+   "triangles": 603,
+   "objects": 1,
+   "meshes": 1,
+   "submeshes": 1,
+   "materials": 1,
+   "lights": {},
+   "shadow_lights": 0,
+   "textures": 0,
+   "texture_mb_rgba8": 0.0,
+   "budget_flag": null,
+   "over_flag": false
+  },
+  "EVAC exit sign reactor SE stub text": {
+   "triangles": 128,
+   "objects": 1,
+   "meshes": 1,
+   "submeshes": 1,
+   "materials": 1,
+   "lights": {},
+   "shadow_lights": 0,
+   "textures": 0,
+   "texture_mb_rgba8": 0.0,
+   "budget_flag": null,
+   "over_flag": false
+  },
+  "EVAC exit sign turbine D02 text": {
+   "triangles": 128,
+   "objects": 1,
+   "meshes": 1,
+   "submeshes": 1,
+   "materials": 1,
+   "lights": {},
+   "shadow_lights": 0,
+   "textures": 0,
+   "texture_mb_rgba8": 0.0,
+   "budget_flag": null,
+   "over_flag": false
+  },
+  "EVAC exit sign electrical D02 text": {
+   "triangles": 128,
+   "objects": 1,
+   "meshes": 1,
+   "submeshes": 1,
+   "materials": 1,
+   "lights": {},
+   "shadow_lights": 0,
+   "textures": 0,
+   "texture_mb_rgba8": 0.0,
+   "budget_flag": null,
+   "over_flag": false
+  },
+  "EVAC exit sign waste dispatch text": {
+   "triangles": 128,
+   "objects": 1,
+   "meshes": 1,
+   "submeshes": 1,
+   "materials": 1,
+   "lights": {},
+   "shadow_lights": 0,
+   "textures": 0,
+   "texture_mb_rgba8": 0.0,
+   "budget_flag": null,
+   "over_flag": false
+  },
+  "EVAC exit sign waste personnel text": {
+   "triangles": 128,
+   "objects": 1,
+   "meshes": 1,
+   "submeshes": 1,
+   "materials": 1,
+   "lights": {},
+   "shadow_lights": 0,
+   "textures": 0,
+   "texture_mb_rgba8": 0.0,
+   "budget_flag": null,
+   "over_flag": false
+  },
+  "EVAC exit sign cooling exit text": {
+   "triangles": 128,
+   "objects": 1,
+   "meshes": 1,
+   "submeshes": 1,
+   "materials": 1,
+   "lights": {},
+   "shadow_lights": 0,
+   "textures": 0,
+   "texture_mb_rgba8": 0.0,
+   "budget_flag": null,
+   "over_flag": false
+  },
+  "EVAC exit sign spine end text": {
+   "triangles": 128,
+   "objects": 1,
+   "meshes": 1,
+   "submeshes": 1,
+   "materials": 1,
+   "lights": {},
+   "shadow_lights": 0,
+   "textures": 0,
+   "texture_mb_rgba8": 0.0,
+   "budget_flag": null,
+   "over_flag": false
+  },
+  "ESCAPE exit sign bay text": {
+   "triangles": 128,
+   "objects": 1,
+   "meshes": 1,
+   "submeshes": 1,
+   "materials": 1,
+   "lights": {},
+   "shadow_lights": 0,
+   "textures": 0,
+   "texture_mb_rgba8": 0.0,
+   "budget_flag": null,
+   "over_flag": false
+  },
+  "ESCAPE exit sign ladder text": {
+   "triangles": 128,
+   "objects": 1,
+   "meshes": 1,
+   "submeshes": 1,
+   "materials": 1,
+   "lights": {},
+   "shadow_lights": 0,
+   "textures": 0,
+   "texture_mb_rgba8": 0.0,
+   "budget_flag": null,
+   "over_flag": false
+  },
+  "ESCAPE exit sign house text": {
+   "triangles": 128,
+   "objects": 1,
+   "meshes": 1,
+   "submeshes": 1,
+   "materials": 1,
+   "lights": {},
+   "shadow_lights": 0,
+   "textures": 0,
+   "texture_mb_rgba8": 0.0,
+   "budget_flag": null,
+   "over_flag": false
+  },
+  "COMBINED_MAP": {
+   "triangles": 0,
+   "objects": 0,
+   "meshes": 0,
+   "submeshes": 0,
+   "materials": 0,
+   "lights": {
+    "SUN": 1
+   },
+   "shadow_lights": 1,
+   "textures": 0,
+   "texture_mb_rgba8": 0.0,
+   "budget_flag": null,
+   "over_flag": false
+  }
+ },
+ "heaviest_meshes": [
+  {
+   "triangles": 444202,
+   "owner": "ROOM_mine",
+   "object": "R39 | Gravel tunnel"
+  },
+  {
+   "triangles": 351776,
+   "owner": "ROOM_mine",
+   "object": "R40 | Mine cliff"
+  },
+  {
+   "triangles": 224574,
+   "owner": "ROOM_turbine-room",
+   "object": "TURBINE_MACH"
+  },
+  {
+   "triangles": 97964,
+   "owner": "ROOM_mine",
+   "object": "R39 | namaqualand_boulder_02.001"
+  },
+  {
+   "triangles": 97964,
+   "owner": "ROOM_mine",
+   "object": "R39 | namaqualand_boulder_02"
+  },
+  {
+   "triangles": 89618,
+   "owner": "ROOM_mine",
+   "object": "R39 | namaqualand_boulder_05.003"
+  },
+  {
+   "triangles": 89618,
+   "owner": "ROOM_mine",
+   "object": "R39 | namaqualand_boulder_05.002"
+  },
+  {
+   "triangles": 89618,
+   "owner": "ROOM_mine",
+   "object": "R39 | namaqualand_boulder_05.001"
+  },
+  {
+   "triangles": 89618,
+   "owner": "ROOM_mine",
+   "object": "R39 | namaqualand_boulder_05"
+  },
+  {
+   "triangles": 87738,
+   "owner": "ROOM_turbine-room",
+   "object": "TURBINE_ARCH clipped rest cut0 rest cut0 cut0"
+  },
+  {
+   "triangles": 80698,
+   "owner": "ROOM_mine",
+   "object": "R39 | Tunnel floor"
+  },
+  {
+   "triangles": 67685,
+   "owner": "ROOM_turbine-room",
+   "object": "TURBINE_PROPS rest cut0 cut0"
+  },
+  {
+   "triangles": 66122,
+   "owner": "ROOM_mine",
+   "object": "R39 | boulder_01.003"
+  },
+  {
+   "triangles": 66122,
+   "owner": "ROOM_mine",
+   "object": "R39 | boulder_01.002"
+  },
+  {
+   "triangles": 66122,
+   "owner": "ROOM_mine",
+   "object": "R39 | boulder_01.001"
+  },
+  {
+   "triangles": 66122,
+   "owner": "ROOM_mine",
+   "object": "R39 | boulder_01"
+  },
+  {
+   "triangles": 58820,
+   "owner": "ROOM_mine",
+   "object": "R40 | Cliff ledge debris"
+  },
+  {
+   "triangles": 48690,
+   "owner": "ROOM_mine",
+   "object": "R39 | Gravel yard"
+  },
+  {
+   "triangles": 48000,
+   "owner": "ROOM_front-end-area",
+   "object": "yard_earth"
+  },
+  {
+   "triangles": 39192,
+   "owner": "ROOM_fuel-corridor",
+   "object": "FC | Type PROCESS / 02"
+  },
+  {
+   "triangles": 39192,
+   "owner": "ROOM_fuel-corridor",
+   "object": "FC | Type PROCESS / 02"
+  },
+  {
+   "triangles": 38270,
+   "owner": "ROOM_mine",
+   "object": "R39 | Shed boards"
+  },
+  {
+   "triangles": 36834,
+   "owner": "ROOM_fuel-corridor",
+   "object": "FC | Wall_W-2.2_0_1.2 \u00b7 lined bay N"
+  },
+  {
+   "triangles": 33902,
+   "owner": "ROOM_mine",
+   "object": "R39 | Lantern.023"
+  },
+  {
+   "triangles": 33902,
+   "owner": "ROOM_mine",
+   "object": "R39 | Lantern.022"
+  },
+  {
+   "triangles": 33902,
+   "owner": "ROOM_mine",
+   "object": "R39 | Lantern.021"
+  },
+  {
+   "triangles": 33902,
+   "owner": "ROOM_mine",
+   "object": "R39 | Lantern.020"
+  },
+  {
+   "triangles": 33902,
+   "owner": "ROOM_mine",
+   "object": "R39 | Lantern.019"
+  },
+  {
+   "triangles": 33902,
+   "owner": "ROOM_mine",
+   "object": "R39 | Lantern.018"
+  },
+  {
+   "triangles": 33902,
+   "owner": "ROOM_mine",
+   "object": "R39 | Lantern.017"
+  }
+ ],
+ "repeated_shapes": [
+  [
+   5,
+   [
+    1732,
+    3456,
+    [
+     0.69,
+     0.78,
+     0.61
+    ]
+   ],
+   [
+    "ROOM_front-end-area"
+   ],
+   [
+    "lounge_sofa_main_cushion_0",
+    "lounge_sofa_main_cushion_1",
+    "lounge_sofa_main_cushion_2",
+    "lounge_sofa_side_cushion_0",
+    "lounge_sofa_side_cushion_1"
+   ]
+  ],
+  [
+   5,
+   [
+    1152,
+    2256,
+    [
+     0.01,
+     0.32,
+     0.01
+    ]
+   ],
+   [
+    "ROOM_compliance-dock"
+   ],
+   [
+    "TEMP keycaps",
+    "TEMP keycaps.001",
+    "TEMP keycaps.002",
+    "TEMP keycaps.003",
+    "TEMP keycaps.004"
+   ]
+  ],
+  [
+   4,
+   [
+    5028,
+    9788,
+    [
+     1.67,
+     0.15,
+     4.41
+    ]
+   ],
+   [
+    "ROOM_fuel-corridor"
+   ],
+   [
+    "FC | Wall_E6.78_0_6.15 \u00b7 lined bay",
+    "FC | Wall_E6.78_1_12.2 \u00b7 lined bay",
+    "FC | Wall_W6.07_0_6.15 \u00b7 lined bay",
+    "FC | Wall_W6.07_1_12.2 \u00b7 lined bay"
+   ]
+  ],
+  [
+   4,
+   [
+    2166,
+    4152,
+    [
+     0.05,
+     1.24,
+     0.21
+    ]
+   ],
+   [
+    "ROOM_front-end-area"
+   ],
+   [
+    "FT_Rod_04_players_handle_bearings",
+    "FT_Rod_04_players_handle_bearings.001",
+    "FT_Rod_05_players_handle_bearings",
+    "FT_Rod_05_players_handle_bearings.001"
+   ]
+  ],
+  [
+   4,
+   [
+    1714,
+    3304,
+    [
+     0.05,
+     1.24,
+     0.21
+    ]
+   ],
+   [
+    "ROOM_front-end-area"
+   ],
+   [
+    "FT_Rod_03_players_handle_bearings",
+    "FT_Rod_03_players_handle_bearings.001",
+    "FT_Rod_06_players_handle_bearings",
+    "FT_Rod_06_players_handle_bearings.001"
+   ]
+  ],
+  [
+   4,
+   [
+    1488,
+    2880,
+    [
+     0.05,
+     1.24,
+     0.21
+    ]
+   ],
+   [
+    "ROOM_front-end-area"
+   ],
+   [
+    "FT_Rod_02_players_handle_bearings",
+    "FT_Rod_02_players_handle_bearings.001",
+    "FT_Rod_07_players_handle_bearings",
+    "FT_Rod_07_players_handle_bearings.001"
+   ]
+  ],
+  [
+   4,
+   [
+    1262,
+    2456,
+    [
+     0.05,
+     1.24,
+     0.21
+    ]
+   ],
+   [
+    "ROOM_front-end-area"
+   ],
+   [
+    "FT_Rod_01_players_handle_bearings",
+    "FT_Rod_01_players_handle_bearings.001",
+    "FT_Rod_08_players_handle_bearings",
+    "FT_Rod_08_players_handle_bearings.001"
+   ]
+  ],
+  [
+   4,
+   [
+    1052,
+    2096,
+    [
+     0.02,
+     0.5,
+     0.25
+    ]
+   ],
+   [
+    "ROOM_cooling-plant"
+   ],
+   [
+    "P-01 guard rolled end",
+    "P-01 guard rolled end.001",
+    "P-02 guard rolled end",
+    "P-02 guard rolled end.001"
+   ]
+  ],
+  [
+   3,
+   [
+    3392,
+    6464,
+    [
+     6.16,
+     2.48,
+     2.59
+    ]
+   ],
+   [
+    "ROOM_front-end-area"
+   ],
+   [
+    "proto_container_0",
+    "proto_container_1",
+    "proto_container_2"
+   ]
+  ],
+  [
+   3,
+   [
+    2738,
+    5472,
+    [
+     0.7,
+     0.88,
+     0.03
+    ]
+   ],
+   [
+    "ROOM_medical-reanimation"
+   ],
+   [
+    "MED | Skill revised Segmented adult berth cushion",
+    "MED | Skill revised Segmented adult berth cushion.001",
+    "MED | Skill revised Segmented adult berth cushion.002"
+   ]
+  ],
+  [
+   3,
+   [
+    2738,
+    5472,
+    [
+     0.66,
+     0.65,
+     0.06
+    ]
+   ],
+   [
+    "ROOM_medical-reanimation"
+   ],
+   [
+    "MED | Skill revised Cart segmented mattress",
+    "MED | Skill revised Cart segmented mattress.001",
+    "MED | Skill revised Cart segmented mattress.002"
+   ]
+  ],
+  [
+   3,
+   [
+    2700,
+    2648,
+    [
+     0.99,
+     0.05,
+     0.0
+    ]
+   ],
+   [
+    "ROOM_reactor-room"
+   ],
+   [
+    "RH refine CONTAINMENT identity",
+    "RH refine COOLANT / POWER identity",
+    "RH refine REACTOR STABILITY identity"
+   ]
+  ],
+  [
+   3,
+   [
+    2354,
+    4704,
+    [
+     0.69,
+     0.69,
+     1.23
+    ]
+   ],
+   [
+    "ROOM_electrical-room"
+   ],
+   [
+    "EOH | Cast resin winding channel",
+    "EOH | Cast resin winding channel.001",
+    "EOH | Cast resin winding channel.002"
+   ]
+  ],
+  [
+   3,
+   [
+    1910,
+    3688,
+    [
+     1.02,
+     0.15,
+     4.41
+    ]
+   ],
+   [
+    "ROOM_fuel-corridor"
+   ],
+   [
+    "FC | Wall_E4.4_1_12.2 \u00b7 lined bay",
+    "FC | Wall_N13.2_0_-2.2 \u00b7 lined bay",
+    "FC | Wall_W10_1_12.2 \u00b7 lined bay"
+   ]
+  ],
+  [
+   3,
+   [
+    1254,
+    2112,
+    [
+     0.7,
+     0.88,
+     0.01
+    ]
+   ],
+   [
+    "ROOM_medical-reanimation"
+   ],
+   [
+    "MED_R2 | Bound upholstery welt",
+    "MED_R2 | Bound upholstery welt.001",
+    "MED_R2 | Bound upholstery welt.002"
+   ]
+  ],
+  [
+   3,
+   [
+    1254,
+    2112,
+    [
+     0.66,
+     0.65,
+     0.02
+    ]
+   ],
+   [
+    "ROOM_medical-reanimation"
+   ],
+   [
+    "MED_R2 | Bound upholstery welt.005",
+    "MED_R2 | Bound upholstery welt.006",
+    "MED_R2 | Bound upholstery welt.007"
+   ]
+  ],
+  [
+   3,
+   [
+    1040,
+    2008,
+    [
+     0.58,
+     0.58,
+     0.93
+    ]
+   ],
+   [
+    "ROOM_front-end-area"
+   ],
+   [
+    "proto_barrel_0",
+    "proto_barrel_1",
+    "proto_barrel_2"
+   ]
+  ],
+  [
+   2,
+   [
+    16710,
+    33376,
+    [
+     0.1,
+     0.1,
+     0.3
+    ]
+   ],
+   [
+    "ROOM_electrical-room"
+   ],
+   [
+    "Stored-energy operating spring",
+    "Stored-energy operating spring.001"
+   ]
+  ],
+  [
+   2,
+   [
+    5689,
+    10482,
+    [
+     0.93,
+     0.93,
+     12.1
+    ]
+   ],
+   [
+    "ROOM_reactor-room"
+   ],
+   [
+    "RH temporary grid STEEL",
+    "RH temporary grid STEEL.001"
+   ]
+  ],
+  [
+   2,
+   [
+    4628,
+    8940,
+    [
+     3.24,
+     0.22,
+     4.41
+    ]
+   ],
+   [
+    "ROOM_fuel-corridor"
+   ],
+   [
+    "FC | Wall_N12.2_1_6.78 \u00b7 lined bay",
+    "FC | Wall_S7.8_1_6.78 \u00b7 lined bay"
+   ]
+  ],
+  [
+   2,
+   [
+    4628,
+    8940,
+    [
+     1.69,
+     0.22,
+     4.41
+    ]
+   ],
+   [
+    "ROOM_fuel-corridor"
+   ],
+   [
+    "FC | Wall_N12.2_0_4.4 \u00b7 lined bay",
+    "FC | Wall_S7.8_0_4.4 \u00b7 lined bay"
+   ]
+  ],
+  [
+   2,
+   [
+    3176,
+    6348,
+    [
+     3.08,
+     0.18,
+     3.6
+    ]
+   ],
+   [
+    "ROOM_medical-reanimation"
+   ],
+   [
+    "Cube.278",
+    "Cube.309"
+   ]
+  ],
+  [
+   2,
+   [
+    3176,
+    6348,
+    [
+     0.18,
+     9.36,
+     3.6
+    ]
+   ],
+   [
+    "ROOM_medical-reanimation"
+   ],
+   [
+    "Cube.155",
+    "Cube.158"
+   ]
+  ],
+  [
+   2,
+   [
+    3176,
+    6348,
+    [
+     0.18,
+     2.3,
+     2.55
+    ]
+   ],
+   [
+    "ROOM_medical-reanimation"
+   ],
+   [
+    "Cube.425",
+    "Cube.426"
+   ]
+  ],
+  [
+   2,
+   [
+    3176,
+    6348,
+    [
+     0.04,
+     3.53,
+     1.14
+    ]
+   ],
+   [
+    "ROOM_medical-reanimation"
+   ],
+   [
+    "Cube.687",
+    "Cube.750"
+   ]
+  ]
+ ],
+ "portal_visible_sets": {
+  "ROOM_mine": {
+   "neighbours": [
+    "ROOM_front-end-area"
+   ],
+   "own": 3313648,
+   "with_neighbours": 4067384
+  },
+  "ROOM_fuel-corridor": {
+   "neighbours": [
+    "CONNECTOR_reactor_south_concourse",
+    "ROOM_refinery"
+   ],
+   "own": 1638347,
+   "with_neighbours": 2113134
+  },
+  "ROOM_reactor-room": {
+   "neighbours": [
+    "CONNECTOR_reactor_south_concourse",
+    "ROOM_cooling-plant",
+    "ROOM_turbine-room",
+    "ROOM_waste-storage"
+   ],
+   "own": 1217405,
+   "with_neighbours": 2373986
+  },
+  "ROOM_electrical-room": {
+   "neighbours": [
+    "ROOM_turbine-room"
+   ],
+   "own": 767131,
+   "with_neighbours": 1185321
+  },
+  "ROOM_front-end-area": {
+   "neighbours": [
+    "CONNECTOR_reactor_south_concourse",
+    "ROOM_compliance-dock",
+    "ROOM_medical-reanimation",
+    "ROOM_mine",
+    "ROOM_refinery",
+    "ROOM_spawn-room"
+   ],
+   "own": 753736,
+   "with_neighbours": 5988804
+  },
+  "ROOM_medical-reanimation": {
+   "neighbours": [
+    "ROOM_front-end-area"
+   ],
+   "own": 599168,
+   "with_neighbours": 1352904
+  },
+  "ROOM_refinery": {
+   "neighbours": [
+    "ROOM_front-end-area",
+    "ROOM_fuel-corridor"
+   ],
+   "own": 464675,
+   "with_neighbours": 2856758
+  },
+  "ROOM_spawn-room": {
+   "neighbours": [
+    "ROOM_front-end-area"
+   ],
+   "own": 430704,
+   "with_neighbours": 1184440
+  },
+  "ROOM_condenser-bay": {
+   "neighbours": [
+    "CONNECTOR_condenser_escape",
+    "CONNECTOR_condenser_stair"
+   ],
+   "own": 422140,
+   "with_neighbours": 425320
+  },
+  "ROOM_turbine-room": {
+   "neighbours": [
+    "CONNECTOR_condenser_stair",
+    "ROOM_electrical-room",
+    "ROOM_reactor-room"
+   ],
+   "own": 418190,
+   "with_neighbours": 2404154
+  },
+  "ROOM_compliance-dock": {
+   "neighbours": [
+    "ROOM_front-end-area"
+   ],
+   "own": 416761,
+   "with_neighbours": 1170497
+  },
+  "ROOM_waste-storage": {
+   "neighbours": [
+    "ROOM_reactor-room"
+   ],
+   "own": 374864,
+   "with_neighbours": 1592269
+  },
+  "ROOM_cooling-plant": {
+   "neighbours": [
+    "ROOM_reactor-room"
+   ],
+   "own": 353415,
+   "with_neighbours": 1570820
+  },
+  "signs (wayfinding text)": {
+   "neighbours": [],
+   "own": 25312,
+   "with_neighbours": 25312
+  },
+  "CONNECTOR_reactor_south_concourse": {
+   "neighbours": [
+    "ROOM_front-end-area",
+    "ROOM_fuel-corridor",
+    "ROOM_reactor-room"
+   ],
+   "own": 10112,
+   "with_neighbours": 3619600
+  },
+  "EXTERIOR_evacuation": {
+   "neighbours": [],
+   "own": 7870,
+   "with_neighbours": 7870
+  },
+  "EVAC sign yard": {
+   "neighbours": [],
+   "own": 2524,
+   "with_neighbours": 2524
+  },
+  "CONNECTOR_condenser_escape": {
+   "neighbours": [
+    "ROOM_condenser-bay"
+   ],
+   "own": 1752,
+   "with_neighbours": 423892
+  },
+  "CONNECTOR_condenser_stair": {
+   "neighbours": [
+    "ROOM_condenser-bay",
+    "ROOM_turbine-room"
+   ],
+   "own": 1428,
+   "with_neighbours": 841758
+  },
+  "EVAC sign hall": {
+   "neighbours": [],
+   "own": 1340,
+   "with_neighbours": 1340
+  },
+  "EVAC floor text east road": {
+   "neighbours": [],
+   "own": 603,
+   "with_neighbours": 603
+  },
+  "EVAC floor text east yard": {
+   "neighbours": [],
+   "own": 603,
+   "with_neighbours": 603
+  },
+  "EVAC floor text west path": {
+   "neighbours": [],
+   "own": 603,
+   "with_neighbours": 603
+  },
+  "EVAC exit sign reactor SE stub text": {
+   "neighbours": [],
+   "own": 128,
+   "with_neighbours": 128
+  },
+  "EVAC exit sign turbine D02 text": {
+   "neighbours": [],
+   "own": 128,
+   "with_neighbours": 128
+  },
+  "EVAC exit sign electrical D02 text": {
+   "neighbours": [],
+   "own": 128,
+   "with_neighbours": 128
+  },
+  "EVAC exit sign waste dispatch text": {
+   "neighbours": [],
+   "own": 128,
+   "with_neighbours": 128
+  },
+  "EVAC exit sign waste personnel text": {
+   "neighbours": [],
+   "own": 128,
+   "with_neighbours": 128
+  },
+  "EVAC exit sign cooling exit text": {
+   "neighbours": [],
+   "own": 128,
+   "with_neighbours": 128
+  },
+  "EVAC exit sign spine end text": {
+   "neighbours": [],
+   "own": 128,
+   "with_neighbours": 128
+  },
+  "ESCAPE exit sign bay text": {
+   "neighbours": [],
+   "own": 128,
+   "with_neighbours": 128
+  },
+  "ESCAPE exit sign ladder text": {
+   "neighbours": [],
+   "own": 128,
+   "with_neighbours": 128
+  },
+  "ESCAPE exit sign house text": {
+   "neighbours": [],
+   "own": 128,
+   "with_neighbours": 128
+  },
+  "COMBINED_MAP": {
+   "neighbours": [],
+   "own": 0,
+   "with_neighbours": 0
+  }
+ }
+}

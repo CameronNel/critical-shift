@@ -1,0 +1,822 @@
+{
+ "method": "Doors audited: every row of validation/doors.json (the map's doors, with their states) plus every portal in the placed rooms' own contracts\n(sources/<room>/contracts/interface.json), placed with the room instance's transform; internal portals included (they show cut-outs inside a room).\nMethod: from the door plane, rays along the door normal to both sides (start 0.35 m off the plane so the door's own leaves and frame are skipped, up to 8 m),\nat three points across the middle of the door (centre and +-min(0.3 w, 0.9 m): a player with margin) and two heights (1.0 m and 1.7 m, capped below the clear height); the clear depth of a side is the\nshortest of its six rays plus 0.35 m. Every evaluated mesh, curve and text triangle counts (instances included; COLLIDERS, haze and volume boxes excluded).\nVerdicts: an open door or internal portal needs >= 1.2 m on both sides; a closed or emergency exit needs >= 1.5 m outside (a door that opens onto less is a\ndoor staring into a wall). Doors wider than 3 m are also probed at +-0.3 w and reported as \"narrows\" when the full width meets a wall\nwithin 1.2 m (a wide frame onto a narrower passage: information, not a fail). Geometry only: it does not know what a player should see behind a door.",
+ "thresholds": {
+  "open_min_m": 1.2,
+  "exit_min_m": 1.5,
+  "skip_m": 0.35,
+  "reach_m": 8.0
+ },
+ "doors": [
+  {
+   "id": "SPAWN_EXIT",
+   "source": "doors.json",
+   "state": "open",
+   "emergency_exit": false,
+   "plan": [
+    8.0,
+    -80.0,
+    0.0
+   ],
+   "depth_out_m": 8.35,
+   "depth_in_m": 8.35,
+   "nearest_out": "",
+   "nearest_in": "",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  },
+  {
+   "id": "CAF_YARD",
+   "source": "doors.json",
+   "state": "open",
+   "emergency_exit": false,
+   "plan": [
+    -7.27,
+    -70.0,
+    0.0
+   ],
+   "depth_out_m": 8.35,
+   "depth_in_m": 8.35,
+   "nearest_out": "",
+   "nearest_in": "",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  },
+  {
+   "id": "CAF_MEDICAL",
+   "source": "doors.json",
+   "state": "open",
+   "emergency_exit": false,
+   "plan": [
+    26.0,
+    -70.0,
+    0.0
+   ],
+   "depth_out_m": 8.35,
+   "depth_in_m": 8.22,
+   "nearest_out": "",
+   "nearest_in": "ROOM_medical-reanimation / Switch base.002",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  },
+  {
+   "id": "HALL_WEST",
+   "source": "doors.json",
+   "state": "open",
+   "emergency_exit": false,
+   "plan": [
+    -3.97,
+    -54.0,
+    0.0
+   ],
+   "depth_out_m": 8.35,
+   "depth_in_m": 8.35,
+   "nearest_out": "",
+   "nearest_in": "",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  },
+  {
+   "id": "HALL_SPINE",
+   "source": "doors.json",
+   "state": "open",
+   "emergency_exit": false,
+   "plan": [
+    8.0,
+    -48.5,
+    0.0
+   ],
+   "depth_out_m": 8.35,
+   "depth_in_m": 8.35,
+   "nearest_out": "",
+   "nearest_in": "",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  },
+  {
+   "id": "HALL_EAST",
+   "source": "doors.json",
+   "state": "closed",
+   "emergency_exit": true,
+   "plan": [
+    31.97,
+    -54.0,
+    0.0
+   ],
+   "depth_out_m": 8.35,
+   "depth_in_m": 8.35,
+   "nearest_out": "",
+   "nearest_in": "",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  },
+  {
+   "id": "MINE_PORTAL",
+   "source": "doors.json",
+   "state": "open",
+   "emergency_exit": false,
+   "plan": [
+    -53.4,
+    -70.0,
+    0.0
+   ],
+   "depth_out_m": 8.35,
+   "depth_in_m": 8.35,
+   "nearest_out": "",
+   "nearest_in": "",
+   "ok": true,
+   "why": "",
+   "narrows": "the full 7.2 m width narrows within 0.89 m (inward side, ROOM_mine / R39 | Tunnel lagging)"
+  },
+  {
+   "id": "YARD_SERVICE",
+   "source": "doors.json",
+   "state": "closed",
+   "emergency_exit": true,
+   "plan": [
+    -46.0,
+    -60.15,
+    0.0
+   ],
+   "depth_out_m": 8.35,
+   "depth_in_m": 8.35,
+   "nearest_out": "",
+   "nearest_in": "",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  },
+  {
+   "id": "YARD_EVAC_GATE",
+   "source": "doors.json",
+   "state": "closed",
+   "emergency_exit": true,
+   "plan": [
+    -28.0,
+    -84.0,
+    0.0
+   ],
+   "depth_out_m": 8.35,
+   "depth_in_m": 8.35,
+   "nearest_out": "",
+   "nearest_in": "",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  },
+  {
+   "id": "YARD_FREIGHT_GATE",
+   "source": "doors.json",
+   "state": "open",
+   "emergency_exit": false,
+   "plan": [
+    -22.2,
+    -60.1,
+    0.0
+   ],
+   "depth_out_m": 1.39,
+   "depth_in_m": 8.35,
+   "nearest_out": "ROOM_refinery / CSM_Welded_hopper_shell",
+   "nearest_in": "",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  },
+  {
+   "id": "REFINERY_FUEL",
+   "source": "doors.json",
+   "state": "open",
+   "emergency_exit": false,
+   "plan": [
+    -22.2,
+    -43.6,
+    0.0
+   ],
+   "depth_out_m": 2.12,
+   "depth_in_m": 8.35,
+   "nearest_out": "ROOM_refinery / Inspection_work_surface",
+   "nearest_in": "",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  },
+  {
+   "id": "FUEL_F02E",
+   "source": "doors.json",
+   "state": "open",
+   "emergency_exit": false,
+   "plan": [
+    -5.46,
+    -36.62,
+    0.0
+   ],
+   "depth_out_m": 8.35,
+   "depth_in_m": 6.73,
+   "nearest_out": "",
+   "nearest_in": "ROOM_fuel-corridor / FC | Wall_W10_0_7 \u00b7 lined bay",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  },
+  {
+   "id": "REACTOR_S",
+   "source": "doors.json",
+   "state": "open",
+   "emergency_exit": false,
+   "plan": [
+    0.0,
+    -30.9,
+    0.0
+   ],
+   "depth_out_m": 7.31,
+   "depth_in_m": 8.33,
+   "nearest_out": "CONNECTOR_reactor_south_concourse / CONNECTOR dado south",
+   "nearest_in": "ROOM_reactor-room / RH pool console AUDI",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  },
+  {
+   "id": "REACTOR_N",
+   "source": "doors.json",
+   "state": "open",
+   "emergency_exit": false,
+   "plan": [
+    0.0,
+    -4.3,
+    0.0
+   ],
+   "depth_out_m": 8.35,
+   "depth_in_m": 8.35,
+   "nearest_out": "",
+   "nearest_in": "",
+   "ok": true,
+   "why": "",
+   "narrows": "the full 5.0 m width narrows within 0.36 m (outward side, ROOM_turbine-room / TURBINE_ARCH clipped rest cut0 rest cut0 cut0)"
+  },
+  {
+   "id": "REACTOR_W",
+   "source": "doors.json",
+   "state": "open",
+   "emergency_exit": false,
+   "plan": [
+    -14.4,
+    -18.7,
+    0.0
+   ],
+   "depth_out_m": 8.35,
+   "depth_in_m": 8.35,
+   "nearest_out": "",
+   "nearest_in": "",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  },
+  {
+   "id": "REACTOR_SE",
+   "source": "doors.json",
+   "state": "closed",
+   "emergency_exit": true,
+   "plan": [
+    11.0,
+    -29.7,
+    0.0
+   ],
+   "depth_out_m": 4.21,
+   "depth_in_m": 8.35,
+   "nearest_out": "ROOM_compliance-dock / West perimeter wall",
+   "nearest_in": "",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  },
+  {
+   "id": "REACTOR_BLAST",
+   "source": "doors.json",
+   "state": "open",
+   "emergency_exit": false,
+   "plan": [
+    0.0,
+    -33.77,
+    0.0
+   ],
+   "depth_out_m": 4.44,
+   "depth_in_m": 8.35,
+   "nearest_out": "CONNECTOR_reactor_south_concourse / CONNECTOR dado south",
+   "nearest_in": "",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  },
+  {
+   "id": "REACTOR_E_WASTE",
+   "source": "doors.json",
+   "state": "open",
+   "emergency_exit": false,
+   "plan": [
+    11.2,
+    -14.84,
+    0.0
+   ],
+   "depth_out_m": 8.35,
+   "depth_in_m": 8.35,
+   "nearest_out": "",
+   "nearest_in": "",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  },
+  {
+   "id": "TURBINE_D01",
+   "source": "doors.json",
+   "state": "open",
+   "emergency_exit": false,
+   "plan": [
+    0.0,
+    -4.2,
+    0.0
+   ],
+   "depth_out_m": 8.35,
+   "depth_in_m": 8.35,
+   "nearest_out": "",
+   "nearest_in": "",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  },
+  {
+   "id": "TURBINE_D02",
+   "source": "doors.json",
+   "state": "closed",
+   "emergency_exit": true,
+   "plan": [
+    0.0,
+    21.53,
+    0.0
+   ],
+   "depth_out_m": 8.35,
+   "depth_in_m": 8.35,
+   "nearest_out": "",
+   "nearest_in": "",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  },
+  {
+   "id": "TURBINE_E_ELECTRICAL",
+   "source": "doors.json",
+   "state": "open",
+   "emergency_exit": false,
+   "plan": [
+    10.1,
+    8.3,
+    0.0
+   ],
+   "depth_out_m": 8.35,
+   "depth_in_m": 2.71,
+   "nearest_out": "",
+   "nearest_in": "ROOM_turbine-room / TURBINE_MACH",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  },
+  {
+   "id": "ELECTRICAL_D01",
+   "source": "doors.json",
+   "state": "open",
+   "emergency_exit": false,
+   "plan": [
+    10.5,
+    8.3,
+    0.0
+   ],
+   "depth_out_m": 3.11,
+   "depth_in_m": 8.35,
+   "nearest_out": "ROOM_turbine-room / TURBINE_MACH",
+   "nearest_in": "",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  },
+  {
+   "id": "ELECTRICAL_D02",
+   "source": "doors.json",
+   "state": "closed",
+   "emergency_exit": true,
+   "plan": [
+    26.9,
+    8.3,
+    0.0
+   ],
+   "depth_out_m": 8.35,
+   "depth_in_m": 0.37,
+   "nearest_out": "",
+   "nearest_in": "ROOM_electrical-room / Door vertical edge fold.002 closed",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  },
+  {
+   "id": "TURBINE_W_STAIR",
+   "source": "doors.json",
+   "state": "open",
+   "emergency_exit": false,
+   "plan": [
+    -4.1,
+    8.78,
+    0.0
+   ],
+   "depth_out_m": 2.51,
+   "depth_in_m": 6.1,
+   "nearest_out": "CONNECTOR_condenser_stair / STAIR plaster west",
+   "nearest_in": "ROOM_turbine-room / TURBINE_MACH",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  },
+  {
+   "id": "CONDENSER_W_ESCAPE",
+   "source": "doors.json",
+   "state": "closed",
+   "emergency_exit": true,
+   "plan": [
+    -0.34,
+    12.1,
+    -6.0
+   ],
+   "depth_out_m": 6.27,
+   "depth_in_m": 6.75,
+   "nearest_out": "CONNECTOR_condenser_escape / ESCAPE plaster west",
+   "nearest_in": "ROOM_condenser-bay / CEP-B motor feed rerouted",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  },
+  {
+   "id": "ESCAPE_HOUSE_DOOR",
+   "source": "doors.json",
+   "state": "closed",
+   "emergency_exit": true,
+   "plan": [
+    -5.6,
+    13.1,
+    0.0
+   ],
+   "depth_out_m": 8.35,
+   "depth_in_m": 1.91,
+   "nearest_out": "",
+   "nearest_in": "CONNECTOR_condenser_escape / ESCAPE plaster south",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  },
+  {
+   "id": "CONDENSER_D01",
+   "source": "doors.json",
+   "state": "open",
+   "emergency_exit": false,
+   "plan": [
+    1.6,
+    3.2,
+    -6.0
+   ],
+   "depth_out_m": 7.35,
+   "depth_in_m": 8.35,
+   "nearest_out": "CONNECTOR_condenser_stair / STAIR corridor wainscot south",
+   "nearest_in": "",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  },
+  {
+   "id": "COOLING_P01",
+   "source": "doors.json",
+   "state": "open",
+   "emergency_exit": false,
+   "plan": [
+    -14.5,
+    -18.7,
+    0.0
+   ],
+   "depth_out_m": 8.35,
+   "depth_in_m": 8.35,
+   "nearest_out": "",
+   "nearest_in": "",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  },
+  {
+   "id": "COOLING_W_EXIT",
+   "source": "doors.json",
+   "state": "closed",
+   "emergency_exit": true,
+   "plan": [
+    -27.8,
+    -17.0,
+    0.0
+   ],
+   "depth_out_m": 8.35,
+   "depth_in_m": 8.35,
+   "nearest_out": "",
+   "nearest_in": "",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  },
+  {
+   "id": "WASTE_RECEIVING",
+   "source": "doors.json",
+   "state": "open",
+   "emergency_exit": false,
+   "plan": [
+    11.94,
+    -14.84,
+    0.0
+   ],
+   "depth_out_m": 8.35,
+   "depth_in_m": 8.35,
+   "nearest_out": "",
+   "nearest_in": "",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  },
+  {
+   "id": "WASTE_PERSONNEL",
+   "source": "doors.json",
+   "state": "closed",
+   "emergency_exit": true,
+   "plan": [
+    14.34,
+    -21.0,
+    0.0
+   ],
+   "depth_out_m": 8.35,
+   "depth_in_m": 8.35,
+   "nearest_out": "",
+   "nearest_in": "",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  },
+  {
+   "id": "WASTE_DISPATCH",
+   "source": "doors.json",
+   "state": "closed",
+   "emergency_exit": true,
+   "plan": [
+    29.94,
+    -14.84,
+    0.0
+   ],
+   "depth_out_m": 8.35,
+   "depth_in_m": 8.35,
+   "nearest_out": "",
+   "nearest_in": "",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  },
+  {
+   "id": "DOCK_P1",
+   "source": "doors.json",
+   "state": "open",
+   "emergency_exit": false,
+   "plan": [
+    11.15,
+    -40.39,
+    0.0
+   ],
+   "depth_out_m": 4.99,
+   "depth_in_m": 7.64,
+   "nearest_out": "ROOM_front-end-area / spine_dado_-1 clipped cut0",
+   "nearest_in": "ROOM_compliance-dock / G1 pedestal head",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  },
+  {
+   "id": "DOCK_P2",
+   "source": "doors.json",
+   "state": "closed",
+   "emergency_exit": false,
+   "plan": [
+    27.95,
+    -40.39,
+    0.0
+   ],
+   "depth_out_m": 8.35,
+   "depth_in_m": 8.35,
+   "nearest_out": "",
+   "nearest_in": "",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  },
+  {
+   "id": "SPINE_NORTH_END",
+   "source": "doors.json",
+   "state": "closed",
+   "emergency_exit": true,
+   "plan": [
+    8.0,
+    -33.25,
+    0.0
+   ],
+   "depth_out_m": 1.66,
+   "depth_in_m": 8.35,
+   "nearest_out": "ROOM_reactor-room / COOLING PLANT.link wall.001",
+   "nearest_in": "",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  },
+  {
+   "id": "SPINE_W_CONCOURSE",
+   "source": "doors.json",
+   "state": "open",
+   "emergency_exit": false,
+   "plan": [
+    6.0,
+    -35.9,
+    0.0
+   ],
+   "depth_out_m": 8.35,
+   "depth_in_m": 3.84,
+   "nearest_out": "",
+   "nearest_in": "ROOM_front-end-area / spine_dado_1 clipped cut1",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  },
+  {
+   "id": "SPINE_E_DOCK",
+   "source": "doors.json",
+   "state": "open",
+   "emergency_exit": false,
+   "plan": [
+    10.0,
+    -40.39,
+    0.0
+   ],
+   "depth_out_m": 8.35,
+   "depth_in_m": 3.84,
+   "nearest_out": "",
+   "nearest_in": "ROOM_front-end-area / spine_dado_-1 clipped cut0",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  },
+  {
+   "id": "compliance-dock/facility_entry",
+   "source": "contract",
+   "state": "facility_connector",
+   "emergency_exit": false,
+   "plan": [
+    12.15,
+    -40.39,
+    0.0
+   ],
+   "depth_out_m": 6.64,
+   "depth_in_m": 5.99,
+   "nearest_out": "ROOM_compliance-dock / G1 pedestal head",
+   "nearest_in": "ROOM_front-end-area / spine_dado_-1 clipped cut0",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  },
+  {
+   "id": "compliance-dock/staff_front",
+   "source": "contract",
+   "state": "locked_closed",
+   "emergency_exit": false,
+   "plan": [
+    15.75,
+    -34.99,
+    0.0
+   ],
+   "depth_out_m": 5.93,
+   "depth_in_m": 3.55,
+   "nearest_out": "ROOM_compliance-dock / CD | Joined D2 Staff Rear Door / coral",
+   "nearest_in": "ROOM_compliance-dock / Dado rail south W",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  },
+  {
+   "id": "compliance-dock/staff_rear",
+   "source": "contract",
+   "state": "alternate_open_state_shown; authored final-state check pending",
+   "emergency_exit": false,
+   "plan": [
+    21.75,
+    -34.99,
+    0.0
+   ],
+   "depth_out_m": 2.72,
+   "depth_in_m": 5.95,
+   "nearest_out": "ROOM_compliance-dock / Covered Trolley Draped Tarp",
+   "nearest_in": "ROOM_compliance-dock / D1 door leaf",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  },
+  {
+   "id": "compliance-dock/cart_gate",
+   "source": "contract",
+   "state": "internal_control_gate",
+   "emergency_exit": false,
+   "plan": [
+    19.15,
+    -42.34,
+    0.0
+   ],
+   "depth_out_m": 8.35,
+   "depth_in_m": 6.95,
+   "nearest_out": "",
+   "nearest_in": "ROOM_compliance-dock / Dado rail south E",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  },
+  {
+   "id": "compliance-dock/support_screen_north_return",
+   "source": "contract",
+   "state": "internal_opening",
+   "emergency_exit": false,
+   "plan": [
+    27.17,
+    -37.99,
+    0.0
+   ],
+   "depth_out_m": 6.4,
+   "depth_in_m": 2.3,
+   "nearest_out": "ROOM_compliance-dock / Switchgear unit 0",
+   "nearest_in": "ROOM_compliance-dock / Evidence cabinet vault carcass",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  },
+  {
+   "id": "cooling-plant/CP-D02",
+   "source": "contract",
+   "state": "",
+   "emergency_exit": false,
+   "plan": [
+    -24.4,
+    -22.8,
+    0.0
+   ],
+   "depth_out_m": 3.06,
+   "depth_in_m": 1.87,
+   "nearest_out": "ROOM_cooling-plant / rear protective dado cut0",
+   "nearest_in": "ROOM_cooling-plant / P-02 spiral volute casting",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  },
+  {
+   "id": "electrical-room/P03",
+   "source": "contract",
+   "state": "permanently_open",
+   "emergency_exit": false,
+   "plan": [
+    23.7,
+    2.8,
+    0.0
+   ],
+   "depth_out_m": 1.96,
+   "depth_in_m": 8.35,
+   "nearest_out": "ROOM_electrical-room / EOH | Cell interconnect cover.005",
+   "nearest_in": "",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  },
+  {
+   "id": "turbine-room/D02",
+   "source": "contract",
+   "state": "two_opposed_sliding_leaves",
+   "emergency_exit": false,
+   "plan": [
+    0.0,
+    19.8,
+    0.0
+   ],
+   "depth_out_m": 1.67,
+   "depth_in_m": 5.37,
+   "nearest_out": "ROOM_turbine-room / TURBINE_ARCH clipped D02 leaf",
+   "nearest_in": "ROOM_turbine-room / TURBINE_MACH",
+   "ok": true,
+   "why": "",
+   "narrows": ""
+  }
+ ],
+ "flagged": []
+}

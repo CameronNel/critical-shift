@@ -1,0 +1,18 @@
+{
+  "revision": "R5c-supplemental",
+  "count": 7,
+  "same_saved_blend": true,
+  "comparison_pack": "R6c-supplemental",
+  "comparison_kind": "stability",
+  "all_separate_process": true,
+  "all_1920x1080": true,
+  "worst_mean_delta_255": 1.768261316872428e-06,
+  "visual_acceptance": "independent pixel review required",
+  "numeric_tolerance": {
+    "maximum_channel_delta_255": 2,
+    "mean_channel_delta_255": 0.01,
+    "fraction_pixels_delta_gt8": 0.0
+  },
+  "numeric_match": true,
+  "status": "PASS"
+}

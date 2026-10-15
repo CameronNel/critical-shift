@@ -1,0 +1,37 @@
+{
+  "scope": "Limited current untouched-neighbor context. Not historical approved R07/R10 full render sets or complete fidelity acceptance.",
+  "source_base": "82c2911748bdd00f0c4e5b4b07efc30ac1a82b16",
+  "current_context_actually_opened_by_root": [
+    {
+      "path": "evidence-A2/map-R5c/lighting-renders/turbine_entry.png",
+      "sha256": "245f47e45c5f76e8f4215db7604dec3bc3c543e595eb5c9ccb22d1de9368381c",
+      "resolution": [
+        640,
+        360
+      ]
+    },
+    {
+      "path": "evidence-A2/map-R5c/lighting-renders/cooling_inside.png",
+      "sha256": "cf75051d5d3c5938f1e02f0baeab0aefc1e111cdc82bd7973c81844eadc19b54",
+      "resolution": [
+        640,
+        360
+      ]
+    }
+  ],
+  "legacy_reference_history_search": {
+    "argv": [
+      "git",
+      "log",
+      "--all",
+      "--format=%h %s",
+      "-3",
+      "--",
+      "sections/turbine-room/production/renders/final/R07",
+      "sections/cooling-plant/production/renders/final"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "result": "No local commits for requested approved-final paths; historical pixel references unavailable."
+  }
+}

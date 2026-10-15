@@ -1,0 +1,16 @@
+{
+  "started_utc": "2026-10-15T09:31:01.597379+00:00",
+  "pid": 4903,
+  "argv": [
+    "python3",
+    "run_A2_palette_evidence.py",
+    "--blender",
+    "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+    "--round",
+    "R5c",
+    "--stability",
+    "R6c"
+  ],
+  "native_sha256": "5c1277da8d68c89abacaf851fbd8a70467032afaa86ff8fafe2f5e7951a73388",
+  "policy": "One Blender process at a time, CPU5 threads; inspect worker.log/commands.json and ps before resume."
+}

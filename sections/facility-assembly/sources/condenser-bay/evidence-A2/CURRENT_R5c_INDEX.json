@@ -1,0 +1,81 @@
+{
+  "scope": "Current R5c actual evidence index. Numeric success is separate from strict art/integration acceptance.",
+  "native_sha256": "5c1277da8d68c89abacaf851fbd8a70467032afaa86ff8fafe2f5e7951a73388",
+  "room_sets": [
+    {
+      "label": "R5c",
+      "count": 22,
+      "manifest": "renders-A2/R5c/render_manifest.json"
+    },
+    {
+      "label": "R5c-supplemental",
+      "count": 7,
+      "manifest": "renders-A2/R5c-supplemental/render_manifest.json"
+    },
+    {
+      "label": "R6c",
+      "count": 22,
+      "manifest": "renders-A2/R6c/render_manifest.json"
+    },
+    {
+      "label": "R6c-supplemental",
+      "count": 7,
+      "manifest": "renders-A2/R6c-supplemental/render_manifest.json"
+    },
+    {
+      "label": "cold-R6c",
+      "count": 22,
+      "manifest": "renders-A2/cold-R6c/render_manifest.json"
+    },
+    {
+      "label": "cold-R6c-supplemental",
+      "count": 7,
+      "manifest": "renders-A2/cold-R6c-supplemental/render_manifest.json"
+    }
+  ],
+  "total_room_frames": 87,
+  "diagnostics": 4,
+  "owner_map_frames": 1,
+  "comparison_reports": [
+    "R5c/stability-comparison.json",
+    "R5c-supplemental/stability-comparison.json",
+    "R6c/cold-comparison.json",
+    "R6c-supplemental/cold-comparison.json"
+  ],
+  "room_audits": "R5c/room-audits/R5c/cpu-validation-summary.json",
+  "map_gates": "map-R5c/pass-values.json",
+  "actual_commands": "palette-revision-R5c/commands.json",
+  "postflight_metadata_proof": "postflight-R5c/commands.json",
+  "independent_review": {
+    "repo_path": "sections/condenser-bay/production/critics/CODEX_A2_R5c_REVIEW.md",
+    "reviewer": "independent Codex critic subagent /root/condenser_palette_critic",
+    "verdict": "REJECT",
+    "scores": {
+      "coverage": 89,
+      "scale": 87,
+      "machinery": 92,
+      "circulation": 87,
+      "construction": 92,
+      "materials": 94,
+      "lighting": 92,
+      "palette": 90,
+      "storytelling": 91,
+      "fidelity": 90
+    },
+    "limits": "Inherited assembled headroom/upper structure and overhead reach; unavailable approved neighbor/A05 references. No waiver."
+  },
+  "merge": "Not performed; latest brief forbids self merge",
+  "unresolved_constraints": {
+    "assembled_gallery_standing_clearance_m_approx": 1.755,
+    "inherited_structure_height_exceptions": 260,
+    "overhead_controls": "Original CW isolators about3.4m and isolate hook about3.17m; reach unresolved under preservation constraints."
+  },
+  "not_run_or_unverified": [
+    "historical approved neighbor final image comparison",
+    "Unity material conversion/import/movement",
+    "runtime FPS",
+    "human playtest",
+    "full removal swept volume",
+    "reciprocal U02/cooling remote binding and full facility loop"
+  ]
+}

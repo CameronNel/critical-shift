@@ -1,0 +1,222 @@
+{
+  "label": "map-R5c",
+  "source_blend": "module_aaa_A2.blend",
+  "commands": [
+    {
+      "check": "performance",
+      "argv": [
+        "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+        "--background",
+        "--disable-autoexec",
+        "--threads",
+        "5",
+        "combined_map.blend",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "perf_report.py",
+        "--",
+        "validation/perf_report.json"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/combined",
+      "exit_code": 0,
+      "seconds": 27.44
+    },
+    {
+      "check": "plan-cut",
+      "argv": [
+        "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+        "--background",
+        "--disable-autoexec",
+        "--threads",
+        "5",
+        "combined_map.blend",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "plan_cut.py",
+        "--",
+        "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay/evidence-A2/map-R5c/plan-cut.npz",
+        "0.15",
+        "0.4",
+        "1.1",
+        "1.8",
+        "2.8",
+        "4.5",
+        "-0.6",
+        "-3.5",
+        "-5.0",
+        "-5.6"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/combined",
+      "exit_code": 0,
+      "seconds": 27.67
+    },
+    {
+      "check": "overlaps",
+      "argv": [
+        "python3",
+        "check_overlaps.py",
+        "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay/evidence-A2/map-R5c/plan-cut.npz"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/combined",
+      "exit_code": 0,
+      "seconds": 0.53
+    },
+    {
+      "check": "walk-normal",
+      "argv": [
+        "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+        "--background",
+        "--disable-autoexec",
+        "--threads",
+        "5",
+        "combined_map.blend",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "walk_test.py",
+        "--",
+        "validation/walk_report.json"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/combined",
+      "exit_code": 0,
+      "seconds": 316.95
+    },
+    {
+      "check": "walk-colliders",
+      "argv": [
+        "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+        "--background",
+        "--disable-autoexec",
+        "--threads",
+        "5",
+        "combined_map.blend",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "walk_test.py",
+        "--",
+        "validation/walk_report.json",
+        "--colliders"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/combined",
+      "exit_code": 0,
+      "seconds": 20.71
+    },
+    {
+      "check": "walk-meltdown",
+      "argv": [
+        "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+        "--background",
+        "--disable-autoexec",
+        "--threads",
+        "5",
+        "combined_map.blend",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "walk_test.py",
+        "--",
+        "validation/walk_report.json",
+        "--meltdown"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/combined",
+      "exit_code": 0,
+      "seconds": 342.41
+    },
+    {
+      "check": "evacuation",
+      "argv": [
+        "python3",
+        "evac_report.py"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/combined",
+      "exit_code": 0,
+      "seconds": 0.02
+    },
+    {
+      "check": "doors",
+      "argv": [
+        "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+        "--background",
+        "--disable-autoexec",
+        "--threads",
+        "5",
+        "combined_map.blend",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "door_audit.py"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/combined",
+      "exit_code": 0,
+      "seconds": 37.4
+    },
+    {
+      "check": "floors",
+      "argv": [
+        "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+        "--background",
+        "--disable-autoexec",
+        "--threads",
+        "5",
+        "combined_map.blend",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "floor_audit.py"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/combined",
+      "exit_code": 0,
+      "seconds": 34.66
+    },
+    {
+      "check": "export",
+      "argv": [
+        "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+        "--background",
+        "--disable-autoexec",
+        "--threads",
+        "5",
+        "combined_map.blend",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "export_unity.py",
+        "--",
+        "export"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/combined",
+      "exit_code": 0,
+      "seconds": 53.34
+    },
+    {
+      "check": "lighting",
+      "argv": [
+        "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+        "--background",
+        "--disable-autoexec",
+        "--threads",
+        "5",
+        "combined_map.blend",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "measure_lighting.py",
+        "--",
+        "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay/evidence-A2/map-R5c/lighting-renders",
+        "validation/lighting.json"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/combined",
+      "exit_code": 0,
+      "seconds": 1005.17
+    }
+  ],
+  "status": "COMMANDS_COMPLETED; pass-value audit pending",
+  "blender": "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+  "scope": "Existing static map checks and scoped Blender FBX round trip; no Unity engine or FPS run.",
+  "source_sha256": "5c1277da8d68c89abacaf851fbd8a70467032afaa86ff8fafe2f5e7951a73388",
+  "map_sha256": "4c0023836d2e76dda928b3ab496fbbebe31b7a4ca610669f0ccecdbc5968fa18",
+  "condenser_map_triangles": 395482
+}

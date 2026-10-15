@@ -1,0 +1,67 @@
+00:00.378  blend            | Read blend: "/workspace/critical-shift/sections/facility-assembly/combined/combined_map.blend"
+00:00.705  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/refinery/exterior-R01.blend', '//../exteriors/refinery/exterior-R01.blend', parent '<direct>'
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)
+00:00.716  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/medical-reanimation/exterior-R04.blend', '//../exteriors/medical-reanimation/exterior-R04.blend', parent '<direct>'
+00:00.740  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/spawn-room/exterior-R05.blend', '//../exteriors/spawn-room/exterior-R05.blend', parent '<direct>'
+00:00.775  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/front-end-area/front_end_area.blend', '//../sources/front-end-area/front_end_area.blend', parent '<direct>'
+00:01.369  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/electrical-room/overhaul/checkpoints/full-R11.blend', '//../sources/electrical-room/overhaul/checkpoints/full-R11.blend', parent '<direct>'
+00:02.325  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend', '//../sources/spawn-room/module.blend', parent '<direct>'
+00:03.299  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/waste-storage/module_aaa_A1.blend', '//../sources/waste-storage/module_aaa_A1.blend', parent '<direct>'
+00:04.222  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/cooling-plant/module_aaa_A1.blend', '//../sources/cooling-plant/module_aaa_A1.blend', parent '<direct>'
+00:05.065  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay/module_aaa_A2.blend', '//../sources/condenser-bay/module_aaa_A2.blend', parent '<direct>'
+00:06.409  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/refinery/module_overhaul_R1.blend', '//../sources/refinery/module_overhaul_R1.blend', parent '<direct>'
+00:07.244  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend', '//../sources/compliance-dock/module_overhaul_R1.blend', parent '<direct>'
+00:08.417  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/module_overhaul_R2.blend', '//../sources/medical-reanimation/module_overhaul_R2.blend', parent '<direct>'
+00:09.492  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/mine-r39/module_r39_aaa.blend', '//../sources/mine-r39/module_r39_aaa.blend', parent '<direct>'
+00:09.859  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/fuel-corridor/module_short_S1.blend', '//../sources/fuel-corridor/module_short_S1.blend', parent '<direct>'
+00:10.264  reports          | Read library: '/workspace/critical-shift/sections/reactor-room/blender/reactorroom.blend', '//../../reactor-room/blender/reactorroom.blend', parent '<direct>'
+00:11.854  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/turbine-room/rebuild/turbine_room_v2_geo.blend', '//../sources/turbine-room/rebuild/turbine_room_v2_geo.blend', parent '<direct>'
+00:11.954  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/hero_suit.blend', '//hero_suit.blend', parent '/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend'
+DOOR SPAWN_EXIT                                   open       out  8.35 in  8.35 ok 
+DOOR CAF_YARD                                     open       out  8.35 in  8.35 ok 
+DOOR CAF_MEDICAL                                  open       out  8.35 in  8.22 ok 
+DOOR HALL_WEST                                    open       out  8.35 in  8.35 ok 
+DOOR HALL_SPINE                                   open       out  8.35 in  8.35 ok 
+DOOR HALL_EAST                                    closed     out  8.35 in  8.35 ok 
+DOOR MINE_PORTAL                                  open       out  8.35 in  8.35 ok | the full 7.2 m width narrows within 0.89 m (inward side, ROOM_mine / R39 | Tunnel lagging)
+DOOR YARD_SERVICE                                 closed     out  8.35 in  8.35 ok 
+DOOR YARD_EVAC_GATE                               closed     out  8.35 in  8.35 ok 
+DOOR YARD_FREIGHT_GATE                            open       out  1.39 in  8.35 ok 
+DOOR REFINERY_FUEL                                open       out  2.12 in  8.35 ok 
+DOOR FUEL_F02E                                    open       out  8.35 in  6.73 ok 
+DOOR REACTOR_S                                    open       out  7.31 in  8.33 ok 
+DOOR REACTOR_N                                    open       out  8.35 in  8.35 ok | the full 5.0 m width narrows within 0.36 m (outward side, ROOM_turbine-room / TURBINE_ARCH clipped rest cut0 rest cut0 cut0)
+DOOR REACTOR_W                                    open       out  8.35 in  8.35 ok 
+DOOR REACTOR_SE                                   closed     out  4.21 in  8.35 ok 
+DOOR REACTOR_BLAST                                open       out  4.44 in  8.35 ok 
+DOOR REACTOR_E_WASTE                              open       out  8.35 in  8.35 ok 
+DOOR TURBINE_D01                                  open       out  8.35 in  8.35 ok 
+DOOR TURBINE_D02                                  closed     out  8.35 in  8.35 ok 
+DOOR TURBINE_E_ELECTRICAL                         open       out  8.35 in  2.71 ok 
+DOOR ELECTRICAL_D01                               open       out  3.11 in  8.35 ok 
+DOOR ELECTRICAL_D02                               closed     out  8.35 in  0.37 ok 
+DOOR TURBINE_W_STAIR                              open       out  2.51 in  6.10 ok 
+DOOR CONDENSER_W_ESCAPE                           closed     out  6.27 in  6.75 ok 
+DOOR ESCAPE_HOUSE_DOOR                            closed     out  8.35 in  1.91 ok 
+DOOR CONDENSER_D01                                open       out  7.35 in  8.35 ok 
+DOOR COOLING_P01                                  open       out  8.35 in  8.35 ok 
+DOOR COOLING_W_EXIT                               closed     out  8.35 in  8.35 ok 
+DOOR WASTE_RECEIVING                              open       out  8.35 in  8.35 ok 
+DOOR WASTE_PERSONNEL                              closed     out  8.35 in  8.35 ok 
+DOOR WASTE_DISPATCH                               closed     out  8.35 in  8.35 ok 
+DOOR DOCK_P1                                      open       out  4.99 in  7.64 ok 
+DOOR DOCK_P2                                      closed     out  8.35 in  8.35 ok 
+DOOR SPINE_NORTH_END                              closed     out  1.66 in  8.35 ok 
+DOOR SPINE_W_CONCOURSE                            open       out  8.35 in  3.84 ok 
+DOOR SPINE_E_DOCK                                 open       out  8.35 in  3.84 ok 
+DOOR compliance-dock/facility_entry               facility_c out  6.64 in  5.99 ok 
+DOOR compliance-dock/staff_front                  locked_clo out  5.93 in  3.55 ok 
+DOOR compliance-dock/staff_rear                   alternate_ out  2.72 in  5.95 ok 
+DOOR compliance-dock/cart_gate                    internal_c out  8.35 in  6.95 ok 
+DOOR compliance-dock/support_screen_north_return  internal_o out  6.40 in  2.30 ok 
+DOOR cooling-plant/CP-D02                                    out  3.06 in  1.87 ok 
+DOOR electrical-room/P03                          permanentl out  1.96 in  8.35 ok 
+DOOR turbine-room/D02                             two_oppose out  1.67 in  5.37 ok 
+AUDIT 45 doors, 0 flagged
+
+Blender quit

@@ -1,0 +1,59 @@
+00:00.408  blend            | Read blend: "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay/checkpoints-A2/A2-R3d.blend"
+00:01.837  blend            | Read blend: "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay/checkpoints-A2/A2-R3e.blend"
+[
+  {
+    "label": "R3d",
+    "sha256": "aca38967ff20cc38ce3493497165b277f94ea5cca350a47a45d27c9e056d10b1",
+    "meshes": [
+      {
+        "object": "gallery inspection fixture",
+        "signed_volume_m3": -0.00018973938650540556,
+        "boundary_edges": 0
+      },
+      {
+        "object": "gallery inspection fixture.001",
+        "signed_volume_m3": -0.0001897433861789724,
+        "boundary_edges": 0
+      },
+      {
+        "object": "gallery inspection lens",
+        "signed_volume_m3": -0.0002007013749997337,
+        "boundary_edges": 0
+      },
+      {
+        "object": "gallery inspection lens.001",
+        "signed_volume_m3": -0.00020070137500033045,
+        "boundary_edges": 0
+      }
+    ]
+  },
+  {
+    "label": "R3e",
+    "sha256": "f95b2ec895ea12619ca9d4bcc37b6901c924e754b472b692a2e0f49c6e97dd2c",
+    "meshes": [
+      {
+        "object": "gallery inspection fixture",
+        "signed_volume_m3": 0.00018973938650540556,
+        "boundary_edges": 0
+      },
+      {
+        "object": "gallery inspection fixture.001",
+        "signed_volume_m3": 0.0001897433861789724,
+        "boundary_edges": 0
+      },
+      {
+        "object": "gallery inspection lens",
+        "signed_volume_m3": 0.0002007013749997337,
+        "boundary_edges": 0
+      },
+      {
+        "object": "gallery inspection lens.001",
+        "signed_volume_m3": 0.00020070137500033045,
+        "boundary_edges": 0
+      }
+    ]
+  }
+]
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)
+
+Blender quit

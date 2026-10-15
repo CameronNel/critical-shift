@@ -1,0 +1,51 @@
+[
+  {
+    "stage": "pipe-preview",
+    "argv": [
+      "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+      "--background",
+      "--disable-autoexec",
+      "--threads",
+      "5",
+      "module_aaa_A2.blend",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "condenser_A2_supplement.py",
+      "--",
+      "--label",
+      "R5b-pipe-preview",
+      "--selection",
+      "S02_LOCAL_CW",
+      "--samples",
+      "16"
+    ],
+    "exit_code": 0,
+    "seconds": 134.21051929699934
+  },
+  {
+    "stage": "style-preview",
+    "argv": [
+      "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+      "--background",
+      "--disable-autoexec",
+      "--threads",
+      "5",
+      "module_aaa_A2.blend",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "condenser_A2_evidence.py",
+      "--",
+      "render",
+      "--label",
+      "R5b-style-preview",
+      "--selection",
+      "C02_HERO,W03_NW,AAA01_COOLING",
+      "--samples",
+      "16"
+    ],
+    "exit_code": 1,
+    "seconds": 243.58015691699984
+  }
+]

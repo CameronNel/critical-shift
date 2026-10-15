@@ -1,0 +1,13 @@
+{
+  "original": "sections/condenser-bay/production/compare_pack.py",
+  "original_sha256": "e72e01bc9b01398ea77bf3ede9452659ae0aeda36c856d7ccb31a719b1b67eb5",
+  "adapter_sha256": "8b3e5d8069abc0e5e2e813697880a3e88d74652a728fe9850a2e369fe11d59ad",
+  "numeric_policy_changed": false,
+  "adaptations": [
+    "A2 output paths",
+    "22 main cameras rather than 18; same seven supplements",
+    "cloud CPU five threads rather than historical Windows two",
+    "actual Linux nice10 priority rather than historical Windows IDLE"
+  ],
+  "scope": "Cold/stability numeric screen; independent visual inspection remains required"
+}

@@ -1,0 +1,25 @@
+{
+  "policy": "Original pixels side by side; same eye, target, 16mm lens, resolution, samples and original map renderer. Header only; no retouching.",
+  "eye": [
+    1.6,
+    3.9,
+    -4.4
+  ],
+  "target": [
+    6,
+    10.3,
+    -4.8
+  ],
+  "lens_mm": 16,
+  "samples": 32,
+  "images": [
+    {
+      "file": "renders-A2/baseline-map/OWNER_A1.png",
+      "sha256": "f9ad9a2700646a00a0cf3f2b9505cd1569380b95c17424dc5887a3a33e5e504f"
+    },
+    {
+      "file": "renders-A2/owner-map-R5c/OWNER_A2.png",
+      "sha256": "77cb4c30f78e45d6ac424eb188de18fea5cfb05790cc429de68bc63b1bb72973"
+    }
+  ]
+}

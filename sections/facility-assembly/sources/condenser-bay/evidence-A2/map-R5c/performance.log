@@ -1,0 +1,92 @@
+00:00.422  blend            | Read blend: "/workspace/critical-shift/sections/facility-assembly/combined/combined_map.blend"
+00:00.751  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/refinery/exterior-R01.blend', '//../exteriors/refinery/exterior-R01.blend', parent '<direct>'
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)
+00:00.763  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/medical-reanimation/exterior-R04.blend', '//../exteriors/medical-reanimation/exterior-R04.blend', parent '<direct>'
+00:00.788  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/spawn-room/exterior-R05.blend', '//../exteriors/spawn-room/exterior-R05.blend', parent '<direct>'
+00:00.823  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/front-end-area/front_end_area_cafeteria_revamp.blend', '//../sources/front-end-area/front_end_area_cafeteria_revamp.blend', parent '<direct>'
+00:01.558  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/electrical-room/overhaul/checkpoints/full-R11.blend', '//../sources/electrical-room/overhaul/checkpoints/full-R11.blend', parent '<direct>'
+00:02.584  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend', '//../sources/spawn-room/module.blend', parent '<direct>'
+00:03.735  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/waste-storage/module_aaa_A1.blend', '//../sources/waste-storage/module_aaa_A1.blend', parent '<direct>'
+00:04.767  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/cooling-plant/module_aaa_A1.blend', '//../sources/cooling-plant/module_aaa_A1.blend', parent '<direct>'
+00:05.717  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay/module_aaa_A2.blend', '//../sources/condenser-bay/module_aaa_A2.blend', parent '<direct>'
+00:07.188  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/refinery/module_overhaul_R1.blend', '//../sources/refinery/module_overhaul_R1.blend', parent '<direct>'
+00:08.010  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend', '//../sources/compliance-dock/module_overhaul_R1.blend', parent '<direct>'
+00:09.197  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/module_overhaul_R2.blend', '//../sources/medical-reanimation/module_overhaul_R2.blend', parent '<direct>'
+00:10.304  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/mine-r39/module_r39_aaa.blend', '//../sources/mine-r39/module_r39_aaa.blend', parent '<direct>'
+00:10.731  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/fuel-corridor/module_short_S1.blend', '//../sources/fuel-corridor/module_short_S1.blend', parent '<direct>'
+00:11.124  reports          | Read library: '/workspace/critical-shift/sections/reactor-room/blender/reactorroom.blend', '//../../reactor-room/blender/reactorroom.blend', parent '<direct>'
+00:12.632  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/turbine-room/rebuild/turbine_room_v2_geo.blend', '//../sources/turbine-room/rebuild/turbine_room_v2_geo.blend', parent '<direct>'
+00:12.722  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/hero_suit.blend', '//hero_suit.blend', parent '/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend'
+/workspace/critical-shift/sections/facility-assembly/combined/perf_report.py:36: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  if mat is None or not mat.use_nodes or not mat.node_tree: return
+PERF totals {"triangles": 11196953, "objects": 22313, "submeshes": 24521, "lights": 526, "shadow_lights": 486, "materials": 914, "textures": 153, "texture_mb_rgba8": 1401.9}
+PERF ROOM_mine                                tris   3313648 obj   192 meshes   106 submeshes   315 mats   58 lights  64 tex  32  169.3 MB OVER FLAG
+PERF ROOM_fuel-corridor                       tris   1638347 obj   286 meshes   255 submeshes   985 mats   59 lights  22 tex   9  192.0 MB OVER FLAG
+PERF ROOM_reactor-room                        tris   1217405 obj  1841 meshes  1653 submeshes  1850 mats  173 lights 117 tex  21   64.1 MB OVER FLAG
+PERF ROOM_electrical-room                     tris    767131 obj  3124 meshes  3037 submeshes  3126 mats   34 lights  18 tex   0    0.0 MB OVER FLAG
+PERF ROOM_front-end-area                      tris    753736 obj  2209 meshes  1902 submeshes  2969 mats  123 lights  72 tex  42  272.3 MB 
+PERF ROOM_medical-reanimation                 tris    599168 obj  1476 meshes  1385 submeshes  1693 mats   56 lights  21 tex   5   77.3 MB OVER FLAG
+PERF ROOM_refinery                            tris    464675 obj  2942 meshes  2817 submeshes  2983 mats   83 lights  21 tex   0    0.0 MB OVER FLAG
+PERF ROOM_spawn-room                          tris    430704 obj  2013 meshes  1677 submeshes  2357 mats  206 lights   8 tex  15  282.5 MB OVER FLAG
+PERF ROOM_turbine-room                        tris    418190 obj    62 meshes    60 submeshes    73 mats   22 lights  59 tex  29  368.2 MB OVER FLAG
+PERF ROOM_compliance-dock                     tris    416761 obj  1170 meshes  1143 submeshes  1172 mats   36 lights  26 tex   0    0.0 MB OVER FLAG
+PERF ROOM_condenser-bay                       tris    395482 obj  2679 meshes  2588 submeshes  2679 mats   33 lights  27 tex   6    8.0 MB 
+PERF ROOM_waste-storage                       tris    374864 obj  2192 meshes  2111 submeshes  2192 mats   24 lights  19 tex   0    0.0 MB 
+PERF ROOM_cooling-plant                       tris    353415 obj  1657 meshes  1572 submeshes  1657 mats   22 lights  15 tex   0    0.0 MB 
+PERF signs (wayfinding text)                  tris     25312 obj    15 meshes     9 submeshes    15 mats    3 lights   0 tex   0    0.0 MB 
+PERF CONNECTOR_reactor_south_concourse        tris     10112 obj    72 meshes    72 submeshes    72 mats   17 lights   3 tex   3   64.0 MB 
+PERF EXTERIOR_evacuation                      tris      7870 obj   132 meshes   132 submeshes   132 mats   14 lights  23 tex   6   32.0 MB 
+PERF EVAC sign yard                           tris      2524 obj     1 meshes     1 submeshes     1 mats    1 lights   0 tex   0    0.0 MB 
+PERF CONNECTOR_condenser_escape               tris      1752 obj   117 meshes   117 submeshes   117 mats   11 lights   4 tex   3   64.0 MB 
+PERF CONNECTOR_condenser_stair                tris      1428 obj   119 meshes   119 submeshes   119 mats    8 lights   6 tex   3   64.0 MB 
+PERF EVAC sign hall                           tris      1340 obj     1 meshes     1 submeshes     1 mats    1 lights   0 tex   0    0.0 MB 
+PERF EVAC floor text east road                tris       603 obj     1 meshes     1 submeshes     1 mats    1 lights   0 tex   0    0.0 MB 
+PERF EVAC floor text east yard                tris       603 obj     1 meshes     1 submeshes     1 mats    1 lights   0 tex   0    0.0 MB 
+PERF EVAC floor text west path                tris       603 obj     1 meshes     1 submeshes     1 mats    1 lights   0 tex   0    0.0 MB 
+PERF EVAC exit sign reactor SE stub text      tris       128 obj     1 meshes     1 submeshes     1 mats    1 lights   0 tex   0    0.0 MB 
+PERF EVAC exit sign turbine D02 text          tris       128 obj     1 meshes     1 submeshes     1 mats    1 lights   0 tex   0    0.0 MB 
+PERF EVAC exit sign electrical D02 text       tris       128 obj     1 meshes     1 submeshes     1 mats    1 lights   0 tex   0    0.0 MB 
+PERF EVAC exit sign waste dispatch text       tris       128 obj     1 meshes     1 submeshes     1 mats    1 lights   0 tex   0    0.0 MB 
+PERF EVAC exit sign waste personnel text      tris       128 obj     1 meshes     1 submeshes     1 mats    1 lights   0 tex   0    0.0 MB 
+PERF EVAC exit sign cooling exit text         tris       128 obj     1 meshes     1 submeshes     1 mats    1 lights   0 tex   0    0.0 MB 
+PERF EVAC exit sign spine end text            tris       128 obj     1 meshes     1 submeshes     1 mats    1 lights   0 tex   0    0.0 MB 
+PERF ESCAPE exit sign bay text                tris       128 obj     1 meshes     1 submeshes     1 mats    1 lights   0 tex   0    0.0 MB 
+PERF ESCAPE exit sign ladder text             tris       128 obj     1 meshes     1 submeshes     1 mats    1 lights   0 tex   0    0.0 MB 
+PERF ESCAPE exit sign house text              tris       128 obj     1 meshes     1 submeshes     1 mats    1 lights   0 tex   0    0.0 MB 
+PERF COMBINED_MAP                             tris         0 obj     0 meshes     0 submeshes     0 mats    0 lights   1 tex   0    0.0 MB 
+PVS ROOM_mine                                own   3313648 with neighbours   4067384 ['ROOM_front-end-area']
+PVS ROOM_fuel-corridor                       own   1638347 with neighbours   2113134 ['CONNECTOR_reactor_south_concourse', 'ROOM_refinery']
+PVS ROOM_reactor-room                        own   1217405 with neighbours   2373986 ['CONNECTOR_reactor_south_concourse', 'ROOM_cooling-plant', 'ROOM_turbine-room', 'ROOM_waste-storage']
+PVS ROOM_electrical-room                     own    767131 with neighbours   1185321 ['ROOM_turbine-room']
+PVS ROOM_front-end-area                      own    753736 with neighbours   5988804 ['CONNECTOR_reactor_south_concourse', 'ROOM_compliance-dock', 'ROOM_medical-reanimation', 'ROOM_mine', 'ROOM_refinery', 'ROOM_spawn-room']
+PVS ROOM_medical-reanimation                 own    599168 with neighbours   1352904 ['ROOM_front-end-area']
+PVS ROOM_refinery                            own    464675 with neighbours   2856758 ['ROOM_front-end-area', 'ROOM_fuel-corridor']
+PVS ROOM_spawn-room                          own    430704 with neighbours   1184440 ['ROOM_front-end-area']
+PVS ROOM_turbine-room                        own    418190 with neighbours   2404154 ['CONNECTOR_condenser_stair', 'ROOM_electrical-room', 'ROOM_reactor-room']
+PVS ROOM_compliance-dock                     own    416761 with neighbours   1170497 ['ROOM_front-end-area']
+PVS ROOM_condenser-bay                       own    395482 with neighbours    398662 ['CONNECTOR_condenser_escape', 'CONNECTOR_condenser_stair']
+PVS ROOM_waste-storage                       own    374864 with neighbours   1592269 ['ROOM_reactor-room']
+PVS ROOM_cooling-plant                       own    353415 with neighbours   1570820 ['ROOM_reactor-room']
+PVS signs (wayfinding text)                  own     25312 with neighbours     25312 []
+PVS CONNECTOR_reactor_south_concourse        own     10112 with neighbours   3619600 ['ROOM_front-end-area', 'ROOM_fuel-corridor', 'ROOM_reactor-room']
+PVS EXTERIOR_evacuation                      own      7870 with neighbours      7870 []
+PVS EVAC sign yard                           own      2524 with neighbours      2524 []
+PVS CONNECTOR_condenser_escape               own      1752 with neighbours    397234 ['ROOM_condenser-bay']
+PVS CONNECTOR_condenser_stair                own      1428 with neighbours    815100 ['ROOM_condenser-bay', 'ROOM_turbine-room']
+PVS EVAC sign hall                           own      1340 with neighbours      1340 []
+PVS EVAC floor text east road                own       603 with neighbours       603 []
+PVS EVAC floor text east yard                own       603 with neighbours       603 []
+PVS EVAC floor text west path                own       603 with neighbours       603 []
+PVS EVAC exit sign reactor SE stub text      own       128 with neighbours       128 []
+PVS EVAC exit sign turbine D02 text          own       128 with neighbours       128 []
+PVS EVAC exit sign electrical D02 text       own       128 with neighbours       128 []
+PVS EVAC exit sign waste dispatch text       own       128 with neighbours       128 []
+PVS EVAC exit sign waste personnel text      own       128 with neighbours       128 []
+PVS EVAC exit sign cooling exit text         own       128 with neighbours       128 []
+PVS EVAC exit sign spine end text            own       128 with neighbours       128 []
+PVS ESCAPE exit sign bay text                own       128 with neighbours       128 []
+PVS ESCAPE exit sign ladder text             own       128 with neighbours       128 []
+PVS ESCAPE exit sign house text              own       128 with neighbours       128 []
+PVS COMBINED_MAP                             own         0 with neighbours         0 []
+
+Blender quit

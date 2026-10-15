@@ -1,0 +1,22 @@
+00:00.359  blend            | Read blend: "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay/module_aaa_A2.blend"
+00:01.004  cycles           | WARNING CUEW initialization failed: Error opening the library
+CONDENSER_RENDER_START R5b-style-preview ['C02_HERO', 'W03_NW', 'AAA01_COOLING']
+02:04.692  render           | Saved: '/tmp/condenser-render-xq1wppzx/production/renders/review/R5b-style-preview/C02_HERO.png'
+CONDENSER_CAMERA_DONE C02_HERO
+04:03.190  render           | Saved: '/tmp/condenser-render-xq1wppzx/production/renders/review/R5b-style-preview/W03_NW.png'
+CONDENSER_CAMERA_DONE W03_NW
+Traceback (most recent call last):
+  File "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay/condenser_A2_evidence.py", line 117, in <module>
+    else:render(p.label, p.selection, p.samples, p.width, p.height,p.resume)
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay/condenser_A2_evidence.py", line 100, in render
+    manifest = original_renderer.render_set(Path(tmp), label, names, samples, width, height)
+  File "/workspace/critical-shift/sections/condenser-bay/blender/render.py", line 68, in render_set
+    cam = s.objects[name]
+          ~~~~~~~~~^^^^^^
+KeyError: 'bpy_prop_collection[key]: key "AAA01_COOLING" not found'
+
+Error: script failed, file: 'condenser_A2_evidence.py', exiting.
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)
+
+Blender quit

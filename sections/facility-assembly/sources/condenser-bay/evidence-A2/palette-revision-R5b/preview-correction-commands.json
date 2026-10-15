@@ -1,0 +1,49 @@
+[
+  {
+    "stage": "wide-preview",
+    "argv": [
+      "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+      "--background",
+      "--disable-autoexec",
+      "--threads",
+      "5",
+      "module_aaa_A2.blend",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "condenser_A2_evidence.py",
+      "--",
+      "render",
+      "--label",
+      "R5b-wide-preview",
+      "--selection",
+      "AAA01_WIDE_NE",
+      "--samples",
+      "16"
+    ],
+    "cwd": "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay",
+    "exit_code": 0,
+    "seconds": 123.9
+  },
+  {
+    "stage": "material-diagnostics-R5b",
+    "argv": [
+      "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+      "--background",
+      "--disable-autoexec",
+      "--threads",
+      "5",
+      "module_aaa_A2.blend",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "render_A2_material_board.py",
+      "--",
+      "--label",
+      "material-diagnostics-R5b"
+    ],
+    "cwd": "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay",
+    "exit_code": 1,
+    "seconds": 35.46
+  }
+]

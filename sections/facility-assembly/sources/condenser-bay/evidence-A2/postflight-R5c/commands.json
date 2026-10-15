@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "argv": [
+    "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+    "--background",
+    "--disable-autoexec",
+    "--threads",
+    "5",
+    "module_aaa_A2.blend",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "audit_A2_constraints.py"
+  ],
+  "cwd": "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay",
+  "exit_code": 0,
+  "seconds": 1.95,
+  "native_before_sha256": "5c1277da8d68c89abacaf851fbd8a70467032afaa86ff8fafe2f5e7951a73388",
+  "native_after_sha256": "5c1277da8d68c89abacaf851fbd8a70467032afaa86ff8fafe2f5e7951a73388",
+  "actual_original_builder_archive": "evidence-A2/palette-revision-R5c/builder-R5c.py",
+  "actual_original_builder_sha256": "e2e1a0b2c72cefafc72084cec8e2cd04915cb1643ff8d35a4a1242017786d777",
+  "current_builder_sha256": "cafd3f6282e589c35465acf9fa4bb54787a6707f7a13232c0b270d81c0106735",
+  "normalized_ast_equal_except_receipt_query": true,
+  "full_builder_rerun_after_metadata_query_fix": false,
+  "scope": "Read-only fixture metadata query tested against actual saved evaluated geometry. Original art/build recipe archived; no geometry, shader, lighting or native edits. Universal inherited height and assembled gallery-headroom pass not claimed."
+}

@@ -1,0 +1,22 @@
+00:00.372  blend            | Read blend: "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay/checkpoints-A2/A2-R3.blend"
+CONDENSER_VALIDATE {"d01": true, "u04_blocked": 0, "supports_failed": 0, "objects": 2726}
+ASTRA_SAVED_AUDIT PASS /tmp/condenser-audit-manocequ/production/validation/A2-R3/astra-saved-audit.json
+U04_nominal_bore True
+D01 True
+D01_sill True
+named_support_targets True
+route_headroom True
+gallery_standing_route True
+cart_straight_delivery_sweep True
+stair_standing_volume True
+interface_markers True
+dependencies True
+fixed_cameras True
+EXHAUST_PLENUM_CONTINUITY A2-R3 PASS [{'xy': [2.15, 3.6], 'ok': True, 'blocker': None, 'hit_z': None}, {'xy': [2.15, 4.05], 'ok': True, 'blocker': None, 'hit_z': None}, {'xy': [2.15, 4.5], 'ok': True, 'blocker': None, 'hit_z': None}, {'xy': [3, 3.6], 'ok': True, 'blocker': None, 'hit_z': None}, {'xy': [3, 4.05], 'ok': True, 'blocker': None, 'hit_z': None}, {'xy': [3, 4.5], 'ok': True, 'blocker': None, 'hit_z': None}, {'xy': [3.85, 3.6], 'ok': True, 'blocker': None, 'hit_z': None}, {'xy': [3.85, 4.05], 'ok': True, 'blocker': None, 'hit_z': None}, {'xy': [3.85, 4.5], 'ok': True, 'blocker': None, 'hit_z': None}]
+CHEST_SHELL_CONTACT A2-R3 PASS [('CD chest wall Y-', -0.07961845397949219), ('CD chest wall Y-', -0.07961845397949219), ('CD chest wall Y-', -0.07961845397949219), ('CD chest wall Y+', -0.07961845397949219), ('CD chest wall Y+', -0.07961845397949219), ('CD chest wall Y+', -0.07961893081665039), ('CD chest wall X-', -0.24660921096801758), ('CD chest wall X-', -0.440000057220459), ('CD chest wall X-', -0.24660873413085938), ('CD chest wall X+', -0.24660921096801758), ('CD chest wall X+', -0.440000057220459), ('CD chest wall X+', -0.24660921096801758)]
+CHEST_FASTENER_CONTACT A2-R3 PASS [('chest bolt washer', -0.0002999305725097656), ('chest bolt washer.001', -0.0002999305725097656), ('chest bolt washer.002', -0.0002999305725097656), ('chest bolt washer.003', -0.0002999305725097656), ('chest bolt washer.004', -0.0002999305725097656), ('chest bolt washer.005', -0.0002999305725097656), ('chest bolt washer.006', -0.0002999305725097656), ('chest bolt washer.007', -0.0002999305725097656)]
+SAVED_MEASUREMENTS {"x0": -1.8000000715255737, "x1": 9.59999942779541, "y0": 0.0, "y1": 9.399999618530273, "z0": 0.0, "z1": 6.0}
+ALL_SAVED_CPU_AUDITS_PASS {"status": "PASS", "revision": "A2-R3", "blend_sha256": "831f93aaad650a318fa6865f9033a15f11d1e57712234b88ad5ed73acc628432", "checks": ["validate.py", "astra_audit.py", "astra_inlet_audit.py", "astra_joint_audit.py", "astra_fastener_audit.py", "astra_measure.py"], "process_id": 14272, "scope": "CPU saved-geometry and dependency checks; no render, game-engine or remote integration certification."}
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)
+
+Blender quit

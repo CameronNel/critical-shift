@@ -1,0 +1,338 @@
+{
+  "status": "NUMERIC_EVIDENCE_COMPLETE; independent art review pending",
+  "native_sha256": "5c1277da8d68c89abacaf851fbd8a70467032afaa86ff8fafe2f5e7951a73388",
+  "commands": [
+    {
+      "stage": "room-audits",
+      "argv": [
+        "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+        "--background",
+        "--disable-autoexec",
+        "--threads",
+        "5",
+        "module_aaa_A2.blend",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "condenser_A2_evidence.py",
+        "--",
+        "audit",
+        "--label",
+        "R5c"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay",
+      "exit_code": 0,
+      "seconds": 8.61
+    },
+    {
+      "stage": "constraints",
+      "argv": [
+        "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+        "--background",
+        "--disable-autoexec",
+        "--threads",
+        "5",
+        "module_aaa_A2.blend",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "audit_A2_constraints.py"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay",
+      "exit_code": 0,
+      "seconds": 1.61
+    },
+    {
+      "stage": "build-map",
+      "argv": [
+        "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+        "--background",
+        "--disable-autoexec",
+        "--threads",
+        "5",
+        "--factory-startup",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "build_compact_map.py"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/combined",
+      "exit_code": 0,
+      "seconds": 39.05
+    },
+    {
+      "stage": "map-checks",
+      "argv": [
+        "python3",
+        "run_A2_map_checks.py",
+        "--blender",
+        "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+        "--label",
+        "map-R5c"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay",
+      "exit_code": 0,
+      "seconds": 1866.97
+    },
+    {
+      "stage": "map-gates",
+      "argv": [
+        "python3",
+        "audit_A2_map_results.py",
+        "map-R5c",
+        "--baseline",
+        "evidence-A2/baseline-main82c29117/committed-validation"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay",
+      "exit_code": 0,
+      "seconds": 0.03
+    },
+    {
+      "stage": "owner-map",
+      "argv": [
+        "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+        "--background",
+        "--disable-autoexec",
+        "--threads",
+        "5",
+        "combined_map.blend",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "render_views.py",
+        "--",
+        "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay/renders-A2/owner-map-R5c/views.json"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/combined",
+      "exit_code": 0,
+      "seconds": 440.69
+    },
+    {
+      "stage": "R5c",
+      "argv": [
+        "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+        "--background",
+        "--disable-autoexec",
+        "--threads",
+        "5",
+        "module_aaa_A2.blend",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "condenser_A2_evidence.py",
+        "--",
+        "render",
+        "--label",
+        "R5c",
+        "--samples",
+        "16"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay",
+      "exit_code": 0,
+      "seconds": 2639.55
+    },
+    {
+      "stage": "R5c-supplemental",
+      "argv": [
+        "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+        "--background",
+        "--disable-autoexec",
+        "--threads",
+        "5",
+        "module_aaa_A2.blend",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "condenser_A2_supplement.py",
+        "--",
+        "--label",
+        "R5c-supplemental",
+        "--samples",
+        "16"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay",
+      "exit_code": 0,
+      "seconds": 806.18
+    },
+    {
+      "stage": "material-diagnostics-R5c",
+      "argv": [
+        "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+        "--background",
+        "--disable-autoexec",
+        "--threads",
+        "5",
+        "module_aaa_A2.blend",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "render_A2_material_board.py",
+        "--",
+        "--label",
+        "material-diagnostics-R5c"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay",
+      "exit_code": 0,
+      "seconds": 248.25
+    },
+    {
+      "stage": "R6c",
+      "argv": [
+        "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+        "--background",
+        "--disable-autoexec",
+        "--threads",
+        "5",
+        "module_aaa_A2.blend",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "condenser_A2_evidence.py",
+        "--",
+        "render",
+        "--label",
+        "R6c",
+        "--samples",
+        "16"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay",
+      "exit_code": 0,
+      "seconds": 2710.81
+    },
+    {
+      "stage": "R6c-supplemental",
+      "argv": [
+        "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+        "--background",
+        "--disable-autoexec",
+        "--threads",
+        "5",
+        "module_aaa_A2.blend",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "condenser_A2_supplement.py",
+        "--",
+        "--label",
+        "R6c-supplemental",
+        "--samples",
+        "16"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay",
+      "exit_code": 0,
+      "seconds": 841.26
+    },
+    {
+      "stage": "cold-R6c",
+      "argv": [
+        "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+        "--background",
+        "--disable-autoexec",
+        "--threads",
+        "5",
+        "module_aaa_A2.blend",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "condenser_A2_evidence.py",
+        "--",
+        "render",
+        "--label",
+        "cold-R6c",
+        "--samples",
+        "16"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay",
+      "exit_code": 0,
+      "seconds": 2851.52
+    },
+    {
+      "stage": "cold-R6c-supplemental",
+      "argv": [
+        "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+        "--background",
+        "--disable-autoexec",
+        "--threads",
+        "5",
+        "module_aaa_A2.blend",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "condenser_A2_supplement.py",
+        "--",
+        "--label",
+        "cold-R6c-supplemental",
+        "--samples",
+        "16"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay",
+      "exit_code": 0,
+      "seconds": 851.67
+    },
+    {
+      "stage": "R5c--R6c",
+      "argv": [
+        "python3",
+        "compare_A2_evidence.py",
+        "R5c",
+        "R6c"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay",
+      "exit_code": 0,
+      "seconds": 4.72
+    },
+    {
+      "stage": "R5c-supplemental--R6c-supplemental",
+      "argv": [
+        "python3",
+        "compare_A2_evidence.py",
+        "R5c-supplemental",
+        "R6c-supplemental"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay",
+      "exit_code": 0,
+      "seconds": 1.76
+    },
+    {
+      "stage": "R6c--cold-R6c",
+      "argv": [
+        "python3",
+        "compare_A2_evidence.py",
+        "R6c",
+        "cold-R6c"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay",
+      "exit_code": 0,
+      "seconds": 4.94
+    },
+    {
+      "stage": "R6c-supplemental--cold-R6c-supplemental",
+      "argv": [
+        "python3",
+        "compare_A2_evidence.py",
+        "R6c-supplemental",
+        "cold-R6c-supplemental"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay",
+      "exit_code": 0,
+      "seconds": 1.45
+    },
+    {
+      "stage": "pack-review",
+      "argv": [
+        "python3",
+        "pack_A2_review.py",
+        "R5c",
+        "R6c",
+        "cold-R6c",
+        "--owner",
+        "--owner-label",
+        "owner-map-R5c"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay",
+      "exit_code": 0,
+      "seconds": 17.49
+    }
+  ],
+  "scope": "Owner-directed machinery palette correction. Original room/map tools and numeric thresholds unchanged. Independent art review required."
+}

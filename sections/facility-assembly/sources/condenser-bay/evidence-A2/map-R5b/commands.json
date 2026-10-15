@@ -1,0 +1,32 @@
+{
+  "label": "map-R5b",
+  "source_blend": "module_aaa_A2.blend",
+  "commands": [
+    {
+      "check": "performance",
+      "argv": [
+        "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+        "--background",
+        "--disable-autoexec",
+        "--threads",
+        "5",
+        "combined_map.blend",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "perf_report.py",
+        "--",
+        "validation/perf_report.json"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/combined",
+      "exit_code": 0,
+      "seconds": 26.76
+    }
+  ],
+  "status": "FAIL_BUDGET",
+  "blender": "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+  "scope": "Existing static map checks and scoped Blender FBX round trip; no Unity engine or FPS run.",
+  "source_sha256": "e33435ccf2527ea17b02b1c96756a9f9af54fdca3572608ff044f6f67f6a4cf7",
+  "map_sha256": "c655f0ce833b35fcb3cbacc0e1147333d91d8427c58b03c64f24ca81a0ad037c",
+  "condenser_map_triangles": 406070
+}

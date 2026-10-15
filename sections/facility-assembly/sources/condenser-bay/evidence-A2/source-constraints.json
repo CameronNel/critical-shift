@@ -1,0 +1,4307 @@
+{
+  "source_sha256": "5c1277da8d68c89abacaf851fbd8a70467032afaa86ff8fafe2f5e7951a73388",
+  "status": "PASS_SCOPED_SOURCE_CHECKS; INHERITED_STRUCTURE_HEIGHT_EXCEPTION",
+  "triangles": 349678,
+  "footprint_violations": [],
+  "light_cap_violations": [],
+  "patched_objects_present": [
+    "D01 stub end wall",
+    "Ceiling slab",
+    "CEP-B motor feed",
+    "CEP-B motor feed end cap",
+    "WestWall",
+    "West dado",
+    "North dado"
+  ],
+  "changed_nonlight_matrices": [],
+  "packed_images": [
+    {
+      "name": "cast_grain.png",
+      "packed": true
+    },
+    {
+      "name": "metal_brush.png",
+      "packed": true
+    },
+    {
+      "name": "mineral_grain.png",
+      "packed": true
+    },
+    {
+      "name": "mineral_tone.png",
+      "packed": true
+    },
+    {
+      "name": "paint_peel.png",
+      "packed": true
+    },
+    {
+      "name": "traffic_scuff.png",
+      "packed": true
+    }
+  ],
+  "height_cap_exceptions": [
+    {
+      "object": "WestWall",
+      "bounds": [
+        [
+          -2.080000162124634,
+          -0.1400003433227539,
+          0.0
+        ],
+        [
+          -1.8000000715255737,
+          9.539999961853027,
+          6.0
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "EastWall",
+      "bounds": [
+        [
+          9.59999942779541,
+          -0.1400003433227539,
+          0.0
+        ],
+        [
+          9.880000114440918,
+          9.539999961853027,
+          6.0
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "NorthWall",
+      "bounds": [
+        [
+          -2.0799999237060547,
+          9.399999618530273,
+          0.0
+        ],
+        [
+          9.880000114440918,
+          9.539999961853027,
+          5.999000072479248
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "SouthWall west",
+      "bounds": [
+        [
+          -1.7999999523162842,
+          -0.14000000059604645,
+          0.0
+        ],
+        [
+          -1.0,
+          0.0,
+          6.0
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "SouthWall east",
+      "bounds": [
+        [
+          1.0,
+          -0.14000000059604645,
+          0.0
+        ],
+        [
+          9.600000381469727,
+          0.0,
+          6.0
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "SouthWall header",
+      "bounds": [
+        [
+          -1.0,
+          -0.14000000059604645,
+          2.3999998569488525
+        ],
+        [
+          1.0,
+          0.0,
+          6.0
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "steel column",
+      "bounds": [
+        [
+          -1.4600000381469727,
+          2.0199999809265137,
+          0.02500009536743164
+        ],
+        [
+          -1.2400000095367432,
+          2.2800002098083496,
+          5.974999904632568
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "column cap plate",
+      "bounds": [
+        [
+          -1.5299999713897705,
+          1.9500000476837158,
+          5.840000152587891
+        ],
+        [
+          -1.1700000762939453,
+          2.3500001430511475,
+          5.920000076293945
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "steel column.001",
+      "bounds": [
+        [
+          -1.4600000381469727,
+          6.420000076293945,
+          0.02500009536743164
+        ],
+        [
+          -1.2400000095367432,
+          6.680000305175781,
+          5.974999904632568
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "column cap plate.001",
+      "bounds": [
+        [
+          -1.5299999713897705,
+          6.350000381469727,
+          5.840000152587891
+        ],
+        [
+          -1.1700000762939453,
+          6.75,
+          5.920000076293945
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "steel column.003",
+      "bounds": [
+        [
+          5.440000057220459,
+          6.420000076293945,
+          0.02500009536743164
+        ],
+        [
+          5.660000324249268,
+          6.680000305175781,
+          5.974999904632568
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "column cap plate.003",
+      "bounds": [
+        [
+          5.37000036239624,
+          6.350000381469727,
+          5.840000152587891
+        ],
+        [
+          5.730000019073486,
+          6.75,
+          5.920000076293945
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "steel column.004",
+      "bounds": [
+        [
+          9.039999961853027,
+          2.0199999809265137,
+          0.02500009536743164
+        ],
+        [
+          9.25999927520752,
+          2.2800002098083496,
+          5.974999904632568
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "column cap plate.004",
+      "bounds": [
+        [
+          8.969999313354492,
+          1.9500000476837158,
+          5.840000152587891
+        ],
+        [
+          9.329999923706055,
+          2.3500001430511475,
+          5.920000076293945
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "steel column.005",
+      "bounds": [
+        [
+          9.039999961853027,
+          8.019999504089355,
+          0.02500009536743164
+        ],
+        [
+          9.25999927520752,
+          8.279999732971191,
+          5.974999904632568
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "column cap plate.005",
+      "bounds": [
+        [
+          8.969999313354492,
+          7.949999809265137,
+          5.840000152587891
+        ],
+        [
+          9.329999923706055,
+          8.34999942779541,
+          5.920000076293945
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "Ceiling slab",
+      "bounds": [
+        [
+          -2.0799999237060547,
+          -0.1400003433227539,
+          6.0
+        ],
+        [
+          9.880000114440918,
+          9.539999961853027,
+          6.300000190734863
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "exhaust curb X-",
+      "bounds": [
+        [
+          1.5899999141693115,
+          3.140000104904175,
+          5.899999618530273
+        ],
+        [
+          1.75,
+          4.960000038146973,
+          6.0
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "exhaust curb X+",
+      "bounds": [
+        [
+          4.25,
+          3.140000104904175,
+          5.899999618530273
+        ],
+        [
+          4.409999847412109,
+          4.960000038146973,
+          6.0
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "exhaust curb Y-",
+      "bounds": [
+        [
+          1.590000033378601,
+          3.140000104904175,
+          5.899999618530273
+        ],
+        [
+          4.409999847412109,
+          3.299999952316284,
+          6.0
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "exhaust curb Y+",
+      "bounds": [
+        [
+          1.590000033378601,
+          4.800000190734863,
+          5.899999618530273
+        ],
+        [
+          4.409999847412109,
+          4.960000038146973,
+          6.0
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "curb bolt0 washer",
+      "bounds": [
+        [
+          1.640503168106079,
+          3.190366506576538,
+          5.987432479858398
+        ],
+        [
+          1.6996334791183472,
+          3.249633550643921,
+          5.992405891418457
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "curb bolt0 head",
+      "bounds": [
+        [
+          1.6512937545776367,
+          3.198899984359741,
+          5.995999813079834
+        ],
+        [
+          1.6887061595916748,
+          3.2411000728607178,
+          6.011199474334717
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "curb bolt0 shank",
+      "bounds": [
+        [
+          1.658750295639038,
+          3.208627223968506,
+          5.968399524688721
+        ],
+        [
+          1.6813726425170898,
+          3.2312498092651367,
+          5.99399995803833
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "curb bolt1 washer",
+      "bounds": [
+        [
+          1.640503168106079,
+          4.850366592407227,
+          5.987432479858398
+        ],
+        [
+          1.6996334791183472,
+          4.909633636474609,
+          5.992405891418457
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "curb bolt1 head",
+      "bounds": [
+        [
+          1.6512937545776367,
+          4.85890007019043,
+          5.995999813079834
+        ],
+        [
+          1.6887061595916748,
+          4.901100158691406,
+          6.011199474334717
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "curb bolt1 shank",
+      "bounds": [
+        [
+          1.658750295639038,
+          4.868627548217773,
+          5.968399524688721
+        ],
+        [
+          1.6813726425170898,
+          4.891249656677246,
+          5.99399995803833
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "curb bolt2 washer",
+      "bounds": [
+        [
+          4.300503253936768,
+          3.190366506576538,
+          5.987432479858398
+        ],
+        [
+          4.359633445739746,
+          3.249633550643921,
+          5.992405891418457
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "curb bolt2 head",
+      "bounds": [
+        [
+          4.311293601989746,
+          3.198899984359741,
+          5.995999813079834
+        ],
+        [
+          4.348706245422363,
+          3.2411000728607178,
+          6.011199474334717
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "curb bolt2 shank",
+      "bounds": [
+        [
+          4.318750381469727,
+          3.208627223968506,
+          5.968399524688721
+        ],
+        [
+          4.341372489929199,
+          3.2312498092651367,
+          5.99399995803833
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "curb bolt3 washer",
+      "bounds": [
+        [
+          4.300503253936768,
+          4.850366592407227,
+          5.987432479858398
+        ],
+        [
+          4.359633445739746,
+          4.909633636474609,
+          5.992405891418457
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "curb bolt3 head",
+      "bounds": [
+        [
+          4.311293601989746,
+          4.85890007019043,
+          5.995999813079834
+        ],
+        [
+          4.348706245422363,
+          4.901100158691406,
+          6.011199474334717
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "curb bolt3 shank",
+      "bounds": [
+        [
+          4.318750381469727,
+          4.868627548217773,
+          5.968399524688721
+        ],
+        [
+          4.341372489929199,
+          4.891249656677246,
+          5.99399995803833
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "roof girder web",
+      "bounds": [
+        [
+          -1.6500000953674316,
+          1.2350000143051147,
+          5.539999961853027
+        ],
+        [
+          9.450000762939453,
+          1.2649999856948853,
+          5.819999694824219
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "roof girder top",
+      "bounds": [
+        [
+          -1.6500000953674316,
+          1.1399999856948853,
+          5.815000057220459
+        ],
+        [
+          9.450000762939453,
+          1.3600000143051147,
+          5.865000247955322
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "roof girder web.001",
+      "bounds": [
+        [
+          -1.6500000953674316,
+          7.835000038146973,
+          5.539999961853027
+        ],
+        [
+          9.450000762939453,
+          7.864999771118164,
+          5.819999694824219
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "roof girder top.001",
+      "bounds": [
+        [
+          -1.6500000953674316,
+          7.739999771118164,
+          5.815000057220459
+        ],
+        [
+          9.450000762939453,
+          7.960000038146973,
+          5.865000247955322
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "roof girder web.002",
+      "bounds": [
+        [
+          -1.6500000953674316,
+          9.03499984741211,
+          5.539999961853027
+        ],
+        [
+          9.450000762939453,
+          9.065000534057617,
+          5.819999694824219
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "roof girder top.002",
+      "bounds": [
+        [
+          -1.6500000953674316,
+          8.940000534057617,
+          5.815000057220459
+        ],
+        [
+          9.450000762939453,
+          9.15999984741211,
+          5.865000247955322
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "opening header Y-",
+      "bounds": [
+        [
+          1.2000000476837158,
+          2.9200000762939453,
+          5.809999942779541
+        ],
+        [
+          4.800000190734863,
+          3.0799999237060547,
+          5.950000286102295
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "opening header Y+",
+      "bounds": [
+        [
+          1.2000000476837158,
+          5.019999980926514,
+          5.809999942779541
+        ],
+        [
+          4.800000190734863,
+          5.179999828338623,
+          5.950000286102295
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "opening header X-",
+      "bounds": [
+        [
+          1.3700000047683716,
+          2.950000286102295,
+          5.809999942779541
+        ],
+        [
+          1.53000009059906,
+          5.150000095367432,
+          5.950000286102295
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "opening header X+",
+      "bounds": [
+        [
+          4.470000267028809,
+          2.950000286102295,
+          5.809999942779541
+        ],
+        [
+          4.630000114440918,
+          5.150000095367432,
+          5.950000286102295
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 reveal X-",
+      "bounds": [
+        [
+          1.6890000104904175,
+          3.3400001525878906,
+          5.880000114440918
+        ],
+        [
+          1.7489999532699585,
+          4.760000228881836,
+          6.159999847412109
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 reveal X+",
+      "bounds": [
+        [
+          4.250999450683594,
+          3.3400001525878906,
+          5.880000114440918
+        ],
+        [
+          4.310999870300293,
+          4.760000228881836,
+          6.159999847412109
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 reveal Y-",
+      "bounds": [
+        [
+          1.7899999618530273,
+          3.238999843597412,
+          5.880000114440918
+        ],
+        [
+          4.210000038146973,
+          3.298999786376953,
+          6.159999847412109
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 reveal Y+",
+      "bounds": [
+        [
+          1.7899999618530273,
+          4.800999641418457,
+          5.880000114440918
+        ],
+        [
+          4.210000038146973,
+          4.861000061035156,
+          6.159999847412109
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 size Y",
+      "bounds": [
+        [
+          1.9293999671936035,
+          3.9474802017211914,
+          5.879010200500488
+        ],
+        [
+          1.9305999279022217,
+          4.16825008392334,
+          5.955019950866699
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 pit X-",
+      "bounds": [
+        [
+          1.590000033378601,
+          3.1800003051757812,
+          6.300000190734863
+        ],
+        [
+          1.709999918937683,
+          4.920000076293945,
+          7.199999809265137
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 pit X+",
+      "bounds": [
+        [
+          4.289999961853027,
+          3.1800003051757812,
+          6.300000190734863
+        ],
+        [
+          4.409999847412109,
+          4.920000076293945,
+          7.199999809265137
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 pit Y-",
+      "bounds": [
+        [
+          1.6299999952316284,
+          3.140000104904175,
+          6.300000190734863
+        ],
+        [
+          4.369999885559082,
+          3.259999990463257,
+          7.199999809265137
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 pit Y+",
+      "bounds": [
+        [
+          1.6299999952316284,
+          4.840000152587891,
+          6.300000190734863
+        ],
+        [
+          4.369999885559082,
+          4.960000038146973,
+          7.199999809265137
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 size X",
+      "bounds": [
+        [
+          3.149399995803833,
+          3.568000078201294,
+          5.918920040130615
+        ],
+        [
+          3.1506001949310303,
+          3.8289999961853027,
+          6.002920150756836
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "column slab bearing shim",
+      "bounds": [
+        [
+          -1.4600000381469727,
+          2.0199999809265137,
+          5.970000267028809
+        ],
+        [
+          -1.2400000095367432,
+          2.2800002098083496,
+          6.0
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "column slab bearing shim.001",
+      "bounds": [
+        [
+          -1.4600000381469727,
+          6.420000076293945,
+          5.970000267028809
+        ],
+        [
+          -1.2400000095367432,
+          6.680000305175781,
+          6.0
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "column slab bearing shim.002",
+      "bounds": [
+        [
+          5.440000057220459,
+          6.420000076293945,
+          5.970000267028809
+        ],
+        [
+          5.660000324249268,
+          6.680000305175781,
+          6.0
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "column slab bearing shim.003",
+      "bounds": [
+        [
+          9.039999961853027,
+          2.0199999809265137,
+          5.970000267028809
+        ],
+        [
+          9.25999927520752,
+          2.2800002098083496,
+          6.0
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "column slab bearing shim.004",
+      "bounds": [
+        [
+          9.039999961853027,
+          8.019999504089355,
+          5.970000267028809
+        ],
+        [
+          9.25999927520752,
+          8.279999732971191,
+          6.0
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "gallery edge suspension",
+      "bounds": [
+        [
+          6.324999809265137,
+          4.074999809265137,
+          3.8999998569488525
+        ],
+        [
+          6.375,
+          4.125,
+          6.0
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "gallery roof shoe",
+      "bounds": [
+        [
+          6.239999771118164,
+          3.990000009536743,
+          5.960000038146973
+        ],
+        [
+          6.460000038146973,
+          4.210000038146973,
+          6.0
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "gallery edge suspension.001",
+      "bounds": [
+        [
+          6.324999809265137,
+          6.224999904632568,
+          3.8999998569488525
+        ],
+        [
+          6.375,
+          6.275000095367432,
+          6.0
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "gallery roof shoe.001",
+      "bounds": [
+        [
+          6.239999771118164,
+          6.139999866485596,
+          5.960000038146973
+        ],
+        [
+          6.460000038146973,
+          6.360000133514404,
+          6.0
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "gallery edge suspension.002",
+      "bounds": [
+        [
+          -0.32500001788139343,
+          2.0749998092651367,
+          3.8999998569488525
+        ],
+        [
+          -0.2750000059604645,
+          2.125,
+          6.0
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "gallery roof shoe.002",
+      "bounds": [
+        [
+          -0.4100000262260437,
+          1.9899998903274536,
+          5.960000038146973
+        ],
+        [
+          -0.1900000125169754,
+          2.2099997997283936,
+          6.0
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "gallery edge suspension.003",
+      "bounds": [
+        [
+          -0.32500001788139343,
+          5.875,
+          3.8999998569488525
+        ],
+        [
+          -0.2750000059604645,
+          5.925000190734863,
+          6.0
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "gallery roof shoe.003",
+      "bounds": [
+        [
+          -0.4100000262260437,
+          5.789999961853027,
+          5.960000038146973
+        ],
+        [
+          -0.1900000125169754,
+          6.010000228881836,
+          6.0
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "gallery edge suspension.004",
+      "bounds": [
+        [
+          3.174999952316284,
+          6.269999980926514,
+          3.8999998569488525
+        ],
+        [
+          3.2250001430511475,
+          6.320000171661377,
+          6.0
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "gallery roof shoe.004",
+      "bounds": [
+        [
+          3.0900001525878906,
+          6.184999942779541,
+          5.960000038146973
+        ],
+        [
+          3.309999942779541,
+          6.40500020980835,
+          6.0
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "hoist beam repaired",
+      "bounds": [
+        [
+          6.480000019073486,
+          3.5360000133514404,
+          5.420000076293945
+        ],
+        [
+          9.199999809265137,
+          3.563999891281128,
+          5.619999885559082
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "hoist beam repaired.001",
+      "bounds": [
+        [
+          6.480000019073486,
+          3.4700000286102295,
+          5.604000091552734
+        ],
+        [
+          9.199999809265137,
+          3.629999876022339,
+          5.640000343322754
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "hoist connected hanger",
+      "bounds": [
+        [
+          6.636000156402588,
+          3.5360000133514404,
+          5.640000343322754
+        ],
+        [
+          6.664000034332275,
+          3.563999891281128,
+          5.998000144958496
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "hoist ceiling socket",
+      "bounds": [
+        [
+          6.53000020980835,
+          3.430000066757202,
+          5.948999881744385
+        ],
+        [
+          6.769999980926514,
+          3.669999837875366,
+          5.999000072479248
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "hoist connected hanger.001",
+      "bounds": [
+        [
+          8.88599967956543,
+          3.5360000133514404,
+          5.640000343322754
+        ],
+        [
+          8.913999557495117,
+          3.563999891281128,
+          5.998000144958496
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "hoist ceiling socket.001",
+      "bounds": [
+        [
+          8.779999732971191,
+          3.430000066757202,
+          5.948999881744385
+        ],
+        [
+          9.019999504089355,
+          3.669999837875366,
+          5.999000072479248
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "EJ pipe support",
+      "bounds": [
+        [
+          -0.7789999842643738,
+          2.490999937057495,
+          3.6500003337860107
+        ],
+        [
+          -0.7609999775886536,
+          2.509000062942505,
+          5.998000144958496
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "EJ ceiling pipe clip",
+      "bounds": [
+        [
+          -0.8499999642372131,
+          2.4200000762939453,
+          5.960000038146973
+        ],
+        [
+          -0.6899999976158142,
+          2.5799999237060547,
+          6.0
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "EJ pipe support.001",
+      "bounds": [
+        [
+          -0.7789999842643738,
+          4.991000175476074,
+          3.6500003337860107
+        ],
+        [
+          -0.7609999775886536,
+          5.008999824523926,
+          5.998000144958496
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "EJ ceiling pipe clip.001",
+      "bounds": [
+        [
+          -0.8499999642372131,
+          4.920000076293945,
+          5.960000038146973
+        ],
+        [
+          -0.6899999976158142,
+          5.079999923706055,
+          6.0
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "EJ pipe support.002",
+      "bounds": [
+        [
+          -0.7789999842643738,
+          6.7910003662109375,
+          3.6500003337860107
+        ],
+        [
+          -0.7609999775886536,
+          6.809000015258789,
+          5.998000144958496
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "EJ ceiling pipe clip.002",
+      "bounds": [
+        [
+          -0.8499999642372131,
+          6.720000267028809,
+          5.960000038146973
+        ],
+        [
+          -0.6899999976158142,
+          6.880000114440918,
+          6.0
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "tray hanger",
+      "bounds": [
+        [
+          -0.8899999856948853,
+          1.4900000095367432,
+          5.4800004959106445
+        ],
+        [
+          -0.8700000047683716,
+          1.5099999904632568,
+          5.998000144958496
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "tray hanger.001",
+      "bounds": [
+        [
+          -0.8899999856948853,
+          4.039999961853027,
+          5.4800004959106445
+        ],
+        [
+          -0.8700000047683716,
+          4.060000419616699,
+          5.998000144958496
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "tray hanger.002",
+      "bounds": [
+        [
+          -0.8899999856948853,
+          7.189999580383301,
+          5.4800004959106445
+        ],
+        [
+          -0.8700000047683716,
+          7.210000038146973,
+          5.998000144958496
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "tray hanger.003",
+      "bounds": [
+        [
+          -0.8899999856948853,
+          8.889999389648438,
+          5.4800004959106445
+        ],
+        [
+          -0.8700000047683716,
+          8.90999984741211,
+          5.998000144958496
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "extract gasket",
+      "bounds": [
+        [
+          2.3399999141693115,
+          9.319999694824219,
+          4.490000247955322
+        ],
+        [
+          3.6600000858306885,
+          9.399999618530273,
+          5.809999942779541
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "extract guard outer",
+      "bounds": [
+        [
+          2.48799991607666,
+          8.818587303161621,
+          4.638000011444092
+        ],
+        [
+          3.51200008392334,
+          8.841412544250488,
+          5.6620001792907715
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "extract open drum",
+      "bounds": [
+        [
+          2.4800000190734863,
+          8.90999984741211,
+          4.630000114440918
+        ],
+        [
+          3.5199999809265137,
+          9.329999923706055,
+          5.670000076293945
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "extract inlet rim",
+      "bounds": [
+        [
+          2.450000047683716,
+          8.862500190734863,
+          4.599999904632568
+        ],
+        [
+          3.549999952316284,
+          8.92750072479248,
+          5.700000286102295
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "batten0 drop L",
+      "bounds": [
+        [
+          -0.20800000429153442,
+          1.0920000076293945,
+          5.239999771118164
+        ],
+        [
+          -0.19200000166893005,
+          1.1080000400543213,
+          5.998000144958496
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "batten0 drop R",
+      "bounds": [
+        [
+          -0.20800000429153442,
+          2.0920000076293945,
+          5.239999771118164
+        ],
+        [
+          -0.19200000166893005,
+          2.107999801635742,
+          5.998000144958496
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "batten1 drop L",
+      "bounds": [
+        [
+          -0.20800000429153442,
+          3.5420000553131104,
+          5.239999771118164
+        ],
+        [
+          -0.19200000166893005,
+          3.557999849319458,
+          5.998000144958496
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "batten1 drop R",
+      "bounds": [
+        [
+          -0.20800000429153442,
+          4.5420002937316895,
+          5.239999771118164
+        ],
+        [
+          -0.19200000166893005,
+          4.558000087738037,
+          5.998000144958496
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "batten2 drop L",
+      "bounds": [
+        [
+          -0.20800000429153442,
+          6.0920000076293945,
+          5.239999771118164
+        ],
+        [
+          -0.19200000166893005,
+          6.107999801635742,
+          5.998000144958496
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "batten2 drop R",
+      "bounds": [
+        [
+          -0.20800000429153442,
+          7.0920000076293945,
+          5.239999771118164
+        ],
+        [
+          -0.19200000166893005,
+          7.107999801635742,
+          5.998000144958496
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "batten3 drop L",
+      "bounds": [
+        [
+          -0.20800000429153442,
+          7.992000102996826,
+          5.239999771118164
+        ],
+        [
+          -0.19200000166893005,
+          8.008000373840332,
+          5.998000144958496
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "batten3 drop R",
+      "bounds": [
+        [
+          -0.20800000429153442,
+          8.991999626159668,
+          5.239999771118164
+        ],
+        [
+          -0.19200000166893005,
+          9.008000373840332,
+          5.998000144958496
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "batten4 drop L",
+      "bounds": [
+        [
+          2.992000102996826,
+          1.0419999361038208,
+          5.239999771118164
+        ],
+        [
+          3.007999897003174,
+          1.0579999685287476,
+          5.998000144958496
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "batten4 drop R",
+      "bounds": [
+        [
+          2.992000102996826,
+          2.0420000553131104,
+          5.239999771118164
+        ],
+        [
+          3.007999897003174,
+          2.057999849319458,
+          5.998000144958496
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "batten5 drop L",
+      "bounds": [
+        [
+          7.392000198364258,
+          1.8919999599456787,
+          5.239999771118164
+        ],
+        [
+          7.4079999923706055,
+          1.9079999923706055,
+          5.998000144958496
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "batten5 drop R",
+      "bounds": [
+        [
+          7.392000198364258,
+          2.892000198364258,
+          5.239999771118164
+        ],
+        [
+          7.4079999923706055,
+          2.9079999923706055,
+          5.998000144958496
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "batten6 drop L",
+      "bounds": [
+        [
+          7.392000198364258,
+          4.992000102996826,
+          5.239999771118164
+        ],
+        [
+          7.4079999923706055,
+          5.007999897003174,
+          5.998000144958496
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "batten6 drop R",
+      "bounds": [
+        [
+          7.392000198364258,
+          5.992000102996826,
+          5.239999771118164
+        ],
+        [
+          7.4079999923706055,
+          6.007999897003174,
+          5.998000144958496
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "batten7 drop L",
+      "bounds": [
+        [
+          7.392000198364258,
+          7.691999912261963,
+          5.239999771118164
+        ],
+        [
+          7.4079999923706055,
+          7.7079997062683105,
+          5.998000144958496
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "batten7 drop R",
+      "bounds": [
+        [
+          7.392000198364258,
+          8.691999435424805,
+          5.239999771118164
+        ],
+        [
+          7.4079999923706055,
+          8.708000183105469,
+          5.998000144958496
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "batten8 drop L",
+      "bounds": [
+        [
+          2.992000102996826,
+          6.892000198364258,
+          5.239999771118164
+        ],
+        [
+          3.007999897003174,
+          6.9079999923706055,
+          5.998000144958496
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "batten8 drop R",
+      "bounds": [
+        [
+          2.992000102996826,
+          7.892000198364258,
+          5.239999771118164
+        ],
+        [
+          3.007999897003174,
+          7.9079999923706055,
+          5.998000144958496
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 face",
+      "bounds": [
+        [
+          2.6900200843811035,
+          2.9193999767303467,
+          5.699009895324707
+        ],
+        [
+          3.3098700046539307,
+          2.920600175857544,
+          5.776010036468506
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "bellow continuous folded perimeter",
+      "bounds": [
+        [
+          1.6243431568145752,
+          3.1743431091308594,
+          5.3524370193481445
+        ],
+        [
+          4.375656604766846,
+          4.925656795501709,
+          5.75756311416626
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 lower bolting plate Y",
+      "bounds": [
+        [
+          1.350000023841858,
+          2.8999998569488525,
+          5.730000019073486
+        ],
+        [
+          4.650000095367432,
+          3.299999952316284,
+          5.78000020980835
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 lower bolting plate X",
+      "bounds": [
+        [
+          1.3499999046325684,
+          3.3000001907348633,
+          5.730000019073486
+        ],
+        [
+          1.75,
+          4.800000190734863,
+          5.78000020980835
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 lower bolting plate Y.001",
+      "bounds": [
+        [
+          1.350000023841858,
+          4.800000190734863,
+          5.730000019073486
+        ],
+        [
+          4.650000095367432,
+          5.199999809265137,
+          5.78000020980835
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 lower bolting plate X.001",
+      "bounds": [
+        [
+          4.25,
+          3.3000001907348633,
+          5.730000019073486
+        ],
+        [
+          4.649999618530273,
+          4.800000190734863,
+          5.78000020980835
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 visible gasket Y",
+      "bounds": [
+        [
+          1.3600000143051147,
+          2.9100000858306885,
+          5.779999732971191
+        ],
+        [
+          4.639999866485596,
+          3.299999952316284,
+          5.800000190734863
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 visible gasket X",
+      "bounds": [
+        [
+          1.3599998950958252,
+          3.3000001907348633,
+          5.779999732971191
+        ],
+        [
+          1.75,
+          4.800000190734863,
+          5.800000190734863
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 visible gasket Y.001",
+      "bounds": [
+        [
+          1.3600000143051147,
+          4.799999713897705,
+          5.779999732971191
+        ],
+        [
+          4.639999866485596,
+          5.190000057220459,
+          5.800000190734863
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 visible gasket X.001",
+      "bounds": [
+        [
+          4.25,
+          3.3000001907348633,
+          5.779999732971191
+        ],
+        [
+          4.640000343322754,
+          4.800000190734863,
+          5.800000190734863
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 upper bolting plate Y",
+      "bounds": [
+        [
+          1.350000023841858,
+          2.8999998569488525,
+          5.799999713897705
+        ],
+        [
+          4.650000095367432,
+          3.299999952316284,
+          5.849999904632568
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 upper bolting plate X",
+      "bounds": [
+        [
+          1.3499999046325684,
+          3.3000001907348633,
+          5.799999713897705
+        ],
+        [
+          1.75,
+          4.800000190734863,
+          5.849999904632568
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 upper bolting plate Y.001",
+      "bounds": [
+        [
+          1.350000023841858,
+          4.800000190734863,
+          5.799999713897705
+        ],
+        [
+          4.650000095367432,
+          5.199999809265137,
+          5.849999904632568
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 upper bolting plate X.001",
+      "bounds": [
+        [
+          4.25,
+          3.3000001907348633,
+          5.799999713897705
+        ],
+        [
+          4.649999618530273,
+          4.800000190734863,
+          5.849999904632568
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 slab transition collar Y",
+      "bounds": [
+        [
+          1.6649999618530273,
+          3.2149999141693115,
+          5.850000381469727
+        ],
+        [
+          4.335000038146973,
+          3.299999952316284,
+          6.0
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 slab transition collar X",
+      "bounds": [
+        [
+          1.6649999618530273,
+          3.3000001907348633,
+          5.850000381469727
+        ],
+        [
+          1.75,
+          4.800000190734863,
+          6.0
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 slab transition collar Y.001",
+      "bounds": [
+        [
+          1.6649999618530273,
+          4.800000190734863,
+          5.850000381469727
+        ],
+        [
+          4.335000038146973,
+          4.885000228881836,
+          6.0
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 slab transition collar X.001",
+      "bounds": [
+        [
+          4.25,
+          3.3000001907348633,
+          5.850000381469727
+        ],
+        [
+          4.335000038146973,
+          4.800000190734863,
+          6.0
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside washer",
+      "bounds": [
+        [
+          1.6614271402359009,
+          3.0011322498321533,
+          5.72149658203125
+        ],
+        [
+          1.7185827493667603,
+          3.058788776397705,
+          5.730506896972656
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside nut",
+      "bounds": [
+        [
+          1.670947551727295,
+          3.00849986076355,
+          5.693000316619873
+        ],
+        [
+          1.709052562713623,
+          3.051500082015991,
+          5.7230000495910645
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside washer.001",
+      "bounds": [
+        [
+          1.899608850479126,
+          3.0011322498321533,
+          5.72149658203125
+        ],
+        [
+          1.9567644596099854,
+          3.058788776397705,
+          5.730506896972656
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside nut.001",
+      "bounds": [
+        [
+          1.90912926197052,
+          3.00849986076355,
+          5.693000316619873
+        ],
+        [
+          1.9472342729568481,
+          3.051500082015991,
+          5.7230000495910645
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside washer.002",
+      "bounds": [
+        [
+          2.1377906799316406,
+          3.0011322498321533,
+          5.72149658203125
+        ],
+        [
+          2.1949462890625,
+          3.058788776397705,
+          5.730506896972656
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside nut.002",
+      "bounds": [
+        [
+          2.147311210632324,
+          3.00849986076355,
+          5.693000316619873
+        ],
+        [
+          2.1854162216186523,
+          3.051500082015991,
+          5.7230000495910645
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside washer.003",
+      "bounds": [
+        [
+          2.3759725093841553,
+          3.0011322498321533,
+          5.72149658203125
+        ],
+        [
+          2.4331281185150146,
+          3.058788776397705,
+          5.730506896972656
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside nut.003",
+      "bounds": [
+        [
+          2.385493040084839,
+          3.00849986076355,
+          5.693000316619873
+        ],
+        [
+          2.423598051071167,
+          3.051500082015991,
+          5.7230000495910645
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside washer.004",
+      "bounds": [
+        [
+          2.61415433883667,
+          3.0011322498321533,
+          5.72149658203125
+        ],
+        [
+          2.6713099479675293,
+          3.058788776397705,
+          5.730506896972656
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside nut.004",
+      "bounds": [
+        [
+          2.6236748695373535,
+          3.00849986076355,
+          5.693000316619873
+        ],
+        [
+          2.6617798805236816,
+          3.051500082015991,
+          5.7230000495910645
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside washer.005",
+      "bounds": [
+        [
+          2.8523361682891846,
+          3.0011322498321533,
+          5.72149658203125
+        ],
+        [
+          2.909491777420044,
+          3.058788776397705,
+          5.730506896972656
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside nut.005",
+      "bounds": [
+        [
+          2.861856698989868,
+          3.00849986076355,
+          5.693000316619873
+        ],
+        [
+          2.8999617099761963,
+          3.051500082015991,
+          5.7230000495910645
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside washer.006",
+      "bounds": [
+        [
+          3.09051775932312,
+          3.0011322498321533,
+          5.72149658203125
+        ],
+        [
+          3.1476733684539795,
+          3.058788776397705,
+          5.730506896972656
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside nut.006",
+      "bounds": [
+        [
+          3.1000382900238037,
+          3.00849986076355,
+          5.693000316619873
+        ],
+        [
+          3.138143301010132,
+          3.051500082015991,
+          5.7230000495910645
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside washer.007",
+      "bounds": [
+        [
+          3.3286995887756348,
+          3.0011322498321533,
+          5.72149658203125
+        ],
+        [
+          3.385855197906494,
+          3.058788776397705,
+          5.730506896972656
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside nut.007",
+      "bounds": [
+        [
+          3.3382201194763184,
+          3.00849986076355,
+          5.693000316619873
+        ],
+        [
+          3.3763251304626465,
+          3.051500082015991,
+          5.7230000495910645
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside washer.008",
+      "bounds": [
+        [
+          3.5668814182281494,
+          3.0011322498321533,
+          5.72149658203125
+        ],
+        [
+          3.624037027359009,
+          3.058788776397705,
+          5.730506896972656
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside nut.008",
+      "bounds": [
+        [
+          3.576401948928833,
+          3.00849986076355,
+          5.693000316619873
+        ],
+        [
+          3.614506959915161,
+          3.051500082015991,
+          5.7230000495910645
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside washer.009",
+      "bounds": [
+        [
+          3.805063247680664,
+          3.0011322498321533,
+          5.72149658203125
+        ],
+        [
+          3.8622188568115234,
+          3.058788776397705,
+          5.730506896972656
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside nut.009",
+      "bounds": [
+        [
+          3.8145837783813477,
+          3.00849986076355,
+          5.693000316619873
+        ],
+        [
+          3.852688789367676,
+          3.051500082015991,
+          5.7230000495910645
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside washer.010",
+      "bounds": [
+        [
+          4.043245315551758,
+          3.0011322498321533,
+          5.72149658203125
+        ],
+        [
+          4.100400924682617,
+          3.058788776397705,
+          5.730506896972656
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside nut.010",
+      "bounds": [
+        [
+          4.052765846252441,
+          3.00849986076355,
+          5.693000316619873
+        ],
+        [
+          4.0908708572387695,
+          3.051500082015991,
+          5.7230000495910645
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside washer.011",
+      "bounds": [
+        [
+          4.281426906585693,
+          3.0011322498321533,
+          5.72149658203125
+        ],
+        [
+          4.338582515716553,
+          3.058788776397705,
+          5.730506896972656
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside nut.011",
+      "bounds": [
+        [
+          4.290947437286377,
+          3.00849986076355,
+          5.693000316619873
+        ],
+        [
+          4.329052448272705,
+          3.051500082015991,
+          5.7230000495910645
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 side underside washer",
+      "bounds": [
+        [
+          1.4514271020889282,
+          3.341132164001465,
+          5.72149658203125
+        ],
+        [
+          1.5085827112197876,
+          3.3987886905670166,
+          5.730506896972656
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 side underside nut",
+      "bounds": [
+        [
+          1.4609475135803223,
+          3.3484997749328613,
+          5.693000316619873
+        ],
+        [
+          1.4990525245666504,
+          3.3914999961853027,
+          5.7230000495910645
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 side underside washer.001",
+      "bounds": [
+        [
+          1.4514271020889282,
+          3.5677988529205322,
+          5.72149658203125
+        ],
+        [
+          1.5085827112197876,
+          3.625455379486084,
+          5.730506896972656
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 side underside nut.001",
+      "bounds": [
+        [
+          1.4609475135803223,
+          3.5751664638519287,
+          5.693000316619873
+        ],
+        [
+          1.4990525245666504,
+          3.61816668510437,
+          5.7230000495910645
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 side underside washer.002",
+      "bounds": [
+        [
+          1.4514271020889282,
+          3.7944655418395996,
+          5.72149658203125
+        ],
+        [
+          1.5085827112197876,
+          3.8521220684051514,
+          5.730506896972656
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 side underside nut.002",
+      "bounds": [
+        [
+          1.4609475135803223,
+          3.801833152770996,
+          5.693000316619873
+        ],
+        [
+          1.4990525245666504,
+          3.8448333740234375,
+          5.7230000495910645
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 side underside washer.003",
+      "bounds": [
+        [
+          1.4514271020889282,
+          4.021132469177246,
+          5.72149658203125
+        ],
+        [
+          1.5085827112197876,
+          4.078789234161377,
+          5.730506896972656
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 side underside nut.003",
+      "bounds": [
+        [
+          1.4609475135803223,
+          4.028500080108643,
+          5.693000316619873
+        ],
+        [
+          1.4990525245666504,
+          4.071500301361084,
+          5.7230000495910645
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 side underside washer.004",
+      "bounds": [
+        [
+          1.4514271020889282,
+          4.247798919677734,
+          5.72149658203125
+        ],
+        [
+          1.5085827112197876,
+          4.305455684661865,
+          5.730506896972656
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 side underside nut.004",
+      "bounds": [
+        [
+          1.4609475135803223,
+          4.255166530609131,
+          5.693000316619873
+        ],
+        [
+          1.4990525245666504,
+          4.298166751861572,
+          5.7230000495910645
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 side underside washer.005",
+      "bounds": [
+        [
+          1.4514271020889282,
+          4.474465847015381,
+          5.72149658203125
+        ],
+        [
+          1.5085827112197876,
+          4.532122611999512,
+          5.730506896972656
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 side underside nut.005",
+      "bounds": [
+        [
+          1.4609475135803223,
+          4.481833457946777,
+          5.693000316619873
+        ],
+        [
+          1.4990525245666504,
+          4.524833679199219,
+          5.7230000495910645
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 side underside washer.006",
+      "bounds": [
+        [
+          1.4514271020889282,
+          4.701132297515869,
+          5.72149658203125
+        ],
+        [
+          1.5085827112197876,
+          4.7587890625,
+          5.730506896972656
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 side underside nut.006",
+      "bounds": [
+        [
+          1.4609475135803223,
+          4.708499908447266,
+          5.693000316619873
+        ],
+        [
+          1.4990525245666504,
+          4.751500129699707,
+          5.7230000495910645
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside washer.012",
+      "bounds": [
+        [
+          1.6614271402359009,
+          5.04113245010376,
+          5.72149658203125
+        ],
+        [
+          1.7185827493667603,
+          5.098789215087891,
+          5.730506896972656
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside nut.012",
+      "bounds": [
+        [
+          1.670947551727295,
+          5.048500061035156,
+          5.693000316619873
+        ],
+        [
+          1.709052562713623,
+          5.091500282287598,
+          5.7230000495910645
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside washer.013",
+      "bounds": [
+        [
+          1.899608850479126,
+          5.04113245010376,
+          5.72149658203125
+        ],
+        [
+          1.9567644596099854,
+          5.098789215087891,
+          5.730506896972656
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside nut.013",
+      "bounds": [
+        [
+          1.90912926197052,
+          5.048500061035156,
+          5.693000316619873
+        ],
+        [
+          1.9472342729568481,
+          5.091500282287598,
+          5.7230000495910645
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside washer.014",
+      "bounds": [
+        [
+          2.1377906799316406,
+          5.04113245010376,
+          5.72149658203125
+        ],
+        [
+          2.1949462890625,
+          5.098789215087891,
+          5.730506896972656
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside nut.014",
+      "bounds": [
+        [
+          2.147311210632324,
+          5.048500061035156,
+          5.693000316619873
+        ],
+        [
+          2.1854162216186523,
+          5.091500282287598,
+          5.7230000495910645
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside washer.015",
+      "bounds": [
+        [
+          2.3759725093841553,
+          5.04113245010376,
+          5.72149658203125
+        ],
+        [
+          2.4331281185150146,
+          5.098789215087891,
+          5.730506896972656
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside nut.015",
+      "bounds": [
+        [
+          2.385493040084839,
+          5.048500061035156,
+          5.693000316619873
+        ],
+        [
+          2.423598051071167,
+          5.091500282287598,
+          5.7230000495910645
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside washer.016",
+      "bounds": [
+        [
+          2.61415433883667,
+          5.04113245010376,
+          5.72149658203125
+        ],
+        [
+          2.6713099479675293,
+          5.098789215087891,
+          5.730506896972656
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside nut.016",
+      "bounds": [
+        [
+          2.6236748695373535,
+          5.048500061035156,
+          5.693000316619873
+        ],
+        [
+          2.6617798805236816,
+          5.091500282287598,
+          5.7230000495910645
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside washer.017",
+      "bounds": [
+        [
+          2.8523361682891846,
+          5.04113245010376,
+          5.72149658203125
+        ],
+        [
+          2.909491777420044,
+          5.098789215087891,
+          5.730506896972656
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside nut.017",
+      "bounds": [
+        [
+          2.861856698989868,
+          5.048500061035156,
+          5.693000316619873
+        ],
+        [
+          2.8999617099761963,
+          5.091500282287598,
+          5.7230000495910645
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside washer.018",
+      "bounds": [
+        [
+          3.09051775932312,
+          5.04113245010376,
+          5.72149658203125
+        ],
+        [
+          3.1476733684539795,
+          5.098789215087891,
+          5.730506896972656
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside nut.018",
+      "bounds": [
+        [
+          3.1000382900238037,
+          5.048500061035156,
+          5.693000316619873
+        ],
+        [
+          3.138143301010132,
+          5.091500282287598,
+          5.7230000495910645
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside washer.019",
+      "bounds": [
+        [
+          3.3286995887756348,
+          5.04113245010376,
+          5.72149658203125
+        ],
+        [
+          3.385855197906494,
+          5.098789215087891,
+          5.730506896972656
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside nut.019",
+      "bounds": [
+        [
+          3.3382201194763184,
+          5.048500061035156,
+          5.693000316619873
+        ],
+        [
+          3.3763251304626465,
+          5.091500282287598,
+          5.7230000495910645
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside washer.020",
+      "bounds": [
+        [
+          3.5668814182281494,
+          5.04113245010376,
+          5.72149658203125
+        ],
+        [
+          3.624037027359009,
+          5.098789215087891,
+          5.730506896972656
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside nut.020",
+      "bounds": [
+        [
+          3.576401948928833,
+          5.048500061035156,
+          5.693000316619873
+        ],
+        [
+          3.614506959915161,
+          5.091500282287598,
+          5.7230000495910645
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside washer.021",
+      "bounds": [
+        [
+          3.805063247680664,
+          5.04113245010376,
+          5.72149658203125
+        ],
+        [
+          3.8622188568115234,
+          5.098789215087891,
+          5.730506896972656
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside nut.021",
+      "bounds": [
+        [
+          3.8145837783813477,
+          5.048500061035156,
+          5.693000316619873
+        ],
+        [
+          3.852688789367676,
+          5.091500282287598,
+          5.7230000495910645
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside washer.022",
+      "bounds": [
+        [
+          4.043245315551758,
+          5.04113245010376,
+          5.72149658203125
+        ],
+        [
+          4.100400924682617,
+          5.098789215087891,
+          5.730506896972656
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside nut.022",
+      "bounds": [
+        [
+          4.052765846252441,
+          5.048500061035156,
+          5.693000316619873
+        ],
+        [
+          4.0908708572387695,
+          5.091500282287598,
+          5.7230000495910645
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside washer.023",
+      "bounds": [
+        [
+          4.281426906585693,
+          5.04113245010376,
+          5.72149658203125
+        ],
+        [
+          4.338582515716553,
+          5.098789215087891,
+          5.730506896972656
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 underside nut.023",
+      "bounds": [
+        [
+          4.290947437286377,
+          5.048500061035156,
+          5.693000316619873
+        ],
+        [
+          4.329052448272705,
+          5.091500282287598,
+          5.7230000495910645
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 side underside washer.007",
+      "bounds": [
+        [
+          4.491426944732666,
+          3.341132164001465,
+          5.72149658203125
+        ],
+        [
+          4.548582553863525,
+          3.3987886905670166,
+          5.730506896972656
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 side underside nut.007",
+      "bounds": [
+        [
+          4.50094747543335,
+          3.3484997749328613,
+          5.693000316619873
+        ],
+        [
+          4.539052486419678,
+          3.3914999961853027,
+          5.7230000495910645
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 side underside washer.008",
+      "bounds": [
+        [
+          4.491426944732666,
+          3.5677988529205322,
+          5.72149658203125
+        ],
+        [
+          4.548582553863525,
+          3.625455379486084,
+          5.730506896972656
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 side underside nut.008",
+      "bounds": [
+        [
+          4.50094747543335,
+          3.5751664638519287,
+          5.693000316619873
+        ],
+        [
+          4.539052486419678,
+          3.61816668510437,
+          5.7230000495910645
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 side underside washer.009",
+      "bounds": [
+        [
+          4.491426944732666,
+          3.7944655418395996,
+          5.72149658203125
+        ],
+        [
+          4.548582553863525,
+          3.8521220684051514,
+          5.730506896972656
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 side underside nut.009",
+      "bounds": [
+        [
+          4.50094747543335,
+          3.801833152770996,
+          5.693000316619873
+        ],
+        [
+          4.539052486419678,
+          3.8448333740234375,
+          5.7230000495910645
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 side underside washer.010",
+      "bounds": [
+        [
+          4.491426944732666,
+          4.021132469177246,
+          5.72149658203125
+        ],
+        [
+          4.548582553863525,
+          4.078789234161377,
+          5.730506896972656
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 side underside nut.010",
+      "bounds": [
+        [
+          4.50094747543335,
+          4.028500080108643,
+          5.693000316619873
+        ],
+        [
+          4.539052486419678,
+          4.071500301361084,
+          5.7230000495910645
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 side underside washer.011",
+      "bounds": [
+        [
+          4.491426944732666,
+          4.247798919677734,
+          5.72149658203125
+        ],
+        [
+          4.548582553863525,
+          4.305455684661865,
+          5.730506896972656
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 side underside nut.011",
+      "bounds": [
+        [
+          4.50094747543335,
+          4.255166530609131,
+          5.693000316619873
+        ],
+        [
+          4.539052486419678,
+          4.298166751861572,
+          5.7230000495910645
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 side underside washer.012",
+      "bounds": [
+        [
+          4.491426944732666,
+          4.474465847015381,
+          5.72149658203125
+        ],
+        [
+          4.548582553863525,
+          4.532122611999512,
+          5.730506896972656
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 side underside nut.012",
+      "bounds": [
+        [
+          4.50094747543335,
+          4.481833457946777,
+          5.693000316619873
+        ],
+        [
+          4.539052486419678,
+          4.524833679199219,
+          5.7230000495910645
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 side underside washer.013",
+      "bounds": [
+        [
+          4.491426944732666,
+          4.701132297515869,
+          5.72149658203125
+        ],
+        [
+          4.548582553863525,
+          4.7587890625,
+          5.730506896972656
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "U04 side underside nut.013",
+      "bounds": [
+        [
+          4.50094747543335,
+          4.708499908447266,
+          5.693000316619873
+        ],
+        [
+          4.539052486419678,
+          4.751500129699707,
+          5.7230000495910645
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "handoff tag",
+      "bounds": [
+        [
+          7.625,
+          0.14499999582767487,
+          5.549999713897705
+        ],
+        [
+          8.175000190734863,
+          0.17499999701976776,
+          5.690000057220459
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "handoff tag text",
+      "bounds": [
+        [
+          7.632844924926758,
+          0.1793999820947647,
+          5.579370021820068
+        ],
+        [
+          8.16834545135498,
+          0.18060003221035004,
+          5.6283698081970215
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "riser hang A",
+      "bounds": [
+        [
+          6.388000011444092,
+          7.5879998207092285,
+          5.5
+        ],
+        [
+          6.4120001792907715,
+          7.611999988555908,
+          5.998000144958496
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "riser hang B",
+      "bounds": [
+        [
+          7.888000011444092,
+          1.3880000114440918,
+          5.5
+        ],
+        [
+          7.9120001792907715,
+          1.4119999408721924,
+          5.998000144958496
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang beam web",
+      "bounds": [
+        [
+          8.53600025177002,
+          3.0500001907348633,
+          5.62999963760376
+        ],
+        [
+          8.564000129699707,
+          6.050000190734863,
+          5.809999942779541
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang beam top fl",
+      "bounds": [
+        [
+          8.470000267028809,
+          3.0500001907348633,
+          5.793999671936035
+        ],
+        [
+          8.630000114440918,
+          6.050000190734863,
+          5.829999923706055
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang beam bot fl",
+      "bounds": [
+        [
+          8.470000267028809,
+          3.0500001907348633,
+          5.609999656677246
+        ],
+        [
+          8.630000114440918,
+          6.050000190734863,
+          5.645999908447266
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang beam N web",
+      "bounds": [
+        [
+          0.7249999046325684,
+          5.406000137329102,
+          5.62999963760376
+        ],
+        [
+          5.275000095367432,
+          5.434000015258789,
+          5.809999942779541
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang beam N top fl",
+      "bounds": [
+        [
+          0.7249999046325684,
+          5.340000152587891,
+          5.793999671936035
+        ],
+        [
+          5.275000095367432,
+          5.5,
+          5.829999923706055
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang beam N bot fl",
+      "bounds": [
+        [
+          0.7249999046325684,
+          5.340000152587891,
+          5.609999656677246
+        ],
+        [
+          5.275000095367432,
+          5.5,
+          5.645999908447266
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang clevis",
+      "bounds": [
+        [
+          8.5,
+          3.549999952316284,
+          5.559999942779541
+        ],
+        [
+          8.600000381469727,
+          3.6499998569488525,
+          5.679999828338623
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang plate",
+      "bounds": [
+        [
+          8.390000343322754,
+          3.4800000190734863,
+          5.674999713897705
+        ],
+        [
+          8.710000038146973,
+          3.7199997901916504,
+          5.724999904632568
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang bolt L washer",
+      "bounds": [
+        [
+          8.434057235717773,
+          3.5740573406219482,
+          5.73749303817749
+        ],
+        [
+          8.485942840576172,
+          3.6259424686431885,
+          5.742505073547363
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang bolt L head",
+      "bounds": [
+        [
+          8.443632125854492,
+          3.5815999507904053,
+          5.7452497482299805
+        ],
+        [
+          8.476367950439453,
+          3.6183998584747314,
+          5.758549690246582
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang bolt L shank",
+      "bounds": [
+        [
+          8.4501371383667,
+          3.5901365280151367,
+          5.721271991729736
+        ],
+        [
+          8.469862937927246,
+          3.60986328125,
+          5.743327617645264
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang bolt R washer",
+      "bounds": [
+        [
+          8.614057540893555,
+          3.5740573406219482,
+          5.73749303817749
+        ],
+        [
+          8.665943145751953,
+          3.6259424686431885,
+          5.742505073547363
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang bolt R head",
+      "bounds": [
+        [
+          8.623632431030273,
+          3.5815999507904053,
+          5.7452497482299805
+        ],
+        [
+          8.656368255615234,
+          3.6183998584747314,
+          5.758549690246582
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang bolt R shank",
+      "bounds": [
+        [
+          8.63013744354248,
+          3.5901365280151367,
+          5.721271991729736
+        ],
+        [
+          8.649863243103027,
+          3.60986328125,
+          5.743327617645264
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang clevis.001",
+      "bounds": [
+        [
+          8.5,
+          4.349999904632568,
+          5.559999942779541
+        ],
+        [
+          8.600000381469727,
+          4.450000286102295,
+          5.679999828338623
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang plate.001",
+      "bounds": [
+        [
+          8.390000343322754,
+          4.28000020980835,
+          5.674999713897705
+        ],
+        [
+          8.710000038146973,
+          4.519999980926514,
+          5.724999904632568
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang bolt L washer.001",
+      "bounds": [
+        [
+          8.434057235717773,
+          4.374057292938232,
+          5.73749303817749
+        ],
+        [
+          8.485942840576172,
+          4.425942897796631,
+          5.742505073547363
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang bolt L head.001",
+      "bounds": [
+        [
+          8.443632125854492,
+          4.3815999031066895,
+          5.7452497482299805
+        ],
+        [
+          8.476367950439453,
+          4.418400287628174,
+          5.758549690246582
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang bolt L shank.001",
+      "bounds": [
+        [
+          8.4501371383667,
+          4.39013671875,
+          5.721271991729736
+        ],
+        [
+          8.469862937927246,
+          4.409863471984863,
+          5.743327617645264
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang bolt R washer.001",
+      "bounds": [
+        [
+          8.614057540893555,
+          4.374057292938232,
+          5.73749303817749
+        ],
+        [
+          8.665943145751953,
+          4.425942897796631,
+          5.742505073547363
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang bolt R head.001",
+      "bounds": [
+        [
+          8.623632431030273,
+          4.3815999031066895,
+          5.7452497482299805
+        ],
+        [
+          8.656368255615234,
+          4.418400287628174,
+          5.758549690246582
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang bolt R shank.001",
+      "bounds": [
+        [
+          8.63013744354248,
+          4.39013671875,
+          5.721271991729736
+        ],
+        [
+          8.649863243103027,
+          4.409863471984863,
+          5.743327617645264
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang clevis.002",
+      "bounds": [
+        [
+          8.5,
+          5.5,
+          5.559999942779541
+        ],
+        [
+          8.600000381469727,
+          5.600000381469727,
+          5.679999828338623
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang plate.002",
+      "bounds": [
+        [
+          8.390000343322754,
+          5.430000305175781,
+          5.674999713897705
+        ],
+        [
+          8.710000038146973,
+          5.670000076293945,
+          5.724999904632568
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang bolt L washer.002",
+      "bounds": [
+        [
+          8.434057235717773,
+          5.524057388305664,
+          5.73749303817749
+        ],
+        [
+          8.485942840576172,
+          5.5759429931640625,
+          5.742505073547363
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang bolt L head.002",
+      "bounds": [
+        [
+          8.443632125854492,
+          5.531599998474121,
+          5.7452497482299805
+        ],
+        [
+          8.476367950439453,
+          5.5684003829956055,
+          5.758549690246582
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang bolt L shank.002",
+      "bounds": [
+        [
+          8.4501371383667,
+          5.540136814117432,
+          5.721271991729736
+        ],
+        [
+          8.469862937927246,
+          5.559863567352295,
+          5.743327617645264
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang bolt R washer.002",
+      "bounds": [
+        [
+          8.614057540893555,
+          5.524057388305664,
+          5.73749303817749
+        ],
+        [
+          8.665943145751953,
+          5.5759429931640625,
+          5.742505073547363
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang bolt R head.002",
+      "bounds": [
+        [
+          8.623632431030273,
+          5.531599998474121,
+          5.7452497482299805
+        ],
+        [
+          8.656368255615234,
+          5.5684003829956055,
+          5.758549690246582
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang bolt R shank.002",
+      "bounds": [
+        [
+          8.63013744354248,
+          5.540136814117432,
+          5.721271991729736
+        ],
+        [
+          8.649863243103027,
+          5.559863567352295,
+          5.743327617645264
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang clevis.003",
+      "bounds": [
+        [
+          5.074999809265137,
+          5.369999885559082,
+          5.559999942779541
+        ],
+        [
+          5.175000190734863,
+          5.470000267028809,
+          5.679999828338623
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang plate.003",
+      "bounds": [
+        [
+          4.965000152587891,
+          5.300000190734863,
+          5.674999713897705
+        ],
+        [
+          5.284999847412109,
+          5.539999961853027,
+          5.724999904632568
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang bolt L washer.003",
+      "bounds": [
+        [
+          5.00905704498291,
+          5.394057273864746,
+          5.73749303817749
+        ],
+        [
+          5.060942649841309,
+          5.4459428787231445,
+          5.742505073547363
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang bolt L head.003",
+      "bounds": [
+        [
+          5.018631935119629,
+          5.401599884033203,
+          5.7452497482299805
+        ],
+        [
+          5.05136775970459,
+          5.4384002685546875,
+          5.758549690246582
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang bolt L shank.003",
+      "bounds": [
+        [
+          5.025136470794678,
+          5.410136699676514,
+          5.721271991729736
+        ],
+        [
+          5.044863224029541,
+          5.429863452911377,
+          5.743327617645264
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang bolt R washer.003",
+      "bounds": [
+        [
+          5.189057350158691,
+          5.394057273864746,
+          5.73749303817749
+        ],
+        [
+          5.24094295501709,
+          5.4459428787231445,
+          5.742505073547363
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang bolt R head.003",
+      "bounds": [
+        [
+          5.19863224029541,
+          5.401599884033203,
+          5.7452497482299805
+        ],
+        [
+          5.231368064880371,
+          5.4384002685546875,
+          5.758549690246582
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang bolt R shank.003",
+      "bounds": [
+        [
+          5.205136775970459,
+          5.410136699676514,
+          5.721271991729736
+        ],
+        [
+          5.224863529205322,
+          5.429863452911377,
+          5.743327617645264
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang clevis.004",
+      "bounds": [
+        [
+          0.824999988079071,
+          5.369999885559082,
+          5.559999942779541
+        ],
+        [
+          0.925000011920929,
+          5.470000267028809,
+          5.679999828338623
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang plate.004",
+      "bounds": [
+        [
+          0.7150000333786011,
+          5.300000190734863,
+          5.674999713897705
+        ],
+        [
+          1.034999966621399,
+          5.539999961853027,
+          5.724999904632568
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang bolt L washer.004",
+      "bounds": [
+        [
+          0.7590574026107788,
+          5.394057273864746,
+          5.73749303817749
+        ],
+        [
+          0.8109426498413086,
+          5.4459428787231445,
+          5.742505073547363
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang bolt L head.004",
+      "bounds": [
+        [
+          0.768632173538208,
+          5.401599884033203,
+          5.7452497482299805
+        ],
+        [
+          0.8013678789138794,
+          5.4384002685546875,
+          5.758549690246582
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang bolt L shank.004",
+      "bounds": [
+        [
+          0.7751367092132568,
+          5.410136699676514,
+          5.721271991729736
+        ],
+        [
+          0.7948633432388306,
+          5.429863452911377,
+          5.743327617645264
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang bolt R washer.004",
+      "bounds": [
+        [
+          0.9390573501586914,
+          5.394057273864746,
+          5.73749303817749
+        ],
+        [
+          0.9909425973892212,
+          5.4459428787231445,
+          5.742505073547363
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang bolt R head.004",
+      "bounds": [
+        [
+          0.9486321210861206,
+          5.401599884033203,
+          5.7452497482299805
+        ],
+        [
+          0.981367826461792,
+          5.4384002685546875,
+          5.758549690246582
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW hang bolt R shank.004",
+      "bounds": [
+        [
+          0.9551366567611694,
+          5.410136699676514,
+          5.721271991729736
+        ],
+        [
+          0.9748632907867432,
+          5.429863452911377,
+          5.743327617645264
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW beam roof spacer",
+      "bounds": [
+        [
+          8.489999771118164,
+          3.0900001525878906,
+          5.829999923706055
+        ],
+        [
+          8.610000610351562,
+          3.2100000381469727,
+          6.0
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW beam ceiling plate",
+      "bounds": [
+        [
+          8.40999984741211,
+          3.0199999809265137,
+          5.968000411987305
+        ],
+        [
+          8.690000534057617,
+          3.2800002098083496,
+          6.0
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW beam roof spacer.001",
+      "bounds": [
+        [
+          8.489999771118164,
+          5.889999866485596,
+          5.829999923706055
+        ],
+        [
+          8.610000610351562,
+          6.009999752044678,
+          6.0
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW beam ceiling plate.001",
+      "bounds": [
+        [
+          8.40999984741211,
+          5.819999694824219,
+          5.968000411987305
+        ],
+        [
+          8.690000534057617,
+          6.079999923706055,
+          6.0
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW beam roof spacer.002",
+      "bounds": [
+        [
+          0.8149999976158142,
+          5.360000133514404,
+          5.829999923706055
+        ],
+        [
+          0.9350000023841858,
+          5.480000019073486,
+          6.0
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW beam ceiling plate.002",
+      "bounds": [
+        [
+          0.7350000143051147,
+          5.289999961853027,
+          5.968000411987305
+        ],
+        [
+          1.0149999856948853,
+          5.550000190734863,
+          6.0
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW beam roof spacer.003",
+      "bounds": [
+        [
+          5.065000057220459,
+          5.360000133514404,
+          5.829999923706055
+        ],
+        [
+          5.184999942779541,
+          5.480000019073486,
+          6.0
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "CW beam ceiling plate.003",
+      "bounds": [
+        [
+          4.985000133514404,
+          5.289999961853027,
+          5.968000411987305
+        ],
+        [
+          5.264999866485596,
+          5.550000190734863,
+          6.0
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "EJ exhaust end cap",
+      "bounds": [
+        [
+          2.944000005722046,
+          9.228750228881836,
+          5.49399995803833
+        ],
+        [
+          3.055999994277954,
+          9.251249313354492,
+          5.6060004234313965
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    },
+    {
+      "object": "hoist hang R",
+      "bounds": [
+        [
+          8.88599967956543,
+          3.5360000133514404,
+          5.640000343322754
+        ],
+        [
+          8.913999557495117,
+          3.563999891281128,
+          5.998000144958496
+        ]
+      ],
+      "classification": "inherited R34 structure / roof mating; NOT a universal height-cap pass"
+    }
+  ],
+  "height_exception_count": 260,
+  "saved_fixture_measurements": [
+    {
+      "object": "gallery inspection fixture",
+      "evaluated_bounds": [
+        [
+          6.175000190734863,
+          4.03000020980835,
+          5.400000095367432
+        ],
+        [
+          6.326000213623047,
+          4.170000076293945,
+          5.539999961853027
+        ]
+      ]
+    },
+    {
+      "object": "gallery inspection lens",
+      "evaluated_bounds": [
+        [
+          6.184999942779541,
+          4.039999961853027,
+          5.414000034332275
+        ],
+        [
+          6.304999828338623,
+          4.159999847412109,
+          5.526000022888184
+        ]
+      ]
+    },
+    {
+      "object": "gallery inspection fixture.001",
+      "evaluated_bounds": [
+        [
+          3.130000114440918,
+          6.119999885559082,
+          5.400000095367432
+        ],
+        [
+          3.2699999809265137,
+          6.270999908447266,
+          5.539999961853027
+        ]
+      ]
+    },
+    {
+      "object": "gallery inspection lens.001",
+      "evaluated_bounds": [
+        [
+          3.140000104904175,
+          6.130000114440918,
+          5.414000034332275
+        ],
+        [
+          3.259999990463257,
+          6.25,
+          5.526000022888184
+        ]
+      ]
+    }
+  ],
+  "process_id": 10091,
+  "interpretation": "Preserve R34 roof/U04 mating and gallery layout. Cap lights/new finish fixtures, retain inherited structural upper extents. Source gallery audit passes; assembled 2m gallery headroom is NOT certified. Optional owner clarification remains unanswered.",
+  "optional_reach_work": "A1 reach-check overhead valves/isolate hook not altered; no engine interaction certification.",
+  "fixture_metadata_query_checks": [
+    {
+      "object": "gallery inspection fixture",
+      "direct_mesh_bounds": [
+        [
+          6.175000190734863,
+          4.03000020980835,
+          5.400000095367432
+        ],
+        [
+          6.326000213623047,
+          4.170000076293945,
+          5.539999961853027
+        ]
+      ],
+      "maximum_delta_from_evaluated_metres": 0.0
+    },
+    {
+      "object": "gallery inspection fixture.001",
+      "direct_mesh_bounds": [
+        [
+          3.130000114440918,
+          6.119999885559082,
+          5.400000095367432
+        ],
+        [
+          3.2699999809265137,
+          6.270999908447266,
+          5.539999961853027
+        ]
+      ],
+      "maximum_delta_from_evaluated_metres": 0.0
+    }
+  ],
+  "current_metadata_query_builder_sha256": "cafd3f6282e589c35465acf9fa4bb54787a6707f7a13232c0b270d81c0106735",
+  "audit_script_sha256": "e0c73dcae9fb952452d49f965278a138614073d2bb7c1f616d8950c92fa2de6b"
+}

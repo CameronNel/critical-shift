@@ -1,0 +1,29 @@
+{
+  "scope": "Frozen input bytes and untouched combined-script diff screen; original LFS inputs remain at base main revision. Not a render or geometry acceptance.",
+  "inputs": [
+    {
+      "path": "sections/facility-assembly/sources/condenser-bay/module.blend",
+      "working_file_sha256": "7a58204e39fd0a4f7a3dde05632caa6f001a30611ad8d00b7fc29e1452a7a2d0",
+      "git_diff_empty": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/condenser-bay/module_aaa_A1.blend",
+      "working_file_sha256": "1e658dd2afcd7c347aef105a2aafc61d2f4a1d3cefaf96b76ddf1824ecc4f1ff",
+      "git_diff_empty": true
+    },
+    {
+      "path": "sections/facility-assembly/sources/condenser-bay/accepted.blend",
+      "working_file_sha256": "9dea3631ba40f41efb0ba09a8635df92207fbe6aad419c898f68d90fc4199a93",
+      "git_diff_empty": true,
+      "representation": "LFS pointer remains unhydrated and unchanged"
+    }
+  ],
+  "combined_script_diff": "diff --git a/sections/facility-assembly/combined/build_compact_map.py b/sections/facility-assembly/combined/build_compact_map.py\nindex f5bab431..4a5b7e0a 100644\n--- a/sections/facility-assembly/combined/build_compact_map.py\n+++ b/sections/facility-assembly/combined/build_compact_map.py\n@@ -81,7 +81,7 @@ NEW += [\n     ('electrical-room', 'electrical-room/overhaul/checkpoints/full-R11.blend', 'MODULE_electrical-room', ELEC, -90.0,\n      'ASSEMBLY: on the turbine east flank. D01 exterior face (module y -0.25) on the turbine shell outer face (module x 10.25) at turbine-local y %.1f; rotation -90 turns D01 to face west. '\n      'D02 closed (emergency exit to the east road).' % ELEC_DOOR_Y),\n-    ('condenser-bay', 'condenser-bay/module_aaa_A1.blend', 'MODULE_condenser-bay', COND, 0.0,\n+    ('condenser-bay', 'condenser-bay/module_aaa_A2.blend', 'MODULE_condenser-bay', COND, 0.0,\n      'Under the turbine, origin at turbine (1.6, 7.4, -6.0) (its CONNECTIONS.md). D01 stub blanking removed locally; reached by the new condenser stair.'),\n     ('waste-storage', 'waste-storage/module_aaa_A1.blend', 'MODULE_waste-storage', WASTE, -90.0,\n      'ASSEMBLY: on the reactor east wall. WS_RECEIVING exterior face (module y -0.32) on the reactor east outer face (reactor-local x 11.6) at reactor-local y %.2f; rotation -90 turns receiving west. '\n",
+  "other_combined_script_diffs": [],
+  "base_commit": "82c2911748bdd00f0c4e5b4b07efc30ac1a82b16",
+  "source_contract_diffs": [],
+  "source_base_commit": "82c2911748bdd00f0c4e5b4b07efc30ac1a82b16",
+  "current_native_sha256": "5c1277da8d68c89abacaf851fbd8a70467032afaa86ff8fafe2f5e7951a73388",
+  "original_recipe_archive_sha256": "e2e1a0b2c72cefafc72084cec8e2cd04915cb1643ff8d35a4a1242017786d777",
+  "current_builder_metadata_only_proof": "evidence-A2/postflight-R5c/commands.json"
+}

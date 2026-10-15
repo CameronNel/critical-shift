@@ -1,0 +1,33 @@
+00:00.401  blend            | Read blend: "/workspace/critical-shift/sections/facility-assembly/combined/combined_map.blend"
+00:00.732  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/refinery/exterior-R01.blend', '//../exteriors/refinery/exterior-R01.blend', parent '<direct>'
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)
+00:00.743  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/medical-reanimation/exterior-R04.blend', '//../exteriors/medical-reanimation/exterior-R04.blend', parent '<direct>'
+00:00.767  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/spawn-room/exterior-R05.blend', '//../exteriors/spawn-room/exterior-R05.blend', parent '<direct>'
+00:00.801  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/front-end-area/front_end_area.blend', '//../sources/front-end-area/front_end_area.blend', parent '<direct>'
+00:01.479  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/electrical-room/overhaul/checkpoints/full-R11.blend', '//../sources/electrical-room/overhaul/checkpoints/full-R11.blend', parent '<direct>'
+00:02.516  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend', '//../sources/spawn-room/module.blend', parent '<direct>'
+00:03.519  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/waste-storage/module_aaa_A1.blend', '//../sources/waste-storage/module_aaa_A1.blend', parent '<direct>'
+00:04.502  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/cooling-plant/module_aaa_A1.blend', '//../sources/cooling-plant/module_aaa_A1.blend', parent '<direct>'
+00:05.352  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay/module_aaa_A2.blend', '//../sources/condenser-bay/module_aaa_A2.blend', parent '<direct>'
+00:06.729  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/refinery/module_overhaul_R1.blend', '//../sources/refinery/module_overhaul_R1.blend', parent '<direct>'
+00:07.672  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend', '//../sources/compliance-dock/module_overhaul_R1.blend', parent '<direct>'
+00:08.874  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/module_overhaul_R2.blend', '//../sources/medical-reanimation/module_overhaul_R2.blend', parent '<direct>'
+00:09.994  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/mine-r39/module_r39_aaa.blend', '//../sources/mine-r39/module_r39_aaa.blend', parent '<direct>'
+00:10.370  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/fuel-corridor/module_short_S1.blend', '//../sources/fuel-corridor/module_short_S1.blend', parent '<direct>'
+00:10.770  reports          | Read library: '/workspace/critical-shift/sections/reactor-room/blender/reactorroom.blend', '//../../reactor-room/blender/reactorroom.blend', parent '<direct>'
+00:12.263  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/turbine-room/rebuild/turbine_room_v2_geo.blend', '//../sources/turbine-room/rebuild/turbine_room_v2_geo.blend', parent '<direct>'
+00:12.355  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/hero_suit.blend', '//hero_suit.blend', parent '/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend'
+00:26.235  cycles           | WARNING Maximum number of closures exceeded: 96 > 64
+00:48.161  render           | Saved: '/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay/evidence-A2/map-R3b-quick/renders/stair_bottom.png'
+00:56.866  cycles           | WARNING Maximum number of closures exceeded: 96 > 64
+01:20.633  render           | Saved: '/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay/evidence-A2/map-R3b-quick/renders/condenser_D01.png'
+01:28.908  cycles           | WARNING Maximum number of closures exceeded: 96 > 64
+01:50.802  render           | Saved: '/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay/evidence-A2/map-R3b-quick/renders/condenser_inside.png'
+01:59.399  cycles           | WARNING Maximum number of closures exceeded: 96 > 64
+02:21.960  render           | Saved: '/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay/evidence-A2/map-R3b-quick/renders/condenser_escape_tunnel.png'
+LIGHT stair_bottom                       median 0.770 mean 0.755 p10 0.628 black 0.00 clip 0.018 ok
+LIGHT condenser_D01                      median 0.823 mean 0.790 p10 0.643 black 0.00 clip 0.034 ok
+LIGHT condenser_inside                   median 0.760 mean 0.719 p10 0.415 black 0.00 clip 0.068 DARK/HOT
+LIGHT condenser_escape_tunnel            median 0.766 mean 0.743 p10 0.605 black 0.04 clip 0.000 ok
+
+Blender quit

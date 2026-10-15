@@ -1,0 +1,54 @@
+00:00.359  blend            | Read blend: "/workspace/critical-shift/sections/facility-assembly/combined/combined_map.blend"
+00:00.683  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/refinery/exterior-R01.blend', '//../exteriors/refinery/exterior-R01.blend', parent '<direct>'
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)
+00:00.694  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/medical-reanimation/exterior-R04.blend', '//../exteriors/medical-reanimation/exterior-R04.blend', parent '<direct>'
+00:00.720  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/spawn-room/exterior-R05.blend', '//../exteriors/spawn-room/exterior-R05.blend', parent '<direct>'
+00:00.755  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/front-end-area/front_end_area_cafeteria_revamp.blend', '//../sources/front-end-area/front_end_area_cafeteria_revamp.blend', parent '<direct>'
+00:01.465  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/electrical-room/overhaul/checkpoints/full-R11.blend', '//../sources/electrical-room/overhaul/checkpoints/full-R11.blend', parent '<direct>'
+00:02.465  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend', '//../sources/spawn-room/module.blend', parent '<direct>'
+00:03.521  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/waste-storage/module_aaa_A1.blend', '//../sources/waste-storage/module_aaa_A1.blend', parent '<direct>'
+00:04.451  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/cooling-plant/module_aaa_A1.blend', '//../sources/cooling-plant/module_aaa_A1.blend', parent '<direct>'
+00:05.343  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay/module_aaa_A2.blend', '//../sources/condenser-bay/module_aaa_A2.blend', parent '<direct>'
+00:06.862  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/refinery/module_overhaul_R1.blend', '//../sources/refinery/module_overhaul_R1.blend', parent '<direct>'
+00:07.738  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend', '//../sources/compliance-dock/module_overhaul_R1.blend', parent '<direct>'
+00:08.976  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/module_overhaul_R2.blend', '//../sources/medical-reanimation/module_overhaul_R2.blend', parent '<direct>'
+00:10.159  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/mine-r39/module_r39_aaa.blend', '//../sources/mine-r39/module_r39_aaa.blend', parent '<direct>'
+00:10.577  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/fuel-corridor/module_short_S1.blend', '//../sources/fuel-corridor/module_short_S1.blend', parent '<direct>'
+00:11.004  reports          | Read library: '/workspace/critical-shift/sections/reactor-room/blender/reactorroom.blend', '//../../reactor-room/blender/reactorroom.blend', parent '<direct>'
+00:12.482  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/turbine-room/rebuild/turbine_room_v2_geo.blend', '//../sources/turbine-room/rebuild/turbine_room_v2_geo.blend', parent '<direct>'
+00:12.567  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/hero_suit.blend', '//hero_suit.blend', parent '/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend'
+TRIANGLES near walking heights 8010635 6s  
+ROUTE spawn_to_reactor                     PASS  lane 71.6 m
+ROUTE reactor_to_turbine_to_electrical     PASS  lane 43.6 m
+ROUTE turbine_to_condenser                 PASS  lane 46.9 m
+ROUTE reactor_to_cooling                   PASS  lane 15.0 m
+ROUTE reactor_to_waste                     PASS  lane 36.0 m
+ROUTE spine_to_dock                        PASS  lane 22.6 m
+ROUTE refinery_fuel_to_reactor             PASS  lane 46.0 m
+ROUTE refinery_fuel_to_reactor_shortest    PASS  lane 41.4 m
+ROUTE hall_to_refinery                     PASS  lane 31.6 m
+ROUTE cafeteria_to_yard_to_mine            PASS  lane 66.4 m
+ROUTE yard_to_refinery_freight (cart route) FAIL  stuck at 6.5 m: capsule hits ROOM_refinery / Tip_lock_handle at (-22.15, -59.27, 0.65)
+ROUTE cafeteria_to_medical                 PASS  lane 23.0 m
+ROUTE reactor_to_dock                      PASS  lane 30.4 m
+ROUTE medical_to_reactor                   PASS  lane 76.5 m
+ROUTE spawn_to_mine_portal                 PASS  lane 83.3 m
+ROUTE spawn_to_electrical                  PASS  lane 140.3 m
+ROUTE reactor_to_condenser                 PASS  lane 54.1 m
+ROUTE spawn_to_waste                       PASS  lane 98.4 m
+BLOCK CONDENSER_W_ESCAPE blocks
+BLOCK ESCAPE_HOUSE_DOOR  blocks
+BLOCK TURBINE_D02        blocks
+BLOCK ELECTRICAL_D02     blocks
+BLOCK WASTE_DISPATCH     blocks
+BLOCK WASTE_PERSONNEL    blocks
+BLOCK REACTOR_SE         blocks
+BLOCK HALL_EAST          blocks
+BLOCK DOCK_P2            blocks
+BLOCK SPINE_NORTH_END    blocks
+BLOCK COOLING_W_EXIT     blocks
+BLOCK YARD_SERVICE       blocks
+BLOCK YARD_EVAC_GATE     blocks
+WALK done 299s: 17/18 routes pass, 13/13 closed doors block
+
+Blender quit

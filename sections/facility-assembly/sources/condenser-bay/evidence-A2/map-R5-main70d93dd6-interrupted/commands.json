@@ -1,0 +1,31 @@
+{
+  "label": "map-R5",
+  "source_blend": "module_aaa_A2.blend",
+  "commands": [
+    {
+      "check": "performance",
+      "argv": [
+        "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+        "--background",
+        "--disable-autoexec",
+        "--threads",
+        "5",
+        "combined_map.blend",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "perf_report.py",
+        "--",
+        "validation/perf_report.json"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/combined",
+      "exit_code": 0,
+      "seconds": 29.09
+    }
+  ],
+  "status": "RUNNING",
+  "blender": "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+  "scope": "Existing static map checks and scoped Blender FBX round trip; no Unity engine or FPS run.",
+  "source_sha256": "1f63a0c13e55c3808f280bddb0b568db9a774bf71877fd9b8c05adfeb6e01530",
+  "map_sha256": "83055c6e9b1980e28ac9a8482516fc93b776035f850b6fc884a0dccc1144844d"
+}

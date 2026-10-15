@@ -1,0 +1,132 @@
+{
+  "revision": "R4-supplemental",
+  "count": 7,
+  "same_saved_blend": true,
+  "comparison_pack": "cold-R4-supplemental",
+  "comparison_kind": "cold",
+  "all_separate_process": true,
+  "all_1920x1080": true,
+  "worst_mean_delta_255": 0.0,
+  "visual_acceptance": "independent pixel review required",
+  "cameras": [
+    {
+      "camera": "S01_LOCAL_U02",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "warm_sha256": "75f94bfbe9abddeb309b5e1fd6cafd29e08aa76001d7030af19bc1310c7ac23f",
+      "cold_sha256": "b8535728239abbde05dc45ffc8a36c2aab0ff2eee89f6291d13983840d94347d",
+      "max_channel_delta_255": 0,
+      "mean_channel_delta_255": 0.0,
+      "changed_pixel_fraction": 0.0,
+      "fraction_pixels_delta_gt8": 0.0,
+      "warm_process_id": 17530,
+      "cold_process_id": 17709,
+      "separate_process": true
+    },
+    {
+      "camera": "S02_LOCAL_CW",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "warm_sha256": "005142502c2ce916343193992cfde2b52796b6794211e98f7efb194a34455782",
+      "cold_sha256": "fffe9170069cce589260dd909a015fdb1bdfd1c268ee7da501742cc06cdf607b",
+      "max_channel_delta_255": 0,
+      "mean_channel_delta_255": 0.0,
+      "changed_pixel_fraction": 0.0,
+      "fraction_pixels_delta_gt8": 0.0,
+      "warm_process_id": 17530,
+      "cold_process_id": 17709,
+      "separate_process": true
+    },
+    {
+      "camera": "S03_FULL_ROOF",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "warm_sha256": "1d7c4e66d708e782b8dafd47e966370886bcd00132edfc2a4dac56fbc26cdd97",
+      "cold_sha256": "df3772870713b2c75a05c7db15b4ef0bd00829a0d5fddeef3e26f368c7dba878",
+      "max_channel_delta_255": 0,
+      "mean_channel_delta_255": 0.0,
+      "changed_pixel_fraction": 0.0,
+      "fraction_pixels_delta_gt8": 0.0,
+      "warm_process_id": 17530,
+      "cold_process_id": 17709,
+      "separate_process": true
+    },
+    {
+      "camera": "S04_GLASS",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "warm_sha256": "afb80545bc1a01f7ae2f7efb0a21573c4440ed88472a27a23a5cb394687e5e4f",
+      "cold_sha256": "35f685a2420192a5a0631d0dde7191ec54ca115d75de02c53b9721c7107d8071",
+      "max_channel_delta_255": 0,
+      "mean_channel_delta_255": 0.0,
+      "changed_pixel_fraction": 0.0,
+      "fraction_pixels_delta_gt8": 0.0,
+      "warm_process_id": 17530,
+      "cold_process_id": 17709,
+      "separate_process": true
+    },
+    {
+      "camera": "S05_FEET",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "warm_sha256": "148fbc037c0483b838c568085ef86bfadeab349f60d924b5b8b9c6fcea9d056c",
+      "cold_sha256": "53cafc2db4753a2b6def63de2c8be597fe82fae9580ba6556965180b75e181ca",
+      "max_channel_delta_255": 0,
+      "mean_channel_delta_255": 0.0,
+      "changed_pixel_fraction": 0.0,
+      "fraction_pixels_delta_gt8": 0.0,
+      "warm_process_id": 17530,
+      "cold_process_id": 17709,
+      "separate_process": true
+    },
+    {
+      "camera": "S06_OPERATOR_WORK",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "warm_sha256": "8dd3c40f4a72323d27a6367883b81cc5d89b364c4887c9335bc03b1afb9477fe",
+      "cold_sha256": "29a491f2c12484f69f03129293f3cc7bac601c852c03809102939ca7171267b0",
+      "max_channel_delta_255": 0,
+      "mean_channel_delta_255": 0.0,
+      "changed_pixel_fraction": 0.0,
+      "fraction_pixels_delta_gt8": 0.0,
+      "warm_process_id": 17530,
+      "cold_process_id": 17709,
+      "separate_process": true
+    },
+    {
+      "camera": "S07_U04_CUTAWAY",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "warm_sha256": "64512ee1b14011dd2ce1781525c35829f322f2df635cc408196b5dfa504a84b7",
+      "cold_sha256": "8b16305d53d23178e2651d9a831811c2b090f68e5a0f2871420aa1e3142ac098",
+      "max_channel_delta_255": 0,
+      "mean_channel_delta_255": 0.0,
+      "changed_pixel_fraction": 0.0,
+      "fraction_pixels_delta_gt8": 0.0,
+      "warm_process_id": 17530,
+      "cold_process_id": 17709,
+      "separate_process": true
+    }
+  ],
+  "numeric_tolerance": {
+    "maximum_channel_delta_255": 2,
+    "mean_channel_delta_255": 0.01,
+    "fraction_pixels_delta_gt8": 0.0
+  },
+  "numeric_match": true,
+  "status": "PASS"
+}

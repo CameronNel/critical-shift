@@ -1,0 +1,86 @@
+{
+  "revision": "R5b-pipe-preview",
+  "engine": "CYCLES",
+  "device": "CPU",
+  "cpu_threads": 5,
+  "threads_mode": "FIXED",
+  "process_priority": "NICE10",
+  "gpu_denoising": false,
+  "gpu_backend": null,
+  "gpu_devices": null,
+  "hardware_raytracing": false,
+  "persistent_data": true,
+  "samples": 16,
+  "resolution": [
+    1920,
+    1080
+  ],
+  "render_settings": {
+    "max_bounces": 10,
+    "diffuse_bounces": 3,
+    "glossy_bounces": 3,
+    "transmission_bounces": 8,
+    "transparent_max_bounces": 8,
+    "sample_clamp_indirect": 3.0,
+    "adaptive_threshold": 0.03999999910593033,
+    "seed": 0,
+    "denoiser": "OPENIMAGEDENOISE"
+  },
+  "renderer_source_sha256": {
+    "render.py": "01f8a50f279ebd8d869dd4ef829435148b552e8d67af0440827aacc38968c5fc",
+    "resource_guard.py": "f034c6172cae782787b9cb3c497be0364f69a8220a6b89981b47192ad2a332af",
+    "astra_evidence.py": "4b5a52f2c9d7a23e52dfc33dd2509d56b81fd7ff31e22e84ceb66065e9c471e2",
+    "kit.py": "9b6eddbe25980b1e574c065306d72a52bbed8f2fd689691ad1d37ba0dc0fde23"
+  },
+  "cameras": [
+    {
+      "camera": "S02_LOCAL_CW",
+      "seconds": 132.74,
+      "sha256": "0d8d1351c8715e884c37cab243f91c1364575cfc9796f3c4981f30b387860bf4",
+      "location": [
+        7.5,
+        6.25,
+        3.5
+      ],
+      "lens": 26.0,
+      "matrix_world": [
+        [
+          -0.7237374782562256,
+          0.08074451982975006,
+          -0.6853352785110474,
+          7.5
+        ],
+        [
+          -0.6900753974914551,
+          -0.0846833661198616,
+          0.7187660336494446,
+          6.25
+        ],
+        [
+          -7.897722298366716e-08,
+          0.9931309223175049,
+          0.11700832843780518,
+          3.5
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "process_id": 4005
+    }
+  ],
+  "process_id": 4005,
+  "source_revision": "A2-R5b",
+  "blend_sha256": "e33435ccf2527ea17b02b1c96756a9f9af54fdca3572608ff044f6f67f6a4cf7",
+  "cloud_resource_adapter": {
+    "file": "condenser_A2_supplement.py",
+    "sha256": "928b2d2b0fceead7e5b8e9f5fd71ed6b4a4df9f18fef4524e49b327d29803d9c",
+    "linux_nice": 10,
+    "cpu_threads": 5,
+    "scene_saved": false,
+    "original_scripts_unchanged": true
+  }
+}

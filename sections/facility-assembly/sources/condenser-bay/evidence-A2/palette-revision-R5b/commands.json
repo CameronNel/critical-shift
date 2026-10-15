@@ -1,0 +1,100 @@
+{
+  "status": "FAIL",
+  "native_sha256": "e33435ccf2527ea17b02b1c96756a9f9af54fdca3572608ff044f6f67f6a4cf7",
+  "commands": [
+    {
+      "stage": "material-diagnostics-R5b",
+      "argv": [
+        "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+        "--background",
+        "--disable-autoexec",
+        "--threads",
+        "5",
+        "module_aaa_A2.blend",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "render_A2_material_board.py",
+        "--",
+        "--label",
+        "material-diagnostics-R5b"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay",
+      "exit_code": 0,
+      "seconds": 241.57
+    },
+    {
+      "stage": "room-audits",
+      "argv": [
+        "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+        "--background",
+        "--disable-autoexec",
+        "--threads",
+        "5",
+        "module_aaa_A2.blend",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "condenser_A2_evidence.py",
+        "--",
+        "audit",
+        "--label",
+        "R5b"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay",
+      "exit_code": 0,
+      "seconds": 8.38
+    },
+    {
+      "stage": "constraints",
+      "argv": [
+        "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+        "--background",
+        "--disable-autoexec",
+        "--threads",
+        "5",
+        "module_aaa_A2.blend",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "audit_A2_constraints.py"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay",
+      "exit_code": 0,
+      "seconds": 1.52
+    },
+    {
+      "stage": "build-map",
+      "argv": [
+        "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+        "--background",
+        "--disable-autoexec",
+        "--threads",
+        "5",
+        "--factory-startup",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "build_compact_map.py"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/combined",
+      "exit_code": 0,
+      "seconds": 37.63
+    },
+    {
+      "stage": "map-checks",
+      "argv": [
+        "python3",
+        "run_A2_map_checks.py",
+        "--blender",
+        "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+        "--label",
+        "map-R5b"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay",
+      "exit_code": 1,
+      "seconds": 26.89
+    }
+  ],
+  "scope": "Corrected R5b machinery palette, profiles and world-frame mapping. Reuse the actual completed diagnostics against the identical saved native. Original numeric thresholds unchanged."
+}

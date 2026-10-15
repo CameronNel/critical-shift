@@ -81,7 +81,7 @@ NEW += [
     ('electrical-room', 'electrical-room/overhaul/checkpoints/full-R11.blend', 'MODULE_electrical-room', ELEC, -90.0,
      'ASSEMBLY: on the turbine east flank. D01 exterior face (module y -0.25) on the turbine shell outer face (module x 10.25) at turbine-local y %.1f; rotation -90 turns D01 to face west. '
      'D02 closed (emergency exit to the east road).' % ELEC_DOOR_Y),
-    ('condenser-bay', 'condenser-bay/module_aaa_A1.blend', 'MODULE_condenser-bay', COND, 0.0,
+    ('condenser-bay', 'condenser-bay/module_aaa_A2.blend', 'MODULE_condenser-bay', COND, 0.0,
      'Under the turbine, origin at turbine (1.6, 7.4, -6.0) (its CONNECTIONS.md). D01 stub blanking removed locally; reached by the new condenser stair.'),
     ('waste-storage', 'waste-storage/module_aaa_A1.blend', 'MODULE_waste-storage', WASTE, -90.0,
      'ASSEMBLY: on the reactor east wall. WS_RECEIVING exterior face (module y -0.32) on the reactor east outer face (reactor-local x 11.6) at reactor-local y %.2f; rotation -90 turns receiving west. '

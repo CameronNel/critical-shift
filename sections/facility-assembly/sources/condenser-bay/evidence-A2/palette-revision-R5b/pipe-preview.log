@@ -1,0 +1,11 @@
+00:00.373  blend            | Read blend: "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay/module_aaa_A2.blend"
+/tmp/condenser-supplement-vux_2krw/blender/astra_evidence.py:47: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  material=bpy.data.materials.new('Evidence caption white');material.use_nodes=True
+00:01.072  cycles           | WARNING CUEW initialization failed: Error opening the library
+CONDENSER_RENDER_START R5b-pipe-preview ['S02_LOCAL_CW']
+02:13.811  render           | Saved: '/tmp/condenser-supplement-vux_2krw/production/renders/review/R5b-pipe-preview/S02_LOCAL_CW.png'
+CONDENSER_CAMERA_DONE S02_LOCAL_CW
+CONDENSER_RENDER_OK R5b-pipe-preview
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)
+
+Blender quit
