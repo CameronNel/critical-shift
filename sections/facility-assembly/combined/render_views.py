@@ -3,7 +3,7 @@
     blender --background combined_map.blend --python render_views.py -- views.json
 
 views.json: {"out": "dir", "res": [768, 432], "samples": 28, "hide": ["ROOM_mine"],
-             "views": {"name": [[eye x, y, z], [target x, y, z], lens_mm], ...}}
+             "views": {"name": [[eye x, y, z], [target x, y, z], lens_mm, optional frame], ...}}
 Plan metres (+x east, +y north). "hide" lists objects to hide for speed (ROOM_mine has 4.08M triangles, hide it for views that do not look into the mine).
 A view whose camera lands inside geometry renders as a wall: check the image, move the eye. Keeps the scene's own dusk lighting unless "world" is given.
 """
@@ -23,4 +23,5 @@ for name,(eye,tgt,lens,*rest) in cfg['views'].items():
     c=bpy.data.cameras.new(name); c.lens=lens; c.clip_start=0.05; c.clip_end=800
     o=bpy.data.objects.new(name,c); sc.collection.objects.link(o); o.location=eye
     o.rotation_euler=(Vector(tgt)-Vector(eye)).to_track_quat('-Z','Y').to_euler()
+    if rest: sc.frame_set(int(rest[0]))   # optional 4th value: the frame to render (animated scenes, e.g. the ore cart); otherwise the current frame
     sc.camera=o; sc.render.filepath=os.path.join(out,name+'.png'); bpy.ops.render.render(write_still=True)

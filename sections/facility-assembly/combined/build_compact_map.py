@@ -487,7 +487,7 @@ def patch_fuel(wrap, lib_coll, omit):
 # Module frame: the rail runs along +x (plan +y, the yard is at -x); plan west, the tipper's side, is module +y.
 CART_LOOP = 576            # frames at the scene's 24 fps: 24 s; frame 577 equals frame 1
 CART_TRAVEL = 7.0          # m from the tipper to the yard end of the straight rail (the curve onto the mine lane starts 8.1 m out)
-CART_TIP_DEG = 70.0        # tipper swing: the largest angle clear of the receiving hopper's walls (cart_check.py --tip-sweep)
+CART_TIP_DEG = 75.0        # tipper swing: 5 degrees short of the largest angle clear of the receiving hopper (80; cart_check.py --tip-sweep)
 CART_TRUNNION = 0.12       # m the trunnion bearings and the tip axis move outboard (module +y) to clear the wheels and axles
 CART_WHEELS = ('CSM_Cart_wheel', 'CSM_Cart_wheel.002', 'CSM_Cart_wheel.003', 'CSM_Cart_wheel.004')
 CART_TRUNNIONS = ('Tipper_trunnion_support', 'Tipper_trunnion_support.001', 'Tipper_trunnion_axle', 'Tipper_trunnion_axle.001')
@@ -537,7 +537,10 @@ def patch_refinery_cart(wrap, lib_coll, omit):
     part = {o.name for o in cart_tree + ore} | {root.name}
     for n, c in cp.items(): c['cart_part'] = int(n in part)
     pv, cart = cp['CART_SIDE_TIP_PIVOT'], cp['AUTHENTIC_GULLET_CART']; wheels = [cp[n] for n in CART_WHEELS]
-    guides = [cp[n] for n in cp if n.startswith('Captive_wheel_guide') and src.get(n) is not None and src[n].type == 'MESH']
+    # retractable parts of the cradle, lowered while the cart rolls: the captive wheel guides (0.05 m, under the flanges) and the retaining clamps (0.48 m, flush)
+    drops = {cp[n]: (0.48 if n.startswith('Cart_retaining_clamp') else 0.05) for n in cp
+             if n.startswith(('Captive_wheel_guide', 'Cart_retaining_clamp')) and src.get(n) is not None and src[n].type == 'MESH' and parent.get(n) == 'CART_SIDE_TIP_PIVOT'}
+    guides = list(drops)
     rail = objs.get('Mine_approach_rail')
     rail_top = bbox(rail)[1].z if rail else 0.12; r = BM.wm(objs[CART_WHEELS[0]]).translation.z - rail_top     # tread radius: axle height above the rail head
     # the lock folds toward the yard (module -x) about the hinge's y axis; the guides drop below the flanges
@@ -550,14 +553,14 @@ def patch_refinery_cart(wrap, lib_coll, omit):
         pv.rotation_euler.x = tip0 - math.radians(CART_TIP_DEG) * tip; pv.keyframe_insert('rotation_euler', index=0, frame=f)           # negative about x: the top swings west
         root.scale = (1.0, 1.0, max(fill, 0.01)); root.keyframe_insert('scale', index=2, frame=f)
         hinge.rotation_euler.y = h0 - math.radians(90) * open_; hinge.keyframe_insert('rotation_euler', index=1, frame=f)
-        for g in guides: g.location.z = g0[g.name] - 0.05 * open_; g.keyframe_insert('location', index=2, frame=f)
+        for g in guides: g.location.z = g0[g.name] - drops[g] * open_; g.keyframe_insert('location', index=2, frame=f)
     animated = [cart, pv, root, hinge] + wheels + guides
     for o in animated:
         o.animation_data.action.name = 'ORE_CART ' + o.name
         for fc in _fcurves(o): fc.modifiers.new('CYCLES')
     sc = bpy.context.scene; sc.frame_start, sc.frame_end = 1, CART_LOOP; sc.frame_set(1)
     CART_ANIM.update({c.name: c for c in cp.values()})
-    print('CART animated: %d objects copied (%d trunnion parts moved %.2f m outboard, %d lock parts), %d wheels (tread radius %.3f m), %d ore pieces, %d guides, loop %d frames at %d fps, '
+    print('CART animated: %d objects copied (%d trunnion parts moved %.2f m outboard, %d lock parts), %d wheels (tread radius %.3f m), %d ore pieces, %d guides and clamps, loop %d frames at %d fps, '
           'travel %.1f m, tip %.0f deg' % (len(cp), len(trun), CART_TRUNNION, len(lock), len(wheels), r, len(ore), len(guides), CART_LOOP, sc.render.fps, CART_TRAVEL, CART_TIP_DEG))
 
 def _reactor_objs(omit, wrap):
@@ -990,9 +993,11 @@ HALL_LIGHT_SCALE = {}    # connector collection -> light energy factor
 # mostly in scanned CC0 rocks and lanterns (34k triangles for a 0.44 m lantern, 66k to 98k for a 1 m boulder) and the tunnel and cliff terrain. The heaviest meshes
 # are decimated (collapse) once at build time into local meshes, each shared mesh once, so the saved map carries the light versions and nothing runs on load. The
 # mine module is not edited. Target: triangles per object (int) or a ratio (float); keyed by mesh data name, or by object name for the local terrain copies.
-MINE_LOD = {'R38 CC0 | namaqualand_boulder_02': 5000, 'R38 CC0 | namaqualand_boulder_05': 4000, 'R38 CC0 | boulder_01': 4000, 'R38 CC0 | Lantern_01': 2500,
-            'R38 CC0 | wine_barrel_01': 2500, 'R38 CC0 | vintage_oil_lamp': 1500,
-            'R39 | Gravel tunnel': 0.1, 'R40 | Mine cliff': 0.1, 'R39 | Tunnel floor': 0.4, 'R40 | Cliff ledge debris': 0.3, 'R40 | Cliff talus': 0.4}
+MINE_LOD = {'R38 CC0 | namaqualand_boulder_02': 4000, 'R38 CC0 | namaqualand_boulder_05': 3000, 'R38 CC0 | boulder_01': 3000, 'R38 CC0 | Lantern_01': 2000,
+            'R38 CC0 | wine_barrel_01': 2000, 'R38 CC0 | vintage_oil_lamp': 1200,
+            'R39 | Gravel tunnel': 0.08, 'R40 | Mine cliff': 0.08, 'R39 | Tunnel floor': 0.4, 'R40 | Cliff ledge debris': 0.25, 'R40 | Cliff talus': 0.4,
+            'R39 | Tunnel timber sets': 0.5, 'R39 | Tunnel lagging': 0.5, 'R39 | Loose rocks': 0.4, 'R39 | Ore crystals': 0.5, 'R39 | Skeletons': 0.5,
+            'R39 | Apron mud': 0.5, 'R39 | Floor nails': 0.3, 'R40 | Cliff crystals': 0.5, 'R39 | Pipe and duct hangers': 0.6, 'R39 | Lantern chains and hooks': 0.5}
 MINE_LOD_DONE = []      # (object, triangles before, after) for the report
 
 def slim_mine():
@@ -1022,7 +1027,7 @@ def slim_mine():
 
 def post_build():
     root = bpy.context.scene.collection.children['COMBINED_MAP']
-    slim_mine()
+    if os.environ.get('MINE_LOD', '1') != '0': slim_mine()       # MINE_LOD=0 builds the mine at full detail (before/after comparisons)
     bpy.context.scene['reactor_y'] = RY                      # read by walk_test.py, measure_lighting.py and the plan tools
     for name, strength in EMISSION_OVERRIDES.items():
         m = bpy.data.materials.get(name)
