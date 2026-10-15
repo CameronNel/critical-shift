@@ -478,6 +478,88 @@ def patch_fuel(wrap, lib_coll, omit):
         if o.name.startswith(('FC | Reactor transfer', 'FC | Refinery boundary')) and ('leaf' in o.name or 'wear' in o.name): omit.add(o.name); n += 1
     print('FUEL F01 and F02E leaves left out', n)
 
+# Refinery ore cart (owner, 2026-10-15: "animate minecart wheel"; the cart rolls in, tips and rolls out). The receiving bay's gullet cart, the side tipper's cradle,
+# its tip lock and its trunnion bearings are copied locally (the refinery module, done and dusted, is not edited) and keyed on one loop. Frame 1 is the authored pose
+# (parked, loaded, on the tipper, lock up), so every static check sees the room as built. The freight door is a cart door (owner, same day): people use the colonnade
+# door; cart_check.py checks the cart's whole cycle against the map. As authored the cart could not leave the tipper: both trunnion bearings stood 0.08 m into the west
+# wheels' path, the tip lock in front of the axle, and the captive wheel guides 0.015 m above the flange. In this copy the bearings (and the tip axis) sit CART_TRUNNION
+# outboard, the lock folds flat and the guides drop while the cart rolls, as a working tipper's would.
+# Module frame: the rail runs along +x (plan +y, the yard is at -x); plan west, the tipper's side, is module +y.
+CART_LOOP = 576            # frames at the scene's 24 fps: 24 s; frame 577 equals frame 1
+CART_TRAVEL = 7.0          # m from the tipper to the yard end of the straight rail (the curve onto the mine lane starts 8.1 m out)
+CART_TIP_DEG = 70.0        # tipper swing: the largest angle clear of the receiving hopper's walls (cart_check.py --tip-sweep)
+CART_TRUNNION = 0.12       # m the trunnion bearings and the tip axis move outboard (module +y) to clear the wheels and axles
+CART_WHEELS = ('CSM_Cart_wheel', 'CSM_Cart_wheel.002', 'CSM_Cart_wheel.003', 'CSM_Cart_wheel.004')
+CART_TRUNNIONS = ('Tipper_trunnion_support', 'Tipper_trunnion_support.001', 'Tipper_trunnion_axle', 'Tipper_trunnion_axle.001')
+CART_LOCK = ('Tip_lock_housing', 'Tip_lock_handle')
+#            frame, out along the rail (0..1 of CART_TRAVEL), tip (0..1), load (0..1), lock folded and guides down (0..1)
+CART_KEYS = [(1, 0, 0, 1, 0), (24, 0, 0, 1, 0), (72, 0, 1, 1, 0), (78, 0, 1, 1, 0), (96, 0, 1, 0, 0), (100, 0, 1, 0, 0), (148, 0, 0, 0, 0), (160, 0, 0, 0, 1),
+             (172, 0, 0, 0, 1), (340, 1, 0, 0, 1), (346, 1, 0, 0, 1), (382, 1, 0, 1, 1), (388, 1, 0, 1, 1), (556, 0, 0, 1, 1), (568, 0, 0, 1, 0), (CART_LOOP + 1, 0, 0, 1, 0)]
+CART_ANIM = {}             # name -> local copy (custom property cart_part: 1 cart and load, 0 tipper parts), for cart_check.py and the report
+
+def _fcurves(o):
+    from bpy_extras import anim_utils
+    ad = o.animation_data; return anim_utils.action_get_channelbag_for_slot(ad.action, ad.action_slot).fcurves
+
+def patch_refinery_cart(wrap, lib_coll, omit):
+    objs = {o.name: o for o in bpy.data.objects if o.library is not None and o.library == lib_coll.library}     # every collection of the module, not only the first
+    if not all(n in objs for n in ('CART_SIDE_TIP_PIVOT', 'AUTHENTIC_GULLET_CART') + CART_TRUNNIONS + CART_LOCK): print('CART rig missing: not animated'); return
+    def tree(o, out):
+        out.append(o)
+        for c in o.children: tree(c, out)
+        return out
+    rig = tree(objs['CART_SIDE_TIP_PIVOT'], []); cart_tree = tree(objs['AUTHENTIC_GULLET_CART'], [])
+    trun = [x for n in CART_TRUNNIONS for x in tree(objs[n], [])]; lock = [x for n in CART_LOCK for x in tree(objs[n], [])]
+    # the load: every ore piece of the receiving bay that sits inside the cart's hopper (loaded ore, the contained mound and the upper layer)
+    hlo, hhi = bbox(objs['CSM_Welded_hopper_shell']); lo, hi = hlo - Vector((0.05, 0.05, 0.05)), hhi + Vector((0.05, 0.05, 0.3))
+    ore = [o for n, o in objs.items() if n.startswith('RF1 |') and 'ore' in n.lower() and o.type == 'MESH' and o not in rig
+           and all(lo[i] <= v <= hi[i] for i, v in enumerate((bbox(o)[0] + bbox(o)[1]) / 2))]
+    W = {o.name: BM.wm(o) for o in rig + trun + lock + ore}                       # module-frame placement of every copy
+    out_y = Matrix.Translation((0, CART_TRUNNION, 0))
+    for o in trun: W[o.name] = out_y @ W[o.name]
+    W['CART_SIDE_TIP_PIVOT'] = out_y @ W['CART_SIDE_TIP_PIVOT']                  # the tip axis moves with the bearings; the cradle and the cart stay where they are
+    # helpers (local empties): the lock's hinge at the housing's yard-side foot, the load's root on the hopper floor (its scale empties the cart)
+    llo, lhi = bbox(objs['Tip_lock_housing'])
+    hinge = bpy.data.objects.new('Tip lock hinge anim', None); hinge.empty_display_size = 0.1; wrap.objects.link(hinge)
+    hinge.matrix_basis = Matrix.Translation((llo.x, (llo.y + lhi.y) / 2, llo.z))           # yard-side bottom edge of the housing
+    root = bpy.data.objects.new('Ore load root anim', None); root.empty_display_size = 0.2; wrap.objects.link(root)
+    root.matrix_basis = Matrix.Translation(((hlo.x + hhi.x) / 2, (hlo.y + hhi.y) / 2, hlo.z))
+    W[hinge.name], W[root.name] = hinge.matrix_basis.copy(), root.matrix_basis.copy()
+    src = {o.name: o for o in rig + trun + lock + ore}; cp = {hinge.name: hinge, root.name: root}
+    for n, o in src.items():
+        c = o.copy(); c.name = n + ' anim'; cp[n] = c; wrap.objects.link(c); omit.add(n)
+    parent = {n: (o.parent.name if o.parent and o.parent.name in src else None) for n, o in src.items()}
+    parent.update({o.name: root.name for o in ore}); parent.update({n: hinge.name for n in CART_LOCK}); parent[root.name] = 'AUTHENTIC_GULLET_CART'; parent[hinge.name] = None
+    parent['CART_SIDE_TIP_PIVOT'] = None
+    for n in list(cp):
+        c = cp[n]; pn = parent.get(n); c.parent = cp[pn] if pn else None; c.matrix_parent_inverse = Matrix.Identity(4)
+        c.matrix_basis = (W[pn].inverted_safe() @ W[n]) if pn else W[n]
+    part = {o.name for o in cart_tree + ore} | {root.name}
+    for n, c in cp.items(): c['cart_part'] = int(n in part)
+    pv, cart = cp['CART_SIDE_TIP_PIVOT'], cp['AUTHENTIC_GULLET_CART']; wheels = [cp[n] for n in CART_WHEELS]
+    guides = [cp[n] for n in cp if n.startswith('Captive_wheel_guide') and src.get(n) is not None and src[n].type == 'MESH']
+    rail = objs.get('Mine_approach_rail')
+    rail_top = bbox(rail)[1].z if rail else 0.12; r = BM.wm(objs[CART_WHEELS[0]]).translation.z - rail_top     # tread radius: axle height above the rail head
+    # the lock folds toward the yard (module -x) about the hinge's y axis; the guides drop below the flanges
+    for w in wheels: w.rotation_mode = 'XYZ'
+    x0, a0, tip0, h0 = cart.location.x, {w.name: w.rotation_euler.x for w in wheels}, pv.rotation_euler.x, hinge.rotation_euler.y
+    g0 = {g.name: g.location.z for g in guides}
+    for f, out, tip, fill, open_ in CART_KEYS:
+        cart.location.x = x0 - out * CART_TRAVEL; cart.keyframe_insert('location', index=0, frame=f)
+        for w in wheels: w.rotation_euler.x = a0[w.name] + out * CART_TRAVEL / r; w.keyframe_insert('rotation_euler', index=0, frame=f)   # rolling: angle = distance / radius
+        pv.rotation_euler.x = tip0 - math.radians(CART_TIP_DEG) * tip; pv.keyframe_insert('rotation_euler', index=0, frame=f)           # negative about x: the top swings west
+        root.scale = (1.0, 1.0, max(fill, 0.01)); root.keyframe_insert('scale', index=2, frame=f)
+        hinge.rotation_euler.y = h0 - math.radians(90) * open_; hinge.keyframe_insert('rotation_euler', index=1, frame=f)
+        for g in guides: g.location.z = g0[g.name] - 0.05 * open_; g.keyframe_insert('location', index=2, frame=f)
+    animated = [cart, pv, root, hinge] + wheels + guides
+    for o in animated:
+        o.animation_data.action.name = 'ORE_CART ' + o.name
+        for fc in _fcurves(o): fc.modifiers.new('CYCLES')
+    sc = bpy.context.scene; sc.frame_start, sc.frame_end = 1, CART_LOOP; sc.frame_set(1)
+    CART_ANIM.update({c.name: c for c in cp.values()})
+    print('CART animated: %d objects copied (%d trunnion parts moved %.2f m outboard, %d lock parts), %d wheels (tread radius %.3f m), %d ore pieces, %d guides, loop %d frames at %d fps, '
+          'travel %.1f m, tip %.0f deg' % (len(cp), len(trun), CART_TRUNNION, len(lock), len(wheels), r, len(ore), len(guides), CART_LOOP, sc.render.fps, CART_TRAVEL, CART_TIP_DEG))
+
 def _reactor_objs(omit, wrap):
     objs = [o for c in bpy.data.collections if c.library and os.path.basename(c.library.filepath) == os.path.basename(BM.REACTOR_LIB) for o in c.all_objects if o.name not in omit]
     return list(dict.fromkeys(objs + [o for o in wrap.objects if o.library is None]))
@@ -561,6 +643,7 @@ BM.PATCHES['waste-storage'] = patch_waste
 BM.PATCHES['condenser-bay'] = patch_condenser
 BM.PATCHES['fuel-corridor'] = patch_fuel
 BM.PATCHES['cooling-plant'] = patch_cooling
+BM.PATCHES['refinery'] = patch_refinery_cart
 BM.TURBINE_CUTS.clear(); BM.MEDICAL_CUTS.clear()
 
 # ------------------------------------------------------------------------------------------------------------------------------------------------
@@ -825,7 +908,7 @@ DOORS = [
     ('MINE_PORTAL', 'mine', (-39.0, -29.0), (1, 0), 7.2, 3.9, 'portal (no leaf)', 'open', 'front-end-area (yard)', 'tunnel mouth (first timber set); front end portal_void and the portal cap faces left out'),
     ('YARD_SERVICE', 'front-end-area', (-54.0, 19.85), (0, 1), 2.4, 2.35, 'single leaf', 'closed', 'west evacuation path', 'service_door_leaf kept closed'),
     ('YARD_EVAC_GATE', 'front-end-area', (-36.0, -4.0), (0, -1), 5.8, 2.3, 'double gate (evacuation)', 'closed', 'outside: the evacuation point', 'evac_leaf_frame+-1, push bars, stripes (closed; opens for evacuation)'),
-    ('YARD_FREIGHT_GATE', 'front-end-area', (-30.2, 19.9), (0, 1), 3.1, 3.1, 'sliding gate', 'open', 'refinery freight door', 'freight_gate_leaf parked'),
+    ('YARD_FREIGHT_GATE', 'front-end-area', (-30.2, 19.9), (0, 1), 3.1, 3.1, 'sliding gate', 'open', 'refinery freight door (cart only: rail and tipper; people use HALL_WEST and the colonnade)', 'freight_gate_leaf parked'),
     ('REFINERY_FUEL', 'fuel-corridor', (0, 0), (0, -1), 2.6, 3.0, 'opening (refinery Door_Reactor)', 'open', 'refinery', 'refinery REACTOR door: open frame'),
     ('FUEL_F02E', 'fuel-corridor', (16.74, 6.98), (1, 0), 2.38, 3.0, 'double leaf (the S03 door moved to the east wall)', 'open', 'concourse (reactor south)', 'FC | Reactor transfer leaves left out (closed-state asset)'),
     ('REACTOR_S', 'reactor-room', (0, -12.2), (0, -1), 5.0, 5.0, 'opening (cut)', 'open', 'concourse', 'hall wall cut south_door'),
@@ -903,8 +986,43 @@ def add_fill_lights(root):
 EMISSION_OVERRIDES = {}  # material name -> emission strength (the first pass dimmed the S03 transfer hall's accents; that hall is gone)
 HALL_LIGHT_SCALE = {}    # connector collection -> light energy factor
 
+# Mine triangle budget (owner, 2026-10-15: under 800k): the mine (R39 tunnel and shed, R40 mountain) was 3.29 M evaluated triangles, eight times the 400k room flag,
+# mostly in scanned CC0 rocks and lanterns (34k triangles for a 0.44 m lantern, 66k to 98k for a 1 m boulder) and the tunnel and cliff terrain. The heaviest meshes
+# are decimated (collapse) once at build time into local meshes, each shared mesh once, so the saved map carries the light versions and nothing runs on load. The
+# mine module is not edited. Target: triangles per object (int) or a ratio (float); keyed by mesh data name, or by object name for the local terrain copies.
+MINE_LOD = {'R38 CC0 | namaqualand_boulder_02': 5000, 'R38 CC0 | namaqualand_boulder_05': 4000, 'R38 CC0 | boulder_01': 4000, 'R38 CC0 | Lantern_01': 2500,
+            'R38 CC0 | wine_barrel_01': 2500, 'R38 CC0 | vintage_oil_lamp': 1500,
+            'R39 | Gravel tunnel': 0.1, 'R40 | Mine cliff': 0.1, 'R39 | Tunnel floor': 0.4, 'R40 | Cliff ledge debris': 0.3, 'R40 | Cliff talus': 0.4}
+MINE_LOD_DONE = []      # (object, triangles before, after) for the report
+
+def slim_mine():
+    wrap = bpy.data.collections.get('ROOM_mine_members')
+    if wrap is None: print('MINE LOD: the mine has no wrapper; nothing done'); return
+    sc = bpy.context.scene; done = {}
+    def tris(me): return sum(len(p.vertices) - 2 for p in me.polygons)
+    def light(me, target):
+        if me.name not in done:
+            t = tris(me); ratio = target if isinstance(target, float) else min(1.0, target / max(t, 1))
+            tmp = bpy.data.objects.new('_mine_lod', me); sc.collection.objects.link(tmp)
+            m = tmp.modifiers.new('lod', 'DECIMATE'); m.ratio = ratio
+            new = bpy.data.meshes.new_from_object(tmp.evaluated_get(bpy.context.evaluated_depsgraph_get())); new.name = me.name + ' lod'
+            bpy.data.objects.remove(tmp); done[me.name] = (new, t, tris(new))
+        return done[me.name]
+    for o in list(wrap.objects):
+        if o.type != 'MESH': continue
+        key = o.data.name if o.data.name in MINE_LOD else (o.name if o.name in MINE_LOD else None)
+        if key is None: continue
+        if o.children: print('MINE LOD skipped (has children):', o.name); continue
+        new, t0, t1 = light(o.data, MINE_LOD[key])
+        if o.library is None: o.data = new
+        else:
+            c = o.copy(); c.data = new; c.parent = None; c.matrix_basis = BM.wm(o); c.name = o.name + ' lod'; wrap.objects.link(c); wrap.objects.unlink(o)
+        MINE_LOD_DONE.append((o.name, t0, t1))
+    print('MINE LOD %d objects: %d -> %d triangles (%d meshes decimated)' % (len(MINE_LOD_DONE), sum(r[1] for r in MINE_LOD_DONE), sum(r[2] for r in MINE_LOD_DONE), len(done)))
+
 def post_build():
     root = bpy.context.scene.collection.children['COMBINED_MAP']
+    slim_mine()
     bpy.context.scene['reactor_y'] = RY                      # read by walk_test.py, measure_lighting.py and the plan tools
     for name, strength in EMISSION_OVERRIDES.items():
         m = bpy.data.materials.get(name)
