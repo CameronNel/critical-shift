@@ -1,0 +1,214 @@
+{
+  "status": "STOPPED_FOR_PIPE_CORRECTION; warm22+7 and diagnostics complete, stability/cold unrun",
+  "native_sha256": "1f63a0c13e55c3808f280bddb0b568db9a774bf71877fd9b8c05adfeb6e01530",
+  "commands": [
+    {
+      "stage": "room-audits",
+      "argv": [
+        "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+        "--background",
+        "--disable-autoexec",
+        "--threads",
+        "5",
+        "module_aaa_A2.blend",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "condenser_A2_evidence.py",
+        "--",
+        "audit",
+        "--label",
+        "R5"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay",
+      "exit_code": 0,
+      "seconds": 6.03
+    },
+    {
+      "stage": "constraints",
+      "argv": [
+        "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+        "--background",
+        "--disable-autoexec",
+        "--threads",
+        "5",
+        "module_aaa_A2.blend",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "audit_A2_constraints.py"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay",
+      "exit_code": 0,
+      "seconds": 1.4
+    },
+    {
+      "stage": "build-map",
+      "argv": [
+        "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+        "--background",
+        "--disable-autoexec",
+        "--threads",
+        "5",
+        "--factory-startup",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "build_compact_map.py"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/combined",
+      "exit_code": 0,
+      "seconds": 38.95
+    },
+    {
+      "stage": "map-checks",
+      "argv": [
+        "python3",
+        "run_A2_map_checks.py",
+        "--blender",
+        "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+        "--label",
+        "map-R5"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay",
+      "exit_code": 0,
+      "seconds": 1865.92
+    },
+    {
+      "stage": "map-gates",
+      "argv": [
+        "python3",
+        "audit_A2_map_results.py",
+        "map-R5",
+        "--baseline",
+        "evidence-A2/baseline-main82c29117/committed-validation"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay",
+      "exit_code": 0,
+      "seconds": 0.04
+    },
+    {
+      "stage": "owner-map",
+      "argv": [
+        "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+        "--background",
+        "--disable-autoexec",
+        "--threads",
+        "5",
+        "combined_map.blend",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "render_views.py",
+        "--",
+        "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay/renders-A2/owner-map-R5/views.json"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/combined",
+      "exit_code": 0,
+      "seconds": 410.2
+    },
+    {
+      "stage": "R5",
+      "argv": [
+        "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+        "--background",
+        "--disable-autoexec",
+        "--threads",
+        "5",
+        "module_aaa_A2.blend",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "condenser_A2_evidence.py",
+        "--",
+        "render",
+        "--label",
+        "R5",
+        "--samples",
+        "16",
+        "--resume"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay",
+      "exit_code": 1,
+      "seconds": 1.41
+    },
+    {
+      "stage": "R5",
+      "argv": [
+        "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+        "--background",
+        "--disable-autoexec",
+        "--threads",
+        "5",
+        "module_aaa_A2.blend",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "condenser_A2_evidence.py",
+        "--",
+        "render",
+        "--label",
+        "R5",
+        "--samples",
+        "16"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay",
+      "exit_code": 0,
+      "seconds": 2257.04
+    },
+    {
+      "stage": "R5-supplemental",
+      "argv": [
+        "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+        "--background",
+        "--disable-autoexec",
+        "--threads",
+        "5",
+        "module_aaa_A2.blend",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "condenser_A2_supplement.py",
+        "--",
+        "--label",
+        "R5-supplemental",
+        "--samples",
+        "16"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay",
+      "exit_code": 0,
+      "seconds": 697.2
+    },
+    {
+      "stage": "material-diagnostics-R5",
+      "argv": [
+        "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+        "--background",
+        "--disable-autoexec",
+        "--threads",
+        "5",
+        "module_aaa_A2.blend",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "render_A2_material_board.py",
+        "--",
+        "--label",
+        "material-diagnostics-R5"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay",
+      "exit_code": 0,
+      "seconds": null,
+      "exit_evidence": "material-child-completion.json, Linux kernel zombie exit status0; paused parent did not record elapsed duration."
+    }
+  ],
+  "scope": "Owner-directed machinery palette correction. Original room/map tools and numeric thresholds unchanged. Independent art review required.",
+  "main_base": "82c29117",
+  "main_update": "Old-base map checks terminated and retained separately; only unchanged-native room audits/constraints are retained.",
+  "explicit_retries": [
+    {
+      "stage": "R5",
+      "reason": "Completed three-camera preview priority metadata could not append under the original renderer guard. Preserve preview separately and render a fresh full pack; no pixel or numeric threshold changes."
+    }
+  ]
+}

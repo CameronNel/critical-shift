@@ -1,0 +1,57 @@
+{
+  "status": "NUMERIC_COMPARISONS_PASS; independent full pixel review required",
+  "scope": "Numeric evidence gate, not independent art approval",
+  "commands": [
+    {
+      "argv": [
+        "python3",
+        "compare_A2_evidence.py",
+        "R3",
+        "R4"
+      ],
+      "exit_code": 0,
+      "seconds": 4.05
+    },
+    {
+      "argv": [
+        "python3",
+        "compare_A2_evidence.py",
+        "R3-supplemental",
+        "R4-supplemental"
+      ],
+      "exit_code": 0,
+      "seconds": 1.31
+    },
+    {
+      "argv": [
+        "python3",
+        "compare_A2_evidence.py",
+        "R4",
+        "cold-R4"
+      ],
+      "exit_code": 0,
+      "seconds": 4.28
+    },
+    {
+      "argv": [
+        "python3",
+        "compare_A2_evidence.py",
+        "R4-supplemental",
+        "cold-R4-supplemental"
+      ],
+      "exit_code": 0,
+      "seconds": 1.43
+    }
+  ],
+  "final_native_sha256": "f95b2ec895ea12619ca9d4bcc37b6901c924e754b472b692a2e0f49c6e97dd2c",
+  "counts": {
+    "R1": 22,
+    "R2": 22,
+    "R3": 22,
+    "R3-supplemental": 7,
+    "R4": 22,
+    "R4-supplemental": 7,
+    "cold-R4": 22,
+    "cold-R4-supplemental": 7
+  }
+}

@@ -1,0 +1,24 @@
+00:00.375  blend            | Read blend: "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay/module_aaa_A2.blend"
+/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay/render_A2_material_board.py:19: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world=bpy.data.worlds.new('A2 neutral studio world');world.use_nodes=True
+/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay/render_A2_material_board.py:27: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  base=bpy.data.materials.new('A2 neutral studio background');base.diffuse_color=(.11,.11,.11,1);base.use_nodes=True;base.node_tree.nodes['Principled BSDF'].inputs['Base Color'].default_value=(.11,.11,.11,1);base.node_tree.nodes['Principled BSDF'].inputs['Roughness'].default_value=.9
+/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay/render_A2_material_board.py:32: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  lettering=bpy.data.materials.new('A2 studio lettering');lettering.use_nodes=True;bs=lettering.node_tree.nodes['Principled BSDF'];bs.inputs['Base Color'].default_value=(.7,.7,.7,1);bs.inputs['Emission Color'].default_value=(.7,.7,.7,1);bs.inputs['Emission Strength'].default_value=.3
+/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay/render_A2_material_board.py:33: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  label_strip=bpy.data.materials.new('A2 studio label strip');label_strip.use_nodes=True;label_strip.node_tree.nodes['Principled BSDF'].inputs['Base Color'].default_value=(.012,.015,.019,1);label_strip.node_tree.nodes['Principled BSDF'].inputs['Roughness'].default_value=.8
+00:35.129  render           | Saved: '/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay/renders-A2/material-diagnostics-R5b/NEUTRAL_MATERIALS.png'
+/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay/render_A2_material_board.py:56: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new('A2 diagnostic checker / 0.24m tile');mat.use_nodes=True;nt=mat.node_tree;bs=nt.nodes['Principled BSDF'];bs.inputs['Roughness'].default_value=.65
+Traceback (most recent call last):
+  File "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay/render_A2_material_board.py", line 85, in <module>
+    ap=argparse.ArgumentParser();ap.add_argument('--label',required=True);a=ap.parse_args(sys.argv[sys.argv.index('--')+1:]);main(a.label)
+                                                                                                                             ~~~~^^^^^^^^^
+  File "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay/render_A2_material_board.py", line 59, in main
+    from condenser_finish_A2 import world_triplanar_image
+ModuleNotFoundError: No module named 'condenser_finish_A2'
+
+Error: script failed, file: 'render_A2_material_board.py', exiting.
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)
+
+Blender quit

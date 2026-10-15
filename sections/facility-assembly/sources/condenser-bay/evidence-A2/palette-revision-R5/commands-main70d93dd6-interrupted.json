@@ -1,0 +1,65 @@
+{
+  "status": "RUNNING",
+  "native_sha256": "1f63a0c13e55c3808f280bddb0b568db9a774bf71877fd9b8c05adfeb6e01530",
+  "commands": [
+    {
+      "stage": "room-audits",
+      "argv": [
+        "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+        "--background",
+        "--disable-autoexec",
+        "--threads",
+        "5",
+        "module_aaa_A2.blend",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "condenser_A2_evidence.py",
+        "--",
+        "audit",
+        "--label",
+        "R5"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay",
+      "exit_code": 0,
+      "seconds": 6.03
+    },
+    {
+      "stage": "constraints",
+      "argv": [
+        "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+        "--background",
+        "--disable-autoexec",
+        "--threads",
+        "5",
+        "module_aaa_A2.blend",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "audit_A2_constraints.py"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay",
+      "exit_code": 0,
+      "seconds": 1.4
+    },
+    {
+      "stage": "build-map",
+      "argv": [
+        "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+        "--background",
+        "--disable-autoexec",
+        "--threads",
+        "5",
+        "--factory-startup",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "build_compact_map.py"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/combined",
+      "exit_code": 0,
+      "seconds": 37.68
+    }
+  ],
+  "scope": "Owner-directed machinery palette correction. Original room/map tools and numeric thresholds unchanged. Independent art review required."
+}

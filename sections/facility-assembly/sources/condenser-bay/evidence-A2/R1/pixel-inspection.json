@@ -1,0 +1,51 @@
+{
+  "scope": "Builder diagnostic inspection, not independent scores or acceptance",
+  "full_size_images_inspected": [
+    "AAA01_WIDE_NE",
+    "AAA02_PUMPS",
+    "AAA03_OPERATOR",
+    "AAA04_PULL_BAY",
+    "C01_ENTRY",
+    "C02_HERO",
+    "C03_REVERSE",
+    "C04_EXHAUST",
+    "C05_RETURN",
+    "C06_COOLING",
+    "C07_OPERATOR",
+    "C08_MAINT",
+    "C09_ROOF",
+    "C10_MATERIALS",
+    "W01_ENTRY_CORNER",
+    "W02_SW_TURN",
+    "W03_NW",
+    "W04_NE",
+    "W05_SE",
+    "W06_WEST_AISLE",
+    "W07_EAST_PULL",
+    "W08_GALLERY_TURN"
+  ],
+  "findings": [
+    {
+      "image": "W07_EAST_PULL",
+      "location": "large floor and wall fields",
+      "severity": "major",
+      "observation": "Read too smooth and even; weak coating wear and wall construction evidence.",
+      "response": "R2 adds actual tie sockets and localized lane polish; final R3 adjusts mineral tone."
+    },
+    {
+      "image": "C02_HERO",
+      "location": "large ivory shell and wall",
+      "severity": "major",
+      "observation": "Lighting/value hierarchy too even.",
+      "response": "R2 zone hierarchy, final R3 lower ivory reflectance and calibrated selected keys."
+    },
+    {
+      "image": "C10_MATERIALS",
+      "location": "coupling and machined rim",
+      "severity": "minute",
+      "observation": "Paint and bare metal already distinct; retain distinction through subsequent corrections.",
+      "response": "No wholesale grunge layer."
+    }
+  ],
+  "independent_scores": null
+}

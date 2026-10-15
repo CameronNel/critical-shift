@@ -1,0 +1,19 @@
+ESCAPE reactor (core)         primary  32.99 m   7.3 s | backup  37.08 m   8.2 s  SE stub emergency exit, alley, spine end door, spine
+ESCAPE turbine (D01)          primary   70.5 m  15.7 s | backup  152.8 m  34.0 s  D02, north strip, east road, hall east door
+ESCAPE electrical (D01)       primary  97.71 m  21.7 s | backup   95.2 m  21.2 s  D02, east road, hall east door
+ESCAPE waste (receiving)      primary  57.84 m  12.9 s | backup   69.1 m  15.4 s  dispatch shutter, east road, hall east door
+ESCAPE condenser (bay, by D01) primary  174.8 m  38.8 s | backup  154.6 m  34.4 s  first: stair, turbine D02, north strip, road; second: west escape door, tunnel, 6.0 m ladder (not in the distance), north strip, road
+ESCAPE cooling (P01)          primary  91.83 m  20.4 s | backup  69.94 m  15.5 s  rear emergency door, west path, yard service door
+ESCAPE dock (P1)              primary  15.61 m   3.5 s | backup   None m  None s  none: P1 is the dock's only door; P2 is its sealed arrival (contract)
+ESCAPE fuel corridor (F02E)   primary   None m  None s | backup  64.95 m  14.4 s  F01, refinery, colonnade, hall west door (the concourse route is the primary)
+GRAPH reactor        routes normal 1 evac 4 | cut-off doors - | avoids reactor None | sealed chamber True | + spine blast door True
+GRAPH turbine        routes normal 1 evac 4 | cut-off doors - | avoids reactor True | sealed chamber True | + spine blast door True
+GRAPH electrical     routes normal 1 evac 2 | cut-off doors - | avoids reactor True | sealed chamber True | + spine blast door True
+GRAPH condenser      routes normal 1 evac 2 | cut-off doors - | avoids reactor True | sealed chamber True | + spine blast door True
+GRAPH cooling        routes normal 1 evac 2 | cut-off doors - | avoids reactor True | sealed chamber True | + spine blast door True
+GRAPH waste          routes normal 1 evac 3 | cut-off doors - | avoids reactor True | sealed chamber True | + spine blast door True
+GRAPH dock           routes normal 1 evac 1 | cut-off doors ['SPINE_E_DOCK/DOCK_P1'] | avoids reactor True | sealed chamber True | + spine blast door True
+GRAPH fuel corridor  routes normal 2 evac 2 | cut-off doors - | avoids reactor True | sealed chamber True | + spine blast door True
+GRAPH concourse      routes normal 2 evac 3 | cut-off doors - | avoids reactor True | sealed chamber True | + spine blast door True
+GRAPH spine          routes normal 2 evac 3 | cut-off doors - | avoids reactor True | sealed chamber True | + spine blast door True
+GATE hall -> yard evacuation gate 69.15 m

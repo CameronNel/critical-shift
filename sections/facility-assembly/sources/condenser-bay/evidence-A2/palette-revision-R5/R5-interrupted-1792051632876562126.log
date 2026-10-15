@@ -1,0 +1,17 @@
+00:00.380  blend            | Read blend: "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay/module_aaa_A2.blend"
+00:01.106  cycles           | WARNING CUEW initialization failed: Error opening the library
+Traceback (most recent call last):
+  File "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay/condenser_A2_evidence.py", line 117, in <module>
+    else:render(p.label, p.selection, p.samples, p.width, p.height,p.resume)
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay/condenser_A2_evidence.py", line 100, in render
+    manifest = original_renderer.render_set(Path(tmp), label, names, samples, width, height)
+  File "/workspace/critical-shift/sections/condenser-bay/blender/render.py", line 54, in render_set
+    assert previous.get(field)==log[field], f'Resource/backend setting changed within the pack: {field}'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Resource/backend setting changed within the pack: process_priority
+
+Error: script failed, file: 'condenser_A2_evidence.py', exiting.
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)
+
+Blender quit

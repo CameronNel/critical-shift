@@ -109,3 +109,12 @@ Checked after the swap: `validate_halls.py` PASS (geometry only), report refresh
 
 ## Owner acceptance (2026-10-12)
 The owner accepted the AAA finishes now in the map (turbine, waste, cooling, condenser bay) with "Accept them". This is the owner's decision. No independent review or validator run has happened on any of these finishes, so this file and `AGENTS.md` record it as **owner accepted, unreviewed**, not as a review pass. The layout, halls and the rest of the scene remain unreviewed.
+
+## Condenser A2 additive finish — task branch, 2026-10-14
+
+On `codex/condenser-finish-a2`, the map now links `condenser-bay/module_aaa_A2.blend`, built directly from reviewed R34. The one source tuple is the only combined-script edit. Final R3e original-tool numeric gates pass: walks17/18 (existing cart failure), proxies10/10, meltdown20/20, closed13/13; two condenser exits/no single cut; doors45/0; no new condenser floor/overlap pair;387990tri; export202/re-importPASS; lighting24/25 (inheritedspine_mid only), requiredfour meet the stronger15%black/5%clip limits. Independent art/cold review is pending; preserved gallery/roof height boundary and optional reach work remain unaccepted. Exact evidence and limits: [FINISH_A2.md](../sources/condenser-bay/FINISH_A2.md). This is a draft task branch, not a main merge or Unity/runtime acceptance.
+
+
+2026-10-15 owner correction: the pale R3e A2 art was rejected despite its technical passes. A2/R5 now uses machine blue, oxide red, graphite and neutral mineral architecture, preserving the equipment/layout. New R5 map/room/full/cold checks and independent review are pending; historical results above are not R5 passes. [Current finish/status](../sources/condenser-bay/FINISH_A2.md).
+
+2026-10-15 current A2/R5c: the map source tuple now resolves to the machine-blue/oxide-red/graphite finish with round service profiles and corrected physical texture projection. All six room audits and specified numeric map gates PASS on main82c29117:395482tri, walks17/18 baselinecart/10/10proxies/20/20meltdown, closed13/13, doors45/0, two condenser exits/no singlecut, no new condenser floor/overlap pair, scoped202-object export/re-importPASS, lighting29/30 with inheritedspine_mid only. Owner/full/stability/cold images and final independent scoring are running/pending; no height/reach waiver or acceptance. [Exact status and evidence](../sources/condenser-bay/FINISH_A2.md).

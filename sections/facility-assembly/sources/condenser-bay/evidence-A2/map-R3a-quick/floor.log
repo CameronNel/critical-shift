@@ -1,0 +1,62 @@
+00:00.341  blend            | Read blend: "/workspace/critical-shift/sections/facility-assembly/combined/combined_map.blend"
+00:00.627  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/refinery/exterior-R01.blend', '//../exteriors/refinery/exterior-R01.blend', parent '<direct>'
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)
+00:00.638  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/medical-reanimation/exterior-R04.blend', '//../exteriors/medical-reanimation/exterior-R04.blend', parent '<direct>'
+00:00.663  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/exteriors/spawn-room/exterior-R05.blend', '//../exteriors/spawn-room/exterior-R05.blend', parent '<direct>'
+00:00.696  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/front-end-area/front_end_area.blend', '//../sources/front-end-area/front_end_area.blend', parent '<direct>'
+00:01.330  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/electrical-room/overhaul/checkpoints/full-R11.blend', '//../sources/electrical-room/overhaul/checkpoints/full-R11.blend', parent '<direct>'
+00:02.294  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend', '//../sources/spawn-room/module.blend', parent '<direct>'
+00:03.291  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/waste-storage/module_aaa_A1.blend', '//../sources/waste-storage/module_aaa_A1.blend', parent '<direct>'
+00:04.244  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/cooling-plant/module_aaa_A1.blend', '//../sources/cooling-plant/module_aaa_A1.blend', parent '<direct>'
+00:05.245  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay/module_aaa_A2.blend', '//../sources/condenser-bay/module_aaa_A2.blend', parent '<direct>'
+00:06.637  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/refinery/module_overhaul_R1.blend', '//../sources/refinery/module_overhaul_R1.blend', parent '<direct>'
+00:07.744  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend', '//../sources/compliance-dock/module_overhaul_R1.blend', parent '<direct>'
+00:09.028  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/medical-reanimation/module_overhaul_R2.blend', '//../sources/medical-reanimation/module_overhaul_R2.blend', parent '<direct>'
+00:10.160  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/mine-r39/module_r39_aaa.blend', '//../sources/mine-r39/module_r39_aaa.blend', parent '<direct>'
+00:10.520  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/fuel-corridor/module_short_S1.blend', '//../sources/fuel-corridor/module_short_S1.blend', parent '<direct>'
+00:10.919  reports          | Read library: '/workspace/critical-shift/sections/reactor-room/blender/reactorroom.blend', '//../../reactor-room/blender/reactorroom.blend', parent '<direct>'
+00:12.368  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/turbine-room/rebuild/turbine_room_v2_geo.blend', '//../sources/turbine-room/rebuild/turbine_room_v2_geo.blend', parent '<direct>'
+00:12.456  reports          | Read library: '/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/hero_suit.blend', '//hero_suit.blend', parent '/workspace/critical-shift/sections/facility-assembly/sources/spawn-room/module.blend'
+FLOOR ROOM_mine / R39 | Apron mud        over ROOM_front-end-area / yard_earth   level   0.0   160 samples (40.0 m2) top z 0.072 box [-47.28, -76.38, -36.28, -61.88]
+FLOOR ROOM_front-end-area / cliff_kerb_N over ROOM_mine / R39 | Shed floor planks level   0.0    20 samples (5.0 m2) top z 0.350 box [-48.28, -68.38, -47.78, -62.88]
+FLOOR ROOM_front-end-area / cliff_kerb_S over ROOM_mine / R39 | Shed floor planks level   0.0    16 samples (4.0 m2) top z 0.350 box [-48.28, -77.38, -47.78, -71.88]
+FLOOR ROOM_mine / R39 | Apron mud        over ROOM_front-end-area / stain_yard_blotch_179 level   0.0    16 samples (4.0 m2) top z 0.050 box [-40.28, -63.88, -37.78, -61.88]
+FLOOR ROOM_mine / R39 | Apron mud        over ROOM_front-end-area / pad_2_0_0    level   0.0    14 samples (3.5 m2) top z 0.053 box [-45.78, -63.38, -43.28, -61.88]
+FLOOR ROOM_mine / R39 | Apron mud        over ROOM_front-end-area / pad_0_2_1    level   0.0    13 samples (3.2 m2) top z 0.048 box [-38.78, -77.88, -36.28, -76.88]
+FLOOR ROOM_mine / R39 | Apron mud        over ROOM_front-end-area / pad_1_1_0    level   0.0    12 samples (3.0 m2) top z 0.049 box [-42.78, -75.88, -39.28, -72.88]
+FLOOR ROOM_mine / R39 | Apron mud        over ROOM_front-end-area / pad_0_1_1    level   0.0    11 samples (2.8 m2) top z 0.060 box [-43.28, -77.88, -39.28, -76.88]
+FLOOR ROOM_mine / R39 | Apron mud        over ROOM_front-end-area / pad_0_0_1    level   0.0    10 samples (2.5 m2) top z 0.050 box [-47.28, -77.88, -43.78, -76.88]
+FLOOR ROOM_mine / R39 | Apron mud        over ROOM_front-end-area / pad_2_2_0    level   0.0     7 samples (1.8 m2) top z 0.056 box [-36.78, -63.38, -36.28, -61.88]
+FLOOR ROOM_front-end-area / cliff_kerb_S over ROOM_mine / R39 | Apron mud        level   0.0     6 samples (1.5 m2) top z 0.350 box [-48.28, -78.38, -47.78, -76.38]
+FLOOR ROOM_front-end-area / cliff_kerb_S over ROOM_mine / R39 | Rugs             level   0.0     6 samples (1.5 m2) top z 0.350 box [-48.28, -75.38, -47.78, -74.38]
+FLOOR ROOM_front-end-area / cliff_kerb_N over ROOM_mine / R39 | Apron mud        level   0.0     6 samples (1.5 m2) top z 0.350 box [-48.28, -62.38, -47.78, -61.38]
+FLOOR ROOM_mine / R39 | Sleepers ext0    over ROOM_front-end-area / yard_earth   level   0.0     5 samples (1.2 m2) top z 0.098 box [-28.28, -70.38, -25.78, -69.38]
+FLOOR ROOM_mine / R39 | Sleepers ext1    over ROOM_front-end-area / yard_earth   level   0.0     5 samples (1.2 m2) top z 0.099 box [-25.28, -69.88, -21.78, -67.38]
+FLOOR ROOM_mine / R39 | Rails ext2       over ROOM_front-end-area / streak_path_dock level   0.0     5 samples (1.2 m2) top z 0.125 box [-22.78, -65.88, -22.78, -62.38]
+FLOOR ROOM_mine / R39 | Sleepers         over ROOM_front-end-area / floor_track_scale level   0.0     4 samples (1.0 m2) top z 0.098 box [-33.78, -70.38, -31.28, -69.88]
+FLOOR ROOM_mine / R39 | Sleepers ext2    over ROOM_front-end-area / streak_path_dock level   0.0     4 samples (1.0 m2) top z 0.098 box [-22.28, -65.88, -21.78, -63.88]
+FLOOR ROOM_front-end-area / cliff_kerb_N over ROOM_mine / R39 | Rugs             level   0.0     4 samples (1.0 m2) top z 0.350 box [-47.78, -64.88, -47.78, -63.38]
+FLOOR ROOM_mine / R39 | Apron mud        over ROOM_front-end-area / pad_1_0_0    level   0.0     3 samples (0.8 m2) top z 0.026 box [-44.28, -74.88, -43.78, -73.38]
+FLOOR ROOM_mine / R39 | Apron mud        over ROOM_front-end-area / stain_yard_scuff_193 level   0.0     3 samples (0.8 m2) top z 0.050 box [-42.78, -62.38, -41.28, -61.88]
+FLOOR ROOM_mine / R39 | Apron mud        over ROOM_front-end-area / portal_floor level   0.0     2 samples (0.5 m2) top z 0.023 box [-50.78, -72.38, -50.28, -72.38]
+FLOOR ROOM_mine / R39 | Sleepers         over ROOM_front-end-area / yard_earth   level   0.0     2 samples (0.5 m2) top z 0.098 box [-35.78, -70.38, -35.78, -69.88]
+FLOOR ROOM_mine / R39 | Sleepers ext1    over ROOM_front-end-area / streak_path_dock level   0.0     2 samples (0.5 m2) top z 0.098 box [-22.78, -66.88, -22.28, -66.88]
+FLOOR ROOM_mine / R39 | Apron mud        over ROOM_front-end-area / stain_yard_scuff_182 level   0.0     2 samples (0.5 m2) top z 0.053 box [-38.28, -63.38, -37.78, -63.38]
+FLOOR ROOM_refinery / Mine_approach_rail.001 over ROOM_mine / R39 | Rails ext3       level   0.0     2 samples (0.5 m2) top z 0.160 box [-22.78, -60.88, -22.78, -60.38]
+FLOOR ROOM_turbine-room / TURBINE_MACH   over ROOM_condenser-bay / Ceiling slab under turbine floor level   0.0     2 samples (0.5 m2) top z 0.160 box [9.22, 3.12, 9.22, 3.62]
+FLOOR ROOM_mine / R39 | Dirt mounds      over ROOM_front-end-area / pad_0_1_1    level   0.0     1 samples (0.2 m2) top z 0.054 box [-39.28, -78.38, -39.28, -78.38]
+FLOOR ROOM_mine / R39 | Track ironwork   over ROOM_front-end-area / yard_earth   level   0.0     1 samples (0.2 m2) top z 0.110 box [-35.78, -69.38, -35.78, -69.38]
+FLOOR ROOM_mine / R39 | Track ironwork   over ROOM_front-end-area / floor_track_scale level   0.0     1 samples (0.2 m2) top z 0.110 box [-31.28, -69.38, -31.28, -69.38]
+FLOOR ROOM_mine / R39 | Track ironwork ext1 over ROOM_front-end-area / yard_earth   level   0.0     1 samples (0.2 m2) top z 0.110 box [-22.78, -68.88, -22.78, -68.88]
+FLOOR ROOM_mine / R39 | Rails ext1       over ROOM_front-end-area / yard_earth   level   0.0     1 samples (0.2 m2) top z 0.123 box [-22.28, -68.38, -22.28, -68.38]
+FLOOR ROOM_mine / R39 | Rails ext1       over ROOM_front-end-area / streak_path_dock level   0.0     1 samples (0.2 m2) top z 0.122 box [-21.78, -66.88, -21.78, -66.88]
+FLOOR ROOM_mine / R39 | Sleepers ext2    over ROOM_front-end-area / floor_stop_train level   0.0     1 samples (0.2 m2) top z 0.098 box [-22.28, -66.38, -22.28, -66.38]
+FLOOR ROOM_mine / R39 | Rails ext2       over ROOM_front-end-area / stain_yard_scuff_187 level   0.0     1 samples (0.2 m2) top z 0.125 box [-22.78, -64.88, -22.78, -64.88]
+FLOOR ROOM_mine / R39 | Rails ext2       over ROOM_front-end-area / stain_yard_scuff_189 level   0.0     1 samples (0.2 m2) top z 0.125 box [-22.78, -64.38, -22.78, -64.38]
+FLOOR ROOM_mine / R39 | Apron mud        over ROOM_front-end-area / pad_2_1_0    level   0.0     1 samples (0.2 m2) top z 0.023 box [-40.78, -61.88, -40.78, -61.88]
+FLOOR ROOM_mine / R39 | Rails ext3       over ROOM_front-end-area / streak_path_dock level   0.0     1 samples (0.2 m2) top z 0.125 box [-22.78, -61.38, -22.78, -61.38]
+FLOOR ROOM_mine / R39 | Sleepers ext3    over ROOM_front-end-area / floor_freight_hatch_6 level   0.0     1 samples (0.2 m2) top z 0.098 box [-22.28, -60.88, -22.28, -60.88]
+FLOOR ROOM_mine / R39 | Sleepers ext3    over ROOM_front-end-area / floor_freight_hatch_9 level   0.0     1 samples (0.2 m2) top z 0.099 box [-21.78, -60.88, -21.78, -60.88]
+FLOOR AUDIT 123820 samples, 40 owner pairs flagged
+
+Blender quit

@@ -1,0 +1,24 @@
+{
+  "pid": 967,
+  "argv": [
+    "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+    "--background",
+    "--disable-autoexec",
+    "--threads",
+    "5",
+    "module_aaa_A2.blend",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "condenser_A2_evidence.py",
+    "--",
+    "render",
+    "--label",
+    "R5",
+    "--selection",
+    "C02_HERO,AAA02_PUMPS,AAA03_OPERATOR",
+    "--samples",
+    "16"
+  ],
+  "native_sha256": "1f63a0c13e55c3808f280bddb0b568db9a774bf71877fd9b8c05adfeb6e01530"
+}

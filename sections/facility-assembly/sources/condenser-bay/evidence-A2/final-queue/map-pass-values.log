@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "gates": {
+    "walk_normal": true,
+    "closed_doors_normal": true,
+    "walk_colliders": true,
+    "closed_doors_colliders": true,
+    "walk_meltdown": true,
+    "condenser_evacuation": true,
+    "doors": true,
+    "no_new_condenser_floor_pair": true,
+    "condenser_triangles": true,
+    "scoped_export": true,
+    "lighting_condenser_D01": true,
+    "lighting_condenser_inside": true,
+    "lighting_condenser_escape_tunnel": true,
+    "lighting_stair_bottom": true,
+    "no_new_other_lighting_miss": true,
+    "no_new_condenser_overlap_pair": true,
+    "all_commands_exit_zero": true
+  }
+}

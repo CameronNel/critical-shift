@@ -1,0 +1,56 @@
+{
+  "status": "DIAGNOSTIC_REJECT; no independent acceptance",
+  "inspector": "primary builder Codex",
+  "images_inspected": [
+    "AAA01_WIDE_NE",
+    "AAA02_PUMPS",
+    "AAA03_OPERATOR",
+    "AAA04_PULL_BAY",
+    "C01_ENTRY",
+    "C02_HERO",
+    "C03_REVERSE",
+    "C04_EXHAUST",
+    "C05_RETURN",
+    "C06_COOLING",
+    "C07_OPERATOR",
+    "C08_MAINT",
+    "C09_ROOF",
+    "C10_MATERIALS",
+    "W01_ENTRY_CORNER",
+    "W02_SW_TURN",
+    "W03_NW",
+    "W04_NE",
+    "W05_SE",
+    "W06_WEST_AISLE",
+    "W07_EAST_PULL",
+    "W08_GALLERY_TURN"
+  ],
+  "inspection": "All22 full-resolution images viewed using local-image inspection tool; plus labelled contact sheet. Camera PNGs unmodified.",
+  "target_issues": [
+    {
+      "image": "C02_HERO / AAA01_WIDE_NE",
+      "severity": "major",
+      "observed": "Broad painted areas and wall surfaces too evenly lit; manufactured material separation present but weak focal hierarchy.",
+      "next": "Zone task/general lighting retune, ivory reflectance calibration in assembled map."
+    },
+    {
+      "image": "W04_NE / AAA04_PULL_BAY",
+      "severity": "major",
+      "observed": "Long wall fields read overly plain; original panel joints present but no new formwork detail.",
+      "next": "Shallow actual tie holes and restrained mineral texture."
+    },
+    {
+      "image": "C09_ROOF",
+      "severity": "major",
+      "observed": "Inherited gallery fixture height incompatible with map LIGHT-only lowering patch; R1 single translation provides weak assembled support evidence.",
+      "next": "Manufactured open-channel clamped cages, registered contacts and local/map light height checks."
+    }
+  ],
+  "inherited_limits": [
+    "Standalone source retains D01 local blanking intentionally; map omits29 pieces. W01/W06 are not proof of an assembled open door.",
+    "Existing overhead manual reach and roof/gallery assembly limits remain explicit.",
+    "R1 map budget and full map validators were not run."
+  ],
+  "self_acceptance": false,
+  "independent_scores": "UNSCORED"
+}

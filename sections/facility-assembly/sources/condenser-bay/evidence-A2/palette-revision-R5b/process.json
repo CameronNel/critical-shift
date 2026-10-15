@@ -1,0 +1,9 @@
+{
+  "observed_utc": "2026-10-15T09:28:27.803466+00:00",
+  "worker_pid": 4347,
+  "worker_script": "/workspace/scratch/condenser_R5b_material_retry_queue.py",
+  "controller": "run_A2_palette_evidence.py --round R5b --stability R6b --resume",
+  "native_sha256": "e33435ccf2527ea17b02b1c96756a9f9af54fdca3572608ff044f6f67f6a4cf7",
+  "log": "worker-material-retry.log",
+  "policy": "One Blender process at a time, CPU5 threads. Detached worker survives tool disconnect; inspect logs/ps before restarting."
+}

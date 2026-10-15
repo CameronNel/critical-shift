@@ -3,9 +3,9 @@
  "source": {
   "scene": "sections/facility-assembly/combined/combined_map.blend",
   "builder": "build_compact_map.py",
-  "git_revision_at_export": "7f1ea5f84fe278636cd46572f134693169f031a0",
+  "git_revision_at_export": "82c2911748bdd00f0c4e5b4b07efc30ac1a82b16",
   "worktree_dirty_at_export": true,
-  "inputs_sha256": "73265a4dc8f4dd1a50ca1b1f9a1c0d385d8c303ffb0476ba753138962ca329b3",
+  "inputs_sha256": "ec3b693a7ac0ee81b6e9ad8a8424f8208d78c395579aae25f96dc367c3491816",
   "inputs": [
    "build_compact_map.py",
    "build_combined_map.py",
@@ -20,7 +20,7 @@
  "export": {
   "format": "FBX",
   "file": "compact_map_colliders_anchors.fbx",
-  "sha256": "ff75be3913c399b0f1e512e25ef4ca9fd4799ccb5ae5764b3054f6680bfa0a3d",
+  "sha256": "5f601e9b02c0c83a568ebd6cfd0269daddb43cc5db1ec8496d436d3d93c4ce13",
   "settings": {
    "use_selection": true,
    "object_types": [
@@ -76,7 +76,7 @@
   },
   {
    "room": "condenser-bay",
-   "source": "condenser-bay/module_aaa_A1.blend",
+   "source": "condenser-bay/module_aaa_A2.blend",
    "translation": [
     1.6,
     3.2,
@@ -212,7 +212,7 @@
  "runtime_owner": "UNRESOLVED: no runtime owner for map collision or doors is decided (design/code-architecture DECISIONS_AND_RISKS); doors would belong to the Interaction feature per STATE_AND_CONTRACTS, not decided here",
  "reimport_check": {
   "fbx": "compact_map_colliders_anchors.fbx",
-  "sha256": "ff75be3913c399b0f1e512e25ef4ca9fd4799ccb5ae5764b3054f6680bfa0a3d",
+  "sha256": "5f601e9b02c0c83a568ebd6cfd0269daddb43cc5db1ec8496d436d3d93c4ce13",
   "bytes": 437372,
   "exported": 202,
   "reimported": 202,

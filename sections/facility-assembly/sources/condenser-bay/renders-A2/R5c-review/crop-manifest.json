@@ -1,0 +1,90 @@
+{
+  "label": "R5c",
+  "policy": "Lossless original-pixel crops, no scaling, sharpening, recolouring or image generation. Sheet thumbnails are navigation only.",
+  "crops": [
+    {
+      "name": "EXHAUST_FLANGE",
+      "source": "renders-A2/R5c/C04_EXHAUST.png",
+      "source_sha256": "474bfa2cca6d56ebc1965c25ef5b9da9bb5b40a4f2c58ece0750fc911cdc8c83",
+      "pixel_box": [
+        250,
+        250,
+        1650,
+        940
+      ],
+      "output_sha256": "997d1f0763189b7185509116517b3fbc9e98a2b1b6a878a39ac2f38da1bed551"
+    },
+    {
+      "name": "CONDENSATE_CONTROLS",
+      "source": "renders-A2/R5c/C05_RETURN.png",
+      "source_sha256": "30ec2d8e24a4fa524c1a528eab96732410ced2419cbc30766158b8212e7f6e3d",
+      "pixel_box": [
+        420,
+        80,
+        1320,
+        1020
+      ],
+      "output_sha256": "fb0637f7adecc65ad1e812c776476eb6d39156139b4c51775c0f69eb8ef47473"
+    },
+    {
+      "name": "COOLING_ISOLATORS",
+      "source": "renders-A2/R5c-supplemental/S02_LOCAL_CW.png",
+      "source_sha256": "fa2598bfcad3e2345135b4ffbb8d14f1521663c4a1fe8b2cb04fd05d260efc10",
+      "pixel_box": [
+        0,
+        120,
+        1920,
+        1080
+      ],
+      "output_sha256": "70b461d1ab3666f5d8cfa613afe4060f286111aa05123b60e479f365990c1320"
+    },
+    {
+      "name": "OPERATOR_LABELS",
+      "source": "renders-A2/R5c/C07_OPERATOR.png",
+      "source_sha256": "e7f39498ec5436dbefa02901e6690648c56face724bcbfb6baca9591905cf021",
+      "pixel_box": [
+        465,
+        170,
+        1460,
+        955
+      ],
+      "output_sha256": "4c6f98ad04df073175b5963724ef01a374b13a3007925f4d6f6820a5bdafbbb3"
+    },
+    {
+      "name": "GLASS_EDGES",
+      "source": "renders-A2/R5c-supplemental/S04_GLASS.png",
+      "source_sha256": "6359b1293ef9c152dbee4b1a98328e2adc144bdbfeee0eedd09a6ce0d3f639bb",
+      "pixel_box": [
+        160,
+        80,
+        1760,
+        1000
+      ],
+      "output_sha256": "3717007bccd81f455b080f9d8dd60b3a390ecaf026fefc89af5107c3a950cdc2"
+    },
+    {
+      "name": "FLOOR_SUPPORT_CONTACTS",
+      "source": "renders-A2/R5c-supplemental/S05_FEET.png",
+      "source_sha256": "0db8092ef255e1c7d321964d646ce32471951da5a29d577341e7ecfbe81350dc",
+      "pixel_box": [
+        100,
+        190,
+        1820,
+        1060
+      ],
+      "output_sha256": "63a80ed2fab610c3955e9d5e6eabdcaba573f170fd670f2cedd25b752e7ab1aa"
+    },
+    {
+      "name": "DOOR_ACCESS_REVEAL",
+      "source": "renders-A2/R5c/C01_ENTRY.png",
+      "source_sha256": "ec71e249eadd6560fbc1c6f25826c68359d491a7e43015bd8539001d0ee6df76",
+      "pixel_box": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "output_sha256": "cb485b7a41601466b977a2e072b3898214b5e87030b6dbf32aa99e16a5d4b933"
+    }
+  ]
+}

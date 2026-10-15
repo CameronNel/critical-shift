@@ -1,0 +1,42 @@
+{
+  "source_sha256": "5c1277da8d68c89abacaf851fbd8a70467032afaa86ff8fafe2f5e7951a73388",
+  "scene_saved": false,
+  "scope": "Neutral studio and explicitly named temporary checker diagnostics; not room completeness or art proof",
+  "projection": "WORLD_TRIPLANAR_METRES",
+  "projection_policy": "World-normal weighted planar samples in physical metres for corrected candidates; checker uses the exact production helper. Triplanar blend transitions on curved surfaces are disclosed, not claimed as distortion-free UVs.",
+  "sample_width_m": 0.28,
+  "checker_tile_m": 0.24,
+  "checker_square_m": 0.03,
+  "resolution": [
+    1920,
+    1080
+  ],
+  "studio_samples": 32,
+  "room_checker_samples": 16,
+  "actual_geometry_checker_cameras": [
+    "C02_HERO",
+    "C10_MATERIALS"
+  ],
+  "source_materials": [
+    "A2 machine blue enamel",
+    "A2 waterbox oxide enamel",
+    "A2 hotwell graphite blue",
+    "Oxide orange enamel",
+    "Dense cast concrete",
+    "Astra ivory painted steel",
+    "Service ochre enamel",
+    "Astra brushed fastener steel",
+    "Machined cast iron",
+    "Oiled iron",
+    "Warm mineral plaster",
+    "Basement coated concrete",
+    "Matte vulcanized rubber",
+    "Service brass",
+    "Astra formed stainless bellows"
+  ],
+  "color_management": {
+    "view_transform": "AgX",
+    "look": "AgX - Medium High Contrast",
+    "exposure": -0.10000000149011612
+  }
+}

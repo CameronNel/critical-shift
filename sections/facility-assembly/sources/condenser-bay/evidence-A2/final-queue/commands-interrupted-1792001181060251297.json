@@ -1,0 +1,40 @@
+{
+  "status": "RUNNING",
+  "source_sha256": "f95b2ec895ea12619ca9d4bcc37b6901c924e754b472b692a2e0f49c6e97dd2c",
+  "commands": [
+    {
+      "stage": "map-pass-values",
+      "argv": [
+        "python3",
+        "audit_A2_map_results.py",
+        "map-R3e",
+        "--baseline",
+        "evidence-A2/baseline-main-A1/committed-validation"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay",
+      "exit_code": 0,
+      "seconds": 0.04
+    },
+    {
+      "stage": "owner-view",
+      "argv": [
+        "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+        "--background",
+        "--disable-autoexec",
+        "--threads",
+        "5",
+        "combined_map.blend",
+        "--python-exit-code",
+        "1",
+        "--python",
+        "render_views.py",
+        "--",
+        "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay/renders-A2/owner-map/views.json"
+      ],
+      "cwd": "/workspace/critical-shift/sections/facility-assembly/combined",
+      "exit_code": 0,
+      "seconds": 408.52
+    }
+  ],
+  "resume_note": "Environment restart interrupted the earlier map lighting stage. Its resumed exact commands are retained in map-R3e/commands.json; skipped stages are not rerun by this worker."
+}

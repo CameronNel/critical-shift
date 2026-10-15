@@ -1,0 +1,208 @@
+{
+  "label": "map-R2b",
+  "status": "FAIL",
+  "gates": {
+    "walk_normal": true,
+    "closed_doors_normal": true,
+    "walk_colliders": true,
+    "closed_doors_colliders": true,
+    "walk_meltdown": true,
+    "condenser_evacuation": true,
+    "doors": true,
+    "no_new_condenser_floor_pair": false,
+    "condenser_triangles": true,
+    "scoped_export": true,
+    "lighting_condenser_D01": true,
+    "lighting_condenser_inside": false,
+    "lighting_condenser_escape_tunnel": true,
+    "lighting_stair_bottom": true,
+    "no_new_other_lighting_miss": true,
+    "no_new_condenser_overlap_pair": true,
+    "all_commands_exit_zero": true
+  },
+  "details": {
+    "normal": {
+      "passed": 17,
+      "total": 18,
+      "failures": [
+        "yard_to_refinery_freight (cart route)"
+      ],
+      "closed": 13
+    },
+    "colliders": {
+      "passed": 10,
+      "total": 10,
+      "failures": [],
+      "closed": 13
+    },
+    "meltdown": {
+      "passed": 20,
+      "total": 20,
+      "failures": [],
+      "closed": 0
+    },
+    "evacuation": {
+      "routes_normal": 1,
+      "routes_evacuation": 2,
+      "single_door_failures_that_cut_off": [],
+      "route_avoiding_reactor": true,
+      "out_with_chamber_sealed": true,
+      "out_with_chamber_and_spine_blast_door_sealed": true
+    },
+    "doors": {
+      "total": 45,
+      "flagged": 0
+    },
+    "floor": {
+      "baseline_pairs": 40,
+      "candidate_pairs": 41,
+      "new_pairs": [
+        {
+          "slab_owner": "ROOM_turbine-room / TURBINE_MACH",
+          "over_floor_of": "ROOM_condenser-bay / NorthWall",
+          "level": 0.0,
+          "samples": 4,
+          "area_m2": 1.0,
+          "first": [
+            8.22,
+            12.62,
+            0.18
+          ],
+          "plan_box": [
+            8.22,
+            12.62,
+            9.72,
+            12.62
+          ],
+          "top_z": 0.18
+        }
+      ],
+      "new_condenser_pairs": [
+        {
+          "slab_owner": "ROOM_turbine-room / TURBINE_MACH",
+          "over_floor_of": "ROOM_condenser-bay / NorthWall",
+          "level": 0.0,
+          "samples": 4,
+          "area_m2": 1.0,
+          "first": [
+            8.22,
+            12.62,
+            0.18
+          ],
+          "plan_box": [
+            8.22,
+            12.62,
+            9.72,
+            12.62
+          ],
+          "top_z": 0.18
+        }
+      ]
+    },
+    "triangles": 387990,
+    "export": {
+      "fbx": "compact_map_colliders_anchors.fbx",
+      "sha256": "adcb27f078b9e183104ea902aebb4061d1c223ed030f1b8de55eda6e329575f5",
+      "bytes": 437324,
+      "exported": 202,
+      "reimported": 202,
+      "missing": [],
+      "extra": [],
+      "bounds_mismatch_over_1mm": [],
+      "n_bounds_mismatch": 0,
+      "passed": true
+    },
+    "lighting": {
+      "total": 25,
+      "stock_readable": 23,
+      "misses": [
+        "spine_mid",
+        "condenser_inside"
+      ],
+      "required": {
+        "condenser_D01": {
+          "median": 0.829,
+          "mean": 0.801,
+          "p10": 0.664,
+          "near_black": 0.0,
+          "clipped": 0.043,
+          "clipped_white": 0.0,
+          "eye": [
+            1.6,
+            -2.5,
+            -4.4
+          ],
+          "target": [
+            1.6,
+            7.300000000000001,
+            -4.6
+          ],
+          "readable": true
+        },
+        "condenser_inside": {
+          "median": 0.831,
+          "mean": 0.778,
+          "p10": 0.5,
+          "near_black": 0.001,
+          "clipped": 0.185,
+          "clipped_white": 0.0,
+          "eye": [
+            1.6,
+            3.900000000000002,
+            -4.4
+          ],
+          "target": [
+            6,
+            10.3,
+            -4.8
+          ],
+          "readable": false
+        },
+        "condenser_escape_tunnel": {
+          "median": 0.806,
+          "mean": 0.784,
+          "p10": 0.654,
+          "near_black": 0.038,
+          "clipped": 0.001,
+          "clipped_white": 0.0,
+          "eye": [
+            0.6,
+            12.100000000000001,
+            -4.4
+          ],
+          "target": [
+            -5.6,
+            12.100000000000001,
+            -4.6
+          ],
+          "readable": true
+        },
+        "stair_bottom": {
+          "median": 0.77,
+          "mean": 0.755,
+          "p10": 0.628,
+          "near_black": 0.0,
+          "clipped": 0.018,
+          "clipped_white": 0.0,
+          "eye": [
+            -5.6,
+            -3.0,
+            -4.4
+          ],
+          "target": [
+            1.6,
+            -3.0,
+            -4.6
+          ],
+          "readable": true
+        }
+      }
+    },
+    "overlaps": {
+      "new_condenser_pairs": [],
+      "scope": "Pair/height comparison against baseline; existing room/roof/connector contacts retained in raw logs, not an all-clear geometry assertion."
+    }
+  },
+  "baseline": "/workspace/scratch/condenser-A2-baseline/committed-validation",
+  "scope": "Exact brief map checks. Does not certify Unity runtime, original inherited high-level roof/gallery design, or art acceptance."
+}

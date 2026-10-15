@@ -1,0 +1,160 @@
+{
+  "revision": "preview-R2b",
+  "engine": "CYCLES",
+  "device": "CPU",
+  "cpu_threads": 5,
+  "threads_mode": "FIXED",
+  "process_priority": "IDLE",
+  "gpu_denoising": false,
+  "gpu_backend": null,
+  "gpu_devices": null,
+  "hardware_raytracing": false,
+  "persistent_data": true,
+  "samples": 16,
+  "resolution": [
+    960,
+    540
+  ],
+  "render_settings": {
+    "max_bounces": 10,
+    "diffuse_bounces": 3,
+    "glossy_bounces": 3,
+    "transmission_bounces": 8,
+    "transparent_max_bounces": 8,
+    "sample_clamp_indirect": 3.0,
+    "adaptive_threshold": 0.03999999910593033,
+    "seed": 0,
+    "denoiser": "OPENIMAGEDENOISE"
+  },
+  "renderer_source_sha256": {
+    "render.py": "01f8a50f279ebd8d869dd4ef829435148b552e8d67af0440827aacc38968c5fc",
+    "resource_guard.py": "f034c6172cae782787b9cb3c497be0364f69a8220a6b89981b47192ad2a332af"
+  },
+  "cameras": [
+    {
+      "camera": "C02_HERO",
+      "seconds": 28.95,
+      "sha256": "1b8535c5bbb3e0ce1fc3b0159c1f13bfdcd8d36955cf7f759f577d594b9a39ee",
+      "location": [
+        -1.350000023841858,
+        1.2000000476837158,
+        1.7000000476837158
+      ],
+      "lens": 22.0,
+      "matrix_world": [
+        [
+          0.5752706527709961,
+          -0.13064336776733398,
+          -0.8074626922607422,
+          -1.350000023841858
+        ],
+        [
+          -0.8179631233215332,
+          -0.09188114106655121,
+          -0.5678857564926147,
+          1.2000000476837158
+        ],
+        [
+          -8.652660454799843e-08,
+          0.987162709236145,
+          -0.15971799194812775,
+          1.7000000476837158
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "process_id": 13412
+    },
+    {
+      "camera": "C10_MATERIALS",
+      "seconds": 28.52,
+      "sha256": "0eb6edc04aeeb10723a6b3c99df309fbd82e5524c3640e1d5dd300afe433e2cd",
+      "location": [
+        2.5,
+        5.920000076293945,
+        1.1200000047683716
+      ],
+      "lens": 32.0,
+      "matrix_world": [
+        [
+          0.9961071014404297,
+          -0.013064147904515266,
+          0.087177574634552,
+          2.5
+        ],
+        [
+          0.08815101534128189,
+          0.14762502908706665,
+          -0.9851072430610657,
+          5.920000076293945
+        ],
+        [
+          -5.06496800056766e-09,
+          0.9889571070671082,
+          0.14820195734500885,
+          1.1200000047683716
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "process_id": 13412
+    },
+    {
+      "camera": "C09_ROOF",
+      "seconds": 27.67,
+      "sha256": "18e54bede4241a4ac0eea6b96d93653f55c2feb6c1e44cf5530351c91a6bc4d2",
+      "location": [
+        5.800000190734863,
+        6.0,
+        5.449999809265137
+      ],
+      "lens": 28.0,
+      "matrix_world": [
+        [
+          -0.5714938640594482,
+          0.09554524719715118,
+          0.8150250315666199,
+          5.800000190734863
+        ],
+        [
+          0.8206063508987427,
+          0.06654033809900284,
+          0.5676069259643555,
+          6.0
+        ],
+        [
+          9.911374831972353e-08,
+          0.9931986331939697,
+          -0.11643242835998535,
+          5.449999809265137
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "process_id": 13412
+    }
+  ],
+  "process_id": 13412,
+  "source_revision": "A2-R2b",
+  "blend_sha256": "e705df540a88e2bdab29bbfd3b35103d06cce4aac2f9459c90da260108c8442a",
+  "cloud_resource_adapter": {
+    "file": "condenser_A2_evidence.py",
+    "sha256": "e8b7a2d4ec21525fce72322d38a2690cbfc36a41b83f9cb6f664d25dee4d6600",
+    "linux_nice": 10,
+    "cpu_threads": 5,
+    "scene_saved": false,
+    "extra_camera_policy": "AAA cameras added only in this disposable process; all R34 cameras retained unchanged"
+  }
+}

@@ -1,0 +1,73 @@
+00:00.417  blend            | Read blend: "/workspace/critical-shift/sections/facility-assembly/sources/condenser-bay/module_aaa_A2.blend"
+/tmp/condenser-supplement-5ovbj0q3/blender/astra_evidence.py:47: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  material=bpy.data.materials.new('Evidence caption white');material.use_nodes=True
+00:01.143  cycles           | WARNING CUEW initialization failed: Error opening the library
+CONDENSER_RENDER_START R3-supplemental ['S01_LOCAL_U02']
+01:49.531  render           | Saved: '/tmp/condenser-supplement-5ovbj0q3/production/renders/review/R3-supplemental/S01_LOCAL_U02.png'
+CONDENSER_CAMERA_DONE S01_LOCAL_U02
+CONDENSER_RENDER_OK R3-supplemental
+CONDENSER_RENDER_START R3-supplemental ['S02_LOCAL_CW']
+03:38.704  render           | Saved: '/tmp/condenser-supplement-5ovbj0q3/production/renders/review/R3-supplemental/S02_LOCAL_CW.png'
+CONDENSER_CAMERA_DONE S02_LOCAL_CW
+CONDENSER_RENDER_OK R3-supplemental
+CONDENSER_RENDER_START R3-supplemental ['S03_FULL_ROOF']
+05:32.872  render           | Saved: '/tmp/condenser-supplement-5ovbj0q3/production/renders/review/R3-supplemental/S03_FULL_ROOF.png'
+CONDENSER_CAMERA_DONE S03_FULL_ROOF
+CONDENSER_RENDER_OK R3-supplemental
+CONDENSER_RENDER_START R3-supplemental ['S04_GLASS']
+07:35.839  render           | Saved: '/tmp/condenser-supplement-5ovbj0q3/production/renders/review/R3-supplemental/S04_GLASS.png'
+CONDENSER_CAMERA_DONE S04_GLASS
+CONDENSER_RENDER_OK R3-supplemental
+CONDENSER_RENDER_START R3-supplemental ['S05_FEET']
+09:29.970  render           | Saved: '/tmp/condenser-supplement-5ovbj0q3/production/renders/review/R3-supplemental/S05_FEET.png'
+CONDENSER_CAMERA_DONE S05_FEET
+CONDENSER_RENDER_OK R3-supplemental
+CONDENSER_RENDER_START R3-supplemental ['S06_OPERATOR_WORK']
+11:15.343  render           | Saved: '/tmp/condenser-supplement-5ovbj0q3/production/renders/review/R3-supplemental/S06_OPERATOR_WORK.png'
+CONDENSER_CAMERA_DONE S06_OPERATOR_WORK
+CONDENSER_RENDER_OK R3-supplemental
+CONDENSER_RENDER_START R3-supplemental ['S07_U04_CUTAWAY']
+11:15.921  object.modifier  | WARNING Object: "U04 side underside washer.013", Modifier: "A2 small fastener budget reserve", Modifier requires more than 3 input faces
+11:15.921  object.modifier  | WARNING Object: "U04 side underside washer.012", Modifier: "A2 small fastener budget reserve", Modifier requires more than 3 input faces
+11:15.922  object.modifier  | WARNING Object: "U04 side underside washer.011", Modifier: "A2 small fastener budget reserve", Modifier requires more than 3 input faces
+11:15.922  object.modifier  | WARNING Object: "U04 side underside washer.010", Modifier: "A2 small fastener budget reserve", Modifier requires more than 3 input faces
+11:15.922  object.modifier  | WARNING Object: "U04 side underside washer.009", Modifier: "A2 small fastener budget reserve", Modifier requires more than 3 input faces
+11:15.922  object.modifier  | WARNING Object: "U04 side underside washer.008", Modifier: "A2 small fastener budget reserve", Modifier requires more than 3 input faces
+11:15.922  object.modifier  | WARNING Object: "U04 side underside washer.007", Modifier: "A2 small fastener budget reserve", Modifier requires more than 3 input faces
+11:15.922  object.modifier  | WARNING Object: "U04 underside washer.023", Modifier: "A2 small fastener budget reserve", Modifier requires more than 3 input faces
+11:15.922  object.modifier  | WARNING Object: "U04 underside washer.022", Modifier: "A2 small fastener budget reserve", Modifier requires more than 3 input faces
+11:15.922  object.modifier  | WARNING Object: "U04 underside washer.021", Modifier: "A2 small fastener budget reserve", Modifier requires more than 3 input faces
+11:15.922  object.modifier  | WARNING Object: "U04 underside washer.020", Modifier: "A2 small fastener budget reserve", Modifier requires more than 3 input faces
+11:15.922  object.modifier  | WARNING Object: "U04 underside washer.019", Modifier: "A2 small fastener budget reserve", Modifier requires more than 3 input faces
+11:15.922  object.modifier  | WARNING Object: "U04 underside washer.018", Modifier: "A2 small fastener budget reserve", Modifier requires more than 3 input faces
+11:15.923  object.modifier  | WARNING Object: "U04 underside washer.006", Modifier: "A2 small fastener budget reserve", Modifier requires more than 3 input faces
+11:15.923  object.modifier  | WARNING Object: "U04 underside washer.007", Modifier: "A2 small fastener budget reserve", Modifier requires more than 3 input faces
+11:15.923  object.modifier  | WARNING Object: "U04 underside washer.008", Modifier: "A2 small fastener budget reserve", Modifier requires more than 3 input faces
+11:15.923  object.modifier  | WARNING Object: "U04 underside washer.009", Modifier: "A2 small fastener budget reserve", Modifier requires more than 3 input faces
+11:15.923  object.modifier  | WARNING Object: "U04 underside washer.010", Modifier: "A2 small fastener budget reserve", Modifier requires more than 3 input faces
+11:15.923  object.modifier  | WARNING Object: "U04 underside washer.011", Modifier: "A2 small fastener budget reserve", Modifier requires more than 3 input faces
+11:15.944  object.modifier  | WARNING Object: "U04 underside washer.006", Modifier: "A2 small fastener budget reserve", Modifier requires more than 3 input faces
+11:15.944  object.modifier  | WARNING Object: "U04 underside washer.007", Modifier: "A2 small fastener budget reserve", Modifier requires more than 3 input faces
+11:15.944  object.modifier  | WARNING Object: "U04 underside washer.008", Modifier: "A2 small fastener budget reserve", Modifier requires more than 3 input faces
+11:15.944  object.modifier  | WARNING Object: "U04 underside washer.009", Modifier: "A2 small fastener budget reserve", Modifier requires more than 3 input faces
+11:15.944  object.modifier  | WARNING Object: "U04 underside washer.010", Modifier: "A2 small fastener budget reserve", Modifier requires more than 3 input faces
+11:15.944  object.modifier  | WARNING Object: "U04 underside washer.011", Modifier: "A2 small fastener budget reserve", Modifier requires more than 3 input faces
+11:15.945  object.modifier  | WARNING Object: "U04 side underside washer.013", Modifier: "A2 small fastener budget reserve", Modifier requires more than 3 input faces
+11:15.945  object.modifier  | WARNING Object: "U04 side underside washer.012", Modifier: "A2 small fastener budget reserve", Modifier requires more than 3 input faces
+11:15.945  object.modifier  | WARNING Object: "U04 side underside washer.011", Modifier: "A2 small fastener budget reserve", Modifier requires more than 3 input faces
+11:15.945  object.modifier  | WARNING Object: "U04 side underside washer.010", Modifier: "A2 small fastener budget reserve", Modifier requires more than 3 input faces
+11:15.945  object.modifier  | WARNING Object: "U04 side underside washer.009", Modifier: "A2 small fastener budget reserve", Modifier requires more than 3 input faces
+11:15.945  object.modifier  | WARNING Object: "U04 side underside washer.008", Modifier: "A2 small fastener budget reserve", Modifier requires more than 3 input faces
+11:15.945  object.modifier  | WARNING Object: "U04 side underside washer.007", Modifier: "A2 small fastener budget reserve", Modifier requires more than 3 input faces
+11:15.945  object.modifier  | WARNING Object: "U04 underside washer.023", Modifier: "A2 small fastener budget reserve", Modifier requires more than 3 input faces
+11:15.945  object.modifier  | WARNING Object: "U04 underside washer.022", Modifier: "A2 small fastener budget reserve", Modifier requires more than 3 input faces
+11:15.945  object.modifier  | WARNING Object: "U04 underside washer.021", Modifier: "A2 small fastener budget reserve", Modifier requires more than 3 input faces
+11:15.945  object.modifier  | WARNING Object: "U04 underside washer.020", Modifier: "A2 small fastener budget reserve", Modifier requires more than 3 input faces
+11:15.945  object.modifier  | WARNING Object: "U04 underside washer.019", Modifier: "A2 small fastener budget reserve", Modifier requires more than 3 input faces
+11:15.946  object.modifier  | WARNING Object: "U04 underside washer.018", Modifier: "A2 small fastener budget reserve", Modifier requires more than 3 input faces
+12:03.578  render           | Saved: '/tmp/condenser-supplement-5ovbj0q3/production/renders/review/R3-supplemental/S07_U04_CUTAWAY.png'
+CONDENSER_CAMERA_DONE S07_U04_CUTAWAY
+CONDENSER_RENDER_OK R3-supplemental
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)
+
+Blender quit

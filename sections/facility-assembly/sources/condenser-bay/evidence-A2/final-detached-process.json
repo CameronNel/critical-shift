@@ -1,0 +1,14 @@
+{
+  "pid": 17291,
+  "argv": [
+    "python3",
+    "run_A2_final_evidence.py",
+    "--blender",
+    "/workspace/scratch/blender52/blender-5.2.2-linux-x64/blender",
+    "--start-stage",
+    "room-camera-packs"
+  ],
+  "reason": "Resume after environment/tool refresh killed the attached producer; one detached sequential worker, monitored by raw logs. Twenty R2 original frames retained and checked; only missing frames render.",
+  "resumed_R2_native_sha256": "e705df540a88e2bdab29bbfd3b35103d06cce4aac2f9459c90da260108c8442a",
+  "final_native_sha256": "f95b2ec895ea12619ca9d4bcc37b6901c924e754b472b692a2e0f49c6e97dd2c"
+}

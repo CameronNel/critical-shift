@@ -1,0 +1,845 @@
+{
+ "note": "Door table of the compact map, assembly pass. Unreviewed. Runtime states: {\"closed\": \"blocks: collider DOOR_<id>_blocker enabled\", \"open\": \"passes: blocker disabled\", \"locked\": \"closed and refuses interaction\"}. Emergency exits (emergency_exit true) are closed in normal play and open in the evacuation state (evac_state); leaf_regex matches their closed-leaf objects.",
+ "closed_copies": [
+  [
+   "turbine-room",
+   "TURBINE_D02",
+   2,
+   "the vestibule end panel kept closed as the leaf; the end wall behind it opened 1.44 x 2.38 m"
+  ],
+  [
+   "electrical-room",
+   "ELECTRICAL_D02",
+   74,
+   "sliding leaves moved 1.25 m to the closed position"
+  ],
+  [
+   "waste-storage",
+   "WASTE_PERSONNEL",
+   11,
+   "hinged leaf turned 90 degrees into the frame"
+  ],
+  [
+   "waste-storage",
+   "WASTE_DISPATCH",
+   36,
+   "new closed roller curtain (36 slats) between the seal tracks; the module has only the rolled-up barrel"
+  ]
+ ],
+ "doors": [
+  {
+   "id": "SPAWN_EXIT",
+   "owner": "front-end-area",
+   "plan": [
+    8.0,
+    -80.0,
+    0.0
+   ],
+   "outward": [
+    0.0,
+    -1.0
+   ],
+   "clear_w": 2.58,
+   "clear_h": 2.6,
+   "kind": "airlock",
+   "state": "open",
+   "leads_to": "spawn-room",
+   "leaf": "front end airlock_leaf_L/R shown parked; spawn AIRLOCK_* leaves left out (DOOR_BINDINGS spawn_airlock)",
+   "emergency_exit": false,
+   "evac_state": "open",
+   "leaf_regex": ""
+  },
+  {
+   "id": "CAF_YARD",
+   "owner": "front-end-area",
+   "plan": [
+    -7.27,
+    -70.0,
+    0.0
+   ],
+   "outward": [
+    -1.0,
+    0.0
+   ],
+   "clear_w": 3.0,
+   "clear_h": 2.51,
+   "kind": "double sliding",
+   "state": "open",
+   "leads_to": "yard",
+   "leaf": "yard_leaf_N/S parked",
+   "emergency_exit": false,
+   "evac_state": "open",
+   "leaf_regex": ""
+  },
+  {
+   "id": "CAF_MEDICAL",
+   "owner": "medical-reanimation",
+   "plan": [
+    26.0,
+    -70.0,
+    0.0
+   ],
+   "outward": [
+    -1.0,
+    -0.0
+   ],
+   "clear_w": 2.2,
+   "clear_h": 2.5,
+   "kind": "opposed sliding pressure leaves",
+   "state": "open",
+   "leads_to": "front-end-area (cafeteria)",
+   "leaf": "MED_R2 pressure leaves parked; contract: open traversal default",
+   "emergency_exit": false,
+   "evac_state": "open",
+   "leaf_regex": ""
+  },
+  {
+   "id": "HALL_WEST",
+   "owner": "front-end-area",
+   "plan": [
+    -3.97,
+    -54.0,
+    0.0
+   ],
+   "outward": [
+    -1.0,
+    0.0
+   ],
+   "clear_w": 2.32,
+   "clear_h": 2.6,
+   "kind": "double leaf",
+   "state": "open",
+   "leads_to": "refinery (colonnade)",
+   "leaf": "hall_W_door_leaf_+-1.001 left out (closed-state asset)",
+   "emergency_exit": false,
+   "evac_state": "open",
+   "leaf_regex": ""
+  },
+  {
+   "id": "HALL_SPINE",
+   "owner": "front-end-area",
+   "plan": [
+    8.0,
+    -48.5,
+    0.0
+   ],
+   "outward": [
+    0.0,
+    1.0
+   ],
+   "clear_w": 3.6,
+   "clear_h": 3.2,
+   "kind": "blast door, sliding pair",
+   "state": "open",
+   "leads_to": "spine",
+   "leaf": "blast_leaf_+-1 parked",
+   "emergency_exit": false,
+   "evac_state": "open",
+   "leaf_regex": ""
+  },
+  {
+   "id": "HALL_EAST",
+   "owner": "front-end-area",
+   "plan": [
+    31.97,
+    -54.0,
+    0.0
+   ],
+   "outward": [
+    1.0,
+    0.0
+   ],
+   "clear_w": 2.32,
+   "clear_h": 2.6,
+   "kind": "double leaf",
+   "state": "closed",
+   "leads_to": "east evacuation road (canopy)",
+   "leaf": "hall_E_door_leaf_+-1.001 kept in the closed position",
+   "emergency_exit": true,
+   "evac_state": "open",
+   "leaf_regex": "^hall_E_door_leaf_"
+  },
+  {
+   "id": "MINE_PORTAL",
+   "owner": "mine",
+   "plan": [
+    -53.4,
+    -70.0,
+    0.0
+   ],
+   "outward": [
+    1.0,
+    0.0
+   ],
+   "clear_w": 7.2,
+   "clear_h": 3.9,
+   "kind": "portal (no leaf)",
+   "state": "open",
+   "leads_to": "front-end-area (yard)",
+   "leaf": "tunnel mouth (first timber set); front end portal_void and the portal cap faces left out",
+   "emergency_exit": false,
+   "evac_state": "open",
+   "leaf_regex": ""
+  },
+  {
+   "id": "YARD_SERVICE",
+   "owner": "front-end-area",
+   "plan": [
+    -46.0,
+    -60.15,
+    0.0
+   ],
+   "outward": [
+    0.0,
+    1.0
+   ],
+   "clear_w": 2.4,
+   "clear_h": 2.35,
+   "kind": "single leaf",
+   "state": "closed",
+   "leads_to": "west evacuation path",
+   "leaf": "service_door_leaf kept closed",
+   "emergency_exit": true,
+   "evac_state": "open",
+   "leaf_regex": "^service_door_(leaf|push)$"
+  },
+  {
+   "id": "YARD_EVAC_GATE",
+   "owner": "front-end-area",
+   "plan": [
+    -28.0,
+    -84.0,
+    0.0
+   ],
+   "outward": [
+    0.0,
+    -1.0
+   ],
+   "clear_w": 5.8,
+   "clear_h": 2.3,
+   "kind": "double gate (evacuation)",
+   "state": "closed",
+   "leads_to": "outside: the evacuation point",
+   "leaf": "evac_leaf_frame+-1, push bars, stripes (closed; opens for evacuation)",
+   "emergency_exit": true,
+   "evac_state": "open",
+   "leaf_regex": "^evac_(leaf_frame|push_bar|stripe)"
+  },
+  {
+   "id": "YARD_FREIGHT_GATE",
+   "owner": "front-end-area",
+   "plan": [
+    -22.2,
+    -60.1,
+    0.0
+   ],
+   "outward": [
+    0.0,
+    1.0
+   ],
+   "clear_w": 3.1,
+   "clear_h": 3.1,
+   "kind": "sliding gate",
+   "state": "open",
+   "leads_to": "refinery freight door",
+   "leaf": "freight_gate_leaf parked",
+   "emergency_exit": false,
+   "evac_state": "open",
+   "leaf_regex": ""
+  },
+  {
+   "id": "REFINERY_FUEL",
+   "owner": "fuel-corridor",
+   "plan": [
+    -22.2,
+    -43.6,
+    0.0
+   ],
+   "outward": [
+    0.0,
+    -1.0
+   ],
+   "clear_w": 2.6,
+   "clear_h": 3.0,
+   "kind": "opening (refinery Door_Reactor)",
+   "state": "open",
+   "leads_to": "refinery",
+   "leaf": "refinery REACTOR door: open frame",
+   "emergency_exit": false,
+   "evac_state": "open",
+   "leaf_regex": ""
+  },
+  {
+   "id": "FUEL_F02E",
+   "owner": "fuel-corridor",
+   "plan": [
+    -5.46,
+    -36.62,
+    0.0
+   ],
+   "outward": [
+    1.0,
+    0.0
+   ],
+   "clear_w": 2.38,
+   "clear_h": 3.0,
+   "kind": "double leaf (the S03 door moved to the east wall)",
+   "state": "open",
+   "leads_to": "concourse (reactor south)",
+   "leaf": "FC | Reactor transfer leaves left out (closed-state asset)",
+   "emergency_exit": false,
+   "evac_state": "open",
+   "leaf_regex": ""
+  },
+  {
+   "id": "REACTOR_S",
+   "owner": "reactor-room",
+   "plan": [
+    0.0,
+    -30.9,
+    0.0
+   ],
+   "outward": [
+    0.0,
+    -1.0
+   ],
+   "clear_w": 5.0,
+   "clear_h": 5.0,
+   "kind": "opening (cut)",
+   "state": "open",
+   "leads_to": "concourse",
+   "leaf": "hall wall cut south_door",
+   "emergency_exit": false,
+   "evac_state": "open",
+   "leaf_regex": ""
+  },
+  {
+   "id": "REACTOR_N",
+   "owner": "reactor-room",
+   "plan": [
+    0.0,
+    -4.3,
+    0.0
+   ],
+   "outward": [
+    0.0,
+    1.0
+   ],
+   "clear_w": 5.0,
+   "clear_h": 5.0,
+   "kind": "stub double door",
+   "state": "open",
+   "leads_to": "turbine-room D01",
+   "leaf": "FUEL HANDLING.* door pieces left out (closed-state asset)",
+   "emergency_exit": false,
+   "evac_state": "open",
+   "leaf_regex": ""
+  },
+  {
+   "id": "REACTOR_W",
+   "owner": "reactor-room",
+   "plan": [
+    -14.4,
+    -18.7,
+    0.0
+   ],
+   "outward": [
+    -1.0,
+    0.0
+   ],
+   "clear_w": 5.0,
+   "clear_h": 5.0,
+   "kind": "stub double door",
+   "state": "open",
+   "leads_to": "cooling-plant CP-P01",
+   "leaf": "MAIN ACCESS.* door pieces left out (closed-state asset)",
+   "emergency_exit": false,
+   "evac_state": "open",
+   "leaf_regex": ""
+  },
+  {
+   "id": "REACTOR_SE",
+   "owner": "reactor-room",
+   "plan": [
+    11.0,
+    -29.7,
+    0.0
+   ],
+   "outward": [
+    0.7071,
+    -0.7071
+   ],
+   "clear_w": 5.0,
+   "clear_h": 5.0,
+   "kind": "stub double door",
+   "state": "closed",
+   "leads_to": "east evacuation yard",
+   "leaf": "COOLING PLANT.* door pieces kept (closed)",
+   "emergency_exit": true,
+   "evac_state": "open",
+   "leaf_regex": "^(COOLING PLANT\\..*door|RH refine door hardware COOLING PLANT)"
+  },
+  {
+   "id": "REACTOR_BLAST",
+   "owner": "reactor-room",
+   "plan": [
+    0.0,
+    -33.77,
+    0.0
+   ],
+   "outward": [
+    0.0,
+    -1.0
+   ],
+   "clear_w": 5.0,
+   "clear_h": 4.96,
+   "kind": "blast door, sliding pair (new)",
+   "state": "open",
+   "leads_to": "concourse",
+   "leaf": "BLAST reactor leaf west/east parked behind the concourse north wall; closed position x -2.75..0 and 0..2.75 (seal chamber)",
+   "emergency_exit": false,
+   "evac_state": "open",
+   "leaf_regex": ""
+  },
+  {
+   "id": "REACTOR_E_WASTE",
+   "owner": "reactor-room",
+   "plan": [
+    11.2,
+    -14.84,
+    0.0
+   ],
+   "outward": [
+    1.0,
+    0.0
+   ],
+   "clear_w": 2.84,
+   "clear_h": 3.2,
+   "kind": "opening (new cut through the east wall patch panel)",
+   "state": "open",
+   "leads_to": "waste-storage",
+   "leaf": "no leaf (waste receiving shutter is the door)",
+   "emergency_exit": false,
+   "evac_state": "open",
+   "leaf_regex": ""
+  },
+  {
+   "id": "TURBINE_D01",
+   "owner": "turbine-room",
+   "plan": [
+    0.0,
+    -4.2,
+    0.0
+   ],
+   "outward": [
+    0.0,
+    -1.0
+   ],
+   "clear_w": 2.4,
+   "clear_h": 2.7,
+   "kind": "opening (rebuild south vestibule, clipped at the reactor stub)",
+   "state": "open",
+   "leads_to": "reactor north stub",
+   "leaf": "the vestibule end panel (a closed-door graphic) is left out with the clipped vestibule",
+   "emergency_exit": false,
+   "evac_state": "open",
+   "leaf_regex": ""
+  },
+  {
+   "id": "TURBINE_D02",
+   "owner": "turbine-room",
+   "plan": [
+    0.0,
+    21.53,
+    0.0
+   ],
+   "outward": [
+    0.0,
+    1.0
+   ],
+   "clear_w": 1.44,
+   "clear_h": 2.38,
+   "kind": "single panel at the end of the rebuild north vestibule",
+   "state": "closed",
+   "leads_to": "east evacuation road (north strip)",
+   "leaf": "the vestibule end panel (local copies) kept shut; the end wall behind it is opened",
+   "emergency_exit": true,
+   "evac_state": "open",
+   "leaf_regex": "^(TURBINE_ARCH\\ clipped\\ D02\\ leaf|OCCLUDER_ONLY\\ skin\\ clipped\\ D02\\ leaf)$"
+  },
+  {
+   "id": "TURBINE_E_ELECTRICAL",
+   "owner": "turbine-room",
+   "plan": [
+    10.1,
+    8.3,
+    0.0
+   ],
+   "outward": [
+    1.0,
+    0.0
+   ],
+   "clear_w": 2.4,
+   "clear_h": 2.7,
+   "kind": "opening (new cut) + electrical D01 leaves",
+   "state": "open",
+   "leads_to": "electrical-room D01",
+   "leaf": "leaves are electrical D01 (parked inside electrical)",
+   "emergency_exit": false,
+   "evac_state": "open",
+   "leaf_regex": ""
+  },
+  {
+   "id": "ELECTRICAL_D01",
+   "owner": "electrical-room",
+   "plan": [
+    10.5,
+    8.3,
+    0.0
+   ],
+   "outward": [
+    -1.0,
+    -0.0
+   ],
+   "clear_w": 2.4,
+   "clear_h": 2.7,
+   "kind": "sliding pair",
+   "state": "open",
+   "leads_to": "turbine-room (east door)",
+   "leaf": "parked",
+   "emergency_exit": false,
+   "evac_state": "open",
+   "leaf_regex": ""
+  },
+  {
+   "id": "ELECTRICAL_D02",
+   "owner": "electrical-room",
+   "plan": [
+    26.9,
+    8.3,
+    0.0
+   ],
+   "outward": [
+    1.0,
+    0.0
+   ],
+   "clear_w": 2.4,
+   "clear_h": 2.7,
+   "kind": "sliding pair",
+   "state": "closed",
+   "leads_to": "east evacuation road",
+   "leaf": "leaves moved shut (local copies)",
+   "emergency_exit": true,
+   "evac_state": "open",
+   "leaf_regex": "^(Door\\ impact\\ shoe\\.002\\ closed|Door\\ vertical\\ edge\\ fold\\.002\\ closed|Door\\ recessed\\ vision\\ trim\\.002\\ closed|Door\\ wired\\ vision\\ glass\\.002\\ closed|Vision\\ glass\\ wire\\.006\\ closed|Vision\\ glass\\ wire\\.007\\ closed|Vision\\ glass\\ wire\\.008\\ closed|Sliding\\ roller\\.004\\ closed|Sliding\\ roller\\.005\\ closed|Door\\ impact\\ shoe\\.003\\ closed|Door\\ vertical\\ edge\\ fold\\.003\\ closed|Door\\ recessed\\ vision\\ trim\\.003\\ closed|Door\\ wired\\ vision\\ glass\\.003\\ closed|Vision\\ glass\\ wire\\.009\\ closed|Vision\\ glass\\ wire\\.010\\ closed|Vision\\ glass\\ wire\\.011\\ closed|Sliding\\ roller\\.006\\ closed|Sliding\\ roller\\.007\\ closed|EOH\\ \\|\\ Door\\ track\\ suspension\\ strap\\.004\\ closed|EOH\\ \\|\\ Door\\ suspension\\ fixing\\ washer\\.004\\ closed|EOH\\ \\|\\ Door\\ suspension\\ fixing\\ hex\\ head\\.004\\ closed|EOH\\ \\|\\ Door\\ track\\ suspension\\ strap\\.005\\ closed|EOH\\ \\|\\ Door\\ suspension\\ fixing\\ washer\\.005\\ closed|EOH\\ \\|\\ Door\\ suspension\\ fixing\\ hex\\ head\\.005\\ closed|EOH\\ \\|\\ Vision\\ embedded\\ transverse\\ wire\\.008\\ closed|EOH\\ \\|\\ Vision\\ embedded\\ transverse\\ wire\\.009\\ closed|EOH\\ \\|\\ Vision\\ embedded\\ transverse\\ wire\\.010\\ closed|EOH\\ \\|\\ Vision\\ embedded\\ transverse\\ wire\\.011\\ closed|EOH\\ \\|\\ Vision\\ glazing\\ seated\\ bead\\.004\\ closed|EOH\\ \\|\\ Vision\\ bead\\ captive\\ fixing\\ washer\\.008\\ closed|EOH\\ \\|\\ Vision\\ bead\\ captive\\ fixing\\ hex\\ head\\.008\\ closed|EOH\\ \\|\\ Vision\\ bead\\ captive\\ fixing\\ washer\\.009\\ closed|EOH\\ \\|\\ Vision\\ bead\\ captive\\ fixing\\ hex\\ head\\.009\\ closed|EOH\\ \\|\\ Vision\\ glazing\\ seated\\ bead\\.005\\ closed|EOH\\ \\|\\ Vision\\ bead\\ captive\\ fixing\\ washer\\.010\\ closed|EOH\\ \\|\\ Vision\\ bead\\ captive\\ fixing\\ hex\\ head\\.010\\ closed|EOH\\ \\|\\ Vision\\ bead\\ captive\\ fixing\\ washer\\.011\\ closed|EOH\\ \\|\\ Vision\\ bead\\ captive\\ fixing\\ hex\\ head\\.011\\ closed|EOH\\ \\|\\ Door\\ lower\\ folded\\ seam\\.002\\ closed|EOH\\ \\|\\ Door\\ track\\ suspension\\ strap\\.006\\ closed|EOH\\ \\|\\ Door\\ suspension\\ fixing\\ washer\\.006\\ closed|EOH\\ \\|\\ Door\\ suspension\\ fixing\\ hex\\ head\\.006\\ closed|EOH\\ \\|\\ Door\\ track\\ suspension\\ strap\\.007\\ closed|EOH\\ \\|\\ Door\\ suspension\\ fixing\\ washer\\.007\\ closed|EOH\\ \\|\\ Door\\ suspension\\ fixing\\ hex\\ head\\.007\\ closed|EOH\\ \\|\\ Vision\\ embedded\\ transverse\\ wire\\.012\\ closed|EOH\\ \\|\\ Vision\\ embedded\\ transverse\\ wire\\.013\\ closed|EOH\\ \\|\\ Vision\\ embedded\\ transverse\\ wire\\.014\\ closed|EOH\\ \\|\\ Vision\\ embedded\\ transverse\\ wire\\.015\\ closed|EOH\\ \\|\\ Vision\\ glazing\\ seated\\ bead\\.006\\ closed|EOH\\ \\|\\ Vision\\ bead\\ captive\\ fixing\\ washer\\.012\\ closed|EOH\\ \\|\\ Vision\\ bead\\ captive\\ fixing\\ hex\\ head\\.012\\ closed|EOH\\ \\|\\ Vision\\ bead\\ captive\\ fixing\\ washer\\.013\\ closed|EOH\\ \\|\\ Vision\\ bead\\ captive\\ fixing\\ hex\\ head\\.013\\ closed|EOH\\ \\|\\ Vision\\ glazing\\ seated\\ bead\\.007\\ closed|EOH\\ \\|\\ Vision\\ bead\\ captive\\ fixing\\ washer\\.014\\ closed|EOH\\ \\|\\ Vision\\ bead\\ captive\\ fixing\\ hex\\ head\\.014\\ closed|EOH\\ \\|\\ Vision\\ bead\\ captive\\ fixing\\ washer\\.015\\ closed|EOH\\ \\|\\ Vision\\ bead\\ captive\\ fixing\\ hex\\ head\\.015\\ closed|EOH\\ \\|\\ Door\\ lower\\ folded\\ seam\\.003\\ closed|EOH\\ \\|\\ Leaf\\ 3\\ irregular\\ handle\\ loss\\ 0\\ closed|EOH\\ \\|\\ Leaf\\ 3\\ rubbed\\ metal\\ core\\ 0\\ closed|EOH\\ \\|\\ Leaf\\ 3\\ irregular\\ handle\\ loss\\ 1\\ closed|EOH\\ \\|\\ Leaf\\ 3\\ irregular\\ handle\\ loss\\ 2\\ closed|EOH\\ \\|\\ Leaf\\ 3\\ rubbed\\ metal\\ core\\ 2\\ closed|EOH\\ \\|\\ Leaf\\ 3\\ individual\\ shoe\\ strike\\ 0\\ closed|EOH\\ \\|\\ Leaf\\ 3\\ individual\\ shoe\\ strike\\ 1\\ closed|EOH\\ \\|\\ Leaf\\ 3\\ individual\\ shoe\\ strike\\ 2\\ closed|EOH\\ \\|\\ Leaf\\ 3\\ individual\\ shoe\\ strike\\ 3\\ closed|EOH\\ \\|\\ Leaf\\ 3\\ individual\\ shoe\\ strike\\ 4\\ closed|EOH\\ \\|\\ Leaf\\ 4\\ irregular\\ handle\\ loss\\ 0\\ closed|EOH\\ \\|\\ Leaf\\ 4\\ irregular\\ handle\\ loss\\ 1\\ closed|EOH\\ \\|\\ Leaf\\ 4\\ rubbed\\ metal\\ core\\ 1\\ closed|EOH\\ \\|\\ Leaf\\ 4\\ individual\\ shoe\\ strike\\ 0\\ closed)$"
+  },
+  {
+   "id": "TURBINE_W_STAIR",
+   "owner": "turbine-room",
+   "plan": [
+    -4.1,
+    8.775,
+    0.0
+   ],
+   "outward": [
+    -1.0,
+    0.0
+   ],
+   "clear_w": 1.55,
+   "clear_h": 2.6,
+   "kind": "opening (new cut)",
+   "state": "open",
+   "leads_to": "condenser stair",
+   "leaf": "no leaf",
+   "emergency_exit": false,
+   "evac_state": "open",
+   "leaf_regex": ""
+  },
+  {
+   "id": "CONDENSER_W_ESCAPE",
+   "owner": "condenser-bay",
+   "plan": [
+    -0.34,
+    12.1,
+    -6.0
+   ],
+   "outward": [
+    -1.0,
+    0.0
+   ],
+   "clear_w": 1.0,
+   "clear_h": 2.28,
+   "kind": "single steel leaf (new emergency door)",
+   "state": "closed",
+   "leads_to": "escape tunnel and ladder shaft to the outside",
+   "leaf": "ESCAPE bay door leaf (closed; opens for evacuation)",
+   "emergency_exit": true,
+   "evac_state": "open",
+   "leaf_regex": "^ESCAPE bay door leaf"
+  },
+  {
+   "id": "ESCAPE_HOUSE_DOOR",
+   "owner": "connector",
+   "plan": [
+    -5.6,
+    13.1,
+    0.0
+   ],
+   "outward": [
+    0.0,
+    1.0
+   ],
+   "clear_w": 1.56,
+   "clear_h": 2.18,
+   "kind": "single steel leaf (new emergency door, top of the escape ladder)",
+   "state": "closed",
+   "leads_to": "north evacuation strip",
+   "leaf": "ESCAPE house door leaf (closed; opens for evacuation)",
+   "emergency_exit": true,
+   "evac_state": "open",
+   "leaf_regex": "^ESCAPE house door leaf"
+  },
+  {
+   "id": "CONDENSER_D01",
+   "owner": "condenser-bay",
+   "plan": [
+    1.6,
+    3.2,
+    -6.0
+   ],
+   "outward": [
+    0.0,
+    -1.0
+   ],
+   "clear_w": 2.0,
+   "clear_h": 2.4,
+   "kind": "two opposed sliding leaves",
+   "state": "open",
+   "leads_to": "condenser stair corridor",
+   "leaf": "parked open (contract); stub blanking left out",
+   "emergency_exit": false,
+   "evac_state": "open",
+   "leaf_regex": ""
+  },
+  {
+   "id": "COOLING_P01",
+   "owner": "cooling-plant",
+   "plan": [
+    -14.5,
+    -18.7,
+    0.0
+   ],
+   "outward": [
+    1.0,
+    -0.0
+   ],
+   "clear_w": 5.0,
+   "clear_h": 5.0,
+   "kind": "overhead folding shutter",
+   "state": "open",
+   "leads_to": "reactor west stub",
+   "leaf": "raised (contract: fixed open)",
+   "emergency_exit": false,
+   "evac_state": "open",
+   "leaf_regex": ""
+  },
+  {
+   "id": "COOLING_W_EXIT",
+   "owner": "cooling-plant",
+   "plan": [
+    -27.8,
+    -17.0,
+    0.0
+   ],
+   "outward": [
+    -1.0,
+    0.0
+   ],
+   "clear_w": 1.6,
+   "clear_h": 2.35,
+   "kind": "single leaf (new emergency door)",
+   "state": "closed",
+   "leads_to": "west evacuation path",
+   "leaf": "EVAC cooling exit leaf (closed; opens for evacuation)",
+   "emergency_exit": true,
+   "evac_state": "open",
+   "leaf_regex": "^EVAC cooling exit leaf"
+  },
+  {
+   "id": "WASTE_RECEIVING",
+   "owner": "waste-storage",
+   "plan": [
+    11.94,
+    -14.84,
+    0.0
+   ],
+   "outward": [
+    -1.0,
+    -0.0
+   ],
+   "clear_w": 3.0,
+   "clear_h": 3.2,
+   "kind": "rolling shutter",
+   "state": "open",
+   "leads_to": "reactor hall (east opening)",
+   "leaf": "rolled up (contract: parked fully open)",
+   "emergency_exit": false,
+   "evac_state": "open",
+   "leaf_regex": ""
+  },
+  {
+   "id": "WASTE_PERSONNEL",
+   "owner": "waste-storage",
+   "plan": [
+    14.34,
+    -21.0,
+    0.0
+   ],
+   "outward": [
+    0.0,
+    -1.0
+   ],
+   "clear_w": 1.2,
+   "clear_h": 2.3,
+   "kind": "hinged leaf, outward",
+   "state": "closed",
+   "leads_to": "east evacuation yard",
+   "leaf": "leaf turned into the frame (local copies)",
+   "emergency_exit": true,
+   "evac_state": "open",
+   "leaf_regex": "^(Personnel\\ leaf\\ inner\\ core\\ closed|Personnel\\ leaf\\ folded\\ edge\\ closed|Personnel\\ leaf\\ folded\\ edge\\.001\\ closed|Personnel\\ leaf\\ end\\ rail\\ closed|Personnel\\ leaf\\ end\\ rail\\.001\\ closed|Personnel\\ kick\\ plate\\ closed|Panic\\ bar\\ bracket\\ closed|Panic\\ bar\\ bracket\\.001\\ closed|Personnel\\ panic\\ bar\\ closed|Recessed\\ engraved\\ plate\\.017\\ closed|Engraved\\ WS_PERSONNEL\\ closed)$"
+  },
+  {
+   "id": "WASTE_DISPATCH",
+   "owner": "waste-storage",
+   "plan": [
+    29.94,
+    -14.84,
+    0.0
+   ],
+   "outward": [
+    1.0,
+    0.0
+   ],
+   "clear_w": 2.4,
+   "clear_h": 2.8,
+   "kind": "rolling shutter",
+   "state": "closed",
+   "leads_to": "east evacuation road",
+   "leaf": "new curtain",
+   "emergency_exit": true,
+   "evac_state": "open",
+   "leaf_regex": "^WASTE dispatch shutter"
+  },
+  {
+   "id": "DOCK_P1",
+   "owner": "compliance-dock",
+   "plan": [
+    11.15,
+    -40.39,
+    0.0
+   ],
+   "outward": [
+    -1.0,
+    -0.0
+   ],
+   "clear_w": 2.4,
+   "clear_h": 2.6,
+   "kind": "sliding (X) in perimeter wall",
+   "state": "open",
+   "leads_to": "spine (east door)",
+   "leaf": "P1 deep back wall and leaf left out",
+   "emergency_exit": false,
+   "evac_state": "open",
+   "leaf_regex": ""
+  },
+  {
+   "id": "DOCK_P2",
+   "owner": "compliance-dock",
+   "plan": [
+    27.95,
+    -40.39,
+    0.0
+   ],
+   "outward": [
+    1.0,
+    0.0
+   ],
+   "clear_w": 4.6,
+   "clear_h": 3.5,
+   "kind": "opposed sliding blast leaves",
+   "state": "closed",
+   "leads_to": "outside (arrival)",
+   "leaf": "contract default sealed",
+   "emergency_exit": false,
+   "evac_state": "closed",
+   "leaf_regex": ""
+  },
+  {
+   "id": "SPINE_NORTH_END",
+   "owner": "front-end-area",
+   "plan": [
+    8.0,
+    -33.25,
+    0.0
+   ],
+   "outward": [
+    0.0,
+    1.0
+   ],
+   "clear_w": 3.3,
+   "clear_h": 3.3,
+   "kind": "single leaf",
+   "state": "closed",
+   "leads_to": "east evacuation alley (emergency exit)",
+   "leaf": "reactor_door kept closed (moved with the spine end)",
+   "emergency_exit": true,
+   "evac_state": "open",
+   "leaf_regex": "^reactor_door moved$"
+  },
+  {
+   "id": "SPINE_W_CONCOURSE",
+   "owner": "front-end-area",
+   "plan": [
+    6.0,
+    -35.9,
+    0.0
+   ],
+   "outward": [
+    -1.0,
+    0.0
+   ],
+   "clear_w": 4.8,
+   "clear_h": 4.2,
+   "kind": "opening (west wall split out)",
+   "state": "open",
+   "leads_to": "concourse (reactor south)",
+   "leaf": "no leaf",
+   "emergency_exit": false,
+   "evac_state": "open",
+   "leaf_regex": ""
+  },
+  {
+   "id": "SPINE_E_DOCK",
+   "owner": "front-end-area",
+   "plan": [
+    10.0,
+    -40.39,
+    0.0
+   ],
+   "outward": [
+    1.0,
+    0.0
+   ],
+   "clear_w": 2.6,
+   "clear_h": 2.6,
+   "kind": "opening (new cut)",
+   "state": "open",
+   "leads_to": "compliance-dock",
+   "leaf": "no leaf (dock P1 is the door)",
+   "emergency_exit": false,
+   "evac_state": "open",
+   "leaf_regex": ""
+  }
+ ]
+}

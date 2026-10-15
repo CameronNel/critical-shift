@@ -1,0 +1,55 @@
+{
+  "authorship": "Original deterministic numeric maps by the condenser A2 builder; no third-party artwork.",
+  "mapping": "Box-projected in physical metres; floor traffic masks use a named metre-space UV layer.",
+  "lighting_baked": false,
+  "maps": {
+    "paint_peel": {
+      "tile_metres": 0.12,
+      "resolution": [
+        512,
+        512
+      ],
+      "meaning": "Numeric surface variation / height, Non-Color; not albedo or lighting."
+    },
+    "mineral_grain": {
+      "tile_metres": 0.24,
+      "resolution": [
+        512,
+        512
+      ],
+      "meaning": "Numeric surface variation / height, Non-Color; not albedo or lighting."
+    },
+    "mineral_tone": {
+      "tile_metres": 0.24,
+      "resolution": [
+        512,
+        512
+      ],
+      "meaning": "Numeric surface variation / height, Non-Color; not albedo or lighting."
+    },
+    "cast_grain": {
+      "tile_metres": 0.24,
+      "resolution": [
+        512,
+        512
+      ],
+      "meaning": "Numeric surface variation / height, Non-Color; not albedo or lighting."
+    },
+    "metal_brush": {
+      "tile_metres": 0.24,
+      "resolution": [
+        512,
+        512
+      ],
+      "meaning": "Numeric surface variation / height, Non-Color; not albedo or lighting."
+    },
+    "traffic_scuff": {
+      "tile_metres": 0.24,
+      "resolution": [
+        512,
+        512
+      ],
+      "meaning": "Numeric surface variation / height, Non-Color; not albedo or lighting."
+    }
+  }
+}

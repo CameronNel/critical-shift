@@ -1,0 +1,167 @@
+{
+  "label": "map-R3d",
+  "status": "PASS",
+  "gates": {
+    "walk_normal": true,
+    "closed_doors_normal": true,
+    "walk_colliders": true,
+    "closed_doors_colliders": true,
+    "walk_meltdown": true,
+    "condenser_evacuation": true,
+    "doors": true,
+    "no_new_condenser_floor_pair": true,
+    "condenser_triangles": true,
+    "scoped_export": true,
+    "lighting_condenser_D01": true,
+    "lighting_condenser_inside": true,
+    "lighting_condenser_escape_tunnel": true,
+    "lighting_stair_bottom": true,
+    "no_new_other_lighting_miss": true,
+    "no_new_condenser_overlap_pair": true,
+    "all_commands_exit_zero": true
+  },
+  "details": {
+    "normal": {
+      "passed": 17,
+      "total": 18,
+      "failures": [
+        "yard_to_refinery_freight (cart route)"
+      ],
+      "closed": 13
+    },
+    "colliders": {
+      "passed": 10,
+      "total": 10,
+      "failures": [],
+      "closed": 13
+    },
+    "meltdown": {
+      "passed": 20,
+      "total": 20,
+      "failures": [],
+      "closed": 0
+    },
+    "evacuation": {
+      "routes_normal": 1,
+      "routes_evacuation": 2,
+      "single_door_failures_that_cut_off": [],
+      "route_avoiding_reactor": true,
+      "out_with_chamber_sealed": true,
+      "out_with_chamber_and_spine_blast_door_sealed": true
+    },
+    "doors": {
+      "total": 45,
+      "flagged": 0
+    },
+    "floor": {
+      "baseline_pairs": 40,
+      "candidate_pairs": 40,
+      "new_pairs": [],
+      "new_condenser_pairs": []
+    },
+    "triangles": 387990,
+    "export": {
+      "fbx": "compact_map_colliders_anchors.fbx",
+      "sha256": "068d05691721208de56ba9dcb33864356cc0ad5dae443f4f99fc58477cba6894",
+      "bytes": 437324,
+      "exported": 202,
+      "reimported": 202,
+      "missing": [],
+      "extra": [],
+      "bounds_mismatch_over_1mm": [],
+      "n_bounds_mismatch": 0,
+      "passed": true
+    },
+    "lighting": {
+      "total": 25,
+      "stock_readable": 24,
+      "misses": [
+        "spine_mid"
+      ],
+      "required": {
+        "condenser_D01": {
+          "median": 0.822,
+          "mean": 0.788,
+          "p10": 0.639,
+          "near_black": 0.0,
+          "clipped": 0.031,
+          "clipped_white": 0.0,
+          "eye": [
+            1.6,
+            -2.5,
+            -4.4
+          ],
+          "target": [
+            1.6,
+            7.300000000000001,
+            -4.6
+          ],
+          "readable": true
+        },
+        "condenser_inside": {
+          "median": 0.732,
+          "mean": 0.697,
+          "p10": 0.389,
+          "near_black": 0.001,
+          "clipped": 0.049,
+          "clipped_white": 0.0,
+          "eye": [
+            1.6,
+            3.900000000000002,
+            -4.4
+          ],
+          "target": [
+            6,
+            10.3,
+            -4.8
+          ],
+          "readable": true
+        },
+        "condenser_escape_tunnel": {
+          "median": 0.749,
+          "mean": 0.725,
+          "p10": 0.595,
+          "near_black": 0.039,
+          "clipped": 0.0,
+          "clipped_white": 0.0,
+          "eye": [
+            0.6,
+            12.100000000000001,
+            -4.4
+          ],
+          "target": [
+            -5.6,
+            12.100000000000001,
+            -4.6
+          ],
+          "readable": true
+        },
+        "stair_bottom": {
+          "median": 0.77,
+          "mean": 0.755,
+          "p10": 0.628,
+          "near_black": 0.0,
+          "clipped": 0.018,
+          "clipped_white": 0.0,
+          "eye": [
+            -5.6,
+            -3.0,
+            -4.4
+          ],
+          "target": [
+            1.6,
+            -3.0,
+            -4.6
+          ],
+          "readable": true
+        }
+      }
+    },
+    "overlaps": {
+      "new_condenser_pairs": [],
+      "scope": "Pair/height comparison against baseline; existing room/roof/connector contacts retained in raw logs, not an all-clear geometry assertion."
+    }
+  },
+  "baseline": "evidence-A2/baseline-main-A1/committed-validation",
+  "scope": "Exact brief map checks. Does not certify Unity runtime, original inherited high-level roof/gallery design, or art acceptance."
+}

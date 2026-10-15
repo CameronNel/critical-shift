@@ -1,0 +1,114 @@
+{
+  "revision": "R5b-style-preview",
+  "engine": "CYCLES",
+  "device": "CPU",
+  "cpu_threads": 5,
+  "threads_mode": "FIXED",
+  "process_priority": "IDLE",
+  "gpu_denoising": false,
+  "gpu_backend": null,
+  "gpu_devices": null,
+  "hardware_raytracing": false,
+  "persistent_data": true,
+  "samples": 16,
+  "resolution": [
+    1920,
+    1080
+  ],
+  "render_settings": {
+    "max_bounces": 10,
+    "diffuse_bounces": 3,
+    "glossy_bounces": 3,
+    "transmission_bounces": 8,
+    "transparent_max_bounces": 8,
+    "sample_clamp_indirect": 3.0,
+    "adaptive_threshold": 0.03999999910593033,
+    "seed": 0,
+    "denoiser": "OPENIMAGEDENOISE"
+  },
+  "renderer_source_sha256": {
+    "render.py": "01f8a50f279ebd8d869dd4ef829435148b552e8d67af0440827aacc38968c5fc",
+    "resource_guard.py": "f034c6172cae782787b9cb3c497be0364f69a8220a6b89981b47192ad2a332af"
+  },
+  "cameras": [
+    {
+      "camera": "C02_HERO",
+      "seconds": 123.69,
+      "sha256": "14e2e86093eab653d04b7c0a6d4c60ebf8c50a267e6c56af1b0a66ed83998f2d",
+      "location": [
+        -1.350000023841858,
+        1.2000000476837158,
+        1.7000000476837158
+      ],
+      "lens": 22.0,
+      "matrix_world": [
+        [
+          0.5752706527709961,
+          -0.13064336776733398,
+          -0.8074626922607422,
+          -1.350000023841858
+        ],
+        [
+          -0.8179631233215332,
+          -0.09188114106655121,
+          -0.5678857564926147,
+          1.2000000476837158
+        ],
+        [
+          -8.652660454799843e-08,
+          0.987162709236145,
+          -0.15971799194812775,
+          1.7000000476837158
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "process_id": 4193
+    },
+    {
+      "camera": "W03_NW",
+      "seconds": 118.5,
+      "sha256": "72bcb11b3378e7b4b01be1c641bfd96db5c1c05f9596bf466a96f50808ac3fa6",
+      "location": [
+        -1.350000023841858,
+        8.899999618530273,
+        1.600000023841858
+      ],
+      "lens": 24.0,
+      "matrix_world": [
+        [
+          -0.5128551721572876,
+          0.038246795535087585,
+          -0.8576227426528931,
+          -1.350000023841858
+        ],
+        [
+          -0.8584751486778259,
+          -0.022848619148135185,
+          0.5123459696769714,
+          8.899999618530273
+        ],
+        [
+          9.524110566871968e-08,
+          0.9990070462226868,
+          0.04455195367336273,
+          1.600000023841858
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "process_id": 4193
+    }
+  ],
+  "process_id": 4193,
+  "source_revision": "A2-R5b",
+  "blend_sha256": "e33435ccf2527ea17b02b1c96756a9f9af54fdca3572608ff044f6f67f6a4cf7"
+}
