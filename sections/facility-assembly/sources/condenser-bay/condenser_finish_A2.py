@@ -398,6 +398,16 @@ def blocks_mesh(obj, boxes):
     for mod in obj.modifiers:
         if mod.type == 'BEVEL':mod.width = .0015; mod.segments = 1
 
+def fixture_mesh_bounds(obj):
+    """Read replacement mesh vertices without the old object.bound_box cache.
+
+    This receipt-only query does not update, evaluate or change scene geometry.
+    The saved-source audit separately compares it with evaluated fixture bounds.
+    """
+    points = [obj.matrix_world @ vertex.co for vertex in obj.data.vertices]
+    return [[min(p[i] for p in points) for i in range(3)],
+            [max(p[i] for p in points) for i in range(3)]]
+
 def gallery_luminaires():
     # The unchanged map drops only the LIGHT objects by 0.12m. The open optical
     # channel admits both the standalone and assembled source positions, unlike
@@ -428,7 +438,7 @@ def gallery_luminaires():
         empty = bpy.data.objects.new(name, None); empty.location = anchor
         bpy.data.collections['04 Ceiling services'].objects.link(empty)
         registry.append({'anchor':name, 'target':target, 'direction':list(direction), 'max_gap':.005, 'max_penetration':.002, 'angle_tolerance_degrees':12, 'prop':ob.name, 'scope':'Manufactured luminaire frame and diffuser assembly, clamped to inherited gallery suspension.'})
-        result.append({'fixture':ob.name, 'support':target, 'bounds':bounds(ob), 'standalone_light_z':5.54, 'assembled_light_z':5.42, 'open_channel':True})
+        result.append({'fixture':ob.name, 'support':target, 'bounds':fixture_mesh_bounds(ob), 'standalone_light_z':5.54, 'assembled_light_z':5.42, 'open_channel':True})
     bpy.context.scene['support_registry'] = json.dumps(registry)
     return result
 

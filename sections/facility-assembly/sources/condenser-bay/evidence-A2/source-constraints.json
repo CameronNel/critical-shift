@@ -4203,6 +4203,105 @@
     }
   ],
   "height_exception_count": 260,
+  "saved_fixture_measurements": [
+    {
+      "object": "gallery inspection fixture",
+      "evaluated_bounds": [
+        [
+          6.175000190734863,
+          4.03000020980835,
+          5.400000095367432
+        ],
+        [
+          6.326000213623047,
+          4.170000076293945,
+          5.539999961853027
+        ]
+      ]
+    },
+    {
+      "object": "gallery inspection lens",
+      "evaluated_bounds": [
+        [
+          6.184999942779541,
+          4.039999961853027,
+          5.414000034332275
+        ],
+        [
+          6.304999828338623,
+          4.159999847412109,
+          5.526000022888184
+        ]
+      ]
+    },
+    {
+      "object": "gallery inspection fixture.001",
+      "evaluated_bounds": [
+        [
+          3.130000114440918,
+          6.119999885559082,
+          5.400000095367432
+        ],
+        [
+          3.2699999809265137,
+          6.270999908447266,
+          5.539999961853027
+        ]
+      ]
+    },
+    {
+      "object": "gallery inspection lens.001",
+      "evaluated_bounds": [
+        [
+          3.140000104904175,
+          6.130000114440918,
+          5.414000034332275
+        ],
+        [
+          3.259999990463257,
+          6.25,
+          5.526000022888184
+        ]
+      ]
+    }
+  ],
+  "process_id": 10091,
   "interpretation": "Preserve R34 roof/U04 mating and gallery layout. Cap lights/new finish fixtures, retain inherited structural upper extents. Source gallery audit passes; assembled 2m gallery headroom is NOT certified. Optional owner clarification remains unanswered.",
-  "optional_reach_work": "A1 reach-check overhead valves/isolate hook not altered; no engine interaction certification."
+  "optional_reach_work": "A1 reach-check overhead valves/isolate hook not altered; no engine interaction certification.",
+  "fixture_metadata_query_checks": [
+    {
+      "object": "gallery inspection fixture",
+      "direct_mesh_bounds": [
+        [
+          6.175000190734863,
+          4.03000020980835,
+          5.400000095367432
+        ],
+        [
+          6.326000213623047,
+          4.170000076293945,
+          5.539999961853027
+        ]
+      ],
+      "maximum_delta_from_evaluated_metres": 0.0
+    },
+    {
+      "object": "gallery inspection fixture.001",
+      "direct_mesh_bounds": [
+        [
+          3.130000114440918,
+          6.119999885559082,
+          5.400000095367432
+        ],
+        [
+          3.2699999809265137,
+          6.270999908447266,
+          5.539999961853027
+        ]
+      ],
+      "maximum_delta_from_evaluated_metres": 0.0
+    }
+  ],
+  "current_metadata_query_builder_sha256": "cafd3f6282e589c35465acf9fa4bb54787a6707f7a13232c0b270d81c0106735",
+  "audit_script_sha256": "e0c73dcae9fb952452d49f965278a138614073d2bb7c1f616d8950c92fa2de6b"
 }

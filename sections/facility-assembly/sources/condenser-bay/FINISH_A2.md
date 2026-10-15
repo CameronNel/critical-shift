@@ -62,12 +62,41 @@ the authorized condenser A1→A2 source tuple.
   near-black0.1%, clipped2.2%. All30 actual lighting frames are retained.
 - Current exact owner view: `renders-A2/owner-map-R5c/` (1920×1080,32samples,
   eye1.6/3.9/−4.4, target6/10.3/−4.8,16mm). Complete and opened at full resolution; A1 comparison beside it.
-- Fresh full warmR5c22+7, stabilityR6c22+7, cold-R6c22+7 and four material
-  diagnostics are queued/running. Their current actual commands/status are in
-  [the sequential receipt](evidence-A2/palette-revision-R5c/commands.json).
-  No incomplete pack or unrun comparison is a pass.
-- Final independent ten-category scores: **pending**. No self-acceptance or merge.
-  [Current review inputs](critics-A2/REVIEW_INPUTS_R5c.md).
+- Full warm R5c 22+7, fresh stability R6c 22+7, cold-R6c 22+7 and four material diagnostic
+  renders are complete at 1920×1080. The independent critic opened every current
+  image; the builder opened every warm, diagnostic and cold image. No substantive
+  visual mismatch/new major finish defect was found. All four unchanged-threshold
+  comparisons PASS: both main comparisons and the seven cold supplements have maximum delta 0;
+  warm→stable supplements maximum 1/255, worst mean 0.0000017683/255.
+  [Actual commands/exits](evidence-A2/palette-revision-R5c/commands.json),
+  [main stability](evidence-A2/R5c/stability-comparison.json),
+  [supplemental stability](evidence-A2/R5c-supplemental/stability-comparison.json),
+  [main cold](evidence-A2/R6c/cold-comparison.json),
+  [supplemental cold](evidence-A2/R6c-supplemental/cold-comparison.json).
+  Lossless crops and navigation sheets are in the three corresponding review folders.
+- Final independent Codex review: **REJECT**. Every current image/crop was
+  independently opened; no substantive cold mismatch was found. Inherited
+  headroom/reach conflicts and unavailable approved reference pixels prevent
+  strict acceptance. [Full review](../../../condenser-bay/production/critics/CODEX_A2_R5c_REVIEW.md).
+  No self-acceptance or merge.
+
+| Independent category | Score /100 |
+|---|---:|
+| Coverage |89|
+| Scale/layout |87|
+| Machinery |92|
+| Circulation/readability |87|
+| Construction/detail |92|
+| Materials |94|
+| Lighting |92|
+| Palette |90 (full approved-neighbor continuity unverified)|
+| Storytelling |91|
+| Reference fidelity |90 (required reference bar unverified)|
+
+Every category must independently exceed 90 with evidence. These are the critic's
+actual scores; the appearance improvements do not override rejecting categories.
+Accepted complete A2 rounds at that strict bar: 0. Historical approved neighbor
+finals and the A05 orange reference PNG were unavailable to this review.
 
 The collector uses the section's original render/audit/comparison tools in
 isolated temporary copies. Documented cloud adaptations are CPU5threads,
@@ -77,6 +106,22 @@ durations, native/renderer/camera/PNG hashes and producer PIDs are retained.
 The current queue entrypoint is `run_A2_palette_evidence.py --blender <5.2.2>
 --round R5c --stability R6c`; `--resume` retains only verified completed work
 against the identical native. Historical R3/R4 helpers are not the current queue.
+
+The final read-only saved-source audit also repairs a receipt-only defect:
+`object.bound_box` was stale immediately after replacement fixture meshes were
+assigned. Actual saved frames are z 5.400–5.540 and lenses 5.414–5.526. The corrected
+read-only query matches evaluated bounds exactly. The receipt retains the old
+cached values and amendment provenance. The actual art/build recipe is archived
+as `evidence-A2/palette-revision-R5c/builder-R5c.py`; its original hash is preserved.
+The current builder only fixes this metadata query: normalized AST comparison
+proves the rest unchanged. No full build was rerun after this query correction;
+the native SHA remains identical, and no geometry, shader or lighting changed.
+[Postflight command/proof](evidence-A2/postflight-R5c/commands.json).
+
+Current 640×360 map probes of untouched turbine/cooling neighbors were inspected
+for limited family context. Historical approved R07/R10 final render directories
+are absent from this checkout and local Git history; their full continuity bar
+remains unverified. [Reference availability](evidence-A2/reference-availability.json).
 
 ## Failed and superseded work
 

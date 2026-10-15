@@ -37,3 +37,36 @@ R5c_DONE material-diagnostics-R5c 0
 Filesystem      Size  Used Avail Use% Mounted on
 overlay          32G  5.7G   25G  19% /
 R5c_START R6c
+R5c_DONE R6c 0
+Filesystem      Size  Used Avail Use% Mounted on
+overlay          32G  6.3G   24G  21% /
+R5c_START R6c-supplemental
+R5c_DONE R6c-supplemental 0
+Filesystem      Size  Used Avail Use% Mounted on
+overlay          32G  6.3G   24G  21% /
+R5c_START cold-R6c
+R5c_DONE cold-R6c 0
+Filesystem      Size  Used Avail Use% Mounted on
+overlay          32G  6.4G   24G  22% /
+R5c_START cold-R6c-supplemental
+R5c_DONE cold-R6c-supplemental 0
+Filesystem      Size  Used Avail Use% Mounted on
+overlay          32G  6.4G   24G  22% /
+R5c_START R5c--R6c
+R5c_DONE R5c--R6c 0
+Filesystem      Size  Used Avail Use% Mounted on
+overlay          32G  6.4G   24G  22% /
+R5c_START R5c-supplemental--R6c-supplemental
+R5c_DONE R5c-supplemental--R6c-supplemental 0
+Filesystem      Size  Used Avail Use% Mounted on
+overlay          32G  6.4G   24G  22% /
+R5c_START R6c--cold-R6c
+R5c_DONE R6c--cold-R6c 0
+Filesystem      Size  Used Avail Use% Mounted on
+overlay          32G  6.4G   24G  22% /
+R5c_START R6c-supplemental--cold-R6c-supplemental
+R5c_DONE R6c-supplemental--cold-R6c-supplemental 0
+Filesystem      Size  Used Avail Use% Mounted on
+overlay          32G  6.4G   24G  22% /
+R5c_START pack-review
+R5c_DONE pack-review 0

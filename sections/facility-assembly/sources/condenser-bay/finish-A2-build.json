@@ -407,6 +407,21 @@
       "support": "gallery edge suspension",
       "bounds": [
         [
+          6.175000190734863,
+          4.03000020980835,
+          5.400000095367432
+        ],
+        [
+          6.326000213623047,
+          4.170000076293945,
+          5.539999961853027
+        ]
+      ],
+      "standalone_light_z": 5.54,
+      "assembled_light_z": 5.42,
+      "open_channel": true,
+      "build_time_cached_bounds": [
+        [
           6.240000247955322,
           3.9499998092651367,
           5.605000019073486
@@ -417,14 +432,27 @@
           5.695000171661377
         ]
       ],
-      "standalone_light_z": 5.54,
-      "assembled_light_z": 5.42,
-      "open_channel": true
+      "bounds_proof": "evidence-A2/source-constraints.json"
     },
     {
       "fixture": "gallery inspection fixture.001",
       "support": "gallery edge suspension.004",
       "bounds": [
+        [
+          3.130000114440918,
+          6.119999885559082,
+          5.400000095367432
+        ],
+        [
+          3.2699999809265137,
+          6.270999908447266,
+          5.539999961853027
+        ]
+      ],
+      "standalone_light_z": 5.54,
+      "assembled_light_z": 5.42,
+      "open_channel": true,
+      "build_time_cached_bounds": [
         [
           3.140000104904175,
           6.099999904632568,
@@ -436,9 +464,7 @@
           5.644999980926514
         ]
       ],
-      "standalone_light_z": 5.54,
-      "assembled_light_z": 5.42,
-      "open_channel": true
+      "bounds_proof": "evidence-A2/source-constraints.json"
     }
   ],
   "wall_tie_holes": [
@@ -1143,7 +1169,7 @@
   ],
   "world_strength": 0.12,
   "exposure": -0.10000000149011612,
-  "status": "BUILT; independent visual review pending",
+  "status": "BUILT; FINAL INDEPENDENT CODEX REVIEW REJECT",
   "output": "module_aaa_A2.blend",
   "exterior_footprint_trims": [
     {
@@ -1658,5 +1684,32 @@
   ],
   "texture_projection": "WORLD_TRIPLANAR_METRES",
   "checkpoint": "checkpoints-A2/A2-R5c.blend",
-  "promotion": "Byte-identical immutable checkpoint copy. Round profiles/world-frame surfacing retained; small fastener reserve lowered after actual R5b map budget failure."
+  "promotion": "Byte-identical immutable checkpoint copy. Round profiles/world-frame surfacing retained; small fastener reserve lowered after actual R5b map budget failure.",
+  "metadata_amendments": [
+    {
+      "reason": "Original receipt read stale object.bound_box after replacing fixture meshes; preserve cached values and use saved evaluated bounds. Current builder fixes only that receipt query.",
+      "original_receipt_sha256": "877b84d3408bb6709eeed7d974fe0f7e245fd3081c8884cc057ec1f66ea7a3e8",
+      "proof": "evidence-A2/postflight-R5c/commands.json",
+      "current_metadata_query_builder_sha256": "cafd3f6282e589c35465acf9fa4bb54787a6707f7a13232c0b270d81c0106735",
+      "native_unchanged": true,
+      "full_build_not_repeated": true
+    }
+  ],
+  "status_at_build": "BUILT; independent visual review pending",
+  "independent_review": {
+    "repo_path": "sections/condenser-bay/production/critics/CODEX_A2_R5c_REVIEW.md",
+    "verdict": "REJECT",
+    "scores": {
+      "coverage": 89,
+      "scale": 87,
+      "machinery": 92,
+      "circulation": 87,
+      "construction": 92,
+      "materials": 94,
+      "lighting": 92,
+      "palette": 90,
+      "storytelling": 91,
+      "fidelity": 90
+    }
+  }
 }

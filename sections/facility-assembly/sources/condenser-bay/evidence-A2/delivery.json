@@ -1,0 +1,61 @@
+{
+  "branch": "codex/condenser-finish-a2",
+  "first_candidate_commit": "ee5318e59d9031e008882fc382f68e83d81ef665",
+  "push": {
+    "argv": [
+      "git",
+      "push",
+      "-u",
+      "origin",
+      "codex/condenser-finish-a2"
+    ],
+    "exit_code": 0
+  },
+  "remote_native_verification": {
+    "argv": [
+      "git",
+      "-c",
+      "lfs.storage=/workspace/scratch/condenser-a2-remote-proof",
+      "lfs",
+      "fetch",
+      "origin",
+      "codex/condenser-finish-a2",
+      "--include=sections/facility-assembly/sources/condenser-bay/module_aaa_A2.blend",
+      "--exclude="
+    ],
+    "exit_code": 0,
+    "downloaded_sha256": "5c1277da8d68c89abacaf851fbd8a70467032afaa86ff8fafe2f5e7951a73388"
+  },
+  "draft_pr": "NOT CREATED YET; complete fresh evidence/review first",
+  "merge": "NOT PERFORMED; latest brief forbids self merge",
+  "source_checks": {
+    "authored_diff_whitespace": "PASS with raw *.log and renderer-source copies excluded",
+    "raw_evidence_whitespace": "759 original whitespace/CRLF diagnostics across28 raw log/source-copy files; preserved exact evidence, not reformatted",
+    "python_compile": "PASS for A2 helper scripts"
+  },
+  "independent_review": {
+    "repo_path": "sections/condenser-bay/production/critics/CODEX_A2_R5c_REVIEW.md",
+    "reviewer": "independent Codex critic subagent /root/condenser_palette_critic",
+    "verdict": "REJECT",
+    "scores": {
+      "coverage": 89,
+      "scale": 87,
+      "machinery": 92,
+      "circulation": 87,
+      "construction": 92,
+      "materials": 94,
+      "lighting": 92,
+      "palette": 90,
+      "storytelling": 91,
+      "fidelity": 90
+    },
+    "limits": "Inherited assembled headroom/upper structure and overhead reach; unavailable approved neighbor/A05 references. No waiver."
+  },
+  "final_evidence_checks": {
+    "bounded_file_scope": "PASS; original map-facing source files/inputs/contracts untouched, only authorized combined Python source line",
+    "authored_whitespace": "PASS with raw *.log and archived renderer-source copies excluded",
+    "new_raw_evidence_whitespace_diagnostics": 120,
+    "new_raw_evidence_files": 2,
+    "policy": "Exact raw logs and CRLF source snapshots retained without formatting. Metadata-only builder fix compiled and tested against actual saved evaluated fixture meshes; no native/art change."
+  }
+}
