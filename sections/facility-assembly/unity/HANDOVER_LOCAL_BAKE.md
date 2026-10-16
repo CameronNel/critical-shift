@@ -16,39 +16,38 @@ You are on the owner's Windows PC:
    - Always pass `-Device GPU`.
    - Never pass `-Device CPU`, never set `CS_BLENDER_DEVICE=CPU`, and never edit a script to change the device.
    - If the GPU is not found, stop and report. Do not fall back.
-2. **No git writes.**
+2. **No git writes,** except `git fetch` and the one `git worktree add` in step 1.
    - Do not run `git add`, `commit`, `push`, `reset`, `clean`, `stash`, `rebase` or `merge`, and do not delete branches.
    - Do not edit any tracked file. The bake outputs stay local and uncommitted, because the GitHub LFS quota is small.
 3. **No broad LFS downloads.** Never run a plain `git lfs pull` or `git lfs fetch --all`. Fetch only the files listed in step 4.
 4. **Do not install anything except what step 2 names.** Do not change Windows settings, power plans or drivers yourself; ask the owner.
 5. **Any error not covered below:** stop, then report the exact command, its last 40 lines of output, and what you think caused it. Do not improvise fixes to the scripts.
 
-## Step 1: Repository
+## Step 1: Repository (a separate bake folder; never touch the owner's working copy)
 
-Run every command in PowerShell. If the owner has a clone, `cd` to it. Otherwise clone without downloading LFS files:
+The owner's existing clone holds unrelated work in progress: a Unity project at its root, uncommitted spawn-room files, and another branch checked out. **Leave it exactly as it is.** Do not switch its branch, and do not run `git status` fixes, stash or clean in it.
 
-```powershell
-$env:GIT_LFS_SKIP_SMUDGE = "1"
-git clone https://github.com/CameronNel/critical-shift.git
-cd critical-shift
-```
+Bake in a separate **git worktree** instead: a second folder that shares the same repository. Creating it changes no file in the existing working copy and switches no branch there.
 
-Then, in either case:
+Run in PowerShell, from inside the existing clone:
 
 ```powershell
-$env:GIT_LFS_SKIP_SMUDGE = "1"          # keep this set in this shell for every git command below
-git status --porcelain                   # must print nothing (see below)
+$env:GIT_LFS_SKIP_SMUDGE = "1"           # keep this set in this shell for every git command below
 git fetch origin ccr-b12a99c0-hbdwp2
-git switch ccr-b12a99c0-hbdwp2           # creates a local tracking branch if there is none
-git pull --ff-only origin ccr-b12a99c0-hbdwp2
-git log -1 --oneline
+git worktree add --detach ..\critical-shift-bake origin/ccr-b12a99c0-hbdwp2
+cd ..\critical-shift-bake
+git status --porcelain                    # must print nothing in the NEW folder
+git log -1 --oneline                      # must be 006a318 or newer
 ```
 
-**`git status` must print nothing.** If it prints anything, stop and show the owner; do not stash or discard.
+- **Do every later step in `..\critical-shift-bake`.** All paths in this file are relative to it.
+- **If `..\critical-shift-bake` already exists,** stop and ask the owner.
+- **If the owner has no clone at all,** clone into a new folder instead: run `$env:GIT_LFS_SKIP_SMUDGE = "1"` and `git clone https://github.com/CameronNel/critical-shift.git critical-shift-bake`, then `cd critical-shift-bake` and `git switch ccr-b12a99c0-hbdwp2`.
+- **If `git status --porcelain` prints anything in the new folder,** stop and report.
 
-**If the `ff-only` pull fails,** stop and report.
+The worktree is detached, so it creates no branch. To remove it after the owner has copied the outputs, the owner can run `git worktree remove ..\critical-shift-bake --force`. That deletes the bake outputs too, so ask first.
 
-**If PR #108 has been merged** (the owner will say so), use `main` instead of `ccr-b12a99c0-hbdwp2` in the commands above.
+**If PR #108 has been merged** (the owner will say so), fetch `main` and use `origin/main` instead of `origin/ccr-b12a99c0-hbdwp2` in the commands above.
 
 **Check these files exist:**
 - `sections/facility-assembly/unity/bake_all.ps1`
@@ -234,7 +233,7 @@ When all rooms are done, or the run stops, report:
    Also give the total size of the `textures/` folder and of the `.fbx`.
 3. **Comparison images:** the paths of the images in `<room>/compare/source/` and `<room>/compare/baked/`, and any pair that looks clearly different (dark, black, pink or missing parts).
 4. **For a failed room:** the room, the stage, and the last 60 lines of its log.
-5. **Repository state:** confirm that `git status --porcelain` shows only the new bake outputs (untracked) and the rebaked `cooling-plant/` files, and nothing else. **Do not commit them.**
+5. **Repository state:** confirm that `git status --porcelain` in `critical-shift-bake` shows only the new bake outputs (untracked) and the rebaked `cooling-plant/` files, and nothing else. **Do not commit them.**
 
 **Known limits**, not for you to fix; tell the owner if asked:
 - These bakes come from the room files. They do not include the map-side changes: door cuts, the mine's triangle reduction, the turbine's exterior skin, the animated ore cart and the evacuation additions.
