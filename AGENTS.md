@@ -74,6 +74,13 @@ Also read [ENGINE_DECISION](design/ENGINE_DECISION.md), the relevant gameplay sp
 
 Read the global art/build authority under `design/` and the relevant section-local `AGENT_READ_FIRST.md`, scenery specification and production state. For runtime exports, also read the architecture plan's authoring-to-runtime boundary. Original visual source, licensed materials and art-review evidence are not dead runtime assets to be removed by an unused-code sweep.
 
+**Blender compute device: the owner's choice (owner rule, 2026-10-16).** Blender renders and bakes run on the **GPU or the CPU only as the owner says**. An agent never picks the device itself and never falls back to the other one.
+- If the current task or owner message does not name GPU or CPU, ask before running any render or bake.
+- Pass the choice explicitly: `--device GPU|CPU` after Blender's `--`, or `CS_BLENDER_DEVICE`, for the scripts that use `sections/facility-assembly/blender_device.py`.
+- Those scripts stop if the device is unset, and stop instead of falling back if a GPU is asked for and not found. Report that to the owner; do not switch devices.
+- Older section scripts hard-code `cycles.device = 'CPU'`. If the owner asked for GPU, say so before running one.
+- Scripts that do not render (builds, walk tests, audits) are not affected.
+
 For Blender authoring, materials, lighting, rendering or visual QA, read the
 [shared headless skill](.agents/skills/blender-headless/SKILL.md). It routes to the
 existing authorities and tools; it does not replace them or relax section acceptance.

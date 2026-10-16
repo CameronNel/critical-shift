@@ -6,6 +6,7 @@ Cycles CPU, 640 x 360, 14 samples, denoised; the mine is hidden for speed (no vi
 8-bit sRGB-encoded image, 0..1), 10th percentile, share of near-black pixels (luma < 0.04) and of clipped pixels (any channel > 0.98; clipped_white: all three channels). Readability bar used in
 ASSEMBLY_REPORT.md (set here, not an art-direction rule): median >= 0.15, near-black <= 25 %, clipped <= 5 %. Renders are scratch output; delete them after reading."""
 import bpy, sys, os, json, math
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__)))); import blender_device   # owner rule: GPU or CPU only as the owner says
 import numpy as np
 from mathutils import Vector
 a = sys.argv[sys.argv.index('--') + 1:]
@@ -34,7 +35,7 @@ VIEWS = {   # name: eye, target, lens (mm); plan metres
     'cafeteria_lounge': ((3.4, -71.2, 1.6), (-0.7, -74.0, 1.3), 18), 'cafeteria_games': ((3.0, -67.0, 1.6), (-1.35, -64.55, 1.4), 18),
     'cafeteria_medical_door': ((18.5, -70.0, 1.6), (23.5, -70.0, 1.6), 18),
 }
-sc = bpy.context.scene; sc.render.engine = 'CYCLES'; sc.cycles.device = 'CPU'; sc.cycles.samples = 14; sc.cycles.use_denoising = True
+sc = bpy.context.scene; sc.render.engine = 'CYCLES'; blender_device.apply(sc); sc.cycles.samples = 14; sc.cycles.use_denoising = True
 sc.render.resolution_x, sc.render.resolution_y = 640, 360; sc.render.image_settings.file_format = 'PNG'
 for n in ('ROOM_mine',):
     o = bpy.data.objects.get(n)

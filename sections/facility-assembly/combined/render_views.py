@@ -8,10 +8,11 @@ Plan metres (+x east, +y north). "hide" lists objects to hide for speed (ROOM_mi
 A view whose camera lands inside geometry renders as a wall: check the image, move the eye. Keeps the scene's own dusk lighting unless "world" is given.
 """
 import bpy, sys, os, json
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__)))); import blender_device   # owner rule: GPU or CPU only as the owner says
 from mathutils import Vector
 a=sys.argv[sys.argv.index('--')+1:]; cfg=json.load(open(a[0]))
 out=cfg['out']; os.makedirs(out,exist_ok=True)
-sc=bpy.context.scene; sc.render.engine='CYCLES'; sc.cycles.device='CPU'; sc.cycles.samples=cfg.get('samples',28); sc.cycles.use_denoising=True
+sc=bpy.context.scene; sc.render.engine='CYCLES'; blender_device.apply(sc); sc.cycles.samples=cfg.get('samples',28); sc.cycles.use_denoising=True
 sc.render.resolution_x, sc.render.resolution_y = cfg.get('res',[768,432])
 if 'world' in cfg:
     w=bpy.data.worlds.new('w'); sc.world=w; w.use_nodes=True; w.node_tree.nodes['Background'].inputs['Color'].default_value=tuple(cfg['world'])+(1,)

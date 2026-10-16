@@ -54,11 +54,11 @@ The script runs on a room's source file, which it never saves. It works in stage
 ## Running it on the owner's PC (Ryzen 7 5800X, 32 GB, Radeon RX 9070 XT)
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File sections/facility-assembly/unity/bake_room.ps1 -Room cooling-plant `
+powershell -ExecutionPolicy Bypass -File sections/facility-assembly/unity/bake_room.ps1 -Device GPU -Room cooling-plant `
     -Source sections/facility-assembly/sources/cooling-plant/module_aaa_A1.blend -Cameras C02_HERO,C06_EXCHANGER,C05_PUMP_A
 ```
 
-`--profile home` bakes on the GPU through HIP (the script picks the first backend Blender finds), at 4K atlases and 8 samples, with the shader AO and bevel nodes at full quality. The stages run one after another; after a crash, `-From <stage>` continues. Bake times on this PC are not measured yet; `bake_report.json` records them. URP settings for this PC are in `URP_SETTINGS.md`.
+`-Device GPU` or `-Device CPU` is required: you choose, and the scripts never pick a device or fall back (`../blender_device.py`). With GPU, Blender uses the first backend it finds, which is HIP for the RX 9070 XT. If it finds none, the run stops instead of using the CPU. `--profile home` bakes at 4K atlases and 8 samples, with the shader AO and bevel nodes at full quality. The stages run one after another; after a crash, `-From <stage>` continues. Bake times on this PC are not measured yet; `bake_report.json` records them. URP settings for this PC are in `URP_SETTINGS.md`.
 
 ## Fix after the pilot: base colour (2026-10-16)
 

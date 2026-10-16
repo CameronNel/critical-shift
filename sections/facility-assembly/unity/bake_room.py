@@ -3,7 +3,7 @@
 
     B=blender; U=sections/facility-assembly/unity; O=$U/cooling-plant
     $B -b sections/facility-assembly/sources/cooling-plant/module_aaa_A1.blend --python $U/bake_room.py -- --stage prep --room cooling-plant --out $O [--density 256] [--max 4096]
-    $B -b $O/_work.blend --python $U/bake_room.py -- --stage bake --pass base --room cooling-plant --out $O [--samples 4]     # then rough, normal, metal, emit
+    $B -b $O/_work.blend --python $U/bake_room.py -- --stage bake --pass base --room cooling-plant --out $O --device GPU|CPU [--samples 4]   # then rough, normal, metal, emit
     $B -b $O/_work.blend --python $U/bake_room.py -- --stage finish --room cooling-plant --out $O
 
 Stages, so that each run fits a job limit and nothing is lost: prep (convert, unwrap, save _work.blend and _plan.json), one bake per pass (writes _raw/*.png;
@@ -24,15 +24,16 @@ What it does, on a copy in memory:
     the run to <out>/bake_report.json.
 Not done here: importing into Unity, building URP materials there, lightmaps, LODs. No Unity editor exists in this environment."""
 import bpy, bmesh, sys, os, json, math, time
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__)))); import blender_device   # owner rule: GPU or CPU only as the owner says
 import numpy as np
 
 a = sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else []
 def arg(k, d=None): return a[a.index(k) + 1] if k in a else d
 ROOM = arg('--room'); OUT = os.path.abspath(arg('--out')); COLL = arg('--collection', 'MODULE_' + ROOM)
-PROFILE = arg('--profile', 'default')     # 'home': the owner's PC (Ryzen 7 5800X, 32 GB, Radeon RX 9070 XT 16 GB): 4K atlases, 8 samples, AO/bevel nodes uncapped
+PROFILE = arg('--profile', 'default')     # 'home': the owner's PC (Ryzen 7 5800X, 32 GB, Radeon RX 9070 XT 16 GB): 4K atlases, 8 samples, AO/bevel nodes uncapped (device still as the owner says)
 _home = PROFILE == 'home'
 DENSITY = float(arg('--density', 256)); MAXSZ = int(arg('--max', 4096 if _home else 2048)); SAMPLES = int(arg('--samples', 8 if _home else 1))
-DEVICE = arg('--device', 'auto')          # auto: the first GPU backend Blender finds (HIP for AMD, OptiX/CUDA for NVIDIA, oneAPI, Metal), else the CPU
+# --device GPU|CPU (or CS_BLENDER_DEVICE) is required for the bake stages: blender_device.py, owner rule 2026-10-16
 STAGE = arg('--stage', 'all'); PASS = arg('--pass')
 ONLY = set(arg('--materials').split(',')) if arg('--materials') else None      # bake only these materials in this run (batches that fit a job limit)
 NODE_SAMPLES = int(arg('--node-samples', 0 if _home else 4))   # >0: cap the AO and bevel shader nodes' own ray samples (they dominate bake time on a CPU)
@@ -142,18 +143,8 @@ else:
 
 if STAGE in ('bake', 'all'):
     # --- bake -------------------------------------------------------------------------------------------------------------------------------------------
-    sc.render.engine = 'CYCLES'; sc.cycles.samples = SAMPLES; sc.cycles.use_denoising = False; sc.cycles.device = 'CPU'
-    if DEVICE in ('auto', 'GPU'):
-        cp = bpy.context.preferences.addons['cycles'].preferences
-        for backend in ('HIP', 'OPTIX', 'CUDA', 'ONEAPI', 'METAL'):
-            try: cp.compute_device_type = backend
-            except TypeError: continue
-            cp.get_devices(); gpus = [d for d in cp.devices if d.type == backend]
-            if gpus:
-                for d in cp.devices: d.use = d.type == backend
-                sc.cycles.device = 'GPU'; step('device', backend=backend, gpus=[d.name for d in gpus]); break
-        if sc.cycles.device != 'GPU':
-            step('device', backend='CPU', note='no GPU backend found' + ('' if DEVICE == 'auto' else ': GPU was asked for'))
+    sc.render.engine = 'CYCLES'; sc.cycles.samples = SAMPLES; sc.cycles.use_denoising = False
+    step('device', **blender_device.apply(sc))     # the owner's GPU or CPU; stops if unset, never falls back
     if NODE_SAMPLES:
         for m in mats:
             for n_ in (m.node_tree.nodes if m.node_tree else []):

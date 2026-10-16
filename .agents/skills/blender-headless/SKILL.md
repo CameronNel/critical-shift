@@ -48,6 +48,10 @@ working scripts, universal bevel recipe or unsolicited overhaul of approved art.
   the failing property and repair it. Stop and record a blocker when the tool,
   input or review capability is unavailable; do not loop without a defect target.
 
+## Compute device (owner rule)
+
+Renders and bakes run on the GPU or the CPU **only as the owner says** (`AGENTS.md`). If the task does not say which, ask. Pass `--device GPU|CPU` or `CS_BLENDER_DEVICE` to the scripts that use `sections/facility-assembly/blender_device.py`. Never pick a device yourself, and never fall back to the other one when the requested device is missing: stop and report.
+
 ## Working loop
 
 1. Establish the current source, permitted outputs, affected section and baseline.

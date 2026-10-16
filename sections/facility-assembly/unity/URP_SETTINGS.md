@@ -86,8 +86,7 @@ A 9070 XT can draw that much geometry comfortably. The real risks are draw calls
 
 ## What the bake uses on this PC
 
-`bake_room.ps1` runs `bake_room.py --profile home`:
-- the GPU through HIP;
+`bake_room.ps1 -Device GPU` runs `bake_room.py --profile home --device GPU`. The device is always the one you name; nothing falls back. The profile adds:
 - 4K atlases;
 - 8 samples;
 - the shader AO and bevel nodes at full quality.
