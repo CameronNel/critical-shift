@@ -29,18 +29,26 @@ import numpy as np
 a = sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else []
 def arg(k, d=None): return a[a.index(k) + 1] if k in a else d
 ROOM = arg('--room'); OUT = os.path.abspath(arg('--out')); COLL = arg('--collection', 'MODULE_' + ROOM)
-DENSITY = float(arg('--density', 256)); MAXSZ = int(arg('--max', 4096)); SAMPLES = int(arg('--samples', 8))
+PROFILE = arg('--profile', 'default')     # 'home': the owner's PC (Ryzen 7 5800X, 32 GB, Radeon RX 9070 XT 16 GB): 4K atlases, 8 samples, AO/bevel nodes uncapped
+_home = PROFILE == 'home'
+DENSITY = float(arg('--density', 256)); MAXSZ = int(arg('--max', 4096 if _home else 2048)); SAMPLES = int(arg('--samples', 8 if _home else 1))
+DEVICE = arg('--device', 'auto')          # auto: the first GPU backend Blender finds (HIP for AMD, OptiX/CUDA for NVIDIA, oneAPI, Metal), else the CPU
 STAGE = arg('--stage', 'all'); PASS = arg('--pass')
 ONLY = set(arg('--materials').split(',')) if arg('--materials') else None      # bake only these materials in this run (batches that fit a job limit)
-NODE_SAMPLES = int(arg('--node-samples', 0))   # >0: cap the AO and bevel shader nodes' own ray samples (they dominate bake time)
+NODE_SAMPLES = int(arg('--node-samples', 0 if _home else 4))   # >0: cap the AO and bevel shader nodes' own ray samples (they dominate bake time on a CPU)
 SRC = bpy.data.filepath; WORK = os.path.join(OUT, '_work.blend'); RAW = os.path.join(OUT, '_raw'); PLAN = os.path.join(OUT, '_plan.json')
 for d in (OUT, os.path.join(OUT, 'textures'), RAW): os.makedirs(d, exist_ok=True)
 t0 = time.time(); log = dict(source=os.path.relpath(SRC, os.path.join(os.path.dirname(__file__), '..', '..', '..')), room=ROOM, collection=COLL, density_px_per_m=DENSITY,
-                             max_size=MAXSZ, samples=SAMPLES, blender=bpy.app.version_string, steps=[])
+                             max_size=MAXSZ, samples=SAMPLES, node_samples=NODE_SAMPLES, profile=PROFILE, blender=bpy.app.version_string, steps=[])
 def step(msg, **kw): kw['msg'] = msg; kw['t'] = round(time.time() - t0, 1); log['steps'].append(kw); print('BAKE', STAGE, msg, kw, flush=True)
 
 sc = bpy.context.scene; vl = bpy.context.view_layer
-coll = bpy.data.collections[COLL]
+class _Rooms:
+    """One or more collections (--collection a,b: rooms like the reactor or the dock span several), read fresh each time."""
+    names = COLL.split(',')
+    @property
+    def all_objects(self): return list(dict.fromkeys(o for n in self.names for o in bpy.data.collections[n].all_objects))
+coll = _Rooms()
 VOLUME = lambda m: m and m.node_tree and any(n.type == 'OUTPUT_MATERIAL' and n.inputs['Volume'].is_linked for n in m.node_tree.nodes)
 def bsdf(m): return next((n for n in m.node_tree.nodes if n.type == 'BSDF_PRINCIPLED'), None) if m and m.node_tree else None
 def linked(m, name): b = bsdf(m); return bool(b and b.inputs[name].is_linked)
@@ -134,7 +142,18 @@ else:
 
 if STAGE in ('bake', 'all'):
     # --- bake -------------------------------------------------------------------------------------------------------------------------------------------
-    sc.render.engine = 'CYCLES'; sc.cycles.device = 'CPU'; sc.cycles.samples = SAMPLES; sc.cycles.use_denoising = False
+    sc.render.engine = 'CYCLES'; sc.cycles.samples = SAMPLES; sc.cycles.use_denoising = False; sc.cycles.device = 'CPU'
+    if DEVICE in ('auto', 'GPU'):
+        cp = bpy.context.preferences.addons['cycles'].preferences
+        for backend in ('HIP', 'OPTIX', 'CUDA', 'ONEAPI', 'METAL'):
+            try: cp.compute_device_type = backend
+            except TypeError: continue
+            cp.get_devices(); gpus = [d for d in cp.devices if d.type == backend]
+            if gpus:
+                for d in cp.devices: d.use = d.type == backend
+                sc.cycles.device = 'GPU'; step('device', backend=backend, gpus=[d.name for d in gpus]); break
+        if sc.cycles.device != 'GPU':
+            step('device', backend='CPU', note='no GPU backend found' + ('' if DEVICE == 'auto' else ': GPU was asked for'))
     if NODE_SAMPLES:
         for m in mats:
             for n_ in (m.node_tree.nodes if m.node_tree else []):
@@ -163,10 +182,9 @@ if STAGE in ('bake', 'all'):
         for (mn, k), im in imgs.items():
             if k == kind: im.filepath_raw = os.path.join(RAW, '%s_%s.png' % (mn.replace(' ', '_').replace('/', '_'), k)); im.file_format = 'PNG'; im.save()
     def want(p): return STAGE == 'all' or PASS == p
-    if want('base'): run('base', 'DIFFUSE', pass_filter={'COLOR'}); save_raw('base')
-    if want('rough'): run('rough', 'ROUGHNESS', colour=False); save_raw('rough')
-    if want('normal'): run('normal', 'NORMAL', colour=False, normal_space='TANGENT', normal_r='POS_X', normal_g='POS_Y', normal_b='POS_Z'); save_raw('normal')
-    # metallic and emission through the material output: temporarily route the socket's source into an Emission shader and bake EMIT
+    # base colour, roughness, metallic and emission through the material output: temporarily route the socket's source into an Emission shader and bake EMIT.
+    # Not the DIFFUSE colour pass for base colour: Cycles scales that pass by (1 - metallic), so metal surfaces came out darker and Unity then applied metallic
+    # again (pilot 2026-10-16: baked renders 8 to 19 % darker, worst on the pump motor). Emission routing also skips the BSDF, which makes the pass faster.
     def via_emission(socket_name, kind, colour, wanted):
         saved = {}
         for m in mats:
@@ -175,8 +193,10 @@ if STAGE in ('bake', 'all'):
             nt = m.node_tree; out = next(n for n in nt.nodes if n.type == 'OUTPUT_MATERIAL' and n.is_active_output)
             old = out.inputs['Surface'].links[0].from_socket if out.inputs['Surface'].is_linked else None
             e = nt.nodes.new('ShaderNodeEmission'); e.name = '_bake_emit'; e.inputs['Strength'].default_value = 1.0
-            if socket_name == 'Metallic':
-                src = b.inputs['Metallic'].links[0].from_socket; nt.links.new(src, e.inputs['Color'])
+            if socket_name in ('Metallic', 'Base Color', 'Roughness'):
+                i_ = b.inputs[socket_name]
+                if i_.is_linked: nt.links.new(i_.links[0].from_socket, e.inputs['Color'])
+                else: v_ = i_.default_value; e.inputs['Color'].default_value = (list(v_)[:3] + [1.0]) if hasattr(v_, '__len__') else (v_, v_, v_, 1.0)
             else:
                 if b.inputs['Emission Color'].is_linked: nt.links.new(b.inputs['Emission Color'].links[0].from_socket, e.inputs['Color'])
                 else: e.inputs['Color'].default_value = b.inputs['Emission Color'].default_value
@@ -188,6 +208,9 @@ if STAGE in ('bake', 'all'):
             nt = bpy.data.materials[n].node_tree
             if old is not None: nt.links.new(old, out.inputs['Surface'])
             nt.nodes.remove(e)
+    if want('base'): via_emission('Base Color', 'base', True, lambda m: True); save_raw('base')
+    if want('rough'): via_emission('Roughness', 'rough', False, lambda m: True); save_raw('rough')
+    if want('normal'): run('normal', 'NORMAL', colour=False, normal_space='TANGENT', normal_r='POS_X', normal_g='POS_Y', normal_b='POS_Z'); save_raw('normal')
     if want('metal'): via_emission('Metallic', 'metal', False, lambda m: plan[m.name]['metallic_map']); save_raw('metal')
     if want('emit'): via_emission('Emission', 'emit', True, lambda m: plan[m.name]['emission']); save_raw('emit')
 

@@ -51,6 +51,23 @@ The script runs on a room's source file, which it never saves. It works in stage
 - An EEVEE real-time preview: there is no GPU or EGL in the container, so it could not start.
 - A Unity import.
 
+## Running it on the owner's PC (Ryzen 7 5800X, 32 GB, Radeon RX 9070 XT)
+
+```powershell
+powershell -ExecutionPolicy Bypass -File sections/facility-assembly/unity/bake_room.ps1 -Room cooling-plant `
+    -Source sections/facility-assembly/sources/cooling-plant/module_aaa_A1.blend -Cameras C02_HERO,C06_EXCHANGER,C05_PUMP_A
+```
+
+`--profile home` bakes on the GPU through HIP (the script picks the first backend Blender finds), at 4K atlases and 8 samples, with the shader AO and bevel nodes at full quality. The stages run one after another; after a crash, `-From <stage>` continues. Bake times on this PC are not measured yet; `bake_report.json` records them. URP settings for this PC are in `URP_SETTINGS.md`.
+
+## Fix after the pilot: base colour (2026-10-16)
+
+The first pilot's baked renders were 8 to 19 % darker than the source, worst on the pump motor. The cause was the base colour, which came from Cycles' DIFFUSE colour pass. That pass is scaled by (1 − metallic), and Unity then applies metallic again. Base colour and roughness are now baked by routing their own node inputs into an emission shader. That gives the true albedo, and it is faster because the BSDF is skipped.
+
+## Important: rooms as they are in the map
+
+The pilot bakes the **room module**. The combined map changes rooms locally: door cuts, the mine's triangle cut, the turbine's skin, the animated ore cart and the evacuation additions. Those changes are not in the modules. Before the whole map goes to Unity, each room should be taken from `combined_map.blend` with its local changes made real, and baked from there. That is the next pipeline step, and it is not built yet.
+
 ## Importing into Unity URP (not done here)
 
 1. **Project:** Unity 6000.4.3 with the URP package and a URP pipeline asset. `runtime/unity` is still Built-in; switching it needs an editor run.
