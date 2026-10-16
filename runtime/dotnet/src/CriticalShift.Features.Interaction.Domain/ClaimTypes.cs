@@ -12,26 +12,27 @@ namespace CriticalShift.Features.Interaction.Domain
         NotHolder,
         StaleLease,
         RevisionConflict,
-        StoreStopped, EntitySlotted, UnknownSlot, SlotOccupied, SlotEmpty
+        StoreStopped, EntitySlotted, UnknownSlot, SlotOccupied, SlotEmpty, AssistanceDisabled
     }
 
     /// <summary>Detached logical state. A holder does not imply a successful physics attachment.</summary>
     public sealed class ClaimSnapshot
     {
         internal ClaimSnapshot(Guid entityId, Guid? holderId, long revision, long generation,
-            long expiresAtMilliseconds, bool retired, Guid? slotId = null)
+            long expiresAtMilliseconds, bool retired, Guid? slotId = null, Guid? assistantId = null)
         {
             EntityId = entityId;
             HolderId = holderId;
             Revision = revision;
             LeaseGeneration = generation;
             ExpiresAtMilliseconds = expiresAtMilliseconds;
-            IsRetired = retired; SlotId = slotId;
+            IsRetired = retired; SlotId = slotId; AssistantId = assistantId;
         }
 
         public Guid EntityId { get; }
         public Guid? HolderId { get; }
         public Guid? SlotId { get; }
+        public Guid? AssistantId { get; }
         public long Revision { get; }
         public long LeaseGeneration { get; }
         public long ExpiresAtMilliseconds { get; }

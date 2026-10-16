@@ -1,0 +1,528 @@
+{
+  "task": "BONK-SHOVEL-001",
+  "recorded_utc": "2026-10-02T19:45:13.149112+00:00",
+  "baseline_commit": "cd51c6a1b9cdf5dce9efb67212793e33da2cf7f7",
+  "branch": "feat/unity-movement-animations-20261002",
+  "primary_author": "Codex",
+  "draft_pr": "https://github.com/CameronNel/critical-shift/pull/72",
+  "claims": {
+    "hit": "host-approved, one consumed player/solid contact per swing, canonical nonlethal Knockdown",
+    "animation": "procedural grip/arm wind-up, strike, follow-through and contact recoil; existing animation files untouched",
+    "sound": "original deterministic modal synthesis; no external recordings or samples",
+    "native_acceptance": "Blocked",
+    "independent_human_review": "Pending",
+    "merge": "Pending; no self-merge"
+  },
+  "offline_verification": {
+    "status": "Passed",
+    "sdk": "8.0.423",
+    "os": "Linux-6.18.44-x86_64-with-glibc2.41",
+    "started_utc": "2026-10-02T19:30:15.936290+00:00",
+    "finished_utc": "2026-10-02T19:30:33.310131+00:00",
+    "configuration": "Release",
+    "library_target": "netstandard2.1",
+    "language": "C# 8.0",
+    "tests": {
+      "executed": 784,
+      "passed": 784,
+      "failed": 0,
+      "skipped": 0
+    },
+    "model_suites": {
+      "ownership": {
+        "sequences": 100,
+        "actions": 20000
+      },
+      "timers": {
+        "sequences": 100,
+        "actions": 20000
+      },
+      "machines": {
+        "sequences": 100,
+        "actions": 20000
+      }
+    },
+    "negative_control": "Expected failing NUnit test rejected by process and result checks",
+    "scenarios": {
+      "cleanup-and-trace": {
+        "Status": "Passed",
+        "CompletedRuns": 2,
+        "CompletedSteps": 30,
+        "Assertions": 60
+      },
+      "pause-and-expired-recovery": {
+        "Status": "Passed",
+        "CompletedRuns": 2,
+        "CompletedSteps": 32,
+        "Assertions": 60
+      },
+      "worker-recovery": {
+        "Status": "Passed",
+        "CompletedRuns": 2,
+        "CompletedSteps": 50,
+        "Assertions": 112
+      },
+      "production-chain": {
+        "Status": "Passed",
+        "CompletedRuns": 2,
+        "CompletedSteps": 32,
+        "Assertions": 74
+      },
+      "production-cancel": {
+        "Status": "Passed",
+        "CompletedRuns": 2,
+        "CompletedSteps": 22,
+        "Assertions": 48
+      },
+      "production-deadline": {
+        "Status": "Passed",
+        "CompletedRuns": 2,
+        "CompletedSteps": 10,
+        "Assertions": 32
+      },
+      "production-wet-jam": {
+        "Status": "Passed",
+        "CompletedRuns": 2,
+        "CompletedSteps": 24,
+        "Assertions": 52
+      },
+      "production-cancel-attribution": {
+        "Status": "Passed",
+        "CompletedRuns": 2,
+        "CompletedSteps": 22,
+        "Assertions": 78
+      },
+      "reactor-cooling-recovery": {
+        "Status": "Passed",
+        "CompletedRuns": 2,
+        "CompletedSteps": 26,
+        "Assertions": 86
+      },
+      "reactor-reserve-contention": {
+        "Status": "Passed",
+        "CompletedRuns": 2,
+        "CompletedSteps": 22,
+        "Assertions": 42
+      },
+      "reactor-deadline": {
+        "Status": "Passed",
+        "CompletedRuns": 2,
+        "CompletedSteps": 14,
+        "Assertions": 44
+      },
+      "reactor-full-production-chain": {
+        "Status": "Passed",
+        "CompletedRuns": 2,
+        "CompletedSteps": 52,
+        "Assertions": 130
+      }
+    },
+    "report_safety": {
+      "status": "Passed",
+      "cases": [
+        "identical",
+        "parent-dot-alias",
+        "hardlink",
+        "symlink",
+        "symlinked-parent",
+        "existing-unrelated-report"
+      ],
+      "contract": "create-new only; existing paths are never overwritten"
+    },
+    "scenario_negative_controls": "Assertion mismatch and empty script rejected",
+    "unity": "NotRun",
+    "physics": "NotRun",
+    "multiplayer_transport": "NotRun"
+  },
+  "bonk_offline_cases": {
+    "executed": 19,
+    "passed": 19,
+    "failed": 0,
+    "skipped": 0,
+    "rule_cases": 14,
+    "pose_cases": 5,
+    "names": [
+      "CriticalShift.FacilityPhysics.Tests.BonkSwingTests.ContactRecoilReturnsDirectlyToRestWithoutFurtherForwardSwing",
+      "CriticalShift.FacilityPhysics.Tests.BonkSwingTests.NonFiniteSwingPhaseIsRejected(float.NaN)",
+      "CriticalShift.FacilityPhysics.Tests.BonkSwingTests.NonFiniteSwingPhaseIsRejected(float.PositiveInfinity)",
+      "CriticalShift.FacilityPhysics.Tests.BonkSwingTests.ProceduralBonkHasAnticipationStrikeAndReturnsToRest",
+      "CriticalShift.FacilityPhysics.Tests.BonkSwingTests.ProceduralBonkStaysBoundedAndContinuousAtEveryKeyframe",
+      "CriticalShift.Offline.Tests.BonkTests.AttackerImpactCancelDisconnectAndExpiryPreventHits",
+      "CriticalShift.Offline.Tests.BonkTests.BonkKnocksDownOtherPlayerAndReleasesTheirCargoOnce",
+      "CriticalShift.Offline.Tests.BonkTests.BonkReceiptsReplayWithoutAnotherSwingOrCause",
+      "CriticalShift.Offline.Tests.BonkTests.ContactsOutsideStrikeWindowCannotDamage(0)",
+      "CriticalShift.Offline.Tests.BonkTests.ContactsOutsideStrikeWindowCannotDamage(179)",
+      "CriticalShift.Offline.Tests.BonkTests.ContactsOutsideStrikeWindowCannotDamage(321)",
+      "CriticalShift.Offline.Tests.BonkTests.ContactsOutsideStrikeWindowCannotDamage(701)",
+      "CriticalShift.Offline.Tests.BonkTests.OnlyRegisteredHeldShovelAndCurrentLeaseCanStart",
+      "CriticalShift.Offline.Tests.BonkTests.PausedAndWrongEpochBonksCannotChangeHealth",
+      "CriticalShift.Offline.Tests.BonkTests.ReleaseReacquireCannotReuseOldSwingLease",
+      "CriticalShift.Offline.Tests.BonkTests.RepeatedValidSwingsUseOrderedHazardObservationsAndNeverHeal",
+      "CriticalShift.Offline.Tests.BonkTests.SelfUnknownAndStaleSwingCannotDamageOrConsumeCurrentHit",
+      "CriticalShift.Offline.Tests.BonkTests.SwingCooldownConsumesRejectionReceiptWithoutWedgingInput",
+      "CriticalShift.Offline.Tests.BonkTests.WallContactConsumesStrikeWithoutWorkerDamage"
+    ]
+  },
+  "run_history": [
+    {
+      "status": "Passed",
+      "executed": 783,
+      "passed": 783,
+      "failed": 0,
+      "skipped": 0,
+      "note": "Initial full run before adding direct contact-recoil and pause/resume assertions."
+    },
+    {
+      "status": "Passed",
+      "executed": 784,
+      "passed": 784,
+      "failed": 0,
+      "skipped": 0,
+      "note": "Final full run including recoil and pause coverage; no offline input changes afterward."
+    }
+  ],
+  "evidence_extraction_repair": "Initial temporary script matched only method names containing Bonk and rejected its incomplete five-case inventory. Corrected extraction joins TRX result testId to className definitions; all 19 real outcomes are Passed. No runtime or result was changed.",
+  "commands": [
+    {
+      "command": "python runtime/dotnet/tools/verify.py",
+      "status": "Passed",
+      "raw_results": "ignored runtime/dotnet/artifacts; temporary /tmp/critical-shift-bonk-verification.log"
+    },
+    {
+      "command": "python runtime/tools/build_unity_rules.py",
+      "status": "Passed",
+      "built_libraries": 8,
+      "warnings": 0,
+      "errors": 0
+    },
+    {
+      "command": "python runtime/tools/check_source.py",
+      "result": {
+        "status": "Passed",
+        "check": "static-source-only",
+        "metadata_guids": 105,
+        "asmdefs": 14,
+        "csharp_files": 53,
+        "limits": "Not a resolved Unity graph, native import, gameplay or art review."
+      }
+    },
+    {
+      "command": "Roslyn CSharpSyntaxTree.ParseText using LanguageVersion.CSharp8 on runtime/unity/Assets/**/*.cs",
+      "status": "Passed",
+      "files": 53,
+      "parse_errors": 0,
+      "limits": "Syntax only, no Unity API/type resolution"
+    },
+    {
+      "command": "python runtime/tools/make_bonk_sound.py",
+      "status": "Passed",
+      "result": {
+        "source": "original deterministic modal synthesis; no external samples",
+        "style": "short hollow tin tonk with a crisp rim and cartoon pitch scoop",
+        "sample_rate": 48000,
+        "channels": 1,
+        "bits": 16,
+        "duration_seconds": 0.54,
+        "peak": 0.819976806640625,
+        "rms": 0.12264356173075235,
+        "clipped_samples": 0,
+        "first_sample": 0,
+        "last_sample": 0,
+        "sha256": "266b2fcee011e21382096e795079f2e1468fd2e237421e5e95847483f6f12e42"
+      }
+    },
+    {
+      "command": "WAV header, actual sample peak/clipping/endpoints and recorded hash check",
+      "status": "Passed"
+    },
+    {
+      "command": "git diff --check and changed-file preservation inventory",
+      "status": "Passed",
+      "animation_scene_prefab_art_changes": 0
+    }
+  ],
+  "native_cases": {
+    "new_bonk": {
+      "status": "NotRun",
+      "count": 8,
+      "source": "runtime/unity/Assets/CriticalShift/FacilityPhysics/Tests/PlayMode/BonkPhysicsTests.cs",
+      "cases": [
+        "SwingOwnsToolMotionAndRestoresDynamicCarryOnCancel",
+        "ReleasingSwingingShovelCannotLeaveKinematicTool",
+        "DestroyedOwnerCannotLeaveSwingToolKinematic",
+        "DestroyedToolBodyStopsMotionWithoutDereferencingIt",
+        "BonkQueryFindsPlayerAndExcludesAttackerAndShovel",
+        "SolidWallBlocksPlayerBonkAndTriggerDoesNot",
+        "EmptySwingDoesNotInventContact",
+        "StartedInsideWallBlocksRatherThanHittingThroughIt"
+      ]
+    },
+    "current_engine_feature_inventory": {
+      "status": "NotRun",
+      "count": 51,
+      "groups": {
+        "animation_binding": 4,
+        "carry_handle_targeting": 14,
+        "ragdoll_physics_validation": 23,
+        "ragdoll_builder": 2,
+        "bonk": 8
+      }
+    },
+    "complete_host_rig_audio_integration": {
+      "status": "Planned",
+      "reason": "No complete feature-specific native fixture is authored"
+    },
+    "finished_animation_alignment": {
+      "status": "Planned",
+      "reason": "Final imported character/animation assets are not available"
+    }
+  },
+  "native_environment": {
+    "editor": "6000.4.3f1",
+    "revision": "39d1a88d4dd1",
+    "rendering": "Built-in",
+    "backend": "Mono",
+    "status": "Blocked",
+    "reason": "Pinned activated Unity Editor and finished imported character unavailable",
+    "unverified": [
+      "Unity import and API/type compilation",
+      "native EditMode/PlayMode",
+      "physics and contact alignment",
+      "Player and audio mixing",
+      "multiplayer transport",
+      "performance",
+      "human visual/audio/game-feel acceptance"
+    ]
+  },
+  "audio": {
+    "source": "original deterministic modal synthesis; no external samples",
+    "style": "short hollow tin tonk with a crisp rim and cartoon pitch scoop",
+    "sample_rate": 48000,
+    "channels": 1,
+    "bits": 16,
+    "duration_seconds": 0.54,
+    "peak": 0.819976806640625,
+    "rms": 0.12264356173075235,
+    "clipped_samples": 0,
+    "first_sample": 0,
+    "last_sample": 0,
+    "sha256": "266b2fcee011e21382096e795079f2e1468fd2e237421e5e95847483f6f12e42"
+  },
+  "architecture": {
+    "contracts": [
+      "A02",
+      "A05",
+      "S01",
+      "S03",
+      "S04",
+      "S07",
+      "S08",
+      "BONK-01",
+      "BONK-02",
+      "BONK-03"
+    ],
+    "added_module": "com.unity.modules.audio 1.0.0 builtin",
+    "networking_decision": "D-02 remains open",
+    "timing_ms": {
+      "windup": 180,
+      "strike_end": 320,
+      "presentation": 700,
+      "start_cooldown": 950,
+      "recovery_delay": 2000
+    },
+    "contact_radius_m": 0.16,
+    "blade_forward_m": [
+      0.95,
+      1.4
+    ],
+    "max_substeps_per_actor_tick": 8,
+    "query_capacity": 64
+  },
+  "review": {
+    "primary_author_self_review": "Completed",
+    "new_agent_reviews": 0,
+    "independent_human_review": "Pending",
+    "note": "Earlier ragdoll audit agents do not provide independent review of these new changes"
+  },
+  "offline_input_sha256": {
+    ".editorconfig": "4bb12091d9873845bf3959bd4808611b9325c2422fc0ff5e61e524705bc247db",
+    ".gitattributes": "c2db13c01bca1c15a6e2830e65d513b4f90c8f5db596929c92bad3b24fb607a2",
+    ".gitignore": "801e13ddfe94e6f609499663997e3b8f1fdd87ab402b99355a31aa9e2c5f9419",
+    "Directory.Build.props": "fff4ab3ff6a6e63ba729814f22bac9cc086f5e2c5a9c2c43eee4a6611adfef4d",
+    "PRODUCTION.md": "c84d8f4f04e16372364a13bd39f22ee8dd448c4b4a9047a5e5692d736e9b9983",
+    "REACTOR_AND_POWER.md": "1fa6bd0027bedcb72f87bb7bdfbc5756b5e3ccea338ed6ff91403ccd6aede064",
+    "README.md": "22368f05c6126e539a0c59dbbca2819db2946bf3e6b870c7809f4ac7d95e5f3e",
+    "WORKERS_AND_SCENARIOS.md": "6b1ae5ab261c07592d2f6081b0a57247a8c3c8dfd37a8ff28b8b5b776155e238",
+    "WORLD_AND_TIME.md": "d2547c9cb5a96fa0bc644ade0763f71d538439e951743a460be0adfc6c15d8a8",
+    "global.json": "0503dacfc3e664e4b7fc0ac7da920e5939da4ee62ab852ce7aec1a0bdbdf38a2",
+    "scenarios/cleanup-and-trace.json": "832e01fcb719038a7c3065e4a18505cea1578d36dc41b3927ba786d85237f5b7",
+    "scenarios/pause-and-expired-recovery.json": "91b9550fb29ecd46ad76172123b75a9fe1b8beb385e8e8400b1730ab224a77a7",
+    "scenarios/production-cancel-attribution.json": "95226b490c36e143637f3c72ea5478b3d53fa7ec39e66419da75cc4a11739d75",
+    "scenarios/production-cancel.json": "f0d7b10db1b60a92539fc87fec325c1716b955b287fcb6e3547576ffec9e34bf",
+    "scenarios/production-chain.json": "0a6458aaf8cf166af4175c3343de0f35d3d342e09a3370028ceb1e679e392a4e",
+    "scenarios/production-deadline.json": "1fab190b892dcccc58684a0335e779766e94ad1d9e94b6c14219b86c7c70c820",
+    "scenarios/production-wet-jam.json": "0f88afeb298a2d7eaa327779dfcfd9fd168f7bb77e15fd97706af8089ff4b102",
+    "scenarios/reactor-cooling-recovery.json": "27ba1f861b28b4a1bdc7265ae861541d4b1a514b28d0c2e342e10501de7e4332",
+    "scenarios/reactor-deadline.json": "bec5e899ff00035c6f22a0ebcdc8cf7705505a4e5e3f257e4ffcf5b5dd038096",
+    "scenarios/reactor-full-production-chain.json": "b9903d120272d26feeb98518ec3eaf48760728e2e16d823e6acb7d81104349da",
+    "scenarios/reactor-reserve-contention.json": "236d7d38c9c64e967f46e4c09fa4de317918e6948e1b30de4d03d8c4fc1bdc87",
+    "scenarios/worker-recovery.json": "6b0f479d09c31c2278476fabf31c15e85040d7b23777dbff509c29da456ec93c",
+    "src/CriticalShift.Application/BonkContracts.cs": "aad7db363964da1c652b67e796f104e6db0126fd7d8c1542657ba8c4572642fe",
+    "src/CriticalShift.Application/BonkOperations.cs": "9309d74f43e87354ad84b59b045ba8f441f5e13538eb8e945dc18f0920751486",
+    "src/CriticalShift.Application/CommandReceipts.cs": "58b09dbb629c78a4da019146d3d54db91f2919affb2fffb494396dd7b6599f29",
+    "src/CriticalShift.Application/ControlContracts.cs": "61ccb391e444a1dcc45bcfb29440fc1a266eefb9612d1ccc7622ce53b251b04f",
+    "src/CriticalShift.Application/CriticalShift.Application.csproj": "c678f7c3fdd2c027d4e0e9291fb82c48f820aa79590916528ef74ba89bc27fce",
+    "src/CriticalShift.Application/FacilityControlOperations.cs": "515cdb870dbba42b05b73c5ad7f1b04a8b1fa826349d168d6d99920e9b1b4c13",
+    "src/CriticalShift.Application/InteractionContracts.cs": "5a2b2d47568f66264a1d9da9131d4136d74b227068728dc77f1d63f3766da27b",
+    "src/CriticalShift.Application/InteractionWorld.cs": "c55cd5552275f1bf8e05d786357d778d67027aa5e567f03ea5508024b71088fe",
+    "src/CriticalShift.Application/ProductionContracts.cs": "729ed17fa933b1a550b5d5ac0939de7906adb39e98f986eeeb46161a511dd135",
+    "src/CriticalShift.Application/ProductionOperations.Fuel.cs": "3b0d19dd8ff510e7fde275648ca1f1eeb7ee413b925b0f361737636d12fe9ceb",
+    "src/CriticalShift.Application/ProductionOperations.Lifecycle.cs": "4df02c4516019b4571985417c5e13e4078658d144a2331339f0984abc56629a6",
+    "src/CriticalShift.Application/ProductionOperations.cs": "15be8c358c65db6a13ca5497f9d9411c06b4d5decb1d121c8187a287ecb255eb",
+    "src/CriticalShift.Application/ReactorContracts.cs": "a16e7d9215a97217ad7e651f6d0adf71bc54fca6123bca6ed41e5dbd3ae4603c",
+    "src/CriticalShift.Application/ReactorOperations.cs": "4528ae18ae005d248ca6a39082ec1bc3e5697c6374dff21ebaee1b356c9a7f51",
+    "src/CriticalShift.Application/SessionDiagnostics.cs": "b0eb6201fe5cc1b0be89667a10a17eb12c98a9189424036fbc335405254179f9",
+    "src/CriticalShift.Application/WorkerContracts.cs": "54d1a55363e46dd30f6503598400c10b402887c0d6d56f19daf70afad3429711",
+    "src/CriticalShift.Application/WorkerWorkflow.cs": "8ab6813a238e2db8d3c193095844dd6b3551cb62f8713af7f149b1420930e375",
+    "src/CriticalShift.Application/WorldSession.Bonks.cs": "92ab258c1945dfa92c5d736186fbba1ef264d4ffcd7aafb54cc4be91cdbf1666",
+    "src/CriticalShift.Application/WorldSession.Workers.cs": "4a73fcd12697a392ccd622191c3663dc80ccc1b0729a96822d2a20fccd7dc048",
+    "src/CriticalShift.Application/WorldSession.cs": "e5f0bc573e47d18c085809bfb7b128f132e0da63f1d963d5f444da72eb2b0933",
+    "src/CriticalShift.Application/WorldSessionContracts.cs": "2771cdda35e0711bb6ca6cc14eb062a233d239ee6b8fb47df3d7ae53102a1015",
+    "src/CriticalShift.Features.Interaction.Domain/ClaimTypes.cs": "b7c2c2e03b118a41161968c837f8488f4fae727397f24b006730ba4d8e72d6df",
+    "src/CriticalShift.Features.Interaction.Domain/ControlState.cs": "87791071b8e648aebaf6edfd48b1d1366cb2ea5b0ce0acae1b24c50eb2e9e026",
+    "src/CriticalShift.Features.Interaction.Domain/CriticalShift.Features.Interaction.Domain.csproj": "4b39c9213e535b8eab328da4135648631f03eae256d6cfe1b6bb16144ff7d384",
+    "src/CriticalShift.Features.Interaction.Domain/ExclusiveClaimStore.cs": "102f933f90506dffaaa8bcd3e690a7a7c91378fb1bf1bf80d156be53c223a66a",
+    "src/CriticalShift.Features.Materials.Domain/BatchTypes.cs": "8a0a24462acd2a739ebb42cffdc7a268a2b0caaff1b0a4b9ae3d6ae94d6d350d",
+    "src/CriticalShift.Features.Materials.Domain/CriticalShift.Features.Materials.Domain.csproj": "8e39f064514fc5839ee0969bdd1f294a5cd3eee6ef98209907bf779913f67d51",
+    "src/CriticalShift.Features.Materials.Domain/MaterialLedger.cs": "a8395339653df7e0a337b0c62f28f769580307609f840b5a77bc9e0f692d9d27",
+    "src/CriticalShift.Features.Power.Domain/CriticalShift.Features.Power.Domain.csproj": "5138018c65b7d7fb2e720486c60d2cd1a95fab8209271a8e57a553b8dec460fd",
+    "src/CriticalShift.Features.Power.Domain/PowerAccount.cs": "1a323dd1cc6fe0ab042d30f95fa512ae6a004d57456d9f4db996cee03a61dc8d",
+    "src/CriticalShift.Features.Production.Domain/CriticalShift.Features.Production.Domain.csproj": "8e39f064514fc5839ee0969bdd1f294a5cd3eee6ef98209907bf779913f67d51",
+    "src/CriticalShift.Features.Production.Domain/MachineState.cs": "a2cf6d70b271c19907fbae7891229067f92b82bcb716a58c16c689249145ea65",
+    "src/CriticalShift.Features.Reactor.Domain/CriticalShift.Features.Reactor.Domain.csproj": "5138018c65b7d7fb2e720486c60d2cd1a95fab8209271a8e57a553b8dec460fd",
+    "src/CriticalShift.Features.Reactor.Domain/ReactorCore.cs": "d68f4e4521da71b07bafc671d327ca6d77a6283a251adb86a8578835b0d73b81",
+    "src/CriticalShift.Features.Session.Domain/CriticalShift.Features.Session.Domain.csproj": "4b39c9213e535b8eab328da4135648631f03eae256d6cfe1b6bb16144ff7d384",
+    "src/CriticalShift.Features.Session.Domain/SessionTimeline.cs": "24348729d4058e8e7ade5bc11f7d9a5933db250c136bd5a0f1824a4bad414e8a",
+    "src/CriticalShift.Features.Session.Domain/TimerEntry.cs": "d46dcdf8eb8af63368f14d49a116523fdb1154542882bd000304bce06d27fa5e",
+    "src/CriticalShift.Features.Session.Domain/WorldTimerQueue.cs": "0f6ffd0dc3592f1344626756992e500f2872c94c925d33166b0cb5b5a23b2487",
+    "src/CriticalShift.Features.Workers.Domain/CriticalShift.Features.Workers.Domain.csproj": "4b39c9213e535b8eab328da4135648631f03eae256d6cfe1b6bb16144ff7d384",
+    "src/CriticalShift.Features.Workers.Domain/WorkerState.cs": "ff775e1d4e9485cb351de82f0207ce976a796428785e9c510c70dda482bc7de0",
+    "src/CriticalShift.Features.Workers.Domain/WorkerTypes.cs": "4a732f68225405ad2c327f614c5357046d8df7cd5dd3b53101b1c29ffec3d9e0",
+    "src/CriticalShift.ProcessLifetime/CriticalShift.ProcessLifetime.csproj": "2242e5df525c816eb8734d39b1dca8670a8884361ac05e7b8b6f82b1ae32b5f3",
+    "tests/CriticalShift.Offline.Tests/BonkTests.cs": "70021229d51acb7dfba0290bb392175478ab3b6ff1c8b5baa30f0bbc88167b9e",
+    "tests/CriticalShift.Offline.Tests/CancellationAttributionTests.cs": "3fa0ff7d0fef3f455a12371158efb5e72782031d53e4ad3504954b82da9184dc",
+    "tests/CriticalShift.Offline.Tests/ClaimLifecycleTests.cs": "d37c0922c2161c245eaaaf3ed1c61e9c5d0396892549f57c535bb3e48451ca00",
+    "tests/CriticalShift.Offline.Tests/CommandTests.cs": "0b1a176bfc3208367114adb3147f56de9d83df6ce63b92a2da8a50451bc3bbbd",
+    "tests/CriticalShift.Offline.Tests/CriticalShift.Offline.Tests.csproj": "85f9eb818421aa314fe0d4d67937ac941267b711f190005b74d94c6f91661d88",
+    "tests/CriticalShift.Offline.Tests/DownedGripTests.cs": "f8d9fd4cf299bf523cf3bca8544b36953af7bd3b3f26e11577e0ad392a88b97b",
+    "tests/CriticalShift.Offline.Tests/FacilityControlTests.cs": "9a4307848366aef56118f58a6526a2bea0ba5be1648224dea7dd30fefdaa5bc0",
+    "tests/CriticalShift.Offline.Tests/FailureControl.cs": "c60d51f3adb5bb3639313d159a65981f49864937c37de222e815d9fdfaa361f6",
+    "tests/CriticalShift.Offline.Tests/Fixtures.cs": "5d08cce95d38c23c15177c0b17e8aaa09a045f5eb724ac65854f15d35401552e",
+    "tests/CriticalShift.Offline.Tests/HazardAttributionTests.cs": "d14589b901aca00acaa782c8dc72b3e87a14e5f94344190fa83a97cf46f4118c",
+    "tests/CriticalShift.Offline.Tests/ModelAndBoundaryTests.cs": "2fc307b4baa9bfb7d62814f61e5042771d25e817d9140ba9cc2e613fc87b5cc1",
+    "tests/CriticalShift.Offline.Tests/ProductionFixture.cs": "cd14ca98f27107fff595b5c8f61301da639553e533cbd74198371f90fcb31603",
+    "tests/CriticalShift.Offline.Tests/ProductionRuleTests.cs": "9c3643fbd02616ca828b850781fc79c3108c10fe89391947fd8d5715e9818e45",
+    "tests/CriticalShift.Offline.Tests/ProductionStressTests.cs": "53e29a8353682eb8c2f93dc703cd25cbbc73be57f50fc6f86f95c620f7eefe73",
+    "tests/CriticalShift.Offline.Tests/ProductionWorldTests.cs": "e0f3b9b731e53509859b2abf9fbac94dafb2493b7564eb2488e693c696f92957",
+    "tests/CriticalShift.Offline.Tests/ReactorFixture.cs": "789464b6e4d918203e5c0429a370a8a6a57f2ad70d2c0ef9adb897aa83fe09f0",
+    "tests/CriticalShift.Offline.Tests/ReactorRevisionTests.cs": "1b61793e1549c22f7ac836dea4e445b1a7bab999f4804aa63f146e25db3570e5",
+    "tests/CriticalShift.Offline.Tests/ReactorRuleTests.cs": "8a0c4d5736c3af2fe84659db20c4aa616f9923648aedf5b96c1fedb5f4dcb9de",
+    "tests/CriticalShift.Offline.Tests/ReactorWorldTests.cs": "ab24988eb15eeaaaaf6900351eda52a935b0194e680c99e959e2ead89435a5de",
+    "tests/CriticalShift.Offline.Tests/SharedCarryTests.cs": "d762c9405fac6046649504253c619e22a99fa3edc61f63061b754eb332702a13",
+    "tests/CriticalShift.Offline.Tests/TestHazards.cs": "17d2152c67a947d7351e11862b0a94751e207977b2022c879af569dcb1901287",
+    "tests/CriticalShift.Offline.Tests/TimelineTests.cs": "4e130ebbabaec9122c9d8296000e9939fc9d33121c064587a3792301977ede84",
+    "tests/CriticalShift.Offline.Tests/TimerTests.cs": "9a3279739515a08a07e5c84e6ef933010e36efd2f46544ca3f08000fb760070b",
+    "tests/CriticalShift.Offline.Tests/WorkerRuleTests.cs": "0c901edb51b61f9e801c13c0c69b1eef8d027410a143666c8b5e1f629e385cfb",
+    "tests/CriticalShift.Offline.Tests/WorkerWorldTests.cs": "e9e717e7e3a682276aa036ab30888999edf3b2cceb2fdc282a538316386d1784",
+    "tests/CriticalShift.Offline.Tests/WorldSessionTests.cs": "b12323772861946b9380b449b5b4cfa375003fb2b30c63dc8381a6359fdf1377",
+    "tools/CriticalShift.Scenarios/CriticalShift.Scenarios.csproj": "06be1e97129a610275529d504c16a1ef2a0e9e5ceeb6bee97c02a80bdfd63337",
+    "tools/CriticalShift.Scenarios/ProductionScenarioSteps.cs": "b969a1b101af23a0da700b35b2bee1e30e5ebde676146074456f4813f87114aa",
+    "tools/CriticalShift.Scenarios/Program.cs": "69e9300be1f86c4ce1193f62225e59aadb27d69a0eb965485cbc8647af94c4ec",
+    "tools/CriticalShift.Scenarios/ReactorScenarioSteps.cs": "3300c62b5c424b379b2f2c0d4422e5f28a7eab60ca34947796286adfa847cf2c",
+    "tools/CriticalShift.Scenarios/ScenarioInput.cs": "8fda17a60b01994b6963337cda3bde3d1feaef8bf39f0d2d5c18b1ea2b25a718",
+    "tools/check_boundaries.py": "fc01db0a43e66ee1bafd595c02c2bff9de18dc1ae3112fee868cd9749d03b060",
+    "tools/check_report_safety.py": "78ccc5b907c8ec12e4f67cbb3b13c770a8444be1ed2037ff1175ec5a3b431aec",
+    "tools/expected-scenarios.json": "80ae7d216643734c40733463fff7cbf3fb0edf54df2940d06a54a0156b05f2f1",
+    "tools/expected-tests.json": "ac8b2c27b4968e82dce793a5639555d881666101e1da81e28fa41636b921c680",
+    "tools/test_guards.py": "426729ae4dfa2adbb74c37f07e5858f15428f2effe05f523db01793f836acb9f",
+    "tools/verify.py": "f6f7a9fdc86e7b9ae6c2c352a2182faa0e75c7b83ad56ca0225705a5c9eee82d",
+    "tools/verify_results.py": "65e96d46d4231d10a6b79a2f3e2096ba03399fdf842d2df551b4a4b30a3c2dcf",
+    "../unity/Assets/CriticalShift/Unity/Shared/BonkSwingPose.cs": "aa05c3f24b95da13e97d5146dd63f5fcb1788c1cad0df0e4d4d053a085d93903",
+    "../unity/Assets/CriticalShift/Unity/Shared/SceneOperation.cs": "991a13720d44c6fa25724338e6c0059ef1824f66a0e4213135e4c66f4b53ca22",
+    "../unity/Assets/CriticalShift/Features/Workers/Unity/WorkerInputState.cs": "7bfa866adeec529051622c56892ab5498e50e8d44e174b524dd1343cfca0bbc6",
+    "../unity/Assets/CriticalShift/Features/Workers/Unity/MovementClips.cs": "5b478cbd5a347a2859ac458bd60b122cb012d0f60700a324b0b9e458c9af3450",
+    "../unity/Assets/CriticalShift/Features/Workers/Unity/WorkerRecoveryTicket.cs": "7cce20829a62837f218cbdffdb881ef3b2d43206d3867f591b58795b06cc5db0",
+    "../unity/Assets/CriticalShift/FacilityPhysics/Tests/EditMode/BonkSwingTests.cs": "f536e78a2f66f48a6fa14359c2fecc039516f1866a8ef2d2c487405122a38240",
+    "../unity/Assets/CriticalShift/Features/Workers/Unity/MovementAnimationSelector.cs": "808b553641542615a70cbc760ff76efba73b5a1b4bf7272d28af02b2a99e05a2",
+    "../unity/Assets/CriticalShift/Features/Workers/Tests/EditMode/MovementAnimationTests.cs": "a361bd4c6e7f664d966669af0563f17ed9a2502bdb02b49c8b0dba6de38d723d",
+    "../unity/Assets/CriticalShift/Tests/EditMode/ProcessLifetimeTests.cs": "3d64c4eb5409b232c0fa8a38b8376b52b85e0980eac86679c2c1002ee7d7e5c8",
+    "../unity/Assets/CriticalShift/Features/Workers/Unity/GaitCalibration.cs": "34e65d4dbba892cfd0f2f6eb3fb31a207b36c3a7a44dc84dddca5ffc3c0f1b74",
+    "../unity/Assets/CriticalShift/Features/Workers/Tests/EditMode/WorkerMechanicsTests.cs": "d68eda9dad537767e032b7576d75f43e9c48f12a0fa55cad171e4c8737f223bb",
+    "../unity/Assets/CriticalShift/Features/Workers/Unity/RagdollTuning.cs": "dc7cdd84c5ec642e0e59bb8c5db208ff53fef3b9dde2bfb58b99a6755376c935",
+    "../unity/Assets/CriticalShift/Features/Workers/Tests/EditMode/RagdollContractTests.cs": "75d4bda4cc18287dd58cc478e1c0b446cac095306edbd2dc0ec5a5f65655774a",
+    "../unity/Assets/CriticalShift/Application/ProcessLifetime.cs": "6f754323658f6d54253ea4deaa18adbb40a0aaed2a00df507f6652a427e1035d",
+    "../unity/Assets/CriticalShift/Features/Workers/Unity/WorkerActionPlan.cs": "ff88050ca19bd1bf49a00abc42610763ad4a8bd17947b8e547d842c33aee5cb9"
+  },
+  "changed_input_sha256": {
+    "design/code-architecture/DECISIONS_AND_RISKS.md": "d3392e84b9ee4f6cdda5bbb43d365ab50885425e54580ec831d16a81c29e9338",
+    "design/code-architecture/STATE_AND_CONTRACTS.md": "379c172315019b46ccb2230cbe0bbafe7875a0f44c8985ff1f66e074ee98b0d6",
+    "design/code-architecture/VALIDATION_PLAN.md": "850986cf1a728ef294b9fba83d17c231d1d0729fc9015b04b04c226d74a32ebe",
+    "runtime/README.md": "6df1bed8a20dab8a1136e72e172a7f72211b94af5f4cb9e8348679c74ae92867",
+    "runtime/dotnet/src/CriticalShift.Application/BonkContracts.cs": "aad7db363964da1c652b67e796f104e6db0126fd7d8c1542657ba8c4572642fe",
+    "runtime/dotnet/src/CriticalShift.Application/BonkOperations.cs": "9309d74f43e87354ad84b59b045ba8f441f5e13538eb8e945dc18f0920751486",
+    "runtime/dotnet/src/CriticalShift.Application/InteractionContracts.cs": "5a2b2d47568f66264a1d9da9131d4136d74b227068728dc77f1d63f3766da27b",
+    "runtime/dotnet/src/CriticalShift.Application/InteractionWorld.cs": "c55cd5552275f1bf8e05d786357d778d67027aa5e567f03ea5508024b71088fe",
+    "runtime/dotnet/src/CriticalShift.Application/WorldSession.Bonks.cs": "92ab258c1945dfa92c5d736186fbba1ef264d4ffcd7aafb54cc4be91cdbf1666",
+    "runtime/dotnet/src/CriticalShift.Application/WorldSession.cs": "e5f0bc573e47d18c085809bfb7b128f132e0da63f1d963d5f444da72eb2b0933",
+    "runtime/dotnet/tests/CriticalShift.Offline.Tests/BonkTests.cs": "70021229d51acb7dfba0290bb392175478ab3b6ff1c8b5baa30f0bbc88167b9e",
+    "runtime/dotnet/tests/CriticalShift.Offline.Tests/CriticalShift.Offline.Tests.csproj": "85f9eb818421aa314fe0d4d67937ac941267b711f190005b74d94c6f91661d88",
+    "runtime/dotnet/tools/check_boundaries.py": "fc01db0a43e66ee1bafd595c02c2bff9de18dc1ae3112fee868cd9749d03b060",
+    "runtime/dotnet/tools/expected-tests.json": "ac8b2c27b4968e82dce793a5639555d881666101e1da81e28fa41636b921c680",
+    "runtime/tools/make_bonk_sound.py": "0e7274c4c47eb8cc2fcc36bd7ef817e64edeb6c085a478dcb57b1291d933c618",
+    "runtime/unity/Assets/CriticalShift/Bootstrap/Editor/FacilitySceneSetup.cs": "e15007aceffe1711123bcb20e7759fb57fa33a2676881a63a6b4cdf57d44e14a",
+    "runtime/unity/Assets/CriticalShift/Bootstrap/FacilitySceneHost.Bonks.cs": "6be75719c392f5f9797622739b13f5330aee606e225a3de45dbcf4d8fd5308bc",
+    "runtime/unity/Assets/CriticalShift/Bootstrap/FacilitySceneHost.Bonks.cs.meta": "1efe92a242e7850dcc1f4105155b859f0e32db5f628c8c097b076ca78e860f56",
+    "runtime/unity/Assets/CriticalShift/Bootstrap/FacilitySceneHost.cs": "1352c0cade103cf3c071edc99f362673c2ec4ad728a6c0e820e49ced47eceef2",
+    "runtime/unity/Assets/CriticalShift/FacilityPhysics/Audio.meta": "5b63359f340ebbb91ed59698a3982d4162c855c505537e0f651ffad8fed07920",
+    "runtime/unity/Assets/CriticalShift/FacilityPhysics/Audio/README.md": "d816554fe7e7adbe900cb1e6ac73d198f2f10c4dd63a52e5d2d2b1e4a8997a8c",
+    "runtime/unity/Assets/CriticalShift/FacilityPhysics/Audio/README.md.meta": "438649cc255f4a40e7ba64d6afb97cccb7e1edbd3fb5e7a8cf3d8883250eadd9",
+    "runtime/unity/Assets/CriticalShift/FacilityPhysics/Audio/bonk_shovel_tin.wav": "266b2fcee011e21382096e795079f2e1468fd2e237421e5e95847483f6f12e42",
+    "runtime/unity/Assets/CriticalShift/FacilityPhysics/Audio/bonk_shovel_tin.wav.meta": "dd3adb027ffd9dbeebd481d1d95206c0d4a52ede250980a6acf45b7bd03540c5",
+    "runtime/unity/Assets/CriticalShift/FacilityPhysics/Tests/EditMode.meta": "6bd65cb5a348eee9a669dfc6fe5ed70fd86fb0ca942afe24e8555357ece1af51",
+    "runtime/unity/Assets/CriticalShift/FacilityPhysics/Tests/EditMode/BonkSwingTests.cs": "f536e78a2f66f48a6fa14359c2fecc039516f1866a8ef2d2c487405122a38240",
+    "runtime/unity/Assets/CriticalShift/FacilityPhysics/Tests/EditMode/BonkSwingTests.cs.meta": "02e1864bdc32fd4ef668d2d67256ca50ad2b68f8810dfbff10882332fed20436",
+    "runtime/unity/Assets/CriticalShift/FacilityPhysics/Tests/EditMode/CriticalShift.FacilityPhysics.Tests.EditMode.asmdef": "223bb88971b7a937cf32aaab5f15c46abcf7d0321ed07a544ba06f00995665ef",
+    "runtime/unity/Assets/CriticalShift/FacilityPhysics/Tests/EditMode/CriticalShift.FacilityPhysics.Tests.EditMode.asmdef.meta": "c51285095b143747f4db611fec1fb852be0acf497009ae4de943362df21c807d",
+    "runtime/unity/Assets/CriticalShift/FacilityPhysics/Tests/PlayMode/BonkPhysicsTests.cs": "08a15aeba6eceeaf247fdac62cefb8f1550d70674888684da358e7412d3196d6",
+    "runtime/unity/Assets/CriticalShift/FacilityPhysics/Tests/PlayMode/BonkPhysicsTests.cs.meta": "e1ce5e0d0865c92a846709cac52c1a4fd538af6fce0cb2d7a7960bf38d963908",
+    "runtime/unity/Assets/CriticalShift/FacilityPhysics/Tests/PlayMode/CarryPhysicsTests.cs": "09adead847bedf16b9bf79921d239382306593af289b7e3c3171d7f6cdf061d9",
+    "runtime/unity/Assets/CriticalShift/FacilityPhysics/Unity/BonkShovel.cs": "ba1ffa178c245d9091fdca544a7b286920ebb37b5c320ce7e6175ff864351e4c",
+    "runtime/unity/Assets/CriticalShift/FacilityPhysics/Unity/BonkShovel.cs.meta": "40e03fc0093496abd9ac61a7365220ec5d94fbed71a1006bace6e6e95e2240aa",
+    "runtime/unity/Assets/CriticalShift/FacilityPhysics/Unity/CarryableObject.cs": "5c8c74e3a35f76400acf13e3cde606b7673b2ac7fdb7755efec66d12da45cdb4",
+    "runtime/unity/Assets/CriticalShift/Features/Workers/README.md": "0fd0e0ba27856a3343343ed9df7e636b95c92168bf4b3d3c59d2a2d878563fca",
+    "runtime/unity/Assets/CriticalShift/Features/Workers/Unity/WorkerController.Bonk.cs": "e6510f437ad0d02b6f8c9e6e490d78abece6f8a83496c9e79843a68961483078",
+    "runtime/unity/Assets/CriticalShift/Features/Workers/Unity/WorkerController.Bonk.cs.meta": "474261b2cce5674a4d18c6fe3fe108ac9f9db7411acea4732af482f208f0ef42",
+    "runtime/unity/Assets/CriticalShift/Features/Workers/Unity/WorkerController.cs": "6c7ebba8dea378187c4e24136192c2e9d082cd65374768a5c27d533e7b8f23bd",
+    "runtime/unity/Assets/CriticalShift/Features/Workers/Unity/WorkerCrouchPose.cs": "f1078dbfbb770f5b35d874983b8fcc344a2462d8188314bcdc369bac7dbe5221",
+    "runtime/unity/Assets/CriticalShift/Plugins/Rules/CriticalShift.Application.dll": "6939a12dcb089ebdf06423be7484871f1aa529a320762602b90a3c120408a80d",
+    "runtime/unity/Assets/CriticalShift/Plugins/Rules/CriticalShift.Features.Interaction.Domain.dll": "18841d3e0a468646e5676fd97b5307128c532451c9af913ce9822f7094f3d22a",
+    "runtime/unity/Assets/CriticalShift/Plugins/Rules/CriticalShift.Features.Materials.Domain.dll": "3eaf3c01ed7a1c9e15b1116db5d44c56a31a4f1bfd8d1d119629ae5f3ca03e28",
+    "runtime/unity/Assets/CriticalShift/Plugins/Rules/CriticalShift.Features.Power.Domain.dll": "1dec0714a766b5ba5017d4c3310cf58b06065b69c883f7b90d1777f52c47d3b7",
+    "runtime/unity/Assets/CriticalShift/Plugins/Rules/CriticalShift.Features.Production.Domain.dll": "b039115776654e937837d5c4f903765f0f0ded5776da336359ed83fae4da772e",
+    "runtime/unity/Assets/CriticalShift/Plugins/Rules/CriticalShift.Features.Reactor.Domain.dll": "0cb700b5c84e75bc58b6d286096340e590b37154665efdfe91ff924891106b4e",
+    "runtime/unity/Assets/CriticalShift/Plugins/Rules/CriticalShift.Features.Session.Domain.dll": "e8b5df1c8da65b5231f82079db2e771fd4ac918fc54f2c85d993612cba87817f",
+    "runtime/unity/Assets/CriticalShift/Plugins/Rules/CriticalShift.Features.Workers.Domain.dll": "10c8488dbe1de195b8a41deeada269b5750531cad16a88e4ed90fd137a533ea9",
+    "runtime/unity/Assets/CriticalShift/Plugins/Rules/rules-build.json": "f67efeac8676d119e828133245fb6cdfc04897c9ddfdac4d62c03977e7f9bb0a",
+    "runtime/unity/Assets/CriticalShift/Unity/Shared/BonkHitQuery.cs": "4f0d51bcbce8096457b73b099025453aae1ff096382f27f055e457f2b0019683",
+    "runtime/unity/Assets/CriticalShift/Unity/Shared/BonkHitQuery.cs.meta": "b57ec31336926aac69b4aff716bb197dbcdaa7e22e35ec0b24bd7172876ca4c5",
+    "runtime/unity/Assets/CriticalShift/Unity/Shared/BonkSwingPose.cs": "aa05c3f24b95da13e97d5146dd63f5fcb1788c1cad0df0e4d4d053a085d93903",
+    "runtime/unity/Assets/CriticalShift/Unity/Shared/BonkSwingPose.cs.meta": "79f710de7ed710565a68b21df0604b1cfb782c018678e69bb13d2cb3c5019080",
+    "runtime/unity/Assets/CriticalShift/Unity/Shared/SceneInteractionGateway.cs": "373abb16416a1f5cc7dd4ebc19b6299500b142842bdaa407d0cd532a5eecb978",
+    "runtime/unity/Assets/CriticalShift/Unity/Shared/SceneTarget.cs": "88052d6c8ccad24aa4c26539bd9d47530ebfb48bbe4de2d7a7a074b84570e85f",
+    "runtime/unity/Packages/manifest.json": "b729fc005346169f00fc4cbb3d9f2c8a5a3e18436babdaebb0849168c3847685",
+    "runtime/unity/Packages/packages-lock.json": "2aefb40c81b2299c1471e53e054308527abc9906962c381b08fcde16d4158aa4",
+    "runtime/validation/BONK_SHOVEL.md": "d2f4a5656e651361c2fc701795d6fb2c2d93d848291936a900a12b89d1183c41",
+    "runtime/validation/MOVEMENT_ANIMATIONS.md": "7ddc8c76deeee9305eaa39de528e9bc9840f9267fe9ae5f603229392e1d43c5c"
+  },
+  "rules_build_manifest_sha256": "f67efeac8676d119e828133245fb6cdfc04897c9ddfdac4d62c03977e7f9bb0a"
+}

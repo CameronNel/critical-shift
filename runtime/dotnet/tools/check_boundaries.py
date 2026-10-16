@@ -16,7 +16,21 @@ POWER = "src/CriticalShift.Features.Power.Domain/CriticalShift.Features.Power.Do
 PROCESS = "src/CriticalShift.ProcessLifetime/CriticalShift.ProcessLifetime.csproj"
 LINKS = {
     PROCESS: [{"Include": "../../../unity/Assets/CriticalShift/Application/ProcessLifetime.cs", "Link": "ProcessLifetime.cs"}],
-    TESTS: [{"Include": "../../../unity/Assets/CriticalShift/Tests/EditMode/ProcessLifetimeTests.cs", "Link": "ProcessLifetimeTests.cs"}],
+    TESTS: [{"Include": "../../../unity/Assets/CriticalShift/Tests/EditMode/ProcessLifetimeTests.cs", "Link": "ProcessLifetimeTests.cs"},
+            {"Include": "../../../unity/Assets/CriticalShift/Features/Workers/Unity/MovementClips.cs", "Link": "MovementClips.cs"},
+            {"Include": "../../../unity/Assets/CriticalShift/Features/Workers/Unity/MovementAnimationSelector.cs", "Link": "MovementAnimationSelector.cs"},
+            {"Include": "../../../unity/Assets/CriticalShift/Features/Workers/Tests/EditMode/MovementAnimationTests.cs", "Link": "MovementAnimationTests.cs"},
+            {'Include': '../../../unity/Assets/CriticalShift/Unity/Shared/SceneOperation.cs', 'Link': 'SceneOperation.cs'},
+            {'Include': '../../../unity/Assets/CriticalShift/Features/Workers/Unity/GaitCalibration.cs', 'Link': 'GaitCalibration.cs'},
+            {'Include': '../../../unity/Assets/CriticalShift/Features/Workers/Unity/WorkerActionPlan.cs', 'Link': 'WorkerActionPlan.cs'},
+            {'Include': '../../../unity/Assets/CriticalShift/Features/Workers/Unity/WorkerInputState.cs', 'Link': 'WorkerInputState.cs'},
+            {'Include': '../../../unity/Assets/CriticalShift/Features/Workers/Tests/EditMode/WorkerMechanicsTests.cs', 'Link': 'WorkerMechanicsTests.cs'},
+            {'Include': '../../../unity/Assets/CriticalShift/Features/Workers/Unity/RagdollTuning.cs', 'Link': 'RagdollTuning.cs'},
+            {'Include': '../../../unity/Assets/CriticalShift/Features/Workers/Unity/WorkerRecoveryTicket.cs', 'Link': 'WorkerRecoveryTicket.cs'},
+            {'Include': '../../../unity/Assets/CriticalShift/Features/Workers/Tests/EditMode/RagdollContractTests.cs', 'Link': 'RagdollContractTests.cs'},
+            {'Include': '../../../unity/Assets/CriticalShift/Unity/Shared/BonkSwingPose.cs', 'Link': 'BonkSwingPose.cs'},
+            {'Include': '../../../unity/Assets/CriticalShift/FacilityPhysics/Tests/EditMode/BonkSwingTests.cs', 'Link': 'BonkSwingTests.cs'},
+            ],
 }
 ALLOWED = {REACTOR: set(), POWER: set(), PROCESS: set(), DOMAIN: set(), SESSION: set(), WORKERS: set(), MATERIALS: set(), PRODUCTION: set(),
            APPLICATION: {DOMAIN, SESSION, WORKERS, MATERIALS, PRODUCTION, REACTOR, POWER},

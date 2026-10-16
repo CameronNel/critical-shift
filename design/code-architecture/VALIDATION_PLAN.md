@@ -69,6 +69,13 @@ Counts below are starting acceptance fixtures to ratify before execution. Tests 
 | HOLD-03 | Disconnect, expire a lease or incapacitate a holder at each claim/attach phase | No orphaned reservation/claim; failed attachment has explicit recovery and converged projections | 1 |
 | HOLD-04 | Use an ordinary object in a two-person request | Rejection unless tagged and the shared-carry contract is implemented; no accidental dual authority | 1 |
 | PHYS-01 | Push cart into worker; transition to ragdoll, drag and recover | One motion controller is active per phase; no unrecoverable stuck attachment; host-approved recovery pose is usable | 1 |
+| PHYS-04 | Build/rebuild the calibrated 16-segment rig; malformed/disabled bodies, foreign joints, mass overflow or scaled root | Bone transforms remain unchanged; bounded declared inventory only; physics fault cannot restart | 1 / native fixtures written, NotRun |
+| PHYS-05 | Animated momentum → impact → repeated impact → drag/carry → front/back recovery at a displaced pelvis | Bounded aggregate momentum; supported clear pose; exact motion-owner handoff; map collisions and original ignore policies preserved | 1 / native fixtures written, NotRun |
+| PHYS-06 | Conscious Down handle grip, wrong tags/awareness, retry, stale release, expiry, new impact, rejected/accepted recovery | Existing canonical claims and receipts; normal cargo/control access stays blocked; only accepted recovery releases the handle | 1 / canonical offline Passed; native compliant constraint NotRun |
+| WORKER-03 | Station callback reentry, patient swap/new injury, stale timer and blocked locker exit | Exclusive current patient/episode/presentation; effects last; stale cleanup preserves newer motion; obstructed exit waits | 1 / ticket tests Passed; native admission/station execution NotRun |
+| BONK-01 | Retry a held-shovel swing; stale lease/epoch, self/unknown target, early/late contact, cooldown, wall, pause, actor loss | Stable receipt/cause; one accepted nonlethal Knockdown, victim claim release and 2 s recovery delay; stale or consumed hits cannot change health | 1 / 14 canonical offline cases Passed |
+| BONK-02 | Sample wind-up/strike/follow-through, contact recoil and invalid phase input | Finite bounded grip pose, direct contact-to-rest recoil, exact rest endpoints | 1 / five linked pure-source cases Passed; native execution NotRun, alignment fixture Planned |
+| BONK-03 | Dynamic held shovel enters/exits swing; release/destroyed owner/body; swept player, solid wall, trigger, empty/inside-wall contact | Tool motion restored; attacker/tool excluded; wall blocks victim; no invented contact | 1 / eight native fixtures written, NotRun; complete host/rig/audio scene fixture Planned |
 | PHYS-02 | Move permitted objects/bodies through conveyor and obstruction fixtures | No observed tunnelling beyond declared fixture tolerances, runaway energy or unlimited pile growth; failures are recorded | 1 |
 | PHYS-03 | Pull lever on a remote peer and trigger duplicate input | Exactly one intended machine transition; all visible state converges | 1 |
 | TX-01 | Insert an item while the machine is full/faulted or custody changes | Rejection is side-effect-free; no lost item or double occupancy | 2 |
@@ -85,6 +92,25 @@ Counts below are starting acceptance fixtures to ratify before execution. Tests 
 | SAVE-02 | Truncated/corrupt/unknown-version save or failed replacement/migration | Clear error, original known-good save preserved, live state unchanged until complete validation | Before persistent data is shipped |
 
 MINE cases do not require implementing mining before the roadmap's small-mine milestone. Explicitly authorized isolated rule tests may precede integration; they do not make that milestone complete. SAVE cases likewise do not authorize premature full persistence.
+
+### Movement-animation source coverage, 2 October 2026
+
+The authorized worker visual adapter has 26 canonical NUnit cases for authored
+velocities, normalized directional blends, carry/tool/haul context, airborne/landing
+transitions, duplicate visual events, physics suspension, reset and invalid inputs.
+Four native EditMode cases cover missing/duplicate/wrong-loop clip bindings, ten
+Playable graph lifecycle cycles and recovery priming without an idle-pose flash. See the [task evidence](../../runtime/validation/MOVEMENT_ANIMATIONS.md).
+The scene extension adds sixteen offline mechanics cases (stride distance, diagonal
+calibration, jump anticipation/cancellation, jolt resumption, contact timing, focus
+and held-input cancellation), eight control receipt/revision/lifecycle cases, and
+nine tagged shared-carry cases. Ten native physical attachment/throw/targeting cases
+are written but NotRun. Editor binding validation
+checks identity, required scene references and clip tables; it is not visual or
+physics acceptance. Native C# compilation, final 49-clip import/contacts, obstruction,
+joint forces, crouch IK, clearance and Player execution remain Blocked here.
+Offline execution is not native animation/rig proof. Actual asset import, physical
+handoff/Player evidence and human feel remain required; PHYS-01 and production gates
+are not passed by these isolated presentation tests.
 
 ## V04. Multiplayer fixtures and convergence
 

@@ -5,7 +5,7 @@ import shutil
 import tempfile
 import unittest
 import xml.etree.ElementTree as ET
-from check_boundaries import validate as check, DOMAIN, SESSION, WORKERS, APPLICATION, MATERIALS, PRODUCTION, REACTOR, POWER, PROCESS, TESTS
+from check_boundaries import validate as check, DOMAIN, SESSION, WORKERS, APPLICATION, MATERIALS, PRODUCTION, REACTOR, POWER, PROCESS, TESTS, LINKS
 from verify_results import validate as results
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -17,10 +17,11 @@ class GuardTests(unittest.TestCase):
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name) / "dotnet"
         self.root.mkdir()
-        for relative in ("Application/ProcessLifetime.cs", "Tests/EditMode/ProcessLifetimeTests.cs"):
-            source = ROOT.parent / "unity/Assets/CriticalShift" / relative
-            target = self.root.parent / "unity/Assets/CriticalShift" / relative
-            target.parent.mkdir(parents=True, exist_ok=True); shutil.copy2(source, target)
+        for project, links in LINKS.items():
+            for link in links:
+                source = ((ROOT / project).parent / link["Include"]).resolve()
+                target = ((self.root / project).parent / link["Include"]).resolve()
+                target.parent.mkdir(parents=True, exist_ok=True); shutil.copy2(source, target)
         shutil.copytree(ROOT / "src", self.root / "src", ignore=shutil.ignore_patterns("bin", "obj"))
         shutil.copytree(ROOT / "tools" / "CriticalShift.Scenarios", self.root / "tools" / "CriticalShift.Scenarios", ignore=shutil.ignore_patterns("bin", "obj"))
         shutil.copytree(ROOT / "tests", self.root / "tests", ignore=shutil.ignore_patterns("bin", "obj"))

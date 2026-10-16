@@ -2,6 +2,7 @@
 import json
 import re
 import subprocess
+import hashlib
 from pathlib import Path
 
 RUNTIME = Path(__file__).resolve().parents[1]
@@ -31,6 +32,28 @@ def check() -> dict:
         owner = next((p for p in [path.parent, *path.parents] if p.is_relative_to(assets) and list(p.glob("*.asmdef"))), None)
         if owner is None:
             raise ValueError("Unowned first-party C# file: " + str(path))
+    for name, definition in definitions.items():
+        for reference in definition["references"]:
+            if reference not in definitions and reference not in {"UnityEngine.TestRunner", "UnityEditor.TestRunner"}:
+                raise ValueError("Unresolved first-party assembly reference: " + reference)
+        if name in {"CriticalShift.Unity.Shared", "CriticalShift.Features.Workers.Unity", "CriticalShift.FacilityPhysics.Unity"}:
+            if any(reference.startswith("CriticalShift.") and reference != "CriticalShift.Unity.Shared" for reference in definition["references"]):
+                raise ValueError("Forbidden peer implementation reference: " + name)
+    rules = assets / "CriticalShift/Plugins/Rules"
+    if rules.exists():
+        build = json.loads((rules / "rules-build.json").read_text())
+        if build["target"] != "netstandard2.1" or len(build["assemblies"]) != 8:
+            raise ValueError("Wrong canonical rule-library inventory.")
+        for relative, expected in build["sources"].items():
+            if hashlib.sha256((RUNTIME / relative).read_bytes()).hexdigest() != expected:
+                raise ValueError("Canonical rules changed; rebuild Unity DLLs: " + relative)
+        for filename, expected in build["assemblies"].items():
+            if hashlib.sha256((rules / filename).read_bytes()).hexdigest() != expected:
+                raise ValueError("Rule DLL differs from its build manifest: " + filename)
+        for definition in definitions.values():
+            for filename in definition["precompiledReferences"]:
+                if filename != "nunit.framework.dll" and filename not in build["assemblies"]:
+                    raise ValueError("Unresolved first-party plugin reference: " + filename)
     pure = definitions["CriticalShift.ProcessLifetime"]
     if not pure["noEngineReferences"] or pure["references"]:
         raise ValueError("The WP-01 process-lifetime assembly must remain engine-independent.")

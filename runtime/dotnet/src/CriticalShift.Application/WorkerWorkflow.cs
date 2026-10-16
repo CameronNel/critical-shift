@@ -18,6 +18,8 @@ namespace CriticalShift.Application
         internal int Count => _workers.Count;
         internal WorkerView? Get(Guid actor) => _workers.TryGetValue(actor, out var state) ? Project(state.Snapshot) : null;
         internal bool CanInteract(Guid actor) => _workers.TryGetValue(actor, out var state) && state.Snapshot.CanInteract;
+        internal bool CanGripHandle(Guid actor) => _workers.TryGetValue(actor, out var state) &&
+            state.Snapshot.Posture == Posture.Down && state.Snapshot.Consciousness == Consciousness.Alert;
         internal void ValidateRegistration(Guid actor)
         {
             if (actor == Guid.Empty) throw new ArgumentException("A worker identity is required.", nameof(actor));
@@ -67,9 +69,13 @@ namespace CriticalShift.Application
             return Reply(worker.SetEnvironment(revision, (SuitCondition)(int)suit, contamination), worker);
         }
 
-        internal WorkerReply Begin(Guid actor, long episode, long revision, long now) =>
-            _workers.TryGetValue(actor, out var worker) ? Reply(worker.BeginRecovery(episode, revision, now), worker) :
-                new WorkerReply(WorkerStatus.UnknownWorker);
+        internal WorkerReply Begin(InteractionWorld interaction, Guid actor, long episode, long revision, long now)
+        {
+            if (!_workers.TryGetValue(actor, out var worker)) return new WorkerReply(WorkerStatus.UnknownWorker);
+            var result = worker.BeginRecovery(episode, revision, now);
+            var released = result == WorkerResult.Applied ? interaction.ReleaseActorClaims(actor) : null;
+            return Reply(result, worker, released);
+        }
 
         internal WorkerReply Resolve(Guid actor, long attempt, bool cancel)
         {

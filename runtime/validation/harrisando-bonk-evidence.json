@@ -1,0 +1,66 @@
+{
+  "task": "HARRISANDO-BONK-SWAP",
+  "baseline_commit": "a587d9e576a1ba02863d8498965e31c76fe792d1",
+  "recorded_utc": "2026-10-02T21:06:08.851927+00:00",
+  "author": "Codex",
+  "source": {
+    "title": "Bonk.wav",
+    "creator": "Harrisando",
+    "page": "https://freesound.org/people/Harrisando/sounds/466202/",
+    "license": "CC0 1.0 public-domain dedication",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "license_verified_on_source_page": true,
+    "download": "https://cdn.freesound.org/previews/466/466202_9855691-hq.mp3",
+    "quality": "public high-quality MP3 preview; original lossless WAV requires login",
+    "sha256": "90d85251116aa8bb36434c1763a02e8afaf8c4f9545e46c49525b6991ccf57f0"
+  },
+  "output": {
+    "path": "runtime/unity/Assets/CriticalShift/FacilityPhysics/Audio/bonk_shovel_tin.wav",
+    "channels": 1,
+    "sample_rate": 48000,
+    "bits": 16,
+    "frames": 88088,
+    "duration_seconds": 1.8351666666666666,
+    "decoded_float_peak": 1.5242538452148438,
+    "conversion_gain": 0.5379681360649091,
+    "peak": 0.819976806640625,
+    "clipped_samples": 0,
+    "sha256": "333eab0a44da25dad1a8cb5ea185870bc849fc663a82d094a8c6dd3302a697ad",
+    "metadata_guid": "51e45248dc2c428993fb71973df46d47"
+  },
+  "conversion": {
+    "decode_command": "ffmpeg -i SOURCE.mp3 -map_metadata -1 -ac 1 -ar 48000 -f f32le FLOAT.raw",
+    "pcm_conversion": "Python array float32; gain=0.82/max(abs(sample)); round(sample*gain*32767) to signed little-endian PCM16; wave module writes 48 kHz mono WAV",
+    "pitch_duration": "Preserved",
+    "initial_conversion": "Direct PCM16 conversion was rejected by clipping guard; float decode and headroom scaling then passed without output clipping"
+  },
+  "verification": {
+    "static": {
+      "status": "Passed",
+      "check": "static-source-only",
+      "metadata_guids": 105,
+      "asmdefs": 14,
+      "csharp_files": 53,
+      "limits": "Not a resolved Unity graph, native import, gameplay or art review."
+    },
+    "wave_header_and_clipping": "Passed",
+    "asset_path_guid_preserved": true,
+    "gameplay_code_changes": 0,
+    "animation_file_changes": 0,
+    "pure_input_hashes_matching_prior_784_test_run": 117,
+    "offline_tests": "Not rerun for asset-only swap; prior 784/784 source inputs still match",
+    "native_import_playback_mixing": "Blocked/NotRun: pinned activated Unity unavailable",
+    "independent_review": "Pending; draft PR 72; no self-merge"
+  },
+  "changed_sha256": {
+    "design/code-architecture/DECISIONS_AND_RISKS.md": "3b7afc8e984548beec3ef0292f0a876330c7920330572191a11be9a49b34b906",
+    "runtime/README.md": "54f60d54a0097f8cdedb846b684336eb9f2206a072eafbae4217c785552a49a3",
+    "runtime/unity/Assets/CriticalShift/FacilityPhysics/Audio/README.md": "f3a7e262c369797bb7fe2fce55398d0e120b1d98fff4e49179e238810203dd28",
+    "runtime/unity/Assets/CriticalShift/FacilityPhysics/Audio/bonk_shovel_tin.wav": "333eab0a44da25dad1a8cb5ea185870bc849fc663a82d094a8c6dd3302a697ad",
+    "runtime/unity/Assets/CriticalShift/Features/Workers/README.md": "9f7d22f9732abb2b4a1633727cfad44a568e17ff7bffb58d62c771e6af601707",
+    "runtime/validation/BONK_SHOVEL.md": "822229e95da25ace53ef71ff5cbe9c93a62df1396faf3db90ca8f9b63ac59b0b"
+  },
+  "removed_files": [
+    "runtime/tools/make_bonk_sound.py"
+  ]
+}

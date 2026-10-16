@@ -28,7 +28,7 @@ namespace CriticalShift.Application
 
         public WorkerReply BeginWorkerRecovery(Guid epoch, Guid actorId, long episode, long expectedRevision) =>
             ExecuteWorker(epoch, actorId, SessionTraceKind.RecoveryRequested, episode, false,
-                () => _workers.Begin(actorId, episode, expectedRevision, _timeline.ElapsedMilliseconds));
+                () => _workers.Begin(_interaction, actorId, episode, expectedRevision, _timeline.ElapsedMilliseconds));
 
         public WorkerReply CompleteWorkerRecovery(Guid epoch, Guid actorId, long attempt) =>
             ExecuteWorker(epoch, actorId, SessionTraceKind.RecoveryResolved, attempt, false,

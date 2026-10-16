@@ -8,7 +8,7 @@ import platform
 import subprocess
 import sys
 import xml.etree.ElementTree as ET
-from check_boundaries import validate, TESTS, RUNNER
+from check_boundaries import validate, TESTS, RUNNER, LINKS
 from verify_results import validate as validate_results
 from check_report_safety import verify as verify_report_safety
 
@@ -106,8 +106,8 @@ def main() -> None:
         relative = path.relative_to(ROOT)
         if path.is_file() and not {"bin", "obj", "artifacts", "__pycache__"}.intersection(relative.parts):
             source_hashes[relative.as_posix()] = hashlib.sha256(path.read_bytes()).hexdigest()
-    for linked in [ROOT.parent / "unity/Assets/CriticalShift/Application/ProcessLifetime.cs",
-                   ROOT.parent / "unity/Assets/CriticalShift/Tests/EditMode/ProcessLifetimeTests.cs"]:
+    for linked in {((ROOT / project).parent / link["Include"]).resolve()
+                   for project, links in LINKS.items() for link in links}:
         source_hashes["../" + linked.relative_to(ROOT.parent).as_posix()] = hashlib.sha256(linked.read_bytes()).hexdigest()
     summary = {"status": "Passed", "commit": commit, "sdk": version, "os": platform.platform(),
                "started_utc": started, "finished_utc": datetime.now(timezone.utc).isoformat(),

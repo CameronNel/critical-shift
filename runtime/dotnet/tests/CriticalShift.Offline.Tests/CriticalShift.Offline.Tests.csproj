@@ -18,5 +18,18 @@
     <ProjectReference Include="../../src/CriticalShift.Features.Power.Domain/CriticalShift.Features.Power.Domain.csproj" />
     <ProjectReference Include="../../src/CriticalShift.ProcessLifetime/CriticalShift.ProcessLifetime.csproj" />
     <Compile Include="../../../unity/Assets/CriticalShift/Tests/EditMode/ProcessLifetimeTests.cs" Link="ProcessLifetimeTests.cs" />
+    <Compile Include="../../../unity/Assets/CriticalShift/Features/Workers/Unity/MovementClips.cs" Link="MovementClips.cs" />
+    <Compile Include="../../../unity/Assets/CriticalShift/Features/Workers/Unity/MovementAnimationSelector.cs" Link="MovementAnimationSelector.cs" />
+    <Compile Include="../../../unity/Assets/CriticalShift/Features/Workers/Tests/EditMode/MovementAnimationTests.cs" Link="MovementAnimationTests.cs" />
+    <Compile Include="../../../unity/Assets/CriticalShift/Unity/Shared/SceneOperation.cs" Link="SceneOperation.cs" />
+    <Compile Include="../../../unity/Assets/CriticalShift/Features/Workers/Unity/GaitCalibration.cs" Link="GaitCalibration.cs" />
+    <Compile Include="../../../unity/Assets/CriticalShift/Features/Workers/Unity/WorkerActionPlan.cs" Link="WorkerActionPlan.cs" />
+    <Compile Include="../../../unity/Assets/CriticalShift/Features/Workers/Unity/WorkerInputState.cs" Link="WorkerInputState.cs" />
+    <Compile Include="../../../unity/Assets/CriticalShift/Features/Workers/Tests/EditMode/WorkerMechanicsTests.cs" Link="WorkerMechanicsTests.cs" />
+    <Compile Include="../../../unity/Assets/CriticalShift/Features/Workers/Unity/RagdollTuning.cs" Link="RagdollTuning.cs" />
+    <Compile Include="../../../unity/Assets/CriticalShift/Features/Workers/Unity/WorkerRecoveryTicket.cs" Link="WorkerRecoveryTicket.cs" />
+    <Compile Include="../../../unity/Assets/CriticalShift/Features/Workers/Tests/EditMode/RagdollContractTests.cs" Link="RagdollContractTests.cs" />
+    <Compile Include="../../../unity/Assets/CriticalShift/Unity/Shared/BonkSwingPose.cs" Link="BonkSwingPose.cs" />
+    <Compile Include="../../../unity/Assets/CriticalShift/FacilityPhysics/Tests/EditMode/BonkSwingTests.cs" Link="BonkSwingTests.cs" />
   </ItemGroup>
 </Project>

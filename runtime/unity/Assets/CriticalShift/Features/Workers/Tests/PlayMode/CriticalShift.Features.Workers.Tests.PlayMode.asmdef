@@ -1,0 +1,23 @@
+{
+  "name": "CriticalShift.Features.Workers.Tests.PlayMode",
+  "rootNamespace": "CriticalShift.Features.Workers.Tests",
+  "references": [
+    "CriticalShift.Features.Workers.Unity",
+    "CriticalShift.Unity.Shared",
+    "UnityEngine.TestRunner"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": true,
+  "precompiledReferences": [
+    "nunit.framework.dll"
+  ],
+  "autoReferenced": false,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false,
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}

@@ -13,6 +13,7 @@ The catalogue describes logical responsibilities. It does not authorize creating
 | --- | --- | --- | --- |
 | Session/shift | Session owner: world epoch, phase, seed/clock context, accepted command receipts, terminal result | Request start/end; read phase; contribute explicitly owned snapshots | A second copy of all machines/workers or a universal GameManager |
 | Object custody and claims | Interaction owner: registered entity custody, exclusive/shared claim, reservation and lease generation | Request grab/release/insert/transfer; display carried-object projection | Worker, inventory, machine and network each owning a separate holder field |
+| Facility controls | Interaction Domain ControlState, coordinated by FacilityControlOperations in the existing WorldSession command/receipt stream: revision, active/connected state and bounded valve step | Project to hinges, handles and effects; request typed operations | Scene callbacks owning machine, worker or power state |
 | Worker | Player owner: health, consciousness, locomotion/posture, suit/exposure and recovery transitions | Submit validated impact/recovery intents; display state | One giant mutually exclusive enum mixing clothing, health and carrying |
 | Material/batch | Materials owner: quantity, composition, moisture, quality, defects and processing lineage | Query properties; propose validated transformations | Independently updated duplicate inventory quantities or UI-owned grade |
 | Production equipment | Production owner per machine: mode, process progress, safety/bypass settings, faults | Request start/stop/process; supply typed observations | General-purpose machine state that directly owns all other features |
@@ -20,6 +21,8 @@ The catalogue describes logical responsibilities. It does not authorize creating
 | Power/contracts | Power owner: source contributions, allocation, energy delivered and committed costs; session/contracts own quota/result | Request a budget/cost transaction; read totals | Each consumer subtracting from separate copies of emergency energy |
 | Mine sector | Mining owner per sector: maximum unlocked depth, collapse generation and uncleared rubble IDs | Submit fictional mining event or rubble-removal intent | Collapsed as a replacement for remembered excavation depth |
 | Physical motion | Host Unity Rigidbody/constraint adapter for the physical entity | Read observations; request controlled force/attachment through explicit ports | A domain transform integrator competing with physics or a client claiming final pose |
+| Worker animation presentation | Bound WorkerMovementAnimator: its Animator/Playables graph and visual transition history only | Supply measured velocity, committed context/actions and physical-owner animation permission | A second locomotion, health, custody or recovery owner; clip completion deciding gameplay |
+| Bonk shovel action | Application BonkOperations in WorldSession: immutable accepted swing identity, current lease generation, host elapsed-time window, cooldown and consumed/cancelled state | Host Unity adapter supplies bounded contact observations; worker/tool adapters project grip/arm motion and sound | A client declaring damage, a cosmetic callback changing health, or copied custody/clock state |
 | Incidents | Incident owner: eligible scheduled consequences, cause IDs, lifecycle and recovery windows | Propose/observe incidents through contracts | Arbitrary scene scripts creating untraceable random disasters |
 | Compliance/evidence | Compliance owner: scrutiny/escalation; evidence records have a named owner and causal relation | Submit discovered facts or approved actions | An observer mutating production state to make a narrative outcome happen |
 | Infiltrator/NPC decisions | NPC owner: objective, memory, decision state | Send the same authorized interaction/workflow requests as other actors | Privileged direct mutation of reactor, inventory or worker internals |
@@ -113,7 +116,29 @@ Do not flatten the game specification's list into one mutually exclusive enum. A
 
 Normal locomotion and full ragdoll cannot simultaneously drive the same body. The host authorizes incapacitation/recovery; the Unity adapter switches the physical controllers. Recovery requires a validated pose/clearance and a single ownership handoff. A visual interpolation arriving late cannot resurrect an incapacitated worker. Body dragging is a controlled Interaction attachment to a worker entity, not a second health system.
 
+The scene adapter may expose conscious downed crawl/brace and explicitly tagged
+fixed handles without granting normal `CanInteract`. `GripHandle` uses the existing
+claim owner and per-connection receipt stream; eligibility requires Alert + Down,
+a registered handle and the normal host reach policy. Renewal/release use its current
+lease generation. An accepted recovery begin releases the handle through the same
+claim store; a rejected begin preserves it. Handles cannot also be tagged shared cargo.
+WorkerWorkflow remains the health/posture owner. Unity owns only bounded forces,
+sampled pose handoff, limb geometry and clearance observations. Station admission
+captures patient/epoch/injury and the physical presentation generation; stale timers
+cannot aid or override a later injury, replacement patient or get-up.
+
 Hazard observations include source, target, epoch, observation/tick identity and configured magnitude. Repeated observations are handled by the authored damage/cooldown rule, not an unqualified rule that every collision callback causes full damage. Gameplay bounds and units are named and testable. Randomness for incidents is owned and seeded explicitly; decorative effects use a separate stream so an extra particle cannot change a failure outcome.
+
+The user-authorized bonk shovel uses a receipt-backed `Bonk` intention with an
+exclusive current tool lease. One swing has a 180–320 ms contact window, 700 ms
+presentation duration and 950 ms cooldown from its start on the canonical shift
+clock. Only the host supplies swept blade/obstruction observations. One confirmed
+contact consumes the swing; the existing WorkerWorkflow applies nonlethal Knockdown
+with a 2 s recovery delay and releases victim custody. Consciousness is preserved.
+Tool ID, ordered per-target hazard observation and one minted swing cause identify
+the impact. Pause cancels swings; actor/lease loss and teardown reject stale hits.
+Action/history storage is bounded by setup-only registered workers and objects.
+Engine animation/audio publish after acceptance and cannot repeat the health write.
 
 ## S08. Causality and bounded events
 
