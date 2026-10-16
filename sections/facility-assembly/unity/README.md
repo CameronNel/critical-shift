@@ -60,6 +60,33 @@ powershell -ExecutionPolicy Bypass -File sections/facility-assembly/unity/bake_r
 
 `-Device GPU` or `-Device CPU` is required: you choose, and the scripts never pick a device or fall back (`../blender_device.py`). With GPU, Blender uses the first backend it finds, which is HIP for the RX 9070 XT. If it finds none, the run stops instead of using the CPU. `--profile home` bakes at 4K atlases and 8 samples, with the shader AO and bevel nodes at full quality. The stages run one after another; after a crash, `-From <stage>` continues. Bake times on this PC are not measured yet; `bake_report.json` records them. URP settings for this PC are in `URP_SETTINGS.md`.
 
+### Every room in one run (`bake_all.ps1`)
+
+```powershell
+powershell -ExecutionPolicy Bypass -File sections/facility-assembly/unity/bake_all.ps1 -Device GPU
+```
+
+**What it bakes:** the twelve rooms the compact map uses, smallest first, from the same sources and collections as `build_compact_map.py`. Each room gets three comparison cameras.
+
+**Left out:** the condenser bay, whose finish is being reworked.
+
+**Before the first bake** it checks:
+- Blender is found;
+- the chosen device is found (`check_device.py`, which renders nothing);
+- every source file is pulled from LFS.
+
+**Logs:** one per room, in `_logs/<room>.log`.
+
+**Options:**
+- `-Only a,b` bakes only those rooms; `-Skip a,b` leaves them out.
+- `-From <stage>` resumes the first selected room at that stage.
+
+The run stops at the first failure.
+
+**Source checks (2026-10-16):** every room source is self-contained except the spawn room. Its four PPE hero suits are collection instances linked from `sources/spawn-room/hero_suit.blend`. Prep now makes collection instances real and linked meshes and materials local, so the suits are baked. The medical and dock sources reference `blender/facility_environment.blend` (only a linked scene that nothing uses). Blender warns that it is missing, and nothing needs it.
+
+**Outputs stay local**, because the repository's LFS quota is small. The 2K pilot made 82 MB of maps, and 4K atlases can be up to four times that.
+
 ## Fix after the pilot: base colour (2026-10-16)
 
 The first pilot's baked renders were 8 to 19 % darker than the source, worst on the pump motor. The cause was the base colour, which came from Cycles' DIFFUSE colour pass. That pass is scaled by (1 − metallic), and Unity then applies metallic again. Base colour and roughness are now baked by routing their own node inputs into an emission shader. That gives the true albedo. Measured again on the same five cameras, the baked room is within 0.6 to 1.5 % of the source's brightness, with a mean pixel difference of 0.7 to 1.4 % (it had been 8 to 19 % darker). On this CPU the new base-colour pass took 48 min, against 31 min before.
