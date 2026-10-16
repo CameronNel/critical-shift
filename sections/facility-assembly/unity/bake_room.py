@@ -26,6 +26,7 @@ Not done here: importing into Unity, building URP materials there, lightmaps, LO
 import bpy, bmesh, sys, os, json, math, time
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__)))); import blender_device   # owner rule: GPU or CPU only as the owner says
 import numpy as np
+from mathutils import Vector
 
 a = sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else []
 def arg(k, d=None): return a[a.index(k) + 1] if k in a else d
@@ -65,6 +66,97 @@ def collect():
         for s_ in o.material_slots:
             if s_.material and s_.material not in mats: mats.append(s_.material)
     return objs, mats
+
+GEN_DEFAULT = ('TEX_NOISE', 'TEX_VORONOI', 'TEX_WAVE', 'TEX_MAGIC', 'TEX_BRICK', 'TEX_CHECKER', 'TEX_GRADIENT', 'TEX_GABOR')   # unlinked Vector = generated coords
+def merge_for_bake(objs, mats):
+    """Join the room into a few meshes for the bake, in memory only (the bake stage never saves _work.blend), and return them.
+
+    Why: Blender bakes the selected objects one at a time, and each one pays for its whole atlas (a 4K atlas is 16.7 M pixels, copied and margin-filled
+    again per object). With 1,570 objects the cooling plant's base pass took about 2.5 h on the owner's GPU (2026-10-17), CPU-bound; joined, each atlas is
+    baked a few times instead of once per object. What the shaders read per object is written onto the meshes first, so the look does not change:
+      * object coordinates -> point attribute _cs_obj; generated coordinates (also the default vector of the procedural textures) -> _cs_gen;
+      * each object's own render UV (image textures and normal maps with no UV named) -> UV layer _cs_render_uv, the merged mesh's render UV.
+    Bevel and local-AO shader nodes only see their own object, so an object whose materials use them never shares a mesh with an object its bounds touch.
+    A room survey (2026-10-17) found no Object Info, object-space transform or object-attribute nodes and no mirrored objects in any of the twelve rooms."""
+    t = time.time()
+    trees, seen, info = [], set(), {}
+    def walk(nt, acc):
+        if nt is None: return
+        if nt.as_pointer() not in seen: seen.add(nt.as_pointer()); trees.append(nt)
+        for n in nt.nodes:
+            if n.type == 'BEVEL' or (n.type == 'AMBIENT_OCCLUSION' and n.only_local):
+                acc['local'] = True
+                r = n.inputs.get('Radius') or n.inputs.get('Distance')
+                acc['radius'] = max(acc['radius'], 0.1 if (r is None or r.is_linked) else float(r.default_value))
+            elif n.type in ('UVMAP', 'NORMAL_MAP', 'TANGENT') and n.uv_map: acc['uv'].add(n.uv_map)
+            elif n.type == 'ATTRIBUTE' and n.attribute_name: acc['uv'].add(n.attribute_name)
+            elif n.type == 'GROUP': walk(n.node_tree, acc)
+    for m in mats:
+        info[m.name] = dict(local=False, radius=0.0, uv=set()); walk(m.node_tree, info[m.name])
+    # shaders: object and generated coordinates read from the stored attributes (node groups are shared, so every object gets the attributes)
+    for nt in trees:
+        cache = {}
+        def attr(name, near):
+            if name not in cache:
+                a = nt.nodes.new('ShaderNodeAttribute'); a.attribute_type = 'GEOMETRY'; a.attribute_name = name; a.location = near.location; cache[name] = a
+            return cache[name].outputs['Vector']
+        for n in list(nt.nodes):
+            if n.type == 'TEX_COORD' and n.object is None:
+                for out, name in (('Object', '_cs_obj'), ('Generated', '_cs_gen')):
+                    for l in list(n.outputs[out].links): nt.links.new(attr(name, n), l.to_socket)
+            elif n.type in GEN_DEFAULT and n.inputs.get('Vector') is not None and not n.inputs['Vector'].is_linked:
+                nt.links.new(attr('_cs_gen', n), n.inputs['Vector'])
+    # meshes: the attributes, the render UV copy, and only the UV layers a shader names (a mesh holds at most 8)
+    flags, uvsets = [], []
+    for o in objs:
+        me = o.data; ms = [s.material for s in o.material_slots if s.material and s.material.name in info]
+        refs = set().union(*[info[m.name]['uv'] for m in ms]) if ms else set()
+        flags.append((any(info[m.name]['local'] for m in ms), max([info[m.name]['radius'] for m in ms] + [0.0])))
+        co = np.empty(len(me.vertices) * 3, np.float32); me.vertices.foreach_get('co', co); co = co.reshape(-1, 3)
+        loc, size = np.array(me.texspace_location, np.float32), np.array(me.texspace_size, np.float32); size[size == 0] = 1.0
+        for name, arr in (('_cs_obj', co), ('_cs_gen', (co - loc) / (2 * size) + 0.5)):
+            a = me.attributes.get(name) or me.attributes.new(name, 'FLOAT_VECTOR', 'POINT'); a.data.foreach_set('vector', arr.astype(np.float32).ravel())
+        src = o.get('_cs_render_uv') or next((u.name for u in me.uv_layers if u.name != 'UVBake'), None)
+        for u in [u.name for u in me.uv_layers]:
+            if u not in refs and u not in ('UVBake', '_cs_render_uv', src): me.uv_layers.remove(me.uv_layers[u])
+        if src and me.uv_layers.get(src) is not None:
+            buf = np.empty(len(me.loops) * 2, np.float32); me.uv_layers[src].uv.foreach_get('vector', buf)
+            if src not in refs: me.uv_layers.remove(me.uv_layers[src])
+            rl = me.uv_layers.get('_cs_render_uv') or me.uv_layers.new(name='_cs_render_uv', do_init=False)
+            rl.uv.foreach_set('vector', buf); rl.active_render = True
+        me.uv_layers.active = me.uv_layers['UVBake']
+        uvsets.append({u.name for u in me.uv_layers} - {'UVBake', '_cs_render_uv'})
+    # groups: greedy colouring of the bounds-overlap graph, edges only where one side has bevel or local AO; at most 8 UV layers per merged mesh
+    N = len(objs); lo = np.empty((N, 3)); hi = np.empty((N, 3))
+    for i, o in enumerate(objs):
+        c = np.array([o.matrix_world @ Vector(b) for b in o.bound_box]); lo[i], hi[i] = c.min(0), c.max(0)
+    local = np.array([f[0] for f in flags]); pad = max([f[1] for f in flags] + [0.0]) + 0.01
+    lo -= pad; hi += pad
+    order = sorted(range(N), key=lambda i: (not local[i], -float(np.prod(hi[i] - lo[i]))))
+    col = np.full(N, -1); groups = []
+    for i in order:
+        near = np.all((lo[i] <= hi) & (hi[i] >= lo), axis=1) & (col >= 0) & (local | local[i])
+        banned = set(col[near].tolist())
+        g = next((k for k, gr in enumerate(groups) if k not in banned and len(gr['uv'] | uvsets[i]) <= 6), None)
+        if g is None: g = len(groups); groups.append(dict(members=[], uv=set()))
+        col[i] = g; groups[g]['members'].append(i); groups[g]['uv'] |= uvsets[i]
+    for o in bpy.data.objects:                                   # unparent (keeping place) anything whose parent may be joined away
+        if o.parent is not None and o.parent.type == 'MESH':
+            mw = o.matrix_world.copy(); o.parent = None; o.matrix_world = mw
+    out = []
+    for gr in groups:
+        ms = [objs[i] for i in gr['members']]
+        if len(ms) > 1:
+            for o in bpy.data.objects: o.select_set(False)
+            for o in ms: o.select_set(True)
+            vl.objects.active = ms[0]; bpy.ops.object.join()
+        j = vl.objects.active if len(ms) > 1 else ms[0]; me = j.data
+        me.uv_layers.active = me.uv_layers['UVBake']
+        if me.uv_layers.get('_cs_render_uv') is not None: me.uv_layers['_cs_render_uv'].active_render = True
+        out.append(j)
+    step('merged for bake', objects=N, meshes=len(out), objects_with_bevel_or_local_ao=int(local.sum()), largest=max(len(g['members']) for g in groups),
+         seconds=round(time.time() - t, 1))
+    return out
 
 if STAGE in ('prep', 'all'):
     # collection instances (the spawn room's four PPE hero suits, linked from hero_suit.blend) become real local objects, or the bake would miss them
@@ -117,8 +209,10 @@ if STAGE in ('prep', 'all'):
 
     # --- UVs: one atlas per material ---------------------------------------------------------------------------------------------------------------------
     for o in objs:
+        r = next((u.name for u in o.data.uv_layers if u.active_render), None)
+        if r and r != 'UVBake': o['_cs_render_uv'] = r      # the shaders' default UV (image textures, normal maps with no UV named); stays the render UV
         uv = o.data.uv_layers.get('UVBake') or o.data.uv_layers.new(name='UVBake')
-        o.data.uv_layers.active = uv; uv.active_render = True
+        o.data.uv_layers.active = uv                         # the bake writes through the active layer
     for o in bpy.data.objects: o.select_set(False)
     for o in objs: o.select_set(True)
     vl.objects.active = objs[0]
@@ -164,6 +258,8 @@ if STAGE in ('bake', 'all'):
         for m in mats:
             for n_ in (m.node_tree.nodes if m.node_tree else []):
                 if n_.type in ('AMBIENT_OCCLUSION', 'BEVEL'): n_.samples = min(n_.samples, NODE_SAMPLES)
+    if arg('--merge', 'on') != 'off':
+        objs = merge_for_bake(objs, mats)
     bk = sc.render.bake; bk.margin = 8; bk.margin_type = 'EXTEND'; bk.use_clear = True; bk.use_selected_to_active = False
     dummy = bpy.data.images.new('_bake_dummy', 8, 8)
     imgs = {}
@@ -180,7 +276,7 @@ if STAGE in ('bake', 'all'):
             nt.nodes.active = node
     def run(kind, btype, colour=True, wanted=lambda m: True, **kw):
         target(kind, colour, wanted); t = time.time()
-        bpy.ops.object.bake(type=btype, **kw); step('baked ' + kind, seconds=round(time.time() - t, 1))
+        bpy.ops.object.bake(type=btype, uv_layer='UVBake', **kw); step('baked ' + kind, seconds=round(time.time() - t, 1))
     for o in bpy.data.objects: o.select_set(False)
     for o in objs: o.select_set(True)
     vl.objects.active = objs[0]
