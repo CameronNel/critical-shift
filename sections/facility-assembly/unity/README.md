@@ -123,21 +123,43 @@ The first pilot's baked renders were 8 to 19 % darker than the source, worst on 
 
 The pilot bakes the **room module**. The combined map changes rooms locally: door cuts, the mine's triangle cut, the turbine's skin, the animated ore cart and the evacuation additions. Those changes are not in the modules. Before the whole map goes to Unity, each room should be taken from `combined_map.blend` with its local changes made real, and baked from there. That is the next pipeline step, and it is not built yet.
 
-## Importing into Unity URP (not done here)
+## Importing into Unity URP: `Critical Shift > Rooms`
 
-1. **Project:** Unity 6000.4.3 with the URP package and a URP pipeline asset. `runtime/unity` is still Built-in; switching it needs an editor run.
-2. **Copy the room in:** copy `cooling-plant/` into `Assets/`. On the FBX, set scale 1, *Generate Lightmap UVs* on, and Materials *None*.
-3. **Materials:** create one URP Lit material per entry in `materials.json`:
-   - `_BaseMap`;
-   - `_MetallicGlossMap` with *Smoothness Source: Metallic Alpha*, and sRGB off on that texture;
-   - `_BumpMap`, with the texture type set to Normal map;
-   - for constant materials, the listed colour, metallic and smoothness values.
+The importer lives in `runtime/unity/Assets/CriticalShift/Content/Editor/`. It is editor-only and described in its `README.md`.
 
-   An editor script that does this from the manifest is the obvious next step. It is Unity code, so it needs its own task.
-4. **Lights:** recreate them from `lights.json`. Area lights are *Baked*, points and spots *Mixed*. Blender watts are not URP intensities, so tune them against `compare/*_source.png`, then bake lightmaps.
+**Once per project:**
+1. Open `runtime/unity` in Unity 6000.4.3.
+2. Install URP: *Window > Package Manager > Unity Registry > Universal RP > Install*.
+3. Run *Critical Shift > Rooms > Set Up URP*. It switches the project to Linear colour and creates and assigns a URP pipeline asset in `Assets/CriticalShift/Content/Rendering/`. If that automatic step fails, the message gives the two manual clicks.
+4. Tune the pipeline asset per `URP_SETTINGS.md`.
+
+**Each time rooms are baked:** run *Critical Shift > Rooms > Import All Baked Rooms*. It reads every baked room folder here (each has `materials.json`, `<room>.fbx` and `textures/`) and, for each room:
+1. copies the FBX, the textures and the manifests into `Assets/CriticalShift/Content/Rooms/<room>/`. That folder is git-ignored and regenerated. Unchanged files are skipped.
+2. applies the import settings:
+   - textures: `_BaseMap` and `_EmissionMap` as sRGB BC7; `_MetallicGlossMap` as linear BC7 with alpha; `_BumpMap` as a normal map in BC5; all at 4096 with mip streaming;
+   - FBX: scale 1, axis conversion baked, Generate Lightmap UVs, tangents calculated with MikkTSpace, no cameras, lights or animation.
+3. builds one URP Lit material per `materials.json` entry:
+   - smoothness from the metallic map's alpha, normal and emission keywords set;
+   - constant materials from their values; transparent ones as alpha blend.
+
+   It then remaps the FBX's `U_<name>` materials to them.
+4. recreates the lights from `lights.json`:
+   - area lights are Baked; points and spots are Mixed;
+   - the Blender frame `(x, y, z)` becomes Unity `(-x, z, -y)`;
+   - starting intensities are P/(4π²) for points and spots, P/(π²·area) for area lights, and S/π for a sun.
+5. saves `Rooms/<room>/<room>.prefab`: the model, flagged static for GI, occlusion and reflection probes, plus its lights, at the room's own origin.
+
+Batch mode, for a scripted run: `Unity -batchmode -projectPath runtime/unity -executeMethod CriticalShift.Content.Editor.BakedRoomImporter.ImportAllBatch -quit`.
+
+**Not done by the importer:**
+- placing rooms where the map puts them (each prefab sits at its module origin);
+- colliders;
+- lightmap baking;
+- the AgX colour LUT.
+
+**Light intensities are unit-matched, not calibrated.** Compare each room against `compare/*` and adjust the lights. Blender's AgX view transform and URP's tonemapper also differ.
 
 ## Next, if the owner agrees
 
 - Roll the same staged bake out to the other rooms. The cost is roughly 1.5 hours of baking per room of this size on this container.
 - For the largest walls and floors, use tiling texture sets instead of unique atlases, since about 65 px/m is soft up close.
-- Add the Unity editor script for `materials.json`.

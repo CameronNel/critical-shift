@@ -370,7 +370,8 @@ for m in mats:
     else:
         e.update(_BaseColor=const(m, 'Base Color', [0.8, 0.8, 0.8]), _Metallic=const(m, 'Metallic', 0.0), _Smoothness=round(1 - const(m, 'Roughness', 0.5), 3))
         if p['emission']: e.update(_EmissionColor=const(m, 'Emission Color', [0, 0, 0]), _EmissionColor_intensity=const(m, 'Emission Strength', 0.0))
-        if const(m, 'Alpha', 1.0) < 1.0 or (bsdf(m) and bsdf(m).inputs['Transmission Weight'].default_value > 0): e['_Surface'] = 'Transparent'
+        if const(m, 'Alpha', 1.0) < 1.0 or (bsdf(m) and bsdf(m).inputs['Transmission Weight'].default_value > 0):
+            e['_Surface'] = 'Transparent'; e['_Alpha'] = round(min(const(m, 'Alpha', 1.0), 0.25 if bsdf(m).inputs['Transmission Weight'].default_value > 0 else 1.0), 3)   # glass reads as 25 % in URP Lit
     manifest[m.name] = e
 step('maps written', materials=len(manifest), textures=len(os.listdir(TEX)))
 
