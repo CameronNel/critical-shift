@@ -3,8 +3,10 @@
  "room": "cooling-plant",
  "collection": "MODULE_cooling-plant",
  "density_px_per_m": 256.0,
- "max_size": 4096,
- "samples": 8,
+ "max_size": 2048,
+ "samples": 1,
+ "node_samples": 4,
+ "profile": "default",
  "blender": "5.2.2 LTS",
  "steps": [
   {
@@ -42,7 +44,7 @@
    "materials": 23,
    "textures": 54,
    "msg": "maps written",
-   "t": 14.4
+   "t": 23.0
   }
  ],
  "objects": 1570,
@@ -244,5 +246,5 @@
  "lights": 15,
  "fbx": "cooling-plant.fbx",
  "fbx_bytes": 10961420,
- "seconds": 17.5
+ "seconds": 26.2
 }

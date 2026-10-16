@@ -184,7 +184,7 @@ if STAGE in ('bake', 'all'):
     def want(p): return STAGE == 'all' or PASS == p
     # base colour, roughness, metallic and emission through the material output: temporarily route the socket's source into an Emission shader and bake EMIT.
     # Not the DIFFUSE colour pass for base colour: Cycles scales that pass by (1 - metallic), so metal surfaces came out darker and Unity then applied metallic
-    # again (pilot 2026-10-16: baked renders 8 to 19 % darker, worst on the pump motor). Emission routing also skips the BSDF, which makes the pass faster.
+    # again (pilot 2026-10-16: baked renders 8 to 19 % darker, worst on the pump motor; after the fix within 1.5 %).
     def via_emission(socket_name, kind, colour, wanted):
         saved = {}
         for m in mats:
