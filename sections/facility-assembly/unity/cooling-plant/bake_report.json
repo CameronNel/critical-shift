@@ -1,0 +1,248 @@
+{
+ "source": "sections/facility-assembly/unity/cooling-plant/_work.blend",
+ "room": "cooling-plant",
+ "collection": "MODULE_cooling-plant",
+ "density_px_per_m": 256.0,
+ "max_size": 4096,
+ "samples": 8,
+ "blender": "5.2.2 LTS",
+ "steps": [
+  {
+   "objects": 1570,
+   "triangles": 314689,
+   "skipped_volume": [],
+   "msg": "converted",
+   "t": 1.0
+  },
+  {
+   "atlases": {
+    "floor": 4096,
+    "dark": 4096,
+    "patch": 512,
+    "steel": 4096,
+    "cream": 4096,
+    "mineral": 4096,
+    "edge": 1024,
+    "wood": 1024,
+    "oxide paint": 2048,
+    "cloth": 256,
+    "cloth_thread": 256,
+    "paper": 512,
+    "rubber": 2048,
+    "oxide paint light": 512,
+    "yellow": 2048,
+    "orange": 256,
+    "red": 256,
+    "neutral service steel": 256
+   },
+   "msg": "unwrapped",
+   "t": 328.9
+  },
+  {
+   "materials": 23,
+   "textures": 54,
+   "msg": "maps written",
+   "t": 14.4
+  }
+ ],
+ "objects": 1570,
+ "triangles": 314689,
+ "materials": {
+  "floor": {
+   "bake": true,
+   "metallic_map": false,
+   "emission": false,
+   "principled": true,
+   "size": 2048,
+   "area_m2": 328.63,
+   "px_per_m": 84.7
+  },
+  "unassigned grey": {
+   "bake": false,
+   "metallic_map": false,
+   "emission": false,
+   "principled": true
+  },
+  "dark": {
+   "bake": true,
+   "metallic_map": false,
+   "emission": false,
+   "principled": true,
+   "size": 2048,
+   "area_m2": 577.4,
+   "px_per_m": 63.9
+  },
+  "patch": {
+   "bake": true,
+   "metallic_map": false,
+   "emission": false,
+   "principled": true,
+   "size": 512,
+   "area_m2": 3.97,
+   "px_per_m": 192.8
+  },
+  "steel": {
+   "bake": true,
+   "metallic_map": false,
+   "emission": false,
+   "principled": true,
+   "size": 2048,
+   "area_m2": 146.55,
+   "px_per_m": 126.9
+  },
+  "cream": {
+   "bake": true,
+   "metallic_map": false,
+   "emission": false,
+   "principled": true,
+   "size": 2048,
+   "area_m2": 186.33,
+   "px_per_m": 112.5
+  },
+  "mineral": {
+   "bake": true,
+   "metallic_map": false,
+   "emission": false,
+   "principled": true,
+   "size": 2048,
+   "area_m2": 550.51,
+   "px_per_m": 65.5
+  },
+  "edge": {
+   "bake": true,
+   "metallic_map": false,
+   "emission": false,
+   "principled": true,
+   "size": 1024,
+   "area_m2": 12.56,
+   "px_per_m": 216.7
+  },
+  "glass": {
+   "bake": false,
+   "metallic_map": false,
+   "emission": false,
+   "principled": true
+  },
+  "wood": {
+   "bake": true,
+   "metallic_map": false,
+   "emission": false,
+   "principled": true,
+   "size": 1024,
+   "area_m2": 4.25,
+   "px_per_m": 372.5
+  },
+  "oxide paint": {
+   "bake": true,
+   "metallic_map": false,
+   "emission": false,
+   "principled": true,
+   "size": 2048,
+   "area_m2": 27.46,
+   "px_per_m": 293.1
+  },
+  "cloth": {
+   "bake": true,
+   "metallic_map": false,
+   "emission": false,
+   "principled": true,
+   "size": 256,
+   "area_m2": 0.67,
+   "px_per_m": 235.3
+  },
+  "cloth_thread": {
+   "bake": true,
+   "metallic_map": false,
+   "emission": false,
+   "principled": true,
+   "size": 256,
+   "area_m2": 0.0,
+   "px_per_m": 5776.2
+  },
+  "ink": {
+   "bake": false,
+   "metallic_map": false,
+   "emission": false,
+   "principled": true
+  },
+  "paper": {
+   "bake": true,
+   "metallic_map": false,
+   "emission": false,
+   "principled": true,
+   "size": 512,
+   "area_m2": 2.14,
+   "px_per_m": 262.3
+  },
+  "rubber": {
+   "bake": true,
+   "metallic_map": false,
+   "emission": false,
+   "principled": true,
+   "size": 2048,
+   "area_m2": 20.89,
+   "px_per_m": 336.0
+  },
+  "wood_wear": {
+   "bake": false,
+   "metallic_map": false,
+   "emission": false,
+   "principled": true
+  },
+  "lamp": {
+   "bake": false,
+   "metallic_map": false,
+   "emission": true,
+   "principled": true
+  },
+  "oxide paint light": {
+   "bake": true,
+   "metallic_map": false,
+   "emission": false,
+   "principled": true,
+   "size": 512,
+   "area_m2": 1.97,
+   "px_per_m": 273.4
+  },
+  "yellow": {
+   "bake": true,
+   "metallic_map": false,
+   "emission": false,
+   "principled": true,
+   "size": 2048,
+   "area_m2": 17.07,
+   "px_per_m": 371.7
+  },
+  "orange": {
+   "bake": true,
+   "metallic_map": false,
+   "emission": false,
+   "principled": true,
+   "size": 256,
+   "area_m2": 0.56,
+   "px_per_m": 256.7
+  },
+  "red": {
+   "bake": true,
+   "metallic_map": false,
+   "emission": false,
+   "principled": true,
+   "size": 256,
+   "area_m2": 0.02,
+   "px_per_m": 1348.9
+  },
+  "neutral service steel": {
+   "bake": true,
+   "metallic_map": false,
+   "emission": false,
+   "principled": true,
+   "size": 256,
+   "area_m2": 0.56,
+   "px_per_m": 257.3
+  }
+ },
+ "lights": 15,
+ "fbx": "cooling-plant.fbx",
+ "fbx_bytes": 10961420,
+ "seconds": 17.5
+}

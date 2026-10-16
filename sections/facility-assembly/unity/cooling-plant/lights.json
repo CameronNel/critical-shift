@@ -1,0 +1,426 @@
+{
+ "room": "cooling-plant",
+ "frame": "module frame (metres, +Z up); FBX converts to Unity Y up",
+ "lights": [
+  {
+   "name": "bench warm pool",
+   "type": "AREA",
+   "location": [
+    -3.6,
+    12.5,
+    1.8
+   ],
+   "rotation_euler_deg": [
+    3.46,
+    0.0,
+    68.2
+   ],
+   "color": [
+    0.93,
+    0.776,
+    0.618
+   ],
+   "energy_blender": 19.2,
+   "shadow": true,
+   "shape": "DISK",
+   "size": [
+    0.2,
+    0.25
+   ],
+   "urp_mode": "Area light, Baked only (URP has no realtime area lights): bake into lightmaps",
+   "note": "Blender watts are not URP intensities: retune in Unity against the reference renders"
+  },
+  {
+   "name": "alcove practical",
+   "type": "AREA",
+   "location": [
+    -3.5,
+    11.5,
+    3.18
+   ],
+   "rotation_euler_deg": [
+    13.78,
+    0.0,
+    9.46
+   ],
+   "color": [
+    0.93,
+    0.873,
+    0.7622
+   ],
+   "energy_blender": 38.4,
+   "shadow": true,
+   "shape": "DISK",
+   "size": [
+    1.2,
+    0.25
+   ],
+   "urp_mode": "Area light, Baked only (URP has no realtime area lights): bake into lightmaps",
+   "note": "Blender watts are not URP intensities: retune in Unity against the reference renders"
+  },
+  {
+   "name": "pump task light actual light",
+   "type": "AREA",
+   "location": [
+    -3.2,
+    7.3,
+    4.15
+   ],
+   "rotation_euler_deg": [
+    0.0,
+    -0.0,
+    0.0
+   ],
+   "color": [
+    0.93,
+    0.8051,
+    0.6386
+   ],
+   "energy_blender": 168.0,
+   "shadow": true,
+   "shape": "RECTANGLE",
+   "size": [
+    1.2,
+    0.18
+   ],
+   "urp_mode": "Area light, Baked only (URP has no realtime area lights): bake into lightmaps",
+   "note": "Blender watts are not URP intensities: retune in Unity against the reference renders"
+  },
+  {
+   "name": "west wall rake",
+   "type": "AREA",
+   "location": [
+    -4.7,
+    9.4,
+    4.8
+   ],
+   "rotation_euler_deg": [
+    38.99,
+    0.0,
+    161.27
+   ],
+   "color": [
+    0.837,
+    0.8924,
+    1.0
+   ],
+   "energy_blender": 50.0,
+   "shadow": true,
+   "shape": "DISK",
+   "size": [
+    1.7,
+    0.25
+   ],
+   "urp_mode": "Area light, Baked only (URP has no realtime area lights): bake into lightmaps",
+   "note": "Blender watts are not URP intensities: retune in Unity against the reference renders"
+  },
+  {
+   "name": "soft motor return",
+   "type": "AREA",
+   "location": [
+    -0.3,
+    7.0,
+    2.5
+   ],
+   "rotation_euler_deg": [
+    61.53,
+    0.0,
+    77.47
+   ],
+   "color": [
+    0.651,
+    0.7857,
+    1.0
+   ],
+   "energy_blender": 10.5,
+   "shadow": true,
+   "shape": "DISK",
+   "size": [
+    2.2,
+    0.25
+   ],
+   "urp_mode": "Area light, Baked only (URP has no realtime area lights): bake into lightmaps",
+   "note": "Blender watts are not URP intensities: retune in Unity against the reference renders"
+  },
+  {
+   "name": "entry batten actual light",
+   "type": "AREA",
+   "location": [
+    1.75,
+    1.55,
+    5.0
+   ],
+   "rotation_euler_deg": [
+    0.0,
+    -0.0,
+    0.0
+   ],
+   "color": [
+    0.7254,
+    0.8342,
+    1.0
+   ],
+   "energy_blender": 288.0,
+   "shadow": true,
+   "shape": "RECTANGLE",
+   "size": [
+    1.2,
+    0.18
+   ],
+   "urp_mode": "Area light, Baked only (URP has no realtime area lights): bake into lightmaps",
+   "note": "Blender watts are not URP intensities: retune in Unity against the reference renders"
+  },
+  {
+   "name": "lead pump practical actual light",
+   "type": "AREA",
+   "location": [
+    -3.2,
+    3.9,
+    4.15
+   ],
+   "rotation_euler_deg": [
+    0.0,
+    -0.0,
+    0.0
+   ],
+   "color": [
+    0.93,
+    0.8051,
+    0.6386
+   ],
+   "energy_blender": 240.0,
+   "shadow": true,
+   "shape": "RECTANGLE",
+   "size": [
+    1.2,
+    0.18
+   ],
+   "urp_mode": "Area light, Baked only (URP has no realtime area lights): bake into lightmaps",
+   "note": "Blender watts are not URP intensities: retune in Unity against the reference renders"
+  },
+  {
+   "name": "exchanger practical actual light",
+   "type": "AREA",
+   "location": [
+    2.25,
+    6.45,
+    4.5
+   ],
+   "rotation_euler_deg": [
+    0.0,
+    -0.0,
+    0.0
+   ],
+   "color": [
+    0.7998,
+    0.9021,
+    1.0
+   ],
+   "energy_blender": 336.0,
+   "shadow": true,
+   "shape": "RECTANGLE",
+   "size": [
+    1.2,
+    0.18
+   ],
+   "urp_mode": "Area light, Baked only (URP has no realtime area lights): bake into lightmaps",
+   "note": "Blender watts are not URP intensities: retune in Unity against the reference renders"
+  },
+  {
+   "name": "rear circulation practical actual light",
+   "type": "AREA",
+   "location": [
+    0.1,
+    11.4,
+    4.7
+   ],
+   "rotation_euler_deg": [
+    0.0,
+    -0.0,
+    0.0
+   ],
+   "color": [
+    0.93,
+    0.8051,
+    0.6386
+   ],
+   "energy_blender": 120.0,
+   "shadow": true,
+   "shape": "RECTANGLE",
+   "size": [
+    1.2,
+    0.18
+   ],
+   "urp_mode": "Area light, Baked only (URP has no realtime area lights): bake into lightmaps",
+   "note": "Blender watts are not URP intensities: retune in Unity against the reference renders"
+  },
+  {
+   "name": "exchanger side wall shaping",
+   "type": "AREA",
+   "location": [
+    4.9,
+    8.5,
+    4.9
+   ],
+   "rotation_euler_deg": [
+    34.45,
+    -0.0,
+    158.63
+   ],
+   "color": [
+    0.93,
+    0.7954,
+    0.618
+   ],
+   "energy_blender": 132.0,
+   "shadow": true,
+   "shape": "DISK",
+   "size": [
+    2.0,
+    0.25
+   ],
+   "urp_mode": "Area light, Baked only (URP has no realtime area lights): bake into lightmaps",
+   "note": "Blender watts are not URP intensities: retune in Unity against the reference renders"
+  },
+  {
+   "name": "entry borrowed corridor light",
+   "type": "AREA",
+   "location": [
+    0.0,
+    0.3,
+    3.8
+   ],
+   "rotation_euler_deg": [
+    63.84,
+    -0.0,
+    0.0
+   ],
+   "color": [
+    0.7626,
+    0.8633,
+    1.0
+   ],
+   "energy_blender": 95.0,
+   "shadow": true,
+   "shape": "DISK",
+   "size": [
+    3.0,
+    0.25
+   ],
+   "urp_mode": "Area light, Baked only (URP has no realtime area lights): bake into lightmaps",
+   "note": "Blender watts are not URP intensities: retune in Unity against the reference renders"
+  },
+  {
+   "name": "workshop lower service fill",
+   "type": "AREA",
+   "location": [
+    -2.95,
+    11.05,
+    2.5
+   ],
+   "rotation_euler_deg": [
+    41.47,
+    -0.0,
+    28.74
+   ],
+   "color": [
+    0.93,
+    0.8536,
+    0.7313
+   ],
+   "energy_blender": 30.0,
+   "shadow": true,
+   "shape": "DISK",
+   "size": [
+    1.0,
+    0.25
+   ],
+   "urp_mode": "Area light, Baked only (URP has no realtime area lights): bake into lightmaps",
+   "note": "Blender watts are not URP intensities: retune in Unity against the reference renders"
+  },
+  {
+   "name": "bench shelf practical",
+   "type": "AREA",
+   "location": [
+    -3.55,
+    12.65,
+    0.854
+   ],
+   "rotation_euler_deg": [
+    0.0,
+    -0.0,
+    0.0
+   ],
+   "color": [
+    0.93,
+    0.8439,
+    0.6901
+   ],
+   "energy_blender": 17.6,
+   "shadow": true,
+   "shape": "DISK",
+   "size": [
+    0.7,
+    0.25
+   ],
+   "urp_mode": "Area light, Baked only (URP has no realtime area lights): bake into lightmaps",
+   "note": "Blender watts are not URP intensities: retune in Unity against the reference renders"
+  },
+  {
+   "name": "rear wall warm practical",
+   "type": "AREA",
+   "location": [
+    0.6,
+    11.9,
+    4.2
+   ],
+   "rotation_euler_deg": [
+    26.15,
+    -0.0,
+    0.0
+   ],
+   "color": [
+    0.93,
+    0.7663,
+    0.5665
+   ],
+   "energy_blender": 144.0,
+   "shadow": true,
+   "shape": "DISK",
+   "size": [
+    1.1,
+    0.25
+   ],
+   "urp_mode": "Area light, Baked only (URP has no realtime area lights): bake into lightmaps",
+   "note": "Blender watts are not URP intensities: retune in Unity against the reference renders"
+  },
+  {
+   "name": "broad neutral ceiling fill",
+   "type": "AREA",
+   "location": [
+    0.0,
+    6.3,
+    5.25
+   ],
+   "rotation_euler_deg": [
+    0.0,
+    -0.0,
+    0.0
+   ],
+   "color": [
+    0.8556,
+    0.9021,
+    1.0
+   ],
+   "energy_blender": 42.0,
+   "shadow": true,
+   "shape": "DISK",
+   "size": [
+    4.0,
+    0.25
+   ],
+   "urp_mode": "Area light, Baked only (URP has no realtime area lights): bake into lightmaps",
+   "note": "Blender watts are not URP intensities: retune in Unity against the reference renders"
+  }
+ ]
+}
