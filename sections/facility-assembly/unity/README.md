@@ -87,6 +87,34 @@ The run stops at the first failure.
 
 **Outputs stay local**, because the repository's LFS quota is small. The 2K pilot made 82 MB of maps, and 4K atlases can be up to four times that.
 
+## Speed fix: merge for the bake (2026-10-17)
+
+**The problem:** on the owner's PC the cooling plant's base pass ran for about 2.5 hours, busy on the CPU rather than the GPU. Blender bakes the selected objects one at a time, and each object pays for its whole atlas: a 4K atlas is 16.7 M pixels, copied and margin-filled again for each of the 1,570 objects.
+
+**The fix:** the bake stage now joins the room into a few meshes first. This is in memory only; the bake stage never saves `_work.blend`. Before joining, it stores what the shaders read per object:
+- object coordinates as `_cs_obj`;
+- generated coordinates as `_cs_gen`, which are also the default vector of the procedural textures;
+- each object's render UV as `_cs_render_uv`.
+
+Bevel and local-AO shader nodes only see their own object. So an object that uses them never shares a mesh with an object whose bounds touch its own.
+
+**Room survey (all twelve rooms):** no Object Info, object-space transform or object-attribute nodes, and no mirrored objects.
+
+**Prep change:** prep no longer makes `UVBake` the render UV. That had made image textures with no UV named sample through the bake UV, which mattered for image-textured rooms.
+
+**`--merge off`** keeps the old path.
+
+**Test** (cooling plant, container CPU with the owner's OK, 512 px atlases, 1 sample): 1,570 objects became 10 meshes in 2 s, with the same 314,689 triangles.
+
+| Pass | Old | Merged | Speed-up |
+|---|---|---|---|
+| Base colour | 1,178 s | 17 s | 70× |
+| Normal | 459 s | 12 s | 38× |
+
+**Same output:**
+- Materials without AO or bevel nodes came out pixel-identical, for example floor and wood with generated-coordinate noise.
+- Materials with AO and bevel nodes differ from the old bake by less than two merged runs differ from each other with only the noise seed changed: a mean of 0.018 against 0.031. That difference is the 1-sample noise of those nodes, not a change in the look.
+
 ## Fix after the pilot: base colour (2026-10-16)
 
 The first pilot's baked renders were 8 to 19 % darker than the source, worst on the pump motor. The cause was the base colour, which came from Cycles' DIFFUSE colour pass. That pass is scaled by (1 − metallic), and Unity then applies metallic again. Base colour and roughness are now baked by routing their own node inputs into an emission shader. That gives the true albedo. Measured again on the same five cameras, the baked room is within 0.6 to 1.5 % of the source's brightness, with a mean pixel difference of 0.7 to 1.4 % (it had been 8 to 19 % darker). On this CPU the new base-colour pass took 48 min, against 31 min before.
