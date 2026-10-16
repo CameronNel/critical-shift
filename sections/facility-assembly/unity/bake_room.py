@@ -23,7 +23,7 @@ What it does, on a copy in memory:
  6. lights go to <out>/lights.json (Blender values and a URP mode suggestion: area lights are baked-only in URP), materials to <out>/materials.json,
     the run to <out>/bake_report.json.
 Not done here: importing into Unity, building URP materials there, lightmaps, LODs. No Unity editor exists in this environment."""
-import bpy, bmesh, sys, os, json, math, time
+import bpy, bmesh, sys, os, re, json, math, time
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__)))); import blender_device   # owner rule: GPU or CPU only as the owner says
 import numpy as np
 from mathutils import Vector
@@ -66,6 +66,23 @@ def collect():
         for s_ in o.material_slots:
             if s_.material and s_.material not in mats: mats.append(s_.material)
     return objs, mats
+
+_FN = {}
+def fname(name):
+    """A material name as a file name: Windows forbids < > : " / \\ | ? * (the fuel corridor's 'FC | bed' failed to save, 2026-10-17). Each one
+    character becomes '_', so names that were already safe keep their old file names; clashes (Windows ignores case) get a number."""
+    if not _FN:
+        used = set()
+        for n in sorted(plan):
+            s = b = re.sub(r'[<>:"/\\|?*\s]', '_', n); i = 2
+            while s.lower() in used: s = '%s_%d' % (b, i); i += 1
+            used.add(s.lower()); _FN[n] = s
+    return _FN.get(name) or re.sub(r'[<>:"/\\|?*\s]', '_', name)
+def saved(im):
+    """Save an image and stop the run if the file is not there: a failed save used to pass silently and only broke the finish stage."""
+    im.save()
+    if not os.path.isfile(bpy.path.abspath(im.filepath_raw)): raise SystemExit('could not write %s' % im.filepath_raw)
+    return im
 
 GEN_DEFAULT = ('TEX_NOISE', 'TEX_VORONOI', 'TEX_WAVE', 'TEX_MAGIC', 'TEX_BRICK', 'TEX_CHECKER', 'TEX_GRADIENT', 'TEX_GABOR')   # unlinked Vector = generated coords
 def merge_for_bake(objs, mats):
@@ -282,7 +299,7 @@ if STAGE in ('bake', 'all'):
     vl.objects.active = objs[0]
     def save_raw(kind):
         for (mn, k), im in imgs.items():
-            if k == kind: im.filepath_raw = os.path.join(RAW, '%s_%s.png' % (mn.replace(' ', '_').replace('/', '_'), k)); im.file_format = 'PNG'; im.save()
+            if k == kind: im.filepath_raw = os.path.join(RAW, '%s_%s.png' % (fname(mn), k)); im.file_format = 'PNG'; saved(im)
     def want(p): return STAGE == 'all' or PASS == p
     # base colour, roughness, metallic and emission through the material output: temporarily route the socket's source into an Emission shader and bake EMIT.
     # Not the DIFFUSE colour pass for base colour: Cycles scales that pass by (1 - metallic), so metal surfaces came out darker and Unity then applied metallic
@@ -325,7 +342,7 @@ if STAGE == 'finish':
     imgs = {}
     for m in mats:
         for k in ('base', 'rough', 'normal', 'metal', 'emit'):
-            f = os.path.join(RAW, '%s_%s.png' % (m.name.replace(' ', '_').replace('/', '_'), k))
+            f = os.path.join(RAW, '%s_%s.png' % (fname(m.name), k))
             if plan[m.name]['bake'] and os.path.exists(f):
                 im = bpy.data.images.load(f); im.colorspace_settings.name = 'sRGB' if k in ('base', 'emit') else 'Non-Color'; imgs[(m.name, k)] = im
     dummy = bpy.data.images.new('_bake_dummy', 8, 8)
@@ -335,10 +352,10 @@ if STAGE == 'finish':
 def px(im): a_ = np.empty(len(im.pixels), np.float32); im.pixels.foreach_get(a_); return a_.reshape(im.size[1], im.size[0], 4)
 def save(arr, name, colour):
     h, w = arr.shape[:2]; im = bpy.data.images.new(name, w, h, alpha=True); im.colorspace_settings.name = 'sRGB' if colour else 'Non-Color'
-    im.pixels.foreach_set(arr.astype(np.float32).ravel()); im.filepath_raw = os.path.join(TEX, name + '.png'); im.file_format = 'PNG'; im.save(); return im
+    im.pixels.foreach_set(arr.astype(np.float32).ravel()); im.filepath_raw = os.path.join(TEX, name + '.png'); im.file_format = 'PNG'; return saved(im)
 manifest = {}
 for m in mats:
-    p = plan[m.name]; safe = m.name.replace(' ', '_').replace('/', '_'); e = dict(source_material=m.name, urp_shader='Universal Render Pipeline/Lit')
+    p = plan[m.name]; safe = fname(m.name); e = dict(source_material=m.name, urp_shader='Universal Render Pipeline/Lit')
     if p['bake']:
         base = px(imgs[(m.name, 'base')]); rough = px(imgs[(m.name, 'rough')])[..., 0]
         metal = px(imgs[(m.name, 'metal')])[..., 0] if (m.name, 'metal') in imgs else np.full(rough.shape, float(const(m, 'Metallic', 0.0)), np.float32)

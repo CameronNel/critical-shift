@@ -28,14 +28,14 @@ $t0 = Get-Date
 foreach ($s in $stages[$start..($stages.Length - 1)]) {
     $t = Get-Date; Write-Host "== $Room : $s"
     switch ($s) {
-        "prep"    { & $Blender -b $Source --python $Py -- --stage prep @common }
-        "finish"  { & $Blender -b "$Out/_work.blend" --python $Py -- --stage finish @common }
+        "prep"    { & $Blender --factory-startup -b $Source --python $Py -- --stage prep @common }
+        "finish"  { & $Blender --factory-startup -b "$Out/_work.blend" --python $Py -- --stage finish @common }
         "compare" {
             if (-not $Cameras) { Write-Host "   (no -Cameras given: comparison renders skipped)"; continue }
-            & $Blender -b $Source --python "$U/render_compare.py" -- "$Out/compare/source" $Cameras --samples 64 --device $Device
-            & $Blender -b "$Out/$Room`_unity.blend" --python "$U/render_compare.py" -- "$Out/compare/baked" $Cameras --samples 64 --device $Device
+            & $Blender --factory-startup -b $Source --python "$U/render_compare.py" -- "$Out/compare/source" $Cameras --samples 64 --device $Device
+            & $Blender --factory-startup -b "$Out/$Room`_unity.blend" --python "$U/render_compare.py" -- "$Out/compare/baked" $Cameras --samples 64 --device $Device
         }
-        default   { & $Blender -b "$Out/_work.blend" --python $Py -- --stage bake --pass $s @common }
+        default   { & $Blender --factory-startup -b "$Out/_work.blend" --python $Py -- --stage bake --pass $s @common }
     }
     if ($LASTEXITCODE -ne 0) { throw "stage $s failed (exit $LASTEXITCODE); fix it and rerun with -From $s" }
     Write-Host ("   {0:n1} min" -f ((Get-Date) - $t).TotalMinutes)
