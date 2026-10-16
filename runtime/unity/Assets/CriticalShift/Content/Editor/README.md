@@ -22,4 +22,7 @@
 - Light intensities are matched for a white diffuse surface: P/(4π²) for points and spots, P/(π²A) for area lights, S/π for a sun. These are starting values; retune them against the bake's `compare/` renders.
 - Area lights are Baked; points and spots are Mixed.
 
-**Tests:** none in the Unity test assemblies yet. The C# was compiled against the pinned editor's API DLLs, and the conversions were checked against Blender; see the PR. No Unity import has been run.
+**Evidence, 2026-10-17:**
+- **Compile:** compiled with the .NET 8 SDK against the pinned 6000.4.3f1 editor's own UnityEngine and UnityEditor module DLLs and its .NET Standard 2.1 references, the same reference set as `runtime/tools/api_compile.py`. Result: 0 errors, 0 warnings. A deliberate bad API call failed as expected.
+- **Light rotation:** checked against Blender's `mathutils` over 2,000 random rotations; the largest error was 2e-7.
+- **Not run:** a Unity import, the URP set-up and any Unity test. There are no Unity tests for this assembly yet. The Blender-to-Unity axis rule `(-x, z, -y)` is derived, not measured: if the lights in a prefab sit mirrored relative to the room, the rule is wrong.
