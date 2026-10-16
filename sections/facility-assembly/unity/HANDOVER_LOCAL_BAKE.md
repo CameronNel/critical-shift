@@ -203,9 +203,9 @@ Neither room needs that file. Only a non-zero exit, which `bake_all.ps1` reports
 
 - **Out of GPU memory** (`System is out of GPU memory`, `hipErrorOutOfMemory`) or a driver timeout or crash: stop and report. Do not lower settings or switch devices yourself. The owner decides between rerunning that room with smaller atlases and other options.
 - **`KeyError` naming a collection:** stop and report the exact name.
-
-A missing comparison camera only prints `COMPARE missing camera <name>` and the run carries on; include it in the report.
 - **Anything else:** stop and report.
+
+A missing comparison camera is not a failure: it only prints `COMPARE missing camera <name>` and the run carries on. Include it in the report.
 
 **Resuming after the owner agrees on a fix:** run `bake_all.ps1` again, adding:
 - `-Only <room> -From <stage that failed>` for the failed room;
