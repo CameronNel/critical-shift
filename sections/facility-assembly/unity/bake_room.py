@@ -49,7 +49,27 @@ class _Rooms:
     """One or more collections (--collection a,b: rooms like the reactor or the dock span several), read fresh each time."""
     names = COLL.split(',')
     @property
-    def all_objects(self): return list(dict.fromkeys(o for n in self.names for o in bpy.data.collections[n].all_objects))
+    def all_objects(self):
+        """Objects that render: a collection hidden from render hides everything under it (the mine's 'R38 | CC0 asset sources' holds source
+        copies the room never shows, 2026-10-17), as it does in the map that links these collections."""
+        out = []
+        def walk(c):
+            if c.hide_render: return
+            out.extend(c.objects)
+            for ch in c.children: walk(ch)
+        for n in self.names: walk(bpy.data.collections[n])
+        return list(dict.fromkeys(out))
+    def show(self, objs):
+        """Make the collections holding `objs` visible in the view layer: edit mode, convert and join skip what the viewport hides."""
+        want = set()
+        for o in objs: want.update(c.name for c in o.users_collection)
+        def walk(lc, path):
+            hit = lc.collection.name in want
+            for ch in lc.children: hit = walk(ch, path + [lc]) or hit
+            if hit:
+                lc.exclude = False; lc.hide_viewport = False; lc.collection.hide_viewport = False
+            return hit
+        walk(vl.layer_collection, [])
 coll = _Rooms()
 VOLUME = lambda m: m and m.node_tree and any(n.type == 'OUTPUT_MATERIAL' and n.inputs['Volume'].is_linked for n in m.node_tree.nodes)
 def bsdf(m): return next((n for n in m.node_tree.nodes if n.type == 'BSDF_PRINCIPLED'), None) if m and m.node_tree else None
@@ -198,6 +218,7 @@ if STAGE in ('prep', 'all'):
     # collection instances (the spawn room's four PPE hero suits, linked from hero_suit.blend) become real local objects, or the bake would miss them
     inst = [o for o in coll.all_objects if o.instance_type == 'COLLECTION' and o.instance_collection and not o.hide_render]
     if inst:
+        coll.show(inst)
         for o in bpy.data.objects: o.select_set(False)
         for o in inst: o.hide_set(False); o.hide_viewport = False; o.hide_select = False; o.select_set(True)
         vl.objects.active = inst[0]
@@ -205,12 +226,14 @@ if STAGE in ('prep', 'all'):
         step('instances made real', instancers=len(inst))
     ext = [o for o in coll.all_objects if o.library or (o.data and o.data.library) or any(s.material and s.material.library for s in o.material_slots)]
     if ext:
+        coll.show(ext)
         for o in bpy.data.objects: o.select_set(False)
         for o in ext: o.hide_set(False); o.hide_viewport = False; o.hide_select = False; o.select_set(True)
         vl.objects.active = ext[0]
         bpy.ops.object.make_local(type='SELECT_OBDATA_MATERIAL')   # linked meshes and materials cannot be converted, unwrapped or rewired
         step('linked data made local', objects=len(ext))
     objs = [o for o in coll.all_objects if o.type in ('MESH', 'CURVE', 'FONT') and not o.hide_render]
+    coll.show(objs)
     skipped = [o.name for o in objs if any(VOLUME(s.material) for s in o.material_slots)]
     objs = [o for o in objs if o.name not in skipped]
     for o in bpy.data.objects: o.select_set(False)
