@@ -59,6 +59,25 @@ def const(m, name, default):
     if not b: return default
     v = b.inputs[name].default_value
     return list(v)[:3] if hasattr(v, '__len__') else float(v)
+def non_principled(m):
+    """URP Lit constants for a material with no Principled BSDF (the reactor's water: glossy and transparent shaders mixed by layer weight).
+    Colour and roughness come from its glossy, glass, refraction or diffuse shader; any glass, refraction or transparent shader makes it 25 % alpha
+    blend; an Emission shader gives the emission. Nothing is baked for it, so its procedural detail (noise, bump) is not carried over."""
+    nodes = m.node_tree.nodes if m and m.node_tree else []
+    def first(types, socket):
+        for n in nodes:
+            if n.type in types and socket in n.inputs and not n.inputs[socket].is_linked:
+                v = n.inputs[socket].default_value
+                return list(v)[:3] if hasattr(v, '__len__') else float(v)
+        return None
+    colour = first(('BSDF_GLOSSY', 'BSDF_GLASS', 'BSDF_REFRACTION', 'BSDF_DIFFUSE', 'BSDF_ANISOTROPIC'), 'Color') or [0.8, 0.8, 0.8]
+    rough = first(('BSDF_GLOSSY', 'BSDF_GLASS', 'BSDF_REFRACTION', 'BSDF_ANISOTROPIC'), 'Roughness')
+    e = dict(_BaseColor=[round(v, 4) for v in colour], _Metallic=0.0, _Smoothness=round(1 - (0.5 if rough is None else rough), 3), non_principled=True)
+    if any(n.type in ('BSDF_GLASS', 'BSDF_REFRACTION', 'BSDF_TRANSPARENT') for n in nodes): e.update(_Surface='Transparent', _Alpha=0.25)
+    em = next((n for n in nodes if n.type == 'EMISSION'), None)
+    if em is not None:
+        e.update(_EmissionColor=list(em.inputs['Color'].default_value)[:3], _EmissionColor_intensity=float(em.inputs['Strength'].default_value))
+    return e
 def collect():
     objs = [o for o in coll.all_objects if o.type == 'MESH' and not o.hide_render and o.name not in skipped]
     mats = []
@@ -222,7 +241,8 @@ if STAGE in ('prep', 'all'):
         procedural = bool(b and any(i.is_linked for i in b.inputs)) or (m.node_tree and any(n.type in ('TEX_NOISE', 'TEX_VORONOI', 'AMBIENT_OCCLUSION', 'BEVEL') for n in m.node_tree.nodes))
         emits = bool(b and (b.inputs['Emission Color'].is_linked or b.inputs['Emission Strength'].is_linked or
                             (b.inputs['Emission Strength'].default_value > 0 and max(list(b.inputs['Emission Color'].default_value)[:3]) > 0)))
-        plan[m.name] = dict(bake=procedural, metallic_map=linked(m, 'Metallic'), emission=emits, principled=b is not None)
+        # only a Principled BSDF can be routed into the bake (via_emission); other shaders (the reactor's glossy/transparent water) become constants
+        plan[m.name] = dict(bake=procedural and b is not None, metallic_map=linked(m, 'Metallic'), emission=emits, principled=b is not None)
 
     # --- UVs: one atlas per material ---------------------------------------------------------------------------------------------------------------------
     for o in objs:
@@ -356,7 +376,7 @@ def save(arr, name, colour):
 manifest = {}
 for m in mats:
     p = plan[m.name]; safe = fname(m.name); e = dict(source_material=m.name, urp_shader='Universal Render Pipeline/Lit')
-    if p['bake']:
+    if p['bake'] and p.get('principled', True):          # plans written before 2026-10-17 could mark a non-Principled material for baking
         base = px(imgs[(m.name, 'base')]); rough = px(imgs[(m.name, 'rough')])[..., 0]
         metal = px(imgs[(m.name, 'metal')])[..., 0] if (m.name, 'metal') in imgs else np.full(rough.shape, float(const(m, 'Metallic', 0.0)), np.float32)
         base[..., 3] = 1.0; save(base, safe + '_BaseMap', True)
@@ -367,6 +387,8 @@ for m in mats:
         if (m.name, 'emit') in imgs:
             em = px(imgs[(m.name, 'emit')]); peak = float(em[..., :3].max()) or 1.0; em[..., :3] /= max(peak, 1e-6); em[..., 3] = 1.0
             save(em, safe + '_EmissionMap', True); e.update(_EmissionMap='textures/%s_EmissionMap.png' % safe, _EmissionColor_intensity=round(peak, 3))
+    elif not p.get('principled', True):
+        e.update(non_principled(m))
     else:
         e.update(_BaseColor=const(m, 'Base Color', [0.8, 0.8, 0.8]), _Metallic=const(m, 'Metallic', 0.0), _Smoothness=round(1 - const(m, 'Roughness', 0.5), 3))
         if p['emission']: e.update(_EmissionColor=const(m, 'Emission Color', [0, 0, 0]), _EmissionColor_intensity=const(m, 'Emission Strength', 0.0))
