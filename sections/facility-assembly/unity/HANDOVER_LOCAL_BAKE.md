@@ -1,6 +1,8 @@
 # Handover: bake every room for Unity URP on the owner's PC
 
-**What this is:** a prompt for the agent on the owner's Windows PC. It was written 2026-10-16 for branch `ccr-b12a99c0-hbdwp2` (PR #108, not merged). Paste everything below the line.
+**What this is:** a prompt for the agent on the owner's Windows PC. It was written 2026-10-16 and updated 2026-10-17 for **map mode** (PR #109). Paste everything below the line.
+
+**The current target is map mode.** `bake_all.ps1 -Map` bakes every room as it is in the assembled map (`combined/combined_map.blend`), with the map's door cuts, the slimmed mine and the turbine skin. It adds one more piece, `map-connections`. Output goes to `unity/map/<room>`, and Unity's *Import Baked Map* places everything in one scene. The first run, made without `-Map`, baked the room files and lacks the map's changes.
 
 ---
 
@@ -146,19 +148,24 @@ $files = @(
   "sections/facility-assembly/sources/spawn-room/module.blend",
   "sections/facility-assembly/sources/spawn-room/hero_suit.blend",
   "sections/reactor-room/blender/reactorroom.blend",
-  "sections/facility-assembly/sources/mine-r39/module_r39_aaa.blend"
+  "sections/facility-assembly/sources/mine-r39/module_r39_aaa.blend",
+  "sections/facility-assembly/combined/combined_map.blend",
+  "sections/facility-assembly/sources/condenser-bay/module_aaa_A1.blend",
+  "sections/facility-assembly/exteriors/refinery/exterior-R01.blend",
+  "sections/facility-assembly/exteriors/medical-reanimation/exterior-R04.blend",
+  "sections/facility-assembly/exteriors/spawn-room/exterior-R05.blend"
 )
 foreach ($f in $files) { git lfs pull --include="$f" --exclude=""; if ($LASTEXITCODE -ne 0) { throw "lfs pull failed: $f" } }
 foreach ($f in $files) { "{0,12:n0}  {1}" -f (Get-Item $f).Length, $f }
 ```
 
-**Every file must be larger than 1 MB.** A file of about 130 bytes is still an LFS pointer. If one stays a pointer after a second try, stop and report; it may be the LFS quota.
+**Every file must be larger than 100 KB.** The exteriors are about 0.2 MB; the room files and the map are larger. A file of about 130 bytes is still an LFS pointer. If one stays a pointer after a second try, stop and report; it may be the LFS quota.
 
 **Do not fetch `sections/facility-assembly/blender/facility_environment.blend`.** The medical and dock files mention it, but Blender only warns that it is missing, and the bake does not need it.
 
 ## Step 5: Bake
 
-**Rooms:** twelve, smallest first.
+**Pieces:** thirteen: the twelve rooms, smallest first, then `map-connections` (connectors, stairs, signs, evacuation road).
 
 | Order | Rooms |
 |---|---|
@@ -170,7 +177,7 @@ foreach ($f in $files) { "{0,12:n0}  {1}" -f (Get-Item $f).Length, $f }
 Start the run in its own window, so it is not tied to your command timeout:
 
 ```powershell
-Start-Process powershell -WorkingDirectory (Get-Location) -ArgumentList '-NoExit','-ExecutionPolicy','Bypass','-File','sections/facility-assembly/unity/bake_all.ps1','-Device','GPU'
+Start-Process powershell -WorkingDirectory (Get-Location) -ArgumentList '-NoExit','-ExecutionPolicy','Bypass','-File','sections/facility-assembly/unity/bake_all.ps1','-Device','GPU','-Map'
 ```
 
 If you use the portable Blender, add `'-Blender','C:\Blender\blender-5.2.2-windows-x64\blender.exe'` to the list.
@@ -182,13 +189,13 @@ If you use the portable Blender, add `'-Blender','C:\Blender\blender-5.2.2-windo
 
 **Each room then runs these stages:** prep, base, rough, normal, metal, emit, finish, compare.
 - The compare stage renders three cameras from the source and the baked file, at 64 samples.
-- Each room's log is `sections/facility-assembly/unity/_logs/<room>.log`.
-- Each room's output is `sections/facility-assembly/unity/<room>/`. It holds the `textures/` folder, `<room>.fbx`, `<room>_unity.blend`, `materials.json`, `lights.json`, `bake_report.json` and `compare/`.
+- Each room's log is `sections/facility-assembly/unity/_logs/map-<room>.log`.
+- Each room's output is `sections/facility-assembly/unity/map/<room>/`. It holds the `textures/` folder, `<room>.fbx`, `<room>_unity.blend`, `materials.json`, `lights.json`, `bake_report.json` and `compare/`.
 
 **Watch the first room until its `base` stage has started:**
 
 ```powershell
-Get-Content sections/facility-assembly/unity/_logs/cooling-plant.log -Wait -Tail 20
+Get-Content sections/facility-assembly/unity/_logs/map-cooling-plant.log -Wait -Tail 20
 ```
 
 Confirm the log shows `BLENDER DEVICE GPU (owner choice): HIP`. After that you do not need to keep watching; tell the owner it is running. The medical and dock rooms print these lines, which are expected and not errors:
@@ -221,7 +228,7 @@ When all rooms are done, or the run stops, report:
    - `blender.exe --version` (first line);
    - the GPU line from step 3;
    - which rooms finished and which did not.
-2. **For each finished room,** from `sections/facility-assembly/unity/<room>/bake_report.json`:
+2. **For each finished room,** from `sections/facility-assembly/unity/map/<room>/bake_report.json`:
    - minutes per stage (from the room's log: each stage prints `== <room> : <stage>` and then its minutes);
    - objects;
    - triangles;
