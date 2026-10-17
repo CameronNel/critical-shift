@@ -87,6 +87,44 @@ The run stops at the first failure.
 
 **Outputs stay local**, because the repository's LFS quota is small. The 2K pilot made 82 MB of maps, and 4K atlases can be up to four times that.
 
+## Whole-map bake on the owner's PC (2026-10-17)
+
+**Setup:** commit `ac624fd`, Blender 5.2.2 LTS, on the GPU (HIP, RX 9070 XT), `--profile home`, run by `bake_all.ps1`. The local agent reported the run; these files are not in the repository.
+
+**Result:** all twelve rooms finished, and all 36 comparison pairs were rendered.
+
+| Room | Objects | Triangles | Lights | Bake passes (min) | Total (min) | Textures (MB) | 4K atlases |
+|---|---|---|---|---|---|---|---|
+| cooling-plant | 1,570 | 314,689 | 15 | 6.0 | 11.2 | 207 | 5 |
+| waste-storage | 2,075 | 351,868 | 19 | 8.0 | 16.1 | 246 | 7 |
+| turbine-room | 16 | 416,472 | 61 | 2.1 | 3.8 | 18 | 8 |
+| fuel-corridor | 263 | 1,132,567 | 22 | 3.7 | 21* | 160 | 15 |
+| electrical-room | 3,037 | 580,219 | 18 | 2.6 | 14.7 | 158 | 8 |
+| compliance-dock | 1,145 | 398,352 | 26 | 10.7 | 23.6 | 211 | 6 |
+| medical-reanimation | 1,261 | 491,012 | 19 | 7.2 | 15.8 | 204 | 5 |
+| refinery | 2,690 | 376,036 | 21 | 15.0 | 35.3 | 378 | 12 |
+| front-end-area | 2,229 | 799,874 | 75 | 36.2 | 50.3 | 687 | 32 |
+| spawn-room | 1,574 | 352,462 | 6 | 3.0 | 16.2 | 368 | 10 |
+| reactor-room | 1,763 | 1,174,433 | 105 | 50.8 | 59* | 809 | 34 |
+| mine | 168 | 3,740,342 | 67 | 8.7 | 21.1 | 767 | 19 |
+| **Total** | **17,791** | **10,128,326** | **454** | | **about 3.6 h** | **4,212** | **161** |
+
+\* Runs resumed after a fix; the total is prep plus the resumed run.
+
+**Where the time goes now:**
+- **Prep:** UV unwrapping on the CPU takes 3 to 22 minutes per room, now usually the longest stage.
+- **The rooms with the most 4K atlases** (front end 32, reactor 34) take 11 to 16 minutes per bake pass.
+
+**What it means for Unity:**
+- **Texture budget.** At full resolution the baked maps need about 13 GB of GPU memory: 161 materials × 3 maps at 4K, BC7/BC5 with mips, is about 11 GB, and the 2K atlases add about 2 GB. Mip streaming (a 2 GB budget in `URP_SETTINGS.md`) keeps what is resident within the 16 GB card. The build size and lower-end PCs will still need tiling texture sets for the largest walls and floors, or a lower density, before release.
+- **The mine** comes from its room module at 3.74 M triangles and a 116 MB FBX. The map's decimation, cutting it to about 0.79 M, is applied only inside the map. It needs an LOD or decimation step before it goes into the game.
+- **Fixes during the run:**
+  - Windows-safe file names (`FC | bed`);
+  - non-Principled materials become constants (the reactor's water is a transparent constant);
+  - render-hidden collections are skipped (the mine's CC0 source meshes).
+
+  Each fix applies to every room baked after it.
+
 ## Speed fix: merge for the bake (2026-10-17)
 
 **The problem:** on the owner's PC the cooling plant's base pass ran for about 2.5 hours, busy on the CPU rather than the GPU. Blender bakes the selected objects one at a time, and each object pays for its whole atlas: a 4K atlas is 16.7 M pixels, copied and margin-filled again for each of the 1,570 objects.
