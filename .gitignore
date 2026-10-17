@@ -1,2 +1,6 @@
 __pycache__/
 *.pyc
+
+# Unity: baked rooms imported by Critical Shift > Rooms (generated from sections/facility-assembly/unity; re-import instead of committing)
+runtime/unity/Assets/CriticalShift/Content/Rooms/
+runtime/unity/Assets/CriticalShift/Content/Rooms.meta

@@ -1,0 +1,191 @@
+{
+ "ROOM_compliance-dock": {
+  "triangles": 379191,
+  "share": {
+   "procedural (needs baking)": 100.0
+  },
+  "meshes": 1116,
+  "meshes_without_uv": 0,
+  "tri_share_without_uv": 0.0,
+  "lights": {
+   "AREA": 20,
+   "POINT": 3,
+   "SPOT": 3
+  }
+ },
+ "ROOM_condenser-bay": {
+  "triangles": 170360,
+  "share": {
+   "procedural (needs baking)": 85.4,
+   "flat": 14.6
+  },
+  "meshes": 2497,
+  "meshes_without_uv": 845,
+  "tri_share_without_uv": 29.4,
+  "lights": {
+   "AREA": 27
+  }
+ },
+ "ROOM_cooling-plant": {
+  "triangles": 179811,
+  "share": {
+   "procedural (needs baking)": 99.2,
+   "flat": 0.8
+  },
+  "meshes": 1487,
+  "meshes_without_uv": 46,
+  "tri_share_without_uv": 3.2,
+  "lights": {
+   "AREA": 15
+  }
+ },
+ "ROOM_electrical-room": {
+  "triangles": 205639,
+  "share": {
+   "procedural (needs baking)": 99.2,
+   "flat": 0.8
+  },
+  "meshes": 2950,
+  "meshes_without_uv": 1429,
+  "tri_share_without_uv": 69.8,
+  "lights": {
+   "AREA": 18
+  }
+ },
+ "ROOM_front-end-area": {
+  "triangles": 729639,
+  "share": {
+   "procedural (needs baking)": 72.0,
+   "flat": 27.8,
+   "image textures (exports)": 0.2
+  },
+  "meshes": 2113,
+  "meshes_without_uv": 1789,
+  "tri_share_without_uv": 99.8,
+  "lights": {
+   "AREA": 57,
+   "SUN": 1,
+   "SPOT": 6,
+   "POINT": 8
+  }
+ },
+ "ROOM_fuel-corridor": {
+  "triangles": 599267,
+  "share": {
+   "procedural (needs baking)": 100.0
+  },
+  "meshes": 224,
+  "meshes_without_uv": 20,
+  "tri_share_without_uv": 0.0,
+  "lights": {
+   "AREA": 22
+  }
+ },
+ "ROOM_medical-reanimation": {
+  "triangles": 324258,
+  "share": {
+   "procedural (needs baking)": 85.1,
+   "flat": 14.9,
+   "image textures (exports)": 0.0
+  },
+  "meshes": 1294,
+  "meshes_without_uv": 117,
+  "tri_share_without_uv": 0.8,
+  "lights": {
+   "AREA": 19,
+   "SPOT": 2
+  }
+ },
+ "ROOM_mine": {
+  "triangles": 745765,
+  "share": {
+   "procedural (needs baking)": 97.4,
+   "flat": 2.5,
+   "image textures (exports)": 0.2,
+   "volume (no FBX)": 0.0
+  },
+  "meshes": 146,
+  "meshes_without_uv": 8,
+  "tri_share_without_uv": 18.5,
+  "lights": {
+   "SUN": 1,
+   "POINT": 63
+  }
+ },
+ "ROOM_reactor-room": {
+  "triangles": 977337,
+  "share": {
+   "procedural (needs baking)": 92.4,
+   "flat": 7.0,
+   "image textures (exports)": 0.5,
+   "non-principled shader": 0.1,
+   "volume (no FBX)": 0.0
+  },
+  "meshes": 1466,
+  "meshes_without_uv": 20,
+  "tri_share_without_uv": 2.5,
+  "lights": {
+   "AREA": 61,
+   "SPOT": 43,
+   "POINT": 13
+  }
+ },
+ "ROOM_refinery": {
+  "triangles": 166854,
+  "share": {
+   "procedural (needs baking)": 98.6,
+   "flat": 1.4
+  },
+  "meshes": 2702,
+  "meshes_without_uv": 2336,
+  "tri_share_without_uv": 66.4,
+  "lights": {
+   "AREA": 21
+  }
+ },
+ "ROOM_spawn-room": {
+  "triangles": 101936,
+  "share": {
+   "procedural (needs baking)": 58.0,
+   "flat": 40.6,
+   "image textures (exports)": 1.4
+  },
+  "meshes": 1357,
+  "meshes_without_uv": 452,
+  "tri_share_without_uv": 73.5,
+  "lights": {
+   "AREA": 8
+  }
+ },
+ "ROOM_turbine-room": {
+  "triangles": 414830,
+  "share": {
+   "image textures (exports)": 94.1,
+   "flat": 5.7,
+   "procedural (needs baking)": 0.1,
+   "non-principled shader": 0.0
+  },
+  "meshes": 58,
+  "meshes_without_uv": 8,
+  "tri_share_without_uv": 5.8,
+  "lights": {
+   "SPOT": 45,
+   "POINT": 7,
+   "AREA": 7
+  }
+ },
+ "ROOM_waste-storage": {
+  "triangles": 128418,
+  "share": {
+   "procedural (needs baking)": 98.9,
+   "flat": 1.1
+  },
+  "meshes": 2030,
+  "meshes_without_uv": 264,
+  "tri_share_without_uv": 2.1,
+  "lights": {
+   "AREA": 10,
+   "SPOT": 9
+  }
+ }
+}

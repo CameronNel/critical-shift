@@ -11,3 +11,4 @@ sections/reactor-room/production/critics/refinement-28fc/LUNA_28FC_DISPOSITIONS.
 sections/reactor-room/production/checkpoints/refinement-28fc/*/audit.json -diff
 # Scoped GitHub Git Data API delivery while this environment's LFS authentication is unavailable.
 sections/facility-assembly/sources/fuel-corridor/module.blend -filter -diff -merge -text
+sections/facility-assembly/unity/**/*.fbx filter=lfs diff=lfs merge=lfs -text

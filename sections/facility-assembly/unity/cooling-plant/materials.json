@@ -1,0 +1,268 @@
+{
+ "room": "cooling-plant",
+ "pipeline": "URP 17 (Unity 6) Lit",
+ "uv": "UVBake is the only UV layer (uv0); generate lightmap UVs on import",
+ "normal_maps": "tangent space, OpenGL (+Y), as Unity",
+ "materials": {
+  "floor": {
+   "source_material": "floor",
+   "urp_shader": "Universal Render Pipeline/Lit",
+   "_BaseMap": "textures/floor_BaseMap.png",
+   "_MetallicGlossMap": "textures/floor_MetallicGlossMap.png",
+   "_BumpMap": "textures/floor_BumpMap.png",
+   "_Smoothness_source": "MetallicGlossMap alpha",
+   "size": 2048,
+   "area_m2": 328.63,
+   "approx_px_per_m": 84.7
+  },
+  "unassigned grey": {
+   "source_material": "unassigned grey",
+   "urp_shader": "Universal Render Pipeline/Lit",
+   "_BaseColor": [
+    0.800000011920929,
+    0.800000011920929,
+    0.800000011920929
+   ],
+   "_Metallic": 0.0,
+   "_Smoothness": 0.5
+  },
+  "dark": {
+   "source_material": "dark",
+   "urp_shader": "Universal Render Pipeline/Lit",
+   "_BaseMap": "textures/dark_BaseMap.png",
+   "_MetallicGlossMap": "textures/dark_MetallicGlossMap.png",
+   "_BumpMap": "textures/dark_BumpMap.png",
+   "_Smoothness_source": "MetallicGlossMap alpha",
+   "size": 2048,
+   "area_m2": 577.4,
+   "approx_px_per_m": 63.9
+  },
+  "patch": {
+   "source_material": "patch",
+   "urp_shader": "Universal Render Pipeline/Lit",
+   "_BaseMap": "textures/patch_BaseMap.png",
+   "_MetallicGlossMap": "textures/patch_MetallicGlossMap.png",
+   "_BumpMap": "textures/patch_BumpMap.png",
+   "_Smoothness_source": "MetallicGlossMap alpha",
+   "size": 512,
+   "area_m2": 3.97,
+   "approx_px_per_m": 192.8
+  },
+  "steel": {
+   "source_material": "steel",
+   "urp_shader": "Universal Render Pipeline/Lit",
+   "_BaseMap": "textures/steel_BaseMap.png",
+   "_MetallicGlossMap": "textures/steel_MetallicGlossMap.png",
+   "_BumpMap": "textures/steel_BumpMap.png",
+   "_Smoothness_source": "MetallicGlossMap alpha",
+   "size": 2048,
+   "area_m2": 146.55,
+   "approx_px_per_m": 126.9
+  },
+  "cream": {
+   "source_material": "cream",
+   "urp_shader": "Universal Render Pipeline/Lit",
+   "_BaseMap": "textures/cream_BaseMap.png",
+   "_MetallicGlossMap": "textures/cream_MetallicGlossMap.png",
+   "_BumpMap": "textures/cream_BumpMap.png",
+   "_Smoothness_source": "MetallicGlossMap alpha",
+   "size": 2048,
+   "area_m2": 186.33,
+   "approx_px_per_m": 112.5
+  },
+  "mineral": {
+   "source_material": "mineral",
+   "urp_shader": "Universal Render Pipeline/Lit",
+   "_BaseMap": "textures/mineral_BaseMap.png",
+   "_MetallicGlossMap": "textures/mineral_MetallicGlossMap.png",
+   "_BumpMap": "textures/mineral_BumpMap.png",
+   "_Smoothness_source": "MetallicGlossMap alpha",
+   "size": 2048,
+   "area_m2": 550.51,
+   "approx_px_per_m": 65.5
+  },
+  "edge": {
+   "source_material": "edge",
+   "urp_shader": "Universal Render Pipeline/Lit",
+   "_BaseMap": "textures/edge_BaseMap.png",
+   "_MetallicGlossMap": "textures/edge_MetallicGlossMap.png",
+   "_BumpMap": "textures/edge_BumpMap.png",
+   "_Smoothness_source": "MetallicGlossMap alpha",
+   "size": 1024,
+   "area_m2": 12.56,
+   "approx_px_per_m": 216.7
+  },
+  "glass": {
+   "source_material": "glass",
+   "urp_shader": "Universal Render Pipeline/Lit",
+   "_BaseColor": [
+    0.28999999165534973,
+    0.3799999952316284,
+    0.3499999940395355
+   ],
+   "_Metallic": 0.0,
+   "_Smoothness": 0.86,
+   "_Surface": "Transparent"
+  },
+  "wood": {
+   "source_material": "wood",
+   "urp_shader": "Universal Render Pipeline/Lit",
+   "_BaseMap": "textures/wood_BaseMap.png",
+   "_MetallicGlossMap": "textures/wood_MetallicGlossMap.png",
+   "_BumpMap": "textures/wood_BumpMap.png",
+   "_Smoothness_source": "MetallicGlossMap alpha",
+   "size": 1024,
+   "area_m2": 4.25,
+   "approx_px_per_m": 372.5
+  },
+  "oxide paint": {
+   "source_material": "oxide paint",
+   "urp_shader": "Universal Render Pipeline/Lit",
+   "_BaseMap": "textures/oxide_paint_BaseMap.png",
+   "_MetallicGlossMap": "textures/oxide_paint_MetallicGlossMap.png",
+   "_BumpMap": "textures/oxide_paint_BumpMap.png",
+   "_Smoothness_source": "MetallicGlossMap alpha",
+   "size": 2048,
+   "area_m2": 27.46,
+   "approx_px_per_m": 293.1
+  },
+  "cloth": {
+   "source_material": "cloth",
+   "urp_shader": "Universal Render Pipeline/Lit",
+   "_BaseMap": "textures/cloth_BaseMap.png",
+   "_MetallicGlossMap": "textures/cloth_MetallicGlossMap.png",
+   "_BumpMap": "textures/cloth_BumpMap.png",
+   "_Smoothness_source": "MetallicGlossMap alpha",
+   "size": 256,
+   "area_m2": 0.67,
+   "approx_px_per_m": 235.3
+  },
+  "cloth_thread": {
+   "source_material": "cloth_thread",
+   "urp_shader": "Universal Render Pipeline/Lit",
+   "_BaseMap": "textures/cloth_thread_BaseMap.png",
+   "_MetallicGlossMap": "textures/cloth_thread_MetallicGlossMap.png",
+   "_BumpMap": "textures/cloth_thread_BumpMap.png",
+   "_Smoothness_source": "MetallicGlossMap alpha",
+   "size": 256,
+   "area_m2": 0.0,
+   "approx_px_per_m": 5776.2
+  },
+  "ink": {
+   "source_material": "ink",
+   "urp_shader": "Universal Render Pipeline/Lit",
+   "_BaseColor": [
+    0.03500000014901161,
+    0.04899999871850014,
+    0.0430000014603138
+   ],
+   "_Metallic": 0.0,
+   "_Smoothness": 0.12
+  },
+  "paper": {
+   "source_material": "paper",
+   "urp_shader": "Universal Render Pipeline/Lit",
+   "_BaseMap": "textures/paper_BaseMap.png",
+   "_MetallicGlossMap": "textures/paper_MetallicGlossMap.png",
+   "_BumpMap": "textures/paper_BumpMap.png",
+   "_Smoothness_source": "MetallicGlossMap alpha",
+   "size": 512,
+   "area_m2": 2.14,
+   "approx_px_per_m": 262.3
+  },
+  "rubber": {
+   "source_material": "rubber",
+   "urp_shader": "Universal Render Pipeline/Lit",
+   "_BaseMap": "textures/rubber_BaseMap.png",
+   "_MetallicGlossMap": "textures/rubber_MetallicGlossMap.png",
+   "_BumpMap": "textures/rubber_BumpMap.png",
+   "_Smoothness_source": "MetallicGlossMap alpha",
+   "size": 2048,
+   "area_m2": 20.89,
+   "approx_px_per_m": 336.0
+  },
+  "wood_wear": {
+   "source_material": "wood_wear",
+   "urp_shader": "Universal Render Pipeline/Lit",
+   "_BaseColor": [
+    0.25,
+    0.1599999964237213,
+    0.07500000298023224
+   ],
+   "_Metallic": 0.0,
+   "_Smoothness": 0.12
+  },
+  "lamp": {
+   "source_material": "lamp",
+   "urp_shader": "Universal Render Pipeline/Lit",
+   "_BaseColor": [
+    0.8199999928474426,
+    0.8500000238418579,
+    0.7699999809265137
+   ],
+   "_Metallic": 0.0,
+   "_Smoothness": 0.68,
+   "_EmissionColor": [
+    0.949999988079071,
+    0.8700000047683716,
+    0.7300000190734863
+   ],
+   "_EmissionColor_intensity": 3.0
+  },
+  "oxide paint light": {
+   "source_material": "oxide paint light",
+   "urp_shader": "Universal Render Pipeline/Lit",
+   "_BaseMap": "textures/oxide_paint_light_BaseMap.png",
+   "_MetallicGlossMap": "textures/oxide_paint_light_MetallicGlossMap.png",
+   "_BumpMap": "textures/oxide_paint_light_BumpMap.png",
+   "_Smoothness_source": "MetallicGlossMap alpha",
+   "size": 512,
+   "area_m2": 1.97,
+   "approx_px_per_m": 273.4
+  },
+  "yellow": {
+   "source_material": "yellow",
+   "urp_shader": "Universal Render Pipeline/Lit",
+   "_BaseMap": "textures/yellow_BaseMap.png",
+   "_MetallicGlossMap": "textures/yellow_MetallicGlossMap.png",
+   "_BumpMap": "textures/yellow_BumpMap.png",
+   "_Smoothness_source": "MetallicGlossMap alpha",
+   "size": 2048,
+   "area_m2": 17.07,
+   "approx_px_per_m": 371.7
+  },
+  "orange": {
+   "source_material": "orange",
+   "urp_shader": "Universal Render Pipeline/Lit",
+   "_BaseMap": "textures/orange_BaseMap.png",
+   "_MetallicGlossMap": "textures/orange_MetallicGlossMap.png",
+   "_BumpMap": "textures/orange_BumpMap.png",
+   "_Smoothness_source": "MetallicGlossMap alpha",
+   "size": 256,
+   "area_m2": 0.56,
+   "approx_px_per_m": 256.7
+  },
+  "red": {
+   "source_material": "red",
+   "urp_shader": "Universal Render Pipeline/Lit",
+   "_BaseMap": "textures/red_BaseMap.png",
+   "_MetallicGlossMap": "textures/red_MetallicGlossMap.png",
+   "_BumpMap": "textures/red_BumpMap.png",
+   "_Smoothness_source": "MetallicGlossMap alpha",
+   "size": 256,
+   "area_m2": 0.02,
+   "approx_px_per_m": 1348.9
+  },
+  "neutral service steel": {
+   "source_material": "neutral service steel",
+   "urp_shader": "Universal Render Pipeline/Lit",
+   "_BaseMap": "textures/neutral_service_steel_BaseMap.png",
+   "_MetallicGlossMap": "textures/neutral_service_steel_MetallicGlossMap.png",
+   "_BumpMap": "textures/neutral_service_steel_BumpMap.png",
+   "_Smoothness_source": "MetallicGlossMap alpha",
+   "size": 256,
+   "area_m2": 0.56,
+   "approx_px_per_m": 257.3
+  }
+ }
+}

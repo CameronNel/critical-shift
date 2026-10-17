@@ -5507,7 +5507,7 @@
       -70.0,
       0.0
      ],
-     "why": "capsule hits ROOM_mine / R39 | Ore carts timber at (-44.27, -70.00, 0.78)"
+     "why": "capsule hits ROOM_mine / R39 | Ore carts timber at (-44.27, -70.00, 0.77)"
     },
     {
      "at_m": 52.5,
@@ -5543,7 +5543,7 @@
       -70.0,
       0.0
      ],
-     "why": "capsule hits ROOM_mine / R39 | Ore carts ironwork at (-44.66, -70.00, 0.64)"
+     "why": "no floor within 0.45 m"
     },
     {
      "at_m": 52.9,
@@ -5643,327 +5643,6 @@
       0.0
      ],
      "why": "capsule hits ROOM_mine / R39 | Pulley rope at (-45.71, -70.05, 1.60)"
-    }
-   ]
-  },
-  {
-   "route": "yard_to_refinery_freight (cart route)",
-   "samples": 117,
-   "centre_line_clear": 83,
-   "passed": false,
-   "reached_m": 6.5,
-   "stuck_at": [
-    -22.2,
-    -59.6,
-    0.0
-   ],
-   "stuck_reason": "capsule hits ROOM_refinery / Tip_lock_handle at (-22.15, -59.27, 0.65)",
-   "centre_line_obstructions": [
-    {
-     "at_m": 6.5,
-     "point": [
-      -22.2,
-      -59.6,
-      0.0
-     ],
-     "why": "capsule hits ROOM_refinery / Tip_lock_handle at (-22.15, -59.27, 0.65)"
-    },
-    {
-     "at_m": 6.6,
-     "point": [
-      -22.2,
-      -59.5,
-      0.0
-     ],
-     "why": "capsule hits ROOM_refinery / Tip_lock_handle at (-22.15, -59.27, 0.65)"
-    },
-    {
-     "at_m": 6.7,
-     "point": [
-      -22.2,
-      -59.4,
-      0.0
-     ],
-     "why": "capsule hits ROOM_refinery / Tip_lock_handle at (-22.15, -59.27, 0.65)"
-    },
-    {
-     "at_m": 6.8,
-     "point": [
-      -22.2,
-      -59.3,
-      0.0
-     ],
-     "why": "capsule hits ROOM_refinery / CSM_Cart_handle_grip at (-22.20, -59.17, 1.15)"
-    },
-    {
-     "at_m": 6.9,
-     "point": [
-      -22.2,
-      -59.2,
-      0.0
-     ],
-     "why": "capsule hits ROOM_refinery / CSM_Cart_handle_grip at (-22.20, -59.17, 1.16)"
-    },
-    {
-     "at_m": 7.0,
-     "point": [
-      -22.2,
-      -59.1,
-      0.0
-     ],
-     "why": "capsule hits ROOM_refinery / Tip_lock_handle at (-22.15, -59.22, 0.65)"
-    },
-    {
-     "at_m": 7.1,
-     "point": [
-      -22.2,
-      -59.0,
-      0.0
-     ],
-     "why": "no floor within 0.45 m"
-    },
-    {
-     "at_m": 7.2,
-     "point": [
-      -22.2,
-      -58.9,
-      0.0
-     ],
-     "why": "no floor within 0.45 m"
-    },
-    {
-     "at_m": 7.3,
-     "point": [
-      -22.2,
-      -58.8,
-      0.0
-     ],
-     "why": "capsule hits ROOM_refinery / CSM_Welded_hopper_shell at (-22.20, -58.68, 0.93)"
-    },
-    {
-     "at_m": 7.4,
-     "point": [
-      -22.2,
-      -58.7,
-      0.0
-     ],
-     "why": "capsule hits ROOM_refinery / CSM_Welded_hopper_shell at (-22.20, -58.63, 0.78)"
-    },
-    {
-     "at_m": 7.5,
-     "point": [
-      -22.2,
-      -58.6,
-      0.0
-     ],
-     "why": "no floor within 0.45 m"
-    },
-    {
-     "at_m": 7.6,
-     "point": [
-      -22.2,
-      -58.5,
-      0.0
-     ],
-     "why": "no floor within 0.45 m"
-    },
-    {
-     "at_m": 7.7,
-     "point": [
-      -22.2,
-      -58.4,
-      0.0
-     ],
-     "why": "no floor within 0.45 m"
-    },
-    {
-     "at_m": 7.8,
-     "point": [
-      -22.2,
-      -58.3,
-      0.0
-     ],
-     "why": "no floor within 0.45 m"
-    },
-    {
-     "at_m": 7.9,
-     "point": [
-      -22.2,
-      -58.2,
-      0.0
-     ],
-     "why": "no floor within 0.45 m"
-    },
-    {
-     "at_m": 8.0,
-     "point": [
-      -22.2,
-      -58.1,
-      0.0
-     ],
-     "why": "no floor within 0.45 m"
-    },
-    {
-     "at_m": 8.1,
-     "point": [
-      -22.2,
-      -58.0,
-      0.0
-     ],
-     "why": "no floor within 0.45 m"
-    },
-    {
-     "at_m": 8.2,
-     "point": [
-      -22.2,
-      -57.9,
-      0.0
-     ],
-     "why": "no floor within 0.45 m"
-    },
-    {
-     "at_m": 8.3,
-     "point": [
-      -22.2,
-      -57.8,
-      0.0
-     ],
-     "why": "no floor within 0.45 m"
-    },
-    {
-     "at_m": 8.4,
-     "point": [
-      -22.2,
-      -57.7,
-      0.0
-     ],
-     "why": "no floor within 0.45 m"
-    },
-    {
-     "at_m": 8.5,
-     "point": [
-      -22.2,
-      -57.6,
-      0.0
-     ],
-     "why": "no floor within 0.45 m"
-    },
-    {
-     "at_m": 8.6,
-     "point": [
-      -22.2,
-      -57.5,
-      0.0
-     ],
-     "why": "no floor within 0.45 m"
-    },
-    {
-     "at_m": 8.7,
-     "point": [
-      -22.2,
-      -57.4,
-      0.0
-     ],
-     "why": "no floor within 0.45 m"
-    },
-    {
-     "at_m": 8.8,
-     "point": [
-      -22.2,
-      -57.3,
-      0.0
-     ],
-     "why": "no floor within 0.45 m"
-    },
-    {
-     "at_m": 8.9,
-     "point": [
-      -22.2,
-      -57.2,
-      0.0
-     ],
-     "why": "no floor within 0.45 m"
-    },
-    {
-     "at_m": 9.0,
-     "point": [
-      -22.2,
-      -57.1,
-      0.0
-     ],
-     "why": "no floor within 0.45 m"
-    },
-    {
-     "at_m": 9.1,
-     "point": [
-      -22.2,
-      -57.0,
-      0.0
-     ],
-     "why": "capsule hits ROOM_refinery / CSM_Welded_hopper_shell at (-22.20, -57.08, 0.78)"
-    },
-    {
-     "at_m": 9.2,
-     "point": [
-      -22.2,
-      -56.9,
-      0.0
-     ],
-     "why": "capsule hits ROOM_refinery / CSM_Welded_hopper_shell at (-22.20, -57.03, 0.93)"
-    },
-    {
-     "at_m": 9.3,
-     "point": [
-      -22.2,
-      -56.8,
-      0.0
-     ],
-     "why": "no floor within 0.45 m"
-    },
-    {
-     "at_m": 9.4,
-     "point": [
-      -22.2,
-      -56.7,
-      0.0
-     ],
-     "why": "no floor within 0.45 m"
-    },
-    {
-     "at_m": 9.5,
-     "point": [
-      -22.2,
-      -56.6,
-      0.0
-     ],
-     "why": "no floor within 0.45 m"
-    },
-    {
-     "at_m": 9.6,
-     "point": [
-      -22.2,
-      -56.5,
-      0.0
-     ],
-     "why": "capsule hits ROOM_refinery / CSM_Cart_bumper.002 at (-22.20, -56.71, 0.61)"
-    },
-    {
-     "at_m": 9.7,
-     "point": [
-      -22.2,
-      -56.4,
-      0.0
-     ],
-     "why": "capsule hits ROOM_refinery / CSM_Cart_bumper.002 at (-22.20, -56.68, 0.58)"
-    },
-    {
-     "at_m": 9.8,
-     "point": [
-      -22.2,
-      -56.3,
-      0.0
-     ],
-     "why": "capsule hits ROOM_refinery / Cart_stop_buffer at (-22.20, -56.54, 0.48)"
     }
    ]
   },
@@ -8111,7 +7790,7 @@
     [
      -53.3,
      -70.0,
-     0.19
+     0.2
     ]
    ],
    "centre_line_obstructions": [
@@ -8320,7 +7999,7 @@
       -70.0,
       0.0
      ],
-     "why": "capsule hits ROOM_mine / R39 | Ore carts timber at (-44.27, -70.00, 0.78)"
+     "why": "capsule hits ROOM_mine / R39 | Ore carts timber at (-44.27, -70.00, 0.77)"
     },
     {
      "at_m": 70.5,
@@ -8356,7 +8035,7 @@
       -70.0,
       0.0
      ],
-     "why": "capsule hits ROOM_mine / R39 | Ore carts ironwork at (-44.66, -70.00, 0.64)"
+     "why": "no floor within 0.45 m"
     },
     {
      "at_m": 70.9,

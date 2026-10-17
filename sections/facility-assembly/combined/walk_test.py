@@ -39,7 +39,7 @@ ROUTES = {
     'refinery_fuel_to_reactor_shortest': P((-22.2, -46.5, 0), (-22.2, -43.6, 0), (-22.2, -38.6, 0), (-20.7, -36.0, 0), (-6.5, -36.0, 0), (F02E[0], F02E[1], 0), (-1.0, -34.2, 0), (0, RY - 12, 0), (0, RY - 6, 0)),
     'hall_to_refinery': P((8, -54, 0), (-4, -54, 0), (-18.9, -54, 0), (-22, -54, 0)),
     'cafeteria_to_yard_to_mine': P((8, -70, 0), (-7.27, -70, 0), (-12, -70, 0), (-30, -70, 0), (-50, -70, 0), (-56, -70, 0)),
-    'yard_to_refinery_freight (cart route)': P((-22.2, -66, 0), (-22.2, -60.1, 0), (-22.2, -57.5, 0), (-22.2, -54.5, 0)),
+    # the refinery freight door is a cart door (owner, 2026-10-15): rail and a side tipper fill it; people use the colonnade door (hall_to_refinery). cart_check.py checks the cart.
     'cafeteria_to_medical': P((8, -70, 0), (24, -70, 0), (26, -70, 0), (28, -70, 0), (31, -70, 0)),
     # travel-time routes (ASSEMBLY_REPORT.md): door to door through the real interiors
     'reactor_to_dock': P((0, RY - 6, 0), (0, RY - 12, 0), (0, CY, 0), (8, CY, 0), (8, -40.39, 0), (10.15, -40.39, 0), (12.15, -40.39, 0), (14.5, -40.39, 0)),

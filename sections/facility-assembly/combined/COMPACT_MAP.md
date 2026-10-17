@@ -5,7 +5,15 @@ For the assembly pass (2026-10-13) the owner added: "Ignore all previous specs a
 `combined_map.blend` is built by `build_compact_map.py` (it imports `build_combined_map.py` and overrides placements, halls and patches). `COMBINED_MAP.md` keeps the decision record of the older spread-out layout; its measurements and door data still stand where this file does not supersede them.
 Never hand-edit `combined_map.blend`. Rebuild: `blender --background --factory-startup --python build_compact_map.py`. Results, tests and open decisions of the assembly pass: **`ASSEMBLY_REPORT.md`**.
 
-## Cafeteria revamp (2026-10-14, latest; details in ASSEMBLY_REPORT.md section 1c)
+## Ore cart, cart-only freight door, mine cut (2026-10-15, latest; details in ASSEMBLY_REPORT.md section 1d)
+
+Owner: "fix both" and "Animate minecart wheel as well".
+- **Freight door:** it is a cart door now (rail and side tipper); people use the colonnade. The walk test passes 17/17, and `cart_check.py` checks the cart instead: 145 frames, 0 new contacts.
+- **Ore cart:** a 24 s loop. It tips 75 degrees into the receiving hopper, empties, rolls 7 m out through the door with its wheels turning to the distance, comes back loaded and rolls in. The tipper's lock, wheel guides and clamps retract, and its trunnion bearings sit 0.12 m outboard in the map copy, since as authored the cart could not leave the tipper.
+- **Mine:** 3.31 M to 0.79 M triangles, decimated map-side at build time. Renders show no visible change except slight lantern faceting close up. The whole map is 8.70 M.
+- **Other checks:** unchanged. Everything is unreviewed.
+
+## Cafeteria revamp (2026-10-14; details in ASSEMBLY_REPORT.md section 1c)
 
 Owner: "yes switch it on and run everything". The front end is now Codex's cafeteria revamp (PR 105, `front_end_area_cafeteria_revamp.blend`): same collection, frame, hall and yard, so no placement moved. The map leaves out its closed airlock and medical door leaves, so those doorways stay open as before. Every check gives the same result as before: walks 17/18, 10/10 and 20/20; 13/13 closed doors block; 45 doors with 0 flagged; no new overlap or floor flag; export re-import PASS. Lighting is 29/30 with five new cafeteria views, all passing. The front end goes from 560k to 754k triangles (budget 800k). `FRONT_END_SOURCE=original` builds with the original. Unreviewed.
 

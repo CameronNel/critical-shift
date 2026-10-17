@@ -124,7 +124,7 @@ $B --background combined_map.blend --python door_audit.py
 $B --background combined_map.blend --python floor_audit.py
 $B --background combined_map.blend --python perf_report.py -- validation/perf_report.json
 $B --background combined_map.blend --python export_unity.py -- export
-$B --background combined_map.blend --python measure_lighting.py -- /tmp/light validation/lighting.json
+$B --background combined_map.blend --python measure_lighting.py -- /tmp/light validation/lighting.json --device CPU   # or GPU: the owner's choice (AGENTS.md)
 ```
 
 Run them one at a time. Two Blender processes with this map run out of memory on a 15 GB machine.
@@ -134,7 +134,8 @@ Run them one at a time. Two Blender processes with this map run out of memory on
 | Check | Must show |
 |---|---|
 | Build log | `CONDENSER D01 stub opened` > 0, `CONDENSER pump B power riser moved to the north wall: 8 curve points`, `CONDENSER west escape door cut:` > 0 objects, `CONDENSER ceiling slab lowered under the turbine floor`, `GROUND hole over the condenser bay: 1 ground pieces cut`. A zero count means a renamed object. |
-| Walk, normal | 17/18. Only `yard_to_refinery_freight (cart route)` fails, as before. |
+| Walk, normal | 17/17 (since 2026-10-15; before, 17/18 with the freight cart route failing) |
+| `cart_check.py` | PASS (the ore cart's cycle; unaffected by the bay, run it anyway) |
 | Walk, colliders | 10/10 |
 | Walk, meltdown | 20/20, including `evac_condenser_to_escape_ladder` and `evac_condenser_to_turbine_D02` |
 | Closed doors | 13/13 block |
@@ -146,7 +147,7 @@ Run them one at a time. Two Blender processes with this map run out of memory on
 | Export | re-import PASS |
 
 Also render, from the combined map, the owner's view: eye (1.6, 3.9, -4.4) → target (6.0, 10.3, -4.8), lens 16
-(`combined/render_views.py`, which takes a views JSON like the evidence sets). Put it next to the A1 render.
+(`combined/render_views.py -- views.json --device GPU|CPU`, the device being the owner's choice; it takes a views JSON like the evidence sets). Put it next to the A1 render.
 
 ## 6. Process
 

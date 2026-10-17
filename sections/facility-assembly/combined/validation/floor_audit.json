@@ -11,8 +11,8 @@
    "slab_owner": "ROOM_mine / R39 | Apron mud",
    "over_floor_of": "ROOM_front-end-area / yard_earth",
    "level": 0.0,
-   "samples": 160,
-   "area_m2": 40.0,
+   "samples": 161,
+   "area_m2": 40.25,
    "first": [
     -39.28,
     -76.38,
@@ -46,6 +46,25 @@
    "top_z": 0.35
   },
   {
+   "slab_owner": "ROOM_mine / R39 | Apron mud",
+   "over_floor_of": "ROOM_front-end-area / stain_yard_blotch_179",
+   "level": 0.0,
+   "samples": 17,
+   "area_m2": 4.25,
+   "first": [
+    -39.28,
+    -63.88,
+    0.042
+   ],
+   "plan_box": [
+    -40.28,
+    -63.88,
+    -37.78,
+    -61.88
+   ],
+   "top_z": 0.051
+  },
+  {
    "slab_owner": "ROOM_front-end-area / cliff_kerb_S",
    "over_floor_of": "ROOM_mine / R39 | Shed floor planks",
    "level": 0.0,
@@ -66,25 +85,6 @@
   },
   {
    "slab_owner": "ROOM_mine / R39 | Apron mud",
-   "over_floor_of": "ROOM_front-end-area / stain_yard_blotch_179",
-   "level": 0.0,
-   "samples": 16,
-   "area_m2": 4.0,
-   "first": [
-    -39.28,
-    -63.88,
-    0.042
-   ],
-   "plan_box": [
-    -40.28,
-    -63.88,
-    -37.78,
-    -61.88
-   ],
-   "top_z": 0.05
-  },
-  {
-   "slab_owner": "ROOM_mine / R39 | Apron mud",
    "over_floor_of": "ROOM_front-end-area / pad_2_0_0",
    "level": 0.0,
    "samples": 14,
@@ -100,7 +100,7 @@
     -43.28,
     -61.88
    ],
-   "top_z": 0.053
+   "top_z": 0.054
   },
   {
    "slab_owner": "ROOM_mine / R39 | Apron mud",
@@ -125,8 +125,8 @@
    "slab_owner": "ROOM_mine / R39 | Apron mud",
    "over_floor_of": "ROOM_front-end-area / pad_1_1_0",
    "level": 0.0,
-   "samples": 12,
-   "area_m2": 3.0,
+   "samples": 13,
+   "area_m2": 3.25,
    "first": [
     -39.78,
     -75.88,
@@ -149,7 +149,7 @@
    "first": [
     -43.28,
     -77.88,
-    0.049
+    0.048
    ],
    "plan_box": [
     -43.28,
@@ -163,12 +163,12 @@
    "slab_owner": "ROOM_mine / R39 | Apron mud",
    "over_floor_of": "ROOM_front-end-area / pad_0_0_1",
    "level": 0.0,
-   "samples": 10,
-   "area_m2": 2.5,
+   "samples": 9,
+   "area_m2": 2.25,
    "first": [
     -47.28,
     -77.88,
-    0.039
+    0.04
    ],
    "plan_box": [
     -47.28,
@@ -195,7 +195,7 @@
     -36.28,
     -61.88
    ],
-   "top_z": 0.056
+   "top_z": 0.057
   },
   {
    "slab_owner": "ROOM_front-end-area / cliff_kerb_S",
@@ -396,7 +396,7 @@
    "first": [
     -42.78,
     -62.38,
-    0.05
+    0.048
    ],
    "plan_box": [
     -42.78,
@@ -404,7 +404,7 @@
     -41.28,
     -61.88
    ],
-   "top_z": 0.05
+   "top_z": 0.048
   },
   {
    "slab_owner": "ROOM_mine / R39 | Apron mud",
@@ -540,42 +540,23 @@
    "top_z": 0.054
   },
   {
-   "slab_owner": "ROOM_mine / R39 | Track ironwork",
-   "over_floor_of": "ROOM_front-end-area / yard_earth",
-   "level": 0.0,
-   "samples": 1,
-   "area_m2": 0.25,
-   "first": [
-    -35.78,
-    -69.38,
-    0.11
-   ],
-   "plan_box": [
-    -35.78,
-    -69.38,
-    -35.78,
-    -69.38
-   ],
-   "top_z": 0.11
-  },
-  {
-   "slab_owner": "ROOM_mine / R39 | Track ironwork",
+   "slab_owner": "ROOM_mine / R39 | Track ironwork lod",
    "over_floor_of": "ROOM_front-end-area / floor_track_scale",
    "level": 0.0,
    "samples": 1,
    "area_m2": 0.25,
    "first": [
-    -31.28,
+    -33.78,
     -69.38,
-    0.11
+    0.109
    ],
    "plan_box": [
-    -31.28,
+    -33.78,
     -69.38,
-    -31.28,
+    -33.78,
     -69.38
    ],
-   "top_z": 0.11
+   "top_z": 0.109
   },
   {
    "slab_owner": "ROOM_mine / R39 | Track ironwork ext1",

@@ -12,7 +12,7 @@ Baseline inspected: `8235e7b10ee5cb7ba11d1a90dc6c4677991e20f6`.
 | --- | --- | --- |
 | One to four cooperative players; host owns shared outcomes and clients send intent | GAME_SPEC introduction and section 28 | No silent client ownership of money, material outcomes, health or machines |
 | Initial no mid-shift joining and no host migration | GAME_SPEC 28.7 and 37.2 | Between-shift lobby boundary; host loss ends shared play rather than automatic migration |
-| Unity 6000.4.3f1, C#, Built-in pipeline, Unity 3D physics recorded | ENGINE_DECISION | Preserve the recorded selection; verify the exact installed/buildable toolchain in Gate 0 |
+| Unity 6000.4.3f1, C#, Built-in pipeline, Unity 3D physics recorded; **render pipeline changed to URP by the owner on 2026-10-15** | ENGINE_DECISION | Preserve the recorded selection except the pipeline: art targets URP Lit. Switching `runtime/unity` (URP package, pipeline asset, shader conversion) is still to do and needs a validated editor run; verify the exact installed/buildable toolchain in Gate 0 |
 | Previous Unity implementation removed on 4 September 2026 | README and ENGINE_DECISION current-repository note | Historical prototype claims are not present-day runtime evidence |
 | Network physics before expanded content | ROADMAP Gates 0-2; ENGINE_DECISION required spike | Small reproducible fixture and 20-minute multiplayer gate first |
 | One task/branch, no direct main edits, no agent self-merge | GAME_SPEC 32.6 | Documentation and code changes go through independently reviewed PRs |
