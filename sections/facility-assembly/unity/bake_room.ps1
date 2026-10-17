@@ -37,8 +37,11 @@ foreach ($s in $stages[$start..($stages.Length - 1)]) {
         "finish"  { & $Blender --factory-startup -b "$Out/_work.blend" --python $Py -- --stage finish @common }
         "compare" {
             if (-not $Cameras) { Write-Host "   (no -Cameras given: comparison renders skipped)"; continue }
-            & $Blender --factory-startup -b $CompareSource --python "$U/render_compare.py" -- "$Out/compare/source" $Cameras --samples 64 --device $Device
-            & $Blender --factory-startup -b "$Out/$Room`_unity.blend" --python "$U/render_compare.py" -- "$Out/compare/baked" $Cameras --samples 64 --device $Device
+            # map mode: "source" is the isolated map room before baking (_work.blend), so both sides share the map's world and render settings;
+            # the room file only lends its review cameras (the map's room collections carry none)
+            if ($Isolate) { & $Blender --factory-startup -b "$Out/_work.blend" --python "$U/render_compare.py" -- "$Out/compare/source" $Cameras --samples 64 --device $Device --cameras-from $CompareSource }
+            else { & $Blender --factory-startup -b $CompareSource --python "$U/render_compare.py" -- "$Out/compare/source" $Cameras --samples 64 --device $Device }
+            & $Blender --factory-startup -b "$Out/$Room`_unity.blend" --python "$U/render_compare.py" -- "$Out/compare/baked" $Cameras --samples 64 --device $Device --cameras-from $CompareSource
         }
         default   { & $Blender --factory-startup -b "$Out/_work.blend" --python $Py -- --stage bake --pass $s @common }
     }

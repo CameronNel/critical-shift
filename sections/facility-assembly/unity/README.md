@@ -106,7 +106,8 @@ The run stops at the first failure.
 **Output:**
 - Each room goes to `unity/map/<room>`.
 - One more piece, `map-connections`, holds the connector, stair, escape and sign collections and the evacuation road. It is baked in the map frame.
-- Comparison renders for each room still come from its room file.
+- Comparison renders: map mode compares the map room before baking (`_work.blend`) with the room after baking. Both share the map's world and render settings; the room file only lends its review cameras, which the map's room collections do not carry.
+- End-to-end test, turbine, on the container CPU with the owner's OK, at 256 px and 1 sample: every stage ran (prep, five bake passes, finish, FBX of 9.7 MB, 28 materials, 59 lights) in 16.5 minutes. Before baking the map room measured a mean brightness of 14.9; after baking, 15.4 (mean pixel difference 6/255). The map lights the turbine darker than its own file does, so comparing against the room file would mislead.
 
 **Placement.** `map_placement.py` reads the map's `ROOM_<room>` instancers, including the collections' instance offset, into `map/map_placement.json`. It is committed, and it needs re-running when the layout changes.
 
