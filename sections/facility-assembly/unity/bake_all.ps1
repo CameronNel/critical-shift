@@ -8,14 +8,18 @@
 #   -Only a,b     bake just these rooms        -Skip a,b     leave these out
 #   -From <stage> resume the FIRST room at that stage (the rest start at prep)
 # The condenser bay is left out on purpose: its finish is being reworked (sources/condenser-bay/REWORK_BRIEF.md).
-# Rooms are baked from their room modules, not from the combined map, so map-side changes (door cuts, the mine cut, the turbine skin,
-# the animated ore cart, the evacuation additions) are not in these bakes. Outputs stay local: do not commit them (LFS quota).
+#   -Map          bake the rooms AS THEY ARE IN THE COMBINED MAP (combined/combined_map.blend): door cuts, the slim mine, the turbine skin
+#                 and other map-side changes included, plus one extra piece, map-connections (connectors, stairs, signs, evacuation road).
+#                 Output goes to unity/map/<room>; Critical Shift > Rooms > Import Baked Map places them with map/map_placement.json.
+#                 Without -Map, rooms are baked from their own room files and the map-side changes are missing.
+# Outputs stay local: do not commit them (LFS quota).
 param(
     [Parameter(Mandatory = $true)][ValidateSet("GPU", "CPU")][string]$Device,
     [string[]]$Only = @(),
     [string[]]$Skip = @(),
     [ValidateSet("prep", "base", "rough", "normal", "metal", "emit", "finish", "compare")][string]$From = "prep",
-    [string]$Blender = "C:\Program Files\Blender Foundation\Blender 5.2\blender.exe"
+    [string]$Blender = "C:\Program Files\Blender Foundation\Blender 5.2\blender.exe",
+    [switch]$Map
 )
 $ErrorActionPreference = "Stop"
 $U = "sections/facility-assembly/unity"; $S = "sections/facility-assembly/sources"
@@ -41,6 +45,15 @@ $Rooms = @(
     @{ Room = "reactor-room";        Source = "sections/reactor-room/blender/reactorroom.blend";        Collection = $Reactor;                      Cameras = "01_HERO,02_WEST_ENTRY,07_EMERGENCY_COOLING" },
     @{ Room = "mine";                Source = "$S/mine-r39/module_r39_aaa.blend";                       Collection = "MODULE_mine-r39";             Cameras = "R39_01_PORTAL_APPROACH,R39_02_TUNNEL,R39_04_SHED_FRONT" }
 )
+$MapFile = "sections/facility-assembly/combined/combined_map.blend"
+$OutRoot = "$U"
+if ($Map) {
+    # Each room's map version is its ROOM_<room>_members collection, in the room's own frame; comparison renders still come from the room file.
+    $Rooms = @($Rooms | ForEach-Object { @{ Room = $_.Room; Source = $MapFile; Collection = "ROOM_$($_.Room)_members"; Cameras = $_.Cameras; CompareSource = $_.Source } })
+    $Rooms += @{ Room = "map-connections"; Source = $MapFile; Cameras = ""; CompareSource = ""
+                 Collection = "CONNECTOR_reactor_south_concourse,CONNECTOR_condenser_stair,CONNECTOR_condenser_escape,CONNECTOR_signs,EXTERIOR_evacuation" }
+    $OutRoot = "$U/map"
+}
 $Only = @($Only | ForEach-Object { $_ -split "," } | Where-Object { $_ }); $Skip = @($Skip | ForEach-Object { $_ -split "," } | Where-Object { $_ })   # -File passes "a,b" as one string
 if ($Only.Count) { $Rooms = $Rooms | Where-Object { $Only -contains $_.Room } }
 if ($Skip.Count) { $Rooms = $Rooms | Where-Object { $Skip -notcontains $_.Room } }
@@ -50,7 +63,15 @@ if (-not $Rooms) { throw "no rooms selected" }
 if (-not (Test-Path $Blender)) { throw "Blender not found at $Blender (pass -Blender <path to blender.exe>)" }
 & $Blender -b --factory-startup --python "$U/check_device.py" -- --device $Device
 if ($LASTEXITCODE -ne 0) { throw "device check failed for -Device $Device (see above). Not switching devices: report to the owner." }
-$need = @($Rooms | ForEach-Object { $_.Source })
+$need = @($Rooms | ForEach-Object { $_.Source } | Select-Object -Unique)
+if ($Map) {
+    # the room files the map links (and the compare renders use); the map cannot bake a room whose library is still an LFS pointer
+    $need += @($Rooms | Where-Object { $_.CompareSource } | ForEach-Object { $_.CompareSource })
+    $need += @("$S/spawn-room/hero_suit.blend", "$S/condenser-bay/module_aaa_A1.blend",
+               "sections/facility-assembly/exteriors/refinery/exterior-R01.blend", "sections/facility-assembly/exteriors/medical-reanimation/exterior-R04.blend",
+               "sections/facility-assembly/exteriors/spawn-room/exterior-R05.blend")
+    $need = @($need | Select-Object -Unique)
+}
 if ($Rooms | Where-Object { $_.Room -eq "spawn-room" }) { $need += "$S/spawn-room/hero_suit.blend" }
 foreach ($f in $need) {
     if (-not (Test-Path $f)) { throw "missing $f" }
@@ -61,11 +82,13 @@ New-Item -ItemType Directory -Force "$U/_logs" | Out-Null
 $t0 = Get-Date; $first = $true
 foreach ($r in $Rooms) {
     $start = if ($first) { $From } else { "prep" }; $first = $false
-    $log = "$U/_logs/$($r.Room).log"; $t = Get-Date
+    $log = if ($Map) { "$U/_logs/map-$($r.Room).log" } else { "$U/_logs/$($r.Room).log" }; $t = Get-Date
+    $extra = @()
+    if ($Map) { $extra = @("-OutRoot", $OutRoot, "-Isolate"); if ($r.CompareSource) { $extra += @("-CompareSource", $r.CompareSource) } }
     Write-Host ("==== {0} (from {1}) started {2:HH:mm}" -f $r.Room, $start, $t)
     $ErrorActionPreference = "Continue"     # Windows PowerShell turns Blender's stderr lines into error records; with "Stop" the first warning would end the run
     & powershell -NoProfile -ExecutionPolicy Bypass -File "$U/bake_room.ps1" -Device $Device -Room $r.Room -Source $r.Source `
-        -Collection $r.Collection -Cameras $r.Cameras -From $start -Blender $Blender *>&1 | ForEach-Object { "$_" } | Tee-Object -FilePath $log -Append
+        -Collection $r.Collection -Cameras $r.Cameras -From $start -Blender $Blender @extra *>&1 | ForEach-Object { "$_" } | Tee-Object -FilePath $log -Append
     $code = $LASTEXITCODE; $ErrorActionPreference = "Stop"
     if ($code -ne 0) {
         throw ("{0} failed; log: {1}. Resume after fixing with: -Only {0} -From <the stage that failed>, then run the rest with -Skip <the rooms already done>." -f $r.Room, $log)

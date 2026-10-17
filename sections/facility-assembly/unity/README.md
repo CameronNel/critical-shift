@@ -87,7 +87,36 @@ The run stops at the first failure.
 
 **Outputs stay local**, because the repository's LFS quota is small. The 2K pilot made 82 MB of maps, and 4K atlases can be up to four times that.
 
-## Whole-map bake on the owner's PC (2026-10-17)
+## Map mode: rooms as they are in the map (2026-10-17)
+
+**Why it exists.** The first whole run (below) baked each room from its own room file, so it lacks everything the combined map changes:
+- the cut walls and patches that open the doorways (about 650 map-side objects);
+- the slimmed mine;
+- the turbine's skin;
+- the ore cart;
+- the connectors, stairs, signs and evacuation road, which exist only in the map.
+
+**`bake_all.ps1 -Map`** bakes each room from `combined/combined_map.blend` instead. It bakes the `ROOM_<room>_members` collection, the map's own membership of that room with the edits applied, in the room's frame.
+
+`bake_room.py --isolate` handles the map file:
+- it links that collection into the scene;
+- it excludes everything else, so neighbouring rooms neither bake nor shade it;
+- linked objects, meshes, materials and node groups are made local.
+
+**Output:**
+- Each room goes to `unity/map/<room>`.
+- One more piece, `map-connections`, holds the connector, stair, escape and sign collections and the evacuation road. It is baked in the map frame.
+- Comparison renders for each room still come from its room file.
+
+**Placement.** `map_placement.py` reads the map's `ROOM_<room>` instancers, including the collections' instance offset, into `map/map_placement.json`. It is committed, and it needs re-running when the layout changes.
+
+**Check:** every instanced object in the map, put through the importer's rule, lands where the map shows it. Across 20,620 objects in 13 rooms the error is under 1 cm. The rule is: the prefab goes at Blender `(x, y, z)` → Unity `(-x, z, -y)`, and a Z rotation r becomes a Y rotation of -r. The 32 hero-suit parts are instances inside instances, so the check measured them from the suit file's own origin; the bake makes them real objects.
+
+**Unity:** *Critical Shift > Rooms > Import Baked Map (all rooms in place)* imports `unity/map/*` into `Content/Rooms/map/` and saves the scene `Content/Rooms/map/CriticalShift_Map.unity`, with every piece placed.
+
+**Left out:** the condenser bay, which is being reworked, so the space under the turbine is empty.
+
+## Whole-map bake on the owner's PC, from the room files (2026-10-17)
 
 **Setup:** commit `ac624fd`, Blender 5.2.2 LTS, on the GPU (HIP, RX 9070 XT), `--profile home`, run by `bake_all.ps1`. The local agent reported the run; these files are not in the repository.
 
