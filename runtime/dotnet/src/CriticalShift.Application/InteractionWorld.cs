@@ -18,6 +18,7 @@ namespace CriticalShift.Application
         private readonly int _receiptCapacity;
         private ProductionOperations? _production;
         private ReactorOperations? _reactor;
+        private PlayerOperations? _players;
         private bool _started;
         private bool _stopped;
         private bool _faulted;
@@ -76,6 +77,13 @@ namespace CriticalShift.Application
 
         internal void BindProduction(ProductionOperations production) { RequireSetup(); _production = production; }
         internal void BindReactor(ReactorOperations reactor) { RequireSetup(); _reactor = reactor; }
+        internal void BindPlayers(PlayerOperations players) { RequireSetup(); _players = players; }
+        internal void ValidatePlayerRegistration(Guid entity, Guid? slot) => _claims.ValidateRegistration(entity, slot);
+        internal void ValidatePlayerSlot(Guid slot) => _claims.ValidateSlotRegistration(slot);
+        internal ObjectClaimView? GetHeldObject(Guid actor) => Project(_claims.GetHeld(actor));
+        internal InteractionReply GrabPlayerObject(Guid entity, Guid actor, long revision) => Map(_claims.TryGrab(entity, actor, revision), true);
+        internal InteractionReply ReleasePlayerObject(Guid entity, Guid actor, long lease) => Map(_claims.TryRelease(entity, actor, lease), true);
+        internal InteractionReply TakePlayerObject(Guid slot, Guid actor, long revision) => Map(_claims.TryTake(slot, actor, revision), true);
         internal void RegisterProductionSlot(Guid slot) { RequireSetup(); _claims.RegisterSlot(slot); }
         internal Guid? SlotOccupant(Guid slot) => _claims.GetSlotOccupant(slot);
         // Internal commit operations execute inside the already guarded/authorized command workflow.
@@ -181,6 +189,10 @@ namespace CriticalShift.Application
 
         private InteractionReply Apply(Guid actorId, InteractionCommand command)
         {
+            if (command.Kind == InteractionKind.Player)
+                return _players?.Apply(actorId, command.EntityId, command.Player!) ?? new InteractionReply(InteractionStatus.TargetUnavailable, true);
+            if (_players != null && !_players.AllowsLegacy(command.EntityId, command.Kind))
+                return new InteractionReply(InteractionStatus.TargetUnavailable, true);
             // Releasing must remain possible when an object moves out of reach.
             if (command.Kind != InteractionKind.Release)
             {

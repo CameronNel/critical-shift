@@ -42,6 +42,25 @@ namespace CriticalShift.Features.Interaction.Domain
             return _objects.TryGetValue(entityId, out var state) ? state : null;
         }
 
+        public ClaimSnapshot? GetHeld(Guid actorId) =>
+            _heldByActor.TryGetValue(actorId, out var id) ? _objects[id] : null;
+
+        public void ValidateRegistration(Guid entityId, Guid? slotId = null)
+        {
+            RequireId(entityId, nameof(entityId));
+            if (_stopped || _objects.ContainsKey(entityId) || _slots.ContainsKey(entityId) || _objects.Count >= _capacity)
+                throw new InvalidOperationException("Invalid or capacity-exhausted entity registration.");
+            if (slotId.HasValue) ValidateSlotRegistration(slotId.Value);
+            if (slotId == entityId) throw new InvalidOperationException("Entity and slot identities must differ.");
+        }
+
+        public void ValidateSlotRegistration(Guid slotId)
+        {
+            RequireId(slotId, nameof(slotId));
+            if (_stopped || _slots.ContainsKey(slotId) || _objects.ContainsKey(slotId) || _slots.Count >= _capacity)
+                throw new InvalidOperationException("Invalid, duplicate or capacity-exhausted slot registration.");
+        }
+
         public ClaimResult TryGrab(Guid entityId, Guid actorId, long expectedRevision)
         {
             RequireId(actorId, nameof(actorId));
@@ -139,6 +158,23 @@ namespace CriticalShift.Features.Interaction.Domain
             var current = _objects[occupant.Value];
             if (current.Revision != revision) return new ClaimResult(ClaimError.RevisionConflict, current);
             var next = new ClaimSnapshot(current.EntityId, null, checked(current.Revision + 1), current.LeaseGeneration, 0, false);
+            _objects[current.EntityId] = next; _slots[slot] = null;
+            return new ClaimResult(ClaimError.None, next, true);
+        }
+
+        /// <summary>Atomic slot-to-hand transfer; a full hand never ejects the existing occupant.</summary>
+        public ClaimResult TryTake(Guid slot, Guid actor, long revision)
+        {
+            RequireId(actor, nameof(actor));
+            if (_stopped) return new ClaimResult(ClaimError.StoreStopped, null);
+            if (!_slots.TryGetValue(slot, out var occupant)) return new ClaimResult(ClaimError.UnknownSlot, null);
+            if (!occupant.HasValue) return new ClaimResult(ClaimError.SlotEmpty, null);
+            var current = _objects[occupant.Value];
+            if (current.Revision != revision) return new ClaimResult(ClaimError.RevisionConflict, current);
+            if (_heldByActor.ContainsKey(actor)) return new ClaimResult(ClaimError.ActorAlreadyHolding, current);
+            var next = new ClaimSnapshot(current.EntityId, actor, checked(current.Revision + 1),
+                checked(current.LeaseGeneration + 1), checked(NowMilliseconds + _leaseMilliseconds), false);
+            _heldByActor.Add(actor, current.EntityId);
             _objects[current.EntityId] = next; _slots[slot] = null;
             return new ClaimResult(ClaimError.None, next, true);
         }

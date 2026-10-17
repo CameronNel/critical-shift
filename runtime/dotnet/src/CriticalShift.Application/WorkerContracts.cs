@@ -3,7 +3,7 @@ using System;
 namespace CriticalShift.Application
 {
     public enum WorkerAwareness { Alert, Unconscious }
-    public enum WorkerPose { Upright, Down, Recovering }
+    public enum WorkerPose { Upright, Down, Recovering, Seated }
     public enum WorkerSuit { None, Intact, Compromised }
     public enum WorkerImpact { Knockdown, Incapacitating }
     public enum RecoveryClearance { Safe, Blocked, Unavailable }
@@ -49,7 +49,8 @@ namespace CriticalShift.Application
         public long RecoveryAttempt { get; }
         public long RecoveryNotBeforeMilliseconds { get; }
         public long RecoveryExpiresAtMilliseconds { get; }
-        public bool CanInteract => Awareness == WorkerAwareness.Alert && Pose == WorkerPose.Upright;
+        public bool CanInteract => Awareness == WorkerAwareness.Alert &&
+            (Pose == WorkerPose.Upright || Pose == WorkerPose.Seated);
     }
 
     public sealed class WorkerReply

@@ -3,7 +3,7 @@ using System;
 namespace CriticalShift.Features.Workers.Domain
 {
     public enum Consciousness { Alert, Unconscious }
-    public enum Posture { Upright, Down, Recovering }
+    public enum Posture { Upright, Down, Recovering, Seated }
     public enum SuitCondition { None, Intact, Compromised }
     public enum ImpactSeverity { Knockdown, Incapacitating }
     public enum WorkerResult
@@ -36,6 +36,7 @@ namespace CriticalShift.Features.Workers.Domain
         public long RecoveryAttempt { get; }
         public long RecoveryNotBefore { get; }
         public long RecoveryExpiresAt { get; }
-        public bool CanInteract => Consciousness == Consciousness.Alert && Posture == Posture.Upright;
+        public bool CanInteract => Consciousness == Consciousness.Alert &&
+            (Posture == Posture.Upright || Posture == Posture.Seated);
     }
 }

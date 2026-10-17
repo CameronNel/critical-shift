@@ -91,6 +91,17 @@ namespace CriticalShift.Features.Workers.Domain
             return WorkerResult.Applied;
         }
 
+        public WorkerResult SetSeated(long expectedRevision, bool seated)
+        {
+            if (expectedRevision != _revision) return WorkerResult.RevisionConflict;
+            if (_consciousness != Consciousness.Alert ||
+                _posture != (seated ? Posture.Upright : Posture.Seated)) return WorkerResult.InvalidState;
+            long revision = checked(_revision + 1);
+            _posture = seated ? Posture.Seated : Posture.Upright;
+            _revision = revision;
+            return WorkerResult.Applied;
+        }
+
         public WorkerResult BeginRecovery(long episode, long expectedRevision, long shiftTime)
         {
             if (episode <= 0 || episode != _episode) return WorkerResult.StaleRecovery;
