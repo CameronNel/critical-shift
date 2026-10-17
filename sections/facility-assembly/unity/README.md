@@ -113,6 +113,26 @@ The run stops at the first failure.
 
 **Check:** every instanced object in the map, put through the importer's rule, lands where the map shows it. Across 20,620 objects in 13 rooms the error is under 1 cm. The rule is: the prefab goes at Blender `(x, y, z)` → Unity `(-x, z, -y)`, and a Z rotation r becomes a Y rotation of -r. The 32 hero-suit parts are instances inside instances, so the check measured them from the suit file's own origin; the bake makes them real objects.
 
+**Shakedown, 2026-10-17:** map-mode prep plus the merge step ran on all 13 pieces in the container. It renders nothing, so no device was used. Every piece passed:
+
+| Piece | Objects | Triangles | Merged meshes |
+|---|---|---|---|
+| turbine-room | 60 | 416,510 | 6 |
+| fuel-corridor | 255 | 1,120,559 | 1 |
+| mine (the map's slim version) | 167 | 765,429 | 1 |
+| cooling-plant | 1,572 | 314,699 | 10 |
+| waste-storage | 2,111 | 352,300 | 11 |
+| compliance-dock | 1,143 | 397,976 | 12 |
+| medical-reanimation | 1,379 | 507,648 | 9 |
+| spawn-room | 1,670 | 312,534 | 1 |
+| electrical-room | 3,037 | 579,699 | 1 |
+| front-end-area | 2,161 | 743,496 | 9 |
+| refinery (with the ore cart) | 2,815 | 390,384 | 14 |
+| reactor-room | 1,644 | 1,115,902 | 21 |
+| map-connections | 446 | 30,490 | 3 |
+
+Every merge kept every triangle. The reactor comes from `sections/reactor-room/blender/reactorroom.blend`, which is the newest version: the reviewed refined hall of PRs #96 and #100. No branch or open PR holds a newer one.
+
 **Unity:** *Critical Shift > Rooms > Import Baked Map (all rooms in place)* imports `unity/map/*` into `Content/Rooms/map/` and saves the scene `Content/Rooms/map/CriticalShift_Map.unity`, with every piece placed.
 
 **Left out:** the condenser bay, which is being reworked, so the space under the turbine is empty.
