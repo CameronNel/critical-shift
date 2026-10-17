@@ -14,14 +14,19 @@ param(
     [string]$Collection = "",
     [string]$Blender = "C:\Program Files\Blender Foundation\Blender 5.2\blender.exe",
     [ValidateSet("prep", "base", "rough", "normal", "metal", "emit", "finish", "compare")][string]$From = "prep",
-    [string]$Cameras = ""
+    [string]$Cameras = "",
+    [string]$OutRoot = "sections/facility-assembly/unity",   # bake_all.ps1 -Map writes to .../unity/map
+    [string]$CompareSource = "",                              # the file the source comparison renders come from (default: -Source)
+    [switch]$Isolate                                          # map mode: bake the room collection alone (bake_room.py --isolate)
 )
 $ErrorActionPreference = "Stop"
-$U = "sections/facility-assembly/unity"; $Out = "$U/$Room"; $Py = "$U/bake_room.py"
+$U = "sections/facility-assembly/unity"; $Out = "$OutRoot/$Room"; $Py = "$U/bake_room.py"
+if (-not $CompareSource) { $CompareSource = $Source }
 if (-not (Test-Path $Blender)) { throw "Blender not found at $Blender (pass -Blender <path to blender.exe>)" }
 if ((Get-Item $Source).Length -lt 1024) { throw "$Source looks like an LFS pointer: git lfs pull --include $Source" }
 $common = @("--room", $Room, "--out", $Out, "--profile", "home", "--device", $Device)
 if ($Collection) { $common += @("--collection", $Collection) }
+if ($Isolate) { $common += "--isolate" }
 $stages = @("prep", "base", "rough", "normal", "metal", "emit", "finish", "compare")
 $start = [array]::IndexOf($stages, $From)
 $t0 = Get-Date
@@ -32,8 +37,11 @@ foreach ($s in $stages[$start..($stages.Length - 1)]) {
         "finish"  { & $Blender --factory-startup -b "$Out/_work.blend" --python $Py -- --stage finish @common }
         "compare" {
             if (-not $Cameras) { Write-Host "   (no -Cameras given: comparison renders skipped)"; continue }
-            & $Blender --factory-startup -b $Source --python "$U/render_compare.py" -- "$Out/compare/source" $Cameras --samples 64 --device $Device
-            & $Blender --factory-startup -b "$Out/$Room`_unity.blend" --python "$U/render_compare.py" -- "$Out/compare/baked" $Cameras --samples 64 --device $Device
+            # map mode: "source" is the isolated map room before baking (_work.blend), so both sides share the map's world and render settings;
+            # the room file only lends its review cameras (the map's room collections carry none)
+            if ($Isolate) { & $Blender --factory-startup -b "$Out/_work.blend" --python "$U/render_compare.py" -- "$Out/compare/source" $Cameras --samples 64 --device $Device --cameras-from $CompareSource }
+            else { & $Blender --factory-startup -b $CompareSource --python "$U/render_compare.py" -- "$Out/compare/source" $Cameras --samples 64 --device $Device }
+            & $Blender --factory-startup -b "$Out/$Room`_unity.blend" --python "$U/render_compare.py" -- "$Out/compare/baked" $Cameras --samples 64 --device $Device --cameras-from $CompareSource
         }
         default   { & $Blender --factory-startup -b "$Out/_work.blend" --python $Py -- --stage bake --pass $s @common }
     }

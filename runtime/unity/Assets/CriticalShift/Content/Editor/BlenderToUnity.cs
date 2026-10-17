@@ -9,6 +9,9 @@ namespace CriticalShift.Content.Editor
     {
         public static Vector3 Point(double x, double y, double z) => new Vector3((float)-x, (float)z, (float)-y);
 
+        /// <summary>A Blender rotation about +Z (degrees) as a Unity rotation: about +Y, the other way round, because the X mirror flips handedness.</summary>
+        public static Quaternion MapYaw(double zDeg) => Quaternion.Euler(0f, (float)-zDeg, 0f);
+
         /// <summary>World rotation of a Blender light (its XYZ Euler, degrees) as a Unity rotation. Blender lights shine along their local -Z
         /// with +Y up; Unity lights shine along +Z.</summary>
         public static Quaternion LightRotation(double rxDeg, double ryDeg, double rzDeg)

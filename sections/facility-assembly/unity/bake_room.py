@@ -214,7 +214,42 @@ def merge_for_bake(objs, mats):
          seconds=round(time.time() - t, 1))
     return out
 
+ISOLATE = '--isolate' in a     # map mode (bake_all.ps1 -Map): bake the room collections alone, e.g. the map's ROOM_<room>_members
+def isolate():
+    """Link the room collections to the scene if they are not in it (the map instances ROOM_<room>_members rather than linking it) and exclude every
+    other collection, so the map's other rooms and instancers neither bake nor shade this one. Members sit in their room's own frame."""
+    def lcs(lc):
+        yield lc
+        for ch in lc.children: yield from lcs(ch)
+    present = {lc.collection.name for lc in lcs(vl.layer_collection)}
+    for n in coll.names:
+        if n not in present: sc.collection.children.link(bpy.data.collections[n])
+    def walk(lc):
+        keep = lc.collection.name in coll.names
+        for ch in lc.children: keep = walk(ch) or keep
+        if lc is not vl.layer_collection and not keep: lc.exclude = True
+        return keep
+    walk(vl.layer_collection)
+    for o in list(sc.collection.objects):                        # loose objects at the scene root (map instancers) leave the bake
+        if o.name not in {x.name for x in coll.all_objects}: sc.collection.objects.unlink(o)
+
+def localise_node_groups(mats):
+    """Node groups stay linked when objects, meshes and materials are made local; the merge rewires them, so make them local too."""
+    seen = set()
+    def walk(nt):
+        if nt is None or nt.as_pointer() in seen: return
+        seen.add(nt.as_pointer())
+        for n in nt.nodes:
+            if n.type == 'GROUP' and n.node_tree is not None:
+                g = n.node_tree
+                if g.library is not None:
+                    local = g.make_local()
+                    if local is not None and local != g: g.user_remap(local)
+                walk(n.node_tree)
+    for m in mats: walk(m.node_tree if m else None)
+
 if STAGE in ('prep', 'all'):
+    if ISOLATE: isolate(); step('isolated', collections=coll.names)
     # collection instances (the spawn room's four PPE hero suits, linked from hero_suit.blend) become real local objects, or the bake would miss them
     inst = [o for o in coll.all_objects if o.instance_type == 'COLLECTION' and o.instance_collection and not o.hide_render]
     if inst:
@@ -231,6 +266,7 @@ if STAGE in ('prep', 'all'):
         for o in ext: o.hide_set(False); o.hide_viewport = False; o.hide_select = False; o.select_set(True)
         vl.objects.active = ext[0]
         bpy.ops.object.make_local(type='SELECT_OBDATA_MATERIAL')   # linked meshes and materials cannot be converted, unwrapped or rewired
+        localise_node_groups({s_.material for o in coll.all_objects for s_ in getattr(o, 'material_slots', []) if s_.material})
         step('linked data made local', objects=len(ext))
     objs = [o for o in coll.all_objects if o.type in ('MESH', 'CURVE', 'FONT') and not o.hide_render]
     coll.show(objs)

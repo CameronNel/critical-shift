@@ -1,0 +1,132 @@
+{
+ "source": "sections/facility-assembly/combined/combined_map.blend",
+ "frame": "Blender map frame: metres, +Z up. Unity: (x, y, z) -> (-x, z, -y), Z rotation r -> Y rotation -r",
+ "rooms": {
+  "compliance-dock": {
+   "collection": "ROOM_compliance-dock_members",
+   "location": [
+    12.15,
+    -40.39,
+    0.0
+   ],
+   "rotation_z_deg": -90.0
+  },
+  "condenser-bay": {
+   "collection": "ROOM_condenser-bay_members",
+   "location": [
+    1.6,
+    3.2,
+    -6.0
+   ],
+   "rotation_z_deg": 0.0
+  },
+  "cooling-plant": {
+   "collection": "ROOM_cooling-plant_members",
+   "location": [
+    -14.5,
+    -18.7,
+    0.0
+   ],
+   "rotation_z_deg": 90.0
+  },
+  "electrical-room": {
+   "collection": "ROOM_electrical-room_members",
+   "location": [
+    10.5,
+    8.3,
+    0.0
+   ],
+   "rotation_z_deg": -90.0
+  },
+  "front-end-area": {
+   "collection": "ROOM_front-end-area_members",
+   "location": [
+    8.0,
+    -80.0,
+    0.0
+   ],
+   "rotation_z_deg": 0.0
+  },
+  "fuel-corridor": {
+   "collection": "ROOM_fuel-corridor_members",
+   "location": [
+    -22.2,
+    -43.6,
+    0.0
+   ],
+   "rotation_z_deg": 0.0
+  },
+  "medical-reanimation": {
+   "collection": "ROOM_medical-reanimation_members",
+   "location": [
+    26.0,
+    -70.0,
+    0.0
+   ],
+   "rotation_z_deg": -90.0
+  },
+  "mine": {
+   "collection": "ROOM_mine_members",
+   "location": [
+    -14.4,
+    -41.0,
+    0.0
+   ],
+   "rotation_z_deg": 0.0
+  },
+  "reactor-room": {
+   "collection": "ROOM_reactor-room_members",
+   "location": [
+    0.0,
+    -18.7,
+    0.0
+   ],
+   "rotation_z_deg": 0.0
+  },
+  "refinery": {
+   "collection": "ROOM_refinery_members",
+   "location": [
+    -26.28,
+    -52.2,
+    0.0
+   ],
+   "rotation_z_deg": 90.0
+  },
+  "spawn-room": {
+   "collection": "ROOM_spawn-room_members",
+   "location": [
+    8.0,
+    -92.38,
+    0.0
+   ],
+   "rotation_z_deg": 0.0
+  },
+  "turbine-room": {
+   "collection": "ROOM_turbine-room_members",
+   "location": [
+    0.0,
+    -4.2,
+    0.0
+   ],
+   "rotation_z_deg": 0.0
+  },
+  "waste-storage": {
+   "collection": "ROOM_waste-storage_members",
+   "location": [
+    11.94,
+    -14.84,
+    0.0
+   ],
+   "rotation_z_deg": -90.0
+  },
+  "map-connections": {
+   "collection": "(connectors, signs, evacuation; baked in the map frame)",
+   "location": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "rotation_z_deg": 0.0
+  }
+ }
+}

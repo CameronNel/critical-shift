@@ -87,7 +87,57 @@ The run stops at the first failure.
 
 **Outputs stay local**, because the repository's LFS quota is small. The 2K pilot made 82 MB of maps, and 4K atlases can be up to four times that.
 
-## Whole-map bake on the owner's PC (2026-10-17)
+## Map mode: rooms as they are in the map (2026-10-17)
+
+**Why it exists.** The first whole run (below) baked each room from its own room file, so it lacks everything the combined map changes:
+- the cut walls and patches that open the doorways (about 650 map-side objects);
+- the slimmed mine;
+- the turbine's skin;
+- the ore cart;
+- the connectors, stairs, signs and evacuation road, which exist only in the map.
+
+**`bake_all.ps1 -Map`** bakes each room from `combined/combined_map.blend` instead. It bakes the `ROOM_<room>_members` collection, the map's own membership of that room with the edits applied, in the room's frame.
+
+`bake_room.py --isolate` handles the map file:
+- it links that collection into the scene;
+- it excludes everything else, so neighbouring rooms neither bake nor shade it;
+- linked objects, meshes, materials and node groups are made local.
+
+**Output:**
+- Each room goes to `unity/map/<room>`.
+- One more piece, `map-connections`, holds the connector, stair, escape and sign collections and the evacuation road. It is baked in the map frame.
+- Comparison renders: map mode compares the map room before baking (`_work.blend`) with the room after baking. Both share the map's world and render settings; the room file only lends its review cameras, which the map's room collections do not carry.
+- End-to-end test, turbine, on the container CPU with the owner's OK, at 256 px and 1 sample: every stage ran (prep, five bake passes, finish, FBX of 9.7 MB, 28 materials, 59 lights) in 16.5 minutes. Before baking the map room measured a mean brightness of 14.9; after baking, 15.4 (mean pixel difference 6/255). The map lights the turbine darker than its own file does, so comparing against the room file would mislead.
+
+**Placement.** `map_placement.py` reads the map's `ROOM_<room>` instancers, including the collections' instance offset, into `map/map_placement.json`. It is committed, and it needs re-running when the layout changes.
+
+**Check:** every instanced object in the map, put through the importer's rule, lands where the map shows it. Across 20,620 objects in 13 rooms the error is under 1 cm. The rule is: the prefab goes at Blender `(x, y, z)` → Unity `(-x, z, -y)`, and a Z rotation r becomes a Y rotation of -r. The 32 hero-suit parts are instances inside instances, so the check measured them from the suit file's own origin; the bake makes them real objects.
+
+**Shakedown, 2026-10-17:** map-mode prep plus the merge step ran on all 13 pieces in the container. It renders nothing, so no device was used. Every piece passed:
+
+| Piece | Objects | Triangles | Merged meshes |
+|---|---|---|---|
+| turbine-room | 60 | 416,510 | 6 |
+| fuel-corridor | 255 | 1,120,559 | 1 |
+| mine (the map's slim version) | 167 | 765,429 | 1 |
+| cooling-plant | 1,572 | 314,699 | 10 |
+| waste-storage | 2,111 | 352,300 | 11 |
+| compliance-dock | 1,143 | 397,976 | 12 |
+| medical-reanimation | 1,379 | 507,648 | 9 |
+| spawn-room | 1,670 | 312,534 | 1 |
+| electrical-room | 3,037 | 579,699 | 1 |
+| front-end-area | 2,161 | 743,496 | 9 |
+| refinery (with the ore cart) | 2,815 | 390,384 | 14 |
+| reactor-room | 1,644 | 1,115,902 | 21 |
+| map-connections | 446 | 30,490 | 3 |
+
+Every merge kept every triangle. The reactor comes from `sections/reactor-room/blender/reactorroom.blend`, which is the newest version: the reviewed refined hall of PRs #96 and #100. No branch or open PR holds a newer one.
+
+**Unity:** *Critical Shift > Rooms > Import Baked Map (all rooms in place)* imports `unity/map/*` into `Content/Rooms/map/` and saves the scene `Content/Rooms/map/CriticalShift_Map.unity`, with every piece placed.
+
+**Left out:** the condenser bay, which is being reworked, so the space under the turbine is empty.
+
+## Whole-map bake on the owner's PC, from the room files (2026-10-17)
 
 **Setup:** commit `ac624fd`, Blender 5.2.2 LTS, on the GPU (HIP, RX 9070 XT), `--profile home`, run by `bake_all.ps1`. The local agent reported the run; these files are not in the repository.
 

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -49,6 +50,68 @@ namespace CriticalShift.Content.Editor
             if (!SetUpUrp(out string problem)) { Report("URP is not ready", problem); return; }
             if (!IsBakedRoom(folder)) { Report("Not a baked room", folder + " needs materials.json, " + Path.GetFileName(folder) + ".fbx and textures/."); return; }
             Report("Imported room", ImportRooms(new List<string> { folder }));
+        }
+
+        public const string MapFolder = RoomsFolder + "/map";
+
+        /// <summary>The map bake (bake_all.ps1 -Map) in this repository: sections/facility-assembly/unity/map.</summary>
+        public static string DefaultBakedMap => Path.Combine(DefaultBakedRoot, "map");
+
+        [MenuItem("Critical Shift/Rooms/Import Baked Map (all rooms in place)")]
+        public static void ImportMapMenu()
+        {
+            if (!SetUpUrp(out string problem)) { Report("URP is not ready", problem); return; }
+            Report("Imported map", ImportMap(DefaultBakedMap, out _));
+        }
+
+        /// <summary>Batch: -executeMethod CriticalShift.Content.Editor.BakedRoomImporter.ImportMapBatch [-bakedMap &lt;folder&gt;]</summary>
+        public static void ImportMapBatch()
+        {
+            string[] args = Environment.GetCommandLineArgs();
+            int k = Array.IndexOf(args, "-bakedMap");
+            string root = k >= 0 && k + 1 < args.Length ? args[k + 1] : DefaultBakedMap;
+            if (!SetUpUrp(out string problem)) { Debug.LogError(problem); EditorApplication.Exit(2); return; }
+            string summary = ImportMap(root, out bool ok);
+            Debug.Log(summary);
+            EditorApplication.Exit(ok ? 0 : 1);
+        }
+
+        /// <summary>Imports every room baked from the combined map (unity/map/&lt;room&gt;) and builds one scene, Content/Rooms/map/CriticalShift_Map.unity,
+        /// with each room prefab where map_placement.json (map_placement.py, read from combined_map.blend) puts it.</summary>
+        static string ImportMap(string root, out bool ok)
+        {
+            ok = false;
+            string placementFile = Path.Combine(root, "map_placement.json");
+            if (!File.Exists(placementFile)) return "No map_placement.json in " + root + ". Pull the repository, or run map_placement.py on the combined map.";
+            var placement = (Dictionary<string, object>)((Dictionary<string, object>)MiniJson.Parse(File.ReadAllText(placementFile)))["rooms"];
+            var rooms = FindBakedRooms(root);
+            if (rooms.Count == 0) return "No map bakes under " + root + ". Bake them with bake_all.ps1 -Map.";
+            string summary = ImportRooms(rooms, MapFolder);
+            ok = !summary.Contains("FAILED");
+
+            var scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
+            var mapRoot = new GameObject("CriticalShift_Map");
+            var placed = new List<string>();
+            var unplaced = new List<string>();
+            foreach (string source in rooms)
+            {
+                string room = Path.GetFileName(source.TrimEnd('/', '\\'));
+                var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(MapFolder + "/" + room + "/" + room + ".prefab");
+                if (prefab == null || !placement.TryGetValue(room, out object p)) { unplaced.Add(room); continue; }
+                var entry = (Dictionary<string, object>)p;
+                var loc = (List<object>)entry["location"];
+                var go = (GameObject)PrefabUtility.InstantiatePrefab(prefab, mapRoot.transform);
+                go.transform.localPosition = BlenderToUnity.Point((double)loc[0], (double)loc[1], (double)loc[2]);
+                go.transform.localRotation = BlenderToUnity.MapYaw(Num(entry, "rotation_z_deg", 0.0));
+                placed.Add(room);
+            }
+            var missing = placement.Keys.Where(r => !placed.Contains(r)).ToList();
+            string scenePath = MapFolder + "/CriticalShift_Map.unity";
+            EditorSceneManager.SaveScene(scene, scenePath);
+            summary += "\nScene " + scenePath + ": " + placed.Count + " pieces placed";
+            if (missing.Count > 0) summary += "; not baked: " + string.Join(", ", missing);
+            if (unplaced.Count > 0) { summary += "; NOT PLACED (no prefab or no placement): " + string.Join(", ", unplaced); ok = false; }
+            return summary;
         }
 
         /// <summary>Batch entry point. Exits non-zero when URP is missing, no room is found or any room fails.</summary>
@@ -129,7 +192,7 @@ namespace CriticalShift.Content.Editor
         public static List<string> FindBakedRooms(string root) =>
             Directory.Exists(root) ? Directory.GetDirectories(root).Where(IsBakedRoom).OrderBy(d => d, StringComparer.Ordinal).ToList() : new List<string>();
 
-        static string ImportRooms(List<string> sources)
+        static string ImportRooms(List<string> sources, string destRoot = RoomsFolder)
         {
             var lines = new StringBuilder();
             foreach (string source in sources)
@@ -138,7 +201,7 @@ namespace CriticalShift.Content.Editor
                 try
                 {
                     EditorUtility.DisplayProgressBar("Importing baked rooms", room, (float)sources.IndexOf(source) / sources.Count);
-                    lines.AppendLine(ImportRoom(source));
+                    lines.AppendLine(ImportRoom(source, destRoot));
                 }
                 catch (Exception e)
                 {
@@ -151,10 +214,10 @@ namespace CriticalShift.Content.Editor
             return lines.ToString().TrimEnd();
         }
 
-        static string ImportRoom(string source)
+        static string ImportRoom(string source, string destRoot)
         {
             string room = Path.GetFileName(source.TrimEnd('/', '\\'));
-            string dest = RoomsFolder + "/" + room;
+            string dest = destRoot + "/" + room;
             int copied = CopyRoom(source, dest);
             AssetDatabase.Refresh(ImportAssetOptions.ForceSynchronousImport);   // textures and FBX import here, with RoomAssetPostprocessor's settings
 
@@ -166,7 +229,7 @@ namespace CriticalShift.Content.Editor
             string fbx = dest + "/" + room + ".fbx";
             int remapped = RemapMaterials(fbx, materials, out List<string> unmatched);
             int lights = 0;
-            string prefab = BuildPrefab(room, fbx, Path.Combine(dest, "lights.json"), ref lights);
+            string prefab = BuildPrefab(room, fbx, Path.Combine(dest, "lights.json"), dest, ref lights);
             string line = string.Format("{0}: {1} files copied, {2} materials ({3} remapped in the FBX), {4} lights, prefab {5}",
                                         room, copied, materials.Count, remapped, lights, prefab);
             if (unmatched.Count > 0) line += "; FBX materials with no manifest entry: " + string.Join(", ", unmatched);
@@ -333,7 +396,7 @@ namespace CriticalShift.Content.Editor
         const StaticEditorFlags RoomStatic = StaticEditorFlags.ContributeGI | StaticEditorFlags.OccluderStatic | StaticEditorFlags.OccludeeStatic |
                                              StaticEditorFlags.ReflectionProbeStatic;   // no BatchingStatic: the GPU Resident Drawer replaces it (URP_SETTINGS.md)
 
-        static string BuildPrefab(string room, string fbx, string lightsJson, ref int lightCount)
+        static string BuildPrefab(string room, string fbx, string lightsJson, string dest, ref int lightCount)
         {
             var model = AssetDatabase.LoadAssetAtPath<GameObject>(fbx);
             var root = new GameObject(room);
@@ -348,7 +411,7 @@ namespace CriticalShift.Content.Editor
                     var data = (Dictionary<string, object>)MiniJson.Parse(File.ReadAllText(lightsJson));
                     foreach (var o in (List<object>)data["lights"]) { AddLight(lightsRoot.transform, (Dictionary<string, object>)o); lightCount++; }
                 }
-                string path = RoomsFolder + "/" + room + "/" + room + ".prefab";
+                string path = dest + "/" + room + ".prefab";
                 PrefabUtility.SaveAsPrefabAsset(root, path, out bool ok);
                 if (!ok) throw new InvalidOperationException("Prefab could not be saved: " + path);
                 return path;
