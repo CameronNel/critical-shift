@@ -17,6 +17,7 @@ import tempfile
 from pathlib import Path
 
 from evidence import EvidenceError, validate_log, validate_results, validate_sandbox_player
+from editor_identity import inspect_editor
 from check_source import check
 from run_foundation import RUNTIME, execute, fingerprint, source_files, utc
 
@@ -51,6 +52,7 @@ def run(unity: str | None, output_parent: Path, target: str, build_player: bool 
             raise EvidenceError("Pass the already activated Unity 6000.4.3f1 executable with --unity.")
         if target not in ("Linux64", "Win64"):
             raise EvidenceError("Unsupported sandbox desktop target.")
+        report["editor_file_identity"] = inspect_editor(editor, profile)
         work = output / "workspace/runtime"
         for path in source_files(RUNTIME):
             destination = work / path.relative_to(RUNTIME)

@@ -19,6 +19,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from evidence import EvidenceError, validate_log, validate_player, validate_results
+from editor_identity import inspect_editor
 
 RUNTIME = Path(__file__).resolve().parents[1]
 
@@ -106,6 +107,7 @@ def run(unity: str | None, output_parent: Path, target: str) -> tuple[int, Path]
             raise EvidenceError("An activated Unity 6000.4.3f1 executable is required; pass --unity or UNITY_EDITOR.")
         if target not in ("Linux64", "Win64"):
             raise EvidenceError("Unsupported WP-01 build target.")
+        report["editor_file_identity"] = inspect_editor(editor, profile)
         work = out / "workspace" / "runtime"
         for path in source_files(RUNTIME):
             dest = work / path.relative_to(RUNTIME)

@@ -583,3 +583,17 @@ pause/exclusion assertions; all remain NotRun. The torque case is renamed
 `ManipulatingHeldCrateUsesBoundedForcesWithoutAnotherLogicalMutation` in the
 saved catalogue; the declared total stays 86. Compact help now wraps on narrower
 windows. Native handling, comfort and rendering acceptance remain unvalidated.
+
+## Non-launching Editor identity source
+
+Both native runners now inspect Windows Unity.exe product metadata before any
+Editor invocation or disposable-project copy. Version and revision must exactly
+match `runtime/toolchain.json`. The PowerShell script is constant and reads a
+literal path supplied through a child-process environment value, without
+executing the Editor or altering settings. Other hosts explicitly retain
+NativeLogRequired status; every native run still needs its own version/revision
+log evidence. Four new Python cases are written and NotRun (exact identity,
+rejected mismatches, literal-path/no-Editor invocation and unsupported-host
+honesty). A direct read-only file-metadata observation on this computer reported
+ProductVersion `6000.4.3f1_39d1a88d4dd1` and FileVersion `6000.4.3.3789224`.
+That read did not start Unity and does not constitute an import/compiler pass.
