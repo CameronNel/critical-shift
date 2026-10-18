@@ -32,12 +32,14 @@ a = sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else []
 def arg(k, d=None): return a[a.index(k) + 1] if k in a else d
 ROOM = arg('--room'); OUT = os.path.abspath(arg('--out')); COLL = arg('--collection', 'MODULE_' + ROOM)
 PROFILE = arg('--profile', 'default')     # 'home': the owner's PC (Ryzen 7 5800X, 32 GB, Radeon RX 9070 XT 16 GB): 4K atlases, 8 samples, AO/bevel nodes uncapped (device still as the owner says)
-_home = PROFILE == 'home'
-DENSITY = float(arg('--density', 256)); MAXSZ = int(arg('--max', 4096 if _home else 2048)); SAMPLES = int(arg('--samples', 8 if _home else 1))
+_home = PROFILE == 'home'; _rehearsal = PROFILE == 'rehearsal'      # 'rehearsal': every stage at 256 px and 1 sample, to prove a run before the real one
+DENSITY = float(arg('--density', 64 if _rehearsal else 256)); MAXSZ = int(arg('--max', 4096 if _home else 256 if _rehearsal else 2048)); SAMPLES = int(arg('--samples', 8 if _home else 1))
 # --device GPU|CPU (or CS_BLENDER_DEVICE) is required for the bake stages: blender_device.py, owner rule 2026-10-16
 STAGE = arg('--stage', 'all'); PASS = arg('--pass')
+if STAGE not in ('prep', 'bake', 'finish', 'all') or (STAGE == 'bake' and PASS not in ('base', 'rough', 'normal', 'metal', 'emit', 'mask')):
+    raise SystemExit('unknown --stage %r / --pass %r' % (STAGE, PASS))
 ONLY = set(arg('--materials').split(',')) if arg('--materials') else None      # bake only these materials in this run (batches that fit a job limit)
-NODE_SAMPLES = int(arg('--node-samples', 0 if _home else 4))   # >0: cap the AO and bevel shader nodes' own ray samples (they dominate bake time on a CPU)
+NODE_SAMPLES = int(arg('--node-samples', 0 if _home else 1 if _rehearsal else 4))   # >0: cap the AO and bevel shader nodes' own ray samples (they dominate bake time on a CPU)
 SRC = bpy.data.filepath; WORK = os.path.join(OUT, '_work.blend'); RAW = os.path.join(OUT, '_raw'); PLAN = os.path.join(OUT, '_plan.json')
 for d in (OUT, os.path.join(OUT, 'textures'), RAW): os.makedirs(d, exist_ok=True)
 t0 = time.time(); log = dict(source=os.path.relpath(SRC, os.path.join(os.path.dirname(__file__), '..', '..', '..')), room=ROOM, collection=COLL, density_px_per_m=DENSITY,
@@ -100,8 +102,110 @@ def non_principled(m):
     if em is not None:
         e.update(_EmissionColor=list(em.inputs['Color'].default_value)[:3], _EmissionColor_intensity=float(em.inputs['Strength'].default_value))
     return e
+CLOSURES = {'BSDF_PRINCIPLED', 'BSDF_DIFFUSE', 'BSDF_GLOSSY', 'BSDF_ANISOTROPIC', 'BSDF_METALLIC', 'BSDF_GLASS', 'BSDF_REFRACTION', 'BSDF_TRANSPARENT',
+            'BSDF_TRANSLUCENT', 'BSDF_SHEEN', 'SUBSURFACE_SCATTERING', 'BSDF_TOON', 'BSDF_HAIR', 'BSDF_HAIR_PRINCIPLED', 'EMISSION', 'HOLDOUT', 'BSDF_RAY_PORTAL'}
+def surface(m):
+    """The output node Cycles renders the material through."""
+    outs = [n for n in m.node_tree.nodes if n.type == 'OUTPUT_MATERIAL'] if m and m.node_tree else []
+    return next((n for n in outs if n.is_active_output and n.target in ('ALL', 'CYCLES')), None) or next((n for n in outs if n.target in ('ALL', 'CYCLES')), None)
+def closures(m):
+    """The shader closures feeding the surface through Mix and Add shaders and reroutes, and those mix nodes: (leaves, mixers). An empty shader
+    socket is a None leaf (renders black). None when anything else stands in the way (a node group with a shader output, a muted node), so the
+    caller falls back to the first Principled BSDF. Since 2026-10-18: the bake used to route only that Principled, which lost the emission strips
+    the turbine mixes in (M_ARCH, M_MACH, M_PROPS, M_SHAFT), the screens added in the front end, and every transparency done with a Transparent BSDF."""
+    out = surface(m)
+    if out is None or not out.inputs['Surface'].is_linked: return None
+    leaves, mixers = [], []
+    def walk(sock):
+        if not sock.is_linked: leaves.append(None); return True
+        n = sock.links[0].from_node
+        if n.mute: return False
+        if n.type == 'REROUTE': return walk(n.inputs[0])
+        if n.type in ('MIX_SHADER', 'ADD_SHADER'):
+            mixers.append(n); return all([walk(i) for i in n.inputs if i.type == 'SHADER'])
+        if n.type in CLOSURES: leaves.append(n); return True
+        return False
+    return (leaves, mixers) if walk(out.inputs['Surface']) else None
+def see_through(n):
+    """Can this closure let the background through (URP alpha blend)?"""
+    if n is None: return False
+    if n.type in ('BSDF_TRANSPARENT', 'BSDF_GLASS', 'BSDF_REFRACTION', 'BSDF_RAY_PORTAL'): return True
+    if n.type == 'BSDF_PRINCIPLED':
+        al, tw = n.inputs['Alpha'], n.inputs['Transmission Weight']
+        return al.is_linked or al.default_value < 1.0 or tw.is_linked or tw.default_value > 0.0
+    return False
+def emits(n):
+    if n is None: return False
+    if n.type == 'EMISSION': col, st = n.inputs['Color'], n.inputs['Strength']
+    elif n.type == 'BSDF_PRINCIPLED': col, st = n.inputs['Emission Color'], n.inputs['Emission Strength']
+    else: return False
+    return (col.is_linked or max(list(col.default_value)[:3]) > 0) and (st.is_linked or st.default_value > 0)
+def leaf_metal(n):
+    """A closure's constant metallic value (URP metallic workflow: glossy and metallic shaders are metal)."""
+    if n is None: return 0.0
+    if n.type == 'BSDF_PRINCIPLED': return float(n.inputs['Metallic'].default_value)
+    return 1.0 if n.type in ('BSDF_GLOSSY', 'BSDF_ANISOTROPIC', 'BSDF_METALLIC') else 0.0
+
+# Each closure becomes an Emission shader carrying one URP channel, and the Mix and Add shaders above it are rebuilt with the same factors, so the bake
+# returns the closure-weighted sum. Every closure has an opacity o (Principled: Alpha x (1 - 0.75 Transmission), the 25 % glass of URP; glass and
+# refraction 0.25; transparent 0; the rest 1) and a reflective weight r (o for Principled and glass, 0 for transparent, emission and holdout, else 1).
+# Channels: base = r x colour, rough = r x roughness, metal = r x metallic, emit = o x emission, mask = (1 - o, r, 1). The finish divides base and
+# emission by alpha = 1 - mask.R and roughness and metallic by mask.G, which gives straight values for URP (alpha blend multiplies colour and emission
+# by alpha); mask.B marks texels the bake covered. A plain opaque Principled bakes exactly as before (o = r = 1).
+def _src(sock):
+    return sock.links[0].from_socket if sock.is_linked else (list(sock.default_value)[:3] if hasattr(sock.default_value, '__len__') else float(sock.default_value))
+def _set(nt, v, dst):
+    if isinstance(v, bpy.types.NodeSocket): nt.links.new(v, dst)
+    elif hasattr(dst.default_value, '__len__'): dst.default_value = (list(v)[:3] + [1.0]) if isinstance(v, (list, tuple)) else (v, v, v, 1.0)
+    else: dst.default_value = v
+def _math(nt, made, op, x, y, z=None):
+    """x op y (op z), folded when every operand is a constant."""
+    if not any(isinstance(v, bpy.types.NodeSocket) for v in (x, y, z)):
+        return {'MULTIPLY': lambda: x * y, 'SUBTRACT': lambda: x - y, 'MULTIPLY_ADD': lambda: x * y + z}[op]()
+    n = nt.nodes.new('ShaderNodeMath'); n.operation = op; made.append(n)
+    for i, v in enumerate((x, y, z)):
+        if v is not None: _set(nt, v, n.inputs[i])
+    return n.outputs[0]
+def _weights(nt, n, made):
+    """(opacity, reflective weight) of a closure, as constants or sockets."""
+    if n is None or n.type in ('EMISSION', 'HOLDOUT'): return 1.0, 0.0
+    if n.type in ('BSDF_TRANSPARENT', 'BSDF_RAY_PORTAL'): return 0.0, 0.0
+    if n.type in ('BSDF_GLASS', 'BSDF_REFRACTION'): return 0.25, 0.25
+    if n.type == 'BSDF_PRINCIPLED':
+        o = _math(nt, made, 'MULTIPLY', _src(n.inputs['Alpha']), _math(nt, made, 'MULTIPLY_ADD', _src(n.inputs['Transmission Weight']), -0.75, 1.0))
+        return o, o
+    return 1.0, 1.0
+def _leaf(nt, n, ch, made):
+    e = nt.nodes.new('ShaderNodeEmission'); made.append(e); o, r = _weights(nt, n, made)
+    ins = n.inputs if n is not None else {}
+    if ch == 'mask':
+        c = nt.nodes.new('ShaderNodeCombineColor'); made.append(c)
+        _set(nt, _math(nt, made, 'SUBTRACT', 1.0, o), c.inputs[0]); _set(nt, r, c.inputs[1]); c.inputs[2].default_value = 1.0
+        nt.links.new(c.outputs[0], e.inputs['Color']); e.inputs['Strength'].default_value = 1.0
+    elif ch == 'emit':
+        if n is not None and n.type == 'EMISSION': col, st = _src(n.inputs['Color']), _src(n.inputs['Strength'])
+        elif n is not None and n.type == 'BSDF_PRINCIPLED': col, st = _src(n.inputs['Emission Color']), _math(nt, made, 'MULTIPLY', _src(n.inputs['Emission Strength']), o)
+        else: col, st = [0.0, 0.0, 0.0], 0.0
+        _set(nt, col, e.inputs['Color']); _set(nt, st, e.inputs['Strength'])
+    else:
+        if ch == 'base': v = next((_src(ins[k]) for k in ('Base Color', 'Color') if k in ins), [0.8, 0.8, 0.8])
+        elif ch == 'rough': v = _src(ins['Roughness']) if 'Roughness' in ins and n.type != 'BSDF_DIFFUSE' else 1.0
+        else: v = _src(ins['Metallic']) if n is not None and n.type == 'BSDF_PRINCIPLED' else leaf_metal(n)
+        _set(nt, v, e.inputs['Color']); _set(nt, r, e.inputs['Strength'])
+    return e.outputs[0]
+def channel_tree(nt, sock, ch, made):
+    """The closure tree feeding input `sock`, rebuilt from Emission shaders carrying channel `ch` (closures() has checked it is routable)."""
+    if not sock.is_linked: return _leaf(nt, None, ch, made)
+    n = sock.links[0].from_node
+    if n.type == 'REROUTE': return channel_tree(nt, n.inputs[0], ch, made)
+    if n.type not in ('MIX_SHADER', 'ADD_SHADER'): return _leaf(nt, n, ch, made)
+    x = nt.nodes.new('ShaderNode' + ('MixShader' if n.type == 'MIX_SHADER' else 'AddShader')); made.append(x)
+    if n.type == 'MIX_SHADER': _set(nt, _src(n.inputs[0]), x.inputs[0])
+    for i, j in zip([i for i in n.inputs if i.type == 'SHADER'], [j for j in x.inputs if j.type == 'SHADER']): nt.links.new(channel_tree(nt, i, ch, made), j)
+    return x.outputs[0]
+
 def collect():
-    objs = [o for o in coll.all_objects if o.type == 'MESH' and not o.hide_render and o.name not in skipped]
+    objs = [o for o in coll.all_objects if o.type == 'MESH' and not o.hide_render and o.name not in skipped and len(o.data.polygons)]   # no faces: nothing to bake or draw
     mats = []
     for o in objs:
         for s_ in o.material_slots:
@@ -147,10 +251,14 @@ def merge_for_bake(objs, mats):
                 r = n.inputs.get('Radius') or n.inputs.get('Distance')
                 acc['radius'] = max(acc['radius'], 0.1 if (r is None or r.is_linked) else float(r.default_value))
             elif n.type in ('UVMAP', 'NORMAL_MAP', 'TANGENT') and n.uv_map: acc['uv'].add(n.uv_map)
-            elif n.type == 'ATTRIBUTE' and n.attribute_name: acc['uv'].add(n.attribute_name)
-            elif n.type == 'GROUP': walk(n.node_tree, acc)
+            elif n.type == 'ATTRIBUTE' and n.attribute_name and n.attribute_type == 'GEOMETRY': acc['uv'].add(n.attribute_name)
+            if ((n.type == 'TEX_COORD' and n.outputs['Normal'].is_linked) or (n.type == 'TANGENT' and n.direction_type == 'RADIAL') or
+                    n.type == 'OBJECT_INFO' or (n.type == 'ATTRIBUTE' and n.attribute_type != 'GEOMETRY') or
+                    (n.type == 'VERTEX_COLOR' and not n.layer_name) or (n.type == 'NORMAL_MAP' and n.space in ('OBJECT', 'BLENDER_OBJECT'))):
+                acc['solo'] = True                               # reads the object itself (object-space normal, radial tangent, object info): not merged
+            if n.type == 'GROUP': walk(n.node_tree, acc)
     for m in mats:
-        info[m.name] = dict(local=False, radius=0.0, uv=set()); walk(m.node_tree, info[m.name])
+        info[m.name] = dict(local=False, radius=0.0, uv=set(), solo=False); walk(m.node_tree, info[m.name])
     # shaders: object and generated coordinates read from the stored attributes (node groups are shared, so every object gets the attributes)
     for nt in trees:
         cache = {}
@@ -159,8 +267,9 @@ def merge_for_bake(objs, mats):
                 a = nt.nodes.new('ShaderNodeAttribute'); a.attribute_type = 'GEOMETRY'; a.attribute_name = name; a.location = near.location; cache[name] = a
             return cache[name].outputs['Vector']
         for n in list(nt.nodes):
-            if n.type == 'TEX_COORD' and n.object is None:
+            if n.type == 'TEX_COORD':                            # Generated never depends on the node's object; Object does when one is set
                 for out, name in (('Object', '_cs_obj'), ('Generated', '_cs_gen')):
+                    if out == 'Object' and n.object is not None: continue
                     for l in list(n.outputs[out].links): nt.links.new(attr(name, n), l.to_socket)
             elif n.type in GEN_DEFAULT and n.inputs.get('Vector') is not None and not n.inputs['Vector'].is_linked:
                 nt.links.new(attr('_cs_gen', n), n.inputs['Vector'])
@@ -169,7 +278,7 @@ def merge_for_bake(objs, mats):
     for o in objs:
         me = o.data; ms = [s.material for s in o.material_slots if s.material and s.material.name in info]
         refs = set().union(*[info[m.name]['uv'] for m in ms]) if ms else set()
-        flags.append((any(info[m.name]['local'] for m in ms), max([info[m.name]['radius'] for m in ms] + [0.0])))
+        flags.append((any(info[m.name]['local'] for m in ms), max([info[m.name]['radius'] for m in ms] + [0.0]), any(info[m.name]['solo'] for m in ms)))
         co = np.empty(len(me.vertices) * 3, np.float32); me.vertices.foreach_get('co', co); co = co.reshape(-1, 3)
         loc, size = np.array(me.texspace_location, np.float32), np.array(me.texspace_size, np.float32); size[size == 0] = 1.0
         for name, arr in (('_cs_obj', co), ('_cs_gen', (co - loc) / (2 * size) + 0.5)):
@@ -188,16 +297,19 @@ def merge_for_bake(objs, mats):
     N = len(objs); lo = np.empty((N, 3)); hi = np.empty((N, 3))
     for i, o in enumerate(objs):
         c = np.array([o.matrix_world @ Vector(b) for b in o.bound_box]); lo[i], hi[i] = c.min(0), c.max(0)
-    local = np.array([f[0] for f in flags]); pad = max([f[1] for f in flags] + [0.0]) + 0.01
+    local = np.array([f[0] for f in flags]); solo = [f[2] for f in flags]; pad = max([f[1] for f in flags] + [0.0]) + 0.01
     lo -= pad; hi += pad
     order = sorted(range(N), key=lambda i: (not local[i], -float(np.prod(hi[i] - lo[i]))))
     col = np.full(N, -1); groups = []
     for i in order:
         near = np.all((lo[i] <= hi) & (hi[i] >= lo), axis=1) & (col >= 0) & (local | local[i])
         banned = set(col[near].tolist())
-        g = next((k for k, gr in enumerate(groups) if k not in banned and len(gr['uv'] | uvsets[i]) <= 6), None)
-        if g is None: g = len(groups); groups.append(dict(members=[], uv=set()))
+        g = None if solo[i] else next((k for k, gr in enumerate(groups) if k not in banned and not gr['solo'] and len(gr['uv'] | uvsets[i]) <= 6), None)
+        if g is None: g = len(groups); groups.append(dict(members=[], uv=set(), solo=solo[i]))
         col[i] = g; groups[g]['members'].append(i); groups[g]['uv'] |= uvsets[i]
+    for o in list(vl.objects):                                   # in memory: no animation or constraint may move a mesh once joined (the ore cart is animated)
+        if o.animation_data: o.animation_data_clear()
+        for c_ in list(getattr(o, 'constraints', [])): o.constraints.remove(c_)
     for o in list(vl.objects):                                   # unparent (keeping place) anything whose parent may be joined away
         if o.parent is not None and o.parent.type == 'MESH':
             mw = o.matrix_world.copy(); o.parent = None; o.matrix_world = mw
@@ -212,10 +324,11 @@ def merge_for_bake(objs, mats):
         me.uv_layers.active = me.uv_layers['UVBake']
         if me.uv_layers.get('_cs_render_uv') is not None: me.uv_layers['_cs_render_uv'].active_render = True
         out.append(j)
-    step('merged for bake', objects=N, meshes=len(out), objects_with_bevel_or_local_ao=int(local.sum()), largest=max(len(g['members']) for g in groups),
+    step('merged for bake', objects=N, meshes=len(out), objects_with_bevel_or_local_ao=int(local.sum()), not_merged=sum(solo), largest=max(len(g['members']) for g in groups),
          seconds=round(time.time() - t, 1))
     return out
 
+PLAN_VERSION = 2              # 2 (2026-10-18): closure-tree routing, mask pass, HDR emission; older plans and _work files cannot be resumed
 ISOLATE = '--isolate' in a     # map mode (bake_all.ps1 -Map): bake the room collections alone, e.g. the map's ROOM_<room>_members
 def _layer(name):
     """The view layer's LayerCollection for a collection, looked up fresh: changing exclude rebuilds the tree and leaves older references stale."""
@@ -238,7 +351,8 @@ def isolate():
     for n in coll.names:
         if n not in present: sc.collection.children.link(bpy.data.collections[n])
     def plan(lc, out):                                           # collections off every path to a room collection, outermost only
-        keep = lc.collection.name in coll.names
+        if lc.collection.name in coll.names: return True         # a room collection keeps all its children (lights-only ones too)
+        keep = False
         sub = []
         for ch in lc.children: keep = plan(ch, sub) or keep
         if keep: out.extend(sub)
@@ -257,6 +371,44 @@ def isolate():
     left = [n for n in drop if not _layer(n).exclude]
     if left: raise SystemExit('isolate: collections still in the view layer: %s' % left)
 
+def assert_isolated(where):
+    """Everything that renders must be the room (2026-10-18: the whole map rendered inside every map bake and nothing said so). Cameras are allowed.
+    Room mode only warns: a room file may hold other things the room scene always rendered with."""
+    keep = set(coll.all_objects); foreign = set()
+    for o in vl.objects:                                         # render visibility (hidden from the viewport still renders)
+        if o not in keep and o.type != 'CAMERA' and not o.hide_render: foreign.add(o.name)
+    for inst in bpy.context.evaluated_depsgraph_get().object_instances:
+        if not inst.is_instance: continue                        # and nothing instanced from outside the room
+        o = inst.object.original; src = inst.parent.original if inst.parent else o
+        if src not in keep or (o.type != 'CAMERA' and o not in keep and src.instance_type == 'COLLECTION'): foreign.add('%s (instanced by %s)' % (o.name, src.name))
+    if foreign and ISOLATE: raise SystemExit('%s: %d objects render that are not in %s: %s' % (where, len(foreign), coll.names, sorted(foreign)[:20]))
+    if foreign: print('BAKE warning (room mode) %s: %d objects outside %s render: %s' % (where, len(foreign), coll.names, sorted(foreign)[:20]))
+    step('isolation checked', where=where, foreign=len(foreign))
+
+def check_images(mats):
+    """Stop when an image a material uses has no pixels: Cycles bakes a missing image as magenta and nothing else notices (review 2026-10-18:
+    the turbine rebuild's 23 PNGs are external LFS files, left as pointers by a pull of .blend files only)."""
+    imgs = {}
+    def walk(starts, mname, seen):                              # back along the links from the outputs: an unconnected image node does not bake
+        stack = list(starts)
+        while stack:
+            n = stack.pop()
+            if n.as_pointer() in seen: continue
+            seen.add(n.as_pointer())
+            if n.type in ('TEX_IMAGE', 'TEX_ENVIRONMENT') and n.image: imgs.setdefault(n.image, mname)
+            if n.type == 'GROUP' and n.node_tree: stack.extend(x for x in n.node_tree.nodes if x.type == 'GROUP_OUTPUT')
+            stack.extend(l.from_node for i in n.inputs for l in i.links)
+    for m in mats:
+        if m.node_tree: walk([x for x in m.node_tree.nodes if x.type == 'OUTPUT_MATERIAL'], m.name, set())
+    bad = []
+    for im, mname in imgs.items():
+        if im.source not in ('FILE', 'TILED', 'SEQUENCE', 'MOVIE') or im.packed_file: continue
+        try: im.reload(); ok = im.size[0] > 0 and im.size[1] > 0
+        except Exception: ok = False
+        if not ok: bad.append('%s (%s, used by %s)' % (im.name, bpy.path.abspath(im.filepath, library=im.library), mname))
+    if bad: raise SystemExit('%d images have no pixels (missing file or an LFS pointer: git lfs pull --include the file):\n  %s' % (len(bad), '\n  '.join(sorted(bad))))
+    step('images checked', images=len(imgs))
+
 def localise_node_groups(mats):
     """Node groups stay linked when objects, meshes and materials are made local; the merge rewires them, so make them local too."""
     seen = set()
@@ -273,6 +425,7 @@ def localise_node_groups(mats):
     for m in mats: walk(m.node_tree if m else None)
 
 if STAGE in ('prep', 'all'):
+    for f in os.listdir(RAW): os.remove(os.path.join(RAW, f))     # maps of an older UV layout must never reach the finish
     if ISOLATE: isolate(); step('isolated', collections=coll.names)
     # collection instances (the spawn room's four PPE hero suits, linked from hero_suit.blend) become real local objects, or the bake would miss them
     inst = [o for o in coll.all_objects if o.instance_type == 'COLLECTION' and o.instance_collection and not o.hide_render]
@@ -294,6 +447,7 @@ if STAGE in ('prep', 'all'):
         localise_node_groups({s_.material for o in coll.all_objects for s_ in getattr(o, 'material_slots', []) if s_.material})
         step('linked data made local', objects=len(ext))
     objs = [o for o in coll.all_objects if o.type in ('MESH', 'CURVE', 'FONT') and not o.hide_render]
+    check_images({s_.material for o in objs for s_ in o.material_slots if s_.material})
     coll.show(objs)
     skipped = [o.name for o in objs if any(VOLUME(s.material) for s in o.material_slots)]
     objs = [o for o in objs if o.name not in skipped]
@@ -321,12 +475,24 @@ if STAGE in ('prep', 'all'):
     objs, mats = collect()
     plan = {}
     for m in mats:
-        b = bsdf(m)
-        procedural = bool(b and any(i.is_linked for i in b.inputs)) or (m.node_tree and any(n.type in ('TEX_NOISE', 'TEX_VORONOI', 'AMBIENT_OCCLUSION', 'BEVEL') for n in m.node_tree.nodes))
-        emits = bool(b and (b.inputs['Emission Color'].is_linked or b.inputs['Emission Strength'].is_linked or
-                            (b.inputs['Emission Strength'].default_value > 0 and max(list(b.inputs['Emission Color'].default_value)[:3]) > 0)))
-        # only a Principled BSDF can be routed into the bake (via_emission); other shaders (the reactor's glossy/transparent water) become constants
-        plan[m.name] = dict(bake=procedural and b is not None, metallic_map=linked(m, 'Metallic'), emission=emits, principled=b is not None)
+        b = bsdf(m); tree = closures(m)
+        if tree is not None: leaves, mixers = tree; route = 'tree'
+        elif b is not None: leaves, mixers = [b], []; route = 'principled'     # a node group or muted node in the shader chain: the old route
+        else: leaves, mixers = [], []; route = None
+        real = [n for n in leaves if n is not None]
+        procedural = (any(i.is_linked for n in real + mixers for i in n.inputs if i.type != 'SHADER') or
+                      bool(m.node_tree and any(n.type in ('TEX_NOISE', 'TEX_VORONOI', 'AMBIENT_OCCLUSION', 'BEVEL') for n in m.node_tree.nodes)))
+        # constants only for one plain Principled; any other routable surface bakes, even with constant inputs (a constant mix with an Emission or
+        # Transparent shader cannot be expressed as one URP constant set). Unroutable ones fall back to the first Principled, else to non_principled().
+        bake = route is not None and bool(real) and (procedural or len(leaves) > 1 or real[0].type != 'BSDF_PRINCIPLED')
+        # mask pass: alpha and the reflective weight, wherever several closures mix or one is not plainly reflective (emission, holdout, glass,
+        # transparent): without it a pure Emission shader bakes roughness 0 (r = 0) and comes out glossy black in Unity
+        mask = bake and (len(leaves) > 1 or any(n is None or see_through(n) or n.type in ('EMISSION', 'HOLDOUT') for n in leaves))
+        plan[m.name] = dict(bake=bake, route=route, closures=sorted({n.type for n in real}), mask=mask,
+                            metallic_map=bake and (len(leaves) > 1 or any(n.type == 'BSDF_PRINCIPLED' and n.inputs['Metallic'].is_linked for n in real)),
+                            metal_const=leaf_metal(real[0]) if len(real) == 1 else 0.0, emission=any(emits(n) for n in leaves), principled=b is not None)
+    step('materials planned', baked=sum(p['bake'] for p in plan.values()), masked=sorted(n for n, p in plan.items() if p['mask']),
+         constant_multi_closure=sorted(n for n, p in plan.items() if not p['bake'] and len(p['closures']) > 1))
 
     # --- UVs: one atlas per material ---------------------------------------------------------------------------------------------------------------------
     for o in objs:
@@ -363,30 +529,43 @@ if STAGE in ('prep', 'all'):
 
 
     for m in mats: m.use_fake_user = True
-    json.dump(dict(plan=plan, skipped=skipped, triangles=tris, objects=len(objs), log=log), open(PLAN, 'w'), indent=1)
+    assert_isolated('prep')
+    json.dump(dict(version=PLAN_VERSION, plan=plan, skipped=skipped, triangles=tris, objects=len(objs), log=log), open(PLAN, 'w'), indent=1)
     bpy.ops.wm.save_as_mainfile(filepath=WORK, relative_remap=True, copy=True)
     step('prep saved', work=os.path.basename(WORK))
     if STAGE == 'prep': raise SystemExit(0)
 else:
-    _p = json.load(open(PLAN)); plan, skipped, tris = _p['plan'], _p['skipped'], _p['triangles']; log['steps'] = _p['log']['steps']
+    _p = json.load(open(PLAN))
+    if _p.get('version') != PLAN_VERSION: raise SystemExit('%s was written by an older bake_room.py (plan version %s, need %s): rerun from prep' % (PLAN, _p.get('version'), PLAN_VERSION))
+    plan, skipped, tris = _p['plan'], _p['skipped'], _p['triangles']; log['steps'] = _p['log']['steps']
     objs, mats = collect()
+    assert_isolated(STAGE)
 
 if STAGE in ('bake', 'all'):
     # --- bake -------------------------------------------------------------------------------------------------------------------------------------------
     sc.render.engine = 'CYCLES'; sc.cycles.samples = SAMPLES; sc.cycles.use_denoising = False
     step('device', **blender_device.apply(sc))     # the owner's GPU or CPU; stops if unset, never falls back
     if NODE_SAMPLES:
-        for m in mats:
-            for n_ in (m.node_tree.nodes if m.node_tree else []):
+        def cap(nt, seen):
+            if nt is None or nt.as_pointer() in seen: return
+            seen.add(nt.as_pointer())
+            for n_ in nt.nodes:
                 if n_.type in ('AMBIENT_OCCLUSION', 'BEVEL'): n_.samples = min(n_.samples, NODE_SAMPLES)
-    if arg('--merge', 'on') != 'off':
-        objs = merge_for_bake(objs, mats)
+                elif n_.type == 'GROUP': cap(n_.node_tree, seen)
+        _seen = set()
+        for m in mats: cap(m.node_tree, _seen)
+    bake_objs = merge_for_bake(objs, mats) if arg('--merge', 'on') != 'off' else objs   # objs stays the unmerged list for --stage all's finish
     bk = sc.render.bake; bk.margin = 8; bk.margin_type = 'EXTEND'; bk.use_clear = True; bk.use_selected_to_active = False
     dummy = bpy.data.images.new('_bake_dummy', 8, 8)
     imgs = {}
     def image(mname, kind, colour):
-        s = plan[mname]['size']; im = bpy.data.images.new('%s_%s' % (mname, kind), s, s, alpha=False, float_buffer=False)
-        im.colorspace_settings.name = 'sRGB' if colour else 'Non-Color'; imgs[(mname, kind)] = im; return im
+        """Emission (HDR: lamps reach 45) and every pass of a masked material (divided by alpha or the reflective weight in the finish) bake
+        to float images saved as EXR, scene linear; the rest to 8-bit PNG as before."""
+        s = plan[mname]['size']; fl = kind == 'emit' or (plan[mname]['mask'] and kind != 'normal')
+        im = bpy.data.images.new('%s_%s' % (mname, kind), s, s, alpha=False, float_buffer=fl)
+        if not fl: im.colorspace_settings.name = 'sRGB' if colour else 'Non-Color'
+        elif not colour: im.colorspace_settings.name = 'Non-Color'
+        imgs[(mname, kind)] = im; return im
     def target(kind, colour, wanted):
         """Point every material's active image node at its `kind` image (materials not baking this pass at a dummy, so the bake does not stop)."""
         for m in mats:
@@ -399,79 +578,128 @@ if STAGE in ('bake', 'all'):
         target(kind, colour, wanted); t = time.time()
         bpy.ops.object.bake(type=btype, uv_layer='UVBake', **kw); step('baked ' + kind, seconds=round(time.time() - t, 1))
     for o in bpy.data.objects: o.select_set(False)
-    for o in objs: o.select_set(True)
-    vl.objects.active = objs[0]
+    for o in bake_objs: o.select_set(True)
+    vl.objects.active = bake_objs[0]
     def save_raw(kind):
         for (mn, k), im in imgs.items():
-            if k == kind: im.filepath_raw = os.path.join(RAW, '%s_%s.png' % (fname(mn), k)); im.file_format = 'PNG'; saved(im)
+            if k != kind: continue
+            ext, im.file_format = ('.exr', 'OPEN_EXR') if im.is_float else ('.png', 'PNG')
+            for old in ('.exr', '.png'):                            # a rerun must not leave the other format behind for the finish to pick up
+                f = os.path.join(RAW, '%s_%s%s' % (fname(mn), k, old))
+                if old != ext and os.path.exists(f): os.remove(f)
+            im.filepath_raw = os.path.join(RAW, '%s_%s%s' % (fname(mn), k, ext)); saved(im)
     def want(p): return STAGE == 'all' or PASS == p
-    # base colour, roughness, metallic and emission through the material output: temporarily route the socket's source into an Emission shader and bake EMIT.
-    # Not the DIFFUSE colour pass for base colour: Cycles scales that pass by (1 - metallic), so metal surfaces came out darker and Unity then applied metallic
-    # again (pilot 2026-10-16: baked renders 8 to 19 % darker, worst on the pump motor; after the fix within 1.5 %).
-    def via_emission(socket_name, kind, colour, wanted):
-        saved = {}
+    # base colour, roughness, metallic, emission and the mask through the material output: the closure tree is rebuilt from Emission shaders carrying
+    # the channel (channel_tree) and baked as EMIT. Not the DIFFUSE colour pass for base colour: Cycles scales that pass by (1 - metallic), so metal
+    # surfaces came out darker and Unity then applied metallic again (pilot 2026-10-16: baked renders 8 to 19 % darker; after the fix within 1.5 %).
+    def via_channel(ch, colour, wanted):
+        made_by = {}
         for m in mats:
-            b = bsdf(m)
-            if not (plan[m.name]['bake'] and wanted(m) and b): continue
-            nt = m.node_tree; out = next(n for n in nt.nodes if n.type == 'OUTPUT_MATERIAL' and n.is_active_output)
-            old = out.inputs['Surface'].links[0].from_socket if out.inputs['Surface'].is_linked else None
-            e = nt.nodes.new('ShaderNodeEmission'); e.name = '_bake_emit'; e.inputs['Strength'].default_value = 1.0
-            if socket_name in ('Metallic', 'Base Color', 'Roughness'):
-                i_ = b.inputs[socket_name]
-                if i_.is_linked: nt.links.new(i_.links[0].from_socket, e.inputs['Color'])
-                else: v_ = i_.default_value; e.inputs['Color'].default_value = (list(v_)[:3] + [1.0]) if hasattr(v_, '__len__') else (v_, v_, v_, 1.0)
-            else:
-                if b.inputs['Emission Color'].is_linked: nt.links.new(b.inputs['Emission Color'].links[0].from_socket, e.inputs['Color'])
-                else: e.inputs['Color'].default_value = b.inputs['Emission Color'].default_value
-                if b.inputs['Emission Strength'].is_linked: nt.links.new(b.inputs['Emission Strength'].links[0].from_socket, e.inputs['Strength'])
-                else: e.inputs['Strength'].default_value = b.inputs['Emission Strength'].default_value
-            nt.links.new(e.outputs[0], out.inputs['Surface']); saved[m.name] = (out, old, e)
-        if saved: run(kind, 'EMIT', colour=colour, wanted=lambda m: m.name in saved)
-        for n, (out, old, e) in saved.items():
+            p = plan[m.name]
+            if not (p['bake'] and wanted(m)): continue
+            nt = m.node_tree; out = surface(m); old = out.inputs['Surface'].links[0].from_socket if out.inputs['Surface'].is_linked else None
+            made = []
+            root = channel_tree(nt, out.inputs['Surface'], ch, made) if p['route'] == 'tree' else _leaf(nt, bsdf(m), ch, made)
+            nt.links.new(root, out.inputs['Surface']); made_by[m.name] = (out, old, made)
+        if made_by: run(ch, 'EMIT', colour=colour, wanted=lambda m: m.name in made_by)
+        for n, (out, old, made) in made_by.items():
             nt = bpy.data.materials[n].node_tree
             if old is not None: nt.links.new(old, out.inputs['Surface'])
-            nt.nodes.remove(e)
-    if want('base'): via_emission('Base Color', 'base', True, lambda m: True); save_raw('base')
-    if want('rough'): via_emission('Roughness', 'rough', False, lambda m: True); save_raw('rough')
+            for x in made: nt.nodes.remove(x)
+    if want('base'): via_channel('base', True, lambda m: True); save_raw('base')
+    if want('rough'): via_channel('rough', False, lambda m: True); save_raw('rough')
     if want('normal'): run('normal', 'NORMAL', colour=False, normal_space='TANGENT', normal_r='POS_X', normal_g='POS_Y', normal_b='POS_Z'); save_raw('normal')
-    if want('metal'): via_emission('Metallic', 'metal', False, lambda m: plan[m.name]['metallic_map']); save_raw('metal')
-    if want('emit'): via_emission('Emission', 'emit', True, lambda m: plan[m.name]['emission']); save_raw('emit')
+    if want('metal'): via_channel('metal', False, lambda m: plan[m.name]['metallic_map']); save_raw('metal')
+    if want('emit'): via_channel('emit', True, lambda m: plan[m.name]['emission']); save_raw('emit')
+    if want('mask'): via_channel('mask', False, lambda m: plan[m.name]['mask']); save_raw('mask')
 
 
-    if STAGE == 'bake': raise SystemExit(0)
+    if STAGE == 'bake':                                          # this pass's steps (times) for the finish to put in bake_report.json
+        json.dump(log['steps'], open(os.path.join(RAW, '_steps_%s.json' % PASS), 'w')); raise SystemExit(0)
 
 # --- write the URP map set ---------------------------------------------------------------------------------------------------------------------------
 TEX = os.path.join(OUT, 'textures')
+PASSES = ('base', 'rough', 'normal', 'metal', 'emit', 'mask')
+def needs(p, k):
+    return p['bake'] and (k in ('base', 'rough', 'normal') or (k == 'metal' and p['metallic_map']) or (k == 'emit' and p['emission']) or (k == 'mask' and p['mask']))
 if STAGE == 'finish':
-    imgs = {}
+    imgs, missing = {}, []
     for m in mats:
-        for k in ('base', 'rough', 'normal', 'metal', 'emit'):
-            f = os.path.join(RAW, '%s_%s.png' % (fname(m.name), k))
-            if plan[m.name]['bake'] and os.path.exists(f):
-                im = bpy.data.images.load(f); im.colorspace_settings.name = 'sRGB' if k in ('base', 'emit') else 'Non-Color'; imgs[(m.name, k)] = im
+        for k in PASSES:
+            f = next((f for f in (os.path.join(RAW, '%s_%s%s' % (fname(m.name), k, x)) for x in ('.exr', '.png')) if os.path.exists(f)), None)
+            if not needs(plan[m.name], k): continue
+            if f is None: missing.append('%s_%s' % (fname(m.name), k)); continue
+            im = bpy.data.images.load(f)
+            if not im.is_float: im.colorspace_settings.name = 'sRGB' if k == 'base' else 'Non-Color'
+            imgs[(m.name, k)] = im
+    for k in PASSES:
+        f = os.path.join(RAW, '_steps_%s.json' % k)
+        if os.path.exists(f): log['steps'] += [x for x in json.load(open(f)) if x not in log['steps']]
+    if missing: raise SystemExit('finish: %d baked maps missing from %s (a bake pass did not run or failed): %s' % (len(missing), RAW, missing[:20]))
     dummy = bpy.data.images.new('_bake_dummy', 8, 8)
     for m in mats:
         n_ = m.node_tree.nodes.get('_bake_target') if m.node_tree else None
         if n_: m.node_tree.nodes.remove(n_)
+for f in os.listdir(TEX): os.remove(os.path.join(TEX, f))           # the finish writes every map: nothing from an older run may stay behind
 def px(im): a_ = np.empty(len(im.pixels), np.float32); im.pixels.foreach_get(a_); return a_.reshape(im.size[1], im.size[0], 4)
+def to_lin(c): return np.where(c <= 0.04045, c / 12.92, ((np.maximum(c, 0.04045) + 0.055) / 1.055) ** 2.4)
+def to_srgb(c): c = np.clip(c, 0.0, 1.0); return np.where(c <= 0.0031308, c * 12.92, 1.055 * np.maximum(c, 0.0031308) ** (1 / 2.4) - 0.055)
+def lin(im):
+    """A colour map as scene-linear RGB: float bakes are linear already, 8-bit ones are sRGB-encoded."""
+    a_ = px(im)[..., :3]; return a_ if im.is_float else to_lin(a_)
+def bleed(rgb, ok, n=16):
+    """Give texels that are not ok their neighbours' colour, n texels deep: under alpha 0 a straight-alpha map still needs the edge colour,
+    or texture filtering pulls black into the edges of decals."""
+    rgb = rgb.copy(); ok = ok.copy()
+    for _ in range(n):
+        if ok.all(): break
+        acc = np.zeros_like(rgb); cnt = np.zeros(ok.shape, np.float32)
+        for sh in ((0, 1), (0, -1), (1, 0), (-1, 0)):
+            k_ = np.roll(ok, sh, (0, 1)); acc += np.roll(rgb, sh, (0, 1)) * k_[..., None]; cnt += k_
+        new = ~ok & (cnt > 0)
+        if not new.any(): break
+        rgb[new] = acc[new] / cnt[new][:, None]; ok |= new
+    return rgb
 def save(arr, name, colour):
+    """Write an 8-bit PNG; `arr` holds the values as stored (sRGB-encoded for colour maps)."""
     h, w = arr.shape[:2]; im = bpy.data.images.new(name, w, h, alpha=True); im.colorspace_settings.name = 'sRGB' if colour else 'Non-Color'
-    im.pixels.foreach_set(arr.astype(np.float32).ravel()); im.filepath_raw = os.path.join(TEX, name + '.png'); im.file_format = 'PNG'; return saved(im)
+    im.pixels.foreach_set(np.clip(arr, 0.0, 1.0).astype(np.float32).ravel()); im.filepath_raw = os.path.join(TEX, name + '.png'); im.file_format = 'PNG'; return saved(im)
 manifest = {}
 for m in mats:
     p = plan[m.name]; safe = fname(m.name); e = dict(source_material=m.name, urp_shader='Universal Render Pipeline/Lit')
-    if p['bake'] and p.get('principled', True):          # plans written before 2026-10-17 could mark a non-Principled material for baking
-        base = px(imgs[(m.name, 'base')]); rough = px(imgs[(m.name, 'rough')])[..., 0]
-        metal = px(imgs[(m.name, 'metal')])[..., 0] if (m.name, 'metal') in imgs else np.full(rough.shape, float(const(m, 'Metallic', 0.0)), np.float32)
-        base[..., 3] = 1.0; save(base, safe + '_BaseMap', True)
-        mg = np.zeros(base.shape, np.float32); mg[..., 0] = metal; mg[..., 1] = metal; mg[..., 2] = metal; mg[..., 3] = 1.0 - rough; save(mg, safe + '_MetallicGlossMap', False)
+    if p['bake']:
+        rough = px(imgs[(m.name, 'rough')])[..., 0]
+        metal = px(imgs[(m.name, 'metal')])[..., 0] if (m.name, 'metal') in imgs else np.full(rough.shape, float(p['metal_const']), np.float32)
+        base = np.ones(rough.shape + (4,), np.float32)
+        if p['mask']:
+            # straight values for URP from the closure-weighted bake (see channel_tree): colour and emission over alpha, roughness and metallic over
+            # the reflective weight; where a texel has no reflective closure (a pure emission strip) it is matte dielectric
+            mk = px(imgs[(m.name, 'mask')]); alpha = np.clip(1.0 - mk[..., 0], 0.0, 1.0); refl = mk[..., 1]; cov = mk[..., 2] > 0.5
+            seen = alpha > 1 / 255
+            base[..., :3] = to_srgb(bleed(np.where(seen[..., None], lin(imgs[(m.name, 'base')]) / np.maximum(alpha, 1e-6)[..., None], 0.0), seen | ~cov))
+            ok = refl > 1e-3
+            rough = np.where(ok, rough / np.maximum(refl, 1e-3), 1.0); metal = np.where(ok, metal / np.maximum(refl, 1e-3), 0.0) if (m.name, 'metal') in imgs else metal
+            see = float((alpha[cov] < 0.98).mean()) if cov.any() else 0.0
+            e.update(alpha_below_098_fraction=round(see, 4))
+            if see > 0.001: base[..., 3] = np.where(cov, alpha, 1.0); e.update(_Surface='Transparent', _Alpha_source='BaseMap alpha')
+        else:
+            alpha = None; im = imgs[(m.name, 'base')]
+            base[..., :3] = px(im)[..., :3] if not im.is_float else to_srgb(px(im)[..., :3])
+        save(base, safe + '_BaseMap', True)
+        mg = np.zeros(base.shape, np.float32); mg[..., 0] = mg[..., 1] = mg[..., 2] = np.clip(metal, 0, 1); mg[..., 3] = 1.0 - np.clip(rough, 0, 1)
+        save(mg, safe + '_MetallicGlossMap', False)
         nrm = px(imgs[(m.name, 'normal')]); nrm[..., 3] = 1.0; save(nrm, safe + '_BumpMap', False)
         e.update(_BaseMap='textures/%s_BaseMap.png' % safe, _MetallicGlossMap='textures/%s_MetallicGlossMap.png' % safe, _BumpMap='textures/%s_BumpMap.png' % safe,
                  _Smoothness_source='MetallicGlossMap alpha', size=p['size'], area_m2=p['area_m2'], approx_px_per_m=p['px_per_m'])
         if (m.name, 'emit') in imgs:
-            em = px(imgs[(m.name, 'emit')]); peak = float(em[..., :3].max()) or 1.0; em[..., :3] /= max(peak, 1e-6); em[..., 3] = 1.0
-            save(em, safe + '_EmissionMap', True); e.update(_EmissionMap='textures/%s_EmissionMap.png' % safe, _EmissionColor_intensity=round(peak, 3))
-    elif not p.get('principled', True):
+            # HDR: the bake is linear and unclipped (lamps reach 45); the map holds colour / peak, sRGB-encoded, and the intensity is the linear peak
+            em = lin(imgs[(m.name, 'emit')])
+            if alpha is not None: em = np.where(alpha[..., None] > 1 / 255, em / np.maximum(alpha, 1e-6)[..., None], 0.0)
+            peak = float(em.max())
+            if peak > 1e-4:
+                out_ = np.ones(base.shape, np.float32); out_[..., :3] = to_srgb(em / peak)
+                save(out_, safe + '_EmissionMap', True); e.update(_EmissionMap='textures/%s_EmissionMap.png' % safe, _EmissionColor_intensity=round(peak, 4))
+    elif not p['principled']:
         e.update(non_principled(m))
     else:
         e.update(_BaseColor=const(m, 'Base Color', [0.8, 0.8, 0.8]), _Metallic=const(m, 'Metallic', 0.0), _Smoothness=round(1 - const(m, 'Roughness', 0.5), 3))
@@ -488,7 +716,8 @@ def unity_mat(m):
         n = nt.nodes.new('ShaderNodeTexImage'); n.image = bpy.data.images.load(os.path.join(OUT, path)); n.image.colorspace_settings.name = 'sRGB' if colour else 'Non-Color'
         uvn = nt.nodes.new('ShaderNodeUVMap'); uvn.uv_map = 'UVBake'; nt.links.new(uvn.outputs[0], n.inputs[0]); return n
     if '_BaseMap' in e:
-        nt.links.new(tex(e['_BaseMap'], True).outputs['Color'], b.inputs['Base Color'])
+        bm = tex(e['_BaseMap'], True); nt.links.new(bm.outputs['Color'], b.inputs['Base Color'])
+        if e.get('_Surface') == 'Transparent': nt.links.new(bm.outputs['Alpha'], b.inputs['Alpha'])
         mg = tex(e['_MetallicGlossMap'], False); sep = nt.nodes.new('ShaderNodeSeparateColor'); nt.links.new(mg.outputs['Color'], sep.inputs[0])
         nt.links.new(sep.outputs[0], b.inputs['Metallic']); inv = nt.nodes.new('ShaderNodeMath'); inv.operation = 'SUBTRACT'; inv.inputs[0].default_value = 1.0
         nt.links.new(mg.outputs['Alpha'], inv.inputs[1]); nt.links.new(inv.outputs[0], b.inputs['Roughness'])
@@ -498,8 +727,7 @@ def unity_mat(m):
     else:
         b.inputs['Base Color'].default_value = list(e['_BaseColor']) + [1.0]; b.inputs['Metallic'].default_value = e['_Metallic']; b.inputs['Roughness'].default_value = 1 - e['_Smoothness']
         if '_EmissionColor' in e: b.inputs['Emission Color'].default_value = list(e['_EmissionColor']) + [1.0]; b.inputs['Emission Strength'].default_value = e['_EmissionColor_intensity']
-        src = bsdf(m)
-        if src: b.inputs['Alpha'].default_value = src.inputs['Alpha'].default_value; b.inputs['Transmission Weight'].default_value = src.inputs['Transmission Weight'].default_value
+        if e.get('_Surface') == 'Transparent': b.inputs['Alpha'].default_value = e.get('_Alpha', 0.25)   # what URP gets: alpha blend, not transmission
     return u
 swap = {m.name: unity_mat(m) for m in mats}
 for o in objs:
@@ -511,11 +739,13 @@ for o in list(coll.all_objects):
 for im in list(imgs.values()) + [dummy]: bpy.data.images.remove(im)
 lights = []
 for o in coll.all_objects:
-    if o.type != 'LIGHT': continue
+    if o.type != 'LIGHT' or o.hide_render: continue          # a light switched off for render is not part of the room's lighting
     d = o.data; l = dict(name=o.name, type=d.type, location=[round(v, 4) for v in o.matrix_world.translation], rotation_euler_deg=[round(math.degrees(v), 2) for v in o.matrix_world.to_euler()],
                          color=[round(v, 4) for v in d.color], energy_blender=round(d.energy, 3), shadow=d.use_shadow)
     if d.type == 'SPOT': l.update(spot_angle_deg=round(math.degrees(d.spot_size), 2), spot_blend=round(d.spot_blend, 3))
-    if d.type == 'AREA': l.update(shape=d.shape, size=[round(d.size, 3), round(getattr(d, 'size_y', d.size), 3)])
+    if d.type == 'AREA':                                          # the object's scale is part of an area light's size
+        sx, sy = abs(o.matrix_world.to_scale().x), abs(o.matrix_world.to_scale().y)
+        l.update(shape=d.shape, size=[round(d.size * sx, 3), round((d.size_y if d.shape in ('RECTANGLE', 'ELLIPSE') else d.size) * sy, 3)])
     l['urp_mode'] = {'AREA': 'Area light, Baked only (URP has no realtime area lights): bake into lightmaps', 'SUN': 'Directional, Mixed',
                      'POINT': 'Point, Mixed (realtime for players, baked indirect)', 'SPOT': 'Spot, Mixed'}[d.type]
     l['note'] = 'Blender watts are not URP intensities: retune in Unity against the reference renders'

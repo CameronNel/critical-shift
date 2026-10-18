@@ -89,7 +89,12 @@ namespace CriticalShift.Content.Editor
             string summary = ImportRooms(rooms, MapFolder);
             ok = !summary.Contains("FAILED");
 
-            var scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
+            // Rebuild only the CriticalShift_Map root of the existing scene: its lighting settings, lightmaps, probes and anything added by hand stay.
+            if (!Application.isBatchMode && !EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) { ok = false; return summary + "\nMap scene not built: the open scene has unsaved changes."; }
+            string scenePath = MapFolder + "/CriticalShift_Map.unity";
+            bool existed = File.Exists(scenePath);
+            var scene = existed ? EditorSceneManager.OpenScene(scenePath, OpenSceneMode.Single) : EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
+            foreach (var old in scene.GetRootGameObjects().Where(g => g.name == "CriticalShift_Map")) UnityEngine.Object.DestroyImmediate(old);
             var mapRoot = new GameObject("CriticalShift_Map");
             var placed = new List<string>();
             var unplaced = new List<string>();
@@ -106,9 +111,8 @@ namespace CriticalShift.Content.Editor
                 placed.Add(room);
             }
             var missing = placement.Keys.Where(r => !placed.Contains(r)).ToList();
-            string scenePath = MapFolder + "/CriticalShift_Map.unity";
             EditorSceneManager.SaveScene(scene, scenePath);
-            summary += "\nScene " + scenePath + ": " + placed.Count + " pieces placed";
+            summary += "\nScene " + scenePath + (existed ? " (updated; its other objects and lighting kept)" : " (new)") + ": " + placed.Count + " pieces placed";
             if (missing.Count > 0) summary += "; not baked: " + string.Join(", ", missing);
             if (unplaced.Count > 0) { summary += "; NOT PLACED (no prefab or no placement): " + string.Join(", ", unplaced); ok = false; }
             return summary;
@@ -156,6 +160,7 @@ namespace CriticalShift.Content.Editor
                 if (pipeline == null)
                 {
                     var renderer = ScriptableObject.CreateInstance(Type.GetType(UrpRendererType, true));
+                    AssignDefaultPostProcessData(renderer);
                     AssetDatabase.CreateAsset(renderer, rendererPath);
                     MethodInfo create = assetType.GetMethod("Create", BindingFlags.Public | BindingFlags.Static, null, new[] { Type.GetType(UrpRendererBaseType, true) }, null);
                     pipeline = (RenderPipelineAsset)create.Invoke(null, new object[] { renderer });
@@ -163,11 +168,13 @@ namespace CriticalShift.Content.Editor
                     AssetDatabase.SaveAssets();
                 }
                 GraphicsSettings.defaultRenderPipeline = pipeline;
+                int current = QualitySettings.GetQualityLevel();
                 for (int level = 0; level < QualitySettings.names.Length; level++)
                 {
                     QualitySettings.SetQualityLevel(level, false);
                     if (QualitySettings.renderPipeline != null && !assetType.IsInstanceOfType(QualitySettings.renderPipeline)) QualitySettings.renderPipeline = null;
                 }
+                QualitySettings.SetQualityLevel(current, false);
                 Debug.Log("[Rooms] URP pipeline asset created and assigned: " + assetPath + ". Tune it per sections/facility-assembly/unity/URP_SETTINGS.md.");
                 return true;
             }
@@ -178,6 +185,21 @@ namespace CriticalShift.Content.Editor
                           "Default Render Pipeline = that asset. Then run this again.";
                 return false;
             }
+        }
+
+        /// <summary>A renderer made with CreateInstance has no post-processing data, so tonemapping and bloom would silently do nothing;
+        /// URP's own asset menu assigns the package default. Done by reflection (URP is not a compile-time reference).</summary>
+        static void AssignDefaultPostProcessData(ScriptableObject renderer)
+        {
+            const BindingFlags any = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance;
+            var ppType = Type.GetType("UnityEngine.Rendering.Universal.PostProcessData, Unity.RenderPipelines.Universal.Runtime");
+            object data = ppType?.GetMethod("GetDefaultPostProcessData", any)?.Invoke(null, null);
+            var prop = renderer.GetType().GetProperty("postProcessData", any);
+            var field = renderer.GetType().GetField("postProcessData", any);
+            if (data != null && prop != null && prop.CanWrite) prop.SetValue(renderer, data);
+            else if (data != null && field != null) field.SetValue(renderer, data);
+            else Debug.LogWarning("[Rooms] Could not set the renderer's post-processing data: select " + RenderingFolder +
+                                  "/CriticalShift_URP_Renderer and tick Post-processing > Enabled, or tonemapping and bloom do nothing.");
         }
 
         // ---------------------------------------------------------------------------------------------------------------------------
@@ -224,7 +246,8 @@ namespace CriticalShift.Content.Editor
             var manifest = (Dictionary<string, object>)MiniJson.Parse(File.ReadAllText(Path.Combine(dest, "materials.json")));
             var entries = (Dictionary<string, object>)manifest["materials"];
             var materials = new Dictionary<string, Material>();
-            foreach (var pair in entries) materials[pair.Key] = BuildMaterial(dest, pair.Key, (Dictionary<string, object>)pair.Value);
+            var files = UniqueSafeNames(entries.Keys);
+            foreach (var pair in entries) materials[pair.Key] = BuildMaterial(dest, files[pair.Key], (Dictionary<string, object>)pair.Value);
 
             string fbx = dest + "/" + room + ".fbx";
             int remapped = RemapMaterials(fbx, materials, out List<string> unmatched);
@@ -263,13 +286,13 @@ namespace CriticalShift.Content.Editor
         static Material BuildMaterial(string dest, string name, Dictionary<string, object> e)
         {
             Directory.CreateDirectory(dest + "/Materials");
-            string path = dest + "/Materials/" + SafeName(name) + ".mat";
+            string path = dest + "/Materials/" + name + ".mat";   // name: UniqueSafeNames, so two materials never share a file
             var shader = Shader.Find(UrpLit);
             var mat = AssetDatabase.LoadAssetAtPath<Material>(path);
             bool isNew = mat == null;
             if (isNew) mat = new Material(shader);
             mat.shader = shader;
-            mat.name = SafeName(name);
+            mat.name = name;
             mat.shaderKeywords = new string[0];
             mat.SetColor("_BaseColor", Color.white);
             mat.SetFloat("_Metallic", 0f);
@@ -294,6 +317,8 @@ namespace CriticalShift.Content.Editor
                     mat.EnableKeyword("_EMISSION");
                     mat.globalIlluminationFlags = MaterialGlobalIlluminationFlags.BakedEmissive;
                 }
+                // decals, glass and films: alpha is in the base map (straight alpha; colour and emission already divided by it in the bake)
+                if (e.TryGetValue("_Surface", out object texSurface) && (string)texSurface == "Transparent") MakeTransparent(mat);
             }
             else
             {
@@ -367,24 +392,39 @@ namespace CriticalShift.Content.Editor
             return sb.ToString();
         }
 
+        /// <summary>bake_room.py fname: SafeName, and names that then clash ignoring case (Windows) get _2, _3, ... in ordinal order.</summary>
+        static Dictionary<string, string> UniqueSafeNames(IEnumerable<string> names)
+        {
+            var result = new Dictionary<string, string>(); var used = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            foreach (string n in names.OrderBy(x => x, StringComparer.Ordinal))
+            {
+                string b = SafeName(n), s = b;
+                for (int i = 2; used.Contains(s); i++) s = b + "_" + i;
+                used.Add(s); result[n] = s;
+            }
+            return result;
+        }
+
         /// <summary>The bake exports each material as "U_" + its source name. Remaps those FBX materials to the URP materials and reimports.</summary>
         static int RemapMaterials(string fbx, Dictionary<string, Material> materials, out List<string> unmatched)
         {
             unmatched = new List<string>();
             var importer = (ModelImporter)AssetImporter.GetAtPath(fbx);
             if (importer == null) throw new InvalidOperationException("FBX did not import: " + fbx);
-            var byNormalised = materials.ToDictionary(p => Normalise(p.Key), p => p.Value);
+            var byNormalised = materials.GroupBy(p => Normalise(p.Key)).Where(g => g.Count() == 1).ToDictionary(g => g.Key, g => g.First().Value);   // ambiguous ones match exactly or not at all
             var embedded = AssetDatabase.LoadAllAssetsAtPath(fbx).OfType<Material>().Select(m => m.name).Distinct().ToList();
             foreach (var existing in importer.GetExternalObjectMap().Keys.Where(k => k.type == typeof(Material)).Select(k => k.name)) if (!embedded.Contains(existing)) embedded.Add(existing);
-            int remapped = 0;
+            int remapped = 0; bool changed = false;
+            var current = importer.GetExternalObjectMap();
             foreach (string source in embedded)
             {
                 string key = source.StartsWith("U_", StringComparison.Ordinal) ? source.Substring(2) : source;
                 if (!materials.TryGetValue(key, out Material mat) && !byNormalised.TryGetValue(Normalise(key), out mat)) { unmatched.Add(source); continue; }
-                importer.AddRemap(new AssetImporter.SourceAssetIdentifier(typeof(Material), source), mat);
+                var id = new AssetImporter.SourceAssetIdentifier(typeof(Material), source);
+                if (!current.TryGetValue(id, out UnityEngine.Object was) || was != mat) { importer.AddRemap(id, mat); changed = true; }
                 remapped++;
             }
-            importer.SaveAndReimport();
+            if (changed) importer.SaveAndReimport();   // a reimport regenerates lightmap UVs: only when a remap changed
             return remapped;
         }
 
@@ -438,9 +478,11 @@ namespace CriticalShift.Content.Editor
                     var size = (List<object>)l["size"];
                     double sx = (double)size[0], sy = size.Count > 1 ? (double)size[1] : sx;
                     string shape = l.TryGetValue("shape", out object sh) ? (string)sh : "SQUARE";
-                    bool disc = shape == "DISK" || shape == "ELLIPSE";
+                    bool disc = shape == "DISK";
                     if (shape == "SQUARE" || shape == "DISK") sy = sx;
-                    double area = disc ? Math.PI * sx * sy / 4.0 : sx * sy;
+                    double area = shape == "DISK" || shape == "ELLIPSE" ? Math.PI * sx * sy / 4.0 : sx * sy;
+                    // Unity has no ellipse light: a rectangle of the same aspect and area (sides x sqrt(pi/4)), so the output matches
+                    if (shape == "ELLIPSE") { double k = Math.Sqrt(Math.PI / 4.0); sx *= k; sy *= k; }
                     light.type = disc ? LightType.Disc : LightType.Rectangle;
                     light.areaSize = disc ? new Vector2((float)(sx / 2.0), (float)(sx / 2.0)) : new Vector2((float)sx, (float)sy);
                     light.intensity = BlenderToUnity.AreaIntensity(watts, area);
