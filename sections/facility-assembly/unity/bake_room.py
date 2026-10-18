@@ -340,7 +340,8 @@ def merge_for_bake(objs, mats):
     return out
 
 PLAN_VERSION = 2              # 2 (2026-10-18): closure-tree routing, mask pass, HDR emission; older plans and _work files cannot be resumed
-ISOLATE = '--isolate' in a     # map mode (bake_all.ps1 -Map): bake the room collections alone, e.g. the map's ROOM_<room>_members
+ISOLATE = '--isolate' in a
+EXCLUDE = tuple(x for x in (arg('--exclude') or '').split(';') if x)   # object name prefixes left out of the bake, ';'-separated     # map mode (bake_all.ps1 -Map): bake the room collections alone, e.g. the map's ROOM_<room>_members
 def _layer(name):
     """The view layer's LayerCollection for a collection, looked up fresh: changing exclude rebuilds the tree and leaves older references stale."""
     def walk(lc):
@@ -443,6 +444,10 @@ def localise_node_groups(mats):
 if STAGE in ('prep', 'all'):
     for f in os.listdir(RAW): os.remove(os.path.join(RAW, f))     # maps of an older UV layout must never reach the finish
     if ISOLATE: isolate(); step('isolated', collections=coll.names)
+    if EXCLUDE:                                                  # left out on the owner's word (the mine's mountain, R40, is being reworked, 2026-10-18)
+        out_ = [o for o in coll.all_objects if o.name.startswith(EXCLUDE)]
+        for o in out_: o.hide_render = True
+        step('excluded', prefixes=list(EXCLUDE), objects=sorted(o.name for o in out_))
     # collection instances (the spawn room's four PPE hero suits, linked from hero_suit.blend) become real local objects, or the bake would miss them
     inst = [o for o in coll.all_objects if o.instance_type == 'COLLECTION' and o.instance_collection and not o.hide_render]
     if inst:
@@ -532,22 +537,33 @@ if STAGE in ('prep', 'all'):
     # option turns off): the front end's 11:1 menu board packed as 1:11. The atlas is square, so every image is detached while unwrapping.
     detached = [(n_, n_.image) for m in mats if m.node_tree for n_ in m.node_tree.nodes if n_.type == 'TEX_IMAGE' and n_.image is not None]
     for n_, _ in detached: n_.image = None
+    def collapsed_share(picked):
+        """Share of the picked faces whose UVBake corners all sit on one point (edit mode)."""
+        z = n = 0
+        for on, ids in picked.items():
+            bm = bmesh.from_edit_mesh(bpy.data.objects[on].data); bm.faces.ensure_lookup_table(); uvl = bm.loops.layers.uv['UVBake']
+            for i in ids:
+                if bm.faces[i].calc_area() < 1e-10: continue              # degenerate faces (decimation slivers) have nothing to unwrap
+                us = [l[uvl].uv for l in bm.faces[i].loops]; n += 1
+                if max(u.x for u in us) - min(u.x for u in us) < 1e-7 and max(u.y for u in us) - min(u.y for u in us) < 1e-7: z += 1
+        return z / max(n, 1)
     bpy.ops.object.mode_set(mode='EDIT')
     sc.tool_settings.use_uv_select_sync = True
     area = {}
     for m in mats:
         if not plan[m.name]['bake']: continue
-        tot = 0.0
+        tot = 0.0; picked = {}
         for o in objs:
             bm = bmesh.from_edit_mesh(o.data); idx = {i for i, s in enumerate(o.material_slots) if s.material is m}
             sx = o.matrix_world.to_scale(); k = abs(sx.x * sx.y * sx.z) ** (2 / 3)
             # deselect everything first, then select: deselecting a face also deselects its vertices, so a single pass let a later face of another
-            # material drop the shared vertices of an earlier selected face, which then missed the unwrap and kept zero UVs (the mine's boulders, 22 %)
+            # material drop the shared vertices of an earlier selected face, which then missed the unwrap (a two-material checkerboard grid: 440 of
+            # 441 faces left without UVs)
             for v in bm.verts: v.select = False
             for e in bm.edges: e.select = False
             for f in bm.faces: f.select = False
             for f in bm.faces:
-                if f.material_index in idx: f.select = True; tot += f.calc_area() * k   # no flush: it could select a face of another material
+                if f.material_index in idx: f.select = True; tot += f.calc_area() * k; picked.setdefault(o.name, []).append(f.index)   # no flush
             bmesh.update_edit_mesh(o.data)
         area[m.name] = tot
         if tot <= 0: plan[m.name]['bake'] = False; continue
@@ -555,6 +571,13 @@ if STAGE in ('prep', 'all'):
         # (1024 x 192, 2700 x 246 images) became 0.001-wide slivers and baked black (rehearsal, 2026-10-18)
         bpy.ops.uv.smart_project(angle_limit=math.radians(66), island_margin=0.003, area_weight=0.0, correct_aspect=False, scale_to_bounds=False)
         bpy.ops.uv.pack_islands(rotate=True, margin_method='FRACTION', margin=0.002)                 # smart project leaves up to 40 % of the square empty
+        # A fixed margin per island (0.2 % of the atlas, 8 px at 4K) cannot fit when a material breaks into ~100,000 one-face islands (the mine's
+        # decimated boulders): the packer then shrinks every island to nothing. Then unwrap again with margins scaled to each island.
+        if collapsed_share(picked) > 0.005:
+            bpy.ops.uv.smart_project(angle_limit=math.radians(66), island_margin=0.0, area_weight=0.0, correct_aspect=False, scale_to_bounds=False)
+            bpy.ops.uv.pack_islands(rotate=True, margin_method='SCALED', margin=0.001)
+            plan[m.name]['uv_margin'] = 'scaled'
+            step('unwrap with scaled margins', material=m.name, collapsed_after=round(collapsed_share(picked), 4))
     bpy.ops.object.mode_set(mode='OBJECT')
     for n_, im_ in detached: n_.image = im_
     for n, p in plan.items():

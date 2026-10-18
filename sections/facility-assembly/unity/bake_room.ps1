@@ -17,7 +17,8 @@ param(
     [string]$Cameras = "",
     [string]$OutRoot = "sections/facility-assembly/unity",   # bake_all.ps1 -Map writes to .../unity/map
     [string]$CompareSource = "",                              # the file the source comparison renders come from (default: -Source)
-    [switch]$Isolate,                                         # map mode: bake the room collection alone (bake_room.py --isolate)
+    [switch]$Isolate,
+    [string]$Exclude = "",                                    # object name prefixes left out of the bake, ';'-separated (bake_room.py --exclude)                                         # map mode: bake the room collection alone (bake_room.py --isolate)
     [ValidateSet("home", "rehearsal")][string]$Quality = "home"   # rehearsal: 256 px atlases, 1 sample, small compare renders (a dry run of every stage)
 )
 $ErrorActionPreference = "Stop"
@@ -29,6 +30,7 @@ $common = @("--room", $Room, "--out", $Out, "--profile", $Quality, "--device", $
 $cmp = if ($Quality -eq "rehearsal") { @("--samples", "4", "--percent", "25") } else { @("--samples", "64") }
 if ($Collection) { $common += @("--collection", $Collection) }
 if ($Isolate) { $common += "--isolate" }
+if ($Exclude) { $common += @("--exclude", $Exclude) }
 $stages = @("prep", "base", "rough", "normal", "metal", "emit", "mask", "finish", "check", "compare")
 $start = [array]::IndexOf($stages, $From.ToLower())   # ValidateSet accepts any case, IndexOf does not
 $t0 = Get-Date
