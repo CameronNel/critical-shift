@@ -136,6 +136,8 @@ namespace CriticalShift.Sandbox.Tests
             safety.Bind(body, "Infinite inertia body"); safety.Activate(); safety.Sample();
             Assert.That(failures, Is.Zero); Assert.That(safety.PeakRotationalEnergyPerMass, Is.Zero);
             body.rotation = Quaternion.Euler(19, 37, 11);
+            // Publish the native pose before the constrained-velocity setter observes its Transform frame.
+            body.PublishTransform();
             body.inertiaTensorRotation = Quaternion.Euler(23, 41, 17);
             body.inertiaTensor = new Vector3(0, 1, 0);
             body.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
