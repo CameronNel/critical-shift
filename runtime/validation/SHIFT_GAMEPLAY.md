@@ -84,3 +84,11 @@ deadline and a retained result (GAME_SPEC 7.3, 8 and 12.6).
   each twice**, including shared pure trace formatter tests. The native catalogue
   initially contained137 cases; review then added evacuation formatting and a
   focused shared regression, bringing it to138. Native behavior is **NotRun**.
+- Endurance runner first100 and10,000 case probes passed. Review strengthened
+  settled/future-window invariants, configured trace bounds, owner teardown and
+  complete DLL provenance. The new assessment probe initially confused 'quota
+  met so far' with 'window settled'; its false failure at case seed903414045 was
+  reproduced and corrected in the probe, preserving the intended game rule.
+  Every case now also compares two supply worlds against independent finite-fuel
+  quantum/window arithmetic. Full verifier **Passed:767 tests,15 scenarios**, plus
+  endurance12-case smoke, seed replay, invariant-negative and overwrite controls.

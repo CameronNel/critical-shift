@@ -44,8 +44,10 @@ namespace CriticalShift.Scenarios
                 using var output = new StreamWriter(file) { AutoFlush = true };
                 string applicationHash = Hash(typeof(WorldSession).Assembly.Location);
                 string runnerHash = Hash(typeof(GameplaySoak).Assembly.Location);
+                var assemblies = Directory.EnumerateFiles(AppContext.BaseDirectory, "CriticalShift*.dll")
+                    .OrderBy(Path.GetFileName, StringComparer.Ordinal).ToDictionary(p => Path.GetFileName(p), Hash);
                 Write(output, new { Status = "Running", StartedUtc = DateTimeOffset.UtcNow, Seed = seed, Seconds = seconds,
-                    RequestedCases = cases, CaseSeed = onlySeed, ApplicationSha256 = applicationHash, RunnerSha256 = runnerHash,
+                    RequestedCases = cases, CaseSeed = onlySeed, ApplicationSha256 = applicationHash, RunnerSha256 = runnerHash, Assemblies = assemblies,
                     Scope = "Offline logical gameplay; synthetic access/recovery; no Unity physics or networking" });
                 var random = new Random(seed); var clock = Stopwatch.StartNew(); long completed = 0, actions = 0;
                 long nextReport = 30; int currentSeed = onlySeed ?? random.Next();
@@ -57,20 +59,20 @@ namespace CriticalShift.Scenarios
                         Require(!control, "Intentional negative control.");
                         if (clock.Elapsed.TotalSeconds >= nextReport)
                         {
-                            var pulse = new { Status = "Running", AtUtc = DateTimeOffset.UtcNow, Cases = completed, Actions = actions,
+                            var pulse = new { Status = "Running", AtUtc = DateTimeOffset.UtcNow, Cases = completed, CheckedSteps = actions,
                                 ElapsedSeconds = clock.Elapsed.TotalSeconds, ManagedBytes = GC.GetTotalMemory(false) };
                             Write(output, pulse); Console.WriteLine(JsonSerializer.Serialize(pulse)); nextReport += 30;
                         }
                         currentSeed = random.Next();
                     } while (!onlySeed.HasValue && (cases > 0 ? completed < cases : clock.Elapsed.TotalSeconds < seconds));
-                    var result = new { Status = "Passed", FinishedUtc = DateTimeOffset.UtcNow, Cases = completed, Actions = actions,
-                        ElapsedSeconds = clock.Elapsed.TotalSeconds, Seed = seed, ApplicationSha256 = applicationHash, RunnerSha256 = runnerHash };
+                    var result = new { Status = "Passed", FinishedUtc = DateTimeOffset.UtcNow, Cases = completed, CheckedSteps = actions,
+                        ElapsedSeconds = clock.Elapsed.TotalSeconds, Seed = seed, ApplicationSha256 = applicationHash, RunnerSha256 = runnerHash, Assemblies = assemblies };
                     Write(output, result); Console.WriteLine(JsonSerializer.Serialize(result)); return 0;
                 }
                 catch (Exception error)
                 {
                     // Only explicit invariant names/type/seed are recorded, never account or arbitrary machine data.
-                    var failed = new { Status = "Failed", FinishedUtc = DateTimeOffset.UtcNow, Cases = completed, Actions = actions,
+                    var failed = new { Status = "Failed", FinishedUtc = DateTimeOffset.UtcNow, Cases = completed, CheckedSteps = actions,
                         CaseSeed = currentSeed, ErrorType = error.GetType().Name,
                         Invariant = error is SoakInvariantException ? error.Message : "Unexpected gameplay exception",
                         ElapsedSeconds = clock.Elapsed.TotalSeconds };
@@ -98,8 +100,9 @@ namespace CriticalShift.Scenarios
         {
             var random = new Random(seed); var policies = new Policies(); int duration = random.Next(1200, 12001);
             var configuration = new WorldSessionConfiguration(seed, duration, true, receiptCapacity: random.Next(1, 9), leaseMilliseconds: random.Next(100, 1001));
-            var world = new WorldSession(configuration, policies, policies, traceCapacity: random.Next(1, 130), maxProductionCycles: 96);
-            int actions = 0; Guid previousEpoch = Guid.Empty;
+            int traceCapacity = random.Next(1, 130);
+            var world = new WorldSession(configuration, policies, policies, traceCapacity: traceCapacity, maxProductionCycles: 96);
+            int actions = CheckSupplyModel(seed); Guid previousEpoch = Guid.Empty;
             for (int lifetime = 0; lifetime < 3; lifetime++)
             {
                 var ports = Bind(world, random); world.Start(); long host = 0;
@@ -176,7 +179,7 @@ namespace CriticalShift.Scenarios
                         Require(world.Finish(previousEpoch, WorldEndReason.Failed) == WorldControlStatus.WrongEpoch, "Old epoch accepted a control.");
                         Require(world.View.Revision == revision, "Old epoch changed successor.");
                     }
-                    Check(world, previousDelivery, previousSettled); actions++;
+                    Check(world, previousDelivery, previousSettled, traceCapacity); actions++;
                 }
                 policies.Allow = true;
                 if (world.View.Phase == WorldPhase.Paused) world.Resume(world.Epoch);
@@ -185,11 +188,12 @@ namespace CriticalShift.Scenarios
                     if (random.Next(4) == 0) world.Finish(world.Epoch, random.Next(2) == 0 ? WorldEndReason.Aborted : WorldEndReason.HostLost);
                     else world.AdvanceTo(long.MaxValue);
                 }
-                Check(world, previousDelivery, previousSettled); var debrief = world.Debrief!;
+                Check(world, previousDelivery, previousSettled, traceCapacity); var debrief = world.Debrief!;
                 Require(debrief != null, "Terminal world has no debrief.");
                 Require(debrief!.Timeline.Count <= 128, "Incident journal became unbounded.");
                 Require(world.View.ActiveClaimCount == 0 && world.WorkerCount == 0 && world.View.RegisteredObjectCount == 0 &&
-                    world.View.PendingTimerCount == 0 && world.View.ConnectedPlayerCount == 0 && world.Doors.Count == 0, "Terminal owner leaked live resources.");
+                    world.View.PendingTimerCount == 0 && world.View.ConnectedPlayerCount == 0 && world.Doors.Count == 0 &&
+                    world.Production.MachineCount == 0 && world.Production.BatchCount == 0 && world.Reactor.View == null, "Terminal owner leaked live resources.");
                 Require(debrief!.Power!.Delivered == world.Reactor.PowerSummary!.Delivered, "Debrief delivery disagrees with owner.");
                 Require(debrief.Production.ActiveUnits + debrief.Production.WasteUnits == debrief.Production.IssuedUnits, "Debrief material conservation failed.");
                 long previousTime = -1;
@@ -221,7 +225,7 @@ namespace CriticalShift.Scenarios
             return ports;
         }
 
-        private static void Check(WorldSession world, long[] previousDelivery, bool[] previousSettled)
+        private static void Check(WorldSession world, long[] previousDelivery, bool[] previousSettled, int traceCapacity)
         {
             var material = world.Production.Summary; var power = world.Reactor.PowerSummary!; var contract = world.Contracts.View!;
             Require(material.IssuedUnits == material.ActiveUnits + material.WasteUnits, "Material conservation failed.");
@@ -235,11 +239,11 @@ namespace CriticalShift.Scenarios
                 Require(wave.DeliveredEnergyUnits >= previousDelivery[i], "Window delivery moved backwards.");
                 if (previousSettled[i]) Require(wave.Settled && wave.DeliveredEnergyUnits == previousDelivery[i], "Settled window changed after its cutoff.");
                 if (wave.StartMilliseconds >= contract.ElapsedMilliseconds) Require(wave.DeliveredEnergyUnits == 0, "Future window received early delivery.");
-                Require(wave.Met == (wave.Settled && wave.DeliveredEnergyUnits >= wave.RequiredEnergyUnits), "Window assessment disagrees with its quota.");
+                Require(wave.Met == (wave.DeliveredEnergyUnits >= wave.RequiredEnergyUnits), "Window assessment disagrees with its quota.");
                 previousDelivery[i] = wave.DeliveredEnergyUnits; previousSettled[i] = wave.Settled;
             }
             if (world.View.Outcome == WorldOutcome.Succeeded) Require(contract.AllPeriodsMet, "Success bypassed an unmet contract.");
-            Require(world.Trace.Records.Count <= 4096, "Trace storage became unbounded.");
+            Require(world.Trace.Records.Count <= traceCapacity, "Trace exceeded its configured capacity.");
             var holders = new HashSet<Guid>();
             foreach (var entity in Enumerable.Range(10, 8).Concat(Enumerable.Range(40, 4)))
             {
@@ -248,6 +252,41 @@ namespace CriticalShift.Scenarios
                 if (claim.HolderId.HasValue)
                 { Require(holders.Add(claim.HolderId.Value), "Actor holds more than one object."); Require(world.GetWorker(claim.HolderId.Value)?.CanInteract == true, "Unavailable worker retains a claim."); }
             }
+        }
+
+        private static int CheckSupplyModel(int seed)
+        {
+            var random = new Random(seed); int duration = random.Next(1200, 12001), units = random.Next(1, 201);
+            long[] ends = { random.Next(1, duration / 3), random.Next(duration / 3, duration * 2 / 3), duration };
+            var quotas = new long[] { random.Next(50), random.Next(100), random.Next(150) };
+            WorldSession Supply()
+            {
+                var policies = new Policies(); var world = new WorldSession(new WorldSessionConfiguration(seed, duration), policies);
+                world.RegisterConnection(Id(100), Id(200));
+                world.Production.RegisterBatch(Id(10), Id(110), Id(120), Id(130), MaterialKind.Fuel, units);
+                world.Reactor.Register(Id(30), new ReactorDefinition(Id(402)));
+                world.Contracts.Register(new ShiftContractDefinition(Id(410), "Independent demand model",
+                    new GridDemandWave(Id(411), "First", ends[0], quotas[0]), new GridDemandWave(Id(412), "Second", ends[1], quotas[1]),
+                    new GridDemandWave(Id(413), "Last", ends[2], quotas[2])));
+                var port = new LocalCommandPort(world, Id(100)); world.Start(); port.Grab(Id(10));
+                port.OperateReactor(Id(30), ReactorAction.Insert, Id(10)); port.OperateReactor(Id(30), ReactorAction.SetCooling, cooling: true);
+                Require(port.OperateReactor(Id(30), ReactorAction.Start).HasNewCommit, "Supply model failed to start."); return world;
+            }
+            var one = Supply(); var many = Supply(); one.AdvanceTo(long.MaxValue); int actions = 1;
+            for (int time = 0; time < duration;)
+            { time = Math.Min(duration, time + random.Next(1, 302)); many.AdvanceTo(time); actions++; }
+            long start = 0; bool met = true;
+            for (int i = 0; i < ends.Length; i++)
+            {
+                // Independent arithmetic: finite fuel, complete 100ms quanta, four grid units per quantum.
+                long expected = 4 * (Math.Min(ends[i], units * 100L) / 100 - Math.Min(start, units * 100L) / 100);
+                Require(one.Contracts.View!.Waves[i].DeliveredEnergyUnits == expected, "Large jump disagrees with independent window model.");
+                Require(many.Contracts.View!.Waves[i].DeliveredEnergyUnits == expected, "Partitioned samples disagree with independent window model.");
+                met &= expected >= quotas[i]; start = ends[i];
+            }
+            Require(one.View.Outcome == (met ? WorldOutcome.Succeeded : WorldOutcome.Failed) && many.View.Outcome == one.View.Outcome,
+                "Deadline outcome disagrees with independent demand model.");
+            one.Stop(); many.Stop(); return actions;
         }
     }
 }
