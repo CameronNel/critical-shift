@@ -1,7 +1,7 @@
 {
   "name": "CriticalShift.Sandbox.Editor",
   "rootNamespace": "CriticalShift.Sandbox.Editor",
-  "references": ["CriticalShift.Sandbox.Bootstrap"],
+  "references": ["CriticalShift.Sandbox.Bootstrap", "Unity.RenderPipelines.Universal.Runtime", "Unity.RenderPipelines.Core.Runtime"],
   "includePlatforms": ["Editor"], "excludePlatforms": [],
   "allowUnsafeCode": false, "overrideReferences": true,
   "precompiledReferences": [], "autoReferenced": false,

@@ -38,6 +38,7 @@ namespace CriticalShift.Sandbox.Editor
             var profile = JsonUtility.FromJson<EditorProfile>(File.ReadAllText(Path.GetFullPath(Path.Combine(UnityApplication.dataPath, "../../toolchain.json"))));
             if (profile == null || profile.editor != UnityApplication.unityVersion)
                 throw new BuildFailedException("Use the exact project Unity editor for combined-map preparation.");
+            SandboxRenderPipeline.Prepare();
             var manifest = Read<CombinedBindingManifest>(source, "export/binding_manifest.json");
             var doors = Read<CombinedDoorCatalogue>(source, "validation/doors.json");
             // Unity's serializer cannot read jagged arrays. Adapt only the two
@@ -69,6 +70,7 @@ namespace CriticalShift.Sandbox.Editor
             var pipeline = QualitySettings.renderPipeline != null ? QualitySettings.renderPipeline : GraphicsSettings.defaultRenderPipeline;
             var shader = Shader.Find(pipeline == null ? "Standard" : "Universal Render Pipeline/Lit");
             if (shader == null) throw new BuildFailedException("The configured renderer's debug shader is unavailable.");
+            SandboxMaterialTemplates.Prepare(shader, out var litTemplate, out var emissionTemplate);
             var scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
             var root = new GameObject("Combined map traversal derivative");
             var bootstrap = root.AddComponent<CombinedMapBootstrap>();
@@ -175,7 +177,7 @@ namespace CriticalShift.Sandbox.Editor
                 localRegion.Encapsulate(model.transform.InverseTransformPoint(worldRegion.center + Vector3.Scale(worldRegion.extents,
                     new Vector3((corner & 1) == 0 ? -1 : 1, (corner & 2) == 0 ? -1 : 1, (corner & 4) == 0 ? -1 : 1))));
             authoring.Configure(references.ToArray(), model.transform.InverseTransformPoint(start), localRegion, hash);
-            model.SetActive(false); bootstrap.Configure(authoring, shader);
+            model.SetActive(false); bootstrap.Configure(authoring, shader, litTemplate, emissionTemplate);
             var daylight = new GameObject("Collision traversal debug daylight").AddComponent<Light>();
             daylight.transform.SetParent(root.transform, false); daylight.type = LightType.Directional; daylight.intensity = 1;
             daylight.transform.rotation = Quaternion.Euler(55, -35, 0);

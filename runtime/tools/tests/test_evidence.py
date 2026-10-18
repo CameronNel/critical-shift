@@ -145,13 +145,31 @@ class SandboxFailedResultReportingTests(unittest.TestCase):
         (self.runtime / "toolchain.json").write_text(json.dumps({"editor": "6000.4.3f1", "revision": "39d1a88d4dd1"}))
         (self.runtime / "dotnet/src/package.json").write_text("{}")
         (self.runtime / "unity/Assets/Subject.cs").write_text("// source fixture")
+        (self.runtime / "unity/Packages/manifest.json").write_text(json.dumps({
+            "dependencies": {"com.unity.test-framework": "1.6.0"}}))
+        (self.runtime / "unity/Packages/packages-lock.json").write_text(json.dumps({"dependencies": {
+            "com.unity.test-framework": {"version": "1.6.0", "source": "builtin"},
+            "com.unity.ext.nunit": {"version": "2.0.5", "source": "builtin"}}}))
         (self.runtime / "validation/sandbox-expected-tests.json").write_text(json.dumps({"PlayMode": ["Fixture.A", "Fixture.B"]}))
         self.editor = self.base / "Unity.exe"
         self.editor.write_bytes(b"not executable")
         self.exit_code, self.change_source = 2, False
 
     def native(self, command, log, timeout):
+        if "-accept-apiupdate" in command:
+            self.assertNotIn("-executeMethod", command)
+            self.assertNotIn("-runTests", command)
+            project = Path(command[command.index("-projectPath") + 1])
+            for name, version in (("com.unity.test-framework", "1.6.0"), ("com.unity.ext.nunit", "2.0.5")):
+                descriptor = project / "Library/PackageCache" / (name + "@fixture") / "package.json"
+                descriptor.parent.mkdir(parents=True, exist_ok=True)
+                descriptor.write_text(json.dumps({"name": name, "version": version}))
+            text = "Built from 'fixture'; Version is '6000.4.3f1 (39d1a88d4dd1)'\n"
+            log.write_text(text)
+            return 0, text
         if "-runTests" not in command:
+            self.assertEqual(command[command.index("-executeMethod") + 1],
+                             "CriticalShift.Sandbox.Editor.SandboxSceneBuilder.Prepare")
             text = "Initialize engine version: 6000.4.3f1 (39d1a88d4dd1)\nCS_SANDBOX_PREPARED\nCS_SANDBOX_ASSEMBLIES count=1\n"
             log.write_text(text)
             return 0, text
@@ -174,7 +192,10 @@ class SandboxFailedResultReportingTests(unittest.TestCase):
             stack.enter_context(patch.object(sandbox_runner, "check", return_value={"status": "Passed", "production_asmdefs": 1}))
             native = stack.enter_context(patch.object(sandbox_runner, "execute", side_effect=self.native))
             code, output = sandbox_runner.run(str(self.editor), self.base / "evidence", "Win64", build_player=True, run_player=True)
-            return code, json.loads((output / "report.json").read_text()), native
+            report = json.loads((output / "report.json").read_text())
+            self.assertEqual(report["phases"]["package-initialize"]["status"], "Completed")
+            self.assertEqual(report["phases"]["import"]["status"], "Passed")
+            return code, report, native
 
     def test_native_exit_two_retains_real_failed_xml_and_stops_before_build(self):
         code, report, native = self.invoke()
@@ -183,12 +204,17 @@ class SandboxFailedResultReportingTests(unittest.TestCase):
         self.assertEqual(observed["reported_counts"]["failed"], 1)
         self.assertEqual(observed["reported_counts"]["passed"], 1)
         self.assertEqual(observed["xml_test_cases"], 2)
+        self.assertEqual(observed["test_identities"], ["Fixture.A", "Fixture.B"])
         self.assertEqual(observed["failed_test_identities"], ["Fixture.B"])
         self.assertEqual(observed["failed_cases"][0]["message"], "Native assertion diagnostic retained.")
         self.assertIn("PlayMode returned 2", report["reason"])
         self.assertEqual(report["phases"]["build"]["status"], "NotRun")
         self.assertEqual(report["phases"]["player"]["status"], "NotRun")
-        self.assertEqual(native.call_count, 2)
+        self.assertEqual(native.call_count, 3)
+        commands = [call.args[0] for call in native.call_args_list]
+        self.assertIn("-accept-apiupdate", commands[0])
+        self.assertIn("-executeMethod", commands[1])
+        self.assertIn("-runTests", commands[2])
 
     def test_xml_validation_failure_also_retains_native_counts_at_zero_exit(self):
         self.exit_code = 0

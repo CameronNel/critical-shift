@@ -19,6 +19,17 @@
 
 ## Decision
 
+> **Implementation update, 18 October 2026:** the local gameplay continuation now
+> declares URP/Core/ShaderGraph/config **17.4.0** on the exact selected editor.
+> Clean native renderer preparation and foundation preparation produced the
+> checked-in pipeline/global settings and Linear Graphics/Quality/Player settings.
+> The current URP gameplay run has two ragdoll speed-guard failures under
+> investigation; full foundation, Player, rendered and performance acceptance
+> remain pending. See the current [runtime evidence](../runtime/validation/GAMEPLAY_SANDBOX.md)
+> and the bounded implementation decision in
+> [DECISIONS_AND_RISKS](code-architecture/DECISIONS_AND_RISKS.md).
+> The Built-in stack and removed prototype claims below are historical records.
+
 Use Unity, C#, the Built-in Render Pipeline, and Unity's 3D physics for the
 proof-of-fun and networked-physics spikes.
 

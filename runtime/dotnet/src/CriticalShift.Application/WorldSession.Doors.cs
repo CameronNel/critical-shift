@@ -41,7 +41,7 @@ namespace CriticalShift.Application
             {
                 var reply = Doors.Evacuate(causeId);
                 if (reply.Changed) _revision = next;
-                _diagnostics.Append(View, epoch, SessionTraceKind.Evacuation, changed: reply.Changed, causeId: causeId, evacuation: reply);
+                _diagnostics.Append(View, epoch, SessionTraceKind.Evacuation, changed: reply.Changed, causeId: reply.CauseId, evacuation: reply);
                 foreach (var door in reply.Changes)
                     _diagnostics.Append(View, epoch, SessionTraceKind.Door, entity: door.Id, changed: true, causeId: causeId,
                         interaction: new InteractionReply(InteractionStatus.Applied, false,

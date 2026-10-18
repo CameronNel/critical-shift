@@ -1,6 +1,6 @@
 # Critical Shift runtime
 
-**Current development, 18 October 2026:** `codex/unity-gameplay-sandbox` adds local-host gameplay over the canonical sources: physical crate handling, cart/conveyor adapters, worker knockdown/drag/recovery, process feedback and combined-map doors. Cameron has ended gaming and authorized Unity/testing. Unity **6000.4.3f1 / 39d1a88d4dd1** is licensed and imports the collision derivative; 37 doors, 152 proxies and 13 room anchors align within 0.285 mm of the current binding data. The offline suite passed 723 tests. Native physics tests are next; these results do not establish a playable facility or art acceptance. Current evidence belongs in the [active development checkpoint](validation/GAMEPLAY_SANDBOX.md). Preserve Claude's PR #110 bake/importer paths. See [sandbox controls and evidence boundary](unity/Assets/CriticalShift/Sandbox/README.md).
+**Current development, 18 October 2026:** `codex/unity-gameplay-sandbox` adds local-host gameplay over the canonical sources: physical crate handling, cart/conveyor adapters, worker knockdown/drag/recovery, process feedback and combined-map doors. Unity **6000.4.3f1 / 39d1a88d4dd1** is licensed. The collision derivative's 37 doors, 152 proxies and 13 room anchors align within 0.285 mm. Offline 723 tests and an earlier 124-case native gameplay checkpoint passed. The current owner-selected URP 17.4.0 trial has clean native rendering preparation; two ragdoll speed-guard failures in its 124-case run are under investigation. Later closure/material fixes are untested. These results do not establish a playable facility or art acceptance. Current evidence belongs in the [active development checkpoint](validation/GAMEPLAY_SANDBOX.md). Preserve Claude's PR #110 bake/importer paths. See [sandbox controls and evidence boundary](unity/Assets/CriticalShift/Sandbox/README.md).
 
 Historical source provenance: OFFLINE-005 (18 September 2026) reconciled consolidated offline gameplay from PR #43 (`30129f7a44e8976b13a4fe3307e329420034e2ff`) with WP-01 foundation source from PR #46 (`43a2e328802fa4b73de407cfeebb5a7058edf90a`), then added bounded fictional reactor/power rules. Its original candidate branch was `feat/offline-reactor-power-20260918`. Current work still requires independent review and maintainer merge.
 
@@ -62,11 +62,11 @@ PR #43 and PR #46 remain provenance for their contributions; their earlier heads
 
 ## Native foundation remains separately unverified
 
-The required Unity target remains **6000.4.3f1, revision 39d1a88d4dd1**, with the pinned Mono desktop profile in [toolchain.json](toolchain.json). Cameron selected URP on 15 October; the project still has its older Built-in configuration, and no URP package/version has been installed by this pass. The sandbox's import/physics fixture can use that existing configuration, while its optional Player build explicitly requires URP. See [the engine decision](../design/ENGINE_DECISION.md).
+The required Unity target remains **6000.4.3f1, revision 39d1a88d4dd1**, with the pinned Mono desktop profile in [toolchain.json](toolchain.json). The bounded implementation of Cameron's 15 October URP selection now declares URP/Core/ShaderGraph/config 17.4.0 and their measured dependency lock. Native-created pipeline/global settings and Linear Player/Graphics/Quality settings are included. Foundation and sandbox build acceptance still require their own complete runs. See [the engine decision](../design/ENGINE_DECISION.md).
 
 The original WP-01 work is documented in [WP01.md](validation/WP01.md) and its historical [execution-summary.json](validation/execution-summary.json). Those results belong to their recorded revisions. Source and installed-file identity checks do not establish native execution on this branch.
 
-No editor was opened for OFFLINE-005. Startup scene creation, complete ProjectSettings serialization, package import, engine tests and Player execution remain NotRun here. The source preparation command is still `Critical Shift > Foundation > Prepare project` in a future activated editor, and the native runner remains available for a separately authorized task:
+No editor was opened for the historical OFFLINE-005 task. The current continuation has native rendering and foundation preparation evidence, but complete foundation tests/build/Player remain pending. `Critical Shift > Foundation > Prepare project` and its separate native runner remain available:
 
 ```powershell
 python runtime/tools/run_foundation.py --unity "C:\Program Files\Unity\Hub\Editor\6000.4.3f1\Editor\Unity.exe" --target Win64
@@ -74,7 +74,7 @@ python runtime/tools/run_foundation.py --unity "C:\Program Files\Unity\Hub\Edito
 
 That runner needs Python 3.12+, an already activated matching Editor and matching build support. It uses a disposable copy, requires its own native test/build/readiness evidence and does not import the map. No activation or credentials belong in this repository. The automatic native Unity workflow is absent on this candidate; pushing code cannot accidentally run it.
 
-For the separate sandbox inventory, the future authorized command is:
+For the separate sandbox inventory:
 
 ```powershell
 python runtime/tools/run_sandbox.py --unity "C:\Program Files\Unity\Hub\Editor\6000.4.3f1\Editor\Unity.exe" --target Win64

@@ -18,6 +18,7 @@ from evidence import EvidenceError, read_result_evidence, validate_log, validate
 from editor_identity import inspect_editor
 from check_source import check
 from run_foundation import RUNTIME, audit_original, checkout_revision, copy_inputs, execute, fingerprint, utc
+from package_initialization import audit_package_pins, initialize_packages, package_snapshot
 
 
 def run(unity: str | None, output_parent: Path, target: str, build_player: bool = False, run_player: bool = False) -> tuple[int, Path]:
@@ -26,10 +27,11 @@ def run(unity: str | None, output_parent: Path, target: str, build_player: bool 
         raise EvidenceError("Repository evidence must remain under runtime/out, outside source and map directories.")
     output_parent.mkdir(parents=True, exist_ok=True)
     output = Path(tempfile.mkdtemp(prefix="sandbox-", dir=output_parent))
-    phases = {name: {"status": "NotRun"} for name in ("source", "import", "PlayMode", "build", "player")}
+    phases = {name: {"status": "NotRun"} for name in ("source", "package-initialize", "import", "PlayMode", "build", "player")}
     report = {"started_utc": utc(), "commit": checkout_revision(RUNTIME), "target": target, "status": "NotRun", "phases": phases,
               "independent_review": "NotRun", "limits": "Sandbox source/import/declared physics cases and explicitly requested build/headless startup phases only; no rendered playtest, feel, art, multiplayer, performance or gate acceptance."}
     original = None
+    project, expected_packages, native_attempted = None, None, False
     current, code = "source", 1
     try:
         profile = json.loads((RUNTIME / "toolchain.json").read_text())
@@ -52,10 +54,18 @@ def run(unity: str | None, output_parent: Path, target: str, build_player: bool 
         report["copied_source_sha256"] = copy_inputs(RUNTIME, work)
         if report["copied_source_sha256"] != original:
             raise EvidenceError("Disposable inputs differ from the recorded source fingerprint; Unity was not launched.")
+        project = work / "unity"
+        report["expected_package_pins"] = expected_packages = package_snapshot(project)
         logs = output / "logs"
         logs.mkdir()
         common = [str(editor), "-batchmode", "-nographics", "-projectPath", str(work / "unity"),
                   "-buildTarget", target, "-forgetProjectPath"]
+
+        current = "package-initialize"
+        phases[current]["log"] = "logs/package-initialize.log"
+        native_attempted = True
+        initialize_packages(editor, work / "unity", target, profile, logs / "package-initialize.log", phases[current], execute,
+                            report["editor_file_identity"])
 
         def invoke(name: str, options: list[str], timeout: int) -> str:
             nonlocal current
@@ -73,6 +83,7 @@ def run(unity: str | None, output_parent: Path, target: str, build_player: bool 
             if rc != 0 or not text:
                 raise EvidenceError(f"{name} returned {rc} or produced no native log.")
             validate_log(text)
+            audit_package_pins(report, project, expected_packages, "after_" + name)
             return text
 
         text = invoke("import", ["-quit", "-executeMethod", "CriticalShift.Sandbox.Editor.SandboxSceneBuilder.Prepare"], 480)
@@ -114,8 +125,11 @@ def run(unity: str | None, output_parent: Path, target: str, build_player: bool 
                 phases["player"].update(exit_code=rc, ended_utc=utc(), log=str(log.relative_to(output)))
                 phases["player"].update(validate_sandbox_player(text, rc, profile["editor"], identities[0]))
                 phases["player"]["status"] = "Passed"
+        audit_package_pins(report, project, expected_packages, "before_success")
         report["status"], code = "Passed", 0
     except Exception as exception:
+        if phases[current]["status"] == "Blocked":
+            report["status"] = "Blocked"
         if report["status"] != "Blocked":
             report["status"] = "Failed"
         phases[current]["status"] = report["status"]
@@ -123,6 +137,9 @@ def run(unity: str | None, output_parent: Path, target: str, build_player: bool 
         report["reason"] = str(exception).replace(str(Path.home()), "<HOME>")
         code = 2 if report["status"] == "Blocked" else 1
     finally:
+        if native_attempted and not audit_package_pins(report, project, expected_packages, "final", required=False) and report["status"] == "Passed":
+            report["status"], code = "Failed", 1
+            report.setdefault("reason", "Final native package pin audit failed; see package_pin_audits.final.")
         if not audit_original(report, RUNTIME, original):
             code = 1
         report["ended_utc"] = utc()

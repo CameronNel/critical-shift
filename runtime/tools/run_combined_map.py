@@ -20,6 +20,7 @@ from check_source import check
 from editor_identity import inspect_editor
 from evidence import EvidenceError, validate_log
 from run_foundation import RUNTIME, audit_original, checkout_revision, copy_inputs, execute, fingerprint, utc
+from package_initialization import initialize_packages, package_snapshot, resolved_package_evidence
 
 DEFAULT_MAP_SOURCE = RUNTIME.parent / "sections/facility-assembly/combined"
 SCENE_PATH = "Assets/CriticalShift/Sandbox/Generated/CombinedMapTraversal.unity"
@@ -185,63 +186,6 @@ def validate_prepared(text: str, expected: dict, profile: dict) -> dict:
             "max_anchor_error_metres": maximum, "scene": scene}
 
 
-def package_snapshot(project: Path) -> dict:
-    """Read source pins or native lock evidence without conflating vendor requirements with selected versions."""
-    manifest_path, lock_path = project / "Packages/manifest.json", project / "Packages/packages-lock.json"
-    manifest_bytes, lock_bytes = manifest_path.read_bytes(), lock_path.read_bytes()
-    manifest = json.loads(manifest_bytes.decode("utf-8-sig"))["dependencies"]
-    dependencies = json.loads(lock_bytes.decode("utf-8-sig"))["dependencies"]
-    if not isinstance(manifest, dict) or not isinstance(dependencies, dict):
-        raise EvidenceError("Package manifest and lock dependencies must be mappings.")
-    packages = {}
-    for name, entry in dependencies.items():
-        if (not isinstance(entry, dict) or not isinstance(entry.get("version"), str) or not entry["version"] or
-                not isinstance(entry.get("source"), str) or not entry["source"]):
-            raise EvidenceError("A package lock entry lacks a selected version or source: " + name)
-        packages[name] = {"version": entry["version"], "source": entry["source"]}
-    for required in ("com.unity.test-framework", "com.unity.ext.nunit"):
-        if required not in packages:
-            raise EvidenceError("Required selected package is missing from the lock: " + required)
-    return {"manifest_dependencies": manifest, "packages": packages,
-            "manifest_sha256": hashlib.sha256(manifest_bytes).hexdigest(), "lock_sha256": hashlib.sha256(lock_bytes).hexdigest()}
-
-
-def resolved_package_evidence(project: Path, expected: dict) -> dict:
-    evidence = {"status": "NotRun", "limits": "Native workspace lock and cached descriptors only; no package, gameplay or gate acceptance."}
-    try:
-        actual = package_snapshot(project)
-        evidence.update(actual)
-        problems = []
-        if actual["packages"] != expected["packages"]:
-            problems.append("Native selected package versions or sources differ from the copied source pins.")
-        if actual["manifest_dependencies"] != expected["manifest_dependencies"]:
-            problems.append("Native manifest dependencies differ from the copied source manifest.")
-        descriptors, absent = {}, []
-        for name in ("com.unity.test-framework", "com.unity.ext.nunit"):
-            candidates = sorted((project / "Library/PackageCache").glob(name + "@*/package.json"))
-            rows = []
-            for path in candidates:
-                raw = path.read_bytes()
-                descriptor = json.loads(raw.decode("utf-8-sig"))
-                rows.append({"name": descriptor.get("name"), "version": descriptor.get("version"),
-                             "path": path.relative_to(project).as_posix(), "sha256": hashlib.sha256(raw).hexdigest()})
-            descriptors[name] = rows
-            if not rows:
-                absent.append(name)
-            elif len(rows) != 1 or rows[0]["name"] != name or rows[0]["version"] != actual["packages"][name]["version"]:
-                problems.append("Native cached descriptor does not uniquely match the selected lock entry: " + name)
-        evidence["cached_descriptors"] = descriptors
-        if problems:
-            evidence.update(status="Failed", reason=" ".join(problems))
-        elif absent:
-            evidence["reason"] = "Native package resolution has no cached descriptor evidence for: " + ", ".join(absent)
-        else:
-            evidence["status"] = "Passed"
-    except Exception as exception:
-        evidence.update(status="Failed", reason=("Native package evidence is unavailable or malformed: " + str(exception)).replace(str(Path.home()), "<HOME>"))
-    return evidence
-
-
 def run(unity: str | None, output_parent: Path, target: str = "Win64", map_source: Path = DEFAULT_MAP_SOURCE) -> tuple[int, Path]:
     output_parent, map_source = output_parent.resolve(), map_source.absolute()
     if ((output_parent.is_relative_to(RUNTIME.parent) and not output_parent.is_relative_to(RUNTIME / "out")) or
@@ -249,7 +193,7 @@ def run(unity: str | None, output_parent: Path, target: str = "Win64", map_sourc
         raise EvidenceError("Evidence must stay outside source/map directories, under runtime/out when inside the repository.")
     output_parent.mkdir(parents=True, exist_ok=True)
     output = Path(tempfile.mkdtemp(prefix="combined-map-", dir=output_parent))
-    phases = {name: {"status": "NotRun"} for name in ("source", "prepare")}
+    phases = {name: {"status": "NotRun"} for name in ("source", "package-initialize", "prepare")}
     report = {"started_utc": utc(), "commit": checkout_revision(RUNTIME), "target": target, "status": "NotRun",
               "phases": phases, "independent_review": "NotRun", "limits": LIMITS}
     original_runtime, original_map = None, None
@@ -290,6 +234,12 @@ def run(unity: str | None, output_parent: Path, target: str = "Win64", map_sourc
             raise EvidenceError("Disposable map inputs differ from the recorded source fingerprint; Unity was not launched.")
         logs = output / "logs"
         logs.mkdir()
+        current = "package-initialize"
+        phases[current]["log"] = "logs/package-initialize.log"
+        native_attempted = True
+        initialize_packages(editor, work / "unity", target, profile, logs / "package-initialize.log", phases[current], execute,
+                            report["editor_file_identity"])
+        current = "prepare"
         log = logs / "prepare.log"
         phases["prepare"] = {"status": "NotRun", "started_utc": utc(), "log": "logs/prepare.log"}
         command = [str(editor), "-batchmode", "-nographics", "-quit", "-projectPath", str(work / "unity"),
@@ -314,6 +264,8 @@ def run(unity: str | None, output_parent: Path, target: str = "Win64", map_sourc
         phases["prepare"]["status"] = report["status"] = "Passed"
         code = 0
     except Exception as exception:
+        if phases[current]["status"] == "Blocked":
+            report["status"] = "Blocked"
         if report["status"] != "Blocked":
             report["status"] = "Failed"
         phases[current]["status"] = report["status"]

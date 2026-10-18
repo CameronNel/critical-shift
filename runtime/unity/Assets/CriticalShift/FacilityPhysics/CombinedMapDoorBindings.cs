@@ -140,8 +140,11 @@ namespace CriticalShift.FacilityPhysics
             if (!CheckBindings()) return false;
             try
             {
-                // This is the active threshold's actual world bounds, never a JSON AABB or a temporarily enabled blocker.
-                Bounds bounds = door.Binding.Threshold.bounds;
+                // Focus thresholds may stop at eye height while a blast leaf extends much higher. Observe
+                // the complete leaf plus threshold margin from their current shapes, even while open.
+                // Never temporarily enable a blocker or read disabled Collider.bounds (which is empty).
+                Bounds bounds = ContactBounds(door.Binding.Blocker);
+                bounds.Encapsulate(ContactBounds(door.Binding.Threshold));
                 if (!Finite(bounds.center) || !FinitePositive(bounds.extents.x) || !FinitePositive(bounds.extents.y) || !FinitePositive(bounds.extents.z))
                     throw new InvalidOperationException("A combined-map door lost its usable closure observation volume: " + doorId);
                 int count = Physics.OverlapBoxNonAlloc(bounds.center, bounds.extents, closureContacts, Quaternion.identity,
@@ -246,6 +249,39 @@ namespace CriticalShift.FacilityPhysics
             if (determinant == 0 || float.IsNaN(determinant) || float.IsInfinity(determinant))
                 throw new InvalidOperationException("A combined-map door relative transform became singular: " + id);
             return relative;
+        }
+
+        private static Bounds ContactBounds(Collider shape)
+        {
+            var pose = shape.transform;
+            if (shape is SphereCollider sphere)
+            {
+                float scale = Mathf.Max(pose.TransformVector(Vector3.right).magnitude,
+                    Mathf.Max(pose.TransformVector(Vector3.up).magnitude, pose.TransformVector(Vector3.forward).magnitude));
+                return new Bounds(pose.TransformPoint(sphere.center), Vector3.one * (sphere.radius * scale * 2));
+            }
+            if (shape is CapsuleCollider capsule)
+            {
+                Vector3 axis = capsule.direction == 0 ? Vector3.right : capsule.direction == 1 ? Vector3.up : Vector3.forward;
+                Vector3 worldAxis = pose.TransformVector(axis);
+                // The maximum basis scale conservatively encloses a capsule under nonuniform scale.
+                float scale = Mathf.Max(pose.TransformVector(Vector3.right).magnitude,
+                    Mathf.Max(pose.TransformVector(Vector3.up).magnitude, pose.TransformVector(Vector3.forward).magnitude));
+                float radius = capsule.radius * scale;
+                float halfSegment = Mathf.Max(0, capsule.height * worldAxis.magnitude * 0.5f - radius);
+                Vector3 offset = worldAxis.normalized * halfSegment;
+                Vector3 extents = new Vector3(Mathf.Abs(offset.x), Mathf.Abs(offset.y), Mathf.Abs(offset.z)) + Vector3.one * radius;
+                return new Bounds(pose.TransformPoint(capsule.center), extents * 2);
+            }
+            Bounds local;
+            if (shape is BoxCollider box) local = new Bounds(box.center, box.size);
+            else if (shape is MeshCollider mesh && mesh.sharedMesh != null) local = mesh.sharedMesh.bounds;
+            else throw new InvalidOperationException("A door closure shape is unavailable.");
+            var world = new Bounds(pose.TransformPoint(local.center), Vector3.zero);
+            for (int corner = 0; corner < 8; corner++)
+                world.Encapsulate(pose.TransformPoint(local.center + Vector3.Scale(local.extents,
+                    new Vector3((corner & 1) == 0 ? -1 : 1, (corner & 2) == 0 ? -1 : 1, (corner & 4) == 0 ? -1 : 1))));
+            return world;
         }
         private static void ValidateShape(Collider shape, string id)
         {

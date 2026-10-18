@@ -1,7 +1,9 @@
 # Isolated local-host gameplay fixture
 
-**Source-only integration trial. Native import, compilation, tests and Player
-execution are NotRun.** See [the development checkpoint](../../../../validation/GAMEPLAY_SANDBOX.md).
+**Local integration trial undergoing native validation.** An earlier 124-case
+native gameplay checkpoint passed; the current URP run has two ragdoll failures
+under investigation. Build/Player are pending. See
+[the development checkpoint](../../../../validation/GAMEPLAY_SANDBOX.md).
 
 The fixture consumes the same canonical Application/domain source as the offline
 runner via the local package in `runtime/dotnet/src`. It never loads a map, edits a
@@ -150,26 +152,26 @@ its separate free-material-only permission.
 The still-dynamic body remains eligible while standing recovery is pending; it
 stops being a ragdoll load when the upright handoff completes.
 
-The fixture uses the project's **already configured** shader family for debug
-geometry. This explicitly supports the old Built-in foundation for import and
-physics investigation; it does not accept that as the final renderer. The Player
-build entrypoint requires the owner-selected URP asset, which remains unconfigured
-on the inspected baseline. No package is downloaded by the generator.
+The explicit scene generator prepares the owner-selected URP 17.4.0 asset using
+already resolved packages. It retains ordinary and emissive Lit material templates
+as serialized Player dependencies. Runtime palettes own only their clones. The
+generator does not install packages or alter authored map art.
 
 ## Evidence boundary
 
 The existing foundation runner still tests its foundation assembly selection;
 it does not automatically claim sandbox coverage. The separate native inventory
-is `runtime/validation/sandbox-expected-tests.json`: 119 implemented cases, all
-NotRun. Nine new pure command-port cases, fourteen worker-body claim cases and
-nine source-package safety cases and five declared-assembly boundary cases
-are also NotRun. Native fixtures are offset from possible active-scene content
+is `runtime/validation/sandbox-expected-tests.json`: 125 implemented cases. The
+earlier 124-case checkpoint passed; the URP continuation passed 122 and failed two
+ragdoll cases. The new full-leaf closure case is NotRun. The latest pure suite
+passed 723 cases before its subsequent cause-trace assertion change. Native
+fixtures are offset from possible active-scene content
 to avoid collisions with an unrelated map/scene at the origin.
 
 No human feel review, ragdoll/body-dragging acceptance, multiplayer convergence,
 supported FPS, final lighting/art or roadmap gate is established here. Renderer
 migration, physics tuning and lifecycle validation require actual editor/Player
-evidence after permission to execute. This source trial is unmerged and awaits
+evidence. Execution is authorized. This trial is unmerged and awaits
 independent review.
 
 When execution is authorized, `runtime/tools/run_sandbox.py` prepares and tests
@@ -179,15 +181,16 @@ requires the configured URP asset. Adding `--run-player` explicitly requests a
 headless startup/teardown smoke of that same new build on its matching OS. It
 requires the pinned version/build identity, generated meshes, declared physical
 bindings, at least 120 physics frames and two seconds, then empty teardown
-counters after deferred destruction. Both native phases remain NotRun. A green
+counters after deferred destruction. Build/Player remain pending. A green
 import/physics result does not establish a Player pass, and headless startup
 does not establish rendered playability, lighting, feel or supported performance.
 
 The runner first checks source ownership, metadata and declared dependency
-boundaries. The future native prepare step also compares production assemblies'
+boundaries. The native prepare step also compares production assemblies'
 resolved project references with their declarations, checks pure assemblies for
 engine references and requires compiled outputs. Its native inventory must agree
-with the source count. These checks are written and NotRun; they do not constitute
+with the source count. These checks passed natively at the earlier checkpoint;
+they do not constitute
 an independently accepted architecture or a Player dependency audit.
 
 ## Combined-map traversal derivative

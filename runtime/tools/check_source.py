@@ -64,7 +64,7 @@ def unity_boundaries(definitions: dict[str, dict]) -> None:
         "CriticalShift.FacilityPhysics.Unity": {application},
         "CriticalShift.Presentation": {application},
         "CriticalShift.Sandbox.Bootstrap": {application, *adapters, "CriticalShift.FacilityPhysics.Unity", "CriticalShift.Presentation"},
-        "CriticalShift.Sandbox.Editor": {"CriticalShift.Sandbox.Bootstrap"},
+        "CriticalShift.Sandbox.Editor": {"CriticalShift.Sandbox.Bootstrap", "Unity.RenderPipelines.Universal.Runtime", "Unity.RenderPipelines.Core.Runtime"},
     }
     required = domains | {application, "CriticalShift.ProcessLifetime"} | set(special) | adapters
     if not required.issubset(definitions):
@@ -143,6 +143,9 @@ def check(root: Path = RUNTIME) -> dict:
     manifest = json.loads((root / "unity/Packages/manifest.json").read_text())
     if manifest["dependencies"]["com.unity.test-framework"] != profile["testFramework"]:
         raise ValueError("Manifest and profile versions differ.")
+    if profile.get("renderPipeline") == "Universal" and (profile.get("colorSpace") != "Linear" or
+            manifest["dependencies"].get("com.unity.render-pipelines.universal") != profile.get("universalRenderPipeline")):
+        raise ValueError("The owner-selected URP package/color profile differs from its declaration.")
     version = (root / "unity/ProjectSettings/ProjectVersion.txt").read_text()
     if f'm_EditorVersion: {profile["editor"]}\n' not in version or profile["revision"] not in version:
         raise ValueError("Editor profile differs from ProjectVersion.txt.")

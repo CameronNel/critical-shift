@@ -75,7 +75,19 @@ class CombinedMapRunnerTests(unittest.TestCase):
             stack.enter_context(patch.object(runner, "checkout_revision", return_value="b" * 40))
             stack.enter_context(patch.object(runner, "inspect_editor", return_value={"status": "Verified"}))
             stack.enter_context(patch.object(runner, "check", return_value={"status": "Passed", "check": "mocked-source"}))
-            execution = stack.enter_context(patch.object(runner, "execute", side_effect=native or self.prepare))
+            def execute(command, log, timeout):
+                if "-executeMethod" not in command:
+                    project = Path(command[command.index("-projectPath") + 1])
+                    for name, version in (("com.unity.test-framework", "1.6.0"), ("com.unity.ext.nunit", "2.0.5")):
+                        descriptor = project / "Library/PackageCache" / (name + "@fixture") / "package.json"
+                        descriptor.parent.mkdir(parents=True, exist_ok=True)
+                        descriptor.write_text(json.dumps({"name": name, "version": version}))
+                    text = "Built from 'fixture'; Version is '6000.4.3f1 (39d1a88d4dd1)'\n"
+                    log.write_text(text)
+                    return 0, text
+                return (native or self.prepare)(command, log, timeout)
+
+            execution = stack.enter_context(patch.object(runner, "execute", side_effect=execute))
             code, output = runner.run(str(self.editor) if editor is None else editor, self.base / "evidence", "Win64", self.map)
             return code, output, json.loads((output / "report.json").read_text()), execution
 
@@ -86,7 +98,7 @@ class CombinedMapRunnerTests(unittest.TestCase):
         scene.write_text("%YAML mocked generated scene")
         for name, version in (("com.unity.test-framework", "1.6.0"), ("com.unity.ext.nunit", "2.0.5")):
             descriptor = project / "Library/PackageCache" / (name + "@fixture") / "package.json"
-            descriptor.parent.mkdir(parents=True)
+            descriptor.parent.mkdir(parents=True, exist_ok=True)
             data = {"name": name, "version": version}
             if name == "com.unity.test-framework":
                 data["dependencies"] = {"com.unity.ext.nunit": "2.0.3"}  # Vendor requirement differs from selected bundled pin.
@@ -114,7 +126,7 @@ class CombinedMapRunnerTests(unittest.TestCase):
         for flag in ("-batchmode", "-nographics", "-quit"):
             self.assertIn(flag, command)
         self.assertNotIn("-runTests", command)
-        self.assertEqual(execution.call_count, 1)
+        self.assertEqual(execution.call_count, 2)
         self.assertEqual(report["resolved_packages"]["status"], "Passed")
         self.assertEqual(report["resolved_packages"]["packages"]["com.unity.ext.nunit"]["version"], "2.0.5")
 
@@ -258,15 +270,16 @@ class CombinedMapRunnerTests(unittest.TestCase):
         self.assertIsNone(report["map_source_unchanged"])
         self.assertEqual((output / "logs/prepare.log").read_text(), "First native failure retained")
 
-    def test_license_failure_is_blocked_without_attempting_other_native_phases(self):
+    def test_prepare_license_failure_stops_after_the_completed_initialization(self):
         def blocked(command, log, timeout):
             log.write_text("No valid Unity Editor license")
             return 1, "No valid Unity Editor license"
 
         code, _, report, execution = self.invoke(blocked)
         self.assertEqual((code, report["status"]), (2, "Blocked"))
-        self.assertEqual(execution.call_count, 1)
-        self.assertEqual(set(report["phases"]), {"source", "prepare"})
+        self.assertEqual(execution.call_count, 2)
+        self.assertEqual(set(report["phases"]), {"source", "package-initialize", "prepare"})
+        self.assertEqual(report["phases"]["package-initialize"]["status"], "Completed")
 
     def test_missing_input_still_produces_a_failed_report_without_native_execution(self):
         (self.map / runner.MAP_INPUTS[2]).unlink()

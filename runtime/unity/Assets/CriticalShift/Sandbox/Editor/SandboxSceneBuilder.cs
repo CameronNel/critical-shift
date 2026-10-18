@@ -38,6 +38,7 @@ namespace CriticalShift.Sandbox.Editor
             var profile = ReadProfile();
             SandboxAssemblyGraph.Validate();
             if (!UnityApplication.isBatchMode && !EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) return;
+            SandboxRenderPipeline.Prepare();
             PlayerSettings.SetApiCompatibilityLevel(NamedBuildTarget.Standalone,
                 (ApiCompatibilityLevel)Enum.Parse(typeof(ApiCompatibilityLevel), profile.apiCompatibility));
             PlayerSettings.SetScriptingBackend(NamedBuildTarget.Standalone,
@@ -55,15 +56,20 @@ namespace CriticalShift.Sandbox.Editor
             if (shader == null) throw new BuildFailedException("The configured renderer's Lit shader is missing.");
             // Serialized shader reference is a Player dependency root, avoiding a string-only Shader.Find dependency.
             bootstrap.BindFixtureShader(shader);
+            SandboxMaterialTemplates.Prepare(shader, out var litTemplate, out var emissionTemplate);
+            bootstrap.BindFixtureMaterials(litTemplate, emissionTemplate);
+            var capture = bootstrap.gameObject.AddComponent<SandboxPlayerCapture>();
+            capture.Configure(bootstrap); bootstrap.BindPlayerCapture(capture);
             if (!EditorSceneManager.SaveScene(scene, ScenePath)) throw new BuildFailedException("The sandbox scene could not be saved.");
             AssetDatabase.SaveAssets();
-            // BuildSettings, project renderer and authored scene catalogues are deliberately not rewritten.
+            // The explicit URP trial configures rendering above; authored scene catalogues stay owned by their importers.
             Debug.Log("CS_SANDBOX_PREPARED scene=" + ScenePath + " unity=" + UnityApplication.unityVersion);
         }
 
         public static void Build()
         {
             var profile = ReadProfile();
+            SandboxRenderPipeline.Validate();
             if (PlayerSettings.GetApiCompatibilityLevel(NamedBuildTarget.Standalone) !=
                     (ApiCompatibilityLevel)Enum.Parse(typeof(ApiCompatibilityLevel), profile.apiCompatibility) ||
                 PlayerSettings.GetScriptingBackend(NamedBuildTarget.Standalone) !=
@@ -80,6 +86,12 @@ namespace CriticalShift.Sandbox.Editor
             if (bootstraps.Length != 1 || bootstraps[0].FixtureShader == null ||
                 bootstraps[0].FixtureShader.name != "Universal Render Pipeline/Lit")
                 throw new BuildFailedException("Regenerate the isolated scene under URP so its shader reference is retained in the Player.");
+            SandboxMaterialTemplates.Validate(bootstraps[0].FixtureShader, bootstraps[0].FixtureLitTemplate,
+                bootstraps[0].FixtureEmissionTemplate);
+            var captures = scene.GetRootGameObjects().SelectMany(item => item.GetComponentsInChildren<SandboxPlayerCapture>(true)).ToArray();
+            if (captures.Length != 1 || captures[0].Owner != bootstraps[0] || bootstraps[0].PlayerCapture != captures[0] ||
+                !captures[0].isActiveAndEnabled)
+                throw new BuildFailedException("Regenerate the sandbox scene with its one explicitly bound Player capture component.");
             var args = Environment.GetCommandLineArgs(); int index = Array.IndexOf(args, "-csSandboxBuildPath");
             if (index < 0 || index + 1 >= args.Length) throw new BuildFailedException("Pass -csSandboxBuildPath with the output executable.");
             var target = EditorUserBuildSettings.activeBuildTarget;

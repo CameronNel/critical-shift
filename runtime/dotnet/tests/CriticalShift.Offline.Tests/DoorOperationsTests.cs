@@ -186,7 +186,13 @@ namespace CriticalShift.Offline.Tests
             Assert.That(world.Doors.Get(blast)!.State, Is.EqualTo(DoorState.Locked));
             Assert.That(port.OperateDoor(Door, DoorAction.Close).HasNewCommit, Is.True); revision = world.View.Revision;
             Assert.That(world.BeginEvacuation(world.Epoch, cause).Status, Is.EqualTo(DoorEvacuationStatus.Duplicate));
-            Assert.That(world.BeginEvacuation(world.Epoch, Fixture.Id(81)).Status, Is.EqualTo(DoorEvacuationStatus.AlreadyActive));
+            var conflicting = world.BeginEvacuation(world.Epoch, Fixture.Id(81));
+            Assert.That(conflicting.Status, Is.EqualTo(DoorEvacuationStatus.AlreadyActive));
+            Assert.That(conflicting.CauseId, Is.EqualTo(cause));
+            var rejection = world.Trace.Records.Last(record => record.Kind == SessionTraceKind.Evacuation);
+            Assert.That(rejection.EvacuationResult, Is.EqualTo(DoorEvacuationStatus.AlreadyActive));
+            Assert.That(rejection.CauseId, Is.EqualTo(cause), "A conflicting request must retain the cause of the active evacuation in diagnostics.");
+            Assert.That(rejection.Changed, Is.False);
             Assert.That(world.View.Revision, Is.EqualTo(revision)); Assert.That(world.Doors.Get(Door)!.State, Is.EqualTo(DoorState.Closed));
             Assert.That(world.Doors.EvacuationCauseId, Is.EqualTo(cause));
             var changed = world.Trace.Records.Where(r => r.Kind == SessionTraceKind.Door && r.Changed).ToArray();

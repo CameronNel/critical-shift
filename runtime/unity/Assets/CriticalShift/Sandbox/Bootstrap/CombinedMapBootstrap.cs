@@ -17,6 +17,7 @@ namespace CriticalShift.Sandbox
     {
         [SerializeField] private CombinedMapAuthoring mapTemplate;
         [SerializeField] private Shader fixtureShader;
+        [SerializeField] private Material fixtureLitTemplate, fixtureEmissionTemplate;
         private GameObject owned;
         private WorldSession world;
         private LocalWorldHost host;
@@ -30,11 +31,14 @@ namespace CriticalShift.Sandbox
         private bool started, resetRequested;
         public WorldSessionView World => world == null ? null : world.View;
 
-        public void Configure(CombinedMapAuthoring template, Shader shader)
+        public void Configure(CombinedMapAuthoring template, Shader shader, Material litTemplate = null, Material emissionTemplate = null)
         {
             if (started || template == null || shader == null || !template.transform.IsChildOf(transform))
                 throw new ArgumentException("Configure the generated map template before startup.");
+            if (litTemplate != null || emissionTemplate != null)
+                SandboxPrimitives.ValidateMaterialTemplates(shader, litTemplate, emissionTemplate);
             mapTemplate = template; fixtureShader = shader;
+            fixtureLitTemplate = litTemplate; fixtureEmissionTemplate = emissionTemplate;
         }
         public static Guid DoorIdentity(string sourceId)
         {
@@ -59,7 +63,7 @@ namespace CriticalShift.Sandbox
                 if (mapTemplate == null || fixtureShader == null) throw new InvalidOperationException("Generate the combined-map traversal scene first.");
                 owned = new GameObject("Combined map traversal world"); owned.transform.SetParent(transform, false);
                 var model = Instantiate(mapTemplate, owned.transform); model.name = "Combined map collision derivative"; model.gameObject.SetActive(true);
-                palette = new SandboxPrimitives(fixtureShader); recovery = new WorkerRecoveryRegistry();
+                palette = new SandboxPrimitives(fixtureShader, fixtureLitTemplate, fixtureEmissionTemplate); recovery = new WorkerRecoveryRegistry();
                 access = new SpatialInteractionAccess(3.2f, includeRegisteredTriggersInFocus: true);
                 world = new WorldSession(new WorldSessionConfiguration(7, 720000, true), access, recovery);
                 Guid actor = new Guid(9001, 0, 0, new byte[8]), connection = new Guid(9002, 0, 0, new byte[8]);

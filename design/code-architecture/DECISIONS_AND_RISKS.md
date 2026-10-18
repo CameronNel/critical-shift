@@ -150,6 +150,25 @@ with the current renderer profile before claiming the normal foundation runner
 works under URP. A source patch or successful package import alone does not close
 D-01, prove the new Player, establish art/lighting parity or measure performance.
 
+The pinned bundle's first ShaderGraph import emits two `GUID` CS0246 diagnostics
+before its own API updater qualifies the names and recompiles. Validation now
+has a separate disposable package-initialization process with explicit
+`-accept-apiupdate`. Its original strict-log failure is retained. Only the two
+observed ShaderGraph 17.4.0 files may receive that compatibility classification,
+with both native updater entries and a later successful rebuild required;
+other critical/first-party diagnostics, source rewrites and changed package pins
+stop the run. Initialization grants no acceptance. A distinct new process must
+pass the unchanged complete-log validator before tests/builds can proceed.
+
+The development-only scratch Player also declares the exact editor's built-in
+Screen Capture **1.0.0** module and mandatory Image Conversion **1.0.0** dependency.
+This bounded diagnostic supports an explicit graphics-enabled startup PNG after
+headless validation; it selects no gameplay UI/input framework. It is inert
+without its explicit capture flag, requires the development Win64 Player and
+current fixture epoch, publishes only a new file under its `runtime/out` tree,
+and has a finite rendering/write deadline. Actual native resolution, capture
+and pixel inspection remain required; declarations alone are not evidence.
+
 Owners below are accountable roles; individual implementation/review assignments are **unassigned** until a work package is authorized. Cameron approves scope/stack decisions; the appointed implementation lead prepares evidence and an independent reviewer assesses it. No package is selected by mentioning it in a source reference.
 
 | ID | Open decision | Due before | Required resolution / what can proceed meanwhile |

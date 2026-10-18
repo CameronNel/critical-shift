@@ -1,5 +1,6 @@
 """Path-selection tests only; fixture DLL bytes are never used as API stubs."""
 import json
+import hashlib
 import re
 import subprocess
 import sys
@@ -122,8 +123,101 @@ class _AssemblyFixture(unittest.TestCase):
         source.write_text("// source-ownership fixture; never compiled")
         return directory, source
 
+    def pins(self):
+        """Minimal selected-lock fixture; vendor requested dependencies are not selected pins."""
+        project = self.root / "unity"
+        packages = project / "Packages"
+        packages.mkdir(parents=True, exist_ok=True)
+        (packages / "manifest.json").write_text(json.dumps({"dependencies": {"com.unity.render-pipelines.universal": "17.4.0"}}))
+        versions = {"com.unity.render-pipelines.universal": "17.4.0", "com.unity.render-pipelines.core": "17.4.0",
+                    "com.unity.ugui": "2.0.0"}
+        (packages / "packages-lock.json").write_text(json.dumps({"dependencies": {
+            name: {"version": version, "source": "builtin", "dependencies": {"vendor-request": "not-a-selected-version"}}
+            for name, version in versions.items()}}))
+        return project
+
+    def context(self):
+        """Filesystem-selection fixture only; none of these DLL bytes is loaded or compiled."""
+        canonical = self.pins()
+        project = self.root / "native-context"
+        for relative in ("Packages/manifest.json", "Packages/packages-lock.json"):
+            path = project / relative
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes((canonical / relative).read_bytes())
+        profile = {"editor": "6000.4.3f1", "revision": "39d1a88d4dd1"}
+        version = project / "ProjectSettings/ProjectVersion.txt"
+        version.parent.mkdir(parents=True)
+        version.write_text("m_EditorVersion: 6000.4.3f1\nm_EditorVersionWithRevision: 6000.4.3f1 (39d1a88d4dd1)\n")
+        for package, row in api_compile.package_pins(project)["selected"].items():
+            descriptor = project / "Library/PackageCache" / (package + "@fixture") / "package.json"
+            descriptor.parent.mkdir(parents=True)
+            descriptor.write_text(json.dumps({"name": package, "version": row["version"]}))
+        for name in ("UnityEngine.UI", "UnityEditor.UI", "Unity.RenderPipelines.Universal.Runtime", "Unity.RenderPipelines.Core.Runtime"):
+            binary = project / "Library/ScriptAssemblies" / (name + ".dll")
+            binary.parent.mkdir(parents=True, exist_ok=True)
+            binary.write_bytes((name + " path-selection fixture; never loaded").encode())
+        return canonical, project, profile
+
 
 class AssemblyGraphTests(_AssemblyFixture):
+    def test_selected_ugui_adds_both_ui_assemblies_only_to_nonpure_groups(self):
+        self.pins()
+        self.assembly("dotnet/src/Rules", "CriticalShift.Rules", pure=True)
+        self.assembly("unity/Assets/Runtime", "CriticalShift.Runtime")
+        self.assembly("unity/Assets/Editor", "CriticalShift.Editor", editor=True)
+        self.assembly("unity/Assets/Tests", "CriticalShift.Tests", test=True)
+        groups = discover_assemblies(self.root)
+        topological_order(groups)
+        self.assertEqual(groups["CriticalShift.Rules"]["implicit_references"], [])
+        self.assertEqual(groups["CriticalShift.Runtime"]["implicit_references"], ["UnityEngine.UI", "UnityEditor.UI"])
+        for name in ("CriticalShift.Editor", "CriticalShift.Tests"):
+            self.assertEqual(groups[name]["implicit_references"],
+                             ["UnityEngine.TestRunner", "UnityEditor.TestRunner", "UnityEngine.UI", "UnityEditor.UI"])
+        provenance = groups["CriticalShift.Runtime"]["implicit_reference_provenance"]
+        self.assertTrue(all(row["source"] == "selected-lock:com.unity.ugui" and row["version"] == "2.0.0" for row in provenance))
+
+    def test_absent_ugui_does_not_inject_ui_even_when_runtime_groups_exist(self):
+        self.assembly("unity/Assets/Runtime", "CriticalShift.Runtime")
+        self.assertEqual(discover_assemblies(self.root)["CriticalShift.Runtime"]["implicit_references"], [])
+
+    def test_pure_groups_cannot_declare_any_ui_or_renderer_sdk_edge(self):
+        self.pins()
+        for reference in api_compile.SDK_PACKAGES:
+            with self.subTest(reference=reference):
+                self.assembly("dotnet/src/Rules", "CriticalShift.Rules", [reference], pure=True)
+                with self.assertRaisesRegex(ValueError, "pure assembly cannot reference"):
+                    topological_order(discover_assemblies(self.root))
+
+    def test_selected_ugui_rejects_explicit_duplicate_ui_references(self):
+        self.pins()
+        for reference in api_compile.UI_REFERENCES:
+            with self.subTest(reference=reference):
+                self.assembly("unity/Assets/Runtime", "CriticalShift.Runtime", [reference])
+                with self.assertRaisesRegex(ValueError, "duplicates the implicit selected UGUI package"):
+                    discover_assemblies(self.root)
+
+    def test_only_the_two_renderer_sdk_edges_are_accepted_in_sandbox_editor(self):
+        self.pins()
+        directory, _ = self.assembly("unity/Assets/Editor", "CriticalShift.Sandbox.Editor",
+                                     ["Unity.RenderPipelines.Universal.Runtime", "Unity.RenderPipelines.Core.Runtime"], editor=True)
+        self.assertEqual(topological_order(discover_assemblies(self.root)), ["CriticalShift.Sandbox.Editor"])
+        definition = directory / "CriticalShift.Sandbox.Editor.asmdef"
+        metadata = json.loads(definition.read_text())
+        metadata["references"].append("Unity.RenderPipelines.Universal.Editor")
+        definition.write_text(json.dumps(metadata))
+        with self.assertRaisesRegex(ValueError, "Unknown declared dependency"):
+            topological_order(discover_assemblies(self.root))
+
+    def test_renderer_sdk_cannot_escape_to_another_editor_group(self):
+        self.assembly("unity/Assets/Editor", "CriticalShift.Content.Editor", api_compile.RENDERER_REFERENCES, editor=True)
+        with self.assertRaisesRegex(ValueError, "allowed only in production CriticalShift.Sandbox.Editor"):
+            topological_order(discover_assemblies(self.root))
+
+    def test_renderer_sdk_cannot_escape_to_a_runtime_group(self):
+        self.assembly("unity/Assets/Runtime", "CriticalShift.Runtime", api_compile.RENDERER_REFERENCES)
+        with self.assertRaisesRegex(ValueError, "allowed only in production CriticalShift.Sandbox.Editor"):
+            topological_order(discover_assemblies(self.root))
+
     def test_nested_editor_and_tests_have_their_own_sources(self):
         outer, source = self.assembly("unity/Assets/Feature", "CriticalShift.Feature")
         _, editor = self.assembly("unity/Assets/Feature/Editor", "CriticalShift.Feature.Editor", ["CriticalShift.Feature"], editor=True)
@@ -218,6 +312,101 @@ class AssemblyGraphTests(_AssemblyFixture):
         self.assertEqual([item.name for item in modular_references(managed, "UnityEngine")], ["UnityEngine.CoreModule.dll"])
 
 
+class NativeSdkContextTests(_AssemblyFixture):
+    def test_matching_pins_select_only_four_same_context_binaries_and_hash_their_descriptors(self):
+        canonical, context, profile = self.context()
+        selected, missing, evidence = api_compile.native_sdk_references(context, canonical, profile, set(api_compile.SDK_PACKAGES))
+        self.assertFalse(missing)
+        self.assertEqual(set(selected), {"UnityEngine.UI", "UnityEditor.UI", "Unity.RenderPipelines.Universal.Runtime", "Unity.RenderPipelines.Core.Runtime"})
+        self.assertEqual((evidence["status"], evidence["pins_match"]), ("Verified", True))
+        self.assertFalse(evidence["native_unity_execution"])
+        self.assertEqual(len(evidence["packages"]), 3)
+        for binary in evidence["binaries"]:
+            path = context / "Library/ScriptAssemblies" / (binary["assembly"] + ".dll")
+            self.assertEqual(selected[binary["assembly"]], path)
+            self.assertEqual(binary["sha256"], hashlib.sha256(path.read_bytes()).hexdigest())
+        self.assertTrue(all(len(row["sha256"]) == 64 for row in evidence["packages"]))
+
+    def test_manifest_mismatch_blocks_even_when_named_sdk_dlls_are_present(self):
+        canonical, context, profile = self.context()
+        manifest = context / "Packages/manifest.json"
+        metadata = json.loads(manifest.read_text())
+        metadata["dependencies"]["com.unity.render-pipelines.universal"] = "17.3.0"
+        manifest.write_text(json.dumps(metadata))
+        selected, missing, evidence = api_compile.native_sdk_references(context, canonical, profile, set(api_compile.SDK_PACKAGES))
+        self.assertFalse(selected)
+        self.assertEqual(set(missing), set(api_compile.SDK_PACKAGES))
+        self.assertIn("manifest differs", evidence["reason"])
+        self.assertFalse(evidence["pins_match"])
+
+    def test_selected_version_and_source_mismatches_each_block_context_selection(self):
+        canonical, context, profile = self.context()
+        lock = context / "Packages/packages-lock.json"
+        original = lock.read_text()
+        for field, value in (("version", "17.3.0"), ("source", "registry")):
+            with self.subTest(field=field):
+                metadata = json.loads(original)
+                metadata["dependencies"]["com.unity.render-pipelines.core"][field] = value
+                lock.write_text(json.dumps(metadata))
+                selected, _, evidence = api_compile.native_sdk_references(context, canonical, profile, set(api_compile.SDK_PACKAGES))
+                self.assertFalse(selected)
+                self.assertIn("selected package versions/sources differ", evidence["reason"])
+
+    def test_nonreferenced_selected_dependency_mismatch_cannot_hide_behind_sdk_matches(self):
+        canonical, context, profile = self.context()
+        lock = context / "Packages/packages-lock.json"
+        metadata = json.loads(lock.read_text())
+        metadata["dependencies"]["com.unity.mathematics"] = {"version": "1.3.3", "source": "registry", "url": "https://packages.unity.com"}
+        lock.write_text(json.dumps(metadata))
+        selected, _, evidence = api_compile.native_sdk_references(context, canonical, profile, set(api_compile.SDK_PACKAGES))
+        self.assertFalse(selected)
+        self.assertIn("selected package versions/sources differ", evidence["reason"])
+
+    def test_wrong_editor_revision_blocks_same_version_sdk_context(self):
+        canonical, context, profile = self.context()
+        version = context / "ProjectSettings/ProjectVersion.txt"
+        version.write_text(version.read_text().replace("39d1a88d4dd1", "000000000000"))
+        selected, _, evidence = api_compile.native_sdk_references(context, canonical, profile, set(api_compile.SDK_PACKAGES))
+        self.assertFalse(selected)
+        self.assertIn("Editor identity differs", evidence["reason"])
+
+    def test_missing_sdk_dll_blocks_its_reference_without_substituting_another_project(self):
+        canonical, context, profile = self.context()
+        missing_name = "Unity.RenderPipelines.Universal.Runtime"
+        (context / "Library/ScriptAssemblies" / (missing_name + ".dll")).unlink()
+        selected, missing, evidence = api_compile.native_sdk_references(context, canonical, profile, set(api_compile.SDK_PACKAGES))
+        self.assertEqual(set(selected), set(api_compile.SDK_PACKAGES) - {missing_name})
+        self.assertEqual(set(missing), {missing_name})
+        self.assertEqual((evidence["status"], evidence["pins_match"]), ("Blocked", True))
+
+    def test_cached_descriptor_version_mismatch_blocks_both_ui_references(self):
+        canonical, context, profile = self.context()
+        descriptor = context / "Library/PackageCache/com.unity.ugui@fixture/package.json"
+        descriptor.write_text(json.dumps({"name": "com.unity.ugui", "version": "1.0.0"}))
+        selected, missing, evidence = api_compile.native_sdk_references(context, canonical, profile, set(api_compile.SDK_PACKAGES))
+        self.assertEqual(set(missing), {"UnityEngine.UI", "UnityEditor.UI"})
+        self.assertEqual(set(selected), set(api_compile.RENDERER_REFERENCES))
+        self.assertTrue(all("descriptor differs" in reason for reason in missing.values()))
+        rejected = next(item for item in evidence["packages"] if item["name"] == "com.unity.ugui")
+        self.assertFalse(rejected["matches_selected"])
+        self.assertEqual(rejected["sha256"], hashlib.sha256(descriptor.read_bytes()).hexdigest())
+
+    def test_missing_or_ambiguous_cache_descriptors_cannot_use_the_existing_dll_as_provenance(self):
+        canonical, context, profile = self.context()
+        package = "com.unity.render-pipelines.core"
+        descriptor = context / "Library/PackageCache" / (package + "@fixture/package.json")
+        original = descriptor.read_bytes()
+        descriptor.unlink()
+        _, missing, _ = api_compile.native_sdk_references(context, canonical, profile, set(api_compile.RENDERER_REFERENCES))
+        self.assertIn("one native-context cached SDK descriptor", missing["Unity.RenderPipelines.Core.Runtime"])
+        descriptor.write_bytes(original)
+        duplicate = context / "Library/PackageCache" / (package + "@second/package.json")
+        duplicate.parent.mkdir()
+        duplicate.write_bytes(original)
+        _, missing, _ = api_compile.native_sdk_references(context, canonical, profile, set(api_compile.RENDERER_REFERENCES))
+        self.assertIn("one native-context cached SDK descriptor", missing["Unity.RenderPipelines.Core.Runtime"])
+
+
 class SupplementaryCompileEvidenceTests(_AssemblyFixture):
     """Compiler orchestration fixtures: every compiler/identity call is mocked, no fixture DLL is loaded."""
     def prepare(self, stack, missing_runner=False, fail=False):
@@ -263,6 +452,88 @@ class SupplementaryCompileEvidenceTests(_AssemblyFixture):
 
         execution = stack.enter_context(patch.object(api_compile.subprocess, "run", side_effect=build))
         return editor, nunit, runtime / "out/api-check", execution, identity
+
+    def test_native_sdk_references_reach_only_their_real_consumers_and_pure_responses_stay_free(self):
+        with ExitStack() as stack:
+            editor, nunit, output, execution, _ = self.prepare(stack)
+            self.assembly("unity/Assets/SandboxEditor", "CriticalShift.Sandbox.Editor",
+                          ["CriticalShift.Adapter", "Unity.RenderPipelines.Universal.Runtime", "Unity.RenderPipelines.Core.Runtime"], editor=True)
+            _, context, _ = self.context()
+            report = compile_sources(editor, nunit, output, unity_project=context)
+        self.assertEqual((report["status"], execution.call_count), ("Passed", 5))
+        self.assertTrue(report["native_sdk_context"]["inputs_unchanged"])
+        for record in report["checks"]:
+            selected = {Path(path).stem for path in record["references"]}.intersection(api_compile.SDK_PACKAGES)
+            expected = set() if record["assembly"] == "CriticalShift.Rules" else {"UnityEngine.UI", "UnityEditor.UI"}
+            if record["assembly"] == "CriticalShift.Sandbox.Editor":
+                expected.update(("Unity.RenderPipelines.Universal.Runtime", "Unity.RenderPipelines.Core.Runtime"))
+            self.assertEqual(selected, expected)
+            response = (output / record["compiler_response"]).read_text()
+            for name in expected:
+                self.assertEqual(response.count(str(context / "Library/ScriptAssemblies" / (name + ".dll"))), 1)
+            for provenance in record["implicit_reference_provenance"]:
+                if provenance["assembly"] in api_compile.UI_REFERENCES:
+                    self.assertEqual((provenance["source"], provenance["package_source"]), ("selected-lock:com.unity.ugui", "builtin"))
+                    self.assertEqual(len(provenance["sha256"]), 64)
+
+    def test_missing_renderer_dll_blocks_only_its_consumer_and_retains_pin_evidence(self):
+        with ExitStack() as stack:
+            editor, nunit, output, execution, _ = self.prepare(stack)
+            self.assembly("unity/Assets/SandboxEditor", "CriticalShift.Sandbox.Editor",
+                          ["CriticalShift.Adapter", *api_compile.RENDERER_REFERENCES], editor=True)
+            _, context, _ = self.context()
+            (context / "Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll").unlink()
+            report = compile_sources(editor, nunit, output, unity_project=context)
+        self.assertEqual((report["status"], report["production_status"], execution.call_count), ("Blocked", "Blocked", 4))
+        for record in report["checks"]:
+            self.assertEqual(record["status"], "Blocked" if record["assembly"] == "CriticalShift.Sandbox.Editor" else "Passed")
+        self.assertTrue(report["native_sdk_context"]["pins_match"])
+        self.assertTrue(report["native_sdk_context"]["context_pins"]["lock_sha256"])
+
+    def test_pin_mismatch_blocks_nonpure_compilation_but_keeps_pure_check_and_durable_report(self):
+        with ExitStack() as stack:
+            editor, nunit, output, execution, _ = self.prepare(stack)
+            _, context, _ = self.context()
+            lock = context / "Packages/packages-lock.json"
+            metadata = json.loads(lock.read_text())
+            metadata["dependencies"]["com.unity.ugui"]["source"] = "registry"
+            lock.write_text(json.dumps(metadata))
+            report = compile_sources(editor, nunit, output, unity_project=context)
+        self.assertEqual((report["status"], execution.call_count), ("Blocked", 1))
+        self.assertEqual([record["status"] for record in report["checks"]], ["Passed", "Blocked", "Blocked", "Blocked"])
+        self.assertFalse(report["native_sdk_context"]["pins_match"])
+        self.assertIn("selected package versions/sources differ", report["reason"])
+        self.assertEqual(json.loads((output / "api-compile.json").read_text())["status"], "Blocked")
+
+    def test_ugui_selection_without_a_native_context_never_falls_back_to_managed_ui_copies(self):
+        with ExitStack() as stack:
+            editor, nunit, output, execution, _ = self.prepare(stack)
+            self.pins()
+            for name in api_compile.UI_REFERENCES:
+                (editor / "Editor/Data/Managed" / (name + ".dll")).write_bytes(b"must not substitute this path")
+            report = compile_sources(editor, nunit, output)
+        self.assertEqual((report["status"], execution.call_count), ("Blocked", 1))
+        self.assertEqual(report["native_sdk_context"]["status"], "Blocked")
+        self.assertTrue(all("--unity-project" in record["reason"] for record in report["checks"][1:]))
+        self.assertFalse(any(Path(row["path"]).stem in api_compile.UI_REFERENCES for row in report["references"]))
+
+    def test_context_binary_mutation_invalidates_evidence_after_mocked_compilation(self):
+        with ExitStack() as stack:
+            editor, nunit, output, execution, _ = self.prepare(stack)
+            _, context, _ = self.context()
+            original_build = execution.side_effect
+
+            def mutate(command, **kwargs):
+                result = original_build(command, **kwargs)
+                (context / "Library/ScriptAssemblies/UnityEngine.UI.dll").write_bytes(b"changed while checking")
+                return result
+
+            execution.side_effect = mutate
+            report = compile_sources(editor, nunit, output, unity_project=context)
+        self.assertEqual(report["status"], "Failed")
+        self.assertFalse(report["native_sdk_context"]["inputs_unchanged"])
+        self.assertIn("native SDK context inputs changed", report["reason"])
+        self.assertFalse(report["native_unity_execution"])
 
     def test_all_owned_production_and_test_groups_reach_the_compiler_in_graph_order(self):
         with ExitStack() as stack:

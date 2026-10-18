@@ -25,7 +25,18 @@ namespace CriticalShift.Sandbox.Tests
         private List<Exception> faults;
         private double clock;
         private static Guid Id(int value) => new Guid(value, 0, 0, new byte[8]);
-        private WorkerView Worker => host.World.GetWorker(Id(1));
+        private WorkerView Worker
+        {
+            get
+            {
+                var world = host == null ? null : host.World;
+                var worker = world == null ? null : world.GetWorker(Id(1));
+                Assert.That(worker, Is.Not.Null, "Worker observation was removed; world=" +
+                    (world == null ? "unavailable" : world.View.Phase.ToString()) + "; recorded fixture faults:\n" +
+                    (faults == null ? "unavailable" : string.Join("\n", faults)));
+                return worker;
+            }
+        }
         private Rigidbody HeavyCrate => root.transform.Find("Local Gameplay Fixture/Material container 1").GetComponent<Rigidbody>();
 
         [UnitySetUp] public IEnumerator SetUp()

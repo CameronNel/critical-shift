@@ -231,6 +231,58 @@ namespace CriticalShift.Sandbox.Tests
             Assert.That(adapter.FaultLatched, Is.False);
         }
 
+        [Test] public void ElevatedOccupantsBlockTheFullRotatedBlastLeafWithoutChangingContacts()
+        {
+            // Real REACTOR_BLAST leaf: 4.96m high; its focus threshold stops at 2.4m.
+            // Test both debug box contacts and the imported map's actual mesh-contact path.
+            Vector3 rootPosition = root.transform.position; Quaternion rootRotation = root.transform.rotation;
+            CheckLeaf(false); CheckLeaf(true);
+
+            void CheckLeaf(bool meshContact)
+            {
+                root.transform.SetPositionAndRotation(rootPosition, rootRotation);
+                var owner = Child(meshContact ? "Mesh blast leaf" : "Box blast leaf", root.transform);
+                owner.localPosition = Vector3.right * (meshContact ? 20 : 0);
+                owner.localRotation = Quaternion.Euler(0, 31, 0);
+                var row = Door("REACTOR_BLAST", new Vector3(0, -33.77f, 0), Vector2.down,
+                    5, 4.96f, DoorCollisionState.Open, owner: owner);
+                if (meshContact)
+                {
+                    var original = (BoxCollider)row.Blocker; original.enabled = false;
+                    var source = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                    source.transform.SetParent(root.transform, false); source.SetActive(false);
+                    var mesh = UnityEngine.Object.Instantiate(source.GetComponent<MeshFilter>().sharedMesh); ownedMeshes.Add(mesh);
+                    var vertices = mesh.vertices;
+                    for (int i = 0; i < vertices.Length; i++) vertices[i] = Vector3.Scale(vertices[i], original.size);
+                    mesh.vertices = vertices; mesh.RecalculateBounds();
+                    var contact = original.gameObject.AddComponent<MeshCollider>(); contact.sharedMesh = mesh;
+                    row = new DoorCollisionBinding(row.InitialProjection, row.Anchor, contact, row.Threshold);
+                }
+                var adapter = Adapter(owner); adapter.Initialize(epoch, new[] { row }, failures.Add);
+                var occupant = Child("Elevated physical occupant", owner).gameObject.AddComponent<SphereCollider>(); occupant.radius = 0.2f;
+                var body = occupant.gameObject.AddComponent<Rigidbody>(); body.isKinematic = true; body.useGravity = false;
+                occupant.transform.position = row.Anchor.TransformPoint(new Vector3(0, 3.6f, 0)); Physics.SyncTransforms();
+                Assert.That(row.Threshold.bounds.Intersects(occupant.bounds), Is.False, "Fixture must miss the shorter focus threshold.");
+                Assert.That(adapter.CanClose("REACTOR_BLAST"), Is.False, "An upper-leaf occupant must prevent closing: mesh=" + meshContact);
+                root.transform.position += new Vector3(23, 5, -19); root.transform.rotation *= Quaternion.Euler(0, -41, 0);
+                Physics.SyncTransforms();
+                Assert.That(adapter.CanClose("REACTOR_BLAST"), Is.False, "Closure observations must follow the whole map's current TRS.");
+                Assert.That(row.Blocker.enabled, Is.False); Assert.That(row.Threshold.enabled, Is.True);
+                Assert.That(adapter.Apply(row.InitialProjection), Is.EqualTo(DoorCollisionApplyStatus.NoChange));
+                occupant.transform.position = row.Anchor.TransformPoint(new Vector3(6, 3.6f, 0)); Physics.SyncTransforms();
+                Assert.That(Vector3.Distance(row.Anchor.position, occupant.bounds.ClosestPoint(row.Anchor.position)),
+                    Is.GreaterThan(Mathf.Sqrt(4.96f * 4.96f + 2.5f * 2.5f + 0.3f * 0.3f)),
+                    "Clear-space occupant must lie beyond the complete conservative closure volume at every map yaw.");
+                Assert.That(adapter.CanClose("REACTOR_BLAST"), Is.True, "Moving beyond the physical leaf clears the opening.");
+                occupant.transform.position = row.Anchor.TransformPoint(new Vector3(0, 5.5f, 0)); Physics.SyncTransforms();
+                Assert.That(adapter.CanClose("REACTOR_BLAST"), Is.True, "The observation must stay bounded above the leaf.");
+                occupant.transform.position = row.Anchor.TransformPoint(new Vector3(0, 3.6f, 0)); occupant.isTrigger = true; Physics.SyncTransforms();
+                Assert.That(adapter.CanClose("REACTOR_BLAST"), Is.True, "An unrelated trigger is still not a physical occupant.");
+                Assert.That(row.Blocker.enabled, Is.False); Assert.That(row.Threshold.enabled, Is.True); Assert.That(adapter.FaultLatched, Is.False);
+                adapter.Shutdown(); occupant.enabled = false;
+            }
+        }
+
         [Test] public void WholeModelMotionPreservesDoorBindingsButChildPoseDriftStopsThem()
         {
             var turbine = Turbine(); var adapter = Adapter(); adapter.Initialize(epoch, new[] { turbine }, failures.Add);

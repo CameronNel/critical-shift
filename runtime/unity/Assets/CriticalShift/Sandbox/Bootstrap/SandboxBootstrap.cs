@@ -10,6 +10,8 @@ namespace CriticalShift.Sandbox
     public sealed class SandboxBootstrap : MonoBehaviour
     {
         [SerializeField] private Shader fixtureShader;
+        [SerializeField] private Material fixtureLitTemplate, fixtureEmissionTemplate;
+        [SerializeField] private SandboxPlayerCapture playerCapture;
         private SandboxFixture fixture;
         private Func<double> fixtureClock;
         private Action<Exception> fixtureDiagnostics;
@@ -44,7 +46,8 @@ namespace CriticalShift.Sandbox
             try
             {
                 if (fixtureShader == null) throw new InvalidOperationException("Generate the sandbox scene to bind its renderer shader explicitly.");
-                fixture = new SandboxFixture(transform, fixtureShader, () => resetRequested = true, fixtureClock, fixtureDiagnostics);
+                fixture = new SandboxFixture(transform, fixtureShader, () => resetRequested = true, fixtureClock, fixtureDiagnostics,
+                    fixtureLitTemplate, fixtureEmissionTemplate);
                 Debug.Log("CS_SANDBOX_READY local_host=true map_loaded=false epoch=" + fixture.Epoch);
                 if (smoke)
                 {
@@ -62,6 +65,9 @@ namespace CriticalShift.Sandbox
         }
 
         public Shader FixtureShader => fixtureShader;
+        public Material FixtureLitTemplate => fixtureLitTemplate;
+        public Material FixtureEmissionTemplate => fixtureEmissionTemplate;
+        public SandboxPlayerCapture PlayerCapture => playerCapture;
         public WorldSessionView World => fixture == null ? null : fixture.Snapshot;
         public WorldSessionView LastStoppedWorld { get; private set; }
         public int LastStoppedPhysicalBindings { get; private set; }
@@ -73,10 +79,24 @@ namespace CriticalShift.Sandbox
             fixtureShader = shader;
         }
 
+        public void BindFixtureMaterials(Material litTemplate, Material emissionTemplate)
+        {
+            if (fixture != null) throw new InvalidOperationException("Bind material dependencies before fixture activation.");
+            SandboxPrimitives.ValidateMaterialTemplates(fixtureShader, litTemplate, emissionTemplate);
+            fixtureLitTemplate = litTemplate; fixtureEmissionTemplate = emissionTemplate;
+        }
+
         public void BindFixtureClock(Func<double> clock)
         {
             if (fixture != null || clock == null) throw new InvalidOperationException("Bind the fixture clock before activation.");
             fixtureClock = clock;
+        }
+
+        public void BindPlayerCapture(SandboxPlayerCapture capture)
+        {
+            if (fixture != null || capture == null || capture.gameObject != gameObject || capture.Owner != this)
+                throw new InvalidOperationException("Bind the explicitly owned generated capture component before fixture activation.");
+            playerCapture = capture;
         }
 
         public void BindFixtureDiagnostics(Action<Exception> sink)
@@ -99,7 +119,10 @@ namespace CriticalShift.Sandbox
                 if (smokeErrors) { BeginSmokeStop(); return; }
                 fixture.ObservePlayerSmoke(); smokeFrames++;
                 if (smokeFrames >= 120 && Time.realtimeSinceStartupAsDouble - smokeStartedAt >= 2)
-                { fixture.ObservePlayerSmoke(requirePhysicalSensors: true); BeginSmokeStop(); }
+                {
+                    fixture.ObservePlayerSmoke(requirePhysicalSensors: true);
+                    if (playerCapture == null || !playerCapture.AwaitingCompletion) BeginSmokeStop();
+                }
             }
             catch (Exception exception) { smokeErrors = true; Debug.LogException(exception, this); BeginSmokeStop(); }
         }

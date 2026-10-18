@@ -83,7 +83,11 @@ namespace CriticalShift.FacilityPhysics
                     float speed = linear.magnitude, spin = angular.magnitude;
                     PeakLinearSpeed = Mathf.Max(PeakLinearSpeed, speed); PeakAngularSpeed = Mathf.Max(PeakAngularSpeed, spin);
                     if (speed > linearLimit || spin > angularLimit)
-                        throw new InvalidOperationException("Physics body exceeded fixture speed limits: " + binding.Label);
+                        throw new InvalidOperationException("Physics body exceeded fixture speed limits: " + binding.Label +
+                            " linear=" + speed.ToString("R", System.Globalization.CultureInfo.InvariantCulture) +
+                            "/" + linearLimit.ToString("R", System.Globalization.CultureInfo.InvariantCulture) +
+                            " angular=" + spin.ToString("R", System.Globalization.CultureInfo.InvariantCulture) +
+                            "/" + angularLimit.ToString("R", System.Globalization.CultureInfo.InvariantCulture));
                 }
                 DynamicBodyCount = dynamicCount; PeakDynamicBodyCount = Mathf.Max(PeakDynamicBodyCount, dynamicCount);
             }

@@ -29,6 +29,8 @@ namespace CriticalShift.Sandbox.Editor
             if (assemblies.Length == 0 || !assemblies.Any(item => item.name == "CriticalShift.Application") ||
                 !assemblies.Any(item => item.name == "CriticalShift.Sandbox.Bootstrap"))
                 throw new BuildFailedException("The native compiler did not resolve the required gameplay source assemblies.");
+            var ui = PackageInfo.GetAllRegisteredPackages().SingleOrDefault(item => item.name == "com.unity.ugui");
+            if (ui != null && ui.version != "2.0.0") throw new BuildFailedException("The mandatory renderer UI module differs from the pinned version.");
             foreach (var assembly in assemblies)
             {
                 string path = CompilationPipeline.GetAssemblyDefinitionFilePathFromAssemblyName(assembly.name);
@@ -46,10 +48,14 @@ namespace CriticalShift.Sandbox.Editor
                 // exact equality so unrelated SDK or first-party edges still fail.
                 bool editorOnly = definition.includePlatforms != null && definition.includePlatforms.SequenceEqual(new[] { "Editor" });
                 if (editorOnly) expected.UnionWith(new[] { "UnityEditor.TestRunner", "UnityEngine.TestRunner" });
+                // The selected URP dependency closure includes uGUI. Native Editor
+                // compilation injects its module assemblies into engine-facing groups,
+                // including runtime groups; no source gameplay UI dependency is declared.
+                if (ui != null && !definition.noEngineReferences) expected.UnionWith(new[] { "UnityEditor.UI", "UnityEngine.UI" });
                 if (!expected.SetEquals(resolved))
                     throw new BuildFailedException("Native project references differ from the declaration for " + assembly.name +
                         "; declared=" + string.Join(",", declared.OrderBy(value => value)) +
-                        "; implicit=" + (editorOnly ? "UnityEditor.TestRunner,UnityEngine.TestRunner" : "") +
+                        "; implicit=" + string.Join(",", expected.Except(declared).OrderBy(value => value)) +
                         "; resolved=" + string.Join(",", resolved.OrderBy(value => value)));
                 bool pure = assembly.name == "CriticalShift.Application" || assembly.name == "CriticalShift.ProcessLifetime" || assembly.name.EndsWith(".Domain", StringComparison.Ordinal);
                 if (definition.noEngineReferences != pure || (pure && assembly.compiledAssemblyReferences.Any(IsEngineReference)))

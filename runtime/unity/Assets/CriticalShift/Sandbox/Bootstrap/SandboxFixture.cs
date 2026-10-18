@@ -38,12 +38,12 @@ namespace CriticalShift.Sandbox
         internal int PhysicsObservationCount => safety == null ? 0 : safety.BoundBodyCount;
 
         internal SandboxFixture(Transform parent, Shader fixtureShader, Action requestReset, Func<double> clock = null,
-            Action<Exception> diagnosticSink = null)
+            Action<Exception> diagnosticSink = null, Material litTemplate = null, Material emissionTemplate = null)
         {
             root = SandboxPrimitives.Empty("Local Gameplay Fixture", parent, Vector3.zero);
             try
             {
-                shapes = new SandboxPrimitives(fixtureShader);
+                shapes = new SandboxPrimitives(fixtureShader, litTemplate, emissionTemplate);
                 access = new SpatialInteractionAccess(3.8f,
                     (actorId, targetId, body) => host != null && host.MayIgnoreForSight(actorId, targetId, body));
                 recovery = new WorkerRecoveryRegistry();

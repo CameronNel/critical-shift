@@ -20,6 +20,7 @@ from pathlib import Path
 
 from evidence import EvidenceError, validate_log, validate_player, validate_results
 from editor_identity import inspect_editor
+from package_initialization import audit_package_pins, initialize_packages, package_snapshot
 
 RUNTIME = Path(__file__).resolve().parents[1]
 
@@ -144,12 +145,13 @@ def run(unity: str | None, output_parent: Path, target: str) -> tuple[int, Path]
         raise EvidenceError("Inside the repository, evidence must stay under runtime/out, never source or art directories.")
     output_parent.mkdir(parents=True, exist_ok=True)
     out = Path(tempfile.mkdtemp(prefix="wp01-", dir=output_parent))
-    phases = {name: {"status": "NotRun"} for name in ("import", "EditMode", "PlayMode", "build", "player")}
+    phases = {name: {"status": "NotRun"} for name in ("package-initialize", "import", "EditMode", "PlayMode", "build", "player")}
     report = {"started_utc": utc(), "commit": checkout_revision(RUNTIME),
               "target": target, "status": "NotRun", "phases": phases,
               "independent_review": "NotRun", "limits": "WP-01 only; not Gate 0 acceptance, gameplay, visual or network validation."}
     current = "import"
     original = None
+    project, expected_packages, native_attempted = None, None, False
     code = 1
     try:
         profile = json.loads((RUNTIME / "toolchain.json").read_text())
@@ -169,10 +171,17 @@ def run(unity: str | None, output_parent: Path, target: str) -> tuple[int, Path]
         if report["copied_source_sha256"] != original:
             raise EvidenceError("Disposable inputs differ from the recorded source fingerprint; Unity was not launched.")
         project = work / "unity"
+        report["expected_package_pins"] = expected_packages = package_snapshot(project)
         logs = out / "logs"
         logs.mkdir()
         common = [str(editor), "-batchmode", "-nographics", "-projectPath", str(project),
                   "-buildTarget", target, "-forgetProjectPath"]
+
+        current = "package-initialize"
+        phases[current]["log"] = "logs/package-initialize.log"
+        native_attempted = True
+        initialize_packages(editor, project, target, profile, logs / "package-initialize.log", phases[current], execute,
+                            report["editor_file_identity"])
 
         def invoke(name: str, options: list[str], timeout: int) -> str:
             nonlocal current
@@ -187,6 +196,7 @@ def run(unity: str | None, output_parent: Path, target: str) -> tuple[int, Path]
             if rc != 0 or not text:
                 raise EvidenceError(f"{name} returned {rc} or produced no native log.")
             validate_log(text)
+            audit_package_pins(report, project, expected_packages, "after_" + name)
             return text
 
         text = invoke("import", ["-quit", "-executeMethod", "CriticalShift.Bootstrap.Editor.FoundationBuild.Prepare"], 360)
@@ -217,9 +227,12 @@ def run(unity: str | None, output_parent: Path, target: str) -> tuple[int, Path]
         phases["player"].update(exit_code=rc, ended_utc=utc(), log=str(log.relative_to(out)))
         phases["player"].update(validate_player(text, rc, profile["editor"], matches[0]))
         phases["player"]["status"] = "Passed"
+        audit_package_pins(report, project, expected_packages, "before_success")
         report["status"] = "Passed"
         code = 0
     except Exception as exc:
+        if phases[current]["status"] == "Blocked":
+            report["status"] = "Blocked"
         if report["status"] != "Blocked":
             report["status"] = "Failed"
         phases[current]["status"] = report["status"]
@@ -227,6 +240,9 @@ def run(unity: str | None, output_parent: Path, target: str) -> tuple[int, Path]
         report["reason"] = str(exc).replace(str(Path.home()), "<HOME>")
         code = 2 if report["status"] == "Blocked" else 1
     finally:
+        if native_attempted and not audit_package_pins(report, project, expected_packages, "final", required=False) and report["status"] == "Passed":
+            report["status"], code = "Failed", 1
+            report.setdefault("reason", "Final native package pin audit failed; see package_pin_audits.final.")
         if not audit_original(report, RUNTIME, original):
             code = 1
         report["ended_utc"] = utc()

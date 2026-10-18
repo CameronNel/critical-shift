@@ -1042,3 +1042,112 @@ they remain in the failed log. No renderer or Player pass is claimed. The actual
 lock selected uGUI 2.0.0, Collections 6.4.0, Burst 1.8.29, Mathematics 1.3.3,
 Searcher 4.9.4, Mono-Cecil 1.11.6 and test-framework.performance 3.4.0 as renderer
 dependencies. The canonical project has not adopted them at this checkpoint.
+
+## URP native trial in progress, 17:49 UTC
+
+The 124-case gameplay checkpoint was saved as commit `59b4b80b`. The next
+bounded trial now declares the already owner-selected URP 17.4.0 renderer,
+its actual resolved dependency lock, Linear colour, and one default pipeline
+inherited by every quality level. Only `CriticalShift.Sandbox.Editor` declares
+the two required Core/URP runtime SDK references. The native graph checker
+accounts for the precisely observed uGUI auto-references on engine assemblies;
+pure assemblies still prohibit engine/SDK edges.
+
+`runtime/out/sandbox-l_x_i_qa` failed native compilation on two helper API
+errors: an ambiguous `PackageInfo` name and protected global-settings lookup.
+The helper now qualifies the package type and uses the public
+`EditorGraphicsSettings.TryGetRenderPipelineSettingsForPipeline` API, which
+supports inspecting an inactive registered pipeline. The failed log is retained.
+
+The supplementary compiler now accepts an explicitly supplied native SDK
+context only when its editor identity, manifest and selected lock match the
+canonical profile. It hashes the four actual Core/URP/uGUI SDK binaries and
+their package descriptors, and audits them again after compilation. It neither
+builds nor modifies that context and makes no binary-freshness claim. Its
+`runtime/out/api-urp-first/api-compile.json` report passed all 21 assemblies.
+The tooling suite reported 144 cases: 143 passed and one Windows symlink
+privilege skip (`runtime/out/tooling-urp-context.log`).
+
+The corrected native trial is now attempting import, all 124 PlayMode cases,
+Win64 build and the existing headless Player lifecycle smoke. Canonical runtime
+inputs remain frozen during that run. Native renderer assets/settings have not
+yet been copied back, so the standalone foundation runner still needs that
+serialization step before its new URP requirement can pass. A parallel review
+also identified a missing serialized emissive material variant root; Player
+startup evidence alone cannot establish correct emissive pixels.
+
+## Initialized URP result and corrective work, 17:56 UTC
+
+`sandbox-3p2qy93a` completed native scene preparation with exit zero, but its
+strict log check correctly rejected the two initial SDK `GUID` compile errors
+that Unity's API updater subsequently repaired. The separate retained
+`runtime/out/urp-initialized-continuation` passed a new process's clean Prepare,
+then executed all 124 cases: **122 passed, two failed, zero skipped**. The XML
+identifies `MovingCartContactCausesOneKnockdownEpisode` and
+`RecoveryPreservesDownLookAndUnconsciousWorkersCannotLook`; both encountered a
+ragdoll segment exceeding the unchanged physical speed guard before cleanup.
+Build and Player were not reached. This is not a clean URP gameplay pass.
+
+The safety diagnostic now reports measured linear/angular speeds and their
+limits. A cross-review is investigating the physical cause. The initial-import
+logs and failed XML remain available. Package initialization and a mandatory
+separate clean native acceptance process are being made explicit; the critical
+log validator is not being relaxed.
+
+The same initialized editor separately passed `FoundationBuild.Prepare`
+(`runtime/out/urp-foundation-settings-prepare.log`). Its native serialized
+renderer pair, global settings, default volume profile and Graphics/Quality/
+Player/Editor settings were copied into canonical runtime sources with their
+Unity-generated GUIDs. No YAML was authored by hand. The ordinary and emissive
+Lit material-template proposal is now implemented in source; it still needs
+native generation, serialization and Player verification.
+
+Door cross-review found that the 2.4m focus threshold did not cover the full
+4.96m reactor blast leaf. Closure now observes the union of both shapes from
+their current geometry and transforms without briefly enabling the open leaf.
+The new elevated-occupant regression covers box/imported-mesh contacts and map
+translation/rotation, bringing the declared native inventory to **125**; it is
+NotRun. A conflicting evacuation request now records the already-active actual
+cause in the trace, with the existing pure regression strengthened. These new
+changes are not covered by the earlier 124-case pass.
+
+## Native preparation corrections and updated source checks, 18:16 UTC
+
+The 17:58 offline rerun passed **723/723**, including the strengthened actual
+evacuation-cause trace assertion; previous artifacts were preserved under
+`runtime/out/offline-before-cause-test`. Its current summary remains in
+`runtime/dotnet/artifacts/summary.json`.
+
+Upstream `main` remained `3853995c`. Claude's open PR #110 had newer commits on
+its own branch, so those commits through `320d2256` were integrated in `ef0d5ffb`
+before further validation. Protected bake/importer paths match that upstream
+branch exactly; this task made no authored change to them. Any review PR must
+keep that dependency explicit rather than reintroducing the earlier bake code.
+
+`runtime/out/sandbox-9l6muhyd` stopped during package resolution on Windows EPERM
+while renaming the ShaderGraph cache directory; no compilation/tests ran. The
+separate fresh `sandbox-47ihoem1` completed package initialization, preserving
+the original strict Failed SDK diagnostics, exact known updater classification,
+updated source hashes and unchanged first-party code identities. Its separate
+Prepare passed renderer/assembly checks but stopped at the material helper.
+URP owns a hidden `AssetVersion` subasset, contradicting the helper's one-object
+assumption. The helper now permits only that exact native hidden metadata type
+and rejects other subassets. Native inspection also showed the material importer
+derives `_EMISSION` from its emissive flags; creation now establishes those flags
+before import. Neither correction is presented as a new native pass yet.
+
+Cross-review corrected the new door regression's clear-space fixture: each
+shape branch starts from independent root TRS, and its clear occupant is beyond
+the complete conservative observation volume at every tested yaw. Runtime
+closure remains conservative. The optional development Player capture now uses
+the built-in Screen Capture/Image Conversion 1.0.0 modules, requires actual
+owned-camera render callbacks, decodes the native PNG and publishes a new file
+before normal smoke teardown. Rendered execution remains NotRun.
+
+`runtime/out/api-urp-capture-materials/api-compile.json` passed all **21** authored
+assemblies against actual pinned SDK references. Tooling subsequently passed
+**176/177**, with the one existing Windows symlink-privilege skip
+(`runtime/out/tooling-urp-pin-audits.log`). Initialization rejects other managed
+exception headers, and sandbox/foundation re-audit native selected pins and
+descriptor hashes after each clean phase and at final completion. The original
+critical log validator is unchanged. No native physics threshold was relaxed.
