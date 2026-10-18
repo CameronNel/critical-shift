@@ -17,7 +17,8 @@ namespace CriticalShift.Content.Editor
             bool normal = name.EndsWith("_BumpMap"), data = name.EndsWith("_MetallicGlossMap");
             ti.textureType = normal ? TextureImporterType.NormalMap : TextureImporterType.Default;
             ti.sRGBTexture = !(normal || data);                       // metallic (R) and smoothness (A) are data, not colour
-            ti.alphaSource = data ? TextureImporterAlphaSource.FromInput : TextureImporterAlphaSource.None;
+            bool baseMap = name.EndsWith("_BaseMap");                 // carries alpha for transparent materials (1 elsewhere)
+            ti.alphaSource = data || baseMap ? TextureImporterAlphaSource.FromInput : TextureImporterAlphaSource.None;
             ti.alphaIsTransparency = false;
             ti.mipmapEnabled = true;
             ti.streamingMipmaps = true;

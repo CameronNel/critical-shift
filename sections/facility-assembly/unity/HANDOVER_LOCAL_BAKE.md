@@ -1,144 +1,73 @@
-# Handover: bake every room for Unity URP on the owner's PC
+# Handover: the final map bake for Unity URP on the owner's PC
 
-**What this is:** a prompt for the agent on the owner's Windows PC. It was written 2026-10-16 and updated 2026-10-17 for **map mode** (PR #109). Paste everything below the line.
+**What this is:** the prompt for the agent on the owner's Windows PC (Gemini). Written 2026-10-18 after an independent review of every bake script, the fixes, and a full rehearsal of all 13 map pieces in the cloud (CPU, 256 px; results in `README.md`, *Review and fixes, 2026-10-18*). Paste everything below the line.
 
-**The current target is map mode.** `bake_all.ps1 -Map` bakes every room as it is in the assembled map (`combined/combined_map.blend`), with the map's door cuts, the slimmed mine and the turbine skin. It adds one more piece, `map-connections`. Output goes to `unity/map/<room>`, and Unity's *Import Baked Map* places everything in one scene. The first run, made without `-Map`, baked the room files and lacks the map's changes.
+**Why a new run:** every bake made before 2026-10-18 is wrong in ways the review found (lost emission strips and screens, opaque decals and frosted glass, clipped lamps, failures that looked like passes) and the first 8 map rooms also held the whole map. None of those outputs are kept; the pipeline that bakes now stops by itself on any of those faults.
 
 ---
 
 You are on the owner's Windows PC:
 - Ryzen 7 5800X, 32 GB RAM;
-- AMD Radeon RX 9070 XT, 16 GB.
+- AMD Radeon RX 9070 XT, 16 GB;
+- Blender 5.2.2 LTS, portable, at `C:\Blender\blender-5.2.2-windows-x64\blender.exe`.
 
-**Goal:** bake the Critical Shift rooms into Unity URP texture sets with Blender, on the GPU. Nothing else.
+**Goal:** bake the Critical Shift map for Unity URP with Blender, on the GPU, once. Nothing else.
 
 **Hard rules. Breaking any of them means stop.**
 
-1. **Device: GPU only.** The owner chose GPU.
-   - Always pass `-Device GPU`.
-   - Never pass `-Device CPU`, never set `CS_BLENDER_DEVICE=CPU`, and never edit a script to change the device.
-   - If the GPU is not found, stop and report. Do not fall back.
-2. **No git writes,** except `git fetch` and the one `git worktree add` in step 1.
-   - Do not run `git add`, `commit`, `push`, `reset`, `clean`, `stash`, `rebase` or `merge`, and do not delete branches.
-   - Do not edit any tracked file. The bake outputs stay local and uncommitted, because the GitHub LFS quota is small.
-3. **No broad LFS downloads.** Never run a plain `git lfs pull` or `git lfs fetch --all`. Fetch only the files listed in step 4.
-4. **Do not install anything except what step 2 names.** Do not change Windows settings, power plans or drivers yourself; ask the owner.
-5. **Any error not covered below:** stop, then report the exact command, its last 40 lines of output, and what you think caused it. Do not improvise fixes to the scripts.
+1. **Device: GPU only.** Always pass `-Device GPU`. Never pass `-Device CPU`, never set `CS_BLENDER_DEVICE`, never edit a script to change the device. If the GPU is not found, stop and report. Do not fall back.
+2. **No git writes** except the `git fetch` and `git switch --detach` in step 1. No `add`, `commit`, `push`, `reset`, `clean`, `stash`, `rebase`, `merge`; do not delete branches. Do not edit any tracked file. Bake outputs stay local and uncommitted (they are git-ignored).
+3. **No broad LFS downloads.** Never run a plain `git lfs pull` or `git lfs fetch --all`. Fetch only what step 3 lists.
+4. **Install nothing.** Do not change Windows settings, power plans or drivers; ask the owner.
+5. **Any error not covered below:** stop, then report the exact command, the last 60 lines of output or of the room's log, and what you think caused it. Do not change scripts, settings or atlas sizes, and do not resume, until the owner says so.
 
-## Step 1: Repository (a separate bake folder; never touch the owner's working copy)
+## Step 0: Where things are
 
-The owner's existing clone holds unrelated work in progress: a Unity project at its root, uncommitted spawn-room files, and another branch checked out. **Leave it exactly as it is.** Do not switch its branch, and do not run `git status` fixes, stash or clean in it.
+Work in the owner's existing clone, the folder you used for the earlier bakes (the one holding `sections/facility-assembly/unity/bake_all.ps1`). Make sure no Blender is running:
 
-Bake in a separate **git worktree** instead: a second folder that shares the same repository. Creating it changes no file in the existing working copy and switches no branch there.
+```powershell
+Get-Process blender -ErrorAction SilentlyContinue | Select-Object Id, Path
+```
 
-Run in PowerShell, from inside the existing clone:
+If one is listed, stop and ask the owner before closing it (an earlier bake may still be running). The blender-mcp processes are not Blender; leave them.
+
+## Step 1: Update to the reviewed scripts
 
 ```powershell
 $env:GIT_LFS_SKIP_SMUDGE = "1"           # keep this set in this shell for every git command below
 git fetch origin ccr-b12a99c0-hbdwp2
-git worktree add --detach ..\critical-shift-bake origin/ccr-b12a99c0-hbdwp2
-cd ..\critical-shift-bake
-git status --porcelain                    # must print nothing in the NEW folder
-git log -1 --oneline                      # must be 006a318 or newer
+git switch --detach origin/ccr-b12a99c0-hbdwp2
+git log -1 --oneline                      # must be COMMIT_PLACEHOLDER or newer
+git status --porcelain                    # must print nothing
 ```
 
-- **Do every later step in `..\critical-shift-bake`.** All paths in this file are relative to it.
-- **If `..\critical-shift-bake` already exists,** stop and ask the owner.
-- **If the owner has no clone at all,** clone into a new folder instead: run `$env:GIT_LFS_SKIP_SMUDGE = "1"` and `git clone https://github.com/CameronNel/critical-shift.git critical-shift-bake`, then `cd critical-shift-bake` and `git switch ccr-b12a99c0-hbdwp2`.
-- **If `git status --porcelain` prints anything in the new folder,** stop and report.
+- If the owner says PR #110 has been merged, use `main` instead: `git fetch origin main` and `git switch --detach origin/main`.
+- If the switch fails, or `git status --porcelain` prints anything, stop and show it. Do not stash, reset or clean.
 
-The worktree is detached, so it creates no branch. To remove it after the owner has copied the outputs, the owner can run `git worktree remove ..\critical-shift-bake --force`. That deletes the bake outputs too, so ask first.
+Check these files exist: `sections/facility-assembly/unity/bake_all.ps1`, `bake_room.ps1`, `bake_room.py`, `bake_check.py`, `check_device.py`, and `sections/facility-assembly/blender_device.py`.
 
-**If PR #108 has been merged** (the owner will say so), fetch `main` and use `origin/main` instead of `origin/ccr-b12a99c0-hbdwp2` in the commands above.
-
-**Check these files exist:**
-- `sections/facility-assembly/unity/bake_all.ps1`
-- `sections/facility-assembly/unity/bake_room.ps1`
-- `sections/facility-assembly/unity/bake_room.py`
-- `sections/facility-assembly/unity/check_device.py`
-- `sections/facility-assembly/blender_device.py`
-
-## Step 2: Tools and versions
-
-Check each item, and only install what is missing or wrong.
-
-### Git for Windows 2.40 or newer, with Git LFS
+## Step 2: Move every older bake out of the way (keep it; do not delete)
 
 ```powershell
-git --version
-git lfs version
+$old = "..\map-bake-before-2026-10-18"
+New-Item -ItemType Directory -Force $old | Out-Null
+Get-ChildItem sections/facility-assembly/unity/map -Directory -ErrorAction SilentlyContinue | Move-Item -Destination $old
+Get-ChildItem sections/facility-assembly/unity/map                 # must list only map_placement.json
 ```
 
-If `git lfs` is missing, ask the owner to install Git for Windows from https://git-scm.com/download/win; it includes LFS. Then run `git lfs install` once.
+If `Move-Item` reports that a folder already exists in `$old`, use `..\map-bake-before-2026-10-18b` instead and run it again. If the last command lists anything but `map_placement.json`, stop and report. The owner deletes the old folders later.
 
-### Blender 5.2.2 LTS, exactly
+## Step 3: Fetch the files the bake reads, from LFS
 
-The room files were saved by 5.2, and the scripts were tested on 5.2.2.
-- Do not use 4.x or 5.0 / 5.1.
-- Do not use Steam or Microsoft Store builds: they update on their own.
-- Do not upgrade past 5.2.2 during the run.
-
-Check:
-
-```powershell
-& "C:\Program Files\Blender Foundation\Blender 5.2\blender.exe" --version
-```
-
-The first line must be `Blender 5.2.2 LTS`.
-
-**If it is missing or a different version,** the installer is https://download.blender.org/release/Blender5.2/blender-5.2.2-windows-x64.msi. Its SHA-256 is:
-
-`8dac2751ebe8e3867327eec52f1ef9b344c0a27499bb6221a301b4b35f2828d1`
-
-Check it with `Get-FileHash <file> -Algorithm SHA256` before running it. The MSI installs to `C:\Program Files\Blender Foundation\Blender 5.2\`, which is the scripts' default path.
-
-**If another 5.2 version is already installed there,** ask the owner before replacing it. The portable alternative leaves an existing install alone:
-- Download https://download.blender.org/release/Blender5.2/blender-5.2.2-windows-x64.zip, whose SHA-256 is `3849d17a682cba006075aaa3f3597ecb5c9c30ec31035b2e092c53e40679b535`.
-- Extract it to `C:\Blender\blender-5.2.2-windows-x64\`.
-- Add `-Blender "C:\Blender\blender-5.2.2-windows-x64\blender.exe"` to every bake command below.
-
-### AMD graphics driver
-
-Blender's HIP backend needs the current **AMD Software: Adrenalin Edition** driver; the HIP runtime comes with it, so no ROCm or HIP SDK is needed.
-- The owner updates it from AMD Software, under Home and then Check for Updates.
-- Do not install drivers yourself. If it is out of date, ask the owner.
-
-### Disk space
-
-Keep at least 25 GB free on the repository's drive:
-
-```powershell
-Get-PSDrive -PSProvider FileSystem
-```
-
-### Sleep
-
-Ask the owner to keep the PC awake for the whole run, which may take several hours. Do not change the power settings yourself.
-
-## Step 3: GPU check (renders nothing)
-
-```powershell
-& "C:\Program Files\Blender Foundation\Blender 5.2\blender.exe" -b --factory-startup --python sections/facility-assembly/unity/check_device.py -- --device GPU
-```
-
-The output must contain both of these lines:
-
-```
-BLENDER VERSION 5.2.2 LTS
-BLENDER DEVICE GPU (owner choice): HIP [...the GPU name...]
-```
-
-**If it says `BLENDER DEVICE GPU was asked for, but Blender found no GPU backend`, stop.** Report it and tell the owner the likely causes: the Adrenalin driver is out of date, or the wrong GPU is selected. Do not try CPU.
-
-## Step 4: Fetch the room files from LFS (about 255 MB)
-
-Run exactly this; each `--include` names one file:
+The map file, the room files it links, and **the turbine's 23 texture PNGs** (they are separate files, not packed in its .blend; without them the turbine would bake magenta and the run now stops in prep):
 
 ```powershell
 $files = @(
+  "sections/facility-assembly/combined/combined_map.blend",
   "sections/facility-assembly/sources/cooling-plant/module_aaa_A1.blend",
   "sections/facility-assembly/sources/waste-storage/module_aaa_A1.blend",
   "sections/facility-assembly/sources/turbine-room/rebuild/turbine_room_v2_geo.blend",
+  "sections/facility-assembly/sources/turbine-room/rebuild/*.png",
   "sections/facility-assembly/sources/fuel-corridor/module_short_S1.blend",
   "sections/facility-assembly/sources/electrical-room/overhaul/checkpoints/full-R11.blend",
   "sections/facility-assembly/sources/compliance-dock/module_overhaul_R1.blend",
@@ -149,100 +78,71 @@ $files = @(
   "sections/facility-assembly/sources/spawn-room/hero_suit.blend",
   "sections/reactor-room/blender/reactorroom.blend",
   "sections/facility-assembly/sources/mine-r39/module_r39_aaa.blend",
-  "sections/facility-assembly/combined/combined_map.blend",
   "sections/facility-assembly/sources/condenser-bay/module_aaa_A1.blend",
   "sections/facility-assembly/exteriors/refinery/exterior-R01.blend",
   "sections/facility-assembly/exteriors/medical-reanimation/exterior-R04.blend",
   "sections/facility-assembly/exteriors/spawn-room/exterior-R05.blend"
 )
 foreach ($f in $files) { git lfs pull --include="$f" --exclude=""; if ($LASTEXITCODE -ne 0) { throw "lfs pull failed: $f" } }
-foreach ($f in $files) { "{0,12:n0}  {1}" -f (Get-Item $f).Length, $f }
+Get-ChildItem ($files | ForEach-Object { $_ -replace '/', '\' }) | Where-Object { $_.Length -lt 100KB } | Select-Object FullName, Length
 ```
 
-**Every file must be larger than 100 KB.** The exteriors are about 0.2 MB; the room files and the map are larger. A file of about 130 bytes is still an LFS pointer. If one stays a pointer after a second try, stop and report; it may be the LFS quota.
-
-**Do not fetch `sections/facility-assembly/blender/facility_environment.blend`.** The medical and dock files mention it, but Blender only warns that it is missing, and the bake does not need it.
-
-## Step 5: Bake
-
-**Pieces:** thirteen: the twelve rooms, smallest first, then `map-connections` (connectors, stairs, signs, evacuation road).
-
-| Order | Rooms |
-|---|---|
-| 1–6 | cooling-plant, waste-storage, turbine-room, fuel-corridor, electrical-room, compliance-dock |
-| 7–12 | medical-reanimation, refinery, front-end-area, spawn-room, reactor-room, mine |
-
-**The condenser bay is left out on purpose:** its finish is being reworked.
-
-Start the run in its own window, so it is not tied to your command timeout:
+The last command must print **nothing**: every file is larger than 100 KB (an LFS pointer is about 130 bytes). If any file is listed after a second pull, stop and report; it may be the LFS quota. Also count the turbine textures:
 
 ```powershell
-Start-Process powershell -WorkingDirectory (Get-Location) -ArgumentList '-NoExit','-ExecutionPolicy','Bypass','-File','sections/facility-assembly/unity/bake_all.ps1','-Device','GPU','-Map'
+(Get-ChildItem sections/facility-assembly/sources/turbine-room/rebuild/*.png).Count     # must be 23
 ```
 
-If you use the portable Blender, add `'-Blender','C:\Blender\blender-5.2.2-windows-x64\blender.exe'` to the list.
-
-**Before the first bake, `bake_all.ps1` checks:**
-- Blender is found;
-- the GPU is found;
-- every file from step 4 is present.
-
-**Each room then runs these stages:** prep, base, rough, normal, metal, emit, finish, compare.
-- The compare stage renders three cameras from the source and the baked file, at 64 samples.
-- Each room's log is `sections/facility-assembly/unity/_logs/map-<room>.log`.
-- Each room's output is `sections/facility-assembly/unity/map/<room>/`. It holds the `textures/` folder, `<room>.fbx`, `<room>_unity.blend`, `materials.json`, `lights.json`, `bake_report.json` and `compare/`.
-
-**Watch the first room until its `base` stage has started:**
+## Step 4: GPU check (renders nothing)
 
 ```powershell
-Get-Content sections/facility-assembly/unity/_logs/map-cooling-plant.log -Wait -Tail 20
+& "C:\Blender\blender-5.2.2-windows-x64\blender.exe" -b --factory-startup --python-exit-code 1 --python sections/facility-assembly/unity/check_device.py -- --device GPU
 ```
 
-Confirm the log shows `BLENDER DEVICE GPU (owner choice): HIP`. After that you do not need to keep watching; tell the owner it is running. The medical and dock rooms print these lines, which are expected and not errors:
-- `Cannot find lib '...facility_environment.blend'`;
-- `Unrecognized file format`;
-- `lib.override.resync | ERROR Linked id 'SCCritical Shift | Mountain Watershed' ...`.
+The output must contain `BLENDER VERSION 5.2.2 LTS` and `BLENDER DEVICE GPU (owner choice): HIP [...]`. If it says no GPU backend was found, stop and report (likely an out-of-date Adrenalin driver). Do not try CPU.
 
-Neither room needs that file. Only a non-zero exit, which `bake_all.ps1` reports, counts as a failure.
+## Step 5: GPU smoke test (about 15 minutes)
 
-**If a room fails,** `bake_all.ps1` stops and names the room and its log. Read the last 60 lines of that log.
+One small room through every stage at rehearsal quality, on the GPU, into a separate folder. It proves the GPU path (HIP, float images, the new mask and check stages) before the long run:
 
-- **Out of GPU memory** (`System is out of GPU memory`, `hipErrorOutOfMemory`) or a driver timeout or crash: stop and report. Do not lower settings or switch devices yourself. The owner decides between rerunning that room with smaller atlases and other options.
-- **`KeyError` naming a collection:** stop and report the exact name.
-- **Anything else:** stop and report.
+```powershell
+& powershell -NoProfile -ExecutionPolicy Bypass -File sections/facility-assembly/unity/bake_all.ps1 -Device GPU -Map -Quality rehearsal -Only cooling-plant `
+    -Blender "C:\Blender\blender-5.2.2-windows-x64\blender.exe" -OutRoot sections/facility-assembly/unity/_smoke -LogDir sections/facility-assembly/unity/_smoke/logs
+```
 
-A missing comparison camera is not a failure: it only prints `COMPARE missing camera <name>` and the run carries on. Include it in the report.
+It must end with `==== all 1 rooms done`, and `sections/facility-assembly/unity/_smoke/logs/map-cooling-plant.log` must contain `BLENDER DEVICE GPU (owner choice): HIP` and `CHECK cooling-plant OK`. Report the minutes per stage (the lines after each `== cooling-plant : <stage>`). If it fails, stop and report; do not start step 6.
 
-**Resuming after the owner agrees on a fix:** run `bake_all.ps1` again, adding:
-- `-Only <room> -From <stage that failed>` for the failed room;
-- then `-Skip <rooms already done>` for the rest.
+## Step 6: The bake (several hours; run once)
 
-Comma-separate room names, with no spaces.
+Start it in its own window, so it is not tied to your command timeout:
 
-## Step 6: Report back to the owner
+```powershell
+Start-Process powershell -WorkingDirectory (Get-Location) -ArgumentList '-NoExit','-ExecutionPolicy','Bypass','-File','sections/facility-assembly/unity/bake_all.ps1','-Device','GPU','-Map','-Blender','C:\Blender\blender-5.2.2-windows-x64\blender.exe'
+```
 
-When all rooms are done, or the run stops, report:
+**What it does:** 13 pieces, one after another, smallest first: cooling-plant, waste-storage, turbine-room, fuel-corridor, electrical-room, compliance-dock, medical-reanimation, refinery, front-end-area, spawn-room, reactor-room, mine, then map-connections. The condenser bay is left out on purpose (its finish is being reworked).
 
-1. **Versions and status:**
-   - `git log -1 --oneline`;
-   - `blender.exe --version` (first line);
-   - the GPU line from step 3;
-   - which rooms finished and which did not.
-2. **For each finished room,** from `sections/facility-assembly/unity/map/<room>/bake_report.json`:
-   - minutes per stage (from the room's log: each stage prints `== <room> : <stage>` and then its minutes);
-   - objects;
-   - triangles;
-   - lights;
-   - seconds.
+**Each piece runs these stages:** prep, base, rough, normal, metal, emit, mask, finish, check, compare.
+- **prep** (unwrap, CPU-bound) is the longest stage; in the cloud rehearsal it took TIMING_PLACEHOLDER.
+- **check** stops the run if the piece's output is wrong (anything outside the room in the bake, missing or invalid maps, lights, or an FBX that does not re-import with the same meshes and triangles).
+- Logs: `sections/facility-assembly/unity/_logs/map-<piece>.log`. Outputs: `sections/facility-assembly/unity/map/<piece>/`.
 
-   From `materials.json`, give each material's `size` (the atlas size).
+Watch the first piece until its `base` stage has started and confirm the log shows `BLENDER DEVICE GPU (owner choice): HIP`. Then tell the owner it is running. These lines are expected and not errors: `Cannot find lib '...facility_environment.blend'`, `Unrecognized file format`, `lib.override.resync | ERROR Linked id ...`.
 
-   Also give the total size of the `textures/` folder and of the `.fbx`.
-3. **Comparison images:** the paths of the images in `<room>/compare/source/` and `<room>/compare/baked/`, and any pair that looks clearly different (dark, black, pink or missing parts).
-4. **For a failed room:** the room, the stage, and the last 60 lines of its log.
-5. **Repository state:** confirm that `git status --porcelain` in `critical-shift-bake` shows only the new bake outputs (untracked) and the rebaked `cooling-plant/` files, and nothing else. **Do not commit them.**
+**If it stops:** `bake_all.ps1` names the piece and its log, and prints the exact command to resume (it keeps `-Map`). **Do not resume yourself.** Report the piece, the stage, the last 60 lines of its log, and the resume command, and wait for the owner. In particular:
+- out of GPU memory (`System is out of GPU memory`, `hipErrorOutOfMemory`) or a driver timeout: report; do not lower settings;
+- `CHECK FAIL ...` lines: report them all;
+- `images have no pixels`: an LFS file is still a pointer; report the file names.
 
-**Known limits**, not for you to fix; tell the owner if asked:
-- These bakes come from the room files. They do not include the map-side changes: door cuts, the mine's triangle reduction, the turbine's exterior skin, the animated ore cart and the evacuation additions.
-- The reactor's 16 roof-bay area lights sit outside its collections, so they are not in its `lights.json`.
-- Nothing has been imported into Unity yet.
+## Step 7: Report back to the owner
+
+1. `git log -1 --oneline`, the first line of `blender.exe --version`, and the GPU line from step 4.
+2. Which pieces finished and which did not; for each finished piece, the minutes per stage from its log and the `ok` line of `map/<piece>/bake_check.json`.
+3. The total size of `sections/facility-assembly/unity/map/`.
+4. The comparison images: `map/<piece>/compare/source/*.png` and `compare/baked/*.png`. Name any pair that looks clearly different (black, pink, missing parts).
+5. `git status --porcelain` must print nothing (the outputs are git-ignored). **Do not commit them.**
+
+**Known limits** (not for you to fix; tell the owner if asked):
+- The turbine's blue rim glow (view-dependent shading) cannot be baked; it needs a small custom Unity shader later.
+- Glass in the source renders casts dark shadows (Cycles does not trace light through glass by default); the baked side and Unity do not.
+- Nothing has been imported into Unity yet: that is *Critical Shift > Rooms > Import Baked Map* in the Unity project, after this run.

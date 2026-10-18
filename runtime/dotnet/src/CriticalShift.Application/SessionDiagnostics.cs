@@ -1,3 +1,4 @@
+#nullable enable
 using System;
 using System.Collections.Generic;
 
@@ -7,17 +8,21 @@ namespace CriticalShift.Application
     {
         Started, Advanced, Interaction, Impact, Aid, Environment,
         RecoveryRequested, RecoveryResolved, RecoveryCancelled, RecoveryExpired,
-        Disconnected, Ended, Stopped, Faulted, Production, Reactor
+        Disconnected, Ended, Stopped, Faulted, Production, Reactor, AttachmentFailed, LeaseExpired, Door, Evacuation
     }
 
     /// <summary>Bounded typed diagnostic data. No arbitrary message, exception text, credential or callback.</summary>
     public sealed class SessionTraceRecord
     {
         internal SessionTraceRecord(long sequence, WorldSessionView world, Guid requestEpoch, SessionTraceKind kind,
-            Guid actorId, Guid entityId, long inputSequence, bool changed, WorkerReply? worker, InteractionReply? interaction, long? previousWorkerRevision, Guid hazardId, Guid causeId, WorkerImpact? severity, ProductionChange? production, ReactorChange? reactor)
+            Guid actorId, Guid entityId, long inputSequence, bool changed, WorkerReply? worker, InteractionReply? interaction, long? previousWorkerRevision, Guid hazardId, Guid causeId, WorkerImpact? severity, ProductionChange? production, ReactorChange? reactor, long? previousClaimRevision, DoorEvacuationReply? evacuation)
         {
             HazardId = hazardId != Guid.Empty ? hazardId : worker?.Worker?.LastHazardId ?? Guid.Empty;
-            CauseId = causeId != Guid.Empty ? causeId : worker?.Worker?.LastCauseId ?? Guid.Empty;
+            CauseId = causeId != Guid.Empty ? causeId : interaction?.Door?.CauseId ?? worker?.Worker?.LastCauseId ?? Guid.Empty;
+            DoorResult = interaction?.Door?.Status; DoorAction = interaction?.Door?.Action;
+            DoorRevision = interaction?.Door?.Door?.Revision; PreviousDoorRevision = interaction?.Door?.PreviousRevision;
+            DoorState = interaction?.Door?.Door?.State; DoorSourceId = interaction?.Door?.Door?.SourceId;
+            EvacuationResult = evacuation?.Status;
             ImpactSeverity = severity;
             ReactorChange = reactor ?? interaction?.Reactor?.Change;
             ReactorEvent = changed ? ReactorChange?.Kind : null;
@@ -38,6 +43,8 @@ namespace CriticalShift.Application
             WorldRevision = world.Revision; HostMilliseconds = world.HostMilliseconds;
             ShiftMilliseconds = world.ElapsedMilliseconds; Phase = world.Phase; Outcome = world.Outcome;
             WorkerResult = worker?.Status; InteractionResult = interaction?.Status;
+            PreviousClaimRevision = previousClaimRevision; ClaimRevision = interaction?.State?.Revision;
+            ClaimLeaseGeneration = interaction?.State?.LeaseGeneration;
             RelatedImpactSequence = worker?.Worker?.LastImpactSequence;
             WorkerRevision = worker?.Worker?.Revision; PreviousWorkerRevision = previousWorkerRevision;
             RecoveryEpisode = worker?.Worker?.RecoveryEpisode; RecoveryAttempt = worker?.Worker?.RecoveryAttempt;
@@ -48,6 +55,13 @@ namespace CriticalShift.Application
         public SessionTraceKind Kind { get; }
         public Guid HazardId { get; }
         public Guid CauseId { get; }
+        public DoorStatus? DoorResult { get; }
+        public DoorAction? DoorAction { get; }
+        public DoorState? DoorState { get; }
+        public string? DoorSourceId { get; }
+        public long? PreviousDoorRevision { get; }
+        public long? DoorRevision { get; }
+        public DoorEvacuationStatus? EvacuationResult { get; }
         public WorkerImpact? ImpactSeverity { get; }
         public ProductionStatus? ProductionResult { get; }
         public ReactorChange? ReactorChange { get; }
@@ -72,6 +86,9 @@ namespace CriticalShift.Application
         public WorldOutcome Outcome { get; }
         public WorkerStatus? WorkerResult { get; }
         public InteractionStatus? InteractionResult { get; }
+        public long? PreviousClaimRevision { get; }
+        public long? ClaimRevision { get; }
+        public long? ClaimLeaseGeneration { get; }
         public long? RelatedImpactSequence { get; }
         public long? WorkerRevision { get; }
         public long? PreviousWorkerRevision { get; }
@@ -110,12 +127,12 @@ namespace CriticalShift.Application
         }
         internal void Append(WorldSessionView world, Guid requestEpoch, SessionTraceKind kind,
             Guid actor = default, Guid entity = default, long input = 0, bool changed = false,
-            WorkerReply? worker = null, InteractionReply? interaction = null, long? previousWorkerRevision = null, Guid hazardId = default, Guid causeId = default, WorkerImpact? severity = null, ProductionChange? production = null, ReactorChange? reactor = null)
+            WorkerReply? worker = null, InteractionReply? interaction = null, long? previousWorkerRevision = null, Guid hazardId = default, Guid causeId = default, WorkerImpact? severity = null, ProductionChange? production = null, ReactorChange? reactor = null, long? previousClaimRevision = null, DoorEvacuationReply? evacuation = null)
         {
             // Exhausting diagnostics must not overflow and replay or reject a gameplay transaction.
             if (_sequence == long.MaxValue) { if (_dropped < long.MaxValue) _dropped++; return; }
             var record = new SessionTraceRecord(++_sequence, world, requestEpoch, kind,
-                actor, entity, input, changed, worker, interaction, previousWorkerRevision, hazardId, causeId, severity, production, reactor);
+                actor, entity, input, changed, worker, interaction, previousWorkerRevision, hazardId, causeId, severity, production, reactor, previousClaimRevision, evacuation);
             if (_count == Capacity)
             {
                 _records[_first] = record; _first = (_first + 1) % Capacity;

@@ -1,3 +1,4 @@
+#nullable enable
 using System;
 using System.Collections.Generic;
 using CriticalShift.Features.Interaction.Domain;
@@ -11,6 +12,8 @@ namespace CriticalShift.Application
     public sealed class InteractionWorld
     {
         private readonly ExclusiveClaimStore _claims;
+        private readonly DoorStateStore _doors = new DoorStateStore();
+        private readonly HashSet<Guid> _slotIds = new HashSet<Guid>();
         private readonly IInteractionAccessPolicy _access;
         private readonly Dictionary<Guid, Connection> _connections = new Dictionary<Guid, Connection>();
         private readonly int _maxConnections;
@@ -18,6 +21,7 @@ namespace CriticalShift.Application
         private readonly int _receiptCapacity;
         private ProductionOperations? _production;
         private ReactorOperations? _reactor;
+        private DoorOperations? _doorOperations;
         private bool _started;
         private bool _stopped;
         private bool _faulted;
@@ -56,7 +60,12 @@ namespace CriticalShift.Application
             }
         }
 
-        public void RegisterObject(Guid entityId) { RequireSetup(); _claims.Register(entityId); }
+        public void RegisterObject(Guid entityId)
+        {
+            RequireSetup();
+            if (_doors.Get(entityId) != null) throw new InvalidOperationException("A door identity cannot also be a claimable object.");
+            _claims.Register(entityId);
+        }
 
         public void RegisterConnection(Guid connectionId, Guid actorId)
         {
@@ -76,7 +85,25 @@ namespace CriticalShift.Application
 
         internal void BindProduction(ProductionOperations production) { RequireSetup(); _production = production; }
         internal void BindReactor(ReactorOperations reactor) { RequireSetup(); _reactor = reactor; }
-        internal void RegisterProductionSlot(Guid slot) { RequireSetup(); _claims.RegisterSlot(slot); }
+        internal void BindDoors(DoorOperations doors) { RequireSetup(); _doorOperations = doors; }
+        internal void RegisterProductionSlot(Guid slot)
+        {
+            RequireSetup();
+            if (_doors.Get(slot) != null) throw new InvalidOperationException("A door identity cannot also be an equipment slot.");
+            _claims.RegisterSlot(slot); _slotIds.Add(slot);
+        }
+        internal int DoorCount => _doors.Count;
+        internal Guid? EvacuationCauseId => _doors.EvacuationCauseId;
+        internal DoorSnapshot? GetDoor(Guid id) => _doors.Get(id);
+        internal DoorSnapshot? GetDoorBySourceId(string sourceId) => _doors.GetBySourceId(sourceId);
+        internal void RegisterDoor(Guid id, string sourceId, DoorState initial, DoorState evacuation, bool playerOperable)
+        {
+            RequireSetup();
+            if (_claims.Get(id) != null || _slotIds.Contains(id)) throw new InvalidOperationException("A door requires its own logical identity.");
+            _doors.Register(id, sourceId, (DoorMode)(int)initial, (DoorMode)(int)evacuation, playerOperable);
+        }
+        internal DoorResult SetDoorOpen(Guid id, long revision, bool open) => _doors.TrySetOpen(id, revision, open);
+        internal DoorEvacuationResult EvacuateDoors(Guid causeId) => _doors.BeginEvacuation(causeId);
         internal Guid? SlotOccupant(Guid slot) => _claims.GetSlotOccupant(slot);
         // Internal commit operations execute inside the already guarded/authorized command workflow.
         internal InteractionReply InsertBatch(Guid entity, Guid actor, long lease, long revision, Guid slot) =>
@@ -171,11 +198,20 @@ namespace CriticalShift.Application
             return readiness ?? Map(_claims.Retire(entityId), false);
         }
 
+        // Session-owned roster cleanup also runs before Start. This is not a
+        // player command or a public bypass of the running-world admission rules.
+        internal InteractionReply RetireDisconnectedWorkerBody(Guid entityId)
+        {
+            RequireIdle();
+            return Map(_claims.Retire(entityId), false);
+        }
+
         public void Stop()
         {
             RequireIdle();
             _stopped = true;
             _claims.Stop();
+            _doors.Stop(); _slotIds.Clear();
             _connections.Clear();
         }
 
@@ -196,6 +232,7 @@ namespace CriticalShift.Application
             }
             switch (command.Kind)
             {
+                case InteractionKind.Door: return _doorOperations?.Apply(command.EntityId, command.Door!) ?? new InteractionReply(InteractionStatus.TargetUnavailable, true);
                 case InteractionKind.Reactor: return _reactor?.Apply(actorId, command.EntityId, command.Reactor!) ?? new InteractionReply(InteractionStatus.TargetUnavailable, true);
                 case InteractionKind.Production: return _production?.Apply(actorId, command.EntityId, command.Production!) ?? new InteractionReply(InteractionStatus.TargetUnavailable, true);
                 case InteractionKind.Grab: return Map(_claims.TryGrab(command.EntityId, actorId, command.ExpectedRevision), true);

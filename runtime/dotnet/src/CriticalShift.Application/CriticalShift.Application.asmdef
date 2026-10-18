@@ -1,0 +1,22 @@
+{
+  "name": "CriticalShift.Application",
+  "rootNamespace": "CriticalShift.Application",
+  "references": [
+    "CriticalShift.Features.Interaction.Domain",
+    "CriticalShift.Features.Materials.Domain",
+    "CriticalShift.Features.Power.Domain",
+    "CriticalShift.Features.Production.Domain",
+    "CriticalShift.Features.Reactor.Domain",
+    "CriticalShift.Features.Session.Domain",
+    "CriticalShift.Features.Workers.Domain"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": true,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": true
+}

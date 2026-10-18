@@ -1,3 +1,4 @@
+#nullable enable
 using System;
 using System.Collections.Generic;
 using CriticalShift.Features.Session.Domain;
@@ -46,10 +47,13 @@ namespace CriticalShift.Application
             _interaction.BindProduction(Production);
             Reactor = new ReactorOperations(this, _interaction);
             _interaction.BindReactor(Reactor);
+            Doors = new DoorOperations(this, _interaction);
+            _interaction.BindDoors(Doors);
         }
 
         public ProductionOperations Production { get; }
         public ReactorOperations Reactor { get; }
+        public DoorOperations Doors { get; }
 
         // Bounded setup transaction; public callers cannot submit arbitrary mutation delegates.
         internal void RegisterProduction(Action registration)
@@ -81,6 +85,7 @@ namespace CriticalShift.Application
             _workers.Register(actorId); _revision = next;
         }
         public ObjectClaimView? GetObject(Guid entityId) => _interaction.GetObject(entityId);
+        internal Guid? ConnectedActorForComposition(Guid connectionId) => _interaction.ConnectedActor(connectionId);
 
         public void Start(long hostMilliseconds = 0)
         {
@@ -146,6 +151,11 @@ namespace CriticalShift.Application
                         entry.OwnerId, entry.Signal, entry.Clock == TimerClock.Host ?
                         WorldTimeBasis.RealTime : WorldTimeBasis.ShiftTime, entry.DueMilliseconds));
                 if (timeChanged || released.Count != 0 || due.Count != 0 || workerChanges.Count != 0) _revision = next;
+                foreach (var claim in released)
+                    _diagnostics.Append(View, Epoch, SessionTraceKind.LeaseExpired, entity: claim.EntityId,
+                        input: claim.LeaseGeneration, changed: true,
+                        interaction: new InteractionReply(InteractionStatus.Applied, false, claim),
+                        previousClaimRevision: claim.Revision - 1);
                 foreach (var change in workerChanges)
                     _diagnostics.Append(View, Epoch, SessionTraceKind.RecoveryExpired, change.Worker!.Id,
                         input: change.Worker.RecoveryAttempt, changed: true, worker: change,
@@ -274,7 +284,18 @@ namespace CriticalShift.Application
                 var released = _interaction.Disconnect(connectionId);
                 if (count != _interaction.ConnectedCount)
                 {
-                    if (actor.HasValue) { _workers.Remove(actor.Value); _timers.CancelOwner(epoch, actor.Value); }
+                    if (actor.HasValue)
+                    {
+                        var body = _workers.BodyFor(actor.Value);
+                        if (body.HasValue)
+                        {
+                            var retirement = _interaction.RetireDisconnectedWorkerBody(body.Value);
+                            if (!retirement.HasNewCommit)
+                                throw new InvalidOperationException("A disconnected worker body could not be retired.");
+                            _timers.CancelOwner(epoch, body.Value);
+                        }
+                        _workers.Remove(actor.Value); _timers.CancelOwner(epoch, actor.Value);
+                    }
                     _revision = next;
                     _diagnostics.Append(View, epoch, SessionTraceKind.Disconnected, actor ?? Guid.Empty,
                         released?.EntityId ?? Guid.Empty, changed: true);
@@ -289,8 +310,12 @@ namespace CriticalShift.Application
             RequireIdle(); long next = NextRevision();
             try
             {
+                var before = epoch == Epoch ? _interaction.GetObject(entityId) : null;
                 var reply = _interaction.ReportAttachmentFailure(epoch, entityId, generation);
                 if (reply.HasNewCommit) _revision = next;
+                _diagnostics.Append(View, epoch, SessionTraceKind.AttachmentFailed,
+                    reply.HasNewCommit ? before?.HolderId ?? Guid.Empty : Guid.Empty, entityId,
+                    generation, reply.HasNewCommit, interaction: reply, previousClaimRevision: before?.Revision);
                 return reply;
             }
             catch { FailClosed(); throw; }
@@ -301,7 +326,9 @@ namespace CriticalShift.Application
             RequireIdle(); long next = NextRevision();
             try
             {
-                if (Production.OwnsBatch(entityId)) return new InteractionReply(InteractionStatus.TargetUnavailable, false);
+                if (epoch != Epoch) return new InteractionReply(InteractionStatus.WrongEpoch, false);
+                if (Production.OwnsBatch(entityId) || _workers.ActorForBody(entityId).HasValue)
+                    return new InteractionReply(InteractionStatus.TargetUnavailable, false);
                 var reply = _interaction.RetireObject(epoch, entityId);
                 if (reply.HasNewCommit)
                 {
@@ -390,9 +417,12 @@ namespace CriticalShift.Application
             {
                 // Rejections use the existing receipt stream; pause cannot create a sequence gap.
                 // Release and host-approved renewal remain possible while simulation is paused.
-                return !_workers.CanInteract(actorId) ||
-                    ((kind == InteractionKind.Grab || kind == InteractionKind.Production || kind == InteractionKind.Reactor) && _timeline.Phase != TimelinePhase.Running) ?
-                    AccessDecision.ActorUnavailable : _inner.Evaluate(actorId, entityId, kind);
+                if (!_workers.CanInteract(actorId) ||
+                    ((kind == InteractionKind.Grab || kind == InteractionKind.Production || kind == InteractionKind.Reactor || kind == InteractionKind.Door) && _timeline.Phase != TimelinePhase.Running))
+                    return AccessDecision.ActorUnavailable;
+                if ((kind == InteractionKind.Grab || kind == InteractionKind.Renew) && !_workers.CanTargetBody(entityId))
+                    return AccessDecision.TargetUnavailable;
+                return _inner.Evaluate(actorId, entityId, kind);
             }
         }
     }

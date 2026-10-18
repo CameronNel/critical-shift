@@ -16,8 +16,15 @@ namespace CriticalShift.Tests.EditMode
             Assert.That(EditorBuildSettings.scenes[0].path, Is.EqualTo(FoundationBuild.ScenePath));
         }
 
-        [Test] public void BuiltInPipelineIsPreserved() =>
-            Assert.That(GraphicsSettings.defaultRenderPipeline, Is.Null);
+        [Test] public void OwnerSelectedUniversalPipelineIsConfigured()
+        {
+            Assert.That(GraphicsSettings.defaultRenderPipeline, Is.Not.Null);
+            Assert.That(GraphicsSettings.defaultRenderPipeline.GetType().FullName,
+                Is.EqualTo("UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset"));
+            Assert.That(PlayerSettings.colorSpace, Is.EqualTo(UnityEngine.ColorSpace.Linear));
+            for (int i = 0; i < UnityEngine.QualitySettings.names.Length; i++)
+                Assert.That(UnityEngine.QualitySettings.GetRenderPipelineAssetAt(i), Is.Null);
+        }
 
         [Test] public void DomainReloadRemainsEnabled() =>
             Assert.That(EditorSettings.enterPlayModeOptionsEnabled, Is.False);

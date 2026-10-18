@@ -1,10 +1,24 @@
-# Critical Shift runtime: one source integration candidate
+# Critical Shift runtime
 
-**OFFLINE-005, 18 September 2026.** This candidate reconciles the consolidated offline gameplay from PR #43 (`30129f7a44e8976b13a4fe3307e329420034e2ff`) with WP-01 foundation source from PR #46 (`43a2e328802fa4b73de407cfeebb5a7058edf90a`), then adds bounded fictional reactor/power rules. It is on `feat/offline-reactor-power-20260918`. Independent review and maintainer merge remain separate. Main and the authored map are not changed.
+**PR #111 review repairs, 18 October 2026:** six independent ultra review tracks
+identified and rechecked fixes for loading rotated crates, worker-body cleanup,
+lease-scoped hoisting, recovery clearance, native-runner provenance and inherited
+bake/export safety. Repaired inputs passed **724 offline tests, 182 tooling tests
+and four bake-safety tests**. The native catalogue now contains **136 cases**, but
+fresh Unity/Player/bake execution of these repairs is **NotRun** in this cloud
+workspace. The earlier native results and local Win64 ZIP below belong to their
+recorded earlier source. See the [review checkpoint](validation/GAMEPLAY_SANDBOX.md)
+and [compact index](validation/results/pr111-review-2026-10-18.json).
+
+**Current development, 18 October 2026:** `codex/unity-gameplay-sandbox` adds local-host gameplay over the canonical sources: physical crate handling, cart/conveyor motion, worker knockdown/drag/recovery, process feedback and combined-map doors. The required Unity **6000.4.3f1 / 39d1a88d4dd1**, URP **17.4.0**, is in use. Source `6554abef` passed **132/132 native gameplay cases**, a strict Windows build, headless cleanup, an actual rendered PNG and the physical deny/carry/drop exercise. Separate foundation validation passed **12 EditMode + 9 PlayMode** cases, build and Player. The pure suite passed **723** assertions; supplementary API checks passed all **21 assemblies**. Native runs disclose a verified preinitialized SDK cache rather than a cold package extraction. Earlier failures, the diagnostic-policy change and open acceptance work remain in the [active checkpoint](validation/GAMEPLAY_SANDBOX.md). The current collision derivative's 37 doors, 152 proxies and 13 anchors were measured within 0.285 mm; its fresh URP preparation also passed. This does not establish human feel, supported FPS, full facility traversal/art, multiplayer or independent acceptance. The [compact evidence index](validation/results/gameplay-2026-10-18.json) and [actual game-camera frame](validation/results/gameplay-2026-10-18.png) are reviewable in this branch. [PR #111](https://github.com/CameronNel/critical-shift/pull/111) contains this gameplay candidate and the reviewed bake/importer dependency.
+
+The local workstation delivery is `runtime/out/CriticalShift-Gameplay-Win64-20261018.zip` (about 70 MB). Its 308 Player files were compared byte-for-byte after archive verification, and a fresh extraction passed startup/cleanup. Extract the whole folder and run `CriticalShiftSandbox.exe`; Unity is not needed to launch the Player. [Controls and scope](unity/Assets/CriticalShift/Sandbox/README.md).
+
+Historical source provenance: OFFLINE-005 (18 September 2026) reconciled consolidated offline gameplay from PR #43 (`30129f7a44e8976b13a4fe3307e329420034e2ff`) with WP-01 foundation source from PR #46 (`43a2e328802fa4b73de407cfeebb5a7058edf90a`), then added bounded fictional reactor/power rules. Its original candidate branch was `feat/offline-reactor-power-20260918`. Current work still requires independent review and maintainer merge.
 
 ## Start without either editor
 
-From the repository root:
+After execution is authorized, from the repository root:
 
 ```sh
 cd runtime/dotnet
@@ -32,13 +46,18 @@ The successful workflow also packages `offline-scenario-runner.zip`: the actual 
 | `unity/Assets/CriticalShift/Application/ProcessLifetime.cs` | The single canonical local-process lifetime implementation, not the gameplay session owner |
 | `dotnet/src/CriticalShift.ProcessLifetime/` | Build project that links that exact process source; it contains no copied implementation |
 | `unity/Assets/CriticalShift/Bootstrap/` | WP-01 diagnostic bootstrap and optional native preparation/build code; not gameplay or map integration |
-| `tools/` | Foundation static/evidence checks and optional native tooling |
+| `unity/Assets/CriticalShift/Features/Interaction/Unity/` | Local host clock, command admission, explicit physical claim/slot bindings and spatial observations |
+| `unity/Assets/CriticalShift/Features/Workers/Unity/` | Local walking, one ragdoll handoff, drag/crawl forces and staged recovery clearance |
+| `unity/Assets/CriticalShift/FacilityPhysics/` | Bounded cart/conveyor forces, load observations, motion visuals and physics diagnostics |
+| `unity/Assets/CriticalShift/Presentation/` | Read-only process/material/worker feedback and temporary IMGUI controls |
+| `unity/Assets/CriticalShift/Sandbox/` | Scratch fixture composition, scoped scene generator, declared native cases and controls |
+| `tools/` | Source/evidence checks and separate optional foundation/sandbox native runners |
 
 The foundation assembly was renamed from `CriticalShift.Application` to `CriticalShift.ProcessLifetime`, preserving its metadata GUID and C# type namespace. The gameplay assembly keeps `CriticalShift.Application`. Foundation references and checks were updated. The offline suite compiles both together and exercises multiple real gameplay sessions inside one process lifetime.
 
 The former narrow `tools/pure-tests/` harness was removed after its eight original assertions were linked into the normal offline NUnit suite. Their canonical source still also belongs to the original Unity EditMode test assembly. A passing offline run of that source is not a native Unity Test Runner pass.
 
-The application and seven gameplay domain DLLs built by the offline projects provide one future integration route. Do not copy these source files into another implementation or introduce a second mutable holder, material ledger, clock or power balance. The optional scenario package does not install DLLs into Unity. Native importer configuration and scene adapters remain future work.
+The Unity integration trial references these same sources through the local first-party package `com.criticalshift.gameplay` at `dotnet/src`. Eight engine-free asmdefs mirror the .NET project references; no gameplay source or DLL is copied into `Assets`. Source-project build output belongs in ignored `dotnet/artifacts/compiled`, outside the package. Do not introduce a second mutable holder, material ledger, clock or power balance. The optional scenario executable remains separate. Native package import has run; physical scene acceptance remains unverified. The actual editor bundles Test Framework 1.6.0 and NUnit 2.0.5, now reflected by the declared pins. See the [sandbox development checkpoint](validation/GAMEPLAY_SANDBOX.md).
 
 ## Contracts and useful entrypoints
 
@@ -47,16 +66,19 @@ The application and seven gameplay domain DLLs built by the offline projects pro
 - [Worker recovery and scenarios](dotnet/WORKERS_AND_SCENARIOS.md)
 - [Production, accounting and cancellation](dotnet/PRODUCTION.md)
 - [Reactor, reserve power and fuel-cycle contracts](dotnet/REACTOR_AND_POWER.md)
-- [Current task, preservation and evidence](validation/OFFLINE_REACTOR_POWER.md)
+- [Current Unity task, preservation and evidence](validation/GAMEPLAY_SANDBOX.md)
+- [Offline reactor provenance and evidence](validation/OFFLINE_REACTOR_POWER.md)
 - [Canonical architecture](../design/code-architecture/README.md)
 
-PR #43 and PR #46 remain provenance for their contributions. Their earlier heads are not substitutes for this reconciled candidate. The old offline branch's root README and map state were not transplanted. The entire current `sections/` tree remains `06a41745022bcaee48d7ca3291b19f5febfcb673`.
+PR #43 and PR #46 remain provenance for their contributions; their earlier heads do not establish results on the current revision. The old offline branch's map state was not transplanted. Current runtime work reads only the four declared combined-map collision/anchor inputs from `sections/`; the authored scenes, bake outputs and protected importer remain outside its edit scope.
 
-## Native foundation remains separately unverified
+## Native foundation and sandbox validation
 
-The recorded Unity target remains 6000.4.3f1, revision 39d1a88d4dd1, Built-in rendering and Mono desktop support. The original source-only WP-01 work is documented in [WP01.md](validation/WP01.md) and its historical [execution-summary.json](validation/execution-summary.json). Those results belong to the revisions recorded there, not the renamed current foundation.
+The required Unity target remains **6000.4.3f1, revision 39d1a88d4dd1**, with the pinned Mono desktop profile in [toolchain.json](toolchain.json). The bounded implementation of Cameron's 15 October URP selection declares URP/Core/ShaderGraph/config 17.4.0 and their measured dependency lock. Native-created pipeline/global settings and Linear Player/Graphics/Quality settings are included. Separate native runs passed all 12 EditMode / 9 PlayMode foundation cases and all 132 gameplay PlayMode cases, plus their builds and Players. These are bounded development checks; independent acceptance remains pending. See [the engine decision](../design/ENGINE_DECISION.md).
 
-No editor was opened for OFFLINE-005. Startup scene creation, complete ProjectSettings serialization, package import, engine tests and Player execution remain NotRun here. The source preparation command is still `Critical Shift > Foundation > Prepare project` in a future activated editor, and the native runner remains available for a separately authorized task:
+The original WP-01 work is documented in [WP01.md](validation/WP01.md) and its historical [execution-summary.json](validation/execution-summary.json). Those results belong to their recorded revisions. Source and installed-file identity checks do not establish native execution on this branch.
+
+No editor was opened for the historical OFFLINE-005 task. This continuation completed foundation tests/build/Player and gameplay rendering/interaction checks on executable source `6554abef`. The foundation failed-startup Player exit path was not separately launched. Native initialization used a verified preinitialized SDK package cache; cold package extraction is not established. `Critical Shift > Foundation > Prepare project` and its separate native runner remain available:
 
 ```powershell
 python runtime/tools/run_foundation.py --unity "C:\Program Files\Unity\Hub\Editor\6000.4.3f1\Editor\Unity.exe" --target Win64
@@ -64,6 +86,22 @@ python runtime/tools/run_foundation.py --unity "C:\Program Files\Unity\Hub\Edito
 
 That runner needs Python 3.12+, an already activated matching Editor and matching build support. It uses a disposable copy, requires its own native test/build/readiness evidence and does not import the map. No activation or credentials belong in this repository. The automatic native Unity workflow is absent on this candidate; pushing code cannot accidentally run it.
 
+For the separate sandbox inventory:
+
+```powershell
+python runtime/tools/run_sandbox.py --unity "C:\Program Files\Unity\Hub\Editor\6000.4.3f1\Editor\Unity.exe" --target Win64
+```
+
+That runner preserves source hashes and native logs/results in a disposable workspace under ignored `runtime/out/`. It requires exact test discovery and the pinned editor identity. `--build-player` separately requests a URP-gated build; adding `--run-player` requests the same new build's headless startup/teardown smoke. Neither flag establishes rendered playability, human feel, multiplayer convergence or supported performance. Consult the checkpoint for the latest actual execution status.
+
+For the separate combined-map collision derivative:
+
+```powershell
+python runtime/tools/run_combined_map.py --unity 'C:\Program Files\Unity\Hub\Editor\6000.4.3f1\Editor\Unity.exe' --target Win64
+```
+
+It imports the scoped FBX, validates actual proxy bounds and door/room anchors to 1 cm and saves a generated scene in its disposable workspace. Native measurements showed that this collision export needs a 180-degree root rotation to match the existing baked-art placement frame. Room floors/art and ladder traversal are separate work; the diagnostic spawn uses the existing spine floor.
+
 ## Scope boundary
 
-This is useful, user-authorized editor-free source prework, not a Gate 0/1 pass, accepted Unity foundation, production-ready reactor, complete power station or human fun test. It adds no physical interactions, transport, Steam, voice, UI/input framework, persistence, save schema, terrain or art changes. Single-threaded host policy, physical bindings, native compatibility and independently reviewed integration remain necessary. Read the reactor guide's fixture limits before using its values as game balance.
+The current deliverable is a local-host integration trial with the bounded native results above. Gate 0/1 acceptance, human control/physical feel, full-facility art integration and independent review remain pending. Its physics and presentation sources do not choose transport, Steam, voice, a production input/UI framework, persistence or a save schema. The combined-map derivative imports collision proxies and anchors; it does not import room art or establish map acceptance. Read the fixture values and their limits before treating them as game balance.

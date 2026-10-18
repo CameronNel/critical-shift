@@ -20,6 +20,8 @@ namespace CriticalShift.Bootstrap.Editor
         {
             public string editor = "";
             public string testFramework = "";
+            public string renderPipeline = "";
+            public string colorSpace = "";
             public string apiCompatibility = "";
             public string backend = "";
             public string stripping = "";
@@ -57,8 +59,7 @@ namespace CriticalShift.Bootstrap.Editor
             PlayerSettings.defaultScreenHeight = 540;
             EditorSettings.serializationMode = SerializationMode.ForceText;
             EditorSettings.enterPlayModeOptionsEnabled = false;
-            if (GraphicsSettings.defaultRenderPipeline != null)
-                throw new BuildFailedException("An SRP asset is configured; WP-01 requires Built-in rendering.");
+            ValidateRendering(profile);
             if (!File.Exists(Path.Combine(UnityApplication.dataPath, "CriticalShift/Bootstrap/Foundation.unity")))
             {
                 var scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
@@ -101,9 +102,20 @@ namespace CriticalShift.Bootstrap.Editor
             if (bootstrap.Length != 1 || !bootstrap[0].isActiveAndEnabled ||
                 !bootstrap[0].GetComponent<Camera>().enabled)
                 throw new BuildFailedException("Foundation scene must have one active bootstrap and Camera.");
-            if (GraphicsSettings.defaultRenderPipeline != null)
-                throw new BuildFailedException("Unexpected render pipeline asset.");
+            ValidateRendering(profile);
             Debug.Log("CS_FOUNDATION_VALIDATED");
+        }
+
+        private static void ValidateRendering(Profile profile)
+        {
+            var pipeline = GraphicsSettings.defaultRenderPipeline;
+            if (profile.renderPipeline != "Universal" || pipeline == null ||
+                pipeline.GetType().FullName != "UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset" ||
+                profile.colorSpace != "Linear" || PlayerSettings.colorSpace != ColorSpace.Linear)
+                throw new BuildFailedException("The current owner-selected URP/Linear profile must be prepared before foundation validation.");
+            for (int i = 0; i < QualitySettings.names.Length; i++)
+                if (QualitySettings.GetRenderPipelineAssetAt(i) != null)
+                    throw new BuildFailedException("Foundation quality levels must inherit the selected default URP asset.");
         }
 
         public static void Build()

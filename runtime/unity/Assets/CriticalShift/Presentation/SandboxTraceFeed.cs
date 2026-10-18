@@ -1,0 +1,116 @@
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using CriticalShift.Application;
+
+namespace CriticalShift.Presentation
+{
+    /// <summary>Small derived display over existing host diagnostics, never an authoritative causality ledger.</summary>
+    public sealed class SandboxTraceFeed
+    {
+        public sealed class Entry
+        {
+            internal Entry(SessionTraceRecord record, Guid cause, string description)
+            {
+                Sequence = record.Sequence; ShiftMilliseconds = record.ShiftMilliseconds; EntityId = record.EntityId;
+                ActorId = record.ActorId; HazardId = record.HazardId;
+                Kind = record.Kind; Production = record.ProductionEvent; Reactor = record.ReactorEvent;
+                CauseId = cause; Description = description;
+            }
+            public long Sequence { get; }
+            public long ShiftMilliseconds { get; }
+            public Guid EntityId { get; }
+            public Guid ActorId { get; }
+            public Guid HazardId { get; }
+            public Guid CauseId { get; }
+            public SessionTraceKind Kind { get; }
+            public ProductionEvent? Production { get; }
+            public ReactorEvent? Reactor { get; }
+            public string Description { get; }
+        }
+
+        private readonly LocalCommandPort queries;
+        private readonly Guid epoch;
+        private readonly List<Entry> entries = new List<Entry>(12);
+        private readonly ReadOnlyCollection<Entry> rows;
+        private long lastSequence;
+        public IReadOnlyList<Entry> Entries => rows;
+        public long SourceDroppedRecords { get; private set; }
+        public bool GapDetected { get; private set; }
+        public bool SequenceExhausted { get; private set; }
+
+        public SandboxTraceFeed(LocalCommandPort read)
+        {
+            queries = read ?? throw new ArgumentNullException(nameof(read)); epoch = read.World.Epoch; rows = entries.AsReadOnly();
+        }
+
+        public void Refresh()
+        {
+            var trace = queries.Trace;
+            SourceDroppedRecords = trace.DroppedRecords; SequenceExhausted = trace.SequenceExhausted;
+            foreach (var record in trace.Records)
+            {
+                if (record.Epoch != epoch) throw new InvalidOperationException("A fixture trace display cannot consume another world epoch.");
+                if (record.Sequence <= lastSequence) continue;
+                if (record.Sequence != lastSequence + 1) GapDetected = true;
+                lastSequence = record.Sequence;
+                if (!record.Changed) continue; // A historical replay cannot publish another committed display event.
+                string description = Describe(record);
+                if (description == null) continue;
+                Guid cause = record.ReactorChange?.CauseId ??
+                    (record.MaterialCauseId != Guid.Empty ? record.MaterialCauseId : record.CauseId);
+                if (entries.Count == 12) entries.RemoveAt(0);
+                entries.Add(new Entry(record, cause, description));
+            }
+        }
+
+        private static string Describe(SessionTraceRecord record)
+        {
+            if (record.ProductionEvent.HasValue)
+            {
+                switch (record.ProductionEvent.Value)
+                {
+                    case ProductionEvent.Jammed: return "Machine jammed";
+                    case ProductionEvent.Completed: return "Processing complete · " + (record.WasteUnits ?? 0) + " units to waste";
+                    case ProductionEvent.Cancelled: return "Machine cycle cancelled";
+                }
+            }
+            if (record.ReactorEvent.HasValue)
+            {
+                switch (record.ReactorEvent.Value)
+                {
+                    case ReactorEvent.Generated: return null; // Current output already has an instrument; do not bury incidents in generation ticks.
+                    case ReactorEvent.Warning: return "Reactor warning · " + Risk(record.ReactorChange.Risk);
+                    case ReactorEvent.Tripped: return "Reactor tripped · " + Risk(record.ReactorChange.Risk);
+                    case ReactorEvent.FuelExhausted: return "Fuel exhausted · spent material retained";
+                    case ReactorEvent.EmergencyCooling: return "Emergency cooling · spent " + record.ReactorChange.SpentUnits + " reserve";
+                    case ReactorEvent.CoolingChanged: return record.ReactorChange.State.Cooling ? "Cooling opened" : "Cooling closed";
+                    case ReactorEvent.Started: return "Reactor started";
+                    case ReactorEvent.Shutdown: return "Reactor shut down";
+                    case ReactorEvent.Reset: return "Reactor trip reset · core remains shut down";
+                    case ReactorEvent.Inserted: return "Fuel loaded";
+                    case ReactorEvent.Ejected: return "Fuel container ejected";
+                    case ReactorEvent.AuxiliaryPower: return "Reserve power used";
+                }
+            }
+            switch (record.Kind)
+            {
+                case SessionTraceKind.Impact: return "Worker impact · " + record.ImpactSeverity;
+                case SessionTraceKind.RecoveryRequested: return "Standing recovery started";
+                case SessionTraceKind.RecoveryResolved: return "Standing recovery resolved · " + record.WorkerResult;
+                case SessionTraceKind.RecoveryCancelled: return "Standing recovery cancelled";
+                case SessionTraceKind.RecoveryExpired: return "Standing recovery expired";
+                case SessionTraceKind.Disconnected: return "Worker disconnected";
+                case SessionTraceKind.AttachmentFailed: return "Grip released · physical binding failed";
+                case SessionTraceKind.LeaseExpired: return "Grip released · lease expired";
+                case SessionTraceKind.Started: return "Shift started";
+                case SessionTraceKind.Ended: return "Shift ended · " + record.Outcome;
+                case SessionTraceKind.Stopped: return "Fixture stopped";
+                case SessionTraceKind.Faulted: return "World faulted";
+                default: return null;
+            }
+        }
+        private static string Risk(ReactorRisk risk) => risk == ReactorRisk.CoolingLost ? "cooling lost" :
+            risk == ReactorRisk.SuspectFuel ? "suspect fuel" : "no recorded risk";
+    }
+}

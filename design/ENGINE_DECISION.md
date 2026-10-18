@@ -5,7 +5,7 @@
 > **Art-direction canon:** Critical Shift uses **grounded stylized semi-realism**. Valorant-style environment principles are the primary rendering influence; PEAK contributes readability and restraint only. The target is believable, tactile and simplified, **not** generic low-poly, toy-like, Three.js-looking, glossy sci-fi, or modern AAA photorealism. [ART_DIRECTION](/design/ART_DIRECTION.md) and [ART_REFERENCE_INDEX](/design/ART_REFERENCE_INDEX.md) override conflicting legacy style wording in this file.
 
 
-**Status:** Selected for prototype — Unity
+**Status:** Selected for prototype â€” Unity
 **Selected version:** Unity 6000.4.3f1
 **Decision owner:** Cameron
 **Recorded:** 2026-08-23
@@ -18,6 +18,22 @@
 > **Render pipeline, 15 October 2026 (owner decision):** asked which pipeline the map should target for Unity, the decision owner chose the **Universal Render Pipeline (URP)** over the recorded Built-in pipeline. Map art is now prepared for URP Lit (`sections/facility-assembly/unity/`, baked texture sets and material/light manifests). Nothing in `runtime/unity/` has been switched yet: there is no editor in the agent environment, and adding `com.unity.render-pipelines.universal` and a pipeline asset is a project change that still needs a validated editor run. Where this file says Built-in below, that is the earlier record.
 
 ## Decision
+
+> **Implementation update, 18 October 2026:** the local gameplay continuation now
+> declares URP/Core/ShaderGraph/config **17.4.0** on the exact selected editor.
+> Clean native renderer preparation and foundation preparation produced the
+> checked-in pipeline/global settings and Linear Graphics/Quality/Player settings.
+> Source `6554abef` passed all 132 native gameplay cases, a strict Win64 build,
+> headless startup/cleanup, a same-build normal-window PNG capture and a typed
+> physical carry/drop exercise. Separate foundation validation passed 12 EditMode
+> and 9 PlayMode cases plus its Win64 build/Player. These runs reuse only a
+> verified initialized SDK package cache; they are not cold-extraction evidence.
+> Earlier failures and the authored diagnostic-policy change remain recorded.
+> Human feel, full-facility art/traversal, multiplayer, supported performance and
+> independent gate acceptance remain open. See the current [runtime evidence](../runtime/validation/GAMEPLAY_SANDBOX.md)
+> and the bounded implementation decision in
+> [DECISIONS_AND_RISKS](code-architecture/DECISIONS_AND_RISKS.md).
+> The Built-in stack and removed prototype claims below are historical records.
 
 Use Unity, C#, the Built-in Render Pipeline, and Unity's 3D physics for the
 proof-of-fun and networked-physics spikes.
@@ -52,7 +68,7 @@ Godot alternative.
 
 - Engine: Unity 6000.4.3f1
 - Language: C#
-- Renderer: Built-in Render Pipeline, low graphics defaults, no ray tracing (superseded for the target by URP, owner decision 2026-10-15; the project itself is not switched yet)
+- Renderer: URP 17.4.0, Linear color space, following the owner decision of 2026-10-15 and the bounded implementation/evidence recorded below. Current PR review repairs still require a fresh native run.
 - Physics: Unity 3D physics
 - Networking: not installed; next gate is host-authoritative selection/spike
 - Steam: not selected

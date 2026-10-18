@@ -53,7 +53,207 @@ These are **proposed** decisions in this PR. Inherited product constraints above
 
 **Why:** paper policies, zero-test greens and stale historical proof do not protect future work. **Rejected alternatives:** trusting exit code alone; author self-certification; imposing a full-game pipeline before a minimal project exists; loosening thresholds after failure without review. **Trade-off:** a missing runner or reviewer can honestly block a gate. **Reopen when:** actual evidence shows a check is ineffective, redundant or disproportionately costly; preserve coverage of its risk before removing it. Evidence: CI-01/02, V00 and work-package/gate records.
 
+### ADR-CA-005: One source package for the Unity integration trial
+
+**Scoped implementation decision, 18 October 2026:** Cameron authorized a
+substantial Unity development pass while deferring all heavy execution. Expose
+the existing `runtime/dotnet/src` source as the local first-party UPM package
+`com.criticalshift.gameplay`. Unity asmdefs preserve the existing seven-domain
+and Application dependency allowlist, with no engine references in pure code.
+The .NET projects continue compiling those same files; no gameplay DLL copies
+or parallel Unity rule implementation are introduced. Move source-project
+intermediates/output under ignored `dotnet/artifacts/compiled` so Unity cannot
+import them as a second implementation.
+
+This changes source discovery and evidence inputs, not gameplay ownership or the
+reference allowlist. The disposable foundation runner must preserve the local
+package path and hash its inputs. This is not an external SDK selection, native
+package-resolution pass, D-01 closure or approval of later gates. Metadata,
+assembly parity, duplicate-output prevention and clean import require actual
+validation after Cameron permits it. Task/evidence and rollback boundary:
+[Unity gameplay sandbox](../../runtime/validation/GAMEPLAY_SANDBOX.md).
+
 ## 3. Open decisions and deadlines
+
+### Bounded combined-map runtime extension, 18 October 2026
+
+Cameron authorized gameplay on the current combined map and Unity execution
+after finishing gaming. The first derivative uses only the existing collider/
+anchor FBX and door/role manifests, preserving their provisional coordinates.
+No source map/room or Claude PR #110 bake/importer files are edited. This is
+runtime implementation scope, not acceptance of the changing layout or art.
+
+Door passage belongs to the existing Interaction domain. WorldSession owns its
+lifetime and Application projects detached states. Open/close uses the existing
+authenticated sequence/receipt/access path, with a bounded 128-door store,
+revision checks and explicit operability. DOCK_P2 keeps its authored Closed state
+and is non-operable; it is not silently reclassified as Locked. The Unity adapter
+only applies supplied epoch/revision projections to explicitly bound contacts.
+Closing admission includes a host-side doorway-occupancy observation.
+
+Evacuation is an explicit, once-per-cause trusted operation applying the imported
+evacuation defaults. It keeps the shift running. The local derivative exposes an
+exercise button; it does not infer meltdown from recoverable ReactorMode.Tripped,
+implement a meltdown incident/countdown, or prohibit later authorized door use.
+The condenser ladder remains unsupported. Room floors/art remain separate from
+the connective proxies; no synthetic floor or guessed placement is introduced.
+
+The derivative reuses the local worker/ragdoll/recovery implementation and the
+existing temporary IMGUI approach. No input/UI/network/Steam/voice/persistence
+package or new assembly is selected. A separate scoped prepare runner verifies
+the four map inputs, imported anchors and actual collider bounds to 0.01 m;
+bounds are validation data, never replacement collision geometry. Editor-free
+or supplementary API checks do not establish native import/physics, traversal,
+rendered playability, art acceptance, FPS or a roadmap gate.
+
+### D-01 native compatibility repair, 18 October 2026
+
+The first licensed import with the exact installed editor resolved its bundled
+Test Framework **1.6.0** and Custom NUnit **2.0.5**, overriding the historical
+1.4.6/2.0.3 declarations. The installed BuiltInPackages descriptors and the fresh
+disposable project's package lock agree. This bounded validation-tooling repair
+adopts those editor-bundled versions explicitly in the working profile/manifest/
+lock; the selected Unity 6000.4.3f1 / 39d1a88d4dd1 stays fixed. It selects no
+gameplay, input/UI, transport or production framework. Native compatibility is
+still an executed acceptance requirement, not assumed from this correction.
+
+The same import rejected duplicate UnityEngine.TestRunner references: the test
+assembly flag already adds that reference. Retain TestAssemblies and remove its
+duplicate explicit PlayMode reference. The supplementary compiler must model
+that flag rather than fabricate a different resolved dependency graph. Preserve
+the original failed import logs and report retries separately.
+
+### Owner-selected URP implementation trial, 18 October 2026
+
+ENGINE_DECISION records Cameron's 15 October URP selection. The exact editor is
+now licensed and has executed native imports/tests, so the next bounded step is
+to implement and validate that existing renderer choice. The installed 6000.4.3f1
+bundle supplies `com.unity.render-pipelines.universal` **17.4.0** for Unity 6000.4.
+Its required Core, ShaderGraph and universal-config dependencies are also 17.4.0.
+Core's mandatory dependencies include Burst, Mathematics, Collections, terrain
+and **uGUI 2.0.0**. That transitive UI package is disclosed as part of URP's
+dependency closure; gameplay continues using the existing temporary IMGUI path.
+No production input/UI framework, transport, voice or persistence is selected.
+
+Trial authoring stays in the existing Sandbox Editor composition boundary, with
+explicit URP/Core Runtime assembly references confined to that Editor assembly.
+A typed public-API helper creates a renderer/pipeline pair, assigns one default
+pipeline and makes every quality level inherit it, preserving the selected
+quality level. Native serialization, actual dependency resolution and a new
+Player build must establish the result. Existing unrelated pipeline assets must
+not be silently replaced. Source map/room files and Claude's bake/importer paths
+remain outside this trial. Regenerate the isolated scenes under URP to retain
+their actual Lit shader dependency; preserve the original Built-in diagnostics.
+
+The historical foundation's Built-in-only validator must be reconciled explicitly
+with the current renderer profile before claiming the normal foundation runner
+works under URP. A source patch or successful package import alone does not close
+D-01, prove the new Player, establish art/lighting parity or measure performance.
+
+The pinned bundle's first ShaderGraph import emits two `GUID` CS0246 diagnostics
+before its own API updater qualifies the names and recompiles. Validation now
+has a separate disposable package-initialization process with explicit
+`-accept-apiupdate`. Its original strict-log failure is retained. Only the two
+observed ShaderGraph 17.4.0 files may receive that compatibility classification,
+with both native updater entries and a later successful rebuild required;
+other critical/first-party diagnostics, source rewrites and changed package pins
+stop the run. Initialization grants no acceptance. A distinct new process must
+pass the unchanged complete-log validator before tests/builds can proceed.
+
+The development-only scratch Player also declares the exact editor's built-in
+Screen Capture **1.0.0** module and mandatory Image Conversion **1.0.0** dependency.
+This bounded diagnostic supports an explicit graphics-enabled startup PNG after
+headless validation; it selects no gameplay UI/input framework. It is inert
+without its explicit capture flag, requires the development Win64 Player and
+current fixture epoch, publishes only a new file under its `runtime/out` tree,
+and has a finite rendering/write deadline. Actual native resolution, capture
+and pixel inspection remain required; declarations alone are not evidence.
+
+### D-09 scoped physics-observation criterion, 18 October 2026
+
+The scratch observer's original **25 rad/s** angular guard was an authored
+debug-trial criterion, not a numerical GAME_SPEC or PHYS-02 requirement. The
+`c37905f6` full native suite correctly remains **127/129 Passed, two Failed**
+under that criterion. Three completed comparisons in the retained initialized
+project did not establish a solver or origin correction:
+
+| Report under runtime/out/ | Control passed / failed | Variant passed / failed | Peak angular rad/s, control / variant |
+| --- | --- | --- | --- |
+| ragdoll-solver-comparison-01/report.json | Position 6 / velocity 1: 11 / 1 | Position 6 / velocity 10: 9 / 3 | 25.2723541 / 28.3686447 |
+| ragdoll-solver-comparison-02/report.json | Position 6 / velocity 1: 11 / 1 | Position 10 / velocity 1: 6 / 6 | 25.2000504 / 27.3606834 |
+| ragdoll-solver-comparison-03/report.json | Original roots, 6/1: 9 / 3 | Near roots, 6/1: 10 / 2 | 26.8237858 / 27.0270863 |
+
+Each report contains 24 single-case native processes over four fixed identities
+and three rounds, zero skipped/inconclusive, `CompletedWithFailures` and
+`acceptance_status=NotRun`. Original-code restoration, original-evidence hashes,
+canonical-input equality and each package pin/descriptor audit passed;
+comparison 03 also confirms the production builder was unchanged. The reports
+preserve every original failure. Sampled maxima are not continuous-time extrema
+or same-frame angular/separation correlations. Neither solver variant nor the
+temporary near roots was adopted; production position 6 / velocity 1 and original
+fixture roots remain. The [task record](../../runtime/validation/GAMEPLAY_SANDBOX.md#completed-solverorigin-comparisons-and-reviewed-diagnostic-policy-1929-utc)
+contains the exact variants, full outcomes, separation measurements and limits.
+
+After primary-author and validation-subagent source review, commit `4822787d`
+changes the observer to independent **25 m/s linear** and **312.5 J/kg specific
+rotational kinetic-energy** trial limits, retaining raw angular/peak diagnostics.
+The energy criterion is `0.5 * sum(Iprincipal * omegaPrincipalÃƒâ€šÃ‚Â²) / mass`, with
+omega transformed by inverse(body.rotation * inertiaTensorRotation). The budget
+equals `0.5 * 25Ãƒâ€šÃ‚Â²`, the specific translational energy at 25 m/s, and does not
+bound their combined energy. It is an authored, unaccepted configuration under
+D-09; source review does not ratify a production safety budget or close that
+decision.
+
+Dynamic mass/moments and tensor rotation must be valid. Zero principal moments
+are handled as infinite inertia, matching the pinned [Unity API](https://docs.unity3d.com/6000.4/Documentation/ScriptReference/Rigidbody-inertiaTensor.html).
+Meaningful projected rotation on a zero axis fails; only the declared
+`8 * float_machine_epsilon * max(1 rad/s, |world omega|)` projection roundoff is
+admitted there. Other energy components contribute in full. Finite poses and
+velocities, containment, explicit bindings and once-only failure/teardown remain.
+The observer changes no motion, forces, masses, damping, caps, solver, projection
+or origin. This is a reviewed diagnostic-policy switch, not evidence that physical
+instability, tunnelling, far-origin behaviour or gameplay feel is corrected.
+All old Failed artifacts retain their original criterion and status; a later
+pass under this policy cannot retrospectively replace them.
+
+The supplementary matching-SDK check passed all **21 assemblies** plus static
+source checks at `runtime/out/api-urp-energy-observer/api-compile.json`, recording
+unchanged working inputs before the energy source was committed. The new native
+catalogue has **132** identities, including three actual-Rigidbody energy/frame/
+constraint cases. Full native execution, build, passive and exercise Players,
+rendered evidence, budget acceptance and independent gate review remain pending.
+The current fresh run discloses its preinitialized SDK cache; it is not evidence
+of successful cold package extraction. Detailed evidence and upstream
+`282f9dfb` / merge `de2a6de5` protected-path equality are retained in the task record.
+
+### Current native development evidence, 18 October 2026, 20:12 UTC
+
+The bounded local-host candidate `6554abef` passed clean native preparation,
+132/132 gameplay cases with zero skips, a strict-variant Win64 build and its
+headless startup/cleanup. That same build produced a verified 960x540 PNG in a
+normal window and passed the typed deny/carry/drop exercise with native motion,
+unchanged material accounting and zero retained custody/owned references. The
+batch-mode PNG attempt remains Failed; initialization of a graphics device alone
+was not treated as a rendered frame. Separate foundation validation passed all
+12 EditMode and 9 PlayMode identities plus its build/Player.
+
+The Null-device Player fix exempts only unavailable `_EmissionColor` property
+reflection. Material identities, distinct references, retained keyword sets and
+emissive flags remain checked in every mode; Editor and graphics Players retain
+property checks. Its original failure and focused diagnostic builds remain
+separate from the fresh passing candidate. All 21 supplementary API assemblies
+and Windows/Ubuntu editor-free CI also passed. The native runs disclose reuse of
+only a verified initialized SDK `Library/PackageCache`, with new first-party
+compilation and final source/pin audits; cold package extraction is not passed.
+
+These are executed development proofs, not closure of D-01/D-09 or an independent
+roadmap gate. The earlier angular-cutoff failures and diagnostic-budget limits
+above remain. Networking, production input/UI, persistence and performance
+choices remain open. Combined-map URP preparation subsequently passed 37 doors / 152 proxies / 13 anchors
+with maximum measured anchor error 0.0002840849 m; no route/Player/art acceptance
+is inferred. Exact
+results and immutable failed-run references are in the existing
+[active task record](../../runtime/validation/GAMEPLAY_SANDBOX.md).
 
 Owners below are accountable roles; individual implementation/review assignments are **unassigned** until a work package is authorized. Cameron approves scope/stack decisions; the appointed implementation lead prepares evidence and an independent reviewer assesses it. No package is selected by mentioning it in a source reference.
 
@@ -97,6 +297,7 @@ Impact describes consequence if the risk occurs. Likelihood is not quantified: n
 | R-10 Inconsistent authorities | Medium-high: historical prototype, old renderer text or generic lift overrides current decisions | Baseline/source register; contextual engine note; scoped conflict resolution | Any planning/implementation change / reviewer |
 | R-11 Overengineering | Medium-high: abstractions and process outgrow the small game | No empty feature shells; targeted PR checks; responsibility-based review | Gate 0 and every expansion / implementer-reviewer |
 | R-12 Save corruption | High: migration/replacement overwrites only good copy | Detached validation, previous-good preservation, SAVE fault cases | Before persistent release / persistence owner |
+| R-13 Diagnostic budget mistaken for repaired physics | High: a changed guard produces a pass that is presented as corrected motion or accepted safety | Declare criterion/units and D-09 budget status; retain old Failed artifacts; separate source/API/native and measured physical/visual evidence | PHYS-02/S07 / runtime lead plus independent reviewer |
 
 ## 5. Reviewer challenge pack
 

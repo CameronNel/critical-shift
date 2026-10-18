@@ -19,10 +19,39 @@ Many meshes also have no UVs at all: the front end 99.8 % of its triangles, the 
 The script runs on a room's source file, which it never saves. It works in stages so that each run fits a job limit:
 
 1. **prep:** apply modifiers (bevels, weighted normals), turn curves and text into meshes, unwrap a `UVBake` layer per material, and size each atlas from the surface area. Saves `_work.blend`.
-2. **bake:** one pass per run (`base`, `rough`, `normal`, plus `metal` and `emit` where a material has them). These bake the material only, not the scene lighting. Lightmaps are the last step, in Unity.
+2. **bake:** one pass per run (`base`, `rough`, `normal`, plus `metal`, `emit` and `mask` where a material needs them). These bake the material only, not the scene lighting. Lightmaps are the last step, in Unity.
 3. **finish:** write the URP Lit map set, swap in image-based materials, save `<room>_unity.blend`, export `<room>.fbx`, and write `materials.json`, `lights.json` and `bake_report.json`.
+4. **check** (`bake_check.py`): stops the run if the room's output is wrong (see *Review and fixes, 2026-10-18* below).
 
 `render_compare.py` renders the room's own cameras on both files with the same lights and settings.
+
+## Review and fixes, 2026-10-18 (before any further bake)
+
+The map bake of 2026-10-17/18 was stopped after the isolation bug (below). Before baking again, two independent reviews read every script, and the pipeline was fixed and rehearsed end to end. What was wrong in every bake made before this date:
+
+| Problem | Effect in the old bakes | Fix |
+|---|---|---|
+| Only the first Principled BSDF was baked | Emission strips mixed into the turbine's architecture (M_ARCH, M_MACH, M_PROPS, M_SHAFT), the front-end screens and the connectors' emissive (Add shader) were lost; Mix-with-Transparent materials (refinery traffic paint, wall leak, condensate) came out as opaque sheets | The whole shader tree (Mix and Add of Principled, Emission, Transparent, Glossy, Glass, ...) is rebuilt per channel from Emission shaders and baked; a `mask` pass bakes alpha, reflective weight and coverage, and the finish divides them out |
+| Emission baked into an 8-bit image | Clipped at 1 (lamps reach 45: the mine's lanterns, 35 reactor materials) and normalised in gamma space | Emission bakes to float EXR; the map is colour / linear peak, and the peak is the URP intensity |
+| Baked materials never transparent | 47 decal, glass and film materials (the front end's 34 wear decals, reactor paint and puddle films) exported opaque | Alpha goes into the base map's alpha; the importer sets those materials Transparent |
+| A Python error in Blender exited 0 | A failed stage looked like a pass; finish could use stale maps | Every Blender call passes `--python-exit-code 1`; finish stops when a planned map is missing; prep clears `_raw/`; plans carry a version |
+| Nothing checked what rendered | The isolation bug ran 12 hours unseen | Prep, every bake pass and finish stop if anything outside the room renders; the `check` stage re-checks the output |
+| Missing images bake magenta silently | The turbine's 23 textures are external LFS PNGs; a pull of the .blend files alone leaves them as pointers | Prep stops on any image without pixels; `bake_all.ps1` checks the PNGs before starting; the handover pulls them |
+| `-Cameras ""` (map-connections) | Windows PowerShell 5.1 drops the empty argument: the 13th piece could not start | The argument is only passed when non-empty |
+| Smaller | Hidden lights in `lights.json`; area-light size without object scale; pure-emission surfaces glossy; constant shader mixes flattened; `-From` case-sensitive; compare silently skipped a missing camera | All fixed |
+
+Importer: transparency for baked materials (base map alpha kept on import), the map scene updated in place instead of recreated (lightmaps and hand edits survive), the renderer's post-processing data assigned, ellipse lights as same-area rectangles, unique material file names, and the FBX reimported only when a remap changed.
+
+**Proof before the GPU run.**
+- A synthetic scene with known values (a Principled/Emission strip, Transparent/Principled cutout, alpha-linked decal, an emission-45 lamp, Add shader, pure emission, a constant mix, an object-space-normal material, glass, a hidden light) is baked through the real runner; 32 numeric checks of the URP maps pass (base colour, smoothness, metallic, alpha, emission x intensity within 1 to 3 %).
+- Failure paths stop the runner: a broken plan (uncaught Python error), a missing raw map, a deleted texture and an emptied `lights.json` each end the run with a non-zero exit.
+- The rehearsal (below) runs all 13 map pieces through every stage.
+
+**Found by the rehearsal and fixed (2026-10-18):**
+- **Glass read as frosted.** Transmission glass became a 25 % white overlay (the dock's windows and hatch looked milky). Now clear glass bakes with no diffuse (transmission has none) at alpha 0.1 and imports with URP's *Preserve Specular* blend: the background shows through at 90 % and reflections stay whole. Decals and films keep the plain alpha blend.
+- **The new check's own false alarms**, made precise: clear glass is black by design; a text object's own geometry is not an instance; Blender's FBX importer drops a trailing `.5` from a material name (the FBX keeps it, and the Unity importer now matches either way).
+- **Not fixable by a bake, listed in the log:** view-dependent shading (Layer Weight, Fresnel, Light Path) bakes as seen head-on. The turbine's blue rim glow on M_ARCH, M_MACH, M_PROPS and M_SHAFT (Emission mixed in by Layer Weight *Facing*) is lost; URP Lit has no rim term, so bringing it back needs a small custom shader (owner's call).
+- **Expected differences in the comparison renders:** Cycles does not trace light through glass by default, so in the source renders glass casts dark shadows (the dock's counter and speaker ring); URP's transparent glass casts none, like the baked renders. The 256 px rehearsal atlases also soften fine detail (sign text, wet-floor highlights).
 
 ## Pilot result: cooling plant (`cooling-plant/`)
 
@@ -112,6 +141,16 @@ The run stops at the first failure.
 **Placement.** `map_placement.py` reads the map's `ROOM_<room>` instancers, including the collections' instance offset, into `map/map_placement.json`. It is committed, and it needs re-running when the layout changes.
 
 **Check:** every instanced object in the map, put through the importer's rule, lands where the map shows it. Across 20,620 objects in 13 rooms the error is under 1 cm. The rule is: the prefab goes at Blender `(x, y, z)` → Unity `(-x, z, -y)`, and a Z rotation r becomes a Y rotation of -r. The 32 hero-suit parts are instances inside instances, so the check measured them from the suit file's own origin; the bake makes them real objects.
+
+**Isolation bug, found 2026-10-18 (PR #110).**
+- **The bug:** `isolate()` set `exclude` through `LayerCollection` references it already held. Each exclude rebuilds the view layer, so the exclude on `COMBINED_MAP` was lost. Every map bake scene still held the map's 13 room instancers: 20,653 objects, 7.9 M triangles and 60 lights.
+- **What it did:** passes ran about 10× slower (cooling plant base, 23 min instead of 2), and other rooms shaded each room through its AO nodes. In the turbine's case, 751 condenser objects sat inside its bake box.
+- **Fix:** fresh lookups, a check afterwards, and stray objects hidden.
+- **After the fix:**
+  - turbine: 60 meshes, 0 instances, 416,510 triangles;
+  - connections: 446 meshes, 0 instances, 30,490 triangles;
+  - room mode: unchanged.
+- **Re-bake needed:** the 8 map rooms baked before the fix must be baked again.
 
 **Shakedown, 2026-10-17:** map-mode prep plus the merge step ran on all 13 pieces in the container. It renders nothing, so no device was used. Every piece passed:
 

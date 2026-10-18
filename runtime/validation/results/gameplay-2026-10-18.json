@@ -1,0 +1,1506 @@
+{
+  "active_player": {
+    "commit": "6554abef808879191629884048ee6d3df19e4463",
+    "ended_utc": "2026-10-18T20:05:00.607145+00:00",
+    "limits": "Same-build opt-in deny/Grab/native carry/Drop exercise and explicit missing-smoke rejection only; the Player checks its typed host traces and shape-relative fall bound. External validation checks the declared marker measurements and unchanged passive-smoke lifetime/zero-reference teardown. No combined-map traversal, ordinary player input, feel, art, multiplayer, FPS or gate acceptance; independent review NotRun.",
+    "marker_order": [
+      "CS_SANDBOX_PLAYER_READY",
+      "CS_SANDBOX_EXERCISE_REQUESTED",
+      "CS_SANDBOX_EXERCISE_DENIED",
+      "CS_SANDBOX_EXERCISE_CARRIED",
+      "CS_SANDBOX_EXERCISE_DROPPED",
+      "CS_SANDBOX_EXERCISE_COMPLETED",
+      "CS_SANDBOX_PLAYER_STOPPED"
+    ],
+    "missing_smoke_rejection": {
+      "exit_code": 22,
+      "frames": 0,
+      "reason": "Pass one --cs-sandbox-exercise together with --cs-sandbox-smoke.",
+      "stage": "Setup",
+      "status": "ExpectedFailureObserved"
+    },
+    "native_log": {
+      "path": "runtime/out/player-exercise-validation/exercise-supmdpz9/exercise.log",
+      "sha256": "d7eca49b1c56721f72d231332a10b0d6a3536125a13a8668eacd40fd4dede9f0"
+    },
+    "observations": {
+      "CARRIED": {
+        "build": "49da467f5ff346359e6d8a500d21ef38",
+        "entity": "00000066000000000000000000000000",
+        "epoch": "a5b6d66376da4ccf8730108c33266bc5",
+        "initial_m": 2.10461378,
+        "lease": 1,
+        "progress_m": 2.003331,
+        "remaining_m": 0.13984938,
+        "revision": 2,
+        "sequence": 2
+      },
+      "COMPLETED": {
+        "build": "49da467f5ff346359e6d8a500d21ef38",
+        "claims": 0,
+        "entity": "00000066000000000000000000000000",
+        "epoch": "a5b6d66376da4ccf8730108c33266bc5",
+        "fall_m": 0.9942635,
+        "frames": 105,
+        "lease": 1,
+        "progress_m": 2.003331,
+        "revision": 3
+      },
+      "DENIED": {
+        "build": "49da467f5ff346359e6d8a500d21ef38",
+        "claims": 0,
+        "entity": "0000006a000000000000000000000000",
+        "epoch": "a5b6d66376da4ccf8730108c33266bc5",
+        "sequence": 1
+      },
+      "DROPPED": {
+        "build": "49da467f5ff346359e6d8a500d21ef38",
+        "claims": 0,
+        "entity": "00000066000000000000000000000000",
+        "epoch": "a5b6d66376da4ccf8730108c33266bc5",
+        "lease": 1,
+        "revision": 3,
+        "sequence": 4
+      },
+      "REQUESTED": {
+        "build": "49da467f5ff346359e6d8a500d21ef38",
+        "distant": "0000006a000000000000000000000000",
+        "epoch": "a5b6d66376da4ccf8730108c33266bc5",
+        "max_frames": 180,
+        "max_seconds": 15.0,
+        "nearby": "00000066000000000000000000000000"
+      }
+    },
+    "path": "runtime/out/player-exercise-validation/exercise-supmdpz9/report.json",
+    "sha256": "0ae834e9e884694460a7025f09e919fb94cd625d035a3d1f4b2ca686ae47f5f0",
+    "smoke": {
+      "build_guid": "49da467f5ff346359e6d8a500d21ef38",
+      "epoch": "a5b6d66376da4ccf8730108c33266bc5",
+      "errors": 0,
+      "frames": 120,
+      "initial_bindings": 10,
+      "initial_bodies": 31,
+      "meshes": 293,
+      "milliseconds": 2406,
+      "remaining_bindings": 0,
+      "remaining_bodies": 0,
+      "remaining_claims": 0,
+      "remaining_connections": 0,
+      "remaining_objects": 0,
+      "remaining_timers": 0
+    },
+    "source_sha256": "79520386307b94c035704abc00b59e10a93dbfd45c3fa70e45e2fb7c0d1a15a1",
+    "started_utc": "2026-10-18T20:04:56.995666+00:00",
+    "status": "Passed"
+  },
+  "api_compile": {
+    "assemblies": [
+      {
+        "assembly": "CriticalShift.Content.Editor",
+        "kind": "production",
+        "source_files": 4,
+        "status": "Passed"
+      },
+      {
+        "assembly": "CriticalShift.FacilityPhysics.Unity",
+        "kind": "production",
+        "source_files": 7,
+        "status": "Passed"
+      },
+      {
+        "assembly": "CriticalShift.Features.Interaction.Domain",
+        "kind": "production",
+        "source_files": 3,
+        "status": "Passed"
+      },
+      {
+        "assembly": "CriticalShift.Features.Materials.Domain",
+        "kind": "production",
+        "source_files": 2,
+        "status": "Passed"
+      },
+      {
+        "assembly": "CriticalShift.Features.Power.Domain",
+        "kind": "production",
+        "source_files": 1,
+        "status": "Passed"
+      },
+      {
+        "assembly": "CriticalShift.Features.Production.Domain",
+        "kind": "production",
+        "source_files": 1,
+        "status": "Passed"
+      },
+      {
+        "assembly": "CriticalShift.Features.Reactor.Domain",
+        "kind": "production",
+        "source_files": 1,
+        "status": "Passed"
+      },
+      {
+        "assembly": "CriticalShift.Features.Session.Domain",
+        "kind": "production",
+        "source_files": 3,
+        "status": "Passed"
+      },
+      {
+        "assembly": "CriticalShift.Features.Workers.Domain",
+        "kind": "production",
+        "source_files": 2,
+        "status": "Passed"
+      },
+      {
+        "assembly": "CriticalShift.Application",
+        "kind": "production",
+        "source_files": 19,
+        "status": "Passed"
+      },
+      {
+        "assembly": "CriticalShift.Features.Interaction.Unity",
+        "kind": "production",
+        "source_files": 7,
+        "status": "Passed"
+      },
+      {
+        "assembly": "CriticalShift.Features.Workers.Unity",
+        "kind": "production",
+        "source_files": 7,
+        "status": "Passed"
+      },
+      {
+        "assembly": "CriticalShift.Presentation",
+        "kind": "production",
+        "source_files": 10,
+        "status": "Passed"
+      },
+      {
+        "assembly": "CriticalShift.ProcessLifetime",
+        "kind": "production",
+        "source_files": 1,
+        "status": "Passed"
+      },
+      {
+        "assembly": "CriticalShift.Bootstrap",
+        "kind": "production",
+        "source_files": 1,
+        "status": "Passed"
+      },
+      {
+        "assembly": "CriticalShift.Bootstrap.Editor",
+        "kind": "production",
+        "source_files": 1,
+        "status": "Passed"
+      },
+      {
+        "assembly": "CriticalShift.Sandbox.Bootstrap",
+        "kind": "production",
+        "source_files": 8,
+        "status": "Passed"
+      },
+      {
+        "assembly": "CriticalShift.Sandbox.Editor",
+        "kind": "production",
+        "source_files": 5,
+        "status": "Passed"
+      },
+      {
+        "assembly": "CriticalShift.Sandbox.Tests.PlayMode",
+        "kind": "test",
+        "source_files": 13,
+        "status": "Passed"
+      },
+      {
+        "assembly": "CriticalShift.Tests.EditMode",
+        "kind": "test",
+        "source_files": 2,
+        "status": "Passed"
+      },
+      {
+        "assembly": "CriticalShift.Tests.PlayMode",
+        "kind": "test",
+        "source_files": 1,
+        "status": "Passed"
+      }
+    ],
+    "commit": "6554abef808879191629884048ee6d3df19e4463",
+    "ended_utc": "2026-10-18T19:55:58.257188+00:00",
+    "limits": "API compilation only, with no new Unity import, package resolution, test execution, serialization, physics, Player or gate acceptance. Existing native-context package pins may be inspected; no fresh native graph, Unity-generated symbols or platform variants are claimed.",
+    "native_unity_execution": false,
+    "path": "runtime/out/api-urp-null-property/api-compile.json",
+    "sha256": "bf4e4c3cd095217c4a16ba2a956a2960e459d876aab0514d10d8072598e45c81",
+    "source_sha256": "ae17d6334cd1c2b9edc5c1118c665c8c608b261fed218d744f2f8dfea60d31b7",
+    "source_unchanged": true,
+    "started_utc": "2026-10-18T19:55:44.913756+00:00",
+    "status": "Passed"
+  },
+  "combined_map": {
+    "commit": "5ed85b1e413083f6c0b7c75a5e1252a000da8052",
+    "ended_utc": "2026-10-18T20:15:18.122744+00:00",
+    "first_party_code_sha256": "91787aca6cfde6c713b5d76e625e8e64037f42af0cf48cf18c885fb7056335ea",
+    "initialization": {
+      "acceptance_status": "NotRun",
+      "status": "Completed",
+      "strict_log_status": "Passed"
+    },
+    "limits": "Source declarations and native collision/anchor preparation only; not PlayMode, Player, route traversal, ladder operation, room art, materials, lighting, feel, multiplayer, FPS or gate acceptance. The combined-map export is unreviewed and its dirty export revision is provenance, not approval. Explicit preinitialized SDK Library/PackageCache seed; NOT fresh cold package extraction. Only package-cache files are reused; no seed Assets, Packages, ProjectSettings, other Library folders, ScriptAssemblies or first-party compiled code are copied. First-party and SDK compilation, strict initialization/clean preparation, declared tests, requested builds/Players and audits belong to the unchanged selected runner. No retry, UPM override, diagnostic relaxation, independent review or gate acceptance.",
+    "map_inputs": {
+      "acceptance": "Unreviewed",
+      "colliders": 152,
+      "doors": 37,
+      "export_provenance": {
+        "blender": "5.2.2 LTS",
+        "builder": "build_compact_map.py",
+        "git_revision_at_export": "ca06db30ac6aecb1a0dc37b278c7d9fbac15dff6",
+        "inputs": [
+          "build_compact_map.py",
+          "build_combined_map.py",
+          "reactor_links.py",
+          "evacuation.py",
+          "assembly_colliders.py",
+          "export_unity.py",
+          "combined_map.blend"
+        ],
+        "inputs_sha256": "85b2fab5f138324df4aba3281e2dd85044ef052f1d39dbffac9b6c04e0d7ef37",
+        "scene": "sections/facility-assembly/combined/combined_map.blend",
+        "worktree_dirty_at_export": true
+      },
+      "fbx_sha256": "5d84a1d91feae5f43fff0c22d2dfdd718c1d4b6c006bab2f344946c045632549",
+      "files": [
+        {
+          "bytes": 437436,
+          "path": "export/compact_map_colliders_anchors.fbx",
+          "sha256": "5d84a1d91feae5f43fff0c22d2dfdd718c1d4b6c006bab2f344946c045632549"
+        },
+        {
+          "bytes": 5913,
+          "path": "export/binding_manifest.json",
+          "sha256": "60f0f9355ff778d2e21db6ae038254754e96b12b1717e671142696accea6e0b0"
+        },
+        {
+          "bytes": 21793,
+          "path": "validation/doors.json",
+          "sha256": "dc3fc3c16e4447b848f3d4f8385921795b4c9dd770374e81c4895e8cc2c891e5"
+        },
+        {
+          "bytes": 40279,
+          "path": "validation/colliders.json",
+          "sha256": "6dcb6bae2188176b56d4e36ad6805df88ce1c8d65b394911651853f58d2b93ec"
+        }
+      ],
+      "role_counts": {
+        "door_blocker": 37,
+        "door_threshold": 37,
+        "floor": 28,
+        "ladder": 1,
+        "ramp": 1,
+        "roof": 12,
+        "wall": 36
+      },
+      "room_anchors": 13
+    },
+    "map_inputs_sha256": "182970ac21a29e1567f3a239887b19c421f967b505882f1b670eaf79e6931fd3",
+    "package_audits": {},
+    "package_cache_seed": {
+      "cold_package_extraction": "NotRun",
+      "limits": "Explicit preinitialized SDK Library/PackageCache seed; NOT fresh cold package extraction. Only package-cache files are reused; no seed Assets, Packages, ProjectSettings, other Library folders, ScriptAssemblies or first-party compiled code are copied. First-party and SDK compilation, strict initialization/clean preparation, declared tests, requested builds/Players and audits belong to the unchanged selected runner. No retry, UPM override, diagnostic relaxation, independent review or gate acceptance.",
+      "provenance": {
+        "path": "runtime/out/seeded-oyontlt5/cache-seed-provenance.json",
+        "sha256": "1f9e4eef9af921d0d3da11b54a6d27cc6e67e61acf32a9687ae3e967ec89c4ab"
+      },
+      "seed_cache_tree": {
+        "bytes": 1353074735,
+        "directory_count": 1000,
+        "files": 14863,
+        "sha256": "cf0cbaaeb63e17d6b3bdc8a73c5cd3131065ee954e408de917ced5f412baeb88"
+      },
+      "seed_source_unchanged": true,
+      "status": "VerifiedCopy",
+      "target_cache_still_matches_seed": true,
+      "unchanged_runner_report_sha256": "7a404360c3b04ec9f8993194e9fba05f0cee4744754ef7d03f6bf2016c9e4dea"
+    },
+    "path": "runtime/out/combined-map-vvj_fald/report.json",
+    "phases": {
+      "package-initialize": {
+        "exit_code": 0,
+        "status": "Completed"
+      },
+      "prepare": {
+        "colliders": 152,
+        "doors": 37,
+        "exit_code": 0,
+        "status": "Passed"
+      },
+      "source": {
+        "status": "Passed"
+      }
+    },
+    "preparation": {
+      "colliders": 152,
+      "doors": 37,
+      "ended_utc": "2026-10-18T20:15:17.730208+00:00",
+      "exit_code": 0,
+      "log": "logs/prepare.log",
+      "max_anchor_error_metres": 0.0002840849,
+      "room_anchors": 13,
+      "scene": "Assets/CriticalShift/Sandbox/Generated/CombinedMapTraversal.unity",
+      "source_sha256": "5d84a1d91feae5f43fff0c22d2dfdd718c1d4b6c006bab2f344946c045632549",
+      "started_utc": "2026-10-18T20:15:04.782268+00:00",
+      "status": "Passed"
+    },
+    "sha256": "41aeab58ca0153f82800c9c51fbc96de90d21a437a059403e008429ea8e4cca7",
+    "source_sha256": "79520386307b94c035704abc00b59e10a93dbfd45c3fa70e45e2fb7c0d1a15a1",
+    "source_unchanged": true,
+    "started_utc": "2026-10-18T20:11:33.707690+00:00",
+    "status": "Passed"
+  },
+  "delivery": {
+    "archive": {
+      "archive_bytes": 70212953,
+      "build_guid": "49da467f5ff346359e6d8a500d21ef38",
+      "files": 308,
+      "path": "runtime/out/CriticalShift-Gameplay-Win64-20261018.zip",
+      "player_tree_sha256": "266f14e07b9b47bf675e1fe1ac98d39662586959feedb3fd85c5d8c504da09dc",
+      "sha256": "a99aa2bd75812746b2af15d2fe00a0063c3b7a73f36628f357242e5f5ee01464",
+      "uncompressed_player_bytes": 164374578
+    },
+    "exit_code": 0,
+    "extracted_player": {
+      "build_guid": "49da467f5ff346359e6d8a500d21ef38",
+      "epoch": "db4e8248ba0646dea313593366879e48",
+      "errors": 0,
+      "frames": 120,
+      "initial_bindings": 10,
+      "initial_bodies": 31,
+      "meshes": 293,
+      "milliseconds": 2405,
+      "remaining_bindings": 0,
+      "remaining_bodies": 0,
+      "remaining_claims": 0,
+      "remaining_connections": 0,
+      "remaining_objects": 0,
+      "remaining_timers": 0
+    },
+    "validation": {
+      "all_entries_match_source_bytes": true,
+      "crc": "Passed",
+      "hash_order": "Windows pathlib order, matching recorded source tree; initial lexical ZIP-name order comparison was rejected.",
+      "status": "Passed",
+      "tree_matches_exact_native_build": true
+    }
+  },
+  "diagnostic_policy": {
+    "budget_acceptance": "NotRun",
+    "linear_speed_m_per_s": 25,
+    "physical_motion_fix_claimed": false,
+    "raw_angular_speed_retained": true,
+    "specific_rotational_energy_J_per_kg": 312.5
+  },
+  "executable_code_commit": "6554abef808879191629884048ee6d3df19e4463",
+  "exporter": {
+    "path": "runtime/out/export-gameplay-evidence-summary.py",
+    "sha256": "35ac77c9d02a485e6d5e0ef184718e10ac981a94f71446db29914b11833096bf"
+  },
+  "foundation": {
+    "EditMode": {
+      "cases": [
+        {
+          "id": "CriticalShift.Tests.EditMode.FoundationProjectTests.BuildContainsOnlyTheFoundationScene",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Tests.EditMode.FoundationProjectTests.DomainReloadRemainsEnabled",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Tests.EditMode.FoundationProjectTests.OwnerSelectedUniversalPipelineIsConfigured",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Tests.EditMode.FoundationProjectTests.PreparedSceneAndPackageAreValid",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Tests.EditMode.ProcessLifetimeTests.DuplicateReadyIsRejected",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Tests.EditMode.ProcessLifetimeTests.NewProcessStartsCreated",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Tests.EditMode.ProcessLifetimeTests.ReadyIsExplicit",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Tests.EditMode.ProcessLifetimeTests.RepeatedFreshProcessesDoNotShareState",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Tests.EditMode.ProcessLifetimeTests.StopAfterReadyIsSafe",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Tests.EditMode.ProcessLifetimeTests.StopBeforeReadyIsSafe",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Tests.EditMode.ProcessLifetimeTests.StopIsIdempotent",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Tests.EditMode.ProcessLifetimeTests.StoppedProcessCannotBecomeReady",
+          "result": "Passed"
+        }
+      ],
+      "failed": 0,
+      "inconclusive": 0,
+      "passed": 12,
+      "path": "runtime/out/wp01-2kda5zu2/EditMode.xml",
+      "sha256": "dd7e2340606d2962aa7865eed80af230a507f71bc5378cf103ddb4652e2662f8",
+      "skipped": 0,
+      "total": 12
+    },
+    "PlayMode": {
+      "cases": [
+        {
+          "id": "CriticalShift.Tests.PlayMode.FoundationLifecycleTests.CameraDisabledBeforeStartPreventsReadiness",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Tests.PlayMode.FoundationLifecycleTests.DisabledCameraPreventsReadiness",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Tests.PlayMode.FoundationLifecycleTests.ReloadGetsAFreshProcess",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Tests.PlayMode.FoundationLifecycleTests.RunningErrorsAreRetainedThroughShutdown",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Tests.PlayMode.FoundationLifecycleTests.SceneStartsAndStopsCleanly",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Tests.PlayMode.FoundationLifecycleTests.StartupErrorPreventsReadiness",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Tests.PlayMode.FoundationLifecycleTests.StopBeforeAwakeDoesNotBecomeReady",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Tests.PlayMode.FoundationLifecycleTests.StopBeforeStartDoesNotBecomeReady",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Tests.PlayMode.FoundationLifecycleTests.StoppedBootstrapDoesNotObserveLaterErrors",
+          "result": "Passed"
+        }
+      ],
+      "failed": 0,
+      "inconclusive": 0,
+      "passed": 9,
+      "path": "runtime/out/wp01-2kda5zu2/PlayMode.xml",
+      "sha256": "4399c81b79297a140c59ae39c42956024c53a79021af10147b7d46045eed1a5d",
+      "skipped": 0,
+      "total": 9
+    },
+    "catalogue": {
+      "path": "runtime/validation/expected-tests.json",
+      "sha256": "592277e9e9d1702d43f37bfc9882f6f6c7a7051ea44ad0b0f50b20559d28aab6"
+    },
+    "commit": "6554abef808879191629884048ee6d3df19e4463",
+    "ended_utc": "2026-10-18T20:10:52.824979+00:00",
+    "first_party_code_sha256": "91787aca6cfde6c713b5d76e625e8e64037f42af0cf48cf18c885fb7056335ea",
+    "initialization": {
+      "acceptance_status": "NotRun",
+      "status": "Completed",
+      "strict_log_status": "Passed"
+    },
+    "limits": "WP-01 only; not Gate 0 acceptance, gameplay, visual or network validation. Explicit preinitialized SDK Library/PackageCache seed; NOT fresh cold package extraction. Only package-cache files are reused; no seed Assets, Packages, ProjectSettings, other Library folders, ScriptAssemblies or first-party compiled code are copied. First-party and SDK compilation, strict initialization/clean preparation, declared tests, requested builds/Players and audits belong to the unchanged selected runner. No retry, UPM override, diagnostic relaxation, independent review or gate acceptance.",
+    "package_audits": {
+      "after_EditMode": {
+        "descriptor_hashes_match_initialization": true,
+        "lock_sha256": "89f829db369e2d8d8b7619c4e74476814e8e51933e4cf30c807a47445b84f36b",
+        "manifest_sha256": "0d68105806f8a380b8d8ce555fe0d511573e751722e6307a73d34207a15be2b7",
+        "status": "Passed"
+      },
+      "after_PlayMode": {
+        "descriptor_hashes_match_initialization": true,
+        "lock_sha256": "89f829db369e2d8d8b7619c4e74476814e8e51933e4cf30c807a47445b84f36b",
+        "manifest_sha256": "0d68105806f8a380b8d8ce555fe0d511573e751722e6307a73d34207a15be2b7",
+        "status": "Passed"
+      },
+      "after_build": {
+        "descriptor_hashes_match_initialization": true,
+        "lock_sha256": "89f829db369e2d8d8b7619c4e74476814e8e51933e4cf30c807a47445b84f36b",
+        "manifest_sha256": "0d68105806f8a380b8d8ce555fe0d511573e751722e6307a73d34207a15be2b7",
+        "status": "Passed"
+      },
+      "after_import": {
+        "descriptor_hashes_match_initialization": true,
+        "lock_sha256": "89f829db369e2d8d8b7619c4e74476814e8e51933e4cf30c807a47445b84f36b",
+        "manifest_sha256": "0d68105806f8a380b8d8ce555fe0d511573e751722e6307a73d34207a15be2b7",
+        "status": "Passed"
+      },
+      "before_success": {
+        "descriptor_hashes_match_initialization": true,
+        "lock_sha256": "89f829db369e2d8d8b7619c4e74476814e8e51933e4cf30c807a47445b84f36b",
+        "manifest_sha256": "0d68105806f8a380b8d8ce555fe0d511573e751722e6307a73d34207a15be2b7",
+        "status": "Passed"
+      },
+      "final": {
+        "descriptor_hashes_match_initialization": true,
+        "lock_sha256": "89f829db369e2d8d8b7619c4e74476814e8e51933e4cf30c807a47445b84f36b",
+        "manifest_sha256": "0d68105806f8a380b8d8ce555fe0d511573e751722e6307a73d34207a15be2b7",
+        "status": "Passed"
+      }
+    },
+    "package_cache_seed": {
+      "cold_package_extraction": "NotRun",
+      "limits": "Explicit preinitialized SDK Library/PackageCache seed; NOT fresh cold package extraction. Only package-cache files are reused; no seed Assets, Packages, ProjectSettings, other Library folders, ScriptAssemblies or first-party compiled code are copied. First-party and SDK compilation, strict initialization/clean preparation, declared tests, requested builds/Players and audits belong to the unchanged selected runner. No retry, UPM override, diagnostic relaxation, independent review or gate acceptance.",
+      "provenance": {
+        "path": "runtime/out/seeded-2es0cbt8/cache-seed-provenance.json",
+        "sha256": "a72add2ab23d1be8941acd9116fae9315516babb51227c5add82a0fb1eac8f2e"
+      },
+      "seed_cache_tree": {
+        "bytes": 1353074735,
+        "directory_count": 1000,
+        "files": 14863,
+        "sha256": "cf0cbaaeb63e17d6b3bdc8a73c5cd3131065ee954e408de917ced5f412baeb88"
+      },
+      "seed_source_unchanged": true,
+      "status": "VerifiedCopy",
+      "target_cache_still_matches_seed": true,
+      "unchanged_runner_report_sha256": "6c2341a46ec278c17ff39d5834c1f30d1e9f1b92ec3d1d4c6ba4277b6a00a203"
+    },
+    "path": "runtime/out/wp01-2kda5zu2/report.json",
+    "phases": {
+      "EditMode": {
+        "exit_code": 0,
+        "status": "Passed"
+      },
+      "PlayMode": {
+        "exit_code": 0,
+        "status": "Passed"
+      },
+      "build": {
+        "build_guid": "dc6868dac643456b987abce1084c8bb0",
+        "executable_sha256": "748b8feff0cf8e727ed412006cfe11f0591bdfec6bd5634e89acacae0ab8b38e",
+        "exit_code": 0,
+        "status": "Passed"
+      },
+      "import": {
+        "exit_code": 0,
+        "status": "Passed"
+      },
+      "package-initialize": {
+        "exit_code": 0,
+        "status": "Completed"
+      },
+      "player": {
+        "build_guid": "dc6868dac643456b987abce1084c8bb0",
+        "errors": 0,
+        "exit_code": 0,
+        "frames": 7720,
+        "status": "Passed"
+      }
+    },
+    "player": {
+      "build_guid": "dc6868dac643456b987abce1084c8bb0",
+      "errors": 0,
+      "exit_code": 0,
+      "frames": 7720
+    },
+    "sha256": "05ec20647eca030f680bd892dbf4db482ee519f958868ff8a43ed1dcd346d881",
+    "source_sha256": "79520386307b94c035704abc00b59e10a93dbfd45c3fa70e45e2fb7c0d1a15a1",
+    "source_unchanged": true,
+    "started_utc": "2026-10-18T20:05:26.800565+00:00",
+    "status": "Passed"
+  },
+  "gameplay": {
+    "catalogue": {
+      "path": "runtime/validation/sandbox-expected-tests.json",
+      "sha256": "3a5f3d03cbfe4b16551082249b9b824abdc186f8a5252237b72b4e602a3d958d"
+    },
+    "commit": "6554abef808879191629884048ee6d3df19e4463",
+    "ended_utc": "2026-10-18T20:02:42.625153+00:00",
+    "first_party_code_sha256": "91787aca6cfde6c713b5d76e625e8e64037f42af0cf48cf18c885fb7056335ea",
+    "initialization": {
+      "acceptance_status": "NotRun",
+      "status": "Completed",
+      "strict_log_status": "Passed"
+    },
+    "limits": "Sandbox source/import/declared physics cases and explicitly requested build/headless startup phases only; no rendered playtest, feel, art, multiplayer, performance or gate acceptance. Explicit preinitialized SDK Library/PackageCache seed; NOT fresh cold package extraction. Only package-cache files are reused; no seed Assets, Packages, ProjectSettings, other Library folders, ScriptAssemblies or first-party compiled code are copied. First-party and SDK compilation, strict initialization/clean preparation, declared tests, requested builds/Players and audits belong to the unchanged selected runner. No retry, UPM override, diagnostic relaxation, independent review or gate acceptance.",
+    "package_audits": {
+      "after_PlayMode": {
+        "descriptor_hashes_match_initialization": true,
+        "lock_sha256": "89f829db369e2d8d8b7619c4e74476814e8e51933e4cf30c807a47445b84f36b",
+        "manifest_sha256": "0d68105806f8a380b8d8ce555fe0d511573e751722e6307a73d34207a15be2b7",
+        "status": "Passed"
+      },
+      "after_build": {
+        "descriptor_hashes_match_initialization": true,
+        "lock_sha256": "89f829db369e2d8d8b7619c4e74476814e8e51933e4cf30c807a47445b84f36b",
+        "manifest_sha256": "0d68105806f8a380b8d8ce555fe0d511573e751722e6307a73d34207a15be2b7",
+        "status": "Passed"
+      },
+      "after_import": {
+        "descriptor_hashes_match_initialization": true,
+        "lock_sha256": "89f829db369e2d8d8b7619c4e74476814e8e51933e4cf30c807a47445b84f36b",
+        "manifest_sha256": "0d68105806f8a380b8d8ce555fe0d511573e751722e6307a73d34207a15be2b7",
+        "status": "Passed"
+      },
+      "before_success": {
+        "descriptor_hashes_match_initialization": true,
+        "lock_sha256": "89f829db369e2d8d8b7619c4e74476814e8e51933e4cf30c807a47445b84f36b",
+        "manifest_sha256": "0d68105806f8a380b8d8ce555fe0d511573e751722e6307a73d34207a15be2b7",
+        "status": "Passed"
+      },
+      "final": {
+        "descriptor_hashes_match_initialization": true,
+        "lock_sha256": "89f829db369e2d8d8b7619c4e74476814e8e51933e4cf30c807a47445b84f36b",
+        "manifest_sha256": "0d68105806f8a380b8d8ce555fe0d511573e751722e6307a73d34207a15be2b7",
+        "status": "Passed"
+      }
+    },
+    "package_cache_seed": {
+      "cold_package_extraction": "NotRun",
+      "limits": "Explicit preinitialized SDK Library/PackageCache seed; NOT fresh cold package extraction. Only package-cache files are reused; no seed Assets, Packages, ProjectSettings, other Library folders, ScriptAssemblies or first-party compiled code are copied. First-party and SDK compilation, strict initialization/clean preparation, declared tests, requested builds/Players and audits belong to the unchanged selected runner. No retry, UPM override, diagnostic relaxation, independent review or gate acceptance.",
+      "provenance": {
+        "path": "runtime/out/seeded-99vjlaik/cache-seed-provenance.json",
+        "sha256": "14208273149d093e8396f9a064c191a6ec1dd41bf4cd8538b6dce3315f13f87b"
+      },
+      "seed_cache_tree": {
+        "bytes": 1353074735,
+        "directory_count": 1000,
+        "files": 14863,
+        "sha256": "cf0cbaaeb63e17d6b3bdc8a73c5cd3131065ee954e408de917ced5f412baeb88"
+      },
+      "seed_source_unchanged": true,
+      "status": "VerifiedCopy",
+      "target_cache_still_matches_seed": true,
+      "unchanged_runner_report_sha256": "8a3d8cfc2af886b3d3d2a8e32a60ad32a82bca95036ea08820cfd35549a6c8e7"
+    },
+    "path": "runtime/out/sandbox-zxh6eap1/report.json",
+    "phases": {
+      "PlayMode": {
+        "exit_code": 0,
+        "status": "Passed"
+      },
+      "build": {
+        "build_guid": "49da467f5ff346359e6d8a500d21ef38",
+        "executable_sha256": "748b8feff0cf8e727ed412006cfe11f0591bdfec6bd5634e89acacae0ab8b38e",
+        "exit_code": 0,
+        "status": "Passed"
+      },
+      "import": {
+        "exit_code": 0,
+        "production_assemblies": 18,
+        "status": "Passed"
+      },
+      "package-initialize": {
+        "exit_code": 0,
+        "status": "Completed"
+      },
+      "player": {
+        "build_guid": "49da467f5ff346359e6d8a500d21ef38",
+        "errors": 0,
+        "exit_code": 0,
+        "frames": 120,
+        "milliseconds": 2411,
+        "status": "Passed"
+      },
+      "source": {
+        "status": "Passed"
+      }
+    },
+    "player": {
+      "build_guid": "49da467f5ff346359e6d8a500d21ef38",
+      "epoch": "48f7e3091a7a47d58ebd14965f2bd62d",
+      "errors": 0,
+      "frames": 120,
+      "initial_bindings": 10,
+      "initial_bodies": 31,
+      "meshes": 293,
+      "milliseconds": 2411,
+      "remaining_bindings": 0,
+      "remaining_bodies": 0,
+      "remaining_claims": 0,
+      "remaining_connections": 0,
+      "remaining_objects": 0,
+      "remaining_timers": 0
+    },
+    "sha256": "1d9ef11f9914b67076ceebd69a0e1daeea857ad9cfcf63502b462ad006ff3f44",
+    "source_sha256": "79520386307b94c035704abc00b59e10a93dbfd45c3fa70e45e2fb7c0d1a15a1",
+    "source_unchanged": true,
+    "started_utc": "2026-10-18T19:55:45.336330+00:00",
+    "status": "Passed",
+    "tests": {
+      "cases": [
+        {
+          "id": "CriticalShift.Sandbox.Tests.CartGripTests.CartGripAndCrateCarryShareOneExclusiveActorClaim",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.CartGripTests.CartHandleClaimDoesNotSpringCarryItsBody",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.CartGripTests.CartMotorRequiresTheCurrentHandleLease",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.CartGripTests.ContextCartTransferReleasesCargoThenTakesAndDropsHandle",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.CartGripTests.HandleEntryRejectsWrongSideAndExcessiveCartSpeed",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.CartGripTests.LosingCartContactGeometryStopsItsHandleWorld",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.CartGripTests.LostGripProximityReleasesItsExactLease",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.CartGripTests.OneRigidbodyCannotBeBothHandleAndCarriedEntity",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.CombinedMapDoorTests.DoorClosurePreflightRejectsLiveOccupantsAndSaturationWithoutChangingContacts",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.CombinedMapDoorTests.DoorShapeScaleAndAnchorDriftRejectFurtherProjectionDelivery",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.CombinedMapDoorTests.ElevatedOccupantsBlockTheFullRotatedBlastLeafWithoutChangingContacts",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.CombinedMapDoorTests.LostDoorContactReportsOnceAndCannotAffectTheNextWorld",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.CombinedMapDoorTests.ProjectionBatchesFenceEpochRevisionAndConflictingReplaysAtomically",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.CombinedMapDoorTests.RealDoorRowsApplySuppliedCollisionStatesWithoutOpeningSealedDock",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.CombinedMapDoorTests.RejectedDoorSetupLeavesContactsUntouchedAndAllowsCorrectedBinding",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.CombinedMapDoorTests.WholeModelMotionPreservesDoorBindingsButChildPoseDriftStopsThem",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.CombinedMapLifetimeTests.DoorEvacuationProjectsIntoTheOwnedCloneAndTeardownReleasesItsContacts",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.CombinedMapLifetimeTests.ImmediateRestartKeepsDeferredOldHudCleanupInsideItsOriginalWorld",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.BeltAnimationRejectsUnsafeBindingsBeforeInstallingItsMotion",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.CargoCountsOneLogicalLoadAcrossMultipleRigidbodies",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.CargoObservationOverflowRemainsVisibleAfterTheVolumeClears",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.CargoSensorCountsCompoundBodyOnceAndPrunesDisabledCargo",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.CartAuthorityLossRequiresFreshDriveInputAfterPermissionReturns",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.CartBrakeReducesPlanarSpeedWithoutVerticalImpulse",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.CartDriveRemainsWithinItsSpeedBudget",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.CartDriveRequiresAFreshAvailableCargoSample",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.CompoundColliderBodyReceivesOneBeltDrive",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.ConveyorCannotAccelerateAnUnauthorizedBody",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.DisabledAndRelocatedCollidersCannotLeaveGhostCargo",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.InvalidCartObservationsDisableDriveWithoutApplyingForces",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.PhysicsMonitorAcceptsHealthyNativeInfiniteInertiaConstraints",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.PhysicsMonitorDistinguishesNativeRotationalEnergyAtTheSameAngularSpeed",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.PhysicsMonitorLatchesOneRunawayFailureAndLeavesMotionToItsOwner",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.PhysicsMonitorObservesDynamicHandoffsWithoutWritingMotion",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.PhysicsMonitorUsesTheNativePrincipalInertiaFrame",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.RejectedCartSetupCannotDriveUntilItsBindingIsCorrected",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.RejectedConveyorSetupCannotDriveBeforeACorrectedBinding",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.WheelAnimationRejectsContactShapesDuplicatePivotsAndOtherCarts",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.LocalWorldHostTests.BlockedSlotCannotConsumeClaimOrCommandSequence",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.LocalWorldHostTests.CarryRotationStopsDuringPauseAndResetsAcrossReleaseLeaseAndTeardown",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.LocalWorldHostTests.ClockRegressionIsAnExplicitFailure",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.LocalWorldHostTests.ContextBypassJamRequiresPowerIsolationBeforeRepairAndResume",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.LocalWorldHostTests.ContextDropRemainsAvailableDuringProcessPause",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.LocalWorldHostTests.ContextPowerAndStartUseCurrentMachineRevision",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.LocalWorldHostTests.ContextResumeRetainsTheSameCycleAndCommittedWork",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.LocalWorldHostTests.ContextTransferUsesTheSameClaimAndSlotCommands",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.LocalWorldHostTests.ExcessiveObstructionDropsTheExactLease",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.LocalWorldHostTests.ExpiredLeaseReleasesPhysicalControl",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.LocalWorldHostTests.FocusedEmergencyCoolingSpendsOnceAndTripResetDoesNotRestartTheCore",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.LocalWorldHostTests.FocusedReactorControlsRespectTargetAndProcessPause",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.LocalWorldHostTests.GrabUsesControlledForcesTowardsCurrentTarget",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.LocalWorldHostTests.InsertAndEjectReconcileKinematicSlotBinding",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.LocalWorldHostTests.LosingAPortableContactShapeStopsTheHostAndClearsItsClaim",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.LocalWorldHostTests.ManipulatingHeldCrateUsesBoundedForcesWithoutAnotherLogicalMutation",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.LocalWorldHostTests.PausedOrExpiredGripCannotLaunchItsFormerCrate",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.LocalWorldHostTests.PhysicalMassTracksCommittedConversionOutput",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.LocalWorldHostTests.RetryKeepsOneClaimWithoutAnotherLogicalCommit",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.LocalWorldHostTests.ScaledOffsetColliderUsesItsPhysicalSlotCentreAndRejectsLaterRescaling",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.LocalWorldHostTests.ShiftDeadlineReleasesPhysicalBindingsBeforeAdmittingAnotherCommand",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.LocalWorldHostTests.ShutdownClearsClaimsAndRestoresDynamicSlotBody",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.LocalWorldHostTests.SlotAdmissionUsesCurrentColliderGeometryInsteadOfItsSetupBounds",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.LocalWorldHostTests.ThrowReleasesOnceAndReplayCannotApplyAnotherImpulse",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.MapDoorHostTests.OccupiedClosingPreservesTheCommandStreamBeforeFreshDoorAndEvacuationCommits",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.MapDoorHostTests.OccupiedEvacuationClosureLeavesTheCauseAndAllDoorStatesUncommitted",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.MapDoorHostTests.UnexpectedDoorHostDisableStopsItsWorldAndReportsOneFailure",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.MaterialContentsTests.ConversionUpdatesTheExistingVisiblePileWithoutAnotherMaterialCommit",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.MaterialContentsTests.ExhaustionShowsSpentFuelWithoutDeletingItsAccountedQuantity",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.MaterialContentsTests.PausedReenableRebuildsTheProjectionAndStoppedWorldHidesThePile",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.ProcessFeedbackTests.CoolingLossAndTripChangeVentFeedbackWithoutSpendingPower",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.ProcessFeedbackTests.CosmeticTrajectoryUsesPausedProcessTimeInsteadOfFrameTime",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.ProcessFeedbackTests.PowerPauseStopsSparksAndPreservesCommittedProgress",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.ProcessFeedbackTests.ReactorInstrumentsFollowCommittedFuelAndReserveAcrossPauseAndStop",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.ProcessFeedbackTests.ReactorVisualSetupRejectsHiddenMotionBodiesAndNestedPartsBeforeBinding",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.SandboxLifetimeTests.DeadlineKeepsTerminalFeedbackAndRestartsWithFreshPhysicalBindings",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.SandboxLifetimeTests.EscapedFixtureCargoStopsTheWorldAndClearsItsCurrentClaim",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.SandboxLifetimeTests.GroundedFixtureCartDrivesWhileItsWorkerMaintainsTheHandle",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.SandboxLifetimeTests.TenEnableDisableCyclesUseFreshEpochsAndClearAllBindings",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.SpatialAccessTests.CurrentTargetColliderDoesNotBlockItsOwnInteraction",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.SpatialAccessTests.DetachedInteractionPointCannotAuthorizeOrFocusItsFormerEquipment",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.SpatialAccessTests.FocusCanLookPastAnExplicitlyApprovedHeldBody",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.SpatialAccessTests.FocusPicksTheCurrentRegisteredRayTarget",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.SpatialAccessTests.MissingOrDisabledBindingsCannotGrantAccess",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.SpatialAccessTests.OnlyExplicitlyApprovedOwnedBodyIsTransparentForSight",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.SpatialAccessTests.RegisteredOpenDoorThresholdsRemainFocusableWithoutMakingUnknownTriggersOcclude",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.SpatialAccessTests.SolidOccluderAndExcessiveReachRejectInteraction",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.SpatialAccessTests.UnregisteredWallBlocksFocusBehindIt",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.TraceFeedTests.FeedStaysBoundedAndReadsTheStoppedWorldWithoutMutatingIt",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.TraceFeedTests.GripDropsPublishOnceForBindingFailureAndLeaseExpiry",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.TraceFeedTests.SourceEvictionExposesAGapWithoutInventingAnIncident",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.TraceFeedTests.WetJamRetainsItsRecordedCauseAndReplayCannotPublishItAgain",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.WorkerDragTests.ADetachedSuitGripCannotRemainAnActiveDragAnchor",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.WorkerDragTests.AHoistedWorkerReleasedOverTheCartBecomesOneObservedLoad",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.WorkerDragTests.ATriggerSegmentCannotRemainAHeldWorkerLoad",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.WorkerDragTests.FixtureTeardownClearsTheDragBeforeCreatingAFreshEpoch",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.WorkerDragTests.FreeWorkerSegmentsShareOneCargoGroupAndHeldSegmentsHaveNone",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.WorkerDragTests.HeldWorkerCannotStandUntilTheSuitGripIsReleased",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.WorkerDragTests.HoistingRaisesTheWorkerUnderTheSameLeaseAndPreservesDownState",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.WorkerDragTests.InteractionFollowsTheMovedSuitGripInsteadOfTheOldWorkerRoot",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.WorkerDragTests.LostDragReachDropsOnlyItsCurrentLease",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.WorkerDragTests.ReleasedOrStaleHoistInputCannotRaiseTheNextLeaseTarget",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.WorkerDragTests.SuitGripPullsTheDynamicWorkerAndSlowsTheRescuer",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.ANewImpactInvalidatesThePendingRecoveryPlacement",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.AStationaryPelvisCannotApproveRecoveryWhileAnotherLimbIsMoving",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.AlertDownLookTurnsOnlyTheEyesAndCrawlFollowsThatHeading",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.AlertDownWorkerCrawlsWithOneMotionOwnerAndStopsDuringPause",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.BodyRigRejectsNonContactingSegmentsBeforeChangingMotionOwnership",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.CarryPoseFollowsTheClaimWithoutChangingMaterialOrMotionOwnership",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.ConsciousWorkerCanCrawlOutFromUnderABlockedRecoveryCeiling",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.ExcludedImpactMotionCannotKnockDownAfterReleaseOrResume",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.FacilityConsoleAnchorsAdmitProducedFuelThroughTheFullChain",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.HeldHeavyCrateCannotReportAFreeFallingBodyImpact",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.HopHitsTheLowCeilingWithoutTunnellingOrRetainedUpwardDrive",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.KnockdownDropsTheClaimBeforeRagdollTakesMotion",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.LosingRagdollCollisionDetectionStopsTheWorldBeforeRecovery",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.LowCeilingRejectsRecoveryWithoutTeleportingTheWorkerRoot",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.MissingGroundCannotApproveAStandingPose",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.MovingCartContactCausesOneKnockdownEpisode",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.PauseCartGripAndKnockdownCannotQueueALaterWalkingHop",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.RecoveryHonorsDelayAndReturnsExactlyOneMotionController",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.RecoveryPreservesDownLookAndUnconsciousWorkersCannotLook",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.RegisteredFallingSourceBelowTheMassThresholdCannotKnockDown",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.RegisteredHeavyFallingCrateCreatesOneKnockdownEpisode",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.RejectedWorkerAdapterSetupLeavesNoLiveBindingAndAllowsCorrection",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.ReparentedWorkerIntermediateStopsTheWorldBeforePosePublication",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.ReparentedWorkerSegmentStopsTheWorldBeforePosePublication",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.ResumingWalkingRequiresFreshMovementAfterPause",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.SaturatedWalkingSupportGetterStopsTheWorldOnce",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.SaturatedWalkingSupportUpdateStopsTheWorldBeforeMoving",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.ShortHopLandsWithTheWalkingCapsuleStillOwningMotion",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.StationaryCartContactDoesNotInventAKnockdown",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.UprightAndUnconsciousWorkersCannotUseTheCrawlForcePath",
+          "result": "Passed"
+        },
+        {
+          "id": "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.WalkingPosePreservesAnchorsBeforeOneRagdollHandoff",
+          "result": "Passed"
+        }
+      ],
+      "failed": 0,
+      "inconclusive": 0,
+      "passed": 132,
+      "path": "runtime/out/sandbox-zxh6eap1/PlayMode.xml",
+      "sha256": "5ca18479c2a209ecab20ac0ed43098cc07e87dd2017db8ac82c9c07a1b4d0cdc",
+      "skipped": 0,
+      "total": 132
+    }
+  },
+  "generated_utc": "2026-10-18T20:17:04.432221+00:00",
+  "graphics": {
+    "commit": "6554abef808879191629884048ee6d3df19e4463",
+    "ended_utc": "2026-10-18T20:04:42.001586+00:00",
+    "existing_output_rejection": {
+      "exit_code": 21,
+      "sentinel_preserved": true,
+      "sentinel_sha256_after": "47e96cbfee68626dd84200ed04eaf4c2e4456fe64babb7923dde43af410e1ba7",
+      "sentinel_sha256_before": "47e96cbfee68626dd84200ed04eaf4c2e4456fe64babb7923dde43af410e1ba7",
+      "status": "ExpectedFailureObserved"
+    },
+    "image": {
+      "bytes": 70167,
+      "channels": 3,
+      "decoded_pixel_sha256": "dc802a52f8f1f7b0c6fcca672316883e7b3d3e94d6517cafdeb380c4f9dba531",
+      "height": 540,
+      "path": "runtime/out/player-render-validation/capture-2bd3qhpf/rendered-fixture.png",
+      "sha256": "d7009d17d4f80a8551671e2517b341b86621dc2b9553f676e3a2b05e3f146fde",
+      "visual_review": "NotRun",
+      "width": 960
+    },
+    "launch_mode": "Explicit normal-window retry after retained batch-mode capture timeout; no batchmode or nographics.",
+    "limits": "Same-build Win64 rendered startup/teardown and screenshot-file evidence only. No gameplay input, combined-map, art, feel, multiplayer, FPS or gate acceptance; independent review NotRun.",
+    "native_log": {
+      "path": "runtime/out/player-render-validation/capture-2bd3qhpf/graphics.log",
+      "sha256": "f7b2b981ba6ea31f01a737c28aea86f0ecdd75f62133f48d77efed8566c7ee7b"
+    },
+    "path": "runtime/out/player-render-validation/capture-2bd3qhpf/report.json",
+    "sha256": "5e72cfa063977f43feeb28876f145b048e1179fbd569a634466301d874f981f3",
+    "smoke": {
+      "build_guid": "49da467f5ff346359e6d8a500d21ef38",
+      "epoch": "6d10e5f84e5d4100a78ff20f4d8512d8",
+      "errors": 0,
+      "frames": 120,
+      "initial_bindings": 10,
+      "initial_bodies": 31,
+      "meshes": 293,
+      "milliseconds": 2439,
+      "remaining_bindings": 0,
+      "remaining_bodies": 0,
+      "remaining_claims": 0,
+      "remaining_connections": 0,
+      "remaining_objects": 0,
+      "remaining_timers": 0
+    },
+    "source_sha256": "79520386307b94c035704abc00b59e10a93dbfd45c3fa70e45e2fb7c0d1a15a1",
+    "started_utc": "2026-10-18T20:04:31.846578+00:00",
+    "status": "Passed"
+  },
+  "limits": "Retained artifact checks only; no validators/engines/tests rerun. Reports may predate later documentation commits. Explicit package-cache seeds are not cold package extraction. No independent acceptance inferred.",
+  "offline": {
+    "commit": "59b4b80b4cd6783935028b2e0f000f2b486d65b3",
+    "configuration": "Release",
+    "finished_utc": "2026-10-18T17:58:48.588406+00:00",
+    "library_target": "netstandard2.1",
+    "model_suites": {
+      "machines": {
+        "actions": 20000,
+        "sequences": 100
+      },
+      "ownership": {
+        "actions": 20000,
+        "sequences": 100
+      },
+      "timers": {
+        "actions": 20000,
+        "sequences": 100
+      }
+    },
+    "negative_control": "Expected failing NUnit test rejected by process and result checks",
+    "path": "runtime/dotnet/artifacts/summary.json",
+    "report_safety": {
+      "cases": [
+        "identical",
+        "parent-dot-alias",
+        "hardlink",
+        "case-alias",
+        "existing-unrelated-report"
+      ],
+      "contract": "create-new only; existing paths are never overwritten",
+      "status": "Passed"
+    },
+    "scenario_negative_controls": "Assertion mismatch and empty script rejected",
+    "scenarios": {
+      "cleanup-and-trace": {
+        "Assertions": 60,
+        "CompletedRuns": 2,
+        "CompletedSteps": 30,
+        "Status": "Passed"
+      },
+      "pause-and-expired-recovery": {
+        "Assertions": 60,
+        "CompletedRuns": 2,
+        "CompletedSteps": 32,
+        "Status": "Passed"
+      },
+      "production-cancel": {
+        "Assertions": 48,
+        "CompletedRuns": 2,
+        "CompletedSteps": 22,
+        "Status": "Passed"
+      },
+      "production-cancel-attribution": {
+        "Assertions": 78,
+        "CompletedRuns": 2,
+        "CompletedSteps": 22,
+        "Status": "Passed"
+      },
+      "production-chain": {
+        "Assertions": 74,
+        "CompletedRuns": 2,
+        "CompletedSteps": 32,
+        "Status": "Passed"
+      },
+      "production-deadline": {
+        "Assertions": 32,
+        "CompletedRuns": 2,
+        "CompletedSteps": 10,
+        "Status": "Passed"
+      },
+      "production-wet-jam": {
+        "Assertions": 52,
+        "CompletedRuns": 2,
+        "CompletedSteps": 24,
+        "Status": "Passed"
+      },
+      "reactor-cooling-recovery": {
+        "Assertions": 86,
+        "CompletedRuns": 2,
+        "CompletedSteps": 26,
+        "Status": "Passed"
+      },
+      "reactor-deadline": {
+        "Assertions": 44,
+        "CompletedRuns": 2,
+        "CompletedSteps": 14,
+        "Status": "Passed"
+      },
+      "reactor-full-production-chain": {
+        "Assertions": 130,
+        "CompletedRuns": 2,
+        "CompletedSteps": 52,
+        "Status": "Passed"
+      },
+      "reactor-reserve-contention": {
+        "Assertions": 42,
+        "CompletedRuns": 2,
+        "CompletedSteps": 22,
+        "Status": "Passed"
+      },
+      "worker-recovery": {
+        "Assertions": 112,
+        "CompletedRuns": 2,
+        "CompletedSteps": 50,
+        "Status": "Passed"
+      }
+    },
+    "sdk": "8.0.423",
+    "sha256": "dde00adc6daa121ead30f8c6d3f01d341b4470f671856b88b74da99a2eea2bae",
+    "source_inventory_files": 172,
+    "source_inventory_sha256": "d0784d1721b9eb00a829bcd56a944f126f9f7c30b67a2b09dcd088b20912c5c2",
+    "started_utc": "2026-10-18T17:58:17.913312+00:00",
+    "status": "Passed",
+    "tests": {
+      "executed": 723,
+      "failed": 0,
+      "passed": 723,
+      "skipped": 0
+    }
+  },
+  "raw_reports": {
+    "api": {
+      "path": "runtime/out/api-urp-null-property/api-compile.json",
+      "sha256": "bf4e4c3cd095217c4a16ba2a956a2960e459d876aab0514d10d8072598e45c81"
+    },
+    "archive": {
+      "path": "runtime/out/gameplay-player-archive.json",
+      "sha256": "25b8bdaafb0714570e12916165d0f703b5dab8aade96a349bfa91a8e7fa2ed83"
+    },
+    "archive_validation": {
+      "path": "runtime/out/gameplay-player-archive-validation.json",
+      "sha256": "e007a08dd4fe83ec01644adb66d40450b374a9524717bf66f75a05f93e0a68bb"
+    },
+    "combined": {
+      "path": "runtime/out/combined-map-vvj_fald/report.json",
+      "sha256": "41aeab58ca0153f82800c9c51fbc96de90d21a437a059403e008429ea8e4cca7"
+    },
+    "delivery": {
+      "path": "runtime/out/gameplay-delivery-vrpx1dgp/report.json",
+      "sha256": "68c4a4d8d2622b5f82a8d56eb07c03f0801fd4ccdf559e877a0309e71ad4a7fa"
+    },
+    "exercise": {
+      "path": "runtime/out/player-exercise-validation/exercise-supmdpz9/report.json",
+      "sha256": "0ae834e9e884694460a7025f09e919fb94cd625d035a3d1f4b2ca686ae47f5f0"
+    },
+    "foundation": {
+      "path": "runtime/out/wp01-2kda5zu2/report.json",
+      "sha256": "05ec20647eca030f680bd892dbf4db482ee519f958868ff8a43ed1dcd346d881"
+    },
+    "gameplay": {
+      "path": "runtime/out/sandbox-zxh6eap1/report.json",
+      "sha256": "1d9ef11f9914b67076ceebd69a0e1daeea857ad9cfcf63502b462ad006ff3f44"
+    },
+    "graphics": {
+      "path": "runtime/out/player-render-validation/capture-2bd3qhpf/report.json",
+      "sha256": "5e72cfa063977f43feeb28876f145b048e1179fbd569a634466301d874f981f3"
+    },
+    "offline": {
+      "path": "runtime/dotnet/artifacts/summary.json",
+      "sha256": "dde00adc6daa121ead30f8c6d3f01d341b4470f671856b88b74da99a2eea2bae"
+    }
+  },
+  "retained_failures": {
+    "policy": "Original Failed runs remain Failed; no retrospective relabelling.",
+    "record": "runtime/validation/GAMEPLAY_SANDBOX.md"
+  },
+  "schema": "critical-shift-gameplay-evidence-summary-v1",
+  "status": "ValidatedEvidenceIndex",
+  "unmeasured": {
+    "human_feel": "NotRun",
+    "independent_acceptance": "NotRun",
+    "map_art": "NotRun",
+    "multiplayer": "NotRun",
+    "performance": "NotRun"
+  }
+}
