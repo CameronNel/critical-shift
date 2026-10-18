@@ -50,7 +50,7 @@ namespace CriticalShift.Presentation
         {
             if (queries == null) return;
             if (face == null || lamp == null || rotor == null || progress == null || powerLever == null ||
-                ram == null || clamps[0] == null || clamps[1] == null)
+                ram == null || clamps[0] == null || clamps[1] == null || !sparks.Available)
             { enabled = false; throw new InvalidOperationException("A bound machine presentation part was lost."); }
             var state = queries.GetMachine(id);
             var world = queries.World;

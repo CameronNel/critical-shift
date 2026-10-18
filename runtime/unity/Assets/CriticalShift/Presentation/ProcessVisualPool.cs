@@ -14,6 +14,15 @@ namespace CriticalShift.Presentation
         private readonly MaterialPropertyBlock[] properties;
         private readonly ProcessMoteStyle style;
         internal int VisibleCount { get; private set; }
+        internal bool Available
+        {
+            get
+            {
+                for (int i = 0; i < markers.Length; i++)
+                    if (markers[i] == null || surfaces[i] == null) return false;
+                return true;
+            }
+        }
 
         internal ProcessVisualPool(Transform owner, Transform[] items, ProcessMoteStyle motion)
         {

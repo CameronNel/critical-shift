@@ -659,3 +659,10 @@ Machine/reactor pool validation finishes before installing their live query
 binding. One new native case exercises rejected reactor setups and then a valid
 setup on that same component, with unchanged world revision. Source catalogue:
 89 cases, all NotRun. No engine/package/renderer decision changes.
+
+Machine/reactor presentation also checks the full bound mote pool before every
+refresh, including when an effect is idle or paused. A lost marker/renderer now
+uses the same single disable-and-diagnostic path as a lost gauge or spindle;
+it cannot throw repeatedly only once a running effect reaches that marker.
+Surviving markers are hidden on disable. This remains source review, not an
+executed failure-injection result.
