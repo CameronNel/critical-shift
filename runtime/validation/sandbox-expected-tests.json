@@ -1,5 +1,9 @@
 {
   "PlayMode": [
+    "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.CargoCountsOneLogicalLoadAcrossMultipleRigidbodies",
+    "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.DisabledAndRelocatedCollidersCannotLeaveGhostCargo",
+    "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.CargoObservationOverflowRemainsVisibleAfterTheVolumeClears",
+    "CriticalShift.Sandbox.Tests.WorkerDragTests.FreeWorkerSegmentsShareOneCargoGroupAndHeldSegmentsHaveNone",
     "CriticalShift.Sandbox.Tests.LocalWorldHostTests.ContextBypassJamRequiresPowerIsolationBeforeRepairAndResume",
     "CriticalShift.Sandbox.Tests.LocalWorldHostTests.ContextResumeRetainsTheSameCycleAndCommittedWork",
     "CriticalShift.Sandbox.Tests.WorkerDragTests.SuitGripPullsTheDynamicWorkerAndSlowsTheRescuer",

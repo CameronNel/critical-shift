@@ -35,6 +35,15 @@ namespace CriticalShift.Sandbox.Tests
             Physics.SyncTransforms(); return belt;
         }
 
+        private CartCargoSensor Cargo(System.Func<Rigidbody, Rigidbody> grouping, System.Func<Rigidbody, float> mass, int capacity = 32)
+        {
+            var item = new GameObject("Cart sensor owner"); item.transform.SetParent(root.transform, false);
+            var cart = item.AddComponent<Rigidbody>(); cart.isKinematic = true;
+            var box = item.AddComponent<BoxCollider>(); box.isTrigger = true; box.size = Vector3.one * 5;
+            var sensor = item.AddComponent<CartCargoSensor>(); sensor.MaximumBodies = capacity; sensor.Initialize(cart, grouping, mass);
+            Physics.SyncTransforms(); return sensor;
+        }
+
         [UnityTest] public IEnumerator CartDriveRemainsWithinItsSpeedBudget()
         {
             var body = Body("Cart", Vector3.zero); body.mass = 35;
@@ -77,16 +86,51 @@ namespace CriticalShift.Sandbox.Tests
 
         [UnityTest] public IEnumerator CargoSensorCountsCompoundBodyOnceAndPrunesDisabledCargo()
         {
-            var item = new GameObject("Cart sensor owner"); item.transform.SetParent(root.transform, false);
-            var cart = item.AddComponent<Rigidbody>(); cart.isKinematic = true;
-            var box = item.AddComponent<BoxCollider>(); box.isTrigger = true; box.size = Vector3.one * 5;
-            var sensor = item.AddComponent<CartCargoSensor>(); sensor.Initialize(cart, candidate => true);
+            var sensor = Cargo(candidate => candidate, group => group.mass);
             var cargo = Body("Compound cargo", Vector3.zero); cargo.mass = 7; cargo.gameObject.AddComponent<BoxCollider>();
             for (int i = 0; i < 4; i++) yield return new WaitForFixedUpdate();
             Assert.That(sensor.BodyCount, Is.EqualTo(1)); Assert.That(sensor.Mass, Is.EqualTo(7).Within(0.01f));
             cargo.gameObject.SetActive(false);
             yield return new WaitForFixedUpdate(); yield return new WaitForFixedUpdate();
             Assert.That(sensor.BodyCount, Is.Zero); Assert.That(sensor.Mass, Is.Zero);
+        }
+
+        [UnityTest] public IEnumerator CargoCountsOneLogicalLoadAcrossMultipleRigidbodies()
+        {
+            var pelvis = Body("Grouped pelvis", Vector3.left * 0.6f); pelvis.mass = 12;
+            var torso = Body("Grouped torso", Vector3.right * 0.6f); torso.mass = 18;
+            bool free = true;
+            var sensor = Cargo(candidate => free && (candidate == pelvis || candidate == torso) ? pelvis : null, group => 68);
+            for (int i = 0; i < 4; i++) yield return new WaitForFixedUpdate();
+            Assert.That(sensor.BodyCount, Is.EqualTo(1)); Assert.That(sensor.Mass, Is.EqualTo(68));
+            free = false; yield return new WaitForFixedUpdate(); yield return new WaitForFixedUpdate();
+            Assert.That(sensor.BodyCount, Is.Zero); Assert.That(sensor.Mass, Is.Zero);
+            free = true; yield return new WaitForFixedUpdate(); yield return new WaitForFixedUpdate();
+            Assert.That(sensor.BodyCount, Is.EqualTo(1)); Assert.That(sensor.Mass, Is.EqualTo(68));
+        }
+
+        [UnityTest] public IEnumerator DisabledAndRelocatedCollidersCannotLeaveGhostCargo()
+        {
+            var sensor = Cargo(candidate => candidate, group => group.mass);
+            var body = Body("Transient cargo collider", Vector3.zero); body.mass = 7;
+            for (int i = 0; i < 4; i++) yield return new WaitForFixedUpdate();
+            Assert.That(sensor.Mass, Is.EqualTo(7)); body.GetComponent<Collider>().enabled = false;
+            yield return new WaitForFixedUpdate(); yield return new WaitForFixedUpdate();
+            Assert.That(body.gameObject.activeInHierarchy, Is.True); Assert.That(sensor.Mass, Is.Zero);
+            body.position += Vector3.right * 20; body.GetComponent<Collider>().enabled = true; Physics.SyncTransforms();
+            yield return new WaitForFixedUpdate(); yield return new WaitForFixedUpdate();
+            Assert.That(sensor.Mass, Is.Zero); Assert.That(sensor.BodyCount, Is.Zero);
+        }
+
+        [UnityTest] public IEnumerator CargoObservationOverflowRemainsVisibleAfterTheVolumeClears()
+        {
+            var sensor = Cargo(candidate => candidate, group => group.mass, 1);
+            var first = Body("Cargo A", Vector3.left * 0.6f); var second = Body("Cargo B", Vector3.right * 0.6f);
+            for (int i = 0; i < 4; i++) yield return new WaitForFixedUpdate();
+            Assert.That(sensor.Saturated, Is.True);
+            first.gameObject.SetActive(false); second.gameObject.SetActive(false);
+            yield return new WaitForFixedUpdate(); yield return new WaitForFixedUpdate();
+            Assert.That(sensor.Mass, Is.Zero); Assert.That(sensor.BodyCount, Is.Zero); Assert.That(sensor.Saturated, Is.True);
         }
     }
 }

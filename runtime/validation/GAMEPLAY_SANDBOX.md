@@ -76,7 +76,7 @@ art acceptance.
 - Diagnostic controls, crusher/fuel/reactor fixture, lamps, valve/spindle/tread
   motion, material appearance and scratch-scene generator: written, unvalidated.
 - Nine pure command-port tests, fourteen worker-body claim tests, nine package
-  safety tests and 50 native sandbox
+  safety tests and 54 native sandbox
   tests are implemented, all **NotRun**. These are declared inventory counts,
   not discovered/executed results.
 - Direct first-person focus, context transfer/drop, power/cooling and start
@@ -240,3 +240,22 @@ checking phase, including pause and deadline boundaries.
 Two additional native cases are implemented, NotRun: wet bypass through jam,
 power isolation, repair and resume with retained cause/flags; and resuming the
 same cycle with preserved committed work. No new gameplay rule or cost is added.
+
+## Current-volume cargo observations
+
+The cart sensor now uses a bounded 64-collider current-volume query instead of
+retained enter/exit event counts. This removes stale load after collider disable,
+removal or relocation. It tracks at most the configured 32 distinct observed
+bodies by default; overflow remains visible and prevents drive until reset.
+Explicit callbacks group free material bodies individually and a free Down
+worker's eleven segments under one physical representative and 68 kg mass proxy.
+Held/slotted bodies are excluded. Any observed worker part counts the full group;
+this conservative handling proxy neither writes custody nor establishes that a
+worker was successfully loaded or transported. Belt permission remains limited
+to known free material bodies.
+
+Four more native cases are written, NotRun: multi-Rigidbody load deduplication
+and eligibility changes; disabled/relocated colliders leaving no ghost load;
+visible overflow after clearing; and the actual fixture worker's group identity
+before/during/after a drag claim. Actual loading, transport stability, appearance
+and performance still require native execution and human review.

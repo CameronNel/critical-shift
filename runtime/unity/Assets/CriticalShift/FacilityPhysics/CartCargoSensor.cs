@@ -4,56 +4,61 @@ using UnityEngine;
 
 namespace CriticalShift.FacilityPhysics
 {
-    /// <summary>Bounded physical load observation. Counts a multi-collider Rigidbody once.</summary>
+    /// <summary>Bounded current-volume observation. Explicit physical groups count once, without owning cargo custody.</summary>
     [RequireComponent(typeof(BoxCollider))]
     public sealed class CartCargoSensor : MonoBehaviour
     {
-        private readonly Dictionary<Rigidbody, int> overlaps = new Dictionary<Rigidbody, int>();
-        private readonly List<Rigidbody> stale = new List<Rigidbody>();
-        private Func<Rigidbody, bool> mayCount;
+        private readonly Collider[] contacts = new Collider[64];
+        private readonly HashSet<Rigidbody> observedBodies = new HashSet<Rigidbody>();
+        private readonly HashSet<Rigidbody> groups = new HashSet<Rigidbody>();
+        private Func<Rigidbody, Rigidbody> groupFor;
+        private Func<Rigidbody, float> readMass;
         private Rigidbody cart;
+        private BoxCollider sensor;
         public bool Saturated { get; private set; }
         public int MaximumBodies { get; set; } = 32;
         public int BodyCount { get; private set; }
         public float Mass { get; private set; }
 
-        public void Initialize(Rigidbody cartBody, Func<Rigidbody, bool> ownershipFilter)
+        public void Initialize(Rigidbody cartBody, Func<Rigidbody, Rigidbody> physicalGroup, Func<Rigidbody, float> groupMass)
         {
             if (cart != null || cartBody == null) throw new InvalidOperationException("Bind one explicit cart body.");
-            cart = cartBody; mayCount = ownershipFilter ?? throw new ArgumentNullException(nameof(ownershipFilter));
-            var sensor = GetComponent<BoxCollider>();
+            cart = cartBody; groupFor = physicalGroup ?? throw new ArgumentNullException(nameof(physicalGroup));
+            readMass = groupMass ?? throw new ArgumentNullException(nameof(groupMass));
+            sensor = GetComponent<BoxCollider>();
             if (!sensor.isTrigger) throw new InvalidOperationException("The cargo sensor must be a trigger.");
-        }
-
-        private void OnTriggerEnter(Collider other)
-        {
-            var body = other.attachedRigidbody;
-            if (body == null || body == cart || mayCount == null) return;
-            if (overlaps.TryGetValue(body, out int count)) overlaps[body] = count + 1;
-            else if (overlaps.Count < MaximumBodies) overlaps.Add(body, 1);
-            else Saturated = true;
-        }
-
-        private void OnTriggerExit(Collider other)
-        {
-            var body = other.attachedRigidbody;
-            if (body == null || !overlaps.TryGetValue(body, out int count)) return;
-            if (count == 1) overlaps.Remove(body); else overlaps[body] = count - 1;
         }
 
         private void FixedUpdate()
         {
-            Mass = 0; BodyCount = 0; stale.Clear();
-            foreach (var pair in overlaps)
+            Mass = 0; BodyCount = 0; observedBodies.Clear(); groups.Clear();
+            if (sensor == null || cart == null || groupFor == null) return;
+            if (MaximumBodies < 1 || MaximumBodies > 64)
+            { Saturated = true; throw new InvalidOperationException("Cargo observation capacity must be between one and 64 physical bodies."); }
+            Vector3 scale = transform.lossyScale;
+            Vector3 half = Vector3.Scale(sensor.size * 0.5f, new Vector3(Mathf.Abs(scale.x), Mathf.Abs(scale.y), Mathf.Abs(scale.z)));
+            int count = Physics.OverlapBoxNonAlloc(transform.TransformPoint(sensor.center), half, contacts,
+                transform.rotation, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore);
+            if (count == contacts.Length) Saturated = true;
+            for (int i = 0; i < count; i++)
             {
-                var body = pair.Key;
-                if (body == null || !body.gameObject.activeInHierarchy) { stale.Add(body); continue; }
-                if (mayCount != null && mayCount(body)) { Mass += body.mass; BodyCount++; }
+                var body = contacts[i] == null ? null : contacts[i].attachedRigidbody;
+                if (body == null || body == cart || !body.gameObject.activeInHierarchy || !observedBodies.Add(body)) continue;
+                if (observedBodies.Count > MaximumBodies) { Saturated = true; continue; }
+                var group = groupFor(body);
+                if (group == null || group == cart || !group.gameObject.activeInHierarchy || !groups.Add(group)) continue;
+                float mass = readMass(group);
+                if (mass <= 0 || float.IsNaN(mass) || float.IsInfinity(mass))
+                { Saturated = true; throw new InvalidOperationException("Cargo group mass must be finite and positive."); }
+                float total = Mass + mass;
+                if (float.IsInfinity(total))
+                { Saturated = true; throw new InvalidOperationException("Cargo observation exceeded its finite mass range."); }
+                Mass = total; BodyCount++;
             }
-            foreach (var body in stale) overlaps.Remove(body);
-            // Saturation stays visible until the fixture is reset: missing enter events cannot be reconstructed safely.
+            // Keep an overflow visible until fixture reset; its truncated load observation cannot authorize drive.
         }
 
-        private void OnDisable() { overlaps.Clear(); stale.Clear(); Mass = 0; BodyCount = 0; Saturated = false; }
+        private void OnDisable()
+        { observedBodies.Clear(); groups.Clear(); Array.Clear(contacts, 0, contacts.Length); Mass = 0; BodyCount = 0; Saturated = false; }
     }
 }

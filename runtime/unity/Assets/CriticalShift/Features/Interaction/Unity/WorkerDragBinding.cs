@@ -9,6 +9,7 @@ namespace CriticalShift.Features.Interaction.Unity
     internal sealed class WorkerDragBinding
     {
         internal readonly Guid Id;
+        internal readonly Rigidbody Representative;
         private readonly HashSet<Rigidbody> segments;
         private readonly Func<ObjectClaimView, Vector3, float, bool> pull;
         private readonly Action release;
@@ -21,7 +22,7 @@ namespace CriticalShift.Features.Interaction.Unity
             segments = new HashSet<Rigidbody>();
             foreach (var body in bodies)
                 if (body == null || !segments.Add(body)) throw new ArgumentException("Worker physical segments must be unique and present.");
-            Id = id; pull = applyPull ?? throw new ArgumentNullException(nameof(applyPull));
+            Id = id; Representative = bodies[0]; pull = applyPull ?? throw new ArgumentNullException(nameof(applyPull));
             release = releasePull ?? throw new ArgumentNullException(nameof(releasePull));
             readMass = physicalMass ?? throw new ArgumentNullException(nameof(physicalMass));
         }

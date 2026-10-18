@@ -233,7 +233,7 @@ namespace CriticalShift.Sandbox
             host.BindCartHandle(cartId, body, handle.transform, stand.transform); access.BindTarget(cartId, rig.transform);
             var sensor = SandboxPrimitives.Empty("Cargo observation bounds", rig.transform, new Vector3(0, 0.65f, 0));
             var bounds = sensor.AddComponent<BoxCollider>(); bounds.isTrigger = true; bounds.size = new Vector3(1.1f, 1.1f, 1.65f);
-            cargo = sensor.AddComponent<CartCargoSensor>(); cargo.Initialize(body, host.IsBodyFree);
+            cargo = sensor.AddComponent<CartCargoSensor>(); cargo.Initialize(body, host.PhysicalCargoGroup, host.PhysicalCargoMass);
             cart = rig.AddComponent<CartMotor>(); cart.SafeCargoMass = 35;
             cart.Initialize(() => world.View.Phase == WorldPhase.Running && host.IsHandleHeld(cartId) && !cargo.Saturated, () => cargo.Mass);
             workerContacts.BindHazard(cartId, body);

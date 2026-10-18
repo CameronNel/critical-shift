@@ -121,5 +121,16 @@ namespace CriticalShift.Sandbox.Tests
             BindFixture(); Assert.That(host.World.Epoch, Is.Not.EqualTo(oldEpoch)); Assert.That(Claim.HolderId, Is.Null);
             Assert.That(host.World.View.ActiveClaimCount, Is.Zero); Assert.That(host.BoundBodyCount, Is.EqualTo(10));
         }
+
+        [UnityTest] public IEnumerator FreeWorkerSegmentsShareOneCargoGroupAndHeldSegmentsHaveNone()
+        {
+            var parts = patientRig.CopyBodySegments();
+            var group = host.PhysicalCargoGroup(parts[0]); Assert.That(group, Is.Not.Null);
+            Assert.That(host.PhysicalCargoGroup(parts[1]), Is.SameAs(group)); Assert.That(host.PhysicalCargoMass(group), Is.EqualTo(68));
+            StandNearGrip(); host.Grab(Id(650)); Assert.That(Claim.HolderId, Is.EqualTo(Id(1)));
+            Assert.That(host.PhysicalCargoGroup(parts[0]), Is.Null); Assert.That(host.PhysicalCargoGroup(parts[1]), Is.Null);
+            host.DropHeld(); Assert.That(host.PhysicalCargoGroup(parts[1]), Is.SameAs(group));
+            yield return null;
+        }
     }
 }

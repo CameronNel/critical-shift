@@ -145,6 +145,13 @@ namespace CriticalShift.Features.Interaction.Unity
             return bindings.MayIgnoreForSight(actor, target, body);
         }
 
+        public Rigidbody PhysicalCargoGroup(Rigidbody body)
+        {
+            if (!active || stopped || (world.View.Phase != WorldPhase.Running && world.View.Phase != WorldPhase.Paused)) return null;
+            return bindings.CargoGroup(body);
+        }
+        public float PhysicalCargoMass(Rigidbody representative) => !active || stopped || bindings == null ? 0 : bindings.CargoMass(representative);
+
         public void Grab(Guid id)
         {
             if (bindings == null || !bindings.CanEnterHandle(id, localActor))

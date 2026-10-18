@@ -44,7 +44,7 @@ test worker. The second worker is controlled locally for this fixture.
   containers, and slows movement using the 68 kg debug body proxy. Excessive
   separation or sustained obstruction releases the grip. The patient's fixture
   recovery button is blocked while that body is held. Reanimation, two-person
-  carrying and worker cargo-load sensing are still separate work.
+  carrying and end-to-end worker loading/transport remain separate work.
 - Select a nearby crate and Grab/Release. Current host reach and line of sight
   are checked. Carrying uses bounded forces; excessive obstruction drops the
   exact claim. Leases renew through the same connection's command stream.
@@ -80,6 +80,11 @@ presentation; none changes materials, custody, reactor state or power. Process
 gauges and small preallocated spark/vent-mote pools also follow those projections.
 Their trajectories use process time, without consuming incident randomness,
 adding colliders or creating objects during an effect. These are debug visuals.
+The cargo sensor samples its current volume and groups eligible ragdoll segments
+as one 68 kg debug load. Any intersecting part counts that whole body, a
+conservative fixture proxy. Held/slotted bodies are excluded; disabled, removed
+or relocated colliders cannot retain an old trigger-event load. The belt keeps
+its separate free-material-only permission.
 
 The fixture uses the project's **already configured** shader family for debug
 geometry. This explicitly supports the old Built-in foundation for import and
@@ -91,7 +96,7 @@ on the inspected baseline. No package is downloaded by the generator.
 
 The existing foundation runner still tests its foundation assembly selection;
 it does not automatically claim sandbox coverage. The separate native inventory
-is `runtime/validation/sandbox-expected-tests.json`: 50 implemented cases, all
+is `runtime/validation/sandbox-expected-tests.json`: 54 implemented cases, all
 NotRun. Nine new pure command-port cases, fourteen worker-body claim cases and
 nine source-package safety cases
 are also NotRun. Native fixtures are offset from possible active-scene content

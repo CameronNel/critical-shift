@@ -136,6 +136,29 @@ namespace CriticalShift.Features.Interaction.Unity
             return false;
         }
 
+        internal Rigidbody CargoGroup(Rigidbody body)
+        {
+            if (IsFree(body)) return body;
+            foreach (var worker in workers.Values)
+            {
+                if (!worker.Owns(body)) continue;
+                var claim = world.GetObject(worker.Id);
+                return worker.Active && claim != null && !claim.IsRetired && !claim.HolderId.HasValue && !claim.SlotId.HasValue &&
+                    world.GetWorkerForBody(worker.Id)?.Pose == WorkerPose.Down ? worker.Representative : null;
+            }
+            return null;
+        }
+
+        internal float CargoMass(Rigidbody representative)
+        {
+            if (representative == null) return 0;
+            foreach (var worker in workers.Values)
+                if (worker.Representative == representative) return worker.Mass;
+            foreach (var body in bodies.Values)
+                if (body.Body == representative) return representative.mass;
+            throw new InvalidOperationException("Cargo mass was requested for an unregistered physical group.");
+        }
+
         internal bool MayIgnoreForSight(Guid actor, Guid target, Rigidbody body)
         {
             foreach (var binding in bodies.Values)
