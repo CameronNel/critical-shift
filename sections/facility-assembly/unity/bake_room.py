@@ -97,7 +97,7 @@ def non_principled(m):
     colour = first(('BSDF_GLOSSY', 'BSDF_GLASS', 'BSDF_REFRACTION', 'BSDF_DIFFUSE', 'BSDF_ANISOTROPIC'), 'Color') or [0.8, 0.8, 0.8]
     rough = first(('BSDF_GLOSSY', 'BSDF_GLASS', 'BSDF_REFRACTION', 'BSDF_ANISOTROPIC'), 'Roughness')
     e = dict(_BaseColor=[round(v, 4) for v in colour], _Metallic=0.0, _Smoothness=round(1 - (0.5 if rough is None else rough), 3), non_principled=True)
-    if any(n.type in ('BSDF_GLASS', 'BSDF_REFRACTION') for n in nodes): e.update(_Surface='Transparent', _Alpha=GLASS_ALPHA, _PreserveSpecular=True)
+    if any(n.type in ('BSDF_GLASS', 'BSDF_REFRACTION') for n in nodes): e.update(_Surface='Transparent', _Alpha=GLASS_ALPHA, _PreserveSpecular=True, _BaseColor=[0.0, 0.0, 0.0])
     elif any(n.type == 'BSDF_TRANSPARENT' for n in nodes): e.update(_Surface='Transparent', _Alpha=0.25)
     em = next((n for n in nodes if n.type == 'EMISSION'), None)
     if em is not None:
@@ -198,7 +198,11 @@ def _leaf(nt, n, ch, made):
         else: col, st = [0.0, 0.0, 0.0], 0.0
         _set(nt, col, e.inputs['Color']); _set(nt, st, e.inputs['Strength'])
     else:
-        if ch == 'base': v = next((_src(ins[k]) for k in ('Base Color', 'Color') if k in ins), [0.8, 0.8, 0.8])
+        if ch == 'base':                                         # transmission has no diffuse: clear glass is black under alpha (reflections only)
+            v = next((_src(ins[k]) for k in ('Base Color', 'Color') if k in ins), [0.8, 0.8, 0.8])
+            if n is not None and n.type in ('BSDF_GLASS', 'BSDF_REFRACTION'): r = 0.0
+            elif n is not None and n.type == 'BSDF_PRINCIPLED':
+                r = _math(nt, made, 'MULTIPLY', _src(n.inputs['Alpha']), _math(nt, made, 'SUBTRACT', 1.0, _src(n.inputs['Transmission Weight'])))
         elif ch == 'rough': v = _src(ins['Roughness']) if 'Roughness' in ins and n.type != 'BSDF_DIFFUSE' else 1.0
         else: v = _src(ins['Metallic']) if n is not None and n.type == 'BSDF_PRINCIPLED' else leaf_metal(n)
         _set(nt, v, e.inputs['Color']); _set(nt, r, e.inputs['Strength'])
@@ -734,6 +738,8 @@ for m in mats:
         tw = bsdf(m).inputs['Transmission Weight'].default_value if bsdf(m) else 0.0
         if const(m, 'Alpha', 1.0) < 1.0 or tw > 0:
             e['_Surface'] = 'Transparent'; e['_Alpha'] = round(const(m, 'Alpha', 1.0) * (1 - (1 - GLASS_ALPHA) * tw), 3)
+            k = (1 - tw) / max(1 - (1 - GLASS_ALPHA) * tw, 1e-3)    # transmission has no diffuse (as in the baked branch): clear glass is black
+            e['_BaseColor'] = [round(c * k, 4) for c in e['_BaseColor']]
             if tw > 0 and const(m, 'Alpha', 1.0) >= 1.0: e['_PreserveSpecular'] = True
     manifest[m.name] = e
 step('maps written', materials=len(manifest), textures=len(os.listdir(TEX)))
