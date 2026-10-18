@@ -66,6 +66,34 @@ namespace CriticalShift.Sandbox.Tests
             return count;
         }
 
+        [UnityTest] public IEnumerator DeadlineKeepsTerminalFeedbackAndRestartsWithFreshPhysicalBindings()
+        {
+            root = new GameObject("Sandbox deadline lifecycle fixture"); root.transform.position = new Vector3(1500, 0, 1500);
+            var bootstrap = root.AddComponent<SandboxBootstrap>(); double clock = 0;
+            var pipeline = QualitySettings.renderPipeline != null ? QualitySettings.renderPipeline : GraphicsSettings.defaultRenderPipeline;
+            bootstrap.BindFixtureShader(Shader.Find(pipeline == null ? "Standard" : "Universal Render Pipeline/Lit"));
+            bootstrap.BindFixtureClock(() => clock); yield return null; yield return null;
+            var epoch = bootstrap.World.Epoch; var host = root.GetComponentInChildren<LocalWorldHost>();
+            var safety = root.GetComponentInChildren<PhysicsSafetyMonitor>();
+            clock = 720; host.Pump(); safety.Sample();
+            Assert.That(bootstrap.World.Phase, Is.EqualTo(WorldPhase.Ended)); Assert.That(bootstrap.World.Outcome, Is.EqualTo(WorldOutcome.TimedOut));
+            Assert.That(host.BoundBodyCount, Is.Zero); Assert.That(safety.BoundBodyCount, Is.Zero);
+            Assert.That(bootstrap.World.ActiveClaimCount, Is.Zero); Assert.That(bootstrap.World.RegisteredObjectCount, Is.Zero);
+            Assert.That(bootstrap.World.PendingTimerCount, Is.Zero); Assert.That(bootstrap.World.ConnectedPlayerCount, Is.Zero);
+            yield return null; yield return null;
+            Assert.That(root.GetComponentInChildren<SandboxHud>().isActiveAndEnabled, Is.True);
+            foreach (var rig in root.GetComponentsInChildren<WorkerBodyRig>())
+                foreach (var body in rig.CopyBodySegments()) Assert.That(body.isKinematic, Is.True);
+            bootstrap.enabled = false;
+            Assert.That(bootstrap.LastStoppedWorld.Phase, Is.EqualTo(WorldPhase.Stopped));
+            Assert.That(bootstrap.LastStoppedPhysicalBindings, Is.Zero); Assert.That(bootstrap.LastStoppedPhysicsObservations, Is.Zero);
+            yield return null; bootstrap.enabled = true; yield return null; yield return null;
+            Assert.That(bootstrap.World.Epoch, Is.Not.EqualTo(epoch)); Assert.That(bootstrap.World.Phase, Is.EqualTo(WorldPhase.Running));
+            Assert.That(bootstrap.PhysicalBindingCount, Is.EqualTo(10));
+            Assert.That(root.GetComponentInChildren<PhysicsSafetyMonitor>().BoundBodyCount, Is.EqualTo(31));
+            Assert.That(bootstrap.World.RemainingMilliseconds, Is.EqualTo(720000));
+        }
+
         [UnityTest] public IEnumerator GroundedFixtureCartDrivesWhileItsWorkerMaintainsTheHandle()
         {
             root = new GameObject("Grounded cart integration fixture"); root.transform.position = new Vector3(1500, 0, 1500);
@@ -110,13 +138,13 @@ namespace CriticalShift.Sandbox.Tests
             Assert.That(safety.BoundBodyCount, Is.EqualTo(31));
             var crate = root.transform.Find("Local Gameplay Fixture/Material container 4").GetComponent<Rigidbody>();
             var id = new Guid(103, 0, 0, new byte[8]); host.Grab(id);
-            Assert.That(bootstrap.World.GetObject(id).HolderId, Is.Not.Null);
+            Assert.That(host.World.GetObject(id).HolderId, Is.Not.Null);
             crate.position = root.transform.position + Vector3.down * 30; Physics.SyncTransforms();
             safety.Sample();
             Assert.That(failure, Is.TypeOf<InvalidOperationException>());
             Assert.That(failure.Message, Does.Contain("Physics body escaped fixture bounds: Material container 4"));
-            Assert.That(safety.FaultLatched, Is.True); Assert.That(bootstrap.World.View.Phase, Is.EqualTo(WorldPhase.Stopped));
-            Assert.That(bootstrap.World.View.ActiveClaimCount, Is.Zero); Assert.That(host.BoundBodyCount, Is.Zero);
+            Assert.That(safety.FaultLatched, Is.True); Assert.That(bootstrap.World.Phase, Is.EqualTo(WorldPhase.Stopped));
+            Assert.That(bootstrap.World.ActiveClaimCount, Is.Zero); Assert.That(host.BoundBodyCount, Is.Zero);
             yield return null;
         }
     }

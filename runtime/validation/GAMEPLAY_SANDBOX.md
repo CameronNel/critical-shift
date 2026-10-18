@@ -76,7 +76,7 @@ art acceptance.
 - Diagnostic controls, crusher/fuel/reactor fixture, lamps, valve/spindle/tread
   motion, material appearance and scratch-scene generator: written, unvalidated.
 - Nine pure command-port tests, fourteen worker-body claim tests, nine package
-  safety tests, five declared-boundary cases and 92 native sandbox
+  safety tests, five declared-boundary cases and 94 native sandbox
   tests are implemented, all **NotRun**. These are declared inventory counts,
   not discovered/executed results.
 - Direct first-person focus, context transfer/drop, power/cooling and start
@@ -706,3 +706,17 @@ captured fault plus empty claims/bindings, without automatically repairing that
 shape. Local-host test diagnostics are captured explicitly and unexpected faults
 fail teardown; strict native log validation stays unchanged. Source catalogue:
 92 native cases, all NotRun.
+
+Terminal-world reconciliation now releases the local host's physical bindings
+immediately when a pumped deadline or an externally ended/stopped/faulted world
+is observed. That stops further admission and renewal in the same callback,
+restores slotted bodies and keeps the terminal phase/outcome available for the
+panel. Later fixture disposal still calls WorldSession.Stop. The physics monitor
+also drops its references when the world closes, and always releases references
+after a fault callback while retaining the fault/peak diagnostic values. Two
+new native cases cover a deadline reached before a pending command and a full
+deadline/visible-panel/dispose/fresh-epoch sequence. The existing monitor case
+now checks reference release on normal closure. Source review also corrected
+three lifetime-test member accesses that treated a WorldSessionView as its
+mutable host owner; no compiler was run. Declared native catalogue: 94 cases,
+all NotRun.

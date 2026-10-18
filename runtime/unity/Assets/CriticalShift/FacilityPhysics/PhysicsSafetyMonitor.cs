@@ -62,7 +62,7 @@ namespace CriticalShift.FacilityPhysics
             if (!active) return;
             try
             {
-                if (!live()) { DynamicBodyCount = 0; return; }
+                if (!live()) { Shutdown(); return; }
                 if (anchor == null || !anchor.gameObject.activeInHierarchy || (anchor.lossyScale - Vector3.one).sqrMagnitude > 0.0001f)
                     throw new InvalidOperationException("Physics observation coordinates became unavailable or changed scale.");
                 int dynamicCount = 0;
@@ -95,7 +95,8 @@ namespace CriticalShift.FacilityPhysics
         {
             if (!active) return;
             active = false; ended = true; FaultLatched = true; Fault = exception.Message;
-            report(exception);
+            try { report(exception); }
+            finally { Shutdown(); }
         }
         public void Shutdown()
         { active = false; ended = true; DynamicBodyCount = 0; bodies.Clear(); anchor = null; live = null; report = null; }

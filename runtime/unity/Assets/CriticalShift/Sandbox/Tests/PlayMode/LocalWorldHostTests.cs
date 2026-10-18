@@ -227,6 +227,21 @@ namespace CriticalShift.Sandbox.Tests
             yield return null;
         }
 
+        [UnityTest] public IEnumerator ShiftDeadlineReleasesPhysicalBindingsBeforeAdmittingAnotherCommand()
+        {
+            host.Grab(Box); host.OperateMachine(Machine, ProductionAction.Insert, Box, false, false);
+            Assert.That(body.isKinematic, Is.True); long sequence = port.LastTerminalSequence;
+            clock = 60; host.Release(Box);
+            Assert.That(world.View.Phase, Is.EqualTo(WorldPhase.Ended)); Assert.That(world.View.Outcome, Is.EqualTo(WorldOutcome.TimedOut));
+            Assert.That(host.BoundBodyCount, Is.Zero); Assert.That(world.View.ActiveClaimCount, Is.Zero);
+            Assert.That(body.isKinematic, Is.False); Assert.That(port.LastTerminalSequence, Is.EqualTo(sequence));
+            string terminal = host.LastAction;
+            host.DropHeld(); host.ThrowHeld(); host.ToggleClockPause(); host.OperateMachine(Machine, ProductionAction.Insert, Box, false, false);
+            Assert.That(host.LastAction, Is.EqualTo(terminal)); Assert.That(port.LastTerminalSequence, Is.EqualTo(sequence));
+            host.Shutdown(); Assert.That(world.View.Phase, Is.EqualTo(WorldPhase.Stopped));
+            yield return null;
+        }
+
         [Test] public void ClockRegressionIsAnExplicitFailure()
         {
             clock = 1; host.Pump(); clock = 0.5;

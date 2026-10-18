@@ -32,15 +32,18 @@ namespace CriticalShift.Sandbox.Tests
         [Test] public void PhysicsMonitorObservesDynamicHandoffsWithoutWritingMotion()
         {
             var body = Body("Observed body", Vector3.zero); body.linearVelocity = Vector3.right * 2;
-            Vector3 position = body.position, velocity = body.linearVelocity; int failures = 0;
+            Vector3 position = body.position, velocity = body.linearVelocity; int failures = 0; bool live = true;
             safety = root.AddComponent<PhysicsSafetyMonitor>();
-            safety.Initialize(root.transform, new Bounds(Vector3.zero, Vector3.one * 10), 10, 10, () => true, error => failures++);
+            safety.Initialize(root.transform, new Bounds(Vector3.zero, Vector3.one * 10), 10, 10, () => live, error => failures++);
             safety.Bind(body, "Observed body"); safety.Activate(); safety.Sample();
             Assert.That(safety.DynamicBodyCount, Is.EqualTo(1)); Assert.That(safety.PeakLinearSpeed, Is.EqualTo(2).Within(0.001f));
             Assert.That(body.position, Is.EqualTo(position)); Assert.That(body.linearVelocity, Is.EqualTo(velocity));
             body.isKinematic = true; safety.Sample();
             Assert.That(safety.DynamicBodyCount, Is.Zero); Assert.That(safety.PeakDynamicBodyCount, Is.EqualTo(1));
             Assert.That(safety.BoundBodyCount, Is.EqualTo(1)); Assert.That(failures, Is.Zero);
+            live = false; safety.Sample();
+            Assert.That(safety.BoundBodyCount, Is.Zero); Assert.That(safety.DynamicBodyCount, Is.Zero);
+            Assert.That(body.isKinematic, Is.True); Assert.That(failures, Is.Zero);
         }
 
         [Test] public void PhysicsMonitorLatchesOneRunawayFailureAndLeavesMotionToItsOwner()

@@ -69,7 +69,7 @@ namespace CriticalShift.Features.Interaction.Unity
         public void SetWorkerHoist(bool raised)
         {
             if (!active || stopped) return;
-            try { Pump(); bindings.SetWorkerHoist(localActor, raised && world.View.Phase == WorldPhase.Running); }
+            try { Pump(); if (active) bindings.SetWorkerHoist(localActor, raised && world.View.Phase == WorldPhase.Running); }
             catch (Exception exception) { StopAfterFailure(exception); }
         }
 
@@ -81,6 +81,7 @@ namespace CriticalShift.Features.Interaction.Unity
                 if (float.IsNaN(delta.x) || float.IsNaN(delta.y) || float.IsInfinity(delta.x) || float.IsInfinity(delta.y))
                     throw new ArgumentException("Carry rotation must be finite.");
                 Pump();
+                if (!active) return;
                 if (bindings.RotateHeld(localActor, delta)) LastAction = "Held crate orientation adjusted";
             }
             catch (Exception exception) { StopAfterFailure(exception); }
@@ -93,6 +94,7 @@ namespace CriticalShift.Features.Interaction.Unity
             {
                 if (float.IsNaN(steps) || float.IsInfinity(steps)) throw new ArgumentException("Carry distance input must be finite.");
                 Pump();
+                if (!active) return;
                 if (bindings.AdjustHeldDistance(localActor, steps)) LastAction = "Held crate reach adjusted";
             }
             catch (Exception exception) { StopAfterFailure(exception); }
@@ -104,6 +106,7 @@ namespace CriticalShift.Features.Interaction.Unity
             try
             {
                 Pump();
+                if (!active) return;
                 if (world.View.Phase != WorldPhase.Running || world.GetWorker(localActor)?.CanInteract != true)
                 { LastAction = "Throwing needs an upright worker during a running shift"; return; }
                 var held = world.GetObject(HeldObject());
@@ -153,6 +156,7 @@ namespace CriticalShift.Features.Interaction.Unity
             try
             {
                 Pump();
+                if (!active) return;
                 if (world.View.HostMilliseconds >= renewAt)
                 {
                     renewAt = checked(world.View.HostMilliseconds + 800);
@@ -167,13 +171,14 @@ namespace CriticalShift.Features.Interaction.Unity
         private void FixedUpdate()
         {
             if (!active || stopped) return;
-            try { Pump(); Reconcile(true); }
+            try { Pump(); if (active) Reconcile(true); }
             catch (Exception exception) { StopAfterFailure(exception); }
         }
 
         public void Pump()
         {
             if (!active || stopped) return;
+            if (ReconcileTerminalWorld()) return;
             double now = readClock();
             if (double.IsNaN(now) || double.IsInfinity(now) || now < lastClock)
                 throw new InvalidOperationException("The host clock moved backwards or returned a non-finite value.");
@@ -185,7 +190,18 @@ namespace CriticalShift.Features.Interaction.Unity
                 var result = world.AdvanceTo(sample);
                 foreach (var change in result.ProductionChanges)
                     bindings.ApplyMaterialMass(change.Output);
+                ReconcileTerminalWorld();
             }
+        }
+
+        private bool ReconcileTerminalWorld()
+        {
+            var view = world.View;
+            if (view.Phase == WorldPhase.Setup || view.Phase == WorldPhase.Running || view.Phase == WorldPhase.Paused) return false;
+            active = false; ClearPhysicalBindings();
+            FocusHint = "Shift ended · restart the fixture";
+            LastAction = view.Phase == WorldPhase.Ended ? "Shift ended: " + view.Outcome : "World " + view.Phase + " · restart the fixture";
+            return true;
         }
 
         public bool IsBodyFree(Rigidbody body)
@@ -209,6 +225,7 @@ namespace CriticalShift.Features.Interaction.Unity
 
         public void Grab(Guid id)
         {
+            if (!active || stopped) return;
             if (bindings == null || !bindings.CanEnterHandle(id, localActor))
             { LastAction = "Stand behind the stationary cart to take its handle"; return; }
             RunCommand(() => commands.Grab(id));
@@ -244,6 +261,7 @@ namespace CriticalShift.Features.Interaction.Unity
 
         public void DropHeld()
         {
+            if (!active || stopped) return;
             Guid held = HeldObject();
             if (held != Guid.Empty) Release(held); else LastAction = "Your hands are free";
         }
@@ -301,7 +319,7 @@ namespace CriticalShift.Features.Interaction.Unity
         private bool PrepareFocused()
         {
             if (!active || stopped) return false;
-            try { Pump(); Physics.SyncTransforms(); }
+            try { Pump(); if (!active) return false; Physics.SyncTransforms(); }
             catch (Exception exception) { StopAfterFailure(exception); return false; }
             var phase = world.View.Phase;
             if (phase != WorldPhase.Running)
@@ -379,7 +397,7 @@ namespace CriticalShift.Features.Interaction.Unity
             if (!active || stopped) return false;
             try
             {
-                Pump(); Physics.SyncTransforms();
+                Pump(); if (!active) return false; Physics.SyncTransforms();
                 if (bindings.CanPlace(entity, slot)) return true;
                 LastAction = "The loading position is blocked or unavailable"; return false;
             }
@@ -392,6 +410,7 @@ namespace CriticalShift.Features.Interaction.Unity
             try
             {
                 Pump();
+                if (!active) return null;
                 Physics.SyncTransforms();
                 var reply = operation();
                 LastAction = reply.Production != null ? reply.Production.Status.ToString() :
@@ -414,6 +433,7 @@ namespace CriticalShift.Features.Interaction.Unity
             try
             {
                 Pump();
+                if (!active) return;
                 LastAction = (world.View.Phase == WorldPhase.Paused ? world.Resume(world.Epoch) : world.Pause(world.Epoch)).ToString();
             }
             catch (Exception exception) { StopAfterFailure(exception); }
@@ -436,6 +456,11 @@ namespace CriticalShift.Features.Interaction.Unity
             if (stopped) return;
             stopped = true; active = false;
             if (world != null) world.Stop();
+            ClearPhysicalBindings();
+        }
+
+        private void ClearPhysicalBindings()
+        {
             bindings?.Clear(); focused = Guid.Empty; pickTarget = null; targetName = null;
         }
 

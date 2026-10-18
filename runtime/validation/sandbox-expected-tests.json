@@ -1,5 +1,7 @@
 {
   "PlayMode": [
+    "CriticalShift.Sandbox.Tests.LocalWorldHostTests.ShiftDeadlineReleasesPhysicalBindingsBeforeAdmittingAnotherCommand",
+    "CriticalShift.Sandbox.Tests.SandboxLifetimeTests.DeadlineKeepsTerminalFeedbackAndRestartsWithFreshPhysicalBindings",
     "CriticalShift.Sandbox.Tests.LocalWorldHostTests.LosingAPortableContactShapeStopsTheHostAndClearsItsClaim",
     "CriticalShift.Sandbox.Tests.TraceFeedTests.GripDropsPublishOnceForBindingFailureAndLeaseExpiry",
     "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.AStationaryPelvisCannotApproveRecoveryWhileAnotherLimbIsMoving",
