@@ -36,7 +36,7 @@ namespace CriticalShift.Sandbox
                 Wet = CreateMaterial(shader, litTemplate, "Fixture wet ore", new Color(0.2f, 0.32f, 0.48f), 0.35f);
                 Lamp = CreateMaterial(shader, emissionTemplate, "Fixture signal face", Color.white, 0.25f);
                 Lamp.EnableKeyword("_EMISSION");
-                Lamp.SetColor("_EmissionColor", Color.black);
+                if (Lamp.HasProperty("_EmissionColor")) Lamp.SetColor("_EmissionColor", Color.black);
                 // Track native objects before configuring them so failed setup still owns cleanup.
                 WheelContact = new PhysicsMaterial("Fixture wheel rolling resistance");
                 WheelContact.staticFriction = 0.02f; WheelContact.dynamicFriction = 0.02f; WheelContact.bounciness = 0;
@@ -50,11 +50,13 @@ namespace CriticalShift.Sandbox
 
         internal static void ValidateMaterialTemplates(Shader shader, Material litTemplate, Material emissionTemplate)
         {
+            // Null-device Players can lack shader property reflection; Editor and rendering Players validate it.
+            bool inspectProperties = UnityEngine.Application.isEditor || SystemInfo.graphicsDeviceType != GraphicsDeviceType.Null;
             if (shader == null || shader.name != "Universal Render Pipeline/Lit" || litTemplate == null || emissionTemplate == null ||
                 litTemplate == emissionTemplate || litTemplate.shader != shader || emissionTemplate.shader != shader ||
                 litTemplate.shaderKeywords.Length != 0 || emissionTemplate.shaderKeywords.Length != 1 ||
                 (emissionTemplate.globalIlluminationFlags & MaterialGlobalIlluminationFlags.AnyEmissive) == 0 ||
-                !emissionTemplate.IsKeywordEnabled("_EMISSION") || !emissionTemplate.HasProperty("_EmissionColor"))
+                !emissionTemplate.IsKeywordEnabled("_EMISSION") || (inspectProperties && !emissionTemplate.HasProperty("_EmissionColor")))
                 throw new InvalidOperationException("Bind distinct ordinary and emissive URP Lit templates with only their retained keyword combinations.");
         }
 
