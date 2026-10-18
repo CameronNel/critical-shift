@@ -40,7 +40,7 @@ namespace CriticalShift.Sandbox.Tests
             var face = Visual("Machine face", root.transform); var rotor = Child("Spindle"); var fill = Visual("Gauge fill", root.transform);
             sparks = Markers("Spark", 8);
             machine = root.AddComponent<MachineFeedback>();
-            machine.Initialize(commands, Id(20), face.GetComponent<Renderer>(), Child("Machine lamp").gameObject.AddComponent<Light>(), rotor, fill, sparks);
+            machine.Initialize(commands, Id(20), face.GetComponent<Renderer>(), Child("Machine lamp").gameObject.AddComponent<Light>(), rotor, fill, sparks, Child("Power switch"));
             var shell = Visual("Reactor face", root.transform); reactorLamp = Child("Reactor lamp").gameObject.AddComponent<Light>();
             reactor = root.AddComponent<ReactorFeedback>();
             reactor.Initialize(commands, shell.GetComponent<Renderer>(), reactorLamp, Child("Valve"), Markers("Vent mote", 6));

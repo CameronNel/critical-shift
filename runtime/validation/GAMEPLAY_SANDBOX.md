@@ -259,3 +259,16 @@ and eligibility changes; disabled/relocated colliders leaving no ghost load;
 visible overflow after clearing; and the actual fixture worker's group identity
 before/during/after a drag claim. Actual loading, transport stability, appearance
 and performance still require native execution and human review.
+
+Machine power controls now have a visible state-driven handle, with the existing
+feedback owner retaining all writes to its visual pivots. A jam remains visibly
+red after power isolation. Cart wheel steering presentation now reads effective
+drive authority, so walking input cannot steer an unclaimed cart's visual wheels;
+passive wheel spin still follows actual observed travel. Existing native cases
+include the changed bindings/authority assertions and remain NotRun.
+
+Later source commits: `7223a933` (canonical worker-body claims), `88aa0778`
+(suit-grip binding), `7799966e` (process pools), `22de3cfb` (context machine
+recovery), and `f74e324d` (current-volume grouped cargo). All are local source
+checkpoints, unmerged and pending independent review. The ten-hour goal remains
+active; neither these commits nor the declared inventory constitute completion.

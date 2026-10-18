@@ -186,7 +186,11 @@ namespace CriticalShift.Sandbox
             for (int i = 0; i < sparks.Length; i++)
                 sparks[i] = SandboxPrimitives.Box("Pooled process spark " + i, sparkOrigin.transform, Vector3.zero,
                     new Vector3(0.012f, 0.035f, 0.012f), shapes.Lamp, false).transform;
-            machine.AddComponent<MachineFeedback>().Initialize(commands, id, face.GetComponent<Renderer>(), light, rotor.transform, gauge.transform, sparks);
+            SandboxPrimitives.Box("Power switch plate", machine.transform, new Vector3(-0.52f, 0.85f, -0.68f), new Vector3(0.26f, 0.45f, 0.055f), shapes.Dark, false);
+            var powerSwitch = SandboxPrimitives.Empty("Power switch pivot", machine.transform, new Vector3(-0.52f, 0.8f, -0.75f));
+            SandboxPrimitives.Box("Power switch arm", powerSwitch.transform, new Vector3(0, 0.12f, 0), new Vector3(0.035f, 0.24f, 0.035f), shapes.Steel, false);
+            SandboxPrimitives.Shape(PrimitiveType.Sphere, "Power switch grip", powerSwitch.transform, new Vector3(0, 0.26f, 0), Vector3.one * 0.1f, shapes.Yellow, false);
+            machine.AddComponent<MachineFeedback>().Initialize(commands, id, face.GetComponent<Renderer>(), light, rotor.transform, gauge.transform, sparks, powerSwitch.transform);
         }
 
         private void BuildReactor()

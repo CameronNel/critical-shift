@@ -14,7 +14,8 @@ namespace CriticalShift.FacilityPhysics
         private bool brake;
         public float MaximumSpeed { get; set; } = 3.5f;
         public float SafeCargoMass { get; set; } = 80f;
-        public float Steering => steering;
+        public bool HasDriveAuthority => isActiveAndEnabled && body != null && !body.isKinematic && maySimulate != null && maySimulate();
+        public float Steering => HasDriveAuthority ? steering : 0;
         public float CargoMass => readCargoMass == null ? 0 : Mathf.Max(0, readCargoMass());
         public bool Overloaded => CargoMass > SafeCargoMass;
         public float Speed => body == null ? 0 : Vector3.ProjectOnPlane(body.linearVelocity, Vector3.up).magnitude;
@@ -37,7 +38,7 @@ namespace CriticalShift.FacilityPhysics
 
         private void FixedUpdate()
         {
-            if (body == null || maySimulate == null || !maySimulate() || body.isKinematic) return;
+            if (!HasDriveAuthority) return;
             if (MaximumSpeed <= 0 || SafeCargoMass <= 0 || float.IsNaN(MaximumSpeed) || float.IsInfinity(MaximumSpeed) ||
                 float.IsNaN(SafeCargoMass) || float.IsInfinity(SafeCargoMass))
                 throw new InvalidOperationException("Cart speed and load budgets must be positive.");

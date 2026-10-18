@@ -33,10 +33,11 @@ namespace CriticalShift.FacilityPhysics
             previousPosition = transform.position;
             if (travel.sqrMagnitude < 9)
                 angle = Mathf.Repeat(angle + Vector3.Dot(travel, transform.forward) / radius * Mathf.Rad2Deg, 360);
+            float commandedSteering = motor.Steering;
             for (int i = 0; i < pivots.Length; i++)
             {
                 if (pivots[i] == null) continue;
-                Quaternion steering = Quaternion.AngleAxis(i < 2 ? motor.Steering * 22 : 0, Vector3.up);
+                Quaternion steering = Quaternion.AngleAxis(i < 2 ? commandedSteering * 22 : 0, Vector3.up);
                 pivots[i].localRotation = rest[i] * steering * Quaternion.AngleAxis(angle, Vector3.right);
             }
         }

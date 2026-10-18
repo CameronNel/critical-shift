@@ -123,6 +123,7 @@ namespace CriticalShift.Sandbox.Tests
             for (int i = 0; i < 20; i++) yield return new WaitForFixedUpdate();
             Assert.That(cart.position.z, Is.GreaterThan(initial.z + 0.05f));
             host.DropHeld(); Assert.That(host.IsHandleHeld(Cart), Is.False);
+            motor.SetDrive(1, 1, false); Assert.That(motor.HasDriveAuthority, Is.False); Assert.That(motor.Steering, Is.Zero);
         }
     }
 }
