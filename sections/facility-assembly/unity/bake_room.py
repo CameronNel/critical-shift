@@ -155,13 +155,10 @@ def leaf_metal(n):
 # by alpha); mask.B marks texels the bake covered. A plain opaque Principled bakes exactly as before (o = r = 1).
 GLASS_ALPHA = 0.1      # clear glass in URP: 10 % diffuse with reflections kept whole (Preserve Specular); 25 % read as frosted (dock, 2026-10-18)
 def glass_like(leaves):
-    """Transmission glass with no cut-out transparency: URP's Preserve Specular blend (reflections not faded by alpha), emission not divided by alpha."""
-    real = [n for n in leaves if n is not None]
-    clear = any(n.type in ('BSDF_GLASS', 'BSDF_REFRACTION') or (n.type == 'BSDF_PRINCIPLED' and (n.inputs['Transmission Weight'].is_linked or
-                n.inputs['Transmission Weight'].default_value > 0)) for n in real)
-    cut = any(n.type in ('BSDF_TRANSPARENT', 'BSDF_RAY_PORTAL') or (n.type == 'BSDF_PRINCIPLED' and (n.inputs['Alpha'].is_linked or n.inputs['Alpha'].default_value < 1))
-              for n in real)
-    return clear and not cut
+    """Transmission glass: URP's Preserve Specular blend (reflections not faded by alpha), emission not divided by alpha. A Transparent shader mixed in
+    does not change that: it is how Cycles glass is kept from casting shadows (the front end's 'glass': Glass and Transparent by Light Path)."""
+    return any(n is not None and (n.type in ('BSDF_GLASS', 'BSDF_REFRACTION') or (n.type == 'BSDF_PRINCIPLED' and (n.inputs['Transmission Weight'].is_linked or
+               n.inputs['Transmission Weight'].default_value > 0))) for n in leaves)
 def _src(sock):
     return sock.links[0].from_socket if sock.is_linked else (list(sock.default_value)[:3] if hasattr(sock.default_value, '__len__') else float(sock.default_value))
 def _set(nt, v, dst):
@@ -546,14 +543,29 @@ if STAGE in ('prep', 'all'):
             bmesh.update_edit_mesh(o.data)
         area[m.name] = tot
         if tot <= 0: plan[m.name]['bake'] = False; continue
-        bpy.ops.uv.smart_project(angle_limit=math.radians(66), island_margin=0.003, area_weight=0.0, correct_aspect=True, scale_to_bounds=False)
+        # correct_aspect off: the atlas is square. On, it stretched islands to the aspect of the material's image texture: the front end's signs
+        # (1024 x 192, 2700 x 246 images) became 0.001-wide slivers and baked black (rehearsal, 2026-10-18)
+        bpy.ops.uv.smart_project(angle_limit=math.radians(66), island_margin=0.003, area_weight=0.0, correct_aspect=False, scale_to_bounds=False)
         bpy.ops.uv.pack_islands(rotate=True, margin_method='FRACTION', margin=0.002)                 # smart project leaves up to 40 % of the square empty
     bpy.ops.object.mode_set(mode='OBJECT')
     for n, p in plan.items():
         if p['bake']:
             s = 2 ** math.ceil(math.log2(max(1.0, math.sqrt(area[n]) * DENSITY))); p['size'] = int(min(MAXSZ, max(256, s)))
             p['area_m2'] = round(area[n], 2); p['px_per_m'] = round(p['size'] * 0.75 / math.sqrt(area[n]), 1)      # 0.75: typical packing efficiency
-    step('unwrapped', atlases={n: p.get('size') for n, p in plan.items() if p['bake']})
+    # every baked material must fill a fair part of its atlas: a collapsed unwrap bakes black or a smear and nothing else would notice
+    cover = {n: 0.0 for n, p in plan.items() if p['bake']}
+    for o in objs:
+        me = o.data; uvb = me.uv_layers['UVBake']; uv = np.empty(len(me.loops) * 2, np.float64); uvb.data.foreach_get('uv', uv); uv = uv.reshape(-1, 2)
+        names = [s_.material.name if s_.material else None for s_ in o.material_slots]
+        for poly in me.polygons:
+            n_ = names[poly.material_index] if poly.material_index < len(names) else None
+            if n_ not in cover: continue
+            c = uv[poly.loop_start:poly.loop_start + poly.loop_total]
+            cover[n_] += 0.5 * abs(np.dot(c[:, 0], np.roll(c[:, 1], -1)) - np.dot(c[:, 1], np.roll(c[:, 0], -1)))
+    thin = sorted('%s (%.4f)' % (n, c) for n, c in cover.items() if c < 0.05)
+    if thin: raise SystemExit('unwrap: %d materials cover less than 5 %% of their atlas: %s' % (len(thin), thin[:20]))
+    for n, c in cover.items(): plan[n]['uv_coverage'] = round(c, 3)
+    step('unwrapped', atlases={n: p.get('size') for n, p in plan.items() if p['bake']}, lowest_uv_coverage=sorted((round(c, 3), n) for n, c in cover.items())[:3])
 
 
     for m in mats: m.use_fake_user = True
