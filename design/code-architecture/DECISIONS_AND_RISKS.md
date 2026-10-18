@@ -169,6 +169,63 @@ current fixture epoch, publishes only a new file under its `runtime/out` tree,
 and has a finite rendering/write deadline. Actual native resolution, capture
 and pixel inspection remain required; declarations alone are not evidence.
 
+### D-09 scoped physics-observation criterion, 18 October 2026
+
+The scratch observer's original **25 rad/s** angular guard was an authored
+debug-trial criterion, not a numerical GAME_SPEC or PHYS-02 requirement. The
+`c37905f6` full native suite correctly remains **127/129 Passed, two Failed**
+under that criterion. Three completed comparisons in the retained initialized
+project did not establish a solver or origin correction:
+
+| Report under runtime/out/ | Control passed / failed | Variant passed / failed | Peak angular rad/s, control / variant |
+| --- | --- | --- | --- |
+| ragdoll-solver-comparison-01/report.json | Position 6 / velocity 1: 11 / 1 | Position 6 / velocity 10: 9 / 3 | 25.2723541 / 28.3686447 |
+| ragdoll-solver-comparison-02/report.json | Position 6 / velocity 1: 11 / 1 | Position 10 / velocity 1: 6 / 6 | 25.2000504 / 27.3606834 |
+| ragdoll-solver-comparison-03/report.json | Original roots, 6/1: 9 / 3 | Near roots, 6/1: 10 / 2 | 26.8237858 / 27.0270863 |
+
+Each report contains 24 single-case native processes over four fixed identities
+and three rounds, zero skipped/inconclusive, `CompletedWithFailures` and
+`acceptance_status=NotRun`. Original-code restoration, original-evidence hashes,
+canonical-input equality and each package pin/descriptor audit passed;
+comparison 03 also confirms the production builder was unchanged. The reports
+preserve every original failure. Sampled maxima are not continuous-time extrema
+or same-frame angular/separation correlations. Neither solver variant nor the
+temporary near roots was adopted; production position 6 / velocity 1 and original
+fixture roots remain. The [task record](../../runtime/validation/GAMEPLAY_SANDBOX.md#completed-solverorigin-comparisons-and-reviewed-diagnostic-policy-1929-utc)
+contains the exact variants, full outcomes, separation measurements and limits.
+
+After primary-author and validation-subagent source review, commit `4822787d`
+changes the observer to independent **25 m/s linear** and **312.5 J/kg specific
+rotational kinetic-energy** trial limits, retaining raw angular/peak diagnostics.
+The energy criterion is `0.5 * sum(Iprincipal * omegaPrincipal²) / mass`, with
+omega transformed by inverse(body.rotation * inertiaTensorRotation). The budget
+equals `0.5 * 25²`, the specific translational energy at 25 m/s, and does not
+bound their combined energy. It is an authored, unaccepted configuration under
+D-09; source review does not ratify a production safety budget or close that
+decision.
+
+Dynamic mass/moments and tensor rotation must be valid. Zero principal moments
+are handled as infinite inertia, matching the pinned [Unity API](https://docs.unity3d.com/6000.4/Documentation/ScriptReference/Rigidbody-inertiaTensor.html).
+Meaningful projected rotation on a zero axis fails; only the declared
+`8 * float_machine_epsilon * max(1 rad/s, |world omega|)` projection roundoff is
+admitted there. Other energy components contribute in full. Finite poses and
+velocities, containment, explicit bindings and once-only failure/teardown remain.
+The observer changes no motion, forces, masses, damping, caps, solver, projection
+or origin. This is a reviewed diagnostic-policy switch, not evidence that physical
+instability, tunnelling, far-origin behaviour or gameplay feel is corrected.
+All old Failed artifacts retain their original criterion and status; a later
+pass under this policy cannot retrospectively replace them.
+
+The supplementary matching-SDK check passed all **21 assemblies** plus static
+source checks at `runtime/out/api-urp-energy-observer/api-compile.json`, recording
+unchanged working inputs before the energy source was committed. The new native
+catalogue has **132** identities, including three actual-Rigidbody energy/frame/
+constraint cases. Full native execution, build, passive and exercise Players,
+rendered evidence, budget acceptance and independent gate review remain pending.
+The current fresh run discloses its preinitialized SDK cache; it is not evidence
+of successful cold package extraction. Detailed evidence and upstream
+`282f9dfb` / merge `de2a6de5` protected-path equality are retained in the task record.
+
 Owners below are accountable roles; individual implementation/review assignments are **unassigned** until a work package is authorized. Cameron approves scope/stack decisions; the appointed implementation lead prepares evidence and an independent reviewer assesses it. No package is selected by mentioning it in a source reference.
 
 | ID | Open decision | Due before | Required resolution / what can proceed meanwhile |
@@ -211,6 +268,7 @@ Impact describes consequence if the risk occurs. Likelihood is not quantified: n
 | R-10 Inconsistent authorities | Medium-high: historical prototype, old renderer text or generic lift overrides current decisions | Baseline/source register; contextual engine note; scoped conflict resolution | Any planning/implementation change / reviewer |
 | R-11 Overengineering | Medium-high: abstractions and process outgrow the small game | No empty feature shells; targeted PR checks; responsibility-based review | Gate 0 and every expansion / implementer-reviewer |
 | R-12 Save corruption | High: migration/replacement overwrites only good copy | Detached validation, previous-good preservation, SAVE fault cases | Before persistent release / persistence owner |
+| R-13 Diagnostic budget mistaken for repaired physics | High: a changed guard produces a pass that is presented as corrected motion or accepted safety | Declare criterion/units and D-09 budget status; retain old Failed artifacts; separate source/API/native and measured physical/visual evidence | PHYS-02/S07 / runtime lead plus independent reviewer |
 
 ## 5. Reviewer challenge pack
 

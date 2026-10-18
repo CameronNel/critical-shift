@@ -2,12 +2,15 @@
 
 **Implementation and validation in progress; see dated execution results below.**
 
-Latest completed native gameplay run: `c37905f6`, `sandbox-n92p66j2`, clean URP
-import and **127/129 passed, two failed, zero skipped**. Forearm collision angular
-speeds crossed the unchanged 25 rad/s safety guard. The new door/motor/hierarchy
-cases passed. A bounded solver comparison is in progress; build, Player and
-rendered verification are still pending. Preserve the earlier 124-case pass as
-historical evidence rather than substituting it for this candidate's result.
+Latest completed full native gameplay run: `c37905f6`, `sandbox-n92p66j2`, clean
+URP import and **127/129 passed, two failed, zero skipped** under the then-current
+25 rad/s guard. All three bounded solver/origin comparisons have now completed
+with failures. The reviewed source policy in `4822787d` instead observes
+independent **25 m/s linear speed and 312.5 J/kg specific rotational energy**,
+retaining raw angular diagnostics. This is an authored, unaccepted trial budget,
+not a physical motion fix. Its matching-SDK API/source checks passed; the new
+**132-case** native run, build, Player and rendered verification remain pending.
+All earlier failures and the historical 124-case pass retain their original status.
 
 Owner authorization: Cameron requested a substantial ten-hour development pass
 on 18 October 2026. The pass began at 10:29 UTC / 12:29 SAST and ends at
@@ -454,9 +457,11 @@ two 11-segment workers), with a hard 64-binding capacity. It checks finite poses
 and dynamic velocities, active bindings and root-relative containment, then
 reports one latched failure through the existing stop/error handler. It never
 clamps motion, teleports cargo, respawns a worker or changes material accounting.
-The sandbox region is centre (0,2,3), size (34,20,32) metres; diagnostic limits
-are 25 m/s and 25 rad/s. These are authored trial-failure bounds, not balance,
-supported performance or shipped rescue rules. The panel exposes current/peak
+The sandbox region is centre (0,2,3), size (34,20,32) metres. Its historical
+diagnostic limits were 25 m/s and 25 rad/s; the reviewed specific-energy policy
+recorded below supersedes the angular criterion on 18 October 2026. These are
+authored trial-failure bounds, not balance, supported performance or shipped
+rescue rules. The panel exposes current/peak
 dynamic counts and peak observed speed. Teardown drops all explicit references.
 Three more native cases are written and NotRun: dynamic/kinematic observation
 without motion writes; one runaway failure; and escaped held cargo stopping the
@@ -1301,3 +1306,100 @@ packages. Eight versioned builtin descriptors contain only Unity's extra
 The wrapper permits only that observed optional generated field, compares every
 remaining field with the installed vendor descriptor and retains both raw hashes.
 No native cache-seeded run has executed yet.
+
+## Completed solver/origin comparisons and reviewed diagnostic policy, 19:29 UTC
+
+The three reports below each completed **24 single-case native processes**:
+the same four declared case identities, three rounds and two variants, in the
+already initialized `sandbox-n92p66j2` workspace at baseline `c37905f6`.
+Every report is `CompletedWithFailures`, with `acceptance_status=NotRun`, zero
+skipped and zero inconclusive cases. These are separate warmed-project diagnostic
+comparisons, not fresh imports, a full suite, Player execution or performance proof.
+
+- [Comparison 01 report](../out/ragdoll-solver-comparison-01/report.json):
+  18:52:56–19:03:46 UTC; position 6 / velocity 1 versus position 6 / velocity 10.
+- [Comparison 02 report](../out/ragdoll-solver-comparison-02/report.json):
+  19:05:25–19:16:05 UTC; position 6 / velocity 1 versus position 10 / velocity 1.
+- [Comparison 03 report](../out/ragdoll-solver-comparison-03/report.json):
+  19:16:21–19:27:08 UTC; unchanged 6/1 solvers at the original versus near test roots.
+  WorkerPhysics roots were (2500,0,2500) versus (100,0,100); WorkerDrag roots were
+  (4000,0,4000) versus (150,0,150). Only the two fixture root literals changed.
+
+Counts below are exact; displayed telemetry is rounded from the report's native
+float values. The raw per-body measurements, timestamps, commands, XML and logs
+remain in each evidence directory.
+
+| Comparison | Variant | Passed / failed / skipped | Peak linear m/s | Peak angular rad/s | Maximum joint-anchor separation m |
+| --- | --- | --- | --- | --- | --- |
+| 01 | Baseline 6/1 | 11 / 1 / 0 | 6.38478756 | 25.2723541 | 0.0450823829 |
+| 01 | Velocity 6/10 | 9 / 3 / 0 | 5.54994488 | 28.3686447 | 0.0577769391 |
+| 02 | Baseline 6/1 | 11 / 1 / 0 | 6.15257978 | 25.2000504 | 0.0446592830 |
+| 02 | Position 10/1 | 6 / 6 / 0 | 4.47526169 | 27.3606834 | 0.0398721769 |
+| 03 | Far roots 6/1 | 9 / 3 / 0 | 6.34169722 | 26.8237858 | 0.0454107784 |
+| 03 | Near roots 6/1 | 10 / 2 / 0 | 6.23770666 | 27.0270863 | 0.0477398746 |
+
+All comparison failures retained a native 25 rad/s guard fault. The released/stale
+hoist case accounted for every failure except the position10 variant's three
+additional `MovingCartContactCausesOneKnockdownEpisode` failures. The separate
+angular-speed and separation maxima are not same-body/same-frame correlations;
+samples occur at the existing safety boundary, including the fault sample, and
+early faults censor the rest of that run. None of these comparisons supports
+integrating a solver increase or claiming that near origins resolve the problem.
+Production solvers remain position 6 / velocity 1; the original kilometre-origin
+fixtures remain unchanged. Physical stability and far-origin support remain
+unverified.
+
+All three reports verify `original_code_restored`, `original_evidence_unchanged`
+and `canonical_inputs_unchanged` as true. Their before-comparison and every
+post-process package pin/descriptor audit passed; comparison 03 additionally
+verifies `production_builder_unchanged=true`. The experiment finally blocks
+restore their process environment and retained source bytes. Original
+`sandbox-n92p66j2` report/XML/log hashes are recorded in each report and remain
+unchanged. No failed process or original full-suite result is relabelled Passed.
+Each comparison records its own frozen canonical fingerprint; comparison 01's
+fingerprint differs from 02/03 because canonical source advanced between runs,
+not during a comparison.
+
+The primary author and validation-tooling subagent reviewed a different diagnostic
+criterion before integration. Commit `4822787d` replaces the authored raw-spin
+failure condition with independent limits of **25 m/s** and **312.5 J/kg** specific
+rotational kinetic energy. The latter equals `0.5 * 25²`, the specific
+translational energy at 25 m/s; it is not a bound on combined translational plus
+rotational energy. It remains an authored, unaccepted fixture budget under D-09,
+not a GAME_SPEC numerical requirement or production safety limit.
+
+The observer calculates `0.5 * (Ix*wx² + Iy*wy² + Iz*wz²) / mass` in the native
+principal-inertia frame, using inverse(body.rotation * inertiaTensorRotation).
+Dynamic mass must be finite and positive; moments finite and nonnegative;
+body/tensor rotations valid. Unity's zero moments encode infinite inertia, so
+meaningful projected motion on such an axis fails. Only the explicit projection
+roundoff bound `8 * float_machine_epsilon * max(1 rad/s, |world omega|)` is allowed
+on those zero axes. Positive-axis motion contributes in full. Raw angular speed
+and peak diagnostics remain, with double magnitude/energy arithmetic; finite
+pose/velocity checks, containment and once-only owner failure/teardown remain.
+This observer writes no physical state and changes no solver, force, mass,
+damping, cap, contact, joint projection, input or fixture origin. It does not
+establish a physical motion correction, energy conservation, surface-speed
+safety, far-origin support or gameplay feel. The original 25 rad/s failures stay
+Failed under the policy that produced them.
+
+Three new real-Rigidbody guard cases distinguish small/large native inertia at
+the same 30 rad/s, a nonidentity principal frame, and legal zero/infinite inertia
+with rotational constraints. Their exact identities in the parent-owned catalogue
+bring the inventory from 129 to **132**. The supplementary SDK check at
+[`api-urp-energy-observer/api-compile.json`](../out/api-urp-energy-observer/api-compile.json)
+passed all **21 assemblies** and the static source checks, with
+`source_unchanged=true`, during 19:29:03–19:29:15 UTC. Its report records HEAD
+`de2a6de5` and the working input fingerprint
+`ffdb28c63fe1dbafb40e9f5e1e55417f4f52976dd7b341410bf3edb81cfb08de`;
+the reviewed energy changes were then committed as `4822787d`. This is API/source
+evidence, not Unity execution. The fresh 132-case native run and requested
+build/Player phases are in progress using the explicitly disclosed preinitialized
+SDK cache; no result or acceptance for them is recorded here yet.
+
+Upstream Claude commit `282f9dfb` was integrated by merge `de2a6de5` before this
+checkpoint. A read-only diff against that upstream commit is empty for
+`sections/facility-assembly/unity/` and
+`runtime/unity/Assets/CriticalShift/Content/Editor/`: this task has no authored
+changes in those protected paths. Independent gate, art and human play acceptance
+remain unassigned/unmet; contributor source review does not grant them.
