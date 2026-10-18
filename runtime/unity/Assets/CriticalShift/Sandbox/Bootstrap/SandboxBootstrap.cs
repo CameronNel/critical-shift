@@ -17,18 +17,28 @@ namespace CriticalShift.Sandbox
         private Action<Exception> fixtureDiagnostics;
         private bool resetRequested, stopping, started;
         private bool smoke, smokeErrors, smokeStopping, smokeFinished;
+        private bool exercise, exerciseFailed;
         private int smokeFrames, smokeCleanupFrames;
         private double smokeStartedAt;
         private Guid smokeEpoch;
 
         private void Awake()
         {
-            smoke = !UnityApplication.isEditor && Array.IndexOf(Environment.GetCommandLineArgs(), "--cs-sandbox-smoke") >= 0;
+            string[] args = Environment.GetCommandLineArgs();
+            smoke = !UnityApplication.isEditor && Array.IndexOf(args, "--cs-sandbox-smoke") >= 0;
+            int exerciseAt = Array.IndexOf(args, "--cs-sandbox-exercise");
+            exercise = !UnityApplication.isEditor && exerciseAt >= 0;
+            if (exercise && (!smoke || Array.LastIndexOf(args, "--cs-sandbox-exercise") != exerciseAt))
+            {
+                FailExercise("Pass one --cs-sandbox-exercise together with --cs-sandbox-smoke.");
+                smokeFinished = true; enabled = false; UnityApplication.Quit(22); return;
+            }
             if (!smoke) return;
             UnityApplication.logMessageReceived += ObserveSmokeLog;
             UnityApplication.runInBackground = true;
             if (!Debug.isDebugBuild)
             {
+                FailExercise("Player exercise requires the explicit development Player build.");
                 smokeErrors = true; Debug.LogError("Sandbox smoke requires the explicit development Player build.");
                 smokeFinished = true; enabled = false; UnityApplication.Quit(20);
             }
@@ -53,10 +63,12 @@ namespace CriticalShift.Sandbox
                 {
                     int meshes = fixture.PreparePlayerSmoke(); smokeEpoch = fixture.Epoch; smokeStartedAt = Time.realtimeSinceStartupAsDouble;
                     Debug.Log($"CS_SANDBOX_PLAYER_READY unity={UnityApplication.unityVersion} build={UnityApplication.buildGUID} epoch={smokeEpoch:N} bindings={fixture.PhysicalBindingCount} bodies={fixture.PhysicsObservationCount} meshes={meshes}");
+                    if (exercise) fixture.PreparePlayerExercise();
                 }
             }
             catch (Exception exception)
             {
+                FailExercise(exception.Message);
                 try { StopFixture(); }
                 catch (Exception cleanup) { Debug.LogException(cleanup, this); }
                 Debug.LogException(exception, this); enabled = false;
@@ -117,19 +129,22 @@ namespace CriticalShift.Sandbox
             try
             {
                 if (smokeErrors) { BeginSmokeStop(); return; }
-                fixture.ObservePlayerSmoke(); smokeFrames++;
-                if (smokeFrames >= 120 && Time.realtimeSinceStartupAsDouble - smokeStartedAt >= 2)
+                if (exercise) fixture.ObservePlayerExercise(); else fixture.ObservePlayerSmoke();
+                smokeFrames++;
+                if (smokeFrames >= 120 && Time.realtimeSinceStartupAsDouble - smokeStartedAt >= 2 &&
+                    (!exercise || fixture.PlayerExerciseCompleted))
                 {
                     fixture.ObservePlayerSmoke(requirePhysicalSensors: true);
                     if (playerCapture == null || !playerCapture.AwaitingCompletion) BeginSmokeStop();
                 }
             }
-            catch (Exception exception) { smokeErrors = true; Debug.LogException(exception, this); BeginSmokeStop(); }
+            catch (Exception exception) { smokeErrors = true; FailExercise(exception.Message); Debug.LogException(exception, this); BeginSmokeStop(); }
         }
 
         private void BeginSmokeStop()
         {
             if (smokeStopping) return;
+            if (exercise && (fixture == null || !fixture.PlayerExerciseCompleted)) FailExercise("Smoke stopped before the functional exercise completed.");
             smokeStopping = true; stopping = true; smokeCleanupFrames = 0;
             try { StopFixture(); }
             catch (Exception exception) { smokeErrors = true; Debug.LogException(exception, this); }
@@ -137,6 +152,12 @@ namespace CriticalShift.Sandbox
 
         private void Update()
         {
+            // Real-time expiry must still run if no fixed physics steps progress.
+            if (exercise && !smokeStopping && !smokeFinished && fixture != null)
+            {
+                try { fixture.CheckPlayerExerciseDeadline(); }
+                catch (Exception exception) { smokeErrors = true; FailExercise(exception.Message); Debug.LogException(exception, this); BeginSmokeStop(); }
+            }
             if (!smokeStopping || smokeFinished || ++smokeCleanupFrames < 2) return;
             // Wait across deferred destruction so late teardown errors cannot precede a false success marker.
             var stopped = LastStoppedWorld;
@@ -153,6 +174,15 @@ namespace CriticalShift.Sandbox
         private void ObserveSmokeLog(string message, string stack, LogType type)
         { if (type == LogType.Error || type == LogType.Exception || type == LogType.Assert) smokeErrors = true; }
 
+        private void FailExercise(string reason)
+        {
+            if (!exercise || exerciseFailed) return;
+            exerciseFailed = true; smokeErrors = true;
+            reason = reason.Replace('\r', ' ').Replace('\n', ' ').Replace("\\", "\\\\").Replace("\"", "\\\"");
+            Debug.LogError("CS_SANDBOX_EXERCISE_FAILED build=" + UnityApplication.buildGUID + " epoch=" + smokeEpoch.ToString("N") +
+                " stage=" + (fixture == null ? "Setup" : fixture.PlayerExerciseStage) + " frames=" + smokeFrames + " reason=\"" + reason + "\"");
+        }
+
         private void StopFixture()
         {
             if (fixture == null) return;
@@ -167,10 +197,15 @@ namespace CriticalShift.Sandbox
 
         // Editor Stop and Player quit notify this owner before hierarchy teardown.
         // Close the world before Unity disables required child adapters in its own order.
-        private void OnApplicationQuit() { stopping = true; StopFixture(); }
+        private void OnApplicationQuit()
+        {
+            if (exercise && !smokeFinished) FailExercise("Player quit before its functional exercise and clean teardown completed.");
+            stopping = true; StopFixture();
+        }
 
         private void OnDisable()
         {
+            if (exercise && !smokeFinished) FailExercise("Exercise bootstrap was disabled before clean teardown.");
             stopping = true;
             try { StopFixture(); }
             finally

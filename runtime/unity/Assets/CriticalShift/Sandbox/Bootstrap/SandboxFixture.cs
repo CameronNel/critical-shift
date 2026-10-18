@@ -28,6 +28,9 @@ namespace CriticalShift.Sandbox
         private ConveyorDrive belt;
         private PhysicsSafetyMonitor safety;
         private SandboxHud hud;
+        private Rigidbody playerExerciseBody;
+        private Transform playerExerciseTarget;
+        private SandboxPlayerExercise playerExercise;
         private bool disposed;
         private readonly Guid actor = Id(1), connection = Id(2), reactor = Id(500), cartId = Id(600);
         private readonly Guid patient = Id(3), patientConnection = Id(4), patientBody = Id(650);
@@ -116,6 +119,7 @@ namespace CriticalShift.Sandbox
             camera.clearFlags = CameraClearFlags.SolidColor; camera.backgroundColor = new Color(0.12f, 0.17f, 0.21f);
             eyes.tag = "MainCamera";
             var carry = SandboxPrimitives.Empty("Current-claim carry target", eyes.transform, new Vector3(0, -0.15f, 1.75f));
+            playerExerciseTarget = carry.transform;
             walker = player.AddComponent<LocalWorkerMotor>();
             walker.Initialize(eyes.transform, () => commands.GetWorker(actor), () => world.View.Phase == WorldPhase.Running,
                 host.ReportExternalFailure, host.CarriedPhysicalMass, host.CurrentGripStand, host.IsBodyFree);
@@ -181,6 +185,7 @@ namespace CriticalShift.Sandbox
                 var body = crate.AddComponent<Rigidbody>(); body.mass = units * 0.75f;
                 body.interpolation = RigidbodyInterpolation.Interpolate; body.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
                 body.maxAngularVelocity = 10;
+                if (i == 2) playerExerciseBody = body;
                 host.BindBody(containers[i], body, 0.75f); access.BindTarget(containers[i], crate.transform);
                 safety.Bind(body, "Material container " + (i + 1));
                 if (i == 0)
@@ -418,10 +423,38 @@ namespace CriticalShift.Sandbox
         }
 
         internal void ObservePlayerSmoke(bool requirePhysicalSensors = false)
+            => ObservePlayerSmokeState(requirePhysicalSensors, false);
+
+        internal void PreparePlayerExercise()
+        {
+            if (playerExercise != null || disposed) throw new InvalidOperationException("Prepare the explicit Player exercise once in its live fixture.");
+            playerExercise = new SandboxPlayerExercise(world, commands, host, access, actor, containers[2], containers[6],
+                playerExerciseBody, playerExerciseTarget);
+        }
+
+        internal bool PlayerExerciseCompleted => playerExercise != null && playerExercise.Completed;
+        internal string PlayerExerciseStage => playerExercise == null ? "Setup" : playerExercise.Stage;
+
+        internal void CheckPlayerExerciseDeadline() => playerExercise?.CheckDeadline();
+
+        internal void ObservePlayerExercise()
+        {
+            if (playerExercise == null) throw new InvalidOperationException("The explicit Player exercise has not been prepared.");
+            ObservePlayerSmokeState(false, playerExercise.Holding);
+            playerExercise.Step();
+        }
+
+        private void ObservePlayerSmokeState(bool requirePhysicalSensors, bool exerciseHolding)
         {
             safety.Sample();
             var view = world.View;
-            if (disposed || view.Phase != WorldPhase.Running || view.ActiveClaimCount != 0 || view.ConnectedPlayerCount != 2 ||
+            // Only this opt-in driver's exact current body/actor claim may replace the ordinary zero-claim baseline.
+            var exercisedClaim = exerciseHolding ? world.GetObject(containers[2]) : null;
+            if (exerciseHolding && (playerExercise == null || !playerExercise.Holding || exercisedClaim == null ||
+                exercisedClaim.Epoch != Epoch || exercisedClaim.EntityId != containers[2] || exercisedClaim.HolderId != actor ||
+                exercisedClaim.IsRetired || exercisedClaim.SlotId.HasValue))
+                throw new InvalidOperationException("The opt-in exercise lost its sole expected current-world portable claim.");
+            if (disposed || view.Phase != WorldPhase.Running || view.ActiveClaimCount != (exerciseHolding ? 1 : 0) || view.ConnectedPlayerCount != 2 ||
                 view.RegisteredObjectCount != 10 || PhysicalBindingCount != 10 || PhysicsObservationCount != 31 || safety.FaultLatched ||
                 safety.DynamicBodyCount != 20 || world.GetWorker(actor)?.Pose != WorkerPose.Upright ||
                 world.GetWorker(patient)?.Pose != WorkerPose.Down || world.Reactor.View?.Mode != ReactorMode.Empty)
@@ -447,6 +480,7 @@ namespace CriticalShift.Sandbox
             if (patientState != null) patientState.Shutdown();
             if (root != null) { root.SetActive(false); UnityEngine.Object.Destroy(root); }
             access?.Clear(); recovery?.Clear(); shapes?.Dispose();
+            playerExercise = null; playerExerciseBody = null; playerExerciseTarget = null;
         }
     }
 }

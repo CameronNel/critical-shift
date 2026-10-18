@@ -161,9 +161,11 @@ generator does not install packages or alter authored map art.
 
 The existing foundation runner still tests its foundation assembly selection;
 it does not automatically claim sandbox coverage. The separate native inventory
-is `runtime/validation/sandbox-expected-tests.json`: 127 implemented cases. The
-earlier 124-case checkpoint passed; the URP continuation passed 122 and failed two
-ragdoll cases. The new full-leaf closure and two motor-fault cases are NotRun.
+is `runtime/validation/sandbox-expected-tests.json`: 129 implemented cases. The
+earlier 124-case checkpoint passed. The current URP candidate imported cleanly
+and passed 127 of 129, with two ragdoll angular-speed failures. The full-leaf
+closure, two motor-fault and two hierarchy-mutation cases passed. A separate
+controlled solver comparison is investigating settling/landing behavior.
 The latest pure suite passed 723 cases including the cause-trace assertion. Native
 fixtures are offset from possible active-scene content
 to avoid collisions with an unrelated map/scene at the origin.
@@ -184,6 +186,16 @@ bindings, at least 120 physics frames and two seconds, then empty teardown
 counters after deferred destruction. Build/Player remain pending. A green
 import/physics result does not establish a Player pass, and headless startup
 does not establish rendered playability, lighting, feel or supported performance.
+
+The Development Player also supports an explicit additional
+`--cs-sandbox-exercise` flag together with `--cs-sandbox-smoke`. It sends an
+out-of-reach grab, a reachable grab and a drop through the existing host; checks
+typed same-epoch traces and the exact lease; measures native carry/fall movement;
+and returns to the ordinary zero-claim sensor/teardown baseline. It changes no
+pose, velocity, clock or material data directly. Its bounded driver is inactive
+in the editor, normal play and ordinary passive smoke. This new flag has passed
+API compilation only; actual Player execution and its separate exercise-marker
+validator are required before claiming verification.
 
 The runner first checks source ownership, metadata and declared dependency
 boundaries. The native prepare step also compares production assemblies'

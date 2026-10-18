@@ -2,6 +2,13 @@
 
 **Implementation and validation in progress; see dated execution results below.**
 
+Latest completed native gameplay run: `c37905f6`, `sandbox-n92p66j2`, clean URP
+import and **127/129 passed, two failed, zero skipped**. Forearm collision angular
+speeds crossed the unchanged 25 rad/s safety guard. The new door/motor/hierarchy
+cases passed. A bounded solver comparison is in progress; build, Player and
+rendered verification are still pending. Preserve the earlier 124-case pass as
+historical evidence rather than substituting it for this candidate's result.
+
 Owner authorization: Cameron requested a substantial ten-hour development pass
 on 18 October 2026. The pass began at 10:29 UTC / 12:29 SAST and ends at
 20:29 UTC / 22:29 SAST that day. Continue connected implementation batches until
@@ -1220,3 +1227,77 @@ restore the prior setting in `finally`, and emit a build-GUID-linked strict-mode
 marker. This makes a missing variant visible instead of silently choosing a
 nearby one. The first rendered run is still pending and will be recorded as
 appearance/startup evidence rather than final lighting or performance acceptance.
+
+## Measured native failures and isolated comparison, 18:55 UTC
+
+`sandbox-n92p66j2` completed initialization and separate clean URP preparation.
+Its actual XML reports **127 passed, two failed, zero skipped** out of 129. The
+new full-leaf closure, saturated-support and hierarchy-mutation regressions all
+passed. `ReleasedOrStaleHoistInputCannotRaiseTheNextLeaseTarget` encountered a
+patient left-forearm angular speed of **28.2995949 rad/s** (linear 1.67764533 m/s).
+`AlertDownWorkerCrawlsWithOneMotionOwnerAndStopsDuringPause` encountered a local
+right-forearm angular speed of **26.237051 rad/s** (linear 1.775384 m/s). Both
+crossed the unchanged angular guard of 25, stopping their world. Build and
+Player were not reached. Package descriptor/pin and original-source audits passed.
+
+The first fault occurs around a released body's landing; the crawl case fails
+during its initial settling period before crawl input. These observations do not
+justify changing crawl or hoist command rules. The installed Unity documentation
+explicitly recommends increased velocity-solver iterations for ragdolls moving
+too much after collisions. The existing per-body angular cap is applied before
+the physics step and does not guarantee a post-solver cap.
+
+A separate ignored experiment retains the original native logs/XML/report and
+compares the four affected historical case identities over three predeclared
+rounds, baseline position6/velocity1 versus position6/velocity10. It temporarily
+instruments only the retained diagnostic workspace, samples native velocities
+and joint-anchor separation at the existing safety boundary (including a fault
+sample), and writes one external JSON per fixture at shutdown. It does not log
+per frame, alter guard limits, clamp observed velocities, change forces/masses,
+or enable nonphysical joint projection. Original sources and environment are
+restored afterward. These measurements are diagnostic, not full-suite or Player
+acceptance, and no result is claimed before the rounds complete.
+
+`wp01-zv0bm4w7` separately failed before compilation on another Windows EPERM
+ShaderGraph cache rename. Its failure and unchanged-source audit remain intact.
+An explicit one-off cache-seed wrapper is prepared: only the already initialized,
+matching SDK `Library/PackageCache` is copied into a fresh first-party workspace,
+with complete before/after tree hashes, exact descriptors/pins and provenance.
+The unchanged native runners still compile/import and perform their strict
+tests/build/Player/audits. This will not be described as fresh cold package
+extraction; it has not executed yet.
+
+## Completed velocity comparison and opt-in Player exercise, 19:05 UTC
+
+`runtime/out/ragdoll-solver-comparison-01/report.json` completed all 24 declared
+single-case native processes. Baseline6/1 passed **11/12** with peak worker spin
+25.2723541 rad/s and maximum sampled anchor separation 0.0450824 m. Velocity10
+passed **9/12**, with peak spin 28.3686447 rad/s and maximum sampled separation
+0.0577769 m. Those angular and separation maxima are independent observations,
+not proof that they occurred on the same joint or frame. The velocity-only
+setting is not supported as a correction and was not integrated. Original
+source/environment, prior native artifacts and canonical inputs were restored
+and verified unchanged. Guard limits remain untouched. Position10/velocity1 is
+the next separate controlled comparison.
+
+The explicit Development Player exercise is now integrated in source, with its
+own new internal driver and no new package or rule owner. With both smoke and
+exercise flags it rejects ID106 through actual spatial admission, grabs ID102
+through the real host, measures native carry, drops the exact lease and observes
+gravity-driven release before ordinary zero-claim teardown. It verifies typed
+trace identities/results and complete immutable fields for those two batches;
+all eight containers retain the ordinary existence checks. There are no direct
+pose/velocity/clock/material writes. Stage105 completion, hard limits of 180
+fixed steps/15 real seconds, failure markers and unfinished-teardown cancellation
+checks are explicit. Normal play/editor/passive smoke remain inactive for this
+driver. All **21 assemblies** passed matching-SDK API compilation at
+`runtime/out/api-urp-player-exercise/api-compile.json`; native execution of the
+new flag remains NotRun. Separate ignored validation requires every ordered
+exercise marker plus normal Player smoke and a missing-smoke rejection trial.
+
+Read-only preflight of the one-off SDK cache seed now passes all 20 selected
+packages. Eight versioned builtin descriptors contain only Unity's extra
+40-hex `_fingerprint`; the seven module descriptors are semantically unchanged.
+The wrapper permits only that observed optional generated field, compares every
+remaining field with the installed vendor descriptor and retains both raw hashes.
+No native cache-seeded run has executed yet.
