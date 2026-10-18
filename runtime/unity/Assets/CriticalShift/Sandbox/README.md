@@ -111,6 +111,9 @@ not a second material inventory. Wheel motion follows cart travel. Belt treads,
 machine spindles, cooling-valve movement, lamps, emission and batch colors are
 presentation; none changes materials, custody, reactor state or power. Process
 gauges and small preallocated spark/vent-mote pools also follow those projections.
+Loading clamps follow slot occupancy; a visual ram follows committed machine
+work and holds its stroke during a process pause or jam. Conveyor end rollers
+follow tread travel and stop with the belt. These details add no contact shapes.
 Their trajectories use process time, without consuming incident randomness,
 adding colliders or creating objects during an effect. These are debug visuals.
 The cargo sensor samples its current volume and groups eligible ragdoll segments

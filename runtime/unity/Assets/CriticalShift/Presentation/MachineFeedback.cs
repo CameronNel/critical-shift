@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using CriticalShift.Application;
 using UnityEngine;
 
@@ -14,6 +15,10 @@ namespace CriticalShift.Presentation
         private Transform rotor;
         private Transform progress;
         private Transform powerLever;
+        private Transform ram;
+        private Transform[] clamps;
+        private Vector3 ramRest;
+        private Vector3[] clampRest;
         private Quaternion leverRest;
         private Vector3 progressSize, progressLeft;
         private ProcessVisualPool sparks;
@@ -23,20 +28,34 @@ namespace CriticalShift.Presentation
         private readonly MaterialPropertyBlock properties = new MaterialPropertyBlock();
 
         public void Initialize(LocalCommandPort read, Guid machine, Renderer statusFace, Light statusLamp, Transform spindle,
-            Transform progressFill, Transform[] processSparks, Transform powerSwitch)
+            Transform progressFill, Transform[] processSparks, Transform powerSwitch, Transform processRam, Transform[] loadingClamps)
         {
-            if (queries != null || read == null || machine == Guid.Empty || statusFace == null || statusLamp == null || spindle == null || progressFill == null || powerSwitch == null)
+            if (queries != null || read == null || machine == Guid.Empty || statusFace == null || statusLamp == null || spindle == null ||
+                progressFill == null || powerSwitch == null || processRam == null || loadingClamps == null || loadingClamps.Length != 2 ||
+                loadingClamps[0] == null || loadingClamps[1] == null || loadingClamps[0] == loadingClamps[1] ||
+                loadingClamps[0] == processRam || loadingClamps[1] == processRam)
                 throw new ArgumentException("Machine feedback needs explicit query, renderer, light and spindle bindings.");
+            var moving = new HashSet<Transform> { spindle, progressFill, powerSwitch, processRam, loadingClamps[0], loadingClamps[1] };
+            if (moving.Count != 6) throw new ArgumentException("Each moving machine visual needs its own transform.");
+            foreach (var pivot in moving)
+            {
+                if (pivot.GetComponentsInChildren<Rigidbody>().Length != 0) throw new ArgumentException("Machine presentation cannot move physical bodies.");
+                foreach (var collider in pivot.GetComponentsInChildren<Collider>())
+                    if (collider.enabled) throw new ArgumentException("Moving machine visuals must be non-contacting.");
+            }
             queries = read; id = machine; face = statusFace; lamp = statusLamp; rotor = spindle; rotorRest = spindle.localRotation;
             progress = progressFill; progressSize = progress.localScale;
             powerLever = powerSwitch; leverRest = powerSwitch.localRotation;
+            ram = processRam; ramRest = ram.localPosition; clamps = (Transform[])loadingClamps.Clone();
+            clampRest = new[] { clamps[0].localPosition, clamps[1].localPosition };
             progressLeft = progress.localPosition - Vector3.right * progressSize.x * 0.5f;
             sparks = new ProcessVisualPool(processSparks, ProcessMoteStyle.Sparks);
         }
 
         private void LateUpdate()
         {
-            if (queries == null || face == null || lamp == null || rotor == null || progress == null || powerLever == null) return;
+            if (queries == null || face == null || lamp == null || rotor == null || progress == null || powerLever == null ||
+                ram == null || clamps[0] == null || clamps[1] == null) return;
             var state = queries.GetMachine(id);
             var world = queries.World;
             bool live = world.Phase == WorldPhase.Running || world.Phase == WorldPhase.Paused;
@@ -68,6 +87,15 @@ namespace CriticalShift.Presentation
             float width = progressSize.x * Mathf.Max(0.001f, DisplayedProgress);
             progress.localScale = new Vector3(width, progressSize.y, progressSize.z);
             progress.localPosition = progressLeft + Vector3.right * width * 0.5f;
+            bool loaded = live && state != null && state.ContainerId.HasValue;
+            for (int i = 0; i < clamps.Length; i++)
+            {
+                Vector3 target = clampRest[i] + Vector3.right * (loaded ? (i == 0 ? 0.18f : -0.18f) : 0);
+                clamps[i].localPosition = Vector3.MoveTowards(clamps[i].localPosition, target, 3 * Mathf.Min(Time.deltaTime, 0.05f));
+            }
+            bool cycleHeld = loaded && (state.Mode == ProductionMode.Processing || state.Mode == ProductionMode.PowerPaused || state.Mode == ProductionMode.Jammed);
+            float stroke = cycleHeld ? 0.08f * (0.5f - 0.5f * Mathf.Cos((state.WorkMilliseconds % 800) * (Mathf.PI * 2 / 800))) : 0;
+            ram.localPosition = ramRest + Vector3.down * stroke;
             if (live && state != null && state.Mode == ProductionMode.Processing && state.Powered)
                 sparks.Show(state.WorkMilliseconds * 0.001, 1, new Color(1, 0.65f, 0.12f));
             else sparks.Hide();

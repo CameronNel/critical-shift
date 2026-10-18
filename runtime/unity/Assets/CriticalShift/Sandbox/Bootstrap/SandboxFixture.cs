@@ -233,7 +233,23 @@ namespace CriticalShift.Sandbox
             var powerSwitch = SandboxPrimitives.Empty("Power switch pivot", machine.transform, new Vector3(-0.52f, 0.8f, -0.75f));
             SandboxPrimitives.Box("Power switch arm", powerSwitch.transform, new Vector3(0, 0.12f, 0), new Vector3(0.035f, 0.24f, 0.035f), shapes.Steel, false);
             SandboxPrimitives.Shape(PrimitiveType.Sphere, "Power switch grip", powerSwitch.transform, new Vector3(0, 0.26f, 0), Vector3.one * 0.1f, shapes.Yellow, false);
-            machine.AddComponent<MachineFeedback>().Initialize(commands, id, face.GetComponent<Renderer>(), light, rotor.transform, gauge.transform, sparks, powerSwitch.transform);
+            var clamps = new Transform[2];
+            for (int i = 0; i < clamps.Length; i++)
+            {
+                var clamp = SandboxPrimitives.Empty("Loading clamp " + i, machine.transform, new Vector3(i == 0 ? -0.55f : 0.55f, 1.05f, -1.1f));
+                SandboxPrimitives.Box("Loading clamp jaw", clamp.transform, Vector3.zero, new Vector3(0.12f, 0.35f, 0.65f), shapes.Dark, false);
+                clamps[i] = clamp.transform;
+                SandboxPrimitives.Box("Loading gantry upright " + i, machine.transform, new Vector3(i == 0 ? -0.6f : 0.6f, 1.25f, -1.1f),
+                    new Vector3(0.075f, 1.1f, 0.075f), shapes.Yellow, false);
+            }
+            SandboxPrimitives.Box("Loading gantry crossmember", machine.transform, new Vector3(0, 1.8f, -1.1f),
+                new Vector3(1.3f, 0.1f, 0.1f), shapes.Yellow, false);
+            var ram = SandboxPrimitives.Empty("Process ram pivot", machine.transform, new Vector3(0, 1.7f, -1.1f));
+            SandboxPrimitives.Shape(PrimitiveType.Cylinder, "Process ram shaft", ram.transform, new Vector3(0, 0.12f, 0),
+                new Vector3(0.08f, 0.16f, 0.08f), shapes.Steel, false);
+            SandboxPrimitives.Box("Process ram head", ram.transform, new Vector3(0, -0.1f, 0), new Vector3(0.7f, 0.12f, 0.7f), shapes.Dark, false);
+            machine.AddComponent<MachineFeedback>().Initialize(commands, id, face.GetComponent<Renderer>(), light, rotor.transform,
+                gauge.transform, sparks, powerSwitch.transform, ram.transform, clamps);
         }
 
         private void BuildReactor()
@@ -348,7 +364,18 @@ namespace CriticalShift.Sandbox
             for (int i = 0; i < markers.Length; i++)
                 markers[i] = SandboxPrimitives.Box("Belt tread " + i, rig.transform, new Vector3(0, 0.112f, -1.9f + i * 0.25f),
                     new Vector3(1.7f, 0.01f, 0.055f), shapes.Yellow, false).transform;
-            rig.AddComponent<ConveyorBeltMotion>().Initialize(belt, markers, 4);
+            var rollers = new Transform[2];
+            for (int i = 0; i < rollers.Length; i++)
+            {
+                var roller = SandboxPrimitives.Empty("Belt end roller pivot " + i, rig.transform, new Vector3(0, -0.05f, i == 0 ? -1.9f : 1.9f));
+                var drum = SandboxPrimitives.Shape(PrimitiveType.Cylinder, "Belt end roller drum", roller.transform, Vector3.zero,
+                    new Vector3(0.32f, 0.9f, 0.32f), shapes.Dark, false);
+                drum.transform.localRotation = Quaternion.Euler(0, 0, 90);
+                SandboxPrimitives.Box("Belt roller rotation stripe", roller.transform, new Vector3(0, 0.17f, 0),
+                    new Vector3(1.5f, 0.02f, 0.03f), shapes.Yellow, false);
+                rollers[i] = roller.transform;
+            }
+            rig.AddComponent<ConveyorBeltMotion>().Initialize(belt, markers, 4, rollers, 0.16f);
         }
 
         private static Guid Id(int value) => new Guid(value, 0, 0, new byte[8]);

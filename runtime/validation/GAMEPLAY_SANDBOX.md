@@ -450,3 +450,16 @@ when the batch revision is unchanged. Three new native cases are written and
 NotRun: conversion/yield without another commit; spent-fuel accounting; and
 paused reenable/teardown with no new visual objects. Appearance, physics proxy
 fit and rendering cost remain unvalidated and require later native/human review.
+
+## Machine and conveyor mechanical presentation source
+
+Add explicitly bound visual loading clamps and a reciprocating ram to each debug
+machine. Occupancy drives clamp position; committed work drives the ram stroke,
+which stays at its committed position during a jam or process pause. Existing
+process-feedback cases now assert that freeze and no gameplay writes; they stay
+NotRun. Add two conveyor end rollers, driven by the same bounded tread travel.
+Their angular phase is independent of the tread wrap so a full belt-length wrap
+cannot snap the rollers. All parts are non-contacting decorations; existing
+physical supports, slot checks, material ownership and machine rules remain the
+same. No extra test is added just to mirror a cosmetic tween. Native visual and
+performance review remain outstanding.

@@ -20,6 +20,7 @@ namespace CriticalShift.Sandbox.Tests
         private Light reactorLamp;
         private Transform[] sparks;
         private Transform fuelNeedle;
+        private Transform ram;
         private static Guid Id(int value) => new Guid(value, 0, 0, new byte[8]);
         private sealed class FixtureAccess : IInteractionAccessPolicy
         { public AccessDecision Evaluate(Guid actor, Guid entity, InteractionKind kind) => AccessDecision.Allowed; }
@@ -41,7 +42,10 @@ namespace CriticalShift.Sandbox.Tests
             var face = Visual("Machine face", root.transform); var rotor = Child("Spindle"); var fill = Visual("Gauge fill", root.transform);
             sparks = Markers("Spark", 8);
             machine = root.AddComponent<MachineFeedback>();
-            machine.Initialize(commands, Id(20), face.GetComponent<Renderer>(), Child("Machine lamp").gameObject.AddComponent<Light>(), rotor, fill, sparks, Child("Power switch"));
+            ram = Child("Process ram"); var clamps = new[] { Child("Left clamp"), Child("Right clamp") };
+            clamps[0].localPosition = Vector3.left * 0.55f; clamps[1].localPosition = Vector3.right * 0.55f;
+            machine.Initialize(commands, Id(20), face.GetComponent<Renderer>(), Child("Machine lamp").gameObject.AddComponent<Light>(),
+                rotor, fill, sparks, Child("Power switch"), ram, clamps);
             var shell = Visual("Reactor face", root.transform); reactorLamp = Child("Reactor lamp").gameObject.AddComponent<Light>();
             reactor = root.AddComponent<ReactorFeedback>();
             fuelNeedle = Child("Fuel needle");
@@ -83,10 +87,12 @@ namespace CriticalShift.Sandbox.Tests
         {
             StartMachine(); world.AdvanceTo(250); yield return null; yield return null;
             Assert.That(machine.DisplayedProgress, Is.EqualTo(0.25f).Within(0.001f)); Assert.That(machine.VisibleMoteCount, Is.EqualTo(8));
+            Vector3 committedRam = ram.localPosition; Assert.That(committedRam.y, Is.LessThan(-0.01f));
             commands.OperateMachine(Id(20), ProductionAction.SetPower, powered: false); world.AdvanceTo(4000);
             long revision = world.View.Revision; yield return null; yield return null;
             Assert.That(machine.DisplayedProgress, Is.EqualTo(0.25f).Within(0.001f)); Assert.That(machine.VisibleMoteCount, Is.Zero);
             Assert.That(commands.GetMachine(Id(20)).Mode, Is.EqualTo(ProductionMode.PowerPaused));
+            Assert.That(ram.localPosition, Is.EqualTo(committedRam));
             Assert.That(world.View.Revision, Is.EqualTo(revision), "Rendering must not write gameplay state.");
         }
 
@@ -94,12 +100,14 @@ namespace CriticalShift.Sandbox.Tests
         {
             StartMachine(); world.AdvanceTo(250); yield return null; yield return null;
             var positions = new Vector3[sparks.Length];
+            Vector3 pausedRam = ram.localPosition;
             for (int i = 0; i < sparks.Length; i++) positions[i] = sparks[i].localPosition;
             world.Pause(world.Epoch); world.AdvanceTo(5000);
             for (int i = 0; i < 10; i++) yield return null;
             Assert.That(machine.VisibleMoteCount, Is.EqualTo(8));
             for (int i = 0; i < sparks.Length; i++) Assert.That(sparks[i].localPosition, Is.EqualTo(positions[i]));
             Assert.That(commands.GetMachine(Id(20)).WorkMilliseconds, Is.EqualTo(250));
+            Assert.That(ram.localPosition, Is.EqualTo(pausedRam));
         }
 
         [UnityTest] public IEnumerator CoolingLossAndTripChangeVentFeedbackWithoutSpendingPower()
