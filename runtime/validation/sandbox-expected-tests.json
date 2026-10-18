@@ -1,5 +1,7 @@
 {
   "PlayMode": [
+    "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.WalkingPosePreservesAnchorsBeforeOneRagdollHandoff",
+    "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.CarryPoseFollowsTheClaimWithoutChangingMaterialOrMotionOwnership",
     "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.AlertDownWorkerCrawlsWithOneMotionOwnerAndStopsDuringPause",
     "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.UprightAndUnconsciousWorkersCannotUseTheCrawlForcePath",
     "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.ConsciousWorkerCanCrawlOutFromUnderABlockedRecoveryCeiling",

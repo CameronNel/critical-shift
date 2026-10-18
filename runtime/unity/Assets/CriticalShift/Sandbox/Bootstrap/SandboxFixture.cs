@@ -109,6 +109,7 @@ namespace CriticalShift.Sandbox
             host.BindDragTarget(actor, drag.transform);
             host.BindActorRoot(actor, player.transform);
             var rig = SandboxWorkerRigBuilder.Build(world.Epoch, actor, controller, eyes.transform, shapes, hideLocalHead: true);
+            rig.BindNormalHands(() => host.CarriedPhysicalMass() > 0 || host.CurrentGripStand().HasValue);
             var placement = new WorkerRecoveryPlacement(); placement.Bind(rig); recovery.Bind(world.Epoch, actor, placement);
             workerState = player.AddComponent<LocalWorkerStateHost>();
             workerState.Initialize(world, actor, rig, placement, host.Pump, walker.ResetAfterRecovery, host.ReportExternalFailure);

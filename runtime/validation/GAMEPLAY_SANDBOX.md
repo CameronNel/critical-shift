@@ -76,7 +76,7 @@ art acceptance.
 - Diagnostic controls, crusher/fuel/reactor fixture, lamps, valve/spindle/tread
   motion, material appearance and scratch-scene generator: written, unvalidated.
 - Nine pure command-port tests, fourteen worker-body claim tests, nine package
-  safety tests, five declared-boundary cases and 60 native sandbox
+  safety tests, five declared-boundary cases and 62 native sandbox
   tests are implemented, all **NotRun**. These are declared inventory counts,
   not discovered/executed results.
 - Direct first-person focus, context transfer/drop, power/cooling and start
@@ -330,3 +330,15 @@ from under a low ceiling before clearance-approved recovery. An existing drag
 case also checks that a held worker cannot apply crawl forces. Crawl feedback
 reports only actual physical drive admission; it is not another logical pose.
 Native/human acceptance remains NotRun.
+
+## Normal worker presentation source
+
+Add small walking/carrying poses to the existing debug body while its walking
+capsule owns motion. Four explicit two-segment chains preserve the same joint
+anchors used by ragdoll, with angles inside the authored fixture limits. The
+normal pose path never writes dynamic bodies and stops on handoff to Down.
+Root movement drives walking phase; an injected current-grip query drives the
+arm pose. This is runtime debug presentation, not a Blender/character art pass.
+Two additional native cases are written and NotRun: walking joint continuity
+through knockdown, and carrying/release poses without material or worker-state
+mutation. Native handoff, visual and performance acceptance remain NotRun.

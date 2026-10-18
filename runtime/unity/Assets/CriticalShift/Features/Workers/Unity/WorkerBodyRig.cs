@@ -25,6 +25,7 @@ namespace CriticalShift.Features.Workers.Unity
         private Collider[] colliders;
         private Vector3[] restPositions;
         private Quaternion[] restRotations;
+        private WorkerKinematicPose normalPose;
         private Vector3 eyePosition;
         private Quaternion eyeRotation, recoveryRotation;
         private Guid epoch, actor;
@@ -44,7 +45,7 @@ namespace CriticalShift.Features.Workers.Unity
         {
             get
             {
-                if (frozen || !isActiveAndEnabled || controller == null || eyes == null || pelvis == null || head == null ||
+                if (frozen || !isActiveAndEnabled || controller == null || controller.enabled == ragdoll || eyes == null || pelvis == null || head == null ||
                     dragPoint == null || dragBody == null || bodies == null) return false;
                 for (int i = 0; i < bodies.Length; i++)
                     if (bodies[i] == null || colliders[i] == null || !bodies[i].gameObject.activeInHierarchy ||
@@ -85,6 +86,18 @@ namespace CriticalShift.Features.Workers.Unity
             }
             eyePosition = eyes.localPosition; eyeRotation = eyes.localRotation; recoveryRotation = controller.transform.rotation;
             SetSimulation(false);
+            normalPose = new WorkerKinematicPose(controller.transform, bodies, restPositions, restRotations);
+        }
+
+        public void BindNormalLimb(Rigidbody upper, Rigidbody lower, bool arm, bool left)
+        {
+            if (normalPose == null || frozen) throw new InvalidOperationException("Initialize the live body rig before binding its visual limbs.");
+            normalPose.BindLimb(upper, lower, arm, left);
+        }
+        public void BindNormalHands(Func<bool> busy)
+        {
+            if (normalPose == null || frozen) throw new InvalidOperationException("Initialize the live body rig before binding its hands query.");
+            normalPose.BindHands(busy);
         }
 
         public void BindDragEntity(Guid entity)
@@ -224,13 +237,18 @@ namespace CriticalShift.Features.Workers.Unity
             }
             eyes.localPosition = eyePosition; eyes.localRotation = eyeRotation;
             ragdoll = false; controller.enabled = true; // Dynamic motion has already ended.
+            normalPose.Reset();
         }
 
-        public void UpdateCamera()
+        public void UpdatePresentation()
         {
-            if (!ragdoll || !Available || head == null) return;
-            // Keep the existing look heading; a tumbling skull must not spin the first-person camera.
-            eyes.position = head.position;
+            if (!Available) return;
+            if (ragdoll)
+            {
+                // Keep the existing look heading; a tumbling skull must not spin the first-person camera.
+                eyes.position = head.position;
+            }
+            else normalPose.Update(Time.deltaTime);
         }
 
         public void Freeze()

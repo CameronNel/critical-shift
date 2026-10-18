@@ -137,7 +137,17 @@ namespace CriticalShift.Features.Workers.Unity
             catch (Exception exception) { Fail(exception); }
         }
 
-        private void LateUpdate() { if (active && rig != null) rig.UpdateCamera(); }
+        private void LateUpdate()
+        {
+            if (!active || rig == null) return;
+            try
+            {
+                var worker = Worker;
+                if (worker == null) { Shutdown(); return; }
+                rig.Reconcile(worker, world.View.Phase); rig.UpdatePresentation();
+            }
+            catch (Exception exception) { Fail(exception); }
+        }
         private void FixedUpdate()
         {
             CrawlDriveActive = false;

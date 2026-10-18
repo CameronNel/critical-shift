@@ -42,6 +42,10 @@ namespace CriticalShift.Sandbox
             SandboxPrimitives.Box("Suit grip marker", grip.transform, Vector3.zero, new Vector3(0.18f, 0.045f, 0.04f), shapes.Dark, false);
             var rig = rigRoot.AddComponent<WorkerBodyRig>();
             rig.Initialize(epoch, actor, controller, eyes, bodies[0], bodies[2].transform, grip.transform, bodies, colliders);
+            rig.BindNormalLimb(bodies[3], bodies[4], arm: true, left: true);
+            rig.BindNormalLimb(bodies[5], bodies[6], arm: true, left: false);
+            rig.BindNormalLimb(bodies[7], bodies[8], arm: false, left: true);
+            rig.BindNormalLimb(bodies[9], bodies[10], arm: false, left: false);
             return rig;
 
             Rigidbody Segment(int index, string name, Vector3 center, float radius, float height, float mass, Material material)

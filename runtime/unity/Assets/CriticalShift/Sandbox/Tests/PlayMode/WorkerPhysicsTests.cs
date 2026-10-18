@@ -18,6 +18,7 @@ namespace CriticalShift.Sandbox.Tests
         private LocalWorldHost host;
         private LocalWorkerStateHost state;
         private WorkerBodyRig rig;
+        private LocalWorkerMotor walker;
         private CharacterController controller;
         private Rigidbody pelvis, cart;
         private double clock;
@@ -40,6 +41,7 @@ namespace CriticalShift.Sandbox.Tests
             var local = root.transform.Find("Local Gameplay Fixture/Local worker controller");
             state = local.GetComponent<LocalWorkerStateHost>();
             rig = local.GetComponentInChildren<WorkerBodyRig>(); controller = local.GetComponent<CharacterController>();
+            walker = local.GetComponent<LocalWorkerMotor>();
             pelvis = rig.transform.Find("Pelvis").GetComponent<Rigidbody>();
             cart = root.GetComponentInChildren<CartMotor>().GetComponent<Rigidbody>();
         }
@@ -57,6 +59,53 @@ namespace CriticalShift.Sandbox.Tests
             int count = 0;
             foreach (var body in rig.GetComponentsInChildren<Rigidbody>()) if (!body.isKinematic) count++;
             return count;
+        }
+
+        private void AssertJointAnchorsMeet()
+        {
+            foreach (var joint in rig.GetComponentsInChildren<CharacterJoint>())
+            {
+                var body = joint.GetComponent<Rigidbody>();
+                Vector3 own = body.position + body.rotation * joint.anchor;
+                Vector3 parent = joint.connectedBody.position + joint.connectedBody.rotation * joint.connectedAnchor;
+                Assert.That(Vector3.Distance(own, parent), Is.LessThan(0.01f), joint.name);
+            }
+        }
+
+        [UnityTest] public IEnumerator WalkingPosePreservesAnchorsBeforeOneRagdollHandoff()
+        {
+            Vector3 before = controller.transform.position; walker.SetMovement(Vector2.right);
+            for (int i = 0; i < 30; i++) yield return Step();
+            walker.SetMovement(Vector2.zero); yield return null;
+            Assert.That(controller.transform.position.x, Is.GreaterThan(before.x + 0.3f));
+            Assert.That(DynamicBodies(), Is.Zero); Assert.That(controller.enabled, Is.True);
+            AssertJointAnchorsMeet();
+            KnockDown();
+            Assert.That(controller.enabled, Is.False); Assert.That(DynamicBodies(), Is.EqualTo(11));
+            for (int i = 0; i < 20; i++) yield return Step();
+            foreach (var body in rig.CopyBodySegments())
+                Assert.That(body.linearVelocity.magnitude, Is.LessThan(20), body.name);
+            Assert.That(Worker.Pose, Is.EqualTo(WorkerPose.Down)); Assert.That(controller.enabled, Is.False);
+        }
+
+        [UnityTest] public IEnumerator CarryPoseFollowsTheClaimWithoutChangingMaterialOrMotionOwnership()
+        {
+            var arm = rig.transform.Find("Left upper arm").GetComponent<Rigidbody>();
+            Quaternion rest = arm.rotation; var batch = host.World.Production.GetBatch(Id(103));
+            long revision = Worker.Revision;
+            host.Grab(Id(103));
+            Assert.That(host.World.GetObject(Id(103)).HolderId, Is.EqualTo(Id(1)));
+            for (int i = 0; i < 35; i++) yield return Step();
+            Assert.That(Quaternion.Angle(rest, arm.rotation), Is.GreaterThan(15));
+            AssertJointAnchorsMeet();
+            Assert.That(host.World.GetObject(Id(103)).HolderId, Is.EqualTo(Id(1)));
+            Assert.That(host.World.Production.GetBatch(Id(103)).Units, Is.EqualTo(batch.Units));
+            Assert.That(Worker.Revision, Is.EqualTo(revision));
+            host.Release(Id(103));
+            for (int i = 0; i < 35; i++) yield return Step();
+            Assert.That(Quaternion.Angle(rest, arm.rotation), Is.LessThan(2));
+            Assert.That(DynamicBodies(), Is.Zero); Assert.That(controller.enabled, Is.True);
+            Assert.That(host.World.Production.GetBatch(Id(103)).Units, Is.EqualTo(12));
         }
 
         [UnityTest] public IEnumerator KnockdownDropsTheClaimBeforeRagdollTakesMotion()

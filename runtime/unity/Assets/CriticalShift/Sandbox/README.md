@@ -17,6 +17,9 @@ machines, a reactor, a cart, a conveyor, a local collision controller and a down
 test worker. The second worker is controlled locally for this fixture.
 
 - WASD: walk; right mouse drag: look; Tab: show/hide controls.
+- The debug worker's arms and legs follow actual walking displacement. A current
+  crate or cart grip blends the arm pose. These poses preserve ragdoll joint
+  anchors and stop before the same bodies become dynamic on knockdown.
 - While alert and down, WASD attempts a slow grounded crawl. The walking capsule
   stays disabled; unconscious, held, slotted or recovering workers cannot use
   this force path. H still needs a clear standing pose and the existing delay.
@@ -101,7 +104,7 @@ on the inspected baseline. No package is downloaded by the generator.
 
 The existing foundation runner still tests its foundation assembly selection;
 it does not automatically claim sandbox coverage. The separate native inventory
-is `runtime/validation/sandbox-expected-tests.json`: 60 implemented cases, all
+is `runtime/validation/sandbox-expected-tests.json`: 62 implemented cases, all
 NotRun. Nine new pure command-port cases, fourteen worker-body claim cases and
 nine source-package safety cases and five declared-assembly boundary cases
 are also NotRun. Native fixtures are offset from possible active-scene content
