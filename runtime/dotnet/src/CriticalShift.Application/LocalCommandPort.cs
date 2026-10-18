@@ -40,6 +40,7 @@ namespace CriticalShift.Application
         public ProductionSummary ProductionSummary => _world.Production.Summary;
         public ReactorView? Reactor => _world.Reactor.View;
         public PowerView? Power => _world.Reactor.PowerSummary;
+        public ShiftContractView? Contract => _world.Contracts.View;
         public SessionTraceView Trace => _world.Trace;
 
         public InteractionReply Grab(Guid entity) => Send(new InteractionCommand(_world.Epoch,

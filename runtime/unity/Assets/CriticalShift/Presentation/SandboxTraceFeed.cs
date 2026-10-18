@@ -12,7 +12,7 @@ namespace CriticalShift.Presentation
         {
             internal Entry(SessionTraceRecord record, Guid cause, string description)
             {
-                Sequence = record.Sequence; ShiftMilliseconds = record.ShiftMilliseconds; EntityId = record.EntityId;
+                Sequence = record.Sequence; ShiftMilliseconds = record.DemandChange?.ShiftMilliseconds ?? record.ShiftMilliseconds; EntityId = record.EntityId;
                 ActorId = record.ActorId; HazardId = record.HazardId;
                 Kind = record.Kind; Production = record.ProductionEvent; Reactor = record.ReactorEvent;
                 CauseId = cause; Description = description;
@@ -66,6 +66,12 @@ namespace CriticalShift.Presentation
 
         private static string Describe(SessionTraceRecord record)
         {
+            if (record.DemandChange != null)
+            {
+                var wave = record.DemandChange.Wave;
+                return "Grid window " + (wave.Met ? "met" : "missed") + " · " + wave.Label + " · " +
+                    wave.DeliveredEnergyUnits + "/" + wave.RequiredEnergyUnits + " energy";
+            }
             if (record.ProductionEvent.HasValue)
             {
                 switch (record.ProductionEvent.Value)

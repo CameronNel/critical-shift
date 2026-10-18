@@ -134,7 +134,16 @@ namespace CriticalShift.Presentation
             {
                 GUI.Label(new Rect(12, 12, Screen.width - 24, 40), "WASD move | Space hop/brake | right-drag look | middle-drag turn | wheel reach | T throw | Tab panel", wrapped);
                 GUI.Label(new Rect(12, 56, Screen.width - 24, 40), "E transfer | G drop | F power/cooling | R start/repair/resume/reset | B bypass | X shutdown | C emergency cooling | H recover", wrapped);
-                GUI.Label(new Rect(12, 100, Screen.width - 24, 80), actionStatus(), wrapped); return;
+                GUI.Label(new Rect(12, 100, Screen.width - 24, 70), actionStatus(), wrapped);
+                var contract = commands.Contract;
+                if (contract != null)
+                {
+                    var wave = contract.Current;
+                    string objective = wave == null ? contract.Title + " · " + contract.Outcome :
+                        wave.Label + " · " + wave.DeliveredEnergyUnits + "/" + wave.RequiredEnergyUnits + " energy this window";
+                    GUI.Label(new Rect(12, 174, Screen.width - 24, 70), objective, wrapped);
+                }
+                return;
             }
             bool previousEnabled = GUI.enabled;
             GUILayout.BeginArea(new Rect(12, 12, 350, Mathf.Max(300, Screen.height - 24)), GUI.skin.box);
@@ -147,6 +156,7 @@ namespace CriticalShift.Presentation
                 GUILayout.Label("E takes cart handle · WASD/arrows drive · Space brakes");
                 GUILayout.Label("Shift " + TimeSpan.FromMilliseconds(world.RemainingMilliseconds).ToString(@"mm\:ss") + " | " + world.Phase +
                     (world.Outcome == WorldOutcome.None ? "" : " · " + world.Outcome), wrapped);
+                DrawContract();
                 GUILayout.Label("Held objects: " + world.ActiveClaimCount + " | " + actionStatus(), wrapped);
                 var worker = commands.GetWorker(actor);
                 if (worker != null) GUILayout.Label("Worker " + worker.Awareness + " / " + worker.Pose);
@@ -204,6 +214,35 @@ namespace CriticalShift.Presentation
             if (GUILayout.Button("Release selected")) ReleaseRequested?.Invoke(id);
             GUILayout.EndHorizontal();
             GUI.enabled = mayRelease;
+        }
+
+        private void DrawContract()
+        {
+            var contract = commands.Contract;
+            if (contract == null) return;
+            GUILayout.Label(contract.Title, wrapped);
+            var current = contract.Current;
+            if (current != null)
+            {
+                long remaining = Math.Max(0, current.EndMilliseconds - contract.ElapsedMilliseconds);
+                GUILayout.Label(current.Label + " · " + current.DeliveredEnergyUnits + "/" + current.RequiredEnergyUnits +
+                    " energy · " + Clock(remaining) + " left", wrapped);
+                if (current.RequiredEnergyUnits == 0) GUILayout.Label("Prepare ore, fuel and cooling before the grid request begins.", wrapped);
+                var upcoming = contract.Upcoming;
+                if (upcoming != null) GUILayout.Label("Next: " + upcoming.Label + " in " +
+                    Clock(Math.Max(0, upcoming.StartMilliseconds - contract.ElapsedMilliseconds)) + " · " +
+                    upcoming.RequiredEnergyUnits + " energy in that window", wrapped);
+            }
+            else GUILayout.Label("Contract " + contract.Outcome + " · delivered " + contract.DeliveredEnergyUnits + " energy", wrapped);
+            foreach (var wave in contract.Waves)
+                if (wave.Settled) GUILayout.Label((wave.Met ? "Met: " : "Missed: ") + wave.Label + " · " +
+                    wave.DeliveredEnergyUnits + "/" + wave.RequiredEnergyUnits + " energy", wrapped);
+        }
+
+        private static string Clock(long milliseconds)
+        {
+            long seconds = milliseconds / 1000;
+            return (seconds / 60).ToString("D2") + ":" + (seconds % 60).ToString("D2");
         }
 
         private void DrawMachine()

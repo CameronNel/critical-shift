@@ -43,20 +43,28 @@ namespace CriticalShift.Features.Session.Domain
         }
 
         /// <returns>True only on the advancement that first reaches the shift deadline.</returns>
-        public bool AdvanceTo(long hostMilliseconds)
+        public bool AdvanceTo(long hostMilliseconds) => AdvanceTo(hostMilliseconds, TimelineOutcome.TimedOut);
+
+        /// <summary>Pure preview for settlement by composed owners before publishing a deadline outcome.</summary>
+        public long PreviewElapsedAt(long hostMilliseconds)
         {
             if (!IsActive) throw new InvalidOperationException("The timeline is not active.");
             ValidateTime(hostMilliseconds);
             long delta = hostMilliseconds - HostMilliseconds;
-            if (Phase == TimelinePhase.Running)
-            {
-                // Clamp before addition: a large host jump cannot overflow the shift clock.
-                ElapsedMilliseconds += Math.Min(delta, RemainingMilliseconds);
-            }
+            return Phase == TimelinePhase.Running ? ElapsedMilliseconds + Math.Min(delta, RemainingMilliseconds) : ElapsedMilliseconds;
+        }
+
+        /// <summary>The Session owner supplies an assessed deadline result before it is ever observable.</summary>
+        public bool AdvanceTo(long hostMilliseconds, TimelineOutcome deadlineOutcome)
+        {
+            if (deadlineOutcome != TimelineOutcome.TimedOut && deadlineOutcome != TimelineOutcome.Succeeded && deadlineOutcome != TimelineOutcome.Failed)
+                throw new ArgumentOutOfRangeException(nameof(deadlineOutcome));
+            long elapsed = PreviewElapsedAt(hostMilliseconds);
+            ElapsedMilliseconds = elapsed;
             HostMilliseconds = hostMilliseconds;
             if (ElapsedMilliseconds != DurationMilliseconds) return false;
             Phase = TimelinePhase.Ended;
-            Outcome = TimelineOutcome.TimedOut;
+            Outcome = deadlineOutcome;
             return true;
         }
 

@@ -49,11 +49,13 @@ namespace CriticalShift.Application
             _interaction.BindReactor(Reactor);
             Doors = new DoorOperations(this, _interaction);
             _interaction.BindDoors(Doors);
+            Contracts = new ShiftContractOperations(this);
         }
 
         public ProductionOperations Production { get; }
         public ReactorOperations Reactor { get; }
         public DoorOperations Doors { get; }
+        public ShiftContractOperations Contracts { get; }
 
         // Bounded setup transaction; public callers cannot submit arbitrary mutation delegates.
         internal void RegisterProduction(Action registration)
@@ -116,11 +118,13 @@ namespace CriticalShift.Application
             bool timeChanged = hostMilliseconds != _timeline.HostMilliseconds;
             try
             {
-                bool ended = _timeline.AdvanceTo(hostMilliseconds);
                 // Required process outcomes are evaluated up to the exact deadline BEFORE terminal teardown.
-                // Advisory notifications retain their existing discard-on-end contract.
-                var productionChanges = Production.AdvanceTo(_timeline.ElapsedMilliseconds);
-                var reactorChanges = Reactor.AdvanceTo(_timeline.ElapsedMilliseconds);
+                // Do not publish a terminal outcome before settlement: a failed owner
+                // must fault the world rather than leave a previously published timeout.
+                long elapsed = _timeline.PreviewElapsedAt(hostMilliseconds);
+                AdvanceProductionTo(elapsed, out var productionChanges, out var reactorChanges, out var demandChanges);
+                bool ended = _timeline.AdvanceTo(hostMilliseconds, elapsed == Configuration.ShiftDurationMilliseconds ?
+                    Contracts.DeadlineOutcome : TimelineOutcome.TimedOut);
                 if (reactorChanges.Count != 0)
                 {
                     _revision = next;
@@ -133,6 +137,12 @@ namespace CriticalShift.Application
                     foreach (var change in productionChanges)
                         _diagnostics.Append(View, Epoch, SessionTraceKind.Production, entity: change.Machine.Id, changed: true, production: change);
                 }
+                if (demandChanges.Count != 0)
+                {
+                    _revision = next;
+                    foreach (var change in demandChanges)
+                        _diagnostics.Append(View, Epoch, SessionTraceKind.Contract, entity: change.Wave.Id, changed: true, demand: change);
+                }
                 if (ended)
                 {
                     // End wins over advisory notifications in this batch, including overdue signals.
@@ -140,7 +150,7 @@ namespace CriticalShift.Application
                     StopOwnedResources(); _revision = next;
                     _diagnostics.Append(View, Epoch, SessionTraceKind.Ended, changed: true);
                     return new WorldAdvanceResult(View, Array.Empty<WorldTimerSignal>(), Array.Empty<ObjectClaimView>(), true,
-                        productionChanges: productionChanges, reactorChanges: reactorChanges);
+                        productionChanges: productionChanges, reactorChanges: reactorChanges, demandChanges: demandChanges);
                 }
                 var released = _interaction.AdvanceTo(hostMilliseconds);
                 var workerChanges = _workers.ExpireRecovery(_timeline.ElapsedMilliseconds);
@@ -162,7 +172,7 @@ namespace CriticalShift.Application
                         previousWorkerRevision: change.Worker.Revision - 1);
                 if (timeChanged || released.Count != 0 || due.Count != 0)
                     _diagnostics.Append(View, Epoch, SessionTraceKind.Advanced, changed: true);
-                return new WorldAdvanceResult(View, signals.AsReadOnly(), released, false, workerChanges, productionChanges, reactorChanges);
+                return new WorldAdvanceResult(View, signals.AsReadOnly(), released, false, workerChanges, productionChanges, reactorChanges, demandChanges);
             }
             catch { FailClosed(); throw; }
         }
@@ -195,6 +205,8 @@ namespace CriticalShift.Application
             RequireIdle();
             var rejection = Readiness(epoch);
             if (rejection.HasValue) return rejection.Value;
+            if (reason == WorldEndReason.Succeeded && Contracts.Configured && !Contracts.ReadyToSucceed)
+                return WorldControlStatus.ContractIncomplete;
             var outcome = reason switch
             {
                 WorldEndReason.Succeeded => TimelineOutcome.Succeeded,
@@ -365,7 +377,7 @@ namespace CriticalShift.Application
         private WorldAdvanceResult EmptyAdvance(bool ended) => new WorldAdvanceResult(View,
             Array.Empty<WorldTimerSignal>(), Array.Empty<ObjectClaimView>(), ended);
         private long NextRevision() => checked(_revision + 1);
-        private void StopOwnedResources() { Reactor.Clear(); Production.Clear(); _timers.Stop(); _interaction.Stop(); _workers.Clear(); }
+        private void StopOwnedResources() { Contracts.Close(); Reactor.Clear(); Production.Clear(); _timers.Stop(); _interaction.Stop(); _workers.Clear(); }
         private void FailClosed()
         {
             _timeline.Fault(); StopOwnedResources();

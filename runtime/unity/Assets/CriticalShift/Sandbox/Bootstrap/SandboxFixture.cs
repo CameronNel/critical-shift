@@ -61,6 +61,11 @@ namespace CriticalShift.Sandbox
                     () => world.View.Phase == WorldPhase.Running || world.View.Phase == WorldPhase.Paused, host.ReportExternalFailure);
                 host.BindFocus(() => access.PickTarget(actor), access.DisplayName);
                 BuildRoom(); BuildWorker(); BuildPatient(); BuildContainers(); BuildMachines(); BuildReactor(); BuildCart(); BuildConveyor();
+                world.Contracts.Register(new ShiftContractDefinition(Id(800), "Restore the city supply",
+                    new GridDemandWave(Id(801), "Prepare fuel and cooling", 2 * 60 * 1000, 0),
+                    new GridDemandWave(Id(802), "Morning supply", 6 * 60 * 1000, 800, 30 * 1000),
+                    new GridDemandWave(Id(803), "Industrial demand", 9 * 60 * 1000, 850, 45 * 1000),
+                    new GridDemandWave(Id(804), "Peak grid request", 12 * 60 * 1000, 1100, 60 * 1000)));
                 hud = root.AddComponent<SandboxHud>();
                 hud.Initialize(commands, actor, containers, machines, reactor, patient, () => host.FocusHint + "\n" + host.LastAction,
                     () => "Cart " + cart.Speed.ToString("F1") + " m/s · cargo " + cargo.Mass.ToString("F0") + " kg" +

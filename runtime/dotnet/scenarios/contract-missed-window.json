@@ -1,0 +1,17 @@
+{
+ "name":"contract-missed-window","seed":42,"duration":1000,"traceCapacity":128,
+ "reactor":{"id":900},
+ "contract":{"id":920,"title":"Every window matters","waves":[
+  {"id":921,"label":"First supply","end":500,"energy":21},
+  {"id":922,"label":"Peak supply","end":1000,"energy":1,"warning":200}]},
+ "production":{"machines":[],"batches":[{"container":600,"id":610,"origin":620,"cause":630,"kind":"Fuel","units":10}]},
+ "steps":[
+  {"op":"grab","entity":600,"seq":1,"revision":0,"expect":"Applied"},
+  {"op":"reactor","seq":2,"action":"Insert","reactorRevision":0,"container":600,"objectRevision":1,"lease":1,"expect":"Applied"},
+  {"op":"reactor","seq":3,"action":"SetCooling","reactorRevision":1,"cooling":true,"expect":"Applied"},
+  {"op":"reactor","seq":4,"action":"Start","reactorRevision":2,"expect":"Applied"},
+  {"op":"advance","time":5000,"expect":"Ended","assert":{"outcome":"Failed","contractComplete":true,"contractMet":false,"contractDelivered":40,"contractOutcome":"Failed","deliveredPower":40,"claims":0,"workers":0}},
+  {"op":"assert","expect":"Checked","assert":{"wave":921,"waveMet":false,"waveDelivered":20,"waveShortfall":1}},
+  {"op":"assert","expect":"Checked","assert":{"wave":922,"waveMet":true,"waveDelivered":20,"waveShortfall":0}}
+ ]
+}
