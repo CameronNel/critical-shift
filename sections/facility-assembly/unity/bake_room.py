@@ -543,6 +543,7 @@ if STAGE in ('prep', 'all'):
         for on, ids in picked.items():
             bm = bmesh.from_edit_mesh(bpy.data.objects[on].data); bm.faces.ensure_lookup_table(); uvl = bm.loops.layers.uv['UVBake']
             for i in ids:
+                if bm.faces[i].calc_area() < 1e-10: continue              # degenerate faces (decimation slivers) have nothing to unwrap
                 us = [l[uvl].uv for l in bm.faces[i].loops]; n += 1
                 if max(u.x for u in us) - min(u.x for u in us) < 1e-7 and max(u.y for u in us) - min(u.y for u in us) < 1e-7: z += 1
         return z / max(n, 1)
