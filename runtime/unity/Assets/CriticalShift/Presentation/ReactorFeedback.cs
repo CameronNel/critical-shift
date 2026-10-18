@@ -12,21 +12,29 @@ namespace CriticalShift.Presentation
         private Light beacon;
         private Transform valve;
         private Quaternion valveRest;
+        private Transform fuelNeedle, reserveNeedle;
+        private Quaternion fuelRest, reserveRest;
         private ProcessVisualPool vapour;
         public int VisibleMoteCount => vapour == null ? 0 : vapour.VisibleCount;
+        public float DisplayedFuelFraction { get; private set; }
+        public float DisplayedReserveFraction { get; private set; }
         private readonly MaterialPropertyBlock properties = new MaterialPropertyBlock();
 
-        public void Initialize(LocalCommandPort read, Renderer statusShell, Light warningBeacon, Transform coolingValve, Transform[] ventMotes)
+        public void Initialize(LocalCommandPort read, Renderer statusShell, Light warningBeacon, Transform coolingValve,
+            Transform[] ventMotes, Transform fuelGauge, Transform reserveGauge)
         {
-            if (queries != null || read == null || statusShell == null || warningBeacon == null || coolingValve == null)
+            if (queries != null || read == null || statusShell == null || warningBeacon == null || coolingValve == null ||
+                fuelGauge == null || reserveGauge == null || fuelGauge == reserveGauge || fuelGauge == coolingValve || reserveGauge == coolingValve)
                 throw new ArgumentException("Reactor feedback requires explicit bindings.");
             queries = read; shell = statusShell; beacon = warningBeacon; valve = coolingValve; valveRest = valve.localRotation;
+            fuelNeedle = fuelGauge; reserveNeedle = reserveGauge;
+            fuelRest = fuelGauge.localRotation; reserveRest = reserveGauge.localRotation;
             vapour = new ProcessVisualPool(ventMotes, ProcessMoteStyle.Vapour);
         }
 
         private void LateUpdate()
         {
-            if (queries == null || shell == null || beacon == null || valve == null) return;
+            if (queries == null || shell == null || beacon == null || valve == null || fuelNeedle == null || reserveNeedle == null) return;
             var state = queries.Reactor;
             var world = queries.World;
             bool live = world.Phase == WorldPhase.Running || world.Phase == WorldPhase.Paused;
@@ -43,6 +51,20 @@ namespace CriticalShift.Presentation
             else vapour.Hide();
             Quaternion target = valveRest * Quaternion.AngleAxis(state != null && state.Cooling ? 90 : 0, Vector3.forward);
             valve.localRotation = Quaternion.RotateTowards(valve.localRotation, target, 180 * Time.deltaTime);
+            double fuelDuration = state == null ? 0 : state.WorkMilliseconds + (double)state.RemainingFuelMilliseconds;
+            DisplayedFuelFraction = !live || state == null || fuelDuration <= 0 ? 0 :
+                Mathf.Clamp01((float)(state.RemainingFuelMilliseconds / fuelDuration));
+            var reserve = queries.Power;
+            DisplayedReserveFraction = !live || reserve == null || reserve.Capacity <= 0 ? 0 :
+                Mathf.Clamp01((float)((double)reserve.Available / reserve.Capacity));
+            SetNeedle(fuelNeedle, fuelRest, DisplayedFuelFraction);
+            SetNeedle(reserveNeedle, reserveRest, DisplayedReserveFraction);
+        }
+
+        private static void SetNeedle(Transform needle, Quaternion rest, float fraction)
+        {
+            Quaternion target = rest * Quaternion.AngleAxis(Mathf.Lerp(-120, 120, fraction), Vector3.back);
+            needle.localRotation = Quaternion.RotateTowards(needle.localRotation, target, 360 * Mathf.Min(Time.deltaTime, 0.05f));
         }
 
         private void OnDisable() { if (beacon != null) beacon.intensity = 0; vapour?.Hide(); }

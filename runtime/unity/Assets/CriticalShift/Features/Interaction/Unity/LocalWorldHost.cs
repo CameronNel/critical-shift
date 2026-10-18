@@ -200,6 +200,16 @@ namespace CriticalShift.Features.Interaction.Unity
 
         public void StartFocused() => StartFocused(false);
         public void BypassFocused() => StartFocused(true);
+        public void ShutdownFocused() => OperateFocusedReactor(ReactorAction.Shutdown);
+        public void EmergencyCoolingFocused() => OperateFocusedReactor(ReactorAction.EmergencyCooling);
+
+        private void OperateFocusedReactor(ReactorAction action)
+        {
+            if (!PrepareFocused()) return;
+            if (world.Reactor.View?.Id != focused)
+            { LastAction = "Look at the reactor before using this control"; return; }
+            OperateReactor(focused, action, Guid.Empty, false);
+        }
 
         private void StartFocused(bool bypass)
         {
@@ -214,7 +224,7 @@ namespace CriticalShift.Features.Interaction.Unity
             else if (world.Reactor.View?.Id == focused)
             {
                 if (bypass) LastAction = "Inspection bypass applies to production machines";
-                else OperateReactor(focused, ReactorAction.Start, Guid.Empty, false);
+                else OperateReactor(focused, world.Reactor.View.Mode == ReactorMode.Tripped ? ReactorAction.ResetTrip : ReactorAction.Start, Guid.Empty, false);
             }
         }
 
@@ -286,7 +296,9 @@ namespace CriticalShift.Features.Interaction.Unity
                     HeldObject() != Guid.Empty ? "Cart | E release crate onto bed" : "Cart | stand behind it and press E to take handle";
                 return;
             }
-            string controls = machine == null ? reactor ? "E transfer · F cooling · R start" : "E grab · G drop" :
+            string controls = machine == null ? reactor ?
+                (world.Reactor.View.Mode == ReactorMode.Tripped ? "F cooling · C emergency cooling · R reset trip" :
+                 "E transfer · F cooling · R start · X shut down · C emergency cooling") : "E grab · G drop" :
                 machine.Mode == ProductionMode.Jammed ? "F isolate power · R repair jam" :
                 machine.Mode == ProductionMode.PowerPaused ? "F restore power · R resume cycle" :
                 machine.Mode == ProductionMode.OutputReady ? "E eject output · F power" :

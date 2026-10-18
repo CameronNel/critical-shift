@@ -19,6 +19,7 @@ namespace CriticalShift.Sandbox.Tests
         private ReactorFeedback reactor;
         private Light reactorLamp;
         private Transform[] sparks;
+        private Transform fuelNeedle;
         private static Guid Id(int value) => new Guid(value, 0, 0, new byte[8]);
         private sealed class FixtureAccess : IInteractionAccessPolicy
         { public AccessDecision Evaluate(Guid actor, Guid entity, InteractionKind kind) => AccessDecision.Allowed; }
@@ -43,7 +44,9 @@ namespace CriticalShift.Sandbox.Tests
             machine.Initialize(commands, Id(20), face.GetComponent<Renderer>(), Child("Machine lamp").gameObject.AddComponent<Light>(), rotor, fill, sparks, Child("Power switch"));
             var shell = Visual("Reactor face", root.transform); reactorLamp = Child("Reactor lamp").gameObject.AddComponent<Light>();
             reactor = root.AddComponent<ReactorFeedback>();
-            reactor.Initialize(commands, shell.GetComponent<Renderer>(), reactorLamp, Child("Valve"), Markers("Vent mote", 6));
+            fuelNeedle = Child("Fuel needle");
+            reactor.Initialize(commands, shell.GetComponent<Renderer>(), reactorLamp, Child("Valve"), Markers("Vent mote", 6),
+                fuelNeedle, Child("Reserve needle"));
             world.Start();
         }
 
@@ -112,6 +115,25 @@ namespace CriticalShift.Sandbox.Tests
             yield return null; yield return null;
             Assert.That(commands.Reactor.Mode, Is.EqualTo(ReactorMode.Tripped)); Assert.That(reactor.VisibleMoteCount, Is.EqualTo(6));
             Assert.That(commands.Power.Available, Is.EqualTo(reserve)); Assert.That(commands.Power.Spent, Is.EqualTo(spent));
+        }
+
+        [UnityTest] public IEnumerator ReactorInstrumentsFollowCommittedFuelAndReserveAcrossPauseAndStop()
+        {
+            commands.Grab(Id(11)); commands.OperateReactor(Id(30), ReactorAction.Insert, Id(11));
+            commands.OperateReactor(Id(30), ReactorAction.SetCooling, cooling: true); commands.OperateReactor(Id(30), ReactorAction.Start);
+            world.AdvanceTo(1000); yield return null; yield return null;
+            Assert.That(reactor.DisplayedFuelFraction, Is.EqualTo(2f / 3).Within(0.001f));
+            Assert.That(reactor.DisplayedReserveFraction,
+                Is.EqualTo((float)commands.Power.Available / commands.Power.Capacity).Within(0.001f));
+            world.Pause(world.Epoch); world.AdvanceTo(5000);
+            long revision = world.View.Revision, spent = commands.Power.Spent;
+            for (int i = 0; i < 10; i++) yield return null;
+            Assert.That(reactor.DisplayedFuelFraction, Is.EqualTo(2f / 3).Within(0.001f));
+            Assert.That(Quaternion.Angle(Quaternion.identity, fuelNeedle.localRotation), Is.GreaterThan(1));
+            Assert.That(world.View.Revision, Is.EqualTo(revision)); Assert.That(commands.Power.Spent, Is.EqualTo(spent));
+            world.Stop(); yield return null; yield return null;
+            Assert.That(reactor.DisplayedFuelFraction, Is.Zero); Assert.That(reactor.DisplayedReserveFraction, Is.Zero);
+            Assert.That(reactor.VisibleMoteCount, Is.Zero);
         }
     }
 }

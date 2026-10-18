@@ -62,6 +62,9 @@ test worker. The second worker is controlled locally for this fixture.
 - The cyan crate is pre-made fuel for isolated reactor testing. Load it, open
   cooling and start. Cooling loss, reserve spending, trip/reset and fuel work
   remain the existing fictional game rules, not another simulation.
+- With the reactor focused, X shuts it down and C requests emergency cooling
+  using reserve power. R resets a tripped reactor when safe; press R again to
+  start it. The two needle gauges show remaining fuel and reserve capacity.
 - Drop free crates onto the belt or cart. Held/slotted/unknown objects are
   excluded from belt authority. A belt blockage latches until cleared and reset.
 - Process-clock pause pauses rules while real-time leases continue. It does not
@@ -104,7 +107,7 @@ on the inspected baseline. No package is downloaded by the generator.
 
 The existing foundation runner still tests its foundation assembly selection;
 it does not automatically claim sandbox coverage. The separate native inventory
-is `runtime/validation/sandbox-expected-tests.json`: 62 implemented cases, all
+is `runtime/validation/sandbox-expected-tests.json`: 65 implemented cases, all
 NotRun. Nine new pure command-port cases, fourteen worker-body claim cases and
 nine source-package safety cases and five declared-assembly boundary cases
 are also NotRun. Native fixtures are offset from possible active-scene content

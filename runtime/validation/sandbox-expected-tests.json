@@ -1,5 +1,8 @@
 {
   "PlayMode": [
+    "CriticalShift.Sandbox.Tests.LocalWorldHostTests.FocusedEmergencyCoolingSpendsOnceAndTripResetDoesNotRestartTheCore",
+    "CriticalShift.Sandbox.Tests.LocalWorldHostTests.FocusedReactorControlsRespectTargetAndProcessPause",
+    "CriticalShift.Sandbox.Tests.ProcessFeedbackTests.ReactorInstrumentsFollowCommittedFuelAndReserveAcrossPauseAndStop",
     "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.WalkingPosePreservesAnchorsBeforeOneRagdollHandoff",
     "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.CarryPoseFollowsTheClaimWithoutChangingMaterialOrMotionOwnership",
     "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.AlertDownWorkerCrawlsWithOneMotionOwnerAndStopsDuringPause",

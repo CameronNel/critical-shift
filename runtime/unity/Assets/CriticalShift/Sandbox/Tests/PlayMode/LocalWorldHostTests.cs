@@ -24,6 +24,8 @@ namespace CriticalShift.Sandbox.Tests
         private Guid Actor => Id(20);
         private Guid Machine => Id(30);
         private Guid WetBox => Id(50);
+        private Guid Reactor => Id(60);
+        private Guid Fuel => Id(70);
 
         private sealed class AllowedFixtureAccess : IInteractionAccessPolicy
         {
@@ -40,6 +42,9 @@ namespace CriticalShift.Sandbox.Tests
             world.Production.RegisterBatch(WetBox, Id(51), Id(12), Id(53), MaterialKind.Ore, 10, moisture: 850);
             world.Production.RegisterMachine(Machine, new MachineRecipe(Id(31), MaterialKind.Ore, MaterialKind.CrushedOre,
                 1000, 500, 100, 100, yieldPermille: 800));
+            world.Production.RegisterBatch(Fuel, Id(71), Id(12), Id(73), MaterialKind.Fuel, 3);
+            world.Reactor.Register(Reactor, new ReactorDefinition(Id(61), millisecondsPerFuelUnit: 1000,
+                warningMilliseconds: 200, tripMilliseconds: 400, resetMilliseconds: 100));
             port = new LocalCommandPort(world, Id(1));
             host = root.AddComponent<LocalWorldHost>(); host.Initialize(world, port, Actor, () => clock);
             host.BindFocus(() => focus, id => "Fixture target");
@@ -52,6 +57,11 @@ namespace CriticalShift.Sandbox.Tests
             var wet = GameObject.CreatePrimitive(PrimitiveType.Cube); wet.transform.SetParent(root.transform, false);
             wet.transform.localPosition = new Vector3(-3, 1, 0);
             var wetBody = wet.AddComponent<Rigidbody>(); wetBody.useGravity = false; host.BindBody(WetBox, wetBody, 0.5f);
+            var fuel = GameObject.CreatePrimitive(PrimitiveType.Cube); fuel.transform.SetParent(root.transform, false);
+            fuel.transform.localPosition = new Vector3(6, 1, 0);
+            var fuelBody = fuel.AddComponent<Rigidbody>(); fuelBody.useGravity = false; host.BindBody(Fuel, fuelBody, 0.5f);
+            var fuelSlot = new GameObject("Reactor loading slot").transform; fuelSlot.SetParent(root.transform, false);
+            fuelSlot.localPosition = new Vector3(6, 1, 2); host.BindSlot(Reactor, fuelSlot);
             host.Activate();
         }
 
@@ -219,6 +229,41 @@ namespace CriticalShift.Sandbox.Tests
             clock = 1.25; host.Pump();
             Assert.That(world.Production.GetMachine(Machine).Mode, Is.EqualTo(ProductionMode.OutputReady));
             Assert.That(world.Production.GetBatch(Box).Units, Is.EqualTo(8)); yield return null;
+        }
+
+        [UnityTest] public IEnumerator FocusedEmergencyCoolingSpendsOnceAndTripResetDoesNotRestartTheCore()
+        {
+            host.Grab(Fuel); focus = Reactor; host.TransferFocused(); host.ToggleFocusedPower(); host.StartFocused();
+            Assert.That(world.Reactor.View.Mode, Is.EqualTo(ReactorMode.Running));
+            host.ToggleFocusedPower(); clock = 0.4; host.Pump();
+            Assert.That(world.Reactor.View.Mode, Is.EqualTo(ReactorMode.Tripped));
+            host.StartFocused(); Assert.That(host.LastAction, Is.EqualTo("Unsafe"));
+            long spent = world.Reactor.PowerSummary.Spent;
+            host.EmergencyCoolingFocused();
+            Assert.That(world.Reactor.PowerSummary.Spent, Is.EqualTo(spent + 4));
+            Assert.That(world.Reactor.View.Cooling, Is.True);
+            host.ReplayLast(); Assert.That(world.Reactor.PowerSummary.Spent, Is.EqualTo(spent + 4));
+            host.StartFocused(); Assert.That(world.Reactor.View.Mode, Is.EqualTo(ReactorMode.Shutdown));
+            long work = world.Reactor.View.WorkMilliseconds;
+            host.StartFocused(); Assert.That(world.Reactor.View.Mode, Is.EqualTo(ReactorMode.Running));
+            host.ShutdownFocused(); Assert.That(world.Reactor.View.Mode, Is.EqualTo(ReactorMode.Shutdown));
+            Assert.That(world.Reactor.View.WorkMilliseconds, Is.EqualTo(work)); yield return null;
+        }
+
+        [UnityTest] public IEnumerator FocusedReactorControlsRespectTargetAndProcessPause()
+        {
+            focus = Machine; long sequence = port.LastTerminalSequence, spent = world.Reactor.PowerSummary.Spent;
+            host.EmergencyCoolingFocused(); host.ShutdownFocused();
+            Assert.That(port.LastTerminalSequence, Is.EqualTo(sequence));
+            Assert.That(world.Reactor.PowerSummary.Spent, Is.EqualTo(spent));
+            focus = Reactor; world.Pause(world.Epoch);
+            host.EmergencyCoolingFocused(); host.ShutdownFocused(); host.StartFocused();
+            Assert.That(port.LastTerminalSequence, Is.EqualTo(sequence));
+            Assert.That(world.Reactor.View.Mode, Is.EqualTo(ReactorMode.Empty));
+            world.Resume(world.Epoch); host.EmergencyCoolingFocused();
+            Assert.That(host.LastAction, Is.EqualTo("InvalidState"));
+            Assert.That(port.LastTerminalSequence, Is.EqualTo(sequence + 1));
+            Assert.That(world.Reactor.PowerSummary.Spent, Is.EqualTo(spent)); yield return null;
         }
     }
 }

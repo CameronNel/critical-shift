@@ -76,7 +76,7 @@ art acceptance.
 - Diagnostic controls, crusher/fuel/reactor fixture, lamps, valve/spindle/tread
   motion, material appearance and scratch-scene generator: written, unvalidated.
 - Nine pure command-port tests, fourteen worker-body claim tests, nine package
-  safety tests, five declared-boundary cases and 62 native sandbox
+  safety tests, five declared-boundary cases and 65 native sandbox
   tests are implemented, all **NotRun**. These are declared inventory counts,
   not discovered/executed results.
 - Direct first-person focus, context transfer/drop, power/cooling and start
@@ -342,3 +342,15 @@ arm pose. This is runtime debug presentation, not a Blender/character art pass.
 Two additional native cases are written and NotRun: walking joint continuity
 through knockdown, and carrying/release poses without material or worker-state
 mutation. Native handoff, visual and performance acceptance remain NotRun.
+
+## Reactor console source
+
+Add focused X shutdown and C emergency cooling using the existing typed reactor
+command stream. R resets a tripped core; a separate R starts it afterward. These
+controls retain reach/occlusion, current revisions, existing interlocks, costs
+and replay receipts. Add two debug needle gauges driven by remaining fuel time
+and current reserve/capacity. Their visual smoothing never advances production.
+Three additional native cases are written and NotRun: emergency cost/replay and
+trip reset without automatic startup; target/pause/empty-core exclusion; and
+instrument projections through pause and teardown. No reactor rules, fictional
+costs, renderer settings, map assets or package decisions change.

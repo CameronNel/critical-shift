@@ -67,6 +67,7 @@ namespace CriticalShift.Sandbox
                 hud.TransferFocusedRequested += host.TransferFocused; hud.DropHeldRequested += host.DropHeld;
                 hud.StartFocusedRequested += host.StartFocused; hud.ToggleFocusedPowerRequested += host.ToggleFocusedPower;
                 hud.BypassFocusedRequested += host.BypassFocused;
+                hud.ShutdownFocusedRequested += host.ShutdownFocused; hud.EmergencyCoolingFocusedRequested += host.EmergencyCoolingFocused;
                 hud.WorkerHoistRequested += host.SetWorkerHoist;
                 hud.RecoveryRequested += workerState.RequestRecovery; hud.DiagnosticKnockdownRequested += workerState.DiagnosticKnockdown;
                 hud.PatientRecoveryRequested += patientState.RequestRecovery; hud.PatientKnockdownRequested += patientState.DiagnosticKnockdown;
@@ -220,7 +221,32 @@ namespace CriticalShift.Sandbox
             for (int i = 0; i < motes.Length; i++)
                 motes[i] = SandboxPrimitives.Shape(PrimitiveType.Sphere, "Pooled vent mote " + i, vent.transform, Vector3.zero,
                     Vector3.one * 0.11f, shapes.Lamp, false).transform;
-            room.AddComponent<ReactorFeedback>().Initialize(commands, face.GetComponent<Renderer>(), light, valve.transform, motes);
+            SandboxPrimitives.Box("Reactor instrument panel", room.transform, new Vector3(0, 1.65f, -0.81f),
+                new Vector3(1.2f, 0.55f, 0.08f), shapes.Dark, false);
+            var fuelNeedle = Dial("Fuel remaining", new Vector3(-0.31f, 1.65f, -0.87f), shapes.Fuel);
+            var reserveNeedle = Dial("Reserve power", new Vector3(0.31f, 1.65f, -0.87f), shapes.Yellow);
+            room.AddComponent<ReactorFeedback>().Initialize(commands, face.GetComponent<Renderer>(), light, valve.transform, motes,
+                fuelNeedle, reserveNeedle);
+
+            Transform Dial(string name, Vector3 position, Material color)
+            {
+                var dial = SandboxPrimitives.Empty(name + " dial", room.transform, position);
+                var disc = SandboxPrimitives.Shape(PrimitiveType.Cylinder, name + " face", dial.transform, Vector3.zero,
+                    new Vector3(0.43f, 0.012f, 0.43f), shapes.Steel, false);
+                disc.transform.localRotation = Quaternion.Euler(90, 0, 0);
+                for (int i = 0; i < 9; i++)
+                {
+                    float angle = Mathf.Lerp(-120, 120, i / 8f);
+                    Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.back);
+                    var tick = SandboxPrimitives.Box(name + " tick " + i, dial.transform,
+                        rotation * new Vector3(0, 0.17f, -0.018f), new Vector3(0.015f, 0.035f, 0.012f), shapes.Dark, false);
+                    tick.transform.localRotation = rotation;
+                }
+                var pivot = SandboxPrimitives.Empty(name + " needle", dial.transform, new Vector3(0, 0, -0.035f));
+                SandboxPrimitives.Box(name + " pointer", pivot.transform, new Vector3(0, 0.07f, 0),
+                    new Vector3(0.025f, 0.17f, 0.018f), color, false);
+                return pivot.transform;
+            }
         }
 
         private void BuildCart()
