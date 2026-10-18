@@ -39,6 +39,9 @@ test worker. The second worker is controlled locally for this fixture.
   IMGUI inputs are not a production input-framework selection.
 - With a crate held over the cart, E releases it onto the bed before taking the
   handle. Cargo remains physically observed; this does not invent inventory.
+- Middle-mouse drag turns a currently held crate through its existing torque
+  controller. Top markings make its orientation visible. Rotation clears on
+  release, expiry, insertion or restart, and cannot turn a cart or worker grip.
 - Carrying slows movement using the mass of the current held body. The cart's
   load beacon turns amber for overload and flashes red when its observation
   capacity is saturated. These are physical fixture observations, not inventory.
@@ -110,7 +113,7 @@ on the inspected baseline. No package is downloaded by the generator.
 
 The existing foundation runner still tests its foundation assembly selection;
 it does not automatically claim sandbox coverage. The separate native inventory
-is `runtime/validation/sandbox-expected-tests.json`: 68 implemented cases, all
+is `runtime/validation/sandbox-expected-tests.json`: 70 implemented cases, all
 NotRun. Nine new pure command-port cases, fourteen worker-body claim cases and
 nine source-package safety cases and five declared-assembly boundary cases
 are also NotRun. Native fixtures are offset from possible active-scene content

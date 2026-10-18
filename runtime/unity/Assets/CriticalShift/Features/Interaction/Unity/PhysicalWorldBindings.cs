@@ -8,6 +8,29 @@ namespace CriticalShift.Features.Interaction.Unity
     /// <summary>World-scoped physical references and reconciliation. Logical custody always comes from WorldSession.</summary>
     internal sealed class PhysicalWorldBindings
     {
+        private sealed class CarryTarget
+        {
+            internal readonly Transform Anchor;
+            private readonly Quaternion rest;
+            private Guid entity;
+            private long lease;
+            private float yaw, pitch;
+            internal CarryTarget(Transform anchor) { Anchor = anchor; rest = anchor.localRotation; }
+            internal void Observe(ObjectClaimView claim)
+            {
+                if (claim == null || !claim.HolderId.HasValue || claim.LeaseGeneration < 1) { Reset(); return; }
+                if (entity == claim.EntityId && lease == claim.LeaseGeneration) return;
+                Reset(); entity = claim.EntityId; lease = claim.LeaseGeneration;
+            }
+            internal void Rotate(Vector2 delta)
+            {
+                yaw = Mathf.Repeat(yaw + Mathf.Clamp(delta.x, -150, 150) * 0.35f + 180, 360) - 180;
+                pitch = Mathf.Clamp(pitch - Mathf.Clamp(delta.y, -150, 150) * 0.35f, -80, 80);
+                Anchor.localRotation = rest * Quaternion.Euler(pitch, yaw, 0);
+            }
+            internal void Reset() { entity = Guid.Empty; lease = 0; yaw = pitch = 0; if (Anchor != null) Anchor.localRotation = rest; }
+        }
+
         private sealed class DragTarget
         {
             internal readonly Transform Anchor;
@@ -26,7 +49,7 @@ namespace CriticalShift.Features.Interaction.Unity
         private readonly WorldSession world;
         private readonly Dictionary<Guid, CarryBodyBinding> bodies = new Dictionary<Guid, CarryBodyBinding>();
         private readonly Dictionary<Guid, Transform> slots = new Dictionary<Guid, Transform>();
-        private readonly Dictionary<Guid, Transform> carryTargets = new Dictionary<Guid, Transform>();
+        private readonly Dictionary<Guid, CarryTarget> carryTargets = new Dictionary<Guid, CarryTarget>();
         private readonly Dictionary<Guid, Transform> actorRoots = new Dictionary<Guid, Transform>();
         private readonly Dictionary<Guid, CartGripBinding> handles = new Dictionary<Guid, CartGripBinding>();
         private readonly Dictionary<Guid, WorkerDragBinding> workers = new Dictionary<Guid, WorkerDragBinding>();
@@ -122,7 +145,19 @@ namespace CriticalShift.Features.Interaction.Unity
             if (actor == Guid.Empty || target == null || carryTargets.ContainsKey(actor))
                 throw new ArgumentException("A unique actor and explicit carry target are required.");
             if (world.GetWorker(actor) == null) throw new InvalidOperationException("Register the worker before binding its carry target.");
-            carryTargets.Add(actor, target);
+            foreach (var existing in carryTargets.Values)
+                if (existing.Anchor == target) throw new ArgumentException("Each actor needs its own carry target.");
+            carryTargets.Add(actor, new CarryTarget(target));
+        }
+
+        internal bool RotateHeld(Guid actor, Vector2 delta)
+        {
+            if (world.View.Phase != WorldPhase.Running || world.GetWorker(actor)?.CanInteract != true ||
+                !carryTargets.TryGetValue(actor, out var target) || target.Anchor == null || !target.Anchor.gameObject.activeInHierarchy)
+                return false;
+            Guid held = HeldObject(actor);
+            if (!bodies.ContainsKey(held)) return false;
+            target.Observe(world.GetObject(held)); target.Rotate(delta); return true;
         }
 
         internal bool HasCarryTarget(Guid actor) => carryTargets.ContainsKey(actor);
@@ -220,6 +255,11 @@ namespace CriticalShift.Features.Interaction.Unity
         private bool ReconcileCarryBodies(bool running, bool applyForces, float deltaSeconds)
         {
             bool dropped = false;
+            foreach (var pair in carryTargets)
+            {
+                Guid held = running ? HeldObject(pair.Key) : Guid.Empty;
+                pair.Value.Observe(bodies.ContainsKey(held) ? world.GetObject(held) : null);
+            }
             foreach (var binding in bodies.Values)
             {
                 var state = running ? world.GetObject(binding.Id) : null;
@@ -234,11 +274,11 @@ namespace CriticalShift.Features.Interaction.Unity
                 }
                 else if (state.HolderId.HasValue)
                 {
-                    if (!carryTargets.TryGetValue(state.HolderId.Value, out var target) || target == null ||
-                        !target.gameObject.activeInHierarchy || (applyForces && !binding.Follow(state, target, deltaSeconds)))
+                    if (!carryTargets.TryGetValue(state.HolderId.Value, out var target) || target.Anchor == null ||
+                        !target.Anchor.gameObject.activeInHierarchy || (applyForces && !binding.Follow(state, target.Anchor, deltaSeconds)))
                     {
                         world.ReportAttachmentFailure(world.Epoch, binding.Id, state.LeaseGeneration);
-                        binding.Release(); dropped = true;
+                        binding.Release(); target?.Reset(); dropped = true;
                     }
                 }
                 else binding.Release();
@@ -293,6 +333,7 @@ namespace CriticalShift.Features.Interaction.Unity
             foreach (var binding in bodies.Values) binding.Release();
             foreach (var worker in workers.Values) worker.Release();
             foreach (var target in dragTargets.Values) target.Reset();
+            foreach (var target in carryTargets.Values) target.Reset();
             bodies.Clear(); slots.Clear(); carryTargets.Clear(); handles.Clear(); actorRoots.Clear(); workers.Clear(); dragTargets.Clear();
         }
     }

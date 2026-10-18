@@ -68,6 +68,19 @@ namespace CriticalShift.Features.Interaction.Unity
             if (active && !stopped) bindings.SetWorkerHoist(localActor, raised);
         }
 
+        public void RotateHeld(Vector2 delta)
+        {
+            if (!active || stopped) return;
+            try
+            {
+                if (float.IsNaN(delta.x) || float.IsNaN(delta.y) || float.IsInfinity(delta.x) || float.IsInfinity(delta.y))
+                    throw new ArgumentException("Carry rotation must be finite.");
+                Pump();
+                if (bindings.RotateHeld(localActor, delta)) LastAction = "Held crate orientation adjusted";
+            }
+            catch (Exception exception) { StopAfterFailure(exception); }
+        }
+
         public void BindFocus(Func<Guid> query, Func<Guid, string> displayName)
         {
             RequireSetup();

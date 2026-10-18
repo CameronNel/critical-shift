@@ -63,6 +63,7 @@ namespace CriticalShift.Sandbox
                 hud.ResetRequested += requestReset; hud.BeltResetRequested += belt.ResetJam;
                 hud.MovementRequested += walker.SetMovement; hud.LookRequested += walker.Look;
                 hud.JumpRequested += walker.RequestJump;
+                hud.CarryRotationRequested += host.RotateHeld;
                 hud.MovementRequested += workerState.SetDownMovement;
                 hud.CartDriveRequested += cart.SetDrive;
                 hud.TransferFocusedRequested += host.TransferFocused; hud.DropHeldRequested += host.DropHeld;
@@ -154,6 +155,11 @@ namespace CriticalShift.Sandbox
                 body.interpolation = RigidbodyInterpolation.Interpolate; body.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
                 body.maxAngularVelocity = 10;
                 host.BindBody(containers[i], body, 0.75f); access.BindTarget(containers[i], crate.transform);
+                // Bind solid bounds before adding non-contacting decorative primitives.
+                SandboxPrimitives.Box("Crate orientation stripe", crate.transform, new Vector3(0, 0.51f, 0),
+                    new Vector3(0.15f, 0.025f, 0.65f), shapes.Dark, false);
+                SandboxPrimitives.Box("Crate orientation head", crate.transform, new Vector3(0, 0.51f, 0.32f),
+                    new Vector3(0.45f, 0.025f, 0.12f), shapes.Yellow, false);
                 crate.AddComponent<MaterialContainerFeedback>().Initialize(commands, containers[i], crate.GetComponent<Renderer>());
             }
         }

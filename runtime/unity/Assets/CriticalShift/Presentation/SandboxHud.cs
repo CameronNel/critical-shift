@@ -18,7 +18,7 @@ namespace CriticalShift.Presentation
         public event Action<bool> WorkerHoistRequested;
         public event Action RecoveryRequested, DiagnosticKnockdownRequested;
         public event Action PatientRecoveryRequested, PatientKnockdownRequested;
-        public event Action<Vector2> MovementRequested, LookRequested;
+        public event Action<Vector2> MovementRequested, LookRequested, CarryRotationRequested;
         public event Action JumpRequested;
         public event Action<float, float, bool> CartDriveRequested;
         private readonly HashSet<KeyCode> held = new HashSet<KeyCode>();
@@ -52,7 +52,7 @@ namespace CriticalShift.Presentation
                 TransferFocusedRequested == null || DropHeldRequested == null || StartFocusedRequested == null || ToggleFocusedPowerRequested == null ||
                 RecoveryRequested == null || DiagnosticKnockdownRequested == null || PatientRecoveryRequested == null || PatientKnockdownRequested == null ||
                 BypassFocusedRequested == null || WorkerHoistRequested == null || ShutdownFocusedRequested == null ||
-                EmergencyCoolingFocusedRequested == null || JumpRequested == null)
+                EmergencyCoolingFocusedRequested == null || JumpRequested == null || CarryRotationRequested == null)
                 throw new InvalidOperationException("Fixture controls require all explicit command and input bindings.");
             active = true;
         }
@@ -73,6 +73,8 @@ namespace CriticalShift.Presentation
         {
             if (input.type == EventType.MouseDrag && input.button == 1)
             { LookRequested?.Invoke(new Vector2(input.delta.x, -input.delta.y)); input.Use(); }
+            if (input.type == EventType.MouseDrag && input.button == 2)
+            { CarryRotationRequested?.Invoke(new Vector2(input.delta.x, -input.delta.y)); input.Use(); }
             if (input.type != EventType.KeyDown && input.type != EventType.KeyUp) return;
             if (input.keyCode == KeyCode.Tab && input.type == EventType.KeyDown)
             { visible = !visible; input.Use(); return; }
@@ -123,7 +125,7 @@ namespace CriticalShift.Presentation
             {
                 var world = commands.World;
                 GUILayout.Label("CRITICAL SHIFT | LOCAL GAMEPLAY FIXTURE");
-                GUILayout.Label("WASD walk · Space hop · right-drag look · Tab hides panel");
+                GUILayout.Label("WASD walk · Space hop · right-drag look · middle-drag turns crate · Tab hides panel");
                 GUILayout.Label("E takes cart handle · WASD/arrows drive · Space brakes");
                 GUILayout.Label("Shift " + TimeSpan.FromMilliseconds(world.RemainingMilliseconds).ToString(@"mm\:ss") + " | " + world.Phase);
                 GUILayout.Label("Held objects: " + world.ActiveClaimCount + " | " + actionStatus(), wrapped);
@@ -245,7 +247,7 @@ namespace CriticalShift.Presentation
             WorkerHoistRequested = null;
             RecoveryRequested = null; DiagnosticKnockdownRequested = null;
             PatientRecoveryRequested = null; PatientKnockdownRequested = null;
-            MovementRequested = null; LookRequested = null; CartDriveRequested = null; JumpRequested = null;
+            MovementRequested = null; LookRequested = null; CarryRotationRequested = null; CartDriveRequested = null; JumpRequested = null;
         }
     }
 }

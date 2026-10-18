@@ -1,5 +1,7 @@
 {
   "PlayMode": [
+    "CriticalShift.Sandbox.Tests.LocalWorldHostTests.RotatingHeldCrateUsesTorqueWithoutAnotherLogicalMutation",
+    "CriticalShift.Sandbox.Tests.LocalWorldHostTests.CarryRotationStopsDuringPauseAndResetsAcrossReleaseLeaseAndTeardown",
     "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.ShortHopLandsWithTheWalkingCapsuleStillOwningMotion",
     "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.HopHitsTheLowCeilingWithoutTunnellingOrRetainedUpwardDrive",
     "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.PauseCartGripAndKnockdownCannotQueueALaterWalkingHop",

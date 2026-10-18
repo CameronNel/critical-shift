@@ -76,7 +76,7 @@ art acceptance.
 - Diagnostic controls, crusher/fuel/reactor fixture, lamps, valve/spindle/tread
   motion, material appearance and scratch-scene generator: written, unvalidated.
 - Nine pure command-port tests, fourteen worker-body claim tests, nine package
-  safety tests, five declared-boundary cases and 68 native sandbox
+  safety tests, five declared-boundary cases and 70 native sandbox
   tests are implemented, all **NotRun**. These are declared inventory counts,
   not discovered/executed results.
 - Direct first-person focus, context transfer/drop, power/cooling and start
@@ -371,3 +371,17 @@ contracts for [Move](https://docs.unity3d.com/6000.4/Documentation/ScriptReferen
 [isGrounded](https://docs.unity3d.com/6000.4/Documentation/ScriptReference/CharacterController-isGrounded.html)
 and [collision flags](https://docs.unity3d.com/6000.4/Documentation/ScriptReference/CollisionFlags.html)
 were consulted; that is API research, not an executed native check.
+
+## Current-claim crate orientation source
+
+Add middle-mouse drag to adjust only the current portable body's carry target.
+The existing bounded torque path remains the body rotation writer. Input does
+not commit another custody/material operation, bypass reach or turn a worker
+drag/cart handle. Per-actor orientation resets on a different entity or lease,
+release, slot insertion, expiry, obstruction drop and teardown. Pause rejects
+rotation input while preserving the current target. Target bindings now reject
+sharing one Transform across actors. Small top markings show crate orientation;
+solid carry bounds are bound before those non-contacting decorations are added.
+Two further native cases are written and NotRun: torque/claim/material ownership,
+and pause/release/new-lease/teardown resets. Existing cart and worker drag cases
+also check rotation exclusion. No physical/visual/feel acceptance is claimed.

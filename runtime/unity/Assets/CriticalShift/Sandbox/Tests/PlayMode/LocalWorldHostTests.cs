@@ -82,6 +82,34 @@ namespace CriticalShift.Sandbox.Tests
             Assert.That(body.isKinematic, Is.False);
         }
 
+        [UnityTest] public IEnumerator RotatingHeldCrateUsesTorqueWithoutAnotherLogicalMutation()
+        {
+            host.Grab(Box); var claim = world.GetObject(Box); Quaternion before = body.rotation;
+            long sequence = port.LastTerminalSequence; host.RotateHeld(new Vector2(120, 40));
+            Assert.That(Quaternion.Angle(before, body.rotation), Is.LessThan(0.01f), "Input changes the force target, not the body pose.");
+            Assert.That(Quaternion.Angle(Quaternion.identity, target.localRotation), Is.GreaterThan(30));
+            Assert.That(port.LastTerminalSequence, Is.EqualTo(sequence));
+            for (int i = 0; i < 100; i++) yield return new WaitForFixedUpdate();
+            Assert.That(Quaternion.Angle(before, body.rotation), Is.GreaterThan(20));
+            Assert.That(world.GetObject(Box).HolderId, Is.EqualTo(Actor));
+            Assert.That(world.GetObject(Box).LeaseGeneration, Is.EqualTo(claim.LeaseGeneration));
+            Assert.That(world.Production.GetBatch(Box).Units, Is.EqualTo(10)); Assert.That(body.isKinematic, Is.False);
+        }
+
+        [UnityTest] public IEnumerator CarryRotationStopsDuringPauseAndResetsAcrossReleaseLeaseAndTeardown()
+        {
+            Quaternion rest = target.localRotation;
+            host.Grab(Box); host.RotateHeld(new Vector2(100, 100)); Quaternion paused = target.localRotation;
+            world.Pause(world.Epoch); host.RotateHeld(new Vector2(100, -100));
+            Assert.That(Quaternion.Angle(paused, target.localRotation), Is.LessThan(0.01f));
+            host.Release(Box); Assert.That(Quaternion.Angle(rest, target.localRotation), Is.LessThan(0.01f));
+            world.Resume(world.Epoch); host.Grab(WetBox);
+            Assert.That(Quaternion.Angle(rest, target.localRotation), Is.LessThan(0.01f));
+            host.RotateHeld(new Vector2(-100, 0)); Assert.That(Quaternion.Angle(rest, target.localRotation), Is.GreaterThan(20));
+            host.Shutdown(); Assert.That(Quaternion.Angle(rest, target.localRotation), Is.LessThan(0.01f));
+            Assert.That(world.View.ActiveClaimCount, Is.Zero); yield return null;
+        }
+
         [UnityTest] public IEnumerator ExpiredLeaseReleasesPhysicalControl()
         {
             host.Grab(Box); clock = 3; host.Pump();
