@@ -318,7 +318,7 @@ namespace CriticalShift.Content.Editor
                     mat.globalIlluminationFlags = MaterialGlobalIlluminationFlags.BakedEmissive;
                 }
                 // decals, glass and films: alpha is in the base map (straight alpha; colour and emission already divided by it in the bake)
-                if (e.TryGetValue("_Surface", out object texSurface) && (string)texSurface == "Transparent") MakeTransparent(mat);
+                if (e.TryGetValue("_Surface", out object texSurface) && (string)texSurface == "Transparent") MakeTransparent(mat, PreserveSpecular(e));
             }
             else
             {
@@ -336,7 +336,7 @@ namespace CriticalShift.Content.Editor
                     mat.EnableKeyword("_EMISSION");
                     mat.globalIlluminationFlags = MaterialGlobalIlluminationFlags.BakedEmissive;
                 }
-                if (transparent) MakeTransparent(mat);
+                if (transparent) MakeTransparent(mat, PreserveSpecular(e));
             }
             if (!mat.IsKeywordEnabled("_SURFACE_TYPE_TRANSPARENT")) MakeOpaque(mat);
             if (isNew) AssetDatabase.CreateAsset(mat, path); else EditorUtility.SetDirty(mat);
@@ -357,11 +357,18 @@ namespace CriticalShift.Content.Editor
             mat.SetShaderPassEnabled("ShadowCaster", true);
         }
 
-        static void MakeTransparent(Material mat)
+        static bool PreserveSpecular(Dictionary<string, object> e) => e.TryGetValue("_PreserveSpecular", out object v) && v is bool b && b;
+
+        /// <summary>URP Lit transparency as its own material inspector sets it (so a later inspector refresh changes nothing). Decals and films: plain
+        /// alpha blend. Clear glass (preserveSpecular): URP's "Preserve Specular Lighting", which fades only the diffuse by alpha (keyword
+        /// _ALPHAPREMULTIPLY_ON, source blend One), so reflections and emission stay whole, as on real glass.</summary>
+        static void MakeTransparent(Material mat, bool preserveSpecular)
         {
             mat.SetFloat("_Surface", 1f);
             mat.SetFloat("_Blend", 0f);
-            mat.SetFloat("_SrcBlend", (float)BlendMode.SrcAlpha);
+            mat.SetFloat("_BlendModePreserveSpecular", preserveSpecular ? 1f : 0f);
+            if (preserveSpecular) mat.EnableKeyword("_ALPHAPREMULTIPLY_ON"); else mat.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+            mat.SetFloat("_SrcBlend", (float)(preserveSpecular ? BlendMode.One : BlendMode.SrcAlpha));
             mat.SetFloat("_DstBlend", (float)BlendMode.OneMinusSrcAlpha);
             mat.SetFloat("_SrcBlendAlpha", (float)BlendMode.One);
             mat.SetFloat("_DstBlendAlpha", (float)BlendMode.OneMinusSrcAlpha);

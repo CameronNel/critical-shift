@@ -97,7 +97,8 @@ def non_principled(m):
     colour = first(('BSDF_GLOSSY', 'BSDF_GLASS', 'BSDF_REFRACTION', 'BSDF_DIFFUSE', 'BSDF_ANISOTROPIC'), 'Color') or [0.8, 0.8, 0.8]
     rough = first(('BSDF_GLOSSY', 'BSDF_GLASS', 'BSDF_REFRACTION', 'BSDF_ANISOTROPIC'), 'Roughness')
     e = dict(_BaseColor=[round(v, 4) for v in colour], _Metallic=0.0, _Smoothness=round(1 - (0.5 if rough is None else rough), 3), non_principled=True)
-    if any(n.type in ('BSDF_GLASS', 'BSDF_REFRACTION', 'BSDF_TRANSPARENT') for n in nodes): e.update(_Surface='Transparent', _Alpha=0.25)
+    if any(n.type in ('BSDF_GLASS', 'BSDF_REFRACTION') for n in nodes): e.update(_Surface='Transparent', _Alpha=GLASS_ALPHA, _PreserveSpecular=True)
+    elif any(n.type == 'BSDF_TRANSPARENT' for n in nodes): e.update(_Surface='Transparent', _Alpha=0.25)
     em = next((n for n in nodes if n.type == 'EMISSION'), None)
     if em is not None:
         e.update(_EmissionColor=list(em.inputs['Color'].default_value)[:3], _EmissionColor_intensity=float(em.inputs['Strength'].default_value))
@@ -147,11 +148,20 @@ def leaf_metal(n):
     return 1.0 if n.type in ('BSDF_GLOSSY', 'BSDF_ANISOTROPIC', 'BSDF_METALLIC') else 0.0
 
 # Each closure becomes an Emission shader carrying one URP channel, and the Mix and Add shaders above it are rebuilt with the same factors, so the bake
-# returns the closure-weighted sum. Every closure has an opacity o (Principled: Alpha x (1 - 0.75 Transmission), the 25 % glass of URP; glass and
-# refraction 0.25; transparent 0; the rest 1) and a reflective weight r (o for Principled and glass, 0 for transparent, emission and holdout, else 1).
+# returns the closure-weighted sum. Every closure has an opacity o (Principled: Alpha x (1 - (1 - GLASS_ALPHA) Transmission); glass and refraction
+# GLASS_ALPHA; transparent 0; the rest 1) and a reflective weight r (o for Principled and glass, 0 for transparent, emission and holdout, else 1).
 # Channels: base = r x colour, rough = r x roughness, metal = r x metallic, emit = o x emission, mask = (1 - o, r, 1). The finish divides base and
 # emission by alpha = 1 - mask.R and roughness and metallic by mask.G, which gives straight values for URP (alpha blend multiplies colour and emission
 # by alpha); mask.B marks texels the bake covered. A plain opaque Principled bakes exactly as before (o = r = 1).
+GLASS_ALPHA = 0.1      # clear glass in URP: 10 % diffuse with reflections kept whole (Preserve Specular); 25 % read as frosted (dock, 2026-10-18)
+def glass_like(leaves):
+    """Transmission glass with no cut-out transparency: URP's Preserve Specular blend (reflections not faded by alpha), emission not divided by alpha."""
+    real = [n for n in leaves if n is not None]
+    clear = any(n.type in ('BSDF_GLASS', 'BSDF_REFRACTION') or (n.type == 'BSDF_PRINCIPLED' and (n.inputs['Transmission Weight'].is_linked or
+                n.inputs['Transmission Weight'].default_value > 0)) for n in real)
+    cut = any(n.type in ('BSDF_TRANSPARENT', 'BSDF_RAY_PORTAL') or (n.type == 'BSDF_PRINCIPLED' and (n.inputs['Alpha'].is_linked or n.inputs['Alpha'].default_value < 1))
+              for n in real)
+    return clear and not cut
 def _src(sock):
     return sock.links[0].from_socket if sock.is_linked else (list(sock.default_value)[:3] if hasattr(sock.default_value, '__len__') else float(sock.default_value))
 def _set(nt, v, dst):
@@ -170,9 +180,9 @@ def _weights(nt, n, made):
     """(opacity, reflective weight) of a closure, as constants or sockets."""
     if n is None or n.type in ('EMISSION', 'HOLDOUT'): return 1.0, 0.0
     if n.type in ('BSDF_TRANSPARENT', 'BSDF_RAY_PORTAL'): return 0.0, 0.0
-    if n.type in ('BSDF_GLASS', 'BSDF_REFRACTION'): return 0.25, 0.25
+    if n.type in ('BSDF_GLASS', 'BSDF_REFRACTION'): return GLASS_ALPHA, GLASS_ALPHA
     if n.type == 'BSDF_PRINCIPLED':
-        o = _math(nt, made, 'MULTIPLY', _src(n.inputs['Alpha']), _math(nt, made, 'MULTIPLY_ADD', _src(n.inputs['Transmission Weight']), -0.75, 1.0))
+        o = _math(nt, made, 'MULTIPLY', _src(n.inputs['Alpha']), _math(nt, made, 'MULTIPLY_ADD', _src(n.inputs['Transmission Weight']), GLASS_ALPHA - 1.0, 1.0))
         return o, o
     return 1.0, 1.0
 def _leaf(nt, n, ch, made):
@@ -495,7 +505,8 @@ if STAGE in ('prep', 'all'):
         mask = bake and (len(leaves) > 1 or any(n is None or see_through(n) or n.type in ('EMISSION', 'HOLDOUT') for n in leaves))
         plan[m.name] = dict(bake=bake, route=route, closures=sorted({n.type for n in real}), mask=mask,
                             metallic_map=bake and (len(leaves) > 1 or any(n.type == 'BSDF_PRINCIPLED' and n.inputs['Metallic'].is_linked for n in real)),
-                            metal_const=leaf_metal(real[0]) if len(real) == 1 else 0.0, emission=any(emits(n) for n in leaves), principled=b is not None)
+                            metal_const=leaf_metal(real[0]) if len(real) == 1 else 0.0, emission=any(emits(n) for n in leaves), principled=b is not None,
+                            glass=glass_like(leaves))
     # view-dependent nodes (Layer Weight, Fresnel, Light Path, Camera Data) bake as seen head-on: a texture cannot hold them and URP Lit has no such
     # term. The turbine's rim glow (M_ARCH, M_MACH, M_PROPS, M_SHAFT: Emission mixed in by Layer Weight Facing) bakes to nothing. Listed, not fixed.
     def view_dep(nt, seen):
@@ -694,7 +705,9 @@ for m in mats:
             rough = np.where(ok, rough / np.maximum(refl, 1e-3), 1.0); metal = np.where(ok, metal / np.maximum(refl, 1e-3), 0.0) if (m.name, 'metal') in imgs else metal
             see = float((alpha[cov] < 0.98).mean()) if cov.any() else 0.0
             e.update(alpha_below_098_fraction=round(see, 4))
-            if see > 0.001: base[..., 3] = np.where(cov, alpha, 1.0); e.update(_Surface='Transparent', _Alpha_source='BaseMap alpha')
+            if see > 0.001:
+                base[..., 3] = np.where(cov, alpha, 1.0); e.update(_Surface='Transparent', _Alpha_source='BaseMap alpha')
+                if p.get('glass'): e['_PreserveSpecular'] = True
         else:
             alpha = None; im = imgs[(m.name, 'base')]
             base[..., :3] = px(im)[..., :3] if not im.is_float else to_srgb(px(im)[..., :3])
@@ -707,7 +720,8 @@ for m in mats:
         if (m.name, 'emit') in imgs:
             # HDR: the bake is linear and unclipped (lamps reach 45); the map holds colour / peak, sRGB-encoded, and the intensity is the linear peak
             em = lin(imgs[(m.name, 'emit')])
-            if alpha is not None: em = np.where(alpha[..., None] > 1 / 255, em / np.maximum(alpha, 1e-6)[..., None], 0.0)
+            if alpha is not None and not e.get('_PreserveSpecular'):    # alpha blend multiplies emission by alpha; Preserve Specular does not
+                em = np.where(alpha[..., None] > 1 / 255, em / np.maximum(alpha, 1e-6)[..., None], 0.0)
             peak = float(em.max())
             if peak > 1e-4:
                 out_ = np.ones(base.shape, np.float32); out_[..., :3] = to_srgb(em / peak)
@@ -717,8 +731,10 @@ for m in mats:
     else:
         e.update(_BaseColor=const(m, 'Base Color', [0.8, 0.8, 0.8]), _Metallic=const(m, 'Metallic', 0.0), _Smoothness=round(1 - const(m, 'Roughness', 0.5), 3))
         if p['emission']: e.update(_EmissionColor=const(m, 'Emission Color', [0, 0, 0]), _EmissionColor_intensity=const(m, 'Emission Strength', 0.0))
-        if const(m, 'Alpha', 1.0) < 1.0 or (bsdf(m) and bsdf(m).inputs['Transmission Weight'].default_value > 0):
-            e['_Surface'] = 'Transparent'; e['_Alpha'] = round(min(const(m, 'Alpha', 1.0), 0.25 if bsdf(m).inputs['Transmission Weight'].default_value > 0 else 1.0), 3)   # glass reads as 25 % in URP Lit
+        tw = bsdf(m).inputs['Transmission Weight'].default_value if bsdf(m) else 0.0
+        if const(m, 'Alpha', 1.0) < 1.0 or tw > 0:
+            e['_Surface'] = 'Transparent'; e['_Alpha'] = round(const(m, 'Alpha', 1.0) * (1 - (1 - GLASS_ALPHA) * tw), 3)
+            if tw > 0 and const(m, 'Alpha', 1.0) >= 1.0: e['_PreserveSpecular'] = True
     manifest[m.name] = e
 step('maps written', materials=len(manifest), textures=len(os.listdir(TEX)))
 
@@ -741,6 +757,17 @@ def unity_mat(m):
         b.inputs['Base Color'].default_value = list(e['_BaseColor']) + [1.0]; b.inputs['Metallic'].default_value = e['_Metallic']; b.inputs['Roughness'].default_value = 1 - e['_Smoothness']
         if '_EmissionColor' in e: b.inputs['Emission Color'].default_value = list(e['_EmissionColor']) + [1.0]; b.inputs['Emission Strength'].default_value = e['_EmissionColor_intensity']
         if e.get('_Surface') == 'Transparent': b.inputs['Alpha'].default_value = e.get('_Alpha', 0.25)   # what URP gets: alpha blend, not transmission
+    if e.get('_PreserveSpecular'):
+        # URP Preserve Specular: background x (1 - a) + diffuse x a + full specular. In Cycles: Add(Transparent coloured 1 - a, opaque Principled with base x a)
+        a_ = b.inputs['Alpha'].links[0].from_socket if b.inputs['Alpha'].is_linked else b.inputs['Alpha'].default_value
+        for l in list(b.inputs['Alpha'].links): nt.links.remove(l)
+        b.inputs['Alpha'].default_value = 1.0
+        out = next(n for n in nt.nodes if n.type == 'OUTPUT_MATERIAL'); add = nt.nodes.new('ShaderNodeAddShader'); tr = nt.nodes.new('ShaderNodeBsdfTransparent')
+        inv = nt.nodes.new('ShaderNodeMath'); inv.operation = 'SUBTRACT'; inv.inputs[0].default_value = 1.0; _set(nt, a_, inv.inputs[1]); nt.links.new(inv.outputs[0], tr.inputs['Color'])
+        mul = nt.nodes.new('ShaderNodeMix'); mul.data_type = 'RGBA'; mul.blend_type = 'MULTIPLY'; mul.inputs[0].default_value = 1.0
+        src = b.inputs['Base Color'].links[0].from_socket if b.inputs['Base Color'].is_linked else list(b.inputs['Base Color'].default_value)[:3]
+        _set(nt, src, mul.inputs[6]); _set(nt, a_, mul.inputs[7]); nt.links.new(mul.outputs[2], b.inputs['Base Color'])
+        nt.links.new(tr.outputs[0], add.inputs[0]); nt.links.new(b.outputs[0], add.inputs[1]); nt.links.new(add.outputs[0], out.inputs['Surface'])
     return u
 swap = {m.name: unity_mat(m) for m in mats}
 for o in objs:
