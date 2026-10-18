@@ -76,7 +76,7 @@ art acceptance.
 - Diagnostic controls, crusher/fuel/reactor fixture, lamps, valve/spindle/tread
   motion, material appearance and scratch-scene generator: written, unvalidated.
 - Nine pure command-port tests, fourteen worker-body claim tests, nine package
-  safety tests, five declared-boundary cases and 91 native sandbox
+  safety tests, five declared-boundary cases and 92 native sandbox
   tests are implemented, all **NotRun**. These are declared inventory counts,
   not discovered/executed results.
 - Direct first-person focus, context transfer/drop, power/cooling and start
@@ -695,3 +695,14 @@ copy a custody history or add another retention owner. The paused-expiry pure
 case and the new feed case check one expiry notification without duplicate
 publication on a repeated host sample. Declared counts are unchanged; execution
 remains NotRun.
+
+Portable-body bindings now retain their required contact shapes and verify that
+those shapes remain enabled, solid, active and attached to the same Rigidbody.
+Collision detection must remain enabled, and only the adapter's slot transition
+may switch that portable body to kinematic motion. Lost contacts or a competing
+motion mode stop the affected fixture visibly instead of leaving a held ghost
+object. A new native case disables a held crate's solid shape and checks one
+captured fault plus empty claims/bindings, without automatically repairing that
+shape. Local-host test diagnostics are captured explicitly and unexpected faults
+fail teardown; strict native log validation stays unchanged. Source catalogue:
+92 native cases, all NotRun.

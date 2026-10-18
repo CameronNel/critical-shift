@@ -301,8 +301,8 @@ namespace CriticalShift.Features.Interaction.Unity
             {
                 var state = running ? world.GetObject(binding.Id) : null;
                 if (state == null || state.IsRetired) { binding.Release(); continue; }
-                if (binding.Body == null || !binding.Body.gameObject.activeInHierarchy)
-                    throw new InvalidOperationException("A registered physical body was destroyed or disabled.");
+                if (!binding.Available)
+                    throw new InvalidOperationException("A registered portable body lost its required motion or collision binding.");
                 if (state.SlotId.HasValue)
                 {
                     if (!slots.TryGetValue(state.SlotId.Value, out var slot) || slot == null || !slot.gameObject.activeInHierarchy)

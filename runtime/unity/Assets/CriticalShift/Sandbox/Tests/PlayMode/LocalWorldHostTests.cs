@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using CriticalShift.Application;
 using CriticalShift.Features.Interaction.Unity;
 using NUnit.Framework;
@@ -19,6 +20,7 @@ namespace CriticalShift.Sandbox.Tests
         private Transform target, slot;
         private double clock;
         private Guid focus;
+        private List<Exception> faults;
         private static Guid Id(int number) => new Guid(number, 0, 0, new byte[8]);
         private Guid Box => Id(10);
         private Guid Actor => Id(20);
@@ -34,7 +36,7 @@ namespace CriticalShift.Sandbox.Tests
 
         [SetUp] public void SetUp()
         {
-            clock = 0; focus = Guid.Empty; root = new GameObject("Local host regression fixture");
+            clock = 0; focus = Guid.Empty; faults = new List<Exception>(); root = new GameObject("Local host regression fixture");
             root.transform.position = new Vector3(1000, 1000, 1000);
             world = new WorldSession(new WorldSessionConfiguration(1, 60000, true), new AllowedFixtureAccess());
             world.RegisterConnection(Id(1), Actor);
@@ -46,7 +48,7 @@ namespace CriticalShift.Sandbox.Tests
             world.Reactor.Register(Reactor, new ReactorDefinition(Id(61), millisecondsPerFuelUnit: 1000,
                 warningMilliseconds: 200, tripMilliseconds: 400, resetMilliseconds: 100));
             port = new LocalCommandPort(world, Id(1));
-            host = root.AddComponent<LocalWorldHost>(); host.Initialize(world, port, Actor, () => clock);
+            host = root.AddComponent<LocalWorldHost>(); host.Initialize(world, port, Actor, () => clock, faults.Add);
             host.BindFocus(() => focus, id => "Fixture target");
             var crate = GameObject.CreatePrimitive(PrimitiveType.Cube); crate.transform.SetParent(root.transform, false);
             crate.transform.localPosition = new Vector3(0, 1, 0);
@@ -72,6 +74,7 @@ namespace CriticalShift.Sandbox.Tests
             if (root != null) UnityObject.Destroy(root);
             yield return null;
             LogAssert.NoUnexpectedReceived();
+            Assert.That(faults, Is.Empty, "Unexpected fixture-host fault.");
         }
 
         [UnityTest] public IEnumerator GrabUsesControlledForcesTowardsCurrentTarget()
@@ -81,6 +84,18 @@ namespace CriticalShift.Sandbox.Tests
             Assert.That(world.GetObject(Box).HolderId, Is.EqualTo(Actor));
             Assert.That(Vector3.Distance(body.position, target.position), Is.LessThan(0.25f));
             Assert.That(body.isKinematic, Is.False);
+        }
+
+        [UnityTest] public IEnumerator LosingAPortableContactShapeStopsTheHostAndClearsItsClaim()
+        {
+            host.Grab(Box); Assert.That(world.GetObject(Box).HolderId, Is.EqualTo(Actor));
+            body.GetComponent<Collider>().enabled = false;
+            yield return null; yield return new WaitForFixedUpdate();
+            Assert.That(faults.Count, Is.EqualTo(1)); Assert.That(faults[0], Is.TypeOf<InvalidOperationException>());
+            Assert.That(faults[0].Message, Does.Contain("motion or collision binding")); faults.Clear();
+            Assert.That(world.View.Phase, Is.EqualTo(WorldPhase.Stopped)); Assert.That(world.View.ActiveClaimCount, Is.Zero);
+            Assert.That(host.BoundBodyCount, Is.Zero); Assert.That(body.GetComponent<Collider>().enabled, Is.False);
+            yield return null;
         }
 
         [UnityTest] public IEnumerator ManipulatingHeldCrateUsesBoundedForcesWithoutAnotherLogicalMutation()

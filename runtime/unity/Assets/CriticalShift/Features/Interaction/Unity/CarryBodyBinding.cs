@@ -14,28 +14,41 @@ namespace CriticalShift.Features.Interaction.Unity
         private readonly RigidbodyInterpolation originalInterpolation;
         private readonly float massPerUnit;
         private readonly Bounds localBounds;
+        private readonly Collider[] shapes;
         private readonly Collider[] overlaps = new Collider[32];
         private bool slotted;
         private Guid appliedSlot;
         private long generation;
         private float obstructionSeconds;
 
+        internal bool Available
+        {
+            get
+            {
+                if (Body == null || !Body.gameObject.activeInHierarchy || !Body.detectCollisions || Body.isKinematic != slotted) return false;
+                foreach (var shape in shapes)
+                    if (shape == null || !shape.enabled || !shape.gameObject.activeInHierarchy || shape.isTrigger || shape.attachedRigidbody != Body)
+                        return false;
+                return true;
+            }
+        }
+
         internal CarryBodyBinding(Guid id, Rigidbody body, float physicalMassPerUnit = 0)
         {
             if (id == Guid.Empty || body == null) throw new ArgumentException("Body identity and Rigidbody are required.");
-            if (body.isKinematic) throw new ArgumentException("Portable fixture bodies must begin dynamic.");
+            if (body.isKinematic || !body.detectCollisions) throw new ArgumentException("Portable fixture bodies must begin dynamic with contacts enabled.");
             if (physicalMassPerUnit < 0 || float.IsNaN(physicalMassPerUnit) || float.IsInfinity(physicalMassPerUnit))
                 throw new ArgumentOutOfRangeException(nameof(physicalMassPerUnit));
             Id = id; Body = body;
             massPerUnit = physicalMassPerUnit;
             originalKinematic = body.isKinematic; originalGravity = body.useGravity;
             originalCollisionMode = body.collisionDetectionMode; originalInterpolation = body.interpolation;
-            var colliders = body.GetComponentsInChildren<Collider>();
-            if (colliders.Length == 0) throw new ArgumentException("A portable body needs a collider.");
-            Bounds worldBounds = colliders[0].bounds;
-            foreach (var collider in colliders)
+            shapes = body.GetComponentsInChildren<Collider>();
+            if (shapes.Length == 0) throw new ArgumentException("A portable body needs a collider.");
+            Bounds worldBounds = shapes[0].bounds;
+            foreach (var collider in shapes)
             {
-                if (collider.isTrigger || collider.attachedRigidbody != body)
+                if (!collider.enabled || collider.isTrigger || collider.attachedRigidbody != body)
                     throw new ArgumentException("Portable fixture colliders must be solid and belong to this body.");
                 worldBounds.Encapsulate(collider.bounds);
             }
@@ -52,6 +65,7 @@ namespace CriticalShift.Features.Interaction.Unity
 
         internal bool CanPlace(Transform slot)
         {
+            if (!Available) throw new InvalidOperationException("A registered portable body lost its required motion or collision binding.");
             Vector3 center = slot.position + slot.rotation * localBounds.center;
             Vector3 half = Vector3.Max(localBounds.extents - Vector3.one * 0.015f, Vector3.one * 0.01f);
             int count = Physics.OverlapBoxNonAlloc(center, half, overlaps, slot.rotation,
