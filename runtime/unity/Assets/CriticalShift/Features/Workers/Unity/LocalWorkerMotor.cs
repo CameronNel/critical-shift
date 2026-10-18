@@ -15,30 +15,41 @@ namespace CriticalShift.Features.Workers.Unity
         private Func<float> carriedMass;
         private Func<Vector3?> gripStand;
         private Func<Rigidbody, bool> mayPush;
-        private bool gripping;
+        private Action<Exception> reportFailure;
+        private bool gripping, failed;
         private Vector2 movement;
         private Vector3 horizontalVelocity;
         private float verticalSpeed, yaw, pitch;
         private float jumpBuffer, groundGrace;
         private readonly RaycastHit[] supportHits = new RaycastHit[32];
         public float WalkSpeed { get; set; } = 3.2f;
-        public bool Grounded => controller != null && controller.enabled && verticalSpeed <= 0 && HasWalkableSupport();
+        public bool Grounded
+        {
+            get
+            {
+                if (failed) return false;
+                try { return ObserveGrounded(); }
+                catch (Exception exception) { Fail(exception); return false; }
+            }
+        }
         public float CarrySpeedScale { get; private set; } = 1;
         public Vector3 MeasuredVelocity { get; private set; }
 
-        public void Initialize(Transform eyePivot, Func<WorkerView> worker, Func<bool> authority,
+        public void Initialize(Transform eyePivot, Func<WorkerView> worker, Func<bool> authority, Action<Exception> onFailure,
             Func<float> readCarriedMass = null, Func<Vector3?> readGripStand = null,
             Func<Rigidbody, bool> readPushPermission = null)
         {
             if (eyes != null || eyePivot == null) throw new InvalidOperationException("Bind one explicit eye pivot.");
             if (worker == null) throw new ArgumentNullException(nameof(worker));
             if (authority == null) throw new ArgumentNullException(nameof(authority));
+            if (onFailure == null) throw new ArgumentNullException(nameof(onFailure));
             var walkingController = GetComponent<CharacterController>();
             if (walkingController == null) throw new InvalidOperationException("The walking motor requires its local capsule.");
             eyes = eyePivot; readWorker = worker; canSimulate = authority;
             carriedMass = readCarriedMass;
             gripStand = readGripStand;
             mayPush = readPushPermission;
+            reportFailure = onFailure;
             controller = walkingController;
             yaw = transform.eulerAngles.y;
         }
@@ -46,14 +57,14 @@ namespace CriticalShift.Features.Workers.Unity
         public void SetMovement(Vector2 value)
         {
             if (!Finite(value)) throw new ArgumentException("Movement must be finite.");
-            if (controller == null || !controller.enabled || canSimulate == null || !canSimulate() ||
+            if (failed || controller == null || !controller.enabled || canSimulate == null || !canSimulate() ||
                 readWorker?.Invoke()?.CanInteract != true) { movement = Vector2.zero; return; }
             movement = Vector2.ClampMagnitude(value, 1);
         }
 
         public void RequestJump()
         {
-            if (controller == null || !controller.enabled || canSimulate == null || !canSimulate() ||
+            if (failed || controller == null || !controller.enabled || canSimulate == null || !canSimulate() ||
                 readWorker?.Invoke()?.CanInteract != true || (gripStand != null && gripStand().HasValue))
             { jumpBuffer = 0; return; }
             jumpBuffer = 0.12f;
@@ -62,7 +73,7 @@ namespace CriticalShift.Features.Workers.Unity
         public void Look(Vector2 delta)
         {
             if (!Finite(delta)) throw new ArgumentException("View input must be finite.");
-            if (eyes == null || controller == null || canSimulate == null || !canSimulate()) return;
+            if (failed || eyes == null || controller == null || canSimulate == null || !canSimulate()) return;
             var worker = readWorker();
             if (worker == null || worker.Awareness != WorkerAwareness.Alert ||
                 (worker.Pose == WorkerPose.Upright ? !controller.enabled : controller.enabled)) return;
@@ -77,6 +88,13 @@ namespace CriticalShift.Features.Workers.Unity
 
         private void Update()
         {
+            if (failed || !isActiveAndEnabled) return;
+            try { UpdateMotion(); }
+            catch (Exception exception) { Fail(exception); }
+        }
+
+        private void UpdateMotion()
+        {
             if (controller == null || !controller.enabled || readWorker == null || canSimulate == null || !canSimulate())
             { ClearMotion(); return; }
             var worker = readWorker();
@@ -85,7 +103,9 @@ namespace CriticalShift.Features.Workers.Unity
                 throw new InvalidOperationException("Worker speed must be finite and positive.");
             // A long frame cannot become an unbounded collision-controller teleport.
             float dt = Mathf.Min(Time.deltaTime, 0.05f);
-            bool grounded = Grounded;
+            // Keep the throwing observation inside this update's failure boundary. A public getter's
+            // false return after reporting a fault must never let this same frame continue into Move.
+            bool grounded = ObserveGrounded();
             groundGrace = grounded ? 0.1f : Mathf.Max(0, groundGrace - dt);
             if (grounded && verticalSpeed < 0) verticalSpeed = -2;
             verticalSpeed = Mathf.Max(verticalSpeed - 20 * dt, -30);
@@ -111,6 +131,9 @@ namespace CriticalShift.Features.Workers.Unity
                 horizontalVelocity = grounded ? motion : Vector3.MoveTowards(horizontalVelocity, motion, 4 * dt);
             }
             jumpBuffer = Mathf.Max(0, jumpBuffer - dt);
+            // Explicit queries may synchronously report a binding fault and stop this world.
+            if (!controller.enabled || !isActiveAndEnabled || !canSimulate() || readWorker()?.CanInteract != true || failed)
+            { ClearMotion(); return; }
             Vector3 before = transform.position;
             var contacts = controller.Move((horizontalVelocity + Vector3.up * verticalSpeed) * dt);
             if ((contacts & CollisionFlags.Above) != 0 && verticalSpeed > 0) verticalSpeed = 0;
@@ -120,7 +143,7 @@ namespace CriticalShift.Features.Workers.Unity
 
         public void ResetAfterRecovery()
         {
-            if (eyes == null || controller == null || !controller.enabled || readWorker?.Invoke()?.CanInteract != true)
+            if (failed || eyes == null || controller == null || !controller.enabled || readWorker?.Invoke()?.CanInteract != true)
                 throw new InvalidOperationException("Reset locomotion only after the upright physical handoff is complete.");
             yaw = eyes.eulerAngles.y;
             pitch = Mathf.Clamp(Mathf.DeltaAngle(0, eyes.eulerAngles.x), -75, 75);
@@ -161,6 +184,18 @@ namespace CriticalShift.Features.Workers.Unity
                 if (Vector3.Dot(hit.normal, Vector3.up) >= minimumUp) return true;
             }
             return false;
+        }
+
+        private bool ObserveGrounded() => !failed && controller != null && controller.enabled &&
+            verticalSpeed <= 0 && HasWalkableSupport();
+
+        private void Fail(Exception exception)
+        {
+            if (failed) return;
+            failed = true; ClearMotion(); Array.Clear(supportHits, 0, supportHits.Length);
+            // Latch and disable this driver before the owner callback can synchronously stop/tear down the world.
+            // WorkerBodyRig still owns the physical capsule/ragdoll handoff.
+            enabled = false; reportFailure?.Invoke(exception);
         }
 
         private static bool Finite(Vector2 value) => !float.IsNaN(value.x) && !float.IsNaN(value.y) &&

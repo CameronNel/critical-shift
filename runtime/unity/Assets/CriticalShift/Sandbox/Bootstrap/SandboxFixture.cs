@@ -118,7 +118,7 @@ namespace CriticalShift.Sandbox
             var carry = SandboxPrimitives.Empty("Current-claim carry target", eyes.transform, new Vector3(0, -0.15f, 1.75f));
             walker = player.AddComponent<LocalWorkerMotor>();
             walker.Initialize(eyes.transform, () => commands.GetWorker(actor), () => world.View.Phase == WorldPhase.Running,
-                host.CarriedPhysicalMass, host.CurrentGripStand, host.IsBodyFree);
+                host.ReportExternalFailure, host.CarriedPhysicalMass, host.CurrentGripStand, host.IsBodyFree);
             access.BindActor(actor, eyes.transform); host.BindCarryTarget(actor, carry.transform);
             var drag = SandboxPrimitives.Empty("Worker suit-grip drag target", player.transform, new Vector3(0, 0.55f, 1.2f));
             host.BindDragTarget(actor, drag.transform);

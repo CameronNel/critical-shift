@@ -92,7 +92,7 @@ namespace CriticalShift.Sandbox
                 var carry = SandboxPrimitives.Empty("Carry target", eyes.transform, new Vector3(0, -0.15f, 1.75f));
                 host.BindCarryTarget(actor, carry.transform); access.BindActor(actor, eyes.transform);
                 var motor = player.AddComponent<LocalWorkerMotor>();
-                motor.Initialize(eyes.transform, () => commands.GetWorker(actor), () => world.View.Phase == WorldPhase.Running);
+                motor.Initialize(eyes.transform, () => commands.GetWorker(actor), () => world.View.Phase == WorldPhase.Running, host.ReportExternalFailure);
                 var rig = SandboxWorkerRigBuilder.Build(world.Epoch, actor, controller, eyes.transform, palette, true);
                 foreach (var part in rig.CopyBodySegments()) safety.Bind(part, "Combined-map worker / " + part.name);
                 var placement = new WorkerRecoveryPlacement(); placement.Bind(rig); recovery.Bind(world.Epoch, actor, placement);

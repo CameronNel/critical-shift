@@ -124,6 +124,8 @@
     "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.ConveyorCannotAccelerateAnUnauthorizedBody",
     "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.CompoundColliderBodyReceivesOneBeltDrive",
     "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.CargoSensorCountsCompoundBodyOnceAndPrunesDisabledCargo",
-    "CriticalShift.Sandbox.Tests.CombinedMapDoorTests.ElevatedOccupantsBlockTheFullRotatedBlastLeafWithoutChangingContacts"
+    "CriticalShift.Sandbox.Tests.CombinedMapDoorTests.ElevatedOccupantsBlockTheFullRotatedBlastLeafWithoutChangingContacts",
+    "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.SaturatedWalkingSupportUpdateStopsTheWorldBeforeMoving",
+    "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.SaturatedWalkingSupportGetterStopsTheWorldOnce"
   ]
 }

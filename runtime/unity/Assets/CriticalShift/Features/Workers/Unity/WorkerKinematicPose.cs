@@ -45,6 +45,7 @@ namespace CriticalShift.Features.Workers.Unity
         private readonly Quaternion[] rotations;
         private readonly Vector3[] worldPositions;
         private readonly Quaternion[] worldRotations;
+        private readonly int[] publicationOrder;
         private readonly List<Limb> limbs = new List<Limb>(4);
         private readonly HashSet<Rigidbody> animated = new HashSet<Rigidbody>();
         private Func<bool> handsBusy;
@@ -56,6 +57,15 @@ namespace CriticalShift.Features.Workers.Unity
         {
             root = workerRoot; bodies = segments; positions = restPositions; rotations = restRotations;
             worldPositions = new Vector3[bodies.Length]; worldRotations = new Quaternion[bodies.Length]; lastPosition = root.position;
+            publicationOrder = new int[bodies.Length];
+            for (int i = 0; i < publicationOrder.Length; i++) publicationOrder[i] = i;
+            // PublishTransform requires topmost-to-bottommost order. Keep pose/limb indices untouched;
+            // this separate ordering is computed only during setup, including for nested registered segments.
+            Array.Sort(publicationOrder, (left, right) =>
+            {
+                int order = HierarchyDepth(bodies[left].transform).CompareTo(HierarchyDepth(bodies[right].transform));
+                return order != 0 ? order : left.CompareTo(right);
+            });
         }
 
         internal void BindLimb(Rigidbody upper, Rigidbody lower, bool arm, bool left)
@@ -83,12 +93,7 @@ namespace CriticalShift.Features.Workers.Unity
             walking = Mathf.MoveTowards(walking, Mathf.Clamp01(speed / 3.2f), dt * 6);
             carrying = Mathf.MoveTowards(carrying, handsBusy != null && handsBusy() ? 1 : 0, dt * 4);
             phase = Mathf.Repeat(phase + walking * dt * 9, Mathf.PI * 2);
-            Quaternion rotation = root.rotation;
-            for (int i = 0; i < bodies.Length; i++)
-            {
-                if (bodies[i] == null || !bodies[i].isKinematic) throw new InvalidOperationException("Normal presentation cannot write a dynamic or missing body.");
-                worldPositions[i] = root.TransformPoint(positions[i]); worldRotations[i] = rotation * rotations[i];
-            }
+            PrepareRestPose();
             foreach (var limb in limbs)
             {
                 float wave = Mathf.Sin(phase + (limb.Left ? 0 : Mathf.PI));
@@ -97,12 +102,40 @@ namespace CriticalShift.Features.Workers.Unity
                 if (limb.Arm) swing = Mathf.Lerp(swing, -30, carrying);
                 limb.Apply(worldPositions, worldRotations, swing, bend);
             }
-            // Normal-mode bodies are non-contacting children of the moving capsule. Commit one coherent
-            // hierarchy pose; Rigidbody setters defer Transform updates and can lose limb offsets when
-            // the ancestor moves before the next physics sync. No dynamic segment enters this path.
-            for (int i = 0; i < bodies.Length; i++)
-                bodies[i].transform.SetPositionAndRotation(worldPositions[i], worldRotations[i]);
+            PublishPose();
             Physics.SyncTransforms();
+        }
+
+        internal void RestoreRestPose()
+        {
+            PrepareRestPose(); PublishPose();
+        }
+
+        private void PrepareRestPose()
+        {
+            Quaternion rotation = root.rotation;
+            for (int i = 0; i < bodies.Length; i++)
+            {
+                if (bodies[i] == null || !bodies[i].isKinematic) throw new InvalidOperationException("Normal presentation cannot write a dynamic or missing body.");
+                worldPositions[i] = root.TransformPoint(positions[i]); worldRotations[i] = rotation * rotations[i];
+            }
+        }
+
+        private void PublishPose()
+        {
+            // These non-contacting poses are explicit teleports, not physical movement targets. Commit
+            // all precomputed native poses before publishing any deferred Transform from the physics engine.
+            // SyncTransforms alone runs in the other direction and cannot publish Rigidbody setters.
+            for (int i = 0; i < bodies.Length; i++)
+            { bodies[i].position = worldPositions[i]; bodies[i].rotation = worldRotations[i]; }
+            foreach (int index in publicationOrder) bodies[index].PublishTransform();
+        }
+
+        private static int HierarchyDepth(Transform item)
+        {
+            int depth = 0;
+            for (var parent = item.parent; parent != null; parent = parent.parent) depth++;
+            return depth;
         }
     }
 }

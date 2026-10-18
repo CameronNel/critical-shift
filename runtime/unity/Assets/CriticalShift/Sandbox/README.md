@@ -161,10 +161,10 @@ generator does not install packages or alter authored map art.
 
 The existing foundation runner still tests its foundation assembly selection;
 it does not automatically claim sandbox coverage. The separate native inventory
-is `runtime/validation/sandbox-expected-tests.json`: 125 implemented cases. The
+is `runtime/validation/sandbox-expected-tests.json`: 127 implemented cases. The
 earlier 124-case checkpoint passed; the URP continuation passed 122 and failed two
-ragdoll cases. The new full-leaf closure case is NotRun. The latest pure suite
-passed 723 cases before its subsequent cause-trace assertion change. Native
+ragdoll cases. The new full-leaf closure and two motor-fault cases are NotRun.
+The latest pure suite passed 723 cases including the cause-trace assertion. Native
 fixtures are offset from possible active-scene content
 to avoid collisions with an unrelated map/scene at the origin.
 

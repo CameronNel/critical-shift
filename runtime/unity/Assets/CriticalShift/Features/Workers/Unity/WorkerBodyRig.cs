@@ -269,10 +269,7 @@ namespace CriticalShift.Features.Workers.Unity
             SetSimulation(false);
             ReleaseBodyClaim();
             controller.transform.SetPositionAndRotation(position, rotation);
-            for (int i = 0; i < bodies.Length; i++)
-            {
-                bodies[i].transform.SetPositionAndRotation(controller.transform.TransformPoint(restPositions[i]), rotation * restRotations[i]);
-            }
+            normalPose.RestoreRestPose(); // Native pose first, then top-down publication while contacts remain disabled.
             eyes.localPosition = eyePosition; eyes.rotation = look;
             Physics.SyncTransforms();
             ragdoll = false; controller.enabled = true; // Dynamic motion has already ended.

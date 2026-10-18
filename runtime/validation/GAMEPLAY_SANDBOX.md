@@ -1151,3 +1151,43 @@ assemblies against actual pinned SDK references. Tooling subsequently passed
 exception headers, and sandbox/foundation re-audit native selected pins and
 descriptor hashes after each clean phase and at final completion. The original
 critical log validator is unchanged. No native physics threshold was relaxed.
+
+## Material serialization and worker safety candidate, 18:34 UTC
+
+The fresh `sandbox-jrocmn4e` attempt preserved another material-helper failure:
+the native URP `AssetVersion` object is not classified as an `IsSubAsset` by
+this editor. A separate diagnostic inspection in that retained workspace
+confirmed its exact type, assembly, hidden flags and owning asset path. The
+helper now verifies that owning path instead. The initial diagnostic probe's
+obsolete-API warnings remain recorded; its corrected second process and a
+separate `SandboxSceneBuilder.Prepare` passed strict native log checks. Their
+logs are `urp-native-material-probe-02.log` and
+`urp-native-material-prepare-fixed.log` under `runtime/out`. The two actual
+Unity-generated ordinary/emissive templates and their metadata are now source
+assets. This warm diagnostic preparation is separate from a fresh full run.
+
+Five additional native processes each repeated the two earlier failing ragdoll
+cases in that retained diagnostic project: **10/10 passed**. The report is
+`runtime/out/ragdoll-measured-repeat/report.json`. That project's worker code
+predates the new motor changes below. These repetitions did not reproduce the
+intermittent speed faults and do not establish that they are resolved.
+
+The worker motor now reports a saturated walking-support query through its
+existing world owner's failure callback. It latches the failure, clears pending
+motion, disables its driver before synchronous cleanup, and cannot proceed into
+`CharacterController.Move` after the fault. Getter and Update regressions use
+real native query saturation and require one report, stopped world, cleared
+bindings and no subsequent movement. The declared inventory is now **127**;
+these two cases and the full-leaf closure case are pending native execution.
+
+Worker normal poses and standing recovery now commit complete precomputed poses
+through Rigidbody position/rotation setters, then call the pinned editor's
+public `PublishTransform` API in setup-cached hierarchy order. Direct Transform
+writes to those jointed bodies were removed. Unity's installed documentation
+distinguishes this physics-to-Transform publication from `SyncTransforms` and
+warns against direct Transform movement of jointed kinematic bodies. This fixes
+that documented synchronization hazard; it is not a proven sole explanation for
+the earlier intermittent speed faults. Forces and safety limits are unchanged.
+The supplementary matching-SDK compile passed all **21 assemblies** at
+`runtime/out/api-urp-publish-pose/api-compile.json`. Fresh native tests, build,
+headless Player and rendered capture are next. None is claimed here yet.

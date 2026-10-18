@@ -47,7 +47,7 @@ namespace CriticalShift.Sandbox.Editor
                 throw new BuildFailedException("An unexpected asset occupies the fixture material-template path: " + path);
             // URP 17.4's material postprocessor owns one hidden version subasset. Preserve that native metadata.
             foreach (var asset in assets)
-                if (asset != material && (asset == null || !AssetDatabase.IsSubAsset(asset) ||
+                if (asset != material && (asset == null || AssetDatabase.GetAssetPath(asset) != path ||
                     asset.GetType().FullName != "UnityEditor.Rendering.Universal.AssetVersion" ||
                     asset.GetType().Assembly.GetName().Name != "Unity.RenderPipelines.Universal.Editor" ||
                     asset.hideFlags != (HideFlags.HideInHierarchy | HideFlags.HideInInspector | HideFlags.NotEditable)))

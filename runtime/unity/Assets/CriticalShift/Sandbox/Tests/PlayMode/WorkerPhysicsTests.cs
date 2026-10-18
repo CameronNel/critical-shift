@@ -161,8 +161,9 @@ namespace CriticalShift.Sandbox.Tests
             var motor = body.gameObject.AddComponent<LocalWorkerMotor>();
             Func<WorkerView> read = () => setupWorld.GetWorker(Id(811));
             Func<bool> running = () => setupWorld.View.Phase == WorldPhase.Running;
-            Assert.Throws<ArgumentNullException>(() => motor.Initialize(eyes, read, null));
-            motor.Initialize(eyes, read, running);
+            Assert.Throws<ArgumentNullException>(() => motor.Initialize(eyes, read, null, faults.Add));
+            Assert.Throws<ArgumentNullException>(() => motor.Initialize(eyes, read, running, null));
+            motor.Initialize(eyes, read, running, faults.Add);
             var adapter = body.gameObject.AddComponent<LocalWorkerStateHost>();
             Assert.Throws<ArgumentNullException>(() => adapter.Initialize(setupWorld, Id(811), body, recovery, () => { }, () => { }, null));
             Assert.That(adapter.Worker, Is.Null); Assert.Throws<InvalidOperationException>(() => adapter.BindHazard(Id(812)));
@@ -178,6 +179,61 @@ namespace CriticalShift.Sandbox.Tests
             Assert.That(capsule.enabled, Is.True); Assert.That(adapter.Worker.Pose, Is.EqualTo(WorkerPose.Upright));
             Assert.That(setupWorld.View.Phase, Is.EqualTo(WorldPhase.Running));
             setupWorld.Stop(); adapter.Shutdown(); UnityEngine.Object.Destroy(body.gameObject); yield return null;
+        }
+
+        [UnityTest] public IEnumerator SaturatedWalkingSupportUpdateStopsTheWorldBeforeMoving()
+        { yield return VerifySaturatedWalkingSupportStopsMotor(false); }
+
+        [UnityTest] public IEnumerator SaturatedWalkingSupportGetterStopsTheWorldOnce()
+        { yield return VerifySaturatedWalkingSupportStopsMotor(true); }
+
+        private IEnumerator VerifySaturatedWalkingSupportStopsMotor(bool fromGetter)
+        {
+            for (int i = 0; i < 15; i++) yield return Step();
+            Assert.That(walker.Grounded, Is.True, WalkingContactObservation());
+            var floor = root.transform.Find("Local Gameplay Fixture/Fixture floor").GetComponent<Collider>();
+            for (int i = 0; i < 32; i++)
+            {
+                var support = new GameObject("Saturated walking support " + i).AddComponent<BoxCollider>();
+                support.transform.SetParent(root.transform, false);
+                support.transform.position = new Vector3(controller.transform.position.x, floor.bounds.max.y - 0.05f, controller.transform.position.z);
+                support.size = new Vector3(2, 0.1f, 2);
+            }
+            Physics.SyncTransforms();
+            float skin = Mathf.Min(controller.skinWidth, controller.radius * 0.5f);
+            Vector3 foot = controller.transform.TransformPoint(controller.center) -
+                Vector3.up * Mathf.Max(0, controller.height * 0.5f - controller.radius);
+            var observations = new RaycastHit[32];
+            int observed = Physics.SphereCastNonAlloc(foot, controller.radius - skin, Vector3.down, observations,
+                skin * 2 + 0.002f, Physics.AllLayers, QueryTriggerInteraction.Ignore);
+            Assert.That(observed, Is.EqualTo(observations.Length), "Fixture must saturate the real native walking-support query.");
+            Assert.That(host.World.View.Phase, Is.EqualTo(WorldPhase.Running));
+            walker.SetMovement(Vector2.right); walker.RequestJump();
+            Vector3 before = controller.transform.position;
+            if (fromGetter)
+            {
+                bool grounded = true;
+                Assert.DoesNotThrow(() => grounded = walker.Grounded);
+                Assert.That(grounded, Is.False);
+            }
+            else walker.SendMessage("Update", SendMessageOptions.RequireReceiver);
+            Assert.That(faults.Count, Is.EqualTo(1));
+            Assert.That(faults[0].Message, Does.Contain("Walking support observation bounds were saturated")); faults.Clear();
+            Assert.That(host.World.View.Phase, Is.EqualTo(WorldPhase.Stopped)); Assert.That(host.BoundBodyCount, Is.Zero);
+            Assert.That(host.World.View.ActiveClaimCount, Is.Zero); Assert.That(walker.enabled, Is.False);
+            Assert.That(walker.MeasuredVelocity, Is.EqualTo(Vector3.zero));
+            Assert.That(controller.transform.position, Is.EqualTo(before), "Fault reporting must not resume this update into controller.Move.");
+            // Public callbacks can still be invoked on a disabled component; they cannot reacquire or report again.
+            for (int i = 0; i < 3; i++)
+            {
+                Assert.That(walker.Grounded, Is.False); walker.SetMovement(Vector2.right); walker.RequestJump();
+                walker.SendMessage("Update", SendMessageOptions.RequireReceiver);
+            }
+            yield return null; yield return Step();
+            Assert.That(faults, Is.Empty); Assert.That(host.World.View.Phase, Is.EqualTo(WorldPhase.Stopped));
+            Assert.That(controller.transform.position, Is.EqualTo(before)); Assert.That(walker.MeasuredVelocity, Is.EqualTo(Vector3.zero));
+            Assert.That(controller.enabled, Is.False, "The existing worker body owner completes physical shutdown.");
+            Assert.That(DynamicBodies(), Is.Zero);
         }
 
         [UnityTest] public IEnumerator LosingRagdollCollisionDetectionStopsTheWorldBeforeRecovery()
