@@ -3,3 +3,8 @@
 */_work.blend1
 */_plan.json
 */_raw/
+# bake outputs stay local (LFS quota): every room folder and the logs, except the tracked cooling-plant pilot and map/map_placement.json
+/*/
+!/cooling-plant/
+!/map/
+/map/*/
