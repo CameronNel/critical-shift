@@ -17,6 +17,9 @@ machines, a reactor, a cart, a conveyor, a local collision controller and a down
 test worker. The second worker is controlled locally for this fixture.
 
 - WASD: walk; right mouse drag: look; Tab: show/hide controls.
+- Space makes a short hop while walking, with limited air acceleration, a small
+  ledge grace window and input buffer. Carried mass reduces the hop. Space stays
+  the brake while holding the cart; pause, knockdown and teardown clear hops.
 - The debug worker's arms and legs follow actual walking displacement. A current
   crate or cart grip blends the arm pose. These poses preserve ragdoll joint
   anchors and stop before the same bodies become dynamic on knockdown.
@@ -107,7 +110,7 @@ on the inspected baseline. No package is downloaded by the generator.
 
 The existing foundation runner still tests its foundation assembly selection;
 it does not automatically claim sandbox coverage. The separate native inventory
-is `runtime/validation/sandbox-expected-tests.json`: 65 implemented cases, all
+is `runtime/validation/sandbox-expected-tests.json`: 68 implemented cases, all
 NotRun. Nine new pure command-port cases, fourteen worker-body claim cases and
 nine source-package safety cases and five declared-assembly boundary cases
 are also NotRun. Native fixtures are offset from possible active-scene content

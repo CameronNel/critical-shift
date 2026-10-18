@@ -121,6 +121,55 @@ namespace CriticalShift.Sandbox.Tests
             Assert.That(controller.enabled, Is.False);
         }
 
+        [UnityTest] public IEnumerator ShortHopLandsWithTheWalkingCapsuleStillOwningMotion()
+        {
+            for (int i = 0; i < 20; i++) yield return Step();
+            float floor = controller.transform.position.y, peak = floor;
+            long revision = Worker.Revision; walker.RequestJump();
+            for (int i = 0; i < 80; i++)
+            { yield return Step(); peak = Mathf.Max(peak, controller.transform.position.y); }
+            Assert.That(peak - floor, Is.InRange(0.25f, 0.85f));
+            Assert.That(controller.transform.position.y, Is.EqualTo(floor).Within(0.1f));
+            Assert.That(walker.Grounded, Is.True); Assert.That(DynamicBodies(), Is.Zero);
+            Assert.That(Worker.Pose, Is.EqualTo(WorkerPose.Upright)); Assert.That(Worker.Revision, Is.EqualTo(revision));
+        }
+
+        [UnityTest] public IEnumerator HopHitsTheLowCeilingWithoutTunnellingOrRetainedUpwardDrive()
+        {
+            for (int i = 0; i < 20; i++) yield return Step();
+            var ceiling = GameObject.CreatePrimitive(PrimitiveType.Cube); ceiling.name = "Walking hop ceiling";
+            ceiling.transform.SetParent(root.transform, false); ceiling.transform.position = controller.transform.position + Vector3.up * 2;
+            ceiling.transform.localScale = new Vector3(2, 0.2f, 2); Physics.SyncTransforms();
+            float floor = controller.transform.position.y, peak = floor; walker.RequestJump();
+            for (int i = 0; i < 80; i++)
+            { yield return Step(); peak = Mathf.Max(peak, controller.transform.position.y); }
+            Assert.That(peak - floor, Is.LessThan(0.25f));
+            Assert.That(controller.transform.position.y, Is.EqualTo(floor).Within(0.1f));
+            Assert.That(walker.Grounded, Is.True); Assert.That(controller.enabled, Is.True); Assert.That(DynamicBodies(), Is.Zero);
+        }
+
+        [UnityTest] public IEnumerator PauseCartGripAndKnockdownCannotQueueALaterWalkingHop()
+        {
+            for (int i = 0; i < 20; i++) yield return Step();
+            float floor = controller.transform.position.y;
+            host.World.Pause(host.World.Epoch); walker.RequestJump(); host.World.Resume(host.World.Epoch);
+            for (int i = 0; i < 20; i++)
+            { yield return Step(); Assert.That(controller.transform.position.y, Is.LessThan(floor + 0.1f)); }
+            var stand = cart.transform.Find("Cart operator stance");
+            controller.enabled = false; controller.transform.position = stand.position + Vector3.up * 0.1f;
+            controller.enabled = true; walker.ResetAfterRecovery(); Physics.SyncTransforms();
+            for (int i = 0; i < 15; i++) yield return Step();
+            host.Grab(Id(600)); Assert.That(host.IsHandleHeld(Id(600)), Is.True);
+            floor = controller.transform.position.y; walker.RequestJump();
+            for (int i = 0; i < 25; i++)
+            { yield return Step(); Assert.That(controller.transform.position.y, Is.LessThan(floor + 0.1f)); }
+            Assert.That(host.IsHandleHeld(Id(600)), Is.True);
+            host.DropHeld(); KnockDown(); walker.RequestJump();
+            for (int i = 0; i < 15; i++) yield return Step();
+            Assert.That(controller.enabled, Is.False); Assert.That(DynamicBodies(), Is.EqualTo(11));
+            Assert.That(Worker.Pose, Is.EqualTo(WorkerPose.Down));
+        }
+
         [UnityTest] public IEnumerator MovingCartContactCausesOneKnockdownEpisode()
         {
             cart.position = controller.transform.position + new Vector3(0, 0.35f, -1.5f);

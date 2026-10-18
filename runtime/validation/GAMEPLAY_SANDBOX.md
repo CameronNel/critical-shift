@@ -76,7 +76,7 @@ art acceptance.
 - Diagnostic controls, crusher/fuel/reactor fixture, lamps, valve/spindle/tread
   motion, material appearance and scratch-scene generator: written, unvalidated.
 - Nine pure command-port tests, fourteen worker-body claim tests, nine package
-  safety tests, five declared-boundary cases and 65 native sandbox
+  safety tests, five declared-boundary cases and 68 native sandbox
   tests are implemented, all **NotRun**. These are declared inventory counts,
   not discovered/executed results.
 - Direct first-person focus, context transfer/drop, power/cooling and start
@@ -354,3 +354,20 @@ Three additional native cases are written and NotRun: emergency cost/replay and
 trip reset without automatic startup; target/pause/empty-core exclusion; and
 instrument projections through pause and teardown. No reactor rules, fictional
 costs, renderer settings, map assets or package decisions change.
+
+## Short-hop locomotion source
+
+Add the spec 4.2 short hop to the existing collision controller: 4.8 m/s initial
+upward speed, 20 m/s² authored gravity, 0.10 s ledge grace, 0.12 s input buffer,
+4 m/s² air acceleration and the existing 0.05 s frame-step cap. The current mass
+slowdown also scales hop height. These are bounded debug fixture values, not
+measured feel acceptance. Cart grip keeps Space as its brake. Pause, down state,
+recovery, focus loss and teardown cannot retain a queued hop. Above contact cuts
+upward drive and the same capsule owns all upright movement.
+Three more native cases are written, NotRun: bounded hop/landing, low-ceiling
+contact without retained upward drive, and pause/cart/ragdoll exclusion. No new
+input package or logical worker posture is introduced. The Unity 6000.4 API
+contracts for [Move](https://docs.unity3d.com/6000.4/Documentation/ScriptReference/CharacterController.Move.html),
+[isGrounded](https://docs.unity3d.com/6000.4/Documentation/ScriptReference/CharacterController-isGrounded.html)
+and [collision flags](https://docs.unity3d.com/6000.4/Documentation/ScriptReference/CollisionFlags.html)
+were consulted; that is API research, not an executed native check.

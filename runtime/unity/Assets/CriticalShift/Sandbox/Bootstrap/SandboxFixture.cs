@@ -62,6 +62,7 @@ namespace CriticalShift.Sandbox
                 hud.ReplayRequested += host.ReplayLast; hud.PauseRequested += host.ToggleClockPause;
                 hud.ResetRequested += requestReset; hud.BeltResetRequested += belt.ResetJam;
                 hud.MovementRequested += walker.SetMovement; hud.LookRequested += walker.Look;
+                hud.JumpRequested += walker.RequestJump;
                 hud.MovementRequested += workerState.SetDownMovement;
                 hud.CartDriveRequested += cart.SetDrive;
                 hud.TransferFocusedRequested += host.TransferFocused; hud.DropHeldRequested += host.DropHeld;

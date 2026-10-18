@@ -19,6 +19,7 @@ namespace CriticalShift.Presentation
         public event Action RecoveryRequested, DiagnosticKnockdownRequested;
         public event Action PatientRecoveryRequested, PatientKnockdownRequested;
         public event Action<Vector2> MovementRequested, LookRequested;
+        public event Action JumpRequested;
         public event Action<float, float, bool> CartDriveRequested;
         private readonly HashSet<KeyCode> held = new HashSet<KeyCode>();
         private LocalCommandPort commands;
@@ -50,7 +51,8 @@ namespace CriticalShift.Presentation
                 BeltResetRequested == null || MovementRequested == null || LookRequested == null || CartDriveRequested == null ||
                 TransferFocusedRequested == null || DropHeldRequested == null || StartFocusedRequested == null || ToggleFocusedPowerRequested == null ||
                 RecoveryRequested == null || DiagnosticKnockdownRequested == null || PatientRecoveryRequested == null || PatientKnockdownRequested == null ||
-                BypassFocusedRequested == null || WorkerHoistRequested == null || ShutdownFocusedRequested == null || EmergencyCoolingFocusedRequested == null)
+                BypassFocusedRequested == null || WorkerHoistRequested == null || ShutdownFocusedRequested == null ||
+                EmergencyCoolingFocusedRequested == null || JumpRequested == null)
                 throw new InvalidOperationException("Fixture controls require all explicit command and input bindings.");
             active = true;
         }
@@ -94,7 +96,12 @@ namespace CriticalShift.Presentation
             if (input.keyCode != KeyCode.W && input.keyCode != KeyCode.A && input.keyCode != KeyCode.S && input.keyCode != KeyCode.D &&
                 input.keyCode != KeyCode.UpArrow && input.keyCode != KeyCode.DownArrow && input.keyCode != KeyCode.LeftArrow &&
                 input.keyCode != KeyCode.RightArrow && input.keyCode != KeyCode.Space && input.keyCode != KeyCode.LeftShift && input.keyCode != KeyCode.RightShift) return;
-            if (input.type == EventType.KeyDown) held.Add(input.keyCode); else held.Remove(input.keyCode);
+            if (input.type == EventType.KeyDown)
+            {
+                bool first = held.Add(input.keyCode);
+                if (first && input.keyCode == KeyCode.Space) JumpRequested?.Invoke();
+            }
+            else held.Remove(input.keyCode);
             input.Use();
         }
 
@@ -116,7 +123,7 @@ namespace CriticalShift.Presentation
             {
                 var world = commands.World;
                 GUILayout.Label("CRITICAL SHIFT | LOCAL GAMEPLAY FIXTURE");
-                GUILayout.Label("WASD walk · right-drag look · Tab hides panel");
+                GUILayout.Label("WASD walk · Space hop · right-drag look · Tab hides panel");
                 GUILayout.Label("E takes cart handle · WASD/arrows drive · Space brakes");
                 GUILayout.Label("Shift " + TimeSpan.FromMilliseconds(world.RemainingMilliseconds).ToString(@"mm\:ss") + " | " + world.Phase);
                 GUILayout.Label("Held objects: " + world.ActiveClaimCount + " | " + actionStatus(), wrapped);
@@ -238,7 +245,7 @@ namespace CriticalShift.Presentation
             WorkerHoistRequested = null;
             RecoveryRequested = null; DiagnosticKnockdownRequested = null;
             PatientRecoveryRequested = null; PatientKnockdownRequested = null;
-            MovementRequested = null; LookRequested = null; CartDriveRequested = null;
+            MovementRequested = null; LookRequested = null; CartDriveRequested = null; JumpRequested = null;
         }
     }
 }
