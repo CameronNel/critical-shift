@@ -46,13 +46,13 @@ $Rooms = @(
     @{ Room = "front-end-area";      Source = "$S/front-end-area/front_end_area_cafeteria_revamp.blend"; Collection = "MODULE_front-end-area";      Cameras = "CAF_02_DINING,HAL_01_FROM_CAFETERIA,YRD_01_FROM_PORCH" },
     @{ Room = "spawn-room";          Source = "$S/spawn-room/module.blend";                             Collection = "MODULE_spawn-room";           Cameras = "REFERENCE_BRIEFING,REFERENCE_HALL,REFERENCE_LOCKER" },
     @{ Room = "reactor-room";        Source = "sections/reactor-room/blender/reactorroom.blend";        Collection = $Reactor;                      Cameras = "01_HERO,02_WEST_ENTRY,07_EMERGENCY_COOLING" },
-    @{ Room = "mine";                Source = "$S/mine-r39/module_r39_aaa.blend";                       Collection = "MODULE_mine-r39";             Cameras = "R39_01_PORTAL_APPROACH,R39_02_TUNNEL,R39_04_SHED_FRONT" }
+    @{ Room = "mine";                Source = "$S/mine-r39/module_r39_aaa.blend";                       Collection = "MODULE_mine-r39";             Cameras = "R39_01_PORTAL_APPROACH,R39_02_TUNNEL,R39_04_SHED_FRONT"; Exclude = "R40 | " }   # the mountain over the mine: being reworked (owner, 2026-10-18)
 )
 $MapFile = "sections/facility-assembly/combined/combined_map.blend"
 $out_ = $OutRoot; $OutRoot = "$U"
 if ($Map) {
     # Each room's map version is its ROOM_<room>_members collection, in the room's own frame; comparison renders still come from the room file.
-    $Rooms = @($Rooms | ForEach-Object { @{ Room = $_.Room; Source = $MapFile; Collection = "ROOM_$($_.Room)_members"; Cameras = $_.Cameras; CompareSource = $_.Source } })
+    $Rooms = @($Rooms | ForEach-Object { @{ Room = $_.Room; Source = $MapFile; Collection = "ROOM_$($_.Room)_members"; Cameras = $_.Cameras; CompareSource = $_.Source; Exclude = $_.Exclude } })
     $Rooms += @{ Room = "map-connections"; Source = $MapFile; Cameras = ""; CompareSource = ""
                  Collection = "CONNECTOR_reactor_south_concourse,CONNECTOR_condenser_stair,CONNECTOR_condenser_escape,CONNECTOR_signs,EXTERIOR_evacuation" }
     $OutRoot = "$U/map"
@@ -98,7 +98,8 @@ foreach ($r in $Rooms) {
     $start = if ($first) { $From } else { "prep" }; $first = $false
     $log = if ($Map) { "$LogDir/map-$($r.Room).log" } else { "$LogDir/$($r.Room).log" }; $t = Get-Date
     $extra = @("-OutRoot", $OutRoot, "-Quality", $Quality)
-    if ($r.Cameras) { $extra += @("-Cameras", $r.Cameras) }   # never an empty argument: Windows PowerShell 5.1 drops it and the child fails
+    if ($r.Cameras) { $extra += @("-Cameras", $r.Cameras) }
+    if ($r.Exclude) { $extra += @("-Exclude", $r.Exclude) }   # never an empty argument: Windows PowerShell 5.1 drops it and the child fails
     if ($Map) { $extra += "-Isolate"; if ($r.CompareSource) { $extra += @("-CompareSource", $r.CompareSource) } }
     Write-Host ("==== {0} (from {1}) started {2:HH:mm}" -f $r.Room, $start, $t)
     $ErrorActionPreference = "Continue"     # Windows PowerShell turns Blender's stderr lines into error records; with "Stop" the first warning would end the run

@@ -340,7 +340,8 @@ def merge_for_bake(objs, mats):
     return out
 
 PLAN_VERSION = 2              # 2 (2026-10-18): closure-tree routing, mask pass, HDR emission; older plans and _work files cannot be resumed
-ISOLATE = '--isolate' in a     # map mode (bake_all.ps1 -Map): bake the room collections alone, e.g. the map's ROOM_<room>_members
+ISOLATE = '--isolate' in a
+EXCLUDE = tuple(x for x in (arg('--exclude') or '').split(';') if x)   # object name prefixes left out of the bake, ';'-separated     # map mode (bake_all.ps1 -Map): bake the room collections alone, e.g. the map's ROOM_<room>_members
 def _layer(name):
     """The view layer's LayerCollection for a collection, looked up fresh: changing exclude rebuilds the tree and leaves older references stale."""
     def walk(lc):
@@ -443,6 +444,10 @@ def localise_node_groups(mats):
 if STAGE in ('prep', 'all'):
     for f in os.listdir(RAW): os.remove(os.path.join(RAW, f))     # maps of an older UV layout must never reach the finish
     if ISOLATE: isolate(); step('isolated', collections=coll.names)
+    if EXCLUDE:                                                  # left out on the owner's word (the mine's mountain, R40, is being reworked, 2026-10-18)
+        out_ = [o for o in coll.all_objects if o.name.startswith(EXCLUDE)]
+        for o in out_: o.hide_render = True
+        step('excluded', prefixes=list(EXCLUDE), objects=sorted(o.name for o in out_))
     # collection instances (the spawn room's four PPE hero suits, linked from hero_suit.blend) become real local objects, or the bake would miss them
     inst = [o for o in coll.all_objects if o.instance_type == 'COLLECTION' and o.instance_collection and not o.hide_render]
     if inst:
