@@ -100,6 +100,15 @@ namespace CriticalShift.Features.Interaction.Unity
             RestoreFromSlot(); generation = 0; obstructionSeconds = 0;
         }
 
+        internal void Throw(Vector3 direction)
+        {
+            if (Body == null || Body.isKinematic || slotted || direction.sqrMagnitude < 0.001f)
+                throw new InvalidOperationException("A throw needs the released dynamic portable body and a valid aim direction.");
+            // Preserve existing momentum. A light crate receives at most 5 m/s extra speed;
+            // the fixed impulse budget gives heavier loads a shorter throw.
+            Body.AddForce(direction.normalized * Mathf.Min(35, Body.mass * 5), ForceMode.Impulse);
+        }
+
         private void RestoreFromSlot()
         {
             if (!slotted) return;

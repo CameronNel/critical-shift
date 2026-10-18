@@ -16,6 +16,7 @@ namespace CriticalShift.Features.Interaction.Unity
             private long lease;
             private float yaw, pitch;
             internal CarryTarget(Transform anchor) { Anchor = anchor; rest = anchor.localRotation; }
+            internal Vector3 AimForward => (Anchor.parent == null ? rest : Anchor.parent.rotation * rest) * Vector3.forward;
             internal void Observe(ObjectClaimView claim)
             {
                 if (claim == null || !claim.HolderId.HasValue || claim.LeaseGeneration < 1) { Reset(); return; }
@@ -161,6 +162,21 @@ namespace CriticalShift.Features.Interaction.Unity
         }
 
         internal bool HasCarryTarget(Guid actor) => carryTargets.ContainsKey(actor);
+        internal bool IsPortable(Guid entity) => bodies.ContainsKey(entity);
+
+        internal bool ThrowReleased(Guid actor, ObjectClaimView held, ObjectClaimView released)
+        {
+            if (held == null || released == null || world.View.Phase != WorldPhase.Running || world.GetWorker(actor)?.CanInteract != true ||
+                held.Epoch != world.Epoch || released.Epoch != world.Epoch || held.HolderId != actor ||
+                held.EntityId != released.EntityId || held.LeaseGeneration != released.LeaseGeneration ||
+                released.Revision != held.Revision + 1 || released.HolderId.HasValue || released.SlotId.HasValue || released.IsRetired ||
+                !bodies.TryGetValue(held.EntityId, out var body) || !carryTargets.TryGetValue(actor, out var target) ||
+                target.Anchor == null || !target.Anchor.gameObject.activeInHierarchy) return false;
+            var current = world.GetObject(held.EntityId);
+            if (current == null || current.IsRetired || current.HolderId.HasValue || current.SlotId.HasValue ||
+                current.LeaseGeneration != released.LeaseGeneration || current.Revision != released.Revision) return false;
+            body.Throw(target.AimForward + Vector3.up * 0.15f); return true;
+        }
 
         internal IEnumerable<Guid> ClaimedBy(Guid actor)
         {

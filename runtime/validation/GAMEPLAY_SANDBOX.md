@@ -76,7 +76,7 @@ art acceptance.
 - Diagnostic controls, crusher/fuel/reactor fixture, lamps, valve/spindle/tread
   motion, material appearance and scratch-scene generator: written, unvalidated.
 - Nine pure command-port tests, fourteen worker-body claim tests, nine package
-  safety tests, five declared-boundary cases and 73 native sandbox
+  safety tests, five declared-boundary cases and 75 native sandbox
   tests are implemented, all **NotRun**. These are declared inventory counts,
   not discovered/executed results.
 - Direct first-person focus, context transfer/drop, power/cooling and start
@@ -403,3 +403,18 @@ Three additional native cases are written and NotRun: one falling-crate episode,
 held-source exclusion and the physical mass threshold. Contact timing, feel and
 ragdoll acceptance remain unvalidated. This does not install general collision
 damage, conveyor harm, reanimation or map hazard bindings.
+
+## One-shot portable throw source
+
+Add T to release and throw an ordinary portable body. The host samples time and
+current posture/claim, commits the existing Release command, reconciles current
+bindings, then checks the exact released epoch, revision and lease generation
+before applying one impulse. Historical replay is not a new physical effect.
+The same CarryBodyBinding owns that impulse, bounded to 35 N·s and at most 5 m/s
+additional speed; existing momentum remains. The look heading supplies aim
+independently of manual crate rotation. Worker/cart grips and paused/expired
+claims cannot launch. These are authored game-fixture values.
+Two further native cases are written and NotRun: one release/impulse despite
+retries and rotation, and pause/expiry exclusion. Existing cart and worker drag
+cases also check that T preserves those grips. Native safety, feel and impact
+results remain unvalidated. No command kind, resource cost or transport changes.

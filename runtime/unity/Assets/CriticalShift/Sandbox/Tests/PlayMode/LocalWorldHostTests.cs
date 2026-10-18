@@ -110,6 +110,31 @@ namespace CriticalShift.Sandbox.Tests
             Assert.That(world.View.ActiveClaimCount, Is.Zero); yield return null;
         }
 
+        [UnityTest] public IEnumerator ThrowReleasesOnceAndReplayCannotApplyAnotherImpulse()
+        {
+            host.Grab(Box); host.RotateHeld(new Vector2(120, 0)); host.ThrowHeld();
+            Assert.That(world.GetObject(Box).HolderId, Is.Null); Assert.That(world.View.ActiveClaimCount, Is.Zero);
+            Assert.That(port.LastTerminalSequence, Is.EqualTo(2)); Assert.That(body.isKinematic, Is.False);
+            for (int i = 0; i < 3; i++) yield return new WaitForFixedUpdate();
+            Vector3 once = body.linearVelocity;
+            Assert.That(once.magnitude, Is.InRange(0.5f, 5.1f)); Assert.That(once.z, Is.GreaterThan(0.5f));
+            Assert.That(Mathf.Abs(once.x), Is.LessThan(0.01f), "Crate orientation must not rotate the worker's throw aim.");
+            host.ReplayLast(); host.ReplayLast(); host.ThrowHeld();
+            for (int i = 0; i < 3; i++) yield return new WaitForFixedUpdate();
+            Assert.That(Vector3.Distance(once, body.linearVelocity), Is.LessThan(0.01f));
+            Assert.That(port.LastTerminalSequence, Is.EqualTo(2)); Assert.That(world.Production.GetBatch(Box).Units, Is.EqualTo(10));
+        }
+
+        [UnityTest] public IEnumerator PausedOrExpiredGripCannotLaunchItsFormerCrate()
+        {
+            host.Grab(Box); world.Pause(world.Epoch); host.ThrowHeld();
+            Assert.That(world.GetObject(Box).HolderId, Is.EqualTo(Actor)); Assert.That(port.LastTerminalSequence, Is.EqualTo(1));
+            world.Resume(world.Epoch); clock = 3; host.ThrowHeld();
+            Assert.That(world.GetObject(Box).HolderId, Is.Null); Assert.That(port.LastTerminalSequence, Is.EqualTo(1));
+            for (int i = 0; i < 3; i++) yield return new WaitForFixedUpdate();
+            Assert.That(body.linearVelocity.magnitude, Is.LessThan(0.01f));
+        }
+
         [UnityTest] public IEnumerator ExpiredLeaseReleasesPhysicalControl()
         {
             host.Grab(Box); clock = 3; host.Pump();

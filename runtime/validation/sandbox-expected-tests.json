@@ -1,5 +1,7 @@
 {
   "PlayMode": [
+    "CriticalShift.Sandbox.Tests.LocalWorldHostTests.ThrowReleasesOnceAndReplayCannotApplyAnotherImpulse",
+    "CriticalShift.Sandbox.Tests.LocalWorldHostTests.PausedOrExpiredGripCannotLaunchItsFormerCrate",
     "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.RegisteredHeavyFallingCrateCreatesOneKnockdownEpisode",
     "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.HeldHeavyCrateCannotReportAFreeFallingBodyImpact",
     "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.RegisteredFallingSourceBelowTheMassThresholdCannotKnockDown",

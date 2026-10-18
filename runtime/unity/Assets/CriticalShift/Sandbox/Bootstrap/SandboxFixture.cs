@@ -64,6 +64,7 @@ namespace CriticalShift.Sandbox
                 hud.MovementRequested += walker.SetMovement; hud.LookRequested += walker.Look;
                 hud.JumpRequested += walker.RequestJump;
                 hud.CarryRotationRequested += host.RotateHeld;
+                hud.ThrowRequested += host.ThrowHeld;
                 hud.MovementRequested += workerState.SetDownMovement;
                 hud.CartDriveRequested += cart.SetDrive;
                 hud.TransferFocusedRequested += host.TransferFocused; hud.DropHeldRequested += host.DropHeld;

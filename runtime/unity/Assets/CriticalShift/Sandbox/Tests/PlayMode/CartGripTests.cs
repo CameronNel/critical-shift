@@ -65,6 +65,7 @@ namespace CriticalShift.Sandbox.Tests
             Assert.That(host.CurrentGripStand().Value, Is.EqualTo(stand.position));
             var carry = actorRoot.Find("Carry target"); Quaternion rest = carry.localRotation;
             host.RotateHeld(new Vector2(120, 100));
+            host.ThrowHeld(); Assert.That(world.GetObject(Cart).HolderId, Is.EqualTo(Actor));
             Assert.That(Quaternion.Angle(rest, carry.localRotation), Is.LessThan(0.01f));
             for (int i = 0; i < 15; i++) yield return new WaitForFixedUpdate();
             Assert.That(Vector3.Distance(cart.position, initial), Is.LessThan(0.01f));

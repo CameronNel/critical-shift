@@ -81,6 +81,26 @@ namespace CriticalShift.Features.Interaction.Unity
             catch (Exception exception) { StopAfterFailure(exception); }
         }
 
+        public void ThrowHeld()
+        {
+            if (!active || stopped) return;
+            try
+            {
+                Pump();
+                if (world.View.Phase != WorldPhase.Running || world.GetWorker(localActor)?.CanInteract != true)
+                { LastAction = "Throwing needs an upright worker during a running shift"; return; }
+                var held = world.GetObject(HeldObject());
+                if (held == null || !bindings.IsPortable(held.EntityId))
+                { LastAction = "Hold a portable crate before throwing"; return; }
+                var release = RunCommand(() => commands.Release(held.EntityId));
+                if (release?.HasNewCommit != true) return;
+                if (!bindings.ThrowReleased(localActor, held, release.State))
+                    throw new InvalidOperationException("The released crate lost its exact physical throw binding.");
+                LastAction = "Threw crate";
+            }
+            catch (Exception exception) { StopAfterFailure(exception); }
+        }
+
         public void BindFocus(Func<Guid> query, Func<Guid, string> displayName)
         {
             RequireSetup();
@@ -298,7 +318,12 @@ namespace CriticalShift.Features.Interaction.Unity
             { FocusHint = "Worker suit grip | WASD move · hold Shift to hoist · G release"; return; }
             if (held != Guid.Empty && bindings.IsHandle(held))
             { FocusHint = "Cart handle | WASD push/steer · Space brake · G release"; return; }
-            if (focused == Guid.Empty) { FocusHint = "Look at a nearby crate or machine"; return; }
+            if (focused == Guid.Empty)
+            {
+                FocusHint = held == Guid.Empty ? "Look at a nearby crate or machine" :
+                    "Held crate | middle-drag turn · T throw · G drop · look at equipment to transfer";
+                return;
+            }
             if (bindings.IsWorker(focused))
             { FocusHint = "Worker suit grip | E drag a down worker · G release"; return; }
             var machine = world.Production.GetMachine(focused);
@@ -316,7 +341,8 @@ namespace CriticalShift.Features.Interaction.Unity
                 machine.Mode == ProductionMode.PowerPaused ? "F restore power · R resume cycle" :
                 machine.Mode == ProductionMode.OutputReady ? "E eject output · F power" :
                 machine.Mode == ProductionMode.Processing ? "F isolate power" : "E transfer · F power · R start · B bypass inspection";
-            FocusHint = (targetName == null ? "Target" : targetName(focused)) + " | " + controls;
+            FocusHint = (targetName == null ? "Target" : targetName(focused)) + " | " + controls +
+                (held != Guid.Empty && bindings.IsPortable(held) ? " · middle-drag turn · T throw" : "");
         }
 
         public void OperateMachine(Guid id, ProductionAction action, Guid container, bool bypass, bool powered)
@@ -342,9 +368,9 @@ namespace CriticalShift.Features.Interaction.Unity
             return true;
         }
 
-        private void RunCommand(Func<InteractionReply> operation)
+        private InteractionReply RunCommand(Func<InteractionReply> operation)
         {
-            if (!active || stopped) return;
+            if (!active || stopped) return null;
             try
             {
                 Pump();
@@ -354,8 +380,9 @@ namespace CriticalShift.Features.Interaction.Unity
                     reply.Reactor != null ? reply.Reactor.Status.ToString() : reply.Status.ToString();
                 if (reply.IsReplay) LastAction += " (previous result; no repeated effect)";
                 Reconcile(false);
+                return reply;
             }
-            catch (Exception exception) { StopAfterFailure(exception); }
+            catch (Exception exception) { StopAfterFailure(exception); return null; }
         }
 
         private void Reconcile(bool applyForces)
