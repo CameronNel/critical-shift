@@ -555,3 +555,10 @@ from MonoBehaviour field initializers into each explicit setup method. Managed
 arrays/callback fields remain ordinary initialization; the normal cosmetic pool
 already allocates its blocks during that same setup path. No render or import
 has run to validate this lifecycle change, and no performance gain is asserted.
+
+Presentation binding loss now disables only the affected cosmetic component
+and emits a named error, rather than silently freezing a stale lamp, instrument,
+ram, tread or roller. This never rolls back or retries a committed game action.
+The strict native log/Player error checks stay in force. A latched physics fault
+also shows its existing reason in the wrapped fixture status panel. These source
+diagnostics have not been executed; no new cosmetic mirror test is introduced.

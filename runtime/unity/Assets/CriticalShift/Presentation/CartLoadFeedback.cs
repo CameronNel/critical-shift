@@ -22,7 +22,9 @@ namespace CriticalShift.Presentation
 
         private void LateUpdate()
         {
-            if (surface == null || lamp == null || overloaded == null || unavailable == null) return;
+            if (overloaded == null || unavailable == null) return;
+            if (surface == null || lamp == null)
+            { enabled = false; throw new InvalidOperationException("A bound cart load presentation part was lost."); }
             bool missing = unavailable(), heavy = overloaded();
             Color color = missing ? new Color(1, 0.08f, 0.02f) : heavy ? new Color(1, 0.55f, 0.02f) : new Color(0.1f, 0.65f, 0.3f);
             float strength = missing ? 0.3f + Mathf.Abs(Mathf.Sin(Time.unscaledTime * 8)) : heavy ? 0.8f : 0.15f;

@@ -29,7 +29,9 @@ namespace CriticalShift.Presentation
 
         private void LateUpdate()
         {
-            if (queries == null || marker == null || lamp == null) return;
+            if (queries == null) return;
+            if (marker == null || lamp == null)
+            { enabled = false; throw new InvalidOperationException("A bound worker status presentation part was lost."); }
             var world = queries.World; var worker = queries.GetWorker(actor);
             if ((world.Phase != WorldPhase.Running && world.Phase != WorldPhase.Paused) || worker == null || worker.Pose == WorkerPose.Upright)
             { Hide(); return; }

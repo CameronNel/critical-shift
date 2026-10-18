@@ -153,7 +153,7 @@ namespace CriticalShift.Presentation
                 DrawReactor();
                 GUI.enabled = previousEnabled;
                 GUILayout.Space(8);
-                GUILayout.Label(physicsStatus());
+                GUILayout.Label(physicsStatus(), wrapped);
                 GUI.enabled = previousEnabled && world.Phase == WorldPhase.Running && worker?.Pose == WorkerPose.Down;
                 if (GUILayout.Button("Attempt worker recovery (H)")) RecoveryRequested?.Invoke();
                 GUI.enabled = previousEnabled && world.Phase == WorldPhase.Running;

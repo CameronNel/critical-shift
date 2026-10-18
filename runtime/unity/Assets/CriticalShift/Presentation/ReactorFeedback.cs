@@ -35,7 +35,9 @@ namespace CriticalShift.Presentation
 
         private void LateUpdate()
         {
-            if (queries == null || shell == null || beacon == null || valve == null || fuelNeedle == null || reserveNeedle == null) return;
+            if (queries == null) return;
+            if (shell == null || beacon == null || valve == null || fuelNeedle == null || reserveNeedle == null)
+            { enabled = false; throw new InvalidOperationException("A bound reactor presentation part was lost."); }
             var state = queries.Reactor;
             var world = queries.World;
             bool live = world.Phase == WorldPhase.Running || world.Phase == WorldPhase.Paused;

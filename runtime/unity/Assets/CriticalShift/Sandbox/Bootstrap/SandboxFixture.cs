@@ -64,6 +64,7 @@ namespace CriticalShift.Sandbox
                         "\nBelt " + (belt.Jammed ? "BLOCKED" : belt.Running ? "moving" : "stopped") + " · bodies " + belt.MovingBodyCount +
                         "\nCarry/drag movement " + (walker.CarrySpeedScale * 100).ToString("F0") + "%" +
                         "\nPhysics " + safety.DynamicBodyCount + "/" + safety.BoundBodyCount + " dynamic · peak " + safety.PeakLinearSpeed.ToString("F1") + " m/s" +
+                        (safety.FaultLatched ? "\nPHYSICS STOP: " + safety.Fault : "") +
                         "\n" + workerState.LastAction + (workerState.CrawlDriveActive ? " · crawling" : "") + "\nPatient: " + patientState.LastAction,
                     access.DisplayName);
                 hud.GrabRequested += host.Grab; hud.ReleaseRequested += host.Release;

@@ -41,18 +41,23 @@ namespace CriticalShift.FacilityPhysics
         }
         private void LateUpdate()
         {
-            if (drive == null || markers == null || !drive.Running) return;
+            if (markers == null) return;
+            if (drive == null) { enabled = false; throw new InvalidOperationException("A bound belt presentation drive was lost."); }
+            foreach (var marker in markers)
+                if (marker == null) { enabled = false; throw new InvalidOperationException("A bound belt tread visual was lost."); }
+            foreach (var roller in rollers)
+                if (roller == null) { enabled = false; throw new InvalidOperationException("A bound belt roller visual was lost."); }
+            if (!drive.Running) return;
             float distance = drive.BeltSpeed * Mathf.Min(Time.deltaTime, 0.05f);
             travel = Mathf.Repeat(travel + distance, length);
             rollerAngle = Mathf.Repeat(rollerAngle + distance / rollerRadius * Mathf.Rad2Deg, 360);
             for (int i = 0; i < markers.Length; i++)
             {
-                if (markers[i] == null) continue;
                 Vector3 position = rest[i]; position.z = Mathf.Repeat(rest[i].z + length * 0.5f + travel, length) - length * 0.5f;
                 markers[i].localPosition = position;
             }
             for (int i = 0; i < rollers.Length; i++)
-                if (rollers[i] != null) rollers[i].localRotation = rollerRest[i] * Quaternion.AngleAxis(rollerAngle, Vector3.right);
+                rollers[i].localRotation = rollerRest[i] * Quaternion.AngleAxis(rollerAngle, Vector3.right);
         }
     }
 }

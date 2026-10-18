@@ -55,8 +55,10 @@ namespace CriticalShift.Presentation
 
         private void LateUpdate()
         {
-            if (queries == null || face == null || lamp == null || rotor == null || progress == null || powerLever == null ||
-                ram == null || clamps[0] == null || clamps[1] == null) return;
+            if (queries == null) return;
+            if (face == null || lamp == null || rotor == null || progress == null || powerLever == null ||
+                ram == null || clamps[0] == null || clamps[1] == null)
+            { enabled = false; throw new InvalidOperationException("A bound machine presentation part was lost."); }
             var state = queries.GetMachine(id);
             var world = queries.World;
             bool live = world.Phase == WorldPhase.Running || world.Phase == WorldPhase.Paused;
