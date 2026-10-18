@@ -69,3 +69,29 @@ def validate_player(text: str, exit_code: int, editor: str, build_guid: str) -> 
     if frames < 12 or errors != 0:
         raise EvidenceError("Player did not finish the required error-free frame lifetime.")
     return {"frames": frames, "errors": errors, "build_guid": build_guid, "exit_code": exit_code}
+
+
+def validate_sandbox_player(text: str, exit_code: int, editor: str, build_guid: str) -> dict:
+    if exit_code != 0:
+        raise EvidenceError(f"Sandbox Player exited {exit_code}.")
+    validate_log(text)
+    ready = re.findall(r"^CS_SANDBOX_PLAYER_READY unity=(\S+) build=(\S+) epoch=([0-9a-fA-F]{32}) bindings=(\d+) bodies=(\d+) meshes=(\d+)$", text, re.M)
+    stopped = re.findall(r"^CS_SANDBOX_PLAYER_STOPPED epoch=([0-9a-fA-F]{32}) frames=(\d+) milliseconds=(\d+) errors=(\d+) bindings=(\d+) bodies=(\d+) objects=(\d+) claims=(\d+) timers=(\d+) connections=(\d+)$", text, re.M)
+    if (len(ready) != 1 or len(stopped) != 1 or text.count("CS_SANDBOX_PLAYER_READY") != 1
+            or text.count("CS_SANDBOX_PLAYER_STOPPED") != 1):
+        raise EvidenceError("Expected one sandbox Player Ready and one complete Stopped marker.")
+    version, identity, epoch, bindings, bodies, meshes = ready[0]
+    if version != editor or identity != build_guid or not re.fullmatch(r"[0-9a-fA-F]{32}", build_guid):
+        raise EvidenceError("Sandbox Player version or build identity differs from this build.")
+    if epoch == "0" * 32 or stopped[0][0] != epoch or text.index("CS_SANDBOX_PLAYER_READY") > text.index("CS_SANDBOX_PLAYER_STOPPED"):
+        raise EvidenceError("Sandbox Player world identity or lifecycle ordering is invalid.")
+    if (int(bindings), int(bodies)) != (10, 31) or int(meshes) < 1:
+        raise EvidenceError("Sandbox Player has an incomplete physical or generated-mesh inventory.")
+    frames, milliseconds, errors, *remaining = map(int, stopped[0][1:])
+    if frames < 120 or milliseconds < 2000 or errors != 0 or any(remaining):
+        raise EvidenceError("Sandbox Player did not complete its required clean lifetime and zero-reference teardown.")
+    return {"frames": frames, "milliseconds": milliseconds, "errors": errors, "meshes": int(meshes),
+            "initial_bindings": int(bindings), "initial_bodies": int(bodies), "epoch": epoch,
+            "remaining_bindings": remaining[0], "remaining_bodies": remaining[1], "remaining_objects": remaining[2],
+            "remaining_claims": remaining[3], "remaining_timers": remaining[4], "remaining_connections": remaining[5],
+            "build_guid": build_guid, "exit_code": exit_code}

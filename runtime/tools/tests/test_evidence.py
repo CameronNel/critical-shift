@@ -6,8 +6,9 @@ from pathlib import Path
 from xml.etree import ElementTree as ET
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from evidence import EvidenceError, validate_log, validate_player, validate_results
+from evidence import EvidenceError, validate_log, validate_player, validate_results, validate_sandbox_player
 from run_foundation import RUNTIME, execute, fingerprint, run
+from run_sandbox import run as run_sandbox
 
 
 class ResultEvidenceTests(unittest.TestCase):
@@ -157,6 +158,66 @@ class PlayerEvidenceTests(unittest.TestCase):
     def test_third_party_warning_remains_separate(self):
         validate_log("Packages/com.unity.example/Example.cs(1,2): warning CS0168: tracked separately\n")
         validate_log("Packages/com.criticalshift.gameplay.vendor/Example.cs(1,2): warning CS0168: separate package\n")
+
+
+class SandboxPlayerEvidenceTests(unittest.TestCase):
+    guid = "c" * 32
+    epoch = "d" * 32
+    version = "6000.4.3f1"
+
+    def valid(self):
+        return (f"CS_SANDBOX_PLAYER_READY unity={self.version} build={self.guid} epoch={self.epoch} bindings=10 bodies=31 meshes=256\n"
+                f"CS_SANDBOX_PLAYER_STOPPED epoch={self.epoch} frames=120 milliseconds=2400 errors=0 bindings=0 bodies=0 objects=0 claims=0 timers=0 connections=0\n")
+
+    def check(self, text, code=0):
+        return validate_sandbox_player(text, code, self.version, self.guid)
+
+    def test_valid_sandbox_player_evidence(self):
+        result = self.check(self.valid())
+        self.assertEqual((result["frames"], result["initial_bodies"], result["remaining_objects"]), (120, 31, 0))
+
+    def test_wrong_build_version_or_empty_epoch_is_rejected(self):
+        for old, new in ((self.guid, "b" * 32), (self.version, "6000.6.2f1"), (self.epoch, "0" * 32)):
+            with self.subTest(value=old), self.assertRaises(EvidenceError):
+                self.check(self.valid().replace(old, new))
+
+    def test_missing_duplicate_and_malformed_markers_are_rejected(self):
+        ready, stopped = self.valid().splitlines()
+        for text in (ready, stopped, self.valid() + ready, self.valid() + stopped,
+                     self.valid() + "CS_SANDBOX_PLAYER_READY malformed\n"):
+            with self.subTest(text=text), self.assertRaises(EvidenceError):
+                self.check(text)
+
+    def test_mismatched_world_and_reversed_lifetime_are_rejected(self):
+        wrong = self.valid().replace("STOPPED epoch=" + self.epoch, "STOPPED epoch=" + "e" * 32)
+        for text in (wrong, "\n".join(reversed(self.valid().splitlines()))):
+            with self.subTest(text=text), self.assertRaises(EvidenceError):
+                self.check(text)
+
+    def test_incomplete_lifetime_or_runtime_inventory_is_rejected(self):
+        for old, new in (("frames=120", "frames=119"), ("milliseconds=2400", "milliseconds=1999"),
+                         ("bindings=10", "bindings=9"), ("bodies=31", "bodies=30"), ("meshes=256", "meshes=0")):
+            with self.subTest(value=old), self.assertRaises(EvidenceError):
+                self.check(self.valid().replace(old, new))
+
+    def test_every_error_or_remaining_teardown_counter_is_rejected(self):
+        for counter in ("errors", "bindings", "bodies", "objects", "claims", "timers", "connections"):
+            with self.subTest(counter=counter), self.assertRaises(EvidenceError):
+                self.check(self.valid().replace(counter + "=0", counter + "=1"))
+
+    def test_nonzero_exit_or_critical_log_cannot_pass_with_good_markers(self):
+        with self.assertRaises(EvidenceError):
+            self.check(self.valid(), 20)
+        with self.assertRaises(EvidenceError):
+            self.check(self.valid() + "InvalidOperationException: lost body\n")
+
+    def test_player_execution_requires_a_new_build_in_the_same_run(self):
+        with tempfile.TemporaryDirectory() as temp:
+            code, out = run_sandbox(None, Path(temp), "Win64", run_player=True)
+            report = json.loads((out / "report.json").read_text())
+            self.assertEqual(code, 1)
+            self.assertIn("explicit --build-player", report["reason"])
+            self.assertEqual(report["phases"]["player"]["status"], "NotRun")
 
 
 class RunnerSafetyTests(unittest.TestCase):

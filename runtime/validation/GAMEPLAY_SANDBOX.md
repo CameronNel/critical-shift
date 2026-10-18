@@ -474,3 +474,31 @@ This addresses the documented runtime-component stripping risk without a broad
 linker exemption, default-material dependency or renderer/package migration.
 The [Unity 6000.4 CreatePrimitive reference](https://docs.unity3d.com/6000.4/Documentation/ScriptReference/GameObject.CreatePrimitive.html)
 was consulted. Actual stripped Player startup remains NotRun.
+
+## Future standalone Player lifetime source
+
+Add explicit `--run-player` opt-in to the existing disposable sandbox runner,
+requiring `--build-player` in the same source run. URP configuration remains a
+build prerequisite. The new development-Player-only smoke flag disables fixture
+input, validates meshes/material references and observes the unchanged baseline
+for at least 120 physics frames and two seconds. It then tears down and waits
+across deferred destruction before reporting exact zero logical, claim, timer,
+connection, physical-binding and observation-reference counters. Native Player
+version, build GUID, epoch and initial binding inventory must agree. The binary
+hash is recorded; a mismatched execution OS is Blocked. No existing Player is
+silently reused. Bootstrap cleanup now records actual post-disposal reference
+counts before releasing its fixture and always detaches the smoke log listener.
+Eight Python evidence/runner cases are written and NotRun: valid evidence plus
+wrong identities, missing/duplicate/malformed markers, lifecycle order/world
+mismatch, short/incomplete inventory, residual/error counters, failed process
+or critical log, and execution without a fresh build. Existing native lifetime
+cases check the new actual cleanup counters. No engine, compiler, tests or Player
+was launched to implement this. Headless startup cannot establish rendering,
+human feel, network convergence, FPS or an accepted roadmap gate.
+
+The deliberate escaped-cargo negative fixture now captures an explicitly
+injected diagnostic sink and asserts the exact failure. The runtime default
+still logs the exception. This keeps expected test faults from looking like
+unexpected errors to the strict native log validator; no critical-log pattern
+is removed or globally ignored. The diagnostic override is composed before
+startup and released with the bootstrap.

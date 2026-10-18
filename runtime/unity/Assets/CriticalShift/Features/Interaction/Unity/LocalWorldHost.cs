@@ -13,6 +13,7 @@ namespace CriticalShift.Features.Interaction.Unity
         private LocalCommandPort commands;
         private Guid localActor;
         private Func<double> readClock;
+        private Action<Exception> reportFault;
         private double realOrigin, lastClock;
         private long hostOrigin, renewAt;
         private bool active, stopped;
@@ -25,7 +26,8 @@ namespace CriticalShift.Features.Interaction.Unity
         public LocalCommandPort Commands => commands;
         public int BoundBodyCount => bindings == null ? 0 : bindings.Count;
 
-        public void Initialize(WorldSession session, LocalCommandPort sender, Guid actor, Func<double> clock = null)
+        public void Initialize(WorldSession session, LocalCommandPort sender, Guid actor, Func<double> clock = null,
+            Action<Exception> diagnosticSink = null)
         {
             if (world != null || session == null || sender == null || session.View.Phase != WorldPhase.Setup ||
                 sender.World.Epoch != session.Epoch || actor == Guid.Empty || sender.ActorId != actor)
@@ -33,6 +35,7 @@ namespace CriticalShift.Features.Interaction.Unity
             world = session; commands = sender; localActor = actor;
             bindings = new PhysicalWorldBindings(session);
             readClock = clock ?? (() => Time.realtimeSinceStartupAsDouble);
+            reportFault = diagnosticSink ?? (exception => Debug.LogException(exception, this));
         }
 
         public void BindBody(Guid id, Rigidbody body, float physicalMassPerUnit = 0)
@@ -404,7 +407,7 @@ namespace CriticalShift.Features.Interaction.Unity
         private void StopAfterFailure(Exception exception)
         {
             LastAction = "Fixture stopped after an error; inspect the Unity log";
-            Shutdown(); Debug.LogException(exception, this);
+            Shutdown(); reportFault(exception);
         }
 
         public void ReportExternalFailure(Exception exception)

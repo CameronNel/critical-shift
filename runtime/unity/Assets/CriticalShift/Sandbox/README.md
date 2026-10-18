@@ -147,8 +147,13 @@ independent review.
 When execution is authorized, `runtime/tools/run_sandbox.py` prepares and tests
 in a fresh disposable copy, retaining the canonical local-package path. Pass the
 pinned editor with `--unity` and `--target Win64`. The optional `--build-player`
-requires the configured URP asset; Player execution remains a separate unrun
-phase. Do not use a green import/physics result as evidence for that later phase.
+requires the configured URP asset. Adding `--run-player` explicitly requests a
+headless startup/teardown smoke of that same new build on its matching OS. It
+requires the pinned version/build identity, generated meshes, declared physical
+bindings, at least 120 physics frames and two seconds, then empty teardown
+counters after deferred destruction. Both native phases remain NotRun. A green
+import/physics result does not establish a Player pass, and headless startup
+does not establish rendered playability, lighting, feel or supported performance.
 
 The runner first checks source ownership, metadata and declared dependency
 boundaries. The future native prepare step also compares production assemblies'

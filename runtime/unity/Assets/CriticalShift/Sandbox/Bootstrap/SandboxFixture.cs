@@ -27,6 +27,7 @@ namespace CriticalShift.Sandbox
         private CartCargoSensor cargo;
         private ConveyorDrive belt;
         private PhysicsSafetyMonitor safety;
+        private SandboxHud hud;
         private bool disposed;
         private readonly Guid actor = Id(1), connection = Id(2), reactor = Id(500), cartId = Id(600);
         private readonly Guid patient = Id(3), patientConnection = Id(4), patientBody = Id(650);
@@ -34,8 +35,10 @@ namespace CriticalShift.Sandbox
         internal Guid Epoch => world.Epoch;
         internal WorldSessionView Snapshot => world.View;
         internal int PhysicalBindingCount => host == null ? 0 : host.BoundBodyCount;
+        internal int PhysicsObservationCount => safety == null ? 0 : safety.BoundBodyCount;
 
-        internal SandboxFixture(Transform parent, Shader fixtureShader, Action requestReset, Func<double> clock = null)
+        internal SandboxFixture(Transform parent, Shader fixtureShader, Action requestReset, Func<double> clock = null,
+            Action<Exception> diagnosticSink = null)
         {
             root = SandboxPrimitives.Empty("Local Gameplay Fixture", parent, Vector3.zero);
             try
@@ -48,13 +51,13 @@ namespace CriticalShift.Sandbox
                 world.RegisterConnection(connection, actor);
                 world.RegisterConnection(patientConnection, patient); world.RegisterWorkerBody(patient, patientBody);
                 commands = new LocalCommandPort(world, connection);
-                host = root.AddComponent<LocalWorldHost>(); host.Initialize(world, commands, actor, clock);
+                host = root.AddComponent<LocalWorldHost>(); host.Initialize(world, commands, actor, clock, diagnosticSink);
                 safety = root.AddComponent<PhysicsSafetyMonitor>();
                 safety.Initialize(root.transform, new Bounds(new Vector3(0, 2, 3), new Vector3(34, 20, 32)), 25, 25,
                     () => world.View.Phase == WorldPhase.Running || world.View.Phase == WorldPhase.Paused, host.ReportExternalFailure);
                 host.BindFocus(() => access.PickTarget(actor), access.DisplayName);
                 BuildRoom(); BuildWorker(); BuildPatient(); BuildContainers(); BuildMachines(); BuildReactor(); BuildCart(); BuildConveyor();
-                var hud = root.AddComponent<SandboxHud>();
+                hud = root.AddComponent<SandboxHud>();
                 hud.Initialize(commands, actor, containers, machines, reactor, patient, () => host.FocusHint + "\n" + host.LastAction,
                     () => "Cart " + cart.Speed.ToString("F1") + " m/s · cargo " + cargo.Mass.ToString("F0") + " kg" +
                         (cart.Overloaded ? " OVERLOADED" : "") + (cargo.Saturated ? " SENSOR SATURATED" : "") +
@@ -379,6 +382,39 @@ namespace CriticalShift.Sandbox
         }
 
         private static Guid Id(int value) => new Guid(value, 0, 0, new byte[8]);
+
+        internal int PreparePlayerSmoke()
+        {
+            hud.enabled = false;
+            // This is the explicitly owned fixture subtree, never a global scene search.
+            var meshes = root.GetComponentsInChildren<MeshFilter>(true);
+            if (meshes.Length == 0) throw new InvalidOperationException("The sandbox Player has no generated meshes.");
+            foreach (var filter in meshes)
+            {
+                var renderer = filter.GetComponent<MeshRenderer>();
+                if (filter.sharedMesh == null || filter.sharedMesh.vertexCount == 0 || renderer == null ||
+                    renderer.sharedMaterial == null || renderer.sharedMaterial.shader == null)
+                    throw new InvalidOperationException("A generated sandbox Player mesh or material dependency is missing.");
+            }
+            return meshes.Length;
+        }
+
+        internal void ObservePlayerSmoke()
+        {
+            safety.Sample();
+            var view = world.View;
+            if (disposed || view.Phase != WorldPhase.Running || view.ActiveClaimCount != 0 || view.ConnectedPlayerCount != 2 ||
+                view.RegisteredObjectCount != 10 || PhysicalBindingCount != 10 || PhysicsObservationCount != 31 || safety.FaultLatched ||
+                safety.DynamicBodyCount != 20 || world.GetWorker(actor)?.Pose != WorkerPose.Upright ||
+                world.GetWorker(patient)?.Pose != WorkerPose.Down || world.Reactor.View?.Mode != ReactorMode.Empty)
+                throw new InvalidOperationException("The sandbox Player lost its declared running-world or physical fixture invariants.");
+            foreach (var container in containers)
+                if (world.GetObject(container) == null || world.Production.GetBatch(container) == null)
+                    throw new InvalidOperationException("The sandbox Player lost a material/container binding.");
+            foreach (var machine in machines)
+                if (world.Production.GetMachine(machine)?.Mode != ProductionMode.Idle)
+                    throw new InvalidOperationException("The untouched sandbox Player machine baseline changed.");
+        }
 
         public void Dispose()
         {

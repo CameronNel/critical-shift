@@ -1,11 +1,13 @@
 """Opt-in native sandbox import/physics tests in a disposable source copy. Never run while gaming is constrained.
 
 Uses the already activated pinned Editor. Does not activate accounts, install new
-packages, import the map or claim Player/playtest/multiplayer/performance acceptance.
+packages or import the map. Optional headless Player smoke is startup/teardown
+evidence only, not rendered playtest, multiplayer or performance acceptance.
 """
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 import shutil
@@ -14,12 +16,12 @@ import sys
 import tempfile
 from pathlib import Path
 
-from evidence import EvidenceError, validate_log, validate_results
+from evidence import EvidenceError, validate_log, validate_results, validate_sandbox_player
 from check_source import check
 from run_foundation import RUNTIME, execute, fingerprint, source_files, utc
 
 
-def run(unity: str | None, output_parent: Path, target: str, build_player: bool = False) -> tuple[int, Path]:
+def run(unity: str | None, output_parent: Path, target: str, build_player: bool = False, run_player: bool = False) -> tuple[int, Path]:
     output_parent = output_parent.resolve()
     if output_parent.is_relative_to(RUNTIME.parent) and not output_parent.is_relative_to(RUNTIME / "out"):
         raise EvidenceError("Repository evidence must remain under runtime/out, outside source and map directories.")
@@ -30,7 +32,7 @@ def run(unity: str | None, output_parent: Path, target: str, build_player: bool 
     phases = {name: {"status": "NotRun"} for name in ("source", "import", "PlayMode", "build", "player")}
     report = {"started_utc": utc(), "profile": profile, "target": target, "status": "NotRun", "phases": phases,
               "expected_playmode_tests": expected,
-              "independent_review": "NotRun", "limits": "Sandbox import/declared physics cases only; no Player execution, feel, art, multiplayer, performance or gate acceptance."}
+              "independent_review": "NotRun", "limits": "Sandbox source/import/declared physics cases and explicitly requested build/headless startup phases only; no rendered playtest, feel, art, multiplayer, performance or gate acceptance."}
     try:
         report["commit"] = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=RUNTIME, text=True, timeout=10).strip()
     except (OSError, subprocess.SubprocessError):
@@ -39,6 +41,8 @@ def run(unity: str | None, output_parent: Path, target: str, build_player: bool 
     report["source_sha256"] = original
     current, code = "source", 1
     try:
+        if run_player and not build_player:
+            raise EvidenceError("Sandbox Player execution requires an explicit --build-player in the same source run.")
         phases["source"] = check(RUNTIME)
         current = "import"
         editor = Path(unity).expanduser().resolve() if unity else None
@@ -96,7 +100,18 @@ def run(unity: str | None, output_parent: Path, target: str, build_player: bool 
             identities = re.findall(r"CS_SANDBOX_BUILD_OK guid=([0-9a-fA-F]{32})", text)
             if len(identities) != 1 or not binary.is_file():
                 raise EvidenceError("The sandbox build executable or identity is missing.")
-            phases["build"].update(status="Passed", build_guid=identities[0])
+            phases["build"].update(status="Passed", build_guid=identities[0], executable_sha256=hashlib.sha256(binary.read_bytes()).hexdigest())
+            if run_player:
+                current = "player"
+                if (target == "Win64" and sys.platform != "win32") or (target == "Linux64" and not sys.platform.startswith("linux")):
+                    report["status"] = "Blocked"
+                    raise EvidenceError("The build host cannot natively execute this Player target; use its matching OS.")
+                log = logs / "player.log"
+                phases["player"] = {"status": "NotRun", "started_utc": utc()}
+                rc, text = execute([str(binary), "-batchmode", "-nographics", "--cs-sandbox-smoke", "-logFile", str(log)], log, 60)
+                phases["player"].update(exit_code=rc, ended_utc=utc(), log=str(log.relative_to(output)))
+                phases["player"].update(validate_sandbox_player(text, rc, profile["editor"], identities[0]))
+                phases["player"]["status"] = "Passed"
         report["status"], code = "Passed", 0
     except (EvidenceError, OSError, ValueError) as exception:
         if report["status"] != "Blocked":
@@ -121,5 +136,6 @@ if __name__ == "__main__":
     parser.add_argument("--out", type=Path, default=RUNTIME / "out")
     parser.add_argument("--target", choices=("Win64", "Linux64"), default="Win64")
     parser.add_argument("--build-player", action="store_true")
+    parser.add_argument("--run-player", action="store_true", help="Opt in to a headless startup/teardown smoke for this run's new Player build.")
     arguments = parser.parse_args()
-    sys.exit(run(arguments.unity, arguments.out, arguments.target, arguments.build_player)[0])
+    sys.exit(run(arguments.unity, arguments.out, arguments.target, arguments.build_player, arguments.run_player)[0])

@@ -44,6 +44,8 @@ namespace CriticalShift.Sandbox.Tests
                     foreach (var body in workerRig.GetComponentsInChildren<Rigidbody>(true)) Assert.That(body.isKinematic, Is.True);
                 Assert.That(bootstrap.World, Is.Null);
                 Assert.That(bootstrap.PhysicalBindingCount, Is.Zero);
+                Assert.That(bootstrap.LastStoppedPhysicalBindings, Is.Zero);
+                Assert.That(bootstrap.LastStoppedPhysicsObservations, Is.Zero);
                 Assert.That(bootstrap.LastStoppedWorld.Phase, Is.EqualTo(WorldPhase.Stopped));
                 Assert.That(bootstrap.LastStoppedWorld.ActiveClaimCount, Is.Zero);
                 Assert.That(bootstrap.LastStoppedWorld.RegisteredObjectCount, Is.Zero);
@@ -84,6 +86,7 @@ namespace CriticalShift.Sandbox.Tests
         {
             root = new GameObject("Physics observation containment fixture"); root.transform.position = new Vector3(1500, 0, 1500);
             var bootstrap = root.AddComponent<SandboxBootstrap>();
+            Exception failure = null; bootstrap.BindFixtureDiagnostics(error => failure = error);
             var pipeline = QualitySettings.renderPipeline != null ? QualitySettings.renderPipeline : GraphicsSettings.defaultRenderPipeline;
             bootstrap.BindFixtureShader(Shader.Find(pipeline == null ? "Standard" : "Universal Render Pipeline/Lit"));
             yield return null; yield return null;
@@ -94,8 +97,9 @@ namespace CriticalShift.Sandbox.Tests
             var id = new Guid(103, 0, 0, new byte[8]); host.Grab(id);
             Assert.That(bootstrap.World.GetObject(id).HolderId, Is.Not.Null);
             crate.position = root.transform.position + Vector3.down * 30; Physics.SyncTransforms();
-            LogAssert.Expect(LogType.Exception, new System.Text.RegularExpressions.Regex("Physics body escaped fixture bounds: Material container 4"));
             safety.Sample();
+            Assert.That(failure, Is.TypeOf<InvalidOperationException>());
+            Assert.That(failure.Message, Does.Contain("Physics body escaped fixture bounds: Material container 4"));
             Assert.That(safety.FaultLatched, Is.True); Assert.That(bootstrap.World.View.Phase, Is.EqualTo(WorldPhase.Stopped));
             Assert.That(bootstrap.World.View.ActiveClaimCount, Is.Zero); Assert.That(host.BoundBodyCount, Is.Zero);
             yield return null;
