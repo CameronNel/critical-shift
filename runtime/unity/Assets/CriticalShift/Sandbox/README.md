@@ -17,6 +17,9 @@ machines, a reactor, a cart, a conveyor, a local collision controller and a down
 test worker. The second worker is controlled locally for this fixture.
 
 - WASD: walk; right mouse drag: look; Tab: show/hide controls.
+- While alert and down, WASD attempts a slow grounded crawl. The walking capsule
+  stays disabled; unconscious, held, slotted or recovering workers cannot use
+  this force path. H still needs a clear standing pose and the existing delay.
 - Look at a nearby target: E grabs or transfers to/from equipment; G drops the
   current grip; F toggles machine power or reactor cooling; R starts, repairs
   or resumes the focused machine according to its current mode. Repair still
@@ -98,7 +101,7 @@ on the inspected baseline. No package is downloaded by the generator.
 
 The existing foundation runner still tests its foundation assembly selection;
 it does not automatically claim sandbox coverage. The separate native inventory
-is `runtime/validation/sandbox-expected-tests.json`: 57 implemented cases, all
+is `runtime/validation/sandbox-expected-tests.json`: 60 implemented cases, all
 NotRun. Nine new pure command-port cases, fourteen worker-body claim cases and
 nine source-package safety cases and five declared-assembly boundary cases
 are also NotRun. Native fixtures are offset from possible active-scene content

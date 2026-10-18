@@ -76,7 +76,7 @@ art acceptance.
 - Diagnostic controls, crusher/fuel/reactor fixture, lamps, valve/spindle/tread
   motion, material appearance and scratch-scene generator: written, unvalidated.
 - Nine pure command-port tests, fourteen worker-body claim tests, nine package
-  safety tests, five declared-boundary cases and 57 native sandbox
+  safety tests, five declared-boundary cases and 60 native sandbox
   tests are implemented, all **NotRun**. These are declared inventory counts,
   not discovered/executed results.
 - Direct first-person focus, context transfer/drop, power/cooling and start
@@ -315,3 +315,18 @@ and stale-input isolation (including old input cancelling a newer hoist), and a
 physically hoisted worker dropped over a
 deliberately placed test cart becoming one observed load. The last case does not
 yet prove steering/transport stability or human ease of loading.
+
+## Down-worker agency source
+
+Add the spec's bounded conscious crawl to the same local ragdoll force owner.
+Only an Alert, Down worker in a Running world, outside a held/slotted body claim
+and outside pending recovery, can request it. A short grounded support query
+prevents airborne propulsion; moving support velocity is accounted for. The
+walking capsule stays disabled. Initial limits are 0.65 m/s desired crawl speed
+and 220 N horizontal force. This changes physical motion, not health or custody.
+Three additional native cases are now written and NotRun: alert crawl with one
+motion owner and pause exclusion, upright/unconscious exclusion, and crawling out
+from under a low ceiling before clearance-approved recovery. An existing drag
+case also checks that a held worker cannot apply crawl forces. Crawl feedback
+reports only actual physical drive admission; it is not another logical pose.
+Native/human acceptance remains NotRun.

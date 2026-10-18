@@ -259,8 +259,14 @@ namespace CriticalShift.Features.Interaction.Unity
         {
             if (world.View.Phase != WorldPhase.Running && world.View.Phase != WorldPhase.Paused)
             { focused = Guid.Empty; FocusHint = "Shift ended · restart the fixture"; return; }
-            if (world.GetWorker(localActor)?.CanInteract != true)
-            { focused = Guid.Empty; FocusHint = "Worker down | H attempts recovery once settled"; return; }
+            var worker = world.GetWorker(localActor);
+            if (worker?.CanInteract != true)
+            {
+                focused = Guid.Empty;
+                FocusHint = worker?.Pose == WorkerPose.Recovering ? "Recovery pending · checking standing clearance" :
+                    worker?.Awareness == WorkerAwareness.Alert ? "Worker down | WASD crawl · H recover once clear" : "Worker unconscious | assistance required";
+                return;
+            }
             focused = pickTarget == null ? Guid.Empty : pickTarget();
             var custody = world.GetObject(focused);
             if (custody?.SlotId != null) focused = custody.SlotId.Value;

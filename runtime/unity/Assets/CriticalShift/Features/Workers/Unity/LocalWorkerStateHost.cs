@@ -17,10 +17,12 @@ namespace CriticalShift.Features.Workers.Unity
         private Action pumpClock, resetLocomotion;
         private Action<Exception> reportFailure;
         private bool active;
+        private Vector2 downMovement;
         private long pendingAttempt, completeAt;
         public string LastAction { get; private set; } = "Worker upright";
         public WorkerView Worker => world == null ? null : world.GetWorker(actor);
         public bool Recovering => pendingAttempt > 0;
+        public bool CrawlDriveActive { get; private set; }
 
         public void Initialize(WorldSession session, Guid workerId, WorkerBodyRig body,
             WorkerRecoveryPlacement recovery, Action sampleClock, Action resetWalking, Action<Exception> onFailure)
@@ -49,6 +51,13 @@ namespace CriticalShift.Features.Workers.Unity
             rig.Reconcile(Worker, world.View.Phase); active = true;
         }
 
+        public void SetDownMovement(Vector2 movement)
+        {
+            if (float.IsNaN(movement.x) || float.IsNaN(movement.y) || float.IsInfinity(movement.x) || float.IsInfinity(movement.y))
+                throw new ArgumentException("Down-worker movement must be finite.");
+            downMovement = Vector2.ClampMagnitude(movement, 1);
+        }
+
         public WorkerStatus ObserveKnockdown(Guid hazard, Vector3 impulse, Vector3 contact)
         {
             if (!active) return WorkerStatus.NotReady;
@@ -65,6 +74,7 @@ namespace CriticalShift.Features.Workers.Unity
                 if (reply.Status == WorkerStatus.Applied)
                 {
                     hazardSequences[hazard] = sequence; pendingAttempt = 0; placement.CancelStage();
+                    downMovement = Vector2.zero;
                     rig.Reconcile(reply.Worker, world.View.Phase); rig.ApplyImpactImpulse(impulse, contact);
                 }
                 else if (reply.Status != WorkerStatus.Paused && reply.Status != WorkerStatus.WorldEnded &&
@@ -128,10 +138,27 @@ namespace CriticalShift.Features.Workers.Unity
         }
 
         private void LateUpdate() { if (active && rig != null) rig.UpdateCamera(); }
+        private void FixedUpdate()
+        {
+            CrawlDriveActive = false;
+            if (!active) return;
+            try
+            {
+                pumpClock(); var worker = Worker;
+                if (worker == null) { Shutdown(); return; }
+                rig.Reconcile(worker, world.View.Phase);
+                if (world.View.Phase != WorldPhase.Running || worker.Awareness != WorkerAwareness.Alert ||
+                    worker.Pose != WorkerPose.Down || pendingAttempt > 0) return;
+                var custody = world.GetWorkerBodyClaim(actor);
+                if (custody != null && (custody.HolderId.HasValue || custody.SlotId.HasValue || custody.IsRetired)) return;
+                CrawlDriveActive = rig.Crawl(downMovement);
+            }
+            catch (Exception exception) { Fail(exception); }
+        }
         private void Fail(Exception exception) { Shutdown(); reportFailure?.Invoke(exception); }
         public void Shutdown()
         {
-            active = false; pendingAttempt = 0; placement?.CancelStage();
+            active = false; pendingAttempt = 0; placement?.CancelStage(); downMovement = Vector2.zero; CrawlDriveActive = false;
             if (rig != null) rig.Freeze();
         }
         private static bool Finite(Vector3 value) => !float.IsNaN(value.x) && !float.IsNaN(value.y) && !float.IsNaN(value.z) &&
@@ -143,5 +170,6 @@ namespace CriticalShift.Features.Workers.Unity
             if (unexpected) reportFailure?.Invoke(new InvalidOperationException("The live worker-state adapter was disabled."));
         }
         private void OnDestroy() => Shutdown();
+        private void OnApplicationFocus(bool focused) { if (!focused) downMovement = Vector2.zero; }
     }
 }

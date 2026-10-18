@@ -1,5 +1,8 @@
 {
   "PlayMode": [
+    "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.AlertDownWorkerCrawlsWithOneMotionOwnerAndStopsDuringPause",
+    "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.UprightAndUnconsciousWorkersCannotUseTheCrawlForcePath",
+    "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.ConsciousWorkerCanCrawlOutFromUnderABlockedRecoveryCeiling",
     "CriticalShift.Sandbox.Tests.WorkerDragTests.HoistingRaisesTheWorkerUnderTheSameLeaseAndPreservesDownState",
     "CriticalShift.Sandbox.Tests.WorkerDragTests.ReleasedOrStaleHoistInputCannotRaiseTheNextLeaseTarget",
     "CriticalShift.Sandbox.Tests.WorkerDragTests.AHoistedWorkerReleasedOverTheCartBecomesOneObservedLoad",

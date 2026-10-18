@@ -29,6 +29,7 @@ namespace CriticalShift.Features.Workers.Unity
         private Quaternion eyeRotation, recoveryRotation;
         private Guid epoch, actor;
         private bool ragdoll, frozen;
+        private readonly RaycastHit[] crawlSupport = new RaycastHit[32];
         public bool IsRagdoll => ragdoll;
         public int BodyCount => bodies == null ? 0 : bodies.Length;
         public float TotalPhysicalMass { get; private set; }
@@ -181,6 +182,28 @@ namespace CriticalShift.Features.Workers.Unity
 
         public void ReleaseBodyClaim() { dragGeneration = 0; dragObstruction = 0; hoist = false; hoistGeneration = 0; }
 
+        internal bool Crawl(Vector2 movement)
+        {
+            if (!ragdoll || !Available || movement.sqrMagnitude < 0.0001f) return false;
+            int count = Physics.RaycastNonAlloc(pelvis.position + Vector3.up * 0.05f, Vector3.down, crawlSupport,
+                0.8f, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore);
+            if (count == crawlSupport.Length) throw new InvalidOperationException("Crawl support observation bounds were saturated.");
+            bool supported = false; RaycastHit nearest = default;
+            for (int i = 0; i < count; i++)
+            {
+                var hit = crawlSupport[i];
+                if (Owns(hit.collider)) continue;
+                if (!supported || hit.distance < nearest.distance) { nearest = hit; supported = true; }
+            }
+            if (!supported || Vector3.Dot(nearest.normal, Vector3.up) < 0.5f) return false;
+            Vector3 motion = Vector3.ProjectOnPlane(controller.transform.right * movement.x + controller.transform.forward * movement.y, Vector3.up);
+            Vector3 supportVelocity = nearest.rigidbody == null ? Vector3.zero : nearest.rigidbody.GetPointVelocity(nearest.point);
+            Vector3 desired = Vector3.ProjectOnPlane(supportVelocity, Vector3.up) + Vector3.ClampMagnitude(motion, 1) * 0.65f;
+            Vector3 current = Vector3.ProjectOnPlane(pelvis.linearVelocity, Vector3.up);
+            pelvis.AddForce(Vector3.ClampMagnitude((desired - current) * TotalPhysicalMass * 8, 220), ForceMode.Force);
+            return true;
+        }
+
         internal bool Owns(Collider collider)
         {
             if (collider == controller) return true;
@@ -214,6 +237,7 @@ namespace CriticalShift.Features.Workers.Unity
         {
             if (frozen) return;
             frozen = true; SetSimulation(false); ReleaseBodyClaim(); ragdoll = false;
+            Array.Clear(crawlSupport, 0, crawlSupport.Length);
             if (controller != null) controller.enabled = false;
         }
 

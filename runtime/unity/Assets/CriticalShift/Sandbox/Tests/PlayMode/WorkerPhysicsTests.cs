@@ -147,5 +147,51 @@ namespace CriticalShift.Sandbox.Tests
             Assert.That(Worker.Pose, Is.EqualTo(WorkerPose.Down)); Assert.That(rig.IsRagdoll, Is.True);
             Assert.That(controller.enabled, Is.False); Assert.That(state.Recovering, Is.False);
         }
+
+        [UnityTest] public IEnumerator AlertDownWorkerCrawlsWithOneMotionOwnerAndStopsDuringPause()
+        {
+            state.DiagnosticKnockdown();
+            for (int i = 0; i < 120; i++) yield return Step();
+            Vector3 before = pelvis.position; long revision = Worker.Revision; state.SetDownMovement(Vector2.right);
+            for (int i = 0; i < 200; i++) yield return Step();
+            Assert.That(pelvis.position.x, Is.GreaterThan(before.x + 0.1f));
+            Assert.That(Worker.Pose, Is.EqualTo(WorkerPose.Down)); Assert.That(controller.enabled, Is.False);
+            Assert.That(rig.IsRagdoll, Is.True); Assert.That(Worker.Revision, Is.EqualTo(revision));
+            host.World.Pause(host.World.Epoch); yield return Step();
+            Assert.That(state.CrawlDriveActive, Is.False); Assert.That(Worker.Revision, Is.EqualTo(revision));
+            state.SetDownMovement(Vector2.zero);
+        }
+
+        [UnityTest] public IEnumerator UprightAndUnconsciousWorkersCannotUseTheCrawlForcePath()
+        {
+            state.SetDownMovement(Vector2.right); yield return Step();
+            Assert.That(state.CrawlDriveActive, Is.False); Assert.That(controller.enabled, Is.True);
+            var impact = host.World.ApplyWorkerImpact(host.World.Epoch, Id(1), 1, WorkerImpact.Incapacitating, 1500, Id(704), Id(705));
+            Assert.That(impact.Status, Is.EqualTo(WorkerStatus.Applied));
+            for (int i = 0; i < 120; i++) yield return Step();
+            state.SetDownMovement(Vector2.right);
+            for (int i = 0; i < 100; i++) yield return Step();
+            Assert.That(state.CrawlDriveActive, Is.False); Assert.That(Worker.Awareness, Is.EqualTo(WorkerAwareness.Unconscious));
+            Assert.That(Worker.Pose, Is.EqualTo(WorkerPose.Down)); Assert.That(controller.enabled, Is.False);
+        }
+
+        [UnityTest] public IEnumerator ConsciousWorkerCanCrawlOutFromUnderABlockedRecoveryCeiling()
+        {
+            state.DiagnosticKnockdown();
+            for (int i = 0; i < 120; i++) yield return Step();
+            var ceiling = GameObject.CreatePrimitive(PrimitiveType.Cube); ceiling.transform.SetParent(root.transform, false);
+            Vector3 center = pelvis.position;
+            ceiling.transform.position = new Vector3(center.x, root.transform.position.y + 1.89f, center.z);
+            ceiling.transform.localScale = new Vector3(1.4f, 0.16f, 3); Physics.SyncTransforms();
+            state.RequestRecovery(); Assert.That(Worker.Pose, Is.EqualTo(WorkerPose.Down));
+            state.SetDownMovement(Vector2.right);
+            for (int i = 0; i < 300 && pelvis.position.x - center.x < 1.2f; i++) yield return Step();
+            state.SetDownMovement(Vector2.zero);
+            Assert.That(pelvis.position.x - center.x, Is.GreaterThanOrEqualTo(1.2f));
+            for (int i = 0; i < 100 && Worker.Pose != WorkerPose.Upright; i++)
+            { yield return Step(); if (i % 10 == 0 && Worker.Pose == WorkerPose.Down) state.RequestRecovery(); }
+            Assert.That(Worker.Pose, Is.EqualTo(WorkerPose.Upright), state.LastAction);
+            Assert.That(controller.enabled, Is.True); Assert.That(DynamicBodies(), Is.Zero);
+        }
     }
 }
