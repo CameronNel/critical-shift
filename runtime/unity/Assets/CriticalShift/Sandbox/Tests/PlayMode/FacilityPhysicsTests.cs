@@ -209,6 +209,26 @@ namespace CriticalShift.Sandbox.Tests
             first.gameObject.SetActive(false); second.gameObject.SetActive(false);
             yield return new WaitForFixedUpdate(); yield return new WaitForFixedUpdate();
             Assert.That(sensor.Mass, Is.Zero); Assert.That(sensor.BodyCount, Is.Zero); Assert.That(sensor.Saturated, Is.True);
+            sensor.enabled = false; Assert.That(sensor.Available, Is.False); Assert.That(sensor.Saturated, Is.True);
+            sensor.enabled = true; Assert.That(sensor.Available, Is.False); Assert.That(sensor.Saturated, Is.True);
+            yield return new WaitForFixedUpdate(); yield return new WaitForFixedUpdate();
+            Assert.That(sensor.Available, Is.True); Assert.That(sensor.Saturated, Is.True);
+        }
+
+        [UnityTest] public IEnumerator CartDriveRequiresAFreshAvailableCargoSample()
+        {
+            var sensor = Cargo(candidate => candidate, group => group.mass);
+            var body = sensor.GetComponent<Rigidbody>(); body.isKinematic = false; body.useGravity = false;
+            var motor = body.gameObject.AddComponent<CartMotor>();
+            motor.Initialize(() => sensor.Available && !sensor.Saturated, () => sensor.Mass); motor.SetDrive(1, 0, false);
+            Assert.That(sensor.Available, Is.False); Assert.That(motor.HasDriveAuthority, Is.False);
+            for (int i = 0; i < 4; i++) yield return new WaitForFixedUpdate();
+            Assert.That(sensor.Available, Is.True); Assert.That(motor.HasDriveAuthority, Is.True);
+            sensor.enabled = false; Assert.That(motor.HasDriveAuthority, Is.False); Assert.That(sensor.Mass, Is.Zero);
+            yield return new WaitForFixedUpdate();
+            sensor.enabled = true; Assert.That(sensor.Available, Is.False); Assert.That(motor.HasDriveAuthority, Is.False);
+            for (int i = 0; i < 3; i++) yield return new WaitForFixedUpdate();
+            Assert.That(sensor.Available, Is.True); Assert.That(motor.HasDriveAuthority, Is.True);
         }
     }
 }

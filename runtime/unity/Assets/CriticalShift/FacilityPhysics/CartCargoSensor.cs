@@ -15,6 +15,9 @@ namespace CriticalShift.FacilityPhysics
         private Func<Rigidbody, float> readMass;
         private Rigidbody cart;
         private BoxCollider sensor;
+        private bool initialized, sampled;
+        public bool Available => sampled && isActiveAndEnabled && cart != null && cart.gameObject.activeInHierarchy &&
+            sensor != null && sensor.enabled && sensor.isTrigger && sensor.gameObject.activeInHierarchy && sensor.attachedRigidbody == cart;
         public bool Saturated { get; private set; }
         public int MaximumBodies { get; set; } = 32;
         public int BodyCount { get; private set; }
@@ -22,17 +25,28 @@ namespace CriticalShift.FacilityPhysics
 
         public void Initialize(Rigidbody cartBody, Func<Rigidbody, Rigidbody> physicalGroup, Func<Rigidbody, float> groupMass)
         {
-            if (cart != null || cartBody == null) throw new InvalidOperationException("Bind one explicit cart body.");
+            if (initialized || cartBody == null) throw new InvalidOperationException("Bind one explicit cart body.");
             cart = cartBody; groupFor = physicalGroup ?? throw new ArgumentNullException(nameof(physicalGroup));
             readMass = groupMass ?? throw new ArgumentNullException(nameof(groupMass));
             sensor = GetComponent<BoxCollider>();
-            if (!sensor.isTrigger) throw new InvalidOperationException("The cargo sensor must be a trigger.");
+            if (!sensor.isTrigger || !sensor.enabled || sensor.attachedRigidbody != cart)
+                throw new InvalidOperationException("The cargo sensor must be an enabled trigger belonging to its cart body.");
+            initialized = true;
         }
 
         private void FixedUpdate()
         {
+            if (!initialized) return;
+            try { Sample(); }
+            catch { enabled = false; throw; }
+        }
+
+        private void Sample()
+        {
+            sampled = false;
             Mass = 0; BodyCount = 0; observedBodies.Clear(); groups.Clear();
-            if (sensor == null || cart == null || groupFor == null) return;
+            if (sensor == null || cart == null || !sensor.enabled || !sensor.isTrigger || sensor.attachedRigidbody != cart || !cart.gameObject.activeInHierarchy)
+                throw new InvalidOperationException("The bound cart cargo observation volume became unavailable.");
             if (MaximumBodies < 1 || MaximumBodies > 64)
             { Saturated = true; throw new InvalidOperationException("Cargo observation capacity must be between one and 64 physical bodies."); }
             Vector3 scale = transform.lossyScale;
@@ -55,10 +69,11 @@ namespace CriticalShift.FacilityPhysics
                 { Saturated = true; throw new InvalidOperationException("Cargo observation exceeded its finite mass range."); }
                 Mass = total; BodyCount++;
             }
+            sampled = true;
             // Keep an overflow visible until fixture reset; its truncated load observation cannot authorize drive.
         }
 
         private void OnDisable()
-        { observedBodies.Clear(); groups.Clear(); Array.Clear(contacts, 0, contacts.Length); Mass = 0; BodyCount = 0; Saturated = false; }
+        { sampled = false; observedBodies.Clear(); groups.Clear(); Array.Clear(contacts, 0, contacts.Length); Mass = 0; BodyCount = 0; }
     }
 }

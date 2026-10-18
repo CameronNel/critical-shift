@@ -61,7 +61,9 @@ test worker. The second worker is controlled locally for this fixture.
   less extra speed. Worker bodies and cart handles use G release instead.
 - Carrying slows movement using the mass of the current held body. The cart's
   load beacon turns amber for overload and flashes red when its observation
-  capacity is saturated. These are physical fixture observations, not inventory.
+  capacity is saturated or its sensor is unavailable. Drive waits for a fresh
+  active sensor sample; disabling/reenabling cannot clear the overflow latch.
+  These are physical fixture observations, not inventory.
 - A moving registered cart can knock the worker down. The existing worker rules
   release the claim; a bounded eleven-body debug rig takes over after the walking
   capsule is disabled. H attempts recovery after settling and the rule delay.
@@ -154,7 +156,7 @@ on the inspected baseline. No package is downloaded by the generator.
 
 The existing foundation runner still tests its foundation assembly selection;
 it does not automatically claim sandbox coverage. The separate native inventory
-is `runtime/validation/sandbox-expected-tests.json`: 96 implemented cases, all
+is `runtime/validation/sandbox-expected-tests.json`: 97 implemented cases, all
 NotRun. Nine new pure command-port cases, fourteen worker-body claim cases and
 nine source-package safety cases and five declared-assembly boundary cases
 are also NotRun. Native fixtures are offset from possible active-scene content

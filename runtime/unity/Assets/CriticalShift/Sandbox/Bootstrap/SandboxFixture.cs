@@ -60,7 +60,7 @@ namespace CriticalShift.Sandbox
                 hud = root.AddComponent<SandboxHud>();
                 hud.Initialize(commands, actor, containers, machines, reactor, patient, () => host.FocusHint + "\n" + host.LastAction,
                     () => "Cart " + cart.Speed.ToString("F1") + " m/s · cargo " + cargo.Mass.ToString("F0") + " kg" +
-                        (cart.Overloaded ? " OVERLOADED" : "") + (cargo.Saturated ? " SENSOR SATURATED" : "") +
+                        (cart.Overloaded ? " OVERLOADED" : "") + (cargo.Saturated ? " SENSOR SATURATED" : !cargo.Available ? " SENSOR UNAVAILABLE" : "") +
                         "\nBelt " + (belt.Jammed ? "BLOCKED" : belt.Running ? "moving" : "stopped") + " · bodies " + belt.MovingBodyCount +
                         "\nCarry/drag movement " + (walker.CarrySpeedScale * 100).ToString("F0") + "%" +
                         "\nPhysics " + safety.DynamicBodyCount + "/" + safety.BoundBodyCount + " dynamic · peak " + safety.PeakLinearSpeed.ToString("F1") + " m/s" +
@@ -343,14 +343,14 @@ namespace CriticalShift.Sandbox
             var bounds = sensor.AddComponent<BoxCollider>(); bounds.isTrigger = true; bounds.size = new Vector3(1.1f, 1.1f, 1.65f);
             cargo = sensor.AddComponent<CartCargoSensor>(); cargo.Initialize(body, host.PhysicalCargoGroup, host.PhysicalCargoMass);
             cart = rig.AddComponent<CartMotor>(); cart.SafeCargoMass = 35;
-            cart.Initialize(() => world.View.Phase == WorldPhase.Running && host.IsHandleHeld(cartId) && !cargo.Saturated, () => cargo.Mass);
+            cart.Initialize(() => world.View.Phase == WorldPhase.Running && host.IsHandleHeld(cartId) && cargo.Available && !cargo.Saturated, () => cargo.Mass);
             workerContacts.BindHazard(cartId, body);
             patientContacts.BindHazard(cartId, body);
             var loadFace = SandboxPrimitives.Box("Cart load warning face", rig.transform, new Vector3(0.48f, 0.8f, -0.96f),
                 new Vector3(0.16f, 0.16f, 0.04f), shapes.Lamp, false);
             var loadLamp = SandboxPrimitives.PointLight("Cart overload beacon", rig.transform, new Vector3(0.48f, 0.95f, -0.95f), Color.green, 0.2f, 1.6f);
             rig.AddComponent<CartLoadFeedback>().Initialize(loadFace.GetComponent<Renderer>(), loadLamp,
-                () => cart.Overloaded, () => cargo.Saturated);
+                () => cart.Overloaded, () => !cargo.Available || cargo.Saturated);
             var wheels = new Transform[4];
             for (int i = 0; i < wheels.Length; i++)
             {

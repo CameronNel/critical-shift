@@ -76,7 +76,7 @@ art acceptance.
 - Diagnostic controls, crusher/fuel/reactor fixture, lamps, valve/spindle/tread
   motion, material appearance and scratch-scene generator: written, unvalidated.
 - Nine pure command-port tests, fourteen worker-body claim tests, nine package
-  safety tests, five declared-boundary cases and 96 native sandbox
+  safety tests, five declared-boundary cases and 97 native sandbox
   tests are implemented, all **NotRun**. These are declared inventory counts,
   not discovered/executed results.
 - Direct first-person focus, context transfer/drop, power/cooling and start
@@ -739,3 +739,13 @@ trigger sensors and disabled decorative colliders are excluded. One new native
 case disables a held cart's solid shape and checks one captured fault plus empty
 claims/bindings. Unexpected cart-test diagnostics fail teardown without weakening
 the native log gate. Source catalogue: 96 native cases, all NotRun.
+
+Cargo observation now exposes availability only after a fresh sample from its
+active, enabled trigger on the bound cart. Disabling the component or losing the
+volume cannot turn unknown cargo into an empty-load drive permission. Reenable
+waits for a new sample; overflow stays latched across component toggles until a
+fresh fixture is created. The drive callback and red warning both consume that
+availability. Observation failures disable that module and remain visible rather
+than repeating every FixedUpdate. One added native case checks fresh-sample drive
+admission, and the overflow case checks disable/reenable retention. Source
+catalogue: 97 native cases, all NotRun.
