@@ -8,7 +8,7 @@ import platform
 import subprocess
 import sys
 import xml.etree.ElementTree as ET
-from check_boundaries import validate, TESTS, RUNNER
+from check_boundaries import validate, TESTS, RUNNER, LINKS
 from verify_results import validate as validate_results
 from check_report_safety import verify as verify_report_safety
 
@@ -106,9 +106,10 @@ def main() -> None:
         relative = path.relative_to(ROOT)
         if path.is_file() and not {"bin", "obj", "artifacts", "__pycache__"}.intersection(relative.parts):
             source_hashes[relative.as_posix()] = hashlib.sha256(path.read_bytes()).hexdigest()
-    for linked in [ROOT.parent / "unity/Assets/CriticalShift/Application/ProcessLifetime.cs",
-                   ROOT.parent / "unity/Assets/CriticalShift/Tests/EditMode/ProcessLifetimeTests.cs"]:
-        source_hashes["../" + linked.relative_to(ROOT.parent).as_posix()] = hashlib.sha256(linked.read_bytes()).hexdigest()
+    for project, declarations in LINKS.items():
+        for declaration in declarations:
+            linked = (ROOT / project).parent.joinpath(declaration["Include"]).resolve()
+            source_hashes["../" + linked.relative_to(ROOT.parent).as_posix()] = hashlib.sha256(linked.read_bytes()).hexdigest()
     summary = {"status": "Passed", "commit": commit, "sdk": version, "os": platform.platform(),
                "started_utc": started, "finished_utc": datetime.now(timezone.utc).isoformat(),
                "configuration": "Release", "library_target": "netstandard2.1", "language": "C# 8.0",

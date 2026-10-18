@@ -14,6 +14,7 @@ namespace CriticalShift.Scenarios
     {
         private static int Main(string[] args)
         {
+            if (args.Length > 0 && args[0] == "--soak") return GameplaySoak.Run(args.Skip(1).ToArray());
             string? scenario = null, reportPath = null; int repeats = 1;
             try
             {
@@ -120,7 +121,7 @@ namespace CriticalShift.Scenarios
         private ScenarioReport Report(string status, int completedRuns, string? error) =>
             new ScenarioReport(_name, status, completedRuns, _completed, _assertions, _step,
                 error, _world?.View, _world?.Trace, _world?.Production.Summary, _world?.Reactor.PowerSummary,
-                _world?.Contracts.View);
+                _world?.Contracts.View, _world?.Debrief);
 
         private string Execute(JsonElement s)
         {
@@ -194,7 +195,8 @@ namespace CriticalShift.Scenarios
                     default:
                         if (!ProductionScenarioSteps.TryRead(a, assertions, _world, out var actual, out var expected) &&
                             !ReactorScenarioSteps.TryRead(a, _world, out actual, out expected) &&
-                            !ContractScenarioSteps.TryRead(a, assertions, _world, out actual, out expected))
+                            !ContractScenarioSteps.TryRead(a, assertions, _world, out actual, out expected) &&
+                            !DebriefScenarioSteps.TryRead(a, _world, out actual, out expected))
                             throw new ArgumentException("Unknown assertion: " + a.Name);
                         if (a.Name != "machine" && a.Name != "batch" && a.Name != "wave") Expect(actual, expected, a.Name);
                         break;
@@ -236,9 +238,9 @@ namespace CriticalShift.Scenarios
     {
         internal ScenarioReport(string name, string status, int runs, int steps, int assertions, int lastStep,
             string? error, WorldSessionView? world, SessionTraceView? trace, ProductionSummary? production, PowerView? power,
-            ShiftContractView? contract)
+            ShiftContractView? contract, ShiftDebriefView? debrief)
         { Name = name; Status = status; CompletedRuns = runs; CompletedSteps = steps; Assertions = assertions;
-          LastStep = lastStep; Error = error; FinalWorld = world; Trace = trace; Production = production; Power = power; Contract = contract; }
+          LastStep = lastStep; Error = error; FinalWorld = world; Trace = trace; Production = production; Power = power; Contract = contract; Debrief = debrief; }
         public string Scope => "Offline logical execution; synthetic access/clearance; no physics or network";
         public string Name { get; }
         public string Status { get; }
@@ -252,5 +254,6 @@ namespace CriticalShift.Scenarios
         public ProductionSummary? Production { get; }
         public PowerView? Power { get; }
         public ShiftContractView? Contract { get; }
+        public ShiftDebriefView? Debrief { get; }
     }
 }

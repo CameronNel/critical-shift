@@ -68,3 +68,19 @@ deadline and a retained result (GAME_SPEC 7.3, 8 and 12.6).
   Existing native deadline/restart regression updated for contract failure and
   fresh objectives. Native execution remains **Blocked/NotRun**; these source
   checks do not establish gameplay feel, Unity compilation or performance.
+- 21:47 UTC: retained debrief implemented. Canonical material/power summaries,
+  worker conditions at termination, replay-safe incident totals and chronological
+  bounded incident detail survive terminal cleanup. Independent review identified
+  terminal HUD use of the live trace and missing worker-name fallbacks; both were
+  repaired. Completed bypass conversions and standing recovery are labeled
+  precisely. No unsupported economy or medical statistics were added.
+- Debrief test first run: 10 passed, 1 failed because test moisture400 was below
+  the existing jam threshold. Fixture corrected to900; 11/11 then passed. First
+  full linked-source run caught a guard fixture missing the two new canonical
+  links; then the strict compiler caught10 nullable warnings in the older trace
+  sources. Guard copying and explicit null handling were repaired, without
+  disabling warnings or weakening checks. Logs remain in `/tmp/debrief-*`.
+- Full editor-free retry: **766 executed/passed, zero failed/skipped, 15 scenarios
+  each twice**, including shared pure trace formatter tests. The native catalogue
+  initially contained137 cases; review then added evacuation formatting and a
+  focused shared regression, bringing it to138. Native behavior is **NotRun**.

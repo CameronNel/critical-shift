@@ -29,6 +29,8 @@ namespace CriticalShift.Application
             ReactorEvent = changed ? ReactorChange?.Kind : null;
             ReactorResult = interaction?.Reactor?.Status;
             var change = production ?? interaction?.Production?.Change;
+            OccurredAtMilliseconds = demand?.ShiftMilliseconds ?? ReactorChange?.ShiftMilliseconds ??
+                change?.ShiftMilliseconds ?? world.ElapsedMilliseconds;
             ProductionResult = interaction?.Production?.Status;
             // Replays retain historical attribution, but cannot publish a second committed event.
             ProductionEvent = changed ? change?.Kind : null;
@@ -51,6 +53,7 @@ namespace CriticalShift.Application
             RecoveryEpisode = worker?.Worker?.RecoveryEpisode; RecoveryAttempt = worker?.Worker?.RecoveryAttempt;
         }
         public long Sequence { get; }
+        public long OccurredAtMilliseconds { get; }
         public Guid Epoch { get; }
         public Guid RequestEpoch { get; }
         public SessionTraceKind Kind { get; }
@@ -110,13 +113,18 @@ namespace CriticalShift.Application
     internal sealed class SessionDiagnostics
     {
         private readonly SessionTraceRecord?[] _records;
+        private readonly ShiftIncidentJournal _incidents;
         private int _first, _count;
         private long _sequence, _dropped;
         internal SessionDiagnostics(int capacity)
         {
             if (capacity < 1 || capacity > 4096) throw new ArgumentOutOfRangeException(nameof(capacity));
             _records = new SessionTraceRecord[capacity];
+            _incidents = new ShiftIncidentJournal(capacity);
         }
+        internal ShiftIncidentTotals Incidents => _incidents.Totals;
+        internal IReadOnlyList<SessionTraceRecord> IncidentTimeline => _incidents.Timeline;
+        internal long DroppedIncidents => _incidents.Dropped;
         internal int Capacity => _records.Length;
         internal SessionTraceView View
         {
@@ -132,9 +140,11 @@ namespace CriticalShift.Application
             WorkerReply? worker = null, InteractionReply? interaction = null, long? previousWorkerRevision = null, Guid hazardId = default, Guid causeId = default, WorkerImpact? severity = null, ProductionChange? production = null, ReactorChange? reactor = null, long? previousClaimRevision = null, DoorEvacuationReply? evacuation = null, GridDemandChange? demand = null)
         {
             // Exhausting diagnostics must not overflow and replay or reject a gameplay transaction.
-            if (_sequence == long.MaxValue) { if (_dropped < long.MaxValue) _dropped++; return; }
-            var record = new SessionTraceRecord(++_sequence, world, requestEpoch, kind,
+            bool exhausted = _sequence == long.MaxValue;
+            var record = new SessionTraceRecord(exhausted ? _sequence : ++_sequence, world, requestEpoch, kind,
                 actor, entity, input, changed, worker, interaction, previousWorkerRevision, hazardId, causeId, severity, production, reactor, previousClaimRevision, evacuation, demand);
+            _incidents.Observe(record, !exhausted);
+            if (exhausted) { if (_dropped < long.MaxValue) _dropped++; return; }
             if (_count == Capacity)
             {
                 _records[_first] = record; _first = (_first + 1) % Capacity;

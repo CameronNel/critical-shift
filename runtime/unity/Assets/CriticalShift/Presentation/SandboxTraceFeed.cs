@@ -1,3 +1,4 @@
+#nullable enable
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,7 +13,7 @@ namespace CriticalShift.Presentation
         {
             internal Entry(SessionTraceRecord record, Guid cause, string description)
             {
-                Sequence = record.Sequence; ShiftMilliseconds = record.DemandChange?.ShiftMilliseconds ?? record.ShiftMilliseconds; EntityId = record.EntityId;
+                Sequence = record.Sequence; ShiftMilliseconds = record.OccurredAtMilliseconds; EntityId = record.EntityId;
                 ActorId = record.ActorId; HazardId = record.HazardId;
                 Kind = record.Kind; Production = record.ProductionEvent; Reactor = record.ReactorEvent;
                 CauseId = cause; Description = description;
@@ -44,6 +45,21 @@ namespace CriticalShift.Presentation
             queries = read ?? throw new ArgumentNullException(nameof(read)); epoch = read.World.Epoch; rows = entries.AsReadOnly();
         }
 
+        public static IReadOnlyList<Entry> DebriefEntries(ShiftDebriefView debrief)
+        {
+            if (debrief == null) throw new ArgumentNullException(nameof(debrief));
+            var copy = new List<Entry>(debrief.Timeline.Count);
+            foreach (var record in debrief.Timeline)
+            {
+                string? description = Describe(record);
+                if (description != null) copy.Add(new Entry(record, Cause(record), description));
+            }
+            return copy.AsReadOnly();
+        }
+
+        private static Guid Cause(SessionTraceRecord record) => record.ReactorChange?.CauseId ??
+            (record.MaterialCauseId != Guid.Empty ? record.MaterialCauseId : record.CauseId);
+
         public void Refresh()
         {
             var trace = queries.Trace;
@@ -55,16 +71,15 @@ namespace CriticalShift.Presentation
                 if (record.Sequence != lastSequence + 1) GapDetected = true;
                 lastSequence = record.Sequence;
                 if (!record.Changed) continue; // A historical replay cannot publish another committed display event.
-                string description = Describe(record);
+                string? description = Describe(record);
                 if (description == null) continue;
-                Guid cause = record.ReactorChange?.CauseId ??
-                    (record.MaterialCauseId != Guid.Empty ? record.MaterialCauseId : record.CauseId);
+                Guid cause = Cause(record);
                 if (entries.Count == 12) entries.RemoveAt(0);
                 entries.Add(new Entry(record, cause, description));
             }
         }
 
-        private static string Describe(SessionTraceRecord record)
+        private static string? Describe(SessionTraceRecord record)
         {
             if (record.DemandChange != null)
             {
@@ -81,16 +96,17 @@ namespace CriticalShift.Presentation
                     case ProductionEvent.Cancelled: return "Machine cycle cancelled";
                 }
             }
-            if (record.ReactorEvent.HasValue)
+            var reactor = record.ReactorChange;
+            if (record.ReactorEvent.HasValue && reactor != null)
             {
                 switch (record.ReactorEvent.Value)
                 {
                     case ReactorEvent.Generated: return null; // Current output already has an instrument; do not bury incidents in generation ticks.
-                    case ReactorEvent.Warning: return "Reactor warning · " + Risk(record.ReactorChange.Risk);
-                    case ReactorEvent.Tripped: return "Reactor tripped · " + Risk(record.ReactorChange.Risk);
+                    case ReactorEvent.Warning: return "Reactor warning · " + Risk(reactor.Risk);
+                    case ReactorEvent.Tripped: return "Reactor tripped · " + Risk(reactor.Risk);
                     case ReactorEvent.FuelExhausted: return "Fuel exhausted · spent material retained";
-                    case ReactorEvent.EmergencyCooling: return "Emergency cooling · spent " + record.ReactorChange.SpentUnits + " reserve";
-                    case ReactorEvent.CoolingChanged: return record.ReactorChange.State.Cooling ? "Cooling opened" : "Cooling closed";
+                    case ReactorEvent.EmergencyCooling: return "Emergency cooling · spent " + reactor.SpentUnits + " reserve";
+                    case ReactorEvent.CoolingChanged: return reactor.State.Cooling ? "Cooling opened" : "Cooling closed";
                     case ReactorEvent.Started: return "Reactor started";
                     case ReactorEvent.Shutdown: return "Reactor shut down";
                     case ReactorEvent.Reset: return "Reactor trip reset · core remains shut down";
@@ -102,11 +118,13 @@ namespace CriticalShift.Presentation
             switch (record.Kind)
             {
                 case SessionTraceKind.Impact: return "Worker impact · " + record.ImpactSeverity;
+                case SessionTraceKind.Aid: return "Worker stabilized";
                 case SessionTraceKind.RecoveryRequested: return "Standing recovery started";
                 case SessionTraceKind.RecoveryResolved: return "Standing recovery resolved · " + record.WorkerResult;
                 case SessionTraceKind.RecoveryCancelled: return "Standing recovery cancelled";
                 case SessionTraceKind.RecoveryExpired: return "Standing recovery expired";
                 case SessionTraceKind.Disconnected: return "Worker disconnected";
+                case SessionTraceKind.Evacuation: return "Evacuation activated";
                 case SessionTraceKind.AttachmentFailed: return "Grip released · physical binding failed";
                 case SessionTraceKind.LeaseExpired: return "Grip released · lease expired";
                 case SessionTraceKind.Started: return "Shift started";

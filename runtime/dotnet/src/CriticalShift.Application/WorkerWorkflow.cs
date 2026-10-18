@@ -18,6 +18,13 @@ namespace CriticalShift.Application
         internal WorkerWorkflow(Guid epoch, int capacity, IWorkerRecoveryPolicy? recovery, long completionWindow)
         { _epoch = epoch; _capacity = capacity; _recovery = recovery; _completionWindow = completionWindow; }
         internal int Count => _workers.Count;
+        internal IReadOnlyList<WorkerView> Snapshot()
+        {
+            var actors = new List<Guid>(_workers.Keys); actors.Sort();
+            var copy = new List<WorkerView>(actors.Count);
+            foreach (var actor in actors) copy.Add(Project(_workers[actor].Snapshot));
+            return copy.AsReadOnly();
+        }
         internal WorkerView? Get(Guid actor) => _workers.TryGetValue(actor, out var state) ? Project(state.Snapshot) : null;
         internal bool CanInteract(Guid actor) => _workers.TryGetValue(actor, out var state) && state.Snapshot.CanInteract;
         internal Guid? BodyFor(Guid actor) => _bodyEntities.TryGetValue(actor, out var body) ? body : (Guid?)null;

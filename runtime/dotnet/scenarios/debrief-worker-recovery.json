@@ -1,0 +1,13 @@
+{
+ "name":"debrief-worker-recovery","seed":42,"duration":1000,"traceCapacity":1,
+ "steps":[
+  {"op":"impact","seq":1,"severity":"Incapacitating","delay":0,"hazard":700,"cause":800,"expect":"Applied"},
+  {"op":"impact","seq":1,"severity":"Incapacitating","delay":0,"hazard":700,"cause":800,"expect":"Duplicate"},
+  {"op":"aid","revision":1,"delay":0,"expect":"Applied"},
+  {"op":"beginRecovery","episode":2,"revision":2,"expect":"Applied"},
+  {"op":"completeRecovery","attempt":1,"clearance":"Safe","expect":"Applied"},
+  {"op":"completeRecovery","attempt":1,"clearance":"Safe","expect":"StaleRecovery"},
+  {"op":"advance","time":1000,"expect":"Ended","assert":{"debriefPresent":true,"debriefOutcome":"TimedOut","debriefElapsed":1000,"recordedImpacts":1,"recordedIncapacitations":1,"recordedRecoveries":1,"terminalWorkers":4,"incidentDetailsDropped":true,"workers":0}},
+  {"op":"restart","expect":"Running","assert":{"debriefPresent":false,"elapsed":0,"workers":4}}
+ ]
+}

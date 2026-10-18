@@ -174,7 +174,8 @@ namespace CriticalShift.Offline.Tests
             foreach (var type in new[] { typeof(ClaimSnapshot), typeof(ObjectClaimView), typeof(InteractionReply), typeof(InteractionCommand),
                 typeof(WorldSessionConfiguration), typeof(WorldSessionView), typeof(WorldTimerHandle), typeof(WorldTimerSignal),
                 typeof(WorldTimerScheduleReply), typeof(WorldAdvanceResult), typeof(TimerEntry), typeof(WorkerSnapshot), typeof(WorkerView), typeof(WorkerReply),
-                typeof(SessionTraceRecord), typeof(SessionTraceView), typeof(ReactorView), typeof(ReactorRequest), typeof(ReactorReply), typeof(ReactorChange), typeof(PowerView), typeof(ReactorDefinition) })
+                typeof(SessionTraceRecord), typeof(SessionTraceView), typeof(ReactorView), typeof(ReactorRequest), typeof(ReactorReply), typeof(ReactorChange), typeof(PowerView), typeof(ReactorDefinition),
+                typeof(ShiftContractView), typeof(GridDemandView), typeof(GridDemandChange), typeof(ShiftDebriefView), typeof(ShiftIncidentTotals) })
                 foreach (var property in type.GetProperties()) Assert.That(property.SetMethod, Is.Null, type.Name + "." + property.Name);
         }
     }

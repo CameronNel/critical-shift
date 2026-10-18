@@ -298,5 +298,20 @@
   "EarlyTerminalPathsRetainDetachedContractProgress": 3,
   "RestartCreatesFreshContractProgressAndRejectsOldEpochControls": 1,
   "FailedDeadlineSettlementFaultsBeforePublishingAnyTerminalSuccessOrTimeout": 2,
-  "TimelinePreviewAndAssessedDeadlineAreObservationalUntilCommit": 1
+  "TimelinePreviewAndAssessedDeadlineAreObservationalUntilCommit": 1,
+  "DebriefFreezesTheFirstTerminalResultAndCanonicalResourceTotals": 1,
+  "IncidentTotalsSurviveTraceEvictionAndIgnoreDuplicateImpacts": 1,
+  "AidAndStandingRecoveryCountOnlyTheirSuccessfulCommits": 1,
+  "JammedAndCancelledBypassDoesNotCountAsACompletedBypassConversion": 1,
+  "CompletedBypassIsCountedOnceDespiteHistoricalStartRetries": 1,
+  "LargeSampleDebriefOrdersTypedOccurrencesAcrossReactorMachineAndDemand": 1,
+  "ExhaustedTraceSequenceStillCountsNewIncidentsWithoutFaultingGameplay": 1,
+  "DebriefRetainsExplicitTerminalReasons": 3,
+  "DebriefCollectionsCannotBeUsedToMutateTheTerminalEvidence": 1,
+  "WetJamRetainsItsRecordedCauseAndReplayCannotPublishItAgain": 1,
+  "SourceEvictionExposesAGapWithoutInventingAnIncident": 1,
+  "GripDropsPublishOnceForBindingFailureAndLeaseExpiry": 1,
+  "FeedStaysBoundedAndReadsTheStoppedWorldWithoutMutatingIt": 1,
+  "TerminalTimelineKeepsEarlierIncidentsAfterRoutineSamplesEvictTheRawTrace": 1,
+  "TerminalTimelineShowsEvacuationOnceWithItsOriginalCause": 1
 }

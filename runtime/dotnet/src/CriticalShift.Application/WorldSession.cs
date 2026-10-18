@@ -149,6 +149,7 @@ namespace CriticalShift.Application
                     // A terminal snapshot requires complete adapter teardown, not just released-claim handling.
                     StopOwnedResources(); _revision = next;
                     _diagnostics.Append(View, Epoch, SessionTraceKind.Ended, changed: true);
+                    CaptureDebrief();
                     return new WorldAdvanceResult(View, Array.Empty<WorldTimerSignal>(), Array.Empty<ObjectClaimView>(), true,
                         productionChanges: productionChanges, reactorChanges: reactorChanges, demandChanges: demandChanges);
                 }
@@ -218,6 +219,7 @@ namespace CriticalShift.Application
             long next = NextRevision();
             _timeline.TryFinish(outcome); StopOwnedResources(); _revision = next;
             _diagnostics.Append(View, epoch, SessionTraceKind.Ended, changed: true);
+            CaptureDebrief();
             return WorldControlStatus.Applied;
         }
 
@@ -358,6 +360,7 @@ namespace CriticalShift.Application
             long next = NextRevision();
             _timeline.Stop(); StopOwnedResources(); _revision = next;
             _diagnostics.Append(View, Epoch, SessionTraceKind.Stopped, changed: true);
+            CaptureDebrief();
         }
 
         /// <summary>
@@ -377,12 +380,17 @@ namespace CriticalShift.Application
         private WorldAdvanceResult EmptyAdvance(bool ended) => new WorldAdvanceResult(View,
             Array.Empty<WorldTimerSignal>(), Array.Empty<ObjectClaimView>(), ended);
         private long NextRevision() => checked(_revision + 1);
-        private void StopOwnedResources() { Contracts.Close(); Reactor.Clear(); Production.Clear(); _timers.Stop(); _interaction.Stop(); _workers.Clear(); }
+        private void StopOwnedResources()
+        {
+            if (closingRoster == null) closingRoster = _workers.Snapshot();
+            Contracts.Close(); Reactor.Clear(); Production.Clear(); _timers.Stop(); _interaction.Stop(); _workers.Clear();
+        }
         private void FailClosed()
         {
             _timeline.Fault(); StopOwnedResources();
             if (_revision < long.MaxValue) _revision++;
             _diagnostics.Append(View, Epoch, SessionTraceKind.Faulted, changed: true);
+            CaptureDebrief();
         }
         private void RequireIdle()
         {

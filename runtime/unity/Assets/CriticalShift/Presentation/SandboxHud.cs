@@ -34,6 +34,8 @@ namespace CriticalShift.Presentation
         private Vector2 scroll;
         private GUIStyle wrapped;
         private SandboxTraceFeed traceFeed;
+        private ShiftDebriefView shownDebrief;
+        private IReadOnlyList<SandboxTraceFeed.Entry> debriefRows;
         private double nextTraceRefresh;
 
         public void Initialize(LocalCommandPort port, Guid localActor, Guid[] containerIds, Guid[] machineIds,
@@ -139,7 +141,7 @@ namespace CriticalShift.Presentation
                 if (contract != null)
                 {
                     var wave = contract.Current;
-                    string objective = wave == null ? contract.Title + " · " + contract.Outcome :
+                    string objective = wave == null || commands.Debrief != null ? contract.Title + " · " + contract.Outcome :
                         wave.Label + " · " + wave.DeliveredEnergyUnits + "/" + wave.RequiredEnergyUnits + " energy this window";
                     GUI.Label(new Rect(12, 174, Screen.width - 24, 70), objective, wrapped);
                 }
@@ -157,6 +159,13 @@ namespace CriticalShift.Presentation
                 GUILayout.Label("Shift " + TimeSpan.FromMilliseconds(world.RemainingMilliseconds).ToString(@"mm\:ss") + " | " + world.Phase +
                     (world.Outcome == WorldOutcome.None ? "" : " · " + world.Outcome), wrapped);
                 DrawContract();
+                if (commands.Debrief != null)
+                {
+                    DrawDebrief(commands.Debrief);
+                    if (GUILayout.Button("Start another shift")) ResetRequested?.Invoke();
+                    DrawDebriefTimeline(commands.Debrief);
+                    return;
+                }
                 GUILayout.Label("Held objects: " + world.ActiveClaimCount + " | " + actionStatus(), wrapped);
                 var worker = commands.GetWorker(actor);
                 if (worker != null) GUILayout.Label("Worker " + worker.Awareness + " / " + worker.Pose);
@@ -222,7 +231,7 @@ namespace CriticalShift.Presentation
             if (contract == null) return;
             GUILayout.Label(contract.Title, wrapped);
             var current = contract.Current;
-            if (current != null)
+            if (current != null && (contract.Phase == WorldPhase.Running || contract.Phase == WorldPhase.Paused || contract.Phase == WorldPhase.Setup))
             {
                 long remaining = Math.Max(0, current.EndMilliseconds - contract.ElapsedMilliseconds);
                 GUILayout.Label(current.Label + " · " + current.DeliveredEnergyUnits + "/" + current.RequiredEnergyUnits +
@@ -243,6 +252,46 @@ namespace CriticalShift.Presentation
         {
             long seconds = milliseconds / 1000;
             return (seconds / 60).ToString("D2") + ":" + (seconds % 60).ToString("D2");
+        }
+
+        private void DrawDebrief(ShiftDebriefView debrief)
+        {
+            GUILayout.Space(8); GUILayout.Label("SHIFT DEBRIEF · " + debrief.World.Outcome);
+            if (debrief.Power != null)
+            {
+                var power = debrief.Power;
+                GUILayout.Label("Grid supplied " + power.Delivered + " energy · reserve remaining " + power.Available, wrapped);
+                GUILayout.Label("Reserve spent " + power.Spent + " · energy spilled " + power.Spilled, wrapped);
+            }
+            var material = debrief.Production;
+            GUILayout.Label("Material " + material.ActiveUnits + " units · waste " + material.WasteUnits +
+                " · conversions " + material.CompletedCycles + " · cancelled " + material.CancelledCycles, wrapped);
+            var incidents = debrief.Incidents;
+            GUILayout.Label("Worker impacts " + incidents.WorkerImpacts + " · incapacitating impacts " + incidents.Incapacitations +
+                " · successful standing recoveries " + incidents.StandingRecoveries, wrapped);
+            GUILayout.Label("Machine jams " + incidents.MachineJams + " · completed bypass conversions " + incidents.BypassedConversions, wrapped);
+            GUILayout.Label("Reactor warnings " + incidents.ReactorWarnings + " · trips " + incidents.ReactorTrips +
+                " · emergency cooling uses " + incidents.EmergencyCoolingUses, wrapped);
+            if (incidents.Saturated) GUILayout.Label("Incident totals reached the recording limit.", wrapped);
+            if (debrief.DroppedIncidents > 0) GUILayout.Label(debrief.DroppedIncidents + " older incident details are no longer retained; totals cover the shift.", wrapped);
+            GUILayout.Label("WORKERS AT SHIFT END");
+            foreach (var worker in debrief.WorkersAtEnd)
+                GUILayout.Label(WorkerName(worker.Id) + " · " + worker.Awareness + " / " + worker.Pose +
+                    " · suit " + worker.Suit + " · contamination " + worker.Contamination, wrapped);
+        }
+
+        private string WorkerName(Guid id)
+        {
+            string name = traceName(id);
+            return !string.IsNullOrEmpty(name) ? name : id == actor ? "You" : id == patient ? "Test worker" : "Worker";
+        }
+
+        private void DrawDebriefTimeline(ShiftDebriefView debrief)
+        {
+            GUILayout.Space(8); GUILayout.Label("SHIFT INCIDENT TIMELINE");
+            if (!ReferenceEquals(debrief, shownDebrief))
+            { debriefRows = SandboxTraceFeed.DebriefEntries(debrief); shownDebrief = debrief; }
+            foreach (var row in debriefRows) DrawTraceRow(row);
         }
 
         private void DrawMachine()
@@ -324,16 +373,17 @@ namespace CriticalShift.Presentation
                 GUILayout.Label("Diagnostic sequence exhausted · new trace records are unavailable", wrapped);
             for (int i = traceFeed.Entries.Count - 1; i >= 0; i--)
             {
-                var row = traceFeed.Entries[i];
-                string at = TimeSpan.FromMilliseconds(row.ShiftMilliseconds).ToString(@"mm\:ss");
-                string cause = row.CauseId == Guid.Empty ? "" : " · cause " + row.CauseId.ToString("N").Substring(0, 8);
-                string subject = traceName(row.EntityId);
-                if (string.IsNullOrEmpty(subject) && row.ActorId != Guid.Empty)
-                    subject = row.ActorId == actor ? "You" : row.ActorId == patient ? "Test worker" : "Worker";
-                string hazard = row.HazardId == Guid.Empty ? "" : traceName(row.HazardId);
-                GUILayout.Label(at + " · " + (string.IsNullOrEmpty(subject) ? "" : subject + ": ") + row.Description +
-                    (string.IsNullOrEmpty(hazard) ? "" : " · source " + hazard) + cause, wrapped);
+                DrawTraceRow(traceFeed.Entries[i]);
             }
+        }
+        private void DrawTraceRow(SandboxTraceFeed.Entry row)
+        {
+            string cause = row.CauseId == Guid.Empty ? "" : " · cause " + row.CauseId.ToString("N").Substring(0, 8);
+            string subject = traceName(row.EntityId);
+            if (string.IsNullOrEmpty(subject) && row.ActorId != Guid.Empty) subject = WorkerName(row.ActorId);
+            string hazard = row.HazardId == Guid.Empty ? "" : traceName(row.HazardId);
+            GUILayout.Label(Clock(row.ShiftMilliseconds) + " · " + (string.IsNullOrEmpty(subject) ? "" : subject + ": ") + row.Description +
+                (string.IsNullOrEmpty(hazard) ? "" : " · source " + hazard) + cause, wrapped);
         }
         private void OnApplicationFocus(bool focused) { if (!focused) ClearInput(); }
         private void OnDisable() { active = false; ClearInput(); }

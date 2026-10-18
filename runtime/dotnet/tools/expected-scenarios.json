@@ -59,6 +59,11 @@
     "steps_per_run": 15,
     "assertions_per_run": 49
   },
+  "debrief-worker-recovery": {
+    "runs": 2,
+    "steps_per_run": 8,
+    "assertions_per_run": 22
+  },
   "contract-missed-window": {
     "runs": 2,
     "steps_per_run": 7,

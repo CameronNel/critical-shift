@@ -45,7 +45,7 @@ Use fresh report names for manual scenarios:
 dotnet run --project tools/CriticalShift.Scenarios --configuration Release -- --scenario scenarios/reactor-full-production-chain.json --report artifacts/manual-reactor-new.json --repeat 2
 ```
 
-The 12 current scenarios include all eight inherited inputs plus four reactor/power inputs. See the manifests and actual task/PR evidence for exact counts and results. The optional successful workflow package can run the same first-party scenario executable with a .NET 8 runtime; it is not a Unity Player or graphical game.
+The versioned scenario manifest includes worker/cleanup, production, reactor/power, demand-contract and debrief inputs. See the manifests and actual task/PR evidence for exact counts and results. [Shift contracts and debrief](SHIFT_CONTRACTS_AND_DEBRIEF.md) describes deadline settlement, window energy and retained result projections. The optional successful workflow package can run the same first-party scenario executable with a .NET 8 runtime; it is not a Unity Player or graphical game.
 
 ## Interaction calling contract
 

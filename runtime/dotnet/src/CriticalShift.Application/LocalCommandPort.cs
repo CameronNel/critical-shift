@@ -41,6 +41,7 @@ namespace CriticalShift.Application
         public ReactorView? Reactor => _world.Reactor.View;
         public PowerView? Power => _world.Reactor.PowerSummary;
         public ShiftContractView? Contract => _world.Contracts.View;
+        public ShiftDebriefView? Debrief => _world.Debrief;
         public SessionTraceView Trace => _world.Trace;
 
         public InteractionReply Grab(Guid entity) => Send(new InteractionCommand(_world.Epoch,
