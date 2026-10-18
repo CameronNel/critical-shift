@@ -230,8 +230,9 @@ namespace CriticalShift.Sandbox
             SandboxPrimitives.Box("Machine case", machine.transform, new Vector3(0, 0.9f, 0), new Vector3(1.5f, 1.8f, 1.2f), shapes.Steel);
             SandboxPrimitives.Box("Loading support", machine.transform, new Vector3(0, 0.65f, -1.1f), new Vector3(0.85f, 0.12f, 0.85f), shapes.Yellow);
             var slot = SandboxPrimitives.Empty("Explicit loading slot", machine.transform, new Vector3(0, 1.05f, -1.1f));
-            host.BindSlot(id, slot.transform); access.BindTarget(id, machine.transform);
+            host.BindSlot(id, slot.transform);
             var face = SandboxPrimitives.Box("Status face", machine.transform, new Vector3(0, 1.5f, -0.62f), new Vector3(0.7f, 0.25f, 0.04f), shapes.Lamp, false);
+            access.BindTarget(id, machine.transform, face.transform);
             var rotor = SandboxPrimitives.Empty("Process spindle pivot", machine.transform, new Vector3(0.45f, 1, -0.68f));
             var rotorDisc = SandboxPrimitives.Shape(PrimitiveType.Cylinder, "Process spindle disc", rotor.transform,
                 Vector3.zero, new Vector3(0.5f, 0.1f, 0.5f), shapes.Dark, false);
@@ -280,8 +281,9 @@ namespace CriticalShift.Sandbox
                 new Vector3(1.5f, 1.4f, 1.5f), shapes.Steel);
             SandboxPrimitives.Box("Fuel loading support", room.transform, new Vector3(0, 0.65f, -1.3f), new Vector3(0.85f, 0.12f, 0.85f), shapes.Yellow);
             var slot = SandboxPrimitives.Empty("Reactor fuel slot", room.transform, new Vector3(0, 1.05f, -1.3f));
-            host.BindSlot(reactor, slot.transform); access.BindTarget(reactor, room.transform);
+            host.BindSlot(reactor, slot.transform);
             var face = SandboxPrimitives.Box("Reactor status", room.transform, new Vector3(0, 2.2f, -0.78f), new Vector3(0.8f, 0.3f, 0.05f), shapes.Lamp, false);
+            access.BindTarget(reactor, room.transform, face.transform);
             var valve = SandboxPrimitives.Empty("Cooling valve pivot", room.transform, new Vector3(1.2f, 1.1f, -0.5f));
             var valveDisc = SandboxPrimitives.Shape(PrimitiveType.Cylinder, "Cooling valve wheel", valve.transform,
                 Vector3.zero, new Vector3(0.5f, 0.08f, 0.5f), shapes.Yellow, false);
@@ -337,7 +339,7 @@ namespace CriticalShift.Sandbox
             var handle = SandboxPrimitives.Empty("Cart rear grip", rig.transform, new Vector3(0, 0.9f, -1.15f));
             SandboxPrimitives.Box("Cart handle bar", handle.transform, Vector3.zero, new Vector3(1.1f, 0.08f, 0.08f), shapes.Dark);
             var stand = SandboxPrimitives.Empty("Cart operator stance", rig.transform, new Vector3(0, -0.45f, -2));
-            host.BindCartHandle(cartId, body, handle.transform, stand.transform); access.BindTarget(cartId, rig.transform);
+            host.BindCartHandle(cartId, body, handle.transform, stand.transform); access.BindTarget(cartId, rig.transform, handle.transform);
             var sensor = SandboxPrimitives.Empty("Cargo observation bounds", rig.transform, new Vector3(0, 0.65f, 0));
             var bounds = sensor.AddComponent<BoxCollider>(); bounds.isTrigger = true; bounds.size = new Vector3(1.1f, 1.1f, 1.65f);
             cargo = sensor.AddComponent<CartCargoSensor>(); cargo.Initialize(body, host.PhysicalCargoGroup, host.PhysicalCargoMass);

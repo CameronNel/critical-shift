@@ -39,6 +39,8 @@ test worker. The second worker is controlled locally for this fixture.
   requires power isolation. B starts with inspection bypass, preserving its
   faster processing and wet-batch jam risk. Loaded containers resolve their machine slot. Walls and
   unrelated bodies continue blocking focus and interaction.
+  Equipment reach/occlusion uses the visible console face; cart access uses its
+  rear grip. Collider identity still belongs to the full registered assembly.
 - Stand behind the cart and E takes its exclusive rear handle. WASD (or arrow
   keys) drives and steers while gripped; Space brakes. The worker follows the
   cart's operator stance through collision-controlled movement. Moving too far
@@ -149,7 +151,7 @@ on the inspected baseline. No package is downloaded by the generator.
 
 The existing foundation runner still tests its foundation assembly selection;
 it does not automatically claim sandbox coverage. The separate native inventory
-is `runtime/validation/sandbox-expected-tests.json`: 86 implemented cases, all
+is `runtime/validation/sandbox-expected-tests.json`: 87 implemented cases, all
 NotRun. Nine new pure command-port cases, fourteen worker-body claim cases and
 nine source-package safety cases and five declared-assembly boundary cases
 are also NotRun. Native fixtures are offset from possible active-scene content

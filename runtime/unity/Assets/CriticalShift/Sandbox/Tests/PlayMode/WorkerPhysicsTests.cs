@@ -109,6 +109,36 @@ namespace CriticalShift.Sandbox.Tests
             Assert.That(host.World.Production.GetBatch(Id(103)).Units, Is.EqualTo(12));
         }
 
+        [UnityTest] public IEnumerator FacilityConsoleAnchorsAdmitProductionAndReactorCommandsAtStandingHeight()
+        {
+            controller.enabled = false; controller.transform.position = root.transform.position + new Vector3(-4, 0.1f, 2);
+            controller.enabled = true; walker.ResetAfterRecovery();
+            var ore = root.transform.Find("Local Gameplay Fixture/Material container 4").GetComponent<Rigidbody>();
+            ore.position = root.transform.position + new Vector3(-4, 1, 3); ore.linearVelocity = Vector3.zero; Physics.SyncTransforms();
+            host.Grab(Id(103)); Assert.That(host.World.GetObject(Id(103)).HolderId, Is.EqualTo(Id(1)));
+            host.OperateMachine(Id(400), ProductionAction.Insert, Id(103), false, false);
+            Assert.That(host.World.GetObject(Id(103)).SlotId, Is.EqualTo(Id(400)), host.LastAction);
+            host.OperateMachine(Id(400), ProductionAction.SetPower, Guid.Empty, false, true);
+            host.OperateMachine(Id(400), ProductionAction.Start, Guid.Empty, false, false);
+            Assert.That(host.World.Production.GetMachine(Id(400)).Mode, Is.EqualTo(ProductionMode.Processing), host.LastAction);
+            clock += 6.1; host.Pump();
+            Assert.That(host.World.Production.GetBatch(Id(103)).Kind, Is.EqualTo(MaterialKind.CrushedOre));
+            Assert.That(host.World.Production.GetBatch(Id(103)).Units, Is.EqualTo(11));
+            host.OperateMachine(Id(400), ProductionAction.Eject, Guid.Empty, false, false);
+            Assert.That(host.World.GetObject(Id(103)).SlotId, Is.Null, host.LastAction);
+            controller.enabled = false; controller.transform.position = root.transform.position + new Vector3(5.5f, 0.1f, 3);
+            controller.enabled = true; walker.ResetAfterRecovery();
+            var fuel = root.transform.Find("Local Gameplay Fixture/Material container 7").GetComponent<Rigidbody>();
+            fuel.position = root.transform.position + new Vector3(5.5f, 1.05f, 4.1f); fuel.linearVelocity = Vector3.zero; Physics.SyncTransforms();
+            host.Grab(Id(106)); Assert.That(host.World.GetObject(Id(106)).HolderId, Is.EqualTo(Id(1)));
+            host.OperateReactor(Id(500), ReactorAction.Insert, Id(106), false);
+            Assert.That(host.World.GetObject(Id(106)).SlotId, Is.EqualTo(Id(500)), host.LastAction);
+            host.OperateReactor(Id(500), ReactorAction.SetCooling, Guid.Empty, true);
+            host.OperateReactor(Id(500), ReactorAction.Start, Guid.Empty, false);
+            Assert.That(host.World.Reactor.View.Mode, Is.EqualTo(ReactorMode.Running), host.LastAction);
+            yield return Step();
+        }
+
         [UnityTest] public IEnumerator KnockdownDropsTheClaimBeforeRagdollTakesMotion()
         {
             host.Grab(Id(103)); Assert.That(host.World.GetObject(Id(103)).HolderId, Is.EqualTo(Id(1)));

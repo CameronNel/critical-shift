@@ -69,6 +69,9 @@ namespace CriticalShift.Sandbox.Tests
             var stand = motor.transform.Find("Cart operator stance");
             Assert.That(stand, Is.Not.Null);
             for (int i = 0; i < 10; i++) yield return new WaitForFixedUpdate();
+            var cargo = root.transform.Find("Local Gameplay Fixture/Material container 5").GetComponent<Rigidbody>();
+            cargo.position = motor.transform.position + Vector3.up * 0.42f; cargo.linearVelocity = Vector3.zero;
+            Physics.SyncTransforms();
             controller.enabled = false; controller.transform.position = stand.position + Vector3.up * 0.1f; controller.enabled = true;
             var cartId = new Guid(600, 0, 0, new byte[8]);
             host.Grab(cartId); Assert.That(host.IsHandleHeld(cartId), Is.True);

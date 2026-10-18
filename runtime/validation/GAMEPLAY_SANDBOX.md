@@ -76,7 +76,7 @@ art acceptance.
 - Diagnostic controls, crusher/fuel/reactor fixture, lamps, valve/spindle/tread
   motion, material appearance and scratch-scene generator: written, unvalidated.
 - Nine pure command-port tests, fourteen worker-body claim tests, nine package
-  safety tests, five declared-boundary cases and 86 native sandbox
+  safety tests, five declared-boundary cases and 87 native sandbox
   tests are implemented, all **NotRun**. These are declared inventory counts,
   not discovered/executed results.
 - Direct first-person focus, context transfer/drop, power/cooling and start
@@ -597,3 +597,16 @@ rejected mismatches, literal-path/no-Editor invocation and unsupported-host
 honesty). A direct read-only file-metadata observation on this computer reported
 ProductVersion `6000.4.3f1_39d1a88d4dd1` and FileVersion `6000.4.3.3789224`.
 That read did not start Unity and does not constitute an import/compiler pass.
+
+## Equipment interaction points
+
+Source inspection found equipment reach/occlusion still using floor-level roots
+and the cart centre, allowing floor or cargo geometry to interfere with intended
+console/handle access. Keep each full collider hierarchy as the target identity,
+but bind machines and reactor to their visible console faces, and the cart to
+its rear grip, using the existing explicit interaction-point boundary. No global
+reach increase or occluder bypass is added. A new actual-fixture native case
+sets up a standing actor, inserts/processes/ejects ore with yield, then loads and
+starts the reactor through real spatial admission. The existing grounded-cart
+case now includes cargo before acquiring the handle. All remain NotRun; this is
+a source correction pending native confirmation. The declared inventory is 87.
