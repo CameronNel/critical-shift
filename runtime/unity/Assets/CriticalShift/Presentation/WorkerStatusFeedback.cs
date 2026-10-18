@@ -12,7 +12,7 @@ namespace CriticalShift.Presentation
         private Renderer marker;
         private Light lamp;
         private Func<Vector3?> point;
-        private readonly MaterialPropertyBlock properties = new MaterialPropertyBlock();
+        private MaterialPropertyBlock properties;
         public bool Visible { get; private set; }
 
         public void Initialize(LocalCommandPort read, Guid worker, Renderer statusMarker, Light statusLamp, Func<Vector3?> physicalPoint)
@@ -23,7 +23,8 @@ namespace CriticalShift.Presentation
             foreach (var collider in statusMarker.GetComponentsInChildren<Collider>())
                 if (collider.enabled) throw new ArgumentException("Worker status presentation cannot add contact shapes.");
             queries = read; actor = worker; marker = statusMarker; lamp = statusLamp;
-            point = physicalPoint ?? throw new ArgumentNullException(nameof(physicalPoint)); Hide();
+            point = physicalPoint ?? throw new ArgumentNullException(nameof(physicalPoint));
+            properties = new MaterialPropertyBlock(); Hide();
         }
 
         private void LateUpdate()

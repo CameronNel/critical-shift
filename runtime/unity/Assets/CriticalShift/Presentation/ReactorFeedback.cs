@@ -18,7 +18,7 @@ namespace CriticalShift.Presentation
         public int VisibleMoteCount => vapour == null ? 0 : vapour.VisibleCount;
         public float DisplayedFuelFraction { get; private set; }
         public float DisplayedReserveFraction { get; private set; }
-        private readonly MaterialPropertyBlock properties = new MaterialPropertyBlock();
+        private MaterialPropertyBlock properties;
 
         public void Initialize(LocalCommandPort read, Renderer statusShell, Light warningBeacon, Transform coolingValve,
             Transform[] ventMotes, Transform fuelGauge, Transform reserveGauge)
@@ -30,6 +30,7 @@ namespace CriticalShift.Presentation
             fuelNeedle = fuelGauge; reserveNeedle = reserveGauge;
             fuelRest = fuelGauge.localRotation; reserveRest = reserveGauge.localRotation;
             vapour = new ProcessVisualPool(ventMotes, ProcessMoteStyle.Vapour);
+            properties = new MaterialPropertyBlock();
         }
 
         private void LateUpdate()

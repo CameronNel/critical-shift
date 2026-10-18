@@ -549,3 +549,9 @@ knockdown/recovery native cases now check visibility after the controller
 handoffs; they remain NotRun. No new test is added solely to mirror the colors.
 Lighting quality, comfort, rendering cost and multiplayer visibility remain
 unvalidated; map and accepted room lighting are untouched.
+
+Presentation lifecycle review moved native MaterialPropertyBlock construction
+from MonoBehaviour field initializers into each explicit setup method. Managed
+arrays/callback fields remain ordinary initialization; the normal cosmetic pool
+already allocates its blocks during that same setup path. No render or import
+has run to validate this lifecycle change, and no performance gain is asserted.

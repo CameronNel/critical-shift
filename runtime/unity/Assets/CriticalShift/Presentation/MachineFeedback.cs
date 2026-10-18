@@ -25,7 +25,7 @@ namespace CriticalShift.Presentation
         public float DisplayedProgress { get; private set; }
         public int VisibleMoteCount => sparks == null ? 0 : sparks.VisibleCount;
         private Quaternion rotorRest;
-        private readonly MaterialPropertyBlock properties = new MaterialPropertyBlock();
+        private MaterialPropertyBlock properties;
 
         public void Initialize(LocalCommandPort read, Guid machine, Renderer statusFace, Light statusLamp, Transform spindle,
             Transform progressFill, Transform[] processSparks, Transform powerSwitch, Transform processRam, Transform[] loadingClamps)
@@ -50,6 +50,7 @@ namespace CriticalShift.Presentation
             clampRest = new[] { clamps[0].localPosition, clamps[1].localPosition };
             progressLeft = progress.localPosition - Vector3.right * progressSize.x * 0.5f;
             sparks = new ProcessVisualPool(processSparks, ProcessMoteStyle.Sparks);
+            properties = new MaterialPropertyBlock();
         }
 
         private void LateUpdate()

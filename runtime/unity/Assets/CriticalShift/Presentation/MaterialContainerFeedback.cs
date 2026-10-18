@@ -20,7 +20,7 @@ namespace CriticalShift.Presentation
         public int VisibleContentCount { get; private set; }
         private Guid lastBatch;
         private long lastRevision = -1;
-        private readonly MaterialPropertyBlock properties = new MaterialPropertyBlock();
+        private MaterialPropertyBlock properties;
 
         public void Initialize(LocalCommandPort read, Guid container, Renderer renderer, Transform[] contentMarkers, int capacityUnits)
         {
@@ -43,6 +43,7 @@ namespace CriticalShift.Presentation
             positions = new Vector3[contents.Length]; scales = new Vector3[contents.Length]; rotations = new Quaternion[contents.Length];
             for (int i = 0; i < contents.Length; i++)
             { positions[i] = contents[i].localPosition; scales[i] = contents[i].localScale; rotations[i] = contents[i].localRotation; }
+            properties = new MaterialPropertyBlock();
         }
 
         private void LateUpdate()

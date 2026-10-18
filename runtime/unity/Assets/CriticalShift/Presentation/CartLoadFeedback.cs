@@ -9,7 +9,7 @@ namespace CriticalShift.Presentation
         private Renderer surface;
         private Light lamp;
         private Func<bool> overloaded, unavailable;
-        private readonly MaterialPropertyBlock properties = new MaterialPropertyBlock();
+        private MaterialPropertyBlock properties;
 
         public void Initialize(Renderer face, Light beacon, Func<bool> readOverload, Func<bool> readUnavailable)
         {
@@ -17,6 +17,7 @@ namespace CriticalShift.Presentation
             surface = face; lamp = beacon;
             overloaded = readOverload ?? throw new ArgumentNullException(nameof(readOverload));
             unavailable = readUnavailable ?? throw new ArgumentNullException(nameof(readUnavailable));
+            properties = new MaterialPropertyBlock();
         }
 
         private void LateUpdate()
