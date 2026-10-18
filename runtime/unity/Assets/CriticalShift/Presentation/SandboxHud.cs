@@ -153,7 +153,7 @@ namespace CriticalShift.Presentation
                 GUILayout.Space(8);
                 GUI.enabled = previousEnabled && (world.Phase == WorldPhase.Running || world.Phase == WorldPhase.Paused);
                 DrawContainer();
-                GUI.enabled = previousEnabled && world.Phase == WorldPhase.Running;
+                GUI.enabled = previousEnabled && world.Phase == WorldPhase.Running && worker?.CanInteract == true;
                 DrawMachine();
                 DrawReactor();
                 GUI.enabled = previousEnabled;
@@ -168,10 +168,10 @@ namespace CriticalShift.Presentation
                 if (patientView != null) GUILayout.Label("Fixture patient: " + patientView.Awareness + " / " + patientView.Pose);
                 if (GUILayout.Button("Fixture patient: knock down")) PatientKnockdownRequested?.Invoke();
                 if (GUILayout.Button("Fixture patient: attempt recovery")) PatientRecoveryRequested?.Invoke();
-                GUI.enabled = previousEnabled;
+                GUI.enabled = previousEnabled && (world.Phase == WorldPhase.Running || world.Phase == WorldPhase.Paused);
                 if (GUILayout.Button("Clear conveyor blockage latch")) BeltResetRequested?.Invoke();
                 if (GUILayout.Button(world.Phase == WorldPhase.Paused ? "Resume process clock" : "Pause process clock")) PauseRequested?.Invoke();
-                GUI.enabled = previousEnabled && commands.CanReplayLast;
+                GUI.enabled = previousEnabled && (world.Phase == WorldPhase.Running || world.Phase == WorldPhase.Paused) && commands.CanReplayLast;
                 if (GUILayout.Button("Retry last action")) ReplayRequested?.Invoke();
                 GUI.enabled = previousEnabled;
                 if (GUILayout.Button("Restart isolated fixture")) ResetRequested?.Invoke();
@@ -269,8 +269,11 @@ namespace CriticalShift.Presentation
             GUILayout.Label("Cycles · completed " + totals.CompletedCycles + " · cancelled " + totals.CancelledCycles + " · pending " + totals.PendingCycles, wrapped);
             var power = commands.Power;
             if (power != null)
+            {
+                GUILayout.Label("Power units · initial " + power.Initial + " · generated " + power.Generated, wrapped);
                 GUILayout.Label("Power units · grid " + power.Delivered + " · reserve " + power.Available + " · spent " + power.Spent +
                     " · spilled " + power.Spilled, wrapped);
+            }
         }
 
         private void DrawTrace()

@@ -787,3 +787,10 @@ workers remain excluded and upright workers are not ragdoll cargo. The existing
 grouping native case now reaches a real pending recovery, checks the same 68 kg
 group with its walking capsule off, and cancels the attempt. No extra case count
 or material/health mutation owner is added; all 99 native cases remain NotRun.
+
+Panel admission now disables machine/reactor buttons while the local worker
+cannot interact, and disables pause/retry/belt-reset controls after terminal
+closure. Restart and read-only feedback remain available. The power readout also
+includes initial/generated units so its displayed totals can be reconciled with
+reserve/spend/grid/spill. These are source UI corrections; no extra cases were
+added for labels or enabled-state mirrors, and native GUI execution is NotRun.
