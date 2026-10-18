@@ -113,6 +113,16 @@ The run stops at the first failure.
 
 **Check:** every instanced object in the map, put through the importer's rule, lands where the map shows it. Across 20,620 objects in 13 rooms the error is under 1 cm. The rule is: the prefab goes at Blender `(x, y, z)` → Unity `(-x, z, -y)`, and a Z rotation r becomes a Y rotation of -r. The 32 hero-suit parts are instances inside instances, so the check measured them from the suit file's own origin; the bake makes them real objects.
 
+**Isolation bug, found 2026-10-18 (PR #110).**
+- **The bug:** `isolate()` set `exclude` through `LayerCollection` references it already held. Each exclude rebuilds the view layer, so the exclude on `COMBINED_MAP` was lost. Every map bake scene still held the map's 13 room instancers: 20,653 objects, 7.9 M triangles and 60 lights.
+- **What it did:** passes ran about 10× slower (cooling plant base, 23 min instead of 2), and other rooms shaded each room through its AO nodes. In the turbine's case, 751 condenser objects sat inside its bake box.
+- **Fix:** fresh lookups, a check afterwards, and stray objects hidden.
+- **After the fix:**
+  - turbine: 60 meshes, 0 instances, 416,510 triangles;
+  - connections: 446 meshes, 0 instances, 30,490 triangles;
+  - room mode: unchanged.
+- **Re-bake needed:** the 8 map rooms baked before the fix must be baked again.
+
 **Shakedown, 2026-10-17:** map-mode prep plus the merge step ran on all 13 pieces in the container. It renders nothing, so no device was used. Every piece passed:
 
 | Piece | Objects | Triangles | Merged meshes |
