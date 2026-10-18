@@ -1,5 +1,8 @@
 {
   "PlayMode": [
+    "CriticalShift.Sandbox.Tests.WorkerDragTests.HoistingRaisesTheWorkerUnderTheSameLeaseAndPreservesDownState",
+    "CriticalShift.Sandbox.Tests.WorkerDragTests.ReleasedOrStaleHoistInputCannotRaiseTheNextLeaseTarget",
+    "CriticalShift.Sandbox.Tests.WorkerDragTests.AHoistedWorkerReleasedOverTheCartBecomesOneObservedLoad",
     "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.CargoCountsOneLogicalLoadAcrossMultipleRigidbodies",
     "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.DisabledAndRelocatedCollidersCannotLeaveGhostCargo",
     "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.CargoObservationOverflowRemainsVisibleAfterTheVolumeClears",

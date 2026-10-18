@@ -8,6 +8,21 @@ namespace CriticalShift.Features.Interaction.Unity
     /// <summary>World-scoped physical references and reconciliation. Logical custody always comes from WorldSession.</summary>
     internal sealed class PhysicalWorldBindings
     {
+        private sealed class DragTarget
+        {
+            internal readonly Transform Anchor;
+            private readonly Vector3 rest;
+            internal bool Raised;
+            internal DragTarget(Transform anchor) { Anchor = anchor; rest = anchor.localPosition; }
+            internal void Step(float seconds)
+            {
+                if (Anchor == null) return;
+                Vector3 position = Anchor.localPosition;
+                position.y = Mathf.MoveTowards(position.y, rest.y + (Raised ? 1.5f : 0), 2.5f * Mathf.Min(seconds, 0.05f));
+                Anchor.localPosition = position;
+            }
+            internal void Reset() { Raised = false; if (Anchor != null) Anchor.localPosition = rest; }
+        }
         private readonly WorldSession world;
         private readonly Dictionary<Guid, CarryBodyBinding> bodies = new Dictionary<Guid, CarryBodyBinding>();
         private readonly Dictionary<Guid, Transform> slots = new Dictionary<Guid, Transform>();
@@ -15,7 +30,7 @@ namespace CriticalShift.Features.Interaction.Unity
         private readonly Dictionary<Guid, Transform> actorRoots = new Dictionary<Guid, Transform>();
         private readonly Dictionary<Guid, CartGripBinding> handles = new Dictionary<Guid, CartGripBinding>();
         private readonly Dictionary<Guid, WorkerDragBinding> workers = new Dictionary<Guid, WorkerDragBinding>();
-        private readonly Dictionary<Guid, Transform> dragTargets = new Dictionary<Guid, Transform>();
+        private readonly Dictionary<Guid, DragTarget> dragTargets = new Dictionary<Guid, DragTarget>();
         internal int Count => bodies.Count + handles.Count + workers.Count;
         internal PhysicalWorldBindings(WorldSession session) => world = session ?? throw new ArgumentNullException(nameof(session));
 
@@ -39,21 +54,33 @@ namespace CriticalShift.Features.Interaction.Unity
         }
 
         internal void BindWorker(Guid id, Guid actor, Rigidbody[] segments,
-            Func<ObjectClaimView, Vector3, float, bool> pull, Action release, Func<float> mass)
+            Func<ObjectClaimView, Vector3, float, bool> pull, Action release, Func<float> mass, Action<ObjectClaimView, bool> hoist)
         {
             if (world.GetWorkerForBody(id)?.Id != actor || segments == null)
                 throw new InvalidOperationException("Register the worker-body linkage before its physical adapter.");
             foreach (var segment in segments) ValidateBodyIdentity(id, segment);
-            workers.Add(id, new WorkerDragBinding(id, segments, pull, release, mass));
+            workers.Add(id, new WorkerDragBinding(id, segments, pull, release, mass, hoist));
         }
 
         internal void BindDragTarget(Guid actor, Transform target)
         {
             if (target == null || dragTargets.ContainsKey(actor) || world.GetWorker(actor) == null)
                 throw new ArgumentException("Bind one explicit drag target for a registered worker.");
-            dragTargets.Add(actor, target);
+            dragTargets.Add(actor, new DragTarget(target));
+        }
+        internal void SetWorkerHoist(Guid actor, bool raised)
+        {
+            if (!dragTargets.TryGetValue(actor, out var target)) return;
+            Guid held = HeldObject(actor);
+            if (held == Guid.Empty || !workers.TryGetValue(held, out var worker)) { target.Reset(); return; }
+            var claim = world.GetObject(held);
+            if (claim == null || claim.HolderId != actor || world.GetWorkerForBody(held)?.Pose != WorkerPose.Down)
+            { target.Reset(); return; }
+            target.Raised = raised; worker.Hoist(claim, raised);
         }
         internal bool HasDragTarget(Guid actor) => workers.Count == 0 || dragTargets.ContainsKey(actor);
+        internal Vector3? CurrentDragTarget(Guid actor) => workers.ContainsKey(HeldObject(actor)) &&
+            dragTargets.TryGetValue(actor, out var target) && target.Anchor != null ? target.Anchor.position : (Vector3?)null;
         internal bool IsWorker(Guid entity) => workers.ContainsKey(entity);
 
         internal void BindActorRoot(Guid actor, Transform root)
@@ -239,6 +266,12 @@ namespace CriticalShift.Features.Interaction.Unity
         private bool ReconcileWorkers(bool running, bool applyForces, float deltaSeconds)
         {
             bool dropped = false;
+            foreach (var pair in dragTargets)
+            {
+                Guid held = running ? HeldObject(pair.Key) : Guid.Empty;
+                if (held == Guid.Empty || !workers.ContainsKey(held)) pair.Value.Reset();
+                else if (applyForces) pair.Value.Step(deltaSeconds);
+            }
             foreach (var worker in workers.Values)
             {
                 var state = running ? world.GetObject(worker.Id) : null;
@@ -246,8 +279,8 @@ namespace CriticalShift.Features.Interaction.Unity
                 if (!worker.Active) throw new InvalidOperationException("A registered worker body lost a physical segment.");
                 if (!state.HolderId.HasValue) { worker.Release(); continue; }
                 if (world.GetWorkerForBody(worker.Id)?.Pose != WorkerPose.Down ||
-                    !dragTargets.TryGetValue(state.HolderId.Value, out var target) || target == null || !target.gameObject.activeInHierarchy ||
-                    (applyForces && !worker.Follow(state, target, deltaSeconds)))
+                    !dragTargets.TryGetValue(state.HolderId.Value, out var target) || target.Anchor == null || !target.Anchor.gameObject.activeInHierarchy ||
+                    (applyForces && !worker.Follow(state, target.Anchor, deltaSeconds)))
                 {
                     world.ReportAttachmentFailure(world.Epoch, worker.Id, state.LeaseGeneration); worker.Release(); dropped = true;
                 }
@@ -259,6 +292,7 @@ namespace CriticalShift.Features.Interaction.Unity
         {
             foreach (var binding in bodies.Values) binding.Release();
             foreach (var worker in workers.Values) worker.Release();
+            foreach (var target in dragTargets.Values) target.Reset();
             bodies.Clear(); slots.Clear(); carryTargets.Clear(); handles.Clear(); actorRoots.Clear(); workers.Clear(); dragTargets.Clear();
         }
     }

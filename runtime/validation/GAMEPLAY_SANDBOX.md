@@ -76,7 +76,7 @@ art acceptance.
 - Diagnostic controls, crusher/fuel/reactor fixture, lamps, valve/spindle/tread
   motion, material appearance and scratch-scene generator: written, unvalidated.
 - Nine pure command-port tests, fourteen worker-body claim tests, nine package
-  safety tests, five declared-boundary cases and 54 native sandbox
+  safety tests, five declared-boundary cases and 57 native sandbox
   tests are implemented, all **NotRun**. These are declared inventory counts,
   not discovered/executed results.
 - Direct first-person focus, context transfer/drop, power/cooling and start
@@ -298,3 +298,20 @@ A native count marker must match the source production-module inventory. No
 Editor was launched to verify these assumptions; native graph/import status
 remains NotRun. Test discovery, Player graph/build, behavior, feel and performance
 remain their separate evidence requirements. No package or CI workflow is added.
+
+## Controlled worker hoist source
+
+Add a held Shift hoist to the existing single-person suit-grip path so its source
+fixture can attempt loading a worker over the cart bed. This is continuous host
+physics input under the current lease, not another custody state or heal action.
+Only the existing worker rig adds force. The low drag target rises by 1.5 m at
+2.5 m/s; hoisting adds authored gravity compensation with a bounded force budget.
+Release, expiry, impact and teardown clear the mode and target. Three new physical
+cases are now written and NotRun; loading/transport acceptance remains NotRun.
+The force budget is the authored body weight plus 250 N, capped at 1100 N; these
+are game fixture values. The rig adds gravity compensation only for the current
+hoist generation. Tests cover same-lease rise with unchanged Down state, release
+and stale-input isolation (including old input cancelling a newer hoist), and a
+physically hoisted worker dropped over a
+deliberately placed test cart becoming one observed load. The last case does not
+yet prove steering/transport stability or human ease of loading.

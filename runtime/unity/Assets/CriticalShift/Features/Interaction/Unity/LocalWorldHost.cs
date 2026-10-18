@@ -57,11 +57,16 @@ namespace CriticalShift.Features.Interaction.Unity
         public void BindCartHandle(Guid id, Rigidbody body, Transform handle, Transform stand)
         { RequireSetup(); bindings.BindHandle(id, body, handle, stand); }
         public void BindWorkerBody(Guid entity, Guid worker, Rigidbody[] segments,
-            Func<ObjectClaimView, Vector3, float, bool> pull, Action release, Func<float> mass)
-        { RequireSetup(); bindings.BindWorker(entity, worker, segments, pull, release, mass); }
+            Func<ObjectClaimView, Vector3, float, bool> pull, Action release, Func<float> mass, Action<ObjectClaimView, bool> hoist)
+        { RequireSetup(); bindings.BindWorker(entity, worker, segments, pull, release, mass, hoist); }
         public void BindDragTarget(Guid actor, Transform target) { RequireSetup(); bindings.BindDragTarget(actor, target); }
         public bool IsHandleHeld(Guid id) => active && !stopped && bindings.IsHandleHeld(localActor, id);
         public Vector3? CurrentGripStand() => active && !stopped ? bindings.GripStand(localActor) : null;
+        public Vector3? CurrentWorkerDragTarget() => active && !stopped ? bindings.CurrentDragTarget(localActor) : null;
+        public void SetWorkerHoist(bool raised)
+        {
+            if (active && !stopped) bindings.SetWorkerHoist(localActor, raised);
+        }
 
         public void BindFocus(Func<Guid> query, Func<Guid, string> displayName)
         {
@@ -261,7 +266,7 @@ namespace CriticalShift.Features.Interaction.Unity
             if (custody?.SlotId != null) focused = custody.SlotId.Value;
             Guid held = HeldObject();
             if (held != Guid.Empty && bindings.IsWorker(held))
-            { FocusHint = "Dragging worker | WASD pull · G release suit grip"; return; }
+            { FocusHint = "Worker suit grip | WASD move · hold Shift to hoist · G release"; return; }
             if (held != Guid.Empty && bindings.IsHandle(held))
             { FocusHint = "Cart handle | WASD push/steer · Space brake · G release"; return; }
             if (focused == Guid.Empty) { FocusHint = "Look at a nearby crate or machine"; return; }

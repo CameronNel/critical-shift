@@ -17,6 +17,9 @@ namespace CriticalShift.Features.Workers.Unity
         private Vector3 gripBodyOffset;
         private Guid bodyEntity;
         private long dragGeneration;
+        private long lastPhysicalLease;
+        private long hoistGeneration;
+        private bool hoist;
         private float dragObstruction;
         private Rigidbody[] bodies;
         private Collider[] colliders;
@@ -148,18 +151,35 @@ namespace CriticalShift.Features.Workers.Unity
         {
             if (!ragdoll || !Available || dragPoint == null || dragBody == null || claim == null || claim.Epoch != epoch ||
                 claim.EntityId != bodyEntity || !claim.HolderId.HasValue || claim.LeaseGeneration < 1 ||
+                claim.LeaseGeneration < lastPhysicalLease ||
                 !Finite(target) || seconds <= 0 || float.IsNaN(seconds) || float.IsInfinity(seconds)) return false;
+            lastPhysicalLease = claim.LeaseGeneration;
             if (dragGeneration != claim.LeaseGeneration) { dragGeneration = claim.LeaseGeneration; dragObstruction = 0; }
             Vector3 point = dragBody.position + dragBody.rotation * gripBodyOffset;
             Vector3 error = target - point;
             dragObstruction = error.magnitude > 1.2f ? dragObstruction + Mathf.Min(seconds, 0.05f) : 0;
             if (error.sqrMagnitude > 3 * 3 || dragObstruction > 1.25f) return false;
-            Vector3 force = error * 320 - dragBody.GetPointVelocity(point) * 80;
-            dragBody.AddForceAtPosition(Vector3.ClampMagnitude(force, 250), point, ForceMode.Force);
+            bool lifting = hoist && hoistGeneration == claim.LeaseGeneration;
+            Vector3 force = error * 320 - dragBody.GetPointVelocity(point) * (lifting ? 160 : 80);
+            float budget = 250;
+            if (lifting)
+            {
+                force -= Physics.gravity * TotalPhysicalMass;
+                budget = Mathf.Min(1100, Physics.gravity.magnitude * TotalPhysicalMass + 250);
+            }
+            dragBody.AddForceAtPosition(Vector3.ClampMagnitude(force, budget), point, ForceMode.Force);
             return true;
         }
 
-        public void ReleaseBodyClaim() { dragGeneration = 0; dragObstruction = 0; }
+        public void SetBodyHoist(ObjectClaimView claim, bool raised)
+        {
+            if (!ragdoll || !Available || claim == null || claim.Epoch != epoch || claim.EntityId != bodyEntity ||
+                !claim.HolderId.HasValue || claim.LeaseGeneration < 1 || claim.LeaseGeneration < lastPhysicalLease) return;
+            lastPhysicalLease = claim.LeaseGeneration;
+            hoist = raised; hoistGeneration = raised ? claim.LeaseGeneration : 0;
+        }
+
+        public void ReleaseBodyClaim() { dragGeneration = 0; dragObstruction = 0; hoist = false; hoistGeneration = 0; }
 
         internal bool Owns(Collider collider)
         {

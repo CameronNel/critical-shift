@@ -13,9 +13,10 @@ namespace CriticalShift.Features.Interaction.Unity
         private readonly HashSet<Rigidbody> segments;
         private readonly Func<ObjectClaimView, Vector3, float, bool> pull;
         private readonly Action release;
+        private readonly Action<ObjectClaimView, bool> setHoist;
         private readonly Func<float> readMass;
         internal WorkerDragBinding(Guid id, Rigidbody[] bodies, Func<ObjectClaimView, Vector3, float, bool> applyPull,
-            Action releasePull, Func<float> physicalMass)
+            Action releasePull, Func<float> physicalMass, Action<ObjectClaimView, bool> hoistMode)
         {
             if (id == Guid.Empty || bodies == null || bodies.Length < 2 || bodies.Length > 16)
                 throw new ArgumentException("Bind a bounded worker body's explicit physical segments.");
@@ -25,6 +26,7 @@ namespace CriticalShift.Features.Interaction.Unity
             Id = id; Representative = bodies[0]; pull = applyPull ?? throw new ArgumentNullException(nameof(applyPull));
             release = releasePull ?? throw new ArgumentNullException(nameof(releasePull));
             readMass = physicalMass ?? throw new ArgumentNullException(nameof(physicalMass));
+            setHoist = hoistMode ?? throw new ArgumentNullException(nameof(hoistMode));
         }
         internal bool Owns(Rigidbody body) => body != null && segments.Contains(body);
         internal bool Active
@@ -41,6 +43,7 @@ namespace CriticalShift.Features.Interaction.Unity
             }
         }
         internal bool Follow(ObjectClaimView claim, Transform target, float seconds) => pull(claim, target.position, seconds);
+        internal void Hoist(ObjectClaimView claim, bool raised) => setHoist(claim, raised);
         internal void Release() => release();
     }
 }

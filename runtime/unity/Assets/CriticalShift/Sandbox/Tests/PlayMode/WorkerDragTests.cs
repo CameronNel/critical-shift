@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using CriticalShift.Application;
+using CriticalShift.FacilityPhysics;
 using CriticalShift.Features.Interaction.Unity;
 using CriticalShift.Features.Workers.Unity;
 using CriticalShift.Presentation;
@@ -39,6 +40,12 @@ namespace CriticalShift.Sandbox.Tests
         }
 
         private WaitForFixedUpdate Step() { clock += Time.fixedDeltaTime; return new WaitForFixedUpdate(); }
+        private float BodyCenterHeight()
+        {
+            float weighted = 0;
+            foreach (var body in patientRig.CopyBodySegments()) weighted += body.worldCenterOfMass.y * body.mass;
+            return weighted / patientRig.TotalPhysicalMass;
+        }
 
         private void BindFixture()
         {
@@ -136,6 +143,55 @@ namespace CriticalShift.Sandbox.Tests
             Assert.That(host.PhysicalCargoGroup(parts[0]), Is.Null); Assert.That(host.PhysicalCargoGroup(parts[1]), Is.Null);
             host.DropHeld(); Assert.That(host.PhysicalCargoGroup(parts[1]), Is.SameAs(group));
             yield return null;
+        }
+
+        [UnityTest] public IEnumerator HoistingRaisesTheWorkerUnderTheSameLeaseAndPreservesDownState()
+        {
+            StandNearGrip(); host.Grab(Id(650)); long generation = Claim.LeaseGeneration;
+            float before = patientRig.SuitGrip.position.y, center = BodyCenterHeight(); host.SetWorkerHoist(true);
+            for (int i = 0; i < 200; i++) yield return Step();
+            Assert.That(Claim.HolderId, Is.EqualTo(Id(1)), host.LastAction); Assert.That(Claim.LeaseGeneration, Is.EqualTo(generation));
+            Assert.That(patientRig.SuitGrip.position.y, Is.GreaterThan(before + 0.65f));
+            Assert.That(BodyCenterHeight(), Is.GreaterThan(center + 0.35f));
+            Assert.That(host.CurrentWorkerDragTarget().Value.y - player.transform.position.y, Is.EqualTo(2.05f).Within(0.001f));
+            Assert.That(host.World.GetWorker(Id(3)).Pose, Is.EqualTo(WorkerPose.Down)); Assert.That(patientController.enabled, Is.False);
+            Assert.That(host.CarriedPhysicalMass(), Is.EqualTo(68));
+        }
+
+        [UnityTest] public IEnumerator ReleasedOrStaleHoistInputCannotRaiseTheNextLeaseTarget()
+        {
+            StandNearGrip(); host.Grab(Id(650)); var previous = Claim; host.SetWorkerHoist(true);
+            for (int i = 0; i < 80; i++) yield return Step();
+            Assert.That(host.CurrentWorkerDragTarget().Value.y - player.transform.position.y, Is.GreaterThan(1.8f));
+            host.DropHeld(); Assert.That(host.CurrentWorkerDragTarget().HasValue, Is.False);
+            for (int i = 0; i < 200; i++) yield return Step();
+            StandNearGrip(); host.Grab(Id(650)); Assert.That(Claim.LeaseGeneration, Is.GreaterThan(previous.LeaseGeneration));
+            patientRig.SetBodyHoist(previous, true); // A retained observation cannot authorize forces for this new lease.
+            for (int i = 0; i < 30; i++) yield return Step();
+            Assert.That(Claim.HolderId, Is.EqualTo(Id(1))); Assert.That(host.CurrentWorkerDragTarget().Value.y - player.transform.position.y,
+                Is.EqualTo(0.55f).Within(0.001f));
+            float center = BodyCenterHeight(); host.SetWorkerHoist(true);
+            for (int i = 0; i < 200; i++)
+            { patientRig.SetBodyHoist(previous, false); yield return Step(); }
+            Assert.That(BodyCenterHeight(), Is.GreaterThan(center + 0.35f), "Old input must not cancel the new lease's hoist.");
+        }
+
+        [UnityTest] public IEnumerator AHoistedWorkerReleasedOverTheCartBecomesOneObservedLoad()
+        {
+            StandNearGrip(); host.Grab(Id(650)); host.SetWorkerHoist(true);
+            for (int i = 0; i < 200; i++) yield return Step();
+            Assert.That(Claim.HolderId, Is.EqualTo(Id(1)), host.LastAction);
+            var cart = root.GetComponentInChildren<CartMotor>().GetComponent<Rigidbody>();
+            Vector3 grip = patientRig.SuitGrip.position;
+            // Choose this test's cart starting pose beneath the already physically hoisted worker.
+            cart.position = new Vector3(grip.x, root.transform.position.y + 0.45f, grip.z + 0.4f);
+            cart.linearVelocity = Vector3.zero; cart.angularVelocity = Vector3.zero; Physics.SyncTransforms();
+            host.DropHeld();
+            for (int i = 0; i < 150; i++) yield return Step();
+            var sensor = cart.GetComponentInChildren<CartCargoSensor>();
+            Assert.That(Claim.HolderId, Is.Null); Assert.That(sensor.BodyCount, Is.EqualTo(1));
+            Assert.That(sensor.Mass, Is.EqualTo(68).Within(0.01f)); Assert.That(sensor.Saturated, Is.False);
+            Assert.That(patientRig.IsRagdoll, Is.True); Assert.That(patientController.enabled, Is.False);
         }
     }
 }

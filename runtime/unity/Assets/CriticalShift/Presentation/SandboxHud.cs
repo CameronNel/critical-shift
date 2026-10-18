@@ -14,6 +14,7 @@ namespace CriticalShift.Presentation
         public event Action ReplayRequested, PauseRequested, ResetRequested, BeltResetRequested;
         public event Action TransferFocusedRequested, DropHeldRequested, StartFocusedRequested, ToggleFocusedPowerRequested;
         public event Action BypassFocusedRequested;
+        public event Action<bool> WorkerHoistRequested;
         public event Action RecoveryRequested, DiagnosticKnockdownRequested;
         public event Action PatientRecoveryRequested, PatientKnockdownRequested;
         public event Action<Vector2> MovementRequested, LookRequested;
@@ -48,7 +49,7 @@ namespace CriticalShift.Presentation
                 BeltResetRequested == null || MovementRequested == null || LookRequested == null || CartDriveRequested == null ||
                 TransferFocusedRequested == null || DropHeldRequested == null || StartFocusedRequested == null || ToggleFocusedPowerRequested == null ||
                 RecoveryRequested == null || DiagnosticKnockdownRequested == null || PatientRecoveryRequested == null || PatientKnockdownRequested == null ||
-                BypassFocusedRequested == null)
+                BypassFocusedRequested == null || WorkerHoistRequested == null)
                 throw new InvalidOperationException("Fixture controls require all explicit command and input bindings.");
             active = true;
         }
@@ -57,6 +58,7 @@ namespace CriticalShift.Presentation
         {
             if (!active) return;
             MovementRequested?.Invoke(new Vector2(Axis(KeyCode.D, KeyCode.A), Axis(KeyCode.W, KeyCode.S)));
+            WorkerHoistRequested?.Invoke(held.Contains(KeyCode.LeftShift) || held.Contains(KeyCode.RightShift));
             bool arrows = held.Contains(KeyCode.UpArrow) || held.Contains(KeyCode.DownArrow) || held.Contains(KeyCode.LeftArrow) || held.Contains(KeyCode.RightArrow);
             CartDriveRequested?.Invoke(arrows ? Axis(KeyCode.UpArrow, KeyCode.DownArrow) : Axis(KeyCode.W, KeyCode.S),
                 arrows ? Axis(KeyCode.RightArrow, KeyCode.LeftArrow) : Axis(KeyCode.D, KeyCode.A), held.Contains(KeyCode.Space));
@@ -88,7 +90,7 @@ namespace CriticalShift.Presentation
             }
             if (input.keyCode != KeyCode.W && input.keyCode != KeyCode.A && input.keyCode != KeyCode.S && input.keyCode != KeyCode.D &&
                 input.keyCode != KeyCode.UpArrow && input.keyCode != KeyCode.DownArrow && input.keyCode != KeyCode.LeftArrow &&
-                input.keyCode != KeyCode.RightArrow && input.keyCode != KeyCode.Space) return;
+                input.keyCode != KeyCode.RightArrow && input.keyCode != KeyCode.Space && input.keyCode != KeyCode.LeftShift && input.keyCode != KeyCode.RightShift) return;
             if (input.type == EventType.KeyDown) held.Add(input.keyCode); else held.Remove(input.keyCode);
             input.Use();
         }
@@ -220,7 +222,7 @@ namespace CriticalShift.Presentation
 
         private void ClearInput()
         {
-            held.Clear(); MovementRequested?.Invoke(Vector2.zero); CartDriveRequested?.Invoke(0, 0, true);
+            held.Clear(); MovementRequested?.Invoke(Vector2.zero); CartDriveRequested?.Invoke(0, 0, true); WorkerHoistRequested?.Invoke(false);
         }
         private void OnApplicationFocus(bool focused) { if (!focused) ClearInput(); }
         private void OnDisable() { active = false; ClearInput(); }
@@ -230,6 +232,7 @@ namespace CriticalShift.Presentation
             ReplayRequested = null; PauseRequested = null; ResetRequested = null; BeltResetRequested = null;
             TransferFocusedRequested = null; DropHeldRequested = null; StartFocusedRequested = null; ToggleFocusedPowerRequested = null;
             BypassFocusedRequested = null;
+            WorkerHoistRequested = null;
             RecoveryRequested = null; DiagnosticKnockdownRequested = null;
             PatientRecoveryRequested = null; PatientKnockdownRequested = null;
             MovementRequested = null; LookRequested = null; CartDriveRequested = null;

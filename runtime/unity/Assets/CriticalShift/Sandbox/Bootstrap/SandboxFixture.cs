@@ -66,6 +66,7 @@ namespace CriticalShift.Sandbox
                 hud.TransferFocusedRequested += host.TransferFocused; hud.DropHeldRequested += host.DropHeld;
                 hud.StartFocusedRequested += host.StartFocused; hud.ToggleFocusedPowerRequested += host.ToggleFocusedPower;
                 hud.BypassFocusedRequested += host.BypassFocused;
+                hud.WorkerHoistRequested += host.SetWorkerHoist;
                 hud.RecoveryRequested += workerState.RequestRecovery; hud.DiagnosticKnockdownRequested += workerState.DiagnosticKnockdown;
                 hud.PatientRecoveryRequested += patientState.RequestRecovery; hud.PatientKnockdownRequested += patientState.DiagnosticKnockdown;
                 recovery.Seal(); host.Activate(); workerState.Activate(); patientState.Activate();
@@ -123,7 +124,7 @@ namespace CriticalShift.Sandbox
             var eyes = SandboxPrimitives.Empty("Patient observation anchor", worker.transform, new Vector3(0, 1.55f, 0));
             var rig = SandboxWorkerRigBuilder.Build(world.Epoch, patient, controller, eyes.transform, shapes, hideLocalHead: false);
             rig.BindDragEntity(patientBody);
-            host.BindWorkerBody(patientBody, patient, rig.CopyBodySegments(), rig.PullBodyClaim, rig.ReleaseBodyClaim, () => rig.TotalPhysicalMass);
+            host.BindWorkerBody(patientBody, patient, rig.CopyBodySegments(), rig.PullBodyClaim, rig.ReleaseBodyClaim, () => rig.TotalPhysicalMass, rig.SetBodyHoist);
             access.BindTarget(patientBody, worker.transform, rig.SuitGrip);
             var placement = new WorkerRecoveryPlacement(); placement.Bind(rig); recovery.Bind(world.Epoch, patient, placement);
             patientState = worker.AddComponent<LocalWorkerStateHost>();
