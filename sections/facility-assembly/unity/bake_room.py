@@ -496,7 +496,15 @@ if STAGE in ('prep', 'all'):
         plan[m.name] = dict(bake=bake, route=route, closures=sorted({n.type for n in real}), mask=mask,
                             metallic_map=bake and (len(leaves) > 1 or any(n.type == 'BSDF_PRINCIPLED' and n.inputs['Metallic'].is_linked for n in real)),
                             metal_const=leaf_metal(real[0]) if len(real) == 1 else 0.0, emission=any(emits(n) for n in leaves), principled=b is not None)
+    # view-dependent nodes (Layer Weight, Fresnel, Light Path, Camera Data) bake as seen head-on: a texture cannot hold them and URP Lit has no such
+    # term. The turbine's rim glow (M_ARCH, M_MACH, M_PROPS, M_SHAFT: Emission mixed in by Layer Weight Facing) bakes to nothing. Listed, not fixed.
+    def view_dep(nt, seen):
+        if nt is None or nt.as_pointer() in seen: return False
+        seen.add(nt.as_pointer())
+        return any(n.type in ('LAYER_WEIGHT', 'FRESNEL', 'LIGHT_PATH', 'CAMERA') or (n.type == 'GROUP' and view_dep(n.node_tree, seen)) for n in nt.nodes)
+    for m in mats: plan[m.name]['view_dependent'] = bool(plan[m.name]['bake'] and view_dep(m.node_tree, set()))
     step('materials planned', baked=sum(p['bake'] for p in plan.values()), masked=sorted(n for n, p in plan.items() if p['mask']),
+         view_dependent_baked_head_on=sorted(n for n, p in plan.items() if p['view_dependent']),
          constant_multi_closure=sorted(n for n, p in plan.items() if not p['bake'] and len(p['closures']) > 1))
 
     # --- UVs: one atlas per material ---------------------------------------------------------------------------------------------------------------------
