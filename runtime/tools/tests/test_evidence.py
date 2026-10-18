@@ -185,11 +185,14 @@ class RunnerSafetyTests(unittest.TestCase):
             (root / "toolchain.json").write_text("{}")
             assets = root / "unity/Assets"
             assets.mkdir(parents=True)
+            package = root / "dotnet/src"
+            package.mkdir(parents=True)
+            (package / "package.json").write_text("{}")
             try:
                 (assets / "escaped.cs").symlink_to(root / "toolchain.json")
             except OSError:
                 self.skipTest("OS does not grant symlink creation for this test user.")
-            with self.assertRaises(EvidenceError):
+            with self.assertRaisesRegex(EvidenceError, "Symlinks"):
                 fingerprint(root)
 
 

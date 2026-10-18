@@ -29,6 +29,12 @@ def utc() -> str:
 
 def source_files(root: Path) -> list[Path]:
     roots = [root / "unity" / name for name in ("Assets", "Packages", "ProjectSettings")]
+    # Preserve the relative local-package location in the disposable runtime tree.
+    # .NET output is configured outside this package; stale output must not be copied.
+    package = root / "dotnet" / "src"
+    if not (package / "package.json").is_file():
+        raise EvidenceError("The canonical local gameplay source package is missing.")
+    roots.append(package)
     files = [root / "toolchain.json"]
     if any(path.is_symlink() for path in [*roots, files[0]]):
         raise EvidenceError("Symlinked source roots are not permitted.")
@@ -36,6 +42,8 @@ def source_files(root: Path) -> list[Path]:
         for path in directory.rglob("*"):
             if path.is_symlink():
                 raise EvidenceError("Symlinks are not permitted in the validation input.")
+            if directory == package and {"bin", "obj"}.intersection(path.relative_to(package).parts):
+                raise EvidenceError("Build output inside the Unity source package must be removed before validation.")
             if path.is_file():
                 files.append(path)
     return sorted(files)

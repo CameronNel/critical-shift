@@ -1,0 +1,8 @@
+<Project>
+  <Import Project="../Directory.Build.props" />
+  <PropertyGroup>
+    <!-- This source tree is also a Unity package. Never emit DLLs/generated C# here. -->
+    <BaseOutputPath>$(MSBuildThisFileDirectory)../artifacts/compiled/$(MSBuildProjectName)/bin/</BaseOutputPath>
+    <BaseIntermediateOutputPath>$(MSBuildThisFileDirectory)../artifacts/compiled/$(MSBuildProjectName)/obj/</BaseIntermediateOutputPath>
+  </PropertyGroup>
+</Project>

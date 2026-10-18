@@ -82,6 +82,14 @@ This is a placement plan, not an instruction to create empty folders or assembli
 
 Introduce Mining, Materials, Production and Reactor domains only at their relevant delivery steps. Do not produce a skeleton for every planned feature or an assembly per script. The dependency table controls boundaries when a module exists; the owner catalogue records future responsibility without demanding implementation today.
 
+**18 October 2026 source-integration trial:** the existing pure gameplay source
+remains canonical under `runtime/dotnet/src`, exposed to Unity through a local
+first-party package and eight engine-free asmdefs. Unity adapters reference those
+same assemblies; they do not copy the rule source into the sketched Assets layout.
+ADR-CA-005 records discovery/output placement and pending import evidence. The
+isolated sandbox source pass was explicitly authorized while execution is deferred;
+it does not advance any of the production gates above.
+
 ## A05. Feature and workflow contracts
 
 Every implemented feature gets a short local README recording: responsibility and non-responsibilities; mutation owner and lifetime; public inputs/outputs; allowed dependencies; active implementation paths; authored configuration; failure/recovery; test IDs; and any migration/exception. This is a feature card, not a second architecture manual.

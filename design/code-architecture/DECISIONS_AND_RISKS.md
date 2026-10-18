@@ -53,6 +53,26 @@ These are **proposed** decisions in this PR. Inherited product constraints above
 
 **Why:** paper policies, zero-test greens and stale historical proof do not protect future work. **Rejected alternatives:** trusting exit code alone; author self-certification; imposing a full-game pipeline before a minimal project exists; loosening thresholds after failure without review. **Trade-off:** a missing runner or reviewer can honestly block a gate. **Reopen when:** actual evidence shows a check is ineffective, redundant or disproportionately costly; preserve coverage of its risk before removing it. Evidence: CI-01/02, V00 and work-package/gate records.
 
+### ADR-CA-005: One source package for the Unity integration trial
+
+**Scoped implementation decision, 18 October 2026:** Cameron authorized a
+substantial Unity development pass while deferring all heavy execution. Expose
+the existing `runtime/dotnet/src` source as the local first-party UPM package
+`com.criticalshift.gameplay`. Unity asmdefs preserve the existing seven-domain
+and Application dependency allowlist, with no engine references in pure code.
+The .NET projects continue compiling those same files; no gameplay DLL copies
+or parallel Unity rule implementation are introduced. Move source-project
+intermediates/output under ignored `dotnet/artifacts/compiled` so Unity cannot
+import them as a second implementation.
+
+This changes source discovery and evidence inputs, not gameplay ownership or the
+reference allowlist. The disposable foundation runner must preserve the local
+package path and hash its inputs. This is not an external SDK selection, native
+package-resolution pass, D-01 closure or approval of later gates. Metadata,
+assembly parity, duplicate-output prevention and clean import require actual
+validation after Cameron permits it. Task/evidence and rollback boundary:
+[Unity gameplay sandbox](../../runtime/validation/GAMEPLAY_SANDBOX.md).
+
 ## 3. Open decisions and deadlines
 
 Owners below are accountable roles; individual implementation/review assignments are **unassigned** until a work package is authorized. Cameron approves scope/stack decisions; the appointed implementation lead prepares evidence and an independent reviewer assesses it. No package is selected by mentioning it in a source reference.

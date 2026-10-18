@@ -38,7 +38,7 @@ The foundation assembly was renamed from `CriticalShift.Application` to `Critica
 
 The former narrow `tools/pure-tests/` harness was removed after its eight original assertions were linked into the normal offline NUnit suite. Their canonical source still also belongs to the original Unity EditMode test assembly. A passing offline run of that source is not a native Unity Test Runner pass.
 
-The application and seven gameplay domain DLLs built by the offline projects provide one future integration route. Do not copy these source files into another implementation or introduce a second mutable holder, material ledger, clock or power balance. The optional scenario package does not install DLLs into Unity. Native importer configuration and scene adapters remain future work.
+The Unity integration trial references these same sources through the local first-party package `com.criticalshift.gameplay` at `dotnet/src`. Eight engine-free asmdefs mirror the .NET project references; no gameplay source or DLL is copied into `Assets`. Source-project build output belongs in ignored `dotnet/artifacts/compiled`, outside the package. Do not introduce a second mutable holder, material ledger, clock or power balance. The optional scenario executable remains separate. Native package import and physical scene acceptance remain unverified; see the [sandbox development checkpoint](validation/GAMEPLAY_SANDBOX.md).
 
 ## Contracts and useful entrypoints
 

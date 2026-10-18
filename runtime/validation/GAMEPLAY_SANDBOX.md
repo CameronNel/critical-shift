@@ -1,0 +1,92 @@
+# Unity gameplay sandbox development pass
+
+**Source work in progress; every execution check is NotRun.**
+
+Owner authorization: Cameron requested a substantial ten-hour development pass
+on 18 October 2026. The pass began at 10:29 UTC / 12:29 SAST and ends at
+20:29 UTC / 22:29 SAST that day. Continue connected implementation batches until
+that deadline unless Cameron redirects the task. Keep the active goal running;
+do not equate a small commit with completion of this pass.
+
+While Cameron plays For Honor: small file operations and source edits only.
+Do not launch Unity or Blender, run compilers or tests, import assets, bake,
+render, or start other heavy operations. An explicit later instruction from
+Cameron is needed before execution resumes. Do not infer permission from the
+pass's clock or from the amount of completed source.
+
+Primary author: Codex. Independent reviewer: unassigned. Base `ecaacf01`;
+branch `codex/unity-gameplay-sandbox`. No self-merge or direct main edits.
+
+## Scoped implementation decision
+
+This is an isolated, local-host integration trial and physics fixture, not a
+networking choice, new production room, finished art pass or accepted roadmap
+gate. It uses Unity 6000.4.3f1 / 39d1a88d4dd1, C# and the existing game rules.
+Map source, exported room content, baked lighting and the map team's layout
+remain outside the touched paths.
+
+1. Expose the canonical `dotnet/src` sources as the local first-party UPM package
+   `com.criticalshift.gameplay`. Add explicit engine-free assembly definitions
+   with the same dependency graph as the existing projects. No rule code is
+   copied, moved or replaced. .NET intermediates/output move to ignored
+   `dotnet/artifacts/compiled`, outside Unity's package. Native evidence tooling
+   must include this local source package in its disposable copy and fingerprint.
+2. Build a composed local-world adapter and explicit physical entity bindings.
+   Current claims remain authoritative. Physics reconciles only current epoch
+   and lease snapshots, releases on stop/expiry, and reports obstruction failure
+   for the exact lease. Unity owns Rigidbody motion, not a second custody model.
+3. Add bounded cart and conveyor physics, with injected ownership filters so
+   they cannot keep accelerating a held or slotted object. Cart wheel motion
+   and machine/lighting effects are presentation of observed state.
+4. Add diagnostic IMGUI controls using the already selected foundation IMGUI
+   module. This is a fixture interface, not adoption of production input/UI,
+   networking, Steam, voice or persistence infrastructure. Add only Unity's
+   already-selected built-in Physics module where needed.
+5. Provide a deterministic scene-generation entrypoint for an isolated sandbox.
+   The generator will be run only after execution is authorized. Wire a small
+   source-backed production chain and replay/reset checks; no map assumptions.
+
+These implement A01-A08, S01-S05/S07/S09 and H01/H04/H07 within a source-only
+trial. ADR-CA-005 in the existing decision register records source packaging.
+D-02 through D-09 remain open at their production deadlines; no gate advances.
+
+## Validation and acceptance
+
+Required after permission to test: package source/metadata/graph checks and their
+negative fixtures; offline verifier; pinned Unity clean import; exact native
+test discovery; local claim/lease/failure/reset and physical cart/conveyor
+fixtures; Player startup and shutdown. Record actual versions, counts, failure
+logs and limitations. Physical bindings, renderer behavior, performance, feel
+and multiplayer acceptance cannot be established from source inspection.
+
+The owner-selected renderer is URP. This pass does not install a URP version or
+quietly accept the old Built-in foundation as the final game renderer. Pending
+renderer integration remains explicit, and generated debug geometry is not
+art acceptance.
+
+## Current checkpoint
+
+- Foundation repair `ecaacf01` is the separate preceding source commit.
+- Canonical source package, matching engine-free asmdefs, build-output isolation
+  and disposable validation-input wiring: written, unvalidated.
+- Local command sender, current-state carry/slot bindings, explicit spatial
+  access and unscaled host clock: written, unvalidated.
+- Cart drive/brakes, load sensing, wheel travel animation, bounded conveyor and
+  jam latch, local walking: written, unvalidated.
+- Diagnostic controls, crusher/fuel/reactor fixture, lamps, valve/spindle/tread
+  motion, material appearance and scratch-scene generator: written, unvalidated.
+- Nine pure command-port tests, eight package safety tests and 17 native sandbox
+  tests are implemented, all **NotRun**. These are declared inventory counts,
+  not discovered/executed results.
+- Next: source review, complete validation entrypoint and lifecycle failure cases;
+  then extend concrete fixture interactions while execution remains deferred.
+- A separate disposable sandbox runner is written; its default scope is native
+  import and the declared PlayMode inventory. Optional Player build is URP-gated;
+  Player execution, performance and human acceptance are still separate.
+- Scene generation retains an explicit serialized shader dependency. Debug
+  materials follow the already configured pipeline, without installing one.
+- Physics mass uses an authored 0.75 kg per material-unit fixture mapping and
+  updates from committed conversion output; this is a bounded physical proxy,
+  not a real industrial mass model or a second material ledger.
+- Tests, native import, builds and performance: **NotRun**, owner constraint.
+- Independent review and merge: pending.

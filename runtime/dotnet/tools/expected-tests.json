@@ -1,4 +1,13 @@
 {
+  "LocalSenderUsesCurrentRevisionAndLeaseAfterRelease": 1,
+  "LocalGameplayRejectionDoesNotWedgeNextIntent": 1,
+  "LocalMalformedIntentDoesNotConsumeSequence": 1,
+  "LocalReplayDoesNotRegrabReleasedObject": 1,
+  "LocalOldPortCannotAffectRestartedWorld": 1,
+  "LocalSenderRejectsInvalidCompositionAndEmptyReplay": 1,
+  "AutomaticRenewalDoesNotReplaceTheLastUserIntent": 1,
+  "LocalMachineSenderTracksCurrentRevisionsThroughConversion": 1,
+  "LocalReactorSenderUsesCurrentCoreStateWithoutRepeatingStartupCost": 1,
   "ModelSequencesPreserveExclusiveCustody": 100,
   "TenThousandRejectionsKeepReceiptStorageBounded": 1,
   "CompiledAssembliesStayWithinReferenceAllowlist": 1,
