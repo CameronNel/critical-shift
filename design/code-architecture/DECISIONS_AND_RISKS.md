@@ -75,6 +75,81 @@ validation after Cameron permits it. Task/evidence and rollback boundary:
 
 ## 3. Open decisions and deadlines
 
+### Bounded combined-map runtime extension, 18 October 2026
+
+Cameron authorized gameplay on the current combined map and Unity execution
+after finishing gaming. The first derivative uses only the existing collider/
+anchor FBX and door/role manifests, preserving their provisional coordinates.
+No source map/room or Claude PR #110 bake/importer files are edited. This is
+runtime implementation scope, not acceptance of the changing layout or art.
+
+Door passage belongs to the existing Interaction domain. WorldSession owns its
+lifetime and Application projects detached states. Open/close uses the existing
+authenticated sequence/receipt/access path, with a bounded 128-door store,
+revision checks and explicit operability. DOCK_P2 keeps its authored Closed state
+and is non-operable; it is not silently reclassified as Locked. The Unity adapter
+only applies supplied epoch/revision projections to explicitly bound contacts.
+Closing admission includes a host-side doorway-occupancy observation.
+
+Evacuation is an explicit, once-per-cause trusted operation applying the imported
+evacuation defaults. It keeps the shift running. The local derivative exposes an
+exercise button; it does not infer meltdown from recoverable ReactorMode.Tripped,
+implement a meltdown incident/countdown, or prohibit later authorized door use.
+The condenser ladder remains unsupported. Room floors/art remain separate from
+the connective proxies; no synthetic floor or guessed placement is introduced.
+
+The derivative reuses the local worker/ragdoll/recovery implementation and the
+existing temporary IMGUI approach. No input/UI/network/Steam/voice/persistence
+package or new assembly is selected. A separate scoped prepare runner verifies
+the four map inputs, imported anchors and actual collider bounds to 0.01 m;
+bounds are validation data, never replacement collision geometry. Editor-free
+or supplementary API checks do not establish native import/physics, traversal,
+rendered playability, art acceptance, FPS or a roadmap gate.
+
+### D-01 native compatibility repair, 18 October 2026
+
+The first licensed import with the exact installed editor resolved its bundled
+Test Framework **1.6.0** and Custom NUnit **2.0.5**, overriding the historical
+1.4.6/2.0.3 declarations. The installed BuiltInPackages descriptors and the fresh
+disposable project's package lock agree. This bounded validation-tooling repair
+adopts those editor-bundled versions explicitly in the working profile/manifest/
+lock; the selected Unity 6000.4.3f1 / 39d1a88d4dd1 stays fixed. It selects no
+gameplay, input/UI, transport or production framework. Native compatibility is
+still an executed acceptance requirement, not assumed from this correction.
+
+The same import rejected duplicate UnityEngine.TestRunner references: the test
+assembly flag already adds that reference. Retain TestAssemblies and remove its
+duplicate explicit PlayMode reference. The supplementary compiler must model
+that flag rather than fabricate a different resolved dependency graph. Preserve
+the original failed import logs and report retries separately.
+
+### Owner-selected URP implementation trial, 18 October 2026
+
+ENGINE_DECISION records Cameron's 15 October URP selection. The exact editor is
+now licensed and has executed native imports/tests, so the next bounded step is
+to implement and validate that existing renderer choice. The installed 6000.4.3f1
+bundle supplies `com.unity.render-pipelines.universal` **17.4.0** for Unity 6000.4.
+Its required Core, ShaderGraph and universal-config dependencies are also 17.4.0.
+Core's mandatory dependencies include Burst, Mathematics, Collections, terrain
+and **uGUI 2.0.0**. That transitive UI package is disclosed as part of URP's
+dependency closure; gameplay continues using the existing temporary IMGUI path.
+No production input/UI framework, transport, voice or persistence is selected.
+
+Trial authoring stays in the existing Sandbox Editor composition boundary, with
+explicit URP/Core Runtime assembly references confined to that Editor assembly.
+A typed public-API helper creates a renderer/pipeline pair, assigns one default
+pipeline and makes every quality level inherit it, preserving the selected
+quality level. Native serialization, actual dependency resolution and a new
+Player build must establish the result. Existing unrelated pipeline assets must
+not be silently replaced. Source map/room files and Claude's bake/importer paths
+remain outside this trial. Regenerate the isolated scenes under URP to retain
+their actual Lit shader dependency; preserve the original Built-in diagnostics.
+
+The historical foundation's Built-in-only validator must be reconciled explicitly
+with the current renderer profile before claiming the normal foundation runner
+works under URP. A source patch or successful package import alone does not close
+D-01, prove the new Player, establish art/lighting parity or measure performance.
+
 Owners below are accountable roles; individual implementation/review assignments are **unassigned** until a work package is authorized. Cameron approves scope/stack decisions; the appointed implementation lead prepares evidence and an independent reviewer assesses it. No package is selected by mentioning it in a source reference.
 
 | ID | Open decision | Due before | Required resolution / what can proceed meanwhile |

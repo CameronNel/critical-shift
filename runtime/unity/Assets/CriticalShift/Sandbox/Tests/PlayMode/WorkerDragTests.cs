@@ -71,7 +71,11 @@ namespace CriticalShift.Sandbox.Tests
 
         [UnityTearDown] public IEnumerator TearDown()
         {
-            if (root != null) UnityEngine.Object.Destroy(root);
+            if (root != null)
+            {
+                root.GetComponent<SandboxBootstrap>().enabled = false;
+                UnityEngine.Object.Destroy(root);
+            }
             yield return null; LogAssert.NoUnexpectedReceived();
             Assert.That(faults, Is.Empty, "Unexpected worker-drag fixture fault.");
         }

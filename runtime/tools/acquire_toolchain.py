@@ -13,6 +13,7 @@ REVISION = "39d1a88d4dd1"
 EDITOR_BYTES = 4140156068
 EDITOR_MD5 = "VDyS6NleQ2P1BmgnQgh+uQ=="
 EDITOR_URL = f"https://download.unity3d.com/download_unity/{REVISION}/LinuxEditorInstaller/Unity-{VERSION}.tar.xz"
+RUNTIME = Path(__file__).resolve().parents[1]
 
 
 def download(url, destination):
@@ -26,6 +27,30 @@ def digest(path, algorithm):
         for data in iter(lambda: stream.read(1024 * 1024), b""):
             result.update(data)
     return result
+
+
+def bundled_nunit(editor: Path, lock: Path) -> tuple[Path, dict]:
+    """Select the acquired Editor's actual NUnit bundle; never fetch a different registry version."""
+    selected = json.loads(lock.read_text())["dependencies"]["com.unity.ext.nunit"]
+    expected = selected["version"]
+    if selected.get("source") != "builtin" or not isinstance(expected, str) or not expected:
+        raise ValueError("The selected NUnit reference must be pinned to the Editor's built-in package in packages-lock.json.")
+    package = editor / "Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ext.nunit"
+    descriptor = package / "package.json"
+    if not descriptor.is_file():
+        raise ValueError("The pinned Editor's bundled NUnit descriptor is missing; no registry fallback is permitted.")
+    metadata = json.loads(descriptor.read_text(encoding="utf-8-sig"))
+    if metadata.get("name") != "com.unity.ext.nunit" or metadata.get("version") != expected:
+        raise ValueError("The acquired Editor's bundled NUnit package differs from the selected project lock.")
+    matches = sorted(package.rglob("nunit.framework.dll"))
+    if len(matches) != 1:
+        raise ValueError("Expected exactly one real NUnit framework DLL in the pinned Editor's bundled package.")
+    binary = matches[0]
+    return binary, {"package": "com.unity.ext.nunit", "version": expected, "source": "pinned-editor-builtin",
+                    "lock_sha256": digest(lock, "sha256").hexdigest(),
+                    "descriptor": descriptor.relative_to(editor).as_posix(), "descriptor_sha256": digest(descriptor, "sha256").hexdigest(),
+                    "dll": binary.relative_to(editor).as_posix(), "dll_bytes": binary.stat().st_size,
+                    "dll_sha256": digest(binary, "sha256").hexdigest()}
 
 
 def acquire(root: Path, evidence: Path):
@@ -47,26 +72,11 @@ def acquire(root: Path, evidence: Path):
     record = json.loads(marker.read_text())
     if record["version"] != VERSION or record["revision"] != REVISION:
         raise ValueError("Cached editor does not match the selected profile.")
-    nunit = root / "nunit"
-    nunit.mkdir(exist_ok=True)
-    with urllib.request.urlopen("https://packages.unity.com/com.unity.ext.nunit", timeout=60) as response:
-        metadata = json.load(response)["versions"]["2.0.3"]
-    nunit_archive = root / "nunit.tgz"
-    download(metadata["dist"]["tarball"], nunit_archive)
-    if digest(nunit_archive, "sha1").hexdigest() != metadata["dist"]["shasum"]:
-        raise ValueError("Unity NUnit package integrity mismatch.")
-    with tarfile.open(nunit_archive) as package:
-        package.extractall(nunit, filter="data")
-    record["nunit"] = {"package": "com.unity.ext.nunit", "version": "2.0.3", "dist": metadata["dist"],
-                       "sha256": digest(nunit_archive, "sha256").hexdigest()}
-    nunit_archive.unlink()
-    matches = sorted(nunit.rglob("nunit.framework.dll"))
-    if len(matches) != 1:
-        raise ValueError("Expected exactly one official NUnit framework DLL.")
+    nunit, record["nunit"] = bundled_nunit(root, RUNTIME / "unity/Packages/packages-lock.json")
     record["editor_binary_exists"] = (root / "Editor/Unity").is_file()
     (evidence / "toolchain-download.json").write_text(json.dumps(record, indent=2) + "\n")
     print("EDITOR=" + str(root / "Editor/Unity"))
-    print("NUNIT=" + str(matches[0]))
+    print("NUNIT=" + str(nunit))
 
 
 if __name__ == "__main__":

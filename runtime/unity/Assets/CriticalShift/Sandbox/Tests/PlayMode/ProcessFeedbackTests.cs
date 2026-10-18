@@ -79,7 +79,8 @@ namespace CriticalShift.Sandbox.Tests
         {
             Assert.That(commands.Grab(Id(10)).HasNewCommit, Is.True);
             Assert.That(commands.OperateMachine(Id(20), ProductionAction.Insert, Id(10)).HasNewCommit, Is.True);
-            Assert.That(commands.OperateMachine(Id(20), ProductionAction.SetPower, powered: true).HasNewCommit, Is.True);
+            Assert.That(commands.GetMachine(Id(20)).Powered, Is.True);
+            Assert.That(commands.OperateMachine(Id(20), ProductionAction.SetPower, powered: true).Status, Is.EqualTo(InteractionStatus.NoChange));
             Assert.That(commands.OperateMachine(Id(20), ProductionAction.Start).HasNewCommit, Is.True);
         }
 
@@ -157,7 +158,9 @@ namespace CriticalShift.Sandbox.Tests
                 Is.EqualTo((float)commands.Power.Available / commands.Power.Capacity).Within(0.001f));
             world.Pause(world.Epoch); world.AdvanceTo(5000);
             long revision = world.View.Revision, spent = commands.Power.Spent;
-            for (int i = 0; i < 10; i++) yield return null;
+            // Gauge motion is bounded by elapsed frame time. Headless test frames
+            // can run much faster than display frames, so allow actual time here.
+            yield return new WaitForSeconds(0.2f);
             Assert.That(reactor.DisplayedFuelFraction, Is.EqualTo(2f / 3).Within(0.001f));
             Assert.That(Quaternion.Angle(Quaternion.identity, fuelNeedle.localRotation), Is.GreaterThan(1));
             Assert.That(world.View.Revision, Is.EqualTo(revision)); Assert.That(commands.Power.Spent, Is.EqualTo(spent));

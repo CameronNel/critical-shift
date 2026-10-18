@@ -1,5 +1,18 @@
 {
   "PlayMode": [
+    "CriticalShift.Sandbox.Tests.CombinedMapDoorTests.WholeModelMotionPreservesDoorBindingsButChildPoseDriftStopsThem",
+    "CriticalShift.Sandbox.Tests.CombinedMapDoorTests.DoorShapeScaleAndAnchorDriftRejectFurtherProjectionDelivery",
+    "CriticalShift.Sandbox.Tests.MapDoorHostTests.OccupiedEvacuationClosureLeavesTheCauseAndAllDoorStatesUncommitted",
+    "CriticalShift.Sandbox.Tests.CombinedMapLifetimeTests.DoorEvacuationProjectsIntoTheOwnedCloneAndTeardownReleasesItsContacts",
+    "CriticalShift.Sandbox.Tests.CombinedMapLifetimeTests.ImmediateRestartKeepsDeferredOldHudCleanupInsideItsOriginalWorld",
+    "CriticalShift.Sandbox.Tests.CombinedMapDoorTests.RealDoorRowsApplySuppliedCollisionStatesWithoutOpeningSealedDock",
+    "CriticalShift.Sandbox.Tests.CombinedMapDoorTests.ProjectionBatchesFenceEpochRevisionAndConflictingReplaysAtomically",
+    "CriticalShift.Sandbox.Tests.CombinedMapDoorTests.RejectedDoorSetupLeavesContactsUntouchedAndAllowsCorrectedBinding",
+    "CriticalShift.Sandbox.Tests.CombinedMapDoorTests.LostDoorContactReportsOnceAndCannotAffectTheNextWorld",
+    "CriticalShift.Sandbox.Tests.CombinedMapDoorTests.DoorClosurePreflightRejectsLiveOccupantsAndSaturationWithoutChangingContacts",
+    "CriticalShift.Sandbox.Tests.SpatialAccessTests.RegisteredOpenDoorThresholdsRemainFocusableWithoutMakingUnknownTriggersOcclude",
+    "CriticalShift.Sandbox.Tests.MapDoorHostTests.OccupiedClosingPreservesTheCommandStreamBeforeFreshDoorAndEvacuationCommits",
+    "CriticalShift.Sandbox.Tests.MapDoorHostTests.UnexpectedDoorHostDisableStopsItsWorldAndReportsOneFailure",
     "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.RejectedWorkerAdapterSetupLeavesNoLiveBindingAndAllowsCorrection",
     "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.ResumingWalkingRequiresFreshMovementAfterPause",
     "CriticalShift.Sandbox.Tests.SpatialAccessTests.DetachedInteractionPointCannotAuthorizeOrFocusItsFormerEquipment",

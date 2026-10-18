@@ -62,3 +62,32 @@ Microsoft documents that [threading timers](https://learn.microsoft.com/en-us/do
 ## Worker integration (OFFLINE-003)
 
 [WORKERS_AND_SCENARIOS.md](WORKERS_AND_SCENARIOS.md) documents the worker extension. WorldSession now composes a worker owner as well as the existing interaction owner. `WorldAdvanceResult.WorkerChanges` reports expired recovery attempts; readiness and expiry are stored worker facts, not advisory timer callbacks. Teardown clears workers too. Restart must explicitly rebind physical recovery policy as well as access policy; an omitted recovery provider cannot approve standing. The bounded diagnostic trace is retained on the stopped instance for failure inspection and starts fresh in the successor. None of these additions implement engine physics or connected multiplayer.
+
+## Door passage and evacuation defaults (18 October 2026)
+
+`world.Doors.Register(id, sourceId, initialState, evacuationState, playerOperable)`
+is setup-only. The existing Interaction domain owns at most 128 doors, with unique
+bounded source IDs and independent revisions. Doors are passage state, separate
+from portable-object custody. A door cannot reuse an object or equipment-slot ID.
+Views are detached and immutable; terminal world cleanup clears the store.
+
+`LocalCommandPort.OperateDoor(id, DoorAction.Open/Close)` uses the same authenticated
+sequence, receipt, epoch, worker-access and current-revision path as other local
+intents. Duplicate receipts do not increment a revision or repeat a commit.
+Locked/non-operable doors reject player operation. Spatial reach and current
+doorway occupancy are host observations; the rule owner does not read physics.
+
+`world.BeginEvacuation(epoch, causeId)` is an explicit trusted host operation.
+It applies every authored evacuation default atomically, retains one cause and
+keeps the shift running. Repeating the same cause returns Duplicate; another
+cause returns AlreadyActive. A later retry cannot reset doors that were operated
+after the original transition. A recoverable reactor trip never calls it
+implicitly. This bounded operation supplies door state only; it does not
+implement an incident countdown, evacuation success or the complete meltdown.
+
+The combined-map adapter projects those revisions into explicitly bound contacts.
+Its normal close and initial evacuation-close preflights reject occupied openings
+before logical mutation. The sealed dock retains its authored Closed default and
+is non-operable. The current 723-case offline run includes eleven door cases;
+native collision, routes and rendered playability need their separate evidence
+in [the current Unity checkpoint](../validation/GAMEPLAY_SANDBOX.md).

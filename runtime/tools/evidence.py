@@ -1,13 +1,61 @@
 """Fail-closed validation of actual NUnit XML and standalone Player logs."""
 from __future__ import annotations
 
+import hashlib
 import re
+from collections import Counter
 from pathlib import Path
 from xml.etree import ElementTree as ET
 
 
 class EvidenceError(ValueError):
     """The supplied execution evidence does not meet the declared fixture."""
+
+
+def read_result_evidence(path: Path, expected: set[str]) -> dict:
+    """Retain what an XML artifact actually reports; this never grants test acceptance."""
+    evidence = {"artifact_present": False}
+    try:
+        evidence["artifact_present"] = path.is_file()
+        if not evidence["artifact_present"]:
+            evidence["read_error"] = "The native test result artifact is missing."
+            return evidence
+        raw = path.read_bytes()
+        evidence["sha256"] = hashlib.sha256(raw).hexdigest()
+        root = ET.fromstring(raw)
+        if root.tag != "test-run":
+            raise EvidenceError("The result artifact is not a NUnit test-run.")
+        evidence["reported_result"] = root.get("result")
+        evidence["reported_counts"] = {}
+        malformed = []
+        for name in ("total", "passed", "failed", "skipped", "inconclusive"):
+            value = root.get(name)
+            if value is None or not re.fullmatch(r"\d+", value):
+                malformed.append(name)
+            else:
+                evidence["reported_counts"][name] = int(value)
+        if malformed:
+            evidence["invalid_summary_fields"] = malformed
+        cases = list(root.iter("test-case"))
+        names = [case.get("fullname", "") for case in cases]
+        results = [case.get("result", "Missing") for case in cases]
+        counts = Counter(names)
+        evidence.update(xml_test_cases=len(cases), test_identities=names, observed_case_results=dict(Counter(results)),
+                        duplicate_test_identities=sorted(name for name, count in counts.items() if count > 1),
+                        missing_expected_tests=sorted(expected - set(names)), unexpected_tests=sorted(set(names) - expected))
+        failures = []
+        for case in cases:
+            failure = case.find("failure")
+            if failure is not None or case.get("result", "").startswith("Failed"):
+                failures.append({"fullname": case.get("fullname", ""), "result": case.get("result"),
+                                 "label": case.get("label"),
+                                 "message": (case.findtext("failure/message") or "").replace(str(Path.home()), "<HOME>"),
+                                 "stack_trace": (case.findtext("failure/stack-trace") or "").replace(str(Path.home()), "<HOME>")})
+        evidence["failed_cases"] = failures
+        evidence["failed_test_identities"] = [case["fullname"] for case in failures]
+    except Exception as exception:
+        evidence["read_error"] = ("Native test evidence could not be parsed: " + str(exception)).replace(str(Path.home()), "<HOME>")
+    return evidence
 
 
 def validate_results(path: Path, expected: set[str], exit_code: int) -> dict:

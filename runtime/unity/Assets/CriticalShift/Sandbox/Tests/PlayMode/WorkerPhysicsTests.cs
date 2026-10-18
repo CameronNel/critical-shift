@@ -52,7 +52,11 @@ namespace CriticalShift.Sandbox.Tests
 
         [UnityTearDown] public IEnumerator TearDown()
         {
-            if (root != null) UnityEngine.Object.Destroy(root);
+            if (root != null)
+            {
+                root.GetComponent<SandboxBootstrap>().enabled = false;
+                UnityEngine.Object.Destroy(root);
+            }
             yield return null; LogAssert.NoUnexpectedReceived();
             Assert.That(faults, Is.Empty, "Unexpected worker fixture fault.");
         }
@@ -73,8 +77,25 @@ namespace CriticalShift.Sandbox.Tests
                 var body = joint.GetComponent<Rigidbody>();
                 Vector3 own = body.position + body.rotation * joint.anchor;
                 Vector3 parent = joint.connectedBody.position + joint.connectedBody.rotation * joint.connectedAnchor;
-                Assert.That(Vector3.Distance(own, parent), Is.LessThan(0.01f), joint.name);
+                Vector3 visibleOwn = body.transform.TransformPoint(joint.anchor);
+                Vector3 visibleParent = joint.connectedBody.transform.TransformPoint(joint.connectedAnchor);
+                string observation = joint.name + " physical=" + own.ToString("F5") + " / " + parent.ToString("F5") +
+                    " visible=" + visibleOwn.ToString("F5") + " / " + visibleParent.ToString("F5") +
+                    " root=" + controller.transform.position.ToString("F5") + " velocity=" + walker.MeasuredVelocity.ToString("F5");
+                Assert.That(Vector3.Distance(own, parent), Is.LessThan(0.01f), observation);
+                Assert.That(Vector3.Distance(visibleOwn, visibleParent), Is.LessThan(0.01f), observation);
+                Assert.That(Vector3.Distance(own, visibleOwn), Is.LessThan(0.001f), observation);
+                Assert.That(Vector3.Distance(parent, visibleParent), Is.LessThan(0.001f), observation);
             }
+        }
+
+        private string WalkingContactObservation()
+        {
+            var floor = root.transform.Find("Local Gameplay Fixture/Fixture floor").GetComponent<Collider>();
+            return "y=" + controller.transform.position.y.ToString("F6") + " floor=" + floor.bounds.max.y.ToString("F6") +
+                " grounded=" + walker.Grounded + " nativeGrounded=" + controller.isGrounded + " flags=" + controller.collisionFlags +
+                " nativeVelocity=" + controller.velocity.ToString("F5") + " measuredVelocity=" + walker.MeasuredVelocity.ToString("F5") +
+                " minMoveDistance=" + controller.minMoveDistance + " skinWidth=" + controller.skinWidth + " dt=" + Time.deltaTime;
         }
 
         private WorkerBodyRig CreateIsolatedRig(out CharacterController capsule, out Transform eyes,
@@ -105,6 +126,11 @@ namespace CriticalShift.Sandbox.Tests
             foreach (var part in parts) Assert.That(part.isKinematic, Is.False);
             foreach (var contact in contacts) Assert.That(contact.enabled, Is.True);
             parts[1].detectCollisions = true;
+            foreach (var contact in contacts) contact.enabled = false;
+            var ownContact = contacts[1]; contacts[1] = contacts[0];
+            Assert.Throws<ArgumentException>(() => body.Initialize(Id(800), Id(801), capsule, eyes, parts[0], parts[1].transform, grip, parts, contacts),
+                "A disabled contact still requires its own structural motion owner.");
+            Assert.That(body.BodyCount, Is.Zero); contacts[1] = ownContact;
             body.Initialize(Id(800), Id(801), capsule, eyes, parts[0], parts[1].transform, grip, parts, contacts);
             Assert.That(body.BodyCount, Is.EqualTo(2)); Assert.That(capsule.enabled, Is.True);
             foreach (var part in parts) Assert.That(part.isKinematic, Is.True);
@@ -158,14 +184,27 @@ namespace CriticalShift.Sandbox.Tests
 
         [UnityTest] public IEnumerator WalkingPosePreservesAnchorsBeforeOneRagdollHandoff()
         {
+            foreach (var part in rig.CopyBodySegments())
+            {
+                var contact = part.GetComponent<Collider>();
+                Assert.That(contact.enabled, Is.False); Assert.That(contact.isTrigger, Is.False);
+                Assert.That(contact.GetComponentInParent<Rigidbody>(), Is.SameAs(part), part.name);
+            }
             Vector3 before = controller.transform.position; walker.SetMovement(Vector2.right);
-            for (int i = 0; i < 30; i++) yield return Step();
+            for (int i = 0; i < 30; i++) { yield return Step(); AssertJointAnchorsMeet(); }
             walker.SetMovement(Vector2.zero); yield return null;
             Assert.That(controller.transform.position.x, Is.GreaterThan(before.x + 0.3f));
             Assert.That(DynamicBodies(), Is.Zero); Assert.That(controller.enabled, Is.True);
             AssertJointAnchorsMeet();
             KnockDown();
+            AssertJointAnchorsMeet(); // The physical handoff must retain that exact coherent chain before simulation.
             Assert.That(controller.enabled, Is.False); Assert.That(DynamicBodies(), Is.EqualTo(11));
+            foreach (var part in rig.CopyBodySegments())
+            {
+                var contact = part.GetComponent<Collider>();
+                Assert.That(contact.enabled, Is.True); Assert.That(part.detectCollisions, Is.True);
+                Assert.That(contact.attachedRigidbody, Is.SameAs(part), part.name);
+            }
             for (int i = 0; i < 20; i++) yield return Step();
             foreach (var body in rig.CopyBodySegments())
                 Assert.That(body.linearVelocity.magnitude, Is.LessThan(20), body.name);
@@ -197,8 +236,17 @@ namespace CriticalShift.Sandbox.Tests
             controller.enabled = false; controller.transform.position = root.transform.position + new Vector3(-4, 0.1f, 2);
             controller.enabled = true; walker.ResetAfterRecovery();
             var ore = root.transform.Find("Local Gameplay Fixture/Material container 4").GetComponent<Rigidbody>();
-            ore.position = root.transform.position + new Vector3(-4, 1, 3); ore.linearVelocity = Vector3.zero; Physics.SyncTransforms();
-            host.Grab(Id(103)); Assert.That(host.World.GetObject(Id(103)).HolderId, Is.EqualTo(Id(1)));
+            void PlaceOre(Vector3 position)
+            {
+                // Explicit test relocation must update the interpolated query transform as well as the physical pose.
+                ore.position = position; ore.transform.position = position;
+                ore.linearVelocity = Vector3.zero; ore.angularVelocity = Vector3.zero; Physics.SyncTransforms();
+                var eyes = controller.transform.Find("Worker eyes");
+                Assert.That(Vector3.Distance(ore.position, ore.transform.position), Is.LessThan(0.001f), "Ore physical/query poses must agree.");
+                Assert.That(Vector3.Distance(eyes.position, ore.transform.position), Is.LessThan(3.8f), "Relocated ore must be inside authored interaction reach.");
+            }
+            PlaceOre(root.transform.position + new Vector3(-4, 1, 3));
+            host.Grab(Id(103)); Assert.That(host.World.GetObject(Id(103)).HolderId, Is.EqualTo(Id(1)), host.LastAction);
             host.OperateMachine(Id(400), ProductionAction.Insert, Id(103), false, false);
             Assert.That(host.World.GetObject(Id(103)).SlotId, Is.EqualTo(Id(400)), host.LastAction);
             host.OperateMachine(Id(400), ProductionAction.SetPower, Guid.Empty, false, true);
@@ -211,8 +259,8 @@ namespace CriticalShift.Sandbox.Tests
             Assert.That(host.World.GetObject(Id(103)).SlotId, Is.Null, host.LastAction);
             controller.enabled = false; controller.transform.position = root.transform.position + new Vector3(0.5f, 0.1f, 2);
             controller.enabled = true; walker.ResetAfterRecovery();
-            ore.position = root.transform.position + new Vector3(0.5f, 1, 3); ore.linearVelocity = Vector3.zero; Physics.SyncTransforms();
-            host.Grab(Id(103)); Assert.That(host.World.GetObject(Id(103)).HolderId, Is.EqualTo(Id(1)));
+            PlaceOre(root.transform.position + new Vector3(0.5f, 1, 3));
+            host.Grab(Id(103)); Assert.That(host.World.GetObject(Id(103)).HolderId, Is.EqualTo(Id(1)), host.LastAction);
             host.OperateMachine(Id(401), ProductionAction.Insert, Id(103), false, false);
             Assert.That(host.World.GetObject(Id(103)).SlotId, Is.EqualTo(Id(401)), host.LastAction);
             host.OperateMachine(Id(401), ProductionAction.SetPower, Guid.Empty, false, true);
@@ -225,8 +273,8 @@ namespace CriticalShift.Sandbox.Tests
             Assert.That(host.World.GetObject(Id(103)).SlotId, Is.Null, host.LastAction);
             controller.enabled = false; controller.transform.position = root.transform.position + new Vector3(5.5f, 0.1f, 3);
             controller.enabled = true; walker.ResetAfterRecovery();
-            ore.position = root.transform.position + new Vector3(5.5f, 1.05f, 4.1f); ore.linearVelocity = Vector3.zero; Physics.SyncTransforms();
-            host.Grab(Id(103)); Assert.That(host.World.GetObject(Id(103)).HolderId, Is.EqualTo(Id(1)));
+            PlaceOre(root.transform.position + new Vector3(5.5f, 1.05f, 4.1f));
+            host.Grab(Id(103)); Assert.That(host.World.GetObject(Id(103)).HolderId, Is.EqualTo(Id(1)), host.LastAction);
             host.OperateReactor(Id(500), ReactorAction.Insert, Id(103), false);
             Assert.That(host.World.GetObject(Id(103)).SlotId, Is.EqualTo(Id(500)), host.LastAction);
             host.OperateReactor(Id(500), ReactorAction.SetCooling, Guid.Empty, true);
@@ -257,28 +305,58 @@ namespace CriticalShift.Sandbox.Tests
         [UnityTest] public IEnumerator ShortHopLandsWithTheWalkingCapsuleStillOwningMotion()
         {
             for (int i = 0; i < 20; i++) yield return Step();
+            Assert.That(walker.Grounded, Is.True, WalkingContactObservation());
+            Assert.That(controller.minMoveDistance, Is.Zero);
             float floor = controller.transform.position.y, peak = floor;
             long revision = Worker.Revision; walker.RequestJump();
             for (int i = 0; i < 80; i++)
-            { yield return Step(); peak = Mathf.Max(peak, controller.transform.position.y); }
+            {
+                yield return Step(); peak = Mathf.Max(peak, controller.transform.position.y);
+                if (i >= 60)
+                {
+                    string observation = WalkingContactObservation();
+                    Assert.That(walker.Grounded, Is.True, observation);
+                    Assert.That(controller.transform.position.y, Is.EqualTo(floor).Within(0.01f), observation);
+                    Assert.That(Mathf.Abs(walker.MeasuredVelocity.y), Is.LessThan(0.05f), observation);
+                }
+            }
             Assert.That(peak - floor, Is.InRange(0.25f, 0.85f));
             Assert.That(controller.transform.position.y, Is.EqualTo(floor).Within(0.1f));
-            Assert.That(walker.Grounded, Is.True); Assert.That(DynamicBodies(), Is.Zero);
+            Assert.That(walker.Grounded, Is.True, WalkingContactObservation()); Assert.That(DynamicBodies(), Is.Zero);
             Assert.That(Worker.Pose, Is.EqualTo(WorkerPose.Upright)); Assert.That(Worker.Revision, Is.EqualTo(revision));
+            var support = root.transform.Find("Local Gameplay Fixture/Fixture floor").GetComponent<Collider>();
+            Physics.IgnoreCollision(controller, support, true);
+            Assert.That(walker.Grounded, Is.False, "An ignored collision pair cannot remain walking support: " + WalkingContactObservation());
+            Physics.IgnoreCollision(controller, support, false);
+            Assert.That(walker.Grounded, Is.True, WalkingContactObservation());
+            support.enabled = false; Physics.SyncTransforms();
+            Assert.That(walker.Grounded, Is.False, "Support must be observed now, rather than latched from the landing Move.");
+            for (int i = 0; i < 10; i++) { yield return Step(); Assert.That(walker.Grounded, Is.False, WalkingContactObservation()); }
+            Assert.That(controller.transform.position.y, Is.LessThan(floor - 0.1f), WalkingContactObservation());
         }
 
         [UnityTest] public IEnumerator HopHitsTheLowCeilingWithoutTunnellingOrRetainedUpwardDrive()
         {
             for (int i = 0; i < 20; i++) yield return Step();
+            Assert.That(walker.Grounded, Is.True, WalkingContactObservation());
             var ceiling = GameObject.CreatePrimitive(PrimitiveType.Cube); ceiling.name = "Walking hop ceiling";
             ceiling.transform.SetParent(root.transform, false); ceiling.transform.position = controller.transform.position + Vector3.up * 2;
             ceiling.transform.localScale = new Vector3(2, 0.2f, 2); Physics.SyncTransforms();
             float floor = controller.transform.position.y, peak = floor; walker.RequestJump();
             for (int i = 0; i < 80; i++)
-            { yield return Step(); peak = Mathf.Max(peak, controller.transform.position.y); }
+            {
+                yield return Step(); peak = Mathf.Max(peak, controller.transform.position.y);
+                if (i >= 60)
+                {
+                    string observation = WalkingContactObservation();
+                    Assert.That(walker.Grounded, Is.True, observation);
+                    Assert.That(controller.transform.position.y, Is.EqualTo(floor).Within(0.01f), observation);
+                    Assert.That(Mathf.Abs(walker.MeasuredVelocity.y), Is.LessThan(0.05f), observation);
+                }
+            }
             Assert.That(peak - floor, Is.LessThan(0.25f));
             Assert.That(controller.transform.position.y, Is.EqualTo(floor).Within(0.1f));
-            Assert.That(walker.Grounded, Is.True); Assert.That(controller.enabled, Is.True); Assert.That(DynamicBodies(), Is.Zero);
+            Assert.That(walker.Grounded, Is.True, WalkingContactObservation()); Assert.That(controller.enabled, Is.True); Assert.That(DynamicBodies(), Is.Zero);
         }
 
         [UnityTest] public IEnumerator PauseCartGripAndKnockdownCannotQueueALaterWalkingHop()
@@ -361,22 +439,30 @@ namespace CriticalShift.Sandbox.Tests
         {
             for (int i = 0; i < 15; i++) yield return Step();
             var heavy = HeavyCrate;
-            heavy.position = controller.transform.position + Vector3.up + Vector3.forward * 1.3f; Physics.SyncTransforms();
-            host.Grab(Id(100)); Assert.That(host.World.GetObject(Id(100)).HolderId, Is.EqualTo(Id(1)));
-            heavy.position = controller.transform.position + Vector3.up * 2.1f;
+            heavy.position = controller.transform.position + Vector3.up + Vector3.forward * 1.3f;
+            heavy.transform.position = heavy.position; heavy.linearVelocity = Vector3.zero; heavy.angularVelocity = Vector3.zero; Physics.SyncTransforms();
+            var eyes = controller.transform.Find("Worker eyes");
+            Assert.That(Vector3.Distance(heavy.position, heavy.transform.position), Is.LessThan(0.001f), "Heavy crate physical/query poses must agree.");
+            Assert.That(Vector3.Distance(eyes.position, heavy.transform.position), Is.LessThan(3.8f), "Relocated heavy crate must be inside authored interaction reach.");
+            host.Grab(Id(100)); Assert.That(host.World.GetObject(Id(100)).HolderId, Is.EqualTo(Id(1)), host.LastAction);
+            heavy.position = controller.transform.position + Vector3.up * 2.1f; heavy.transform.position = heavy.position;
             heavy.linearVelocity = Vector3.down * 4; Physics.SyncTransforms();
             for (int i = 0; i < 30; i++) yield return Step();
             Assert.That(Worker.Pose, Is.EqualTo(WorkerPose.Upright)); Assert.That(Worker.RecoveryEpisode, Is.Zero);
-            Assert.That(host.World.GetObject(Id(100)).HolderId, Is.EqualTo(Id(1))); Assert.That(controller.enabled, Is.True);
+            Assert.That(host.World.GetObject(Id(100)).HolderId, Is.EqualTo(Id(1)), host.LastAction); Assert.That(controller.enabled, Is.True);
         }
 
         [UnityTest] public IEnumerator ExcludedImpactMotionCannotKnockDownAfterReleaseOrResume()
         {
             for (int i = 0; i < 15; i++) yield return Step();
             var heavy = HeavyCrate; var observer = controller.GetComponent<WorkerImpactContacts>();
-            heavy.position = controller.transform.position + Vector3.up + Vector3.forward * 1.3f; Physics.SyncTransforms();
-            host.Grab(Id(100)); Assert.That(host.World.GetObject(Id(100)).HolderId, Is.EqualTo(Id(1)));
-            heavy.position = controller.transform.position + Vector3.up * 2.1f;
+            heavy.position = controller.transform.position + Vector3.up + Vector3.forward * 1.3f;
+            heavy.transform.position = heavy.position; heavy.linearVelocity = Vector3.zero; heavy.angularVelocity = Vector3.zero; Physics.SyncTransforms();
+            var eyes = controller.transform.Find("Worker eyes");
+            Assert.That(Vector3.Distance(heavy.position, heavy.transform.position), Is.LessThan(0.001f), "Heavy crate physical/query poses must agree.");
+            Assert.That(Vector3.Distance(eyes.position, heavy.transform.position), Is.LessThan(3.8f), "Relocated heavy crate must be inside authored interaction reach.");
+            host.Grab(Id(100)); Assert.That(host.World.GetObject(Id(100)).HolderId, Is.EqualTo(Id(1)), host.LastAction);
+            heavy.position = controller.transform.position + Vector3.up * 2.1f; heavy.transform.position = heavy.position;
             heavy.linearVelocity = Vector3.down * 4; Physics.SyncTransforms();
             // Sample the contact boundary without another physics step moving the held source away.
             observer.SendMessage("FixedUpdate", SendMessageOptions.RequireReceiver);
@@ -389,7 +475,7 @@ namespace CriticalShift.Sandbox.Tests
             observer.SendMessage("FixedUpdate", SendMessageOptions.RequireReceiver);
             Assert.That(Worker.Pose, Is.EqualTo(WorkerPose.Upright)); Assert.That(Worker.RecoveryEpisode, Is.Zero);
             Assert.That(controller.enabled, Is.True); Assert.That(DynamicBodies(), Is.Zero);
-            heavy.position += Vector3.forward * 3; Physics.SyncTransforms(); yield return null;
+            heavy.position += Vector3.forward * 3; heavy.transform.position = heavy.position; Physics.SyncTransforms(); yield return null;
         }
 
         [UnityTest] public IEnumerator RegisteredFallingSourceBelowTheMassThresholdCannotKnockDown()

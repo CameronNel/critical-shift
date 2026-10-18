@@ -104,5 +104,20 @@ namespace CriticalShift.Sandbox.Tests
             policy.BindActor(Id(1), eyes); policy.BindTarget(Id(2), target.transform); Physics.SyncTransforms();
             Assert.That(policy.PickTarget(Id(1)), Is.EqualTo(Id(2)));
         }
+
+        [Test] public void RegisteredOpenDoorThresholdsRemainFocusableWithoutMakingUnknownTriggersOcclude()
+        {
+            target.GetComponent<Collider>().isTrigger = true; Physics.SyncTransforms();
+            Assert.That(policy.PickTarget(Id(1)), Is.EqualTo(Guid.Empty));
+            policy.Clear(); policy = new SpatialInteractionAccess(3.5f, includeRegisteredTriggersInFocus: true);
+            policy.BindActor(Id(1), eyes); policy.BindTarget(Id(2), target.transform);
+            var unrelated = GameObject.CreatePrimitive(PrimitiveType.Cube); unrelated.transform.SetParent(root.transform, false);
+            unrelated.transform.localPosition = Vector3.forward; unrelated.GetComponent<Collider>().isTrigger = true; Physics.SyncTransforms();
+            Assert.That(policy.PickTarget(Id(1)), Is.EqualTo(Id(2)));
+            Assert.That(policy.Evaluate(Id(1), Id(2), InteractionKind.Door), Is.EqualTo(AccessDecision.Allowed));
+            unrelated.GetComponent<Collider>().isTrigger = false; Physics.SyncTransforms();
+            Assert.That(policy.PickTarget(Id(1)), Is.EqualTo(Guid.Empty));
+            Assert.That(policy.Evaluate(Id(1), Id(2), InteractionKind.Door), Is.EqualTo(AccessDecision.OutOfReach));
+        }
     }
 }

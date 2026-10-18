@@ -142,6 +142,10 @@ namespace CriticalShift.Sandbox
             }
         }
 
+        // Editor Stop and Player quit notify this owner before hierarchy teardown.
+        // Close the world before Unity disables required child adapters in its own order.
+        private void OnApplicationQuit() { stopping = true; StopFixture(); }
+
         private void OnDisable()
         {
             stopping = true;

@@ -35,6 +35,7 @@ namespace CriticalShift.Application
         public ObjectClaimView? GetWorkerBodyClaim(Guid actor) => _world.GetWorkerBodyClaim(actor);
         public WorkerView? GetWorkerForBody(Guid entity) => _world.GetWorkerForBody(entity);
         public MachineView? GetMachine(Guid id) => _world.Production.GetMachine(id);
+        public DoorView? GetDoor(Guid id) => _world.Doors.Get(id);
         public MaterialView? GetBatch(Guid id) => _world.Production.GetBatch(id);
         public ProductionSummary ProductionSummary => _world.Production.Summary;
         public ReactorView? Reactor => _world.Reactor.View;
@@ -46,6 +47,9 @@ namespace CriticalShift.Application
 
         public InteractionReply Release(Guid entity) => Lease(entity, InteractionKind.Release);
         public InteractionReply Renew(Guid entity) => Lease(entity, InteractionKind.Renew, false);
+        public InteractionReply OperateDoor(Guid doorId, DoorAction action) => Send(new InteractionCommand(
+            _world.Epoch, NextSequence(), InteractionKind.Door, doorId,
+            door: new DoorRequest(action, _world.Doors.Get(doorId)?.Revision ?? 0)));
 
         private InteractionReply Lease(Guid entity, InteractionKind kind, bool remember = true) => Send(new InteractionCommand(
             _world.Epoch, NextSequence(), kind, entity,

@@ -160,7 +160,7 @@ on the inspected baseline. No package is downloaded by the generator.
 
 The existing foundation runner still tests its foundation assembly selection;
 it does not automatically claim sandbox coverage. The separate native inventory
-is `runtime/validation/sandbox-expected-tests.json`: 111 implemented cases, all
+is `runtime/validation/sandbox-expected-tests.json`: 119 implemented cases, all
 NotRun. Nine new pure command-port cases, fourteen worker-body claim cases and
 nine source-package safety cases and five declared-assembly boundary cases
 are also NotRun. Native fixtures are offset from possible active-scene content
@@ -189,3 +189,31 @@ resolved project references with their declarations, checks pure assemblies for
 engine references and requires compiled outputs. Its native inventory must agree
 with the source count. These checks are written and NotRun; they do not constitute
 an independently accepted architecture or a Player dependency audit.
+
+## Combined-map traversal derivative
+
+`Critical Shift > Combined Map > Create collision traversal scene` reads only
+the combined map's current collision/anchor export and manifests. It generates
+`Sandbox/Generated/CombinedMapTraversal.unity`, with the existing worker controls,
+revisioned doors and an explicit evacuation exercise. E opens/closes a focused
+door; occupied openings cannot close. The sealed dock remains non-operable.
+WASD, Space, right-drag and H reuse the local movement/hop/look/recovery approach.
+
+This derivative contains connective collision proxies. It does not invent room
+floors, import baked art, support the condenser escape ladder or implement a
+meltdown incident/countdown. The start is the measured spine-floor centre.
+The builder checks imported anchor positions and actual mesh-collider bounds
+against the source frame to 0.01 m. No source blend, room, old map or protected
+Content/Editor bake importer is modified. Debug materials are not art acceptance.
+
+For a disposable, input-hashed native preparation, use
+`runtime/tools/run_combined_map.py --unity <pinned Unity.exe> --target Win64`.
+Its scope is import/preparation and alignment, not a Player or traversal pass.
+The first sandbox native attempt was license-blocked before test discovery.
+Activation has since succeeded, and native map preparation passed: 37 doors,
+152 actual-mesh proxies and 13 room anchors, with maximum error 0.0002840849 m.
+The collision export's measured raw frame is `(x,z,y)`; only its generated root
+is rotated 180 degrees to match the existing baked placement frame `(-x,z,-y)`.
+The current offline 723 cases passed. Native sandbox discovery/execution and
+Player acceptance remain separate; see the active task record for current counts,
+exact evidence and its limits.

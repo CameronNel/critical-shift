@@ -1,6 +1,6 @@
 # Critical Shift runtime
 
-**Current development, 18 October 2026:** `codex/unity-gameplay-sandbox` adds an isolated local-host Unity fixture over the canonical gameplay sources. It includes physical crate handling, cart/conveyor adapters, worker knockdown/drag/recovery and bounded process presentation. Cameron has ended gaming and explicitly authorized Unity/testing. Execution is beginning; current results and limits belong in the [active development checkpoint](validation/GAMEPLAY_SANDBOX.md). Combined-map gameplay is authorized separately from the changing baked-art importer; preserve Claude's PR #110 paths. See [sandbox controls and evidence boundary](unity/Assets/CriticalShift/Sandbox/README.md).
+**Current development, 18 October 2026:** `codex/unity-gameplay-sandbox` adds local-host gameplay over the canonical sources: physical crate handling, cart/conveyor adapters, worker knockdown/drag/recovery, process feedback and combined-map doors. Cameron has ended gaming and authorized Unity/testing. Unity **6000.4.3f1 / 39d1a88d4dd1** is licensed and imports the collision derivative; 37 doors, 152 proxies and 13 room anchors align within 0.285 mm of the current binding data. The offline suite passed 723 tests. Native physics tests are next; these results do not establish a playable facility or art acceptance. Current evidence belongs in the [active development checkpoint](validation/GAMEPLAY_SANDBOX.md). Preserve Claude's PR #110 bake/importer paths. See [sandbox controls and evidence boundary](unity/Assets/CriticalShift/Sandbox/README.md).
 
 Historical source provenance: OFFLINE-005 (18 September 2026) reconciled consolidated offline gameplay from PR #43 (`30129f7a44e8976b13a4fe3307e329420034e2ff`) with WP-01 foundation source from PR #46 (`43a2e328802fa4b73de407cfeebb5a7058edf90a`), then added bounded fictional reactor/power rules. Its original candidate branch was `feat/offline-reactor-power-20260918`. Current work still requires independent review and maintainer merge.
 
@@ -45,7 +45,7 @@ The foundation assembly was renamed from `CriticalShift.Application` to `Critica
 
 The former narrow `tools/pure-tests/` harness was removed after its eight original assertions were linked into the normal offline NUnit suite. Their canonical source still also belongs to the original Unity EditMode test assembly. A passing offline run of that source is not a native Unity Test Runner pass.
 
-The Unity integration trial references these same sources through the local first-party package `com.criticalshift.gameplay` at `dotnet/src`. Eight engine-free asmdefs mirror the .NET project references; no gameplay source or DLL is copied into `Assets`. Source-project build output belongs in ignored `dotnet/artifacts/compiled`, outside the package. Do not introduce a second mutable holder, material ledger, clock or power balance. The optional scenario executable remains separate. Native package import and physical scene acceptance remain unverified; see the [sandbox development checkpoint](validation/GAMEPLAY_SANDBOX.md).
+The Unity integration trial references these same sources through the local first-party package `com.criticalshift.gameplay` at `dotnet/src`. Eight engine-free asmdefs mirror the .NET project references; no gameplay source or DLL is copied into `Assets`. Source-project build output belongs in ignored `dotnet/artifacts/compiled`, outside the package. Do not introduce a second mutable holder, material ledger, clock or power balance. The optional scenario executable remains separate. Native package import has run; physical scene acceptance remains unverified. The actual editor bundles Test Framework 1.6.0 and NUnit 2.0.5, now reflected by the declared pins. See the [sandbox development checkpoint](validation/GAMEPLAY_SANDBOX.md).
 
 ## Contracts and useful entrypoints
 
@@ -58,7 +58,7 @@ The Unity integration trial references these same sources through the local firs
 - [Offline reactor provenance and evidence](validation/OFFLINE_REACTOR_POWER.md)
 - [Canonical architecture](../design/code-architecture/README.md)
 
-PR #43 and PR #46 remain provenance for their contributions; their earlier heads do not establish results on the current revision. The old offline branch's map state was not transplanted. Current runtime work leaves the independently changing `sections/` content outside its edit and import scope.
+PR #43 and PR #46 remain provenance for their contributions; their earlier heads do not establish results on the current revision. The old offline branch's map state was not transplanted. Current runtime work reads only the four declared combined-map collision/anchor inputs from `sections/`; the authored scenes, bake outputs and protected importer remain outside its edit scope.
 
 ## Native foundation remains separately unverified
 
@@ -80,8 +80,16 @@ For the separate sandbox inventory, the future authorized command is:
 python runtime/tools/run_sandbox.py --unity "C:\Program Files\Unity\Hub\Editor\6000.4.3f1\Editor\Unity.exe" --target Win64
 ```
 
-That runner preserves source hashes and native logs/results in a disposable workspace under ignored `runtime/out/`. It requires exact test discovery and the pinned editor identity. `--build-player` separately requests a URP-gated build; adding `--run-player` requests the same new build's headless startup/teardown smoke. Neither flag establishes rendered playability, human feel, multiplayer convergence or supported performance. All current sandbox execution remains NotRun.
+That runner preserves source hashes and native logs/results in a disposable workspace under ignored `runtime/out/`. It requires exact test discovery and the pinned editor identity. `--build-player` separately requests a URP-gated build; adding `--run-player` requests the same new build's headless startup/teardown smoke. Neither flag establishes rendered playability, human feel, multiplayer convergence or supported performance. Consult the checkpoint for the latest actual execution status.
+
+For the separate combined-map collision derivative:
+
+```powershell
+python runtime/tools/run_combined_map.py --unity 'C:\Program Files\Unity\Hub\Editor\6000.4.3f1\Editor\Unity.exe' --target Win64
+```
+
+It imports the scoped FBX, validates actual proxy bounds and door/room anchors to 1 cm and saves a generated scene in its disposable workspace. Native measurements showed that this collision export needs a 180-degree root rotation to match the existing baked-art placement frame. Room floors/art and ladder traversal are separate work; the diagnostic spawn uses the existing spine floor.
 
 ## Scope boundary
 
-The current deliverable is a source-only local-host integration trial. Gate 0/1, native compatibility, physical feel, renderer integration and independent review remain pending. Its physics and presentation sources do not choose transport, Steam, voice, a production input/UI framework, persistence or a save schema. It imports no map, terrain or authored art. Read the fixture values and their limits before treating them as game balance.
+The current deliverable is a local-host integration trial undergoing native validation. Gate 0/1, physical feel, renderer integration and independent review remain pending. Its physics and presentation sources do not choose transport, Steam, voice, a production input/UI framework, persistence or a save schema. The combined-map derivative imports collision proxies and anchors; it does not import room art or establish map acceptance. Read the fixture values and their limits before treating them as game balance.

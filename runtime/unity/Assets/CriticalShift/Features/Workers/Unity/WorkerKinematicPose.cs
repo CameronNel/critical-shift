@@ -9,29 +9,33 @@ namespace CriticalShift.Features.Workers.Unity
     {
         private sealed class Limb
         {
-            internal readonly Rigidbody Upper, Lower, Parent;
             internal readonly bool Arm, Left;
+            private readonly int upperIndex, lowerIndex, parentIndex;
             private readonly Vector3 upperAnchor, parentAnchor, lowerAnchor, elbowAnchor;
             private readonly Quaternion upperRest, lowerRest;
-            internal Limb(Rigidbody upper, Rigidbody lower, bool arm, bool left)
+            internal Limb(Rigidbody[] bodies, Rigidbody upper, Rigidbody lower, bool arm, bool left)
             {
                 var upperJoint = upper.GetComponent<CharacterJoint>(); var lowerJoint = lower.GetComponent<CharacterJoint>();
                 if (upperJoint == null || upperJoint.connectedBody == null || lowerJoint == null || lowerJoint.connectedBody != upper)
                     throw new ArgumentException("A visual limb must use the bound physical two-segment joint chain.");
-                Upper = upper; Lower = lower; Parent = upperJoint.connectedBody; Arm = arm; Left = left;
+                var parent = upperJoint.connectedBody;
+                upperIndex = Array.IndexOf(bodies, upper); lowerIndex = Array.IndexOf(bodies, lower);
+                parentIndex = Array.IndexOf(bodies, parent);
+                if (parentIndex < 0) throw new ArgumentException("A limb parent must belong to the same worker body.");
+                Arm = arm; Left = left;
                 upperAnchor = upperJoint.anchor; parentAnchor = upperJoint.connectedAnchor;
                 lowerAnchor = lowerJoint.anchor; elbowAnchor = lowerJoint.connectedAnchor;
-                upperRest = Quaternion.Inverse(Parent.rotation) * Upper.rotation;
-                lowerRest = Quaternion.Inverse(Upper.rotation) * Lower.rotation;
+                upperRest = Quaternion.Inverse(parent.rotation) * upper.rotation;
+                lowerRest = Quaternion.Inverse(upper.rotation) * lower.rotation;
             }
-            internal void Apply(float swing, float bend)
+            internal void Apply(Vector3[] positions, Quaternion[] rotations, float swing, float bend)
             {
-                Quaternion upperRotation = Parent.rotation * upperRest * Quaternion.AngleAxis(swing, Vector3.right);
-                Vector3 shoulder = Parent.position + Parent.rotation * parentAnchor;
-                Upper.rotation = upperRotation; Upper.position = shoulder - upperRotation * upperAnchor;
+                Quaternion upperRotation = rotations[parentIndex] * upperRest * Quaternion.AngleAxis(swing, Vector3.right);
+                Vector3 shoulder = positions[parentIndex] + rotations[parentIndex] * parentAnchor;
+                rotations[upperIndex] = upperRotation; positions[upperIndex] = shoulder - upperRotation * upperAnchor;
                 Quaternion lowerRotation = upperRotation * lowerRest * Quaternion.AngleAxis(bend, Vector3.right);
-                Vector3 elbow = Upper.position + upperRotation * elbowAnchor;
-                Lower.rotation = lowerRotation; Lower.position = elbow - lowerRotation * lowerAnchor;
+                Vector3 elbow = positions[upperIndex] + upperRotation * elbowAnchor;
+                rotations[lowerIndex] = lowerRotation; positions[lowerIndex] = elbow - lowerRotation * lowerAnchor;
             }
         }
 
@@ -39,6 +43,8 @@ namespace CriticalShift.Features.Workers.Unity
         private readonly Rigidbody[] bodies;
         private readonly Vector3[] positions;
         private readonly Quaternion[] rotations;
+        private readonly Vector3[] worldPositions;
+        private readonly Quaternion[] worldRotations;
         private readonly List<Limb> limbs = new List<Limb>(4);
         private readonly HashSet<Rigidbody> animated = new HashSet<Rigidbody>();
         private Func<bool> handsBusy;
@@ -47,15 +53,17 @@ namespace CriticalShift.Features.Workers.Unity
         private bool started;
 
         internal WorkerKinematicPose(Transform workerRoot, Rigidbody[] segments, Vector3[] restPositions, Quaternion[] restRotations)
-        { root = workerRoot; bodies = segments; positions = restPositions; rotations = restRotations; lastPosition = root.position; }
+        {
+            root = workerRoot; bodies = segments; positions = restPositions; rotations = restRotations;
+            worldPositions = new Vector3[bodies.Length]; worldRotations = new Quaternion[bodies.Length]; lastPosition = root.position;
+        }
 
         internal void BindLimb(Rigidbody upper, Rigidbody lower, bool arm, bool left)
         {
             if (started || upper == null || lower == null || limbs.Count >= 4 || Array.IndexOf(bodies, upper) < 0 ||
                 Array.IndexOf(bodies, lower) < 0 || animated.Contains(upper) || animated.Contains(lower))
                 throw new InvalidOperationException("Bind each normal-mode limb once before presentation starts.");
-            var limb = new Limb(upper, lower, arm, left);
-            if (Array.IndexOf(bodies, limb.Parent) < 0) throw new ArgumentException("A limb parent must belong to the same worker body.");
+            var limb = new Limb(bodies, upper, lower, arm, left);
             animated.Add(upper); animated.Add(lower); limbs.Add(limb);
         }
 
@@ -79,7 +87,7 @@ namespace CriticalShift.Features.Workers.Unity
             for (int i = 0; i < bodies.Length; i++)
             {
                 if (bodies[i] == null || !bodies[i].isKinematic) throw new InvalidOperationException("Normal presentation cannot write a dynamic or missing body.");
-                bodies[i].position = root.TransformPoint(positions[i]); bodies[i].rotation = rotation * rotations[i];
+                worldPositions[i] = root.TransformPoint(positions[i]); worldRotations[i] = rotation * rotations[i];
             }
             foreach (var limb in limbs)
             {
@@ -87,8 +95,14 @@ namespace CriticalShift.Features.Workers.Unity
                 float swing = wave * walking * (limb.Arm ? 16 : -18);
                 float bend = limb.Arm ? Mathf.Lerp(6, -15, carrying) : Mathf.Max(0, wave) * walking * 24;
                 if (limb.Arm) swing = Mathf.Lerp(swing, -30, carrying);
-                limb.Apply(swing, bend);
+                limb.Apply(worldPositions, worldRotations, swing, bend);
             }
+            // Normal-mode bodies are non-contacting children of the moving capsule. Commit one coherent
+            // hierarchy pose; Rigidbody setters defer Transform updates and can lose limb offsets when
+            // the ancestor moves before the next physics sync. No dynamic segment enters this path.
+            for (int i = 0; i < bodies.Length; i++)
+                bodies[i].transform.SetPositionAndRotation(worldPositions[i], worldRotations[i]);
+            Physics.SyncTransforms();
         }
     }
 }

@@ -14,13 +14,16 @@ namespace CriticalShift.Features.Interaction.Unity
         private readonly RaycastHit[] hits = new RaycastHit[32];
         private readonly Func<Guid, Guid, Rigidbody, bool> transparentOwnedBody;
         private readonly float reach;
+        private readonly bool focusTriggers;
 
-        public SpatialInteractionAccess(float reachMetres = 3.5f, Func<Guid, Guid, Rigidbody, bool> transparentBody = null)
+        public SpatialInteractionAccess(float reachMetres = 3.5f, Func<Guid, Guid, Rigidbody, bool> transparentBody = null,
+            bool includeRegisteredTriggersInFocus = false)
         {
             if (float.IsNaN(reachMetres) || float.IsInfinity(reachMetres) || reachMetres <= 0)
                 throw new ArgumentOutOfRangeException(nameof(reachMetres));
             reach = reachMetres;
             transparentOwnedBody = transparentBody;
+            focusTriggers = includeRegisteredTriggersInFocus;
         }
 
         public void BindActor(Guid id, Transform eyes) => Bind(actors, id, eyes);
@@ -70,20 +73,26 @@ namespace CriticalShift.Features.Interaction.Unity
         {
             if (!actors.TryGetValue(actorId, out var eyes) || eyes == null || !eyes.gameObject.activeInHierarchy) return Guid.Empty;
             int count = Physics.RaycastNonAlloc(eyes.position, eyes.forward, hits, reach,
-                Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore);
+                Physics.DefaultRaycastLayers, focusTriggers ? QueryTriggerInteraction.Collide : QueryTriggerInteraction.Ignore);
             if (count == hits.Length) return Guid.Empty;
             Transform nearest = null; float distance = float.PositiveInfinity;
             for (int i = 0; i < count; i++)
             {
                 var hit = hits[i];
+                if (hit.collider.isTrigger && FindTarget(hit.transform) == Guid.Empty) continue;
                 if (hit.rigidbody != null && transparentOwnedBody != null && transparentOwnedBody(actorId, Guid.Empty, hit.rigidbody)) continue;
                 if (hit.distance >= distance) continue;
                 distance = hit.distance; nearest = hit.transform;
             }
             if (nearest == null) return Guid.Empty;
+            return FindTarget(nearest);
+        }
+
+        private Guid FindTarget(Transform observed)
+        {
             foreach (var target in targets)
                 if (target.Value != null && targetPoints.TryGetValue(target.Key, out var point) && BelongsToTarget(target.Value, point) &&
-                    (nearest == target.Value || nearest.IsChildOf(target.Value))) return target.Key;
+                    (observed == target.Value || observed.IsChildOf(target.Value))) return target.Key;
             return Guid.Empty; // An unregistered wall in front never grants access to a target behind it.
         }
 

@@ -97,7 +97,7 @@ art acceptance.
 - Diagnostic controls, crusher/fuel/reactor fixture, lamps, valve/spindle/tread
   motion, material appearance and scratch-scene generator: written, unvalidated.
 - Nine pure command-port tests, fourteen worker-body claim tests, nine package
-  safety tests, five declared-boundary cases and 111 native sandbox
+  safety tests, five declared-boundary cases and 119 native sandbox
   tests are implemented, all **NotRun**. These are declared inventory counts,
   not discovered/executed results.
 - Direct first-person focus, context transfer/drop, power/cooling and start
@@ -866,3 +866,179 @@ The offline verifier's 27 guard cases passed, then execution stopped at
 scenario ran in that attempt. The failed SDK log is retained under
 `runtime/dotnet/artifacts/sdk-version.log`. The already pinned supplementary
 SDK may be prepared portably; no new project framework/package decision is made.
+
+The pinned editor was then launched on snapshot `07075a41` in the disposable
+sandbox workspace. Its Windows file identity and native startup log both report
+6000.4.3f1 / 39d1a88d4dd1. Import exited 198 because no valid Editor license was
+available; PlayMode discovery/execution, build and Player were NotRun. Inputs
+were unchanged. First evidence: `runtime/out/sandbox-l1uyk5zk/report.json` and
+`logs/import.log`. Cameron is activating Unity Hub; no license bypass is used.
+
+The official pinned supplementary SDK 8.0.423 was acquired portably under ignored
+`runtime/out/toolchains/`, with Microsoft's published SHA-512 verified. No global
+installation/configuration changed. A frozen `07075a41` offline run compiled
+without warnings and executed 712 cases: 711 passed and one failed. The failure
+was a fixture assertion expecting a new commit when setting an already-powered
+machine to powered. The corrected case now explicitly verifies NoChange and an
+unchanged machine revision; no production rule was loosened. Original failure
+artifacts remain under `runtime/out/offline-07075a41/`.
+
+After integrating logical doors and that assertion correction, the offline
+verifier executed **723 cases, all passed, zero skipped**, plus its scenarios,
+27 guard cases and deliberate NUnit/scenario failure controls. Full source hashes
+and results are in `runtime/dotnet/artifacts/summary.json`; its commit field is
+the parent `07075a41`, so the recorded file hashes identify the uncommitted
+candidate actually tested. This does not establish Unity physics.
+
+The supplementary checker now compiles every declared production assembly and
+all three test assemblies, using the exact installed Unity API files, the pinned
+SDK and real NUnit/TestRunner DLLs. **21/21 assemblies compiled successfully**
+with unchanged source. Its report is
+`runtime/out/api-all-assemblies-01/api-compile.json`. TestRunner references came
+from byte-identical bundled editor-template caches; this does not prove the
+project resolved Test Framework 1.4.6, nor execute native tests. Its 22 tooling
+cases passed. The separate combined-map runner's 16 fault fixtures also passed.
+
+## Combined-map traversal extension
+
+The owner's later instruction authorizes the combined map as gameplay input.
+The derivative imports only the existing 437,436-byte collision/anchor FBX,
+binding manifest, doors and collider-role table. It writes its own generated
+scene under `Sandbox/Generated/CombinedMapTraversal.unity`; it leaves the retired
+assembled map, source blends, room files and Claude's protected bake/importer
+paths unchanged. Export provenance remains dirty/unreviewed, not promoted.
+
+Logical doors now use the existing Interaction owner and command receipt stream.
+Stable source IDs map into scoped logical GUIDs; 37 authored rows retain their
+normal/evacuation defaults, and the sealed dock stays non-operable. Physical
+bindings atomically apply epoch/revision projections and refuse stale/conflicting
+deliveries. A bounded closure observation blocks characters and portable/ragdoll/
+kinematic occupants without consuming the command sequence or toggling colliders
+as a probe. Open threshold triggers remain focusable while unrelated triggers
+do not occlude a target; solid walls still do.
+
+The local scene reuses the worker controller and body/recovery owners. It starts
+on the measured spine floor, uses actual imported mesh colliders, validates every
+door/room anchor and collider AABB to 0.01 m, and retains debug material/shader
+dependencies. A containment monitor stops escaped/runaway worker bodies visibly.
+Connector proxies are not room floors. The condenser's six-metre ladder is not
+implemented and no route-completion claim is made. The evacuation button is a
+diagnostic exercise of the authored door transition, not a complete meltdown or
+results flow. Art import remains Claude's separate pipeline in the same frame.
+
+Eleven pure door cases passed within the 723 above. Eight new native source cases
+cover physical bindings, occupied closure, focus and local delivery/lifetime.
+The declared native catalogue is now 119; native discovery and execution remain
+NotRun while import is blocked by licensing. Independent review and merge remain
+pending for every contribution.
+
+## Licensed native import and measured collision frame, 18 October
+
+Unity Personal activation succeeded at 16:50 UTC in the exact 6000.4.3f1 editor.
+The first licensed map import failed because `TestAssemblies` already injects
+TestRunner references and the PlayMode asmdefs duplicated an explicit reference.
+The explicit duplicates were removed. Actual installed package descriptors and
+the native resolved lock report Test Framework 1.6.0 / NUnit 2.0.5; the profile,
+manifest and lock now agree with those bundled versions under the bounded D-01
+compatibility repair. No gameplay infrastructure package was selected.
+
+The next import compiled, then correctly failed the one-centimetre coordinate
+check by 185.4515 m. A separate native probe measured raw room anchors:
+condenser `(1.6,-6,3.2)`, reactor `(0,0,-18.7)`, spawn `(8,0,-92.38)`.
+This scoped collision FBX lands in `(x,z,y)`. The protected baked importer uses
+`(-x,z,-y)`. Applying a 180-degree Y rotation to the generated derivative root
+puts both in that existing placement frame. No source FBX, map file, protected
+importer or tolerance changed. Failed reports/logs are preserved under
+`runtime/out/combined-map-wyz4nga4`, `_7743wxj` and `xa85rijs` (each latter
+suffix also has the `combined-map-` prefix).
+
+Native preparation then **passed** at 16:59 UTC:
+`runtime/out/combined-map-tp2zcdwj/report.json`. Unity imported the actual meshes,
+created 152 contacts and checked their bounds plus 37 door / 13 room anchors.
+Maximum error was **0.0002840849 m**. Original runtime and four map inputs stayed
+unchanged. This is scene preparation, not PlayMode, Player or route completion.
+The report identifies its exact candidate by source fingerprints; HEAD was still
+`07075a41`, with the new source uncommitted.
+
+At 16:58 UTC the expanded Python tooling suite reported **109 cases: 108 passed,
+one Windows symlink-privilege skip**. These are tooling checks only. Read-only
+contributor review caught a deferred HUD cleanup callback capturing the mutable
+bootstrap worker field; it now captures the composed worker locally. Two native
+composition cases cover evacuation/contacts and immediate teardown/restart.
+The source catalogue now declares **121** native sandbox cases, execution pending.
+
+## First native physics results, 17:11 UTC
+
+Two static-door drift cases and an occupied evacuation-closure case brought the
+source inventory to **124**. Door bindings retain owner-relative contact poses
+and shape signatures; whole-model movement stays valid while child proxy drift
+faults visibly. A new evacuation exercise checks every required closing doorway
+before committing its once-only cause; retries do not reapply defaults or require
+fresh clearance.
+
+`runtime/out/sandbox-0ogu9odh` compiled but stopped before tests at the native
+assembly graph check. This exact editor injects both test runners into all three
+production Editor-only assemblies too. Native Bee response files confirm it;
+the checker now expects precisely those injected edges for Editor-only groups,
+retaining exact equality for all other references and pure-assembly checks.
+The supplementary compiler models that same native behavior. Its latest frozen
+report, `runtime/out/api-all-assemblies-02/api-compile.json`, passed all 21
+assemblies against actual installed APIs/NUnit 2.0.5. The Python tooling suite
+then reported **118 cases: 117 passed, one symlink-privilege skip**.
+
+`runtime/out/sandbox-7qro63i0` passed native import/graph validation and executed
+**all 124 cases: 73 passed, 51 failed, zero skipped**. Its native XML and logs
+are retained. Most failures cascade from worker-rig setup rejecting a disabled
+segment contact; agents are correcting construction/ownership validation and
+strengthening the existing regressions. One door case fails on a newly created
+walking controller's occupancy observation. Three context-machine cases assumed
+machines started unpowered; their preconditions now explicitly isolate power
+before exercising a power-on toggle. Two feedback cases incorrectly expected
+setting an already-powered machine on to create a new commit; they now require
+NoChange. The gauge case now allows actual animation time instead of assuming
+ten headless frames imply visible elapsed time. These changes await rerun;
+none of the 51 failures is claimed resolved by source inspection alone.
+
+The 17:08 UTC refresh found `origin/main` still at `3853995c`; no new upstream
+commit required integration. Protected map/importer paths remain unchanged.
+
+## Native gameplay checkpoint passed, 17:36 UTC
+
+`runtime/out/sandbox-6x_q3k7r` progressed to 86 passes / 38 failures. Most were
+teardown guards: fixtures destroyed live required adapters before closing their
+bootstrap owner. Teardown now closes that owner first; unexpected adapter-disable
+guards remain intact. Both bootstraps also close their worlds on application quit
+before hierarchy callbacks. The combined-map restart test explicitly expects its
+Ready log for each new epoch. Three immediate interaction queries now synchronize
+both physics and interpolated Transform poses during test-only teleports, retaining
+the actual runtime reach/occlusion policy.
+
+`runtime/out/sandbox-albvxyeq` then reached 121 passes / three failures. The actual
+remaining defects were current support observation and normal-pose synchronization.
+Walking now checks nearby walkable support, respecting skin distance, slope and
+ignored collisions, rather than relying only on a previous Move's grounded flag.
+The walking capsule has no minimum-movement cutoff. Normal FK computes one
+coherent segment pose before writing/synchronizing the kinematic hierarchy;
+dynamic ragdolls retain their separate physics ownership and interpolation.
+Existing tests now require stable landings, immediate loss of removed/ignored
+support, native/visible pose agreement and the original one-centimetre joint bar.
+
+The next exact-editor run **passed all 124 native PlayMode cases, zero skipped**,
+with import and the 18-production-assembly graph check also passed:
+`runtime/out/sandbox-ue0fz1ym/report.json` and `PlayMode.xml`. Original source stayed
+unchanged during the run; the candidate hash is
+`26feca1aa7838daf71abea9f6b35aedbdc3be93be218ce865fd2e55c993e6b73`.
+Build/Player remain NotRun in that report. All earlier failures remain preserved.
+The latest tooling run separately passed 123 / 124 cases, with the one Windows
+symlink-privilege skip. No FPS, minimum-spec, visual, multiplayer or gate acceptance
+is inferred from these results; per-frame synchronization cost is unmeasured.
+
+The first URP dependency trial uses a separate frozen snapshot, not this passing
+workspace. `runtime/out/urp-resolution-_wetgkim` resolved the bundled URP/Core/
+ShaderGraph/config 17.4.0 packages and compiled their SDKs, then failed the strict
+project graph check on the newly injected mandatory uGUI references. Earlier
+ShaderGraph compiler diagnostics were followed by native API updating/recompilation;
+they remain in the failed log. No renderer or Player pass is claimed. The actual
+lock selected uGUI 2.0.0, Collections 6.4.0, Burst 1.8.29, Mathematics 1.3.3,
+Searcher 4.9.4, Mono-Cecil 1.11.6 and test-framework.performance 3.4.0 as renderer
+dependencies. The canonical project has not adopted them at this checkpoint.

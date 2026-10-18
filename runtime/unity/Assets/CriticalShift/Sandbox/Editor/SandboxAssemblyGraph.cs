@@ -17,6 +17,7 @@ namespace CriticalShift.Sandbox.Editor
         {
             public string name = "";
             public string[] references = Array.Empty<string>();
+            public string[] includePlatforms = Array.Empty<string>();
             public bool noEngineReferences = false;
         }
 
@@ -38,9 +39,17 @@ namespace CriticalShift.Sandbox.Editor
                     throw new BuildFailedException("The sandbox trial requires explicit named assembly definitions: " + assembly.name);
                 var declared = new HashSet<string>(definition.references, StringComparer.Ordinal);
                 var resolved = new HashSet<string>(assembly.assemblyReferences.Select(reference => reference.name), StringComparer.Ordinal);
-                if (!declared.SetEquals(resolved))
+                var expected = new HashSet<string>(declared, StringComparer.Ordinal);
+                // The pinned editor injects both bundled runners into Editor-only
+                // assemblies even without TestAssemblies. Native Bee response files
+                // establish this for all three production Editor assemblies. Keep
+                // exact equality so unrelated SDK or first-party edges still fail.
+                bool editorOnly = definition.includePlatforms != null && definition.includePlatforms.SequenceEqual(new[] { "Editor" });
+                if (editorOnly) expected.UnionWith(new[] { "UnityEditor.TestRunner", "UnityEngine.TestRunner" });
+                if (!expected.SetEquals(resolved))
                     throw new BuildFailedException("Native project references differ from the declaration for " + assembly.name +
                         "; declared=" + string.Join(",", declared.OrderBy(value => value)) +
+                        "; implicit=" + (editorOnly ? "UnityEditor.TestRunner,UnityEngine.TestRunner" : "") +
                         "; resolved=" + string.Join(",", resolved.OrderBy(value => value)));
                 bool pure = assembly.name == "CriticalShift.Application" || assembly.name == "CriticalShift.ProcessLifetime" || assembly.name.EndsWith(".Domain", StringComparison.Ordinal);
                 if (definition.noEngineReferences != pure || (pure && assembly.compiledAssemblyReferences.Any(IsEngineReference)))

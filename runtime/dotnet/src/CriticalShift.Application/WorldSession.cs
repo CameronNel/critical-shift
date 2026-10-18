@@ -47,10 +47,13 @@ namespace CriticalShift.Application
             _interaction.BindProduction(Production);
             Reactor = new ReactorOperations(this, _interaction);
             _interaction.BindReactor(Reactor);
+            Doors = new DoorOperations(this, _interaction);
+            _interaction.BindDoors(Doors);
         }
 
         public ProductionOperations Production { get; }
         public ReactorOperations Reactor { get; }
+        public DoorOperations Doors { get; }
 
         // Bounded setup transaction; public callers cannot submit arbitrary mutation delegates.
         internal void RegisterProduction(Action registration)
@@ -409,7 +412,7 @@ namespace CriticalShift.Application
                 // Rejections use the existing receipt stream; pause cannot create a sequence gap.
                 // Release and host-approved renewal remain possible while simulation is paused.
                 if (!_workers.CanInteract(actorId) ||
-                    ((kind == InteractionKind.Grab || kind == InteractionKind.Production || kind == InteractionKind.Reactor) && _timeline.Phase != TimelinePhase.Running))
+                    ((kind == InteractionKind.Grab || kind == InteractionKind.Production || kind == InteractionKind.Reactor || kind == InteractionKind.Door) && _timeline.Phase != TimelinePhase.Running))
                     return AccessDecision.ActorUnavailable;
                 if ((kind == InteractionKind.Grab || kind == InteractionKind.Renew) && !_workers.CanTargetBody(entityId))
                     return AccessDecision.TargetUnavailable;

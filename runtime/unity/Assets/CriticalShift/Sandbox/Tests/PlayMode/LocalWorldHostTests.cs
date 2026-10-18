@@ -316,6 +316,8 @@ namespace CriticalShift.Sandbox.Tests
 
         [UnityTest] public IEnumerator ContextPowerAndStartUseCurrentMachineRevision()
         {
+            host.OperateMachine(Machine, ProductionAction.SetPower, Guid.Empty, false, false);
+            Assert.That(world.Production.GetMachine(Machine).Powered, Is.False);
             host.Grab(Box); host.OperateMachine(Machine, ProductionAction.Insert, Box, false, false);
             focus = Machine; host.ToggleFocusedPower(); host.StartFocused();
             Assert.That(world.Production.GetMachine(Machine).Mode, Is.EqualTo(ProductionMode.Processing));
@@ -350,6 +352,8 @@ namespace CriticalShift.Sandbox.Tests
 
         [UnityTest] public IEnumerator ContextBypassJamRequiresPowerIsolationBeforeRepairAndResume()
         {
+            host.OperateMachine(Machine, ProductionAction.SetPower, Guid.Empty, false, false);
+            Assert.That(world.Production.GetMachine(Machine).Powered, Is.False);
             host.Grab(WetBox); focus = Machine; host.TransferFocused(); host.ToggleFocusedPower(); host.BypassFocused();
             Assert.That(world.Production.GetMachine(Machine).Mode, Is.EqualTo(ProductionMode.Processing));
             clock = 0.15; host.Pump(); Assert.That(world.Production.GetMachine(Machine).Mode, Is.EqualTo(ProductionMode.Jammed));
@@ -368,6 +372,8 @@ namespace CriticalShift.Sandbox.Tests
 
         [UnityTest] public IEnumerator ContextResumeRetainsTheSameCycleAndCommittedWork()
         {
+            host.OperateMachine(Machine, ProductionAction.SetPower, Guid.Empty, false, false);
+            Assert.That(world.Production.GetMachine(Machine).Powered, Is.False);
             host.Grab(Box); focus = Machine; host.TransferFocused(); host.ToggleFocusedPower(); host.StartFocused();
             var cycle = world.Production.GetMachine(Machine).CycleId;
             clock = 0.25; host.Pump(); host.ToggleFocusedPower(); host.ToggleFocusedPower(); host.StartFocused();

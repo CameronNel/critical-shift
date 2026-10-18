@@ -106,7 +106,10 @@ namespace CriticalShift.Offline.Tests
             var before = port.ProductionSummary;
             Assert.That(port.Grab(Box).HasNewCommit, Is.True);
             Assert.That(port.OperateMachine(machine, ProductionAction.Insert, Box).HasNewCommit, Is.True);
-            Assert.That(port.OperateMachine(machine, ProductionAction.SetPower, powered: true).HasNewCommit, Is.True);
+            Assert.That(port.GetMachine(machine)!.Powered, Is.True);
+            long poweredRevision = port.GetMachine(machine)!.Revision;
+            Assert.That(port.OperateMachine(machine, ProductionAction.SetPower, powered: true).Status, Is.EqualTo(InteractionStatus.NoChange));
+            Assert.That(port.GetMachine(machine)!.Revision, Is.EqualTo(poweredRevision));
             Assert.That(port.OperateMachine(machine, ProductionAction.Start).HasNewCommit, Is.True);
             world.AdvanceTo(1000);
             Assert.That(port.GetBatch(Box)!.Kind, Is.EqualTo(MaterialKind.CrushedOre));

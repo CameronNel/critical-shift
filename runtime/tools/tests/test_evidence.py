@@ -2,13 +2,16 @@ import json
 import sys
 import tempfile
 import unittest
+from contextlib import ExitStack
 from pathlib import Path
+from unittest.mock import patch
 from xml.etree import ElementTree as ET
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from evidence import EvidenceError, validate_log, validate_player, validate_results, validate_sandbox_player
+from evidence import EvidenceError, read_result_evidence, validate_log, validate_player, validate_results, validate_sandbox_player
 from run_foundation import RUNTIME, execute, fingerprint, run
 from run_sandbox import run as run_sandbox
+import run_sandbox as sandbox_runner
 
 
 class ResultEvidenceTests(unittest.TestCase):
@@ -88,6 +91,118 @@ class ResultEvidenceTests(unittest.TestCase):
         self.save()
         with self.assertRaises(EvidenceError):
             validate_results(self.path, set(), 0)
+
+    def test_failed_xml_observations_retain_counts_and_diagnostics_without_acceptance(self):
+        self.root.set("result", "Failed(Child)")
+        self.root.set("passed", "1")
+        self.root.set("failed", "1")
+        self.root[1].set("result", "Failed")
+        failure = ET.SubElement(self.root[1], "failure")
+        ET.SubElement(failure, "message").text = "The actual physics assertion failed."
+        ET.SubElement(failure, "stack-trace").text = str(Path.home()) + "/Fixture.cs:10"
+        self.save()
+        observed = read_result_evidence(self.path, self.expected)
+        self.assertEqual(observed["reported_counts"], {"total": 2, "passed": 1, "failed": 1, "skipped": 0, "inconclusive": 0})
+        self.assertEqual(observed["test_identities"], sorted(self.expected))
+        self.assertEqual(observed["failed_test_identities"], ["Fixture.B"])
+        self.assertEqual(observed["failed_cases"][0]["message"], "The actual physics assertion failed.")
+        self.assertIn("<HOME>", observed["failed_cases"][0]["stack_trace"])
+        for code in (0, 2):
+            with self.subTest(exit_code=code), self.assertRaises(EvidenceError):
+                validate_results(self.path, self.expected, code)
+
+    def test_missing_or_malformed_xml_observations_do_not_invent_counts(self):
+        missing = read_result_evidence(self.path, self.expected)
+        self.assertFalse(missing["artifact_present"])
+        self.assertNotIn("reported_counts", missing)
+        self.path.write_text("<test-run broken")
+        malformed = read_result_evidence(self.path, self.expected)
+        self.assertTrue(malformed["artifact_present"])
+        self.assertIn("read_error", malformed)
+        self.assertNotIn("reported_counts", malformed)
+        self.assertNotIn("xml_test_cases", malformed)
+
+    def test_observed_inventory_mismatch_remains_visible_with_a_green_xml_summary(self):
+        self.root[1].set("fullname", "Fixture.Unexpected")
+        self.root.set("failed", "invalid")
+        self.save()
+        observed = read_result_evidence(self.path, self.expected)
+        self.assertEqual(observed["missing_expected_tests"], ["Fixture.B"])
+        self.assertEqual(observed["unexpected_tests"], ["Fixture.Unexpected"])
+        self.assertEqual(observed["invalid_summary_fields"], ["failed"])
+        self.assertNotIn("failed", observed["reported_counts"])
+
+
+class SandboxFailedResultReportingTests(unittest.TestCase):
+    """Real XML parsing with all native execution mocked; no Editor or compiler is launched."""
+    def setUp(self):
+        temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(temporary.cleanup)
+        self.base = Path(temporary.name)
+        self.runtime = self.base / "repository/runtime"
+        for directory in ("unity/Assets", "unity/Packages", "unity/ProjectSettings", "dotnet/src", "validation"):
+            (self.runtime / directory).mkdir(parents=True)
+        (self.runtime / "toolchain.json").write_text(json.dumps({"editor": "6000.4.3f1", "revision": "39d1a88d4dd1"}))
+        (self.runtime / "dotnet/src/package.json").write_text("{}")
+        (self.runtime / "unity/Assets/Subject.cs").write_text("// source fixture")
+        (self.runtime / "validation/sandbox-expected-tests.json").write_text(json.dumps({"PlayMode": ["Fixture.A", "Fixture.B"]}))
+        self.editor = self.base / "Unity.exe"
+        self.editor.write_bytes(b"not executable")
+        self.exit_code, self.change_source = 2, False
+
+    def native(self, command, log, timeout):
+        if "-runTests" not in command:
+            text = "Initialize engine version: 6000.4.3f1 (39d1a88d4dd1)\nCS_SANDBOX_PREPARED\nCS_SANDBOX_ASSEMBLIES count=1\n"
+            log.write_text(text)
+            return 0, text
+        result = Path(command[command.index("-testResults") + 1])
+        root = ET.Element("test-run", result="Failed(Child)", total="2", passed="1", failed="1", skipped="0", inconclusive="0")
+        ET.SubElement(root, "test-case", fullname="Fixture.A", result="Passed")
+        failed = ET.SubElement(root, "test-case", fullname="Fixture.B", result="Failed")
+        ET.SubElement(ET.SubElement(failed, "failure"), "message").text = "Native assertion diagnostic retained."
+        ET.ElementTree(root).write(result, encoding="utf-8")
+        if self.change_source:
+            (self.runtime / "unity/Assets/Subject.cs").write_text("// changed during native execution")
+        log.write_text("Native test results are in PlayMode.xml\n")
+        return self.exit_code, log.read_text()
+
+    def invoke(self):
+        with ExitStack() as stack:
+            stack.enter_context(patch.object(sandbox_runner, "RUNTIME", self.runtime))
+            stack.enter_context(patch.object(sandbox_runner, "checkout_revision", return_value="fixture-checkout"))
+            stack.enter_context(patch.object(sandbox_runner, "inspect_editor", return_value={"status": "Verified"}))
+            stack.enter_context(patch.object(sandbox_runner, "check", return_value={"status": "Passed", "production_asmdefs": 1}))
+            native = stack.enter_context(patch.object(sandbox_runner, "execute", side_effect=self.native))
+            code, output = sandbox_runner.run(str(self.editor), self.base / "evidence", "Win64", build_player=True, run_player=True)
+            return code, json.loads((output / "report.json").read_text()), native
+
+    def test_native_exit_two_retains_real_failed_xml_and_stops_before_build(self):
+        code, report, native = self.invoke()
+        self.assertEqual((code, report["status"], report["phases"]["PlayMode"]["exit_code"]), (1, "Failed", 2))
+        observed = report["phases"]["PlayMode"]["result_evidence"]
+        self.assertEqual(observed["reported_counts"]["failed"], 1)
+        self.assertEqual(observed["reported_counts"]["passed"], 1)
+        self.assertEqual(observed["xml_test_cases"], 2)
+        self.assertEqual(observed["failed_test_identities"], ["Fixture.B"])
+        self.assertEqual(observed["failed_cases"][0]["message"], "Native assertion diagnostic retained.")
+        self.assertIn("PlayMode returned 2", report["reason"])
+        self.assertEqual(report["phases"]["build"]["status"], "NotRun")
+        self.assertEqual(report["phases"]["player"]["status"], "NotRun")
+        self.assertEqual(native.call_count, 2)
+
+    def test_xml_validation_failure_also_retains_native_counts_at_zero_exit(self):
+        self.exit_code = 0
+        code, report, _ = self.invoke()
+        self.assertEqual((code, report["status"]), (1, "Failed"))
+        self.assertEqual(report["phases"]["PlayMode"]["result_evidence"]["failed_test_identities"], ["Fixture.B"])
+        self.assertIn("NUnit run did not pass", report["reason"])
+
+    def test_source_audit_cannot_erase_the_first_native_failure_or_its_counts(self):
+        self.change_source = True
+        code, report, _ = self.invoke()
+        self.assertEqual((code, report["status"], report["source_unchanged"]), (1, "Failed", False))
+        self.assertIn("PlayMode returned 2", report["reason"])
+        self.assertEqual(report["phases"]["PlayMode"]["result_evidence"]["reported_counts"]["failed"], 1)
 
 
 class PlayerEvidenceTests(unittest.TestCase):

@@ -20,8 +20,9 @@ namespace CriticalShift.Features.Workers.Unity
         private Vector3 horizontalVelocity;
         private float verticalSpeed, yaw, pitch;
         private float jumpBuffer, groundGrace;
+        private readonly RaycastHit[] supportHits = new RaycastHit[32];
         public float WalkSpeed { get; set; } = 3.2f;
-        public bool Grounded => controller != null && controller.isGrounded;
+        public bool Grounded => controller != null && controller.enabled && verticalSpeed <= 0 && HasWalkableSupport();
         public float CarrySpeedScale { get; private set; } = 1;
         public Vector3 MeasuredVelocity { get; private set; }
 
@@ -84,7 +85,7 @@ namespace CriticalShift.Features.Workers.Unity
                 throw new InvalidOperationException("Worker speed must be finite and positive.");
             // A long frame cannot become an unbounded collision-controller teleport.
             float dt = Mathf.Min(Time.deltaTime, 0.05f);
-            bool grounded = controller.isGrounded;
+            bool grounded = Grounded;
             groundGrace = grounded ? 0.1f : Mathf.Max(0, groundGrace - dt);
             if (grounded && verticalSpeed < 0) verticalSpeed = -2;
             verticalSpeed = Mathf.Max(verticalSpeed - 20 * dt, -30);
@@ -136,6 +137,30 @@ namespace CriticalShift.Features.Workers.Unity
                 mayPush == null || !mayPush(body)) return;
             Vector3 direction = Vector3.ProjectOnPlane(hit.moveDirection, Vector3.up).normalized;
             body.AddForceAtPosition(direction * 1.5f, hit.point, ForceMode.Force);
+        }
+
+        private bool HasWalkableSupport()
+        {
+            // isGrounded describes the last Move, which may be shorter than the controller's movement threshold.
+            // Observe current support instead: shrinking by the skin and casting twice that far admits only
+            // one skin width of foot separation, never the much larger step offset or ledge-grace distance.
+            float skin = Mathf.Min(controller.skinWidth, controller.radius * 0.5f);
+            float radius = controller.radius - skin;
+            Vector3 center = controller.transform.TransformPoint(controller.center);
+            Vector3 foot = center - Vector3.up * Mathf.Max(0, controller.height * 0.5f - controller.radius);
+            int count = Physics.SphereCastNonAlloc(foot, radius, Vector3.down, supportHits,
+                skin * 2 + 0.002f, Physics.AllLayers, QueryTriggerInteraction.Ignore);
+            if (count == supportHits.Length) throw new InvalidOperationException("Walking support observation bounds were saturated.");
+            float minimumUp = Mathf.Cos(controller.slopeLimit * Mathf.Deg2Rad);
+            for (int i = 0; i < count; i++)
+            {
+                var hit = supportHits[i]; var contact = hit.collider;
+                if (contact == null || contact == controller || contact.transform.IsChildOf(controller.transform) ||
+                    Physics.GetIgnoreLayerCollision(controller.gameObject.layer, contact.gameObject.layer) ||
+                    Physics.GetIgnoreCollision(controller, contact)) continue;
+                if (Vector3.Dot(hit.normal, Vector3.up) >= minimumUp) return true;
+            }
+            return false;
         }
 
         private static bool Finite(Vector2 value) => !float.IsNaN(value.x) && !float.IsNaN(value.y) &&

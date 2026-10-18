@@ -14,7 +14,7 @@ import sys
 import tempfile
 from pathlib import Path
 
-from evidence import EvidenceError, validate_log, validate_results, validate_sandbox_player
+from evidence import EvidenceError, read_result_evidence, validate_log, validate_results, validate_sandbox_player
 from editor_identity import inspect_editor
 from check_source import check
 from run_foundation import RUNTIME, audit_original, checkout_revision, copy_inputs, execute, fingerprint, utc
@@ -85,10 +85,16 @@ def run(unity: str | None, output_parent: Path, target: str, build_player: bool 
         phases["import"]["status"] = "Passed"
         result = output / "PlayMode.xml"
         # No -quit here: the actual test runner owns termination after results are written.
-        invoke("PlayMode", ["-runTests", "-testPlatform", "PlayMode", "-assemblyNames", "CriticalShift.Sandbox.Tests.PlayMode",
-                            "-testResults", str(result)], 480)
-        phases["PlayMode"].update(validate_results(result, set(expected), phases["PlayMode"]["exit_code"]))
-        phases["PlayMode"]["status"] = "Passed"
+        try:
+            invoke("PlayMode", ["-runTests", "-testPlatform", "PlayMode", "-assemblyNames", "CriticalShift.Sandbox.Tests.PlayMode",
+                                "-testResults", str(result)], 480)
+            phases["PlayMode"].update(validate_results(result, set(expected), phases["PlayMode"]["exit_code"]))
+            phases["PlayMode"]["status"] = "Passed"
+        finally:
+            # A real failed Test Runner commonly exits 2. Preserve its XML before
+            # propagating that first failure; observations never substitute for validation.
+            phases["PlayMode"]["result_artifact"] = result.relative_to(output).as_posix()
+            phases["PlayMode"]["result_evidence"] = read_result_evidence(result, set(expected))
         if build_player:
             binary = output / "player" / ("CriticalShiftSandbox.exe" if target == "Win64" else "CriticalShiftSandbox.x86_64")
             text = invoke("build", ["-quit", "-executeMethod", "CriticalShift.Sandbox.Editor.SandboxSceneBuilder.Build",

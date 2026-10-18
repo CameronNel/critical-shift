@@ -13,6 +13,7 @@ namespace CriticalShift.Sandbox
             var controller = worker.AddComponent<CharacterController>();
             controller.height = 1.8f; controller.radius = 0.32f; controller.center = new Vector3(0, 0.9f, 0);
             controller.stepOffset = 0.25f; controller.slopeLimit = 45; controller.skinWidth = 0.03f;
+            controller.minMoveDistance = 0; // Keep the downward contact move active during short rendered frames.
             return controller;
         }
 
@@ -51,11 +52,12 @@ namespace CriticalShift.Sandbox
             Rigidbody Segment(int index, string name, Vector3 center, float radius, float height, float mass, Material material)
             {
                 var item = SandboxPrimitives.Empty(name, rigRoot.transform, center);
-                var collider = item.AddComponent<CapsuleCollider>(); collider.radius = radius; collider.height = height; collider.enabled = false;
-                collider.sharedMaterial = shapes.WorkerContact;
                 var body = item.AddComponent<Rigidbody>(); body.mass = mass; body.isKinematic = true; body.useGravity = false;
                 body.collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
                 body.maxAngularVelocity = 8;
+                // Establish the motion owner before creating its contact; normal mode then keeps that contact disabled.
+                var collider = item.AddComponent<CapsuleCollider>(); collider.radius = radius; collider.height = height;
+                collider.sharedMaterial = shapes.WorkerContact; collider.enabled = false;
                 colliders[index] = collider;
                 SandboxPrimitives.Shape(PrimitiveType.Capsule, name + " visual", item.transform, Vector3.zero,
                     new Vector3(radius * 2, height * 0.5f, radius * 2), material, false);

@@ -56,7 +56,7 @@ namespace CriticalShift.Features.Workers.Unity
                         !bodies[i].transform.IsChildOf(controller.transform) || !UnitScale(bodies[i].transform) ||
                         !bodies[i].detectCollisions || bodies[i].isKinematic == ragdoll || colliders[i].enabled != ragdoll ||
                         colliders[i].isTrigger || !colliders[i].gameObject.activeInHierarchy ||
-                        colliders[i].attachedRigidbody != bodies[i]) return false;
+                        !ContactBelongsTo(colliders[i], bodies[i])) return false;
                 return true;
             }
         }
@@ -76,11 +76,18 @@ namespace CriticalShift.Features.Workers.Unity
                 throw new ArgumentException("The eyes and head must belong to the explicitly bound worker root.");
             var unique = new HashSet<Rigidbody>();
             for (int i = 0; i < segments.Length; i++)
-                if (segments[i] == null || !unique.Add(segments[i]) || !segments[i].gameObject.activeInHierarchy ||
-                    !segments[i].transform.IsChildOf(walkingController.transform) || !UnitScale(segments[i].transform) ||
-                    !segments[i].detectCollisions || segmentColliders[i] == null || !segmentColliders[i].gameObject.activeInHierarchy ||
-                    segmentColliders[i].attachedRigidbody != segments[i] || segmentColliders[i].isTrigger)
-                    throw new ArgumentException("Each body segment needs its own solid collider beneath the worker root.");
+            {
+                var body = segments[i]; var contact = segmentColliders[i];
+                string label = "Worker segment " + i + " (" + (body == null ? "missing" : body.name) + ")";
+                if (body == null || !unique.Add(body)) throw new ArgumentException(label + " must have a unique Rigidbody.");
+                if (!body.gameObject.activeInHierarchy || !body.transform.IsChildOf(walkingController.transform) || !UnitScale(body.transform))
+                    throw new ArgumentException(label + " must be an active unit-scale descendant of its worker root.");
+                if (!body.detectCollisions) throw new ArgumentException(label + " must retain collision detection.");
+                if (contact == null || !contact.gameObject.activeInHierarchy || contact.isTrigger)
+                    throw new ArgumentException(label + " needs an active solid contact shape.");
+                if (!ContactBelongsTo(contact, body))
+                    throw new ArgumentException(label + " contact must belong to that same Rigidbody: " + contact.name);
+            }
             if (!unique.Contains(hip)) throw new ArgumentException("The pelvis must belong to the bound body rig.");
             var boundHeadBody = headAnchor.GetComponentInParent<Rigidbody>();
             if (boundHeadBody == null || !unique.Contains(boundHeadBody))
@@ -163,6 +170,10 @@ namespace CriticalShift.Features.Workers.Unity
             if (dynamic)
             {
                 foreach (var collider in colliders) collider.enabled = true;
+                Physics.SyncTransforms();
+                for (int i = 0; i < colliders.Length; i++)
+                    if (!ContactBelongsTo(colliders[i], bodies[i]))
+                        throw new InvalidOperationException("An enabled ragdoll contact lost its native Rigidbody owner: " + bodies[i].name);
                 for (int i = 0; i < colliders.Length; i++)
                     for (int j = i + 1; j < colliders.Length; j++) Physics.IgnoreCollision(colliders[i], colliders[j]);
             }
@@ -260,10 +271,10 @@ namespace CriticalShift.Features.Workers.Unity
             controller.transform.SetPositionAndRotation(position, rotation);
             for (int i = 0; i < bodies.Length; i++)
             {
-                bodies[i].position = controller.transform.TransformPoint(restPositions[i]);
-                bodies[i].rotation = rotation * restRotations[i];
+                bodies[i].transform.SetPositionAndRotation(controller.transform.TransformPoint(restPositions[i]), rotation * restRotations[i]);
             }
             eyes.localPosition = eyePosition; eyes.rotation = look;
+            Physics.SyncTransforms();
             ragdoll = false; controller.enabled = true; // Dynamic motion has already ended.
             normalPose.Reset();
         }
@@ -290,6 +301,9 @@ namespace CriticalShift.Features.Workers.Unity
         private static bool Finite(Vector3 value) => !float.IsNaN(value.x) && !float.IsNaN(value.y) && !float.IsNaN(value.z) &&
             !float.IsInfinity(value.x) && !float.IsInfinity(value.y) && !float.IsInfinity(value.z);
         private static bool UnitScale(Transform value) => (value.lossyScale - Vector3.one).sqrMagnitude <= 0.0001f;
+        // Disabled normal-mode shapes still need the exact hierarchy owner; enabled shapes also need native attachment.
+        private static bool ContactBelongsTo(Collider contact, Rigidbody body) =>
+            contact.GetComponentInParent<Rigidbody>() == body && (!contact.enabled || contact.attachedRigidbody == body);
         private void OnDisable() => Freeze();
         private void OnDestroy() => Freeze();
     }
