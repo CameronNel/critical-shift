@@ -18,6 +18,7 @@ namespace CriticalShift.Sandbox.Tests
         private Rigidbody body;
         private Transform target, slot;
         private double clock;
+        private Guid focus;
         private static Guid Id(int number) => new Guid(number, 0, 0, new byte[8]);
         private Guid Box => Id(10);
         private Guid Actor => Id(20);
@@ -30,21 +31,22 @@ namespace CriticalShift.Sandbox.Tests
 
         [SetUp] public void SetUp()
         {
-            clock = 0; root = new GameObject("Local host regression fixture");
+            clock = 0; focus = Guid.Empty; root = new GameObject("Local host regression fixture");
             root.transform.position = new Vector3(1000, 1000, 1000);
             world = new WorldSession(new WorldSessionConfiguration(1, 60000, true), new AllowedFixtureAccess());
             world.RegisterConnection(Id(1), Actor);
             world.Production.RegisterBatch(Box, Id(11), Id(12), Id(13), MaterialKind.Ore, 10);
             world.Production.RegisterMachine(Machine, new MachineRecipe(Id(31), MaterialKind.Ore, MaterialKind.CrushedOre,
-                1000, 500, 100, 100));
+                1000, 500, 100, 100, yieldPermille: 800));
             port = new LocalCommandPort(world, Id(1));
             host = root.AddComponent<LocalWorldHost>(); host.Initialize(world, port, Actor, () => clock);
+            host.BindFocus(() => focus, id => "Fixture target");
             var crate = GameObject.CreatePrimitive(PrimitiveType.Cube); crate.transform.SetParent(root.transform, false);
             crate.transform.localPosition = new Vector3(0, 1, 0);
             body = crate.AddComponent<Rigidbody>(); body.useGravity = false;
             target = new GameObject("Carry target").transform; target.SetParent(root.transform, false); target.localPosition = new Vector3(0, 1, 1);
             slot = new GameObject("Machine slot").transform; slot.SetParent(root.transform, false); slot.localPosition = new Vector3(3, 1, 0);
-            host.BindBody(Box, body); host.BindCarryTarget(Actor, target); host.BindSlot(Machine, slot);
+            host.BindBody(Box, body, 0.5f); host.BindCarryTarget(Actor, target); host.BindSlot(Machine, slot);
             host.Activate();
         }
 
@@ -134,6 +136,53 @@ namespace CriticalShift.Sandbox.Tests
             clock = 1; host.Pump(); clock = 0.5;
             Assert.Throws<InvalidOperationException>(() => host.Pump());
             Assert.That(world.View.HostMilliseconds, Is.EqualTo(1000));
+        }
+
+        [UnityTest] public IEnumerator ContextTransferUsesTheSameClaimAndSlotCommands()
+        {
+            focus = Box; host.TransferFocused();
+            Assert.That(world.GetObject(Box).HolderId, Is.EqualTo(Actor));
+            focus = Machine; host.TransferFocused();
+            Assert.That(world.GetObject(Box).SlotId, Is.EqualTo(Machine));
+            focus = Box; host.TransferFocused(); // Looking at the loaded crate resolves its equipment slot.
+            Assert.That(world.GetObject(Box).SlotId, Is.Null);
+            Assert.That(body.isKinematic, Is.False);
+            Assert.That(port.LastTerminalSequence, Is.EqualTo(3));
+            yield return null;
+        }
+
+        [UnityTest] public IEnumerator ContextPowerAndStartUseCurrentMachineRevision()
+        {
+            host.Grab(Box); host.OperateMachine(Machine, ProductionAction.Insert, Box, false, false);
+            focus = Machine; host.ToggleFocusedPower(); host.StartFocused();
+            Assert.That(world.Production.GetMachine(Machine).Mode, Is.EqualTo(ProductionMode.Processing));
+            clock = 1; host.Pump();
+            Assert.That(world.Production.GetMachine(Machine).Mode, Is.EqualTo(ProductionMode.OutputReady));
+            Assert.That(world.Production.GetBatch(Box).Kind, Is.EqualTo(MaterialKind.CrushedOre));
+            yield return null;
+        }
+
+        [UnityTest] public IEnumerator ContextDropRemainsAvailableDuringProcessPause()
+        {
+            host.Grab(Box); world.Pause(world.Epoch); host.DropHeld();
+            Assert.That(world.View.Phase, Is.EqualTo(WorldPhase.Paused));
+            Assert.That(world.GetObject(Box).HolderId, Is.Null);
+            Assert.That(world.View.ActiveClaimCount, Is.Zero);
+            yield return null;
+        }
+
+        [UnityTest] public IEnumerator PhysicalMassTracksCommittedConversionOutput()
+        {
+            Assert.That(body.mass, Is.EqualTo(5).Within(0.001f));
+            host.Grab(Box); host.OperateMachine(Machine, ProductionAction.Insert, Box, false, false);
+            host.OperateMachine(Machine, ProductionAction.SetPower, Guid.Empty, false, true);
+            host.OperateMachine(Machine, ProductionAction.Start, Guid.Empty, false, false);
+            clock = 1; host.Pump();
+            Assert.That(world.Production.GetBatch(Box).Units, Is.EqualTo(8));
+            Assert.That(body.mass, Is.EqualTo(4).Within(0.001f));
+            Assert.That(world.Production.Summary.ActiveUnits + world.Production.Summary.WasteUnits,
+                Is.EqualTo(world.Production.Summary.IssuedUnits));
+            yield return null;
         }
     }
 }

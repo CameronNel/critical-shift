@@ -16,8 +16,15 @@ composition root. On play it builds debug geometry: eight crates, two production
 machines, a reactor, a cart, a conveyor and a local collision controller.
 
 - WASD: walk; right mouse drag: look; Tab: show/hide controls.
+- Look at a nearby target: E grabs or transfers to/from equipment; G drops the
+  current crate; F toggles machine power or reactor cooling; R starts the
+  focused process. Loaded containers resolve their machine slot. Walls and
+  unrelated bodies continue blocking focus and interaction.
 - Arrow keys: diagnostic cart drive; Space: brake. These controls are not a final
   physical cart-handle interaction or production input selection.
+- Carrying slows movement using the mass of the current held body. The cart's
+  load beacon turns amber for overload and flashes red when its observation
+  capacity is saturated. These are physical fixture observations, not inventory.
 - Select a nearby crate and Grab/Release. Current host reach and line of sight
   are checked. Carrying uses bounded forces; excessive obstruction drops the
   exact claim. Leases renew through the same connection's command stream.
@@ -59,7 +66,7 @@ on the inspected baseline. No package is downloaded by the generator.
 
 The existing foundation runner still tests its foundation assembly selection;
 it does not automatically claim sandbox coverage. The separate native inventory
-is `runtime/validation/sandbox-expected-tests.json`: 17 implemented cases, all
+is `runtime/validation/sandbox-expected-tests.json`: 25 implemented cases, all
 NotRun. Nine new pure command-port cases and eight source-package safety cases
 are also NotRun. Native fixtures are offset from possible active-scene content
 to avoid collisions with an unrelated map/scene at the origin.

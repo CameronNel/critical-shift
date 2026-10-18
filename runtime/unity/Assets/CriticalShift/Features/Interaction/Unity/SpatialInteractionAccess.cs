@@ -57,6 +57,28 @@ namespace CriticalShift.Features.Interaction.Unity
             return AccessDecision.Allowed;
         }
 
+        public Guid PickTarget(Guid actorId)
+        {
+            if (!actors.TryGetValue(actorId, out var eyes) || eyes == null || !eyes.gameObject.activeInHierarchy) return Guid.Empty;
+            int count = Physics.RaycastNonAlloc(eyes.position, eyes.forward, hits, reach,
+                Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore);
+            if (count == hits.Length) return Guid.Empty;
+            Transform nearest = null; float distance = float.PositiveInfinity;
+            for (int i = 0; i < count; i++)
+            {
+                var hit = hits[i];
+                if (hit.rigidbody != null && transparentOwnedBody != null && transparentOwnedBody(actorId, Guid.Empty, hit.rigidbody)) continue;
+                if (hit.distance >= distance) continue;
+                distance = hit.distance; nearest = hit.transform;
+            }
+            if (nearest == null) return Guid.Empty;
+            foreach (var target in targets)
+                if (target.Value != null && (nearest == target.Value || nearest.IsChildOf(target.Value))) return target.Key;
+            return Guid.Empty; // An unregistered wall in front never grants access to a target behind it.
+        }
+
+        public string DisplayName(Guid id) => targets.TryGetValue(id, out var target) && target != null ? target.name : "";
+
         public void Clear() { actors.Clear(); targets.Clear(); Array.Clear(hits, 0, hits.Length); }
     }
 }

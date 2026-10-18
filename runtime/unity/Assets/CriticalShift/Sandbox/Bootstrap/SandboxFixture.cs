@@ -25,6 +25,8 @@ namespace CriticalShift.Sandbox
         private readonly Guid actor = Id(1), connection = Id(2), reactor = Id(500);
         private readonly Guid[] containers = new Guid[8], machines = { Id(400), Id(401) };
         internal Guid Epoch => world.Epoch;
+        internal WorldSessionView Snapshot => world.View;
+        internal int PhysicalBindingCount => host == null ? 0 : host.BoundBodyCount;
 
         internal SandboxFixture(Transform parent, Shader fixtureShader, Action requestReset)
         {
@@ -38,18 +40,22 @@ namespace CriticalShift.Sandbox
                 world.RegisterConnection(connection, actor);
                 commands = new LocalCommandPort(world, connection);
                 host = root.AddComponent<LocalWorldHost>(); host.Initialize(world, commands, actor);
+                host.BindFocus(() => access.PickTarget(actor), access.DisplayName);
                 BuildRoom(); BuildWorker(); BuildContainers(); BuildMachines(); BuildReactor(); BuildCart(); BuildConveyor();
                 var hud = root.AddComponent<SandboxHud>();
-                hud.Initialize(commands, actor, containers, machines, reactor, () => host.LastAction,
-                    () => "Cart " + cart.Speed.ToString("F1") + " m/s · load " + cargo.Mass.ToString("F0") +
+                hud.Initialize(commands, actor, containers, machines, reactor, () => host.FocusHint + "\n" + host.LastAction,
+                    () => "Cart " + cart.Speed.ToString("F1") + " m/s · cargo " + cargo.Mass.ToString("F0") + " kg" +
                         (cart.Overloaded ? " OVERLOADED" : "") + (cargo.Saturated ? " SENSOR SATURATED" : "") +
-                        "\nBelt " + (belt.Jammed ? "BLOCKED" : belt.Running ? "moving" : "stopped") + " · bodies " + belt.MovingBodyCount);
+                        "\nBelt " + (belt.Jammed ? "BLOCKED" : belt.Running ? "moving" : "stopped") + " · bodies " + belt.MovingBodyCount +
+                        "\nCarrying movement " + (walker.CarrySpeedScale * 100).ToString("F0") + "%");
                 hud.GrabRequested += host.Grab; hud.ReleaseRequested += host.Release;
                 hud.MachineRequested += host.OperateMachine; hud.ReactorRequested += host.OperateReactor;
                 hud.ReplayRequested += host.ReplayLast; hud.PauseRequested += host.ToggleClockPause;
                 hud.ResetRequested += requestReset; hud.BeltResetRequested += belt.ResetJam;
                 hud.MovementRequested += walker.SetMovement; hud.LookRequested += walker.Look;
                 hud.CartDriveRequested += cart.SetDrive;
+                hud.TransferFocusedRequested += host.TransferFocused; hud.DropHeldRequested += host.DropHeld;
+                hud.StartFocusedRequested += host.StartFocused; hud.ToggleFocusedPowerRequested += host.ToggleFocusedPower;
                 host.Activate(); hud.Activate();
             }
             catch { Dispose(); throw; }
@@ -83,7 +89,8 @@ namespace CriticalShift.Sandbox
             eyes.tag = "MainCamera";
             var carry = SandboxPrimitives.Empty("Current-claim carry target", eyes.transform, new Vector3(0, -0.15f, 1.75f));
             walker = player.AddComponent<LocalWorkerMotor>();
-            walker.Initialize(eyes.transform, () => commands.GetWorker(actor), () => world.View.Phase == WorldPhase.Running);
+            walker.Initialize(eyes.transform, () => commands.GetWorker(actor), () => world.View.Phase == WorldPhase.Running,
+                host.CarriedPhysicalMass);
             access.BindActor(actor, eyes.transform); host.BindCarryTarget(actor, carry.transform);
         }
 
@@ -124,9 +131,12 @@ namespace CriticalShift.Sandbox
             var slot = SandboxPrimitives.Empty("Explicit loading slot", machine.transform, new Vector3(0, 1.05f, -1.1f));
             host.BindSlot(id, slot.transform); access.BindTarget(id, machine.transform);
             var face = SandboxPrimitives.Box("Status face", machine.transform, new Vector3(0, 1.5f, -0.62f), new Vector3(0.7f, 0.25f, 0.04f), shapes.Lamp, false);
-            var rotor = SandboxPrimitives.Shape(PrimitiveType.Cylinder, "Process spindle", machine.transform,
-                new Vector3(0, 1, 0.67f), new Vector3(0.65f, 0.1f, 0.65f), shapes.Dark, false);
-            rotor.transform.localRotation = Quaternion.Euler(90, 0, 0);
+            var rotor = SandboxPrimitives.Empty("Process spindle pivot", machine.transform, new Vector3(0.45f, 1, -0.68f));
+            var rotorDisc = SandboxPrimitives.Shape(PrimitiveType.Cylinder, "Process spindle disc", rotor.transform,
+                Vector3.zero, new Vector3(0.5f, 0.1f, 0.5f), shapes.Dark, false);
+            rotorDisc.transform.localRotation = Quaternion.Euler(90, 0, 0);
+            SandboxPrimitives.Box("Spindle rotation marker", rotor.transform, new Vector3(0, 0, -0.11f),
+                new Vector3(0.36f, 0.055f, 0.025f), shapes.Yellow, false);
             var light = SandboxPrimitives.PointLight("Status lamp", machine.transform, new Vector3(0, 1.8f, -0.85f), Color.green, 0.5f, 2.5f);
             machine.AddComponent<MachineFeedback>().Initialize(commands, id, face.GetComponent<Renderer>(), light, rotor.transform);
         }
@@ -143,9 +153,12 @@ namespace CriticalShift.Sandbox
             var slot = SandboxPrimitives.Empty("Reactor fuel slot", room.transform, new Vector3(0, 1.05f, -1.3f));
             host.BindSlot(reactor, slot.transform); access.BindTarget(reactor, room.transform);
             var face = SandboxPrimitives.Box("Reactor status", room.transform, new Vector3(0, 2.2f, -0.78f), new Vector3(0.8f, 0.3f, 0.05f), shapes.Lamp, false);
-            var valve = SandboxPrimitives.Shape(PrimitiveType.Cylinder, "Cooling valve handle", room.transform,
-                new Vector3(1.2f, 1.1f, -0.5f), new Vector3(0.5f, 0.08f, 0.5f), shapes.Yellow, false);
-            valve.transform.localRotation = Quaternion.Euler(90, 0, 0);
+            var valve = SandboxPrimitives.Empty("Cooling valve pivot", room.transform, new Vector3(1.2f, 1.1f, -0.5f));
+            var valveDisc = SandboxPrimitives.Shape(PrimitiveType.Cylinder, "Cooling valve wheel", valve.transform,
+                Vector3.zero, new Vector3(0.5f, 0.08f, 0.5f), shapes.Yellow, false);
+            valveDisc.transform.localRotation = Quaternion.Euler(90, 0, 0);
+            SandboxPrimitives.Box("Cooling valve position marker", valve.transform, new Vector3(0, 0, -0.095f),
+                new Vector3(0.35f, 0.055f, 0.025f), shapes.Dark, false);
             var light = SandboxPrimitives.PointLight("Reactor warning beacon", room.transform, new Vector3(0, 3.1f, 0), Color.cyan, 0.5f, 4);
             room.AddComponent<ReactorFeedback>().Initialize(commands, face.GetComponent<Renderer>(), light, valve.transform);
         }
@@ -165,6 +178,11 @@ namespace CriticalShift.Sandbox
             cargo = sensor.AddComponent<CartCargoSensor>(); cargo.Initialize(body, host.IsBodyFree);
             cart = rig.AddComponent<CartMotor>(); cart.SafeCargoMass = 35;
             cart.Initialize(() => world.View.Phase == WorldPhase.Running && !cargo.Saturated, () => cargo.Mass);
+            var loadFace = SandboxPrimitives.Box("Cart load warning face", rig.transform, new Vector3(0.48f, 0.8f, -0.96f),
+                new Vector3(0.16f, 0.16f, 0.04f), shapes.Lamp, false);
+            var loadLamp = SandboxPrimitives.PointLight("Cart overload beacon", rig.transform, new Vector3(0.48f, 0.95f, -0.95f), Color.green, 0.2f, 1.6f);
+            rig.AddComponent<CartLoadFeedback>().Initialize(loadFace.GetComponent<Renderer>(), loadLamp,
+                () => cart.Overloaded, () => cargo.Saturated);
             var wheels = new Transform[4];
             for (int i = 0; i < wheels.Length; i++)
             {

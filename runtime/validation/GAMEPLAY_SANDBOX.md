@@ -75,9 +75,13 @@ art acceptance.
   jam latch, local walking: written, unvalidated.
 - Diagnostic controls, crusher/fuel/reactor fixture, lamps, valve/spindle/tread
   motion, material appearance and scratch-scene generator: written, unvalidated.
-- Nine pure command-port tests, eight package safety tests and 17 native sandbox
+- Nine pure command-port tests, eight package safety tests and 25 native sandbox
   tests are implemented, all **NotRun**. These are declared inventory counts,
   not discovered/executed results.
+- Direct first-person focus, context transfer/drop, power/cooling and start
+  controls are written, with the same authority and receipt path as the panel.
+- Carry slowdown, cart load warnings, visual rotation markers and fresh-epoch
+  bootstrap enable/disable lifecycle handling are written, unvalidated.
 - Next: continue source review and lifecycle failure cases, then extend concrete
   fixture interactions while execution remains deferred. Do not stop this goal
   after the first implementation checkpoint.
@@ -99,3 +103,20 @@ source with `ast.parse` (without executing test modules), and parsing assembly
 definition JSON. Metadata was written by the source-only helper. These do not
 compile C#, execute tests, import Unity packages or establish runtime behavior.
 All compiler, test and engine execution counts remain zero for this pass.
+
+## Local fixture values before first execution
+
+These are initial test-fixture values, not shipped balance or measured results:
+3.8 m interaction reach, 800 ms renewal interval with the inherited 3 s lease,
+3.5 m hard carry separation and 1.5 s sustained obstruction timeout; spring
+acceleration capped at 60 m/s²; cart speed 3.5 m/s and safe cargo proxy 35 kg;
+belt speed 1.4 m/s with acceleration capped at 8 m/s² and a 2 s blockage latch.
+The eight fixture batches begin at 12 logical units each. Physical mass uses
+0.75 kg/unit, clamped to 0.25–250 kg, with converted output updating the same
+physical container. Carry speed scales as `1/(1 + kg/20)`, bounded to 35–100%.
+These values make overload and slowdown observable in a small room; native
+stability, feel and target-hardware performance must still be measured.
+
+Source checkpoints: `aa172367` (one canonical Unity/.NET source package) and
+`532a5116` (first connected sandbox source). Subsequent edits remain part of
+this same ongoing ten-hour pass; no checkpoint is gate acceptance.

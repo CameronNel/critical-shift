@@ -19,7 +19,11 @@ namespace CriticalShift.Features.Interaction.Unity
         private double realOrigin, lastClock;
         private long hostOrigin, renewAt;
         private bool active, stopped;
+        private Func<Guid> pickTarget;
+        private Func<Guid, string> targetName;
+        private Guid focused;
         public string LastAction { get; private set; } = "Preparing local fixture";
+        public string FocusHint { get; private set; } = "Look at a nearby crate or machine";
         public WorldSession World => world;
         public LocalCommandPort Commands => commands;
         public int BoundBodyCount => bodies.Count;
@@ -27,7 +31,7 @@ namespace CriticalShift.Features.Interaction.Unity
         public void Initialize(WorldSession session, LocalCommandPort sender, Guid actor, Func<double> clock = null)
         {
             if (world != null || session == null || sender == null || session.View.Phase != WorldPhase.Setup ||
-                sender.World.Epoch != session.Epoch || actor == Guid.Empty)
+                sender.World.Epoch != session.Epoch || actor == Guid.Empty || sender.ActorId != actor)
                 throw new InvalidOperationException("Initialize exactly once with one setup-world and its local sender.");
             world = session; commands = sender; localActor = actor;
             readClock = clock ?? (() => Time.realtimeSinceStartupAsDouble);
@@ -55,6 +59,14 @@ namespace CriticalShift.Features.Interaction.Unity
             if (actor == Guid.Empty || target == null || carryTargets.ContainsKey(actor))
                 throw new ArgumentException("A unique actor and explicit carry target are required.");
             carryTargets.Add(actor, target);
+        }
+
+        public void BindFocus(Func<Guid> query, Func<Guid, string> displayName)
+        {
+            RequireSetup();
+            if (pickTarget != null) throw new InvalidOperationException("Focus observations are already bound.");
+            pickTarget = query ?? throw new ArgumentNullException(nameof(query));
+            targetName = displayName ?? throw new ArgumentNullException(nameof(displayName));
         }
 
         public void Activate()
@@ -92,6 +104,7 @@ namespace CriticalShift.Features.Interaction.Unity
                     }
                 }
                 Reconcile(false);
+                RefreshFocus();
             }
             catch (Exception exception) { StopAfterFailure(exception); }
         }
@@ -148,6 +161,86 @@ namespace CriticalShift.Features.Interaction.Unity
         public void Grab(Guid id) => RunCommand(() => commands.Grab(id));
         public void Release(Guid id) => RunCommand(() => commands.Release(id));
         public void ReplayLast() => RunCommand(() => commands.ReplayLast());
+
+        public void TransferFocused()
+        {
+            if (!PrepareFocused()) return;
+            Guid held = HeldObject();
+            var machine = world.Production.GetMachine(focused);
+            var reactor = world.Reactor.View;
+            if (machine != null)
+            {
+                OperateMachine(focused, held != Guid.Empty ? ProductionAction.Insert : ProductionAction.Eject, held, false, false);
+            }
+            else if (reactor != null && reactor.Id == focused)
+            {
+                OperateReactor(focused, held != Guid.Empty ? ReactorAction.Insert : ReactorAction.Eject, held, false);
+            }
+            else Grab(focused);
+        }
+
+        public void DropHeld()
+        {
+            Guid held = HeldObject();
+            if (held != Guid.Empty) Release(held); else LastAction = "You are not holding a crate";
+        }
+
+        public void StartFocused()
+        {
+            if (!PrepareFocused()) return;
+            if (world.Production.GetMachine(focused) != null) OperateMachine(focused, ProductionAction.Start, Guid.Empty, false, false);
+            else if (world.Reactor.View?.Id == focused) OperateReactor(focused, ReactorAction.Start, Guid.Empty, false);
+        }
+
+        public void ToggleFocusedPower()
+        {
+            if (!PrepareFocused()) return;
+            var machine = world.Production.GetMachine(focused);
+            if (machine != null) OperateMachine(focused, ProductionAction.SetPower, Guid.Empty, false, !machine.Powered);
+            else if (world.Reactor.View?.Id == focused)
+                OperateReactor(focused, ReactorAction.SetCooling, Guid.Empty, !world.Reactor.View.Cooling);
+        }
+
+        private Guid HeldObject()
+        {
+            if (world == null || stopped) return Guid.Empty;
+            foreach (var binding in bodies.Values)
+                if (world.GetObject(binding.Id)?.HolderId == localActor) return binding.Id;
+            return Guid.Empty;
+        }
+
+        public float CarriedPhysicalMass()
+        {
+            Guid held = HeldObject();
+            return held != Guid.Empty && bodies.TryGetValue(held, out var binding) && binding.Body != null ? binding.Body.mass : 0;
+        }
+
+        private bool PrepareFocused()
+        {
+            if (!active || stopped) return false;
+            if (world.View.Phase != WorldPhase.Running)
+            {
+                LastAction = world.View.Phase == WorldPhase.Paused ? "Resume the process clock before transferring or starting equipment" : "The shift has ended; restart the fixture";
+                return false;
+            }
+            try { Pump(); Physics.SyncTransforms(); RefreshFocus(); }
+            catch (Exception exception) { StopAfterFailure(exception); return false; }
+            if (focused != Guid.Empty) return true;
+            LastAction = "Look directly at a nearby crate or machine"; return false;
+        }
+
+        private void RefreshFocus()
+        {
+            if (world.View.Phase != WorldPhase.Running && world.View.Phase != WorldPhase.Paused)
+            { focused = Guid.Empty; FocusHint = "Shift ended · restart the fixture"; return; }
+            focused = pickTarget == null ? Guid.Empty : pickTarget();
+            var custody = world.GetObject(focused);
+            if (custody?.SlotId != null) focused = custody.SlotId.Value;
+            if (focused == Guid.Empty) { FocusHint = "Look at a nearby crate or machine"; return; }
+            bool equipment = world.Production.GetMachine(focused) != null || world.Reactor.View?.Id == focused;
+            FocusHint = (targetName == null ? "Target" : targetName(focused)) +
+                (equipment ? " | E transfer · F power/cooling · R start" : " | E grab · G drop");
+        }
 
         public void OperateMachine(Guid id, ProductionAction action, Guid container, bool bypass, bool powered)
         {
@@ -239,7 +332,7 @@ namespace CriticalShift.Features.Interaction.Unity
             stopped = true; active = false;
             if (world != null) world.Stop();
             foreach (var binding in bodies.Values) binding.Release();
-            bodies.Clear(); slots.Clear(); carryTargets.Clear();
+            bodies.Clear(); slots.Clear(); carryTargets.Clear(); focused = Guid.Empty; pickTarget = null; targetName = null;
         }
 
         private void OnDisable() => Shutdown();

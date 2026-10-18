@@ -82,6 +82,7 @@ namespace CriticalShift.Application
             _workers.Register(actorId); _revision = next;
         }
         public ObjectClaimView? GetObject(Guid entityId) => _interaction.GetObject(entityId);
+        internal Guid? ConnectedActorForComposition(Guid connectionId) => _interaction.ConnectedActor(connectionId);
 
         public void Start(long hostMilliseconds = 0)
         {

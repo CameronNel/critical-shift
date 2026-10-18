@@ -63,5 +63,28 @@ namespace CriticalShift.Sandbox.Tests
             target.SetActive(false);
             Assert.That(policy.Evaluate(Id(1), Id(2), InteractionKind.Grab), Is.EqualTo(AccessDecision.TargetUnavailable));
         }
+
+        [Test] public void FocusPicksTheCurrentRegisteredRayTarget()
+        {
+            Assert.That(policy.PickTarget(Id(1)), Is.EqualTo(Id(2)));
+            target.transform.localPosition = new Vector3(2, 0, 2.5f); Physics.SyncTransforms();
+            Assert.That(policy.PickTarget(Id(1)), Is.EqualTo(Guid.Empty));
+        }
+
+        [Test] public void UnregisteredWallBlocksFocusBehindIt()
+        {
+            var wall = GameObject.CreatePrimitive(PrimitiveType.Cube); wall.transform.SetParent(root.transform, false);
+            wall.transform.localPosition = new Vector3(0, 0, 1); Physics.SyncTransforms();
+            Assert.That(policy.PickTarget(Id(1)), Is.EqualTo(Guid.Empty));
+        }
+
+        [Test] public void FocusCanLookPastAnExplicitlyApprovedHeldBody()
+        {
+            var carried = GameObject.CreatePrimitive(PrimitiveType.Cube); carried.transform.SetParent(root.transform, false);
+            carried.transform.localPosition = new Vector3(0, 0, 1); var body = carried.AddComponent<Rigidbody>(); body.isKinematic = true;
+            policy.Clear(); policy = new SpatialInteractionAccess(3.5f, (actor, targetId, candidate) => actor == Id(1) && candidate == body);
+            policy.BindActor(Id(1), eyes); policy.BindTarget(Id(2), target.transform); Physics.SyncTransforms();
+            Assert.That(policy.PickTarget(Id(1)), Is.EqualTo(Id(2)));
+        }
     }
 }

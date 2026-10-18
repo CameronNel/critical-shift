@@ -12,16 +12,19 @@ namespace CriticalShift.Features.Workers.Unity
         private Transform eyes;
         private Func<WorkerView> readWorker;
         private Func<bool> canSimulate;
+        private Func<float> carriedMass;
         private Vector2 movement;
         private float verticalSpeed, yaw, pitch;
         public float WalkSpeed { get; set; } = 3.2f;
         public bool Grounded => controller != null && controller.isGrounded;
+        public float CarrySpeedScale { get; private set; } = 1;
 
-        public void Initialize(Transform eyePivot, Func<WorkerView> worker, Func<bool> authority)
+        public void Initialize(Transform eyePivot, Func<WorkerView> worker, Func<bool> authority, Func<float> readCarriedMass = null)
         {
             if (eyes != null || eyePivot == null) throw new InvalidOperationException("Bind one explicit eye pivot.");
             eyes = eyePivot; readWorker = worker ?? throw new ArgumentNullException(nameof(worker));
             canSimulate = authority ?? throw new ArgumentNullException(nameof(authority));
+            carriedMass = readCarriedMass;
             controller = GetComponent<CharacterController>();
             yaw = transform.eulerAngles.y;
         }
@@ -53,8 +56,12 @@ namespace CriticalShift.Features.Workers.Unity
             float dt = Mathf.Min(Time.deltaTime, 0.05f);
             if (controller.isGrounded && verticalSpeed < 0) verticalSpeed = -2;
             verticalSpeed = Mathf.Max(verticalSpeed - 20 * dt, -30);
+            float load = carriedMass == null ? 0 : carriedMass();
+            if (float.IsNaN(load) || float.IsInfinity(load) || load < 0)
+                throw new InvalidOperationException("Carried physical mass must be finite and nonnegative.");
+            CarrySpeedScale = Mathf.Clamp(1 / (1 + load / 20), 0.35f, 1);
             Vector3 motion = transform.right * movement.x + transform.forward * movement.y;
-            controller.Move((motion * WalkSpeed + Vector3.up * verticalSpeed) * dt);
+            controller.Move((motion * WalkSpeed * CarrySpeedScale + Vector3.up * verticalSpeed) * dt);
         }
 
         private void OnControllerColliderHit(ControllerColliderHit hit)

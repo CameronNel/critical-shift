@@ -42,7 +42,11 @@ namespace CriticalShift.Presentation
             properties.SetColor("_BaseColor", color); properties.SetColor("_Color", color);
             properties.SetColor("_EmissionColor", color * strength);
             face.SetPropertyBlock(properties); lamp.color = color; lamp.intensity = strength;
-            if (state != null) rotor.localRotation = rotorRest * Quaternion.AngleAxis((state.WorkMilliseconds % 6000) * 0.12f, Vector3.forward);
+            if (state != null)
+            {
+                Quaternion target = rotorRest * Quaternion.AngleAxis((state.WorkMilliseconds % 6000) * 0.12f, Vector3.forward);
+                rotor.localRotation = Quaternion.RotateTowards(rotor.localRotation, target, 900 * Time.deltaTime);
+            }
         }
 
         private void OnDisable() { if (lamp != null) lamp.intensity = 0; }

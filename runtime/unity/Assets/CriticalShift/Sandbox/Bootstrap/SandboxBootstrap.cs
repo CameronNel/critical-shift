@@ -1,4 +1,5 @@
 using System;
+using CriticalShift.Application;
 using UnityEngine;
 
 namespace CriticalShift.Sandbox
@@ -9,9 +10,14 @@ namespace CriticalShift.Sandbox
     {
         [SerializeField] private Shader fixtureShader;
         private SandboxFixture fixture;
-        private bool resetRequested, stopping;
+        private bool resetRequested, stopping, started;
 
-        private void Start() => StartFixture();
+        private void Start() { started = true; stopping = false; StartFixture(); }
+        private void OnEnable()
+        {
+            if (!started || fixture != null) return;
+            stopping = false; StartFixture();
+        }
 
         private void StartFixture()
         {
@@ -28,6 +34,9 @@ namespace CriticalShift.Sandbox
         }
 
         public Shader FixtureShader => fixtureShader;
+        public WorldSessionView World => fixture == null ? null : fixture.Snapshot;
+        public WorldSessionView LastStoppedWorld { get; private set; }
+        public int PhysicalBindingCount => fixture == null ? 0 : fixture.PhysicalBindingCount;
         public void BindFixtureShader(Shader shader)
         {
             if (fixture != null || shader == null) throw new InvalidOperationException("Bind the shader before fixture activation.");
@@ -43,7 +52,7 @@ namespace CriticalShift.Sandbox
         private void StopFixture()
         {
             if (fixture == null) return;
-            fixture.Dispose(); fixture = null;
+            fixture.Dispose(); LastStoppedWorld = fixture.Snapshot; fixture = null;
         }
 
         private void OnDisable() { stopping = true; StopFixture(); }

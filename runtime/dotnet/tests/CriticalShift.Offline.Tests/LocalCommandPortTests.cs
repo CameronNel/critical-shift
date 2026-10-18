@@ -73,7 +73,9 @@ namespace CriticalShift.Offline.Tests
             var world = Setup();
             Assert.Throws<ArgumentNullException>(() => new LocalCommandPort(null!, Connection));
             Assert.Throws<ArgumentException>(() => new LocalCommandPort(world, Guid.Empty));
+            Assert.Throws<ArgumentException>(() => new LocalCommandPort(world, Fixture.Id(999)));
             var port = new LocalCommandPort(world, Connection);
+            Assert.That(port.ActorId, Is.EqualTo(Actor));
             Assert.Throws<InvalidOperationException>(() => port.ReplayLast());
             world.Start();
             Assert.Throws<InvalidOperationException>(() => new LocalCommandPort(world, Connection));

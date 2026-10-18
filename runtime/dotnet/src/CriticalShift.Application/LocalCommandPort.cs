@@ -21,10 +21,13 @@ namespace CriticalShift.Application
             if (connection == Guid.Empty) throw new ArgumentException("A registered connection is required.", nameof(connection));
             if (world.View.Phase != WorldPhase.Setup)
                 throw new InvalidOperationException("Compose the local sender before starting its world.");
+            ActorId = world.ConnectedActorForComposition(connection) ??
+                throw new ArgumentException("Register the local connection before composing its sender.", nameof(connection));
             _connection = connection;
         }
 
         public WorldSessionView World => _world.View;
+        public Guid ActorId { get; }
         public long LastTerminalSequence => _sequence;
         public bool CanReplayLast => _lastTerminalCommand != null;
         public ObjectClaimView? GetObject(Guid id) => _world.GetObject(id);

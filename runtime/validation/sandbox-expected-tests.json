@@ -1,5 +1,13 @@
 {
   "PlayMode": [
+    "CriticalShift.Sandbox.Tests.LocalWorldHostTests.PhysicalMassTracksCommittedConversionOutput",
+    "CriticalShift.Sandbox.Tests.SandboxLifetimeTests.TenEnableDisableCyclesUseFreshEpochsAndClearAllBindings",
+    "CriticalShift.Sandbox.Tests.LocalWorldHostTests.ContextTransferUsesTheSameClaimAndSlotCommands",
+    "CriticalShift.Sandbox.Tests.LocalWorldHostTests.ContextPowerAndStartUseCurrentMachineRevision",
+    "CriticalShift.Sandbox.Tests.LocalWorldHostTests.ContextDropRemainsAvailableDuringProcessPause",
+    "CriticalShift.Sandbox.Tests.SpatialAccessTests.FocusPicksTheCurrentRegisteredRayTarget",
+    "CriticalShift.Sandbox.Tests.SpatialAccessTests.UnregisteredWallBlocksFocusBehindIt",
+    "CriticalShift.Sandbox.Tests.SpatialAccessTests.FocusCanLookPastAnExplicitlyApprovedHeldBody",
     "CriticalShift.Sandbox.Tests.SpatialAccessTests.CurrentTargetColliderDoesNotBlockItsOwnInteraction",
     "CriticalShift.Sandbox.Tests.SpatialAccessTests.SolidOccluderAndExcessiveReachRejectInteraction",
     "CriticalShift.Sandbox.Tests.SpatialAccessTests.OnlyExplicitlyApprovedOwnedBodyIsTransparentForSight",
