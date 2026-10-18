@@ -560,7 +560,7 @@ if STAGE in ('prep', 'all'):
     # a collapsed unwrap bakes black or a smear and nothing else would notice (the front end's signs, 2026-10-18). Per face, the stretch is the ratio
     # of the singular values of the 3D-to-UV map: a sound unwrap keeps it near 1, the collapsed signs were about 1000. Atlas coverage alone cannot
     # tell: long cables legitimately fill under 1 % of a square atlas.
-    cover = {n: 0.0 for n, p in plan.items() if p['bake']}; area3 = dict.fromkeys(cover, 0.0); bad3 = dict.fromkeys(cover, 0.0)
+    cover = {n: 0.0 for n, p in plan.items() if p['bake']}; area3 = dict.fromkeys(cover, 0.0); bad3 = dict.fromkeys(cover, 0.0); worst = {}
     for o in objs:
         me = o.data; uvb = me.uv_layers['UVBake']; n_loops = len(me.loops)
         uv = np.empty(n_loops * 2, np.float64); uvb.data.foreach_get('uv', uv); uv = uv.reshape(-1, 2)
@@ -587,8 +587,15 @@ if STAGE in ('prep', 'all'):
             D = np.stack([np.stack([d1[ok][:, 0], d2[ok][:, 0]], 1), np.stack([d1[ok][:, 1], d2[ok][:, 1]], 1)], 1)
             J = D @ np.linalg.inv(E); sv = np.linalg.svd(J, compute_uv=False); stretch = sv[:, 0] / np.maximum(sv[:, 1], 1e-12)
             area3[n_] += float(A[ok].sum()); bad3[n_] += float(A[ok][stretch > 20].sum())
+            for j in np.argsort(-stretch * A[ok])[:3]:                   # the worst faces, for the report if this material fails
+                fi = f[ok][j]; worst.setdefault(n_, []).append((float(stretch[j] * A[ok][j]), o.name, int(fi), round(float(stretch[j]), 1), round(float(A[ok][j]), 6),
+                    [round(float(np.linalg.norm(x)), 4) for x in (e1[ok][j], e2[ok][j])], [round(float(np.linalg.norm(x)), 6) for x in (d1[ok][j], d2[ok][j])]))
     squashed = sorted('%s (%.0f %%)' % (n, 100 * bad3[n] / area3[n]) for n in cover if area3[n] > 0 and bad3[n] / area3[n] > 0.1)
-    if squashed: raise SystemExit('unwrap: %d materials have more than 10 %% of their surface squashed over 20:1 in UV (a collapsed unwrap): %s' % (len(squashed), squashed[:20]))
+    if squashed:
+        for n in cover:
+            if area3[n] > 0 and bad3[n] / area3[n] > 0.1:
+                for w in sorted(worst.get(n, []), reverse=True)[:6]: print('UNWRAP worst face', n, '| object %s face %d stretch %s area %s 3D edges %s UV edges %s' % w[1:], flush=True)
+        raise SystemExit('unwrap: %d materials have more than 10 %% of their surface squashed over 20:1 in UV (a collapsed unwrap): %s' % (len(squashed), squashed[:20]))
     for n, c in cover.items(): plan[n]['uv_coverage'] = round(c, 3); plan[n]['uv_squashed'] = round(bad3[n] / area3[n], 4) if area3[n] else 0.0
     step('unwrapped', atlases={n: p.get('size') for n, p in plan.items() if p['bake']}, lowest_uv_coverage=sorted((round(c, 3), n) for n, c in cover.items())[:3],
          most_squashed=sorted(((round(bad3[n] / area3[n], 3), n) for n in cover if area3[n]), reverse=True)[:3])
