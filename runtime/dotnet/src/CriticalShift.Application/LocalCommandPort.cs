@@ -38,6 +38,7 @@ namespace CriticalShift.Application
         public MaterialView? GetBatch(Guid id) => _world.Production.GetBatch(id);
         public ReactorView? Reactor => _world.Reactor.View;
         public PowerView? Power => _world.Reactor.PowerSummary;
+        public SessionTraceView Trace => _world.Trace;
 
         public InteractionReply Grab(Guid entity) => Send(new InteractionCommand(_world.Epoch,
             NextSequence(), InteractionKind.Grab, entity, _world.GetObject(entity)?.Revision ?? 0));

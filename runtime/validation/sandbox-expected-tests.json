@@ -1,5 +1,8 @@
 {
   "PlayMode": [
+    "CriticalShift.Sandbox.Tests.TraceFeedTests.WetJamRetainsItsRecordedCauseAndReplayCannotPublishItAgain",
+    "CriticalShift.Sandbox.Tests.TraceFeedTests.SourceEvictionExposesAGapWithoutInventingAnIncident",
+    "CriticalShift.Sandbox.Tests.TraceFeedTests.FeedStaysBoundedAndReadsTheStoppedWorldWithoutMutatingIt",
     "CriticalShift.Sandbox.Tests.MaterialContentsTests.ConversionUpdatesTheExistingVisiblePileWithoutAnotherMaterialCommit",
     "CriticalShift.Sandbox.Tests.MaterialContentsTests.ExhaustionShowsSpentFuelWithoutDeletingItsAccountedQuantity",
     "CriticalShift.Sandbox.Tests.MaterialContentsTests.PausedReenableRebuildsTheProjectionAndStoppedWorldHidesThePile",

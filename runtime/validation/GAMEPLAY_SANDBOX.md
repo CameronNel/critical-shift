@@ -76,7 +76,7 @@ art acceptance.
 - Diagnostic controls, crusher/fuel/reactor fixture, lamps, valve/spindle/tread
   motion, material appearance and scratch-scene generator: written, unvalidated.
 - Nine pure command-port tests, fourteen worker-body claim tests, nine package
-  safety tests, five declared-boundary cases and 81 native sandbox
+  safety tests, five declared-boundary cases and 84 native sandbox
   tests are implemented, all **NotRun**. These are declared inventory counts,
   not discovered/executed results.
 - Direct first-person focus, context transfer/drop, power/cooling and start
@@ -502,3 +502,17 @@ still logs the exception. This keeps expected test faults from looking like
 unexpected errors to the strict native log validator; no critical-log pattern
 is removed or globally ignored. The diagnostic override is composed before
 startup and released with the bootstrap.
+
+## Bounded causal display source
+
+Expose the existing detached SessionTraceView through the local query port and
+project it into at most 12 recent diagnostic rows, polled four times per second.
+Rows use actual committed production/reactor/worker records and their recorded
+cause, actor, entity and hazard identities. Replay/noncommits, clock advances and
+routine generation ticks cannot mint display incidents. Existing trace storage
+and retention are unchanged; sequence gaps and exhaustion remain visible, and
+the panel does not claim a full shift debrief or accepted CAUSE-01 evidence.
+Three more native cases are written and NotRun: wet-jam attribution/replay;
+explicit source eviction gaps without fabricated incidents; and bounded rows
+through a stopped-world read without state mutation. No new event authority,
+cause reconstruction, gameplay randomness or persistence is introduced.

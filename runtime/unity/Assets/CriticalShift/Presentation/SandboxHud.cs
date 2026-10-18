@@ -27,13 +27,16 @@ namespace CriticalShift.Presentation
         private Guid[] containers, machines;
         private Guid actor, reactor, patient;
         private Func<string> actionStatus, physicsStatus;
+        private Func<Guid, string> traceName;
         private int selectedContainer, selectedMachine;
         private bool bypass, active, visible = true;
         private Vector2 scroll;
         private GUIStyle wrapped;
+        private SandboxTraceFeed traceFeed;
+        private double nextTraceRefresh;
 
         public void Initialize(LocalCommandPort port, Guid localActor, Guid[] containerIds, Guid[] machineIds,
-            Guid reactorId, Guid patientActorId, Func<string> readAction, Func<string> readPhysics)
+            Guid reactorId, Guid patientActorId, Func<string> readAction, Func<string> readPhysics, Func<Guid, string> readTraceName)
         {
             if (commands != null || port == null || containerIds == null || containerIds.Length == 0 ||
                 machineIds == null || machineIds.Length == 0 || localActor == Guid.Empty || reactorId == Guid.Empty ||
@@ -43,6 +46,8 @@ namespace CriticalShift.Presentation
             containers = (Guid[])containerIds.Clone(); machines = (Guid[])machineIds.Clone();
             actionStatus = readAction ?? throw new ArgumentNullException(nameof(readAction));
             physicsStatus = readPhysics ?? throw new ArgumentNullException(nameof(readPhysics));
+            traceName = readTraceName ?? throw new ArgumentNullException(nameof(readTraceName));
+            traceFeed = new SandboxTraceFeed(port);
         }
 
         public void Activate()
@@ -61,6 +66,8 @@ namespace CriticalShift.Presentation
         private void Update()
         {
             if (!active) return;
+            if (Time.realtimeSinceStartupAsDouble >= nextTraceRefresh)
+            { nextTraceRefresh = Time.realtimeSinceStartupAsDouble + 0.25; traceFeed.Refresh(); }
             MovementRequested?.Invoke(new Vector2(Axis(KeyCode.D, KeyCode.A), Axis(KeyCode.W, KeyCode.S)));
             WorkerHoistRequested?.Invoke(held.Contains(KeyCode.LeftShift) || held.Contains(KeyCode.RightShift));
             bool arrows = held.Contains(KeyCode.UpArrow) || held.Contains(KeyCode.DownArrow) || held.Contains(KeyCode.LeftArrow) || held.Contains(KeyCode.RightArrow);
@@ -159,6 +166,7 @@ namespace CriticalShift.Presentation
                 GUI.enabled = previousEnabled;
                 if (GUILayout.Button("Restart isolated fixture")) ResetRequested?.Invoke();
                 GUILayout.Label("Single local host. No networking or map loaded.");
+                DrawTrace();
             }
             finally
             {
@@ -239,6 +247,27 @@ namespace CriticalShift.Presentation
         {
             held.Clear(); MovementRequested?.Invoke(Vector2.zero); CartDriveRequested?.Invoke(0, 0, true); WorkerHoistRequested?.Invoke(false);
         }
+
+        private void DrawTrace()
+        {
+            GUILayout.Space(8); GUILayout.Label("RECENT FIXTURE EVENTS");
+            if (traceFeed.GapDetected)
+                GUILayout.Label("Diagnostic history is incomplete · source evicted " + traceFeed.SourceDroppedRecords + " records", wrapped);
+            if (traceFeed.SequenceExhausted)
+                GUILayout.Label("Diagnostic sequence exhausted · new trace records are unavailable", wrapped);
+            for (int i = traceFeed.Entries.Count - 1; i >= 0; i--)
+            {
+                var row = traceFeed.Entries[i];
+                string at = TimeSpan.FromMilliseconds(row.ShiftMilliseconds).ToString(@"mm\:ss");
+                string cause = row.CauseId == Guid.Empty ? "" : " · cause " + row.CauseId.ToString("N").Substring(0, 8);
+                string subject = traceName(row.EntityId);
+                if (string.IsNullOrEmpty(subject) && row.ActorId != Guid.Empty)
+                    subject = row.ActorId == actor ? "You" : row.ActorId == patient ? "Test worker" : "Worker";
+                string hazard = row.HazardId == Guid.Empty ? "" : traceName(row.HazardId);
+                GUILayout.Label(at + " · " + (string.IsNullOrEmpty(subject) ? "" : subject + ": ") + row.Description +
+                    (string.IsNullOrEmpty(hazard) ? "" : " · source " + hazard) + cause, wrapped);
+            }
+        }
         private void OnApplicationFocus(bool focused) { if (!focused) ClearInput(); }
         private void OnDisable() { active = false; ClearInput(); }
         private void OnDestroy()
@@ -251,6 +280,7 @@ namespace CriticalShift.Presentation
             RecoveryRequested = null; DiagnosticKnockdownRequested = null;
             PatientRecoveryRequested = null; PatientKnockdownRequested = null;
             MovementRequested = null; LookRequested = null; CarryRotationRequested = null; CartDriveRequested = null; JumpRequested = null; ThrowRequested = null;
+            traceName = null;
         }
     }
 }
