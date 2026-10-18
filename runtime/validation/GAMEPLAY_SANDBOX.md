@@ -75,7 +75,7 @@ art acceptance.
   jam latch, local walking: written, unvalidated.
 - Diagnostic controls, crusher/fuel/reactor fixture, lamps, valve/spindle/tread
   motion, material appearance and scratch-scene generator: written, unvalidated.
-- Nine pure command-port tests, nine package safety tests and 40 native sandbox
+- Nine pure command-port tests, nine package safety tests and 43 native sandbox
   tests are implemented, all **NotRun**. These are declared inventory counts,
   not discovered/executed results.
 - Direct first-person focus, context transfer/drop, power/cooling and start
@@ -174,3 +174,15 @@ These tooling cases also remain NotRun. Native input copying rejects those
 binaries before launching an Editor, and reports retain the exact expected test
 inventory used for comparison. A lightweight main fetch after the worker source
 checkpoint still resolves to `3853995c`; there were no new upstream commits.
+
+## Process presentation source checkpoint
+
+The existing machine/reactor feedback owners now drive a visible process gauge
+and bounded cosmetic pools: eight spark markers per machine and six vent motes
+for the reactor. They use only committed work/shift time and immutable projections;
+no incident RNG, gameplay callbacks, colliders or per-effect object spawning.
+Power pause hides processing sparks; process-clock pause freezes trajectories.
+The simple opaque debug meshes do not establish finished steam, fire or VFX art.
+Three additional native cases cover power-pause/progress consistency, paused
+cosmetic trajectories and cooling-loss/trip feedback without another power spend.
+All remain NotRun, alongside shaders, rendered appearance and measured cost.

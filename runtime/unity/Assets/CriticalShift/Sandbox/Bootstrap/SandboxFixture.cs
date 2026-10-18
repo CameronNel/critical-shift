@@ -153,7 +153,15 @@ namespace CriticalShift.Sandbox
             SandboxPrimitives.Box("Spindle rotation marker", rotor.transform, new Vector3(0, 0, -0.11f),
                 new Vector3(0.36f, 0.055f, 0.025f), shapes.Yellow, false);
             var light = SandboxPrimitives.PointLight("Status lamp", machine.transform, new Vector3(0, 1.8f, -0.85f), Color.green, 0.5f, 2.5f);
-            machine.AddComponent<MachineFeedback>().Initialize(commands, id, face.GetComponent<Renderer>(), light, rotor.transform);
+            SandboxPrimitives.Box("Process gauge backing", machine.transform, new Vector3(0, 1.26f, -0.63f), new Vector3(0.95f, 0.12f, 0.04f), shapes.Dark, false);
+            var gauge = SandboxPrimitives.Box("Process gauge fill", machine.transform, new Vector3(0, 1.26f, -0.66f),
+                new Vector3(0.9f, 0.07f, 0.025f), shapes.Yellow, false);
+            var sparkOrigin = SandboxPrimitives.Empty("Process spark origin", machine.transform, new Vector3(0.45f, 1, -0.8f));
+            var sparks = new Transform[8];
+            for (int i = 0; i < sparks.Length; i++)
+                sparks[i] = SandboxPrimitives.Box("Pooled process spark " + i, sparkOrigin.transform, Vector3.zero,
+                    new Vector3(0.012f, 0.035f, 0.012f), shapes.Lamp, false).transform;
+            machine.AddComponent<MachineFeedback>().Initialize(commands, id, face.GetComponent<Renderer>(), light, rotor.transform, gauge.transform, sparks);
         }
 
         private void BuildReactor()
@@ -175,7 +183,12 @@ namespace CriticalShift.Sandbox
             SandboxPrimitives.Box("Cooling valve position marker", valve.transform, new Vector3(0, 0, -0.095f),
                 new Vector3(0.35f, 0.055f, 0.025f), shapes.Dark, false);
             var light = SandboxPrimitives.PointLight("Reactor warning beacon", room.transform, new Vector3(0, 3.1f, 0), Color.cyan, 0.5f, 4);
-            room.AddComponent<ReactorFeedback>().Initialize(commands, face.GetComponent<Renderer>(), light, valve.transform);
+            var vent = SandboxPrimitives.Empty("Reactor vent origin", room.transform, new Vector3(0.35f, 2.9f, 0));
+            var motes = new Transform[6];
+            for (int i = 0; i < motes.Length; i++)
+                motes[i] = SandboxPrimitives.Shape(PrimitiveType.Sphere, "Pooled vent mote " + i, vent.transform, Vector3.zero,
+                    Vector3.one * 0.11f, shapes.Lamp, false).transform;
+            room.AddComponent<ReactorFeedback>().Initialize(commands, face.GetComponent<Renderer>(), light, valve.transform, motes);
         }
 
         private void BuildCart()

@@ -1,5 +1,8 @@
 {
   "PlayMode": [
+    "CriticalShift.Sandbox.Tests.ProcessFeedbackTests.PowerPauseStopsSparksAndPreservesCommittedProgress",
+    "CriticalShift.Sandbox.Tests.ProcessFeedbackTests.CosmeticTrajectoryUsesPausedProcessTimeInsteadOfFrameTime",
+    "CriticalShift.Sandbox.Tests.ProcessFeedbackTests.CoolingLossAndTripChangeVentFeedbackWithoutSpendingPower",
     "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.KnockdownDropsTheClaimBeforeRagdollTakesMotion",
     "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.MovingCartContactCausesOneKnockdownEpisode",
     "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.StationaryCartContactDoesNotInventAKnockdown",

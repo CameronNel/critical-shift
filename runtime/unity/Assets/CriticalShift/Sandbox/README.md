@@ -67,7 +67,10 @@ package is selected. No domain instance is exposed to presentation.
 Cart load is a bounded physical sensor observation of authorized cargo bodies,
 not a second material inventory. Wheel motion follows cart travel. Belt treads,
 machine spindles, cooling-valve movement, lamps, emission and batch colors are
-presentation; none changes materials, custody, reactor state or power.
+presentation; none changes materials, custody, reactor state or power. Process
+gauges and small preallocated spark/vent-mote pools also follow those projections.
+Their trajectories use process time, without consuming incident randomness,
+adding colliders or creating objects during an effect. These are debug visuals.
 
 The fixture uses the project's **already configured** shader family for debug
 geometry. This explicitly supports the old Built-in foundation for import and
@@ -79,7 +82,7 @@ on the inspected baseline. No package is downloaded by the generator.
 
 The existing foundation runner still tests its foundation assembly selection;
 it does not automatically claim sandbox coverage. The separate native inventory
-is `runtime/validation/sandbox-expected-tests.json`: 40 implemented cases, all
+is `runtime/validation/sandbox-expected-tests.json`: 43 implemented cases, all
 NotRun. Nine new pure command-port cases and nine source-package safety cases
 are also NotRun. Native fixtures are offset from possible active-scene content
 to avoid collisions with an unrelated map/scene at the origin.
