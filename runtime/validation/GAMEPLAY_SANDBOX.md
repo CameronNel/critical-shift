@@ -76,7 +76,7 @@ art acceptance.
 - Diagnostic controls, crusher/fuel/reactor fixture, lamps, valve/spindle/tread
   motion, material appearance and scratch-scene generator: written, unvalidated.
 - Nine pure command-port tests, fourteen worker-body claim tests, nine package
-  safety tests, five declared-boundary cases and 94 native sandbox
+  safety tests, five declared-boundary cases and 95 native sandbox
   tests are implemented, all **NotRun**. These are declared inventory counts,
   not discovered/executed results.
 - Direct first-person focus, context transfer/drop, power/cooling and start
@@ -720,3 +720,13 @@ now checks reference release on normal closure. Source review also corrected
 three lifetime-test member accesses that treated a WorldSessionView as its
 mutable host owner; no compiler was run. Declared native catalogue: 94 cases,
 all NotRun.
+
+Portable placement bounds now retain the collider centre in metres rather than
+dividing that offset by root scale. The captured world AABB is transformed into
+a rotation-neutral enclosing box, then rotated into the loading slot; an
+initially rotated compound remains conservative. Bound root scale must remain
+unchanged because these placement bounds are authored at registration. A new
+native case uses a scaled, offset solid box, verifies an adjacent obstacle blocks
+insertion without consuming the command stream, then clears it and checks actual
+slot geometry. Later rescaling must stop that binding rather than query stale
+dimensions. Source catalogue: 95 native cases, all NotRun.

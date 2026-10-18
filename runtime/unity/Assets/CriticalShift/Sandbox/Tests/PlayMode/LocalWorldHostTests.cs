@@ -205,6 +205,40 @@ namespace CriticalShift.Sandbox.Tests
             yield return null;
         }
 
+        [UnityTest] public IEnumerator ScaledOffsetColliderUsesItsPhysicalSlotCentreAndRejectsLaterRescaling()
+        {
+            var owner = new GameObject("Offset placement fixture"); owner.transform.SetParent(root.transform, false);
+            owner.transform.localPosition = Vector3.right * 30;
+            var session = new WorldSession(new WorldSessionConfiguration(1, 60000), new AllowedFixtureAccess());
+            session.RegisterConnection(Id(1), Actor);
+            session.Production.RegisterBatch(Box, Id(11), Id(12), Id(13), MaterialKind.Ore, 10);
+            session.Production.RegisterMachine(Machine, new MachineRecipe(Id(31), MaterialKind.Ore, MaterialKind.CrushedOre, 1000, 500, 100, 100));
+            var sender = new LocalCommandPort(session, Id(1)); var adapter = owner.AddComponent<LocalWorldHost>();
+            adapter.Initialize(session, sender, Actor, () => 0, faults.Add);
+            var item = GameObject.CreatePrimitive(PrimitiveType.Cube); item.transform.SetParent(owner.transform, false);
+            item.transform.localPosition = Vector3.up; item.transform.localScale = new Vector3(0.5f, 0.75f, 0.5f);
+            var shape = item.GetComponent<BoxCollider>(); shape.center = Vector3.right;
+            var portable = item.AddComponent<Rigidbody>(); portable.useGravity = false;
+            var anchor = new GameObject("Offset loading anchor").transform; anchor.SetParent(owner.transform, false);
+            anchor.localPosition = new Vector3(0, 1, 3);
+            var carry = new GameObject("Offset carry target").transform; carry.SetParent(owner.transform, false); carry.localPosition = Vector3.up;
+            Physics.SyncTransforms(); adapter.BindBody(Box, portable); adapter.BindCarryTarget(Actor, carry); adapter.BindSlot(Machine, anchor); adapter.Activate();
+            var obstacle = GameObject.CreatePrimitive(PrimitiveType.Cube); obstacle.transform.SetParent(owner.transform, false);
+            obstacle.transform.position = anchor.position + Vector3.right * 0.4f; obstacle.transform.localScale = Vector3.one * 0.1f;
+            adapter.Grab(Box); long sequence = sender.LastTerminalSequence;
+            adapter.OperateMachine(Machine, ProductionAction.Insert, Box, false, false);
+            Assert.That(session.GetObject(Box).HolderId, Is.EqualTo(Actor)); Assert.That(sender.LastTerminalSequence, Is.EqualTo(sequence));
+            Assert.That(session.Production.GetMachine(Machine).ContainerId, Is.Null); Assert.That(portable.isKinematic, Is.False);
+            obstacle.GetComponent<Collider>().enabled = false;
+            adapter.OperateMachine(Machine, ProductionAction.Insert, Box, false, false); Physics.SyncTransforms();
+            Assert.That(session.GetObject(Box).SlotId, Is.EqualTo(Machine)); Assert.That(portable.isKinematic, Is.True);
+            Assert.That(Vector3.Distance(shape.bounds.center, anchor.position + Vector3.right * 0.5f), Is.LessThan(0.001f));
+            adapter.OperateMachine(Machine, ProductionAction.Eject, Guid.Empty, false, false);
+            item.transform.localScale *= 1.5f; adapter.Grab(Box);
+            Assert.That(session.View.Phase, Is.EqualTo(WorldPhase.Stopped)); Assert.That(adapter.BoundBodyCount, Is.Zero);
+            Assert.That(faults.Count, Is.EqualTo(1)); faults.Clear(); yield return null;
+        }
+
         [UnityTest] public IEnumerator RetryKeepsOneClaimWithoutAnotherLogicalCommit()
         {
             host.Grab(Box); long revision = world.View.Revision;

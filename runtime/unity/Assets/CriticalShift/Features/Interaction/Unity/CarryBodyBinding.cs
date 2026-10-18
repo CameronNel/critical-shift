@@ -13,7 +13,8 @@ namespace CriticalShift.Features.Interaction.Unity
         private readonly CollisionDetectionMode originalCollisionMode;
         private readonly RigidbodyInterpolation originalInterpolation;
         private readonly float massPerUnit;
-        private readonly Bounds localBounds;
+        private readonly Bounds placementBounds;
+        private readonly Vector3 boundScale;
         private readonly Collider[] shapes;
         private readonly Collider[] overlaps = new Collider[32];
         private bool slotted;
@@ -26,6 +27,8 @@ namespace CriticalShift.Features.Interaction.Unity
             get
             {
                 if (Body == null || !Body.gameObject.activeInHierarchy || !Body.detectCollisions || Body.isKinematic != slotted) return false;
+                Vector3 scale = Body.transform.lossyScale;
+                if (!Finite(scale) || (scale - boundScale).sqrMagnitude > 0.000001f) return false;
                 foreach (var shape in shapes)
                     if (shape == null || !shape.enabled || !shape.gameObject.activeInHierarchy || shape.isTrigger || shape.attachedRigidbody != Body)
                         return false;
@@ -43,6 +46,9 @@ namespace CriticalShift.Features.Interaction.Unity
             massPerUnit = physicalMassPerUnit;
             originalKinematic = body.isKinematic; originalGravity = body.useGravity;
             originalCollisionMode = body.collisionDetectionMode; originalInterpolation = body.interpolation;
+            boundScale = body.transform.lossyScale;
+            if (!Finite(boundScale) || boundScale.x <= 0 || boundScale.y <= 0 || boundScale.z <= 0)
+                throw new ArgumentException("Portable fixture scale must be finite and positive.");
             shapes = body.GetComponentsInChildren<Collider>();
             if (shapes.Length == 0) throw new ArgumentException("A portable body needs a collider.");
             Bounds worldBounds = shapes[0].bounds;
@@ -52,8 +58,20 @@ namespace CriticalShift.Features.Interaction.Unity
                     throw new ArgumentException("Portable fixture colliders must be solid and belong to this body.");
                 worldBounds.Encapsulate(collider.bounds);
             }
-            // Fixture portable bodies use axis-aligned box roots at registration.
-            localBounds = new Bounds(body.transform.InverseTransformPoint(worldBounds.center), worldBounds.size);
+            if (!Finite(worldBounds.center) || !Finite(worldBounds.size) ||
+                worldBounds.size.x <= 0 || worldBounds.size.y <= 0 || worldBounds.size.z <= 0)
+                throw new ArgumentException("Portable fixture bounds must be finite and non-empty.");
+            // Store metres in a body-rotation-neutral frame, retaining authored scale.
+            // InverseTransformPoint would divide the centre offset by root scale.
+            Quaternion neutral = Quaternion.Inverse(body.rotation);
+            var bounds = new Bounds(neutral * (worldBounds.center - body.position), Vector3.zero);
+            for (int corner = 0; corner < 8; corner++)
+            {
+                Vector3 offset = Vector3.Scale(worldBounds.extents,
+                    new Vector3((corner & 1) == 0 ? -1 : 1, (corner & 2) == 0 ? -1 : 1, (corner & 4) == 0 ? -1 : 1));
+                bounds.Encapsulate(neutral * (worldBounds.center + offset - body.position));
+            }
+            placementBounds = bounds;
         }
 
         internal void ApplyMaterialMass(MaterialView batch)
@@ -65,9 +83,9 @@ namespace CriticalShift.Features.Interaction.Unity
 
         internal bool CanPlace(Transform slot)
         {
-            if (!Available) throw new InvalidOperationException("A registered portable body lost its required motion or collision binding.");
-            Vector3 center = slot.position + slot.rotation * localBounds.center;
-            Vector3 half = Vector3.Max(localBounds.extents - Vector3.one * 0.015f, Vector3.one * 0.01f);
+            if (!Available) throw new InvalidOperationException("A registered portable body lost its required motion or collision binding: " + Id);
+            Vector3 center = slot.position + slot.rotation * placementBounds.center;
+            Vector3 half = Vector3.Max(placementBounds.extents - Vector3.one * 0.015f, Vector3.one * 0.01f);
             int count = Physics.OverlapBoxNonAlloc(center, half, overlaps, slot.rotation,
                 Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore);
             if (count == overlaps.Length) return false; // Saturated observations cannot prove clearance.
@@ -136,5 +154,8 @@ namespace CriticalShift.Features.Interaction.Unity
             if (!Body.isKinematic) { Body.linearVelocity = Vector3.zero; Body.angularVelocity = Vector3.zero; }
             slotted = false; appliedSlot = Guid.Empty;
         }
+
+        private static bool Finite(Vector3 value) => !float.IsNaN(value.x) && !float.IsNaN(value.y) && !float.IsNaN(value.z) &&
+            !float.IsInfinity(value.x) && !float.IsInfinity(value.y) && !float.IsInfinity(value.z);
     }
 }
