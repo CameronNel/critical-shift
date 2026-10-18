@@ -29,6 +29,10 @@ test worker. The second worker is controlled locally for this fixture.
   A conscious down worker can right-drag to look around; only the eyes turn.
   Crawl direction follows that heading. Recovery preserves the view after the
   physical handoff; an unconscious worker cannot use this look input.
+- A small status light follows each worker's physical suit grip: amber while
+  down, red while unconscious and blue during recovery. It hides once upright
+  or stopped. These are derived debug cues, not another health system or a
+  separately activated/shared emergency beacon feature.
 - Look at a nearby target: E grabs or transfers to/from equipment; G drops the
   current grip; F toggles machine power or reactor cooling; R starts, repairs
   or resumes the focused machine according to its current mode. Repair still

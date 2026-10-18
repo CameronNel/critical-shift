@@ -536,3 +536,16 @@ cannot look through this path. Two more native cases are written and NotRun:
 eye-only look with view-directed crawl and unchanged worker revision; and view
 continuity through recovery plus unconscious exclusion. Camera comfort and all
 physics/human acceptance remain unvalidated.
+
+## Derived worker status lighting source
+
+Add one explicitly bound, non-contacting status marker and shadowless point
+light per fixture worker. It follows the physical suit grip and reads only
+worker/world projections: amber Down, red Unconscious, blue Recovering, hidden
+Upright or after world stop. Pulse uses process time; it cannot advance health,
+claims, recovery, randomness or power spending. This is a diagnostic cue, not
+implementation of a separately activated networked emergency beacon. Existing
+knockdown/recovery native cases now check visibility after the controller
+handoffs; they remain NotRun. No new test is added solely to mirror the colors.
+Lighting quality, comfort, rendering cost and multiplayer visibility remain
+unvalidated; map and accepted room lighting are untouched.

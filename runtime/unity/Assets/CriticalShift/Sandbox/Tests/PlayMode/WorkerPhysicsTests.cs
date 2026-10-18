@@ -119,7 +119,9 @@ namespace CriticalShift.Sandbox.Tests
             Assert.That(DynamicBodies(), Is.EqualTo(11));
             host.Grab(Id(103)); Assert.That(host.World.GetObject(Id(103)).HolderId, Is.Null);
             yield return Step();
+            yield return null; yield return null;
             Assert.That(controller.enabled, Is.False);
+            Assert.That(root.transform.Find("Local Gameplay Fixture/Local worker status marker").GetComponent<WorkerStatusFeedback>().Visible, Is.True);
         }
 
         [UnityTest] public IEnumerator ShortHopLandsWithTheWalkingCapsuleStillOwningMotion()
@@ -245,6 +247,8 @@ namespace CriticalShift.Sandbox.Tests
             Assert.That(controller.enabled, Is.True); Assert.That(rig.IsRagdoll, Is.False); Assert.That(DynamicBodies(), Is.Zero);
             Assert.That(controller.transform.position.y - root.transform.position.y, Is.InRange(0, 0.15f));
             Assert.That(Worker.CanInteract, Is.True);
+            yield return null; yield return null;
+            Assert.That(root.transform.Find("Local Gameplay Fixture/Local worker status marker").GetComponent<WorkerStatusFeedback>().Visible, Is.False);
         }
 
         [UnityTest] public IEnumerator LowCeilingRejectsRecoveryWithoutTeleportingTheWorkerRoot()

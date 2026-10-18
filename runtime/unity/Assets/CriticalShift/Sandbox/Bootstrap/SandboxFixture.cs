@@ -124,6 +124,7 @@ namespace CriticalShift.Sandbox
             var rig = SandboxWorkerRigBuilder.Build(world.Epoch, actor, controller, eyes.transform, shapes, hideLocalHead: true);
             foreach (var segment in rig.CopyBodySegments()) safety.Bind(segment, "Local worker / " + segment.name);
             rig.BindNormalHands(() => host.CarriedPhysicalMass() > 0 || host.CurrentGripStand().HasValue);
+            BuildWorkerSignal(actor, rig, "Local worker status marker");
             var placement = new WorkerRecoveryPlacement(); placement.Bind(rig); recovery.Bind(world.Epoch, actor, placement);
             workerState = player.AddComponent<LocalWorkerStateHost>();
             workerState.Initialize(world, actor, rig, placement, host.Pump, walker.ResetAfterRecovery, host.ReportExternalFailure);
@@ -141,6 +142,7 @@ namespace CriticalShift.Sandbox
             var rig = SandboxWorkerRigBuilder.Build(world.Epoch, patient, controller, eyes.transform, shapes, hideLocalHead: false);
             foreach (var segment in rig.CopyBodySegments()) safety.Bind(segment, "Patient worker / " + segment.name);
             rig.BindDragEntity(patientBody);
+            BuildWorkerSignal(patient, rig, "Patient worker status marker");
             host.BindWorkerBody(patientBody, patient, rig.CopyBodySegments(), rig.PullBodyClaim, rig.ReleaseBodyClaim, () => rig.TotalPhysicalMass, rig.SetBodyHoist);
             access.BindTarget(patientBody, worker.transform, rig.SuitGrip);
             var placement = new WorkerRecoveryPlacement(); placement.Bind(rig); recovery.Bind(world.Epoch, patient, placement);
@@ -150,6 +152,16 @@ namespace CriticalShift.Sandbox
             patientContacts = worker.AddComponent<WorkerImpactContacts>();
             patientContacts.Initialize(controller, () => commands.GetWorker(patient), () => world.View.Phase == WorldPhase.Running,
                 () => Vector3.zero, patientState.ObserveKnockdown, host.ReportExternalFailure);
+        }
+
+        private void BuildWorkerSignal(Guid worker, WorkerBodyRig rig, string name)
+        {
+            var marker = SandboxPrimitives.Shape(PrimitiveType.Sphere, name, root.transform, Vector3.zero,
+                Vector3.one * 0.12f, shapes.Lamp, false);
+            var light = marker.AddComponent<Light>(); light.type = LightType.Point; light.range = 1.8f;
+            light.shadows = LightShadows.None; light.intensity = 0;
+            marker.AddComponent<WorkerStatusFeedback>().Initialize(commands, worker, marker.GetComponent<Renderer>(), light,
+                () => rig == null || rig.SuitGrip == null ? (Vector3?)null : rig.SuitGrip.position);
         }
 
         private void BuildContainers()
