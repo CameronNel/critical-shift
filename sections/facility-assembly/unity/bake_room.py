@@ -541,9 +541,13 @@ if STAGE in ('prep', 'all'):
         for o in objs:
             bm = bmesh.from_edit_mesh(o.data); idx = {i for i, s in enumerate(o.material_slots) if s.material is m}
             sx = o.matrix_world.to_scale(); k = abs(sx.x * sx.y * sx.z) ** (2 / 3)
+            # deselect everything first, then select: deselecting a face also deselects its vertices, so a single pass let a later face of another
+            # material drop the shared vertices of an earlier selected face, which then missed the unwrap and kept zero UVs (the mine's boulders, 22 %)
+            for v in bm.verts: v.select = False
+            for e in bm.edges: e.select = False
+            for f in bm.faces: f.select = False
             for f in bm.faces:
-                f.select = f.material_index in idx
-                if f.select: tot += f.calc_area() * k
+                if f.material_index in idx: f.select = True; tot += f.calc_area() * k   # no flush: it could select a face of another material
             bmesh.update_edit_mesh(o.data)
         area[m.name] = tot
         if tot <= 0: plan[m.name]['bake'] = False; continue
