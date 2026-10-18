@@ -14,6 +14,13 @@
     "CriticalShift.Tests.EditMode.ProcessLifetimeTests.RepeatedFreshProcessesDoNotShareState"
   ],
   "PlayMode": [
+    "CriticalShift.Tests.PlayMode.FoundationLifecycleTests.StopBeforeStartDoesNotBecomeReady",
+    "CriticalShift.Tests.PlayMode.FoundationLifecycleTests.StopBeforeAwakeDoesNotBecomeReady",
+    "CriticalShift.Tests.PlayMode.FoundationLifecycleTests.DisabledCameraPreventsReadiness",
+    "CriticalShift.Tests.PlayMode.FoundationLifecycleTests.CameraDisabledBeforeStartPreventsReadiness",
+    "CriticalShift.Tests.PlayMode.FoundationLifecycleTests.StartupErrorPreventsReadiness",
+    "CriticalShift.Tests.PlayMode.FoundationLifecycleTests.StoppedBootstrapDoesNotObserveLaterErrors",
+    "CriticalShift.Tests.PlayMode.FoundationLifecycleTests.RunningErrorsAreRetainedThroughShutdown",
     "CriticalShift.Tests.PlayMode.FoundationLifecycleTests.SceneStartsAndStopsCleanly",
     "CriticalShift.Tests.PlayMode.FoundationLifecycleTests.ReloadGetsAFreshProcess"
   ]

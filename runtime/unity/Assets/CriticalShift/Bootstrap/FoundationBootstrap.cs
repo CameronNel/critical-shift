@@ -15,20 +15,27 @@ namespace CriticalShift.Bootstrap
         private int frames;
         private double readyAt;
         public ProcessPhase Phase => lifetime.Phase;
+        public bool HasErrors => sawError;
 
         private void Awake()
         {
-            UnityApplication.logMessageReceived += OnLog;
-            var cameraComponent = GetComponent<Camera>();
-            if (cameraComponent == null || !cameraComponent.enabled)
-                throw new InvalidOperationException("Foundation requires its enabled local Camera.");
+            if (lifetime.Phase != ProcessPhase.Created) return;
             smoke = !UnityApplication.isEditor &&
                 Array.IndexOf(Environment.GetCommandLineArgs(), "--cs-smoke") >= 0;
+            UnityApplication.logMessageReceived += OnLog;
+            if (!ValidateCamera()) return;
             UnityApplication.runInBackground = true;
         }
 
         private void Start()
         {
+            if (lifetime.Phase != ProcessPhase.Created) return;
+            if (sawError)
+            {
+                FailStartup();
+                return;
+            }
+            if (!ValidateCamera()) return;
             lifetime.MarkReady();
             readyAt = Time.realtimeSinceStartupAsDouble;
             Debug.Log($"CS_FOUNDATION_READY unity={UnityApplication.unityVersion} build={UnityApplication.buildGUID}");
@@ -60,8 +67,25 @@ namespace CriticalShift.Bootstrap
 
         public void StopProcess()
         {
+            UnityApplication.logMessageReceived -= OnLog;
             if (lifetime.Stop())
                 Debug.Log($"CS_FOUNDATION_STOPPED frames={frames} errors={(sawError ? 1 : 0)}");
+        }
+
+        private bool ValidateCamera()
+        {
+            var cameraComponent = GetComponent<Camera>();
+            if (cameraComponent != null && cameraComponent.enabled) return true;
+            sawError = true;
+            Debug.LogError("Foundation requires its enabled local Camera.", this);
+            FailStartup();
+            return false;
+        }
+
+        private void FailStartup()
+        {
+            StopProcess();
+            if (smoke) UnityApplication.Quit(20);
         }
 
         private void OnLog(string message, string stackTrace, LogType type)
@@ -72,10 +96,6 @@ namespace CriticalShift.Bootstrap
 
         private void OnApplicationQuit() => StopProcess();
 
-        private void OnDestroy()
-        {
-            StopProcess();
-            UnityApplication.logMessageReceived -= OnLog;
-        }
+        private void OnDestroy() => StopProcess();
     }
 }
