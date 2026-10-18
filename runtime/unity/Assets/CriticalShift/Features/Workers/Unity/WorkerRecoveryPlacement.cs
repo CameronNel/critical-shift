@@ -75,7 +75,7 @@ namespace CriticalShift.Features.Workers.Unity
         {
             if (support == null || !support.enabled || !support.gameObject.activeInHierarchy) return RecoveryClearance.Unavailable;
             float bodyHeight = rig.Pelvis.position.y - position.y;
-            if (rig.Pelvis.linearVelocity.magnitude > 1.25f || rig.Pelvis.angularVelocity.magnitude > 3 ||
+            if (!rig.HasSettledRecoveryMotion() ||
                 Vector3.ProjectOnPlane(rig.Pelvis.position - position, Vector3.up).magnitude > 0.8f || bodyHeight < -0.05f || bodyHeight > 1.25f)
                 return RecoveryClearance.Blocked;
             var ground = FindGround(position + Vector3.up * 0.3f, 0.5f, out var hit);

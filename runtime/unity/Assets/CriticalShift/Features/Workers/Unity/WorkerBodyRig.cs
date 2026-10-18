@@ -224,6 +224,18 @@ namespace CriticalShift.Features.Workers.Unity
             return false;
         }
 
+        internal bool HasSettledRecoveryMotion()
+        {
+            foreach (var body in bodies)
+            {
+                Vector3 linear = body.linearVelocity, angular = body.angularVelocity;
+                if (!Finite(linear) || !Finite(angular))
+                    throw new InvalidOperationException("A worker recovery body has non-finite motion: " + body.name);
+                if (linear.sqrMagnitude > 1.25f * 1.25f || angular.sqrMagnitude > 3 * 3) return false;
+            }
+            return true;
+        }
+
         internal void StandAt(Vector3 position, Quaternion rotation)
         {
             if (!ragdoll || !Available || !Finite(position)) throw new InvalidOperationException("No active ragdoll can accept this recovery pose.");

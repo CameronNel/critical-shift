@@ -76,7 +76,7 @@ art acceptance.
 - Diagnostic controls, crusher/fuel/reactor fixture, lamps, valve/spindle/tread
   motion, material appearance and scratch-scene generator: written, unvalidated.
 - Nine pure command-port tests, fourteen worker-body claim tests, nine package
-  safety tests, five declared-boundary cases and 89 native sandbox
+  safety tests, five declared-boundary cases and 90 native sandbox
   tests are implemented, all **NotRun**. These are declared inventory counts,
   not discovered/executed results.
 - Direct first-person focus, context transfer/drop, power/cooling and start
@@ -666,3 +666,13 @@ uses the same single disable-and-diagnostic path as a lost gauge or spindle;
 it cannot throw repeatedly only once a running effect reaches that marker.
 Surviving markers are hidden on disable. This remains source review, not an
 executed failure-injection result.
+
+Recovery motion clearance now applies its existing 1.25 m/s and 3 rad/s limits
+to all eleven explicitly bound worker segments. A quiet pelvis cannot approve
+standing while a forearm/leg is still moving quickly. Both initial placement and
+the pending handoff recheck use this observation; non-finite motion throws a
+named integrity failure instead of passing floating-point comparisons. One new
+native case checks a moving limb at prepare and resolve, with the walking
+capsule still disabled and the root unmoved. Source catalogue: 90 cases, all
+NotRun. Thresholds remain unvalidated fixture values; no recovery-feel or
+ragdoll-stability acceptance is claimed.

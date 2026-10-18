@@ -311,6 +311,27 @@ namespace CriticalShift.Sandbox.Tests
             Assert.That(controller.transform.position, Is.EqualTo(before)); Assert.That(controller.enabled, Is.False);
         }
 
+        [UnityTest] public IEnumerator AStationaryPelvisCannotApproveRecoveryWhileAnotherLimbIsMoving()
+        {
+            KnockDown(); for (int i = 0; i < 120; i++) yield return Step();
+            var parts = rig.CopyBodySegments();
+            foreach (var part in parts) { part.linearVelocity = Vector3.zero; part.angularVelocity = Vector3.zero; }
+            parts[4].angularVelocity = Vector3.right * 4;
+            Vector3 before = controller.transform.position; long revision = Worker.Revision;
+            state.RequestRecovery();
+            Assert.That(state.LastAction, Does.Contain("Blocked")); Assert.That(Worker.Pose, Is.EqualTo(WorkerPose.Down));
+            Assert.That(Worker.Revision, Is.EqualTo(revision)); Assert.That(controller.transform.position, Is.EqualTo(before));
+            Assert.That(controller.enabled, Is.False); Assert.That(DynamicBodies(), Is.EqualTo(11));
+            parts[4].angularVelocity = Vector3.zero; state.RequestRecovery();
+            Assert.That(state.Recovering, Is.True, state.LastAction);
+            parts[4].linearVelocity = Vector3.right * 2;
+            var result = host.World.CompleteWorkerRecovery(host.World.Epoch, Id(1), Worker.RecoveryAttempt);
+            Assert.That(result.Status, Is.EqualTo(WorkerStatus.ClearanceBlocked));
+            Assert.That(Worker.Pose, Is.EqualTo(WorkerPose.Down)); Assert.That(controller.enabled, Is.False);
+            Assert.That(controller.transform.position, Is.EqualTo(before)); Assert.That(DynamicBodies(), Is.EqualTo(11));
+            yield return null;
+        }
+
         [UnityTest] public IEnumerator MissingGroundCannotApproveAStandingPose()
         {
             KnockDown();
