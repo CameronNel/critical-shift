@@ -107,6 +107,8 @@ test worker. The second worker is controlled locally for this fixture.
   world; Retry repeats the identical prior user intention, not a new action.
   A terminal shift releases physical bindings and observations while keeping
   its outcome/feedback visible. Restart creates fresh bindings and a new epoch.
+  The panel reads current/final material accounting, process-cycle counts,
+  grid delivery, reserve, spending and spill from the existing immutable views.
 - The fixture watches its 31 explicitly bound Rigidbody segments. A missing,
   non-finite, escaped or runaway body stops the trial with a named diagnostic.
   It never silently teleports cargo or changes material quantities. The panel

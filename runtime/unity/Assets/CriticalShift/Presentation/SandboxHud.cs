@@ -145,7 +145,8 @@ namespace CriticalShift.Presentation
                 GUILayout.Label("CRITICAL SHIFT | LOCAL GAMEPLAY FIXTURE");
                 GUILayout.Label("WASD walk · Space hop · right-drag look · middle-drag turns crate · wheel adjusts reach · T throws crate · Tab hides panel", wrapped);
                 GUILayout.Label("E takes cart handle · WASD/arrows drive · Space brakes");
-                GUILayout.Label("Shift " + TimeSpan.FromMilliseconds(world.RemainingMilliseconds).ToString(@"mm\:ss") + " | " + world.Phase);
+                GUILayout.Label("Shift " + TimeSpan.FromMilliseconds(world.RemainingMilliseconds).ToString(@"mm\:ss") + " | " + world.Phase +
+                    (world.Outcome == WorldOutcome.None ? "" : " · " + world.Outcome), wrapped);
                 GUILayout.Label("Held objects: " + world.ActiveClaimCount + " | " + actionStatus(), wrapped);
                 var worker = commands.GetWorker(actor);
                 if (worker != null) GUILayout.Label("Worker " + worker.Awareness + " / " + worker.Pose);
@@ -158,6 +159,7 @@ namespace CriticalShift.Presentation
                 GUI.enabled = previousEnabled;
                 GUILayout.Space(8);
                 GUILayout.Label(physicsStatus(), wrapped);
+                DrawAccounting();
                 GUI.enabled = previousEnabled && world.Phase == WorldPhase.Running && worker?.Pose == WorkerPose.Down;
                 if (GUILayout.Button("Attempt worker recovery (H)")) RecoveryRequested?.Invoke();
                 GUI.enabled = previousEnabled && world.Phase == WorldPhase.Running;
@@ -257,6 +259,18 @@ namespace CriticalShift.Presentation
         private void ClearInput()
         {
             held.Clear(); MovementRequested?.Invoke(Vector2.zero); CartDriveRequested?.Invoke(0, 0, true); WorkerHoistRequested?.Invoke(false);
+        }
+
+        private void DrawAccounting()
+        {
+            var totals = commands.ProductionSummary;
+            GUILayout.Space(8); GUILayout.Label("MATERIAL & POWER ACCOUNTING");
+            GUILayout.Label("Material units · issued " + totals.IssuedUnits + " · active " + totals.ActiveUnits + " · waste " + totals.WasteUnits, wrapped);
+            GUILayout.Label("Cycles · completed " + totals.CompletedCycles + " · cancelled " + totals.CancelledCycles + " · pending " + totals.PendingCycles, wrapped);
+            var power = commands.Power;
+            if (power != null)
+                GUILayout.Label("Power units · grid " + power.Delivered + " · reserve " + power.Available + " · spent " + power.Spent +
+                    " · spilled " + power.Spilled, wrapped);
         }
 
         private void DrawTrace()

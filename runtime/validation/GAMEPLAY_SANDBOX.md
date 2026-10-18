@@ -769,3 +769,13 @@ successful explicit binding. Losing collision detection also removes drive
 permission. One new native case checks rejection, no force after changing the
 body, corrected initialization and contact loss. Source catalogue: 99 native
 cases, all NotRun.
+
+The fixture panel now displays current and terminal material/cycle accounting,
+grid delivery, reserve spending and spill. LocalCommandPort exposes the existing
+immutable ProductionSummary, alongside its existing power view; presentation
+adds no totals owner or result reconstruction. The outcome stays visible after
+the live reactor/machines have been cleared. Existing command-port conversion
+and reactor cases now check detached/final projections and conservation, and the
+deadline fixture case checks final accounting remains readable. No cases were
+added for labels alone; the declared native count stays 99, all NotRun. This is
+a diagnostic summary, without a complete causal shift debrief or gate claim.

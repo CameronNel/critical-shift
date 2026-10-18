@@ -80,6 +80,10 @@ namespace CriticalShift.Sandbox.Tests
             Assert.That(host.BoundBodyCount, Is.Zero); Assert.That(safety.BoundBodyCount, Is.Zero);
             Assert.That(bootstrap.World.ActiveClaimCount, Is.Zero); Assert.That(bootstrap.World.RegisteredObjectCount, Is.Zero);
             Assert.That(bootstrap.World.PendingTimerCount, Is.Zero); Assert.That(bootstrap.World.ConnectedPlayerCount, Is.Zero);
+            var totals = host.Commands.ProductionSummary; var power = host.Commands.Power;
+            Assert.That(totals.IssuedUnits, Is.EqualTo(120)); Assert.That(totals.ActiveUnits + totals.WasteUnits, Is.EqualTo(120));
+            Assert.That(totals.PendingCycles, Is.Zero); Assert.That(power, Is.Not.Null);
+            Assert.That(power.Initial + power.Generated, Is.EqualTo(power.Available + power.Spent + power.Delivered + power.Spilled));
             yield return null; yield return null;
             Assert.That(root.GetComponentInChildren<SandboxHud>().isActiveAndEnabled, Is.True);
             foreach (var rig in root.GetComponentsInChildren<WorkerBodyRig>())

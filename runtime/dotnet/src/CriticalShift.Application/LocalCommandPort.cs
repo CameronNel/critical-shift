@@ -36,6 +36,7 @@ namespace CriticalShift.Application
         public WorkerView? GetWorkerForBody(Guid entity) => _world.GetWorkerForBody(entity);
         public MachineView? GetMachine(Guid id) => _world.Production.GetMachine(id);
         public MaterialView? GetBatch(Guid id) => _world.Production.GetBatch(id);
+        public ProductionSummary ProductionSummary => _world.Production.Summary;
         public ReactorView? Reactor => _world.Reactor.View;
         public PowerView? Power => _world.Reactor.PowerSummary;
         public SessionTraceView Trace => _world.Trace;

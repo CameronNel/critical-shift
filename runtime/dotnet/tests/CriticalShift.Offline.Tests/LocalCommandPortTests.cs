@@ -101,17 +101,26 @@ namespace CriticalShift.Offline.Tests
             world.Production.RegisterBatch(Box, Fixture.Id(50), Fixture.Id(51), Fixture.Id(52), MaterialKind.Ore, 10);
             Guid machine = Fixture.Id(60);
             world.Production.RegisterMachine(machine, new MachineRecipe(Fixture.Id(61), MaterialKind.Ore, MaterialKind.CrushedOre,
-                1000, 500, 100, 100));
+                1000, 500, 100, 100, yieldPermille: 800));
             var port = new LocalCommandPort(world, Connection); world.Start();
+            var before = port.ProductionSummary;
             Assert.That(port.Grab(Box).HasNewCommit, Is.True);
             Assert.That(port.OperateMachine(machine, ProductionAction.Insert, Box).HasNewCommit, Is.True);
             Assert.That(port.OperateMachine(machine, ProductionAction.SetPower, powered: true).HasNewCommit, Is.True);
             Assert.That(port.OperateMachine(machine, ProductionAction.Start).HasNewCommit, Is.True);
             world.AdvanceTo(1000);
             Assert.That(port.GetBatch(Box)!.Kind, Is.EqualTo(MaterialKind.CrushedOre));
+            var after = port.ProductionSummary;
+            Assert.That(after.ActiveUnits, Is.EqualTo(8)); Assert.That(after.WasteUnits, Is.EqualTo(2)); Assert.That(after.CompletedCycles, Is.EqualTo(1));
+            Assert.That(before.ActiveUnits, Is.EqualTo(10)); Assert.That(before.WasteUnits, Is.Zero); Assert.That(before.CompletedCycles, Is.Zero);
             Assert.That(port.OperateMachine(machine, ProductionAction.Eject).HasNewCommit, Is.True);
             Assert.That(port.Grab(Box).HasNewCommit, Is.True);
             Assert.That(port.GetObject(Box)!.LeaseGeneration, Is.EqualTo(2));
+            world.Stop(); long revision = world.View.Revision;
+            var terminal = port.ProductionSummary;
+            Assert.That(terminal.ActiveUnits + terminal.WasteUnits, Is.EqualTo(terminal.IssuedUnits));
+            Assert.That(terminal.ActiveUnits, Is.EqualTo(after.ActiveUnits)); Assert.That(terminal.WasteUnits, Is.EqualTo(after.WasteUnits));
+            Assert.That(terminal.PendingCycles, Is.Zero); Assert.That(world.View.Revision, Is.EqualTo(revision));
         }
 
         [Test] public void LocalReactorSenderUsesCurrentCoreStateWithoutRepeatingStartupCost()
@@ -129,6 +138,11 @@ namespace CriticalShift.Offline.Tests
             var afterReplay = port.Power!;
             Assert.That(afterReplay.Spent, Is.EqualTo(spent)); Assert.That(afterReplay.Delivered, Is.EqualTo(delivered));
             Assert.That(port.OperateReactor(fixture.Reactor, ReactorAction.Shutdown).HasNewCommit, Is.True);
+            fixture.World.Stop(); long revision = fixture.World.View.Revision;
+            var terminal = port.Power!;
+            Assert.That(terminal.Delivered, Is.EqualTo(delivered)); Assert.That(terminal.Spent, Is.EqualTo(spent));
+            Assert.That(terminal.Initial + terminal.Generated, Is.EqualTo(terminal.Available + terminal.Spent + terminal.Delivered + terminal.Spilled));
+            Assert.That(fixture.World.View.Revision, Is.EqualTo(revision));
         }
     }
 }
