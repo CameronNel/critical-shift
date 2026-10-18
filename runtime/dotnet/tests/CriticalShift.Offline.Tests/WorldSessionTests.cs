@@ -80,6 +80,36 @@ namespace CriticalShift.Offline.Tests
             Assert.That(tick.ReleasedClaims.Single().EntityId, Is.EqualTo(Box));
             Assert.That(tick.Signals.Single().Basis, Is.EqualTo(WorldTimeBasis.RealTime));
             Assert.That(tick.World.PendingTimerCount, Is.EqualTo(1));
+            var expiry = w.Trace.Records.Single(record => record.Kind == SessionTraceKind.LeaseExpired);
+            Assert.That(expiry.Changed, Is.True); Assert.That(expiry.EntityId, Is.EqualTo(Box));
+            Assert.That(expiry.ClaimLeaseGeneration, Is.EqualTo(1)); Assert.That(expiry.InputSequence, Is.EqualTo(1));
+            Assert.That(expiry.PreviousClaimRevision, Is.EqualTo(1)); Assert.That(expiry.ClaimRevision, Is.EqualTo(2));
+            Assert.That(expiry.Phase, Is.EqualTo(WorldPhase.Paused)); Assert.That(expiry.ActorId, Is.EqualTo(Guid.Empty));
+        }
+
+        [Test]
+        public void AttachmentFailureTracePreservesTheCommittedLeaseAndRejectsStaleAttribution()
+        {
+            var world = New(); world.ExecuteInteraction(Connection, Grab(world)); var held = world.GetObject(Box)!;
+            Assert.That(world.ReportAttachmentFailure(world.Epoch, Box, held.LeaseGeneration).HasNewCommit, Is.True);
+            var record = world.Trace.Records.Last();
+            Assert.That(record.Kind, Is.EqualTo(SessionTraceKind.AttachmentFailed)); Assert.That(record.Changed, Is.True);
+            Assert.That(record.ActorId, Is.EqualTo(Actor)); Assert.That(record.EntityId, Is.EqualTo(Box));
+            Assert.That(record.InputSequence, Is.EqualTo(held.LeaseGeneration));
+            Assert.That(record.PreviousClaimRevision, Is.EqualTo(held.Revision));
+            Assert.That(record.ClaimRevision, Is.EqualTo(held.Revision + 1));
+            Assert.That(record.ClaimLeaseGeneration, Is.EqualTo(held.LeaseGeneration));
+            world.ExecuteInteraction(Connection, new InteractionCommand(world.Epoch, 2, InteractionKind.Grab, Box, world.GetObject(Box)!.Revision));
+            var current = world.GetObject(Box)!; long revision = world.View.Revision;
+            Assert.That(world.ReportAttachmentFailure(world.Epoch, Box, held.LeaseGeneration).Status, Is.EqualTo(InteractionStatus.StaleLease));
+            record = world.Trace.Records.Last();
+            Assert.That(record.Changed, Is.False); Assert.That(record.ActorId, Is.EqualTo(Guid.Empty));
+            Assert.That(record.ClaimLeaseGeneration, Is.EqualTo(current.LeaseGeneration));
+            Assert.That(world.GetObject(Box)!.HolderId, Is.EqualTo(Actor)); Assert.That(world.View.Revision, Is.EqualTo(revision));
+            var oldEpoch = Guid.NewGuid(); world.ReportAttachmentFailure(oldEpoch, Box, current.LeaseGeneration);
+            record = world.Trace.Records.Last(); Assert.That(record.RequestEpoch, Is.EqualTo(oldEpoch));
+            Assert.That(record.PreviousClaimRevision, Is.Null); Assert.That(record.InteractionResult, Is.EqualTo(InteractionStatus.WrongEpoch));
+            Assert.That(record.ActorId, Is.EqualTo(Guid.Empty)); Assert.That(record.Changed, Is.False);
         }
 
         [Test]

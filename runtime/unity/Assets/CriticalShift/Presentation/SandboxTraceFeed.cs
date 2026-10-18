@@ -101,6 +101,8 @@ namespace CriticalShift.Presentation
                 case SessionTraceKind.RecoveryCancelled: return "Standing recovery cancelled";
                 case SessionTraceKind.RecoveryExpired: return "Standing recovery expired";
                 case SessionTraceKind.Disconnected: return "Worker disconnected";
+                case SessionTraceKind.AttachmentFailed: return "Grip released · physical binding failed";
+                case SessionTraceKind.LeaseExpired: return "Grip released · lease expired";
                 case SessionTraceKind.Started: return "Shift started";
                 case SessionTraceKind.Ended: return "Shift ended · " + record.Outcome;
                 case SessionTraceKind.Stopped: return "Fixture stopped";

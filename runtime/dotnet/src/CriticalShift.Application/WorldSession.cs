@@ -148,6 +148,11 @@ namespace CriticalShift.Application
                         entry.OwnerId, entry.Signal, entry.Clock == TimerClock.Host ?
                         WorldTimeBasis.RealTime : WorldTimeBasis.ShiftTime, entry.DueMilliseconds));
                 if (timeChanged || released.Count != 0 || due.Count != 0 || workerChanges.Count != 0) _revision = next;
+                foreach (var claim in released)
+                    _diagnostics.Append(View, Epoch, SessionTraceKind.LeaseExpired, entity: claim.EntityId,
+                        input: claim.LeaseGeneration, changed: true,
+                        interaction: new InteractionReply(InteractionStatus.Applied, false, claim),
+                        previousClaimRevision: claim.Revision - 1);
                 foreach (var change in workerChanges)
                     _diagnostics.Append(View, Epoch, SessionTraceKind.RecoveryExpired, change.Worker!.Id,
                         input: change.Worker.RecoveryAttempt, changed: true, worker: change,
@@ -296,8 +301,12 @@ namespace CriticalShift.Application
             RequireIdle(); long next = NextRevision();
             try
             {
+                var before = epoch == Epoch ? _interaction.GetObject(entityId) : null;
                 var reply = _interaction.ReportAttachmentFailure(epoch, entityId, generation);
                 if (reply.HasNewCommit) _revision = next;
+                _diagnostics.Append(View, epoch, SessionTraceKind.AttachmentFailed,
+                    reply.HasNewCommit ? before?.HolderId ?? Guid.Empty : Guid.Empty, entityId,
+                    generation, reply.HasNewCommit, interaction: reply, previousClaimRevision: before?.Revision);
                 return reply;
             }
             catch { FailClosed(); throw; }

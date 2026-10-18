@@ -47,6 +47,27 @@ namespace CriticalShift.Sandbox.Tests
             Assert.That(feed.Entries.Count, Is.EqualTo(count)); Assert.That(world.View.Revision, Is.EqualTo(revision)); world.Stop();
         }
 
+        [Test] public void GripDropsPublishOnceForBindingFailureAndLeaseExpiry()
+        {
+            var world = World(); var commands = new LocalCommandPort(world, Id(2)); var feed = new SandboxTraceFeed(commands);
+            world.Start(); commands.Grab(Id(10)); var held = commands.GetObject(Id(10));
+            world.ReportAttachmentFailure(world.Epoch, Id(10), held.LeaseGeneration); feed.Refresh();
+            var drop = feed.Entries[feed.Entries.Count - 1];
+            Assert.That(drop.Kind, Is.EqualTo(SessionTraceKind.AttachmentFailed)); Assert.That(drop.ActorId, Is.EqualTo(Id(1)));
+            Assert.That(drop.EntityId, Is.EqualTo(Id(10))); Assert.That(drop.CauseId, Is.EqualTo(Guid.Empty));
+            Assert.That(drop.Description, Does.Contain("Grip released")); int count = feed.Entries.Count;
+            commands.Grab(Id(10)); long revision = world.View.Revision;
+            world.ReportAttachmentFailure(world.Epoch, Id(10), held.LeaseGeneration); feed.Refresh(); feed.Refresh();
+            Assert.That(feed.Entries.Count, Is.EqualTo(count)); Assert.That(world.View.Revision, Is.EqualTo(revision));
+            Assert.That(commands.GetObject(Id(10)).HolderId, Is.EqualTo(Id(1)));
+            world.AdvanceTo(3000); feed.Refresh();
+            Assert.That(feed.Entries.Count, Is.EqualTo(count + 1));
+            drop = feed.Entries[feed.Entries.Count - 1];
+            Assert.That(drop.Kind, Is.EqualTo(SessionTraceKind.LeaseExpired)); Assert.That(drop.EntityId, Is.EqualTo(Id(10)));
+            Assert.That(drop.ActorId, Is.EqualTo(Guid.Empty)); Assert.That(drop.Description, Does.Contain("lease expired"));
+            world.AdvanceTo(3000); feed.Refresh(); Assert.That(feed.Entries.Count, Is.EqualTo(count + 1)); world.Stop();
+        }
+
         [Test] public void FeedStaysBoundedAndReadsTheStoppedWorldWithoutMutatingIt()
         {
             var world = World(); var commands = new LocalCommandPort(world, Id(2)); var feed = new SandboxTraceFeed(commands);

@@ -76,7 +76,7 @@ art acceptance.
 - Diagnostic controls, crusher/fuel/reactor fixture, lamps, valve/spindle/tread
   motion, material appearance and scratch-scene generator: written, unvalidated.
 - Nine pure command-port tests, fourteen worker-body claim tests, nine package
-  safety tests, five declared-boundary cases and 90 native sandbox
+  safety tests, five declared-boundary cases and 91 native sandbox
   tests are implemented, all **NotRun**. These are declared inventory counts,
   not discovered/executed results.
 - Direct first-person focus, context transfer/drop, power/cooling and start
@@ -676,3 +676,22 @@ native case checks a moving limb at prepare and resolve, with the walking
 capsule still disabled and the root unmoved. Source catalogue: 90 cases, all
 NotRun. Thresholds remain unvalidated fixture values; no recovery-feel or
 ragdoll-stability acceptance is claimed.
+
+Attachment-failure callbacks now append a typed record to the existing bounded
+Application trace, after the existing claim operation. Committed drops retain
+the holder, entity, requested lease and previous/resulting claim revision. Stale
+or wrong-epoch callbacks retain their rejection but cannot be attributed to the
+current holder or publish another drop in the derived feed. No new custody/event
+owner or notification callback is introduced; existing enum values are preserved
+by appending the new kind. S04/S08 source coverage adds one pure diagnostics case
+and one feed case. Native source catalogue: 91; both new cases and all compiler/
+engine execution remain NotRun.
+
+Lease expiry now adds its own typed entry after the existing claim-release
+transition, preserving entity, generation and revision change even during process
+pause. The existing released projection does not retain the former holder, so
+that trace entry leaves actor empty rather than inferring an actor. It does not
+copy a custody history or add another retention owner. The paused-expiry pure
+case and the new feed case check one expiry notification without duplicate
+publication on a repeated host sample. Declared counts are unchanged; execution
+remains NotRun.
