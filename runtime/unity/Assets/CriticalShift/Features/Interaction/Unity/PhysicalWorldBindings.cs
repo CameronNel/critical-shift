@@ -347,7 +347,12 @@ namespace CriticalShift.Features.Interaction.Unity
             {
                 Guid held = running ? HeldObject(pair.Key) : Guid.Empty;
                 if (held == Guid.Empty || !workers.ContainsKey(held)) pair.Value.Reset();
-                else if (applyForces) pair.Value.Step(deltaSeconds);
+                else
+                {
+                    // Reconcile pause without depending on another HUD/input event.
+                    if (world.View.Phase != WorldPhase.Running) pair.Value.Raised = false;
+                    if (applyForces) pair.Value.Step(deltaSeconds);
+                }
             }
             foreach (var worker in workers.Values)
             {
@@ -355,6 +360,7 @@ namespace CriticalShift.Features.Interaction.Unity
                 if (state == null || state.IsRetired) { worker.Release(); continue; }
                 if (!worker.Active) throw new InvalidOperationException("A registered worker body lost a physical segment.");
                 if (!state.HolderId.HasValue) { worker.Release(); continue; }
+                if (world.View.Phase != WorldPhase.Running) worker.Hoist(state, false);
                 if (world.GetWorkerForBody(worker.Id)?.Pose != WorkerPose.Down ||
                     !dragTargets.TryGetValue(state.HolderId.Value, out var target) || target.Anchor == null || !target.Anchor.gameObject.activeInHierarchy ||
                     (applyForces && !worker.Follow(state, target.Anchor, deltaSeconds)))

@@ -631,3 +631,11 @@ with conserved accounting. Test-only transport arrangements place the actor and
 container between stations; it does not prove walking/handling feel or navigation.
 The saved declared count remains 87; all engine/compiler/test execution is still
 NotRun.
+
+Pause reconciliation now cancels the worker hoist target and lift compensation
+inside the physical binding owner, even if no further HUD/input callback arrives.
+Resume keeps the lowered target until a fresh hoist input. The existing hoist
+case now pauses directly without an input event and checks that resume cannot
+restore the old lift; it remains NotRun. Equipment placement preflight also
+checks host lifetime, samples the clock before the query and routes unexpected
+observation failures through the same visible stop path as command execution.

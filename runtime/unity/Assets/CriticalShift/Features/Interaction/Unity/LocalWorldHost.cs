@@ -376,13 +376,14 @@ namespace CriticalShift.Features.Interaction.Unity
 
         private bool CanPlace(Guid entity, Guid slot)
         {
-            Physics.SyncTransforms();
-            if (!bindings.CanPlace(entity, slot))
+            if (!active || stopped) return false;
+            try
             {
-                LastAction = "The loading position is blocked or unavailable";
-                return false;
+                Pump(); Physics.SyncTransforms();
+                if (bindings.CanPlace(entity, slot)) return true;
+                LastAction = "The loading position is blocked or unavailable"; return false;
             }
-            return true;
+            catch (Exception exception) { StopAfterFailure(exception); return false; }
         }
 
         private InteractionReply RunCommand(Func<InteractionReply> operation)
