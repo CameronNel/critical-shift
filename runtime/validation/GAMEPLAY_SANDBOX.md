@@ -76,7 +76,7 @@ art acceptance.
 - Diagnostic controls, crusher/fuel/reactor fixture, lamps, valve/spindle/tread
   motion, material appearance and scratch-scene generator: written, unvalidated.
 - Nine pure command-port tests, fourteen worker-body claim tests, nine package
-  safety tests, five declared-boundary cases and 70 native sandbox
+  safety tests, five declared-boundary cases and 73 native sandbox
   tests are implemented, all **NotRun**. These are declared inventory counts,
   not discovered/executed results.
 - Direct first-person focus, context transfer/drop, power/cooling and start
@@ -116,7 +116,8 @@ These are initial test-fixture values, not shipped balance or measured results:
 3.5 m hard carry separation and 1.5 s sustained obstruction timeout; spring
 acceleration capped at 60 m/s²; cart speed 3.5 m/s and safe cargo proxy 35 kg;
 belt speed 1.4 m/s with acceleration capped at 8 m/s² and a 2 s blockage latch.
-The eight fixture batches begin at 12 logical units each. Physical mass uses
+The first fixture batch begins at 36 logical units; the other seven have 12 each.
+Physical mass uses
 0.75 kg/unit, clamped to 0.25–250 kg, with converted output updating the same
 physical container. Carry speed scales as `1/(1 + kg/20)`, bounded to 35–100%.
 These values make overload and slowdown observable in a small room; native
@@ -146,7 +147,7 @@ posture and claim mutation owner. No worker-domain rules are copied or changed.
 eleven-body, ten-joint debug rig. Only one mode supplies physical motion.
 The camera follows head position while retaining its look heading during a fall.
 
-Registered cart contact observations are bounded to eight sources and 32 query
+Registered physical contact observations are bounded to eight sources and 32 query
 hits. A 1.8 m/s closing-speed and moving-cart threshold produces a configured
 knockdown with a 1500 ms rule delay. Contact latching prevents repeated episodes
 from one continuous contact; cause IDs and ordered per-source observations use
@@ -385,3 +386,20 @@ solid carry bounds are bound before those non-contacting decorations are added.
 Two further native cases are written and NotRun: torque/claim/material ownership,
 and pause/release/new-lease/teardown resets. Existing cart and worker drag cases
 also check rotation exclusion. No physical/visual/feel acceptance is claimed.
+
+## Explicit heavy-load contact source
+
+Extend the same bounded worker contact observer with a configured falling-body
+path. The first crate now contains 36 units / 27 kg and carries two yellow
+warning bands. It is registered for both fixture workers; all other crates keep
+12 units / 9 kg. Only its free, unslotted, dynamic physical state can report a
+falling contact, with authored minimum mass 20 kg and downward/closing speed
+2.2 m/s. Current and immediately prior linear speeds cover the solver stopping
+the source at contact, without interpreting spin as downward translation. The
+existing cart's planar path remains at 1.8 m/s. Both routes use the same trusted
+observation identities, bounded impulse and continuous-contact latch; neither
+is a new health writer or a real injury model.
+Three additional native cases are written and NotRun: one falling-crate episode,
+held-source exclusion and the physical mass threshold. Contact timing, feel and
+ragdoll acceptance remain unvalidated. This does not install general collision
+damage, conveyor harm, reanimation or map hazard bindings.

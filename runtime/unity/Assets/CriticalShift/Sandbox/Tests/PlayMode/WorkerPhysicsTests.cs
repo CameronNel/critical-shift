@@ -24,6 +24,7 @@ namespace CriticalShift.Sandbox.Tests
         private double clock;
         private static Guid Id(int value) => new Guid(value, 0, 0, new byte[8]);
         private WorkerView Worker => host.World.GetWorker(Id(1));
+        private Rigidbody HeavyCrate => root.transform.Find("Local Gameplay Fixture/Material container 1").GetComponent<Rigidbody>();
 
         [UnitySetUp] public IEnumerator SetUp()
         {
@@ -188,6 +189,45 @@ namespace CriticalShift.Sandbox.Tests
             cart.position = controller.transform.position + new Vector3(0, 0.35f, -1.15f);
             cart.linearVelocity = Vector3.zero; Physics.SyncTransforms();
             for (int i = 0; i < 25; i++) yield return Step();
+            Assert.That(Worker.Pose, Is.EqualTo(WorkerPose.Upright)); Assert.That(Worker.RecoveryEpisode, Is.Zero);
+            Assert.That(controller.enabled, Is.True); Assert.That(DynamicBodies(), Is.Zero);
+        }
+
+        [UnityTest] public IEnumerator RegisteredHeavyFallingCrateCreatesOneKnockdownEpisode()
+        {
+            for (int i = 0; i < 15; i++) yield return Step();
+            var heavy = HeavyCrate; Assert.That(heavy.mass, Is.EqualTo(27).Within(0.001f));
+            heavy.position = controller.transform.position + Vector3.up * 3.2f;
+            heavy.linearVelocity = Vector3.down * 4; Physics.SyncTransforms();
+            for (int i = 0; i < 65 && Worker.Pose == WorkerPose.Upright; i++) yield return Step();
+            Assert.That(Worker.Pose, Is.EqualTo(WorkerPose.Down)); Assert.That(Worker.LastHazardId, Is.EqualTo(Id(100)));
+            long episode = Worker.RecoveryEpisode;
+            for (int i = 0; i < 30; i++) yield return Step();
+            Assert.That(Worker.RecoveryEpisode, Is.EqualTo(episode)); Assert.That(controller.enabled, Is.False);
+            Assert.That(DynamicBodies(), Is.EqualTo(11));
+        }
+
+        [UnityTest] public IEnumerator HeldHeavyCrateCannotReportAFreeFallingBodyImpact()
+        {
+            for (int i = 0; i < 15; i++) yield return Step();
+            var heavy = HeavyCrate;
+            heavy.position = controller.transform.position + Vector3.up + Vector3.forward * 1.3f; Physics.SyncTransforms();
+            host.Grab(Id(100)); Assert.That(host.World.GetObject(Id(100)).HolderId, Is.EqualTo(Id(1)));
+            heavy.position = controller.transform.position + Vector3.up * 2.1f;
+            heavy.linearVelocity = Vector3.down * 4; Physics.SyncTransforms();
+            for (int i = 0; i < 30; i++) yield return Step();
+            Assert.That(Worker.Pose, Is.EqualTo(WorkerPose.Upright)); Assert.That(Worker.RecoveryEpisode, Is.Zero);
+            Assert.That(host.World.GetObject(Id(100)).HolderId, Is.EqualTo(Id(1))); Assert.That(controller.enabled, Is.True);
+        }
+
+        [UnityTest] public IEnumerator RegisteredFallingSourceBelowTheMassThresholdCannotKnockDown()
+        {
+            for (int i = 0; i < 15; i++) yield return Step();
+            var heavy = HeavyCrate;
+            heavy.mass = 9; // Synthetic observation fixture for the authored physical threshold.
+            heavy.position = controller.transform.position + Vector3.up * 3.2f;
+            heavy.linearVelocity = Vector3.down * 4; Physics.SyncTransforms();
+            for (int i = 0; i < 65; i++) yield return Step();
             Assert.That(Worker.Pose, Is.EqualTo(WorkerPose.Upright)); Assert.That(Worker.RecoveryEpisode, Is.Zero);
             Assert.That(controller.enabled, Is.True); Assert.That(DynamicBodies(), Is.Zero);
         }

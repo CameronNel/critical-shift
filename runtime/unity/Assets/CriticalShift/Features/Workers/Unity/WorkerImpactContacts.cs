@@ -5,13 +5,15 @@ using UnityEngine;
 
 namespace CriticalShift.Features.Workers.Unity
 {
-    /// <summary>Bounded host contact observations for explicitly registered moving-cart hazards.</summary>
+    /// <summary>Bounded host contact observations for explicitly registered cart and heavy falling-body hazards.</summary>
     [DisallowMultipleComponent]
     public sealed class WorkerImpactContacts : MonoBehaviour
     {
+        private const float FallingMinimumMass = 20, FallingSpeed = 2.2f, CartSpeed = 1.8f;
         private sealed class Source
         {
             internal Guid Id; internal Rigidbody Body; internal Vector3 PreviousVelocity;
+            internal bool Falling; internal Func<bool> Eligible;
             internal bool ContactLatched;
         }
         private readonly List<Source> sources = new List<Source>();
@@ -34,13 +36,17 @@ namespace CriticalShift.Features.Workers.Unity
             observe = report ?? throw new ArgumentNullException(nameof(report)); failure = onFailure ?? throw new ArgumentNullException(nameof(onFailure));
         }
 
-        public void BindHazard(Guid id, Rigidbody body)
+        public void BindHazard(Guid id, Rigidbody body) => BindSource(id, body, false, null);
+        public void BindFallingHazard(Guid id, Rigidbody body, Func<bool> eligible) =>
+            BindSource(id, body, true, eligible ?? throw new ArgumentNullException(nameof(eligible)));
+
+        private void BindSource(Guid id, Rigidbody body, bool falling, Func<bool> eligible)
         {
             if (active || controller == null || id == Guid.Empty || body == null || body.isKinematic || sources.Count >= 8)
                 throw new InvalidOperationException("Bind bounded dynamic hazard bodies before activating contact sampling.");
             foreach (var source in sources)
                 if (source.Id == id || source.Body == body) throw new InvalidOperationException("Duplicate physical hazard source.");
-            sources.Add(new Source { Id = id, Body = body });
+            sources.Add(new Source { Id = id, Body = body, Falling = falling, Eligible = eligible });
         }
 
         public void Activate()
@@ -73,21 +79,29 @@ namespace CriticalShift.Features.Workers.Unity
                     Collider contact = null;
                     for (int i = 0; i < count; i++)
                         if (overlaps[i] != null && overlaps[i].attachedRigidbody == source.Body) { contact = overlaps[i]; break; }
-                    Vector3 current = source.Body.GetPointVelocity(center);
+                    Vector3 current = source.Falling ? source.Body.linearVelocity : source.Body.GetPointVelocity(center);
+                    if (source.Falling && (source.Body.isKinematic || source.Body.mass < FallingMinimumMass || !source.Eligible()))
+                    {
+                        if (contact == null) source.ContactLatched = false;
+                        source.PreviousVelocity = current; continue;
+                    }
                     if (contact == null) source.ContactLatched = false;
                     else if (!source.ContactLatched)
                     {
                         Vector3 point = contact.ClosestPoint(center);
-                        Vector3 towardWorker = Vector3.ProjectOnPlane(center - point, Vector3.up);
+                        Vector3 towardWorker = source.Falling ? center - point : Vector3.ProjectOnPlane(center - point, Vector3.up);
                         if (towardWorker.sqrMagnitude < 0.0001f)
-                            towardWorker = Vector3.ProjectOnPlane(center - source.Body.worldCenterOfMass, Vector3.up);
+                            towardWorker = source.Falling ? center - source.Body.worldCenterOfMass :
+                                Vector3.ProjectOnPlane(center - source.Body.worldCenterOfMass, Vector3.up);
                         towardWorker.Normalize();
                         float closing = Mathf.Max(Vector3.Dot(current - workerVelocity, towardWorker),
                             Vector3.Dot(source.PreviousVelocity - workerVelocity, towardWorker));
-                        float cartSpeed = Mathf.Max(Vector3.ProjectOnPlane(current, Vector3.up).magnitude,
-                            Vector3.ProjectOnPlane(source.PreviousVelocity, Vector3.up).magnitude);
-                        // Walking into a stationary cart does not qualify as a moving-cart knockdown.
-                        if (closing >= 1.8f && cartSpeed >= 1.8f)
+                        float sourceSpeed = source.Falling ? Mathf.Max(0, Mathf.Max(-current.y, -source.PreviousVelocity.y)) :
+                            Mathf.Max(Vector3.ProjectOnPlane(current, Vector3.up).magnitude,
+                                Vector3.ProjectOnPlane(source.PreviousVelocity, Vector3.up).magnitude);
+                        float threshold = source.Falling ? FallingSpeed : CartSpeed;
+                        // A worker walking into a stationary source cannot invent source motion.
+                        if (closing >= threshold && sourceSpeed >= threshold)
                         {
                             Vector3 impulse = (towardWorker + Vector3.up * 0.12f) * Mathf.Min(55, source.Body.mass * closing * 0.3f);
                             var status = observe(source.Id, impulse, point);

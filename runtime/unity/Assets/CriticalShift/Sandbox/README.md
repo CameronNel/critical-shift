@@ -51,6 +51,10 @@ test worker. The second worker is controlled locally for this fixture.
   Recovery needs static ground, a clear standing capsule and a second clearance
   check during the pending handoff. The panel also has an explicit fixture-only
   knockdown button. Reanimation remains separate work.
+- Crate one has two extra yellow warning bands: 36 units / 27 kg. It is the
+  fixture's explicitly registered falling-load hazard. A free downward contact
+  above the authored speed/mass threshold uses the same knockdown flow. Held,
+  slotted and lightweight bodies cannot take that hazard path.
 - Look at the test worker's physical suit grip and E begins a single-person
   drag; G releases. Pulling uses the same exclusive claim and current lease as
   containers, and slows movement using the 68 kg debug body proxy. Excessive
@@ -113,7 +117,7 @@ on the inspected baseline. No package is downloaded by the generator.
 
 The existing foundation runner still tests its foundation assembly selection;
 it does not automatically claim sandbox coverage. The separate native inventory
-is `runtime/validation/sandbox-expected-tests.json`: 70 implemented cases, all
+is `runtime/validation/sandbox-expected-tests.json`: 73 implemented cases, all
 NotRun. Nine new pure command-port cases, fourteen worker-body claim cases and
 nine source-package safety cases and five declared-assembly boundary cases
 are also NotRun. Native fixtures are offset from possible active-scene content

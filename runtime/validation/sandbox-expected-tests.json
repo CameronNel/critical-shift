@@ -1,5 +1,8 @@
 {
   "PlayMode": [
+    "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.RegisteredHeavyFallingCrateCreatesOneKnockdownEpisode",
+    "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.HeldHeavyCrateCannotReportAFreeFallingBodyImpact",
+    "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.RegisteredFallingSourceBelowTheMassThresholdCannotKnockDown",
     "CriticalShift.Sandbox.Tests.LocalWorldHostTests.RotatingHeldCrateUsesTorqueWithoutAnotherLogicalMutation",
     "CriticalShift.Sandbox.Tests.LocalWorldHostTests.CarryRotationStopsDuringPauseAndResetsAcrossReleaseLeaseAndTeardown",
     "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.ShortHopLandsWithTheWalkingCapsuleStillOwningMotion",
