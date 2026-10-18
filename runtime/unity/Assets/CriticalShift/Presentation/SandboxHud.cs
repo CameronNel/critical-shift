@@ -192,11 +192,12 @@ namespace CriticalShift.Presentation
             GUILayout.Label(custody?.HolderId == actor ? "You are holding this crate" : custody?.SlotId != null ? "Loaded into equipment" : "In the world");
             GUILayout.BeginHorizontal();
             bool mayRelease = GUI.enabled;
-            GUI.enabled = mayRelease && commands.World.Phase == WorldPhase.Running;
+            GUI.enabled = mayRelease && commands.World.Phase == WorldPhase.Running && commands.GetWorker(actor)?.CanInteract == true;
             if (GUILayout.Button("Grab selected")) GrabRequested?.Invoke(id);
-            GUI.enabled = mayRelease;
+            GUI.enabled = mayRelease && custody?.HolderId == actor;
             if (GUILayout.Button("Release selected")) ReleaseRequested?.Invoke(id);
             GUILayout.EndHorizontal();
+            GUI.enabled = mayRelease;
         }
 
         private void DrawMachine()
@@ -213,7 +214,7 @@ namespace CriticalShift.Presentation
             if (GUILayout.Button("Insert selected")) MachineRequested?.Invoke(id, ProductionAction.Insert, containers[selectedContainer], false, false);
             if (GUILayout.Button("Eject")) MachineRequested?.Invoke(id, ProductionAction.Eject, Guid.Empty, false, false);
             GUILayout.EndHorizontal();
-            bypass = GUILayout.Toggle(bypass, "Bypass inspection (accept contaminated output risk)");
+            bypass = GUILayout.Toggle(bypass, "Bypass inspection (faster; wet-batch jam and suspect-fuel risk)");
             GUILayout.BeginHorizontal();
             if (GUILayout.Button("Start cycle")) MachineRequested?.Invoke(id, ProductionAction.Start, Guid.Empty, bypass, false);
             if (GUILayout.Button(state.Powered ? "Power off" : "Power on")) MachineRequested?.Invoke(id, ProductionAction.SetPower, Guid.Empty, false, !state.Powered);
@@ -230,7 +231,8 @@ namespace CriticalShift.Presentation
             GUILayout.Space(8); var state = commands.Reactor;
             GUILayout.Label("REACTOR | " + (state == null ? "unavailable" : state.Mode.ToString()));
             if (state == null) return;
-            GUILayout.Label("Reserve " + state.Power.Available + " | grid delivered " + state.Power.Delivered + " | instability " + state.InstabilityMilliseconds);
+            GUILayout.Label("Reserve " + state.Power.Available + " | grid delivered " + state.Power.Delivered +
+                " | instability " + state.InstabilityMilliseconds + " ms", wrapped);
             GUILayout.BeginHorizontal();
             if (GUILayout.Button("Load selected fuel")) ReactorRequested?.Invoke(reactor, ReactorAction.Insert, containers[selectedContainer], false);
             if (GUILayout.Button("Eject fuel")) ReactorRequested?.Invoke(reactor, ReactorAction.Eject, Guid.Empty, false);

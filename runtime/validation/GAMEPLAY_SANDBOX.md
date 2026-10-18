@@ -562,3 +562,10 @@ ram, tread or roller. This never rolls back or retries a committed game action.
 The strict native log/Player error checks stay in force. A latched physics fault
 also shows its existing reason in the wrapped fixture status panel. These source
 diagnostics have not been executed; no new cosmetic mirror test is introduced.
+
+The fixture panel now disables selected-crate Grab for a non-interacting worker
+and Release unless that actor holds the selected crate. Host admission remains
+authoritative. Bypass help names the actual faster/wet-jam/suspect-fuel behavior,
+and reactor instability includes its milliseconds unit. The source-only native
+catalogue comparison currently finds 86 declared methods and 86 saved identities
+with no missing/extra names; this is not Unity discovery or execution evidence.
