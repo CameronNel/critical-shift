@@ -78,11 +78,56 @@ namespace CriticalShift.Sandbox.Tests
         {
             var body = Body("Cart", Vector3.zero); body.mass = 35;
             var motor = body.gameObject.AddComponent<CartMotor>(); motor.Initialize(() => true, () => 20);
+            var pivots = WheelPivots(body.transform);
+            body.gameObject.AddComponent<CartWheelMotion>().Initialize(motor, pivots);
             motor.SetDrive(1, 0, false);
-            for (int i = 0; i < 100; i++) yield return new WaitForFixedUpdate();
+            float observedRoll = 0;
+            for (int i = 0; i < 100; i++)
+            {
+                yield return new WaitForFixedUpdate();
+                observedRoll = Mathf.Max(observedRoll, Quaternion.Angle(Quaternion.identity, pivots[0].localRotation));
+            }
             Assert.That(motor.Speed, Is.GreaterThan(1));
             Assert.That(motor.Speed, Is.LessThanOrEqualTo(motor.MaximumSpeed + 0.05f));
             Assert.That(Mathf.Abs(body.linearVelocity.y), Is.LessThan(0.001f));
+            motor.SetDrive(0, 0, true);
+            for (int i = 0; i < 40; i++) yield return new WaitForFixedUpdate();
+            yield return null;
+            Assert.That(observedRoll, Is.GreaterThan(15));
+            for (int i = 1; i < pivots.Length; i++)
+                Assert.That(Quaternion.Angle(pivots[0].localRotation, pivots[i].localRotation), Is.LessThan(0.01f));
+        }
+
+        private Transform[] WheelPivots(Transform cart)
+        {
+            var pivots = new Transform[4];
+            for (int i = 0; i < pivots.Length; i++)
+            {
+                pivots[i] = new GameObject("Visual wheel pivot " + i).transform;
+                pivots[i].SetParent(cart, false);
+            }
+            return pivots;
+        }
+
+        [Test] public void WheelAnimationRejectsContactShapesDuplicatePivotsAndOtherCarts()
+        {
+            var body = Body("Wheel binding cart", Vector3.zero);
+            var motor = body.gameObject.AddComponent<CartMotor>(); motor.Initialize(() => true, () => 0);
+            var animation = body.gameObject.AddComponent<CartWheelMotion>();
+            var pivots = WheelPivots(body.transform);
+            var contact = pivots[0].gameObject.AddComponent<BoxCollider>();
+            Assert.Throws<System.ArgumentException>(() => animation.Initialize(motor, pivots));
+            contact.enabled = false;
+            var duplicate = (Transform[])pivots.Clone(); duplicate[1] = duplicate[0];
+            Assert.Throws<System.ArgumentException>(() => animation.Initialize(motor, duplicate));
+            pivots[1].SetParent(pivots[0], false);
+            Assert.Throws<System.ArgumentException>(() => animation.Initialize(motor, pivots));
+            pivots[1].SetParent(root.transform, false);
+            Assert.Throws<System.ArgumentException>(() => animation.Initialize(motor, pivots));
+            pivots[1].SetParent(body.transform, false);
+            animation.Initialize(motor, pivots);
+            Assert.That(body.position, Is.EqualTo(root.transform.position));
+            Assert.That(contact.enabled, Is.False);
         }
 
         [UnityTest] public IEnumerator CartBrakeReducesPlanarSpeedWithoutVerticalImpulse()

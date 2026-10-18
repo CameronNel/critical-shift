@@ -639,3 +639,13 @@ case now pauses directly without an input event and checks that resume cannot
 restore the old lift; it remains NotRun. Equipment placement preflight also
 checks host lifetime, samples the clock before the query and routes unexpected
 observation failures through the same visible stop path as command execution.
+
+Cart wheel animation now validates four unique, unnested visual pivots under the
+same cart. Enabled contact shapes or Rigidbody descendants cannot be assigned to
+the moving visuals. Validation finishes before installing the binding, so a
+rejected setup cannot leave a partial LateUpdate path. Lost wheel/drive references
+disable the cosmetic component and emit a named diagnostic. Reenable resamples
+position to avoid treating disabled-time relocation as travel. The existing cart
+speed case also observes wheel rolling, and one added native case rejects unsafe
+bindings. The declared source catalogue is now 88 cases; every native case and
+compiler remains NotRun.
