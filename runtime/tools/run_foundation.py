@@ -42,7 +42,7 @@ def source_files(root: Path) -> list[Path]:
         for path in directory.rglob("*"):
             if path.is_symlink():
                 raise EvidenceError("Symlinks are not permitted in the validation input.")
-            if directory == package and {"bin", "obj"}.intersection(path.relative_to(package).parts):
+            if directory == package and ({"bin", "obj"}.intersection(path.relative_to(package).parts) or path.suffix.lower() == ".dll"):
                 raise EvidenceError("Build output inside the Unity source package must be removed before validation.")
             if path.is_file():
                 files.append(path)

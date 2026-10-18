@@ -47,7 +47,7 @@ def validate_log(text: str) -> None:
     patterns = (
         r"\b(?:NullReference|InvalidOperation|MissingReference|Argument|TypeLoad|FileNotFound|NotImplemented)Exception\b",
         r"\b(?:error CS\d+|Unhandled [Ee]xception|Assertion failed|Aborting batchmode|Fatal error)\b",
-        r"Assets[/\\]CriticalShift[/\\].*\b(?:warning|error)\b",
+        r"(?:Assets[/\\]CriticalShift[/\\]|Packages[/\\]com\.criticalshift\.gameplay[/\\]|runtime[/\\]dotnet[/\\]src[/\\]).*\b(?:warning|error)\b",
     )
     if any(re.search(pattern, text) for pattern in patterns):
         raise EvidenceError("Execution log contains a critical error or first-party diagnostic.")

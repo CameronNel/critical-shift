@@ -80,7 +80,7 @@ on the inspected baseline. No package is downloaded by the generator.
 The existing foundation runner still tests its foundation assembly selection;
 it does not automatically claim sandbox coverage. The separate native inventory
 is `runtime/validation/sandbox-expected-tests.json`: 40 implemented cases, all
-NotRun. Nine new pure command-port cases and eight source-package safety cases
+NotRun. Nine new pure command-port cases and nine source-package safety cases
 are also NotRun. Native fixtures are offset from possible active-scene content
 to avoid collisions with an unrelated map/scene at the origin.
 

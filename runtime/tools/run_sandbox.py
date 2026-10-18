@@ -28,6 +28,7 @@ def run(unity: str | None, output_parent: Path, target: str, build_player: bool 
     expected = json.loads((RUNTIME / "validation/sandbox-expected-tests.json").read_text())["PlayMode"]
     phases = {name: {"status": "NotRun"} for name in ("import", "PlayMode", "build", "player")}
     report = {"started_utc": utc(), "profile": profile, "target": target, "status": "NotRun", "phases": phases,
+              "expected_playmode_tests": expected,
               "independent_review": "NotRun", "limits": "Sandbox import/declared physics cases only; no Player execution, feel, art, multiplayer, performance or gate acceptance."}
     try:
         report["commit"] = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=RUNTIME, text=True, timeout=10).strip()

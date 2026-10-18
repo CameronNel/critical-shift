@@ -142,6 +142,22 @@ class PlayerEvidenceTests(unittest.TestCase):
         with self.assertRaises(EvidenceError):
             validate_log("Assets/CriticalShift/Bootstrap/X.cs(1,2): warning CS0168: unused\n")
 
+    def test_canonical_package_warning_rejected(self):
+        for separator in ("/", "\\"):
+            with self.subTest(separator=separator), self.assertRaises(EvidenceError):
+                path = separator.join(("Packages", "com.criticalshift.gameplay", "CriticalShift.Application", "WorldSession.cs"))
+                validate_log(path + "(1,2): warning CS0168: unused\n")
+
+    def test_physical_canonical_source_warning_rejected(self):
+        for separator in ("/", "\\"):
+            with self.subTest(separator=separator), self.assertRaises(EvidenceError):
+                path = separator.join(("runtime", "dotnet", "src", "CriticalShift.Application", "WorldSession.cs"))
+                validate_log(path + "(1,2): warning CS0168: unused\n")
+
+    def test_third_party_warning_remains_separate(self):
+        validate_log("Packages/com.unity.example/Example.cs(1,2): warning CS0168: tracked separately\n")
+        validate_log("Packages/com.criticalshift.gameplay.vendor/Example.cs(1,2): warning CS0168: separate package\n")
+
 
 class RunnerSafetyTests(unittest.TestCase):
     def test_output_inside_source_is_rejected_before_creation(self):

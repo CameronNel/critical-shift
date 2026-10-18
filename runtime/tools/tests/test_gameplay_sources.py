@@ -69,6 +69,19 @@ class GameplaySourceTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             gameplay_sources(self.root)
 
+    def test_loose_binary_cannot_enter_the_canonical_source_package(self):
+        for filename in ("DuplicateGameplay.dll", "DuplicateGameplay.DLL"):
+            with self.subTest(filename=filename):
+                binary = self.package / filename
+                binary.write_bytes(b"not a permitted source input")
+                try:
+                    with self.assertRaises(ValueError):
+                        gameplay_sources(self.root)
+                    with self.assertRaises(EvidenceError):
+                        source_files(self.root)
+                finally:
+                    binary.unlink()
+
     def test_canonical_sources_are_included_in_disposable_evidence(self):
         path = self.package / "CriticalShift.Application/WorldSession.cs"
         self.assertIn(path, source_files(self.root))

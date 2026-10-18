@@ -75,7 +75,7 @@ art acceptance.
   jam latch, local walking: written, unvalidated.
 - Diagnostic controls, crusher/fuel/reactor fixture, lamps, valve/spindle/tread
   motion, material appearance and scratch-scene generator: written, unvalidated.
-- Nine pure command-port tests, eight package safety tests and 40 native sandbox
+- Nine pure command-port tests, nine package safety tests and 40 native sandbox
   tests are implemented, all **NotRun**. These are declared inventory counts,
   not discovered/executed results.
 - Direct first-person focus, context transfer/drop, power/cooling and start
@@ -123,7 +123,8 @@ stability, feel and target-hardware performance must still be measured.
 
 Source checkpoints: `aa172367` (one canonical Unity/.NET source package),
 `532a5116` (first connected sandbox source), `8e9bae2a` (focus/carry/lifecycle)
-and `a58278db` (exclusive cart-handle claims). Subsequent edits remain part of
+`a58278db` (exclusive cart-handle claims) and `b70c4311` (worker physics trial).
+Subsequent edits remain part of
 this same ongoing ten-hour pass; no checkpoint is gate acceptance.
 
 The physical cart-handle source trial uses 1.4 m entry distance from its operator
@@ -165,3 +166,11 @@ recovery delay and single controller, low ceiling, missing ground, and impact
 interruption of a pending recovery. Ten-cycle teardown also checks that the old
 body rig becomes kinematic. Body dragging, aid/reanimation, production character
 art/animation and multiplayer coverage are still separate unfinished work.
+
+The subsequent source review added three native-log parser fixtures for the
+canonical local package's diagnostic paths and separation of vendor warnings,
+plus one source-package fixture rejecting loose binaries with either DLL casing.
+These tooling cases also remain NotRun. Native input copying rejects those
+binaries before launching an Editor, and reports retain the exact expected test
+inventory used for comparison. A lightweight main fetch after the worker source
+checkpoint still resolves to `3853995c`; there were no new upstream commits.

@@ -46,7 +46,7 @@ def gameplay_sources(root: Path) -> Path:
     for path in package.rglob("*"):
         if path.is_symlink():
             raise ValueError("Gameplay sources must be portable ordinary files, not symlinks.")
-        if {"bin", "obj"}.intersection(path.relative_to(package).parts) or path.suffix == ".dll":
+        if {"bin", "obj"}.intersection(path.relative_to(package).parts) or path.suffix.lower() == ".dll":
             raise ValueError("Build output must remain outside the canonical Unity source package.")
     return package
 
