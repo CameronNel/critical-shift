@@ -47,6 +47,12 @@ Importer: transparency for baked materials (base map alpha kept on import), the 
 - Failure paths stop the runner: a broken plan (uncaught Python error), a missing raw map, a deleted texture and an emptied `lights.json` each end the run with a non-zero exit.
 - The rehearsal (below) runs all 13 map pieces through every stage.
 
+**Found by the rehearsal and fixed (2026-10-18):**
+- **Glass read as frosted.** Transmission glass became a 25 % white overlay (the dock's windows and hatch looked milky). Now clear glass bakes with no diffuse (transmission has none) at alpha 0.1 and imports with URP's *Preserve Specular* blend: the background shows through at 90 % and reflections stay whole. Decals and films keep the plain alpha blend.
+- **The new check's own false alarms**, made precise: clear glass is black by design; a text object's own geometry is not an instance; Blender's FBX importer drops a trailing `.5` from a material name (the FBX keeps it, and the Unity importer now matches either way).
+- **Not fixable by a bake, listed in the log:** view-dependent shading (Layer Weight, Fresnel, Light Path) bakes as seen head-on. The turbine's blue rim glow on M_ARCH, M_MACH, M_PROPS and M_SHAFT (Emission mixed in by Layer Weight *Facing*) is lost; URP Lit has no rim term, so bringing it back needs a small custom shader (owner's call).
+- **Expected differences in the comparison renders:** Cycles does not trace light through glass by default, so in the source renders glass casts dark shadows (the dock's counter and speaker ring); URP's transparent glass casts none, like the baked renders. The 256 px rehearsal atlases also soften fine detail (sign text, wet-floor highlights).
+
 ## Pilot result: cooling plant (`cooling-plant/`)
 
 **Source and counts:** `sources/cooling-plant/module_aaa_A1.blend`, the AAA finish the map uses (unchanged). 1,570 meshes, 314,689 triangles after the modifiers, 23 materials: 18 procedural, baked; 5 constant, kept as values.
