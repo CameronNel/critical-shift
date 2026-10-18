@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace CriticalShift.Presentation
@@ -16,18 +15,16 @@ namespace CriticalShift.Presentation
         private readonly ProcessMoteStyle style;
         internal int VisibleCount { get; private set; }
 
-        internal ProcessVisualPool(Transform[] items, ProcessMoteStyle motion)
+        internal ProcessVisualPool(Transform owner, Transform[] items, ProcessMoteStyle motion)
         {
             if (items == null || items.Length == 0 || items.Length > 16) throw new ArgumentException("Bind a bounded cosmetic marker pool.");
+            MovingVisualBindings.Validate(owner, items);
             markers = (Transform[])items.Clone(); surfaces = new Renderer[items.Length]; sizes = new Vector3[items.Length];
             properties = new MaterialPropertyBlock[items.Length]; style = motion;
-            var unique = new HashSet<Transform>();
             for (int i = 0; i < items.Length; i++)
             {
-                if (items[i] == null || !unique.Add(items[i]) || items[i].GetComponent<Renderer>() == null || items[i].GetComponent<Rigidbody>() != null)
-                    throw new ArgumentException("Each cosmetic marker must be a unique renderer without a motion body.");
-                foreach (var collider in items[i].GetComponentsInChildren<Collider>())
-                    if (collider.enabled) throw new ArgumentException("Cosmetic markers must not introduce physical contacts.");
+                if (items[i].GetComponent<Renderer>() == null)
+                    throw new ArgumentException("Each cosmetic marker must have a renderer.");
                 surfaces[i] = items[i].GetComponent<Renderer>(); sizes[i] = items[i].localScale;
                 properties[i] = new MaterialPropertyBlock();
             }

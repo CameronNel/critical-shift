@@ -76,7 +76,7 @@ art acceptance.
 - Diagnostic controls, crusher/fuel/reactor fixture, lamps, valve/spindle/tread
   motion, material appearance and scratch-scene generator: written, unvalidated.
 - Nine pure command-port tests, fourteen worker-body claim tests, nine package
-  safety tests, five declared-boundary cases and 87 native sandbox
+  safety tests, five declared-boundary cases and 89 native sandbox
   tests are implemented, all **NotRun**. These are declared inventory counts,
   not discovered/executed results.
 - Direct first-person focus, context transfer/drop, power/cooling and start
@@ -649,3 +649,13 @@ position to avoid treating disabled-time relocation as travel. The existing cart
 speed case also observes wheel rolling, and one added native case rejects unsafe
 bindings. The declared source catalogue is now 88 cases; every native case and
 compiler remains NotRun.
+
+The presentation assembly now checks its explicitly moved machine parts, reactor
+valve/gauges/motes and bin contents through one setup check. Parts must be unique,
+unnested descendants of the owning presentation object, without Rigidbody
+descendants or enabled contact shapes, including inactive children. This closes
+the reactor/inactive-child gaps and keeps animation out of physical ownership.
+Machine/reactor pool validation finishes before installing their live query
+binding. One new native case exercises rejected reactor setups and then a valid
+setup on that same component, with unchanged world revision. Source catalogue:
+89 cases, all NotRun. No engine/package/renderer decision changes.

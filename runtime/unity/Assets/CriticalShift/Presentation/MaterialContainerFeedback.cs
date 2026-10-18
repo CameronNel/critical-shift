@@ -27,16 +27,15 @@ namespace CriticalShift.Presentation
             if (queries != null || read == null || container == Guid.Empty || renderer == null || contentMarkers == null ||
                 contentMarkers.Length == 0 || contentMarkers.Length > 16 || capacityUnits < 1)
                 throw new ArgumentException("Bind one explicit material-container projection and surface.");
+            MovingVisualBindings.Validate(transform, contentMarkers);
             var unique = new HashSet<Renderer> { renderer };
             var visuals = new Renderer[contentMarkers.Length];
             for (int i = 0; i < contentMarkers.Length; i++)
             {
                 var item = contentMarkers[i];
-                visuals[i] = item == null ? null : item.GetComponent<Renderer>();
-                if (item == null || visuals[i] == null || !unique.Add(visuals[i]) || item.GetComponent<Rigidbody>() != null)
+                visuals[i] = item.GetComponent<Renderer>();
+                if (visuals[i] == null || !unique.Add(visuals[i]))
                     throw new ArgumentException("Each bounded content marker needs its own non-physical renderer.");
-                foreach (var collider in item.GetComponentsInChildren<Collider>())
-                    if (collider.enabled) throw new ArgumentException("Visible contents cannot add contact colliders.");
             }
             queries = read; id = container; surface = renderer;
             contents = (Transform[])contentMarkers.Clone(); contentRenderers = visuals; capacity = capacityUnits;

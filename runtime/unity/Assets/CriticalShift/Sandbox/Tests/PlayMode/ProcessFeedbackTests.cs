@@ -83,6 +83,28 @@ namespace CriticalShift.Sandbox.Tests
             Assert.That(commands.OperateMachine(Id(20), ProductionAction.Start).HasNewCommit, Is.True);
         }
 
+        [Test] public void ReactorVisualSetupRejectsHiddenMotionBodiesAndNestedPartsBeforeBinding()
+        {
+            var candidate = root.AddComponent<ReactorFeedback>(); candidate.enabled = false;
+            var shell = Visual("Candidate reactor face", root.transform).GetComponent<Renderer>();
+            var lamp = Child("Candidate lamp").gameObject.AddComponent<Light>();
+            var valve = Child("Candidate valve"); var fuel = Child("Candidate fuel needle"); var reserve = Child("Candidate reserve needle");
+            var vents = Markers("Candidate vent", 6);
+            var hidden = new GameObject("Unexpected hidden motion body"); hidden.transform.SetParent(valve, false);
+            hidden.AddComponent<Rigidbody>().isKinematic = true; hidden.SetActive(false);
+            long revision = world.View.Revision;
+            Assert.Throws<ArgumentException>(() => candidate.Initialize(commands, shell, lamp, valve, vents, fuel, reserve));
+            valve = Child("Clean candidate valve"); fuel.SetParent(valve, false);
+            Assert.Throws<ArgumentException>(() => candidate.Initialize(commands, shell, lamp, valve, vents, fuel, reserve));
+            fuel.SetParent(root.transform, false);
+            var contact = reserve.gameObject.AddComponent<BoxCollider>();
+            Assert.Throws<ArgumentException>(() => candidate.Initialize(commands, shell, lamp, valve, vents, fuel, reserve));
+            contact.enabled = false;
+            candidate.Initialize(commands, shell, lamp, valve, vents, fuel, reserve);
+            Assert.That(world.View.Revision, Is.EqualTo(revision));
+            Assert.That(candidate.VisibleMoteCount, Is.Zero);
+        }
+
         [UnityTest] public IEnumerator PowerPauseStopsSparksAndPreservesCommittedProgress()
         {
             StartMachine(); world.AdvanceTo(250); yield return null; yield return null;

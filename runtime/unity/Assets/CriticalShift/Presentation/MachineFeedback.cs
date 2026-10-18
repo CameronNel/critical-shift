@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using CriticalShift.Application;
 using UnityEngine;
 
@@ -35,22 +34,16 @@ namespace CriticalShift.Presentation
                 loadingClamps[0] == null || loadingClamps[1] == null || loadingClamps[0] == loadingClamps[1] ||
                 loadingClamps[0] == processRam || loadingClamps[1] == processRam)
                 throw new ArgumentException("Machine feedback needs explicit query, renderer, light and spindle bindings.");
-            var moving = new HashSet<Transform> { spindle, progressFill, powerSwitch, processRam, loadingClamps[0], loadingClamps[1] };
-            if (moving.Count != 6) throw new ArgumentException("Each moving machine visual needs its own transform.");
-            foreach (var pivot in moving)
-            {
-                if (pivot.GetComponentsInChildren<Rigidbody>().Length != 0) throw new ArgumentException("Machine presentation cannot move physical bodies.");
-                foreach (var collider in pivot.GetComponentsInChildren<Collider>())
-                    if (collider.enabled) throw new ArgumentException("Moving machine visuals must be non-contacting.");
-            }
+            MovingVisualBindings.Validate(transform, new[] { spindle, progressFill, powerSwitch, processRam }, loadingClamps, processSparks);
+            var pool = new ProcessVisualPool(transform, processSparks, ProcessMoteStyle.Sparks);
+            var block = new MaterialPropertyBlock();
             queries = read; id = machine; face = statusFace; lamp = statusLamp; rotor = spindle; rotorRest = spindle.localRotation;
             progress = progressFill; progressSize = progress.localScale;
             powerLever = powerSwitch; leverRest = powerSwitch.localRotation;
             ram = processRam; ramRest = ram.localPosition; clamps = (Transform[])loadingClamps.Clone();
             clampRest = new[] { clamps[0].localPosition, clamps[1].localPosition };
             progressLeft = progress.localPosition - Vector3.right * progressSize.x * 0.5f;
-            sparks = new ProcessVisualPool(processSparks, ProcessMoteStyle.Sparks);
-            properties = new MaterialPropertyBlock();
+            sparks = pool; properties = block;
         }
 
         private void LateUpdate()

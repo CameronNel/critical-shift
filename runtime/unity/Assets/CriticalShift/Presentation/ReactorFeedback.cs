@@ -26,11 +26,13 @@ namespace CriticalShift.Presentation
             if (queries != null || read == null || statusShell == null || warningBeacon == null || coolingValve == null ||
                 fuelGauge == null || reserveGauge == null || fuelGauge == reserveGauge || fuelGauge == coolingValve || reserveGauge == coolingValve)
                 throw new ArgumentException("Reactor feedback requires explicit bindings.");
+            MovingVisualBindings.Validate(transform, new[] { coolingValve, fuelGauge, reserveGauge }, ventMotes);
+            var pool = new ProcessVisualPool(transform, ventMotes, ProcessMoteStyle.Vapour);
+            var block = new MaterialPropertyBlock();
             queries = read; shell = statusShell; beacon = warningBeacon; valve = coolingValve; valveRest = valve.localRotation;
             fuelNeedle = fuelGauge; reserveNeedle = reserveGauge;
             fuelRest = fuelGauge.localRotation; reserveRest = reserveGauge.localRotation;
-            vapour = new ProcessVisualPool(ventMotes, ProcessMoteStyle.Vapour);
-            properties = new MaterialPropertyBlock();
+            vapour = pool; properties = block;
         }
 
         private void LateUpdate()
