@@ -528,6 +528,10 @@ if STAGE in ('prep', 'all'):
     for o in bpy.data.objects: o.select_set(False)
     for o in objs: o.select_set(True)
     vl.objects.active = objs[0]
+    # Blender's UV packing stretches islands to the aspect of the material's active image texture (the node tree's active-texture flag, which no
+    # option turns off): the front end's 11:1 menu board packed as 1:11. The atlas is square, so every image is detached while unwrapping.
+    detached = [(n_, n_.image) for m in mats if m.node_tree for n_ in m.node_tree.nodes if n_.type == 'TEX_IMAGE' and n_.image is not None]
+    for n_, _ in detached: n_.image = None
     bpy.ops.object.mode_set(mode='EDIT')
     sc.tool_settings.use_uv_select_sync = True
     area = {}
@@ -548,26 +552,46 @@ if STAGE in ('prep', 'all'):
         bpy.ops.uv.smart_project(angle_limit=math.radians(66), island_margin=0.003, area_weight=0.0, correct_aspect=False, scale_to_bounds=False)
         bpy.ops.uv.pack_islands(rotate=True, margin_method='FRACTION', margin=0.002)                 # smart project leaves up to 40 % of the square empty
     bpy.ops.object.mode_set(mode='OBJECT')
+    for n_, im_ in detached: n_.image = im_
     for n, p in plan.items():
         if p['bake']:
             s = 2 ** math.ceil(math.log2(max(1.0, math.sqrt(area[n]) * DENSITY))); p['size'] = int(min(MAXSZ, max(256, s)))
             p['area_m2'] = round(area[n], 2); p['px_per_m'] = round(p['size'] * 0.75 / math.sqrt(area[n]), 1)      # 0.75: typical packing efficiency
-    # every baked material must fill a fair part of its atlas: a collapsed unwrap bakes black or a smear and nothing else would notice
-    cover = {n: 0.0 for n, p in plan.items() if p['bake']}
+    # a collapsed unwrap bakes black or a smear and nothing else would notice (the front end's signs, 2026-10-18). Per face, the stretch is the ratio
+    # of the singular values of the 3D-to-UV map: a sound unwrap keeps it near 1, the collapsed signs were about 1000. Atlas coverage alone cannot
+    # tell: long cables legitimately fill under 1 % of a square atlas.
+    cover = {n: 0.0 for n, p in plan.items() if p['bake']}; area3 = dict.fromkeys(cover, 0.0); bad3 = dict.fromkeys(cover, 0.0)
     for o in objs:
-        me = o.data; uvb = me.uv_layers['UVBake']; uv = np.empty(len(me.loops) * 2, np.float64); uvb.data.foreach_get('uv', uv); uv = uv.reshape(-1, 2)
+        me = o.data; uvb = me.uv_layers['UVBake']; n_loops = len(me.loops)
+        uv = np.empty(n_loops * 2, np.float64); uvb.data.foreach_get('uv', uv); uv = uv.reshape(-1, 2)
+        co = np.empty(len(me.vertices) * 3, np.float64); me.vertices.foreach_get('co', co); co = co.reshape(-1, 3)
+        mw = np.array(o.matrix_world); co = co @ mw[:3, :3].T
+        lv = np.empty(n_loops, np.int64); me.loops.foreach_get('vertex_index', lv)
+        ls = np.empty(len(me.polygons), np.int64); me.polygons.foreach_get('loop_start', ls)
+        lt = np.empty(len(me.polygons), np.int64); me.polygons.foreach_get('loop_total', lt)
+        mi = np.empty(len(me.polygons), np.int64); me.polygons.foreach_get('material_index', mi)
         names = [s_.material.name if s_.material else None for s_ in o.material_slots]
-        for poly in me.polygons:
-            n_ = names[poly.material_index] if poly.material_index < len(names) else None
+        for k, n_ in enumerate(names):
             if n_ not in cover: continue
-            c = uv[poly.loop_start:poly.loop_start + poly.loop_total]
-            cover[n_] += 0.5 * abs(np.dot(c[:, 0], np.roll(c[:, 1], -1)) - np.dot(c[:, 1], np.roll(c[:, 0], -1)))
-    # 1 %: a long strip legitimately fills little of a square atlas (the front end's 11:1 menu board fills 9 %, a 50:1 one would fill 2 %); the
-    # collapsed signs filled 0.1 %
-    thin = sorted('%s (%.4f)' % (n, c) for n, c in cover.items() if c < 0.01)
-    if thin: raise SystemExit('unwrap: %d materials cover less than 1 %% of their atlas: %s' % (len(thin), thin[:20]))
-    for n, c in cover.items(): plan[n]['uv_coverage'] = round(c, 3)
-    step('unwrapped', atlases={n: p.get('size') for n, p in plan.items() if p['bake']}, lowest_uv_coverage=sorted((round(c, 3), n) for n, c in cover.items())[:3])
+            f = np.nonzero(mi == k)[0]
+            if not len(f): continue
+            a, b, c = ls[f], ls[f] + 1, ls[f] + 2                          # each face's first triangle
+            e1, e2 = co[lv[b]] - co[lv[a]], co[lv[c]] - co[lv[a]]; d1, d2 = uv[b] - uv[a], uv[c] - uv[a]
+            # UV area of the whole polygon (shoelace over its loops) for coverage
+            for j, fi in enumerate(f):
+                q = uv[ls[fi]:ls[fi] + lt[fi]]; cover[n_] += 0.5 * abs(np.dot(q[:, 0], np.roll(q[:, 1], -1)) - np.dot(q[:, 1], np.roll(q[:, 0], -1)))
+            n3 = np.cross(e1, e2); A = 0.5 * np.linalg.norm(n3, axis=1); ok = A > 1e-12
+            if not ok.any(): continue
+            u = e1[ok] / np.linalg.norm(e1[ok], axis=1)[:, None]; v = np.cross(n3[ok] / (2 * A[ok])[:, None], u)
+            E = np.stack([np.stack([(e1[ok] * u).sum(1), (e2[ok] * u).sum(1)], 1), np.stack([(e1[ok] * v).sum(1), (e2[ok] * v).sum(1)], 1)], 1)   # 2x2 per face
+            D = np.stack([np.stack([d1[ok][:, 0], d2[ok][:, 0]], 1), np.stack([d1[ok][:, 1], d2[ok][:, 1]], 1)], 1)
+            J = D @ np.linalg.inv(E); sv = np.linalg.svd(J, compute_uv=False); stretch = sv[:, 0] / np.maximum(sv[:, 1], 1e-12)
+            area3[n_] += float(A[ok].sum()); bad3[n_] += float(A[ok][stretch > 20].sum())
+    squashed = sorted('%s (%.0f %%)' % (n, 100 * bad3[n] / area3[n]) for n in cover if area3[n] > 0 and bad3[n] / area3[n] > 0.1)
+    if squashed: raise SystemExit('unwrap: %d materials have more than 10 %% of their surface squashed over 20:1 in UV (a collapsed unwrap): %s' % (len(squashed), squashed[:20]))
+    for n, c in cover.items(): plan[n]['uv_coverage'] = round(c, 3); plan[n]['uv_squashed'] = round(bad3[n] / area3[n], 4) if area3[n] else 0.0
+    step('unwrapped', atlases={n: p.get('size') for n, p in plan.items() if p['bake']}, lowest_uv_coverage=sorted((round(c, 3), n) for n, c in cover.items())[:3],
+         most_squashed=sorted(((round(bad3[n] / area3[n], 3), n) for n in cover if area3[n]), reverse=True)[:3])
 
 
     for m in mats: m.use_fake_user = True
