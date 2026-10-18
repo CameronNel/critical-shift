@@ -242,8 +242,9 @@ namespace CriticalShift.Features.Interaction.Unity
             {
                 if (!worker.Owns(body)) continue;
                 var claim = world.GetObject(worker.Id);
+                var pose = world.GetWorkerForBody(worker.Id)?.Pose;
                 return worker.Active && claim != null && !claim.IsRetired && !claim.HolderId.HasValue && !claim.SlotId.HasValue &&
-                    world.GetWorkerForBody(worker.Id)?.Pose == WorkerPose.Down ? worker.Representative : null;
+                    (pose == WorkerPose.Down || pose == WorkerPose.Recovering) ? worker.Representative : null;
             }
             return null;
         }

@@ -149,6 +149,13 @@ namespace CriticalShift.Sandbox.Tests
             patientState.SetDownMovement(Vector2.right); yield return Step();
             Assert.That(patientState.CrawlDriveActive, Is.False); patientState.SetDownMovement(Vector2.zero);
             host.DropHeld(); Assert.That(host.PhysicalCargoGroup(parts[1]), Is.SameAs(group));
+            for (int i = 0; i < 200 && !patientState.Recovering; i++)
+            { yield return Step(); if (i % 10 == 0) patientState.RequestRecovery(); }
+            Assert.That(patientState.Recovering, Is.True, patientState.LastAction);
+            Assert.That(host.World.GetWorker(Id(3)).Pose, Is.EqualTo(WorkerPose.Recovering));
+            Assert.That(patientRig.IsRagdoll, Is.True); Assert.That(patientController.enabled, Is.False);
+            Assert.That(host.PhysicalCargoGroup(parts[0]), Is.SameAs(group)); Assert.That(host.PhysicalCargoMass(group), Is.EqualTo(68));
+            host.World.CancelWorkerRecovery(host.World.Epoch, Id(3), host.World.GetWorker(Id(3)).RecoveryAttempt);
             yield return null;
         }
 

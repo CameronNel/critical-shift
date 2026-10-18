@@ -147,6 +147,8 @@ as one 68 kg debug load. Any intersecting part counts that whole body, a
 conservative fixture proxy. Held/slotted bodies are excluded; disabled, removed
 or relocated colliders cannot retain an old trigger-event load. The belt keeps
 its separate free-material-only permission.
+The still-dynamic body remains eligible while standing recovery is pending; it
+stops being a ragdoll load when the upright handoff completes.
 
 The fixture uses the project's **already configured** shader family for debug
 geometry. This explicitly supports the old Built-in foundation for import and

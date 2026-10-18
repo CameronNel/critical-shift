@@ -779,3 +779,11 @@ and reactor cases now check detached/final projections and conservation, and the
 deadline fixture case checks final accounting remains readable. No cases were
 added for labels alone; the declared native count stays 99, all NotRun. This is
 a diagnostic summary, without a complete causal shift debrief or gate claim.
+
+Worker cargo grouping now includes the pending recovery posture, whose same
+physical ragdoll is still dynamic until the accepted standing handoff. A brief
+logical Recovering state cannot make that observed load disappear. Held/slotted
+workers remain excluded and upright workers are not ragdoll cargo. The existing
+grouping native case now reaches a real pending recovery, checks the same 68 kg
+group with its walking capsule off, and cancels the attempt. No extra case count
+or material/health mutation owner is added; all 99 native cases remain NotRun.
