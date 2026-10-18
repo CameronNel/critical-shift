@@ -20,8 +20,13 @@ machines, a reactor, a cart, a conveyor and a local collision controller.
   current crate; F toggles machine power or reactor cooling; R starts the
   focused process. Loaded containers resolve their machine slot. Walls and
   unrelated bodies continue blocking focus and interaction.
-- Arrow keys: diagnostic cart drive; Space: brake. These controls are not a final
-  physical cart-handle interaction or production input selection.
+- Stand behind the cart and E takes its exclusive rear handle. WASD (or arrow
+  keys) drives and steers while gripped; Space brakes. The worker follows the
+  cart's operator stance through collision-controlled movement. Moving too far
+  away releases the exact grip lease. G releases the handle. These temporary
+  IMGUI inputs are not a production input-framework selection.
+- With a crate held over the cart, E releases it onto the bed before taking the
+  handle. Cargo remains physically observed; this does not invent inventory.
 - Carrying slows movement using the mass of the current held body. The cart's
   load beacon turns amber for overload and flashes red when its observation
   capacity is saturated. These are physical fixture observations, not inventory.
@@ -66,7 +71,7 @@ on the inspected baseline. No package is downloaded by the generator.
 
 The existing foundation runner still tests its foundation assembly selection;
 it does not automatically claim sandbox coverage. The separate native inventory
-is `runtime/validation/sandbox-expected-tests.json`: 25 implemented cases, all
+is `runtime/validation/sandbox-expected-tests.json`: 33 implemented cases, all
 NotRun. Nine new pure command-port cases and eight source-package safety cases
 are also NotRun. Native fixtures are offset from possible active-scene content
 to avoid collisions with an unrelated map/scene at the origin.

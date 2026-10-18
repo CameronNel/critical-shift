@@ -22,7 +22,7 @@ namespace CriticalShift.Sandbox
         private CartCargoSensor cargo;
         private ConveyorDrive belt;
         private bool disposed;
-        private readonly Guid actor = Id(1), connection = Id(2), reactor = Id(500);
+        private readonly Guid actor = Id(1), connection = Id(2), reactor = Id(500), cartId = Id(600);
         private readonly Guid[] containers = new Guid[8], machines = { Id(400), Id(401) };
         internal Guid Epoch => world.Epoch;
         internal WorldSessionView Snapshot => world.View;
@@ -90,8 +90,9 @@ namespace CriticalShift.Sandbox
             var carry = SandboxPrimitives.Empty("Current-claim carry target", eyes.transform, new Vector3(0, -0.15f, 1.75f));
             walker = player.AddComponent<LocalWorkerMotor>();
             walker.Initialize(eyes.transform, () => commands.GetWorker(actor), () => world.View.Phase == WorldPhase.Running,
-                host.CarriedPhysicalMass);
+                host.CarriedPhysicalMass, host.CurrentGripStand);
             access.BindActor(actor, eyes.transform); host.BindCarryTarget(actor, carry.transform);
+            host.BindActorRoot(actor, player.transform);
         }
 
         private void BuildContainers()
@@ -165,6 +166,7 @@ namespace CriticalShift.Sandbox
 
         private void BuildCart()
         {
+            world.RegisterObject(cartId);
             var rig = SandboxPrimitives.Empty("Physical ore cart", root.transform, new Vector3(5, 0.45f, -1.5f));
             var body = rig.AddComponent<Rigidbody>(); body.mass = 35; body.centerOfMass = new Vector3(0, -0.15f, 0);
             body.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
@@ -173,11 +175,15 @@ namespace CriticalShift.Sandbox
             SandboxPrimitives.Box("Left cargo rail", rig.transform, new Vector3(-0.62f, 0.35f, 0), new Vector3(0.1f, 0.7f, 1.8f), shapes.Yellow);
             SandboxPrimitives.Box("Right cargo rail", rig.transform, new Vector3(0.62f, 0.35f, 0), new Vector3(0.1f, 0.7f, 1.8f), shapes.Yellow);
             SandboxPrimitives.Box("Cart rear rail", rig.transform, new Vector3(0, 0.35f, -0.92f), new Vector3(1.2f, 0.7f, 0.1f), shapes.Steel);
+            var handle = SandboxPrimitives.Empty("Cart rear grip", rig.transform, new Vector3(0, 0.9f, -1.15f));
+            SandboxPrimitives.Box("Cart handle bar", handle.transform, Vector3.zero, new Vector3(1.1f, 0.08f, 0.08f), shapes.Dark);
+            var stand = SandboxPrimitives.Empty("Cart operator stance", rig.transform, new Vector3(0, -0.45f, -2));
+            host.BindCartHandle(cartId, body, handle.transform, stand.transform); access.BindTarget(cartId, rig.transform);
             var sensor = SandboxPrimitives.Empty("Cargo observation bounds", rig.transform, new Vector3(0, 0.65f, 0));
             var bounds = sensor.AddComponent<BoxCollider>(); bounds.isTrigger = true; bounds.size = new Vector3(1.1f, 1.1f, 1.65f);
             cargo = sensor.AddComponent<CartCargoSensor>(); cargo.Initialize(body, host.IsBodyFree);
             cart = rig.AddComponent<CartMotor>(); cart.SafeCargoMass = 35;
-            cart.Initialize(() => world.View.Phase == WorldPhase.Running && !cargo.Saturated, () => cargo.Mass);
+            cart.Initialize(() => world.View.Phase == WorldPhase.Running && host.IsHandleHeld(cartId) && !cargo.Saturated, () => cargo.Mass);
             var loadFace = SandboxPrimitives.Box("Cart load warning face", rig.transform, new Vector3(0.48f, 0.8f, -0.96f),
                 new Vector3(0.16f, 0.16f, 0.04f), shapes.Lamp, false);
             var loadLamp = SandboxPrimitives.PointLight("Cart overload beacon", rig.transform, new Vector3(0.48f, 0.95f, -0.95f), Color.green, 0.2f, 1.6f);
@@ -188,7 +194,8 @@ namespace CriticalShift.Sandbox
             {
                 var contact = SandboxPrimitives.Empty("Wheel collision anchor " + i, rig.transform,
                     new Vector3(i % 2 == 0 ? -0.65f : 0.65f, -0.22f, i < 2 ? 0.65f : -0.65f));
-                contact.AddComponent<SphereCollider>().radius = 0.22f;
+                var wheelContact = contact.AddComponent<SphereCollider>(); wheelContact.radius = 0.22f;
+                wheelContact.sharedMaterial = shapes.WheelContact;
                 var pivot = SandboxPrimitives.Empty("Wheel animation pivot " + i, contact.transform, Vector3.zero);
                 var visual = SandboxPrimitives.Shape(PrimitiveType.Cylinder, "Wheel visual", pivot.transform, Vector3.zero,
                     new Vector3(0.44f, 0.06f, 0.44f), shapes.Dark, false);

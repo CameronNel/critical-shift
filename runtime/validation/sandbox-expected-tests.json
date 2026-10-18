@@ -1,7 +1,15 @@
 {
   "PlayMode": [
+    "CriticalShift.Sandbox.Tests.CartGripTests.CartHandleClaimDoesNotSpringCarryItsBody",
+    "CriticalShift.Sandbox.Tests.CartGripTests.HandleEntryRejectsWrongSideAndExcessiveCartSpeed",
+    "CriticalShift.Sandbox.Tests.CartGripTests.LostGripProximityReleasesItsExactLease",
+    "CriticalShift.Sandbox.Tests.CartGripTests.CartGripAndCrateCarryShareOneExclusiveActorClaim",
+    "CriticalShift.Sandbox.Tests.CartGripTests.ContextCartTransferReleasesCargoThenTakesAndDropsHandle",
+    "CriticalShift.Sandbox.Tests.CartGripTests.OneRigidbodyCannotBeBothHandleAndCarriedEntity",
+    "CriticalShift.Sandbox.Tests.CartGripTests.CartMotorRequiresTheCurrentHandleLease",
     "CriticalShift.Sandbox.Tests.LocalWorldHostTests.PhysicalMassTracksCommittedConversionOutput",
     "CriticalShift.Sandbox.Tests.SandboxLifetimeTests.TenEnableDisableCyclesUseFreshEpochsAndClearAllBindings",
+    "CriticalShift.Sandbox.Tests.SandboxLifetimeTests.GroundedFixtureCartDrivesWhileItsWorkerMaintainsTheHandle",
     "CriticalShift.Sandbox.Tests.LocalWorldHostTests.ContextTransferUsesTheSameClaimAndSlotCommands",
     "CriticalShift.Sandbox.Tests.LocalWorldHostTests.ContextPowerAndStartUseCurrentMachineRevision",
     "CriticalShift.Sandbox.Tests.LocalWorldHostTests.ContextDropRemainsAvailableDuringProcessPause",

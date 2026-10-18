@@ -13,18 +13,21 @@ namespace CriticalShift.Features.Workers.Unity
         private Func<WorkerView> readWorker;
         private Func<bool> canSimulate;
         private Func<float> carriedMass;
+        private Func<Vector3?> gripStand;
         private Vector2 movement;
         private float verticalSpeed, yaw, pitch;
         public float WalkSpeed { get; set; } = 3.2f;
         public bool Grounded => controller != null && controller.isGrounded;
         public float CarrySpeedScale { get; private set; } = 1;
 
-        public void Initialize(Transform eyePivot, Func<WorkerView> worker, Func<bool> authority, Func<float> readCarriedMass = null)
+        public void Initialize(Transform eyePivot, Func<WorkerView> worker, Func<bool> authority,
+            Func<float> readCarriedMass = null, Func<Vector3?> readGripStand = null)
         {
             if (eyes != null || eyePivot == null) throw new InvalidOperationException("Bind one explicit eye pivot.");
             eyes = eyePivot; readWorker = worker ?? throw new ArgumentNullException(nameof(worker));
             canSimulate = authority ?? throw new ArgumentNullException(nameof(authority));
             carriedMass = readCarriedMass;
+            gripStand = readGripStand;
             controller = GetComponent<CharacterController>();
             yaw = transform.eulerAngles.y;
         }
@@ -61,7 +64,14 @@ namespace CriticalShift.Features.Workers.Unity
                 throw new InvalidOperationException("Carried physical mass must be finite and nonnegative.");
             CarrySpeedScale = Mathf.Clamp(1 / (1 + load / 20), 0.35f, 1);
             Vector3 motion = transform.right * movement.x + transform.forward * movement.y;
-            controller.Move((motion * WalkSpeed * CarrySpeedScale + Vector3.up * verticalSpeed) * dt);
+            Vector3? stand = gripStand == null ? null : gripStand();
+            if (stand.HasValue)
+            {
+                Vector3 correction = Vector3.ProjectOnPlane(stand.Value - transform.position, Vector3.up);
+                motion = Vector3.ClampMagnitude(correction * 10, 6);
+            }
+            else motion *= WalkSpeed * CarrySpeedScale;
+            controller.Move((motion + Vector3.up * verticalSpeed) * dt);
         }
 
         private void OnControllerColliderHit(ControllerColliderHit hit)

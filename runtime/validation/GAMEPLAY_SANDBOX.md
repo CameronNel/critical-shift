@@ -75,13 +75,17 @@ art acceptance.
   jam latch, local walking: written, unvalidated.
 - Diagnostic controls, crusher/fuel/reactor fixture, lamps, valve/spindle/tread
   motion, material appearance and scratch-scene generator: written, unvalidated.
-- Nine pure command-port tests, eight package safety tests and 25 native sandbox
+- Nine pure command-port tests, eight package safety tests and 33 native sandbox
   tests are implemented, all **NotRun**. These are declared inventory counts,
   not discovered/executed results.
 - Direct first-person focus, context transfer/drop, power/cooling and start
   controls are written, with the same authority and receipt path as the panel.
 - Carry slowdown, cart load warnings, visual rotation markers and fresh-epoch
   bootstrap enable/disable lifecycle handling are written, unvalidated.
+- Physical references now live in one world-scoped binding registry, separate
+  from the host clock/command adapter. The cart uses an exclusive existing claim
+  as its handle lease; only CartMotor drives its body. The local worker follows
+  an explicit stance anchor, and lost proximity releases the exact lease.
 - Next: continue source review and lifecycle failure cases, then extend concrete
   fixture interactions while execution remains deferred. Do not stop this goal
   after the first implementation checkpoint.
@@ -120,3 +124,12 @@ stability, feel and target-hardware performance must still be measured.
 Source checkpoints: `aa172367` (one canonical Unity/.NET source package) and
 `532a5116` (first connected sandbox source). Subsequent edits remain part of
 this same ongoing ten-hour pass; no checkpoint is gate acceptance.
+
+The physical cart-handle source trial uses 1.4 m entry distance from its operator
+stance, a 1.5 m/s maximum entry speed and 2 m maintained proximity. Its body is
+not also registered as a spring-carried body. One canonical actor claim covers
+either a container or the cart handle; no parallel driver/holder authority is
+introduced. Spherical wheel contacts use an owned low-friction material as a
+rolling-resistance proxy; CartMotor supplies bounded lateral damping and drive.
+One additional native case exercises the actual grounded fixture and stance
+following. All cart-handle and grounded-drive cases remain NotRun.

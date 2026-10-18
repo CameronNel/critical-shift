@@ -2,6 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using CriticalShift.Application;
+using CriticalShift.FacilityPhysics;
+using CriticalShift.Features.Interaction.Unity;
+using CriticalShift.Presentation;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -31,7 +34,7 @@ namespace CriticalShift.Sandbox.Tests
             {
                 Assert.That(bootstrap.World, Is.Not.Null); Assert.That(bootstrap.World.Phase, Is.EqualTo(WorldPhase.Running));
                 Assert.That(epochs.Add(bootstrap.World.Epoch), Is.True);
-                Assert.That(bootstrap.PhysicalBindingCount, Is.EqualTo(8));
+                Assert.That(bootstrap.PhysicalBindingCount, Is.EqualTo(9));
                 bootstrap.enabled = false;
                 Assert.That(bootstrap.World, Is.Null);
                 Assert.That(bootstrap.PhysicalBindingCount, Is.Zero);
@@ -41,6 +44,34 @@ namespace CriticalShift.Sandbox.Tests
                 yield return null;
                 bootstrap.enabled = true; yield return null;
             }
+        }
+
+        [UnityTest] public IEnumerator GroundedFixtureCartDrivesWhileItsWorkerMaintainsTheHandle()
+        {
+            root = new GameObject("Grounded cart integration fixture"); root.transform.position = new Vector3(1500, 0, 1500);
+            var bootstrap = root.AddComponent<SandboxBootstrap>();
+            var pipeline = QualitySettings.renderPipeline != null ? QualitySettings.renderPipeline : GraphicsSettings.defaultRenderPipeline;
+            bootstrap.BindFixtureShader(Shader.Find(pipeline == null ? "Standard" : "Universal Render Pipeline/Lit"));
+            yield return null; yield return null;
+            Assert.That(bootstrap.World, Is.Not.Null);
+            root.GetComponentInChildren<SandboxHud>().enabled = false; // Supply drive samples directly for this test.
+            var host = root.GetComponentInChildren<LocalWorldHost>();
+            var motor = root.GetComponentInChildren<CartMotor>();
+            var controller = root.GetComponentInChildren<CharacterController>();
+            var stand = motor.transform.Find("Cart operator stance");
+            Assert.That(stand, Is.Not.Null);
+            for (int i = 0; i < 10; i++) yield return new WaitForFixedUpdate();
+            controller.enabled = false; controller.transform.position = stand.position + Vector3.up * 0.1f; controller.enabled = true;
+            var cartId = new Guid(600, 0, 0, new byte[8]);
+            host.Grab(cartId); Assert.That(host.IsHandleHeld(cartId), Is.True);
+            Vector3 initial = motor.transform.position; motor.SetDrive(1, 0, false);
+            for (int i = 0; i < 100; i++) yield return new WaitForFixedUpdate();
+            Assert.That(host.IsHandleHeld(cartId), Is.True, "The colliding worker must keep up with its cart stance.");
+            Assert.That(motor.Speed, Is.GreaterThan(0.75f), "Ground friction must permit bounded cart drive.");
+            Assert.That(motor.transform.position.z - initial.z, Is.GreaterThan(1));
+            Assert.That(motor.transform.position.y - root.transform.position.y, Is.InRange(0.3f, 0.7f));
+            Assert.That(Vector3.Distance(controller.transform.position, stand.position), Is.LessThan(1));
+            host.DropHeld(); Assert.That(host.IsHandleHeld(cartId), Is.False);
         }
     }
 }

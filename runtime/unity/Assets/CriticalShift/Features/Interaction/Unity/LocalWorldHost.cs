@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using CriticalShift.Application;
 using UnityEngine;
 
@@ -9,9 +8,7 @@ namespace CriticalShift.Features.Interaction.Unity
     [DisallowMultipleComponent]
     public sealed class LocalWorldHost : MonoBehaviour
     {
-        private readonly Dictionary<Guid, CarryBodyBinding> bodies = new Dictionary<Guid, CarryBodyBinding>();
-        private readonly Dictionary<Guid, Transform> slots = new Dictionary<Guid, Transform>();
-        private readonly Dictionary<Guid, Transform> carryTargets = new Dictionary<Guid, Transform>();
+        private PhysicalWorldBindings bindings;
         private WorldSession world;
         private LocalCommandPort commands;
         private Guid localActor;
@@ -26,7 +23,7 @@ namespace CriticalShift.Features.Interaction.Unity
         public string FocusHint { get; private set; } = "Look at a nearby crate or machine";
         public WorldSession World => world;
         public LocalCommandPort Commands => commands;
-        public int BoundBodyCount => bodies.Count;
+        public int BoundBodyCount => bindings == null ? 0 : bindings.Count;
 
         public void Initialize(WorldSession session, LocalCommandPort sender, Guid actor, Func<double> clock = null)
         {
@@ -34,32 +31,33 @@ namespace CriticalShift.Features.Interaction.Unity
                 sender.World.Epoch != session.Epoch || actor == Guid.Empty || sender.ActorId != actor)
                 throw new InvalidOperationException("Initialize exactly once with one setup-world and its local sender.");
             world = session; commands = sender; localActor = actor;
+            bindings = new PhysicalWorldBindings(session);
             readClock = clock ?? (() => Time.realtimeSinceStartupAsDouble);
         }
 
         public void BindBody(Guid id, Rigidbody body, float physicalMassPerUnit = 0)
         {
             RequireSetup();
-            if (bodies.ContainsKey(id)) throw new InvalidOperationException("Duplicate portable body binding.");
-            var binding = new CarryBodyBinding(id, body, physicalMassPerUnit);
-            binding.ApplyMaterialMass(world.Production.GetBatch(id)); bodies.Add(id, binding);
+            bindings.BindBody(id, body, physicalMassPerUnit);
         }
 
         public void BindSlot(Guid id, Transform anchor)
         {
             RequireSetup();
-            if (id == Guid.Empty || anchor == null || slots.ContainsKey(id))
-                throw new ArgumentException("A unique slot identity and explicit anchor are required.");
-            slots.Add(id, anchor);
+            bindings.BindSlot(id, anchor);
         }
 
         public void BindCarryTarget(Guid actor, Transform target)
         {
             RequireSetup();
-            if (actor == Guid.Empty || target == null || carryTargets.ContainsKey(actor))
-                throw new ArgumentException("A unique actor and explicit carry target are required.");
-            carryTargets.Add(actor, target);
+            bindings.BindCarryTarget(actor, target);
         }
+
+        public void BindActorRoot(Guid actor, Transform root) { RequireSetup(); bindings.BindActorRoot(actor, root); }
+        public void BindCartHandle(Guid id, Rigidbody body, Transform handle, Transform stand)
+        { RequireSetup(); bindings.BindHandle(id, body, handle, stand); }
+        public bool IsHandleHeld(Guid id) => active && !stopped && bindings.IsHandleHeld(localActor, id);
+        public Vector3? CurrentGripStand() => active && !stopped ? bindings.GripStand(localActor) : null;
 
         public void BindFocus(Func<Guid> query, Func<Guid, string> displayName)
         {
@@ -72,7 +70,8 @@ namespace CriticalShift.Features.Interaction.Unity
         public void Activate()
         {
             RequireSetup();
-            if (!carryTargets.ContainsKey(localActor)) throw new InvalidOperationException("Local carry target is missing.");
+            if (!bindings.HasCarryTarget(localActor)) throw new InvalidOperationException("Local carry target is missing.");
+            if (!bindings.HasRequiredActorRoot(localActor)) throw new InvalidOperationException("Cart gripping requires the local worker root.");
             realOrigin = readClock();
             if (double.IsNaN(realOrigin) || double.IsInfinity(realOrigin) || realOrigin < 0)
                 throw new InvalidOperationException("The host clock must provide finite nonnegative seconds.");
@@ -97,11 +96,7 @@ namespace CriticalShift.Features.Interaction.Unity
                 if (world.View.HostMilliseconds >= renewAt)
                 {
                     renewAt = checked(world.View.HostMilliseconds + 800);
-                    foreach (var binding in bodies.Values)
-                    {
-                        var state = world.GetObject(binding.Id);
-                        if (state?.HolderId == localActor) commands.Renew(binding.Id);
-                    }
+                    foreach (Guid id in bindings.ClaimedBy(localActor)) commands.Renew(id);
                 }
                 Reconcile(false);
                 RefreshFocus();
@@ -129,36 +124,28 @@ namespace CriticalShift.Features.Interaction.Unity
             {
                 var result = world.AdvanceTo(sample);
                 foreach (var change in result.ProductionChanges)
-                    if (change.Output != null && bodies.TryGetValue(change.Output.ContainerId, out var binding))
-                        binding.ApplyMaterialMass(change.Output);
+                    bindings.ApplyMaterialMass(change.Output);
             }
         }
 
         public bool IsBodyFree(Rigidbody body)
         {
             if (!active || stopped || (world.View.Phase != WorldPhase.Running && world.View.Phase != WorldPhase.Paused)) return false;
-            foreach (var binding in bodies.Values)
-            {
-                if (binding.Body != body) continue;
-                var state = world.GetObject(binding.Id);
-                return state != null && !state.IsRetired && !state.HolderId.HasValue && !state.SlotId.HasValue;
-            }
-            return false; // Unknown bodies never gain conveyor authority by default.
+            return bindings.IsFree(body);
         }
 
         public bool MayIgnoreForSight(Guid actor, Guid target, Rigidbody body)
         {
             if (world == null || stopped) return false;
-            foreach (var binding in bodies.Values)
-            {
-                if (binding.Body != body) continue;
-                var state = world.GetObject(binding.Id);
-                return state != null && (state.HolderId == actor || state.SlotId == target);
-            }
-            return false;
+            return bindings.MayIgnoreForSight(actor, target, body);
         }
 
-        public void Grab(Guid id) => RunCommand(() => commands.Grab(id));
+        public void Grab(Guid id)
+        {
+            if (bindings == null || !bindings.CanEnterHandle(id, localActor))
+            { LastAction = "Stand behind the stationary cart to take its handle"; return; }
+            RunCommand(() => commands.Grab(id));
+        }
         public void Release(Guid id) => RunCommand(() => commands.Release(id));
         public void ReplayLast() => RunCommand(() => commands.ReplayLast());
 
@@ -166,6 +153,13 @@ namespace CriticalShift.Features.Interaction.Unity
         {
             if (!PrepareFocused()) return;
             Guid held = HeldObject();
+            if (bindings.IsHandle(focused))
+            {
+                if (held != Guid.Empty) Release(held); else Grab(focused);
+                return;
+            }
+            if (held != Guid.Empty && bindings.IsHandle(held))
+            { LastAction = "Release the cart handle before handling containers"; return; }
             var machine = world.Production.GetMachine(focused);
             var reactor = world.Reactor.View;
             if (machine != null)
@@ -204,15 +198,12 @@ namespace CriticalShift.Features.Interaction.Unity
         private Guid HeldObject()
         {
             if (world == null || stopped) return Guid.Empty;
-            foreach (var binding in bodies.Values)
-                if (world.GetObject(binding.Id)?.HolderId == localActor) return binding.Id;
-            return Guid.Empty;
+            return bindings.HeldObject(localActor);
         }
 
         public float CarriedPhysicalMass()
         {
-            Guid held = HeldObject();
-            return held != Guid.Empty && bodies.TryGetValue(held, out var binding) && binding.Body != null ? binding.Body.mass : 0;
+            return world == null || stopped ? 0 : bindings.CarriedMass(localActor);
         }
 
         private bool PrepareFocused()
@@ -238,6 +229,12 @@ namespace CriticalShift.Features.Interaction.Unity
             if (custody?.SlotId != null) focused = custody.SlotId.Value;
             if (focused == Guid.Empty) { FocusHint = "Look at a nearby crate or machine"; return; }
             bool equipment = world.Production.GetMachine(focused) != null || world.Reactor.View?.Id == focused;
+            if (bindings.IsHandle(focused))
+            {
+                FocusHint = bindings.IsHandleHeld(localActor, focused) ? "Cart handle | WASD push/steer · G release" :
+                    HeldObject() != Guid.Empty ? "Cart | E release crate onto bed" : "Cart | stand behind it and press E to take handle";
+                return;
+            }
             FocusHint = (targetName == null ? "Target" : targetName(focused)) +
                 (equipment ? " | E transfer · F power/cooling · R start" : " | E grab · G drop");
         }
@@ -257,8 +254,7 @@ namespace CriticalShift.Features.Interaction.Unity
         private bool CanPlace(Guid entity, Guid slot)
         {
             Physics.SyncTransforms();
-            if (!bodies.TryGetValue(entity, out var binding) || !slots.TryGetValue(slot, out var anchor) ||
-                anchor == null || !binding.CanPlace(anchor))
+            if (!bindings.CanPlace(entity, slot))
             {
                 LastAction = "The loading position is blocked or unavailable";
                 return false;
@@ -284,29 +280,7 @@ namespace CriticalShift.Features.Interaction.Unity
 
         private void Reconcile(bool applyForces)
         {
-            bool running = world.View.Phase == WorldPhase.Running || world.View.Phase == WorldPhase.Paused;
-            foreach (var binding in bodies.Values)
-            {
-                var state = running ? world.GetObject(binding.Id) : null;
-                if (state == null || state.IsRetired) { binding.Release(); continue; }
-                if (binding.Body == null) throw new InvalidOperationException("A registered physical body was destroyed.");
-                if (state.SlotId.HasValue)
-                {
-                    if (!slots.TryGetValue(state.SlotId.Value, out var slot) || slot == null)
-                        throw new InvalidOperationException("An occupied logical slot has no physical binding.");
-                    binding.Place(state.SlotId.Value, slot);
-                }
-                else if (state.HolderId.HasValue)
-                {
-                    if (!carryTargets.TryGetValue(state.HolderId.Value, out var target) || target == null ||
-                        (applyForces && !binding.Follow(state, target, Time.fixedDeltaTime)))
-                    {
-                        world.ReportAttachmentFailure(world.Epoch, binding.Id, state.LeaseGeneration);
-                        binding.Release(); LastAction = "Dropped: the held object was obstructed";
-                    }
-                }
-                else binding.Release();
-            }
+            if (bindings.Reconcile(applyForces, Time.fixedDeltaTime)) LastAction = "Dropped: the held object was obstructed";
         }
 
         public void ToggleClockPause()
@@ -331,8 +305,7 @@ namespace CriticalShift.Features.Interaction.Unity
             if (stopped) return;
             stopped = true; active = false;
             if (world != null) world.Stop();
-            foreach (var binding in bodies.Values) binding.Release();
-            bodies.Clear(); slots.Clear(); carryTargets.Clear(); focused = Guid.Empty; pickTarget = null; targetName = null;
+            bindings?.Clear(); focused = Guid.Empty; pickTarget = null; targetName = null;
         }
 
         private void OnDisable() => Shutdown();

@@ -10,6 +10,7 @@ namespace CriticalShift.Sandbox
     {
         private readonly List<Material> materials = new List<Material>();
         internal readonly Material Floor, Steel, Dark, Yellow, Ore, Fuel, Wet, Lamp;
+        internal readonly PhysicsMaterial WheelContact;
 
         internal SandboxPrimitives(Shader shader)
         {
@@ -29,6 +30,13 @@ namespace CriticalShift.Sandbox
             Wet = CreateMaterial(shader, "Fixture wet ore", new Color(0.2f, 0.32f, 0.48f), 0.35f);
             Lamp = CreateMaterial(shader, "Fixture signal face", Color.white, 0.25f);
             Lamp.EnableKeyword("_EMISSION");
+            // The fixture uses spherical contacts rather than simulated wheel joints.
+            // Their rolling-resistance proxy must not fight CartMotor's bounded drive.
+            WheelContact = new PhysicsMaterial("Fixture wheel rolling resistance")
+            {
+                staticFriction = 0.02f, dynamicFriction = 0.02f, bounciness = 0,
+                frictionCombine = PhysicsMaterialCombine.Minimum, bounceCombine = PhysicsMaterialCombine.Minimum
+            };
         }
 
         private Material CreateMaterial(Shader shader, string name, Color color, float smoothness)
@@ -73,6 +81,7 @@ namespace CriticalShift.Sandbox
         {
             foreach (var material in materials) if (material != null) UnityEngine.Object.Destroy(material);
             materials.Clear();
+            if (WheelContact != null) UnityEngine.Object.Destroy(WheelContact);
         }
     }
 }

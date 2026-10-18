@@ -51,8 +51,9 @@ namespace CriticalShift.Presentation
         {
             if (!active) return;
             MovementRequested?.Invoke(new Vector2(Axis(KeyCode.D, KeyCode.A), Axis(KeyCode.W, KeyCode.S)));
-            CartDriveRequested?.Invoke(Axis(KeyCode.UpArrow, KeyCode.DownArrow),
-                Axis(KeyCode.RightArrow, KeyCode.LeftArrow), held.Contains(KeyCode.Space));
+            bool arrows = held.Contains(KeyCode.UpArrow) || held.Contains(KeyCode.DownArrow) || held.Contains(KeyCode.LeftArrow) || held.Contains(KeyCode.RightArrow);
+            CartDriveRequested?.Invoke(arrows ? Axis(KeyCode.UpArrow, KeyCode.DownArrow) : Axis(KeyCode.W, KeyCode.S),
+                arrows ? Axis(KeyCode.RightArrow, KeyCode.LeftArrow) : Axis(KeyCode.D, KeyCode.A), held.Contains(KeyCode.Space));
         }
 
         private float Axis(KeyCode positive, KeyCode negative) => (held.Contains(positive) ? 1 : 0) - (held.Contains(negative) ? 1 : 0);
@@ -102,7 +103,7 @@ namespace CriticalShift.Presentation
                 var world = commands.World;
                 GUILayout.Label("CRITICAL SHIFT | LOCAL GAMEPLAY FIXTURE");
                 GUILayout.Label("WASD walk · right-drag look · Tab hides panel");
-                GUILayout.Label("Arrow keys drive cart · Space brakes");
+                GUILayout.Label("E takes cart handle · WASD/arrows drive · Space brakes");
                 GUILayout.Label("Shift " + TimeSpan.FromMilliseconds(world.RemainingMilliseconds).ToString(@"mm\:ss") + " | " + world.Phase);
                 GUILayout.Label("Held objects: " + world.ActiveClaimCount + " | " + actionStatus(), wrapped);
                 GUILayout.Space(8);
