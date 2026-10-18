@@ -21,37 +21,36 @@ namespace CriticalShift.Sandbox
             string expected = pipeline != null ? "Universal Render Pipeline/Lit" : "Standard";
             if (shader == null || shader.name != expected)
                 throw new InvalidOperationException("Regenerate the fixture scene to bind the configured renderer's Lit shader.");
-            Floor = CreateMaterial(shader, "Fixture floor", new Color(0.2f, 0.23f, 0.25f), 0.1f);
-            Steel = CreateMaterial(shader, "Fixture painted steel", new Color(0.34f, 0.42f, 0.45f), 0.25f);
-            Dark = CreateMaterial(shader, "Fixture belt and rubber", new Color(0.055f, 0.07f, 0.08f), 0.05f);
-            Yellow = CreateMaterial(shader, "Fixture safety yellow", new Color(0.9f, 0.58f, 0.08f), 0.15f);
-            Ore = CreateMaterial(shader, "Fixture ore crate", new Color(0.6f, 0.34f, 0.16f), 0.05f);
-            Fuel = CreateMaterial(shader, "Fixture fuel crate", new Color(0.1f, 0.65f, 0.7f), 0.15f);
-            Wet = CreateMaterial(shader, "Fixture wet ore", new Color(0.2f, 0.32f, 0.48f), 0.35f);
-            Lamp = CreateMaterial(shader, "Fixture signal face", Color.white, 0.25f);
-            Lamp.EnableKeyword("_EMISSION");
-            // The fixture uses spherical contacts rather than simulated wheel joints.
-            // Their rolling-resistance proxy must not fight CartMotor's bounded drive.
-            WheelContact = new PhysicsMaterial("Fixture wheel rolling resistance")
+            try
             {
-                staticFriction = 0.02f, dynamicFriction = 0.02f, bounciness = 0,
-                frictionCombine = PhysicsMaterialCombine.Minimum, bounceCombine = PhysicsMaterialCombine.Minimum
-            };
-            WorkerContact = new PhysicsMaterial("Fixture worker suit contact")
-            {
-                staticFriction = 0.18f, dynamicFriction = 0.15f, bounciness = 0,
-                frictionCombine = PhysicsMaterialCombine.Minimum, bounceCombine = PhysicsMaterialCombine.Minimum
-            };
+                Floor = CreateMaterial(shader, "Fixture floor", new Color(0.2f, 0.23f, 0.25f), 0.1f);
+                Steel = CreateMaterial(shader, "Fixture painted steel", new Color(0.34f, 0.42f, 0.45f), 0.25f);
+                Dark = CreateMaterial(shader, "Fixture belt and rubber", new Color(0.055f, 0.07f, 0.08f), 0.05f);
+                Yellow = CreateMaterial(shader, "Fixture safety yellow", new Color(0.9f, 0.58f, 0.08f), 0.15f);
+                Ore = CreateMaterial(shader, "Fixture ore crate", new Color(0.6f, 0.34f, 0.16f), 0.05f);
+                Fuel = CreateMaterial(shader, "Fixture fuel crate", new Color(0.1f, 0.65f, 0.7f), 0.15f);
+                Wet = CreateMaterial(shader, "Fixture wet ore", new Color(0.2f, 0.32f, 0.48f), 0.35f);
+                Lamp = CreateMaterial(shader, "Fixture signal face", Color.white, 0.25f);
+                Lamp.EnableKeyword("_EMISSION");
+                // Track native objects before configuring them so failed setup still owns cleanup.
+                WheelContact = new PhysicsMaterial("Fixture wheel rolling resistance");
+                WheelContact.staticFriction = 0.02f; WheelContact.dynamicFriction = 0.02f; WheelContact.bounciness = 0;
+                WheelContact.frictionCombine = PhysicsMaterialCombine.Minimum; WheelContact.bounceCombine = PhysicsMaterialCombine.Minimum;
+                WorkerContact = new PhysicsMaterial("Fixture worker suit contact");
+                WorkerContact.staticFriction = 0.18f; WorkerContact.dynamicFriction = 0.15f; WorkerContact.bounciness = 0;
+                WorkerContact.frictionCombine = PhysicsMaterialCombine.Minimum; WorkerContact.bounceCombine = PhysicsMaterialCombine.Minimum;
+            }
+            catch { Dispose(); throw; }
         }
 
         private Material CreateMaterial(Shader shader, string name, Color color, float smoothness)
         {
-            var material = new Material(shader) { name = name };
+            var material = new Material(shader); materials.Add(material); material.name = name;
             if (material.HasProperty("_BaseColor")) material.SetColor("_BaseColor", color);
             if (material.HasProperty("_Color")) material.SetColor("_Color", color);
             if (material.HasProperty("_Smoothness")) material.SetFloat("_Smoothness", smoothness);
             if (material.HasProperty("_Glossiness")) material.SetFloat("_Glossiness", smoothness);
-            materials.Add(material); return material;
+            return material;
         }
 
         internal static GameObject Empty(string name, Transform parent, Vector3 position)

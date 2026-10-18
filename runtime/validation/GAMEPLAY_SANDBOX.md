@@ -610,3 +610,11 @@ sets up a standing actor, inserts/processes/ejects ore with yield, then loads an
 starts the reactor through real spatial admission. The existing grounded-cart
 case now includes cargo before acquiring the handle. All remain NotRun; this is
 a source correction pending native confirmation. The declared inventory is 87.
+
+Native-resource lifecycle source review now tracks each created palette/contact
+material before configuring it and disposes a partial palette if setup throws.
+The existing ten-cycle native case also compares actual named Material and
+PhysicsMaterial object counts after deferred destruction, rather than relying
+only on cleared managed references. It ends with its tenth world stopped. This
+global object enumeration exists only in the leak diagnostic, not runtime
+binding discovery. The case remains NotRun; no leak-free native pass is claimed.

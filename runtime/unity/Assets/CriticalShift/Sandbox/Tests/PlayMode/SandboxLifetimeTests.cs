@@ -24,6 +24,7 @@ namespace CriticalShift.Sandbox.Tests
 
         [UnityTest] public IEnumerator TenEnableDisableCyclesUseFreshEpochsAndClearAllBindings()
         {
+            int materialBaseline = FixtureAssets<Material>(), physicsMaterialBaseline = FixtureAssets<PhysicsMaterial>();
             root = new GameObject("Sandbox lifetime regression fixture"); root.transform.position = new Vector3(1500, 0, 1500);
             var bootstrap = root.AddComponent<SandboxBootstrap>();
             var pipeline = QualitySettings.renderPipeline != null ? QualitySettings.renderPipeline : GraphicsSettings.defaultRenderPipeline;
@@ -49,9 +50,20 @@ namespace CriticalShift.Sandbox.Tests
                 Assert.That(bootstrap.LastStoppedWorld.Phase, Is.EqualTo(WorldPhase.Stopped));
                 Assert.That(bootstrap.LastStoppedWorld.ActiveClaimCount, Is.Zero);
                 Assert.That(bootstrap.LastStoppedWorld.RegisteredObjectCount, Is.Zero);
-                yield return null;
-                bootstrap.enabled = true; yield return null;
+                yield return null; yield return null;
+                Assert.That(FixtureAssets<Material>(), Is.EqualTo(materialBaseline), "Native fixture materials leaked across teardown.");
+                Assert.That(FixtureAssets<PhysicsMaterial>(), Is.EqualTo(physicsMaterialBaseline), "Native fixture contact materials leaked across teardown.");
+                if (i < 9) { bootstrap.enabled = true; yield return null; }
             }
+        }
+
+        private static int FixtureAssets<T>() where T : UnityEngine.Object
+        {
+            // Global native-object enumeration belongs to this leak diagnostic only, never runtime binding discovery.
+            int count = 0;
+            foreach (var item in Resources.FindObjectsOfTypeAll<T>())
+                if (item != null && item.name.StartsWith("Fixture ", StringComparison.Ordinal)) count++;
+            return count;
         }
 
         [UnityTest] public IEnumerator GroundedFixtureCartDrivesWhileItsWorkerMaintainsTheHandle()
