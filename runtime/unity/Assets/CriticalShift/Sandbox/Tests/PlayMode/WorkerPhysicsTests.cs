@@ -109,7 +109,7 @@ namespace CriticalShift.Sandbox.Tests
             Assert.That(host.World.Production.GetBatch(Id(103)).Units, Is.EqualTo(12));
         }
 
-        [UnityTest] public IEnumerator FacilityConsoleAnchorsAdmitProductionAndReactorCommandsAtStandingHeight()
+        [UnityTest] public IEnumerator FacilityConsoleAnchorsAdmitProducedFuelThroughTheFullChain()
         {
             controller.enabled = false; controller.transform.position = root.transform.position + new Vector3(-4, 0.1f, 2);
             controller.enabled = true; walker.ResetAfterRecovery();
@@ -126,16 +126,33 @@ namespace CriticalShift.Sandbox.Tests
             Assert.That(host.World.Production.GetBatch(Id(103)).Units, Is.EqualTo(11));
             host.OperateMachine(Id(400), ProductionAction.Eject, Guid.Empty, false, false);
             Assert.That(host.World.GetObject(Id(103)).SlotId, Is.Null, host.LastAction);
+            controller.enabled = false; controller.transform.position = root.transform.position + new Vector3(0.5f, 0.1f, 2);
+            controller.enabled = true; walker.ResetAfterRecovery();
+            ore.position = root.transform.position + new Vector3(0.5f, 1, 3); ore.linearVelocity = Vector3.zero; Physics.SyncTransforms();
+            host.Grab(Id(103)); Assert.That(host.World.GetObject(Id(103)).HolderId, Is.EqualTo(Id(1)));
+            host.OperateMachine(Id(401), ProductionAction.Insert, Id(103), false, false);
+            Assert.That(host.World.GetObject(Id(103)).SlotId, Is.EqualTo(Id(401)), host.LastAction);
+            host.OperateMachine(Id(401), ProductionAction.SetPower, Guid.Empty, false, true);
+            host.OperateMachine(Id(401), ProductionAction.Start, Guid.Empty, false, false);
+            Assert.That(host.World.Production.GetMachine(Id(401)).Mode, Is.EqualTo(ProductionMode.Processing), host.LastAction);
+            clock += 9.1; host.Pump();
+            Assert.That(host.World.Production.GetBatch(Id(103)).Kind, Is.EqualTo(MaterialKind.Fuel));
+            Assert.That(host.World.Production.GetBatch(Id(103)).Units, Is.EqualTo(11));
+            host.OperateMachine(Id(401), ProductionAction.Eject, Guid.Empty, false, false);
+            Assert.That(host.World.GetObject(Id(103)).SlotId, Is.Null, host.LastAction);
             controller.enabled = false; controller.transform.position = root.transform.position + new Vector3(5.5f, 0.1f, 3);
             controller.enabled = true; walker.ResetAfterRecovery();
-            var fuel = root.transform.Find("Local Gameplay Fixture/Material container 7").GetComponent<Rigidbody>();
-            fuel.position = root.transform.position + new Vector3(5.5f, 1.05f, 4.1f); fuel.linearVelocity = Vector3.zero; Physics.SyncTransforms();
-            host.Grab(Id(106)); Assert.That(host.World.GetObject(Id(106)).HolderId, Is.EqualTo(Id(1)));
-            host.OperateReactor(Id(500), ReactorAction.Insert, Id(106), false);
-            Assert.That(host.World.GetObject(Id(106)).SlotId, Is.EqualTo(Id(500)), host.LastAction);
+            ore.position = root.transform.position + new Vector3(5.5f, 1.05f, 4.1f); ore.linearVelocity = Vector3.zero; Physics.SyncTransforms();
+            host.Grab(Id(103)); Assert.That(host.World.GetObject(Id(103)).HolderId, Is.EqualTo(Id(1)));
+            host.OperateReactor(Id(500), ReactorAction.Insert, Id(103), false);
+            Assert.That(host.World.GetObject(Id(103)).SlotId, Is.EqualTo(Id(500)), host.LastAction);
             host.OperateReactor(Id(500), ReactorAction.SetCooling, Guid.Empty, true);
             host.OperateReactor(Id(500), ReactorAction.Start, Guid.Empty, false);
             Assert.That(host.World.Reactor.View.Mode, Is.EqualTo(ReactorMode.Running), host.LastAction);
+            clock += 1.1; host.Pump();
+            Assert.That(host.World.Reactor.PowerSummary.Delivered, Is.GreaterThan(0));
+            Assert.That(host.World.Production.Summary.ActiveUnits + host.World.Production.Summary.WasteUnits,
+                Is.EqualTo(host.World.Production.Summary.IssuedUnits));
             yield return Step();
         }
 

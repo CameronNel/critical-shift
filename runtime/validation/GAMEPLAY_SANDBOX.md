@@ -618,3 +618,16 @@ PhysicsMaterial object counts after deferred destruction, rather than relying
 only on cleared managed references. It ends with its tenth world stopped. This
 global object enumeration exists only in the leak diagnostic, not runtime
 binding discovery. The case remains NotRun; no leak-free native pass is claimed.
+
+Slot lifecycle review now captures each portable body's original collision mode
+and interpolation. It switches to ContinuousSpeculative/None before becoming
+kinematic, then restores the original modes after returning to dynamic motion.
+The existing slot native case now uses a continuous/interpolated body and checks
+that handoff. This follows the same compatibility ordering as the worker rig.
+The actual-console native case is extended/renamed to
+`FacilityConsoleAnchorsAdmitProducedFuelThroughTheFullChain`: one container goes
+through crusher yield, processor output, reactor loading and grid generation,
+with conserved accounting. Test-only transport arrangements place the actor and
+container between stations; it does not prove walking/handling feel or navigation.
+The saved declared count remains 87; all engine/compiler/test execution is still
+NotRun.

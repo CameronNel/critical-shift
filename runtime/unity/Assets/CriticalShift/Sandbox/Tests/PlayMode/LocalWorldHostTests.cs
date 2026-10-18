@@ -51,6 +51,7 @@ namespace CriticalShift.Sandbox.Tests
             var crate = GameObject.CreatePrimitive(PrimitiveType.Cube); crate.transform.SetParent(root.transform, false);
             crate.transform.localPosition = new Vector3(0, 1, 0);
             body = crate.AddComponent<Rigidbody>(); body.useGravity = false;
+            body.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic; body.interpolation = RigidbodyInterpolation.Interpolate;
             target = new GameObject("Carry target").transform; target.SetParent(root.transform, false); target.localPosition = new Vector3(0, 1, 1);
             slot = new GameObject("Machine slot").transform; slot.SetParent(root.transform, false); slot.localPosition = new Vector3(3, 1, 0);
             host.BindBody(Box, body, 0.5f); host.BindCarryTarget(Actor, target); host.BindSlot(Machine, slot);
@@ -165,10 +166,14 @@ namespace CriticalShift.Sandbox.Tests
             host.Grab(Box); host.OperateMachine(Machine, ProductionAction.Insert, Box, false, false);
             Assert.That(world.GetObject(Box).SlotId, Is.EqualTo(Machine));
             Assert.That(body.isKinematic, Is.True);
+            Assert.That(body.collisionDetectionMode, Is.EqualTo(CollisionDetectionMode.ContinuousSpeculative));
+            Assert.That(body.interpolation, Is.EqualTo(RigidbodyInterpolation.None));
             Assert.That(Vector3.Distance(body.position, slot.position), Is.LessThan(0.001f));
             host.OperateMachine(Machine, ProductionAction.Eject, Guid.Empty, false, false);
             Assert.That(world.GetObject(Box).SlotId, Is.Null);
             Assert.That(body.isKinematic, Is.False);
+            Assert.That(body.collisionDetectionMode, Is.EqualTo(CollisionDetectionMode.ContinuousDynamic));
+            Assert.That(body.interpolation, Is.EqualTo(RigidbodyInterpolation.Interpolate));
             yield return null;
         }
 

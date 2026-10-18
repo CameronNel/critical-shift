@@ -10,6 +10,8 @@ namespace CriticalShift.Features.Interaction.Unity
         internal readonly Guid Id;
         internal readonly Rigidbody Body;
         private readonly bool originalKinematic, originalGravity;
+        private readonly CollisionDetectionMode originalCollisionMode;
+        private readonly RigidbodyInterpolation originalInterpolation;
         private readonly float massPerUnit;
         private readonly Bounds localBounds;
         private readonly Collider[] overlaps = new Collider[32];
@@ -27,6 +29,7 @@ namespace CriticalShift.Features.Interaction.Unity
             Id = id; Body = body;
             massPerUnit = physicalMassPerUnit;
             originalKinematic = body.isKinematic; originalGravity = body.useGravity;
+            originalCollisionMode = body.collisionDetectionMode; originalInterpolation = body.interpolation;
             var colliders = body.GetComponentsInChildren<Collider>();
             if (colliders.Length == 0) throw new ArgumentException("A portable body needs a collider.");
             Bounds worldBounds = colliders[0].bounds;
@@ -65,6 +68,8 @@ namespace CriticalShift.Features.Interaction.Unity
             RestoreFromSlot();
             if (!CanPlace(slot)) throw new InvalidOperationException("The accepted machine slot could not be physically bound.");
             Body.linearVelocity = Vector3.zero; Body.angularVelocity = Vector3.zero;
+            Body.collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
+            Body.interpolation = RigidbodyInterpolation.None;
             Body.isKinematic = true; Body.useGravity = false;
             Body.position = slot.position; Body.rotation = slot.rotation;
             slotted = true; appliedSlot = slotId; generation = 0; obstructionSeconds = 0;
@@ -113,6 +118,7 @@ namespace CriticalShift.Features.Interaction.Unity
         {
             if (!slotted) return;
             Body.isKinematic = originalKinematic; Body.useGravity = originalGravity;
+            Body.collisionDetectionMode = originalCollisionMode; Body.interpolation = originalInterpolation;
             if (!Body.isKinematic) { Body.linearVelocity = Vector3.zero; Body.angularVelocity = Vector3.zero; }
             slotted = false; appliedSlot = Guid.Empty;
         }
