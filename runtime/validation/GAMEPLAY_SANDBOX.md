@@ -76,7 +76,7 @@ art acceptance.
 - Diagnostic controls, crusher/fuel/reactor fixture, lamps, valve/spindle/tread
   motion, material appearance and scratch-scene generator: written, unvalidated.
 - Nine pure command-port tests, fourteen worker-body claim tests, nine package
-  safety tests and 48 native sandbox
+  safety tests and 50 native sandbox
   tests are implemented, all **NotRun**. These are declared inventory counts,
   not discovered/executed results.
 - Direct first-person focus, context transfer/drop, power/cooling and start
@@ -226,3 +226,17 @@ Five native drag cases are written, NotRun: physical pull/slowdown, reach loss
 and stale-lease rejection, held-body recovery exclusion, a moving suit anchor
 independent of the old worker root, and teardown while dragging into a fresh
 epoch. The ten-cycle fixture teardown now covers both physical worker rigs.
+
+## Focused machine recovery controls
+
+R now issues one current-state action: Start, Repair for a jam, or Resume for a
+power-paused cycle. It never silently toggles power or bundles several changes.
+F still isolates/restores power; B explicitly starts the existing inspection
+bypass, including its canonical wet-batch jam and lineage consequences. Focus
+hints expose the current step. Command admission still uses the same sender,
+revisions and receipt stream. Focus preflight now samples the host clock before
+checking phase, including pause and deadline boundaries.
+
+Two additional native cases are implemented, NotRun: wet bypass through jam,
+power isolation, repair and resume with retained cause/flags; and resuming the
+same cycle with preserved committed work. No new gameplay rule or cost is added.

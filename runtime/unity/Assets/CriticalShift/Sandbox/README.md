@@ -18,8 +18,10 @@ test worker. The second worker is controlled locally for this fixture.
 
 - WASD: walk; right mouse drag: look; Tab: show/hide controls.
 - Look at a nearby target: E grabs or transfers to/from equipment; G drops the
-  current crate; F toggles machine power or reactor cooling; R starts the
-  focused process. Loaded containers resolve their machine slot. Walls and
+  current grip; F toggles machine power or reactor cooling; R starts, repairs
+  or resumes the focused machine according to its current mode. Repair still
+  requires power isolation. B starts with inspection bypass, preserving its
+  faster processing and wet-batch jam risk. Loaded containers resolve their machine slot. Walls and
   unrelated bodies continue blocking focus and interaction.
 - Stand behind the cart and E takes its exclusive rear handle. WASD (or arrow
   keys) drives and steers while gripped; Space brakes. The worker follows the
@@ -89,7 +91,7 @@ on the inspected baseline. No package is downloaded by the generator.
 
 The existing foundation runner still tests its foundation assembly selection;
 it does not automatically claim sandbox coverage. The separate native inventory
-is `runtime/validation/sandbox-expected-tests.json`: 48 implemented cases, all
+is `runtime/validation/sandbox-expected-tests.json`: 50 implemented cases, all
 NotRun. Nine new pure command-port cases, fourteen worker-body claim cases and
 nine source-package safety cases
 are also NotRun. Native fixtures are offset from possible active-scene content

@@ -65,6 +65,7 @@ namespace CriticalShift.Sandbox
                 hud.CartDriveRequested += cart.SetDrive;
                 hud.TransferFocusedRequested += host.TransferFocused; hud.DropHeldRequested += host.DropHeld;
                 hud.StartFocusedRequested += host.StartFocused; hud.ToggleFocusedPowerRequested += host.ToggleFocusedPower;
+                hud.BypassFocusedRequested += host.BypassFocused;
                 hud.RecoveryRequested += workerState.RequestRecovery; hud.DiagnosticKnockdownRequested += workerState.DiagnosticKnockdown;
                 hud.PatientRecoveryRequested += patientState.RequestRecovery; hud.PatientKnockdownRequested += patientState.DiagnosticKnockdown;
                 recovery.Seal(); host.Activate(); workerState.Activate(); patientState.Activate();

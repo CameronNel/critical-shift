@@ -1,5 +1,7 @@
 {
   "PlayMode": [
+    "CriticalShift.Sandbox.Tests.LocalWorldHostTests.ContextBypassJamRequiresPowerIsolationBeforeRepairAndResume",
+    "CriticalShift.Sandbox.Tests.LocalWorldHostTests.ContextResumeRetainsTheSameCycleAndCommittedWork",
     "CriticalShift.Sandbox.Tests.WorkerDragTests.SuitGripPullsTheDynamicWorkerAndSlowsTheRescuer",
     "CriticalShift.Sandbox.Tests.WorkerDragTests.LostDragReachDropsOnlyItsCurrentLease",
     "CriticalShift.Sandbox.Tests.WorkerDragTests.HeldWorkerCannotStandUntilTheSuitGripIsReleased",

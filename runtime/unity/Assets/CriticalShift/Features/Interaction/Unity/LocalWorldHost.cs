@@ -186,11 +186,24 @@ namespace CriticalShift.Features.Interaction.Unity
             if (held != Guid.Empty) Release(held); else LastAction = "Your hands are free";
         }
 
-        public void StartFocused()
+        public void StartFocused() => StartFocused(false);
+        public void BypassFocused() => StartFocused(true);
+
+        private void StartFocused(bool bypass)
         {
             if (!PrepareFocused()) return;
-            if (world.Production.GetMachine(focused) != null) OperateMachine(focused, ProductionAction.Start, Guid.Empty, false, false);
-            else if (world.Reactor.View?.Id == focused) OperateReactor(focused, ReactorAction.Start, Guid.Empty, false);
+            var machine = world.Production.GetMachine(focused);
+            if (machine != null)
+            {
+                var action = bypass ? ProductionAction.Start : machine.Mode == ProductionMode.Jammed ? ProductionAction.Repair :
+                    machine.Mode == ProductionMode.PowerPaused ? ProductionAction.Resume : ProductionAction.Start;
+                OperateMachine(focused, action, Guid.Empty, bypass, false);
+            }
+            else if (world.Reactor.View?.Id == focused)
+            {
+                if (bypass) LastAction = "Inspection bypass applies to production machines";
+                else OperateReactor(focused, ReactorAction.Start, Guid.Empty, false);
+            }
         }
 
         public void ToggleFocusedPower()
@@ -216,12 +229,15 @@ namespace CriticalShift.Features.Interaction.Unity
         private bool PrepareFocused()
         {
             if (!active || stopped) return false;
-            if (world.View.Phase != WorldPhase.Running)
+            try { Pump(); Physics.SyncTransforms(); }
+            catch (Exception exception) { StopAfterFailure(exception); return false; }
+            var phase = world.View.Phase;
+            if (phase != WorldPhase.Running)
             {
-                LastAction = world.View.Phase == WorldPhase.Paused ? "Resume the process clock before transferring or starting equipment" : "The shift has ended; restart the fixture";
+                LastAction = phase == WorldPhase.Paused ? "Resume the process clock before transferring or starting equipment" : "The shift has ended; restart the fixture";
                 return false;
             }
-            try { Pump(); Physics.SyncTransforms(); RefreshFocus(); }
+            try { RefreshFocus(); }
             catch (Exception exception) { StopAfterFailure(exception); return false; }
             if (focused != Guid.Empty) return true;
             LastAction = "Look directly at a nearby crate or machine"; return false;
@@ -244,15 +260,20 @@ namespace CriticalShift.Features.Interaction.Unity
             if (focused == Guid.Empty) { FocusHint = "Look at a nearby crate or machine"; return; }
             if (bindings.IsWorker(focused))
             { FocusHint = "Worker suit grip | E drag a down worker · G release"; return; }
-            bool equipment = world.Production.GetMachine(focused) != null || world.Reactor.View?.Id == focused;
+            var machine = world.Production.GetMachine(focused);
+            bool reactor = world.Reactor.View?.Id == focused;
             if (bindings.IsHandle(focused))
             {
                 FocusHint = bindings.IsHandleHeld(localActor, focused) ? "Cart handle | WASD push/steer · G release" :
                     HeldObject() != Guid.Empty ? "Cart | E release crate onto bed" : "Cart | stand behind it and press E to take handle";
                 return;
             }
-            FocusHint = (targetName == null ? "Target" : targetName(focused)) +
-                (equipment ? " | E transfer · F power/cooling · R start" : " | E grab · G drop");
+            string controls = machine == null ? reactor ? "E transfer · F cooling · R start" : "E grab · G drop" :
+                machine.Mode == ProductionMode.Jammed ? "F isolate power · R repair jam" :
+                machine.Mode == ProductionMode.PowerPaused ? "F restore power · R resume cycle" :
+                machine.Mode == ProductionMode.OutputReady ? "E eject output · F power" :
+                machine.Mode == ProductionMode.Processing ? "F isolate power" : "E transfer · F power · R start · B bypass inspection";
+            FocusHint = (targetName == null ? "Target" : targetName(focused)) + " | " + controls;
         }
 
         public void OperateMachine(Guid id, ProductionAction action, Guid container, bool bypass, bool powered)

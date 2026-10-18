@@ -13,6 +13,7 @@ namespace CriticalShift.Presentation
         public event Action<Guid, ReactorAction, Guid, bool> ReactorRequested;
         public event Action ReplayRequested, PauseRequested, ResetRequested, BeltResetRequested;
         public event Action TransferFocusedRequested, DropHeldRequested, StartFocusedRequested, ToggleFocusedPowerRequested;
+        public event Action BypassFocusedRequested;
         public event Action RecoveryRequested, DiagnosticKnockdownRequested;
         public event Action PatientRecoveryRequested, PatientKnockdownRequested;
         public event Action<Vector2> MovementRequested, LookRequested;
@@ -46,7 +47,8 @@ namespace CriticalShift.Presentation
                 ReactorRequested == null || ReplayRequested == null || PauseRequested == null || ResetRequested == null ||
                 BeltResetRequested == null || MovementRequested == null || LookRequested == null || CartDriveRequested == null ||
                 TransferFocusedRequested == null || DropHeldRequested == null || StartFocusedRequested == null || ToggleFocusedPowerRequested == null ||
-                RecoveryRequested == null || DiagnosticKnockdownRequested == null || PatientRecoveryRequested == null || PatientKnockdownRequested == null)
+                RecoveryRequested == null || DiagnosticKnockdownRequested == null || PatientRecoveryRequested == null || PatientKnockdownRequested == null ||
+                BypassFocusedRequested == null)
                 throw new InvalidOperationException("Fixture controls require all explicit command and input bindings.");
             active = true;
         }
@@ -69,7 +71,8 @@ namespace CriticalShift.Presentation
             if (input.type != EventType.KeyDown && input.type != EventType.KeyUp) return;
             if (input.keyCode == KeyCode.Tab && input.type == EventType.KeyDown)
             { visible = !visible; input.Use(); return; }
-            if (input.keyCode == KeyCode.E || input.keyCode == KeyCode.G || input.keyCode == KeyCode.R || input.keyCode == KeyCode.F || input.keyCode == KeyCode.H)
+            if (input.keyCode == KeyCode.E || input.keyCode == KeyCode.G || input.keyCode == KeyCode.R || input.keyCode == KeyCode.F ||
+                input.keyCode == KeyCode.H || input.keyCode == KeyCode.B)
             {
                 if (input.type == EventType.KeyUp) held.Remove(input.keyCode);
                 else if (held.Add(input.keyCode))
@@ -78,6 +81,7 @@ namespace CriticalShift.Presentation
                     else if (input.keyCode == KeyCode.G) DropHeldRequested?.Invoke();
                     else if (input.keyCode == KeyCode.R) StartFocusedRequested?.Invoke();
                     else if (input.keyCode == KeyCode.F) ToggleFocusedPowerRequested?.Invoke();
+                    else if (input.keyCode == KeyCode.B) BypassFocusedRequested?.Invoke();
                     else RecoveryRequested?.Invoke();
                 }
                 input.Use(); return;
@@ -97,7 +101,7 @@ namespace CriticalShift.Presentation
             GUI.Label(new Rect(Screen.width * 0.5f - 6, Screen.height * 0.5f - 10, 20, 20), "+");
             if (!visible)
             {
-                GUI.Label(new Rect(12, 12, 800, 30), "WASD walk | right-drag look | E transfer | G drop | F power | R start | H recover | Tab controls");
+                GUI.Label(new Rect(12, 12, 1100, 30), "WASD walk | right-drag look | E transfer | G drop | F power | R start/repair/resume | B bypass inspection | H recover | Tab controls");
                 GUI.Label(new Rect(12, 42, 800, 60), actionStatus(), wrapped); return;
             }
             bool previousEnabled = GUI.enabled;
@@ -225,6 +229,7 @@ namespace CriticalShift.Presentation
             ClearInput(); GrabRequested = null; ReleaseRequested = null; MachineRequested = null; ReactorRequested = null;
             ReplayRequested = null; PauseRequested = null; ResetRequested = null; BeltResetRequested = null;
             TransferFocusedRequested = null; DropHeldRequested = null; StartFocusedRequested = null; ToggleFocusedPowerRequested = null;
+            BypassFocusedRequested = null;
             RecoveryRequested = null; DiagnosticKnockdownRequested = null;
             PatientRecoveryRequested = null; PatientKnockdownRequested = null;
             MovementRequested = null; LookRequested = null; CartDriveRequested = null;

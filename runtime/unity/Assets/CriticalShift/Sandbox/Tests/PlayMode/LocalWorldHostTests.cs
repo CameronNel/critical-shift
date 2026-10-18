@@ -23,6 +23,7 @@ namespace CriticalShift.Sandbox.Tests
         private Guid Box => Id(10);
         private Guid Actor => Id(20);
         private Guid Machine => Id(30);
+        private Guid WetBox => Id(50);
 
         private sealed class AllowedFixtureAccess : IInteractionAccessPolicy
         {
@@ -36,6 +37,7 @@ namespace CriticalShift.Sandbox.Tests
             world = new WorldSession(new WorldSessionConfiguration(1, 60000, true), new AllowedFixtureAccess());
             world.RegisterConnection(Id(1), Actor);
             world.Production.RegisterBatch(Box, Id(11), Id(12), Id(13), MaterialKind.Ore, 10);
+            world.Production.RegisterBatch(WetBox, Id(51), Id(12), Id(53), MaterialKind.Ore, 10, moisture: 850);
             world.Production.RegisterMachine(Machine, new MachineRecipe(Id(31), MaterialKind.Ore, MaterialKind.CrushedOre,
                 1000, 500, 100, 100, yieldPermille: 800));
             port = new LocalCommandPort(world, Id(1));
@@ -47,6 +49,9 @@ namespace CriticalShift.Sandbox.Tests
             target = new GameObject("Carry target").transform; target.SetParent(root.transform, false); target.localPosition = new Vector3(0, 1, 1);
             slot = new GameObject("Machine slot").transform; slot.SetParent(root.transform, false); slot.localPosition = new Vector3(3, 1, 0);
             host.BindBody(Box, body, 0.5f); host.BindCarryTarget(Actor, target); host.BindSlot(Machine, slot);
+            var wet = GameObject.CreatePrimitive(PrimitiveType.Cube); wet.transform.SetParent(root.transform, false);
+            wet.transform.localPosition = new Vector3(-3, 1, 0);
+            var wetBody = wet.AddComponent<Rigidbody>(); wetBody.useGravity = false; host.BindBody(WetBox, wetBody, 0.5f);
             host.Activate();
         }
 
@@ -183,6 +188,37 @@ namespace CriticalShift.Sandbox.Tests
             Assert.That(world.Production.Summary.ActiveUnits + world.Production.Summary.WasteUnits,
                 Is.EqualTo(world.Production.Summary.IssuedUnits));
             yield return null;
+        }
+
+        [UnityTest] public IEnumerator ContextBypassJamRequiresPowerIsolationBeforeRepairAndResume()
+        {
+            host.Grab(WetBox); focus = Machine; host.TransferFocused(); host.ToggleFocusedPower(); host.BypassFocused();
+            Assert.That(world.Production.GetMachine(Machine).Mode, Is.EqualTo(ProductionMode.Processing));
+            clock = 0.15; host.Pump(); Assert.That(world.Production.GetMachine(Machine).Mode, Is.EqualTo(ProductionMode.Jammed));
+            host.StartFocused(); Assert.That(host.LastAction, Is.EqualTo("PowerMustBeOff"));
+            Assert.That(world.GetObject(WetBox).SlotId, Is.EqualTo(Machine));
+            host.ToggleFocusedPower(); host.StartFocused();
+            Assert.That(world.Production.GetMachine(Machine).Mode, Is.EqualTo(ProductionMode.PowerPaused));
+            host.ToggleFocusedPower(); host.StartFocused();
+            Assert.That(world.Production.GetMachine(Machine).Mode, Is.EqualTo(ProductionMode.Processing));
+            clock = 1; host.Pump();
+            var output = world.Production.GetBatch(WetBox);
+            Assert.That(output.Kind, Is.EqualTo(MaterialKind.CrushedOre)); Assert.That(output.Units, Is.EqualTo(8));
+            Assert.That(output.Flags, Is.EqualTo(MaterialFlags.BypassedInspection)); Assert.That(output.CauseId, Is.EqualTo(Id(53)));
+            yield return null;
+        }
+
+        [UnityTest] public IEnumerator ContextResumeRetainsTheSameCycleAndCommittedWork()
+        {
+            host.Grab(Box); focus = Machine; host.TransferFocused(); host.ToggleFocusedPower(); host.StartFocused();
+            var cycle = world.Production.GetMachine(Machine).CycleId;
+            clock = 0.25; host.Pump(); host.ToggleFocusedPower(); host.ToggleFocusedPower(); host.StartFocused();
+            var resumed = world.Production.GetMachine(Machine);
+            Assert.That(resumed.Mode, Is.EqualTo(ProductionMode.Processing)); Assert.That(resumed.CycleId, Is.EqualTo(cycle));
+            Assert.That(resumed.WorkMilliseconds, Is.EqualTo(250));
+            clock = 1.25; host.Pump();
+            Assert.That(world.Production.GetMachine(Machine).Mode, Is.EqualTo(ProductionMode.OutputReady));
+            Assert.That(world.Production.GetBatch(Box).Units, Is.EqualTo(8)); yield return null;
         }
     }
 }
