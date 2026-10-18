@@ -10,6 +10,7 @@ namespace CriticalShift.Sandbox
     {
         [SerializeField] private Shader fixtureShader;
         private SandboxFixture fixture;
+        private Func<double> fixtureClock;
         private bool resetRequested, stopping, started;
 
         private void Start() { started = true; stopping = false; StartFixture(); }
@@ -24,7 +25,7 @@ namespace CriticalShift.Sandbox
             try
             {
                 if (fixtureShader == null) throw new InvalidOperationException("Generate the sandbox scene to bind its renderer shader explicitly.");
-                fixture = new SandboxFixture(transform, fixtureShader, () => resetRequested = true);
+                fixture = new SandboxFixture(transform, fixtureShader, () => resetRequested = true, fixtureClock);
                 Debug.Log("CS_SANDBOX_READY local_host=true map_loaded=false epoch=" + fixture.Epoch);
             }
             catch (Exception exception)
@@ -43,6 +44,12 @@ namespace CriticalShift.Sandbox
             fixtureShader = shader;
         }
 
+        public void BindFixtureClock(Func<double> clock)
+        {
+            if (fixture != null || clock == null) throw new InvalidOperationException("Bind the fixture clock before activation.");
+            fixtureClock = clock;
+        }
+
         private void LateUpdate()
         {
             if (!resetRequested || stopping) return;
@@ -56,6 +63,6 @@ namespace CriticalShift.Sandbox
         }
 
         private void OnDisable() { stopping = true; StopFixture(); }
-        private void OnDestroy() { stopping = true; StopFixture(); }
+        private void OnDestroy() { stopping = true; StopFixture(); fixtureClock = null; }
     }
 }

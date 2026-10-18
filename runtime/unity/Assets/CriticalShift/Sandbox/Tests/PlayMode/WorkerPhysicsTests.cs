@@ -20,16 +20,19 @@ namespace CriticalShift.Sandbox.Tests
         private WorkerBodyRig rig;
         private CharacterController controller;
         private Rigidbody pelvis, cart;
+        private double clock;
         private static Guid Id(int value) => new Guid(value, 0, 0, new byte[8]);
         private WorkerView Worker => host.World.GetWorker(Id(1));
 
         [UnitySetUp] public IEnumerator SetUp()
         {
+            clock = 0;
             root = new GameObject("Worker physics integration fixture"); root.transform.position = new Vector3(2500, 0, 2500);
             var bootstrap = root.AddComponent<SandboxBootstrap>();
             var pipeline = QualitySettings.renderPipeline != null ? QualitySettings.renderPipeline : GraphicsSettings.defaultRenderPipeline;
             var shader = Shader.Find(pipeline == null ? "Standard" : "Universal Render Pipeline/Lit");
             Assert.That(shader, Is.Not.Null); bootstrap.BindFixtureShader(shader);
+            bootstrap.BindFixtureClock(() => clock);
             yield return null; yield return null;
             Assert.That(bootstrap.World, Is.Not.Null);
             root.GetComponentInChildren<SandboxHud>().enabled = false;
@@ -48,6 +51,7 @@ namespace CriticalShift.Sandbox.Tests
         }
 
         private void KnockDown() => Assert.That(state.ObserveKnockdown(Id(702), Vector3.zero, pelvis.position), Is.EqualTo(WorkerStatus.Applied));
+        private WaitForFixedUpdate Step() { clock += Time.fixedDeltaTime; return new WaitForFixedUpdate(); }
         private int DynamicBodies()
         {
             int count = 0;
@@ -64,7 +68,7 @@ namespace CriticalShift.Sandbox.Tests
             Assert.That(controller.enabled, Is.False); Assert.That(rig.IsRagdoll, Is.True);
             Assert.That(DynamicBodies(), Is.EqualTo(11));
             host.Grab(Id(103)); Assert.That(host.World.GetObject(Id(103)).HolderId, Is.Null);
-            yield return new WaitForFixedUpdate();
+            yield return Step();
             Assert.That(controller.enabled, Is.False);
         }
 
@@ -72,11 +76,11 @@ namespace CriticalShift.Sandbox.Tests
         {
             cart.position = controller.transform.position + new Vector3(0, 0.35f, -1.5f);
             cart.linearVelocity = Vector3.forward * 3; Physics.SyncTransforms();
-            for (int i = 0; i < 30 && Worker.Pose == WorkerPose.Upright; i++) yield return new WaitForFixedUpdate();
+            for (int i = 0; i < 30 && Worker.Pose == WorkerPose.Upright; i++) yield return Step();
             Assert.That(Worker.Pose, Is.EqualTo(WorkerPose.Down));
             Assert.That(Worker.LastHazardId, Is.EqualTo(Id(600))); Assert.That(Worker.LastCauseId, Is.Not.EqualTo(Guid.Empty));
             long episode = Worker.RecoveryEpisode;
-            for (int i = 0; i < 25; i++) yield return new WaitForFixedUpdate();
+            for (int i = 0; i < 25; i++) yield return Step();
             Assert.That(Worker.RecoveryEpisode, Is.EqualTo(episode));
             Assert.That(controller.enabled, Is.False); Assert.That(rig.IsRagdoll, Is.True);
         }
@@ -85,7 +89,7 @@ namespace CriticalShift.Sandbox.Tests
         {
             cart.position = controller.transform.position + new Vector3(0, 0.35f, -1.15f);
             cart.linearVelocity = Vector3.zero; Physics.SyncTransforms();
-            for (int i = 0; i < 25; i++) yield return new WaitForFixedUpdate();
+            for (int i = 0; i < 25; i++) yield return Step();
             Assert.That(Worker.Pose, Is.EqualTo(WorkerPose.Upright)); Assert.That(Worker.RecoveryEpisode, Is.Zero);
             Assert.That(controller.enabled, Is.True); Assert.That(DynamicBodies(), Is.Zero);
         }
@@ -96,7 +100,7 @@ namespace CriticalShift.Sandbox.Tests
             Assert.That(Worker.Pose, Is.EqualTo(WorkerPose.Down)); Assert.That(state.LastAction, Does.Contain("TooEarly"));
             for (int i = 0; i < 250 && Worker.Pose != WorkerPose.Upright; i++)
             {
-                yield return new WaitForFixedUpdate();
+                yield return Step();
                 if (i % 10 == 0 && Worker.Pose == WorkerPose.Down) state.RequestRecovery();
             }
             Assert.That(Worker.Pose, Is.EqualTo(WorkerPose.Upright), state.LastAction);
@@ -108,7 +112,7 @@ namespace CriticalShift.Sandbox.Tests
         [UnityTest] public IEnumerator LowCeilingRejectsRecoveryWithoutTeleportingTheWorkerRoot()
         {
             KnockDown();
-            for (int i = 0; i < 90; i++) yield return new WaitForFixedUpdate();
+            for (int i = 0; i < 90; i++) yield return Step();
             var ceiling = GameObject.CreatePrimitive(PrimitiveType.Cube); ceiling.name = "Recovery obstruction";
             ceiling.transform.SetParent(root.transform, false);
             ceiling.transform.position = new Vector3(pelvis.position.x, root.transform.position.y + 1.89f, pelvis.position.z);
@@ -132,14 +136,14 @@ namespace CriticalShift.Sandbox.Tests
             KnockDown();
             for (int i = 0; i < 200 && !state.Recovering; i++)
             {
-                yield return new WaitForFixedUpdate();
+                yield return Step();
                 if (i % 10 == 0) state.RequestRecovery();
             }
             Assert.That(state.Recovering, Is.True, state.LastAction);
             long staleAttempt = Worker.RecoveryAttempt; KnockDown();
             var stale = host.World.CompleteWorkerRecovery(host.World.Epoch, Id(1), staleAttempt);
             Assert.That(stale.Status, Is.EqualTo(WorkerStatus.StaleRecovery));
-            for (int i = 0; i < 30; i++) yield return new WaitForFixedUpdate();
+            for (int i = 0; i < 30; i++) yield return Step();
             Assert.That(Worker.Pose, Is.EqualTo(WorkerPose.Down)); Assert.That(rig.IsRagdoll, Is.True);
             Assert.That(controller.enabled, Is.False); Assert.That(state.Recovering, Is.False);
         }

@@ -34,7 +34,7 @@ namespace CriticalShift.Sandbox
         internal WorldSessionView Snapshot => world.View;
         internal int PhysicalBindingCount => host == null ? 0 : host.BoundBodyCount;
 
-        internal SandboxFixture(Transform parent, Shader fixtureShader, Action requestReset)
+        internal SandboxFixture(Transform parent, Shader fixtureShader, Action requestReset, Func<double> clock = null)
         {
             root = SandboxPrimitives.Empty("Local Gameplay Fixture", parent, Vector3.zero);
             try
@@ -47,7 +47,7 @@ namespace CriticalShift.Sandbox
                 world.RegisterConnection(connection, actor);
                 world.RegisterConnection(patientConnection, patient); world.RegisterWorkerBody(patient, patientBody);
                 commands = new LocalCommandPort(world, connection);
-                host = root.AddComponent<LocalWorldHost>(); host.Initialize(world, commands, actor);
+                host = root.AddComponent<LocalWorldHost>(); host.Initialize(world, commands, actor, clock);
                 host.BindFocus(() => access.PickTarget(actor), access.DisplayName);
                 BuildRoom(); BuildWorker(); BuildPatient(); BuildContainers(); BuildMachines(); BuildReactor(); BuildCart(); BuildConveyor();
                 var hud = root.AddComponent<SandboxHud>();

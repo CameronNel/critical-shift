@@ -272,3 +272,12 @@ Later source commits: `7223a933` (canonical worker-body claims), `88aa0778`
 recovery), and `f74e324d` (current-volume grouped cargo). All are local source
 checkpoints, unmerged and pending independent review. The ten-hour goal remains
 active; neither these commits nor the declared inventory constitute completion.
+
+Worker physics/drag tests now inject a fixture clock before startup and advance
+it with their explicit physics steps. Editor wall-clock stalls therefore cannot
+spend a recovery deadline in those cases. Normal fixture play retains the
+existing unscaled host clock. Source review also tightened recovery support:
+the short downward search begins by the pelvis and rejects surfaces above it,
+with a bounded body-to-standing-root height. This prevents an overhead platform
+from being selected as the new floor. The existing low-ceiling/ground tests
+cover the affected path when execution is allowed; they remain NotRun.

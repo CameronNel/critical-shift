@@ -27,9 +27,11 @@ namespace CriticalShift.Features.Workers.Unity
             prepared = false;
             if (rig == null || !rig.Available || !rig.IsRagdoll) return RecoveryClearance.Unavailable;
             Physics.SyncTransforms();
-            Vector3 origin = rig.Pelvis.position + Vector3.up * 1.2f;
-            var ground = FindGround(origin, 3.2f, out var hit);
+            // Search immediately below the body; an overhead shelf or ceiling is not a recovery floor.
+            Vector3 origin = rig.Pelvis.position + Vector3.up * 0.15f;
+            var ground = FindGround(origin, 1.4f, out var hit);
             if (ground != RecoveryClearance.Safe) return ground;
+            if (hit.point.y > rig.Pelvis.position.y + 0.02f) return RecoveryClearance.Blocked;
             proposedPosition = hit.point + Vector3.up * (rig.Controller.skinWidth + 0.02f);
             proposedRotation = rig.StandingRotation; proposedGround = hit.collider;
             var clearance = Check(proposedPosition, proposedRotation, proposedGround);
@@ -72,8 +74,9 @@ namespace CriticalShift.Features.Workers.Unity
         private RecoveryClearance Check(Vector3 position, Quaternion rotation, Collider support)
         {
             if (support == null || !support.enabled || !support.gameObject.activeInHierarchy) return RecoveryClearance.Unavailable;
+            float bodyHeight = rig.Pelvis.position.y - position.y;
             if (rig.Pelvis.linearVelocity.magnitude > 1.25f || rig.Pelvis.angularVelocity.magnitude > 3 ||
-                Vector3.ProjectOnPlane(rig.Pelvis.position - position, Vector3.up).magnitude > 0.8f)
+                Vector3.ProjectOnPlane(rig.Pelvis.position - position, Vector3.up).magnitude > 0.8f || bodyHeight < -0.05f || bodyHeight > 1.25f)
                 return RecoveryClearance.Blocked;
             var ground = FindGround(position + Vector3.up * 0.3f, 0.5f, out var hit);
             if (ground != RecoveryClearance.Safe) return ground;

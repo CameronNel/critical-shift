@@ -20,20 +20,25 @@ namespace CriticalShift.Sandbox.Tests
         private LocalWorkerMotor walker;
         private WorkerBodyRig patientRig;
         private LocalWorkerStateHost patientState;
+        private double clock;
         private static Guid Id(int value) => new Guid(value, 0, 0, new byte[8]);
         private ObjectClaimView Claim => host.World.GetWorkerBodyClaim(Id(3));
 
         [UnitySetUp] public IEnumerator SetUp()
         {
+            clock = 0;
             root = new GameObject("Worker dragging integration fixture"); root.transform.position = new Vector3(4000, 0, 4000);
             bootstrap = root.AddComponent<SandboxBootstrap>();
             var pipeline = QualitySettings.renderPipeline != null ? QualitySettings.renderPipeline : GraphicsSettings.defaultRenderPipeline;
             var shader = Shader.Find(pipeline == null ? "Standard" : "Universal Render Pipeline/Lit");
             Assert.That(shader, Is.Not.Null); bootstrap.BindFixtureShader(shader);
+            bootstrap.BindFixtureClock(() => clock);
             yield return null; yield return null;
             Assert.That(bootstrap.World, Is.Not.Null); BindFixture();
-            for (int i = 0; i < 80; i++) yield return new WaitForFixedUpdate();
+            for (int i = 0; i < 80; i++) yield return Step();
         }
+
+        private WaitForFixedUpdate Step() { clock += Time.fixedDeltaTime; return new WaitForFixedUpdate(); }
 
         private void BindFixture()
         {
@@ -65,7 +70,7 @@ namespace CriticalShift.Sandbox.Tests
             StandNearGrip(); host.Grab(Id(650)); Assert.That(Claim.HolderId, Is.EqualTo(Id(1)));
             Assert.That(host.CarriedPhysicalMass(), Is.EqualTo(68).Within(0.01f));
             Vector3 before = patientRig.SuitGrip.position; walker.SetMovement(Vector2.down);
-            for (int i = 0; i < 100; i++) yield return new WaitForFixedUpdate();
+            for (int i = 0; i < 100; i++) yield return Step();
             walker.SetMovement(Vector2.zero);
             Assert.That(Claim.HolderId, Is.EqualTo(Id(1)), host.LastAction);
             Assert.That(patientRig.SuitGrip.position.z, Is.LessThan(before.z - 0.3f));
@@ -78,12 +83,12 @@ namespace CriticalShift.Sandbox.Tests
             StandNearGrip(); host.Grab(Id(650)); long oldGeneration = Claim.LeaseGeneration;
             Vector3 before = patientRig.SuitGrip.position;
             player.enabled = false; player.transform.position += Vector3.back * 8; player.enabled = true;
-            for (int i = 0; i < 3; i++) yield return new WaitForFixedUpdate();
+            for (int i = 0; i < 3; i++) yield return Step();
             Assert.That(Claim.HolderId, Is.Null); Assert.That(Vector3.Distance(before, patientRig.SuitGrip.position), Is.LessThan(1));
             StandNearGrip(); host.Grab(Id(650)); Assert.That(Claim.HolderId, Is.EqualTo(Id(1)));
             Assert.That(Claim.LeaseGeneration, Is.GreaterThan(oldGeneration));
             Assert.That(host.World.ReportAttachmentFailure(host.World.Epoch, Id(650), oldGeneration).Status, Is.EqualTo(InteractionStatus.StaleLease));
-            yield return new WaitForFixedUpdate(); Assert.That(Claim.HolderId, Is.EqualTo(Id(1)));
+            yield return Step(); Assert.That(Claim.HolderId, Is.EqualTo(Id(1)));
         }
 
         [UnityTest] public IEnumerator HeldWorkerCannotStandUntilTheSuitGripIsReleased()
@@ -93,7 +98,7 @@ namespace CriticalShift.Sandbox.Tests
             Assert.That(patientController.enabled, Is.False); host.DropHeld(); Assert.That(patientRig.IsRagdoll, Is.True);
             for (int i = 0; i < 300 && host.World.GetWorker(Id(3)).Pose != WorkerPose.Upright; i++)
             {
-                yield return new WaitForFixedUpdate();
+                yield return Step();
                 if (i % 10 == 0) patientState.RequestRecovery();
             }
             Assert.That(host.World.GetWorker(Id(3)).Pose, Is.EqualTo(WorkerPose.Upright), patientState.LastAction);
