@@ -46,6 +46,7 @@ namespace CriticalShift.Features.Workers.Unity
         private readonly Vector3[] worldPositions;
         private readonly Quaternion[] worldRotations;
         private readonly int[] publicationOrder;
+        private readonly Transform[][] boundHierarchy;
         private readonly List<Limb> limbs = new List<Limb>(4);
         private readonly HashSet<Rigidbody> animated = new HashSet<Rigidbody>();
         private Func<bool> handsBusy;
@@ -57,13 +58,23 @@ namespace CriticalShift.Features.Workers.Unity
         {
             root = workerRoot; bodies = segments; positions = restPositions; rotations = restRotations;
             worldPositions = new Vector3[bodies.Length]; worldRotations = new Quaternion[bodies.Length]; lastPosition = root.position;
-            publicationOrder = new int[bodies.Length];
-            for (int i = 0; i < publicationOrder.Length; i++) publicationOrder[i] = i;
+            publicationOrder = new int[bodies.Length]; boundHierarchy = new Transform[bodies.Length][];
+            for (int i = 0; i < publicationOrder.Length; i++)
+            {
+                publicationOrder[i] = i;
+                var chain = new List<Transform>();
+                for (var node = bodies[i].transform; node != root; node = node.parent)
+                {
+                    if (node == null) throw new ArgumentException("A presented segment must remain beneath its bound controller root.");
+                    chain.Add(node);
+                }
+                boundHierarchy[i] = chain.ToArray();
+            }
             // PublishTransform requires topmost-to-bottommost order. Keep pose/limb indices untouched;
             // this separate ordering is computed only during setup, including for nested registered segments.
             Array.Sort(publicationOrder, (left, right) =>
             {
-                int order = HierarchyDepth(bodies[left].transform).CompareTo(HierarchyDepth(bodies[right].transform));
+                int order = boundHierarchy[left].Length.CompareTo(boundHierarchy[right].Length);
                 return order != 0 ? order : left.CompareTo(right);
             });
         }
@@ -113,6 +124,7 @@ namespace CriticalShift.Features.Workers.Unity
 
         private void PrepareRestPose()
         {
+            if (!HasBoundHierarchy()) throw new InvalidOperationException("A worker's bound presentation hierarchy changed.");
             Quaternion rotation = root.rotation;
             for (int i = 0; i < bodies.Length; i++)
             {
@@ -131,11 +143,21 @@ namespace CriticalShift.Features.Workers.Unity
             foreach (int index in publicationOrder) bodies[index].PublishTransform();
         }
 
-        private static int HierarchyDepth(Transform item)
+        internal bool HasBoundHierarchy()
         {
-            int depth = 0;
-            for (var parent = item.parent; parent != null; parent = parent.parent) depth++;
-            return depth;
+            if (root == null) return false;
+            for (int i = 0; i < bodies.Length; i++)
+            {
+                if (bodies[i] == null) return false;
+                var node = bodies[i].transform;
+                foreach (var bound in boundHierarchy[i])
+                {
+                    if (node == null || node != bound) return false;
+                    node = node.parent;
+                }
+                if (node != root) return false;
+            }
+            return true;
         }
     }
 }

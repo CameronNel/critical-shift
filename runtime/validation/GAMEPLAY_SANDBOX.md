@@ -1191,3 +1191,32 @@ the earlier intermittent speed faults. Forces and safety limits are unchanged.
 The supplementary matching-SDK compile passed all **21 assemblies** at
 `runtime/out/api-urp-publish-pose/api-compile.json`. Fresh native tests, build,
 headless Player and rendered capture are next. None is claimed here yet.
+
+## Hierarchy fence and foundation fixture correction, 18:40 UTC
+
+`sandbox-mheyrj1u` stopped before compilation on a Windows EPERM rename of its
+Burst package cache. Its Failed report and native log remain intact; the original
+runtime input fingerprint was unchanged. This attempt ran no gameplay tests.
+
+The separate `wp01-7vt5fx24` foundation run completed package initialization and
+clean preparation, then passed all **12 EditMode cases**. All **nine PlayMode
+cases failed**: their explicit `LogAssert.NoUnexpectedReceived` calls rejected
+the normal READY/STOPPED messages which the same tests assert. The fixture now
+expects those exact normal messages before emission, with anchored version/build,
+frame and error-bit checks. All original state/count assertions and unexpected-log
+checks remain; no foundation runtime behaviour or test identity changed. Build
+and Player were not reached in that failed run.
+
+Cross-review found that reparenting a segment or intermediate node inside a
+worker could invalidate the cached publication order while preserving earlier
+binding checks. The rig now fences its complete setup ancestor chains up to its
+controller root before pose preparation/publication. Whole-worker/fixture motion
+and reparenting remain valid. Two real-host regression cases require no pose
+writes and once-only stopped-world cleanup after internal hierarchy mutation.
+The sandbox inventory is now **129**, pending native execution.
+
+Sandbox Development builds now temporarily enable strict shader variant matching,
+restore the prior setting in `finally`, and emit a build-GUID-linked strict-mode
+marker. This makes a missing variant visible instead of silently choosing a
+nearby one. The first rendered run is still pending and will be recorded as
+appearance/startup evidence rather than final lighting or performance acceptance.

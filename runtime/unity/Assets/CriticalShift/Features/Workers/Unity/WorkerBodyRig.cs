@@ -50,7 +50,8 @@ namespace CriticalShift.Features.Workers.Unity
                     !eyes.IsChildOf(controller.transform) || eyes.GetComponentInParent<Rigidbody>() != null ||
                     pelvis == null || head == null || headBody == null || !head.gameObject.activeInHierarchy ||
                     head.GetComponentInParent<Rigidbody>() != headBody || dragPoint == null || dragBody == null ||
-                    !dragPoint.gameObject.activeInHierarchy || dragPoint.GetComponentInParent<Rigidbody>() != dragBody || bodies == null) return false;
+                    !dragPoint.gameObject.activeInHierarchy || dragPoint.GetComponentInParent<Rigidbody>() != dragBody || bodies == null ||
+                    normalPose == null || !normalPose.HasBoundHierarchy()) return false;
                 for (int i = 0; i < bodies.Length; i++)
                     if (bodies[i] == null || colliders[i] == null || !bodies[i].gameObject.activeInHierarchy ||
                         !bodies[i].transform.IsChildOf(controller.transform) || !UnitScale(bodies[i].transform) ||

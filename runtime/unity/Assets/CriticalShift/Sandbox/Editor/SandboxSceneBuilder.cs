@@ -98,14 +98,26 @@ namespace CriticalShift.Sandbox.Editor
             if (target != BuildTarget.StandaloneWindows64 && target != BuildTarget.StandaloneLinux64)
                 throw new BuildFailedException("The sandbox currently supports Win64 or Linux64 desktop builds.");
             string path = Path.GetFullPath(args[index + 1]); Directory.CreateDirectory(Path.GetDirectoryName(path));
-            var report = BuildPipeline.BuildPlayer(new BuildPlayerOptions
+            bool previousStrictMatching = PlayerSettings.strictShaderVariantMatching;
+            try
             {
-                scenes = new[] { ScenePath }, locationPathName = path, target = target,
-                options = BuildOptions.Development | BuildOptions.StrictMode
-            });
-            if (report.summary.result != BuildResult.Succeeded || report.summary.totalErrors != 0)
-                throw new BuildFailedException("Sandbox Player build failed; preserve the native build log.");
-            Debug.Log("CS_SANDBOX_BUILD_OK guid=" + report.summary.guid + " target=" + target);
+                // The rendered diagnostic Player must expose missing Lit/emissive variants instead of silently substituting one.
+                PlayerSettings.strictShaderVariantMatching = true;
+                if (!PlayerSettings.strictShaderVariantMatching)
+                    throw new BuildFailedException("The sandbox Development Player requires strict shader variant matching.");
+                var report = BuildPipeline.BuildPlayer(new BuildPlayerOptions
+                {
+                    scenes = new[] { ScenePath }, locationPathName = path, target = target,
+                    options = BuildOptions.Development | BuildOptions.StrictMode
+                });
+                if (report.summary.result != BuildResult.Succeeded || report.summary.totalErrors != 0)
+                    throw new BuildFailedException("Sandbox Player build failed; preserve the native build log.");
+                if (!PlayerSettings.strictShaderVariantMatching)
+                    throw new BuildFailedException("Strict shader variant matching changed during the sandbox build.");
+                Debug.Log("CS_SANDBOX_BUILD_STRICT_VARIANTS guid=" + report.summary.guid + " enabled=1 target=" + target);
+                Debug.Log("CS_SANDBOX_BUILD_OK guid=" + report.summary.guid + " target=" + target);
+            }
+            finally { PlayerSettings.strictShaderVariantMatching = previousStrictMatching; }
         }
     }
 }

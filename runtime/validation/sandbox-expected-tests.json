@@ -126,6 +126,8 @@
     "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.CargoSensorCountsCompoundBodyOnceAndPrunesDisabledCargo",
     "CriticalShift.Sandbox.Tests.CombinedMapDoorTests.ElevatedOccupantsBlockTheFullRotatedBlastLeafWithoutChangingContacts",
     "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.SaturatedWalkingSupportUpdateStopsTheWorldBeforeMoving",
-    "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.SaturatedWalkingSupportGetterStopsTheWorldOnce"
+    "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.SaturatedWalkingSupportGetterStopsTheWorldOnce",
+    "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.ReparentedWorkerSegmentStopsTheWorldBeforePosePublication",
+    "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.ReparentedWorkerIntermediateStopsTheWorldBeforePosePublication"
   ]
 }

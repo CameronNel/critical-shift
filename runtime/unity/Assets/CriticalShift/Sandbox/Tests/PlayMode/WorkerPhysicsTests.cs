@@ -249,6 +249,56 @@ namespace CriticalShift.Sandbox.Tests
             Assert.That(controller.enabled, Is.False); Assert.That(DynamicBodies(), Is.Zero);
         }
 
+        [UnityTest] public IEnumerator ReparentedWorkerSegmentStopsTheWorldBeforePosePublication()
+        { yield return VerifyWorkerHierarchyMutationStopsPublication(false); }
+
+        [UnityTest] public IEnumerator ReparentedWorkerIntermediateStopsTheWorldBeforePosePublication()
+        { yield return VerifyWorkerHierarchyMutationStopsPublication(true); }
+
+        private IEnumerator VerifyWorkerHierarchyMutationStopsPublication(bool intermediate)
+        {
+            walker.SetMovement(Vector2.right);
+            for (int i = 0; i < 15; i++) yield return Step();
+            // The controller itself may move/reparent with its complete owned hierarchy. Its parent is outside the fence.
+            var outer = new GameObject("Allowed whole-worker parent").transform;
+            outer.SetParent(controller.transform.parent, false); controller.transform.SetParent(outer, true);
+            Physics.SyncTransforms(); rig.UpdatePresentation();
+            Assert.That(host.World.View.Phase, Is.EqualTo(WorldPhase.Running)); Assert.That(faults, Is.Empty);
+            walker.SetMovement(Vector2.zero);
+            var parts = rig.CopyBodySegments();
+            if (intermediate)
+            {
+                var bridge = new GameObject("Unexpected in-worker intermediate").transform;
+                bridge.SetParent(controller.transform, false); rig.transform.SetParent(bridge, true);
+            }
+            else parts[1].transform.SetParent(parts[2].transform, true); // Torso now follows Head, reversing their cached order.
+            Physics.SyncTransforms();
+            var positions = new Vector3[parts.Length]; var rotations = new Quaternion[parts.Length];
+            for (int i = 0; i < parts.Length; i++) { positions[i] = parts[i].position; rotations[i] = parts[i].rotation; }
+            Vector3 rootBefore = controller.transform.position;
+            // The public presentation path must reject before advancing the current walking pose or publishing a segment.
+            rig.UpdatePresentation(); AssertUnchanged();
+            // Exercise the real adapter failure boundary: one external failure stops the existing local world.
+            state.SendMessage("LateUpdate", SendMessageOptions.RequireReceiver);
+            Assert.That(faults.Count, Is.EqualTo(1)); Assert.That(faults[0].Message, Does.Contain("physical rig binding")); faults.Clear();
+            Assert.That(host.World.View.Phase, Is.EqualTo(WorldPhase.Stopped)); Assert.That(host.BoundBodyCount, Is.Zero);
+            Assert.That(host.World.View.ActiveClaimCount, Is.Zero); Assert.That(controller.enabled, Is.False);
+            Assert.That(DynamicBodies(), Is.Zero); AssertUnchanged();
+            state.SendMessage("LateUpdate", SendMessageOptions.RequireReceiver); rig.UpdatePresentation(); AssertUnchanged();
+            yield return null; yield return Step();
+            Assert.That(faults, Is.Empty); Assert.That(host.World.View.Phase, Is.EqualTo(WorldPhase.Stopped)); AssertUnchanged();
+
+            void AssertUnchanged()
+            {
+                Assert.That(controller.transform.position, Is.EqualTo(rootBefore));
+                for (int i = 0; i < parts.Length; i++)
+                {
+                    Assert.That(parts[i].position, Is.EqualTo(positions[i]), parts[i].name);
+                    Assert.That(Quaternion.Angle(parts[i].rotation, rotations[i]), Is.LessThan(0.001f), parts[i].name);
+                }
+            }
+        }
+
         [UnityTest] public IEnumerator WalkingPosePreservesAnchorsBeforeOneRagdollHandoff()
         {
             foreach (var part in rig.CopyBodySegments())
