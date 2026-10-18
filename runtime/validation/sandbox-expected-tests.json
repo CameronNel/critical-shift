@@ -128,6 +128,9 @@
     "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.SaturatedWalkingSupportUpdateStopsTheWorldBeforeMoving",
     "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.SaturatedWalkingSupportGetterStopsTheWorldOnce",
     "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.ReparentedWorkerSegmentStopsTheWorldBeforePosePublication",
-    "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.ReparentedWorkerIntermediateStopsTheWorldBeforePosePublication"
+    "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.ReparentedWorkerIntermediateStopsTheWorldBeforePosePublication",
+    "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.PhysicsMonitorDistinguishesNativeRotationalEnergyAtTheSameAngularSpeed",
+    "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.PhysicsMonitorUsesTheNativePrincipalInertiaFrame",
+    "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.PhysicsMonitorAcceptsHealthyNativeInfiniteInertiaConstraints"
   ]
 }

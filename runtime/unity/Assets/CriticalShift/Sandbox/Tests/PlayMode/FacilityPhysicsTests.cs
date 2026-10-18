@@ -34,7 +34,8 @@ namespace CriticalShift.Sandbox.Tests
             var body = Body("Observed body", Vector3.zero); body.linearVelocity = Vector3.right * 2;
             Vector3 position = body.position, velocity = body.linearVelocity; int failures = 0; bool live = true;
             safety = root.AddComponent<PhysicsSafetyMonitor>();
-            safety.Initialize(root.transform, new Bounds(Vector3.zero, Vector3.one * 10), 10, 10, () => live, error => failures++);
+            safety.Initialize(root.transform, new Bounds(Vector3.zero, Vector3.one * 10),
+                maximumLinearSpeed: 10, maximumRotationalEnergyPerMass: 50, () => live, error => failures++);
             safety.Bind(body, "Observed body"); safety.Activate(); safety.Sample();
             Assert.That(safety.DynamicBodyCount, Is.EqualTo(1)); Assert.That(safety.PeakLinearSpeed, Is.EqualTo(2).Within(0.001f));
             Assert.That(body.position, Is.EqualTo(position)); Assert.That(body.linearVelocity, Is.EqualTo(velocity));
@@ -51,13 +52,99 @@ namespace CriticalShift.Sandbox.Tests
             var body = Body("Runaway body", Vector3.zero); body.linearVelocity = Vector3.forward * 11;
             int failures = 0; string reason = "";
             safety = root.AddComponent<PhysicsSafetyMonitor>();
-            safety.Initialize(root.transform, new Bounds(Vector3.zero, Vector3.one * 10), 10, 10, () => true,
+            safety.Initialize(root.transform, new Bounds(Vector3.zero, Vector3.one * 10),
+                maximumLinearSpeed: 10, maximumRotationalEnergyPerMass: 50, () => true,
                 error => { failures++; reason = error.Message; });
             safety.Bind(body, "Runaway body"); safety.Activate(); safety.Sample();
             Assert.That(safety.FaultLatched, Is.True); Assert.That(failures, Is.EqualTo(1));
             Assert.That(reason, Does.Contain("Runaway body")); Assert.That(body.linearVelocity.z, Is.EqualTo(11));
             body.linearVelocity = Vector3.zero; safety.Sample(); safety.Sample();
             Assert.That(failures, Is.EqualTo(1)); safety.Shutdown(); Assert.That(safety.BoundBodyCount, Is.Zero);
+        }
+
+        [Test] public void PhysicsMonitorDistinguishesNativeRotationalEnergyAtTheSameAngularSpeed()
+        {
+            var small = Body("Small solid cube", Vector3.left * 4); small.mass = 1;
+            var large = Body("Large solid cube", Vector3.right * 4); large.mass = 1;
+            small.GetComponent<BoxCollider>().size = Vector3.one * 0.2f;
+            large.GetComponent<BoxCollider>().size = Vector3.one * 4;
+            Physics.SyncTransforms(); small.ResetInertiaTensor(); large.ResetInertiaTensor();
+            Assert.That(small.inertiaTensor.y, Is.EqualTo(0.2 * 0.2 / 6).Within(0.0001));
+            Assert.That(large.inertiaTensor.y, Is.EqualTo(4.0 * 4 / 6).Within(0.0001));
+            small.angularVelocity = Vector3.up * 30; large.angularVelocity = Vector3.up * 30;
+            Assert.That(small.angularVelocity.y, Is.EqualTo(30)); Assert.That(large.angularVelocity.y, Is.EqualTo(30));
+            Vector3 smallPosition = small.position, largePosition = large.position;
+            Quaternion smallRotation = small.rotation, largeRotation = large.rotation;
+            int failures = 0; string reason = "";
+            safety = root.AddComponent<PhysicsSafetyMonitor>();
+            safety.Initialize(root.transform, new Bounds(Vector3.zero, Vector3.one * 30),
+                maximumLinearSpeed: 25, maximumRotationalEnergyPerMass: 312.5,
+                () => true, error => { failures++; reason = error.Message; });
+            safety.Bind(small, "Small solid cube"); safety.Bind(large, "Large solid cube");
+            // Observe the small native body first while the large body is temporarily kinematic.
+            large.isKinematic = true; safety.Activate(); safety.Sample();
+            Assert.That(failures, Is.Zero); Assert.That(safety.PeakAngularSpeed, Is.EqualTo(30).Within(0.0001));
+            Assert.That(safety.PeakRotationalEnergyPerMass, Is.EqualTo(3).Within(0.001));
+            large.isKinematic = false; large.angularVelocity = Vector3.up * 30; safety.Sample();
+            Assert.That(failures, Is.EqualTo(1)); Assert.That(safety.FaultLatched, Is.True);
+            Assert.That(reason, Does.Contain("Large solid cube")); Assert.That(reason, Does.Contain("rotationalEnergyPerMass="));
+            Assert.That(safety.PeakRotationalEnergyPerMass, Is.EqualTo(1200).Within(0.01));
+            Assert.That(small.angularVelocity.y, Is.EqualTo(30)); Assert.That(large.angularVelocity.y, Is.EqualTo(30));
+            Assert.That(small.position, Is.EqualTo(smallPosition)); Assert.That(large.position, Is.EqualTo(largePosition));
+            Assert.That(small.rotation, Is.EqualTo(smallRotation)); Assert.That(large.rotation, Is.EqualTo(largeRotation));
+            safety.Sample(); safety.Sample(); Assert.That(failures, Is.EqualTo(1)); Assert.That(safety.BoundBodyCount, Is.Zero);
+        }
+
+        [Test] public void PhysicsMonitorUsesTheNativePrincipalInertiaFrame()
+        {
+            var item = new GameObject("Rotated principal inertia body"); item.transform.SetParent(root.transform, false);
+            item.transform.localRotation = Quaternion.Euler(19, 37, 11);
+            var body = item.AddComponent<Rigidbody>(); body.useGravity = false; body.mass = 1;
+            var contact = new GameObject("Rotated solid box"); contact.transform.SetParent(item.transform, false);
+            contact.transform.localRotation = Quaternion.Euler(23, 41, 17);
+            contact.AddComponent<BoxCollider>().size = new Vector3(0.2f, 2, 4);
+            Physics.SyncTransforms(); body.ResetInertiaTensor();
+            Vector3 tensor = body.inertiaTensor;
+            Assert.That(Quaternion.Angle(body.inertiaTensorRotation, Quaternion.identity), Is.GreaterThan(5));
+            int low = tensor.x < tensor.y ? 0 : 1; if (tensor.z < tensor[low]) low = 2;
+            int high = tensor.x > tensor.y ? 0 : 1; if (tensor.z > tensor[high]) high = 2;
+            Assert.That(0.5 * tensor[low] * 900, Is.LessThan(312.5));
+            Assert.That(0.5 * tensor[high] * 900, Is.GreaterThan(312.5));
+            Vector3 axis = Vector3.zero; axis[low] = 1;
+            Quaternion principal = body.rotation * body.inertiaTensorRotation;
+            body.angularVelocity = principal * axis * 30;
+            int failures = 0; safety = root.AddComponent<PhysicsSafetyMonitor>();
+            safety.Initialize(root.transform, new Bounds(Vector3.zero, Vector3.one * 30),
+                maximumLinearSpeed: 25, maximumRotationalEnergyPerMass: 312.5, () => true, error => failures++);
+            safety.Bind(body, "Rotated principal inertia body"); safety.Activate(); safety.Sample();
+            Assert.That(failures, Is.Zero);
+            Assert.That(safety.PeakRotationalEnergyPerMass, Is.EqualTo(0.5 * tensor[low] * 900).Within(0.001));
+            axis = Vector3.zero; axis[high] = 1; body.angularVelocity = principal * axis * 30; safety.Sample();
+            Assert.That(failures, Is.EqualTo(1)); Assert.That(safety.FaultLatched, Is.True);
+            Assert.That(safety.PeakRotationalEnergyPerMass, Is.EqualTo(0.5 * tensor[high] * 900).Within(0.001));
+        }
+
+        [Test] public void PhysicsMonitorAcceptsHealthyNativeInfiniteInertiaConstraints()
+        {
+            var body = Body("Infinite inertia body", Vector3.zero); body.mass = 1;
+            body.inertiaTensor = Vector3.zero; body.angularVelocity = Vector3.zero;
+            Assert.That(body.inertiaTensor, Is.EqualTo(Vector3.zero));
+            int failures = 0; safety = root.AddComponent<PhysicsSafetyMonitor>();
+            safety.Initialize(root.transform, new Bounds(Vector3.zero, Vector3.one * 10),
+                maximumLinearSpeed: 25, maximumRotationalEnergyPerMass: 312.5,
+                () => true, error => failures++);
+            safety.Bind(body, "Infinite inertia body"); safety.Activate(); safety.Sample();
+            Assert.That(failures, Is.Zero); Assert.That(safety.PeakRotationalEnergyPerMass, Is.Zero);
+            body.rotation = Quaternion.Euler(19, 37, 11);
+            body.inertiaTensorRotation = Quaternion.Euler(23, 41, 17);
+            body.inertiaTensor = new Vector3(0, 1, 0);
+            body.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+            body.angularVelocity = (body.rotation * body.inertiaTensorRotation) * Vector3.up * 2;
+            Assert.That(body.inertiaTensor.x, Is.Zero); Assert.That(body.inertiaTensor.z, Is.Zero);
+            Vector3 velocity = body.angularVelocity; Assert.That(velocity.magnitude, Is.EqualTo(2).Within(0.0001));
+            safety.Sample(); Assert.That(failures, Is.Zero); Assert.That(safety.FaultLatched, Is.False);
+            Assert.That(safety.PeakRotationalEnergyPerMass, Is.EqualTo(2).Within(0.001));
+            Assert.That(body.angularVelocity, Is.EqualTo(velocity), "Native constrained motion is observed, never repaired.");
         }
 
         private ConveyorDrive Belt(System.Func<Rigidbody, bool> filter)

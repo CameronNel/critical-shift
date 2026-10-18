@@ -56,7 +56,8 @@ namespace CriticalShift.Sandbox
                 commands = new LocalCommandPort(world, connection);
                 host = root.AddComponent<LocalWorldHost>(); host.Initialize(world, commands, actor, clock, diagnosticSink);
                 safety = root.AddComponent<PhysicsSafetyMonitor>();
-                safety.Initialize(root.transform, new Bounds(new Vector3(0, 2, 3), new Vector3(34, 20, 32)), 25, 25,
+                safety.Initialize(root.transform, new Bounds(new Vector3(0, 2, 3), new Vector3(34, 20, 32)),
+                    maximumLinearSpeed: 25, maximumRotationalEnergyPerMass: 312.5,
                     () => world.View.Phase == WorldPhase.Running || world.View.Phase == WorldPhase.Paused, host.ReportExternalFailure);
                 host.BindFocus(() => access.PickTarget(actor), access.DisplayName);
                 BuildRoom(); BuildWorker(); BuildPatient(); BuildContainers(); BuildMachines(); BuildReactor(); BuildCart(); BuildConveyor();

@@ -70,7 +70,8 @@ namespace CriticalShift.Sandbox
                 world.RegisterConnection(connection, actor); var commands = new LocalCommandPort(world, connection);
                 host = owned.AddComponent<LocalWorldHost>(); host.Initialize(world, commands, actor);
                 safety = model.gameObject.AddComponent<PhysicsSafetyMonitor>();
-                safety.Initialize(model.transform, model.LocalSafetyBounds, 25, 25,
+                safety.Initialize(model.transform, model.LocalSafetyBounds,
+                    maximumLinearSpeed: 25, maximumRotationalEnergyPerMass: 312.5,
                     () => world.View.Phase == WorldPhase.Running || world.View.Phase == WorldPhase.Paused, host.ReportExternalFailure);
                 physicalDoors = model.gameObject.AddComponent<CombinedMapDoorBindings>();
                 var bindings = model.CopyDoorReferences(); var ids = new Guid[bindings.Length];

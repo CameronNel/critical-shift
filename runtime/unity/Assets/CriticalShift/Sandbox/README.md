@@ -1,8 +1,9 @@
 # Isolated local-host gameplay fixture
 
 **Local integration trial undergoing native validation.** An earlier 124-case
-native gameplay checkpoint passed; the current URP run has two ragdoll failures
-under investigation. Build/Player are pending. See
+native gameplay checkpoint passed; the previous URP run has two preserved failures
+under its original angular-speed cutoff. The current diagnostic revision and
+132-case catalogue await native verification. Build/Player are pending. See
 [the development checkpoint](../../../../validation/GAMEPLAY_SANDBOX.md).
 
 The fixture consumes the same canonical Application/domain source as the offline
@@ -55,7 +56,7 @@ test worker. The second worker is controlled locally for this fixture.
   release, expiry, insertion or restart, and cannot turn a cart or worker grip.
 - Scroll outside the visible control panel to bring a held crate closer or
   farther. The carry target shifts at most 0.75 m from its authored position
-  (1–2.5 m forward in this fixture). The body still follows bounded forces.
+  (1â€“2.5 m forward in this fixture). The body still follows bounded forces.
   Reach offset resets with the claim and cannot move cart/worker targets.
 - T throws a portable crate toward the current look heading. A committed
   release comes first; one bounded impulse follows only for that exact free
@@ -161,11 +162,17 @@ generator does not install packages or alter authored map art.
 
 The existing foundation runner still tests its foundation assembly selection;
 it does not automatically claim sandbox coverage. The separate native inventory
-is `runtime/validation/sandbox-expected-tests.json`: 129 implemented cases. The
+is `runtime/validation/sandbox-expected-tests.json`: 132 implemented cases. The
 earlier 124-case checkpoint passed. The current URP candidate imported cleanly
 and passed 127 of 129, with two ragdoll angular-speed failures. The full-leaf
-closure, two motor-fault and two hierarchy-mutation cases passed. A separate
-controlled solver comparison is investigating settling/landing behavior.
+closure, two motor-fault and two hierarchy-mutation cases passed. Controlled solver and origin comparisons did not establish a motion fix.
+The current diagnostic policy retains the independent 25 m/s linear limit and
+replaces the authored 25 rad/s cutoff with native principal-frame rotational
+energy per mass (312.5 J/kg). Raw angular speed is still recorded. These are
+separate authored trial budgets, not a combined energy budget or accepted
+production limits. The monitor changes no forces, caps, damping or motion.
+Historical failures remain failures; a pass under this criterion would not
+prove repaired ragdoll motion, far-origin stability or acceptable feel.
 The latest pure suite passed 723 cases including the cause-trace assertion. Native
 fixtures are offset from possible active-scene content
 to avoid collisions with an unrelated map/scene at the origin.
