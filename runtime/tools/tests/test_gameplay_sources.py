@@ -8,7 +8,7 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from check_source import RUNTIME, gameplay_sources
+from check_source import RUNTIME, gameplay_sources, unity_boundaries
 from evidence import EvidenceError
 from run_foundation import fingerprint, source_files
 
@@ -93,6 +93,35 @@ class GameplaySourceTests(unittest.TestCase):
         (self.package / "package.json").unlink()
         with self.assertRaises(EvidenceError):
             source_files(self.root)
+
+
+class UnityBoundaryTests(unittest.TestCase):
+    def setUp(self):
+        paths = [*RUNTIME.joinpath("unity/Assets").rglob("*.asmdef"), *RUNTIME.joinpath("dotnet/src").rglob("*.asmdef")]
+        self.definitions = {data["name"]: data for data in (json.loads(path.read_text()) for path in paths)}
+
+    def test_current_declared_unity_graph_respects_the_architecture(self):
+        unity_boundaries(self.definitions)
+
+    def test_feature_unity_cannot_reference_a_peer_adapter(self):
+        self.definitions["CriticalShift.Features.Workers.Unity"]["references"].append("CriticalShift.Features.Interaction.Unity")
+        with self.assertRaises(ValueError):
+            unity_boundaries(self.definitions)
+
+    def test_editor_implementation_cannot_leak_into_runtime(self):
+        self.definitions["CriticalShift.Sandbox.Bootstrap"]["references"].append("CriticalShift.Sandbox.Editor")
+        with self.assertRaises(ValueError):
+            unity_boundaries(self.definitions)
+
+    def test_unapproved_precompiled_sdk_cannot_enter_a_runtime_adapter(self):
+        self.definitions["CriticalShift.FacilityPhysics.Unity"]["precompiledReferences"].append("UnselectedSdk.dll")
+        with self.assertRaises(ValueError):
+            unity_boundaries(self.definitions)
+
+    def test_runtime_adapter_cannot_opt_into_test_assemblies(self):
+        self.definitions["CriticalShift.Presentation"]["optionalUnityReferences"] = ["TestAssemblies"]
+        with self.assertRaises(ValueError):
+            unity_boundaries(self.definitions)
 
 
 if __name__ == "__main__":

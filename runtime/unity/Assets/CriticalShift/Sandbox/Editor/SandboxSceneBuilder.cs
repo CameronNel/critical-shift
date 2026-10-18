@@ -36,6 +36,7 @@ namespace CriticalShift.Sandbox.Editor
         public static void Prepare()
         {
             var profile = ReadProfile();
+            SandboxAssemblyGraph.Validate();
             if (!UnityApplication.isBatchMode && !EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) return;
             PlayerSettings.SetApiCompatibilityLevel(NamedBuildTarget.Standalone,
                 (ApiCompatibilityLevel)Enum.Parse(typeof(ApiCompatibilityLevel), profile.apiCompatibility));

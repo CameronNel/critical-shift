@@ -98,7 +98,7 @@ The existing foundation runner still tests its foundation assembly selection;
 it does not automatically claim sandbox coverage. The separate native inventory
 is `runtime/validation/sandbox-expected-tests.json`: 54 implemented cases, all
 NotRun. Nine new pure command-port cases, fourteen worker-body claim cases and
-nine source-package safety cases
+nine source-package safety cases and five declared-assembly boundary cases
 are also NotRun. Native fixtures are offset from possible active-scene content
 to avoid collisions with an unrelated map/scene at the origin.
 
@@ -113,3 +113,10 @@ in a fresh disposable copy, retaining the canonical local-package path. Pass the
 pinned editor with `--unity` and `--target Win64`. The optional `--build-player`
 requires the configured URP asset; Player execution remains a separate unrun
 phase. Do not use a green import/physics result as evidence for that later phase.
+
+The runner first checks source ownership, metadata and declared dependency
+boundaries. The future native prepare step also compares production assemblies'
+resolved project references with their declarations, checks pure assemblies for
+engine references and requires compiled outputs. Its native inventory must agree
+with the source count. These checks are written and NotRun; they do not constitute
+an independently accepted architecture or a Player dependency audit.

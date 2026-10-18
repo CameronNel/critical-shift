@@ -76,7 +76,7 @@ art acceptance.
 - Diagnostic controls, crusher/fuel/reactor fixture, lamps, valve/spindle/tread
   motion, material appearance and scratch-scene generator: written, unvalidated.
 - Nine pure command-port tests, fourteen worker-body claim tests, nine package
-  safety tests and 54 native sandbox
+  safety tests, five declared-boundary cases and 54 native sandbox
   tests are implemented, all **NotRun**. These are declared inventory counts,
   not discovered/executed results.
 - Direct first-person focus, context transfer/drop, power/cooling and start
@@ -281,3 +281,20 @@ the short downward search begins by the pelvis and rejects surfaces above it,
 with a bounded body-to-standing-root height. This prevents an overhead platform
 from being selected as the new floor. The existing low-ceiling/ground tests
 cover the affected path when execution is allowed; they remain NotRun.
+
+## Source and future native assembly boundaries
+
+The existing source checker now classifies first-party module declarations and
+rejects peer Unity adapters, editor leakage, unselected precompiled SDKs and
+runtime test-assembly opt-in. It checks platform/purity/reference settings and
+unique C# ownership. Five source fixtures are implemented, NotRun. This is an
+executable check for the existing architecture, not a replacement policy guide.
+
+The sandbox runner now has a separate source phase before native import. The
+future Editor prepare step reads Unity's compilation description, requires each
+production module's resolved project references to match its declaration, checks
+pure compiled references for engine leakage and requires the output assembly.
+A native count marker must match the source production-module inventory. No
+Editor was launched to verify these assumptions; native graph/import status
+remains NotRun. Test discovery, Player graph/build, behavior, feel and performance
+remain their separate evidence requirements. No package or CI workflow is added.

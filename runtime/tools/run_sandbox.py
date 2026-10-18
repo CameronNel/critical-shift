@@ -15,6 +15,7 @@ import tempfile
 from pathlib import Path
 
 from evidence import EvidenceError, validate_log, validate_results
+from check_source import check
 from run_foundation import RUNTIME, execute, fingerprint, source_files, utc
 
 
@@ -26,7 +27,7 @@ def run(unity: str | None, output_parent: Path, target: str, build_player: bool 
     output = Path(tempfile.mkdtemp(prefix="sandbox-", dir=output_parent))
     profile = json.loads((RUNTIME / "toolchain.json").read_text())
     expected = json.loads((RUNTIME / "validation/sandbox-expected-tests.json").read_text())["PlayMode"]
-    phases = {name: {"status": "NotRun"} for name in ("import", "PlayMode", "build", "player")}
+    phases = {name: {"status": "NotRun"} for name in ("source", "import", "PlayMode", "build", "player")}
     report = {"started_utc": utc(), "profile": profile, "target": target, "status": "NotRun", "phases": phases,
               "expected_playmode_tests": expected,
               "independent_review": "NotRun", "limits": "Sandbox import/declared physics cases only; no Player execution, feel, art, multiplayer, performance or gate acceptance."}
@@ -36,8 +37,10 @@ def run(unity: str | None, output_parent: Path, target: str, build_player: bool 
         report["commit"] = "unversioned-source-copy"
     original = fingerprint(RUNTIME)
     report["source_sha256"] = original
-    current, code = "import", 1
+    current, code = "source", 1
     try:
+        phases["source"] = check(RUNTIME)
+        current = "import"
         editor = Path(unity).expanduser().resolve() if unity else None
         if editor is None or not editor.is_file():
             report["status"] = "Blocked"
@@ -75,6 +78,10 @@ def run(unity: str | None, output_parent: Path, target: str, build_player: bool 
         text = invoke("import", ["-quit", "-executeMethod", "CriticalShift.Sandbox.Editor.SandboxSceneBuilder.Prepare"], 480)
         if "CS_SANDBOX_PREPARED" not in text or profile["editor"] not in text or profile["revision"] not in text:
             raise EvidenceError("The sandbox prepare marker or exact native Editor identity is missing.")
+        graphs = re.findall(r"CS_SANDBOX_ASSEMBLIES count=(\d+)", text)
+        if len(graphs) != 1 or int(graphs[0]) != phases["source"]["production_asmdefs"]:
+            raise EvidenceError("The native production-assembly graph inventory differs from the checked source declarations.")
+        phases["import"]["production_assemblies"] = int(graphs[0])
         phases["import"]["status"] = "Passed"
         result = output / "PlayMode.xml"
         # No -quit here: the actual test runner owns termination after results are written.
