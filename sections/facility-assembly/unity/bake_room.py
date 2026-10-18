@@ -562,8 +562,10 @@ if STAGE in ('prep', 'all'):
             if n_ not in cover: continue
             c = uv[poly.loop_start:poly.loop_start + poly.loop_total]
             cover[n_] += 0.5 * abs(np.dot(c[:, 0], np.roll(c[:, 1], -1)) - np.dot(c[:, 1], np.roll(c[:, 0], -1)))
-    thin = sorted('%s (%.4f)' % (n, c) for n, c in cover.items() if c < 0.05)
-    if thin: raise SystemExit('unwrap: %d materials cover less than 5 %% of their atlas: %s' % (len(thin), thin[:20]))
+    # 1 %: a long strip legitimately fills little of a square atlas (the front end's 11:1 menu board fills 9 %, a 50:1 one would fill 2 %); the
+    # collapsed signs filled 0.1 %
+    thin = sorted('%s (%.4f)' % (n, c) for n, c in cover.items() if c < 0.01)
+    if thin: raise SystemExit('unwrap: %d materials cover less than 1 %% of their atlas: %s' % (len(thin), thin[:20]))
     for n, c in cover.items(): plan[n]['uv_coverage'] = round(c, 3)
     step('unwrapped', atlases={n: p.get('size') for n, p in plan.items() if p['bake']}, lowest_uv_coverage=sorted((round(c, 3), n) for n, c in cover.items())[:3])
 
