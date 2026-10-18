@@ -13,7 +13,8 @@ Stable fixture IDs are rebound to fresh world epochs on restart.
 Once native execution is authorized, the editor menu **Critical Shift > Sandbox >
 Create isolated gameplay scene** generates a new scratch scene containing only a
 composition root. On play it builds debug geometry: eight crates, two production
-machines, a reactor, a cart, a conveyor and a local collision controller.
+machines, a reactor, a cart, a conveyor, a local collision controller and a downed
+test worker. The second worker is controlled locally for this fixture.
 
 - WASD: walk; right mouse drag: look; Tab: show/hide controls.
 - Look at a nearby target: E grabs or transfers to/from equipment; G drops the
@@ -35,7 +36,13 @@ machines, a reactor, a cart, a conveyor and a local collision controller.
   capsule is disabled. H attempts recovery after settling and the rule delay.
   Recovery needs static ground, a clear standing capsule and a second clearance
   check during the pending handoff. The panel also has an explicit fixture-only
-  knockdown button. This does not add reanimation or body-dragging mechanics.
+  knockdown button. Reanimation remains separate work.
+- Look at the test worker's physical suit grip and E begins a single-person
+  drag; G releases. Pulling uses the same exclusive claim and current lease as
+  containers, and slows movement using the 68 kg debug body proxy. Excessive
+  separation or sustained obstruction releases the grip. The patient's fixture
+  recovery button is blocked while that body is held. Reanimation, two-person
+  carrying and worker cargo-load sensing are still separate work.
 - Select a nearby crate and Grab/Release. Current host reach and line of sight
   are checked. Carrying uses bounded forces; excessive obstruction drops the
   exact claim. Leases renew through the same connection's command stream.
@@ -82,8 +89,9 @@ on the inspected baseline. No package is downloaded by the generator.
 
 The existing foundation runner still tests its foundation assembly selection;
 it does not automatically claim sandbox coverage. The separate native inventory
-is `runtime/validation/sandbox-expected-tests.json`: 43 implemented cases, all
-NotRun. Nine new pure command-port cases and nine source-package safety cases
+is `runtime/validation/sandbox-expected-tests.json`: 48 implemented cases, all
+NotRun. Nine new pure command-port cases, fourteen worker-body claim cases and
+nine source-package safety cases
 are also NotRun. Native fixtures are offset from possible active-scene content
 to avoid collisions with an unrelated map/scene at the origin.
 

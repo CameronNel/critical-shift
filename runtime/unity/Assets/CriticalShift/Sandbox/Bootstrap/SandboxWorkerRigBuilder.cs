@@ -8,8 +8,16 @@ namespace CriticalShift.Sandbox
     /// <summary>Debug humanoid geometry and joint bindings, isolated from every authored character/map asset.</summary>
     internal static class SandboxWorkerRigBuilder
     {
+        internal static CharacterController AddController(GameObject worker)
+        {
+            var controller = worker.AddComponent<CharacterController>();
+            controller.height = 1.8f; controller.radius = 0.32f; controller.center = new Vector3(0, 0.9f, 0);
+            controller.stepOffset = 0.25f; controller.slopeLimit = 45; controller.skinWidth = 0.03f;
+            return controller;
+        }
+
         internal static WorkerBodyRig Build(Guid epoch, Guid actor, CharacterController controller,
-            Transform eyes, SandboxPrimitives shapes)
+            Transform eyes, SandboxPrimitives shapes, bool hideLocalHead)
         {
             var rigRoot = SandboxPrimitives.Empty("Worker physical rig", controller.transform, Vector3.zero);
             var bodies = new Rigidbody[11]; var colliders = new Collider[11];
@@ -29,15 +37,18 @@ namespace CriticalShift.Sandbox
             Connect(5, 1, new Vector3(0.28f, 1.43f, 0)); Connect(6, 5, new Vector3(0.36f, 1.07f, 0));
             Connect(7, 0, new Vector3(-0.14f, 0.77f, 0)); Connect(8, 7, new Vector3(-0.14f, 0.43f, 0));
             Connect(9, 0, new Vector3(0.14f, 0.77f, 0)); Connect(10, 9, new Vector3(0.14f, 0.43f, 0));
-            bodies[2].GetComponentInChildren<Renderer>().shadowCastingMode = ShadowCastingMode.ShadowsOnly;
+            if (hideLocalHead) bodies[2].GetComponentInChildren<Renderer>().shadowCastingMode = ShadowCastingMode.ShadowsOnly;
+            var grip = SandboxPrimitives.Empty("Suit drag grip", bodies[1].transform, new Vector3(0, 0.2f, -0.2f));
+            SandboxPrimitives.Box("Suit grip marker", grip.transform, Vector3.zero, new Vector3(0.18f, 0.045f, 0.04f), shapes.Dark, false);
             var rig = rigRoot.AddComponent<WorkerBodyRig>();
-            rig.Initialize(epoch, actor, controller, eyes, bodies[0], bodies[2].transform, bodies, colliders);
+            rig.Initialize(epoch, actor, controller, eyes, bodies[0], bodies[2].transform, grip.transform, bodies, colliders);
             return rig;
 
             Rigidbody Segment(int index, string name, Vector3 center, float radius, float height, float mass, Material material)
             {
                 var item = SandboxPrimitives.Empty(name, rigRoot.transform, center);
                 var collider = item.AddComponent<CapsuleCollider>(); collider.radius = radius; collider.height = height; collider.enabled = false;
+                collider.sharedMaterial = shapes.WorkerContact;
                 var body = item.AddComponent<Rigidbody>(); body.mass = mass; body.isKinematic = true; body.useGravity = false;
                 body.collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
                 body.maxAngularVelocity = 8;

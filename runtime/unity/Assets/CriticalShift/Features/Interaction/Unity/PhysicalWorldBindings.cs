@@ -14,7 +14,9 @@ namespace CriticalShift.Features.Interaction.Unity
         private readonly Dictionary<Guid, Transform> carryTargets = new Dictionary<Guid, Transform>();
         private readonly Dictionary<Guid, Transform> actorRoots = new Dictionary<Guid, Transform>();
         private readonly Dictionary<Guid, CartGripBinding> handles = new Dictionary<Guid, CartGripBinding>();
-        internal int Count => bodies.Count + handles.Count;
+        private readonly Dictionary<Guid, WorkerDragBinding> workers = new Dictionary<Guid, WorkerDragBinding>();
+        private readonly Dictionary<Guid, Transform> dragTargets = new Dictionary<Guid, Transform>();
+        internal int Count => bodies.Count + handles.Count + workers.Count;
         internal PhysicalWorldBindings(WorldSession session) => world = session ?? throw new ArgumentNullException(nameof(session));
 
         internal void BindBody(Guid id, Rigidbody body, float massPerUnit)
@@ -26,13 +28,33 @@ namespace CriticalShift.Features.Interaction.Unity
 
         private void ValidateBodyIdentity(Guid id, Rigidbody body)
         {
-            if (body == null || bodies.ContainsKey(id) || handles.ContainsKey(id)) throw new InvalidOperationException("Duplicate or missing physical body binding.");
+            if (body == null || bodies.ContainsKey(id) || handles.ContainsKey(id) || workers.ContainsKey(id)) throw new InvalidOperationException("Duplicate or missing physical body binding.");
             if (world.GetObject(id) == null) throw new InvalidOperationException("Register the logical object before its physical body.");
             foreach (var binding in bodies.Values)
                 if (binding.Body == body) throw new InvalidOperationException("A Rigidbody may serve only one logical physical entity.");
             foreach (var binding in handles.Values)
                 if (binding.Body == body) throw new InvalidOperationException("Cart force ownership cannot overlap a carry-body binding.");
+            foreach (var binding in workers.Values)
+                if (binding.Owns(body)) throw new InvalidOperationException("Worker force ownership cannot overlap another physical entity.");
         }
+
+        internal void BindWorker(Guid id, Guid actor, Rigidbody[] segments,
+            Func<ObjectClaimView, Vector3, float, bool> pull, Action release, Func<float> mass)
+        {
+            if (world.GetWorkerForBody(id)?.Id != actor || segments == null)
+                throw new InvalidOperationException("Register the worker-body linkage before its physical adapter.");
+            foreach (var segment in segments) ValidateBodyIdentity(id, segment);
+            workers.Add(id, new WorkerDragBinding(id, segments, pull, release, mass));
+        }
+
+        internal void BindDragTarget(Guid actor, Transform target)
+        {
+            if (target == null || dragTargets.ContainsKey(actor) || world.GetWorker(actor) == null)
+                throw new ArgumentException("Bind one explicit drag target for a registered worker.");
+            dragTargets.Add(actor, target);
+        }
+        internal bool HasDragTarget(Guid actor) => workers.Count == 0 || dragTargets.ContainsKey(actor);
+        internal bool IsWorker(Guid entity) => workers.ContainsKey(entity);
 
         internal void BindActorRoot(Guid actor, Transform root)
         {
@@ -84,6 +106,8 @@ namespace CriticalShift.Features.Interaction.Unity
                 if (world.GetObject(binding.Id)?.HolderId == actor) yield return binding.Id;
             foreach (var handle in handles.Values)
                 if (world.GetObject(handle.Id)?.HolderId == actor) yield return handle.Id;
+            foreach (var worker in workers.Values)
+                if (world.GetObject(worker.Id)?.HolderId == actor) yield return worker.Id;
         }
 
         internal Guid HeldObject(Guid actor)
@@ -95,7 +119,9 @@ namespace CriticalShift.Features.Interaction.Unity
         internal float CarriedMass(Guid actor)
         {
             Guid held = HeldObject(actor);
-            return held != Guid.Empty && bodies.TryGetValue(held, out var binding) && binding.Body != null ? binding.Body.mass : 0;
+            if (held == Guid.Empty) return 0;
+            if (workers.TryGetValue(held, out var worker)) return worker.Mass;
+            return bodies.TryGetValue(held, out var binding) && binding.Body != null ? binding.Body.mass : 0;
         }
 
         internal bool IsFree(Rigidbody body)
@@ -118,6 +144,8 @@ namespace CriticalShift.Features.Interaction.Unity
                 var state = world.GetObject(binding.Id);
                 return state != null && (state.HolderId == actor || state.SlotId == target);
             }
+            foreach (var worker in workers.Values)
+                if (worker.Owns(body)) return world.GetObject(worker.Id)?.HolderId == actor;
             return false;
         }
 
@@ -131,7 +159,16 @@ namespace CriticalShift.Features.Interaction.Unity
 
         internal bool Reconcile(bool applyForces, float deltaSeconds)
         {
-            bool running = world.View.Phase == WorldPhase.Running || world.View.Phase == WorldPhase.Paused;
+            var phase = world.View.Phase;
+            bool running = phase == WorldPhase.Running || phase == WorldPhase.Paused;
+            bool dropped = ReconcileCarryBodies(running, applyForces, deltaSeconds);
+            dropped |= ReconcileHandles(running);
+            dropped |= ReconcileWorkers(running, applyForces, deltaSeconds);
+            return dropped;
+        }
+
+        private bool ReconcileCarryBodies(bool running, bool applyForces, float deltaSeconds)
+        {
             bool dropped = false;
             foreach (var binding in bodies.Values)
             {
@@ -156,6 +193,12 @@ namespace CriticalShift.Features.Interaction.Unity
                 }
                 else binding.Release();
             }
+            return dropped;
+        }
+
+        private bool ReconcileHandles(bool running)
+        {
+            bool dropped = false;
             foreach (var handle in handles.Values)
             {
                 var state = running ? world.GetObject(handle.Id) : null;
@@ -170,10 +213,30 @@ namespace CriticalShift.Features.Interaction.Unity
             return dropped;
         }
 
+        private bool ReconcileWorkers(bool running, bool applyForces, float deltaSeconds)
+        {
+            bool dropped = false;
+            foreach (var worker in workers.Values)
+            {
+                var state = running ? world.GetObject(worker.Id) : null;
+                if (state == null || state.IsRetired) { worker.Release(); continue; }
+                if (!worker.Active) throw new InvalidOperationException("A registered worker body lost a physical segment.");
+                if (!state.HolderId.HasValue) { worker.Release(); continue; }
+                if (world.GetWorkerForBody(worker.Id)?.Pose != WorkerPose.Down ||
+                    !dragTargets.TryGetValue(state.HolderId.Value, out var target) || target == null || !target.gameObject.activeInHierarchy ||
+                    (applyForces && !worker.Follow(state, target, deltaSeconds)))
+                {
+                    world.ReportAttachmentFailure(world.Epoch, worker.Id, state.LeaseGeneration); worker.Release(); dropped = true;
+                }
+            }
+            return dropped;
+        }
+
         internal void Clear()
         {
             foreach (var binding in bodies.Values) binding.Release();
-            bodies.Clear(); slots.Clear(); carryTargets.Clear(); handles.Clear(); actorRoots.Clear();
+            foreach (var worker in workers.Values) worker.Release();
+            bodies.Clear(); slots.Clear(); carryTargets.Clear(); handles.Clear(); actorRoots.Clear(); workers.Clear(); dragTargets.Clear();
         }
     }
 }

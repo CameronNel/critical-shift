@@ -102,7 +102,7 @@ namespace CriticalShift.Features.Workers.Unity
 
         private void OnDisable()
         {
-            bool unexpected = active && running != null && running();
+            bool unexpected = active && readWorker != null && readWorker() != null;
             active = false;
             if (unexpected) failure?.Invoke(new InvalidOperationException("The live worker impact observer was disabled."));
         }

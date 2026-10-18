@@ -35,11 +35,13 @@ namespace CriticalShift.Sandbox.Tests
             {
                 Assert.That(bootstrap.World, Is.Not.Null); Assert.That(bootstrap.World.Phase, Is.EqualTo(WorldPhase.Running));
                 Assert.That(epochs.Add(bootstrap.World.Epoch), Is.True);
-                Assert.That(bootstrap.PhysicalBindingCount, Is.EqualTo(9));
-                var workerRig = root.GetComponentInChildren<WorkerBodyRig>();
-                Assert.That(workerRig.BodyCount, Is.EqualTo(11));
+                Assert.That(bootstrap.PhysicalBindingCount, Is.EqualTo(10));
+                var workerRigs = root.GetComponentsInChildren<WorkerBodyRig>();
+                Assert.That(workerRigs.Length, Is.EqualTo(2));
+                foreach (var workerRig in workerRigs) Assert.That(workerRig.BodyCount, Is.EqualTo(11));
                 bootstrap.enabled = false;
-                foreach (var body in workerRig.GetComponentsInChildren<Rigidbody>(true)) Assert.That(body.isKinematic, Is.True);
+                foreach (var workerRig in workerRigs)
+                    foreach (var body in workerRig.GetComponentsInChildren<Rigidbody>(true)) Assert.That(body.isKinematic, Is.True);
                 Assert.That(bootstrap.World, Is.Null);
                 Assert.That(bootstrap.PhysicalBindingCount, Is.Zero);
                 Assert.That(bootstrap.LastStoppedWorld.Phase, Is.EqualTo(WorldPhase.Stopped));
@@ -61,7 +63,7 @@ namespace CriticalShift.Sandbox.Tests
             root.GetComponentInChildren<SandboxHud>().enabled = false; // Supply drive samples directly for this test.
             var host = root.GetComponentInChildren<LocalWorldHost>();
             var motor = root.GetComponentInChildren<CartMotor>();
-            var controller = root.GetComponentInChildren<CharacterController>();
+            var controller = root.transform.Find("Local Gameplay Fixture/Local worker controller").GetComponent<CharacterController>();
             var stand = motor.transform.Find("Cart operator stance");
             Assert.That(stand, Is.Not.Null);
             for (int i = 0; i < 10; i++) yield return new WaitForFixedUpdate();

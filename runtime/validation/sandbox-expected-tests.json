@@ -1,5 +1,10 @@
 {
   "PlayMode": [
+    "CriticalShift.Sandbox.Tests.WorkerDragTests.SuitGripPullsTheDynamicWorkerAndSlowsTheRescuer",
+    "CriticalShift.Sandbox.Tests.WorkerDragTests.LostDragReachDropsOnlyItsCurrentLease",
+    "CriticalShift.Sandbox.Tests.WorkerDragTests.HeldWorkerCannotStandUntilTheSuitGripIsReleased",
+    "CriticalShift.Sandbox.Tests.WorkerDragTests.InteractionFollowsTheMovedSuitGripInsteadOfTheOldWorkerRoot",
+    "CriticalShift.Sandbox.Tests.WorkerDragTests.FixtureTeardownClearsTheDragBeforeCreatingAFreshEpoch",
     "CriticalShift.Sandbox.Tests.ProcessFeedbackTests.PowerPauseStopsSparksAndPreservesCommittedProgress",
     "CriticalShift.Sandbox.Tests.ProcessFeedbackTests.CosmeticTrajectoryUsesPausedProcessTimeInsteadOfFrameTime",
     "CriticalShift.Sandbox.Tests.ProcessFeedbackTests.CoolingLossAndTripChangeVentFeedbackWithoutSpendingPower",

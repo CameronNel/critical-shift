@@ -10,7 +10,7 @@ namespace CriticalShift.Sandbox
     {
         private readonly List<Material> materials = new List<Material>();
         internal readonly Material Floor, Steel, Dark, Yellow, Ore, Fuel, Wet, Lamp;
-        internal readonly PhysicsMaterial WheelContact;
+        internal readonly PhysicsMaterial WheelContact, WorkerContact;
 
         internal SandboxPrimitives(Shader shader)
         {
@@ -35,6 +35,11 @@ namespace CriticalShift.Sandbox
             WheelContact = new PhysicsMaterial("Fixture wheel rolling resistance")
             {
                 staticFriction = 0.02f, dynamicFriction = 0.02f, bounciness = 0,
+                frictionCombine = PhysicsMaterialCombine.Minimum, bounceCombine = PhysicsMaterialCombine.Minimum
+            };
+            WorkerContact = new PhysicsMaterial("Fixture worker suit contact")
+            {
+                staticFriction = 0.18f, dynamicFriction = 0.15f, bounciness = 0,
                 frictionCombine = PhysicsMaterialCombine.Minimum, bounceCombine = PhysicsMaterialCombine.Minimum
             };
         }
@@ -82,6 +87,7 @@ namespace CriticalShift.Sandbox
             foreach (var material in materials) if (material != null) UnityEngine.Object.Destroy(material);
             materials.Clear();
             if (WheelContact != null) UnityEngine.Object.Destroy(WheelContact);
+            if (WorkerContact != null) UnityEngine.Object.Destroy(WorkerContact);
         }
     }
 }

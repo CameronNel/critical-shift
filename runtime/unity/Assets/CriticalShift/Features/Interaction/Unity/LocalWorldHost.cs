@@ -56,6 +56,10 @@ namespace CriticalShift.Features.Interaction.Unity
         public void BindActorRoot(Guid actor, Transform root) { RequireSetup(); bindings.BindActorRoot(actor, root); }
         public void BindCartHandle(Guid id, Rigidbody body, Transform handle, Transform stand)
         { RequireSetup(); bindings.BindHandle(id, body, handle, stand); }
+        public void BindWorkerBody(Guid entity, Guid worker, Rigidbody[] segments,
+            Func<ObjectClaimView, Vector3, float, bool> pull, Action release, Func<float> mass)
+        { RequireSetup(); bindings.BindWorker(entity, worker, segments, pull, release, mass); }
+        public void BindDragTarget(Guid actor, Transform target) { RequireSetup(); bindings.BindDragTarget(actor, target); }
         public bool IsHandleHeld(Guid id) => active && !stopped && bindings.IsHandleHeld(localActor, id);
         public Vector3? CurrentGripStand() => active && !stopped ? bindings.GripStand(localActor) : null;
 
@@ -72,6 +76,7 @@ namespace CriticalShift.Features.Interaction.Unity
             RequireSetup();
             if (!bindings.HasCarryTarget(localActor)) throw new InvalidOperationException("Local carry target is missing.");
             if (!bindings.HasRequiredActorRoot(localActor)) throw new InvalidOperationException("Cart gripping requires the local worker root.");
+            if (!bindings.HasDragTarget(localActor)) throw new InvalidOperationException("Worker dragging requires the local drag target.");
             realOrigin = readClock();
             if (double.IsNaN(realOrigin) || double.IsInfinity(realOrigin) || realOrigin < 0)
                 throw new InvalidOperationException("The host clock must provide finite nonnegative seconds.");
@@ -160,6 +165,8 @@ namespace CriticalShift.Features.Interaction.Unity
             }
             if (held != Guid.Empty && bindings.IsHandle(held))
             { LastAction = "Release the cart handle before handling containers"; return; }
+            if (held != Guid.Empty && bindings.IsWorker(held))
+            { LastAction = "Release the worker's suit grip before handling equipment"; return; }
             var machine = world.Production.GetMachine(focused);
             var reactor = world.Reactor.View;
             if (machine != null)
@@ -176,7 +183,7 @@ namespace CriticalShift.Features.Interaction.Unity
         public void DropHeld()
         {
             Guid held = HeldObject();
-            if (held != Guid.Empty) Release(held); else LastAction = "You are not holding a crate";
+            if (held != Guid.Empty) Release(held); else LastAction = "Your hands are free";
         }
 
         public void StartFocused()
@@ -229,7 +236,14 @@ namespace CriticalShift.Features.Interaction.Unity
             focused = pickTarget == null ? Guid.Empty : pickTarget();
             var custody = world.GetObject(focused);
             if (custody?.SlotId != null) focused = custody.SlotId.Value;
+            Guid held = HeldObject();
+            if (held != Guid.Empty && bindings.IsWorker(held))
+            { FocusHint = "Dragging worker | WASD pull · G release suit grip"; return; }
+            if (held != Guid.Empty && bindings.IsHandle(held))
+            { FocusHint = "Cart handle | WASD push/steer · Space brake · G release"; return; }
             if (focused == Guid.Empty) { FocusHint = "Look at a nearby crate or machine"; return; }
+            if (bindings.IsWorker(focused))
+            { FocusHint = "Worker suit grip | E drag a down worker · G release"; return; }
             bool equipment = world.Production.GetMachine(focused) != null || world.Reactor.View?.Id == focused;
             if (bindings.IsHandle(focused))
             {

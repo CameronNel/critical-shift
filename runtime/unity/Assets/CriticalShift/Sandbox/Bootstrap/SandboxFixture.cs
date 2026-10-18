@@ -20,12 +20,15 @@ namespace CriticalShift.Sandbox
         private LocalWorkerMotor walker;
         private LocalWorkerStateHost workerState;
         private WorkerImpactContacts workerContacts;
-        private WorkerRecoveryPlacement recovery;
+        private LocalWorkerStateHost patientState;
+        private WorkerImpactContacts patientContacts;
+        private WorkerRecoveryRegistry recovery;
         private CartMotor cart;
         private CartCargoSensor cargo;
         private ConveyorDrive belt;
         private bool disposed;
         private readonly Guid actor = Id(1), connection = Id(2), reactor = Id(500), cartId = Id(600);
+        private readonly Guid patient = Id(3), patientConnection = Id(4), patientBody = Id(650);
         private readonly Guid[] containers = new Guid[8], machines = { Id(400), Id(401) };
         internal Guid Epoch => world.Epoch;
         internal WorldSessionView Snapshot => world.View;
@@ -39,20 +42,21 @@ namespace CriticalShift.Sandbox
                 shapes = new SandboxPrimitives(fixtureShader);
                 access = new SpatialInteractionAccess(3.8f,
                     (actorId, targetId, body) => host != null && host.MayIgnoreForSight(actorId, targetId, body));
-                recovery = new WorkerRecoveryPlacement();
+                recovery = new WorkerRecoveryRegistry();
                 world = new WorldSession(new WorldSessionConfiguration(7, 12 * 60 * 1000, true, maxObjects: 32), access, recovery);
                 world.RegisterConnection(connection, actor);
+                world.RegisterConnection(patientConnection, patient); world.RegisterWorkerBody(patient, patientBody);
                 commands = new LocalCommandPort(world, connection);
                 host = root.AddComponent<LocalWorldHost>(); host.Initialize(world, commands, actor);
                 host.BindFocus(() => access.PickTarget(actor), access.DisplayName);
-                BuildRoom(); BuildWorker(); BuildContainers(); BuildMachines(); BuildReactor(); BuildCart(); BuildConveyor();
+                BuildRoom(); BuildWorker(); BuildPatient(); BuildContainers(); BuildMachines(); BuildReactor(); BuildCart(); BuildConveyor();
                 var hud = root.AddComponent<SandboxHud>();
-                hud.Initialize(commands, actor, containers, machines, reactor, () => host.FocusHint + "\n" + host.LastAction,
+                hud.Initialize(commands, actor, containers, machines, reactor, patient, () => host.FocusHint + "\n" + host.LastAction,
                     () => "Cart " + cart.Speed.ToString("F1") + " m/s · cargo " + cargo.Mass.ToString("F0") + " kg" +
                         (cart.Overloaded ? " OVERLOADED" : "") + (cargo.Saturated ? " SENSOR SATURATED" : "") +
                         "\nBelt " + (belt.Jammed ? "BLOCKED" : belt.Running ? "moving" : "stopped") + " · bodies " + belt.MovingBodyCount +
-                        "\nCarrying movement " + (walker.CarrySpeedScale * 100).ToString("F0") + "%" +
-                        "\n" + workerState.LastAction);
+                        "\nCarry/drag movement " + (walker.CarrySpeedScale * 100).ToString("F0") + "%" +
+                        "\n" + workerState.LastAction + "\nPatient: " + patientState.LastAction);
                 hud.GrabRequested += host.Grab; hud.ReleaseRequested += host.Release;
                 hud.MachineRequested += host.OperateMachine; hud.ReactorRequested += host.OperateReactor;
                 hud.ReplayRequested += host.ReplayLast; hud.PauseRequested += host.ToggleClockPause;
@@ -62,7 +66,9 @@ namespace CriticalShift.Sandbox
                 hud.TransferFocusedRequested += host.TransferFocused; hud.DropHeldRequested += host.DropHeld;
                 hud.StartFocusedRequested += host.StartFocused; hud.ToggleFocusedPowerRequested += host.ToggleFocusedPower;
                 hud.RecoveryRequested += workerState.RequestRecovery; hud.DiagnosticKnockdownRequested += workerState.DiagnosticKnockdown;
-                host.Activate(); workerState.Activate(); workerContacts.Activate(); hud.Activate();
+                hud.PatientRecoveryRequested += patientState.RequestRecovery; hud.PatientKnockdownRequested += patientState.DiagnosticKnockdown;
+                recovery.Seal(); host.Activate(); workerState.Activate(); patientState.Activate();
+                workerContacts.Activate(); patientContacts.Activate(); patientState.DiagnosticKnockdown(); hud.Activate();
             }
             catch { Dispose(); throw; }
         }
@@ -86,9 +92,7 @@ namespace CriticalShift.Sandbox
         private void BuildWorker()
         {
             var player = SandboxPrimitives.Empty("Local worker controller", root.transform, new Vector3(-6, 0.1f, -4));
-            var controller = player.AddComponent<CharacterController>();
-            controller.height = 1.8f; controller.radius = 0.32f; controller.center = new Vector3(0, 0.9f, 0);
-            controller.stepOffset = 0.25f; controller.slopeLimit = 45; controller.skinWidth = 0.03f;
+            var controller = SandboxWorkerRigBuilder.AddController(player);
             var eyes = SandboxPrimitives.Empty("Worker eyes", player.transform, new Vector3(0, 1.55f, 0));
             var camera = eyes.AddComponent<Camera>(); camera.fieldOfView = 72; camera.nearClipPlane = 0.05f; camera.farClipPlane = 100;
             camera.clearFlags = CameraClearFlags.SolidColor; camera.backgroundColor = new Color(0.12f, 0.17f, 0.21f);
@@ -98,15 +102,35 @@ namespace CriticalShift.Sandbox
             walker.Initialize(eyes.transform, () => commands.GetWorker(actor), () => world.View.Phase == WorldPhase.Running,
                 host.CarriedPhysicalMass, host.CurrentGripStand, host.IsBodyFree);
             access.BindActor(actor, eyes.transform); host.BindCarryTarget(actor, carry.transform);
+            var drag = SandboxPrimitives.Empty("Worker suit-grip drag target", player.transform, new Vector3(0, 0.55f, 1.2f));
+            host.BindDragTarget(actor, drag.transform);
             host.BindActorRoot(actor, player.transform);
-            var rig = SandboxWorkerRigBuilder.Build(world.Epoch, actor, controller, eyes.transform, shapes);
-            recovery.Bind(rig);
+            var rig = SandboxWorkerRigBuilder.Build(world.Epoch, actor, controller, eyes.transform, shapes, hideLocalHead: true);
+            var placement = new WorkerRecoveryPlacement(); placement.Bind(rig); recovery.Bind(world.Epoch, actor, placement);
             workerState = player.AddComponent<LocalWorkerStateHost>();
-            workerState.Initialize(world, actor, rig, recovery, host.Pump, walker.ResetAfterRecovery, host.ReportExternalFailure);
+            workerState.Initialize(world, actor, rig, placement, host.Pump, walker.ResetAfterRecovery, host.ReportExternalFailure);
             workerState.BindHazard(cartId); workerState.BindHazard(Id(702), diagnostic: true);
             workerContacts = player.AddComponent<WorkerImpactContacts>();
             workerContacts.Initialize(controller, () => commands.GetWorker(actor), () => world.View.Phase == WorldPhase.Running,
                 () => walker.MeasuredVelocity, workerState.ObserveKnockdown, host.ReportExternalFailure);
+        }
+
+        private void BuildPatient()
+        {
+            var worker = SandboxPrimitives.Empty("Fixture patient worker", root.transform, new Vector3(-9, 0.1f, 4));
+            var controller = SandboxWorkerRigBuilder.AddController(worker);
+            var eyes = SandboxPrimitives.Empty("Patient observation anchor", worker.transform, new Vector3(0, 1.55f, 0));
+            var rig = SandboxWorkerRigBuilder.Build(world.Epoch, patient, controller, eyes.transform, shapes, hideLocalHead: false);
+            rig.BindDragEntity(patientBody);
+            host.BindWorkerBody(patientBody, patient, rig.CopyBodySegments(), rig.PullBodyClaim, rig.ReleaseBodyClaim, () => rig.TotalPhysicalMass);
+            access.BindTarget(patientBody, worker.transform, rig.SuitGrip);
+            var placement = new WorkerRecoveryPlacement(); placement.Bind(rig); recovery.Bind(world.Epoch, patient, placement);
+            patientState = worker.AddComponent<LocalWorkerStateHost>();
+            patientState.Initialize(world, patient, rig, placement, host.Pump, () => { }, host.ReportExternalFailure);
+            patientState.BindHazard(cartId); patientState.BindHazard(Id(703), diagnostic: true);
+            patientContacts = worker.AddComponent<WorkerImpactContacts>();
+            patientContacts.Initialize(controller, () => commands.GetWorker(patient), () => world.View.Phase == WorldPhase.Running,
+                () => Vector3.zero, patientState.ObserveKnockdown, host.ReportExternalFailure);
         }
 
         private void BuildContainers()
@@ -212,6 +236,7 @@ namespace CriticalShift.Sandbox
             cart = rig.AddComponent<CartMotor>(); cart.SafeCargoMass = 35;
             cart.Initialize(() => world.View.Phase == WorldPhase.Running && host.IsHandleHeld(cartId) && !cargo.Saturated, () => cargo.Mass);
             workerContacts.BindHazard(cartId, body);
+            patientContacts.BindHazard(cartId, body);
             var loadFace = SandboxPrimitives.Box("Cart load warning face", rig.transform, new Vector3(0.48f, 0.8f, -0.96f),
                 new Vector3(0.16f, 0.16f, 0.04f), shapes.Lamp, false);
             var loadLamp = SandboxPrimitives.PointLight("Cart overload beacon", rig.transform, new Vector3(0.48f, 0.95f, -0.95f), Color.green, 0.2f, 1.6f);
@@ -260,6 +285,7 @@ namespace CriticalShift.Sandbox
             disposed = true;
             if (host != null) host.Shutdown();
             if (workerState != null) workerState.Shutdown();
+            if (patientState != null) patientState.Shutdown();
             if (root != null) { root.SetActive(false); UnityEngine.Object.Destroy(root); }
             access?.Clear(); recovery?.Clear(); shapes?.Dispose();
         }

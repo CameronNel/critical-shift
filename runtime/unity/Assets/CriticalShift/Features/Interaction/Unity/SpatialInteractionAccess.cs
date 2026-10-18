@@ -10,6 +10,7 @@ namespace CriticalShift.Features.Interaction.Unity
     {
         private readonly Dictionary<Guid, Transform> actors = new Dictionary<Guid, Transform>();
         private readonly Dictionary<Guid, Transform> targets = new Dictionary<Guid, Transform>();
+        private readonly Dictionary<Guid, Transform> targetPoints = new Dictionary<Guid, Transform>();
         private readonly RaycastHit[] hits = new RaycastHit[32];
         private readonly Func<Guid, Guid, Rigidbody, bool> transparentOwnedBody;
         private readonly float reach;
@@ -23,7 +24,13 @@ namespace CriticalShift.Features.Interaction.Unity
         }
 
         public void BindActor(Guid id, Transform eyes) => Bind(actors, id, eyes);
-        public void BindTarget(Guid id, Transform root) => Bind(targets, id, root);
+        public void BindTarget(Guid id, Transform root, Transform interactionPoint = null)
+        {
+            var point = interactionPoint == null ? root : interactionPoint;
+            if (root == null || point == null || (point != root && !point.IsChildOf(root)))
+                throw new ArgumentException("The interaction point must belong to its explicit collider hierarchy.");
+            Bind(targets, id, root); targetPoints.Add(id, point);
+        }
 
         private static void Bind(Dictionary<Guid, Transform> bindings, Guid id, Transform transform)
         {
@@ -38,7 +45,9 @@ namespace CriticalShift.Features.Interaction.Unity
                 return AccessDecision.ActorUnavailable;
             if (!targets.TryGetValue(entityId, out var target) || target == null || !target.gameObject.activeInHierarchy)
                 return AccessDecision.TargetUnavailable;
-            Vector3 offset = target.position - eyes.position;
+            if (!targetPoints.TryGetValue(entityId, out var point) || point == null || !point.gameObject.activeInHierarchy)
+                return AccessDecision.TargetUnavailable;
+            Vector3 offset = point.position - eyes.position;
             float distance = offset.magnitude;
             if (distance > reach) return AccessDecision.OutOfReach;
             if (distance > 0.01f)
@@ -73,12 +82,13 @@ namespace CriticalShift.Features.Interaction.Unity
             }
             if (nearest == null) return Guid.Empty;
             foreach (var target in targets)
-                if (target.Value != null && (nearest == target.Value || nearest.IsChildOf(target.Value))) return target.Key;
+                if (target.Value != null && targetPoints.TryGetValue(target.Key, out var point) && point != null && point.gameObject.activeInHierarchy &&
+                    (nearest == target.Value || nearest.IsChildOf(target.Value))) return target.Key;
             return Guid.Empty; // An unregistered wall in front never grants access to a target behind it.
         }
 
         public string DisplayName(Guid id) => targets.TryGetValue(id, out var target) && target != null ? target.name : "";
 
-        public void Clear() { actors.Clear(); targets.Clear(); Array.Clear(hits, 0, hits.Length); }
+        public void Clear() { actors.Clear(); targets.Clear(); targetPoints.Clear(); Array.Clear(hits, 0, hits.Length); }
     }
 }

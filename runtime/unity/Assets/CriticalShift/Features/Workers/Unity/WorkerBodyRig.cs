@@ -12,6 +12,12 @@ namespace CriticalShift.Features.Workers.Unity
         private CharacterController controller;
         private Transform eyes, head;
         private Rigidbody pelvis;
+        private Transform dragPoint;
+        private Rigidbody dragBody;
+        private Vector3 gripBodyOffset;
+        private Guid bodyEntity;
+        private long dragGeneration;
+        private float dragObstruction;
         private Rigidbody[] bodies;
         private Collider[] colliders;
         private Vector3[] restPositions;
@@ -22,6 +28,9 @@ namespace CriticalShift.Features.Workers.Unity
         private bool ragdoll, frozen;
         public bool IsRagdoll => ragdoll;
         public int BodyCount => bodies == null ? 0 : bodies.Length;
+        public float TotalPhysicalMass { get; private set; }
+        public Transform SuitGrip => dragPoint;
+        public Rigidbody[] CopyBodySegments() => bodies == null ? Array.Empty<Rigidbody>() : (Rigidbody[])bodies.Clone();
         internal Guid Epoch => epoch;
         internal Guid Actor => actor;
         internal CharacterController Controller => controller;
@@ -31,18 +40,20 @@ namespace CriticalShift.Features.Workers.Unity
         {
             get
             {
-                if (frozen || !isActiveAndEnabled || controller == null || eyes == null || pelvis == null || head == null || bodies == null) return false;
+                if (frozen || !isActiveAndEnabled || controller == null || eyes == null || pelvis == null || head == null ||
+                    dragPoint == null || dragBody == null || bodies == null) return false;
                 for (int i = 0; i < bodies.Length; i++)
-                    if (bodies[i] == null || colliders[i] == null || !bodies[i].gameObject.activeInHierarchy) return false;
+                    if (bodies[i] == null || colliders[i] == null || !bodies[i].gameObject.activeInHierarchy ||
+                        bodies[i].isKinematic == ragdoll || colliders[i].enabled != ragdoll) return false;
                 return true;
             }
         }
 
         public void Initialize(Guid worldEpoch, Guid workerId, CharacterController walkingController,
-            Transform eyePivot, Rigidbody hip, Transform headAnchor, Rigidbody[] segments, Collider[] segmentColliders)
+            Transform eyePivot, Rigidbody hip, Transform headAnchor, Transform suitGrip, Rigidbody[] segments, Collider[] segmentColliders)
         {
             if (bodies != null || worldEpoch == Guid.Empty || workerId == Guid.Empty || walkingController == null ||
-                eyePivot == null || hip == null || headAnchor == null || segments == null || segments.Length < 2 ||
+                eyePivot == null || hip == null || headAnchor == null || suitGrip == null || segments == null || segments.Length < 2 ||
                 segments.Length > 16 || segmentColliders == null || segmentColliders.Length != segments.Length)
                 throw new ArgumentException("Bind one bounded body rig, worker identity and walking controller.");
             if ((walkingController.transform.lossyScale - Vector3.one).sqrMagnitude > 0.0001f)
@@ -55,16 +66,28 @@ namespace CriticalShift.Features.Workers.Unity
                     segmentColliders[i] == null || segmentColliders[i].attachedRigidbody != segments[i] || segmentColliders[i].isTrigger)
                     throw new ArgumentException("Each body segment needs its own solid collider beneath the worker root.");
             if (!unique.Contains(hip)) throw new ArgumentException("The pelvis must belong to the bound body rig.");
+            var gripBody = suitGrip.GetComponentInParent<Rigidbody>();
+            if (gripBody == null || !unique.Contains(gripBody)) throw new ArgumentException("The suit grip must belong to a bound physical segment.");
             epoch = worldEpoch; actor = workerId; controller = walkingController; eyes = eyePivot; pelvis = hip; head = headAnchor;
+            dragPoint = suitGrip; dragBody = gripBody;
+            gripBodyOffset = dragBody.transform.InverseTransformPoint(suitGrip.position);
             bodies = (Rigidbody[])segments.Clone(); colliders = (Collider[])segmentColliders.Clone();
             restPositions = new Vector3[bodies.Length]; restRotations = new Quaternion[bodies.Length];
             for (int i = 0; i < bodies.Length; i++)
             {
                 restPositions[i] = controller.transform.InverseTransformPoint(bodies[i].position);
                 restRotations[i] = Quaternion.Inverse(controller.transform.rotation) * bodies[i].rotation;
+                TotalPhysicalMass += bodies[i].mass;
             }
             eyePosition = eyes.localPosition; eyeRotation = eyes.localRotation; recoveryRotation = controller.transform.rotation;
             SetSimulation(false);
+        }
+
+        public void BindDragEntity(Guid entity)
+        {
+            if (bodies == null || ragdoll || frozen || entity == Guid.Empty || bodyEntity != Guid.Empty)
+                throw new InvalidOperationException("Bind one logical body identity during physical composition.");
+            bodyEntity = entity;
         }
 
         public void Reconcile(WorkerView worker, WorldPhase phase)
@@ -87,6 +110,7 @@ namespace CriticalShift.Features.Workers.Unity
             recoveryRotation = Quaternion.Euler(0, controller.transform.eulerAngles.y, 0);
             eyeRotation = eyes.localRotation;
             controller.enabled = false; // Stop locomotion before any dynamic body becomes active.
+            Physics.SyncTransforms();
             SetSimulation(true); ragdoll = true;
             foreach (var body in bodies) { body.linearVelocity = inherited; body.angularVelocity = Vector3.zero; }
         }
@@ -120,6 +144,23 @@ namespace CriticalShift.Features.Workers.Unity
             pelvis.AddForceAtPosition(Vector3.ClampMagnitude(impulse, 80), point, ForceMode.Impulse);
         }
 
+        public bool PullBodyClaim(ObjectClaimView claim, Vector3 target, float seconds)
+        {
+            if (!ragdoll || !Available || dragPoint == null || dragBody == null || claim == null || claim.Epoch != epoch ||
+                claim.EntityId != bodyEntity || !claim.HolderId.HasValue || claim.LeaseGeneration < 1 ||
+                !Finite(target) || seconds <= 0 || float.IsNaN(seconds) || float.IsInfinity(seconds)) return false;
+            if (dragGeneration != claim.LeaseGeneration) { dragGeneration = claim.LeaseGeneration; dragObstruction = 0; }
+            Vector3 point = dragBody.position + dragBody.rotation * gripBodyOffset;
+            Vector3 error = target - point;
+            dragObstruction = error.magnitude > 1.2f ? dragObstruction + Mathf.Min(seconds, 0.05f) : 0;
+            if (error.sqrMagnitude > 3 * 3 || dragObstruction > 1.25f) return false;
+            Vector3 force = error * 320 - dragBody.GetPointVelocity(point) * 80;
+            dragBody.AddForceAtPosition(Vector3.ClampMagnitude(force, 250), point, ForceMode.Force);
+            return true;
+        }
+
+        public void ReleaseBodyClaim() { dragGeneration = 0; dragObstruction = 0; }
+
         internal bool Owns(Collider collider)
         {
             if (collider == controller) return true;
@@ -131,6 +172,7 @@ namespace CriticalShift.Features.Workers.Unity
         {
             if (!ragdoll || !Available || !Finite(position)) throw new InvalidOperationException("No active ragdoll can accept this recovery pose.");
             SetSimulation(false);
+            ReleaseBodyClaim();
             controller.transform.SetPositionAndRotation(position, rotation);
             for (int i = 0; i < bodies.Length; i++)
             {
@@ -151,7 +193,7 @@ namespace CriticalShift.Features.Workers.Unity
         public void Freeze()
         {
             if (frozen) return;
-            frozen = true; SetSimulation(false); ragdoll = false;
+            frozen = true; SetSimulation(false); ReleaseBodyClaim(); ragdoll = false;
             if (controller != null) controller.enabled = false;
         }
 

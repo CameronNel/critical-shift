@@ -33,8 +33,10 @@ namespace CriticalShift.Sandbox.Tests
             yield return null; yield return null;
             Assert.That(bootstrap.World, Is.Not.Null);
             root.GetComponentInChildren<SandboxHud>().enabled = false;
-            host = root.GetComponentInChildren<LocalWorldHost>(); state = root.GetComponentInChildren<LocalWorkerStateHost>();
-            rig = root.GetComponentInChildren<WorkerBodyRig>(); controller = root.GetComponentInChildren<CharacterController>();
+            host = root.GetComponentInChildren<LocalWorldHost>();
+            var local = root.transform.Find("Local Gameplay Fixture/Local worker controller");
+            state = local.GetComponent<LocalWorkerStateHost>();
+            rig = local.GetComponentInChildren<WorkerBodyRig>(); controller = local.GetComponent<CharacterController>();
             pelvis = rig.transform.Find("Pelvis").GetComponent<Rigidbody>();
             cart = root.GetComponentInChildren<CartMotor>().GetComponent<Rigidbody>();
         }

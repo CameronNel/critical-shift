@@ -75,7 +75,8 @@ art acceptance.
   jam latch, local walking: written, unvalidated.
 - Diagnostic controls, crusher/fuel/reactor fixture, lamps, valve/spindle/tread
   motion, material appearance and scratch-scene generator: written, unvalidated.
-- Nine pure command-port tests, nine package safety tests and 43 native sandbox
+- Nine pure command-port tests, fourteen worker-body claim tests, nine package
+  safety tests and 48 native sandbox
   tests are implemented, all **NotRun**. These are declared inventory counts,
   not discovered/executed results.
 - Direct first-person focus, context transfer/drop, power/cooling and start
@@ -197,7 +198,7 @@ Disconnect retires the target's body claim before removing its worker binding.
 The physical adapter will pull only an active ragdoll through its existing force
 owner, with bounded separation/obstruction and exact-lease release. Use a second
 explicit local fixture worker for source tests and interaction, never a map edit.
-This scope is in progress. Physical dragging cases are Planned until written;
+This scope is in progress. Physical dragging cases are now written and NotRun;
 no drag, multiplayer, reanimation or human-feel acceptance is claimed.
 
 The canonical body registration, target-condition gate and recovery/claim
@@ -206,4 +207,22 @@ registration failure, ordered rejections, contention, orthogonal conditions,
 unconscious dragging without revival, recovery exclusion, impact/lease release,
 both disconnect directions, body-owned timer cleanup, restart/epoch isolation
 and rejection by material machinery. They add to the nine command-port cases;
-neither group has executed in this pass. Physical bindings are still in progress.
+neither group has executed in this pass.
+
+Physical dragging is written through an explicit Interaction binding that calls
+the worker rig's existing force owner. It does not reference the Workers Unity
+assembly or create a parallel spring-force component. The second fixture worker
+has an explicit body entity and moving suit-grip interaction point, with ten
+physical entity bindings total. Each worker's recovery placement is routed by a
+sealed, epoch-scoped registry. A held body blocks recovery in Application and
+the fixture controls. Body/suit physical mass and contact friction are authored
+debug proxies, not a material inventory or accepted balance.
+
+Initial drag values: 68 kg total body proxy, 250 N maximum pull, 3 m hard
+separation, 1.25 s sustained error timeout beyond 1.2 m, 0.18/0.15 suit contact
+friction and a drag target 0.55 m above the rescuer's feet. The existing movement
+scale clamps to 35% for this load. No value is measured or accepted yet.
+Five native drag cases are written, NotRun: physical pull/slowdown, reach loss
+and stale-lease rejection, held-body recovery exclusion, a moving suit anchor
+independent of the old worker root, and teardown while dragging into a fresh
+epoch. The ten-cycle fixture teardown now covers both physical worker rigs.

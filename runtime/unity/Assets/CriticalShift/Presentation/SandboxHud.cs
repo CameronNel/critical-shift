@@ -14,12 +14,13 @@ namespace CriticalShift.Presentation
         public event Action ReplayRequested, PauseRequested, ResetRequested, BeltResetRequested;
         public event Action TransferFocusedRequested, DropHeldRequested, StartFocusedRequested, ToggleFocusedPowerRequested;
         public event Action RecoveryRequested, DiagnosticKnockdownRequested;
+        public event Action PatientRecoveryRequested, PatientKnockdownRequested;
         public event Action<Vector2> MovementRequested, LookRequested;
         public event Action<float, float, bool> CartDriveRequested;
         private readonly HashSet<KeyCode> held = new HashSet<KeyCode>();
         private LocalCommandPort commands;
         private Guid[] containers, machines;
-        private Guid actor, reactor;
+        private Guid actor, reactor, patient;
         private Func<string> actionStatus, physicsStatus;
         private int selectedContainer, selectedMachine;
         private bool bypass, active, visible = true;
@@ -27,12 +28,13 @@ namespace CriticalShift.Presentation
         private GUIStyle wrapped;
 
         public void Initialize(LocalCommandPort port, Guid localActor, Guid[] containerIds, Guid[] machineIds,
-            Guid reactorId, Func<string> readAction, Func<string> readPhysics)
+            Guid reactorId, Guid patientActorId, Func<string> readAction, Func<string> readPhysics)
         {
             if (commands != null || port == null || containerIds == null || containerIds.Length == 0 ||
-                machineIds == null || machineIds.Length == 0 || localActor == Guid.Empty || reactorId == Guid.Empty)
+                machineIds == null || machineIds.Length == 0 || localActor == Guid.Empty || reactorId == Guid.Empty ||
+                patientActorId == Guid.Empty || patientActorId == localActor)
                 throw new ArgumentException("Provide one local command port and explicit fixture selections.");
-            commands = port; actor = localActor; reactor = reactorId;
+            commands = port; actor = localActor; reactor = reactorId; patient = patientActorId;
             containers = (Guid[])containerIds.Clone(); machines = (Guid[])machineIds.Clone();
             actionStatus = readAction ?? throw new ArgumentNullException(nameof(readAction));
             physicsStatus = readPhysics ?? throw new ArgumentNullException(nameof(readPhysics));
@@ -44,7 +46,7 @@ namespace CriticalShift.Presentation
                 ReactorRequested == null || ReplayRequested == null || PauseRequested == null || ResetRequested == null ||
                 BeltResetRequested == null || MovementRequested == null || LookRequested == null || CartDriveRequested == null ||
                 TransferFocusedRequested == null || DropHeldRequested == null || StartFocusedRequested == null || ToggleFocusedPowerRequested == null ||
-                RecoveryRequested == null || DiagnosticKnockdownRequested == null)
+                RecoveryRequested == null || DiagnosticKnockdownRequested == null || PatientRecoveryRequested == null || PatientKnockdownRequested == null)
                 throw new InvalidOperationException("Fixture controls require all explicit command and input bindings.");
             active = true;
         }
@@ -124,6 +126,10 @@ namespace CriticalShift.Presentation
                 if (GUILayout.Button("Attempt worker recovery (H)")) RecoveryRequested?.Invoke();
                 GUI.enabled = previousEnabled && world.Phase == WorldPhase.Running;
                 if (GUILayout.Button("Fixture only: simulate knockdown")) DiagnosticKnockdownRequested?.Invoke();
+                var patientView = commands.GetWorker(patient);
+                if (patientView != null) GUILayout.Label("Fixture patient: " + patientView.Awareness + " / " + patientView.Pose);
+                if (GUILayout.Button("Fixture patient: knock down")) PatientKnockdownRequested?.Invoke();
+                if (GUILayout.Button("Fixture patient: attempt recovery")) PatientRecoveryRequested?.Invoke();
                 GUI.enabled = previousEnabled;
                 if (GUILayout.Button("Clear conveyor blockage latch")) BeltResetRequested?.Invoke();
                 if (GUILayout.Button(world.Phase == WorldPhase.Paused ? "Resume process clock" : "Pause process clock")) PauseRequested?.Invoke();
@@ -220,6 +226,7 @@ namespace CriticalShift.Presentation
             ReplayRequested = null; PauseRequested = null; ResetRequested = null; BeltResetRequested = null;
             TransferFocusedRequested = null; DropHeldRequested = null; StartFocusedRequested = null; ToggleFocusedPowerRequested = null;
             RecoveryRequested = null; DiagnosticKnockdownRequested = null;
+            PatientRecoveryRequested = null; PatientKnockdownRequested = null;
             MovementRequested = null; LookRequested = null; CartDriveRequested = null;
         }
     }
