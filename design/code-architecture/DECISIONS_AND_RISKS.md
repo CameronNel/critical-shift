@@ -197,9 +197,9 @@ contains the exact variants, full outcomes, separation measurements and limits.
 After primary-author and validation-subagent source review, commit `4822787d`
 changes the observer to independent **25 m/s linear** and **312.5 J/kg specific
 rotational kinetic-energy** trial limits, retaining raw angular/peak diagnostics.
-The energy criterion is `0.5 * sum(Iprincipal * omegaPrincipal²) / mass`, with
+The energy criterion is `0.5 * sum(Iprincipal * omegaPrincipalÃƒâ€šÃ‚Â²) / mass`, with
 omega transformed by inverse(body.rotation * inertiaTensorRotation). The budget
-equals `0.5 * 25²`, the specific translational energy at 25 m/s, and does not
+equals `0.5 * 25Ãƒâ€šÃ‚Â²`, the specific translational energy at 25 m/s, and does not
 bound their combined energy. It is an authored, unaccepted configuration under
 D-09; source review does not ratify a production safety budget or close that
 decision.
@@ -225,6 +225,35 @@ rendered evidence, budget acceptance and independent gate review remain pending.
 The current fresh run discloses its preinitialized SDK cache; it is not evidence
 of successful cold package extraction. Detailed evidence and upstream
 `282f9dfb` / merge `de2a6de5` protected-path equality are retained in the task record.
+
+### Current native development evidence, 18 October 2026, 20:12 UTC
+
+The bounded local-host candidate `6554abef` passed clean native preparation,
+132/132 gameplay cases with zero skips, a strict-variant Win64 build and its
+headless startup/cleanup. That same build produced a verified 960x540 PNG in a
+normal window and passed the typed deny/carry/drop exercise with native motion,
+unchanged material accounting and zero retained custody/owned references. The
+batch-mode PNG attempt remains Failed; initialization of a graphics device alone
+was not treated as a rendered frame. Separate foundation validation passed all
+12 EditMode and 9 PlayMode identities plus its build/Player.
+
+The Null-device Player fix exempts only unavailable `_EmissionColor` property
+reflection. Material identities, distinct references, retained keyword sets and
+emissive flags remain checked in every mode; Editor and graphics Players retain
+property checks. Its original failure and focused diagnostic builds remain
+separate from the fresh passing candidate. All 21 supplementary API assemblies
+and Windows/Ubuntu editor-free CI also passed. The native runs disclose reuse of
+only a verified initialized SDK `Library/PackageCache`, with new first-party
+compilation and final source/pin audits; cold package extraction is not passed.
+
+These are executed development proofs, not closure of D-01/D-09 or an independent
+roadmap gate. The earlier angular-cutoff failures and diagnostic-budget limits
+above remain. Networking, production input/UI, persistence and performance
+choices remain open. Combined-map URP preparation subsequently passed 37 doors / 152 proxies / 13 anchors
+with maximum measured anchor error 0.0002840849 m; no route/Player/art acceptance
+is inferred. Exact
+results and immutable failed-run references are in the existing
+[active task record](../../runtime/validation/GAMEPLAY_SANDBOX.md).
 
 Owners below are accountable roles; individual implementation/review assignments are **unassigned** until a work package is authorized. Cameron approves scope/stack decisions; the appointed implementation lead prepares evidence and an independent reviewer assesses it. No package is selected by mentioning it in a source reference.
 

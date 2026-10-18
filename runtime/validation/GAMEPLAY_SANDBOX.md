@@ -1,16 +1,24 @@
 # Unity gameplay sandbox development pass
 
-**Implementation and validation in progress; see dated execution results below.**
+**Development validation completed; independent acceptance pending. See dated results below.**
 
-Latest completed full native gameplay run: `c37905f6`, `sandbox-n92p66j2`, clean
-URP import and **127/129 passed, two failed, zero skipped** under the then-current
-25 rad/s guard. All three bounded solver/origin comparisons have now completed
-with failures. The reviewed source policy in `4822787d` instead observes
-independent **25 m/s linear speed and 312.5 J/kg specific rotational energy**,
-retaining raw angular diagnostics. This is an authored, unaccepted trial budget,
-not a physical motion fix. Its matching-SDK API/source checks passed; the new
-**132-case** native run, build, Player and rendered verification remain pending.
-All earlier failures and the historical 124-case pass retain their original status.
+Latest completed full native gameplay run: **Passed**, `6554abef`,
+`sandbox-zxh6eap1`: clean initialization/preparation, **132/132 passed, zero
+skipped**, strict-variant Win64 build and headless Player smoke with zero remaining
+owned references. That same build passed a separate normal-window rendered PNG
+capture and an opt-in typed deny/carry/drop exercise, including their rejection
+controls. Its batch-mode capture attempt remains Failed. All 21 supplementary
+API checks and both Windows/Ubuntu source/offline CI jobs passed on `6554abef`.
+Separate foundation validation passed 12 EditMode / 9 PlayMode cases, build and
+Player. Current combined-map URP preparation also passed 37 doors / 152 proxies / 
+13 anchors with maximum error 0.0002840849 m. These bounded sandbox results do not establish gameplay feel,
+performance, combined-map or art acceptance.
+The reviewed source policy in `4822787d` observes independent **25 m/s linear
+speed and 312.5 J/kg specific rotational energy**, retaining raw angular
+diagnostics. This remains an authored, unaccepted trial budget, not a physical
+motion fix.
+All earlier failures, the three failed solver/origin comparisons and the
+historical 124-case pass retain their original status.
 
 Owner authorization: Cameron requested a substantial ten-hour development pass
 on 18 October 2026. The pass began at 10:29 UTC / 12:29 SAST and ends at
@@ -145,12 +153,12 @@ All compiler, test and engine execution counts remain zero for this pass.
 These are initial test-fixture values, not shipped balance or measured results:
 3.8 m interaction reach, 800 ms renewal interval with the inherited 3 s lease,
 3.5 m hard carry separation and 1.5 s sustained obstruction timeout; spring
-acceleration capped at 60 m/s²; cart speed 3.5 m/s and safe cargo proxy 35 kg;
-belt speed 1.4 m/s with acceleration capped at 8 m/s² and a 2 s blockage latch.
+acceleration capped at 60 m/sÃ‚Â²; cart speed 3.5 m/s and safe cargo proxy 35 kg;
+belt speed 1.4 m/s with acceleration capped at 8 m/sÃ‚Â² and a 2 s blockage latch.
 The first fixture batch begins at 36 logical units; the other seven have 12 each.
 Physical mass uses
-0.75 kg/unit, clamped to 0.25–250 kg, with converted output updating the same
-physical container. Carry speed scales as `1/(1 + kg/20)`, bounded to 35–100%.
+0.75 kg/unit, clamped to 0.25Ã¢â‚¬â€œ250 kg, with converted output updating the same
+physical container. Carry speed scales as `1/(1 + kg/20)`, bounded to 35Ã¢â‚¬â€œ100%.
 These values make overload and slowdown observable in a small room; native
 stability, feel and target-hardware performance must still be measured.
 
@@ -390,8 +398,8 @@ costs, renderer settings, map assets or package decisions change.
 ## Short-hop locomotion source
 
 Add the spec 4.2 short hop to the existing collision controller: 4.8 m/s initial
-upward speed, 20 m/s² authored gravity, 0.10 s ledge grace, 0.12 s input buffer,
-4 m/s² air acceleration and the existing 0.05 s frame-step cap. The current mass
+upward speed, 20 m/sÃ‚Â² authored gravity, 0.10 s ledge grace, 0.12 s input buffer,
+4 m/sÃ‚Â² air acceleration and the existing 0.05 s frame-step cap. The current mass
 slowdown also scales hop height. These are bounded debug fixture values, not
 measured feel acceptance. Cart grip keeps Space as its brake. Pause, down state,
 recovery, focus loss and teardown cannot retain a queued hop. Above contact cuts
@@ -441,7 +449,7 @@ Add T to release and throw an ordinary portable body. The host samples time and
 current posture/claim, commits the existing Release command, reconciles current
 bindings, then checks the exact released epoch, revision and lease generation
 before applying one impulse. Historical replay is not a new physical effect.
-The same CarryBodyBinding owns that impulse, bounded to 35 N·s and at most 5 m/s
+The same CarryBodyBinding owns that impulse, bounded to 35 NÃ‚Â·s and at most 5 m/s
 additional speed; existing momentum remains. The look heading supplies aim
 independently of manual crate rotation. Worker/cart grips and paused/expired
 claims cannot launch. These are authored game-fixture values.
@@ -607,7 +615,7 @@ with no missing/extra names; this is not Unity discovery or execution evidence.
 
 Add wheel input outside the visible control panel to adjust the current ordinary
 crate's target by at most 0.75 m along the authored eye-local forward axis. Its
-fixture range is 1–2.5 m; existing spring/torque/error bounds remain the physical
+fixture range is 1Ã¢â‚¬â€œ2.5 m; existing spring/torque/error bounds remain the physical
 writer. Position and orientation now share one current-portable-claim admission
 check, and both reset on release, slot transfer, expiry, obstruction and a new
 entity/lease. No body teleport, new command sequence or material change occurs.
@@ -1317,11 +1325,11 @@ skipped and zero inconclusive cases. These are separate warmed-project diagnosti
 comparisons, not fresh imports, a full suite, Player execution or performance proof.
 
 - [Comparison 01 report](../out/ragdoll-solver-comparison-01/report.json):
-  18:52:56–19:03:46 UTC; position 6 / velocity 1 versus position 6 / velocity 10.
+  18:52:56Ã¢â‚¬â€œ19:03:46 UTC; position 6 / velocity 1 versus position 6 / velocity 10.
 - [Comparison 02 report](../out/ragdoll-solver-comparison-02/report.json):
-  19:05:25–19:16:05 UTC; position 6 / velocity 1 versus position 10 / velocity 1.
+  19:05:25Ã¢â‚¬â€œ19:16:05 UTC; position 6 / velocity 1 versus position 10 / velocity 1.
 - [Comparison 03 report](../out/ragdoll-solver-comparison-03/report.json):
-  19:16:21–19:27:08 UTC; unchanged 6/1 solvers at the original versus near test roots.
+  19:16:21Ã¢â‚¬â€œ19:27:08 UTC; unchanged 6/1 solvers at the original versus near test roots.
   WorkerPhysics roots were (2500,0,2500) versus (100,0,100); WorkerDrag roots were
   (4000,0,4000) versus (150,0,150). Only the two fixture root literals changed.
 
@@ -1363,12 +1371,12 @@ not during a comparison.
 The primary author and validation-tooling subagent reviewed a different diagnostic
 criterion before integration. Commit `4822787d` replaces the authored raw-spin
 failure condition with independent limits of **25 m/s** and **312.5 J/kg** specific
-rotational kinetic energy. The latter equals `0.5 * 25²`, the specific
+rotational kinetic energy. The latter equals `0.5 * 25Ã‚Â²`, the specific
 translational energy at 25 m/s; it is not a bound on combined translational plus
 rotational energy. It remains an authored, unaccepted fixture budget under D-09,
 not a GAME_SPEC numerical requirement or production safety limit.
 
-The observer calculates `0.5 * (Ix*wx² + Iy*wy² + Iz*wz²) / mass` in the native
+The observer calculates `0.5 * (Ix*wxÃ‚Â² + Iy*wyÃ‚Â² + Iz*wzÃ‚Â²) / mass` in the native
 principal-inertia frame, using inverse(body.rotation * inertiaTensorRotation).
 Dynamic mass must be finite and positive; moments finite and nonnegative;
 body/tensor rotations valid. Unity's zero moments encode infinite inertia, so
@@ -1389,7 +1397,7 @@ with rotational constraints. Their exact identities in the parent-owned catalogu
 bring the inventory from 129 to **132**. The supplementary SDK check at
 [`api-urp-energy-observer/api-compile.json`](../out/api-urp-energy-observer/api-compile.json)
 passed all **21 assemblies** and the static source checks, with
-`source_unchanged=true`, during 19:29:03–19:29:15 UTC. Its report records HEAD
+`source_unchanged=true`, during 19:29:03Ã¢â‚¬â€œ19:29:15 UTC. Its report records HEAD
 `de2a6de5` and the working input fingerprint
 `ffdb28c63fe1dbafb40e9f5e1e55417f4f52976dd7b341410bf3edb81cfb08de`;
 the reviewed energy changes were then committed as `4822787d`. This is API/source
@@ -1403,3 +1411,307 @@ checkpoint. A read-only diff against that upstream commit is empty for
 `runtime/unity/Assets/CriticalShift/Content/Editor/`: this task has no authored
 changes in those protected paths. Independent gate, art and human play acceptance
 remain unassigned/unmet; contributor source review does not grant them.
+
+## Cache-path failure and constrained-inertia setup checkpoint, 19:44 UTC
+
+The first cache-seeded full run, [`seeded-5_xxebrz/sandbox-7hdy57_k`](../out/native-cache-seed/seeded-5_xxebrz/sandbox-7hdy57_k/report.json),
+used source `4822787d` during 19:29:32Ã¢â‚¬â€œ19:34:04 UTC. It remains **Failed in
+package initialization**, before Prepare or any native test, build or Player.
+Unity returned zero and its strict log validator passed, but the separate
+initialization exception check rejected six managed `DirectoryNotFoundException`
+or `IOException` headers. These referenced SDK files that were present, including
+the Collections `System.Runtime.CompilerServices.Unsafe.dll` at a 284-character
+absolute path, versus 247 characters in the initialized seed. The two referenced
+Core USS files were present at 273/267 characters, versus 236/230 in the seed.
+This is the observed long-path failure context, not a general SDK defect or a
+license failure; its original diagnostics and Failed status are retained.
+
+The [cache provenance](../out/native-cache-seed/seeded-5_xxebrz/cache-seed-provenance.json)
+records an exact seed-before/after and copied-target cache tree digest of
+`cf0cbaaeb63e17d6b3bdc8a73c5cd3131065ee954e408de917ced5f412baeb88`:
+14,863 files, 1,353,074,735 bytes and 1,000 directories. Seed source, runner source
+and native helpers were unchanged; the target cache still matched the seed, and
+the final selected-package audit passed. `VerifiedCopy` describes the copy,
+not a successful native run. Only `Library/PackageCache` was seeded; no first-party
+compiled code or other Library state was copied into the fresh workspace.
+
+The original one-off wrapper is preserved as
+[`run_seeded-original.py`](../out/native-cache-seed/seeded-5_xxebrz/run_seeded-original.py).
+The reviewed local wrapper change passes its explicit output parent to each of
+the three unchanged native runners, instead of nesting their output below the
+wrapper artifact directory, and records `native_output_parent`. The new attempt
+explicitly used `--out runtime/out`. Fresh disposable workspace creation, cache
+verification, strict initialization/Prepare checks, selected-pin and source
+audits remain in place; this change adds no automatic retry or diagnostic waiver.
+
+The separate short-path [`sandbox-sd91_t34` report](../out/sandbox-sd91_t34/report.json),
+source `e4f0c342`, ran during 19:35:14Ã¢â‚¬â€œ19:40:47 UTC. Initialization completed with
+return code zero, a Passed strict log and no managed exception headers. Strict
+Prepare passed. Native PlayMode returned two with **131 passed / one failed /
+zero skipped / zero inconclusive, total 132**. The sole failed identity in the
+[original XML](../out/sandbox-sd91_t34/PlayMode.xml) is
+`CriticalShift.Sandbox.Tests.FacilityPhysicsTests.PhysicsMonitorAcceptsHealthyNativeInfiniteInertiaConstraints`:
+its setup expected angular speed `2 +/- 0.0001`, but observed `1.82574308`, before
+the later safety sample. Every other case, including the existing ragdoll cases
+and the other new energy cases, passed under the current diagnostic policy.
+The overall result remains **Failed**, and build/Player remain **NotRun**.
+After-import and final package audits passed, `source_unchanged=true`, and the
+separate [short-path cache provenance](../out/seeded-whmsat5t/cache-seed-provenance.json)
+again records the exact cache digest above and unchanged seed source.
+
+Two single-case native probes used that retained workspace with fresh external
+result/log paths. Both saved, hashed and restored the test source bytes. Their
+instrumentation temporarily bypassed the early angular-speed assertion to
+collect the actual native frames and reach the monitor assertion; this diagnostic
+instrumentation is not the canonical test change.
+
+| Probe | Native result | Observed world angular velocity (rad/s) | Angular velocity in full native principal frame (rad/s) | Monitor observation |
+| --- | --- | --- | --- | --- |
+| [Original setup](../out/energy-constraint-native-probe/report.json), 19:42:31 UTC | Exit 2; 0/1 passed, 1 failed | (0.04470525, 1.60717082, 0.86506718) | (0.29128820, 1.66666877, -0.68608016) | Infinite-inertia-axis fault |
+| [Published pose](../out/energy-constraint-native-probe-published/report.json), 19:43:28 UTC | Exit 0; 1/1 passed | (0.64977843, 1.33438015, 1.34060442) | (-0.00000098, 2.00000119, -0.00000068) | No fault; 2.0000013048566305 J/kg |
+
+The [first native fields](../out/energy-constraint-native-probe/native-fields.json)
+and [published-pose fields](../out/energy-constraint-native-probe-published/native-fields.json)
+record the same body rotation, principal tensor rotation, `(0,1,0)` tensor and
+requested world angular velocity. The first probe's recorded energy zero is the
+retained healthy-stage peak before the later fault; it is not a measurement of
+zero rotational energy for its faulting motion. The controlled difference
+supports publishing the test's native pose before applying the constrained
+velocity setters. It does not establish a general Unity bug or correct the
+earlier physical motion/far-origin concerns.
+
+Both probe reports record `source_restored=true`, with original test-source
+SHA-256 `4dcf765b4c35b6e6a3e34dfd296e5737995ac283371365b0dd07e1eb5a52460a`.
+The original full-run report/XML/logs were not targeted or relabelled by the
+probes. A before/after hash audit of all those original evidence files was not
+instrumented, and the retained workspace's compiled Library was not restored.
+The failed full-run evidence and failed diagnostic probe remain failed.
+
+Commit `6a550c00` adds only a comment and one `body.PublishTransform()` call to
+the constrained-inertia test, after assigning the body rotation and before the
+tensor, constraint and angular-velocity setters. It retains the original angular
+assertion, all later assertions/tolerances, rotations, tensor, constraints and
+guard policy. Production motion code is unchanged. The matching-SDK
+[`api-urp-energy-published-pose` check](../out/api-urp-energy-published-pose/api-compile.json)
+passed all **21 assemblies**, with `source_unchanged=true`, at 19:44:05Ã¢â‚¬â€œ19:44:19
+UTC; it performs no native Unity execution. The subsequent
+[`tooling-energy-published-pose.log`](../out/tooling-energy-published-pose.log)
+records **177 tests: 176 passed, one Windows symlink-privilege skip**, ending
+19:45:51 UTC. A fresh short-path, SDK-cache-only seeded full native run,
+`sandbox-hwcmv9_t`, is in progress on `6a550c00`; no full-suite/build/Player result
+for that candidate is recorded here yet.
+
+[Draft PR #111](https://github.com/CameronNel/critical-shift/pull/111) is stacked
+on Claude's PR #110/upstream `282f9dfb`; the authored diff in both protected paths
+above remains empty. The pushed `e4f0c342` checkpoint's
+[CI run 39159560168](https://github.com/CameronNel/critical-shift/actions/runs/39159560168)
+completed successfully on both Windows and Ubuntu. Those source/offline jobs do
+not execute Unity and predate `6a550c00`. Node 20 deprecation and Ubuntu-image
+notices are nonblocking annotations, not native validation results. Independent
+review, human play/art acceptance and the unaccepted diagnostic trial budget
+remain open; no historical failed evidence is promoted by these checkpoints.
+
+## Full native pass, strict build and Null-device Player checkpoint, 19:56 UTC
+
+The [completed `sandbox-hwcmv9_t` report](../out/sandbox-hwcmv9_t/report.json)
+records source `6a550c00`, 19:44:06Ã¢â‚¬â€œ19:51:22 UTC. Package initialization completed
+with a Passed strict log and no managed exception headers; separate strict
+Prepare passed. The [native PlayMode XML](../out/sandbox-hwcmv9_t/PlayMode.xml)
+contains **132 discovered/executed, 132 passed, zero failed/skipped/inconclusive**,
+including the constrained-inertia case with its original assertions retained.
+The Win64 build passed with GUID `9067140286ae41f0b6c6c912c7a67d75`; its
+[build log](../out/sandbox-hwcmv9_t/logs/build.log) records the matching
+`CS_SANDBOX_BUILD_STRICT_VARIANTS ... enabled=1 target=StandaloneWindows64`
+and successful build markers. The executable SHA-256 is
+`748b8feff0cf8e727ed412006cfe11f0591bdfec6bd5634e89acacae0ab8b38e`.
+
+The same run's headless Player exited **20** before fixture setup completed:
+the [original Player log](../out/sandbox-hwcmv9_t/logs/player.log) retained the
+material-template validation exception. Consequently, the full candidate remains
+**Failed**, despite its Passed tests/build. All after-import, after-PlayMode,
+after-build and final selected-package audits passed, and
+`source_unchanged=true`; no failed phase has been relabelled.
+
+The separate [graphics diagnostic 01 report](../out/player-graphics-diagnostic-01/report.json)
+executed the **unmodified same executable**, with that exact SHA and build GUID,
+in graphics-enabled batch mode at 960Ãƒâ€”540. Existing passive-smoke validation
+passed: exit zero, **120 frames / 2,403 ms**, zero errors, 293 meshes, initially
+10 bindings and 31 bodies. Bindings, bodies, objects, claims, timers and
+connections all reached zero at cleanup. This is a separate graphics startup
+and passive-smoke diagnostic; it supplies no captured-image or active-exercise
+evidence and does not override the full candidate's failed headless phase.
+
+The incremental [material-detail probe](../out/player-material-null-probe/report.json)
+built a different diagnostic Player in the retained workspace and again exited
+20. Its added exception detail measured `device=Null`, the expected
+`Universal Render Pipeline/Lit` shader name, non-null distinct material references,
+both expected shader references, no ordinary-material keywords, exactly
+`_EMISSION` on the emissive material, `BakedEmissive` GI flags and the enabled
+emission keyword. **Only `emissionProperty=False`** failed this predicate set.
+This narrows the observed headless setup issue to `_EmissionColor` property
+reflection; it is not evidence that all rendering is correct.
+
+The separate [precise-fix probe](../out/player-material-null-fix-probe/report.json)
+rebuilt with only the proposed Null-device property-inspection condition and
+guarded lamp color write. Its
+[smoke validation](../out/player-material-null-fix-probe/smoke-validation.json)
+passed headless: build GUID **`67f36e5ed69c475093939632bb8c2564`**, exit zero,
+**120 frames / 2,406 ms**, zero errors, 293 meshes, initial 10 bindings/31 bodies
+and every cleanup counter zero. It is a **different diagnostic build**, not the
+original full candidate or a fresh complete native/build/Player validation.
+Both probe reports retain `acceptance_status=NotRun`, restore the original
+`SandboxPrimitives.cs` bytes and record
+`original_build_and_evidence_unchanged=true` for their instrumented original
+executable, report, XML and log hash set. Original source SHA-256 is
+`ccf8afc1d3bff2d4f58d8656f7692f3940b86df06f5afca5e596f4428b56a259`.
+This check does not claim restoration of the retained compiled Library or an
+audit of every original build-data file.
+
+Commit `6554abef` changes only two sites in `SandboxPrimitives.cs`. Property
+reflection remains required in the Editor and every graphics-enabled Player;
+only a Null-device Player can pass validation without `_EmissionColor` property
+reflection reporting success.
+Shader/material identities, distinct references, exact keyword combinations and
+emissive GI checks remain required in every device mode. The lamp's
+`SetColor("_EmissionColor", ...)` is conditional on `HasProperty`. The facility
+subagent's independent source review approved this exact scope; it does not
+constitute independent gameplay/art gate acceptance. A fresh full 132-case
+native run, strict build/headless Player and supplementary API check on
+`6554abef` are in progress, with no result recorded at this checkpoint. Earlier
+failed full runs, probes and solver/origin comparisons retain their status; no
+physical motion or far-origin fix is claimed.
+
+## Completed sandbox gameplay checkpoint, 20:05 UTC
+
+The full [`sandbox-zxh6eap1` report](../out/sandbox-zxh6eap1/report.json) is
+**Passed** on commit `6554abef`, 19:55:45Ã¢â‚¬â€œ20:02:42 UTC. Explicit package
+initialization completed with a Passed strict log, no managed exception headers
+and unchanged first-party code; the separate strict native Prepare passed.
+The [PlayMode XML](../out/sandbox-zxh6eap1/PlayMode.xml) contains **132 passed,
+zero failed/skipped/inconclusive**, with every declared case executed. The Win64
+build passed with GUID **`49da467f5ff346359e6d8a500d21ef38`**, and its
+[build log](../out/sandbox-zxh6eap1/logs/build.log) records strict shader-variant
+matching enabled for that GUID and `StandaloneWindows64`.
+
+The same build's [headless Player log](../out/sandbox-zxh6eap1/logs/player.log)
+passed the unchanged passive-smoke validator: exit zero, **120 frames / 2,411 ms**,
+zero errors, 293 meshes, initial 10 bindings and 31 bodies. Bindings, bodies,
+objects, claims, timers and connections all reached zero. Native source audit
+records `source_unchanged=true`; after-import, after-PlayMode, after-build,
+before-success and final selected manifest/lock/descriptor audits all passed.
+
+This run used the explicit **SDK `Library/PackageCache` seed only**, not a cold
+package extraction. Its [seed provenance](../out/seeded-99vjlaik/cache-seed-provenance.json)
+records `VerifiedCopy`, unchanged seed source, an exact target-cache match after
+native execution and unchanged canonical runners/native helpers. The cache tree
+remains `cf0cbaaeb63e17d6b3bdc8a73c5cd3131065ee954e408de917ced5f412baeb88`,
+14,863 files / 1,353,074,735 bytes / 1,000 directories. No seed Assets, Packages,
+ProjectSettings, other Library folders, ScriptAssemblies or first-party compiled
+code were copied. Compilation, preparation, tests, build, Player and audits ran
+in the fresh scoped workspace; prior extraction and initialization failures
+retain their original status.
+
+The supplementary [`api-urp-null-property` report](../out/api-urp-null-property/api-compile.json)
+passed all **21 assemblies** on the same commit during 19:55:44Ã¢â‚¬â€œ19:55:58 UTC,
+with source unchanged and `native_unity_execution=false`.
+[CI run 39161045390](https://github.com/CameronNel/critical-shift/actions/runs/39161045390)
+also completed successfully for both Windows and Ubuntu at `6554abef`; those
+source/offline jobs are separate from the native evidence above.
+
+The first same-build capture attempt,
+[`capture-nj3lt470`](../out/player-render-validation/capture-nj3lt470/report.json),
+remains **Failed**. Graphics-enabled batch mode reached Player Ready but no
+rendered capture request/completion arrived before the native 30-second capture
+deadline; the Player exited 21. Its separate existing-output rejection control
+passed with exit 21 and an unchanged sentinel hash. No frame or image pass is
+claimed for this attempt.
+
+The explicit normal-window follow-up,
+[`capture-2bd3qhpf`](../out/player-render-validation/capture-2bd3qhpf/report.json),
+is **Passed**, 20:04:31Ã¢â‚¬â€œ20:04:42 UTC. Its separate ignored helper copy changes
+only the launch-mode report field and omission of `-batchmode`; neither launch
+uses `-nographics`. It retains all existing preflight, strict same-build GUID,
+ordered marker, PNG decoding, no-overwrite and rejection checks. The fixture's
+own active Game-camera render callbacks preceded the capture request at frame 3.
+The actual [rendered PNG](../out/player-render-validation/capture-2bd3qhpf/rendered-fixture.png)
+decodes to **960Ãƒâ€”540 RGB**, **70,167 bytes**, SHA-256
+**`d7009d17d4f80a8551671e2517b341b86621dc2b9553f676e3a2b05e3f146fde`**.
+Native completion and external bytes/hash/dimensions agree. Passive smoke passed
+120 frames / 2,439 ms with zero errors and all cleanup counters zero. The
+existing-output rejection again exited 21 and preserved the sentinel exactly.
+The primary author viewed this PNG: distinct debug materials, shadows, machines
+and crates are visible, with no obvious magenta. That basic visual check is not
+art acceptance; the automated report's independent visual review remains NotRun.
+
+The same-build [`exercise-supmdpz9` report](../out/player-exercise-validation/exercise-supmdpz9/report.json)
+is **Passed**, 20:04:56Ã¢â‚¬â€œ20:05:00 UTC. The opt-in headless exercise completed in
+**105 frames**, under its 180-frame / 15-second bounds. Ordered typed markers
+retain the same build GUID and epoch: distant entity 106 was denied at sequence
+1 with zero claims; nearby entity 102 was grabbed at sequence 2 with lease 1 /
+revision 2; Drop at sequence 4 used the same lease and advanced to revision 3,
+with zero claims. Native marker measurements record progress **2.003331 m**,
+remaining carry distance **0.13984938 m** and post-drop fall **0.9942635 m**.
+The accompanying passive smoke passed 120 frames / 2,406 ms, zero errors and all
+cleanup counters zero. The separate missing-smoke control exited **22** at Setup,
+frame zero, with the exact required-flags reason and no success markers.
+
+Both capture attempts and the exercise preserve the original successful input
+report and executable hashes. The exercise additionally records its reviewed
+capture helper unchanged; the normal-window helper is an explicit separate copy.
+All use build `49da467f5ff346359e6d8a500d21ef38` and executable SHA-256
+`748b8feff0cf8e727ed412006cfe11f0591bdfec6bd5634e89acacae0ab8b38e`.
+These results establish only the declared sandbox startup/teardown, rendered
+file and typed interaction bounds. Ordinary player input, physical feel, FPS,
+multiplayer, combined-map traversal/art and independent gate acceptance remain
+unverified. Fresh foundation validation on `6554abef` is still running and
+combined-map URP preparation is pending at this checkpoint. All old failed
+candidate, diagnostic and solver/origin results remain historical failures.
+
+## Foundation, combined map and delivery checkpoint, 20:18 UTC
+
+The separate foundation run `runtime/out/wp01-2kda5zu2/report.json` is Passed:
+12/12 EditMode and 9/9 PlayMode identities executed with zero failures/skips,
+plus clean preparation, Win64 build and Player. Its lifecycle repair and earlier
+log-expectation failures are preserved in WP01.md and FOUNDATION_LIFECYCLE.md.
+The final URP combined-map run `runtime/out/combined-map-vvj_fald/report.json`
+is also Passed: 37 doors, 152 collision proxies, 13 room anchors and maximum measured
+anchor error 0.0002840849 m. Runtime and map input audits, selected package pins and
+verified SDK-cache provenance passed. This is preparation/alignment evidence;
+no full-map route, ladder, meltdown, Player, art or performance pass is inferred.
+
+The [compact evidence index](results/gameplay-2026-10-18.json) checks/records the
+exact 132/12/9 XML catalogues, current API 21/native source/pin/build identities,
+723 pure assertions and negative controls, same-build graphics/exercise results,
+raw-report hashes and initialized-cache disclosure. Its source code identity is
+`6554abef808879191629884048ee6d3df19e4463`. A final read-only first-party code
+fingerprint check equals all three native initializations:
+`91787aca6cfde6c713b5d76e625e8e64037f42af0cf48cf18c885fb7056335ea`.
+Later status documentation changes do not change that executable code. The
+[game-camera PNG](results/gameplay-2026-10-18.png) is copied without alteration
+from the verified normal-window capture, SHA256
+`d7009d17d4f80a8551671e2517b341b86621dc2b9553f676e3a2b05e3f146fde`.
+Primary-author viewing found distinct debug materials/shadows and no obvious
+magenta shader failure; this is a basic diagnostic observation, not art review.
+
+Local standalone delivery is
+`runtime/out/CriticalShift-Gameplay-Win64-20261018.zip`: 70,212,953 bytes,
+308 Player files, 164,374,578 uncompressed Player bytes. Archive SHA256 is
+`a99aa2bd75812746b2af15d2fe00a0063c3b7a73f36628f357242e5f5ee01464`;
+source Player tree SHA256 is
+`266f14e07b9b47bf675e1fe1ac98d39662586959feedb3fd85c5d8c504da09dc`.
+CRC checks, unique entry inventory and every archived file's bytes matched the
+native build. The first lexical ZIP-name hash comparison was rejected because
+its order differed from Windows pathlib source ordering; the subsequent explicit
+source-order/per-file comparison passed. A fresh extraction at
+`runtime/out/gameplay-delivery-vrpx1dgp` passed 120 frames / zero-error startup and
+zero-owned-reference teardown under the same build GUID. This does not require
+opening Unity. The ZIP stays local/ignored; it is not a released product.
+
+Upstream main remained 3853995c at the 20:10 refresh. Claude's three latest bake-only
+commits through 4bab143f were pulled and integrated by 5ed85b1e; no runtime inputs
+changed. Authored diff against that base is empty in the protected bake/importer
+paths. Draft PR #111 is stacked on Claude's branch and remains unmerged; no agent
+self-merge or independent gate/art/feel acceptance occurred. A five-minute
+normal-window idle observation is in progress, reported separately from the
+completed structured exercise. Multiplayer, full-facility traversal/art, final
+lighting, accepted diagnostic budgets and supported performance remain open.

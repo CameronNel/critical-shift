@@ -5,7 +5,7 @@
 > **Art-direction canon:** Critical Shift uses **grounded stylized semi-realism**. Valorant-style environment principles are the primary rendering influence; PEAK contributes readability and restraint only. The target is believable, tactile and simplified, **not** generic low-poly, toy-like, Three.js-looking, glossy sci-fi, or modern AAA photorealism. [ART_DIRECTION](/design/ART_DIRECTION.md) and [ART_REFERENCE_INDEX](/design/ART_REFERENCE_INDEX.md) override conflicting legacy style wording in this file.
 
 
-**Status:** Selected for prototype — Unity
+**Status:** Selected for prototype â€” Unity
 **Selected version:** Unity 6000.4.3f1
 **Decision owner:** Cameron
 **Recorded:** 2026-08-23
@@ -23,9 +23,14 @@
 > declares URP/Core/ShaderGraph/config **17.4.0** on the exact selected editor.
 > Clean native renderer preparation and foundation preparation produced the
 > checked-in pipeline/global settings and Linear Graphics/Quality/Player settings.
-> The current URP gameplay run has two ragdoll speed-guard failures under
-> investigation; full foundation, Player, rendered and performance acceptance
-> remain pending. See the current [runtime evidence](../runtime/validation/GAMEPLAY_SANDBOX.md)
+> Source `6554abef` passed all 132 native gameplay cases, a strict Win64 build,
+> headless startup/cleanup, a same-build normal-window PNG capture and a typed
+> physical carry/drop exercise. Separate foundation validation passed 12 EditMode
+> and 9 PlayMode cases plus its Win64 build/Player. These runs reuse only a
+> verified initialized SDK package cache; they are not cold-extraction evidence.
+> Earlier failures and the authored diagnostic-policy change remain recorded.
+> Human feel, full-facility art/traversal, multiplayer, supported performance and
+> independent gate acceptance remain open. See the current [runtime evidence](../runtime/validation/GAMEPLAY_SANDBOX.md)
 > and the bounded implementation decision in
 > [DECISIONS_AND_RISKS](code-architecture/DECISIONS_AND_RISKS.md).
 > The Built-in stack and removed prototype claims below are historical records.

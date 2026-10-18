@@ -1,9 +1,9 @@
 # Isolated local-host gameplay fixture
 
-**Local integration trial undergoing native validation.** An earlier 124-case
-native gameplay checkpoint passed; the previous URP run has two preserved failures
-under its original angular-speed cutoff. The current diagnostic revision and
-132-case catalogue await native verification. Build/Player are pending. See
+**Validated local integration trial; independent acceptance pending.** Source
+`6554abef` passed all 132 native gameplay cases, a strict Win64 build, headless
+startup/cleanup, a same-build normal-window PNG capture and the physical
+deny/carry/drop exercise. See
 [the development checkpoint](../../../../validation/GAMEPLAY_SANDBOX.md).
 
 The fixture consumes the same canonical Application/domain source as the offline
@@ -56,7 +56,7 @@ test worker. The second worker is controlled locally for this fixture.
   release, expiry, insertion or restart, and cannot turn a cart or worker grip.
 - Scroll outside the visible control panel to bring a held crate closer or
   farther. The carry target shifts at most 0.75 m from its authored position
-  (1â€“2.5 m forward in this fixture). The body still follows bounded forces.
+  (1Ã¢â‚¬â€œ2.5 m forward in this fixture). The body still follows bounded forces.
   Reach offset resets with the claim and cannot move cart/worker targets.
 - T throws a portable crate toward the current look heading. A committed
   release comes first; one bounded impulse follows only for that exact free
@@ -163,9 +163,9 @@ generator does not install packages or alter authored map art.
 The existing foundation runner still tests its foundation assembly selection;
 it does not automatically claim sandbox coverage. The separate native inventory
 is `runtime/validation/sandbox-expected-tests.json`: 132 implemented cases. The
-earlier 124-case checkpoint passed. The current URP candidate imported cleanly
-and passed 127 of 129, with two ragdoll angular-speed failures. The full-leaf
-closure, two motor-fault and two hierarchy-mutation cases passed. Controlled solver and origin comparisons did not establish a motion fix.
+earlier 124-case checkpoint passed. The final URP candidate passed all 132 cases
+with zero skips. The earlier 127/129 result and controlled solver/origin failures
+remain historical failures; those comparisons established no physical motion fix.
 The current diagnostic policy retains the independent 25 m/s linear limit and
 replaces the authored 25 rad/s cutoff with native principal-frame rotational
 energy per mass (312.5 J/kg). Raw angular speed is still recorded. These are
@@ -178,9 +178,9 @@ fixtures are offset from possible active-scene content
 to avoid collisions with an unrelated map/scene at the origin.
 
 No human feel review, ragdoll/body-dragging acceptance, multiplayer convergence,
-supported FPS, final lighting/art or roadmap gate is established here. Renderer
-migration, physics tuning and lifecycle validation require actual editor/Player
-evidence. Execution is authorized. This trial is unmerged and awaits
+supported FPS, final lighting/art or roadmap gate is established here. Scoped
+renderer/lifecycle/Player evidence is now recorded; physical feel and diagnostic
+budget acceptance remain open. Execution is authorized. This trial is unmerged and awaits
 independent review.
 
 When execution is authorized, `runtime/tools/run_sandbox.py` prepares and tests
@@ -190,7 +190,7 @@ requires the configured URP asset. Adding `--run-player` explicitly requests a
 headless startup/teardown smoke of that same new build on its matching OS. It
 requires the pinned version/build identity, generated meshes, declared physical
 bindings, at least 120 physics frames and two seconds, then empty teardown
-counters after deferred destruction. Build/Player remain pending. A green
+counters after deferred destruction. The final Win64 build/Player passed. A green
 import/physics result does not establish a Player pass, and headless startup
 does not establish rendered playability, lighting, feel or supported performance.
 
@@ -200,17 +200,23 @@ out-of-reach grab, a reachable grab and a drop through the existing host; checks
 typed same-epoch traces and the exact lease; measures native carry/fall movement;
 and returns to the ordinary zero-claim sensor/teardown baseline. It changes no
 pose, velocity, clock or material data directly. Its bounded driver is inactive
-in the editor, normal play and ordinary passive smoke. This new flag has passed
-API compilation only; actual Player execution and its separate exercise-marker
-validator are required before claiming verification.
+in the editor, normal play and ordinary passive smoke. The final same-build
+exercise passed in 105 fixed frames: about 2.003 m carry progress and 0.994 m
+fall after release, with unchanged material accounting and zero remaining
+custody/owned references. The separate validator also observed the required
+exit22 rejection when the smoke flag was omitted. These automated observations
+do not replace a human control/feel review.
 
 The runner first checks source ownership, metadata and declared dependency
 boundaries. The native prepare step also compares production assemblies'
 resolved project references with their declarations, checks pure assemblies for
 engine references and requires compiled outputs. Its native inventory must agree
-with the source count. These checks passed natively at the earlier checkpoint;
-they do not constitute
-an independently accepted architecture or a Player dependency audit.
+with the source count. These checks passed natively for the final candidate;
+they do not constitute an independently accepted architecture. Native runs used
+only a verified initialized SDK package-cache seed; first-party sources compiled
+in fresh workspaces. Cold package extraction is not passed. The observed Null
+Player property-reflection exemption retains all material identities, keywords
+and GI checks; Editor and graphics Players retain property reflection checks.
 
 ## Combined-map traversal derivative
 
