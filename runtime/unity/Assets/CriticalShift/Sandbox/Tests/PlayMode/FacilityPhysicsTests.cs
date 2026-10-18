@@ -143,6 +143,20 @@ namespace CriticalShift.Sandbox.Tests
             Assert.That(body.linearVelocity.y, Is.EqualTo(2).Within(0.01f));
         }
 
+        [UnityTest] public IEnumerator RejectedCartSetupCannotDriveUntilItsBindingIsCorrected()
+        {
+            var body = Body("Rejected cart motor body", Vector3.zero); body.isKinematic = true;
+            var motor = body.gameObject.AddComponent<CartMotor>(); motor.SetDrive(1, 0, false);
+            Assert.Throws<System.InvalidOperationException>(() => motor.Initialize(() => true, () => 0));
+            body.isKinematic = false; Assert.That(motor.HasDriveAuthority, Is.False);
+            for (int i = 0; i < 4; i++) yield return new WaitForFixedUpdate();
+            Assert.That(body.linearVelocity.sqrMagnitude, Is.LessThan(0.0001f));
+            motor.Initialize(() => true, () => 0);
+            for (int i = 0; i < 4; i++) yield return new WaitForFixedUpdate();
+            Assert.That(motor.HasDriveAuthority, Is.True); Assert.That(motor.Speed, Is.GreaterThan(0.01f));
+            body.detectCollisions = false; Assert.That(motor.HasDriveAuthority, Is.False);
+        }
+
         [UnityTest] public IEnumerator ConveyorCannotAccelerateAnUnauthorizedBody()
         {
             var body = Body("Unregistered body", Vector3.zero); var belt = Belt(candidate => false);

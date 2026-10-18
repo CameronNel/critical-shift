@@ -76,7 +76,7 @@ art acceptance.
 - Diagnostic controls, crusher/fuel/reactor fixture, lamps, valve/spindle/tread
   motion, material appearance and scratch-scene generator: written, unvalidated.
 - Nine pure command-port tests, fourteen worker-body claim tests, nine package
-  safety tests, five declared-boundary cases and 98 native sandbox
+  safety tests, five declared-boundary cases and 99 native sandbox
   tests are implemented, all **NotRun**. These are declared inventory counts,
   not discovered/executed results.
 - Direct first-person focus, context transfer/drop, power/cooling and start
@@ -761,3 +761,11 @@ The optional Player smoke additionally requires the untouched cargo/belt sensor
 baseline after its existing minimum 120 physics frames, before teardown; it
 does not require a first-frame sample or change evidence thresholds. Source
 catalogue: 98 native cases, all NotRun.
+
+Cart motor setup now checks both observations and its dynamic, contact-enabled
+body before installing drive authority. A rejected kinematic setup cannot later
+gain force permission merely because that body becomes dynamic; it needs a
+successful explicit binding. Losing collision detection also removes drive
+permission. One new native case checks rejection, no force after changing the
+body, corrected initialization and contact loss. Source catalogue: 99 native
+cases, all NotRun.

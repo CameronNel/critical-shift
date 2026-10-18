@@ -14,7 +14,7 @@ namespace CriticalShift.FacilityPhysics
         private bool brake;
         public float MaximumSpeed { get; set; } = 3.5f;
         public float SafeCargoMass { get; set; } = 80f;
-        public bool HasDriveAuthority => isActiveAndEnabled && body != null && !body.isKinematic && maySimulate != null && maySimulate();
+        public bool HasDriveAuthority => isActiveAndEnabled && body != null && !body.isKinematic && body.detectCollisions && maySimulate != null && maySimulate();
         public float Steering => HasDriveAuthority ? steering : 0;
         public float CargoMass => readCargoMass == null ? 0 : Mathf.Max(0, readCargoMass());
         public bool Overloaded => CargoMass > SafeCargoMass;
@@ -23,10 +23,11 @@ namespace CriticalShift.FacilityPhysics
         public void Initialize(Func<bool> authority, Func<float> cargo)
         {
             if (maySimulate != null) throw new InvalidOperationException("Cart motor was already bound.");
-            maySimulate = authority ?? throw new ArgumentNullException(nameof(authority));
-            readCargoMass = cargo ?? throw new ArgumentNullException(nameof(cargo));
-            body = GetComponent<Rigidbody>();
-            if (body.isKinematic) throw new InvalidOperationException("The cart requires a dynamic Rigidbody.");
+            if (authority == null || cargo == null) throw new ArgumentException("Cart authority and cargo observations are required.");
+            var candidate = GetComponent<Rigidbody>();
+            if (candidate == null || candidate.isKinematic || !candidate.detectCollisions)
+                throw new InvalidOperationException("The cart requires a dynamic Rigidbody with collision detection enabled.");
+            body = candidate; maySimulate = authority; readCargoMass = cargo;
         }
 
         public void SetDrive(float forward, float turn, bool braking)
