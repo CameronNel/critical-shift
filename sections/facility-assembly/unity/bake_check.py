@@ -42,7 +42,9 @@ for n in names:
 foreign = sorted(o.name for o in vl.objects if o not in room_all and o.type != 'CAMERA' and not o.hide_render)
 if foreign: fail('%d objects render that are not in the room collections (the map leaking into the bake?): %s' % (len(foreign), foreign[:12]))
 dg = bpy.context.evaluated_depsgraph_get()
-inst = sorted({'%s by %s' % (i.object.name, i.parent.name if i.parent else '?') for i in dg.object_instances if i.is_instance})
+# real instancing only: another object drawn by a render-visible instancer (a curve or text object's own geometry is listed as an instance of itself)
+inst = sorted({'%s by %s' % (i.object.name, i.parent.name) for i in dg.object_instances
+               if i.is_instance and i.parent and i.parent.original is not i.object.original and not i.parent.original.hide_render})
 if inst: fail('instances still render (instancers not made real?): %s' % inst[:8])
 meshes = [o for o in members if o.type == 'MESH' and not o.hide_render and len(o.data.polygons)]
 tris = sum(sum(len(p.vertices) - 2 for p in o.data.polygons) for o in meshes)
@@ -75,7 +77,7 @@ for name, e in mats_json.items():
             see = float((arr[..., 3] < 0.98).mean())
             if see > 0 and e.get('_Surface') != 'Transparent': fail('%s: base map alpha below 1 on an opaque material' % name)
             if e.get('_Surface') == 'Transparent' and see == 0: fail('%s: marked Transparent but its base map alpha is 1 throughout' % name)
-            if float(arr[..., :3].max()) < 0.002 and any(c not in ('EMISSION', 'BSDF_TRANSPARENT', 'HOLDOUT') for c in p['closures']):
+            if float(arr[..., :3].max()) < 0.002 and not e.get('_PreserveSpecular') and any(c not in ('EMISSION', 'BSDF_TRANSPARENT', 'HOLDOUT') for c in p['closures']):   # clear glass is black by design
                 fail('%s: base colour is black throughout' % name)
         if k == '_BumpMap' and abs(float(arr[..., 2].mean()) - 1.0) > 0.5: fail('%s: normal map blue channel averages %.2f (not a tangent-space normal map?)' % (name, float(arr[..., 2].mean())))
     if e.get('_Surface') == 'Transparent': transparent += 1
@@ -115,8 +117,10 @@ if len(imp) != len(meshes): fail('FBX holds %d meshes, the scene %d' % (len(imp)
 if itris != tris: fail('FBX holds %d triangles, the scene %d' % (itris, tris))
 uvs = {tuple(u.name for u in o.data.uv_layers) for o in imp}
 if uvs != {('UVBake',)}: fail('FBX UV layers %s (want UVBake only)' % sorted(uvs)[:4])
-fm = {s.material.name.split('.')[0] if s.material.name not in known else s.material.name for o in imp for s in o.material_slots if s.material}
-if fm - known: fail('FBX materials not in materials.json: %s' % sorted(fm - known)[:8])
+import re                                                         # the importer may add .001 to a name it already holds; a dot inside a name is kept
+fm = {s.material.name if s.material.name in known else re.sub(r'\.\d{3}$', '', s.material.name) for o in imp for s in o.material_slots if s.material}
+stripped = {re.sub(r'\.\d+$', '', k) for k in known}             # Blender's FBX importer drops a trailing .5 ('lens -1.5'); the FBX itself keeps it
+if fm - known - stripped: fail('FBX materials not in materials.json: %s' % sorted(fm - known - stripped)[:8])
 nan = [o.name for o in imp if len(o.data.vertices) and not np.isfinite(np.array([v.co[:] for v in o.data.vertices[:1000]])).all()]
 if nan: fail('FBX meshes with NaN positions: %s' % nan[:6])
 ilo, ihi = bounds(imp)

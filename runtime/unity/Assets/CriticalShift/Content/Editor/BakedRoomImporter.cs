@@ -418,6 +418,9 @@ namespace CriticalShift.Content.Editor
             unmatched = new List<string>();
             var importer = (ModelImporter)AssetImporter.GetAtPath(fbx);
             if (importer == null) throw new InvalidOperationException("FBX did not import: " + fbx);
+            // a name ending in .<digits> ("EXT medical warm lens -1.5") can lose that ending in an FBX importer that takes it for a duplicate suffix
+            var byStripped = materials.GroupBy(p => System.Text.RegularExpressions.Regex.Replace(p.Key, @"\.\d+$", "")).Where(g => g.Count() == 1)
+                                      .ToDictionary(g => g.Key, g => g.First().Value);
             var byNormalised = materials.GroupBy(p => Normalise(p.Key)).Where(g => g.Count() == 1).ToDictionary(g => g.Key, g => g.First().Value);   // ambiguous ones match exactly or not at all
             var embedded = AssetDatabase.LoadAllAssetsAtPath(fbx).OfType<Material>().Select(m => m.name).Distinct().ToList();
             foreach (var existing in importer.GetExternalObjectMap().Keys.Where(k => k.type == typeof(Material)).Select(k => k.name)) if (!embedded.Contains(existing)) embedded.Add(existing);
@@ -426,7 +429,8 @@ namespace CriticalShift.Content.Editor
             foreach (string source in embedded)
             {
                 string key = source.StartsWith("U_", StringComparison.Ordinal) ? source.Substring(2) : source;
-                if (!materials.TryGetValue(key, out Material mat) && !byNormalised.TryGetValue(Normalise(key), out mat)) { unmatched.Add(source); continue; }
+                if (!materials.TryGetValue(key, out Material mat) && !byNormalised.TryGetValue(Normalise(key), out mat) &&
+                    !byStripped.TryGetValue(key, out mat)) { unmatched.Add(source); continue; }
                 var id = new AssetImporter.SourceAssetIdentifier(typeof(Material), source);
                 if (!current.TryGetValue(id, out UnityEngine.Object was) || was != mat) { importer.AddRemap(id, mat); changed = true; }
                 remapped++;
