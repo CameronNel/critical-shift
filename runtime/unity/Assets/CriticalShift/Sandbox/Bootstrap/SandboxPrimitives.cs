@@ -65,12 +65,21 @@ namespace CriticalShift.Sandbox
         internal static GameObject Shape(PrimitiveType kind, string name, Transform parent, Vector3 position,
             Vector3 size, Material material, bool solid = true)
         {
+            if (kind != PrimitiveType.Cube && kind != PrimitiveType.Sphere && kind != PrimitiveType.Capsule && kind != PrimitiveType.Cylinder)
+                throw new ArgumentException("This fixture only uses box, sphere, capsule and cylinder primitives.");
             var item = GameObject.CreatePrimitive(kind); item.name = name;
             item.transform.SetParent(parent, false); item.transform.localPosition = position; item.transform.localScale = size;
-            item.GetComponent<Renderer>().sharedMaterial = material;
+            // Concrete references keep runtime-created primitive components visible to Player stripping.
+            var renderer = item.GetComponent<MeshRenderer>(); var filter = item.GetComponent<MeshFilter>();
+            if (renderer == null || filter == null || filter.sharedMesh == null || filter.sharedMesh.vertexCount == 0)
+                throw new InvalidOperationException("A fixture primitive lost its mesh components in this runtime: " + kind);
+            renderer.sharedMaterial = material;
+            Collider collider = kind == PrimitiveType.Cube ? (Collider)item.GetComponent<BoxCollider>() :
+                kind == PrimitiveType.Sphere ? (Collider)item.GetComponent<SphereCollider>() : item.GetComponent<CapsuleCollider>();
+            if (collider == null) throw new InvalidOperationException("A fixture primitive lost its expected collision component: " + kind);
             if (!solid)
             {
-                var collider = item.GetComponent<Collider>(); collider.enabled = false; UnityEngine.Object.Destroy(collider);
+                collider.enabled = false; UnityEngine.Object.Destroy(collider);
             }
             return item;
         }

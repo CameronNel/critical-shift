@@ -463,3 +463,14 @@ cannot snap the rollers. All parts are non-contacting decorations; existing
 physical supports, slot checks, material ownership and machine rules remain the
 same. No extra test is added just to mirror a cosmetic tween. Native visual and
 performance review remain outstanding.
+
+## Runtime-created primitive dependencies
+
+The shape factory now directly references and validates MeshFilter,
+MeshRenderer and the expected Box/Sphere/CapsuleCollider types. It accepts only
+the four primitive shapes actually used by this fixture and immediately assigns
+its owned material, whose shader is already a serialized scene dependency.
+This addresses the documented runtime-component stripping risk without a broad
+linker exemption, default-material dependency or renderer/package migration.
+The [Unity 6000.4 CreatePrimitive reference](https://docs.unity3d.com/6000.4/Documentation/ScriptReference/GameObject.CreatePrimitive.html)
+was consulted. Actual stripped Player startup remains NotRun.
