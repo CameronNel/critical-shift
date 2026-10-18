@@ -56,11 +56,17 @@ namespace CriticalShift.Features.Workers.Unity
         public void Look(Vector2 delta)
         {
             if (!Finite(delta)) throw new ArgumentException("View input must be finite.");
-            if (eyes == null || canSimulate == null || !canSimulate() || readWorker()?.CanInteract != true) return;
-            yaw += Mathf.Clamp(delta.x, -150, 150) * 0.2f;
+            if (eyes == null || controller == null || canSimulate == null || !canSimulate()) return;
+            var worker = readWorker();
+            if (worker == null || worker.Awareness != WorkerAwareness.Alert ||
+                (worker.Pose == WorkerPose.Upright ? !controller.enabled : controller.enabled)) return;
+            yaw = Mathf.Repeat(yaw + Mathf.Clamp(delta.x, -150, 150) * 0.2f, 360);
             pitch = Mathf.Clamp(pitch - Mathf.Clamp(delta.y, -150, 150) * 0.2f, -75, 75);
-            transform.rotation = Quaternion.Euler(0, yaw, 0);
-            eyes.localRotation = Quaternion.Euler(pitch, 0, 0);
+            if (worker.Pose == WorkerPose.Upright)
+            {
+                transform.rotation = Quaternion.Euler(0, yaw, 0); eyes.localRotation = Quaternion.Euler(pitch, 0, 0);
+            }
+            else eyes.rotation = Quaternion.Euler(pitch, yaw, 0); // Never rotate a dynamic ragdoll's ancestor.
         }
 
         private void Update()
@@ -108,9 +114,12 @@ namespace CriticalShift.Features.Workers.Unity
 
         public void ResetAfterRecovery()
         {
-            if (eyes == null) throw new InvalidOperationException("Locomotion is not bound.");
-            yaw = transform.eulerAngles.y;
-            pitch = Mathf.DeltaAngle(0, eyes.localEulerAngles.x);
+            if (eyes == null || controller == null || !controller.enabled || readWorker?.Invoke()?.CanInteract != true)
+                throw new InvalidOperationException("Reset locomotion only after the upright physical handoff is complete.");
+            yaw = eyes.eulerAngles.y;
+            pitch = Mathf.Clamp(Mathf.DeltaAngle(0, eyes.eulerAngles.x), -75, 75);
+            // The recovery handoff has already ended dynamic motion. Align the upright capsule to the retained view.
+            transform.rotation = Quaternion.Euler(0, yaw, 0); eyes.localRotation = Quaternion.Euler(pitch, 0, 0);
             movement = Vector2.zero; ClearMotion(); verticalSpeed = -2;
         }
 

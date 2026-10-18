@@ -300,6 +300,45 @@ namespace CriticalShift.Sandbox.Tests
             state.SetDownMovement(Vector2.zero);
         }
 
+        [UnityTest] public IEnumerator AlertDownLookTurnsOnlyTheEyesAndCrawlFollowsThatHeading()
+        {
+            KnockDown(); for (int i = 0; i < 120; i++) yield return Step();
+            Assert.Throws<InvalidOperationException>(() => walker.ResetAfterRecovery());
+            var eyes = controller.transform.Find("Worker eyes"); Quaternion rootRotation = controller.transform.rotation;
+            var parts = rig.CopyBodySegments(); var rotations = new Quaternion[parts.Length]; var positions = new Vector3[parts.Length];
+            for (int i = 0; i < parts.Length; i++) { rotations[i] = parts[i].rotation; positions[i] = parts[i].position; }
+            long revision = Worker.Revision;
+            for (int i = 0; i < 3; i++) walker.Look(new Vector2(150, 0));
+            Assert.That(Vector3.Dot(eyes.forward, Vector3.right), Is.GreaterThan(0.99f));
+            Assert.That(Quaternion.Angle(rootRotation, controller.transform.rotation), Is.LessThan(0.01f));
+            for (int i = 0; i < parts.Length; i++)
+            { Assert.That(parts[i].position, Is.EqualTo(positions[i])); Assert.That(Quaternion.Angle(parts[i].rotation, rotations[i]), Is.LessThan(0.01f)); }
+            Vector3 before = pelvis.position; state.SetDownMovement(Vector2.up);
+            for (int i = 0; i < 200; i++) yield return Step();
+            state.SetDownMovement(Vector2.zero);
+            Assert.That(pelvis.position.x, Is.GreaterThan(before.x + 0.1f)); Assert.That(controller.enabled, Is.False);
+            Assert.That(Worker.Revision, Is.EqualTo(revision)); Assert.That(Worker.Pose, Is.EqualTo(WorkerPose.Down));
+        }
+
+        [UnityTest] public IEnumerator RecoveryPreservesDownLookAndUnconsciousWorkersCannotLook()
+        {
+            KnockDown(); for (int i = 0; i < 120; i++) yield return Step();
+            var eyes = controller.transform.Find("Worker eyes");
+            for (int i = 0; i < 3; i++) walker.Look(new Vector2(150, 50));
+            Quaternion look = eyes.rotation;
+            for (int i = 0; i < 250 && Worker.Pose != WorkerPose.Upright; i++)
+            { yield return Step(); if (i % 10 == 0 && Worker.Pose == WorkerPose.Down) state.RequestRecovery(); }
+            Assert.That(Worker.Pose, Is.EqualTo(WorkerPose.Upright), state.LastAction);
+            Assert.That(Quaternion.Angle(look, eyes.rotation), Is.LessThan(2));
+            Assert.That(Mathf.Abs(Mathf.DeltaAngle(controller.transform.eulerAngles.y, eyes.eulerAngles.y)), Is.LessThan(2));
+            Assert.That(controller.enabled, Is.True); Assert.That(DynamicBodies(), Is.Zero);
+            var impact = host.World.ApplyWorkerImpact(host.World.Epoch, Id(1), 1, WorkerImpact.Incapacitating, 1500, Id(704), Id(705));
+            Assert.That(impact.Status, Is.EqualTo(WorkerStatus.Applied)); look = eyes.rotation;
+            long revision = Worker.Revision; walker.Look(new Vector2(150, 100)); yield return Step();
+            Assert.That(Quaternion.Angle(look, eyes.rotation), Is.LessThan(0.01f)); Assert.That(Worker.Revision, Is.EqualTo(revision));
+            Assert.That(Worker.Awareness, Is.EqualTo(WorkerAwareness.Unconscious)); Assert.That(controller.enabled, Is.False);
+        }
+
         [UnityTest] public IEnumerator UprightAndUnconsciousWorkersCannotUseTheCrawlForcePath()
         {
             state.SetDownMovement(Vector2.right); yield return Step();

@@ -27,7 +27,7 @@ namespace CriticalShift.Features.Workers.Unity
         private Quaternion[] restRotations;
         private WorkerKinematicPose normalPose;
         private Vector3 eyePosition;
-        private Quaternion eyeRotation, recoveryRotation;
+        private Quaternion recoveryRotation;
         private Guid epoch, actor;
         private bool ragdoll, frozen;
         private readonly RaycastHit[] crawlSupport = new RaycastHit[32];
@@ -84,7 +84,7 @@ namespace CriticalShift.Features.Workers.Unity
                 restRotations[i] = Quaternion.Inverse(controller.transform.rotation) * bodies[i].rotation;
                 TotalPhysicalMass += bodies[i].mass;
             }
-            eyePosition = eyes.localPosition; eyeRotation = eyes.localRotation; recoveryRotation = controller.transform.rotation;
+            eyePosition = eyes.localPosition; recoveryRotation = controller.transform.rotation;
             SetSimulation(false);
             normalPose = new WorkerKinematicPose(controller.transform, bodies, restPositions, restRotations);
         }
@@ -125,7 +125,6 @@ namespace CriticalShift.Features.Workers.Unity
         {
             Vector3 inherited = Vector3.ClampMagnitude(controller.velocity, 5);
             recoveryRotation = Quaternion.Euler(0, controller.transform.eulerAngles.y, 0);
-            eyeRotation = eyes.localRotation;
             controller.enabled = false; // Stop locomotion before any dynamic body becomes active.
             Physics.SyncTransforms();
             SetSimulation(true); ragdoll = true;
@@ -209,7 +208,8 @@ namespace CriticalShift.Features.Workers.Unity
                 if (!supported || hit.distance < nearest.distance) { nearest = hit; supported = true; }
             }
             if (!supported || Vector3.Dot(nearest.normal, Vector3.up) < 0.5f) return false;
-            Vector3 motion = Vector3.ProjectOnPlane(controller.transform.right * movement.x + controller.transform.forward * movement.y, Vector3.up);
+            Vector3 forward = Vector3.ProjectOnPlane(eyes.forward, Vector3.up).normalized;
+            Vector3 motion = Vector3.Cross(Vector3.up, forward) * movement.x + forward * movement.y;
             Vector3 supportVelocity = nearest.rigidbody == null ? Vector3.zero : nearest.rigidbody.GetPointVelocity(nearest.point);
             Vector3 desired = Vector3.ProjectOnPlane(supportVelocity, Vector3.up) + Vector3.ClampMagnitude(motion, 1) * 0.65f;
             Vector3 current = Vector3.ProjectOnPlane(pelvis.linearVelocity, Vector3.up);
@@ -227,6 +227,7 @@ namespace CriticalShift.Features.Workers.Unity
         internal void StandAt(Vector3 position, Quaternion rotation)
         {
             if (!ragdoll || !Available || !Finite(position)) throw new InvalidOperationException("No active ragdoll can accept this recovery pose.");
+            Quaternion look = eyes.rotation;
             SetSimulation(false);
             ReleaseBodyClaim();
             controller.transform.SetPositionAndRotation(position, rotation);
@@ -235,7 +236,7 @@ namespace CriticalShift.Features.Workers.Unity
                 bodies[i].position = controller.transform.TransformPoint(restPositions[i]);
                 bodies[i].rotation = rotation * restRotations[i];
             }
-            eyes.localPosition = eyePosition; eyes.localRotation = eyeRotation;
+            eyes.localPosition = eyePosition; eyes.rotation = look;
             ragdoll = false; controller.enabled = true; // Dynamic motion has already ended.
             normalPose.Reset();
         }

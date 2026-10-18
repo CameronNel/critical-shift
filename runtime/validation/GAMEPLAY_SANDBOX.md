@@ -76,7 +76,7 @@ art acceptance.
 - Diagnostic controls, crusher/fuel/reactor fixture, lamps, valve/spindle/tread
   motion, material appearance and scratch-scene generator: written, unvalidated.
 - Nine pure command-port tests, fourteen worker-body claim tests, nine package
-  safety tests, five declared-boundary cases and 84 native sandbox
+  safety tests, five declared-boundary cases and 86 native sandbox
   tests are implemented, all **NotRun**. These are declared inventory counts,
   not discovered/executed results.
 - Direct first-person focus, context transfer/drop, power/cooling and start
@@ -522,3 +522,17 @@ the trusted clock and enables lifting only during Running. Pause lowers the
 target without releasing the current lease or changing the worker's Down state.
 The existing hoist native case now includes that exclusion and remains NotRun.
 Tab toggling also ignores key autorepeat using the existing held-key set.
+
+## Conscious down-look source
+
+Permit bounded look input for Alert Down/Recovering workers while the walking
+capsule remains disabled. Only the eye pivot rotates; dynamic body transforms
+and their ancestor remain under the existing physics owner. Crawl uses the
+flattened view heading. Recovery keeps the latest world-space eye orientation;
+after the approved handoff ends dynamic motion, the normal motor aligns its
+upright yaw to that view. The obsolete stored pre-fall eye rotation is removed
+(private runtime state, not serialized asset data). Unconscious/paused workers
+cannot look through this path. Two more native cases are written and NotRun:
+eye-only look with view-directed crawl and unchanged worker revision; and view
+continuity through recovery plus unconscious exclusion. Camera comfort and all
+physics/human acceptance remain unvalidated.
