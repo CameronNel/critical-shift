@@ -81,7 +81,10 @@ class CombinedMapRunnerTests(unittest.TestCase):
                     for name, version in (("com.unity.test-framework", "1.6.0"), ("com.unity.ext.nunit", "2.0.5")):
                         descriptor = project / "Library/PackageCache" / (name + "@fixture") / "package.json"
                         descriptor.parent.mkdir(parents=True, exist_ok=True)
-                        descriptor.write_text(json.dumps({"name": name, "version": version}))
+                        data = {"name": name, "version": version}
+                        if name == "com.unity.test-framework":
+                            data["dependencies"] = {"com.unity.ext.nunit": "2.0.3"}
+                        descriptor.write_text(json.dumps(data))
                     text = "Built from 'fixture'; Version is '6000.4.3f1 (39d1a88d4dd1)'\n"
                     log.write_text(text)
                     return 0, text
@@ -106,6 +109,36 @@ class CombinedMapRunnerTests(unittest.TestCase):
         text = self.marker()
         log.write_text(text)
         return 0, text
+
+    def test_native_prepare_cannot_rewrite_initialized_package_descriptor_content(self):
+        def mutate(command, log, timeout):
+            result = self.prepare(command, log, timeout)
+            project = Path(command[command.index("-projectPath") + 1])
+            path = project / "Library/PackageCache/com.unity.ext.nunit@fixture/package.json"
+            data = json.loads(path.read_text()); data["dependencies"] = {"com.unity.unexpected": "9.9.9"}
+            path.write_text(json.dumps(data))
+            return result
+        code, _, report, _ = self.invoke(native=mutate)
+        self.assertEqual((code, report["status"]), (1, "Failed"))
+        self.assertFalse(report["package_pin_audits"]["after_prepare"]["descriptor_hashes_match_initialization"])
+        self.assertEqual(report["package_pin_audits"]["final"]["status"], "Failed")
+
+    def test_native_prepare_cannot_rewrite_copied_runtime_or_map_inputs(self):
+        for relative in ("code", *runner.MAP_INPUTS):
+            with self.subTest(input=relative):
+                def mutate(command, log, timeout):
+                    result = self.prepare(command, log, timeout)
+                    project = Path(command[command.index("-projectPath") + 1])
+                    copied_map = Path(command[command.index("-csCombinedMapSourceRoot") + 1])
+                    path = project / "Assets/Subject.cs" if relative == "code" else copied_map / relative
+                    path.write_bytes(path.read_bytes() + b"\nchanged after copy")
+                    return result
+                code, _, report, _ = self.invoke(native=mutate)
+                self.assertEqual((code, report["status"]), (1, "Failed"))
+                audit = "copied_code_audits" if relative == "code" else "copied_map_audits"
+                self.assertEqual(report[audit]["final"]["status"], "Failed")
+                self.assertTrue(report["map_source_unchanged"])
+                self.assertTrue(report["runtime_source_unchanged"])
 
     def test_preparation_copies_only_declared_inputs_and_derives_its_inventory(self):
         (self.map / "combined_map.blend").write_bytes(b"must not be copied")

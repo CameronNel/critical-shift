@@ -215,6 +215,23 @@ namespace CriticalShift.Sandbox.Tests
                 "Resuming cannot restore a pre-pause lift input.");
         }
 
+        [UnityTest] public IEnumerator ImmediateExpiryAndRegrabCannotInheritHoistInput()
+        {
+            StandNearGrip(); host.Grab(Id(650)); long previous = Claim.LeaseGeneration;
+            host.SetWorkerHoist(true);
+            for (int i = 0; i < 80; i++) yield return Step();
+            Assert.That(host.CurrentWorkerDragTarget().Value.y - player.transform.position.y, Is.GreaterThan(1.8f));
+            clock += 4;
+            // Pump expires and reacquires within this command, without an intervening
+            // Update/FixedUpdate observing a free worker.
+            host.Grab(Id(650));
+            Assert.That(Claim.HolderId, Is.EqualTo(Id(1))); Assert.That(Claim.LeaseGeneration, Is.GreaterThan(previous));
+            Assert.That(host.CurrentWorkerDragTarget().Value.y - player.transform.position.y, Is.EqualTo(0.55f).Within(0.001f));
+            for (int i = 0; i < 10; i++) yield return Step();
+            Assert.That(Claim.HolderId, Is.EqualTo(Id(1)), host.LastAction);
+            Assert.That(host.CurrentWorkerDragTarget().Value.y - player.transform.position.y, Is.EqualTo(0.55f).Within(0.001f));
+        }
+
         [UnityTest] public IEnumerator ReleasedOrStaleHoistInputCannotRaiseTheNextLeaseTarget()
         {
             StandNearGrip(); host.Grab(Id(650)); var previous = Claim; host.SetWorkerHoist(true);

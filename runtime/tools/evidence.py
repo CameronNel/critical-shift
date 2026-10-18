@@ -12,6 +12,16 @@ class EvidenceError(ValueError):
     """The supplied execution evidence does not meet the declared fixture."""
 
 
+MANAGED_EXCEPTION_HEADER = re.compile(
+    r"^\s*(?:--->\s*)?(?:[A-Za-z_]\w*[.+])*(?:[A-Za-z_]\w*)?Exception(?:\s*:(?:\s.*)?|\s*)$")
+
+
+def managed_exception_headers(text: str) -> list[dict]:
+    """Exception headers are errors; stack-frame argument type names are not."""
+    return [{"line": index + 1, "text": line} for index, line in enumerate(text.splitlines())
+            if MANAGED_EXCEPTION_HEADER.fullmatch(line)]
+
+
 def read_result_evidence(path: Path, expected: set[str]) -> dict:
     """Retain what an XML artifact actually reports; this never grants test acceptance."""
     evidence = {"artifact_present": False}
@@ -97,7 +107,7 @@ def validate_log(text: str) -> None:
         r"\b(?:error CS\d+|Unhandled [Ee]xception|Assertion failed|Aborting batchmode|Fatal error)\b",
         r"(?:Assets[/\\]CriticalShift[/\\]|Packages[/\\]com\.criticalshift\.gameplay[/\\]|runtime[/\\]dotnet[/\\]src[/\\]).*\b(?:warning|error)\b",
     )
-    if any(re.search(pattern, text) for pattern in patterns):
+    if managed_exception_headers(text) or any(re.search(pattern, text) for pattern in patterns):
         raise EvidenceError("Execution log contains a critical error or first-party diagnostic.")
 
 

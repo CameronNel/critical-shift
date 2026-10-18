@@ -1,5 +1,65 @@
 # Unity gameplay sandbox development pass
 
+## PR #111 independent review and repairs, 18 October 2026
+
+Cameron requested a large ultra review, implementation of fixes by the primary
+author, useful additions, and merge after completion. That instruction authorizes
+this task's implementation and merge, superseding the earlier development-window
+restriction below. Six separate ultra reviewers covered canonical rules,
+interaction/facility physics, workers, composition/presentation/map integration,
+tooling/evidence, and cumulative integration including PR #110. Codex remained
+the sole repair author. Each affected reviewer independently inspected the repairs;
+this is source review, not human playtesting or roadmap acceptance.
+
+Reviewed baseline: `7d25129000395b62f6739395aa37596c15495600`, originally based on
+PR #110 at `4bab143f132c17188433d1cf2819441e2240c7f1`. Delivery targets `main`
+and includes those ten inherited bake/importer paths, with their defects repaired,
+rather than merging gameplay only into the unmerged dependency branch.
+
+Repairs:
+
+- Portable slot bounds use current box/mesh geometry and correctly scaled sphere/
+  capsule geometry in the body-neutral frame. Incoming crate rotation no longer
+  inflates the loading envelope. Offsets, compound shapes and rescaling checks remain.
+- Drag-target hoist state resets on both entity and lease replacement, including
+  expiry/regrab within one command. Setup disconnect retires a worker's body before
+  removing its mapping, preventing an orphan from becoming an ordinary claimable object.
+- Recovery derives the expanded standing capsule's clearance from its support plane,
+  admits walkable inclines, and checks every physical layer while respecting ignored
+  collision pairs/layers. Pending support and motion are still rechecked.
+- Every native runner audits copied first-party executable inputs and metadata after
+  native phases and finally. Combined-map preparation also audits all four copied map
+  inputs and initialized package-descriptor hashes. Native failure reasons survive
+  final audit failures. Strict phases now reject general managed exception headers.
+- The inherited all-stage bake reopens prepared geometry before finishing, preserving
+  the original objects/hierarchy/animation after destructive in-memory bake joins.
+  Round-trip checks validate all vertex and transformed coordinates, including NaN/Inf
+  after vertex 1,000; non-finite bounds cannot compare as a false pass.
+
+Executed verification of the repaired inputs:
+
+- .NET SDK 8.0.423: **724/724 passed**, zero failed/skipped. Twelve scenarios passed
+  twice, with 818 scenario assertions; deliberate failing-test, malformed/empty
+  scenario and report-safety controls passed. A separate focused worker-body run
+  passed all 15 cases. Source hashes are in ignored `runtime/dotnet/artifacts/summary.json`.
+- Python tooling: **182/182 passed**, including fault injection for copied source,
+  metadata, map and SDK-descriptor drift. Four separate bake-boundary regressions
+  passed without invoking Blender. Static source and exact test-catalogue checks passed.
+- Four new native gameplay cases are implemented: rotated crate admission, scaled/
+  offset sphere/capsule admission, immediate expiry/regrab hoist reset, and inclined
+  recovery with pending steepening. The low-ceiling case also covers Ignore Raycast
+  physical geometry. The declared catalogue is now **136 cases**.
+
+**Native validation of these repairs: NotRun.** This cloud workspace has no Unity
+editor or Blender installation. The new native cases, fresh Player/build/rendered
+checks and actual bake/FBX checks did not run here. Earlier `6554abef` native results
+below remain evidence for that earlier source only. The existing local Win64 ZIP is
+also the earlier build. No claim of 100% perfection, accepted feel, supported FPS,
+multiplayer readiness, full facility/art acceptance or gate advancement is made.
+The compact review index is `results/pr111-review-2026-10-18.json`.
+
+## Prior development evidence
+
 **Development validation completed; independent acceptance pending. See dated results below.**
 
 Latest completed full native gameplay run: **Passed**, `6554abef`,

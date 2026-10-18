@@ -20,7 +20,7 @@ from check_source import check
 from editor_identity import inspect_editor
 from evidence import EvidenceError, validate_log
 from run_foundation import RUNTIME, audit_original, checkout_revision, copy_inputs, execute, fingerprint, utc
-from package_initialization import initialize_packages, package_snapshot, resolved_package_evidence
+from package_initialization import audit_first_party_code, first_party_code_fingerprint, audit_package_pins, initialize_packages, package_snapshot
 
 DEFAULT_MAP_SOURCE = RUNTIME.parent / "sections/facility-assembly/combined"
 SCENE_PATH = "Assets/CriticalShift/Sandbox/Generated/CombinedMapTraversal.unity"
@@ -58,6 +58,22 @@ def map_fingerprint(root: Path) -> str:
         digest.update(path.relative_to(root).as_posix().encode() + b"\0")
         digest.update(hashlib.sha256(path.read_bytes()).digest())
     return digest.hexdigest()
+
+
+def audit_copied_map(report: dict, root: Path, expected: str, checkpoint: str, required: bool = True) -> bool:
+    evidence = {"status": "Failed", "expected_sha256": expected}
+    try:
+        evidence["actual_sha256"] = map_fingerprint(root)
+        if evidence["actual_sha256"] == expected:
+            evidence["status"] = "Passed"
+        else:
+            evidence["reason"] = "Copied map inputs changed during native preparation."
+    except Exception as exception:
+        evidence["reason"] = str(exception).replace(str(Path.home()), "<HOME>")
+    report.setdefault("copied_map_audits", {})[checkpoint] = evidence
+    if required and evidence["status"] != "Passed":
+        raise EvidenceError("Copied map audit " + checkpoint + " failed: " + evidence["reason"])
+    return evidence["status"] == "Passed"
 
 
 def _number(value, label: str, positive: bool = False) -> float:
@@ -198,6 +214,7 @@ def run(unity: str | None, output_parent: Path, target: str = "Win64", map_sourc
               "phases": phases, "independent_review": "NotRun", "limits": LIMITS}
     original_runtime, original_map = None, None
     work, expected_packages, native_attempted = None, None, False
+    expected_code, copied_map = None, None
     current, code = "source", 1
     try:
         profile = json.loads((RUNTIME / "toolchain.json").read_text())
@@ -220,6 +237,7 @@ def run(unity: str | None, output_parent: Path, target: str = "Win64", map_sourc
         report["copied_source_sha256"] = copy_inputs(RUNTIME, work)
         if report["copied_source_sha256"] != original_runtime:
             raise EvidenceError("Disposable Unity inputs differ from the recorded runtime fingerprint; Unity was not launched.")
+        report["copied_code_sha256"] = expected_code = first_party_code_fingerprint(work / "unity")
         expected_packages = package_snapshot(work / "unity")
         if (expected_packages["packages"]["com.unity.test-framework"]["version"] != profile["testFramework"] or
                 expected_packages["manifest_dependencies"].get("com.unity.test-framework") != profile["testFramework"]):
@@ -254,13 +272,14 @@ def run(unity: str | None, output_parent: Path, target: str = "Win64", map_sourc
             raise EvidenceError("The pinned Editor could not obtain a valid license.")
         if rc != 0 or not text:
             raise EvidenceError(f"Combined-map preparation returned {rc} or produced no native log.")
+        audit_first_party_code(report, work / "unity", expected_code, "after_prepare")
+        audit_copied_map(report, copied_map, original_map, "after_prepare")
         phases["prepare"].update(validate_prepared(text, expected, profile))
         scene = work / "unity" / SCENE_PATH
         if not scene.is_file() or scene.is_symlink() or not scene.resolve().is_relative_to((work / "unity").resolve()):
             raise EvidenceError("The declared prepared scene is missing or outside the disposable project.")
-        report["resolved_packages"] = resolved_package_evidence(work / "unity", expected_packages)
-        if report["resolved_packages"]["status"] != "Passed":
-            raise EvidenceError(report["resolved_packages"].get("reason", "Native resolved package pins could not be verified."))
+        audit_package_pins(report, work / "unity", expected_packages, "after_prepare")
+        report["resolved_packages"] = report["package_pin_audits"]["after_prepare"]
         phases["prepare"]["status"] = report["status"] = "Passed"
         code = 0
     except Exception as exception:
@@ -272,8 +291,15 @@ def run(unity: str | None, output_parent: Path, target: str = "Win64", map_sourc
         report.update(error_type=type(exception).__name__, reason=str(exception).replace(str(Path.home()), "<HOME>"))
         code = 2 if report["status"] == "Blocked" else 1
     finally:
+        if native_attempted:
+            pins_ok = audit_package_pins(report, work / "unity", expected_packages, "final", required=False)
+            code_ok = audit_first_party_code(report, work / "unity", expected_code, "final", required=False)
+            map_ok = audit_copied_map(report, copied_map, original_map, "final", required=False)
+            if not pins_ok or not code_ok or not map_ok:
+                report["status"], code = "Failed", 1
+                report.setdefault("reason", "Final copied code/map or package audit failed; see copied input/package audits.")
         if native_attempted and "resolved_packages" not in report:
-            report["resolved_packages"] = resolved_package_evidence(work / "unity", expected_packages)
+            report["resolved_packages"] = report["package_pin_audits"]["final"]
         if not audit_original(report, RUNTIME, original_runtime):
             code = 1
         report["runtime_source_unchanged"] = report["source_unchanged"]

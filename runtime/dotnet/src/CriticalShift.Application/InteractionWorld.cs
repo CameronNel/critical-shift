@@ -198,6 +198,14 @@ namespace CriticalShift.Application
             return readiness ?? Map(_claims.Retire(entityId), false);
         }
 
+        // Session-owned roster cleanup also runs before Start. This is not a
+        // player command or a public bypass of the running-world admission rules.
+        internal InteractionReply RetireDisconnectedWorkerBody(Guid entityId)
+        {
+            RequireIdle();
+            return Map(_claims.Retire(entityId), false);
+        }
+
         public void Stop()
         {
             RequireIdle();

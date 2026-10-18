@@ -60,21 +60,53 @@ namespace CriticalShift.Features.Interaction.Unity
 
         private Bounds ReadPlacementBounds()
         {
-            Bounds worldBounds = shapes[0].bounds;
-            foreach (var shape in shapes) worldBounds.Encapsulate(shape.bounds);
-            if (!Finite(worldBounds.center) || !Finite(worldBounds.size) ||
-                worldBounds.size.x <= 0 || worldBounds.size.y <= 0 || worldBounds.size.z <= 0)
-                throw new InvalidOperationException("Portable fixture bounds must remain finite and non-empty.");
-            // Store metres in a body-rotation-neutral frame, retaining authored scale.
-            // InverseTransformPoint would divide the centre offset by root scale.
-            Quaternion neutral = Quaternion.Inverse(Body.rotation);
-            var bounds = new Bounds(neutral * (worldBounds.center - Body.position), Vector3.zero);
-            for (int corner = 0; corner < 8; corner++)
+            Quaternion neutral = Quaternion.Inverse(Body.transform.rotation);
+            Vector3 origin = Body.transform.position;
+            Bounds bounds = default;
+            bool first = true;
+            foreach (var shape in shapes)
             {
-                Vector3 offset = Vector3.Scale(worldBounds.extents,
-                    new Vector3((corner & 1) == 0 ? -1 : 1, (corner & 2) == 0 ? -1 : 1, (corner & 4) == 0 ? -1 : 1));
-                bounds.Encapsulate(neutral * (worldBounds.center + offset - Body.position));
+                Bounds geometry;
+                if (shape is BoxCollider box) geometry = new Bounds(box.center, box.size);
+                else if (shape is MeshCollider mesh && mesh.sharedMesh != null) geometry = mesh.sharedMesh.bounds;
+                else if (shape is SphereCollider || shape is CapsuleCollider)
+                {
+                    Vector3 scale = shape.transform.lossyScale;
+                    scale = new Vector3(Mathf.Abs(scale.x), Mathf.Abs(scale.y), Mathf.Abs(scale.z));
+                    Vector3 center, extents;
+                    if (shape is SphereCollider ball)
+                    {
+                        center = ball.center;
+                        extents = Vector3.one * (ball.radius * Mathf.Max(scale.x, Mathf.Max(scale.y, scale.z)));
+                    }
+                    else
+                    {
+                        var capsule = (CapsuleCollider)shape;
+                        center = capsule.center;
+                        int axis = capsule.direction;
+                        float radius = capsule.radius * Mathf.Max(scale[(axis + 1) % 3], scale[(axis + 2) % 3]);
+                        float halfSegment = Mathf.Max(0, capsule.height * scale[axis] * 0.5f - radius);
+                        Vector3 direction = neutral * shape.transform.TransformDirection(axis == 0 ? Vector3.right : axis == 1 ? Vector3.up : Vector3.forward);
+                        extents = new Vector3(Mathf.Abs(direction.x), Mathf.Abs(direction.y), Mathf.Abs(direction.z)) * halfSegment + Vector3.one * radius;
+                    }
+                    geometry = new Bounds(neutral * (shape.transform.TransformPoint(center) - origin), extents * 2);
+                    if (first) { bounds = geometry; first = false; } else bounds.Encapsulate(geometry);
+                    continue;
+                }
+                else throw new InvalidOperationException("Portable placement requires box, sphere, capsule or mesh geometry.");
+
+                // Transform the shape's own geometry, not its current world AABB: that
+                // AABB already expands with rotation and cannot be unrotated afterwards.
+                for (int corner = 0; corner < 8; corner++)
+                {
+                    Vector3 offset = Vector3.Scale(geometry.extents,
+                        new Vector3((corner & 1) == 0 ? -1 : 1, (corner & 2) == 0 ? -1 : 1, (corner & 4) == 0 ? -1 : 1));
+                    Vector3 point = neutral * (shape.transform.TransformPoint(geometry.center + offset) - origin);
+                    if (first) { bounds = new Bounds(point, Vector3.zero); first = false; } else bounds.Encapsulate(point);
+                }
             }
+            if (!Finite(bounds.center) || !Finite(bounds.size) || bounds.size.x <= 0 || bounds.size.y <= 0 || bounds.size.z <= 0)
+                throw new InvalidOperationException("Portable fixture bounds must remain finite and non-empty.");
             return bounds;
         }
 

@@ -5,6 +5,7 @@
 */_raw/
 # bake outputs stay local (LFS quota): every room folder and the logs, except the tracked cooling-plant pilot and map/map_placement.json
 /*/
+!/tests/
 !/cooling-plant/
 !/map/
 /map/*/

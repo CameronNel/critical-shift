@@ -105,7 +105,13 @@ def bounds(objs):
     for o in objs:
         me = o.data; co = np.empty(len(me.vertices) * 3, np.float32); me.vertices.foreach_get('co', co); co = co.reshape(-1, 3)
         if not len(co): continue
+        if not np.isfinite(co).all():
+            fail('mesh %s has non-finite vertex positions' % o.name)
+            continue
         m = np.array(o.matrix_world); w = co @ m[:3, :3].T + m[:3, 3]
+        if not np.isfinite(w).all():
+            fail('mesh %s has non-finite world positions' % o.name)
+            continue
         lo = np.minimum(lo, w.min(0)); hi = np.maximum(hi, w.max(0))
     return lo, hi
 blo, bhi = bounds(meshes)
@@ -123,10 +129,8 @@ import re                                                         # the importer
 fm = {s.material.name if s.material.name in known else re.sub(r'\.\d{3}$', '', s.material.name) for o in imp for s in o.material_slots if s.material}
 stripped = {re.sub(r'\.\d+$', '', k) for k in known}             # Blender's FBX importer drops a trailing .5 ('lens -1.5'); the FBX itself keeps it
 if fm - known - stripped: fail('FBX materials not in materials.json: %s' % sorted(fm - known - stripped)[:8])
-nan = [o.name for o in imp if len(o.data.vertices) and not np.isfinite(np.array([v.co[:] for v in o.data.vertices[:1000]])).all()]
-if nan: fail('FBX meshes with NaN positions: %s' % nan[:6])
 ilo, ihi = bounds(imp)
-if len(imp) and (np.abs(ilo - blo).max() > 0.01 or np.abs(ihi - bhi).max() > 0.01):
+if len(imp) and (not np.isfinite([blo, bhi, ilo, ihi]).all() or np.abs(ilo - blo).max() > 0.01 or np.abs(ihi - bhi).max() > 0.01):
     fail('FBX bounds %s..%s differ from the scene %s..%s by more than 1 cm' % (np.round(ilo, 3).tolist(), np.round(ihi, 3).tolist(), np.round(blo, 3).tolist(), np.round(bhi, 3).tolist()))
 info.update(fbx_meshes=len(imp), fbx_triangles=itris, zero_area_triangles=zero_tris, bounds=[np.round(blo, 3).tolist(), np.round(bhi, 3).tolist()])
 

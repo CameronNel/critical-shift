@@ -146,6 +146,23 @@ namespace CriticalShift.Offline.Tests
             Assert.That(world.View.ConnectedPlayerCount, Is.EqualTo(2));
         }
 
+        [Test] public void SetupDisconnectRetiresTheOldBodyBeforeTheWorkerRejoins()
+        {
+            var world = Setup();
+            world.Disconnect(world.Epoch, Id(12));
+            Assert.That(world.GetWorker(Patient), Is.Null);
+            Assert.That(world.GetWorkerForBody(Body), Is.Null);
+            Assert.That(world.GetObject(Body)!.IsRetired, Is.True);
+            world.RegisterConnection(Id(14), Patient);
+            world.RegisterWorkerBody(Patient, Id(201));
+            var rescuer = new LocalCommandPort(world, Id(11)); world.Start();
+            Assert.That(rescuer.Grab(Body).Status, Is.EqualTo(InteractionStatus.EntityRetired));
+            Assert.That(world.GetObject(Body)!.HolderId, Is.Null);
+            Down(world, Patient);
+            Assert.That(rescuer.Grab(Id(201)).HasNewCommit, Is.True);
+            Assert.That(world.GetWorkerBodyClaim(Patient)!.HolderId, Is.EqualTo(Rescuer));
+        }
+
         [Test] public void WorkerBodyBindingsDoNotSurviveAFreshWorld()
         {
             var world = Setup(); var port = new LocalCommandPort(world, Id(11)); world.Start(); Down(world, Patient); port.Grab(Body);

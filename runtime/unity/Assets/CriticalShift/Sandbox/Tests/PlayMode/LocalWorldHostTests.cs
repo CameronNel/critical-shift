@@ -205,6 +205,34 @@ namespace CriticalShift.Sandbox.Tests
             yield return null;
         }
 
+        [UnityTest] public IEnumerator RotatedCrateKeepsItsActualSlotEnvelopeAndStillRejectsObstruction()
+        {
+            body.GetComponent<BoxCollider>().size = new Vector3(0.55f, 0.6f, 0.55f);
+            slot.localRotation = Quaternion.Euler(0, 30, 0);
+            var obstacle = GameObject.CreatePrimitive(PrimitiveType.Cube); obstacle.transform.SetParent(root.transform, false);
+            obstacle.transform.SetPositionAndRotation(slot.position + slot.forward * 0.55f, slot.rotation);
+            obstacle.transform.localScale = new Vector3(1, 1, 0.1f);
+            foreach (float angle in new[] { 0f, 45f, 135f })
+            {
+                Vector3 position = root.transform.position + Vector3.up; Quaternion rotation = Quaternion.Euler(0, angle, 0);
+                body.position = position; body.rotation = rotation;
+                body.transform.SetPositionAndRotation(position, rotation); Physics.SyncTransforms();
+                host.Grab(Box); host.OperateMachine(Machine, ProductionAction.Insert, Box, false, false);
+                Assert.That(world.GetObject(Box).SlotId, Is.EqualTo(Machine), "Incoming yaw=" + angle);
+                Assert.That(body.isKinematic, Is.True);
+                Assert.That(Quaternion.Angle(body.rotation, slot.rotation), Is.LessThan(0.01f));
+                host.OperateMachine(Machine, ProductionAction.Eject, Guid.Empty, false, false);
+            }
+            body.position = root.transform.position + Vector3.up; body.rotation = Quaternion.Euler(0, 45, 0);
+            body.transform.SetPositionAndRotation(body.position, body.rotation);
+            obstacle.transform.position = slot.position + slot.forward * 0.2f; Physics.SyncTransforms();
+            host.Grab(Box); long sequence = port.LastTerminalSequence;
+            host.OperateMachine(Machine, ProductionAction.Insert, Box, false, false);
+            Assert.That(world.GetObject(Box).HolderId, Is.EqualTo(Actor));
+            Assert.That(world.GetObject(Box).SlotId, Is.Null); Assert.That(port.LastTerminalSequence, Is.EqualTo(sequence));
+            yield return null;
+        }
+
         [UnityTest] public IEnumerator SlotAdmissionUsesCurrentColliderGeometryInsteadOfItsSetupBounds()
         {
             var shape = body.GetComponent<BoxCollider>();
@@ -220,6 +248,49 @@ namespace CriticalShift.Sandbox.Tests
             host.OperateMachine(Machine, ProductionAction.Insert, Box, false, false); Physics.SyncTransforms();
             Assert.That(world.GetObject(Box).SlotId, Is.EqualTo(Machine)); Assert.That(body.isKinematic, Is.True);
             Assert.That(Vector3.Distance(shape.bounds.center, slot.position + Vector3.right), Is.LessThan(0.001f));
+            yield return null;
+        }
+
+        [UnityTest] public IEnumerator ScaledOffsetSphereAndCapsuleUseNativeGeometryForSlotClearance()
+        {
+            foreach (var primitive in new[] { PrimitiveType.Sphere, PrimitiveType.Capsule })
+            {
+                var owner = new GameObject("Primitive loading fixture"); owner.transform.SetParent(root.transform, false);
+                owner.transform.localPosition = Vector3.right * (primitive == PrimitiveType.Sphere ? 30 : 50);
+                var session = new WorldSession(new WorldSessionConfiguration(1, 60000), new AllowedFixtureAccess());
+                session.RegisterConnection(Id(1), Actor);
+                session.Production.RegisterBatch(Box, Id(11), Id(12), Id(13), MaterialKind.Ore, 10);
+                session.Production.RegisterMachine(Machine, new MachineRecipe(Id(31), MaterialKind.Ore, MaterialKind.CrushedOre, 1000, 500, 100, 100));
+                var sender = new LocalCommandPort(session, Id(1)); var adapter = owner.AddComponent<LocalWorldHost>();
+                adapter.Initialize(session, sender, Actor, () => 0, faults.Add);
+                var item = GameObject.CreatePrimitive(primitive); item.transform.SetParent(owner.transform, false);
+                item.transform.localScale = new Vector3(0.5f, 0.75f, 1.25f);
+                Vector3 offset = new Vector3(0.2f, 0.1f, -0.15f);
+                if (primitive == PrimitiveType.Sphere) item.GetComponent<SphereCollider>().center = offset;
+                else { var capsule = item.GetComponent<CapsuleCollider>(); capsule.center = offset; capsule.direction = 0; capsule.height = 4; }
+                var portable = item.AddComponent<Rigidbody>(); portable.useGravity = false;
+                var anchor = new GameObject("Primitive slot").transform; anchor.SetParent(owner.transform, false); anchor.localPosition = new Vector3(0, 1, 3);
+                var carry = new GameObject("Primitive carry").transform; carry.SetParent(owner.transform, false); carry.localPosition = Vector3.up;
+                portable.position = anchor.position; item.transform.position = anchor.position; Physics.SyncTransforms();
+                Bounds native = item.GetComponent<Collider>().bounds;
+                Vector3 incoming = owner.transform.position + Vector3.up;
+                portable.position = incoming; portable.rotation = Quaternion.Euler(0, 45, 0);
+                item.transform.SetPositionAndRotation(incoming, portable.rotation); Physics.SyncTransforms();
+                adapter.BindBody(Box, portable); adapter.BindCarryTarget(Actor, carry); adapter.BindSlot(Machine, anchor); adapter.Activate();
+                var obstacle = GameObject.CreatePrimitive(PrimitiveType.Cube); obstacle.transform.SetParent(owner.transform, false);
+                obstacle.transform.position = new Vector3(native.max.x + 0.1f, native.center.y, native.center.z);
+                obstacle.transform.localScale = new Vector3(0.1f, 4, 4); Physics.SyncTransforms();
+                adapter.Grab(Box); adapter.OperateMachine(Machine, ProductionAction.Insert, Box, false, false);
+                Assert.That(session.GetObject(Box).SlotId, Is.EqualTo(Machine), primitive.ToString());
+                adapter.OperateMachine(Machine, ProductionAction.Eject, Guid.Empty, false, false);
+                portable.position = incoming; item.transform.position = incoming;
+                obstacle.transform.position = new Vector3(native.max.x - 0.05f, native.center.y, native.center.z); Physics.SyncTransforms();
+                adapter.Grab(Box); long sequence = sender.LastTerminalSequence;
+                adapter.OperateMachine(Machine, ProductionAction.Insert, Box, false, false);
+                Assert.That(session.GetObject(Box).HolderId, Is.EqualTo(Actor));
+                Assert.That(session.GetObject(Box).SlotId, Is.Null); Assert.That(sender.LastTerminalSequence, Is.EqualTo(sequence));
+                adapter.Shutdown(); UnityObject.Destroy(owner);
+            }
             yield return null;
         }
 

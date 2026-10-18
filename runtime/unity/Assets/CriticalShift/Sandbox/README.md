@@ -1,5 +1,13 @@
 # Isolated local-host gameplay fixture
 
+**PR #111 review repairs:** rotated loading bounds, exact-lease hoist reset,
+setup-disconnect body cleanup and recovery clearance have been repaired after
+independent source review. The native catalogue now has **136 implemented cases**;
+native execution of this repair revision is **NotRun** here. The 132-case results
+below and the existing local Player ZIP belong to the earlier recorded source.
+Current source/tool verification: 724 offline and 182 tooling tests passed. See
+[the active review checkpoint](../../../../validation/GAMEPLAY_SANDBOX.md).
+
 **Validated local integration trial; independent acceptance pending.** Source
 `6554abef` passed all 132 native gameplay cases, a strict Win64 build, headless
 startup/cleanup, a same-build normal-window PNG capture and the physical
@@ -180,8 +188,8 @@ to avoid collisions with an unrelated map/scene at the origin.
 No human feel review, ragdoll/body-dragging acceptance, multiplayer convergence,
 supported FPS, final lighting/art or roadmap gate is established here. Scoped
 renderer/lifecycle/Player evidence is now recorded; physical feel and diagnostic
-budget acceptance remain open. Execution is authorized. This trial is unmerged and awaits
-independent review.
+budget acceptance remain open. Execution is authorized. Independent source review of
+the PR repair revision is complete; its fresh native execution remains NotRun here.
 
 When execution is authorized, `runtime/tools/run_sandbox.py` prepares and tests
 in a fresh disposable copy, retaining the canonical local-package path. Pass the

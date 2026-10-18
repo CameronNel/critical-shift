@@ -46,8 +46,16 @@ namespace CriticalShift.Features.Interaction.Unity
         {
             internal readonly Transform Anchor;
             private readonly Vector3 rest;
+            private Guid entity;
+            private long lease;
             internal bool Raised;
             internal DragTarget(Transform anchor) { Anchor = anchor; rest = anchor.localPosition; }
+            internal void Observe(ObjectClaimView claim)
+            {
+                if (claim == null || !claim.HolderId.HasValue || claim.LeaseGeneration < 1) { Reset(); return; }
+                if (entity == claim.EntityId && lease == claim.LeaseGeneration) return;
+                Reset(); entity = claim.EntityId; lease = claim.LeaseGeneration;
+            }
             internal void Step(float seconds)
             {
                 if (Anchor == null) return;
@@ -55,7 +63,7 @@ namespace CriticalShift.Features.Interaction.Unity
                 position.y = Mathf.MoveTowards(position.y, rest.y + (Raised ? 1.5f : 0), 2.5f * Mathf.Min(seconds, 0.05f));
                 Anchor.localPosition = position;
             }
-            internal void Reset() { Raised = false; if (Anchor != null) Anchor.localPosition = rest; }
+            internal void Reset() { entity = Guid.Empty; lease = 0; Raised = false; if (Anchor != null) Anchor.localPosition = rest; }
         }
         private readonly WorldSession world;
         private readonly Dictionary<Guid, CarryBodyBinding> bodies = new Dictionary<Guid, CarryBodyBinding>();
@@ -110,7 +118,7 @@ namespace CriticalShift.Features.Interaction.Unity
             var claim = world.GetObject(held);
             if (claim == null || claim.HolderId != actor || world.GetWorkerForBody(held)?.Pose != WorkerPose.Down)
             { target.Reset(); return; }
-            target.Raised = raised; worker.Hoist(claim, raised);
+            target.Observe(claim); target.Raised = raised; worker.Hoist(claim, raised);
         }
         internal bool HasDragTarget(Guid actor) => workers.Count == 0 || dragTargets.ContainsKey(actor);
         internal Vector3? CurrentDragTarget(Guid actor) => workers.ContainsKey(HeldObject(actor)) &&
@@ -350,6 +358,7 @@ namespace CriticalShift.Features.Interaction.Unity
                 if (held == Guid.Empty || !workers.ContainsKey(held)) pair.Value.Reset();
                 else
                 {
+                    pair.Value.Observe(world.GetObject(held));
                     // Reconcile pause without depending on another HUD/input event.
                     if (world.View.Phase != WorldPhase.Running) pair.Value.Raised = false;
                     if (applyForces) pair.Value.Step(deltaSeconds);

@@ -287,7 +287,13 @@ namespace CriticalShift.Application
                     if (actor.HasValue)
                     {
                         var body = _workers.BodyFor(actor.Value);
-                        if (body.HasValue) { _interaction.RetireObject(epoch, body.Value); _timers.CancelOwner(epoch, body.Value); }
+                        if (body.HasValue)
+                        {
+                            var retirement = _interaction.RetireDisconnectedWorkerBody(body.Value);
+                            if (!retirement.HasNewCommit)
+                                throw new InvalidOperationException("A disconnected worker body could not be retired.");
+                            _timers.CancelOwner(epoch, body.Value);
+                        }
                         _workers.Remove(actor.Value); _timers.CancelOwner(epoch, actor.Value);
                     }
                     _revision = next;

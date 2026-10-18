@@ -131,6 +131,10 @@
     "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.ReparentedWorkerIntermediateStopsTheWorldBeforePosePublication",
     "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.PhysicsMonitorDistinguishesNativeRotationalEnergyAtTheSameAngularSpeed",
     "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.PhysicsMonitorUsesTheNativePrincipalInertiaFrame",
-    "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.PhysicsMonitorAcceptsHealthyNativeInfiniteInertiaConstraints"
+    "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.PhysicsMonitorAcceptsHealthyNativeInfiniteInertiaConstraints",
+    "CriticalShift.Sandbox.Tests.LocalWorldHostTests.RotatedCrateKeepsItsActualSlotEnvelopeAndStillRejectsObstruction",
+    "CriticalShift.Sandbox.Tests.WorkerDragTests.ImmediateExpiryAndRegrabCannotInheritHoistInput",
+    "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.WalkableInclineAllowsRecoveryAndPendingSteepeningBlocksIt",
+    "CriticalShift.Sandbox.Tests.LocalWorldHostTests.ScaledOffsetSphereAndCapsuleUseNativeGeometryForSlotClearance"
   ]
 }

@@ -136,7 +136,8 @@ class PackageInitializationTests(unittest.TestCase):
                        " ---> System.ArgumentOutOfRangeException: nested initialization failure\n",
                        "System.TypeInitializationException:\n"):
             with self.subTest(header=header):
-                validate_log(header)  # Broad log validation deliberately retains its existing signatures.
+                with self.assertRaises(EvidenceError):
+                    validate_log(header)  # Strict phases now reject the same actual exception headers.
                 record, _, failed = self.invoke(text=IDENTITY + DIAGNOSTICS + header)
                 self.assertTrue(failed)
                 self.assertEqual((record["status"], record["strict_log_status"]), ("Failed", "Failed"))
@@ -147,7 +148,7 @@ class PackageInitializationTests(unittest.TestCase):
     def test_managed_exception_without_known_sdk_diagnostics_also_fails_initialization(self):
         record, _, failed = self.invoke(text=IDENTITY + "System.IO.IOException: caught during initialization\n")
         self.assertTrue(failed)
-        self.assertEqual((record["status"], record["strict_log_status"]), ("Failed", "Passed"))
+        self.assertEqual((record["status"], record["strict_log_status"]), ("Failed", "Failed"))
         self.assertIn("managed exception header", record["reason"])
 
     def test_sdk_warning_stack_exception_reference_arguments_are_not_exception_headers(self):

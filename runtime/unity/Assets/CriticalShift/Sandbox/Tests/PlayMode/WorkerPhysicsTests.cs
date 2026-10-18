@@ -632,9 +632,48 @@ namespace CriticalShift.Sandbox.Tests
             ceiling.transform.SetParent(root.transform, false);
             ceiling.transform.position = new Vector3(pelvis.position.x, root.transform.position.y + 1.89f, pelvis.position.z);
             ceiling.transform.localScale = new Vector3(5, 0.16f, 5); Physics.SyncTransforms();
-            Vector3 before = controller.transform.position; state.RequestRecovery();
-            Assert.That(Worker.Pose, Is.EqualTo(WorkerPose.Down)); Assert.That(state.LastAction, Does.Contain("Blocked"));
-            Assert.That(controller.transform.position, Is.EqualTo(before)); Assert.That(controller.enabled, Is.False);
+            Vector3 before = controller.transform.position;
+            foreach (int layer in new[] { 0, 2 })
+            {
+                ceiling.layer = layer; Physics.SyncTransforms(); state.RequestRecovery();
+                Assert.That(Worker.Pose, Is.EqualTo(WorkerPose.Down), "Ceiling layer=" + layer);
+                Assert.That(state.LastAction, Does.Contain("Blocked"));
+                Assert.That(controller.transform.position, Is.EqualTo(before)); Assert.That(controller.enabled, Is.False);
+            }
+        }
+
+        [UnityTest] public IEnumerator WalkableInclineAllowsRecoveryAndPendingSteepeningBlocksIt()
+        {
+            KnockDown(); for (int i = 0; i < 90; i++) yield return Step();
+            Vector3 support = new Vector3(pelvis.position.x, root.transform.position.y + 3, pelvis.position.z);
+            var ramp = GameObject.CreatePrimitive(PrimitiveType.Cube); ramp.name = "Recovery slope clearance fixture";
+            ramp.transform.SetParent(root.transform, false); ramp.transform.localScale = new Vector3(6, 0.2f, 6);
+            ramp.transform.rotation = Quaternion.Euler(30, 0, 0);
+            ramp.transform.position = support - ramp.transform.up * 0.1f;
+            Vector3 shift = support + Vector3.up * 0.55f - pelvis.position;
+            // Hold an already settled physical pose while testing clearance, so
+            // sliding/impacts do not decide this geometric recovery regression.
+            var parts = rig.CopyBodySegments(); var constraints = new RigidbodyConstraints[parts.Length];
+            for (int i = 0; i < parts.Length; i++)
+            {
+                constraints[i] = parts[i].constraints;
+                parts[i].linearVelocity = Vector3.zero; parts[i].angularVelocity = Vector3.zero;
+                parts[i].position += shift; parts[i].constraints = RigidbodyConstraints.FreezeAll;
+            }
+            Physics.SyncTransforms(); state.RequestRecovery();
+            Assert.That(state.Recovering, Is.True, state.LastAction);
+            ramp.transform.rotation = Quaternion.Euler(60, 0, 0); ramp.transform.position = support - ramp.transform.up * 0.1f;
+            Physics.SyncTransforms();
+            var blocked = host.World.CompleteWorkerRecovery(host.World.Epoch, Id(1), Worker.RecoveryAttempt);
+            Assert.That(blocked.Status, Is.EqualTo(WorkerStatus.ClearanceBlocked));
+            Assert.That(controller.enabled, Is.False); Assert.That(Worker.Pose, Is.EqualTo(WorkerPose.Down));
+            yield return null;
+            ramp.transform.rotation = Quaternion.Euler(30, 0, 0); ramp.transform.position = support - ramp.transform.up * 0.1f;
+            Physics.SyncTransforms(); state.RequestRecovery(); Assert.That(state.Recovering, Is.True, state.LastAction);
+            for (int i = 0; i < 40 && Worker.Pose != WorkerPose.Upright; i++) yield return Step();
+            Assert.That(Worker.Pose, Is.EqualTo(WorkerPose.Upright), state.LastAction);
+            Assert.That(controller.enabled, Is.True); Assert.That(DynamicBodies(), Is.Zero);
+            for (int i = 0; i < parts.Length; i++) parts[i].constraints = constraints[i];
         }
 
         [UnityTest] public IEnumerator AStationaryPelvisCannotApproveRecoveryWhileAnotherLimbIsMoving()

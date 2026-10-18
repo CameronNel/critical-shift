@@ -15,6 +15,14 @@ import run_sandbox as sandbox_runner
 
 
 class ResultEvidenceTests(unittest.TestCase):
+    def test_managed_exception_headers_fail_without_treating_stack_arguments_as_errors(self):
+        for name in ("ArgumentNullException", "IndexOutOfRangeException", "System.OverflowException", "Exception"):
+            for prefix in ("", "  ---> "):
+                with self.subTest(name=name, prefix=prefix):
+                    with self.assertRaises(EvidenceError):
+                        validate_log("CS_SANDBOX_PREPARED\n" + prefix + name + ": actual native failure\n")
+        validate_log("at Fixture.Run (System.Exception& exception)\nCS_SANDBOX_PREPARED\n")
+
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)

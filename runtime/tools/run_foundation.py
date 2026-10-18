@@ -20,7 +20,7 @@ from pathlib import Path
 
 from evidence import EvidenceError, validate_log, validate_player, validate_results
 from editor_identity import inspect_editor
-from package_initialization import audit_package_pins, initialize_packages, package_snapshot
+from package_initialization import audit_first_party_code, first_party_code_fingerprint, audit_package_pins, initialize_packages, package_snapshot
 
 RUNTIME = Path(__file__).resolve().parents[1]
 
@@ -152,6 +152,7 @@ def run(unity: str | None, output_parent: Path, target: str) -> tuple[int, Path]
     current = "import"
     original = None
     project, expected_packages, native_attempted = None, None, False
+    expected_code = None
     code = 1
     try:
         profile = json.loads((RUNTIME / "toolchain.json").read_text())
@@ -171,6 +172,7 @@ def run(unity: str | None, output_parent: Path, target: str) -> tuple[int, Path]
         if report["copied_source_sha256"] != original:
             raise EvidenceError("Disposable inputs differ from the recorded source fingerprint; Unity was not launched.")
         project = work / "unity"
+        report["copied_code_sha256"] = expected_code = first_party_code_fingerprint(project)
         report["expected_package_pins"] = expected_packages = package_snapshot(project)
         logs = out / "logs"
         logs.mkdir()
@@ -197,6 +199,7 @@ def run(unity: str | None, output_parent: Path, target: str) -> tuple[int, Path]
                 raise EvidenceError(f"{name} returned {rc} or produced no native log.")
             validate_log(text)
             audit_package_pins(report, project, expected_packages, "after_" + name)
+            audit_first_party_code(report, project, expected_code, "after_" + name)
             return text
 
         text = invoke("import", ["-quit", "-executeMethod", "CriticalShift.Bootstrap.Editor.FoundationBuild.Prepare"], 360)
@@ -228,6 +231,7 @@ def run(unity: str | None, output_parent: Path, target: str) -> tuple[int, Path]
         phases["player"].update(validate_player(text, rc, profile["editor"], matches[0]))
         phases["player"]["status"] = "Passed"
         audit_package_pins(report, project, expected_packages, "before_success")
+        audit_first_party_code(report, project, expected_code, "before_success")
         report["status"] = "Passed"
         code = 0
     except Exception as exc:
@@ -240,6 +244,9 @@ def run(unity: str | None, output_parent: Path, target: str) -> tuple[int, Path]
         report["reason"] = str(exc).replace(str(Path.home()), "<HOME>")
         code = 2 if report["status"] == "Blocked" else 1
     finally:
+        if native_attempted and not audit_first_party_code(report, project, expected_code, "final", required=False):
+            report["status"], code = "Failed", 1
+            report.setdefault("reason", "Final copied code audit failed; see copied_code_audits.final.")
         if native_attempted and not audit_package_pins(report, project, expected_packages, "final", required=False) and report["status"] == "Passed":
             report["status"], code = "Failed", 1
             report.setdefault("reason", "Final native package pin audit failed; see package_pin_audits.final.")

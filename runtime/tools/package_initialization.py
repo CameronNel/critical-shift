@@ -14,7 +14,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Callable
 
-from evidence import EvidenceError, validate_log
+from evidence import EvidenceError, managed_exception_headers, validate_log
 
 
 LICENSE_FAILURE = re.compile(r"No valid Unity.*license|No valid license|Failed to activate|License is not active|No Unity Editor license", re.I)
@@ -22,16 +22,6 @@ GUID_UPDATE_FILES = (
     "Editor/Generation/Contexts/TargetSetupContext.cs",
     "Editor/Generation/Targets/BuiltIn/Editor/ShaderGraph/Targets/BuiltInCanvasSubTarget.cs",
 )
-MANAGED_EXCEPTION_HEADER = re.compile(
-    r"^\s*(?:--->\s*)?(?:[A-Za-z_]\w*[.+])*(?:[A-Za-z_]\w*)?Exception(?:\s*:(?:\s.*)?|\s*)$")
-
-
-def managed_exception_headers(text: str) -> list[dict]:
-    """Identify actual exception headers, not stack-frame arguments such as System.Exception&."""
-    return [{"line": index + 1, "text": line} for index, line in enumerate(text.splitlines())
-            if MANAGED_EXCEPTION_HEADER.fullmatch(line)]
-
-
 def classify_shadergraph_guid_update(text: str, project: Path, packages: dict) -> dict:
     """Recognize only the pinned SDK's observed two-error API-updater episode.
 
@@ -209,6 +199,23 @@ def first_party_code_fingerprint(project: Path) -> str:
                 digest.update(path.relative_to(project.parent).as_posix().encode() + b"\0")
                 digest.update(hashlib.sha256(path.read_bytes()).digest())
     return digest.hexdigest()
+
+
+def audit_first_party_code(report: dict, project: Path, expected: str, checkpoint: str, required: bool = True) -> bool:
+    """Check the code Unity actually executed, including its serialized identities."""
+    evidence = {"status": "Failed", "expected_sha256": expected}
+    try:
+        evidence["actual_sha256"] = first_party_code_fingerprint(project)
+        if evidence["actual_sha256"] == expected:
+            evidence["status"] = "Passed"
+        else:
+            evidence["reason"] = "Copied first-party code or metadata changed during native execution."
+    except Exception as exception:
+        evidence["reason"] = str(exception).replace(str(Path.home()), "<HOME>")
+    report.setdefault("copied_code_audits", {})[checkpoint] = evidence
+    if required and evidence["status"] != "Passed":
+        raise EvidenceError("Copied code audit " + checkpoint + " failed: " + evidence["reason"])
+    return evidence["status"] == "Passed"
 
 
 def initialize_packages(editor: Path, project: Path, target: str, profile: dict, log: Path,

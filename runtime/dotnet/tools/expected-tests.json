@@ -276,5 +276,6 @@
   "IdleSamplesPreserveReactorRevisionAndPendingCommand": 5,
   "IdleSamplesStillAdvanceTheInternalClockBeforeStarting": 2,
   "ObservableTickChangesStillInvalidateStaleCommands": 5,
-  "RepeatedSameClockSampleNeverChangesReactorRevision": 1
+  "RepeatedSameClockSampleNeverChangesReactorRevision": 1,
+  "SetupDisconnectRetiresTheOldBodyBeforeTheWorkerRejoins": 1
 }

@@ -32,8 +32,8 @@ namespace CriticalShift.Features.Workers.Unity
             var ground = FindGround(origin, 1.4f, out var hit);
             if (ground != RecoveryClearance.Safe) return ground;
             if (hit.point.y > rig.Pelvis.position.y + 0.02f) return RecoveryClearance.Blocked;
-            proposedPosition = hit.point + Vector3.up * (rig.Controller.skinWidth + 0.02f);
             proposedRotation = rig.StandingRotation; proposedGround = hit.collider;
+            proposedPosition = hit.point + Vector3.up * SupportOffset(hit.normal, proposedRotation);
             var clearance = Check(proposedPosition, proposedRotation, proposedGround);
             prepared = clearance == RecoveryClearance.Safe; return clearance;
         }
@@ -57,18 +57,32 @@ namespace CriticalShift.Features.Workers.Unity
         {
             nearest = default;
             int count = Physics.RaycastNonAlloc(origin, Vector3.down, groundHits, distance,
-                Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore);
+                Physics.AllLayers, QueryTriggerInteraction.Ignore);
             if (count == groundHits.Length) return RecoveryClearance.Unavailable;
             bool found = false;
             for (int i = 0; i < count; i++)
             {
                 var hit = groundHits[i];
-                if (rig.Owns(hit.collider)) continue;
+                if (!BlocksController(hit.collider)) continue;
                 if (!found || hit.distance < nearest.distance) { nearest = hit; found = true; }
             }
             if (!found || nearest.rigidbody != null || Vector3.Angle(nearest.normal, Vector3.up) > rig.Controller.slopeLimit)
                 return RecoveryClearance.Blocked;
             return RecoveryClearance.Safe;
+        }
+
+        private bool BlocksController(Collider contact) => contact != null && !rig.Owns(contact) &&
+            !Physics.GetIgnoreLayerCollision(rig.Controller.gameObject.layer, contact.gameObject.layer) &&
+            !Physics.GetIgnoreCollision(rig.Controller, contact);
+
+        private float SupportOffset(Vector3 normal, Quaternion rotation)
+        {
+            var capsule = rig.Controller;
+            float extent = Mathf.Max(0, capsule.height * 0.5f - capsule.radius);
+            // Lift the expanded lower sphere above the actual support plane. A
+            // fixed vertical skin offset intersects otherwise walkable slopes.
+            float lowerCenter = Vector3.Dot(rotation * capsule.center - Vector3.up * extent, normal);
+            return (capsule.radius + capsule.skinWidth + 0.02f - lowerCenter) / normal.y;
         }
 
         private RecoveryClearance Check(Vector3 position, Quaternion rotation, Collider support)
@@ -78,17 +92,17 @@ namespace CriticalShift.Features.Workers.Unity
             if (!rig.HasSettledRecoveryMotion() ||
                 Vector3.ProjectOnPlane(rig.Pelvis.position - position, Vector3.up).magnitude > 0.8f || bodyHeight < -0.05f || bodyHeight > 1.25f)
                 return RecoveryClearance.Blocked;
-            var ground = FindGround(position + Vector3.up * 0.3f, 0.5f, out var hit);
+            var ground = FindGround(position + Vector3.up * 0.3f, 1.4f, out var hit);
             if (ground != RecoveryClearance.Safe) return ground;
-            if (hit.collider != support || Mathf.Abs(hit.point.y + rig.Controller.skinWidth + 0.02f - position.y) > 0.08f)
+            if (hit.collider != support || Mathf.Abs(hit.point.y + SupportOffset(hit.normal, rotation) - position.y) > 0.08f)
                 return RecoveryClearance.Blocked;
             var capsule = rig.Controller;
             Vector3 center = position + rotation * capsule.center;
             float extent = Mathf.Max(0, capsule.height * 0.5f - capsule.radius);
             int count = Physics.OverlapCapsuleNonAlloc(center + Vector3.up * extent, center - Vector3.up * extent,
-                capsule.radius + capsule.skinWidth, overlaps, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore);
+                capsule.radius + capsule.skinWidth, overlaps, Physics.AllLayers, QueryTriggerInteraction.Ignore);
             if (count == overlaps.Length) return RecoveryClearance.Unavailable;
-            for (int i = 0; i < count; i++) if (!rig.Owns(overlaps[i])) return RecoveryClearance.Blocked;
+            for (int i = 0; i < count; i++) if (BlocksController(overlaps[i])) return RecoveryClearance.Blocked;
             return RecoveryClearance.Safe;
         }
 

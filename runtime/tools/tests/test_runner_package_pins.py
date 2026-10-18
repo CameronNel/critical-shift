@@ -28,6 +28,15 @@ class NativeRunnerPackagePinTests(unittest.TestCase):
         return fixture
 
     def mutate(self, project, kind):
+        if kind in ("code", "code_meta", "package_code", "removed_code"):
+            path = project / "Assets/Subject.cs"
+            if kind == "removed_code":
+                path.unlink()
+            else:
+                if kind == "code_meta": path = path.with_suffix(".cs.meta")
+                if kind == "package_code": path = project.parent / "dotnet/src/Changed.cs"
+                path.write_text("// native phase rewrote an executable input or its identity")
+            return
         if kind == "manifest":
             path = project / "Packages/manifest.json"
             data = json.loads(path.read_text())
@@ -131,6 +140,26 @@ class NativeRunnerPackagePinTests(unittest.TestCase):
                 self.assertEqual(report["package_pin_audits"]["after_build"]["status"], "Passed")
                 self.assertEqual(report["package_pin_audits"]["before_success"]["status"], "Passed")
                 self.assertEqual(report["package_pin_audits"]["final"]["status"], "Passed")
+                self.assertEqual(report["copied_code_audits"]["final"]["status"], "Passed")
+
+    def test_native_phases_cannot_rewrite_copied_code_or_metadata(self):
+        for name in self.runners:
+            for phase in ("import", "PlayMode", "build", "player"):
+                for kind in ("code", "code_meta", "package_code", "removed_code"):
+                    with self.subTest(runner=name, phase=phase, kind=kind):
+                        code, _, report, _ = self.invoke(name, phase, kind)
+                        self.assertEqual((code, report["status"]), (1, "Failed"))
+                        self.assertEqual(report["copied_code_audits"]["final"]["status"], "Failed")
+                        self.assertTrue(report["source_unchanged"], "Canonical inputs did not change.")
+                        self.assertIn("Copied code audit", report["reason"])
+
+    def test_final_code_audit_preserves_the_original_native_failure(self):
+        for name in self.runners:
+            with self.subTest(runner=name):
+                code, _, report, _ = self.invoke(name, "build", "code", fail_build=True)
+                self.assertEqual((code, report["status"]), (1, "Failed"))
+                self.assertIn("build returned 7", report["reason"])
+                self.assertEqual(report["copied_code_audits"]["final"]["status"], "Failed")
 
     def test_prepare_manifest_or_selected_source_drift_stops_before_tests(self):
         for name in self.runners:

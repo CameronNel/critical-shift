@@ -339,6 +339,17 @@ def merge_for_bake(objs, mats):
          seconds=round(time.time() - t, 1))
     return out
 
+
+def restore_prepared_geometry():
+    """The bake join deletes objects and strips animation. Finish from the saved
+    prep scene, just as the separate finish process does, preserving authored
+    geometry/hierarchy and reloading the baked images from their saved files."""
+    global sc, vl
+    bpy.ops.wm.open_mainfile(filepath=WORK)
+    sc, vl = bpy.context.scene, bpy.context.view_layer
+    assert_isolated('finish')
+    return collect()
+
 PLAN_VERSION = 2              # 2 (2026-10-18): closure-tree routing, mask pass, HDR emission; older plans and _work files cannot be resumed
 ISOLATE = '--isolate' in a
 EXCLUDE = tuple(x for x in (arg('--exclude') or '').split(';') if x)   # object name prefixes left out of the bake, ';'-separated     # map mode (bake_all.ps1 -Map): bake the room collections alone, e.g. the map's ROOM_<room>_members
@@ -654,7 +665,7 @@ if STAGE in ('bake', 'all'):
                 elif n_.type == 'GROUP': cap(n_.node_tree, seen)
         _seen = set()
         for m in mats: cap(m.node_tree, _seen)
-    bake_objs = merge_for_bake(objs, mats) if arg('--merge', 'on') != 'off' else objs   # objs stays the unmerged list for --stage all's finish
+    bake_objs = merge_for_bake(objs, mats) if arg('--merge', 'on') != 'off' else objs
     bk = sc.render.bake; bk.margin = 8; bk.margin_type = 'EXTEND'; bk.use_clear = True; bk.use_selected_to_active = False
     dummy = bpy.data.images.new('_bake_dummy', 8, 8)
     imgs = {}
@@ -717,12 +728,16 @@ if STAGE in ('bake', 'all'):
     if STAGE == 'bake':                                          # this pass's steps (times) for the finish to put in bake_report.json
         json.dump(log['steps'], open(os.path.join(RAW, '_steps_%s.json' % PASS), 'w')); raise SystemExit(0)
 
+    if STAGE == 'all':
+        objs, mats = restore_prepared_geometry()
+        step('restored prepared geometry for finish', objects=len(objs))
+
 # --- write the URP map set ---------------------------------------------------------------------------------------------------------------------------
 TEX = os.path.join(OUT, 'textures')
 PASSES = ('base', 'rough', 'normal', 'metal', 'emit', 'mask')
 def needs(p, k):
     return p['bake'] and (k in ('base', 'rough', 'normal') or (k == 'metal' and p['metallic_map']) or (k == 'emit' and p['emission']) or (k == 'mask' and p['mask']))
-if STAGE == 'finish':
+if STAGE in ('finish', 'all'):
     imgs, missing = {}, []
     for m in mats:
         for k in PASSES:
@@ -732,9 +747,10 @@ if STAGE == 'finish':
             im = bpy.data.images.load(f)
             if not im.is_float: im.colorspace_settings.name = 'sRGB' if k == 'base' else 'Non-Color'
             imgs[(m.name, k)] = im
-    for k in PASSES:
-        f = os.path.join(RAW, '_steps_%s.json' % k)
-        if os.path.exists(f): log['steps'] += [x for x in json.load(open(f)) if x not in log['steps']]
+    if STAGE == 'finish':
+        for k in PASSES:
+            f = os.path.join(RAW, '_steps_%s.json' % k)
+            if os.path.exists(f): log['steps'] += [x for x in json.load(open(f)) if x not in log['steps']]
     if missing: raise SystemExit('finish: %d baked maps missing from %s (a bake pass did not run or failed): %s' % (len(missing), RAW, missing[:20]))
     dummy = bpy.data.images.new('_bake_dummy', 8, 8)
     for m in mats:

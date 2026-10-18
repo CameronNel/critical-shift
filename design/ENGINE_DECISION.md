@@ -68,7 +68,7 @@ Godot alternative.
 
 - Engine: Unity 6000.4.3f1
 - Language: C#
-- Renderer: Built-in Render Pipeline, low graphics defaults, no ray tracing (superseded for the target by URP, owner decision 2026-10-15; the project itself is not switched yet)
+- Renderer: URP 17.4.0, Linear color space, following the owner decision of 2026-10-15 and the bounded implementation/evidence recorded below. Current PR review repairs still require a fresh native run.
 - Physics: Unity 3D physics
 - Networking: not installed; next gate is host-authoritative selection/spike
 - Steam: not selected
