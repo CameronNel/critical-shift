@@ -48,6 +48,8 @@ inst = sorted({'%s by %s' % (i.object.name, i.parent.name) for i in dg.object_in
 if inst: fail('instances still render (instancers not made real?): %s' % inst[:8])
 meshes = [o for o in members if o.type == 'MESH' and not o.hide_render and len(o.data.polygons)]
 tris = sum(sum(len(p.vertices) - 2 for p in o.data.polygons) for o in meshes)
+# zero-area faces (slivers the map's door cuts leave in the reactor walls) carry nothing to draw; FBX import drops them, as Unity's importer does
+zero_tris = sum(sum(len(p.vertices) - 2 for p in o.data.polygons if p.area < 1e-10) for o in meshes)
 info.update(meshes=len(meshes), triangles=tris)
 if len(meshes) != report['objects']: fail('mesh objects %d, plan %d' % (len(meshes), report['objects']))
 if tris != report['triangles']: fail('triangles %d, plan %d' % (tris, report['triangles']))
@@ -114,7 +116,7 @@ with bpy.context.temp_override(scene=sc, view_layer=sc.view_layers[0]):
 imp = [o for o in sc.objects if o.type == 'MESH']
 itris = sum(sum(len(p.vertices) - 2 for p in o.data.polygons) for o in imp)
 if len(imp) != len(meshes): fail('FBX holds %d meshes, the scene %d' % (len(imp), len(meshes)))
-if itris != tris: fail('FBX holds %d triangles, the scene %d' % (itris, tris))
+if not tris - zero_tris <= itris <= tris: fail('FBX holds %d triangles, the scene %d (%d of them in zero-area faces)' % (itris, tris, zero_tris))
 uvs = {tuple(u.name for u in o.data.uv_layers) for o in imp}
 if uvs != {('UVBake',)}: fail('FBX UV layers %s (want UVBake only)' % sorted(uvs)[:4])
 import re                                                         # the importer may add .001 to a name it already holds; a dot inside a name is kept
@@ -126,7 +128,7 @@ if nan: fail('FBX meshes with NaN positions: %s' % nan[:6])
 ilo, ihi = bounds(imp)
 if len(imp) and (np.abs(ilo - blo).max() > 0.01 or np.abs(ihi - bhi).max() > 0.01):
     fail('FBX bounds %s..%s differ from the scene %s..%s by more than 1 cm' % (np.round(ilo, 3).tolist(), np.round(ihi, 3).tolist(), np.round(blo, 3).tolist(), np.round(bhi, 3).tolist()))
-info.update(fbx_meshes=len(imp), fbx_triangles=itris, bounds=[np.round(blo, 3).tolist(), np.round(bhi, 3).tolist()])
+info.update(fbx_meshes=len(imp), fbx_triangles=itris, zero_area_triangles=zero_tris, bounds=[np.round(blo, 3).tolist(), np.round(bhi, 3).tolist()])
 
 json.dump(dict(room=room, ok=not bad, problems=bad, **info), open(os.path.join(OUT, 'bake_check.json'), 'w'), indent=1)
 print('CHECK', room, 'OK' if not bad else 'FAILED (%d problems)' % len(bad), info, flush=True)
