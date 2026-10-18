@@ -5,7 +5,7 @@ using UnityEngine;
 namespace CriticalShift.FacilityPhysics
 {
     /// <summary>Bounded horizontal belt acceleration for explicitly authorized free bodies.</summary>
-    [RequireComponent(typeof(BoxCollider))]
+    [DisallowMultipleComponent, RequireComponent(typeof(BoxCollider))]
     public sealed class ConveyorDrive : MonoBehaviour
     {
         private readonly Collider[] contacts = new Collider[64];
@@ -14,6 +14,8 @@ namespace CriticalShift.FacilityPhysics
         private Func<Rigidbody, bool> mayMove;
         private Func<bool> mayRun;
         private float stalledSeconds;
+        private bool initialized;
+        public bool Available => initialized && isActiveAndEnabled && sensor != null && sensor.enabled && sensor.isTrigger;
         public bool Powered { get; set; } = true;
         public bool Jammed { get; private set; }
         public bool Saturated { get; private set; }
@@ -23,19 +25,27 @@ namespace CriticalShift.FacilityPhysics
 
         public void Initialize(Func<Rigidbody, bool> ownershipFilter, Func<bool> runPermission)
         {
-            if (sensor != null) throw new InvalidOperationException("Conveyor is already bound.");
-            mayMove = ownershipFilter ?? throw new ArgumentNullException(nameof(ownershipFilter));
-            mayRun = runPermission ?? throw new ArgumentNullException(nameof(runPermission));
-            sensor = GetComponent<BoxCollider>();
-            if (!sensor.isTrigger) throw new InvalidOperationException("Conveyor observation bounds must be a trigger.");
+            if (initialized) throw new InvalidOperationException("Conveyor is already bound.");
+            if (ownershipFilter == null || runPermission == null) throw new ArgumentException("Conveyor permissions are required.");
+            var volume = GetComponent<BoxCollider>();
+            if (!volume.isTrigger || !volume.enabled) throw new InvalidOperationException("Conveyor observation bounds must be an enabled trigger.");
+            mayMove = ownershipFilter; mayRun = runPermission; sensor = volume; initialized = true;
         }
 
         public void ResetJam() { Jammed = false; Saturated = false; stalledSeconds = 0; }
 
         private void FixedUpdate()
         {
+            if (!initialized) return;
+            try { Step(); }
+            catch { enabled = false; throw; }
+        }
+
+        private void Step()
+        {
             Running = false; MovingBodyCount = 0;
-            if (sensor == null || !Powered || Jammed || mayRun == null || !mayRun()) return;
+            if (!Available) throw new InvalidOperationException("The bound conveyor observation volume became unavailable.");
+            if (!Powered || Jammed || !mayRun()) return;
             if (BeltSpeed <= 0 || float.IsNaN(BeltSpeed) || float.IsInfinity(BeltSpeed))
                 throw new InvalidOperationException("Belt speed must be finite and positive.");
             Vector3 scale = transform.lossyScale;

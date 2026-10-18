@@ -61,7 +61,7 @@ namespace CriticalShift.Sandbox
                 hud.Initialize(commands, actor, containers, machines, reactor, patient, () => host.FocusHint + "\n" + host.LastAction,
                     () => "Cart " + cart.Speed.ToString("F1") + " m/s · cargo " + cargo.Mass.ToString("F0") + " kg" +
                         (cart.Overloaded ? " OVERLOADED" : "") + (cargo.Saturated ? " SENSOR SATURATED" : !cargo.Available ? " SENSOR UNAVAILABLE" : "") +
-                        "\nBelt " + (belt.Jammed ? "BLOCKED" : belt.Running ? "moving" : "stopped") + " · bodies " + belt.MovingBodyCount +
+                        "\nBelt " + (!belt.Available ? "UNAVAILABLE" : belt.Jammed ? "BLOCKED" : belt.Running ? "moving" : "stopped") + " · bodies " + belt.MovingBodyCount +
                         "\nCarry/drag movement " + (walker.CarrySpeedScale * 100).ToString("F0") + "%" +
                         "\nPhysics " + safety.DynamicBodyCount + "/" + safety.BoundBodyCount + " dynamic · peak " + safety.PeakLinearSpeed.ToString("F1") + " m/s" +
                         (safety.FaultLatched ? "\nPHYSICS STOP: " + safety.Fault : "") +
@@ -417,7 +417,7 @@ namespace CriticalShift.Sandbox
             return meshes.Length;
         }
 
-        internal void ObservePlayerSmoke()
+        internal void ObservePlayerSmoke(bool requirePhysicalSensors = false)
         {
             safety.Sample();
             var view = world.View;
@@ -432,6 +432,9 @@ namespace CriticalShift.Sandbox
             foreach (var machine in machines)
                 if (world.Production.GetMachine(machine)?.Mode != ProductionMode.Idle)
                     throw new InvalidOperationException("The untouched sandbox Player machine baseline changed.");
+            if (requirePhysicalSensors && (!cargo.Available || cargo.Saturated || cargo.BodyCount != 0 || cargo.Mass != 0 ||
+                !belt.Available || !belt.Running || belt.Jammed || belt.MovingBodyCount != 0))
+                throw new InvalidOperationException("The untouched sandbox Player lost its sampled cargo/belt observation baseline.");
         }
 
         public void Dispose()

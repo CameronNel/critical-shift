@@ -5,7 +5,7 @@ using UnityEngine;
 namespace CriticalShift.FacilityPhysics
 {
     /// <summary>Bounded current-volume observation. Explicit physical groups count once, without owning cargo custody.</summary>
-    [RequireComponent(typeof(BoxCollider))]
+    [DisallowMultipleComponent, RequireComponent(typeof(BoxCollider))]
     public sealed class CartCargoSensor : MonoBehaviour
     {
         private readonly Collider[] contacts = new Collider[64];

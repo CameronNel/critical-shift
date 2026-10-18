@@ -76,7 +76,7 @@ art acceptance.
 - Diagnostic controls, crusher/fuel/reactor fixture, lamps, valve/spindle/tread
   motion, material appearance and scratch-scene generator: written, unvalidated.
 - Nine pure command-port tests, fourteen worker-body claim tests, nine package
-  safety tests, five declared-boundary cases and 97 native sandbox
+  safety tests, five declared-boundary cases and 98 native sandbox
   tests are implemented, all **NotRun**. These are declared inventory counts,
   not discovered/executed results.
 - Direct first-person focus, context transfer/drop, power/cooling and start
@@ -749,3 +749,15 @@ availability. Observation failures disable that module and remain visible rather
 than repeating every FixedUpdate. One added native case checks fresh-sample drive
 admission, and the overflow case checks disable/reenable retention. Source
 catalogue: 97 native cases, all NotRun.
+
+Conveyor setup now validates its enabled trigger and both permissions before
+installing a live binding. A rejected setup cannot leave a force-producing
+FixedUpdate path; corrected setup on that same unbound component is allowed.
+Losing the bound observation volume disables the conveyor with a named error,
+and the panel shows unavailability separately from an operational blockage.
+Both volume components reject duplicate components on one object. A new native
+case checks failed setup, zero drive, corrected binding and disable cleanup.
+The optional Player smoke additionally requires the untouched cargo/belt sensor
+baseline after its existing minimum 120 physics frames, before teardown; it
+does not require a first-frame sample or change evidence thresholds. Source
+catalogue: 98 native cases, all NotRun.

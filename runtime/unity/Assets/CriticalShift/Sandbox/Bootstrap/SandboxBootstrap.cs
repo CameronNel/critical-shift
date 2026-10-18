@@ -98,7 +98,8 @@ namespace CriticalShift.Sandbox
             {
                 if (smokeErrors) { BeginSmokeStop(); return; }
                 fixture.ObservePlayerSmoke(); smokeFrames++;
-                if (smokeFrames >= 120 && Time.realtimeSinceStartupAsDouble - smokeStartedAt >= 2) BeginSmokeStop();
+                if (smokeFrames >= 120 && Time.realtimeSinceStartupAsDouble - smokeStartedAt >= 2)
+                { fixture.ObservePlayerSmoke(requirePhysicalSensors: true); BeginSmokeStop(); }
             }
             catch (Exception exception) { smokeErrors = true; Debug.LogException(exception, this); BeginSmokeStop(); }
         }

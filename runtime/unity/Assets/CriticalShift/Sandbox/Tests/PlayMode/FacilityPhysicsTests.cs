@@ -151,6 +151,23 @@ namespace CriticalShift.Sandbox.Tests
             Assert.That(belt.MovingBodyCount, Is.Zero);
         }
 
+        [UnityTest] public IEnumerator RejectedConveyorSetupCannotDriveBeforeACorrectedBinding()
+        {
+            var body = Body("Portable beside rejected conveyor", Vector3.zero);
+            var owner = new GameObject("Rejected conveyor observation bounds"); owner.transform.SetParent(root.transform, false);
+            var volume = owner.AddComponent<BoxCollider>(); volume.size = Vector3.one * 10; volume.enabled = false;
+            var belt = owner.AddComponent<ConveyorDrive>();
+            Assert.Throws<System.InvalidOperationException>(() => belt.Initialize(candidate => candidate == body, () => true));
+            for (int i = 0; i < 4; i++) yield return new WaitForFixedUpdate();
+            Assert.That(body.linearVelocity.sqrMagnitude, Is.LessThan(0.0001f));
+            Assert.That(belt.Available, Is.False); Assert.That(belt.Running, Is.False);
+            volume.isTrigger = true; volume.enabled = true; belt.Initialize(candidate => candidate == body, () => true);
+            for (int i = 0; i < 4; i++) yield return new WaitForFixedUpdate();
+            Assert.That(belt.Available, Is.True); Assert.That(belt.MovingBodyCount, Is.EqualTo(1));
+            Assert.That(body.linearVelocity.z, Is.GreaterThan(0.01f));
+            belt.enabled = false; Assert.That(belt.Available, Is.False); Assert.That(belt.Running, Is.False); Assert.That(belt.MovingBodyCount, Is.Zero);
+        }
+
         [UnityTest] public IEnumerator CompoundColliderBodyReceivesOneBeltDrive()
         {
             var body = Body("Compound portable body", Vector3.zero);
