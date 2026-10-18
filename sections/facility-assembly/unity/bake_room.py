@@ -374,7 +374,12 @@ def isolate():
 def assert_isolated(where):
     """Everything that renders must be the room (2026-10-18: the whole map rendered inside every map bake and nothing said so). Cameras are allowed.
     Room mode only warns: a room file may hold other things the room scene always rendered with."""
-    keep = set(coll.all_objects); foreign = set()
+    keep = set()                                                 # everything under the room collections, render-hidden ones too (they do not render)
+    def under(c):
+        keep.update(c.objects)
+        for ch in c.children: under(ch)
+    for n in coll.names: under(bpy.data.collections[n])
+    foreign = set()
     for o in vl.objects:                                         # render visibility (hidden from the viewport still renders)
         if o not in keep and o.type != 'CAMERA' and not o.hide_render: foreign.add(o.name)
     for inst in bpy.context.evaluated_depsgraph_get().object_instances:

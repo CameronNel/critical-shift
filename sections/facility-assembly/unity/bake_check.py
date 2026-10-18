@@ -33,7 +33,13 @@ for n in names:
     if bpy.data.collections.get(n) is None: fail('collection %s is not in %s' % (n, os.path.basename(bpy.data.filepath)))
     else: walk(bpy.data.collections[n], members)
 vl = bpy.context.view_layer
-foreign = sorted(o.name for o in vl.objects if o not in members and o.type != 'CAMERA' and not o.hide_render)
+room_all = set()                                                 # including render-hidden collections (the mine's CC0 sources): they do not render
+def under(c):
+    room_all.update(c.objects)
+    for ch in c.children: under(ch)
+for n in names:
+    if bpy.data.collections.get(n) is not None: under(bpy.data.collections[n])
+foreign = sorted(o.name for o in vl.objects if o not in room_all and o.type != 'CAMERA' and not o.hide_render)
 if foreign: fail('%d objects render that are not in the room collections (the map leaking into the bake?): %s' % (len(foreign), foreign[:12]))
 dg = bpy.context.evaluated_depsgraph_get()
 inst = sorted({'%s by %s' % (i.object.name, i.parent.name if i.parent else '?') for i in dg.object_instances if i.is_instance})
