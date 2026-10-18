@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using CriticalShift.Application;
 using CriticalShift.FacilityPhysics;
 using CriticalShift.Features.Interaction.Unity;
@@ -18,6 +19,7 @@ namespace CriticalShift.Sandbox.Tests
         private Rigidbody cart, box;
         private Transform actorRoot, stand;
         private Guid focus;
+        private List<Exception> faults;
         private static Guid Id(int value) => new Guid(value, 0, 0, new byte[8]);
         private Guid Actor => Id(1);
         private Guid Cart => Id(10);
@@ -27,11 +29,12 @@ namespace CriticalShift.Sandbox.Tests
 
         [SetUp] public void SetUp()
         {
+            faults = new List<Exception>();
             root = new GameObject("Cart grip regression fixture"); root.transform.position = new Vector3(2000, 1000, 2000);
             world = new WorldSession(new WorldSessionConfiguration(1, 60000), new FixtureAccess());
             world.RegisterConnection(Id(2), Actor); world.RegisterObject(Cart); world.RegisterObject(Box);
             port = new LocalCommandPort(world, Id(2)); host = root.AddComponent<LocalWorldHost>();
-            host.Initialize(world, port, Actor, () => 0);
+            host.Initialize(world, port, Actor, () => 0, faults.Add);
             actorRoot = Child("Actor root", root.transform, new Vector3(0, 0, -2)); host.BindActorRoot(Actor, actorRoot);
             var carry = Child("Carry target", actorRoot, new Vector3(0, 1.5f, 1.75f)); host.BindCarryTarget(Actor, carry);
             cart = Body("Cart", new Vector3(0, 1, 0)); cart.mass = 35;
@@ -55,6 +58,7 @@ namespace CriticalShift.Sandbox.Tests
         {
             if (host != null) host.Shutdown(); if (root != null) UnityEngine.Object.Destroy(root);
             yield return null; LogAssert.NoUnexpectedReceived();
+            Assert.That(faults, Is.Empty, "Unexpected cart host fault.");
         }
 
         [UnityTest] public IEnumerator CartHandleClaimDoesNotSpringCarryItsBody()
@@ -71,6 +75,18 @@ namespace CriticalShift.Sandbox.Tests
             for (int i = 0; i < 15; i++) yield return new WaitForFixedUpdate();
             Assert.That(Vector3.Distance(cart.position, initial), Is.LessThan(0.01f));
             Assert.That(cart.isKinematic, Is.False);
+        }
+
+        [UnityTest] public IEnumerator LosingCartContactGeometryStopsItsHandleWorld()
+        {
+            host.Activate(); host.Grab(Cart); Assert.That(world.GetObject(Cart).HolderId, Is.EqualTo(Actor));
+            cart.GetComponent<Collider>().enabled = false;
+            yield return null; yield return new WaitForFixedUpdate();
+            Assert.That(faults.Count, Is.EqualTo(1)); Assert.That(faults[0], Is.TypeOf<InvalidOperationException>());
+            Assert.That(faults[0].Message, Does.Contain("cart grip lost")); faults.Clear();
+            Assert.That(world.View.Phase, Is.EqualTo(WorldPhase.Stopped)); Assert.That(world.View.ActiveClaimCount, Is.Zero);
+            Assert.That(host.BoundBodyCount, Is.Zero); Assert.That(host.IsHandleHeld(Cart), Is.False);
+            Assert.That(cart.GetComponent<Collider>().enabled, Is.False); yield return null;
         }
 
         [UnityTest] public IEnumerator HandleEntryRejectsWrongSideAndExcessiveCartSpeed()

@@ -76,7 +76,7 @@ art acceptance.
 - Diagnostic controls, crusher/fuel/reactor fixture, lamps, valve/spindle/tread
   motion, material appearance and scratch-scene generator: written, unvalidated.
 - Nine pure command-port tests, fourteen worker-body claim tests, nine package
-  safety tests, five declared-boundary cases and 95 native sandbox
+  safety tests, five declared-boundary cases and 96 native sandbox
   tests are implemented, all **NotRun**. These are declared inventory counts,
   not discovered/executed results.
 - Direct first-person focus, context transfer/drop, power/cooling and start
@@ -730,3 +730,12 @@ native case uses a scaled, offset solid box, verifies an adjacent obstacle block
 insertion without consuming the command stream, then clears it and checks actual
 slot geometry. Later rescaling must stop that binding rather than query stale
 dimensions. Source catalogue: 95 native cases, all NotRun.
+
+The cart handle now observes its required solid contact geometry, dynamic motion
+mode, collision detection and still-parented active grip/stance anchors. Missing
+contacts cannot leave an authoritative driver grip on a ghost cart. Fixture
+composition binds the cart only after all bed/rail/handle/wheel shapes exist;
+trigger sensors and disabled decorative colliders are excluded. One new native
+case disables a held cart's solid shape and checks one captured fault plus empty
+claims/bindings. Unexpected cart-test diagnostics fail teardown without weakening
+the native log gate. Source catalogue: 96 native cases, all NotRun.

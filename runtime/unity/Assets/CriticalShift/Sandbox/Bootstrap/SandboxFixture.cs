@@ -339,7 +339,6 @@ namespace CriticalShift.Sandbox
             var handle = SandboxPrimitives.Empty("Cart rear grip", rig.transform, new Vector3(0, 0.9f, -1.15f));
             SandboxPrimitives.Box("Cart handle bar", handle.transform, Vector3.zero, new Vector3(1.1f, 0.08f, 0.08f), shapes.Dark);
             var stand = SandboxPrimitives.Empty("Cart operator stance", rig.transform, new Vector3(0, -0.45f, -2));
-            host.BindCartHandle(cartId, body, handle.transform, stand.transform); access.BindTarget(cartId, rig.transform, handle.transform);
             var sensor = SandboxPrimitives.Empty("Cargo observation bounds", rig.transform, new Vector3(0, 0.65f, 0));
             var bounds = sensor.AddComponent<BoxCollider>(); bounds.isTrigger = true; bounds.size = new Vector3(1.1f, 1.1f, 1.65f);
             cargo = sensor.AddComponent<CartCargoSensor>(); cargo.Initialize(body, host.PhysicalCargoGroup, host.PhysicalCargoMass);
@@ -368,6 +367,8 @@ namespace CriticalShift.Sandbox
                 wheels[i] = pivot.transform;
             }
             rig.AddComponent<CartWheelMotion>().Initialize(cart, wheels);
+            // Capture required contacts only after the bed, rails, handle and wheel shapes exist.
+            host.BindCartHandle(cartId, body, handle.transform, stand.transform); access.BindTarget(cartId, rig.transform, handle.transform);
         }
 
         private void BuildConveyor()

@@ -330,8 +330,8 @@ namespace CriticalShift.Features.Interaction.Unity
             {
                 var state = running ? world.GetObject(handle.Id) : null;
                 if (state == null || state.IsRetired) continue;
-                if (handle.Body == null || !handle.Body.gameObject.activeInHierarchy)
-                    throw new InvalidOperationException("A registered cart-handle body was destroyed or disabled.");
+                if (!handle.Available)
+                    throw new InvalidOperationException("A registered cart grip lost its required motion, anchors or contact geometry: " + handle.Id);
                 if (state.HolderId.HasValue && (!actorRoots.TryGetValue(state.HolderId.Value, out var root) || !handle.CanMaintain(root)))
                 {
                     world.ReportAttachmentFailure(world.Epoch, handle.Id, state.LeaseGeneration); dropped = true;
