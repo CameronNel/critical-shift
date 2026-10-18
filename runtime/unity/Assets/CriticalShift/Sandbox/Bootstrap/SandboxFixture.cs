@@ -172,15 +172,27 @@ namespace CriticalShift.Sandbox
                     patientContacts.BindFallingHazard(containers[i], body, () => host.IsBodyFree(body));
                 }
                 // Bind solid bounds before adding non-contacting decorative primitives.
-                SandboxPrimitives.Box("Crate orientation stripe", crate.transform, new Vector3(0, 0.51f, 0),
-                    new Vector3(0.15f, 0.025f, 0.65f), shapes.Dark, false);
-                SandboxPrimitives.Box("Crate orientation head", crate.transform, new Vector3(0, 0.51f, 0.32f),
-                    new Vector3(0.45f, 0.025f, 0.12f), shapes.Yellow, false);
+                crate.GetComponent<Renderer>().enabled = false;
+                SandboxPrimitives.Box("Crate bottom", crate.transform, new Vector3(0, -0.43f, 0), new Vector3(1, 0.14f, 1), shapes.Dark, false);
+                SandboxPrimitives.Box("Crate left wall", crate.transform, new Vector3(-0.46f, 0, 0), new Vector3(0.08f, 0.8f, 1), shapes.Steel, false);
+                SandboxPrimitives.Box("Crate right wall", crate.transform, new Vector3(0.46f, 0, 0), new Vector3(0.08f, 0.8f, 1), shapes.Steel, false);
+                var face = SandboxPrimitives.Box("Crate front wall", crate.transform, new Vector3(0, 0, -0.46f),
+                    new Vector3(0.84f, 0.8f, 0.08f), fuel ? shapes.Fuel : wet ? shapes.Wet : shapes.Ore, false);
+                SandboxPrimitives.Box("Crate rear wall", crate.transform, new Vector3(0, 0, 0.46f), new Vector3(0.84f, 0.8f, 0.08f), shapes.Steel, false);
+                SandboxPrimitives.Box("Crate orientation stripe", crate.transform, new Vector3(0, 0.05f, -0.51f),
+                    new Vector3(0.12f, 0.5f, 0.025f), shapes.Dark, false);
+                SandboxPrimitives.Box("Crate orientation head", crate.transform, new Vector3(0, 0.3f, -0.51f),
+                    new Vector3(0.4f, 0.08f, 0.025f), shapes.Yellow, false);
                 if (i == 0)
                     for (int band = -1; band <= 1; band += 2)
-                        SandboxPrimitives.Box("Heavy crate warning band " + band, crate.transform, new Vector3(band * 0.3f, 0.51f, 0),
-                            new Vector3(0.075f, 0.025f, 0.8f), shapes.Yellow, false);
-                crate.AddComponent<MaterialContainerFeedback>().Initialize(commands, containers[i], crate.GetComponent<Renderer>());
+                        SandboxPrimitives.Box("Heavy crate warning band " + band, crate.transform, new Vector3(band * 0.3f, 0, -0.51f),
+                            new Vector3(0.075f, 0.7f, 0.025f), shapes.Yellow, false);
+                var contents = new Transform[8];
+                for (int piece = 0; piece < contents.Length; piece++)
+                    contents[piece] = SandboxPrimitives.Box("Bounded material visual " + piece, crate.transform,
+                        new Vector3(piece % 2 == 0 ? -0.24f : 0.24f, piece < 4 ? -0.22f : 0.1f, piece % 4 < 2 ? -0.24f : 0.24f),
+                        new Vector3(0.3f, 0.28f, 0.3f), shapes.Ore, false).transform;
+                crate.AddComponent<MaterialContainerFeedback>().Initialize(commands, containers[i], face.GetComponent<Renderer>(), contents, units);
             }
         }
 

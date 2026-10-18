@@ -76,7 +76,7 @@ art acceptance.
 - Diagnostic controls, crusher/fuel/reactor fixture, lamps, valve/spindle/tread
   motion, material appearance and scratch-scene generator: written, unvalidated.
 - Nine pure command-port tests, fourteen worker-body claim tests, nine package
-  safety tests, five declared-boundary cases and 78 native sandbox
+  safety tests, five declared-boundary cases and 81 native sandbox
   tests are implemented, all **NotRun**. These are declared inventory counts,
   not discovered/executed results.
 - Direct first-person focus, context transfer/drop, power/cooling and start
@@ -381,7 +381,7 @@ not commit another custody/material operation, bypass reach or turn a worker
 drag/cart handle. Per-actor orientation resets on a different entity or lease,
 release, slot insertion, expiry, obstruction drop and teardown. Pause rejects
 rotation input while preserving the current target. Target bindings now reject
-sharing one Transform across actors. Small top markings show crate orientation;
+sharing one Transform across actors. Small face markings show crate orientation;
 solid carry bounds are bound before those non-contacting decorations are added.
 Two further native cases are written and NotRun: torque/claim/material ownership,
 and pause/release/new-lease/teardown resets. Existing cart and worker drag cases
@@ -434,3 +434,19 @@ Three more native cases are written and NotRun: dynamic/kinematic observation
 without motion writes; one runaway failure; and escaped held cargo stopping the
 actual fixture and clearing the claim. These support future PHYS-02 evidence;
 no tunnelling, native stability, frame-time or performance pass is asserted.
+
+## Material-content presentation source
+
+The same eight portable box proxies now have open debug bin visuals and eight
+prebound, non-contacting content markers each. One existing presentation owner
+reads the canonical batch and updates visible fraction, shape and condition
+color. It never creates inventory entities or spawns pieces during an update.
+Ore is irregular, crushed material flatter, fuel/spent fuel aligned. Markings
+move onto the front wall so manual orientation remains readable. The original
+solid box stays the declared physical proxy; no containment behavior is implied.
+Spent fuel keeps its authored ledger quantity and stays visible after reactor
+exhaustion. A missing/stopped projection hides the pile; reenable refreshes even
+when the batch revision is unchanged. Three new native cases are written and
+NotRun: conversion/yield without another commit; spent-fuel accounting; and
+paused reenable/teardown with no new visual objects. Appearance, physics proxy
+fit and rendering cost remain unvalidated and require later native/human review.

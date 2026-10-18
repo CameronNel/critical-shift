@@ -1,5 +1,8 @@
 {
   "PlayMode": [
+    "CriticalShift.Sandbox.Tests.MaterialContentsTests.ConversionUpdatesTheExistingVisiblePileWithoutAnotherMaterialCommit",
+    "CriticalShift.Sandbox.Tests.MaterialContentsTests.ExhaustionShowsSpentFuelWithoutDeletingItsAccountedQuantity",
+    "CriticalShift.Sandbox.Tests.MaterialContentsTests.PausedReenableRebuildsTheProjectionAndStoppedWorldHidesThePile",
     "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.PhysicsMonitorObservesDynamicHandoffsWithoutWritingMotion",
     "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.PhysicsMonitorLatchesOneRunawayFailureAndLeavesMotionToItsOwner",
     "CriticalShift.Sandbox.Tests.SandboxLifetimeTests.EscapedFixtureCargoStopsTheWorldAndClearsItsCurrentClaim",

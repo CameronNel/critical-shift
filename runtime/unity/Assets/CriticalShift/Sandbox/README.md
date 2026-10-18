@@ -40,7 +40,7 @@ test worker. The second worker is controlled locally for this fixture.
 - With a crate held over the cart, E releases it onto the bed before taking the
   handle. Cargo remains physically observed; this does not invent inventory.
 - Middle-mouse drag turns a currently held crate through its existing torque
-  controller. Top markings make its orientation visible. Rotation clears on
+  controller. Face markings make its orientation visible. Rotation clears on
   release, expiry, insertion or restart, and cannot turn a cart or worker grip.
 - T throws a portable crate toward the current look heading. A committed
   release comes first; one bounded impulse follows only for that exact free
@@ -59,6 +59,10 @@ test worker. The second worker is controlled locally for this fixture.
   fixture's explicitly registered falling-load hazard. A free downward contact
   above the authored speed/mass threshold uses the same knockdown flow. Held,
   slotted and lightweight bodies cannot take that hazard path.
+- Open debug bins show eight prebound, non-contacting content markers. Their
+  fill, shape and color follow batch quantity, kind and condition. Conversion
+  changes the same pile; spent fuel remains accounted material. The solid box
+  remains the physical proxy; individual pieces are presentation only.
 - Look at the test worker's physical suit grip and E begins a single-person
   drag; G releases. Pulling uses the same exclusive claim and current lease as
   containers, and slows movement using the 68 kg debug body proxy. Excessive
@@ -125,7 +129,7 @@ on the inspected baseline. No package is downloaded by the generator.
 
 The existing foundation runner still tests its foundation assembly selection;
 it does not automatically claim sandbox coverage. The separate native inventory
-is `runtime/validation/sandbox-expected-tests.json`: 78 implemented cases, all
+is `runtime/validation/sandbox-expected-tests.json`: 81 implemented cases, all
 NotRun. Nine new pure command-port cases, fourteen worker-body claim cases and
 nine source-package safety cases and five declared-assembly boundary cases
 are also NotRun. Native fixtures are offset from possible active-scene content
