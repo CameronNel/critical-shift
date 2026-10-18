@@ -60,16 +60,18 @@ class _Rooms:
         for n in self.names: walk(bpy.data.collections[n])
         return list(dict.fromkeys(out))
     def show(self, objs):
-        """Make the collections holding `objs` visible in the view layer: edit mode, convert and join skip what the viewport hides."""
+        """Make the collections holding `objs` visible in the view layer: edit mode, convert and join skip what the viewport hides.
+        Looked up fresh for each change (see _layer)."""
         want = set()
         for o in objs: want.update(c.name for c in o.users_collection)
-        def walk(lc, path):
-            hit = lc.collection.name in want
-            for ch in lc.children: hit = walk(ch, path + [lc]) or hit
-            if hit:
-                lc.exclude = False; lc.hide_viewport = False; lc.collection.hide_viewport = False
-            return hit
-        walk(vl.layer_collection, [])
+        def paths(lc, trail, out):
+            here = trail + [lc.collection.name]
+            if lc.collection.name in want: out.update(here[1:])
+            for ch in lc.children: paths(ch, here, out)
+        hit = set(); paths(vl.layer_collection, [], hit)
+        for n in hit:
+            lc = _layer(n)
+            if lc is not None: lc.exclude = False; lc.hide_viewport = False; lc.collection.hide_viewport = False
 coll = _Rooms()
 VOLUME = lambda m: m and m.node_tree and any(n.type == 'OUTPUT_MATERIAL' and n.inputs['Volume'].is_linked for n in m.node_tree.nodes)
 def bsdf(m): return next((n for n in m.node_tree.nodes if n.type == 'BSDF_PRINCIPLED'), None) if m and m.node_tree else None
@@ -196,7 +198,7 @@ def merge_for_bake(objs, mats):
         g = next((k for k, gr in enumerate(groups) if k not in banned and len(gr['uv'] | uvsets[i]) <= 6), None)
         if g is None: g = len(groups); groups.append(dict(members=[], uv=set()))
         col[i] = g; groups[g]['members'].append(i); groups[g]['uv'] |= uvsets[i]
-    for o in bpy.data.objects:                                   # unparent (keeping place) anything whose parent may be joined away
+    for o in list(vl.objects):                                   # unparent (keeping place) anything whose parent may be joined away
         if o.parent is not None and o.parent.type == 'MESH':
             mw = o.matrix_world.copy(); o.parent = None; o.matrix_world = mw
     out = []
@@ -215,23 +217,45 @@ def merge_for_bake(objs, mats):
     return out
 
 ISOLATE = '--isolate' in a     # map mode (bake_all.ps1 -Map): bake the room collections alone, e.g. the map's ROOM_<room>_members
+def _layer(name):
+    """The view layer's LayerCollection for a collection, looked up fresh: changing exclude rebuilds the tree and leaves older references stale."""
+    def walk(lc):
+        if lc.collection.name == name: return lc
+        for ch in lc.children:
+            f = walk(ch)
+            if f is not None: return f
+    return walk(vl.layer_collection)
+
 def isolate():
     """Link the room collections to the scene if they are not in it (the map instances ROOM_<room>_members rather than linking it) and exclude every
-    other collection, so the map's other rooms and instancers neither bake nor shade this one. Members sit in their room's own frame."""
-    def lcs(lc):
-        yield lc
-        for ch in lc.children: yield from lcs(ch)
-    present = {lc.collection.name for lc in lcs(vl.layer_collection)}
+    other collection, so the map's other rooms and instancers neither bake nor shade this one. Members sit in their room's own frame.
+    Each exclude is applied through a fresh lookup (2026-10-18: holding LayerCollection references across excludes silently kept the whole map,
+    7.9 M triangles of other rooms, in every map bake), then checked."""
+    def names(lc):
+        yield lc.collection.name
+        for ch in lc.children: yield from names(ch)
+    present = set(names(vl.layer_collection))
     for n in coll.names:
         if n not in present: sc.collection.children.link(bpy.data.collections[n])
-    def walk(lc):
+    def plan(lc, out):                                           # collections off every path to a room collection, outermost only
         keep = lc.collection.name in coll.names
-        for ch in lc.children: keep = walk(ch) or keep
-        if lc is not vl.layer_collection and not keep: lc.exclude = True
+        sub = []
+        for ch in lc.children: keep = plan(ch, sub) or keep
+        if keep: out.extend(sub)
+        else: out.append(lc.collection.name)
         return keep
-    walk(vl.layer_collection)
-    for o in list(sc.collection.objects):                        # loose objects at the scene root (map instancers) leave the bake
-        if o.name not in {x.name for x in coll.all_objects}: sc.collection.objects.unlink(o)
+    drop = []
+    for ch in vl.layer_collection.children: plan(ch, drop)
+    for n in drop: _layer(n).exclude = True
+    keep = set(coll.all_objects)
+    for o in list(sc.collection.objects):                        # loose objects at the scene root leave the bake
+        if o not in keep: sc.collection.objects.unlink(o)
+    for o in list(vl.objects):                                   # what is left visible but is not the room (the map's room instancers above the
+        if o not in keep and o.type != 'CAMERA':                 # connector collections) is hidden from the bake
+            try: o.hide_render = True; o.hide_viewport = True
+            except Exception: pass
+    left = [n for n in drop if not _layer(n).exclude]
+    if left: raise SystemExit('isolate: collections still in the view layer: %s' % left)
 
 def localise_node_groups(mats):
     """Node groups stay linked when objects, meshes and materials are made local; the merge rewires them, so make them local too."""
@@ -258,6 +282,7 @@ if STAGE in ('prep', 'all'):
         for o in inst: o.hide_set(False); o.hide_viewport = False; o.hide_select = False; o.select_set(True)
         vl.objects.active = inst[0]
         bpy.ops.object.duplicates_make_real(use_base_parent=True, use_hierarchy=True)
+        for o in inst: o.instance_type = 'NONE'                  # the instancer would otherwise still draw its collection over the real copies
         step('instances made real', instancers=len(inst))
     ext = [o for o in coll.all_objects if o.library or (o.data and o.data.library) or any(s.material and s.material.library for s in o.material_slots)]
     if ext:
