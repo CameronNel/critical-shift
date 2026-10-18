@@ -18,6 +18,9 @@ namespace CriticalShift.Sandbox
         private LocalCommandPort commands;
         private LocalWorldHost host;
         private LocalWorkerMotor walker;
+        private LocalWorkerStateHost workerState;
+        private WorkerImpactContacts workerContacts;
+        private WorkerRecoveryPlacement recovery;
         private CartMotor cart;
         private CartCargoSensor cargo;
         private ConveyorDrive belt;
@@ -36,7 +39,8 @@ namespace CriticalShift.Sandbox
                 shapes = new SandboxPrimitives(fixtureShader);
                 access = new SpatialInteractionAccess(3.8f,
                     (actorId, targetId, body) => host != null && host.MayIgnoreForSight(actorId, targetId, body));
-                world = new WorldSession(new WorldSessionConfiguration(7, 12 * 60 * 1000, true, maxObjects: 32), access);
+                recovery = new WorkerRecoveryPlacement();
+                world = new WorldSession(new WorldSessionConfiguration(7, 12 * 60 * 1000, true, maxObjects: 32), access, recovery);
                 world.RegisterConnection(connection, actor);
                 commands = new LocalCommandPort(world, connection);
                 host = root.AddComponent<LocalWorldHost>(); host.Initialize(world, commands, actor);
@@ -47,7 +51,8 @@ namespace CriticalShift.Sandbox
                     () => "Cart " + cart.Speed.ToString("F1") + " m/s · cargo " + cargo.Mass.ToString("F0") + " kg" +
                         (cart.Overloaded ? " OVERLOADED" : "") + (cargo.Saturated ? " SENSOR SATURATED" : "") +
                         "\nBelt " + (belt.Jammed ? "BLOCKED" : belt.Running ? "moving" : "stopped") + " · bodies " + belt.MovingBodyCount +
-                        "\nCarrying movement " + (walker.CarrySpeedScale * 100).ToString("F0") + "%");
+                        "\nCarrying movement " + (walker.CarrySpeedScale * 100).ToString("F0") + "%" +
+                        "\n" + workerState.LastAction);
                 hud.GrabRequested += host.Grab; hud.ReleaseRequested += host.Release;
                 hud.MachineRequested += host.OperateMachine; hud.ReactorRequested += host.OperateReactor;
                 hud.ReplayRequested += host.ReplayLast; hud.PauseRequested += host.ToggleClockPause;
@@ -56,7 +61,8 @@ namespace CriticalShift.Sandbox
                 hud.CartDriveRequested += cart.SetDrive;
                 hud.TransferFocusedRequested += host.TransferFocused; hud.DropHeldRequested += host.DropHeld;
                 hud.StartFocusedRequested += host.StartFocused; hud.ToggleFocusedPowerRequested += host.ToggleFocusedPower;
-                host.Activate(); hud.Activate();
+                hud.RecoveryRequested += workerState.RequestRecovery; hud.DiagnosticKnockdownRequested += workerState.DiagnosticKnockdown;
+                host.Activate(); workerState.Activate(); workerContacts.Activate(); hud.Activate();
             }
             catch { Dispose(); throw; }
         }
@@ -90,9 +96,17 @@ namespace CriticalShift.Sandbox
             var carry = SandboxPrimitives.Empty("Current-claim carry target", eyes.transform, new Vector3(0, -0.15f, 1.75f));
             walker = player.AddComponent<LocalWorkerMotor>();
             walker.Initialize(eyes.transform, () => commands.GetWorker(actor), () => world.View.Phase == WorldPhase.Running,
-                host.CarriedPhysicalMass, host.CurrentGripStand);
+                host.CarriedPhysicalMass, host.CurrentGripStand, host.IsBodyFree);
             access.BindActor(actor, eyes.transform); host.BindCarryTarget(actor, carry.transform);
             host.BindActorRoot(actor, player.transform);
+            var rig = SandboxWorkerRigBuilder.Build(world.Epoch, actor, controller, eyes.transform, shapes);
+            recovery.Bind(rig);
+            workerState = player.AddComponent<LocalWorkerStateHost>();
+            workerState.Initialize(world, actor, rig, recovery, host.Pump, walker.ResetAfterRecovery, host.ReportExternalFailure);
+            workerState.BindHazard(cartId); workerState.BindHazard(Id(702), diagnostic: true);
+            workerContacts = player.AddComponent<WorkerImpactContacts>();
+            workerContacts.Initialize(controller, () => commands.GetWorker(actor), () => world.View.Phase == WorldPhase.Running,
+                () => walker.MeasuredVelocity, workerState.ObserveKnockdown, host.ReportExternalFailure);
         }
 
         private void BuildContainers()
@@ -184,6 +198,7 @@ namespace CriticalShift.Sandbox
             cargo = sensor.AddComponent<CartCargoSensor>(); cargo.Initialize(body, host.IsBodyFree);
             cart = rig.AddComponent<CartMotor>(); cart.SafeCargoMass = 35;
             cart.Initialize(() => world.View.Phase == WorldPhase.Running && host.IsHandleHeld(cartId) && !cargo.Saturated, () => cargo.Mass);
+            workerContacts.BindHazard(cartId, body);
             var loadFace = SandboxPrimitives.Box("Cart load warning face", rig.transform, new Vector3(0.48f, 0.8f, -0.96f),
                 new Vector3(0.16f, 0.16f, 0.04f), shapes.Lamp, false);
             var loadLamp = SandboxPrimitives.PointLight("Cart overload beacon", rig.transform, new Vector3(0.48f, 0.95f, -0.95f), Color.green, 0.2f, 1.6f);
@@ -231,8 +246,9 @@ namespace CriticalShift.Sandbox
             if (disposed) return;
             disposed = true;
             if (host != null) host.Shutdown();
+            if (workerState != null) workerState.Shutdown();
             if (root != null) { root.SetActive(false); UnityEngine.Object.Destroy(root); }
-            access?.Clear(); shapes?.Dispose();
+            access?.Clear(); recovery?.Clear(); shapes?.Dispose();
         }
     }
 }

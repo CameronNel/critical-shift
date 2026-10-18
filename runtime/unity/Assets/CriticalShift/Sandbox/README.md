@@ -30,6 +30,12 @@ machines, a reactor, a cart, a conveyor and a local collision controller.
 - Carrying slows movement using the mass of the current held body. The cart's
   load beacon turns amber for overload and flashes red when its observation
   capacity is saturated. These are physical fixture observations, not inventory.
+- A moving registered cart can knock the worker down. The existing worker rules
+  release the claim; a bounded eleven-body debug rig takes over after the walking
+  capsule is disabled. H attempts recovery after settling and the rule delay.
+  Recovery needs static ground, a clear standing capsule and a second clearance
+  check during the pending handoff. The panel also has an explicit fixture-only
+  knockdown button. This does not add reanimation or body-dragging mechanics.
 - Select a nearby crate and Grab/Release. Current host reach and line of sight
   are checked. Carrying uses bounded forces; excessive obstruction drops the
   exact claim. Leases renew through the same connection's command stream.
@@ -50,7 +56,9 @@ machines, a reactor, a cart, a conveyor and a local collision controller.
 `Sandbox.Bootstrap` constructs dependencies and owns fixture teardown. Application
 owns game rules and command admission. `Features.Interaction.Unity` owns clock
 sampling, physical claim/slot reconciliation and trusted spatial observations.
-`Features.Workers.Unity` owns the local walking controller only. FacilityPhysics
+`Features.Workers.Unity` owns local locomotion, the walking/ragdoll handoff,
+bounded trusted cart-contact observations and physical recovery clearance. It
+uses the existing Application worker operations for logical transitions. FacilityPhysics
 owns bounded cart/belt forces and their physical sensors; its authorization
 queries are injected. Presentation reads detached projections and sends typed
 commands through injected callbacks. No transport, voice, Steam or persistence
@@ -71,7 +79,7 @@ on the inspected baseline. No package is downloaded by the generator.
 
 The existing foundation runner still tests its foundation assembly selection;
 it does not automatically claim sandbox coverage. The separate native inventory
-is `runtime/validation/sandbox-expected-tests.json`: 33 implemented cases, all
+is `runtime/validation/sandbox-expected-tests.json`: 40 implemented cases, all
 NotRun. Nine new pure command-port cases and eight source-package safety cases
 are also NotRun. Native fixtures are offset from possible active-scene content
 to avoid collisions with an unrelated map/scene at the origin.

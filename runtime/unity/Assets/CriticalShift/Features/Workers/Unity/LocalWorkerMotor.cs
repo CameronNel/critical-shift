@@ -14,20 +14,25 @@ namespace CriticalShift.Features.Workers.Unity
         private Func<bool> canSimulate;
         private Func<float> carriedMass;
         private Func<Vector3?> gripStand;
+        private Func<Rigidbody, bool> mayPush;
+        private bool gripping;
         private Vector2 movement;
         private float verticalSpeed, yaw, pitch;
         public float WalkSpeed { get; set; } = 3.2f;
         public bool Grounded => controller != null && controller.isGrounded;
         public float CarrySpeedScale { get; private set; } = 1;
+        public Vector3 MeasuredVelocity { get; private set; }
 
         public void Initialize(Transform eyePivot, Func<WorkerView> worker, Func<bool> authority,
-            Func<float> readCarriedMass = null, Func<Vector3?> readGripStand = null)
+            Func<float> readCarriedMass = null, Func<Vector3?> readGripStand = null,
+            Func<Rigidbody, bool> readPushPermission = null)
         {
             if (eyes != null || eyePivot == null) throw new InvalidOperationException("Bind one explicit eye pivot.");
             eyes = eyePivot; readWorker = worker ?? throw new ArgumentNullException(nameof(worker));
             canSimulate = authority ?? throw new ArgumentNullException(nameof(authority));
             carriedMass = readCarriedMass;
             gripStand = readGripStand;
+            mayPush = readPushPermission;
             controller = GetComponent<CharacterController>();
             yaw = transform.eulerAngles.y;
         }
@@ -41,7 +46,7 @@ namespace CriticalShift.Features.Workers.Unity
         public void Look(Vector2 delta)
         {
             if (!Finite(delta)) throw new ArgumentException("View input must be finite.");
-            if (eyes == null || canSimulate == null || !canSimulate()) return;
+            if (eyes == null || canSimulate == null || !canSimulate() || readWorker()?.CanInteract != true) return;
             yaw += Mathf.Clamp(delta.x, -150, 150) * 0.2f;
             pitch = Mathf.Clamp(pitch - Mathf.Clamp(delta.y, -150, 150) * 0.2f, -75, 75);
             transform.rotation = Quaternion.Euler(0, yaw, 0);
@@ -50,9 +55,10 @@ namespace CriticalShift.Features.Workers.Unity
 
         private void Update()
         {
-            if (controller == null || readWorker == null || canSimulate == null || !canSimulate()) return;
+            if (controller == null || !controller.enabled || readWorker == null || canSimulate == null || !canSimulate())
+            { MeasuredVelocity = Vector3.zero; return; }
             var worker = readWorker();
-            if (worker == null || !worker.CanInteract) { movement = Vector2.zero; return; }
+            if (worker == null || !worker.CanInteract) { movement = Vector2.zero; MeasuredVelocity = Vector3.zero; return; }
             if (WalkSpeed <= 0 || float.IsNaN(WalkSpeed) || float.IsInfinity(WalkSpeed))
                 throw new InvalidOperationException("Worker speed must be finite and positive.");
             // A long frame cannot become an unbounded collision-controller teleport.
@@ -65,26 +71,39 @@ namespace CriticalShift.Features.Workers.Unity
             CarrySpeedScale = Mathf.Clamp(1 / (1 + load / 20), 0.35f, 1);
             Vector3 motion = transform.right * movement.x + transform.forward * movement.y;
             Vector3? stand = gripStand == null ? null : gripStand();
+            gripping = stand.HasValue;
             if (stand.HasValue)
             {
                 Vector3 correction = Vector3.ProjectOnPlane(stand.Value - transform.position, Vector3.up);
                 motion = Vector3.ClampMagnitude(correction * 10, 6);
             }
             else motion *= WalkSpeed * CarrySpeedScale;
+            Vector3 before = transform.position;
             controller.Move((motion + Vector3.up * verticalSpeed) * dt);
+            MeasuredVelocity = dt > 0 ? (transform.position - before) / dt : Vector3.zero;
+        }
+
+        public void ResetAfterRecovery()
+        {
+            if (eyes == null) throw new InvalidOperationException("Locomotion is not bound.");
+            yaw = transform.eulerAngles.y;
+            pitch = Mathf.DeltaAngle(0, eyes.localEulerAngles.x);
+            movement = Vector2.zero; verticalSpeed = -2; gripping = false; MeasuredVelocity = Vector3.zero;
         }
 
         private void OnControllerColliderHit(ControllerColliderHit hit)
         {
             var body = hit.rigidbody;
-            if (body == null || body.isKinematic || hit.moveDirection.y < -0.3f || movement.sqrMagnitude < 0.01f) return;
+            if (body == null || body.isKinematic || hit.moveDirection.y < -0.3f || movement.sqrMagnitude < 0.01f ||
+                gripping || canSimulate == null || !canSimulate() || readWorker()?.CanInteract != true ||
+                mayPush == null || !mayPush(body)) return;
             Vector3 direction = Vector3.ProjectOnPlane(hit.moveDirection, Vector3.up).normalized;
             body.AddForceAtPosition(direction * 1.5f, hit.point, ForceMode.Force);
         }
 
         private static bool Finite(Vector2 value) => !float.IsNaN(value.x) && !float.IsNaN(value.y) &&
             !float.IsInfinity(value.x) && !float.IsInfinity(value.y);
-        private void OnDisable() { movement = Vector2.zero; verticalSpeed = 0; }
+        private void OnDisable() { movement = Vector2.zero; verticalSpeed = 0; gripping = false; MeasuredVelocity = Vector3.zero; }
         private void OnApplicationFocus(bool focused) { if (!focused) movement = Vector2.zero; }
     }
 }

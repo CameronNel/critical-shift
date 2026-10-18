@@ -1,5 +1,12 @@
 {
   "PlayMode": [
+    "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.KnockdownDropsTheClaimBeforeRagdollTakesMotion",
+    "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.MovingCartContactCausesOneKnockdownEpisode",
+    "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.StationaryCartContactDoesNotInventAKnockdown",
+    "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.RecoveryHonorsDelayAndReturnsExactlyOneMotionController",
+    "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.LowCeilingRejectsRecoveryWithoutTeleportingTheWorkerRoot",
+    "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.MissingGroundCannotApproveAStandingPose",
+    "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.ANewImpactInvalidatesThePendingRecoveryPlacement",
     "CriticalShift.Sandbox.Tests.CartGripTests.CartHandleClaimDoesNotSpringCarryItsBody",
     "CriticalShift.Sandbox.Tests.CartGripTests.HandleEntryRejectsWrongSideAndExcessiveCartSpeed",
     "CriticalShift.Sandbox.Tests.CartGripTests.LostGripProximityReleasesItsExactLease",

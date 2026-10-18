@@ -75,7 +75,7 @@ art acceptance.
   jam latch, local walking: written, unvalidated.
 - Diagnostic controls, crusher/fuel/reactor fixture, lamps, valve/spindle/tread
   motion, material appearance and scratch-scene generator: written, unvalidated.
-- Nine pure command-port tests, eight package safety tests and 33 native sandbox
+- Nine pure command-port tests, eight package safety tests and 40 native sandbox
   tests are implemented, all **NotRun**. These are declared inventory counts,
   not discovered/executed results.
 - Direct first-person focus, context transfer/drop, power/cooling and start
@@ -121,8 +121,9 @@ physical container. Carry speed scales as `1/(1 + kg/20)`, bounded to 35–100%.
 These values make overload and slowdown observable in a small room; native
 stability, feel and target-hardware performance must still be measured.
 
-Source checkpoints: `aa172367` (one canonical Unity/.NET source package) and
-`532a5116` (first connected sandbox source). Subsequent edits remain part of
+Source checkpoints: `aa172367` (one canonical Unity/.NET source package),
+`532a5116` (first connected sandbox source), `8e9bae2a` (focus/carry/lifecycle)
+and `a58278db` (exclusive cart-handle claims). Subsequent edits remain part of
 this same ongoing ten-hour pass; no checkpoint is gate acceptance.
 
 The physical cart-handle source trial uses 1.4 m entry distance from its operator
@@ -133,3 +134,34 @@ introduced. Spherical wheel contacts use an owned low-friction material as a
 rolling-resistance proxy; CartMotor supplies bounded lateral damping and drive.
 One additional native case exercises the actual grounded fixture and stance
 following. All cart-handle and grounded-drive cases remain NotRun.
+
+## Worker physics source trial
+
+This extends the same isolated fixture under S04/S07/S09 and the planned
+HOLD-03, WORKER-01 and PHYS-01 cases. Application remains the consciousness,
+posture and claim mutation owner. No worker-domain rules are copied or changed.
+`Workers.Unity` switches between the walking capsule and an explicitly bound
+eleven-body, ten-joint debug rig. Only one mode supplies physical motion.
+The camera follows head position while retaining its look heading during a fall.
+
+Registered cart contact observations are bounded to eight sources and 32 query
+hits. A 1.8 m/s closing-speed and moving-cart threshold produces a configured
+knockdown with a 1500 ms rule delay. Contact latching prevents repeated episodes
+from one continuous contact; cause IDs and ordered per-source observations use
+the canonical worker entrypoint. A separate explicit developer source exercises
+the same path from the fixture panel. The locomotion push callback now permits
+only explicitly authorized free portable bodies, excluding the driven cart.
+
+Recovery stages a standing pose on static support, checks velocity, slope and
+capsule clearance, then rechecks the exact attempt after 400 process-clock ms.
+A new impact invalidates that placement. Blockage, missing support and stale
+attempts preserve the down state. The physics handoff happens only after the
+canonical completion accepts the current attempt. All initial thresholds and
+joint anatomy are fixture values pending native tuning and feel review.
+
+Seven new native worker cases are implemented, all NotRun: claim drop/motion
+handoff, actual cart contact and single episode, stationary contact rejection,
+recovery delay and single controller, low ceiling, missing ground, and impact
+interruption of a pending recovery. Ten-cycle teardown also checks that the old
+body rig becomes kinematic. Body dragging, aid/reanimation, production character
+art/animation and multiplayer coverage are still separate unfinished work.

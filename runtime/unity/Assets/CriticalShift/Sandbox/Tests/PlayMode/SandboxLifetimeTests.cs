@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using CriticalShift.Application;
 using CriticalShift.FacilityPhysics;
 using CriticalShift.Features.Interaction.Unity;
+using CriticalShift.Features.Workers.Unity;
 using CriticalShift.Presentation;
 using NUnit.Framework;
 using UnityEngine;
@@ -35,7 +36,10 @@ namespace CriticalShift.Sandbox.Tests
                 Assert.That(bootstrap.World, Is.Not.Null); Assert.That(bootstrap.World.Phase, Is.EqualTo(WorldPhase.Running));
                 Assert.That(epochs.Add(bootstrap.World.Epoch), Is.True);
                 Assert.That(bootstrap.PhysicalBindingCount, Is.EqualTo(9));
+                var workerRig = root.GetComponentInChildren<WorkerBodyRig>();
+                Assert.That(workerRig.BodyCount, Is.EqualTo(11));
                 bootstrap.enabled = false;
+                foreach (var body in workerRig.GetComponentsInChildren<Rigidbody>(true)) Assert.That(body.isKinematic, Is.True);
                 Assert.That(bootstrap.World, Is.Null);
                 Assert.That(bootstrap.PhysicalBindingCount, Is.Zero);
                 Assert.That(bootstrap.LastStoppedWorld.Phase, Is.EqualTo(WorldPhase.Stopped));

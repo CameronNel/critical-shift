@@ -224,6 +224,8 @@ namespace CriticalShift.Features.Interaction.Unity
         {
             if (world.View.Phase != WorldPhase.Running && world.View.Phase != WorldPhase.Paused)
             { focused = Guid.Empty; FocusHint = "Shift ended · restart the fixture"; return; }
+            if (world.GetWorker(localActor)?.CanInteract != true)
+            { focused = Guid.Empty; FocusHint = "Worker down | H attempts recovery once settled"; return; }
             focused = pickTarget == null ? Guid.Empty : pickTarget();
             var custody = world.GetObject(focused);
             if (custody?.SlotId != null) focused = custody.SlotId.Value;
@@ -298,6 +300,12 @@ namespace CriticalShift.Features.Interaction.Unity
         {
             LastAction = "Fixture stopped after an error; inspect the Unity log";
             Shutdown(); Debug.LogException(exception, this);
+        }
+
+        public void ReportExternalFailure(Exception exception)
+        {
+            if (exception == null) throw new ArgumentNullException(nameof(exception));
+            StopAfterFailure(exception);
         }
 
         public void Shutdown()

@@ -13,6 +13,7 @@ namespace CriticalShift.Presentation
         public event Action<Guid, ReactorAction, Guid, bool> ReactorRequested;
         public event Action ReplayRequested, PauseRequested, ResetRequested, BeltResetRequested;
         public event Action TransferFocusedRequested, DropHeldRequested, StartFocusedRequested, ToggleFocusedPowerRequested;
+        public event Action RecoveryRequested, DiagnosticKnockdownRequested;
         public event Action<Vector2> MovementRequested, LookRequested;
         public event Action<float, float, bool> CartDriveRequested;
         private readonly HashSet<KeyCode> held = new HashSet<KeyCode>();
@@ -42,7 +43,8 @@ namespace CriticalShift.Presentation
             if (commands == null || GrabRequested == null || ReleaseRequested == null || MachineRequested == null ||
                 ReactorRequested == null || ReplayRequested == null || PauseRequested == null || ResetRequested == null ||
                 BeltResetRequested == null || MovementRequested == null || LookRequested == null || CartDriveRequested == null ||
-                TransferFocusedRequested == null || DropHeldRequested == null || StartFocusedRequested == null || ToggleFocusedPowerRequested == null)
+                TransferFocusedRequested == null || DropHeldRequested == null || StartFocusedRequested == null || ToggleFocusedPowerRequested == null ||
+                RecoveryRequested == null || DiagnosticKnockdownRequested == null)
                 throw new InvalidOperationException("Fixture controls require all explicit command and input bindings.");
             active = true;
         }
@@ -65,7 +67,7 @@ namespace CriticalShift.Presentation
             if (input.type != EventType.KeyDown && input.type != EventType.KeyUp) return;
             if (input.keyCode == KeyCode.Tab && input.type == EventType.KeyDown)
             { visible = !visible; input.Use(); return; }
-            if (input.keyCode == KeyCode.E || input.keyCode == KeyCode.G || input.keyCode == KeyCode.R || input.keyCode == KeyCode.F)
+            if (input.keyCode == KeyCode.E || input.keyCode == KeyCode.G || input.keyCode == KeyCode.R || input.keyCode == KeyCode.F || input.keyCode == KeyCode.H)
             {
                 if (input.type == EventType.KeyUp) held.Remove(input.keyCode);
                 else if (held.Add(input.keyCode))
@@ -73,7 +75,8 @@ namespace CriticalShift.Presentation
                     if (input.keyCode == KeyCode.E) TransferFocusedRequested?.Invoke();
                     else if (input.keyCode == KeyCode.G) DropHeldRequested?.Invoke();
                     else if (input.keyCode == KeyCode.R) StartFocusedRequested?.Invoke();
-                    else ToggleFocusedPowerRequested?.Invoke();
+                    else if (input.keyCode == KeyCode.F) ToggleFocusedPowerRequested?.Invoke();
+                    else RecoveryRequested?.Invoke();
                 }
                 input.Use(); return;
             }
@@ -92,7 +95,7 @@ namespace CriticalShift.Presentation
             GUI.Label(new Rect(Screen.width * 0.5f - 6, Screen.height * 0.5f - 10, 20, 20), "+");
             if (!visible)
             {
-                GUI.Label(new Rect(12, 12, 650, 30), "WASD walk | right-drag look | E transfer | G drop | F power | R start | Tab controls");
+                GUI.Label(new Rect(12, 12, 800, 30), "WASD walk | right-drag look | E transfer | G drop | F power | R start | H recover | Tab controls");
                 GUI.Label(new Rect(12, 42, 800, 60), actionStatus(), wrapped); return;
             }
             bool previousEnabled = GUI.enabled;
@@ -106,6 +109,8 @@ namespace CriticalShift.Presentation
                 GUILayout.Label("E takes cart handle · WASD/arrows drive · Space brakes");
                 GUILayout.Label("Shift " + TimeSpan.FromMilliseconds(world.RemainingMilliseconds).ToString(@"mm\:ss") + " | " + world.Phase);
                 GUILayout.Label("Held objects: " + world.ActiveClaimCount + " | " + actionStatus(), wrapped);
+                var worker = commands.GetWorker(actor);
+                if (worker != null) GUILayout.Label("Worker " + worker.Awareness + " / " + worker.Pose);
                 GUILayout.Space(8);
                 GUI.enabled = previousEnabled && (world.Phase == WorldPhase.Running || world.Phase == WorldPhase.Paused);
                 DrawContainer();
@@ -115,6 +120,11 @@ namespace CriticalShift.Presentation
                 GUI.enabled = previousEnabled;
                 GUILayout.Space(8);
                 GUILayout.Label(physicsStatus());
+                GUI.enabled = previousEnabled && world.Phase == WorldPhase.Running && worker?.Pose == WorkerPose.Down;
+                if (GUILayout.Button("Attempt worker recovery (H)")) RecoveryRequested?.Invoke();
+                GUI.enabled = previousEnabled && world.Phase == WorldPhase.Running;
+                if (GUILayout.Button("Fixture only: simulate knockdown")) DiagnosticKnockdownRequested?.Invoke();
+                GUI.enabled = previousEnabled;
                 if (GUILayout.Button("Clear conveyor blockage latch")) BeltResetRequested?.Invoke();
                 if (GUILayout.Button(world.Phase == WorldPhase.Paused ? "Resume process clock" : "Pause process clock")) PauseRequested?.Invoke();
                 GUI.enabled = previousEnabled && commands.CanReplayLast;
@@ -209,6 +219,7 @@ namespace CriticalShift.Presentation
             ClearInput(); GrabRequested = null; ReleaseRequested = null; MachineRequested = null; ReactorRequested = null;
             ReplayRequested = null; PauseRequested = null; ResetRequested = null; BeltResetRequested = null;
             TransferFocusedRequested = null; DropHeldRequested = null; StartFocusedRequested = null; ToggleFocusedPowerRequested = null;
+            RecoveryRequested = null; DiagnosticKnockdownRequested = null;
             MovementRequested = null; LookRequested = null; CartDriveRequested = null;
         }
     }
