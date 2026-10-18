@@ -79,5 +79,26 @@ namespace CriticalShift.Sandbox.Tests
             Assert.That(Vector3.Distance(controller.transform.position, stand.position), Is.LessThan(1));
             host.DropHeld(); Assert.That(host.IsHandleHeld(cartId), Is.False);
         }
+
+        [UnityTest] public IEnumerator EscapedFixtureCargoStopsTheWorldAndClearsItsCurrentClaim()
+        {
+            root = new GameObject("Physics observation containment fixture"); root.transform.position = new Vector3(1500, 0, 1500);
+            var bootstrap = root.AddComponent<SandboxBootstrap>();
+            var pipeline = QualitySettings.renderPipeline != null ? QualitySettings.renderPipeline : GraphicsSettings.defaultRenderPipeline;
+            bootstrap.BindFixtureShader(Shader.Find(pipeline == null ? "Standard" : "Universal Render Pipeline/Lit"));
+            yield return null; yield return null;
+            Assert.That(bootstrap.World, Is.Not.Null); root.GetComponentInChildren<SandboxHud>().enabled = false;
+            var host = root.GetComponentInChildren<LocalWorldHost>(); var safety = root.GetComponentInChildren<PhysicsSafetyMonitor>();
+            Assert.That(safety.BoundBodyCount, Is.EqualTo(31));
+            var crate = root.transform.Find("Local Gameplay Fixture/Material container 4").GetComponent<Rigidbody>();
+            var id = new Guid(103, 0, 0, new byte[8]); host.Grab(id);
+            Assert.That(bootstrap.World.GetObject(id).HolderId, Is.Not.Null);
+            crate.position = root.transform.position + Vector3.down * 30; Physics.SyncTransforms();
+            LogAssert.Expect(LogType.Exception, new System.Text.RegularExpressions.Regex("Physics body escaped fixture bounds: Material container 4"));
+            safety.Sample();
+            Assert.That(safety.FaultLatched, Is.True); Assert.That(bootstrap.World.View.Phase, Is.EqualTo(WorldPhase.Stopped));
+            Assert.That(bootstrap.World.View.ActiveClaimCount, Is.Zero); Assert.That(host.BoundBodyCount, Is.Zero);
+            yield return null;
+        }
     }
 }

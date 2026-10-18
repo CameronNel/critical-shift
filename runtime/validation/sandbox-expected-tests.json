@@ -1,5 +1,8 @@
 {
   "PlayMode": [
+    "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.PhysicsMonitorObservesDynamicHandoffsWithoutWritingMotion",
+    "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.PhysicsMonitorLatchesOneRunawayFailureAndLeavesMotionToItsOwner",
+    "CriticalShift.Sandbox.Tests.SandboxLifetimeTests.EscapedFixtureCargoStopsTheWorldAndClearsItsCurrentClaim",
     "CriticalShift.Sandbox.Tests.LocalWorldHostTests.ThrowReleasesOnceAndReplayCannotApplyAnotherImpulse",
     "CriticalShift.Sandbox.Tests.LocalWorldHostTests.PausedOrExpiredGripCannotLaunchItsFormerCrate",
     "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.RegisteredHeavyFallingCrateCreatesOneKnockdownEpisode",

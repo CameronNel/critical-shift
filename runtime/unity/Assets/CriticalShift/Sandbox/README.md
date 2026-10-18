@@ -84,6 +84,10 @@ test worker. The second worker is controlled locally for this fixture.
 - Process-clock pause pauses rules while real-time leases continue. It does not
   freeze all Unity physics. Restart tears down bindings and constructs a fresh
   world; Retry repeats the identical prior user intention, not a new action.
+- The fixture watches its 31 explicitly bound Rigidbody segments. A missing,
+  non-finite, escaped or runaway body stops the trial with a named diagnostic.
+  It never silently teleports cargo or changes material quantities. The panel
+  shows dynamic-body counts and observed peak speed for later investigation.
 
 ## Owners and dependencies
 
@@ -121,7 +125,7 @@ on the inspected baseline. No package is downloaded by the generator.
 
 The existing foundation runner still tests its foundation assembly selection;
 it does not automatically claim sandbox coverage. The separate native inventory
-is `runtime/validation/sandbox-expected-tests.json`: 75 implemented cases, all
+is `runtime/validation/sandbox-expected-tests.json`: 78 implemented cases, all
 NotRun. Nine new pure command-port cases, fourteen worker-body claim cases and
 nine source-package safety cases and five declared-assembly boundary cases
 are also NotRun. Native fixtures are offset from possible active-scene content

@@ -9,6 +9,7 @@ namespace CriticalShift.Sandbox.Tests
     public sealed class FacilityPhysicsTests
     {
         private GameObject root;
+        private PhysicsSafetyMonitor safety;
         [SetUp] public void SetUp()
         {
             root = new GameObject("Facility physics regression fixture");
@@ -16,6 +17,7 @@ namespace CriticalShift.Sandbox.Tests
         }
         [UnityTearDown] public IEnumerator TearDown()
         {
+            if (safety != null) safety.Shutdown();
             if (root != null) Object.Destroy(root);
             yield return null; LogAssert.NoUnexpectedReceived();
         }
@@ -25,6 +27,34 @@ namespace CriticalShift.Sandbox.Tests
             var item = GameObject.CreatePrimitive(PrimitiveType.Cube); item.name = name;
             item.transform.SetParent(root.transform, false); item.transform.localPosition = position;
             var body = item.AddComponent<Rigidbody>(); body.useGravity = false; return body;
+        }
+
+        [Test] public void PhysicsMonitorObservesDynamicHandoffsWithoutWritingMotion()
+        {
+            var body = Body("Observed body", Vector3.zero); body.linearVelocity = Vector3.right * 2;
+            Vector3 position = body.position, velocity = body.linearVelocity; int failures = 0;
+            safety = root.AddComponent<PhysicsSafetyMonitor>();
+            safety.Initialize(root.transform, new Bounds(Vector3.zero, Vector3.one * 10), 10, 10, () => true, error => failures++);
+            safety.Bind(body, "Observed body"); safety.Activate(); safety.Sample();
+            Assert.That(safety.DynamicBodyCount, Is.EqualTo(1)); Assert.That(safety.PeakLinearSpeed, Is.EqualTo(2).Within(0.001f));
+            Assert.That(body.position, Is.EqualTo(position)); Assert.That(body.linearVelocity, Is.EqualTo(velocity));
+            body.isKinematic = true; safety.Sample();
+            Assert.That(safety.DynamicBodyCount, Is.Zero); Assert.That(safety.PeakDynamicBodyCount, Is.EqualTo(1));
+            Assert.That(safety.BoundBodyCount, Is.EqualTo(1)); Assert.That(failures, Is.Zero);
+        }
+
+        [Test] public void PhysicsMonitorLatchesOneRunawayFailureAndLeavesMotionToItsOwner()
+        {
+            var body = Body("Runaway body", Vector3.zero); body.linearVelocity = Vector3.forward * 11;
+            int failures = 0; string reason = "";
+            safety = root.AddComponent<PhysicsSafetyMonitor>();
+            safety.Initialize(root.transform, new Bounds(Vector3.zero, Vector3.one * 10), 10, 10, () => true,
+                error => { failures++; reason = error.Message; });
+            safety.Bind(body, "Runaway body"); safety.Activate(); safety.Sample();
+            Assert.That(safety.FaultLatched, Is.True); Assert.That(failures, Is.EqualTo(1));
+            Assert.That(reason, Does.Contain("Runaway body")); Assert.That(body.linearVelocity.z, Is.EqualTo(11));
+            body.linearVelocity = Vector3.zero; safety.Sample(); safety.Sample();
+            Assert.That(failures, Is.EqualTo(1)); safety.Shutdown(); Assert.That(safety.BoundBodyCount, Is.Zero);
         }
 
         private ConveyorDrive Belt(System.Func<Rigidbody, bool> filter)

@@ -26,6 +26,7 @@ namespace CriticalShift.Sandbox
         private CartMotor cart;
         private CartCargoSensor cargo;
         private ConveyorDrive belt;
+        private PhysicsSafetyMonitor safety;
         private bool disposed;
         private readonly Guid actor = Id(1), connection = Id(2), reactor = Id(500), cartId = Id(600);
         private readonly Guid patient = Id(3), patientConnection = Id(4), patientBody = Id(650);
@@ -48,6 +49,9 @@ namespace CriticalShift.Sandbox
                 world.RegisterConnection(patientConnection, patient); world.RegisterWorkerBody(patient, patientBody);
                 commands = new LocalCommandPort(world, connection);
                 host = root.AddComponent<LocalWorldHost>(); host.Initialize(world, commands, actor, clock);
+                safety = root.AddComponent<PhysicsSafetyMonitor>();
+                safety.Initialize(root.transform, new Bounds(new Vector3(0, 2, 3), new Vector3(34, 20, 32)), 25, 25,
+                    () => world.View.Phase == WorldPhase.Running || world.View.Phase == WorldPhase.Paused, host.ReportExternalFailure);
                 host.BindFocus(() => access.PickTarget(actor), access.DisplayName);
                 BuildRoom(); BuildWorker(); BuildPatient(); BuildContainers(); BuildMachines(); BuildReactor(); BuildCart(); BuildConveyor();
                 var hud = root.AddComponent<SandboxHud>();
@@ -56,6 +60,7 @@ namespace CriticalShift.Sandbox
                         (cart.Overloaded ? " OVERLOADED" : "") + (cargo.Saturated ? " SENSOR SATURATED" : "") +
                         "\nBelt " + (belt.Jammed ? "BLOCKED" : belt.Running ? "moving" : "stopped") + " · bodies " + belt.MovingBodyCount +
                         "\nCarry/drag movement " + (walker.CarrySpeedScale * 100).ToString("F0") + "%" +
+                        "\nPhysics " + safety.DynamicBodyCount + "/" + safety.BoundBodyCount + " dynamic · peak " + safety.PeakLinearSpeed.ToString("F1") + " m/s" +
                         "\n" + workerState.LastAction + (workerState.CrawlDriveActive ? " · crawling" : "") + "\nPatient: " + patientState.LastAction);
                 hud.GrabRequested += host.Grab; hud.ReleaseRequested += host.Release;
                 hud.MachineRequested += host.OperateMachine; hud.ReactorRequested += host.OperateReactor;
@@ -75,7 +80,7 @@ namespace CriticalShift.Sandbox
                 hud.RecoveryRequested += workerState.RequestRecovery; hud.DiagnosticKnockdownRequested += workerState.DiagnosticKnockdown;
                 hud.PatientRecoveryRequested += patientState.RequestRecovery; hud.PatientKnockdownRequested += patientState.DiagnosticKnockdown;
                 recovery.Seal(); host.Activate(); workerState.Activate(); patientState.Activate();
-                workerContacts.Activate(); patientContacts.Activate(); patientState.DiagnosticKnockdown(); hud.Activate();
+                workerContacts.Activate(); patientContacts.Activate(); patientState.DiagnosticKnockdown(); safety.Activate(); hud.Activate();
             }
             catch { Dispose(); throw; }
         }
@@ -113,6 +118,7 @@ namespace CriticalShift.Sandbox
             host.BindDragTarget(actor, drag.transform);
             host.BindActorRoot(actor, player.transform);
             var rig = SandboxWorkerRigBuilder.Build(world.Epoch, actor, controller, eyes.transform, shapes, hideLocalHead: true);
+            foreach (var segment in rig.CopyBodySegments()) safety.Bind(segment, "Local worker / " + segment.name);
             rig.BindNormalHands(() => host.CarriedPhysicalMass() > 0 || host.CurrentGripStand().HasValue);
             var placement = new WorkerRecoveryPlacement(); placement.Bind(rig); recovery.Bind(world.Epoch, actor, placement);
             workerState = player.AddComponent<LocalWorkerStateHost>();
@@ -129,6 +135,7 @@ namespace CriticalShift.Sandbox
             var controller = SandboxWorkerRigBuilder.AddController(worker);
             var eyes = SandboxPrimitives.Empty("Patient observation anchor", worker.transform, new Vector3(0, 1.55f, 0));
             var rig = SandboxWorkerRigBuilder.Build(world.Epoch, patient, controller, eyes.transform, shapes, hideLocalHead: false);
+            foreach (var segment in rig.CopyBodySegments()) safety.Bind(segment, "Patient worker / " + segment.name);
             rig.BindDragEntity(patientBody);
             host.BindWorkerBody(patientBody, patient, rig.CopyBodySegments(), rig.PullBodyClaim, rig.ReleaseBodyClaim, () => rig.TotalPhysicalMass, rig.SetBodyHoist);
             access.BindTarget(patientBody, worker.transform, rig.SuitGrip);
@@ -157,6 +164,7 @@ namespace CriticalShift.Sandbox
                 body.interpolation = RigidbodyInterpolation.Interpolate; body.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
                 body.maxAngularVelocity = 10;
                 host.BindBody(containers[i], body, 0.75f); access.BindTarget(containers[i], crate.transform);
+                safety.Bind(body, "Material container " + (i + 1));
                 if (i == 0)
                 {
                     workerState.BindHazard(containers[i]); patientState.BindHazard(containers[i]);
@@ -273,6 +281,7 @@ namespace CriticalShift.Sandbox
             world.RegisterObject(cartId);
             var rig = SandboxPrimitives.Empty("Physical ore cart", root.transform, new Vector3(5, 0.45f, -1.5f));
             var body = rig.AddComponent<Rigidbody>(); body.mass = 35; body.centerOfMass = new Vector3(0, -0.15f, 0);
+            safety.Bind(body, "Ore cart");
             body.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
             body.interpolation = RigidbodyInterpolation.Interpolate; body.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
             SandboxPrimitives.Box("Cart bed", rig.transform, Vector3.zero, new Vector3(1.2f, 0.18f, 1.8f), shapes.Steel);
@@ -336,6 +345,7 @@ namespace CriticalShift.Sandbox
         {
             if (disposed) return;
             disposed = true;
+            if (safety != null) safety.Shutdown();
             if (host != null) host.Shutdown();
             if (workerState != null) workerState.Shutdown();
             if (patientState != null) patientState.Shutdown();

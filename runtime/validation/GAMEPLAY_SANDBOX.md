@@ -76,7 +76,7 @@ art acceptance.
 - Diagnostic controls, crusher/fuel/reactor fixture, lamps, valve/spindle/tread
   motion, material appearance and scratch-scene generator: written, unvalidated.
 - Nine pure command-port tests, fourteen worker-body claim tests, nine package
-  safety tests, five declared-boundary cases and 75 native sandbox
+  safety tests, five declared-boundary cases and 78 native sandbox
   tests are implemented, all **NotRun**. These are declared inventory counts,
   not discovered/executed results.
 - Direct first-person focus, context transfer/drop, power/cooling and start
@@ -418,3 +418,19 @@ Two further native cases are written and NotRun: one release/impulse despite
 retries and rotation, and pause/expiry exclusion. Existing cart and worker drag
 cases also check that T preserves those grips. Native safety, feel and impact
 results remain unvalidated. No command kind, resource cost or transport changes.
+
+## Bounded physics observation source
+
+Add a fixture-only observer over 31 explicitly bound bodies (8 containers, cart,
+two 11-segment workers), with a hard 64-binding capacity. It checks finite poses
+and dynamic velocities, active bindings and root-relative containment, then
+reports one latched failure through the existing stop/error handler. It never
+clamps motion, teleports cargo, respawns a worker or changes material accounting.
+The sandbox region is centre (0,2,3), size (34,20,32) metres; diagnostic limits
+are 25 m/s and 25 rad/s. These are authored trial-failure bounds, not balance,
+supported performance or shipped rescue rules. The panel exposes current/peak
+dynamic counts and peak observed speed. Teardown drops all explicit references.
+Three more native cases are written and NotRun: dynamic/kinematic observation
+without motion writes; one runaway failure; and escaped held cargo stopping the
+actual fixture and clearing the claim. These support future PHYS-02 evidence;
+no tunnelling, native stability, frame-time or performance pass is asserted.
