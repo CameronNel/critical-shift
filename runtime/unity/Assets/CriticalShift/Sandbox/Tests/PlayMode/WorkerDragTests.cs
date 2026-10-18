@@ -77,9 +77,10 @@ namespace CriticalShift.Sandbox.Tests
             StandNearGrip(); host.Grab(Id(650)); Assert.That(Claim.HolderId, Is.EqualTo(Id(1)));
             Assert.That(host.CarriedPhysicalMass(), Is.EqualTo(68).Within(0.01f));
             var carry = player.transform.Find("Worker eyes/Current-claim carry target"); Quaternion rest = carry.localRotation;
-            host.RotateHeld(new Vector2(120, 100));
+            Vector3 position = carry.localPosition; host.RotateHeld(new Vector2(120, 100)); host.AdjustHeldDistance(-100);
             host.ThrowHeld(); Assert.That(Claim.HolderId, Is.EqualTo(Id(1)));
             Assert.That(Quaternion.Angle(rest, carry.localRotation), Is.LessThan(0.01f));
+            Assert.That(carry.localPosition, Is.EqualTo(position));
             Vector3 before = patientRig.SuitGrip.position; walker.SetMovement(Vector2.down);
             for (int i = 0; i < 100; i++) yield return Step();
             walker.SetMovement(Vector2.zero);

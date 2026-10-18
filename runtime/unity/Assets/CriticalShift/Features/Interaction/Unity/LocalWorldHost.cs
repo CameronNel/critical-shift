@@ -86,6 +86,18 @@ namespace CriticalShift.Features.Interaction.Unity
             catch (Exception exception) { StopAfterFailure(exception); }
         }
 
+        public void AdjustHeldDistance(float steps)
+        {
+            if (!active || stopped) return;
+            try
+            {
+                if (float.IsNaN(steps) || float.IsInfinity(steps)) throw new ArgumentException("Carry distance input must be finite.");
+                Pump();
+                if (bindings.AdjustHeldDistance(localActor, steps)) LastAction = "Held crate reach adjusted";
+            }
+            catch (Exception exception) { StopAfterFailure(exception); }
+        }
+
         public void ThrowHeld()
         {
             if (!active || stopped) return;
@@ -326,7 +338,7 @@ namespace CriticalShift.Features.Interaction.Unity
             if (focused == Guid.Empty)
             {
                 FocusHint = held == Guid.Empty ? "Look at a nearby crate or machine" :
-                    "Held crate | middle-drag turn · T throw · G drop · look at equipment to transfer";
+                    "Held crate | middle-drag turn · wheel reach · T throw · G drop · look at equipment to transfer";
                 return;
             }
             if (bindings.IsWorker(focused))
@@ -347,7 +359,7 @@ namespace CriticalShift.Features.Interaction.Unity
                 machine.Mode == ProductionMode.OutputReady ? "E eject output · F power" :
                 machine.Mode == ProductionMode.Processing ? "F isolate power" : "E transfer · F power · R start · B bypass inspection";
             FocusHint = (targetName == null ? "Target" : targetName(focused)) + " | " + controls +
-                (held != Guid.Empty && bindings.IsPortable(held) ? " · middle-drag turn · T throw" : "");
+                (held != Guid.Empty && bindings.IsPortable(held) ? " · middle-drag turn · wheel reach · T throw" : "");
         }
 
         public void OperateMachine(Guid id, ProductionAction action, Guid container, bool bypass, bool powered)

@@ -12,10 +12,11 @@ namespace CriticalShift.Features.Interaction.Unity
         {
             internal readonly Transform Anchor;
             private readonly Quaternion rest;
+            private readonly Vector3 restPosition;
             private Guid entity;
             private long lease;
-            private float yaw, pitch;
-            internal CarryTarget(Transform anchor) { Anchor = anchor; rest = anchor.localRotation; }
+            private float yaw, pitch, distanceOffset;
+            internal CarryTarget(Transform anchor) { Anchor = anchor; rest = anchor.localRotation; restPosition = anchor.localPosition; }
             internal Vector3 AimForward => (Anchor.parent == null ? rest : Anchor.parent.rotation * rest) * Vector3.forward;
             internal void Observe(ObjectClaimView claim)
             {
@@ -29,7 +30,16 @@ namespace CriticalShift.Features.Interaction.Unity
                 pitch = Mathf.Clamp(pitch - Mathf.Clamp(delta.y, -150, 150) * 0.35f, -80, 80);
                 Anchor.localRotation = rest * Quaternion.Euler(pitch, yaw, 0);
             }
-            internal void Reset() { entity = Guid.Empty; lease = 0; yaw = pitch = 0; if (Anchor != null) Anchor.localRotation = rest; }
+            internal void AdjustDistance(float steps)
+            {
+                distanceOffset = Mathf.Clamp(distanceOffset - Mathf.Clamp(steps, -10, 10) * 0.15f, -0.75f, 0.75f);
+                Anchor.localPosition = restPosition + Vector3.forward * distanceOffset;
+            }
+            internal void Reset()
+            {
+                entity = Guid.Empty; lease = 0; yaw = pitch = distanceOffset = 0;
+                if (Anchor != null) { Anchor.localRotation = rest; Anchor.localPosition = restPosition; }
+            }
         }
 
         private sealed class DragTarget
@@ -153,12 +163,23 @@ namespace CriticalShift.Features.Interaction.Unity
 
         internal bool RotateHeld(Guid actor, Vector2 delta)
         {
+            if (!CurrentPortableTarget(actor, out var target)) return false;
+            target.Rotate(delta); return true;
+        }
+        internal bool AdjustHeldDistance(Guid actor, float steps)
+        {
+            if (!CurrentPortableTarget(actor, out var target)) return false;
+            target.AdjustDistance(steps); return true;
+        }
+        private bool CurrentPortableTarget(Guid actor, out CarryTarget target)
+        {
+            target = null;
             if (world.View.Phase != WorldPhase.Running || world.GetWorker(actor)?.CanInteract != true ||
-                !carryTargets.TryGetValue(actor, out var target) || target.Anchor == null || !target.Anchor.gameObject.activeInHierarchy)
+                !carryTargets.TryGetValue(actor, out target) || target.Anchor == null || !target.Anchor.gameObject.activeInHierarchy)
                 return false;
             Guid held = HeldObject(actor);
             if (!bodies.ContainsKey(held)) return false;
-            target.Observe(world.GetObject(held)); target.Rotate(delta); return true;
+            target.Observe(world.GetObject(held)); return true;
         }
 
         internal bool HasCarryTarget(Guid actor) => carryTargets.ContainsKey(actor);

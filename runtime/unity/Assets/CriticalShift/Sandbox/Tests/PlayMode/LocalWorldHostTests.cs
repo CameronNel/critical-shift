@@ -82,31 +82,39 @@ namespace CriticalShift.Sandbox.Tests
             Assert.That(body.isKinematic, Is.False);
         }
 
-        [UnityTest] public IEnumerator RotatingHeldCrateUsesTorqueWithoutAnotherLogicalMutation()
+        [UnityTest] public IEnumerator ManipulatingHeldCrateUsesBoundedForcesWithoutAnotherLogicalMutation()
         {
             host.Grab(Box); var claim = world.GetObject(Box); Quaternion before = body.rotation;
-            long sequence = port.LastTerminalSequence; host.RotateHeld(new Vector2(120, 40));
+            Vector3 position = body.position, restTarget = target.localPosition;
+            long sequence = port.LastTerminalSequence; host.RotateHeld(new Vector2(120, 40)); host.AdjustHeldDistance(-100);
             Assert.That(Quaternion.Angle(before, body.rotation), Is.LessThan(0.01f), "Input changes the force target, not the body pose.");
+            Assert.That(body.position, Is.EqualTo(position)); Assert.That(target.localPosition.z - restTarget.z, Is.EqualTo(0.75f).Within(0.001f));
             Assert.That(Quaternion.Angle(Quaternion.identity, target.localRotation), Is.GreaterThan(30));
             Assert.That(port.LastTerminalSequence, Is.EqualTo(sequence));
             for (int i = 0; i < 100; i++) yield return new WaitForFixedUpdate();
             Assert.That(Quaternion.Angle(before, body.rotation), Is.GreaterThan(20));
             Assert.That(world.GetObject(Box).HolderId, Is.EqualTo(Actor));
             Assert.That(world.GetObject(Box).LeaseGeneration, Is.EqualTo(claim.LeaseGeneration));
+            Assert.That(Vector3.Distance(body.position, target.position), Is.LessThan(0.25f));
             Assert.That(world.Production.GetBatch(Box).Units, Is.EqualTo(10)); Assert.That(body.isKinematic, Is.False);
         }
 
         [UnityTest] public IEnumerator CarryRotationStopsDuringPauseAndResetsAcrossReleaseLeaseAndTeardown()
         {
-            Quaternion rest = target.localRotation;
-            host.Grab(Box); host.RotateHeld(new Vector2(100, 100)); Quaternion paused = target.localRotation;
-            world.Pause(world.Epoch); host.RotateHeld(new Vector2(100, -100));
+            Quaternion rest = target.localRotation; Vector3 restPosition = target.localPosition;
+            host.Grab(Box); host.RotateHeld(new Vector2(100, 100)); host.AdjustHeldDistance(-100);
+            Quaternion paused = target.localRotation; Vector3 pausedPosition = target.localPosition;
+            world.Pause(world.Epoch); host.RotateHeld(new Vector2(100, -100)); host.AdjustHeldDistance(100);
             Assert.That(Quaternion.Angle(paused, target.localRotation), Is.LessThan(0.01f));
+            Assert.That(target.localPosition, Is.EqualTo(pausedPosition));
             host.Release(Box); Assert.That(Quaternion.Angle(rest, target.localRotation), Is.LessThan(0.01f));
+            Assert.That(target.localPosition, Is.EqualTo(restPosition));
             world.Resume(world.Epoch); host.Grab(WetBox);
             Assert.That(Quaternion.Angle(rest, target.localRotation), Is.LessThan(0.01f));
+            Assert.That(target.localPosition, Is.EqualTo(restPosition));
             host.RotateHeld(new Vector2(-100, 0)); Assert.That(Quaternion.Angle(rest, target.localRotation), Is.GreaterThan(20));
             host.Shutdown(); Assert.That(Quaternion.Angle(rest, target.localRotation), Is.LessThan(0.01f));
+            Assert.That(target.localPosition, Is.EqualTo(restPosition));
             Assert.That(world.View.ActiveClaimCount, Is.Zero); yield return null;
         }
 

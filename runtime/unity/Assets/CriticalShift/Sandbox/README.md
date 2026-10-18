@@ -49,6 +49,10 @@ test worker. The second worker is controlled locally for this fixture.
 - Middle-mouse drag turns a currently held crate through its existing torque
   controller. Face markings make its orientation visible. Rotation clears on
   release, expiry, insertion or restart, and cannot turn a cart or worker grip.
+- Scroll outside the visible control panel to bring a held crate closer or
+  farther. The carry target shifts at most 0.75 m from its authored position
+  (1–2.5 m forward in this fixture). The body still follows bounded forces.
+  Reach offset resets with the claim and cannot move cart/worker targets.
 - T throws a portable crate toward the current look heading. A committed
   release comes first; one bounded impulse follows only for that exact free
   body and lease. Retrying the release cannot throw again. Heavier crates get

@@ -569,3 +569,17 @@ authoritative. Bypass help names the actual faster/wet-jam/suspect-fuel behavior
 and reactor instability includes its milliseconds unit. The source-only native
 catalogue comparison currently finds 86 declared methods and 86 saved identities
 with no missing/extra names; this is not Unity discovery or execution evidence.
+
+## Bounded carry reach source
+
+Add wheel input outside the visible control panel to adjust the current ordinary
+crate's target by at most 0.75 m along the authored eye-local forward axis. Its
+fixture range is 1–2.5 m; existing spring/torque/error bounds remain the physical
+writer. Position and orientation now share one current-portable-claim admission
+check, and both reset on release, slot transfer, expiry, obstruction and a new
+entity/lease. No body teleport, new command sequence or material change occurs.
+Existing manipulation/reset/cart/worker native cases now include distance and
+pause/exclusion assertions; all remain NotRun. The torque case is renamed
+`ManipulatingHeldCrateUsesBoundedForcesWithoutAnotherLogicalMutation` in the
+saved catalogue; the declared total stays 86. Compact help now wraps on narrower
+windows. Native handling, comfort and rendering acceptance remain unvalidated.
