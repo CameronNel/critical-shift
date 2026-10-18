@@ -537,22 +537,32 @@ if STAGE in ('prep', 'all'):
     # option turns off): the front end's 11:1 menu board packed as 1:11. The atlas is square, so every image is detached while unwrapping.
     detached = [(n_, n_.image) for m in mats if m.node_tree for n_ in m.node_tree.nodes if n_.type == 'TEX_IMAGE' and n_.image is not None]
     for n_, _ in detached: n_.image = None
+    def collapsed_share(picked):
+        """Share of the picked faces whose UVBake corners all sit on one point (edit mode)."""
+        z = n = 0
+        for on, ids in picked.items():
+            bm = bmesh.from_edit_mesh(bpy.data.objects[on].data); bm.faces.ensure_lookup_table(); uvl = bm.loops.layers.uv['UVBake']
+            for i in ids:
+                us = [l[uvl].uv for l in bm.faces[i].loops]; n += 1
+                if max(u.x for u in us) - min(u.x for u in us) < 1e-7 and max(u.y for u in us) - min(u.y for u in us) < 1e-7: z += 1
+        return z / max(n, 1)
     bpy.ops.object.mode_set(mode='EDIT')
     sc.tool_settings.use_uv_select_sync = True
     area = {}
     for m in mats:
         if not plan[m.name]['bake']: continue
-        tot = 0.0
+        tot = 0.0; picked = {}
         for o in objs:
             bm = bmesh.from_edit_mesh(o.data); idx = {i for i, s in enumerate(o.material_slots) if s.material is m}
             sx = o.matrix_world.to_scale(); k = abs(sx.x * sx.y * sx.z) ** (2 / 3)
             # deselect everything first, then select: deselecting a face also deselects its vertices, so a single pass let a later face of another
-            # material drop the shared vertices of an earlier selected face, which then missed the unwrap and kept zero UVs (the mine's boulders, 22 %)
+            # material drop the shared vertices of an earlier selected face, which then missed the unwrap (a two-material checkerboard grid: 440 of
+            # 441 faces left without UVs)
             for v in bm.verts: v.select = False
             for e in bm.edges: e.select = False
             for f in bm.faces: f.select = False
             for f in bm.faces:
-                if f.material_index in idx: f.select = True; tot += f.calc_area() * k   # no flush: it could select a face of another material
+                if f.material_index in idx: f.select = True; tot += f.calc_area() * k; picked.setdefault(o.name, []).append(f.index)   # no flush
             bmesh.update_edit_mesh(o.data)
         area[m.name] = tot
         if tot <= 0: plan[m.name]['bake'] = False; continue
@@ -560,6 +570,13 @@ if STAGE in ('prep', 'all'):
         # (1024 x 192, 2700 x 246 images) became 0.001-wide slivers and baked black (rehearsal, 2026-10-18)
         bpy.ops.uv.smart_project(angle_limit=math.radians(66), island_margin=0.003, area_weight=0.0, correct_aspect=False, scale_to_bounds=False)
         bpy.ops.uv.pack_islands(rotate=True, margin_method='FRACTION', margin=0.002)                 # smart project leaves up to 40 % of the square empty
+        # A fixed margin per island (0.2 % of the atlas, 8 px at 4K) cannot fit when a material breaks into ~100,000 one-face islands (the mine's
+        # decimated boulders): the packer then shrinks every island to nothing. Then unwrap again with margins scaled to each island.
+        if collapsed_share(picked) > 0.005:
+            bpy.ops.uv.smart_project(angle_limit=math.radians(66), island_margin=0.0, area_weight=0.0, correct_aspect=False, scale_to_bounds=False)
+            bpy.ops.uv.pack_islands(rotate=True, margin_method='SCALED', margin=0.001)
+            plan[m.name]['uv_margin'] = 'scaled'
+            step('unwrap with scaled margins', material=m.name, collapsed_after=round(collapsed_share(picked), 4))
     bpy.ops.object.mode_set(mode='OBJECT')
     for n_, im_ in detached: n_.image = im_
     for n, p in plan.items():
