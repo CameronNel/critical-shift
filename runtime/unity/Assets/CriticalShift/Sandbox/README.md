@@ -71,6 +71,8 @@ test worker. The second worker is controlled locally for this fixture.
   suit grip slowly; G releases the hoisted worker, allowing a cart-bed loading
   attempt. Hoist input cannot persist into a later lease. Reanimation, two-person
   carrying and accepted loading/transport behavior remain separate work.
+  A process pause stops active hoisting and lowers its target while the current
+  claim remains held; ordinary passive Unity physics continues.
 - Select a nearby crate and Grab/Release. Current host reach and line of sight
   are checked. Carrying uses bounded forces; excessive obstruction drops the
   exact claim. Leases renew through the same connection's command stream.

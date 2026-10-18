@@ -162,6 +162,11 @@ namespace CriticalShift.Sandbox.Tests
             Assert.That(host.CurrentWorkerDragTarget().Value.y - player.transform.position.y, Is.EqualTo(2.05f).Within(0.001f));
             Assert.That(host.World.GetWorker(Id(3)).Pose, Is.EqualTo(WorkerPose.Down)); Assert.That(patientController.enabled, Is.False);
             Assert.That(host.CarriedPhysicalMass(), Is.EqualTo(68));
+            host.World.Pause(host.World.Epoch); host.SetWorkerHoist(true);
+            for (int i = 0; i < 40; i++) yield return Step();
+            Assert.That(host.CurrentWorkerDragTarget().Value.y - player.transform.position.y, Is.EqualTo(0.55f).Within(0.001f));
+            Assert.That(Claim.HolderId, Is.EqualTo(Id(1))); Assert.That(Claim.LeaseGeneration, Is.EqualTo(generation));
+            Assert.That(host.World.GetWorker(Id(3)).Pose, Is.EqualTo(WorkerPose.Down));
         }
 
         [UnityTest] public IEnumerator ReleasedOrStaleHoistInputCannotRaiseTheNextLeaseTarget()

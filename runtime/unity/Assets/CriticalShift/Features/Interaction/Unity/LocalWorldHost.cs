@@ -68,7 +68,9 @@ namespace CriticalShift.Features.Interaction.Unity
         public Vector3? CurrentWorkerDragTarget() => active && !stopped ? bindings.CurrentDragTarget(localActor) : null;
         public void SetWorkerHoist(bool raised)
         {
-            if (active && !stopped) bindings.SetWorkerHoist(localActor, raised);
+            if (!active || stopped) return;
+            try { Pump(); bindings.SetWorkerHoist(localActor, raised && world.View.Phase == WorldPhase.Running); }
+            catch (Exception exception) { StopAfterFailure(exception); }
         }
 
         public void RotateHeld(Vector2 delta)

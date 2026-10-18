@@ -516,3 +516,9 @@ Three more native cases are written and NotRun: wet-jam attribution/replay;
 explicit source eviction gaps without fabricated incidents; and bounded rows
 through a stopped-world read without state mutation. No new event authority,
 cause reconstruction, gameplay randomness or persistence is introduced.
+
+Input review also aligned hoist admission with other active controls: it samples
+the trusted clock and enables lifting only during Running. Pause lowers the
+target without releasing the current lease or changing the worker's Down state.
+The existing hoist native case now includes that exclusion and remains NotRun.
+Tab toggling also ignores key autorepeat using the existing held-key set.

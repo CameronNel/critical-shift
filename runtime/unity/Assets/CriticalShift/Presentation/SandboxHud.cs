@@ -84,8 +84,12 @@ namespace CriticalShift.Presentation
             if (input.type == EventType.MouseDrag && input.button == 2)
             { CarryRotationRequested?.Invoke(new Vector2(input.delta.x, -input.delta.y)); input.Use(); }
             if (input.type != EventType.KeyDown && input.type != EventType.KeyUp) return;
-            if (input.keyCode == KeyCode.Tab && input.type == EventType.KeyDown)
-            { visible = !visible; input.Use(); return; }
+            if (input.keyCode == KeyCode.Tab)
+            {
+                if (input.type == EventType.KeyUp) held.Remove(KeyCode.Tab);
+                else if (held.Add(KeyCode.Tab)) visible = !visible;
+                input.Use(); return;
+            }
             if (input.keyCode == KeyCode.E || input.keyCode == KeyCode.G || input.keyCode == KeyCode.R || input.keyCode == KeyCode.F ||
                 input.keyCode == KeyCode.H || input.keyCode == KeyCode.B || input.keyCode == KeyCode.X || input.keyCode == KeyCode.C || input.keyCode == KeyCode.T)
             {
