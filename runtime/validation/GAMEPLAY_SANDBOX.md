@@ -10,7 +10,7 @@ capture and an opt-in typed deny/carry/drop exercise, including their rejection
 controls. Its batch-mode capture attempt remains Failed. All 21 supplementary
 API checks and both Windows/Ubuntu source/offline CI jobs passed on `6554abef`.
 Separate foundation validation passed 12 EditMode / 9 PlayMode cases, build and
-Player. Current combined-map URP preparation also passed 37 doors / 152 proxies / 
+Player. Current combined-map URP preparation also passed 37 doors / 152 proxies /
 13 anchors with maximum error 0.0002840849 m. These bounded sandbox results do not establish gameplay feel,
 performance, combined-map or art acceptance.
 The reviewed source policy in `4822787d` observes independent **25 m/s linear
@@ -1711,7 +1711,31 @@ Upstream main remained 3853995c at the 20:10 refresh. Claude's three latest bake
 commits through 4bab143f were pulled and integrated by 5ed85b1e; no runtime inputs
 changed. Authored diff against that base is empty in the protected bake/importer
 paths. Draft PR #111 is stacked on Claude's branch and remains unmerged; no agent
-self-merge or independent gate/art/feel acceptance occurred. A five-minute
-normal-window idle observation is in progress, reported separately from the
-completed structured exercise. Multiplayer, full-facility traversal/art, final
-lighting, accepted diagnostic budgets and supported performance remain open.
+self-merge or independent gate/art/feel acceptance occurred. Multiplayer,
+full-facility traversal/art, final lighting, accepted diagnostic budgets and
+supported performance remain open.
+
+## Normal-window soak and handoff, 20:23 UTC
+
+The separate [normal-window idle report](../out/gameplay-window-soak-6nt344tr/report.json)
+is **Passed**, 20:16:40-20:21:41 UTC. The final gameplay executable remained
+alive for **300.062 seconds**, at a requested 960 x 540 window size, without
+smoke/capture/exercise flags or injected input. Exactly one local-host Ready
+marker and the pinned engine identity were found. No logged physics or managed
+errors were detected. A normal window-close request was accepted, and the Player
+exited zero without forced cleanup. Input native-report and executable hashes
+remained unchanged. Native log SHA-256:
+`cd661eca747f6427f9f88e6dbdf6d304373bb1ef6112701e6eb67c5273a8d30a`.
+
+This idle observation does not measure FPS, memory, input behavior or physical
+feel. Normal mode emits no owned-reference teardown counters; those zero counts
+come from the separate structured smoke/exercise evidence, not this idle run.
+
+A contributing validation agent performed a read-only handoff consistency
+check: all ten indexed raw-report hashes and the committed PNG hash matched.
+It identified stale foundation-pending wording in runtime/README.md; that active
+section now records the completed bounded native run. This consistency check is
+not independent whole-PR acceptance. Documentation-only corrections preserve the
+tested executable source and the standalone ZIP. PR #111's description now cites
+the completed native, rendered, physical exercise, map preparation and archive
+results, with initialized-cache and acceptance limits explicit.

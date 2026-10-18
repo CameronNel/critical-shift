@@ -62,13 +62,13 @@ The Unity integration trial references these same sources through the local firs
 
 PR #43 and PR #46 remain provenance for their contributions; their earlier heads do not establish results on the current revision. The old offline branch's map state was not transplanted. Current runtime work reads only the four declared combined-map collision/anchor inputs from `sections/`; the authored scenes, bake outputs and protected importer remain outside its edit scope.
 
-## Native foundation remains separately unverified
+## Native foundation and sandbox validation
 
-The required Unity target remains **6000.4.3f1, revision 39d1a88d4dd1**, with the pinned Mono desktop profile in [toolchain.json](toolchain.json). The bounded implementation of Cameron's 15 October URP selection now declares URP/Core/ShaderGraph/config 17.4.0 and their measured dependency lock. Native-created pipeline/global settings and Linear Player/Graphics/Quality settings are included. Foundation and sandbox build acceptance still require their own complete runs. See [the engine decision](../design/ENGINE_DECISION.md).
+The required Unity target remains **6000.4.3f1, revision 39d1a88d4dd1**, with the pinned Mono desktop profile in [toolchain.json](toolchain.json). The bounded implementation of Cameron's 15 October URP selection declares URP/Core/ShaderGraph/config 17.4.0 and their measured dependency lock. Native-created pipeline/global settings and Linear Player/Graphics/Quality settings are included. Separate native runs passed all 12 EditMode / 9 PlayMode foundation cases and all 132 gameplay PlayMode cases, plus their builds and Players. These are bounded development checks; independent acceptance remains pending. See [the engine decision](../design/ENGINE_DECISION.md).
 
 The original WP-01 work is documented in [WP01.md](validation/WP01.md) and its historical [execution-summary.json](validation/execution-summary.json). Those results belong to their recorded revisions. Source and installed-file identity checks do not establish native execution on this branch.
 
-No editor was opened for the historical OFFLINE-005 task. The current continuation has native rendering and foundation preparation evidence, but complete foundation tests/build/Player remain pending. `Critical Shift > Foundation > Prepare project` and its separate native runner remain available:
+No editor was opened for the historical OFFLINE-005 task. This continuation completed foundation tests/build/Player and gameplay rendering/interaction checks on executable source `6554abef`. The foundation failed-startup Player exit path was not separately launched. Native initialization used a verified preinitialized SDK package cache; cold package extraction is not established. `Critical Shift > Foundation > Prepare project` and its separate native runner remain available:
 
 ```powershell
 python runtime/tools/run_foundation.py --unity "C:\Program Files\Unity\Hub\Editor\6000.4.3f1\Editor\Unity.exe" --target Win64
@@ -94,4 +94,4 @@ It imports the scoped FBX, validates actual proxy bounds and door/room anchors t
 
 ## Scope boundary
 
-The current deliverable is a local-host integration trial undergoing native validation. Gate 0/1, physical feel, renderer integration and independent review remain pending. Its physics and presentation sources do not choose transport, Steam, voice, a production input/UI framework, persistence or a save schema. The combined-map derivative imports collision proxies and anchors; it does not import room art or establish map acceptance. Read the fixture values and their limits before treating them as game balance.
+The current deliverable is a local-host integration trial with the bounded native results above. Gate 0/1 acceptance, human control/physical feel, full-facility art integration and independent review remain pending. Its physics and presentation sources do not choose transport, Steam, voice, a production input/UI framework, persistence or a save schema. The combined-map derivative imports collision proxies and anchors; it does not import room art or establish map acceptance. Read the fixture values and their limits before treating them as game balance.
