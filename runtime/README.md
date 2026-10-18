@@ -1,10 +1,12 @@
-# Critical Shift runtime: one source integration candidate
+# Critical Shift runtime
 
-**OFFLINE-005, 18 September 2026.** This candidate reconciles the consolidated offline gameplay from PR #43 (`30129f7a44e8976b13a4fe3307e329420034e2ff`) with WP-01 foundation source from PR #46 (`43a2e328802fa4b73de407cfeebb5a7058edf90a`), then adds bounded fictional reactor/power rules. It is on `feat/offline-reactor-power-20260918`. Independent review and maintainer merge remain separate. Main and the authored map are not changed.
+**Current development, 18 October 2026:** `codex/unity-gameplay-sandbox` adds an isolated local-host Unity fixture over the canonical gameplay sources. It includes physical crate handling, cart/conveyor adapters, worker knockdown/drag/recovery and bounded process presentation. Import, compilation, native tests and Player execution for this revision are **NotRun**. The owner currently permits lightweight source work while gaming; execution waits for a later instruction. See the [active development checkpoint](validation/GAMEPLAY_SANDBOX.md) and [sandbox controls and evidence boundary](unity/Assets/CriticalShift/Sandbox/README.md).
+
+Historical source provenance: OFFLINE-005 (18 September 2026) reconciled consolidated offline gameplay from PR #43 (`30129f7a44e8976b13a4fe3307e329420034e2ff`) with WP-01 foundation source from PR #46 (`43a2e328802fa4b73de407cfeebb5a7058edf90a`), then added bounded fictional reactor/power rules. Its original candidate branch was `feat/offline-reactor-power-20260918`. Current work still requires independent review and maintainer merge.
 
 ## Start without either editor
 
-From the repository root:
+After execution is authorized, from the repository root:
 
 ```sh
 cd runtime/dotnet
@@ -32,7 +34,12 @@ The successful workflow also packages `offline-scenario-runner.zip`: the actual 
 | `unity/Assets/CriticalShift/Application/ProcessLifetime.cs` | The single canonical local-process lifetime implementation, not the gameplay session owner |
 | `dotnet/src/CriticalShift.ProcessLifetime/` | Build project that links that exact process source; it contains no copied implementation |
 | `unity/Assets/CriticalShift/Bootstrap/` | WP-01 diagnostic bootstrap and optional native preparation/build code; not gameplay or map integration |
-| `tools/` | Foundation static/evidence checks and optional native tooling |
+| `unity/Assets/CriticalShift/Features/Interaction/Unity/` | Local host clock, command admission, explicit physical claim/slot bindings and spatial observations |
+| `unity/Assets/CriticalShift/Features/Workers/Unity/` | Local walking, one ragdoll handoff, drag/crawl forces and staged recovery clearance |
+| `unity/Assets/CriticalShift/FacilityPhysics/` | Bounded cart/conveyor forces, load observations, motion visuals and physics diagnostics |
+| `unity/Assets/CriticalShift/Presentation/` | Read-only process/material/worker feedback and temporary IMGUI controls |
+| `unity/Assets/CriticalShift/Sandbox/` | Scratch fixture composition, scoped scene generator, declared native cases and controls |
+| `tools/` | Source/evidence checks and separate optional foundation/sandbox native runners |
 
 The foundation assembly was renamed from `CriticalShift.Application` to `CriticalShift.ProcessLifetime`, preserving its metadata GUID and C# type namespace. The gameplay assembly keeps `CriticalShift.Application`. Foundation references and checks were updated. The offline suite compiles both together and exercises multiple real gameplay sessions inside one process lifetime.
 
@@ -47,14 +54,17 @@ The Unity integration trial references these same sources through the local firs
 - [Worker recovery and scenarios](dotnet/WORKERS_AND_SCENARIOS.md)
 - [Production, accounting and cancellation](dotnet/PRODUCTION.md)
 - [Reactor, reserve power and fuel-cycle contracts](dotnet/REACTOR_AND_POWER.md)
-- [Current task, preservation and evidence](validation/OFFLINE_REACTOR_POWER.md)
+- [Current Unity task, preservation and evidence](validation/GAMEPLAY_SANDBOX.md)
+- [Offline reactor provenance and evidence](validation/OFFLINE_REACTOR_POWER.md)
 - [Canonical architecture](../design/code-architecture/README.md)
 
-PR #43 and PR #46 remain provenance for their contributions. Their earlier heads are not substitutes for this reconciled candidate. The old offline branch's root README and map state were not transplanted. The entire current `sections/` tree remains `06a41745022bcaee48d7ca3291b19f5febfcb673`.
+PR #43 and PR #46 remain provenance for their contributions; their earlier heads do not establish results on the current revision. The old offline branch's map state was not transplanted. Current runtime work leaves the independently changing `sections/` content outside its edit and import scope.
 
 ## Native foundation remains separately unverified
 
-The recorded Unity target remains 6000.4.3f1, revision 39d1a88d4dd1, Built-in rendering and Mono desktop support. The original source-only WP-01 work is documented in [WP01.md](validation/WP01.md) and its historical [execution-summary.json](validation/execution-summary.json). Those results belong to the revisions recorded there, not the renamed current foundation.
+The required Unity target remains **6000.4.3f1, revision 39d1a88d4dd1**, with the pinned Mono desktop profile in [toolchain.json](toolchain.json). Cameron selected URP on 15 October; the project still has its older Built-in configuration, and no URP package/version has been installed by this pass. The sandbox's import/physics fixture can use that existing configuration, while its optional Player build explicitly requires URP. See [the engine decision](../design/ENGINE_DECISION.md).
+
+The original WP-01 work is documented in [WP01.md](validation/WP01.md) and its historical [execution-summary.json](validation/execution-summary.json). Those results belong to their recorded revisions. Source and installed-file identity checks do not establish native execution on this branch.
 
 No editor was opened for OFFLINE-005. Startup scene creation, complete ProjectSettings serialization, package import, engine tests and Player execution remain NotRun here. The source preparation command is still `Critical Shift > Foundation > Prepare project` in a future activated editor, and the native runner remains available for a separately authorized task:
 
@@ -64,6 +74,14 @@ python runtime/tools/run_foundation.py --unity "C:\Program Files\Unity\Hub\Edito
 
 That runner needs Python 3.12+, an already activated matching Editor and matching build support. It uses a disposable copy, requires its own native test/build/readiness evidence and does not import the map. No activation or credentials belong in this repository. The automatic native Unity workflow is absent on this candidate; pushing code cannot accidentally run it.
 
+For the separate sandbox inventory, the future authorized command is:
+
+```powershell
+python runtime/tools/run_sandbox.py --unity "C:\Program Files\Unity\Hub\Editor\6000.4.3f1\Editor\Unity.exe" --target Win64
+```
+
+That runner preserves source hashes and native logs/results in a disposable workspace under ignored `runtime/out/`. It requires exact test discovery and the pinned editor identity. `--build-player` separately requests a URP-gated build; adding `--run-player` requests the same new build's headless startup/teardown smoke. Neither flag establishes rendered playability, human feel, multiplayer convergence or supported performance. All current sandbox execution remains NotRun.
+
 ## Scope boundary
 
-This is useful, user-authorized editor-free source prework, not a Gate 0/1 pass, accepted Unity foundation, production-ready reactor, complete power station or human fun test. It adds no physical interactions, transport, Steam, voice, UI/input framework, persistence, save schema, terrain or art changes. Single-threaded host policy, physical bindings, native compatibility and independently reviewed integration remain necessary. Read the reactor guide's fixture limits before using its values as game balance.
+The current deliverable is a source-only local-host integration trial. Gate 0/1, native compatibility, physical feel, renderer integration and independent review remain pending. Its physics and presentation sources do not choose transport, Steam, voice, a production input/UI framework, persistence or a save schema. It imports no map, terrain or authored art. Read the fixture values and their limits before treating them as game balance.
