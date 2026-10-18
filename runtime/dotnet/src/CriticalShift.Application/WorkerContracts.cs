@@ -13,7 +13,8 @@ namespace CriticalShift.Application
         Applied, Duplicate, InvalidInput, SequenceGap, TooOld, PayloadMismatch,
         RevisionConflict, StaleRecovery, TooEarly, RequiresAid, InvalidState,
         ClearanceBlocked, ClearanceUnavailable, Cancelled, RecoveryExpired, UnknownWorker,
-        WrongEpoch, NotReady, Paused, WorldEnded, WorldStopped, WorldFaulted, SourceCapacityReached
+        WrongEpoch, NotReady, Paused, WorldEnded, WorldStopped, WorldFaulted, SourceCapacityReached,
+        BodyClaimed
     }
 
     /// <summary>

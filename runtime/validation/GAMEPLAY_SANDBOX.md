@@ -186,3 +186,24 @@ The simple opaque debug meshes do not establish finished steam, fire or VFX art.
 Three additional native cases cover power-pause/progress consistency, paused
 cosmetic trajectories and cooling-loss/trip feedback without another power spend.
 All remain NotRun, alongside shaders, rendered appearance and measured cost.
+
+## Next bounded source scope: single-worker dragging
+
+Extend the existing worker/Interaction workflow under S04/S07, without selecting
+two-person carrying or a transport. Register an explicit worker-body entity at
+setup; only Down targets can be grabbed or renewed; held bodies cannot begin
+standing recovery. Claims remain in the same store and command/receipt stream.
+Disconnect retires the target's body claim before removing its worker binding.
+The physical adapter will pull only an active ragdoll through its existing force
+owner, with bounded separation/obstruction and exact-lease release. Use a second
+explicit local fixture worker for source tests and interaction, never a map edit.
+This scope is in progress. Physical dragging cases are Planned until written;
+no drag, multiplayer, reanimation or human-feel acceptance is claimed.
+
+The canonical body registration, target-condition gate and recovery/claim
+exclusion are written. Fourteen new pure cases are implemented, NotRun, covering
+registration failure, ordered rejections, contention, orthogonal conditions,
+unconscious dragging without revival, recovery exclusion, impact/lease release,
+both disconnect directions, body-owned timer cleanup, restart/epoch isolation
+and rejection by material machinery. They add to the nine command-port cases;
+neither group has executed in this pass. Physical bindings are still in progress.

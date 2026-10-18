@@ -9,7 +9,24 @@ namespace CriticalShift.Application
     {
         public int WorkerCount => _workers.Count;
         public WorkerView? GetWorker(Guid actorId) => _workers.Get(actorId);
+        public ObjectClaimView? GetWorkerBodyClaim(Guid actorId)
+        {
+            var body = _workers.BodyFor(actorId); return body.HasValue ? _interaction.GetObject(body.Value) : null;
+        }
+        public WorkerView? GetWorkerForBody(Guid bodyEntityId)
+        {
+            var actor = _workers.ActorForBody(bodyEntityId); return actor.HasValue ? _workers.Get(actor.Value) : null;
+        }
         public SessionTraceView Trace => _diagnostics.View;
+
+        /// <summary>Setup-only linkage. Interaction owns custody; Workers owns target condition and recovery.</summary>
+        public void RegisterWorkerBody(Guid actorId, Guid bodyEntityId)
+        {
+            RequireIdle();
+            if (View.Phase != WorldPhase.Setup) throw new InvalidOperationException("Worker-body registration is setup-only.");
+            _workers.ValidateBodyRegistration(actorId, bodyEntityId); long next = NextRevision();
+            _interaction.RegisterObject(bodyEntityId); _workers.RegisterBody(actorId, bodyEntityId); _revision = next;
+        }
 
         /// <summary>Trusted, ordered host observations; this is not an unauthenticated client damage API.</summary>
         public WorkerReply ApplyWorkerImpact(Guid epoch, Guid actorId, long observationSequence,
@@ -29,7 +46,7 @@ namespace CriticalShift.Application
 
         public WorkerReply BeginWorkerRecovery(Guid epoch, Guid actorId, long episode, long expectedRevision) =>
             ExecuteWorker(epoch, actorId, SessionTraceKind.RecoveryRequested, episode, false,
-                () => _workers.Begin(actorId, episode, expectedRevision, _timeline.ElapsedMilliseconds));
+                () => _workers.Begin(_interaction, actorId, episode, expectedRevision, _timeline.ElapsedMilliseconds));
 
         public WorkerReply CompleteWorkerRecovery(Guid epoch, Guid actorId, long attempt) =>
             ExecuteWorker(epoch, actorId, SessionTraceKind.RecoveryResolved, attempt, false,

@@ -12,6 +12,7 @@ namespace CriticalShift.Application
         private readonly int _capacity;
         private readonly long _completionWindow;
         private readonly Dictionary<Guid, WorkerState> _workers = new Dictionary<Guid, WorkerState>();
+        private readonly Dictionary<Guid, Guid> _bodyEntities = new Dictionary<Guid, Guid>();
         private readonly IWorkerRecoveryPolicy? _recovery;
 
         internal WorkerWorkflow(Guid epoch, int capacity, IWorkerRecoveryPolicy? recovery, long completionWindow)
@@ -19,6 +20,23 @@ namespace CriticalShift.Application
         internal int Count => _workers.Count;
         internal WorkerView? Get(Guid actor) => _workers.TryGetValue(actor, out var state) ? Project(state.Snapshot) : null;
         internal bool CanInteract(Guid actor) => _workers.TryGetValue(actor, out var state) && state.Snapshot.CanInteract;
+        internal Guid? BodyFor(Guid actor) => _bodyEntities.TryGetValue(actor, out var body) ? body : (Guid?)null;
+        internal Guid? ActorForBody(Guid body)
+        {
+            foreach (var pair in _bodyEntities) if (pair.Value == body) return pair.Key;
+            return null;
+        }
+        internal bool CanTargetBody(Guid body)
+        {
+            var actor = ActorForBody(body);
+            return !actor.HasValue || (_workers.TryGetValue(actor.Value, out var worker) && worker.Snapshot.Posture == Posture.Down);
+        }
+        internal void ValidateBodyRegistration(Guid actor, Guid body)
+        {
+            if (!_workers.ContainsKey(actor) || body == Guid.Empty || _bodyEntities.ContainsKey(actor) || ActorForBody(body).HasValue)
+                throw new InvalidOperationException("A registered worker may have one unique physical-body entity.");
+        }
+        internal void RegisterBody(Guid actor, Guid body) => _bodyEntities.Add(actor, body);
         internal void ValidateRegistration(Guid actor)
         {
             if (actor == Guid.Empty) throw new ArgumentException("A worker identity is required.", nameof(actor));
@@ -26,8 +44,8 @@ namespace CriticalShift.Application
             if (_workers.Count >= _capacity) throw new InvalidOperationException("Worker capacity reached.");
         }
         internal void Register(Guid actor) { ValidateRegistration(actor); _workers.Add(actor, new WorkerState(actor, _completionWindow)); }
-        internal void Remove(Guid actor) => _workers.Remove(actor);
-        internal void Clear() => _workers.Clear();
+        internal void Remove(Guid actor) { _bodyEntities.Remove(actor); _workers.Remove(actor); }
+        internal void Clear() { _bodyEntities.Clear(); _workers.Clear(); }
 
         internal IReadOnlyList<WorkerReply> ExpireRecovery(long now)
         {
@@ -68,9 +86,14 @@ namespace CriticalShift.Application
             return Reply(worker.SetEnvironment(revision, (SuitCondition)(int)suit, contamination), worker);
         }
 
-        internal WorkerReply Begin(Guid actor, long episode, long revision, long now) =>
-            _workers.TryGetValue(actor, out var worker) ? Reply(worker.BeginRecovery(episode, revision, now), worker) :
-                new WorkerReply(WorkerStatus.UnknownWorker);
+        internal WorkerReply Begin(InteractionWorld interaction, Guid actor, long episode, long revision, long now)
+        {
+            if (!_workers.TryGetValue(actor, out var worker)) return new WorkerReply(WorkerStatus.UnknownWorker);
+            var body = BodyFor(actor);
+            if (body.HasValue && interaction.GetObject(body.Value)?.HolderId != null)
+                return new WorkerReply(WorkerStatus.BodyClaimed, worker: Get(actor));
+            return Reply(worker.BeginRecovery(episode, revision, now), worker);
+        }
 
         internal WorkerReply Resolve(Guid actor, long attempt, bool cancel)
         {

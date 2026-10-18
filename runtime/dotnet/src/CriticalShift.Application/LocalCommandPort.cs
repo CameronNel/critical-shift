@@ -32,6 +32,8 @@ namespace CriticalShift.Application
         public bool CanReplayLast => _lastTerminalCommand != null;
         public ObjectClaimView? GetObject(Guid id) => _world.GetObject(id);
         public WorkerView? GetWorker(Guid id) => _world.GetWorker(id);
+        public ObjectClaimView? GetWorkerBodyClaim(Guid actor) => _world.GetWorkerBodyClaim(actor);
+        public WorkerView? GetWorkerForBody(Guid entity) => _world.GetWorkerForBody(entity);
         public MachineView? GetMachine(Guid id) => _world.Production.GetMachine(id);
         public MaterialView? GetBatch(Guid id) => _world.Production.GetBatch(id);
         public ReactorView? Reactor => _world.Reactor.View;

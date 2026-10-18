@@ -276,7 +276,12 @@ namespace CriticalShift.Application
                 var released = _interaction.Disconnect(connectionId);
                 if (count != _interaction.ConnectedCount)
                 {
-                    if (actor.HasValue) { _workers.Remove(actor.Value); _timers.CancelOwner(epoch, actor.Value); }
+                    if (actor.HasValue)
+                    {
+                        var body = _workers.BodyFor(actor.Value);
+                        if (body.HasValue) { _interaction.RetireObject(epoch, body.Value); _timers.CancelOwner(epoch, body.Value); }
+                        _workers.Remove(actor.Value); _timers.CancelOwner(epoch, actor.Value);
+                    }
                     _revision = next;
                     _diagnostics.Append(View, epoch, SessionTraceKind.Disconnected, actor ?? Guid.Empty,
                         released?.EntityId ?? Guid.Empty, changed: true);
@@ -303,7 +308,9 @@ namespace CriticalShift.Application
             RequireIdle(); long next = NextRevision();
             try
             {
-                if (Production.OwnsBatch(entityId)) return new InteractionReply(InteractionStatus.TargetUnavailable, false);
+                if (epoch != Epoch) return new InteractionReply(InteractionStatus.WrongEpoch, false);
+                if (Production.OwnsBatch(entityId) || _workers.ActorForBody(entityId).HasValue)
+                    return new InteractionReply(InteractionStatus.TargetUnavailable, false);
                 var reply = _interaction.RetireObject(epoch, entityId);
                 if (reply.HasNewCommit)
                 {
@@ -392,9 +399,12 @@ namespace CriticalShift.Application
             {
                 // Rejections use the existing receipt stream; pause cannot create a sequence gap.
                 // Release and host-approved renewal remain possible while simulation is paused.
-                return !_workers.CanInteract(actorId) ||
-                    ((kind == InteractionKind.Grab || kind == InteractionKind.Production || kind == InteractionKind.Reactor) && _timeline.Phase != TimelinePhase.Running) ?
-                    AccessDecision.ActorUnavailable : _inner.Evaluate(actorId, entityId, kind);
+                if (!_workers.CanInteract(actorId) ||
+                    ((kind == InteractionKind.Grab || kind == InteractionKind.Production || kind == InteractionKind.Reactor) && _timeline.Phase != TimelinePhase.Running))
+                    return AccessDecision.ActorUnavailable;
+                if ((kind == InteractionKind.Grab || kind == InteractionKind.Renew) && !_workers.CanTargetBody(entityId))
+                    return AccessDecision.TargetUnavailable;
+                return _inner.Evaluate(actorId, entityId, kind);
             }
         }
     }
