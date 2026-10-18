@@ -1,0 +1,21 @@
+{
+  "PlayMode": [
+    "CriticalShift.Sandbox.Tests.SpatialAccessTests.CurrentTargetColliderDoesNotBlockItsOwnInteraction",
+    "CriticalShift.Sandbox.Tests.SpatialAccessTests.SolidOccluderAndExcessiveReachRejectInteraction",
+    "CriticalShift.Sandbox.Tests.SpatialAccessTests.OnlyExplicitlyApprovedOwnedBodyIsTransparentForSight",
+    "CriticalShift.Sandbox.Tests.SpatialAccessTests.MissingOrDisabledBindingsCannotGrantAccess",
+    "CriticalShift.Sandbox.Tests.LocalWorldHostTests.GrabUsesControlledForcesTowardsCurrentTarget",
+    "CriticalShift.Sandbox.Tests.LocalWorldHostTests.ExpiredLeaseReleasesPhysicalControl",
+    "CriticalShift.Sandbox.Tests.LocalWorldHostTests.ExcessiveObstructionDropsTheExactLease",
+    "CriticalShift.Sandbox.Tests.LocalWorldHostTests.InsertAndEjectReconcileKinematicSlotBinding",
+    "CriticalShift.Sandbox.Tests.LocalWorldHostTests.BlockedSlotCannotConsumeClaimOrCommandSequence",
+    "CriticalShift.Sandbox.Tests.LocalWorldHostTests.RetryKeepsOneClaimWithoutAnotherLogicalCommit",
+    "CriticalShift.Sandbox.Tests.LocalWorldHostTests.ShutdownClearsClaimsAndRestoresDynamicSlotBody",
+    "CriticalShift.Sandbox.Tests.LocalWorldHostTests.ClockRegressionIsAnExplicitFailure",
+    "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.CartDriveRemainsWithinItsSpeedBudget",
+    "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.CartBrakeReducesPlanarSpeedWithoutVerticalImpulse",
+    "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.ConveyorCannotAccelerateAnUnauthorizedBody",
+    "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.CompoundColliderBodyReceivesOneBeltDrive",
+    "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.CargoSensorCountsCompoundBodyOnceAndPrunesDisabledCargo"
+  ]
+}

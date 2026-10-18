@@ -1,0 +1,10 @@
+{
+  "name": "CriticalShift.Sandbox.Bootstrap",
+  "rootNamespace": "CriticalShift.Sandbox",
+  "references": ["CriticalShift.Application", "CriticalShift.Features.Interaction.Unity",
+    "CriticalShift.Features.Workers.Unity", "CriticalShift.FacilityPhysics.Unity", "CriticalShift.Presentation"],
+  "includePlatforms": [], "excludePlatforms": [],
+  "allowUnsafeCode": false, "overrideReferences": true,
+  "precompiledReferences": [], "autoReferenced": false,
+  "defineConstraints": [], "versionDefines": [], "noEngineReferences": false
+}

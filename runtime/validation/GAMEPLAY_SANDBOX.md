@@ -78,8 +78,9 @@ art acceptance.
 - Nine pure command-port tests, eight package safety tests and 17 native sandbox
   tests are implemented, all **NotRun**. These are declared inventory counts,
   not discovered/executed results.
-- Next: source review, complete validation entrypoint and lifecycle failure cases;
-  then extend concrete fixture interactions while execution remains deferred.
+- Next: continue source review and lifecycle failure cases, then extend concrete
+  fixture interactions while execution remains deferred. Do not stop this goal
+  after the first implementation checkpoint.
 - A separate disposable sandbox runner is written; its default scope is native
   import and the declared PlayMode inventory. Optional Player build is URP-gated;
   Player execution, performance and human acceptance are still separate.
@@ -90,3 +91,11 @@ art acceptance.
   not a real industrial mass model or a second material ledger.
 - Tests, native import, builds and performance: **NotRun**, owner constraint.
 - Independent review and merge: pending.
+
+## Source checks actually performed
+
+Only small file checks have run: `git diff --check`, parsing the changed Python
+source with `ast.parse` (without executing test modules), and parsing assembly
+definition JSON. Metadata was written by the source-only helper. These do not
+compile C#, execute tests, import Unity packages or establish runtime behavior.
+All compiler, test and engine execution counts remain zero for this pass.

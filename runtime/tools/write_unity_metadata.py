@@ -42,7 +42,7 @@ def write_metadata(directory: Path) -> int:
         if path.suffix != ".cs":
             text += "  externalObjects: {}\n"
         text += "  userData:\n  assetBundleName:\n  assetBundleVariant:\n"
-        meta.write_text(text, encoding="utf-8")
+        meta.write_text(text, encoding="utf-8", newline="\n")
         count += 1
     return count
 

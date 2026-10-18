@@ -1,0 +1,77 @@
+# Isolated local-host gameplay fixture
+
+**Source-only integration trial. Native import, compilation, tests and Player
+execution are NotRun.** See [the development checkpoint](../../../../validation/GAMEPLAY_SANDBOX.md).
+
+The fixture consumes the same canonical Application/domain source as the offline
+runner via the local package in `runtime/dotnet/src`. It never loads a map, edits a
+room, discovers objects through scene-wide searches or copies a rule implementation.
+Stable fixture IDs are rebound to fresh world epochs on restart.
+
+## Contents and controls
+
+Once native execution is authorized, the editor menu **Critical Shift > Sandbox >
+Create isolated gameplay scene** generates a new scratch scene containing only a
+composition root. On play it builds debug geometry: eight crates, two production
+machines, a reactor, a cart, a conveyor and a local collision controller.
+
+- WASD: walk; right mouse drag: look; Tab: show/hide controls.
+- Arrow keys: diagnostic cart drive; Space: brake. These controls are not a final
+  physical cart-handle interaction or production input selection.
+- Select a nearby crate and Grab/Release. Current host reach and line of sight
+  are checked. Carrying uses bounded forces; excessive obstruction drops the
+  exact claim. Leases renew through the same connection's command stream.
+- Select a machine, insert, power on, then start. The crusher turns ore into
+  crushed ore; the processor turns crushed ore into fuel. Eject between stages.
+  Wet material and inspection bypass exercise the existing jam/lineage rules.
+- The cyan crate is pre-made fuel for isolated reactor testing. Load it, open
+  cooling and start. Cooling loss, reserve spending, trip/reset and fuel work
+  remain the existing fictional game rules, not another simulation.
+- Drop free crates onto the belt or cart. Held/slotted/unknown objects are
+  excluded from belt authority. A belt blockage latches until cleared and reset.
+- Process-clock pause pauses rules while real-time leases continue. It does not
+  freeze all Unity physics. Restart tears down bindings and constructs a fresh
+  world; Retry repeats the identical prior user intention, not a new action.
+
+## Owners and dependencies
+
+`Sandbox.Bootstrap` constructs dependencies and owns fixture teardown. Application
+owns game rules and command admission. `Features.Interaction.Unity` owns clock
+sampling, physical claim/slot reconciliation and trusted spatial observations.
+`Features.Workers.Unity` owns the local walking controller only. FacilityPhysics
+owns bounded cart/belt forces and their physical sensors; its authorization
+queries are injected. Presentation reads detached projections and sends typed
+commands through injected callbacks. No transport, voice, Steam or persistence
+package is selected. No domain instance is exposed to presentation.
+
+Cart load is a bounded physical sensor observation of authorized cargo bodies,
+not a second material inventory. Wheel motion follows cart travel. Belt treads,
+machine spindles, cooling-valve movement, lamps, emission and batch colors are
+presentation; none changes materials, custody, reactor state or power.
+
+The fixture uses the project's **already configured** shader family for debug
+geometry. This explicitly supports the old Built-in foundation for import and
+physics investigation; it does not accept that as the final renderer. The Player
+build entrypoint requires the owner-selected URP asset, which remains unconfigured
+on the inspected baseline. No package is downloaded by the generator.
+
+## Evidence boundary
+
+The existing foundation runner still tests its foundation assembly selection;
+it does not automatically claim sandbox coverage. The separate native inventory
+is `runtime/validation/sandbox-expected-tests.json`: 17 implemented cases, all
+NotRun. Nine new pure command-port cases and eight source-package safety cases
+are also NotRun. Native fixtures are offset from possible active-scene content
+to avoid collisions with an unrelated map/scene at the origin.
+
+No human feel review, ragdoll/body-dragging acceptance, multiplayer convergence,
+supported FPS, final lighting/art or roadmap gate is established here. Renderer
+migration, physics tuning and lifecycle validation require actual editor/Player
+evidence after permission to execute. This source trial is unmerged and awaits
+independent review.
+
+When execution is authorized, `runtime/tools/run_sandbox.py` prepares and tests
+in a fresh disposable copy, retaining the canonical local-package path. Pass the
+pinned editor with `--unity` and `--target Win64`. The optional `--build-player`
+requires the configured URP asset; Player execution remains a separate unrun
+phase. Do not use a green import/physics result as evidence for that later phase.

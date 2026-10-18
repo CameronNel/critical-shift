@@ -1,0 +1,10 @@
+{
+  "name": "CriticalShift.Sandbox.Tests.PlayMode",
+  "rootNamespace": "CriticalShift.Sandbox.Tests",
+  "references": ["CriticalShift.Application", "CriticalShift.Features.Interaction.Unity", "CriticalShift.FacilityPhysics.Unity", "UnityEngine.TestRunner"],
+  "includePlatforms": [], "excludePlatforms": [],
+  "allowUnsafeCode": false, "overrideReferences": true,
+  "precompiledReferences": ["nunit.framework.dll"], "autoReferenced": false,
+  "defineConstraints": [], "versionDefines": [], "noEngineReferences": false,
+  "optionalUnityReferences": ["TestAssemblies"]
+}
