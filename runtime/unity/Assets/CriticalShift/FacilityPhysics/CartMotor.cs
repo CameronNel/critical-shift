@@ -14,9 +14,35 @@ namespace CriticalShift.FacilityPhysics
         private bool brake;
         public float MaximumSpeed { get; set; } = 3.5f;
         public float SafeCargoMass { get; set; } = 80f;
-        public bool HasDriveAuthority => isActiveAndEnabled && body != null && !body.isKinematic && body.detectCollisions && maySimulate != null && maySimulate();
+        public bool HasDriveAuthority
+        {
+            get
+            {
+                try
+                {
+                    if (isActiveAndEnabled && body != null && !body.isKinematic && body.detectCollisions && maySimulate != null && maySimulate())
+                        return true;
+                    ClearDrive(); return false;
+                }
+                catch { enabled = false; throw; }
+            }
+        }
         public float Steering => HasDriveAuthority ? steering : 0;
-        public float CargoMass => readCargoMass == null ? 0 : Mathf.Max(0, readCargoMass());
+        public float CargoMass
+        {
+            get
+            {
+                if (!isActiveAndEnabled || readCargoMass == null) return 0;
+                try
+                {
+                    float mass = readCargoMass();
+                    if (mass < 0 || float.IsNaN(mass) || float.IsInfinity(mass))
+                        throw new InvalidOperationException("Cart cargo mass must be finite and non-negative.");
+                    return mass;
+                }
+                catch { enabled = false; throw; }
+            }
+        }
         public bool Overloaded => CargoMass > SafeCargoMass;
         public float Speed => body == null ? 0 : Vector3.ProjectOnPlane(body.linearVelocity, Vector3.up).magnitude;
 
@@ -34,10 +60,17 @@ namespace CriticalShift.FacilityPhysics
         {
             if (float.IsNaN(forward) || float.IsInfinity(forward) || float.IsNaN(turn) || float.IsInfinity(turn))
                 throw new ArgumentException("Cart controls must be finite.");
+            if (!HasDriveAuthority) return;
             throttle = Mathf.Clamp(forward, -1, 1); steering = Mathf.Clamp(turn, -1, 1); brake = braking;
         }
 
         private void FixedUpdate()
+        {
+            try { Step(); }
+            catch { enabled = false; throw; }
+        }
+
+        private void Step()
         {
             if (!HasDriveAuthority) return;
             if (MaximumSpeed <= 0 || SafeCargoMass <= 0 || float.IsNaN(MaximumSpeed) || float.IsInfinity(MaximumSpeed) ||
@@ -63,7 +96,8 @@ namespace CriticalShift.FacilityPhysics
                 body.linearVelocity = Vector3.ClampMagnitude(planar, MaximumSpeed) + Vector3.up * body.linearVelocity.y;
         }
 
-        private void OnDisable() { throttle = 0; steering = 0; brake = true; }
+        private void ClearDrive() { throttle = 0; steering = 0; brake = true; }
+        private void OnDisable() => ClearDrive();
         private void OnApplicationFocus(bool focused) { if (!focused) SetDrive(0, 0, true); }
     }
 }

@@ -45,7 +45,7 @@ namespace CriticalShift.Features.Interaction.Unity
                 return AccessDecision.ActorUnavailable;
             if (!targets.TryGetValue(entityId, out var target) || target == null || !target.gameObject.activeInHierarchy)
                 return AccessDecision.TargetUnavailable;
-            if (!targetPoints.TryGetValue(entityId, out var point) || point == null || !point.gameObject.activeInHierarchy)
+            if (!targetPoints.TryGetValue(entityId, out var point) || !BelongsToTarget(target, point))
                 return AccessDecision.TargetUnavailable;
             Vector3 offset = point.position - eyes.position;
             float distance = offset.magnitude;
@@ -82,10 +82,13 @@ namespace CriticalShift.Features.Interaction.Unity
             }
             if (nearest == null) return Guid.Empty;
             foreach (var target in targets)
-                if (target.Value != null && targetPoints.TryGetValue(target.Key, out var point) && point != null && point.gameObject.activeInHierarchy &&
+                if (target.Value != null && targetPoints.TryGetValue(target.Key, out var point) && BelongsToTarget(target.Value, point) &&
                     (nearest == target.Value || nearest.IsChildOf(target.Value))) return target.Key;
             return Guid.Empty; // An unregistered wall in front never grants access to a target behind it.
         }
+
+        private static bool BelongsToTarget(Transform root, Transform point) => point != null && point.gameObject.activeInHierarchy &&
+            (point == root || point.IsChildOf(root));
 
         public string DisplayName(Guid id) => targets.TryGetValue(id, out var target) && target != null ? target.name : "";
 

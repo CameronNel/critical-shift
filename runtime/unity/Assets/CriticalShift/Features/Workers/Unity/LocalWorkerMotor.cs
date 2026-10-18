@@ -30,18 +30,23 @@ namespace CriticalShift.Features.Workers.Unity
             Func<Rigidbody, bool> readPushPermission = null)
         {
             if (eyes != null || eyePivot == null) throw new InvalidOperationException("Bind one explicit eye pivot.");
-            eyes = eyePivot; readWorker = worker ?? throw new ArgumentNullException(nameof(worker));
-            canSimulate = authority ?? throw new ArgumentNullException(nameof(authority));
+            if (worker == null) throw new ArgumentNullException(nameof(worker));
+            if (authority == null) throw new ArgumentNullException(nameof(authority));
+            var walkingController = GetComponent<CharacterController>();
+            if (walkingController == null) throw new InvalidOperationException("The walking motor requires its local capsule.");
+            eyes = eyePivot; readWorker = worker; canSimulate = authority;
             carriedMass = readCarriedMass;
             gripStand = readGripStand;
             mayPush = readPushPermission;
-            controller = GetComponent<CharacterController>();
+            controller = walkingController;
             yaw = transform.eulerAngles.y;
         }
 
         public void SetMovement(Vector2 value)
         {
             if (!Finite(value)) throw new ArgumentException("Movement must be finite.");
+            if (controller == null || !controller.enabled || canSimulate == null || !canSimulate() ||
+                readWorker?.Invoke()?.CanInteract != true) { movement = Vector2.zero; return; }
             movement = Vector2.ClampMagnitude(value, 1);
         }
 
@@ -136,7 +141,7 @@ namespace CriticalShift.Features.Workers.Unity
         private static bool Finite(Vector2 value) => !float.IsNaN(value.x) && !float.IsNaN(value.y) &&
             !float.IsInfinity(value.x) && !float.IsInfinity(value.y);
         private void ClearMotion()
-        { verticalSpeed = 0; horizontalVelocity = Vector3.zero; jumpBuffer = 0; groundGrace = 0; gripping = false; MeasuredVelocity = Vector3.zero; }
+        { movement = Vector2.zero; verticalSpeed = 0; horizontalVelocity = Vector3.zero; jumpBuffer = 0; groundGrace = 0; gripping = false; MeasuredVelocity = Vector3.zero; }
         private void OnDisable() { movement = Vector2.zero; ClearMotion(); }
         private void OnApplicationFocus(bool focused) { if (!focused) { movement = Vector2.zero; jumpBuffer = 0; } }
     }

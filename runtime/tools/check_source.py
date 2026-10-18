@@ -44,9 +44,9 @@ def gameplay_sources(root: Path) -> Path:
                 any(definition[field] for field in ("includePlatforms", "excludePlatforms", "precompiledReferences", "defineConstraints", "versionDefines"))):
             raise ValueError("Unity/.NET source assembly mismatch: " + name)
     for path in package.rglob("*"):
-        if path.is_symlink():
+        if path.is_symlink() or getattr(path, "is_junction", lambda: False)():
             raise ValueError("Gameplay sources must be portable ordinary files, not symlinks.")
-        if {"bin", "obj"}.intersection(path.relative_to(package).parts) or path.suffix.lower() == ".dll":
+        if {"bin", "obj"}.intersection(part.casefold() for part in path.relative_to(package).parts) or path.suffix.lower() == ".dll":
             raise ValueError("Build output must remain outside the canonical Unity source package.")
     return package
 

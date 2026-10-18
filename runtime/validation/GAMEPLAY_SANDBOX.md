@@ -1,6 +1,6 @@
 # Unity gameplay sandbox development pass
 
-**Source work in progress; every execution check is NotRun.**
+**Implementation and validation in progress; see dated execution results below.**
 
 Owner authorization: Cameron requested a substantial ten-hour development pass
 on 18 October 2026. The pass began at 10:29 UTC / 12:29 SAST and ends at
@@ -8,14 +8,35 @@ on 18 October 2026. The pass began at 10:29 UTC / 12:29 SAST and ends at
 that deadline unless Cameron redirects the task. Keep the active goal running;
 do not equate a small commit with completion of this pass.
 
-While Cameron plays For Honor: small file operations and source edits only.
-Do not launch Unity or Blender, run compilers or tests, import assets, bake,
-render, or start other heavy operations. An explicit later instruction from
-Cameron is needed before execution resumes. Do not infer permission from the
-pass's clock or from the amount of completed source.
+The initial gaming restriction allowed only small file operations and source
+edits. On 18 October Cameron explicitly said gaming was finished and authorized
+Unity headless/normal execution and testing. The primary author coordinates
+engine/compiler runs against fixed snapshots. New map gameplay targets the
+combined map only, preserving the current provisional coordinates. Do not edit
+`sections/facility-assembly/unity/` or
+`runtime/unity/Assets/CriticalShift/Content/Editor/` while Claude's PR #110 is
+open; no source blend or room changes are authorized by this runtime work.
 
 Primary author: Codex. Independent reviewer: unassigned. Base `ecaacf01`;
 branch `codex/unity-gameplay-sandbox`. No self-merge or direct main edits.
+
+On 18 October the owner authorized three coding subagents.
+The primary author remains the integrator on this one task branch. File ownership
+is disjoint: worker adapters and their physics/drag cases; facility motion and
+its physics cases; validation tooling and its own source cases. The primary author
+owns interaction/presentation/bootstrap and the shared catalogue and task record.
+Workers do not stage, commit, push or merge. Their contributions receive source
+review before integration; contributing agents do not count as independent
+acceptance reviewers. All share the gaming restriction above and the original
+20:29 UTC deadline.
+
+The referenced HanaPath orchestrator was read at its relocated archived path,
+`.agent-ignore/archived-fleet-2026-07-21/ops/agents/SOL_ORCHESTRATOR.md`, with
+its protocol and current root `CLAUDE.md`. Its bounded dispatch/review/ownership
+practice is adapted here. HanaPath-specific queues, application checks and
+main-merge permissions do not override Critical Shift's branch, architecture,
+validation or no-self-merge rules. This existing task record remains the run
+record; no competing queue or guide is introduced.
 
 ## Scoped implementation decision
 
@@ -76,7 +97,7 @@ art acceptance.
 - Diagnostic controls, crusher/fuel/reactor fixture, lamps, valve/spindle/tread
   motion, material appearance and scratch-scene generator: written, unvalidated.
 - Nine pure command-port tests, fourteen worker-body claim tests, nine package
-  safety tests, five declared-boundary cases and 99 native sandbox
+  safety tests, five declared-boundary cases and 111 native sandbox
   tests are implemented, all **NotRun**. These are declared inventory counts,
   not discovered/executed results.
 - Direct first-person focus, context transfer/drop, power/cooling and start
@@ -794,3 +815,54 @@ closure. Restart and read-only feedback remain available. The power readout also
 includes initial/generated units so its displayed totals can be reconciled with
 reserve/spend/grid/spill. These are source UI corrections; no extra cases were
 added for labels or enabled-state mirrors, and native GUI execution is NotRun.
+
+The delegated source batch tightens physical and observation boundaries. Worker
+rigs reject incomplete contact-capable setup before changing motion ownership,
+and detect lost solid contacts, collision detection or physical head/suit-grip
+ancestry while live. The existing worker-host failure route stops the fixture;
+cleanup leaves the broken setting visible. Excluded-time impact samples are
+cleared while paused/down or while a falling source is held, slotted or too light,
+so an old velocity cannot create a new knockdown after release/resume. Five new
+native source cases exercise these paths; test fixtures capture only their
+expected diagnostics and fail on any extra fault.
+
+Cart input is now admitted only with current drive permission and is cleared
+when permission is observed lost. Reacquiring a handle, resuming a shift or
+restoring a cargo sensor needs fresh drive input; pre-grip throttle cannot queue
+a launch. Invalid cargo values and throwing observations disable drive once
+before force math. Belt animation validates its complete same-owner, unique,
+unnested, non-contacting parts before installing a live binding, including
+inactive descendants. Three new native cases cover these boundaries; the older
+handle-drive case now supplies fresh input after acquiring its lease.
+
+Interaction control points must still belong to their registered equipment
+hierarchy, so a detached nearby point cannot authorize or focus distant equipment.
+Portable slot admission now recomputes its conservative enclosing bounds from
+the current solid shapes rather than reusing the initial shape dimensions.
+The metre-based offset and root-scale guard remain. Two new native cases check
+detached controls and changed collider dimensions/centre against a real slot
+obstacle. This supersedes the earlier note that placement dimensions were held
+at registration. The integrated source catalogue declares 109 native cases,
+all NotRun; no native discovery, compilation or execution occurred.
+
+Three worker adapters now validate their required observations before installing
+live fields, so rejected setup can be corrected without a partial binding. Walking
+and down-crawl samples are cleared when pause/custody/recovery excludes motion;
+fresh input is required after permission returns. Two additional native source
+cases and the extended crawl case cover setup correction and resumed input. The
+snapshot queued for the first native run declares 111 sandbox cases.
+
+## Execution beginning after the gaming restriction was lifted
+
+On 18 October at 16:25 UTC, `python -m unittest discover -s runtime/tools/tests -v`
+reported 78 tooling cases: 77 passed, one skipped because this Windows account
+could not create the symlink required by its negative fixture. This includes the
+nine new runner provenance/cleanup cases. It is tooling evidence, not Unity or
+gameplay evidence. Runner copies now compare fingerprints before launch and
+retain the first failure/report through source-audit or timeout cleanup errors.
+
+The offline verifier's 27 guard cases passed, then execution stopped at
+`dotnet --version`: no compatible installed .NET SDK was found. No C# test or
+scenario ran in that attempt. The failed SDK log is retained under
+`runtime/dotnet/artifacts/sdk-version.log`. The already pinned supplementary
+SDK may be prepared portably; no new project framework/package decision is made.

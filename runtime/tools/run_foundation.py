@@ -37,13 +37,18 @@ def source_files(root: Path) -> list[Path]:
         raise EvidenceError("The canonical local gameplay source package is missing.")
     roots.append(package)
     files = [root / "toolchain.json"]
-    if any(path.is_symlink() for path in [*roots, files[0]]):
-        raise EvidenceError("Symlinked source roots are not permitted.")
+    def linked(path: Path) -> bool:
+        return path.is_symlink() or getattr(path, "is_junction", lambda: False)()
+
+    if any(linked(path) for path in [*roots, files[0]]):
+        raise EvidenceError("Symlinks or junctions are not permitted in source roots.")
+    if not files[0].is_file() or any(not directory.is_dir() for directory in roots):
+        raise EvidenceError("A required toolchain file or Unity source directory is missing.")
     for directory in roots:
         for path in directory.rglob("*"):
-            if path.is_symlink():
-                raise EvidenceError("Symlinks are not permitted in the validation input.")
-            if directory == package and ({"bin", "obj"}.intersection(path.relative_to(package).parts) or path.suffix.lower() == ".dll"):
+            if linked(path):
+                raise EvidenceError("Symlinks or junctions are not permitted in the validation input.")
+            if directory == package and ({"bin", "obj"}.intersection(part.casefold() for part in path.relative_to(package).parts) or path.suffix.lower() == ".dll"):
                 raise EvidenceError("Build output inside the Unity source package must be removed before validation.")
             if path.is_file():
                 files.append(path)
@@ -58,29 +63,78 @@ def fingerprint(root: Path) -> str:
     return digest.hexdigest()
 
 
+def copy_inputs(root: Path, destination: Path) -> str:
+    """Copy the declared inputs and return the fingerprint of what Unity will read."""
+    for directory in ("unity/Assets", "unity/Packages", "unity/ProjectSettings", "dotnet/src"):
+        (destination / directory).mkdir(parents=True, exist_ok=True)
+    for path in source_files(root):
+        target = destination / path.relative_to(root)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(path, target)
+    return fingerprint(destination)
+
+
+def checkout_revision(root: Path) -> str:
+    try:
+        return subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=root,
+                                       text=True, stderr=subprocess.DEVNULL, timeout=10).strip()
+    except (OSError, subprocess.SubprocessError):
+        return "unversioned-source-copy"
+
+
+def audit_original(report: dict, root: Path, original: str | None) -> bool:
+    """Keep the first failure even if the final source-integrity check also fails."""
+    report["source_unchanged"] = None
+    if original is None:
+        return False
+    try:
+        report["source_unchanged"] = fingerprint(root) == original
+        if not report["source_unchanged"]:
+            report["source_audit_error"] = "Original input changed during validation."
+    except Exception as exception:
+        report["source_audit_error"] = ("Final source audit failed: " + str(exception)).replace(str(Path.home()), "<HOME>")
+    if report["source_unchanged"] is not True:
+        report["status"] = "Failed"
+        report.setdefault("reason", report["source_audit_error"])
+        return False
+    return True
+
+
 def execute(command: list[str], log: Path, timeout: int) -> tuple[int, str]:
     console = log.with_suffix(".console.log")
-    with console.open("w", encoding="utf-8") as stream:
-        process = subprocess.Popen(command, stdout=stream, stderr=subprocess.STDOUT,
-                                   start_new_session=os.name != "nt",
-                                   creationflags=subprocess.CREATE_NEW_PROCESS_GROUP if os.name == "nt" else 0)
-        try:
-            code = process.wait(timeout=timeout)
-        except subprocess.TimeoutExpired:
-            if os.name == "nt":
-                subprocess.run(["taskkill", "/PID", str(process.pid), "/T", "/F"],
-                               stdout=stream, stderr=subprocess.STDOUT, check=False)
-            else:
-                os.killpg(process.pid, signal.SIGKILL)
-            process.wait()
-            code = 124
+    try:
+        with console.open("w", encoding="utf-8") as stream:
+            process = subprocess.Popen(command, stdout=stream, stderr=subprocess.STDOUT,
+                                       start_new_session=os.name != "nt",
+                                       creationflags=subprocess.CREATE_NEW_PROCESS_GROUP if os.name == "nt" else 0)
+            try:
+                code = process.wait(timeout=timeout)
+            except BaseException as interrupted:
+                # Cancellation must also stop the process tree. Both cleanup operations
+                # are bounded: failed taskkill must not leave an unbounded wait behind.
+                try:
+                    if os.name == "nt":
+                        subprocess.run(["taskkill", "/PID", str(process.pid), "/T", "/F"],
+                                       stdout=stream, stderr=subprocess.STDOUT, check=False, timeout=10)
+                    else:
+                        try:
+                            os.killpg(process.pid, signal.SIGKILL)
+                        except ProcessLookupError:
+                            pass  # The process group finished between timeout and cleanup.
+                    process.wait(timeout=10)
+                except (OSError, subprocess.SubprocessError) as cleanup:
+                    raise EvidenceError(f"Native process cleanup failed ({type(cleanup).__name__}); verify process {process.pid} has stopped before retrying.") from interrupted
+                if not isinstance(interrupted, subprocess.TimeoutExpired):
+                    raise
+                code = 124
+    finally:
+        # Do not retain personal home paths even after interruption or failed cleanup.
+        home = str(Path.home())
+        for path in (log, console):
+            if path.exists():
+                content = path.read_text(encoding="utf-8", errors="replace")
+                path.write_text(content.replace(home, "<HOME>"), encoding="utf-8")
     text = log.read_text(encoding="utf-8", errors="replace") if log.exists() else ""
-    # Do not retain personal home paths in shared evidence.
-    home = str(Path.home())
-    for path in (log, console):
-        if path.exists():
-            content = path.read_text(encoding="utf-8", errors="replace")
-            path.write_text(content.replace(home, "<HOME>"), encoding="utf-8")
     return code, text
 
 
@@ -90,17 +144,19 @@ def run(unity: str | None, output_parent: Path, target: str) -> tuple[int, Path]
         raise EvidenceError("Inside the repository, evidence must stay under runtime/out, never source or art directories.")
     output_parent.mkdir(parents=True, exist_ok=True)
     out = Path(tempfile.mkdtemp(prefix="wp01-", dir=output_parent))
-    profile = json.loads((RUNTIME / "toolchain.json").read_text())
-    catalogue = json.loads((RUNTIME / "validation" / "expected-tests.json").read_text())
     phases = {name: {"status": "NotRun"} for name in ("import", "EditMode", "PlayMode", "build", "player")}
-    report = {"started_utc": utc(), "commit": os.environ.get("GITHUB_SHA", "local-uncommitted"),
-              "profile": profile, "target": target, "status": "NotRun", "phases": phases,
+    report = {"started_utc": utc(), "commit": checkout_revision(RUNTIME),
+              "target": target, "status": "NotRun", "phases": phases,
               "independent_review": "NotRun", "limits": "WP-01 only; not Gate 0 acceptance, gameplay, visual or network validation."}
     current = "import"
-    original = fingerprint(RUNTIME)
-    report["source_sha256"] = original
+    original = None
     code = 1
     try:
+        profile = json.loads((RUNTIME / "toolchain.json").read_text())
+        catalogue = json.loads((RUNTIME / "validation" / "expected-tests.json").read_text())
+        report.update(profile=profile, expected_tests=catalogue)
+        original = fingerprint(RUNTIME)
+        report["source_sha256"] = original
         editor = Path(unity).expanduser().resolve() if unity else None
         if editor is None or not editor.is_file():
             report["status"] = "Blocked"
@@ -109,10 +165,9 @@ def run(unity: str | None, output_parent: Path, target: str) -> tuple[int, Path]
             raise EvidenceError("Unsupported WP-01 build target.")
         report["editor_file_identity"] = inspect_editor(editor, profile)
         work = out / "workspace" / "runtime"
-        for path in source_files(RUNTIME):
-            dest = work / path.relative_to(RUNTIME)
-            dest.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(path, dest)
+        report["copied_source_sha256"] = copy_inputs(RUNTIME, work)
+        if report["copied_source_sha256"] != original:
+            raise EvidenceError("Disposable inputs differ from the recorded source fingerprint; Unity was not launched.")
         project = work / "unity"
         logs = out / "logs"
         logs.mkdir()
@@ -153,7 +208,7 @@ def run(unity: str | None, output_parent: Path, target: str) -> tuple[int, Path]
             raise EvidenceError("Build identity or executable is missing.")
         phases["build"].update(status="Passed", build_guid=matches[0], executable_sha256=hashlib.sha256(binary.read_bytes()).hexdigest())
         current = "player"
-        if (target == "Win64") != (os.name == "nt"):
+        if (target == "Win64" and sys.platform != "win32") or (target == "Linux64" and not sys.platform.startswith("linux")):
             report["status"] = "Blocked"
             raise EvidenceError("Build host cannot natively execute the selected target; use its matching OS.")
         log = logs / "player.log"
@@ -164,16 +219,16 @@ def run(unity: str | None, output_parent: Path, target: str) -> tuple[int, Path]
         phases["player"]["status"] = "Passed"
         report["status"] = "Passed"
         code = 0
-    except (EvidenceError, OSError, ValueError) as exc:
+    except Exception as exc:
         if report["status"] != "Blocked":
             report["status"] = "Failed"
         phases[current]["status"] = report["status"]
+        report["error_type"] = type(exc).__name__
         report["reason"] = str(exc).replace(str(Path.home()), "<HOME>")
         code = 2 if report["status"] == "Blocked" else 1
     finally:
-        report["source_unchanged"] = fingerprint(RUNTIME) == original
-        if not report["source_unchanged"]:
-            report["status"], report["reason"], code = "Failed", "Original input changed during validation.", 1
+        if not audit_original(report, RUNTIME, original):
+            code = 1
         report["ended_utc"] = utc()
         (out / "report.json").write_text(json.dumps(report, indent=2) + "\n")
         print(json.dumps(report, indent=2))

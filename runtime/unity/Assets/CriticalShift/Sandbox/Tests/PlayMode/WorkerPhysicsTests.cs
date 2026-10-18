@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using CriticalShift.Application;
 using CriticalShift.FacilityPhysics;
 using CriticalShift.Features.Interaction.Unity;
@@ -21,6 +22,7 @@ namespace CriticalShift.Sandbox.Tests
         private LocalWorkerMotor walker;
         private CharacterController controller;
         private Rigidbody pelvis, cart;
+        private List<Exception> faults;
         private double clock;
         private static Guid Id(int value) => new Guid(value, 0, 0, new byte[8]);
         private WorkerView Worker => host.World.GetWorker(Id(1));
@@ -28,13 +30,14 @@ namespace CriticalShift.Sandbox.Tests
 
         [UnitySetUp] public IEnumerator SetUp()
         {
-            clock = 0;
+            clock = 0; faults = new List<Exception>();
             root = new GameObject("Worker physics integration fixture"); root.transform.position = new Vector3(2500, 0, 2500);
             var bootstrap = root.AddComponent<SandboxBootstrap>();
             var pipeline = QualitySettings.renderPipeline != null ? QualitySettings.renderPipeline : GraphicsSettings.defaultRenderPipeline;
             var shader = Shader.Find(pipeline == null ? "Standard" : "Universal Render Pipeline/Lit");
             Assert.That(shader, Is.Not.Null); bootstrap.BindFixtureShader(shader);
             bootstrap.BindFixtureClock(() => clock);
+            bootstrap.BindFixtureDiagnostics(faults.Add);
             yield return null; yield return null;
             Assert.That(bootstrap.World, Is.Not.Null);
             root.GetComponentInChildren<SandboxHud>().enabled = false;
@@ -51,6 +54,7 @@ namespace CriticalShift.Sandbox.Tests
         {
             if (root != null) UnityEngine.Object.Destroy(root);
             yield return null; LogAssert.NoUnexpectedReceived();
+            Assert.That(faults, Is.Empty, "Unexpected worker fixture fault.");
         }
 
         private void KnockDown() => Assert.That(state.ObserveKnockdown(Id(702), Vector3.zero, pelvis.position), Is.EqualTo(WorkerStatus.Applied));
@@ -71,6 +75,85 @@ namespace CriticalShift.Sandbox.Tests
                 Vector3 parent = joint.connectedBody.position + joint.connectedBody.rotation * joint.connectedAnchor;
                 Assert.That(Vector3.Distance(own, parent), Is.LessThan(0.01f), joint.name);
             }
+        }
+
+        private WorkerBodyRig CreateIsolatedRig(out CharacterController capsule, out Transform eyes,
+            out Rigidbody[] parts, out Collider[] contacts)
+        {
+            var worker = new GameObject("Isolated worker setup fixture"); worker.transform.SetParent(root.transform, false);
+            worker.transform.localPosition = new Vector3(0, 6, 0);
+            capsule = worker.AddComponent<CharacterController>();
+            eyes = new GameObject("Isolated worker eyes").transform; eyes.SetParent(worker.transform, false);
+            parts = new Rigidbody[2]; contacts = new Collider[2];
+            for (int i = 0; i < parts.Length; i++)
+            {
+                var segment = new GameObject("Isolated worker segment " + i); segment.transform.SetParent(worker.transform, false);
+                segment.transform.localPosition = Vector3.up * (i + 1);
+                contacts[i] = segment.AddComponent<SphereCollider>();
+                parts[i] = segment.AddComponent<Rigidbody>(); parts[i].useGravity = false;
+            }
+            var grip = new GameObject("Isolated worker grip").transform; grip.SetParent(parts[1].transform, false);
+            return worker.AddComponent<WorkerBodyRig>();
+        }
+
+        [UnityTest] public IEnumerator BodyRigRejectsNonContactingSegmentsBeforeChangingMotionOwnership()
+        {
+            var body = CreateIsolatedRig(out var capsule, out var eyes, out var parts, out var contacts);
+            var grip = parts[1].transform.Find("Isolated worker grip"); parts[1].detectCollisions = false;
+            Assert.Throws<ArgumentException>(() => body.Initialize(Id(800), Id(801), capsule, eyes, parts[0], parts[1].transform, grip, parts, contacts));
+            Assert.That(body.BodyCount, Is.Zero); Assert.That(capsule.enabled, Is.True);
+            foreach (var part in parts) Assert.That(part.isKinematic, Is.False);
+            foreach (var contact in contacts) Assert.That(contact.enabled, Is.True);
+            parts[1].detectCollisions = true;
+            body.Initialize(Id(800), Id(801), capsule, eyes, parts[0], parts[1].transform, grip, parts, contacts);
+            Assert.That(body.BodyCount, Is.EqualTo(2)); Assert.That(capsule.enabled, Is.True);
+            foreach (var part in parts) Assert.That(part.isKinematic, Is.True);
+            foreach (var contact in contacts) Assert.That(contact.enabled, Is.False);
+            UnityEngine.Object.Destroy(body.gameObject); yield return null;
+        }
+
+        [UnityTest] public IEnumerator RejectedWorkerAdapterSetupLeavesNoLiveBindingAndAllowsCorrection()
+        {
+            var body = CreateIsolatedRig(out var capsule, out var eyes, out var parts, out var contacts);
+            var recovery = new WorkerRecoveryPlacement();
+            var setupWorld = new WorldSession(new WorldSessionConfiguration(18, 60000, true), new SpatialInteractionAccess(), recovery);
+            setupWorld.RegisterConnection(Id(810), Id(811));
+            body.Initialize(setupWorld.Epoch, Id(811), capsule, eyes, parts[0], parts[1].transform,
+                parts[1].transform.Find("Isolated worker grip"), parts, contacts);
+            recovery.Bind(body);
+            var motor = body.gameObject.AddComponent<LocalWorkerMotor>();
+            Func<WorkerView> read = () => setupWorld.GetWorker(Id(811));
+            Func<bool> running = () => setupWorld.View.Phase == WorldPhase.Running;
+            Assert.Throws<ArgumentNullException>(() => motor.Initialize(eyes, read, null));
+            motor.Initialize(eyes, read, running);
+            var adapter = body.gameObject.AddComponent<LocalWorkerStateHost>();
+            Assert.Throws<ArgumentNullException>(() => adapter.Initialize(setupWorld, Id(811), body, recovery, () => { }, () => { }, null));
+            Assert.That(adapter.Worker, Is.Null); Assert.Throws<InvalidOperationException>(() => adapter.BindHazard(Id(812)));
+            adapter.Initialize(setupWorld, Id(811), body, recovery, () => { }, motor.ResetAfterRecovery, faults.Add);
+            adapter.BindHazard(Id(812));
+            var observer = body.gameObject.AddComponent<WorkerImpactContacts>();
+            Assert.Throws<ArgumentNullException>(() => observer.Initialize(capsule, read, running, () => Vector3.zero,
+                adapter.ObserveKnockdown, null));
+            Assert.Throws<InvalidOperationException>(() => observer.BindHazard(Id(812), cart));
+            observer.Initialize(capsule, read, running, () => Vector3.zero, adapter.ObserveKnockdown, faults.Add);
+            observer.BindHazard(Id(812), cart);
+            setupWorld.Start(); adapter.Activate(); observer.Activate();
+            Assert.That(capsule.enabled, Is.True); Assert.That(adapter.Worker.Pose, Is.EqualTo(WorkerPose.Upright));
+            Assert.That(setupWorld.View.Phase, Is.EqualTo(WorldPhase.Running));
+            setupWorld.Stop(); adapter.Shutdown(); UnityEngine.Object.Destroy(body.gameObject); yield return null;
+        }
+
+        [UnityTest] public IEnumerator LosingRagdollCollisionDetectionStopsTheWorldBeforeRecovery()
+        {
+            KnockDown(); var parts = rig.CopyBodySegments(); parts[4].detectCollisions = false;
+            yield return null; yield return Step();
+            Assert.That(faults.Count, Is.EqualTo(1)); Assert.That(faults[0].Message, Does.Contain("physical rig binding")); faults.Clear();
+            Assert.That(host.World.View.Phase, Is.EqualTo(WorldPhase.Stopped)); Assert.That(host.World.View.ActiveClaimCount, Is.Zero);
+            Assert.That(host.BoundBodyCount, Is.Zero); Assert.That(controller.enabled, Is.False);
+            Assert.That(parts[4].detectCollisions, Is.False, "Cleanup cannot silently repair the lost contact setting.");
+            foreach (var part in parts) Assert.That(part.isKinematic, Is.True);
+            state.RequestRecovery(); yield return null;
+            Assert.That(controller.enabled, Is.False); Assert.That(DynamicBodies(), Is.Zero);
         }
 
         [UnityTest] public IEnumerator WalkingPosePreservesAnchorsBeforeOneRagdollHandoff()
@@ -220,6 +303,24 @@ namespace CriticalShift.Sandbox.Tests
             Assert.That(Worker.Pose, Is.EqualTo(WorkerPose.Down));
         }
 
+        [UnityTest] public IEnumerator ResumingWalkingRequiresFreshMovementAfterPause()
+        {
+            for (int i = 0; i < 15; i++) yield return Step();
+            walker.SetMovement(Vector2.right);
+            for (int i = 0; i < 15; i++) yield return Step();
+            host.World.Pause(host.World.Epoch);
+            // Input during a paused frame cannot replace the pre-pause direction with another queued move.
+            walker.SetMovement(Vector2.up); yield return Step();
+            host.World.Resume(host.World.Epoch); Vector3 resumed = controller.transform.position;
+            for (int i = 0; i < 15; i++) yield return Step();
+            Assert.That(Vector3.ProjectOnPlane(controller.transform.position - resumed, Vector3.up).magnitude, Is.LessThan(0.03f));
+            walker.SetMovement(Vector2.right);
+            for (int i = 0; i < 15; i++) yield return Step();
+            walker.SetMovement(Vector2.zero);
+            Assert.That(controller.transform.position.x, Is.GreaterThan(resumed.x + 0.1f));
+            Assert.That(Worker.Pose, Is.EqualTo(WorkerPose.Upright)); Assert.That(controller.enabled, Is.True);
+        }
+
         [UnityTest] public IEnumerator MovingCartContactCausesOneKnockdownEpisode()
         {
             cart.position = controller.transform.position + new Vector3(0, 0.35f, -1.5f);
@@ -267,6 +368,28 @@ namespace CriticalShift.Sandbox.Tests
             for (int i = 0; i < 30; i++) yield return Step();
             Assert.That(Worker.Pose, Is.EqualTo(WorkerPose.Upright)); Assert.That(Worker.RecoveryEpisode, Is.Zero);
             Assert.That(host.World.GetObject(Id(100)).HolderId, Is.EqualTo(Id(1))); Assert.That(controller.enabled, Is.True);
+        }
+
+        [UnityTest] public IEnumerator ExcludedImpactMotionCannotKnockDownAfterReleaseOrResume()
+        {
+            for (int i = 0; i < 15; i++) yield return Step();
+            var heavy = HeavyCrate; var observer = controller.GetComponent<WorkerImpactContacts>();
+            heavy.position = controller.transform.position + Vector3.up + Vector3.forward * 1.3f; Physics.SyncTransforms();
+            host.Grab(Id(100)); Assert.That(host.World.GetObject(Id(100)).HolderId, Is.EqualTo(Id(1)));
+            heavy.position = controller.transform.position + Vector3.up * 2.1f;
+            heavy.linearVelocity = Vector3.down * 4; Physics.SyncTransforms();
+            // Sample the contact boundary without another physics step moving the held source away.
+            observer.SendMessage("FixedUpdate", SendMessageOptions.RequireReceiver);
+            host.DropHeld(); heavy.linearVelocity = Vector3.zero;
+            observer.SendMessage("FixedUpdate", SendMessageOptions.RequireReceiver);
+            Assert.That(Worker.Pose, Is.EqualTo(WorkerPose.Upright)); Assert.That(Worker.RecoveryEpisode, Is.Zero);
+            host.World.Pause(host.World.Epoch); heavy.linearVelocity = Vector3.down * 4;
+            observer.SendMessage("FixedUpdate", SendMessageOptions.RequireReceiver);
+            heavy.linearVelocity = Vector3.zero; host.World.Resume(host.World.Epoch);
+            observer.SendMessage("FixedUpdate", SendMessageOptions.RequireReceiver);
+            Assert.That(Worker.Pose, Is.EqualTo(WorkerPose.Upright)); Assert.That(Worker.RecoveryEpisode, Is.Zero);
+            Assert.That(controller.enabled, Is.True); Assert.That(DynamicBodies(), Is.Zero);
+            heavy.position += Vector3.forward * 3; Physics.SyncTransforms(); yield return null;
         }
 
         [UnityTest] public IEnumerator RegisteredFallingSourceBelowTheMassThresholdCannotKnockDown()
@@ -367,8 +490,12 @@ namespace CriticalShift.Sandbox.Tests
             Assert.That(pelvis.position.x, Is.GreaterThan(before.x + 0.1f));
             Assert.That(Worker.Pose, Is.EqualTo(WorkerPose.Down)); Assert.That(controller.enabled, Is.False);
             Assert.That(rig.IsRagdoll, Is.True); Assert.That(Worker.Revision, Is.EqualTo(revision));
-            host.World.Pause(host.World.Epoch); yield return Step();
+            host.World.Pause(host.World.Epoch); state.SetDownMovement(Vector2.right); yield return Step();
             Assert.That(state.CrawlDriveActive, Is.False); Assert.That(Worker.Revision, Is.EqualTo(revision));
+            host.World.Resume(host.World.Epoch);
+            for (int i = 0; i < 10; i++) { yield return Step(); Assert.That(state.CrawlDriveActive, Is.False); }
+            state.SetDownMovement(Vector2.right); yield return Step();
+            Assert.That(state.CrawlDriveActive, Is.True, "Fresh input can reacquire crawl after resume.");
             state.SetDownMovement(Vector2.zero);
         }
 

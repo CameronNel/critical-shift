@@ -30,10 +30,13 @@ namespace CriticalShift.Features.Workers.Unity
             Func<Vector3> workerVelocity, Func<Guid, Vector3, Vector3, WorkerStatus> report, Action<Exception> onFailure)
         {
             if (controller != null || walkingController == null) throw new InvalidOperationException("Bind one worker contact observer.");
-            controller = walkingController; readWorker = worker ?? throw new ArgumentNullException(nameof(worker));
-            running = simulationRunning ?? throw new ArgumentNullException(nameof(simulationRunning));
-            readWorkerVelocity = workerVelocity ?? throw new ArgumentNullException(nameof(workerVelocity));
-            observe = report ?? throw new ArgumentNullException(nameof(report)); failure = onFailure ?? throw new ArgumentNullException(nameof(onFailure));
+            if (worker == null) throw new ArgumentNullException(nameof(worker));
+            if (simulationRunning == null) throw new ArgumentNullException(nameof(simulationRunning));
+            if (workerVelocity == null) throw new ArgumentNullException(nameof(workerVelocity));
+            if (report == null) throw new ArgumentNullException(nameof(report));
+            if (onFailure == null) throw new ArgumentNullException(nameof(onFailure));
+            controller = walkingController; readWorker = worker; running = simulationRunning;
+            readWorkerVelocity = workerVelocity; observe = report; failure = onFailure;
         }
 
         public void BindHazard(Guid id, Rigidbody body) => BindSource(id, body, false, null);
@@ -62,8 +65,8 @@ namespace CriticalShift.Features.Workers.Unity
             {
                 if (!running() || readWorker()?.CanInteract != true || !controller.enabled)
                 {
-                    // Never reuse a pre-knockdown speed sample after a long recovery or pause.
-                    foreach (var source in sources) source.PreviousVelocity = source.Body == null ? Vector3.zero : source.Body.linearVelocity;
+                    // Excluded-time motion cannot become a fresh impact when gameplay resumes.
+                    foreach (var source in sources) source.PreviousVelocity = Vector3.zero;
                     return;
                 }
                 Vector3 center = controller.transform.TransformPoint(controller.center);
@@ -83,7 +86,8 @@ namespace CriticalShift.Features.Workers.Unity
                     if (source.Falling && (source.Body.isKinematic || source.Body.mass < FallingMinimumMass || !source.Eligible()))
                     {
                         if (contact == null) source.ContactLatched = false;
-                        source.PreviousVelocity = current; continue;
+                        // A held/slotted/light source cannot lend its velocity to a later free-body observation.
+                        source.PreviousVelocity = Vector3.zero; continue;
                     }
                     if (contact == null) source.ContactLatched = false;
                     else if (!source.ContactLatched)

@@ -22,6 +22,8 @@ class GameplaySourceTests(unittest.TestCase):
         shutil.copytree(RUNTIME / "dotnet/src", self.package)
         manifest = self.root / "unity/Packages/manifest.json"
         manifest.parent.mkdir(parents=True)
+        (self.root / "unity/Assets").mkdir()
+        (self.root / "unity/ProjectSettings").mkdir()
         shutil.copy2(RUNTIME / "unity/Packages/manifest.json", manifest)
         shutil.copy2(RUNTIME / "toolchain.json", self.root / "toolchain.json")
 
@@ -53,13 +55,18 @@ class GameplaySourceTests(unittest.TestCase):
             gameplay_sources(self.root)
 
     def test_generated_output_cannot_enter_source_package(self):
-        output = self.package / "CriticalShift.Application/obj"
-        output.mkdir()
-        (output / "Generated.cs").write_text("// must not be imported")
-        with self.assertRaises(ValueError):
-            gameplay_sources(self.root)
-        with self.assertRaises(EvidenceError):
-            source_files(self.root)
+        for name in ("obj", "OBJ", "Bin"):
+            with self.subTest(directory=name):
+                output = self.package / "CriticalShift.Application" / name
+                output.mkdir()
+                try:
+                    (output / "Generated.cs").write_text("// must not be imported")
+                    with self.assertRaises(ValueError):
+                        gameplay_sources(self.root)
+                    with self.assertRaises(EvidenceError):
+                        source_files(self.root)
+                finally:
+                    shutil.rmtree(output)
 
     def test_output_configuration_cannot_write_binaries_into_unity_package(self):
         path = self.package / "Directory.Build.props"

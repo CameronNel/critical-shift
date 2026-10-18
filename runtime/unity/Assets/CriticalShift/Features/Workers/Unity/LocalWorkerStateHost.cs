@@ -30,10 +30,12 @@ namespace CriticalShift.Features.Workers.Unity
             if (world != null || session == null || session.View.Phase != WorldPhase.Setup ||
                 session.GetWorker(workerId) == null || body == null || body.Epoch != session.Epoch || body.Actor != workerId)
                 throw new InvalidOperationException("Compose one worker adapter before the world starts.");
-            world = session; actor = workerId; rig = body; placement = recovery ?? throw new ArgumentNullException(nameof(recovery));
-            pumpClock = sampleClock ?? throw new ArgumentNullException(nameof(sampleClock));
-            resetLocomotion = resetWalking ?? throw new ArgumentNullException(nameof(resetWalking));
-            reportFailure = onFailure ?? throw new ArgumentNullException(nameof(onFailure));
+            if (recovery == null) throw new ArgumentNullException(nameof(recovery));
+            if (sampleClock == null) throw new ArgumentNullException(nameof(sampleClock));
+            if (resetWalking == null) throw new ArgumentNullException(nameof(resetWalking));
+            if (onFailure == null) throw new ArgumentNullException(nameof(onFailure));
+            world = session; actor = workerId; rig = body; placement = recovery;
+            pumpClock = sampleClock; resetLocomotion = resetWalking; reportFailure = onFailure;
         }
 
         public void BindHazard(Guid hazard, bool diagnostic = false)
@@ -55,6 +57,8 @@ namespace CriticalShift.Features.Workers.Unity
         {
             if (float.IsNaN(movement.x) || float.IsNaN(movement.y) || float.IsInfinity(movement.x) || float.IsInfinity(movement.y))
                 throw new ArgumentException("Down-worker movement must be finite.");
+            if (!active || world == null || world.View.Phase != WorldPhase.Running)
+            { downMovement = Vector2.zero; return; }
             downMovement = Vector2.ClampMagnitude(movement, 1);
         }
 
@@ -158,9 +162,10 @@ namespace CriticalShift.Features.Workers.Unity
                 if (worker == null) { Shutdown(); return; }
                 rig.Reconcile(worker, world.View.Phase);
                 if (world.View.Phase != WorldPhase.Running || worker.Awareness != WorkerAwareness.Alert ||
-                    worker.Pose != WorkerPose.Down || pendingAttempt > 0) return;
+                    worker.Pose != WorkerPose.Down || pendingAttempt > 0) { downMovement = Vector2.zero; return; }
                 var custody = world.GetWorkerBodyClaim(actor);
-                if (custody != null && (custody.HolderId.HasValue || custody.SlotId.HasValue || custody.IsRetired)) return;
+                if (custody != null && (custody.HolderId.HasValue || custody.SlotId.HasValue || custody.IsRetired))
+                { downMovement = Vector2.zero; return; }
                 CrawlDriveActive = rig.Crawl(downMovement);
             }
             catch (Exception exception) { Fail(exception); }

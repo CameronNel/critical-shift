@@ -1,5 +1,17 @@
 {
   "PlayMode": [
+    "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.RejectedWorkerAdapterSetupLeavesNoLiveBindingAndAllowsCorrection",
+    "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.ResumingWalkingRequiresFreshMovementAfterPause",
+    "CriticalShift.Sandbox.Tests.SpatialAccessTests.DetachedInteractionPointCannotAuthorizeOrFocusItsFormerEquipment",
+    "CriticalShift.Sandbox.Tests.LocalWorldHostTests.SlotAdmissionUsesCurrentColliderGeometryInsteadOfItsSetupBounds",
+    "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.CartAuthorityLossRequiresFreshDriveInputAfterPermissionReturns",
+    "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.InvalidCartObservationsDisableDriveWithoutApplyingForces",
+    "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.BeltAnimationRejectsUnsafeBindingsBeforeInstallingItsMotion",
+    "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.BodyRigRejectsNonContactingSegmentsBeforeChangingMotionOwnership",
+    "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.LosingRagdollCollisionDetectionStopsTheWorldBeforeRecovery",
+    "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.ExcludedImpactMotionCannotKnockDownAfterReleaseOrResume",
+    "CriticalShift.Sandbox.Tests.WorkerDragTests.ATriggerSegmentCannotRemainAHeldWorkerLoad",
+    "CriticalShift.Sandbox.Tests.WorkerDragTests.ADetachedSuitGripCannotRemainAnActiveDragAnchor",
     "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.RejectedCartSetupCannotDriveUntilItsBindingIsCorrected",
     "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.RejectedConveyorSetupCannotDriveBeforeACorrectedBinding",
     "CriticalShift.Sandbox.Tests.FacilityPhysicsTests.CartDriveRequiresAFreshAvailableCargoSample",

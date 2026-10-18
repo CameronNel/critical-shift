@@ -71,6 +71,24 @@ namespace CriticalShift.Sandbox.Tests
             Assert.That(policy.PickTarget(Id(1)), Is.EqualTo(Guid.Empty));
         }
 
+        [Test] public void DetachedInteractionPointCannotAuthorizeOrFocusItsFormerEquipment()
+        {
+            var point = new GameObject("Explicit equipment control").transform;
+            point.SetParent(target.transform, false);
+            policy.Clear(); policy.BindActor(Id(1), eyes); policy.BindTarget(Id(2), target.transform, point);
+            Assert.That(policy.Evaluate(Id(1), Id(2), InteractionKind.Production), Is.EqualTo(AccessDecision.Allowed));
+            Assert.That(policy.PickTarget(Id(1)), Is.EqualTo(Id(2)));
+
+            // Reparenting a control near the actor must not shorten reach to its old equipment.
+            point.SetParent(root.transform, false); point.localPosition = Vector3.forward * 0.25f;
+            Assert.That(policy.Evaluate(Id(1), Id(2), InteractionKind.Production), Is.EqualTo(AccessDecision.TargetUnavailable));
+            Assert.That(policy.PickTarget(Id(1)), Is.EqualTo(Guid.Empty));
+
+            point.SetParent(target.transform, false); point.localPosition = Vector3.zero;
+            Assert.That(policy.Evaluate(Id(1), Id(2), InteractionKind.Production), Is.EqualTo(AccessDecision.Allowed));
+            Assert.That(policy.PickTarget(Id(1)), Is.EqualTo(Id(2)));
+        }
+
         [Test] public void UnregisteredWallBlocksFocusBehindIt()
         {
             var wall = GameObject.CreatePrimitive(PrimitiveType.Cube); wall.transform.SetParent(root.transform, false);

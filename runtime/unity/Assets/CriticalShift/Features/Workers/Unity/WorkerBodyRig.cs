@@ -11,7 +11,7 @@ namespace CriticalShift.Features.Workers.Unity
     {
         private CharacterController controller;
         private Transform eyes, head;
-        private Rigidbody pelvis;
+        private Rigidbody pelvis, headBody;
         private Transform dragPoint;
         private Rigidbody dragBody;
         private Vector3 gripBodyOffset;
@@ -45,11 +45,18 @@ namespace CriticalShift.Features.Workers.Unity
         {
             get
             {
-                if (frozen || !isActiveAndEnabled || controller == null || controller.enabled == ragdoll || eyes == null || pelvis == null || head == null ||
-                    dragPoint == null || dragBody == null || bodies == null) return false;
+                if (frozen || !isActiveAndEnabled || controller == null || controller.enabled == ragdoll || !controller.detectCollisions ||
+                    !UnitScale(controller.transform) || eyes == null || !eyes.gameObject.activeInHierarchy ||
+                    !eyes.IsChildOf(controller.transform) || eyes.GetComponentInParent<Rigidbody>() != null ||
+                    pelvis == null || head == null || headBody == null || !head.gameObject.activeInHierarchy ||
+                    head.GetComponentInParent<Rigidbody>() != headBody || dragPoint == null || dragBody == null ||
+                    !dragPoint.gameObject.activeInHierarchy || dragPoint.GetComponentInParent<Rigidbody>() != dragBody || bodies == null) return false;
                 for (int i = 0; i < bodies.Length; i++)
                     if (bodies[i] == null || colliders[i] == null || !bodies[i].gameObject.activeInHierarchy ||
-                        bodies[i].isKinematic == ragdoll || colliders[i].enabled != ragdoll) return false;
+                        !bodies[i].transform.IsChildOf(controller.transform) || !UnitScale(bodies[i].transform) ||
+                        !bodies[i].detectCollisions || bodies[i].isKinematic == ragdoll || colliders[i].enabled != ragdoll ||
+                        colliders[i].isTrigger || !colliders[i].gameObject.activeInHierarchy ||
+                        colliders[i].attachedRigidbody != bodies[i]) return false;
                 return true;
             }
         }
@@ -61,20 +68,28 @@ namespace CriticalShift.Features.Workers.Unity
                 eyePivot == null || hip == null || headAnchor == null || suitGrip == null || segments == null || segments.Length < 2 ||
                 segments.Length > 16 || segmentColliders == null || segmentColliders.Length != segments.Length)
                 throw new ArgumentException("Bind one bounded body rig, worker identity and walking controller.");
-            if ((walkingController.transform.lossyScale - Vector3.one).sqrMagnitude > 0.0001f)
-                throw new ArgumentException("The fixture worker root must use unit scale.");
-            if (!eyePivot.IsChildOf(walkingController.transform) || !headAnchor.IsChildOf(walkingController.transform))
+            if (!UnitScale(walkingController.transform) || !walkingController.detectCollisions)
+                throw new ArgumentException("The fixture worker root must use unit scale and collision detection.");
+            if (!eyePivot.gameObject.activeInHierarchy || !eyePivot.IsChildOf(walkingController.transform) ||
+                eyePivot.GetComponentInParent<Rigidbody>() != null || !headAnchor.gameObject.activeInHierarchy ||
+                !headAnchor.IsChildOf(walkingController.transform))
                 throw new ArgumentException("The eyes and head must belong to the explicitly bound worker root.");
             var unique = new HashSet<Rigidbody>();
             for (int i = 0; i < segments.Length; i++)
-                if (segments[i] == null || !unique.Add(segments[i]) || !segments[i].transform.IsChildOf(walkingController.transform) ||
-                    segmentColliders[i] == null || segmentColliders[i].attachedRigidbody != segments[i] || segmentColliders[i].isTrigger)
+                if (segments[i] == null || !unique.Add(segments[i]) || !segments[i].gameObject.activeInHierarchy ||
+                    !segments[i].transform.IsChildOf(walkingController.transform) || !UnitScale(segments[i].transform) ||
+                    !segments[i].detectCollisions || segmentColliders[i] == null || !segmentColliders[i].gameObject.activeInHierarchy ||
+                    segmentColliders[i].attachedRigidbody != segments[i] || segmentColliders[i].isTrigger)
                     throw new ArgumentException("Each body segment needs its own solid collider beneath the worker root.");
             if (!unique.Contains(hip)) throw new ArgumentException("The pelvis must belong to the bound body rig.");
+            var boundHeadBody = headAnchor.GetComponentInParent<Rigidbody>();
+            if (boundHeadBody == null || !unique.Contains(boundHeadBody))
+                throw new ArgumentException("The head anchor must belong to a bound physical segment.");
             var gripBody = suitGrip.GetComponentInParent<Rigidbody>();
-            if (gripBody == null || !unique.Contains(gripBody)) throw new ArgumentException("The suit grip must belong to a bound physical segment.");
+            if (!suitGrip.gameObject.activeInHierarchy || gripBody == null || !unique.Contains(gripBody))
+                throw new ArgumentException("The suit grip must belong to a bound physical segment.");
             epoch = worldEpoch; actor = workerId; controller = walkingController; eyes = eyePivot; pelvis = hip; head = headAnchor;
-            dragPoint = suitGrip; dragBody = gripBody;
+            headBody = boundHeadBody; dragPoint = suitGrip; dragBody = gripBody;
             gripBodyOffset = dragBody.transform.InverseTransformPoint(suitGrip.position);
             bodies = (Rigidbody[])segments.Clone(); colliders = (Collider[])segmentColliders.Clone();
             restPositions = new Vector3[bodies.Length]; restRotations = new Quaternion[bodies.Length];
@@ -112,7 +127,7 @@ namespace CriticalShift.Features.Workers.Unity
             if (worker == null || worker.Epoch != epoch || worker.Id != actor)
                 throw new InvalidOperationException("A body rig cannot reconcile another worker or epoch.");
             if (phase != WorldPhase.Running && phase != WorldPhase.Paused) { Freeze(); return; }
-            if (!Available) throw new InvalidOperationException("An active worker lost its physical rig binding.");
+            if (!Available) throw new InvalidOperationException("An active worker lost its physical rig binding, contact geometry or anchors.");
             if (worker.Pose != WorkerPose.Upright)
             {
                 if (!ragdoll) EnterRagdoll();
@@ -274,6 +289,7 @@ namespace CriticalShift.Features.Workers.Unity
 
         private static bool Finite(Vector3 value) => !float.IsNaN(value.x) && !float.IsNaN(value.y) && !float.IsNaN(value.z) &&
             !float.IsInfinity(value.x) && !float.IsInfinity(value.y) && !float.IsInfinity(value.z);
+        private static bool UnitScale(Transform value) => (value.lossyScale - Vector3.one).sqrMagnitude <= 0.0001f;
         private void OnDisable() => Freeze();
         private void OnDestroy() => Freeze();
     }

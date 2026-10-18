@@ -140,7 +140,7 @@ namespace CriticalShift.Sandbox.Tests
             host.Activate(); motor.SetDrive(1, 0, false); Vector3 initial = cart.position;
             for (int i = 0; i < 10; i++) yield return new WaitForFixedUpdate();
             Assert.That(Vector3.Distance(cart.position, initial), Is.LessThan(0.01f));
-            host.Grab(Cart);
+            host.Grab(Cart); motor.SetDrive(1, 0, false);
             for (int i = 0; i < 20; i++) yield return new WaitForFixedUpdate();
             Assert.That(cart.position.z, Is.GreaterThan(initial.z + 0.05f));
             host.DropHeld(); Assert.That(host.IsHandleHeld(Cart), Is.False);

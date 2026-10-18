@@ -205,6 +205,24 @@ namespace CriticalShift.Sandbox.Tests
             yield return null;
         }
 
+        [UnityTest] public IEnumerator SlotAdmissionUsesCurrentColliderGeometryInsteadOfItsSetupBounds()
+        {
+            var shape = body.GetComponent<BoxCollider>();
+            shape.center = Vector3.right; shape.size = new Vector3(2, 1, 1);
+            var obstacle = GameObject.CreatePrimitive(PrimitiveType.Cube); obstacle.transform.SetParent(root.transform, false);
+            obstacle.transform.position = slot.position + Vector3.right * 1.6f; obstacle.transform.localScale = Vector3.one * 0.1f;
+            host.Grab(Box); long sequence = port.LastTerminalSequence;
+            host.OperateMachine(Machine, ProductionAction.Insert, Box, false, false);
+            Assert.That(world.GetObject(Box).HolderId, Is.EqualTo(Actor));
+            Assert.That(world.Production.GetMachine(Machine).ContainerId, Is.Null);
+            Assert.That(port.LastTerminalSequence, Is.EqualTo(sequence)); Assert.That(body.isKinematic, Is.False);
+            obstacle.GetComponent<Collider>().enabled = false;
+            host.OperateMachine(Machine, ProductionAction.Insert, Box, false, false); Physics.SyncTransforms();
+            Assert.That(world.GetObject(Box).SlotId, Is.EqualTo(Machine)); Assert.That(body.isKinematic, Is.True);
+            Assert.That(Vector3.Distance(shape.bounds.center, slot.position + Vector3.right), Is.LessThan(0.001f));
+            yield return null;
+        }
+
         [UnityTest] public IEnumerator ScaledOffsetColliderUsesItsPhysicalSlotCentreAndRejectsLaterRescaling()
         {
             var owner = new GameObject("Offset placement fixture"); owner.transform.SetParent(root.transform, false);

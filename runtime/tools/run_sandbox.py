@@ -10,8 +10,6 @@ import argparse
 import hashlib
 import json
 import re
-import shutil
-import subprocess
 import sys
 import tempfile
 from pathlib import Path
@@ -19,7 +17,7 @@ from pathlib import Path
 from evidence import EvidenceError, validate_log, validate_results, validate_sandbox_player
 from editor_identity import inspect_editor
 from check_source import check
-from run_foundation import RUNTIME, execute, fingerprint, source_files, utc
+from run_foundation import RUNTIME, audit_original, checkout_revision, copy_inputs, execute, fingerprint, utc
 
 
 def run(unity: str | None, output_parent: Path, target: str, build_player: bool = False, run_player: bool = False) -> tuple[int, Path]:
@@ -28,20 +26,17 @@ def run(unity: str | None, output_parent: Path, target: str, build_player: bool 
         raise EvidenceError("Repository evidence must remain under runtime/out, outside source and map directories.")
     output_parent.mkdir(parents=True, exist_ok=True)
     output = Path(tempfile.mkdtemp(prefix="sandbox-", dir=output_parent))
-    profile = json.loads((RUNTIME / "toolchain.json").read_text())
-    expected = json.loads((RUNTIME / "validation/sandbox-expected-tests.json").read_text())["PlayMode"]
     phases = {name: {"status": "NotRun"} for name in ("source", "import", "PlayMode", "build", "player")}
-    report = {"started_utc": utc(), "profile": profile, "target": target, "status": "NotRun", "phases": phases,
-              "expected_playmode_tests": expected,
+    report = {"started_utc": utc(), "commit": checkout_revision(RUNTIME), "target": target, "status": "NotRun", "phases": phases,
               "independent_review": "NotRun", "limits": "Sandbox source/import/declared physics cases and explicitly requested build/headless startup phases only; no rendered playtest, feel, art, multiplayer, performance or gate acceptance."}
-    try:
-        report["commit"] = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=RUNTIME, text=True, timeout=10).strip()
-    except (OSError, subprocess.SubprocessError):
-        report["commit"] = "unversioned-source-copy"
-    original = fingerprint(RUNTIME)
-    report["source_sha256"] = original
+    original = None
     current, code = "source", 1
     try:
+        profile = json.loads((RUNTIME / "toolchain.json").read_text())
+        expected = json.loads((RUNTIME / "validation/sandbox-expected-tests.json").read_text())["PlayMode"]
+        report.update(profile=profile, expected_playmode_tests=expected)
+        original = fingerprint(RUNTIME)
+        report["source_sha256"] = original
         if run_player and not build_player:
             raise EvidenceError("Sandbox Player execution requires an explicit --build-player in the same source run.")
         phases["source"] = check(RUNTIME)
@@ -54,10 +49,9 @@ def run(unity: str | None, output_parent: Path, target: str, build_player: bool 
             raise EvidenceError("Unsupported sandbox desktop target.")
         report["editor_file_identity"] = inspect_editor(editor, profile)
         work = output / "workspace/runtime"
-        for path in source_files(RUNTIME):
-            destination = work / path.relative_to(RUNTIME)
-            destination.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(path, destination)
+        report["copied_source_sha256"] = copy_inputs(RUNTIME, work)
+        if report["copied_source_sha256"] != original:
+            raise EvidenceError("Disposable inputs differ from the recorded source fingerprint; Unity was not launched.")
         logs = output / "logs"
         logs.mkdir()
         common = [str(editor), "-batchmode", "-nographics", "-projectPath", str(work / "unity"),
@@ -115,16 +109,16 @@ def run(unity: str | None, output_parent: Path, target: str, build_player: bool 
                 phases["player"].update(validate_sandbox_player(text, rc, profile["editor"], identities[0]))
                 phases["player"]["status"] = "Passed"
         report["status"], code = "Passed", 0
-    except (EvidenceError, OSError, ValueError) as exception:
+    except Exception as exception:
         if report["status"] != "Blocked":
             report["status"] = "Failed"
         phases[current]["status"] = report["status"]
+        report["error_type"] = type(exception).__name__
         report["reason"] = str(exception).replace(str(Path.home()), "<HOME>")
         code = 2 if report["status"] == "Blocked" else 1
     finally:
-        report["source_unchanged"] = fingerprint(RUNTIME) == original
-        if not report["source_unchanged"]:
-            report["status"], report["reason"], code = "Failed", "Original source changed during native validation.", 1
+        if not audit_original(report, RUNTIME, original):
+            code = 1
         report["ended_utc"] = utc()
         (output / "report.json").write_text(json.dumps(report, indent=2) + "\n")
         print(json.dumps(report, indent=2))

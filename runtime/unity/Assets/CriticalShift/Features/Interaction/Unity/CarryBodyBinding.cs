@@ -13,7 +13,6 @@ namespace CriticalShift.Features.Interaction.Unity
         private readonly CollisionDetectionMode originalCollisionMode;
         private readonly RigidbodyInterpolation originalInterpolation;
         private readonly float massPerUnit;
-        private readonly Bounds placementBounds;
         private readonly Vector3 boundScale;
         private readonly Collider[] shapes;
         private readonly Collider[] overlaps = new Collider[32];
@@ -51,27 +50,32 @@ namespace CriticalShift.Features.Interaction.Unity
                 throw new ArgumentException("Portable fixture scale must be finite and positive.");
             shapes = body.GetComponentsInChildren<Collider>();
             if (shapes.Length == 0) throw new ArgumentException("A portable body needs a collider.");
-            Bounds worldBounds = shapes[0].bounds;
             foreach (var collider in shapes)
             {
                 if (!collider.enabled || collider.isTrigger || collider.attachedRigidbody != body)
                     throw new ArgumentException("Portable fixture colliders must be solid and belong to this body.");
-                worldBounds.Encapsulate(collider.bounds);
             }
+            ReadPlacementBounds();
+        }
+
+        private Bounds ReadPlacementBounds()
+        {
+            Bounds worldBounds = shapes[0].bounds;
+            foreach (var shape in shapes) worldBounds.Encapsulate(shape.bounds);
             if (!Finite(worldBounds.center) || !Finite(worldBounds.size) ||
                 worldBounds.size.x <= 0 || worldBounds.size.y <= 0 || worldBounds.size.z <= 0)
-                throw new ArgumentException("Portable fixture bounds must be finite and non-empty.");
+                throw new InvalidOperationException("Portable fixture bounds must remain finite and non-empty.");
             // Store metres in a body-rotation-neutral frame, retaining authored scale.
             // InverseTransformPoint would divide the centre offset by root scale.
-            Quaternion neutral = Quaternion.Inverse(body.rotation);
-            var bounds = new Bounds(neutral * (worldBounds.center - body.position), Vector3.zero);
+            Quaternion neutral = Quaternion.Inverse(Body.rotation);
+            var bounds = new Bounds(neutral * (worldBounds.center - Body.position), Vector3.zero);
             for (int corner = 0; corner < 8; corner++)
             {
                 Vector3 offset = Vector3.Scale(worldBounds.extents,
                     new Vector3((corner & 1) == 0 ? -1 : 1, (corner & 2) == 0 ? -1 : 1, (corner & 4) == 0 ? -1 : 1));
-                bounds.Encapsulate(neutral * (worldBounds.center + offset - body.position));
+                bounds.Encapsulate(neutral * (worldBounds.center + offset - Body.position));
             }
-            placementBounds = bounds;
+            return bounds;
         }
 
         internal void ApplyMaterialMass(MaterialView batch)
@@ -84,6 +88,9 @@ namespace CriticalShift.Features.Interaction.Unity
         internal bool CanPlace(Transform slot)
         {
             if (!Available) throw new InvalidOperationException("A registered portable body lost its required motion or collision binding: " + Id);
+            // Observe current solid geometry at admission; a resized or moved compound
+            // must not load using stale setup bounds. The caller synchronizes transforms.
+            Bounds placementBounds = ReadPlacementBounds();
             Vector3 center = slot.position + slot.rotation * placementBounds.center;
             Vector3 half = Vector3.Max(placementBounds.extents - Vector3.one * 0.015f, Vector3.one * 0.01f);
             int count = Physics.OverlapBoxNonAlloc(center, half, overlaps, slot.rotation,

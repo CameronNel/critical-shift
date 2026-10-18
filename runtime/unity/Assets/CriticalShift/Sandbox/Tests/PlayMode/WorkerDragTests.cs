@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using CriticalShift.Application;
 using CriticalShift.FacilityPhysics;
 using CriticalShift.Features.Interaction.Unity;
@@ -21,19 +22,21 @@ namespace CriticalShift.Sandbox.Tests
         private LocalWorkerMotor walker;
         private WorkerBodyRig patientRig;
         private LocalWorkerStateHost patientState;
+        private List<Exception> faults;
         private double clock;
         private static Guid Id(int value) => new Guid(value, 0, 0, new byte[8]);
         private ObjectClaimView Claim => host.World.GetWorkerBodyClaim(Id(3));
 
         [UnitySetUp] public IEnumerator SetUp()
         {
-            clock = 0;
+            clock = 0; faults = new List<Exception>();
             root = new GameObject("Worker dragging integration fixture"); root.transform.position = new Vector3(4000, 0, 4000);
             bootstrap = root.AddComponent<SandboxBootstrap>();
             var pipeline = QualitySettings.renderPipeline != null ? QualitySettings.renderPipeline : GraphicsSettings.defaultRenderPipeline;
             var shader = Shader.Find(pipeline == null ? "Standard" : "Universal Render Pipeline/Lit");
             Assert.That(shader, Is.Not.Null); bootstrap.BindFixtureShader(shader);
             bootstrap.BindFixtureClock(() => clock);
+            bootstrap.BindFixtureDiagnostics(faults.Add);
             yield return null; yield return null;
             Assert.That(bootstrap.World, Is.Not.Null); BindFixture();
             for (int i = 0; i < 80; i++) yield return Step();
@@ -70,6 +73,33 @@ namespace CriticalShift.Sandbox.Tests
         {
             if (root != null) UnityEngine.Object.Destroy(root);
             yield return null; LogAssert.NoUnexpectedReceived();
+            Assert.That(faults, Is.Empty, "Unexpected worker-drag fixture fault.");
+        }
+
+        [UnityTest] public IEnumerator ATriggerSegmentCannotRemainAHeldWorkerLoad()
+        {
+            StandNearGrip(); host.Grab(Id(650)); Assert.That(Claim.HolderId, Is.EqualTo(Id(1)));
+            var parts = patientRig.CopyBodySegments(); var contact = parts[4].GetComponent<Collider>(); contact.isTrigger = true;
+            yield return null; yield return Step();
+            Assert.That(faults.Count, Is.EqualTo(1)); Assert.That(faults[0].Message, Does.Contain("physical rig binding")); faults.Clear();
+            Assert.That(host.World.View.Phase, Is.EqualTo(WorldPhase.Stopped)); Assert.That(host.World.View.ActiveClaimCount, Is.Zero);
+            Assert.That(host.BoundBodyCount, Is.Zero); Assert.That(host.CurrentWorkerDragTarget().HasValue, Is.False);
+            Assert.That(patientController.enabled, Is.False); Assert.That(contact.isTrigger, Is.True);
+            foreach (var part in parts) Assert.That(part.isKinematic, Is.True);
+            yield return null;
+        }
+
+        [UnityTest] public IEnumerator ADetachedSuitGripCannotRemainAnActiveDragAnchor()
+        {
+            StandNearGrip(); host.Grab(Id(650)); Assert.That(Claim.HolderId, Is.EqualTo(Id(1)));
+            var grip = patientRig.SuitGrip; grip.SetParent(patientController.transform, true);
+            yield return null; yield return Step();
+            Assert.That(faults.Count, Is.EqualTo(1)); Assert.That(faults[0].Message, Does.Contain("physical rig binding")); faults.Clear();
+            Assert.That(host.World.View.Phase, Is.EqualTo(WorldPhase.Stopped)); Assert.That(host.World.View.ActiveClaimCount, Is.Zero);
+            Assert.That(host.CurrentWorkerDragTarget().HasValue, Is.False); Assert.That(patientController.enabled, Is.False);
+            Assert.That(grip.parent, Is.EqualTo(patientController.transform), "Cleanup cannot silently rebind the lost anchor.");
+            foreach (var part in patientRig.CopyBodySegments()) Assert.That(part.isKinematic, Is.True);
+            yield return null;
         }
 
         [UnityTest] public IEnumerator SuitGripPullsTheDynamicWorkerAndSlowsTheRescuer()

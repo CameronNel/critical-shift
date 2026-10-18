@@ -262,6 +262,8 @@ class RunnerSafetyTests(unittest.TestCase):
             (root / "toolchain.json").write_text("{}")
             assets = root / "unity/Assets"
             assets.mkdir(parents=True)
+            (root / "unity/Packages").mkdir()
+            (root / "unity/ProjectSettings").mkdir()
             package = root / "dotnet/src"
             package.mkdir(parents=True)
             (package / "package.json").write_text("{}")

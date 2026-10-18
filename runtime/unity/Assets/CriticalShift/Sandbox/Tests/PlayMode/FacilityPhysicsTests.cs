@@ -151,10 +151,95 @@ namespace CriticalShift.Sandbox.Tests
             body.isKinematic = false; Assert.That(motor.HasDriveAuthority, Is.False);
             for (int i = 0; i < 4; i++) yield return new WaitForFixedUpdate();
             Assert.That(body.linearVelocity.sqrMagnitude, Is.LessThan(0.0001f));
-            motor.Initialize(() => true, () => 0);
+            motor.Initialize(() => true, () => 0); motor.SetDrive(1, 0, false);
             for (int i = 0; i < 4; i++) yield return new WaitForFixedUpdate();
             Assert.That(motor.HasDriveAuthority, Is.True); Assert.That(motor.Speed, Is.GreaterThan(0.01f));
             body.detectCollisions = false; Assert.That(motor.HasDriveAuthority, Is.False);
+        }
+
+        [UnityTest] public IEnumerator CartAuthorityLossRequiresFreshDriveInputAfterPermissionReturns()
+        {
+            var body = Body("Cart authority reset", Vector3.zero); bool permitted = false;
+            var motor = body.gameObject.AddComponent<CartMotor>(); motor.Initialize(() => permitted, () => 0);
+            motor.SetDrive(1, 1, false); permitted = true;
+            for (int i = 0; i < 4; i++) yield return new WaitForFixedUpdate();
+            Assert.That(motor.HasDriveAuthority, Is.True); Assert.That(motor.Speed, Is.LessThan(0.001f));
+            Assert.That(motor.Steering, Is.Zero);
+            motor.SetDrive(1, 1, false);
+            for (int i = 0; i < 4; i++) yield return new WaitForFixedUpdate();
+            Assert.That(motor.Speed, Is.GreaterThan(0.01f));
+            permitted = false; yield return new WaitForFixedUpdate(); yield return new WaitForFixedUpdate();
+            body.linearVelocity = Vector3.zero; body.angularVelocity = Vector3.zero; permitted = true;
+            for (int i = 0; i < 4; i++) yield return new WaitForFixedUpdate();
+            Assert.That(motor.Speed, Is.LessThan(0.001f)); Assert.That(motor.Steering, Is.Zero);
+            motor.SetDrive(1, 0, false);
+            for (int i = 0; i < 4; i++) yield return new WaitForFixedUpdate();
+            Assert.That(motor.Speed, Is.GreaterThan(0.01f));
+        }
+
+        [UnityTest] public IEnumerator InvalidCartObservationsDisableDriveWithoutApplyingForces()
+        {
+            float[] invalidMasses = { -1, float.NaN, float.PositiveInfinity, float.NegativeInfinity };
+            for (int i = 0; i <= invalidMasses.Length; i++)
+            {
+                var body = Body("Invalid cargo observation " + i, Vector3.right * (i * 2)); int observations = 0;
+                var motor = body.gameObject.AddComponent<CartMotor>();
+                motor.Initialize(() => true, () =>
+                {
+                    observations++;
+                    if (i == invalidMasses.Length) throw new System.InvalidOperationException("Cargo callback failed.");
+                    return invalidMasses[i];
+                });
+                motor.SetDrive(1, 0, false);
+                Assert.Throws<System.InvalidOperationException>(() => { _ = motor.CargoMass; });
+                Assert.That(motor.enabled, Is.False); Assert.That(motor.HasDriveAuthority, Is.False);
+                Assert.That(motor.CargoMass, Is.Zero);
+                yield return new WaitForFixedUpdate(); yield return new WaitForFixedUpdate();
+                Assert.That(observations, Is.EqualTo(1)); Assert.That(body.linearVelocity.sqrMagnitude, Is.LessThan(0.0001f));
+            }
+            var authorityBody = Body("Throwing cart authority", Vector3.back * 2); int permissions = 0;
+            var authorityMotor = authorityBody.gameObject.AddComponent<CartMotor>();
+            authorityMotor.Initialize(() => { permissions++; throw new System.InvalidOperationException("Authority callback failed."); }, () => 0);
+            Assert.Throws<System.InvalidOperationException>(() => authorityMotor.SetDrive(1, 1, false));
+            Assert.That(authorityMotor.enabled, Is.False); Assert.That(authorityMotor.HasDriveAuthority, Is.False);
+            authorityMotor.SetDrive(1, 1, false);
+            yield return new WaitForFixedUpdate(); yield return new WaitForFixedUpdate();
+            Assert.That(permissions, Is.EqualTo(1)); Assert.That(authorityBody.linearVelocity.sqrMagnitude, Is.LessThan(0.0001f));
+        }
+
+        [UnityTest] public IEnumerator BeltAnimationRejectsUnsafeBindingsBeforeInstallingItsMotion()
+        {
+            var owner = new GameObject("Belt visual owner"); owner.transform.SetParent(root.transform, false);
+            var sensor = new GameObject("Belt visual drive"); sensor.transform.SetParent(owner.transform, false);
+            var volume = sensor.AddComponent<BoxCollider>(); volume.isTrigger = true;
+            var drive = sensor.AddComponent<ConveyorDrive>(); drive.Initialize(body => false, () => true);
+            var animation = owner.AddComponent<ConveyorBeltMotion>();
+            var visuals = new Transform[4];
+            for (int i = 0; i < visuals.Length; i++)
+            {
+                visuals[i] = new GameObject("Belt visual " + i).transform; visuals[i].SetParent(owner.transform, false);
+            }
+            var treads = new[] { visuals[0], visuals[1] }; var rollers = new[] { visuals[2], visuals[3] };
+            Assert.Throws<System.ArgumentException>(() => animation.Initialize(drive, new[] { treads[0], treads[0] }, 4, rollers, 0.16f));
+            visuals[1].SetParent(visuals[0], false);
+            Assert.Throws<System.ArgumentException>(() => animation.Initialize(drive, treads, 4, rollers, 0.16f));
+            visuals[1].SetParent(root.transform, false);
+            Assert.Throws<System.ArgumentException>(() => animation.Initialize(drive, treads, 4, rollers, 0.16f));
+            visuals[1].SetParent(owner.transform, false);
+            var hidden = new GameObject("Inactive physical descendant"); hidden.transform.SetParent(visuals[0], false); hidden.SetActive(false);
+            var contact = hidden.AddComponent<BoxCollider>();
+            Assert.Throws<System.ArgumentException>(() => animation.Initialize(drive, treads, 4, rollers, 0.16f));
+            contact.enabled = false; var physical = hidden.AddComponent<Rigidbody>(); physical.useGravity = false;
+            Assert.Throws<System.ArgumentException>(() => animation.Initialize(drive, treads, 4, rollers, 0.16f));
+            hidden.transform.SetParent(root.transform, false);
+            var otherBelt = Belt(body => false);
+            Assert.Throws<System.ArgumentException>(() => animation.Initialize(otherBelt, treads, 4, rollers, 0.16f));
+            animation.Initialize(drive, treads, 4, rollers, 0.16f);
+            Vector3 physicalPosition = hidden.transform.position;
+            for (int i = 0; i < 4; i++) { yield return new WaitForFixedUpdate(); yield return null; }
+            Assert.That(drive.Running, Is.True); Assert.That(treads[0].localPosition.z, Is.GreaterThan(0));
+            Assert.That(Quaternion.Angle(Quaternion.identity, rollers[0].localRotation), Is.GreaterThan(0));
+            Assert.That(hidden.transform.position, Is.EqualTo(physicalPosition)); Assert.That(contact.enabled, Is.False);
         }
 
         [UnityTest] public IEnumerator ConveyorCannotAccelerateAnUnauthorizedBody()

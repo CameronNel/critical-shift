@@ -5,6 +5,7 @@ using UnityEngine;
 namespace CriticalShift.FacilityPhysics
 {
     /// <summary>Bounded loop for debug belt tread markers; has no collision or rule authority.</summary>
+    [DisallowMultipleComponent]
     public sealed class ConveyorBeltMotion : MonoBehaviour
     {
         private ConveyorDrive drive;
@@ -15,29 +16,34 @@ namespace CriticalShift.FacilityPhysics
         private float length, travel, rollerRadius, rollerAngle;
         public void Initialize(ConveyorDrive motor, Transform[] treadMarkers, float beltLength, Transform[] endRollers, float radius)
         {
-            if (markers != null || motor == null || treadMarkers == null || treadMarkers.Length == 0 || treadMarkers.Length > 64 ||
+            if (markers != null || motor == null || !motor.transform.IsChildOf(transform) || treadMarkers == null || treadMarkers.Length == 0 || treadMarkers.Length > 64 ||
                 beltLength <= 0 || float.IsNaN(beltLength) || float.IsInfinity(beltLength) || endRollers == null || endRollers.Length != 2 ||
                 radius <= 0 || float.IsNaN(radius) || float.IsInfinity(radius))
                 throw new ArgumentException("Bind an existing belt and its bounded tread markers.");
-            drive = motor; length = beltLength; markers = (Transform[])treadMarkers.Clone(); rest = new Vector3[markers.Length];
-            rollers = (Transform[])endRollers.Clone(); rollerRest = new Quaternion[rollers.Length]; rollerRadius = radius;
+            var positions = new Vector3[treadMarkers.Length];
+            var rotations = new Quaternion[endRollers.Length];
             var unique = new HashSet<Transform>();
-            for (int i = 0; i < markers.Length; i++)
+            for (int i = 0; i < treadMarkers.Length; i++)
             {
-                if (markers[i] == null || !unique.Add(markers[i])) throw new ArgumentException("Tread markers must be unique and present.");
-                rest[i] = markers[i].localPosition;
+                if (treadMarkers[i] == null || !unique.Add(treadMarkers[i])) throw new ArgumentException("Tread markers must be unique and present.");
+                positions[i] = treadMarkers[i].localPosition;
             }
-            for (int i = 0; i < rollers.Length; i++)
+            for (int i = 0; i < endRollers.Length; i++)
             {
-                if (rollers[i] == null || !unique.Add(rollers[i])) throw new ArgumentException("Roller pivots must be unique and present.");
-                rollerRest[i] = rollers[i].localRotation;
+                if (endRollers[i] == null || !unique.Add(endRollers[i])) throw new ArgumentException("Roller pivots must be unique and present.");
+                rotations[i] = endRollers[i].localRotation;
             }
             foreach (var visual in unique)
             {
-                if (visual.GetComponentsInChildren<Rigidbody>().Length != 0) throw new ArgumentException("Belt presentation cannot move physical bodies.");
-                foreach (var collider in visual.GetComponentsInChildren<Collider>())
+                if (visual == transform || !visual.IsChildOf(transform)) throw new ArgumentException("Belt visuals must be descendants of their owner.");
+                foreach (var other in unique)
+                    if (visual != other && visual.IsChildOf(other)) throw new ArgumentException("Belt visuals cannot be nested.");
+                if (visual.GetComponentsInChildren<Rigidbody>(true).Length != 0) throw new ArgumentException("Belt presentation cannot move physical bodies.");
+                foreach (var collider in visual.GetComponentsInChildren<Collider>(true))
                     if (collider.enabled) throw new ArgumentException("Moving belt visuals must be non-contacting.");
             }
+            drive = motor; length = beltLength; markers = (Transform[])treadMarkers.Clone(); rest = positions;
+            rollers = (Transform[])endRollers.Clone(); rollerRest = rotations; rollerRadius = radius;
         }
         private void LateUpdate()
         {
