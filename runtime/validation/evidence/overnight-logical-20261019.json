@@ -1,0 +1,202 @@
+{
+  "status": "Passed",
+  "format": "critical-shift.logical-endurance.v1",
+  "archive": "overnight-logical-20261019.jsonl.gz",
+  "archive_sha256": "8d6aee5200f028a788e901fcf487fbad2257a35c4a9d3ac4aec7db047fdf4306",
+  "archive_bytes": 263576,
+  "target_seconds": 28800,
+  "total_completed_seconds": 28800.9542078,
+  "snapshots": [
+    {
+      "series": "shift-endurance-supervised-20261019",
+      "commit": "0f386de57f90ed500b4f37a148472b6001a7688d",
+      "confirmed_chunks": 34,
+      "seconds": 1530.0256402,
+      "cases": 991120,
+      "checked_steps": 755010523,
+      "assemblies": {
+        "CriticalShift.Application.dll": "074596aeff5f2bc740689d124f147893043a9fd6c726f023359828569c91b335",
+        "CriticalShift.Features.Interaction.Domain.dll": "755c87106d670e437b9693f24a3d1f3224bb803faa80d64e98af8c5d3018a48c",
+        "CriticalShift.Features.Materials.Domain.dll": "82518612172dbe3e85b0f7fe440873dd803c060dd5a8407d8311beb8a5f4ba4d",
+        "CriticalShift.Features.Power.Domain.dll": "1ddf754f4e1f765cec00b7957f336217c74b69530397a4d277229d5b03deeaa1",
+        "CriticalShift.Features.Production.Domain.dll": "adac55a947a44f80ea9c8454cdb52c22268f43c6a8050786c0c8ef7ab5c3f389",
+        "CriticalShift.Features.Reactor.Domain.dll": "07bbe1ff59835e0ad28501e124afba486d57044e8bb1c12138113d57be2b107e",
+        "CriticalShift.Features.Session.Domain.dll": "d87665317aa3c7375891913f3e9faa1ff9dd731b1382bada252a6144bd99a25f",
+        "CriticalShift.Features.Workers.Domain.dll": "7f9c16ef72330c8c97fac0f4bbb17a4ba842c157921b5b622a7ef00388f7d2e0",
+        "CriticalShift.Scenarios.dll": "db1cf05ed2ffee1bec3dd7c307555243883958ce8e897f05ba433340b70d3b0a"
+      }
+    },
+    {
+      "series": "medical-endurance-supervised-20261019",
+      "commit": "2f24702085821c149ed3b1cd85de2df087023d40",
+      "confirmed_chunks": 43,
+      "seconds": 1935.0491356,
+      "cases": 1202756,
+      "checked_steps": 919989514,
+      "assemblies": {
+        "CriticalShift.Application.dll": "8fa1451eda4c45d7750877b41eb8f1eab17dcaffed2b0cce44ddb2c165dfecec",
+        "CriticalShift.Features.Interaction.Domain.dll": "9c2b43b348fc7071458e072bbdce5292e33193e58f094034cf32c9051d7da20f",
+        "CriticalShift.Features.Materials.Domain.dll": "8ee8b9a837b06d02042a99080a1de3955f8fbb45465e3ba8b77a00499ab04d69",
+        "CriticalShift.Features.Power.Domain.dll": "0571c5b3a0be734465cb557ed0ff1151a151581cb36dd2e9c2a58528fb484bd6",
+        "CriticalShift.Features.Production.Domain.dll": "812b4fe583b49ab7cf52f58ecd91a3a6c11d0a4eff6b00a76609fa6e9dec6423",
+        "CriticalShift.Features.Reactor.Domain.dll": "5fdf139eefc723a5a7433a9b3c93203f46d41e6d6088e0bb58939ad5acde16e5",
+        "CriticalShift.Features.Session.Domain.dll": "02b7fc9e4e0e68db2073cd5ba500341eecf689371b62632f8678e47e1a1f1631",
+        "CriticalShift.Features.Workers.Domain.dll": "f5a1bbe16e5297ec4a2f5bccb899c685b04ffb5f4af50f2eec340bb89208d952",
+        "CriticalShift.Scenarios.dll": "1fda2a56a4ba7aa170ec1d8cfd1fdab4b4b6718dd9dad197169b674053decb79"
+      }
+    },
+    {
+      "series": "mixed-endurance-supervised-20261019",
+      "commit": "4848041af72ef6c4f1910df03d49c0eb64b0fb1c",
+      "confirmed_chunks": 158,
+      "seconds": 7110.1893009000005,
+      "cases": 3315186,
+      "checked_steps": 2540956926,
+      "assemblies": {
+        "CriticalShift.Application.dll": "5b3c9a59015dcb106067d05f28285efce6f7f6c3eaf48d56b24e11c6c9e7b6fc",
+        "CriticalShift.Features.Interaction.Domain.dll": "06e2091cf5434db8203c37c61ea64497e6d96d31c42a46a083306ddb2e0f6ff6",
+        "CriticalShift.Features.Materials.Domain.dll": "e9a4589afc9745e1b73527623dad7afd1ae9cf8f136edc716a029fe338e2fca0",
+        "CriticalShift.Features.Power.Domain.dll": "aa4e23157d9b3eb222c0151475b390a317366e7bd1c82e6198d74f07aefe2be0",
+        "CriticalShift.Features.Production.Domain.dll": "eae908ca0469d031c5523d64eabb779e0a641cdfae16f1eba976cbfa0f977aca",
+        "CriticalShift.Features.Reactor.Domain.dll": "995f75864e19b31a2e958b36ffaffb4db0ea374baa871dcffdadd2a9cddf2e78",
+        "CriticalShift.Features.Session.Domain.dll": "33cc233ecba402ebbd4d87c36991264fed6faee4c00519c93b31e6df8e65407a",
+        "CriticalShift.Features.Workers.Domain.dll": "f98d2d3e82cf6310ed921b9c3b35775c0617b499112a45aec4a49b59395d7c39",
+        "CriticalShift.Scenarios.dll": "045a3ddbf3833f5381653a463ac7cfcf63da2cef2bdbaab697d90c36d92965e6"
+      }
+    },
+    {
+      "series": "contamination-endurance-supervised-20261019",
+      "commit": "32ed08cef0878345bd35e7c057c710bf18d9ffb8",
+      "confirmed_chunks": 93,
+      "seconds": 4185.1067098,
+      "cases": 1765721,
+      "checked_steps": 1816768492,
+      "assemblies": {
+        "CriticalShift.Features.Session.Domain.dll": "7df7d16763ba9cdb07f1a3ceeb32baa187c5fbd96295fd7a58dd1d5d7e74d921",
+        "CriticalShift.Features.Workers.Domain.dll": "48cae4a9dcf1c3904549553343fe769858b4bcd947d83b53787c5ede0023b9aa",
+        "CriticalShift.Application.dll": "3372bfda1ebc70d1e6658562f6e29800cf429b671a1da3aae31bb098f1158427",
+        "CriticalShift.Features.Production.Domain.dll": "7255c06efda01627cb93dca061afb8a8daa34ab45098490c07fbcf9382265ff5",
+        "CriticalShift.Features.Materials.Domain.dll": "c62b5a60591e8f32345cb98a7724556a48f2d2af4471fd0da728842a5a92b35e",
+        "CriticalShift.Scenarios.dll": "2cb6141fa3163c310a562ef32bd6b7bb37584af5af5d984d6affe787f1f78f6d",
+        "CriticalShift.Features.Interaction.Domain.dll": "5ae7cd03bfe04d7423b5fbf8c45ba8df553fbca26ffeaf016dbdc11a90664a68",
+        "CriticalShift.Features.Power.Domain.dll": "2e4fa8cb0a0772b5e840ad5ed41974e16ead22f0f8f77a91e89c7635caf88fb0",
+        "CriticalShift.Features.Reactor.Domain.dll": "c6fa02bab610b14c4f728a5e9508f00f07c49a2ec588ad8da80b1f971abb2672"
+      }
+    },
+    {
+      "series": "complete-gameplay-endurance-supervised-20261019",
+      "commit": "5e6847dabaca801a53549d368c349de01366d7b1",
+      "confirmed_chunks": 42,
+      "seconds": 1890.0552856999993,
+      "cases": 644001,
+      "checked_steps": 855324457,
+      "assemblies": {
+        "CriticalShift.Features.Session.Domain.dll": "2f92d077b8323a32827aabe6c01cadb58d680122f9ccb075d067b0b24aa092e5",
+        "CriticalShift.Features.Workers.Domain.dll": "b21c9dce63cc4f8c8400ba73de8e83528b5f8e13825c28f1427560ba9d3ffe89",
+        "CriticalShift.Application.dll": "ecb2d4506749605e748cf8acaffd3af7f07f74000e12fad06491e222f2272779",
+        "CriticalShift.Features.Production.Domain.dll": "7d6f55ededa926ec3438ce882ed67771310cade65d979b1c594df478d2a8458e",
+        "CriticalShift.Features.Materials.Domain.dll": "62e5f0c973f296c6e8a8ad949aee1bf9ad913c4038f4016ae90d3c30845b85e8",
+        "CriticalShift.Scenarios.dll": "5fe4eb02cddfb09dec30412ddc91d68f9785347ccfca8c569e41c71773b4ac2b",
+        "CriticalShift.Features.Interaction.Domain.dll": "9e9c9b694a4f16c9617cf4102bfb06e74e7e673b121421216d27b7f8743601c0",
+        "CriticalShift.Features.Power.Domain.dll": "d108a30c977640b6b25ff095a94709d3b8b1306f8f4081e485581b36bd6f1291",
+        "CriticalShift.Features.Reactor.Domain.dll": "45ae41c2f3d983a459b33f87c84853276285ba054297a0149908c25d86a0393b"
+      }
+    },
+    {
+      "series": "production-repair-endurance-supervised-20261019",
+      "commit": "278c38d23efc4a08ad91ae73ccd7894771a1964d",
+      "confirmed_chunks": 48,
+      "seconds": 2160.1247525999997,
+      "cases": 683107,
+      "checked_steps": 940983179,
+      "assemblies": {
+        "CriticalShift.Features.Session.Domain.dll": "b2268a21657ee393ffc18ac817b3120b09549680d6c47571fddc368d4d798833",
+        "CriticalShift.Features.Workers.Domain.dll": "d8acc91bb9815af6a38a37f39e8dfde87aece73fd7f586afd11b0a3bfb4e0ad1",
+        "CriticalShift.Application.dll": "236a93e2261618358fec790ca426392ab662964691e1723c393e31bd2e0e4f3b",
+        "CriticalShift.Features.Production.Domain.dll": "0ae3bb36cde42f6f8b1db7a27c227948ae2f5c98ad98a7b75e8cb65d50d83e26",
+        "CriticalShift.Features.Materials.Domain.dll": "5e333364c111439c5278f2e1bb17ce54b65a48f1f329ed23ca48cc94a9c338e2",
+        "CriticalShift.Scenarios.dll": "84237b5ede9ce8f6f519a238f5ef3906013481e0dc03cc43cfe09fc57f406f35",
+        "CriticalShift.Features.Interaction.Domain.dll": "3a17e4432568b5774c021fb4af7a49e5bc93dee7220226c18d23c32621ea78ae",
+        "CriticalShift.Features.Power.Domain.dll": "0033cf9692d120d0818024eb866b8a31b887caeaf659567d9cf8ba4d96d375d2",
+        "CriticalShift.Features.Reactor.Domain.dll": "17084b82401f9644f8adeb42743842e94adf038d65c117ec1b830e24eaa93667"
+      }
+    },
+    {
+      "series": "shared-reserve-endurance-supervised-20261019",
+      "commit": "4841a03e1500fcc3d7f52cf368d6866e123e76de",
+      "confirmed_chunks": 65,
+      "seconds": 2925.106426999999,
+      "cases": 904218,
+      "checked_steps": 1245669196,
+      "assemblies": {
+        "CriticalShift.Features.Session.Domain.dll": "68206799cdab8b560f96b9a7cd1e664bed7bc227a7834275ce328ada7f8402b1",
+        "CriticalShift.Features.Workers.Domain.dll": "96f29400fccd9e6355886a9c924d8ae4413eb447d20a6aa6a6bdd86dc647064f",
+        "CriticalShift.Application.dll": "8ae172277d5adaa653338083fea4bf9b557364a180af96339547e1f7cd7db087",
+        "CriticalShift.Features.Production.Domain.dll": "2aeb8883835e83f7117b5de20064349d0115ed8718284485bcbb03c20c9095d0",
+        "CriticalShift.Features.Materials.Domain.dll": "f3c029b19b71e654bff350c9013f4486767d80ea14649cd248aaf5e6ed065256",
+        "CriticalShift.Scenarios.dll": "921c72f0efe4a6cf74b1ed6f43ed8934c7d8135285f0c050b7215a23934f3f3c",
+        "CriticalShift.Features.Interaction.Domain.dll": "649d7ad623923be4d818bb93df5180f50da1f227e6dd7a127bdf02fc58811af6",
+        "CriticalShift.Features.Power.Domain.dll": "26b9be09d0067e62b3fe814ce134893369063cc7846ab984d6e598ef37b53328",
+        "CriticalShift.Features.Reactor.Domain.dll": "432c2ba975b1dab23bc8f6738cec9b4bc4b0b652a7743126aea4f049a17b9f0b"
+      }
+    },
+    {
+      "series": "conditioning-endurance-supervised-20261019",
+      "commit": "b4d74ef3957aa0f782a0fcfcd015e43fcb0936a6",
+      "confirmed_chunks": 54,
+      "seconds": 2430.1005417,
+      "cases": 699742,
+      "checked_steps": 977992527,
+      "assemblies": {
+        "CriticalShift.Application.dll": "53f6c17d8d518f565adb988acdfe496c8ac2254eba68296d874147ce8b563f96",
+        "CriticalShift.Features.Interaction.Domain.dll": "5ccc73da54c9a78bfe25884aba10772c758274d3c3b5b9c06ceea87d3542aaf8",
+        "CriticalShift.Features.Materials.Domain.dll": "eb4a3696d53c50190197ad455a847084b4bf0dd90cf84cbf61f71634f9ebf06f",
+        "CriticalShift.Features.Power.Domain.dll": "d29b8831abe866092242441cda8e010916320e97fad463a2dae4bb6792562b3b",
+        "CriticalShift.Features.Production.Domain.dll": "9afd7a7cbda29b30f68cf7a566275fdca6e7f23b609f492f380ed1bd90f849eb",
+        "CriticalShift.Features.Reactor.Domain.dll": "3bb45513e78fcfb86de061334877ea3852dfd17f66474ec96aede4f0758092e8",
+        "CriticalShift.Features.Session.Domain.dll": "d230944c32e2fada5bfa57961bdaa815e3118f64bab54526b84e015d4af34d7a",
+        "CriticalShift.Features.Workers.Domain.dll": "6452b6cdf40cfdcbe9b6c2f5413249e8c0de8a8c5d85802cc2b72edb9bb8fb53",
+        "CriticalShift.Scenarios.dll": "2f0166d511dbc916e42d8e05d29c3b315dfbb1ad32dc38fbc54c0220a31411cc"
+      }
+    },
+    {
+      "series": "routing-cargo-endurance-supervised-20261019",
+      "commit": "0d8274635421d9f320c0eb15eb632f5ac24a54ab",
+      "confirmed_chunks": 46,
+      "seconds": 2070.0760081000003,
+      "cases": 544087,
+      "checked_steps": 839324595,
+      "assemblies": {
+        "CriticalShift.Application.dll": "554d44f64e2a187ea88de2c52f6a794099ba023d828bb00fab50fe17776c577a",
+        "CriticalShift.Features.Interaction.Domain.dll": "8131f7c1965b4a6115b448dc6f09aa6740e8bae4fd75d8445365f8cec2fb726a",
+        "CriticalShift.Features.Materials.Domain.dll": "064bec4118bc8f3ed1a3634f6f4a4742d34b668ef59cf93005dd87424278b8d7",
+        "CriticalShift.Features.Power.Domain.dll": "4e653d51878f0171779dcd6253d8c4f070f0efbf0bbfccb5be1335bd175639da",
+        "CriticalShift.Features.Production.Domain.dll": "2c2921656a7adec66814b5c994f036e32a708de10a08aea377d5515c25c7e8c1",
+        "CriticalShift.Features.Reactor.Domain.dll": "9d790acf829aca521c521d53e794a394057495e1202906c2405d5d775a7edfd0",
+        "CriticalShift.Features.Session.Domain.dll": "4251e299ae6a77d05d122148d39e5844e16b902879a1a702eedf2907af121fb5",
+        "CriticalShift.Features.Workers.Domain.dll": "a087c9e31cc8b0c4da3e23921e25b4072c02f6385b6f83c5e55d066740d8016a",
+        "CriticalShift.Scenarios.dll": "b121e7744a46f322f0b6accf3d9f940badbf2079bb5cb4cc75f44c39d5723a06"
+      }
+    },
+    {
+      "series": "final-gameplay-endurance-supervised-20261019",
+      "commit": "91df0439ac4ec8f3f0d1b982a0de03d70649b304",
+      "confirmed_chunks": 57,
+      "seconds": 2565.1204062,
+      "cases": 654948,
+      "checked_steps": 1022575307,
+      "assemblies": {
+        "CriticalShift.Application.dll": "30091e06861ba449e059ef096503bfa906600968c94665206766578e9c2e9543",
+        "CriticalShift.Features.Interaction.Domain.dll": "ab4e720b4aabc268d7df052c345d808922d394545f260d2df0f560ce9d7ab492",
+        "CriticalShift.Features.Materials.Domain.dll": "41d6b486a70dce62d09fa9624d6d4734c1a6a7fd3ee4f3c9594e3914b656c85d",
+        "CriticalShift.Features.Power.Domain.dll": "8bcca9166c99dbe308acda426a1ef24f8241f6bc6667806e5b4e5d840c76474c",
+        "CriticalShift.Features.Production.Domain.dll": "9d15b069f349a54361a67bc5455d1e570a5e223c339e1c344db271bc2b9e58ab",
+        "CriticalShift.Features.Reactor.Domain.dll": "f22476af8cfafdc0be0301c28c3689cda1d7ec6b1fadd5fd6b97f5979203e501",
+        "CriticalShift.Features.Session.Domain.dll": "f5fbaf8a27f47abb0efc4bfd4f41cfbc24d86601cf2abacfe4376d73e8b1bbf6",
+        "CriticalShift.Features.Workers.Domain.dll": "f19ed9bd2d56c88f486c75b73b1b85b19fa2ba4e577098c90dfcea4ef789c08f",
+        "CriticalShift.Scenarios.dll": "111764a17373a8f2f2954d0bd2668f645bac87c101df52df1a8f166dc4a4cf17"
+      }
+    }
+  ],
+  "limits": "Logical testing across the documented preserved closures. Not one build for eight hours; no Unity/physics/multiplayer acceptance."
+}

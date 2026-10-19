@@ -1,77 +1,34 @@
 # Isolated local-host gameplay fixture
 
-**Safe fuel discard continuation:** shut down, keep cooling open and wait for
-the reset threshold, then press N while focusing the reactor or use its discard
-button. The entire quantity becomes spent fuel; remaining running time is lost
-without reserve refund or new output. Load fresh fuel afterward. Ordinary E
-ejection keeps its unused/exhausted behavior. Native catalogue179; new physical
-release and real N/O/V input cases remain NotRun.
-[Scope and evidence](../../../../validation/SAFE_FUEL_DISCARD.md).
 
-**Timed suit removal continuation:** look at the existing suit locker and press
-O, or choose its remove button. Authored removal takes5 shift-seconds; current
-protection and80% walking remain until exact completion, then gear becomes None
-and walking returns to100%. Current contamination stays; removing gear does not
-wash the worker. Free hands, station access, busy work, interruption and own
-cancellation use the existing fitting workflow. E/R still fits an intact suit
-over20s. Native catalogue178; removal, O/V dispatch and locker tests remain NotRun.
-[Scope and evidence](../../../../validation/TIMED_SUIT_REMOVAL.md).
+**Current source, 19 October 2026:** the latest editor-free revision
+`5d2c3973` passed **1,219 tests and 28 scenarios each twice**. The gameplay native
+inventory contains **179 authored cases**, whose current execution remains
+**NotRun**. See the [overnight handoff](../../../../validation/OVERNIGHT_RUNTIME_20261019.md)
+for exact revisions, draft dependencies, controls and evidence limits.
 
-**Core output routing continuation:** look at the reactor and press V to cycle
-balanced, grid priority and reserve priority, or use its panel buttons. Canonical
-new output is5 units per0.5s of running work: balanced sends4grid/1reserve; grid
-priority5/0; reserve priority0/5. Switching does not export initial/backup reserve.
-Full reserve spills its share. The completed quantum uses the current routing;
-already delivered output stays settled. Read current fuel time, costs, split and
-thermal reset instructions in the reactor panel/focus. Native catalogue175;
-console/GUI/physics changes remain NotRun.
-[Scope and evidence](../../../../validation/REACTOR_OUTPUT_ROUTING.md).
+The current source adds these operations to the existing fixture:
 
-**Dirty cargo handling continuation:** holding crate6's contaminated ore adds
-12worker-load units per sampled shift-second before PPE (compromised6/intact3).
-Material contamination must exceed500/1000. Dropping stops contact; regrabbing
-retains the worker/source cooldown. Washing its ore to100 stops that source.
-The wash area samples before handling, so holding dirty cargo there can add a
-fresh dose after washing. Read the current cargo cue and worker meter; reading
-the cue adds no dose. Contact history names both worker and crate and retains
-the original dirty batch. Native catalogue174; new behavior remains NotRun.
-[Scope and evidence](../../../../validation/DIRTY_CARGO_EXPOSURE.md).
+| System | Controls and authored behavior | Evidence |
+|---|---|---|
+| Medical rescue | Drag an incapacitated patient to the chamber; E loads/ejects and R starts paid stabilization. Alert discharge and standing recovery are separate. | [Medical rescue](../../../../validation/PHYSICAL_MEDICAL_RESCUE.md) |
+| Protective suits | Focus the locker: E/R fits over20 shift-seconds; O removes over5. Prior gear remains until completion. Worn gear gives80% walking and reduces exposure; removal leaves contamination unchanged. | [Fitting](../../../../validation/TIMED_SUIT_FITTING.md), [removal](../../../../validation/TIMED_SUIT_REMOVAL.md), [mobility](../../../../validation/SUIT_MOBILITY.md) |
+| Worker contamination | Authored zones expose or wash current workers. Dirty held material above500/1000 adds12 units per sampled shift-second before PPE (compromised6/intact3). Drop stops contact; the worker/source cooldown survives regrabs. Washing samples before held cargo, so it can be followed by a fresh dirty-cargo dose. | [Zones](../../../../validation/FIXTURE_CONTAMINATION_ZONES.md), [cargo](../../../../validation/DIRTY_CARGO_EXPOSURE.md) |
+| Ore washing | Crate6 contains800/1000 contamination. Washer at(-3.5,0,9) spends1 reserve over10s, lowering contamination to100 and producing moisture1000. Dry before safe crushing; quantity, cause and inspection flags remain. | [Washing](../../../../validation/ORE_WASHING.md), [drying](../../../../validation/SAFE_ORE_CONDITIONING.md) |
+| Jam clearing | Isolate machine power and request repair. Work takes authored time, freezes conversion progress and finishes with power still isolated. Resume separately. | [Jam clearing](../../../../validation/TIMED_JAM_CLEARING.md) |
+| Core output | Focus reactor and press V, or use panel buttons. Each0.5s quantum yields5 units: balanced4 grid/1 reserve; grid priority5/0; reserve priority0/5. Reserve overflow spills; initial/backup reserve cannot be exported. | [Routing](../../../../validation/REACTOR_OUTPUT_ROUTING.md) |
+| Fuel replacement | Shut down, keep cooling open and wait for the reset threshold. N discards the whole quantity as spent fuel, forfeiting remaining running time without power generation or refund. E retains ordinary unused/exhausted ejection. | [Discard](../../../../validation/SAFE_FUEL_DISCARD.md) |
 
-**Ore washing continuation:** spare crate6 now contains800/1000 contamination.
-The washer at(-3.5,0,9) spends1reserve over10s to lower it to100/1000, with wet
-output1000/1000. Dry it before safe crushing, then use the existing fuel chain.
-Material units, original cause and inherited inspection flags remain intact;
-washing does not erase bypass history. The crate panel shows current moisture,
-contamination and flags. The original clean quota route retains its stock.
-Native catalogue171; current washer placement/loading remains NotRun.
-[Scope and evidence](../../../../validation/ORE_WASHING.md).
+Machine/reactor readouts show current conditions, costs, interlocks and useful
+next controls. The finite backup source and shared production costs use the
+same reserve. These are prototype rules; native wrapping, clearance, feel and
+physical timing remain unverified.
 
-**Suit mobility continuation:** current source derives a walking factor from
-Workers-owned gear: no suit100%, worn intact/compromised80%. It composes with
-carried mass for voluntary planar walking/air targets; cart stance correction,
-vertical hop and passive motion retain their existing behavior. The HUD shows
-the current factor and explains the fitting tradeoff. Native catalogue170:
-four new motor comparisons remain NotRun. [Evidence](../../../../validation/SUIT_MOBILITY.md).
-
-**Physical medical rescue continuation, 19 October 2026:** the current source
-adds a chamber and explicit discharge area, paid timed stabilization controls
-and own-patient emergency egress. The native catalogue contains **166 cases**,
-including27 new medical cases, all new behavior **NotRun** without the pinned
-editor. [Scope and current evidence](../../../../validation/PHYSICAL_MEDICAL_RESCUE.md).
-
-**PR #111 review repairs:** rotated loading bounds, exact-lease hoist reset,
-setup-disconnect body cleanup and recovery clearance have been repaired after
-independent source review. The native catalogue now has **136 implemented cases**;
-native execution of this repair revision is **NotRun** here. The 132-case results
-below and the existing local Player ZIP belong to the earlier recorded source.
-Current source/tool verification: 724 offline and 182 tooling tests passed. See
-[the active review checkpoint](../../../../validation/GAMEPLAY_SANDBOX.md).
-
-**Validated local integration trial; independent acceptance pending.** Source
-`6554abef` passed all 132 native gameplay cases, a strict Win64 build, headless
-startup/cleanup, a same-build normal-window PNG capture and the physical
-deny/carry/drop exercise. See
-[the development checkpoint](../../../../validation/GAMEPLAY_SANDBOX.md).
+**Historical native checkpoint, 18 October:** source `6554abef` passed132 native
+gameplay cases, a strict Win64 build, headless cleanup, a rendered normal-window
+capture and the deny/carry/drop exercise. PR111 source repairs and every later
+continuation have no new native result here. The older local Player ZIP belongs
+to that recorded source; see [the checkpoint](../../../../validation/GAMEPLAY_SANDBOX.md).
 
 The fixture consumes the same canonical Application/domain source as the offline
 runner via the local package in `runtime/dotnet/src`. It never loads a map, edits a
@@ -144,7 +101,7 @@ test worker. The second worker is controlled locally for this fixture.
   release, expiry, insertion or restart, and cannot turn a cart or worker grip.
 - Scroll outside the visible control panel to bring a held crate closer or
   farther. The carry target shifts at most 0.75 m from its authored position
-  (1Ã¢â‚¬â€œ2.5 m forward in this fixture). The body still follows bounded forces.
+  (1–2.5 m forward in this fixture). The body still follows bounded forces.
   Reach offset resets with the claim and cannot move cart/worker targets.
 - T throws a portable crate toward the current look heading. A committed
   release comes first; one bounded impulse follows only for that exact free
@@ -160,7 +117,7 @@ test worker. The second worker is controlled locally for this fixture.
   capsule is disabled. H attempts recovery after settling and the rule delay.
   Recovery needs static ground, a clear standing capsule and a second clearance
   check during the pending handoff. The panel also has an explicit fixture-only
-  knockdown button. Reanimation remains separate work.
+  knockdown button. Severe incapacitation uses the separate medical stabilization path below.
 - Crate one has two extra yellow warning bands: 36 units / 27 kg. It is the
   fixture's explicitly registered falling-load hazard. A free downward contact
   above the authored speed/mass threshold uses the same knockdown flow. Held,
@@ -175,8 +132,9 @@ test worker. The second worker is controlled locally for this fixture.
   separation or sustained obstruction releases the grip. The patient's fixture
   recovery button is blocked while that body is held. Hold Shift to raise the
   suit grip slowly; G releases the hoisted worker, allowing a cart-bed loading
-  attempt. Hoist input cannot persist into a later lease. Reanimation, two-person
-  carrying and accepted loading/transport behavior remain separate work.
+  attempt. Hoist input cannot persist into a later lease. Two-person carrying and accepted
+  loading/transport behavior remain separate work; medical stabilization is
+  described below.
   A process pause stops active hoisting and lowers its target while the current
   claim remains held; ordinary passive Unity physics continues.
 - The test worker begins alert/down for drag and recovery checks. Use the explicit
@@ -236,7 +194,8 @@ test worker. The second worker is controlled locally for this fixture.
 owns game rules and command admission. `Features.Interaction.Unity` owns clock
 sampling, physical claim/slot reconciliation and trusted spatial observations.
 `Features.Workers.Unity` owns local locomotion, the walking/ragdoll handoff,
-bounded trusted cart-contact observations and physical recovery clearance. It
+bounded trusted cart/falling-load observations, whole-rig medical placement
+and physical recovery clearance. It
 uses the existing Application worker operations for logical transitions. FacilityPhysics
 owns bounded cart/belt forces and their physical sensors; its authorization
 queries are injected. Presentation reads detached projections and sends typed
@@ -270,10 +229,10 @@ generator does not install packages or alter authored map art.
 
 The existing foundation runner still tests its foundation assembly selection;
 it does not automatically claim sandbox coverage. The separate native inventory
-is `runtime/validation/sandbox-expected-tests.json`: currently166 source cases.
+is `runtime/validation/sandbox-expected-tests.json`: currently179 authored gameplay cases.
 New and changed cases remain NotRun. The historical132-case suite below belongs
 to its earlier source. The
-earlier 124-case checkpoint passed. The final URP candidate passed all 132 cases
+earlier 124-case checkpoint passed. The historical18 October URP candidate passed all132 cases
 with zero skips. The earlier 127/129 result and controlled solver/origin failures
 remain historical failures; those comparisons established no physical motion fix.
 The current diagnostic policy retains the independent 25 m/s linear limit and
@@ -283,13 +242,15 @@ separate authored trial budgets, not a combined energy budget or accepted
 production limits. The monitor changes no forces, caps, damping or motion.
 Historical failures remain failures; a pass under this criterion would not
 prove repaired ragdoll motion, far-origin stability or acceptable feel.
-The latest pure suite passed 723 cases including the cause-trace assertion. Native
+The historical pure suite at `6554abef` passed723 cases, including the
+cause-trace assertion. The current1,219-case result is recorded in the overnight
+handoff. Native
 fixtures are offset from possible active-scene content
 to avoid collisions with an unrelated map/scene at the origin.
 
 No human feel review, ragdoll/body-dragging acceptance, multiplayer convergence,
 supported FPS, final lighting/art or roadmap gate is established here. Scoped
-renderer/lifecycle/Player evidence is now recorded; physical feel and diagnostic
+renderer/lifecycle/Player evidence belongs to the18 October `6554abef` checkpoint; physical feel and diagnostic
 budget acceptance remain open. Execution is authorized. Independent source review of
 the PR repair revision is complete; its fresh native execution remains NotRun here.
 
@@ -300,7 +261,7 @@ requires the configured URP asset. Adding `--run-player` explicitly requests a
 headless startup/teardown smoke of that same new build on its matching OS. It
 requires the pinned version/build identity, generated meshes, declared physical
 bindings, at least 120 physics frames and two seconds, then empty teardown
-counters after deferred destruction. The final Win64 build/Player passed. A green
+counters after deferred destruction. The historical Win64 build/Player at `6554abef` passed. A green
 import/physics result does not establish a Player pass, and headless startup
 does not establish rendered playability, lighting, feel or supported performance.
 
@@ -321,7 +282,7 @@ The runner first checks source ownership, metadata and declared dependency
 boundaries. The native prepare step also compares production assemblies'
 resolved project references with their declarations, checks pure assemblies for
 engine references and requires compiled outputs. Its native inventory must agree
-with the source count. These checks passed natively for the final candidate;
+with the source count. These checks passed natively for the historical18 October candidate;
 they do not constitute an independently accepted architecture. Native runs used
 only a verified initialized SDK package-cache seed; first-party sources compiled
 in fresh workspaces. Cold package extraction is not passed. The observed Null
@@ -348,10 +309,13 @@ For a disposable, input-hashed native preparation, use
 `runtime/tools/run_combined_map.py --unity <pinned Unity.exe> --target Win64`.
 Its scope is import/preparation and alignment, not a Player or traversal pass.
 The first sandbox native attempt was license-blocked before test discovery.
-Activation has since succeeded, and native map preparation passed: 37 doors,
+In the historical18 October checkpoint, activation succeeded and native map
+preparation passed: 37 doors,
 152 actual-mesh proxies and 13 room anchors, with maximum error 0.0002840849 m.
 The collision export's measured raw frame is `(x,z,y)`; only its generated root
 is rotated 180 degrees to match the existing baked placement frame `(-x,z,-y)`.
-The current offline 723 cases passed. Native sandbox discovery/execution and
+The historical offline suite at `6554abef` passed723 cases. The current source
+passed1,219 offline tests; current native execution remains NotRun. Native
+sandbox discovery/execution and
 Player acceptance remain separate; see the active task record for current counts,
 exact evidence and its limits.

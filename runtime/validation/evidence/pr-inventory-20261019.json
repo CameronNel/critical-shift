@@ -1,0 +1,306 @@
+{
+  "status": "Passed",
+  "github_checked_utc": "2026-10-19T14:01:09.716142+00:00",
+  "scope": "Versioned exact inventories at heads whose strict CI checks succeeded; this is a source/CI reconciliation, not a separate test execution.",
+  "prs": [
+    {
+      "pr": 113,
+      "head": "567a8fc61bd5ff272d2161fac81336d1e40137bf",
+      "base": "main",
+      "expected_tests": 767,
+      "expected_scenarios": 15,
+      "inventory_sha256": {
+        "expected-tests.json": "ddf35757c311b41dd3c73fee25ca1191a2c182c2a7b240525d2ceac2219a0ffa",
+        "expected-scenarios.json": "a3018edb8ed7c2932a99d9e9633c90a81a8b5f6c3df501c96b5911691e10971f"
+      },
+      "head_ci": "Windows and Ubuntu SUCCESS",
+      "earlier_runtime_tip_is_ancestor": false
+    },
+    {
+      "pr": 114,
+      "head": "2f24702085821c149ed3b1cd85de2df087023d40",
+      "base": "codex/shift-gameplay-20261018",
+      "expected_tests": 812,
+      "expected_scenarios": 18,
+      "inventory_sha256": {
+        "expected-tests.json": "b471c01d2e41671f98264cfd8fe983271c8ec86b6a32a01b14d3d4bd9580504e",
+        "expected-scenarios.json": "082518915188f7c34b005d9ec8472b21e3a5418e174dccf4c075b54b8b4b9e57"
+      },
+      "head_ci": "Windows and Ubuntu SUCCESS",
+      "earlier_runtime_tip_is_ancestor": true
+    },
+    {
+      "pr": 115,
+      "head": "523f427435f6d8e906b8fc8ccd0df0cd8fce65c9",
+      "base": "codex/powered-stabilization-20261019",
+      "expected_tests": 818,
+      "expected_scenarios": 18,
+      "inventory_sha256": {
+        "expected-tests.json": "d7c000bcc0b42a72ea4661373593fa282301a2dcafb04cec7b47bab273977312",
+        "expected-scenarios.json": "082518915188f7c34b005d9ec8472b21e3a5418e174dccf4c075b54b8b4b9e57"
+      },
+      "head_ci": "Windows and Ubuntu SUCCESS",
+      "earlier_runtime_tip_is_ancestor": true
+    },
+    {
+      "pr": 116,
+      "head": "c79ce7a8d813648307725acc054fcc05f5568800",
+      "base": "codex/sandbox-contract-route-20261019",
+      "expected_tests": 824,
+      "expected_scenarios": 18,
+      "inventory_sha256": {
+        "expected-tests.json": "3557a307f2bc0c26bd6c31c09d07ba428a4de2e47db4f8a3d2a0f8ba4ea4834f",
+        "expected-scenarios.json": "082518915188f7c34b005d9ec8472b21e3a5418e174dccf4c075b54b8b4b9e57"
+      },
+      "head_ci": "Windows and Ubuntu SUCCESS",
+      "earlier_runtime_tip_is_ancestor": true
+    },
+    {
+      "pr": 117,
+      "head": "4848041af72ef6c4f1910df03d49c0eb64b0fb1c",
+      "base": "codex/worker-deadline-settlement-20261019",
+      "expected_tests": 824,
+      "expected_scenarios": 18,
+      "inventory_sha256": {
+        "expected-tests.json": "3557a307f2bc0c26bd6c31c09d07ba428a4de2e47db4f8a3d2a0f8ba4ea4834f",
+        "expected-scenarios.json": "082518915188f7c34b005d9ec8472b21e3a5418e174dccf4c075b54b8b4b9e57"
+      },
+      "head_ci": "Windows and Ubuntu SUCCESS",
+      "earlier_runtime_tip_is_ancestor": true
+    },
+    {
+      "pr": 118,
+      "head": "aa1bffa5a657ae9d4b7f3f4b33823637820257e0",
+      "base": "codex/mixed-medical-endurance-20261019",
+      "expected_tests": 831,
+      "expected_scenarios": 18,
+      "inventory_sha256": {
+        "expected-tests.json": "9537b7d5826215a3e22187f1200aa5d6b195ac3e4823f1e541ee660dfea8a3b3",
+        "expected-scenarios.json": "082518915188f7c34b005d9ec8472b21e3a5418e174dccf4c075b54b8b4b9e57"
+      },
+      "head_ci": "Windows and Ubuntu SUCCESS",
+      "earlier_runtime_tip_is_ancestor": true
+    },
+    {
+      "pr": 119,
+      "head": "483b577a313a5b55b3889540c865a5e99d1b7581",
+      "base": "codex/compact-shift-objectives-20261019",
+      "expected_tests": 839,
+      "expected_scenarios": 18,
+      "inventory_sha256": {
+        "expected-tests.json": "1b1e03e4eebb6eb525576f790e1a4daf0aaf4a4ab0cf021b0a8739964dafed7c",
+        "expected-scenarios.json": "082518915188f7c34b005d9ec8472b21e3a5418e174dccf4c075b54b8b4b9e57"
+      },
+      "head_ci": "Windows and Ubuntu SUCCESS",
+      "earlier_runtime_tip_is_ancestor": true
+    },
+    {
+      "pr": 120,
+      "head": "50df95cf4f9c5e3bb068a67226f7b0e7ff067e90",
+      "base": "codex/medical-egress-admission-20261019",
+      "expected_tests": 878,
+      "expected_scenarios": 19,
+      "inventory_sha256": {
+        "expected-tests.json": "03e147243b013d73c6d07b2cf26e736fbb8918c0b24724c97de5021265911b12",
+        "expected-scenarios.json": "dd3eea707b7876641a42b841528f830224f774134c48c0fa690e6945b7be48c4"
+      },
+      "head_ci": "Windows and Ubuntu SUCCESS",
+      "earlier_runtime_tip_is_ancestor": true
+    },
+    {
+      "pr": 121,
+      "head": "94f991dd1b63453cf2ec6105da7009a174861d7f",
+      "base": "codex/worker-contamination-20261019",
+      "expected_tests": 906,
+      "expected_scenarios": 20,
+      "inventory_sha256": {
+        "expected-tests.json": "412bd2b921ce7202f99d185f7e184563bb8d5c498ea996b9538ae7380fe856b0",
+        "expected-scenarios.json": "f88edf29a1b24bccb40f953d989b79d84853c88e6723af49283c5528b94a0f98"
+      },
+      "head_ci": "Windows and Ubuntu SUCCESS",
+      "earlier_runtime_tip_is_ancestor": true
+    },
+    {
+      "pr": 122,
+      "head": "5814b7e32d8b28a766746ab6e8e27f1093bb5ac8",
+      "base": "codex/emergency-black-start-20261019",
+      "expected_tests": 925,
+      "expected_scenarios": 21,
+      "inventory_sha256": {
+        "expected-tests.json": "2313de0ed4ab3e2576e850da5b55bfa2facb4c2b1df45a266bb8e9137cd4c1c3",
+        "expected-scenarios.json": "af7591b463474abc291089615ff2c66375f23e6e80467a63c799fd77f6b5c8a5"
+      },
+      "head_ci": "Windows and Ubuntu SUCCESS",
+      "earlier_runtime_tip_is_ancestor": true
+    },
+    {
+      "pr": 123,
+      "head": "6a43dfdf51d0feab2f08a1385dd9eade737b8872",
+      "base": "codex/safe-ore-conditioning-20261019",
+      "expected_tests": 965,
+      "expected_scenarios": 22,
+      "inventory_sha256": {
+        "expected-tests.json": "adf6b224f1dbff96907c7251de524d4b78c9c07de304e6b8f9e5f433754c6888",
+        "expected-scenarios.json": "277a6d11c4864b7dead1cccd775e9899e428f3dc69bb95fe15b7f3d95a08c221"
+      },
+      "head_ci": "Windows and Ubuntu SUCCESS",
+      "earlier_runtime_tip_is_ancestor": true
+    },
+    {
+      "pr": 124,
+      "head": "cf2508bff26692e9f2c80d49481062d3cc8d8040",
+      "base": "codex/timed-suit-fitting-20261019",
+      "expected_tests": 983,
+      "expected_scenarios": 22,
+      "inventory_sha256": {
+        "expected-tests.json": "d945c16e06662dc31727069848cd0c72eab0616eaa44b99a2c156b3e7b6cbd2b",
+        "expected-scenarios.json": "277a6d11c4864b7dead1cccd775e9899e428f3dc69bb95fe15b7f3d95a08c221"
+      },
+      "head_ci": "Windows and Ubuntu SUCCESS",
+      "earlier_runtime_tip_is_ancestor": true
+    },
+    {
+      "pr": 125,
+      "head": "6b4587ba1138d8f165398053d7731ff795987f6d",
+      "base": "codex/fixture-contamination-zones-20261019",
+      "expected_tests": 1003,
+      "expected_scenarios": 22,
+      "inventory_sha256": {
+        "expected-tests.json": "6bcea998fa80237262c07b0c4ab484b2fcd459c7c19efbeb83110174b6401089",
+        "expected-scenarios.json": "277a6d11c4864b7dead1cccd775e9899e428f3dc69bb95fe15b7f3d95a08c221"
+      },
+      "head_ci": "Windows and Ubuntu SUCCESS",
+      "earlier_runtime_tip_is_ancestor": true
+    },
+    {
+      "pr": 127,
+      "head": "d8e59d7984350f3f7eef659da1fc942084a0a1fd",
+      "base": "codex/operational-machine-hints-20261019",
+      "expected_tests": 1022,
+      "expected_scenarios": 23,
+      "inventory_sha256": {
+        "expected-tests.json": "339c9c45ab0f46819d47e4bad863615b23252a0437121387ccbaff25e4063ac7",
+        "expected-scenarios.json": "6e579c197e991f788fd2cf1b8543f704c69a1a70b2f4dc2c5ceec1537f3b8252"
+      },
+      "head_ci": "Windows and Ubuntu SUCCESS",
+      "earlier_runtime_tip_is_ancestor": true
+    },
+    {
+      "pr": 128,
+      "head": "b819189d964744b63e09a4cc29ba6ccdbb7183b9",
+      "base": "codex/timed-jam-clearing-20261019",
+      "expected_tests": 1046,
+      "expected_scenarios": 24,
+      "inventory_sha256": {
+        "expected-tests.json": "04be6c5de17cdd6797f6727d0aa3ef8f887d9676f4cf9c241158da681abc33df",
+        "expected-scenarios.json": "65d385727984e6869ade5657e53ba8ae8c048be353f8823e9861b7f1df529949"
+      },
+      "head_ci": "Windows and Ubuntu SUCCESS",
+      "earlier_runtime_tip_is_ancestor": true
+    },
+    {
+      "pr": 130,
+      "head": "3f0be906f76a90d5599e519b03b56ce789e8c41d",
+      "base": "codex/production-reserve-costs-20261019",
+      "expected_tests": 1062,
+      "expected_scenarios": 24,
+      "inventory_sha256": {
+        "expected-tests.json": "dc9c902a401cafeefb92e1524ad39794d10887dac66f5167d0458e5a0ad3dd5b",
+        "expected-scenarios.json": "65d385727984e6869ade5657e53ba8ae8c048be353f8823e9861b7f1df529949"
+      },
+      "head_ci": "Windows and Ubuntu SUCCESS",
+      "earlier_runtime_tip_is_ancestor": true
+    },
+    {
+      "pr": 131,
+      "head": "2f7f7933d211419a07e0a31002c53f1f000d1016",
+      "base": "codex/physical-medical-rescue-20261019",
+      "expected_tests": 1068,
+      "expected_scenarios": 24,
+      "inventory_sha256": {
+        "expected-tests.json": "317621eaca1b99e7f238c68e8974e21233f88f42b601462aa0604ac91819e385",
+        "expected-scenarios.json": "65d385727984e6869ade5657e53ba8ae8c048be353f8823e9861b7f1df529949"
+      },
+      "head_ci": "Windows and Ubuntu SUCCESS",
+      "earlier_runtime_tip_is_ancestor": true
+    },
+    {
+      "pr": 132,
+      "head": "7fe6af1d65701b92b5376e1416cdf9eb92924081",
+      "base": "codex/suit-mobility-tradeoff-20261019",
+      "expected_tests": 1096,
+      "expected_scenarios": 25,
+      "inventory_sha256": {
+        "expected-tests.json": "de0c1a6aab8a33248ec5930bafe3df23cd4882d11df940b48551c372f10d23a8",
+        "expected-scenarios.json": "62c568713c30f21ad288fcdd1fb5e764ea3668b98a6837a22a50eb23e70103d3"
+      },
+      "head_ci": "Windows and Ubuntu SUCCESS",
+      "earlier_runtime_tip_is_ancestor": true
+    },
+    {
+      "pr": 133,
+      "head": "6b343cce3b5bef9eb0a774901a2d2b9b0ef4d774",
+      "base": "codex/ore-washing-20261019",
+      "expected_tests": 1121,
+      "expected_scenarios": 25,
+      "inventory_sha256": {
+        "expected-tests.json": "f39dd49aa254c2eaa5d81494d7ca05afb711f58600e072f8e39dd93fdf13acc6",
+        "expected-scenarios.json": "62c568713c30f21ad288fcdd1fb5e764ea3668b98a6837a22a50eb23e70103d3"
+      },
+      "head_ci": "Windows and Ubuntu SUCCESS",
+      "earlier_runtime_tip_is_ancestor": true
+    },
+    {
+      "pr": 134,
+      "head": "d6584d016c8a2434e03a57914438a59e9506366f",
+      "base": "codex/dirty-cargo-exposure-20261019",
+      "expected_tests": 1154,
+      "expected_scenarios": 26,
+      "inventory_sha256": {
+        "expected-tests.json": "3007efa4d21f0115f727412297330e48e4b18820e20d6c1f5de7b97f1f542d26",
+        "expected-scenarios.json": "f93bfbba559536f516e586078dfc6ec2fee542c51afe5a894f04ab1faf2f2be5"
+      },
+      "head_ci": "Windows and Ubuntu SUCCESS",
+      "earlier_runtime_tip_is_ancestor": true
+    },
+    {
+      "pr": 135,
+      "head": "25ed108c7daad5a8d1bfc49229407dd0e8891f72",
+      "base": "codex/reactor-output-routing-20261019",
+      "expected_tests": 1183,
+      "expected_scenarios": 27,
+      "inventory_sha256": {
+        "expected-tests.json": "c9750152f254ce7597951286f832f59d1bc3acb422fe983272bc7aecf2c3d4f3",
+        "expected-scenarios.json": "9bbb7ac5adc8ac2169c8a1efd689a96e5704bcc03b3705d99ac07e772a97663f"
+      },
+      "head_ci": "Windows and Ubuntu SUCCESS",
+      "earlier_runtime_tip_is_ancestor": true
+    },
+    {
+      "pr": 136,
+      "head": "7fa3ad90bcce0934ed674adfe97c31759f192665",
+      "base": "codex/timed-suit-removal-20261019",
+      "expected_tests": 1208,
+      "expected_scenarios": 28,
+      "inventory_sha256": {
+        "expected-tests.json": "4afe44647236e9295a66bdf6e76c8ce122a9e3af01c71f68b2131977c05042f9",
+        "expected-scenarios.json": "fd6473ee10e363fc812e792344bca8c6398c289914119318fd720175c88d3641"
+      },
+      "head_ci": "Windows and Ubuntu SUCCESS",
+      "earlier_runtime_tip_is_ancestor": true
+    },
+    {
+      "pr": 137,
+      "head": "a26b976b01fec95f8775d5bdf37f595a1d23fd6b",
+      "base": "codex/safe-fuel-discard-20261019",
+      "expected_tests": 1219,
+      "expected_scenarios": 28,
+      "inventory_sha256": {
+        "expected-tests.json": "046226f1a9d3b395166818a468aa7b1b3a2cd0bfc995bbbb976be2591b7998a4",
+        "expected-scenarios.json": "fd6473ee10e363fc812e792344bca8c6398c289914119318fd720175c88d3641"
+      },
+      "head_ci": "Windows and Ubuntu SUCCESS",
+      "earlier_runtime_tip_is_ancestor": true
+    }
+  ]
+}
