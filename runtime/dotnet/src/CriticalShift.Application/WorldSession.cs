@@ -126,6 +126,8 @@ namespace CriticalShift.Application
                 // must fault the world rather than leave a previously published timeout.
                 long elapsed = _timeline.PreviewElapsedAt(hostMilliseconds);
                 AdvanceProductionTo(elapsed, out var productionChanges, out var reactorChanges, out var demandChanges, out var medicalChanges);
+                // Stored worker deadlines are required owner work, including the terminal cutoff.
+                var workerChanges = _workers.ExpireRecovery(elapsed);
                 bool ended = _timeline.AdvanceTo(hostMilliseconds, elapsed == Configuration.ShiftDurationMilliseconds ?
                     Contracts.DeadlineOutcome : TimelineOutcome.TimedOut);
                 if (reactorChanges.Count != 0)
@@ -153,6 +155,14 @@ namespace CriticalShift.Application
                         _diagnostics.Append(View, Epoch, SessionTraceKind.Medical, actor: change.PatientId,
                             entity: change.Station.Id, changed: true, medical: change);
                 }
+                if (workerChanges.Count != 0)
+                {
+                    _revision = next;
+                    foreach (var change in workerChanges)
+                        _diagnostics.Append(View, Epoch, SessionTraceKind.RecoveryExpired, change.Worker!.Id,
+                            input: change.Worker.RecoveryAttempt, changed: true, worker: change,
+                            previousWorkerRevision: change.Worker.Revision - 1);
+                }
                 if (ended)
                 {
                     // End wins over advisory notifications in this batch, including overdue signals.
@@ -161,10 +171,9 @@ namespace CriticalShift.Application
                     _diagnostics.Append(View, Epoch, SessionTraceKind.Ended, changed: true);
                     CaptureDebrief();
                     return new WorldAdvanceResult(View, Array.Empty<WorldTimerSignal>(), Array.Empty<ObjectClaimView>(), true,
-                        productionChanges: productionChanges, reactorChanges: reactorChanges, demandChanges: demandChanges, medicalChanges: medicalChanges);
+                        workerChanges: workerChanges, productionChanges: productionChanges, reactorChanges: reactorChanges, demandChanges: demandChanges, medicalChanges: medicalChanges);
                 }
                 var released = _interaction.AdvanceTo(hostMilliseconds);
-                var workerChanges = _workers.ExpireRecovery(_timeline.ElapsedMilliseconds);
                 var due = _timers.AdvanceTo(hostMilliseconds, _timeline.ElapsedMilliseconds);
                 var signals = new List<WorldTimerSignal>(due.Count);
                 foreach (var entry in due)
@@ -177,10 +186,6 @@ namespace CriticalShift.Application
                         input: claim.LeaseGeneration, changed: true,
                         interaction: new InteractionReply(InteractionStatus.Applied, false, claim),
                         previousClaimRevision: claim.Revision - 1);
-                foreach (var change in workerChanges)
-                    _diagnostics.Append(View, Epoch, SessionTraceKind.RecoveryExpired, change.Worker!.Id,
-                        input: change.Worker.RecoveryAttempt, changed: true, worker: change,
-                        previousWorkerRevision: change.Worker.Revision - 1);
                 if (timeChanged || released.Count != 0 || due.Count != 0)
                     _diagnostics.Append(View, Epoch, SessionTraceKind.Advanced, changed: true);
                 return new WorldAdvanceResult(View, signals.AsReadOnly(), released, false, workerChanges, productionChanges, reactorChanges, demandChanges, medicalChanges);

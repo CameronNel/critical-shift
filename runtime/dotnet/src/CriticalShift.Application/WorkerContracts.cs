@@ -57,11 +57,12 @@ namespace CriticalShift.Application
     public sealed class WorkerReply
     {
         internal WorkerReply(WorkerStatus status, bool changed = false, WorkerView? worker = null,
-            ObjectClaimView? releasedClaim = null)
-        { Status = status; Changed = changed; Worker = worker; ReleasedClaim = releasedClaim; }
+            ObjectClaimView? releasedClaim = null, long? occurredAtMilliseconds = null)
+        { Status = status; Changed = changed; Worker = worker; ReleasedClaim = releasedClaim; OccurredAtMilliseconds = occurredAtMilliseconds; }
         public WorkerStatus Status { get; }
         public bool Changed { get; }
         public WorkerView? Worker { get; }
         public ObjectClaimView? ReleasedClaim { get; }
+        public long? OccurredAtMilliseconds { get; }
     }
 }

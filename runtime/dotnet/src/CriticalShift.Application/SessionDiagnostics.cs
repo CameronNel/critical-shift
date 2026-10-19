@@ -31,7 +31,7 @@ namespace CriticalShift.Application
             ReactorResult = interaction?.Reactor?.Status;
             var change = production ?? interaction?.Production?.Change;
             OccurredAtMilliseconds = MedicalChange?.ShiftMilliseconds ?? demand?.ShiftMilliseconds ?? ReactorChange?.ShiftMilliseconds ??
-                change?.ShiftMilliseconds ?? world.ElapsedMilliseconds;
+                change?.ShiftMilliseconds ?? worker?.OccurredAtMilliseconds ?? world.ElapsedMilliseconds;
             ProductionResult = interaction?.Production?.Status;
             // Replays retain historical attribution, but cannot publish a second committed event.
             ProductionEvent = changed ? change?.Kind : null;
