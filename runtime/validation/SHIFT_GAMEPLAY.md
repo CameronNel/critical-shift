@@ -92,3 +92,37 @@ deadline and a retained result (GAME_SPEC 7.3, 8 and 12.6).
   Every case now also compares two supply worlds against independent finite-fuel
   quantum/window arithmetic. Full verifier **Passed:767 tests,15 scenarios**, plus
   endurance12-case smoke, seed replay, invariant-negative and overwrite controls.
+- 21:52:46 UTC: sustained endurance started from isolated copied binaries under
+  ignored `runtime/out/shift-endurance-20261018T215246Z`, with complete DLL hashes
+  and verifier/source provenance. It is configured through05:23:52 UTC while
+  source development continues separately. Running is not Passed. Later changes
+  require their own checks; this run covers its preserved binary snapshot.
+- 05:36:22 UTC status check: the endurance process is no longer running and has
+  no finalPassed record. Its last pulse is22:02:46 UTC, elapsed600 seconds,
+  **424,746 completed cases /323,557,722 checked steps**. Classify this run as
+  **Interrupted**, not Passed. Its termination cause is not established. The
+  elapsed wall-clock window does not establish eight hours of active work; the
+  requested eight-hour continuous-work goal was **not met**.
+
+## Deferred draft: powered worker stabilization
+
+Build an OCRU prototype over existing Worker, Interaction custody and Power
+owners. An explicitly loaded incapacitated worker body consumes authored reserve
+and a bounded cartridge on a once-only cycle start. Owner-polled shift-time
+completion restores Alert/Down, preserves suit/contamination, then requires body
+ejection and separate physical standing clearance. New recovery episodes
+interrupt the cycle; cancellation does not refund resources. Operator disconnect
+leaves an already committed cycle autonomous; patient disconnect cancels/ejects
+before body retirement. Exact deadline settlement and pause rules still apply.
+
+This is powered stabilization, not full biological-shutdown/reanimation, debuffs
+or all physical OCRU steps. A future implementation would supply canonical rules,
+application commands and offline scenarios. Native worker-chamber placement
+requires a dedicated adapter: existing crate placement and worker dragging do
+not support slotted bodies. No unsupported physical insertion is exposed as
+successful in the playable fixture while that integration is absent.
+
+Only provisional contract/rule source was drafted before the status check. It
+was not integrated or tested and is preserved under ignored
+`runtime/out/medical-prototype-draft`. It is outside the canonical build and
+review PR. No powered-care gameplay is claimed as delivered.

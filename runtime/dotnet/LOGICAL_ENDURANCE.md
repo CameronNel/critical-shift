@@ -32,6 +32,7 @@ samples; it is not a count of committed actions.
 
 The regular verifier runs12 cases, a single-seed reproduction, an intentionally
 failed invariant control and an existing-report refusal. A long run is useful
-logical compositional evidence, not Unity/physics, multiplayer, performance,+human feel, full medical/meltdown or saved-game acceptance. The report's assembly
+logical compositional evidence, not Unity/physics, multiplayer, performance,
+human feel, full medical/meltdown or saved-game acceptance. The report's assembly
 hashes identify the code actually exercised; later source changes need their own
 verification. No real-time waiting is used to pad the logical simulation loop.
