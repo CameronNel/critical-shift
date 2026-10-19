@@ -44,8 +44,8 @@ required player solution or a physical playtest. See
 
 Once native execution is authorized, the editor menu **Critical Shift > Sandbox >
 Create isolated gameplay scene** generates a new scratch scene containing only a
-composition root. On play it builds debug geometry: eight crates, two production
-machines, a reactor, a cart, a conveyor, a local collision controller and a downed
+composition root. On play it builds debug geometry: eight crates, three production
+machines (crusher, processor and safe ore dryer), a reactor, a cart, a conveyor, a local collision controller and a downed
 test worker. The second worker is controlled locally for this fixture.
 
 - WASD: walk; right mouse drag: look; Tab: show/hide controls.
@@ -126,12 +126,20 @@ test worker. The second worker is controlled locally for this fixture.
 - Select a machine, insert, power on, then start. The crusher turns ore into
   crushed ore; the processor turns crushed ore into fuel. Eject between stages.
   Wet material and inspection bypass exercise the existing jam/lineage rules.
+  The ore dryer safely reduces wet-ore moisture before crushing, conserving
+  quantity and retaining contamination/inspection history. It offers no bypass.
+  Its current source placement/loading/GUI are native NotRun; see
+  [drying contract](../../../../dotnet/SAFE_DRYING.md).
 - The cyan crate is pre-made fuel for isolated reactor testing. Load it, open
   cooling and start. Cooling loss, reserve spending, trip/reset and fuel work
   remain the existing fictional game rules, not another simulation.
 - With the reactor focused, X shuts it down and C requests emergency cooling
   using reserve power. R resets a tripped reactor when safe; press R again to
   start it. The two needle gauges show remaining fuel and reserve capacity.
+  The reactor panel also exposes the optional finite backup supply: a timed
+  stored charge restores reserve for a zero-reserve start. It generates no grid
+  delivery; cancellation keeps the charge used. The source controls remain
+  native NotRun; see [backup contract](../../../../dotnet/EMERGENCY_POWER.md).
 - Drop free crates onto the belt or cart. Held/slotted/unknown objects are
   excluded from belt authority. A belt blockage latches until cleared and reset.
 - Process-clock pause pauses rules while real-time leases continue. It does not

@@ -12,7 +12,7 @@ namespace CriticalShift.Application
     {
         Applied, NoChange, UnknownMachine, UnknownBatch, NoInput, Occupied, RevisionConflict,
         WrongInput, OverCapacity, WetInput, OutputTooSmall, NoPower, InvalidState, PowerMustBeOff,
-        HistoryCapacityReached, CustodyRejected
+        HistoryCapacityReached, CustodyRejected, AlreadyConditioned, BypassUnavailable
     }
     public enum ProductionEvent { Jammed, Completed, Cancelled }
 
@@ -22,9 +22,22 @@ namespace CriticalShift.Application
         public MachineRecipe(Guid id, MaterialKind input, MaterialKind output, long durationMilliseconds,
             long bypassDurationMilliseconds, long wetJamAfterMilliseconds, int maximumUnits,
             int yieldPermille = 1000, int moistureTolerance = 500, int outputMoisture = 0)
+            : this(id, input, output, durationMilliseconds, bypassDurationMilliseconds, wetJamAfterMilliseconds,
+                maximumUnits, yieldPermille, moistureTolerance, outputMoisture, false) { }
+
+        /// <summary>A safe same-kind conditioning cycle; it cannot bypass inspection or change material quantity.</summary>
+        public static MachineRecipe Drying(Guid id, MaterialKind kind, long durationMilliseconds,
+            int maximumUnits, int targetMoisture = 100) =>
+            new MachineRecipe(id, kind, kind, durationMilliseconds, durationMilliseconds, 1,
+                maximumUnits, 1000, 1000, targetMoisture, true);
+
+        private MachineRecipe(Guid id, MaterialKind input, MaterialKind output, long durationMilliseconds,
+            long bypassDurationMilliseconds, long wetJamAfterMilliseconds, int maximumUnits,
+            int yieldPermille, int moistureTolerance, int outputMoisture, bool drying)
         {
             if (id == Guid.Empty) throw new ArgumentException("Recipe identity required.");
-            if (!Enum.IsDefined(typeof(MaterialKind), input) || !Enum.IsDefined(typeof(MaterialKind), output) || input == output ||
+            if (!Enum.IsDefined(typeof(MaterialKind), input) || !Enum.IsDefined(typeof(MaterialKind), output) ||
+                (drying ? input != output || yieldPermille != 1000 || moistureTolerance != 1000 || outputMoisture >= 1000 : input == output) ||
                 durationMilliseconds < 2 || bypassDurationMilliseconds < 2 || bypassDurationMilliseconds > durationMilliseconds ||
                 wetJamAfterMilliseconds < 1 || wetJamAfterMilliseconds >= bypassDurationMilliseconds ||
                 maximumUnits < 1 || maximumUnits > 1000000 || yieldPermille < 1 || yieldPermille > 1000 ||
@@ -33,6 +46,7 @@ namespace CriticalShift.Application
             Id = id; Input = input; Output = output; DurationMilliseconds = durationMilliseconds;
             BypassDurationMilliseconds = bypassDurationMilliseconds; WetJamAfterMilliseconds = wetJamAfterMilliseconds;
             MaximumUnits = maximumUnits; YieldPermille = yieldPermille; MoistureTolerance = moistureTolerance; OutputMoisture = outputMoisture;
+            IsDrying = drying;
         }
         public Guid Id { get; }
         public MaterialKind Input { get; }
@@ -44,6 +58,7 @@ namespace CriticalShift.Application
         public int YieldPermille { get; }
         public int MoistureTolerance { get; }
         public int OutputMoisture { get; }
+        public bool IsDrying { get; }
     }
 
     /// <summary>Typed payload carried by the EXISTING per-connection command stream.</summary>
@@ -100,9 +115,10 @@ namespace CriticalShift.Application
     public sealed class MachineView
     {
         internal MachineView(Guid epoch, Guid id, Guid recipe, long revision, ProductionMode mode, bool power,
-            Guid cycle, Guid? container, long duration, long work)
+            Guid cycle, Guid? container, long duration, long work, int? dryingTargetMoisture = null)
         { Epoch = epoch; Id = id; RecipeId = recipe; Revision = revision; Mode = mode; Powered = power;
-          CycleId = cycle; ContainerId = container; DurationMilliseconds = duration; WorkMilliseconds = work; }
+          CycleId = cycle; ContainerId = container; DurationMilliseconds = duration; WorkMilliseconds = work;
+          DryingTargetMoisture = dryingTargetMoisture; }
         public Guid Epoch { get; }
         public Guid Id { get; }
         public Guid RecipeId { get; }
@@ -113,6 +129,8 @@ namespace CriticalShift.Application
         public Guid? ContainerId { get; }
         public long DurationMilliseconds { get; }
         public long WorkMilliseconds { get; }
+        public int? DryingTargetMoisture { get; }
+        public bool IsDrying => DryingTargetMoisture.HasValue;
     }
     public sealed class ProductionReply
     {

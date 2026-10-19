@@ -289,22 +289,28 @@ namespace CriticalShift.Presentation
 
         private void DrawMachine()
         {
-            GUILayout.Space(8); GUILayout.Label("PRODUCTION MACHINE " + (selectedMachine + 1));
+            Guid id = machines[selectedMachine];
+            GUILayout.Space(8); GUILayout.Label("PRODUCTION MACHINE " + (selectedMachine + 1) + " · " + traceName(id));
             GUILayout.BeginHorizontal();
             if (GUILayout.Button("Previous machine")) selectedMachine = (selectedMachine + machines.Length - 1) % machines.Length;
             if (GUILayout.Button("Next machine")) selectedMachine = (selectedMachine + 1) % machines.Length;
             GUILayout.EndHorizontal();
-            Guid id = machines[selectedMachine]; var state = commands.GetMachine(id);
+            var state = commands.GetMachine(id);
             if (state == null) { GUILayout.Label("Machine unavailable"); return; }
             GUILayout.Label(state.Mode + " | " + (state.Powered ? "power on" : "power off") + " | " + state.WorkMilliseconds + " / " + state.DurationMilliseconds + " ms");
             GUILayout.BeginHorizontal();
             if (GUILayout.Button("Insert selected")) MachineRequested?.Invoke(id, ProductionAction.Insert, containers[selectedContainer], false, false);
             if (GUILayout.Button("Eject")) MachineRequested?.Invoke(id, ProductionAction.Eject, Guid.Empty, false, false);
             GUILayout.EndHorizontal();
-            bypass = GUILayout.Toggle(bypass, "Bypass inspection");
-            GUILayout.Label("Bypass is faster; wet material can jam and the output retains suspect-fuel history.", wrapped);
+            if (state.IsDrying)
+                GUILayout.Label("Safe drying reduces moisture to " + state.DryingTargetMoisture + " without changing quantity or contamination. Inspection bypass is unavailable.", wrapped);
+            else
+            {
+                bypass = GUILayout.Toggle(bypass, "Bypass inspection");
+                GUILayout.Label("Bypass is faster; wet material can jam and the output retains suspect-fuel history.", wrapped);
+            }
             GUILayout.BeginHorizontal();
-            if (GUILayout.Button("Start cycle")) MachineRequested?.Invoke(id, ProductionAction.Start, Guid.Empty, bypass, false);
+            if (GUILayout.Button("Start cycle")) MachineRequested?.Invoke(id, ProductionAction.Start, Guid.Empty, bypass && !state.IsDrying, false);
             if (GUILayout.Button(state.Powered ? "Power off" : "Power on")) MachineRequested?.Invoke(id, ProductionAction.SetPower, Guid.Empty, false, !state.Powered);
             GUILayout.EndHorizontal();
             GUILayout.BeginHorizontal();

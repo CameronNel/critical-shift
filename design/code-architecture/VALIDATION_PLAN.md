@@ -73,6 +73,7 @@ Counts below are starting acceptance fixtures to ratify before execution. Tests 
 | PHYS-03 | Pull lever on a remote peer and trigger duplicate input | Exactly one intended machine transition; all visible state converges | 1 |
 | TX-01 | Insert an item while the machine is full/faulted or custody changes | Rejection is side-effect-free; no lost item or double occupancy | 2 |
 | TX-02 | Complete one process cycle twice, including a lost acknowledgment | One input consumption and one output identity per cycle; configured material accounting balances | 2 |
+| TX-04 | Dry wet material safely, then feed existing production/reactor; retry, cancel, pause and cross the exact deadline | Same-kind quantity/contamination/lineage conserved; moisture target respected; no suspect-history laundering; already-dry/bypass reject before history reservation | S01/S03/S05/S08 / bounded offline prototype, native pending |
 | TX-03 | Interrupt a prepared multi-owner change or fail physical binding | No partially published logical transaction; binding failure produces explicit unavailable/recovery state | 2 |
 | CAUSE-01 | Process wet/defective input or use the chosen shortcut | Configured delayed consequence occurs once and links to the initiating event/batch; unrelated visual randomness does not alter it | 2 |
 | POWER-01 | Competing consumers request the remaining reserve | No overspend; one committed cost per operation; denied request preserves state | 2, extended for reanimation in 4 |

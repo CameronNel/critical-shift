@@ -60,6 +60,21 @@ The existing temporary sandbox panel exposes commands but remains native NotRun.
 [task evidence](../../runtime/validation/EMERGENCY_BLACK_START.md) scope POWER-02
 logical evidence without advancing native or roadmap gates.
 
+### Authorized safe-conditioning prototype, 19 October 2026
+
+The continuing gameplay request permits a bounded safe drying route for existing
+wet ore. An explicit factory authors same-kind, conserved-quantity recipes;
+ordinary conversion construction retains its different-kind restriction.
+Materials keep canonical moisture/contamination/lineage and Production keeps
+existing timing, custody and receipts. Drying cannot bypass inspection or erase
+inherited suspect flags. No new material kind, owner, package or graph edge is
+introduced. The canonical sandbox gets a dryer through its existing fixture
+builder, with placement/GUI/native results still NotRun. Duration and target
+moisture are D-09 authored fixtures pending playtest.
+[Calling contract](../../runtime/dotnet/SAFE_DRYING.md) and
+[task evidence](../../runtime/validation/SAFE_ORE_CONDITIONING.md) scope TX-04
+logical evidence separately from physical and roadmap acceptance.
+
 ## 1. Established constraints from the inspected repository
 
 Baseline inspected: `8235e7b10ee5cb7ba11d1a90dc6c4677991e20f6`.

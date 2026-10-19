@@ -86,6 +86,13 @@ Example insertion: check actor/claim and machine interlock; verify material suit
 
 Example completion: a stable process-cycle ID identifies input consumption and output creation. Each batch has one active material identity. A repeated completion callback cannot mint another output. A process fault records what was consumed, retained or turned into waste according to its authored recipe; it cannot delete unexplained quantity. Transformations conserve the configured accounting quantities across input, output, waste and declared conversion/loss terms. Do not assert that raw wet-ore mass equals finished-fuel mass.
 
+The explicit same-kind drying recipe is a bounded conditioning exception to
+ordinary kind conversion. Materials still own moisture, quantity and lineage;
+Production owns its existing process. Drying uses 100% yield, preserves
+contamination and inherited inspection flags, and creates one child identity.
+Already-conditioned input and unavailable bypass reject before history
+reservation. This is not a new material kind or another contamination authority.
+
 Within the initial single-threaded host, prepare/validate all affected proposed states, then install the accepted change without awaits, callbacks or Unity side effects between owner updates. Publish only after all participants are installed. The implementation must prove its commit path cannot partially fail under expected conditions. Unexpected integrity exceptions stop the affected simulation and preserve diagnostics rather than continuing with a silently partial transaction. No distributed database or generic transaction framework is required.
 
 The optional bounded backup supply keeps finite stored-charge state in Power and

@@ -130,6 +130,11 @@ namespace CriticalShift.Application
             var recipe = _recipes[machine.Id];
             if ((int)input.Kind != (int)recipe.Input) return Reply(ProductionStatus.WrongInput, machine);
             if (input.Units > recipe.MaximumUnits) return Reply(ProductionStatus.OverCapacity, machine);
+            if (recipe.IsDrying)
+            {
+                if (request.Bypass) return Reply(ProductionStatus.BypassUnavailable, machine);
+                if (input.Moisture <= recipe.OutputMoisture) return Reply(ProductionStatus.AlreadyConditioned, machine);
+            }
             bool wet = input.Moisture > recipe.MoistureTolerance;
             if (wet && !request.Bypass) return Reply(ProductionStatus.WetInput, machine);
             if ((long)input.Units * recipe.YieldPermille / 1000 == 0) return Reply(ProductionStatus.OutputTooSmall, machine);

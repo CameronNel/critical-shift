@@ -65,7 +65,8 @@ namespace CriticalShift.Application
             b.Units, b.Moisture, b.Contamination, b.Revision, (MaterialFlags)(int)b.Flags);
         private MachineView Project(MachineState s) => new MachineView(_world.Epoch,
             s.Id, _recipes[s.Id].Id, s.Revision, (ProductionMode)(int)s.Mode, s.Powered, s.CycleId,
-            _interaction.SlotOccupant(s.Id), s.DurationMilliseconds, s.WorkMilliseconds);
+            _interaction.SlotOccupant(s.Id), s.DurationMilliseconds, s.WorkMilliseconds,
+            _recipes[s.Id].IsDrying ? _recipes[s.Id].OutputMoisture : (int?)null);
         private InteractionReply Reply(ProductionStatus status, MachineState? machine,
             ObjectClaimView? custody = null, InteractionStatus? custodyError = null, ProductionChange? change = null)
         {

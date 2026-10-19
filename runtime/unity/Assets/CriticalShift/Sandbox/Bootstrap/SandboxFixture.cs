@@ -35,7 +35,7 @@ namespace CriticalShift.Sandbox
         private readonly Guid actor = Id(1), connection = Id(2), reactor = SandboxGameplaySetup.ReactorId, cartId = Id(600);
         private readonly Guid patient = Id(3), patientConnection = Id(4), patientBody = Id(650);
         private readonly Guid[] containers = new Guid[SandboxGameplaySetup.ContainerCount],
-            machines = { SandboxGameplaySetup.CrusherId, SandboxGameplaySetup.ProcessorId };
+            machines = { SandboxGameplaySetup.CrusherId, SandboxGameplaySetup.ProcessorId, SandboxGameplaySetup.DryerId };
         internal Guid Epoch => world.Epoch;
         internal WorldSessionView Snapshot => world.View;
         internal int PhysicalBindingCount => host == null ? 0 : host.BoundBodyCount;
@@ -226,6 +226,7 @@ namespace CriticalShift.Sandbox
         {
             BuildMachine(machines[0], "Crusher", new Vector3(-4, 0, 5));
             BuildMachine(machines[1], "Fuel processor", new Vector3(0.5f, 0, 5));
+            BuildMachine(machines[2], "Ore dryer", new Vector3(-8.5f, 0, 9));
         }
 
         private void BuildMachine(Guid id, string name, Vector3 position)

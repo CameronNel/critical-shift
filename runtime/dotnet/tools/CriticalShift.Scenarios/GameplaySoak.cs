@@ -132,6 +132,16 @@ namespace CriticalShift.Scenarios
                         .Where(w => w?.Pose == WorkerPose.Recovering).ToArray();
                     medicalLedger.BeforeAdvance();
                     var result = world.AdvanceTo(target);
+                    foreach (var change in result.ProductionChanges)
+                        if (change.Machine.Id == Id(22) && change.Kind == ProductionEvent.Completed)
+                        {
+                            var output = change.Output!; var input = change.Input;
+                            Require(output.Kind == input.Kind && output.Units == input.Units && change.WasteUnits == 0 &&
+                                output.Moisture == 100 && input.Moisture > 100 && output.Contamination == input.Contamination &&
+                                output.Flags == input.Flags && !change.BypassedInspection && output.ParentBatchId == input.BatchId &&
+                                output.CauseId == input.CauseId && output.OriginId == input.OriginId,
+                                "Mixed drying changed conserved material, contamination or suspect lineage.");
+                        }
                     foreach (var change in result.MedicalChanges) medicalLedger.ObserveAdvance(change);
                     medicalLedger.AfterAdvance();
                     var expectedExpiries = pendingRecoveries.Where(w => w!.RecoveryExpiresAtMilliseconds <= world.View.ElapsedMilliseconds).ToArray();
@@ -154,6 +164,8 @@ namespace CriticalShift.Scenarios
                 Require(ports[1].Grab(Id(13)).HasNewCommit, "Initial ore custody failed.");
                 Require(ports[1].OperateMachine(Id(20), ProductionAction.Insert, Id(13)).HasNewCommit, "Initial ore insertion failed.");
                 Require(ports[1].OperateMachine(Id(20), ProductionAction.Start, bypass: true).HasNewCommit, "Initial production start failed.");
+                Require(ports[1].Grab(Id(14)).HasNewCommit && ports[1].OperateMachine(Id(22), ProductionAction.Insert, Id(14)).HasNewCommit &&
+                    ports[1].OperateMachine(Id(22), ProductionAction.Start).HasNewCommit, "Initial safe drying work failed.");
                 Require(world.ApplyWorkerImpact(world.Epoch, Id(203), 1, WorkerImpact.Incapacitating, 0, Id(300), Id(303)).Changed,
                     "Initial mixed patient injury failed."); observations[3] = 1;
                 Require(ports[2].Grab(Id(43)).HasNewCommit, "Initial mixed patient custody failed.");
@@ -166,7 +178,7 @@ namespace CriticalShift.Scenarios
                 {
                     int who = random.Next(4); var port = ports[who]; var worker = world.GetWorker(port.ActorId);
                     Guid entity = random.Next(3) == 0 ? Id(40 + random.Next(4)) : Id(10 + random.Next(8));
-                    Guid machine = Id(20 + random.Next(2));
+                    Guid machine = Id(20 + random.Next(3));
                     policies.Allow = random.Next(8) != 0; policies.Safe = random.Next(4) != 0;
                     switch (random.Next(27))
                     {
@@ -324,9 +336,10 @@ namespace CriticalShift.Scenarios
             for (int i = 0; i < ports.Length; i++)
             { world.RegisterConnection(Id(100 + i), Id(200 + i)); world.RegisterWorkerBody(Id(200 + i), Id(40 + i)); ports[i] = new LocalCommandPort(world, Id(100 + i)); }
             for (int i = 0; i < 8; i++) world.Production.RegisterBatch(Id(10 + i), Id(110 + i), Id(120 + i), Id(130 + i),
-                i < 3 ? MaterialKind.Fuel : i < 6 ? MaterialKind.Ore : MaterialKind.CrushedOre, random.Next(1, 31), moisture: random.Next(2) == 0 ? 0 : 900);
+                i < 3 ? MaterialKind.Fuel : i < 6 ? MaterialKind.Ore : MaterialKind.CrushedOre, random.Next(1, 31), moisture: i == 4 ? 900 : random.Next(2) == 0 ? 0 : 900);
             world.Production.RegisterMachine(Id(20), new MachineRecipe(Id(400), MaterialKind.Ore, MaterialKind.CrushedOre, 500, 250, 100, 100));
             world.Production.RegisterMachine(Id(21), new MachineRecipe(Id(401), MaterialKind.CrushedOre, MaterialKind.Fuel, 600, 300, 100, 100));
+            world.Production.RegisterMachine(Id(22), MachineRecipe.Drying(Id(403), MaterialKind.Ore, 450, 100, 100));
             world.Reactor.Register(Id(30), new ReactorDefinition(Id(402)));
             world.Reactor.RegisterEmergencyPower(new EmergencyPowerDefinition(random.Next(100, 1001), random.Next(4, 16), 4));
             medical = new MedicalDefinition(random.Next(100, 1001), random.Next(1, 8), random.Next(2, 6));
