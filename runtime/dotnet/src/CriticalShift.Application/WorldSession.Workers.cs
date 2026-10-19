@@ -74,8 +74,9 @@ namespace CriticalShift.Application
             bool allowPaused, Func<WorkerReply> operation, Guid hazardId = default, Guid causeId = default, WorkerImpact? severity = null)
         {
             RequireIdle();
+            var beforeFitting = _workers.Get(actor)?.SuitFitting;
             long? before = _workers.Get(actor)?.Revision;
-            WorkerReply reply;
+            WorkerReply reply; SuitFittingChange? fitting = null;
             var status = Readiness(epoch);
             if (status.HasValue)
             {
@@ -101,6 +102,7 @@ namespace CriticalShift.Application
                     if (reply.Changed)
                     {
                         _revision = next;
+                        fitting = SuitFitting.ObserveConditionChange(actor, beforeFitting, _timeline.ElapsedMilliseconds);
                         if (kind == SessionTraceKind.Environment || kind == SessionTraceKind.Contamination)
                         {
                             var medical = Medical.ObservePatientContamination(actor, reply.Worker!.Contamination, _timeline.ElapsedMilliseconds);
@@ -114,6 +116,9 @@ namespace CriticalShift.Application
             }
             _diagnostics.Append(View, epoch, kind, actor, reply.ReleasedClaim?.EntityId ?? Guid.Empty,
                 input, reply.Changed, worker: reply, previousWorkerRevision: before, hazardId: hazardId, causeId: causeId, severity: severity);
+            if (fitting != null)
+                _diagnostics.Append(View, epoch, SessionTraceKind.SuitFitting, actor, fitting.Attempt.StationId,
+                    changed: true, hazardId: hazardId, causeId: causeId, fitting: fitting);
             if (reply.MedicalChange != null)
                 _diagnostics.Append(View, epoch, SessionTraceKind.Medical, actor, reply.MedicalChange.Station.Id,
                     changed: true, hazardId: hazardId, causeId: causeId, medical: reply.MedicalChange);

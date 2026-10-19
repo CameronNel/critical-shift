@@ -83,6 +83,16 @@ namespace CriticalShift.Presentation
 
         private static string? Describe(SessionTraceRecord record)
         {
+            if (record.SuitFittingChange != null)
+            {
+                switch (record.SuitFittingChange.Kind)
+                {
+                    case SuitFittingEvent.Started: return "Suit fitting started · current protection retained";
+                    case SuitFittingEvent.Completed: return "Protective suit fitted · contamination unchanged";
+                    case SuitFittingEvent.Cancelled: return "Suit fitting cancelled · progress discarded";
+                    case SuitFittingEvent.Interrupted: return "Suit fitting interrupted · condition or station access changed";
+                }
+            }
             if (record.ContaminationContact != null && record.Changed)
             {
                 var contact = record.ContaminationContact;

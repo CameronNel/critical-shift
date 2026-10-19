@@ -11,6 +11,7 @@ namespace CriticalShift.Presentation
         public event Action<Guid> GrabRequested, ReleaseRequested;
         public event Action<Guid, ProductionAction, Guid, bool, bool> MachineRequested;
         public event Action<Guid, ReactorAction, Guid, bool> ReactorRequested;
+        public event Action<Guid, SuitFittingAction> SuitFittingRequested;
         public event Action ReplayRequested, PauseRequested, ResetRequested, BeltResetRequested;
         public event Action TransferFocusedRequested, DropHeldRequested, StartFocusedRequested, ToggleFocusedPowerRequested;
         public event Action BypassFocusedRequested;
@@ -26,7 +27,7 @@ namespace CriticalShift.Presentation
         private readonly HashSet<KeyCode> held = new HashSet<KeyCode>();
         private LocalCommandPort commands;
         private Guid[] containers, machines;
-        private Guid actor, reactor, patient;
+        private Guid actor, reactor, patient, suitStation;
         private Func<string> actionStatus, physicsStatus;
         private Func<Guid, string> traceName;
         private int selectedContainer, selectedMachine;
@@ -39,13 +40,13 @@ namespace CriticalShift.Presentation
         private double nextTraceRefresh;
 
         public void Initialize(LocalCommandPort port, Guid localActor, Guid[] containerIds, Guid[] machineIds,
-            Guid reactorId, Guid patientActorId, Func<string> readAction, Func<string> readPhysics, Func<Guid, string> readTraceName)
+            Guid reactorId, Guid patientActorId, Func<string> readAction, Func<string> readPhysics, Func<Guid, string> readTraceName, Guid suitStationId = default)
         {
             if (commands != null || port == null || containerIds == null || containerIds.Length == 0 ||
                 machineIds == null || machineIds.Length == 0 || localActor == Guid.Empty || reactorId == Guid.Empty ||
                 patientActorId == Guid.Empty || patientActorId == localActor)
                 throw new ArgumentException("Provide one local command port and explicit fixture selections.");
-            commands = port; actor = localActor; reactor = reactorId; patient = patientActorId;
+            commands = port; actor = localActor; reactor = reactorId; patient = patientActorId; suitStation = suitStationId;
             containers = (Guid[])containerIds.Clone(); machines = (Guid[])machineIds.Clone();
             actionStatus = readAction ?? throw new ArgumentNullException(nameof(readAction));
             physicsStatus = readPhysics ?? throw new ArgumentNullException(nameof(readPhysics));
@@ -55,7 +56,7 @@ namespace CriticalShift.Presentation
 
         public void Activate()
         {
-            if (commands == null || GrabRequested == null || ReleaseRequested == null || MachineRequested == null ||
+            if (commands == null || suitStation != Guid.Empty && SuitFittingRequested == null || GrabRequested == null || ReleaseRequested == null || MachineRequested == null ||
                 ReactorRequested == null || ReplayRequested == null || PauseRequested == null || ResetRequested == null ||
                 BeltResetRequested == null || MovementRequested == null || LookRequested == null || CartDriveRequested == null ||
                 TransferFocusedRequested == null || DropHeldRequested == null || StartFocusedRequested == null || ToggleFocusedPowerRequested == null ||
@@ -163,7 +164,22 @@ namespace CriticalShift.Presentation
                 }
                 GUILayout.Label("Held objects: " + world.ActiveClaimCount + " | " + actionStatus(), wrapped);
                 var worker = commands.GetWorker(actor);
-                if (worker != null) GUILayout.Label("Worker " + worker.Awareness + " / " + worker.Pose);
+                if (worker != null) GUILayout.Label("Worker " + worker.Awareness + " / " + worker.Pose + " · suit " + worker.Suit + " · contamination " + worker.Contamination);
+                if (suitStation != Guid.Empty && worker != null)
+                {
+                    if (worker.SuitFitting != null)
+                    {
+                        GUILayout.Label("Suit fitting · " + SandboxContractReadout.Clock(Math.Max(0, worker.SuitFitting.DueAtMilliseconds - world.ElapsedMilliseconds)) +
+                            " remaining · current protection stays until complete", wrapped);
+                        GUI.enabled = previousEnabled && (world.Phase == WorldPhase.Running || world.Phase == WorldPhase.Paused);
+                        if (GUILayout.Button("Cancel my suit fitting")) SuitFittingRequested?.Invoke(worker.SuitFitting.StationId, SuitFittingAction.Cancel);
+                    }
+                    else
+                    {
+                        GUI.enabled = previousEnabled && world.Phase == WorldPhase.Running && worker.CanInteract && worker.Suit != WorkerSuit.Intact;
+                        if (GUILayout.Button("Fit protective suit at station")) SuitFittingRequested?.Invoke(suitStation, SuitFittingAction.Start);
+                    }
+                }
                 GUILayout.Space(8);
                 GUI.enabled = previousEnabled && (world.Phase == WorldPhase.Running || world.Phase == WorldPhase.Paused);
                 DrawContainer();
@@ -183,7 +199,7 @@ namespace CriticalShift.Presentation
                 if (GUILayout.Button("Fixture patient: knock down")) PatientKnockdownRequested?.Invoke();
                 if (GUILayout.Button("Fixture patient: attempt recovery")) PatientRecoveryRequested?.Invoke();
                 GUI.enabled = previousEnabled && (world.Phase == WorldPhase.Running || world.Phase == WorldPhase.Paused);
-                if (GUILayout.Button("Clear conveyor blockage latch")) BeltResetRequested?.Invoke();
+                if (GUILayout.Button("Fixture only: clear conveyor blockage latch")) BeltResetRequested?.Invoke();
                 if (GUILayout.Button(world.Phase == WorldPhase.Paused ? "Resume process clock" : "Pause process clock")) PauseRequested?.Invoke();
                 GUI.enabled = previousEnabled && (world.Phase == WorldPhase.Running || world.Phase == WorldPhase.Paused) && commands.CanReplayLast;
                 if (GUILayout.Button("Retry last action")) ReplayRequested?.Invoke();
@@ -260,6 +276,9 @@ namespace CriticalShift.Presentation
                 GUILayout.Label("Backup power · charges used " + debrief.EmergencyPower.UsedCharges +
                     " · completed " + debrief.EmergencyPower.CompletedCycles + " · cancelled " + debrief.EmergencyPower.CancelledCycles +
                     " · reserve generated " + debrief.EmergencyPower.ProducedUnits, wrapped);
+            if (debrief.SuitFitting.Started > 0)
+                GUILayout.Label("Suit fittings · completed " + debrief.SuitFitting.Completed + " · cancelled " + debrief.SuitFitting.Cancelled +
+                    " · interrupted " + debrief.SuitFitting.Interrupted, wrapped);
             GUILayout.Label("Worker impacts " + incidents.WorkerImpacts + " · incapacitating impacts " + incidents.Incapacitations +
                 " · successful standing recoveries " + incidents.StandingRecoveries, wrapped);
             GUILayout.Label("Machine jams " + incidents.MachineJams + " · completed bypass conversions " + incidents.BypassedConversions, wrapped);
@@ -400,7 +419,7 @@ namespace CriticalShift.Presentation
         private void OnDisable() { active = false; ClearInput(); }
         private void OnDestroy()
         {
-            ClearInput(); GrabRequested = null; ReleaseRequested = null; MachineRequested = null; ReactorRequested = null;
+            ClearInput(); GrabRequested = null; ReleaseRequested = null; MachineRequested = null; ReactorRequested = null; SuitFittingRequested = null;
             ReplayRequested = null; PauseRequested = null; ResetRequested = null; BeltResetRequested = null;
             TransferFocusedRequested = null; DropHeldRequested = null; StartFocusedRequested = null; ToggleFocusedPowerRequested = null;
             BypassFocusedRequested = null; ShutdownFocusedRequested = null; EmergencyCoolingFocusedRequested = null;

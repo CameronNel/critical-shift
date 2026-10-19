@@ -28,6 +28,7 @@ namespace CriticalShift.Features.Interaction.Domain
         public long NowMilliseconds { get; private set; }
         public int RegisteredCount => _objects.Count;
         public int ActiveClaimCount => _heldByActor.Count;
+        public bool ActorHasClaim(Guid actorId) => _heldByActor.ContainsKey(actorId);
 
         public void Register(Guid entityId)
         {

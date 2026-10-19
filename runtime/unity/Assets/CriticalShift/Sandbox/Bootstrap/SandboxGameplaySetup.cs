@@ -12,6 +12,7 @@ namespace CriticalShift.Sandbox
         internal static Guid CrusherId => Id(400);
         internal static Guid ProcessorId => Id(401);
         internal static Guid DryerId => Id(402);
+        internal static Guid SuitStationId => Id(710);
         internal static Guid ReactorId => Id(500);
         internal static Guid ContainerId(int index)
         {
@@ -40,6 +41,7 @@ namespace CriticalShift.Sandbox
                 powerQuantumMilliseconds: 500, warningMilliseconds: 6000, tripMilliseconds: 12000,
                 resetMilliseconds: 1000, emergencyReliefMilliseconds: 5000));
             world.Reactor.RegisterEmergencyPower(new EmergencyPowerDefinition());
+            world.SuitFitting.Register(SuitStationId, new SuitFittingDefinition());
             world.Contracts.Register(new ShiftContractDefinition(Id(800), "Restore the city supply",
                 new GridDemandWave(Id(801), "Prepare fuel and cooling", 2 * 60 * 1000, 0),
                 new GridDemandWave(Id(802), "Morning supply", 6 * 60 * 1000, 800, 30 * 1000),

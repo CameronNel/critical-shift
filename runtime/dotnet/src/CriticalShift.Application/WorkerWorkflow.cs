@@ -6,7 +6,7 @@ using CriticalShift.Features.Workers.Domain;
 namespace CriticalShift.Application
 {
     /// <summary>Only worker operations and their possession effects; WorldSession owns lifetime and time.</summary>
-    internal sealed class WorkerWorkflow
+    internal sealed partial class WorkerWorkflow
     {
         private readonly Guid _epoch;
         private readonly int _capacity;
@@ -163,6 +163,7 @@ namespace CriticalShift.Application
 
         private WorkerView Project(WorkerSnapshot s) => new WorkerView(_epoch, s.Id, s.Revision,
             (WorkerAwareness)(int)s.Consciousness, (WorkerPose)(int)s.Posture, (WorkerSuit)(int)s.Suit,
-            s.Contamination, s.LastImpactSequence, s.RecoveryEpisode, s.RecoveryAttempt, s.RecoveryNotBefore, s.RecoveryExpiresAt, s.LastHazardId, s.LastCauseId);
+            s.Contamination, s.LastImpactSequence, s.RecoveryEpisode, s.RecoveryAttempt, s.RecoveryNotBefore, s.RecoveryExpiresAt, s.LastHazardId, s.LastCauseId,
+            s.SuitFitting == null ? null : new SuitFittingAttemptView(s.SuitFitting));
     }
 }

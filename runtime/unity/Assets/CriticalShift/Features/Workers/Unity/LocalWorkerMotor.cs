@@ -98,7 +98,9 @@ namespace CriticalShift.Features.Workers.Unity
             if (controller == null || !controller.enabled || readWorker == null || canSimulate == null || !canSimulate())
             { ClearMotion(); return; }
             var worker = readWorker();
-            if (worker == null || !worker.CanInteract) { movement = Vector2.zero; ClearMotion(); return; }
+            if (worker == null || !worker.PhysicallyUpright) { movement = Vector2.zero; ClearMotion(); return; }
+            // Busy fitting suppresses voluntary input while the upright capsule retains gravity and momentum.
+            if (worker.SuitFitting != null) { movement = Vector2.zero; jumpBuffer = 0; groundGrace = 0; }
             if (WalkSpeed <= 0 || float.IsNaN(WalkSpeed) || float.IsInfinity(WalkSpeed))
                 throw new InvalidOperationException("Worker speed must be finite and positive.");
             // A long frame cannot become an unbounded collision-controller teleport.
@@ -132,7 +134,7 @@ namespace CriticalShift.Features.Workers.Unity
             }
             jumpBuffer = Mathf.Max(0, jumpBuffer - dt);
             // Explicit queries may synchronously report a binding fault and stop this world.
-            if (!controller.enabled || !isActiveAndEnabled || !canSimulate() || readWorker()?.CanInteract != true || failed)
+            if (!controller.enabled || !isActiveAndEnabled || !canSimulate() || readWorker()?.PhysicallyUpright != true || failed)
             { ClearMotion(); return; }
             Vector3 before = transform.position;
             var contacts = controller.Move((horizontalVelocity + Vector3.up * verticalSpeed) * dt);

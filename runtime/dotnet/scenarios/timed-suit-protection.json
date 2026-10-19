@@ -1,0 +1,24 @@
+{
+  "name": "timed-suit-protection", "seed": 42, "duration": 40000, "pause": true, "traceCapacity": 128,
+  "suitStation": {"id": 970, "duration": 15000},
+  "contaminationSources": [{"id": 9001, "kind": "Exposure", "units": 20, "cooldown": 500}],
+  "steps": [
+    {"op":"contamination","source":9001,"seq":1,"cause":800,"expect":"Applied","assert":{"suit":"None","contamination":20,"revision":1}},
+    {"op":"suitFitting","seq":1,"action":"Start","revision":1,"expect":"Applied","assert":{"fittingPending":true,"fittingDue":15000,"canInteract":false,"suit":"None","revision":2}},
+    {"op":"grab","entity":500,"seq":2,"revision":0,"expect":"ActorUnavailable","assert":{"claims":0,"fittingStarted":1}},
+    {"op":"advance","time":1000,"expect":"Running"},
+    {"op":"contamination","source":9001,"seq":2,"cause":801,"expect":"Applied","assert":{"suit":"None","contamination":40,"fittingPending":true,"revision":3}},
+    {"op":"pause","expect":"Applied"},
+    {"op":"advance","time":11000,"expect":"Paused","assert":{"elapsed":1000,"suit":"None","fittingCompleted":0}},
+    {"op":"suitFitting","seq":3,"action":"Cancel","expect":"Applied","assert":{"fittingPending":false,"canInteract":true,"fittingCancelled":1,"revision":4}},
+    {"op":"resume","expect":"Applied"},
+    {"op":"suitFitting","seq":4,"action":"Start","revision":4,"expect":"Applied","assert":{"fittingDue":16000,"fittingStarted":2,"revision":5}},
+    {"op":"advance","time":25999,"expect":"Running","assert":{"elapsed":15999,"suit":"None","fittingPending":true}},
+    {"op":"advance","time":26000,"expect":"Running","assert":{"elapsed":16000,"suit":"Intact","fittingPending":false,"fittingCompleted":1,"revision":6,"contamination":40,"lastFittingEvent":"Completed","lastFittingAt":16000}},
+    {"op":"contamination","source":9001,"seq":3,"cause":802,"expect":"Applied","assert":{"contamination":45,"suit":"Intact","revision":7}},
+    {"op":"suitFitting","seq":5,"action":"Start","revision":7,"expect":"NoChange","assert":{"fittingStarted":2,"fittingPending":false}},
+    {"op":"grab","entity":500,"seq":6,"revision":0,"expect":"Applied","assert":{"claims":1}},
+    {"op":"finish","reason":"Aborted","expect":"Applied","assert":{"workers":0,"claims":0,"fittingCompleted":1,"fittingCancelled":1}},
+    {"op":"restart","expect":"Running","assert":{"suit":"None","contamination":0,"fittingPending":false,"fittingStarted":0}}
+  ]
+}

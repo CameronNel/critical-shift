@@ -18,12 +18,14 @@ namespace CriticalShift.Features.Workers.Domain
     public sealed class WorkerSnapshot
     {
         internal WorkerSnapshot(Guid id, long revision, Consciousness consciousness, Posture posture,
-            SuitCondition suit, int contamination, long impact, long episode, long attempt, long readyAt, long attemptExpiresAt, Guid hazardId, Guid causeId)
+            SuitCondition suit, int contamination, long impact, long episode, long attempt, long readyAt, long attemptExpiresAt, Guid hazardId, Guid causeId,
+            SuitFittingAttempt? fitting = null)
         {
             LastHazardId = hazardId; LastCauseId = causeId;
             Id = id; Revision = revision; Consciousness = consciousness; Posture = posture;
             Suit = suit; Contamination = contamination; LastImpactSequence = impact;
             RecoveryEpisode = episode; RecoveryAttempt = attempt; RecoveryNotBefore = readyAt; RecoveryExpiresAt = attemptExpiresAt;
+            SuitFitting = fitting;
         }
         public Guid Id { get; }
         public long Revision { get; }
@@ -38,6 +40,8 @@ namespace CriticalShift.Features.Workers.Domain
         public long RecoveryAttempt { get; }
         public long RecoveryNotBefore { get; }
         public long RecoveryExpiresAt { get; }
-        public bool CanInteract => Consciousness == Consciousness.Alert && Posture == Posture.Upright;
+        public SuitFittingAttempt? SuitFitting { get; }
+        public bool PhysicallyUpright => Consciousness == Consciousness.Alert && Posture == Posture.Upright;
+        public bool CanInteract => PhysicallyUpright && SuitFitting == null;
     }
 }

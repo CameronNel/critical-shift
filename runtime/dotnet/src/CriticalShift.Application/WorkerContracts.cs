@@ -30,12 +30,14 @@ namespace CriticalShift.Application
     {
         internal WorkerView(Guid epoch, Guid id, long revision, WorkerAwareness awareness,
             WorkerPose pose, WorkerSuit suit, int contamination, long impact, long episode,
-            long attempt, long recoveryNotBefore, long recoveryExpiresAt, Guid hazardId, Guid causeId)
+            long attempt, long recoveryNotBefore, long recoveryExpiresAt, Guid hazardId, Guid causeId,
+            SuitFittingAttemptView? fitting = null)
         {
             LastHazardId = hazardId; LastCauseId = causeId;
             Epoch = epoch; Id = id; Revision = revision; Awareness = awareness;
             Pose = pose; Suit = suit; Contamination = contamination; LastImpactSequence = impact;
             RecoveryEpisode = episode; RecoveryAttempt = attempt; RecoveryNotBeforeMilliseconds = recoveryNotBefore; RecoveryExpiresAtMilliseconds = recoveryExpiresAt;
+            SuitFitting = fitting;
         }
         public Guid Epoch { get; }
         public Guid Id { get; }
@@ -51,7 +53,9 @@ namespace CriticalShift.Application
         public long RecoveryAttempt { get; }
         public long RecoveryNotBeforeMilliseconds { get; }
         public long RecoveryExpiresAtMilliseconds { get; }
-        public bool CanInteract => Awareness == WorkerAwareness.Alert && Pose == WorkerPose.Upright;
+        public SuitFittingAttemptView? SuitFitting { get; }
+        public bool PhysicallyUpright => Awareness == WorkerAwareness.Alert && Pose == WorkerPose.Upright;
+        public bool CanInteract => PhysicallyUpright && SuitFitting == null;
     }
 
     public sealed class WorkerReply

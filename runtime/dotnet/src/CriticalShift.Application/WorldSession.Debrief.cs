@@ -14,7 +14,7 @@ namespace CriticalShift.Application
             if (Debrief != null) return;
             Debrief = new ShiftDebriefView(View, Contracts.View, Production.Summary, Reactor.PowerSummary,
                 closingRoster ?? Array.Empty<WorkerView>(), _diagnostics.Incidents,
-                _diagnostics.IncidentTimeline, _diagnostics.DroppedIncidents, Medical.Summary, Reactor.EmergencyPowerSummary);
+                _diagnostics.IncidentTimeline, _diagnostics.DroppedIncidents, Medical.Summary, Reactor.EmergencyPowerSummary, SuitFitting.Summary);
         }
     }
 }

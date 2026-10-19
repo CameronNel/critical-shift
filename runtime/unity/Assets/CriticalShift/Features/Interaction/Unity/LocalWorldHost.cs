@@ -341,7 +341,7 @@ namespace CriticalShift.Features.Interaction.Unity
             if (worker?.CanInteract != true)
             {
                 focused = Guid.Empty;
-                FocusHint = worker?.Pose == WorkerPose.Recovering ? "Recovery pending · checking standing clearance" :
+                FocusHint = worker?.SuitFitting != null ? "Suit fitting | other work paused · cancel from panel" : worker?.Pose == WorkerPose.Recovering ? "Recovery pending · checking standing clearance" :
                     worker?.Awareness == WorkerAwareness.Alert ? "Worker down | WASD crawl · H recover once clear" : "Worker unconscious | assistance required";
                 return;
             }
@@ -393,6 +393,8 @@ namespace CriticalShift.Features.Interaction.Unity
             RunCommand(() => commands.OperateReactor(id, action, container, cooling));
         }
 
+        public void OperateSuitFitting(Guid station, SuitFittingAction action) => RunCommand(() => commands.OperateSuitFitting(station, action));
+
         private bool CanPlace(Guid entity, Guid slot)
         {
             if (!active || stopped) return false;
@@ -415,7 +417,8 @@ namespace CriticalShift.Features.Interaction.Unity
                 Physics.SyncTransforms();
                 var reply = operation();
                 LastAction = reply.Production != null ? reply.Production.Status.ToString() :
-                    reply.Reactor != null ? reply.Reactor.Status.ToString() : reply.Status.ToString();
+                    reply.Reactor != null ? reply.Reactor.Status.ToString() :
+                    reply.SuitFitting != null ? reply.SuitFitting.Status.ToString() : reply.Status.ToString();
                 if (reply.IsReplay) LastAction += " (previous result; no repeated effect)";
                 Reconcile(false);
                 return reply;
