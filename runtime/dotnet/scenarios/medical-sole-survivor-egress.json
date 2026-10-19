@@ -1,0 +1,20 @@
+{
+ "name":"medical-sole-survivor-egress","seed":42,"duration":5000,"traceCapacity":128,
+ "reactor":{"id":900},"medical":{"id":950},
+ "steps":[
+  {"op":"impact","actor":1,"seq":1,"severity":"Incapacitating","delay":0,"hazard":700,"cause":800,"expect":"Applied"},
+  {"op":"grab","actor":2,"entity":650,"seq":1,"revision":0,"expect":"Applied"},
+  {"op":"medical","actor":2,"seq":2,"action":"Insert","stationRevision":0,"body":650,"objectRevision":1,"lease":1,"expect":"Applied"},
+  {"op":"medical","actor":2,"seq":3,"action":"Start","stationRevision":1,"patientRevision":1,"expect":"Applied"},
+  {"op":"disconnect","actor":2,"expect":"Disconnected"},
+  {"op":"disconnect","actor":3,"expect":"Disconnected"},
+  {"op":"disconnect","actor":4,"expect":"Disconnected","assert":{"workers":1,"phase":"Running"}},
+  {"op":"advance","time":1000,"expect":"Running","assert":{"actor":1,"awareness":"Alert","pose":"Down","medicalPhase":"Ready","medicalCompleted":1}},
+  {"op":"medical","actor":1,"seq":1,"action":"EmergencyEject","stationRevision":3,"objectRevision":2,"expect":"Applied","assert":{"medicalPhase":"Empty","medicalPatientPresent":false}},
+  {"op":"beginRecovery","actor":1,"episode":2,"revision":2,"expect":"TooEarly"},
+  {"op":"advance","time":1100,"expect":"Running"},
+  {"op":"beginRecovery","actor":1,"episode":2,"revision":2,"expect":"Applied"},
+  {"op":"completeRecovery","actor":1,"attempt":1,"clearance":"Safe","expect":"Applied","assert":{"pose":"Upright","awareness":"Alert"}},
+  {"op":"finish","reason":"Aborted","expect":"Applied","assert":{"debriefOutcome":"Aborted","medicalUsed":1,"medicalCompleted":1,"spentPower":6,"recordedRecoveries":1}}
+ ]
+}

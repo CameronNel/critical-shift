@@ -27,6 +27,8 @@ namespace CriticalShift.Application
         }
         internal WorkerView? Get(Guid actor) => _workers.TryGetValue(actor, out var state) ? Project(state.Snapshot) : null;
         internal bool CanInteract(Guid actor) => _workers.TryGetValue(actor, out var state) && state.Snapshot.CanInteract;
+        internal bool CanLeaveMedicalChamber(Guid actor) => _workers.TryGetValue(actor, out var state) &&
+            state.Snapshot.Consciousness == Consciousness.Alert && state.Snapshot.Posture == Posture.Down;
         internal Guid? BodyFor(Guid actor) => _bodyEntities.TryGetValue(actor, out var body) ? body : (Guid?)null;
         internal Guid? ActorForBody(Guid body)
         {
@@ -99,6 +101,8 @@ namespace CriticalShift.Application
             var body = BodyFor(actor);
             if (body.HasValue && interaction.GetObject(body.Value)?.HolderId != null)
                 return new WorkerReply(WorkerStatus.BodyClaimed, worker: Get(actor));
+            if (body.HasValue && interaction.GetObject(body.Value)?.SlotId != null)
+                return new WorkerReply(WorkerStatus.BodySlotted, worker: Get(actor));
             return Reply(worker.BeginRecovery(episode, revision, now), worker);
         }
 

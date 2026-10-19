@@ -1,0 +1,21 @@
+{
+ "name":"medical-stabilization","seed":42,"duration":5000,"pause":true,"traceCapacity":128,
+ "reactor":{"id":900},"medical":{"id":950},
+ "steps":[
+  {"op":"impact","actor":1,"seq":1,"severity":"Incapacitating","delay":0,"hazard":700,"cause":800,"expect":"Applied"},
+  {"op":"grab","actor":2,"entity":650,"seq":1,"revision":0,"expect":"Applied"},
+  {"op":"medical","actor":2,"seq":2,"action":"Insert","stationRevision":0,"body":650,"objectRevision":1,"lease":1,"expect":"Applied"},
+  {"op":"medical","actor":2,"seq":3,"action":"Start","stationRevision":1,"patientRevision":1,"expect":"Applied","assert":{"medicalPhase":"Treating","medicalCartridges":1,"medicalUsed":1,"reserve":4,"spentPower":6}},
+  {"op":"medical","actor":2,"seq":3,"action":"Start","stationRevision":1,"patientRevision":1,"expect":"Applied","assert":{"medicalUsed":1,"spentPower":6}},
+  {"op":"advance","time":999,"expect":"Running","assert":{"actor":1,"awareness":"Unconscious","medicalCompleted":0}},
+  {"op":"advance","time":1000,"expect":"Running","assert":{"actor":1,"awareness":"Alert","pose":"Down","medicalPhase":"Ready","medicalCompleted":1,"lastMedicalEvent":"Completed","lastMedicalAt":1000,"lastMedicalCause":800}},
+  {"op":"beginRecovery","actor":1,"episode":2,"revision":2,"expect":"BodySlotted"},
+  {"op":"medical","actor":2,"seq":4,"action":"Eject","stationRevision":3,"objectRevision":2,"expect":"Applied","assert":{"medicalPhase":"Empty","medicalPatientPresent":false}},
+  {"op":"beginRecovery","actor":1,"episode":2,"revision":2,"expect":"TooEarly"},
+  {"op":"advance","time":1100,"expect":"Running"},
+  {"op":"beginRecovery","actor":1,"episode":2,"revision":2,"expect":"Applied"},
+  {"op":"completeRecovery","actor":1,"attempt":1,"clearance":"Safe","expect":"Applied","assert":{"pose":"Upright","awareness":"Alert"}},
+  {"op":"finish","reason":"Aborted","expect":"Applied","assert":{"medicalUsed":1,"medicalCompleted":1,"medicalCancelled":0,"medicalInterrupted":0,"debriefOutcome":"Aborted","recordedRecoveries":1,"spentPower":6}},
+  {"op":"restart","expect":"Running","assert":{"medicalPhase":"Empty","medicalCartridges":2,"medicalUsed":0,"medicalCompleted":0,"reserve":10}}
+ ]
+}

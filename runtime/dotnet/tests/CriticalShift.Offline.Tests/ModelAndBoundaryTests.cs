@@ -175,7 +175,8 @@ namespace CriticalShift.Offline.Tests
                 typeof(WorldSessionConfiguration), typeof(WorldSessionView), typeof(WorldTimerHandle), typeof(WorldTimerSignal),
                 typeof(WorldTimerScheduleReply), typeof(WorldAdvanceResult), typeof(TimerEntry), typeof(WorkerSnapshot), typeof(WorkerView), typeof(WorkerReply),
                 typeof(SessionTraceRecord), typeof(SessionTraceView), typeof(ReactorView), typeof(ReactorRequest), typeof(ReactorReply), typeof(ReactorChange), typeof(PowerView), typeof(ReactorDefinition),
-                typeof(ShiftContractView), typeof(GridDemandView), typeof(GridDemandChange), typeof(ShiftDebriefView), typeof(ShiftIncidentTotals) })
+                typeof(ShiftContractView), typeof(GridDemandView), typeof(GridDemandChange), typeof(ShiftDebriefView), typeof(ShiftIncidentTotals),
+                typeof(MedicalDefinition), typeof(MedicalRequest), typeof(MedicalReply), typeof(MedicalView), typeof(MedicalChange), typeof(MedicalSummary) })
                 foreach (var property in type.GetProperties()) Assert.That(property.SetMethod, Is.Null, type.Name + "." + property.Name);
         }
     }

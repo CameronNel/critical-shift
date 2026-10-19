@@ -114,6 +114,16 @@ Do not flatten the game specification's list into one mutually exclusive enum. A
 
 Normal locomotion and full ragdoll cannot simultaneously drive the same body. The host authorizes incapacitation/recovery; the Unity adapter switches the physical controllers. Recovery requires a validated pose/clearance and a single ownership handoff. A visual interpolation arriving late cannot resurrect an incapacitated worker. Body dragging is a controlled Interaction attachment to a worker entity, not a second health system.
 
+The authorized October2026 logical stabilization prototype keeps chamber state in
+Workers Domain and body-slot custody in Interaction. Application prepares the
+station transition and existing Power reserve debit before installation, then
+polls required treatment completion before terminal publication. Treatment may
+restore Alert/Down but cannot stand a slotted worker. Only the patient's own
+safely ejectable chamber permits the narrow down-patient emergency-egress
+intention; standing still requires normal recovery clearance. This is source
+scope, not full reanimation or physical acceptance. Calling contract and remaining
+adapter boundary: [powered stabilization](../../runtime/dotnet/MEDICAL_STABILIZATION.md).
+
 Hazard observations include source, target, epoch, observation/tick identity and configured magnitude. Repeated observations are handled by the authored damage/cooldown rule, not an unqualified rule that every collision callback causes full damage. Gameplay bounds and units are named and testable. Randomness for incidents is owned and seeded explicitly; decorative effects use a separate stream so an extra particle cannot change a failure outcome.
 
 ## S08. Causality and bounded events

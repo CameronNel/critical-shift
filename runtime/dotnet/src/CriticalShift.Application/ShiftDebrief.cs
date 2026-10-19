@@ -32,15 +32,17 @@ namespace CriticalShift.Application
     {
         internal ShiftDebriefView(WorldSessionView world, ShiftContractView? contract, ProductionSummary production,
             PowerView? power, IReadOnlyList<WorkerView> workers, ShiftIncidentTotals incidents,
-            IReadOnlyList<SessionTraceRecord> timeline, long droppedIncidents)
+            IReadOnlyList<SessionTraceRecord> timeline, long droppedIncidents, MedicalSummary medical)
         {
             World = world; Contract = contract; Production = production; Power = power;
             WorkersAtEnd = workers; Incidents = incidents; Timeline = timeline; DroppedIncidents = droppedIncidents;
+            Medical = medical;
         }
         public WorldSessionView World { get; }
         public ShiftContractView? Contract { get; }
         public ProductionSummary Production { get; }
         public PowerView? Power { get; }
+        public MedicalSummary Medical { get; }
         public IReadOnlyList<WorkerView> WorkersAtEnd { get; }
         public ShiftIncidentTotals Incidents { get; }
         /// <summary>Retained incidents sorted by occurrence time, then recording sequence. Bounded and explicitly incomplete when dropped.</summary>
@@ -81,7 +83,7 @@ namespace CriticalShift.Application
             if (record.ReactorEvent == ReactorEvent.Tripped) Increment(ref trips);
             if (record.ReactorEvent == ReactorEvent.EmergencyCooling) Increment(ref emergency);
             if (record.ReactorEvent.HasValue && record.ReactorEvent != ReactorEvent.Generated) retain = true;
-            if (record.DemandChange != null || record.Kind == SessionTraceKind.Disconnected ||
+            if (record.MedicalChange != null || record.DemandChange != null || record.Kind == SessionTraceKind.Disconnected ||
                 record.Kind == SessionTraceKind.Evacuation || record.Kind == SessionTraceKind.Started ||
                 record.Kind == SessionTraceKind.Ended || record.Kind == SessionTraceKind.Stopped ||
                 record.Kind == SessionTraceKind.Faulted) retain = true;

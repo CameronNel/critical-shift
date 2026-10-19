@@ -3,14 +3,14 @@ using System;
 
 namespace CriticalShift.Application
 {
-    public enum InteractionKind { Grab, Release, Renew, Production, Reactor, Door }
+    public enum InteractionKind { Grab, Release, Renew, Production, Reactor, Door, Medical, MedicalEgress }
     public enum AccessDecision { Allowed, OutOfReach, ActorUnavailable, TargetUnavailable }
     public enum InteractionStatus
     {
         Applied, NoChange, NotReady, WorldStopped, WorldFaulted, WrongEpoch,
         UnknownConnection, InvalidPayload, SequenceGap, TooOld, PayloadMismatch,
         OutOfReach, ActorUnavailable, TargetUnavailable, UnknownEntity, EntityRetired,
-        AlreadyClaimed, ActorAlreadyHolding, NotHolder, StaleLease, RevisionConflict, EntitySlotted, UnknownSlot, SlotOccupied, SlotEmpty, ProductionRejected, ReactorRejected, DoorRejected
+        AlreadyClaimed, ActorAlreadyHolding, NotHolder, StaleLease, RevisionConflict, EntitySlotted, UnknownSlot, SlotOccupied, SlotEmpty, ProductionRejected, ReactorRejected, DoorRejected, MedicalRejected
     }
 
     /// <summary>
@@ -26,14 +26,14 @@ namespace CriticalShift.Application
     public sealed class InteractionCommand
     {
         public InteractionCommand(Guid epoch, long sequence, InteractionKind kind, Guid entityId,
-            long expectedRevision = 0, long leaseGeneration = 0, ProductionRequest? production = null, ReactorRequest? reactor = null, DoorRequest? door = null)
+            long expectedRevision = 0, long leaseGeneration = 0, ProductionRequest? production = null, ReactorRequest? reactor = null, DoorRequest? door = null, MedicalRequest? medical = null)
         {
             Epoch = epoch;
             Sequence = sequence;
             Kind = kind;
             EntityId = entityId;
             ExpectedRevision = expectedRevision;
-            LeaseGeneration = leaseGeneration; Production = production; Reactor = reactor; Door = door;
+            LeaseGeneration = leaseGeneration; Production = production; Reactor = reactor; Door = door; Medical = medical;
         }
 
         public Guid Epoch { get; }
@@ -45,20 +45,36 @@ namespace CriticalShift.Application
         public ProductionRequest? Production { get; }
         public ReactorRequest? Reactor { get; }
         public DoorRequest? Door { get; }
+        public MedicalRequest? Medical { get; }
 
-        internal bool IsWellFormed => Sequence > 0 && EntityId != Guid.Empty &&
-            (Kind == InteractionKind.Door ? Door != null && Door.IsWellFormed && Production == null && Reactor == null && ExpectedRevision == 0 && LeaseGeneration == 0 :
-             Door == null && (Kind == InteractionKind.Reactor ? Reactor != null && Reactor.IsWellFormed && Production == null && ExpectedRevision == 0 && LeaseGeneration == 0 :
-             Reactor == null && (Kind == InteractionKind.Production ? Production != null && Production.IsWellFormed && ExpectedRevision == 0 && LeaseGeneration == 0 :
-             Production == null && (Kind == InteractionKind.Grab ? ExpectedRevision >= 0 && LeaseGeneration == 0 :
-             (Kind == InteractionKind.Release || Kind == InteractionKind.Renew) && ExpectedRevision == 0 && LeaseGeneration > 0))));
+        internal bool IsWellFormed
+        {
+            get
+            {
+                if (Sequence <= 0 || EntityId == Guid.Empty) return false;
+                bool headerEmpty = ExpectedRevision == 0 && LeaseGeneration == 0;
+                switch (Kind)
+                {
+                    case InteractionKind.Medical: return headerEmpty && Medical != null && Medical.IsWellFormed && Medical.Action != MedicalAction.EmergencyEject && Door == null && Reactor == null && Production == null;
+                    case InteractionKind.MedicalEgress: return headerEmpty && Medical != null && Medical.IsWellFormed && Medical.Action == MedicalAction.EmergencyEject && Door == null && Reactor == null && Production == null;
+                    case InteractionKind.Door: return headerEmpty && Door?.IsWellFormed == true && Medical == null && Reactor == null && Production == null;
+                    case InteractionKind.Reactor: return headerEmpty && Reactor?.IsWellFormed == true && Medical == null && Door == null && Production == null;
+                    case InteractionKind.Production: return headerEmpty && Production?.IsWellFormed == true && Medical == null && Door == null && Reactor == null;
+                    case InteractionKind.Grab: return Medical == null && Door == null && Reactor == null && Production == null && ExpectedRevision >= 0 && LeaseGeneration == 0;
+                    case InteractionKind.Release:
+                    case InteractionKind.Renew: return Medical == null && Door == null && Reactor == null && Production == null && ExpectedRevision == 0 && LeaseGeneration > 0;
+                    default: return false;
+                }
+            }
+        }
 
         internal bool SamePayload(InteractionCommand other) => Epoch == other.Epoch &&
             Sequence == other.Sequence && Kind == other.Kind && EntityId == other.EntityId &&
             ExpectedRevision == other.ExpectedRevision && LeaseGeneration == other.LeaseGeneration &&
             (Production == null ? other.Production == null : other.Production != null && Production.Same(other.Production)) &&
             (Reactor == null ? other.Reactor == null : other.Reactor != null && Reactor.Same(other.Reactor)) &&
-            (Door == null ? other.Door == null : other.Door != null && Door.Same(other.Door));
+            (Door == null ? other.Door == null : other.Door != null && Door.Same(other.Door)) &&
+            (Medical == null ? other.Medical == null : other.Medical != null && Medical.Same(other.Medical));
     }
 
     /// <summary>Detached application projection; never exposes the live domain owner.</summary>
@@ -88,12 +104,12 @@ namespace CriticalShift.Application
 
     public sealed class InteractionReply
     {
-        internal InteractionReply(InteractionStatus status, bool terminal, ObjectClaimView? state = null, bool replay = false, ProductionReply? production = null, ReactorReply? reactor = null, DoorReply? door = null)
+        internal InteractionReply(InteractionStatus status, bool terminal, ObjectClaimView? state = null, bool replay = false, ProductionReply? production = null, ReactorReply? reactor = null, DoorReply? door = null, MedicalReply? medical = null)
         {
             Status = status;
             IsTerminal = terminal;
             State = state;
-            IsReplay = replay; Production = production; Reactor = reactor; Door = door;
+            IsReplay = replay; Production = production; Reactor = reactor; Door = door; Medical = medical;
         }
 
         public InteractionStatus Status { get; }
@@ -103,9 +119,10 @@ namespace CriticalShift.Application
         public ProductionReply? Production { get; }
         public ReactorReply? Reactor { get; }
         public DoorReply? Door { get; }
+        public MedicalReply? Medical { get; }
         public bool Accepted => Status == InteractionStatus.Applied || Status == InteractionStatus.NoChange;
         // Only this flag may trigger a new binding side effect. Replayed acceptance is historical.
         public bool HasNewCommit => Status == InteractionStatus.Applied && !IsReplay;
-        internal InteractionReply AsReplay() => new InteractionReply(Status, IsTerminal, State, true, Production, Reactor, Door);
+        internal InteractionReply AsReplay() => new InteractionReply(Status, IsTerminal, State, true, Production, Reactor, Door, Medical);
     }
 }

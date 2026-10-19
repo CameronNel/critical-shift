@@ -15,6 +15,20 @@ pending playtesting under D-09. Deadline processing must settle production befor
 publishing one immutable terminal result. Native and roadmap acceptance remain
 separate. Scope, actual time and evidence: [shift gameplay task](../../runtime/validation/SHIFT_GAMEPLAY.md).
 
+### Authorized powered-stabilization prototype, 19 October 2026
+
+The same continuing gameplay request permits a bounded logical OCRU slice on a
+separate branch based on the contracts/debrief checkpoint. It reuses Workers,
+Interaction and Power ownership through Application, with no new assembly edge,
+package or framework. Duration, stock, cost and contamination limits are D-09
+fixture parameters pending playtesting. Cartridge stock is a bounded station
+parameter, not physical inventory. Full reanimation and native chamber placement
+remain deferred; the existing crate/drag adapters are not repurposed to claim
+physical success. [Task evidence](../../runtime/validation/MEDICAL_STABILIZATION.md)
+records independent source review, executed logical checks and blocked native
+acceptance. POWER-01, WORKER-01, TX-01/02, CAUSE-01 and SHIFT-01 are partially
+covered offline, without advancing their native/multiplayer gate scopes.
+
 ## 1. Established constraints from the inspected repository
 
 Baseline inspected: `8235e7b10ee5cb7ba11d1a90dc6c4677991e20f6`.

@@ -267,6 +267,10 @@ namespace CriticalShift.Presentation
             GUILayout.Label("Material " + material.ActiveUnits + " units · waste " + material.WasteUnits +
                 " · conversions " + material.CompletedCycles + " · cancelled " + material.CancelledCycles, wrapped);
             var incidents = debrief.Incidents;
+            if (debrief.Medical.UsedCartridges > 0)
+                GUILayout.Label("Powered stabilization · completed " + debrief.Medical.CompletedCycles +
+                    " · cartridges used " + debrief.Medical.UsedCartridges + " · cancelled " + debrief.Medical.CancelledCycles +
+                    " · interrupted " + debrief.Medical.InterruptedCycles, wrapped);
             GUILayout.Label("Worker impacts " + incidents.WorkerImpacts + " · incapacitating impacts " + incidents.Incapacitations +
                 " · successful standing recoveries " + incidents.StandingRecoveries, wrapped);
             GUILayout.Label("Machine jams " + incidents.MachineJams + " · completed bypass conversions " + incidents.BypassedConversions, wrapped);

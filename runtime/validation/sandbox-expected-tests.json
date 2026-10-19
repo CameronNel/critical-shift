@@ -45,6 +45,7 @@
     "CriticalShift.Sandbox.Tests.TraceFeedTests.FeedStaysBoundedAndReadsTheStoppedWorldWithoutMutatingIt",
     "CriticalShift.Sandbox.Tests.TraceFeedTests.TerminalTimelineKeepsEarlierIncidentsAfterRoutineSamplesEvictTheRawTrace",
     "CriticalShift.Sandbox.Tests.TraceFeedTests.TerminalTimelineShowsEvacuationOnceWithItsOriginalCause",
+    "CriticalShift.Sandbox.Tests.TraceFeedTests.TerminalTimelineShowsPaidStabilizationAndIgnoresHistoricalStartRetries",
     "CriticalShift.Sandbox.Tests.MaterialContentsTests.ConversionUpdatesTheExistingVisiblePileWithoutAnotherMaterialCommit",
     "CriticalShift.Sandbox.Tests.MaterialContentsTests.ExhaustionShowsSpentFuelWithoutDeletingItsAccountedQuantity",
     "CriticalShift.Sandbox.Tests.MaterialContentsTests.PausedReenableRebuildsTheProjectionAndStoppedWorldHidesThePile",

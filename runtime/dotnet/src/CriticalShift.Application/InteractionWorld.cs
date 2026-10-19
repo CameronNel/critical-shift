@@ -22,6 +22,7 @@ namespace CriticalShift.Application
         private ProductionOperations? _production;
         private ReactorOperations? _reactor;
         private DoorOperations? _doorOperations;
+        private MedicalOperations? _medical;
         private bool _started;
         private bool _stopped;
         private bool _faulted;
@@ -86,6 +87,7 @@ namespace CriticalShift.Application
         internal void BindProduction(ProductionOperations production) { RequireSetup(); _production = production; }
         internal void BindReactor(ReactorOperations reactor) { RequireSetup(); _reactor = reactor; }
         internal void BindDoors(DoorOperations doors) { RequireSetup(); _doorOperations = doors; }
+        internal void BindMedical(MedicalOperations medical) { RequireSetup(); _medical = medical; }
         internal void RegisterProductionSlot(Guid slot)
         {
             RequireSetup();
@@ -232,6 +234,8 @@ namespace CriticalShift.Application
             }
             switch (command.Kind)
             {
+                case InteractionKind.Medical:
+                case InteractionKind.MedicalEgress: return _medical?.Apply(actorId, command.EntityId, command.Medical!) ?? new InteractionReply(InteractionStatus.TargetUnavailable, true);
                 case InteractionKind.Door: return _doorOperations?.Apply(command.EntityId, command.Door!) ?? new InteractionReply(InteractionStatus.TargetUnavailable, true);
                 case InteractionKind.Reactor: return _reactor?.Apply(actorId, command.EntityId, command.Reactor!) ?? new InteractionReply(InteractionStatus.TargetUnavailable, true);
                 case InteractionKind.Production: return _production?.Apply(actorId, command.EntityId, command.Production!) ?? new InteractionReply(InteractionStatus.TargetUnavailable, true);
