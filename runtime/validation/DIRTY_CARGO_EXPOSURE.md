@@ -59,3 +59,13 @@ these cases, rendered HUD and current physics remain NotRun. Remote Desktop
 Commander was checked again12:39UTC and remained Offline. No fresh Unity,
 Player, performance or multiplayer result is claimed. Final candidate verification
 and draft review status follow below when available.
+
+Final candidate `f7f01bffbd4e35eb9d3e0c0dceebdde23d647fa2` passed the full
+verifier12:39:54–12:40:35UTC: **1121 executed/passed, zero failed/skipped;25
+scenarios each twice**. All existing controls and the named omitted-cargo-load
+control were rejected. All274 recorded inputs match that git tree; nine DLL
+hashes match the frozen closure in ignored `out/dirty-cargo-verification-20261019`.
+Final frozen seed20261055 passed10,000 cases/14,807,172 selected operations and
+model checks in40.843693s. Native catalogue174 remains NotRun. This continuation
+is a draft for independent maintainer review and merge; no acceptance gate is
+advanced.
