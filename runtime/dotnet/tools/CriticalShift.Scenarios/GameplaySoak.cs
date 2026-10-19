@@ -15,7 +15,7 @@ namespace CriticalShift.Scenarios
     {
         internal static int Run(string[] args)
         {
-            string? report = null; int seed = 20261018, seconds = 0, cases = 0; int? onlySeed = null; bool control = false;
+            string? report = null, control = null; int seed = 20261018, seconds = 0, cases = 0; int? onlySeed = null;
             try
             {
                 var seen = new HashSet<string>();
@@ -31,7 +31,9 @@ namespace CriticalShift.Scenarios
                         case "--seconds": seconds = int.Parse(value); break;
                         case "--cases": cases = int.Parse(value); break;
                         case "--case-seed": onlySeed = int.Parse(value); break;
-                        case "--control": if (value != "failure") throw new ArgumentException("Unknown control."); control = true; break;
+                        case "--control":
+                            if (value != "failure" && value != "medical-ledger") throw new ArgumentException("Unknown control.");
+                            control = value; break;
                         default: throw new ArgumentException("Unknown soak option.");
                     }
                 }
@@ -47,7 +49,7 @@ namespace CriticalShift.Scenarios
                 var assemblies = Directory.EnumerateFiles(AppContext.BaseDirectory, "CriticalShift*.dll")
                     .OrderBy(Path.GetFileName, StringComparer.Ordinal).ToDictionary(p => Path.GetFileName(p), Hash);
                 Write(output, new { Status = "Running", StartedUtc = DateTimeOffset.UtcNow, Seed = seed, Seconds = seconds,
-                    RequestedCases = cases, CaseSeed = onlySeed, ApplicationSha256 = applicationHash, RunnerSha256 = runnerHash, Assemblies = assemblies,
+                    RequestedCases = cases, CaseSeed = onlySeed, Control = control, ApplicationSha256 = applicationHash, RunnerSha256 = runnerHash, Assemblies = assemblies,
                     Scope = "Offline logical gameplay; synthetic access/recovery; no Unity physics or networking" });
                 var random = new Random(seed); var clock = Stopwatch.StartNew(); long completed = 0, actions = 0;
                 long nextReport = 30; int currentSeed = onlySeed ?? random.Next();
@@ -55,8 +57,8 @@ namespace CriticalShift.Scenarios
                 {
                     do
                     {
-                        actions += Exercise(currentSeed); completed++;
-                        Require(!control, "Intentional negative control.");
+                        actions += Exercise(currentSeed, control == "medical-ledger"); completed++;
+                        Require(control != "failure", "Intentional negative control.");
                         if (clock.Elapsed.TotalSeconds >= nextReport)
                         {
                             var pulse = new { Status = "Running", AtUtc = DateTimeOffset.UtcNow, Cases = completed, CheckedSteps = actions,
@@ -73,7 +75,7 @@ namespace CriticalShift.Scenarios
                 {
                     // Only explicit invariant names/type/seed are recorded, never account or arbitrary machine data.
                     var failed = new { Status = "Failed", FinishedUtc = DateTimeOffset.UtcNow, Cases = completed, CheckedSteps = actions,
-                        CaseSeed = currentSeed, ErrorType = error.GetType().Name,
+                        CaseSeed = currentSeed, Control = control, ErrorType = error.GetType().Name,
                         Invariant = error is SoakInvariantException ? error.Message : "Unexpected gameplay exception",
                         ElapsedSeconds = clock.Elapsed.TotalSeconds };
                     Write(output, failed); Console.Error.WriteLine(JsonSerializer.Serialize(failed)); return 1;
@@ -86,7 +88,7 @@ namespace CriticalShift.Scenarios
         private static string Hash(string path)
         { using var sha = SHA256.Create(); using var input = File.OpenRead(path); return Convert.ToHexString(sha.ComputeHash(input)).ToLowerInvariant(); }
         private static void Write(StreamWriter output, object entry) => output.WriteLine(JsonSerializer.Serialize(entry));
-        private static void Require(bool value, string invariant)
+        internal static void Require(bool value, string invariant)
         { if (!value) throw new SoakInvariantException(invariant); }
         private sealed class SoakInvariantException : Exception { internal SoakInvariantException(string message) : base(message) { } }
         private sealed class Policies : IInteractionAccessPolicy, IWorkerRecoveryPolicy
@@ -96,7 +98,7 @@ namespace CriticalShift.Scenarios
             public RecoveryClearance Evaluate(Guid epoch, Guid worker, long attempt) => Safe ? RecoveryClearance.Safe : RecoveryClearance.Blocked;
         }
 
-        private static int Exercise(int seed)
+        private static int Exercise(int seed, bool dropMedicalStart = false)
         {
             var random = new Random(seed); var policies = new Policies(); int duration = random.Next(1200, 12001);
             var configuration = new WorldSessionConfiguration(seed, duration, true, receiptCapacity: random.Next(1, 9), leaseMilliseconds: random.Next(100, 1001));
@@ -105,25 +107,68 @@ namespace CriticalShift.Scenarios
             int actions = CheckSupplyModel(seed) + CheckClinicalModel(seed ^ 0x1a43d7); Guid previousEpoch = Guid.Empty;
             for (int lifetime = 0; lifetime < 3; lifetime++)
             {
-                var ports = Bind(world, random); world.Start(); long host = 0;
+                var ports = Bind(world, random, out var medicalDefinition);
+                var medicalLedger = new MedicalSoakLedger(world, medicalDefinition);
+                world.Start(); long host = 0;
+                var observations = new long[4];
+                InteractionReply Reactor(int who, ReactorAction action, Guid container = default, bool cooling = false)
+                {
+                    var reply = ports[who].OperateReactor(Id(30), action, container, cooling);
+                    medicalLedger.Observe(reply, action); return reply;
+                }
+                InteractionReply Medical(int who, MedicalAction action, Guid body = default)
+                {
+                    medicalLedger.BeforeMedical(action, ports[who].ActorId, body, policies.Allow);
+                    var reply = ports[who].OperateMedical(Id(60), action, body);
+                    // A verifier-only loss injection must be caught by the independent ledger's next check.
+                    if (!(dropMedicalStart && reply.HasNewCommit && reply.Medical?.Change?.Kind == MedicalEvent.Started))
+                        medicalLedger.Observe(reply, medicalAction: action, requestedBody: body);
+                    return reply;
+                }
+                void Advance(long target)
+                {
+                    var pendingRecoveries = Enumerable.Range(200, 4).Select(i => world.GetWorker(Id(i)))
+                        .Where(w => w?.Pose == WorkerPose.Recovering).ToArray();
+                    medicalLedger.BeforeAdvance();
+                    var result = world.AdvanceTo(target);
+                    foreach (var change in result.MedicalChanges) medicalLedger.ObserveAdvance(change);
+                    medicalLedger.AfterAdvance();
+                    var expectedExpiries = pendingRecoveries.Where(w => w!.RecoveryExpiresAtMilliseconds <= world.View.ElapsedMilliseconds).ToArray();
+                    Require(result.WorkerChanges.Count == expectedExpiries.Length, "Mixed owner poll omitted or invented a stored recovery expiry.");
+                    foreach (var expected in expectedExpiries)
+                    {
+                        Require(result.WorkerChanges.Any(c => c.Status == WorkerStatus.RecoveryExpired && c.Worker?.Id == expected!.Id &&
+                            c.OccurredAtMilliseconds == expected.RecoveryExpiresAtMilliseconds && c.Worker.Pose == WorkerPose.Down &&
+                            c.Worker.RecoveryExpiresAtMilliseconds == 0), "Mixed recovery expiry lost its worker, applied state or exact deadline.");
+                        var current = world.GetWorker(expected!.Id) ?? world.Debrief?.WorkersAtEnd.SingleOrDefault(w => w.Id == expected.Id);
+                        Require(current?.Pose == WorkerPose.Down && current.RecoveryExpiresAtMilliseconds == 0,
+                            "Mixed expiry receipt disagrees with current or terminal worker condition.");
+                    }
+                }
                 // Every lifetime begins with actual work; random interference then exercises consequences.
                 Require(ports[0].Grab(Id(10)).HasNewCommit, "Initial fuel custody failed.");
-                Require(ports[0].OperateReactor(Id(30), ReactorAction.Insert, Id(10)).HasNewCommit, "Initial fuel insertion failed.");
-                ports[0].OperateReactor(Id(30), ReactorAction.SetCooling, cooling: true);
-                Require(ports[0].OperateReactor(Id(30), ReactorAction.Start).HasNewCommit, "Initial reactor start failed.");
+                Require(Reactor(0, ReactorAction.Insert, Id(10)).HasNewCommit, "Initial fuel insertion failed.");
+                Reactor(0, ReactorAction.SetCooling, cooling: true);
+                Require(Reactor(0, ReactorAction.Start).HasNewCommit, "Initial reactor start failed.");
                 Require(ports[1].Grab(Id(13)).HasNewCommit, "Initial ore custody failed.");
                 Require(ports[1].OperateMachine(Id(20), ProductionAction.Insert, Id(13)).HasNewCommit, "Initial ore insertion failed.");
                 Require(ports[1].OperateMachine(Id(20), ProductionAction.Start, bypass: true).HasNewCommit, "Initial production start failed.");
-                var observations = new long[4]; var previousDelivery = new long[3]; var previousSettled = new bool[3];
+                Require(world.ApplyWorkerImpact(world.Epoch, Id(203), 1, WorkerImpact.Incapacitating, 0, Id(300), Id(303)).Changed,
+                    "Initial mixed patient injury failed."); observations[3] = 1;
+                Require(ports[2].Grab(Id(43)).HasNewCommit, "Initial mixed patient custody failed.");
+                Require(Medical(2, MedicalAction.Insert, Id(43)).HasNewCommit, "Initial mixed patient insertion failed.");
+                Require(Medical(2, MedicalAction.Start).HasNewCommit, "Initial treatment could not share reserve with active production/reactor.");
+                medicalLedger.Check();
+                var previousDelivery = new long[3]; var previousSettled = new bool[3];
                 for (int step = 0; step < 240 && world.View.Phase != WorldPhase.Ended; step++)
                 {
                     int who = random.Next(4); var port = ports[who]; var worker = world.GetWorker(port.ActorId);
                     Guid entity = random.Next(3) == 0 ? Id(40 + random.Next(4)) : Id(10 + random.Next(8));
                     Guid machine = Id(20 + random.Next(2));
                     policies.Allow = random.Next(8) != 0; policies.Safe = random.Next(4) != 0;
-                    switch (random.Next(19))
+                    switch (random.Next(23))
                     {
-                        case 0: host += random.Next(351); world.AdvanceTo(host); break;
+                        case 0: host += random.Next(351); Advance(host); break;
                         case 1: port.Grab(entity); break;
                         case 2: port.Release(entity); break;
                         case 3: port.Renew(entity); break;
@@ -131,14 +176,15 @@ namespace CriticalShift.Scenarios
                         case 5: port.OperateMachine(machine, ProductionAction.Start, bypass: random.Next(2) == 0); break;
                         case 6: port.OperateMachine(machine, ProductionAction.SetPower, powered: random.Next(2) == 0); break;
                         case 7: port.OperateMachine(machine, new[] { ProductionAction.Repair, ProductionAction.Resume, ProductionAction.CancelCycle, ProductionAction.Eject }[random.Next(4)]); break;
-                        case 8: port.OperateReactor(Id(30), ReactorAction.Insert, entity); break;
-                        case 9: port.OperateReactor(Id(30), new[] { ReactorAction.Start, ReactorAction.Shutdown, ReactorAction.ResetTrip,
+                        case 8: Reactor(who, ReactorAction.Insert, entity); break;
+                        case 9: Reactor(who, new[] { ReactorAction.Start, ReactorAction.Shutdown, ReactorAction.ResetTrip,
                             ReactorAction.EmergencyCooling, ReactorAction.AuxiliaryPower, ReactorAction.Eject, ReactorAction.SetCooling }[random.Next(7)], cooling: random.Next(2) == 0); break;
                         case 10:
                             if (port.CanReplayLast)
                             {
                                 long revision = world.View.Revision; var before = world.Reactor.PowerSummary!;
                                 var reply = port.ReplayLast(); Require(!reply.HasNewCommit, "Replay committed a second effect.");
+                                medicalLedger.Observe(reply);
                                 Require(world.View.Revision == revision, "Replay changed world revision.");
                                 Require(world.Reactor.PowerSummary!.Spent == before.Spent, "Replay charged reserve twice.");
                             }
@@ -164,7 +210,8 @@ namespace CriticalShift.Scenarios
                             if (world.View.Phase == WorldPhase.Paused) world.Resume(world.Epoch); else world.Pause(world.Epoch);
                             break;
                         case 15:
-                            if (worker != null && world.View.ConnectedPlayerCount > 1) world.Disconnect(world.Epoch, Id(100 + who));
+                            if (worker != null && world.View.ConnectedPlayerCount > 1)
+                            { world.Disconnect(world.Epoch, Id(100 + who)); medicalLedger.PatientDisconnected(worker.Id); }
                             break;
                         case 16:
                             world.Schedule(world.Epoch, entity, "soak", random.Next(401), random.Next(2) == 0 ? WorldTimeBasis.RealTime : WorldTimeBasis.ShiftTime);
@@ -172,6 +219,27 @@ namespace CriticalShift.Scenarios
                             break;
                         case 17: port.OperateDoor(Id(50), random.Next(2) == 0 ? DoorAction.Open : DoorAction.Close); break;
                         case 18: if (random.Next(4) == 0) world.BeginEvacuation(world.Epoch, Id(302)); break;
+                        case 19:
+                            Medical(who, new[] { MedicalAction.Start, MedicalAction.Cancel, MedicalAction.Eject, MedicalAction.EmergencyEject }[random.Next(4)]);
+                            break;
+                        case 20:
+                            if (world.Medical.View?.Phase == MedicalPhase.Empty)
+                            {
+                                Guid patientBody = Id(40 + random.Next(4)); port.Grab(patientBody);
+                                Medical(who, MedicalAction.Insert, patientBody);
+                            }
+                            break;
+                        case 21:
+                            var station = world.Medical.View;
+                            if (station?.Phase == MedicalPhase.Loaded || station?.Phase == MedicalPhase.Interrupted) Medical(who, MedicalAction.Start);
+                            else if (station?.Phase == MedicalPhase.Ready)
+                                Medical(who, station.PatientId == port.ActorId && worker?.Pose == WorkerPose.Down ? MedicalAction.EmergencyEject : MedicalAction.Eject);
+                            else if (station?.Phase == MedicalPhase.Treating && random.Next(3) == 0) Medical(who, MedicalAction.Cancel);
+                            break;
+                        case 22:
+                            if (worker != null) world.SetWorkerEnvironment(world.Epoch, worker.Id, worker.Revision,
+                                random.Next(2) == 0 ? WorkerSuit.Intact : WorkerSuit.Compromised, random.Next(101));
+                            break;
                     }
                     if (previousEpoch != Guid.Empty)
                     {
@@ -179,34 +247,38 @@ namespace CriticalShift.Scenarios
                         Require(world.Finish(previousEpoch, WorldEndReason.Failed) == WorldControlStatus.WrongEpoch, "Old epoch accepted a control.");
                         Require(world.View.Revision == revision, "Old epoch changed successor.");
                     }
-                    Check(world, previousDelivery, previousSettled, traceCapacity); actions++;
+                    Check(world, previousDelivery, previousSettled, traceCapacity); medicalLedger.Check(); actions++;
                 }
                 policies.Allow = true;
                 if (world.View.Phase == WorldPhase.Paused) world.Resume(world.Epoch);
                 if (world.View.Phase == WorldPhase.Running)
                 {
                     if (random.Next(4) == 0) world.Finish(world.Epoch, random.Next(2) == 0 ? WorldEndReason.Aborted : WorldEndReason.HostLost);
-                    else world.AdvanceTo(long.MaxValue);
+                    else Advance(long.MaxValue);
                 }
-                Check(world, previousDelivery, previousSettled, traceCapacity); var debrief = world.Debrief!;
+                Check(world, previousDelivery, previousSettled, traceCapacity); medicalLedger.Check(); var debrief = world.Debrief!;
                 Require(debrief != null, "Terminal world has no debrief.");
                 Require(debrief!.Timeline.Count <= 128, "Incident journal became unbounded.");
                 Require(world.View.ActiveClaimCount == 0 && world.WorkerCount == 0 && world.View.RegisteredObjectCount == 0 &&
                     world.View.PendingTimerCount == 0 && world.View.ConnectedPlayerCount == 0 && world.Doors.Count == 0 &&
-                    world.Production.MachineCount == 0 && world.Production.BatchCount == 0 && world.Reactor.View == null, "Terminal owner leaked live resources.");
+                    world.Production.MachineCount == 0 && world.Production.BatchCount == 0 && world.Reactor.View == null && world.Medical.View == null,
+                    "Terminal owner leaked live resources.");
                 Require(debrief!.Power!.Delivered == world.Reactor.PowerSummary!.Delivered, "Debrief delivery disagrees with owner.");
                 Require(debrief.Production.ActiveUnits + debrief.Production.WasteUnits == debrief.Production.IssuedUnits, "Debrief material conservation failed.");
+                foreach (var worker in debrief.WorkersAtEnd)
+                    Require(worker.Pose != WorkerPose.Recovering || worker.RecoveryExpiresAtMilliseconds > debrief.World.ElapsedMilliseconds,
+                        "Terminal roster retained an expired standing recovery.");
                 long previousTime = -1;
                 foreach (var row in debrief.Timeline)
                 { Require(row.OccurredAtMilliseconds >= previousTime, "Debrief timeline order regressed."); previousTime = row.OccurredAtMilliseconds; }
-                world.Stop(); world.Stop(); Require(ReferenceEquals(world.Debrief, debrief), "Stop rewrote frozen terminal evidence.");
+                world.Stop(); world.Stop(); medicalLedger.Check(); Require(ReferenceEquals(world.Debrief, debrief), "Stop rewrote frozen terminal evidence.");
                 previousEpoch = world.Epoch;
                 if (lifetime < 2) world = world.Restart(policies, policies);
             }
             return actions;
         }
 
-        private static LocalCommandPort[] Bind(WorldSession world, Random random)
+        private static LocalCommandPort[] Bind(WorldSession world, Random random, out MedicalDefinition medical)
         {
             var ports = new LocalCommandPort[4];
             for (int i = 0; i < ports.Length; i++)
@@ -216,6 +288,8 @@ namespace CriticalShift.Scenarios
             world.Production.RegisterMachine(Id(20), new MachineRecipe(Id(400), MaterialKind.Ore, MaterialKind.CrushedOre, 500, 250, 100, 100));
             world.Production.RegisterMachine(Id(21), new MachineRecipe(Id(401), MaterialKind.CrushedOre, MaterialKind.Fuel, 600, 300, 100, 100));
             world.Reactor.Register(Id(30), new ReactorDefinition(Id(402)));
+            medical = new MedicalDefinition(random.Next(100, 1001), random.Next(1, 8), random.Next(2, 6));
+            world.Medical.Register(Id(60), medical);
             world.Doors.Register(Id(50), "soak-door", DoorState.Closed, DoorState.Open);
             long end = world.Configuration.ShiftDurationMilliseconds;
             world.Contracts.Register(new ShiftContractDefinition(Id(410), "Endurance supply",
