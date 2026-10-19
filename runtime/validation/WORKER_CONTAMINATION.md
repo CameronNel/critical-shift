@@ -56,5 +56,19 @@ successful wash in every independent contact-model lifetime and contacts mixed
 into active medical, reactor and production work. The deliberately omitted
 exposure control failed with its intended raw-load ledger invariant.
 
-Five further malformed/stale contact cases and the complete suite await the full
-verifier. These intermediate runs are not the final suite result or native proof.
+The final full verifier passed on source commit `32ed08ce`: **878 executed/passed,
+zero failed/skipped, and 19 scenarios each twice**. It ran from 2026-10-19T08:50:51.660483+00:00 to
+2026-10-19T08:51:24.974578+00:00 UTC using SDK 8.0.423, Release, netstandard2.1 libraries and C# 8.0.
+All 39 new cases executed, including the five malformed/nonnegative stale cases.
+The real failing NUnit/scenario/endurance controls were rejected, seed reproduction
+passed, and existing-report refusal preserved its original bytes. The independent
+medical-start and contact-ledger omission controls failed for their intended
+invariants. The source/input and nine-assembly hashes are retained in the ignored
+verifier summary; no native results are inferred from this run.
+
+Static source checks passed 185 metadata GUIDs, 21 asmdefs and 114 production C#
+files. The clinical ultra reviewer found no remaining ordering, identity or
+exception-boundary blocker. A separate model reviewer checked the independent
+contact oracle and its mixed clinical use. This remains a reviewable prototype;
+Unity import, physical contact volumes, washing controls, GUI, Player and
+multiplayer are NotRun. The follow-up is a draft and has not been merged.
