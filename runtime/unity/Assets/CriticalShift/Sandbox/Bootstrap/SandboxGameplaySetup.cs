@@ -35,9 +35,9 @@ namespace CriticalShift.Sandbox
                     i == 6 ? MaterialKind.Fuel : MaterialKind.Ore, i == 0 ? 36 : 12,
                     moisture: i == 7 ? 850 : 100);
             world.Production.RegisterMachine(CrusherId, new MachineRecipe(Id(450), MaterialKind.Ore, MaterialKind.CrushedOre,
-                6000, 3000, 1500, 128, yieldPermille: 950));
+                6000, 3000, 1500, 128, yieldPermille: 950, repairDurationMilliseconds: 6000));
             world.Production.RegisterMachine(ProcessorId, new MachineRecipe(Id(451), MaterialKind.CrushedOre, MaterialKind.Fuel,
-                9000, 4500, 1500, 128));
+                9000, 4500, 1500, 128, repairDurationMilliseconds: 8000));
             world.Production.RegisterMachine(DryerId, MachineRecipe.Drying(Id(452), MaterialKind.Ore, 8000, 128, 100));
             world.Reactor.Register(ReactorId, new ReactorDefinition(Id(501), millisecondsPerFuelUnit: 5000,
                 powerQuantumMilliseconds: 500, warningMilliseconds: 6000, tripMilliseconds: 12000,

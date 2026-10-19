@@ -68,14 +68,19 @@ namespace CriticalShift.Application
                 case ProductionAction.Eject: return Eject(machine, request);
                 case ProductionAction.Start: return Start(machine, request);
                 case ProductionAction.SetPower:
+                    if (machine.Mode == MachineMode.Repairing && request.Powered) return Reply(ProductionStatus.RepairInProgress, machine);
                     var power = machine.SetPower(request.Powered);
                     if (ReferenceEquals(machine, power)) return Reply(ProductionStatus.NoChange, machine);
                     _machines[machine.Id] = power; return Reply(ProductionStatus.Applied, power);
                 case ProductionAction.Repair:
                     if (machine.Powered) return Reply(ProductionStatus.PowerMustBeOff, machine);
+                    if (machine.Mode == MachineMode.Repairing) return Reply(ProductionStatus.NoChange, machine);
                     if (machine.Mode != MachineMode.Jammed) return Reply(ProductionStatus.InvalidState, machine);
-                    var repaired = machine.Repair(); _machines[machine.Id] = repaired; return Reply(ProductionStatus.Applied, repaired);
+                    var repaired = machine.Repair(_recipes[machine.Id].RepairDurationMilliseconds);
+                    var repairEvent = repaired.Mode == MachineMode.Repairing ? ActiveCycleEvent(ProductionEvent.RepairStarted, repaired, _world.View.ElapsedMilliseconds) : null;
+                    _machines[machine.Id] = repaired; return Reply(ProductionStatus.Applied, repaired, change: repairEvent);
                 case ProductionAction.Resume:
+                    if (machine.Mode == MachineMode.Repairing) return Reply(ProductionStatus.RepairInProgress, machine);
                     if (!machine.Powered) return Reply(ProductionStatus.NoPower, machine);
                     if (machine.Mode != MachineMode.PowerPaused) return Reply(ProductionStatus.InvalidState, machine);
                     var resumed = machine.Resume(); _machines[machine.Id] = resumed; return Reply(ProductionStatus.Applied, resumed);
@@ -121,6 +126,7 @@ namespace CriticalShift.Application
         }
         private InteractionReply Start(MachineState machine, ProductionRequest request)
         {
+            if (machine.Mode == MachineMode.Repairing) return Reply(ProductionStatus.RepairInProgress, machine);
             if (!machine.Powered) return Reply(ProductionStatus.NoPower, machine);
             if (!machine.CanStart) return Reply(ProductionStatus.InvalidState, machine);
             var occupant = _interaction.SlotOccupant(machine.Id);

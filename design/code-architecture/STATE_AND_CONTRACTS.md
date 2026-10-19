@@ -93,6 +93,14 @@ contamination and inherited inspection flags, and creates one child identity.
 Already-conditioned input and unavailable bypass reject before history
 reservation. This is not a new material kind or another contamination authority.
 
+Optional timed jam clearing remains owned by the existing Production process.
+With power isolated, Repairing advances bounded repair work on shift time while
+conversion work/input stay reserved and frozen. Completion keeps power isolated
+and requires explicit restoration/resume; it neither completes conversion nor
+credits leftover poll time as production. Repair facts retain the original
+cycle/input/cause. Whole-cycle cancellation conserves input and retires repair
+work. See [the bounded clearing contract](../../runtime/validation/TIMED_JAM_CLEARING.md).
+
 Within the initial single-threaded host, prepare/validate all affected proposed states, then install the accepted change without awaits, callbacks or Unity side effects between owner updates. Publish only after all participants are installed. The implementation must prove its commit path cannot partially fail under expected conditions. Unexpected integrity exceptions stop the affected simulation and preserve diagnostics rather than continuing with a silently partial transaction. No distributed database or generic transaction framework is required.
 
 The optional bounded backup supply keeps finite stored-charge state in Power and

@@ -16,7 +16,10 @@ namespace CriticalShift.Application
             {
                 var previous = _machines[id];
                 var next = previous.AdvanceTo(shiftMilliseconds, out var signal);
-                long eventAt = checked(previous.LastSampleMilliseconds + (next.WorkMilliseconds - previous.WorkMilliseconds));
+                // Both deltas are bounded by the supplied elapsed interval. Clearing
+                // completes without crediting leftover time to the paused conversion.
+                long eventAt = checked(previous.LastSampleMilliseconds + (signal == MachineSignal.RepairCompleted ?
+                    next.RepairWorkMilliseconds - previous.RepairWorkMilliseconds : next.WorkMilliseconds - previous.WorkMilliseconds));
                 if (signal == MachineSignal.Completed)
                 {
                     var receipt = _materials.Finish(next.CycleId, false);
@@ -26,20 +29,19 @@ namespace CriticalShift.Application
                 }
                 else
                 {
-                    _machines[id] = next;
-                    if (signal == MachineSignal.Jammed)
-                    {
-                        var plan = _materials.GetPending(next.CycleId);
-                        var container = _interaction.SlotOccupant(id);
-                        if (plan == null || container != plan.Input.ContainerId ||
-                            !ReferenceEquals(_materials.Get(plan.Input.ContainerId), plan.Input))
-                            throw new InvalidOperationException("Active process lost its reserved input or custody.");
-                        changes.Add(new ProductionChange(ProductionEvent.Jammed, Project(next), Project(plan.Input)!, null, 0,
-                            plan.CycleId, plan.RecipeId, plan.BypassedInspection, eventAt));
-                    }
+                    var change = signal == MachineSignal.Jammed || signal == MachineSignal.RepairCompleted ?
+                        ActiveCycleEvent(signal == MachineSignal.Jammed ? ProductionEvent.Jammed : ProductionEvent.RepairCompleted, next, eventAt) : null;
+                    _machines[id] = next; if (change != null) changes.Add(change);
                 }
             }
             return changes.AsReadOnly();
+        }
+        private ProductionChange ActiveCycleEvent(ProductionEvent kind, MachineState state, long at)
+        {
+            var plan = _materials.GetPending(state.CycleId); var container = _interaction.SlotOccupant(state.Id);
+            if (plan == null || container != plan.Input.ContainerId || !ReferenceEquals(_materials.Get(plan.Input.ContainerId), plan.Input))
+                throw new InvalidOperationException("Active process lost its reserved input or custody.");
+            return new ProductionChange(kind, Project(state), Project(plan.Input)!, null, 0, plan.CycleId, plan.RecipeId, plan.BypassedInspection, at);
         }
         internal void Clear()
         {
@@ -66,7 +68,8 @@ namespace CriticalShift.Application
         private MachineView Project(MachineState s) => new MachineView(_world.Epoch,
             s.Id, _recipes[s.Id], s.Revision, (ProductionMode)(int)s.Mode, s.Powered, s.CycleId,
             _interaction.SlotOccupant(s.Id), s.DurationMilliseconds, s.WorkMilliseconds,
-            _materials.GetPending(s.CycleId)?.BypassedInspection ?? _materials.GetReceipt(s.CycleId)?.Plan.BypassedInspection ?? false);
+            _materials.GetPending(s.CycleId)?.BypassedInspection ?? _materials.GetReceipt(s.CycleId)?.Plan.BypassedInspection ?? false,
+            s.RepairDurationMilliseconds, s.RepairWorkMilliseconds);
         private InteractionReply Reply(ProductionStatus status, MachineState? machine,
             ObjectClaimView? custody = null, InteractionStatus? custodyError = null, ProductionChange? change = null)
         {

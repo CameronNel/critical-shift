@@ -127,6 +127,8 @@ namespace CriticalShift.Presentation
                     case ProductionEvent.Jammed: return "Machine jammed";
                     case ProductionEvent.Completed: return "Processing complete · " + (record.WasteUnits ?? 0) + " units to waste";
                     case ProductionEvent.Cancelled: return "Machine cycle cancelled";
+                    case ProductionEvent.RepairStarted: return "Isolated jam clearing started";
+                    case ProductionEvent.RepairCompleted: return "Jam cleared · restore power and resume";
                 }
             }
             var reactor = record.ReactorChange;

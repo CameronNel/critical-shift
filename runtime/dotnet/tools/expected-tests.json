@@ -453,5 +453,18 @@
   "WetInputAndPowerInterlockRejectionsExplainTheSafeNextAction": 1,
   "DryingReadoutOffersOnlyItsAuthoredSafeProcedure": 1,
   "HistoricalStartedReadoutKeepsItsOriginalDurationAndBypassAfterCompletion": 1,
-  "MachineTimingReadoutKeepsAuthoredFractionalSecondsAcrossLocales": 2
+  "MachineTimingReadoutKeepsAuthoredFractionalSecondsAcrossLocales": 2,
+  "JamClearingPreservesTheReservedCycleAndNeedsExplicitPowerAndResumeAfterItsExactDue": 1,
+  "InProgressClearingRejectsEarlyPowerResumeEjectionAndNewProcessing": 4,
+  "FreshRepeatedRepairAndHistoricalStartRetryCannotResetOrRepeatClearing": 1,
+  "StaleMachineRevisionCannotRestartTheRepairOrAdvanceItsProgress": 1,
+  "CancellingDuringClearingKeepsTheExactInputAndDiscardsAllRepairProgress": 1,
+  "PauseFreezesClearingAndAResumedClockSettlesItsExactOccurrence": 1,
+  "SkippedAndPartitionedClockStepsKeepRepairAttributionAndFrozenProcessingEquivalent": 1,
+  "RepairDeadlineSettlesOnlyDueClearingBeforeCancellingTheUnfinishedConversion": 3,
+  "OperatorImpactAndDisconnectLeaveStartedMachineClearingAutonomous": 1,
+  "RepairFactsAndReadoutSurviveTraceEvictionWithOriginalMaterialAttribution": 1,
+  "ClearingWithUnrepresentableAbsoluteDueStillUsesBoundedWorkAtTheTerminalCutoff": 1,
+  "RepairProgressOverflowFaultsBeforeDeadlinePublicationAndRetiresTheReservedCycle": 1,
+  "AuthoredRepairDurationRemainsBounded": 2
 }

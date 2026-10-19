@@ -333,6 +333,8 @@ namespace CriticalShift.Presentation
             var state = commands.GetMachine(id);
             if (state == null) { GUILayout.Label("Machine unavailable"); return; }
             GUILayout.Label(state.Mode + " | " + (state.Powered ? "power on" : "power off") + " | " + state.WorkMilliseconds + " / " + state.DurationMilliseconds + " ms");
+            if (state.Mode == ProductionMode.Repairing)
+                GUILayout.Label("Jam clearing · " + SandboxMachineReadout.Seconds(state.RepairRemainingMilliseconds) + " remaining · power must stay isolated", wrapped);
             GUILayout.Label(SandboxMachineReadout.Recipe(state), wrapped);
             GUILayout.Label(SandboxMachineReadout.Controls(state), wrapped);
             if (state.CycleId != Guid.Empty) GUILayout.Label(state.BypassedInspection ? "Current cycle: inspection bypass" : "Current cycle: bypass off");

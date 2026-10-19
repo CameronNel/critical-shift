@@ -67,6 +67,8 @@ namespace CriticalShift.Presentation
                 color = new Color(1f, 0.12f, 0.04f);
                 strength = state.Powered ? 0.5f + 0.9f * (0.5f + 0.5f * Mathf.Sin(world.ElapsedMilliseconds * 0.012f)) : 0.05f;
             }
+            if (live && state != null && state.Mode == ProductionMode.Repairing)
+            { color = new Color(0.9f, 0.55f, 0.15f); strength = 0.65f; }
             face.GetPropertyBlock(properties);
             properties.SetColor("_BaseColor", color); properties.SetColor("_Color", color);
             properties.SetColor("_EmissionColor", color * strength);
@@ -79,6 +81,7 @@ namespace CriticalShift.Presentation
             Quaternion leverTarget = leverRest * Quaternion.AngleAxis(live && state != null && state.Powered ? 40 : -40, Vector3.forward);
             powerLever.localRotation = Quaternion.RotateTowards(powerLever.localRotation, leverTarget, 240 * Mathf.Min(Time.deltaTime, 0.05f));
             DisplayedProgress = !live || state == null || state.DurationMilliseconds <= 0 ? 0 :
+                state.Mode == ProductionMode.Repairing ? Mathf.Clamp01((float)((double)state.RepairWorkMilliseconds / state.RepairDurationMilliseconds)) :
                 Mathf.Clamp01((float)((double)state.WorkMilliseconds / state.DurationMilliseconds));
             float width = progressSize.x * Mathf.Max(0.001f, DisplayedProgress);
             progress.localScale = new Vector3(width, progressSize.y, progressSize.z);
@@ -89,7 +92,7 @@ namespace CriticalShift.Presentation
                 Vector3 target = clampRest[i] + Vector3.right * (loaded ? (i == 0 ? 0.18f : -0.18f) : 0);
                 clamps[i].localPosition = Vector3.MoveTowards(clamps[i].localPosition, target, 3 * Mathf.Min(Time.deltaTime, 0.05f));
             }
-            bool cycleHeld = loaded && (state.Mode == ProductionMode.Processing || state.Mode == ProductionMode.PowerPaused || state.Mode == ProductionMode.Jammed);
+            bool cycleHeld = loaded && (state.Mode == ProductionMode.Processing || state.Mode == ProductionMode.PowerPaused || state.Mode == ProductionMode.Jammed || state.Mode == ProductionMode.Repairing);
             float stroke = cycleHeld ? 0.08f * (0.5f - 0.5f * Mathf.Cos((state.WorkMilliseconds % 800) * (Mathf.PI * 2 / 800))) : 0;
             ram.localPosition = ramRest + Vector3.down * stroke;
             if (live && state != null && state.Mode == ProductionMode.Processing && state.Powered)

@@ -7,33 +7,33 @@ namespace CriticalShift.Application
     public enum MaterialKind { Ore, CrushedOre, Fuel, SpentFuel }
     [Flags] public enum MaterialFlags { None = 0, BypassedInspection = 1 }
     public enum ProductionAction { Insert, Eject, Start, SetPower, Repair, Resume, CancelCycle }
-    public enum ProductionMode { Idle, Processing, PowerPaused, Jammed, OutputReady }
+    public enum ProductionMode { Idle, Processing, PowerPaused, Jammed, OutputReady, Repairing }
     public enum ProductionStatus
     {
         Applied, NoChange, UnknownMachine, UnknownBatch, NoInput, Occupied, RevisionConflict,
         WrongInput, OverCapacity, WetInput, OutputTooSmall, NoPower, InvalidState, PowerMustBeOff,
-        HistoryCapacityReached, CustodyRejected, AlreadyConditioned, BypassUnavailable
+        HistoryCapacityReached, CustodyRejected, AlreadyConditioned, BypassUnavailable, RepairInProgress
     }
-    public enum ProductionEvent { Jammed, Completed, Cancelled }
+    public enum ProductionEvent { Jammed, Completed, Cancelled, RepairStarted, RepairCompleted }
 
     /// <summary>Authored game recipe. Values are offline fixtures, not real industrial process parameters.</summary>
     public sealed class MachineRecipe
     {
         public MachineRecipe(Guid id, MaterialKind input, MaterialKind output, long durationMilliseconds,
             long bypassDurationMilliseconds, long wetJamAfterMilliseconds, int maximumUnits,
-            int yieldPermille = 1000, int moistureTolerance = 500, int outputMoisture = 0)
+            int yieldPermille = 1000, int moistureTolerance = 500, int outputMoisture = 0, long repairDurationMilliseconds = 0)
             : this(id, input, output, durationMilliseconds, bypassDurationMilliseconds, wetJamAfterMilliseconds,
-                maximumUnits, yieldPermille, moistureTolerance, outputMoisture, false) { }
+                maximumUnits, yieldPermille, moistureTolerance, outputMoisture, false, repairDurationMilliseconds) { }
 
         /// <summary>A safe same-kind conditioning cycle; it cannot bypass inspection or change material quantity.</summary>
         public static MachineRecipe Drying(Guid id, MaterialKind kind, long durationMilliseconds,
-            int maximumUnits, int targetMoisture = 100) =>
+            int maximumUnits, int targetMoisture = 100, long repairDurationMilliseconds = 0) =>
             new MachineRecipe(id, kind, kind, durationMilliseconds, durationMilliseconds, 1,
-                maximumUnits, 1000, 1000, targetMoisture, true);
+                maximumUnits, 1000, 1000, targetMoisture, true, repairDurationMilliseconds);
 
         private MachineRecipe(Guid id, MaterialKind input, MaterialKind output, long durationMilliseconds,
             long bypassDurationMilliseconds, long wetJamAfterMilliseconds, int maximumUnits,
-            int yieldPermille, int moistureTolerance, int outputMoisture, bool drying)
+            int yieldPermille, int moistureTolerance, int outputMoisture, bool drying, long repairDurationMilliseconds)
         {
             if (id == Guid.Empty) throw new ArgumentException("Recipe identity required.");
             if (!Enum.IsDefined(typeof(MaterialKind), input) || !Enum.IsDefined(typeof(MaterialKind), output) ||
@@ -41,12 +41,14 @@ namespace CriticalShift.Application
                 durationMilliseconds < 2 || bypassDurationMilliseconds < 2 || bypassDurationMilliseconds > durationMilliseconds ||
                 wetJamAfterMilliseconds < 1 || wetJamAfterMilliseconds >= bypassDurationMilliseconds ||
                 maximumUnits < 1 || maximumUnits > 1000000 || yieldPermille < 1 || yieldPermille > 1000 ||
-                moistureTolerance < 0 || moistureTolerance > 1000 || outputMoisture < 0 || outputMoisture > 1000)
+                moistureTolerance < 0 || moistureTolerance > 1000 || outputMoisture < 0 || outputMoisture > 1000 ||
+                repairDurationMilliseconds < 0 || repairDurationMilliseconds > 60000)
                 throw new ArgumentOutOfRangeException(nameof(durationMilliseconds));
             Id = id; Input = input; Output = output; DurationMilliseconds = durationMilliseconds;
             BypassDurationMilliseconds = bypassDurationMilliseconds; WetJamAfterMilliseconds = wetJamAfterMilliseconds;
             MaximumUnits = maximumUnits; YieldPermille = yieldPermille; MoistureTolerance = moistureTolerance; OutputMoisture = outputMoisture;
             IsDrying = drying;
+            RepairDurationMilliseconds = repairDurationMilliseconds;
         }
         public Guid Id { get; }
         public MaterialKind Input { get; }
@@ -59,6 +61,7 @@ namespace CriticalShift.Application
         public int MoistureTolerance { get; }
         public int OutputMoisture { get; }
         public bool IsDrying { get; }
+        public long RepairDurationMilliseconds { get; }
     }
 
     /// <summary>Typed payload carried by the EXISTING per-connection command stream.</summary>
@@ -115,10 +118,10 @@ namespace CriticalShift.Application
     public sealed class MachineView
     {
         internal MachineView(Guid epoch, Guid id, MachineRecipe recipe, long revision, ProductionMode mode, bool power,
-            Guid cycle, Guid? container, long duration, long work, bool bypassedInspection = false)
+            Guid cycle, Guid? container, long duration, long work, bool bypassedInspection = false, long repairDuration = 0, long repairWork = 0)
         { Epoch = epoch; Id = id; Recipe = recipe; Revision = revision; Mode = mode; Powered = power;
           CycleId = cycle; ContainerId = container; DurationMilliseconds = duration; WorkMilliseconds = work;
-          BypassedInspection = bypassedInspection; }
+          BypassedInspection = bypassedInspection; RepairDurationMilliseconds = repairDuration; RepairWorkMilliseconds = repairWork; }
         public Guid Epoch { get; }
         public Guid Id { get; }
         public Guid RecipeId => Recipe.Id;
@@ -133,6 +136,9 @@ namespace CriticalShift.Application
         public int? DryingTargetMoisture => Recipe.IsDrying ? Recipe.OutputMoisture : (int?)null;
         public bool IsDrying => Recipe.IsDrying;
         public bool BypassedInspection { get; }
+        public long RepairDurationMilliseconds { get; }
+        public long RepairWorkMilliseconds { get; }
+        public long RepairRemainingMilliseconds => RepairDurationMilliseconds - RepairWorkMilliseconds;
     }
     public sealed class ProductionReply
     {

@@ -1,0 +1,29 @@
+{
+  "name":"timed-jam-clearing", "seed":42, "duration":10000, "pause":true, "traceCapacity":128,
+  "production": {
+    "machines":[{"id":700,"recipe":701,"input":"Ore","output":"CrushedOre","duration":1000,"bypassDuration":500,"jamAfter":200,"capacity":128,"yield":800,"repairDuration":1000}],
+    "batches":[{"container":600,"id":900,"origin":901,"cause":800,"kind":"Ore","units":10,"moisture":900,"contamination":35}]
+  },
+  "steps":[
+    {"op":"grab","entity":600,"seq":1,"revision":0,"expect":"Applied"},
+    {"op":"production","machine":700,"seq":2,"action":"Insert","machineRevision":0,"container":600,"objectRevision":1,"batchRevision":0,"lease":1,"expect":"Applied","assert":{"machineMode":"Idle","machineRevision":1,"slottedIn":700}},
+    {"op":"production","machine":700,"seq":3,"action":"Start","machineRevision":1,"batchRevision":0,"bypass":true,"expect":"Applied","assert":{"machineMode":"Processing","machineRevision":2}},
+    {"op":"advance","time":200,"expect":"Running","assert":{"machineMode":"Jammed","machineWork":200,"machineRevision":3,"pendingCycles":1}},
+    {"op":"production","machine":700,"seq":4,"action":"Repair","machineRevision":3,"expect":"PowerMustBeOff"},
+    {"op":"production","machine":700,"seq":5,"action":"SetPower","machineRevision":3,"powered":false,"expect":"Applied","assert":{"machinePower":false,"machineRevision":4}},
+    {"op":"production","machine":700,"seq":6,"action":"Repair","machineRevision":4,"expect":"Applied","assert":{"machineMode":"Repairing","repairRemaining":1000,"machineWork":200,"machineRevision":5,"lastRepairEvent":"RepairStarted","lastRepairAt":200}},
+    {"op":"advance","time":700,"expect":"Running","assert":{"repairWork":500,"repairRemaining":500,"machineWork":200,"machineRevision":6}},
+    {"op":"production","machine":700,"seq":7,"action":"SetPower","machineRevision":6,"powered":true,"expect":"RepairInProgress","assert":{"machinePower":false,"repairWork":500}},
+    {"op":"pause","expect":"Applied"},
+    {"op":"advance","time":7000,"expect":"Paused","assert":{"elapsed":700,"repairWork":500,"machineWork":200}},
+    {"op":"resume","expect":"Applied"},
+    {"op":"advance","time":7499,"expect":"Running","assert":{"machineMode":"Repairing","repairWork":999,"machineRevision":7}},
+    {"op":"advance","time":7500,"expect":"Running","assert":{"machineMode":"PowerPaused","machinePower":false,"machineWork":200,"repairRemaining":0,"machineRevision":8,"completedCycles":0,"pendingCycles":1,"lastRepairEvent":"RepairCompleted","lastRepairAt":1200}},
+    {"op":"production","machine":700,"seq":8,"action":"SetPower","machineRevision":8,"powered":true,"expect":"Applied","assert":{"machineRevision":9}},
+    {"op":"production","machine":700,"seq":9,"action":"Resume","machineRevision":9,"expect":"Applied","assert":{"machineMode":"Processing","machineRevision":10}},
+    {"op":"advance","time":7799,"expect":"Running","assert":{"machineWork":499,"machineRevision":11,"completedCycles":0}},
+    {"op":"advance","time":7800,"expect":"Running","assert":{"machineMode":"OutputReady","machineRevision":12,"completedCycles":1,"pendingCycles":0,"batchKind":"CrushedOre","batchUnits":8,"wasteUnits":2,"batchFlags":"BypassedInspection","batchContamination":35,"batchCause":800}},
+    {"op":"production","machine":700,"seq":10,"action":"Eject","machineRevision":12,"objectRevision":2,"expect":"Applied","assert":{"machineMode":"Idle","machineRevision":13,"repairWork":0,"slottedIn":0}},
+    {"op":"finish","reason":"Aborted","expect":"Applied","assert":{"activeUnits":8,"wasteUnits":2,"completedCycles":1,"cancelledCycles":0,"pendingCycles":0}}
+  ]
+}

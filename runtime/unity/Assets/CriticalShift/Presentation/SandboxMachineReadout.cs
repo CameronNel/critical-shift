@@ -25,13 +25,15 @@ namespace CriticalShift.Presentation
             return Material(recipe.Input) + " → " + Material(recipe.Output) + " · up to " + recipe.MaximumUnits + " units\n" +
                 "Normal " + Seconds(recipe.DurationMilliseconds) + " · bypass " + Seconds(recipe.BypassDurationMilliseconds) +
                 " · safe moisture at most " + Moisture(recipe.MoistureTolerance) +
-                ". Wet bypass jams after " + Seconds(recipe.WetJamAfterMilliseconds) + " of processing; output retains suspect inspection history.";
+                ". Wet bypass jams after " + Seconds(recipe.WetJamAfterMilliseconds) + " of processing; output retains suspect inspection history." +
+                (recipe.RepairDurationMilliseconds == 0 ? "" : " Isolated jam clearing takes " + Seconds(recipe.RepairDurationMilliseconds) + ".");
         }
         public static string Controls(MachineView state)
         {
             switch (state.Mode)
             {
                 case ProductionMode.Jammed: return state.Powered ? "F isolate power, then R repair jam" : "R repair jam · keep power off";
+                case ProductionMode.Repairing: return "Jam clearing: " + Seconds(state.RepairRemainingMilliseconds) + " left · keep power isolated · panel can cancel the cycle";
                 case ProductionMode.PowerPaused: return state.Powered ? "R resume cycle · F isolates power" : "F restore power, then R resume cycle";
                 case ProductionMode.Processing: return "Cycle running · F isolate power to pause";
                 case ProductionMode.OutputReady: return "E eject output · F " + (state.Powered ? "isolates" : "restores") + " power";
@@ -56,7 +58,7 @@ namespace CriticalShift.Presentation
                             (machine?.BypassedInspection == true ? ". Inspection bypass: wet input jams after " + Seconds(machine.Recipe.WetJamAfterMilliseconds) +
                                 " of processing; output keeps suspect history." : ".");
                         case ProductionAction.SetPower: return (machine?.Powered == true ? "Power restored. " : "Power isolated. ") + Next(machine);
-                        case ProductionAction.Repair: return "Jam repaired. " + Next(machine);
+                        case ProductionAction.Repair: return machine?.Mode == ProductionMode.Repairing ? "Jam clearing started. " + Next(machine) : "Jam repaired. " + Next(machine);
                         case ProductionAction.Resume: return "Cycle resumed.";
                         case ProductionAction.CancelCycle: return "Cycle cancelled; original input retained.";
                         default: return "Machine action completed. " + Next(machine);
@@ -78,6 +80,7 @@ namespace CriticalShift.Presentation
                 case ProductionStatus.CustodyRejected: return "Container unavailable for transfer. Check your grip and its socket.";
                 case ProductionStatus.AlreadyConditioned: return "Material is already dry enough for this dryer.";
                 case ProductionStatus.BypassUnavailable: return "This machine requires its safe cycle.";
+                case ProductionStatus.RepairInProgress: return "Wait for jam clearing to finish; keep power isolated.";
                 default: return "Machine action unavailable.";
             }
         }

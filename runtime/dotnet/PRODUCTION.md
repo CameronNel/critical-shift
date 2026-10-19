@@ -5,7 +5,8 @@
 Historical September integration: PR #43 was the single candidate against main;
 earlier stacked PRs were historical contributions. The October operator-readout
 continuation and its exact evidence are recorded in
-[operational machine hints](../validation/OPERATIONAL_MACHINE_HINTS.md).
+[operational machine hints](../validation/OPERATIONAL_MACHINE_HINTS.md) and
+[timed isolated jam clearing](../validation/TIMED_JAM_CLEARING.md).
 
 User-authorized scope: a substantial useful offline batch. Based on PR #42 at `82aae83fa0e9daa471eb31d59a51fb44f34faff4`, after the interaction, world/time and worker slices. See PR #43 for exact tested commits, executed counts and review status. Tests described here are requirements and executable fixtures, not a substitute for their run artifacts. No production milestone or merge approval is implied.
 
@@ -65,7 +66,9 @@ There is no distributed transaction or crash-durable promise. The terminal summa
 
 ## Time, failure and cleanup
 
-Processing uses the world's explicitly supplied shift-time coordinate. World pause stops work. Power loss preserves completed work and moves a running cycle to PowerPaused; restored power alone does not restart it. Jam detection clamps work at the authored threshold even if a clock sample overshoots. Repair requires power off, disarms that cycle's wet-input jam and leaves it paused. Resume needs power and a resumable mode. An active/jammed machine cannot eject its input.
+Processing uses the world's explicitly supplied shift-time coordinate. World pause stops work. Power loss preserves completed work and moves a running cycle to PowerPaused; restored power alone does not restart it. Jam detection clamps work at the authored threshold even if a clock sample overshoots. Repair requires power off. An optional recipe RepairDurationMilliseconds (0..60000, default zero) enters autonomous Repairing for positive durations; the canonical crusher/processor use 6000/8000 ms. Separate repair work advances on shift time while processing work and original input remain frozen. Completion disarms the cycle's jam and leaves power off in PowerPaused. Zero retains the original instant-repair fixtures. Resume needs restored power and a resumable mode. Power-on, new Start and Resume reject during clearing; repeat Repair cannot reset progress. Active/jammed/repairing machines cannot eject input.
+
+RepairStarted/RepairCompleted facts retain the pending cycle, recipe, input and bypass attribution. Completion time comes from repair work, and a large sample cannot use leftover time to resume production. Once started, clearing is autonomous through operator impact/disconnect; it is not a held worker task. CancelCycle cancels the whole reserved conversion, resets both work fields and preserves the exact original input. The panel/feedback derive remaining time from detached state and retain the ram's cycle reservation during clearing. Native appearance, controls and physical behavior remain NotRun.
 
 CancelCycle requires isolated power. The initial cancellation policy preserves the complete original input and records a cancelled cycle; no partial product or invented material loss is emitted. Completion transforms the batch atomically in logical state. OutputReady blocks another cycle until explicit ejection, preventing accidental repeated processing of output under the same identity.
 
