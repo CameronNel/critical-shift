@@ -64,9 +64,9 @@ namespace CriticalShift.Application
             b.ContainerId, b.BatchId, b.ParentId, b.OriginId, b.CauseId, (MaterialKind)(int)b.Kind,
             b.Units, b.Moisture, b.Contamination, b.Revision, (MaterialFlags)(int)b.Flags);
         private MachineView Project(MachineState s) => new MachineView(_world.Epoch,
-            s.Id, _recipes[s.Id].Id, s.Revision, (ProductionMode)(int)s.Mode, s.Powered, s.CycleId,
+            s.Id, _recipes[s.Id], s.Revision, (ProductionMode)(int)s.Mode, s.Powered, s.CycleId,
             _interaction.SlotOccupant(s.Id), s.DurationMilliseconds, s.WorkMilliseconds,
-            _recipes[s.Id].IsDrying ? _recipes[s.Id].OutputMoisture : (int?)null);
+            _materials.GetPending(s.CycleId)?.BypassedInspection ?? _materials.GetReceipt(s.CycleId)?.Plan.BypassedInspection ?? false);
         private InteractionReply Reply(ProductionStatus status, MachineState? machine,
             ObjectClaimView? custody = null, InteractionStatus? custodyError = null, ProductionChange? change = null)
         {
