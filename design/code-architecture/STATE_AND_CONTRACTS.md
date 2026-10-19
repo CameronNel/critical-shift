@@ -101,6 +101,15 @@ credits leftover poll time as production. Repair facts retain the original
 cycle/input/cause. Whole-cycle cancellation conserves input and retires repair
 work. See [the bounded clearing contract](../../runtime/validation/TIMED_JAM_CLEARING.md).
 
+Optional production-start reserve costs use the same sole PowerAccount as
+reactor/medical operations. The Application prepares material/process state,
+checked category subtotal and the existing reserve debit before callback-free
+installation. Zero-cost recipes need no reactor. Rejected/retried intentions,
+Repair/Resume and completion cannot spend again; cancellation keeps committed
+cost. Paid Started facts explain the cost and original cycle/material cause;
+the frozen production subtotal is included in total PowerView.Spent, never a
+second balance. See [startup costs](../../runtime/validation/PRODUCTION_RESERVE_COSTS.md).
+
 Within the initial single-threaded host, prepare/validate all affected proposed states, then install the accepted change without awaits, callbacks or Unity side effects between owner updates. Publish only after all participants are installed. The implementation must prove its commit path cannot partially fail under expected conditions. Unexpected integrity exceptions stop the affected simulation and preserve diagnostics rather than continuing with a silently partial transaction. No distributed database or generic transaction framework is required.
 
 The optional bounded backup supply keeps finite stored-charge state in Power and

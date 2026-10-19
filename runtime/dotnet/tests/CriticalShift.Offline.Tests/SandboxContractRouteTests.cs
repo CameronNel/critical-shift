@@ -68,6 +68,8 @@ namespace CriticalShift.Offline.Tests
             }
 
             // Stage one heavy dry crate and three ordinary dry crates without inspection bypass.
+            // Existing finite backup pays the preparation bill; no initial reserve or quota is raised.
+            Applied(port.OperateReactor(SandboxGameplaySetup.ReactorId, ReactorAction.StartBackup));
             for (int i = 0; i < 4; i++) Produce(SandboxGameplaySetup.ContainerId(i));
             Assert.That(host, Is.EqualTo(140000));
             Assert.That(world.Production.GetBatch(SandboxGameplaySetup.ContainerId(0))!.Units, Is.EqualTo(34));
@@ -95,7 +97,9 @@ namespace CriticalShift.Offline.Tests
             Assert.That(debrief.Incidents.ReactorTrips, Is.Zero);
             Assert.That(debrief.Production.ActiveUnits + debrief.Production.WasteUnits, Is.EqualTo(120));
             var power = debrief.Power!;
-            Assert.That(power.Spent, Is.EqualTo(15));
+            Assert.That(power.Spent, Is.EqualTo(27));
+            Assert.That(debrief.Production.ReserveSpent, Is.EqualTo(12));
+            Assert.That(debrief.EmergencyPower!.UsedCharges, Is.EqualTo(1));
             Assert.That(power.Initial + power.Generated, Is.EqualTo(power.Available + power.Spent + power.Delivered + power.Spilled));
             Assert.That(world.View.ActiveClaimCount, Is.Zero);
             Assert.That(world.View.RegisteredObjectCount, Is.Zero);

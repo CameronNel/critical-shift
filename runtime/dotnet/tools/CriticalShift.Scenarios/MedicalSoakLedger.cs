@@ -28,6 +28,8 @@ namespace CriticalShift.Scenarios
         private MedicalPhase phase;
         private int completed, cancelled, interrupted;
         private long reactorSpent;
+        private long productionSpent;
+        private readonly HashSet<Guid> productionStarts = new HashSet<Guid>();
         private bool terminalSettled;
 
         internal MedicalSoakLedger(WorldSession owner, MedicalDefinition definition)
@@ -93,6 +95,20 @@ namespace CriticalShift.Scenarios
 
         internal void BeforeAdvance()
         { polledCycle = cycle; polledPatient = cycle == Guid.Empty ? null : world.GetWorker(patient); }
+        internal void ObserveProduction(InteractionReply reply, ProductionAction action, Guid machine)
+        {
+            if (!reply.HasNewCommit) return;
+            if (action != ProductionAction.Start)
+            {
+                Require((reply.Production?.Change?.ReserveSpent ?? 0) == 0, "Mixed non-start production action claimed another debit."); return;
+            }
+            long expected = machine == Id(21) ? 2 : 1; // Bind's authored costs; never read the resulting balance or recipe projection.
+            var fact = reply.Production?.Change;
+            Require(fact?.Kind == ProductionEvent.Started && fact.ReserveSpent == expected && fact.Machine.Id == machine &&
+                fact.CycleId != Guid.Empty && productionStarts.Add(fact.CycleId) && fact.Output == null && fact.WasteUnits == 0,
+                "Mixed paid production start lost its distinct cycle or authored debit.");
+            productionSpent += expected;
+        }
         internal void ObserveEnvironment(WorkerReply reply, Guid actor, int requestedContamination)
         {
             bool expected = reply.Changed && phase == MedicalPhase.Treating && actor == patient && requestedContamination > maximumContamination;
@@ -194,8 +210,9 @@ namespace CriticalShift.Scenarios
                 "Mixed treatment closure disagrees with committed cycle ledger.");
             Require(completed + cancelled + interrupted + (cycle != Guid.Empty ? 1 : 0) == starts.Count,
                 "Mixed treatment cycle was lost or closed more than once.");
-            Require(world.Reactor.PowerSummary!.Spent == reactorSpent + starts.Count * cost,
-                "Mixed reactor/medical consumers double charged or lost a shared reserve debit.");
+            Require(world.Production.Summary.ReserveSpent == productionSpent, "Mixed production subtotal differs from distinct paid-cycle starts.");
+            Require(world.Reactor.PowerSummary!.Spent == reactorSpent + productionSpent + starts.Count * cost,
+                "Mixed reactor/medical/production consumers double charged or lost a shared reserve debit.");
             var station = world.Medical.View;
             Require(ended ? station == null : station != null && station.Phase == phase && station.BodyId == body && station.PatientId == patient,
                 "Mixed station projection disagrees with its command/change ledger.");

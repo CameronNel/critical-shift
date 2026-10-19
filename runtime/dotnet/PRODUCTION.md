@@ -6,7 +6,8 @@ Historical September integration: PR #43 was the single candidate against main;
 earlier stacked PRs were historical contributions. The October operator-readout
 continuation and its exact evidence are recorded in
 [operational machine hints](../validation/OPERATIONAL_MACHINE_HINTS.md) and
-[timed isolated jam clearing](../validation/TIMED_JAM_CLEARING.md).
+[timed isolated jam clearing](../validation/TIMED_JAM_CLEARING.md), followed by
+[shared reserve startup costs](../validation/PRODUCTION_RESERVE_COSTS.md).
 
 User-authorized scope: a substantial useful offline batch. Based on PR #42 at `82aae83fa0e9daa471eb31d59a51fb44f34faff4`, after the interaction, world/time and worker slices. See PR #43 for exact tested commits, executed counts and review status. Tests described here are requirements and executable fixtures, not a substitute for their run artifacts. No production milestone or merge approval is implied.
 
@@ -63,6 +64,21 @@ There is one reusable container with a new batch identity after conversion, not 
 Startup validates mode, power, material type, capacity, moisture, nonzero rounded output and history capacity before mutation. MaterialLedger prepares a conversion and reserves its output identity/history capacity before the matching machine cycle is installed. No user callback, await, renderer or physics code runs between the logical owner updates. Completion consumes the reserved input version once and creates the declared output plus waste. Repeated completion returns the retained receipt; it cannot mint another batch. Memory failure or an unexpected integrity exception is not a supported partial-success recovery: WorldSession faults/clears the affected world and propagates diagnostics.
 
 There is no distributed transaction or crash-durable promise. The terminal summary and conversion receipts are in-memory data, not saves. Cycle identity/history remains bounded. If the history budget fills, a new cycle is rejected BEFORE reserving input rather than silently losing replay protection or failing after work completes.
+
+Optional recipe ReserveCost defaults0 and is bounded to0..1,000,000,000 abstract
+units. A positive new Start prepares its process/material replacements and
+checked production-spending subtotal before preparing the existing sole reserve
+debit. Insufficient/absent reserve rejects without reserving material or paying;
+zero retains legacy operation without a reactor. Paid Start publishes one
+Started fact with its original cycle/input/cause and ReserveSpent; free fixtures
+retain their original event behavior. Repair, Resume, power changes and
+completion cannot charge again. Cancellation/terminal keep the committed cost,
+and another accepted cycle pays again. Matching historical replies carry data
+without a new debit/event. ProductionSummary.ReserveSpent explains part of
+PowerView.Spent and remains detached through teardown; it is not a reserve
+balance. The sandbox crusher/processor/dryer cost1/2/1 per start, shown before
+operation. Its full-quota dry-stock route uses one existing backup charge during
+preparation, preserving initial reserve10, stock, quotas and reload boundaries.
 
 ## Time, failure and cleanup
 

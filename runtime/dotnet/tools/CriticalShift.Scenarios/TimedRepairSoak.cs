@@ -12,20 +12,25 @@ namespace CriticalShift.Scenarios
         private sealed class Access : IInteractionAccessPolicy
         { public AccessDecision Evaluate(Guid actor, Guid target, InteractionKind kind) => AccessDecision.Allowed; }
 
-        internal static int Exercise(Random random, bool omitRepairCompletion)
+        internal static int Exercise(Random random, bool omitRepairCompletion, bool omitProductionDebit)
         {
             long processing = random.Next(100, 1001), jam = random.Next(1, (int)processing);
             long clearing = random.Next(2, 60001), limit = jam + clearing + random.Next(1, 8001);
+            long cost = random.Next(1, 9), initial = cost + random.Next(6);
             var world = new WorldSession(new WorldSessionConfiguration(42, limit, true), new Access(), traceCapacity: 8);
             world.RegisterConnection(Id(960), Id(961));
             world.Production.RegisterBatch(Id(962), Id(963), Id(964), Id(965), MaterialKind.Ore, 10, 900, 35);
             world.Production.RegisterMachine(Id(966), new MachineRecipe(Id(967), MaterialKind.Ore, MaterialKind.CrushedOre,
-                processing * 2, processing, jam, 100, yieldPermille: 800, repairDurationMilliseconds: clearing));
+                processing * 2, processing, jam, 100, yieldPermille: 800, repairDurationMilliseconds: clearing, reserveCost: cost));
+            world.Reactor.Register(Id(968), new ReactorDefinition(Id(969), initialReserve: initial));
             var port = new LocalCommandPort(world, Id(960)); world.Start();
             Require(port.Grab(Id(962)).HasNewCommit && port.OperateMachine(Id(966), ProductionAction.Insert, Id(962)).HasNewCommit,
                 "Repair model input setup failed.");
             var started = port.OperateMachine(Id(966), ProductionAction.Start, bypass: true);
             Require(started.HasNewCommit && started.Production!.Machine!.CycleId != Guid.Empty, "Repair model process start failed.");
+            Require(started.Production!.Change?.Kind == ProductionEvent.Started && started.Production.Change.ReserveSpent == cost,
+                "Repair model paid start lost its authored debit fact.");
+            long spent = omitProductionDebit ? 0 : cost;
             // Only this opaque committed identifier is bound from a reply; all expected timing/state comes from inputs.
             Guid cycle = started.Production!.Machine!.CycleId;
             long host = 0, shift = 0, work = 0, repairWork = 0, repairDuration = 0, revision = 2;
@@ -35,6 +40,10 @@ namespace CriticalShift.Scenarios
             void Check()
             {
                 var summary = world.Production.Summary;
+                var reserve = world.Reactor.PowerSummary!;
+                Require(summary.ReserveSpent == spent && reserve.Spent == spent && reserve.Available == initial - spent &&
+                    reserve.Generated == 0 && reserve.Delivered == 0 && reserve.Spilled == 0,
+                    "Production reserve differs from independent paid-cycle ledger.");
                 Require(summary.CompletedCycles == completed && summary.CancelledCycles == cancelled && summary.PendingCycles == (pending ? 1 : 0) &&
                     summary.ActiveUnits == (completed == 0 ? 10 : 8) && summary.WasteUnits == (completed == 0 ? 0 : 2) && summary.IssuedUnits == 10,
                     "Repair material outcomes differ from independent reserved-input ledger.");

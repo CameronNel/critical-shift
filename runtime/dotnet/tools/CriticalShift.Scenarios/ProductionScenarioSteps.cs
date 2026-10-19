@@ -26,11 +26,11 @@ namespace CriticalShift.Scenarios
                 foreach (string field in new[] { "output", "bypassDuration", "jamAfter", "yield", "tolerance" })
                     if (m.TryGetProperty(field, out _)) throw new ArgumentException("Drying definitions use fixed same-kind/quantity/safe rules; omit " + field + ".");
                 return MachineRecipe.Drying(Id(checked((int)Number(m, "recipe"))), Choice<MaterialKind>(m, "input"),
-                    Number(m, "duration"), checked((int)Number(m, "capacity")), checked((int)Number(m, "outputMoisture", 100)), Number(m, "repairDuration", 0));
+                    Number(m, "duration"), checked((int)Number(m, "capacity")), checked((int)Number(m, "outputMoisture", 100)), Number(m, "repairDuration", 0), Number(m, "reserveCost", 0));
             }
             return new MachineRecipe(Id(checked((int)Number(m, "recipe"))), Choice<MaterialKind>(m, "input"), Choice<MaterialKind>(m, "output"),
                 Number(m, "duration"), Number(m, "bypassDuration"), Number(m, "jamAfter"), checked((int)Number(m, "capacity")),
-                checked((int)Number(m, "yield", 1000)), checked((int)Number(m, "tolerance", 500)), checked((int)Number(m, "outputMoisture", 0)), Number(m, "repairDuration", 0));
+                checked((int)Number(m, "yield", 1000)), checked((int)Number(m, "tolerance", 500)), checked((int)Number(m, "outputMoisture", 0)), Number(m, "repairDuration", 0), Number(m, "reserveCost", 0));
         }
         internal static string Execute(JsonElement step, WorldSession world, Guid epoch, Guid connection)
         {
@@ -83,6 +83,8 @@ namespace CriticalShift.Scenarios
                 case "completedCycles": actual = summary.CompletedCycles; expected = assertion.Value.GetInt32(); return true;
                 case "cancelledCycles": actual = summary.CancelledCycles; expected = assertion.Value.GetInt32(); return true;
                 case "pendingCycles": actual = summary.PendingCycles; expected = assertion.Value.GetInt32(); return true;
+                case "productionReserveSpent": actual = summary.ReserveSpent; expected = assertion.Value.GetInt64(); return true;
+                case "lastProductionReserveSpent": actual = last?.ProductionReserveSpent; expected = assertion.Value.GetInt64(); return true;
                 default: return false;
             }
         }

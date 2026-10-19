@@ -32,7 +32,7 @@ namespace CriticalShift.Scenarios
                         case "--cases": cases = int.Parse(value); break;
                         case "--case-seed": onlySeed = int.Parse(value); break;
                         case "--control":
-                            if (value != "failure" && value != "medical-ledger" && value != "contamination-ledger" && value != "backup-ledger" && value != "fitting-ledger" && value != "feed-ledger" && value != "repair-ledger") throw new ArgumentException("Unknown control.");
+                            if (value != "failure" && value != "medical-ledger" && value != "contamination-ledger" && value != "backup-ledger" && value != "fitting-ledger" && value != "feed-ledger" && value != "repair-ledger" && value != "production-ledger") throw new ArgumentException("Unknown control.");
                             control = value; break;
                         default: throw new ArgumentException("Unknown soak option.");
                     }
@@ -57,7 +57,7 @@ namespace CriticalShift.Scenarios
                 {
                     do
                     {
-                        actions += Exercise(currentSeed, control == "medical-ledger", control == "contamination-ledger", control == "backup-ledger", control == "fitting-ledger", control == "feed-ledger", control == "repair-ledger"); completed++;
+                        actions += Exercise(currentSeed, control == "medical-ledger", control == "contamination-ledger", control == "backup-ledger", control == "fitting-ledger", control == "feed-ledger", control == "repair-ledger", control == "production-ledger"); completed++;
                         Require(control != "failure", "Intentional negative control.");
                         if (clock.Elapsed.TotalSeconds >= nextReport)
                         {
@@ -98,7 +98,7 @@ namespace CriticalShift.Scenarios
             public RecoveryClearance Evaluate(Guid epoch, Guid worker, long attempt) => Safe ? RecoveryClearance.Safe : RecoveryClearance.Blocked;
         }
 
-        private static int Exercise(int seed, bool dropMedicalStart = false, bool dropContact = false, bool dropBackup = false, bool dropFitting = false, bool dropFeed = false, bool dropRepair = false)
+        private static int Exercise(int seed, bool dropMedicalStart = false, bool dropContact = false, bool dropBackup = false, bool dropFitting = false, bool dropFeed = false, bool dropRepair = false, bool dropProduction = false)
         {
             var random = new Random(seed); var policies = new Policies(); int duration = random.Next(1200, 12001);
             var configuration = new WorldSessionConfiguration(seed, duration, true, receiptCapacity: random.Next(1, 9), leaseMilliseconds: random.Next(100, 1001));
@@ -119,6 +119,11 @@ namespace CriticalShift.Scenarios
                 {
                     var reply = ports[who].OperateReactor(Id(30), action, container, cooling);
                     medicalLedger.Observe(reply, action); return reply;
+                }
+                InteractionReply Production(int who, Guid machine, ProductionAction action, Guid container = default, bool bypass = false, bool powered = false)
+                {
+                    var reply = ports[who].OperateMachine(machine, action, container, bypass, powered);
+                    medicalLedger.ObserveProduction(reply, action, machine); return reply;
                 }
                 InteractionReply Medical(int who, MedicalAction action, Guid body = default)
                 {
@@ -200,10 +205,10 @@ namespace CriticalShift.Scenarios
                 Reactor(0, ReactorAction.SetCooling, cooling: true);
                 Require(Reactor(0, ReactorAction.Start).HasNewCommit, "Initial reactor start failed.");
                 Require(ports[1].Grab(Id(13)).HasNewCommit, "Initial ore custody failed.");
-                Require(ports[1].OperateMachine(Id(20), ProductionAction.Insert, Id(13)).HasNewCommit, "Initial ore insertion failed.");
-                Require(ports[1].OperateMachine(Id(20), ProductionAction.Start, bypass: true).HasNewCommit, "Initial production start failed.");
-                Require(ports[1].Grab(Id(14)).HasNewCommit && ports[1].OperateMachine(Id(22), ProductionAction.Insert, Id(14)).HasNewCommit &&
-                    ports[1].OperateMachine(Id(22), ProductionAction.Start).HasNewCommit, "Initial safe drying work failed.");
+                Require(Production(1, Id(20), ProductionAction.Insert, Id(13)).HasNewCommit, "Initial ore insertion failed.");
+                Require(Production(1, Id(20), ProductionAction.Start, bypass: true).HasNewCommit, "Initial production start failed.");
+                Require(ports[1].Grab(Id(14)).HasNewCommit && Production(1, Id(22), ProductionAction.Insert, Id(14)).HasNewCommit &&
+                    Production(1, Id(22), ProductionAction.Start).HasNewCommit, "Initial safe drying work failed.");
                 Require(world.ApplyWorkerImpact(world.Epoch, Id(203), 1, WorkerImpact.Incapacitating, 0, Id(300), Id(303)).Changed,
                     "Initial mixed patient injury failed."); observations[3] = 1;
                 Require(ports[2].Grab(Id(43)).HasNewCommit, "Initial mixed patient custody failed.");
@@ -217,9 +222,9 @@ namespace CriticalShift.Scenarios
                 host = 100; Advance(host);
                 Require(world.Production.GetMachine(Id(20))!.Mode == ProductionMode.Jammed && world.Medical.View!.Phase == MedicalPhase.Treating &&
                     world.Reactor.EmergencyPowerSummary!.Running, "Mixed jam did not overlap active treatment and backup work.");
-                Require(ports[1].OperateMachine(Id(20), ProductionAction.SetPower, powered: false).HasNewCommit,
+                Require(Production(1, Id(20), ProductionAction.SetPower, powered: false).HasNewCommit,
                     "Mixed jam isolation failed.");
-                var clearing = ports[1].OperateMachine(Id(20), ProductionAction.Repair);
+                var clearing = Production(1, Id(20), ProductionAction.Repair);
                 Require(clearing.HasNewCommit && clearing.Production!.Change?.Kind == ProductionEvent.RepairStarted,
                     "Mixed isolated clearing could not join the other owners.");
                 long repairDue = host + repairDuration;
@@ -243,10 +248,10 @@ namespace CriticalShift.Scenarios
                         case 1: port.Grab(entity); break;
                         case 2: port.Release(entity); break;
                         case 3: port.Renew(entity); break;
-                        case 4: port.OperateMachine(machine, ProductionAction.Insert, entity); break;
-                        case 5: port.OperateMachine(machine, ProductionAction.Start, bypass: random.Next(2) == 0); break;
-                        case 6: port.OperateMachine(machine, ProductionAction.SetPower, powered: random.Next(2) == 0); break;
-                        case 7: port.OperateMachine(machine, new[] { ProductionAction.Repair, ProductionAction.Resume, ProductionAction.CancelCycle, ProductionAction.Eject }[random.Next(4)]); break;
+                        case 4: Production(who, machine, ProductionAction.Insert, entity); break;
+                        case 5: Production(who, machine, ProductionAction.Start, bypass: random.Next(2) == 0); break;
+                        case 6: Production(who, machine, ProductionAction.SetPower, powered: random.Next(2) == 0); break;
+                        case 7: Production(who, machine, new[] { ProductionAction.Repair, ProductionAction.Resume, ProductionAction.CancelCycle, ProductionAction.Eject }[random.Next(4)]); break;
                         case 8: Reactor(who, ReactorAction.Insert, entity); break;
                         case 9: Reactor(who, new[] { ReactorAction.Start, ReactorAction.Shutdown, ReactorAction.ResetTrip,
                             ReactorAction.EmergencyCooling, ReactorAction.AuxiliaryPower, ReactorAction.Eject, ReactorAction.SetCooling }[random.Next(7)], cooling: random.Next(2) == 0); break;
@@ -364,7 +369,7 @@ namespace CriticalShift.Scenarios
                 if (lifetime < 2) world = world.Restart(policies, policies);
             }
             return actions + ContaminationSoak.Exercise(random, dropContact) + EmergencyPowerSoak.Exercise(random, dropBackup) +
-                SuitFittingSoak.Exercise(random, dropFitting) + TimedRepairSoak.Exercise(random, dropRepair);
+                SuitFittingSoak.Exercise(random, dropFitting) + TimedRepairSoak.Exercise(random, dropRepair, dropProduction);
         }
 
         private static LocalCommandPort[] Bind(WorldSession world, Random random, out MedicalDefinition medical, out WorkerContaminationFeed[,] feeds, out long repairDuration)
@@ -375,12 +380,12 @@ namespace CriticalShift.Scenarios
             for (int i = 0; i < 8; i++) world.Production.RegisterBatch(Id(10 + i), Id(110 + i), Id(120 + i), Id(130 + i),
                 i < 3 ? MaterialKind.Fuel : i < 6 ? MaterialKind.Ore : MaterialKind.CrushedOre, random.Next(1, 31), moisture: i == 3 || i == 4 ? 900 : random.Next(2) == 0 ? 0 : 900);
             repairDuration = random.Next(100, 1001);
-            world.Production.RegisterMachine(Id(20), new MachineRecipe(Id(400), MaterialKind.Ore, MaterialKind.CrushedOre, 500, 250, 100, 100, repairDurationMilliseconds: repairDuration));
-            world.Production.RegisterMachine(Id(21), new MachineRecipe(Id(401), MaterialKind.CrushedOre, MaterialKind.Fuel, 600, 300, 100, 100, repairDurationMilliseconds: random.Next(100, 1001)));
-            world.Production.RegisterMachine(Id(22), MachineRecipe.Drying(Id(403), MaterialKind.Ore, 450, 100, 100));
+            world.Production.RegisterMachine(Id(20), new MachineRecipe(Id(400), MaterialKind.Ore, MaterialKind.CrushedOre, 500, 250, 100, 100, repairDurationMilliseconds: repairDuration, reserveCost: 1));
+            world.Production.RegisterMachine(Id(21), new MachineRecipe(Id(401), MaterialKind.CrushedOre, MaterialKind.Fuel, 600, 300, 100, 100, repairDurationMilliseconds: random.Next(100, 1001), reserveCost: 2));
+            world.Production.RegisterMachine(Id(22), MachineRecipe.Drying(Id(403), MaterialKind.Ore, 450, 100, 100, reserveCost: 1));
             world.Reactor.Register(Id(30), new ReactorDefinition(Id(402)));
             world.Reactor.RegisterEmergencyPower(new EmergencyPowerDefinition(random.Next(250, 1001), random.Next(4, 16), 4));
-            medical = new MedicalDefinition(random.Next(250, 1001), random.Next(1, 8), random.Next(2, 6));
+            medical = new MedicalDefinition(random.Next(250, 1001), random.Next(1, 6), random.Next(2, 6));
             world.Medical.Register(Id(60), medical);
             world.SuitFitting.Register(Id(65), new SuitFittingDefinition());
             world.RegisterWorkerContaminationSource(Id(62), new WorkerContaminationDefinition(WorkerContaminationKind.Exposure, 20, 150));

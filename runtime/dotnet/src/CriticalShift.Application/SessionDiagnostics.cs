@@ -43,6 +43,7 @@ namespace CriticalShift.Application
             OutputBatchId = change?.Output?.BatchId ?? Guid.Empty;
             MaterialCauseId = change?.Input.CauseId ?? interaction?.Production?.Batch?.CauseId ?? Guid.Empty;
             WasteUnits = change?.WasteUnits;
+            ProductionReserveSpent = change?.ReserveSpent;
             Sequence = sequence; Epoch = world.Epoch; RequestEpoch = requestEpoch; Kind = kind;
             ActorId = actorId; EntityId = entityId; InputSequence = inputSequence; Changed = changed;
             WorldRevision = world.Revision; HostMilliseconds = world.HostMilliseconds;
@@ -86,6 +87,7 @@ namespace CriticalShift.Application
         public Guid OutputBatchId { get; }
         public Guid MaterialCauseId { get; }
         public int? WasteUnits { get; }
+        public long? ProductionReserveSpent { get; }
         public Guid ActorId { get; }
         public Guid EntityId { get; }
         public long InputSequence { get; }
