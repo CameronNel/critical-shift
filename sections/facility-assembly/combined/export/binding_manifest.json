@@ -3,9 +3,9 @@
  "source": {
   "scene": "sections/facility-assembly/combined/combined_map.blend",
   "builder": "build_compact_map.py",
-  "git_revision_at_export": "3649acdd22abc44d7203ea9c08e04d7823ec6265",
+  "git_revision_at_export": "e35ca21aadfbbddfde900be586d14ee0391b030f",
   "worktree_dirty_at_export": true,
-  "inputs_sha256": "ef3b43d19cdf974735017ff7a454505f6aa88e68a225fb59a9f105758dcf0cc6",
+  "inputs_sha256": "23cee21c51c1d9738abb1e13516cec8b598c28eee95f7c243df5cc392fceeb18",
   "inputs": [
    "build_compact_map.py",
    "build_combined_map.py",
@@ -20,7 +20,7 @@
  "export": {
   "format": "FBX",
   "file": "compact_map_colliders_anchors.fbx",
-  "sha256": "b90aa6eab04fac26c2c9cc33fd0be8e8e2c3acc502b12fa8934eb667eaed36bd",
+  "sha256": "76ea784a7ffe801d8ce71a360dad706c47e9e07d7a3db8a60dc1cf84f696b77f",
   "settings": {
    "use_selection": true,
    "object_types": [
@@ -212,8 +212,8 @@
  "runtime_owner": "UNRESOLVED: no runtime owner for map collision or doors is decided (design/code-architecture DECISIONS_AND_RISKS); doors would belong to the Interaction feature per STATE_AND_CONTRACTS, not decided here",
  "reimport_check": {
   "fbx": "compact_map_colliders_anchors.fbx",
-  "sha256": "b90aa6eab04fac26c2c9cc33fd0be8e8e2c3acc502b12fa8934eb667eaed36bd",
-  "bytes": 437420,
+  "sha256": "76ea784a7ffe801d8ce71a360dad706c47e9e07d7a3db8a60dc1cf84f696b77f",
+  "bytes": 437500,
   "exported": 202,
   "reimported": 202,
   "missing": [],

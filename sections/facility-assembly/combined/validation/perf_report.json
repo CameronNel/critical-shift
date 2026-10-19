@@ -1,12 +1,12 @@
 {
  "note": "Static counts of the built scene; no frame rate was measured (no runtime build exists). Budgets: only the 400k per-room flag and 800k front-end figure exist in the repo.",
  "totals": {
-  "triangles": 8674186,
-  "objects": 22358,
-  "submeshes": 24566,
+  "triangles": 8698902,
+  "objects": 22375,
+  "submeshes": 24583,
   "lights": 526,
   "shadow_lights": 486,
-  "materials": 918,
+  "materials": 922,
   "textures": 153,
   "texture_mb_rgba8": 1401.9
  },
@@ -138,6 +138,21 @@
    "budget_flag": 400000,
    "over_flag": true
   },
+  "ROOM_condenser-bay": {
+   "triangles": 425890,
+   "objects": 2737,
+   "meshes": 2646,
+   "submeshes": 2737,
+   "materials": 41,
+   "lights": {
+    "AREA": 27
+   },
+   "shadow_lights": 27,
+   "textures": 6,
+   "texture_mb_rgba8": 8.0,
+   "budget_flag": 400000,
+   "over_flag": true
+  },
   "ROOM_turbine-room": {
    "triangles": 418190,
    "objects": 62,
@@ -169,21 +184,6 @@
    "shadow_lights": 26,
    "textures": 0,
    "texture_mb_rgba8": 0.0,
-   "budget_flag": 400000,
-   "over_flag": true
-  },
-  "ROOM_condenser-bay": {
-   "triangles": 401174,
-   "objects": 2720,
-   "meshes": 2627,
-   "submeshes": 2720,
-   "materials": 37,
-   "lights": {
-    "AREA": 27
-   },
-   "shadow_lights": 27,
-   "textures": 6,
-   "texture_mb_rgba8": 8.0,
    "budget_flag": 400000,
    "over_flag": true
   },
@@ -1227,6 +1227,14 @@
    "own": 430704,
    "with_neighbours": 1184440
   },
+  "ROOM_condenser-bay": {
+   "neighbours": [
+    "CONNECTOR_condenser_escape",
+    "CONNECTOR_condenser_stair"
+   ],
+   "own": 425890,
+   "with_neighbours": 429118
+  },
   "ROOM_turbine-room": {
    "neighbours": [
     "CONNECTOR_condenser_stair",
@@ -1242,14 +1250,6 @@
    ],
    "own": 416761,
    "with_neighbours": 1170497
-  },
-  "ROOM_condenser-bay": {
-   "neighbours": [
-    "CONNECTOR_condenser_escape",
-    "CONNECTOR_condenser_stair"
-   ],
-   "own": 401174,
-   "with_neighbours": 404402
   },
   "ROOM_waste-storage": {
    "neighbours": [
@@ -1294,7 +1294,7 @@
     "ROOM_condenser-bay"
    ],
    "own": 1800,
-   "with_neighbours": 402974
+   "with_neighbours": 427690
   },
   "CONNECTOR_condenser_stair": {
    "neighbours": [
@@ -1302,7 +1302,7 @@
     "ROOM_turbine-room"
    ],
    "own": 1428,
-   "with_neighbours": 820792
+   "with_neighbours": 845508
   },
   "EVAC sign hall": {
    "neighbours": [],
