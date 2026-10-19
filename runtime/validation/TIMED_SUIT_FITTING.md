@@ -96,3 +96,28 @@ and interfere with it, while the longer dedicated model covers completion.
 This is a separate, short logical verification candidate. No duration from the
 older frozen endurance builds is attributed to this feature. Unity import,
 Player, GUI, physical reach/gravity/contacts and multiplayer remain NotRun.
+
+## Final full verification
+
+Source `72a591c3c39214d7e0a69696982cd0a1f26f2545` passed the full verifier
+from 2026-10-19T09:50:06.149728+00:00 to
+2026-10-19T09:50:40.082502+00:00 UTC: **965 executed/passed, zero
+failed/skipped; 22 scenarios each twice**. All 40 focused fitting cases ran.
+The real intentional NUnit/scenario/invariant controls and omitted modeled
+medical start, exposure, backup credit and suit protection were rejected. Seed
+reproduction passed; report create-new checks preserved existing bytes. All 254
+recorded source/input hashes match this source commit. All nine frozen gameplay
+DLLs match the verifier's assembly closure. Independent ignored snapshot:
+`runtime/out/timed-suit-verification-20261019`.
+
+The strengthened final model passed seed 20261036: 10,000 mixed cases /
+13,281,822 CheckedSteps in 32.02 s against that frozen closure. This includes
+both original suit conditions, verified Started event payload/commit fields,
+per-world identity uniqueness and busy-grab/restored-work checks. CheckedSteps
+count model samples/selected operations, not distinct assertions or commits.
+This short probe is not attributed any older long-duration endurance seconds.
+
+Review found no remaining blocker in the examined authority/lifecycle, native
+consumer and model scopes after root's fixes. Unity import/Player, native fitting,
+physical reach/motion/contacts, GUI feel and multiplayer remain NotRun. This is a
+reviewable prototype and does not advance roadmap acceptance.
