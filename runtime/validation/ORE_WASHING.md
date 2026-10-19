@@ -51,3 +51,21 @@ publication-count checking and original input/output fields on model facts and
 receipts. A declared native physical-socket washer→dryer case was added to the
 171-case catalogue; all changed native behavior remains NotRun. Final verifier,
 binary/source audit and review status will be recorded below.
+
+Final candidate `b4d74ef3957aa0f782a0fcfcd015e43fcb0936a6`:
+full verifier12:11:18–12:11:53 UTC, SDK8.0.423 Release/C#8/netstandard2.1:
+**1096 executed/passed, zero failed/skipped;25 scenarios each twice**. Existing
+controls and new missing-cleaning negative control were rejected; seed replay
+and create-new report protections passed. All270 recorded inputs match the git
+tree and all nine executable DLL hashes match the frozen verifier closure at
+ignored `out/ore-washing-verification-20261019`. Final seed20261051 against that
+frozen build passed10,000 cases/13,982,199 selected operations/model checks in
+35.4399084s. Counts include the mixed existing gameplay and conditioning models,
+not13.98million distinct assertions. Final independent ultra core, native-source
+and model reviews reported no remaining concrete blocker after root fixes.
+
+Static source checks passed202 metadata GUIDs/21 asmdefs/131 C# files. The171
+declared native cases, actual new washer socket/clearance, rendered controls,
+Player and multiplayer remain NotRun because the matching editor is unavailable.
+The draft remains for independent maintainer review and merge; no gate or
+balance acceptance is claimed.
