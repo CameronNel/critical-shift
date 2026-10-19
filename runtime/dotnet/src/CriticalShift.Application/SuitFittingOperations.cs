@@ -18,6 +18,7 @@ namespace CriticalShift.Application
         { world = owner; workers = conditions; interaction = custody; access = observations; }
         public SuitFittingSummary Summary => terminal ?? new SuitFittingSummary(started, completed, cancelled, interrupted, PendingCount);
         public int StationCount => stations.Count;
+        public SuitFittingDefinition? GetDefinition(Guid station) => stations.TryGetValue(station, out var definition) ? definition : null;
         public void Register(Guid station, SuitFittingDefinition definition) => world.RegisterProduction(() =>
         {
             if (definition == null || station == Guid.Empty) throw new ArgumentException("Bind an authored suit station.");

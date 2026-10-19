@@ -76,7 +76,7 @@ recorded source/input hashes match this source commit; all nine frozen gameplay
 DLLs match the verifier. Independent ignored snapshot:
 `runtime/out/fixture-zones-verification-20261019`.
 
-The first full candidate also passed983/22. Model review then strengthened the
+The first full candidate also passed 983 tests and 22 scenarios. Model review then strengthened the
 sequence/eligibility checks after skipped calls; the final run above includes
 that change. The 10,000-case figure above belongs to the preceding candidate,
 not this later source. A new supervised series uses the final frozen closure;
@@ -87,5 +87,20 @@ Independent ultra integration, medical/authority and model reviews found no
 blocking source issue. Source review is not native execution. Unity import,
 Player, spatial sampling, GUI, physical behavior/feel, multiplayer and performance
 remain NotRun. The editor remains unavailable locally and the configured remote
-workstation was still offline when retried at09:50UTC. This is a reviewable
+workstation was still offline when retried at 09:50 UTC. This is a reviewable
 fixture prototype and does not advance roadmap acceptance.
+
+## Focused locker control correction
+
+After the frozen verifier revision, root found that the suit locker still
+fell through the generic focused-target path: it advertised E grab and R did
+nothing while the panel action worked. The locker now offers E/R fitting,
+shows the authored duration or intact-suit state, and routes through the same
+host command path. B reports the full preparation requirement. A read-only
+query returns only the immutable authored station definition.
+
+All 58 combined fitting/feed guard cases passed after this change, with zero
+failures/skips. Static source checks passed. Independent ultra integration
+source review found no control/reentrancy blocker. These checks do not execute
+native key/focus behavior. The full verifier and long-probe snapshot above
+remain attributed to source 5e6847da; later CI/source evidence is separate.

@@ -246,6 +246,8 @@ namespace CriticalShift.Features.Interaction.Unity
             { LastAction = "Release the cart handle before handling containers"; return; }
             if (held != Guid.Empty && bindings.IsWorker(held))
             { LastAction = "Release the worker's suit grip before handling equipment"; return; }
+            if (world.SuitFitting.GetDefinition(focused) != null)
+            { OperateSuitFitting(focused, SuitFittingAction.Start); return; }
             var machine = world.Production.GetMachine(focused);
             var reactor = world.Reactor.View;
             if (machine != null)
@@ -282,6 +284,12 @@ namespace CriticalShift.Features.Interaction.Unity
         private void StartFocused(bool bypass)
         {
             if (!PrepareFocused()) return;
+            if (world.SuitFitting.GetDefinition(focused) != null)
+            {
+                if (bypass) LastAction = "Protective suit fitting requires its full preparation time";
+                else OperateSuitFitting(focused, SuitFittingAction.Start);
+                return;
+            }
             var machine = world.Production.GetMachine(focused);
             if (machine != null)
             {
@@ -361,6 +369,14 @@ namespace CriticalShift.Features.Interaction.Unity
             }
             if (bindings.IsWorker(focused))
             { FocusHint = "Worker suit grip | E drag a down worker · G release"; return; }
+            var suitStation = world.SuitFitting.GetDefinition(focused);
+            if (suitStation != null)
+            {
+                FocusHint = (targetName == null ? "Suit station" : targetName(focused)) +
+                    (worker.Suit == WorkerSuit.Intact ? " | Suit already intact" :
+                    " | E or R fit protective suit (" + (suitStation.DurationMilliseconds / 1000) + "s) · requires free hands");
+                return;
+            }
             var machine = world.Production.GetMachine(focused);
             bool reactor = world.Reactor.View?.Id == focused;
             if (bindings.IsHandle(focused))
