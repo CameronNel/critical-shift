@@ -71,7 +71,8 @@ Shader "CriticalShift/NightSky"
             float4 _CS_MoonDir;          // xyz: direction to the Moon (world)
             float4 _CS_MoonNorth;        // xyz: the Moon's north on the sky, perpendicular to _CS_MoonDir
             float4 _CS_SunDir;           // xyz: direction to the Sun (world); lights the Moon, sets its phase
-            float4 _CS_SkyTime;          // x: seconds, wrapped, for the twinkle
+            float4 _CS_SkyTime;          // x: twinkle phase in radians (0..2pi), advanced by NightSky.cs at _TwinkleSpeed noise cells per second
+            #define TWINKLE_LOOP 60.0    // must match NightSky.TwinkleLoop
 
             struct Attributes { float4 positionOS : POSITION; UNITY_VERTEX_INPUT_INSTANCE_ID };
             struct Varyings { float4 positionCS : SV_POSITION; float3 dirWS : TEXCOORD0; UNITY_VERTEX_OUTPUT_STEREO };
@@ -139,8 +140,10 @@ Shader "CriticalShift/NightSky"
                 float3 stars = SAMPLE_TEXTURECUBE(_StarCube, sampler_StarCube, c).rgb;
                 float lum = max(max(stars.r, stars.g), stars.b);
                 stars *= pow(max(lum, 1e-6), _StarContrast - 1.0);           // faint stars fall away faster than bright ones
-                float t = _CS_SkyTime.x * _TwinkleSpeed;
-                float n = 0.65 * ValueNoise(c * 700.0 + float3(t, 0.37 * t, -0.53 * t)) + 0.35 * ValueNoise(c * 1500.0 - float3(0.61 * t, t, 0.29 * t));
+                // The noise drifts around a closed loop (radius TWINKLE_LOOP noise cells, phase from NightSky.cs): smooth at any session
+                // length, and the coordinates stay small enough for full float precision.
+                float2 loop = TWINKLE_LOOP * float2(cos(_CS_SkyTime.x), sin(_CS_SkyTime.x));
+                float n = 0.65 * ValueNoise(c * 700.0 + float3(loop.x, loop.y, 0.4 * loop.x)) + 0.35 * ValueNoise(c * 1500.0 + float3(-loop.y, 0.6 * loop.x, loop.y));
                 stars *= 1.0 + _TwinkleStrength * lerp(0.35, 1.0, h * h) * (2.0 * n - 1.0);   // twinkle grows near the horizon
                 float3 milkyWay = SAMPLE_TEXTURECUBE(_MilkyWayCube, sampler_MilkyWayCube, c).rgb * _MilkyWayBrightness;
                 milkyWay /= 1.0 + _MoonWashout * illum * moonUp;

@@ -77,6 +77,11 @@ namespace CriticalShift.Content.Editor
                 message = "The CriticalShift/NightSky shader or the NightSky component is missing or failed to compile. Check the Console.";
                 return false;
             }
+            if (ShaderUtil.ShaderHasError(shader))   // Shader.Find still returns a shader whose HLSL failed to compile; it would draw magenta
+            {
+                message = "The CriticalShift/NightSky shader has compile errors (select Content/Sky/NightSky.shader to see them). Nothing was changed.";
+                return false;
+            }
 
             var material = AssetDatabase.LoadAssetAtPath<Material>(MaterialPath);
             if (material == null)

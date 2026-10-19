@@ -20,6 +20,8 @@ namespace CriticalShift.Presentation
         static readonly int SunDir = Shader.PropertyToID("_CS_SunDir");
         static readonly int SkyTime = Shader.PropertyToID("_CS_SkyTime");
         static readonly int Extinction = Shader.PropertyToID("_Extinction");
+        static readonly int TwinkleSpeed = Shader.PropertyToID("_TwinkleSpeed");
+        const double TwinkleLoop = 60.0;                            // noise cells; must match TWINKLE_LOOP in NightSky.shader
 
         [SerializeField, Tooltip("A material using the CriticalShift/NightSky shader.")] Material skyMaterial;
         [SerializeField, Tooltip("The directional light that plays the Moon.")] Light moonLight;
@@ -96,7 +98,10 @@ namespace CriticalShift.Presentation
             Shader.SetGlobalVector(MoonDir, moon);
             Shader.SetGlobalVector(MoonNorth, moonNorth);
             Shader.SetGlobalVector(SunDir, sun);
-            Shader.SetGlobalVector(SkyTime, new Vector4((float)(Time.timeAsDouble % 600.0), 0f, 0f, 0f));
+            // Twinkle phase: the shader walks a loop of radius TwinkleLoop through the noise at _TwinkleSpeed cells per second, so the phase
+            // wraps at 2 pi with no jump (a wrapped time in seconds made the whole star field pop at every wrap).
+            float twinkleSpeed = skyMaterial != null && skyMaterial.HasProperty(TwinkleSpeed) ? skyMaterial.GetFloat(TwinkleSpeed) : 7f;
+            Shader.SetGlobalVector(SkyTime, new Vector4((float)(Time.timeAsDouble * twinkleSpeed / TwinkleLoop % (2.0 * System.Math.PI)), 0f, 0f, 0f));
 
             if (moonLight == null || seconds < nextLightUpdate) return;
             nextLightUpdate = seconds + lightUpdateInterval;
