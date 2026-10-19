@@ -146,11 +146,12 @@ namespace CriticalShift.Scenarios
                         if (omitNextFeed) omitNextFeed = false; else contactSequences[who, source]++;
                         contactEligibleAt[who, source] = time + 150;
                         Require(contact!.ContaminationContact?.Sequence == contactSequences[who, source] &&
-                            contact.ContaminationContact.OriginalOutcome == expected && contact.ContaminationContact.SampleShiftMilliseconds == time &&
-                            feeds[who, source].LastAcceptedSequence == contactSequences[who, source] &&
-                            feeds[who, source].NextEligibleAtMilliseconds == contactEligibleAt[who, source],
+                            contact.ContaminationContact.OriginalOutcome == expected && contact.ContaminationContact.SampleShiftMilliseconds == time,
                             "Mixed feed sequence differs from independent accepted samples.");
                     }
+                    Require(feeds[who, source].LastAcceptedSequence == contactSequences[who, source] &&
+                        feeds[who, source].NextEligibleAtMilliseconds == contactEligibleAt[who, source],
+                        "Mixed feed hint or sequence drifted across a sampled or excluded call.");
                     var conditionAfter = world.GetWorker(worker.Id)!; var claimAfter = world.GetObject(Id(40 + who));
                     Require(conditionAfter.Contamination == after && conditionAfter.Awareness == worker.Awareness && conditionAfter.Pose == worker.Pose &&
                         conditionAfter.RecoveryEpisode == worker.RecoveryEpisode && conditionAfter.RecoveryAttempt == worker.RecoveryAttempt &&
