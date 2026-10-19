@@ -46,3 +46,21 @@ Neither the reviewer nor these offline checks ran native controls or GUI.
 Root authored all changes. Full verification is pending. Machine simulation,
 timing, input reservation, custody and resource rules are unchanged by this
 slice. The ongoing long probes remain attributed to their older frozen sources.
+
+## Final full verification
+
+Source `ba084341247ee621e6ad25ebe2769532115e1854` passed the verifier from
+2026-10-19T10:21:20.281135+00:00 to 2026-10-19T10:21:53.866567+00:00 UTC:
+**1,003 executed/passed, zero failed/skipped; 22 scenarios each twice**.
+All 20 focused cases ran. The real NUnit/scenario/invariant and independent
+medical/contact/backup/fitting/feed omission controls were rejected. Seed
+reproduction and report create-new checks passed. All 259 recorded source/input
+hashes match this commit; all nine frozen gameplay DLLs match the verifier's
+closure. Independent ignored snapshot:
+`runtime/out/operational-hints-verification-20261019`.
+
+Independent ultra source composition review found no remaining blocker in the
+examined graph/projection/consumer scope. Root authored the implementation.
+Native import, focus/keys, GUI, Player, physical behavior and multiplayer remain
+NotRun. Earlier long probe seconds do not cover this source revision. This is a
+reviewable readout prototype, not native or roadmap acceptance.
