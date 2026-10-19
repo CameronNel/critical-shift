@@ -102,7 +102,7 @@ namespace CriticalShift.Scenarios
             var configuration = new WorldSessionConfiguration(seed, duration, true, receiptCapacity: random.Next(1, 9), leaseMilliseconds: random.Next(100, 1001));
             int traceCapacity = random.Next(1, 130);
             var world = new WorldSession(configuration, policies, policies, traceCapacity: traceCapacity, maxProductionCycles: 96);
-            int actions = CheckSupplyModel(seed); Guid previousEpoch = Guid.Empty;
+            int actions = CheckSupplyModel(seed) + CheckClinicalModel(seed ^ 0x1a43d7); Guid previousEpoch = Guid.Empty;
             for (int lifetime = 0; lifetime < 3; lifetime++)
             {
                 var ports = Bind(world, random); world.Start(); long host = 0;
@@ -287,6 +287,93 @@ namespace CriticalShift.Scenarios
             Require(one.View.Outcome == (met ? WorldOutcome.Succeeded : WorldOutcome.Failed) && many.View.Outcome == one.View.Outcome,
                 "Deadline outcome disagrees with independent demand model.");
             one.Stop(); many.Stop(); return actions;
+        }
+
+        private static int CheckClinicalModel(int seed)
+        {
+            var random = new Random(seed); int duration = random.Next(1, 6001), shift = random.Next(1000, 10001);
+            int stock = random.Next(5), cost = random.Next(1, 11), reserve = random.Next(31), contamination = random.Next(101);
+            var policies = new Policies(); var world = new WorldSession(new WorldSessionConfiguration(seed, shift, true), policies, policies);
+            world.RegisterConnection(Id(100), Id(200)); world.RegisterConnection(Id(101), Id(201)); world.RegisterWorkerBody(Id(200), Id(40));
+            world.Reactor.Register(Id(30), new ReactorDefinition(Id(402), initialReserve: reserve));
+            world.Medical.Register(Id(50), new MedicalDefinition(duration, cost, stock));
+            var port = new LocalCommandPort(world, Id(101)); var patientPort = new LocalCommandPort(world, Id(100)); world.Start();
+            world.ApplyWorkerImpact(world.Epoch, Id(200), 1, WorkerImpact.Incapacitating, 0, Id(300), Id(301));
+            world.SetWorkerEnvironment(world.Epoch, Id(200), world.GetWorker(Id(200))!.Revision, WorkerSuit.Intact, contamination);
+            Require(port.Grab(Id(40)).HasNewCommit, "Clinical model could not retrieve its patient.");
+            Require(port.OperateMedical(Id(50), MedicalAction.Insert, Id(40)).HasNewCommit, "Clinical model could not load its patient.");
+            var first = port.OperateMedical(Id(50), MedicalAction.Start);
+            var expectedStatus = contamination > 50 ? MedicalStatus.Contaminated : stock == 0 ? MedicalStatus.NoCartridge :
+                reserve < cost ? MedicalStatus.InsufficientReserve : MedicalStatus.Applied;
+            Require(first.Medical?.Status == expectedStatus, "Clinical admission disagrees with independent resource/condition model.");
+            int used = 0, completed = 0, cancelled = 0, interrupted = 0, steps = 1;
+            bool removed = false, externallyAided = false; int expectedContamination = contamination; var expectedSuit = WorkerSuit.Intact;
+            if (expectedStatus == MedicalStatus.Applied)
+            {
+                used = 1; bool treating = true;
+                for (int i = 0; i < 3; i++) { Require(!port.ReplayLast().HasNewCommit, "Clinical start replay committed again."); steps++; }
+                switch (random.Next(9))
+                {
+                    case 1:
+                        int before = Math.Min(duration - 1, shift - 1); world.AdvanceTo(before); world.Pause(world.Epoch);
+                        world.AdvanceTo(60000); Require(world.Medical.Summary.CompletedCycles == 0, "Paused treatment completed early.");
+                        world.Resume(world.Epoch); world.AdvanceTo(60000L + shift); steps += 3; break;
+                    case 2:
+                        world.ApplyWorkerImpact(world.Epoch, Id(200), 2, WorkerImpact.Incapacitating, 0, Id(300), Id(302));
+                        interrupted = 1; treating = false; break;
+                    case 3:
+                        world.StabilizeWorker(world.Epoch, Id(200), world.GetWorker(Id(200))!.Revision, 0);
+                        world.Disconnect(world.Epoch, Id(101)); world.AdvanceTo(0);
+                        Require(patientPort.OperateMedical(Id(50), MedicalAction.EmergencyEject).HasNewCommit,
+                            "Externally aided sole patient could not leave the interrupted chamber.");
+                        interrupted = 1; treating = false; externallyAided = true; break;
+                    case 4:
+                        Require(port.OperateMedical(Id(50), MedicalAction.Cancel).HasNewCommit, "Clinical cancellation failed.");
+                        cancelled = 1; treating = false;
+                        var retry = port.OperateMedical(Id(50), MedicalAction.Start);
+                        var retryStatus = stock < 2 ? MedicalStatus.NoCartridge : reserve < cost * 2 ? MedicalStatus.InsufficientReserve : MedicalStatus.Applied;
+                        Require(retry.Medical?.Status == retryStatus, "Clinical retry disagrees with remaining stock/reserve model.");
+                        if (retryStatus == MedicalStatus.Applied) { used = 2; treating = true; }
+                        break;
+                    case 5:
+                        world.Disconnect(world.Epoch, Id(100)); removed = true; interrupted = 1; treating = false;
+                        Require(world.View.Phase == WorldPhase.Running && world.GetObject(Id(40))!.IsRetired, "Clinical patient disconnect faulted or retained its body."); break;
+                    case 6:
+                        world.Disconnect(world.Epoch, Id(101));
+                        if (duration < shift)
+                        {
+                            world.AdvanceTo(duration);
+                            Require(patientPort.OperateMedical(Id(50), MedicalAction.EmergencyEject).HasNewCommit,
+                                "Sole surviving clinical patient could not leave their ready chamber.");
+                            Require(world.GetObject(Id(40))!.SlotId == null, "Emergency chamber release retained slot custody.");
+                        }
+                        break;
+                    case 7:
+                        expectedContamination = random.Next(51); expectedSuit = WorkerSuit.Compromised;
+                        world.SetWorkerEnvironment(world.Epoch, Id(200), world.GetWorker(Id(200))!.Revision, WorkerSuit.Compromised, expectedContamination); break;
+                    case 8:
+                        expectedContamination = 51; expectedSuit = WorkerSuit.Compromised;
+                        world.SetWorkerEnvironment(world.Epoch, Id(200), world.GetWorker(Id(200))!.Revision, WorkerSuit.Compromised, expectedContamination);
+                        interrupted = 1; treating = false; break;
+                }
+                if (treating) { if (duration <= shift) completed = 1; else cancelled++; }
+            }
+            if (world.View.Phase == WorldPhase.Running) world.AdvanceTo(long.MaxValue);
+            var summary = world.Medical.Summary; var power = world.Reactor.PowerSummary!; steps++;
+            Require(summary.UsedCartridges == used && summary.RemainingCartridges == stock - used, "Clinical stock disagrees with independent cost model.");
+            Require(summary.CompletedCycles == completed && summary.CancelledCycles == cancelled && summary.InterruptedCycles == interrupted,
+                "Clinical terminal outcomes disagree with independent cycle model.");
+            Require(power.Spent == cost * used && power.Available == reserve - cost * used, "Clinical debit disagrees with independent reserve model.");
+            var patient = world.Debrief!.WorkersAtEnd.SingleOrDefault(w => w.Id == Id(200));
+            Require((patient == null) == removed, "Clinical terminal roster disagrees with disconnect model.");
+            if (patient != null)
+            {
+                Require(patient.Awareness == (completed > 0 || externallyAided ? WorkerAwareness.Alert : WorkerAwareness.Unconscious), "Clinical worker condition disagrees with model.");
+                Require(patient.Pose == WorkerPose.Down && patient.Contamination == expectedContamination && patient.Suit == expectedSuit,
+                    "Clinical completion overwrote patient facts.");
+            }
+            Require(world.WorkerCount == 0 && world.Medical.View == null && world.View.ActiveClaimCount == 0, "Clinical teardown leaked state.");
+            world.Stop(); return steps;
         }
     }
 }

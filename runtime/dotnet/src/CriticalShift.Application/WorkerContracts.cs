@@ -14,7 +14,7 @@ namespace CriticalShift.Application
         RevisionConflict, StaleRecovery, TooEarly, RequiresAid, InvalidState,
         ClearanceBlocked, ClearanceUnavailable, Cancelled, RecoveryExpired, UnknownWorker,
         WrongEpoch, NotReady, Paused, WorldEnded, WorldStopped, WorldFaulted, SourceCapacityReached,
-        BodyClaimed
+        BodyClaimed, BodySlotted
     }
 
     /// <summary>

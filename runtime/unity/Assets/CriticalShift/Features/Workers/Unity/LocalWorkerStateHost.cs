@@ -105,6 +105,8 @@ namespace CriticalShift.Features.Workers.Unity
                 { LastAction = "Recovery needs a down worker"; return; }
                 if (world.GetWorkerBodyClaim(actor)?.HolderId != null)
                 { LastAction = "Release the worker's suit grip before recovery"; return; }
+                if (world.GetWorkerBodyClaim(actor)?.SlotId != null)
+                { LastAction = "Eject the worker from the chamber before standing recovery"; return; }
                 var clearance = placement.Prepare();
                 if (clearance != RecoveryClearance.Safe) { LastAction = "Recovery: " + clearance; return; }
                 var begin = world.BeginWorkerRecovery(world.Epoch, actor, worker.RecoveryEpisode, worker.Revision);

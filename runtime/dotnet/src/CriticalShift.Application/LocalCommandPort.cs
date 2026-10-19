@@ -42,6 +42,8 @@ namespace CriticalShift.Application
         public PowerView? Power => _world.Reactor.PowerSummary;
         public ShiftContractView? Contract => _world.Contracts.View;
         public ShiftDebriefView? Debrief => _world.Debrief;
+        public MedicalView? Medical => _world.Medical.View;
+        public MedicalSummary MedicalSummary => _world.Medical.Summary;
         public SessionTraceView Trace => _world.Trace;
 
         public InteractionReply Grab(Guid entity) => Send(new InteractionCommand(_world.Epoch,
@@ -88,6 +90,19 @@ namespace CriticalShift.Application
                 action == ReactorAction.SetCooling && cooling);
             return Send(new InteractionCommand(_world.Epoch, NextSequence(), InteractionKind.Reactor,
                 reactorId, reactor: request));
+        }
+
+        public InteractionReply OperateMedical(Guid stationId, MedicalAction action, Guid body = default)
+        {
+            var station = _world.Medical.View;
+            var claim = _world.GetObject(action == MedicalAction.Insert ? body : station?.BodyId ?? Guid.Empty);
+            var request = new MedicalRequest(action, station?.Revision ?? 0,
+                action == MedicalAction.Insert ? body : Guid.Empty,
+                action == MedicalAction.Insert || action == MedicalAction.Eject || action == MedicalAction.EmergencyEject ? claim?.Revision ?? 0 : 0,
+                action == MedicalAction.Insert ? claim?.LeaseGeneration ?? 0 : 0,
+                action == MedicalAction.Start ? _world.GetWorker(station?.PatientId ?? Guid.Empty)?.Revision ?? 0 : 0);
+            return Send(new InteractionCommand(_world.Epoch, NextSequence(),
+                action == MedicalAction.EmergencyEject ? InteractionKind.MedicalEgress : InteractionKind.Medical, stationId, medical: request));
         }
 
         /// <summary>Resends the identical retained intent; its receipt never authorizes another physical effect.</summary>

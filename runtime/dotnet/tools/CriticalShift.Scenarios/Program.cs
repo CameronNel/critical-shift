@@ -121,7 +121,7 @@ namespace CriticalShift.Scenarios
         private ScenarioReport Report(string status, int completedRuns, string? error) =>
             new ScenarioReport(_name, status, completedRuns, _completed, _assertions, _step,
                 error, _world?.View, _world?.Trace, _world?.Production.Summary, _world?.Reactor.PowerSummary,
-                _world?.Contracts.View, _world?.Debrief);
+                _world?.Contracts.View, _world?.Debrief, _world?.Medical.Summary);
 
         private string Execute(JsonElement s)
         {
@@ -151,6 +151,7 @@ namespace CriticalShift.Scenarios
                         Number(s, "seq"), _operation == "grab" ? InteractionKind.Grab : InteractionKind.Release,
                         Id(checked((int)Number(s, "entity", 500))), Number(s, "revision", 0), Number(s, "lease", 0))).Status.ToString();
                 case "reactor": return ReactorScenarioSteps.Execute(s, _world, epoch, Id(100 + actor));
+                case "medical": return MedicalScenarioSteps.Execute(s, _world, epoch, Id(100 + actor));
                 case "production": return ProductionScenarioSteps.Execute(s, _world, epoch, Id(100 + actor));
                 case "disconnect":
                     int count = _world.View.ConnectedPlayerCount;
@@ -196,7 +197,8 @@ namespace CriticalShift.Scenarios
                         if (!ProductionScenarioSteps.TryRead(a, assertions, _world, out var actual, out var expected) &&
                             !ReactorScenarioSteps.TryRead(a, _world, out actual, out expected) &&
                             !ContractScenarioSteps.TryRead(a, assertions, _world, out actual, out expected) &&
-                            !DebriefScenarioSteps.TryRead(a, _world, out actual, out expected))
+                            !DebriefScenarioSteps.TryRead(a, _world, out actual, out expected) &&
+                            !MedicalScenarioSteps.TryRead(a, _world, out actual, out expected))
                             throw new ArgumentException("Unknown assertion: " + a.Name);
                         if (a.Name != "machine" && a.Name != "batch" && a.Name != "wave") Expect(actual, expected, a.Name);
                         break;
@@ -223,7 +225,7 @@ namespace CriticalShift.Scenarios
         {
             for (int i = 1; i <= 4; i++) world.RegisterConnection(Id(100 + i), Id(i));
             world.RegisterObject(Id(500)); ProductionScenarioSteps.Bind(_spec, world); ReactorScenarioSteps.Bind(_spec, world);
-            ContractScenarioSteps.Bind(_spec, world); world.Start();
+            ContractScenarioSteps.Bind(_spec, world); MedicalScenarioSteps.Bind(_spec, world); world.Start();
         }
         // Synthetic observations live only in this tool, never in runtime/Application/Domain.
         private sealed class ScriptedPolicies : IInteractionAccessPolicy, IWorkerRecoveryPolicy
@@ -238,9 +240,9 @@ namespace CriticalShift.Scenarios
     {
         internal ScenarioReport(string name, string status, int runs, int steps, int assertions, int lastStep,
             string? error, WorldSessionView? world, SessionTraceView? trace, ProductionSummary? production, PowerView? power,
-            ShiftContractView? contract, ShiftDebriefView? debrief)
+            ShiftContractView? contract, ShiftDebriefView? debrief, MedicalSummary? medical)
         { Name = name; Status = status; CompletedRuns = runs; CompletedSteps = steps; Assertions = assertions;
-          LastStep = lastStep; Error = error; FinalWorld = world; Trace = trace; Production = production; Power = power; Contract = contract; Debrief = debrief; }
+          LastStep = lastStep; Error = error; FinalWorld = world; Trace = trace; Production = production; Power = power; Contract = contract; Debrief = debrief; Medical = medical; }
         public string Scope => "Offline logical execution; synthetic access/clearance; no physics or network";
         public string Name { get; }
         public string Status { get; }
@@ -255,5 +257,6 @@ namespace CriticalShift.Scenarios
         public PowerView? Power { get; }
         public ShiftContractView? Contract { get; }
         public ShiftDebriefView? Debrief { get; }
+        public MedicalSummary? Medical { get; }
     }
 }

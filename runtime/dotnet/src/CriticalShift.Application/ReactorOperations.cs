@@ -7,7 +7,7 @@ using CriticalShift.Features.Reactor.Domain;
 namespace CriticalShift.Application
 {
     /// <summary>One bounded reactor and reserve per world. Commands enter through the existing interaction stream.</summary>
-    public sealed class ReactorOperations
+    public sealed partial class ReactorOperations
     {
         private readonly WorldSession _world;
         private readonly InteractionWorld _interaction;

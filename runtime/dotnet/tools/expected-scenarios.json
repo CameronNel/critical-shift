@@ -59,6 +59,21 @@
     "steps_per_run": 15,
     "assertions_per_run": 49
   },
+  "medical-stabilization": {
+    "runs": 2,
+    "steps_per_run": 15,
+    "assertions_per_run": 49
+  },
+  "medical-sole-survivor-egress": {
+    "runs": 2,
+    "steps_per_run": 14,
+    "assertions_per_run": 31
+  },
+  "medical-patient-disconnect": {
+    "runs": 2,
+    "steps_per_run": 6,
+    "assertions_per_run": 24
+  },
   "debrief-worker-recovery": {
     "runs": 2,
     "steps_per_run": 8,

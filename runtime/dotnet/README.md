@@ -1,4 +1,4 @@
-# Offline runtime: interaction, world, workers, production and reactor/power
+# Offline runtime: interaction, world, workers, production, reactor/power and stabilization
 
 **Start here for executable C# gameplay rules.** Planning remains in [design/code-architecture/](../../design/code-architecture/README.md). Current source integration and provenance are in [runtime/README.md](../README.md). This directory contains engine-independent libraries and executable tests, not a Unity project or physical simulation.
 
@@ -8,7 +8,7 @@
 | --- | --- | --- |
 | `src/CriticalShift.Features.Interaction.Domain/` | Exclusive object claims, versions, leases, slots and retirement | None |
 | `src/CriticalShift.Features.Session.Domain/` | Shift lifecycle, separate host/shift clocks and one-shot timers | None |
-| `src/CriticalShift.Features.Workers.Domain/` | Worker conditions, guarded recovery and deadlines | None |
+| `src/CriticalShift.Features.Workers.Domain/` | Worker conditions, guarded recovery, deadlines and logical stabilization chamber state | None |
 | `src/CriticalShift.Features.Materials.Domain/` | Quantities, batch ancestry and conversion accounting | None |
 | `src/CriticalShift.Features.Production.Domain/` | Recipe-cycle state, work, power and jam transitions | None |
 | `src/CriticalShift.Features.Reactor.Domain/` | Fictional finite fuel work, cooling, instability and trip state | None |
@@ -45,7 +45,7 @@ Use fresh report names for manual scenarios:
 dotnet run --project tools/CriticalShift.Scenarios --configuration Release -- --scenario scenarios/reactor-full-production-chain.json --report artifacts/manual-reactor-new.json --repeat 2
 ```
 
-The versioned scenario manifest includes worker/cleanup, production, reactor/power, demand-contract and debrief inputs. See the manifests and actual task/PR evidence for exact counts and results. [Shift contracts and debrief](SHIFT_CONTRACTS_AND_DEBRIEF.md) describes deadline settlement, window energy and retained result projections. The optional successful workflow package can run the same first-party scenario executable with a .NET 8 runtime; it is not a Unity Player or graphical game.
+The versioned scenario manifest includes worker/cleanup, production, reactor/power, demand-contract, debrief and powered-stabilization inputs. See the manifests and actual task/PR evidence for exact counts and results. [Shift contracts and debrief](SHIFT_CONTRACTS_AND_DEBRIEF.md) describes deadline settlement, window energy and retained result projections. [Powered stabilization](MEDICAL_STABILIZATION.md) covers the logical chamber's costs, recovery and patient emergency egress, including the missing physical adapter. The optional successful workflow package can run the same first-party scenario executable with a .NET 8 runtime; it is not a Unity Player or graphical game.
 
 ## Interaction calling contract
 
@@ -63,7 +63,7 @@ Release remains possible when reach changes. Unexpected access-policy or integri
 
 OFFLINE-001 through OFFLINE-004 supplied interaction, world/time, workers and production in consolidated PR #43. OFFLINE-005 imports that exact candidate into the WP-01 source branch, resolves its assembly collision, and adds this bounded reactor/power slice at Cameron's explicit request without either editor. Original branches/PRs are provenance, not separate active implementations to copy or independently merge over this candidate.
 
-Native Unity import, AOT/stripping, PlayMode, physical simulation and Player compatibility remain unverified. No roadmap gate or complete WP-01/WP-02 is declared passed. A seed in world configuration does not establish deterministic physics. The fixture is not full reactor/meltdown, power-distribution or demand-contract implementation.
+Native Unity import, AOT/stripping, PlayMode, physical simulation and Player compatibility remain unverified. No roadmap gate or complete WP-01/WP-02 is declared passed. A seed in world configuration does not establish deterministic physics. The fixture is not the full reactor/meltdown, power-distribution, continuous grid-demand or medical reanimation implementation.
 
 Not implemented here: physical controllers/carrying/loading, world geometry, network authentication/transport, input/UI, Steam, voice, persistence or checkpoint schemas. Current Blender sources, textures, licensed materials and art evidence are outside runtime cleanup and unchanged.
 

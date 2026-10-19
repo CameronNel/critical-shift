@@ -110,5 +110,30 @@ namespace CriticalShift.Sandbox.Tests
                 { evacuations++; Assert.That(row.Description, Does.Contain("Evacuation")); Assert.That(row.CauseId, Is.EqualTo(Id(150))); }
             Assert.That(evacuations, Is.EqualTo(1));
         }
+
+        [Test] public void TerminalTimelineShowsPaidStabilizationAndIgnoresHistoricalStartRetries()
+        {
+            var world = World(); world.RegisterConnection(Id(3), Id(4)); world.RegisterWorkerBody(Id(4), Id(5));
+            world.Medical.Register(Id(40), new MedicalDefinition(durationMilliseconds: 1000));
+            var commands = new LocalCommandPort(world, Id(2)); world.Start();
+            world.ApplyWorkerImpact(world.Epoch, Id(4), 1, WorkerImpact.Incapacitating, 0, Id(140), Id(150));
+            commands.Grab(Id(5)); commands.OperateMedical(Id(40), MedicalAction.Insert, Id(5));
+            commands.OperateMedical(Id(40), MedicalAction.Start); world.AdvanceTo(1000);
+            for (int i = 0; i < 20; i++) Assert.That(commands.ReplayLast().IsReplay, Is.True);
+            world.Stop(); int starts = 0, completions = 0;
+            foreach (var row in SandboxTraceFeed.DebriefEntries(world.Debrief!))
+            {
+                if (row.Medical == MedicalEvent.Started)
+                { starts++; Assert.That(row.Description, Does.Contain("6 reserve")); }
+                if (row.Medical == MedicalEvent.Completed)
+                {
+                    completions++; Assert.That(row.ShiftMilliseconds, Is.EqualTo(1000));
+                    Assert.That(row.ActorId, Is.EqualTo(Id(4))); Assert.That(row.CauseId, Is.EqualTo(Id(150)));
+                    Assert.That(row.Description, Does.Contain("eject before standing"));
+                }
+            }
+            Assert.That(starts, Is.EqualTo(1)); Assert.That(completions, Is.EqualTo(1));
+            Assert.That(world.Debrief!.Medical.UsedCartridges, Is.EqualTo(1));
+        }
     }
 }

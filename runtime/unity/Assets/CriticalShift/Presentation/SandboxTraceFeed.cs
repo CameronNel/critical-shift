@@ -14,8 +14,9 @@ namespace CriticalShift.Presentation
             internal Entry(SessionTraceRecord record, Guid cause, string description)
             {
                 Sequence = record.Sequence; ShiftMilliseconds = record.OccurredAtMilliseconds; EntityId = record.EntityId;
-                ActorId = record.ActorId; HazardId = record.HazardId;
+                ActorId = record.MedicalChange?.PatientId ?? record.ActorId; HazardId = record.HazardId;
                 Kind = record.Kind; Production = record.ProductionEvent; Reactor = record.ReactorEvent;
+                Medical = record.MedicalChange?.Kind;
                 CauseId = cause; Description = description;
             }
             public long Sequence { get; }
@@ -27,6 +28,7 @@ namespace CriticalShift.Presentation
             public SessionTraceKind Kind { get; }
             public ProductionEvent? Production { get; }
             public ReactorEvent? Reactor { get; }
+            public MedicalEvent? Medical { get; }
             public string Description { get; }
         }
 
@@ -81,6 +83,21 @@ namespace CriticalShift.Presentation
 
         private static string? Describe(SessionTraceRecord record)
         {
+            if (record.MedicalChange != null)
+            {
+                var care = record.MedicalChange;
+                switch (care.Kind)
+                {
+                    case MedicalEvent.Inserted: return "Worker loaded into stabilization chamber";
+                    case MedicalEvent.Started: return "Stabilization started · spent " + care.ReserveSpent + " reserve and one cartridge";
+                    case MedicalEvent.Completed: return "Worker stabilized · eject before standing recovery";
+                    case MedicalEvent.Cancelled: return "Stabilization cancelled · spent resources retained";
+                    case MedicalEvent.Interrupted: return "Stabilization interrupted · patient condition changed";
+                    case MedicalEvent.Ejected: return "Worker ejected from stabilization chamber";
+                    case MedicalEvent.PatientDisconnected: return "Disconnected patient released from stabilization chamber";
+                    case MedicalEvent.EmergencyEjected: return "Awake patient opened their own chamber · standing clearance still required";
+                }
+            }
             if (record.DemandChange != null)
             {
                 var wave = record.DemandChange.Wave;

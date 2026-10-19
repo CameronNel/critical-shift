@@ -50,12 +50,15 @@ namespace CriticalShift.Application
             Doors = new DoorOperations(this, _interaction);
             _interaction.BindDoors(Doors);
             Contracts = new ShiftContractOperations(this);
+            Medical = new MedicalOperations(this, _interaction, _workers);
+            _interaction.BindMedical(Medical);
         }
 
         public ProductionOperations Production { get; }
         public ReactorOperations Reactor { get; }
         public DoorOperations Doors { get; }
         public ShiftContractOperations Contracts { get; }
+        public MedicalOperations Medical { get; }
 
         // Bounded setup transaction; public callers cannot submit arbitrary mutation delegates.
         internal void RegisterProduction(Action registration)
@@ -122,7 +125,7 @@ namespace CriticalShift.Application
                 // Do not publish a terminal outcome before settlement: a failed owner
                 // must fault the world rather than leave a previously published timeout.
                 long elapsed = _timeline.PreviewElapsedAt(hostMilliseconds);
-                AdvanceProductionTo(elapsed, out var productionChanges, out var reactorChanges, out var demandChanges);
+                AdvanceProductionTo(elapsed, out var productionChanges, out var reactorChanges, out var demandChanges, out var medicalChanges);
                 bool ended = _timeline.AdvanceTo(hostMilliseconds, elapsed == Configuration.ShiftDurationMilliseconds ?
                     Contracts.DeadlineOutcome : TimelineOutcome.TimedOut);
                 if (reactorChanges.Count != 0)
@@ -143,6 +146,13 @@ namespace CriticalShift.Application
                     foreach (var change in demandChanges)
                         _diagnostics.Append(View, Epoch, SessionTraceKind.Contract, entity: change.Wave.Id, changed: true, demand: change);
                 }
+                if (medicalChanges.Count != 0)
+                {
+                    _revision = next;
+                    foreach (var change in medicalChanges)
+                        _diagnostics.Append(View, Epoch, SessionTraceKind.Medical, actor: change.PatientId,
+                            entity: change.Station.Id, changed: true, medical: change);
+                }
                 if (ended)
                 {
                     // End wins over advisory notifications in this batch, including overdue signals.
@@ -151,7 +161,7 @@ namespace CriticalShift.Application
                     _diagnostics.Append(View, Epoch, SessionTraceKind.Ended, changed: true);
                     CaptureDebrief();
                     return new WorldAdvanceResult(View, Array.Empty<WorldTimerSignal>(), Array.Empty<ObjectClaimView>(), true,
-                        productionChanges: productionChanges, reactorChanges: reactorChanges, demandChanges: demandChanges);
+                        productionChanges: productionChanges, reactorChanges: reactorChanges, demandChanges: demandChanges, medicalChanges: medicalChanges);
                 }
                 var released = _interaction.AdvanceTo(hostMilliseconds);
                 var workerChanges = _workers.ExpireRecovery(_timeline.ElapsedMilliseconds);
@@ -173,7 +183,7 @@ namespace CriticalShift.Application
                         previousWorkerRevision: change.Worker.Revision - 1);
                 if (timeChanged || released.Count != 0 || due.Count != 0)
                     _diagnostics.Append(View, Epoch, SessionTraceKind.Advanced, changed: true);
-                return new WorldAdvanceResult(View, signals.AsReadOnly(), released, false, workerChanges, productionChanges, reactorChanges, demandChanges);
+                return new WorldAdvanceResult(View, signals.AsReadOnly(), released, false, workerChanges, productionChanges, reactorChanges, demandChanges, medicalChanges);
             }
             catch { FailClosed(); throw; }
         }
@@ -298,11 +308,13 @@ namespace CriticalShift.Application
                 var released = _interaction.Disconnect(connectionId);
                 if (count != _interaction.ConnectedCount)
                 {
+                    MedicalChange? medical = null;
                     if (actor.HasValue)
                     {
                         var body = _workers.BodyFor(actor.Value);
                         if (body.HasValue)
                         {
+                            medical = Medical.DetachDisconnectedPatient(actor.Value, body.Value);
                             var retirement = _interaction.RetireDisconnectedWorkerBody(body.Value);
                             if (!retirement.HasNewCommit)
                                 throw new InvalidOperationException("A disconnected worker body could not be retired.");
@@ -311,6 +323,8 @@ namespace CriticalShift.Application
                         _workers.Remove(actor.Value); _timers.CancelOwner(epoch, actor.Value);
                     }
                     _revision = next;
+                    if (medical != null) _diagnostics.Append(View, epoch, SessionTraceKind.Medical, actor ?? Guid.Empty,
+                        medical.Station.Id, changed: true, medical: medical);
                     _diagnostics.Append(View, epoch, SessionTraceKind.Disconnected, actor ?? Guid.Empty,
                         released?.EntityId ?? Guid.Empty, changed: true);
                 }
@@ -383,7 +397,7 @@ namespace CriticalShift.Application
         private void StopOwnedResources()
         {
             if (closingRoster == null) closingRoster = _workers.Snapshot();
-            Contracts.Close(); Reactor.Clear(); Production.Clear(); _timers.Stop(); _interaction.Stop(); _workers.Clear();
+            Contracts.Close(); Medical.Clear(); Reactor.Clear(); Production.Clear(); _timers.Stop(); _interaction.Stop(); _workers.Clear();
         }
         private void FailClosed()
         {
@@ -437,8 +451,9 @@ namespace CriticalShift.Application
             {
                 // Rejections use the existing receipt stream; pause cannot create a sequence gap.
                 // Release and host-approved renewal remain possible while simulation is paused.
-                if (!_workers.CanInteract(actorId) ||
-                    ((kind == InteractionKind.Grab || kind == InteractionKind.Production || kind == InteractionKind.Reactor || kind == InteractionKind.Door) && _timeline.Phase != TimelinePhase.Running))
+                bool mayAct = _workers.CanInteract(actorId) || kind == InteractionKind.MedicalEgress && _workers.CanLeaveMedicalChamber(actorId);
+                if (!mayAct ||
+                    ((kind == InteractionKind.Grab || kind == InteractionKind.Production || kind == InteractionKind.Reactor || kind == InteractionKind.Door || kind == InteractionKind.Medical || kind == InteractionKind.MedicalEgress) && _timeline.Phase != TimelinePhase.Running))
                     return AccessDecision.ActorUnavailable;
                 if ((kind == InteractionKind.Grab || kind == InteractionKind.Renew) && !_workers.CanTargetBody(entityId))
                     return AccessDecision.TargetUnavailable;
