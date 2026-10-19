@@ -50,6 +50,16 @@ meshes = [o for o in members if o.type == 'MESH' and not o.hide_render and len(o
 tris = sum(sum(len(p.vertices) - 2 for p in o.data.polygons) for o in meshes)
 # zero-area faces (slivers the map's door cuts leave in the reactor walls) carry nothing to draw; FBX import drops them, as Unity's importer does
 zero_tris = sum(sum(len(p.vertices) - 2 for p in o.data.polygons if p.area < 1e-10) for o in meshes)
+# back faces: a second face on the same vertices with reversed winding (the mine's gravel tunnel is double-sided this way, 19,190 faces). The FBX keeps
+# them and Unity draws both sides; Blender's FBX importer, used for this round trip, cannot hold two faces on one vertex set and merges them.
+def back_face_tris(me):
+    seen, extra = set(), 0
+    for p in me.polygons:
+        k = tuple(sorted(p.vertices))
+        if k in seen: extra += len(p.vertices) - 2
+        else: seen.add(k)
+    return extra
+back_tris = sum(back_face_tris(o.data) for o in meshes)
 info.update(meshes=len(meshes), triangles=tris)
 if len(meshes) != report['objects']: fail('mesh objects %d, plan %d' % (len(meshes), report['objects']))
 if tris != report['triangles']: fail('triangles %d, plan %d' % (tris, report['triangles']))
@@ -122,7 +132,8 @@ with bpy.context.temp_override(scene=sc, view_layer=sc.view_layers[0]):
 imp = [o for o in sc.objects if o.type == 'MESH']
 itris = sum(sum(len(p.vertices) - 2 for p in o.data.polygons) for o in imp)
 if len(imp) != len(meshes): fail('FBX holds %d meshes, the scene %d' % (len(imp), len(meshes)))
-if not tris - zero_tris <= itris <= tris: fail('FBX holds %d triangles, the scene %d (%d of them in zero-area faces)' % (itris, tris, zero_tris))
+if not tris - zero_tris - back_tris <= itris <= tris:
+    fail('FBX holds %d triangles, the scene %d (%d of them in zero-area faces, %d in back faces)' % (itris, tris, zero_tris, back_tris))
 uvs = {tuple(u.name for u in o.data.uv_layers) for o in imp}
 if uvs != {('UVBake',)}: fail('FBX UV layers %s (want UVBake only)' % sorted(uvs)[:4])
 import re                                                         # the importer may add .001 to a name it already holds; a dot inside a name is kept
@@ -132,7 +143,7 @@ if fm - known - stripped: fail('FBX materials not in materials.json: %s' % sorte
 ilo, ihi = bounds(imp)
 if len(imp) and (not np.isfinite([blo, bhi, ilo, ihi]).all() or np.abs(ilo - blo).max() > 0.01 or np.abs(ihi - bhi).max() > 0.01):
     fail('FBX bounds %s..%s differ from the scene %s..%s by more than 1 cm' % (np.round(ilo, 3).tolist(), np.round(ihi, 3).tolist(), np.round(blo, 3).tolist(), np.round(bhi, 3).tolist()))
-info.update(fbx_meshes=len(imp), fbx_triangles=itris, zero_area_triangles=zero_tris, bounds=[np.round(blo, 3).tolist(), np.round(bhi, 3).tolist()])
+info.update(fbx_meshes=len(imp), fbx_triangles=itris, zero_area_triangles=zero_tris, back_face_triangles=back_tris, bounds=[np.round(blo, 3).tolist(), np.round(bhi, 3).tolist()])
 
 json.dump(dict(room=room, ok=not bad, problems=bad, **info), open(os.path.join(OUT, 'bake_check.json'), 'w'), indent=1)
 print('CHECK', room, 'OK' if not bad else 'FAILED (%d problems)' % len(bad), info, flush=True)
