@@ -1,4 +1,7 @@
 {
+  "DeadlineSettlesStoredWorkerExpiryIndependentlyOfHostSampling": 4,
+  "OverdueWorkerExpiryKeepsItsDeadlineSeparateFromObservationTime": 1,
+  "WorkerExpiryFailureFaultsBeforePublishingTheDeadlineResult": 1,
   "OriginalSandboxStockCanSupplyAllWindowsThroughSafeRecipes": 6,
   "DoorCommandsShareTheClaimStreamAndReturnDetachedSourceViews": 1,
   "LockedAndNonOperableDoorsRejectWithoutChangingRevision": 1,

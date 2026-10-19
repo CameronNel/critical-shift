@@ -32,6 +32,14 @@ A conscious Down worker can `BeginWorkerRecovery` only after RecoveryNotBeforeMi
 
 `CancelWorkerRecovery` can abort the matching pending attempt, including during pause. Pending recovery also has a bounded completion window: default 5,000 shift milliseconds, constructor-configurable from 1 to 60,000. This is an offline integration timeout fixture, not final animation/network tuning. AdvanceTo scans this stored deadline directly, returns expired worker changes in WorldAdvanceResult.WorkerChanges and leaves the worker Down for a fresh request. Missing or cancelled advisory prompts cannot suppress expiration. Pausing stops both recovery cooldown and this completion window; real-time claim expiry still continues.
 
+Required worker expiry also settles at the capped shift deadline before terminal
+outcome publication and roster capture. A large host jump and intermediate polls
+produce the same final condition. Terminal advances retain expired WorkerChanges
+while suppressing advisory signals. Expiry replies carry their stored deadline
+in nullable `OccurredAtMilliseconds`; diagnostic shift/host coordinates still
+describe when the owner observed the event. A failed expiry faults the world
+before a timeout result can be published.
+
 World timeout/finish/Stop/fault clears the worker roster along with claims/timers. Restart explicitly accepts new access and recovery policies and creates a new epoch; it does not silently retain an old engine clearance provider. Old observations, recovery callbacks and disconnects cannot modify the successor. A terminal snapshot still requires full engine-binding teardown when an engine adapter exists.
 
 ## Diagnostic trace

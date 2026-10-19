@@ -63,8 +63,9 @@ namespace CriticalShift.Application
             foreach (var actor in actors)
             {
                 var worker = _workers[actor];
+                long deadline = worker.Snapshot.RecoveryExpiresAt;
                 var result = worker.ExpireRecovery(now);
-                if (result == WorkerResult.RecoveryExpired) changed.Add(Reply(result, worker));
+                if (result == WorkerResult.RecoveryExpired) changed.Add(Reply(result, worker, occurredAt: deadline));
             }
             return changed.AsReadOnly();
         }
@@ -122,7 +123,7 @@ namespace CriticalShift.Application
                     new WorkerReply(WorkerStatus.ClearanceUnavailable, reply.Changed, reply.Worker) : reply;
         }
 
-        private WorkerReply Reply(WorkerResult result, WorkerState worker, ObjectClaimView? released = null)
+        private WorkerReply Reply(WorkerResult result, WorkerState worker, ObjectClaimView? released = null, long? occurredAt = null)
         {
             WorkerStatus status = result switch
             {
@@ -137,7 +138,7 @@ namespace CriticalShift.Application
                 _ => throw new InvalidOperationException("Unmapped worker outcome.")
             };
             return new WorkerReply(status, result == WorkerResult.Applied || result == WorkerResult.ClearanceBlocked || result == WorkerResult.RecoveryExpired,
-                Project(worker.Snapshot), released);
+                Project(worker.Snapshot), released, occurredAt);
         }
 
         private WorkerView Project(WorkerSnapshot s) => new WorkerView(_epoch, s.Id, s.Revision,

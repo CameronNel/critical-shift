@@ -34,8 +34,10 @@ hazards, blocked standing attempts and NoChange cannot inflate them. The
 bypass; a jammed/cancelled cycle is not a completed conversion. `Incapacitations`
 counts newly applied incapacitating impacts. `StandingRecoveries` does not mean
 medical reanimation. Production's completed conversions also include reactor
-fuel conversion to spent material. No profit, compliance or medical statistics
-are invented for systems not yet implemented.
+fuel conversion to spent material. `Stabilizations` counts explicit Aid commits;
+powered treatment has its separate `Medical.CompletedCycles` summary. These are
+different operation counts. No profit or compliance statistics are invented for
+systems not yet implemented.
 
 The incident journal retains up to min(trace capacity,128) significant events,
 independently of the raw diagnostic trace's routine samples. Retention selects
