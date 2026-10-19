@@ -37,6 +37,7 @@ namespace CriticalShift.Sandbox
             world.Reactor.Register(ReactorId, new ReactorDefinition(Id(501), millisecondsPerFuelUnit: 5000,
                 powerQuantumMilliseconds: 500, warningMilliseconds: 6000, tripMilliseconds: 12000,
                 resetMilliseconds: 1000, emergencyReliefMilliseconds: 5000));
+            world.Reactor.RegisterEmergencyPower(new EmergencyPowerDefinition());
             world.Contracts.Register(new ShiftContractDefinition(Id(800), "Restore the city supply",
                 new GridDemandWave(Id(801), "Prepare fuel and cooling", 2 * 60 * 1000, 0),
                 new GridDemandWave(Id(802), "Morning supply", 6 * 60 * 1000, 800, 30 * 1000),

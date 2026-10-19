@@ -32,7 +32,7 @@ namespace CriticalShift.Scenarios
                         case "--cases": cases = int.Parse(value); break;
                         case "--case-seed": onlySeed = int.Parse(value); break;
                         case "--control":
-                            if (value != "failure" && value != "medical-ledger" && value != "contamination-ledger") throw new ArgumentException("Unknown control.");
+                            if (value != "failure" && value != "medical-ledger" && value != "contamination-ledger" && value != "backup-ledger") throw new ArgumentException("Unknown control.");
                             control = value; break;
                         default: throw new ArgumentException("Unknown soak option.");
                     }
@@ -57,7 +57,7 @@ namespace CriticalShift.Scenarios
                 {
                     do
                     {
-                        actions += Exercise(currentSeed, control == "medical-ledger", control == "contamination-ledger"); completed++;
+                        actions += Exercise(currentSeed, control == "medical-ledger", control == "contamination-ledger", control == "backup-ledger"); completed++;
                         Require(control != "failure", "Intentional negative control.");
                         if (clock.Elapsed.TotalSeconds >= nextReport)
                         {
@@ -98,7 +98,7 @@ namespace CriticalShift.Scenarios
             public RecoveryClearance Evaluate(Guid epoch, Guid worker, long attempt) => Safe ? RecoveryClearance.Safe : RecoveryClearance.Blocked;
         }
 
-        private static int Exercise(int seed, bool dropMedicalStart = false, bool dropContact = false)
+        private static int Exercise(int seed, bool dropMedicalStart = false, bool dropContact = false, bool dropBackup = false)
         {
             var random = new Random(seed); var policies = new Policies(); int duration = random.Next(1200, 12001);
             var configuration = new WorldSessionConfiguration(seed, duration, true, receiptCapacity: random.Next(1, 9), leaseMilliseconds: random.Next(100, 1001));
@@ -159,6 +159,7 @@ namespace CriticalShift.Scenarios
                 Require(ports[2].Grab(Id(43)).HasNewCommit, "Initial mixed patient custody failed.");
                 Require(Medical(2, MedicalAction.Insert, Id(43)).HasNewCommit, "Initial mixed patient insertion failed.");
                 Require(Medical(2, MedicalAction.Start).HasNewCommit, "Initial treatment could not share reserve with active production/reactor.");
+                Require(Reactor(0, ReactorAction.StartBackup).HasNewCommit, "Initial backup supply could not join mixed owner work.");
                 medicalLedger.Check();
                 var previousDelivery = new long[3]; var previousSettled = new bool[3];
                 for (int step = 0; step < 240 && world.View.Phase != WorldPhase.Ended; step++)
@@ -167,7 +168,7 @@ namespace CriticalShift.Scenarios
                     Guid entity = random.Next(3) == 0 ? Id(40 + random.Next(4)) : Id(10 + random.Next(8));
                     Guid machine = Id(20 + random.Next(2));
                     policies.Allow = random.Next(8) != 0; policies.Safe = random.Next(4) != 0;
-                    switch (random.Next(25))
+                    switch (random.Next(27))
                     {
                         case 0: host += random.Next(351); Advance(host); break;
                         case 1: port.Grab(entity); break;
@@ -246,6 +247,10 @@ namespace CriticalShift.Scenarios
                                 medicalLedger.ObserveEnvironment(environment, worker.Id, contamination);
                             }
                             break;
+                        case 25:
+                        case 26:
+                            Reactor(who, random.Next(2) == 0 ? ReactorAction.StartBackup : ReactorAction.CancelBackup);
+                            break;
                         case 23:
                         case 24:
                             if (worker != null)
@@ -310,7 +315,7 @@ namespace CriticalShift.Scenarios
                 previousEpoch = world.Epoch;
                 if (lifetime < 2) world = world.Restart(policies, policies);
             }
-            return actions + ContaminationSoak.Exercise(random, dropContact);
+            return actions + ContaminationSoak.Exercise(random, dropContact) + EmergencyPowerSoak.Exercise(random, dropBackup);
         }
 
         private static LocalCommandPort[] Bind(WorldSession world, Random random, out MedicalDefinition medical)
@@ -323,6 +328,7 @@ namespace CriticalShift.Scenarios
             world.Production.RegisterMachine(Id(20), new MachineRecipe(Id(400), MaterialKind.Ore, MaterialKind.CrushedOre, 500, 250, 100, 100));
             world.Production.RegisterMachine(Id(21), new MachineRecipe(Id(401), MaterialKind.CrushedOre, MaterialKind.Fuel, 600, 300, 100, 100));
             world.Reactor.Register(Id(30), new ReactorDefinition(Id(402)));
+            world.Reactor.RegisterEmergencyPower(new EmergencyPowerDefinition(random.Next(100, 1001), random.Next(4, 16), 4));
             medical = new MedicalDefinition(random.Next(100, 1001), random.Next(1, 8), random.Next(2, 6));
             world.Medical.Register(Id(60), medical);
             world.RegisterWorkerContaminationSource(Id(62), new WorkerContaminationDefinition(WorkerContaminationKind.Exposure, 20, 150));

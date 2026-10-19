@@ -256,6 +256,10 @@ namespace CriticalShift.Presentation
                 GUILayout.Label("Powered stabilization · completed " + debrief.Medical.CompletedCycles +
                     " · cartridges used " + debrief.Medical.UsedCartridges + " · cancelled " + debrief.Medical.CancelledCycles +
                     " · interrupted " + debrief.Medical.InterruptedCycles, wrapped);
+            if (debrief.EmergencyPower != null && debrief.EmergencyPower.UsedCharges > 0)
+                GUILayout.Label("Backup power · charges used " + debrief.EmergencyPower.UsedCharges +
+                    " · completed " + debrief.EmergencyPower.CompletedCycles + " · cancelled " + debrief.EmergencyPower.CancelledCycles +
+                    " · reserve generated " + debrief.EmergencyPower.ProducedUnits, wrapped);
             GUILayout.Label("Worker impacts " + incidents.WorkerImpacts + " · incapacitating impacts " + incidents.Incapacitations +
                 " · successful standing recoveries " + incidents.StandingRecoveries, wrapped);
             GUILayout.Label("Machine jams " + incidents.MachineJams + " · completed bypass conversions " + incidents.BypassedConversions, wrapped);
@@ -331,6 +335,18 @@ namespace CriticalShift.Presentation
             if (GUILayout.Button("Emergency cooling")) ReactorRequested?.Invoke(reactor, ReactorAction.EmergencyCooling, Guid.Empty, false);
             if (GUILayout.Button("Reset trip")) ReactorRequested?.Invoke(reactor, ReactorAction.ResetTrip, Guid.Empty, false);
             GUILayout.EndHorizontal();
+            var backup = state.EmergencyPower;
+            if (backup != null)
+            {
+                GUILayout.Label("BACKUP POWER · stored charges " + backup.RemainingCharges + " · " + backup.ReserveUnitsPerCharge + " reserve per charge", wrapped);
+                if (backup.Running)
+                    GUILayout.Label("Backup completes in " + SandboxContractReadout.Clock(Math.Max(0, backup.DueAtMilliseconds - commands.World.ElapsedMilliseconds)) +
+                        " · cancellation keeps the charge used", wrapped);
+                GUILayout.BeginHorizontal();
+                if (GUILayout.Button("Start backup")) ReactorRequested?.Invoke(reactor, ReactorAction.StartBackup, Guid.Empty, false);
+                if (GUILayout.Button("Cancel backup")) ReactorRequested?.Invoke(reactor, ReactorAction.CancelBackup, Guid.Empty, false);
+                GUILayout.EndHorizontal();
+            }
         }
 
         private void ClearInput()

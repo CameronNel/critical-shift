@@ -378,5 +378,22 @@
   "DisconnectAndRestartRetireReceiptsAndOldEpochCannotContaminateTheSuccessor": 1,
   "SafeContactsPreserveAPendingStandingAttemptAndItsClearanceProtocol": 1,
   "NewNonnegativePastOrFutureSamplesCannotBackdateAContact": 2,
-  "MalformedContactSamplesCannotMutateConditionOrConsumeTheFirstReceipt": 3
+  "MalformedContactSamplesCannotMutateConditionOrConsumeTheFirstReceipt": 3,
+  "ZeroReserveBackupEnablesAnExplicitFueledReactorStart": 1,
+  "BackupRetryIsHistoricalAfterCompletionAndCannotSpendAnotherCharge": 1,
+  "CancelKeepsConsumedChargeAndExhaustionCannotMintAnotherCycle": 1,
+  "BackupPauseFreezesWorkAndFinalizesRejectedCommandSequences": 1,
+  "LargeAndPartitionedClockStepsPreserveBackupStorageAttribution": 3,
+  "DeadlineSettlesOnlyDueBackupWorkBeforeTerminalPublication": 3,
+  "BackupCannotPayContractDemandOrReportAnEarlySuccess": 1,
+  "FullReserveRejectsWithoutConsumingStockAndCurrentRevisionProtectsBothConsumers": 1,
+  "OperatorDisconnectLeavesPaidBackupAutonomousAndNewEpochHasFreshSetup": 1,
+  "BackupCausalityAndReadoutSurviveTraceEvictionWithoutFuelAttribution": 1,
+  "CompletionArithmeticFailureFaultsBeforePublishingDeadlineOrEnergy": 1,
+  "UnrepresentableBackupDueTimeRejectsBeforeStockConsumption": 1,
+  "DeniedBackupAccessFinalizesItsReceiptAndStaleCompetingStartCannotConsumeStock": 1,
+  "BackupMedicalAndCoreUseOneReserveRegardlessOfConsumerOrder": 2,
+  "BackupCommandsCannotCarryClientEnergyOrUnrelatedCoolingPayload": 2,
+  "OptionalBackupAndSetupRulesRejectBeforeCreatingUsableStock": 1,
+  "InvalidBackupDefinitionsCannotCreateACharge": 6
 }

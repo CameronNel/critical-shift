@@ -20,6 +20,9 @@ namespace CriticalShift.Scenarios
                 Number(r, "quantum", 100), checked((int)Number(r, "reservePerQuantum", 1)),
                 checked((int)Number(r, "gridPerQuantum", 4)), Number(r, "warning", 400), Number(r, "trip", 800),
                 Number(r, "reset", 100), Number(r, "emergencyRelief", 400)));
+            if (r.TryGetProperty("backup", out var backup))
+                world.Reactor.RegisterEmergencyPower(new EmergencyPowerDefinition(Number(backup, "duration", 5000),
+                    Number(backup, "output", 12), checked((int)Number(backup, "charges", 2))));
         }
         internal static string Execute(JsonElement step, WorldSession world, Guid epoch, Guid connection)
         {
@@ -33,11 +36,19 @@ namespace CriticalShift.Scenarios
         }
         internal static bool TryRead(JsonProperty a, WorldSession world, out object? actual, out object? expected)
         {
-            var core = world.Reactor.View; var power = world.Reactor.PowerSummary;
+            var core = world.Reactor.View; var power = world.Reactor.PowerSummary; var backup = world.Reactor.EmergencyPowerSummary;
             var trace = world.Trace.Records.LastOrDefault(x => x.ReactorChange != null);
             actual = null; expected = null;
             switch (a.Name)
             {
+                case "backupRunning": actual = backup?.Running; expected = a.Value.GetBoolean(); return true;
+                case "backupRemaining": actual = backup?.RemainingCharges; expected = a.Value.GetInt32(); return true;
+                case "backupUsed": actual = backup?.UsedCharges; expected = a.Value.GetInt32(); return true;
+                case "backupCompleted": actual = backup?.CompletedCycles; expected = a.Value.GetInt32(); return true;
+                case "backupCancelled": actual = backup?.CancelledCycles; expected = a.Value.GetInt32(); return true;
+                case "backupProduced": actual = backup?.ProducedUnits; expected = a.Value.GetInt64(); return true;
+                case "backupStored": actual = backup?.StoredUnits; expected = a.Value.GetInt64(); return true;
+                case "backupSpilled": actual = backup?.SpilledUnits; expected = a.Value.GetInt64(); return true;
                 case "reactorPresent": actual = core != null; expected = a.Value.GetBoolean(); return true;
                 case "reactorMode": actual = core?.Mode.ToString(); expected = a.Value.GetString(); return true;
                 case "reactorCooling": actual = core?.Cooling; expected = a.Value.GetBoolean(); return true;

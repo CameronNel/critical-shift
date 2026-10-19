@@ -25,9 +25,13 @@ namespace CriticalShift.Application
                 // A cumulative end-only power sample cannot recover how much was
                 // supplied in each skipped window. Evaluate the existing owners at
                 // every boundary instead; a quantum at the endpoint closes that wave.
-                long boundary = Math.Min(elapsed, Contracts.NextBoundary);
+                long boundary = Math.Min(elapsed, Math.Min(Contracts.NextBoundary, Reactor.NextBackupBoundary));
                 productionChanges.AddRange(Production.AdvanceTo(boundary));
                 reactorChanges.AddRange(Reactor.AdvanceTo(boundary));
+                // At the same coordinate core output precedes backup credit; an earlier
+                // backup due time must settle before any later core output can take headroom.
+                var backup = Reactor.CompleteBackupAt(boundary);
+                if (backup != null) reactorChanges.Add(backup);
                 var change = Contracts.Observe(boundary);
                 if (change != null) demandChanges.Add(change);
                 var care = Medical.AdvanceTo(boundary);

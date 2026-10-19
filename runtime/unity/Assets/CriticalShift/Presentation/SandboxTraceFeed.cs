@@ -136,6 +136,9 @@ namespace CriticalShift.Presentation
                     case ReactorEvent.Inserted: return "Fuel loaded";
                     case ReactorEvent.Ejected: return "Fuel container ejected";
                     case ReactorEvent.AuxiliaryPower: return "Reserve power used";
+                    case ReactorEvent.BackupStarted: return "Backup power started · one stored charge committed";
+                    case ReactorEvent.BackupCancelled: return "Backup power cancelled · charge remains used";
+                    case ReactorEvent.BackupCompleted: return "Backup power complete · generated " + reactor.GeneratedUnits + " reserve units";
                 }
             }
             switch (record.Kind)

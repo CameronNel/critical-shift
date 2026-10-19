@@ -45,6 +45,21 @@ No package, assembly edge, persistence or physical-volume authority is selected.
 [task evidence](../../runtime/validation/WORKER_CONTAMINATION.md) distinguish
 executed offline WORKER-02/CAUSE/POWER checks from native acceptance.
 
+### Authorized finite backup-power prototype, 19 October 2026
+
+The continuing request permits one optional finite supply in Power, composed by
+existing ReactorOperations and operated through its current target/revision and
+receipt stream. Charges, duration and output are authored D-09 fixtures, not a
+physical generator inventory. PowerAccount remains the only reserve balance;
+backup output never counts as grid delivery. Source completion is required owner
+work at an exact world cutoff, with core-before-backup tie ordering and ordinary
+spill accounting. Cancellation consumes its committed charge; operator loss
+does not cancel autonomous work. No new package or assembly edge is introduced.
+The existing temporary sandbox panel exposes commands but remains native NotRun.
+[Calling contract](../../runtime/dotnet/EMERGENCY_POWER.md) and
+[task evidence](../../runtime/validation/EMERGENCY_BLACK_START.md) scope POWER-02
+logical evidence without advancing native or roadmap gates.
+
 ## 1. Established constraints from the inspected repository
 
 Baseline inspected: `8235e7b10ee5cb7ba11d1a90dc6c4677991e20f6`.

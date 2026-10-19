@@ -1,0 +1,23 @@
+{
+ "name":"emergency-black-start","seed":42,"duration":3000,"traceCapacity":128,"pause":true,
+ "reactor":{"id":900,"reserve":0,"backup":{"duration":500,"output":12,"charges":2}},
+ "production":{"machines":[],"batches":[{"container":600,"id":610,"origin":620,"cause":630,"kind":"Fuel","units":10}]},
+ "steps":[
+  {"op":"grab","entity":600,"seq":1,"revision":0,"expect":"Applied"},
+  {"op":"reactor","seq":2,"action":"Insert","reactorRevision":1,"container":600,"objectRevision":1,"lease":1,"expect":"Applied"},
+  {"op":"reactor","seq":3,"action":"SetCooling","reactorRevision":2,"cooling":true,"expect":"Applied"},
+  {"op":"reactor","seq":4,"action":"Start","reactorRevision":3,"expect":"InsufficientReserve","assert":{"reserve":0,"pendingCycles":0}},
+  {"op":"reactor","seq":5,"action":"StartBackup","reactorRevision":3,"expect":"Applied","assert":{"backupRemaining":1,"backupUsed":1,"backupRunning":true,"reserve":0,"lastReactorCyclePresent":true}},
+  {"op":"reactor","seq":5,"action":"StartBackup","reactorRevision":3,"expect":"Applied","assert":{"backupUsed":1,"generatedPower":0}},
+  {"op":"advance","time":499,"expect":"Running","assert":{"backupRunning":true,"generatedPower":0}},
+  {"op":"advance","time":500,"expect":"Running","assert":{"backupRunning":false,"backupCompleted":1,"backupProduced":12,"backupStored":12,"backupSpilled":0,"reserve":12,"deliveredPower":0,"reactorMode":"Loaded","reactorRevision":5,"lastReactorEvent":"BackupCompleted","lastReactorAt":500}},
+  {"op":"reactor","seq":6,"action":"Start","reactorRevision":5,"expect":"Applied","assert":{"reserve":9,"spentPower":3}},
+  {"op":"advance","time":1500,"expect":"Running","assert":{"reactorMode":"Exhausted","batchKind":"SpentFuel","reserve":19,"generatedPower":62,"deliveredPower":40}},
+  {"op":"reactor","seq":7,"action":"StartBackup","reactorRevision":7,"expect":"Applied","assert":{"backupRemaining":0,"backupUsed":2}},
+  {"op":"reactor","seq":8,"action":"CancelBackup","reactorRevision":8,"expect":"Applied","assert":{"backupCancelled":1,"backupRunning":false,"reserve":19}},
+  {"op":"reactor","seq":9,"action":"StartBackup","reactorRevision":9,"expect":"NoBackupCharge","assert":{"backupProduced":12,"reserve":19}},
+  {"op":"advance","time":3000,"expect":"Ended","assert":{"reactorPresent":false,"backupCompleted":1,"backupCancelled":1,"backupRemaining":0,"backupUsed":2,"backupProduced":12,"reserve":19}},
+  {"op":"restart","expect":"Running","assert":{"reactorMode":"Empty","backupUsed":0,"backupRemaining":2,"reserve":0}},
+  {"op":"reactor","seq":10,"epoch":"previous","action":"StartBackup","reactorRevision":9,"expect":"WrongEpoch","assert":{"backupUsed":0,"reserve":0}}
+ ]
+}

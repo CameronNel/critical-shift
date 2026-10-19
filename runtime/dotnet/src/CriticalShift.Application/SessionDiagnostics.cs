@@ -20,14 +20,14 @@ namespace CriticalShift.Application
             DemandChange = demand;
             ContaminationContact = worker?.ContaminationContact;
             MedicalChange = medical ?? interaction?.Medical?.Change;
+            ReactorChange = reactor ?? interaction?.Reactor?.Change;
             HazardId = hazardId != Guid.Empty ? hazardId : worker?.Worker?.LastHazardId ?? Guid.Empty;
-            CauseId = causeId != Guid.Empty ? causeId : MedicalChange?.InjuryCauseId ?? interaction?.Door?.CauseId ?? worker?.Worker?.LastCauseId ?? Guid.Empty;
+            CauseId = causeId != Guid.Empty ? causeId : MedicalChange?.InjuryCauseId ?? ReactorChange?.CauseId ?? interaction?.Door?.CauseId ?? worker?.Worker?.LastCauseId ?? Guid.Empty;
             DoorResult = interaction?.Door?.Status; DoorAction = interaction?.Door?.Action;
             DoorRevision = interaction?.Door?.Door?.Revision; PreviousDoorRevision = interaction?.Door?.PreviousRevision;
             DoorState = interaction?.Door?.Door?.State; DoorSourceId = interaction?.Door?.Door?.SourceId;
             EvacuationResult = evacuation?.Status;
             ImpactSeverity = severity;
-            ReactorChange = reactor ?? interaction?.Reactor?.Change;
             ReactorEvent = changed ? ReactorChange?.Kind : null;
             ReactorResult = interaction?.Reactor?.Status;
             var change = production ?? interaction?.Production?.Change;
@@ -36,7 +36,7 @@ namespace CriticalShift.Application
             ProductionResult = interaction?.Production?.Status;
             // Replays retain historical attribution, but cannot publish a second committed event.
             ProductionEvent = changed ? change?.Kind : null;
-            CycleId = MedicalChange?.CycleId ?? change?.CycleId ?? interaction?.Production?.Machine?.CycleId ?? Guid.Empty;
+            CycleId = MedicalChange?.CycleId ?? ReactorChange?.CycleId ?? change?.CycleId ?? interaction?.Production?.Machine?.CycleId ?? Guid.Empty;
             RecipeId = change?.RecipeId ?? interaction?.Production?.Machine?.RecipeId ?? Guid.Empty;
             BypassedInspection = change?.BypassedInspection;
             BatchId = change?.Input.BatchId ?? interaction?.Production?.Batch?.BatchId ?? Guid.Empty;

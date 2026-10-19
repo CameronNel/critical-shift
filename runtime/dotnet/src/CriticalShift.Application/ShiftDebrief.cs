@@ -32,17 +32,18 @@ namespace CriticalShift.Application
     {
         internal ShiftDebriefView(WorldSessionView world, ShiftContractView? contract, ProductionSummary production,
             PowerView? power, IReadOnlyList<WorkerView> workers, ShiftIncidentTotals incidents,
-            IReadOnlyList<SessionTraceRecord> timeline, long droppedIncidents, MedicalSummary medical)
+            IReadOnlyList<SessionTraceRecord> timeline, long droppedIncidents, MedicalSummary medical, EmergencyPowerView? emergencyPower)
         {
             World = world; Contract = contract; Production = production; Power = power;
             WorkersAtEnd = workers; Incidents = incidents; Timeline = timeline; DroppedIncidents = droppedIncidents;
-            Medical = medical;
+            Medical = medical; EmergencyPower = emergencyPower;
         }
         public WorldSessionView World { get; }
         public ShiftContractView? Contract { get; }
         public ProductionSummary Production { get; }
         public PowerView? Power { get; }
         public MedicalSummary Medical { get; }
+        public EmergencyPowerView? EmergencyPower { get; }
         public IReadOnlyList<WorkerView> WorkersAtEnd { get; }
         public ShiftIncidentTotals Incidents { get; }
         /// <summary>Retained incidents sorted by occurrence time, then recording sequence. Bounded and explicitly incomplete when dropped.</summary>

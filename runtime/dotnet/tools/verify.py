@@ -98,7 +98,7 @@ def main() -> None:
     safety = verify_report_safety(Path(executable), ROOT / "scenarios/worker-recovery.json", ENV)
     (ARTIFACTS / "report-safety.json").write_text(json.dumps(safety, indent=2) + "\n")
     # Short compositional endurance smoke and a real failing invariant control.
-    soak_paths = {name: ARTIFACTS / ("soak-" + name + ".jsonl") for name in ("smoke", "negative", "medical-negative", "contamination-negative", "replay")}
+    soak_paths = {name: ARTIFACTS / ("soak-" + name + ".jsonl") for name in ("smoke", "negative", "medical-negative", "contamination-negative", "backup-negative", "replay")}
     for path in soak_paths.values(): path.unlink(missing_ok=True)
     run(["dotnet", executable, "--soak", "--cases", "12", "--report", str(soak_paths["smoke"])], "soak-smoke.log")
     pulses = [json.loads(line) for line in soak_paths["smoke"].read_text().splitlines()]
@@ -129,6 +129,12 @@ def main() -> None:
     if (failed_contact["Status"] != "Failed" or failed_contact["CaseSeed"] != 55 or
             failed_contact["Invariant"] != "Contact meter differs from independent raw-load ledger."):
         raise RuntimeError("The intentionally missing exposure was not caught by the independent contact ledger.")
+    run(["dotnet", executable, "--soak", "--case-seed", "55", "--control", "backup-ledger", "--report", str(soak_paths["backup-negative"])],
+        "soak-backup-negative.log", expect_failure=True)
+    failed_backup = json.loads(soak_paths["backup-negative"].read_text().splitlines()[-1])
+    if (failed_backup["Status"] != "Failed" or failed_backup["CaseSeed"] != 55 or
+            failed_backup["Invariant"] != "Backup reserve differs from independent source chronology."):
+        raise RuntimeError("The intentionally missing backup credit was not caught by the independent source ledger.")
     run(["dotnet", executable, "--soak", "--case-seed", "55", "--report", str(soak_paths["replay"])], "soak-replay.log")
     replay = json.loads(soak_paths["replay"].read_text().splitlines()[-1])
     if replay["Status"] != "Passed" or replay["Cases"] != 1: raise RuntimeError("Endurance seed reproduction failed.")
@@ -157,7 +163,7 @@ def main() -> None:
                                 "machines": {"sequences": 100, "actions": 20000}},
                "negative_control": "Expected failing NUnit test rejected by process and result checks",
                "scenarios": scenario_results, "report_safety": safety, "scenario_negative_controls": "Assertion mismatch and empty script rejected",
-               "logical_endurance_smoke": {"cases": 12, "seed_replay": "Passed", "invariant_negative_control": "Rejected", "medical_ledger_negative_control": "Rejected", "contamination_ledger_negative_control": "Rejected", "report_overwrite": "Rejected", "assembly_sha256": assembly_hashes},
+               "logical_endurance_smoke": {"cases": 12, "seed_replay": "Passed", "invariant_negative_control": "Rejected", "medical_ledger_negative_control": "Rejected", "contamination_ledger_negative_control": "Rejected", "backup_ledger_negative_control": "Rejected", "report_overwrite": "Rejected", "assembly_sha256": assembly_hashes},
                "unity": "NotRun", "physics": "NotRun", "multiplayer_transport": "NotRun",
                "source_sha256": source_hashes}
     (ARTIFACTS / "summary.json").write_text(json.dumps(summary, indent=2) + "\n")
