@@ -61,3 +61,13 @@ releases on a fresh retry. Two new atomicity cases cover first/second overflow;
 a third injects a post-journal lease fault to prove that already published
 production facts are not flushed again. All11 focused cases pass. Final full
 verification of this additional fix follows below.
+
+Final source `5d2c39733659ee0fa5a05a05a71ad3c5bc8366c7` passed13:55:37–
+13:56:24UTC: **1219 executed/passed, zero failed/skipped;28 scenarios each
+twice**. All285 recorded inputs and nine frozen DLL hashes match the candidate.
+All existing controls were rejected. Frozen seed20261066 passed10,000 mixed
+cases/15,604,834 selected operations/checks in40.1065863s. Both new lease
+atomicity cases fail on isolated pre-fix `7fa3ad90` and pass after the change.
+Independent ultra review found no blocker in batch preparation or publication.
+Raw final/baseline TRX,13 controls, scenarios and frozen probe report are
+preserved separately for the overnight handoff. Native remains NotRun.
