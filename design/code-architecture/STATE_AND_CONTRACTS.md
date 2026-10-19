@@ -124,6 +124,16 @@ intention; standing still requires normal recovery clearance. This is source
 scope, not full reanimation or physical acceptance. Calling contract and remaining
 adapter boundary: [powered stabilization](../../runtime/dotnet/MEDICAL_STABILIZATION.md).
 
+The October2026 discrete contamination slice uses the same Workers-owned0–100
+meter. Immutable authored source loads/cooldowns and bounded per-(worker,source)
+receipts admit trusted current-shift-time observations. PPE reduces new exposure;
+washing changes neither health, suit condition, injury identity nor custody.
+Unsafe accepted contamination changes immediately interrupt treatment once, so
+washing before a later poll cannot hide an unsafe excursion. Separate typed
+contact causes preserve original injury attribution. This is not radiation dose,
+physical-volume authority or a client self-report API. Calling contract and
+fixture values: [worker contacts](../../runtime/dotnet/WORKER_CONTAMINATION.md).
+
 Hazard observations include source, target, epoch, observation/tick identity and configured magnitude. Repeated observations are handled by the authored damage/cooldown rule, not an unqualified rule that every collision callback causes full damage. Gameplay bounds and units are named and testable. Randomness for incidents is owned and seeded explicitly; decorative effects use a separate stream so an extra particle cannot change a failure outcome.
 
 ## S08. Causality and bounded events

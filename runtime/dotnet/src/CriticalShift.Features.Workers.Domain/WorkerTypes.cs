@@ -10,7 +10,8 @@ namespace CriticalShift.Features.Workers.Domain
     public enum WorkerResult
     {
         Applied, Duplicate, InvalidInput, SequenceGap, TooOld, PayloadMismatch,
-        RevisionConflict, StaleRecovery, TooEarly, RequiresAid, InvalidState, ClearanceBlocked, RecoveryExpired, SourceCapacityReached
+        RevisionConflict, StaleRecovery, TooEarly, RequiresAid, InvalidState, ClearanceBlocked, RecoveryExpired, SourceCapacityReached,
+        NoChange, CoolingDown, StaleObservation
     }
 
     /// <summary>Detached worker facts; possession and physical pose are intentionally absent.</summary>

@@ -54,7 +54,11 @@ deadline cannot heal the patient. Advisory timers are not required for progress.
 Completion produces Alert/Down and a separate standing recovery deadline; it
 does not stand the patient, restore their suit or remove contamination. New
 injury episodes, awareness/posture changes or excessive contamination interrupt
-treatment once. Safe environment/suit revisions alone do not interrupt it.
+treatment once. Unsafe accepted contamination changes now interrupt immediately,
+including trusted absolute environment control and authored contacts; washing
+before another owner poll cannot hide the excursion. See the
+[contact contract](WORKER_CONTAMINATION.md). Injury/awareness changes retain their
+required owner-poll reconciliation. Safe environment/suit revisions alone do not interrupt it.
 Cancel, interruption and terminal cancellation retain spent resources. A new
 paid attempt is possible only if the current condition, stock and reserve allow
 it. Terminal cancellation counts a pending treatment once.

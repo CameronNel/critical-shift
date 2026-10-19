@@ -44,6 +44,20 @@ namespace CriticalShift.Application
             ExecuteWorker(epoch, actorId, SessionTraceKind.Environment, expectedRevision, false,
                 () => _workers.Environment(actorId, expectedRevision, suit, contamination));
 
+        public void RegisterWorkerContaminationSource(Guid sourceId, WorkerContaminationDefinition definition)
+        {
+            RequireIdle();
+            if (View.Phase != WorldPhase.Setup) throw new InvalidOperationException("Contamination source setup has closed.");
+            long next = NextRevision(); _workers.RegisterContaminationSource(sourceId, definition); _revision = next;
+        }
+
+        /// <summary>Trusted host contact observation, not an authenticated player's self-reported exposure or washing API.</summary>
+        public WorkerReply ObserveWorkerContamination(Guid epoch, Guid actorId, Guid sourceId, long observationSequence,
+            Guid causeId, long sampledShiftMilliseconds) =>
+            ExecuteWorker(epoch, actorId, SessionTraceKind.Contamination, observationSequence, false,
+                () => _workers.Contamination(actorId, sourceId, observationSequence, causeId, sampledShiftMilliseconds,
+                    _timeline.ElapsedMilliseconds), sourceId, causeId);
+
         public WorkerReply BeginWorkerRecovery(Guid epoch, Guid actorId, long episode, long expectedRevision) =>
             ExecuteWorker(epoch, actorId, SessionTraceKind.RecoveryRequested, episode, false,
                 () => _workers.Begin(_interaction, actorId, episode, expectedRevision, _timeline.ElapsedMilliseconds));
@@ -81,12 +95,28 @@ namespace CriticalShift.Application
             {
                 long next = NextRevision();
                 _executing = true;
-                try { reply = operation(); if (reply.Changed) _revision = next; }
+                try
+                {
+                    reply = operation();
+                    if (reply.Changed)
+                    {
+                        _revision = next;
+                        if (kind == SessionTraceKind.Environment || kind == SessionTraceKind.Contamination)
+                        {
+                            var medical = Medical.ObservePatientContamination(actor, reply.Worker!.Contamination, _timeline.ElapsedMilliseconds);
+                            if (medical != null) reply = new WorkerReply(reply.Status, reply.Changed, reply.Worker, reply.ReleasedClaim,
+                                reply.OccurredAtMilliseconds, reply.ContaminationContact, medical);
+                        }
+                    }
+                }
                 catch { FailClosed(); throw; }
                 finally { _executing = false; }
             }
             _diagnostics.Append(View, epoch, kind, actor, reply.ReleasedClaim?.EntityId ?? Guid.Empty,
                 input, reply.Changed, worker: reply, previousWorkerRevision: before, hazardId: hazardId, causeId: causeId, severity: severity);
+            if (reply.MedicalChange != null)
+                _diagnostics.Append(View, epoch, SessionTraceKind.Medical, actor, reply.MedicalChange.Station.Id,
+                    changed: true, hazardId: hazardId, causeId: causeId, medical: reply.MedicalChange);
             return reply;
         }
     }

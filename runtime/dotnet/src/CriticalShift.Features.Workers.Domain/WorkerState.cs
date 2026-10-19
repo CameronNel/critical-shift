@@ -8,7 +8,7 @@ namespace CriticalShift.Features.Workers.Domain
     /// One worker's conditions and recovery protocol. The caller supplies shift milliseconds;
     /// these deadlines do not depend on delivery of advisory timer notifications.
     /// </summary>
-    public sealed class WorkerState
+    public sealed partial class WorkerState
     {
         private readonly Guid _id;
         private readonly long _completionWindow;

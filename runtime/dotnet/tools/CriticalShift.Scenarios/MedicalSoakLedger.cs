@@ -93,6 +93,15 @@ namespace CriticalShift.Scenarios
 
         internal void BeforeAdvance()
         { polledCycle = cycle; polledPatient = cycle == Guid.Empty ? null : world.GetWorker(patient); }
+        internal void ObserveEnvironment(WorkerReply reply, Guid actor, int requestedContamination)
+        {
+            bool expected = reply.Changed && phase == MedicalPhase.Treating && actor == patient && requestedContamination > maximumContamination;
+            Require((reply.MedicalChange != null) == expected, "Mixed unsafe environment omitted or invented an immediate treatment interruption.");
+            if (!expected) return;
+            Require(reply.MedicalChange!.Kind == MedicalEvent.Interrupted && reply.MedicalChange.ShiftMilliseconds == world.View.ElapsedMilliseconds,
+                "Mixed unsafe environment chose the wrong treatment transition or time.");
+            Apply(reply.MedicalChange);
+        }
         private bool Eligible => polledPatient != null && polledPatient.Awareness == WorkerAwareness.Unconscious &&
             polledPatient.Pose == WorkerPose.Down && polledPatient.RecoveryEpisode == patientEpisode &&
             polledPatient.Contamination <= maximumContamination;

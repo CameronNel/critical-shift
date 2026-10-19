@@ -8,7 +8,7 @@ namespace CriticalShift.Application
     {
         Started, Advanced, Interaction, Impact, Aid, Environment,
         RecoveryRequested, RecoveryResolved, RecoveryCancelled, RecoveryExpired,
-        Disconnected, Ended, Stopped, Faulted, Production, Reactor, AttachmentFailed, LeaseExpired, Door, Evacuation, Contract, Medical
+        Disconnected, Ended, Stopped, Faulted, Production, Reactor, AttachmentFailed, LeaseExpired, Door, Evacuation, Contract, Medical, Contamination
     }
 
     /// <summary>Bounded typed diagnostic data. No arbitrary message, exception text, credential or callback.</summary>
@@ -18,6 +18,7 @@ namespace CriticalShift.Application
             Guid actorId, Guid entityId, long inputSequence, bool changed, WorkerReply? worker, InteractionReply? interaction, long? previousWorkerRevision, Guid hazardId, Guid causeId, WorkerImpact? severity, ProductionChange? production, ReactorChange? reactor, long? previousClaimRevision, DoorEvacuationReply? evacuation, GridDemandChange? demand, MedicalChange? medical)
         {
             DemandChange = demand;
+            ContaminationContact = worker?.ContaminationContact;
             MedicalChange = medical ?? interaction?.Medical?.Change;
             HazardId = hazardId != Guid.Empty ? hazardId : worker?.Worker?.LastHazardId ?? Guid.Empty;
             CauseId = causeId != Guid.Empty ? causeId : MedicalChange?.InjuryCauseId ?? interaction?.Door?.CauseId ?? worker?.Worker?.LastCauseId ?? Guid.Empty;
@@ -62,6 +63,7 @@ namespace CriticalShift.Application
         public Guid CauseId { get; }
         public GridDemandChange? DemandChange { get; }
         public MedicalChange? MedicalChange { get; }
+        public WorkerContaminationContact? ContaminationContact { get; }
         public DoorStatus? DoorResult { get; }
         public DoorAction? DoorAction { get; }
         public DoorState? DoorState { get; }

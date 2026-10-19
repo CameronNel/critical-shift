@@ -14,7 +14,7 @@ namespace CriticalShift.Application
         RevisionConflict, StaleRecovery, TooEarly, RequiresAid, InvalidState,
         ClearanceBlocked, ClearanceUnavailable, Cancelled, RecoveryExpired, UnknownWorker,
         WrongEpoch, NotReady, Paused, WorldEnded, WorldStopped, WorldFaulted, SourceCapacityReached,
-        BodyClaimed, BodySlotted
+        BodyClaimed, BodySlotted, NoChange, CoolingDown, StaleObservation, UnknownSource
     }
 
     /// <summary>
@@ -57,12 +57,16 @@ namespace CriticalShift.Application
     public sealed class WorkerReply
     {
         internal WorkerReply(WorkerStatus status, bool changed = false, WorkerView? worker = null,
-            ObjectClaimView? releasedClaim = null, long? occurredAtMilliseconds = null)
-        { Status = status; Changed = changed; Worker = worker; ReleasedClaim = releasedClaim; OccurredAtMilliseconds = occurredAtMilliseconds; }
+            ObjectClaimView? releasedClaim = null, long? occurredAtMilliseconds = null,
+            WorkerContaminationContact? contaminationContact = null, MedicalChange? medicalChange = null)
+        { Status = status; Changed = changed; Worker = worker; ReleasedClaim = releasedClaim; OccurredAtMilliseconds = occurredAtMilliseconds;
+          ContaminationContact = contaminationContact; MedicalChange = medicalChange; }
         public WorkerStatus Status { get; }
         public bool Changed { get; }
         public WorkerView? Worker { get; }
         public ObjectClaimView? ReleasedClaim { get; }
         public long? OccurredAtMilliseconds { get; }
+        public WorkerContaminationContact? ContaminationContact { get; }
+        public MedicalChange? MedicalChange { get; }
     }
 }

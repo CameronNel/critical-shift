@@ -83,6 +83,12 @@ namespace CriticalShift.Presentation
 
         private static string? Describe(SessionTraceRecord record)
         {
+            if (record.ContaminationContact != null && record.Changed)
+            {
+                var contact = record.ContaminationContact;
+                return (contact.Kind == WorkerContaminationKind.Exposure ? "Contamination exposure" : "Decontamination") +
+                    " · " + contact.Before + " -> " + contact.After;
+            }
             if (record.MedicalChange != null)
             {
                 var care = record.MedicalChange;
