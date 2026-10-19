@@ -45,14 +45,19 @@ namespace CriticalShift.Offline.Tests
         public void FittingRetainsOriginalProtectionUntilExactCompletionAndPreservesContamination(WorkerSuit original, int beforeLoad)
         {
             var f = new Setup(); f.World.SetWorkerEnvironment(f.World.Epoch, f.Actor, f.Worker.Revision, original, 0);
+            int originalSpeed = original == WorkerSuit.None ? 1000 : 800;
+            var beforeFitting = f.Worker; Assert.That(beforeFitting.SuitWalkSpeedPermille, Is.EqualTo(originalSpeed));
             f.Contact(1); Assert.That(f.Worker.Contamination, Is.EqualTo(beforeLoad)); long revision = f.Worker.Revision;
             var started = f.Start(); Applied(started); var attempt = f.Worker.SuitFitting!;
             Assert.That(f.Worker.Revision, Is.EqualTo(revision + 1)); Assert.That(f.Worker.CanInteract, Is.False); Assert.That(f.Worker.PhysicallyUpright, Is.True);
             Assert.That(f.Worker.Suit, Is.EqualTo(original)); Assert.That(attempt.OriginalSuit, Is.EqualTo(original));
+            Assert.That(f.Worker.SuitWalkSpeedPermille, Is.EqualTo(originalSpeed));
             Assert.That(f.World.AdvanceTo(14999).SuitFittingChanges, Is.Empty); Assert.That(f.Worker.Suit, Is.EqualTo(original));
             var done = f.World.AdvanceTo(15000).SuitFittingChanges.Single();
             Assert.That(done.Kind, Is.EqualTo(SuitFittingEvent.Completed)); Assert.That(done.Attempt.Id, Is.EqualTo(attempt.Id));
             Assert.That(done.ShiftMilliseconds, Is.EqualTo(15000)); Assert.That(f.Worker.Suit, Is.EqualTo(WorkerSuit.Intact));
+            Assert.That(f.Worker.SuitWalkSpeedPermille, Is.EqualTo(800)); Assert.That(done.Worker.SuitWalkSpeedPermille, Is.EqualTo(800));
+            Assert.That(beforeFitting.SuitWalkSpeedPermille, Is.EqualTo(originalSpeed));
             Assert.That(f.Worker.SuitFitting, Is.Null); Assert.That(f.Worker.CanInteract, Is.True); Assert.That(f.Worker.Contamination, Is.EqualTo(beforeLoad));
             f.Contact(2); Assert.That(f.Worker.Contamination, Is.EqualTo(beforeLoad + 5));
             Assert.That(f.Worker.LastCauseId, Is.EqualTo(Guid.Empty)); Assert.That(f.Worker.LastHazardId, Is.EqualTo(Guid.Empty));
@@ -103,6 +108,7 @@ namespace CriticalShift.Offline.Tests
             var first = f.Start(); Applied(first); var attempt = f.Worker.SuitFitting!; feed.Refresh(); f.World.AdvanceTo(15000); feed.Refresh();
             var retry = f.Port.ReplayLast(); feed.Refresh(); Assert.That(retry.IsReplay, Is.True); Assert.That(retry.HasNewCommit, Is.False);
             Assert.That(retry.SuitFitting!.Worker!.SuitFitting!.Id, Is.EqualTo(attempt.Id)); Assert.That(retry.SuitFitting.Worker.Suit, Is.EqualTo(WorkerSuit.None));
+            Assert.That(retry.SuitFitting.Worker.SuitWalkSpeedPermille, Is.EqualTo(1000)); Assert.That(f.Worker.SuitWalkSpeedPermille, Is.EqualTo(800));
             Assert.That(f.Worker.SuitFitting, Is.Null); Assert.That(f.Worker.Suit, Is.EqualTo(WorkerSuit.Intact));
             Assert.That(f.World.SuitFitting.Summary.Started, Is.EqualTo(1)); Assert.That(f.World.SuitFitting.Summary.Completed, Is.EqualTo(1));
             Assert.That(feed.Entries.Count(e => e.Description.Contains("fitting started")), Is.EqualTo(1));

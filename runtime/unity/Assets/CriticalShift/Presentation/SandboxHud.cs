@@ -153,7 +153,7 @@ namespace CriticalShift.Presentation
                     GUI.Label(new Rect(12, 174, Screen.width - 24, 150), SandboxContractReadout.Compact(contract), wrapped);
                 var localWorker = commands.GetWorker(actor);
                 if (localWorker != null)
-                    GUI.Label(new Rect(12, 326, Screen.width - 24, 64), "Suit " + localWorker.Suit + " · contamination " + localWorker.Contamination + "/100" +
+                    GUI.Label(new Rect(12, 326, Screen.width - 24, 64), "Suit " + localWorker.Suit + " · walking " + localWorker.SuitWalkSpeedPermille / 10 + "% · contamination " + localWorker.Contamination + "/100" +
                         (exposureCue == null ? "" : "\n" + exposureCue()), wrapped);
                 return;
             }
@@ -178,7 +178,7 @@ namespace CriticalShift.Presentation
                 }
                 GUILayout.Label("Held objects: " + world.ActiveClaimCount + " | " + actionStatus(), wrapped);
                 var worker = commands.GetWorker(actor);
-                if (worker != null) GUILayout.Label("Worker " + worker.Awareness + " / " + worker.Pose + " · suit " + worker.Suit + " · contamination " + worker.Contamination);
+                if (worker != null) GUILayout.Label("Worker " + worker.Awareness + " / " + worker.Pose + " · suit " + worker.Suit + " · walking " + worker.SuitWalkSpeedPermille / 10 + "% · contamination " + worker.Contamination, wrapped);
                 if (exposureCue != null)
                 {
                     GUILayout.Label(exposureCue(), wrapped);
@@ -186,6 +186,7 @@ namespace CriticalShift.Presentation
                 }
                 if (suitStation != Guid.Empty && worker != null)
                 {
+                    GUILayout.Label("Protective gear gives more protection and slows walking; compromised gear keeps its bulk. Carried loads slow walking further.", wrapped);
                     if (worker.SuitFitting != null)
                     {
                         GUILayout.Label("Suit fitting · " + SandboxContractReadout.Clock(Math.Max(0, worker.SuitFitting.DueAtMilliseconds - world.ElapsedMilliseconds)) +
