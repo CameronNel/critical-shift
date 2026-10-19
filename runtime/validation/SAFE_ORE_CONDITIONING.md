@@ -61,3 +61,25 @@ placement correction and checked current consumer migration. Root added active
 drying to mixed probes, preserving the existing independent contact/backup/
 clinical models and adding relational completion invariants. Full verification
 and a final mixed probe are pending.
+
+## Final full verification
+
+Source `4f486bd1413f64512c8af002c2dce650cabf02a1` passed the full verifier from
+2026-10-19T09:19:08.096990+00:00 to 2026-10-19T09:19:39.935427+00:00 UTC: **925 executed/passed, zero
+failed/skipped; 21 scenarios each twice**. All 19 focused drying cases executed.
+The real intentional NUnit/scenario/invariant and omitted medical/exposure/
+backup-credit controls were rejected, seed reproduction passed, and report
+create-new protections preserved existing bytes. The source/input hashes
+(241) match this commit; all nine frozen gameplay DLLs match the verifier.
+Ignored independent snapshot: `runtime/out/safe-drying-verification-20261019`.
+
+Mixed seed 20261034 passed 10,000 cases / 11,289,105 CheckedSteps in 24.84 s, with
+active drying alongside clinical, backup, production, reactor and contact work.
+Those are relational drying checks plus the existing independent models, not a
+new independent drying simulator or long-duration result. Earlier long probes
+remain attributed only to their own preserved snapshots.
+
+Independent integration review found no remaining blocker after the source-only
+placement correction. Root authored all fixes. The new native third-machine
+composition/loading/GUI, Unity import, Player, physics, human feel and multiplayer
+remain NotRun. The feature is a reviewable prototype, not roadmap acceptance.
