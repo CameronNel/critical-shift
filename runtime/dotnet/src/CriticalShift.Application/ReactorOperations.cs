@@ -26,7 +26,7 @@ namespace CriticalShift.Application
             _revision, (ReactorMode)(int)_core.Mode, _core.Cooling, _core.SuspectFuel, _core.WorkMilliseconds,
             _core.RemainingFuelMilliseconds, _core.InstabilityMilliseconds, _cycle,
             _input == null ? null : _world.Production.GetBatch(_input.ContainerId), ProjectPower(_power!),
-            _outputRouting, _core.CanStart, _core.CanReset, _core.CanEject, EmergencyPowerSummary);
+            _outputRouting, _core.CanStart, _core.CanReset, _core.CanEject, _core.CanDiscardFuel, EmergencyPowerSummary);
         public PowerView? PowerSummary => _power == null ? _terminalPower : ProjectPower(_power);
 
         public void Register(Guid id, ReactorDefinition definition) => _world.RegisterProduction(() =>
@@ -54,6 +54,7 @@ namespace CriticalShift.Application
                     return Reply(ReactorStatus.Applied, Change(ReactorEvent.OutputRoutingChanged, _world.View.ElapsedMilliseconds));
                 case ReactorAction.Insert: return Insert(actor, request);
                 case ReactorAction.Eject: return Eject(request);
+                case ReactorAction.DiscardFuel: return DiscardFuel(request);
                 case ReactorAction.Start: return Start();
                 case ReactorAction.SetCooling: return Commit(_core.SetCooling(request.Cooling), _power!, ReactorEvent.CoolingChanged);
                 case ReactorAction.Shutdown: return Commit(_core.Shutdown(), _power!, ReactorEvent.Shutdown);
@@ -101,6 +102,27 @@ namespace CriticalShift.Application
             // Preserve the original input and cycle separately from the resulting empty live view.
             return Reply(ReactorStatus.Applied, Change(ReactorEvent.Ejected, _world.View.ElapsedMilliseconds,
                 fuel: fuel, cycle: cycle), custody);
+        }
+
+        private InteractionReply DiscardFuel(ReactorRequest request)
+        {
+            if (_core!.Mode != CoreMode.Shutdown || _input == null || _cycle == Guid.Empty) return Reply(ReactorStatus.InvalidState);
+            if (!_core.Cooling) return Reply(ReactorStatus.NoCooling);
+            if (!_core.CanDiscardFuel) return Reply(ReactorStatus.Unsafe);
+            var fuel = _input; Guid cycle = _cycle; long remaining = _core.RemainingFuelMilliseconds;
+            var next = _core.DiscardFuel(); long revision = checked(_revision + 1);
+            var claim = _world.GetObject(fuel.ContainerId);
+            if (claim == null || claim.IsRetired || claim.HolderId.HasValue || claim.SlotId != _id || _interaction.SlotOccupant(_id) != fuel.ContainerId)
+                throw new InvalidOperationException("Fuel discard lost its exact slotted container.");
+            _world.Production.ValidateFuelCompletion(cycle, _id, _definition!.Id, fuel);
+            var custody = _interaction.EjectBatch(_id, request.ObjectRevision);
+            if (!custody.HasNewCommit) return Reply(ReactorStatus.CustodyRejected, custody: custody);
+            // All expected admission and arithmetic have completed. No callbacks/awaits between the two owners' installs.
+            _world.Production.FinishFuel(cycle);
+            var conversion = _world.Production.GetConversion(cycle) ?? throw new InvalidOperationException("Fuel discard lost its completed conversion.");
+            _core = next; _input = null; _cycle = Guid.Empty; _revision = revision;
+            return Reply(ReactorStatus.Applied, Change(ReactorEvent.FuelDiscarded, _world.View.ElapsedMilliseconds,
+                fuel: fuel, cycle: cycle, discardedFuelMilliseconds: remaining, discardedFuel: conversion), custody);
         }
 
         private InteractionReply Start()
@@ -181,12 +203,12 @@ namespace CriticalShift.Application
             _outputRouting = ReactorOutputRouting.Balanced;
         }
         private ReactorChange Change(ReactorEvent kind, long at, ReactorRisk risk = ReactorRisk.None,
-            long generated = 0, long spent = 0, MaterialView? fuel = null, Guid? cycle = null)
+            long generated = 0, long spent = 0, MaterialView? fuel = null, Guid? cycle = null, long discardedFuelMilliseconds = 0, ConversionView? discardedFuel = null)
         {
             fuel = fuel ?? _input;
             Guid cause = risk == ReactorRisk.CoolingLost ? _coolingCause : fuel?.CauseId ?? Guid.NewGuid();
             if (cause == Guid.Empty) throw new InvalidOperationException("A committed reactor event requires a cause.");
-            return new ReactorChange(kind, View!, at, cycle ?? _cycle, fuel?.BatchId ?? Guid.Empty, cause, risk, generated, spent);
+            return new ReactorChange(kind, View!, at, cycle ?? _cycle, fuel?.BatchId ?? Guid.Empty, cause, risk, generated, spent, discardedFuelMilliseconds, discardedFuel);
         }
         private InteractionReply Reply(ReactorStatus status, ReactorChange? change = null, InteractionReply? custody = null)
         {

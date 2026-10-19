@@ -563,5 +563,19 @@
   "MalformedRemovalCannotConsumeTheNextSequence": 3,
   "RemovalDurationBoundsDoNotRelaxTheExistingFittingBounds": 3,
   "DomainCannotUseRemovalToCreateAClientChosenDamagedOrUnknownSuit": 2,
-  "RemovalTraceAndDebriefDistinguishTheOperationAndPreservePriorInjury": 1
+  "RemovalTraceAndDebriefDistinguishTheOperationAndPreservePriorInjury": 1,
+  "DiscardForfeitsAllRemainingFuelWithoutNewOutputRefundOrQuantityLoss": 3,
+  "DiscardCannotSkipTheExplicitShutdownState": 5,
+  "DiscardRequiresOpenCoolingAndTheInclusiveResetThreshold": 1,
+  "StaleDiscardCustodyRejectsBeforeFuelConversionOrAnyOtherMutation": 1,
+  "ExistingReservedFuelCanBeDiscardedWithNoRemainingHistoryCapacity": 1,
+  "DiscardReplayCannotEmptyFreshFuelOrCarryOldPartialWorkIntoTheNewCycle": 1,
+  "DiscardPreservesOutputRoutingAndRunningBackupWithoutCreditingLostFuel": 1,
+  "DiscardKeepsInheritedInspectionHistoryAndFullInputOutputLineage": 1,
+  "OrdinaryUnusedAndExhaustedEjectionKeepTheirExistingMaterialSemantics": 2,
+  "PausedDiscardAndOutOfReachDiscardCannotConsumeFuel": 1,
+  "FuelCompletionHelperCannotCountItsRetainedReceiptTwice": 1,
+  "DiscardSnapshotsSurviveRawTraceEvictionAndMaterialOwnerTeardown": 1,
+  "DiscardRejectsUnrelatedPayloadWithoutConsumingTheConnectionSequence": 5,
+  "DiscardGuidanceExplainsCoolingWaitAndIrreversibleLostTime": 1
 }

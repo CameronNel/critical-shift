@@ -17,12 +17,25 @@ namespace CriticalShift.Application
                 BatchKind.SpentFuel, 1000, input.Moisture, false);
         }
         internal void ReserveFuel(ConversionPlan plan) => _materials.Reserve(plan);
+        internal void ValidateFuelCompletion(Guid cycle, Guid reactor, Guid definition, MaterialView expected)
+        {
+            var plan = _materials.GetPending(cycle);
+            if (expected.Epoch != _world.Epoch || plan == null || plan.MachineId != reactor || plan.RecipeId != definition ||
+                plan.Input.ContainerId != expected.ContainerId || plan.Input.BatchId != expected.BatchId || plan.Input.Revision != expected.Revision ||
+                plan.Input.Kind != BatchKind.Fuel || plan.Output.Kind != BatchKind.SpentFuel || plan.WasteUnits != 0 ||
+                !ReferenceEquals(_materials.Get(expected.ContainerId), plan.Input))
+                throw new InvalidOperationException("Fuel completion lost its exact reserved input or full-yield spent output.");
+            _ = checked(_completed + 1);
+        }
         internal void FinishFuel(Guid cycle)
         {
-            // Caller invokes once at the operating-state exhaustion transition, not on a repeated tick.
+            // A retained completed receipt cannot increment accounting again.
+            var previous = _materials.GetReceipt(cycle);
+            if (previous?.Status == ConversionStatus.Completed) return;
+            int completed = checked(_completed + 1);
             var receipt = _materials.Finish(cycle, false);
             if (receipt.Status != ConversionStatus.Completed) throw new InvalidOperationException("Cancelled fuel cycle cannot finish.");
-            _completed++;
+            _completed = completed;
         }
     }
 }

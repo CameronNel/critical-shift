@@ -38,12 +38,12 @@ namespace CriticalShift.Application
             // Replays retain historical attribution, but cannot publish a second committed event.
             ProductionEvent = changed ? change?.Kind : null;
             CycleId = SuitFittingChange?.Attempt.Id ?? MedicalChange?.CycleId ?? ReactorChange?.CycleId ?? change?.CycleId ?? interaction?.Production?.Machine?.CycleId ?? Guid.Empty;
-            RecipeId = change?.RecipeId ?? interaction?.Production?.Machine?.RecipeId ?? Guid.Empty;
-            BypassedInspection = change?.BypassedInspection;
-            BatchId = change?.Input.BatchId ?? interaction?.Production?.Batch?.BatchId ?? carriedMaterial?.BatchId ?? Guid.Empty;
-            OutputBatchId = change?.Output?.BatchId ?? Guid.Empty;
-            MaterialCauseId = change?.Input.CauseId ?? interaction?.Production?.Batch?.CauseId ?? carriedMaterial?.CauseId ?? Guid.Empty;
-            WasteUnits = change?.WasteUnits;
+            RecipeId = change?.RecipeId ?? ReactorChange?.DiscardedFuel?.RecipeId ?? interaction?.Production?.Machine?.RecipeId ?? Guid.Empty;
+            BypassedInspection = change?.BypassedInspection ?? ReactorChange?.DiscardedFuel?.BypassedInspection;
+            BatchId = change?.Input.BatchId ?? interaction?.Production?.Batch?.BatchId ?? ReactorChange?.DiscardedFuel?.Input.BatchId ?? carriedMaterial?.BatchId ?? Guid.Empty;
+            OutputBatchId = change?.Output?.BatchId ?? ReactorChange?.DiscardedFuel?.Output?.BatchId ?? Guid.Empty;
+            MaterialCauseId = change?.Input.CauseId ?? interaction?.Production?.Batch?.CauseId ?? ReactorChange?.DiscardedFuel?.Input.CauseId ?? carriedMaterial?.CauseId ?? Guid.Empty;
+            WasteUnits = change?.WasteUnits ?? ReactorChange?.DiscardedFuel?.WasteUnits;
             ProductionReserveSpent = change?.ReserveSpent;
             Sequence = sequence; Epoch = world.Epoch; RequestEpoch = requestEpoch; Kind = kind;
             ActorId = actorId; EntityId = entityId; InputSequence = inputSequence; Changed = changed;

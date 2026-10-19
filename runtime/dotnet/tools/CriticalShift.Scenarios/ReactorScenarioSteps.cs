@@ -51,6 +51,8 @@ namespace CriticalShift.Scenarios
                 case "backupSpilled": actual = backup?.SpilledUnits; expected = a.Value.GetInt64(); return true;
                 case "reactorPresent": actual = core != null; expected = a.Value.GetBoolean(); return true;
                 case "reactorMode": actual = core?.Mode.ToString(); expected = a.Value.GetString(); return true;
+                case "reactorCanDiscard": actual = core?.CanDiscardFuel; expected = a.Value.GetBoolean(); return true;
+                case "lastDiscardedFuelMs": actual = trace?.ReactorChange?.DiscardedFuelMilliseconds; expected = a.Value.GetInt64(); return true;
                 case "reactorOutputRouting": actual = core?.OutputRouting.ToString(); expected = a.Value.GetString(); return true;
                 case "reactorCooling": actual = core?.Cooling; expected = a.Value.GetBoolean(); return true;
                 case "reactorSuspect": actual = core?.SuspectFuel; expected = a.Value.GetBoolean(); return true;

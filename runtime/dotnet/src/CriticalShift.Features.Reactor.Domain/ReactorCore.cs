@@ -76,6 +76,7 @@ namespace CriticalShift.Features.Reactor.Domain
         public bool CanStart => (Mode == CoreMode.Loaded || Mode == CoreMode.Shutdown) && Cooling &&
             RemainingFuelMilliseconds > 0 && InstabilityMilliseconds < _rules.WarningMilliseconds;
         public bool CanReset => Mode == CoreMode.Tripped && Cooling && InstabilityMilliseconds <= _rules.ResetMilliseconds;
+        public bool CanDiscardFuel => Mode == CoreMode.Shutdown && Cooling && InstabilityMilliseconds <= _rules.ResetMilliseconds;
         public bool CanEject => Mode == CoreMode.Loaded || (Mode == CoreMode.Exhausted && InstabilityMilliseconds <= _rules.ResetMilliseconds);
 
         private ReactorCore Copy(CoreMode? mode = null, bool? cooling = null, long? instability = null) =>
@@ -92,6 +93,11 @@ namespace CriticalShift.Features.Reactor.Domain
         public ReactorCore Eject()
         {
             if (!CanEject) throw new InvalidOperationException("An active or partly used fuel cycle cannot be ejected in this slice.");
+            return new ReactorCore(_rules, CoreMode.Empty, Cooling, false, 0, 0, 0, SampleMilliseconds);
+        }
+        public ReactorCore DiscardFuel()
+        {
+            if (!CanDiscardFuel) throw new InvalidOperationException("Fuel discard requires shutdown, cooling and a safe instability level.");
             return new ReactorCore(_rules, CoreMode.Empty, Cooling, false, 0, 0, 0, SampleMilliseconds);
         }
         public ReactorCore Start()
