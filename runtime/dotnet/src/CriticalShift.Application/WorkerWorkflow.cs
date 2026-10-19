@@ -64,6 +64,7 @@ namespace CriticalShift.Application
                 throw new InvalidOperationException("Contamination sources must be unique and bounded.");
             _contaminationSources.Add(source, definition.Rules);
         }
+        internal bool HasContaminationSource(Guid source) => _contaminationSources.ContainsKey(source);
         internal WorkerReply Contamination(Guid actor, Guid source, long sequence, Guid cause, long sample, long now)
         {
             if (!_workers.TryGetValue(actor, out var worker)) return new WorkerReply(WorkerStatus.UnknownWorker);

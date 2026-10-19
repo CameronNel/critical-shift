@@ -150,6 +150,15 @@ contact causes preserve original injury attribution. This is not radiation dose,
 physical-volume authority or a client self-report API. Calling contract and
 fixture values: [worker contacts](../../runtime/dotnet/WORKER_CONTAMINATION.md).
 
+Timed fitting keeps its pending attempt in the same worker owner. Original PPE
+remains until exact completion; busy availability is separate from physical
+upright eligibility so gravity and hazards remain active. Current sampled access
+loss has current-poll attribution, while valid completion has exact due timing.
+The temporary fixture may feed contact observations from explicit pelvis points
+inside authored boxes, with canonical source receipts/cooldown and no catch-up
+integration. That is sampled spatial presence, not accepted full-body/continuous
+exposure or a client-controlled outcome. Native adapters remain unverified.
+
 Hazard observations include source, target, epoch, observation/tick identity and configured magnitude. Repeated observations are handled by the authored damage/cooldown rule, not an unqualified rule that every collision callback causes full damage. Gameplay bounds and units are named and testable. Randomness for incidents is owned and seeded explicitly; decorative effects use a separate stream so an extra particle cannot change a failure outcome.
 
 ## S08. Causality and bounded events

@@ -22,6 +22,8 @@ namespace CriticalShift.Sandbox
         private WorkerImpactContacts workerContacts;
         private LocalWorkerStateHost patientState;
         private WorkerImpactContacts patientContacts;
+        private WorkerBodyRig localRig, patientRig;
+        private WorkerContaminationZones contaminationZones;
         private WorkerRecoveryRegistry recovery;
         private CartMotor cart;
         private CartCargoSensor cargo;
@@ -63,6 +65,7 @@ namespace CriticalShift.Sandbox
                     () => world.View.Phase == WorldPhase.Running || world.View.Phase == WorldPhase.Paused, host.ReportExternalFailure);
                 host.BindFocus(() => access.PickTarget(actor), access.DisplayName);
                 BuildRoom(); BuildWorker(); BuildPatient(); BuildContainers(); BuildMachines(); BuildReactor(); BuildSuitStation(); BuildCart(); BuildConveyor();
+                BuildContaminationZones();
                 hud = root.AddComponent<SandboxHud>();
                 hud.Initialize(commands, actor, containers, machines, reactor, patient, () => host.FocusHint + "\n" + host.LastAction,
                     () => "Cart " + cart.Speed.ToString("F1") + " m/s · cargo " + cargo.Mass.ToString("F0") + " kg" +
@@ -73,6 +76,7 @@ namespace CriticalShift.Sandbox
                         (safety.FaultLatched ? "\nPHYSICS STOP: " + safety.Fault : "") +
                         "\n" + workerState.LastAction + (workerState.CrawlDriveActive ? " · crawling" : "") + "\nPatient: " + patientState.LastAction,
                     access.DisplayName, SandboxGameplaySetup.SuitStationId);
+                hud.BindExposureCue(() => contaminationZones.Describe(actor));
                 hud.GrabRequested += host.Grab; hud.ReleaseRequested += host.Release;
                 hud.MachineRequested += host.OperateMachine; hud.ReactorRequested += host.OperateReactor;
                 hud.SuitFittingRequested += host.OperateSuitFitting;
@@ -93,7 +97,7 @@ namespace CriticalShift.Sandbox
                 hud.RecoveryRequested += workerState.RequestRecovery; hud.DiagnosticKnockdownRequested += workerState.DiagnosticKnockdown;
                 hud.PatientRecoveryRequested += patientState.RequestRecovery; hud.PatientKnockdownRequested += patientState.DiagnosticKnockdown;
                 recovery.Seal(); host.Activate(); workerState.Activate(); patientState.Activate();
-                workerContacts.Activate(); patientContacts.Activate(); patientState.DiagnosticKnockdown(); safety.Activate(); hud.Activate();
+                workerContacts.Activate(); patientContacts.Activate(); patientState.DiagnosticKnockdown(); contaminationZones.Activate(); safety.Activate(); hud.Activate();
             }
             catch { Dispose(); throw; }
         }
@@ -132,6 +136,7 @@ namespace CriticalShift.Sandbox
             host.BindDragTarget(actor, drag.transform);
             host.BindActorRoot(actor, player.transform);
             var rig = SandboxWorkerRigBuilder.Build(world.Epoch, actor, controller, eyes.transform, shapes, hideLocalHead: true);
+            localRig = rig;
             foreach (var segment in rig.CopyBodySegments()) safety.Bind(segment, "Local worker / " + segment.name);
             rig.BindNormalHands(() => host.CarriedPhysicalMass() > 0 || host.CurrentGripStand().HasValue);
             BuildWorkerSignal(actor, rig, "Local worker status marker");
@@ -150,6 +155,7 @@ namespace CriticalShift.Sandbox
             var controller = SandboxWorkerRigBuilder.AddController(worker);
             var eyes = SandboxPrimitives.Empty("Patient observation anchor", worker.transform, new Vector3(0, 1.55f, 0));
             var rig = SandboxWorkerRigBuilder.Build(world.Epoch, patient, controller, eyes.transform, shapes, hideLocalHead: false);
+            patientRig = rig;
             foreach (var segment in rig.CopyBodySegments()) safety.Bind(segment, "Patient worker / " + segment.name);
             rig.BindDragEntity(patientBody);
             BuildWorkerSignal(patient, rig, "Patient worker status marker");
@@ -336,6 +342,23 @@ namespace CriticalShift.Sandbox
             access.BindTarget(SandboxGameplaySetup.SuitStationId, station.transform, face.transform);
         }
 
+        private void BuildContaminationZones()
+        {
+            contaminationZones = root.AddComponent<WorkerContaminationZones>();
+            contaminationZones.Initialize(world, host.Pump, host.ReportExternalFailure);
+            contaminationZones.BindWorker(actor, localRig); contaminationZones.BindWorker(patient, patientRig);
+            BindArea(SandboxGameplaySetup.ExposureSourceId, new Vector3(0, 1.5f, -4.5f), "Exposure area", shapes.Yellow);
+            BindArea(SandboxGameplaySetup.WashSourceId, new Vector3(5, 1.5f, -4.5f), "Wash area", shapes.Fuel);
+            contaminationZones.Seal();
+        }
+        private void BindArea(Guid source, Vector3 center, string label, Material material)
+        {
+            var frame = SandboxPrimitives.Empty(label, root.transform, center);
+            SandboxPrimitives.Box(label + " floor marking", frame.transform, new Vector3(0, -1.48f, 0),
+                new Vector3(2.5f, 0.02f, 2.5f), material, false);
+            contaminationZones.BindArea(source, frame.transform, new Vector3(1.25f, 1.5f, 1.25f), label);
+        }
+
         private void BuildCart()
         {
             world.RegisterObject(cartId);
@@ -481,6 +504,7 @@ namespace CriticalShift.Sandbox
         {
             if (disposed) return;
             disposed = true;
+            if (contaminationZones != null) contaminationZones.Shutdown();
             if (safety != null) safety.Shutdown();
             if (host != null) host.Shutdown();
             else world?.Stop(); // Setup can fail before the host is composed.
@@ -489,6 +513,7 @@ namespace CriticalShift.Sandbox
             if (root != null) { root.SetActive(false); UnityEngine.Object.Destroy(root); }
             access?.Clear(); recovery?.Clear(); shapes?.Dispose();
             playerExercise = null; playerExerciseBody = null; playerExerciseTarget = null;
+            localRig = null; patientRig = null;
         }
     }
 }

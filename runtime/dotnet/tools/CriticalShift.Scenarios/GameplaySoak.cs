@@ -32,7 +32,7 @@ namespace CriticalShift.Scenarios
                         case "--cases": cases = int.Parse(value); break;
                         case "--case-seed": onlySeed = int.Parse(value); break;
                         case "--control":
-                            if (value != "failure" && value != "medical-ledger" && value != "contamination-ledger" && value != "backup-ledger" && value != "fitting-ledger") throw new ArgumentException("Unknown control.");
+                            if (value != "failure" && value != "medical-ledger" && value != "contamination-ledger" && value != "backup-ledger" && value != "fitting-ledger" && value != "feed-ledger") throw new ArgumentException("Unknown control.");
                             control = value; break;
                         default: throw new ArgumentException("Unknown soak option.");
                     }
@@ -57,7 +57,7 @@ namespace CriticalShift.Scenarios
                 {
                     do
                     {
-                        actions += Exercise(currentSeed, control == "medical-ledger", control == "contamination-ledger", control == "backup-ledger", control == "fitting-ledger"); completed++;
+                        actions += Exercise(currentSeed, control == "medical-ledger", control == "contamination-ledger", control == "backup-ledger", control == "fitting-ledger", control == "feed-ledger"); completed++;
                         Require(control != "failure", "Intentional negative control.");
                         if (clock.Elapsed.TotalSeconds >= nextReport)
                         {
@@ -98,7 +98,7 @@ namespace CriticalShift.Scenarios
             public RecoveryClearance Evaluate(Guid epoch, Guid worker, long attempt) => Safe ? RecoveryClearance.Safe : RecoveryClearance.Blocked;
         }
 
-        private static int Exercise(int seed, bool dropMedicalStart = false, bool dropContact = false, bool dropBackup = false, bool dropFitting = false)
+        private static int Exercise(int seed, bool dropMedicalStart = false, bool dropContact = false, bool dropBackup = false, bool dropFitting = false, bool dropFeed = false)
         {
             var random = new Random(seed); var policies = new Policies(); int duration = random.Next(1200, 12001);
             var configuration = new WorldSessionConfiguration(seed, duration, true, receiptCapacity: random.Next(1, 9), leaseMilliseconds: random.Next(100, 1001));
@@ -107,11 +107,12 @@ namespace CriticalShift.Scenarios
             int actions = CheckSupplyModel(seed) + CheckClinicalModel(seed ^ 0x1a43d7); Guid previousEpoch = Guid.Empty;
             for (int lifetime = 0; lifetime < 3; lifetime++)
             {
-                var ports = Bind(world, random, out var medicalDefinition);
+                var ports = Bind(world, random, out var medicalDefinition, out var feeds);
                 var medicalLedger = new MedicalSoakLedger(world, medicalDefinition);
                 world.Start(); long host = 0;
                 var observations = new long[4];
                 var contactSequences = new long[4, 2]; var contactEligibleAt = new long[4, 2];
+                bool omitNextFeed = dropFeed && lifetime == 0;
                 InteractionReply Reactor(int who, ReactorAction action, Guid container = default, bool cooling = false)
                 {
                     var reply = ports[who].OperateReactor(Id(30), action, container, cooling);
@@ -125,6 +126,38 @@ namespace CriticalShift.Scenarios
                     if (!(dropMedicalStart && reply.HasNewCommit && reply.Medical?.Change?.Kind == MedicalEvent.Started))
                         medicalLedger.Observe(reply, medicalAction: action, requestedBody: body);
                     return reply;
+                }
+                void Contact(int who, int source)
+                {
+                    var worker = world.GetWorker(ports[who].ActorId); if (worker == null) return;
+                    bool washing = source == 1, paused = world.View.Phase == WorldPhase.Paused;
+                    long time = world.View.ElapsedMilliseconds;
+                    bool cooling = contactSequences[who, source] > 0 && time < contactEligibleAt[who, source];
+                    int load = washing ? 15 : (int)Math.Ceiling(20m * (worker.Suit == WorkerSuit.Intact ? 0.25m : worker.Suit == WorkerSuit.Compromised ? 0.5m : 1m));
+                    int after = paused || cooling ? worker.Contamination : Math.Clamp(worker.Contamination + (washing ? -load : load), 0, 100);
+                    var claimBefore = world.GetObject(Id(40 + who));
+                    var contact = feeds[who, source].ObserveIfDue();
+                    if (paused || cooling) Require(contact == null, "Mixed feed sampled excluded time or ignored its canonical eligibility hint.");
+                    else
+                    {
+                        var expected = after == worker.Contamination ? WorkerStatus.NoChange : WorkerStatus.Applied;
+                        Require(contact?.Status == expected && contact.Changed == (expected == WorkerStatus.Applied),
+                            "Mixed feed admission disagrees with independent source/PPE/cooldown arithmetic.");
+                        if (omitNextFeed) omitNextFeed = false; else contactSequences[who, source]++;
+                        contactEligibleAt[who, source] = time + 150;
+                        Require(contact!.ContaminationContact?.Sequence == contactSequences[who, source] &&
+                            contact.ContaminationContact.OriginalOutcome == expected && contact.ContaminationContact.SampleShiftMilliseconds == time,
+                            "Mixed feed sequence differs from independent accepted samples.");
+                    }
+                    Require(feeds[who, source].LastAcceptedSequence == contactSequences[who, source] &&
+                        feeds[who, source].NextEligibleAtMilliseconds == contactEligibleAt[who, source],
+                        "Mixed feed hint or sequence drifted across a sampled or excluded call.");
+                    var conditionAfter = world.GetWorker(worker.Id)!; var claimAfter = world.GetObject(Id(40 + who));
+                    Require(conditionAfter.Contamination == after && conditionAfter.Awareness == worker.Awareness && conditionAfter.Pose == worker.Pose &&
+                        conditionAfter.RecoveryEpisode == worker.RecoveryEpisode && conditionAfter.RecoveryAttempt == worker.RecoveryAttempt &&
+                        conditionAfter.LastCauseId == worker.LastCauseId && conditionAfter.SuitFitting?.Id == worker.SuitFitting?.Id && claimAfter?.Revision == claimBefore?.Revision,
+                        "Mixed feed changed injury, fitting, recovery or body custody.");
+                    if (contact != null) medicalLedger.ObserveEnvironment(contact, worker.Id, after);
                 }
                 void Advance(long target)
                 {
@@ -173,6 +206,7 @@ namespace CriticalShift.Scenarios
                 Require(Medical(2, MedicalAction.Start).HasNewCommit, "Initial treatment could not share reserve with active production/reactor.");
                 Require(Reactor(0, ReactorAction.StartBackup).HasNewCommit, "Initial backup supply could not join mixed owner work.");
                 Require(ports[0].OperateSuitFitting(Id(65), SuitFittingAction.Start).HasNewCommit, "Initial fitting could not join autonomous production/reactor/medical work.");
+                Contact(0, 0);
                 medicalLedger.Check();
                 var previousDelivery = new long[3]; var previousSettled = new bool[3];
                 for (int step = 0; step < 240 && world.View.Phase != WorldPhase.Ended; step++)
@@ -270,32 +304,7 @@ namespace CriticalShift.Scenarios
                             break;
                         case 23:
                         case 24:
-                            if (worker != null)
-                            {
-                                int source = random.Next(2); bool washing = source == 1;
-                                long time = world.View.ElapsedMilliseconds, sequence = contactSequences[who, source] + 1;
-                                bool paused = world.View.Phase == WorldPhase.Paused, cooling = sequence > 1 && time < contactEligibleAt[who, source];
-                                int load = washing ? 15 : (int)Math.Ceiling(20m * (worker.Suit == WorkerSuit.Intact ? 0.25m : worker.Suit == WorkerSuit.Compromised ? 0.5m : 1m));
-                                int after = paused || cooling ? worker.Contamination : Math.Clamp(worker.Contamination + (washing ? -load : load), 0, 100);
-                                var expected = paused ? WorkerStatus.Paused : cooling ? WorkerStatus.CoolingDown :
-                                    after == worker.Contamination ? WorkerStatus.NoChange : WorkerStatus.Applied;
-                                var claimBefore = world.GetObject(Id(40 + who));
-                                var contact = world.ObserveWorkerContamination(world.Epoch, worker.Id, Id(62 + source), sequence, Guid.NewGuid(), time);
-                                Require(contact.Status == expected && contact.Changed == (expected == WorkerStatus.Applied), "Mixed contact admission disagrees with independent source/PPE/cooldown arithmetic.");
-                                if (!paused)
-                                {
-                                    contactSequences[who, source] = sequence;
-                                    if (!cooling) contactEligibleAt[who, source] = time + 150;
-                                    Require(contact.ContaminationContact?.OriginalOutcome == expected && contact.ContaminationContact.Sequence == sequence,
-                                        "Mixed contact lost its accepted source receipt.");
-                                }
-                                var conditionAfter = world.GetWorker(worker.Id)!; var claimAfter = world.GetObject(Id(40 + who));
-                                Require(conditionAfter.Contamination == after && conditionAfter.Awareness == worker.Awareness && conditionAfter.Pose == worker.Pose &&
-                                    conditionAfter.RecoveryEpisode == worker.RecoveryEpisode && conditionAfter.RecoveryAttempt == worker.RecoveryAttempt &&
-                                    conditionAfter.LastCauseId == worker.LastCauseId && claimAfter?.Revision == claimBefore?.Revision,
-                                    "Mixed contact changed injury, recovery or body custody.");
-                                medicalLedger.ObserveEnvironment(contact, worker.Id, after);
-                            }
+                            Contact(who, random.Next(2));
                             break;
                     }
                     if (previousEpoch != Guid.Empty)
@@ -335,7 +344,7 @@ namespace CriticalShift.Scenarios
             return actions + ContaminationSoak.Exercise(random, dropContact) + EmergencyPowerSoak.Exercise(random, dropBackup) + SuitFittingSoak.Exercise(random, dropFitting);
         }
 
-        private static LocalCommandPort[] Bind(WorldSession world, Random random, out MedicalDefinition medical)
+        private static LocalCommandPort[] Bind(WorldSession world, Random random, out MedicalDefinition medical, out WorkerContaminationFeed[,] feeds)
         {
             var ports = new LocalCommandPort[4];
             for (int i = 0; i < ports.Length; i++)
@@ -352,6 +361,9 @@ namespace CriticalShift.Scenarios
             world.SuitFitting.Register(Id(65), new SuitFittingDefinition());
             world.RegisterWorkerContaminationSource(Id(62), new WorkerContaminationDefinition(WorkerContaminationKind.Exposure, 20, 150));
             world.RegisterWorkerContaminationSource(Id(63), new WorkerContaminationDefinition(WorkerContaminationKind.Decontamination, 15, 150));
+            feeds = new WorkerContaminationFeed[4, 2];
+            for (int who = 0; who < 4; who++)
+                for (int source = 0; source < 2; source++) feeds[who, source] = new WorkerContaminationFeed(world, Id(200 + who), Id(62 + source));
             world.Doors.Register(Id(50), "soak-door", DoorState.Closed, DoorState.Open);
             long end = world.Configuration.ShiftDurationMilliseconds;
             world.Contracts.Register(new ShiftContractDefinition(Id(410), "Endurance supply",

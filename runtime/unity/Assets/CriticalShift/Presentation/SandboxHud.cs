@@ -28,7 +28,7 @@ namespace CriticalShift.Presentation
         private LocalCommandPort commands;
         private Guid[] containers, machines;
         private Guid actor, reactor, patient, suitStation;
-        private Func<string> actionStatus, physicsStatus;
+        private Func<string> actionStatus, physicsStatus, exposureCue;
         private Func<Guid, string> traceName;
         private int selectedContainer, selectedMachine;
         private bool bypass, active, visible = true;
@@ -52,6 +52,13 @@ namespace CriticalShift.Presentation
             physicsStatus = readPhysics ?? throw new ArgumentNullException(nameof(readPhysics));
             traceName = readTraceName ?? throw new ArgumentNullException(nameof(readTraceName));
             traceFeed = new SandboxTraceFeed(port);
+        }
+
+        public void BindExposureCue(Func<string> readCue)
+        {
+            if (commands == null || active || exposureCue != null || commands.World.Phase != WorldPhase.Setup)
+                throw new InvalidOperationException("Bind one exposure cue before the local HUD activates.");
+            exposureCue = readCue ?? throw new ArgumentNullException(nameof(readCue));
         }
 
         public void Activate()
@@ -141,6 +148,10 @@ namespace CriticalShift.Presentation
                 var contract = commands.Contract;
                 if (contract != null)
                     GUI.Label(new Rect(12, 174, Screen.width - 24, 150), SandboxContractReadout.Compact(contract), wrapped);
+                var localWorker = commands.GetWorker(actor);
+                if (localWorker != null)
+                    GUI.Label(new Rect(12, 326, Screen.width - 24, 64), "Suit " + localWorker.Suit + " · contamination " + localWorker.Contamination + "/100" +
+                        (exposureCue == null ? "" : "\n" + exposureCue()), wrapped);
                 return;
             }
             bool previousEnabled = GUI.enabled;
@@ -165,6 +176,11 @@ namespace CriticalShift.Presentation
                 GUILayout.Label("Held objects: " + world.ActiveClaimCount + " | " + actionStatus(), wrapped);
                 var worker = commands.GetWorker(actor);
                 if (worker != null) GUILayout.Label("Worker " + worker.Awareness + " / " + worker.Pose + " · suit " + worker.Suit + " · contamination " + worker.Contamination);
+                if (exposureCue != null)
+                {
+                    GUILayout.Label(exposureCue(), wrapped);
+                    GUILayout.Label("Yellow floor: exposure · cyan floor: washing", wrapped);
+                }
                 if (suitStation != Guid.Empty && worker != null)
                 {
                     if (worker.SuitFitting != null)
@@ -429,6 +445,7 @@ namespace CriticalShift.Presentation
             MovementRequested = null; LookRequested = null; CarryRotationRequested = null; CartDriveRequested = null; JumpRequested = null; ThrowRequested = null;
             CarryDistanceRequested = null;
             traceName = null;
+            exposureCue = null;
         }
     }
 }
