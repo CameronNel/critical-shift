@@ -32,9 +32,10 @@ namespace CriticalShift.Sandbox
         private Transform playerExerciseTarget;
         private SandboxPlayerExercise playerExercise;
         private bool disposed;
-        private readonly Guid actor = Id(1), connection = Id(2), reactor = Id(500), cartId = Id(600);
+        private readonly Guid actor = Id(1), connection = Id(2), reactor = SandboxGameplaySetup.ReactorId, cartId = Id(600);
         private readonly Guid patient = Id(3), patientConnection = Id(4), patientBody = Id(650);
-        private readonly Guid[] containers = new Guid[8], machines = { Id(400), Id(401) };
+        private readonly Guid[] containers = new Guid[SandboxGameplaySetup.ContainerCount],
+            machines = { SandboxGameplaySetup.CrusherId, SandboxGameplaySetup.ProcessorId };
         internal Guid Epoch => world.Epoch;
         internal WorldSessionView Snapshot => world.View;
         internal int PhysicalBindingCount => host == null ? 0 : host.BoundBodyCount;
@@ -50,9 +51,10 @@ namespace CriticalShift.Sandbox
                 access = new SpatialInteractionAccess(3.8f,
                     (actorId, targetId, body) => host != null && host.MayIgnoreForSight(actorId, targetId, body));
                 recovery = new WorkerRecoveryRegistry();
-                world = new WorldSession(new WorldSessionConfiguration(7, 12 * 60 * 1000, true, maxObjects: 32), access, recovery);
+                world = new WorldSession(SandboxGameplaySetup.Configuration(), access, recovery);
                 world.RegisterConnection(connection, actor);
                 world.RegisterConnection(patientConnection, patient); world.RegisterWorkerBody(patient, patientBody);
+                SandboxGameplaySetup.Register(world);
                 commands = new LocalCommandPort(world, connection);
                 host = root.AddComponent<LocalWorldHost>(); host.Initialize(world, commands, actor, clock, diagnosticSink);
                 safety = root.AddComponent<PhysicsSafetyMonitor>();
@@ -61,11 +63,6 @@ namespace CriticalShift.Sandbox
                     () => world.View.Phase == WorldPhase.Running || world.View.Phase == WorldPhase.Paused, host.ReportExternalFailure);
                 host.BindFocus(() => access.PickTarget(actor), access.DisplayName);
                 BuildRoom(); BuildWorker(); BuildPatient(); BuildContainers(); BuildMachines(); BuildReactor(); BuildCart(); BuildConveyor();
-                world.Contracts.Register(new ShiftContractDefinition(Id(800), "Restore the city supply",
-                    new GridDemandWave(Id(801), "Prepare fuel and cooling", 2 * 60 * 1000, 0),
-                    new GridDemandWave(Id(802), "Morning supply", 6 * 60 * 1000, 800, 30 * 1000),
-                    new GridDemandWave(Id(803), "Industrial demand", 9 * 60 * 1000, 850, 45 * 1000),
-                    new GridDemandWave(Id(804), "Peak grid request", 12 * 60 * 1000, 1100, 60 * 1000)));
                 hud = root.AddComponent<SandboxHud>();
                 hud.Initialize(commands, actor, containers, machines, reactor, patient, () => host.FocusHint + "\n" + host.LastAction,
                     () => "Cart " + cart.Speed.ToString("F1") + " m/s · cargo " + cargo.Mass.ToString("F0") + " kg" +
@@ -180,11 +177,11 @@ namespace CriticalShift.Sandbox
         {
             for (int i = 0; i < containers.Length; i++)
             {
-                containers[i] = Id(100 + i);
-                bool fuel = i == 6, wet = i == 7;
-                int units = i == 0 ? 36 : 12;
-                world.Production.RegisterBatch(containers[i], Id(200 + i), Id(300), Id(310 + i),
-                    fuel ? MaterialKind.Fuel : MaterialKind.Ore, units, moisture: wet ? 850 : 100);
+                containers[i] = SandboxGameplaySetup.ContainerId(i);
+                var batch = world.Production.GetBatch(containers[i]);
+                if (batch == null) throw new InvalidOperationException("The canonical sandbox stock is missing.");
+                bool fuel = batch.Kind == MaterialKind.Fuel, wet = batch.Moisture > 500;
+                int units = batch.Units;
                 var crate = SandboxPrimitives.Box("Material container " + (i + 1), root.transform,
                     new Vector3(-8 + i % 4 * 0.85f, 0.65f, -0.5f + i / 4 * 0.9f),
                     new Vector3(0.55f, 0.6f, 0.55f), fuel ? shapes.Fuel : wet ? shapes.Wet : shapes.Ore);
@@ -227,10 +224,6 @@ namespace CriticalShift.Sandbox
 
         private void BuildMachines()
         {
-            world.Production.RegisterMachine(machines[0], new MachineRecipe(Id(450), MaterialKind.Ore, MaterialKind.CrushedOre,
-                6000, 3000, 1500, 128, yieldPermille: 950));
-            world.Production.RegisterMachine(machines[1], new MachineRecipe(Id(451), MaterialKind.CrushedOre, MaterialKind.Fuel,
-                9000, 4500, 1500, 128));
             BuildMachine(machines[0], "Crusher", new Vector3(-4, 0, 5));
             BuildMachine(machines[1], "Fuel processor", new Vector3(0.5f, 0, 5));
         }
@@ -284,9 +277,6 @@ namespace CriticalShift.Sandbox
 
         private void BuildReactor()
         {
-            world.Reactor.Register(reactor, new ReactorDefinition(Id(501), millisecondsPerFuelUnit: 5000,
-                powerQuantumMilliseconds: 500, warningMilliseconds: 6000, tripMilliseconds: 12000,
-                resetMilliseconds: 1000, emergencyReliefMilliseconds: 5000));
             var room = SandboxPrimitives.Empty("Reactor fixture", root.transform, new Vector3(5.5f, 0, 6));
             SandboxPrimitives.Shape(PrimitiveType.Cylinder, "Core housing", room.transform, new Vector3(0, 1.4f, 0),
                 new Vector3(1.5f, 1.4f, 1.5f), shapes.Steel);
@@ -482,6 +472,7 @@ namespace CriticalShift.Sandbox
             disposed = true;
             if (safety != null) safety.Shutdown();
             if (host != null) host.Shutdown();
+            else world?.Stop(); // Setup can fail before the host is composed.
             if (workerState != null) workerState.Shutdown();
             if (patientState != null) patientState.Shutdown();
             if (root != null) { root.SetActive(false); UnityEngine.Object.Destroy(root); }

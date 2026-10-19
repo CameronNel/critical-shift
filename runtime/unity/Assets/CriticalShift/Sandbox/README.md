@@ -19,6 +19,24 @@ runner via the local package in `runtime/dotnet/src`. It never loads a map, edit
 room, discovers objects through scene-wide searches or copies a rule implementation.
 Stable fixture IDs are rebound to fresh world epochs on restart.
 
+## Current contract source
+
+The twelve-minute sandbox now uses one pure `SandboxGameplaySetup` for its stock,
+recipes, reactor and four demand windows. The offline suite links that exact
+source and executes a complete safe supply route through the normal local
+command port. It renews held leases during simulated transport and retains
+material/power accounting at the deadline. Native import of the extraction is
+NotRun; this does not establish physical carrying/loading time or accepted balance.
+
+The grid counts energy separately in each window. Surplus in preparation or an
+earlier window cannot pay a later request. Stage fuel, maintain cooling, and leave
+time for reloads. The logical reference route processes the heavy dry crate and
+three ordinary dry crates through crusher and processor without bypass. It starts
+the heavy fuel at04:20, follows with the original ready fuel, then uses the three
+ordinary fuel batches from09:00. This is a reproducible fixture route, not a
+required player solution or a physical playtest. See
+[supply-route evidence](../../../../validation/SANDBOX_CONTRACT_ROUTE.md).
+
 ## Contents and controls
 
 Once native execution is authorized, the editor menu **Critical Shift > Sandbox >
