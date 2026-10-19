@@ -21,11 +21,15 @@ plus a clinical model with independently predicted admission, costs and outcomes
 and two contamination lifetimes with independent raw-load, PPE, sequence and
 fixed-cooldown accounting. Each contact lifetime forces exposure and a successful
 wash, then mixes clock/suit/pause changes and historical/stale contact samples.
-It checks both workers, teardown/restart and old-epoch rejection.
+It checks both workers, teardown/restart and old-epoch rejection. A separate
+backup-power oracle independently schedules core quanta and finite-source due
+coordinates, including same-time ordering, storage/spill attribution, spending,
+cancellation, pause and terminal stock. Every lifetime forces a real backup
+completion and uses it to start the fueled core.
 It then runs three randomized epochs with fresh bindings. Each epoch starts
 actual reactor, machine and paid medical work together, then mixes custody
 contention, production, power controls, replay, impacts, aid/environment, medical
-commands, authored exposure/wash contacts, standing clearance, pause, doors,
+commands, finite backup supply, authored exposure/wash contacts, standing clearance, pause, doors,
 evacuation, disconnect and timers.
 Checks run after randomized steps and at teardown.
 
@@ -53,7 +57,7 @@ steps (some selected operations are inapplicable) and independent-model clock
 samples; it is not a count of committed actions.
 
 The regular verifier runs 12 cases, a single-seed reproduction, an intentionally
-failed invariant, deliberately omitted paid-medical-start and exposure ledger
+failed invariant, deliberately omitted paid-medical-start, exposure and backup-credit ledger
 controls, and an existing-report refusal. Seed reproduction checks that the case executes
 successfully again; it does not compare a normalized full trace/state digest.
 A long run is useful

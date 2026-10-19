@@ -24,7 +24,7 @@ namespace CriticalShift.Application
         public ReactorView? View => _core == null ? null : new ReactorView(_world.Epoch, _id, _definition!.Id,
             _revision, (ReactorMode)(int)_core.Mode, _core.Cooling, _core.SuspectFuel, _core.WorkMilliseconds,
             _core.RemainingFuelMilliseconds, _core.InstabilityMilliseconds, _cycle,
-            _input == null ? null : _world.Production.GetBatch(_input.ContainerId), ProjectPower(_power!));
+            _input == null ? null : _world.Production.GetBatch(_input.ContainerId), ProjectPower(_power!), EmergencyPowerSummary);
         public PowerView? PowerSummary => _power == null ? _terminalPower : ProjectPower(_power);
 
         public void Register(Guid id, ReactorDefinition definition) => _world.RegisterProduction(() =>
@@ -43,6 +43,8 @@ namespace CriticalShift.Application
             if (request.Revision != _revision) return Reply(ReactorStatus.RevisionConflict);
             switch (request.Action)
             {
+                case ReactorAction.StartBackup: return StartBackup();
+                case ReactorAction.CancelBackup: return CancelBackup();
                 case ReactorAction.Insert: return Insert(actor, request);
                 case ReactorAction.Eject: return Eject(request);
                 case ReactorAction.Start: return Start();
@@ -162,6 +164,7 @@ namespace CriticalShift.Application
 
         internal void Clear()
         {
+            ClearBackup();
             if (_power != null) _terminalPower = ProjectPower(_power);
             _core = null; _power = null; _definition = null; _input = null;
             _id = Guid.Empty; _cycle = Guid.Empty; _coolingCause = Guid.Empty;

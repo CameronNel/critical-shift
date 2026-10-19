@@ -5,11 +5,11 @@ using CriticalShift.Features.Reactor.Domain;
 namespace CriticalShift.Application
 {
     public enum ReactorMode { Empty, Loaded, Running, Shutdown, Tripped, Exhausted }
-    public enum ReactorAction { Insert, Eject, Start, SetCooling, Shutdown, ResetTrip, EmergencyCooling, AuxiliaryPower }
+    public enum ReactorAction { Insert, Eject, Start, SetCooling, Shutdown, ResetTrip, EmergencyCooling, AuxiliaryPower, StartBackup, CancelBackup }
     public enum ReactorStatus { Applied, NoChange, UnknownReactor, RevisionConflict, InvalidState, NoCooling,
-        Unsafe, InsufficientReserve, UnknownBatch, WrongFuel, OverCapacity, HistoryCapacityReached, CustodyRejected }
+        Unsafe, InsufficientReserve, UnknownBatch, WrongFuel, OverCapacity, HistoryCapacityReached, CustodyRejected, BackupUnavailable, NoBackupCharge, InsufficientHeadroom, InvalidTime }
     public enum ReactorEvent { Inserted, Ejected, Started, CoolingChanged, Shutdown, Reset, EmergencyCooling,
-        AuxiliaryPower, Generated, Warning, Tripped, FuelExhausted }
+        AuxiliaryPower, Generated, Warning, Tripped, FuelExhausted, BackupStarted, BackupCancelled, BackupCompleted }
     public enum ReactorRisk { None, CoolingLost, SuspectFuel }
 
     public sealed class ReactorDefinition
@@ -81,10 +81,10 @@ namespace CriticalShift.Application
     public sealed class ReactorView
     {
         internal ReactorView(Guid epoch, Guid id, Guid definition, long revision, ReactorMode mode, bool cooling,
-            bool suspect, long work, long remaining, long instability, Guid cycle, MaterialView? fuel, PowerView power)
+            bool suspect, long work, long remaining, long instability, Guid cycle, MaterialView? fuel, PowerView power, EmergencyPowerView? emergencyPower = null)
         { Epoch = epoch; Id = id; DefinitionId = definition; Revision = revision; Mode = mode; Cooling = cooling;
           SuspectFuel = suspect; WorkMilliseconds = work; RemainingFuelMilliseconds = remaining; InstabilityMilliseconds = instability;
-          CycleId = cycle; Fuel = fuel; Power = power; }
+          CycleId = cycle; Fuel = fuel; Power = power; EmergencyPower = emergencyPower; }
         public Guid Epoch { get; }
         public Guid Id { get; }
         public Guid DefinitionId { get; }
@@ -98,6 +98,7 @@ namespace CriticalShift.Application
         public Guid CycleId { get; }
         public MaterialView? Fuel { get; }
         public PowerView Power { get; }
+        public EmergencyPowerView? EmergencyPower { get; }
     }
 
     public sealed class ReactorChange

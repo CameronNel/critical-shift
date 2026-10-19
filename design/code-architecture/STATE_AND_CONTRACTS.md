@@ -88,6 +88,15 @@ Example completion: a stable process-cycle ID identifies input consumption and o
 
 Within the initial single-threaded host, prepare/validate all affected proposed states, then install the accepted change without awaits, callbacks or Unity side effects between owner updates. Publish only after all participants are installed. The implementation must prove its commit path cannot partially fail under expected conditions. Unexpected integrity exceptions stop the affected simulation and preserve diagnostics rather than continuing with a silently partial transaction. No distributed database or generic transaction framework is required.
 
+The optional bounded backup supply keeps finite stored-charge state in Power and
+uses the existing Reactor command target/revision stream through Application.
+Start commits one charge; an exact due completion credits the sole reserve via
+PowerAccount, with excess recorded as Spilled and no grid delivery. Required
+settlement splits at backup due coordinates as well as contract boundaries;
+core generation wins ties. Cancellation retains the charge cost, operator loss
+leaves committed work autonomous, and teardown freezes source totals. This is
+an authored black-start fixture, not physical fuel inventory or a new balance.
+
 Power spending, reanimation cost and contract-result publication use the same once-per-operation identity principle. A debrief or visual observer is never allowed to repeat a material/power mutation.
 
 ## S06. Mine state is two-dimensional

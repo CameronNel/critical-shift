@@ -2,6 +2,15 @@
 
 **Editor-free implementation, 18 September 2026.** This bounded slice connects the existing production chain to one abstract reactor and one reserve account per world. It does not model nuclear engineering, fuel chemistry, heat transfer, radiation or real equipment procedures. Numeric values are explicit test fixtures, not approved game balance.
 
+## Later source continuations
+
+This September note describes OFFLINE-005's original scope. Later bounded work
+adds [shift contracts/debrief](../validation/SHIFT_GAMEPLAY.md),
+[medical reserve spending](MEDICAL_STABILIZATION.md), and
+[finite backup power / black start](EMERGENCY_POWER.md). Their own task evidence
+and source revisions govern current claims; the original limitations below are
+historical, not evidence that every later change ran natively.
+
 ## What is now executable
 
 Ore is processed by the existing recipe machines into Fuel. The same registered container is carried into the reactor's canonical interaction slot. Startup requires cooling and sufficient reserve. Explicit shift-clock samples consume a finite operating-time budget, deliver grid units and recharge reserve up to its capacity. Lost cooling or suspect fuel raises an abstract instability counter, emits attributed warnings and trips the core. Cooling restoration never automatically restarts it. Fully used fuel becomes SpentFuel through the same material ledger and retains its origin and cause.
