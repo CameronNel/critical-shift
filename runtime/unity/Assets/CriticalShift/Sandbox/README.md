@@ -1,5 +1,15 @@
 # Isolated local-host gameplay fixture
 
+**Dirty cargo handling continuation:** holding crate6's contaminated ore adds
+12worker-load units per sampled shift-second before PPE (compromised6/intact3).
+Material contamination must exceed500/1000. Dropping stops contact; regrabbing
+retains the worker/source cooldown. Washing its ore to100 stops that source.
+The wash area samples before handling, so holding dirty cargo there can add a
+fresh dose after washing. Read the current cargo cue and worker meter; reading
+the cue adds no dose. Contact history names both worker and crate and retains
+the original dirty batch. Native catalogue174; new behavior remains NotRun.
+[Scope and evidence](../../../../validation/DIRTY_CARGO_EXPOSURE.md).
+
 **Ore washing continuation:** spare crate6 now contains800/1000 contamination.
 The washer at(-3.5,0,9) spends1reserve over10s to lower it to100/1000, with wet
 output1000/1000. Dry it before safe crushing, then use the existing fuel chain.

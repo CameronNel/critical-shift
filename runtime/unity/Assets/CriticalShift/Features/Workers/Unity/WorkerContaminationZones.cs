@@ -23,6 +23,7 @@ namespace CriticalShift.Features.Workers.Unity
         private Guid epoch;
         private Action pump;
         private Action<Exception> failure;
+        private CarriedMaterialExposureFeed carried;
         private readonly List<Area> areas = new List<Area>();
         private readonly List<Binding> workers = new List<Binding>();
         private bool initialized, sealedBindings, active;
@@ -52,6 +53,13 @@ namespace CriticalShift.Features.Workers.Unity
             foreach (var worker in workers) if (worker.Worker == actor || worker.Rig == rig) throw new InvalidOperationException("Duplicate contamination worker binding.");
             workers.Add(new Binding { Worker = actor, Rig = rig });
         }
+        public void BindOwnedCarriedExposure(CarriedMaterialExposureFeed feed)
+        {
+            RequireSetup();
+            if (carried != null || feed == null || feed.Epoch != epoch || feed.BoundFeedCount == 0)
+                throw new InvalidOperationException("Bind one current carried-material producer to this sampling lifetime.");
+            carried = feed;
+        }
         public void Seal()
         {
             RequireSetup();
@@ -73,7 +81,7 @@ namespace CriticalShift.Features.Workers.Unity
         }
         public string Describe(Guid actor)
         {
-            foreach (var worker in workers) if (worker.Worker == actor) return worker.Cue;
+            foreach (var worker in workers) if (worker.Worker == actor) return worker.Cue + (carried == null ? "" : "\n" + carried.Describe(actor));
             return "No active exposure/wash sampling";
         }
         private void FixedUpdate() => Sample();
@@ -106,6 +114,9 @@ namespace CriticalShift.Features.Workers.Unity
                         worker.Feeds[i].ObserveIfDue();
                     }
                 }
+                // One explicit order: current spatial exposure/washing first, then current dirty handling.
+                // In particular, clamping at zero cannot depend on unordered component callbacks.
+                carried?.Sample();
             }
             catch (Exception exception) { Fail(exception); }
         }
@@ -133,7 +144,7 @@ namespace CriticalShift.Features.Workers.Unity
         }
         public void Shutdown()
         {
-            active = false; areas.Clear(); workers.Clear(); world = null; pump = null; failure = null;
+            active = false; areas.Clear(); workers.Clear(); carried?.Clear(); carried = null; world = null; pump = null; failure = null;
         }
         private void OnDisable()
         {

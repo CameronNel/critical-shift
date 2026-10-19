@@ -463,6 +463,8 @@ namespace CriticalShift.Presentation
         {
             string cause = row.CauseId == Guid.Empty ? "" : " · cause " + row.CauseId.ToString("N").Substring(0, 8);
             string subject = traceName(row.EntityId);
+            if (row.Kind == SessionTraceKind.Contamination && row.EntityId != Guid.Empty && row.ActorId != Guid.Empty)
+                subject = WorkerName(row.ActorId) + (string.IsNullOrEmpty(subject) ? "" : " · " + subject);
             if (string.IsNullOrEmpty(subject) && row.ActorId != Guid.Empty) subject = WorkerName(row.ActorId);
             string hazard = row.HazardId == Guid.Empty ? "" : traceName(row.HazardId);
             GUILayout.Label(SandboxContractReadout.Clock(row.ShiftMilliseconds) + " · " + (string.IsNullOrEmpty(subject) ? "" : subject + ": ") + row.Description +

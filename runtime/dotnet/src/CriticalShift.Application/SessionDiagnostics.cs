@@ -15,10 +15,11 @@ namespace CriticalShift.Application
     public sealed class SessionTraceRecord
     {
         internal SessionTraceRecord(long sequence, WorldSessionView world, Guid requestEpoch, SessionTraceKind kind,
-            Guid actorId, Guid entityId, long inputSequence, bool changed, WorkerReply? worker, InteractionReply? interaction, long? previousWorkerRevision, Guid hazardId, Guid causeId, WorkerImpact? severity, ProductionChange? production, ReactorChange? reactor, long? previousClaimRevision, DoorEvacuationReply? evacuation, GridDemandChange? demand, MedicalChange? medical, SuitFittingChange? fitting)
+            Guid actorId, Guid entityId, long inputSequence, bool changed, WorkerReply? worker, InteractionReply? interaction, long? previousWorkerRevision, Guid hazardId, Guid causeId, WorkerImpact? severity, ProductionChange? production, ReactorChange? reactor, long? previousClaimRevision, DoorEvacuationReply? evacuation, GridDemandChange? demand, MedicalChange? medical, SuitFittingChange? fitting, MaterialView? carriedMaterial)
         {
             DemandChange = demand; SuitFittingChange = fitting ?? interaction?.SuitFitting?.Change;
             ContaminationContact = worker?.ContaminationContact;
+            CarriedMaterial = carriedMaterial;
             MedicalChange = medical ?? interaction?.Medical?.Change;
             ReactorChange = reactor ?? interaction?.Reactor?.Change;
             HazardId = hazardId != Guid.Empty ? hazardId : worker?.Worker?.LastHazardId ?? Guid.Empty;
@@ -39,9 +40,9 @@ namespace CriticalShift.Application
             CycleId = SuitFittingChange?.Attempt.Id ?? MedicalChange?.CycleId ?? ReactorChange?.CycleId ?? change?.CycleId ?? interaction?.Production?.Machine?.CycleId ?? Guid.Empty;
             RecipeId = change?.RecipeId ?? interaction?.Production?.Machine?.RecipeId ?? Guid.Empty;
             BypassedInspection = change?.BypassedInspection;
-            BatchId = change?.Input.BatchId ?? interaction?.Production?.Batch?.BatchId ?? Guid.Empty;
+            BatchId = change?.Input.BatchId ?? interaction?.Production?.Batch?.BatchId ?? carriedMaterial?.BatchId ?? Guid.Empty;
             OutputBatchId = change?.Output?.BatchId ?? Guid.Empty;
-            MaterialCauseId = change?.Input.CauseId ?? interaction?.Production?.Batch?.CauseId ?? Guid.Empty;
+            MaterialCauseId = change?.Input.CauseId ?? interaction?.Production?.Batch?.CauseId ?? carriedMaterial?.CauseId ?? Guid.Empty;
             WasteUnits = change?.WasteUnits;
             ProductionReserveSpent = change?.ReserveSpent;
             Sequence = sequence; Epoch = world.Epoch; RequestEpoch = requestEpoch; Kind = kind;
@@ -66,6 +67,7 @@ namespace CriticalShift.Application
         public GridDemandChange? DemandChange { get; }
         public MedicalChange? MedicalChange { get; }
         public WorkerContaminationContact? ContaminationContact { get; }
+        public MaterialView? CarriedMaterial { get; }
         public SuitFittingChange? SuitFittingChange { get; }
         public DoorStatus? DoorResult { get; }
         public DoorAction? DoorAction { get; }
@@ -145,12 +147,12 @@ namespace CriticalShift.Application
         }
         internal void Append(WorldSessionView world, Guid requestEpoch, SessionTraceKind kind,
             Guid actor = default, Guid entity = default, long input = 0, bool changed = false,
-            WorkerReply? worker = null, InteractionReply? interaction = null, long? previousWorkerRevision = null, Guid hazardId = default, Guid causeId = default, WorkerImpact? severity = null, ProductionChange? production = null, ReactorChange? reactor = null, long? previousClaimRevision = null, DoorEvacuationReply? evacuation = null, GridDemandChange? demand = null, MedicalChange? medical = null, SuitFittingChange? fitting = null)
+            WorkerReply? worker = null, InteractionReply? interaction = null, long? previousWorkerRevision = null, Guid hazardId = default, Guid causeId = default, WorkerImpact? severity = null, ProductionChange? production = null, ReactorChange? reactor = null, long? previousClaimRevision = null, DoorEvacuationReply? evacuation = null, GridDemandChange? demand = null, MedicalChange? medical = null, SuitFittingChange? fitting = null, MaterialView? carriedMaterial = null)
         {
             // Exhausting diagnostics must not overflow and replay or reject a gameplay transaction.
             bool exhausted = _sequence == long.MaxValue;
             var record = new SessionTraceRecord(exhausted ? _sequence : ++_sequence, world, requestEpoch, kind,
-                actor, entity, input, changed, worker, interaction, previousWorkerRevision, hazardId, causeId, severity, production, reactor, previousClaimRevision, evacuation, demand, medical, fitting);
+                actor, entity, input, changed, worker, interaction, previousWorkerRevision, hazardId, causeId, severity, production, reactor, previousClaimRevision, evacuation, demand, medical, fitting, carriedMaterial);
             _incidents.Observe(record, !exhausted);
             if (exhausted) { if (_dropped < long.MaxValue) _dropped++; return; }
             if (_count == Capacity)

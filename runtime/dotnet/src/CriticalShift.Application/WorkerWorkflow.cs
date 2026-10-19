@@ -65,6 +65,7 @@ namespace CriticalShift.Application
             _contaminationSources.Add(source, definition.Rules);
         }
         internal bool HasContaminationSource(Guid source) => _contaminationSources.ContainsKey(source);
+        internal bool IsExposureSource(Guid source) => _contaminationSources.TryGetValue(source, out var rules) && rules.Mode == ContaminationMode.Exposure;
         internal WorkerReply Contamination(Guid actor, Guid source, long sequence, Guid cause, long sample, long now)
         {
             if (!_workers.TryGetValue(actor, out var worker)) return new WorkerReply(WorkerStatus.UnknownWorker);

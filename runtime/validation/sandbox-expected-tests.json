@@ -1,5 +1,8 @@
 {
   "PlayMode": [
+    "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.CompetingCargoProducerStopsTheFixtureOnceAndClearsItsBindings",
+    "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.PausedCargoSamplingExpiresRealtimeCustodyWithoutAddingAnotherDose",
+    "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.WashingSamplesBeforeDirtyCargoAndCueReadsCannotAddExposure",
     "CriticalShift.Sandbox.Tests.WorkerPhysicsTests.OreWasherUsesItsPhysicalSocketAndRetainsWetOutputForTheDryer",
     "CriticalShift.Sandbox.Tests.SuitMobilityMotorTests.WornSuitWalkingComposesWithTheSameCarriedMass",
     "CriticalShift.Sandbox.Tests.SuitMobilityMotorTests.WornSuitKeepsTheSameHopLookAndIdleFalling",

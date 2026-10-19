@@ -435,6 +435,55 @@ namespace CriticalShift.Sandbox.Tests
             Assert.That(host.BoundBodyCount, Is.EqualTo(11)); yield return Step();
         }
 
+        private void GrabDirtyCargoAtWashArea()
+        {
+            controller.enabled = false; controller.transform.position = root.transform.position + new Vector3(5, 0.1f, -4.5f);
+            controller.enabled = true; walker.ResetAfterRecovery(); rig.UpdatePresentation();
+            var crate = root.transform.Find("Local Gameplay Fixture/Material container 6").GetComponent<Rigidbody>();
+            crate.position = controller.transform.position + new Vector3(0, 1, 1.2f); crate.transform.position = crate.position;
+            crate.linearVelocity = Vector3.zero; crate.angularVelocity = Vector3.zero; Physics.SyncTransforms();
+            host.Grab(Id(105)); Assert.That(host.World.GetObject(Id(105)).HolderId, Is.EqualTo(Id(1)), host.LastAction);
+        }
+
+        [UnityTest] public IEnumerator WashingSamplesBeforeDirtyCargoAndCueReadsCannotAddExposure()
+        {
+            GrabDirtyCargoAtWashArea();
+            var zones = root.GetComponentInChildren<WorkerContaminationZones>();
+            zones.Sample(); Assert.That(Worker.Contamination, Is.EqualTo(12));
+            Assert.That(zones.Describe(Id(1)), Does.Contain("Wash area")); Assert.That(zones.Describe(Id(1)), Does.Contain("Crate 6"));
+            long revision = Worker.Revision;
+            zones.Describe(Id(1)); zones.Describe(Id(1)); zones.Sample(); Assert.That(Worker.Revision, Is.EqualTo(revision));
+            clock += 1; zones.Sample();
+            Assert.That(Worker.Contamination, Is.EqualTo(12), "The due wash removes12 before the new handling contact adds12.");
+            Assert.That(Worker.Revision, Is.EqualTo(revision + 2));
+            Assert.That(host.World.Production.GetBatch(Id(105)).Contamination, Is.EqualTo(800));
+            host.Release(Id(105)); clock += 1; zones.Sample(); Assert.That(Worker.Contamination, Is.Zero);
+            Assert.That(zones.Describe(Id(1)), Does.Not.Contain("Crate 6")); yield return null;
+        }
+
+        [UnityTest] public IEnumerator PausedCargoSamplingExpiresRealtimeCustodyWithoutAddingAnotherDose()
+        {
+            GrabDirtyCargoAtWashArea(); var zones = root.GetComponentInChildren<WorkerContaminationZones>(); zones.Sample();
+            Assert.That(Worker.Contamination, Is.EqualTo(12)); host.World.Pause(host.World.Epoch);
+            long shift = host.World.View.ElapsedMilliseconds, revision = Worker.Revision;
+            clock += 10; zones.Sample();
+            Assert.That(host.World.View.ElapsedMilliseconds, Is.EqualTo(shift)); Assert.That(Worker.Revision, Is.EqualTo(revision));
+            Assert.That(host.World.GetObject(Id(105)).HolderId, Is.Null);
+            host.World.Resume(host.World.Epoch); zones.Sample(); Assert.That(Worker.Contamination, Is.EqualTo(12));
+            Assert.That(zones.Describe(Id(1)), Does.Not.Contain("Crate 6")); yield return null;
+        }
+
+        [UnityTest] public IEnumerator CompetingCargoProducerStopsTheFixtureOnceAndClearsItsBindings()
+        {
+            GrabDirtyCargoAtWashArea();
+            Assert.That(host.World.ObserveWorkerContamination(host.World.Epoch, Id(1), Id(745), 1, Id(799), 0).Status, Is.EqualTo(WorkerStatus.Applied));
+            var zones = root.GetComponentInChildren<WorkerContaminationZones>(); zones.Sample();
+            Assert.That(faults.Count, Is.EqualTo(1)); faults.Clear();
+            Assert.That(host.World.View.Phase, Is.EqualTo(WorldPhase.Stopped)); Assert.That(host.BoundBodyCount, Is.Zero);
+            Assert.That(zones.Describe(Id(1)), Is.EqualTo("No active exposure/wash sampling"));
+            zones.Sample(); zones.Sample(); yield return null; Assert.That(faults, Is.Empty);
+        }
+
         [UnityTest] public IEnumerator KnockdownDropsTheClaimBeforeRagdollTakesMotion()
         {
             host.Grab(Id(103)); Assert.That(host.World.GetObject(Id(103)).HolderId, Is.EqualTo(Id(1)));
