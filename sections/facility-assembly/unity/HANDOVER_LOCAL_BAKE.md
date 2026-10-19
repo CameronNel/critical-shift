@@ -41,7 +41,7 @@ git log -1 --oneline                      # must be 73e30f7 or newer (the commit
 git status --porcelain                    # must print nothing
 ```
 
-- If the owner says the evacuation lens fix (the PR after #112, which holds the rebuilt `combined_map.blend`) has been merged, use `main` instead: `git fetch origin main` and `git switch --detach origin/main`. #110 and #112, the bake scripts, are already on `main`; the branch above has them too, plus the lens fix.
+- If the owner says the evacuation lens fix (PR #126, which holds the rebuilt `combined_map.blend`) has been merged, use `main` instead: `git fetch origin main` and `git switch --detach origin/main`. #110 and #112, the bake scripts, are already on `main`; the branch above has them too, plus the lens fix.
 - If the switch fails, or `git status --porcelain` prints anything, stop and show it. Do not stash, reset or clean.
 
 Check these files exist: `sections/facility-assembly/unity/bake_all.ps1`, `bake_room.ps1`, `bake_room.py`, `bake_check.py`, `check_device.py`, and `sections/facility-assembly/blender_device.py`.
