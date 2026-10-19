@@ -124,6 +124,7 @@ namespace CriticalShift.Presentation
             {
                 switch (record.ProductionEvent.Value)
                 {
+                    case ProductionEvent.Started: return "Cycle started · spent " + (record.ProductionReserveSpent ?? 0) + " reserve";
                     case ProductionEvent.Jammed: return "Machine jammed";
                     case ProductionEvent.Completed: return "Processing complete · " + (record.WasteUnits ?? 0) + " units to waste";
                     case ProductionEvent.Cancelled: return "Machine cycle cancelled";

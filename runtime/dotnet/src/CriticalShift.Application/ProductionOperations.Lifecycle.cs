@@ -36,19 +36,19 @@ namespace CriticalShift.Application
             }
             return changes.AsReadOnly();
         }
-        private ProductionChange ActiveCycleEvent(ProductionEvent kind, MachineState state, long at)
+        private ProductionChange ActiveCycleEvent(ProductionEvent kind, MachineState state, long at, long reserveSpent = 0)
         {
             var plan = _materials.GetPending(state.CycleId); var container = _interaction.SlotOccupant(state.Id);
             if (plan == null || container != plan.Input.ContainerId || !ReferenceEquals(_materials.Get(plan.Input.ContainerId), plan.Input))
                 throw new InvalidOperationException("Active process lost its reserved input or custody.");
-            return new ProductionChange(kind, Project(state), Project(plan.Input)!, null, 0, plan.CycleId, plan.RecipeId, plan.BypassedInspection, at);
+            return new ProductionChange(kind, Project(state), Project(plan.Input)!, null, 0, plan.CycleId, plan.RecipeId, plan.BypassedInspection, at, reserveSpent);
         }
         internal void Clear()
         {
             if (_final != null) return;
             // Preserve a detached terminal accounting summary, never a live second inventory.
             _final = new ProductionSummary(_materials.IssuedUnits, _materials.ActiveUnits, _materials.WasteUnits,
-                _completed, _cancelled + _materials.PendingCount, 0);
+                _completed, _cancelled + _materials.PendingCount, 0, _reserveSpent);
             _machines.Clear(); _recipes.Clear(); _materials.Clear();
         }
         private ProductionChange Conversion(ConversionReceipt r, MachineState state, long? eventAt = null) =>

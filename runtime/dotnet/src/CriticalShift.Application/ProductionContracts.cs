@@ -12,28 +12,28 @@ namespace CriticalShift.Application
     {
         Applied, NoChange, UnknownMachine, UnknownBatch, NoInput, Occupied, RevisionConflict,
         WrongInput, OverCapacity, WetInput, OutputTooSmall, NoPower, InvalidState, PowerMustBeOff,
-        HistoryCapacityReached, CustodyRejected, AlreadyConditioned, BypassUnavailable, RepairInProgress
+        HistoryCapacityReached, CustodyRejected, AlreadyConditioned, BypassUnavailable, RepairInProgress, InsufficientReserve
     }
-    public enum ProductionEvent { Jammed, Completed, Cancelled, RepairStarted, RepairCompleted }
+    public enum ProductionEvent { Jammed, Completed, Cancelled, RepairStarted, RepairCompleted, Started }
 
     /// <summary>Authored game recipe. Values are offline fixtures, not real industrial process parameters.</summary>
     public sealed class MachineRecipe
     {
         public MachineRecipe(Guid id, MaterialKind input, MaterialKind output, long durationMilliseconds,
             long bypassDurationMilliseconds, long wetJamAfterMilliseconds, int maximumUnits,
-            int yieldPermille = 1000, int moistureTolerance = 500, int outputMoisture = 0, long repairDurationMilliseconds = 0)
+            int yieldPermille = 1000, int moistureTolerance = 500, int outputMoisture = 0, long repairDurationMilliseconds = 0, long reserveCost = 0)
             : this(id, input, output, durationMilliseconds, bypassDurationMilliseconds, wetJamAfterMilliseconds,
-                maximumUnits, yieldPermille, moistureTolerance, outputMoisture, false, repairDurationMilliseconds) { }
+                maximumUnits, yieldPermille, moistureTolerance, outputMoisture, false, repairDurationMilliseconds, reserveCost) { }
 
         /// <summary>A safe same-kind conditioning cycle; it cannot bypass inspection or change material quantity.</summary>
         public static MachineRecipe Drying(Guid id, MaterialKind kind, long durationMilliseconds,
-            int maximumUnits, int targetMoisture = 100, long repairDurationMilliseconds = 0) =>
+            int maximumUnits, int targetMoisture = 100, long repairDurationMilliseconds = 0, long reserveCost = 0) =>
             new MachineRecipe(id, kind, kind, durationMilliseconds, durationMilliseconds, 1,
-                maximumUnits, 1000, 1000, targetMoisture, true, repairDurationMilliseconds);
+                maximumUnits, 1000, 1000, targetMoisture, true, repairDurationMilliseconds, reserveCost);
 
         private MachineRecipe(Guid id, MaterialKind input, MaterialKind output, long durationMilliseconds,
             long bypassDurationMilliseconds, long wetJamAfterMilliseconds, int maximumUnits,
-            int yieldPermille, int moistureTolerance, int outputMoisture, bool drying, long repairDurationMilliseconds)
+            int yieldPermille, int moistureTolerance, int outputMoisture, bool drying, long repairDurationMilliseconds, long reserveCost)
         {
             if (id == Guid.Empty) throw new ArgumentException("Recipe identity required.");
             if (!Enum.IsDefined(typeof(MaterialKind), input) || !Enum.IsDefined(typeof(MaterialKind), output) ||
@@ -42,13 +42,14 @@ namespace CriticalShift.Application
                 wetJamAfterMilliseconds < 1 || wetJamAfterMilliseconds >= bypassDurationMilliseconds ||
                 maximumUnits < 1 || maximumUnits > 1000000 || yieldPermille < 1 || yieldPermille > 1000 ||
                 moistureTolerance < 0 || moistureTolerance > 1000 || outputMoisture < 0 || outputMoisture > 1000 ||
-                repairDurationMilliseconds < 0 || repairDurationMilliseconds > 60000)
+                repairDurationMilliseconds < 0 || repairDurationMilliseconds > 60000 || reserveCost < 0 || reserveCost > 1000000000)
                 throw new ArgumentOutOfRangeException(nameof(durationMilliseconds));
             Id = id; Input = input; Output = output; DurationMilliseconds = durationMilliseconds;
             BypassDurationMilliseconds = bypassDurationMilliseconds; WetJamAfterMilliseconds = wetJamAfterMilliseconds;
             MaximumUnits = maximumUnits; YieldPermille = yieldPermille; MoistureTolerance = moistureTolerance; OutputMoisture = outputMoisture;
             IsDrying = drying;
             RepairDurationMilliseconds = repairDurationMilliseconds;
+            ReserveCost = reserveCost;
         }
         public Guid Id { get; }
         public MaterialKind Input { get; }
@@ -62,6 +63,7 @@ namespace CriticalShift.Application
         public int OutputMoisture { get; }
         public bool IsDrying { get; }
         public long RepairDurationMilliseconds { get; }
+        public long ReserveCost { get; }
     }
 
     /// <summary>Typed payload carried by the EXISTING per-connection command stream.</summary>
@@ -166,14 +168,16 @@ namespace CriticalShift.Application
     public sealed class ProductionChange
     {
         internal ProductionChange(ProductionEvent kind, MachineView machine, MaterialView input, MaterialView? output, int waste,
-            Guid cycleId, Guid recipeId, bool bypassedInspection, long shiftMilliseconds)
+            Guid cycleId, Guid recipeId, bool bypassedInspection, long shiftMilliseconds, long reserveSpent = 0)
         {
             Kind = kind; Machine = machine; Input = input; Output = output; WasteUnits = waste;
             CycleId = cycleId; RecipeId = recipeId; BypassedInspection = bypassedInspection;
             ShiftMilliseconds = shiftMilliseconds;
+            ReserveSpent = reserveSpent;
         }
         // Event identity is independent of Machine, which describes the resulting live state.
         public long ShiftMilliseconds { get; }
+        public long ReserveSpent { get; }
         // A cancelled machine is Idle with an empty cycle, but this event retains its original cycle.
         public Guid CycleId { get; }
         public Guid RecipeId { get; }
@@ -186,13 +190,15 @@ namespace CriticalShift.Application
     }
     public sealed class ProductionSummary
     {
-        internal ProductionSummary(long issued, long active, long waste, int completed, int cancelled, int pending)
-        { IssuedUnits = issued; ActiveUnits = active; WasteUnits = waste; CompletedCycles = completed; CancelledCycles = cancelled; PendingCycles = pending; }
+        internal ProductionSummary(long issued, long active, long waste, int completed, int cancelled, int pending, long reserveSpent)
+        { IssuedUnits = issued; ActiveUnits = active; WasteUnits = waste; CompletedCycles = completed; CancelledCycles = cancelled; PendingCycles = pending; ReserveSpent = reserveSpent; }
         public long IssuedUnits { get; }
         public long ActiveUnits { get; }
         public long WasteUnits { get; }
         public int CompletedCycles { get; }
         public int CancelledCycles { get; }
         public int PendingCycles { get; }
+        /// <summary>Included in PowerView.Spent; explanatory production subtotal, never a separate reserve balance.</summary>
+        public long ReserveSpent { get; }
     }
 }

@@ -281,6 +281,7 @@ namespace CriticalShift.Presentation
                 GUILayout.Label("Reserve spent " + power.Spent + " · energy spilled " + power.Spilled, wrapped);
             }
             var material = debrief.Production;
+            if (material.ReserveSpent > 0) GUILayout.Label("Production startup spent " + material.ReserveSpent + " reserve (included in total spending).", wrapped);
             GUILayout.Label("Material " + material.ActiveUnits + " units · waste " + material.WasteUnits +
                 " · conversions " + material.CompletedCycles + " · cancelled " + material.CancelledCycles, wrapped);
             var incidents = debrief.Incidents;
@@ -400,6 +401,7 @@ namespace CriticalShift.Presentation
             GUILayout.Space(8); GUILayout.Label("MATERIAL & POWER ACCOUNTING");
             GUILayout.Label("Material units · issued " + totals.IssuedUnits + " · active " + totals.ActiveUnits + " · waste " + totals.WasteUnits, wrapped);
             GUILayout.Label("Cycles · completed " + totals.CompletedCycles + " · cancelled " + totals.CancelledCycles + " · pending " + totals.PendingCycles, wrapped);
+            GUILayout.Label("Production startup spent " + totals.ReserveSpent + " reserve (included in power spending).", wrapped);
             var power = commands.Power;
             if (power != null)
             {

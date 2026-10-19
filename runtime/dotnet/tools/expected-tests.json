@@ -466,5 +466,21 @@
   "RepairFactsAndReadoutSurviveTraceEvictionWithOriginalMaterialAttribution": 1,
   "ClearingWithUnrepresentableAbsoluteDueStillUsesBoundedWorkAtTheTerminalCutoff": 1,
   "RepairProgressOverflowFaultsBeforeDeadlinePublicationAndRetiresTheReservedCycle": 1,
-  "AuthoredRepairDurationRemainsBounded": 2
+  "AuthoredRepairDurationRemainsBounded": 2,
+  "FreeLegacyProductionRequiresNoReactorOrReserveAndRetainsItsOriginalEventBehavior": 1,
+  "PaidStartWithoutSufficientSharedReservePreservesEveryReservationAndOwner": 3,
+  "PaidStartPublishesOneOriginalCycleDebitAndHistoricalRetryCannotSpendAgain": 1,
+  "DifferentMachinesCompeteForOneLimitedReserveWithoutChargingTheLoser": 2,
+  "ProductionDebitInvalidatesAStaleReactorControlWithoutChargingBoth": 1,
+  "MedicalAndProductionPayFromTheSameReserveInEitherOrder": 2,
+  "RepairPauseResumeAndCompletionCannotChargeAnotherProductionStartup": 1,
+  "CancellingKeepsThePaidCostAndAnotherNewCyclePaysAgain": 1,
+  "PaidCostSurvivesTerminalCutoffWhetherConversionFinishes": 3,
+  "WetDryingAndExhaustedHistoryRejectBeforeAnyDebit": 1,
+  "BackupEnablesPaidDryingWithoutChangingItsQuantityOrContamination": 1,
+  "PaidStartFactsAndCategorySubtotalSurviveTraceEvictionWithoutRepeatingCharges": 1,
+  "ArithmeticFailureBeforePaidStartFaultsWithoutReservingOrSpending": 2,
+  "AuthoredProductionReserveCostRejectsOutOfBounds": 2,
+  "HistoricalInsufficientReserveCannotBecomeAPaidStartAfterBackupCompletes": 1,
+  "DeniedAccessAndStaleCompetingMachineStartCannotDrainReserve": 1
 }

@@ -20,11 +20,11 @@ namespace CriticalShift.Presentation
             var recipe = state.Recipe;
             if (state.IsDrying)
                 return "Safe drying: " + Seconds(recipe.DurationMilliseconds) + " · " + Material(recipe.Input) + " · up to " +
-                    recipe.MaximumUnits + " units · target moisture " + Moisture(recipe.OutputMoisture) +
+                    recipe.MaximumUnits + " units · startup " + recipe.ReserveCost + " reserve · target moisture " + Moisture(recipe.OutputMoisture) +
                     ". Quantity, contamination and suspect history stay with the material. No inspection bypass.";
             return Material(recipe.Input) + " → " + Material(recipe.Output) + " · up to " + recipe.MaximumUnits + " units\n" +
                 "Normal " + Seconds(recipe.DurationMilliseconds) + " · bypass " + Seconds(recipe.BypassDurationMilliseconds) +
-                " · safe moisture at most " + Moisture(recipe.MoistureTolerance) +
+                " · startup " + recipe.ReserveCost + " reserve · safe moisture at most " + Moisture(recipe.MoistureTolerance) +
                 ". Wet bypass jams after " + Seconds(recipe.WetJamAfterMilliseconds) + " of processing; output retains suspect inspection history." +
                 (recipe.RepairDurationMilliseconds == 0 ? "" : " Isolated jam clearing takes " + Seconds(recipe.RepairDurationMilliseconds) + ".");
         }
@@ -55,6 +55,7 @@ namespace CriticalShift.Presentation
                         case ProductionAction.Insert: return "Material loaded. " + Next(machine);
                         case ProductionAction.Eject: return "Material ejected.";
                         case ProductionAction.Start: return "Cycle started: " + (machine == null ? "" : Seconds(machine.DurationMilliseconds)) +
+                            " · spent " + (reply.Change?.ReserveSpent ?? 0) + " reserve" +
                             (machine?.BypassedInspection == true ? ". Inspection bypass: wet input jams after " + Seconds(machine.Recipe.WetJamAfterMilliseconds) +
                                 " of processing; output keeps suspect history." : ".");
                         case ProductionAction.SetPower: return (machine?.Powered == true ? "Power restored. " : "Power isolated. ") + Next(machine);
@@ -81,6 +82,7 @@ namespace CriticalShift.Presentation
                 case ProductionStatus.AlreadyConditioned: return "Material is already dry enough for this dryer.";
                 case ProductionStatus.BypassUnavailable: return "This machine requires its safe cycle.";
                 case ProductionStatus.RepairInProgress: return "Wait for jam clearing to finish; keep power isolated.";
+                case ProductionStatus.InsufficientReserve: return "Need " + (machine?.Recipe.ReserveCost ?? 0) + " reserve for this cycle. Use reactor generation or backup power.";
                 default: return "Machine action unavailable.";
             }
         }

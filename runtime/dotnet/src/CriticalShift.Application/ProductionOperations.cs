@@ -19,6 +19,7 @@ namespace CriticalShift.Application
         private readonly Dictionary<Guid, MachineRecipe> _recipes = new Dictionary<Guid, MachineRecipe>();
         private readonly int _machineCapacity;
         private int _completed, _cancelled;
+        private long _reserveSpent;
         private ProductionSummary? _final;
         internal ProductionOperations(WorldSession world, InteractionWorld interaction, int objectCapacity, int machines, int cycles)
         {
@@ -28,7 +29,7 @@ namespace CriticalShift.Application
         public int MachineCount => _machines.Count;
         public int BatchCount => _materials.Count;
         public ProductionSummary Summary => _final ?? new ProductionSummary(_materials.IssuedUnits,
-            _materials.ActiveUnits, _materials.WasteUnits, _completed, _cancelled, _materials.PendingCount);
+            _materials.ActiveUnits, _materials.WasteUnits, _completed, _cancelled, _materials.PendingCount, _reserveSpent);
         public MaterialView? GetBatch(Guid container) => Project(_materials.Get(container));
         public MachineView? GetMachine(Guid id) => _machines.TryGetValue(id, out var s) ? Project(s) : null;
         public ConversionView? GetConversion(Guid cycle)
@@ -150,10 +151,18 @@ namespace CriticalShift.Application
                 wet ? recipe.WetJamAfterMilliseconds : 0, _world.View.ElapsedMilliseconds);
             var plan = _materials.Prepare(input.ContainerId, input.Revision, cycle, machine.Id, recipe.Id, Guid.NewGuid(),
                 (BatchKind)(int)recipe.Output, recipe.YieldPermille, recipe.OutputMoisture, request.Bypass);
+            long spent = checked(_reserveSpent + recipe.ReserveCost);
+            ReactorOperations.ReserveDebit? debit = null;
+            if (recipe.ReserveCost > 0 && !_world.Reactor.TryPrepareReserveDebit(recipe.ReserveCost, out debit))
+                return Reply(ProductionStatus.InsufficientReserve, machine);
             // All expected rejection paths above are side-effect-free. No adapter callback can run
             // between reserved output capacity and the matching process state installation.
-            _materials.Reserve(plan); _machines[machine.Id] = next;
-            return Reply(ProductionStatus.Applied, next);
+            _materials.Reserve(plan);
+            if (debit != null) _world.Reactor.CommitReserveDebit(debit);
+            _machines[machine.Id] = next; _reserveSpent = spent;
+            // Free legacy fixtures retain their original event behavior; a paid start explains its debit.
+            var change = recipe.ReserveCost == 0 ? null : ActiveCycleEvent(ProductionEvent.Started, next, _world.View.ElapsedMilliseconds, recipe.ReserveCost);
+            return Reply(ProductionStatus.Applied, next, change: change);
         }
     }
 }
