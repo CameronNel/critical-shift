@@ -107,11 +107,12 @@ namespace CriticalShift.Scenarios
             int actions = CheckSupplyModel(seed) + CheckClinicalModel(seed ^ 0x1a43d7); Guid previousEpoch = Guid.Empty;
             for (int lifetime = 0; lifetime < 3; lifetime++)
             {
-                var ports = Bind(world, random, out var medicalDefinition, out var feeds);
+                var ports = Bind(world, random, out var medicalDefinition, out var feeds, out long repairDuration);
                 var medicalLedger = new MedicalSoakLedger(world, medicalDefinition);
                 world.Start(); long host = 0;
                 var observations = new long[4];
                 ProductionChange? lastMixedRepair = null;
+                int mixedRepairCompletions = 0;
                 var contactSequences = new long[4, 2]; var contactEligibleAt = new long[4, 2];
                 bool omitNextFeed = dropFeed && lifetime == 0;
                 InteractionReply Reactor(int who, ReactorAction action, Guid container = default, bool cooling = false)
@@ -167,7 +168,8 @@ namespace CriticalShift.Scenarios
                     medicalLedger.BeforeAdvance();
                     var result = world.AdvanceTo(target);
                     foreach (var change in result.ProductionChanges)
-                        if (change.Machine.Id == Id(20) && change.Kind == ProductionEvent.RepairCompleted) lastMixedRepair = change;
+                        if (change.Machine.Id == Id(20) && change.Kind == ProductionEvent.RepairCompleted)
+                        { lastMixedRepair = change; mixedRepairCompletions++; }
                     foreach (var change in result.ProductionChanges)
                         if (change.Machine.Id == Id(22) && change.Kind == ProductionEvent.Completed)
                         {
@@ -220,12 +222,12 @@ namespace CriticalShift.Scenarios
                 var clearing = ports[1].OperateMachine(Id(20), ProductionAction.Repair);
                 Require(clearing.HasNewCommit && clearing.Production!.Change?.Kind == ProductionEvent.RepairStarted,
                     "Mixed isolated clearing could not join the other owners.");
-                long repairDue = host + clearing.Production!.Machine!.Recipe.RepairDurationMilliseconds;
+                long repairDue = host + repairDuration;
                 host = repairDue; Advance(host);
                 var repaired = world.Production.GetMachine(Id(20))!;
                 Require(repaired.Mode == ProductionMode.PowerPaused && !repaired.Powered && repaired.WorkMilliseconds == 100 &&
-                    repaired.RepairRemainingMilliseconds == 0 && lastMixedRepair?.ShiftMilliseconds == repairDue &&
-                    lastMixedRepair.CycleId == clearing.Production.Change!.CycleId,
+                    repaired.RepairRemainingMilliseconds == 0 && mixedRepairCompletions == 1 && lastMixedRepair?.ShiftMilliseconds == repairDue &&
+                    lastMixedRepair.CycleId == clearing.Production!.Change!.CycleId,
                     "Mixed owner settlement lost exact isolated clearing or advanced frozen production.");
                 medicalLedger.Check();
                 var previousDelivery = new long[3]; var previousSettled = new bool[3];
@@ -365,14 +367,15 @@ namespace CriticalShift.Scenarios
                 SuitFittingSoak.Exercise(random, dropFitting) + TimedRepairSoak.Exercise(random, dropRepair);
         }
 
-        private static LocalCommandPort[] Bind(WorldSession world, Random random, out MedicalDefinition medical, out WorkerContaminationFeed[,] feeds)
+        private static LocalCommandPort[] Bind(WorldSession world, Random random, out MedicalDefinition medical, out WorkerContaminationFeed[,] feeds, out long repairDuration)
         {
             var ports = new LocalCommandPort[4];
             for (int i = 0; i < ports.Length; i++)
             { world.RegisterConnection(Id(100 + i), Id(200 + i)); world.RegisterWorkerBody(Id(200 + i), Id(40 + i)); ports[i] = new LocalCommandPort(world, Id(100 + i)); }
             for (int i = 0; i < 8; i++) world.Production.RegisterBatch(Id(10 + i), Id(110 + i), Id(120 + i), Id(130 + i),
                 i < 3 ? MaterialKind.Fuel : i < 6 ? MaterialKind.Ore : MaterialKind.CrushedOre, random.Next(1, 31), moisture: i == 3 || i == 4 ? 900 : random.Next(2) == 0 ? 0 : 900);
-            world.Production.RegisterMachine(Id(20), new MachineRecipe(Id(400), MaterialKind.Ore, MaterialKind.CrushedOre, 500, 250, 100, 100, repairDurationMilliseconds: random.Next(100, 1001)));
+            repairDuration = random.Next(100, 1001);
+            world.Production.RegisterMachine(Id(20), new MachineRecipe(Id(400), MaterialKind.Ore, MaterialKind.CrushedOre, 500, 250, 100, 100, repairDurationMilliseconds: repairDuration));
             world.Production.RegisterMachine(Id(21), new MachineRecipe(Id(401), MaterialKind.CrushedOre, MaterialKind.Fuel, 600, 300, 100, 100, repairDurationMilliseconds: random.Next(100, 1001)));
             world.Production.RegisterMachine(Id(22), MachineRecipe.Drying(Id(403), MaterialKind.Ore, 450, 100, 100));
             world.Reactor.Register(Id(30), new ReactorDefinition(Id(402)));
