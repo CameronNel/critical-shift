@@ -73,3 +73,28 @@ backup work are active. Returned typed changes, not the bounded trace, prove
 repair completion at its due coordinate. This avoids depending on retained
 diagnostic history when trace capacity is deliberately one record. The deliberate
 mode-transition omission still fails its named invariant after strengthening.
+
+## Final full verification
+
+Source `278c38d23efc4a08ad91ae73ccd7894771a1964d` passed the full verifier
+from 2026-10-19T10:44:14.247219+00:00 to
+2026-10-19T10:44:45.912809+00:00 UTC: **1,022 executed/passed, zero
+failed/skipped; 23 scenarios each twice**. Real NUnit/scenario/invariant and
+independent medical/contact/backup/fitting/feed/repair omission controls were
+rejected. Seed reproduction and non-destructive report checks passed. All262
+recorded source/input hashes match the tested commit; the nine frozen DLLs match
+the verifier closure. Static source checks passed195 metadata GUIDs,21 asmdefs
+and124 production C# files. Snapshot:
+`runtime/out/timed-jam-final-verification-20261019`.
+
+The forced mixed check now retains the authored repair duration before issuing
+the command and requires exactly one completion. The strengthened intermediate
+10,000-case seed20261040 passed13,773,048 checked steps in31.850 seconds. The
+long-run supervisor has moved onto the final frozen source, with its own accepted
+child receipts; earlier build seconds remain attributed to their own sources.
+
+Independent read-only ultra timing/boundary, native-consumer and model reviews
+found no remaining blocker in the examined scope. Root authored all changes.
+Unity was retried at10:45 UTC: local pinned editor unavailable and configured
+remote workstation Offline. Native import, PlayMode, Player, GUI/keys, physics
+and multiplayer remain NotRun; written native behavior is not execution evidence.
