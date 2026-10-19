@@ -2,9 +2,9 @@
  "settings": "Cycles CPU 640x360 14 spp denoised; view transform Khronos PBR Neutral exposure 0.50",
  "views": {
   "reactor_N_stub": {
-   "median": 0.721,
-   "mean": 0.697,
-   "p10": 0.398,
+   "median": 0.72,
+   "mean": 0.698,
+   "p10": 0.399,
    "near_black": 0.001,
    "clipped": 0.036,
    "clipped_white": 0.0,
@@ -21,10 +21,10 @@
    "readable": true
   },
   "turbine_entry": {
-   "median": 0.195,
-   "mean": 0.258,
-   "p10": 0.042,
-   "near_black": 0.099,
+   "median": 0.198,
+   "mean": 0.26,
+   "p10": 0.044,
+   "near_black": 0.097,
    "clipped": 0.003,
    "clipped_white": 0.0,
    "eye": [
@@ -40,10 +40,10 @@
    "readable": true
   },
   "turbine_east_aisle_to_electrical": {
-   "median": 0.269,
+   "median": 0.27,
    "mean": 0.296,
-   "p10": 0.026,
-   "near_black": 0.109,
+   "p10": 0.024,
+   "near_black": 0.111,
    "clipped": 0.003,
    "clipped_white": 0.0,
    "eye": [
@@ -78,9 +78,9 @@
    "readable": true
   },
   "reactor_W_stub_to_cooling": {
-   "median": 0.545,
+   "median": 0.544,
    "mean": 0.534,
-   "p10": 0.197,
+   "p10": 0.198,
    "near_black": 0.031,
    "clipped": 0.037,
    "clipped_white": 0.001,
@@ -99,7 +99,7 @@
   "cooling_inside": {
    "median": 0.58,
    "mean": 0.548,
-   "p10": 0.18,
+   "p10": 0.179,
    "near_black": 0.005,
    "clipped": 0.032,
    "clipped_white": 0.008,
@@ -119,7 +119,7 @@
    "median": 0.316,
    "mean": 0.309,
    "p10": 0.143,
-   "near_black": 0.037,
+   "near_black": 0.036,
    "clipped": 0.002,
    "clipped_white": 0.0,
    "eye": [
@@ -135,10 +135,10 @@
    "readable": true
   },
   "waste_inside": {
-   "median": 0.286,
+   "median": 0.285,
    "mean": 0.31,
    "p10": 0.13,
-   "near_black": 0.044,
+   "near_black": 0.043,
    "clipped": 0.01,
    "clipped_white": 0.0,
    "eye": [
@@ -173,10 +173,10 @@
    "readable": true
   },
   "dock_inside": {
-   "median": 0.249,
+   "median": 0.25,
    "mean": 0.285,
    "p10": 0.059,
-   "near_black": 0.05,
+   "near_black": 0.049,
    "clipped": 0.01,
    "clipped_white": 0.0,
    "eye": [
@@ -192,7 +192,7 @@
    "readable": true
   },
   "concourse": {
-   "median": 0.605,
+   "median": 0.606,
    "mean": 0.586,
    "p10": 0.307,
    "near_black": 0.011,
@@ -212,7 +212,7 @@
   },
   "spine_mid": {
    "median": 0.474,
-   "mean": 0.476,
+   "mean": 0.475,
    "p10": 0.252,
    "near_black": 0.003,
    "clipped": 0.058,
@@ -230,9 +230,9 @@
    "readable": false
   },
   "reactor_from_south": {
-   "median": 0.504,
+   "median": 0.505,
    "mean": 0.49,
-   "p10": 0.264,
+   "p10": 0.263,
    "near_black": 0.005,
    "clipped": 0.037,
    "clipped_white": 0.023,
@@ -268,7 +268,7 @@
    "readable": true
   },
   "fuel_corridor_east": {
-   "median": 0.289,
+   "median": 0.288,
    "mean": 0.3,
    "p10": 0.088,
    "near_black": 0.028,
@@ -287,10 +287,10 @@
    "readable": true
   },
   "stair_top": {
-   "median": 0.705,
-   "mean": 0.664,
-   "p10": 0.37,
-   "near_black": 0.011,
+   "median": 0.703,
+   "mean": 0.663,
+   "p10": 0.378,
+   "near_black": 0.01,
    "clipped": 0.032,
    "clipped_white": 0.0,
    "eye": [
@@ -306,68 +306,68 @@
    "readable": true
   },
   "stair_bottom": {
-   "median": 0.769,
-   "mean": 0.754,
-   "p10": 0.626,
+   "median": 0.766,
+   "mean": 0.75,
+   "p10": 0.624,
    "near_black": 0.0,
    "clipped": 0.018,
    "clipped_white": 0.0,
    "eye": [
     -5.6,
     -3.0,
-    -4.4
+    -4.7
    ],
    "target": [
     1.6,
     -3.0,
-    -4.6
+    -4.8999999999999995
    ],
    "readable": true
   },
   "condenser_D01": {
-   "median": 0.792,
-   "mean": 0.678,
-   "p10": 0.346,
-   "near_black": 0.001,
-   "clipped": 0.021,
+   "median": 0.807,
+   "mean": 0.749,
+   "p10": 0.559,
+   "near_black": 0.0,
+   "clipped": 0.025,
    "clipped_white": 0.0,
    "eye": [
     1.6,
     -2.5,
-    -4.4
+    -4.7
    ],
    "target": [
     1.6,
     7.300000000000001,
-    -4.6
+    -4.8999999999999995
    ],
    "readable": true
   },
   "condenser_inside": {
-   "median": 0.474,
-   "mean": 0.483,
-   "p10": 0.252,
-   "near_black": 0.006,
-   "clipped": 0.012,
+   "median": 0.509,
+   "mean": 0.523,
+   "p10": 0.25,
+   "near_black": 0.004,
+   "clipped": 0.002,
    "clipped_white": 0.0,
    "eye": [
     1.6,
     3.900000000000002,
-    -4.4
+    -4.7
    ],
    "target": [
     6,
     10.3,
-    -4.8
+    -5.1
    ],
    "readable": true
   },
   "evac_east_road": {
-   "median": 0.529,
-   "mean": 0.584,
-   "p10": 0.491,
+   "median": 0.531,
+   "mean": 0.589,
+   "p10": 0.498,
    "near_black": 0.0,
-   "clipped": 0.001,
+   "clipped": 0.006,
    "clipped_white": 0.0,
    "eye": [
     34.4,
@@ -382,9 +382,9 @@
    "readable": true
   },
   "evac_east_yard": {
-   "median": 0.569,
-   "mean": 0.611,
-   "p10": 0.428,
+   "median": 0.572,
+   "mean": 0.612,
+   "p10": 0.429,
    "near_black": 0.001,
    "clipped": 0.011,
    "clipped_white": 0.0,
@@ -402,10 +402,10 @@
   },
   "evac_west_path": {
    "median": 0.506,
-   "mean": 0.551,
-   "p10": 0.366,
+   "mean": 0.555,
+   "p10": 0.371,
    "near_black": 0.0,
-   "clipped": 0.001,
+   "clipped": 0.005,
    "clipped_white": 0.0,
    "eye": [
     -36.5,
@@ -439,30 +439,30 @@
    "readable": true
   },
   "condenser_escape_tunnel": {
-   "median": 0.526,
-   "mean": 0.48,
-   "p10": 0.305,
-   "near_black": 0.035,
+   "median": 0.671,
+   "mean": 0.63,
+   "p10": 0.43,
+   "near_black": 0.04,
    "clipped": 0.0,
    "clipped_white": 0.0,
    "eye": [
     0.6,
     12.100000000000001,
-    -4.4
+    -4.7
    ],
    "target": [
     -5.6,
     12.100000000000001,
-    -4.6
+    -4.8999999999999995
    ],
    "readable": true
   },
   "escape_house_night": {
-   "median": 0.677,
-   "mean": 0.633,
-   "p10": 0.316,
-   "near_black": 0.004,
-   "clipped": 0.003,
+   "median": 0.688,
+   "mean": 0.639,
+   "p10": 0.318,
+   "near_black": 0.005,
+   "clipped": 0.006,
    "clipped_white": 0.001,
    "eye": [
     -4.6,
@@ -556,7 +556,7 @@
    "median": 0.73,
    "mean": 0.684,
    "p10": 0.447,
-   "near_black": 0.001,
+   "near_black": 0.002,
    "clipped": 0.028,
    "clipped_white": 0.0,
    "eye": [
