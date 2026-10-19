@@ -184,6 +184,13 @@ inside authored boxes, with canonical source receipts/cooldown and no catch-up
 integration. That is sampled spatial presence, not accepted full-body/continuous
 exposure or a client-controlled outcome. Native adapters remain unverified.
 
+The bounded suit walking tradeoff is derived by the same Workers snapshot and
+copied into immutable Application views: no suit1000permille, worn gear800,
+including compromised gear's retained bulk. The current motor composes this
+with carried mass only in voluntary planar walking/air targets. No extra speed
+state, command or physical writer is introduced; pending fitting retains the
+original factor. [Source evidence](../../runtime/validation/SUIT_MOBILITY.md).
+
 Hazard observations include source, target, epoch, observation/tick identity and configured magnitude. Repeated observations are handled by the authored damage/cooldown rule, not an unqualified rule that every collision callback causes full damage. Gameplay bounds and units are named and testable. Randomness for incidents is owned and seeded explicitly; decorative effects use a separate stream so an extra particle cannot change a failure outcome.
 
 ## S08. Causality and bounded events

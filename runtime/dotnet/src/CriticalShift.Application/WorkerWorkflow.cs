@@ -164,7 +164,7 @@ namespace CriticalShift.Application
 
         private WorkerView Project(WorkerSnapshot s) => new WorkerView(_epoch, s.Id, s.Revision,
             (WorkerAwareness)(int)s.Consciousness, (WorkerPose)(int)s.Posture, (WorkerSuit)(int)s.Suit,
-            s.Contamination, s.LastImpactSequence, s.RecoveryEpisode, s.RecoveryAttempt, s.RecoveryNotBefore, s.RecoveryExpiresAt, s.LastHazardId, s.LastCauseId,
+            s.Contamination, s.LastImpactSequence, s.RecoveryEpisode, s.RecoveryAttempt, s.RecoveryNotBefore, s.RecoveryExpiresAt, s.LastHazardId, s.LastCauseId, s.SuitWalkSpeedPermille,
             s.SuitFitting == null ? null : new SuitFittingAttemptView(s.SuitFitting));
     }
 }

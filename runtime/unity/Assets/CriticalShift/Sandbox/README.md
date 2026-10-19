@@ -1,5 +1,12 @@
 # Isolated local-host gameplay fixture
 
+**Suit mobility continuation:** current source derives a walking factor from
+Workers-owned gear: no suit100%, worn intact/compromised80%. It composes with
+carried mass for voluntary planar walking/air targets; cart stance correction,
+vertical hop and passive motion retain their existing behavior. The HUD shows
+the current factor and explains the fitting tradeoff. Native catalogue170:
+four new motor comparisons remain NotRun. [Evidence](../../../../validation/SUIT_MOBILITY.md).
+
 **Physical medical rescue continuation, 19 October 2026:** the current source
 adds a chamber and explicit discharge area, paid timed stabilization controls
 and own-patient emergency egress. The native catalogue contains **166 cases**,

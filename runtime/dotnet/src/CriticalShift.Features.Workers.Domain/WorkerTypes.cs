@@ -32,6 +32,8 @@ namespace CriticalShift.Features.Workers.Domain
         public Consciousness Consciousness { get; }
         public Posture Posture { get; }
         public SuitCondition Suit { get; }
+        // Worn gear retains its bulk when compromised. Fixture tuning, independent of protection.
+        public int SuitWalkSpeedPermille => Suit == SuitCondition.None ? 1000 : 800;
         public int Contamination { get; }
         public long LastImpactSequence { get; }
         public Guid LastHazardId { get; }

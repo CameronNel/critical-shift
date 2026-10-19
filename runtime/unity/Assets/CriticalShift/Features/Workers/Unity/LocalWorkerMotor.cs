@@ -33,6 +33,7 @@ namespace CriticalShift.Features.Workers.Unity
             }
         }
         public float CarrySpeedScale { get; private set; } = 1;
+        public float SuitWalkSpeedScale { get; private set; } = 1;
         public Vector3 MeasuredVelocity { get; private set; }
 
         public void Initialize(Transform eyePivot, Func<WorkerView> worker, Func<bool> authority, Action<Exception> onFailure,
@@ -115,6 +116,7 @@ namespace CriticalShift.Features.Workers.Unity
             if (float.IsNaN(load) || float.IsInfinity(load) || load < 0)
                 throw new InvalidOperationException("Carried physical mass must be finite and nonnegative.");
             CarrySpeedScale = Mathf.Clamp(1 / (1 + load / 20), 0.35f, 1);
+            SuitWalkSpeedScale = worker.SuitWalkSpeedPermille / 1000f;
             Vector3 motion = transform.right * movement.x + transform.forward * movement.y;
             Vector3? stand = gripStand == null ? null : gripStand();
             gripping = stand.HasValue;
@@ -127,7 +129,7 @@ namespace CriticalShift.Features.Workers.Unity
             }
             else
             {
-                motion *= WalkSpeed * CarrySpeedScale;
+                motion *= WalkSpeed * CarrySpeedScale * SuitWalkSpeedScale;
                 if (jumpBuffer > 0 && groundGrace > 0)
                 { verticalSpeed = 4.8f * Mathf.Sqrt(CarrySpeedScale); jumpBuffer = 0; groundGrace = 0; }
                 horizontalVelocity = grounded ? motion : Vector3.MoveTowards(horizontalVelocity, motion, 4 * dt);
