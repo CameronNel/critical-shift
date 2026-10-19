@@ -74,6 +74,15 @@ def mat(name, rgb, rough=0.6, metal=0.0, emit=0.0, emit_rgb=None):
     if emit: b.inputs['Emission Color'].default_value = (emit_rgb or rgb) + (1,); b.inputs['Emission Strength'].default_value = emit
     return m
 
+def give_col(coll, colours):
+    """The front end's `emissive` and `paint` take their colour from a per-corner `Col` attribute that its own meshes carry; a mesh made here
+    without one renders that colour black (the bulkhead lenses and lane lines did until 2026-10-19). Write `Col` on every mesh using them."""
+    for o in coll.all_objects:
+        if o.type != 'MESH': continue
+        rgb = next((c for m, c in colours.items() if any(s.material == m for s in o.material_slots)), None)
+        if rgb is None or 'Col' in o.data.attributes: continue
+        o.data.attributes.new('Col', 'FLOAT_COLOR', 'CORNER').data.foreach_set('color', (list(rgb) + [1.0]) * len(o.data.loops))
+
 def slab(coll, name, poly, z, material):
     """A paved slab: the polygon extruded from z[0] to z[1], box-mapped UVs (reactor_links._uv)."""
     import reactor_links
@@ -222,6 +231,7 @@ def build(root, L):
     box(coll, 'EVAC sign board yard', (-47.35, -44.65), (-59.97, -59.93), (2.55, 2.95), board)            # on the service door's header (z 2.4..2.55)
     text(coll, 'EVAC sign yard', 'YARD  >  EVACUATION GATE', (-46.0, -59.9, 2.75), (math.pi / 2, 0, math.pi), 0.19, sign_mat)
     blast_door(coll, L, M); cooling_exit(coll, L, M)
+    give_col(coll, {M['lamp']: (1.0, 0.86, 0.66), paint: (0.95, 0.75, 0.05)})
     print('EVAC built: %d paved areas, %d arrows, %d poles, %d exit signs, %d bulkheads, blast door, cooling exit door' % (n_slab, n_arrow, len(poles(RY)), len(SIGNS), len(BULK)))
     return {'COOLING_W_EXIT': r'^EVAC cooling exit leaf'}
 
