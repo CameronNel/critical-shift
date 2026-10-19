@@ -36,3 +36,19 @@ reachable counter-overflow claims. Native catalogue remains179/NotRun.
 Full exact-candidate verification and the isolated pre-fix regression result
 are appended after execution. Draft awaits independent maintainer review/merge;
 no native, performance, multiplayer or acceptance gate is advanced.
+
+Final candidate `ca9b59d955958d8027582d1c83ce9995ba832cb6` passed the full
+verifier13:50:07–13:50:47UTC: **1216 executed/passed, zero failed/skipped;
+28 scenarios each twice**. All285 recorded source inputs match that git tree
+and nine DLL hashes match ignored `out/fault-settlement-verification-20261019`.
+All13 logical negative controls and existing NUnit/scenario/overwrite controls
+were rejected. Frozen seed20261065 passed10,000 mixed cases/15,606,127 selected
+operations and model checks in39.9844144s. Tooling182 and static source checks
+passed; no Unity-side source or native test inventory changed.
+
+An isolated export of pre-fix `7fa3ad90` executed the same eight new injected
+regressions: **8 failed, zero passed/skipped**. Only the new typed-production
+property assertion was omitted because that property did not exist before the
+fix; all behavioral expectations remained. The corrected source passes all8.
+Independent ultra transaction and retention reviews found no remaining concrete
+blocker. Current native execution remains NotRun; draft review/merge pending.
