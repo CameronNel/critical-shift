@@ -22,6 +22,11 @@ namespace CriticalShift.Presentation
                 return "Safe drying: " + Seconds(recipe.DurationMilliseconds) + " · " + Material(recipe.Input) + " · up to " +
                     recipe.MaximumUnits + " units · startup " + recipe.ReserveCost + " reserve · target moisture " + Moisture(recipe.OutputMoisture) +
                     ". Quantity, contamination and suspect history stay with the material. No inspection bypass.";
+            if (recipe.IsWashing)
+                return "Safe washing: " + Seconds(recipe.DurationMilliseconds) + " · " + Material(recipe.Input) + " · up to " +
+                    recipe.MaximumUnits + " units · startup " + recipe.ReserveCost + " reserve · target contamination " + recipe.TargetContamination +
+                    "/1000. Output stays wet; " + (recipe.Input == MaterialKind.Ore ? "dry it before safe crushing." : "check the next equipment's moisture limit.") +
+                    " Quantity and suspect history remain. No inspection bypass.";
             return Material(recipe.Input) + " → " + Material(recipe.Output) + " · up to " + recipe.MaximumUnits + " units\n" +
                 "Normal " + Seconds(recipe.DurationMilliseconds) + " · bypass " + Seconds(recipe.BypassDurationMilliseconds) +
                 " · startup " + recipe.ReserveCost + " reserve · safe moisture at most " + Moisture(recipe.MoistureTolerance) +
@@ -41,6 +46,7 @@ namespace CriticalShift.Presentation
                     if (!state.ContainerId.HasValue) return "E insert a compatible held container · F " + (state.Powered ? "isolates" : "restores") + " power";
                     if (!state.Powered) return "F restore power · E eject input";
                     return state.IsDrying ? "R start safe drying · E eject input · F isolate power" :
+                        state.Recipe.IsWashing ? "R start safe washing · E eject input · F isolate power" :
                         "R start normal cycle · B bypass inspection · E eject input · F isolate power";
             }
         }
@@ -79,7 +85,7 @@ namespace CriticalShift.Presentation
                 case ProductionStatus.PowerMustBeOff: return "Isolate power before repairing or cancelling.";
                 case ProductionStatus.HistoryCapacityReached: return "This trial's processing history is full. Restart the fixture.";
                 case ProductionStatus.CustodyRejected: return "Container unavailable for transfer. Check your grip and its socket.";
-                case ProductionStatus.AlreadyConditioned: return "Material is already dry enough for this dryer.";
+                case ProductionStatus.AlreadyConditioned: return machine?.Recipe.IsWashing == true ? "Material is already clean enough for this washer." : "Material is already dry enough for this dryer.";
                 case ProductionStatus.BypassUnavailable: return "This machine requires its safe cycle.";
                 case ProductionStatus.RepairInProgress: return "Wait for jam clearing to finish; keep power isolated.";
                 case ProductionStatus.InsufficientReserve: return "Need " + (machine?.Recipe.ReserveCost ?? 0) + " reserve for this cycle. Use reactor generation or backup power.";

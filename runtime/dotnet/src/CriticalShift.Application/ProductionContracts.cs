@@ -19,25 +19,37 @@ namespace CriticalShift.Application
     /// <summary>Authored game recipe. Values are offline fixtures, not real industrial process parameters.</summary>
     public sealed class MachineRecipe
     {
+        private enum Conditioning { None, Drying, Washing }
+        private readonly Conditioning conditioning;
         public MachineRecipe(Guid id, MaterialKind input, MaterialKind output, long durationMilliseconds,
             long bypassDurationMilliseconds, long wetJamAfterMilliseconds, int maximumUnits,
             int yieldPermille = 1000, int moistureTolerance = 500, int outputMoisture = 0, long repairDurationMilliseconds = 0, long reserveCost = 0)
             : this(id, input, output, durationMilliseconds, bypassDurationMilliseconds, wetJamAfterMilliseconds,
-                maximumUnits, yieldPermille, moistureTolerance, outputMoisture, false, repairDurationMilliseconds, reserveCost) { }
+                maximumUnits, yieldPermille, moistureTolerance, outputMoisture, Conditioning.None, null, repairDurationMilliseconds, reserveCost) { }
 
         /// <summary>A safe same-kind conditioning cycle; it cannot bypass inspection or change material quantity.</summary>
         public static MachineRecipe Drying(Guid id, MaterialKind kind, long durationMilliseconds,
             int maximumUnits, int targetMoisture = 100, long repairDurationMilliseconds = 0, long reserveCost = 0) =>
             new MachineRecipe(id, kind, kind, durationMilliseconds, durationMilliseconds, 1,
-                maximumUnits, 1000, 1000, targetMoisture, true, repairDurationMilliseconds, reserveCost);
+                maximumUnits, 1000, 1000, targetMoisture, Conditioning.Drying, null, repairDurationMilliseconds, reserveCost);
+
+        /// <summary>Same-kind washing lowers current contamination, leaves wet output, and retains historical flags/lineage.</summary>
+        public static MachineRecipe Washing(Guid id, MaterialKind kind, long durationMilliseconds,
+            int maximumUnits, int targetContamination = 100, long reserveCost = 0) =>
+            new MachineRecipe(id, kind, kind, durationMilliseconds, durationMilliseconds, 1,
+                maximumUnits, 1000, 1000, 1000, Conditioning.Washing, targetContamination, 0, reserveCost);
 
         private MachineRecipe(Guid id, MaterialKind input, MaterialKind output, long durationMilliseconds,
             long bypassDurationMilliseconds, long wetJamAfterMilliseconds, int maximumUnits,
-            int yieldPermille, int moistureTolerance, int outputMoisture, bool drying, long repairDurationMilliseconds, long reserveCost)
+            int yieldPermille, int moistureTolerance, int outputMoisture, Conditioning conditioning, int? targetContamination,
+            long repairDurationMilliseconds, long reserveCost)
         {
             if (id == Guid.Empty) throw new ArgumentException("Recipe identity required.");
             if (!Enum.IsDefined(typeof(MaterialKind), input) || !Enum.IsDefined(typeof(MaterialKind), output) ||
-                (drying ? input != output || yieldPermille != 1000 || moistureTolerance != 1000 || outputMoisture >= 1000 : input == output) ||
+                (conditioning != Conditioning.None ? input != output || yieldPermille != 1000 || moistureTolerance != 1000 : input == output) ||
+                (conditioning == Conditioning.Drying && outputMoisture >= 1000) ||
+                (conditioning == Conditioning.Washing && (outputMoisture != 1000 || !targetContamination.HasValue || targetContamination < 0 || targetContamination >= 1000)) ||
+                (conditioning != Conditioning.Washing && targetContamination.HasValue) ||
                 durationMilliseconds < 2 || bypassDurationMilliseconds < 2 || bypassDurationMilliseconds > durationMilliseconds ||
                 wetJamAfterMilliseconds < 1 || wetJamAfterMilliseconds >= bypassDurationMilliseconds ||
                 maximumUnits < 1 || maximumUnits > 1000000 || yieldPermille < 1 || yieldPermille > 1000 ||
@@ -47,7 +59,7 @@ namespace CriticalShift.Application
             Id = id; Input = input; Output = output; DurationMilliseconds = durationMilliseconds;
             BypassDurationMilliseconds = bypassDurationMilliseconds; WetJamAfterMilliseconds = wetJamAfterMilliseconds;
             MaximumUnits = maximumUnits; YieldPermille = yieldPermille; MoistureTolerance = moistureTolerance; OutputMoisture = outputMoisture;
-            IsDrying = drying;
+            this.conditioning = conditioning; TargetContamination = targetContamination;
             RepairDurationMilliseconds = repairDurationMilliseconds;
             ReserveCost = reserveCost;
         }
@@ -61,7 +73,10 @@ namespace CriticalShift.Application
         public int YieldPermille { get; }
         public int MoistureTolerance { get; }
         public int OutputMoisture { get; }
-        public bool IsDrying { get; }
+        public bool IsDrying => conditioning == Conditioning.Drying;
+        public bool IsWashing => conditioning == Conditioning.Washing;
+        public bool SupportsInspectionBypass => conditioning == Conditioning.None;
+        public int? TargetContamination { get; }
         public long RepairDurationMilliseconds { get; }
         public long ReserveCost { get; }
     }
@@ -136,6 +151,7 @@ namespace CriticalShift.Application
         public long DurationMilliseconds { get; }
         public long WorkMilliseconds { get; }
         public int? DryingTargetMoisture => Recipe.IsDrying ? Recipe.OutputMoisture : (int?)null;
+        public int? WashingTargetContamination => Recipe.TargetContamination;
         public bool IsDrying => Recipe.IsDrying;
         public bool BypassedInspection { get; }
         public long RepairDurationMilliseconds { get; }

@@ -46,7 +46,7 @@ namespace CriticalShift.Features.Materials.Domain
 
         /// <summary>Prepare without mutation. Reserve capacity before machine startup, not at completion.</summary>
         public ConversionPlan Prepare(Guid container, long expectedRevision, Guid cycle, Guid machine, Guid recipe,
-            Guid outputId, BatchKind outputKind, int yieldPermille, int outputMoisture, bool bypass)
+            Guid outputId, BatchKind outputKind, int yieldPermille, int outputMoisture, bool bypass, int? targetContamination = null)
         {
             var input = Get(container) ?? throw new InvalidOperationException("Unknown material.");
             if (input.Revision != expectedRevision || _reservedContainers.Contains(container))
@@ -56,9 +56,12 @@ namespace CriticalShift.Features.Materials.Domain
                 _pending.ContainsKey(cycle) || _receipts.ContainsKey(cycle) || _batchIds.Contains(outputId))
                 throw new ArgumentException("A new conversion identity is required.");
             if (yieldPermille < 1 || yieldPermille > 1000) throw new ArgumentOutOfRangeException(nameof(yieldPermille));
+            if (targetContamination.HasValue && (targetContamination < 0 || targetContamination >= input.Contamination ||
+                targetContamination >= 1000 || outputKind != input.Kind || yieldPermille != 1000 || outputMoisture != 1000 || bypass))
+                throw new ArgumentException("Washing must lower contamination through a safe same-kind wet cycle without quantity loss.", nameof(targetContamination));
             int quantity = checked((int)((long)input.Units * yieldPermille / 1000));
             var output = new BatchSnapshot(container, outputId, input.OriginId, input.CauseId,
-                outputKind, quantity, outputMoisture, input.Contamination, input.BatchId,
+                outputKind, quantity, outputMoisture, targetContamination ?? input.Contamination, input.BatchId,
                 checked(input.Revision + 1), input.Flags | (bypass ? BatchFlags.BypassedInspection : BatchFlags.None));
             return new ConversionPlan(cycle, machine, recipe, input, output, bypass);
         }

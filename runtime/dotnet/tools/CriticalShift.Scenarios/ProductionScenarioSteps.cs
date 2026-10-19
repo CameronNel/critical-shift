@@ -21,7 +21,18 @@ namespace CriticalShift.Scenarios
         }
         private static MachineRecipe Recipe(JsonElement m)
         {
-            if (Flag(m, "drying", false))
+            bool washing = Flag(m, "washing", false), drying = Flag(m, "drying", false);
+            if (washing && drying) throw new ArgumentException("A conditioning recipe cannot both wash and dry material.");
+            if (!washing && m.TryGetProperty("targetContamination", out _))
+                throw new ArgumentException("Only explicit washing may change current material contamination.");
+            if (washing)
+            {
+                foreach (string field in new[] { "output", "bypassDuration", "jamAfter", "yield", "tolerance", "outputMoisture", "repairDuration" })
+                    if (m.TryGetProperty(field, out _)) throw new ArgumentException("Washing definitions use fixed same-kind/quantity/wet/safe rules; omit " + field + ".");
+                return MachineRecipe.Washing(Id(checked((int)Number(m, "recipe"))), Choice<MaterialKind>(m, "input"),
+                    Number(m, "duration"), checked((int)Number(m, "capacity")), checked((int)Number(m, "targetContamination", 100)), Number(m, "reserveCost", 0));
+            }
+            if (drying)
             {
                 foreach (string field in new[] { "output", "bypassDuration", "jamAfter", "yield", "tolerance" })
                     if (m.TryGetProperty(field, out _)) throw new ArgumentException("Drying definitions use fixed same-kind/quantity/safe rules; omit " + field + ".");
