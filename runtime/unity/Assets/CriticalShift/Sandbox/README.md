@@ -1,5 +1,14 @@
 # Isolated local-host gameplay fixture
 
+**Ore washing continuation:** spare crate6 now contains800/1000 contamination.
+The washer at(-3.5,0,9) spends1reserve over10s to lower it to100/1000, with wet
+output1000/1000. Dry it before safe crushing, then use the existing fuel chain.
+Material units, original cause and inherited inspection flags remain intact;
+washing does not erase bypass history. The crate panel shows current moisture,
+contamination and flags. The original clean quota route retains its stock.
+Native catalogue171; current washer placement/loading remains NotRun.
+[Scope and evidence](../../../../validation/ORE_WASHING.md).
+
 **Suit mobility continuation:** current source derives a walking factor from
 Workers-owned gear: no suit100%, worn intact/compromised80%. It composes with
 carried mass for voluntary planar walking/air targets; cart stance correction,
@@ -57,8 +66,8 @@ required player solution or a physical playtest. See
 
 Once native execution is authorized, the editor menu **Critical Shift > Sandbox >
 Create isolated gameplay scene** generates a new scratch scene containing only a
-composition root. On play it builds debug geometry: eight crates, three production
-machines (crusher, processor and safe ore dryer), a reactor, a medical chamber, a cart, a conveyor, a local collision controller and a downed
+composition root. On play it builds debug geometry: eight crates, four production
+machines (crusher, processor, safe ore dryer and washer), a reactor, a medical chamber, a cart, a conveyor, a local collision controller and a downed
 test worker. The second worker is controlled locally for this fixture.
 
 - WASD: walk; right mouse drag: look; Tab: show/hide controls.

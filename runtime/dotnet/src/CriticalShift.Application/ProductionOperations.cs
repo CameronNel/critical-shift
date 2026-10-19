@@ -137,11 +137,13 @@ namespace CriticalShift.Application
             var recipe = _recipes[machine.Id];
             if ((int)input.Kind != (int)recipe.Input) return Reply(ProductionStatus.WrongInput, machine);
             if (input.Units > recipe.MaximumUnits) return Reply(ProductionStatus.OverCapacity, machine);
+            if (!recipe.SupportsInspectionBypass && request.Bypass) return Reply(ProductionStatus.BypassUnavailable, machine);
             if (recipe.IsDrying)
             {
-                if (request.Bypass) return Reply(ProductionStatus.BypassUnavailable, machine);
                 if (input.Moisture <= recipe.OutputMoisture) return Reply(ProductionStatus.AlreadyConditioned, machine);
             }
+            if (recipe.IsWashing && input.Contamination <= recipe.TargetContamination!.Value)
+                return Reply(ProductionStatus.AlreadyConditioned, machine);
             bool wet = input.Moisture > recipe.MoistureTolerance;
             if (wet && !request.Bypass) return Reply(ProductionStatus.WetInput, machine);
             if ((long)input.Units * recipe.YieldPermille / 1000 == 0) return Reply(ProductionStatus.OutputTooSmall, machine);
@@ -150,7 +152,7 @@ namespace CriticalShift.Application
             var next = machine.Begin(cycle, request.Bypass ? recipe.BypassDurationMilliseconds : recipe.DurationMilliseconds,
                 wet ? recipe.WetJamAfterMilliseconds : 0, _world.View.ElapsedMilliseconds);
             var plan = _materials.Prepare(input.ContainerId, input.Revision, cycle, machine.Id, recipe.Id, Guid.NewGuid(),
-                (BatchKind)(int)recipe.Output, recipe.YieldPermille, recipe.OutputMoisture, request.Bypass);
+                (BatchKind)(int)recipe.Output, recipe.YieldPermille, recipe.OutputMoisture, request.Bypass, recipe.TargetContamination);
             long spent = checked(_reserveSpent + recipe.ReserveCost);
             ReactorOperations.ReserveDebit? debit = null;
             if (recipe.ReserveCost > 0 && !_world.Reactor.TryPrepareReserveDebit(recipe.ReserveCost, out debit))

@@ -246,7 +246,8 @@ namespace CriticalShift.Presentation
             GUILayout.EndHorizontal();
             Guid id = containers[selectedContainer];
             var batch = commands.GetBatch(id); var custody = commands.GetObject(id);
-            GUILayout.Label(batch == null ? "Unavailable" : batch.Kind + " · " + batch.Units + " units · moisture " + batch.Moisture);
+            GUILayout.Label(batch == null ? "Unavailable" : batch.Kind + " · " + batch.Units + " units · moisture " + batch.Moisture +
+                "/1000 · contamination " + batch.Contamination + "/1000 · history " + batch.Flags, wrapped);
             GUILayout.Label(custody?.HolderId == actor ? "You are holding this crate" : custody?.SlotId != null ? "Loaded into equipment" : "In the world");
             GUILayout.BeginHorizontal();
             bool mayRelease = GUI.enabled;
@@ -349,9 +350,9 @@ namespace CriticalShift.Presentation
             if (GUILayout.Button("Insert selected")) MachineRequested?.Invoke(id, ProductionAction.Insert, containers[selectedContainer], false, false);
             if (GUILayout.Button("Eject")) MachineRequested?.Invoke(id, ProductionAction.Eject, Guid.Empty, false, false);
             GUILayout.EndHorizontal();
-            if (!state.IsDrying) bypass = GUILayout.Toggle(bypass, "Bypass inspection");
+            if (state.Recipe.SupportsInspectionBypass) bypass = GUILayout.Toggle(bypass, "Bypass inspection");
             GUILayout.BeginHorizontal();
-            if (GUILayout.Button("Start cycle")) MachineRequested?.Invoke(id, ProductionAction.Start, Guid.Empty, bypass && !state.IsDrying, false);
+            if (GUILayout.Button("Start cycle")) MachineRequested?.Invoke(id, ProductionAction.Start, Guid.Empty, bypass && state.Recipe.SupportsInspectionBypass, false);
             if (GUILayout.Button(state.Powered ? "Power off" : "Power on")) MachineRequested?.Invoke(id, ProductionAction.SetPower, Guid.Empty, false, !state.Powered);
             GUILayout.EndHorizontal();
             GUILayout.BeginHorizontal();

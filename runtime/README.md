@@ -3,7 +3,9 @@
 **19 October continuation:** source now includes a physical medical rescue
 adapter and controls, following the logical shift, power, production and worker
 systems in the draft stack. See [medical rescue](validation/PHYSICAL_MEDICAL_RESCUE.md)
-for current checks and native limitations. Current native catalogue:170 source
+for current checks and native limitations. The draft continuation also includes
+[suit walking costs](validation/SUIT_MOBILITY.md) and
+[contaminated-ore washing](validation/ORE_WASHING.md). Current native catalogue:171 source
 cases; this continuation has no new Unity/Player result. The earlier results
 below retain their original revision and scope.
 

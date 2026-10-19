@@ -404,6 +404,37 @@ namespace CriticalShift.Sandbox.Tests
             yield return Step();
         }
 
+        [UnityTest] public IEnumerator OreWasherUsesItsPhysicalSocketAndRetainsWetOutputForTheDryer()
+        {
+            var crate = root.transform.Find("Local Gameplay Fixture/Material container 6").GetComponent<Rigidbody>();
+            var original = host.World.Production.GetBatch(Id(105));
+            void PlaceNear(float x)
+            {
+                controller.enabled = false; controller.transform.position = root.transform.position + new Vector3(x, 0.1f, 6);
+                controller.enabled = true; walker.ResetAfterRecovery();
+                crate.position = root.transform.position + new Vector3(x, 1, 7); crate.transform.position = crate.position;
+                crate.linearVelocity = Vector3.zero; crate.angularVelocity = Vector3.zero; Physics.SyncTransforms();
+            }
+            PlaceNear(-3.5f); host.Grab(Id(105)); Assert.That(host.World.GetObject(Id(105)).HolderId, Is.EqualTo(Id(1)), host.LastAction);
+            host.OperateMachine(Id(403), ProductionAction.Insert, Id(105), false, false);
+            Assert.That(host.World.GetObject(Id(105)).SlotId, Is.EqualTo(Id(403)), host.LastAction);
+            host.OperateMachine(Id(403), ProductionAction.Start, Guid.Empty, true, false);
+            Assert.That(host.World.Production.GetMachine(Id(403)).Mode, Is.EqualTo(ProductionMode.Idle), host.LastAction);
+            Assert.That(host.LastAction, Does.Contain("safe cycle"));
+            host.OperateMachine(Id(403), ProductionAction.Start, Guid.Empty, false, false); clock += 10.1; host.Pump();
+            var washed = host.World.Production.GetBatch(Id(105));
+            Assert.That(washed.Contamination, Is.EqualTo(100)); Assert.That(washed.Moisture, Is.EqualTo(1000)); Assert.That(washed.Units, Is.EqualTo(12));
+            Assert.That(washed.ParentBatchId, Is.EqualTo(original.BatchId)); Assert.That(washed.CauseId, Is.EqualTo(original.CauseId));
+            host.OperateMachine(Id(403), ProductionAction.Eject, Guid.Empty, false, false);
+            Assert.That(host.World.GetObject(Id(105)).SlotId, Is.Null, host.LastAction);
+            PlaceNear(-8.5f); host.Grab(Id(105)); host.OperateMachine(Id(402), ProductionAction.Insert, Id(105), false, false);
+            Assert.That(host.World.GetObject(Id(105)).SlotId, Is.EqualTo(Id(402)), host.LastAction);
+            host.OperateMachine(Id(402), ProductionAction.Start, Guid.Empty, false, false); clock += 8.1; host.Pump();
+            var dried = host.World.Production.GetBatch(Id(105)); Assert.That(dried.Moisture, Is.EqualTo(100)); Assert.That(dried.Contamination, Is.EqualTo(100));
+            Assert.That(dried.ParentBatchId, Is.EqualTo(washed.BatchId)); Assert.That(host.World.Production.Summary.ReserveSpent, Is.EqualTo(2));
+            Assert.That(host.BoundBodyCount, Is.EqualTo(11)); yield return Step();
+        }
+
         [UnityTest] public IEnumerator KnockdownDropsTheClaimBeforeRagdollTakesMotion()
         {
             host.Grab(Id(103)); Assert.That(host.World.GetObject(Id(103)).HolderId, Is.EqualTo(Id(1)));

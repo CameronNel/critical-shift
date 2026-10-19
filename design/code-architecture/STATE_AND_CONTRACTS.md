@@ -101,6 +101,15 @@ credits leftover poll time as production. Repair facts retain the original
 cycle/input/cause. Whole-cycle cancellation conserves input and retires repair
 work. See [the bounded clearing contract](../../runtime/validation/TIMED_JAM_CLEARING.md).
 
+Explicit same-kind washing is a separate conditioning recipe. It preserves all
+quantity, inherited flags, origin/cause and lineage while lowering current batch
+contamination to an authored target and leaving wet output. Already-clean input
+and unavailable bypass reject before history reservation or shared-reserve debit.
+The optional Materials preparation target defaults to preserving contamination
+for ordinary/drying/reactor conversions; explicit washing additionally validates
+strict reduction, same kind, full yield and wet/no-bypass output. See
+[washing source evidence](../../runtime/validation/ORE_WASHING.md).
+
 Optional production-start reserve costs use the same sole PowerAccount as
 reactor/medical operations. The Application prepares material/process state,
 checked category subtotal and the existing reserve debit before callback-free

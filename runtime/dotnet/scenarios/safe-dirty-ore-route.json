@@ -1,0 +1,426 @@
+{
+  "name": "safe-dirty-ore-route",
+  "seed": 42,
+  "duration": 16000,
+  "traceCapacity": 128,
+  "pause": true,
+  "reactor": {
+    "id": 900,
+    "millisecondsPerFuelUnit": 1000
+  },
+  "production": {
+    "machines": [
+      {
+        "id": 703,
+        "recipe": 803,
+        "washing": true,
+        "input": "Ore",
+        "duration": 1000,
+        "capacity": 100,
+        "targetContamination": 100,
+        "reserveCost": 1
+      },
+      {
+        "id": 700,
+        "recipe": 800,
+        "drying": true,
+        "input": "Ore",
+        "duration": 1000,
+        "capacity": 100,
+        "outputMoisture": 100,
+        "reserveCost": 1
+      },
+      {
+        "id": 701,
+        "recipe": 801,
+        "input": "Ore",
+        "output": "CrushedOre",
+        "duration": 1000,
+        "bypassDuration": 500,
+        "jamAfter": 200,
+        "capacity": 100,
+        "yield": 950,
+        "reserveCost": 1
+      },
+      {
+        "id": 702,
+        "recipe": 802,
+        "input": "CrushedOre",
+        "output": "Fuel",
+        "duration": 1000,
+        "bypassDuration": 500,
+        "jamAfter": 200,
+        "capacity": 100,
+        "reserveCost": 2
+      }
+    ],
+    "batches": [
+      {
+        "container": 600,
+        "id": 610,
+        "origin": 620,
+        "cause": 630,
+        "kind": "Ore",
+        "units": 12,
+        "moisture": 100,
+        "contamination": 800
+      }
+    ]
+  },
+  "steps": [
+    {
+      "op": "grab",
+      "seq": 1,
+      "entity": 600,
+      "revision": 0,
+      "expect": "Applied"
+    },
+    {
+      "op": "production",
+      "seq": 2,
+      "machine": 703,
+      "action": "Insert",
+      "machineRevision": 0,
+      "container": 600,
+      "objectRevision": 1,
+      "batchRevision": 0,
+      "lease": 1,
+      "expect": "Applied"
+    },
+    {
+      "op": "production",
+      "seq": 3,
+      "machine": 703,
+      "action": "Start",
+      "machineRevision": 1,
+      "batchRevision": 0,
+      "bypass": true,
+      "assert": {
+        "batchContamination": 800,
+        "batchMoisture": 100,
+        "pendingCycles": 0,
+        "productionReserveSpent": 0
+      },
+      "expect": "BypassUnavailable"
+    },
+    {
+      "op": "production",
+      "seq": 4,
+      "machine": 703,
+      "action": "Start",
+      "machineRevision": 1,
+      "batchRevision": 0,
+      "expect": "Applied"
+    },
+    {
+      "op": "advance",
+      "time": 1000,
+      "expect": "Running",
+      "assert": {
+        "machine": 703,
+        "machineMode": "OutputReady",
+        "batchKind": "Ore",
+        "batchUnits": 12,
+        "batchContamination": 100,
+        "batchMoisture": 1000,
+        "batchCause": 630,
+        "batchFlags": "None",
+        "wasteUnits": 0,
+        "completedCycles": 1,
+        "productionReserveSpent": 1,
+        "spentPower": 1,
+        "reserve": 9
+      }
+    },
+    {
+      "op": "production",
+      "seq": 5,
+      "machine": 703,
+      "action": "Eject",
+      "machineRevision": 3,
+      "objectRevision": 2,
+      "expect": "Applied"
+    },
+    {
+      "op": "grab",
+      "seq": 6,
+      "entity": 600,
+      "revision": 3,
+      "expect": "Applied"
+    },
+    {
+      "op": "production",
+      "seq": 7,
+      "machine": 701,
+      "action": "Insert",
+      "machineRevision": 0,
+      "container": 600,
+      "objectRevision": 4,
+      "batchRevision": 1,
+      "lease": 2,
+      "expect": "Applied"
+    },
+    {
+      "op": "production",
+      "seq": 8,
+      "machine": 701,
+      "action": "Start",
+      "machineRevision": 1,
+      "batchRevision": 1,
+      "assert": {
+        "batchContamination": 100,
+        "batchMoisture": 1000,
+        "pendingCycles": 0,
+        "productionReserveSpent": 1
+      },
+      "expect": "WetInput"
+    },
+    {
+      "op": "production",
+      "seq": 9,
+      "machine": 701,
+      "action": "Eject",
+      "machineRevision": 1,
+      "objectRevision": 5,
+      "expect": "Applied"
+    },
+    {
+      "op": "grab",
+      "seq": 10,
+      "entity": 600,
+      "revision": 6,
+      "expect": "Applied"
+    },
+    {
+      "op": "production",
+      "seq": 11,
+      "machine": 700,
+      "action": "Insert",
+      "machineRevision": 0,
+      "container": 600,
+      "objectRevision": 7,
+      "batchRevision": 1,
+      "lease": 3,
+      "expect": "Applied"
+    },
+    {
+      "op": "production",
+      "seq": 12,
+      "machine": 700,
+      "action": "Start",
+      "machineRevision": 1,
+      "batchRevision": 1,
+      "expect": "Applied"
+    },
+    {
+      "op": "advance",
+      "time": 2000,
+      "expect": "Running",
+      "assert": {
+        "machine": 700,
+        "machineMode": "OutputReady",
+        "batchKind": "Ore",
+        "batchUnits": 12,
+        "batchMoisture": 100,
+        "batchContamination": 100,
+        "batchFlags": "None",
+        "completedCycles": 2,
+        "productionReserveSpent": 2
+      }
+    },
+    {
+      "op": "production",
+      "seq": 13,
+      "machine": 700,
+      "action": "Eject",
+      "machineRevision": 3,
+      "objectRevision": 8,
+      "expect": "Applied"
+    },
+    {
+      "op": "grab",
+      "seq": 14,
+      "entity": 600,
+      "revision": 9,
+      "expect": "Applied"
+    },
+    {
+      "op": "production",
+      "seq": 15,
+      "machine": 701,
+      "action": "Insert",
+      "machineRevision": 2,
+      "container": 600,
+      "objectRevision": 10,
+      "batchRevision": 2,
+      "lease": 4,
+      "expect": "Applied"
+    },
+    {
+      "op": "production",
+      "seq": 16,
+      "machine": 701,
+      "action": "Start",
+      "machineRevision": 3,
+      "batchRevision": 2,
+      "expect": "Applied"
+    },
+    {
+      "op": "advance",
+      "time": 3000,
+      "expect": "Running",
+      "assert": {
+        "machine": 701,
+        "machineMode": "OutputReady",
+        "batchKind": "CrushedOre",
+        "batchUnits": 11,
+        "batchMoisture": 0,
+        "batchContamination": 100,
+        "batchFlags": "None",
+        "wasteUnits": 1,
+        "completedCycles": 3,
+        "productionReserveSpent": 3
+      }
+    },
+    {
+      "op": "production",
+      "seq": 17,
+      "machine": 701,
+      "action": "Eject",
+      "machineRevision": 5,
+      "objectRevision": 11,
+      "expect": "Applied"
+    },
+    {
+      "op": "grab",
+      "seq": 18,
+      "entity": 600,
+      "revision": 12,
+      "expect": "Applied"
+    },
+    {
+      "op": "production",
+      "seq": 19,
+      "machine": 702,
+      "action": "Insert",
+      "machineRevision": 0,
+      "container": 600,
+      "objectRevision": 13,
+      "batchRevision": 3,
+      "lease": 5,
+      "expect": "Applied"
+    },
+    {
+      "op": "production",
+      "seq": 20,
+      "machine": 702,
+      "action": "Start",
+      "machineRevision": 1,
+      "batchRevision": 3,
+      "expect": "Applied"
+    },
+    {
+      "op": "advance",
+      "time": 4000,
+      "expect": "Running",
+      "assert": {
+        "machine": 702,
+        "machineMode": "OutputReady",
+        "batchKind": "Fuel",
+        "batchUnits": 11,
+        "batchContamination": 100,
+        "batchCause": 630,
+        "batchFlags": "None",
+        "completedCycles": 4,
+        "productionReserveSpent": 5
+      }
+    },
+    {
+      "op": "production",
+      "seq": 21,
+      "machine": 702,
+      "action": "Eject",
+      "machineRevision": 3,
+      "objectRevision": 14,
+      "expect": "Applied"
+    },
+    {
+      "op": "grab",
+      "seq": 22,
+      "entity": 600,
+      "revision": 15,
+      "expect": "Applied"
+    },
+    {
+      "op": "reactor",
+      "seq": 23,
+      "action": "Insert",
+      "reactorRevision": 4,
+      "container": 600,
+      "objectRevision": 16,
+      "batchRevision": 4,
+      "lease": 6,
+      "expect": "Applied"
+    },
+    {
+      "op": "reactor",
+      "seq": 24,
+      "action": "SetCooling",
+      "reactorRevision": 5,
+      "cooling": true,
+      "expect": "Applied"
+    },
+    {
+      "op": "reactor",
+      "seq": 25,
+      "action": "Start",
+      "reactorRevision": 6,
+      "assert": {
+        "reactorSuspect": false,
+        "reserve": 2,
+        "spentPower": 8,
+        "productionReserveSpent": 5
+      },
+      "expect": "Applied"
+    },
+    {
+      "op": "advance",
+      "time": 15000,
+      "expect": "Running",
+      "assert": {
+        "reactorMode": "Exhausted",
+        "batchKind": "SpentFuel",
+        "batchUnits": 11,
+        "batchContamination": 100,
+        "batchCause": 630,
+        "batchFlags": "None",
+        "issuedUnits": 12,
+        "activeUnits": 11,
+        "wasteUnits": 1,
+        "completedCycles": 5,
+        "pendingCycles": 0,
+        "generatedPower": 550,
+        "deliveredPower": 440,
+        "spentPower": 8,
+        "reserve": 100,
+        "spilledPower": 12
+      }
+    },
+    {
+      "op": "advance",
+      "time": 16000,
+      "expect": "Ended",
+      "assert": {
+        "reactorPresent": false,
+        "completedCycles": 5,
+        "pendingCycles": 0,
+        "issuedUnits": 12,
+        "activeUnits": 11,
+        "wasteUnits": 1,
+        "deliveredPower": 440,
+        "reserve": 100,
+        "productionReserveSpent": 5
+      }
+    }
+  ]
+}

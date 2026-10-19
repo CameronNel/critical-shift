@@ -12,6 +12,7 @@ namespace CriticalShift.Sandbox
         internal static Guid CrusherId => Id(400);
         internal static Guid ProcessorId => Id(401);
         internal static Guid DryerId => Id(402);
+        internal static Guid WasherId => Id(403);
         internal static Guid SuitStationId => Id(710);
         internal static Guid ExposureSourceId => Id(720);
         internal static Guid WashSourceId => Id(721);
@@ -34,12 +35,13 @@ namespace CriticalShift.Sandbox
             for (int i = 0; i < ContainerCount; i++)
                 world.Production.RegisterBatch(ContainerId(i), Id(200 + i), Id(300), Id(310 + i),
                     i == 6 ? MaterialKind.Fuel : MaterialKind.Ore, i == 0 ? 36 : 12,
-                    moisture: i == 7 ? 850 : 100);
+                    moisture: i == 7 ? 850 : 100, contamination: i == 5 ? 800 : 0);
             world.Production.RegisterMachine(CrusherId, new MachineRecipe(Id(450), MaterialKind.Ore, MaterialKind.CrushedOre,
                 6000, 3000, 1500, 128, yieldPermille: 950, repairDurationMilliseconds: 6000, reserveCost: 1));
             world.Production.RegisterMachine(ProcessorId, new MachineRecipe(Id(451), MaterialKind.CrushedOre, MaterialKind.Fuel,
                 9000, 4500, 1500, 128, repairDurationMilliseconds: 8000, reserveCost: 2));
             world.Production.RegisterMachine(DryerId, MachineRecipe.Drying(Id(452), MaterialKind.Ore, 8000, 128, 100, reserveCost: 1));
+            world.Production.RegisterMachine(WasherId, MachineRecipe.Washing(Id(453), MaterialKind.Ore, 10000, 128, 100, reserveCost: 1));
             world.Reactor.Register(ReactorId, new ReactorDefinition(Id(501), millisecondsPerFuelUnit: 5000,
                 powerQuantumMilliseconds: 500, warningMilliseconds: 6000, tripMilliseconds: 12000,
                 resetMilliseconds: 1000, emergencyReliefMilliseconds: 5000));
