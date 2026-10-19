@@ -77,7 +77,7 @@ When the owner says "add the sky" (or "put the night sky in"), they mean the nig
 2. Pull only the sky textures: `git lfs pull --include "runtime/unity/Assets/CriticalShift/Content/Sky/Textures/*"`.
 3. Add the sky to the scene. Unity runs one editor per project, so pick by whether it is open:
    - **Unity is open** with the map scene, `Content/Rooms/map/CriticalShift_Map.unity` (built by *Critical Shift > Rooms > Import Baked Map*): the owner, or an agent with control of the screen, clicks **Critical Shift > Environment > Set Up Night Sky**, then saves the scene.
-   - **Unity is closed:** run `Unity -batchmode -projectPath runtime/unity -executeMethod CriticalShift.Content.Editor.NightSkySetup.SetUpBatch [-scene <path>]` (no `-quit`; it exits itself). The scene defaults to the map scene. Exit codes: 0 done, 1 set-up failed (textures or shader), 3 scene not found.
+   - **Unity is closed:** run `Unity -batchmode -projectPath runtime/unity -executeMethod CriticalShift.Content.Editor.NightSkySetup.SetUpBatch [-scene <path>]` (no `-quit`; it exits itself). The scene defaults to the map scene; a `-scene` path is relative to the Unity project (`Assets/...`) or absolute. Exit codes: 0 done, 1 set-up failed (textures or shader), 3 scene not found.
 4. Either way the set-up creates `Content/Sky/NightSky.mat` and a "Night Sky" object with the moonlight, and sets the skybox. Re-importing the map keeps it.
 5. Report the first-run checks:
    - Does the shader compile in the Console? It had never been compiled in Unity before this run.

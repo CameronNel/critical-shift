@@ -60,10 +60,17 @@ namespace CriticalShift.Content.Editor
             string[] args = Environment.GetCommandLineArgs();
             int k = Array.IndexOf(args, "-scene");
             string path = k >= 0 && k + 1 < args.Length ? args[k + 1] : BakedRoomImporter.MapFolder + "/CriticalShift_Map.unity";
-            if (!System.IO.File.Exists(path)) { Debug.LogError("Night sky: scene not found: " + path + " (import the baked map first)."); EditorApplication.Exit(3); return; }
+            if (System.IO.Path.IsPathRooted(path)) path = FileUtil.GetProjectRelativePath(path.Replace('\\', '/'));
+            if (!System.IO.File.Exists(path))
+            {
+                Debug.LogError("Night sky: scene not found: '" + path + "'. Give it relative to the Unity project (Assets/...) or as an absolute path; " +
+                               "the default is the map scene that Critical Shift > Rooms > Import Baked Map builds.");
+                EditorApplication.Exit(3);
+                return;
+            }
             var scene = EditorSceneManager.OpenScene(path, OpenSceneMode.Single);
             bool ok = Apply(out string message);
-            if (ok) EditorSceneManager.SaveScene(scene);
+            if (ok && !EditorSceneManager.SaveScene(scene)) { ok = false; message = "Night sky set up, but saving " + path + " failed (read-only or locked?)."; }
             if (ok) Debug.Log(message); else Debug.LogError(message);
             EditorApplication.Exit(ok ? 0 : 1);
         }
@@ -105,9 +112,12 @@ namespace CriticalShift.Content.Editor
 
             var existing = UnityEngine.Object.FindObjectsByType(component, FindObjectsInactive.Include);
             var sky = existing.Length > 0 ? (Component)existing[0] : null;
-            if (sky == null)
+            bool created = sky == null;
+            if (created)
             {
+                // Built inactive so NightSky.OnEnable first runs with both references set (it sets the skybox and Sun Source and aims the light).
                 var go = new GameObject("Night Sky");
+                go.SetActive(false);
                 Undo.RegisterCreatedObjectUndo(go, "Set Up Night Sky");
                 var light = go.AddComponent<Light>();
                 light.type = LightType.Directional;
@@ -122,6 +132,8 @@ namespace CriticalShift.Content.Editor
             serialized.FindProperty("skyMaterial").objectReferenceValue = material;
             serialized.ApplyModifiedProperties();
             RenderSettings.skybox = material;
+            if (serialized.FindProperty("moonLight").objectReferenceValue is Light moon) RenderSettings.sun = moon;
+            if (created) sky.gameObject.SetActive(true);
             EditorSceneManager.MarkSceneDirty(sky.gameObject.scene);
             Selection.activeGameObject = sky.gameObject;
             message = "Night sky set up in " + sky.gameObject.scene.name + ": " + MaterialPath + " and the Night Sky object (moonlight). Save the scene to keep it.";

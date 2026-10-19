@@ -76,6 +76,7 @@ None of this has been profiled.
 - **Not run:** Unity's shader compiler, the import (cubemap conversion, compression), the set-up menu, any frame in Unity and any profiling.
   - The shader is hand-written HLSL against URP 17.4's `Core.hlsl`, and has never been compiled.
   - Expect to tune the brightness settings once tonemapping and exposure are chosen.
+- **Brightest stars:** about 8,300 pixels are already capped at 1.0 in NASA's own star map, which shows brighter stars as bigger discs. Those stars all peak at the same brightness, and the build script loses nothing more. An HDR star field would need another source, such as a star catalogue drawn as points.
 - **Unverified:** whether Unity's latitude-longitude conversion shows the star map unmirrored. Photographic panoramas show correctly, and NASA's map is drawn the same way, as seen from inside, but this has not been checked.
 
 ## Sources and credits
