@@ -86,7 +86,7 @@ def main(out):
         'waste (receiving)': (ln('primary_waste_via_reactor'), on_road('evac_waste_dispatch_to_road', RY + 3.86), 'dispatch shutter, east road, hall east door'),
         'condenser (bay, by D01)': (round(ln('evac_condenser_to_turbine_D02') + 34.4 + road, 1) if ln('evac_condenser_to_turbine_D02') and road else None,
                                     round(ln('evac_condenser_to_escape_ladder') + ln('evac_escape_house_to_road') + road, 1) if ln('evac_condenser_to_escape_ladder') and ln('evac_escape_house_to_road') and road else None,
-                                    'first: stair, turbine D02, north strip, road; second: west escape door, tunnel, 6.0 m ladder (not in the distance), north strip, road'),
+                                    'first: stair, turbine D02, north strip, road; second: west escape door, tunnel, 6.3 m ladder (not in the distance), north strip, road'),
         'cooling (P01)': (ln('primary_cooling_via_reactor'), ln('evac_cooling_west_to_yard'), 'rear emergency door, west path, yard service door'),
         'dock (P1)': (ln('primary_dock_via_spine'), None, 'none: P1 is the dock\'s only door; P2 is its sealed arrival (contract)'),
         'fuel corridor (F02E)': (None, ln('evac_fuel_corridor_via_refinery_to_hall'), 'F01, refinery, colonnade, hall west door (the concourse route is the primary)'),

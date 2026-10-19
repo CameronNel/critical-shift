@@ -35,7 +35,9 @@ F02E = (FUEL[0] + 16.74, FUEL[1] + 6.98)         # corridor reactor door F02E: e
 RY = -18.7               # reactor centre, plan y: the concourse (reactor y - 19.6 .. - 14.8) holds F02E, and the reactor's south wall (y RY - 11.6) clears the corridor's north wall (plan -30.77) by 0.47 m
 REACTOR = (0.0, RY, 0.0)
 TURB = (0.0, RY + 14.5, 0.0)  # turbine end wall face (module y 0) on the reactor north stub end (reactor-local y 14.5)
-COND = (TURB[0] + 1.6, TURB[1] + 7.4, -6.0)       # condenser bay under the turbine (its CONNECTIONS.md: turbine = local + (1.6, 7.4, -6.0))
+COND = (TURB[0] + 1.6, TURB[1] + 7.4, -6.3)       # condenser bay under the turbine (its CONNECTIONS.md: turbine = local + (1.6, 7.4, -6.0)); 0.3 m lower since
+                                                   # 2026-10-19 (A3): its own roof (module z 6.0..6.3) now sits under the turbine floor (-0.3..0) instead of being
+                                                   # squeezed 0.3 m into the room, which left the gallery 1.76 m of headroom (A2's review)
 ELEC_DOOR_Y = 12.5       # turbine-local y of the new east door (2.4 m, y 11.3..13.7): rebuild wall bay between the columns at y 10 and 14 (flanges 9.85..10.15, 13.85..14.15), north of the
                          # wall cabinet (ends y 11.2); the bay's only wall item, the DB-04 board (y 12.1..12.7), goes with the cut. Ray-scanned floor plan: aisle x 7.05..8.05 clear from D01
 ELEC_HW = 1.2
@@ -81,7 +83,7 @@ NEW += [
     ('electrical-room', 'electrical-room/overhaul/checkpoints/full-R11.blend', 'MODULE_electrical-room', ELEC, -90.0,
      'ASSEMBLY: on the turbine east flank. D01 exterior face (module y -0.25) on the turbine shell outer face (module x 10.25) at turbine-local y %.1f; rotation -90 turns D01 to face west. '
      'D02 closed (emergency exit to the east road).' % ELEC_DOOR_Y),
-    ('condenser-bay', 'condenser-bay/module_aaa_A1.blend', 'MODULE_condenser-bay', COND, 0.0,
+    ('condenser-bay', 'condenser-bay/module_aaa_A3.blend', 'MODULE_condenser-bay', COND, 0.0,
      'Under the turbine, origin at turbine (1.6, 7.4, -6.0) (its CONNECTIONS.md). D01 stub blanking removed locally; reached by the new condenser stair.'),
     ('waste-storage', 'waste-storage/module_aaa_A1.blend', 'MODULE_waste-storage', WASTE, -90.0,
      'ASSEMBLY: on the reactor east wall. WS_RECEIVING exterior face (module y -0.32) on the reactor east outer face (reactor-local x 11.6) at reactor-local y %.2f; rotation -90 turns receiving west. '
@@ -456,13 +458,15 @@ def patch_condenser(wrap, lib_coll, omit):
         print('CONDENSER pump B power riser moved to the north wall:', k, 'curve points')
     for o in [o for o in lib_coll.all_objects if o.name == 'CEP-B motor feed end cap' and o.name not in omit]: local_copy(wrap, omit, o, Matrix.Translation((0.0, dy, 0.0)), ' moved')
     print('CONDENSER west escape door cut:', split_openings(wrap, omit, list(dict.fromkeys(lib_coll.all_objects)), 1, (-2.15, -1.7), [(a0, a1, 2.3)]), 'objects split')
-    # its roof (`Ceiling slab`, module z 6.0..6.3 = map z 0.0..0.3) stood 0.3 m proud of the turbine floor (top z 0) across the turbine's east aisle and the electrical's west end:
-    # it read as raw ground on the floor (owner, 2026-10-13). Squeezed to map z -0.305..-0.015, under the turbine floor (-0.3..0), so the bay's ceiling is still its own concrete
+    # its roof (`Ceiling slab`, module z 6.0..6.3) shares the turbine floor's volume (map z -0.3..0) now that the bay sits at -6.3: kept as the bay's own concrete
+    # ceiling but squeezed to map z -0.305..-0.015, so its faces do not coincide with the turbine floor's (z-fighting from either room). Before 2026-10-19 the bay sat
+    # at -6.0 and this squeeze pulled the roof 0.3 m into the room (gallery headroom 1.76 m); the target is now absolute.
     for o in [o for o in lib_coll.all_objects if o.name == 'Ceiling slab' and o.name not in omit]:
         z0 = bbox(o)[0].z
-        M = Matrix.Translation((0, 0, z0 - 0.305)) @ Matrix.Diagonal((1.0, 1.0, 0.29 / 0.30, 1.0)) @ Matrix.Translation((0, 0, -z0))
-        local_copy(wrap, omit, o, M, ' under turbine floor'); print('CONDENSER ceiling slab lowered under the turbine floor')
-    # the two gallery inspection lights hang at map z -0.28 and -0.34, inside or on the turbine floor's underside: dropped 0.12 m
+        zt = -0.305 - COND[2]                                    # local_copy works in the module's frame (slab bottom z0 = 6.0): map -0.305 is module 5.995
+        M = Matrix.Translation((0, 0, zt)) @ Matrix.Diagonal((1.0, 1.0, 0.29 / 0.30, 1.0)) @ Matrix.Translation((0, 0, -z0))
+        local_copy(wrap, omit, o, M, ' under turbine floor'); print('CONDENSER ceiling slab fitted under the turbine floor: module bottom %.3f -> %.3f (map %.3f)' % (z0, zt, zt + COND[2]))
+    # the two gallery inspection lights: dropped 0.12 m, which centres each source in its A2/A3 lens (A2's gallery_luminaires() is built around this patch)
     for o in [o for o in lib_coll.all_objects if o.type == 'LIGHT' and o.name.startswith('gallery inspection light') and o.name not in omit]:
         local_copy(wrap, omit, o, Matrix.Translation((0, 0, -0.12)), ' lowered')
 
@@ -650,10 +654,11 @@ BM.PATCHES['refinery'] = patch_refinery_cart
 BM.TURBINE_CUTS.clear(); BM.MEDICAL_CUTS.clear()
 
 # ------------------------------------------------------------------------------------------------------------------------------------------------
-# Condenser stair: turbine west door (reactor-local x -4.25, y 26.7..28.25) -> top landing -> 34 risers down to z -6 -> corridor east under the turbine end -> condenser D01 stub.
+# Condenser stair: turbine west door (reactor-local x -4.25, y 26.7..28.25) -> top landing -> 34 risers down to the bay floor (COND z, -6.3: 185 mm risers) -> corridor
+# east under the turbine end -> condenser D01 stub.
 # The y values are reactor-local plus RY (the stair moved with the reactor).
 # ------------------------------------------------------------------------------------------------------------------------------------------------
-ST = dict(xw=-6.65, xe=-4.55, t=0.3, ytop=TURB[1] + STAIR_DOOR_Y - STAIR_HW - 0.2, ybot=RY + 16.9, yn=RY + 29.25, risers=34, drop=6.0, roof=2.9,
+ST = dict(xw=-6.65, xe=-4.55, t=0.3, ytop=TURB[1] + STAIR_DOOR_Y - STAIR_HW - 0.2, ybot=RY + 16.9, yn=RY + 29.25, risers=34, drop=-COND[2], roof=2.9,
           cy0=RY + 14.5, cy1=RY + 16.9, cx1=COND[0] + 1.24, cx0b=COND[0] - 1.24, vy=COND[1] - 2.56, ch=2.7)
 # Condenser bay second exit (owner, 2026-10-13: "build the condenser ladder"): a 1.0 m emergency door in the bay's west wall at its north-west corner (turbine-local y 15.8..16.8;
 # the bay's floor is clear along its north wall and up its west side), a 4 m tunnel at bay level under the turbine's west aisle, and a 6 m ladder shaft outside the turbine on the
@@ -1030,6 +1035,7 @@ def post_build():
     root = bpy.context.scene.collection.children['COMBINED_MAP']
     if os.environ.get('MINE_LOD', '1') != '0': slim_mine()       # MINE_LOD=0 builds the mine at full detail (before/after comparisons)
     bpy.context.scene['reactor_y'] = RY                      # read by walk_test.py, measure_lighting.py and the plan tools
+    bpy.context.scene['condenser_z'] = COND[2]               # the condenser bay's floor level, read by walk_test.py
     for name, strength in EMISSION_OVERRIDES.items():
         m = bpy.data.materials.get(name)
         if m and m.node_tree:

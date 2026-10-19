@@ -5,7 +5,7 @@
 Why: rooms are authored on their own, each with full-thickness floors and roofs. Stacking them (the condenser bay under the turbine) or laying the front end's ground slab
 under them can put one room's roof above another's floor. The first case was found by eye (2026-10-13): the condenser's roof slab stood 0.3 m proud of the turbine floor and
 read as raw ground; the plan cuts (0.4 m and up) and the walk test (0.35 m step) both passed it.
-Method: a 0.5 m grid over the map at two levels (ground z 0 and the condenser level z -6). From 2.0 m above each level a ray goes down; the first upward-facing horizontal surface
+Method: a 0.5 m grid over the map at two levels (ground z 0 and the condenser level, `condenser_z`: -6.3 since 2026-10-19). From 2.0 m above each level a ray goes down; the first upward-facing horizontal surface
 hit is the walked surface. It is flagged when it lies 0.02 to 0.5 m above the level and the next upward-facing horizontal surface below it (within 0.6 m) belongs to a
 different room or connector (owners compared at room level: props on their own room's floor are not flagged; the front end's context ground, the underlay of the whole map, is
 not counted as a floor). Every evaluated mesh counts (COLLIDERS, haze and volumes excluded)."""
@@ -14,7 +14,7 @@ from collections import defaultdict
 from mathutils import Vector
 from mathutils.bvhtree import BVHTree
 HERE = os.path.dirname(os.path.abspath(__file__))
-LEVELS = (0.0, -6.0); STEP, RISE_MIN, RISE_MAX, BELOW = 0.5, 0.02, 0.5, 0.6
+LEVELS = (0.0, float(bpy.context.scene.get('condenser_z', -6.0))); STEP, RISE_MIN, RISE_MAX, BELOW = 0.5, 0.02, 0.5, 0.6
 
 def scene_bvh():
     """The evaluated triangles from z -7.2 to 2.1 by top-level owner (walk_test.world_tris: COLLIDERS, haze and volume boxes excluded)."""
