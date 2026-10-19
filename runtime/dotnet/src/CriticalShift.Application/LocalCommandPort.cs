@@ -77,7 +77,7 @@ namespace CriticalShift.Application
         }
 
         public InteractionReply OperateReactor(Guid reactorId, ReactorAction action,
-            Guid container = default, bool cooling = false)
+            Guid container = default, bool cooling = false, ReactorOutputRouting outputRouting = ReactorOutputRouting.Balanced)
         {
             var reactor = _world.Reactor.View;
             Guid batchContainer = action == ReactorAction.Insert ? container : reactor?.Fuel?.ContainerId ?? Guid.Empty;
@@ -87,7 +87,8 @@ namespace CriticalShift.Application
                 action == ReactorAction.Insert || action == ReactorAction.Eject ? custody?.Revision ?? 0 : 0,
                 action == ReactorAction.Insert ? _world.Production.GetBatch(batchContainer)?.Revision ?? 0 : 0,
                 action == ReactorAction.Insert ? custody?.LeaseGeneration ?? 0 : 0,
-                action == ReactorAction.SetCooling && cooling);
+                action == ReactorAction.SetCooling && cooling,
+                action == ReactorAction.SetOutputRouting ? outputRouting : ReactorOutputRouting.Balanced);
             return Send(new InteractionCommand(_world.Epoch, NextSequence(), InteractionKind.Reactor,
                 reactorId, reactor: request));
         }

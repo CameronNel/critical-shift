@@ -11,6 +11,8 @@ namespace CriticalShift.Presentation
         public event Action<Guid> GrabRequested, ReleaseRequested;
         public event Action<Guid, ProductionAction, Guid, bool, bool> MachineRequested;
         public event Action<Guid, ReactorAction, Guid, bool> ReactorRequested;
+        public event Action<Guid, ReactorOutputRouting> OutputRoutingRequested;
+        public event Action CycleFocusedOutputRoutingRequested;
         public event Action<Guid, SuitFittingAction> SuitFittingRequested;
         public event Action<Guid, MedicalAction, Guid> MedicalRequested;
         public event Action ReplayRequested, PauseRequested, ResetRequested, BeltResetRequested;
@@ -67,7 +69,7 @@ namespace CriticalShift.Presentation
         {
             if (commands == null || suitStation != Guid.Empty && SuitFittingRequested == null || GrabRequested == null || ReleaseRequested == null || MachineRequested == null ||
                 medicalStation != Guid.Empty && (MedicalRequested == null || PatientIncapacitateRequested == null) ||
-                ReactorRequested == null || ReplayRequested == null || PauseRequested == null || ResetRequested == null ||
+                ReactorRequested == null || OutputRoutingRequested == null || CycleFocusedOutputRoutingRequested == null || ReplayRequested == null || PauseRequested == null || ResetRequested == null ||
                 BeltResetRequested == null || MovementRequested == null || LookRequested == null || CartDriveRequested == null ||
                 TransferFocusedRequested == null || DropHeldRequested == null || StartFocusedRequested == null || ToggleFocusedPowerRequested == null ||
                 RecoveryRequested == null || DiagnosticKnockdownRequested == null || PatientRecoveryRequested == null || PatientKnockdownRequested == null ||
@@ -108,7 +110,7 @@ namespace CriticalShift.Presentation
                 input.Use(); return;
             }
             if (input.keyCode == KeyCode.E || input.keyCode == KeyCode.G || input.keyCode == KeyCode.R || input.keyCode == KeyCode.F ||
-                input.keyCode == KeyCode.H || input.keyCode == KeyCode.B || input.keyCode == KeyCode.X || input.keyCode == KeyCode.C || input.keyCode == KeyCode.T)
+                input.keyCode == KeyCode.H || input.keyCode == KeyCode.B || input.keyCode == KeyCode.X || input.keyCode == KeyCode.C || input.keyCode == KeyCode.T || input.keyCode == KeyCode.V)
             {
                 if (input.type == EventType.KeyUp) held.Remove(input.keyCode);
                 else if (held.Add(input.keyCode))
@@ -121,6 +123,7 @@ namespace CriticalShift.Presentation
                     else if (input.keyCode == KeyCode.X) ShutdownFocusedRequested?.Invoke();
                     else if (input.keyCode == KeyCode.C) EmergencyCoolingFocusedRequested?.Invoke();
                     else if (input.keyCode == KeyCode.T) ThrowRequested?.Invoke();
+                    else if (input.keyCode == KeyCode.V) CycleFocusedOutputRoutingRequested?.Invoke();
                     else RecoveryRequested?.Invoke();
                 }
                 input.Use(); return;
@@ -146,7 +149,7 @@ namespace CriticalShift.Presentation
             if (!visible)
             {
                 GUI.Label(new Rect(12, 12, Screen.width - 24, 40), "WASD move | Space hop/brake | right-drag look | middle-drag turn | wheel reach | T throw | Tab panel", wrapped);
-                GUI.Label(new Rect(12, 56, Screen.width - 24, 40), "E transfer | G drop | F power/cooling | R start/repair/resume/reset | B bypass | X shutdown | C emergency cooling | H recover", wrapped);
+                GUI.Label(new Rect(12, 56, Screen.width - 24, 40), "E transfer | G drop | F power/cooling | R start/repair/resume/reset | B bypass | X shutdown | C emergency cooling | V output routing | H recover", wrapped);
                 GUI.Label(new Rect(12, 100, Screen.width - 24, 70), actionStatus(), wrapped);
                 var contract = commands.Contract;
                 if (contract != null)
@@ -367,8 +370,13 @@ namespace CriticalShift.Presentation
             GUILayout.Space(8); var state = commands.Reactor;
             GUILayout.Label("REACTOR | " + (state == null ? "unavailable" : state.Mode.ToString()));
             if (state == null) return;
-            GUILayout.Label("Reserve " + state.Power.Available + " | grid delivered " + state.Power.Delivered +
-                " | instability " + state.InstabilityMilliseconds + " ms", wrapped);
+            GUILayout.Label(SandboxReactorReadout.Summary(state), wrapped);
+            GUILayout.Label(SandboxReactorReadout.Controls(state), wrapped);
+            GUILayout.BeginHorizontal();
+            if (GUILayout.Button("Balanced output")) OutputRoutingRequested?.Invoke(reactor, ReactorOutputRouting.Balanced);
+            if (GUILayout.Button("Grid priority")) OutputRoutingRequested?.Invoke(reactor, ReactorOutputRouting.GridPriority);
+            if (GUILayout.Button("Reserve priority")) OutputRoutingRequested?.Invoke(reactor, ReactorOutputRouting.ReservePriority);
+            GUILayout.EndHorizontal();
             GUILayout.BeginHorizontal();
             if (GUILayout.Button("Load selected fuel")) ReactorRequested?.Invoke(reactor, ReactorAction.Insert, containers[selectedContainer], false);
             if (GUILayout.Button("Eject fuel")) ReactorRequested?.Invoke(reactor, ReactorAction.Eject, Guid.Empty, false);
@@ -475,6 +483,7 @@ namespace CriticalShift.Presentation
         private void OnDestroy()
         {
             ClearInput(); GrabRequested = null; ReleaseRequested = null; MachineRequested = null; ReactorRequested = null; SuitFittingRequested = null;
+            OutputRoutingRequested = null; CycleFocusedOutputRoutingRequested = null;
             MedicalRequested = null;
             ReplayRequested = null; PauseRequested = null; ResetRequested = null; BeltResetRequested = null;
             TransferFocusedRequested = null; DropHeldRequested = null; StartFocusedRequested = null; ToggleFocusedPowerRequested = null;

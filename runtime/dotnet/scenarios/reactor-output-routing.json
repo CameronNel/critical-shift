@@ -1,0 +1,188 @@
+{
+  "name": "reactor-output-routing",
+  "seed": 42,
+  "duration": 2000,
+  "traceCapacity": 128,
+  "pause": true,
+  "reactor": {
+    "id": 900
+  },
+  "production": {
+    "machines": [],
+    "batches": [
+      {
+        "container": 600,
+        "id": 610,
+        "origin": 620,
+        "cause": 630,
+        "kind": "Fuel",
+        "units": 10
+      }
+    ]
+  },
+  "steps": [
+    {
+      "op": "grab",
+      "entity": 600,
+      "seq": 1,
+      "revision": 0,
+      "expect": "Applied"
+    },
+    {
+      "op": "reactor",
+      "seq": 2,
+      "action": "Insert",
+      "reactorRevision": 0,
+      "container": 600,
+      "objectRevision": 1,
+      "lease": 1,
+      "expect": "Applied"
+    },
+    {
+      "op": "reactor",
+      "seq": 3,
+      "action": "SetCooling",
+      "reactorRevision": 1,
+      "cooling": true,
+      "expect": "Applied"
+    },
+    {
+      "op": "reactor",
+      "seq": 4,
+      "action": "Start",
+      "reactorRevision": 2,
+      "expect": "Applied"
+    },
+    {
+      "op": "advance",
+      "time": 99,
+      "expect": "Running",
+      "assert": {
+        "reactorWork": 99,
+        "generatedPower": 0,
+        "reserve": 7,
+        "reactorOutputRouting": "Balanced"
+      }
+    },
+    {
+      "op": "reactor",
+      "seq": 5,
+      "action": "SetOutputRouting",
+      "reactorRevision": 4,
+      "outputRouting": "GridPriority",
+      "expect": "Applied",
+      "assert": {
+        "reactorWork": 99,
+        "generatedPower": 0,
+        "reactorOutputRouting": "GridPriority",
+        "lastReactorEvent": "OutputRoutingChanged"
+      }
+    },
+    {
+      "op": "advance",
+      "time": 100,
+      "expect": "Running",
+      "assert": {
+        "generatedPower": 5,
+        "deliveredPower": 5,
+        "reserve": 7,
+        "reactorWork": 100
+      }
+    },
+    {
+      "op": "reactor",
+      "seq": 6,
+      "action": "SetOutputRouting",
+      "reactorRevision": 6,
+      "outputRouting": "ReservePriority",
+      "expect": "Applied"
+    },
+    {
+      "op": "advance",
+      "time": 200,
+      "expect": "Running",
+      "assert": {
+        "generatedPower": 10,
+        "deliveredPower": 5,
+        "reserve": 12
+      }
+    },
+    {
+      "op": "reactor",
+      "seq": 7,
+      "action": "SetOutputRouting",
+      "reactorRevision": 8,
+      "outputRouting": "ReservePriority",
+      "expect": "NoChange",
+      "assert": {
+        "reactorRevision": 8,
+        "generatedPower": 10
+      }
+    },
+    {
+      "op": "reactor",
+      "seq": 7,
+      "action": "SetOutputRouting",
+      "reactorRevision": 8,
+      "outputRouting": "ReservePriority",
+      "expect": "NoChange",
+      "assert": {
+        "reactorRevision": 8,
+        "deliveredPower": 5
+      }
+    },
+    {
+      "op": "reactor",
+      "seq": 8,
+      "action": "SetOutputRouting",
+      "reactorRevision": 8,
+      "outputRouting": "Balanced",
+      "expect": "Applied"
+    },
+    {
+      "op": "advance",
+      "time": 1000,
+      "expect": "Running",
+      "assert": {
+        "reactorMode": "Exhausted",
+        "generatedPower": 50,
+        "deliveredPower": 37,
+        "reserve": 20,
+        "batchKind": "SpentFuel",
+        "completedCycles": 1,
+        "pendingCycles": 0,
+        "reactorOutputRouting": "Balanced"
+      }
+    },
+    {
+      "op": "advance",
+      "time": 2000,
+      "expect": "Ended",
+      "assert": {
+        "reactorPresent": false,
+        "generatedPower": 50,
+        "deliveredPower": 37,
+        "reserve": 20
+      }
+    },
+    {
+      "op": "restart",
+      "expect": "Running",
+      "assert": {
+        "reactorOutputRouting": "Balanced",
+        "reactorMode": "Empty",
+        "reserve": 10,
+        "generatedPower": 0
+      }
+    },
+    {
+      "op": "reactor",
+      "seq": 9,
+      "epoch": "previous",
+      "action": "SetOutputRouting",
+      "reactorRevision": 9,
+      "outputRouting": "GridPriority",
+      "expect": "WrongEpoch"
+    }
+  ]
+}

@@ -435,6 +435,27 @@ namespace CriticalShift.Sandbox.Tests
             Assert.That(host.BoundBodyCount, Is.EqualTo(11)); yield return Step();
         }
 
+        [UnityTest] public IEnumerator ReactorRoutingConsoleSettlesPriorOutputBeforeChangingTheValve()
+        {
+            host.SetReactorOutputRouting(Id(500), ReactorOutputRouting.GridPriority);
+            Assert.That(host.World.Reactor.View.OutputRouting, Is.EqualTo(ReactorOutputRouting.Balanced), "The remote console request must still require spatial admission.");
+            controller.enabled = false; controller.transform.position = root.transform.position + new Vector3(5.5f, 0.1f, 3);
+            controller.enabled = true; walker.ResetAfterRecovery(); rig.UpdatePresentation();
+            var fuel = root.transform.Find("Local Gameplay Fixture/Material container 7").GetComponent<Rigidbody>();
+            fuel.position = root.transform.position + new Vector3(5.5f, 1.05f, 4.1f); fuel.transform.position = fuel.position;
+            fuel.linearVelocity = Vector3.zero; fuel.angularVelocity = Vector3.zero; Physics.SyncTransforms();
+            host.Grab(Id(106)); host.OperateReactor(Id(500), ReactorAction.Insert, Id(106), false);
+            Assert.That(host.World.GetObject(Id(106)).SlotId, Is.EqualTo(Id(500)), host.LastAction);
+            host.OperateReactor(Id(500), ReactorAction.SetCooling, Guid.Empty, true); host.OperateReactor(Id(500), ReactorAction.Start, Guid.Empty, false);
+            clock += 0.5; host.SetReactorOutputRouting(Id(500), ReactorOutputRouting.GridPriority);
+            Assert.That(host.World.Reactor.PowerSummary.Delivered, Is.EqualTo(4)); Assert.That(host.LastAction, Does.Contain("Grid priority"));
+            clock += 0.5; host.SetReactorOutputRouting(Id(500), ReactorOutputRouting.ReservePriority);
+            Assert.That(host.World.Reactor.PowerSummary.Delivered, Is.EqualTo(9)); clock += 0.5; host.Pump();
+            var power = host.World.Reactor.PowerSummary;
+            Assert.That(power.Generated, Is.EqualTo(15)); Assert.That(power.Available, Is.EqualTo(13)); Assert.That(power.Delivered, Is.EqualTo(9));
+            Assert.That(power.Initial + power.Generated, Is.EqualTo(power.Available + power.Spent + power.Delivered + power.Spilled)); yield return null;
+        }
+
         private void GrabDirtyCargoAtWashArea()
         {
             controller.enabled = false; controller.transform.position = root.transform.position + new Vector3(5, 0.1f, -4.5f);

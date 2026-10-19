@@ -6,7 +6,8 @@ systems in the draft stack. See [medical rescue](validation/PHYSICAL_MEDICAL_RES
 for current checks and native limitations. The draft continuation also includes
 [suit walking costs](validation/SUIT_MOBILITY.md) and
 [contaminated-ore washing](validation/ORE_WASHING.md) and
-[dirty cargo handling exposure](validation/DIRTY_CARGO_EXPOSURE.md). Current native catalogue:174 source
+[dirty cargo handling exposure](validation/DIRTY_CARGO_EXPOSURE.md) and
+[new core-output routing](validation/REACTOR_OUTPUT_ROUTING.md). Current native catalogue:175 source
 cases; this continuation has no new Unity/Player result. The earlier results
 below retain their original revision and scope.
 

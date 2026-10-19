@@ -62,6 +62,7 @@ namespace CriticalShift.Sandbox
                 commands = new LocalCommandPort(world, connection);
                 host = root.AddComponent<LocalWorldHost>(); host.Initialize(world, commands, actor, clock, diagnosticSink);
                 host.BindMachineReadout(SandboxMachineReadout.Controls, SandboxMachineReadout.Result);
+                host.BindReactorReadout(SandboxReactorReadout.Controls, SandboxReactorReadout.Result);
                 host.BindMedicalReadout(SandboxMedicalReadout.Controls, SandboxMedicalReadout.Result);
                 safety = root.AddComponent<PhysicsSafetyMonitor>();
                 safety.Initialize(root.transform, new Bounds(new Vector3(0, 2, 3), new Vector3(34, 20, 32)),
@@ -83,6 +84,7 @@ namespace CriticalShift.Sandbox
                 hud.BindExposureCue(() => contaminationZones.Describe(actor));
                 hud.GrabRequested += host.Grab; hud.ReleaseRequested += host.Release;
                 hud.MachineRequested += host.OperateMachine; hud.ReactorRequested += host.OperateReactor;
+                hud.OutputRoutingRequested += host.SetReactorOutputRouting; hud.CycleFocusedOutputRoutingRequested += host.CycleFocusedOutputRouting;
                 hud.SuitFittingRequested += host.OperateSuitFitting;
                 hud.MedicalRequested += host.OperateMedical;
                 hud.ReplayRequested += host.ReplayLast; hud.PauseRequested += host.ToggleClockPause;

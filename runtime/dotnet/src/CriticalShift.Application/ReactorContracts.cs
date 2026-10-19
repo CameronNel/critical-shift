@@ -5,11 +5,12 @@ using CriticalShift.Features.Reactor.Domain;
 namespace CriticalShift.Application
 {
     public enum ReactorMode { Empty, Loaded, Running, Shutdown, Tripped, Exhausted }
-    public enum ReactorAction { Insert, Eject, Start, SetCooling, Shutdown, ResetTrip, EmergencyCooling, AuxiliaryPower, StartBackup, CancelBackup }
+    public enum ReactorAction { Insert, Eject, Start, SetCooling, Shutdown, ResetTrip, EmergencyCooling, AuxiliaryPower, StartBackup, CancelBackup, SetOutputRouting }
+    public enum ReactorOutputRouting { Balanced, GridPriority, ReservePriority }
     public enum ReactorStatus { Applied, NoChange, UnknownReactor, RevisionConflict, InvalidState, NoCooling,
         Unsafe, InsufficientReserve, UnknownBatch, WrongFuel, OverCapacity, HistoryCapacityReached, CustodyRejected, BackupUnavailable, NoBackupCharge, InsufficientHeadroom, InvalidTime }
     public enum ReactorEvent { Inserted, Ejected, Started, CoolingChanged, Shutdown, Reset, EmergencyCooling,
-        AuxiliaryPower, Generated, Warning, Tripped, FuelExhausted, BackupStarted, BackupCancelled, BackupCompleted }
+        AuxiliaryPower, Generated, Warning, Tripped, FuelExhausted, BackupStarted, BackupCancelled, BackupCompleted, OutputRoutingChanged }
     public enum ReactorRisk { None, CoolingLost, SuspectFuel }
 
     public sealed class ReactorDefinition
@@ -40,15 +41,23 @@ namespace CriticalShift.Application
         public long EmergencyCost { get; }
         public long AuxiliaryCost { get; }
         public int ContaminationTolerance { get; }
+        public long PowerQuantumMilliseconds => Rules.PowerQuantumMilliseconds;
+        public int ReservePerQuantum => Rules.ReservePerQuantum;
+        public int GridPerQuantum => Rules.GridPerQuantum;
+        public long WarningMilliseconds => Rules.WarningMilliseconds;
+        public long ResetMilliseconds => Rules.ResetMilliseconds;
+        public long TripMilliseconds => Rules.TripMilliseconds;
+        public long EmergencyReliefMilliseconds => Rules.EmergencyReliefMilliseconds;
     }
 
     /// <summary>Shares the existing connection sequence and receipt window. Costs are never client supplied.</summary>
     public sealed class ReactorRequest
     {
         public ReactorRequest(ReactorAction action, long revision, Guid containerId = default,
-            long objectRevision = 0, long batchRevision = 0, long leaseGeneration = 0, bool cooling = false)
+            long objectRevision = 0, long batchRevision = 0, long leaseGeneration = 0, bool cooling = false,
+            ReactorOutputRouting outputRouting = ReactorOutputRouting.Balanced)
         { Action = action; Revision = revision; ContainerId = containerId; ObjectRevision = objectRevision;
-          BatchRevision = batchRevision; LeaseGeneration = leaseGeneration; Cooling = cooling; }
+          BatchRevision = batchRevision; LeaseGeneration = leaseGeneration; Cooling = cooling; OutputRouting = outputRouting; }
         public ReactorAction Action { get; }
         public long Revision { get; }
         public Guid ContainerId { get; }
@@ -56,13 +65,15 @@ namespace CriticalShift.Application
         public long BatchRevision { get; }
         public long LeaseGeneration { get; }
         public bool Cooling { get; }
-        internal bool IsWellFormed => Enum.IsDefined(typeof(ReactorAction), Action) && Revision >= 0 &&
+        public ReactorOutputRouting OutputRouting { get; }
+        internal bool IsWellFormed => Enum.IsDefined(typeof(ReactorAction), Action) && Enum.IsDefined(typeof(ReactorOutputRouting), OutputRouting) &&
+            (Action == ReactorAction.SetOutputRouting || OutputRouting == ReactorOutputRouting.Balanced) && Revision >= 0 &&
             ObjectRevision >= 0 && BatchRevision >= 0 && LeaseGeneration >= 0 &&
             (Action == ReactorAction.Insert ? ContainerId != Guid.Empty && LeaseGeneration > 0 && !Cooling :
              ContainerId == Guid.Empty && LeaseGeneration == 0 && BatchRevision == 0 &&
              (Action == ReactorAction.Eject || ObjectRevision == 0) && (Action == ReactorAction.SetCooling || !Cooling));
         internal bool Same(ReactorRequest r) => Action == r.Action && Revision == r.Revision && ContainerId == r.ContainerId &&
-            ObjectRevision == r.ObjectRevision && BatchRevision == r.BatchRevision && LeaseGeneration == r.LeaseGeneration && Cooling == r.Cooling;
+            ObjectRevision == r.ObjectRevision && BatchRevision == r.BatchRevision && LeaseGeneration == r.LeaseGeneration && Cooling == r.Cooling && OutputRouting == r.OutputRouting;
     }
 
     public sealed class PowerView
@@ -80,14 +91,17 @@ namespace CriticalShift.Application
 
     public sealed class ReactorView
     {
-        internal ReactorView(Guid epoch, Guid id, Guid definition, long revision, ReactorMode mode, bool cooling,
-            bool suspect, long work, long remaining, long instability, Guid cycle, MaterialView? fuel, PowerView power, EmergencyPowerView? emergencyPower = null)
-        { Epoch = epoch; Id = id; DefinitionId = definition; Revision = revision; Mode = mode; Cooling = cooling;
+        internal ReactorView(Guid epoch, Guid id, ReactorDefinition definition, long revision, ReactorMode mode, bool cooling,
+            bool suspect, long work, long remaining, long instability, Guid cycle, MaterialView? fuel, PowerView power,
+            ReactorOutputRouting outputRouting, bool canStart, bool canReset, bool canEject, EmergencyPowerView? emergencyPower = null)
+        { Epoch = epoch; Id = id; DefinitionId = definition.Id; Definition = definition; Revision = revision; Mode = mode; Cooling = cooling;
           SuspectFuel = suspect; WorkMilliseconds = work; RemainingFuelMilliseconds = remaining; InstabilityMilliseconds = instability;
-          CycleId = cycle; Fuel = fuel; Power = power; EmergencyPower = emergencyPower; }
+          CycleId = cycle; Fuel = fuel; Power = power; EmergencyPower = emergencyPower; OutputRouting = outputRouting;
+          CanStart = canStart; CanResetTrip = canReset; CanEject = canEject; }
         public Guid Epoch { get; }
         public Guid Id { get; }
         public Guid DefinitionId { get; }
+        public ReactorDefinition Definition { get; }
         public long Revision { get; }
         public ReactorMode Mode { get; }
         public bool Cooling { get; }
@@ -99,6 +113,10 @@ namespace CriticalShift.Application
         public MaterialView? Fuel { get; }
         public PowerView Power { get; }
         public EmergencyPowerView? EmergencyPower { get; }
+        public ReactorOutputRouting OutputRouting { get; }
+        public bool CanStart { get; }
+        public bool CanResetTrip { get; }
+        public bool CanEject { get; }
     }
 
     public sealed class ReactorChange
