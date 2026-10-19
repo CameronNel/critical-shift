@@ -2,7 +2,8 @@
 
 This prototype uses the existing Workers-owned 0–100 contamination meter. It does
 not implement radiation dose, biological shutdown, exposure stages, material
-contamination conversion, suit fitting, physical volumes or accepted game balance.
+contamination conversion or accepted game balance. The later fitting slice is
+documented in [TIMED_SUIT_FITTING.md](TIMED_SUIT_FITTING.md).
 
 ## Authored sources and host authority
 
@@ -87,9 +88,32 @@ records use the station identity; their trigger cause/source can identify the
 contact while `MedicalChange.InjuryCauseId` retains the treated injury. Readouts
 project those events and ignore historical retries.
 
+## Trusted local feed and sampled fixture areas
+
+`WorkerContaminationFeed` composes one trusted producer per registered
+worker/source pair during Setup. The engine adapter calls ObserveIfDue only
+after observing current presence. The feed uses the last accepted sequence and
+the canonical contact's NextEligibleAtMilliseconds as a scheduling hint. It
+accepts Applied, NoChange and CoolingDown receipts, retains sequence/cooldown
+across outside gaps and pause, and samples once after a delayed frame. It never
+integrates missed contacts. Missing workers and inactive worlds emit nothing;
+unexpected stream rejection latches failure for the host to stop visibly.
+
+The temporary Unity fixture binds actual pelvis Rigidbody points to two
+unit-scale oriented boxes in deterministic source order. No availability,
+consciousness, posture or custody gate grants immunity. Pumping settles due work
+before the new current contact; an exposure sampled at suit completion uses the
+new protection. Source 720 authors raw12 exposure each1000ms, source721 washes
+25 each1000ms. Markings at (0,1.5,-4.5) and (5,1.5,-4.5), half extents
+(1.25,1.5,1.25), are non-colliding and separated. The compact readout exposes
+canonical suit/load and current sampled area even with the main panel hidden.
+
+This is sampled pelvis presence, not continuous exposure or full-body contact.
+Current candidate evidence: [fixture zones](../validation/FIXTURE_CONTAMINATION_ZONES.md).
+
 ## Evidence boundary
 
 [Task evidence](../validation/WORKER_CONTAMINATION.md) records actual tests,
-scenario/model execution and independent source review. This source prototype
-introduces no physical hazard volume or washing control. Native import, GUI,
-physics and multiplayer remain NotRun; source checks are not those results.
+scenario/model execution and independent source review for the original contact
+slice. Later feed/fixture evidence is separate. Native import, GUI, physical
+sampling and multiplayer remain NotRun; source checks are not those results.

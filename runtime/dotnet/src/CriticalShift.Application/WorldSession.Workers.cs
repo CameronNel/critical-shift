@@ -50,6 +50,7 @@ namespace CriticalShift.Application
             if (View.Phase != WorldPhase.Setup) throw new InvalidOperationException("Contamination source setup has closed.");
             long next = NextRevision(); _workers.RegisterContaminationSource(sourceId, definition); _revision = next;
         }
+        internal bool HasWorkerContaminationSource(Guid sourceId) => _workers.HasContaminationSource(sourceId);
 
         /// <summary>Trusted host contact observation, not an authenticated player's self-reported exposure or washing API.</summary>
         public WorkerReply ObserveWorkerContamination(Guid epoch, Guid actorId, Guid sourceId, long observationSequence,
