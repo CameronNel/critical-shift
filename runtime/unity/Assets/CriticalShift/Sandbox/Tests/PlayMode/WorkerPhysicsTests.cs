@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using CriticalShift.Application;
 using CriticalShift.FacilityPhysics;
 using CriticalShift.Features.Interaction.Unity;
@@ -435,10 +436,11 @@ namespace CriticalShift.Sandbox.Tests
             Assert.That(host.BoundBodyCount, Is.EqualTo(11)); yield return Step();
         }
 
-        [UnityTest] public IEnumerator SuitRemovalAndReactorRoutingKeysDispatchSeparateDebouncedIntentions()
+        [UnityTest] public IEnumerator SuitRemovalRoutingAndFuelDiscardKeysDispatchSeparateDebouncedIntentions()
         {
-            var hud = root.GetComponentInChildren<SandboxHud>(); hud.Activate(); int removal = 0, routing = 0;
+            var hud = root.GetComponentInChildren<SandboxHud>(); hud.Activate(); int removal = 0, routing = 0, discard = 0;
             hud.RemoveFocusedSuitRequested += () => removal++; hud.CycleFocusedOutputRoutingRequested += () => routing++;
+            hud.DiscardFocusedFuelRequested += () => discard++;
             var input = typeof(SandboxHud).GetMethod("HandleInput", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
             Assert.That(input, Is.Not.Null);
             void Key(KeyCode key, EventType type) => input.Invoke(hud, new object[] { new Event { keyCode = key, type = type } });
@@ -447,7 +449,32 @@ namespace CriticalShift.Sandbox.Tests
             Key(KeyCode.O, EventType.KeyUp); Key(KeyCode.O, EventType.KeyDown);
             Key(KeyCode.V, EventType.KeyDown); Key(KeyCode.V, EventType.KeyDown);
             Assert.That(removal, Is.EqualTo(2)); Assert.That(routing, Is.EqualTo(1));
-            Key(KeyCode.O, EventType.KeyUp); Key(KeyCode.V, EventType.KeyUp); yield return null;
+            Assert.That(discard, Is.Zero); Key(KeyCode.N, EventType.KeyDown); Key(KeyCode.N, EventType.KeyDown);
+            Assert.That(discard, Is.EqualTo(1)); Assert.That(removal, Is.EqualTo(2)); Assert.That(routing, Is.EqualTo(1));
+            Key(KeyCode.N, EventType.KeyUp); Key(KeyCode.N, EventType.KeyDown); Assert.That(discard, Is.EqualTo(2));
+            Key(KeyCode.O, EventType.KeyUp); Key(KeyCode.V, EventType.KeyUp); Key(KeyCode.N, EventType.KeyUp); yield return null;
+        }
+
+        [UnityTest] public IEnumerator CooledShutdownFuelDiscardReleasesSpentMaterialWithoutCreditingTheRemainder()
+        {
+            controller.enabled = false; controller.transform.position = root.transform.position + new Vector3(5.5f, 0.1f, 3);
+            controller.enabled = true; walker.ResetAfterRecovery(); rig.UpdatePresentation();
+            var fuel = root.transform.Find("Local Gameplay Fixture/Material container 7").GetComponent<Rigidbody>();
+            fuel.position = root.transform.position + new Vector3(5.5f, 1.05f, 4.1f); fuel.transform.position = fuel.position;
+            fuel.linearVelocity = Vector3.zero; fuel.angularVelocity = Vector3.zero; Physics.SyncTransforms();
+            host.Grab(Id(106)); host.OperateReactor(Id(500), ReactorAction.Insert, Id(106), false);
+            Assert.That(host.World.GetObject(Id(106)).SlotId, Is.EqualTo(Id(500)), host.LastAction);
+            host.OperateReactor(Id(500), ReactorAction.SetCooling, Guid.Empty, true); host.OperateReactor(Id(500), ReactorAction.Start, Guid.Empty, false);
+            clock += 0.5; host.OperateReactor(Id(500), ReactorAction.Shutdown, Guid.Empty, false);
+            var power = host.World.Reactor.PowerSummary; long remaining = host.World.Reactor.View.RemainingFuelMilliseconds;
+            var position = fuel.position; host.OperateReactor(Id(500), ReactorAction.DiscardFuel, Guid.Empty, false);
+            Assert.That(host.LastAction, Does.Contain("no reserve refund")); Assert.That(host.World.Reactor.View.Mode, Is.EqualTo(ReactorMode.Empty));
+            Assert.That(host.World.Production.GetBatch(Id(106)).Kind, Is.EqualTo(MaterialKind.SpentFuel)); Assert.That(host.World.GetObject(Id(106)).SlotId, Is.Null);
+            Assert.That(fuel.isKinematic, Is.False); Assert.That(Vector3.Distance(fuel.position, position), Is.LessThan(0.001f));
+            var discard = host.World.Trace.Records.Last(r => r.ReactorEvent == ReactorEvent.FuelDiscarded).ReactorChange;
+            Assert.That(discard.DiscardedFuelMilliseconds, Is.EqualTo(remaining)); Assert.That(discard.DiscardedFuel.Output.Units, Is.EqualTo(12));
+            clock += 10; host.Pump(); Assert.That(host.World.Reactor.PowerSummary.Generated, Is.EqualTo(power.Generated));
+            Assert.That(host.World.Reactor.PowerSummary.Spent, Is.EqualTo(power.Spent)); Assert.That(host.BoundBodyCount, Is.EqualTo(11)); yield return null;
         }
 
         private void StandAtSuitLocker()

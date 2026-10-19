@@ -1,5 +1,13 @@
 # Isolated local-host gameplay fixture
 
+**Safe fuel discard continuation:** shut down, keep cooling open and wait for
+the reset threshold, then press N while focusing the reactor or use its discard
+button. The entire quantity becomes spent fuel; remaining running time is lost
+without reserve refund or new output. Load fresh fuel afterward. Ordinary E
+ejection keeps its unused/exhausted behavior. Native catalogue179; new physical
+release and real N/O/V input cases remain NotRun.
+[Scope and evidence](../../../../validation/SAFE_FUEL_DISCARD.md).
+
 **Timed suit removal continuation:** look at the existing suit locker and press
 O, or choose its remove button. Authored removal takes5 shift-seconds; current
 protection and80% walking remain until exact completion, then gear becomes None

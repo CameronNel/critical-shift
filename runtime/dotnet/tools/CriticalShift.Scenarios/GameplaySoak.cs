@@ -32,7 +32,7 @@ namespace CriticalShift.Scenarios
                         case "--cases": cases = int.Parse(value); break;
                         case "--case-seed": onlySeed = int.Parse(value); break;
                         case "--control":
-                            if (value != "failure" && value != "medical-ledger" && value != "contamination-ledger" && value != "backup-ledger" && value != "fitting-ledger" && value != "feed-ledger" && value != "repair-ledger" && value != "production-ledger" && value != "washing-ledger" && value != "carried-ledger" && value != "routing-ledger" && value != "removal-ledger") throw new ArgumentException("Unknown control.");
+                            if (value != "failure" && value != "medical-ledger" && value != "contamination-ledger" && value != "backup-ledger" && value != "fitting-ledger" && value != "feed-ledger" && value != "repair-ledger" && value != "production-ledger" && value != "washing-ledger" && value != "carried-ledger" && value != "routing-ledger" && value != "removal-ledger" && value != "discard-ledger") throw new ArgumentException("Unknown control.");
                             control = value; break;
                         default: throw new ArgumentException("Unknown soak option.");
                     }
@@ -57,7 +57,7 @@ namespace CriticalShift.Scenarios
                 {
                     do
                     {
-                        actions += Exercise(currentSeed, control == "medical-ledger", control == "contamination-ledger", control == "backup-ledger", control == "fitting-ledger", control == "feed-ledger", control == "repair-ledger", control == "production-ledger", control == "washing-ledger", control == "carried-ledger", control == "routing-ledger", control == "removal-ledger"); completed++;
+                        actions += Exercise(currentSeed, control == "medical-ledger", control == "contamination-ledger", control == "backup-ledger", control == "fitting-ledger", control == "feed-ledger", control == "repair-ledger", control == "production-ledger", control == "washing-ledger", control == "carried-ledger", control == "routing-ledger", control == "removal-ledger", control == "discard-ledger"); completed++;
                         Require(control != "failure", "Intentional negative control.");
                         if (clock.Elapsed.TotalSeconds >= nextReport)
                         {
@@ -98,7 +98,7 @@ namespace CriticalShift.Scenarios
             public RecoveryClearance Evaluate(Guid epoch, Guid worker, long attempt) => Safe ? RecoveryClearance.Safe : RecoveryClearance.Blocked;
         }
 
-        private static int Exercise(int seed, bool dropMedicalStart = false, bool dropContact = false, bool dropBackup = false, bool dropFitting = false, bool dropFeed = false, bool dropRepair = false, bool dropProduction = false, bool dropWashing = false, bool dropCarried = false, bool dropRouting = false, bool dropRemoval = false)
+        private static int Exercise(int seed, bool dropMedicalStart = false, bool dropContact = false, bool dropBackup = false, bool dropFitting = false, bool dropFeed = false, bool dropRepair = false, bool dropProduction = false, bool dropWashing = false, bool dropCarried = false, bool dropRouting = false, bool dropRemoval = false, bool dropDiscard = false)
         {
             var random = new Random(seed); var policies = new Policies(); int duration = random.Next(1200, 12001);
             var configuration = new WorldSessionConfiguration(seed, duration, true, receiptCapacity: random.Next(1, 9), leaseMilliseconds: random.Next(100, 1001));
@@ -369,7 +369,7 @@ namespace CriticalShift.Scenarios
                 if (lifetime < 2) world = world.Restart(policies, policies);
             }
             return actions + ContaminationSoak.Exercise(random, dropContact) + EmergencyPowerSoak.Exercise(random, dropBackup) +
-                SuitFittingSoak.Exercise(random, dropFitting, dropRemoval) + TimedRepairSoak.Exercise(random, dropRepair, dropProduction) + WashingSoak.Exercise(random, dropWashing) + CarriedMaterialExposureSoak.Exercise(random, dropCarried) + ReactorRoutingSoak.Exercise(random, dropRouting);
+                SuitFittingSoak.Exercise(random, dropFitting, dropRemoval) + TimedRepairSoak.Exercise(random, dropRepair, dropProduction) + WashingSoak.Exercise(random, dropWashing) + CarriedMaterialExposureSoak.Exercise(random, dropCarried) + ReactorRoutingSoak.Exercise(random, dropRouting) + ReactorDiscardSoak.Exercise(random, dropDiscard);
         }
 
         private static LocalCommandPort[] Bind(WorldSession world, Random random, out MedicalDefinition medical, out WorkerContaminationFeed[,] feeds, out long repairDuration)

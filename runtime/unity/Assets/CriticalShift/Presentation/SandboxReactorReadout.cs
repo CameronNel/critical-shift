@@ -60,6 +60,10 @@ namespace CriticalShift.Presentation
                     break;
             }
             if (state.Mode == ReactorMode.Loaded) controls += " · E eject unused fuel";
+            if (state.Mode == ReactorMode.Shutdown)
+                controls += !state.Cooling ? " · F restore cooling before N discards remaining fuel" : state.CanDiscardFuel ?
+                    " · N discard remaining fuel as spent material (no refund)" :
+                    " · fuel discard waits for instability at most " + SandboxMachineReadout.Seconds(state.Definition.ResetMilliseconds);
             return controls + " · V cycle output routing (" + RoutingName(state.OutputRouting) + ")";
         }
 
@@ -77,11 +81,13 @@ namespace CriticalShift.Presentation
             switch (reply.Status)
             {
                 case ReactorStatus.Applied:
+                    if (reply.Change?.Kind == ReactorEvent.FuelDiscarded) return "Fuel discarded: forfeited " + SandboxMachineReadout.Seconds(reply.Change.DiscardedFuelMilliseconds) + " of remaining running time; spent material released, no reserve refund.";
                     if (reply.Change?.Kind == ReactorEvent.OutputRoutingChanged) return "Output routing changed. " + (state == null ? "" : Output(state));
                     return "Reactor control applied. " + next;
                 case ReactorStatus.NoChange: return "Control already in that state. " + next;
-                case ReactorStatus.NoCooling: return "Open cooling before starting the reactor.";
-                case ReactorStatus.Unsafe: return "Thermal interlock blocked this control. " + next;
+                case ReactorStatus.NoCooling: return action == ReactorAction.DiscardFuel ? "Open cooling before discarding used fuel." :
+                    action == ReactorAction.Start ? "Open cooling before starting the reactor." : "Open cooling before retrying this control.";
+                case ReactorStatus.Unsafe: return action == ReactorAction.DiscardFuel && state != null ? "Fuel discard needs shutdown, cooling and instability at most " + SandboxMachineReadout.Seconds(state.Definition.ResetMilliseconds) + ". " + next : "Thermal interlock blocked this control. " + next;
                 case ReactorStatus.InsufficientReserve:
                     long cost = state == null ? 0 : action == ReactorAction.Start ? state.Definition.StartupCost :
                         action == ReactorAction.EmergencyCooling ? state.Definition.EmergencyCost : action == ReactorAction.AuxiliaryPower ? state.Definition.AuxiliaryCost : 0;

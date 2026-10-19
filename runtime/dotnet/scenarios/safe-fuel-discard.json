@@ -1,0 +1,236 @@
+{
+  "name": "safe-fuel-discard",
+  "seed": 42,
+  "duration": 10000,
+  "traceCapacity": 128,
+  "pause": true,
+  "reactor": {
+    "id": 900
+  },
+  "production": {
+    "machines": [],
+    "batches": [
+      {
+        "container": 600,
+        "id": 610,
+        "origin": 620,
+        "cause": 630,
+        "kind": "Fuel",
+        "units": 10
+      },
+      {
+        "container": 601,
+        "id": 611,
+        "origin": 620,
+        "cause": 631,
+        "kind": "Fuel",
+        "units": 10
+      }
+    ]
+  },
+  "steps": [
+    {
+      "op": "grab",
+      "entity": 600,
+      "seq": 1,
+      "revision": 0,
+      "expect": "Applied"
+    },
+    {
+      "op": "reactor",
+      "action": "Insert",
+      "seq": 2,
+      "reactorRevision": 0,
+      "container": 600,
+      "objectRevision": 1,
+      "lease": 1,
+      "expect": "Applied"
+    },
+    {
+      "op": "reactor",
+      "action": "SetCooling",
+      "seq": 3,
+      "reactorRevision": 1,
+      "cooling": true,
+      "expect": "Applied"
+    },
+    {
+      "op": "reactor",
+      "action": "Start",
+      "seq": 4,
+      "reactorRevision": 2,
+      "expect": "Applied"
+    },
+    {
+      "op": "advance",
+      "time": 199,
+      "expect": "Running",
+      "assert": {
+        "reactorWork": 199,
+        "generatedPower": 5,
+        "deliveredPower": 4,
+        "reserve": 8
+      }
+    },
+    {
+      "op": "reactor",
+      "action": "Shutdown",
+      "seq": 5,
+      "reactorRevision": 4,
+      "expect": "Applied",
+      "assert": {
+        "reactorMode": "Shutdown",
+        "reactorCanDiscard": true,
+        "reactorRemaining": 801
+      }
+    },
+    {
+      "op": "reactor",
+      "action": "DiscardFuel",
+      "seq": 6,
+      "reactorRevision": 5,
+      "objectRevision": 1,
+      "expect": "CustodyRejected",
+      "assert": {
+        "reactorRevision": 5,
+        "batchKind": "Fuel",
+        "completedCycles": 0,
+        "pendingCycles": 1,
+        "generatedPower": 5
+      }
+    },
+    {
+      "op": "reactor",
+      "action": "DiscardFuel",
+      "seq": 7,
+      "reactorRevision": 5,
+      "objectRevision": 2,
+      "expect": "Applied",
+      "assert": {
+        "reactorMode": "Empty",
+        "reactorRevision": 6,
+        "batchKind": "SpentFuel",
+        "batchUnits": 10,
+        "activeUnits": 20,
+        "wasteUnits": 0,
+        "completedCycles": 1,
+        "pendingCycles": 0,
+        "slottedIn": 0,
+        "lastReactorEvent": "FuelDiscarded",
+        "lastDiscardedFuelMs": 801,
+        "lastReactorCause": 630,
+        "generatedPower": 5,
+        "reserve": 8
+      }
+    },
+    {
+      "op": "reactor",
+      "action": "DiscardFuel",
+      "seq": 7,
+      "reactorRevision": 5,
+      "objectRevision": 2,
+      "expect": "Applied",
+      "assert": {
+        "reactorRevision": 6,
+        "completedCycles": 1,
+        "lastReactorEvent": null
+      }
+    },
+    {
+      "op": "grab",
+      "entity": 601,
+      "seq": 8,
+      "revision": 0,
+      "expect": "Applied"
+    },
+    {
+      "op": "reactor",
+      "action": "Insert",
+      "seq": 9,
+      "reactorRevision": 6,
+      "container": 601,
+      "objectRevision": 1,
+      "lease": 1,
+      "expect": "Applied"
+    },
+    {
+      "op": "reactor",
+      "action": "Start",
+      "seq": 10,
+      "reactorRevision": 7,
+      "expect": "Applied",
+      "assert": {
+        "reserve": 5,
+        "spentPower": 6,
+        "reactorWork": 0
+      }
+    },
+    {
+      "op": "advance",
+      "time": 298,
+      "expect": "Running",
+      "assert": {
+        "reactorWork": 99,
+        "generatedPower": 5,
+        "reserve": 5
+      }
+    },
+    {
+      "op": "reactor",
+      "action": "DiscardFuel",
+      "seq": 7,
+      "reactorRevision": 5,
+      "objectRevision": 2,
+      "expect": "Applied",
+      "assert": {
+        "reactorMode": "Running",
+        "reactorWork": 99,
+        "completedCycles": 1
+      }
+    },
+    {
+      "op": "advance",
+      "time": 299,
+      "expect": "Running",
+      "assert": {
+        "reactorWork": 100,
+        "generatedPower": 10,
+        "deliveredPower": 8,
+        "reserve": 6,
+        "completedCycles": 1
+      }
+    },
+    {
+      "op": "finish",
+      "reason": "Aborted",
+      "expect": "Applied",
+      "assert": {
+        "reactorPresent": false,
+        "generatedPower": 10,
+        "reserve": 6,
+        "completedCycles": 1,
+        "workers": 0,
+        "claims": 0
+      }
+    },
+    {
+      "op": "restart",
+      "expect": "Running",
+      "assert": {
+        "reactorMode": "Empty",
+        "generatedPower": 0,
+        "reserve": 10,
+        "completedCycles": 0
+      }
+    },
+    {
+      "op": "reactor",
+      "epoch": "previous",
+      "action": "DiscardFuel",
+      "seq": 11,
+      "reactorRevision": 6,
+      "objectRevision": 2,
+      "expect": "WrongEpoch"
+    }
+  ]
+}

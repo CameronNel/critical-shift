@@ -99,7 +99,7 @@ namespace CriticalShift.Sandbox
                 hud.TransferFocusedRequested += host.TransferFocused; hud.DropHeldRequested += host.DropHeld;
                 hud.StartFocusedRequested += host.StartFocused; hud.ToggleFocusedPowerRequested += host.ToggleFocusedPower;
                 hud.BypassFocusedRequested += host.BypassFocused;
-                hud.ShutdownFocusedRequested += host.ShutdownFocused; hud.EmergencyCoolingFocusedRequested += host.EmergencyCoolingFocused;
+                hud.ShutdownFocusedRequested += host.ShutdownFocused; hud.EmergencyCoolingFocusedRequested += host.EmergencyCoolingFocused; hud.DiscardFocusedFuelRequested += host.DiscardFocusedFuel;
                 hud.WorkerHoistRequested += host.SetWorkerHoist;
                 hud.RecoveryRequested += workerState.RequestRecovery; hud.DiagnosticKnockdownRequested += workerState.DiagnosticKnockdown;
                 hud.PatientRecoveryRequested += patientState.RequestRecovery; hud.PatientKnockdownRequested += patientState.DiagnosticKnockdown;

@@ -306,6 +306,7 @@ namespace CriticalShift.Features.Interaction.Unity
         public void BypassFocused() => StartFocused(true);
         public void ShutdownFocused() => OperateFocusedReactor(ReactorAction.Shutdown);
         public void EmergencyCoolingFocused() => OperateFocusedReactor(ReactorAction.EmergencyCooling);
+        public void DiscardFocusedFuel() => OperateFocusedReactor(ReactorAction.DiscardFuel);
 
         public void RemoveFocusedSuit()
         {

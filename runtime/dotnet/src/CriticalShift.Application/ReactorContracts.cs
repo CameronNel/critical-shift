@@ -5,12 +5,12 @@ using CriticalShift.Features.Reactor.Domain;
 namespace CriticalShift.Application
 {
     public enum ReactorMode { Empty, Loaded, Running, Shutdown, Tripped, Exhausted }
-    public enum ReactorAction { Insert, Eject, Start, SetCooling, Shutdown, ResetTrip, EmergencyCooling, AuxiliaryPower, StartBackup, CancelBackup, SetOutputRouting }
+    public enum ReactorAction { Insert, Eject, Start, SetCooling, Shutdown, ResetTrip, EmergencyCooling, AuxiliaryPower, StartBackup, CancelBackup, SetOutputRouting, DiscardFuel }
     public enum ReactorOutputRouting { Balanced, GridPriority, ReservePriority }
     public enum ReactorStatus { Applied, NoChange, UnknownReactor, RevisionConflict, InvalidState, NoCooling,
         Unsafe, InsufficientReserve, UnknownBatch, WrongFuel, OverCapacity, HistoryCapacityReached, CustodyRejected, BackupUnavailable, NoBackupCharge, InsufficientHeadroom, InvalidTime }
     public enum ReactorEvent { Inserted, Ejected, Started, CoolingChanged, Shutdown, Reset, EmergencyCooling,
-        AuxiliaryPower, Generated, Warning, Tripped, FuelExhausted, BackupStarted, BackupCancelled, BackupCompleted, OutputRoutingChanged }
+        AuxiliaryPower, Generated, Warning, Tripped, FuelExhausted, BackupStarted, BackupCancelled, BackupCompleted, OutputRoutingChanged, FuelDiscarded }
     public enum ReactorRisk { None, CoolingLost, SuspectFuel }
 
     public sealed class ReactorDefinition
@@ -71,7 +71,7 @@ namespace CriticalShift.Application
             ObjectRevision >= 0 && BatchRevision >= 0 && LeaseGeneration >= 0 &&
             (Action == ReactorAction.Insert ? ContainerId != Guid.Empty && LeaseGeneration > 0 && !Cooling :
              ContainerId == Guid.Empty && LeaseGeneration == 0 && BatchRevision == 0 &&
-             (Action == ReactorAction.Eject || ObjectRevision == 0) && (Action == ReactorAction.SetCooling || !Cooling));
+             (Action == ReactorAction.Eject || Action == ReactorAction.DiscardFuel || ObjectRevision == 0) && (Action == ReactorAction.SetCooling || !Cooling));
         internal bool Same(ReactorRequest r) => Action == r.Action && Revision == r.Revision && ContainerId == r.ContainerId &&
             ObjectRevision == r.ObjectRevision && BatchRevision == r.BatchRevision && LeaseGeneration == r.LeaseGeneration && Cooling == r.Cooling && OutputRouting == r.OutputRouting;
     }
@@ -93,11 +93,11 @@ namespace CriticalShift.Application
     {
         internal ReactorView(Guid epoch, Guid id, ReactorDefinition definition, long revision, ReactorMode mode, bool cooling,
             bool suspect, long work, long remaining, long instability, Guid cycle, MaterialView? fuel, PowerView power,
-            ReactorOutputRouting outputRouting, bool canStart, bool canReset, bool canEject, EmergencyPowerView? emergencyPower = null)
+            ReactorOutputRouting outputRouting, bool canStart, bool canReset, bool canEject, bool canDiscardFuel, EmergencyPowerView? emergencyPower = null)
         { Epoch = epoch; Id = id; DefinitionId = definition.Id; Definition = definition; Revision = revision; Mode = mode; Cooling = cooling;
           SuspectFuel = suspect; WorkMilliseconds = work; RemainingFuelMilliseconds = remaining; InstabilityMilliseconds = instability;
           CycleId = cycle; Fuel = fuel; Power = power; EmergencyPower = emergencyPower; OutputRouting = outputRouting;
-          CanStart = canStart; CanResetTrip = canReset; CanEject = canEject; }
+          CanStart = canStart; CanResetTrip = canReset; CanEject = canEject; CanDiscardFuel = canDiscardFuel; }
         public Guid Epoch { get; }
         public Guid Id { get; }
         public Guid DefinitionId { get; }
@@ -117,14 +117,15 @@ namespace CriticalShift.Application
         public bool CanStart { get; }
         public bool CanResetTrip { get; }
         public bool CanEject { get; }
+        public bool CanDiscardFuel { get; }
     }
 
     public sealed class ReactorChange
     {
         internal ReactorChange(ReactorEvent kind, ReactorView state, long at, Guid cycle, Guid batch, Guid cause,
-            ReactorRisk risk, long generated = 0, long spent = 0)
+            ReactorRisk risk, long generated = 0, long spent = 0, long discardedFuelMilliseconds = 0, ConversionView? discardedFuel = null)
         { EventId = Guid.NewGuid(); Kind = kind; State = state; ShiftMilliseconds = at; CycleId = cycle;
-          InputBatchId = batch; CauseId = cause; Risk = risk; GeneratedUnits = generated; SpentUnits = spent; }
+          InputBatchId = batch; CauseId = cause; Risk = risk; GeneratedUnits = generated; SpentUnits = spent; DiscardedFuelMilliseconds = discardedFuelMilliseconds; DiscardedFuel = discardedFuel; }
         public Guid EventId { get; }
         public ReactorEvent Kind { get; }
         public ReactorView State { get; }
@@ -135,6 +136,8 @@ namespace CriticalShift.Application
         public ReactorRisk Risk { get; }
         public long GeneratedUnits { get; }
         public long SpentUnits { get; }
+        public long DiscardedFuelMilliseconds { get; }
+        public ConversionView? DiscardedFuel { get; }
     }
 
     public sealed class ReactorReply

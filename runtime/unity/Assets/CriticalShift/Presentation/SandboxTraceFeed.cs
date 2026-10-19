@@ -149,6 +149,7 @@ namespace CriticalShift.Presentation
                     case ReactorEvent.EmergencyCooling: return "Emergency cooling · spent " + reactor.SpentUnits + " reserve";
                     case ReactorEvent.CoolingChanged: return reactor.State.Cooling ? "Cooling opened" : "Cooling closed";
                     case ReactorEvent.Started: return "Reactor started";
+                    case ReactorEvent.FuelDiscarded: return "Used fuel discarded · forfeited " + SandboxMachineReadout.Seconds(reactor.DiscardedFuelMilliseconds) + " remaining · spent batch released";
                     case ReactorEvent.OutputRoutingChanged: return "Core output routing: " + SandboxReactorReadout.RoutingName(reactor.State.OutputRouting);
                     case ReactorEvent.Shutdown: return "Reactor shut down";
                     case ReactorEvent.Reset: return "Reactor trip reset · core remains shut down";

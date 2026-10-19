@@ -84,7 +84,7 @@ namespace CriticalShift.Application
             var custody = _world.GetObject(batchContainer);
             var request = new ReactorRequest(action, reactor?.Revision ?? 0,
                 action == ReactorAction.Insert ? container : Guid.Empty,
-                action == ReactorAction.Insert || action == ReactorAction.Eject ? custody?.Revision ?? 0 : 0,
+                action == ReactorAction.Insert || action == ReactorAction.Eject || action == ReactorAction.DiscardFuel ? custody?.Revision ?? 0 : 0,
                 action == ReactorAction.Insert ? _world.Production.GetBatch(batchContainer)?.Revision ?? 0 : 0,
                 action == ReactorAction.Insert ? custody?.LeaseGeneration ?? 0 : 0,
                 action == ReactorAction.SetCooling && cooling,

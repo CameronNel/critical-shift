@@ -8,7 +8,8 @@ for current checks and native limitations. The draft continuation also includes
 [contaminated-ore washing](validation/ORE_WASHING.md) and
 [dirty cargo handling exposure](validation/DIRTY_CARGO_EXPOSURE.md) and
 [new core-output routing](validation/REACTOR_OUTPUT_ROUTING.md) and
-[timed suit removal](validation/TIMED_SUIT_REMOVAL.md). Current native catalogue:178 source
+[timed suit removal](validation/TIMED_SUIT_REMOVAL.md) and
+[safe partial fuel discard](validation/SAFE_FUEL_DISCARD.md). Current native catalogue:179 source
 cases; this continuation has no new Unity/Player result. The earlier results
 below retain their original revision and scope.
 
