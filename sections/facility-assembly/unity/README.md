@@ -112,7 +112,7 @@ Total 7.5 h, of which prep 5.1 h (CPU-bound; it will be similar on the owner's P
 - **Glass:** transmission glass was a 25 % white overlay (frosted, milky); now no diffuse, 10 % alpha, URP Preserve Specular.
 - **Isolation:** setting `exclude = False` on an already-included collection restores its children's earlier state, which brought the map's DOORS collection back; only excluded collections are switched now, and collections are addressed by path and identity, never by name.
 - **The check's own precision:** zero-area faces and back faces (a reversed second face on the same vertices: the mine's double-sided gravel, 19,190 faces) merge in Blender's FBX re-import; text objects list their own geometry as an instance; Blender's FBX importer drops a trailing `.5` from a material name. All counted or matched exactly now.
-- **Source issues reported, not bake faults:** view-dependent shading bakes as seen head-on (the turbine's rim glow, the reactor's water); the evacuation bulkhead lenses read a colour attribute (`Col`) their meshes lack, so they are black in the map itself (a map fix, the owner's decision).
+- **Source issues reported, not bake faults:** view-dependent shading bakes as seen head-on (the turbine's rim glow, the reactor's water); the evacuation bulkhead lenses and lane lines read a colour attribute (`Col`) their meshes lacked, so the lenses were black and the lines dark in the map itself; fixed in the map on 2026-10-19 (`evacuation.py` `give_col`, owner's go-ahead), so the bake no longer prints that note.
 
 ## Running it on the owner's PC (Ryzen 7 5800X, 32 GB, Radeon RX 9070 XT)
 

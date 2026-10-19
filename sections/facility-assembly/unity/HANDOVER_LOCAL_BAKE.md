@@ -41,7 +41,7 @@ git log -1 --oneline                      # must be 73e30f7 or newer (the commit
 git status --porcelain                    # must print nothing
 ```
 
-- If the owner says PR #112 has been merged, use `main` instead (PR #110 already is; #112 holds the last rehearsal fixes): `git fetch origin main` and `git switch --detach origin/main`.
+- If the owner says the evacuation lens fix (the PR after #112, which holds the rebuilt `combined_map.blend`) has been merged, use `main` instead: `git fetch origin main` and `git switch --detach origin/main`. #110 and #112, the bake scripts, are already on `main`; the branch above has them too, plus the lens fix.
 - If the switch fails, or `git status --porcelain` prints anything, stop and show it. Do not stash, reset or clean.
 
 Check these files exist: `sections/facility-assembly/unity/bake_all.ps1`, `bake_room.ps1`, `bake_room.py`, `bake_check.py`, `check_device.py`, and `sections/facility-assembly/blender_device.py`.
@@ -145,12 +145,11 @@ Watch the first piece until its `base` stage has started and confirm the log sho
 5. `git status --porcelain` must print nothing (the outputs are git-ignored). **Do not commit them.**
 
 **Expected notes, not failures** (the log prints them; mention them in the report):
-- `CHECK note emissive: black throughout; it reads ['Col'] ...` in map-connections: the evacuation bulkhead lenses read a colour attribute their meshes lack, so they are black in the map itself. A map fix, the owner's decision.
 - `CHECK note M_ARCH ... planned emission baked to black` (and M_MACH, M_PROPS, M_SHAFT) in turbine-room: the view-dependent rim glow below.
 - `unwrap with scaled margins` lines in prep: materials that broke into very many small UV islands were unwrapped again; that is the intended fallback.
 
 **Known limits** (not for you to fix; tell the owner if asked):
 - The turbine's blue rim glow (view-dependent shading) cannot be baked; it needs a small custom Unity shader later.
 - Glass in the source renders casts dark shadows (Cycles does not trace light through glass by default); the baked side and Unity do not.
-- The evacuation bulkhead lenses are black (see the notes above), and the mountain over the mine is not in this bake.
+- The mountain over the mine is not in this bake (owner's decision; it is being reworked).
 - Nothing has been imported into Unity yet: that is *Critical Shift > Rooms > Import Baked Map* in the Unity project, after this run.
