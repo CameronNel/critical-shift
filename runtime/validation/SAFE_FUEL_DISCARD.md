@@ -45,3 +45,16 @@ Player, multiplayer and performance execution remain NotRun: the pinned editor
 is unavailable locally and the configured remote is Offline. Source parsing
 does not establish Unity binding or runtime correctness. Draft awaits
 independent maintainer review/merge; no acceptance gate advanced.
+
+Final candidate `91df0439ac4ec8f3f0d1b982a0de03d70649b304` passed the full
+verifier13:39:30–13:40:13UTC: **1208 executed/passed, zero failed/skipped;
+28 scenarios each twice**. The new omitted-conversion control and all existing
+negative controls were rejected. All284 recorded inputs match that git tree;
+nine DLLs match the frozen closure in ignored
+`out/safe-discard-verification-20261019`. Final frozen seed20261064 passed
+10,000 mixed cases/15,615,906 selected operations and model checks in39.254191s.
+Tooling182 and static204 GUIDs/21 asmdefs/133 C# checks passed. C#8 syntax
+parsing covered79 Unity-side files with zero errors, without binding or native
+execution. Review also caught and root fixed action-less replay cooling guidance
+that incorrectly described a discard as starting the reactor. Current native
+cases remain NotRun; draft awaits independent maintainer review/merge.
